@@ -1,0 +1,296 @@
+{
+  "status": "PASS",
+  "accepted_checkpoint": "7021e78386e9c010eb6c56d65d369e9e7e2bd9b8",
+  "renderer_sha256": "beab7054b02597f1248b20f63f7c6f8c9cc09d5d1f2e697035bfbad5dcfce121",
+  "manifest_sha256": "b28f16d0eab77ec6d9bf5bd6c2b5607ed8163ec22440bcb01a1c3a9030fa7ac6",
+  "scope": {
+    "episode": 1,
+    "physical_level": 9,
+    "ticks": [
+      1044,
+      1565
+    ],
+    "ticks_inclusive": 522,
+    "duration_ms_from_clock": 15007.511948,
+    "label": "PRIVATE SURVIVAL / no weapon71 injection; replay from0, original event/map scrolling",
+    "identity_semantics": "Unique(category,sheet,id) original rectangles intersecting x[24,288),y[0,184). Terrain/player base rectangles and per-enemy-quadrant references differ. This is not all screen pixels, PNG count, global numeric IDs, or whole-level art."
+  },
+  "counts": {
+    "references": 78368,
+    "nonempty_bound_identities": 86,
+    "intentional_empty_identities": 0,
+    "unresolved_observed_identities": 0,
+    "new_relative_to_same_private_trace_prefix": 17
+  },
+  "categories": [
+    {
+      "category": "effect",
+      "identities": 7,
+      "references": 179,
+      "nonempty_HD_bound": 7,
+      "unresolved": 0
+    },
+    {
+      "category": "enemy",
+      "identities": 26,
+      "references": 20024,
+      "nonempty_HD_bound": 26,
+      "unresolved": 0
+    },
+    {
+      "category": "player",
+      "identities": 1,
+      "references": 1044,
+      "nonempty_HD_bound": 1,
+      "unresolved": 0
+    },
+    {
+      "category": "terrain-layer1",
+      "identities": 38,
+      "references": 47184,
+      "nonempty_HD_bound": 38,
+      "unresolved": 0
+    },
+    {
+      "category": "terrain-layer2",
+      "identities": 14,
+      "references": 9937,
+      "nonempty_HD_bound": 14,
+      "unresolved": 0
+    }
+  ],
+  "new_identities": [
+    {
+      "category": "enemy",
+      "sheet": "newsh2.shp",
+      "id": 127,
+      "references": 10
+    },
+    {
+      "category": "enemy",
+      "sheet": "newsh2.shp",
+      "id": 267,
+      "references": 1310
+    },
+    {
+      "category": "enemy",
+      "sheet": "newsh2.shp",
+      "id": 269,
+      "references": 404
+    },
+    {
+      "category": "enemy",
+      "sheet": "newsh2.shp",
+      "id": 271,
+      "references": 192
+    },
+    {
+      "category": "enemy",
+      "sheet": "newshe.shp",
+      "id": 1,
+      "references": 788
+    },
+    {
+      "category": "enemy",
+      "sheet": "newshe.shp",
+      "id": 3,
+      "references": 788
+    },
+    {
+      "category": "enemy",
+      "sheet": "newshe.shp",
+      "id": 5,
+      "references": 788
+    },
+    {
+      "category": "enemy",
+      "sheet": "newshe.shp",
+      "id": 39,
+      "references": 788
+    },
+    {
+      "category": "enemy",
+      "sheet": "newshe.shp",
+      "id": 41,
+      "references": 788
+    },
+    {
+      "category": "enemy",
+      "sheet": "newshe.shp",
+      "id": 43,
+      "references": 788
+    },
+    {
+      "category": "terrain-layer1",
+      "sheet": "shapesZ.dat",
+      "id": 113,
+      "references": 429
+    },
+    {
+      "category": "terrain-layer1",
+      "sheet": "shapesZ.dat",
+      "id": 341,
+      "references": 211
+    },
+    {
+      "category": "terrain-layer1",
+      "sheet": "shapesZ.dat",
+      "id": 342,
+      "references": 211
+    },
+    {
+      "category": "terrain-layer1",
+      "sheet": "shapesZ.dat",
+      "id": 343,
+      "references": 211
+    },
+    {
+      "category": "terrain-layer1",
+      "sheet": "shapesZ.dat",
+      "id": 351,
+      "references": 211
+    },
+    {
+      "category": "terrain-layer1",
+      "sheet": "shapesZ.dat",
+      "id": 352,
+      "references": 211
+    },
+    {
+      "category": "terrain-layer1",
+      "sheet": "shapesZ.dat",
+      "id": 353,
+      "references": 211
+    }
+  ],
+  "combined_runtime": {
+    "source_renderer_exact_to_current_worktree": true,
+    "review_pack_exact_to_current_default_debug_pack": true,
+    "full_log_parity": {
+      "state.tsv": {
+        "byte_exact": true,
+        "data_rows": 1566
+      },
+      "asset-debug-materials.tsv": {
+        "byte_exact": true,
+        "data_rows": 246352
+      },
+      "collisions.tsv": {
+        "byte_exact": true,
+        "data_rows": 35
+      },
+      "player-projectiles.tsv": {
+        "byte_exact": true,
+        "data_rows": 0
+      },
+      "enemy-projectiles.tsv": {
+        "byte_exact": true,
+        "data_rows": 1632
+      },
+      "poses.tsv": {
+        "byte_exact": true,
+        "data_rows": 1566
+      },
+      "fire-events.tsv": {
+        "byte_exact": true,
+        "data_rows": 0
+      },
+      "asset-debug-clock.tsv": {
+        "byte_exact": true,
+        "data_rows": 1566
+      }
+    },
+    "frames": 522,
+    "coverage_mismatches": 0,
+    "RGB_classic_mismatches": 0,
+    "restored_mismatches": 0,
+    "rejection_rows": 0,
+    "all_reasons": {
+      "hd-ordered": 522
+    },
+    "scene_calls": 82415,
+    "scene_calls_by_role": {
+      "201": 60474,
+      "101": 15776,
+      "108": 1233,
+      "110": 4932
+    },
+    "all_scene_calls_HD": true,
+    "player_calls": 1044,
+    "all_player_calls_HD": true,
+    "player_styles": {
+      "2": 522,
+      "1": 522
+    },
+    "effect_direct_attempt_logging": "Not instrumented by draw_commands whitelist; no fictitious attempt count reported.",
+    "separate_orb112_113_attempts": {
+      "total": 1233,
+      "per_id": {
+        "112": 612,
+        "113": 621
+      },
+      "all_HD": true,
+      "excluded_from_material_identity_count": true
+    },
+    "latest_combo_video_created": false,
+    "executable_sha256": "1da43632a07f3c885448e62fa1be733d488da760933f5d1c8763041d37030f89",
+    "exit": 0,
+    "capture_count": 0
+  },
+  "separate_first30": {
+    "documented_ordinary": {
+      "ticks": [
+        0,
+        1043
+      ],
+      "references": 172635,
+      "nonempty_HD_identities": 222,
+      "empty_noop_identities": 5,
+      "total": 227
+    },
+    "same_private_trace_prefix": {
+      "ticks": [
+        0,
+        1043
+      ],
+      "references": 167984,
+      "identities": 88
+    },
+    "warning": "Different survival preset changes earlier effects/player trajectory. Do not replace ordinary first30 denominator with this prefix or add86/17 to227 as a newly verified ordinary union."
+  },
+  "limits": [
+    "This is bounded private-survival identity/resource and merged logs acceptance, not ordinary gameplay beyond1052. Ordinary first30 remains a separate milestone.",
+    "No new full1044\u20131565 video was captured. Current combined run has0 captures; visual evidence is existing bounded family previews, earlier integrated first30 and selected native2x/4x component/merged tests.",
+    "Purple127 is only10 material references at1561\u20131565, source lower parts146/147; full top parts127/128 and other three designs are closed by complete source/HDA and later bounded purple evidence, not this endpoint alone.",
+    "Stone remnant IDs7/9/11/45/47/49 lie outside this exact window. Later link30 runtime is right-edge clipped; full geometry is source/oracle evidence. No whole later-scene HD claim.",
+    "Original HUD/text, bottom strip y>=184, arbitrary uninstrumented blitters, unsupported/missing-resource fallback, and original indexed gameplay writes are excluded. Layer2 MIRROR_BLEND intentionally falls back on highest-detail cloud style; green indexed shadows remain intentional.",
+    "Effect material identities146\u2013152 have complete exact resources and finite dispatch, but no direct per-effect mirrored-attempt ledger. Do not equate reference count179 with proven per-effect success callbacks.",
+    "Enemy projectile kinematics alone do not name all possible graphics. Direct role108 proves112/113 here. Original pickup/drop banks21/26 and their mode-specific descendants remain outside the four purple resources and this no-fire interval.",
+    "Original source indices and 24x28 canvases may contain transparent holes; nonempty identity coverage does not mean every pixel is authored opaque HD.",
+    "Whole-map adjacency/source closure exceeds dynamic evidence. Finite repeated tiles/earth texture joins remain visible; no universal seamless-world claim.",
+    "Linux dot-cloud software runtime only. Windows, GPU/fullscreen, physical2K, whole-level performance, other player inputs, other modes and levels remain unverified."
+  ],
+  "accepted_batches": {
+    "craft_three": "e66aa422bad36908ca6fd812ab42805cc0ab512f",
+    "terrain_seven": "cb3eca69d2e873baef28b210ec957ecedeea819b",
+    "stone_twelve": "492b83baf5ac6c592d5c539aebdca1c94be4e941",
+    "stone_fixture_documentation": "2152db5b4befe23165105bd363d3407fb252feb3",
+    "purple_four": "7021e78386e9c010eb6c56d65d369e9e7e2bd9b8"
+  },
+  "resource_totals": {
+    "packs": 18,
+    "HDA": 2786,
+    "PNG": 285,
+    "defaults": [
+      273,
+      277
+    ]
+  },
+  "storage_snapshot": {
+    "date_UTC": "2026-10-11",
+    "image_video_raw_excluding_HDA_bytes": 6453631570,
+    "separate_HDA_bytes": 1493948372,
+    "free_disk_GiB": 15.354,
+    "raw_caveat": "All .bin/.u8 conservatively included; not all necessarily screenshots. No deletion. New captures paused pending retention review."
+  }
+}
