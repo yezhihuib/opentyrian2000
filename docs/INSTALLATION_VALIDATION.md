@@ -29,3 +29,5 @@ Use the manifest's default_debug_pack and legal external game data. Run the norm
 ```
 
 Select2x or4x Integer scaling. Repeat targets456 and764 for the other placements. Keep captures bounded; original data and test media stay outside Git. Run `python prototype/build-installation-art.py --output <new-external-directory>` for exact formal PNG reproduction and `python prototype/fixtures/test-installation-enemy.py --sanitize` for the C renderer oracle.
+
+Subsequent update: the separate terrain323/324/333/334 family is now integrated; see UNDERLAY_VALIDATION.md. The external texture-phase limitation remains, while the exposed original-resolution top strip is replaced.

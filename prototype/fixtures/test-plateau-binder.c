@@ -47,11 +47,11 @@ static void reserved_empty(void)
 {for(int i=218;i<=226;i++)CHECK(!assets[i].initialized);}
 int main(void)
 {
- CHECK(sizeof(assets)/sizeof(*assets)==235);CHECK(sizeof(terrain_sources)/sizeof(*terrain_sources)==100);
+ CHECK(sizeof(assets)/sizeof(*assets)==241);CHECK(sizeof(terrain_sources)/sizeof(*terrain_sources)==104);
  for(unsigned int id=0;id<600;id++){int expected=-1;for(int j=0;j<4;j++)if(id==ids[j])expected=227+j;CHECK(plateau_terrain_slot(id)==expected);}
  for(unsigned int id=0;id<600;id++){int expected=-1;for(int j=0;j<9;j++)if(id==ground_ids[j])expected=201+j;CHECK(ground_terrain_slot(id)==expected);}
  for(unsigned int layer=0;layer<5;layer++)for(unsigned int id=0;id<600;id++){
-  reset();render_mirror_bind_terrain(layer,id,bank+id);bool accepted=(layer==1&&(member(id,ids,4)||member(id,ground_ids,9)||member(id,old_ids,9)))||(layer==2&&cloud(id));CHECK(terrain_source_count==(unsigned int)accepted);reserved_empty();
+  reset();render_mirror_bind_terrain(layer,id,bank+id);bool accepted=(layer==1&&(member(id,ids,4)||member(id,ground_ids,9)||member(id,old_ids,9)||id==323||id==324||id==333||id==334))||(layer==2&&cloud(id));CHECK(terrain_source_count==(unsigned int)accepted);reserved_empty();
  }
  for(int b=0;b<256;b++)if(b!='z'&&b!='Z')for(unsigned int j=0;j<4;j++){reset();render_mirror_map_begin((char)b);render_mirror_bind_terrain(1,ids[j],bank+ids[j]);CHECK(!terrain_source_count);}
  /* Missing resources preserve original path and original scene-draw log. */
@@ -81,9 +81,9 @@ int main(void)
  for(int j=0;j<9;j++){reset();write_hda(ground_ids[j],-1);render_mirror_bind_terrain(1,ground_ids[j],bank+ground_ids[j]);CHECK(draw_one(ground_ids[j],MIRROR_NORMAL)==1);CHECK(assets[201+j].valid);reserved_empty();remove_hda(ground_ids[j]);}
  for(unsigned int id=41;id<=65;id++)if(cloud(id)){reset();write_hda(id,-1);int expected=id<=45?186+(int)id-41:id<=55?191+(int)id-51:196+(int)id-61;CHECK(cloud_terrain_slot(id)==expected);render_mirror_bind_terrain(2,id,bank+id);CHECK(!draw_one(id,MIRROR_BLEND));CHECK(!draws&&!traces);CHECK(draw_one(id,MIRROR_NORMAL)==1);CHECK(assets[expected].valid);reserved_empty();remove_hda(id);}
  /* Every unrecognized ID must not alias the old implicit ID332 fallback. */
- for(unsigned int id=0;id<600;id++)if(!member(id,ids,4)&&!member(id,ground_ids,9)&&!member(id,old_ids,9)&&!cloud(id)){
+ for(unsigned int id=0;id<600;id++)if(!member(id,ids,4)&&!member(id,ground_ids,9)&&!member(id,old_ids,9)&&!cloud(id)&&id!=323&&id!=324&&id!=333&&id!=334){
   reset();terrain_sources[0].data=bank+id;terrain_sources[0].id=id;terrain_source_count=1;CHECK(!draw_one(id,MIRROR_NORMAL));CHECK(!draws&&!traces&&!assets[22].initialized);reserved_empty();
  }
- reset();for(int i=0;i<600;i++)render_mirror_bind_terrain(1,96,bank+i);CHECK(terrain_source_count==100);reserved_empty();
- reset();printf("PASS: %u checks; four exact plateau IDs/layers/banks; slots227–230 and reserved218–226; six header words/magic/payload rejection; missing-all/each; existing plateau/ground/cloud unchanged; exhaustive unknown ID332 rejection; registry100.\n",checks);return 0;
+ reset();for(int i=0;i<600;i++)render_mirror_bind_terrain(1,96,bank+i);CHECK(terrain_source_count==104);reserved_empty();
+ reset();printf("PASS: %u checks; four exact plateau IDs/layers/banks; slots227–230 and reserved218–226; six header words/magic/payload rejection; missing-all/each; existing plateau/ground/cloud unchanged; exhaustive unknown ID332 rejection; registry104.\n",checks);return 0;
 }

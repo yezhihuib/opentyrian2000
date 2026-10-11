@@ -1,6 +1,6 @@
 # Current scoped release (2026-10-11)
 
-The manifest is authoritative:18 packs,2704 HDA entries,244 formal PNGs, defaults232/236. Latest additions are the [plateau edge correction](PLATEAU_FOUR_VALIDATION.md) and [static installation](INSTALLATION_VALIDATION.md). Pending road/underlay art is not included.
+The manifest is authoritative:18 packs,2712 HDA entries,248 formal PNGs, defaults236/240. Latest additions are the [plateau edge correction](PLATEAU_FOUR_VALIDATION.md) [static installation](INSTALLATION_VALIDATION.md), and [physical terrain underlay](UNDERLAY_VALIDATION.md). Pending road and111/114 art is not included.
 
 ## Historical green release update (2026-10-11)
 

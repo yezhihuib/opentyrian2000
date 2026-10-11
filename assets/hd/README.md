@@ -11,3 +11,5 @@ Run `python prototype/build-hd-assets.py` to verify every source/header/runtime 
 Defaults and the three recent rollback selectors in start-actual-preview.ps1/start-asset-debug.ps1 use these repository packs. Earlier selectors still refer to preserved local legacy packs. Game data and local SDL SDKs remain separate prerequisites.
 
 Static physical installation125–128: [validation](../../docs/INSTALLATION_VALIDATION.md), including the separate pending original-underlay strip.
+
+Physical terrain underlay323/324/333/334: [validation](../../docs/UNDERLAY_VALIDATION.md), preserving original linked-object reveal behavior.
