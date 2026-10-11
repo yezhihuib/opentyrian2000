@@ -25,6 +25,7 @@ static void game_probe_scene_draw(int role,unsigned int id,int x,int y,int part,
 {(void)x;(void)y;(void)part;(void)style;(void)mirrored;assert(role==201);traces++;last_index=id;}
 #include "production-helpers.inc"
 static const unsigned int ids[]={99,100,106,107,109,110,118,119,120};
+static const unsigned int road_ids[]={36,39,40,46,48,56,58,38,47};
 static const unsigned int old_ids[]={101,37,57,49,50,321,322,331,332};
 static const int old_slots[]={10,11,12,13,14,19,20,21,22};
 static unsigned int checks;
@@ -41,10 +42,10 @@ static unsigned int draw_one(unsigned int id,int style)
 {Uint8*map[12]={bank+id};draws=traces=0;unsigned int result=render_mirror_terrain_row(game_screen,0,0,map,style);checks++;return result;}
 int main(void)
 {
- assert(sizeof(assets)/sizeof(*assets)==241);assert(sizeof(terrain_sources)/sizeof(*terrain_sources)==104);
+ assert(sizeof(assets)/sizeof(*assets)==241);assert(sizeof(terrain_sources)/sizeof(*terrain_sources)==113);
  for(unsigned int id=0;id<600;id++) {int expected=-1;for(int j=0;j<9;j++)if(id==ids[j])expected=201+j;assert(ground_terrain_slot(id)==expected);checks++;}
  for(unsigned int layer=0;layer<5;layer++)for(unsigned int id=0;id<600;id++) {
-  reset();render_mirror_bind_terrain(layer,id,bank+id);bool accepted=(layer==1&&(underlay_terrain_slot(id)>=0||plateau_terrain_slot(id)>=0||member(id,ids,9)||member(id,old_ids,9)))||(layer==2&&((id>=41&&id<=45)||(id>=51&&id<=55)||(id>=61&&id<=65)));assert(terrain_source_count==(unsigned int)accepted);checks++;
+  reset();render_mirror_bind_terrain(layer,id,bank+id);bool accepted=(layer==1&&(member(id,road_ids,9)||underlay_terrain_slot(id)>=0||plateau_terrain_slot(id)>=0||member(id,ids,9)||member(id,old_ids,9)))||(layer==2&&((id>=41&&id<=45)||(id>=51&&id<=55)||(id>=61&&id<=65)));assert(terrain_source_count==(unsigned int)accepted);checks++;
  }
  for(int b=0;b<256;b++)if(b!='z'&&b!='Z')for(unsigned int j=0;j<9;j++) {reset();render_mirror_map_begin((char)b);render_mirror_bind_terrain(1,ids[j],bank+ids[j]);assert(!terrain_source_count);checks++;}
  /* Missing assets neither replace the tile nor add draw traces. */
@@ -61,8 +62,8 @@ int main(void)
  for(int j=0;j<9;j++){reset();write_hda(old_ids[j],-1);render_mirror_bind_terrain(1,old_ids[j],bank+old_ids[j]);assert(draw_one(old_ids[j],MIRROR_NORMAL)==1);assert(assets[old_slots[j]].valid);remove_hda(old_ids[j]);}
  for(unsigned int id=41;id<=65;id++)if(id%10>=1&&id%10<=5){reset();write_hda(id,-1);int expected=id<=45?186+(int)id-41:id<=55?191+(int)id-51:196+(int)id-61;assert(cloud_terrain_slot(id)==expected);render_mirror_bind_terrain(2,id,bank+id);assert(!draw_one(id,MIRROR_BLEND));assert(!draws&&!traces);assert(draw_one(id,MIRROR_NORMAL)==1);assert(assets[expected].valid);remove_hda(id);}
  /* Defensive lookup must not alias unknown IDs onto the existing ID332 slot. */
- reset();terrain_sources[0].data=bank+98;terrain_sources[0].id=98;terrain_source_count=1;assert(!draw_one(98,MIRROR_NORMAL));assert(!draws&&!traces&&!assets[22].initialized);
+ reset();terrain_sources[0].data=bank+111;terrain_sources[0].id=111;terrain_source_count=1;assert(!draw_one(111,MIRROR_NORMAL));assert(!draws&&!traces&&!assets[22].initialized);
  /* Both exact registry capacity and over-capacity writes stay bounded. */
- reset();for(int i=0;i<600;i++)render_mirror_bind_terrain(1,99,bank+i);assert(terrain_source_count==104);checks++;
+ reset();for(int i=0;i<600;i++)render_mirror_bind_terrain(1,99,bank+i);assert(terrain_source_count==113);checks++;
  reset();printf("PASS: %u checks; finite IDs/layers/banks; exact slots and capacity; all-six-header-word/trailing-byte rejection; missing-all/each; existing ground/cloud unchanged.\n",checks);return 0;
 }

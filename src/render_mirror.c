@@ -20,7 +20,7 @@ typedef struct {
  Uint8 *rgba;
 } Asset;
 enum { ASSET_NEWSH2=101, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106 };
-/* Existing slots unchanged; roads220..226 reserved; plateau227..230; installation231..234. */
+/* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
 static Asset assets[241];
 static Asset talon_frames[13];
 typedef struct {
@@ -42,7 +42,7 @@ void render_mirror_reset_banking(void)
 void render_mirror_set_talon_banking(bool enabled)
 {talon_banking_enabled=enabled;render_mirror_reset_banking();}
 static char terrain_file;
-static struct {const Uint8 *data;unsigned int id;} terrain_sources[104];
+static struct {const Uint8 *data;unsigned int id;} terrain_sources[113];
 static unsigned int terrain_source_count;
 static SDL_Surface *canvas,*output;
 static SDL_Surface *fade_saved;
@@ -738,9 +738,17 @@ static int underlay_terrain_slot(unsigned int id)
  for(int i=0;i<4;i++)if(id==ids[i])return 237+i;
  return -1;
 }
+/* Nine new roads complete the family; four accepted road IDs stay unchanged. */
+static int road_terrain_slot(unsigned int id)
+{
+ static const unsigned int ids[9]={36,39,40,46,48,56,58,38,47};
+ static const int slots[9]={220,221,222,223,224,225,226,235,236};
+ for(int i=0;i<9;i++)if(id==ids[i])return slots[i];
+ return -1;
+}
 void render_mirror_bind_terrain(unsigned int layer,unsigned int id,const Uint8 *data)
 {
- if(terrain_file=='z'&&((layer==1&&(underlay_terrain_slot(id)>=0||plateau_terrain_slot(id)>=0||ground_terrain_slot(id)>=0||id==101||id==37||id==57||id==49||id==50||id==321||id==322||id==331||id==332))||(layer==2&&cloud_terrain_slot(id)>=0))&&terrain_source_count<104) {
+ if(terrain_file=='z'&&((layer==1&&(road_terrain_slot(id)>=0||underlay_terrain_slot(id)>=0||plateau_terrain_slot(id)>=0||ground_terrain_slot(id)>=0||id==101||id==37||id==57||id==49||id==50||id==321||id==322||id==331||id==332))||(layer==2&&cloud_terrain_slot(id)>=0))&&terrain_source_count<113) {
   terrain_sources[terrain_source_count].data=data;
   terrain_sources[terrain_source_count++].id=id;
  }
@@ -759,14 +767,16 @@ unsigned int render_mirror_terrain_row(SDL_Surface *surface,int x,int y,Uint8 **
   int ground_slot=ground_terrain_slot(id);
   int plateau_slot=plateau_terrain_slot(id);
   int underlay_slot=underlay_terrain_slot(id);
+  int road_slot=road_terrain_slot(id);
   if(slot<0)slot=ground_slot;
   if(slot<0)slot=plateau_slot;
   if(slot<0)slot=underlay_slot;
+  if(slot<0)slot=road_slot;
   if(slot<0)slot=id==101?10:id==37?11:id==57?12:id==49?13:id==50?14:id==321?19:id==322?20:id==331?21:id==332?22:-1;
   if(slot<0)continue;
   Asset *a=scene_asset(slot,ASSET_SHAPESZ,(int)id,0,0);
   /* Missing/invalid new art retains the exact previous fallback and trace. */
-  if((ground_slot>=0||plateau_slot>=0||underlay_slot>=0)&&!a)continue;
+  if((ground_slot>=0||plateau_slot>=0||underlay_slot>=0||road_slot>=0)&&!a)continue;
   bool mirrored=a?draw_asset(x+tile*24,y,a,style,NULL):false;
   suppress=false;
   if(mirrored)replaced|=1u<<tile;

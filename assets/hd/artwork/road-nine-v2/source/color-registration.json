@@ -1,0 +1,40 @@
+{
+  "method": "Native ImageMagick per-channel affine sRGB registration; no geometry or alpha edits",
+  "targets": [
+    38,
+    46,
+    47,
+    48
+  ],
+  "source_high_sand47_mean": [
+    141.6987072172619,
+    88.98274739583333,
+    37.05854724702381
+  ],
+  "target_high_frozen4_sand_edges_mean": [
+    122.85677083333333,
+    83.4906994047619,
+    39.61402529761905
+  ],
+  "source_low_new46_outer32_mean": [
+    59.31626674107143,
+    30.256975446428573,
+    6.941127232142857
+  ],
+  "target_low_prior46_outer32_mean": [
+    53.321010044642854,
+    28.078543526785715,
+    6.304129464285714
+  ],
+  "gain": [
+    0.8440604622387603,
+    0.9435747549766834,
+    1.106000972755136
+  ],
+  "offset_0_255": [
+    3.2544945208965004,
+    -0.4711746664136527,
+    -1.3727640064814501
+  ],
+  "note": "Only newer imagegen source cohort; untouched raw source PNGs retained. Geometry remains imagegen-authored, center correction is not a pixel warp."
+}

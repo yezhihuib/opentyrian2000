@@ -13,3 +13,5 @@ Defaults and the three recent rollback selectors in start-actual-preview.ps1/sta
 Static physical installation125–128: [validation](../../docs/INSTALLATION_VALIDATION.md), including the separate pending original-underlay strip.
 
 Physical terrain underlay323/324/333/334: [validation](../../docs/UNDERLAY_VALIDATION.md), preserving original linked-object reveal behavior.
+
+Complete13-member road family with9 additive/revised tiles: [validation](../../docs/ROAD_NINE_VALIDATION.md).

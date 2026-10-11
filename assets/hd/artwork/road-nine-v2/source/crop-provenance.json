@@ -1,0 +1,126 @@
+{
+  "sources": {
+    "v1": {
+      "master_sha256": "7a89db72be95e82ca90fcc58b4d2f793cd1482890834bbca6e16065f5aa43895",
+      "registered_sha256": "94e12f956d7d49f2cba9b475b83b8b71635c314af6f46af1670475faa362d14d",
+      "registered_size": [
+        1152,
+        1344
+      ]
+    },
+    "vertical-v2": {
+      "master_sha256": "1b1b88ebcdfaa1aba05912148b01bb3f1b7fb95424ca64883cf2e8185c74895e",
+      "registered_size": [
+        384,
+        672
+      ]
+    },
+    "sand47-v2": {
+      "master_sha256": "4bcfbb6f9384f4f42bb24135e82308efacb2ef078d0aec436f4b05821ab48c98",
+      "registered_size": [
+        1152,
+        1344
+      ]
+    },
+    "corner38-v2": {
+      "master_sha256": "6d485303c48c9d43344048246d06eaa23422e4e2f2324ac56cd56897495fdf07",
+      "registered_size": [
+        960,
+        1120
+      ]
+    }
+  },
+  "selected_crops": [
+    {
+      "id": 36,
+      "source": "v1",
+      "crop": [
+        384,
+        0,
+        576,
+        224
+      ]
+    },
+    {
+      "id": 38,
+      "source": "corner38-v2",
+      "crop": [
+        576,
+        224,
+        768,
+        448
+      ]
+    },
+    {
+      "id": 39,
+      "source": "v1",
+      "crop": [
+        576,
+        0,
+        768,
+        224
+      ]
+    },
+    {
+      "id": 40,
+      "source": "v1",
+      "crop": [
+        576,
+        1120,
+        768,
+        1344
+      ]
+    },
+    {
+      "id": 46,
+      "source": "vertical-v2",
+      "crop": [
+        0,
+        224,
+        192,
+        448
+      ]
+    },
+    {
+      "id": 47,
+      "source": "sand47-v2",
+      "crop": [
+        192,
+        224,
+        384,
+        448
+      ]
+    },
+    {
+      "id": 48,
+      "source": "vertical-v2",
+      "crop": [
+        192,
+        224,
+        384,
+        448
+      ]
+    },
+    {
+      "id": 56,
+      "source": "v1",
+      "crop": [
+        0,
+        1120,
+        192,
+        1344
+      ]
+    },
+    {
+      "id": 58,
+      "source": "v1",
+      "crop": [
+        768,
+        224,
+        960,
+        448
+      ]
+    }
+  ],
+  "policy": "Only nine literal imagegen-authored target crops are formal source. Entire masters remain private because they include unchanged original-context regions; no original PNG or gameplay screenshot is bundled."
+}
