@@ -1,0 +1,98 @@
+{
+  "status": "passed",
+  "base_commit": "e66aa422bad36908ca6fd812ab42805cc0ab512f",
+  "candidate_renderer_sha256": "9aa809a1a3d4f86e6aa48688b86e411d7b37aba0f2a136619dd9f973786e0d30",
+  "ASan_UBSan_suites_passed": 15,
+  "binder_assertions": 449259220,
+  "compositor_assertions": 94059984,
+  "craft_pixel_comparisons": 280755200,
+  "craft_source_part_guards": 1782,
+  "terrain_assets_simultaneous": 59,
+  "full_partial_rows": 531,
+  "new_mappings": {
+    "113": 246,
+    "341": 247,
+    "342": 248,
+    "343": 249,
+    "351": 250,
+    "352": 251,
+    "353": 252
+  },
+  "asset_capacity": 253,
+  "registry_capacity": 122,
+  "holes113_transparent_HD_pixels": 448,
+  "holes113_original_alpha_exact": true,
+  "prior111_114_alpha_unchanged": true,
+  "formal_png_hda_pixels_exact": true,
+  "other_production_functions_byte_identical": true,
+  "craft_guard_tests_byte_identical": true,
+  "test_patch_sha256": "1cd66ee564e26c97791a4a8d332dc9d1ad94e8086c7aecb15cd1c9643d226f06",
+  "test_only_patch_files": 15,
+  "git_apply_check": "passed",
+  "original_data_in_patch": false,
+  "leak_sanitizer": "disabled as in prior fixture runners; ASan address checks and UBSan enabled",
+  "suite_names": [
+    "next-seven-binder",
+    "next-seven-alpha",
+    "craft-three",
+    "ground-binder",
+    "plateau-binder",
+    "underlay-binder",
+    "road-binder",
+    "terrain-holes-binder",
+    "terrain-holes-alpha",
+    "rotor-enemy",
+    "installation-enemy",
+    "enemy-orb",
+    "cloud-shadow",
+    "green-background",
+    "green-head-layer"
+  ],
+  "integrated_main_renderer_matches_tested_snapshot": true,
+  "integrated_main_tests_match_tested_patch": true,
+  "saved_runtime_status": "passed",
+  "native_new_NORMAL_HD_calls": 1782,
+  "native_full_state_material_projectile_collision_parity": true,
+  "missing4x_RGB_identical_to_baseline": true,
+  "native2x_4x_RGB_identical": true,
+  "wild_prior_restore_rows_preserved": 9767,
+  "wild_extra_restore_rows": 607,
+  "wild_effect_frames_changed_only_restored_blocks": 130,
+  "wild_cloud_overlap_material_logger_bottom_strip_omissions": 30,
+  "private_control_link29_unavailable_tick": 1351,
+  "private_control_foundation_post_destruction_NORMAL_HD_calls": 366,
+  "private_control_scope": "Supported artificial Pulse155 hit/destroy controls on original collision/link-death path; private survival run.",
+  "scope": "Replay from tick0 with private survival, no weapon71 injection; production has no survival, observer or control hooks.",
+  "rendered_ticks": [
+    1228,
+    1565
+  ],
+  "state_rows": 1566,
+  "media": {
+    "frames_per_side": 120,
+    "readback_hashes_exact": true,
+    "HUD_and_bottom_exact": true,
+    "differences_outside_selected_terrain_rectangles": 0
+  },
+  "asset_counts": {
+    "packs": 18,
+    "HDA": 2754,
+    "PNG": 269,
+    "defaults": [
+      257,
+      261
+    ]
+  },
+  "formal_source": {
+    "terrain113_inventory_sha256": "afb420ef286cd2c58b4d23c90fe2eef2da6a598c0857afbcb3aac5da6faabe2f",
+    "terrain341_353_inventory_sha256": "2baf1409e11adaa7b9a3e00e7147f2967eabd5eb3e1f29cce91d4bb76db4a5ca",
+    "all_seven_rebuild_exact": true
+  },
+  "limitations": [
+    "Private survival is required beyond the ordinary1052 end; no ordinary or full-level acceptance claim.",
+    "Standing newshE stone entities remain original; foundation is independently drawn below them.",
+    "Original +1 logical y entity/foundation registration and clipped right-edge instance retained.",
+    "Frozen external terrain boundaries have small texture/brightness differences, not seamless.",
+    "Thirty Wild bottom-strip cloud overlaps are source-supported inference because material logging excludes y>=184."
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "id": 113,
+  "width": 192,
+  "height": 224,
+  "logical_size": [
+    24,
+    28
+  ],
+  "anchor": [
+    0,
+    0
+  ],
+  "scale": 8,
+  "base_commit": "51d4bc4af5ab63c1357e11911c8013e8e028e68b",
+  "slot": 246,
+  "generated_rgba_sha256": "529b34c2215aa39bb4aee2bc989490a33f0a51cee2c3973f590ae4b9e8ed25fd",
+  "alpha_sha256": "bc96127df0b1f4fa5cd75cd795c791a07147869edf453ef552b571fda83ccc17",
+  "zero_alpha_hd_pixels": 448,
+  "zero_alpha_logical_pixels": 7,
+  "frozen_ids": [
+    36,
+    58,
+    98,
+    101,
+    110,
+    118
+  ],
+  "inputs": {
+    "generated-crops/terrain-shapesz-113-8.png": "938328a5533e3f553b3eeb4e1b611d996e083b62d8ba38cfbf4533035ded82ff",
+    "register_terrain_edges.cpp": "31c5df9e60d94bcdcec132447f91792ec0c76f79814a1404560a93caec2455c5",
+    "registered-edge-pairs.txt": "ee9a335851d4477bf296a3802e619218d315ac1027e88a4f40d8e1281fb921cd",
+    "frozen-edge-constraints.json": "abe04abc30fa336f2205b2f5e119fcaaa33125e89e1d4e3c82e77ff3fc820ac7"
+  },
+  "selected": {
+    "png_sha256": "5025560686ea458dd5fb2d7acfe7e9e2b6d2967e7a1b7f1c3a1a94bca0d615d0",
+    "rgba_sha256": "c8c754d7b8c2d5d802375a4abaf169229c6e9d5a963d188e3bb33b4f3ba11b8d",
+    "hda_sha256": "241aabc9a7eeb983d4f96fa3a1680c08d3ba8746402bfeb2fbd87151d588c673"
+  },
+  "edge_pairs": [
+    {
+      "direction": "down",
+      "a": 101,
+      "b": 113,
+      "count": 10,
+      "max_RGB": 1,
+      "mean_abs_RGB": 0.008680555555555556
+    },
+    {
+      "direction": "down",
+      "a": 113,
+      "b": 36,
+      "count": 1,
+      "max_RGB": 3,
+      "mean_abs_RGB": 0.3229166666666667
+    },
+    {
+      "direction": "down",
+      "a": 113,
+      "b": 98,
+      "count": 1,
+      "max_RGB": 9,
+      "mean_abs_RGB": 1.1197916666666667
+    },
+    {
+      "direction": "down",
+      "a": 113,
+      "b": 101,
+      "count": 8,
+      "max_RGB": 12,
+      "mean_abs_RGB": 1.7638888888888888
+    },
+    {
+      "direction": "right",
+      "a": 58,
+      "b": 113,
+      "count": 1,
+      "max_RGB": 1,
+      "mean_abs_RGB": 0.12053571428571429
+    },
+    {
+      "direction": "right",
+      "a": 101,
+      "b": 113,
+      "count": 8,
+      "max_RGB": 6,
+      "mean_abs_RGB": 1.1651785714285714
+    },
+    {
+      "direction": "right",
+      "a": 110,
+      "b": 113,
+      "count": 1,
+      "max_RGB": 5,
+      "mean_abs_RGB": 0.6889880952380952
+    },
+    {
+      "direction": "right",
+      "a": 113,
+      "b": 101,
+      "count": 8,
+      "max_RGB": 5,
+      "mean_abs_RGB": 0.8943452380952381
+    },
+    {
+      "direction": "right",
+      "a": 113,
+      "b": 118,
+      "count": 2,
+      "max_RGB": 6,
+      "mean_abs_RGB": 0.96875
+    }
+  ]
+}

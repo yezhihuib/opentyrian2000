@@ -1,0 +1,32 @@
+{
+  "id": 113,
+  "source_kind": "Built-in imagegen authored central crop; this is the deterministic rebuild entry point, not a claim that imagegen can be regenerated deterministically.",
+  "imagegen_master_sha256": "0e0eb78c30105758554b0701f9f1b2eaed1615f0354976a9e883763609f4caa3",
+  "imagegen_master_dimensions": [
+    1160,
+    1355
+  ],
+  "registered_master_sha256": "81ba4df6a3635d7a628e84dddd544381cb7743a586bbee6928f8a69778c57f00",
+  "registered_master_rgba_sha256": "16a5e5b9e7044a5d4a318eb0afaff3a7d487e3d36e3f0aba3096c289dde6e3f7",
+  "registration_tool": "ImageMagick convert",
+  "registration_operation": "-filter Lanczos -resize '576x672!'",
+  "registered_size": [
+    576,
+    672
+  ],
+  "literal_center_crop": [
+    192,
+    224,
+    384,
+    448
+  ],
+  "crop_operation": "-crop 192x224+192+224 +repage",
+  "raw_center_crop_png_sha256": "444f431f2249c944bd7795aab1d2dcbb7d7231c55054b59be52f635dc5de795f",
+  "raw_center_crop_rgba_sha256": "9be893fb1c002f713943c85a7fd58fe7e7b15c3cf430b4f4864e592df0e7f3f1",
+  "alpha_application": "Native ImageMagick CopyOpacity applied the approved seven-logical-pixel source-layout alpha. Every authored RGB byte, including hidden RGB, is unchanged at this stage. The mask is baked into the included RGBA; no separate original mask is included.",
+  "source_generated_crop_png_sha256": "938328a5533e3f553b3eeb4e1b611d996e083b62d8ba38cfbf4533035ded82ff",
+  "source_generated_crop_rgba_sha256": "529b34c2215aa39bb4aee2bc989490a33f0a51cee2c3973f590ae4b9e8ed25fd",
+  "source_generated_crop_alpha_sha256": "bc96127df0b1f4fa5cd75cd795c791a07147869edf453ef552b571fda83ccc17",
+  "master_disposition": "The full master and contextual reference images remain in the author workspace outside this package. Only the generated central tile is distributed.",
+  "frozen_constraints": "Six accepted generated HD neighbor perimeters are included as RGB-only numeric constraints with immutable accepted HDA/RGBA provenance hashes; original-game raster data is not included."
+}

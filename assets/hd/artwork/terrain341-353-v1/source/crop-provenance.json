@@ -1,0 +1,66 @@
+{
+  "source_ownership": "New raster art from built-in imagegen. Included authored central crops are generated RGB, plus later frozen accepted-HD edge constraints. Full masters contain reference context and remain outside Git. No original-game raster, reference PNG, raw palette, source mask, runtime capture or private game patch is included.",
+  "base_commit": "51d4bc4af5ab63c1357e11911c8013e8e028e68b",
+  "generated_master_sha256": "49c52ba160cc482ed24b898d6790d0a5a63fd824f7cb70bdbf4b4efbdb97c5fd",
+  "v1_master_sha256": "3ab033630f35260e4afba12ad6be1a3a2fede92955b0efaba9509c30a3691b95",
+  "native_registration": "ImageMagick convert <v2master> -filter Lanczos -resize 960x896! <registered>",
+  "registered_size": [
+    960,
+    896
+  ],
+  "group_crop": [
+    192,
+    224,
+    768,
+    672
+  ],
+  "tile_crops": {
+    "341": [
+      192,
+      224,
+      384,
+      448
+    ],
+    "342": [
+      384,
+      224,
+      576,
+      448
+    ],
+    "343": [
+      576,
+      224,
+      768,
+      448
+    ],
+    "351": [
+      192,
+      448,
+      384,
+      672
+    ],
+    "352": [
+      384,
+      448,
+      576,
+      672
+    ],
+    "353": [
+      576,
+      448,
+      768,
+      672
+    ]
+  },
+  "alpha": "Every source logical cell and authored HD pixel is fully opaque. No alpha feathering or mask transfer.",
+  "frozen_accepted_HD_sources": {
+    "101": {
+      "path": "/workspace/scratch/f67dd347fa0a/opentyrian2000-cloud/assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesz-101-8.hda",
+      "sha256": "709c0ed19741ce90205a7fd1ad7f36bf65d37180e51c30a13a87f22fa993fc99"
+    },
+    "110": {
+      "path": "/workspace/scratch/f67dd347fa0a/opentyrian2000-cloud/assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesz-110-8.hda",
+      "sha256": "a8ea5ccb970ed428b237ab56a2d0a7c5bb062f07be0be91ffb6c1112ef8310a6"
+    }
+  }
+}

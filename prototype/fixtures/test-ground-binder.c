@@ -42,10 +42,10 @@ static unsigned int draw_one(unsigned int id,int style)
 {Uint8*map[12]={bank+id};draws=traces=0;unsigned int result=render_mirror_terrain_row(game_screen,0,0,map,style);checks++;return result;}
 int main(void)
 {
- assert(sizeof(assets)/sizeof(*assets)==246);assert(sizeof(terrain_sources)/sizeof(*terrain_sources)==115);
+ assert(sizeof(assets)/sizeof(*assets)==253);assert(sizeof(terrain_sources)/sizeof(*terrain_sources)==122);
  for(unsigned int id=0;id<600;id++) {int expected=-1;for(int j=0;j<9;j++)if(id==ids[j])expected=201+j;assert(ground_terrain_slot(id)==expected);checks++;}
  for(unsigned int layer=0;layer<5;layer++)for(unsigned int id=0;id<600;id++) {
-  reset();render_mirror_bind_terrain(layer,id,bank+id);bool accepted=(layer==1&&(id==111||id==114||member(id,road_ids,9)||underlay_terrain_slot(id)>=0||plateau_terrain_slot(id)>=0||member(id,ids,9)||member(id,old_ids,9)))||(layer==2&&((id>=41&&id<=45)||(id>=51&&id<=55)||(id>=61&&id<=65)));assert(terrain_source_count==(unsigned int)accepted);checks++;
+  reset();render_mirror_bind_terrain(layer,id,bank+id);bool accepted=(layer==1&&(id==111||id==114||id==113||id==341||id==342||id==343||id==351||id==352||id==353||member(id,road_ids,9)||underlay_terrain_slot(id)>=0||plateau_terrain_slot(id)>=0||member(id,ids,9)||member(id,old_ids,9)))||(layer==2&&((id>=41&&id<=45)||(id>=51&&id<=55)||(id>=61&&id<=65)));assert(terrain_source_count==(unsigned int)accepted);checks++;
  }
  for(int b=0;b<256;b++)if(b!='z'&&b!='Z')for(unsigned int j=0;j<9;j++) {reset();render_mirror_map_begin((char)b);render_mirror_bind_terrain(1,ids[j],bank+ids[j]);assert(!terrain_source_count);checks++;}
  /* Missing assets neither replace the tile nor add draw traces. */
@@ -64,6 +64,6 @@ int main(void)
  /* Defensive lookup must not alias unknown IDs onto the existing ID332 slot. */
  reset();terrain_sources[0].data=bank+112;terrain_sources[0].id=112;terrain_source_count=1;assert(!draw_one(112,MIRROR_NORMAL));assert(!draws&&!traces&&!assets[22].initialized);
  /* Both exact registry capacity and over-capacity writes stay bounded. */
- reset();for(int i=0;i<600;i++)render_mirror_bind_terrain(1,99,bank+i);assert(terrain_source_count==115);checks++;
+ reset();for(int i=0;i<600;i++)render_mirror_bind_terrain(1,99,bank+i);assert(terrain_source_count==122);checks++;
  reset();printf("PASS: %u checks; finite IDs/layers/banks; exact slots and capacity; all-six-header-word/trailing-byte rejection; missing-all/each; existing ground/cloud unchanged.\n",checks);return 0;
 }

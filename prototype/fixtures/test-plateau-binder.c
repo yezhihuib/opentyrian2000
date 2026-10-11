@@ -48,11 +48,11 @@ static void nonterrain_untouched(void)
 {CHECK(!assets[218].initialized&&!assets[219].initialized);for(int i=231;i<=234;i++)CHECK(!assets[i].initialized);}
 int main(void)
 {
- CHECK(sizeof(assets)/sizeof(*assets)==246);CHECK(sizeof(terrain_sources)/sizeof(*terrain_sources)==115);
+ CHECK(sizeof(assets)/sizeof(*assets)==253);CHECK(sizeof(terrain_sources)/sizeof(*terrain_sources)==122);
  for(unsigned int id=0;id<600;id++){int expected=-1;for(int j=0;j<4;j++)if(id==ids[j])expected=227+j;CHECK(plateau_terrain_slot(id)==expected);}
  for(unsigned int id=0;id<600;id++){int expected=-1;for(int j=0;j<9;j++)if(id==ground_ids[j])expected=201+j;CHECK(ground_terrain_slot(id)==expected);}
  for(unsigned int layer=0;layer<5;layer++)for(unsigned int id=0;id<600;id++){
-  reset();render_mirror_bind_terrain(layer,id,bank+id);bool accepted=(layer==1&&(id==111||id==114||member(id,road_ids,9)||member(id,ids,4)||member(id,ground_ids,9)||member(id,old_ids,9)||id==323||id==324||id==333||id==334))||(layer==2&&cloud(id));CHECK(terrain_source_count==(unsigned int)accepted);nonterrain_untouched();
+  reset();render_mirror_bind_terrain(layer,id,bank+id);bool accepted=(layer==1&&(id==111||id==114||id==113||id==341||id==342||id==343||id==351||id==352||id==353||member(id,road_ids,9)||member(id,ids,4)||member(id,ground_ids,9)||member(id,old_ids,9)||id==323||id==324||id==333||id==334))||(layer==2&&cloud(id));CHECK(terrain_source_count==(unsigned int)accepted);nonterrain_untouched();
  }
  for(int b=0;b<256;b++)if(b!='z'&&b!='Z')for(unsigned int j=0;j<4;j++){reset();render_mirror_map_begin((char)b);render_mirror_bind_terrain(1,ids[j],bank+ids[j]);CHECK(!terrain_source_count);}
  /* Missing resources preserve original path and original scene-draw log. */
@@ -82,9 +82,9 @@ int main(void)
  for(int j=0;j<9;j++){reset();write_hda(ground_ids[j],-1);render_mirror_bind_terrain(1,ground_ids[j],bank+ground_ids[j]);CHECK(draw_one(ground_ids[j],MIRROR_NORMAL)==1);CHECK(assets[201+j].valid);nonterrain_untouched();remove_hda(ground_ids[j]);}
  for(unsigned int id=41;id<=65;id++)if(cloud(id)){reset();write_hda(id,-1);int expected=id<=45?186+(int)id-41:id<=55?191+(int)id-51:196+(int)id-61;CHECK(cloud_terrain_slot(id)==expected);render_mirror_bind_terrain(2,id,bank+id);CHECK(!draw_one(id,MIRROR_BLEND));CHECK(!draws&&!traces);CHECK(draw_one(id,MIRROR_NORMAL)==1);CHECK(assets[expected].valid);nonterrain_untouched();remove_hda(id);}
  /* Every unrecognized ID must not alias the old implicit ID332 fallback. */
- for(unsigned int id=0;id<600;id++)if(id!=111&&id!=114&&!member(id,road_ids,9)&&!member(id,ids,4)&&!member(id,ground_ids,9)&&!member(id,old_ids,9)&&!cloud(id)&&id!=323&&id!=324&&id!=333&&id!=334){
+ for(unsigned int id=0;id<600;id++)if(id!=111&&id!=114&&id!=113&&id!=341&&id!=342&&id!=343&&id!=351&&id!=352&&id!=353&&!member(id,road_ids,9)&&!member(id,ids,4)&&!member(id,ground_ids,9)&&!member(id,old_ids,9)&&!cloud(id)&&id!=323&&id!=324&&id!=333&&id!=334){
   reset();terrain_sources[0].data=bank+id;terrain_sources[0].id=id;terrain_source_count=1;CHECK(!draw_one(id,MIRROR_NORMAL));CHECK(!draws&&!traces&&!assets[22].initialized);nonterrain_untouched();
  }
- reset();for(int i=0;i<600;i++)render_mirror_bind_terrain(1,96,bank+i);CHECK(terrain_source_count==115);nonterrain_untouched();
- reset();printf("PASS: %u checks; four exact plateau IDs/layers/banks; slots227–230 and untouched orb218–219/installation231–234; six header words/magic/payload rejection; missing-all/each; existing plateau/ground/cloud unchanged; exhaustive unknown ID332 rejection; registry115.\n",checks);return 0;
+ reset();for(int i=0;i<600;i++)render_mirror_bind_terrain(1,96,bank+i);CHECK(terrain_source_count==122);nonterrain_untouched();
+ reset();printf("PASS: %u checks; four exact plateau IDs/layers/banks; slots227–230 and untouched orb218–219/installation231–234; six header words/magic/payload rejection; missing-all/each; existing plateau/ground/cloud unchanged; exhaustive unknown ID332 rejection; registry122.\n",checks);return 0;
 }
