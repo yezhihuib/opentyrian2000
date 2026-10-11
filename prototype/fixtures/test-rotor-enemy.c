@@ -11,7 +11,7 @@ typedef struct {size_t size;Uint8 *data;} Sprite2_array;
 #define MAX(a,b) ((a)>(b)?(a):(b))
 #define MIN(a,b) ((a)<(b)?(a):(b))
 enum {MIRROR_NORMAL,MIRROR_BLEND,MIRROR_SHADOW};
-enum {ASSET_NEWSH2=101,ASSET_EXPLOSION=106,ASSET_TALON_BANK=109,ASSET_SHAPESZ=201};
+enum {ASSET_NEWSH2=101,ASSET_EXPLOSION=106,ASSET_TALON_BANK=109,ASSET_NEWSHE=110,ASSET_SHAPESZ=201};
 #include "types.inc"
 static SDL_Surface *canvas,*game_screen;
 static int game_probe_density,game_probe_scene_assets=1;

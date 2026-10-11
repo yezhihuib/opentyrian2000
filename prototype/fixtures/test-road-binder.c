@@ -7,7 +7,7 @@
 #include <unistd.h>
 typedef uint8_t Uint8;
 typedef struct {int pitch;} SDL_Surface;
-enum {ASSET_NEWSH2=101,ASSET_TALON_BANK=109,ASSET_EXPLOSION=106,ASSET_SHAPESZ=201};
+enum {ASSET_NEWSH2=101,ASSET_TALON_BANK=109,ASSET_NEWSHE=110,ASSET_EXPLOSION=106,ASSET_SHAPESZ=201};
 enum {MIRROR_NORMAL,MIRROR_BLEND,MIRROR_SHADOW};
 #include "production-types.inc"
 static unsigned int terrain_source_count,game_probe_scene_assets=2;
@@ -52,7 +52,7 @@ static void nonterrain_untouched(void)
 {CHECK(!assets[218].initialized&&!assets[219].initialized);for(int i=231;i<=234;i++)CHECK(!assets[i].initialized);}
 int main(void)
 {
- CHECK(sizeof(assets)/sizeof(*assets)==253);CHECK(sizeof(terrain_sources)/sizeof(*terrain_sources)==122);
+ CHECK(sizeof(assets)/sizeof(*assets)==265);CHECK(sizeof(terrain_sources)/sizeof(*terrain_sources)==122);
  for(unsigned int id=0;id<600;id++){int expected=-1;for(int j=0;j<9;j++)if(id==ids[j])expected=slots[j];CHECK(road_terrain_slot(id)==expected);}
  for(unsigned int id=0;id<600;id++){int expected=-1;for(int j=0;j<9;j++)if(id==ground_ids[j])expected=201+j;CHECK(ground_terrain_slot(id)==expected);}
  for(unsigned int layer=0;layer<5;layer++)for(unsigned int id=0;id<600;id++){

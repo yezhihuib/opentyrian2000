@@ -7,7 +7,7 @@
 #include <unistd.h>
 typedef uint8_t Uint8;
 typedef struct {int pitch;} SDL_Surface;
-enum {ASSET_NEWSH2=101,ASSET_TALON_BANK=109,ASSET_EXPLOSION=106,ASSET_SHAPESZ=201};
+enum {ASSET_NEWSH2=101,ASSET_TALON_BANK=109,ASSET_NEWSHE=110,ASSET_EXPLOSION=106,ASSET_SHAPESZ=201};
 enum {MIRROR_NORMAL,MIRROR_BLEND,MIRROR_SHADOW};
 #include "production-types.inc"
 static unsigned int terrain_source_count,game_probe_scene_assets=2;
@@ -42,7 +42,7 @@ static unsigned int draw_one(unsigned int id,int style)
 {Uint8*map[12]={bank+id};draws=traces=0;unsigned int result=render_mirror_terrain_row(game_screen,0,0,map,style);checks++;return result;}
 int main(void)
 {
- assert(sizeof(assets)/sizeof(*assets)==253);assert(sizeof(terrain_sources)/sizeof(*terrain_sources)==122);
+ assert(sizeof(assets)/sizeof(*assets)==265);assert(sizeof(terrain_sources)/sizeof(*terrain_sources)==122);
  for(unsigned int id=0;id<600;id++) {int expected=-1;for(int j=0;j<9;j++)if(id==ids[j])expected=201+j;assert(ground_terrain_slot(id)==expected);checks++;}
  for(unsigned int layer=0;layer<5;layer++)for(unsigned int id=0;id<600;id++) {
   reset();render_mirror_bind_terrain(layer,id,bank+id);bool accepted=(layer==1&&(id==111||id==114||id==113||id==341||id==342||id==343||id==351||id==352||id==353||member(id,road_ids,9)||underlay_terrain_slot(id)>=0||plateau_terrain_slot(id)>=0||member(id,ids,9)||member(id,old_ids,9)))||(layer==2&&((id>=41&&id<=45)||(id>=51&&id<=55)||(id>=61&&id<=65)));assert(terrain_source_count==(unsigned int)accepted);checks++;

@@ -1,0 +1,314 @@
+{
+  "status": "PASS",
+  "base_commit": "cb3eca69d2e873baef28b210ec957ecedeea819b",
+  "renderer_sha256": "cf4677c2503daf15c77d796d3c79d128b938d7e4dca01c4e778ffce2e88a5e81",
+  "scope": "Private survival, no weapon71 injection; bounded original-control shared-family closure. No private hooks in production.",
+  "pixel_comparisons": 1098816000,
+  "successful_oracle_quadrant_calls": 4156,
+  "source_part_rejections": 4864,
+  "original_wrapper_cases": 2064,
+  "prior_sanitizer_suites_passed": 15,
+  "ASan_UBSan": true,
+  "leak_sanitizer": "disabled under ptrace",
+  "all12_opaque_PNG_HDA_exact": true,
+  "roles": {
+    "source_bank": 9,
+    "HDR1_role": 110,
+    "prefix": "enemy-newshe"
+  },
+  "slots": [
+    253,
+    264
+  ],
+  "asset_capacity": 265,
+  "registry_capacity_unchanged": 122,
+  "runtime": {
+    "native_calls": 4932,
+    "per_base": {
+      "39": 822,
+      "41": 822,
+      "43": 822,
+      "3": 822,
+      "5": 822,
+      "1": 822
+    },
+    "native2x4x_exact": true,
+    "missing_RGB_exact": true,
+    "clear_RGB_exact": [
+      1556,
+      1557,
+      1558,
+      1559,
+      1560,
+      1561,
+      1562,
+      1563,
+      1564,
+      1565
+    ],
+    "simulation_exact": true,
+    "link29_calls": 72,
+    "link30_calls": 1088
+  },
+  "controls": {
+    "29": {
+      "exact_logs": [
+        "state.tsv",
+        "collisions.tsv",
+        "scene-enemies.tsv",
+        "scene-hits.tsv",
+        "player-projectiles.tsv",
+        "effects.tsv"
+      ],
+      "transition_tick": 1351,
+      "group": [
+        {
+          "tick": "1351",
+          "slot": "28",
+          "type": "517",
+          "avail": "1",
+          "x": "222",
+          "y": "-12",
+          "armor": "20",
+          "cycle": "1",
+          "base": "3",
+          "filter": "0",
+          "damaged": "0",
+          "link": "29"
+        },
+        {
+          "tick": "1351",
+          "slot": "29",
+          "type": "518",
+          "avail": "1",
+          "x": "246",
+          "y": "-12",
+          "armor": "20",
+          "cycle": "1",
+          "base": "5",
+          "filter": "0",
+          "damaged": "0",
+          "link": "29"
+        },
+        {
+          "tick": "1351",
+          "slot": "30",
+          "type": "519",
+          "avail": "1",
+          "x": "198",
+          "y": "16",
+          "armor": "19",
+          "cycle": "1",
+          "base": "39",
+          "filter": "0",
+          "damaged": "0",
+          "link": "29"
+        },
+        {
+          "tick": "1351",
+          "slot": "35",
+          "type": "520",
+          "avail": "1",
+          "x": "222",
+          "y": "16",
+          "armor": "20",
+          "cycle": "1",
+          "base": "41",
+          "filter": "0",
+          "damaged": "0",
+          "link": "29"
+        },
+        {
+          "tick": "1351",
+          "slot": "36",
+          "type": "521",
+          "avail": "1",
+          "x": "246",
+          "y": "16",
+          "armor": "20",
+          "cycle": "1",
+          "base": "43",
+          "filter": "0",
+          "damaged": "0",
+          "link": "29"
+        },
+        {
+          "tick": "1351",
+          "slot": "37",
+          "type": "516",
+          "avail": "1",
+          "x": "198",
+          "y": "-12",
+          "armor": "20",
+          "cycle": "1",
+          "base": "1",
+          "filter": "0",
+          "damaged": "0",
+          "link": "29"
+        }
+      ]
+    },
+    "30": {
+      "exact_logs": [
+        "state.tsv",
+        "collisions.tsv",
+        "scene-enemies.tsv",
+        "scene-hits.tsv",
+        "player-projectiles.tsv",
+        "effects.tsv"
+      ],
+      "transition_tick": 1943,
+      "group": [
+        {
+          "tick": "1943",
+          "slot": "25",
+          "type": "524",
+          "avail": "2",
+          "x": "294",
+          "y": "20",
+          "armor": "40",
+          "cycle": "1",
+          "base": "11",
+          "filter": "0",
+          "damaged": "1",
+          "link": "30"
+        },
+        {
+          "tick": "1943",
+          "slot": "26",
+          "type": "525",
+          "avail": "2",
+          "x": "246",
+          "y": "48",
+          "armor": "40",
+          "cycle": "1",
+          "base": "45",
+          "filter": "0",
+          "damaged": "1",
+          "link": "30"
+        },
+        {
+          "tick": "1943",
+          "slot": "27",
+          "type": "526",
+          "avail": "2",
+          "x": "270",
+          "y": "48",
+          "armor": "40",
+          "cycle": "1",
+          "base": "47",
+          "filter": "0",
+          "damaged": "1",
+          "link": "30"
+        },
+        {
+          "tick": "1943",
+          "slot": "28",
+          "type": "527",
+          "avail": "2",
+          "x": "294",
+          "y": "48",
+          "armor": "40",
+          "cycle": "1",
+          "base": "49",
+          "filter": "0",
+          "damaged": "1",
+          "link": "30"
+        },
+        {
+          "tick": "1943",
+          "slot": "29",
+          "type": "522",
+          "avail": "2",
+          "x": "246",
+          "y": "20",
+          "armor": "39",
+          "cycle": "1",
+          "base": "7",
+          "filter": "0",
+          "damaged": "1",
+          "link": "30"
+        },
+        {
+          "tick": "1943",
+          "slot": "30",
+          "type": "523",
+          "avail": "2",
+          "x": "270",
+          "y": "20",
+          "armor": "40",
+          "cycle": "1",
+          "base": "9",
+          "filter": "0",
+          "damaged": "1",
+          "link": "30"
+        }
+      ]
+    }
+  },
+  "media": {
+    "actual2x_frames": 180,
+    "clips": [
+      [
+        1378,
+        1437
+      ],
+      [
+        1348,
+        1407
+      ],
+      [
+        1940,
+        1999
+      ]
+    ],
+    "direct_readback_hashes_exact": true,
+    "native4x_spots": [
+      1378,
+      1980
+    ],
+    "independent_all_frame_visual_pass": true
+  },
+  "asset_counts": {
+    "packs": 18,
+    "HDA": 2778,
+    "PNG": 281,
+    "defaults": [
+      269,
+      273
+    ]
+  },
+  "source_zip_sha256": "4861aade5fc49fc9f073b0440e6f690d8b85e6fa20b779b876c313c328b8c77a",
+  "runtime_zip_sha256": "d5a3cbdcd5a04e369cfbbe030fd39d8cea162759396678f4d1ae2a1df6a1aa57",
+  "limitations": [
+    "Late remnant instance clipped at original right edge; full geometry verified offline/oracle, only visible runtime portion accepted.",
+    "Unrelated later original enemies not part of this batch.",
+    "Original ground texture phase differences remain.",
+    "No natural palette flash for enemygroundfalse records; filter compositor tested synthetically.",
+    "No ordinary survival beyond1052, full-level or Windows claim.",
+    "Type31/newsh2 base127 first appears1561 and remains deferred; not complete HD coverage of1044\u20131565."
+  ],
+  "independent_runtime_audit": {
+    "passed": true,
+    "native_exact_full_logs": 9,
+    "control_exact_paired_logs": 12,
+    "all_prior_scene_calls_unchanged": true,
+    "link29_RGB_exact_ticks": [
+      1352,
+      1415
+    ],
+    "link29_effect_pools_first_zero": 1377,
+    "link30_effect_pools_first_zero": 1969,
+    "link30_visible_remnant_calls": 1024,
+    "link30_visible_bases": [
+      7,
+      9,
+      45,
+      47
+    ],
+    "link30_clipped_bases_state_and_oracle_only": [
+      11,
+      49
+    ]
+  }
+}

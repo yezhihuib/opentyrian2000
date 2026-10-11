@@ -11,7 +11,7 @@ typedef struct {size_t size;Uint8 *data;} Sprite2_array;
 #define MAX(a,b) ((a)>(b)?(a):(b))
 #define MIN(a,b) ((a)<(b)?(a):(b))
 enum {MIRROR_NORMAL,MIRROR_BLEND,MIRROR_SHADOW};
-enum {ASSET_NEWSH2=101,ASSET_EXPLOSION=106,ASSET_TALON_BANK=109,ASSET_SHAPESZ=201};
+enum {ASSET_NEWSH2=101,ASSET_EXPLOSION=106,ASSET_TALON_BANK=109,ASSET_NEWSHE=110,ASSET_SHAPESZ=201};
 #include "types.inc"
 static SDL_Surface *canvas,*game_screen;
 static int game_probe_density,game_probe_scene_assets=1;
@@ -101,6 +101,6 @@ static void other_bindings(void){
  for(int slot=0;slot<253;slot++){bool expected=false;for(int i=0;i<31;i++)if(slot_for(ids[i])==slot)expected=true;assert(assets[slot].initialized==expected);}
  clear_assets();
 }
-int main(int argc,char **argv){assert(argc==2);pack_root=argv[1];SDL_Surface c={0},g={LW,LH,LW,NULL};canvas=&c;game_screen=&g;g.pixels=calloc(LW*LH,1);Uint8 bank_bytes[4]={1,2,3,4};for(int k=0;k<4;k++){enemySpriteSheets[k]=(Sprite2_array){1,&bank_bytes[k]};enemySpriteSheetIds[k]=k?2:1;}for(int i=0;i<256;i++)rgb_palette[i]=((i*71u)%256)<<16|((i*31u)%256)<<8|((i*13u)%256);assert(sizeof(assets)/sizeof(*assets)==253);
+int main(int argc,char **argv){assert(argc==2);pack_root=argv[1];SDL_Surface c={0},g={LW,LH,LW,NULL};canvas=&c;game_screen=&g;g.pixels=calloc(LW*LH,1);Uint8 bank_bytes[4]={1,2,3,4};for(int k=0;k<4;k++){enemySpriteSheets[k]=(Sprite2_array){1,&bank_bytes[k]};enemySpriteSheetIds[k]=k?2:1;}for(int i=0;i<256;i++)rgb_palette[i]=((i*71u)%256)<<16|((i*31u)%256)<<8|((i*13u)%256);assert(sizeof(assets)/sizeof(*assets)==265);
  const int filters[]={0,0x70,0x80,0x09,0xd0};for(int mode=0;mode<3;mode++){int d=mode==0?4:8,ad=mode==1?8:4;alloc_canvas(d);clear_assets();select_pack(ad==8?"full8":"full4");for(int rev=0;rev<2;rev++)for(int i=0;i<3;i++){int base=craft_ids[rev?2-i:i];for(int f=0;f<5;f++)exercise_frame(base,ad,filters[f],5,7,rev);}for(int bi=0;bi<3;bi++){exercise_frame(craft_ids[bi],ad,0,-11,-13,false);exercise_frame(craft_ids[bi],ad,0xd0,LW-4,LH-3,true);}guard_tests();for(int i=0;i<243;i++)assert(!assets[i].initialized);printf("PASS: density%d source%d all12 craft quadrants, reordered calls, five filters including original Pulse1550xd0, seams, clipping, exhaustive source guards\n",d,ad);if(mode==1){loader_tests();actual_tests();other_bindings();puts("PASS: missing each/all; every header word/magic/trailing/truncated/empty payload; classic/flags; actual calibrated RGBA transport and all15 partial quadrant subsets;31 simultaneous enemy bindings without cache aliasing");}clear_assets();free_canvas();}
  free(g.pixels);printf("PASS: %llu pixel comparisons; %llu successful quadrant calls; %llu rejected-source/part guards\n",checks,quad_calls,guard_checks);return 0;}

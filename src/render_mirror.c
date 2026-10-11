@@ -19,9 +19,9 @@ typedef struct {
  int bank,index,w,h,anchor_x,anchor_y,density;
  Uint8 *rgba;
 } Asset;
-enum { ASSET_NEWSH2=101, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106 };
+enum { ASSET_NEWSH2=101, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
-static Asset assets[253];
+static Asset assets[265];
 static Asset talon_frames[13];
 typedef struct {
  bool valid;
@@ -352,7 +352,7 @@ static bool decode_tile(Sprite2_array bank,unsigned int index,Uint8 *indices,Uin
 static bool read_asset(Asset *a,int wanted)
 {
  char name[1024];
- const char *prefix=a->bank==9?"ship":a->bank==8?"bullet":a->bank==ASSET_NEWSH2?"enemy-newsh2":a->bank==ASSET_TALON_BANK?"talon-bank":a->bank==ASSET_EXPLOSION?"explosion-newsh6":"terrain-shapesz";
+ const char *prefix=a->bank==9?"ship":a->bank==8?"bullet":a->bank==ASSET_NEWSH2?"enemy-newsh2":a->bank==ASSET_NEWSHE?"enemy-newshe":a->bank==ASSET_TALON_BANK?"talon-bank":a->bank==ASSET_EXPLOSION?"explosion-newsh6":"terrain-shapesz";
  if(!game_probe_assets||snprintf(name,sizeof(name),"%s/%s-%d-%d.hda",game_probe_assets,prefix,a->index,wanted)>=(int)sizeof(name)) return false;
  FILE *f=fopen(name,"rb");if(!f)return false;
  Uint8 h[28]={0};bool ok=fread(h,1,sizeof(h),f)==sizeof(h)&&memcmp(h,"HDR1",4)==0;
@@ -692,19 +692,26 @@ static Asset *scene_asset(int slot,int role,int index,int anchor_x,int anchor_y)
 bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int base,int part,int filter)
 {
  if(!active||surface!=game_screen||reject_reason||!(game_probe_scene_assets&1))return false;
- bool source=false;
- for(int i=0;i<4;i++)if(enemySpriteSheetIds[i]==1&&bank.data==enemySpriteSheets[i].data)source=true;
+ int role=0;
+ for(int i=0;i<4;i++)if(bank.data&&bank.data==enemySpriteSheets[i].data) {
+  if(enemySpriteSheetIds[i]==1)role=ASSET_NEWSH2;
+  else if(enemySpriteSheetIds[i]==9)role=ASSET_NEWSHE;
+ }
  /* Existing ground201..209 and rotor210..217 remain unchanged. */
  int slot=base==267?243:base==269?244:base==271?245:base==81?231:base==83?232:base==119?233:base==121?234:(base>=229&&base<=243&&base%2==1)?210+(int)(base-229)/2:base==77?6:base==79?7:base==115?8:base==117?9:base==85?15:base==87?16:base==123?17:base==125?18:(base>=191&&base<=205&&base%2==1)?23+(int)(base-191)/2:-1;
- if(!source||slot<0)return false;
+ if(role==ASSET_NEWSHE) {
+  const unsigned int ids[12]={1,3,5,39,41,43,7,9,11,45,47,49};
+  slot=-1;for(int i=0;i<12;i++)if(base==ids[i])slot=253+i;
+ }
+ if(!role||slot<0)return false;
  int px=part==1||part==20?12:0,py=part==19||part==20?14:0;
  if(part!=0&&part!=1&&part!=19&&part!=20)return false;
- Asset *a=scene_asset(slot,ASSET_NEWSH2,(int)base,6,7);bool mirrored=false;
+ Asset *a=scene_asset(slot,role,(int)base,6,7);bool mirrored=false;
  if(a) {
   SDL_Rect quadrant={px,py,12,14};
   mirrored=draw_asset_filtered(x-px,y-py,a,MIRROR_NORMAL,&quadrant,(Uint8)filter);
  }
- game_probe_scene_draw(ASSET_NEWSH2,base,x,y,part,filter?3:MIRROR_NORMAL,mirrored);return mirrored;
+ game_probe_scene_draw(role,base,x,y,part,filter?3:MIRROR_NORMAL,mirrored);return mirrored;
 }
 
 void render_mirror_map_begin(char shape_file)

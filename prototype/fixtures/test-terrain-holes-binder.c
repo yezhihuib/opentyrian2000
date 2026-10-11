@@ -7,7 +7,7 @@
 #include <unistd.h>
 typedef uint8_t Uint8;
 typedef struct {int pitch;} SDL_Surface;
-enum {ASSET_NEWSH2=101,ASSET_TALON_BANK=109,ASSET_EXPLOSION=106,ASSET_SHAPESZ=201};
+enum {ASSET_NEWSH2=101,ASSET_TALON_BANK=109,ASSET_NEWSHE=110,ASSET_EXPLOSION=106,ASSET_SHAPESZ=201};
 enum {MIRROR_NORMAL,MIRROR_BLEND,MIRROR_SHADOW};
 #include "production-types.inc"
 #include "original-masks.inc"
@@ -90,7 +90,7 @@ static void nonterrain_untouched(void)
 int main(void)
 {
  load_actual();
- CHECK(sizeof(assets)/sizeof(*assets)==253);CHECK(sizeof(terrain_sources)/sizeof(*terrain_sources)==122);
+ CHECK(sizeof(assets)/sizeof(*assets)==265);CHECK(sizeof(terrain_sources)/sizeof(*terrain_sources)==122);
  for(unsigned int id=0;id<600;id++) {
   int e=-1;for(int j=0;j<2;j++)if(id==ids[j])e=slots[j];if(id==113)e=246;CHECK(terrain_holes_slot(id)==e);
   e=-1;for(int j=0;j<9;j++)if(id==road_ids[j])e=road_slots[j];CHECK(road_terrain_slot(id)==e);
