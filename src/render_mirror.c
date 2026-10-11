@@ -21,7 +21,7 @@ typedef struct {
 } Asset;
 enum { ASSET_NEWSH2=101, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106 };
 /* Finite layer2 cloud family: 15 new slots, existing slots unchanged. */
-static Asset assets[218];
+static Asset assets[220];
 static Asset talon_frames[13];
 typedef struct {
  bool valid;
@@ -661,6 +661,19 @@ bool render_mirror_entity(SDL_Surface *surface,int x,int y,Sprite2_array bank,un
   }
  }
  return a?draw_asset(x,y,a,style,NULL):false;
+}
+
+/* Enemy-only energy orb binding: shared numeric player IDs are not mapped. */
+bool render_mirror_enemy_shot(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int index)
+{
+ if(!active||surface!=game_screen||reject_reason||bank.data!=spriteSheet8.data||(index!=112&&index!=113)||game_probe_density==1||game_probe_missing||game_probe_invalid||!game_probe_assets)return false;
+ Asset *a=&assets[218+(int)index-112];
+ if(!a->initialized) {
+  a->initialized=true;a->bank=8;a->index=(int)index;a->w=12;a->h=14;a->anchor_x=0;a->anchor_y=0;
+  a->valid=read_asset(a,game_probe_density);
+  if(!a->valid&&game_probe_density==8)a->valid=read_asset(a,4);
+ }
+ return a->valid?draw_asset(x,y,a,MIRROR_NORMAL,NULL):false;
 }
 
 static Asset *scene_asset(int slot,int role,int index,int anchor_x,int anchor_y)

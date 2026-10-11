@@ -29154,7 +29154,7 @@
       }
     },
     "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 222,
+      "count": 224,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -32041,11 +32041,37 @@
           ],
           "source_png": "assets/hd/source/terrain-shapesz-120-8-774dffd6470c.png",
           "source_png_sha256": "73433dec7ddc7695cd96e6733a112928021b20728dfce703123c2980a47aba62"
+        },
+        "bullet-112-8.hda": {
+          "sha256": "22e2be2903bc897f2f2d674dc6f95e740f57a510110d8bbcd8df8e969ab5c6fd",
+          "header_u32": [
+            80112,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/bullet-112-8-22e2be2903bc.png",
+          "source_png_sha256": "c28da6740c5827bab6e2ab44faf0e5218fb8f033af7c6bc500d80167cf47405b"
+        },
+        "bullet-113-8.hda": {
+          "sha256": "185ae48dcc144f8222e26b3467e9dfea2de8f83de280a08fb2d9481fbf9b3924",
+          "header_u32": [
+            80113,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/bullet-113-8-185ae48dcc14.png",
+          "source_png_sha256": "49a4ef3fe0c25cb5cabe153a83d4cf72fc204c45872af83178521d33a902d412"
         }
       }
     },
     "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 226,
+      "count": 228,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -34984,6 +35010,32 @@
           ],
           "source_png": "assets/hd/source/terrain-shapesz-120-8-774dffd6470c.png",
           "source_png_sha256": "73433dec7ddc7695cd96e6733a112928021b20728dfce703123c2980a47aba62"
+        },
+        "bullet-112-8.hda": {
+          "sha256": "22e2be2903bc897f2f2d674dc6f95e740f57a510110d8bbcd8df8e969ab5c6fd",
+          "header_u32": [
+            80112,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/bullet-112-8-22e2be2903bc.png",
+          "source_png_sha256": "c28da6740c5827bab6e2ab44faf0e5218fb8f033af7c6bc500d80167cf47405b"
+        },
+        "bullet-113-8.hda": {
+          "sha256": "185ae48dcc144f8222e26b3467e9dfea2de8f83de280a08fb2d9481fbf9b3924",
+          "header_u32": [
+            80113,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/bullet-113-8-185ae48dcc14.png",
+          "source_png_sha256": "49a4ef3fe0c25cb5cabe153a83d4cf72fc204c45872af83178521d33a902d412"
         }
       }
     }
@@ -36368,6 +36420,18 @@
       "sha256": "73433dec7ddc7695cd96e6733a112928021b20728dfce703123c2980a47aba62",
       "RGBA_sha256": "b4a82f3f17c1541d679f4fcb9aeb8e830b508d20aef55d5439b36a3f02a809b4",
       "note": "Generated bounded brown plateau family, opaque registered edges"
+    },
+    "22e2be2903bc897f2f2d674dc6f95e740f57a510110d8bbcd8df8e969ab5c6fd": {
+      "path": "assets/hd/source/bullet-112-8-22e2be2903bc.png",
+      "sha256": "c28da6740c5827bab6e2ab44faf0e5218fb8f033af7c6bc500d80167cf47405b",
+      "RGBA_sha256": "530375ba2226f7ae81265bfbe2f0c53c1917479e34932e81a45067902bd34271",
+      "note": "Enemy-only energy orb112/113, no player binding"
+    },
+    "185ae48dcc144f8222e26b3467e9dfea2de8f83de280a08fb2d9481fbf9b3924": {
+      "path": "assets/hd/source/bullet-113-8-185ae48dcc14.png",
+      "sha256": "49a4ef3fe0c25cb5cabe153a83d4cf72fc204c45872af83178521d33a902d412",
+      "RGBA_sha256": "7c2b460f74f2838102de5729e3725c02510a19953526b994b0e67819472aff2b",
+      "note": "Enemy-only energy orb112/113, no player binding"
     }
   },
   "no_original_game_data": true,
@@ -36567,5 +36631,21 @@
     "bank": "shapesz.dat",
     "scope": "first522ticks brown plateau; no fulllevel claim",
     "source": "assets/hd/artwork/ground-nine-v1"
+  },
+  "enemy_orb112_113_v1": {
+    "IDs": [
+      112,
+      113
+    ],
+    "scope": "enemy-only normal tile at original sx,sy; player paths unchanged",
+    "logical_size": [
+      12,
+      14
+    ],
+    "anchor": [
+      0,
+      0
+    ],
+    "source": "assets/hd/artwork/enemy-orb112-113-v1"
   }
 }

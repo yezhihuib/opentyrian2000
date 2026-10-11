@@ -1,0 +1,116 @@
+{
+  "natural": {
+    "orb-family4x": {
+      "attempts": 349,
+      "HD": 349,
+      "112": 168,
+      "113": 181,
+      "all_surviving_shot_origins_match_once": true
+    },
+    "orb-family2x": {
+      "attempts": 349,
+      "HD": 349,
+      "112": 168,
+      "113": 181,
+      "all_surviving_shot_origins_match_once": true
+    },
+    "no_orb_RGB_exact_ticks": [
+      880,
+      881,
+      882,
+      883,
+      884,
+      885,
+      886,
+      887,
+      888,
+      948,
+      949,
+      950,
+      951,
+      952,
+      953,
+      954,
+      955,
+      956,
+      957,
+      958
+    ],
+    "enemy_shot_collisions": 9
+  },
+  "oracle": {
+    "source_files": {
+      "render_mirror.c": {
+        "path": "/workspace/scratch/f67dd347fa0a/opentyrian2000-cloud/src/render_mirror.c",
+        "sha256": "2a12ce3281bcd2ce1f73785c6a4ede32aaa67ecacec9919f7765959ef670e38d",
+        "stable_during_test": true
+      },
+      "entity_draw.c": {
+        "path": "/workspace/scratch/f67dd347fa0a/opentyrian2000-cloud/src/entity_draw.c",
+        "sha256": "df2c62eb7a8336428ceaffadd97b9e344d93c3c324d462740a719887496136f8",
+        "stable_during_test": true
+      },
+      "sprite.c": {
+        "path": "/workspace/scratch/f67dd347fa0a/opentyrian2000-cloud/src/sprite.c",
+        "sha256": "88b39372125c666c03dcadc876df539525e3efdce3aa485bfa30daf8fa2c15fc",
+        "stable_during_test": true
+      },
+      "tyrian2.c": {
+        "path": "/workspace/scratch/f67dd347fa0a/opentyrian2000-cloud/src/tyrian2.c",
+        "sha256": "6e7dba70f1555c56676c4817a56d46e1add40004077b8c1527ea89da0c18b8d3",
+        "stable_during_test": true
+      },
+      "render_mirror.h": {
+        "path": "/workspace/scratch/f67dd347fa0a/opentyrian2000-cloud/src/render_mirror.h",
+        "sha256": "cab9f189bdb897f20a7415e99147cd5a0791d61da100a43c89f5c7f430b4e330",
+        "stable_during_test": true
+      },
+      "entity_draw.h": {
+        "path": "/workspace/scratch/f67dd347fa0a/opentyrian2000-cloud/src/entity_draw.h",
+        "sha256": "33f32173d1861d3b23d61dbe6275d2598d4dbab264239ff0fc094d7b5b37df56",
+        "stable_during_test": true
+      }
+    },
+    "harness_sha256": {
+      "test-enemy-orb.py": "0dfb0ead063b2ad86605139041a7a71ab9ed7f88f46a99d89964cdeea1f1bf01",
+      "test-enemy-orb.c": "e9815a6beae36f33348f02538667d88595a84b798ce8219e0c97b8622d352439"
+    },
+    "disabled_build_exit_code": 0,
+    "sanitize": true,
+    "leak_sanitizer": "disabled under ptrace",
+    "exit_code": 0,
+    "elapsed_seconds": 2.1948958249995485,
+    "stdout": "PASS density4 source4: both phases, original indexed blit once, reset once, alpha, clips, cloud/green/foreground ordering\nPASS density8 source8: both phases, original indexed blit once, reset once, alpha, clips, cloud/green/foreground ordering\nPASS density8 source4: both phases, original indexed blit once, reset once, alpha, clips, cloud/green/foreground ordering\nPASS 46024704 pixel comparisons, 108 wrappers, 18 clipped helpers, 783 scope guards; missing/header/classic/player-isolation tests\n",
+    "stderr": "",
+    "scope": "Actual extracted mirror helper, wrapper and original RLE blitter. Synthetic HDA/RLE source assets, independent byte-channel/index oracles. No production edits or runtime captures."
+  },
+  "source_sha256": {
+    "render_mirror.c": "2a12ce3281bcd2ce1f73785c6a4ede32aaa67ecacec9919f7765959ef670e38d",
+    "render_mirror.h": "cab9f189bdb897f20a7415e99147cd5a0791d61da100a43c89f5c7f430b4e330",
+    "entity_draw.c": "df2c62eb7a8336428ceaffadd97b9e344d93c3c324d462740a719887496136f8",
+    "entity_draw.h": "33f32173d1861d3b23d61dbe6275d2598d4dbab264239ff0fc094d7b5b37df56",
+    "tyrian2.c": "6e7dba70f1555c56676c4817a56d46e1add40004077b8c1527ea89da0c18b8d3"
+  },
+  "PNG_rebuild_exact": 2,
+  "missing_each": {
+    "HD": 8,
+    "original": 8
+  },
+  "missing_all": {
+    "original": 349,
+    "RGB_state_exact": true
+  },
+  "desktop": {
+    "scale": 4,
+    "paused": 889,
+    "end": 897,
+    "exit": 0
+  },
+  "motion": {
+    "first": 889,
+    "last": 1008,
+    "frames": 120,
+    "lossless_hashes_exact": true,
+    "noncapture_RGB_state_exact": true
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "identity": "enemy-only-bank8-orb112-113-hd-v1",
+  "bank": "tyrian.shp spriteSheet8",
+  "scope": "ENEMY SHOTS ONLY; do not bind player112/113/114 or newsh6 same IDs",
+  "sprite_ids": [
+    112,
+    113
+  ],
+  "logical_size": [
+    12,
+    14
+  ],
+  "anchor": [
+    0,
+    0
+  ],
+  "density": 8,
+  "source_size": [
+    96,
+    112
+  ],
+  "original_occupied_bbox": [
+    3,
+    4,
+    10,
+    11
+  ],
+  "first_visible_order": [
+    113,
+    112
+  ],
+  "timing": "Original enemy update preincrement and animax2; no change",
+  "draw_origin": "Original enemyShot.sx,sy; no +1 player offset and no separate shadow",
+  "blend": "Normal authored alpha over current RGB; no added additive/palette blend",
+  "transform": {
+    "atlas": "readability-atlas.png",
+    "origin": [
+      112,
+      117
+    ],
+    "pitch_x": 815,
+    "window": [
+      576,
+      672
+    ],
+    "resize": [
+      96,
+      112
+    ],
+    "resampler": "Lanczos",
+    "shared_family_grid": true,
+    "runtime_anchor_change": false
+  },
+  "frames": [
+    {
+      "id": 112,
+      "crop": [
+        112,
+        117,
+        688,
+        789
+      ],
+      "bbox16": [
+        24,
+        33,
+        81,
+        87
+      ],
+      "luma": 156956.87392705883,
+      "luma_center_edgecoords": [
+        52.045494834588645,
+        60.01006033301053
+      ],
+      "max_edge_alpha": 1,
+      "sha256": "c28da6740c5827bab6e2ab44faf0e5218fb8f033af7c6bc500d80167cf47405b"
+    },
+    {
+      "id": 113,
+      "crop": [
+        927,
+        117,
+        1503,
+        789
+      ],
+      "bbox16": [
+        23,
+        33,
+        81,
+        87
+      ],
+      "luma": 206491.62080705882,
+      "luma_center_edgecoords": [
+        52.1020510347653,
+        59.95725473707154
+      ],
+      "max_edge_alpha": 0,
+      "sha256": "49a4ef3fe0c25cb5cabe153a83d4cf72fc204c45872af83178521d33a902d412"
+    }
+  ],
+  "source_sha256": "fac81159e8946e384f76670a27315162cd4ddef83996dae0f0fb6161df27d3fe",
+  "qa": "Native point4x/2x black/light/brown captured-background preview.113 brighter; phase light-center difference<0.01logical. Extracted PNG rebuild byte-exact. Actual enemy-path test pending.",
+  "reference": "Complete two-frame loaded-table/native-source audit; original reference PNGs excluded from distributable source."
+}

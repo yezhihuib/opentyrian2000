@@ -36,3 +36,17 @@ void draw_entity_sprite2(SDL_Surface *target, int x, int y,
 	}
 	render_mirror_entity_end();
 }
+
+/* The indexed original always executes once, even after successful HD output. */
+void draw_enemy_shot_sprite2(SDL_Surface *target,int x,int y,Sprite2_array bank,unsigned int index)
+{
+ bool mirrored=render_mirror_enemy_shot(target,x,y,bank,index);
+#ifndef RENDER_MIRROR_DISABLED
+ if(bank.data==spriteSheet8.data&&(index==112||index==113))
+  game_probe_scene_draw(108,index,x,y,0,ENTITY_NORMAL,mirrored);
+#else
+ (void)mirrored;
+#endif
+ blit_sprite2(target,x,y,bank,index);
+ render_mirror_entity_end();
+}

@@ -14,6 +14,10 @@ BASE = b'int x = 1;\nint y = 2;\n'
 OVERRIDE = b'/* exact archived override */\r\n'
 BINDING = b'\t\t\t\trender_mirror_bind_terrain(2,z+1,megaData2.shapes[x].sh);\n'
 
+ENEMY_BRANCH = b'\t\t\t\t\t\t{\n\t\t\t\t\t\t\tunsigned int sprite = enemyShot[z].sgr + enemyShot[z].animate;\n\t\t\t\t\t\t\tif (sprite == 112 || sprite == 113)\n\t\t\t\t\t\t\t\tdraw_enemy_shot_sprite2(VGAScreen, enemyShot[z].sx, enemyShot[z].sy, spriteSheet8, sprite);\n\t\t\t\t\t\t\telse\n\t\t\t\t\t\t\t\tblit_sprite2(VGAScreen, enemyShot[z].sx, enemyShot[z].sy, spriteSheet8, sprite);\n\t\t\t\t\t\t}\n'
+ORIGINAL_ENEMY_DRAW = b'\t\t\t\t\t\t\tblit_sprite2(VGAScreen, enemyShot[z].sx, enemyShot[z].sy, spriteSheet8, enemyShot[z].sgr + enemyShot[z].animate);\n'
+ENEMY_DECLARATION = b'/* Dedicated surviving enemy-shot normal tile; no player-shadow binding. */\nvoid draw_enemy_shot_sprite2(SDL_Surface *, int x, int y, Sprite2_array, unsigned int index);\n\n'
+
 
 class PrepareEffectsTests(unittest.TestCase):
     def setUp(self):
@@ -76,6 +80,9 @@ class PrepareEffectsTests(unittest.TestCase):
     def test_lf_checkout_against_windows_manifest(self):
         self.assert_prepares_unchanged(BASE, BASE.replace(b'\n', b'\r\n'))
 
+    def test_crlf_checkout_against_lf_manifest(self):
+        self.assert_prepares_unchanged(BASE.replace(b'\n', b'\r\n'), BASE)
+
     def test_mixed_line_endings_against_windows_manifest(self):
         mixed = BASE.replace(b'\n', b'\r\n', 1)
         self.assert_prepares_unchanged(mixed, BASE.replace(b'\n', b'\r\n'))
@@ -126,9 +133,54 @@ class PrepareEffectsTests(unittest.TestCase):
         self.assertNotEqual(result.returncode, 0)
         self.assertIn('Production base changed', result.stderr)
 
+    def test_enemy_hooks_restore_exact_archival_bytes(self):
+        cases = (
+            ('enemy-only', 'src/tyrian2.c', BASE + ENEMY_BRANCH,
+             BASE + ORIGINAL_ENEMY_DRAW),
+            ('cloud-and-enemy', 'src/tyrian2.c', BASE + BINDING + ENEMY_BRANCH,
+             BASE + ORIGINAL_ENEMY_DRAW),
+            ('enemy-declaration', 'src/entity_draw.h', BASE + ENEMY_DECLARATION, BASE),
+        )
+        for label, rel, production, archived in cases:
+            for newline in (b'\n', b'\r\n'):
+                with self.subTest(case=label, newline=newline):
+                    data = production.replace(b'\n', newline)
+                    self.configure(production=data, expected=archived, rel=rel)
+                    output = self.root / (label + ('-lf' if newline == b'\n' else '-crlf'))
+                    result = self.prepare(output)
+                    self.assertEqual(result.returncode, 0, result.stderr)
+                    self.assertEqual((output / rel).read_bytes(), archived.replace(b'\n', newline))
+                    self.assertEqual((self.repo / rel).read_bytes(), data)
+                    self.assertEqual((output / 'src/override.c').read_bytes(), OVERRIDE)
+
+    def test_enemy_hook_allowlist_rejects_unknown_or_duplicate_changes(self):
+        cases = (
+            ('duplicate-branch', 'src/tyrian2.c', BASE + ENEMY_BRANCH * 2,
+             BASE + ORIGINAL_ENEMY_DRAW),
+            ('mixed-duplicate-branch', 'src/tyrian2.c', BASE + ENEMY_BRANCH + ENEMY_BRANCH.replace(b'\n', b'\r\n'),
+             BASE + ORIGINAL_ENEMY_DRAW),
+            ('changed-index', 'src/tyrian2.c', BASE + ENEMY_BRANCH.replace(b'113', b'114'),
+             BASE + ORIGINAL_ENEMY_DRAW),
+            ('changed-existing-code', 'src/tyrian2.c', BASE.replace(b'1', b'3') + BINDING + ENEMY_BRANCH,
+             BASE + ORIGINAL_ENEMY_DRAW),
+            ('duplicate-declaration', 'src/entity_draw.h', BASE + ENEMY_DECLARATION * 2, BASE),
+            ('changed-declaration', 'src/entity_draw.h', BASE + ENEMY_DECLARATION.replace(b'unsigned int', b'int'), BASE),
+            ('extra-header-edit', 'src/entity_draw.h', BASE + ENEMY_DECLARATION + b'int extra;\n', BASE),
+            ('wrong-file', 'src/base.c', BASE + ENEMY_DECLARATION, BASE),
+        )
+        for label, rel, production, archived in cases:
+            with self.subTest(case=label):
+                self.configure(production=production, expected=archived, rel=rel)
+                output = self.root / label
+                result = self.prepare(output)
+                self.assertNotEqual(result.returncode, 0)
+                self.assertIn('Production base changed', result.stderr)
+                self.assertFalse(output.exists())
+
     def test_green_review_restores_current_production_binding(self):
-        production = BASE + BINDING
-        self.configure(production=production, rel='src/tyrian2.c')
+        production = BASE + BINDING + ENEMY_BRANCH
+        self.configure(production=production, expected=BASE + ORIGINAL_ENEMY_DRAW,
+                       rel='src/tyrian2.c')
         renderer = b'/* CURRENT */\n/* Display grouping requires */\nbool green_blend=explosion_blend&&a->index>=78&&a->index<=84;\n'
         archive = b'/* Private read-only green-trail matrix observer; */\n/* OBSERVER */\n/* Display grouping requires */\n'
         (self.repo / 'src/render_mirror.c').write_bytes(renderer)
@@ -136,8 +188,19 @@ class PrepareEffectsTests(unittest.TestCase):
         manifest_path = self.fixture / 'manifest.json'
         manifest = json.loads(manifest_path.read_text())
         manifest['tested_exact_source_overrides']['src/render_mirror.c'] = hashlib.sha256(archive).hexdigest()
+        archive_header = b'void ae_before(SDL_Surface*,int,int,Sprite2_array,unsigned int,int);\nvoid ae_after_mirror(bool);\nvoid ae_after_original(void);\n'
+        (self.fixture / 'overrides/src/render_mirror.h').write_bytes(archive_header)
+        manifest['tested_exact_source_overrides']['src/render_mirror.h'] = hashlib.sha256(archive_header).hexdigest()
         manifest_path.write_text(json.dumps(manifest))
-        (self.repo / 'src/entity_draw.c').write_text('\tgame_probe_draw(role,index,x,y,style,layout,mirrored);\n')
+        current_entity = ('\tbool mirrored=render_mirror_entity(target,x,y,bank,index,style,layout);\n'
+                          '\tgame_probe_draw(role,index,x,y,style,layout,mirrored);\n'
+                          '\tif (layout == ENTITY_QUAD)\n'
+                          '\trender_mirror_entity_end();\n'
+                          'void draw_enemy_shot_sprite2(void) { render_mirror_enemy_shot(); }\n')
+        (self.repo / 'src/entity_draw.c').write_text(current_entity)
+        (self.repo / 'src/entity_draw.h').write_bytes(BASE + ENEMY_DECLARATION)
+        current_render_header = b'bool render_mirror_enemy_shot(void);\n'
+        (self.repo / 'src/render_mirror.h').write_bytes(current_render_header)
         review = self.script.with_name('prepare-green-review.py')
         shutil.copy2(PREPARE.with_name(review.name), review)
         output = self.root / 'review'
@@ -149,6 +212,12 @@ class PrepareEffectsTests(unittest.TestCase):
         self.assertIn('/* CURRENT */', prepared_renderer)
         self.assertIn('/* OBSERVER */', prepared_renderer)
         self.assertIn('OT_GREEN_POINT_BASELINE', prepared_renderer)
+        self.assertEqual((output / 'src/entity_draw.h').read_bytes(), BASE + ENEMY_DECLARATION)
+        self.assertIn(current_render_header.decode(), (output / 'src/render_mirror.h').read_text())
+        prepared_entity = (output / 'src/entity_draw.c').read_text()
+        self.assertIn('void draw_enemy_shot_sprite2(void) { render_mirror_enemy_shot(); }', prepared_entity)
+        for hook in ('ae_before(target', 'ae_after_mirror(mirrored)', 'ae_after_original()', 'green-head-draws.tsv'):
+            self.assertEqual(prepared_entity.count(hook), 1)
 
     def test_content_changes_are_rejected_before_creating_output(self):
         changes = {
@@ -174,6 +243,7 @@ class PrepareEffectsTests(unittest.TestCase):
             'line_endings': OVERRIDE.replace(b'\r\n', b'\n'),
             'content': OVERRIDE.replace(b'exact', b'changed'),
             'reviewed_binding': OVERRIDE + BINDING,
+            'reviewed_enemy_declaration': OVERRIDE + ENEMY_DECLARATION,
         }.items():
             with self.subTest(change=label):
                 self.configure(override=override)

@@ -23,3 +23,5 @@ Cloud-floor shadow oracle: `python prototype/fixtures/test-cloud-shadow.py --san
 Physical rotor enemy mapping/filter coverage: `python prototype/fixtures/test-rotor-enemy.py --sanitize --output NEW_EXTERNAL_DIRECTORY`. The test reads current production functions, creates synthetic assets in a temporary directory, and writes reports outside the checkout. See `docs/ROTOR_ENEMY_VALIDATION.md` for actual scene, missing-frame and private reverse/hit diagnostic results.
 
 Finite ground binder: `python prototype/fixtures/test-ground-binder.py --sanitize --output NEW_EXTERNAL_DIRECTORY`. Tests the current layer/bank/ID whitelist, nine slots, capacity, missing/invalid assets, existing ground/cloud paths and fallback trace preservation. Runtime scope is documented in `docs/GROUND_NINE_VALIDATION.md`.
+
+Enemy-only orb112/113: `python prototype/fixtures/test-enemy-orb.py --sanitize --output NEW_EXTERNAL_DIRECTORY`. Extracts the real wrapper, mirror helper and original RLE blitter to verify indexed parity, exactly-once blit/reset, finite source scope and ownership. See `docs/ENEMY_ORB_VALIDATION.md` for actual lifecycle and native evidence.
