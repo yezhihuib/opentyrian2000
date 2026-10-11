@@ -1,7 +1,17 @@
 """ASan/UBSan pixel oracle for the unchanged real production terrain compositor."""
 from pathlib import Path
 import argparse, re, subprocess, tempfile, os, json, hashlib
-TOOLS=Path(__file__).resolve().parent;ROOT=TOOLS.parents[1]
+
+# Test-only retention: keep synthetic inputs/executables instead of deleting them.
+class RetainedDirectory:
+    def __init__(self, *args, **kwargs):
+        self.name = tempfile.mkdtemp(*args, **kwargs)
+    def __enter__(self):
+        return self.name
+    def __exit__(self, *args):
+        print('Retained synthetic work:', self.name)
+
+TOOLS=Path(__file__).resolve().parent;ROOT=Path(__file__).resolve().parents[2]
 p=argparse.ArgumentParser(description=__doc__);p.add_argument('--source',type=Path,default=ROOT);p.add_argument('--assets',type=Path,default=ROOT/'assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test');p.add_argument('--report',type=Path);a=p.parse_args()
 source=(a.source/'src/render_mirror.c').read_text()
 def extract(name):
@@ -36,7 +46,7 @@ def prepare_assets(directory, assets):
     (directory/'original-masks.inc').write_text('/* Support derived from approved authored assets, not bundled game data. */\nstatic const Uint8 original_masks[9][672]={'+','.join('{'+','.join(map(str,m))+'}' for m in masks)+'};\n')
     return reports
 
-with tempfile.TemporaryDirectory(prefix='terrain-next-seven-alpha-') as d:
+with RetainedDirectory(prefix='terrain-next-seven-alpha-') as d:
     tmp=Path(d);(tmp/'production-asset.inc').write_text(asset+'\n');(tmp/'production-alpha.inc').write_text('\n'.join(extract(n) for n in functions))
     asset_report=prepare_assets(tmp,a.assets)
     cmd=['cc','-std=c99','-O1','-g','-Wall','-Wextra','-Werror','-fsanitize=address,undefined','-fno-omit-frame-pointer','-I'+str(tmp),str(Path(__file__).with_suffix('.c')),'-o',str(tmp/'test')]

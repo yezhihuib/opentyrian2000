@@ -1,0 +1,62 @@
+{
+  "status": "PASS",
+  "count": 9,
+  "all_rejected": true,
+  "scope": "Disposable copies only; package untouched. Checks performed without inventory so source/selected scope gates must reject independently.",
+  "items": [
+    {
+      "case": "existing output directory",
+      "rejected": true,
+      "exit_code": 1,
+      "diagnostic": "Rebuild failed: Output root must be a new directory"
+    },
+    {
+      "case": "output nested inside immutable package",
+      "rejected": true,
+      "exit_code": 1,
+      "diagnostic": "Rebuild failed: Output root must be outside the immutable source package"
+    },
+    {
+      "case": "canonical source RGBA modified",
+      "rejected": true,
+      "exit_code": 1,
+      "diagnostic": "Rebuild failed: Authored PNG differs: 156"
+    },
+    {
+      "case": "canonical fringe strip modified",
+      "rejected": true,
+      "exit_code": 1,
+      "diagnostic": "Rebuild failed: Canonical fringe strip differs: 176"
+    },
+    {
+      "case": "canonical v3 helper modified",
+      "rejected": true,
+      "exit_code": 1,
+      "diagnostic": "Rebuild failed: Input differs: match_exposed_connector.cpp"
+    },
+    {
+      "case": "canonical v4 helper modified",
+      "rejected": true,
+      "exit_code": 1,
+      "diagnostic": "Rebuild failed: Frozen fringe helper differs"
+    },
+    {
+      "case": "committed selected PNG modified",
+      "rejected": true,
+      "exit_code": 1,
+      "diagnostic": "Rebuild failed: Frozen selected PNG hash differs: 176"
+    },
+    {
+      "case": "committed HDA header modified",
+      "rejected": true,
+      "exit_code": 1,
+      "diagnostic": "Rebuild failed: Rebuilt HDA differs: 176"
+    },
+    {
+      "case": "unexpected actor PNG in output",
+      "rejected": true,
+      "exit_code": 1,
+      "diagnostic": "Rebuild failed: Selected PNG scope differs"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "selection": "v4 terrain backing fringe over retained accepted v3 connector tone",
+  "selected_manifest_sha256": "8b0d2ad2f11125657f5fea3739c5fae9368cc12a0e0e512919fc73ed5b936f3a",
+  "root_offline_acceptance": {
+    "fringe_amplitude": true,
+    "source": "Parent task instructions"
+  },
+  "actual_120_frame_replay": "PASS ticks2540..2659",
+  "runtime_acceptance": "PASS: bounded actual120-frame replay, private-survival plus controlled independent removals; no universal gameplay claim",
+  "scope": "Only terrain176/177/178 RGB rows208..223, cap28; 10 other terrain outputs remain exact v3",
+  "actor_changes": "Outside this package",
+  "repository_and_integration": "Engineer-owned; no main checkout edits, Git operation, publication or game run in packaging task",
+  "rollback": "Formal v3 unchanged; independently hash-verified",
+  "runtime_evidence": "verification/runtime-acceptance.json"
+}

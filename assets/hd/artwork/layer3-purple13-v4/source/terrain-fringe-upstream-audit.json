@@ -1,0 +1,57 @@
+{
+  "source_audit_sha256": "493579b1002859beda7a540fcd96bab7ce229e044d88c07b18a59b35607a97ce",
+  "scope": "Terrain excerpt only; original audit also covers three actor frames, which are outside this package.",
+  "items": [
+    {
+      "role": "terrain",
+      "id": 176,
+      "src": "tyrian-background-redraw/layer3-purple13-v3/output/terrain-shapesz-176-8.png",
+      "proposal": "tyrian-background-redraw/layer3-purple13-fringe-v4-proposal/output/terrain-shapesz-176-8.png",
+      "rgba_sha256": "8c359024c1bd60a4d994d3880b1296aecdc62ab415bd2455eeb8e408251a2de0",
+      "png_sha256": "4d9012d44f1c853209730fd2b0cf121cdb97e6e288a53e30c0975120cff6f2cb",
+      "changed_pixels": 2617,
+      "changed_bbox": [
+        0,
+        208,
+        192,
+        224
+      ],
+      "max_rgb_delta": 28,
+      "strip_rebuild_exact": true
+    },
+    {
+      "role": "terrain",
+      "id": 177,
+      "src": "tyrian-background-redraw/layer3-purple13-v3/output/terrain-shapesz-177-8.png",
+      "proposal": "tyrian-background-redraw/layer3-purple13-fringe-v4-proposal/output/terrain-shapesz-177-8.png",
+      "rgba_sha256": "a880156d97c997c27b781d845e440ececa729c0a8c571390aae5feeb7bd0e24b",
+      "png_sha256": "4d149155ef2e163c0a4c3430e7d2067bfe5bca19aa58cbd87b6ff0341f878e06",
+      "changed_pixels": 2706,
+      "changed_bbox": [
+        0,
+        208,
+        192,
+        224
+      ],
+      "max_rgb_delta": 28,
+      "strip_rebuild_exact": true
+    },
+    {
+      "role": "terrain",
+      "id": 178,
+      "src": "tyrian-background-redraw/layer3-purple13-v3/output/terrain-shapesz-178-8.png",
+      "proposal": "tyrian-background-redraw/layer3-purple13-fringe-v4-proposal/output/terrain-shapesz-178-8.png",
+      "rgba_sha256": "177049d23d9dbaad9f90b3282258d69a77cb34bd5427cd2deb12350a2e131e24",
+      "png_sha256": "2ea29b6e9624e931ad7fadfb07c93f2ca010b3ed4091af95d2f0c4801f071909",
+      "changed_pixels": 2732,
+      "changed_bbox": [
+        0,
+        208,
+        192,
+        224
+      ],
+      "max_rgb_delta": 28,
+      "strip_rebuild_exact": true
+    }
+  ]
+}

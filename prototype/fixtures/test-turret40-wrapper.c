@@ -73,7 +73,7 @@ int main(int argc,char**argv)
  Sprite2_array bank={(size_t)len,malloc((size_t)len)};assert(bank.data);assert(fread(bank.data,1,bank.size,f)==bank.size);fclose(f);
  SDL_PixelFormat format={8};SDL_Surface screen={64,64,64,calloc(64*64,1),&format};VGAScreen=&screen;
  enemy[0].sprite2s=&bank;enemySpriteSheets[0]=bank;enemySpriteSheetIds[0]=9;
- const int ids[]={49,51,89,127,1,3,5,39,41,43,7,9,11,45,47,49,77,79,115,117,85,87,123,125,191,193,195,197,199,201,203,205,229,231,233,235,237,239,241,243,81,83,119,121,267,269,271,153,155,157};
+ const int ids[]={49,51,89,127,1,3,5,39,41,43,7,9,11,45,47,49,77,79,115,117,85,87,123,125,191,193,195,197,199,201,203,205,229,231,233,235,237,239,241,243,81,83,119,121,267,269,271,153,155,157,169,207,245,273,275,277,279,281,283};
  for(unsigned j=0;j<sizeof(ids)/sizeof(*ids);j++)for(int k=0;k<4;k++)for(int filter=0;filter<256;filter++)for(int mirrored=0;mirrored<2;mirrored++){
   enemySpriteSheetIds[0]=(j>=4&&j<16)?9:1;
   int part=(int[]){0,1,19,20}[k],hue=filter;
@@ -83,5 +83,5 @@ int main(int argc,char**argv)
  for(phase_under_test=0;phase_under_test<9;phase_under_test++)for(int k=0;k<4;k++)for(int filter=0;filter<256;filter++)for(int mirrored=0;mirrored<2;mirrored++)
   exercise(turret_phases[phase_under_test],(int[]){0,1,19,20}[k],filter,5,7,mirrored);
  free(bank.data);free(screen.pixels);
- printf("PASS %llu production wrapper cases: all50 bindings/all quadrants/all256 filters and exact9-phase wrapper selection; original indexed filtered/unfiltered bytes exact, HD success/fallback, upper/lower-edge clipping, original blit once, end once, no enemy-state mutation\n",checks);return 0;
+ printf("PASS %llu production wrapper cases: all59 bindings/all quadrants/all256 filters and exact9-phase wrapper selection; original indexed filtered/unfiltered bytes exact, HD success/fallback, upper/lower-edge clipping, original blit once, end once, no enemy-state mutation\n",checks);return 0;
 }

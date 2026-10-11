@@ -1,0 +1,314 @@
+{
+  "package": "formal-layer3-purple13-v3",
+  "manifest_sha256": "b733a687a181ab6f1d7ec8d5d6bafdd4af91cd4d9c4cc956de4293ad3ee0b26a",
+  "file_count_excluding_inventory": 61,
+  "total_bytes_excluding_inventory": 4010530,
+  "inventory_self_hash_excluded": true,
+  "files": [
+    {
+      "path": "OWNERSHIP.md",
+      "bytes": 1471,
+      "sha256": "3bd348982dc265a88fa8a0fa20f86b53b4114c99245532420dcf6a9eadd790f7"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6891,
+      "sha256": "9f6c878bdfe7cb6bcde88a030db881e9104f89deaf8f9c265a75bddbc2713fee"
+    },
+    {
+      "path": "output/terrain-shapesz-150-8.png",
+      "bytes": 84514,
+      "sha256": "f68a22de161af0ff55147887681d35421da547f355f0549ae964fb6112563514"
+    },
+    {
+      "path": "output/terrain-shapesz-156-8.png",
+      "bytes": 62944,
+      "sha256": "52b5cfb36651bd6a376fed0295f5e1e03f2d7e0b28834eaea27cf1d5ec64ceb6"
+    },
+    {
+      "path": "output/terrain-shapesz-157-8.png",
+      "bytes": 61805,
+      "sha256": "442328eedd72d754b3902fc0e67ea133a835315ca7a80d041cebd86a02357b8c"
+    },
+    {
+      "path": "output/terrain-shapesz-158-8.png",
+      "bytes": 62481,
+      "sha256": "815937b8fc649ef0f9b1b1ab296addfbc4b03f24ce1b2005bbea101ce6fc29cf"
+    },
+    {
+      "path": "output/terrain-shapesz-159-8.png",
+      "bytes": 59017,
+      "sha256": "3ce650f3fd92dee4ef16c7340c28bdc37d09de85374eb6106b5e9996342448be"
+    },
+    {
+      "path": "output/terrain-shapesz-160-8.png",
+      "bytes": 60631,
+      "sha256": "8df1008d456fd711248857985f2556b5521e06a49d81a970b312cd642a8d0db3"
+    },
+    {
+      "path": "output/terrain-shapesz-166-8.png",
+      "bytes": 71835,
+      "sha256": "d0a11b00ac96f8766e6bf94022e388cb26e7985c8cb29433f7bb428b9eb6d414"
+    },
+    {
+      "path": "output/terrain-shapesz-168-8.png",
+      "bytes": 67733,
+      "sha256": "380884c8b0ce5f8f7223559310eba1c3cf82e82e6c4fb63462f8bdd7affcbf7e"
+    },
+    {
+      "path": "output/terrain-shapesz-169-8.png",
+      "bytes": 61968,
+      "sha256": "5139b4ae91b39f581712ba99fd8955979b8f9040d497a4770767f2b4e38d5b3c"
+    },
+    {
+      "path": "output/terrain-shapesz-170-8.png",
+      "bytes": 61116,
+      "sha256": "82629203860df9314b44dfdb2078c265d5e5c2782c6d45c377fbae726eaf873e"
+    },
+    {
+      "path": "output/terrain-shapesz-176-8.png",
+      "bytes": 68758,
+      "sha256": "41279ccdd55eef9ac697c0e06bd745b955e4244b1f9215c8873c3480ff95e356"
+    },
+    {
+      "path": "output/terrain-shapesz-177-8.png",
+      "bytes": 69640,
+      "sha256": "372631b8304615b4c0898a45c63b4a8a70649058b9fb592974a45cbaee0bbe17"
+    },
+    {
+      "path": "output/terrain-shapesz-178-8.png",
+      "bytes": 69392,
+      "sha256": "3cb02c6522a3afddda3ade901f3446fe2bfa1ea905cba17cd859b4725ac3b677"
+    },
+    {
+      "path": "prompts/coherent-foundation-family-v1.txt",
+      "bytes": 2477,
+      "sha256": "2d0c1e40eb4a1cb30ca42fbb9c4bb55f579c09697695a311b4d31726389c3d6f"
+    },
+    {
+      "path": "prompts/partner-intact-installation-v1.txt",
+      "bytes": 2307,
+      "sha256": "1e3eb26e4d40bbc2f8111603e613f0870fce0070ca7681b6b48e022a951ef98a"
+    },
+    {
+      "path": "rebuild-selected.sh",
+      "bytes": 282,
+      "sha256": "d769ef17021b3ec6017ab757f77ec6aeb8ea5a5737829539b4498d0e44a3a991"
+    },
+    {
+      "path": "runtime-overlay/manifest.json",
+      "bytes": 8521,
+      "sha256": "b733a687a181ab6f1d7ec8d5d6bafdd4af91cd4d9c4cc956de4293ad3ee0b26a"
+    },
+    {
+      "path": "runtime-overlay/terrain-shapesz-150-8.hda",
+      "bytes": 172060,
+      "sha256": "3364c17de6b2dad8b43048a49c0036a2caf4d49e997acbc2783124f9f6395ae4"
+    },
+    {
+      "path": "runtime-overlay/terrain-shapesz-156-8.hda",
+      "bytes": 172060,
+      "sha256": "6d61b64573e36771a5e79be005201d65294dc62787c4478d2c77d048b2bccd65"
+    },
+    {
+      "path": "runtime-overlay/terrain-shapesz-157-8.hda",
+      "bytes": 172060,
+      "sha256": "ba5eaf7164fc2715611c7aa1e3dbacae9e7b819c0c11b52b81bac2508b537e71"
+    },
+    {
+      "path": "runtime-overlay/terrain-shapesz-158-8.hda",
+      "bytes": 172060,
+      "sha256": "3ed755f5dbc6ba3b176c63111f6d0f80cbd0eb9f95b9169878ce4c9cc0d4f467"
+    },
+    {
+      "path": "runtime-overlay/terrain-shapesz-159-8.hda",
+      "bytes": 172060,
+      "sha256": "a34c25db6a2ce283763637e1ca0ad1cd754d29787be9ac6c004b4d3b18dfdb04"
+    },
+    {
+      "path": "runtime-overlay/terrain-shapesz-160-8.hda",
+      "bytes": 172060,
+      "sha256": "9ac510581bf6991a8823837917cee0982b519b0db42b70bd076bf9b82c29195a"
+    },
+    {
+      "path": "runtime-overlay/terrain-shapesz-166-8.hda",
+      "bytes": 172060,
+      "sha256": "a571d62a99e831eafd62bc8ae949ff0676304e33458e6afe62f8eced44c7570e"
+    },
+    {
+      "path": "runtime-overlay/terrain-shapesz-168-8.hda",
+      "bytes": 172060,
+      "sha256": "2978e18d7d6179bc25af8f8b8c9538944abe142a4fe7369eac3aefc53ff4bbaa"
+    },
+    {
+      "path": "runtime-overlay/terrain-shapesz-169-8.hda",
+      "bytes": 172060,
+      "sha256": "c3328d793f2c1a24ef7b2bd8246d42173fdf36aa9969500a4d9393aed77a46f4"
+    },
+    {
+      "path": "runtime-overlay/terrain-shapesz-170-8.hda",
+      "bytes": 172060,
+      "sha256": "3f5084c282ba69fa94fe6d5a832b271614d3d7549332fda8b66bcc58b9962799"
+    },
+    {
+      "path": "runtime-overlay/terrain-shapesz-176-8.hda",
+      "bytes": 172060,
+      "sha256": "8e811adbff07dc54be59f0d21855972c441edec18918c883b17a9596111de2b0"
+    },
+    {
+      "path": "runtime-overlay/terrain-shapesz-177-8.hda",
+      "bytes": 172060,
+      "sha256": "f328c186656af40daaff919ea0e279656bf3c42104658af71551215ba4deeee6"
+    },
+    {
+      "path": "runtime-overlay/terrain-shapesz-178-8.hda",
+      "bytes": 172060,
+      "sha256": "8743bbd6db2343cf046b3a738f981ff475648622fc058b887ce28ad7bfb5dc50"
+    },
+    {
+      "path": "source/actor-adjacent-strip16.png",
+      "bytes": 15995,
+      "sha256": "b3223542585fd0a6b3334f56e633ace62d124a1958d16ad9ae443a9bcda92766"
+    },
+    {
+      "path": "source/actor-reference-provenance.json",
+      "bytes": 5993,
+      "sha256": "a27113d38e0631b0faa0bfb109ff1525e4429e778e2eab9288c585ccbc7bd52e"
+    },
+    {
+      "path": "source/authored-crop-provenance.json",
+      "bytes": 1630,
+      "sha256": "bfd1645ead7e35eff2f71517ab807adb2d344eaf2b846b20ee121c79ce5a7250"
+    },
+    {
+      "path": "source/generated-crops/terrain-shapesz-150-8.png",
+      "bytes": 75372,
+      "sha256": "099a152e19254e1d0db7904f4dbc83f2e6311f151fd6198bbf8aee3123356ccd"
+    },
+    {
+      "path": "source/generated-crops/terrain-shapesz-156-8.png",
+      "bytes": 62944,
+      "sha256": "52b5cfb36651bd6a376fed0295f5e1e03f2d7e0b28834eaea27cf1d5ec64ceb6"
+    },
+    {
+      "path": "source/generated-crops/terrain-shapesz-157-8.png",
+      "bytes": 61805,
+      "sha256": "442328eedd72d754b3902fc0e67ea133a835315ca7a80d041cebd86a02357b8c"
+    },
+    {
+      "path": "source/generated-crops/terrain-shapesz-158-8.png",
+      "bytes": 62481,
+      "sha256": "815937b8fc649ef0f9b1b1ab296addfbc4b03f24ce1b2005bbea101ce6fc29cf"
+    },
+    {
+      "path": "source/generated-crops/terrain-shapesz-159-8.png",
+      "bytes": 59017,
+      "sha256": "3ce650f3fd92dee4ef16c7340c28bdc37d09de85374eb6106b5e9996342448be"
+    },
+    {
+      "path": "source/generated-crops/terrain-shapesz-160-8.png",
+      "bytes": 60631,
+      "sha256": "8df1008d456fd711248857985f2556b5521e06a49d81a970b312cd642a8d0db3"
+    },
+    {
+      "path": "source/generated-crops/terrain-shapesz-166-8.png",
+      "bytes": 63518,
+      "sha256": "31cc86cbf0c9aab051839d6a467469d14b52e5026dd145cdd6934c1569ba078b"
+    },
+    {
+      "path": "source/generated-crops/terrain-shapesz-168-8.png",
+      "bytes": 60212,
+      "sha256": "44fe67a5411e3bda0bd3f4fb60b885381736f8109b9df0c4c409d9a29bf25aeb"
+    },
+    {
+      "path": "source/generated-crops/terrain-shapesz-169-8.png",
+      "bytes": 61968,
+      "sha256": "5139b4ae91b39f581712ba99fd8955979b8f9040d497a4770767f2b4e38d5b3c"
+    },
+    {
+      "path": "source/generated-crops/terrain-shapesz-170-8.png",
+      "bytes": 61116,
+      "sha256": "82629203860df9314b44dfdb2078c265d5e5c2782c6d45c377fbae726eaf873e"
+    },
+    {
+      "path": "source/generated-crops/terrain-shapesz-176-8.png",
+      "bytes": 60675,
+      "sha256": "afa9305282fc47eaf726536e7d2a856dd358b322ae9e934cb7cec04c57d7ac10"
+    },
+    {
+      "path": "source/generated-crops/terrain-shapesz-177-8.png",
+      "bytes": 61964,
+      "sha256": "0a1c87404e7c1e641d0c7b66f9c9ed0fcd1bfcef607abbe66779384b1fa5dd23"
+    },
+    {
+      "path": "source/generated-crops/terrain-shapesz-178-8.png",
+      "bytes": 61495,
+      "sha256": "86792f8f47c5f6e7af5693fb10fc26f2afe6f977ef11c2915aa57c3e585d6fcf"
+    },
+    {
+      "path": "source/match_exposed_connector.cpp",
+      "bytes": 1526,
+      "sha256": "139bbc4820765f576d0b4cfbef732ed53ce4d00825f236f03baa848d45715d26"
+    },
+    {
+      "path": "source/rebuild-contract.json",
+      "bytes": 10231,
+      "sha256": "e6ea80bd049c507cc7a8c708287c51fd3bde9a61684321649667cede9267b6d7"
+    },
+    {
+      "path": "source/rebuild_selected.py",
+      "bytes": 10583,
+      "sha256": "59956b86d63b5540dd4a98553ac45a67a0ed3774d034ee35367d591464b9bf35"
+    },
+    {
+      "path": "source/selected-crops.json",
+      "bytes": 5078,
+      "sha256": "b2b2b5efa51a0b05bf524d70a57453df5835d8264bec5fe750b6c125fbf94df5"
+    },
+    {
+      "path": "source/verify_scope.py",
+      "bytes": 5646,
+      "sha256": "a6b5f432bddf3841a8ec7e8a6a0c8a3773c91a49281c51f0a0867c2452f62151"
+    },
+    {
+      "path": "verification/negative-checks.json",
+      "bytes": 1038,
+      "sha256": "5f60fc047be0f98ef8cd995100076fb88731ed1da2497d2292d4308a9566b2b6"
+    },
+    {
+      "path": "verification/package-boundary-audit.json",
+      "bytes": 750,
+      "sha256": "e1407f793db4abc78859dbed204f64408ae7ee235896ddaacb3b52e8b3570113"
+    },
+    {
+      "path": "verification/rebuild-verification.json",
+      "bytes": 8903,
+      "sha256": "52e5946fda1c8f79a23e80a6cbbab8c867062406b79e404bf18bef323c774192"
+    },
+    {
+      "path": "verification/relocation-verification.json",
+      "bytes": 788,
+      "sha256": "d4c1931cf2d27bc44b650ec2a3c4431f04a7db50ae9b6e729ebcf810d6a973fa"
+    },
+    {
+      "path": "verification/scope-verification.json",
+      "bytes": 4796,
+      "sha256": "3410846ad0cba5bb5388dd0ccadc8b98a2712f8fcfa60daaaba9ee0d0debc010"
+    },
+    {
+      "path": "verification/selection-status.json",
+      "bytes": 745,
+      "sha256": "bfe333aaec95c963181834546f0a36d320bd073c45ff857fec2a41e52dd55c38"
+    },
+    {
+      "path": "verification/source-ownership.json",
+      "bytes": 840,
+      "sha256": "d2f826e01c72b4039de2539722ba0403033b26f42b03f28b88af532760d36ca3"
+    },
+    {
+      "path": "verification/topology-and-runtime-boundary.json",
+      "bytes": 2227,
+      "sha256": "d43e9c07069a409df151a88727ca10c5f5de6ee8b39b593d26dc5c632ee78896"
+    }
+  ]
+}

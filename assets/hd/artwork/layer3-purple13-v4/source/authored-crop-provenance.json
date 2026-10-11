@@ -1,0 +1,36 @@
+{
+  "status": "Source-crop identity verified privately; master files excluded",
+  "source_owner": "This project, AI-generated terrain art produced for the user",
+  "source_entrypoint": "Thirteen delivered generated-only authored-source crops, not a procedural recreation of artistic detail",
+  "generation_prompt": "prompts/coherent-foundation-family-v1.txt",
+  "private_master": {
+    "label": "layer3-purple13-v1/source/imagegen-coherent-family-v1.png",
+    "sha256": "08023757f1f03eb872a1605ec75ea7d9a00998f01369fb4a0497c5237fe6af6c",
+    "distributed": false
+  },
+  "private_registered_atlas": {
+    "label": "layer3-purple13-v1/source/registered-coherent-family-v1.png",
+    "file_sha256": "29c0507556f3b11731691320114aa0d888f9abd0fe7d12cf7a277d4ea83ce4bb",
+    "rgba_sha256": "45144afcdbbddfa492f2c73fd41b24a330a063e5d25a3f24c10293dce6027891",
+    "pixel_size": [
+      2112,
+      1344
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "distributed": false
+  },
+  "registered_target_size": [
+    2112,
+    1344
+  ],
+  "crop_rectangles": "source/selected-crops.json",
+  "post_crop_operation": "Replace each cropped alpha channel with 255; RGB stays unchanged",
+  "all13_registered_crop_rgb_and_alpha_normalization_exact": true,
+  "normalization_reason": "Opaque terrain foundation contract; source generation alpha ranged 249..255 within these crops",
+  "generation_replay": "Image generation is not claimed deterministic; standalone rebuild starts at included generated authored-source crops",
+  "original_reference_images_distributed": false,
+  "original_game_rasters_masks_data_map_arrays_distributed": false
+}

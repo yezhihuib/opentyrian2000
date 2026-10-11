@@ -46,3 +46,8 @@ Existing Library IDs only; do not duplicate archives:
 -214full original frame libfile_e0e9749b6cd481918264d5e262222405; mapping ZIP libfile_03f143291a4481918b078086676dee40.
 
 Local rollback checkpoints in the recorded task/checkpoints directory: before-white-smoke-v1-after-git-resources, before-shield-v1-after-white-smoke, before-green-trail-v1-after-shield, before-green-trail-v2-after-v1. They are not Git-required cloud dependencies. Original prior Talon/blue/filters/turret/foundation/type10/death approvals,5frame/classic/missing compatibility and paused109/107/120 remain preserved.
+
+
+## Purple installation / Layer3 foundation batch
+
+See [PURPLE_INSTALLATION_VALIDATION.md](PURPLE_INSTALLATION_VALIDATION.md) for exact identities, reproduction and bounded cloud acceptance. Adds13 persistent terrain tiles and9 independent components; final gray fringe correction is accepted. Current packs316/320, canonicalPNG328, totalHDA2872. Windows native2×/4× acceptance remains pending; use the existing local fixture commands and current manifest defaults.

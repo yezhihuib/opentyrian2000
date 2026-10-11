@@ -5,6 +5,15 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+/* Test-only no-delete retention: rename generated fixture files out of the load path. */
+static int retain_removed_fixture(const char *path) {
+ static unsigned serial;
+ char saved[4096];
+ if (snprintf(saved, sizeof(saved), "%s.retained-%u", path, ++serial) >= (int)sizeof(saved)) return -1;
+ return rename(path, saved);
+}
+#define remove retain_removed_fixture
+#define unlink retain_removed_fixture
 typedef uint8_t Uint8;
 typedef struct {int pitch;} SDL_Surface;
 enum {ASSET_NEWSH2=101,ASSET_TALON_BANK=109,ASSET_NEWSHE=110,ASSET_EXPLOSION=106,ASSET_SHAPESZ=201};
@@ -35,6 +44,7 @@ static const unsigned int plateau_ids[]={96,97,98,108};
 static const unsigned int ground_ids[]={99,100,106,107,109,110,118,119,120};
 static const unsigned int old_ids[]={101,37,57,49,50,321,322,331,332};
 static const int old_slots[]={10,11,12,13,14,19,20,21,22};
+static const unsigned int purple_ids[]={150,156,157,158,159,160,166,168,169,170,176,177,178};
 static const unsigned int gray_ids[]={121,122,123,124,125,131,132,133,134,135,141,142,143,144,151,152,153,154};
 static Uint8 bank[600];
 static void reset(void)
@@ -53,11 +63,11 @@ static void nonterrain_untouched(void)
 {CHECK(!assets[218].initialized&&!assets[219].initialized);for(int i=231;i<=234;i++)CHECK(!assets[i].initialized);}
 int main(void)
 {
- CHECK(sizeof(assets)/sizeof(*assets)==290);CHECK(sizeof(terrain_sources)/sizeof(*terrain_sources)==140);
+ CHECK(sizeof(assets)/sizeof(*assets)==312);CHECK(sizeof(terrain_sources)/sizeof(*terrain_sources)==153);
  for(unsigned int id=0;id<600;id++){int expected=-1;for(int j=0;j<9;j++)if(id==ids[j])expected=slots[j];CHECK(road_terrain_slot(id)==expected);}
  for(unsigned int id=0;id<600;id++){int expected=-1;for(int j=0;j<9;j++)if(id==ground_ids[j])expected=201+j;CHECK(ground_terrain_slot(id)==expected);}
  for(unsigned int layer=0;layer<5;layer++)for(unsigned int id=0;id<600;id++){
-  reset();render_mirror_bind_terrain(layer,id,bank+id);bool accepted=(layer==1&&(id==111||id==114||id==113||id==341||id==342||id==343||id==351||id==352||id==353||member(id,ids,9)||member(id,underlay_ids,4)||member(id,plateau_ids,4)||member(id,ground_ids,9)||member(id,old_ids,9)))||(layer==2&&cloud(id))||(layer==3&&member(id,gray_ids,18));CHECK(terrain_source_count==(unsigned int)accepted);nonterrain_untouched();
+  reset();render_mirror_bind_terrain(layer,id,bank+id);bool accepted=(layer==1&&(id==111||id==114||id==113||id==341||id==342||id==343||id==351||id==352||id==353||member(id,ids,9)||member(id,underlay_ids,4)||member(id,plateau_ids,4)||member(id,ground_ids,9)||member(id,old_ids,9)))||(layer==2&&cloud(id))||(layer==3&&(member(id,gray_ids,18)||member(id,purple_ids,13)));CHECK(terrain_source_count==(unsigned int)accepted);nonterrain_untouched();
  }
  for(int b=0;b<256;b++)if(b!='z'&&b!='Z')for(unsigned int j=0;j<9;j++){reset();render_mirror_map_begin((char)b);render_mirror_bind_terrain(1,ids[j],bank+ids[j]);CHECK(!terrain_source_count);}
  /* Missing resources preserve original path and original scene-draw log. */
@@ -124,6 +134,6 @@ int main(void)
  CHECK(render_mirror_terrain_row(game_screen,0,0,mixed,MIRROR_NORMAL)==3547u);CHECK(draws==9&&traces==9&&!suppress);
  for(int j=0,k=0;j<12;j++)if(j!=2&&j!=5&&j!=9){CHECK(draw_ids[k]==mixed_ids[j]&&trace_ids[k]==mixed_ids[j]);CHECK(draw_x[k]==24*j&&trace_x[k]==24*j);k++;}
  for(unsigned int j=0;j<59;j++)remove_hda(combined_ids[j]);
- reset();for(int i=0;i<600;i++)render_mirror_bind_terrain(1,36,bank+i);CHECK(terrain_source_count==140);nonterrain_untouched();
- reset();printf("PASS: %u checks; nine exact road IDs/layers/banks; slots220–226,235–236 and untouched orb218–219/untouched accepted installation231–234; six header words/magic/payload rejection; missing-all/each; existing underlay237–240/plateau/ground/cloud unchanged;59 simultaneous terrain assets and full/partial ordered rows; exhaustive unknown ID332 rejection; registry140.\n",checks);return 0;
+ reset();for(int i=0;i<600;i++)render_mirror_bind_terrain(1,36,bank+i);CHECK(terrain_source_count==153);nonterrain_untouched();
+ reset();printf("PASS: %u checks; nine exact road IDs/layers/banks; slots220–226,235–236 and untouched orb218–219/untouched accepted installation231–234; six header words/magic/payload rejection; missing-all/each; existing underlay237–240/plateau/ground/cloud unchanged;59 simultaneous terrain assets and full/partial ordered rows; exhaustive unknown ID332 rejection; registry153.\n",checks);return 0;
 }

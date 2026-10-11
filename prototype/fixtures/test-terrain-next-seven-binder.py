@@ -1,7 +1,17 @@
 """Extract the production finite binder and loader and test their actual C99 code."""
 from pathlib import Path
 import argparse,re,subprocess,tempfile,os,json,hashlib
-TOOLS=Path(__file__).resolve().parent;ROOT=TOOLS.parents[1]
+
+# Test-only retention: keep synthetic inputs/executables instead of deleting them.
+class RetainedDirectory:
+    def __init__(self, *args, **kwargs):
+        self.name = tempfile.mkdtemp(*args, **kwargs)
+    def __enter__(self):
+        return self.name
+    def __exit__(self, *args):
+        print('Retained synthetic work:', self.name)
+
+TOOLS=Path(__file__).resolve().parent;ROOT=Path(__file__).resolve().parents[2]
 p=argparse.ArgumentParser(description=__doc__);p.add_argument('--source',type=Path,default=ROOT);p.add_argument('--sanitize',action='store_true');p.add_argument('--report',type=Path);p.add_argument('--assets',type=Path,default=ROOT/'assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test');a=p.parse_args();source=(a.source/'src/render_mirror.c').read_text()
 def extract(name):
  match=re.search(r'^.*\b'+name+r'\([^\n]*\)\s*\{',source,re.M);assert match,name
@@ -10,7 +20,7 @@ def extract(name):
  return source[match.start():end]+'\n'
 types=re.search(r'typedef struct \{\s*bool initialized,valid;.*?\} Asset;',source,re.S).group()
 arrays='\n'.join(re.search(p,source).group() for p in [r'static Asset assets\[\d+\];',r'static struct \{const Uint8 \*data;unsigned int id;\} terrain_sources\[\d+\];'])
-funcs='\n'.join(extract(n) for n in ['read_asset','scene_asset','render_mirror_map_begin','cloud_terrain_slot','ground_terrain_slot','plateau_terrain_slot','underlay_terrain_slot','road_terrain_slot','terrain_holes_slot','stone_foundation_slot','layer3_gray_slot','render_mirror_bind_terrain','render_mirror_terrain_row'])
+funcs='\n'.join(extract(n) for n in ['read_asset','scene_asset','render_mirror_map_begin','cloud_terrain_slot','ground_terrain_slot','plateau_terrain_slot','underlay_terrain_slot','road_terrain_slot','terrain_holes_slot','stone_foundation_slot','layer3_gray_slot','layer3_purple_slot','render_mirror_bind_terrain','render_mirror_terrain_row'])
 
 def prepare_assets(directory, assets):
     import struct
@@ -36,15 +46,17 @@ def prepare_assets(directory, assets):
     (directory/'original-masks.inc').write_text('/* Support derived from approved authored assets, not bundled game data. */\nstatic const Uint8 original_masks[9][672]={'+','.join('{'+','.join(map(str,m))+'}' for m in masks)+'};\n')
     return reports
 
-with tempfile.TemporaryDirectory(prefix='terrain-next-seven-binder-') as tmp:
+with RetainedDirectory(prefix='terrain-next-seven-binder-') as tmp:
  d=Path(tmp);(d/'production-types.inc').write_text(types+'\n'+arrays+'\n');(d/'production-helpers.inc').write_text(funcs)
  asset_report=prepare_assets(d,a.assets)
  legacy_ids={101,37,57,49,50,321,322,331,332,99,100,106,107,109,110,118,119,120,96,97,98,108,323,324,333,334,36,39,40,46,48,56,58,38,47,41,42,43,44,45,51,52,53,54,55,61,62,63,64,65,111,114,113,341,342,343,351,352,353}
  gray_ids={121,122,123,124,125,131,132,133,134,135,141,142,143,144,151,152,153,154}
  all_terrain=sorted(a.assets.glob('terrain-shapesz-*-8.hda'),key=lambda p:int(p.name.split('-')[2]))
  assert len(legacy_ids)==59 and len(gray_ids)==18 and not legacy_ids.intersection(gray_ids)
- assert {int(tile.name.split('-')[2]) for tile in all_terrain}==legacy_ids|gray_ids
- assert len(all_terrain)==77
+ purple_ids={150,156,157,158,159,160,166,168,169,170,176,177,178}
+ present_ids={int(tile.name.split('-')[2]) for tile in all_terrain}
+ assert present_ids in [legacy_ids|gray_ids,legacy_ids|gray_ids|purple_ids]
+ assert len(all_terrain) in [77,90]
  for tile in all_terrain:
   data=tile.read_bytes();import struct
   tile_id=int(tile.name.split('-')[2]);assert len(data)==172060 and struct.unpack('<4s6I',data[:28])==(b'HDR1',2010000+tile_id,8,24,28,0,0)

@@ -7,6 +7,16 @@ import shutil
 import subprocess
 import tempfile
 
+# Test-only retention: keep synthetic inputs/executables instead of deleting them.
+class RetainedDirectory:
+    def __init__(self, *args, **kwargs):
+        self.name = tempfile.mkdtemp(*args, **kwargs)
+    def __enter__(self):
+        return self.name
+    def __exit__(self, *args):
+        print('Retained synthetic work:', self.name)
+
+
 
 def extract_function(source, name):
     match = re.search(r'^(?:static )?(?:Uint32|unsigned int|int|void|bool) ' + name
@@ -47,7 +57,7 @@ def main():
         'green_background_snapshot', 'green_background_peak', 'green_head_composite',
         'draw_asset_filtered', 'render_mirror_pixel', 'render_mirror_brightness_pixel', 'render_mirror_terrain_pixel',
     ]
-    with tempfile.TemporaryDirectory(prefix='cloud-shadow-test-') as directory:
+    with RetainedDirectory(prefix='cloud-shadow-test-') as directory:
         root = Path(directory)
         (root / 'production-types.inc').write_text('\n'.join(definitions))
         (root / 'production-helpers.inc').write_text(

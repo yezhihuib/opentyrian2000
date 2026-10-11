@@ -1,0 +1,67 @@
+{
+  "tool": "builtin imagegen",
+  "source_file": "imagegen-bottom-fringe-v4.png",
+  "source_dimensions": [
+    1190,
+    1322
+  ],
+  "register_command": "convert imagegen-bottom-fringe-v4.png -resize 576x640! registered-fringe.png",
+  "resize_filter": "ImageMagick default for shrinking truecolor: Lanczos; registered decoded crop bytes are canonical authored inputs",
+  "registered_dimensions": [
+    576,
+    640
+  ],
+  "crops": {
+    "terrain176": [
+      0,
+      208,
+      192,
+      224
+    ],
+    "terrain177": [
+      192,
+      208,
+      384,
+      224
+    ],
+    "terrain178": [
+      384,
+      208,
+      576,
+      224
+    ],
+    "actor273": [
+      0,
+      528,
+      192,
+      544
+    ],
+    "actor275": [
+      192,
+      528,
+      384,
+      544
+    ],
+    "actor277": [
+      384,
+      528,
+      576,
+      544
+    ]
+  },
+  "operation": "apply_fringe_strip.cpp: y208..223 only, hue-preserving generated luminance ratio with tapered highlight attenuation, RGB delta cap28, unchanged alpha. Exact6 rebuild audit supplied.",
+  "files": {
+    "generated-fringe-terrain-176.png": "9777be95c1fb39c6527424f7cd40767e5e0e22a8ad1467bac92f6018bac78b71",
+    "registered-fringe.png": "af53dfcb8e276ea1fcbcdec9548e969970481f9523fb3e248c010fc8140bac16",
+    "imagegen-prompt.txt": "bf542f27cdab3865360304737249bf4354877846058f4f5e5411363dddd6c17e",
+    "apply_fringe_strip.cpp": "8e357d4942eb87ee1ac65ad772d7310ec41fd66ceb58e17075a8241586c4bde8",
+    "generated-fringe-terrain-177.png": "93df283fd0e19f2cc195d3ccde5a7b878639d1d97c7a5339c0422e3a3f5c2ad9",
+    "generated-fringe-actor-273.png": "53fee437bb2cb43aef0544df34a1c50a29077c9ecf6ef8018d96c68d1c3a0943",
+    "imagegen-bottom-fringe-v4.png": "0ec49f20b605596fe9e1fc589d813b474d5e76084776f6ebbb9e81b2886a7dd3",
+    "generated-fringe-actor-275.png": "94e69be4f265514e053e1c6d597e400390829eb75ff7fbf45c8191e552bc7cea",
+    "apply_fringe.cpp": "e2104c6f097884ce0b3a3273f49dc0110a5c0778735a088ce942e896c0c5ff75",
+    "generated-fringe-actor-277.png": "3448a1fa84ae312e2609c5f743e8840f74caf80082002b0ee5d5528f06887577",
+    "coordinated-bottom-fringe-target.png": "2a8706b1fbe8ef048a357b2f72b3c9a754e5f8c80a1d7ed798309c686e1fc8d8",
+    "generated-fringe-terrain-178.png": "281ce38ab15a2fc249913f86e15753caee8e5d211b0a71d59d8dc7c24cccf3cf"
+  }
+}

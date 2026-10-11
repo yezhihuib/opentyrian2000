@@ -43,11 +43,11 @@ static Uint8 actual_rgba[3][192*224*4];static bool use_actual;
 static const int turret_ids[]={153,155,157};
 static const int stone_ids[]={1,3,5,39,41,43,7,9,11,45,47,49};
 static int current_role=101;
-static const int old_ids[]={77,79,115,117,85,87,123,125,191,193,195,197,199,201,203,205,229,231,233,235,237,239,241,243,81,83,119,121,267,269,271,49,51,89,127};
+static const int old_ids[]={77,79,115,117,85,87,123,125,191,193,195,197,199,201,203,205,229,231,233,235,237,239,241,243,81,83,119,121,267,269,271,49,51,89,127,169,207,245,273,275,277,279,281,283};
 static int turret_index(int base){for(int i=0;i<3;i++)if(turret_ids[i]==base)return i;return -1;}
 static int role_for(int base){(void)base;return current_role;}
 static Sprite2_array bank_for(int base){(void)base;unsigned id=current_role==101?1:9;for(int i=0;i<4;i++)if(enemySpriteSheetIds[i]==id)return enemySpriteSheets[i];abort();}
-static int slot_for(int base){if(current_role==110){for(int i=0;i<12;i++)if(stone_ids[i]==base)return 253+i;return -1;}if(turret_index(base)>=0)return 269+turret_index(base);const int slots[]={6,7,8,9,15,16,17,18,23,24,25,26,27,28,29,30,210,211,212,213,214,215,216,217,231,232,233,234,243,244,245,265,266,267,268};for(int i=0;i<35;i++)if(old_ids[i]==base)return slots[i];return -1;}
+static int slot_for(int base){if(current_role==110){for(int i=0;i<12;i++)if(stone_ids[i]==base)return 253+i;return -1;}if(turret_index(base)>=0)return 269+turret_index(base);const int slots[]={6,7,8,9,15,16,17,18,23,24,25,26,27,28,29,30,210,211,212,213,214,215,216,217,231,232,233,234,243,244,245,265,266,267,268,303,304,305,306,307,308,309,310,311};for(int i=0;i<44;i++)if(old_ids[i]==base)return slots[i];return -1;}
 static const char *pack_root;
 static void select_pack(const char *name){snprintf(pack_path,sizeof(pack_path),"%s/%s",pack_root,name);game_probe_assets=pack_path;}
 static void clear_assets(void){for(size_t i=0;i<sizeof(assets)/sizeof(*assets);i++){free(assets[i].rgba);memset(&assets[i],0,sizeof(assets[i]));}}
@@ -199,16 +199,16 @@ static void phase_sequence_tests(void)
 static void other_bindings(void)
 {
  clear_assets();select_pack("all-bindings");
- for(int i=0;i<35;i++)exercise_frame(old_ids[i],8,0,5,7,0);
+ for(int i=0;i<44;i++)exercise_frame(old_ids[i],8,0,5,7,0);
  for(int i=0;i<3;i++)exercise_frame(turret_ids[i],8,0,5,7,0);
  current_role=110;for(int i=0;i<12;i++)exercise_frame(stone_ids[i],8,0,5,7,0);current_role=101;
  for(size_t slot=0;slot<sizeof(assets)/sizeof(*assets);slot++){
-  bool wanted=slot>=253&&slot<=271;for(int i=0;i<35;i++)if(slot_for(old_ids[i])==(int)slot)wanted=true;
+  bool wanted=slot>=253&&slot<=271;for(int i=0;i<44;i++)if(slot_for(old_ids[i])==(int)slot)wanted=true;
   assert(assets[slot].initialized==wanted);
  }
  /* All old slots remain independently populated alongside the three new ones. */
  assert(assets[265].bank==101&&assets[264].bank==110&&assets[265].rgba!=assets[264].rgba);
- for(int i=0;i<35;i++)if(old_ids[i]!=49)guard_case(game_screen,enemySpriteSheets[1],old_ids[i],0);
+ for(int i=0;i<44;i++)if(old_ids[i]!=49)guard_case(game_screen,enemySpriteSheets[1],old_ids[i],0);
  for(int i=0;i<3;i++)guard_case(game_screen,enemySpriteSheets[1],turret_ids[i],0);
  for(int i=0;i<12;i++)if(stone_ids[i]!=49)guard_case(game_screen,enemySpriteSheets[0],stone_ids[i],0);
  clear_assets();
@@ -254,7 +254,7 @@ int main(int argc,char **argv)
  for(int k=0;k<4;k++){enemySpriteSheets[k]=(Sprite2_array){1,&bank_bytes[k]};enemySpriteSheetIds[k]=k==0?1:k==1?9:2;}
  for(int i=0;i<256;i++)rgb_palette[i]=((i*71u)%256)<<16|((i*31u)%256)<<8|((i*13u)%256);
  assert(ASSET_NEWSHE==110&&ASSET_TALON_BANK==109&&ASSET_NEWSH2==101);
- assert(sizeof(assets)/sizeof(*assets)==290);
+ assert(sizeof(assets)/sizeof(*assets)==312);
  const int filters[]={0,0x70,0x80,0x09,0xd0};
  for(int mode=0;mode<3;mode++){
   int d=mode==0?4:8,ad=mode==1?8:4;alloc_canvas(d);clear_assets();select_pack(ad==8?"full8":"full4");
@@ -266,12 +266,12 @@ int main(int argc,char **argv)
    exercise_frame(turret_ids[i],ad,0,0,0,4);
    exercise_frame(turret_ids[i],ad,0,LW-24,LH-28,17);
   }
-  guard_tests();for(int i=0;i<290;i++)if(i<269||i>271)assert(!assets[i].initialized);
+  guard_tests();for(int i=0;i<312;i++)if(i<269||i>271)assert(!assets[i].initialized);
   printf("PASS density%d source%d: all12 turret quadrants, all24 orders, five filters, edge/offscreen clipping, source-bank/part/null guards\n",d,ad);
   if(mode==1){
    for(int i=0;i<3;i++)for(int filter=0;filter<256;filter++)exercise_frame(turret_ids[i],8,filter,5,7,0);
    loader_tests();actual_tests();phase_sequence_tests();terrain153_isolation_tests();overlap_and_clear();other_bindings();relocated_sheet_tests();
-   puts("PASS: all256 filters; each/all missing; malformed every header word/magic/trailing/truncated/empty payload; cross-role/prefix isolation; 4x fallback; classic/flags; actual RGBA and15 quadrant subsets; source nine-step sequence; terrain153 cache/order isolation; overlap/reset;50 simultaneous enemy bindings");
+   puts("PASS: all256 filters; each/all missing; malformed every header word/magic/trailing/truncated/empty payload; cross-role/prefix isolation; 4x fallback; classic/flags; actual RGBA and15 quadrant subsets; source nine-step sequence; terrain153 cache/order isolation; overlap/reset;59 simultaneous enemy bindings");
   }
   clear_assets();free_canvas();
  }

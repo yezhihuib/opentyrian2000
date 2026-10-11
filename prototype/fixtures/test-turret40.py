@@ -16,17 +16,25 @@ import tempfile
 import time
 import zipfile
 
+# Test-only retention: keep synthetic inputs/executables instead of deleting them.
+class RetainedDirectory:
+    def __init__(self, *args, **kwargs):
+        self.name = tempfile.mkdtemp(*args, **kwargs)
+    def __enter__(self):
+        return self.name
+    def __exit__(self, *args):
+        print('Retained synthetic work:', self.name)
+
+
 HERE = Path(__file__).resolve().parent
-ROOT = HERE.parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 IDS = [153, 155, 157]
 STONE_IDS = [1, 3, 5, 39, 41, 43, 7, 9, 11, 45, 47, 49]
-OLD_IDS = [77, 79, 115, 117, 85, 87, 123, 125, 191, 193, 195, 197,
-           199, 201, 203, 205, 229, 231, 233, 235, 237, 239, 241, 243,
-           81, 83, 119, 121, 267, 269, 271, 49, 51, 89, 127]
+OLD_IDS = [77, 79, 115, 117, 85, 87, 123, 125, 191, 193, 195, 197, 199, 201, 203, 205, 229, 231, 233, 235, 237, 239, 241, 243, 81, 83, 119, 121, 267, 269, 271, 49, 51, 89, 127, 169, 207, 245, 273, 275, 277, 279, 281, 283]
 ZIP_SHA256 = '4a2b93f103cd68a50696730ea93fe1da5a0c5aa18c1b886f3fb2c3ab0cfe774f'
 p = argparse.ArgumentParser(description=__doc__)
 p.add_argument('--source', type=Path, default=ROOT / 'src/render_mirror.c')
-p.add_argument('--assets', type=Path, default=ROOT / 'assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test')
+p.add_argument('--assets', type=Path, default=ROOT/'assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test')
 p.add_argument('--runtime-zip', type=Path, help='Frozen three-design turret PNG package')
 p.add_argument('--sanitize', action='store_true')
 p.add_argument('--clean-source', type=Path, help='Optional d351 render_mirror.c for scope checks')
@@ -81,7 +89,7 @@ def original(index):
     return out
 
 
-with tempfile.TemporaryDirectory(prefix='turret40-unit-') as temporary:
+with RetainedDirectory(prefix='turret40-unit-') as temporary:
     t = Path(temporary)
     packs = t / 'packs'
     packs.mkdir()
@@ -194,24 +202,33 @@ with tempfile.TemporaryDirectory(prefix='turret40-unit-') as temporary:
              'draw_asset', 'render_mirror_map_begin', 'cloud_terrain_slot',
              'ground_terrain_slot', 'plateau_terrain_slot', 'underlay_terrain_slot',
              'road_terrain_slot', 'terrain_holes_slot', 'stone_foundation_slot',
-             'layer3_gray_slot', 'render_mirror_bind_terrain', 'render_mirror_terrain_row']
+             'layer3_gray_slot','layer3_purple_slot', 'render_mirror_bind_terrain', 'render_mirror_terrain_row']
     scope = {}
     if a.clean_source:
         clean = a.clean_source.read_text()
-        unchanged = [name for name in names if name not in ['render_mirror_enemy_tile', 'layer3_gray_slot', 'render_mirror_bind_terrain', 'render_mirror_terrain_row']]
+        unchanged = [name for name in names if name not in ['render_mirror_enemy_tile', 'layer3_gray_slot','layer3_purple_slot', 'render_mirror_bind_terrain', 'render_mirror_terrain_row']]
         for name in unchanged:
             assert extract(name) == extract(name, clean), name
-        delta = extract('render_mirror_enemy_tile').replace('base==153?269:base==155?270:base==157?271:', '')
+        # Permit only the reviewed turret3 and installation9 lookup additions.
+        # Every exact mapping must occur once; all remaining bytes must match.
+        approved_terms = ('base==153?269:', 'base==155?270:', 'base==157?271:',
+                          'base==169?303:', 'base==207?304:', 'base==245?305:',
+                          'base==273?306:', 'base==275?307:', 'base==277?308:',
+                          'base==279?309:', 'base==281?310:', 'base==283?311:')
+        delta = extract('render_mirror_enemy_tile')
+        for term in approved_terms:
+            assert delta.count(term) == 1, term
+            delta = delta.replace(term, '', 1)
         assert delta == extract('render_mirror_enemy_tile', clean)
-        scope = {'clean_source_sha256': hashlib.sha256(a.clean_source.read_bytes()).hexdigest(), 'unchanged_renderer_helpers': unchanged, 'turret_delta_exact_three_bases': True}
+        scope = {'clean_source_sha256': hashlib.sha256(a.clean_source.read_bytes()).hexdigest(), 'unchanged_renderer_helpers': unchanged, 'turret_delta_exact_three_bases': True, 'installation_delta_exact_nine_bases': True, 'exact_lookup_extension_terms': list(approved_terms)}
         for filename, functions in [('tyrian2.c', ['blit_enemy']), ('sprite.c', ['blit_sprite2', 'blit_sprite2_filter'])]:
             clean_text = (a.clean_source.parent / filename).read_text()
             for name in functions:
                 assert extract(name, sources[filename].decode()) == extract(name, clean_text), name
         scope['original_wrapper_and_blitters_unchanged'] = True
     (t / 'functions.inc').write_text('\n'.join(extract(n) for n in names))
-    bank = bytearray(300 * 2)
-    for index in range(1, 301):
+    bank = bytearray(320 * 2)
+    for index in range(1, 321):
         assert len(bank) < 65536
         struct.pack_into('<H', bank, (index - 1) * 2, len(bank))
         bank += original(index)

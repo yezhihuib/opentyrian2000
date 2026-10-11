@@ -1,0 +1,72 @@
+{
+  "status": "PASS",
+  "source_owner": "Project AI-generated art for the user",
+  "upstream_provenance_file": "source/fringe-provenance.json",
+  "upstream_provenance_preserved_byte_exact": true,
+  "prompt": "prompts/fringe-v4.txt",
+  "prompt_sha256": "bf542f27cdab3865360304737249bf4354877846058f4f5e5411363dddd6c17e",
+  "private_generated_master_sha256": "0ec49f20b605596fe9e1fc589d813b474d5e76084776f6ebbb9e81b2886a7dd3",
+  "private_generated_master_distributed": false,
+  "private_registered_generated_source_sha256": "af53dfcb8e276ea1fcbcdec9548e969970481f9523fb3e248c010fc8140bac16",
+  "private_registered_source_distributed": false,
+  "registered_source_size": [
+    576,
+    640
+  ],
+  "canonical_rebuild_entrypoints": "Included 192x16 decoded generated strips; no resizing or full master needed at rebuild time",
+  "actor_fringe_sources_distributed": false,
+  "original_game_reference_masks_data_distributed": false,
+  "items": [
+    {
+      "id": 176,
+      "path": "source/generated-fringe-terrain-176.png",
+      "crop_rectangle_xyxy_exclusive": [
+        0,
+        208,
+        192,
+        224
+      ],
+      "rgba_exact_to_generated_registered_crop": true,
+      "png_sha256": "9777be95c1fb39c6527424f7cd40767e5e0e22a8ad1467bac92f6018bac78b71",
+      "rgba_sha256": "3c96c8367ed49ed872bb3c7b992f941b7699e28bc6d63da8551db485df6d6fce",
+      "pixel_size": [
+        192,
+        16
+      ]
+    },
+    {
+      "id": 177,
+      "path": "source/generated-fringe-terrain-177.png",
+      "crop_rectangle_xyxy_exclusive": [
+        192,
+        208,
+        384,
+        224
+      ],
+      "rgba_exact_to_generated_registered_crop": true,
+      "png_sha256": "93df283fd0e19f2cc195d3ccde5a7b878639d1d97c7a5339c0422e3a3f5c2ad9",
+      "rgba_sha256": "7d7f3220f621af9b1d1cbf147ef72a75d7ba97b59591bd9a706d4e74fec6903d",
+      "pixel_size": [
+        192,
+        16
+      ]
+    },
+    {
+      "id": 178,
+      "path": "source/generated-fringe-terrain-178.png",
+      "crop_rectangle_xyxy_exclusive": [
+        384,
+        208,
+        576,
+        224
+      ],
+      "rgba_exact_to_generated_registered_crop": true,
+      "png_sha256": "281ce38ab15a2fc249913f86e15753caee8e5d211b0a71d59d8dc7c24cccf3cf",
+      "rgba_sha256": "93f16cd6bfb83e42ed9d85cb05598736829fa4e18c70a1def94269d123d11435",
+      "pixel_size": [
+        192,
+        16
+      ]
+    }
+  ]
+}

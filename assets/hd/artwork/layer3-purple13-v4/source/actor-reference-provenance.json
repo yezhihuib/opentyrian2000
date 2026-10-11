@@ -1,0 +1,189 @@
+{
+  "status": "PASS",
+  "reference": {
+    "path": "source/actor-adjacent-strip16.png",
+    "file_sha256": "b3223542585fd0a6b3334f56e633ace62d124a1958d16ad9ae443a9bcda92766",
+    "rgba_sha256": "ad63f08947e3ff51313c2c897d82d1d0edd3fbd0210054dc4a01edb6cbcf51c1",
+    "pixel_size": [
+      576,
+      16
+    ],
+    "alpha_extrema": [
+      255,
+      255
+    ]
+  },
+  "source_owner": "Partner artwork task, AI-generated intact installation for this same user project",
+  "source_artwork_family": "purple-installation32-41-v1",
+  "source_type": "Generated actor-frame pixel crops; no game RGB, original mask or original reference raster",
+  "upstream_reference_label": "layer3-purple13-v1/connector-tone-v2/source/actor-adjacent-strip16.png",
+  "prompt": "prompts/partner-intact-installation-v1.txt",
+  "private_generated_master": {
+    "label": "purple-installation32-41-v1/generated-intact-master.png",
+    "sha256": "4ee0df79e07c4f799328d4ace3febcc2e82d3b0b50d60d30a5c6ac7664493a7f",
+    "distributed": false
+  },
+  "upstream_candidate_manifest_sha256": "53706040d887183e31f92fddd4507dc408f60a8ada39014f5f25af31b2e61172",
+  "partner_preparation": "Upstream generated master resized to 576x672 with Pillow LANCZOS then split into 192x224 frames; upstream sparse alpha registration remains baked into partner frames. The six included edge crops are fully opaque. No separate alpha contract or original mask is included.",
+  "pixel_geometry": "Use actual decoded 576x16 pixels. PNG virtual-canvas/page metadata, if present, is irrelevant and is not a crop coordinate space.",
+  "assembly": "Upper eight rows: last eight rows of 245,169,207 left-to-right. Lower eight rows: first eight rows of 273,275,277 left-to-right.",
+  "independently_reassembled_from_partner_frames_rgba_exact": true,
+  "parts": [
+    {
+      "actor_base": 245,
+      "source_label": "purple-installation32-41-v1/frames8x/newsh2-base245-8.png",
+      "file_sha256": "e322aa0d83875bd3772af9658ec732a5a1f11178b4bcb5d87b54051ecafb3ac4",
+      "rgba_sha256": "186f65779514a3da66639e58b1e193feea7718080c1ad77d907dd0dfcbdb404e",
+      "pixel_size": [
+        192,
+        224
+      ],
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "source_crop_xyxy_exclusive": [
+        0,
+        216,
+        192,
+        224
+      ],
+      "destination_xy": [
+        0,
+        0
+      ],
+      "crop_rgba_sha256": "6fad1f3e810584904622b28e8b178b5f82765b63a96cb0a9b5aab116e07fc9e1",
+      "source_frame_distributed": false
+    },
+    {
+      "actor_base": 169,
+      "source_label": "purple-installation32-41-v1/frames8x/newsh2-base169-8.png",
+      "file_sha256": "761732eefbb8436fe91225d91340d7cece757267bb6a5a039fd6151cfb31f758",
+      "rgba_sha256": "3f8b6d9dc2f1a29a09ff643ed66e908b5391631934c667682b81d9eb5fd93c44",
+      "pixel_size": [
+        192,
+        224
+      ],
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "source_crop_xyxy_exclusive": [
+        0,
+        216,
+        192,
+        224
+      ],
+      "destination_xy": [
+        192,
+        0
+      ],
+      "crop_rgba_sha256": "70ba53a4167af06075205e5133647db09a8e90cce137a9979dcbad13a855c849",
+      "source_frame_distributed": false
+    },
+    {
+      "actor_base": 207,
+      "source_label": "purple-installation32-41-v1/frames8x/newsh2-base207-8.png",
+      "file_sha256": "35827fa3f56c940b1399278580dc77938a4909108643633c92b156a411388715",
+      "rgba_sha256": "ee60e02c843baca894c3466bc163a26ff8b2f41571b7d2ff0318dfc340753ca0",
+      "pixel_size": [
+        192,
+        224
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_crop_xyxy_exclusive": [
+        0,
+        216,
+        192,
+        224
+      ],
+      "destination_xy": [
+        384,
+        0
+      ],
+      "crop_rgba_sha256": "a41302da3d869fd4543f0fffc88a1b1838a4fcdcb870ec645ef4a127b0fc339a",
+      "source_frame_distributed": false
+    },
+    {
+      "actor_base": 273,
+      "source_label": "purple-installation32-41-v1/frames8x/newsh2-base273-8.png",
+      "file_sha256": "79bc80c0f327128b317472cd179446a8ff37f85f40b7946f14b855a83e48c53b",
+      "rgba_sha256": "f428e08260e7b463b1d149a7635b2620287e58d9b81bfa34bd07fc1c31b5017a",
+      "pixel_size": [
+        192,
+        224
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_crop_xyxy_exclusive": [
+        0,
+        0,
+        192,
+        8
+      ],
+      "destination_xy": [
+        0,
+        8
+      ],
+      "crop_rgba_sha256": "4e8682338cc0d7f7149e1633f404db4afc242fa927f4dbe87bca117aa43c046c",
+      "source_frame_distributed": false
+    },
+    {
+      "actor_base": 275,
+      "source_label": "purple-installation32-41-v1/frames8x/newsh2-base275-8.png",
+      "file_sha256": "8be4e11bfc776f31c1ebdcd8077673b7b6bc87ae5f2b43275a57259bf84b12ac",
+      "rgba_sha256": "f0089a85e9f0c8e8dd736b1ec4ffc9b2b207e4f3ee588eecbe842db739fd3f4a",
+      "pixel_size": [
+        192,
+        224
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_crop_xyxy_exclusive": [
+        0,
+        0,
+        192,
+        8
+      ],
+      "destination_xy": [
+        192,
+        8
+      ],
+      "crop_rgba_sha256": "8c5cd4c34f3138bf9e8fbca90d802d6d6adb470a1f685d15b64b11823b821d98",
+      "source_frame_distributed": false
+    },
+    {
+      "actor_base": 277,
+      "source_label": "purple-installation32-41-v1/frames8x/newsh2-base277-8.png",
+      "file_sha256": "9679733b4cbd5964382507130a61e7d7f9119efc9121888ef037478b108336b5",
+      "rgba_sha256": "b4083803a4ead030057db8dc8e8028ede000b02bf953e4de475155a9f11f3a92",
+      "pixel_size": [
+        192,
+        224
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_crop_xyxy_exclusive": [
+        0,
+        0,
+        192,
+        8
+      ],
+      "destination_xy": [
+        384,
+        8
+      ],
+      "crop_rgba_sha256": "16e748747f5434e2860636e82957c2756b19863b37341e4a5a63433ba8f57a9d",
+      "source_frame_distributed": false
+    }
+  ]
+}

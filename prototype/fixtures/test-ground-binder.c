@@ -5,6 +5,15 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+/* Test-only no-delete retention: rename generated fixture files out of the load path. */
+static int retain_removed_fixture(const char *path) {
+ static unsigned serial;
+ char saved[4096];
+ if (snprintf(saved, sizeof(saved), "%s.retained-%u", path, ++serial) >= (int)sizeof(saved)) return -1;
+ return rename(path, saved);
+}
+#define remove retain_removed_fixture
+#define unlink retain_removed_fixture
 typedef uint8_t Uint8;
 typedef struct {int pitch;} SDL_Surface;
 enum {ASSET_NEWSH2=101,ASSET_TALON_BANK=109,ASSET_NEWSHE=110,ASSET_EXPLOSION=106,ASSET_SHAPESZ=201};
@@ -26,6 +35,7 @@ static void game_probe_scene_draw(int role,unsigned int id,int x,int y,int part,
 #include "production-helpers.inc"
 static const unsigned int ids[]={99,100,106,107,109,110,118,119,120};
 /* Independent accepted layer3 gray-family contract. */
+static const unsigned int purple_ids[]={150,156,157,158,159,160,166,168,169,170,176,177,178};
 static const unsigned int gray_ids[]={121,122,123,124,125,131,132,133,134,135,141,142,143,144,151,152,153,154};
 static const unsigned int road_ids[]={36,39,40,46,48,56,58,38,47};
 static const unsigned int old_ids[]={101,37,57,49,50,321,322,331,332};
@@ -44,10 +54,10 @@ static unsigned int draw_one(unsigned int id,int style)
 {Uint8*map[12]={bank+id};draws=traces=0;unsigned int result=render_mirror_terrain_row(game_screen,0,0,map,style);checks++;return result;}
 int main(void)
 {
- assert(sizeof(assets)/sizeof(*assets)==290);assert(sizeof(terrain_sources)/sizeof(*terrain_sources)==140);
+ assert(sizeof(assets)/sizeof(*assets)==312);assert(sizeof(terrain_sources)/sizeof(*terrain_sources)==153);
  for(unsigned int id=0;id<600;id++) {int expected=-1;for(int j=0;j<9;j++)if(id==ids[j])expected=201+j;assert(ground_terrain_slot(id)==expected);checks++;}
  for(unsigned int layer=0;layer<5;layer++)for(unsigned int id=0;id<600;id++) {
-  reset();render_mirror_bind_terrain(layer,id,bank+id);bool accepted=(layer==1&&(id==111||id==114||id==113||id==341||id==342||id==343||id==351||id==352||id==353||member(id,road_ids,9)||underlay_terrain_slot(id)>=0||plateau_terrain_slot(id)>=0||member(id,ids,9)||member(id,old_ids,9)))||(layer==2&&((id>=41&&id<=45)||(id>=51&&id<=55)||(id>=61&&id<=65)))||(layer==3&&member(id,gray_ids,18));assert(terrain_source_count==(unsigned int)accepted);checks++;
+  reset();render_mirror_bind_terrain(layer,id,bank+id);bool accepted=(layer==1&&(id==111||id==114||id==113||id==341||id==342||id==343||id==351||id==352||id==353||member(id,road_ids,9)||underlay_terrain_slot(id)>=0||plateau_terrain_slot(id)>=0||member(id,ids,9)||member(id,old_ids,9)))||(layer==2&&((id>=41&&id<=45)||(id>=51&&id<=55)||(id>=61&&id<=65)))||(layer==3&&(member(id,gray_ids,18)||member(id,purple_ids,13)));assert(terrain_source_count==(unsigned int)accepted);checks++;
  }
  for(int b=0;b<256;b++)if(b!='z'&&b!='Z')for(unsigned int j=0;j<9;j++) {reset();render_mirror_map_begin((char)b);render_mirror_bind_terrain(1,ids[j],bank+ids[j]);assert(!terrain_source_count);checks++;}
  /* Missing assets neither replace the tile nor add draw traces. */
@@ -66,6 +76,6 @@ int main(void)
  /* Defensive lookup must not alias unknown IDs onto the existing ID332 slot. */
  reset();terrain_sources[0].data=bank+112;terrain_sources[0].id=112;terrain_source_count=1;assert(!draw_one(112,MIRROR_NORMAL));assert(!draws&&!traces&&!assets[22].initialized);
  /* Both exact registry capacity and over-capacity writes stay bounded. */
- reset();for(int i=0;i<600;i++)render_mirror_bind_terrain(1,99,bank+i);assert(terrain_source_count==140);checks++;
- reset();printf("PASS: %u checks; finite IDs/layers/banks; exact slots, assets290/registry140, and layer3 gray18 scope; all-six-header-word/trailing-byte rejection; missing-all/each; existing ground/cloud unchanged.\n",checks);return 0;
+ reset();for(int i=0;i<600;i++)render_mirror_bind_terrain(1,99,bank+i);assert(terrain_source_count==153);checks++;
+ reset();printf("PASS: %u checks; finite IDs/layers/banks; exact slots, assets312/registry153, and layer3 gray18 plus purple13 registration scope; all-six-header-word/trailing-byte rejection; missing-all/each; existing ground/cloud unchanged.\n",checks);return 0;
 }

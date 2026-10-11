@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "writes_limited_to_disposable_review_copy": true,
+  "mutated_inputs_restored": true,
+  "cases": [
+    {
+      "case": "source_mutation",
+      "rejected": true,
+      "returncode": 1,
+      "diagnostic": "Rebuild failed: Inventory bytes or hash differs: source/generated-crops/terrain-shapesz-156-8.png"
+    },
+    {
+      "case": "manifest_mutation",
+      "rejected": true,
+      "returncode": 1,
+      "diagnostic": "Rebuild failed: Frozen manifest differs"
+    },
+    {
+      "case": "helper_mutation",
+      "rejected": true,
+      "returncode": 1,
+      "diagnostic": "Rebuild failed: Input differs: match_exposed_connector.cpp"
+    },
+    {
+      "case": "in_package_destination",
+      "rejected": true,
+      "returncode": 1,
+      "diagnostic": "Rebuild failed: Output root must be outside the immutable source package"
+    },
+    {
+      "case": "existing_destination",
+      "rejected": true,
+      "returncode": 1,
+      "diagnostic": "Rebuild failed: Output root must be a new directory"
+    }
+  ]
+}

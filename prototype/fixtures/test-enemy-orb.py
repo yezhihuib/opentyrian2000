@@ -1,10 +1,19 @@
 """Bounded extracted-production oracle for the enemy-only bank8 orb hook."""
 from pathlib import Path
 import argparse,re,struct,subprocess,tempfile,os,json,hashlib,time
+
+# Test-only retention: keep synthetic inputs/executables instead of deleting them.
+class RetainedDirectory:
+    def __init__(self, *args, **kwargs):
+        self.name = tempfile.mkdtemp(*args, **kwargs)
+    def __enter__(self):
+        return self.name
+    def __exit__(self, *args):
+        print('Retained synthetic work:', self.name)
+
 HERE=Path(__file__).resolve().parent
 p=argparse.ArgumentParser(description=__doc__)
 default_source=HERE.parents[1]/'src/render_mirror.c'
-if not default_source.exists(): default_source=HERE.parents[1]/'opentyrian2000-cloud/src/render_mirror.c'
 p.add_argument('--source',type=Path,default=default_source)
 p.add_argument('--sanitize',action='store_true')
 p.add_argument('--output',type=Path)
@@ -30,7 +39,7 @@ def original(index):
    out.append(((x-first)<<4)|(first-pos));out.extend((index+3*k+7*y)%240+1 for k in range(first,x));pos=x
   out.append(12-pos)
  out.append(15);return out
-with tempfile.TemporaryDirectory(prefix='enemy-orb-unit-') as temp:
+with RetainedDirectory(prefix='enemy-orb-unit-') as temp:
  t=Path(temp);packs=t/'packs';packs.mkdir()
  for name in ['full8','full4','missing112','missing113','bad-anchor','bad-role','bad-size','bad-density','truncated','extra','empty']:
   out=packs/name;out.mkdir()

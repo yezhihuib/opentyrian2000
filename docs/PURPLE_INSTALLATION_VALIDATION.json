@@ -1,0 +1,274 @@
+{
+  "schema": "bounded-purple-installation-validation-v1",
+  "base_commit": "0044d19ca92f54f2160a3f773da22b6fcb64188c",
+  "renderer_sha256": "a470cb29e9f7f33653cf9cd072924c46a20403529fc7f272858581004929ce20",
+  "production_source_delta": [
+    "src/render_mirror.c"
+  ],
+  "private_fixture_only_differences": [
+    "game_probe.c (read-only observer)",
+    "tyrian2.c (private survival guard)"
+  ],
+  "terrain_ids": [
+    150,
+    156,
+    157,
+    158,
+    159,
+    160,
+    166,
+    168,
+    169,
+    170,
+    176,
+    177,
+    178
+  ],
+  "entity_bases": [
+    169,
+    207,
+    245,
+    273,
+    275,
+    277,
+    279,
+    281,
+    283
+  ],
+  "terrain_slots": [
+    290,
+    302
+  ],
+  "entity_slots": [
+    303,
+    311
+  ],
+  "capacity": 312,
+  "terrain_registry": 153,
+  "art_scope": {
+    "changed": {
+      "terrain-shapesz-176-8.hda": {
+        "sha256": "f349b5a07cd6ee61ae06ae65092ac355966d43928bc12d0653d202778a6c2300",
+        "changed_pixels": 2617,
+        "max_rgb_delta": 28,
+        "alpha_exact": true,
+        "rows0_207_exact": true
+      },
+      "terrain-shapesz-177-8.hda": {
+        "sha256": "197c23d75c992ece1458dbf87f9c33c0242553cc26b30658aa83cd8ca09a9f8e",
+        "changed_pixels": 2706,
+        "max_rgb_delta": 28,
+        "alpha_exact": true,
+        "rows0_207_exact": true
+      },
+      "terrain-shapesz-178-8.hda": {
+        "sha256": "77a22ddb43e622fdde1213fdd57390a257b408e2ba56aacd01389958ae2b60f2",
+        "changed_pixels": 2732,
+        "max_rgb_delta": 28,
+        "alpha_exact": true,
+        "rows0_207_exact": true
+      },
+      "enemy-newsh2-273-8.hda": {
+        "sha256": "a683466086fa94625e1b492e8f6698e979ff1afb84be6453f29a6be4699efeb8",
+        "changed_pixels": 2255,
+        "max_rgb_delta": 28,
+        "alpha_exact": true,
+        "rows0_207_exact": true
+      },
+      "enemy-newsh2-275-8.hda": {
+        "sha256": "2c6ea496323542a89c745be63f6aa18a29800141b1d946ea0e97eb718561dffc",
+        "changed_pixels": 2333,
+        "max_rgb_delta": 28,
+        "alpha_exact": true,
+        "rows0_207_exact": true
+      },
+      "enemy-newsh2-277-8.hda": {
+        "sha256": "7e4cccbff696f326dd63e59f27adfe8994053ade3bdf80a776f567f6cebdfda7",
+        "changed_pixels": 2223,
+        "max_rgb_delta": 28,
+        "alpha_exact": true,
+        "rows0_207_exact": true
+      }
+    },
+    "unchanged_hda": 314,
+    "total_hda": 320
+  },
+  "canonical_normalization": [
+    {
+      "path": "assets/hd/source/terrain-shapesz-156-8-6d61b64573e3.png",
+      "authored_png_sha256": "52b5cfb36651bd6a376fed0295f5e1e03f2d7e0b28834eaea27cf1d5ec64ceb6",
+      "canonical_rgba_png_sha256": "eaf3fa280f90d9faaebed2f91e2d5235c00c9015fe1e50b3e1123de4d1139ff7"
+    },
+    {
+      "path": "assets/hd/source/terrain-shapesz-157-8-ba5eaf7164fc.png",
+      "authored_png_sha256": "442328eedd72d754b3902fc0e67ea133a835315ca7a80d041cebd86a02357b8c",
+      "canonical_rgba_png_sha256": "38e4039dd4e19dbc90cf68dcd555b1eef99cb5dd4c6ed8f17a4703828c2ad914"
+    },
+    {
+      "path": "assets/hd/source/terrain-shapesz-158-8-3ed755f5dbc6.png",
+      "authored_png_sha256": "815937b8fc649ef0f9b1b1ab296addfbc4b03f24ce1b2005bbea101ce6fc29cf",
+      "canonical_rgba_png_sha256": "755df7c5450a1b54a5c217e4d2d3f6b38f755d3b4e9ceb2966210a19d461ac1c"
+    },
+    {
+      "path": "assets/hd/source/terrain-shapesz-159-8-a34c25db6a2c.png",
+      "authored_png_sha256": "3ce650f3fd92dee4ef16c7340c28bdc37d09de85374eb6106b5e9996342448be",
+      "canonical_rgba_png_sha256": "976f529e2c222b5111a71ccd59994fd46999e6eaad04c56343eb8f5125bb0ac0"
+    },
+    {
+      "path": "assets/hd/source/terrain-shapesz-160-8-9ac510581bf6.png",
+      "authored_png_sha256": "8df1008d456fd711248857985f2556b5521e06a49d81a970b312cd642a8d0db3",
+      "canonical_rgba_png_sha256": "de0fff9503b3482971079ecbfb03c310c9d882c5e9f63795a2d7044a17c3e7bf"
+    },
+    {
+      "path": "assets/hd/source/terrain-shapesz-169-8-c3328d793f2c.png",
+      "authored_png_sha256": "5139b4ae91b39f581712ba99fd8955979b8f9040d497a4770767f2b4e38d5b3c",
+      "canonical_rgba_png_sha256": "45cd846ff6fd638b769f52598e6dd7c400762b4e7fed48e3794cdd027d322710"
+    },
+    {
+      "path": "assets/hd/source/terrain-shapesz-170-8-3f5084c282ba.png",
+      "authored_png_sha256": "82629203860df9314b44dfdb2078c265d5e5c2782c6d45c377fbae726eaf873e",
+      "canonical_rgba_png_sha256": "b0793c92f27316cd18aae8f1c8f48b6b5ff9bcfe82cd7a70851313af4c71975c"
+    }
+  ],
+  "final_control_state_parity": {
+    "status": "passed",
+    "scope": "Identical original Pulse155 control sequence; only six RGB fringe replacements",
+    "all13_logs_byte_exact": {
+      "state.tsv": {
+        "bytes": 461759,
+        "sha256": "e37c143be3ab863369a324b72e98a3983e48035ef3b9a85ef00740f2cacf057a"
+      },
+      "asset-debug-materials.tsv": {
+        "bytes": 17974701,
+        "sha256": "8aa4da136a12784a2fc9d5735157af73509f22f7070e545d6105a4a5cd9eb2ad"
+      },
+      "collisions.tsv": {
+        "bytes": 1391,
+        "sha256": "de6ecf6f2dbbe58168e929898287b1690b7972186aaad1d6388750260d0f1ce6"
+      },
+      "player-projectiles.tsv": {
+        "bytes": 50,
+        "sha256": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3"
+      },
+      "enemy-projectiles.tsv": {
+        "bytes": 55744,
+        "sha256": "0b9cf0a831cf9289bea3144848cdd50b5bae1a2199b9933c2d0a5f11a08687cf"
+      },
+      "poses.tsv": {
+        "bytes": 110800,
+        "sha256": "568226853d52064418f86de746a3724d82c56881f16d755cd9c3c9a85900c12c"
+      },
+      "fire-events.tsv": {
+        "bytes": 79,
+        "sha256": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152"
+      },
+      "asset-debug-clock.tsv": {
+        "bytes": 129218,
+        "sha256": "8fd140d51f76d24d46c2fddf99326eb8d186ef04250994e0330cfac4c9963c1c"
+      },
+      "scene-enemies.tsv": {
+        "bytes": 1827916,
+        "sha256": "433c4138d61d2b444f0805a8c05f392f9da91adc3cbd2d988112e751c5b7fbf4"
+      },
+      "scene-hits.tsv": {
+        "bytes": 426,
+        "sha256": "7c50484669b80b704c0fe386b3ae8acd2018f195ce6bb6541d0d15ec9c1792d4"
+      },
+      "asset-debug-explosion-pools.tsv": {
+        "bytes": 38934,
+        "sha256": "bab070bb43c66e82e5f51f87441df39db320a4f7479d40c190aa011fa4386145"
+      },
+      "effects.tsv": {
+        "bytes": 2922,
+        "sha256": "2a91081ab60235edab5b506a1a4b0bce27b0afd3ba3fe9a725380c696622dbdb"
+      },
+      "draw-commands.tsv": {
+        "bytes": 126339,
+        "sha256": "120de9a093b9dad050018e6da8eb8d166224243d9c9253f92649481e459393bd"
+      }
+    }
+  },
+  "capture": {
+    "status": "passed",
+    "source": "Every video input frame is directSDL_RenderReadPixels from actual game, once per original logic tick. No synthetic scrolling/interpolation. MP4 is lossyH.264; real-frame hashes cover originalRGBA before encoding.",
+    "exit": 0,
+    "exe_sha256": "c1db720ec4c3fcf1973daf399637471bb5f45f476f67081a4d8f976ee79f38a8",
+    "real_frame_count": 120,
+    "tick_first": 2540,
+    "tick_last": 2659,
+    "nominal_duration_ms": 3450.00276,
+    "video": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "width": 640,
+          "height": 400,
+          "avg_frame_rate": "597843/17188",
+          "duration": "3.450003",
+          "nb_read_frames": "120"
+        }
+      ]
+    },
+    "state_matches_non_capture_run": true,
+    "rgb_audit_matches_non_capture_run": true,
+    "existing_PNG90_91_pixel_matches": {},
+    "lossless_video_roundtrip_all_frame_hashes_exact": true,
+    "ordinary_BMP_files_created": 0,
+    "elapsed_seconds": 15.839714023997658,
+    "media_cap_bytes": 50000000,
+    "lossless_codec": "libx264rgb CRF0",
+    "sample_count": 5
+  },
+  "limits": [
+    "Private survival and original Pulse155 control diagnostic",
+    "Four extra foundation identities159/160/169/170 have static modular coverage only",
+    "Minor gray cobble texture-phase changes remain",
+    "No natural ground-only hit filter on these enemyground=false entities",
+    "No full-level, Windows or CI claim"
+  ],
+  "evidence_hashes": {
+    "purple-runtime-final-audit/report.json": "af27cfe2ac9fe97d0ffe079e08fe0c562211ffbf3c275eae0a66850f2fb5d844",
+    "purple-fringe-v4-final-art-tests/report.json": "5fc8ef161dc519851fdea457569566462ea186a2cafe5f8163cda1eaf3311f1d",
+    "opentyrian-cloud-runtime/next15-support/purple-fringe-v4-state-parity.json": "0e699142fe752463d038ee93ff9ad95a91a4f9441992dae7acc9654e0fbfe19a"
+  },
+  "library": {
+    "video": {
+      "id": "libfile_25d94da3afb08191ad93eaf197f9a997",
+      "version": 0
+    },
+    "contact": {
+      "id": "libfile_4627b7c8b89c81918f7daa16ae6e3996",
+      "version": 0
+    }
+  },
+  "storage": {
+    "image_video_raw_binary_bytes_excluding_HDA": 6722373462,
+    "GiB": 6.260698160156608,
+    "per_root": {
+      "opentyrian-cloud-runtime": 2007992601,
+      "tyrian-background-redraw": 2690532788,
+      "tyrian-hd-art": 1832424931,
+      "generated_images": 191423142
+    },
+    "free_bytes": 14301335552,
+    "batch_media_bytes": 25246879,
+    "batch_cap_bytes": 50000000,
+    "BMP_created": 0,
+    "no_deletion": true
+  },
+  "formal_source_rebuild": {
+    "terrain": "13/13 regenerated RGBA and HDR1 exact; authored PNG hashes separate from RGBA canonical normalization",
+    "entity": "9/9 regenerated PNG, RGBA and HDR1 exact",
+    "main_build": "passed; one existing misleading-indentation warning",
+    "asset_verification": {
+      "packs": 18,
+      "HDA_entries": 2872,
+      "canonical_PNG": 328,
+      "defaults": [
+        316,
+        320
+      ]
+    }
+  }
+}

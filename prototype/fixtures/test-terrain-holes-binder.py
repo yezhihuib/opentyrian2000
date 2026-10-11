@@ -1,7 +1,17 @@
 """Extract the production finite binder and loader and test their actual C99 code."""
 from pathlib import Path
 import argparse,re,subprocess,tempfile,os,json,hashlib
-TOOLS=Path(__file__).resolve().parent;ROOT=TOOLS.parents[1]
+
+# Test-only retention: keep synthetic inputs/executables instead of deleting them.
+class RetainedDirectory:
+    def __init__(self, *args, **kwargs):
+        self.name = tempfile.mkdtemp(*args, **kwargs)
+    def __enter__(self):
+        return self.name
+    def __exit__(self, *args):
+        print('Retained synthetic work:', self.name)
+
+TOOLS=Path(__file__).resolve().parent;ROOT=Path(__file__).resolve().parents[2]
 p=argparse.ArgumentParser(description=__doc__);p.add_argument('--source',type=Path,default=ROOT);p.add_argument('--sanitize',action='store_true');p.add_argument('--report',type=Path);p.add_argument('--assets',type=Path,default=ROOT/'assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test');a=p.parse_args();source=(a.source/'src/render_mirror.c').read_text()
 def extract(name):
  match=re.search(r'^.*\b'+name+r'\([^\n]*\)\s*\{',source,re.M);assert match,name
@@ -10,7 +20,7 @@ def extract(name):
  return source[match.start():end]+'\n'
 types=re.search(r'typedef struct \{\s*bool initialized,valid;.*?\} Asset;',source,re.S).group()
 arrays='\n'.join(re.search(p,source).group() for p in [r'static Asset assets\[\d+\];',r'static struct \{const Uint8 \*data;unsigned int id;\} terrain_sources\[\d+\];'])
-funcs='\n'.join(extract(n) for n in ['read_asset','scene_asset','render_mirror_map_begin','cloud_terrain_slot','ground_terrain_slot','plateau_terrain_slot','underlay_terrain_slot','road_terrain_slot','terrain_holes_slot','stone_foundation_slot','layer3_gray_slot','render_mirror_bind_terrain','render_mirror_terrain_row'])
+funcs='\n'.join(extract(n) for n in ['read_asset','scene_asset','render_mirror_map_begin','cloud_terrain_slot','ground_terrain_slot','plateau_terrain_slot','underlay_terrain_slot','road_terrain_slot','terrain_holes_slot','stone_foundation_slot','layer3_gray_slot','layer3_purple_slot','render_mirror_bind_terrain','render_mirror_terrain_row'])
 
 def prepare_assets(directory, assets):
     import struct
@@ -37,7 +47,7 @@ def prepare_assets(directory, assets):
     (directory/'original-masks.inc').write_text('/* Support derived from approved authored assets, not bundled game data. */\nstatic const Uint8 original_masks[2][672]={'+','.join('{'+','.join(map(str,m))+'}' for m in masks)+'};\n')
     return reports
 
-with tempfile.TemporaryDirectory(prefix='terrain-holes-binder-') as tmp:
+with RetainedDirectory(prefix='terrain-holes-binder-') as tmp:
  d=Path(tmp);(d/'production-types.inc').write_text(types+'\n'+arrays+'\n');(d/'production-helpers.inc').write_text(funcs)
  asset_report=prepare_assets(d,a.assets)
  command=['cc','-std=c99','-O1','-g','-Wall','-Wextra','-Werror','-I'+str(d),str(Path(__file__).with_suffix('.c')),'-o',str(d/'test')]

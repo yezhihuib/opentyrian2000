@@ -37,3 +37,8 @@ Existing air/impact fixtures naturally contain ground, so36/19RGB-different tick
 No smoke, green trails, shields, cash, table-only effects or paused terrain109/107/120 are newly bound in this release. Those future active effects require their own finite integration and visual acceptance before another commit. No push/PR was performed. Separate pre/post checkpoints and full evidence/media/rollback ZIPs remain outside the repository.
 
 Retained untracked files: historical standalone prototype importers, render demos, exploratory maps and verification scripts whose exact current variants are not necessary to this accepted runtime. They are preserved, not blanket-added or deleted. Temporary screenshots/HTML, run logs, EXEs/DLLs/objects, local SDK props, videos and rollback archives remain excluded; original third-party game data is not committed. Exact file inventory is saved in the local git-release/pre-commit-audit.json and final commit report.
+
+
+## Purple installation / Layer3 foundation batch
+
+See [PURPLE_INSTALLATION_VALIDATION.md](PURPLE_INSTALLATION_VALIDATION.md) for exact identities, reproduction and bounded cloud acceptance. Adds13 persistent terrain tiles and9 independent components; final gray fringe correction is accepted. Current packs316/320, canonicalPNG328, totalHDA2872. Windows native2×/4× acceptance remains pending; use the existing local fixture commands and current manifest defaults.

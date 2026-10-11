@@ -14,7 +14,9 @@ import struct
 import subprocess
 import tempfile
 
+
 ROOT = Path(__file__).resolve().parents[2]
+PURPLE = [150,156,157,158,159,160,166,168,169,170,176,177,178]
 GRAY = [121,122,123,124,125,131,132,133,134,135,141,142,143,144,151,152,153,154]
 OLD = [101,37,57,49,50,321,322,331,332,99,100,106,107,109,110,118,119,120,
        96,97,98,108,323,324,333,334,36,39,40,46,48,56,58,38,47,
@@ -41,10 +43,11 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--source', type=Path, default=ROOT)
     p.add_argument('--sanitize', action='store_true')
-    p.add_argument('--topology', type=Path, default=ROOT.parent/'tyrian-background-redraw/scene-analysis')
-    p.add_argument('--data', type=Path, default=Path(os.environ.get('TYRIAN_DATA_DIR', ROOT.parent/'opentyrian-cloud-runtime/data/tyrian2000')))
+    p.add_argument('--topology', type=Path, help='Optional independently audited layer map JSON directory')
+    p.add_argument('--data', type=Path, default=Path(os.environ['TYRIAN_DATA_DIR']) if os.environ.get('TYRIAN_DATA_DIR') else None, help='Original game data directory, or set TYRIAN_DATA_DIR')
     p.add_argument('--report', type=Path)
     a = p.parse_args()
+    if a.data is None: p.error("--data or TYRIAN_DATA_DIR is required")
     sources = {n:(a.source/'src'/n).read_text() for n in ['render_mirror.c','tyrian2.c','backgrnd.c']}
     source = sources['render_mirror.c']
     work = Path(tempfile.mkdtemp(prefix='layer3-gray-binder-'))
@@ -54,7 +57,7 @@ def main():
     (work/'production-types.inc').write_text('\n'.join(re.search(q,source,re.S).group() for q in patterns))
     names = ['read_asset','scene_asset','render_mirror_map_begin','cloud_terrain_slot',
              'ground_terrain_slot','plateau_terrain_slot','underlay_terrain_slot','road_terrain_slot',
-             'terrain_holes_slot','stone_foundation_slot','layer3_gray_slot',
+             'terrain_holes_slot','stone_foundation_slot','layer3_gray_slot','layer3_purple_slot',
              'render_mirror_bind_terrain','render_mirror_terrain_row']
     (work/'production-helpers.inc').write_text('\n'.join(extract(source,n) for n in names))
     ty = sources['tyrian2.c']
@@ -71,24 +74,33 @@ def main():
     assert len(positions) == 3
     for position in positions:
         assert 'background3over' in ty[max(0,position-200):position]
-    metadata = []
-    lookups = []
-    for layer in [1,2,3]:
-        f = a.topology/f'level9-layer{layer}-map.json'
-        raw = f.read_bytes(); document = json.loads(raw)
-        assert document['layer'] == layer
-        assert (document['rows'],document['cols']) == ((300,14) if layer == 1 else (600,14 if layer == 2 else 15))
-        assert len(document['lookup']) == 128
-        lookups.append(document['lookup'])
-        metadata.append({'path':str(f),'sha256':hashlib.sha256(raw).hexdigest()})
-    # Verify the audit's lookup arrays directly against the immutable original
-    # level bytes. The engine reads three128-word tables immediately before map1.
+    # The original file has a little-endian offset table. Physical level9
+    # is entry16; its three lookup arrays follow enemy IDs and11-byte events.
     level = (a.data/'tyrian1.lvl').read_bytes()
-    assert hashlib.sha256(level).hexdigest() == '54cbb00b57b84aa992a70cfcb170cb1edeb59507873723630d60080ba8351352'
-    first_map = json.loads((a.topology/'level9-layer1-map.json').read_bytes())['offset']
-    for layer in range(3):
-        offset = first_map - 3*256 + layer*256
-        assert list(struct.unpack('>128H',level[offset:offset+256])) == lookups[layer]
+    level_hash = hashlib.sha256(level).hexdigest()
+    assert level_hash == '54cbb00b57b84aa992a70cfcb170cb1edeb59507873723630d60080ba8351352'
+    level_count = struct.unpack_from('<H', level)[0]
+    assert level_count > 16
+    level_offset = struct.unpack_from('<I', level, 2+16*4)[0]
+    enemy_count = struct.unpack_from('<H', level, level_offset+8)[0]
+    event_count_offset = level_offset+10+2*enemy_count
+    event_count = struct.unpack_from('<H', level, event_count_offset)[0]
+    lookup_start = event_count_offset+2+11*event_count
+    assert lookup_start+3*256 <= len(level)
+    lookups = [list(struct.unpack_from('>128H', level, lookup_start+layer*256)) for layer in range(3)]
+    metadata = [{'path':str(a.data/'tyrian1.lvl'), 'sha256':level_hash,
+                 'level_offset_entry':16, 'level_offset':level_offset,
+                 'enemy_count':enemy_count, 'event_count':event_count,
+                 'lookup_start':lookup_start, 'first_map':lookup_start+768}]
+    if a.topology:
+        for layer in [1,2,3]:
+            path = a.topology/f'level9-layer{layer}-map.json'
+            raw_metadata = path.read_bytes(); document = json.loads(raw_metadata)
+            assert document['layer'] == layer
+            assert (document['rows'],document['cols']) == ((300,14) if layer == 1 else (600,14 if layer == 2 else 15))
+            assert len(document['lookup']) == 128 and document['lookup'] == lookups[layer-1]
+            if layer == 1: assert document['offset'] == lookup_start+768
+            metadata.append({'path':str(path),'sha256':hashlib.sha256(raw_metadata).hexdigest()})
     raw = (a.data/'shapesz.dat').read_bytes()
     assert hashlib.sha256(raw).hexdigest() == '3ecc9b59c82e8e7d9c91889aac7d337ca28a59519c4970e256250e4603a9b248'
     blank = []; offset = 0
@@ -98,10 +110,10 @@ def main():
         blank.append(value)
         if not value: offset += 672
     assert offset <= len(raw)
-    accepted = [set(OLD),set(CLOUD),set(GRAY)]
+    accepted = [set(OLD),set(CLOUD),set(GRAY+PURPLE)]
     counts = [sum(tile in accepted[layer] and (layer == 0 or not blank[tile-1])
                   for tile in lookups[layer][:72 if layer == 0 else 71 if layer == 1 else 70]) for layer in range(3)]
-    assert counts == [45,15,18], counts
+    assert counts == [45,15,31], counts
     (work/'original-map.inc').write_text('static const uint16_t actual_lookup[3][128]={' + ','.join('{'+','.join(map(str,v))+'}' for v in lookups) + '};\nstatic const bool actual_blank[600]={' + ','.join(map(str,blank)) + '};\n')
     # Pure test payloads, deliberately including alpha0/1/127/128/254/255.
     def write_pack(label, density, omit=(), bad=None):
@@ -136,7 +148,7 @@ def main():
     if build.returncode: raise RuntimeError(build.stderr)
     run = subprocess.run([str(work/'test'),str(work)],text=True,capture_output=True,env=dict(os.environ,ASAN_OPTIONS='detect_leaks=0:halt_on_error=1',UBSAN_OPTIONS='halt_on_error=1:print_stacktrace=1'))
     print(run.stdout,end='');print(run.stderr,end='')
-    report = {'status':'passed' if run.returncode == 0 else 'failed','sanitize':a.sanitize,'exit_code':run.returncode,'command':command,'work':str(work),'stdout':run.stdout,'stderr':run.stderr,'source_sha256':{n:hashlib.sha256(s.encode()).hexdigest() for n,s in sources.items()},'source_stable':all(s==(a.source/'src'/n).read_text() for n,s in sources.items()),'metadata':metadata,'level9_registered_slots_by_layer':counts,'level9_registered_slots':sum(counts),'distinct_accepted_ids':len(OLD+CLOUD+GRAY),'registry_capacity':140,'synthetic_maximum_original_loop_slots':213,'scope':'Finite reviewed level9 bankZ family; original loader loops including duplicate351 and source pointers, no gameplay run, capture or authored art.'}
+    report = {'status':'passed' if run.returncode == 0 else 'failed','sanitize':a.sanitize,'exit_code':run.returncode,'command':command,'work':str(work),'stdout':run.stdout,'stderr':run.stderr,'source_sha256':{n:hashlib.sha256(s.encode()).hexdigest() for n,s in sources.items()},'source_stable':all(s==(a.source/'src'/n).read_text() for n,s in sources.items()),'metadata':metadata,'level9_registered_slots_by_layer':counts,'level9_registered_slots':sum(counts),'distinct_accepted_ids':len(OLD+CLOUD+GRAY+PURPLE),'synthetic_pack_ids':len(OLD+CLOUD+GRAY),'registry_capacity':153,'synthetic_maximum_original_loop_slots':213,'scope':'Finite reviewed level9 bankZ family; original loader loops including duplicate351 and source pointers, no gameplay run, capture or authored art.'}
     out = a.report or work/'result.json';out.write_text(json.dumps(report,indent=2)+'\n')
     print('Report:',out)
     run.check_returncode();assert report['source_stable']

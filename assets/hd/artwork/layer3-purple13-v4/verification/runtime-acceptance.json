@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "evidence_scope": "Actual 120-frame private-survival replay plus controlled independent removals",
+  "tick_range_inclusive": [
+    2540,
+    2659
+  ],
+  "frame_count": 120,
+  "decoded_rgba_readback_hashes_all_exact": true,
+  "all_v3_to_v4_runtime_differences_within_approved_six_fringe_union": true,
+  "HUD_exact": true,
+  "actual_2540_and_2625_crops_equal_root_approved_offline_prediction": true,
+  "root_and_entity_reviewer_acceptance": "Accepted, reported by parent task after independent actual replay review",
+  "parent_source": "Parent task update received 2026-10-11 21:23 UTC",
+  "private_evidence_label": "v3-v4-120-scope.json",
+  "private_evidence_sha256": "63deef020ca340674c06d240f7060b77acd52877b2f15a3a78d917556a6d8fe3",
+  "private_evidence_per_frame_scope_rows_checked": 120,
+  "private_captures_distributed": false,
+  "terrain_package_scope": "Three terrain tiles only; combined replay approved six fringe regions also includes companion actor changes outside this package",
+  "visual_limit": "Minor remaining cobble-phase difference is explicitly accepted; no claim that the seam or texture-phase difference is completely absent",
+  "coverage_limit": "Bounded private-survival and controlled independent-removal verification; not normal-play difficulty/timing or all13/allmap runtime coverage",
+  "packager_ran_game": false,
+  "runtime_acceptance": "PASS: bounded actual120-frame replay, private-survival plus controlled independent removals; no universal gameplay claim"
+}

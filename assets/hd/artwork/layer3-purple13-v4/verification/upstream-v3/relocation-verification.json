@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "source_package_directory": "relocated package with spaces",
+  "output_directory": "relocated output with spaces",
+  "invocation_working_directory": "/tmp",
+  "command": "bash \"relocated package with spaces/rebuild-selected.sh\" \"relocated output with spaces\"",
+  "paths_containing_spaces": true,
+  "source_package_unchanged": true,
+  "inventory_verified": true,
+  "native_helper_compiled_fresh": true,
+  "decoded_rgba_exact_count": 13,
+  "hda_file_exact_count": 13,
+  "committed_selected_png_hashes_verified_count": 13,
+  "regenerated_png_file_exact_count": 7,
+  "no_external_art_data_or_checkout_dependency": true,
+  "note": "Final inventory also checked in a second relocated rebuild after verification-record assembly. Logs retained outside the package."
+}

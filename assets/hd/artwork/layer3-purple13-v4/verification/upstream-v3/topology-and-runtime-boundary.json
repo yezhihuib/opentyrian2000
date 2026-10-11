@@ -1,0 +1,122 @@
+{
+  "evidence_kind": "Bounded upstream audit facts and parent acceptance, not fresh game observation",
+  "whole_map_static_family": {
+    "cell_count": 64,
+    "motif_placement_count": 9,
+    "forms": {
+      "5x2": 1,
+      "3x2": 2,
+      "3x3": 2,
+      "2x2": 3,
+      "cross_with_4x4_bounds_12_occupied_cells": 1
+    },
+    "unique_tile_ids": [
+      150,
+      156,
+      157,
+      158,
+      159,
+      160,
+      166,
+      168,
+      169,
+      170,
+      176,
+      177,
+      178
+    ],
+    "note": "Nine is the number of static motif placements, not nine unique dimensional shape classes."
+  },
+  "recorded_window": {
+    "ticks": [
+      2088,
+      2609
+    ],
+    "observed_unique_purple_ids": [
+      150,
+      156,
+      157,
+      158,
+      166,
+      168,
+      176,
+      177,
+      178
+    ],
+    "only_observed_nine_ids": true,
+    "cross_center_ids_static_only": [
+      159,
+      160,
+      169,
+      170
+    ],
+    "note": "Window observations do not prove all 13 IDs or all nine static motifs were exercised in runtime."
+  },
+  "entity_pairing": {
+    "actor_rows": [
+      [
+        279,
+        281,
+        283
+      ],
+      [
+        245,
+        169,
+        207
+      ],
+      [
+        273,
+        275,
+        277
+      ]
+    ],
+    "terrain_rows": [
+      [
+        156,
+        157,
+        158
+      ],
+      [
+        166,
+        150,
+        168
+      ],
+      [
+        176,
+        177,
+        178
+      ]
+    ],
+    "terrain_logical_row_y": [
+      0,
+      28,
+      56
+    ],
+    "actor_logical_row_y": [
+      0,
+      27,
+      57
+    ],
+    "relative_row_y_offsets": [
+      0,
+      -1,
+      1
+    ],
+    "actor_logical_size": [
+      24,
+      28
+    ],
+    "actor_anchor": [
+      6,
+      7
+    ],
+    "terrain_anchor": [
+      0,
+      0
+    ],
+    "link": 0,
+    "death_contract": "Only struck component is removed, revealing persistent broken terrain. Other components remain independently alive. Do not flatten the installation or remove it as a group."
+  },
+  "runtime_gate": "Actual component-hit/death and all-nine removal runtime review is pending. Offline omission composites demonstrate alignment only.",
+  "original_data_and_map_arrays_included": false
+}
