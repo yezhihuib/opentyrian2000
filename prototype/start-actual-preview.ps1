@@ -8,6 +8,8 @@ param(
     [switch]$Window4x,
     [switch]$Talon13,
     [switch]$Talon5,
+    [switch]$BeforeGreenV2,
+    [switch]$BeforeGreenTrail,
     [switch]$BeforeShield,
     [switch]$BeforeWhiteSmoke,
     [switch]$BeforeLargeGround,
@@ -21,7 +23,9 @@ $ErrorActionPreference = 'Stop'
 $previewRepoRoot = Split-Path -Parent $PSScriptRoot
 $previewTaskRoot = Split-Path -Parent $previewRepoRoot
 $previewPython = 'C:\Program Files\Python311\python.exe'
-$previewAssets = Join-Path $previewRepoRoot 'assets\hd\packs\packed-talon13-foundation-type10-death-effects-white-smoke-shield-v1-test'
+$previewAssets = Join-Path $previewRepoRoot 'assets\hd\packs\packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-test'
+if ($BeforeGreenV2) { $previewAssets = Join-Path $previewRepoRoot 'assets\hd\packs\packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v1-test' }
+if ($BeforeGreenTrail) { $previewAssets = Join-Path $previewRepoRoot 'assets\hd\packs\packed-talon13-foundation-type10-death-effects-white-smoke-shield-v1-test' }
 if ($BeforeShield) { $previewAssets = Join-Path $previewRepoRoot 'assets\hd\packs\packed-talon13-foundation-type10-death-effects-white-smoke-v1-test' }
 if ($BeforeWhiteSmoke) { $previewAssets = Join-Path $previewRepoRoot 'assets\hd\packs\packed-talon13-foundation-type10-death-effects-v1-test' }
 if ($BeforeLargeGround) { $previewAssets = Join-Path $previewRepoRoot 'assets\hd\packs\packed-talon13-foundation-type10-explosion-v2-large-air-v1-impact-v1-test' }

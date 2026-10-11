@@ -1,0 +1,173 @@
+--- a/src/asset_debug.c
++++ b/src/asset_debug.c
+@@ -14,6 +14,15 @@
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
++/* Private opt-in original loaded weapon71; no per-shot state overrides. */
++static void fx_fixture_tick(void){
++ if(!getenv("OT_FX_FIXTURE")||game_probe_tick!=90)return;
++ Uint64 rng=mt_state_fingerprint();unsigned int pow=power,pos=shotMultiPos[SHOT_MISC];
++ int slot=player_shot_create(1,SHOT_MISC,90,50,mouseX,mouseY,71,1);
++ FILE*f=fopen("fx-weapons.tsv","w");if(!f)exit(2);fprintf(f,"tick\tweapon\ttrail\tmulti\tmax\tbay_before\tbay_after\tpower_before\tpower_after\tlast_slot\trng_before\trng_after\n");fprintf(f,"%u\t71\t%u\t%u\t%u\t%u\t%u\t%u\t%u\t%d\t%016llx\t%016llx\n",game_probe_tick,weapons[71].trail,weapons[71].multi,weapons[71].max,pos,shotMultiPos[SHOT_MISC],pow,power,slot,(unsigned long long)rng,(unsigned long long)mt_state_fingerprint());fclose(f);
++ f=fopen("fx-created-shots.tsv","w");if(!f)exit(2);fprintf(f,"tick\tslot\ttrail\tx\ty\tvx\tvy\tactive\tgraphic\n");for(int i=0;i<MAX_PWEAPON;i++)if(shotAvail[i]){PlayerShotDataType*s=&playerShotData[i];fprintf(f,"%u\t%d\t%u\t%d\t%d\t%d\t%d\t%u\t%u\n",game_probe_tick,i,s->shotTrail,s->shotX,s->shotY,s->shotXM,s->shotYM,shotAvail[i],s->shotGr);}fclose(f);
++}
++
+ bool asset_debug_enabled;
+ int asset_debug_exit_code;
+ static unsigned int episode=1,level=9,target=890,target_event;
+@@ -128,6 +137,7 @@
+ {if(asset_debug_enabled&&!index_only&&!arrived&&!quitting){fprintf(stderr,"Asset debug: target not reached before level/test ended\n");asset_debug_exit_code=2;}}
+ void asset_debug_projectile(void)
+ {
++ fx_fixture_tick();
+  if(!asset_debug_enabled||pending_slot<0)return;
+  int slot=pending_slot;pending_slot=-1;struct JE_SingleEnemyType*e=&enemy[slot];
+  if(enemyAvail[slot]!=0||!e->enemycycle||!e->armorleft||e->armorleft==255){log_control("rejected-inactive-or-invincible-shot-target");return;}
+@@ -145,6 +155,7 @@
+ bool asset_debug_window_only(void){return asset_debug_enabled&&window_only;}
+ void asset_debug_readback(SDL_Renderer *renderer)
+ {
++ if(getenv("OT_FX_LOCAL_ONLY"))return;
+  if(!asset_debug_capture_tick()||game_probe_tick==last_capture)return;
+  int w,h;if(SDL_GetRendererOutputSize(renderer,&w,&h))exit(2);SDL_Surface*s=SDL_CreateRGBSurfaceWithFormat(0,w,h,32,SDL_PIXELFORMAT_ARGB8888);if(!s||SDL_RenderReadPixels(renderer,NULL,SDL_PIXELFORMAT_ARGB8888,s->pixels,s->pitch))exit(2);
+  char name[80];snprintf(name,sizeof(name),"asset-debug-window-%04u.bmp",game_probe_tick);if(SDL_SaveBMP(s,name))exit(2);SDL_FreeSurface(s);last_capture=game_probe_tick;
+--- a/src/render_mirror.c
++++ b/src/render_mirror.c
+@@ -65,6 +65,41 @@
+ static unsigned int brightness_blocks,restored_checks,restored_mismatches,expanded_regions,boundary_crossings;
+ static Uint32 palette_rgb(Uint8 index);
+ static unsigned int blend_source_index;
++/* Private read-only green-trail matrix observer; captures actual renderer command positions. */
++#include "varz.h"
++static unsigned int ae_tick=UINT32_MAX,ae_call,ae_id;
++static int ae_x,ae_y,ae_style,ae_pool,ae_ttl,ae_delta,ae_fixed,ae_follow;
++static bool ae_current,ae_inside,ae_mirrored,ae_capture;static Uint8 ae_used[MAX_EXPLOSIONS];
++static void ae_save(const char *phase){
++ if(!ae_inside||!ae_capture)return;
++ char name[140];snprintf(name,sizeof(name),"ae-%04u-%03u-%s.bmp",game_probe_tick,ae_call,phase);
++ SDL_Surface*s=SDL_CreateRGBSurfaceWithFormat(0,12*game_probe_density,14*game_probe_density,32,SDL_PIXELFORMAT_ARGB8888);if(!s)exit(2);
++ SDL_Rect r={ae_x*game_probe_density,ae_y*game_probe_density,12*game_probe_density,14*game_probe_density};if(SDL_BlitSurface(canvas,&r,s,NULL)||SDL_SaveBMP(s,name))exit(2);SDL_FreeSurface(s);
++ snprintf(name,sizeof(name),"ae-%04u-%03u-%s-index.bin",game_probe_tick,ae_call,phase);FILE*f=fopen(name,"wb");if(!f)exit(2);
++ for(int iy=0;iy<14;iy++)if(fwrite((Uint8*)game_screen->pixels+(ae_y+iy)*game_screen->pitch+ae_x,1,12,f)!=12)exit(2);fclose(f);
++ snprintf(name,sizeof(name),"ae-%04u-%03u-%s-owner.bin",game_probe_tick,ae_call,phase);f=fopen(name,"wb");if(!f)exit(2);
++ for(int iy=0;iy<14*game_probe_density;iy++)if(fwrite(hd_owner+(ae_y*game_probe_density+iy)*canvas->w+ae_x*game_probe_density,1,12*game_probe_density,f)!=(size_t)12*game_probe_density)exit(2);fclose(f);
++}
++void ae_before(SDL_Surface*surface,int x,int y,Sprite2_array bank,unsigned int id,int style){
++ ae_current=false;
++ if(!getenv("OT_FX_PROBE")||surface!=game_screen||bank.data!=explosionSpriteSheet.data||!canvas)return;
++ if(ae_tick!=game_probe_tick){ae_tick=game_probe_tick;ae_call=0;memset(ae_used,0,sizeof(ae_used));}else ++ae_call;
++ if(id<78||id>84)return;
++ ae_current=true;ae_x=x;ae_y=y;ae_id=id;ae_style=style;ae_pool=-1;
++ for(int i=0;i<MAX_EXPLOSIONS;i++)if(!ae_used[i]&&explosions[i].ttl&&explosions[i].x==x&&explosions[i].y==y&&explosions[i].sprite+1==id){ae_pool=i;ae_used[i]=1;break;}
++ if(ae_pool<0){fprintf(stderr,"Private observer unmatched original pool\n");exit(2);}
++ ae_ttl=explosions[ae_pool].ttl;ae_delta=explosions[ae_pool].deltaY;ae_fixed=explosions[ae_pool].fixedPosition;ae_follow=explosions[ae_pool].followPlayer;
++ ae_inside=x>=0&&y>=0&&x+12<=320&&y+14<=200;ae_capture=asset_debug_capture_tick();ae_save("before");
++ if(ae_inside&&ae_capture){char name[120];snprintf(name,sizeof(name),"ae-%04u-%03u-palette.bin",game_probe_tick,ae_call);FILE*f=fopen(name,"wb");if(!f||fwrite(rgb_palette,4,256,f)!=256)exit(2);fclose(f);}
++}
++void ae_after_mirror(bool mirrored){if(ae_current){ae_mirrored=mirrored;ae_save("body");}}
++void ae_after_original(void){
++ if(!ae_current)return;ae_save("original-done");static FILE*f;
++ if(!f){f=fopen("ae-events.tsv","w");if(!f)exit(2);fprintf(f,"tick\tcall\tid\tframe0\tpool\tttl_before\tdeltaY\tfixed\tfollow\tstyle\tx\ty\tanchor_x\tanchor_y\tmirrored\tinside\tcapture\tdensity\tprocessor\ttransparent\n");}
++ fprintf(f,"%u\t%u\t%u\t%u\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t0\t0\t%d\t%d\t%d\t%d\t%u\t%d\n",game_probe_tick,ae_call,ae_id,ae_id-78,ae_pool,ae_ttl,ae_delta,ae_fixed,ae_follow,ae_style,ae_x,ae_y,ae_mirrored,ae_inside,ae_capture,game_probe_density,processorType,explosionTransparent);fflush(f);ae_current=false;
++}
++
++
+ 
+ /* Display grouping requires all four recognized rectangles at their exact
+  * original adjacency. It never reads/modifies enemy state or death links. */
+@@ -335,7 +370,7 @@
+  if(index>=135&&index<=141)return 146+(int)index-135;
+  static const unsigned int shield_ids[22]={229,230,231,232,233,234,235,236,237,248,249,250,252,253,254,255,256,267,268,269,272,275};
+  for(int k=0;k<22;k++)if(index==shield_ids[k])return 153+k;
+- if(index>=78&&index<=84)return 175+(int)index-78;
++ if(index>=78&&index<=84)return getenv("OT_FX_BASELINE")?-1:175+(int)index-78;
+  return -1;
+ }
+ 
+@@ -637,7 +672,7 @@
+            (index>=122&&index<=133)||index==145||(index>=146&&index<=152)||(index>=154&&index<=165)||
+            (index>=173&&index<=184)||(index>=192&&index<=203)||(index>=211&&index<=222);
+  bool shield=(index>=229&&index<=237)||(index>=248&&index<=256)||(index>=267&&index<=275);
+- bool green=index>=78&&index<=84; /* Original green ramp, including a missing HD frame. */
++ bool green=!getenv("OT_FX_BASELINE")&&index>=78&&index<=84; /* Original green ramp, including a missing HD frame. */
+  bool smoke=index>=135&&index<=141; /* Exact original gray smoke ramp, including one missing HD frame. */
+  /* Original fixed-position value graphics: explosion_data[35..52].sprite+1.
+   * Their two observed blue/gray ramps use the same checked blend arithmetic;
+--- a/src/render_mirror.h
++++ b/src/render_mirror.h
+@@ -49,3 +49,7 @@
+ void render_mirror_player_pose(unsigned int player_number, Sprite2_array, int base, int index, unsigned int invulnerable_ticks);
+ #endif
+ #endif
++
++void ae_before(SDL_Surface*,int,int,Sprite2_array,unsigned int,int);
++void ae_after_mirror(bool);
++void ae_after_original(void);
+--- a/src/entity_draw.c
++++ b/src/entity_draw.c
+@@ -9,6 +9,7 @@
+                          Sprite2_array bank, unsigned int index,
+                          EntityDrawStyle style, EntityDrawLayout layout)
+ {
++	ae_before(target,x,y,bank,index,style);
+ 	bool mirrored=render_mirror_entity(target,x,y,bank,index,style,layout);
+ #ifndef RENDER_MIRROR_DISABLED
+ 	int role=bank.data==spriteSheet9.data?9:bank.data==spriteSheet8.data?8:bank.data==explosionSpriteSheet.data?6:0;
+@@ -16,6 +17,7 @@
+ #else
+ 	(void)mirrored;
+ #endif
++	ae_after_mirror(mirrored);
+ 	if (layout == ENTITY_QUAD)
+ 	{
+ 		switch (style)
+@@ -34,5 +36,6 @@
+ 		case ENTITY_SHADOW: blit_sprite2_darken(target, x, y, bank, index); break;
+ 		}
+ 	}
++	ae_after_original();
+ 	render_mirror_entity_end();
+ }
+--- a/src/varz.c
++++ b/src/varz.c
+@@ -881,6 +881,8 @@
+ 	bool fixedPosition,  // true when coin/gem value
+ 	bool followPlayer)   // true when player shield (1P only)
+ {
++ int fx_x=x,fx_y=y,fx_slot=-1;
++ if(getenv("OT_FX_FIXTURE")&&type==12)for(int k=0;k<MAX_EXPLOSIONS;k++)if(!explosions[k].ttl){fx_slot=k;break;}
+ 	const struct {
+ 		JE_word sprite;
+ 		JE_byte ttl;
+@@ -967,6 +969,11 @@
+ 			}
+ 		}
+ 	}
++ if(getenv("OT_FX_FIXTURE")&&type==12){
++  static FILE*f;if(!f){f=fopen("fx-setup.tsv","w");if(!f)exit(2);fprintf(f,"tick\tinput_type\tinput_x\tinput_y\tdeltaY\tpool\tx\ty\tsprite\tttl\tfixed\tfollow\texplodeMove\n");}
++  if(fx_slot>=0)fprintf(f,"%u\t12\t%d\t%d\t%d\t%d\t%d\t%d\t%u\t%u\t%d\t%d\t%d\n",game_probe_tick,fx_x,fx_y,deltaY,fx_slot,explosions[fx_slot].x,explosions[fx_slot].y,explosions[fx_slot].sprite,explosions[fx_slot].ttl,fixedPosition,followPlayer,explodeMove);fflush(f);
++ }
++
+ }
+ 
+ void JE_setupExplosionLarge(JE_boolean enemyGround, JE_byte exploNum, JE_integer x, JE_integer y)
+--- a/src/shots.c
++++ b/src/shots.c
+@@ -1,3 +1,4 @@
++#include "game_probe.h"
+ /*
+  * OpenTyrian: A modern cross-platform port of Tyrian
+  * Copyright (C) 2007-2013  The OpenTyrian Development Team
+@@ -227,6 +228,11 @@
+ 			return false;
+ 		}
+ 
++        if(getenv("OT_FX_FIXTURE")){
++         static FILE*f;if(!f){f=fopen("fx-trail.tsv","w");if(!f)exit(2);fprintf(f,"tick\tslot\ttrail\tx\ty\tvx\tvy\tactive\n");}
++         fprintf(f,"%u\t%d\t%u\t%d\t%d\t%d\t%d\t%u\n",game_probe_tick,shot_id,shot->shotTrail,shot->shotX,shot->shotY,shot->shotXM,shot->shotYM,shotAvail[shot_id]);fflush(f);
++        }
++
+ 		if (shot->shotTrail != 255)
+ 		{
+ 			if (shot->shotTrail == 98 || shot->shotTrail == 198)

@@ -1,3 +1,7 @@
+# HD release stages
+
+Current handoff adds reviewed white smoke/shield and explicitly WIP green v1/v2. Current source/pack/default status, limits and Windows commands are in [WINDOWS_HANDOFF.md](WINDOWS_HANDOFF.md); reviewed scopes are in [EFFECTS_ACCEPTANCE.md](EFFECTS_ACCEPTANCE.md). The following is the earlier d1dcfbed resource baseline, retained as historical validation context; its counts and unbound-family statement describe that earlier stage.
+
 # Accepted local HD release
 
 The independent RGBA renderer, Talon13 default/5-frame compatibility, static blue2Dv4, transparency/hit/enemy filters, turretv7, foundation321/322/331/332, type10v9 and the accepted finite death families are committed with runtime resources. Original game simulation, RNG, collision, events and indexed drawing remain the reference.

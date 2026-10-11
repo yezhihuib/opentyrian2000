@@ -24,7 +24,7 @@
       "shapesz.dat": "3ecc9b59c82e8e7d9c91889aac7d337ca28a59519c4970e256250e4603a9b248",
       "palette.dat": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
     },
-    "pack_directory": "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-v1-test",
+    "pack_directory": "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-test",
     "reentry": "Fresh original initialization plus deterministic replay from tick0; no pointer jump, snapshots or artificial spawned enemy scene"
   },
   "coverage": {
@@ -16939,5 +16939,33 @@
     ],
     "original1053_tick_trace_preserved": true,
     "runtime_library_id": "libfile_5602cb19d9008191ba69478d70bc98cb"
+  },
+  "green_trail_binding_refresh": {
+    "HD_IDs": [
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84
+    ],
+    "original1053_tick_trace_preserved": true,
+    "not_observed_in_retained_index": true,
+    "private_loaded_original_weapon71_fixture": "green-trail-review; do not fabricate natural index observations"
+  },
+  "green_trail_v2_art_refresh": {
+    "IDs": [
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84
+    ],
+    "original1053_tick_trace_preserved": true,
+    "original_trace_no_new_observations": true,
+    "new_render_or_gameplay_rules": false
   }
 }

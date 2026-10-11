@@ -1,0 +1,776 @@
+{
+  "scope": "Only the64 recorded project files. No unrelated directories/recycle scan. No historical file edited/deleted/blanket-added.",
+  "count": 64,
+  "required_active_build_runtime_dependency_found": false,
+  "new_required_reproduction_sources": "Exact accepted/WIP effects snapshots in prototype/fixtures/effects and generic preparation script, separately committed. Original game data and SDL SDK/build outputs remain external prerequisites.",
+  "files": [
+    {
+      "path": "prototype/README.md",
+      "bytes": 55782,
+      "sha256": "9d92080ac304c04d20b7a6893276ee434165187a951ba681924c88b2e924f6a5",
+      "category": "historical journal",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Older long prototype journal; current concise docs and handoff describe the tracked pipeline.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": [
+        "prototype/analyze-fallback.py",
+        "prototype/build-and-test.ps1",
+        "prototype/build-probe-baseline.py",
+        "prototype/demo.c",
+        "prototype/export-current-scene-reference.py",
+        "prototype/export-terrain-context216.py",
+        "prototype/import-scene-test-assets.py",
+        "prototype/import-ship-poses.py",
+        "prototype/make-banking-video.py",
+        "prototype/make-explosion-blend-review.py",
+        "prototype/make-game-comparison.py",
+        "prototype/make-game-preview.py",
+        "prototype/make-preview.py",
+        "prototype/make-scene-v2-review.py",
+        "prototype/make-terrain-transition-review.py",
+        "prototype/package-review.py",
+        "prototype/prepare-asset-reference-probe.py",
+        "prototype/prepare-terrain-context-probe.py",
+        "prototype/run-transition-checks.ps1",
+        "prototype/scene-assets-map.json",
+        "prototype/ship-pose-map.json",
+        "prototype/verify-banking.py",
+        "prototype/verify-blend-call-sites.py",
+        "prototype/verify-call-sites.py",
+        "prototype/verify-cloud-poses.py",
+        "prototype/verify-controlled.py",
+        "prototype/verify-effects.py",
+        "prototype/verify-explosion-blend.py",
+        "prototype/verify-geometry-runs.py",
+        "prototype/verify-local-blend.py",
+        "prototype/verify-night-checks.py",
+        "prototype/verify-scene-call-sites.py",
+        "prototype/verify-scene-v2.py",
+        "prototype/verify-terrain-transitions.py",
+        "prototype/verify-transition-call-sites.py",
+        "prototype/verify-turret-highlight-v4.py"
+      ]
+    },
+    {
+      "path": "prototype/analyze-fallback.py",
+      "bytes": 1913,
+      "sha256": "f73a40bdcae720f1bf9de7e9f5d6f2d46b1938580f2285aafb5b737a195548ea",
+      "category": "historical probe/reference helper",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier exploratory/reference/harness tool; dependencies and current callers are recorded here for future selective restoration.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/build-and-test.ps1",
+      "bytes": 1514,
+      "sha256": "37bc401a9520688094dfd4acdc4186f0f492bc7543c11d5f93a29753eb0de812",
+      "category": "standalone early prototype",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier independent renderer/demo project, outside the real-game build graph.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": [
+        "prototype/prototype.vcxproj"
+      ]
+    },
+    {
+      "path": "prototype/build-probe-baseline.py",
+      "bytes": 2800,
+      "sha256": "b36676738d54aa96e40fe77516a53e006c70b0c0cc9c6d32f3f3bc7221d3385e",
+      "category": "historical probe/reference helper",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier exploratory/reference/harness tool; dependencies and current callers are recorded here for future selective restoration.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": [
+        "prototype/probe-harness-operations.json"
+      ]
+    },
+    {
+      "path": "prototype/classic_test.c",
+      "bytes": 4573,
+      "sha256": "3a61a40a6ee1bd56bfed9c29fadb391de9a9403877750baeae558cefa6d31793",
+      "category": "standalone early prototype",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier independent renderer/demo project, outside the real-game build graph.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": [
+        "prototype/hd_draw.h"
+      ]
+    },
+    {
+      "path": "prototype/demo.c",
+      "bytes": 10208,
+      "sha256": "8d1f45f211a5583187099e7c00d982a302d21dbf6ba9f9a6d6177cade4bae77c",
+      "category": "standalone early prototype",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier independent renderer/demo project, outside the real-game build graph.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": [
+        "prototype/hd_draw.h"
+      ]
+    },
+    {
+      "path": "prototype/export-current-scene-reference.py",
+      "bytes": 15307,
+      "sha256": "0368831decd531a3516d49dde537a59db0d241c8f3b5d6d2daf7c363e97d7fc5",
+      "category": "historical probe/reference helper",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier exploratory/reference/harness tool; dependencies and current callers are recorded here for future selective restoration.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/export-terrain-context216.py",
+      "bytes": 11136,
+      "sha256": "9771cbcabe195567710a4de1a873583afd6ba85218318078a58f3002f49f00c5",
+      "category": "historical probe/reference helper",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier exploratory/reference/harness tool; dependencies and current callers are recorded here for future selective restoration.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/hd_draw.c",
+      "bytes": 3996,
+      "sha256": "c1f166aad4c989676040d9f14aa575013553d923cb2ae2138cec4f8af2ef4f90",
+      "category": "standalone early prototype",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier independent renderer/demo project, outside the real-game build graph.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": [
+        "prototype/hd_draw.h"
+      ]
+    },
+    {
+      "path": "prototype/hd_draw.h",
+      "bytes": 1498,
+      "sha256": "d8086fd20c9ecd4016a90c648692445c3bd7cfb7fc7eccf4bfc251aacad1803c",
+      "category": "standalone early prototype",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier independent renderer/demo project, outside the real-game build graph.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/import-road49-50-v4.py",
+      "bytes": 4161,
+      "sha256": "420f5a8e20721499f74cb98cd8b2e696f6f202e0ceffc8cdeaaa6a2116e10e8f",
+      "category": "historical importer",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier one-off candidate imports; exact formal PNG+HDR rebuild is now supplied by tracked build-hd-assets.py.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/import-scene-test-assets.py",
+      "bytes": 3877,
+      "sha256": "6f180c0727e1eb9e01ab4ecca8b82d56d70cd2d5ebd1acc1a87323921fc999b8",
+      "category": "historical importer",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier one-off candidate imports; exact formal PNG+HDR rebuild is now supplied by tracked build-hd-assets.py.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/import-ship-poses.py",
+      "bytes": 3025,
+      "sha256": "607f7edd2d8ff0ffe9e2399ceae0e2fa4896f0f12d92ea87a393360b489e55c9",
+      "category": "historical importer",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier one-off candidate imports; exact formal PNG+HDR rebuild is now supplied by tracked build-hd-assets.py.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/import-talon-bank13.py",
+      "bytes": 3142,
+      "sha256": "323a68ec971b407ee86f170cffae9aa0cba1bac2142959bfdbf0e0164b68e310",
+      "category": "historical importer",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier one-off candidate imports; exact formal PNG+HDR rebuild is now supplied by tracked build-hd-assets.py.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/import-terrain-transitions.py",
+      "bytes": 4363,
+      "sha256": "22a2a78833da496263d116032b0c398c90f23e3d8d244e4e51cf45f83b63dcc4",
+      "category": "historical importer",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier one-off candidate imports; exact formal PNG+HDR rebuild is now supplied by tracked build-hd-assets.py.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": [
+        "prototype/README.md"
+      ]
+    },
+    {
+      "path": "prototype/import-terrain109-v3.py",
+      "bytes": 4418,
+      "sha256": "3dc4f3f96cb75b0c6cae3f496c10634e038f86d2936d1901f5d9e0303cefa095",
+      "category": "historical importer",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier one-off candidate imports; exact formal PNG+HDR rebuild is now supplied by tracked build-hd-assets.py.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/import-turret-highlight-v4.py",
+      "bytes": 4267,
+      "sha256": "79cf173c7331c92226aef2061b08ec7503b21b43de1ce424ccf8c85b129adee2",
+      "category": "historical importer",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier one-off candidate imports; exact formal PNG+HDR rebuild is now supplied by tracked build-hd-assets.py.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": [
+        "prototype/README.md"
+      ]
+    },
+    {
+      "path": "prototype/import-turret-v7.py",
+      "bytes": 6556,
+      "sha256": "b37bb6c6c5dcd089742d7651571658b394c6c9700a00e4fb3ae71e9d33c81c2c",
+      "category": "historical importer",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier one-off candidate imports; exact formal PNG+HDR rebuild is now supplied by tracked build-hd-assets.py.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/make-banking-video.py",
+      "bytes": 4785,
+      "sha256": "dc85148a3e581d11523efab7acaf07e5ec438405c5ecdd964f5728b4a2fbea3b",
+      "category": "historical media builder",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier proof/media packaging, dependent on historical local run paths; no production/build dependency.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/make-effects-proof.py",
+      "bytes": 1426,
+      "sha256": "9a89f65cde3d91c2df07ef511901ebd1e47d1d63a5c88f7fadfe5c1fa4ea0f98",
+      "category": "historical media builder",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier proof/media packaging, dependent on historical local run paths; no production/build dependency.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/make-explosion-blend-review.py",
+      "bytes": 3679,
+      "sha256": "1a655f316488142c8b87e82bf4fdc496c246f4ea1bb97084cc0781c702044bbd",
+      "category": "historical media builder",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier proof/media packaging, dependent on historical local run paths; no production/build dependency.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/make-game-comparison.py",
+      "bytes": 1590,
+      "sha256": "bf20ee7d56226700dd618869b4d01c4dd65e2b44f9337040da1b03cef5c3f15d",
+      "category": "historical media builder",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier proof/media packaging, dependent on historical local run paths; no production/build dependency.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/make-game-preview.py",
+      "bytes": 4014,
+      "sha256": "de994bad3e5e4b6ff523cbac68f01e0bad2b4a54fae56ac73043243338aa129e",
+      "category": "historical media builder",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier proof/media packaging, dependent on historical local run paths; no production/build dependency.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/make-geometry-proof.py",
+      "bytes": 1981,
+      "sha256": "9d6013273ded2ab3a42a0c2894a7759233c2de6a62a8cb3b9a6d97c48782a476",
+      "category": "historical media builder",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier proof/media packaging, dependent on historical local run paths; no production/build dependency.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/make-hit-proof.py",
+      "bytes": 1345,
+      "sha256": "cda3e90758ae10fa0c78da24f14e7c926661af2b02cbcfc666eab2c558a43a3a",
+      "category": "historical media builder",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier proof/media packaging, dependent on historical local run paths; no production/build dependency.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/make-preview.py",
+      "bytes": 3727,
+      "sha256": "a6daf105b539a002c98b510a046ceace350875abd678ac9b3fda6121d475765c",
+      "category": "historical media builder",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier proof/media packaging, dependent on historical local run paths; no production/build dependency.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/make-scene-v2-review.py",
+      "bytes": 4279,
+      "sha256": "66384cbd5ed89cd343d8dc32bd42e4c918619ad041822bcc571c498311c39d89",
+      "category": "historical media builder",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier proof/media packaging, dependent on historical local run paths; no production/build dependency.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/make-terrain-transition-review.py",
+      "bytes": 4287,
+      "sha256": "8ec2b860766da9a834eaf4a7c45b2e549367da241e3f5830c78d798e339cbe80",
+      "category": "historical media builder",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier proof/media packaging, dependent on historical local run paths; no production/build dependency.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/make-turret-v7-review.py",
+      "bytes": 5530,
+      "sha256": "cbfcbbecc22e7db0e00785b483e39c75f1ce0d9d5c0e76ae7c4199c4d9744580",
+      "category": "historical media builder",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier proof/media packaging, dependent on historical local run paths; no production/build dependency.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/package-review.py",
+      "bytes": 3289,
+      "sha256": "391a36e23a46a94fb582118691926fe0e215b37a55b967524cbe794a8856f0ce",
+      "category": "historical media builder",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier proof/media packaging, dependent on historical local run paths; no production/build dependency.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": [
+        "prototype/README.md"
+      ]
+    },
+    {
+      "path": "prototype/prepare-asset-reference-probe.py",
+      "bytes": 9673,
+      "sha256": "d8c6a864359622619c6e2cb48a81a5c3284afc286c5420340005432b2d9786e3",
+      "category": "historical probe/reference helper",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier exploratory/reference/harness tool; dependencies and current callers are recorded here for future selective restoration.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/prepare-terrain-context-probe.py",
+      "bytes": 6043,
+      "sha256": "80da402cce1d6256e3e7011569f9ea4eaba1795921fd3a2f73e72d675c588fff",
+      "category": "historical probe/reference helper",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier exploratory/reference/harness tool; dependencies and current callers are recorded here for future selective restoration.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/probe-harness-operations.json",
+      "bytes": 3983,
+      "sha256": "2695f8597c92cca158349a6c0a4acb09f4ec4f57725fec713bb59c301eb3d66a",
+      "category": "historical probe/reference helper",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier exploratory/reference/harness tool; dependencies and current callers are recorded here for future selective restoration.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/probe-turret-display-chain.py",
+      "bytes": 10120,
+      "sha256": "b01b97f31d67efb48b9acb7cd1cadb1eb9c7b28d80fc4307f4f7391b4ce7bab1",
+      "category": "historical probe/reference helper",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier exploratory/reference/harness tool; dependencies and current callers are recorded here for future selective restoration.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/prototype.vcxproj",
+      "bytes": 3154,
+      "sha256": "deecaccc811f82539ac8acc61d1cec27fa828768383856bc8e11c38e227d2cd3",
+      "category": "standalone early prototype",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier independent renderer/demo project, outside the real-game build graph.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": [
+        "prototype/classic_test.c",
+        "prototype/demo.c",
+        "prototype/hd_draw.c",
+        "prototype/rgba_test.c"
+      ]
+    },
+    {
+      "path": "prototype/rgba_test.c",
+      "bytes": 14910,
+      "sha256": "3909516e9e9c581f5555717ed62ee8c391794e039667641f21dffb7b563a3476",
+      "category": "standalone early prototype",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier independent renderer/demo project, outside the real-game build graph.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/run-transition-checks.ps1",
+      "bytes": 2972,
+      "sha256": "b2a1bd87f102f92c9d4a835b126249145615c16a2223b5449f8a3a9e19cca1a0",
+      "category": "historical probe/reference helper",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier exploratory/reference/harness tool; dependencies and current callers are recorded here for future selective restoration.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/scene-assets-map.json",
+      "bytes": 2766,
+      "sha256": "6301c51ea1fceace7ff796859b119bcd36533f8e163380000042aaf30975e9c4",
+      "category": "exploratory map",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Historical candidate mapping; current authoritative runtime mappings live in assets/hd/manifest.json.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/ship-pose-map.json",
+      "bytes": 1325,
+      "sha256": "79d568a44b53e757b6882bb2d03d38c745d8de7533883e8ce25afef1347167e8",
+      "category": "exploratory map",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Historical candidate mapping; current authoritative runtime mappings live in assets/hd/manifest.json.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/smoke-runtime.py",
+      "bytes": 2097,
+      "sha256": "3a0c4c6ac77bc7e9a0cdb1da1c8d5bee5c691d9359b41c79e7bff1aa67d076a0",
+      "category": "historical probe/reference helper",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Earlier exploratory/reference/harness tool; dependencies and current callers are recorded here for future selective restoration.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/terrain-transition-map.json",
+      "bytes": 1305,
+      "sha256": "3fbb70cb7ccfbbc2d1f0607972b1a02772f86f75459f27bc12f9688efe30b4bf",
+      "category": "exploratory map",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Historical candidate mapping; current authoritative runtime mappings live in assets/hd/manifest.json.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": [
+        "prototype/scene-assets-map.json"
+      ]
+    },
+    {
+      "path": "prototype/verify-banking.py",
+      "bytes": 4648,
+      "sha256": "35d1170fa4f17e9468330758e15f5f11853a0f2dda5bf891b83d11591c61b5d7",
+      "category": "historical verifier",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Prior-stage specialised assertions and local evidence paths; not a current release prerequisite. Exact new effect fixtures/reports are separately archived.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/verify-blend-call-sites.py",
+      "bytes": 1547,
+      "sha256": "34e60c3f039275385f8036e29c2a47a38cee0ebe6a8b8b64921aaf35bcecf6d1",
+      "category": "historical verifier",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Prior-stage specialised assertions and local evidence paths; not a current release prerequisite. Exact new effect fixtures/reports are separately archived.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/verify-blue-four-v4.py",
+      "bytes": 15126,
+      "sha256": "693c943549b3cbf6dc685e462da94b4f00606acbc4af6a152961666d7efd8e66",
+      "category": "historical verifier",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Prior-stage specialised assertions and local evidence paths; not a current release prerequisite. Exact new effect fixtures/reports are separately archived.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/verify-call-sites.py",
+      "bytes": 1635,
+      "sha256": "474335068fa228882ccd14b683c59ec39c0a8314c71046c025a9c8b171d2f611",
+      "category": "historical verifier",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Prior-stage specialised assertions and local evidence paths; not a current release prerequisite. Exact new effect fixtures/reports are separately archived.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": [
+        "prototype/probe-harness-operations.json"
+      ]
+    },
+    {
+      "path": "prototype/verify-cloud-poses.py",
+      "bytes": 4575,
+      "sha256": "e6540ffe520383c621e4ac71999635599f80e138d5e9d965771183f2f33daa63",
+      "category": "historical verifier",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Prior-stage specialised assertions and local evidence paths; not a current release prerequisite. Exact new effect fixtures/reports are separately archived.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/verify-controlled.py",
+      "bytes": 6745,
+      "sha256": "f96c4f21c82c1217d48b7552f8dae8f41af0c2c7e6e35f3f7979fef509747a26",
+      "category": "historical verifier",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Prior-stage specialised assertions and local evidence paths; not a current release prerequisite. Exact new effect fixtures/reports are separately archived.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/verify-effects.py",
+      "bytes": 5155,
+      "sha256": "767faa3e70c6c3d83385b061b81c45d3111a6802681c4bfd8a696debd1225d03",
+      "category": "historical verifier",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Prior-stage specialised assertions and local evidence paths; not a current release prerequisite. Exact new effect fixtures/reports are separately archived.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/verify-explosion-blend.py",
+      "bytes": 8845,
+      "sha256": "1114cb26920326035e7e39c814bcfbaddf3b9f51707a7961b89b7add054b6d1e",
+      "category": "historical verifier",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Prior-stage specialised assertions and local evidence paths; not a current release prerequisite. Exact new effect fixtures/reports are separately archived.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/verify-geometry-runs.py",
+      "bytes": 4767,
+      "sha256": "c77924bb2e57a8499b62cf8183eba9c4a7aed44bad603afcbe5b588f964d93ee",
+      "category": "historical verifier",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Prior-stage specialised assertions and local evidence paths; not a current release prerequisite. Exact new effect fixtures/reports are separately archived.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/verify-local-blend.py",
+      "bytes": 3197,
+      "sha256": "f03753c9f62395e2d1ff879875da546f695a9efdfd3b278fe20344a59954afd4",
+      "category": "historical verifier",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Prior-stage specialised assertions and local evidence paths; not a current release prerequisite. Exact new effect fixtures/reports are separately archived.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/verify-night-checks.py",
+      "bytes": 6788,
+      "sha256": "5e070d1eee5d840e1eb8fa8a19e5ff9d0dde0a1f7a8a77fded693692a4bb6d59",
+      "category": "historical verifier",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Prior-stage specialised assertions and local evidence paths; not a current release prerequisite. Exact new effect fixtures/reports are separately archived.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/verify-original-references.py",
+      "bytes": 3709,
+      "sha256": "a734b4c2ea49989ba95bf9d8fb49d166c31a54419517e5d1b7df44b2791ad93d",
+      "category": "historical verifier",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Prior-stage specialised assertions and local evidence paths; not a current release prerequisite. Exact new effect fixtures/reports are separately archived.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/verify-road49-50-v4.py",
+      "bytes": 9481,
+      "sha256": "3b37657ff00cfc0ccf31e0518ec877036cb4dfbff33ff8db3a64c3e7747c7809",
+      "category": "historical verifier",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Prior-stage specialised assertions and local evidence paths; not a current release prerequisite. Exact new effect fixtures/reports are separately archived.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/verify-scene-call-sites.py",
+      "bytes": 3017,
+      "sha256": "62133354bfd2a6dbafb7f69eb191158d0d318c60c87683489ddced86bc9f5c62",
+      "category": "historical verifier",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Prior-stage specialised assertions and local evidence paths; not a current release prerequisite. Exact new effect fixtures/reports are separately archived.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/verify-scene-v2.py",
+      "bytes": 10173,
+      "sha256": "a3f3619090f8b0c2594c068d79ede1865c4c6ba2408e0e18e04a7c724fa90999",
+      "category": "historical verifier",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Prior-stage specialised assertions and local evidence paths; not a current release prerequisite. Exact new effect fixtures/reports are separately archived.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/verify-talon-effects.py",
+      "bytes": 10012,
+      "sha256": "f05d50712cb36a37228d843955417ef7ee0df3459674cee2c959be2c5a90da73",
+      "category": "historical verifier",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Prior-stage specialised assertions and local evidence paths; not a current release prerequisite. Exact new effect fixtures/reports are separately archived.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/verify-talon-late-hit.py",
+      "bytes": 11365,
+      "sha256": "963a9f6cf4b56114b4c54bf89b8a6033da15cde6fecdb43d81c7c30351b56d98",
+      "category": "historical verifier",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Prior-stage specialised assertions and local evidence paths; not a current release prerequisite. Exact new effect fixtures/reports are separately archived.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/verify-talon13.py",
+      "bytes": 14296,
+      "sha256": "02dd2c34776f45d03ee940070a6421af1bf76b6f0c3a43a5e661e3870d80e955",
+      "category": "historical verifier",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Prior-stage specialised assertions and local evidence paths; not a current release prerequisite. Exact new effect fixtures/reports are separately archived.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/verify-terrain-transitions.py",
+      "bytes": 15953,
+      "sha256": "4a6b98d62114317ad03a5aed338e279eec311f584d1ed5d65adc267394dc2373",
+      "category": "historical verifier",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Prior-stage specialised assertions and local evidence paths; not a current release prerequisite. Exact new effect fixtures/reports are separately archived.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/verify-terrain109-v3.py",
+      "bytes": 9612,
+      "sha256": "d273dc5d23bc3f7c02534ea7f3c07a4b535014d665865be7654fb70908f3928c",
+      "category": "historical verifier",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Prior-stage specialised assertions and local evidence paths; not a current release prerequisite. Exact new effect fixtures/reports are separately archived.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/verify-transition-call-sites.py",
+      "bytes": 3255,
+      "sha256": "283d469ef3f845140bedd00daf976a7b27dddc6fd2690795dccbc9f6fd43b7de",
+      "category": "historical verifier",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Prior-stage specialised assertions and local evidence paths; not a current release prerequisite. Exact new effect fixtures/reports are separately archived.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/verify-turret-highlight-v4.py",
+      "bytes": 8096,
+      "sha256": "6246727866f028890e0b61a77e57e1b142b4430216a6663d74d0fbd6e4f44fb8",
+      "category": "historical verifier",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Prior-stage specialised assertions and local evidence paths; not a current release prerequisite. Exact new effect fixtures/reports are separately archived.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": []
+    },
+    {
+      "path": "prototype/verify-turret-v7.py",
+      "bytes": 8805,
+      "sha256": "bd7ef9e40d939a4ded742c455dbb61af6c963b77b11fad346d7ceb91ee1d64c9",
+      "category": "historical verifier",
+      "decision": "retain local untracked, no deletion",
+      "reason": "Prior-stage specialised assertions and local evidence paths; not a current release prerequisite. Exact new effect fixtures/reports are separately archived.",
+      "tracked_document_mentions": [],
+      "direct_tracked_build_or_runtime_references": [],
+      "references_other_historical_files": [
+        "prototype/README.md"
+      ]
+    }
+  ]
+}
