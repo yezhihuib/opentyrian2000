@@ -1,0 +1,428 @@
+{
+  "status": "PASS",
+  "baseline_commit": "2152db5b4befe23165105bd363d3407fb252feb3",
+  "renderer_sha256": "beab7054b02597f1248b20f63f7c6f8c9cc09d5d1f2e697035bfbad5dcfce121",
+  "pixel_comparisons": 1495307264,
+  "successful_quadrant_calls": 11500,
+  "rejected_source_part_guards": 2211,
+  "production_wrapper_cases": 5640,
+  "all_47_enemy_bindings": true,
+  "all_24_quadrant_orders": true,
+  "all_256_filters": true,
+  "density_paths": [
+    [
+      4,
+      4
+    ],
+    [
+      8,
+      8
+    ],
+    [
+      8,
+      4
+    ]
+  ],
+  "approved_four_PNG_HDA_exact": true,
+  "approved_runtime_zip_sha256": "f11637a929c487c5eac2c2c9ce19b8b3df5323ff8229ae6a88d0636683f4f26c",
+  "ten_piece_registration_only": true,
+  "no_game_execution_or_new_captures": true,
+  "no_movement_death_or_actual_hit_trigger_claim": true,
+  "prior_regression_suites_passed": 16,
+  "prior_ASan_UBSan_suites": 14,
+  "prior_pure_Python_alpha_suites": 2,
+  "ASan_UBSan": true,
+  "leak_sanitizer": "disabled under ptrace",
+  "test_patch_sha256": "d766eda660be509e22f0aee766c4d87f4e59193b6a9903e4a56d1f8219fb6fb4",
+  "source_scope": "Exactly two renderer lines changed: assets capacity265\u2192269 and finite bank1 base49/51/89/127 slots265\u2013268. Indexed wrapper/blitters unchanged. All273 old HDA payloads unchanged; only4 added.",
+  "test_scope": "Three new dedicated fixtures; eight old test files touched only for capacity/finite-whitelist/cache-bound compatibility. No production files in patch.",
+  "runtime": {
+    "exact_full_logs": [
+      "state.tsv",
+      "collisions.tsv",
+      "scene-enemies.tsv",
+      "scene-hits.tsv",
+      "player-projectiles.tsv"
+    ],
+    "new_calls": 8200,
+    "per_base": {
+      "127": 820,
+      "89": 2460,
+      "49": 2460,
+      "51": 2460
+    },
+    "mirrored": {
+      "1": 8200
+    },
+    "cross_scale_RGB_exact": true,
+    "missing_RGB_exact": true,
+    "clear_RGB_exact_ticks": [
+      1771,
+      1809
+    ]
+  },
+  "runtime_scope": "Private survival from0, no injected weapon71; original-control diagnostics, no production hooks",
+  "actual_media": {
+    "native2x_ticks": [
+      1608,
+      1727
+    ],
+    "frames": 120,
+    "native4x_tick": 1610,
+    "readback_state_RGB_exact": true,
+    "independent_full_visual_pass": true
+  },
+  "asset_counts": {
+    "packs": 18,
+    "HDA": 2786,
+    "PNG": 285,
+    "defaults": [
+      273,
+      277
+    ]
+  },
+  "source_zip_sha256": "e08de56283f02118ad3b33fdb4a05a4194245c263b13fd9eabfac9010e5df44e",
+  "mode_gate": "Original full-game defaults suppress event45, hence no623 expected. Alternate628/603/513 mode branches source-audited, not alternate-mode runtime claims.",
+  "independent_saved_runtime": {
+    "native": {
+      "full_state_ticks": [
+        0,
+        1809
+      ],
+      "state_rows": 1810,
+      "exact_full_logs": [
+        "state.tsv",
+        "collisions.tsv",
+        "player-projectiles.tsv",
+        "enemy-projectiles.tsv",
+        "fire-events.tsv",
+        "poses.tsv",
+        "asset-debug-materials.tsv",
+        "scene-enemies.tsv",
+        "scene-hits.tsv",
+        "draw-commands.tsv",
+        "effects.tsv"
+      ],
+      "health": {
+        "purple-four-baseline2x": {
+          "first": 1555,
+          "last": 1809,
+          "frames": 255,
+          "all_coverage_mismatch_zero": true,
+          "all_hd_ordered_no_rejections": true
+        },
+        "purple-four-native2x": {
+          "first": 1555,
+          "last": 1809,
+          "frames": 255,
+          "all_coverage_mismatch_zero": true,
+          "all_hd_ordered_no_rejections": true
+        },
+        "purple-four-native4x": {
+          "first": 1555,
+          "last": 1809,
+          "frames": 255,
+          "all_coverage_mismatch_zero": true,
+          "all_hd_ordered_no_rejections": true
+        },
+        "purple-four-missing4x": {
+          "first": 1555,
+          "last": 1809,
+          "frames": 255,
+          "all_coverage_mismatch_zero": true,
+          "all_hd_ordered_no_rejections": true
+        }
+      },
+      "successful_HD_calls": 8200,
+      "per_base": {
+        "127": 820,
+        "89": 2460,
+        "49": 2460,
+        "51": 2460
+      },
+      "per_part": {
+        "19": 2060,
+        "20": 2060,
+        "0": 2040,
+        "1": 2040
+      },
+      "call_tick_range": [
+        1559,
+        1769
+      ],
+      "all_previous_scene_calls_exact": true,
+      "native2x4x_internal_RGB_exact": true,
+      "missing_RGB_exact_window": [
+        1555,
+        1809
+      ],
+      "clear_RGB_exact_window": [
+        1771,
+        1809
+      ]
+    },
+    "controls": {
+      "nose": {
+        "controls_exact_except_wall_clock": true,
+        "hits": [
+          {
+            "tick": "1609",
+            "slot": "25",
+            "type": "31",
+            "armor_before": "6",
+            "damage": "1",
+            "base": "127",
+            "link": "82"
+          },
+          {
+            "tick": "1611",
+            "slot": "25",
+            "type": "31",
+            "armor_before": "5",
+            "damage": "5",
+            "base": "127",
+            "link": "82"
+          }
+        ],
+        "removed_slot_types": [
+          [
+            25,
+            31
+          ],
+          [
+            26,
+            30
+          ],
+          [
+            29,
+            30
+          ],
+          [
+            32,
+            30
+          ]
+        ],
+        "new_drop_type": 391,
+        "new_drop_count": 3,
+        "drops_availability": 2,
+        "filtered_live_state_tick": 1609,
+        "filter_208_live_records": 1,
+        "filtered_HD_draw_tick": 1610,
+        "filtered_HD_draw_calls": 4,
+        "filter_cleared_in_live_state_tick": 1610,
+        "type623_not_observed": true,
+        "successful_HD_calls": 2652,
+        "effect_pools_first_both_zero_after_lethal": 1622
+      },
+      "body": {
+        "controls_exact_except_wall_clock": true,
+        "hits": [
+          {
+            "tick": "1609",
+            "slot": "26",
+            "type": "30",
+            "armor_before": "6",
+            "damage": "1",
+            "base": "89",
+            "link": "81"
+          },
+          {
+            "tick": "1611",
+            "slot": "26",
+            "type": "30",
+            "armor_before": "5",
+            "damage": "5",
+            "base": "89",
+            "link": "81"
+          }
+        ],
+        "removed_slot_types": [
+          [
+            26,
+            30
+          ],
+          [
+            29,
+            30
+          ],
+          [
+            32,
+            30
+          ]
+        ],
+        "new_drop_type": 391,
+        "new_drop_count": 3,
+        "drops_availability": 2,
+        "filtered_live_state_tick": 1609,
+        "filter_208_live_records": 3,
+        "filtered_HD_draw_tick": 1610,
+        "filtered_HD_draw_calls": 12,
+        "filter_cleared_in_live_state_tick": 1610,
+        "type623_not_observed": true,
+        "successful_HD_calls": 2862,
+        "effect_pools_first_both_zero_after_lethal": 1622
+      },
+      "arm": {
+        "controls_exact_except_wall_clock": true,
+        "hits": [
+          {
+            "tick": "1609",
+            "slot": "27",
+            "type": "28",
+            "armor_before": "4",
+            "damage": "1",
+            "base": "49",
+            "link": "0"
+          },
+          {
+            "tick": "1611",
+            "slot": "27",
+            "type": "28",
+            "armor_before": "3",
+            "damage": "3",
+            "base": "49",
+            "link": "0"
+          }
+        ],
+        "removed_slot_types": [
+          [
+            27,
+            28
+          ]
+        ],
+        "new_drop_type": null,
+        "new_drop_count": 0,
+        "drops_availability": null,
+        "filtered_live_state_tick": 1609,
+        "filter_208_live_records": 1,
+        "filtered_HD_draw_tick": 1610,
+        "filtered_HD_draw_calls": 4,
+        "filter_cleared_in_live_state_tick": 1610,
+        "type623_not_observed": true,
+        "successful_HD_calls": 3374,
+        "effect_pools_first_both_zero_after_lethal": 1622
+      },
+      "rightarm": {
+        "controls_exact_except_wall_clock": true,
+        "hits": [
+          {
+            "tick": "1609",
+            "slot": "28",
+            "type": "29",
+            "armor_before": "4",
+            "damage": "1",
+            "base": "51",
+            "link": "0"
+          },
+          {
+            "tick": "1611",
+            "slot": "28",
+            "type": "29",
+            "armor_before": "3",
+            "damage": "3",
+            "base": "51",
+            "link": "0"
+          }
+        ],
+        "removed_slot_types": [
+          [
+            28,
+            29
+          ]
+        ],
+        "new_drop_type": null,
+        "new_drop_count": 0,
+        "drops_availability": null,
+        "filtered_live_state_tick": 1609,
+        "filter_208_live_records": 1,
+        "filtered_HD_draw_tick": 1610,
+        "filtered_HD_draw_calls": 4,
+        "filter_cleared_in_live_state_tick": 1610,
+        "type623_not_observed": true,
+        "successful_HD_calls": 3374,
+        "effect_pools_first_both_zero_after_lethal": 1622
+      },
+      "reuse-body": {
+        "controls_exact_except_wall_clock": true,
+        "hits": [
+          {
+            "tick": "2119",
+            "slot": "51",
+            "type": "30",
+            "armor_before": "6",
+            "damage": "1",
+            "base": "89",
+            "link": "182"
+          },
+          {
+            "tick": "2121",
+            "slot": "51",
+            "type": "30",
+            "armor_before": "5",
+            "damage": "5",
+            "base": "89",
+            "link": "182"
+          }
+        ],
+        "removed_slot_types": [
+          [
+            51,
+            30
+          ]
+        ],
+        "new_drop_type": 394,
+        "new_drop_count": 1,
+        "drops_availability": 2,
+        "filtered_live_state_tick": 2119,
+        "filter_208_live_records": 1,
+        "filtered_HD_draw_tick": 2120,
+        "filtered_HD_draw_calls": 4,
+        "filter_cleared_in_live_state_tick": 2120,
+        "type623_not_observed": true,
+        "successful_HD_calls": 2016,
+        "effect_pools_first_both_zero_after_lethal": 2132
+      },
+      "reuse-arm": {
+        "controls_exact_except_wall_clock": true,
+        "hits": [
+          {
+            "tick": "2123",
+            "slot": "52",
+            "type": "26",
+            "armor_before": "4",
+            "damage": "1",
+            "base": "49",
+            "link": "11"
+          },
+          {
+            "tick": "2125",
+            "slot": "52",
+            "type": "26",
+            "armor_before": "3",
+            "damage": "3",
+            "base": "49",
+            "link": "11"
+          }
+        ],
+        "removed_slot_types": [
+          [
+            52,
+            26
+          ]
+        ],
+        "new_drop_type": null,
+        "new_drop_count": 0,
+        "drops_availability": null,
+        "filtered_live_state_tick": 2123,
+        "filter_208_live_records": 1,
+        "filtered_HD_draw_tick": 2124,
+        "filtered_HD_draw_calls": 4,
+        "filter_cleared_in_live_state_tick": 2124,
+        "type623_not_observed": true,
+        "successful_HD_calls": 1928,
+        "effect_pools_first_both_zero_after_lethal": 2146
+      }
+    },
+    "qualification": "Saved controls are private artificial Pulse155 hit/destroy probes through the actual engine collision/death path. Absence of type623 is verified in these logs; the normal-mode event45 gate requires the separate source lifecycle review. No alternate-mode runtime claim."
+  }
+}

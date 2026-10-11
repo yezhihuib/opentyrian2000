@@ -48,7 +48,7 @@ static void nonterrain_untouched(void)
 {CHECK(!assets[218].initialized&&!assets[219].initialized);for(int i=231;i<=234;i++)CHECK(!assets[i].initialized);}
 int main(void)
 {
- CHECK(sizeof(assets)/sizeof(*assets)==265);CHECK(sizeof(terrain_sources)/sizeof(*terrain_sources)==122);
+ CHECK(sizeof(assets)/sizeof(*assets)==269);CHECK(sizeof(terrain_sources)/sizeof(*terrain_sources)==122);
  for(unsigned int id=0;id<600;id++){int expected=-1;for(int j=0;j<4;j++)if(id==ids[j])expected=227+j;CHECK(plateau_terrain_slot(id)==expected);}
  for(unsigned int id=0;id<600;id++){int expected=-1;for(int j=0;j<9;j++)if(id==ground_ids[j])expected=201+j;CHECK(ground_terrain_slot(id)==expected);}
  for(unsigned int layer=0;layer<5;layer++)for(unsigned int id=0;id<600;id++){

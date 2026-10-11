@@ -69,7 +69,7 @@ static void guard_tests(void)
  Uint8 wrong_bytes=9;Sprite2_array wrong={1,&wrong_bytes};SDL_Surface other=*game_screen;
  for(unsigned base=0;base<600;base++){
   if(stone_index((int)base)<0)guard_case(game_screen,enemySpriteSheets[1],(int)base,0);
-  if(slot_for((int)base)<0||stone_index((int)base)>=0)guard_case(game_screen,enemySpriteSheets[0],(int)base,0);
+  if(base!=49&&base!=51&&base!=89&&base!=127&&(slot_for((int)base)<0||stone_index((int)base)>=0))guard_case(game_screen,enemySpriteSheets[0],(int)base,0);
  }
  guard_case(game_screen,enemySpriteSheets[1],(int)UINT32_MAX,0);
  for(int j=0;j<12;j++){
@@ -80,7 +80,7 @@ static void guard_tests(void)
   /* Matching bytes and size do not establish sheet pointer identity. */
   Uint8 same=*bank_for(base).data;guard_case(game_screen,(Sprite2_array){1,&same},base,0);
   /* Loading any wrong numeric bank cannot authorize the new source family. */
-  for(unsigned id=0;id<=12;id++)if(id!=9){enemySpriteSheetIds[1]=id;guard_case(game_screen,enemySpriteSheets[1],base,0);}
+  for(unsigned id=0;id<=12;id++)if(id!=9&&!(id==1&&base==49)){enemySpriteSheetIds[1]=id;guard_case(game_screen,enemySpriteSheets[1],base,0);}
   enemySpriteSheetIds[1]=9;
  }
  Sprite2_array saved=enemySpriteSheets[1];enemySpriteSheets[1]=(Sprite2_array){0,NULL};
@@ -200,12 +200,13 @@ static void other_bindings(void)
  for(int i=0;i<31;i++)exercise_frame(old_ids[i],8,0,5,7,false);
  for(int i=0;i<12;i++)exercise_frame(stone_ids[i],8,0,5,7,false);
  for(size_t slot=0;slot<sizeof(assets)/sizeof(*assets);slot++){
-  bool wanted=slot>=253;for(int i=0;i<31;i++)if(slot_for(old_ids[i])==(int)slot)wanted=true;
+  bool wanted=slot>=253&&slot<=264;for(int i=0;i<31;i++)if(slot_for(old_ids[i])==(int)slot)wanted=true;
   assert(assets[slot].initialized==wanted);
  }
  /* Warm bank1 and bank9 caches cannot widen either source's finite whitelist. */
  for(int i=0;i<31;i++)guard_case(game_screen,enemySpriteSheets[1],old_ids[i],0);
- for(int i=0;i<12;i++)guard_case(game_screen,enemySpriteSheets[0],stone_ids[i],0);
+ for(int i=0;i<12;i++)if(stone_ids[i]!=49)guard_case(game_screen,enemySpriteSheets[0],stone_ids[i],0);
+ guard_case(game_screen,enemySpriteSheets[0],50,0); /* unsupported neighbor; bank1 base49 is purple */
  clear_assets();
 }
 static void relocated_sheet_tests(void)
@@ -226,7 +227,7 @@ int main(int argc,char **argv)
  for(int k=0;k<4;k++){enemySpriteSheets[k]=(Sprite2_array){1,&bank_bytes[k]};enemySpriteSheetIds[k]=k==0?1:k==1?9:2;}
  for(int i=0;i<256;i++)rgb_palette[i]=((i*71u)%256)<<16|((i*31u)%256)<<8|((i*13u)%256);
  assert(ASSET_NEWSHE==110&&ASSET_TALON_BANK==109&&ASSET_NEWSH2==101);
- assert(sizeof(assets)/sizeof(*assets)==265);
+ assert(sizeof(assets)/sizeof(*assets)==269);
  const int filters[]={0,0x70,0x80,0x09,0xd0};
  for(int mode=0;mode<3;mode++){
   int d=mode==0?4:8,ad=mode==1?8:4;alloc_canvas(d);clear_assets();select_pack(ad==8?"full8":"full4");

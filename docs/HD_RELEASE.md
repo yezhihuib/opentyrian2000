@@ -1,8 +1,10 @@
 # Current scoped release (2026-10-11)
 
-The manifest is authoritative:18 packs,2778 HDA entries,281 formal PNGs, defaults269/273. Latest additions are the [plateau edge correction](PLATEAU_FOUR_VALIDATION.md) [static installation](INSTALLATION_VALIDATION.md), [physical terrain underlay](UNDERLAY_VALIDATION.md), and the [complete road family](ROAD_NINE_VALIDATION.md). The final [terrain111/114 batch](TERRAIN_HOLES_VALIDATION.md) closes the [audited first-30-second milestone](FIRST30_HD_COVERAGE.md):222 nonempty HD identities plus5 intentional empty shield identities out of227 observed.
+The manifest is authoritative:18 packs,2786 HDA entries,285 formal PNGs, defaults273/277. Latest additions are the [plateau edge correction](PLATEAU_FOUR_VALIDATION.md) [static installation](INSTALLATION_VALIDATION.md), [physical terrain underlay](UNDERLAY_VALIDATION.md), and the [complete road family](ROAD_NINE_VALIDATION.md). The final [terrain111/114 batch](TERRAIN_HOLES_VALIDATION.md) closes the [audited first-30-second milestone](FIRST30_HD_COVERAGE.md):222 nonempty HD identities plus5 intentional empty shield identities out of227 observed.
 
 The next bounded private-survival segment now also includes the [three static physical craft](CRAFT_THREE_VALIDATION.md). It now also includes [terrain113 and the six-tile stone foundation](TERRAIN_NEXT_SEVEN_VALIDATION.md), verified with the same clearly labeled private-survival replay. The [complete intact/remnant stone entity family](STONE_TWELVE_VALIDATION.md) now retains both original linked outcomes, with a separately labeled later clipped-state diagnostic.
+
+The [complete purple formation family](PURPLE_FOUR_VALIDATION.md) closes the base127 dependency with four independently drawn designs and original linked/drop behavior. Its tail/reuse checks are bounded private-survival diagnostics.
 
 ## Historical green release update (2026-10-11)
 

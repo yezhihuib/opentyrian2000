@@ -1,0 +1,261 @@
+{
+  "family": "physical purple modular craft",
+  "bank": 1,
+  "sheet": "newsh2.shp",
+  "bindings": [
+    {
+      "base": 49,
+      "filename": "frames8x/newsh2-base49-8.png",
+      "sha256": "71c993386ca57d60005078309317fd687eeeba299fd8cd0cac653429941b7287",
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        6,
+        7
+      ],
+      "pixel_size": [
+        192,
+        224
+      ],
+      "source_rect": [
+        140.83333333333334,
+        105.12616822429906,
+        492.83333333333337,
+        524.8644859813083
+      ],
+      "original": {
+        "bbox_half_open": [
+          2,
+          0,
+          24,
+          27
+        ],
+        "centroid_pixel_centers": [
+          12.837078651685394,
+          11.617977528089888
+        ],
+        "opaque_pixels": 356
+      },
+      "candidate": {
+        "rect": [
+          140.83333333333334,
+          105.12616822429906,
+          492.83333333333337,
+          524.8644859813083
+        ],
+        "bbox128": [
+          2.125,
+          0.125,
+          23.875,
+          26.875
+        ],
+        "centroid128": [
+          12.629275684847293,
+          11.270800545910589
+        ],
+        "borderalpha": 41
+      },
+      "alpha128_component_sizes": [
+        20333
+      ]
+    },
+    {
+      "base": 51,
+      "filename": "frames8x/newsh2-base51-8.png",
+      "sha256": "ca73ca36e4eac7b9031292afe57026c08117a4fd9dd68f1f3da9b1f9cbac963a",
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        6,
+        7
+      ],
+      "pixel_size": [
+        192,
+        224
+      ],
+      "source_rect": [
+        762.1666666666666,
+        105.12616822429906,
+        1114.1666666666665,
+        524.8644859813083
+      ],
+      "original": {
+        "bbox_half_open": [
+          0,
+          0,
+          22,
+          27
+        ],
+        "centroid_pixel_centers": [
+          11.162921348314606,
+          11.617977528089888
+        ],
+        "opaque_pixels": 356
+      },
+      "candidate": {
+        "rect": [
+          762.1666666666666,
+          105.12616822429906,
+          1114.1666666666665,
+          524.8644859813083
+        ],
+        "bbox128": [
+          0.125,
+          0.125,
+          21.875,
+          26.875
+        ],
+        "centroid128": [
+          11.340888211083346,
+          11.28216411877113
+        ],
+        "borderalpha": 18
+      },
+      "alpha128_component_sizes": [
+        20409
+      ]
+    },
+    {
+      "base": 89,
+      "filename": "frames8x/newsh2-base89-8.png",
+      "sha256": "40dddf7b4ff1fd73c096c83bcb575c32d1bf9ccb95ca172a2e2bfb631b471565",
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        6,
+        7
+      ],
+      "pixel_size": [
+        192,
+        224
+      ],
+      "source_rect": [
+        128.84065934065933,
+        721.0631067961165,
+        494.9065934065934,
+        1154.9271844660193
+      ],
+      "original": {
+        "bbox_half_open": [
+          1,
+          0,
+          24,
+          26
+        ],
+        "centroid_pixel_centers": [
+          12.5,
+          12.716981132075471
+        ],
+        "opaque_pixels": 530
+      },
+      "candidate": {
+        "rect": [
+          128.84065934065933,
+          721.0631067961165,
+          494.9065934065934,
+          1154.9271844660193
+        ],
+        "bbox128": [
+          1.125,
+          0.125,
+          23.875,
+          25.875
+        ],
+        "centroid128": [
+          12.500413552260753,
+          12.905438212228894
+        ],
+        "borderalpha": 47
+      },
+      "alpha128_component_sizes": [
+        32644
+      ]
+    },
+    {
+      "base": 127,
+      "filename": "frames8x/newsh2-base127-8.png",
+      "sha256": "b484fbbb774dd0e0dbcc8c720b39688e4faf9d8aa8ff51a6d7252d855f9140fc",
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        6,
+        7
+      ],
+      "pixel_size": [
+        192,
+        224
+      ],
+      "source_rect": [
+        752.7912087912088,
+        721.0765765765766,
+        1119.9120879120878,
+        1151.9234234234234
+      ],
+      "original": {
+        "bbox_half_open": [
+          1,
+          0,
+          24,
+          28
+        ],
+        "centroid_pixel_centers": [
+          12.5,
+          12.603174603174603
+        ],
+        "opaque_pixels": 504
+      },
+      "candidate": {
+        "rect": [
+          752.7912087912088,
+          721.0765765765766,
+          1119.9120879120878,
+          1151.9234234234234
+        ],
+        "bbox128": [
+          1.125,
+          0.125,
+          23.875,
+          27.875
+        ],
+        "centroid128": [
+          12.501674705251876,
+          12.645837393224854
+        ],
+        "borderalpha": 31
+      },
+      "alpha128_component_sizes": [
+        30789
+      ]
+    }
+  ],
+  "reuse": {
+    "49": [
+      26,
+      28
+    ],
+    "51": [
+      27,
+      29
+    ],
+    "89": [
+      30
+    ],
+    "127": [
+      31
+    ]
+  },
+  "animation": "all static ani1 animate0; no damage-frame variants",
+  "assembly": "10 separately moving components per selected formation; do not weld",
+  "original_asymmetry": "49 and51 not RGBA mirrors; separate generated sources retained",
+  "export": "one per-design source-preserving affine BICUBIC extraction; no runtime anchor change",
+  "provenance": "built-in imagegen selected atlas and imagegen-prompt.txt",
+  "limits": "offline original-material position reconstruction; actual runtime acceptance pending"
+}

@@ -1,0 +1,4 @@
+Four static physical craft designs for newsh2 bases49,51,89,127. All24x28 logical,8x export,anchor6,7.
+Run python export_final.py with Pillow to reproduce. Generated atlas contains all authored pixels; original game pixels are not packaged. Separate right-arm art preserves its distinct shading. Each design uses its own documented registration, alpha128 bounds within0.125 logicalpx of original; centroid errors under0.5px.
+Whole formation consists of one nose127,three body89,three left49 andthree right51; independent runtime motion and draw order must remain. Types26/27 reuse the same static arm designs; original later events move and accelerate those objects. Original palette-hit filters retained. Event drops are separate existing objects, not craft damaged artwork.
+Bounded runtime QA is documented in docs/PURPLE_FOUR_VALIDATION.md. Rebuild committed outputs with prototype/build-purple-art.py --output NEW_DIRECTORY.
