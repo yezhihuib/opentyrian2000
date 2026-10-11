@@ -1,0 +1,871 @@
+{
+  "4x": {
+    "ticks": 522,
+    "RGB_state_draw_exact_to_reviewed_candidate": true,
+    "coverage_errors": 0,
+    "new_HD_normal_draws_by_ID": {
+      "99": 2240,
+      "100": 224,
+      "106": 168,
+      "107": 894,
+      "109": 8886,
+      "110": 1294,
+      "118": 140,
+      "119": 1345,
+      "120": 1258
+    }
+  },
+  "2x": {
+    "ticks": 522,
+    "RGB_state_draw_exact_to_reviewed_candidate": true,
+    "coverage_errors": 0,
+    "new_HD_normal_draws_by_ID": {
+      "99": 2240,
+      "100": 224,
+      "106": 168,
+      "107": 894,
+      "109": 8886,
+      "110": 1294,
+      "118": 140,
+      "119": 1345,
+      "120": 1258
+    }
+  },
+  "all_missing4x": {
+    "ticks": 522,
+    "exact_original_logs": [
+      "fx-setup.tsv",
+      "enemy-projectiles.tsv",
+      "effects.tsv",
+      "fire-events.tsv",
+      "scene-draw-commands.tsv",
+      "blend-palette.tsv",
+      "state.tsv",
+      "rgb-audit.tsv",
+      "fx-created-shots.tsv",
+      "collisions.tsv",
+      "frames.tsv",
+      "asset-debug-materials.tsv",
+      "player-projectiles.tsv",
+      "fx-trail.tsv",
+      "scene-enemies.tsv",
+      "poses.tsv",
+      "restore-regions.tsv",
+      "green-head-draws.tsv",
+      "blend-writes.tsv",
+      "talon-bank-visual.tsv",
+      "asset-debug-clock.tsv",
+      "sdl-runtime.tsv",
+      "fx-weapons.tsv",
+      "scene-hits.tsv",
+      "fade-steps.tsv",
+      "draw-commands.tsv",
+      "presentation.tsv"
+    ]
+  },
+  "source_sha256": "752dc3b87bf6e8d72b2925915a662052dc5c5cce9a44bd217ebf12a2e1c60079",
+  "rebuild_exact_HDA_and_RGBA": 9,
+  "oracle": {
+    "status": "passed",
+    "sanitize": true,
+    "source": "/workspace/scratch/f67dd347fa0a/opentyrian2000-cloud",
+    "renderer_sha256": "752dc3b87bf6e8d72b2925915a662052dc5c5cce9a44bd217ebf12a2e1c60079",
+    "result": "PASS: 6107 checks; finite IDs/layers/banks; exact slots and capacity; all-six-header-word/trailing-byte rejection; missing-all/each; existing ground/cloud unchanged.\n"
+  },
+  "independent_visual_and_runtime": {
+    "status": "passed",
+    "scope": "Nine brown-ground IDs in first522ticks only; no fulllevel or unrelated ground/path acceptance",
+    "full_runs": [
+      {
+        "scale": 2,
+        "ticks": 522,
+        "unchanged_gameplay_and_existing_entity_traces": {
+          "state.tsv": true,
+          "draw-commands.tsv": true,
+          "collisions.tsv": true,
+          "enemy-projectiles.tsv": true,
+          "player-projectiles.tsv": true,
+          "green-head-draws.tsv": true,
+          "poses.tsv": true,
+          "fire-events.tsv": true
+        },
+        "expected_effect_counter_change_only": [
+          "brightness_hd_blocks"
+        ],
+        "preexisting_scene_draws_exact": true,
+        "new_ground_references_per_id": {
+          "99": 2240,
+          "100": 224,
+          "106": 168,
+          "107": 894,
+          "109": 8886,
+          "110": 1294,
+          "118": 140,
+          "119": 1345,
+          "120": 1258
+        },
+        "all_new_ground_style_normal_and_hd": true,
+        "classic_and_coverage_mismatches": 0,
+        "all_frames_hd_ordered": true
+      },
+      {
+        "scale": 4,
+        "ticks": 522,
+        "unchanged_gameplay_and_existing_entity_traces": {
+          "state.tsv": true,
+          "draw-commands.tsv": true,
+          "collisions.tsv": true,
+          "enemy-projectiles.tsv": true,
+          "player-projectiles.tsv": true,
+          "green-head-draws.tsv": true,
+          "poses.tsv": true,
+          "fire-events.tsv": true
+        },
+        "expected_effect_counter_change_only": [
+          "brightness_hd_blocks"
+        ],
+        "preexisting_scene_draws_exact": true,
+        "new_ground_references_per_id": {
+          "99": 2240,
+          "100": 224,
+          "106": 168,
+          "107": 894,
+          "109": 8886,
+          "110": 1294,
+          "118": 140,
+          "119": 1345,
+          "120": 1258
+        },
+        "all_new_ground_style_normal_and_hd": true,
+        "classic_and_coverage_mismatches": 0,
+        "all_frames_hd_ordered": true
+      }
+    ],
+    "actual_scroll": [
+      {
+        "region": "main",
+        "ticks": [
+          37,
+          156
+        ],
+        "frames_per_side": 120,
+        "lossless_original_RGBA_hashes_all_match": true,
+        "state_exact": true,
+        "both_hud_regions_exact_all_frames": true
+      },
+      {
+        "region": "diagonal",
+        "ticks": [
+          300,
+          419
+        ],
+        "frames_per_side": 120,
+        "lossless_original_RGBA_hashes_all_match": true,
+        "state_exact": true,
+        "both_hud_regions_exact_all_frames": true
+      }
+    ],
+    "new_ordinary_BMPs_for_this_revision": 6,
+    "RGB_art_change_expected": true,
+    "source_palette_and_collision_indices_unchanged": true
+  },
+  "shadow_diagnosis": {
+    "status": "read-only diagnosis complete; formal binder and existing fixture unchanged",
+    "conclusion": "A localized actual floor-darkening difference is visible on new ground, predominantly the INSERT COIN text shadow on99. Ship233 touches118 during ticks82..95; floor mismatch occurs85..89, at most66 authored8x subpixels in one frame (about1.03 logical pixels of area). No repeated shadow stacking on any remaining visible new-ground subpixel in either observed window. No separate systematic hue shift established. Retain current renderer pending any explicit separate repair decision.",
+    "windows": {
+      "main": [
+        37,
+        156
+      ],
+      "diagonal": [
+        300,
+        419
+      ]
+    },
+    "scope_of_attribution": "Only the nine new ground IDs. A private parallel ownership map is written by actual opaque new-ground draws, survives shadow-only writes, and is cleared by all unrelated color writes, classic restoration, brightness and blended effects. Cloud/101/other assets cannot be counted as new ground. This map and logs do not change the framebuffer, indexed state or RNG.",
+    "provenance_method": "Full8x subpixel coverage and depth, plus detailed one-subpixel-per-logical-pixel event evidence. Crop excludes offscreen canvas margins and HUD; only retained new-ground output ownership is included in full visible totals.",
+    "indexed_floor": {
+      "actual_new_ground_ramp": "16..31",
+      "actual_floor_index": 16,
+      "actual_floor_rgb": [
+        16,
+        8,
+        0
+      ],
+      "other_index160_rgb": [
+        12,
+        4,
+        0
+      ],
+      "index160_floor_events_on_new_ground_in_windows": 0,
+      "original_tile_indices": {
+        "99": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          31
+        ],
+        "100": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          28
+        ],
+        "101": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          160,
+          161,
+          162,
+          163,
+          164,
+          165
+        ],
+        "106": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29
+        ],
+        "107": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25
+        ],
+        "109": [
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24
+        ],
+        "110": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30
+        ],
+        "118": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28
+        ],
+        "119": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          29
+        ],
+        "120": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26
+        ]
+      }
+    },
+    "runtime_identity_checks": [
+      {
+        "part": "main",
+        "original": "/workspace/scratch/f67dd347fa0a/tyrian-background-redraw/runtime-runs/ground-v1b-candidate-main-4x",
+        "probe": "/workspace/scratch/f67dd347fa0a/tyrian-background-redraw/runtime-runs/ground-v1b-shadow-full-main-4x",
+        "files": [
+          {
+            "file": "state.tsv",
+            "byte_exact": true,
+            "sha256": "c45e1072ae142728325c6929059809fd06e22f29937016e6cee44d672f45b145",
+            "data_rows": 157
+          },
+          {
+            "file": "rgb-audit.tsv",
+            "byte_exact": true,
+            "sha256": "091cfb27f113346ee1de9565e59c45e9caead131e9a2d581157b103311413ec5",
+            "data_rows": 120
+          },
+          {
+            "file": "draw-commands.tsv",
+            "byte_exact": true,
+            "sha256": "42d7cb362e573bbbb1499944a3ea07ce2986efd5481b34b2266978c77fc7fd21",
+            "data_rows": 314
+          },
+          {
+            "file": "scene-draw-commands.tsv",
+            "byte_exact": true,
+            "sha256": "eebfa3370709b41aa94453429ad3566afbb06ef874e752f4407e53f2d688ce30",
+            "data_rows": 16265
+          },
+          {
+            "file": "frames.tsv",
+            "byte_exact": true,
+            "sha256": "5c926ff897af84e83566d1e205a4b9666fb2ec360432d35fad5172cfbf5f1886",
+            "data_rows": 120
+          },
+          {
+            "file": "presentation.tsv",
+            "byte_exact": true,
+            "sha256": "8683eb11b466725078aa0d83b2d05fa8f37a62957143eb5896bb723d1f39ee51",
+            "data_rows": 120
+          }
+        ]
+      },
+      {
+        "part": "diagonal",
+        "original": "/workspace/scratch/f67dd347fa0a/tyrian-background-redraw/runtime-runs/ground-v1b-candidate-diagonal-4x",
+        "probe": "/workspace/scratch/f67dd347fa0a/tyrian-background-redraw/runtime-runs/ground-v1b-shadow-full-diagonal-4x",
+        "files": [
+          {
+            "file": "state.tsv",
+            "byte_exact": true,
+            "sha256": "b3bd080e04c3ba697506efa57d9142399e5811c3f4441b26fbc42f8c57d63261",
+            "data_rows": 420
+          },
+          {
+            "file": "rgb-audit.tsv",
+            "byte_exact": true,
+            "sha256": "61248e746ea7ac38b25d09066f4d14b8d50b0561b4a1d1786cc2c6ad53d34ec3",
+            "data_rows": 120
+          },
+          {
+            "file": "draw-commands.tsv",
+            "byte_exact": true,
+            "sha256": "0f870d13eea1741b358ae3208548b14b8e09230a06cdc6618e8fb44e33101776",
+            "data_rows": 840
+          },
+          {
+            "file": "scene-draw-commands.tsv",
+            "byte_exact": true,
+            "sha256": "f9fc4150a3946fd57f6bc0ad707bb10ef5c1ac082698cff4993de0549232e357",
+            "data_rows": 21820
+          },
+          {
+            "file": "frames.tsv",
+            "byte_exact": true,
+            "sha256": "31a212173bedc551c2bf22f6f9c7e14f24485fe4bd9bdf11926fe7c14f7d60e0",
+            "data_rows": 120
+          },
+          {
+            "file": "presentation.tsv",
+            "byte_exact": true,
+            "sha256": "6178635cde5304697acb0d9f876313225e6af3fcd46d6c7bd6499ea13e4ee6cd",
+            "data_rows": 120
+          }
+        ]
+      }
+    ],
+    "full_subpixel_coverage": {
+      "main": {
+        "records": 1080,
+        "all_nine_ids_logged_each_tick": true,
+        "by_id": {
+          "99": {
+            "visible_shadow_subpixel_frames": 429587,
+            "visible_floor_subpixel_frames": 28284,
+            "max_shadow_depth": 1,
+            "floor_ticks": [
+              49,
+              51,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61,
+              62,
+              63,
+              64,
+              65,
+              66,
+              67,
+              68,
+              69,
+              70,
+              71,
+              72,
+              73,
+              74,
+              75
+            ],
+            "max_floor_subpixels_in_one_frame": 2361
+          },
+          "100": {
+            "visible_shadow_subpixel_frames": 0,
+            "visible_floor_subpixel_frames": 0,
+            "max_shadow_depth": 0,
+            "floor_ticks": [],
+            "max_floor_subpixels_in_one_frame": 0
+          },
+          "106": {
+            "visible_shadow_subpixel_frames": 0,
+            "visible_floor_subpixel_frames": 0,
+            "max_shadow_depth": 0,
+            "floor_ticks": [],
+            "max_floor_subpixels_in_one_frame": 0
+          },
+          "107": {
+            "visible_shadow_subpixel_frames": 0,
+            "visible_floor_subpixel_frames": 0,
+            "max_shadow_depth": 0,
+            "floor_ticks": [],
+            "max_floor_subpixels_in_one_frame": 0
+          },
+          "109": {
+            "visible_shadow_subpixel_frames": 132249,
+            "visible_floor_subpixel_frames": 0,
+            "max_shadow_depth": 1,
+            "floor_ticks": [],
+            "max_floor_subpixels_in_one_frame": 0
+          },
+          "110": {
+            "visible_shadow_subpixel_frames": 0,
+            "visible_floor_subpixel_frames": 0,
+            "max_shadow_depth": 0,
+            "floor_ticks": [],
+            "max_floor_subpixels_in_one_frame": 0
+          },
+          "118": {
+            "visible_shadow_subpixel_frames": 5458,
+            "visible_floor_subpixel_frames": 221,
+            "max_shadow_depth": 1,
+            "floor_ticks": [
+              85,
+              86,
+              87,
+              88,
+              89
+            ],
+            "max_floor_subpixels_in_one_frame": 66
+          },
+          "119": {
+            "visible_shadow_subpixel_frames": 0,
+            "visible_floor_subpixel_frames": 0,
+            "max_shadow_depth": 0,
+            "floor_ticks": [],
+            "max_floor_subpixels_in_one_frame": 0
+          },
+          "120": {
+            "visible_shadow_subpixel_frames": 0,
+            "visible_floor_subpixel_frames": 0,
+            "max_shadow_depth": 0,
+            "floor_ticks": [],
+            "max_floor_subpixels_in_one_frame": 0
+          }
+        },
+        "trace": "/workspace/scratch/f67dd347fa0a/tyrian-background-redraw/runtime-runs/ground-v1b-shadow-full-main-4x/ground-shadow-full-coverage.tsv"
+      },
+      "diagonal": {
+        "records": 1080,
+        "all_nine_ids_logged_each_tick": true,
+        "by_id": {
+          "99": {
+            "visible_shadow_subpixel_frames": 0,
+            "visible_floor_subpixel_frames": 0,
+            "max_shadow_depth": 0,
+            "floor_ticks": [],
+            "max_floor_subpixels_in_one_frame": 0
+          },
+          "100": {
+            "visible_shadow_subpixel_frames": 0,
+            "visible_floor_subpixel_frames": 0,
+            "max_shadow_depth": 0,
+            "floor_ticks": [],
+            "max_floor_subpixels_in_one_frame": 0
+          },
+          "106": {
+            "visible_shadow_subpixel_frames": 0,
+            "visible_floor_subpixel_frames": 0,
+            "max_shadow_depth": 0,
+            "floor_ticks": [],
+            "max_floor_subpixels_in_one_frame": 0
+          },
+          "107": {
+            "visible_shadow_subpixel_frames": 0,
+            "visible_floor_subpixel_frames": 0,
+            "max_shadow_depth": 0,
+            "floor_ticks": [],
+            "max_floor_subpixels_in_one_frame": 0
+          },
+          "109": {
+            "visible_shadow_subpixel_frames": 0,
+            "visible_floor_subpixel_frames": 0,
+            "max_shadow_depth": 0,
+            "floor_ticks": [],
+            "max_floor_subpixels_in_one_frame": 0
+          },
+          "110": {
+            "visible_shadow_subpixel_frames": 0,
+            "visible_floor_subpixel_frames": 0,
+            "max_shadow_depth": 0,
+            "floor_ticks": [],
+            "max_floor_subpixels_in_one_frame": 0
+          },
+          "118": {
+            "visible_shadow_subpixel_frames": 0,
+            "visible_floor_subpixel_frames": 0,
+            "max_shadow_depth": 0,
+            "floor_ticks": [],
+            "max_floor_subpixels_in_one_frame": 0
+          },
+          "119": {
+            "visible_shadow_subpixel_frames": 0,
+            "visible_floor_subpixel_frames": 0,
+            "max_shadow_depth": 0,
+            "floor_ticks": [],
+            "max_floor_subpixels_in_one_frame": 0
+          },
+          "120": {
+            "visible_shadow_subpixel_frames": 0,
+            "visible_floor_subpixel_frames": 0,
+            "max_shadow_depth": 0,
+            "floor_ticks": [],
+            "max_floor_subpixels_in_one_frame": 0
+          }
+        },
+        "trace": "/workspace/scratch/f67dd347fa0a/tyrian-background-redraw/runtime-runs/ground-v1b-shadow-full-diagonal-4x/ground-shadow-full-coverage.tsv"
+      }
+    },
+    "detailed_sample_evidence": {
+      "main": {
+        "method": "One actual 8x subpixel (1,1) per logical pixel; full coverage counts are separately measured above.",
+        "sample_shadow_events": 12978,
+        "sample_visible_shadow_points": 8814,
+        "sample_visible_floor_points": 443,
+        "sample_visible_floor_by_id": {
+          "99": 439,
+          "118": 4
+        },
+        "source_paths": {
+          "indexed-shadow": 12896,
+          "rgba-shadow": 82
+        },
+        "floor_example_events": [
+          {
+            "tick": "56",
+            "path": "indexed-shadow",
+            "source_bank": "0",
+            "source_id": "0",
+            "x": "132",
+            "y": "12",
+            "ground_id": "99",
+            "before_index": "16",
+            "after_index": "16",
+            "alpha": "255",
+            "from_rgb": "0e0700",
+            "to_rgb": "070400",
+            "depth": "1"
+          },
+          {
+            "tick": "85",
+            "path": "rgba-shadow",
+            "source_bank": "9",
+            "source_id": "233",
+            "x": "96",
+            "y": "165",
+            "ground_id": "118",
+            "before_index": "16",
+            "after_index": "16",
+            "alpha": "255",
+            "from_rgb": "130a00",
+            "to_rgb": "0a0500",
+            "depth": "1"
+          },
+          {
+            "tick": "86",
+            "path": "rgba-shadow",
+            "source_bank": "9",
+            "source_id": "233",
+            "x": "96",
+            "y": "166",
+            "ground_id": "118",
+            "before_index": "16",
+            "after_index": "16",
+            "alpha": "255",
+            "from_rgb": "130a00",
+            "to_rgb": "0a0500",
+            "depth": "1"
+          },
+          {
+            "tick": "87",
+            "path": "rgba-shadow",
+            "source_bank": "9",
+            "source_id": "233",
+            "x": "96",
+            "y": "167",
+            "ground_id": "118",
+            "before_index": "16",
+            "after_index": "16",
+            "alpha": "255",
+            "from_rgb": "130a00",
+            "to_rgb": "0a0500",
+            "depth": "1"
+          },
+          {
+            "tick": "88",
+            "path": "rgba-shadow",
+            "source_bank": "9",
+            "source_id": "233",
+            "x": "96",
+            "y": "168",
+            "ground_id": "118",
+            "before_index": "16",
+            "after_index": "16",
+            "alpha": "255",
+            "from_rgb": "130a00",
+            "to_rgb": "0a0500",
+            "depth": "1"
+          }
+        ],
+        "events_trace": "/workspace/scratch/f67dd347fa0a/tyrian-background-redraw/runtime-runs/ground-v1b-shadow-full-main-4x/ground-shadow-events.tsv",
+        "visible_trace": "/workspace/scratch/f67dd347fa0a/tyrian-background-redraw/runtime-runs/ground-v1b-shadow-full-main-4x/ground-shadow-visible.tsv"
+      },
+      "diagonal": {
+        "method": "One actual 8x subpixel (1,1) per logical pixel; full coverage counts are separately measured above.",
+        "sample_shadow_events": 0,
+        "sample_visible_shadow_points": 0,
+        "sample_visible_floor_points": 0,
+        "sample_visible_floor_by_id": {},
+        "source_paths": {},
+        "floor_example_events": [],
+        "events_trace": "/workspace/scratch/f67dd347fa0a/tyrian-background-redraw/runtime-runs/ground-v1b-shadow-full-diagonal-4x/ground-shadow-events.tsv",
+        "visible_trace": "/workspace/scratch/f67dd347fa0a/tyrian-background-redraw/runtime-runs/ground-v1b-shadow-full-diagonal-4x/ground-shadow-visible.tsv"
+      }
+    },
+    "actual_frame56_pixel_proof_file": "/workspace/scratch/f67dd347fa0a/tyrian-background-redraw/ground-shadow-diagnostic/frame56-actual-pixel-proof.json",
+    "actual_frame56_example": {
+      "event": {
+        "tick": "56",
+        "path": "indexed-shadow",
+        "source_bank": "0",
+        "source_id": "0",
+        "x": "132",
+        "y": "12",
+        "ground_id": "99",
+        "before_index": "16",
+        "after_index": "16",
+        "alpha": "255",
+        "from_rgb": "0e0700",
+        "to_rgb": "070400",
+        "depth": "1"
+      },
+      "visible": {
+        "tick": "56",
+        "x_canvas": "132",
+        "y": "12",
+        "x_output": "108",
+        "ground_id": "99",
+        "shadow_count": "1",
+        "first_rgb": "0e0700",
+        "final_rgb": "070400",
+        "final_index": "16"
+      },
+      "output_pixel_4x": [
+        432,
+        48
+      ],
+      "candidate_actual": [
+        7,
+        4,
+        0
+      ],
+      "baseline_actual": [
+        16,
+        8,
+        0
+      ],
+      "trace_matches_png_pixel": true
+    },
+    "actual_frame85_lossless_proof": {
+      "candidate": {
+        "extracted_file": "/workspace/scratch/f67dd347fa0a/tyrian-background-redraw/ground-shadow-diagnostic/actual-candidate-tick0085-2x.png",
+        "recorded_real_frame_rgba_sha256": "22bd867c629568caeaadb3253d1513d05a3e7cb6ec28b03a0e907ab0d5e8e8a6",
+        "extracted_pixels_match_recorded_capture": true,
+        "output_pixel_144_330": [
+          8,
+          5,
+          0
+        ],
+        "entire_logical_pixel_rgbs": [
+          [
+            8,
+            5,
+            0
+          ],
+          [
+            16,
+            9,
+            0
+          ],
+          [
+            7,
+            4,
+            0
+          ],
+          [
+            18,
+            9,
+            0
+          ]
+        ]
+      },
+      "baseline": {
+        "extracted_file": "/workspace/scratch/f67dd347fa0a/tyrian-background-redraw/ground-shadow-diagnostic/actual-baseline-tick0085-2x.png",
+        "recorded_real_frame_rgba_sha256": "f9ca5765a8cb3b0d8ada70455eed39468073006b6708d64883eb0596eecf2811",
+        "extracted_pixels_match_recorded_capture": true,
+        "output_pixel_144_330": [
+          16,
+          8,
+          0
+        ],
+        "entire_logical_pixel_rgbs": [
+          [
+            16,
+            8,
+            0
+          ],
+          [
+            16,
+            8,
+            0
+          ],
+          [
+            16,
+            8,
+            0
+          ],
+          [
+            16,
+            8,
+            0
+          ]
+        ]
+      }
+    },
+    "blend_check": {
+      "normal_captures": {
+        "main": {
+          "draw_count": 6104,
+          "style_counts": {
+            "0": 6104
+          }
+        },
+        "diagonal": {
+          "draw_count": 2320,
+          "style_counts": {
+            "0": 2320
+          }
+        }
+      },
+      "wild_processorType": 4,
+      "wild_tick_range": [
+        0,
+        419
+      ],
+      "wild_new_ground_draw_count": 12855,
+      "wild_new_ground_style_counts": {
+        "0": 12855
+      },
+      "all_nine_ids_observed": [
+        99,
+        100,
+        106,
+        107,
+        109,
+        110,
+        118,
+        119,
+        120
+      ],
+      "wild_frame_reasons": {
+        "hd-ordered": 420
+      },
+      "evidence": "/workspace/scratch/f67dd347fa0a/tyrian-background-redraw/runtime-runs/ground-v1b-layer1-wild4x",
+      "source_path_fact": "backgrnd.c draw_background_1 always calls blit_background_row(MIRROR_NORMAL). Only draw_background_2_blend calls the blend row. tyrian2.c routes wild to layer2 blend; no new guard added."
+    },
+    "formal_binder_sha256": "6355c63b5bd17b70d6e32733587dd9af8e60d8efd5e55fd7ea8087a8327a3df9",
+    "existing_candidate_exe_sha256": "659fc1af437de8bdd632887939ac9bb04aed2bee4fc9810153ea14531d636fd7",
+    "private_diagnostic_exe_sha256": "178806a892d077a4b954aad9d3057a6c5b0d0d4953ddbbbab593d968a2510593",
+    "no_new_renderer_fix": true,
+    "no_new_BMP_captures": true
+  }
+}

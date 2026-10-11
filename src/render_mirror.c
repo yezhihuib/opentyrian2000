@@ -42,7 +42,7 @@ void render_mirror_reset_banking(void)
 void render_mirror_set_talon_banking(bool enabled)
 {talon_banking_enabled=enabled;render_mirror_reset_banking();}
 static char terrain_file;
-static struct {const Uint8 *data;unsigned int id;} terrain_sources[87];
+static struct {const Uint8 *data;unsigned int id;} terrain_sources[96];
 static unsigned int terrain_source_count;
 static SDL_Surface *canvas,*output;
 static SDL_Surface *fade_saved;
@@ -704,9 +704,16 @@ static int cloud_terrain_slot(unsigned int id)
  if(id>=61&&id<=65)return 196+(int)id-61;
  return -1;
 }
+/* Only the nine reviewed shapesZ layer1 ground IDs; no implicit ranges. */
+static int ground_terrain_slot(unsigned int id)
+{
+ static const unsigned int ids[9]={99,100,106,107,109,110,118,119,120};
+ for(int i=0;i<9;i++)if(id==ids[i])return 201+i;
+ return -1;
+}
 void render_mirror_bind_terrain(unsigned int layer,unsigned int id,const Uint8 *data)
 {
- if(terrain_file=='z'&&((layer==1&&(id==101||id==37||id==57||id==49||id==50||id==321||id==322||id==331||id==332))||(layer==2&&cloud_terrain_slot(id)>=0))&&terrain_source_count<87) {
+ if(terrain_file=='z'&&((layer==1&&(ground_terrain_slot(id)>=0||id==101||id==37||id==57||id==49||id==50||id==321||id==322||id==331||id==332))||(layer==2&&cloud_terrain_slot(id)>=0))&&terrain_source_count<96) {
   terrain_sources[terrain_source_count].data=data;
   terrain_sources[terrain_source_count++].id=id;
  }
@@ -722,8 +729,14 @@ unsigned int render_mirror_terrain_row(SDL_Surface *surface,int x,int y,Uint8 **
   if(!id)continue;
   int slot=cloud_terrain_slot(id);
   if(slot>=0&&style==MIRROR_BLEND)continue; /* Preserve original palette-blended clouds. */
-  if(slot<0)slot=id==101?10:id==37?11:id==57?12:id==49?13:id==50?14:id==321?19:id==322?20:id==331?21:22;
-  Asset *a=scene_asset(slot,ASSET_SHAPESZ,(int)id,0,0);bool mirrored=a?draw_asset(x+tile*24,y,a,style,NULL):false;
+  int ground_slot=ground_terrain_slot(id);
+  if(slot<0)slot=ground_slot;
+  if(slot<0)slot=id==101?10:id==37?11:id==57?12:id==49?13:id==50?14:id==321?19:id==322?20:id==331?21:id==332?22:-1;
+  if(slot<0)continue;
+  Asset *a=scene_asset(slot,ASSET_SHAPESZ,(int)id,0,0);
+  /* Missing/invalid new art retains the exact previous fallback and trace. */
+  if(ground_slot>=0&&!a)continue;
+  bool mirrored=a?draw_asset(x+tile*24,y,a,style,NULL):false;
   suppress=false;
   if(mirrored)replaced|=1u<<tile;
   game_probe_scene_draw(ASSET_SHAPESZ,id,x+tile*24,y,0,style,mirrored);
