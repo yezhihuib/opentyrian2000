@@ -17,6 +17,8 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 #include "sprite.h"
+#include "render_mirror.h"
+#include "asset_debug.h"
 
 #include "file.h"
 #include "opentyr.h"
@@ -148,7 +150,7 @@ void blit_sprite(SDL_Surface *surface, int x, int y, unsigned int table, unsigne
 			if (pixels >= pixels_ul)
 				return;
 			if (pixels >= pixels_ll)
-				*pixels = *data;
+				{ *pixels = *data; render_mirror_pixel(surface,pixels,*pixels,MIRROR_NORMAL); }
 			
 			pixels++;
 			x_offset++;
@@ -208,7 +210,7 @@ void blit_sprite_blend(SDL_Surface *surface, int x, int y, unsigned int table, u
 			if (pixels >= pixels_ul)
 				return;
 			if (pixels >= pixels_ll)
-				*pixels = (*data & 0xf0) | (((*pixels & 0x0f) + (*data & 0x0f)) / 2);
+				{ *pixels = (*data & 0xf0) | (((*pixels & 0x0f) + (*data & 0x0f)) / 2); render_mirror_pixel(surface,pixels,*data,MIRROR_BLEND); }
 			
 			pixels++;
 			x_offset++;
@@ -272,7 +274,7 @@ void blit_sprite_hv_unsafe(SDL_Surface *surface, int x, int y, unsigned int tabl
 			if (pixels >= pixels_ul)
 				return;
 			if (pixels >= pixels_ll)
-				*pixels = hue | ((*data & 0x0f) + value);
+				{ *pixels = hue | ((*data & 0x0f) + value); render_mirror_pixel(surface,pixels,*pixels,MIRROR_NORMAL); }
 			
 			pixels++;
 			x_offset++;
@@ -339,7 +341,7 @@ void blit_sprite_hv(SDL_Surface *surface, int x, int y, unsigned int table, unsi
 				if (temp_value > 0xf)
 					temp_value = (temp_value >= 0x1f) ? 0x0 : 0xf;
 				
-				*pixels = hue | temp_value;
+				{ *pixels = hue | temp_value; render_mirror_pixel(surface,pixels,*pixels,MIRROR_NORMAL); }
 			}
 			
 			pixels++;
@@ -407,7 +409,7 @@ void blit_sprite_hv_blend(SDL_Surface *surface, int x, int y, unsigned int table
 				if (temp_value > 0xf)
 					temp_value = (temp_value >= 0x1f) ? 0x0 : 0xf;
 				
-				*pixels = hue | (((*pixels & 0x0f) + temp_value) / 2);
+				{ *pixels = hue | (((*pixels & 0x0f) + temp_value) / 2); render_mirror_pixel(surface,pixels,(Uint8)(hue|temp_value),MIRROR_BLEND); }
 			}
 			
 			pixels++;
@@ -468,7 +470,7 @@ void blit_sprite_dark(SDL_Surface *surface, int x, int y, unsigned int table, un
 			if (pixels >= pixels_ul)
 				return;
 			if (pixels >= pixels_ll)
-				*pixels = black ? 0x00 : ((*pixels & 0xf0) | ((*pixels & 0x0f) / 2));
+				{ *pixels = black ? 0x00 : ((*pixels & 0xf0) | ((*pixels & 0x0f) / 2)); render_mirror_pixel(surface,pixels,0,black?MIRROR_NORMAL:MIRROR_SHADOW); }
 			
 			pixels++;
 			x_offset++;
@@ -517,6 +519,7 @@ void free_sprite2s(Sprite2_array *sprite2s)
 // does not clip on left or right edges of surface
 void blit_sprite2(SDL_Surface *surface, int x, int y, Sprite2_array sprite2s, unsigned int index)
 {
+	asset_debug_effect(surface,sprite2s,index,x,y);
 	assert(surface->format->BitsPerPixel == 8);
 	Uint8 *             pixels =    (Uint8 *)surface->pixels + (y * surface->pitch) + x;
 	const Uint8 * const pixels_ll = (Uint8 *)surface->pixels,  // lower limit
@@ -542,7 +545,7 @@ void blit_sprite2(SDL_Surface *surface, int x, int y, Sprite2_array sprite2s, un
 				if (pixels >= pixels_ul)
 					return;
 				if (pixels >= pixels_ll)
-					*pixels = *data;
+					{ *pixels = *data; render_mirror_pixel(surface,pixels,*pixels,MIRROR_NORMAL); }
 				
 				++pixels;
 			}
@@ -552,6 +555,7 @@ void blit_sprite2(SDL_Surface *surface, int x, int y, Sprite2_array sprite2s, un
 
 void blit_sprite2_clip(SDL_Surface *surface, int x, int y, Sprite2_array sprite2s, unsigned int index)
 {
+	asset_debug_effect(surface,sprite2s,index,x,y);
 	assert(surface->format->BitsPerPixel == 8);
 
 	const Uint8 *data = sprite2s.data + SDL_SwapLE16(((Uint16 *)sprite2s.data)[index - 1]);
@@ -579,7 +583,7 @@ void blit_sprite2_clip(SDL_Surface *surface, int x, int y, Sprite2_array sprite2
 				++data;
 
 				if (x >= 0 && x < surface->pitch)
-					pixel_row[x] = *data;
+					{ pixel_row[x] = *data; render_mirror_pixel(surface,&pixel_row[x],pixel_row[x],MIRROR_NORMAL); }
 				x += 1;
 			} while (--fill_count);
 		}
@@ -594,6 +598,7 @@ void blit_sprite2_clip(SDL_Surface *surface, int x, int y, Sprite2_array sprite2
 // does not clip on left or right edges of surface
 void blit_sprite2_blend(SDL_Surface *surface,  int x, int y, Sprite2_array sprite2s, unsigned int index)
 {
+	asset_debug_effect(surface,sprite2s,index,x,y);
 	assert(surface->format->BitsPerPixel == 8);
 	Uint8 *             pixels =    (Uint8 *)surface->pixels + (y * surface->pitch) + x;
 	const Uint8 * const pixels_ll = (Uint8 *)surface->pixels,  // lower limit
@@ -619,7 +624,7 @@ void blit_sprite2_blend(SDL_Surface *surface,  int x, int y, Sprite2_array sprit
 				if (pixels >= pixels_ul)
 					return;
 				if (pixels >= pixels_ll)
-					*pixels = (((*data & 0x0f) + (*pixels & 0x0f)) / 2) | (*data & 0xf0);
+					{ *pixels = (((*data & 0x0f) + (*pixels & 0x0f)) / 2) | (*data & 0xf0); render_mirror_sprite2_blend_pixel(surface,pixels,*data,sprite2s,index,x,y); }
 				
 				++pixels;
 			}
@@ -630,6 +635,7 @@ void blit_sprite2_blend(SDL_Surface *surface,  int x, int y, Sprite2_array sprit
 // does not clip on left or right edges of surface
 void blit_sprite2_darken(SDL_Surface *surface, int x, int y, Sprite2_array sprite2s, unsigned int index)
 {
+	asset_debug_effect(surface,sprite2s,index,x,y);
 	assert(surface->format->BitsPerPixel == 8);
 	Uint8 *             pixels =    (Uint8 *)surface->pixels + (y * surface->pitch) + x;
 	const Uint8 * const pixels_ll = (Uint8 *)surface->pixels,  // lower limit
@@ -655,7 +661,7 @@ void blit_sprite2_darken(SDL_Surface *surface, int x, int y, Sprite2_array sprit
 				if (pixels >= pixels_ul)
 					return;
 				if (pixels >= pixels_ll)
-					*pixels = ((*pixels & 0x0f) / 2) + (*pixels & 0xf0);
+					{ *pixels = ((*pixels & 0x0f) / 2) + (*pixels & 0xf0); render_mirror_pixel(surface,pixels,0,MIRROR_SHADOW); }
 				
 				++pixels;
 			}
@@ -666,6 +672,7 @@ void blit_sprite2_darken(SDL_Surface *surface, int x, int y, Sprite2_array sprit
 // does not clip on left or right edges of surface
 void blit_sprite2_filter(SDL_Surface *surface, int x, int y, Sprite2_array sprite2s, unsigned int index, Uint8 filter)
 {
+	asset_debug_effect(surface,sprite2s,index,x,y);
 	assert(surface->format->BitsPerPixel == 8);
 	Uint8 *             pixels =    (Uint8 *)surface->pixels + (y * surface->pitch) + x;
 	const Uint8 * const pixels_ll = (Uint8 *)surface->pixels,  // lower limit
@@ -691,7 +698,7 @@ void blit_sprite2_filter(SDL_Surface *surface, int x, int y, Sprite2_array sprit
 				if (pixels >= pixels_ul)
 					return;
 				if (pixels >= pixels_ll)
-					*pixels = filter | (*data & 0x0f);
+					{ *pixels = filter | (*data & 0x0f); render_mirror_pixel(surface,pixels,*pixels,MIRROR_NORMAL); }
 				
 				++pixels;
 			}
@@ -701,6 +708,7 @@ void blit_sprite2_filter(SDL_Surface *surface, int x, int y, Sprite2_array sprit
 
 void blit_sprite2_filter_clip(SDL_Surface *surface, int x, int y, Sprite2_array sprite2s, unsigned int index, Uint8 filter)
 {
+	asset_debug_effect(surface,sprite2s,index,x,y);
 	assert(surface->format->BitsPerPixel == 8);
 
 	const Uint8 *data = sprite2s.data + SDL_SwapLE16(((Uint16 *)sprite2s.data)[index - 1]);
@@ -728,7 +736,7 @@ void blit_sprite2_filter_clip(SDL_Surface *surface, int x, int y, Sprite2_array 
 				++data;
 
 				if (x >= 0 && x < surface->pitch)
-					pixel_row[x] = filter | (*data & 0x0f);;
+					{ pixel_row[x] = filter | (*data & 0x0f);; render_mirror_pixel(surface,&pixel_row[x],pixel_row[x],MIRROR_NORMAL); }
 				x += 1;
 			} while (--fill_count);
 		}

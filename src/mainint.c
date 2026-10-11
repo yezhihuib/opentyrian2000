@@ -17,6 +17,8 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 #include "mainint.h"
+#include "game_probe.h"
+#include "render_mirror.h"
 
 #include "backgrnd.h"
 #include "config.h"
@@ -47,6 +49,7 @@
 #include "shots.h"
 #include "sndmast.h"
 #include "sprite.h"
+#include "entity_draw.h"
 #include "varz.h"
 #include "vga256d.h"
 #include "video.h"
@@ -1388,6 +1391,7 @@ JE_boolean JE_gammaCheck(void)
 
 void JE_doInGameSetup(void)
 {
+	render_mirror_reset_banking();
 	mouseSetRelative(false);
 
 	haltGame = false;
@@ -2336,6 +2340,7 @@ void adjust_difficulty(void)
 
 bool load_next_demo(void)
 {
+	if (game_probe_level()) return true;
 	if (++demo_num > 5)
 		demo_num = 1;
 
@@ -2392,6 +2397,7 @@ bool load_next_demo(void)
 
 bool replay_demo_keys(void)
 {
+	if (game_probe_enabled) return game_probe_input();
 	while (demo_keys_wait == 0)
 	{
 		demo_keys = 0;
@@ -3390,6 +3396,7 @@ void JE_mainKeyboardInput(void)
 
 void JE_pauseGame(void)
 {
+	render_mirror_reset_banking();
 	mouseSetRelative(false);
 
 	JE_boolean done = false;
@@ -4140,6 +4147,8 @@ redo:
 		ship_banking = MAX(-2, MIN(ship_banking, 2));
 
 		int ship_sprite = ship_banking * 2 + shipGr_;
+		render_mirror_player_pose(playerNum_, *shipGrPtr_, shipGr_, ship_sprite, this_player->invulnerable_ticks);
+		game_probe_pose(playerNum_, shipGrPtr_->data==spriteSheet9.data?9:0, shipGr_, ship_sprite, ship_banking, this_player->x, this_player->y, this_player->x_velocity, this_player->x-*mouseX_, this_player->invulnerable_ticks, background2, this_player->x-5-mapX2Ofs+30, this_player->y-7+shadowYDist);
 
 		explosionFollowAmountX = this_player->x - this_player->last_x_explosion_follow;
 		explosionFollowAmountY = this_player->y - this_player->last_y_explosion_follow;
@@ -4154,12 +4163,12 @@ redo:
 		{
 			if (background2)
 			{
-				blit_sprite2x2_darken(VGAScreen, this_player->x - 17 - mapX2Ofs + 30, this_player->y - 7 + shadowYDist, *shipGrPtr_, ship_sprite + 13);
-				blit_sprite2x2_darken(VGAScreen, this_player->x + 7 - mapX2Ofs + 30, this_player->y - 7 + shadowYDist, *shipGrPtr_, ship_sprite + 51);
+				draw_entity_sprite2(VGAScreen, this_player->x - 17 - mapX2Ofs + 30, this_player->y - 7 + shadowYDist, *shipGrPtr_, ship_sprite + 13, ENTITY_SHADOW, ENTITY_QUAD);
+				draw_entity_sprite2(VGAScreen, this_player->x + 7 - mapX2Ofs + 30, this_player->y - 7 + shadowYDist, *shipGrPtr_, ship_sprite + 51, ENTITY_SHADOW, ENTITY_QUAD);
 				if (superWild)
 				{
-					blit_sprite2x2_darken(VGAScreen, this_player->x - 16 - mapX2Ofs + 30, this_player->y - 7 + shadowYDist, *shipGrPtr_, ship_sprite + 13);
-					blit_sprite2x2_darken(VGAScreen, this_player->x + 6 - mapX2Ofs + 30, this_player->y - 7 + shadowYDist, *shipGrPtr_, ship_sprite + 51);
+					draw_entity_sprite2(VGAScreen, this_player->x - 16 - mapX2Ofs + 30, this_player->y - 7 + shadowYDist, *shipGrPtr_, ship_sprite + 13, ENTITY_SHADOW, ENTITY_QUAD);
+					draw_entity_sprite2(VGAScreen, this_player->x + 6 - mapX2Ofs + 30, this_player->y - 7 + shadowYDist, *shipGrPtr_, ship_sprite + 51, ENTITY_SHADOW, ENTITY_QUAD);
 				}
 			}
 		}
@@ -4167,18 +4176,18 @@ redo:
 		{
 			if (background2)
 			{
-				blit_sprite2x2_darken(VGAScreen, this_player->x - 17 - mapX2Ofs + 30, this_player->y - 7 + shadowYDist, *shipGrPtr_, 220);
-				blit_sprite2x2_darken(VGAScreen, this_player->x + 7 - mapX2Ofs + 30, this_player->y - 7 + shadowYDist, *shipGrPtr_, 222);
+				draw_entity_sprite2(VGAScreen, this_player->x - 17 - mapX2Ofs + 30, this_player->y - 7 + shadowYDist, *shipGrPtr_, 220, ENTITY_SHADOW, ENTITY_QUAD);
+				draw_entity_sprite2(VGAScreen, this_player->x + 7 - mapX2Ofs + 30, this_player->y - 7 + shadowYDist, *shipGrPtr_, 222, ENTITY_SHADOW, ENTITY_QUAD);
 			}
 		}
 		else
 		{
 			if (background2)
 			{
-				blit_sprite2x2_darken(VGAScreen, this_player->x - 5 - mapX2Ofs + 30, this_player->y - 7 + shadowYDist, *shipGrPtr_, ship_sprite);
+				draw_entity_sprite2(VGAScreen, this_player->x - 5 - mapX2Ofs + 30, this_player->y - 7 + shadowYDist, *shipGrPtr_, ship_sprite, ENTITY_SHADOW, ENTITY_QUAD);
 				if (superWild)
 				{
-					blit_sprite2x2_darken(VGAScreen, this_player->x - 4 - mapX2Ofs + 30, this_player->y - 7 + shadowYDist, *shipGrPtr_, ship_sprite);
+					draw_entity_sprite2(VGAScreen, this_player->x - 4 - mapX2Ofs + 30, this_player->y - 7 + shadowYDist, *shipGrPtr_, ship_sprite, ENTITY_SHADOW, ENTITY_QUAD);
 				}
 			}
 		}
@@ -4189,39 +4198,39 @@ redo:
 
 			if (shipGr_ == 0)
 			{
-				blit_sprite2x2_blend(VGAScreen, this_player->x - 17, this_player->y - 7, *shipGrPtr_, ship_sprite + 13);
-				blit_sprite2x2_blend(VGAScreen, this_player->x + 7 , this_player->y - 7, *shipGrPtr_, ship_sprite + 51);
+				draw_entity_sprite2(VGAScreen, this_player->x - 17, this_player->y - 7, *shipGrPtr_, ship_sprite + 13, ENTITY_BLEND, ENTITY_QUAD);
+				draw_entity_sprite2(VGAScreen, this_player->x + 7 , this_player->y - 7, *shipGrPtr_, ship_sprite + 51, ENTITY_BLEND, ENTITY_QUAD);
 			}
 			else if (shipGr_ == 1)
 			{
-				blit_sprite2x2_blend(VGAScreen, this_player->x - 17, this_player->y - 7, *shipGrPtr_, 220);
-				blit_sprite2x2_blend(VGAScreen, this_player->x + 7 , this_player->y - 7, *shipGrPtr_, 222);
+				draw_entity_sprite2(VGAScreen, this_player->x - 17, this_player->y - 7, *shipGrPtr_, 220, ENTITY_BLEND, ENTITY_QUAD);
+				draw_entity_sprite2(VGAScreen, this_player->x + 7 , this_player->y - 7, *shipGrPtr_, 222, ENTITY_BLEND, ENTITY_QUAD);
 			}
 			else
-				blit_sprite2x2_blend(VGAScreen, this_player->x - 5, this_player->y - 7, *shipGrPtr_, ship_sprite);
+				draw_entity_sprite2(VGAScreen, this_player->x - 5, this_player->y - 7, *shipGrPtr_, ship_sprite, ENTITY_BLEND, ENTITY_QUAD);
 		}
 		else
 		{
 			if (shipGr_ == 0)
 			{
-				blit_sprite2x2(VGAScreen, this_player->x - 17, this_player->y - 7, *shipGrPtr_, ship_sprite + 13);
-				blit_sprite2x2(VGAScreen, this_player->x + 7, this_player->y - 7, *shipGrPtr_, ship_sprite + 51);
+				draw_entity_sprite2(VGAScreen, this_player->x - 17, this_player->y - 7, *shipGrPtr_, ship_sprite + 13, ENTITY_NORMAL, ENTITY_QUAD);
+				draw_entity_sprite2(VGAScreen, this_player->x + 7, this_player->y - 7, *shipGrPtr_, ship_sprite + 51, ENTITY_NORMAL, ENTITY_QUAD);
 			}
 			else if (shipGr_ == 1)
 			{
-				blit_sprite2x2(VGAScreen, this_player->x - 17, this_player->y - 7, *shipGrPtr_, 220);
-				blit_sprite2x2(VGAScreen, this_player->x + 7, this_player->y - 7, *shipGrPtr_, 222);
+				draw_entity_sprite2(VGAScreen, this_player->x - 17, this_player->y - 7, *shipGrPtr_, 220, ENTITY_NORMAL, ENTITY_QUAD);
+				draw_entity_sprite2(VGAScreen, this_player->x + 7, this_player->y - 7, *shipGrPtr_, 222, ENTITY_NORMAL, ENTITY_QUAD);
 
 				int ship_banking = 0;
 				switch (ship_sprite)
 				{
 				case 5:
-					blit_sprite2(VGAScreen, this_player->x - 17, this_player->y + 7, *shipGrPtr_, 40);
+					draw_entity_sprite2(VGAScreen, this_player->x - 17, this_player->y + 7, *shipGrPtr_, 40, ENTITY_NORMAL, ENTITY_TILE);
 					tempW = this_player->x - 7;
 					ship_banking = -2;
 					break;
 				case 3:
-					blit_sprite2(VGAScreen, this_player->x - 17, this_player->y + 7, *shipGrPtr_, 39);
+					draw_entity_sprite2(VGAScreen, this_player->x - 17, this_player->y + 7, *shipGrPtr_, 39, ENTITY_NORMAL, ENTITY_TILE);
 					tempW = this_player->x - 7;
 					ship_banking = -1;
 					break;
@@ -4229,12 +4238,12 @@ redo:
 					ship_banking = 0;
 					break;
 				case -1:
-					blit_sprite2(VGAScreen, this_player->x + 19, this_player->y + 7, *shipGrPtr_, 58);
+					draw_entity_sprite2(VGAScreen, this_player->x + 19, this_player->y + 7, *shipGrPtr_, 58, ENTITY_NORMAL, ENTITY_TILE);
 					tempW = this_player->x + 9;
 					ship_banking = 1;
 					break;
 				case -3:
-					blit_sprite2(VGAScreen, this_player->x + 19, this_player->y + 7, *shipGrPtr_, 59);
+					draw_entity_sprite2(VGAScreen, this_player->x + 19, this_player->y + 7, *shipGrPtr_, 59, ENTITY_NORMAL, ENTITY_TILE);
 					tempW = this_player->x + 9;
 					ship_banking = 2;
 					break;
@@ -4254,7 +4263,7 @@ redo:
 			}
 			else
 			{
-				blit_sprite2x2(VGAScreen, this_player->x - 5, this_player->y - 7, *shipGrPtr_, ship_sprite);
+				draw_entity_sprite2(VGAScreen, this_player->x - 5, this_player->y - 7, *shipGrPtr_, ship_sprite, ENTITY_NORMAL, ENTITY_QUAD);
 			}
 		}
 
@@ -4347,6 +4356,7 @@ redo:
 								           item_mode = (temp == REAR_WEAPON) ? this_player->weapon_mode - 1 : 0;
 
 								b = player_shot_create(item, temp, this_player->x, this_player->y, *mouseX_, *mouseY_, weaponPort[item].op[item_mode][item_power], playerNum_);
+								game_probe_fire(playerNum_, item, temp, this_player->x, this_player->y, weaponPort[item].op[item_mode][item_power], b);
 							}
 						}
 					}

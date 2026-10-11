@@ -17,6 +17,8 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 #include "video.h"
+#include "render_mirror.h"
+#include "asset_debug.h"
 
 #include "keyboard.h"
 #include "opentyr.h"
@@ -139,6 +141,7 @@ static void deinit_renderer(void)
 {
 	if (main_window_renderer != NULL)
 	{
+		render_mirror_release_texture();
 		SDL_DestroyRenderer(main_window_renderer);
 		main_window_renderer = NULL;
 	}
@@ -309,6 +312,7 @@ bool set_scaling_mode_by_name(const char *name)
 void JE_clr256(SDL_Surface *screen)
 {
 	SDL_FillRect(screen, NULL, 0);
+	render_mirror_rect(screen,NULL);
 }
 
 void JE_showVGA(void) 
@@ -381,6 +385,7 @@ static void calc_dst_render_rect(SDL_Surface *const src_surface, SDL_Rect *const
 
 static void scale_and_flip(SDL_Surface *src_surface)
 {
+	if(asset_debug_fast_forward())return;
 	assert(src_surface->format->BitsPerPixel == 8);
 
 	// Do software scaling
@@ -389,11 +394,13 @@ static void scale_and_flip(SDL_Surface *src_surface)
 
 	SDL_Rect dst_rect;
 	calc_dst_render_rect(src_surface, &dst_rect);
+	if(render_mirror_present(main_window_renderer,src_surface,&dst_rect)) { last_output_rect=dst_rect; return; }
 
 	// Clear the window and blit the output texture to it
 	SDL_SetRenderDrawColor(main_window_renderer, 0, 0, 0, 255);
 	SDL_RenderClear(main_window_renderer);
 	SDL_RenderCopy(main_window_renderer, main_window_texture, NULL, &dst_rect);
+	asset_debug_readback(main_window_renderer);
 	SDL_RenderPresent(main_window_renderer);
 
 	// Save output rect to be used by mouse functions

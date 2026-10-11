@@ -19,7 +19,10 @@
 #ifndef MTRAND_H
 #define MTRAND_H
 
+#include <stdint.h>
+
 #define MT_RAND_MAX 0xffffffffUL
+uint64_t mt_state_fingerprint(void);
 
 void mt_srand(unsigned long s);
 unsigned long mt_rand(void);

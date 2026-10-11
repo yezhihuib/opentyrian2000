@@ -17,6 +17,8 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 #include "opentyr.h"
+#include "game_probe.h"
+#include "asset_debug.h"
 
 #include "config.h"
 #include "destruct.h"
@@ -768,6 +770,7 @@ int main(int argc, char *argv[])
 	// Tyrian 2000 requires help text to be loaded before the configuration,
 	// because the default high score names are stored in help text
 
+	game_probe_parse(&argc, argv);
 	JE_paramCheck(argc, argv);
 
 	if (!override_xmas) // arg handler may override
@@ -842,9 +845,15 @@ int main(int argc, char *argv[])
 	}
 
 #ifdef NDEBUG
-	if (!isNetworkGame)
+	if (!isNetworkGame && !game_probe_enabled)
 		intro_logos();
 #endif
+
+	if (game_probe_enabled)
+	{
+		if (isNetworkGame) { fprintf(stderr, "Render probe is local only\n"); JE_tyrianHalt(2); }
+		game_probe_start(); JE_main(); asset_debug_finish(); JE_tyrianHalt(asset_debug_exit_code);
+	}
 
 	for (; ; )
 	{

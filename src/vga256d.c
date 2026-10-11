@@ -17,6 +17,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 #include "vga256d.h"
+#include "render_mirror.h"
 
 #include "config.h" // For fullscreen stuff
 #include "keyboard.h"
@@ -39,6 +40,7 @@ void JE_pix(SDL_Surface *surface, int x, int y, JE_byte c)
 	{
 		Uint8 *vga = surface->pixels;
 		vga[y * surface->pitch + x] = c;
+		render_mirror_pixel(surface,&vga[y * surface->pitch + x],c,MIRROR_NORMAL);
 	}
 }
 
@@ -62,20 +64,22 @@ void JE_rectangle(SDL_Surface *surface, int a, int b, int c, int d, int e) /* x1
 
 		/* Top line */
 		memset(&vga[b * surface->pitch + a], e, c - a + 1);
+		{ SDL_Rect r={a,b,c-a+1,1}; render_mirror_rect(surface,&r); }
 
 		/* Bottom line */
 		memset(&vga[d * surface->pitch + a], e, c - a + 1);
+		{ SDL_Rect r={a,d,c-a+1,1}; render_mirror_rect(surface,&r); }
 
 		/* Left line */
 		for (i = (b + 1) * surface->pitch + a; i < (d * surface->pitch + a); i += surface->pitch)
 		{
-			vga[i] = e;
+			vga[i] = e; render_mirror_pixel(surface,&vga[i],(Uint8)e,MIRROR_NORMAL);
 		}
 
 		/* Right line */
 		for (i = (b + 1) * surface->pitch + c; i < (d * surface->pitch + c); i += surface->pitch)
 		{
-			vga[i] = e;
+			vga[i] = e; render_mirror_pixel(surface,&vga[i],(Uint8)e,MIRROR_NORMAL);
 		}
 	}
 	else
@@ -88,6 +92,7 @@ void fill_rectangle_xy(SDL_Surface *surface, int x, int y, int x2, int y2, Uint8
 {
 	SDL_Rect rect = { x, y, x2 - x + 1, y2 - y + 1 };
 	SDL_FillRect(surface, &rect, color);
+	render_mirror_rect(surface,&rect);
 }
 
 void JE_barShade(SDL_Surface *surface, int a, int b, int c, int d) /* x1, y1, x2, y2 */
@@ -105,6 +110,7 @@ void JE_barShade(SDL_Surface *surface, int a, int b, int c, int d) /* x1, y1, x2
 			for (j = 0; j < width; j++)
 			{
 				vga[i + j] = ((vga[i + j] & 0x0F) >> 1) | (vga[i + j] & 0xF0);
+				render_mirror_pixel(surface,&vga[i+j],0,MIRROR_SHADOW);
 			}
 		}
 	}
@@ -140,6 +146,7 @@ void JE_barBright(SDL_Surface *surface, int a, int b, int c, int d) /* x1, y1, x
 				}
 
 				vga[i + j] = al + ah;
+				if(surface==game_screen) render_mirror_unsupported("bright-rectangle");
 			}
 		}
 	}

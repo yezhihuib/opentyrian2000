@@ -19,6 +19,7 @@
 #include "nortsong.h"
 
 #include "file.h"
+#include "asset_debug.h"
 #include "joystick.h"
 #include "keyboard.h"
 #include "loudness.h"
@@ -72,13 +73,16 @@ Uint32 getDelayTicks2(void)  // FKA NortSong.frameCount2
 
 void wait_delay(void)
 {
+	if(asset_debug_fast_forward())return;
 	Sint32 delay = target - SDL_GetTicks();
 	if (delay > 0)
 		SDL_Delay(delay);
 }
+double logic_tick_duration_ms(void) {return (double)frameCountMax*delayPeriod;}
 
 void service_wait_delay(void)
 {
+	if(asset_debug_fast_forward())return;
 	for (; ; )
 	{
 		service_SDL_events(false);

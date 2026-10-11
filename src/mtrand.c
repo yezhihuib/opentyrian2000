@@ -92,6 +92,18 @@ unsigned long mt_rand(void)
 	return y;
 }
 
+/* Read-only canonical state digest; never advances or reseeds the RNG. */
+uint64_t mt_state_fingerprint(void)
+{
+	uint64_t h = UINT64_C(14695981039346656037);
+	for (int i=0; i<N+3; ++i)
+	{
+		uint32_t v = i<N ? (uint32_t)x[i] : (uint32_t)(i==N ? (p0 ? p0-x : -1) : i==N+1 ? (p1 ? p1-x : -1) : (pm ? pm-x : -1));
+		for (int j=0;j<4;++j) { h^=(v>>(j*8))&255; h*=UINT64_C(1099511628211); }
+	}
+	return h;
+}
+
 /* generates a random number on the interval [0,1]. */
 float mt_rand_1(void)
 {

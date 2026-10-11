@@ -17,6 +17,8 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 #include "varz.h"
+#include "render_mirror.h"
+#include "game_probe.h"
 
 #include "config.h"
 #include "editship.h"
@@ -1041,6 +1043,7 @@ void JE_wipeShieldArmorBars(void)
 JE_byte JE_playerDamage(JE_byte temp,
                         Player *this_player)
 {
+	game_probe_collision("player-damage", (int)(this_player-player), temp, 0);
 	int playerDamage = 0;
 	soundQueue[7] = S_SHIELD_HIT;
 
@@ -1179,15 +1182,15 @@ void JE_drawSP(void)
 				s += superpixels[i].y * VGAScreen->pitch;
 				s += superpixels[i].x;
 
-				*s = (((*s & 0x0f) + superpixels[i].z) >> 1) + superpixels[i].color;
+				{ *s = (((*s & 0x0f) + superpixels[i].z) >> 1) + superpixels[i].color; render_mirror_pixel(VGAScreen,s,(Uint8)(superpixels[i].color | superpixels[i].z),MIRROR_BLEND); }
 				if (superpixels[i].x > 0)
-					*(s - 1) = (((*(s - 1) & 0x0f) + (superpixels[i].z >> 1)) >> 1) + superpixels[i].color;
+					{ *(s - 1) = (((*(s - 1) & 0x0f) + (superpixels[i].z >> 1)) >> 1) + superpixels[i].color; render_mirror_pixel(VGAScreen,(s - 1),(Uint8)(superpixels[i].color | (superpixels[i].z >> 1)),MIRROR_BLEND); }
 				if (superpixels[i].x < VGAScreen->w - 1u)
-					*(s + 1) = (((*(s + 1) & 0x0f) + (superpixels[i].z >> 1)) >> 1) + superpixels[i].color;
+					{ *(s + 1) = (((*(s + 1) & 0x0f) + (superpixels[i].z >> 1)) >> 1) + superpixels[i].color; render_mirror_pixel(VGAScreen,(s + 1),(Uint8)(superpixels[i].color | (superpixels[i].z >> 1)),MIRROR_BLEND); }
 				if (superpixels[i].y > 0)
-					*(s - VGAScreen->pitch) = (((*(s - VGAScreen->pitch) & 0x0f) + (superpixels[i].z >> 1)) >> 1) + superpixels[i].color;
+					{ *(s - VGAScreen->pitch) = (((*(s - VGAScreen->pitch) & 0x0f) + (superpixels[i].z >> 1)) >> 1) + superpixels[i].color; render_mirror_pixel(VGAScreen,(s - VGAScreen->pitch),(Uint8)(superpixels[i].color | (superpixels[i].z >> 1)),MIRROR_BLEND); }
 				if (superpixels[i].y < VGAScreen->h - 1u)
-					*(s + VGAScreen->pitch) = (((*(s + VGAScreen->pitch) & 0x0f) + (superpixels[i].z >> 1)) >> 1) + superpixels[i].color;
+					{ *(s + VGAScreen->pitch) = (((*(s + VGAScreen->pitch) & 0x0f) + (superpixels[i].z >> 1)) >> 1) + superpixels[i].color; render_mirror_pixel(VGAScreen,(s + VGAScreen->pitch),(Uint8)(superpixels[i].color | (superpixels[i].z >> 1)),MIRROR_BLEND); }
 			}
 
 			superpixels[i].z--;

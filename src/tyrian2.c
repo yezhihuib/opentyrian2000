@@ -17,6 +17,10 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 #include "tyrian2.h"
+#include "render_mirror.h"
+#include "entity_draw.h"
+#include "game_probe.h"
+#include "asset_debug.h"
 
 #include "animlib.h"
 #include "backgrnd.h"
@@ -89,7 +93,7 @@ void JE_starShowVGA(void)
 
 		if (smoothScroll != 0 /*&& thisPlayerNum != 2*/)
 		{
-			wait_delay();
+			if(!asset_debug_fast_forward())wait_delay();
 			setDelay(frameCountMax);
 		}
 
@@ -147,8 +151,10 @@ void JE_starShowVGA(void)
 				src += game_screen->pitch;
 			}
 		}
+		render_mirror_finish(starShowVGASpecialCode==0);
 		JE_showVGA();
 	}
+	else render_mirror_finish(false);
 
 	quitRequested = false;
 	skipStarShowVGA = false;
@@ -165,11 +171,15 @@ inline static void blit_enemy(SDL_Surface *surface, unsigned int i, signed int x
 	const int x = enemy[i].ex + x_offset + tempMapXOfs,
 	          y = enemy[i].ey + y_offset;
 	const unsigned int index = enemy[i].egr[enemy[i].enemycycle - 1] + sprite_offset;
+	if(asset_debug_enabled){for(int b=0;b<4;b++)if(enemy[i].sprite2s->data==enemySpriteSheets[b].data&&enemySpriteSheetIds[b]>0){char sheet[32];snprintf(sheet,sizeof(sheet),"newsh%c.shp",tolower((unsigned char)shapeFile[enemySpriteSheetIds[b]-1]));asset_debug_reference("enemy",sheet,enemy[i].egr[enemy[i].enemycycle-1],index,x,y,12,14);break;}}
+	/* Each original quadrant remains its own ordered call and game object. */
+	render_mirror_enemy_tile(surface,x,y,*enemy[i].sprite2s,enemy[i].egr[enemy[i].enemycycle - 1],sprite_offset,enemy[i].filter);
 
 	if (enemy[i].filter != 0)
 		blit_sprite2_filter(surface, x, y, *enemy[i].sprite2s, index, enemy[i].filter);
 	else
 		blit_sprite2(surface, x, y, *enemy[i].sprite2s, index);
+	render_mirror_entity_end();
 }
 
 void JE_drawEnemy(int enemyOffset) // actually does a whole lot more than just drawing
@@ -1086,6 +1096,8 @@ start_level_first:
 	BKwrap3 = BKwrap3to = &megaData3.mainmap[1][0];
 
 level_loop:
+	if(asset_debug_before_tick())return;
+	render_mirror_begin();
 
 	//tempScreenSeg = game_screen; /* side-effect of game_screen */
 
@@ -1266,6 +1278,7 @@ level_loop:
 
 	/* SMOOTHIES! */
 	JE_checkSmoothies();
+	if(anySmoothies) render_mirror_unsupported("smoothie-surface-routing");
 	if (anySmoothies)
 		VGAScreen = VGAScreen2;  // this makes things complicated, but we do it anyway :(
 
@@ -1436,6 +1449,7 @@ level_loop:
 		JE_drawEnemy(75);
 	}
 
+	asset_debug_projectile();
 	/* Player Shot Images */
 	for (int z = 0; z < MAX_PWEAPON; z++)
 	{
@@ -1486,6 +1500,7 @@ level_loop:
 
 					if (collided)
 					{
+						game_probe_collision("player-shot", z, b, damage);
 						if (chain > 0)
 						{
 							shotMultiPos[SHOT_MISC] = 0;
@@ -1827,6 +1842,7 @@ draw_player_shot_loop_end:
 						    enemyShot[z].sy > player[i].y - (signed)player[i].shot_hit_area_y &&
 						    enemyShot[z].sy < player[i].y + (signed)player[i].shot_hit_area_y)
 						{
+							game_probe_collision("enemy-shot", z, (int)i, enemyShot[z].sdmg);
 							JE_integer tempX = enemyShot[z].sx;
 							JE_integer tempY = enemyShot[z].sy;
 							temp = enemyShot[z].sdmg;
@@ -1960,9 +1976,9 @@ draw_player_shot_loop_end:
 			else
 			{
 				if (explosionTransparent)
-					blit_sprite2_blend(VGAScreen, explosions[j].x, explosions[j].y, explosionSpriteSheet, explosions[j].sprite + 1);
+					draw_entity_sprite2(VGAScreen, explosions[j].x, explosions[j].y, explosionSpriteSheet, explosions[j].sprite + 1, ENTITY_BLEND, ENTITY_TILE);
 				else
-					blit_sprite2(VGAScreen, explosions[j].x, explosions[j].y, explosionSpriteSheet, explosions[j].sprite + 1);
+					draw_entity_sprite2(VGAScreen, explosions[j].x, explosions[j].y, explosionSpriteSheet, explosions[j].sprite + 1, ENTITY_NORMAL, ENTITY_TILE);
 
 				explosions[j].ttl--;
 			}
@@ -2387,6 +2403,7 @@ draw_player_shot_loop_end:
 
 	/*Other Network Functions*/
 	JE_handleChat();
+	if (game_probe_end_tick()) return;
 
 	if (reallyEndLevel)
 	{
@@ -3081,6 +3098,7 @@ new_game:
 	}
 
 	/* Read Shapes.DAT */
+	render_mirror_map_begin(char_shapeFile);
 	sprintf(tempStr, "shapes%c.dat", tolower((unsigned char)char_shapeFile));
 	FILE *shpFile = dir_fopen_die(data_dir(), tempStr, "rb");
 
@@ -3102,6 +3120,8 @@ new_game:
 				memcpy(megaData1.shapes[x].sh, shape, sizeof(JE_DanCShape));
 
 				ref[0][x] = megaData1.shapes[x].sh;
+				asset_debug_bind_terrain(char_shapeFile,1,z+1,megaData1.shapes[x].sh);
+				render_mirror_bind_terrain(1,z+1,megaData1.shapes[x].sh);
 			}
 		}
 
@@ -3121,6 +3141,7 @@ new_game:
 
 					megaData2.shapes[x].fill = y;
 					ref[1][x] = megaData2.shapes[x].sh;
+				asset_debug_bind_terrain(char_shapeFile,2,z+1,megaData2.shapes[x].sh);
 				}
 				else
 				{
@@ -3145,6 +3166,7 @@ new_game:
 
 					megaData3.shapes[x].fill = y;
 					ref[2][x] = megaData3.shapes[x].sh;
+				asset_debug_bind_terrain(char_shapeFile,3,z+1,megaData3.shapes[x].sh);
 				}
 				else
 				{

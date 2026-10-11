@@ -38,6 +38,7 @@ extern JE_word tempVolume;
 void setDelay(int delay);
 void setDelay2(int delay);
 Uint32 getDelayTicks(void);
+double logic_tick_duration_ms(void);
 Uint32 getDelayTicks2(void);
 
 void wait_delay(void);

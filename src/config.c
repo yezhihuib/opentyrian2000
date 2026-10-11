@@ -17,6 +17,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 #include "config.h"
+#include "asset_debug.h"
 
 #include "episodes.h"
 #include "file.h"
@@ -1004,6 +1005,7 @@ void JE_loadConfiguration(void)
 
 void JE_saveConfiguration(void)
 {
+	if(asset_debug_enabled)return;
 	FILE *f;
 	JE_byte *p;
 	int z;

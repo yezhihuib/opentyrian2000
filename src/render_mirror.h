@@ -1,0 +1,51 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
+#ifndef RENDER_MIRROR_H
+#define RENDER_MIRROR_H
+#include "sprite.h"
+enum { MIRROR_NORMAL, MIRROR_BLEND, MIRROR_SHADOW };
+#ifdef RENDER_MIRROR_DISABLED
+#define render_mirror_begin(...) ((void)0)
+#define render_mirror_pixel(...) ((void)0)
+#define render_mirror_rect(...) ((void)0)
+#define render_mirror_unsupported(...) ((void)0)
+#define render_mirror_entity(...) false
+#define render_mirror_entity_end(...) ((void)0)
+#define render_mirror_finish(...) ((void)0)
+#define render_mirror_present(...) false
+#define render_mirror_release_texture(...) ((void)0)
+#define render_mirror_brightness_pixel(...) ((void)0)
+#define render_mirror_fade_start(...) ((void)0)
+#define render_mirror_fade_step(...) ((void)0)
+#define render_mirror_enemy_tile(...) false
+#define render_mirror_map_begin(...) ((void)0)
+#define render_mirror_bind_terrain(...) ((void)0)
+#define render_mirror_terrain_row(...) 0u
+#define render_mirror_terrain_pixel(...) ((void)0)
+#define render_mirror_sprite2_blend_pixel(...) ((void)0)
+#define render_mirror_set_talon_banking(...) ((void)0)
+#define render_mirror_reset_banking(...) ((void)0)
+#define render_mirror_player_pose(...) ((void)0)
+#else
+void render_mirror_begin(void);
+void render_mirror_pixel(SDL_Surface *, Uint8 *address, Uint8 source, int style);
+void render_mirror_rect(SDL_Surface *, const SDL_Rect *);
+void render_mirror_unsupported(const char *reason);
+bool render_mirror_entity(SDL_Surface *, int x, int y, Sprite2_array, unsigned int index, int style, int layout);
+void render_mirror_entity_end(void);
+void render_mirror_finish(bool ordinary_crop);
+bool render_mirror_present(SDL_Renderer *, SDL_Surface *, const SDL_Rect *);
+void render_mirror_release_texture(void);
+void render_mirror_brightness_pixel(SDL_Surface *, Uint8 *address, int value);
+void render_mirror_fade_start(const SDL_Color *colors, const SDL_Color *solid, unsigned int first, unsigned int last);
+void render_mirror_fade_step(int steps);
+bool render_mirror_enemy_tile(SDL_Surface *, int x, int y, Sprite2_array, unsigned int base, int part, int filter);
+void render_mirror_map_begin(char shape_file);
+void render_mirror_bind_terrain(unsigned int layer, unsigned int id, const Uint8 *data);
+unsigned int render_mirror_terrain_row(SDL_Surface *, int x, int y, Uint8 **map, int style);
+void render_mirror_terrain_pixel(SDL_Surface *, Uint8 *, Uint8 source, int style, bool replaced);
+void render_mirror_sprite2_blend_pixel(SDL_Surface *, Uint8 *, Uint8 source, Sprite2_array, unsigned int index, int origin_x, int origin_y);
+void render_mirror_set_talon_banking(bool enabled);
+void render_mirror_reset_banking(void);
+void render_mirror_player_pose(unsigned int player_number, Sprite2_array, int base, int index, unsigned int invulnerable_ticks);
+#endif
+#endif

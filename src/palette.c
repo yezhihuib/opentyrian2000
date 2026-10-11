@@ -17,6 +17,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 #include "palette.h"
+#include "render_mirror.h"
 
 #include "file.h"
 #include "nortsong.h"
@@ -87,6 +88,7 @@ void set_colors(SDL_Color color, unsigned int first_color, unsigned int last_col
 
 void init_step_fade_palette(int diff[256][3], Palette colors, unsigned int first_color, unsigned int last_color)
 {
+	render_mirror_fade_start(colors,NULL,first_color,last_color);
 	for (unsigned int i = first_color; i <= last_color; i++)
 	{
 		diff[i][0] = (int)colors[i].r - palette[i].r;
@@ -97,6 +99,7 @@ void init_step_fade_palette(int diff[256][3], Palette colors, unsigned int first
 
 void init_step_fade_solid(int diff[256][3], SDL_Color color, unsigned int first_color, unsigned int last_color)
 {
+	render_mirror_fade_start(NULL,&color,first_color,last_color);
 	for (unsigned int i = first_color; i <= last_color; i++)
 	{
 		diff[i][0] = (int)color.r - palette[i].r;
@@ -124,6 +127,7 @@ void step_fade_palette(int diff[256][3], int steps, unsigned int first_color, un
 		rgb_palette[i] = SDL_MapRGB(main_window_tex_format, palette[i].r, palette[i].g, palette[i].b);
 		yuv_palette[i] = rgb_to_yuv(palette[i].r, palette[i].g, palette[i].b);
 	}
+	render_mirror_fade_step(steps);
 }
 
 void fade_palette(Palette colors, int steps, unsigned int first_color, unsigned int last_color)

@@ -20,6 +20,7 @@
 
 #include "player.h"
 #include "sprite.h"
+#include "entity_draw.h"
 #include "video.h"
 #include "varz.h"
 
@@ -290,14 +291,14 @@ bool player_shot_move_and_draw(
 			if (sprite_frame > 500)
 			{
 				if (background2 && *out_shoty + shadowYDist < 190 && tmp_shotXM < 100)
-					blit_sprite2_darken(VGAScreen, *out_shotx+1, *out_shoty + shadowYDist, spriteSheet12, sprite_frame - 500);
-				blit_sprite2(VGAScreen, *out_shotx+1, *out_shoty, spriteSheet12, sprite_frame - 500);
+					draw_entity_sprite2(VGAScreen, *out_shotx+1, *out_shoty + shadowYDist, spriteSheet12, sprite_frame - 500, ENTITY_SHADOW, ENTITY_TILE);
+				draw_entity_sprite2(VGAScreen, *out_shotx+1, *out_shoty, spriteSheet12, sprite_frame - 500, ENTITY_NORMAL, ENTITY_TILE);
 			}
 			else
 			{
 				if (background2 && *out_shoty + shadowYDist < 190 && tmp_shotXM < 100)
-					blit_sprite2_darken(VGAScreen, *out_shotx+1, *out_shoty + shadowYDist, spriteSheet8, sprite_frame);
-				blit_sprite2(VGAScreen, *out_shotx+1, *out_shoty, spriteSheet8, sprite_frame);
+					draw_entity_sprite2(VGAScreen, *out_shotx+1, *out_shoty + shadowYDist, spriteSheet8, sprite_frame, ENTITY_SHADOW, ENTITY_TILE);
+				draw_entity_sprite2(VGAScreen, *out_shotx+1, *out_shoty, spriteSheet8, sprite_frame, ENTITY_NORMAL, ENTITY_TILE);
 			}
 		}
 	}

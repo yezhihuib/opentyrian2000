@@ -17,6 +17,8 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 #include "backgrnd.h"
+#include "render_mirror.h"
+#include "asset_debug.h"
 
 #include "config.h"
 #include "mtrand.h"
@@ -44,6 +46,7 @@ JE_byte     smoothie_data[9]; /* [1..9] */
 
 void JE_darkenBackground(JE_word neat)  /* wild detail level */
 {
+	render_mirror_unsupported("JE_darkenBackground");
 	Uint8 *s = VGAScreen->pixels; /* screen pointer, 8-bit specific */
 	int x, y;
 	
@@ -63,6 +66,8 @@ void JE_darkenBackground(JE_word neat)  /* wild detail level */
 void blit_background_row(SDL_Surface *surface, int x, int y, Uint8 **map)
 {
 	assert(surface->format->BitsPerPixel == 8);
+	asset_debug_terrain_row(x,y,map);
+	unsigned int hd_tiles=render_mirror_terrain_row(surface,x,y,map,MIRROR_NORMAL);
 	
 	Uint8 *pixels = (Uint8 *)surface->pixels + (y * surface->pitch) + x,
 	      *pixels_ll = (Uint8 *)surface->pixels,  // lower limit
@@ -95,7 +100,7 @@ void blit_background_row(SDL_Surface *surface, int x, int y, Uint8 **map)
 				if (pixels >= pixels_ul)
 					return;
 				if (pixels >= pixels_ll && *data != 0)
-					*pixels = *data;
+					{ *pixels = *data; render_mirror_terrain_pixel(surface,pixels,*data,MIRROR_NORMAL,(hd_tiles&(1u<<tile))!=0); }
 				
 				pixels++;
 				data++;
@@ -109,6 +114,8 @@ void blit_background_row(SDL_Surface *surface, int x, int y, Uint8 **map)
 void blit_background_row_blend(SDL_Surface *surface, int x, int y, Uint8 **map)
 {
 	assert(surface->format->BitsPerPixel == 8);
+	asset_debug_terrain_row(x,y,map);
+	unsigned int hd_tiles=render_mirror_terrain_row(surface,x,y,map,MIRROR_BLEND);
 	
 	Uint8 *pixels = (Uint8 *)surface->pixels + (y * surface->pitch) + x,
 	      *pixels_ll = (Uint8 *)surface->pixels,  // lower limit
@@ -141,7 +148,7 @@ void blit_background_row_blend(SDL_Surface *surface, int x, int y, Uint8 **map)
 				if (pixels >= pixels_ul)
 					return;
 				if (pixels >= pixels_ll && *data != 0)
-					*pixels = (*data & 0xf0) | (((*pixels & 0x0f) + (*data & 0x0f)) / 2);
+					{ *pixels = (*data & 0xf0) | (((*pixels & 0x0f) + (*data & 0x0f)) / 2); render_mirror_terrain_pixel(surface,pixels,*data,MIRROR_BLEND,(hd_tiles&(1u<<tile))!=0); }
 				
 				pixels++;
 				data++;
@@ -155,6 +162,7 @@ void blit_background_row_blend(SDL_Surface *surface, int x, int y, Uint8 **map)
 void draw_background_1(SDL_Surface *surface)
 {
 	SDL_FillRect(surface, NULL, 0);
+	render_mirror_rect(surface,NULL);
 	
 	Uint8 **map = (Uint8 **)mapYPos + mapXbpPos - 12;
 	
@@ -278,6 +286,7 @@ void JE_filterScreen(JE_shortint col, JE_shortint int_)
 	
 	if (col != -99 && filtrationAvail)
 	{
+	render_mirror_unsupported("palette-hue-filter");
 		s = VGAScreen->pixels;
 		s += 24;
 		
@@ -305,6 +314,7 @@ void JE_filterScreen(JE_shortint col, JE_shortint int_)
 			{
 				temp = (*s & 0x0f) + int_;
 				*s = (*s & 0xf0) | (temp >= 0x1f ? 0 : (temp >= 0x0f ? 0x0f : temp));
+				render_mirror_brightness_pixel(VGAScreen,s,int_);
 				s++;
 			}
 			s += VGAScreen->pitch - 264;
@@ -319,6 +329,7 @@ void JE_checkSmoothies(void)
 
 void lava_filter(SDL_Surface *dst, SDL_Surface *src)
 {
+	render_mirror_unsupported("lava_filter");
 	assert(src->format->BitsPerPixel == 8 && dst->format->BitsPerPixel == 8);
 	
 	/* we don't need to check for over-reading the pixel surfaces since we only
@@ -367,6 +378,7 @@ void lava_filter(SDL_Surface *dst, SDL_Surface *src)
 
 void water_filter(SDL_Surface *dst, SDL_Surface *src)
 {
+	render_mirror_unsupported("water_filter");
 	assert(src->format->BitsPerPixel == 8 && dst->format->BitsPerPixel == 8);
 	
 	Uint8 hue = smoothie_data[1] << 4;
@@ -415,6 +427,7 @@ void water_filter(SDL_Surface *dst, SDL_Surface *src)
 
 void iced_blur_filter(SDL_Surface *dst, SDL_Surface *src)
 {
+	render_mirror_unsupported("iced_blur_filter");
 	assert(src->format->BitsPerPixel == 8 && dst->format->BitsPerPixel == 8);
 	
 	Uint8 *dst_pixel = dst->pixels;
@@ -441,6 +454,7 @@ void iced_blur_filter(SDL_Surface *dst, SDL_Surface *src)
 
 void blur_filter(SDL_Surface *dst, SDL_Surface *src)
 {
+	render_mirror_unsupported("blur_filter");
 	assert(src->format->BitsPerPixel == 8 && dst->format->BitsPerPixel == 8);
 	
 	Uint8 *dst_pixel = dst->pixels;
@@ -502,23 +516,23 @@ void update_and_draw_starfield(SDL_Surface* surface, int move_speed)
 		{
 			if (p[star->position] == 0)
 			{
-				p[star->position] = star->color;
+				{ p[star->position] = star->color; render_mirror_pixel(surface,&p[star->position],p[star->position],MIRROR_NORMAL); }
 			}
 
 			// If star is bright enough, draw surrounding pixels
 			if (star->color - 4 >= STARFIELD_HUE)
 			{
 				if (p[star->position + 1] == 0)
-					p[star->position + 1] = star->color - 4;
+					{ p[star->position + 1] = star->color - 4; render_mirror_pixel(surface,&p[star->position + 1],p[star->position + 1],MIRROR_NORMAL); }
 
 				if (star->position > 0 && p[star->position - 1] == 0)
-					p[star->position - 1] = star->color - 4;
+					{ p[star->position - 1] = star->color - 4; render_mirror_pixel(surface,&p[star->position - 1],p[star->position - 1],MIRROR_NORMAL); }
 
 				if (p[star->position + surface->pitch] == 0)
-					p[star->position + surface->pitch] = star->color - 4;
+					{ p[star->position + surface->pitch] = star->color - 4; render_mirror_pixel(surface,&p[star->position + surface->pitch],p[star->position + surface->pitch],MIRROR_NORMAL); }
 
 				if (star->position >= surface->pitch && p[star->position - surface->pitch] == 0)
-					p[star->position - surface->pitch] = star->color - 4;
+					{ p[star->position - surface->pitch] = star->color - 4; render_mirror_pixel(surface,&p[star->position - surface->pitch],p[star->position - surface->pitch],MIRROR_NORMAL); }
 			}
 		}
 	}
