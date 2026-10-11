@@ -1,0 +1,85 @@
+{
+  "schema": "cloud64-v3-independent-package-verification-v1",
+  "pass": true,
+  "python": "3.12.14",
+  "pillow": "12.3.0",
+  "source_png_count": 2,
+  "source_pngs": [
+    "source/generated64-bottom-reference.png",
+    "source/prior-generated64-v2.png"
+  ],
+  "all_files_package_owned": true,
+  "source_mutation_rejected": true,
+  "external_source_symlink_rejected": true,
+  "selected_png_sha256": "5a7b79fac3399d87cde0fb2d855e92e2121ed127a5112f7afcb5216e70deead3",
+  "selected_rgba_sha256": "fc88d9e42885e523c54111ab8e9a833a887256b222e97549d9d972bec988480f",
+  "selected_hda_sha256": "1f9378615e16157f59113a47066dd28a52433c28e5a36d8845491b355e64a3b8",
+  "independent_python_reference_exact": true,
+  "detached_alpha_removed": [
+    {
+      "x": 104,
+      "y": 176,
+      "previous_alpha": 4
+    }
+  ],
+  "changed_pixels": 12987,
+  "changed_bbox_exclusive": [
+    1,
+    129,
+    191,
+    200
+  ],
+  "all_four_rgba_faces_unchanged": true,
+  "rows_0_127_and_200_223_exact": true,
+  "alpha_threshold_topology": {
+    "1": {
+      "components": 1,
+      "opaque_count": 32936,
+      "bottom_min": 156,
+      "bottom_max": 192
+    },
+    "16": {
+      "components": 1,
+      "opaque_count": 32260,
+      "bottom_min": 155,
+      "bottom_max": 185
+    },
+    "128": {
+      "components": 1,
+      "opaque_count": 31317,
+      "bottom_min": 152,
+      "bottom_max": 172
+    },
+    "240": {
+      "components": 1,
+      "opaque_count": 30350,
+      "bottom_min": 149,
+      "bottom_max": 168
+    }
+  },
+  "rebuilds": [
+    {
+      "case": "fresh",
+      "pass": true,
+      "package_input_files": 4,
+      "original_data_supplied_or_requested_by_rebuild": false,
+      "selected_outputs_supplied_to_rebuild": false,
+      "rgba_sha256": "fc88d9e42885e523c54111ab8e9a833a887256b222e97549d9d972bec988480f",
+      "hda_sha256": "1f9378615e16157f59113a47066dd28a52433c28e5a36d8845491b355e64a3b8",
+      "rebuilt_png_sha256": "986921691218e7643090a2849a103fa6085760819d92ae7bfbf547da2009e1b3",
+      "png_file_equals_selected": false
+    },
+    {
+      "case": "relocated_with_spaces",
+      "pass": true,
+      "package_input_files": 4,
+      "original_data_supplied_or_requested_by_rebuild": false,
+      "selected_outputs_supplied_to_rebuild": false,
+      "rgba_sha256": "fc88d9e42885e523c54111ab8e9a833a887256b222e97549d9d972bec988480f",
+      "hda_sha256": "1f9378615e16157f59113a47066dd28a52433c28e5a36d8845491b355e64a3b8",
+      "rebuilt_png_sha256": "986921691218e7643090a2849a103fa6085760819d92ae7bfbf547da2009e1b3",
+      "png_file_equals_selected": false
+    }
+  ],
+  "runtime_checks": "Not run by this verifier; see verification/runtime-status.json for bounded external evidence"
+}

@@ -1,7 +1,7 @@
 {
   "schema": "opentyrian-accepted-hd-runtime-v1",
   "baseline_branch": "hd-render-prototype",
-  "status": "Accepted finite HD families; latest batch adds purple13 layer3 foundation and nine independent installation components with scoped gray-fringe correction",
+  "status": "Accepted finite HD families; latest correction softens cloud64 lower edge while preserving all neighboring joins",
   "default_preview_pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
   "default_debug_pack": "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
   "packs": {
@@ -31796,7 +31796,7 @@
           "source_png_sha256": "2db350fcf344fe3859e6ea2879681d5de79c476465fbb734cccd7e346a0fdd22"
         },
         "terrain-shapesz-64-8.hda": {
-          "sha256": "604f1edfae62880bfc94460a9db6c58c8ab0e8425ce839bd5ef0b98154d4c432",
+          "sha256": "1f9378615e16157f59113a47066dd28a52433c28e5a36d8845491b355e64a3b8",
           "header_u32": [
             2010064,
             8,
@@ -31805,8 +31805,8 @@
             0,
             0
           ],
-          "source_png": "assets/hd/source/terrain-shapesz-64-8-604f1edfae62.png",
-          "source_png_sha256": "1b1cf5216ef9fdc87c860015cc4b7e0c245b4e8566e9b4ffca8ab58a7659350d"
+          "source_png": "assets/hd/source/terrain-shapesz-64-8-1f9378615e16.png",
+          "source_png_sha256": "5a7b79fac3399d87cde0fb2d855e92e2121ed127a5112f7afcb5216e70deead3"
         },
         "terrain-shapesz-65-8.hda": {
           "sha256": "ce7a5305c70c2777171ba8e4723d11038cbfce5aab8e5d571c1c9ed0892d215d",
@@ -35961,7 +35961,7 @@
           "source_png_sha256": "2db350fcf344fe3859e6ea2879681d5de79c476465fbb734cccd7e346a0fdd22"
         },
         "terrain-shapesz-64-8.hda": {
-          "sha256": "604f1edfae62880bfc94460a9db6c58c8ab0e8425ce839bd5ef0b98154d4c432",
+          "sha256": "1f9378615e16157f59113a47066dd28a52433c28e5a36d8845491b355e64a3b8",
           "header_u32": [
             2010064,
             8,
@@ -35970,8 +35970,8 @@
             0,
             0
           ],
-          "source_png": "assets/hd/source/terrain-shapesz-64-8-604f1edfae62.png",
-          "source_png_sha256": "1b1cf5216ef9fdc87c860015cc4b7e0c245b4e8566e9b4ffca8ab58a7659350d"
+          "source_png": "assets/hd/source/terrain-shapesz-64-8-1f9378615e16.png",
+          "source_png_sha256": "5a7b79fac3399d87cde0fb2d855e92e2121ed127a5112f7afcb5216e70deead3"
         },
         "terrain-shapesz-65-8.hda": {
           "sha256": "ce7a5305c70c2777171ba8e4723d11038cbfce5aab8e5d571c1c9ed0892d215d",
@@ -39262,6 +39262,12 @@
       "sha256": "ba26f7477a9daf6146691cbf5cb2f358956204c4957e2baf16e73956011401dc",
       "RGBA_sha256": "5584cde45867a1cf0a6b1d643e18fd02ee8e59228ab3f4b6ea10f230209dadaf",
       "note": "Generated selected art; original game RGB excluded"
+    },
+    "1f9378615e16157f59113a47066dd28a52433c28e5a36d8845491b355e64a3b8": {
+      "path": "assets/hd/source/terrain-shapesz-64-8-1f9378615e16.png",
+      "sha256": "5a7b79fac3399d87cde0fb2d855e92e2121ed127a5112f7afcb5216e70deead3",
+      "RGBA_sha256": "fc88d9e42885e523c54111ab8e9a833a887256b222e97549d9d972bec988480f",
+      "note": "Generated cloud64 lower-edge correction; original RGB excluded"
     }
   },
   "no_original_game_data": true,
@@ -39415,7 +39421,8 @@
     "source": "assets/hd/artwork/cloud-layer2-v1/selected-manifest.json",
     "wild_blend": "original fallback",
     "shadow": "cloud-only original palette-ramp ratio",
-    "edge_revision": "v2: original long55step softened; other14tileRGBA/HDRunchanged"
+    "edge_revision": "v2 corrected55 retained; v3 corrects only64 free lower contour/shading with exact four tile faces and unchanged14 peers",
+    "bottom64_source": "assets/hd/artwork/cloud64-v3"
   },
   "enemy_rotor_type5_11_v1": {
     "sheet": "newsh2.shp",

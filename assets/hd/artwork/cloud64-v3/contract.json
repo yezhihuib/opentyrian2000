@@ -1,0 +1,75 @@
+{
+  "schema": "cloud64-lower-edge-correction-v3",
+  "bank": "shapesz.dat",
+  "layer": 2,
+  "offline_id": 64,
+  "existing_slot": 199,
+  "magic": "HDR1",
+  "header_u32": [
+    2010064,
+    8,
+    24,
+    28,
+    0,
+    0
+  ],
+  "logical_size": [
+    24,
+    28
+  ],
+  "density": 8,
+  "output_size": [
+    192,
+    224
+  ],
+  "anchor": [
+    0,
+    0
+  ],
+  "pixel_layout": "row-major straight RGBA8",
+  "replacement_scope": "Only the existing cloud64 generated asset. Keep binder, renderer and every other resource unchanged.",
+  "frozen_ids": [
+    41,
+    42,
+    43,
+    44,
+    45,
+    51,
+    52,
+    53,
+    54,
+    55,
+    61,
+    62,
+    63,
+    65
+  ],
+  "changed_bbox_exclusive": [
+    1,
+    129,
+    191,
+    200
+  ],
+  "changed_pixels": 12987,
+  "exact_preserved_regions": [
+    "All four outermost RGBA faces",
+    "Rows 0..127 inclusive",
+    "Rows 200..223 inclusive"
+  ],
+  "selected": {
+    "png": "output/terrain-shapesz-64-8.png",
+    "png_sha256": "5a7b79fac3399d87cde0fb2d855e92e2121ed127a5112f7afcb5216e70deead3",
+    "rgba_sha256": "fc88d9e42885e523c54111ab8e9a833a887256b222e97549d9d972bec988480f",
+    "hda": "runtime-overlay/terrain-shapesz-64-8.hda",
+    "hda_sha256": "1f9378615e16157f59113a47066dd28a52433c28e5a36d8845491b355e64a3b8"
+  },
+  "acceptance": {
+    "static_rebuild_and_scope": "pass",
+    "author_reports_visual_review_of_98_wholemap_contexts": true,
+    "independent_package_review_repeated_full_context_visual_review": false,
+    "runtime": "Bounded private-survival actual window ticks2118..2237 verified; ordinary0..1052 and missing/wild regressions pending.",
+    "full_level_actual_gameplay_claim": false,
+    "rows_244_and_304_seven_tile_reuse": "static-only review",
+    "targeted_contexts": "Early row595 tick20 and reported-defect row438 tick2178. Bounded late actual-window review verified; ordinary-runtime regression acceptance pending."
+  }
+}

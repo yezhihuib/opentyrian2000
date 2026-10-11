@@ -1,0 +1,555 @@
+{
+  "schema": "bounded-window60-75-cloud64-validation-v1",
+  "base_commit": "805304fcf423f90d134711a633eacafb372c7f16",
+  "source_changes": [],
+  "art_scope": {
+    "pack_entries": 320,
+    "unchanged_entries": 319,
+    "only_changed_entry": "terrain-shapesz-64-8.hda",
+    "candidate_sha256": "1f9378615e16157f59113a47066dd28a52433c28e5a36d8845491b355e64a3b8",
+    "HDA_header": [
+      2010064,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "HDA_payload_matches_selected_PNG": true,
+    "changed_pixel_count": 12987,
+    "changed_inclusive_bbox": [
+      1,
+      129,
+      190,
+      199
+    ],
+    "rows_0_127_and_200_223_exact": true,
+    "all_four_faces_exact": true,
+    "map64_placements": 98,
+    "all_nonzero_facing_join_types": [
+      [
+        "down",
+        41,
+        64
+      ],
+      [
+        "down",
+        54,
+        64
+      ],
+      [
+        "down",
+        61,
+        64
+      ],
+      [
+        "down",
+        62,
+        64
+      ],
+      [
+        "down",
+        64,
+        45
+      ],
+      [
+        "right",
+        52,
+        64
+      ],
+      [
+        "right",
+        63,
+        64
+      ],
+      [
+        "right",
+        64,
+        51
+      ],
+      [
+        "right",
+        64,
+        64
+      ],
+      [
+        "right",
+        64,
+        65
+      ]
+    ],
+    "all10_joins_RGBA_exact": true
+  },
+  "coverage": {
+    "scope": "Current finite bindings and selected resources against the independently verified private-survival2088\u20132609 trace.",
+    "identities": 103,
+    "references": 77774,
+    "missing": [],
+    "category_counts": {
+      "effect": 7,
+      "enemy": 26,
+      "player": 1,
+      "terrain-layer1": 29,
+      "terrain-layer2": 14,
+      "terrain-layer3": 26
+    },
+    "renderer_sha256": "a470cb29e9f7f33653cf9cd072924c46a20403529fc7f272858581004929ce20",
+    "manifest_sha256": "e8356da33211cdcc4d5bacae611a260c9aa1c3df7315535ea480481717e15f1f",
+    "mapping_gaps": 0,
+    "runtime_visual_gate": "Final corrected522-frame no-control stream accepted after complete comparison and all95 changed-frame visual review"
+  },
+  "original_logic_and_HD_parity": {
+    "asset-debug-clock.tsv": {
+      "ordered_rows": 2610,
+      "baseline_noncapture_capture_byte_exact": true
+    },
+    "asset-debug-materials.tsv": {
+      "ordered_rows": 405984,
+      "baseline_noncapture_capture_byte_exact": true
+    },
+    "blend-palette.tsv": {
+      "ordered_rows": 256,
+      "baseline_noncapture_capture_byte_exact": true
+    },
+    "blend-writes.tsv": {
+      "ordered_rows": 139031,
+      "baseline_noncapture_capture_byte_exact": true
+    },
+    "collisions.tsv": {
+      "ordered_rows": 42,
+      "baseline_noncapture_capture_byte_exact": true
+    },
+    "draw-commands.tsv": {
+      "ordered_rows": 5220,
+      "baseline_noncapture_capture_byte_exact": true
+    },
+    "effects.tsv": {
+      "ordered_rows": 522,
+      "baseline_noncapture_capture_byte_exact": true
+    },
+    "enemy-projectiles.tsv": {
+      "ordered_rows": 2616,
+      "baseline_noncapture_capture_byte_exact": true
+    },
+    "fade-steps.tsv": {
+      "ordered_rows": 0,
+      "baseline_noncapture_capture_byte_exact": true
+    },
+    "fire-events.tsv": {
+      "ordered_rows": 0,
+      "baseline_noncapture_capture_byte_exact": true
+    },
+    "frames.tsv": {
+      "ordered_rows": 522,
+      "baseline_noncapture_capture_byte_exact": true
+    },
+    "player-projectiles.tsv": {
+      "ordered_rows": 0,
+      "baseline_noncapture_capture_byte_exact": true
+    },
+    "poses.tsv": {
+      "ordered_rows": 2610,
+      "baseline_noncapture_capture_byte_exact": true
+    },
+    "presentation.tsv": {
+      "ordered_rows": 522,
+      "baseline_noncapture_capture_byte_exact": true
+    },
+    "restore-regions.tsv": {
+      "ordered_rows": 0,
+      "baseline_noncapture_capture_byte_exact": true
+    },
+    "scene-draw-commands.tsv": {
+      "ordered_rows": 83739,
+      "baseline_noncapture_capture_byte_exact": true
+    },
+    "scene-enemies.tsv": {
+      "ordered_rows": 50363,
+      "baseline_noncapture_capture_byte_exact": true
+    },
+    "scene-hits.tsv": {
+      "ordered_rows": 0,
+      "baseline_noncapture_capture_byte_exact": true
+    },
+    "sdl-runtime.tsv": {
+      "ordered_rows": 1,
+      "baseline_noncapture_capture_byte_exact": true
+    },
+    "state.tsv": {
+      "ordered_rows": 2610,
+      "baseline_noncapture_capture_byte_exact": true
+    },
+    "talon-bank-visual.tsv": {
+      "ordered_rows": 2610,
+      "baseline_noncapture_capture_byte_exact": true
+    }
+  },
+  "health": {
+    "rendered_ticks": [
+      2088,
+      2609
+    ],
+    "rendered_frames": 522,
+    "HD_draws": 82372,
+    "scene_calls": 81321,
+    "player_calls": 1044,
+    "effect_material_references": 7,
+    "effect_HD_draws_inferred_from_total": 7,
+    "frames_with_material_effect_reference_excess": 0,
+    "HD_draw_totals_reconciled_per_tick": true,
+    "all_scene_player_calls_mirrored": true,
+    "rejections": 0,
+    "coverage_mismatches": 0,
+    "restoration_mismatches": 0,
+    "classic_audit_mismatches": 0,
+    "present_calls_each_tick": 1,
+    "presentation_RNG_exact": true
+  },
+  "lossless_video": {
+    "candidate_and_baseline_RGBA_BGRA_hashes_independently_verified": 522,
+    "changed_frames": 95,
+    "changed_pixels_total": 136592,
+    "all_differences_inside64_projected_source_edit_box": true,
+    "unrelated_pixel_differences": 0,
+    "new_PNG_BMP_MP4_files": 0,
+    "media": {
+      "codec_name": "h264",
+      "width": 640,
+      "height": 400,
+      "nb_read_frames": "522"
+    },
+    "bytes": 16408556,
+    "sha256": "988bdfbd4a6a336543740ae6f16e0c1566d58c9cb8e4441348f6eb83ffe64c9a",
+    "per_frame_records_in_hashed_independent_report": 522
+  },
+  "negative_controls": {
+    "wild": {
+      "status": "PASS",
+      "processor_config_byte5": 4,
+      "ordered_byte_exact_TSVs": [
+        "asset-debug-clock.tsv",
+        "asset-debug-materials.tsv",
+        "blend-palette.tsv",
+        "blend-writes.tsv",
+        "collisions.tsv",
+        "draw-commands.tsv",
+        "effects.tsv",
+        "enemy-projectiles.tsv",
+        "fade-steps.tsv",
+        "fire-events.tsv",
+        "frames.tsv",
+        "player-projectiles.tsv",
+        "poses.tsv",
+        "presentation.tsv",
+        "restore-regions.tsv",
+        "rgb-audit.tsv",
+        "scene-draw-commands.tsv",
+        "scene-enemies.tsv",
+        "scene-hits.tsv",
+        "sdl-runtime.tsv",
+        "state.tsv",
+        "talon-bank-visual.tsv"
+      ],
+      "all120_RGB_hashes_exact": true,
+      "cloud64_material_references": 285,
+      "cloud_HD_calls": 0,
+      "production_BLEND_bypass_verified": true,
+      "health": {
+        "rendered_ticks": [
+          2118,
+          2237
+        ],
+        "rendered_frames": 120,
+        "HD_draws": 14466,
+        "scene_calls": 14226,
+        "player_calls": 240,
+        "effect_material_references": 0,
+        "effect_HD_draws_inferred_from_total": 0,
+        "frames_with_material_effect_reference_excess": 0,
+        "HD_draw_totals_reconciled_per_tick": true,
+        "all_scene_player_calls_mirrored": true,
+        "rejections": 0,
+        "coverage_mismatches": 0,
+        "restoration_mismatches": 0,
+        "classic_audit_mismatches": 0,
+        "present_calls_each_tick": 1,
+        "presentation_RNG_exact": true
+      }
+    },
+    "missing64": {
+      "status": "PASS",
+      "missing_pack_entries": 319,
+      "other319_resources_exact": true,
+      "original_ordered_byte_exact_TSVs": [
+        "asset-debug-clock.tsv",
+        "asset-debug-materials.tsv",
+        "blend-palette.tsv",
+        "blend-writes.tsv",
+        "collisions.tsv",
+        "draw-commands.tsv",
+        "effects.tsv",
+        "enemy-projectiles.tsv",
+        "fade-steps.tsv",
+        "fire-events.tsv",
+        "player-projectiles.tsv",
+        "poses.tsv",
+        "presentation.tsv",
+        "restore-regions.tsv",
+        "scene-enemies.tsv",
+        "scene-hits.tsv",
+        "sdl-runtime.tsv",
+        "state.tsv",
+        "talon-bank-visual.tsv"
+      ],
+      "only_changed_mirrored_calls": 288,
+      "only_changed_identity": "terrain-shapesz-64-8.hda",
+      "per_tick_draw_decrement_exactly_missing64_calls": true,
+      "all120_frames_hd_ordered": true,
+      "coverage_mismatches": 0,
+      "rejections": 0,
+      "global_fallback_frames": 0
+    }
+  },
+  "formal_import": [
+    {
+      "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+      "entries": 316,
+      "only_changed_entry": "terrain-shapesz-64-8.hda",
+      "unchanged_peer_count": 315,
+      "all_peer_hashes_exact_to_checkpoint": true,
+      "import_HDA_exact_candidate": true
+    },
+    {
+      "pack": "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+      "entries": 320,
+      "only_changed_entry": "terrain-shapesz-64-8.hda",
+      "unchanged_peer_count": 319,
+      "all_peer_hashes_exact_to_checkpoint": true,
+      "import_HDA_exact_candidate": true
+    }
+  ],
+  "production_source_unchanged": true,
+  "early_ordinary": {
+    "status": "PASS",
+    "byte_exact_TSVs": [
+      "asset-debug-clock.tsv",
+      "asset-debug-materials.tsv",
+      "blend-palette.tsv",
+      "collisions.tsv",
+      "draw-commands.tsv",
+      "effects.tsv",
+      "enemy-projectiles.tsv",
+      "fade-steps.tsv",
+      "fire-events.tsv",
+      "frames.tsv",
+      "player-projectiles.tsv",
+      "poses.tsv",
+      "presentation.tsv",
+      "restore-regions.tsv",
+      "scene-draw-commands.tsv",
+      "scene-enemies.tsv",
+      "scene-hits.tsv",
+      "sdl-runtime.tsv",
+      "state.tsv",
+      "talon-bank-visual.tsv"
+    ],
+    "control_exact_except_wall_ms": true,
+    "blend": {
+      "original_columns_exact": true,
+      "rows": 444080,
+      "HD_only_columns_excluded": [
+        "hd_subpixels_before",
+        "restored_blocks",
+        "rgba"
+      ],
+      "full_file_exact": true
+    },
+    "health": {
+      "rendered_ticks": [
+        0,
+        1052
+      ],
+      "rendered_frames": 1053,
+      "HD_draws": 184902,
+      "scene_calls": 176651,
+      "player_calls": 1986,
+      "effect_material_references": 6360,
+      "effect_HD_draws_inferred_from_total": 6265,
+      "frames_with_material_effect_reference_excess": 33,
+      "HD_draw_totals_reconciled_per_tick": true,
+      "all_scene_player_calls_mirrored": true,
+      "rejections": 0,
+      "coverage_mismatches": 0,
+      "restoration_mismatches": 0,
+      "classic_audit_mismatches": 0,
+      "present_calls_each_tick": 1,
+      "presentation_RNG_exact": true
+    },
+    "ordinary_invulnerability_tick_values": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99
+    ],
+    "min_armor": 0
+  },
+  "early_single_frame_receipts": [
+    {
+      "tick": 20,
+      "status": "PASS",
+      "ordinary_logic_ticks": [
+        0,
+        59
+      ],
+      "captured_frames": 1,
+      "noncapture_original_and_RGB_parity": true,
+      "RGBA_BGRA_lossless_hashes_exact": true,
+      "PNG_pixel_exact_to_readback": true,
+      "BMP_files": 0
+    },
+    {
+      "tick": 209,
+      "status": "PASS",
+      "ordinary_logic_ticks": [
+        0,
+        209
+      ],
+      "captured_frames": 1,
+      "noncapture_original_and_RGB_parity": true,
+      "RGBA_BGRA_lossless_hashes_exact": true,
+      "PNG_pixel_exact_to_readback": true,
+      "BMP_files": 0
+    }
+  ],
+  "visual_review": {
+    "status": "passed",
+    "final_frames": 522,
+    "unchanged_frames": 427,
+    "changed_frames_reviewed": 95,
+    "changed_ticks": [
+      2145,
+      2239
+    ],
+    "known_limit": "Minor established ground/backing texture-phase differences; active final frame, no clear-tail/destruction coverage"
+  },
+  "library": {
+    "id": "libfile_e4fd3c85783c8191aa0aebdddb4ae1b1",
+    "version": 0
+  },
+  "storage": {
+    "all_image_video_raw_binary_bytes_excluding_HDA": 6798520047,
+    "GiB": 6.331615193746984,
+    "free_bytes": 13910679552,
+    "combined_window_and_correction_media_bytes": 49663288,
+    "cap_bytes": 50000000,
+    "BMP_created": 0,
+    "no_deletion": true
+  },
+  "evidence_sha256": {
+    "cloud64-v3-independent-audit/report.json": "466d01bcde1fc882e1eee64a8e2b7dd7873932f8ee524c2f88df4abc7fd6bd77",
+    "cloud64-v3-independent-audit/full-window-report.json": "a4437d08daeddc1376139beb19351b533b817aee56c81d7974af6abf78c216b6",
+    "window60-75-independent-audit/report.json": "22f3db2a9ea61a27fd3a37a0835997d3d6d1247a0b1ecf2932fd464867f6b901"
+  },
+  "limits": [
+    "Private survival only; no weapon/hit/control injection",
+    "No Windows/full-level/whole-game/CI claim",
+    "HUD/text and unindexed paths excluded from material denominator",
+    "Extra offscreen and projectile calls separately audited"
+  ]
+}

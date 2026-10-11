@@ -1,0 +1,29 @@
+{
+  "schema": "cloud64-v3-runtime-status-at-package-freeze-v1",
+  "bounded_actual_runtime": {
+    "status": "verified by the artwork task; package reviewer checked the report consistency",
+    "ticks_inclusive": [
+      2118,
+      2237
+    ],
+    "frames": 120,
+    "replay": "private-survival no-hit replay",
+    "baseline_source": "Existing final60-75 stream subset, same private-survival no-hit replay",
+    "every_readback_hash_exact": true,
+    "changed_frames": 93,
+    "all_changes_within64_lower_source_roi": true,
+    "hud_exact": true,
+    "visual_review": "Artwork task reports all visible cloud-edge frames reviewed; no cusps flashing or new seam leak.",
+    "source_report": "cloud-v3-bottom64/runtime-review/actual120-scope.json",
+    "source_report_sha256": "0171e8fcf558dd77f6e176a909c889fc4963ace5ac326618e8fb4ecae3aae518",
+    "evidence_images_included": false
+  },
+  "pending_engineer_regressions": [
+    "Ordinary replay ticks0..1052 baseline/candidate",
+    "Missing64 fallback",
+    "Highest-detail wild fallback"
+  ],
+  "full_level_actual_acceptance_claim": false,
+  "seven_repeat_rows_244_and_304": "static-only context review",
+  "note": "No test executable, raw stream, screenshot or map array is distributed in this generated-art delta."
+}

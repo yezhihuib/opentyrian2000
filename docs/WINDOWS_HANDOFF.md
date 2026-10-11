@@ -51,3 +51,8 @@ Local rollback checkpoints in the recorded task/checkpoints directory: before-wh
 ## Purple installation / Layer3 foundation batch
 
 See [PURPLE_INSTALLATION_VALIDATION.md](PURPLE_INSTALLATION_VALIDATION.md) for exact identities, reproduction and bounded cloud acceptance. Adds13 persistent terrain tiles and9 independent components; final gray fringe correction is accepted. Current packs316/320, canonicalPNG328, totalHDA2872. Windows native2×/4× acceptance remains pending; use the existing local fixture commands and current manifest defaults.
+
+
+## 60–75 second bounded closure and cloud64
+
+See [WINDOW60_75_VALIDATION.md](WINDOW60_75_VALIDATION.md). The final522-frame private-survival window has103 visible material identities with zero mapping gaps. Cloud64 lower-edge brightness/contour is corrected with14 cloud peers unchanged; production code is unchanged. Current packs316/320 and all18pack verification pass. Windows acceptance remains pending.

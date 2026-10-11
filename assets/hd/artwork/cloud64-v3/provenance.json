@@ -1,0 +1,57 @@
+{
+  "schema": "cloud64-v3-generated-source-provenance-v1",
+  "rebuild_boundary": "Two saved authored 192x224 RGBA PNG inputs. Image generation is not rerun. Original game files and reference masks are not rebuild inputs.",
+  "authored_inputs": [
+    {
+      "path": "source/prior-generated64-v2.png",
+      "upstream_path": "formal-cloud-v2-edge/output/terrain-shapesz-64-8.png",
+      "source_class": "Prior generated HD64 tile, not original game64 raster",
+      "authorship": "Imagegen-authored HD cloud RGB; alpha inherited from the prior accepted registration/reconciliation pipeline using external original silhouette reference. This is the saved generated v2 tile, not a bundled original mask.",
+      "png_sha256": "1b1cf5216ef9fdc87c860015cc4b7e0c245b4e8566e9b4ffca8ab58a7659350d",
+      "rgba_sha256": "79c8d4aeaebea142340801c160bcccb3eaa34f53af8c5610fefaebe068de1aee"
+    },
+    {
+      "path": "source/generated64-bottom-reference.png",
+      "upstream_path": "cloud-v3-bottom64/source/generated64-bottom-reference.png",
+      "source_class": "New imagegen-authored lower free cloud contour and shading, saved canonical crop",
+      "png_sha256": "29362a2acb6d6a709ca91f0b165fad3a02ee865241da37e62b8f69d3586a7062",
+      "rgba_sha256": "e603b139baaa6d853a5aa9dbae721904936de2ae7906734c60799baee6e29fc4",
+      "creation": {
+        "master_name": "imagegen-bottom-contour-v3.png",
+        "master_size": [
+          1500,
+          1049
+        ],
+        "master_png_sha256": "010c8f841cfd9b360fe011221de235df237bd8f842c295d248e4d1a33e6773cb",
+        "master_included": false,
+        "registration": "ImageMagick Lanczos resized to 960x672, then central bottom tile crop 192x224 at +384+448.",
+        "command_for_historical_derivation_only": "magick imagegen-bottom-contour-v3.png -filter Lanczos -resize 960x672! -crop 192x224+384+448 +repage generated64-bottom-reference.png",
+        "prompt": "prompts/imagegen-bottom-contour-v3.txt",
+        "generation_context": "Generated HD island edit target plus an external original low-resolution color/taper reference; neither contextual image is shipped or needed for reconstruction.",
+        "derivation_independently_checked_exact_rgba": true
+      }
+    }
+  ],
+  "deterministic_registration": {
+    "helper": "source/register_bottom64.cpp",
+    "helper_sha256": "e4ec5c68ba9ca9efcd0fbbcdf843b21b4cc1ec588ffea6c5e761bc092a8862bd",
+    "steps": [
+      "Sample the generated source at y+20 to restore the established mean boundary height.",
+      "Blend only x1..190, y128..199 with smooth vertical and horizontal weights; y128 has zero weight.",
+      "For generated alpha below 240, decontaminate RGB from the nearest row above with alpha at least 240, or row zero.",
+      "Before blending, normalize generated alpha at least 250 to 255 and below 4 to zero.",
+      "Retain every nonzero-alpha component connected to the top row by four-neighbor connectivity; the selected inputs remove one detached pixel at (104,176), alpha4. Its RGB is untouched by this cleanup."
+    ],
+    "rounding": "C++ std::lround, independently checked using nonnegative floor(value+0.5) in Python."
+  },
+  "excluded": [
+    "Original game rasters or masks",
+    "Original game distribution data",
+    "Full generated masters and contextual reference images",
+    "Private executable or compiled helper",
+    "Map arrays",
+    "Screenshots",
+    "Archives"
+  ],
+  "prompt_sha256": "7ef09c8952ca89792b44d0eb76db70b4aa3b90e5537f3e86c0ae5f18ca8843ed"
+}
