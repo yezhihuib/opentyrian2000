@@ -15,6 +15,7 @@ import subprocess
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[2]
+GRASS = [66,67,69,76,78,79,80,89,90]
 GRAY = [121,122,123,124,125,131,132,133,134,135,141,142,143,144,151,152,153,154]
 PURPLE = [150,156,157,158,159,160,166,168,169,170,176,177,178]
 OLD = [101,37,57,49,50,321,322,331,332,99,100,106,107,109,110,118,119,120,
@@ -57,7 +58,7 @@ def main():
     (work/'production-types.inc').write_text('\n'.join(re.search(q,source,re.S).group() for q in patterns))
     names = ['read_asset','scene_asset','render_mirror_map_begin','cloud_terrain_slot',
              'ground_terrain_slot','plateau_terrain_slot','underlay_terrain_slot','road_terrain_slot',
-             'terrain_holes_slot','stone_foundation_slot','layer3_gray_slot','layer3_purple_slot',
+             'terrain_holes_slot','stone_foundation_slot','layer3_gray_slot','layer3_purple_slot','grass_sand_slot',
              'render_mirror_bind_terrain','render_mirror_terrain_row']
     (work/'production-helpers.inc').write_text('\n'.join(extract(source,n) for n in names))
     ty = sources['tyrian2.c']
@@ -124,15 +125,15 @@ def main():
             assert info['byte_range'] == ranges[tile]
             assert info['source_index_sha256'] == hashlib.sha256(source_pixels[tile]).hexdigest()
             assert info['occupied'] == 672 and info['transparent'] == 0
-    accepted = [set(OLD),set(CLOUD),set(GRAY+PURPLE)]
+    accepted = [set(OLD+GRASS),set(CLOUD),set(GRAY+PURPLE)]
     counts = [sum(tile in accepted[layer] and (layer == 0 or not blank[tile-1])
                   for tile in lookups[layer][:72 if layer == 0 else 71 if layer == 1 else 70]) for layer in range(3)]
-    assert counts == [45,15,31], counts
+    assert counts == [54,15,31], counts
     (work/'original-map.inc').write_text('static const uint16_t actual_lookup[3][128]={' + ','.join('{'+','.join(map(str,v))+'}' for v in lookups) + '};\nstatic const bool actual_blank[600]={' + ','.join(map(str,blank)) + '};\n')
     # Pure test payloads, deliberately including alpha0/1/127/128/254/255.
     def write_pack(label, density, omit=(), bad=None):
         directory = work/label; directory.mkdir()
-        for tile in OLD+CLOUD+GRAY+PURPLE:
+        for tile in OLD+CLOUD+GRAY+PURPLE+GRASS:
             if tile in omit: continue
             header = [2010000+tile,density,24,28,0,0]
             rgba = bytes(v for y in range(28*density) for x in range(24*density)
@@ -148,7 +149,7 @@ def main():
             (directory/f'terrain-shapesz-{tile}-{density}.hda').write_bytes(data)
     write_pack('full8',8);write_pack('full4',4)
     # Invalid input packs need only one selected ID; avoid copying unrelated art.
-    for bad in range(38): write_pack(f'bad{bad}',8,omit=set(OLD+CLOUD+GRAY+PURPLE[1:]),bad=bad)
+    for bad in range(38): write_pack(f'bad{bad}',8,omit=set(OLD+CLOUD+GRAY+PURPLE[1:]+GRASS),bad=bad)
     (work/'empty').mkdir()
     for tile in PURPLE:
         directory = work/f'missing{tile}';directory.mkdir()
@@ -162,7 +163,7 @@ def main():
     if build.returncode: raise RuntimeError(build.stderr)
     run = subprocess.run([str(work/'test'),str(work)],text=True,capture_output=True,env=dict(os.environ,ASAN_OPTIONS='detect_leaks=0:halt_on_error=1',UBSAN_OPTIONS='halt_on_error=1:print_stacktrace=1'))
     print(run.stdout,end='');print(run.stderr,end='')
-    report = {'status':'passed' if run.returncode == 0 else 'failed','sanitize':a.sanitize,'exit_code':run.returncode,'command':command,'work':str(work),'stdout':run.stdout,'stderr':run.stderr,'source_sha256':{n:hashlib.sha256(s.encode()).hexdigest() for n,s in sources.items()},'source_stable':all(s==(a.source/'src'/n).read_text() for n,s in sources.items()),'metadata':metadata,'level9_registered_slots_by_layer':counts,'level9_registered_slots':sum(counts),'distinct_accepted_ids':len(OLD+CLOUD+GRAY+PURPLE),'registry_capacity':153,'reference_sha256':hashlib.sha256(a.reference.read_bytes()).hexdigest() if a.reference is not None else None,'original_purple_cells_fully_opaque':13,'synthetic_maximum_original_loop_slots':213,'scope':'Finite reviewed level9 bankZ purple13 plus prior family; original loader loops including duplicate351 and source pointers, no gameplay run, capture or authored art.'}
+    report = {'status':'passed' if run.returncode == 0 else 'failed','sanitize':a.sanitize,'exit_code':run.returncode,'command':command,'work':str(work),'stdout':run.stdout,'stderr':run.stderr,'source_sha256':{n:hashlib.sha256(s.encode()).hexdigest() for n,s in sources.items()},'source_stable':all(s==(a.source/'src'/n).read_text() for n,s in sources.items()),'metadata':metadata,'level9_registered_slots_by_layer':counts,'level9_registered_slots':sum(counts),'distinct_accepted_ids':len(OLD+CLOUD+GRAY+PURPLE+GRASS),'registry_capacity':162,'reference_sha256':hashlib.sha256(a.reference.read_bytes()).hexdigest() if a.reference is not None else None,'original_purple_cells_fully_opaque':13,'synthetic_maximum_original_loop_slots':213,'scope':'Finite reviewed level9 bankZ purple13 plus prior family; original loader loops including duplicate351 and source pointers, no gameplay run, capture or authored art.'}
     out = a.report or work/'result.json';out.write_text(json.dumps(report,indent=2)+'\n')
     print('Report:',out)
     run.check_returncode();assert report['source_stable']

@@ -254,7 +254,7 @@ int main(int argc,char **argv)
  for(int k=0;k<4;k++){enemySpriteSheets[k]=(Sprite2_array){1,&bank_bytes[k]};enemySpriteSheetIds[k]=k==0?1:k==1?9:2;}
  for(int i=0;i<256;i++)rgb_palette[i]=((i*71u)%256)<<16|((i*31u)%256)<<8|((i*13u)%256);
  assert(ASSET_NEWSHE==110&&ASSET_TALON_BANK==109&&ASSET_NEWSH2==101);
- assert(sizeof(assets)/sizeof(*assets)==312);
+ assert(sizeof(assets)/sizeof(*assets)==321);
  const int filters[]={0,0x70,0x80,0x09,0xd0};
  for(int mode=0;mode<3;mode++){
   int d=mode==0?4:8,ad=mode==1?8:4;alloc_canvas(d);clear_assets();select_pack(ad==8?"full8":"full4");
@@ -266,7 +266,7 @@ int main(int argc,char **argv)
    exercise_frame(turret_ids[i],ad,0,0,0,4);
    exercise_frame(turret_ids[i],ad,0,LW-24,LH-28,17);
   }
-  guard_tests();for(int i=0;i<312;i++)if(i<269||i>271)assert(!assets[i].initialized);
+  guard_tests();for(int i=0;i<321;i++)if(i<269||i>271)assert(!assets[i].initialized);
   printf("PASS density%d source%d: all12 turret quadrants, all24 orders, five filters, edge/offscreen clipping, source-bank/part/null guards\n",d,ad);
   if(mode==1){
    for(int i=0;i<3;i++)for(int filter=0;filter<256;filter++)exercise_frame(turret_ids[i],8,filter,5,7,0);

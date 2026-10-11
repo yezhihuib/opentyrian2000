@@ -41,6 +41,7 @@ static const unsigned int road_ids[]={36,39,40,46,48,56,58,38,47};
 static const unsigned int old_ids[]={101,37,57,49,50,321,322,331,332};
 static const int old_slots[]={10,11,12,13,14,19,20,21,22};
 static const unsigned int purple_ids[]={150,156,157,158,159,160,166,168,169,170,176,177,178};
+static const unsigned int grass_ids[]={66,67,69,76,78,79,80,89,90};
 static const unsigned int gray_ids[]={121,122,123,124,125,131,132,133,134,135,141,142,143,144,151,152,153,154};
 static Uint8 bank[600];
 static void reset(void)
@@ -59,11 +60,11 @@ static void nonterrain_untouched(void)
 {CHECK(!assets[218].initialized&&!assets[219].initialized);for(int i=231;i<=234;i++)CHECK(!assets[i].initialized);}
 int main(void)
 {
- CHECK(sizeof(assets)/sizeof(*assets)==312);CHECK(sizeof(terrain_sources)/sizeof(*terrain_sources)==153);
+ CHECK(sizeof(assets)/sizeof(*assets)==321);CHECK(sizeof(terrain_sources)/sizeof(*terrain_sources)==162);
  for(unsigned int id=0;id<600;id++){int expected=-1;for(int j=0;j<4;j++)if(id==ids[j])expected=237+j;CHECK(underlay_terrain_slot(id)==expected);}
  for(unsigned int id=0;id<600;id++){int expected=-1;for(int j=0;j<9;j++)if(id==ground_ids[j])expected=201+j;CHECK(ground_terrain_slot(id)==expected);}
  for(unsigned int layer=0;layer<5;layer++)for(unsigned int id=0;id<600;id++){
-  reset();render_mirror_bind_terrain(layer,id,bank+id);bool accepted=(layer==1&&(id==111||id==114||id==113||id==341||id==342||id==343||id==351||id==352||id==353||member(id,road_ids,9)||member(id,ids,4)||member(id,ground_ids,9)||member(id,old_ids,9)||id==96||id==97||id==98||id==108))||(layer==2&&cloud(id))||(layer==3&&(member(id,gray_ids,18)||member(id,purple_ids,13)));CHECK(terrain_source_count==(unsigned int)accepted);nonterrain_untouched();
+  reset();render_mirror_bind_terrain(layer,id,bank+id);bool accepted=(layer==1&&(member(id,grass_ids,9)||id==111||id==114||id==113||id==341||id==342||id==343||id==351||id==352||id==353||member(id,road_ids,9)||member(id,ids,4)||member(id,ground_ids,9)||member(id,old_ids,9)||id==96||id==97||id==98||id==108))||(layer==2&&cloud(id))||(layer==3&&(member(id,gray_ids,18)||member(id,purple_ids,13)));CHECK(terrain_source_count==(unsigned int)accepted);nonterrain_untouched();
  }
  for(int b=0;b<256;b++)if(b!='z'&&b!='Z')for(unsigned int j=0;j<4;j++){reset();render_mirror_map_begin((char)b);render_mirror_bind_terrain(1,ids[j],bank+ids[j]);CHECK(!terrain_source_count);}
  /* Missing resources preserve original path and original scene-draw log. */
@@ -100,9 +101,9 @@ int main(void)
   nonterrain_untouched();for(int slot=269;slot<=271;slot++)CHECK(!assets[slot].initialized);remove_hda(id);
  }
  /* Every unrecognized ID must not alias the old implicit ID332 fallback. */
- for(unsigned int id=0;id<600;id++)if(!member(id,gray_ids,18)&&id!=111&&id!=114&&id!=113&&id!=341&&id!=342&&id!=343&&id!=351&&id!=352&&id!=353&&!member(id,road_ids,9)&&!member(id,ids,4)&&!member(id,ground_ids,9)&&!member(id,old_ids,9)&&!cloud(id)&&id!=96&&id!=97&&id!=98&&id!=108){
+ for(unsigned int id=0;id<600;id++)if(!member(id,grass_ids,9)&&!member(id,gray_ids,18)&&id!=111&&id!=114&&id!=113&&id!=341&&id!=342&&id!=343&&id!=351&&id!=352&&id!=353&&!member(id,road_ids,9)&&!member(id,ids,4)&&!member(id,ground_ids,9)&&!member(id,old_ids,9)&&!cloud(id)&&id!=96&&id!=97&&id!=98&&id!=108){
   reset();terrain_sources[0].data=bank+id;terrain_sources[0].id=id;terrain_source_count=1;CHECK(!draw_one(id,MIRROR_NORMAL));CHECK(!draws&&!traces&&!assets[22].initialized);nonterrain_untouched();
  }
- reset();for(int i=0;i<600;i++)render_mirror_bind_terrain(1,96,bank+i);CHECK(terrain_source_count==153);nonterrain_untouched();
- reset();printf("PASS: %u checks; four exact physical underlay IDs/layers/banks; slots237–240 and untouched orb218–219/installation231–234; six header words/magic/payload rejection; missing-all/each; existing plateau/ground/cloud unchanged; exhaustive unknown ID332 rejection; registry153.\n",checks);return 0;
+ reset();for(int i=0;i<600;i++)render_mirror_bind_terrain(1,96,bank+i);CHECK(terrain_source_count==162);nonterrain_untouched();
+ reset();printf("PASS: %u checks; four exact physical underlay IDs/layers/banks; slots237–240 and untouched orb218–219/installation231–234; six header words/magic/payload rejection; missing-all/each; existing plateau/ground/cloud unchanged; exhaustive unknown ID332 rejection; registry162.\n",checks);return 0;
 }

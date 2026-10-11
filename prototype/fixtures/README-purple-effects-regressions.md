@@ -53,3 +53,11 @@ The full suite checks all9 bases, four quadrants, all24 draw orders, all256 filt
 `--actual-only` runs the existing actual-art oracle for all nine components, three filters, clipped placements, and all15 nonempty quadrant subsets. It does not replace the generic suite. Both modes verify the selected sparse-alpha contract and available canonical PNG/HDA evidence.
 
 Temporary synthetic inputs are retained. Tests that need a generated file to become absent rename it out of the load path. Results and retained-work paths belong in external reports, not committed evidence. The no-state-mutation assertion concerns the exercised wrapper and its enemy record; these fixtures do not establish whole-runtime gameplay or visual acceptance.
+
+## Current finite grass/sand compatibility
+
+With the nine Layer1 grass/sand slots, current capacities are321 assets and162
+registrations. The fixtures retain their previous guards and pixel expectations;
+only extraction lists, strict capacities and finite accepted inventories change.
+Terrain inventories accept only the exact77/90/99 reviewed-ID sets. See
+README-grass-sand-tests.md for current7c7 source and artifact baselines.

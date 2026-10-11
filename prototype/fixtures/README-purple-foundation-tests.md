@@ -23,7 +23,7 @@ python prototype/fixtures/test-layer3-purple-mutations.py \
   --alpha-report "$OUT/purple-alpha.json" \
   --report "$OUT/purple-mutations.json"
 python prototype/fixtures/test-purple-selected-pack.py \
-  --baseline 0044d19ca92f54f2160a3f773da22b6fcb64188c \
+  --grass-extension --baseline 7c7aee388e384840915bd2532bbcc038c3d5047e \
   --report "$OUT/purple-selected-pack.json"
 ```
 
@@ -86,3 +86,12 @@ terrain169/entity169 cache collision, filtering, quadrant order/extent, original
 indexed filter, original blit count, end count, and enemy-record immutability.
 The full9×24×256/scales/wrapper suite remains authoritative; negatives narrow
 only their execution to its unchanged native8 pass and full wrapper assertions.
+
+## Current grass/sand extension compatibility
+
+The command above uses the current7c7 baseline, exact nine grass/sand additions
+and325/329 packs while retaining all frozen purple22 and current64 checks. The
+historical0044 blanket unchanged-peer claim is no longer true after the accepted
+cloud64 revision; the old comparison remains strict and correctly rejects it.
+See README-grass-sand-tests.md for the frozen source/rebuild/actual-pixel audit.
+The earlier verified assertion counts above describe the purple-only milestone.

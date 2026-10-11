@@ -1,0 +1,259 @@
+{
+  "base_commit": "7c7aee388e384840915bd2532bbcc038c3d5047e",
+  "scope": "private-survival/no-injection/no-controls",
+  "window": [
+    2610,
+    3131
+  ],
+  "visible_material_identities": 91,
+  "visible_material_references": 89967,
+  "remaining_mapping_gaps": 0,
+  "full_window_visual_review": "pending; only mapping/logic closure in this commit",
+  "window_tests": {
+    "contract": {
+      "exit": 0,
+      "capture_count": 0,
+      "exe_sha256": "656e8325732636e501db95076e8a8862bab3a3d431705634af56569d2dfa03de",
+      "control_ledger": [
+        {
+          "next_tick": "2610",
+          "action": "target-frame-complete",
+          "paused": "0",
+          "RNG": "a2dd55ea0717c8e5",
+          "wall_ms": "1507.394"
+        }
+      ]
+    },
+    "original_exact_rows": {
+      "state.tsv": 3132,
+      "asset-debug-materials.tsv": 495951,
+      "asset-debug-clock.tsv": 3132,
+      "collisions.tsv": 54,
+      "player-projectiles.tsv": 0,
+      "enemy-projectiles.tsv": 3535,
+      "poses.tsv": 3132,
+      "fire-events.tsv": 0,
+      "scene-enemies.tsv": 74498,
+      "scene-hits.tsv": 0
+    },
+    "health": {
+      "frames": 522,
+      "all_coverage_RGB_restoration_mismatches_zero": true,
+      "rejections": 0
+    },
+    "id80_normal_HD_calls": 36,
+    "id80_visible_HD_calls": 33,
+    "id80_offscreen_HD_calls": 3,
+    "first80": {
+      "tick": "3096",
+      "role": "201",
+      "index": "80",
+      "x": "284",
+      "y": "-28",
+      "part": "0",
+      "style": "0",
+      "mirrored": "1"
+    },
+    "last80": {
+      "tick": "3131",
+      "role": "201",
+      "index": "80",
+      "x": "284",
+      "y": "-17",
+      "part": "0",
+      "style": "0",
+      "mirrored": "1"
+    },
+    "exposure_limit": "Same sand-only entering footprint as baseline; this proves binding, not visible grass."
+  },
+  "grass_tail": [
+    3480,
+    3599
+  ],
+  "tail_original_parity": {
+    "state.tsv": {
+      "rows": 3600,
+      "all_ordered_rows_exact": true
+    },
+    "asset-debug-materials.tsv": {
+      "rows": 595200,
+      "all_ordered_rows_exact": true
+    },
+    "asset-debug-clock.tsv": {
+      "rows": 3600,
+      "all_ordered_rows_exact": true
+    },
+    "collisions.tsv": {
+      "rows": 57,
+      "all_ordered_rows_exact": true
+    },
+    "player-projectiles.tsv": {
+      "rows": 0,
+      "all_ordered_rows_exact": true
+    },
+    "enemy-projectiles.tsv": {
+      "rows": 3778,
+      "all_ordered_rows_exact": true
+    },
+    "poses.tsv": {
+      "rows": 3600,
+      "all_ordered_rows_exact": true
+    },
+    "fire-events.tsv": {
+      "rows": 0,
+      "all_ordered_rows_exact": true
+    },
+    "scene-enemies.tsv": {
+      "rows": 95507,
+      "all_ordered_rows_exact": true
+    },
+    "scene-hits.tsv": {
+      "rows": 0,
+      "all_ordered_rows_exact": true
+    },
+    "effects.tsv": {
+      "rows": 120,
+      "all_ordered_rows_exact": true
+    },
+    "blend-writes.tsv": {
+      "rows": 32099,
+      "all_ordered_rows_exact": true
+    },
+    "blend-palette.tsv": {
+      "rows": 256,
+      "all_ordered_rows_exact": true
+    },
+    "restore-regions.tsv": {
+      "rows": 0,
+      "all_ordered_rows_exact": true
+    },
+    "fade-steps.tsv": {
+      "rows": 0,
+      "all_ordered_rows_exact": true
+    }
+  },
+  "missing": {
+    "contract": {
+      "exit": 0,
+      "capture_count": 0,
+      "exe_sha256": "656e8325732636e501db95076e8a8862bab3a3d431705634af56569d2dfa03de",
+      "control_ledger": [
+        {
+          "next_tick": "3480",
+          "action": "target-frame-complete",
+          "paused": "0",
+          "RNG": "2d4f5738fc162fd9",
+          "wall_ms": "2041.171"
+        }
+      ]
+    },
+    "all_TSV_byte_exact_except_control_wall_ms": [
+      "enemy-projectiles.tsv",
+      "effects.tsv",
+      "fire-events.tsv",
+      "scene-draw-commands.tsv",
+      "blend-palette.tsv",
+      "state.tsv",
+      "rgb-audit.tsv",
+      "collisions.tsv",
+      "frames.tsv",
+      "asset-debug-materials.tsv",
+      "player-projectiles.tsv",
+      "scene-enemies.tsv",
+      "poses.tsv",
+      "restore-regions.tsv",
+      "blend-writes.tsv",
+      "talon-bank-visual.tsv",
+      "asset-debug-clock.tsv",
+      "sdl-runtime.tsv",
+      "scene-hits.tsv",
+      "fade-steps.tsv",
+      "draw-commands.tsv",
+      "presentation.tsv"
+    ],
+    "health": {
+      "frames": 120,
+      "all_coverage_RGB_restoration_mismatches_zero": true,
+      "rejections": 0
+    }
+  },
+  "wild": {
+    "original_exact_rows": {
+      "state.tsv": 3600,
+      "asset-debug-materials.tsv": 595200,
+      "asset-debug-clock.tsv": 3600,
+      "collisions.tsv": 57,
+      "player-projectiles.tsv": 0,
+      "enemy-projectiles.tsv": 3778,
+      "poses.tsv": 3600,
+      "fire-events.tsv": 0,
+      "scene-enemies.tsv": 95507,
+      "scene-hits.tsv": 0,
+      "blend-writes.tsv": 32099,
+      "blend-palette.tsv": 256,
+      "draw-commands.tsv": 7200
+    },
+    "runs": {
+      "baseline": {
+        "contract": {
+          "exit": 0,
+          "capture_count": 0,
+          "exe_sha256": "c1db720ec4c3fcf1973daf399637471bb5f45f476f67081a4d8f976ee79f38a8",
+          "control_ledger": [
+            {
+              "next_tick": "3480",
+              "action": "target-frame-complete",
+              "paused": "0",
+              "RNG": "2d4f5738fc162fd9",
+              "wall_ms": "2170.706"
+            }
+          ]
+        },
+        "health": {
+          "frames": 120,
+          "all_coverage_RGB_restoration_mismatches_zero": true,
+          "rejections": 0
+        },
+        "logged_HD_scene_calls": 13831,
+        "no_HD_cloud_calls": true,
+        "restored_classic_blocks_checked": 2316441,
+        "expanded_regions": 0,
+        "boundary_crossings": 0
+      },
+      "candidate": {
+        "contract": {
+          "exit": 0,
+          "capture_count": 0,
+          "exe_sha256": "656e8325732636e501db95076e8a8862bab3a3d431705634af56569d2dfa03de",
+          "control_ledger": [
+            {
+              "next_tick": "3480",
+              "action": "target-frame-complete",
+              "paused": "0",
+              "RNG": "2d4f5738fc162fd9",
+              "wall_ms": "2168.626"
+            }
+          ]
+        },
+        "health": {
+          "frames": 120,
+          "all_coverage_RGB_restoration_mismatches_zero": true,
+          "rejections": 0
+        },
+        "logged_HD_scene_calls": 16351,
+        "no_HD_cloud_calls": true,
+        "restored_classic_blocks_checked": 2927325,
+        "expanded_regions": 0,
+        "boundary_crossings": 0
+      }
+    },
+    "effects_differing_fields": [
+      "restored_classic_blocks_checked"
+    ],
+    "limit": "Checked-block counts differ with HD ownership; zero restoration mismatches and identical original indexed/blend state are the correctness gates. No wild visual capture or full visual acceptance claimed."
+  },
+  "native2x_all120_visual_pass": true,
+  "private_hooks_committed": false,
+  "formal_inventory_sha256": "e875ecd3fe33b0867ab5dd18ff664035c62b2276a48e4d75a6e31bb2df67edf6",
+  "renderer_sha256": "376a34e0200650e0927a4c341c81cad3278de49b33964d1c7118b7ad206a3b68"
+}

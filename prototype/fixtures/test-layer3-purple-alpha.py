@@ -22,7 +22,7 @@ patterns=[r'typedef struct \{\s*bool initialized,valid;.*?\} Asset;',r'static As
 (t/'production-types.inc').write_text('\n'.join(re.search(q,s,re.S).group() for q in patterns))
 names=['blend_rgba','cloud_asset','darken_rgba','draw_asset_filtered','draw_asset','read_asset','scene_asset',
        'render_mirror_map_begin','cloud_terrain_slot','ground_terrain_slot','plateau_terrain_slot','underlay_terrain_slot',
-       'road_terrain_slot','terrain_holes_slot','stone_foundation_slot','layer3_gray_slot','layer3_purple_slot','render_mirror_bind_terrain',
+       'road_terrain_slot','terrain_holes_slot','stone_foundation_slot','layer3_gray_slot','layer3_purple_slot','grass_sand_slot','render_mirror_bind_terrain',
        'render_mirror_terrain_row','render_mirror_pixel','render_mirror_terrain_pixel']
 (t/'production-helpers.inc').write_text('\n'.join(helper.extract(s,n) for n in names)+'\n'+helper.extract(sources['backgrnd.c'],'blit_background_row'))
 command=[os.environ.get('CC','cc'),'-std=c99','-O1','-g','-Wall','-Wextra','-Werror','-fsanitize=address,undefined','-fno-omit-frame-pointer','-I'+str(t),str(HERE/'test-layer3-purple-alpha.c'),'-o',str(t/'test')]

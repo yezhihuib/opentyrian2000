@@ -1,0 +1,207 @@
+{
+  "status": "frozen_selected_source_for_runtime",
+  "base_commit": "7c7aee388e384840915bd2532bbcc038c3d5047e",
+  "new_ids": [
+    66,
+    67,
+    69,
+    76,
+    78,
+    79,
+    80,
+    89,
+    90
+  ],
+  "file_count": 37,
+  "bytes": 6128467,
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 5102,
+      "sha256": "c64fb83f44ee3b567dba666764f46882474d8157391adaaf8e475d1a07c2d9f3"
+    },
+    {
+      "path": "contract.json",
+      "bytes": 8267,
+      "sha256": "7b487e929a0c744227b474f16362a704a6938a6ab3cc5ae8ffe201eba05ac9b4"
+    },
+    {
+      "path": "output/terrain-shapesz-66-8.png",
+      "bytes": 78149,
+      "sha256": "833a20a532865e836711d0fad78a5668016b3ca41ec62e9d57c69e9ab0998276"
+    },
+    {
+      "path": "output/terrain-shapesz-67-8.png",
+      "bytes": 85265,
+      "sha256": "8d46bc09400da3dedf96db32e7f35fd57a62f947ad3ac0dde12e56239b0287d7"
+    },
+    {
+      "path": "output/terrain-shapesz-69-8.png",
+      "bytes": 66242,
+      "sha256": "6ff99feb6fb477825b59f50733629c6050416cb049e31ae80b94309f1674c5d8"
+    },
+    {
+      "path": "output/terrain-shapesz-76-8.png",
+      "bytes": 86397,
+      "sha256": "b550068b236a34f44291783251775d5efd227fe53cde958e4b50042fc8f24622"
+    },
+    {
+      "path": "output/terrain-shapesz-78-8.png",
+      "bytes": 87189,
+      "sha256": "24e707313dfaaf1fc03b015e453d51b3bbe5d2d640771dfe6c9926a7516120a3"
+    },
+    {
+      "path": "output/terrain-shapesz-79-8.png",
+      "bytes": 91059,
+      "sha256": "0a39ae9056488b04cfeb827cba5efb61f643901aa89c96f441e25b482d70db54"
+    },
+    {
+      "path": "output/terrain-shapesz-80-8.png",
+      "bytes": 90048,
+      "sha256": "dc27bde74551f9b3719a6a17c895c3dd26aad2270acb60c60d25e656c47219c9"
+    },
+    {
+      "path": "output/terrain-shapesz-89-8.png",
+      "bytes": 91062,
+      "sha256": "ad915b950415db9211e98f57919bd32cadf2da8fa061774e76e739f0c40965de"
+    },
+    {
+      "path": "output/terrain-shapesz-90-8.png",
+      "bytes": 91272,
+      "sha256": "37cd4a1ccab0b5f7c1a23d228a5edbac3100feccd1b70652fa8dbaf6ab4cb1a8"
+    },
+    {
+      "path": "prompts/imagegen-family-v1.txt",
+      "bytes": 1620,
+      "sha256": "9e3abdb4fd7112fe72ba433007a7178f084e4ccaba21c40fd74d9995a26bad0d"
+    },
+    {
+      "path": "prompts/imagegen-footprint-v3.txt",
+      "bytes": 1261,
+      "sha256": "2a1fbcbd7bdcd39fdb5912fafdceb7cc4f42d5c8360af1ea7d11f8fffda5c77a"
+    },
+    {
+      "path": "prompts/imagegen-interior-v2.txt",
+      "bytes": 1292,
+      "sha256": "65977c584127569147cf54f7f87a86359bbfd1c43afaa08946dba3c44aa22f9a"
+    },
+    {
+      "path": "provenance.json",
+      "bytes": 1860,
+      "sha256": "b29c0cf57c2c3bfc94749dd7ee6f67995525fd418dd5acd001e06f3b6bb0b919"
+    },
+    {
+      "path": "rebuild.py",
+      "bytes": 3918,
+      "sha256": "a2eaaa07e6e50fc143342f7fe9134be1264c7e7689fefe7693666cb46588ca64"
+    },
+    {
+      "path": "runtime-overlay/terrain-shapesz-66-8.hda",
+      "bytes": 172060,
+      "sha256": "9dd53612af62cd55a33ece0de36d137649f3233b7f15bd443ad08ce5cb9cfa2b"
+    },
+    {
+      "path": "runtime-overlay/terrain-shapesz-67-8.hda",
+      "bytes": 172060,
+      "sha256": "a8943d40557f36fba278993b4a597c396c035ee7682502ffe9a01305f4865ca0"
+    },
+    {
+      "path": "runtime-overlay/terrain-shapesz-69-8.hda",
+      "bytes": 172060,
+      "sha256": "6cd5e8934dcf40702a1515603c255fd7fd5665f02a883b5ff115ac06bff23049"
+    },
+    {
+      "path": "runtime-overlay/terrain-shapesz-76-8.hda",
+      "bytes": 172060,
+      "sha256": "7d28e3cb5bb32032e8b78398013903d7a5cfa979f209e69bd0459fbe3375dc02"
+    },
+    {
+      "path": "runtime-overlay/terrain-shapesz-78-8.hda",
+      "bytes": 172060,
+      "sha256": "4ef8616b6976813286068ccbf072e7611086c2894cc454797d446534d9c11cc1"
+    },
+    {
+      "path": "runtime-overlay/terrain-shapesz-79-8.hda",
+      "bytes": 172060,
+      "sha256": "0df4b8b4dac652d5ce154ae2c8a126d902242f4f14335cd3a5543ab0035057d8"
+    },
+    {
+      "path": "runtime-overlay/terrain-shapesz-80-8.hda",
+      "bytes": 172060,
+      "sha256": "df2ad894265d9f77e74ec8dad029cb71a8baf4564f7daa5a398460b00c9bdae9"
+    },
+    {
+      "path": "runtime-overlay/terrain-shapesz-89-8.hda",
+      "bytes": 172060,
+      "sha256": "7f4550c9dba4dae0229a706653635dcd55894453a029a90b9b94b1cfbd01606a"
+    },
+    {
+      "path": "runtime-overlay/terrain-shapesz-90-8.hda",
+      "bytes": 172060,
+      "sha256": "c70d83c8cf845bbf024b6edbfe4ad2237c9fc5ecdd659d372827b83029dbda70"
+    },
+    {
+      "path": "source/frozen-generated-sand47.png",
+      "bytes": 89551,
+      "sha256": "c326f278ba8abbee37c5312c39bf39ae468ea5769b467d73dbd0c19e014f7c3d"
+    },
+    {
+      "path": "source/generated-family-v1.png",
+      "bytes": 1606720,
+      "sha256": "995f120f262d6bf98618373296b0c11c95df150e0fdd99205c8f2d3bf79e1d91"
+    },
+    {
+      "path": "source/generated-fringe-v3.png",
+      "bytes": 497004,
+      "sha256": "b7098029dc74653ece387861b45ae0649e8652b1937126aca738264f5e28d245"
+    },
+    {
+      "path": "source/generated-interior-v2.png",
+      "bytes": 1580239,
+      "sha256": "7b422fa9607c71bd542ebe6b5f659771ceef1469169c45ed5800978f396d893b"
+    },
+    {
+      "path": "source/register_footprint.cpp",
+      "bytes": 1253,
+      "sha256": "1772870f1d1af08e36790769de2d089bbfd3b629d44c726f04c6ea47258110df"
+    },
+    {
+      "path": "source/register_interior.cpp",
+      "bytes": 2010,
+      "sha256": "dc04d050716cbcd2cb2c31b7e8a8a795a55b2176b15aab5691e2de6fd329159f"
+    },
+    {
+      "path": "source/register_vegetation.cpp",
+      "bytes": 1609,
+      "sha256": "972d5d0803e069a51b807fe73d48baf977c693377176f6370e81bcbe39f15699"
+    },
+    {
+      "path": "verification/author-rebuild-result.json",
+      "bytes": 2180,
+      "sha256": "3a8d7d07bb471bb521070397d0e24b7c2436e21a84127b8252182957fae62a23"
+    },
+    {
+      "path": "verification/fringe-only-scope.json",
+      "bytes": 2181,
+      "sha256": "7469bc5fc8fb3014a570978f933359dbcbf6c8522f0b29720ce43e0941d8b95d"
+    },
+    {
+      "path": "verification/independent-all-contexts-review.json",
+      "bytes": 3615,
+      "sha256": "1bbd6bb92ffdf9d1c94040ad791f5517a8d48f14f534bc4548edcb148a58d90f"
+    },
+    {
+      "path": "verification/interior-only-scope.json",
+      "bytes": 2884,
+      "sha256": "3d7a0d8cb2e236fe64140ffaa8298e7156e1883354966803316fa28107909042"
+    },
+    {
+      "path": "verification/width-metrics.json",
+      "bytes": 678,
+      "sha256": "aaa3b4aba1de607ad999da780e5f42cbc1abbf6e75eb89ed8cccf56eb3a22f4c"
+    }
+  ],
+  "source_freeze_revision": 2,
+  "source_only_correction": "Rebuild now also rejects output nested inside its own frozen package; art and generated inputs unchanged.",
+  "supersedes_inventory_sha256": "7ffbe73d0febb31d9cd1f1ecad1a638bf4c624fa5a58a052889e8035c6515b53"
+}

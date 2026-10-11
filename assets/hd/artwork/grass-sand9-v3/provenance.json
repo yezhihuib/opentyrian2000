@@ -1,0 +1,33 @@
+{
+  "sources": [
+    {
+      "revision": "v1",
+      "tool": "built-in image_gen",
+      "full_generated_master_workspace_path": "tyrian-background-redraw/grass-sand9-v1/source/imagegen-family-master-v1.png",
+      "master_sha256": "ff7011de500c52783928b52b30f0db0227c52e743200e35cea0bbabbe42dbda8",
+      "canonical_registered_source": "source/generated-family-v1.png",
+      "registration": "ImageMagick Lanczos exact 768x1120",
+      "source_ownership": "Generated artwork; no original game RGBA embedded in this package."
+    },
+    {
+      "revision": "v2",
+      "tool": "built-in image_gen",
+      "full_generated_master_workspace_path": "tyrian-background-redraw/grass-sand9-v2/source/imagegen-interior-v2.png",
+      "master_sha256": "423518cba748fd797375dcf459c0a5cba4b0a9252bdf6b3e20a1676197ea4e09",
+      "canonical_registered_source": "source/generated-interior-v2.png",
+      "registration": "ImageMagick Lanczos exact 768x1120",
+      "source_ownership": "Generated artwork; no original game RGBA embedded in this package."
+    },
+    {
+      "revision": "v3",
+      "tool": "built-in image_gen",
+      "full_generated_master_workspace_path": "tyrian-background-redraw/grass-sand9-v3/source/imagegen-footprint-v3.png",
+      "master_sha256": "bf9af13b1a7ed29ef47859d15f717eef45fd43b6a76d98d27254d439d2183106",
+      "canonical_registered_source": "source/generated-fringe-v3.png",
+      "registration": "ImageMagick Lanczos exact 384x672",
+      "source_ownership": "Generated artwork; no original game RGBA embedded in this package."
+    }
+  ],
+  "dependency47": "Accepted generated sand47, decoded RGBA 0c762de0ceca06f9a2ed0589b209289ea4f47abad9cf5156d11054037a9c6c70",
+  "private_references_excluded": "Original shapesZ, original motif guides, map PNGs, actual game screenshots and original-data crops are not part of this formal package."
+}

@@ -25,9 +25,9 @@ mutations={
  'wrong-slot':('helpers','return 272+i;','return 271+i;'),
  'whitelist-widened':('helpers','141,142,143,144,151,152,153,154','141,142,143,144,151,152,153,126'),
  'shadow-not-guarded':('helpers','(gray_slot>=0||purple_slot>=0)&&style!=MIRROR_NORMAL','((gray_slot>=0&&style==MIRROR_BLEND)||(purple_slot>=0&&style!=MIRROR_NORMAL))'),
- 'missing-art-traced':('helpers','||gray_slot>=0||purple_slot>=0)&&!a','||purple_slot>=0)&&!a'),
+ 'missing-art-traced':('helpers','||gray_slot>=0||purple_slot>=0||grass_slot>=0)&&!a','||purple_slot>=0||grass_slot>=0)&&!a'),
  'map-reset-removed':('helpers','terrain_source_count=0;','terrain_source_count=terrain_source_count;'),
- 'overflow-guard-one-too-late':('helpers','terrain_source_count<153','terrain_source_count<154'),
+ 'overflow-guard-one-too-late':('helpers','terrain_source_count<162','terrain_source_count<163'),
  'loader-hook-removed':('loader','render_mirror_bind_terrain(3,z+1,megaData3.shapes[x].sh);','(void)0;'),
 }
 results=[];root=Path(tempfile.mkdtemp(prefix='layer3-gray-mutations-'))

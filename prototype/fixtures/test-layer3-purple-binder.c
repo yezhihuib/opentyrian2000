@@ -25,6 +25,7 @@ static int draw_x[12],draw_y[12],trace_style[12];
 static bool trace_mirrored[12];
 static char pack[4096];
 static const char *root;
+static const unsigned grass[]={66,67,69,76,78,79,80,89,90};
 static const unsigned purple[]={150,156,157,158,159,160,166,168,169,170,176,177,178};
 static const unsigned gray[]={121,122,123,124,125,131,132,133,134,135,141,142,143,144,151,152,153,154};
 static const unsigned old[]={101,37,57,49,50,321,322,331,332,99,100,106,107,109,110,118,119,120,96,97,98,108,323,324,333,334,36,39,40,46,48,56,58,38,47,111,114,113,341,342,343,351,352,353};
@@ -32,7 +33,7 @@ static const int old_slots[]={10,11,12,13,14,19,20,21,22,201,202,203,204,205,206
 static const unsigned clouds[]={41,42,43,44,45,51,52,53,54,55,61,62,63,64,65};
 static Uint8 bank[5][601][672];
 static bool member(unsigned id,const unsigned *ids,unsigned n){for(unsigned i=0;i<n;i++)if(ids[i]==id)return true;return false;}
-static bool accepted(unsigned layer,unsigned id){return (layer==1&&member(id,old,44))||(layer==2&&member(id,clouds,15))||(layer==3&&(member(id,purple,13)||member(id,gray,18)));}
+static bool accepted(unsigned layer,unsigned id){return (layer==1&&(member(id,old,44)||member(id,grass,9)))||(layer==2&&member(id,clouds,15))||(layer==3&&(member(id,purple,13)||member(id,gray,18)));}
 static void render_mirror_reset_banking(void){bank_resets++;}
 static void render_mirror_unsupported(const char *why){CHECK(!strcmp(why,"terrain-row-outside-linear-layout"));rejected_layouts++;}
 static bool draw_asset(int x,int y,Asset *a,int style,void *part)
@@ -78,7 +79,7 @@ static void choose(const char *label){CHECK(snprintf(pack,sizeof(pack),"%s/%s",r
 static void clear_draws(void){draws=traces=0;suppress=false;}
 static void reset(const char *label)
 {
- for(unsigned i=0;i<312;i++)free(assets[i].rgba);
+ for(unsigned i=0;i<321;i++)free(assets[i].rgba);
  memset(assets,0,sizeof(assets));
  clear_draws();active=draw_success=true;game_probe_missing=game_probe_invalid=false;game_probe_density=8;game_probe_scene_assets=2;reject_reason=NULL;
  choose(label);render_mirror_map_begin('Z');
@@ -86,7 +87,7 @@ static void reset(const char *label)
 static unsigned draw_pointer(Uint8 *ptr,int style){Uint8 *row[12]={ptr};clear_draws();return render_mirror_terrain_row(game_screen,0,17,row,style);}
 static void whitelist(void)
 {
- CHECK(sizeof(assets)/sizeof(*assets)==312);CHECK(sizeof(terrain_sources)/sizeof(*terrain_sources)==153);
+ CHECK(sizeof(assets)/sizeof(*assets)==321);CHECK(sizeof(terrain_sources)/sizeof(*terrain_sources)==162);
  for(unsigned id=0;id<=1000;id++){
   int expected=-1;for(unsigned j=0;j<13;j++)if(id==purple[j])expected=290+(int)j;
   CHECK(layer3_purple_slot(id)==expected);
@@ -98,7 +99,7 @@ static void whitelist(void)
   reset("full8");render_mirror_bind_terrain(layer,id,bank[layer][id]);
   CHECK(terrain_source_count==(unsigned)accepted(layer,id));
   if(terrain_source_count)CHECK(terrain_sources[0].id==id&&terrain_sources[0].data==bank[layer][id]);
-  for(unsigned slot=0;slot<312;slot++)CHECK(!assets[slot].initialized);
+  for(unsigned slot=0;slot<321;slot++)CHECK(!assets[slot].initialized);
  }
  for(unsigned byte=0;byte<256;byte++)for(unsigned j=0;j<13;j++){
   reset("full8");render_mirror_map_begin((char)byte);render_mirror_bind_terrain(3,purple[j],bank[3][purple[j]]);
@@ -110,7 +111,7 @@ static void whitelist(void)
   CHECK(!draw_pointer(bank[layer][purple[j]],MIRROR_NORMAL));CHECK(!draws&&!traces);
  }
  for(unsigned j=0;j<13;j++){CHECK(draw_pointer(bank[3][purple[j]],MIRROR_NORMAL)==1);CHECK(draws==1&&traces==1);reserved_untouched();}
- /* The combined312-slot build reserves303..311 for entities; terrain alone
+ /* The combined321-slot build reserves303..311 for entities; terrain alone
   * must never initialize them. Those numeric terrain IDs and red/black
   *161/162/171/172 remain excluded from the terrain binder. */
  const unsigned excluded[]={149,155,161,162,163,164,165,167,171,172,173,174,175,179,303,304,305,306,307,308,309,310,311};
@@ -182,7 +183,7 @@ static void rows_and_residency(void)
  for(unsigned j=0;j<15;j++){CHECK(!draw_pointer(bank[2][clouds[j]],MIRROR_BLEND));CHECK(!draws&&!traces);CHECK(draw_pointer(bank[2][clouds[j]],MIRROR_NORMAL)==1);CHECK(assets[186+j].valid);}
  for(unsigned j=0;j<13;j++){CHECK(draw_pointer(bank[3][purple[j]],MIRROR_NORMAL)==1);CHECK(assets[290+j].valid&&assets[290+j].index==(int)purple[j]);}
  for(unsigned j=0;j<18;j++){CHECK(draw_pointer(bank[3][gray[j]],MIRROR_NORMAL)==1);CHECK(assets[272+j].valid&&assets[272+j].index==(int)gray[j]);}
- unsigned initialized=0;for(unsigned i=0;i<312;i++)initialized+=assets[i].initialized;CHECK(initialized==90);reserved_untouched();
+ unsigned initialized=0;for(unsigned i=0;i<321;i++)initialized+=assets[i].initialized;CHECK(initialized==90);reserved_untouched();
  const unsigned masks[]={0,1,2048,0x555,0xaaa,0xfff,0xa91};
  for(unsigned start=0;start<13;start++)for(unsigned reverse=0;reverse<2;reverse++)for(unsigned m=0;m<7;m++){
   Uint8 *row[12];unsigned ids[12],n=0;
@@ -215,33 +216,33 @@ static Uint8 *source_pointer(unsigned layer,unsigned slot)
 static void loader_and_capacity(void)
 {
  reset("full8");memcpy(mapSh,actual_lookup,sizeof(mapSh));memcpy(source_blank,actual_blank,sizeof(source_blank));run_loader();
- CHECK(terrain_source_count==91);unsigned k=0,counts[3]={0};
+ CHECK(terrain_source_count==100);unsigned k=0,counts[3]={0};
  for(unsigned id=1;id<=600;id++)for(unsigned layer=1;layer<=3;layer++)for(unsigned slot=0;slot<72;slot++){
   bool present=mapSh[layer-1][slot]==id&&(layer==1||(slot<(layer==2?71u:70u)&&!source_blank[id-1]));
-  if(present&&accepted(layer,id)){CHECK(k<91&&terrain_sources[k].id==id&&terrain_sources[k].data==source_pointer(layer,slot));CHECK(ref[layer-1][slot]==source_pointer(layer,slot));CHECK(draw_pointer(source_pointer(layer,slot),MIRROR_NORMAL)==1);counts[layer-1]++;k++;}
+  if(present&&accepted(layer,id)){CHECK(k<100&&terrain_sources[k].id==id&&terrain_sources[k].data==source_pointer(layer,slot));CHECK(ref[layer-1][slot]==source_pointer(layer,slot));CHECK(draw_pointer(source_pointer(layer,slot),MIRROR_NORMAL)==1);counts[layer-1]++;k++;}
  }
- CHECK(k==91&&counts[0]==45&&counts[1]==15&&counts[2]==31);
+ CHECK(k==100&&counts[0]==54&&counts[1]==15&&counts[2]==31);
  CHECK(megaData1.shapes[12].sh!=megaData1.shapes[70].sh);CHECK(mapSh[0][12]==351&&mapSh[0][70]==351);
  CHECK(draw_pointer(megaData1.shapes[12].sh,MIRROR_NORMAL)==1);CHECK(draw_pointer(megaData1.shapes[70].sh,MIRROR_NORMAL)==1);CHECK(draw_pointer(megaData3.shapes[5].sh,MIRROR_NORMAL)==1);
  CHECK(!ref[2][70]&&!ref[2][71]);
  /* Each accepted pointer survives even when every eligible slot aliases one ID. */
  reset("full8");memset(source_blank,0,sizeof(source_blank));for(unsigned s=0;s<128;s++){mapSh[0][s]=99;mapSh[1][s]=41;mapSh[2][s]=150;}
- run_loader();CHECK(terrain_source_count==153);k=0;unsigned eligible=0;
+ run_loader();CHECK(terrain_source_count==162);k=0;unsigned eligible=0;
  for(unsigned id=1;id<=600;id++)for(unsigned layer=1;layer<=3;layer++)for(unsigned slot=0;slot<(layer==1?72u:layer==2?71u:70u);slot++)if(mapSh[layer-1][slot]==id){
-  bool registered=eligible<153;Uint8 *ptr=source_pointer(layer,slot);
+  bool registered=eligible<162;Uint8 *ptr=source_pointer(layer,slot);
   if(registered){CHECK(terrain_sources[k].data==ptr&&terrain_sources[k].id==id);k++;}
   CHECK(draw_pointer(ptr,MIRROR_NORMAL)==(unsigned)registered);CHECK(draws==(unsigned)registered&&traces==draws);eligible++;
  }
- CHECK(k==153&&eligible==213);CHECK(!draw_pointer(megaData3.shapes[10].sh,MIRROR_NORMAL));CHECK(!draws&&!traces);
+ CHECK(k==162&&eligible==213);CHECK(!draw_pointer(megaData3.shapes[19].sh,MIRROR_NORMAL));CHECK(!draws&&!traces);
  /* Explicit overflow and reset: no prior record is overwritten or aliased. */
- reset("full8");for(unsigned i=0;i<601;i++)render_mirror_bind_terrain(3,150,bank[3][i]);CHECK(terrain_source_count==153);
- for(unsigned i=0;i<153;i++)CHECK(terrain_sources[i].data==bank[3][i]&&terrain_sources[i].id==150);
- CHECK(draw_pointer(bank[3][152],MIRROR_NORMAL)==1);CHECK(!draw_pointer(bank[3][153],MIRROR_NORMAL));CHECK(!draws&&!traces);
- render_mirror_map_begin('Z');CHECK(!terrain_source_count);CHECK(!draw_pointer(bank[3][152],MIRROR_NORMAL));
+ reset("full8");for(unsigned i=0;i<601;i++)render_mirror_bind_terrain(3,150,bank[3][i]);CHECK(terrain_source_count==162);
+ for(unsigned i=0;i<162;i++)CHECK(terrain_sources[i].data==bank[3][i]&&terrain_sources[i].id==150);
+ CHECK(draw_pointer(bank[3][161],MIRROR_NORMAL)==1);CHECK(!draw_pointer(bank[3][162],MIRROR_NORMAL));CHECK(!draws&&!traces);
+ render_mirror_map_begin('Z');CHECK(!terrain_source_count);CHECK(!draw_pointer(bank[3][161],MIRROR_NORMAL));
 }
 int main(int argc,char **argv)
 {
  CHECK(argc==2);root=argv[1];whitelist();guards();missing_invalid();rows_and_residency();mixed_gray_purple();loader_and_capacity();reset("empty");
- printf("PASS: %lu assertions; exact purple13 IDs and slots290..302, bankZ/layer3/pointer guards, non-NORMAL no-load skip, missing/null/malformed fallback, all38 malformed input cases, map reset, original loader91 registrations including duplicate351, bound153 overflow preserves existing pointers and later classic fallback, 90 simultaneous terrain assets,182 purple and252 mixed gray/purple ordered full/partial rows, inherited4x fallback; entity slots269..271 and303..311 untouched by terrain.\n",checks);
+ printf("PASS: %lu assertions; exact purple13 IDs and slots290..302, bankZ/layer3/pointer guards, non-NORMAL no-load skip, missing/null/malformed fallback, all38 malformed input cases, map reset, original loader100 registrations including duplicate351, bound162 overflow preserves existing pointers and later classic fallback, 90 simultaneous terrain assets,182 purple and252 mixed gray/purple ordered full/partial rows, inherited4x fallback; entity slots269..271 and303..311 untouched by terrain.\n",checks);
  return 0;
 }

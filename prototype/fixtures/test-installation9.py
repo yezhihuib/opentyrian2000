@@ -218,7 +218,7 @@ if True:
              'draw_asset', 'render_mirror_map_begin', 'cloud_terrain_slot',
              'ground_terrain_slot', 'plateau_terrain_slot', 'underlay_terrain_slot',
              'road_terrain_slot', 'terrain_holes_slot', 'stone_foundation_slot',
-             'layer3_gray_slot','layer3_purple_slot', 'render_mirror_bind_terrain', 'render_mirror_terrain_row']
+             'layer3_gray_slot','layer3_purple_slot','grass_sand_slot', 'render_mirror_bind_terrain', 'render_mirror_terrain_row']
     (t / 'functions.inc').write_text('\n'.join(extract(n) for n in names))
     bank = bytearray(320 * 2)
     for index in range(1, 321):

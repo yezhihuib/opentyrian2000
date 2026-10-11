@@ -202,11 +202,11 @@ with RetainedDirectory(prefix='turret40-unit-') as temporary:
              'draw_asset', 'render_mirror_map_begin', 'cloud_terrain_slot',
              'ground_terrain_slot', 'plateau_terrain_slot', 'underlay_terrain_slot',
              'road_terrain_slot', 'terrain_holes_slot', 'stone_foundation_slot',
-             'layer3_gray_slot','layer3_purple_slot', 'render_mirror_bind_terrain', 'render_mirror_terrain_row']
+             'layer3_gray_slot','layer3_purple_slot','grass_sand_slot', 'render_mirror_bind_terrain', 'render_mirror_terrain_row']
     scope = {}
     if a.clean_source:
         clean = a.clean_source.read_text()
-        unchanged = [name for name in names if name not in ['render_mirror_enemy_tile', 'layer3_gray_slot','layer3_purple_slot', 'render_mirror_bind_terrain', 'render_mirror_terrain_row']]
+        unchanged = [name for name in names if name not in ['render_mirror_enemy_tile', 'layer3_gray_slot','layer3_purple_slot','grass_sand_slot', 'render_mirror_bind_terrain', 'render_mirror_terrain_row']]
         for name in unchanged:
             assert extract(name) == extract(name, clean), name
         # Permit only the reviewed turret3 and installation9 lookup additions.

@@ -254,7 +254,7 @@ int main(int argc,char **argv)
  for(int k=0;k<4;k++){enemySpriteSheets[k]=(Sprite2_array){1,&bank_bytes[k]};enemySpriteSheetIds[k]=k==0?1:k==1?9:2;}
  for(int i=0;i<256;i++)rgb_palette[i]=((i*71u)%256)<<16|((i*31u)%256)<<8|((i*13u)%256);
  assert(ASSET_NEWSHE==110&&ASSET_TALON_BANK==109&&ASSET_NEWSH2==101);
- assert(sizeof(assets)/sizeof(*assets)==312);
+ assert(sizeof(assets)/sizeof(*assets)==321);
  if(argc==3){alloc_canvas(8);actual_tests();free_canvas();free(g.pixels);printf("PASS actual-art only: %llu pixel comparisons; %llu quadrant calls; all9 payloads, sparse-alpha support, three filters, clipped placement and all15 nonempty quadrant subsets\n",checks,quad_calls);return 0;}
  const int filters[]={0,0x70,0x80,0x09,0xd0};
  for(int mode=0;mode<3;mode++){
@@ -267,7 +267,7 @@ int main(int argc,char **argv)
    exercise_frame(installation_ids[i],ad,0,0,0,4);
    exercise_frame(installation_ids[i],ad,0,LW-24,LH-28,17);
   }
-  guard_tests();for(int i=0;i<312;i++)if(i<303||i>311)assert(!assets[i].initialized);
+  guard_tests();for(int i=0;i<321;i++)if(i<303||i>311)assert(!assets[i].initialized);
   printf("PASS density%d source%d: all36 installation quadrants, all24 orders, density4 all256 filters / other densities five representative filters, edge/offscreen clipping, source-bank/part/null guards\n",d,ad);
   if(mode==1){
    for(int i=0;i<9;i++)for(int filter=0;filter<256;filter++)exercise_frame(installation_ids[i],8,filter,5,7,0);

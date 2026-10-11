@@ -68,6 +68,7 @@ static const unsigned int ids[]={111,114};
 static const int slots[]={241,242};
 /* Independent accepted layer3 gray-family contract. */
 static const unsigned int purple_ids[]={150,156,157,158,159,160,166,168,169,170,176,177,178};
+static const unsigned int grass_ids[]={66,67,69,76,78,79,80,89,90};
 static const unsigned int gray_ids[]={121,122,123,124,125,131,132,133,134,135,141,142,143,144,151,152,153,154};
 static const unsigned int road_ids[]={36,39,40,46,48,56,58,38,47};
 static const int road_slots[]={220,221,222,223,224,225,226,235,236};
@@ -102,7 +103,7 @@ static void nonterrain_untouched(void)
 int main(void)
 {
  load_actual();
- CHECK(sizeof(assets)/sizeof(*assets)==312);CHECK(sizeof(terrain_sources)/sizeof(*terrain_sources)==153);
+ CHECK(sizeof(assets)/sizeof(*assets)==321);CHECK(sizeof(terrain_sources)/sizeof(*terrain_sources)==162);
  for(unsigned int id=0;id<600;id++) {
   int e=-1;for(int j=0;j<2;j++)if(id==ids[j])e=slots[j];if(id==113)e=246;CHECK(terrain_holes_slot(id)==e);
   e=-1;for(int j=0;j<9;j++)if(id==road_ids[j])e=road_slots[j];CHECK(road_terrain_slot(id)==e);
@@ -111,7 +112,7 @@ int main(void)
  }
  for(unsigned int layer=0;layer<5;layer++)for(unsigned int id=0;id<600;id++){
   reset();render_mirror_bind_terrain(layer,id,bank+id);
-  bool accepted=(layer==1&&(id==113||id==341||id==342||id==343||id==351||id==352||id==353||member(id,ids,2)||member(id,road_ids,9)||member(id,underlay_ids,4)||member(id,plateau_ids,4)||member(id,ground_ids,9)||member(id,old_ids,9)))||(layer==2&&cloud(id))||(layer==3&&(member(id,gray_ids,18)||member(id,purple_ids,13)));
+  bool accepted=(layer==1&&(member(id,grass_ids,9)||id==113||id==341||id==342||id==343||id==351||id==352||id==353||member(id,ids,2)||member(id,road_ids,9)||member(id,underlay_ids,4)||member(id,plateau_ids,4)||member(id,ground_ids,9)||member(id,old_ids,9)))||(layer==2&&cloud(id))||(layer==3&&(member(id,gray_ids,18)||member(id,purple_ids,13)));
   CHECK(terrain_source_count==(unsigned int)accepted);nonterrain_untouched();
  }
  for(int b=0;b<256;b++)if(b!='z'&&b!='Z')for(unsigned int j=0;j<2;j++){reset();render_mirror_map_begin((char)b);render_mirror_bind_terrain(1,ids[j],bank+ids[j]);CHECK(!terrain_source_count);}
@@ -140,15 +141,15 @@ int main(void)
  for(int j=0;j<9;j++){reset();write_hda(road_ids[j],-1);render_mirror_bind_terrain(1,road_ids[j],bank+road_ids[j]);CHECK(draw_one(road_ids[j],MIRROR_NORMAL)==1);CHECK(assets[road_slots[j]].valid);nonterrain_untouched();remove_hda(road_ids[j]);}
  for(unsigned int id=41;id<=65;id++)if(cloud(id)){reset();write_hda(id,-1);int expected=id<=45?186+(int)id-41:id<=55?191+(int)id-51:196+(int)id-61;CHECK(cloud_terrain_slot(id)==expected);render_mirror_bind_terrain(2,id,bank+id);CHECK(!draw_one(id,MIRROR_BLEND));CHECK(!draws&&!traces);CHECK(draw_one(id,MIRROR_NORMAL)==1);CHECK(assets[expected].valid);nonterrain_untouched();remove_hda(id);}
  /* Unknown IDs and accepted gray IDs without assets must not alias old slots. */
- for(unsigned int id=0;id<600;id++)if(id!=113&&id!=341&&id!=342&&id!=343&&id!=351&&id!=352&&id!=353&&!member(id,ids,2)&&!member(id,road_ids,9)&&!member(id,underlay_ids,4)&&!member(id,plateau_ids,4)&&!member(id,ground_ids,9)&&!member(id,old_ids,9)&&!cloud(id)){
+ for(unsigned int id=0;id<600;id++)if(!member(id,grass_ids,9)&&id!=113&&id!=341&&id!=342&&id!=343&&id!=351&&id!=352&&id!=353&&!member(id,ids,2)&&!member(id,road_ids,9)&&!member(id,underlay_ids,4)&&!member(id,plateau_ids,4)&&!member(id,ground_ids,9)&&!member(id,old_ids,9)&&!cloud(id)){
   reset();terrain_sources[0].data=bank+id;terrain_sources[0].id=id;terrain_source_count=1;CHECK(!draw_one(id,MIRROR_NORMAL));CHECK(!draws&&!traces&&!assets[22].initialized);nonterrain_untouched();
  }
- reset();for(int i=0;i<600;i++)render_mirror_bind_terrain(1,111,bank+i);CHECK(terrain_source_count==153);nonterrain_untouched();
+ reset();for(int i=0;i<600;i++)render_mirror_bind_terrain(1,111,bank+i);CHECK(terrain_source_count==162);nonterrain_untouched();
  /* Transport every actual selected RGBA byte through the real loader. */
  for(int j=0;j<2;j++){
   reset();actual_mode=true;char src[40],dst[80];snprintf(src,sizeof(src),"actual-%u.hda",ids[j]);snprintf(dst,sizeof(dst),"terrain-shapesz-%u-8.hda",ids[j]);
   FILE *in=fopen(src,"rb"),*out=fopen(dst,"wb");CHECK(in&&out);int byte;while((byte=fgetc(in))!=EOF)CHECK(fputc(byte,out)!=EOF);CHECK(!fclose(in));CHECK(!fclose(out));
   render_mirror_bind_terrain(1,ids[j],bank+ids[j]);CHECK(draw_one(ids[j],MIRROR_NORMAL)==1);CHECK(assets[slots[j]].valid);remove_hda(ids[j]);actual_mode=false;
  }
- reset();printf("PASS: %u assertions; finite111/114 IDs slots241/242; exact banks/layers; assets312/registry153; layer3 gray18 plus purple13 registration scope; binary holes, synthetic fractional alpha and actual selected RGBA transported unchanged; missing-all/each, malformed magic/header/payload and inherited disable guards; accepted road/underlay/ground/plateau/cloud slots unchanged; exhaustive unknown-ID rejection and absent gray-asset fallback.\n",checks);return 0;
+ reset();printf("PASS: %u assertions; finite111/114 IDs slots241/242; exact banks/layers; assets321/registry162; layer3 gray18 plus purple13 registration scope; binary holes, synthetic fractional alpha and actual selected RGBA transported unchanged; missing-all/each, malformed magic/header/payload and inherited disable guards; accepted road/underlay/ground/plateau/cloud slots unchanged; exhaustive unknown-ID rejection and absent gray-asset fallback.\n",checks);return 0;
 }

@@ -20,7 +20,7 @@ def extract(name):
  return source[match.start():end]+'\n'
 types=re.search(r'typedef struct \{\s*bool initialized,valid;.*?\} Asset;',source,re.S).group()
 arrays='\n'.join(re.search(p,source).group() for p in [r'static Asset assets\[\d+\];',r'static struct \{const Uint8 \*data;unsigned int id;\} terrain_sources\[\d+\];'])
-funcs='\n'.join(extract(n) for n in ['read_asset','scene_asset','render_mirror_map_begin','cloud_terrain_slot','ground_terrain_slot','plateau_terrain_slot','underlay_terrain_slot','road_terrain_slot','terrain_holes_slot','stone_foundation_slot','layer3_gray_slot','layer3_purple_slot','render_mirror_bind_terrain','render_mirror_terrain_row'])
+funcs='\n'.join(extract(n) for n in ['read_asset','scene_asset','render_mirror_map_begin','cloud_terrain_slot','ground_terrain_slot','plateau_terrain_slot','underlay_terrain_slot','road_terrain_slot','terrain_holes_slot','stone_foundation_slot','layer3_gray_slot','layer3_purple_slot','grass_sand_slot','render_mirror_bind_terrain','render_mirror_terrain_row'])
 
 def prepare_assets(directory, assets):
     import struct
@@ -54,9 +54,10 @@ with RetainedDirectory(prefix='terrain-next-seven-binder-') as tmp:
  all_terrain=sorted(a.assets.glob('terrain-shapesz-*-8.hda'),key=lambda p:int(p.name.split('-')[2]))
  assert len(legacy_ids)==59 and len(gray_ids)==18 and not legacy_ids.intersection(gray_ids)
  purple_ids={150,156,157,158,159,160,166,168,169,170,176,177,178}
+ grass_ids={66,67,69,76,78,79,80,89,90}
  present_ids={int(tile.name.split('-')[2]) for tile in all_terrain}
- assert present_ids in [legacy_ids|gray_ids,legacy_ids|gray_ids|purple_ids]
- assert len(all_terrain) in [77,90]
+ assert present_ids in [legacy_ids|gray_ids,legacy_ids|gray_ids|purple_ids,legacy_ids|gray_ids|purple_ids|grass_ids]
+ assert len(all_terrain) in [77,90,99]
  for tile in all_terrain:
   data=tile.read_bytes();import struct
   tile_id=int(tile.name.split('-')[2]);assert len(data)==172060 and struct.unpack('<4s6I',data[:28])==(b'HDR1',2010000+tile_id,8,24,28,0,0)
