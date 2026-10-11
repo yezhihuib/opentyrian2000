@@ -1,0 +1,472 @@
+{
+  "source_renderer_sha256": "2a146f43df1e9929884a431b847dd4666f206abb75b97e119b81a96c29546267",
+  "root_visual_pass": "2026-10-11: actual native4x/2x full four-frame pulse, independent both-cycle review passed",
+  "assets": {
+    "packs": 18,
+    "HDR_entries": 2620,
+    "source_PNGs": 201,
+    "default_preview": 190,
+    "default_debug": 194
+  },
+  "windows_acceptance": "not run",
+  "full_level_FPS": "not run",
+  "head_validation": {
+    "complete4x": {
+      "logical_ticks": 116,
+      "head_normal_draws": 64,
+      "head_HD_draws": 64,
+      "original_shadow_draws": 64,
+      "per_ID": {
+        "214": 16,
+        "215": 16,
+        "216": 16,
+        "217": 16
+      },
+      "original_positions_shadow_delta10_exact": true,
+      "state_collision_indexed_original_exact": true,
+      "rng_neutral": true,
+      "coverage_restoration_mismatch": 0
+    },
+    "complete2x": {
+      "logical_ticks": 116,
+      "head_normal_draws": 64,
+      "head_HD_draws": 64,
+      "original_shadow_draws": 64,
+      "per_ID": {
+        "214": 16,
+        "215": 16,
+        "216": 16,
+        "217": 16
+      },
+      "original_positions_shadow_delta10_exact": true,
+      "state_collision_indexed_original_exact": true,
+      "rng_neutral": true,
+      "coverage_restoration_mismatch": 0
+    },
+    "point-complete4x": {
+      "logical_ticks": 116,
+      "head_normal_draws": 64,
+      "head_HD_draws": 64,
+      "original_shadow_draws": 64,
+      "per_ID": {
+        "214": 16,
+        "215": 16,
+        "216": 16,
+        "217": 16
+      },
+      "original_positions_shadow_delta10_exact": true,
+      "state_collision_indexed_original_exact": true,
+      "rng_neutral": true,
+      "coverage_restoration_mismatch": 0
+    },
+    "missing-head-complete4x": {
+      "logical_ticks": 116,
+      "head_normal_draws": 64,
+      "head_HD_draws": 48,
+      "original_shadow_draws": 64,
+      "per_ID": {
+        "214": 16,
+        "215": 16,
+        "216": 16,
+        "217": 16
+      },
+      "original_positions_shadow_delta10_exact": true,
+      "state_collision_indexed_original_exact": true,
+      "rng_neutral": true,
+      "coverage_restoration_mismatch": 0
+    },
+    "classic-complete4x": {
+      "logical_ticks": 116,
+      "head_normal_draws": 64,
+      "head_HD_draws": 0,
+      "original_shadow_draws": 64,
+      "per_ID": {
+        "214": 16,
+        "215": 16,
+        "216": 16,
+        "217": 16
+      },
+      "original_positions_shadow_delta10_exact": true,
+      "state_collision_indexed_original_exact": true,
+      "rng_neutral": true,
+      "coverage_restoration_mismatch": 0
+    },
+    "repeat-complete4x": {
+      "logical_ticks": 116,
+      "head_normal_draws": 64,
+      "head_HD_draws": 64,
+      "original_shadow_draws": 64,
+      "per_ID": {
+        "214": 16,
+        "215": 16,
+        "216": 16,
+        "217": 16
+      },
+      "original_positions_shadow_delta10_exact": true,
+      "state_collision_indexed_original_exact": true,
+      "rng_neutral": true,
+      "coverage_restoration_mismatch": 0
+    }
+  },
+  "smoke_validation": {
+    "state_collision_indexed_pixels_exact": true,
+    "rng_neutral": true,
+    "coverage_restoration_mismatch": 0,
+    "spawns": 64,
+    "draws": 448,
+    "all7frames_original_ttl": true,
+    "existing_HD_pixels_exact_original_equation": 1222368,
+    "transparent_pixels_unchanged": 1575296,
+    "window_frames": [
+      {
+        "tick": 90,
+        "changed_pixels": 181,
+        "outside_green": 0
+      },
+      {
+        "tick": 91,
+        "changed_pixels": 290,
+        "outside_green": 0
+      },
+      {
+        "tick": 92,
+        "changed_pixels": 657,
+        "outside_green": 0
+      },
+      {
+        "tick": 93,
+        "changed_pixels": 1000,
+        "outside_green": 0
+      },
+      {
+        "tick": 94,
+        "changed_pixels": 2318,
+        "outside_green": 0
+      },
+      {
+        "tick": 95,
+        "changed_pixels": 4346,
+        "outside_green": 0
+      },
+      {
+        "tick": 96,
+        "changed_pixels": 6154,
+        "outside_green": 0
+      },
+      {
+        "tick": 97,
+        "changed_pixels": 7237,
+        "outside_green": 0
+      }
+    ]
+  },
+  "original_full_smoke_scope": {
+    "all_26_frames_difference_confined_to_current_green_tiles": true,
+    "per_tick": [
+      {
+        "tick": 90,
+        "changed_pixels": 184,
+        "outside_green": 0
+      },
+      {
+        "tick": 91,
+        "changed_pixels": 2183,
+        "outside_green": 0
+      },
+      {
+        "tick": 92,
+        "changed_pixels": 3962,
+        "outside_green": 0
+      },
+      {
+        "tick": 93,
+        "changed_pixels": 5998,
+        "outside_green": 0
+      },
+      {
+        "tick": 94,
+        "changed_pixels": 2353,
+        "outside_green": 0
+      },
+      {
+        "tick": 95,
+        "changed_pixels": 11369,
+        "outside_green": 0
+      },
+      {
+        "tick": 96,
+        "changed_pixels": 13136,
+        "outside_green": 0
+      },
+      {
+        "tick": 97,
+        "changed_pixels": 15808,
+        "outside_green": 0
+      },
+      {
+        "tick": 98,
+        "changed_pixels": 14786,
+        "outside_green": 0
+      },
+      {
+        "tick": 99,
+        "changed_pixels": 9759,
+        "outside_green": 0
+      },
+      {
+        "tick": 100,
+        "changed_pixels": 6074,
+        "outside_green": 0
+      },
+      {
+        "tick": 101,
+        "changed_pixels": 3409,
+        "outside_green": 0
+      },
+      {
+        "tick": 102,
+        "changed_pixels": 1777,
+        "outside_green": 0
+      },
+      {
+        "tick": 103,
+        "changed_pixels": 636,
+        "outside_green": 0
+      },
+      {
+        "tick": 104,
+        "changed_pixels": 0,
+        "outside_green": 0
+      },
+      {
+        "tick": 105,
+        "changed_pixels": 0,
+        "outside_green": 0
+      },
+      {
+        "tick": 106,
+        "changed_pixels": 0,
+        "outside_green": 0
+      },
+      {
+        "tick": 107,
+        "changed_pixels": 0,
+        "outside_green": 0
+      },
+      {
+        "tick": 108,
+        "changed_pixels": 0,
+        "outside_green": 0
+      },
+      {
+        "tick": 109,
+        "changed_pixels": 0,
+        "outside_green": 0
+      },
+      {
+        "tick": 110,
+        "changed_pixels": 0,
+        "outside_green": 0
+      },
+      {
+        "tick": 111,
+        "changed_pixels": 0,
+        "outside_green": 0
+      },
+      {
+        "tick": 112,
+        "changed_pixels": 0,
+        "outside_green": 0
+      },
+      {
+        "tick": 113,
+        "changed_pixels": 0,
+        "outside_green": 0
+      },
+      {
+        "tick": 114,
+        "changed_pixels": 0,
+        "outside_green": 0
+      },
+      {
+        "tick": 115,
+        "changed_pixels": 0,
+        "outside_green": 0
+      }
+    ],
+    "tail_clear_104_to_115": true,
+    "existing_HD_pixels_exact_original_equation": 1174022,
+    "transparent_pixels_unchanged": 2974528,
+    "actual_processor1_nonblend_AB_identical": true,
+    "spawns": 64,
+    "draws": 448,
+    "all7_frames": [
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84
+    ],
+    "ttl_original": true
+  },
+  "native_cloud_window": "paused92, keyboard resume, finite116 exit0",
+  "limits": "Dense trail remains mottled. Head layer only survives until unrelated foreground writes at each pixel. Native Windows/full-level/GPU acceptance pending.",
+  "selected_head_style": "v4 diffuse energy core/halo; v2 glossy sphere and v3 perceptible shell superseded",
+  "plasma_head_validation": {
+    "energy4x": {
+      "logical_ticks": 116,
+      "normal_draws": 64,
+      "HD_head_draws": 64,
+      "original_shadow_draws": 64,
+      "each_original_ID_draws": 16,
+      "original_positions_and_logic_exact": true,
+      "clear104_to115_exact": true,
+      "rng_neutral": true,
+      "coverage_restoration_mismatches": 0
+    },
+    "energy2x": {
+      "logical_ticks": 116,
+      "normal_draws": 64,
+      "HD_head_draws": 64,
+      "original_shadow_draws": 64,
+      "each_original_ID_draws": 16,
+      "original_positions_and_logic_exact": true,
+      "clear104_to115_exact": true,
+      "rng_neutral": true,
+      "coverage_restoration_mismatches": 0
+    },
+    "missing-head-energy4x": {
+      "logical_ticks": 116,
+      "normal_draws": 64,
+      "HD_head_draws": 48,
+      "original_shadow_draws": 64,
+      "each_original_ID_draws": 16,
+      "original_positions_and_logic_exact": true,
+      "clear104_to115_exact": true,
+      "rng_neutral": true,
+      "coverage_restoration_mismatches": 0
+    },
+    "repeat-energy4x": {
+      "logical_ticks": 116,
+      "normal_draws": 64,
+      "HD_head_draws": 64,
+      "original_shadow_draws": 64,
+      "each_original_ID_draws": 16,
+      "original_positions_and_logic_exact": true,
+      "clear104_to115_exact": true,
+      "rng_neutral": true,
+      "coverage_restoration_mismatches": 0
+    }
+  },
+  "renderer_matrix_scope": "Earlier point/overlap matrix validates interpolation before head layering; final ordered layer has independent extracted-production oracle and bounded runtime matrix",
+  "plasma_root_visual_pass": "Actual native4x/2x all4 contact,2026-10-11",
+  "diffuse_head_validation": {
+    "diffuse4x": {
+      "logical_ticks": 116,
+      "normal_draws": 64,
+      "HD_head_draws": 64,
+      "original_shadow_draws": 64,
+      "each_original_ID_draws": 16,
+      "original_positions_and_logic_exact": true,
+      "clear104_to115_exact": true,
+      "rng_neutral": true,
+      "coverage_restoration_mismatches": 0
+    },
+    "diffuse2x": {
+      "logical_ticks": 116,
+      "normal_draws": 64,
+      "HD_head_draws": 64,
+      "original_shadow_draws": 64,
+      "each_original_ID_draws": 16,
+      "original_positions_and_logic_exact": true,
+      "clear104_to115_exact": true,
+      "rng_neutral": true,
+      "coverage_restoration_mismatches": 0
+    },
+    "missing-head-diffuse4x": {
+      "logical_ticks": 116,
+      "normal_draws": 64,
+      "HD_head_draws": 48,
+      "original_shadow_draws": 64,
+      "each_original_ID_draws": 16,
+      "original_positions_and_logic_exact": true,
+      "clear104_to115_exact": true,
+      "rng_neutral": true,
+      "coverage_restoration_mismatches": 0
+    },
+    "repeat-diffuse4x": {
+      "logical_ticks": 116,
+      "normal_draws": 64,
+      "HD_head_draws": 64,
+      "original_shadow_draws": 64,
+      "each_original_ID_draws": 16,
+      "original_positions_and_logic_exact": true,
+      "clear104_to115_exact": true,
+      "rng_neutral": true,
+      "coverage_restoration_mismatches": 0
+    }
+  },
+  "diffuse_root_visual_pass": "Actual native4x/2x cycles plus explicitly labeled pre-trail renderer diagnostic,2026-10-11",
+  "final_visual_limit": "Dense original foreground smoke obscures head cores. Readable isolated pre-trail core is not a claim of unobscured final-gameplay readability.",
+  "previous_interpolation_renderer_sha256": "d039bf1ed6d6ceb468b9876442c12d8e82a6896cdbabe6e63d2a7d2e30d45467",
+  "head_layer_validation": {
+    "front4x": {
+      "logical_ticks": 116,
+      "normal_draws": 64,
+      "HD_head_draws": 64,
+      "original_shadow_draws": 64,
+      "each_original_ID_draws": 16,
+      "original_positions_and_logic_exact": true,
+      "clear104_to115_exact": true,
+      "rng_neutral": true,
+      "coverage_restoration_mismatches": 0
+    },
+    "front2x": {
+      "logical_ticks": 116,
+      "normal_draws": 64,
+      "HD_head_draws": 64,
+      "original_shadow_draws": 64,
+      "each_original_ID_draws": 16,
+      "original_positions_and_logic_exact": true,
+      "clear104_to115_exact": true,
+      "rng_neutral": true,
+      "coverage_restoration_mismatches": 0
+    },
+    "missing-head-front4x": {
+      "logical_ticks": 116,
+      "normal_draws": 64,
+      "HD_head_draws": 48,
+      "original_shadow_draws": 64,
+      "each_original_ID_draws": 16,
+      "original_positions_and_logic_exact": true,
+      "clear104_to115_exact": true,
+      "rng_neutral": true,
+      "coverage_restoration_mismatches": 0
+    },
+    "repeat-front4x": {
+      "logical_ticks": 116,
+      "normal_draws": 64,
+      "HD_head_draws": 64,
+      "original_shadow_draws": 64,
+      "each_original_ID_draws": 16,
+      "original_positions_and_logic_exact": true,
+      "clear104_to115_exact": true,
+      "rng_neutral": true,
+      "coverage_restoration_mismatches": 0
+    }
+  },
+  "head_layer_helper_checks": {
+    "pixel_comparisons": 1935360,
+    "densities": [
+      2,
+      4,
+      8
+    ],
+    "ASan_UBSan": "passed",
+    "mutation_checks_detected": 4
+  },
+  "head_layer_visual": "Actual native4x two cycles and2x first cycle: exposed diffuse core; original indexed/shadow order unchanged",
+  "user_visual_acceptance": "2026-10-11: user accepted the exposed diffuse bright-core effect; native4x two cycles and2x first cycle independently reviewed"
+}

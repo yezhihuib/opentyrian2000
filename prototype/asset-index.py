@@ -15,7 +15,7 @@ def hdstate(x,pack):
  p=pack/name if name else None
  return {'status':'mapped external asset available' if p and p.exists() else 'original fallback / no external binding','file':name,'sha256':sha(p) if p and p.exists() else None,'header_values':list(struct.unpack('<6I',p.read_bytes()[4:28])) if p and p.exists() else None,'note':'Availability, not proof that every effect/occlusion draw uses HD; replay reloads pack in a fresh process.'}
 p=argparse.ArgumentParser();sub=p.add_subparsers(dest='command',required=True)
-b=sub.add_parser('build');b.add_argument('--run',type=Path,required=True);b.add_argument('--output',type=Path,required=True);b.add_argument('--assets',type=Path,default=repo/'assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-test')
+b=sub.add_parser('build');b.add_argument('--run',type=Path,required=True);b.add_argument('--output',type=Path,required=True);b.add_argument('--assets',type=Path,default=repo/'assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test')
 for name in ['list','find','play','replace']:
  q=sub.add_parser(name);q.add_argument('--index',type=Path,default=repo/'assets/hd/tyrian-e1-level9-index.json')
  if name in ['list','play']:q.add_argument('--segment',type=int)

@@ -7,6 +7,7 @@ param(
     [ValidateRange(60,6000)][int]$Until = 6000,
     [switch]$Talon13,
     [switch]$Talon5,
+    [switch]$BeforeGreenHead,
     [switch]$BeforeGreenV2,
     [switch]$BeforeGreenTrail,
     [switch]$BeforeShield,
@@ -42,7 +43,8 @@ $debugRepoRoot = Split-Path -Parent $PSScriptRoot
 $debugTaskRoot = Split-Path -Parent $debugRepoRoot
 $debugExe = Join-Path $debugRepoRoot 'opentyrian-x64-Release.exe'
 $debugData = Join-Path $debugTaskRoot 'runtime-data\tyrian2000'
-$debugAssets = Join-Path $debugRepoRoot 'assets\hd\packs\packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-test'
+$debugAssets = Join-Path $debugRepoRoot 'assets\hd\packs\packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test'
+if ($BeforeGreenHead) { $debugAssets = Join-Path $debugRepoRoot 'assets\hd\packs\packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-test' }
 if ($BeforeGreenV2) { $debugAssets = Join-Path $debugRepoRoot 'assets\hd\packs\packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v1-test' }
 if ($BeforeGreenTrail) { $debugAssets = Join-Path $debugRepoRoot 'assets\hd\packs\packed-blue-four-foundation-type10-death-effects-white-smoke-shield-v1-test' }
 if ($BeforeShield) { $debugAssets = Join-Path $debugRepoRoot 'assets\hd\packs\packed-blue-four-foundation-type10-death-effects-white-smoke-v1-test' }

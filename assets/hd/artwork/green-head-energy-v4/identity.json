@@ -1,0 +1,86 @@
+{
+  "selected_atlas": "revised-atlas.png",
+  "selected_atlas_sha256": "f58c04094ce77efafbd12757228b21becb9a3c8e1c71214eb3db873cb1299abb",
+  "source": "AI-generated selected diffuse energy atlas; original reference game pixels excluded",
+  "logical_size": [
+    12,
+    14
+  ],
+  "anchor": [
+    0,
+    0
+  ],
+  "density": 8,
+  "frame_ids": [
+    214,
+    215,
+    216,
+    217
+  ],
+  "original_animation": "weapani3 -> 4-frame pulse; no engine timing changes",
+  "shared_crop": {
+    "x0": 38,
+    "y0": 14,
+    "pitch_x": 580,
+    "pitch_y": 650,
+    "width": 570,
+    "height": 665
+  },
+  "transform": "Same calibrated atlas grid and LANCZOS96x112 for all frames; no per-frame recenter or runtime offset",
+  "runtime_zip_sha256": "2fdaa69d850672fd591a2d92e319f835e0079e8ffb17088084b8b0d11a3333de",
+  "style": "Direction-neutral luminous energy core with diffuse halo, no perceptible hard circular shell or glass point reflection. No baked directional tail.",
+  "frames": {
+    "214": {
+      "sha256": "cd2fe29818aa734481be907ba27d764b58cb178f6252ee9f3fa358f8560b8740",
+      "header_u32": [
+        80214,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "source_png": "assets/hd/source/bullet-214-8-cd2fe29818aa.png",
+      "source_png_sha256": "a629da3f55b000ba515d64432c363a25c2e7a2427ec83bc9bbb979e9db758284"
+    },
+    "215": {
+      "sha256": "917ebcb0f1044b55e025d9cc160546c96192f5e142e950ccf08415f947cfa7bf",
+      "header_u32": [
+        80215,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "source_png": "assets/hd/source/bullet-215-8-917ebcb0f104.png",
+      "source_png_sha256": "b23b7360314686815315b94267d7ef6ce8103129f35f74b684cac84b233aabfc"
+    },
+    "216": {
+      "sha256": "f06bd83d10dbab85d50afc0d7946da52d1a4a9bf496cfaba172e6856b772187e",
+      "header_u32": [
+        80216,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "source_png": "assets/hd/source/bullet-216-8-f06bd83d10db.png",
+      "source_png_sha256": "642e2b83e754b0f08f0c2f30c04cccdc43aa0c03e732828d070dffd160b2ebf3"
+    },
+    "217": {
+      "sha256": "9610d3cab03120754e0d57dca628851ac9ec336bde1712818a17cd6e1425021f",
+      "header_u32": [
+        80217,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "source_png": "assets/hd/source/bullet-217-8-9610d3cab031.png",
+      "source_png_sha256": "cca9ed9858549e62b04d76cd319b591a8c6fbb9a04f794fff76117442b4c61a6"
+    }
+  }
+}

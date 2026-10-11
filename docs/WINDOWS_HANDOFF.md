@@ -1,5 +1,7 @@
 # Windows handoff to dot
 
+This is the historical eaebe318 handoff. Current cloud integration and corrected214–217 mapping are documented in [GREEN_RENDER_VALIDATION.md](GREEN_RENDER_VALIDATION.md). Use `prepare-green-review.py` for the current renderer; `prepare-effects.py` intentionally reproduces the archived historical fixture.
+
 The laptop stops mainline development after publishing this handoff. Dot owns the remaining green projectile/smoke work in the complete cloud checkout. Future laptop work requires a supplied commit for Windows acceptance or an explicitly independent task. No new A/B/test was run after the stop instruction.
 
 Current production uses green trail v2 (IDs78–84) with ORIGINAL point sampling, peak-value blend,12×14logical size,8x RGBA andanchor0,0. No extra+22offset. v1 remains unchanged; `-BeforeGreenV2` selects it, and `-BeforeGreenTrail` selects the pre-green shield stage. Renderer SHA256 fc53fad690a361ac2c3316bacc8258f1ed16f72054c9955776334939b1912a1f; last production Windows EXE SHA256 d2913de9a7beaa0f18179ec12f702f62e70c91616232a10c3255a711f3f387a0. EXE is a local build output, not a Git artifact.
@@ -10,7 +12,7 @@ At tick90call0 the pre-smoke canvas is exact8xexpanded indexed RGB (HDowner 0). 
 
 The interpolation B candidate in prototype/experiments/green-background is UNAPPLIED WIP: source patch and a private halo observer were prepared; private Windows build succeeded. No B runtime/A/B/visual result exists. B would interpolate only original-background peak under mapped green78–84whenowner 0, leave existing HD/background alpha and original hue/valueaverage unchanged. Do not treat it as selected or passed.
 
-Projectile spriteSheet8/214 is still unmapped. Original weapons71 and 1071 reuse eight copies of a single static 214 frame,12×14logical,anchor0,0, actual draw shotX+1,shotY and separate original shadow. Screenshot alone cannot distinguish71from1071. Dot has original-frame/mapping evidence and is creating replacement art. Nothing new was bound for214.
+Projectile spriteSheet8/214 is still unmapped. CORRECTION: Original weapons71 and1071 use base214 but loaded weapani3, hence the four-frame214–217 pulse; the earlier static214 claim was incorrect. Geometry is12×14logical,anchor0,0, draw shotX+1,shotY and separate original shadow. Screenshot alone cannot distinguish71from1071. Dot has original-frame/mapping evidence and is creating replacement art. Nothing new was bound for214.
 
 Tracked formal resources are197 PNG sources and2236 exact HDR entries in16 stage packs; current debug/preview counts190/186. Main engine/build/launcher/index files are tracked. Original data at siblingruntime-data/tyrian2000, local SDL SDKs at siblingproject-deps, EXE/DLL/PDB/build products, run captures/videos and rollback ZIPs remain external. Exact tested private fixture source overrides and hashes are tracked; the newly exported preparation command was not executed during handoff. HISTORICAL_PROTOTYPE_AUDIT.jsonlists64retained untracked files individually, their hashes/dependencies and reasons. No active tracked build/runtime dependency on those64was found. Their old local evidence dependencies are not advertised as portable. The prior screenshot/recycle discrepancy remains unverified; nothing was deleted or placed into recycle.
 

@@ -1,3 +1,5 @@
+Historical experiment; superseded by the selected immutable pre-draw snapshot implementation documented in docs/GREEN_RENDER_VALIDATION.md. These patches are retained for audit and must not be applied to current source.
+
 # Unapplied green-background interpolation WIP
 
 Only a candidate and private Windows build exist. No runtime A/B, visual acceptance, stability/performance or adoption result. Production remains v2art with original point/blend. The stop request ended work before any candidate run.

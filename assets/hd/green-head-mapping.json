@@ -1,0 +1,121 @@
+{
+  "source_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+  "sheet": "spriteSheet8, tyrian.shp offsets[7]",
+  "logical_size": [
+    12,
+    14
+  ],
+  "anchor": [
+    0,
+    0
+  ],
+  "draw_origin": "shotX+1,shotY",
+  "shadow": "original separate indexed call at shotY+shadowYDist",
+  "palette_block_zero_based": 5,
+  "weapon71": {
+    "id": 71,
+    "packed_index": 71,
+    "weapani": 3,
+    "del": [
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8
+    ],
+    "sg": [
+      214,
+      214,
+      214,
+      214,
+      214,
+      214,
+      214,
+      214
+    ],
+    "trail": 12
+  },
+  "runtime_cycle": {
+    "90": 214,
+    "91": 215,
+    "92": 216,
+    "93": 217,
+    "94": 214,
+    "95": 215,
+    "96": 216,
+    "97": 217
+  },
+  "frames": {
+    "214": {
+      "alpha_bbox": [
+        0,
+        1,
+        11,
+        12
+      ],
+      "indexed_sha256": "1d782d8ac34540801c1f693798f4f2207bf9e9015aa7685acd14c9bd47d11473",
+      "png_sha256": "ae43c74fc68fa561a058bde2d29bf2d3b683af65ca7b99339b52fc910b8725f1"
+    },
+    "215": {
+      "alpha_bbox": [
+        0,
+        1,
+        11,
+        12
+      ],
+      "indexed_sha256": "b9bdb62ee6445ebd2d5078139d4611704752ae521eb9012a60d143a0ceda46fc",
+      "png_sha256": "5092a5fc96c87a6d718ff9ae8be628b08d86f5d17e2ec9733f742574e60dc2ac"
+    },
+    "216": {
+      "alpha_bbox": [
+        0,
+        1,
+        11,
+        12
+      ],
+      "indexed_sha256": "91920e4b17a205a81b904d83013e2889f4320e70e1c639cbdf856225c3621b18",
+      "png_sha256": "42b824d730f25e7cd72f09665725dc2784abcfc62796787d5af344d011f5910a"
+    },
+    "217": {
+      "alpha_bbox": [
+        0,
+        1,
+        11,
+        12
+      ],
+      "indexed_sha256": "2612e3387c3729579c78626b29bedbf046b0eb1c6622dc7c0c7d60cb55833f9f",
+      "png_sha256": "7cf4176a6429e4ea740ed7dc6ffdbb887cb1a3120cc65644ab8da3e42fa2daf0"
+    }
+  },
+  "weapon1071": {
+    "id": 1071,
+    "packed_index": 890,
+    "weapani": 3,
+    "del": [
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8
+    ],
+    "sg": [
+      214,
+      214,
+      214,
+      214,
+      214,
+      214,
+      214,
+      214
+    ],
+    "trail": 12
+  },
+  "runtime_validation": "Cloud actual weapon71 material logs, ticks90\u201397: 214,215,216,217,214,215,216,217. Original PNG references remain outside Git.",
+  "supersedes": "Previous static214 assumption in WINDOWS_HANDOFF.md and preflight mapping was incorrect; loaded weapani is3, not0."
+}

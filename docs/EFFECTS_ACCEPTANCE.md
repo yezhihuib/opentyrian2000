@@ -11,3 +11,11 @@ Existing Library evidence, do not re-upload:
 - Shield board libfile_3b83b58582a8819184118a9bb95df644; video libfile_d58e5eaa46308191a5455e976586a172; complete ZIP libfile_538af690b44c819193cf708f1a6102e5.
 
 Finite private fixture source snapshots are preserved under prototype/fixtures/effects. They are excluded from production compilation. Their source hashes identify the previously tested artifacts; no new fixture run was performed during handoff.
+
+## Green update,2026-10-11
+
+Complete green head214–217 and v2 trail passed finite cloud parent visual review at native4×/2×. Green-only original-background brightness interpolation reduces the block imprint without changing the source value-average equation, alpha or outside scenery. Dense trail overlaps still have rounded puff texture; this is not a flat-glow redesign. All64 head draws and64 original shadows were verified, with missing216/classic/repeat parity. Full details, reproducible scripts and remaining Windows/full-level limits: [GREEN_RENDER_VALIDATION.md](GREEN_RENDER_VALIDATION.md).
+
+The intermediate v3 head art was a direction-neutral plasma replacement. The earlier glossy sphere was rejected for style and is retained only in local rollback history. Renderer behavior and four-phase timing remain unchanged; bounded native4×/2× and fallback/repeat checks passed for the replacement.
+
+Final selected head art is v4 diffuse energy: no perceptible hard circular shell. Actual native4×/2× cycles and a clearly labeled pre-trail diagnostic passed the requested boundary/readability check. Dense original foreground smoke still obscures cores; original draw order and alpha remain unchanged. Final bounded parity, missing216, repeat and clear checks pass.

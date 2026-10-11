@@ -20,7 +20,7 @@ typedef struct {
  Uint8 *rgba;
 } Asset;
 enum { ASSET_NEWSH2=101, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106 };
-static Asset assets[182];
+static Asset assets[186];
 static Asset talon_frames[13];
 typedef struct {
  bool valid;
@@ -52,9 +52,18 @@ static int fade_mode;
 static SDL_Texture *texture;
 static Uint8 expected[320*200], selected[320*200];
 static Uint8 *hd_owner;
+/* Green-head display layer: only green smoke may pass underneath it. Every
+ * unrelated pixel write bakes/invalidate it at its original command position. */
+typedef struct { Asset *asset; int x,y; } GreenHead;
+static GreenHead green_heads[256];
+static unsigned int green_head_count;
+static Uint16 *green_first;
+static Uint32 *green_under;
+static Uint8 *green_under_owner;
 static Uint32 initial_palette[256];
 static bool have_initial_palette;
 static bool active,suppress,ready;
+static bool suppress_green_smoke;
 static const char *reject_reason;
 static unsigned int draws,occlusions,mismatch;
 typedef struct { SDL_Rect rect; int bank,index,style; bool live; } HdRegion;
@@ -123,7 +132,7 @@ static void restore_classic_rect(SDL_Rect r)
   for(int sy=0;sy<d;sy++) {
    Uint32 *p=(Uint32 *)((Uint8 *)canvas->pixels+(y*d+sy)*canvas->pitch)+x*d;
    Uint8 *owner=hd_owner+(y*d+sy)*canvas->w+x*d;
-   for(int sx=0;sx<d;sx++) {replaced=replaced||owner[sx]!=0;p[sx]=color;owner[sx]=0;}
+   for(int sx=0;sx<d;sx++) {replaced=replaced||owner[sx]!=0;p[sx]=color;owner[sx]=0;green_first[(y*d+sy)*canvas->w+x*d+sx]=0;}
   }
   if(replaced) ++local_blocks;
   selected[y*320+x]=0;
@@ -173,6 +182,7 @@ void render_mirror_brightness_pixel(SDL_Surface *surface,Uint8 *address,int valu
   Uint32 *row=(Uint32 *)((Uint8 *)canvas->pixels+(y*d+sy)*canvas->pitch)+x*d;
   const Uint8 *owner=hd_owner+(y*d+sy)*canvas->w+x*d;
   for(int sx=0;sx<d;sx++) {
+   green_first[(y*d+sy)*canvas->w+x*d+sx]=0;
    if(owner[sx]==2)row[sx]=palette_rgb(*address); /* Explicit original-copy diagnostic. */
    else if(owner[sx]) {row[sx]=brightness_rgba(row[sx],value);touched_hd=true;}
    else row[sx]=palette_rgb(*address);
@@ -196,7 +206,7 @@ void render_mirror_begin(void)
   * individual sprites, shadows nor repeated Present calls advance this clock. */
  ++mirror_logic_tick;banking_draw_player=0;
  last_output_valid=false;have_fade_saved=false;fade_mode=0;
- ready=false; active=false; suppress=false;
+ ready=false; active=false; suppress=false;suppress_green_smoke=false;
  if(!game_probe_enabled) return;
  if(!have_initial_palette) {memcpy(initial_palette,rgb_palette,sizeof(initial_palette));have_initial_palette=true;}
  if(asset_debug_fast_forward())return;
@@ -205,12 +215,16 @@ void render_mirror_begin(void)
   canvas=SDL_CreateRGBSurfaceWithFormat(0,320*d,200*d,32,SDL_PIXELFORMAT_ARGB8888);
   output=SDL_CreateRGBSurfaceWithFormat(0,320*d,200*d,32,SDL_PIXELFORMAT_ARGB8888);
   hd_owner=calloc((size_t)320*200*d*d,1);
+  green_first=calloc((size_t)320*200*d*d,sizeof(*green_first));
+  green_under=malloc((size_t)320*200*d*d*sizeof(*green_under));
+  green_under_owner=malloc((size_t)320*200*d*d);
  }
- if(!canvas||!output||!hd_owner) return;
+ if(!canvas||!output||!hd_owner||!green_first||!green_under||!green_under_owner) return;
  if(!have_initial_palette) { memcpy(initial_palette,rgb_palette,sizeof(initial_palette));have_initial_palette=true; }
  for(int y=0;y<200;y++) memcpy(expected+y*320,(Uint8 *)game_screen->pixels+y*game_screen->pitch,320);
  upscale(canvas,game_screen);
  memset(selected,0,sizeof(selected)); memset(hd_owner,0,(size_t)canvas->w*canvas->h); draws=occlusions=mismatch=0; reject_reason=NULL; active=true;
+ green_head_count=0;memset(green_first,0,(size_t)canvas->w*canvas->h*sizeof(*green_first));
  region_count=local_entities=local_regions=local_blocks=0;all_rejections[0]='\0';
  memset(restored_mask,0,sizeof(restored_mask));brightness_blocks=restored_checks=restored_mismatches=expanded_regions=boundary_crossings=0;
 }
@@ -230,6 +244,10 @@ void render_mirror_pixel(SDL_Surface *surface,Uint8 *address,Uint8 source,int st
    * reappear through that transparency when a later palette fade runs. */
   int d=game_probe_density;
   for(int sy=0;sy<d;sy++)memset(hd_owner+(y*d+sy)*canvas->w+x*d,game_probe_original_reference?2:1,(size_t)d);
+  if(suppress_green_smoke)for(int sy=0;sy<d;sy++)for(int sx=0;sx<d;sx++) {
+   int n=(y*d+sy)*canvas->w+x*d+sx;
+   if(green_first[n])green_under_owner[n]=1;
+  }
   selected[y*320+x]=1;
   return;
  }
@@ -239,6 +257,7 @@ void render_mirror_pixel(SDL_Surface *surface,Uint8 *address,Uint8 source,int st
   Uint32 *p=(Uint32 *)((Uint8 *)canvas->pixels+(y*d+sy)*canvas->pitch)+x*d;
   Uint8 *owner=hd_owner+(y*d+sy)*canvas->w+x*d;
   for(int sx=0;sx<d;sx++) {
+   green_first[(y*d+sy)*canvas->w+x*d+sx]=0;
    if(owner[sx]&&style==MIRROR_BLEND) {
     if(!game_probe_local_blend) {render_mirror_unsupported("hd-under-palette-blend");return;}
     bool found=false;
@@ -344,12 +363,13 @@ static Asset *get_asset(Sprite2_array bank,unsigned int index,int layout)
  int slot=-1,role=0;
  if(bank.data==spriteSheet9.data&&layout==ENTITY_QUAD&&index>=229&&index<=237&&index%2==1) {slot=(int)(index-229)/2;role=9;}
  if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&index==59) {slot=5;role=8;}
+ if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&index>=214&&index<=217) {slot=182+(int)index-214;role=8;}
  if(bank.data==explosionSpriteSheet.data&&layout==ENTITY_TILE) {int explosion_slot=explosion_asset_slot(index);if(explosion_slot>=0){slot=explosion_slot;role=ASSET_EXPLOSION;}}
  if(slot<0||game_probe_density==1||game_probe_missing||(role==ASSET_EXPLOSION&&(!game_probe_assets||game_probe_original_reference))) return NULL;
  Asset *a=&assets[slot];
  if(a->initialized) return a->valid?a:NULL;
  a->initialized=true; a->bank=role;a->index=(int)index;a->w=layout==ENTITY_QUAD?24:12;a->h=layout==ENTITY_QUAD?28:14;
- a->anchor_x=role==9?5:role==8?-1:0;a->anchor_y=role==9?7:0;
+ a->anchor_x=role==9?5:role==8&&index==59?-1:0;a->anchor_y=role==9?7:0;
  if(game_probe_invalid) return NULL;
  if(game_probe_assets) {
   a->valid=read_asset(a,game_probe_density);
@@ -463,6 +483,61 @@ static void explosion_asset_blend_rgba(Uint32 dst,const Uint8 *src,Uint8 *rgba)
  rgba[3]=src[3];
 }
 
+/* Green smoke alone interpolates the original scenery's brightness term.
+ * Snapshot the 12x14 tile plus one logical-pixel halo BEFORE drawing: sampling
+ * a live canvas would depend on scan order as this sprite claims HD ownership.
+ * 256 marks an HD-owned or outside tap; use the current destination there so
+ * an adjacent HD entity is never blurred into the indexed scenery. Authored
+ * hue/alpha, prior HD overlaps, and every other effect keep their old operator. */
+typedef struct { Uint16 peak[16][14]; } GreenBackground;
+
+static void green_background_snapshot(GreenBackground *background,int x,int y)
+{
+ int d=game_probe_density;
+ for(int iy=0;iy<16;iy++)for(int ix=0;ix<14;ix++) {
+  int tx=(x+ix-1)*d+d/2,ty=(y+iy-1)*d+d/2;
+  unsigned int peak=256;
+  if(tx>=0&&ty>=0&&tx<canvas->w&&ty<canvas->h) {
+   int n=ty*canvas->w+tx;
+   Uint8 owner=green_first[n]?green_under_owner[n]:hd_owner[n];
+   Uint32 color=green_first[n]?green_under[n]:*((Uint32 *)((Uint8 *)canvas->pixels+ty*canvas->pitch)+tx);
+   if(owner==0)
+   peak=MAX((color>>16)&255,MAX((color>>8)&255,color&255));
+  }
+  background->peak[iy][ix]=(Uint16)peak;
+ }
+}
+
+static unsigned int green_background_peak(const GreenBackground *background,int ax,int ay,Uint32 dst)
+{
+ int d=game_probe_density,den=2*d;
+ int wx=2*(ax%d)+1-d,wy=2*(ay%d)+1-d;
+ int bx=ax/d+1,by=ay/d+1;
+ if(wx<0){--bx;wx+=den;}if(wy<0){--by;wy+=den;}
+ unsigned int current=MAX((dst>>16)&255,MAX((dst>>8)&255,dst&255)),sum=0;
+ for(int iy=0;iy<2;iy++)for(int ix=0;ix<2;ix++) {
+  unsigned int peak=background->peak[by+iy][bx+ix];
+  if(peak==256)peak=current;
+  sum+=peak*(unsigned int)(ix?wx:den-wx)*(unsigned int)(iy?wy:den-wy);
+ }
+ return (sum+(unsigned int)(den*den/2))/(unsigned int)(den*den);
+}
+
+/* Rebuild from the head-free underlay, never from a previously composited
+ * head. Ordered replay preserves exact integer alpha for overlapping heads. */
+static Uint32 green_head_composite(int dx,int dy,unsigned int first,Uint32 color)
+{
+ int d=game_probe_density;
+ for(unsigned int i=first-1;i<green_head_count;i++) {
+  const GreenHead *h=&green_heads[i];const Asset *a=h->asset;
+  int ax=dx-h->x*d,ay=dy-h->y*d;
+  if(ax<0||ay<0||ax>=a->w*d||ay>=a->h*d)continue;
+  const Uint8 *src=a->rgba+4*((ay*a->density/d)*(a->w*a->density)+ax*a->density/d);
+  if(src[3])color=blend_rgba(color,src,src[3]);
+ }
+ return color;
+}
+
 static bool draw_asset_filtered(int x,int y,Asset *a,int style,const SDL_Rect *part,Uint8 filter)
 {
  /* Original Talon invulnerability uses half-opacity, not a different sprite.
@@ -486,6 +561,15 @@ static bool draw_asset_filtered(int x,int y,Asset *a,int style,const SDL_Rect *p
   if(region_count>=sizeof(regions)/sizeof(regions[0])) {render_mirror_unsupported("hd-region-capacity");return false;}
   HdRegion region={{x,y,a->w,a->h},a->bank,a->index,style,true};regions[region_count++]=region;
  }
+ bool green_blend=explosion_blend&&a->index>=78&&a->index<=84;
+ bool green_smoke=a->bank==ASSET_EXPLOSION&&a->index>=78&&a->index<=84&&style!=MIRROR_SHADOW&&!game_probe_original_reference;
+ bool green_head=a->bank==8&&a->index>=214&&a->index<=217&&style==MIRROR_NORMAL&&!game_probe_original_reference&&!part&&!filter;
+ if(green_head) {
+  if(green_head_count>=sizeof(green_heads)/sizeof(green_heads[0])) {render_mirror_unsupported("green-head-layer-capacity");return false;}
+  green_heads[green_head_count++]=(GreenHead){a,x,y};
+ }
+ GreenBackground green_background;
+ if(green_blend)green_background_snapshot(&green_background,x,y);
  int d=game_probe_density,ad=a->density,pw=a->w*ad;
  int x0=part?part->x*d:0,y0=part?part->y*d:0,x1=part?(part->x+part->w)*d:a->w*d,y1=part?(part->y+part->h)*d:a->h*d;
  for(int ay=y0;ay<y1;ay++) for(int ax=x0;ax<x1;ax++) {
@@ -494,6 +578,13 @@ static bool draw_asset_filtered(int x,int y,Asset *a,int style,const SDL_Rect *p
   Uint8 filtered[4];if(filter){enemy_filter_rgba(src,filter,filtered);src=filtered;}
   Uint32 *p=(Uint32 *)((Uint8 *)canvas->pixels+dy*canvas->pitch)+dx;
   int owner_index=dy*canvas->w+dx;
+  if(green_head&&!green_first[owner_index]) {
+   green_first[owner_index]=(Uint16)green_head_count;
+   green_under[owner_index]=*p;green_under_owner[owner_index]=hd_owner[owner_index];
+  } else if(!green_head&&!green_smoke)green_first[owner_index]=0;
+  bool under_head=green_smoke&&green_first[owner_index];
+  Uint8 destination_owner=under_head?green_under_owner[owner_index]:hd_owner[owner_index];
+  if(under_head)*p=green_under[owner_index];
   if(style==MIRROR_SHADOW) {
    if(hd_owner[owner_index]==1) *p=darken_rgba(*p,src[3]);
    else {
@@ -502,12 +593,21 @@ static bool draw_asset_filtered(int x,int y,Asset *a,int style,const SDL_Rect *p
     Uint8 rgba[4]={(dark>>16)&255,(dark>>8)&255,dark&255,255};*p=blend_rgba(*p,rgba,src[3]);
    }
   } else if(explosion_blend) {
-   Uint8 rgba[4];explosion_asset_blend_rgba(*p,src,rgba);*p=blend_rgba(*p,rgba,src[3]);
+   Uint32 background=*p;
+   if(green_blend&&destination_owner==0) {
+    unsigned int peak=green_background_peak(&green_background,ax,ay,*p);
+    background=0xff000000u|peak*0x010101u;
+   }
+   Uint8 rgba[4];explosion_asset_blend_rgba(background,src,rgba);*p=blend_rgba(*p,rgba,src[3]);
   } else *p=blend_rgba(*p,src,talon_blend?(src[3]+1)/2:src[3]);
+  if(under_head) {
+   green_under[owner_index]=*p;green_under_owner[owner_index]=1;
+   *p=green_head_composite(dx,dy,green_first[owner_index],*p);
+  }
   hd_owner[owner_index]=game_probe_original_reference?2:1;selected[(dy/d)*320+dx/d]=1;
  }
 
- ++draws;suppress=true;return true;
+ ++draws;suppress=true;suppress_green_smoke=green_smoke;return true;
 }
 
 static bool draw_asset(int x,int y,Asset *a,int style,const SDL_Rect *part)
@@ -516,6 +616,8 @@ static bool draw_asset(int x,int y,Asset *a,int style,const SDL_Rect *part)
 bool render_mirror_entity(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int index,int style,int layout)
 {
  if(!active||surface!=game_screen||reject_reason)return false;
+ /* Keep the green214..217 shadows on their original indexed path and origin. */
+ if(bank.data==spriteSheet8.data&&index>=214&&index<=217&&style==MIRROR_SHADOW)return false;
  Asset *a=get_asset(bank,index,layout);
  if(a&&a->bank==9&&banking_draw_player) {
   TalonBank *s=&talon_banks[banking_draw_player-1];
@@ -588,7 +690,7 @@ void render_mirror_terrain_pixel(SDL_Surface *surface,Uint8 *address,Uint8 sourc
  bool previous=suppress;suppress=replaced;render_mirror_pixel(surface,address,source,style);suppress=previous;
 }
 
-void render_mirror_entity_end(void) { suppress=false; }
+void render_mirror_entity_end(void) { suppress=false;suppress_green_smoke=false; }
 
 /* Recognized original warm/contact explosions and nine shield-hit pieces.
  * Original hue overwrite + averaged ramp value is approximated continuously
@@ -682,7 +784,7 @@ void render_mirror_sprite2_blend_pixel(SDL_Surface *surface,Uint8 *address,Uint8
   for(int sy=0;sy<d;sy++) {
    Uint32 *p=(Uint32 *)((Uint8 *)canvas->pixels+(y*d+sy)*canvas->pitch)+x*d;
    const Uint8 *owner=hd_owner+(y*d+sy)*canvas->w+x*d;
-   for(int sx=0;sx<d;sx++)p[sx]=owner[sx]==1?explosion_blend_rgba(p[sx],source):palette_rgb(*address);
+   for(int sx=0;sx<d;sx++) {green_first[(y*d+sy)*canvas->w+x*d+sx]=0;p[sx]=owner[sx]==1?explosion_blend_rgba(p[sx],source):palette_rgb(*address);}
   }
  } else {blend_source_index=index;render_mirror_pixel(surface,address,source,MIRROR_BLEND);blend_source_index=0;}
  game_probe_blend_write(known,index,origin_x,origin_y,x,y,before,source,*address,subpixels,local_blocks-old_blocks,rgba);
