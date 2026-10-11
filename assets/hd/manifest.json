@@ -29154,7 +29154,7 @@
       }
     },
     "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 247,
+      "count": 250,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -32366,11 +32366,50 @@
           ],
           "source_png": "assets/hd/source/terrain-shapesz-114-8-2e5c9bd9bccf.png",
           "source_png_sha256": "29e21aaaca151bbe55bf7f6333af21c05bec550f46c1160f5feef65d0d95b67c"
+        },
+        "enemy-newsh2-267-8.hda": {
+          "sha256": "60d4dcf1f76046c7d8e9f1f56495fce5affc4d919294334173d4a232430487a9",
+          "header_u32": [
+            1010267,
+            8,
+            24,
+            28,
+            6,
+            7
+          ],
+          "source_png": "assets/hd/source/enemy-newsh2-267-8-60d4dcf1f760.png",
+          "source_png_sha256": "1bace298e65167bcc51f3db30c9faab807593ae6c56aa43a74579c7f7fa47487"
+        },
+        "enemy-newsh2-269-8.hda": {
+          "sha256": "7e421ebcee1dc47d14ca389445ac00294c82f3c22f8ac6df2f8789e91e699378",
+          "header_u32": [
+            1010269,
+            8,
+            24,
+            28,
+            6,
+            7
+          ],
+          "source_png": "assets/hd/source/enemy-newsh2-269-8-7e421ebcee1d.png",
+          "source_png_sha256": "5fefe77a19dfa788c79bbbf0231d6247b36de6dd065013ad5c9875121568a55c"
+        },
+        "enemy-newsh2-271-8.hda": {
+          "sha256": "a236e969df3d121dc7d74dca7a1c772aa5c291f0343e624a0e499abc7eb0af78",
+          "header_u32": [
+            1010271,
+            8,
+            24,
+            28,
+            6,
+            7
+          ],
+          "source_png": "assets/hd/source/enemy-newsh2-271-8-a236e969df3d.png",
+          "source_png_sha256": "1122e4d804fa4a414a29eacb759b11c5fc3ffd3c0148fdf14b59f7cc852f4eff"
         }
       }
     },
     "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 251,
+      "count": 254,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -35634,6 +35673,45 @@
           ],
           "source_png": "assets/hd/source/terrain-shapesz-114-8-2e5c9bd9bccf.png",
           "source_png_sha256": "29e21aaaca151bbe55bf7f6333af21c05bec550f46c1160f5feef65d0d95b67c"
+        },
+        "enemy-newsh2-267-8.hda": {
+          "sha256": "60d4dcf1f76046c7d8e9f1f56495fce5affc4d919294334173d4a232430487a9",
+          "header_u32": [
+            1010267,
+            8,
+            24,
+            28,
+            6,
+            7
+          ],
+          "source_png": "assets/hd/source/enemy-newsh2-267-8-60d4dcf1f760.png",
+          "source_png_sha256": "1bace298e65167bcc51f3db30c9faab807593ae6c56aa43a74579c7f7fa47487"
+        },
+        "enemy-newsh2-269-8.hda": {
+          "sha256": "7e421ebcee1dc47d14ca389445ac00294c82f3c22f8ac6df2f8789e91e699378",
+          "header_u32": [
+            1010269,
+            8,
+            24,
+            28,
+            6,
+            7
+          ],
+          "source_png": "assets/hd/source/enemy-newsh2-269-8-7e421ebcee1d.png",
+          "source_png_sha256": "5fefe77a19dfa788c79bbbf0231d6247b36de6dd065013ad5c9875121568a55c"
+        },
+        "enemy-newsh2-271-8.hda": {
+          "sha256": "a236e969df3d121dc7d74dca7a1c772aa5c291f0343e624a0e499abc7eb0af78",
+          "header_u32": [
+            1010271,
+            8,
+            24,
+            28,
+            6,
+            7
+          ],
+          "source_png": "assets/hd/source/enemy-newsh2-271-8-a236e969df3d.png",
+          "source_png_sha256": "1122e4d804fa4a414a29eacb759b11c5fc3ffd3c0148fdf14b59f7cc852f4eff"
         }
       }
     }
@@ -37054,6 +37132,24 @@
       "sha256": "ac3aac7d655ff0eca2b3e343246b956ba758b6388e5fc7270bb51cabdeb66133",
       "RGBA_sha256": "a258c4d1bdc992d59d1dbb3430f6495892b32b9e9d93e68032bdc84b5fbe6f35",
       "note": "Generated additive missing plateau edge, frozen accepted neighbors preserved"
+    },
+    "60d4dcf1f76046c7d8e9f1f56495fce5affc4d919294334173d4a232430487a9": {
+      "path": "assets/hd/source/enemy-newsh2-267-8-60d4dcf1f760.png",
+      "sha256": "1bace298e65167bcc51f3db30c9faab807593ae6c56aa43a74579c7f7fa47487",
+      "RGBA_sha256": "e6f1a3d7dd44692e0ec954e1db83e23245c3710dd3cd26fad03eaccc918bce7d",
+      "note": "Generated physical craft17/24/25; three static directions, original anchors and filtered quadrants preserved"
+    },
+    "7e421ebcee1dc47d14ca389445ac00294c82f3c22f8ac6df2f8789e91e699378": {
+      "path": "assets/hd/source/enemy-newsh2-269-8-7e421ebcee1d.png",
+      "sha256": "5fefe77a19dfa788c79bbbf0231d6247b36de6dd065013ad5c9875121568a55c",
+      "RGBA_sha256": "0d43a8db47f2383c5a6fd352dafea3cd94b86018bd2f4fac2188fd3bbaeddd49",
+      "note": "Generated physical craft17/24/25; three static directions, original anchors and filtered quadrants preserved"
+    },
+    "a236e969df3d121dc7d74dca7a1c772aa5c291f0343e624a0e499abc7eb0af78": {
+      "path": "assets/hd/source/enemy-newsh2-271-8-a236e969df3d.png",
+      "sha256": "1122e4d804fa4a414a29eacb759b11c5fc3ffd3c0148fdf14b59f7cc852f4eff",
+      "RGBA_sha256": "b2c30e32cba1a9090706788a426a4c2e0b32b96fd0e2afbaef1679f23590c233",
+      "note": "Generated physical craft17/24/25; three static directions, original anchors and filtered quadrants preserved"
     }
   },
   "no_original_game_data": true,
@@ -37280,5 +37376,28 @@
     "layer": 1,
     "source": "assets/hd/artwork/plateau-four-v1",
     "scope": "remaining plateau family edges; renderer/shadow/gameplay unchanged"
+  },
+  "enemy_craft17_24_25_v1": {
+    "sheet": "newsh2.shp",
+    "enemy_types": [
+      17,
+      24,
+      25
+    ],
+    "bases": [
+      267,
+      269,
+      271
+    ],
+    "logical_size": [
+      24,
+      28
+    ],
+    "anchor": [
+      6,
+      7
+    ],
+    "source": "assets/hd/artwork/enemy-craft17-24-25-v1",
+    "scope": "three static physical directions; exact mirrored left/right art; original filter and ordered quadrant paths"
   }
 }

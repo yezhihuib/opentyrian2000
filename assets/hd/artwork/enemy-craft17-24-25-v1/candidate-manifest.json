@@ -1,0 +1,95 @@
+{
+  "identity": "enemy17-24-25-newsh2-hd-v1",
+  "namespace": "newsh2.shp",
+  "static_designs": true,
+  "animation_frames_per_enemy": 1,
+  "records": [
+    {
+      "id": 267,
+      "file": "frames8x/newsh2-base-267-192x224.png",
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        6,
+        7
+      ],
+      "sha256": "1bace298e65167bcc51f3db30c9faab807593ae6c56aa43a74579c7f7fa47487",
+      "bbox_alpha16": [
+        3,
+        16,
+        186,
+        222
+      ],
+      "edge_alpha_max": 3
+    },
+    {
+      "id": 269,
+      "file": "frames8x/newsh2-base-269-192x224.png",
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        6,
+        7
+      ],
+      "sha256": "5fefe77a19dfa788c79bbbf0231d6247b36de6dd065013ad5c9875121568a55c",
+      "bbox_alpha16": [
+        3,
+        16,
+        190,
+        199
+      ],
+      "edge_alpha_max": 4
+    },
+    {
+      "id": 271,
+      "file": "frames8x/newsh2-base-271-192x224.png",
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        6,
+        7
+      ],
+      "sha256": "1122e4d804fa4a414a29eacb759b11c5fc3ffd3c0148fdf14b59f7cc852f4eff",
+      "bbox_alpha16": [
+        2,
+        16,
+        189,
+        199
+      ],
+      "edge_alpha_max": 4
+    }
+  ],
+  "transform": {
+    "source_windows": {
+      "267": [
+        119,
+        213,
+        479,
+        633
+      ],
+      "269": [
+        726,
+        213,
+        1116,
+        633
+      ]
+    },
+    "export": [
+      192,
+      224
+    ],
+    "resampling": "LANCZOS",
+    "271": "exact horizontal flip of exported269, matching byte-exact original relation"
+  },
+  "classification": "Physical silver/gray hull, restrained ochre support arms, orange-red center. Defined metal edges.",
+  "limits": [
+    "Original source identity trace is private survival plus weapon71 injection; not ordinary gameplay proof.",
+    "Actual runtime hit filter/placement review pending."
+  ]
+}

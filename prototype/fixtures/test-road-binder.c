@@ -52,7 +52,7 @@ static void nonterrain_untouched(void)
 {CHECK(!assets[218].initialized&&!assets[219].initialized);for(int i=231;i<=234;i++)CHECK(!assets[i].initialized);}
 int main(void)
 {
- CHECK(sizeof(assets)/sizeof(*assets)==243);CHECK(sizeof(terrain_sources)/sizeof(*terrain_sources)==115);
+ CHECK(sizeof(assets)/sizeof(*assets)==246);CHECK(sizeof(terrain_sources)/sizeof(*terrain_sources)==115);
  for(unsigned int id=0;id<600;id++){int expected=-1;for(int j=0;j<9;j++)if(id==ids[j])expected=slots[j];CHECK(road_terrain_slot(id)==expected);}
  for(unsigned int id=0;id<600;id++){int expected=-1;for(int j=0;j<9;j++)if(id==ground_ids[j])expected=201+j;CHECK(ground_terrain_slot(id)==expected);}
  for(unsigned int layer=0;layer<5;layer++)for(unsigned int id=0;id<600;id++){
@@ -106,7 +106,7 @@ int main(void)
  for(unsigned int j=0;j<52;j++){
   Asset *a=&assets[combined_slots[j]];CHECK(a->initialized&&a->valid&&a->bank==201&&a->index==(int)combined_ids[j]);CHECK(a->rgba[0]==(combined_ids[j]&255));
  }
- for(unsigned int slot=0;slot<243;slot++){bool terrain=false;for(unsigned int j=0;j<52;j++)if(slot==(unsigned int)combined_slots[j])terrain=true;CHECK(assets[slot].initialized==terrain);}
+ for(unsigned int slot=0;slot<246;slot++){bool terrain=false;for(unsigned int j=0;j<52;j++)if(slot==(unsigned int)combined_slots[j])terrain=true;CHECK(assets[slot].initialized==terrain);}
  /* A mixed12-tile row preserves bit positions and draw/trace order. */
  Uint8 *mixed[12]={bank+323,bank+36,bank+324,bank+38,bank+333,bank+47,bank+334,bank+96,bank+109,bank+101,bank+56,bank+58};
  draws=traces=0;CHECK(render_mirror_terrain_row(game_screen,0,0,mixed,MIRROR_NORMAL)==4095u);CHECK(draws==12&&traces==12&&!suppress);nonterrain_untouched();

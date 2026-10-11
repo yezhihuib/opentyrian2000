@@ -90,7 +90,7 @@ static void nonterrain_untouched(void)
 int main(void)
 {
  load_actual();
- CHECK(sizeof(assets)/sizeof(*assets)==243);CHECK(sizeof(terrain_sources)/sizeof(*terrain_sources)==115);
+ CHECK(sizeof(assets)/sizeof(*assets)==246);CHECK(sizeof(terrain_sources)/sizeof(*terrain_sources)==115);
  for(unsigned int id=0;id<600;id++) {
   int e=-1;for(int j=0;j<2;j++)if(id==ids[j])e=slots[j];CHECK(terrain_holes_slot(id)==e);
   e=-1;for(int j=0;j<9;j++)if(id==road_ids[j])e=road_slots[j];CHECK(road_terrain_slot(id)==e);

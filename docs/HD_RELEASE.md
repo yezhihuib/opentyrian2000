@@ -1,6 +1,8 @@
 # Current scoped release (2026-10-11)
 
-The manifest is authoritative:18 packs,2734 HDA entries,259 formal PNGs, defaults247/251. Latest additions are the [plateau edge correction](PLATEAU_FOUR_VALIDATION.md) [static installation](INSTALLATION_VALIDATION.md), [physical terrain underlay](UNDERLAY_VALIDATION.md), and the [complete road family](ROAD_NINE_VALIDATION.md). The final [terrain111/114 batch](TERRAIN_HOLES_VALIDATION.md) closes the [audited first-30-second milestone](FIRST30_HD_COVERAGE.md):222 nonempty HD identities plus5 intentional empty shield identities out of227 observed.
+The manifest is authoritative:18 packs,2740 HDA entries,262 formal PNGs, defaults250/254. Latest additions are the [plateau edge correction](PLATEAU_FOUR_VALIDATION.md) [static installation](INSTALLATION_VALIDATION.md), [physical terrain underlay](UNDERLAY_VALIDATION.md), and the [complete road family](ROAD_NINE_VALIDATION.md). The final [terrain111/114 batch](TERRAIN_HOLES_VALIDATION.md) closes the [audited first-30-second milestone](FIRST30_HD_COVERAGE.md):222 nonempty HD identities plus5 intentional empty shield identities out of227 observed.
+
+The next bounded private-survival segment now also includes the [three static physical craft](CRAFT_THREE_VALIDATION.md). Its terrain113 and stone foundation remain separate pending work.
 
 ## Historical green release update (2026-10-11)
 

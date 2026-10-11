@@ -1,0 +1,168 @@
+{
+  "status": "PASS",
+  "base_commit": "51d4bc4af5ab63c1357e11911c8013e8e028e68b",
+  "scope": "Private survival only, no weapon71 injection; original replay from0. Production contains no survival or observer changes.",
+  "scales": {
+    "2": {
+      "state_rows_exact": 1509,
+      "rendered_ticks": [
+        1300,
+        1508
+      ],
+      "HD_quadrant_calls": 2038,
+      "per_base": {
+        "267": 1370,
+        "269": 440,
+        "271": 228
+      },
+      "zero_coverage_or_rejection_errors": true
+    },
+    "4": {
+      "state_rows_exact": 1509,
+      "rendered_ticks": [
+        1300,
+        1508
+      ],
+      "HD_quadrant_calls": 2038,
+      "per_base": {
+        "267": 1370,
+        "269": 440,
+        "271": 228
+      },
+      "zero_coverage_or_rejection_errors": true
+    }
+  },
+  "missing_all_RGB_exact": true,
+  "clear_RGB_exact_ticks": [
+    1499,
+    1508
+  ],
+  "original_hit_diagnostics": [
+    {
+      "case": "craft-hit267",
+      "original_state_material_collision_effect_logs_exact_to_missing": true,
+      "hits": [
+        {
+          "tick": "1341",
+          "slot": "27",
+          "type": "17",
+          "armor_before": "5",
+          "damage": "1",
+          "base": "267",
+          "link": "0"
+        },
+        {
+          "tick": "1343",
+          "slot": "27",
+          "type": "17",
+          "armor_before": "4",
+          "damage": "4",
+          "base": "267",
+          "link": "0"
+        }
+      ],
+      "filtered_HD_quadrants": 4,
+      "filter": 208,
+      "filtered_tick_bases": [
+        [
+          1342,
+          267,
+          4
+        ]
+      ]
+    },
+    {
+      "case": "craft-hit269271",
+      "original_state_material_collision_effect_logs_exact_to_missing": true,
+      "hits": [
+        {
+          "tick": "1429",
+          "slot": "0",
+          "type": "24",
+          "armor_before": "2",
+          "damage": "1",
+          "base": "269",
+          "link": "0"
+        },
+        {
+          "tick": "1430",
+          "slot": "1",
+          "type": "25",
+          "armor_before": "2",
+          "damage": "1",
+          "base": "271",
+          "link": "0"
+        },
+        {
+          "tick": "1432",
+          "slot": "0",
+          "type": "24",
+          "armor_before": "1",
+          "damage": "1",
+          "base": "269",
+          "link": "0"
+        },
+        {
+          "tick": "1433",
+          "slot": "1",
+          "type": "25",
+          "armor_before": "1",
+          "damage": "1",
+          "base": "271",
+          "link": "0"
+        }
+      ],
+      "filtered_HD_quadrants": 8,
+      "filter": 208,
+      "filtered_tick_bases": [
+        [
+          1430,
+          269,
+          4
+        ],
+        [
+          1431,
+          271,
+          4
+        ]
+      ]
+    }
+  ],
+  "motion_actual_frames": 120,
+  "motion_ticks": [
+    1380,
+    1499
+  ],
+  "native_actual_scales": [
+    2,
+    4
+  ],
+  "all_capture_readback_hashes_exact": true,
+  "source_sha256": "fac8dc30b2f43c4f3fb85abb8a06fa8b9fad6694dea43f0bcb4269dbab145b5c",
+  "sanitizer": {
+    "pixel_comparisons": 280755200,
+    "successful_quadrants": 1216,
+    "source_part_guards": 1782,
+    "all31_enemy_bindings": true,
+    "five_prior_terrain_binders_passed": true,
+    "independent_report_sha256": "7e61a574a95d1327134130ce90f2eeecbfdc4df559a9d39e27c4bd1fa241f8ad"
+  },
+  "assets": {
+    "verified_pack_count": 18,
+    "verified_HDA_entries": 2740,
+    "verified_exact_source_pngs": 262,
+    "default_pack_counts": [
+      250,
+      254
+    ],
+    "rebuild_output": null,
+    "all_runtime_RGBA_and_header_bytes_exact": true
+  },
+  "rebuild": "All3 PNG/RGBA/HDA exact without original data",
+  "visual_review": "Root native4x/2x and independent all120 motion frames passed; original filter control contact available.",
+  "limits": [
+    "Private survival, not ordinary continuation",
+    "No new player/terrain/other projectile or engine behavior",
+    "Windows and whole-game not tested"
+  ]
+}
