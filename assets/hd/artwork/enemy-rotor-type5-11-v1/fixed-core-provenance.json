@@ -1,0 +1,43 @@
+{
+  "kind": "isolated generated component retained from otherwise rejected phase atlas",
+  "generator": "built-in imagegen",
+  "generated_atlas_local_source": "enemy-type5-11-v1/generated-atlas.png",
+  "generated_atlas_sha256": "e3152a1f24b04e042c94ef6fbd1993cbcf4a2e9162eff6bbbbef4b5eb936aa63",
+  "rejection_scope": "Atlas phase orientations were invalid. No whole-atlas frame is selected or bound. Only independent first-frame central body component is retained.",
+  "extraction": {
+    "initial_roi_xyxy": [
+      0,
+      0,
+      420,
+      450
+    ],
+    "connected_component_alpha_threshold_gt": 8,
+    "seed_pixel_xy": [
+      210,
+      245
+    ],
+    "connectivity": 4,
+    "dilation_iterations": 2,
+    "dilation_structure": "SciPy default4-connected cross",
+    "operation": "Retain source RGBA only inside selected dilated component, transparent elsewhere; no invented painted pixels.",
+    "crop_xyxy": [
+      162,
+      187,
+      275,
+      305
+    ],
+    "component_native_size": [
+      113,
+      118
+    ],
+    "runtime_component_size": [
+      72,
+      72
+    ],
+    "resampler": "Pillow Lanczos"
+  },
+  "selected_component_sha256": "44891367ccf27aa18e4213ae37f4c27765aade301e369e3598234094f43d4ded",
+  "runtime_reproduction": "build_rotor.py renders arcs; assemble_frames.py uses this selected PNG. Full rejected atlas is not required for runtime reproduction and should not be distributed in runtime/Git.",
+  "original_reference_pixels": "Excluded. Originalpadded atlas was an input only.",
+  "authorization": "User approved calculated rigid transforms/model for rotating enemies."
+}

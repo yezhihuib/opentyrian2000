@@ -1,0 +1,539 @@
+{
+  "identity": "enemy-type5-11-rigid-metal-v1",
+  "bank": "newsh2.shp",
+  "enemy_types": [
+    5,
+    11
+  ],
+  "logical_size": [
+    24,
+    28
+  ],
+  "anchor": [
+    6,
+    7
+  ],
+  "density": 8,
+  "source_size": [
+    192,
+    224
+  ],
+  "type5_order": [
+    229,
+    231,
+    233,
+    235,
+    237,
+    239,
+    241,
+    243
+  ],
+  "type11_order": [
+    243,
+    241,
+    239,
+    237,
+    235,
+    233,
+    231,
+    229
+  ],
+  "timing": "Original JE_drawEnemy advance unchanged; no tween frames",
+  "geometry": {
+    "logical_size": [
+      24,
+      28
+    ],
+    "anchor": [
+      6,
+      7
+    ],
+    "visual_pivot": [
+      12.0,
+      13.0
+    ],
+    "outer_radius": 10.2,
+    "inner_radius": 7.4,
+    "arc_degrees": 135,
+    "gap_degrees": 45,
+    "clockwise_angles": [
+      0.0,
+      22.5,
+      45.0,
+      67.5,
+      90.0,
+      112.5,
+      135.0,
+      157.5
+    ],
+    "fixed_body": true,
+    "original_phase_centers_pixel_corner_coordinates": [
+      [
+        12.5,
+        12.5
+      ],
+      [
+        11.5,
+        13.5
+      ],
+      [
+        11.5,
+        13.5
+      ],
+      [
+        12.5,
+        12.5
+      ],
+      [
+        12.5,
+        13.5
+      ],
+      [
+        12.5,
+        13.5
+      ],
+      [
+        12.5,
+        13.5
+      ],
+      [
+        11.5,
+        13.5
+      ]
+    ],
+    "source": "single model, fixed world lighting, no bitmap-painted phases"
+  },
+  "frames": [
+    {
+      "base": 229,
+      "file": "frames8x/newsh2-base-229-192x224.png",
+      "sha256": "0b3a154937de2e9862645181060fb86bd79bfd564d15ad9a32fd8d073f3d4e2e",
+      "tiles": [
+        {
+          "id": 229,
+          "offset": [
+            0,
+            0
+          ],
+          "file": "tiles8x/newsh2-id229-96x112.png",
+          "sha256": "2b9fc4c90e11082a087741c0ff7219fc3b3823add55a7aa9f835ef286707c90c"
+        },
+        {
+          "id": 230,
+          "offset": [
+            12,
+            0
+          ],
+          "file": "tiles8x/newsh2-id230-96x112.png",
+          "sha256": "7f416f700833528d44b7e0b116d070686ffbb398e97f4e40840c3b61cf0066c4"
+        },
+        {
+          "id": 248,
+          "offset": [
+            0,
+            14
+          ],
+          "file": "tiles8x/newsh2-id248-96x112.png",
+          "sha256": "f41a686b8d941a72d0c22adc2117baa76f338bd94fc3a646db6393bfbd390fc6"
+        },
+        {
+          "id": 249,
+          "offset": [
+            12,
+            14
+          ],
+          "file": "tiles8x/newsh2-id249-96x112.png",
+          "sha256": "74ee9ee671674a47263724d59263c10d0f181e5fe3fcb17e4d8eb63faa8dc3c8"
+        }
+      ]
+    },
+    {
+      "base": 231,
+      "file": "frames8x/newsh2-base-231-192x224.png",
+      "sha256": "062839a15978983095e38af2e0a305835f1121b973d367292f29b3687c2c2559",
+      "tiles": [
+        {
+          "id": 231,
+          "offset": [
+            0,
+            0
+          ],
+          "file": "tiles8x/newsh2-id231-96x112.png",
+          "sha256": "8b002f1d7b57897a0d484cb456b5a6dc413564cc71ef50add441bf2f8ddd87eb"
+        },
+        {
+          "id": 232,
+          "offset": [
+            12,
+            0
+          ],
+          "file": "tiles8x/newsh2-id232-96x112.png",
+          "sha256": "0890d2724c4d1474c26431c6c9d367d949c5ff1b30d35c75c31f3572fdf6ea7f"
+        },
+        {
+          "id": 250,
+          "offset": [
+            0,
+            14
+          ],
+          "file": "tiles8x/newsh2-id250-96x112.png",
+          "sha256": "df1ee62fed7385cd6af7db3498c54457154803edc1a281b96e99669d23d04ec5"
+        },
+        {
+          "id": 251,
+          "offset": [
+            12,
+            14
+          ],
+          "file": "tiles8x/newsh2-id251-96x112.png",
+          "sha256": "4da1ac78317f369cf03ba7e10f49ea60bdc7c96868c2c1b6ae112da6b0bf5030"
+        }
+      ]
+    },
+    {
+      "base": 233,
+      "file": "frames8x/newsh2-base-233-192x224.png",
+      "sha256": "4fe2e0e8bf344a719584c900122e1380168bbdc01b2be0e023cd030ebe6070f7",
+      "tiles": [
+        {
+          "id": 233,
+          "offset": [
+            0,
+            0
+          ],
+          "file": "tiles8x/newsh2-id233-96x112.png",
+          "sha256": "33dd3c5bbc86f56365997b091e57044c6dc4c2a9abc4a456a13699c4556cb107"
+        },
+        {
+          "id": 234,
+          "offset": [
+            12,
+            0
+          ],
+          "file": "tiles8x/newsh2-id234-96x112.png",
+          "sha256": "3498df775917d30cc1c9dc07181df565134ff8c2710762fe9e3ac18fd9eb9de5"
+        },
+        {
+          "id": 252,
+          "offset": [
+            0,
+            14
+          ],
+          "file": "tiles8x/newsh2-id252-96x112.png",
+          "sha256": "240fea2652daff21712228a89ff393bab1bf533bcb5a61a862c34ebea62fe188"
+        },
+        {
+          "id": 253,
+          "offset": [
+            12,
+            14
+          ],
+          "file": "tiles8x/newsh2-id253-96x112.png",
+          "sha256": "d2eaf5c03f80cf14a42b15f43a3e45a5a7360997d57953627c0350c460a4fecd"
+        }
+      ]
+    },
+    {
+      "base": 235,
+      "file": "frames8x/newsh2-base-235-192x224.png",
+      "sha256": "a22d4d380b82138f16f087edfc9d05608acd69ec9879f44ec612425723657caa",
+      "tiles": [
+        {
+          "id": 235,
+          "offset": [
+            0,
+            0
+          ],
+          "file": "tiles8x/newsh2-id235-96x112.png",
+          "sha256": "c829745035eb582ceb90a01e825ae4f71f0f97f5151d15027cbaacc98623cd42"
+        },
+        {
+          "id": 236,
+          "offset": [
+            12,
+            0
+          ],
+          "file": "tiles8x/newsh2-id236-96x112.png",
+          "sha256": "e9c1083162decbd702d984bcbcec0b6edb736ec226072ce6ff6fccc9dcf997b1"
+        },
+        {
+          "id": 254,
+          "offset": [
+            0,
+            14
+          ],
+          "file": "tiles8x/newsh2-id254-96x112.png",
+          "sha256": "86021736ee1bc4a6d6d75322acc569cee69576d37d05d063caf35598f23b4866"
+        },
+        {
+          "id": 255,
+          "offset": [
+            12,
+            14
+          ],
+          "file": "tiles8x/newsh2-id255-96x112.png",
+          "sha256": "59ba8ebcf04a171ab6a8835876014640fc0b06ca8e02529001b6b57895b25470"
+        }
+      ]
+    },
+    {
+      "base": 237,
+      "file": "frames8x/newsh2-base-237-192x224.png",
+      "sha256": "a93d9642332775b29ccf8fe2767ae5ed5c385569029893567e20e56d17f517b2",
+      "tiles": [
+        {
+          "id": 237,
+          "offset": [
+            0,
+            0
+          ],
+          "file": "tiles8x/newsh2-id237-96x112.png",
+          "sha256": "76888bf27072d2c24aaaf4a730d4fb9586b603aa191e267d3bc91867dd64e93a"
+        },
+        {
+          "id": 238,
+          "offset": [
+            12,
+            0
+          ],
+          "file": "tiles8x/newsh2-id238-96x112.png",
+          "sha256": "1aca233ce2afda03c3942b733c027c588f6a8bd1fc8d12eb1b56cac7b7940eaa"
+        },
+        {
+          "id": 256,
+          "offset": [
+            0,
+            14
+          ],
+          "file": "tiles8x/newsh2-id256-96x112.png",
+          "sha256": "cd37d70774aac40a04bd510a913d3011b2b379bcb9c662e911432efd20481b8d"
+        },
+        {
+          "id": 257,
+          "offset": [
+            12,
+            14
+          ],
+          "file": "tiles8x/newsh2-id257-96x112.png",
+          "sha256": "17f065d7d1d00f239d77f30101e4770e2c141c737d7625e10fffbaacdc2790f3"
+        }
+      ]
+    },
+    {
+      "base": 239,
+      "file": "frames8x/newsh2-base-239-192x224.png",
+      "sha256": "6916d712ce98cf120300f399fd0c9a5963c87f080b16455154379872db6424bc",
+      "tiles": [
+        {
+          "id": 239,
+          "offset": [
+            0,
+            0
+          ],
+          "file": "tiles8x/newsh2-id239-96x112.png",
+          "sha256": "57b2ba77679576fbebd62538cca0fd76e530c2982e019148165e1f93b73db861"
+        },
+        {
+          "id": 240,
+          "offset": [
+            12,
+            0
+          ],
+          "file": "tiles8x/newsh2-id240-96x112.png",
+          "sha256": "1718edd5152ab575942e0b9f2f88a71b05da8c8098c000f198fc4c216cad76f6"
+        },
+        {
+          "id": 258,
+          "offset": [
+            0,
+            14
+          ],
+          "file": "tiles8x/newsh2-id258-96x112.png",
+          "sha256": "379b31d5276ac34df6d06ccc57dbd30014d935dc1ea3c6fb032f2e5be54751e2"
+        },
+        {
+          "id": 259,
+          "offset": [
+            12,
+            14
+          ],
+          "file": "tiles8x/newsh2-id259-96x112.png",
+          "sha256": "58d468644fd721ba91b8efb512440498aa89c224ad021dcdc64a7f662fb7003f"
+        }
+      ]
+    },
+    {
+      "base": 241,
+      "file": "frames8x/newsh2-base-241-192x224.png",
+      "sha256": "f86722ccf713c97c521440651566d1220e9e444c462ec40b6f99e297e8177bfa",
+      "tiles": [
+        {
+          "id": 241,
+          "offset": [
+            0,
+            0
+          ],
+          "file": "tiles8x/newsh2-id241-96x112.png",
+          "sha256": "c4d980328b13caa50027aba448b32780c5d21f06e40726fb4601ccc88834361f"
+        },
+        {
+          "id": 242,
+          "offset": [
+            12,
+            0
+          ],
+          "file": "tiles8x/newsh2-id242-96x112.png",
+          "sha256": "c27d2065c6d1506ade4a392afd175fb8727134618e606d9739596cef4144b57c"
+        },
+        {
+          "id": 260,
+          "offset": [
+            0,
+            14
+          ],
+          "file": "tiles8x/newsh2-id260-96x112.png",
+          "sha256": "515ccfea760894285583e015f6e66bb6d5dd740ba05a06a4eb1e0c3b8d158be3"
+        },
+        {
+          "id": 261,
+          "offset": [
+            12,
+            14
+          ],
+          "file": "tiles8x/newsh2-id261-96x112.png",
+          "sha256": "70d2edd1116b0fd0cc0e3795956624640d8aca7c7395c6f7fe4539850e43f059"
+        }
+      ]
+    },
+    {
+      "base": 243,
+      "file": "frames8x/newsh2-base-243-192x224.png",
+      "sha256": "833eeacd56e6e744502b10ee4df18ea4d6501c9b1007d77d20889e060d0be927",
+      "tiles": [
+        {
+          "id": 243,
+          "offset": [
+            0,
+            0
+          ],
+          "file": "tiles8x/newsh2-id243-96x112.png",
+          "sha256": "52ae78b2c65c57b5cc335bffc06039ab065fdc734e81f1b9740c0143ab01b51c"
+        },
+        {
+          "id": 244,
+          "offset": [
+            12,
+            0
+          ],
+          "file": "tiles8x/newsh2-id244-96x112.png",
+          "sha256": "0540b44fb9e8a60a1f23ff702115e862a5cd76ec47dc2be7a39a02f4394c9e98"
+        },
+        {
+          "id": 262,
+          "offset": [
+            0,
+            14
+          ],
+          "file": "tiles8x/newsh2-id262-96x112.png",
+          "sha256": "27e3f488d06bb1feb0660831e534f6c44464dd85e06c4cc7e54fdbfb3cf4a8a4"
+        },
+        {
+          "id": 263,
+          "offset": [
+            12,
+            14
+          ],
+          "file": "tiles8x/newsh2-id263-96x112.png",
+          "sha256": "6fa5a4321bcd64546f3fb61b6cefeaf1b7143ee67e9ae0a3beac1e2df6c0c81e"
+        }
+      ]
+    }
+  ],
+  "damage": "No separate damaged frame. Original hit filters use same sources unchanged.",
+  "source_exception": "Original phase237 includes29 extra arc-end pixels versus rigid90degree rotation of229. Candidate intentionally uses one constant rigid geometry rather than authored one-frame deformation.",
+  "source_body_audit": "All8 original9x9 core patches are byte-identical; only recorded whole-object translations differ.",
+  "runtime_notes": "Root approved all8 native4x/2x offline previews. Actual busy-background review must check brighter silver material. No actual engine test yet. Full generated painted atlases rejected for bad phase angles and excluded from packages. One isolated generated core component retained; mesh arcs numerically rotated.",
+  "alpha_qa": [
+    {
+      "file": "newsh2-base-229-192x224.png",
+      "bbox16": [
+        18,
+        24,
+        182,
+        176
+      ],
+      "max_edge_alpha": 0
+    },
+    {
+      "file": "newsh2-base-231-192x224.png",
+      "bbox16": [
+        10,
+        26,
+        174,
+        190
+      ],
+      "max_edge_alpha": 0
+    },
+    {
+      "file": "newsh2-base-233-192x224.png",
+      "bbox16": [
+        10,
+        26,
+        174,
+        190
+      ],
+      "max_edge_alpha": 0
+    },
+    {
+      "file": "newsh2-base-235-192x224.png",
+      "bbox16": [
+        18,
+        18,
+        182,
+        182
+      ],
+      "max_edge_alpha": 0
+    },
+    {
+      "file": "newsh2-base-237-192x224.png",
+      "bbox16": [
+        24,
+        26,
+        176,
+        190
+      ],
+      "max_edge_alpha": 0
+    },
+    {
+      "file": "newsh2-base-239-192x224.png",
+      "bbox16": [
+        18,
+        26,
+        182,
+        190
+      ],
+      "max_edge_alpha": 0
+    },
+    {
+      "file": "newsh2-base-241-192x224.png",
+      "bbox16": [
+        18,
+        26,
+        182,
+        190
+      ],
+      "max_edge_alpha": 0
+    },
+    {
+      "file": "newsh2-base-243-192x224.png",
+      "bbox16": [
+        10,
+        26,
+        174,
+        190
+      ],
+      "max_edge_alpha": 0
+    }
+  ],
+  "reproduction": "All8 generated runtime PNGs byte-identical after clean scripted rebuild."
+}

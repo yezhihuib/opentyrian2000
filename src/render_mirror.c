@@ -21,7 +21,7 @@ typedef struct {
 } Asset;
 enum { ASSET_NEWSH2=101, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106 };
 /* Finite layer2 cloud family: 15 new slots, existing slots unchanged. */
-static Asset assets[201];
+static Asset assets[218];
 static Asset talon_frames[13];
 typedef struct {
  bool valid;
@@ -681,7 +681,8 @@ bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array ban
  if(!active||surface!=game_screen||reject_reason||!(game_probe_scene_assets&1))return false;
  bool source=false;
  for(int i=0;i<4;i++)if(enemySpriteSheetIds[i]==1&&bank.data==enemySpriteSheets[i].data)source=true;
- int slot=base==77?6:base==79?7:base==115?8:base==117?9:base==85?15:base==87?16:base==123?17:base==125?18:(base>=191&&base<=205&&base%2==1)?23+(int)(base-191)/2:-1;
+ /* Slots201..209 remain reserved for the independent ground family. */
+ int slot=(base>=229&&base<=243&&base%2==1)?210+(int)(base-229)/2:base==77?6:base==79?7:base==115?8:base==117?9:base==85?15:base==87?16:base==123?17:base==125?18:(base>=191&&base<=205&&base%2==1)?23+(int)(base-191)/2:-1;
  if(!source||slot<0)return false;
  int px=part==1||part==20?12:0,py=part==19||part==20?14:0;
  if(part!=0&&part!=1&&part!=19&&part!=20)return false;

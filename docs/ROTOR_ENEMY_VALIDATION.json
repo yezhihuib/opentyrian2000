@@ -1,0 +1,119 @@
+{
+  "natural": {
+    "gameplay_logs_exact": [
+      "state",
+      "collisions",
+      "player-projectiles",
+      "enemy-projectiles",
+      "effects",
+      "scene-enemies",
+      "poses"
+    ],
+    "rotor-family-proof4x": {
+      "quadrant_draws": 5474,
+      "first_tick": 601,
+      "last_tick": 912,
+      "all_8_frames_HD": [
+        229,
+        231,
+        233,
+        235,
+        237,
+        239,
+        241,
+        243
+      ],
+      "coverage_errors": 0
+    },
+    "rotor-family-proof2x": {
+      "quadrant_draws": 5474,
+      "first_tick": 601,
+      "last_tick": 912,
+      "all_8_frames_HD": [
+        229,
+        231,
+        233,
+        235,
+        237,
+        239,
+        241,
+        243
+      ],
+      "coverage_errors": 0
+    },
+    "clear_tail_RGB_exact_ticks": [
+      913,
+      929
+    ]
+  },
+  "reverse_hit_diagnostic": {
+    "scope": "Private synthetic diagnostic selects original type11 instead of5 and cycles original filter field; normal make/animate/blit functions unchanged. Not a natural encounter.",
+    "phases": [
+      243,
+      241,
+      239,
+      237,
+      235,
+      233,
+      231,
+      229
+    ],
+    "filters": [
+      0,
+      112,
+      128,
+      9,
+      0,
+      112,
+      128,
+      9
+    ],
+    "HD_quadrants": 32,
+    "state_logs_exact_to_original_art_diagnostic": [
+      "state.tsv",
+      "collisions.tsv",
+      "player-projectiles.tsv",
+      "enemy-projectiles.tsv",
+      "effects.tsv",
+      "scene-enemies.tsv",
+      "poses.tsv"
+    ]
+  },
+  "oracle": {
+    "source": "/workspace/scratch/f67dd347fa0a/opentyrian2000-cloud/src/render_mirror.c",
+    "source_sha256": "43b7b8970b349812e8e70dc3038a77b7bd61e35e460174b06d87bab87c82d030",
+    "source_stable_during_test": true,
+    "sanitize": true,
+    "leak_sanitizer": "disabled under ptrace",
+    "exit_code": 0,
+    "elapsed_seconds": 3.808597435010597,
+    "stdout": "PASS: density4 source4 all32 quadrants, forward/reverse, four filters, seams, clipping, source guards\nPASS: density8 source8 all32 quadrants, forward/reverse, four filters, seams, clipping, source guards\nPASS: one-frame fallback/header validation/absent assets/classic/missing/invalid flags\nPASS: density8 source4 all32 quadrants, forward/reverse, four filters, seams, clipping, source guards\nPASS: 101573120 pixel comparisons; 1016 successful quadrant calls; 105 rejected-source/part guards\n",
+    "stderr": "",
+    "scope": "Extracted actual source functions and synthetic HDA files; no source edits or gameplay execution/captures."
+  },
+  "source_sha256": "43b7b8970b349812e8e70dc3038a77b7bd61e35e460174b06d87bab87c82d030",
+  "art_rebuild_exact_frames": 8,
+  "production_RGB_exact": true,
+  "missing235": {
+    "HD_quadrants": 28,
+    "original_quadrants": 4
+  },
+  "all_missing": {
+    "HD_quadrants": 0,
+    "original_quadrants": 32,
+    "RGB_exact": true
+  },
+  "desktop": {
+    "scale": 4,
+    "paused": 608,
+    "end": 616,
+    "exit": 0
+  },
+  "motion": {
+    "first": 608,
+    "last": 727,
+    "frames": 120,
+    "lossless_roundtrip_exact": true,
+    "noncapture_RGB_state_exact": true
+  }
+}

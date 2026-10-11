@@ -19,3 +19,5 @@ Formal head regeneration: `python prototype/build-green-head-art.py --output ../
 Green foreground-head layer oracle: `python prototype/fixtures/test-green-head-layer.py --sanitize` checks the extracted current renderer at2×/4×/8×, including overlapping alpha, foreground invalidation, restoration and suppressed ownership.
 
 Cloud-floor shadow oracle: `python prototype/fixtures/test-cloud-shadow.py --sanitize` verifies only tagged cloud pixels, original palette transition/floor, zero-denominator handling, provenance invalidation and unchanged green head replay. Current review preparation restores the production layer2 binding; archived preparations remove only that reviewed line and still require the old source hash.
+
+Physical rotor enemy mapping/filter coverage: `python prototype/fixtures/test-rotor-enemy.py --sanitize --output NEW_EXTERNAL_DIRECTORY`. The test reads current production functions, creates synthetic assets in a temporary directory, and writes reports outside the checkout. See `docs/ROTOR_ENEMY_VALIDATION.md` for actual scene, missing-frame and private reverse/hit diagnostic results.
