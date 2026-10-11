@@ -39,11 +39,11 @@ static unsigned long long checks,quad_calls,guard_checks;
 static char pack_path[2048];
 static Uint8 actual_rgba[12][192*224*4];static bool use_actual;
 static const int stone_ids[]={1,3,5,39,41,43,7,9,11,45,47,49};
-static const int old_ids[]={77,79,115,117,85,87,123,125,191,193,195,197,199,201,203,205,229,231,233,235,237,239,241,243,81,83,119,121,267,269,271};
+static const int old_ids[]={77,79,115,117,85,87,123,125,191,193,195,197,199,201,203,205,229,231,233,235,237,239,241,243,81,83,119,121,267,269,271,153,155,157};
 static int stone_index(int base){for(int i=0;i<12;i++)if(stone_ids[i]==base)return i;return -1;}
 static int role_for(int base){return stone_index(base)>=0?110:101;}
 static Sprite2_array bank_for(int base){return enemySpriteSheets[stone_index(base)>=0?1:0];}
-static int slot_for(int base){if(stone_index(base)>=0)return 253+stone_index(base);const int ids[]={77,79,115,117,85,87,123,125,191,193,195,197,199,201,203,205,229,231,233,235,237,239,241,243,81,83,119,121,267,269,271};const int slots[]={6,7,8,9,15,16,17,18,23,24,25,26,27,28,29,30,210,211,212,213,214,215,216,217,231,232,233,234,243,244,245};for(int i=0;i<31;i++)if(ids[i]==base)return slots[i];return -1;}
+static int slot_for(int base){if(stone_index(base)>=0)return 253+stone_index(base);const int ids[]={77,79,115,117,85,87,123,125,191,193,195,197,199,201,203,205,229,231,233,235,237,239,241,243,81,83,119,121,267,269,271,153,155,157};const int slots[]={6,7,8,9,15,16,17,18,23,24,25,26,27,28,29,30,210,211,212,213,214,215,216,217,231,232,233,234,243,244,245,269,270,271};for(int i=0;i<34;i++)if(ids[i]==base)return slots[i];return -1;}
 static const char *pack_root;
 static void select_pack(const char *name){snprintf(pack_path,sizeof(pack_path),"%s/%s",pack_root,name);game_probe_assets=pack_path;}
 static void clear_assets(void){for(size_t i=0;i<sizeof(assets)/sizeof(*assets);i++){free(assets[i].rgba);memset(&assets[i],0,sizeof(assets[i]));}}
@@ -197,14 +197,14 @@ static void assembly_tests(void)
 static void other_bindings(void)
 {
  clear_assets();select_pack("all-bindings");
- for(int i=0;i<31;i++)exercise_frame(old_ids[i],8,0,5,7,false);
+ for(int i=0;i<34;i++)exercise_frame(old_ids[i],8,0,5,7,false);
  for(int i=0;i<12;i++)exercise_frame(stone_ids[i],8,0,5,7,false);
  for(size_t slot=0;slot<sizeof(assets)/sizeof(*assets);slot++){
-  bool wanted=slot>=253&&slot<=264;for(int i=0;i<31;i++)if(slot_for(old_ids[i])==(int)slot)wanted=true;
+  bool wanted=slot>=253&&slot<=264;for(int i=0;i<34;i++)if(slot_for(old_ids[i])==(int)slot)wanted=true;
   assert(assets[slot].initialized==wanted);
  }
  /* Warm bank1 and bank9 caches cannot widen either source's finite whitelist. */
- for(int i=0;i<31;i++)guard_case(game_screen,enemySpriteSheets[1],old_ids[i],0);
+ for(int i=0;i<34;i++)guard_case(game_screen,enemySpriteSheets[1],old_ids[i],0);
  for(int i=0;i<12;i++)if(stone_ids[i]!=49)guard_case(game_screen,enemySpriteSheets[0],stone_ids[i],0);
  guard_case(game_screen,enemySpriteSheets[0],50,0); /* unsupported neighbor; bank1 base49 is purple */
  clear_assets();
@@ -227,7 +227,7 @@ int main(int argc,char **argv)
  for(int k=0;k<4;k++){enemySpriteSheets[k]=(Sprite2_array){1,&bank_bytes[k]};enemySpriteSheetIds[k]=k==0?1:k==1?9:2;}
  for(int i=0;i<256;i++)rgb_palette[i]=((i*71u)%256)<<16|((i*31u)%256)<<8|((i*13u)%256);
  assert(ASSET_NEWSHE==110&&ASSET_TALON_BANK==109&&ASSET_NEWSH2==101);
- assert(sizeof(assets)/sizeof(*assets)==269);
+ assert(sizeof(assets)/sizeof(*assets)==290);
  const int filters[]={0,0x70,0x80,0x09,0xd0};
  for(int mode=0;mode<3;mode++){
   int d=mode==0?4:8,ad=mode==1?8:4;alloc_canvas(d);clear_assets();select_pack(ad==8?"full8":"full4");
@@ -240,7 +240,7 @@ int main(int argc,char **argv)
   guard_tests();for(int i=0;i<253;i++)assert(!assets[i].initialized);
   printf("PASS density%d source%d: all48 stone quadrants, reverse/order, five filters, clipping, source-bank/part/null/collision guards\n",d,ad);
   if(mode==1){loader_tests();actual_tests();assembly_tests();overlap_and_clear();other_bindings();relocated_sheet_tests();
-   puts("PASS: missing each/all/state; malformed every header word/magic/trailing/truncated/empty payload; cross-role/prefix isolation; classic/flags; actual opaque RGBA and15 quadrant subsets; registered six-part assemblies; overlap/reset;43 simultaneous bindings");}
+   puts("PASS: missing each/all/state; malformed every header word/magic/trailing/truncated/empty payload; cross-role/prefix isolation; classic/flags; actual opaque RGBA and15 quadrant subsets; registered six-part assemblies; overlap/reset;46 simultaneous bindings");}
   clear_assets();free_canvas();
  }
  free(g.pixels);printf("PASS %llu pixel comparisons; %llu successful quadrant calls; %llu rejected-source/part guards\n",checks,quad_calls,guard_checks);return 0;

@@ -10,7 +10,7 @@ def extract(name):
  return source[match.start():end]+'\n'
 types=re.search(r'typedef struct \{\s*bool initialized,valid;.*?\} Asset;',source,re.S).group()
 arrays='\n'.join(re.search(p,source).group() for p in [r'static Asset assets\[\d+\];',r'static struct \{const Uint8 \*data;unsigned int id;\} terrain_sources\[\d+\];'])
-funcs='\n'.join(extract(n) for n in ['read_asset','scene_asset','render_mirror_map_begin','cloud_terrain_slot','ground_terrain_slot','plateau_terrain_slot','underlay_terrain_slot','road_terrain_slot','terrain_holes_slot','stone_foundation_slot','render_mirror_bind_terrain','render_mirror_terrain_row'])
+funcs='\n'.join(extract(n) for n in ['read_asset','scene_asset','render_mirror_map_begin','cloud_terrain_slot','ground_terrain_slot','plateau_terrain_slot','underlay_terrain_slot','road_terrain_slot','terrain_holes_slot','stone_foundation_slot','layer3_gray_slot','render_mirror_bind_terrain','render_mirror_terrain_row'])
 
 def prepare_assets(directory, assets):
     import struct
@@ -39,7 +39,12 @@ def prepare_assets(directory, assets):
 with tempfile.TemporaryDirectory(prefix='terrain-next-seven-binder-') as tmp:
  d=Path(tmp);(d/'production-types.inc').write_text(types+'\n'+arrays+'\n');(d/'production-helpers.inc').write_text(funcs)
  asset_report=prepare_assets(d,a.assets)
- all_terrain=sorted(a.assets.glob('terrain-shapesz-*-8.hda'),key=lambda p:int(p.name.split('-')[2]));assert len(all_terrain)==59
+ legacy_ids={101,37,57,49,50,321,322,331,332,99,100,106,107,109,110,118,119,120,96,97,98,108,323,324,333,334,36,39,40,46,48,56,58,38,47,41,42,43,44,45,51,52,53,54,55,61,62,63,64,65,111,114,113,341,342,343,351,352,353}
+ gray_ids={121,122,123,124,125,131,132,133,134,135,141,142,143,144,151,152,153,154}
+ all_terrain=sorted(a.assets.glob('terrain-shapesz-*-8.hda'),key=lambda p:int(p.name.split('-')[2]))
+ assert len(legacy_ids)==59 and len(gray_ids)==18 and not legacy_ids.intersection(gray_ids)
+ assert {int(tile.name.split('-')[2]) for tile in all_terrain}==legacy_ids|gray_ids
+ assert len(all_terrain)==77
  for tile in all_terrain:
   data=tile.read_bytes();import struct
   tile_id=int(tile.name.split('-')[2]);assert len(data)==172060 and struct.unpack('<4s6I',data[:28])==(b'HDR1',2010000+tile_id,8,24,28,0,0)

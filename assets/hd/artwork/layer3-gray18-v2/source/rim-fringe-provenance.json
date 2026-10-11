@@ -1,0 +1,109 @@
+{
+  "authorship": "Imagegen-authored dark fringe RGBA, technically registered and cropped without painting or post-crop resampling. Generated-only source crops; no original game raster pixels included.",
+  "image_generation_deterministic": false,
+  "master": {
+    "name": "imagegen-four-rim-fringe-v1.png",
+    "size": [
+      1161,
+      1355
+    ],
+    "png_sha256": "a454dfb4e2ad1e2de0ba05797e26fd6643ca62b383261bdf3440e8bea28f7362",
+    "rgba_sha256": "ef3327c36751a4f23f7da24d04f36a6d817f77121572bb9699b1f5a9380633ca"
+  },
+  "registered_master": {
+    "name": "registered-four-rim-fringe-v1.png",
+    "size": [
+      384,
+      448
+    ],
+    "png_sha256": "85d498ace35056b3aeb3caab890cbc0ae4b8a8921f8f3c5941e271a73311224c",
+    "rgba_sha256": "efbad6ada284e1d3f9bed1cc7b50d098796a793bbc3366024eb10a315b941c4d"
+  },
+  "master_rasters_distributed": false,
+  "registration": "Native ImageMagick Lanczos resize to 384x448, then exact 192x224 quadrant extraction. Registration reproduced separately during packaging.",
+  "prompt": "prompts/rim-dark-fringe-edit-v1.txt",
+  "prompt_sha256": "2f5014f5acb76cb646b860b73745e853d25dd030437720b0674e434ebbadb9ab",
+  "edit_input": {
+    "name": "four-rim-current-8x.png",
+    "size": [
+      384,
+      448
+    ],
+    "png_sha256": "e3c6ec31e8fc4c725c36ca905da36de016282daea7d28f34644ff0bc9ef4c7f5",
+    "rgba_sha256": "b95fb716b02be5939f4a879259760f481e7beabc9b783b6c8138143b07153370"
+  },
+  "edit_input_authorship": "Atlas of four prior generated gray18 selected tiles; not original game artwork. Excluded from package.",
+  "fringe_crops": [
+    {
+      "id": 134,
+      "crop_rectangle": [
+        0,
+        0,
+        192,
+        224
+      ],
+      "name": "terrain-shapesz-134-8.png",
+      "size": [
+        192,
+        224
+      ],
+      "png_sha256": "35b297ae47bd4b47d5fefe8ec24e31fabc4df5f7f33ff1a5804ecaad3cc4ae0b",
+      "rgba_sha256": "3fc7e141e7706935ef2eace5bfe4fcc88148a2474eb0b30317d46540c4460c29",
+      "matches_upstream_gen_rgba": true
+    },
+    {
+      "id": 141,
+      "crop_rectangle": [
+        192,
+        0,
+        384,
+        224
+      ],
+      "name": "terrain-shapesz-141-8.png",
+      "size": [
+        192,
+        224
+      ],
+      "png_sha256": "6ef3a04ff336b288df9f949b75fb397b58dc2d123a81ec0dc52bf87544837b63",
+      "rgba_sha256": "6da96751f2f567ed382b02fa8a5090a6328de987bfdcfe600a8130425ced04d6",
+      "matches_upstream_gen_rgba": true
+    },
+    {
+      "id": 142,
+      "crop_rectangle": [
+        0,
+        224,
+        192,
+        448
+      ],
+      "name": "terrain-shapesz-142-8.png",
+      "size": [
+        192,
+        224
+      ],
+      "png_sha256": "eff5a775d5d074d4910801a7d4fd4dc791562d8901073117b107aa6599d84863",
+      "rgba_sha256": "9854cb34b8a826777e725de1ff63f136c10c8d4368d1b7b89ee3a1122b31f857",
+      "matches_upstream_gen_rgba": true
+    },
+    {
+      "id": 143,
+      "crop_rectangle": [
+        192,
+        224,
+        384,
+        448
+      ],
+      "name": "terrain-shapesz-143-8.png",
+      "size": [
+        192,
+        224
+      ],
+      "png_sha256": "01c625578eaadbb19c51732df50bb2f0f9905d5a253da84c4c000d532c09d70a",
+      "rgba_sha256": "ffe8e2b4b01ef2ca57b3b8c48d10c8dc154c10d047ee9267f5a3b1969282affa",
+      "matches_upstream_gen_rgba": true
+    }
+  ],
+  "composition_helper_sha256": "11b7b5cff95f5668d4f2b1019efa22bbe3107a3b34bb7a5dfd853064e2ae016d",
+  "composition": "Rebuild baseline from 18 baked-silhouette generated crops and original alpha helper, then apply freshly compiled compose_rim_fringe.cpp to only 134,141,142,143. Original zero/nonzero support, two outer HD rows/columns, all lighter interior pixels and remaining 14 complete tiles stay unchanged.",
+  "historical_metrics_correction": "Upstream fringe-registration-report.json predates post-floor metric recount. Its new_zero fields are stale. This package ships only current freshly built helper output metrics and independent scope verification."
+}

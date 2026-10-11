@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "authored_raster_sources": "18 baseline generated RGB crops with approved silhouette baked into RGBA, plus four imagegen-authored registered fringe quadrant crops",
+  "generated_only_art_ownership_explicit": true,
+  "baseline_source_visible_rgb": "Generated artwork after documented upstream matte and baked-silhouette registration; no original game RGB",
+  "fringe_source_visible_rgb": "Exact decoded quadrants of registered imagegen-generated RGBA",
+  "all18_original_zero_nonzero_support_preserved": true,
+  "original_support_rechecked_readonly": true,
+  "original_game_rasters_data_palette_indices_masks_map_arrays_distributed": false,
+  "full_generation_masters_distributed": false,
+  "runtime_screenshots_videos_privatehooks_executables_distributed": false,
+  "prompts_and_master_reference_hashes_distributed": true,
+  "baseline_source_provenance": "source/baseline-v1-crop-provenance.json",
+  "fringe_source_provenance": "source/rim-fringe-provenance.json"
+}

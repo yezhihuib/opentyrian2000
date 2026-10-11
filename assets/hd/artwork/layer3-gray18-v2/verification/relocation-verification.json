@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "package_relocated_to_directory_containing_spaces": true,
+  "output_directory_contains_spaces": true,
+  "fresh_compilation": true,
+  "package_inventory_verified": true,
+  "decoded_rgba_exact_count": 18,
+  "hda_exact_count": 18,
+  "committed_png_hashes_verified_count": 18,
+  "regenerated_png_file_exact_count": 14,
+  "finite4_override_and18_total_oracle": true,
+  "preserved14_and_frozen144_exact": true,
+  "source_package_unchanged_during_rebuild": true,
+  "existing_output_rejected": true,
+  "in_package_output_rejected": true,
+  "requirements": [
+    "Python3",
+    "Pillow",
+    "C++17 compiler",
+    "Bash wrapper optional"
+  ],
+  "no_original_game_data_network_engine_or_ImageMagick_required_for_rebuild": true
+}

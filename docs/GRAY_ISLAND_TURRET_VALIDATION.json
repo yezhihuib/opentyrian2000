@@ -1,0 +1,671 @@
+{
+  "status": "PASS",
+  "baseline": "d351fe256e82216baa5281be552399ea1a276cca",
+  "scope": "Private survival without weapon71 injection; bounded layer3 gray18 and type40 turret3, not full60-75 closure",
+  "renderer_sha256": "6bfc6ac8a37e30016597c9a052e10201d8ce73301b212231b6d15b89e66ed6e8",
+  "runtime_v1": {
+    "natural_2x_4x_RGB_byte_exact": true,
+    "health": {
+      "gray-turret-baseline2x": {
+        "run": "tyrian-background-redraw/runtime-runs/gray-turret-baseline2x",
+        "exe_sha256": "d3719eb4db63b50578fce0c0bb882ab17934fe321e61d0baf332a38e621b37b8",
+        "frames": 280,
+        "ticks": [
+          2400,
+          2679
+        ],
+        "coverage_mismatches": 0,
+        "RGB_classic_mismatches": 0,
+        "restoration_mismatches": 0,
+        "rejected_frames": 0,
+        "capture_count": 0
+      },
+      "gray-turret-native2x": {
+        "run": "tyrian-background-redraw/runtime-runs/gray-turret-native2x",
+        "exe_sha256": "d3719eb4db63b50578fce0c0bb882ab17934fe321e61d0baf332a38e621b37b8",
+        "frames": 280,
+        "ticks": [
+          2400,
+          2679
+        ],
+        "coverage_mismatches": 0,
+        "RGB_classic_mismatches": 0,
+        "restoration_mismatches": 0,
+        "rejected_frames": 0,
+        "capture_count": 0
+      },
+      "gray-turret-native4x": {
+        "run": "tyrian-background-redraw/runtime-runs/gray-turret-native4x",
+        "exe_sha256": "d3719eb4db63b50578fce0c0bb882ab17934fe321e61d0baf332a38e621b37b8",
+        "frames": 280,
+        "ticks": [
+          2400,
+          2679
+        ],
+        "coverage_mismatches": 0,
+        "RGB_classic_mismatches": 0,
+        "restoration_mismatches": 0,
+        "rejected_frames": 0,
+        "capture_count": 0
+      },
+      "turret40-removal-base": {
+        "run": "opentyrian-cloud-runtime/next15-support/turret40-removal-base",
+        "exe_sha256": "37945eee02187b78f31f0d4fba6f661fd5096dc82ecd92da111003b08d045c91",
+        "frames": 68,
+        "ticks": [
+          2560,
+          2627
+        ],
+        "coverage_mismatches": 0,
+        "RGB_classic_mismatches": 0,
+        "restoration_mismatches": 0,
+        "rejected_frames": 0,
+        "capture_count": 0
+      },
+      "turret40-removal-final": {
+        "run": "opentyrian-cloud-runtime/next15-support/turret40-removal-final",
+        "exe_sha256": "37945eee02187b78f31f0d4fba6f661fd5096dc82ecd92da111003b08d045c91",
+        "frames": 68,
+        "ticks": [
+          2560,
+          2627
+        ],
+        "coverage_mismatches": 0,
+        "RGB_classic_mismatches": 0,
+        "restoration_mismatches": 0,
+        "rejected_frames": 0,
+        "capture_count": 0
+      },
+      "turret40-removal-gray-only": {
+        "run": "opentyrian-cloud-runtime/next15-support/turret40-removal-gray-only",
+        "exe_sha256": "37945eee02187b78f31f0d4fba6f661fd5096dc82ecd92da111003b08d045c91",
+        "frames": 68,
+        "ticks": [
+          2560,
+          2627
+        ],
+        "coverage_mismatches": 0,
+        "RGB_classic_mismatches": 0,
+        "restoration_mismatches": 0,
+        "rejected_frames": 0,
+        "capture_count": 0
+      },
+      "gray-turret-wild-base2x": {
+        "run": "tyrian-background-redraw/runtime-runs/gray-turret-wild-base2x",
+        "exe_sha256": "d3719eb4db63b50578fce0c0bb882ab17934fe321e61d0baf332a38e621b37b8",
+        "frames": 210,
+        "ticks": [
+          2400,
+          2609
+        ],
+        "coverage_mismatches": 0,
+        "RGB_classic_mismatches": 0,
+        "restoration_mismatches": 0,
+        "rejected_frames": 0,
+        "capture_count": 0
+      },
+      "gray-turret-wild-final2x": {
+        "run": "tyrian-background-redraw/runtime-runs/gray-turret-wild-final2x",
+        "exe_sha256": "d3719eb4db63b50578fce0c0bb882ab17934fe321e61d0baf332a38e621b37b8",
+        "frames": 210,
+        "ticks": [
+          2400,
+          2609
+        ],
+        "coverage_mismatches": 0,
+        "RGB_classic_mismatches": 0,
+        "restoration_mismatches": 0,
+        "rejected_frames": 0,
+        "capture_count": 0
+      }
+    },
+    "coverage_totals": {
+      "gray_HD_calls": 11768,
+      "turret_HD_quadrant_calls": 832,
+      "orb_HD_calls": 248,
+      "visible_gray_ids": 17,
+      "offscreen_only_gray_ids": [
+        131
+      ]
+    },
+    "type40_measured_cycles": [
+      {
+        "first_tick": 2440,
+        "last_tick": 2448,
+        "sequence": [
+          153,
+          155,
+          157,
+          157,
+          155,
+          155,
+          155,
+          153,
+          153
+        ]
+      },
+      {
+        "first_tick": 2501,
+        "last_tick": 2509,
+        "sequence": [
+          153,
+          155,
+          157,
+          157,
+          155,
+          155,
+          155,
+          153,
+          153
+        ]
+      },
+      {
+        "first_tick": 2561,
+        "last_tick": 2569,
+        "sequence": [
+          153,
+          155,
+          157,
+          157,
+          155,
+          155,
+          155,
+          153,
+          153
+        ]
+      },
+      {
+        "first_tick": 2621,
+        "last_tick": 2629,
+        "sequence": [
+          153,
+          155,
+          157,
+          157,
+          155,
+          155,
+          155,
+          153,
+          153
+        ]
+      }
+    ],
+    "removal": {
+      "actual_target": {
+        "type": 40,
+        "slot": 50,
+        "link": 0
+      },
+      "hits": [
+        {
+          "tick": "2561",
+          "slot": "50",
+          "type": "40",
+          "armor_before": "10",
+          "damage": "1",
+          "base": "153",
+          "link": "0"
+        },
+        {
+          "tick": "2563",
+          "slot": "50",
+          "type": "40",
+          "armor_before": "9",
+          "damage": "9",
+          "base": "157",
+          "link": "0"
+        }
+      ],
+      "target_removed_postupdate_tick": 2563,
+      "no_turret_draw_from": 2564,
+      "surviving_original_static_components": {
+        "53": 32,
+        "54": 33,
+        "55": 34,
+        "58": 38,
+        "59": 41,
+        "60": 39,
+        "62": 36,
+        "63": 37,
+        "64": 35
+      },
+      "all_nine_survive_through": 2627,
+      "terrain144_all68ticks_HD": true,
+      "terrain144_xy_rule": "x=206, y=tick-2455, anchor(0,0)",
+      "frozen144_unchanged": true,
+      "first_zero_end_of_tick_pool": 2580,
+      "last_turret_effect_draw_tick": 2580,
+      "genuinely_clear_draw_intervals": [
+        [
+          2581,
+          2609
+        ],
+        [
+          2617,
+          2627
+        ]
+      ],
+      "later_unrelated_enemy_shot_collision_tick": 2610,
+      "gray_only_comparator": {
+        "run": "opentyrian-cloud-runtime/next15-support/turret40-removal-gray-only",
+        "pack_count": 295,
+        "only_missing_files": [
+          "enemy-newsh2-153-8.hda",
+          "enemy-newsh2-155-8.hda",
+          "enemy-newsh2-157-8.hda"
+        ],
+        "state_and_effects_exact": true,
+        "RGB_different_ticks": [
+          2560,
+          2561,
+          2562,
+          2563
+        ],
+        "RGB_exact_ticks": [
+          2564,
+          2627
+        ],
+        "RGB_exact_count": 64
+      },
+      "old277_RGB_limit": "Old277/new298 full-screen RGB is intentionally different after removal because gray18 remains changed; no blanket equality claim."
+    },
+    "wild": {
+      "processorType": 4,
+      "config_hashes": [
+        "33dcd74bf84e78f35da412efe15f11933c729a026ed50085231130cb554aeeb2",
+        "33dcd74bf84e78f35da412efe15f11933c729a026ed50085231130cb554aeeb2"
+      ],
+      "state_and_effect_parity": {
+        "state.tsv": {
+          "rows": 2610,
+          "byte_exact": true
+        },
+        "asset-debug-materials.tsv": {
+          "rows": 405984,
+          "byte_exact": true
+        },
+        "collisions.tsv": {
+          "rows": 42,
+          "byte_exact": true
+        },
+        "enemy-projectiles.tsv": {
+          "rows": 2616,
+          "byte_exact": true
+        },
+        "player-projectiles.tsv": {
+          "rows": 0,
+          "byte_exact": true
+        },
+        "poses.tsv": {
+          "rows": 2610,
+          "byte_exact": true
+        },
+        "fire-events.tsv": {
+          "rows": 0,
+          "byte_exact": true
+        },
+        "effects.tsv": {
+          "rows": 210,
+          "byte_exact": true
+        },
+        "asset-debug-clock.tsv": {
+          "rows": 2610,
+          "byte_exact": true
+        }
+      },
+      "cloud_BLENDED_HD_callback_count": 0,
+      "gray_styles": [
+        "NORMAL"
+      ],
+      "blend_rows": 56039,
+      "changed_blend_columns": {
+        "hd_subpixels_before": 2911
+      },
+      "original_before_source_after_values_exact": true,
+      "restore_regions_exact": true,
+      "scope": "Cloud guard is source-unchanged; no new cloud BLEND substitution. New gray remains NORMAL."
+    }
+  },
+  "rim_v2": {
+    "source_exact_to_v1": {
+      "published": true,
+      "natural_private": true,
+      "control_private": true
+    },
+    "binary_hashes": {
+      "gray-turret-rim-v2-native2x": {
+        "path": "opentyrian-cloud-runtime/gray-turret-fixture/opentyrian2000",
+        "sha256": "d3719eb4db63b50578fce0c0bb882ab17934fe321e61d0baf332a38e621b37b8",
+        "exact_to_v1": true
+      },
+      "gray-turret-rim-v2-native4x": {
+        "path": "opentyrian-cloud-runtime/gray-turret-fixture/opentyrian2000",
+        "sha256": "d3719eb4db63b50578fce0c0bb882ab17934fe321e61d0baf332a38e621b37b8",
+        "exact_to_v1": true
+      },
+      "turret40-rim-v2-removal-final": {
+        "path": "opentyrian-cloud-runtime/gray-turret-control-fixture/opentyrian2000",
+        "sha256": "37945eee02187b78f31f0d4fba6f661fd5096dc82ecd92da111003b08d045c91",
+        "exact_to_v1": true
+      }
+    },
+    "art_delta": [
+      {
+        "id": 134,
+        "old_hda_sha256": "fe830441c64c64239718178bc2e1444eb5be16125873e4b348e53e5a7af42850",
+        "new_hda_sha256": "03a58ef983ca74561eaba7681a4be0f1a8bceebe7dc326f88881e1945d721e4c",
+        "png_sha256": "e0c1e40115ab6a43dca9bd8038f06e4d7c809094441b51b0aa01cde2f9979d49",
+        "rgba_sha256": "703a6c02ef3bbd56043f7e51294906eda3e14a3d2d4f8a0a97f94041beaa95e7",
+        "header_28bytes_exact": true,
+        "PNG_HDA_payload_exact": true,
+        "original_nonzero_support_exact": true,
+        "v1_nonzero_support_exact": true,
+        "all_original_zero_RGBA_unchanged": true,
+        "transparent_RGB_zero": true,
+        "outer_two_HD_rows_columns_RGBA_exact": true,
+        "changed_RGBA_pixels": 2543,
+        "changed_alpha_pixels": 1053,
+        "changed_RGB_pixels": 1744,
+        "changed_bounds_inclusive_HD_xy": [
+          2,
+          55,
+          48,
+          221
+        ],
+        "occupied_min_alpha": 1,
+        "alpha1_pixels": 345,
+        "partial_alpha_pixels": 1509,
+        "new_zero_alpha_pixels": 0
+      },
+      {
+        "id": 141,
+        "old_hda_sha256": "6de835b535207691009eae4fcd7d5753d3e7fdef880e85fe595d5416129a6993",
+        "new_hda_sha256": "1dc42486f9f9608ca34ef995b463f5c9e84ab310786fb721dad11e613bae87bd",
+        "png_sha256": "930ac9a4551ab766b70e67bf23a82a418450a7691eec33d33ea8debf1439d9f7",
+        "rgba_sha256": "3416352ff30a0c400e23e775ae0b746806c4ad346e0a57d41d238293c4c61dfc",
+        "header_28bytes_exact": true,
+        "PNG_HDA_payload_exact": true,
+        "original_nonzero_support_exact": true,
+        "v1_nonzero_support_exact": true,
+        "all_original_zero_RGBA_unchanged": true,
+        "transparent_RGB_zero": true,
+        "outer_two_HD_rows_columns_RGBA_exact": true,
+        "changed_RGBA_pixels": 5071,
+        "changed_alpha_pixels": 2301,
+        "changed_RGB_pixels": 3169,
+        "changed_bounds_inclusive_HD_xy": [
+          8,
+          2,
+          189,
+          207
+        ],
+        "occupied_min_alpha": 1,
+        "alpha1_pixels": 1156,
+        "partial_alpha_pixels": 2459,
+        "new_zero_alpha_pixels": 0
+      },
+      {
+        "id": 142,
+        "old_hda_sha256": "f61f96e692e386c35bfddb71db0903f074a5624d5fb91532f59e3e0182603d9c",
+        "new_hda_sha256": "8ac16afbbe7cb301127684e204ed33c81ce9a85d74aa3fedf4511de789295813",
+        "png_sha256": "e452dbf299de917ab0fea4f36716c4407b1991a0e974c93888e5b2811664ca0d",
+        "rgba_sha256": "b9ffdf620cd6126db848032c2fcb90d4c0ae7eedf605bc55d67d1f97ef9e3834",
+        "header_28bytes_exact": true,
+        "PNG_HDA_payload_exact": true,
+        "original_nonzero_support_exact": true,
+        "v1_nonzero_support_exact": true,
+        "all_original_zero_RGBA_unchanged": true,
+        "transparent_RGB_zero": true,
+        "outer_two_HD_rows_columns_RGBA_exact": true,
+        "changed_RGBA_pixels": 3301,
+        "changed_alpha_pixels": 1574,
+        "changed_RGB_pixels": 1914,
+        "changed_bounds_inclusive_HD_xy": [
+          2,
+          165,
+          189,
+          215
+        ],
+        "occupied_min_alpha": 1,
+        "alpha1_pixels": 817,
+        "partial_alpha_pixels": 1672,
+        "new_zero_alpha_pixels": 0
+      },
+      {
+        "id": 143,
+        "old_hda_sha256": "597b455098c3fca8f1747986fa08b2611020a426f16c982fff466cb839a8388e",
+        "new_hda_sha256": "b4504eb73cce3d45b3501a5ec91a4db8b39e6064050d9479d42aa96f3aad731f",
+        "png_sha256": "5e0b87a2328486aa4440f783b04d32b1d5df5eba182c7b596f195f3595ed9a4a",
+        "rgba_sha256": "6827e0ec8bf7569033f5aa988528f14ed3fccdc55d0ea9f56afeea879c575336",
+        "header_28bytes_exact": true,
+        "PNG_HDA_payload_exact": true,
+        "original_nonzero_support_exact": true,
+        "v1_nonzero_support_exact": true,
+        "all_original_zero_RGBA_unchanged": true,
+        "transparent_RGB_zero": true,
+        "outer_two_HD_rows_columns_RGBA_exact": true,
+        "changed_RGBA_pixels": 5168,
+        "changed_alpha_pixels": 1668,
+        "changed_RGB_pixels": 4069,
+        "changed_bounds_inclusive_HD_xy": [
+          2,
+          2,
+          189,
+          207
+        ],
+        "occupied_min_alpha": 1,
+        "alpha1_pixels": 619,
+        "partial_alpha_pixels": 2227,
+        "new_zero_alpha_pixels": 0
+      }
+    ],
+    "frozen144_and_turret_HDA_exact": true,
+    "health": {
+      "gray-turret-rim-v2-native2x": {
+        "run": "tyrian-background-redraw/runtime-runs/gray-turret-rim-v2-native2x",
+        "frame_count": 280,
+        "render_ticks": [
+          2400,
+          2679
+        ],
+        "coverage_mismatches": 0,
+        "RGB_classic_mismatches": 0,
+        "restored_mismatches": 0,
+        "non_ordered_frames": 0,
+        "rejected_frames": 0,
+        "presentation_RNG_changed": 0,
+        "capture_count": 0,
+        "image_files": 0
+      },
+      "gray-turret-rim-v2-native4x": {
+        "run": "tyrian-background-redraw/runtime-runs/gray-turret-rim-v2-native4x",
+        "frame_count": 120,
+        "render_ticks": [
+          2490,
+          2609
+        ],
+        "coverage_mismatches": 0,
+        "RGB_classic_mismatches": 0,
+        "restored_mismatches": 0,
+        "non_ordered_frames": 0,
+        "rejected_frames": 0,
+        "presentation_RNG_changed": 0,
+        "capture_count": 0,
+        "image_files": 0
+      },
+      "turret40-rim-v2-removal-final": {
+        "run": "opentyrian-cloud-runtime/next15-support/turret40-rim-v2-removal-final",
+        "frame_count": 68,
+        "render_ticks": [
+          2560,
+          2627
+        ],
+        "coverage_mismatches": 0,
+        "RGB_classic_mismatches": 0,
+        "restored_mismatches": 0,
+        "non_ordered_frames": 0,
+        "rejected_frames": 0,
+        "presentation_RNG_changed": 0,
+        "capture_count": 0,
+        "image_files": 0
+      }
+    },
+    "cross_scale_overlap_RGB": {
+      "rows": 120,
+      "exact": true,
+      "range": [
+        2490,
+        2609
+      ],
+      "meaning": "Exact density-8 canonical ordered RGB hashes at 120 ticks; not a claim of equal-sized raw 2x and 4x display buffers."
+    },
+    "coverage_totals": {
+      "gray_HD_calls": 11768,
+      "turret_HD_quadrant_calls": 832,
+      "orb_HD_calls": 248,
+      "visible_gray_ids": 17,
+      "offscreen_only_gray_ids": [
+        131
+      ]
+    },
+    "unchanged_scene_callbacks": "Every scene callback field is exact to v1 in equal render ranges, including all unrelated terrain/enemy/orb identities, ordering, coordinates, style, and mirror success.",
+    "removal": {
+      "actual_target": {
+        "type": 40,
+        "slot": 50,
+        "link": 0
+      },
+      "hits": [
+        {
+          "tick": "2561",
+          "slot": "50",
+          "type": "40",
+          "armor_before": "10",
+          "damage": "1",
+          "base": "153",
+          "link": "0"
+        },
+        {
+          "tick": "2563",
+          "slot": "50",
+          "type": "40",
+          "armor_before": "9",
+          "damage": "9",
+          "base": "157",
+          "link": "0"
+        }
+      ],
+      "target_removed_postupdate_tick": 2563,
+      "no_turret_draw_from": 2564,
+      "surviving_original_static_components": {
+        "53": 32,
+        "54": 33,
+        "55": 34,
+        "58": 38,
+        "59": 41,
+        "60": 39,
+        "62": 36,
+        "63": 37,
+        "64": 35
+      },
+      "all_nine_survive_through": 2627,
+      "terrain144_all68ticks_HD": true,
+      "terrain144_xy_rule": "x=206, y=tick-2455, anchor(0,0)",
+      "frozen144_unchanged": true,
+      "first_zero_end_of_tick_pool": 2580,
+      "last_turret_effect_draw_tick": 2580,
+      "genuinely_clear_draw_intervals": [
+        [
+          2581,
+          2609
+        ],
+        [
+          2617,
+          2627
+        ]
+      ],
+      "later_unrelated_enemy_shot_collision_tick": 2610,
+      "pool_trace_exact_to_v1": {
+        "rows": 2628,
+        "exact": true,
+        "range": null
+      },
+      "control_file_exact_to_v1": true,
+      "control_text": "hit 50\nstep\ndestroy 50\nresume\n",
+      "no_turret_draw_post2563": true,
+      "RGB_comparator_limit": "The prior v1 gray-only comparator is not a v2 gray-only comparator. No full-screen post-removal RGB equality is claimed against v1 gray-only, v1 combined, or old277 because four background RGBA assets intentionally changed. Exact current observer/callback/pool traces and unchanged turret/144 hashes preserve the measured removal semantics."
+    }
+  },
+  "oracle_assertions": {
+    "layer3_binder_loader": 301188958,
+    "layer3_compositor_original_row": 287886969,
+    "turret_pixel_comparisons": 1013760000,
+    "turret_original_wrapper_cases": 325632,
+    "prior_suites": 17,
+    "detected_faults": 9,
+    "ASan": true,
+    "UBSan": true,
+    "LeakSanitizer": false,
+    "preparation_unit_cases": 15,
+    "legacy_negative_mutations_detected": 4
+  },
+  "visual_review": {
+    "root_native4x_tick": 2564,
+    "independent_natural_frames": 120,
+    "natural_ticks": [
+      2490,
+      2609
+    ],
+    "independent_removal_frames": 68,
+    "removal_ticks": [
+      2560,
+      2627
+    ],
+    "exact_lossless_readback_hashes": true,
+    "no_BMP": true,
+    "rim_v2_pass": true,
+    "turret_and_reveal_pass": true
+  },
+  "storage": {
+    "image_video_raw_bytes_excluding_HDA": 6652503282,
+    "GiB": 6.195626484230161,
+    "per_root": {
+      "opentyrian-cloud-runtime": 1998371715,
+      "tyrian-background-redraw": 2636919640,
+      "tyrian-hd-art": 1827888465,
+      "generated_images": 189323462
+    },
+    "free_bytes": 15343407104,
+    "batch_capture_delivery_bytes": 31991080,
+    "batch_limit_bytes": 50000000,
+    "BMP_created": 0,
+    "no_deletion": true
+  },
+  "limitations": [
+    "ID131 sole callback wholly offscreen;42offlineplacements andoracle only.",
+    "Central purple9component andspecialterrain original.",
+    "No finalv2gray-only fullRGB comparator; v1comparator exact2564-2627 andv2state/callbacks unchanged.",
+    "Repeatedterrain texture-phase differences remain.",
+    "Noordinary/fulllevel/Windows/physicalGPUperformance claim."
+  ],
+  "reproduction": {
+    "gray_selected_RGBA_and_HDA_exact": 18,
+    "turret_PNG_RGBA_HDA_exact": 3,
+    "gray_regenerated_PNG_byte_exact": 14,
+    "gray_four_alternate_PNG_encodings_decoded_exact": true,
+    "committed_all21_PNG_hashes_verified": true,
+    "relocated_path_with_spaces": true,
+    "original_game_data_not_required": true,
+    "gray_handoff_inventory_sha256": "ada945bcae9d3286e259d334862e4a39c467ff68850b0eff7da2dc1efb724b4d"
+  },
+  "production_projection": {
+    "renderer_exact_tested": true,
+    "private_only_differences": [
+      "read-only game_probe observers",
+      "tyrian2 private survival guard"
+    ],
+    "production_build_exit": 0,
+    "build_kind": "incremental changed-source build",
+    "observed_existing_indentation_warnings": 1
+  }
+}

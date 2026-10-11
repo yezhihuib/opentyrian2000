@@ -1,6 +1,6 @@
 # Current scoped release (2026-10-11)
 
-The manifest is authoritative:18 packs,2786 HDA entries,285 formal PNGs, defaults273/277. Latest additions are the [plateau edge correction](PLATEAU_FOUR_VALIDATION.md) [static installation](INSTALLATION_VALIDATION.md), [physical terrain underlay](UNDERLAY_VALIDATION.md), and the [complete road family](ROAD_NINE_VALIDATION.md). The final [terrain111/114 batch](TERRAIN_HOLES_VALIDATION.md) closes the [audited first-30-second milestone](FIRST30_HD_COVERAGE.md):222 nonempty HD identities plus5 intentional empty shield identities out of227 observed.
+The manifest is authoritative:18 packs, 2828 HDA entries, 306 formal PNGs, defaults 294/298. Latest additions are the [plateau edge correction](PLATEAU_FOUR_VALIDATION.md) [static installation](INSTALLATION_VALIDATION.md), [physical terrain underlay](UNDERLAY_VALIDATION.md), and the [complete road family](ROAD_NINE_VALIDATION.md). The final [terrain111/114 batch](TERRAIN_HOLES_VALIDATION.md) closes the [audited first-30-second milestone](FIRST30_HD_COVERAGE.md):222 nonempty HD identities plus5 intentional empty shield identities out of227 observed.
 
 The next bounded private-survival segment now also includes the [three static physical craft](CRAFT_THREE_VALIDATION.md). It now also includes [terrain113 and the six-tile stone foundation](TERRAIN_NEXT_SEVEN_VALIDATION.md), verified with the same clearly labeled private-survival replay. The [complete intact/remnant stone entity family](STONE_TWELVE_VALIDATION.md) now retains both original linked outcomes, with a separately labeled later clipped-state diagnostic.
 
@@ -9,6 +9,8 @@ The [complete purple formation family](PURPLE_FOUR_VALIDATION.md) closes the bas
 The [second bounded milestone](NEXT15_HD_COVERAGE.md) closes86/86 observed identities in private-survival ticks1044–1565, with a combined522-frame logs-only pass. Its denominator is separate from ordinary first30 coverage.
 
 The [45–60-second closure](WINDOW45_60_VALIDATION.md) verifies54/54 observed material identities, a complete522-frame native2× stream and unchanged original state through2087. It reuses accepted art and remains explicitly private-survival scope.
+
+The [gray island and type-40 turret](GRAY_ISLAND_TURRET_VALIDATION.md) add 18 finite layer-3 tiles and three firing designs, with the rounded four-tile rim correction. The central purple installation remains original; this is a partial 60–75-second batch.
 
 ## Historical green release update (2026-10-11)
 

@@ -1,0 +1,19 @@
+Frozen four-tile art-only revision for gray18, pending bounded actual runtime review.
+Use only runtime-overlay/terrain-shapesz-{134,141,142,143}-8.hda.
+Do not replace any other resource; all slots/header/anchor/binder rules unchanged.
+Complete decoded RGBA, PNG and HDA hashes: runtime-overlay/manifest.json.
+Source: imagegen-four-rim-fringe-v1.png, registered to384x448 using Lanczos.
+Each192x224 quadrant is technically registered with compose_rim_fringe.cpp.
+Only dark RGB (old max channel<52) within20HD pixels of the original outer
+transparent contour can change, with full-strength selection limited to darker
+pixels; all upper stone/highlight RGB stays frozen. RGB taper ends at20HD pixels.
+Alpha changes are restricted to <8HD pixels (<1logical pixel) on the occupied
+side. Original occupied support is retained at alpha>=1; all original zeros
+are byte-exact. This tiny floor avoids new enclosed holes or detached support
+fragments without keeping the old black pixel-stair appearance opaque.
+Two outer HD pixel rows/columns stay byte-exact, preserving every tile join.
+144 remains c4cd3a9dea6c5ecd14707ec5e0fef822407bb372f47b61cdbedd91da490772e8 PNG.
+Root reviewed offline native2x/4x comparison. Remaining small left-side source
+steps are reduced, not claimed perfectly smooth. Existing v1 is full rollback.
+Offline previews are art-only at actual tick2564 placements, neutral brown
+backing, not new actual captures. No main source edits. No indexed/gameplay change.

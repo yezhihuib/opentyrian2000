@@ -3174,6 +3174,7 @@ new_game:
 					megaData3.shapes[x].fill = y;
 					ref[2][x] = megaData3.shapes[x].sh;
 				asset_debug_bind_terrain(char_shapeFile,3,z+1,megaData3.shapes[x].sh);
+				render_mirror_bind_terrain(3,z+1,megaData3.shapes[x].sh);
 				}
 				else
 				{

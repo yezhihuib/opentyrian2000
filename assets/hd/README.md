@@ -15,3 +15,5 @@ Static physical installation125–128: [validation](../../docs/INSTALLATION_VALI
 Physical terrain underlay323/324/333/334: [validation](../../docs/UNDERLAY_VALIDATION.md), preserving original linked-object reveal behavior.
 
 Complete13-member road family with9 additive/revised tiles: [validation](../../docs/ROAD_NINE_VALIDATION.md).
+
+Layer-3 gray island and type-40 turret: [validation](../../docs/GRAY_ISLAND_TURRET_VALIDATION.md), including selected rim revision and original component-local reveal.

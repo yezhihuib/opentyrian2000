@@ -31,6 +31,7 @@ static const unsigned int ground_ids[]={99,100,106,107,109,110,118,119,120};
 static const unsigned int road_ids[]={36,39,40,46,48,56,58,38,47};
 static const unsigned int old_ids[]={101,37,57,49,50,321,322,331,332};
 static const int old_slots[]={10,11,12,13,14,19,20,21,22};
+static const unsigned int gray_ids[]={121,122,123,124,125,131,132,133,134,135,141,142,143,144,151,152,153,154};
 static Uint8 bank[600];
 static void reset(void)
 {for(unsigned int i=0;i<sizeof(assets)/sizeof(*assets);i++)free(assets[i].rgba);memset(assets,0,sizeof(assets));draws=traces=0;active=true;game_probe_missing=game_probe_invalid=false;game_probe_assets=".";game_probe_density=8;game_probe_scene_assets=2;reject_reason=NULL;suppress=false;render_mirror_map_begin('Z');}
@@ -48,11 +49,11 @@ static void nonterrain_untouched(void)
 {CHECK(!assets[218].initialized&&!assets[219].initialized);for(int i=231;i<=234;i++)CHECK(!assets[i].initialized);}
 int main(void)
 {
- CHECK(sizeof(assets)/sizeof(*assets)==269);CHECK(sizeof(terrain_sources)/sizeof(*terrain_sources)==122);
+ CHECK(sizeof(assets)/sizeof(*assets)==290);CHECK(sizeof(terrain_sources)/sizeof(*terrain_sources)==140);
  for(unsigned int id=0;id<600;id++){int expected=-1;for(int j=0;j<4;j++)if(id==ids[j])expected=227+j;CHECK(plateau_terrain_slot(id)==expected);}
  for(unsigned int id=0;id<600;id++){int expected=-1;for(int j=0;j<9;j++)if(id==ground_ids[j])expected=201+j;CHECK(ground_terrain_slot(id)==expected);}
  for(unsigned int layer=0;layer<5;layer++)for(unsigned int id=0;id<600;id++){
-  reset();render_mirror_bind_terrain(layer,id,bank+id);bool accepted=(layer==1&&(id==111||id==114||id==113||id==341||id==342||id==343||id==351||id==352||id==353||member(id,road_ids,9)||member(id,ids,4)||member(id,ground_ids,9)||member(id,old_ids,9)||id==323||id==324||id==333||id==334))||(layer==2&&cloud(id));CHECK(terrain_source_count==(unsigned int)accepted);nonterrain_untouched();
+  reset();render_mirror_bind_terrain(layer,id,bank+id);bool accepted=(layer==1&&(id==111||id==114||id==113||id==341||id==342||id==343||id==351||id==352||id==353||member(id,road_ids,9)||member(id,ids,4)||member(id,ground_ids,9)||member(id,old_ids,9)||id==323||id==324||id==333||id==334))||(layer==2&&cloud(id))||(layer==3&&member(id,gray_ids,18));CHECK(terrain_source_count==(unsigned int)accepted);nonterrain_untouched();
  }
  for(int b=0;b<256;b++)if(b!='z'&&b!='Z')for(unsigned int j=0;j<4;j++){reset();render_mirror_map_begin((char)b);render_mirror_bind_terrain(1,ids[j],bank+ids[j]);CHECK(!terrain_source_count);}
  /* Missing resources preserve original path and original scene-draw log. */
@@ -81,10 +82,17 @@ int main(void)
  for(int j=0;j<9;j++){reset();write_hda(old_ids[j],-1);render_mirror_bind_terrain(1,old_ids[j],bank+old_ids[j]);CHECK(draw_one(old_ids[j],MIRROR_NORMAL)==1);CHECK(assets[old_slots[j]].valid);nonterrain_untouched();remove_hda(old_ids[j]);}
  for(int j=0;j<9;j++){reset();write_hda(ground_ids[j],-1);render_mirror_bind_terrain(1,ground_ids[j],bank+ground_ids[j]);CHECK(draw_one(ground_ids[j],MIRROR_NORMAL)==1);CHECK(assets[201+j].valid);nonterrain_untouched();remove_hda(ground_ids[j]);}
  for(unsigned int id=41;id<=65;id++)if(cloud(id)){reset();write_hda(id,-1);int expected=id<=45?186+(int)id-41:id<=55?191+(int)id-51:196+(int)id-61;CHECK(cloud_terrain_slot(id)==expected);render_mirror_bind_terrain(2,id,bank+id);CHECK(!draw_one(id,MIRROR_BLEND));CHECK(!draws&&!traces);CHECK(draw_one(id,MIRROR_NORMAL)==1);CHECK(assets[expected].valid);nonterrain_untouched();remove_hda(id);}
+ /* Explicit new-family membership must not turn into a broad numeric range. */
+ for(int j=0;j<18;j++){
+  unsigned id=gray_ids[j];reset();write_hda(id,-1);render_mirror_bind_terrain(3,id,bank+id);
+  CHECK(draw_one(id,MIRROR_NORMAL)==1);CHECK(assets[272+j].valid&&assets[272+j].bank==201&&assets[272+j].index==(int)id);
+  CHECK(!draw_one(id,MIRROR_BLEND)&&!draws&&!traces);CHECK(!draw_one(id,MIRROR_SHADOW)&&!draws&&!traces);
+  nonterrain_untouched();for(int slot=269;slot<=271;slot++)CHECK(!assets[slot].initialized);remove_hda(id);
+ }
  /* Every unrecognized ID must not alias the old implicit ID332 fallback. */
- for(unsigned int id=0;id<600;id++)if(id!=111&&id!=114&&id!=113&&id!=341&&id!=342&&id!=343&&id!=351&&id!=352&&id!=353&&!member(id,road_ids,9)&&!member(id,ids,4)&&!member(id,ground_ids,9)&&!member(id,old_ids,9)&&!cloud(id)&&id!=323&&id!=324&&id!=333&&id!=334){
+ for(unsigned int id=0;id<600;id++)if(!member(id,gray_ids,18)&&id!=111&&id!=114&&id!=113&&id!=341&&id!=342&&id!=343&&id!=351&&id!=352&&id!=353&&!member(id,road_ids,9)&&!member(id,ids,4)&&!member(id,ground_ids,9)&&!member(id,old_ids,9)&&!cloud(id)&&id!=323&&id!=324&&id!=333&&id!=334){
   reset();terrain_sources[0].data=bank+id;terrain_sources[0].id=id;terrain_source_count=1;CHECK(!draw_one(id,MIRROR_NORMAL));CHECK(!draws&&!traces&&!assets[22].initialized);nonterrain_untouched();
  }
- reset();for(int i=0;i<600;i++)render_mirror_bind_terrain(1,96,bank+i);CHECK(terrain_source_count==122);nonterrain_untouched();
- reset();printf("PASS: %u checks; four exact plateau IDs/layers/banks; slots227–230 and untouched orb218–219/installation231–234; six header words/magic/payload rejection; missing-all/each; existing plateau/ground/cloud unchanged; exhaustive unknown ID332 rejection; registry122.\n",checks);return 0;
+ reset();for(int i=0;i<600;i++)render_mirror_bind_terrain(1,96,bank+i);CHECK(terrain_source_count==140);nonterrain_untouched();
+ reset();printf("PASS: %u checks; four exact plateau IDs/layers/banks; slots227–230 and untouched orb218–219/installation231–234; six header words/magic/payload rejection; missing-all/each; existing plateau/ground/cloud unchanged; exhaustive unknown ID332 rejection; registry140.\n",checks);return 0;
 }

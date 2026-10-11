@@ -12,7 +12,7 @@ def pixels(base,d):
 def raw(base,d):return struct.pack('<4s6I',b'HDR1',1010000+base,d,24,28,6,7)+pixels(base,d)
 with tempfile.TemporaryDirectory(prefix='craft-three-unit-') as temp:
  t=Path(temp);packs=t/'packs';packs.mkdir()
- ids=[267,269,271];old_ids=[77,79,115,117,85,87,123,125,191,193,195,197,199,201,203,205,229,231,233,235,237,239,241,243,81,83,119,121]
+ ids=[267,269,271];old_ids=[77,79,115,117,85,87,123,125,191,193,195,197,199,201,203,205,229,231,233,235,237,239,241,243,81,83,119,121,153,155,157]
  for name,d,bases in [('full8',8,ids),('full4',4,ids),('all-bindings',8,old_ids+ids)]:
   out=packs/name;out.mkdir()
   for base in bases:(out/f'enemy-newsh2-{base}-{d}.hda').write_bytes(raw(base,d))

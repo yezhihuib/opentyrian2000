@@ -1,0 +1,16 @@
+{
+  "scope": "Numeric static topology facts only. No original raster, per-pixel palette values, original masks, map array, or rejected candidate metrics are distributed.",
+  "source_audit_sha256": "20ddf62fac30faec2a4e1dff246f7cfe6fd61d8ea825f9853a98b585db4ad898",
+  "audited_map_dimensions": [
+    600,
+    15
+  ],
+  "cardinal_pair_types_touching_gray18": 325,
+  "cardinal_placements_touching_gray18": 2508,
+  "intrinsic_original_binary_alpha_mismatch_pair_types": 35,
+  "intrinsic_original_binary_alpha_mismatch_placements": 618,
+  "intrinsic_original_alpha_mismatch_unique_hd_border_samples": 1096,
+  "intrinsic_original_alpha_mismatch_placement_weighted_hd_border_samples": 16016,
+  "explanation": "Exact RGBA equality at every reused border is impossible while preserving the original occupied silhouette: 35 pair types / 618 placements already have differing original binary support. Natural RGB also varies; selected art applies no RGB edge correction. These are bounded static topology facts, not a universal seam or runtime pass.",
+  "selected_original_zero_nonzero_support_preserved": true
+}

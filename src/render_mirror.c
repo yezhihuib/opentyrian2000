@@ -21,7 +21,7 @@ typedef struct {
 } Asset;
 enum { ASSET_NEWSH2=101, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
-static Asset assets[269];
+static Asset assets[290];
 static Asset talon_frames[13];
 typedef struct {
  bool valid;
@@ -42,7 +42,7 @@ void render_mirror_reset_banking(void)
 void render_mirror_set_talon_banking(bool enabled)
 {talon_banking_enabled=enabled;render_mirror_reset_banking();}
 static char terrain_file;
-static struct {const Uint8 *data;unsigned int id;} terrain_sources[122];
+static struct {const Uint8 *data;unsigned int id;} terrain_sources[140];
 static unsigned int terrain_source_count;
 static SDL_Surface *canvas,*output;
 static SDL_Surface *fade_saved;
@@ -698,7 +698,7 @@ bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array ban
   else if(enemySpriteSheetIds[i]==9)role=ASSET_NEWSHE;
  }
  /* Existing ground201..209 and rotor210..217 remain unchanged. */
- int slot=base==49?265:base==51?266:base==89?267:base==127?268:base==267?243:base==269?244:base==271?245:base==81?231:base==83?232:base==119?233:base==121?234:(base>=229&&base<=243&&base%2==1)?210+(int)(base-229)/2:base==77?6:base==79?7:base==115?8:base==117?9:base==85?15:base==87?16:base==123?17:base==125?18:(base>=191&&base<=205&&base%2==1)?23+(int)(base-191)/2:-1;
+ int slot=base==153?269:base==155?270:base==157?271:base==49?265:base==51?266:base==89?267:base==127?268:base==267?243:base==269?244:base==271?245:base==81?231:base==83?232:base==119?233:base==121?234:(base>=229&&base<=243&&base%2==1)?210+(int)(base-229)/2:base==77?6:base==79?7:base==115?8:base==117?9:base==85?15:base==87?16:base==123?17:base==125?18:(base>=191&&base<=205&&base%2==1)?23+(int)(base-191)/2:-1;
  if(role==ASSET_NEWSHE) {
   const unsigned int ids[12]={1,3,5,39,41,43,7,9,11,45,47,49};
   slot=-1;for(int i=0;i<12;i++)if(base==ids[i])slot=253+i;
@@ -768,9 +768,17 @@ static int stone_foundation_slot(unsigned int id)
  for(int i=0;i<6;i++)if(id==ids[i])return 247+i;
  return -1;
 }
+/* Only the reviewed shapesZ layer3 gray island family. Slots269-271
+ * remain reserved for the separate three-design type40 enemy family. */
+static int layer3_gray_slot(unsigned int id)
+{
+ static const unsigned int ids[18]={121,122,123,124,125,131,132,133,134,135,141,142,143,144,151,152,153,154};
+ for(int i=0;i<18;i++)if(id==ids[i])return 272+i;
+ return -1;
+}
 void render_mirror_bind_terrain(unsigned int layer,unsigned int id,const Uint8 *data)
 {
- if(terrain_file=='z'&&((layer==1&&(stone_foundation_slot(id)>=0||terrain_holes_slot(id)>=0||road_terrain_slot(id)>=0||underlay_terrain_slot(id)>=0||plateau_terrain_slot(id)>=0||ground_terrain_slot(id)>=0||id==101||id==37||id==57||id==49||id==50||id==321||id==322||id==331||id==332))||(layer==2&&cloud_terrain_slot(id)>=0))&&terrain_source_count<122) {
+ if(terrain_file=='z'&&((layer==1&&(stone_foundation_slot(id)>=0||terrain_holes_slot(id)>=0||road_terrain_slot(id)>=0||underlay_terrain_slot(id)>=0||plateau_terrain_slot(id)>=0||ground_terrain_slot(id)>=0||id==101||id==37||id==57||id==49||id==50||id==321||id==322||id==331||id==332))||(layer==2&&cloud_terrain_slot(id)>=0)||(layer==3&&layer3_gray_slot(id)>=0))&&terrain_source_count<140) {
   terrain_sources[terrain_source_count].data=data;
   terrain_sources[terrain_source_count++].id=id;
  }
@@ -792,17 +800,20 @@ unsigned int render_mirror_terrain_row(SDL_Surface *surface,int x,int y,Uint8 **
   int road_slot=road_terrain_slot(id);
   int holes_slot=terrain_holes_slot(id);
   int stone_slot=stone_foundation_slot(id);
+  int gray_slot=layer3_gray_slot(id);
+  if(gray_slot>=0&&style!=MIRROR_NORMAL)continue;
   if(slot<0)slot=ground_slot;
   if(slot<0)slot=plateau_slot;
   if(slot<0)slot=underlay_slot;
   if(slot<0)slot=road_slot;
   if(slot<0)slot=holes_slot;
   if(slot<0)slot=stone_slot;
+  if(slot<0)slot=gray_slot;
   if(slot<0)slot=id==101?10:id==37?11:id==57?12:id==49?13:id==50?14:id==321?19:id==322?20:id==331?21:id==332?22:-1;
   if(slot<0)continue;
   Asset *a=scene_asset(slot,ASSET_SHAPESZ,(int)id,0,0);
   /* Missing/invalid new art retains the exact previous fallback and trace. */
-  if((ground_slot>=0||plateau_slot>=0||underlay_slot>=0||road_slot>=0||holes_slot>=0||stone_slot>=0)&&!a)continue;
+  if((ground_slot>=0||plateau_slot>=0||underlay_slot>=0||road_slot>=0||holes_slot>=0||stone_slot>=0||gray_slot>=0)&&!a)continue;
   bool mirrored=a?draw_asset(x+tile*24,y,a,style,NULL):false;
   suppress=false;
   if(mirrored)replaced|=1u<<tile;

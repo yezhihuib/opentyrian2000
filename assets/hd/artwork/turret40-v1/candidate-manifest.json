@@ -1,0 +1,111 @@
+{
+  "family": "type40 physical turret",
+  "sheet": "newsh2.shp",
+  "bank": 1,
+  "type": 40,
+  "frames": [
+    {
+      "base": 153,
+      "file": "frames8x/newsh2-base153-8.png",
+      "sha256": "0e1f0f190763362b08ed3c31502a508744e00145b0be4daf0cf9efdff33e3cd9",
+      "core_meanRGB": 55.591579861111114,
+      "logical_size": [
+        24,
+        28
+      ],
+      "pixel_size": [
+        192,
+        224
+      ],
+      "anchor": [
+        6,
+        7
+      ]
+    },
+    {
+      "base": 155,
+      "file": "frames8x/newsh2-base155-8.png",
+      "sha256": "0ce487b3960e39d41e1f35aac626707f2c10c1bfd0f3fca82bf23eb6c20e334e",
+      "core_meanRGB": 72.06698495370371,
+      "logical_size": [
+        24,
+        28
+      ],
+      "pixel_size": [
+        192,
+        224
+      ],
+      "anchor": [
+        6,
+        7
+      ]
+    },
+    {
+      "base": 157,
+      "file": "frames8x/newsh2-base157-8.png",
+      "sha256": "bfd1cb1d71c12f524905e6789403b83d2c43769bdfe756917e1e2661ee384150",
+      "core_meanRGB": 95.82392939814815,
+      "logical_size": [
+        24,
+        28
+      ],
+      "pixel_size": [
+        192,
+        224
+      ],
+      "anchor": [
+        6,
+        7
+      ]
+    }
+  ],
+  "sequence": [
+    153,
+    155,
+    157,
+    157,
+    155,
+    155,
+    155,
+    153,
+    153
+  ],
+  "animate": 2,
+  "trigger": "original firing; engine controls timing",
+  "core_rect_logical_half_open": [
+    9,
+    12,
+    15,
+    18
+  ],
+  "common_body": "all bytes outside core rect identical",
+  "opacity": "all255; composite authored gun onto exact accepted144",
+  "backing_dependency": {
+    "sheet": "shapesZ",
+    "role": "terrain-layer3",
+    "id": 144,
+    "png_sha256": "c4cd3a9dea6c5ecd14707ec5e0fef822407bb372f47b61cdbedd91da490772e8",
+    "rgba_sha256": "d57baf5e2e311df7f57a175b7a98848187d8959935da0e1c05ad7c1faadfa4b6",
+    "source": "accepted frozen gray18 output terrain-shapesz-144-8.png"
+  },
+  "extraction": {
+    "master_size": [
+      2012,
+      782
+    ],
+    "pitch_x": "2012/3",
+    "window_relative": [
+      40,
+      32,
+      630,
+      720
+    ],
+    "output": [
+      192,
+      224
+    ],
+    "filter": "BICUBIC"
+  },
+  "provenance": "built-in imagegen, selected authored atlas and savedprompt; source-preserving core crop/assembly",
+  "limits": "root approved offline4x2x; actual runtime firing review pending"
+}

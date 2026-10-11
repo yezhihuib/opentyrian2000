@@ -1,0 +1,3 @@
+Type40 newsh2 physical turret153/155/157,24x28anchor6,7 at8x. Nine-phase sequence unchanged:153,155,157,157,155,155,155,153,153. Engine firing controls timing.
+Run python export_final.py with Pillow to reproduce byte-exact PNGs. Shared authored body and frozen144 backing are identical outside6x6logical aperture. All outputalpha255. Selected atlas is generated; frozen144 is accepted authoredHDterrain. No original game pixels packaged.
+144 dependency is recorded by both PNG/RGBA hash. Runtime normal removal exposes existing terrain; no new damaged/remnant frame. Original physics/order/hitlogic untouched.

@@ -21,7 +21,7 @@ ROOT = HERE.parents[1]
 IDS = [1, 3, 5, 39, 41, 43, 7, 9, 11, 45, 47, 49]
 OLD_IDS = [77, 79, 115, 117, 85, 87, 123, 125, 191, 193, 195, 197,
            199, 201, 203, 205, 229, 231, 233, 235, 237, 239, 241, 243,
-           81, 83, 119, 121, 267, 269, 271]
+           81, 83, 119, 121, 267, 269, 271, 153, 155, 157]
 ZIP_SHA256 = 'd5a3cbdcd5a04e369cfbbe030fd39d8cea162759396678f4d1ae2a1df6a1aa57'
 p = argparse.ArgumentParser(description=__doc__)
 p.add_argument('--source', type=Path, default=ROOT / 'src/render_mirror.c')

@@ -1,0 +1,390 @@
+{
+  "status": "Provisional reproducible snapshot; final selection/freeze on hold for actual 4x rim A/B. All artwork remains unchanged.",
+  "upstream_selected_crop_metadata_sha256": "6a9eee16e8318b698f91ba07ada93fcecadda6eccaa6b294b3c62241854d057c",
+  "upstream_frozen144_contract_sha256": "12e158bb3c6b84b55c2b969057ae4044e987071cc1444d989c3e9f2ba1b97ca5",
+  "generated_process": "Image generation is not deterministic. Private generated masters were registered with native ImageMagick Lanczos resize; literal selected crops were then processed as described below.",
+  "native_raw_stage": "For 17 tiles: native ImageMagick crop, alpha removal composited over matte RGB [8,7,6], then CopyOpacity with the approved original binary silhouette. The matte contributes only where generated alpha retreats; it never fills original zero-alpha support. Fully opaque generated pixels retain their RGB. This is not a claim of literal raw generated RGB identity at partial-alpha pixels.",
+  "upstream_masking_script_sha256": "1613516804c1e5b416d0a93c22a5615618d514e27b6fc5dd6a1a4ddc03fc8d16",
+  "packaged_source_stage": "Canonicalize hidden RGB to zero for 12 rim tiles. Preserve occupied RGB and binary alpha exactly. Six fully opaque source PNGs remain byte-exact. Packaged RGBA contains approved baked silhouette; no standalone original masks or reference rasters are distributed.",
+  "selected_stage": "Unchanged native alpha helper; no RGB averaging, correction, harmonic solve, border fitting, or resampling in the standalone rebuild.",
+  "masters": [
+    {
+      "generated_master": "imagegen-gray-island-v1.png",
+      "generated_size": [
+        1583,
+        993
+      ],
+      "generated_sha256": "98d5b88e036accc3c946cf40c3f0a49b605df9f4ffe14aee91740952503a03c7",
+      "registered_master": "registered-gray-island-v1.png",
+      "registered_size": [
+        2496,
+        1568
+      ],
+      "registered_sha256": "006b3f51f84f2378ac28a6d2b525e27614f35d1c2b8b9c85077be47149715257",
+      "prompt": "prompts/imagegen-gray-island-v1.txt",
+      "prompt_sha256": "0ba40f6548e941955e7aeba19535a7adb05e9ee39e17e786187e61f666dbedf8",
+      "rasters_distributed": false
+    },
+    {
+      "generated_master": "imagegen-gray-island-v2-edgebleed.png",
+      "generated_size": [
+        1584,
+        993
+      ],
+      "generated_sha256": "8a0f15bc47db5438e7a764fa2180cb7397aaafc95b27db72f54e244f5fb22275",
+      "registered_master": "registered-gray-island-v2-edgebleed.png",
+      "registered_size": [
+        2496,
+        1568
+      ],
+      "registered_sha256": "4898cfda2ad93c634e33ae91c5af63385eee34c26e358cc5eaea33a5ff40a378",
+      "prompt": "prompts/imagegen-gray-island-v2-edgebleed.txt",
+      "prompt_sha256": "c666070b293f25c8769218ffc2d5ad0614642847b25ff3c9097aca94bf699572",
+      "rasters_distributed": false
+    },
+    {
+      "generated_master": "imagegen-gray-canonical-v1.png",
+      "generated_size": [
+        1160,
+        1355
+      ],
+      "generated_sha256": "d5a7b3058334f52fe53d3cf68c9c315d52430cf0d780feceb5ac9606802bec87",
+      "registered_master": "registered-gray-canonical-v1.png",
+      "registered_size": [
+        576,
+        672
+      ],
+      "registered_sha256": "386182cdd805c3441b94dfdc0bc258dfa68b37b438b4782b73940e38f8240605",
+      "prompt": "prompts/imagegen-gray-canonical-v1.txt",
+      "prompt_sha256": "a9a3794500d8cfb5fef0afbefc5c83be087b8e51253d79afd155eae720ba5599",
+      "rasters_distributed": false
+    },
+    {
+      "generated_master": "imagegen-gray-canonical-v2.png",
+      "generated_size": [
+        1160,
+        1355
+      ],
+      "generated_sha256": "dd1c81209be0fd2b33b882098e52feb1b25ffbab67f51fff987c78c70b2d11bc",
+      "registered_master": "registered-gray-canonical-v2.png",
+      "registered_size": [
+        576,
+        672
+      ],
+      "registered_sha256": "385797a821e710b285c14785be762d89919affef8e7bb560493f85fff143d297",
+      "prompt": "prompts/imagegen-gray-canonical-v2-registration.txt",
+      "prompt_sha256": "610f6c52b5fa9225ea58fffc823bf99c478ee7e481374ce88d4bdc0287f1ca54",
+      "rasters_distributed": false
+    }
+  ],
+  "tiles": {
+    "121": {
+      "master": "registered-gray-island-v2-edgebleed.png",
+      "crop": [
+        0,
+        448,
+        192,
+        672
+      ],
+      "source_map_cell": [
+        437,
+        0
+      ],
+      "generated_coverage_alpha_below128": 28,
+      "source_occupied_subpixels": 25344,
+      "generated_masked_png_sha256": "59a2eef8c0288a2163d08361f9d4f4f56ce86e2ea859166ba94e9d94c474d23d",
+      "generated_masked_rgba_sha256": "b1c5894163afbb9fc4b78b91cf39ef874dd5f8ed3c8000f9c8d83d73cf88611c",
+      "hidden_rgb_canonicalized_pixels": 17609
+    },
+    "122": {
+      "master": "registered-gray-island-v2-edgebleed.png",
+      "crop": [
+        576,
+        0,
+        768,
+        224
+      ],
+      "source_map_cell": [
+        435,
+        3
+      ],
+      "generated_coverage_alpha_below128": 274,
+      "source_occupied_subpixels": 38464,
+      "generated_masked_png_sha256": "6ddd308f2a73a17765adb5eea9e4caf92bb82e1e47db867e0617e390f36c6b0c",
+      "generated_masked_rgba_sha256": "db27f0ab1f4efa6ec33a22262f03b122f93116ff1b69e9c02face23b9c038097",
+      "hidden_rgb_canonicalized_pixels": 4536
+    },
+    "123": {
+      "master": "registered-gray-island-v2-edgebleed.png",
+      "crop": [
+        2304,
+        448,
+        2496,
+        672
+      ],
+      "source_map_cell": [
+        437,
+        12
+      ],
+      "generated_coverage_alpha_below128": 0,
+      "source_occupied_subpixels": 26752,
+      "generated_masked_png_sha256": "8d1aeb9593f9f01c6542b854c94593f5a73ffb0758d495a5e7d282718bbbce5b",
+      "generated_masked_rgba_sha256": "13a4642d7418e8c570226d1ad86df199c246e5f510168610f3907b6ba4885d7c",
+      "hidden_rgb_canonicalized_pixels": 16222
+    },
+    "124": {
+      "master": "registered-gray-island-v2-edgebleed.png",
+      "crop": [
+        384,
+        224,
+        576,
+        448
+      ],
+      "source_map_cell": [
+        436,
+        2
+      ],
+      "generated_coverage_alpha_below128": 0,
+      "source_occupied_subpixels": 42880,
+      "generated_masked_png_sha256": "ef3ccc3dd00536de711426669bfa0bfafab7430b09d6b9d21a9b333ce3da0812",
+      "generated_masked_rgba_sha256": "040ccc4382c1be70a057c8f1b704f6a603d80bb7794fc45f5a4c6a24e483f09a",
+      "hidden_rgb_canonicalized_pixels": 128
+    },
+    "125": {
+      "master": "registered-gray-island-v2-edgebleed.png",
+      "crop": [
+        960,
+        224,
+        1152,
+        448
+      ],
+      "source_map_cell": [
+        436,
+        5
+      ],
+      "generated_coverage_alpha_below128": 0,
+      "source_occupied_subpixels": 42432,
+      "generated_masked_png_sha256": "930de7cc5132f1cb1656d3244248d3e24025e83b495ebcdc0b3b934dc0a646c9",
+      "generated_masked_rgba_sha256": "b4085a727016c991dc87cdf6f53e7bd15f56b38ade895e8572c962ab11a37377",
+      "hidden_rgb_canonicalized_pixels": 509
+    },
+    "131": {
+      "master": "registered-gray-canonical-v2.png",
+      "crop": [
+        0,
+        224,
+        192,
+        448
+      ],
+      "source_map_cell": null,
+      "generated_coverage_alpha_below128": 2078,
+      "source_occupied_subpixels": 40576,
+      "generated_masked_png_sha256": "e038d7ce6217ab4d884b94a1d6b2a26d8d331a3cb1d5663b7d109ce0b12dd72a",
+      "generated_masked_rgba_sha256": "fbe6e7dc3d1663eb22bb9830a5b76a52f747736f138152b9bb1ee96b3d95fdb0",
+      "hidden_rgb_canonicalized_pixels": 2432
+    },
+    "132": {
+      "master": "registered-gray-island-v2-edgebleed.png",
+      "crop": [
+        1344,
+        224,
+        1536,
+        448
+      ],
+      "source_map_cell": [
+        436,
+        7
+      ],
+      "generated_coverage_alpha_below128": 0,
+      "source_occupied_subpixels": 43008,
+      "generated_masked_png_sha256": "e9b80a87a712aeaf8be6952edbd79ab92a76c8e5155084979f3166639a6e4ed6",
+      "generated_masked_rgba_sha256": "03421b789822f88490e783c6ada3873c2f0bb4bd7a4e97cffff8cd0149e63d5d",
+      "hidden_rgb_canonicalized_pixels": 0
+    },
+    "133": {
+      "master": "registered-gray-island-v2-edgebleed.png",
+      "crop": [
+        2112,
+        896,
+        2304,
+        1120
+      ],
+      "source_map_cell": [
+        439,
+        11
+      ],
+      "generated_coverage_alpha_below128": 0,
+      "source_occupied_subpixels": 40832,
+      "generated_masked_png_sha256": "ceea2ca45db803f8b7cf87d161abf6f36ccc1c0781e0967dcec84669db2d1abb",
+      "generated_masked_rgba_sha256": "fcca0951d41db15e75b2238b435f4be6a7151ffe4a705d1102a8aed0c228a6a4",
+      "hidden_rgb_canonicalized_pixels": 2168
+    },
+    "134": {
+      "master": "registered-gray-island-v2-edgebleed.png",
+      "crop": [
+        1536,
+        1120,
+        1728,
+        1344
+      ],
+      "source_map_cell": [
+        440,
+        8
+      ],
+      "generated_coverage_alpha_below128": 14,
+      "source_occupied_subpixels": 42112,
+      "generated_masked_png_sha256": "93004fe676a72366fe697d1e41bf8fa6885aa7730f5e7034e5d858553505a6ae",
+      "generated_masked_rgba_sha256": "e581d352c25fbab2cb2c8da99a14ec70ea8b453f08c7b88eca9a3a3ecfd1d94f",
+      "hidden_rgb_canonicalized_pixels": 896
+    },
+    "135": {
+      "master": "registered-gray-island-v2-edgebleed.png",
+      "crop": [
+        2112,
+        672,
+        2304,
+        896
+      ],
+      "source_map_cell": [
+        438,
+        11
+      ],
+      "generated_coverage_alpha_below128": 0,
+      "source_occupied_subpixels": 41280,
+      "generated_masked_png_sha256": "f7971f8806bae4136e13728dba8a48a7b4143655be41990dc16af3a728236375",
+      "generated_masked_rgba_sha256": "d01b2cd5710f074f9ccaa4e2ca06423126d5b99ee56ba157af322958639aaa33",
+      "hidden_rgb_canonicalized_pixels": 1686
+    },
+    "141": {
+      "master": "registered-gray-island-v2-edgebleed.png",
+      "crop": [
+        192,
+        896,
+        384,
+        1120
+      ],
+      "source_map_cell": [
+        439,
+        1
+      ],
+      "generated_coverage_alpha_below128": 1127,
+      "source_occupied_subpixels": 25984,
+      "generated_masked_png_sha256": "7213e990c6cba97090b17a553f9c72f6a6c97e3e4560ea7896db5bb5680aca43",
+      "generated_masked_rgba_sha256": "2f9247a1a8e30fa93c60fb993e1a76d4f85605437d2a8a182dbc6018dd90234b",
+      "hidden_rgb_canonicalized_pixels": 17023
+    },
+    "142": {
+      "master": "registered-gray-island-v2-edgebleed.png",
+      "crop": [
+        1152,
+        1344,
+        1344,
+        1568
+      ],
+      "source_map_cell": [
+        441,
+        6
+      ],
+      "generated_coverage_alpha_below128": 2852,
+      "source_occupied_subpixels": 39104,
+      "generated_masked_png_sha256": "8ddc78b888a74cd44e1cc6d58e71934e14d1da50f079443ccfa7a81a3d347925",
+      "generated_masked_rgba_sha256": "3ee1f0906c8a584e63478130862c7543e0313efcd05aee38f21154d3e917e710",
+      "hidden_rgb_canonicalized_pixels": 3904
+    },
+    "143": {
+      "master": "registered-gray-island-v2-edgebleed.png",
+      "crop": [
+        2304,
+        672,
+        2496,
+        896
+      ],
+      "source_map_cell": [
+        438,
+        12
+      ],
+      "generated_coverage_alpha_below128": 1716,
+      "source_occupied_subpixels": 31808,
+      "generated_masked_png_sha256": "7c5eec33494ef36f4de8ed01b5928fe6a34a55ea53332b92bc049e47831dc806",
+      "generated_masked_rgba_sha256": "b9dd5eac14a57604a339b095e75362082c76de2478760aa7368d65fadd1e8e10",
+      "hidden_rgb_canonicalized_pixels": 11169
+    },
+    "151": {
+      "master": "registered-gray-island-v2-edgebleed.png",
+      "crop": [
+        576,
+        224,
+        768,
+        448
+      ],
+      "source_map_cell": [
+        436,
+        3
+      ],
+      "generated_coverage_alpha_below128": 0,
+      "source_occupied_subpixels": 43008,
+      "generated_masked_png_sha256": "42a668fc2b974d82604cbe973340578a0c944e438627e7797a6040bb95b5f4ea",
+      "generated_masked_rgba_sha256": "1376467771bacbfa3334a7da2a770543ec85a18421a0e25c15df7b2849ed723b",
+      "hidden_rgb_canonicalized_pixels": 0
+    },
+    "152": {
+      "master": "registered-gray-island-v2-edgebleed.png",
+      "crop": [
+        576,
+        448,
+        768,
+        672
+      ],
+      "source_map_cell": [
+        437,
+        3
+      ],
+      "generated_coverage_alpha_below128": 0,
+      "source_occupied_subpixels": 43008,
+      "generated_masked_png_sha256": "474b70992e4326f3a008331e0bacf3622d5627d7622da180b3189c075cef5d3a",
+      "generated_masked_rgba_sha256": "3c397ee8216997869f79b89fc3f9ca7e526a90b2cb970cb45caf0952fa233a3a",
+      "hidden_rgb_canonicalized_pixels": 0
+    },
+    "153": {
+      "master": "registered-gray-island-v2-edgebleed.png",
+      "crop": [
+        768,
+        448,
+        960,
+        672
+      ],
+      "source_map_cell": [
+        437,
+        4
+      ],
+      "generated_coverage_alpha_below128": 0,
+      "source_occupied_subpixels": 43008,
+      "generated_masked_png_sha256": "9bc3c84ffd5d1f3d09aa824c5b5a8fa54a793a69e4260045f7721a3230571079",
+      "generated_masked_rgba_sha256": "cd9f8f27ab5efed4f6b46ee9208f58db546427ae0ff97ae9c09dd5e8e860965d",
+      "hidden_rgb_canonicalized_pixels": 0
+    },
+    "154": {
+      "master": "registered-gray-island-v2-edgebleed.png",
+      "crop": [
+        1536,
+        224,
+        1728,
+        448
+      ],
+      "source_map_cell": [
+        436,
+        8
+      ],
+      "generated_coverage_alpha_below128": 0,
+      "source_occupied_subpixels": 43008,
+      "generated_masked_png_sha256": "b239dd75f98da6069c8927b4422576814f8196823248bb7611f3624b1c448472",
+      "generated_masked_rgba_sha256": "3d73320ad517c7a8f8e98332e0ab2eeb0193d0823915476e08a13f70c185c264",
+      "hidden_rgb_canonicalized_pixels": 0
+    }
+  },
+  "registration_commands": {
+    "island": "ImageMagick -filter Lanczos -resize '2496x1568!'",
+    "canonical": "ImageMagick -filter Lanczos -resize '576x672!'",
+    "evidence": "Confirmed by the authoring parent during this packaging task."
+  }
+}

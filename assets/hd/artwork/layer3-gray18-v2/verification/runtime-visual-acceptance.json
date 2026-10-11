@@ -1,0 +1,35 @@
+{
+  "status": "Bounded visual ACCEPTED; publication authorized by parent/root",
+  "evidence_authority": "Parent art owner acceptance and private external visual receipt; packaging agent read receipt and verified its hash but did not rerun the engine tests",
+  "external_visual_receipt_relative_path": "../layer3-gray18-rim-v2/qa/VISUAL-RESULT.txt",
+  "external_visual_receipt_sha256": "1eaa554339e62a95352b69dadad39caec474b7e914a44e1751009cb9dd09b591",
+  "actual_frames": {
+    "first": 2490,
+    "last": 2609,
+    "count": 120,
+    "decoded_RGBA_hashes_exact": true,
+    "all_moving_rim_crops_viewed": true,
+    "full_native4x_frame": 2564,
+    "differences_confined_to_four_changed_tile_rectangles": true
+  },
+  "whole_map_native2x_contexts": {
+    "distinct_3x3_contexts": 168,
+    "placements": 275,
+    "directed_pair_types": 79,
+    "edge_placements": 867,
+    "all_edge_signatures_unchanged": true
+  },
+  "reported_technical_supplement": {
+    "rendered_frames": 468,
+    "cross_scale_RGB_exact_comparisons": 120,
+    "other_resources_unchanged": 294,
+    "state_material_effects_collision_unchanged": true,
+    "source": "Parent report; not independently rerun by packaging task"
+  },
+  "limitations": [
+    "Small left silhouette steps remain.",
+    "Source131 actual coverage not established in this bounded window; offline contexts reviewed.",
+    "Formal engineering integration remains the engineer gate."
+  ],
+  "captures_videos_hooks_distributed": false
+}

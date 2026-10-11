@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "command": "ImageMagick convert input.png -filter Lanczos -resize '384x448!' -depth 8 rgba:output.rgba",
+  "registered_size": [
+    384,
+    448
+  ],
+  "decoded_rgba_exact": true,
+  "registered_rgba_sha256": "efbad6ada284e1d3f9bed1cc7b50d098796a793bbc3366024eb10a315b941c4d",
+  "regenerated_rgba_sha256": "efbad6ada284e1d3f9bed1cc7b50d098796a793bbc3366024eb10a315b941c4d",
+  "tool_version": "Version: ImageMagick 7.1.1-43 Q16 x86_64 22550 https://imagemagick.org",
+  "master_and_registered_images_not_distributed": true
+}

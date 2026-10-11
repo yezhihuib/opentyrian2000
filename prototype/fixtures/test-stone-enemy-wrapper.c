@@ -69,11 +69,11 @@ int main(int argc,char**argv)
  Sprite2_array bank={(size_t)len,malloc((size_t)len)};assert(bank.data);assert(fread(bank.data,1,bank.size,f)==bank.size);fclose(f);
  SDL_PixelFormat format={8};SDL_Surface screen={64,64,64,calloc(64*64,1),&format};VGAScreen=&screen;
  enemy[0].sprite2s=&bank;enemySpriteSheets[0]=bank;enemySpriteSheetIds[0]=9;
- const int ids[]={1,3,5,39,41,43,7,9,11,45,47,49,77,79,115,117,85,87,123,125,191,193,195,197,199,201,203,205,229,231,233,235,237,239,241,243,81,83,119,121,267,269,271};
+ const int ids[]={1,3,5,39,41,43,7,9,11,45,47,49,77,79,115,117,85,87,123,125,191,193,195,197,199,201,203,205,229,231,233,235,237,239,241,243,81,83,119,121,267,269,271,153,155,157};
  for(unsigned j=0;j<sizeof(ids)/sizeof(*ids);j++)for(int k=0;k<4;k++)for(int filter=0;filter<3;filter++)for(int mirrored=0;mirrored<2;mirrored++){
   int part=(int[]){0,1,19,20}[k],hue=(int[]){0,0xd0,0x09}[filter];
   exercise(ids[j],part,hue,5,7,mirrored);exercise(ids[j],part,hue,5,60,mirrored);
  }
  free(bank.data);free(screen.pixels);
- printf("PASS %llu production wrapper cases: all43 bindings/all quadrants; original indexed filtered/unfiltered bytes exact, HD success/fallback, lower-edge clipping, original blit once, end once, no enemy-state mutation\n",checks);return 0;
+ printf("PASS %llu production wrapper cases: all46 bindings/all quadrants; original indexed filtered/unfiltered bytes exact, HD success/fallback, lower-edge clipping, original blit once, end once, no enemy-state mutation\n",checks);return 0;
 }
