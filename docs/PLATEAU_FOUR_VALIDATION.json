@@ -1,0 +1,654 @@
+{
+  "normal": {
+    "logical_ticks": [
+      0,
+      1052
+    ],
+    "presentation_ticks": [
+      520,
+      1052
+    ],
+    "scales": [
+      4,
+      2
+    ],
+    "NORMAL_HD_counts": {
+      "96": 258,
+      "97": 1406,
+      "98": 258,
+      "108": 539
+    },
+    "existing_state_scene_exact": true,
+    "coverage_classic_errors": 0
+  },
+  "missing4x": {
+    "exact_TSVs": 27,
+    "RGB_exact": true
+  },
+  "wild": {
+    "ticks": 940,
+    "processorType": 4,
+    "new4_draws": 1504,
+    "all_NORMAL_HD": true,
+    "IDs": {
+      "96": 44,
+      "97": 1344,
+      "98": 44,
+      "108": 72
+    },
+    "state_existing_scene_exact": true,
+    "cloud_HD_attempts": 0,
+    "RGB_without_new4_exact_frame_count": 532,
+    "first_new4_tick": 532,
+    "coverage_classic_errors": 0
+  },
+  "oracle": {
+    "status": "passed",
+    "sanitize": true,
+    "source": "/workspace/scratch/f67dd347fa0a/opentyrian2000-cloud",
+    "renderer_sha256": "74b4524999ba11d988bf146dbeba2b8627e286ecfdf236ba4d25c41543ef6fe1",
+    "command": [
+      "cc",
+      "-std=c99",
+      "-O1",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-I/tmp/plateau-four-binder-pv9qt8z5",
+      "/workspace/scratch/f67dd347fa0a/opentyrian2000-cloud/prototype/fixtures/test-plateau-binder.c",
+      "-o",
+      "/tmp/plateau-four-binder-pv9qt8z5/test",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer"
+    ],
+    "result": "PASS: 40156 checks; four exact plateau IDs/layers/banks; slots227\u2013230 and reserved218\u2013226; six header words/magic/payload rejection; missing-all/each; existing plateau/ground/cloud unchanged; exhaustive unknown ID332 rejection; registry100.\n",
+    "stderr": "",
+    "leak_sanitizer": "Disabled because runtime uses ptrace; ASan address checks and UBSan remain enabled."
+  },
+  "rebuild_exact_PNG_RGBA_HDA": 4,
+  "source_sha256": "74b4524999ba11d988bf146dbeba2b8627e286ecfdf236ba4d25c41543ef6fe1",
+  "independent_runtime": {
+    "status": "passed",
+    "coverage": "Actual ticks0..1052; fixture naturally game-overs after armor reaches0 at992; requested1200 fallback ended at1052. No claim of1200 executed ticks.",
+    "scales": [
+      {
+        "scale": 2,
+        "logic_ticks": 1053,
+        "last_tick": 1052,
+        "exact_files": [
+          "asset-debug-clock.tsv",
+          "asset-debug-materials.tsv",
+          "blend-palette.tsv",
+          "collisions.tsv",
+          "enemy-projectiles.tsv",
+          "fade-steps.tsv",
+          "fire-events.tsv",
+          "fx-created-shots.tsv",
+          "fx-setup.tsv",
+          "fx-trail.tsv",
+          "fx-weapons.tsv",
+          "green-head-draws.tsv",
+          "player-projectiles.tsv",
+          "poses.tsv",
+          "restore-regions.tsv",
+          "scene-enemies.tsv",
+          "scene-hits.tsv",
+          "sdl-runtime.tsv",
+          "state.tsv",
+          "talon-bank-visual.tsv"
+        ],
+        "expected_render_differences": [
+          "asset-debug-control.tsv",
+          "blend-writes.tsv",
+          "draw-commands.tsv",
+          "effects.tsv",
+          "frames.tsv",
+          "presentation.tsv",
+          "rgb-audit.tsv",
+          "scene-draw-commands.tsv"
+        ],
+        "new4_draws": {
+          "96": {
+            "count": 258,
+            "first_tick": 896,
+            "last_tick": 1052
+          },
+          "97": {
+            "count": 1406,
+            "first_tick": 532,
+            "last_tick": 1052
+          },
+          "98": {
+            "count": 258,
+            "first_tick": 896,
+            "last_tick": 1052
+          },
+          "108": {
+            "count": 539,
+            "first_tick": 868,
+            "last_tick": 1052
+          }
+        },
+        "old_scene_commands_exact": true,
+        "new4_normal_only": true,
+        "effects_equal_except_expected_hd_brightness_coverage": true,
+        "coverage_mismatch_zero": true,
+        "original_palette_blend_writes_equal_excluding_expected_hd_coverage_counter": true,
+        "foreground_draw_parameters_exact_all_ticks": true,
+        "foreground_mirror_flags_exact_from_tick90": true,
+        "required_gameplay_and_foreground_traces_equal_over_recorded_tick_ranges": true,
+        "draw_trace_first_tick": 90
+      },
+      {
+        "scale": 4,
+        "logic_ticks": 1053,
+        "last_tick": 1052,
+        "exact_files": [
+          "asset-debug-clock.tsv",
+          "asset-debug-materials.tsv",
+          "blend-palette.tsv",
+          "collisions.tsv",
+          "enemy-projectiles.tsv",
+          "fade-steps.tsv",
+          "fire-events.tsv",
+          "fx-created-shots.tsv",
+          "fx-setup.tsv",
+          "fx-trail.tsv",
+          "fx-weapons.tsv",
+          "green-head-draws.tsv",
+          "player-projectiles.tsv",
+          "poses.tsv",
+          "restore-regions.tsv",
+          "scene-enemies.tsv",
+          "scene-hits.tsv",
+          "state.tsv",
+          "talon-bank-visual.tsv"
+        ],
+        "expected_render_differences": [
+          "asset-debug-control.tsv",
+          "blend-writes.tsv",
+          "draw-commands.tsv",
+          "effects.tsv",
+          "frames.tsv",
+          "presentation.tsv",
+          "rgb-audit.tsv",
+          "scene-draw-commands.tsv",
+          "sdl-runtime.tsv"
+        ],
+        "new4_draws": {
+          "96": {
+            "count": 258,
+            "first_tick": 896,
+            "last_tick": 1052
+          },
+          "97": {
+            "count": 1406,
+            "first_tick": 532,
+            "last_tick": 1052
+          },
+          "98": {
+            "count": 258,
+            "first_tick": 896,
+            "last_tick": 1052
+          },
+          "108": {
+            "count": 539,
+            "first_tick": 868,
+            "last_tick": 1052
+          }
+        },
+        "old_scene_commands_exact": true,
+        "new4_normal_only": true,
+        "effects_equal_except_expected_hd_brightness_coverage": true,
+        "coverage_mismatch_zero": true,
+        "original_palette_blend_writes_equal_excluding_expected_hd_coverage_counter": true,
+        "foreground_draw_parameters_exact_all_ticks": true,
+        "foreground_mirror_flags_exact_from_tick90": true,
+        "required_gameplay_and_foreground_traces_equal_over_recorded_tick_ranges": true,
+        "draw_trace_first_tick": 90
+      }
+    ],
+    "internal_rgb_audit_exact_across_display_scales": true,
+    "ordinary_runtime_source_unchanged": "finite binder only, private capture transport excluded from formal patch"
+  },
+  "edge_diagnostics": [
+    {
+      "direction": "down",
+      "a": 58,
+      "b": 98,
+      "count": 1,
+      "edge_max": 66.0,
+      "edge_mean": 11.036458333333334,
+      "constrained": false
+    },
+    {
+      "direction": "down",
+      "a": 96,
+      "b": 106,
+      "count": 7,
+      "edge_max": 0.0,
+      "edge_mean": 0.0,
+      "constrained": true
+    },
+    {
+      "direction": "down",
+      "a": 96,
+      "b": 107,
+      "count": 1,
+      "edge_max": 0.0,
+      "edge_mean": 0.0,
+      "constrained": true
+    },
+    {
+      "direction": "down",
+      "a": 96,
+      "b": 109,
+      "count": 2,
+      "edge_max": 0.0,
+      "edge_mean": 0.0,
+      "constrained": true
+    },
+    {
+      "direction": "down",
+      "a": 96,
+      "b": 119,
+      "count": 3,
+      "edge_max": 0.0,
+      "edge_mean": 0.0,
+      "constrained": true
+    },
+    {
+      "direction": "down",
+      "a": 97,
+      "b": 106,
+      "count": 7,
+      "edge_max": 0.0,
+      "edge_mean": 0.0,
+      "constrained": true
+    },
+    {
+      "direction": "down",
+      "a": 97,
+      "b": 107,
+      "count": 6,
+      "edge_max": 0.0,
+      "edge_mean": 0.0,
+      "constrained": true
+    },
+    {
+      "direction": "down",
+      "a": 97,
+      "b": 109,
+      "count": 11,
+      "edge_max": 0.0,
+      "edge_mean": 0.0,
+      "constrained": true
+    },
+    {
+      "direction": "down",
+      "a": 97,
+      "b": 119,
+      "count": 4,
+      "edge_max": 0.0,
+      "edge_mean": 0.0,
+      "constrained": true
+    },
+    {
+      "direction": "down",
+      "a": 98,
+      "b": 96,
+      "count": 2,
+      "edge_max": 0.0,
+      "edge_mean": 0.0,
+      "constrained": true
+    },
+    {
+      "direction": "down",
+      "a": 98,
+      "b": 108,
+      "count": 4,
+      "edge_max": 0.0,
+      "edge_mean": 0.0,
+      "constrained": true
+    },
+    {
+      "direction": "down",
+      "a": 98,
+      "b": 118,
+      "count": 2,
+      "edge_max": 0.0,
+      "edge_mean": 0.0,
+      "constrained": true
+    },
+    {
+      "direction": "down",
+      "a": 100,
+      "b": 97,
+      "count": 14,
+      "edge_max": 0.0,
+      "edge_mean": 0.0,
+      "constrained": true
+    },
+    {
+      "direction": "down",
+      "a": 101,
+      "b": 98,
+      "count": 5,
+      "edge_max": 1.0,
+      "edge_mean": 0.008680555555555556,
+      "constrained": true
+    },
+    {
+      "direction": "down",
+      "a": 106,
+      "b": 96,
+      "count": 3,
+      "edge_max": 0.0,
+      "edge_mean": 0.0,
+      "constrained": true
+    },
+    {
+      "direction": "down",
+      "a": 106,
+      "b": 108,
+      "count": 13,
+      "edge_max": 0.0,
+      "edge_mean": 0.0,
+      "constrained": true
+    },
+    {
+      "direction": "down",
+      "a": 107,
+      "b": 97,
+      "count": 4,
+      "edge_max": 0.0,
+      "edge_mean": 0.0,
+      "constrained": true
+    },
+    {
+      "direction": "down",
+      "a": 108,
+      "b": 96,
+      "count": 8,
+      "edge_max": 0.0,
+      "edge_mean": 0.0,
+      "constrained": true
+    },
+    {
+      "direction": "down",
+      "a": 108,
+      "b": 108,
+      "count": 18,
+      "edge_max": 0.0,
+      "edge_mean": 0.0,
+      "constrained": true
+    },
+    {
+      "direction": "down",
+      "a": 108,
+      "b": 118,
+      "count": 9,
+      "edge_max": 0.0,
+      "edge_mean": 0.0,
+      "constrained": true
+    },
+    {
+      "direction": "down",
+      "a": 110,
+      "b": 97,
+      "count": 10,
+      "edge_max": 0.0,
+      "edge_mean": 0.0,
+      "constrained": true
+    },
+    {
+      "direction": "down",
+      "a": 113,
+      "b": 98,
+      "count": 1,
+      "edge_max": 66.0,
+      "edge_mean": 11.24826388888889,
+      "constrained": false
+    },
+    {
+      "direction": "down",
+      "a": 332,
+      "b": 98,
+      "count": 1,
+      "edge_max": 1.0,
+      "edge_mean": 0.008680555555555556,
+      "constrained": false
+    },
+    {
+      "direction": "right",
+      "a": 48,
+      "b": 98,
+      "count": 1,
+      "edge_max": 82.0,
+      "edge_mean": 9.808035714285714,
+      "constrained": false
+    },
+    {
+      "direction": "right",
+      "a": 58,
+      "b": 108,
+      "count": 1,
+      "edge_max": 82.0,
+      "edge_mean": 9.808035714285714,
+      "constrained": false
+    },
+    {
+      "direction": "right",
+      "a": 96,
+      "b": 97,
+      "count": 2,
+      "edge_max": 0.0,
+      "edge_mean": 0.0,
+      "constrained": true
+    },
+    {
+      "direction": "right",
+      "a": 96,
+      "b": 107,
+      "count": 5,
+      "edge_max": 0.0,
+      "edge_mean": 0.0,
+      "constrained": true
+    },
+    {
+      "direction": "right",
+      "a": 96,
+      "b": 109,
+      "count": 2,
+      "edge_max": 0.0,
+      "edge_mean": 0.0,
+      "constrained": true
+    },
+    {
+      "direction": "right",
+      "a": 96,
+      "b": 110,
+      "count": 3,
+      "edge_max": 0.0,
+      "edge_mean": 0.0,
+      "constrained": true
+    },
+    {
+      "direction": "right",
+      "a": 97,
+      "b": 96,
+      "count": 1,
+      "edge_max": 0.0,
+      "edge_mean": 0.0,
+      "constrained": true
+    },
+    {
+      "direction": "right",
+      "a": 97,
+      "b": 99,
+      "count": 10,
+      "edge_max": 0.0,
+      "edge_mean": 0.0,
+      "constrained": true
+    },
+    {
+      "direction": "right",
+      "a": 97,
+      "b": 100,
+      "count": 15,
+      "edge_max": 0.0,
+      "edge_mean": 0.0,
+      "constrained": true
+    },
+    {
+      "direction": "right",
+      "a": 98,
+      "b": 96,
+      "count": 1,
+      "edge_max": 0.0,
+      "edge_mean": 0.0,
+      "constrained": true
+    },
+    {
+      "direction": "right",
+      "a": 98,
+      "b": 99,
+      "count": 7,
+      "edge_max": 0.0,
+      "edge_mean": 0.0,
+      "constrained": true
+    },
+    {
+      "direction": "right",
+      "a": 99,
+      "b": 96,
+      "count": 11,
+      "edge_max": 0.0,
+      "edge_mean": 0.0,
+      "constrained": true
+    },
+    {
+      "direction": "right",
+      "a": 100,
+      "b": 108,
+      "count": 1,
+      "edge_max": 4.0,
+      "edge_mean": 0.5684523809523809,
+      "constrained": true
+    },
+    {
+      "direction": "right",
+      "a": 101,
+      "b": 98,
+      "count": 6,
+      "edge_max": 7.0,
+      "edge_mean": 1.2857142857142858,
+      "constrained": true
+    },
+    {
+      "direction": "right",
+      "a": 101,
+      "b": 108,
+      "count": 21,
+      "edge_max": 7.0,
+      "edge_mean": 1.2857142857142858,
+      "constrained": true
+    },
+    {
+      "direction": "right",
+      "a": 106,
+      "b": 97,
+      "count": 5,
+      "edge_max": 0.0,
+      "edge_mean": 0.0,
+      "constrained": true
+    },
+    {
+      "direction": "right",
+      "a": 108,
+      "b": 97,
+      "count": 7,
+      "edge_max": 0.0,
+      "edge_mean": 0.0,
+      "constrained": true
+    },
+    {
+      "direction": "right",
+      "a": 108,
+      "b": 107,
+      "count": 5,
+      "edge_max": 0.0,
+      "edge_mean": 0.0,
+      "constrained": true
+    },
+    {
+      "direction": "right",
+      "a": 108,
+      "b": 109,
+      "count": 8,
+      "edge_max": 0.0,
+      "edge_mean": 0.0,
+      "constrained": true
+    },
+    {
+      "direction": "right",
+      "a": 108,
+      "b": 110,
+      "count": 15,
+      "edge_max": 0.0,
+      "edge_mean": 0.0,
+      "constrained": true
+    },
+    {
+      "direction": "right",
+      "a": 109,
+      "b": 97,
+      "count": 13,
+      "edge_max": 0.0,
+      "edge_mean": 0.0,
+      "constrained": true
+    },
+    {
+      "direction": "right",
+      "a": 110,
+      "b": 108,
+      "count": 4,
+      "edge_max": 4.0,
+      "edge_mean": 0.5684523809523809,
+      "constrained": true
+    },
+    {
+      "direction": "right",
+      "a": 111,
+      "b": 108,
+      "count": 5,
+      "edge_max": 82.0,
+      "edge_mean": 9.977678571428571,
+      "constrained": false
+    },
+    {
+      "direction": "right",
+      "a": 114,
+      "b": 108,
+      "count": 1,
+      "edge_max": 82.0,
+      "edge_mean": 9.977678571428571,
+      "constrained": false
+    },
+    {
+      "direction": "right",
+      "a": 322,
+      "b": 98,
+      "count": 1,
+      "edge_max": 7.0,
+      "edge_mean": 1.2857142857142858,
+      "constrained": false
+    }
+  ],
+  "production_vs_fixture_RGB_state_scene_exact_ticks": [
+    1000,
+    1001
+  ],
+  "all_prior_default_resources_unchanged": true
+}

@@ -25,3 +25,5 @@ Physical rotor enemy mapping/filter coverage: `python prototype/fixtures/test-ro
 Finite ground binder: `python prototype/fixtures/test-ground-binder.py --sanitize --output NEW_EXTERNAL_DIRECTORY`. Tests the current layer/bank/ID whitelist, nine slots, capacity, missing/invalid assets, existing ground/cloud paths and fallback trace preservation. Runtime scope is documented in `docs/GROUND_NINE_VALIDATION.md`.
 
 Enemy-only orb112/113: `python prototype/fixtures/test-enemy-orb.py --sanitize --output NEW_EXTERNAL_DIRECTORY`. Extracts the real wrapper, mirror helper and original RLE blitter to verify indexed parity, exactly-once blit/reset, finite source scope and ownership. See `docs/ENEMY_ORB_VALIDATION.md` for actual lifecycle and native evidence.
+
+Remaining plateau edge binder: `python prototype/fixtures/test-plateau-binder.py --sanitize --report EXTERNAL_REPORT.json`. Covers only96/97/98/108 and existing finite mappings; see `docs/PLATEAU_FOUR_VALIDATION.md` for native, missing-all and highest-detail tests.
