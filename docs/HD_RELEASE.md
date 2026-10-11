@@ -8,6 +8,8 @@ The [complete purple formation family](PURPLE_FOUR_VALIDATION.md) closes the bas
 
 The [second bounded milestone](NEXT15_HD_COVERAGE.md) closes86/86 observed identities in private-survival ticks1044–1565, with a combined522-frame logs-only pass. Its denominator is separate from ordinary first30 coverage.
 
+The [45–60-second closure](WINDOW45_60_VALIDATION.md) verifies54/54 observed material identities, a complete522-frame native2× stream and unchanged original state through2087. It reuses accepted art and remains explicitly private-survival scope.
+
 ## Historical green release update (2026-10-11)
 
 See [GREEN_RENDER_VALIDATION.md](GREEN_RENDER_VALIDATION.md) for the selected complete214–217 head pulse, green-only brightness interpolation, finite cloud visual/technical checks and Windows acceptance commands. At that green checkpoint:18 packs,2620 HDA entries,201 formal PNGs; defaults190/194. Existing rollback packs and accepted families are byte-preserved. The text below records earlier release stages and their then-current scope.

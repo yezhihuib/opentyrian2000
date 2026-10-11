@@ -1,0 +1,259 @@
+{
+  "status": "PASS",
+  "code_art_checkpoint": "7021e78386e9c010eb6c56d65d369e9e7e2bd9b8",
+  "documentation_baseline": "e6df63ac5af8536da1c4a121ff43fe1b50d556a0",
+  "scope": {
+    "ticks": [
+      1566,
+      2087
+    ],
+    "frames": 522,
+    "duration_ms": 15007.512006,
+    "label": "Private survival, no weapon71 injection, no external hit/destroy control; replay from0"
+  },
+  "counts": {
+    "material_identities": 54,
+    "material_references": 81858,
+    "new_vs_prefix_identities": 3,
+    "untreated_observed_material_identities": 0,
+    "prefix_identities": 105,
+    "prefix_references": 246352,
+    "union_material_identities_through2087": 108,
+    "category_identity_counts": {
+      "effect": 7,
+      "enemy": 10,
+      "player": 1,
+      "terrain-layer1": 21,
+      "terrain-layer2": 15
+    },
+    "category_reference_counts": {
+      "terrain-layer1": 47268,
+      "enemy": 20866,
+      "terrain-layer2": 12638,
+      "player": 1044,
+      "effect": 42
+    },
+    "separate_orb_identities": 2,
+    "separate_orb_references": 786
+  },
+  "original_reference_first_control_tick": 2119,
+  "runtime": {
+    "window45-60-final-logs2x": {
+      "exit": 0,
+      "exe_sha256": "1da43632a07f3c885448e62fa1be733d488da760933f5d1c8763041d37030f89",
+      "current_renderer_exact": true,
+      "current277pack_exact": true,
+      "original_prefix_parity": {
+        "state.tsv": {
+          "rows": 2088,
+          "original_prefix0_2087_exact": true
+        },
+        "asset-debug-materials.tsv": {
+          "rows": 328210,
+          "original_prefix0_2087_exact": true
+        },
+        "collisions.tsv": {
+          "rows": 41,
+          "original_prefix0_2087_exact": true
+        },
+        "player-projectiles.tsv": {
+          "rows": 0,
+          "original_prefix0_2087_exact": true
+        },
+        "enemy-projectiles.tsv": {
+          "rows": 2418,
+          "original_prefix0_2087_exact": true
+        },
+        "poses.tsv": {
+          "rows": 2088,
+          "original_prefix0_2087_exact": true
+        },
+        "fire-events.tsv": {
+          "rows": 0,
+          "original_prefix0_2087_exact": true
+        },
+        "asset-debug-clock.tsv": {
+          "rows": 2088,
+          "original_prefix0_2087_exact": true
+        }
+      },
+      "frames": 522,
+      "tick_first": 1566,
+      "tick_last": 2087,
+      "all_hd_ordered": true,
+      "coverage_mismatches": 0,
+      "RGB_classic_mismatches": 0,
+      "restoration_mismatches": 0,
+      "rejected_frames": 0,
+      "scene_calls": 87132,
+      "scene_by_role": {
+        "201": 63830,
+        "101": 19412,
+        "108": 786,
+        "110": 3104
+      },
+      "all_scene_calls_HD": true,
+      "player_calls": 1044,
+      "all_player_calls_HD": true,
+      "control_actions": [
+        "target-frame-complete"
+      ],
+      "visual_review": "Independent review by parent-designated worker, not performed or claimed by this identity audit.",
+      "capture_count": 0
+    },
+    "window45-60-final-stream2x": {
+      "exit": 0,
+      "exe_sha256": "ffb868bfa4177bc040d4372ecf4bc698aa122520edd57f96c6cd2cb144beef0a",
+      "current_renderer_exact": true,
+      "current277pack_exact": true,
+      "original_prefix_parity": {
+        "state.tsv": {
+          "rows": 2088,
+          "original_prefix0_2087_exact": true
+        },
+        "asset-debug-materials.tsv": {
+          "rows": 328210,
+          "original_prefix0_2087_exact": true
+        },
+        "collisions.tsv": {
+          "rows": 41,
+          "original_prefix0_2087_exact": true
+        },
+        "player-projectiles.tsv": {
+          "rows": 0,
+          "original_prefix0_2087_exact": true
+        },
+        "enemy-projectiles.tsv": {
+          "rows": 2418,
+          "original_prefix0_2087_exact": true
+        },
+        "poses.tsv": {
+          "rows": 2088,
+          "original_prefix0_2087_exact": true
+        },
+        "fire-events.tsv": {
+          "rows": 0,
+          "original_prefix0_2087_exact": true
+        },
+        "asset-debug-clock.tsv": {
+          "rows": 2088,
+          "original_prefix0_2087_exact": true
+        }
+      },
+      "frames": 522,
+      "tick_first": 1566,
+      "tick_last": 2087,
+      "all_hd_ordered": true,
+      "coverage_mismatches": 0,
+      "RGB_classic_mismatches": 0,
+      "restoration_mismatches": 0,
+      "rejected_frames": 0,
+      "scene_calls": 87132,
+      "scene_by_role": {
+        "201": 63830,
+        "101": 19412,
+        "108": 786,
+        "110": 3104
+      },
+      "all_scene_calls_HD": true,
+      "player_calls": 1044,
+      "all_player_calls_HD": true,
+      "control_actions": [
+        "target-frame-complete"
+      ],
+      "visual_review": "Independent review by parent-designated worker, not performed or claimed by this identity audit.",
+      "stream": {
+        "ledger522ticks_verified": true,
+        "actual_size": [
+          640,
+          400
+        ],
+        "RGB_audit_exact_to_logs_run": true,
+        "producer_reported_lossless_roundtrip_exact": true,
+        "independent_redecode_by_this_worker": false,
+        "recording_script_reviewed": "opentyrian-cloud-runtime/next15-support/record-window45-60.py hashes every decoded lossless RGBA frame against direct SDL readback ledger before reporting success.",
+        "media": {
+          "actual-frame-1656.png": {
+            "bytes": 286686,
+            "sha256": "e6af73a94367c840274c1f2c271027a3bf78c7f1ddf8890622da54e635e49586"
+          },
+          "actual-frame-2087.png": {
+            "bytes": 207682,
+            "sha256": "496b0b140e3823e3f0aa72dd7fc46fd1d35f3063e66e69406ab54fbcfa6c7969"
+          },
+          "actual-final-milestone.mp4": {
+            "bytes": 3436755,
+            "sha256": "18b0f99a4cf0d328b175ba456fdf7194dec2eca94699fb1523259036bd73d219"
+          },
+          "actual-lossless.mkv": {
+            "bytes": 21638870,
+            "sha256": "694e8cf40c68d1c3d257d4f3f9a688123fcbac9109873aae867d2c0ceff9a2ba"
+          },
+          "actual-frame-1798.png": {
+            "bytes": 287803,
+            "sha256": "f76ada4b15388a7c12019e41b4aef9b4269e349d0a681635ffb4dfd5babc083c"
+          }
+        }
+      }
+    }
+  },
+  "media": {
+    "native_size": [
+      640,
+      400
+    ],
+    "representative_ticks": [
+      1656,
+      1798,
+      2087
+    ],
+    "BMP_count": 0,
+    "PNG_count": 3,
+    "lossless_codec": "libx264rgb CRF0",
+    "lossless_all522_readback_hashes_exact": true,
+    "presentation_MP4": "lossyH264; separate exact lossless proof retained",
+    "added_capture_and_delivery_bytes": 29222310,
+    "limit_bytes": 50000000,
+    "added_media_including_review_upper_bound_bytes": 29822310
+  },
+  "budget": {
+    "media_upper_inclusive_excluding_HDA_bytes": 6482853880,
+    "media_GiB": 6.037628166377544,
+    "per_root": {
+      "opentyrian-cloud-runtime": 1993389338,
+      "tyrian-background-redraw": 2494953549,
+      "tyrian-hd-art": 1823708158,
+      "generated_images": 170802835
+    },
+    "added_capture_and_delivery_media_bytes": 29222310,
+    "free_bytes": 16322826240,
+    "no_deletion": true,
+    "final_media_upper_inclusive_excluding_HDA_bytes": 6482853880,
+    "final_media_GiB": 6.037628166377544,
+    "final_free_bytes": 16322666496
+  },
+  "limits": [
+    "Private survival differs from ordinary gameplay after1052.",
+    "HUD/text, bottom strip and uninstrumented blitters excluded from material identity closure.",
+    "Enemy orb112/113 direct calls counted separately; per-effect HD-success callbacks are not logged.",
+    "No blue stone remnant transition without original hit trigger; separate bounded state test accepted.",
+    "No new art; no wholelevel, alternate input/mode, Windows or physicalGPU/display performance claim."
+  ],
+  "independent_visual_review": {
+    "all522_frames_reviewed": true,
+    "native_representative_ticks": [
+      1656,
+      1798,
+      2087
+    ],
+    "additional_in_memory_video_inspection_tick": 1980,
+    "no_new_game_capture": true,
+    "review_media_bytes_upper_bound": 600000,
+    "no_blocking_defects": true,
+    "known_limits": [
+      "Repeated brown terrain texture-phase differences remain.",
+      "End2087 is active, not a clear-tail window.",
+      "No destruction/remnant trigger in this no-control stream."
+    ]
+  }
+}
