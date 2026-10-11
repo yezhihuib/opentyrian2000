@@ -1,0 +1,174 @@
+{
+  "identity": "physical-installation125-128-hd-v1-earth-corrected",
+  "bank": "newsh2.shp",
+  "assembly_logical_size": [
+    48,
+    56
+  ],
+  "assembly_anchor_relative_to_type125": [
+    6,
+    35
+  ],
+  "source_size": [
+    384,
+    448
+  ],
+  "density": 8,
+  "opaque": true,
+  "components": [
+    {
+      "enemy_type": 127,
+      "base": 81,
+      "source_file": "components8x/newsh2-base-81-192x224.png",
+      "sha256": "0504f7588113d5947ab43948af6cfe4f5c3b58c05ca0716f3da2157ab0b043c3",
+      "assembly_offset_logical": [
+        0,
+        0
+      ],
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        6,
+        7
+      ],
+      "tiles": [
+        81,
+        82,
+        100,
+        101
+      ]
+    },
+    {
+      "enemy_type": 128,
+      "base": 83,
+      "source_file": "components8x/newsh2-base-83-192x224.png",
+      "sha256": "bbd63dcca0187955e5f3c8f544f13d5ffac3a5df8f6148c8b92b621a0dde35df",
+      "assembly_offset_logical": [
+        24,
+        0
+      ],
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        6,
+        7
+      ],
+      "tiles": [
+        83,
+        84,
+        102,
+        103
+      ]
+    },
+    {
+      "enemy_type": 125,
+      "base": 119,
+      "source_file": "components8x/newsh2-base-119-192x224.png",
+      "sha256": "1f82ab230c2782761b3ffee84f7c2da2d8f8c3c405002408b53627471a17f621",
+      "assembly_offset_logical": [
+        0,
+        28
+      ],
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        6,
+        7
+      ],
+      "tiles": [
+        119,
+        120,
+        138,
+        139
+      ]
+    },
+    {
+      "enemy_type": 126,
+      "base": 121,
+      "source_file": "components8x/newsh2-base-121-192x224.png",
+      "sha256": "7d0ae065e24291d9fbcf5867ddb090eec9b104fd2999b4135e1ba1a7d6c167ee",
+      "assembly_offset_logical": [
+        24,
+        28
+      ],
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        6,
+        7
+      ],
+      "tiles": [
+        121,
+        122,
+        140,
+        141
+      ]
+    }
+  ],
+  "draw_order": [
+    119,
+    121,
+    81,
+    83
+  ],
+  "animation": "Static independently spawned linked components; no alternate damage art",
+  "export": {
+    "source": "earth-corrected-assembly.png",
+    "source_dimensions": [
+      1161,
+      1355
+    ],
+    "resample": "Whole canvas to384x448 LANCZOS once, then exact fixed splits; no independent reposition or scaling"
+  },
+  "selected_source_sha256": "6cbf41773e611b4a2716367c6827fc6423681aeeff59f41cc465698f75f2d649",
+  "ground_reference": {
+    "file": "accepted101-shared-phase-template.png",
+    "sha256": "0cb7751b14e7ebd74aeee2bd7bce3ad42f2b766aa35d9d29a5635656a3f033da",
+    "source_hd_png_sha256": "500d23b08b68b2a521bd042f9563a816a1caa17be4f170fed2e49795854c0732",
+    "phase_logical": [
+      0,
+      1
+    ],
+    "contains_original_game_pixels": false
+  },
+  "boundary_limitation": "Three original placements reviewed. Earth palette improved but texture-phase joins not pixel-seamless. Original fallback terrain323/324/333/334 leaves an exposed top row outside the48x56 footprint; not changed, not hidden by expanded art or transparency. Actual busy-context review pending.",
+  "edge_luma_L_R_T_B": [
+    31.01,
+    28.43,
+    28.83,
+    27.4
+  ],
+  "neighbor_edge_luma_range": {
+    "left": [
+      30.92,
+      35.78
+    ],
+    "right": [
+      30.37,
+      30.37
+    ],
+    "top": [
+      33.14,
+      33.14
+    ],
+    "bottom": [
+      32.7,
+      32.92
+    ]
+  },
+  "validation": {
+    "all_21_png_reexport_bytes_equal": true,
+    "all_alpha_255": true,
+    "four_component_reassembly_exact": true
+  },
+  "source_scope": "Original game references excluded. Generation plus one earth-only imagegen edit; physical core geometry preserved. Accepted terrain source reused as reference only.",
+  "status": "Root approved for actual runtime testing; no actual engine acceptance yet"
+}

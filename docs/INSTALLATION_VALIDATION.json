@@ -1,0 +1,619 @@
+{
+  "natural": {
+    "4": {
+      "ticks": 930,
+      "presentation": [
+        132,
+        929
+      ],
+      "HD_quadrants": 9864,
+      "per_base": {
+        "119": 2466,
+        "121": 2466,
+        "81": 2466,
+        "83": 2466
+      },
+      "first_last_draw": [
+        135,
+        911
+      ],
+      "byte_exact_logs": [
+        "state.tsv",
+        "collisions.tsv",
+        "effects.tsv",
+        "enemy-projectiles.tsv",
+        "player-projectiles.tsv",
+        "draw-commands.tsv",
+        "asset-debug-materials.tsv",
+        "fire-events.tsv",
+        "poses.tsv",
+        "scene-hits.tsv",
+        "scene-enemies.tsv",
+        "asset-debug-clock.tsv"
+      ],
+      "prior_scene_rows_exact": true,
+      "clear_RGB_exact": [
+        913,
+        929
+      ],
+      "coverage_errors": 0,
+      "classic_errors": 0
+    },
+    "2": {
+      "ticks": 930,
+      "presentation": [
+        132,
+        929
+      ],
+      "HD_quadrants": 9864,
+      "per_base": {
+        "119": 2466,
+        "121": 2466,
+        "81": 2466,
+        "83": 2466
+      },
+      "first_last_draw": [
+        135,
+        911
+      ],
+      "byte_exact_logs": [
+        "state.tsv",
+        "collisions.tsv",
+        "effects.tsv",
+        "enemy-projectiles.tsv",
+        "player-projectiles.tsv",
+        "draw-commands.tsv",
+        "asset-debug-materials.tsv",
+        "fire-events.tsv",
+        "poses.tsv",
+        "scene-hits.tsv",
+        "scene-enemies.tsv",
+        "asset-debug-clock.tsv"
+      ],
+      "prior_scene_rows_exact": true,
+      "clear_RGB_exact": [
+        913,
+        929
+      ],
+      "coverage_errors": 0,
+      "classic_errors": 0
+    }
+  },
+  "scope": "Production mapping only; natural original logic, separate existing artificial-shot diagnostic.",
+  "missing_all_4x_exact_logs": [
+    "enemy-projectiles.tsv",
+    "effects.tsv",
+    "fire-events.tsv",
+    "blend-palette.tsv",
+    "state.tsv",
+    "rgb-audit.tsv",
+    "collisions.tsv",
+    "frames.tsv",
+    "asset-debug-materials.tsv",
+    "player-projectiles.tsv",
+    "scene-enemies.tsv",
+    "poses.tsv",
+    "restore-regions.tsv",
+    "blend-writes.tsv",
+    "talon-bank-visual.tsv",
+    "asset-debug-clock.tsv",
+    "sdl-runtime.tsv",
+    "scene-hits.tsv",
+    "fade-steps.tsv",
+    "draw-commands.tsv",
+    "presentation.tsv"
+  ],
+  "missing119": {
+    "ticks": [
+      232,
+      239
+    ],
+    "counts": {
+      "119:0": 32,
+      "121:1": 32,
+      "81:1": 32,
+      "83:1": 32
+    }
+  },
+  "oracle": {
+    "source": "/workspace/scratch/f67dd347fa0a/opentyrian2000-cloud/src/render_mirror.c",
+    "source_sha256": "1aae1891ad8c4364a23d8b8b410bd923defb9370aa5691c8970766c98dbe8789",
+    "source_stable_during_test": true,
+    "sanitize": true,
+    "leak_sanitizer": "disabled under ptrace",
+    "exit_code": 0,
+    "elapsed_seconds": 2.977049528999487,
+    "stdout": "PASS: density4 source4 all16 component quadrants, normal/reordered calls, four filters, seams, clipping, source guards\nPASS: density8 source8 all16 component quadrants, normal/reordered calls, four filters, seams, clipping, source guards\nPASS: one-frame fallback/header validation/absent assets/classic/missing/invalid flags\nPASS: density8 source4 all16 component quadrants, normal/reordered calls, four filters, seams, clipping, source guards\nPASS: 58769920 pixel comparisons; 536 successful quadrant calls; 105 rejected-source/part guards\n",
+    "stderr": "",
+    "scope": "Extracted actual source functions and synthetic HDA files; no source edits or gameplay execution/captures."
+  },
+  "motion": {
+    "status": "passed",
+    "source": "Every video input frame is directSDL_RenderReadPixels from actual game, once per original logic tick. No synthetic scrolling/interpolation. MP4 is lossyH.264; real-frame hashes cover originalRGBA before encoding.",
+    "args": [
+      "/workspace/scratch/f67dd347fa0a/opentyrian-cloud-runtime/installation-capture-fixture/opentyrian2000",
+      "--data=/workspace/scratch/f67dd347fa0a/opentyrian-cloud-runtime/data/tyrian2000",
+      "--no-sound",
+      "--no-joystick",
+      "--no-xmas",
+      "--asset-debug=custom",
+      "--asset-debug-tick=200",
+      "--asset-debug-running",
+      "--render-ticks=320",
+      "--render-assets=/workspace/scratch/f67dd347fa0a/opentyrian-cloud-runtime/installation-review-pack",
+      "--render-test=local",
+      "--asset-debug-capture",
+      "--asset-debug-window-only",
+      "--asset-debug-capture-start=200",
+      "--asset-debug-capture-count=120"
+    ],
+    "ffmpeg_args": [
+      "ffmpeg",
+      "-hide_banner",
+      "-loglevel",
+      "warning",
+      "-y",
+      "-f",
+      "rawvideo",
+      "-pix_fmt",
+      "bgra",
+      "-s",
+      "640x400",
+      "-framerate",
+      "1000000000/28750023",
+      "-i",
+      "pipe:0",
+      "-an",
+      "-c:v",
+      "libx264",
+      "-preset",
+      "fast",
+      "-crf",
+      "16",
+      "-pix_fmt",
+      "yuv420p",
+      "-movflags",
+      "+faststart",
+      "/workspace/scratch/f67dd347fa0a/tyrian-background-redraw/runtime-runs/installation-actual-motion-2x/actual-cloud-scroll.mp4",
+      "-map",
+      "0:v",
+      "-c:v",
+      "ffv1",
+      "-level",
+      "3",
+      "-pix_fmt",
+      "bgr0",
+      "/workspace/scratch/f67dd347fa0a/tyrian-background-redraw/runtime-runs/installation-actual-motion-2x/actual-lossless.mkv"
+    ],
+    "exit": 0,
+    "exe_sha256": "379d4d2331b913d463dc08c0053b95cccda98a40893d805014f006c02e87b3e3",
+    "real_frame_count": 120,
+    "tick_first": 200,
+    "tick_last": 319,
+    "nominal_duration_ms": 3450.00276,
+    "video": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "width": 640,
+          "height": 400,
+          "avg_frame_rate": "597843/17188",
+          "duration": "3.450003",
+          "nb_read_frames": "120"
+        }
+      ]
+    },
+    "state_matches_non_capture_run": true,
+    "rgb_audit_matches_non_capture_run": true,
+    "existing_PNG90_91_pixel_matches": {},
+    "lossless_video_roundtrip_all_frame_hashes_exact": true,
+    "ordinary_BMP_files_created": 0,
+    "elapsed_seconds": 15.361224084990681
+  },
+  "desktop": {
+    "scale": 4,
+    "paused_tick": 232,
+    "finite_exit": 0
+  },
+  "source_sha256": "1aae1891ad8c4364a23d8b8b410bd923defb9370aa5691c8970766c98dbe8789",
+  "collision_diagnostic": {
+    "result": "PASS",
+    "scope": "Existing artificial hit/destroy fixture commands invoke original Pulse155 creation and collision, on naturally spawned first125\u2013128 group. No private observer or production source changes. Not an ordinary player-input encounter. SDL dummy/software presentation;4x1280x800 stills and2x configuration run.",
+    "filter_limitation": "No natural hit-flash recolor exists for these records because explosiontype29 sets enemygroundfalse. Runtime confirms NORMAL quads after real collision. Nonzero-filter rendering is separate focused-unit coverage supplied by parent.",
+    "reports": [
+      {
+        "scale": 4,
+        "baseline_exe_sha256": "e7346cb32325da75b47b9650399b3a00ce0ce6e08c6f23f1a87f2dfb23d17dae",
+        "candidate_exe_sha256": "2df415eaa0d3745fb861e4ccacd5f84ef9cdd867429e860bf3b220c22555ba71",
+        "logic_ticks": [
+          0,
+          319
+        ],
+        "rendered_ticks": [
+          232,
+          319
+        ],
+        "state_rng_indexed_rows_exact": 320,
+        "ordered_material_rows_exact": 52424,
+        "exact_logs": [
+          {
+            "file": "asset-debug-clock.tsv",
+            "rows": 320,
+            "sha256": "939fadb9891062e4b45aabfc181bc7ea02dfb34e4402bd4a8ee9a0f9ff1f70ad"
+          },
+          {
+            "file": "asset-debug-explosion-pools.tsv",
+            "rows": 320,
+            "sha256": "72d94d419202289b26ee6a67a4073bee5ae275507bd6c320e7c36eddfb88ee22"
+          },
+          {
+            "file": "asset-debug-materials.tsv",
+            "rows": 52424,
+            "sha256": "e4352b6df663ccf90c4ba65752fbbe3624edef95547b1737906c7b0aaaa64dac"
+          },
+          {
+            "file": "blend-palette.tsv",
+            "rows": 256,
+            "sha256": "cb425cfe3e3f8cf1316ad8475fda177b187d189c8b4b0eaa55dbb7ab1d3ed994"
+          },
+          {
+            "file": "collisions.tsv",
+            "rows": 15,
+            "sha256": "eb2917124385d67154f6c8c0cc22e3e7f04f6eae4aa7bf5702811b6c58945ba2"
+          },
+          {
+            "file": "draw-commands.tsv",
+            "rows": 650,
+            "sha256": "a1379f665e99f84eeb3362ceed42fcd971500b16028c96fdb8307505091b4bcb"
+          },
+          {
+            "file": "effects.tsv",
+            "rows": 88,
+            "sha256": "ddaa686e187498a77b8b004b408647f869abe3c766851813b82e8f79638971a1"
+          },
+          {
+            "file": "enemy-projectiles.tsv",
+            "rows": 0,
+            "sha256": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634"
+          },
+          {
+            "file": "fade-steps.tsv",
+            "rows": 0,
+            "sha256": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+          },
+          {
+            "file": "fire-events.tsv",
+            "rows": 0,
+            "sha256": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152"
+          },
+          {
+            "file": "player-projectiles.tsv",
+            "rows": 0,
+            "sha256": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3"
+          },
+          {
+            "file": "poses.tsv",
+            "rows": 320,
+            "sha256": "3d643c5a99b3e1612f33e1d2796c505188b3f645928ffd06acdffdfa27c71fe0"
+          },
+          {
+            "file": "presentation.tsv",
+            "rows": 88,
+            "sha256": "b9888f689a3a85948cb2ca7114c5f92fcb7094ba9eea092aa0a66b6cd548c467"
+          },
+          {
+            "file": "restore-regions.tsv",
+            "rows": 0,
+            "sha256": "b517bb19a5662a6c82c7c78a54e31bc7a0d09533fed0a664ca933466127883a3"
+          },
+          {
+            "file": "scene-enemies.tsv",
+            "rows": 1168,
+            "sha256": "fed5a5ae3d5e96eb0a75003ddba7d1694a7a79c799c923f4ba194307985a53a7"
+          },
+          {
+            "file": "scene-hits.tsv",
+            "rows": 0,
+            "sha256": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6"
+          },
+          {
+            "file": "sdl-runtime.tsv",
+            "rows": 1,
+            "sha256": "3920f384d84452257de1257bcc95d5bd5be83a7303f13b988749c8257046bcc7"
+          },
+          {
+            "file": "state.tsv",
+            "rows": 320,
+            "sha256": "e558418aa72661ff59e27da5d2eb0b9fabc262792e1bda0eef963a57f5b7cd5e"
+          },
+          {
+            "file": "talon-bank-visual.tsv",
+            "rows": 320,
+            "sha256": "16d1d17f14b2336325a12888b65d0cb427ab4bf86936b11762bcdbfe779dd8d9"
+          }
+        ],
+        "normalized_logs": [
+          {
+            "file": "asset-debug-control.tsv",
+            "ignored": [
+              "wall_ms"
+            ],
+            "rows": 19
+          },
+          {
+            "file": "blend-writes.tsv",
+            "ignored": [
+              "hd_subpixels_before"
+            ],
+            "rows": 106202
+          }
+        ],
+        "unrelated_scene_draw_rows_exact": 15614,
+        "target_HD_quad_rows": 112,
+        "target_quad_style": "NORMAL only; original enemyground=false disables collision hit filter",
+        "verified_slots": {
+          "29": 125,
+          "30": 126,
+          "31": 127,
+          "32": 128
+        },
+        "common_link": 21,
+        "nonlethal_hits": [
+          [
+            233,
+            29,
+            1
+          ],
+          [
+            234,
+            30,
+            1
+          ],
+          [
+            235,
+            31,
+            1
+          ],
+          [
+            236,
+            32,
+            1
+          ]
+        ],
+        "lethal_hit": [
+          238,
+          29,
+          9
+        ],
+        "last_original_target_draw": 238,
+        "first_no_target_draw": 239,
+        "RGB_exact_tail_ticks": [
+          239,
+          319
+        ],
+        "RGB_exact_tail_length": 81,
+        "all_effect_pools_empty_ticks": [
+          281,
+          319
+        ],
+        "coverage_errors": 0,
+        "classic_mismatches": 0,
+        "captures": [
+          {
+            "file": "/workspace/scratch/f67dd347fa0a/opentyrian-cloud-runtime/installation-collision-review/baseline4x/asset-debug-window-0237.png",
+            "size": [
+              1280,
+              800
+            ],
+            "pixel_sha256": "a43e3e005599097dd2981bdba23cf01ca05b46af4e2ab579ce34cc779aea8512"
+          },
+          {
+            "file": "/workspace/scratch/f67dd347fa0a/opentyrian-cloud-runtime/installation-collision-review/candidate4x/asset-debug-window-0237.png",
+            "size": [
+              1280,
+              800
+            ],
+            "pixel_sha256": "2e041a738162bde6f6cfa7ee5c414a86b7059948d248836875e30077865c1b82"
+          }
+        ]
+      },
+      {
+        "scale": 2,
+        "baseline_exe_sha256": "e7346cb32325da75b47b9650399b3a00ce0ce6e08c6f23f1a87f2dfb23d17dae",
+        "candidate_exe_sha256": "2df415eaa0d3745fb861e4ccacd5f84ef9cdd867429e860bf3b220c22555ba71",
+        "logic_ticks": [
+          0,
+          319
+        ],
+        "rendered_ticks": [
+          232,
+          319
+        ],
+        "state_rng_indexed_rows_exact": 320,
+        "ordered_material_rows_exact": 52424,
+        "exact_logs": [
+          {
+            "file": "asset-debug-clock.tsv",
+            "rows": 320,
+            "sha256": "939fadb9891062e4b45aabfc181bc7ea02dfb34e4402bd4a8ee9a0f9ff1f70ad"
+          },
+          {
+            "file": "asset-debug-explosion-pools.tsv",
+            "rows": 320,
+            "sha256": "72d94d419202289b26ee6a67a4073bee5ae275507bd6c320e7c36eddfb88ee22"
+          },
+          {
+            "file": "asset-debug-materials.tsv",
+            "rows": 52424,
+            "sha256": "e4352b6df663ccf90c4ba65752fbbe3624edef95547b1737906c7b0aaaa64dac"
+          },
+          {
+            "file": "blend-palette.tsv",
+            "rows": 256,
+            "sha256": "cb425cfe3e3f8cf1316ad8475fda177b187d189c8b4b0eaa55dbb7ab1d3ed994"
+          },
+          {
+            "file": "collisions.tsv",
+            "rows": 15,
+            "sha256": "eb2917124385d67154f6c8c0cc22e3e7f04f6eae4aa7bf5702811b6c58945ba2"
+          },
+          {
+            "file": "draw-commands.tsv",
+            "rows": 650,
+            "sha256": "a1379f665e99f84eeb3362ceed42fcd971500b16028c96fdb8307505091b4bcb"
+          },
+          {
+            "file": "effects.tsv",
+            "rows": 88,
+            "sha256": "ddaa686e187498a77b8b004b408647f869abe3c766851813b82e8f79638971a1"
+          },
+          {
+            "file": "enemy-projectiles.tsv",
+            "rows": 0,
+            "sha256": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634"
+          },
+          {
+            "file": "fade-steps.tsv",
+            "rows": 0,
+            "sha256": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+          },
+          {
+            "file": "fire-events.tsv",
+            "rows": 0,
+            "sha256": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152"
+          },
+          {
+            "file": "player-projectiles.tsv",
+            "rows": 0,
+            "sha256": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3"
+          },
+          {
+            "file": "poses.tsv",
+            "rows": 320,
+            "sha256": "3d643c5a99b3e1612f33e1d2796c505188b3f645928ffd06acdffdfa27c71fe0"
+          },
+          {
+            "file": "presentation.tsv",
+            "rows": 88,
+            "sha256": "b9888f689a3a85948cb2ca7114c5f92fcb7094ba9eea092aa0a66b6cd548c467"
+          },
+          {
+            "file": "restore-regions.tsv",
+            "rows": 0,
+            "sha256": "b517bb19a5662a6c82c7c78a54e31bc7a0d09533fed0a664ca933466127883a3"
+          },
+          {
+            "file": "scene-enemies.tsv",
+            "rows": 1168,
+            "sha256": "fed5a5ae3d5e96eb0a75003ddba7d1694a7a79c799c923f4ba194307985a53a7"
+          },
+          {
+            "file": "scene-hits.tsv",
+            "rows": 0,
+            "sha256": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6"
+          },
+          {
+            "file": "sdl-runtime.tsv",
+            "rows": 1,
+            "sha256": "d26dee3c975dbf4099de35850c6a989ae453de557e7e9a0aa240da77d7687a11"
+          },
+          {
+            "file": "state.tsv",
+            "rows": 320,
+            "sha256": "e558418aa72661ff59e27da5d2eb0b9fabc262792e1bda0eef963a57f5b7cd5e"
+          },
+          {
+            "file": "talon-bank-visual.tsv",
+            "rows": 320,
+            "sha256": "16d1d17f14b2336325a12888b65d0cb427ab4bf86936b11762bcdbfe779dd8d9"
+          }
+        ],
+        "normalized_logs": [
+          {
+            "file": "asset-debug-control.tsv",
+            "ignored": [
+              "wall_ms"
+            ],
+            "rows": 19
+          },
+          {
+            "file": "blend-writes.tsv",
+            "ignored": [
+              "hd_subpixels_before"
+            ],
+            "rows": 106202
+          }
+        ],
+        "unrelated_scene_draw_rows_exact": 15614,
+        "target_HD_quad_rows": 112,
+        "target_quad_style": "NORMAL only; original enemyground=false disables collision hit filter",
+        "verified_slots": {
+          "29": 125,
+          "30": 126,
+          "31": 127,
+          "32": 128
+        },
+        "common_link": 21,
+        "nonlethal_hits": [
+          [
+            233,
+            29,
+            1
+          ],
+          [
+            234,
+            30,
+            1
+          ],
+          [
+            235,
+            31,
+            1
+          ],
+          [
+            236,
+            32,
+            1
+          ]
+        ],
+        "lethal_hit": [
+          238,
+          29,
+          9
+        ],
+        "last_original_target_draw": 238,
+        "first_no_target_draw": 239,
+        "RGB_exact_tail_ticks": [
+          239,
+          319
+        ],
+        "RGB_exact_tail_length": 81,
+        "all_effect_pools_empty_ticks": [
+          281,
+          319
+        ],
+        "coverage_errors": 0,
+        "classic_mismatches": 0,
+        "captures": []
+      }
+    ],
+    "presentation_scale_state_and_mirror_equivalence": true,
+    "baseline_candidate_commands": "See each run.json and control.txt",
+    "source_gameplay_sha256": {
+      "tyrian2.c": "6e7dba70f1555c56676c4817a56d46e1add40004077b8c1527ea89da0c18b8d3",
+      "asset_debug.c": "663c6063cbb22b1ae4451d88982c1db721c94b85a912bc56bde2e517fe6199ca",
+      "entity_draw.c": "df2c62eb7a8336428ceaffadd97b9e344d93c3c324d462740a719887496136f8"
+    },
+    "review_asset_sha256": {
+      "enemy-newsh2-119-8.hda": "384816db94b86ed0cac20bc08096cd62415f740c7b49942d52b947cc0df9a4c9",
+      "enemy-newsh2-121-8.hda": "647e3489a5eb88becf25a77454ccef2818179d213b95352bf05b51defe652b9f",
+      "enemy-newsh2-81-8.hda": "cf8957b48fc5a4273b1bcb259935266db1af4ab0cc84d9ac21991de5b8a5a87d",
+      "enemy-newsh2-83-8.hda": "1844e0fa600eab8f95c9903b482ebc71f092c48cb520a04923bcb487ec090c3a"
+    },
+    "harness_sha256": {
+      "run_collision.py": "c45a4844224e7b2dfcdca679f2588dbbb4a576536adc3ec57549838725eaa5ec",
+      "verify_collision.py": "d272a79afe88e800008d92830b8e926f15a6dee7d7432b776e6307263c580eed"
+    }
+  }
+}

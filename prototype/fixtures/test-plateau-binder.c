@@ -47,7 +47,7 @@ static void reserved_empty(void)
 {for(int i=218;i<=226;i++)CHECK(!assets[i].initialized);}
 int main(void)
 {
- CHECK(sizeof(assets)/sizeof(*assets)==231);CHECK(sizeof(terrain_sources)/sizeof(*terrain_sources)==100);
+ CHECK(sizeof(assets)/sizeof(*assets)==235);CHECK(sizeof(terrain_sources)/sizeof(*terrain_sources)==100);
  for(unsigned int id=0;id<600;id++){int expected=-1;for(int j=0;j<4;j++)if(id==ids[j])expected=227+j;CHECK(plateau_terrain_slot(id)==expected);}
  for(unsigned int id=0;id<600;id++){int expected=-1;for(int j=0;j<9;j++)if(id==ground_ids[j])expected=201+j;CHECK(ground_terrain_slot(id)==expected);}
  for(unsigned int layer=0;layer<5;layer++)for(unsigned int id=0;id<600;id++){

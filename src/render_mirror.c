@@ -20,8 +20,8 @@ typedef struct {
  Uint8 *rgba;
 } Asset;
 enum { ASSET_NEWSH2=101, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106 };
-/* Existing slots unchanged; roads220..226 reserved; plateau227..230. */
-static Asset assets[231];
+/* Existing slots unchanged; roads220..226 reserved; plateau227..230; installation231..234. */
+static Asset assets[235];
 static Asset talon_frames[13];
 typedef struct {
  bool valid;
@@ -694,8 +694,8 @@ bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array ban
  if(!active||surface!=game_screen||reject_reason||!(game_probe_scene_assets&1))return false;
  bool source=false;
  for(int i=0;i<4;i++)if(enemySpriteSheetIds[i]==1&&bank.data==enemySpriteSheets[i].data)source=true;
- /* Slots201..209 remain reserved for the independent ground family. */
- int slot=(base>=229&&base<=243&&base%2==1)?210+(int)(base-229)/2:base==77?6:base==79?7:base==115?8:base==117?9:base==85?15:base==87?16:base==123?17:base==125?18:(base>=191&&base<=205&&base%2==1)?23+(int)(base-191)/2:-1;
+ /* Existing ground201..209 and rotor210..217 remain unchanged. */
+ int slot=base==81?231:base==83?232:base==119?233:base==121?234:(base>=229&&base<=243&&base%2==1)?210+(int)(base-229)/2:base==77?6:base==79?7:base==115?8:base==117?9:base==85?15:base==87?16:base==123?17:base==125?18:(base>=191&&base<=205&&base%2==1)?23+(int)(base-191)/2:-1;
  if(!source||slot<0)return false;
  int px=part==1||part==20?12:0,py=part==19||part==20?14:0;
  if(part!=0&&part!=1&&part!=19&&part!=20)return false;

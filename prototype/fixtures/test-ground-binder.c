@@ -41,7 +41,7 @@ static unsigned int draw_one(unsigned int id,int style)
 {Uint8*map[12]={bank+id};draws=traces=0;unsigned int result=render_mirror_terrain_row(game_screen,0,0,map,style);checks++;return result;}
 int main(void)
 {
- assert(sizeof(assets)/sizeof(*assets)==231);assert(sizeof(terrain_sources)/sizeof(*terrain_sources)==100);
+ assert(sizeof(assets)/sizeof(*assets)==235);assert(sizeof(terrain_sources)/sizeof(*terrain_sources)==100);
  for(unsigned int id=0;id<600;id++) {int expected=-1;for(int j=0;j<9;j++)if(id==ids[j])expected=201+j;assert(ground_terrain_slot(id)==expected);checks++;}
  for(unsigned int layer=0;layer<5;layer++)for(unsigned int id=0;id<600;id++) {
   reset();render_mirror_bind_terrain(layer,id,bank+id);bool accepted=(layer==1&&(plateau_terrain_slot(id)>=0||member(id,ids,9)||member(id,old_ids,9)))||(layer==2&&((id>=41&&id<=45)||(id>=51&&id<=55)||(id>=61&&id<=65)));assert(terrain_source_count==(unsigned int)accepted);checks++;

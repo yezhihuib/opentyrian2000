@@ -1,6 +1,10 @@
-# Current green release update (2026-10-11)
+# Current scoped release (2026-10-11)
 
-See [GREEN_RENDER_VALIDATION.md](GREEN_RENDER_VALIDATION.md) for the selected complete214–217 head pulse, green-only brightness interpolation, finite cloud visual/technical checks and Windows acceptance commands. Current manifest:18 packs,2620 HDA entries,201 formal PNGs; defaults190/194. Existing rollback packs and accepted families are byte-preserved. The text below records earlier release stages and their then-current scope.
+The manifest is authoritative:18 packs,2704 HDA entries,244 formal PNGs, defaults232/236. Latest additions are the [plateau edge correction](PLATEAU_FOUR_VALIDATION.md) and [static installation](INSTALLATION_VALIDATION.md). Pending road/underlay art is not included.
+
+## Historical green release update (2026-10-11)
+
+See [GREEN_RENDER_VALIDATION.md](GREEN_RENDER_VALIDATION.md) for the selected complete214–217 head pulse, green-only brightness interpolation, finite cloud visual/technical checks and Windows acceptance commands. At that green checkpoint:18 packs,2620 HDA entries,201 formal PNGs; defaults190/194. Existing rollback packs and accepted families are byte-preserved. The text below records earlier release stages and their then-current scope.
 
 # HD release stages
 
