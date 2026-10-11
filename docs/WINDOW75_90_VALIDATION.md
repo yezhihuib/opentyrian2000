@@ -18,9 +18,19 @@ RGB/restoration mismatches or rejections. All prior HD resource bytes remain
 unchanged. The identity ledger preserves the observed counts; IDs are not
 summed across overlapping windows.
 
-This closes the **mapping and original-logic** audit only. A full522-frame
-visual review for this window has not yet been performed. The separate accepted
-120-frame grass-family tail3480–3599 is documented in
-[GRASS_SAND_VALIDATION.md](GRASS_SAND_VALIDATION.md); it does not substitute for
-full-window visual acceptance. HUD, future forest, unrelated later enemies and
+The final **522-frame native 2× visual review passed** after mapping and
+original-logic verification. Every lossless decoded frame matches direct SDL
+RGBA/BGRA readback, and all 22 deterministic logs match the noncapture run.
+Sequential visual inspection plus native frames 2700/2842/3131 found no old-art
+flashes, registration seams or ordering defects. Minor terrain texture-phase
+variation remains. The player is alive and the level active at tick 3131; this
+is not a clear-tail test. The separate accepted
+120-frame grass-family tail 3480–3599 is documented in
+[GRASS_SAND_VALIDATION.md](GRASS_SAND_VALIDATION.md); its later grass visibility is a separate claim. HUD, future forest, unrelated later enemies and
 whole-level coverage remain outside the claim. Windows acceptance is pending.
+
+Final rendered checkpoint: `e2d443a51dde676883497d9d8eb9217d8bf251b8`,
+tree `23776bb933f33ad688c8c676005718614279e81d`. The presentation is a 640×400
+native 2× SDL software-renderer readback, streamed without an intermediate BMP
+batch. The delivered video adds a 28-pixel label above the unchanged game image.
+It runs 15.0075 seconds; the source/render loop advances once per original tick.

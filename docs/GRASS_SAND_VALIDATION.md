@@ -51,5 +51,5 @@ reconstructs exact nine RGBA/HDA resources without original game data. The
 frozen generated source package documents all revisions and standalone guards.
 
 See [WINDOW75_90_VALIDATION.md](WINDOW75_90_VALIDATION.md) for the separate
-log-only mapping closure. No full522-frame75–90 visual pass, ordinary-survival
-claim, whole-game completion, Windows acceptance or CI result is implied.
+mapping and final 522-frame visual closure. No ordinary-survival claim,
+whole-game completion, Windows acceptance or CI result is implied.

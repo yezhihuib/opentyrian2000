@@ -8,7 +8,7 @@
   "visible_material_identities": 91,
   "visible_material_references": 89967,
   "remaining_mapping_gaps": 0,
-  "full_window_visual_review": "pending; only mapping/logic closure in this commit",
+  "full_window_visual_review": "passed: all522 sequential frames plus native2700/2842/3131; minor terrain texture phase accepted",
   "window_tests": {
     "contract": {
       "exit": 0,
@@ -255,5 +255,37 @@
   "native2x_all120_visual_pass": true,
   "private_hooks_committed": false,
   "formal_inventory_sha256": "e875ecd3fe33b0867ab5dd18ff664035c62b2276a48e4d75a6e31bb2df67edf6",
-  "renderer_sha256": "376a34e0200650e0927a4c341c81cad3278de49b33964d1c7118b7ad206a3b68"
+  "renderer_sha256": "376a34e0200650e0927a4c341c81cad3278de49b33964d1c7118b7ad206a3b68",
+  "final_rendered_checkpoint": "e2d443a51dde676883497d9d8eb9217d8bf251b8",
+  "final_rendered_tree": "23776bb933f33ad688c8c676005718614279e81d",
+  "final_lossless_video_sha256": "272f7a943be079caf46ae645edb46191c69451e040dc5d99decacf7959acbdd6",
+  "final_decoded_RGBA_BGRA_hashes_exact": 522,
+  "deterministic_logs_exact_to_noncapture": 22,
+  "ending": {
+    "tick": 3131,
+    "alive": true,
+    "endLevel": false,
+    "armor": 10,
+    "shield": 10,
+    "curLoc": 2644,
+    "event_next": 464
+  },
+  "display": {
+    "target": "SDL software renderer direct readback",
+    "native_size": [
+      640,
+      400
+    ],
+    "scale": 2,
+    "delivery_label_height": 28,
+    "Windows_acceptance": false
+  },
+  "limits": [
+    "Private survival only; no weapon or hit injection",
+    "End active, no full clear-tail or whole-game claim",
+    "ID80 entering sand sliver is not visible grass",
+    "Later grass family tail3480\u20133599 separately accepted",
+    "HUD remains original",
+    "Minor terrain texture-phase variation remains"
+  ]
 }
