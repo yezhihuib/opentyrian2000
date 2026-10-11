@@ -47,6 +47,8 @@ def main():
         'green_background_snapshot', 'green_background_peak', 'green_head_composite',
         'draw_asset_filtered', 'render_mirror_pixel', 'render_mirror_brightness_pixel',
     ]
+    if 'static Uint32 cloud_shadow_rgba(' in source:
+        names[1:1] = ['cloud_shadow_rgba', 'cloud_asset']
     with tempfile.TemporaryDirectory(prefix='green-head-layer-test-') as directory:
         root = Path(directory)
         (root / 'production-types.inc').write_text('\n'.join(definitions))

@@ -20,7 +20,8 @@ typedef struct {
  Uint8 *rgba;
 } Asset;
 enum { ASSET_NEWSH2=101, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106 };
-static Asset assets[186];
+/* Finite layer2 cloud family: 15 new slots, existing slots unchanged. */
+static Asset assets[201];
 static Asset talon_frames[13];
 typedef struct {
  bool valid;
@@ -41,7 +42,7 @@ void render_mirror_reset_banking(void)
 void render_mirror_set_talon_banking(bool enabled)
 {talon_banking_enabled=enabled;render_mirror_reset_banking();}
 static char terrain_file;
-static struct {const Uint8 *data;unsigned int id;} terrain_sources[72];
+static struct {const Uint8 *data;unsigned int id;} terrain_sources[87];
 static unsigned int terrain_source_count;
 static SDL_Surface *canvas,*output;
 static SDL_Surface *fade_saved;
@@ -52,6 +53,9 @@ static int fade_mode;
 static SDL_Texture *texture;
 static Uint8 expected[320*200], selected[320*200];
 static Uint8 *hd_owner;
+/* Finite cloud provenance; never changes indexed gameplay writes. */
+static Uint8 *cloud_owner;
+static bool suppress_cloud;
 /* Green-head display layer: only green smoke may pass underneath it. Every
  * unrelated pixel write bakes/invalidate it at its original command position. */
 typedef struct { Asset *asset; int x,y; } GreenHead;
@@ -132,7 +136,7 @@ static void restore_classic_rect(SDL_Rect r)
   for(int sy=0;sy<d;sy++) {
    Uint32 *p=(Uint32 *)((Uint8 *)canvas->pixels+(y*d+sy)*canvas->pitch)+x*d;
    Uint8 *owner=hd_owner+(y*d+sy)*canvas->w+x*d;
-   for(int sx=0;sx<d;sx++) {replaced=replaced||owner[sx]!=0;p[sx]=color;owner[sx]=0;green_first[(y*d+sy)*canvas->w+x*d+sx]=0;}
+   for(int sx=0;sx<d;sx++) {replaced=replaced||owner[sx]!=0;p[sx]=color;owner[sx]=0;green_first[(y*d+sy)*canvas->w+x*d+sx]=0;cloud_owner[(y*d+sy)*canvas->w+x*d+sx]=0;}
   }
   if(replaced) ++local_blocks;
   selected[y*320+x]=0;
@@ -147,6 +151,25 @@ static Uint32 blend_rgba(Uint32 dst,const Uint8 *src,int alpha)
  Uint32 out=0xff000000u;
  for(int c=0;c<3;c++) { int shift=(2-c)*8; unsigned int d=(dst>>shift)&255; out|=((d*(255-alpha)+src[c]*alpha+127)/255)<<shift; }
  return out;
+}
+/* Transfer only a verified original palette-shadow change to authored cloud
+ * color. Repeated shadows at the original ramp floor are exact no-ops. A zero
+ * source channel has no multiplicative ratio, so retain that HD channel. */
+static Uint32 cloud_shadow_rgba(Uint32 color,Uint8 before,Uint8 after)
+{
+ if(before==after)return color;
+ Uint32 from=palette_rgb(before),to=palette_rgb(after),out=0xff000000u;
+ for(int shift=0;shift<24;shift+=8) {
+  unsigned int current=(color>>shift)&255,den=(from>>shift)&255,num=(to>>shift)&255;
+  unsigned int next=den?(current*num+den/2)/den:current;
+  out|=MIN(next,255u)<<shift;
+ }
+ return out;
+}
+static bool cloud_asset(const Asset *a)
+{
+ return a->bank==ASSET_SHAPESZ&&((a->index>=41&&a->index<=45)||
+        (a->index>=51&&a->index<=55)||(a->index>=61&&a->index<=65));
 }
 static Uint32 darken_rgba(Uint32 dst,int alpha)
 {
@@ -183,6 +206,7 @@ void render_mirror_brightness_pixel(SDL_Surface *surface,Uint8 *address,int valu
   const Uint8 *owner=hd_owner+(y*d+sy)*canvas->w+x*d;
   for(int sx=0;sx<d;sx++) {
    green_first[(y*d+sy)*canvas->w+x*d+sx]=0;
+   cloud_owner[(y*d+sy)*canvas->w+x*d+sx]=0;
    if(owner[sx]==2)row[sx]=palette_rgb(*address); /* Explicit original-copy diagnostic. */
    else if(owner[sx]) {row[sx]=brightness_rgba(row[sx],value);touched_hd=true;}
    else row[sx]=palette_rgb(*address);
@@ -206,7 +230,7 @@ void render_mirror_begin(void)
   * individual sprites, shadows nor repeated Present calls advance this clock. */
  ++mirror_logic_tick;banking_draw_player=0;
  last_output_valid=false;have_fade_saved=false;fade_mode=0;
- ready=false; active=false; suppress=false;suppress_green_smoke=false;
+ ready=false; active=false; suppress=false;suppress_green_smoke=false;suppress_cloud=false;
  if(!game_probe_enabled) return;
  if(!have_initial_palette) {memcpy(initial_palette,rgb_palette,sizeof(initial_palette));have_initial_palette=true;}
  if(asset_debug_fast_forward())return;
@@ -215,15 +239,17 @@ void render_mirror_begin(void)
   canvas=SDL_CreateRGBSurfaceWithFormat(0,320*d,200*d,32,SDL_PIXELFORMAT_ARGB8888);
   output=SDL_CreateRGBSurfaceWithFormat(0,320*d,200*d,32,SDL_PIXELFORMAT_ARGB8888);
   hd_owner=calloc((size_t)320*200*d*d,1);
+  cloud_owner=calloc((size_t)320*200*d*d,1);
   green_first=calloc((size_t)320*200*d*d,sizeof(*green_first));
   green_under=malloc((size_t)320*200*d*d*sizeof(*green_under));
   green_under_owner=malloc((size_t)320*200*d*d);
  }
- if(!canvas||!output||!hd_owner||!green_first||!green_under||!green_under_owner) return;
+ if(!canvas||!output||!hd_owner||!cloud_owner||!green_first||!green_under||!green_under_owner) return;
  if(!have_initial_palette) { memcpy(initial_palette,rgb_palette,sizeof(initial_palette));have_initial_palette=true; }
  for(int y=0;y<200;y++) memcpy(expected+y*320,(Uint8 *)game_screen->pixels+y*game_screen->pitch,320);
  upscale(canvas,game_screen);
  memset(selected,0,sizeof(selected)); memset(hd_owner,0,(size_t)canvas->w*canvas->h); draws=occlusions=mismatch=0; reject_reason=NULL; active=true;
+ memset(cloud_owner,0,(size_t)canvas->w*canvas->h);
  green_head_count=0;memset(green_first,0,(size_t)canvas->w*canvas->h*sizeof(*green_first));
  region_count=local_entities=local_regions=local_blocks=0;all_rejections[0]='\0';
  memset(restored_mask,0,sizeof(restored_mask));brightness_blocks=restored_checks=restored_mismatches=expanded_regions=boundary_crossings=0;
@@ -236,7 +262,7 @@ void render_mirror_pixel(SDL_Surface *surface,Uint8 *address,Uint8 source,int st
  if(offset<0||offset>=(intptr_t)surface->pitch*surface->h) { render_mirror_unsupported("invalid-write-address");return; }
  int y=(int)(offset/surface->pitch),x=(int)(offset%surface->pitch);
  if(x>=320||y>=200) return;
- expected[y*320+x]=*address;
+ Uint8 before=expected[y*320+x];expected[y*320+x]=*address;
  if(reject_reason) return;
  if(suppress) {
   /* The replacement's transparent pixels preserve the earlier RGB scene.
@@ -244,6 +270,7 @@ void render_mirror_pixel(SDL_Surface *surface,Uint8 *address,Uint8 source,int st
    * reappear through that transparency when a later palette fade runs. */
   int d=game_probe_density;
   for(int sy=0;sy<d;sy++)memset(hd_owner+(y*d+sy)*canvas->w+x*d,game_probe_original_reference?2:1,(size_t)d);
+  if(!suppress_cloud)for(int sy=0;sy<d;sy++)memset(cloud_owner+(y*d+sy)*canvas->w+x*d,0,(size_t)d);
   if(suppress_green_smoke)for(int sy=0;sy<d;sy++)for(int sx=0;sx<d;sx++) {
    int n=(y*d+sy)*canvas->w+x*d+sx;
    if(green_first[n])green_under_owner[n]=1;
@@ -257,7 +284,11 @@ void render_mirror_pixel(SDL_Surface *surface,Uint8 *address,Uint8 source,int st
   Uint32 *p=(Uint32 *)((Uint8 *)canvas->pixels+(y*d+sy)*canvas->pitch)+x*d;
   Uint8 *owner=hd_owner+(y*d+sy)*canvas->w+x*d;
   for(int sx=0;sx<d;sx++) {
-   green_first[(y*d+sy)*canvas->w+x*d+sx]=0;
+   int n=(y*d+sy)*canvas->w+x*d+sx;
+   green_first[n]=0;
+   bool cloud_shadow=cloud_owner[n]&&owner[sx]==1&&style==MIRROR_SHADOW&&
+                     *address==(Uint8)((before&0xf0)|((before&15)/2));
+   if(!cloud_shadow)cloud_owner[n]=0;
    if(owner[sx]&&style==MIRROR_BLEND) {
     if(!game_probe_local_blend) {render_mirror_unsupported("hd-under-palette-blend");return;}
     bool found=false;
@@ -267,7 +298,8 @@ void render_mirror_pixel(SDL_Surface *surface,Uint8 *address,Uint8 source,int st
     }
     if(!found) {render_mirror_unsupported("local-blend-owner-without-region");return;}
    }
-   if(owner[sx]==1&&style==MIRROR_SHADOW) p[sx]=darken_rgba(p[sx],255);
+   if(cloud_shadow)p[sx]=cloud_shadow_rgba(p[sx],before,*address);
+   else if(owner[sx]==1&&style==MIRROR_SHADOW) p[sx]=darken_rgba(p[sx],255);
    else {p[sx]=palette_rgb(*address);if(style==MIRROR_NORMAL) owner[sx]=0;}
   }
  }
@@ -561,6 +593,7 @@ static bool draw_asset_filtered(int x,int y,Asset *a,int style,const SDL_Rect *p
   if(region_count>=sizeof(regions)/sizeof(regions[0])) {render_mirror_unsupported("hd-region-capacity");return false;}
   HdRegion region={{x,y,a->w,a->h},a->bank,a->index,style,true};regions[region_count++]=region;
  }
+ bool cloud=cloud_asset(a)&&style==MIRROR_NORMAL&&!filter&&!game_probe_original_reference;
  bool green_blend=explosion_blend&&a->index>=78&&a->index<=84;
  bool green_smoke=a->bank==ASSET_EXPLOSION&&a->index>=78&&a->index<=84&&style!=MIRROR_SHADOW&&!game_probe_original_reference;
  bool green_head=a->bank==8&&a->index>=214&&a->index<=217&&style==MIRROR_NORMAL&&!game_probe_original_reference&&!part&&!filter;
@@ -578,6 +611,7 @@ static bool draw_asset_filtered(int x,int y,Asset *a,int style,const SDL_Rect *p
   Uint8 filtered[4];if(filter){enemy_filter_rgba(src,filter,filtered);src=filtered;}
   Uint32 *p=(Uint32 *)((Uint8 *)canvas->pixels+dy*canvas->pitch)+dx;
   int owner_index=dy*canvas->w+dx;
+  cloud_owner[owner_index]=cloud?1:0;
   if(green_head&&!green_first[owner_index]) {
    green_first[owner_index]=(Uint16)green_head_count;
    green_under[owner_index]=*p;green_under_owner[owner_index]=hd_owner[owner_index];
@@ -607,7 +641,7 @@ static bool draw_asset_filtered(int x,int y,Asset *a,int style,const SDL_Rect *p
   hd_owner[owner_index]=game_probe_original_reference?2:1;selected[(dy/d)*320+dx/d]=1;
  }
 
- ++draws;suppress=true;suppress_green_smoke=green_smoke;return true;
+ ++draws;suppress=true;suppress_green_smoke=green_smoke;suppress_cloud=cloud;return true;
 }
 
 static bool draw_asset(int x,int y,Asset *a,int style,const SDL_Rect *part)
@@ -661,9 +695,17 @@ bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array ban
 
 void render_mirror_map_begin(char shape_file)
 {terrain_file=shape_file=='Z'?'z':shape_file;terrain_source_count=0;render_mirror_reset_banking();}
+/* Only shapesZ layer2 cloud IDs; no renderer/filter or game-state changes. */
+static int cloud_terrain_slot(unsigned int id)
+{
+ if(id>=41&&id<=45)return 186+(int)id-41;
+ if(id>=51&&id<=55)return 191+(int)id-51;
+ if(id>=61&&id<=65)return 196+(int)id-61;
+ return -1;
+}
 void render_mirror_bind_terrain(unsigned int layer,unsigned int id,const Uint8 *data)
 {
- if(terrain_file=='z'&&layer==1&&(id==101||id==37||id==57||id==49||id==50||id==321||id==322||id==331||id==332)&&terrain_source_count<72) {
+ if(terrain_file=='z'&&((layer==1&&(id==101||id==37||id==57||id==49||id==50||id==321||id==322||id==331||id==332))||(layer==2&&cloud_terrain_slot(id)>=0))&&terrain_source_count<87) {
   terrain_sources[terrain_source_count].data=data;
   terrain_sources[terrain_source_count++].id=id;
  }
@@ -677,7 +719,9 @@ unsigned int render_mirror_terrain_row(SDL_Surface *surface,int x,int y,Uint8 **
   unsigned int id=0;
   for(unsigned int k=0;k<terrain_source_count;k++)if(map[tile]&&map[tile]==terrain_sources[k].data) {id=terrain_sources[k].id;break;}
   if(!id)continue;
-  int slot=id==101?10:id==37?11:id==57?12:id==49?13:id==50?14:id==321?19:id==322?20:id==331?21:22;
+  int slot=cloud_terrain_slot(id);
+  if(slot>=0&&style==MIRROR_BLEND)continue; /* Preserve original palette-blended clouds. */
+  if(slot<0)slot=id==101?10:id==37?11:id==57?12:id==49?13:id==50?14:id==321?19:id==322?20:id==331?21:22;
   Asset *a=scene_asset(slot,ASSET_SHAPESZ,(int)id,0,0);bool mirrored=a?draw_asset(x+tile*24,y,a,style,NULL):false;
   suppress=false;
   if(mirrored)replaced|=1u<<tile;
@@ -687,10 +731,13 @@ unsigned int render_mirror_terrain_row(SDL_Surface *surface,int x,int y,Uint8 **
 }
 void render_mirror_terrain_pixel(SDL_Surface *surface,Uint8 *address,Uint8 source,int style,bool replaced)
 {
- bool previous=suppress;suppress=replaced;render_mirror_pixel(surface,address,source,style);suppress=previous;
+ /* Terrain rows render all RGBA tiles before original indexed callbacks.
+  * Their actual non-cloud RGBA writes already invalidated cloud provenance. */
+ bool previous=suppress,previous_cloud=suppress_cloud;suppress=replaced;suppress_cloud=replaced;
+ render_mirror_pixel(surface,address,source,style);suppress=previous;suppress_cloud=previous_cloud;
 }
 
-void render_mirror_entity_end(void) { suppress=false;suppress_green_smoke=false; }
+void render_mirror_entity_end(void) { suppress=false;suppress_green_smoke=false;suppress_cloud=false; }
 
 /* Recognized original warm/contact explosions and nine shield-hit pieces.
  * Original hue overwrite + averaged ramp value is approximated continuously
@@ -784,7 +831,7 @@ void render_mirror_sprite2_blend_pixel(SDL_Surface *surface,Uint8 *address,Uint8
   for(int sy=0;sy<d;sy++) {
    Uint32 *p=(Uint32 *)((Uint8 *)canvas->pixels+(y*d+sy)*canvas->pitch)+x*d;
    const Uint8 *owner=hd_owner+(y*d+sy)*canvas->w+x*d;
-   for(int sx=0;sx<d;sx++) {green_first[(y*d+sy)*canvas->w+x*d+sx]=0;p[sx]=owner[sx]==1?explosion_blend_rgba(p[sx],source):palette_rgb(*address);}
+   for(int sx=0;sx<d;sx++) {green_first[(y*d+sy)*canvas->w+x*d+sx]=0;cloud_owner[(y*d+sy)*canvas->w+x*d+sx]=0;p[sx]=owner[sx]==1?explosion_blend_rgba(p[sx],source):palette_rgb(*address);}
   }
  } else {blend_source_index=index;render_mirror_pixel(surface,address,source,MIRROR_BLEND);blend_source_index=0;}
  game_probe_blend_write(known,index,origin_x,origin_y,x,y,before,source,*address,subpixels,local_blocks-old_blocks,rgba);

@@ -1,7 +1,7 @@
 {
   "schema": "opentyrian-accepted-hd-runtime-v1",
   "baseline_branch": "hd-render-prototype",
-  "status": "Accepted green diffuse core above smoke; separate orange59 soft-edge energy art actual-engine review",
+  "status": "Accepted green and orange energy art; finite15-tileHD cloud family with scoped palette-floor shadow transfer",
   "default_preview_pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
   "default_debug_pack": "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
   "packs": {
@@ -29154,7 +29154,7 @@
       }
     },
     "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 190,
+      "count": 205,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -31625,11 +31625,206 @@
           ],
           "source_png": "assets/hd/source/bullet-217-8-9610d3cab031.png",
           "source_png_sha256": "cca9ed9858549e62b04d76cd319b591a8c6fbb9a04f794fff76117442b4c61a6"
+        },
+        "terrain-shapesz-41-8.hda": {
+          "sha256": "8fc779523ae7f38d2247681df19299027645021aaae9e0a76a142c21056ad2fb",
+          "header_u32": [
+            2010041,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-41-8-8fc779523ae7.png",
+          "source_png_sha256": "c45258a262288bd35df8420365931a76997b000cbb1fa67c849e510fa12c8955"
+        },
+        "terrain-shapesz-42-8.hda": {
+          "sha256": "2dc85b00dcc679d660973ecf5a5134604f2677f912876803a56fa092363bd9c6",
+          "header_u32": [
+            2010042,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-42-8-2dc85b00dcc6.png",
+          "source_png_sha256": "5cd625774b3f0b25128fe836bc89d39e7eb437bec8c57836e22735f09457962e"
+        },
+        "terrain-shapesz-43-8.hda": {
+          "sha256": "fe1d5b872ad3bb87676678e3508185ff1c04b22884137804daa78ea6f6f1cf3e",
+          "header_u32": [
+            2010043,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-43-8-fe1d5b872ad3.png",
+          "source_png_sha256": "aa35476ab60be59207658199806f452f6768451531c2e645ef0665ebba5e4af9"
+        },
+        "terrain-shapesz-44-8.hda": {
+          "sha256": "e2584e555fa3f143741648fbb739b11abc6b2707ebade0ea2996f0e49d58626e",
+          "header_u32": [
+            2010044,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-44-8-e2584e555fa3.png",
+          "source_png_sha256": "2b2c5922e9b26675761d6844a82c18b5cf50a544885a8578fee1d52b2e28851a"
+        },
+        "terrain-shapesz-45-8.hda": {
+          "sha256": "7affb1654a7ee04562eaf9d915b5a539176744e45996ec60d0632899b198e7dc",
+          "header_u32": [
+            2010045,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-45-8-7affb1654a7e.png",
+          "source_png_sha256": "b3b3bf2474262448e31ec071b11af92f2782c6e23b213749deb353872d3d5972"
+        },
+        "terrain-shapesz-51-8.hda": {
+          "sha256": "27f175496e9ee1b7667369deb514fbdbb16f942de0f09c6919e7fb09644d60a2",
+          "header_u32": [
+            2010051,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-51-8-27f175496e9e.png",
+          "source_png_sha256": "063f748add9908ba3f4ffcf4df09e43188409926778d60a26ed0831e65743b00"
+        },
+        "terrain-shapesz-52-8.hda": {
+          "sha256": "b9fe9120f234aeedbd9c20e7c6c7bdff013ae97e99282c9e1784e64c15f5470e",
+          "header_u32": [
+            2010052,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-52-8-b9fe9120f234.png",
+          "source_png_sha256": "061a28b0360f637418fbf6551f1e15b1fabc63bb949f2f9d9143ceea2be7be8c"
+        },
+        "terrain-shapesz-53-8.hda": {
+          "sha256": "8524d466d4b2db0ad3661bd2f2338038012ec614f0f5a0b742fc68c54a30c27f",
+          "header_u32": [
+            2010053,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-53-8-8524d466d4b2.png",
+          "source_png_sha256": "265e3c1db97a641295b7ffb66c6f99d8736773f971e8c4fa69499e714319e267"
+        },
+        "terrain-shapesz-54-8.hda": {
+          "sha256": "70c4451ea19d03b3f8ec2e239238f5983fcd74492d63b663d0757237b0da8ad1",
+          "header_u32": [
+            2010054,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-54-8-70c4451ea19d.png",
+          "source_png_sha256": "583f83dc2870a71880dcc990daadd4a496eaa36467466947c9882e6dcd7c5bdc"
+        },
+        "terrain-shapesz-55-8.hda": {
+          "sha256": "6e9a07e407997e143cc4fb93950f60a6332c6e9603e089a149058e59be194c5b",
+          "header_u32": [
+            2010055,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-55-8-6e9a07e40799.png",
+          "source_png_sha256": "929e61295c6a4154e94e6845ce4e69360d4b2e625af45834891826592d291a70"
+        },
+        "terrain-shapesz-61-8.hda": {
+          "sha256": "abbd38989ca733c422da508a06ebb84a8bca8b3eb8a16185bb0c769e0c076569",
+          "header_u32": [
+            2010061,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-61-8-abbd38989ca7.png",
+          "source_png_sha256": "f93fc97dbd1a708127666d395f68cd8cf05e109131233d3735bb20e09a2f13f9"
+        },
+        "terrain-shapesz-62-8.hda": {
+          "sha256": "f54936211cdfc4bd65c9e5383c4a3cc1faa686a914770907ee6bb786027eb32e",
+          "header_u32": [
+            2010062,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-62-8-f54936211cdf.png",
+          "source_png_sha256": "1cbed0d853c25ea00769445af5c97babeb12bd9787d3cd46fdec21b4bee9bcc3"
+        },
+        "terrain-shapesz-63-8.hda": {
+          "sha256": "c4044e7f45bef09fbe6684298a148e8d10be6327268ee77d619faea87b714069",
+          "header_u32": [
+            2010063,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-63-8-c4044e7f45be.png",
+          "source_png_sha256": "2db350fcf344fe3859e6ea2879681d5de79c476465fbb734cccd7e346a0fdd22"
+        },
+        "terrain-shapesz-64-8.hda": {
+          "sha256": "604f1edfae62880bfc94460a9db6c58c8ab0e8425ce839bd5ef0b98154d4c432",
+          "header_u32": [
+            2010064,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-64-8-604f1edfae62.png",
+          "source_png_sha256": "1b1cf5216ef9fdc87c860015cc4b7e0c245b4e8566e9b4ffca8ab58a7659350d"
+        },
+        "terrain-shapesz-65-8.hda": {
+          "sha256": "ce7a5305c70c2777171ba8e4723d11038cbfce5aab8e5d571c1c9ed0892d215d",
+          "header_u32": [
+            2010065,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-65-8-ce7a5305c70c.png",
+          "source_png_sha256": "62f3821fc8f50aa50079d691111a80be9f0c5e3aa399bf65db61c1f1dcd2d0eb"
         }
       }
     },
     "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 194,
+      "count": 209,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -34152,6 +34347,201 @@
           ],
           "source_png": "assets/hd/source/bullet-217-8-9610d3cab031.png",
           "source_png_sha256": "cca9ed9858549e62b04d76cd319b591a8c6fbb9a04f794fff76117442b4c61a6"
+        },
+        "terrain-shapesz-41-8.hda": {
+          "sha256": "8fc779523ae7f38d2247681df19299027645021aaae9e0a76a142c21056ad2fb",
+          "header_u32": [
+            2010041,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-41-8-8fc779523ae7.png",
+          "source_png_sha256": "c45258a262288bd35df8420365931a76997b000cbb1fa67c849e510fa12c8955"
+        },
+        "terrain-shapesz-42-8.hda": {
+          "sha256": "2dc85b00dcc679d660973ecf5a5134604f2677f912876803a56fa092363bd9c6",
+          "header_u32": [
+            2010042,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-42-8-2dc85b00dcc6.png",
+          "source_png_sha256": "5cd625774b3f0b25128fe836bc89d39e7eb437bec8c57836e22735f09457962e"
+        },
+        "terrain-shapesz-43-8.hda": {
+          "sha256": "fe1d5b872ad3bb87676678e3508185ff1c04b22884137804daa78ea6f6f1cf3e",
+          "header_u32": [
+            2010043,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-43-8-fe1d5b872ad3.png",
+          "source_png_sha256": "aa35476ab60be59207658199806f452f6768451531c2e645ef0665ebba5e4af9"
+        },
+        "terrain-shapesz-44-8.hda": {
+          "sha256": "e2584e555fa3f143741648fbb739b11abc6b2707ebade0ea2996f0e49d58626e",
+          "header_u32": [
+            2010044,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-44-8-e2584e555fa3.png",
+          "source_png_sha256": "2b2c5922e9b26675761d6844a82c18b5cf50a544885a8578fee1d52b2e28851a"
+        },
+        "terrain-shapesz-45-8.hda": {
+          "sha256": "7affb1654a7ee04562eaf9d915b5a539176744e45996ec60d0632899b198e7dc",
+          "header_u32": [
+            2010045,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-45-8-7affb1654a7e.png",
+          "source_png_sha256": "b3b3bf2474262448e31ec071b11af92f2782c6e23b213749deb353872d3d5972"
+        },
+        "terrain-shapesz-51-8.hda": {
+          "sha256": "27f175496e9ee1b7667369deb514fbdbb16f942de0f09c6919e7fb09644d60a2",
+          "header_u32": [
+            2010051,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-51-8-27f175496e9e.png",
+          "source_png_sha256": "063f748add9908ba3f4ffcf4df09e43188409926778d60a26ed0831e65743b00"
+        },
+        "terrain-shapesz-52-8.hda": {
+          "sha256": "b9fe9120f234aeedbd9c20e7c6c7bdff013ae97e99282c9e1784e64c15f5470e",
+          "header_u32": [
+            2010052,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-52-8-b9fe9120f234.png",
+          "source_png_sha256": "061a28b0360f637418fbf6551f1e15b1fabc63bb949f2f9d9143ceea2be7be8c"
+        },
+        "terrain-shapesz-53-8.hda": {
+          "sha256": "8524d466d4b2db0ad3661bd2f2338038012ec614f0f5a0b742fc68c54a30c27f",
+          "header_u32": [
+            2010053,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-53-8-8524d466d4b2.png",
+          "source_png_sha256": "265e3c1db97a641295b7ffb66c6f99d8736773f971e8c4fa69499e714319e267"
+        },
+        "terrain-shapesz-54-8.hda": {
+          "sha256": "70c4451ea19d03b3f8ec2e239238f5983fcd74492d63b663d0757237b0da8ad1",
+          "header_u32": [
+            2010054,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-54-8-70c4451ea19d.png",
+          "source_png_sha256": "583f83dc2870a71880dcc990daadd4a496eaa36467466947c9882e6dcd7c5bdc"
+        },
+        "terrain-shapesz-55-8.hda": {
+          "sha256": "6e9a07e407997e143cc4fb93950f60a6332c6e9603e089a149058e59be194c5b",
+          "header_u32": [
+            2010055,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-55-8-6e9a07e40799.png",
+          "source_png_sha256": "929e61295c6a4154e94e6845ce4e69360d4b2e625af45834891826592d291a70"
+        },
+        "terrain-shapesz-61-8.hda": {
+          "sha256": "abbd38989ca733c422da508a06ebb84a8bca8b3eb8a16185bb0c769e0c076569",
+          "header_u32": [
+            2010061,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-61-8-abbd38989ca7.png",
+          "source_png_sha256": "f93fc97dbd1a708127666d395f68cd8cf05e109131233d3735bb20e09a2f13f9"
+        },
+        "terrain-shapesz-62-8.hda": {
+          "sha256": "f54936211cdfc4bd65c9e5383c4a3cc1faa686a914770907ee6bb786027eb32e",
+          "header_u32": [
+            2010062,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-62-8-f54936211cdf.png",
+          "source_png_sha256": "1cbed0d853c25ea00769445af5c97babeb12bd9787d3cd46fdec21b4bee9bcc3"
+        },
+        "terrain-shapesz-63-8.hda": {
+          "sha256": "c4044e7f45bef09fbe6684298a148e8d10be6327268ee77d619faea87b714069",
+          "header_u32": [
+            2010063,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-63-8-c4044e7f45be.png",
+          "source_png_sha256": "2db350fcf344fe3859e6ea2879681d5de79c476465fbb734cccd7e346a0fdd22"
+        },
+        "terrain-shapesz-64-8.hda": {
+          "sha256": "604f1edfae62880bfc94460a9db6c58c8ab0e8425ce839bd5ef0b98154d4c432",
+          "header_u32": [
+            2010064,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-64-8-604f1edfae62.png",
+          "source_png_sha256": "1b1cf5216ef9fdc87c860015cc4b7e0c245b4e8566e9b4ffca8ab58a7659350d"
+        },
+        "terrain-shapesz-65-8.hda": {
+          "sha256": "ce7a5305c70c2777171ba8e4723d11038cbfce5aab8e5d571c1c9ed0892d215d",
+          "header_u32": [
+            2010065,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-65-8-ce7a5305c70c.png",
+          "source_png_sha256": "62f3821fc8f50aa50079d691111a80be9f0c5e3aa399bf65db61c1f1dcd2d0eb"
         }
       }
     }
@@ -35344,6 +35734,96 @@
       "sha256": "b95925b600464c12244b292d14c5c3b0d05fa8ed125b111459c479360afa3304",
       "RGBA_sha256": "8859f93d132f7d6775b9e03526c15b10dcf707965e6045b7b7744da671895705",
       "note": "Generated orange twin-energy59 softer perimeter; prior accepted source retained in earlier packs"
+    },
+    "8fc779523ae7f38d2247681df19299027645021aaae9e0a76a142c21056ad2fb": {
+      "path": "assets/hd/source/terrain-shapesz-41-8-8fc779523ae7.png",
+      "sha256": "c45258a262288bd35df8420365931a76997b000cbb1fa67c849e510fa12c8955",
+      "RGBA_sha256": "4f0443d3aa783bff158ed2fe2adb24057d3fd009c004f24035bad919e9a56774",
+      "note": "Selected generated finite layer2 cloud family; source atlas plus external original opacity geometry"
+    },
+    "2dc85b00dcc679d660973ecf5a5134604f2677f912876803a56fa092363bd9c6": {
+      "path": "assets/hd/source/terrain-shapesz-42-8-2dc85b00dcc6.png",
+      "sha256": "5cd625774b3f0b25128fe836bc89d39e7eb437bec8c57836e22735f09457962e",
+      "RGBA_sha256": "f195ac7b3789591b64fdb388d7641d85f6132bf98ec0e050115ecfbdb09d235c",
+      "note": "Selected generated finite layer2 cloud family; source atlas plus external original opacity geometry"
+    },
+    "fe1d5b872ad3bb87676678e3508185ff1c04b22884137804daa78ea6f6f1cf3e": {
+      "path": "assets/hd/source/terrain-shapesz-43-8-fe1d5b872ad3.png",
+      "sha256": "aa35476ab60be59207658199806f452f6768451531c2e645ef0665ebba5e4af9",
+      "RGBA_sha256": "2503d5a4cb006ec4156107cd23015a90259d2c7df77d7d1d38bfa20fbd63d2b5",
+      "note": "Selected generated finite layer2 cloud family; source atlas plus external original opacity geometry"
+    },
+    "e2584e555fa3f143741648fbb739b11abc6b2707ebade0ea2996f0e49d58626e": {
+      "path": "assets/hd/source/terrain-shapesz-44-8-e2584e555fa3.png",
+      "sha256": "2b2c5922e9b26675761d6844a82c18b5cf50a544885a8578fee1d52b2e28851a",
+      "RGBA_sha256": "df21c6ebc9b5087388344878e0ee7b8ea519f863f0f49e1cf178d1e07d47f94c",
+      "note": "Selected generated finite layer2 cloud family; source atlas plus external original opacity geometry"
+    },
+    "7affb1654a7ee04562eaf9d915b5a539176744e45996ec60d0632899b198e7dc": {
+      "path": "assets/hd/source/terrain-shapesz-45-8-7affb1654a7e.png",
+      "sha256": "b3b3bf2474262448e31ec071b11af92f2782c6e23b213749deb353872d3d5972",
+      "RGBA_sha256": "bdeb2c8f4d12f6cfa937f428d00f7db2f855505d4db76212d5f02027afbf2f35",
+      "note": "Selected generated finite layer2 cloud family; source atlas plus external original opacity geometry"
+    },
+    "27f175496e9ee1b7667369deb514fbdbb16f942de0f09c6919e7fb09644d60a2": {
+      "path": "assets/hd/source/terrain-shapesz-51-8-27f175496e9e.png",
+      "sha256": "063f748add9908ba3f4ffcf4df09e43188409926778d60a26ed0831e65743b00",
+      "RGBA_sha256": "a3139a9cc8f6774ac6e00b391ae3b765a08c32241c79369045dfb83a20d0a546",
+      "note": "Selected generated finite layer2 cloud family; source atlas plus external original opacity geometry"
+    },
+    "b9fe9120f234aeedbd9c20e7c6c7bdff013ae97e99282c9e1784e64c15f5470e": {
+      "path": "assets/hd/source/terrain-shapesz-52-8-b9fe9120f234.png",
+      "sha256": "061a28b0360f637418fbf6551f1e15b1fabc63bb949f2f9d9143ceea2be7be8c",
+      "RGBA_sha256": "b99991791fcc5512e5b235a79f6fa36c157b5b187cd9c709737613434f0789b4",
+      "note": "Selected generated finite layer2 cloud family; source atlas plus external original opacity geometry"
+    },
+    "8524d466d4b2db0ad3661bd2f2338038012ec614f0f5a0b742fc68c54a30c27f": {
+      "path": "assets/hd/source/terrain-shapesz-53-8-8524d466d4b2.png",
+      "sha256": "265e3c1db97a641295b7ffb66c6f99d8736773f971e8c4fa69499e714319e267",
+      "RGBA_sha256": "eac0974c6d5b31416b21b01f0cbc6d006b7ca8564c95f2f63eb12b008ec94154",
+      "note": "Selected generated finite layer2 cloud family; source atlas plus external original opacity geometry"
+    },
+    "70c4451ea19d03b3f8ec2e239238f5983fcd74492d63b663d0757237b0da8ad1": {
+      "path": "assets/hd/source/terrain-shapesz-54-8-70c4451ea19d.png",
+      "sha256": "583f83dc2870a71880dcc990daadd4a496eaa36467466947c9882e6dcd7c5bdc",
+      "RGBA_sha256": "708707d771d88a26728080cf9a6ad150e3227cda3f9fc21cec92d429a8b35b89",
+      "note": "Selected generated finite layer2 cloud family; source atlas plus external original opacity geometry"
+    },
+    "abbd38989ca733c422da508a06ebb84a8bca8b3eb8a16185bb0c769e0c076569": {
+      "path": "assets/hd/source/terrain-shapesz-61-8-abbd38989ca7.png",
+      "sha256": "f93fc97dbd1a708127666d395f68cd8cf05e109131233d3735bb20e09a2f13f9",
+      "RGBA_sha256": "29b8cd1233c1bc26aa1b4a4b25fe9f17d3cd67b99c2c5f551946269ffc03adb8",
+      "note": "Selected generated finite layer2 cloud family; source atlas plus external original opacity geometry"
+    },
+    "f54936211cdfc4bd65c9e5383c4a3cc1faa686a914770907ee6bb786027eb32e": {
+      "path": "assets/hd/source/terrain-shapesz-62-8-f54936211cdf.png",
+      "sha256": "1cbed0d853c25ea00769445af5c97babeb12bd9787d3cd46fdec21b4bee9bcc3",
+      "RGBA_sha256": "a21e5fc1f6f29eec972787f02991a0e7a842cf05e79cb0df2330e263192a4cb3",
+      "note": "Selected generated finite layer2 cloud family; source atlas plus external original opacity geometry"
+    },
+    "c4044e7f45bef09fbe6684298a148e8d10be6327268ee77d619faea87b714069": {
+      "path": "assets/hd/source/terrain-shapesz-63-8-c4044e7f45be.png",
+      "sha256": "2db350fcf344fe3859e6ea2879681d5de79c476465fbb734cccd7e346a0fdd22",
+      "RGBA_sha256": "40b24b258a92d3d9b8818e42745c4bab2ae193010d7b3977a5eec8c64bdc690c",
+      "note": "Selected generated finite layer2 cloud family; source atlas plus external original opacity geometry"
+    },
+    "604f1edfae62880bfc94460a9db6c58c8ab0e8425ce839bd5ef0b98154d4c432": {
+      "path": "assets/hd/source/terrain-shapesz-64-8-604f1edfae62.png",
+      "sha256": "1b1cf5216ef9fdc87c860015cc4b7e0c245b4e8566e9b4ffca8ab58a7659350d",
+      "RGBA_sha256": "79c8d4aeaebea142340801c160bcccb3eaa34f53af8c5610fefaebe068de1aee",
+      "note": "Selected generated finite layer2 cloud family; source atlas plus external original opacity geometry"
+    },
+    "ce7a5305c70c2777171ba8e4723d11038cbfce5aab8e5d571c1c9ed0892d215d": {
+      "path": "assets/hd/source/terrain-shapesz-65-8-ce7a5305c70c.png",
+      "sha256": "62f3821fc8f50aa50079d691111a80be9f0c5e3aa399bf65db61c1f1dcd2d0eb",
+      "RGBA_sha256": "b1058fafc7d637f9bfa8c2d43ef30d9c0121b6d5522a660a4d72c8bbe0a435ed",
+      "note": "Selected generated finite layer2 cloud family; source atlas plus external original opacity geometry"
+    },
+    "6e9a07e407997e143cc4fb93950f60a6332c6e9603e089a149058e59be194c5b": {
+      "path": "assets/hd/source/terrain-shapesz-55-8-6e9a07e40799.png",
+      "sha256": "929e61295c6a4154e94e6845ce4e69360d4b2e625af45834891826592d291a70",
+      "RGBA_sha256": "ca95cf5feebcea6a82bd544301506bc042d247c25ba9d037414ca2299979ee4d",
+      "note": "Generated cloud55 free-perimeter edge revision2; interior/connectors preserved"
     }
   },
   "no_original_game_data": true,
@@ -35465,5 +35945,39 @@
     ],
     "gameplay_logic_unchanged": true,
     "current_engine_mode": "original point sampling and original blend; no interpolation"
+  },
+  "cloud_layer2_v1": {
+    "ids": [
+      41,
+      42,
+      43,
+      44,
+      45,
+      51,
+      52,
+      53,
+      54,
+      55,
+      61,
+      62,
+      63,
+      64,
+      65
+    ],
+    "layer": 2,
+    "bank": "shapesz",
+    "logical_size": [
+      24,
+      28
+    ],
+    "anchor": [
+      0,
+      0
+    ],
+    "density": 8,
+    "source": "assets/hd/artwork/cloud-layer2-v1/selected-manifest.json",
+    "wild_blend": "original fallback",
+    "shadow": "cloud-only original palette-ramp ratio",
+    "edge_revision": "v2: original long55step softened; other14tileRGBA/HDRunchanged"
   }
 }

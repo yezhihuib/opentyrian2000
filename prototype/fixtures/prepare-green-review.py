@@ -1,10 +1,10 @@
-"""Prepare archived weapon71 hooks with the CURRENT production HD renderer.
+"""Prepare archived weapon71 hooks with the CURRENT renderer and terrain binding.
 
 Diagnostic source only; original game data and generated captures stay outside Git.
 The archived prepare-effects command remains an exact historical reproduction.
 """
 from pathlib import Path
-import argparse, subprocess, sys
+import argparse, shutil, subprocess, sys
 
 repo = Path(__file__).resolve().parents[2]
 p = argparse.ArgumentParser(description=__doc__)
@@ -25,6 +25,9 @@ branch = 'bool green_blend=explosion_blend&&a->index>=78&&a->index<=84;'
 assert renderer.count(branch) == 1
 renderer = renderer.replace(branch, branch[:-1] + '&&!getenv("OT_GREEN_POINT_BASELINE");')
 (out / 'src/render_mirror.c').write_text(renderer)
+# Historical preparation strips the reviewed layer2 registration; current
+# renderer review needs that exact current production registration restored.
+shutil.copy2(repo / 'src/tyrian2.c', out / 'src/tyrian2.c')
 entity = out / 'src/entity_draw.c'
 s = entity.read_text()
 s = '#include <stdio.h>\n#include <stdlib.h>\n' + s
@@ -44,6 +47,6 @@ s = s.replace(marker, marker + '''
 	}
 ''')
 entity.write_text(s)
-print('Current production renderer plus archived read-only observers installed:', out)
+print('Current renderer and terrain binding plus archived read-only observers installed:', out)
 print('OT_FX_FIXTURE=1: original loaded weapon71; OT_FX_PROBE=1: smoke observer')
 print('OT_GREEN_POINT_BASELINE=1: original point brightness, otherwise current smoothing')

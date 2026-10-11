@@ -16,7 +16,7 @@ typedef struct { int w,h,pitch; void *pixels; } SDL_Surface;
 #define MAX(a,b) ((a)>(b)?(a):(b))
 #define MIN(a,b) ((a)<(b)?(a):(b))
 enum { MIRROR_NORMAL, MIRROR_BLEND, MIRROR_SHADOW };
-enum { ASSET_NEWSH2=101, ASSET_EXPLOSION=106 };
+enum { ASSET_NEWSH2=101, ASSET_EXPLOSION=106, ASSET_SHAPESZ=201 };
 #include "production-types.inc"
 
 static SDL_Surface *canvas,*game_screen;
@@ -26,7 +26,8 @@ static bool active=true,suppress,suppress_green_smoke;
 static const char *reject_reason;
 static Uint32 rgb_palette[256];
 static Uint8 expected[320*200],selected[320*200];
-static Uint8 *hd_owner,*green_under_owner;
+static Uint8 *hd_owner,*green_under_owner,*cloud_owner;
+static bool suppress_cloud;
 static Uint16 *green_first;
 static Uint32 *green_under;
 static GreenHead green_heads[256];
@@ -195,7 +196,7 @@ static void reset_scene(bool original_owned)
 {
  size_t count=(size_t)canvas->w*canvas->h;
  initial_owner=original_owned?0:1;event_count=green_head_count=region_count=0;
- memset(hd_owner,initial_owner,count);memset(green_first,0,count*sizeof(*green_first));
+ memset(hd_owner,initial_owner,count);memset(cloud_owner,0,count);memset(green_first,0,count*sizeof(*green_first));
  memset(green_under,0,count*sizeof(*green_under));memset(green_under_owner,0,count);
  memset(canvas->pixels,0xcd,(size_t)canvas->pitch*canvas->h);
  memset(selected,0,sizeof(selected));suppress=false;
@@ -253,7 +254,7 @@ int main(void)
   SDL_Surface original={WIDTH,HEIGHT,WIDTH,NULL};game_screen=&original;
   size_t count=(size_t)surface.w*surface.h;
   surface.pixels=malloc((size_t)surface.pitch*surface.h);original.pixels=calloc(WIDTH*HEIGHT,1);
-  initial=malloc(count*sizeof(*initial));hd_owner=malloc(count);green_first=calloc(count,sizeof(*green_first));
+  initial=malloc(count*sizeof(*initial));hd_owner=malloc(count);cloud_owner=malloc(count);green_first=calloc(count,sizeof(*green_first));
   green_under=malloc(count*sizeof(*green_under));green_under_owner=malloc(count);
   assert(surface.pixels&&original.pixels&&initial&&hd_owner&&green_first&&green_under&&green_under_owner);
   direct_replay_test(&h1,&h2,&h3);
@@ -302,7 +303,7 @@ int main(void)
   draw_event(HEAD,&h3,2,2,MIRROR_NORMAL);draw_event(SMOKE,&smoke,1,1,MIRROR_NORMAL);
   printf("PASS: head-layer exact replay, clipping, transparency, ownership and invalidation at density %d\n",d);
   free(surface.pixels);free(original.pixels);free(initial);free(hd_owner);
-  free(green_first);free(green_under);free(green_under_owner);
+  free(green_first);free(green_under);free(green_under_owner);free(cloud_owner);
  }
  free(h1.rgba);free(h2.rgba);free(h3.rgba);free(smoke.rgba);free(other.rgba);
  free(empty_smoke.rgba);free(empty_other.rgba);

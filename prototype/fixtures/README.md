@@ -17,3 +17,5 @@ The original weapon71/1071 heads are a four-frame214–217 cycle: loaded weapani
 Formal head regeneration: `python prototype/build-green-head-art.py --output ../green-art-check`. Same-scale point/smooth review: `python prototype/fixtures/verify-green-review.py --baseline <point-run> --candidate <smooth-run> --assets <current-pack>`. The verifier uses lossless PNG conversions of the actual captures.
 
 Green foreground-head layer oracle: `python prototype/fixtures/test-green-head-layer.py --sanitize` checks the extracted current renderer at2×/4×/8×, including overlapping alpha, foreground invalidation, restoration and suppressed ownership.
+
+Cloud-floor shadow oracle: `python prototype/fixtures/test-cloud-shadow.py --sanitize` verifies only tagged cloud pixels, original palette transition/floor, zero-denominator handling, provenance invalidation and unchanged green head replay. Current review preparation restores the production layer2 binding; archived preparations remove only that reviewed line and still require the old source hash.
