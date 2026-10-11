@@ -1,0 +1,73 @@
+--- a/src/render_mirror.c
++++ b/src/render_mirror.c
+@@ -80,6 +80,16 @@
+  snprintf(name,sizeof(name),"ae-%04u-%03u-%s-owner.bin",game_probe_tick,ae_call,phase);f=fopen(name,"wb");if(!f)exit(2);
+  for(int iy=0;iy<14*game_probe_density;iy++)if(fwrite(hd_owner+(ae_y*game_probe_density+iy)*canvas->w+ae_x*game_probe_density,1,12*game_probe_density,f)!=(size_t)12*game_probe_density)exit(2);fclose(f);
+ }
++static void ae_green_halo(void){
++ if(!ae_inside||!ae_capture)return;
++ if(ae_x<1||ae_y<1||ae_x+13>320||ae_y+15>200)exit(2);
++ char name[140];int d=game_probe_density;
++ snprintf(name,sizeof(name),"ae-%04u-%03u-before-halo.bmp",game_probe_tick,ae_call);
++ SDL_Surface*s=SDL_CreateRGBSurfaceWithFormat(0,14*d,16*d,32,SDL_PIXELFORMAT_ARGB8888);if(!s)exit(2);
++ SDL_Rect r={(ae_x-1)*d,(ae_y-1)*d,14*d,16*d};if(SDL_BlitSurface(canvas,&r,s,NULL)||SDL_SaveBMP(s,name))exit(2);SDL_FreeSurface(s);
++ snprintf(name,sizeof(name),"ae-%04u-%03u-before-halo-owner.bin",game_probe_tick,ae_call);FILE*f=fopen(name,"wb");if(!f)exit(2);
++ for(int iy=0;iy<16*d;iy++)if(fwrite(hd_owner+((ae_y-1)*d+iy)*canvas->w+(ae_x-1)*d,1,14*d,f)!=(size_t)14*d)exit(2);fclose(f);
++}
+ void ae_before(SDL_Surface*surface,int x,int y,Sprite2_array bank,unsigned int id,int style){
+  ae_current=false;
+  if(!getenv("OT_FX_PROBE")||surface!=game_screen||bank.data!=explosionSpriteSheet.data||!canvas)return;
+@@ -89,7 +99,7 @@
+  for(int i=0;i<MAX_EXPLOSIONS;i++)if(!ae_used[i]&&explosions[i].ttl&&explosions[i].x==x&&explosions[i].y==y&&explosions[i].sprite+1==id){ae_pool=i;ae_used[i]=1;break;}
+  if(ae_pool<0){fprintf(stderr,"Private observer unmatched original pool\n");exit(2);}
+  ae_ttl=explosions[ae_pool].ttl;ae_delta=explosions[ae_pool].deltaY;ae_fixed=explosions[ae_pool].fixedPosition;ae_follow=explosions[ae_pool].followPlayer;
+- ae_inside=x>=0&&y>=0&&x+12<=320&&y+14<=200;ae_capture=asset_debug_capture_tick();ae_save("before");
++ ae_inside=x>=0&&y>=0&&x+12<=320&&y+14<=200;ae_capture=asset_debug_capture_tick();ae_save("before");ae_green_halo();
+  if(ae_inside&&ae_capture){char name[120];snprintf(name,sizeof(name),"ae-%04u-%03u-palette.bin",game_probe_tick,ae_call);FILE*f=fopen(name,"wb");if(!f||fwrite(rgb_palette,4,256,f)!=256)exit(2);fclose(f);}
+ }
+ void ae_after_mirror(bool mirrored){if(ae_current){ae_mirrored=mirrored;ae_save("body");}}
+@@ -498,6 +508,30 @@
+  rgba[3]=src[3];
+ }
+ 
++/* Only the HD green trail samples a continuous value for unreplaced indexed
++ * scenery. Keep the authored hue/coverage and original value-average operator.
++ * Existing HD pixels retain their exact value; a HD/outside neighbor tap uses
++ * the current indexed value instead of smearing a different HD object. */
++static unsigned int green_trail_background_peak(int x,int y,Uint32 dst)
++{
++ int d=game_probe_density,den=2*d;
++ int qx=2*(x%d)+1-d,qy=2*(y%d)+1-d;
++ int bx=x/d,by=y/d,wx=qx,wy=qy;
++ if(qx<0){--bx;wx+=den;}if(qy<0){--by;wy+=den;}
++ unsigned int current=MAX((dst>>16)&255,MAX((dst>>8)&255,dst&255));
++ unsigned int sum=0;
++ for(int iy=0;iy<2;iy++)for(int ix=0;ix<2;ix++) {
++  int tx=(bx+ix)*d+d/2,ty=(by+iy)*d+d/2;
++  unsigned int peak=current;
++  if(tx>=0&&ty>=0&&tx<canvas->w&&ty<canvas->h&&hd_owner[ty*canvas->w+tx]==0) {
++   Uint32 color=*((Uint32 *)((Uint8 *)canvas->pixels+ty*canvas->pitch)+tx);
++   peak=MAX((color>>16)&255,MAX((color>>8)&255,color&255));
++  }
++  sum+=peak*(unsigned int)(ix?wx:den-wx)*(unsigned int)(iy?wy:den-wy);
++ }
++ return (sum+(unsigned int)(den*den/2))/(unsigned int)(den*den);
++}
++
+ static bool draw_asset_filtered(int x,int y,Asset *a,int style,const SDL_Rect *part,Uint8 filter)
+ {
+  /* Original Talon invulnerability uses half-opacity, not a different sprite.
+@@ -537,7 +571,12 @@
+     Uint8 rgba[4]={(dark>>16)&255,(dark>>8)&255,dark&255,255};*p=blend_rgba(*p,rgba,src[3]);
+    }
+   } else if(explosion_blend) {
+-   Uint8 rgba[4];explosion_asset_blend_rgba(*p,src,rgba);*p=blend_rgba(*p,rgba,src[3]);
++   Uint32 background=*p;
++   if(a->index>=78&&a->index<=84&&hd_owner[owner_index]==0&&!getenv("OT_GREEN_POINT_BASELINE")) {
++    unsigned int peak=green_trail_background_peak(dx,dy,*p);
++    background=0xff000000u|peak*0x010101u;
++   }
++   Uint8 rgba[4];explosion_asset_blend_rgba(background,src,rgba);*p=blend_rgba(*p,rgba,src[3]);
+   } else *p=blend_rgba(*p,src,talon_blend?(src[3]+1)/2:src[3]);
+   hd_owner[owner_index]=game_probe_original_reference?2:1;selected[(dy/d)*320+dx/d]=1;
+  }
