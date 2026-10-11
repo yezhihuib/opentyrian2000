@@ -1,0 +1,99 @@
+{
+  "identity": "orange59-color-preserving-soft-edge-v3",
+  "sheet": 8,
+  "sprite_id": 59,
+  "logical_size": [
+    12,
+    14
+  ],
+  "anchor": [
+    -1,
+    0
+  ],
+  "source_size": [
+    96,
+    112
+  ],
+  "density": 8,
+  "animation": "Static59; actual active weapon table audit weapani0/del255. Other pattern IDs unchanged.",
+  "transform": {
+    "source": "final-sprite.png",
+    "crop": [
+      126,
+      153,
+      1034,
+      1213
+    ],
+    "resize": [
+      96,
+      112
+    ],
+    "resampler": "Lanczos",
+    "whole_sprite": true,
+    "no_independent_lobe_shift": true
+  },
+  "registration": {
+    "original_hot_color_pair_center_x": 47.718,
+    "candidate_hot_color_pair_center_x": 47.675,
+    "hot_tip_delta_y_sourcepx": 4,
+    "hot_tip_delta_y_logical": 0.5,
+    "internal_tips_shift_inward_sourcepx": "1 to2",
+    "note": "Runtime canvas/anchor identical. Internal painted highlights are not pixel-identical; actual native runtime review required."
+  },
+  "alpha": {
+    "row24_x1_to14": [
+      2,
+      4,
+      8,
+      14,
+      22,
+      32,
+      47,
+      67,
+      96,
+      126,
+      153,
+      177,
+      209,
+      245
+    ],
+    "ramp_sourcepx": 13,
+    "ramp_logicalpx": 1.625,
+    "bbox_gt16": [
+      4,
+      0,
+      92,
+      87
+    ],
+    "bbox_gt128": [
+      10,
+      5,
+      86,
+      82
+    ],
+    "bbox_gt240": [
+      14,
+      8,
+      82,
+      77
+    ],
+    "edge_max": 27
+  },
+  "source_sha256": "efafe7476b94d914af4a64484f22954e5764d796764b3162d5d687360133e157",
+  "png_sha256": "b95925b600464c12244b292d14c5c3b0d05fa8ed125b111459c479360afa3304",
+  "qa": "Root approved native color+alpha comparison. Offline source-over only; actual runtime required. Original game reference PNGs excluded.",
+  "formal_runtime": {
+    "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
+    "header_u32": [
+      80059,
+      8,
+      12,
+      14,
+      4294967295,
+      0
+    ],
+    "source_png": "assets/hd/source/bullet-59-8-9b12eb865bca.png",
+    "source_png_sha256": "b95925b600464c12244b292d14c5c3b0d05fa8ed125b111459c479360afa3304"
+  },
+  "validation": "Actual original pulse155 at native4x/2x;150ticks state/collision/indexed/RNG exact; missing59 original fallback. Original reference PNGs excluded."
+}

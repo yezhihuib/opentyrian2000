@@ -1,0 +1,51 @@
+{
+  "ticks": 150,
+  "logic_collision_indexed_RNG_exact": true,
+  "coverage_mismatch": 0,
+  "changed_pixels_outside59_heads_and_shadows_at90": 0,
+  "counts": {
+    "baseline-fire4x": {
+      "draws59": 1186,
+      "HD59": 510,
+      "draw_origins_and_style_exact": true
+    },
+    "candidate-v3-fire4x": {
+      "draws59": 1186,
+      "HD59": 510,
+      "draw_origins_and_style_exact": true
+    },
+    "candidate-v3-fire2x": {
+      "draws59": 1186,
+      "HD59": 510,
+      "draw_origins_and_style_exact": true
+    },
+    "missing-fire4x": {
+      "draws59": 1186,
+      "HD59": 0,
+      "draw_origins_and_style_exact": true
+    }
+  },
+  "motion_clearance_scope": [
+    {
+      "tick": 90,
+      "changed_pixels": 11935,
+      "outside_current_head_shadow": 0
+    },
+    {
+      "tick": 91,
+      "changed_pixels": 11970,
+      "outside_current_head_shadow": 0
+    },
+    {
+      "tick": 92,
+      "changed_pixels": 12907,
+      "outside_current_head_shadow": 0
+    },
+    {
+      "tick": 93,
+      "changed_pixels": 11793,
+      "outside_current_head_shadow": 0
+    }
+  ],
+  "baseline": "frozen green c7e0cc5 original59 bytes"
+}

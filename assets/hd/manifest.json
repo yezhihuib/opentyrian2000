@@ -1,7 +1,7 @@
 {
   "schema": "opentyrian-accepted-hd-runtime-v1",
   "baseline_branch": "hd-render-prototype",
-  "status": "White smoke/shield accepted within documented limits; v4 diffuse214\u2013217 energy heads and green v2 trail with scoped brightness interpolation passed bounded cloud review; original dense smoke may obscure head cores; Windows/full-level acceptance pending",
+  "status": "Accepted green diffuse core above smoke; separate orange59 soft-edge energy art actual-engine review",
   "default_preview_pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
   "default_debug_pack": "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
   "packs": {
@@ -29157,7 +29157,7 @@
       "count": 190,
       "files": {
         "bullet-59-8.hda": {
-          "sha256": "8944f6cf7be6bb68ed6ad8bf18b7c73db5f21ad460b9ad3e40377ac143b1ca1d",
+          "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
           "header_u32": [
             80059,
             8,
@@ -29166,8 +29166,8 @@
             4294967295,
             0
           ],
-          "source_png": "assets/hd/source/bullet-59-8-8944f6cf7be6.png",
-          "source_png_sha256": "0701cd6b5f4fd3d36057a1fe59c314dae71c548f133a93d5eee60072d5c03cde"
+          "source_png": "assets/hd/source/bullet-59-8-9b12eb865bca.png",
+          "source_png_sha256": "b95925b600464c12244b292d14c5c3b0d05fa8ed125b111459c479360afa3304"
         },
         "enemy-newsh2-115-8.hda": {
           "sha256": "85c503262038dcefc242f9023fdaddfc2cd6372ff3bd6d71c1566470ef4d3d14",
@@ -31632,7 +31632,7 @@
       "count": 194,
       "files": {
         "bullet-59-8.hda": {
-          "sha256": "8944f6cf7be6bb68ed6ad8bf18b7c73db5f21ad460b9ad3e40377ac143b1ca1d",
+          "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
           "header_u32": [
             80059,
             8,
@@ -31641,8 +31641,8 @@
             4294967295,
             0
           ],
-          "source_png": "assets/hd/source/bullet-59-8-8944f6cf7be6.png",
-          "source_png_sha256": "0701cd6b5f4fd3d36057a1fe59c314dae71c548f133a93d5eee60072d5c03cde"
+          "source_png": "assets/hd/source/bullet-59-8-9b12eb865bca.png",
+          "source_png_sha256": "b95925b600464c12244b292d14c5c3b0d05fa8ed125b111459c479360afa3304"
         },
         "enemy-newsh2-115-8.hda": {
           "sha256": "85c503262038dcefc242f9023fdaddfc2cd6372ff3bd6d71c1566470ef4d3d14",
@@ -35338,6 +35338,12 @@
       "sha256": "58904f163e6d8059faf21c7e3e3d79ac2dd4d4c0e2a6361aaa726b24e971ba27",
       "RGBA_sha256": "1a8ca3657a0ef0c1bff39b8d5d65e7279245f14621bcdaa0d2046ccc837e22c6",
       "note": "Exact v2art-only runtime PNG; unchanged12x14/8x/anchor0,0 and point/blend; no extra registration shift"
+    },
+    "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae": {
+      "path": "assets/hd/source/bullet-59-8-9b12eb865bca.png",
+      "sha256": "b95925b600464c12244b292d14c5c3b0d05fa8ed125b111459c479360afa3304",
+      "RGBA_sha256": "8859f93d132f7d6775b9e03526c15b10dcf707965e6045b7b7744da671895705",
+      "note": "Generated orange twin-energy59 softer perimeter; prior accepted source retained in earlier packs"
     }
   },
   "no_original_game_data": true,

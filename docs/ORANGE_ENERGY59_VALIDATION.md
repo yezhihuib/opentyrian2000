@@ -1,0 +1,9 @@
+# Orange twin-energy59 soft edge
+
+Separate art-only update after the accepted green layer fix. The pale-yellow v2 was rejected; selected v3 preserves the original saturated orange-red impression and softens the exterior alpha. Sheet8 ID59 remains static,12×14 logical,8× RGBA,anchor(-1,0). The original pulse155 scene uses velocity(0,-10),weapani0,del255,trail255. The loaded-table audit found40 direct weapon records using static59 plus directional selectors22/38; no animation expansion is required. Other IDs in multishot patterns remain unchanged.
+
+The selected generated source and one whole-sprite crop are in `assets/hd/artwork/orange-energy59-v3/`. Regenerate exactly with `python prototype/build-orange-energy-art.py --output ../orange-art-check`. Original game reference PNGs/data are excluded. Only the existing two default head-stage packs replace59; prior pack art remains available.18packs/2620HDR entries/202 source PNGs verify; the renderer is unchanged from the accepted green commit.
+
+Bounded cloud checks: native4×/2× ticks90–93 show the twin core with softer perimeter. Baseline, candidate4×/2× and missing59 finish150 ticks with exact state/collision/indexed/RNG and original positions/styles.1186 original59 draw calls occur;510 use HD after fast-forward, and missing59 has0 HD calls. Every changed4× pixel in90–93 lies inside a current59 head/shadow rectangle, including after each projectile moves, with no stale footprint outside those rectangles. The original existing shadow path is retained; replacing this asset changes its HD shadow silhouette as before. All frames have zero coverage mismatches. The generated source reproduces the formal PNG byte-for-byte.
+
+This is finite-scene cloud acceptance. Native Windows, arbitrary weapons/palettes and full-level performance remain unverified. Evidence/video stays outside Git. See the energy-versus-physical-munition rule in `REPAINT_GUIDE.md`.
