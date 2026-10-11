@@ -1,0 +1,151 @@
+{
+  "scope": {
+    "episode": 1,
+    "physical_level": 9,
+    "trace": "existing deterministic no-fire material index",
+    "ticks": [
+      0,
+      1043
+    ],
+    "nominal_end_ms": "30015.023895",
+    "draw_reference_rows": 172635,
+    "logged_identities": 227,
+    "meaning": "Unique(category,sheet,id) keys of ordered original rectangles intersecting playfield; enemy/player base IDs may expand into multiple quadrants. Not unique global numeric IDs, image pixels, full sprite library or whole-game coverage.",
+    "excluded_claims": [
+      "All screen pixels are HD",
+      "HUD/text or arbitrary uninstrumented original blitters are covered",
+      "Every currently accepted asset draws HD under every style/occlusion/fallback",
+      "Whole-game, other-input, later-level or all possible death/damage variants are complete"
+    ]
+  },
+  "counts": {
+    "accepted_nonempty_identities": 222,
+    "intentional_empty_identities": 5,
+    "total_observed_identities": 227
+  },
+  "categories": [
+    {
+      "category": "effect",
+      "identities": 142,
+      "draw_references": 5496,
+      "accepted": 137,
+      "intentional_empty": 5,
+      "pending": 0
+    },
+    {
+      "category": "enemy",
+      "identities": 28,
+      "draw_references": 43982,
+      "accepted": 28,
+      "intentional_empty": 0,
+      "pending": 0
+    },
+    {
+      "category": "player",
+      "identities": 5,
+      "draw_references": 1986,
+      "accepted": 5,
+      "intentional_empty": 0,
+      "pending": 0
+    },
+    {
+      "category": "terrain-layer1",
+      "identities": 37,
+      "draw_references": 94433,
+      "accepted": 37,
+      "intentional_empty": 0,
+      "pending": 0
+    },
+    {
+      "category": "terrain-layer2",
+      "identities": 15,
+      "draw_references": 26738,
+      "accepted": 15,
+      "intentional_empty": 0,
+      "pending": 0
+    }
+  ],
+  "intentional_empty_shield": {
+    "sheet": "explosions-shapes6 / original newsh6.shp",
+    "ids": [
+      251,
+      270,
+      271,
+      273,
+      274
+    ],
+    "draw_reference_rows": 95,
+    "reason": "Each exact source RLE offset begins0x0f: no occupied pixels. Keep original no-op fallback; do not create art merely to reach227assets."
+  },
+  "accepted_history": [
+    {
+      "commit": "082f591ccc5e88f2f7d22f920c369a0ded381bcc",
+      "scope": "Renderer/diagnostic foundation"
+    },
+    {
+      "commit": "d1dcfbed7b464c25894b2ba167848ea9400d7c55",
+      "scope": "Accepted ship, blue enemies, static turret/foundation and core effects resources"
+    },
+    {
+      "commit": "9d52edfbb65af430db0b241875818f813ced1553",
+      "scope": "White smoke and shield"
+    },
+    {
+      "commit": "009eb6ffb3a2fca03c38e19a207381c2ae47e142",
+      "scope": "Green heads/trail and scoped smoke compositing"
+    },
+    {
+      "commit": "acbdf1b32f122f807f40b796aa9650601f64607d",
+      "scope": "Orange/red energy59"
+    },
+    {
+      "commit": "c4ed2c6d82fc3e1bd8752f231297b0d9b4396520",
+      "scope": "Layer2 clouds and palette-aware shadows"
+    },
+    {
+      "commit": "7a9f36c2a85889cfa41cf06fd342d5ef793254a1",
+      "scope": "Physical rotor5/11 complete8-frame family"
+    },
+    {
+      "commit": "ad22c26954fa8365820385d0bc24316cf5829358",
+      "scope": "Nine brown ground tiles"
+    },
+    {
+      "commit": "61d23fd08d15001038447ee1c37ba7ec8c5b7156",
+      "scope": "Enemy-only energy orb112/113"
+    },
+    {
+      "commit": "37b381577e17840510de5269d8290a5bdf6c365a",
+      "scope": "Four missing plateau tiles"
+    },
+    {
+      "commit": "b13d5c677565071da61be3353ac9f1f563ee65fd",
+      "scope": "Static installation125\u2013128"
+    },
+    {
+      "commit": "1daf3f6d06dd01cfda1d0d7f5991f0e3ec147375",
+      "scope": "Physical terrain underlay323/324/333/334"
+    },
+    {
+      "commit": "71f53819927f8f84a60bc1158537b357c820ec58",
+      "scope": "Nine remaining road tiles"
+    }
+  ],
+  "final_batch": "This commit: terrain111/114 and combined acceptance. The commit SHA is supplied by Git; it cannot be embedded self-referentially.",
+  "manifest": {
+    "verified_pack_count": 18,
+    "verified_HDA_entries": 2734,
+    "verified_exact_source_pngs": 259,
+    "default_pack_counts": [
+      247,
+      251
+    ],
+    "rebuild_output": null,
+    "all_runtime_RGBA_and_header_bytes_exact": true
+  },
+  "visual_acceptance": {
+    "ordinary_frames_reviewed": 1044,
+    "private_survival_frames_reviewed": 64,
+    "status": "Independent native visual review passed; ordinary clip ends active, not a lifecycle-clear claim."
+  }
+}

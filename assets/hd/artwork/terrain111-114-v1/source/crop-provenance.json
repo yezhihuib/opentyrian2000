@@ -1,0 +1,36 @@
+[
+  {
+    "id": 111,
+    "imagegen_master_sha256": "b8c035947c9e8998e0bc5fb639ab995844f290135b124757c461bb18fa2be278",
+    "registered_master_sha256": "0d33433e0d87967b831b4f2178763511f6e05e38caa3892636bbd0c78f6c5880",
+    "registered_size": [
+      576,
+      672
+    ],
+    "literal_center_crop": [
+      192,
+      224,
+      384,
+      448
+    ],
+    "original_reference_only_alpha_constraint": "Author-created crop RGB receives source-layout-constrained alpha before final edge processing. Included generated-crop RGBA bakes this approved silhouette; standalone original masks and original raster colors are excluded.",
+    "source_generated_crop_rgba_sha256": "928e656f34b4e353c4cbec5b05e30ff010ccf7ec601db1f83cd75e8c96b5af5d"
+  },
+  {
+    "id": 114,
+    "imagegen_master_sha256": "9ed467e91df064af99717802a3cc51122844d3f6d2e2b60b8e772ab786ba978a",
+    "registered_master_sha256": "0f5c1223800d092eeb6d45f9c8d789b408a0162f75d3ba54063ddd972924a679",
+    "registered_size": [
+      576,
+      672
+    ],
+    "literal_center_crop": [
+      192,
+      224,
+      384,
+      448
+    ],
+    "original_reference_only_alpha_constraint": "Author-created crop RGB receives source-layout-constrained alpha before final edge processing. Included generated-crop RGBA bakes this approved silhouette; standalone original masks and original raster colors are excluded.",
+    "source_generated_crop_rgba_sha256": "ce788e3588c21b370754113a8559e39be23d08bf4c33f43d9eaf869294df1426"
+  }
+]

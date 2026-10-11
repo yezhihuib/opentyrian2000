@@ -1,5 +1,7 @@
 # Windows handoff to dot
 
+Latest cloud milestone and current Windows acceptance command: [FIRST30_HD_COVERAGE.md](FIRST30_HD_COVERAGE.md). The remainder below is historical, including its old counts and WIP claims.
+
 This is the historical eaebe318 handoff. Current cloud integration and corrected214–217 mapping are documented in [GREEN_RENDER_VALIDATION.md](GREEN_RENDER_VALIDATION.md). Use `prepare-green-review.py` for the current renderer; `prepare-effects.py` intentionally reproduces the archived historical fixture.
 
 The laptop stops mainline development after publishing this handoff. Dot owns the remaining green projectile/smoke work in the complete cloud checkout. Future laptop work requires a supplied commit for Windows acceptance or an explicitly independent task. No new A/B/test was run after the stop instruction.

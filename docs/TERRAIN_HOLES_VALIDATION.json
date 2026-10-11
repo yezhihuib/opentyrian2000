@@ -1,0 +1,107 @@
+{
+  "status": "passed",
+  "renderer_sha256": "a302364eb4b5e18ecc7c50627c230fcb5322434fa71ef4a0dce3206b5a5b3c80",
+  "forced_rebuild_executable_sha256": "c85a4aab211cfd7219429405424a2541c580e62e9e387b0abeb00047c2802620",
+  "build_warning_count": 5,
+  "warnings": "Existing inherited misleading-indentation warnings; no new warning signature.",
+  "assets": {
+    "verified_pack_count": 18,
+    "verified_HDA_entries": 2734,
+    "verified_exact_source_pngs": 259,
+    "default_pack_counts": [
+      247,
+      251
+    ],
+    "rebuild_output": null,
+    "all_runtime_RGBA_and_header_bytes_exact": true
+  },
+  "binder_compositor_checks": 27785703,
+  "existing_feature_sanitizer_checks": {
+    "green_background": 346480,
+    "green_head_layer_pixels": 1935360,
+    "cloud_shadow_head_replay_pixels": 1935360,
+    "enemy_orb_pixels": 46024704,
+    "rotor_pixels": 101573120,
+    "installation_pixels": 58769920,
+    "strict_fixture_tests": 15
+  },
+  "ordinary_capture": {
+    "real_frame_count": 1044,
+    "tick_first": 0,
+    "tick_last": 1043,
+    "nominal_duration_ms": 30015.024011999998,
+    "state_matches_non_capture_run": true,
+    "rgb_audit_matches_non_capture_run": true,
+    "lossless_video_roundtrip_all_frame_hashes_exact": true,
+    "ordinary_BMP_files_created": 0,
+    "raw_frame_hash_manifest_sha256": "ab688844f62361d1d1baf8a08e6fad224b34acd1006b001f783ea072b20c108d"
+  },
+  "private_capture": {
+    "real_frame_count": 64,
+    "tick_first": 1080,
+    "tick_last": 1143,
+    "nominal_duration_ms": 1840.001472,
+    "state_matches_non_capture_run": true,
+    "rgb_audit_matches_non_capture_run": true,
+    "lossless_video_roundtrip_all_frame_hashes_exact": true,
+    "ordinary_BMP_files_created": 0,
+    "raw_frame_hash_manifest_sha256": "7f2a9f12c27be63c0e242e858a51cae0fcb79ce7a92c26cba5af501bfa5b2cd3",
+    "scope": "Identical conditional private invulnerability hook; full114 geometry beyond ordinary first30 window. Not production logic acceptance."
+  },
+  "native_window": {
+    "target": "dot cloud Linux desktop, installed SDL runtime",
+    "game_dimensions": [
+      1280,
+      800
+    ],
+    "scale": 4,
+    "inspected_tick": 1000,
+    "finite_exit_tick": 1044,
+    "exit": 0
+  },
+  "publication_base": "71f53819927f8f84a60bc1158537b357c820ec58",
+  "reference_mismatch_resolution": "Old background comparison reference injected green fixture at tick90. Final natural-preset private reference and capture agree exactly; no production fix.",
+  "independent_runtime_audit": {
+    "result": "PASS",
+    "report_sha256": "330a48e93fe5f1ad734194aa638db2fd08c0a9f13dc9611036717da39b75bd38",
+    "ordinary_state_rows_per_scale": 1053,
+    "ordinary_original_material_rows_per_scale": 174855,
+    "ordinary_prior_scene_rows_exact_per_scale": 176219,
+    "ordinary_new_calls": {
+      "111": 415,
+      "114": 17
+    },
+    "missing_both_RGB_and_original_logs_exact": true,
+    "wild_new_tiles_NORMAL": true,
+    "cross_scale_internal_RGB_exact": true,
+    "green_heads": 64,
+    "green_original_shadows": 64,
+    "green_trail_draws": 448,
+    "green_clear_RGB_exact_ticks": [
+      104,
+      115
+    ],
+    "installation_linked_removal_tick": 239,
+    "installation_empty_effect_pools": [
+      281,
+      319
+    ],
+    "collision_RGB_exact_ticks": [
+      232,
+      319
+    ],
+    "late_private_state_rows_exact": 1144,
+    "late_private_new_calls": {
+      "111": 116,
+      "114": 64
+    },
+    "all_64_late_114_rectangles_fully_onscreen": true,
+    "preexisting_source_and_asset_files_checked": 3211,
+    "all_prior_authored_assets_byte_exact": true,
+    "expected_diagnostic_differences": [
+      "wall_ms",
+      "hd_subpixels_before for changed HD ownership",
+      "green rgba path flag"
+    ]
+  }
+}

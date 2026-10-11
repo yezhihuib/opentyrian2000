@@ -1,6 +1,6 @@
 # Current scoped release (2026-10-11)
 
-The manifest is authoritative:18 packs,2730 HDA entries,257 formal PNGs, defaults245/249. Latest additions are the [plateau edge correction](PLATEAU_FOUR_VALIDATION.md) [static installation](INSTALLATION_VALIDATION.md), [physical terrain underlay](UNDERLAY_VALIDATION.md), and the [complete road family](ROAD_NINE_VALIDATION.md). Pending111/114 art is not included.
+The manifest is authoritative:18 packs,2734 HDA entries,259 formal PNGs, defaults247/251. Latest additions are the [plateau edge correction](PLATEAU_FOUR_VALIDATION.md) [static installation](INSTALLATION_VALIDATION.md), [physical terrain underlay](UNDERLAY_VALIDATION.md), and the [complete road family](ROAD_NINE_VALIDATION.md). The final [terrain111/114 batch](TERRAIN_HOLES_VALIDATION.md) closes the [audited first-30-second milestone](FIRST30_HD_COVERAGE.md):222 nonempty HD identities plus5 intentional empty shield identities out of227 observed.
 
 ## Historical green release update (2026-10-11)
 
