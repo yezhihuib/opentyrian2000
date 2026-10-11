@@ -20,7 +20,7 @@ typedef struct {
  Uint8 *rgba;
 } Asset;
 enum { ASSET_NEWSH2=101, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106 };
-static Asset assets[146];
+static Asset assets[175];
 static Asset talon_frames[13];
 typedef struct {
  bool valid;
@@ -332,6 +332,9 @@ static int explosion_asset_slot(unsigned int index)
  if(index>=154&&index<=165)return 110+(int)index-154;
  if(index>=211&&index<=222)return 122+(int)index-211;
  if(index>=173&&index<=184)return 134+(int)index-173;
+ if(index>=135&&index<=141)return 146+(int)index-135;
+ static const unsigned int shield_ids[22]={229,230,231,232,233,234,235,236,237,248,249,250,252,253,254,255,256,267,268,269,272,275};
+ for(int k=0;k<22;k++)if(index==shield_ids[k])return 153+k;
  return -1;
 }
 
@@ -633,11 +636,12 @@ static bool recognized_contact_effect(unsigned int index,unsigned int hue)
            (index>=122&&index<=133)||index==145||(index>=146&&index<=152)||(index>=154&&index<=165)||
            (index>=173&&index<=184)||(index>=192&&index<=203)||(index>=211&&index<=222);
  bool shield=(index>=229&&index<=237)||(index>=248&&index<=256)||(index>=267&&index<=275);
+ bool smoke=index>=135&&index<=141; /* Exact original gray smoke ramp, including one missing HD frame. */
  /* Original fixed-position value graphics: explosion_data[35..52].sprite+1.
   * Their two observed blue/gray ramps use the same checked blend arithmetic;
   * keep the glyph indexed while modulating only the true-color background. */
  bool value=recognized_value_effect(index);
- return (warm&&(hue==0x70||hue==0x40))||(shield&&hue==0x80)||(value&&(hue==0x80||hue==0x90));
+ return (warm&&(hue==0x70||hue==0x40))||(shield&&hue==0x80)||(smoke&&hue==0)||(value&&(hue==0x80||hue==0x90));
 }
 
 static bool have_supported_talon(void)

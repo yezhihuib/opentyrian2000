@@ -7,6 +7,8 @@ param(
     [ValidateRange(60,6000)][int]$Until = 6000,
     [switch]$Talon13,
     [switch]$Talon5,
+    [switch]$BeforeShield,
+    [switch]$BeforeWhiteSmoke,
     [switch]$BeforeLargeGround,
     [switch]$BeforeImpact,
     [switch]$BeforeLargeAir,
@@ -38,7 +40,9 @@ $debugRepoRoot = Split-Path -Parent $PSScriptRoot
 $debugTaskRoot = Split-Path -Parent $debugRepoRoot
 $debugExe = Join-Path $debugRepoRoot 'opentyrian-x64-Release.exe'
 $debugData = Join-Path $debugTaskRoot 'runtime-data\tyrian2000'
-$debugAssets = Join-Path $debugRepoRoot 'assets\hd\packs\packed-blue-four-foundation-type10-death-effects-v1-test'
+$debugAssets = Join-Path $debugRepoRoot 'assets\hd\packs\packed-blue-four-foundation-type10-death-effects-white-smoke-shield-v1-test'
+if ($BeforeShield) { $debugAssets = Join-Path $debugRepoRoot 'assets\hd\packs\packed-blue-four-foundation-type10-death-effects-white-smoke-v1-test' }
+if ($BeforeWhiteSmoke) { $debugAssets = Join-Path $debugRepoRoot 'assets\hd\packs\packed-blue-four-foundation-type10-death-effects-v1-test' }
 if ($BeforeLargeGround) { $debugAssets = Join-Path $debugRepoRoot 'assets\hd\packs\packed-blue-four-foundation-type10-explosion-v2-large-air-v1-impact-v1-test' }
 if ($BeforeImpact) { $debugAssets = Join-Path $debugRepoRoot 'assets\hd\packs\packed-blue-four-foundation-type10-explosion-v2-large-air-v1-test' }
 if ($BeforeLargeAir) { $debugAssets = Join-Path $debugRepoRoot 'assets\hd\packs\packed-blue-four-foundation-type10-explosion-v2-test' }
