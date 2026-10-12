@@ -1,0 +1,26 @@
+{
+  "status": "independently_source_confirmed_correction",
+  "supersedes": "Ground hit/filter/linked ice wording in frozen art README and lifecycle proof only. Frozen art/recipe unchanged.",
+  "reason": "Map alignment does not determine enemyground; original assignment uses explosiontype parity.",
+  "source_facts": {
+    "records": [
+      42,
+      43,
+      44,
+      45
+    ],
+    "explosiontype": 9,
+    "enemyground": false,
+    "explonum": 4,
+    "ordinary_nonlethal": "Target armor decreases; same pose, no ground-only filter assignment.",
+    "damage99": "Damage becomes0, targeticed40 only, no ground-only linked ice/filter assignment.",
+    "lethal": "Original same-link31 removal, air-large explosion path with4 repeaters, joint terrain reveal."
+  },
+  "art_inventory_sha256": "b38bffa1f228b7dc588f45b369f924fd956343c256796617b5125848b4d22bf1",
+  "frozen_archive_sha256": "a30dfd98c1bc2b2a04a6e2a36871e7d23a1b8abc5a22d9fe5ad7f060762da048",
+  "all8_frozenPNG_RGBA_HDA_verified": true,
+  "source_clarification_path": "linked31-integration-20261012/docs/LINKED31_SOURCE_BEHAVIOR.json",
+  "source_clarification_sha256": "95c9434b36e4635a7d88a63bad43b37b61ccf6685b43242b5a5a99586a806a48",
+  "source_code_sha256": "e835e19bad297e9b734348cea18724e9b527ad47ea4dff7c7f201b261f1ef3ba",
+  "runtime_status": "Pending existing private fixture; no blue tint or natural user-fired lifecycle claim."
+}

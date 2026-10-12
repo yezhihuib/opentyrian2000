@@ -1,0 +1,209 @@
+{
+  "version": 1,
+  "assembly": "one static source map354..355 cols2..3 and linked31 actor group",
+  "master": "sources/generated-paired-context.png",
+  "registered_master_size": [
+    1536,
+    896
+  ],
+  "terrain_assembly_crop": [
+    192,
+    224,
+    576,
+    672
+  ],
+  "actor_assembly_crop": [
+    960,
+    232,
+    1344,
+    680
+  ],
+  "actor_relative_scene_y": 1,
+  "original_relative_offset_only": "Do not add a new render offset or change anchors. Source game already draws actors1logicalpx below terrain.",
+  "entries": [
+    {
+      "kind": "terrain",
+      "bank": "shapesz.dat",
+      "source_id": 161,
+      "hda_id": 2010161,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "anchor": [
+        0,
+        0
+      ],
+      "assembly_crop": [
+        0,
+        0,
+        192,
+        224
+      ],
+      "alpha": "255 all672sourcepixels",
+      "actor_type": null
+    },
+    {
+      "kind": "terrain",
+      "bank": "shapesz.dat",
+      "source_id": 162,
+      "hda_id": 2010162,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "anchor": [
+        0,
+        0
+      ],
+      "assembly_crop": [
+        192,
+        0,
+        384,
+        224
+      ],
+      "alpha": "255 all672sourcepixels",
+      "actor_type": null
+    },
+    {
+      "kind": "terrain",
+      "bank": "shapesz.dat",
+      "source_id": 171,
+      "hda_id": 2010171,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "anchor": [
+        0,
+        0
+      ],
+      "assembly_crop": [
+        0,
+        224,
+        192,
+        448
+      ],
+      "alpha": "255 all672sourcepixels",
+      "actor_type": null
+    },
+    {
+      "kind": "terrain",
+      "bank": "shapesz.dat",
+      "source_id": 172,
+      "hda_id": 2010172,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "anchor": [
+        0,
+        0
+      ],
+      "assembly_crop": [
+        192,
+        224,
+        384,
+        448
+      ],
+      "alpha": "255 all672sourcepixels",
+      "actor_type": null
+    },
+    {
+      "kind": "actor",
+      "bank": "newsh2.shp",
+      "source_id": 15,
+      "hda_id": 1010015,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "anchor": [
+        6,
+        7
+      ],
+      "assembly_crop": [
+        0,
+        0,
+        192,
+        224
+      ],
+      "alpha": "255 all672sourcepixels",
+      "actor_type": 42
+    },
+    {
+      "kind": "actor",
+      "bank": "newsh2.shp",
+      "source_id": 17,
+      "hda_id": 1010017,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "anchor": [
+        6,
+        7
+      ],
+      "assembly_crop": [
+        192,
+        0,
+        384,
+        224
+      ],
+      "alpha": "255 all672sourcepixels",
+      "actor_type": 43
+    },
+    {
+      "kind": "actor",
+      "bank": "newsh2.shp",
+      "source_id": 53,
+      "hda_id": 1010053,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "anchor": [
+        6,
+        7
+      ],
+      "assembly_crop": [
+        0,
+        224,
+        192,
+        448
+      ],
+      "alpha": "255 all672sourcepixels",
+      "actor_type": 44
+    },
+    {
+      "kind": "actor",
+      "bank": "newsh2.shp",
+      "source_id": 55,
+      "hda_id": 1010055,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "anchor": [
+        6,
+        7
+      ],
+      "assembly_crop": [
+        192,
+        224,
+        384,
+        448
+      ],
+      "alpha": "255 all672sourcepixels",
+      "actor_type": 45
+    }
+  ]
+}

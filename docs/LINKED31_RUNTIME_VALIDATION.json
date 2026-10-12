@@ -1,0 +1,782 @@
+{
+  "status": "passed",
+  "source_checkpoint": "e70f9d1f82f307f988b5f1c2f8bc89d7842f11a7",
+  "source_tree": "c0b99b6852aa77e117b48a2eada5cae92520dba2",
+  "production_renderer_sha256": "f5b05680a3418a58ef3350ceafacdd7a13ba4dd552979838cb3661f78bc50bbd",
+  "private_provenance_sha256": "c712c1d14571b8ac3c48e081a65be2a21ca96f3428c62a0f26a634d03c46b45e",
+  "approved_fixture_source_delta_sha256": "19f1338c90ff76191c09cf63e58d094b7564c279945a7a31f3d2a1fc17890d42",
+  "paired2x": {
+    "status": "passed",
+    "candidate_commit": "e70f9d1f82f307f988b5f1c2f8bc89d7842f11a7",
+    "candidate_tree": "c0b99b6852aa77e117b48a2eada5cae92520dba2",
+    "original_complete_streams_equal": [
+      "weapon-loadout",
+      "player-shot-requests",
+      "player-shot-emissions",
+      "player-shot-results",
+      "player-shot-draws",
+      "state",
+      "collisions",
+      "enemy-projectiles",
+      "poses",
+      "fire-events",
+      "player-projectiles",
+      "scene-enemies",
+      "scene-hits",
+      "asset-debug-explosion-pools",
+      "asset-debug-clock",
+      "asset-debug-materials"
+    ],
+    "state_ticks_exact": 4936,
+    "state_includes": [
+      "players",
+      "enemies",
+      "shots",
+      "particles",
+      "globals",
+      "rng",
+      "indexed_game_pixels",
+      "indexed_output_pixels"
+    ],
+    "control_semantics_equal_excluding_wall_clock": true,
+    "normal_hit": {
+      "tick": 4901,
+      "target_slot": 50,
+      "armor_before": 12,
+      "armor_after": 11,
+      "other_three_armor": 12,
+      "same_pose_filter0": true
+    },
+    "ice": {
+      "tick": 4903,
+      "target_slot": 50,
+      "iced": 40,
+      "other_three_iced": 0,
+      "filter0": true,
+      "ground_flag_false": true
+    },
+    "lethal": {
+      "tick": 4905,
+      "damage": 11,
+      "all_four_removed_same_original_branch": true,
+      "no_active_family_after": true,
+      "original_later_spawns_reuse_freed_slots": true
+    },
+    "frames": 36,
+    "new_family_callbacks": 240,
+    "unrelated_scene_callbacks_identical": true,
+    "original_indexed_blend_identical": true,
+    "renderer_coverage_classic_restore_mismatches": 0,
+    "intact_authored_exposure": [
+      {
+        "tick": 4900,
+        "exact_actor_native_pixels": 10752
+      }
+    ],
+    "first_clear_revealed_frame": 4931,
+    "clear_reveal_exact_authored_native_pixels": 10752,
+    "per_frame": [
+      {
+        "tick": 4900,
+        "family_support_native_pixels": 10944,
+        "outside_support_pixels_equal": true,
+        "outside_support_RGBA_sha256": "f4d702781798cbd334ca3d3048fbe3cfbbec6513ec6e87693ebf145a2a76634e",
+        "native_RGB_changed_pixels": 10884,
+        "underlay_authored_mismatches": 10531,
+        "actor_authored_mismatches": 0,
+        "actor_count": 4
+      },
+      {
+        "tick": 4901,
+        "family_support_native_pixels": 10944,
+        "outside_support_pixels_equal": true,
+        "outside_support_RGBA_sha256": "428c1d1b11497b1c7abf7434ea481a124e410cafe2e1aac72ff020a2a0fdeb49",
+        "native_RGB_changed_pixels": 10801,
+        "underlay_authored_mismatches": 10535,
+        "actor_authored_mismatches": 796,
+        "actor_count": 4
+      },
+      {
+        "tick": 4902,
+        "family_support_native_pixels": 10944,
+        "outside_support_pixels_equal": true,
+        "outside_support_RGBA_sha256": "6078e7127ccd3906e4fd43b91da540038c0399835fb4d25d816d5472921ef3ce",
+        "native_RGB_changed_pixels": 10883,
+        "underlay_authored_mismatches": 10531,
+        "actor_authored_mismatches": 72,
+        "actor_count": 4
+      },
+      {
+        "tick": 4903,
+        "family_support_native_pixels": 10944,
+        "outside_support_pixels_equal": true,
+        "outside_support_RGBA_sha256": "13275dedd8fd3041774061ee7163d41d8b7e36de811926f8b0afd08cbc36a30c",
+        "native_RGB_changed_pixels": 10797,
+        "underlay_authored_mismatches": 10535,
+        "actor_authored_mismatches": 798,
+        "actor_count": 4
+      },
+      {
+        "tick": 4904,
+        "family_support_native_pixels": 10944,
+        "outside_support_pixels_equal": true,
+        "outside_support_RGBA_sha256": "02052c6884ac3900fe088d6b10e1b704c72e1346a3800d4479fd9238f015572f",
+        "native_RGB_changed_pixels": 10881,
+        "underlay_authored_mismatches": 10531,
+        "actor_authored_mismatches": 113,
+        "actor_count": 4
+      },
+      {
+        "tick": 4905,
+        "family_support_native_pixels": 10944,
+        "outside_support_pixels_equal": true,
+        "outside_support_RGBA_sha256": "3e3fc8f6f4f184c227c03cfeb0400438f8f32665befaf8addf91857488d7686b",
+        "native_RGB_changed_pixels": 10721,
+        "underlay_authored_mismatches": 10540,
+        "actor_authored_mismatches": 1653,
+        "actor_count": 4
+      },
+      {
+        "tick": 4906,
+        "family_support_native_pixels": 10752,
+        "outside_support_pixels_equal": true,
+        "outside_support_RGBA_sha256": "c9a4c04e1a81255b8a5ad5bb4dd991e22fa5825bddb279cd61dd4a6ff61fc719",
+        "native_RGB_changed_pixels": 10631,
+        "underlay_authored_mismatches": 1835,
+        "actor_authored_mismatches": 0,
+        "actor_count": 0
+      },
+      {
+        "tick": 4907,
+        "family_support_native_pixels": 10752,
+        "outside_support_pixels_equal": true,
+        "outside_support_RGBA_sha256": "20c00b13193af33f1cf6575161b0d414f64209b2221871fa4c20617abcd87bb4",
+        "native_RGB_changed_pixels": 10583,
+        "underlay_authored_mismatches": 2760,
+        "actor_authored_mismatches": 0,
+        "actor_count": 0
+      },
+      {
+        "tick": 4908,
+        "family_support_native_pixels": 10752,
+        "outside_support_pixels_equal": true,
+        "outside_support_RGBA_sha256": "256dff47265a21c6439cfb1cbc2ccc34e33e222a7bd8c2e7fd0a122b2a2c0495",
+        "native_RGB_changed_pixels": 10517,
+        "underlay_authored_mismatches": 3735,
+        "actor_authored_mismatches": 0,
+        "actor_count": 0
+      },
+      {
+        "tick": 4909,
+        "family_support_native_pixels": 10752,
+        "outside_support_pixels_equal": true,
+        "outside_support_RGBA_sha256": "55e244112681097a957582089f88ade750711e45ff4fbc276e138c97ed8babdb",
+        "native_RGB_changed_pixels": 10484,
+        "underlay_authored_mismatches": 4316,
+        "actor_authored_mismatches": 0,
+        "actor_count": 0
+      },
+      {
+        "tick": 4910,
+        "family_support_native_pixels": 10752,
+        "outside_support_pixels_equal": true,
+        "outside_support_RGBA_sha256": "1a8ee9629ea3e0db5538c6413dbbe551422d3cf656b120fb0ac069d58a1e311f",
+        "native_RGB_changed_pixels": 10377,
+        "underlay_authored_mismatches": 5455,
+        "actor_authored_mismatches": 0,
+        "actor_count": 0
+      },
+      {
+        "tick": 4911,
+        "family_support_native_pixels": 10752,
+        "outside_support_pixels_equal": true,
+        "outside_support_RGBA_sha256": "b99eb3be996270ed94b9ebe2255a73aa813215be99657a61a9a3f528e851ccf7",
+        "native_RGB_changed_pixels": 10353,
+        "underlay_authored_mismatches": 5754,
+        "actor_authored_mismatches": 0,
+        "actor_count": 0
+      },
+      {
+        "tick": 4912,
+        "family_support_native_pixels": 10752,
+        "outside_support_pixels_equal": true,
+        "outside_support_RGBA_sha256": "5d7053c3324aa8eebe6c8868108118636c8489e6314e9d2d900dbdda45e36e44",
+        "native_RGB_changed_pixels": 10322,
+        "underlay_authored_mismatches": 6249,
+        "actor_authored_mismatches": 0,
+        "actor_count": 0
+      },
+      {
+        "tick": 4913,
+        "family_support_native_pixels": 10752,
+        "outside_support_pixels_equal": true,
+        "outside_support_RGBA_sha256": "18e56b0e1f675f9012ecba493c7172e74cb186a0b35aa24cfeb4c0e7a60cf5d1",
+        "native_RGB_changed_pixels": 10334,
+        "underlay_authored_mismatches": 6099,
+        "actor_authored_mismatches": 0,
+        "actor_count": 0
+      },
+      {
+        "tick": 4914,
+        "family_support_native_pixels": 10752,
+        "outside_support_pixels_equal": true,
+        "outside_support_RGBA_sha256": "bb733823df6049331d0e92c8bbb51c441a35a73a6ec32b5d9e138d138471fdcc",
+        "native_RGB_changed_pixels": 10304,
+        "underlay_authored_mismatches": 6202,
+        "actor_authored_mismatches": 0,
+        "actor_count": 0
+      },
+      {
+        "tick": 4915,
+        "family_support_native_pixels": 10752,
+        "outside_support_pixels_equal": true,
+        "outside_support_RGBA_sha256": "8b758a9fafd8c299aceafdc3b73e8009fd5bf27cfe5c9c65c47d2795fd491836",
+        "native_RGB_changed_pixels": 10347,
+        "underlay_authored_mismatches": 5674,
+        "actor_authored_mismatches": 0,
+        "actor_count": 0
+      },
+      {
+        "tick": 4916,
+        "family_support_native_pixels": 10752,
+        "outside_support_pixels_equal": true,
+        "outside_support_RGBA_sha256": "c41f4516fe818b993b749e4db15378ab2f97459c46e3d9b93e6eb74871fb6d63",
+        "native_RGB_changed_pixels": 10399,
+        "underlay_authored_mismatches": 4934,
+        "actor_authored_mismatches": 0,
+        "actor_count": 0
+      },
+      {
+        "tick": 4917,
+        "family_support_native_pixels": 10752,
+        "outside_support_pixels_equal": true,
+        "outside_support_RGBA_sha256": "e99cc5448b65a6635fce28099ea1f3e9dff544021022cec1c1fcf9a3b9a248d8",
+        "native_RGB_changed_pixels": 10625,
+        "underlay_authored_mismatches": 1853,
+        "actor_authored_mismatches": 0,
+        "actor_count": 0
+      },
+      {
+        "tick": 4918,
+        "family_support_native_pixels": 10752,
+        "outside_support_pixels_equal": true,
+        "outside_support_RGBA_sha256": "d7960f5d8ba161e8688ac3086b0904a7e89d709a79a41feae2701ca8e938e63b",
+        "native_RGB_changed_pixels": 10618,
+        "underlay_authored_mismatches": 1982,
+        "actor_authored_mismatches": 0,
+        "actor_count": 0
+      },
+      {
+        "tick": 4919,
+        "family_support_native_pixels": 10752,
+        "outside_support_pixels_equal": true,
+        "outside_support_RGBA_sha256": "d76d43928671b8cbd0539a1cda8ddc1fd05ff0f0758ef19024b963d06df9e9aa",
+        "native_RGB_changed_pixels": 10619,
+        "underlay_authored_mismatches": 1801,
+        "actor_authored_mismatches": 0,
+        "actor_count": 0
+      },
+      {
+        "tick": 4920,
+        "family_support_native_pixels": 10752,
+        "outside_support_pixels_equal": true,
+        "outside_support_RGBA_sha256": "3295c498d1ab61a58c2138e77a1b5c85d91ec638c81d57d5d0ee6ad1a5543120",
+        "native_RGB_changed_pixels": 10633,
+        "underlay_authored_mismatches": 1719,
+        "actor_authored_mismatches": 0,
+        "actor_count": 0
+      },
+      {
+        "tick": 4921,
+        "family_support_native_pixels": 10752,
+        "outside_support_pixels_equal": true,
+        "outside_support_RGBA_sha256": "e01038a64463a23a699a99759f2052c70f5ef26319ec944e0a2a7e7b4aa8e1e8",
+        "native_RGB_changed_pixels": 10629,
+        "underlay_authored_mismatches": 1610,
+        "actor_authored_mismatches": 0,
+        "actor_count": 0
+      },
+      {
+        "tick": 4922,
+        "family_support_native_pixels": 10752,
+        "outside_support_pixels_equal": true,
+        "outside_support_RGBA_sha256": "3ae288bc22d4d2d4248f6b2eb38b1e88152ac82a3eaa6dd6043a869fb53cc8cc",
+        "native_RGB_changed_pixels": 10642,
+        "underlay_authored_mismatches": 1541,
+        "actor_authored_mismatches": 0,
+        "actor_count": 0
+      },
+      {
+        "tick": 4923,
+        "family_support_native_pixels": 10752,
+        "outside_support_pixels_equal": true,
+        "outside_support_RGBA_sha256": "11073835e630332525d31dec463a340fc512a88ea09a508d3c222fd8a27bdab1",
+        "native_RGB_changed_pixels": 10637,
+        "underlay_authored_mismatches": 1193,
+        "actor_authored_mismatches": 0,
+        "actor_count": 0
+      },
+      {
+        "tick": 4924,
+        "family_support_native_pixels": 10752,
+        "outside_support_pixels_equal": true,
+        "outside_support_RGBA_sha256": "9bf981e53d1b5450f8ad281fb1de6fa6c7ff68b6926b4151d6f75750ff2ace12",
+        "native_RGB_changed_pixels": 10671,
+        "underlay_authored_mismatches": 1023,
+        "actor_authored_mismatches": 0,
+        "actor_count": 0
+      },
+      {
+        "tick": 4925,
+        "family_support_native_pixels": 10752,
+        "outside_support_pixels_equal": true,
+        "outside_support_RGBA_sha256": "b5c30dbe71d5d15ee91c12972c9941461f9f6acfb2bf88fae19ad3907d07073f",
+        "native_RGB_changed_pixels": 10684,
+        "underlay_authored_mismatches": 867,
+        "actor_authored_mismatches": 0,
+        "actor_count": 0
+      },
+      {
+        "tick": 4926,
+        "family_support_native_pixels": 10752,
+        "outside_support_pixels_equal": true,
+        "outside_support_RGBA_sha256": "dc138656e7a0cb65ac31b4821c325d27b63ee0a72cffa8b5f2210837ec0eb326",
+        "native_RGB_changed_pixels": 10695,
+        "underlay_authored_mismatches": 695,
+        "actor_authored_mismatches": 0,
+        "actor_count": 0
+      },
+      {
+        "tick": 4927,
+        "family_support_native_pixels": 10752,
+        "outside_support_pixels_equal": true,
+        "outside_support_RGBA_sha256": "aca9ce76460ae9a63dda0d38523dfdee3eebe07719e6cbf9820797878a6c9874",
+        "native_RGB_changed_pixels": 10693,
+        "underlay_authored_mismatches": 429,
+        "actor_authored_mismatches": 0,
+        "actor_count": 0
+      },
+      {
+        "tick": 4928,
+        "family_support_native_pixels": 10752,
+        "outside_support_pixels_equal": true,
+        "outside_support_RGBA_sha256": "e60db6462dd606572b10041d668c79ed23c6026f22eacf07c8a3d40d31e48d64",
+        "native_RGB_changed_pixels": 10700,
+        "underlay_authored_mismatches": 350,
+        "actor_authored_mismatches": 0,
+        "actor_count": 0
+      },
+      {
+        "tick": 4929,
+        "family_support_native_pixels": 10752,
+        "outside_support_pixels_equal": true,
+        "outside_support_RGBA_sha256": "2bc57a002a78fc9edfe6886c976c055d21f1ead545f7e4aad85addb79d3e0192",
+        "native_RGB_changed_pixels": 10712,
+        "underlay_authored_mismatches": 248,
+        "actor_authored_mismatches": 0,
+        "actor_count": 0
+      },
+      {
+        "tick": 4930,
+        "family_support_native_pixels": 10752,
+        "outside_support_pixels_equal": true,
+        "outside_support_RGBA_sha256": "6b87d2b941bfdca49a2c25edc881a0a73935ac8d0ae9f6b754364203832560d5",
+        "native_RGB_changed_pixels": 10716,
+        "underlay_authored_mismatches": 127,
+        "actor_authored_mismatches": 0,
+        "actor_count": 0
+      },
+      {
+        "tick": 4931,
+        "family_support_native_pixels": 10752,
+        "outside_support_pixels_equal": true,
+        "outside_support_RGBA_sha256": "dd169b3935d59882bfe84ecf46885e979d6a660a5e936d6e4b0318e24149e33b",
+        "native_RGB_changed_pixels": 10717,
+        "underlay_authored_mismatches": 0,
+        "actor_authored_mismatches": 0,
+        "actor_count": 0
+      },
+      {
+        "tick": 4932,
+        "family_support_native_pixels": 10752,
+        "outside_support_pixels_equal": true,
+        "outside_support_RGBA_sha256": "980e59caa252a876ef947215c3480d03873bb0a7f8714554416809fe63238a86",
+        "native_RGB_changed_pixels": 10717,
+        "underlay_authored_mismatches": 0,
+        "actor_authored_mismatches": 0,
+        "actor_count": 0
+      },
+      {
+        "tick": 4933,
+        "family_support_native_pixels": 10752,
+        "outside_support_pixels_equal": true,
+        "outside_support_RGBA_sha256": "1d5fe7fa829e1ea0fa76b062286a113e6482f3df1e1243d74835c40301363c47",
+        "native_RGB_changed_pixels": 10717,
+        "underlay_authored_mismatches": 0,
+        "actor_authored_mismatches": 0,
+        "actor_count": 0
+      },
+      {
+        "tick": 4934,
+        "family_support_native_pixels": 10752,
+        "outside_support_pixels_equal": true,
+        "outside_support_RGBA_sha256": "004a33f3c5a762508d22553c09e1f3627b2114af58b03f3afbc3e1a88becd9a3",
+        "native_RGB_changed_pixels": 10717,
+        "underlay_authored_mismatches": 0,
+        "actor_authored_mismatches": 0,
+        "actor_count": 0
+      },
+      {
+        "tick": 4935,
+        "family_support_native_pixels": 10752,
+        "outside_support_pixels_equal": true,
+        "outside_support_RGBA_sha256": "bbfbbaea7077d8cedcaf50f75c0dcecef14e3b7b6c0a4fdc21ee16054fd67b55",
+        "native_RGB_changed_pixels": 10717,
+        "underlay_authored_mismatches": 0,
+        "actor_authored_mismatches": 0,
+        "actor_count": 0
+      }
+    ],
+    "intact_path": "/workspace/scratch/f67dd347fa0a/linked31-runtime-20261012/candidate/actual-4900-native2x.png",
+    "reveal_path": "/workspace/scratch/f67dd347fa0a/linked31-runtime-20261012/candidate/actual-4931-native2x.png",
+    "scope": "Original normal-layer replay with explicitly artificial diagnostic Pulse shots and private survival, not manual/natural combat or full-level/Windows acceptance."
+  },
+  "family_fallback": {
+    "status": "passed",
+    "cases": [
+      {
+        "case": "missing-terrain-hardlinks",
+        "status": "passed",
+        "all_other29_full_streams_equal": [
+          "weapon-loadout",
+          "player-shot-requests",
+          "player-shot-emissions",
+          "player-shot-results",
+          "player-shot-draws",
+          "state",
+          "collisions",
+          "frames",
+          "presentation",
+          "effects",
+          "enemy-projectiles",
+          "fade-steps",
+          "poses",
+          "fire-events",
+          "player-projectiles",
+          "draw-commands",
+          "scene-draw-commands",
+          "scene-enemies",
+          "scene-hits",
+          "rgb-audit",
+          "restore-regions",
+          "blend-palette",
+          "asset-debug-explosion-pools",
+          "asset-debug-clock",
+          "asset-debug-materials",
+          "sdl-runtime",
+          "talon-bank-visual",
+          "blend-writes"
+        ],
+        "control_semantics_equal_excluding_wall_ms": true,
+        "complete_internal_RGB_hashes_equal_baseline_all36_frames": true,
+        "all8_assets_use_original_fallback": true,
+        "captures": 0
+      },
+      {
+        "case": "missing-actor-hardlinks",
+        "status": "passed",
+        "all_other29_full_streams_equal": [
+          "weapon-loadout",
+          "player-shot-requests",
+          "player-shot-emissions",
+          "player-shot-results",
+          "player-shot-draws",
+          "state",
+          "collisions",
+          "frames",
+          "presentation",
+          "effects",
+          "enemy-projectiles",
+          "fade-steps",
+          "poses",
+          "fire-events",
+          "player-projectiles",
+          "draw-commands",
+          "scene-draw-commands",
+          "scene-enemies",
+          "scene-hits",
+          "rgb-audit",
+          "restore-regions",
+          "blend-palette",
+          "asset-debug-explosion-pools",
+          "asset-debug-clock",
+          "asset-debug-materials",
+          "sdl-runtime",
+          "talon-bank-visual",
+          "blend-writes"
+        ],
+        "control_semantics_equal_excluding_wall_ms": true,
+        "complete_internal_RGB_hashes_equal_baseline_all36_frames": true,
+        "all8_assets_use_original_fallback": true,
+        "captures": 0
+      },
+      {
+        "case": "corrupt-actor-hardlinks",
+        "status": "passed",
+        "all_other29_full_streams_equal": [
+          "weapon-loadout",
+          "player-shot-requests",
+          "player-shot-emissions",
+          "player-shot-results",
+          "player-shot-draws",
+          "state",
+          "collisions",
+          "frames",
+          "presentation",
+          "effects",
+          "enemy-projectiles",
+          "fade-steps",
+          "poses",
+          "fire-events",
+          "player-projectiles",
+          "draw-commands",
+          "scene-draw-commands",
+          "scene-enemies",
+          "scene-hits",
+          "rgb-audit",
+          "restore-regions",
+          "blend-palette",
+          "asset-debug-explosion-pools",
+          "asset-debug-clock",
+          "asset-debug-materials",
+          "sdl-runtime",
+          "talon-bank-visual",
+          "blend-writes"
+        ],
+        "control_semantics_equal_excluding_wall_ms": true,
+        "complete_internal_RGB_hashes_equal_baseline_all36_frames": true,
+        "all8_assets_use_original_fallback": true,
+        "captures": 0
+      }
+    ],
+    "no_pack_payload_duplication": "Only hardlinked read-only existing resources plus one mutated alpha byte resource.",
+    "source_case_matrix": "All8 members \u00d711 missing/header/size/alpha cases independently passed extracted production ASan/UBSan oracle."
+  },
+  "native4x": {
+    "status": "passed",
+    "scope": "One genuine1280x800 native4x SDL readback at4931, same approved diagnostic lifecycle; no new video.",
+    "candidate_commit": "e70f9d1f82f307f988b5f1c2f8bc89d7842f11a7",
+    "exact_state_ticks": 4932,
+    "same_internal_RGB_and_frame_audits_through4931": true,
+    "full_retained_source_streams_equal_2x": [
+      "state",
+      "weapon-loadout",
+      "collisions",
+      "asset-debug-clock",
+      "scene-enemies",
+      "scene-hits",
+      "rgb-audit",
+      "frames",
+      "effects",
+      "presentation",
+      "asset-debug-explosion-pools",
+      "scene-draw-commands",
+      "asset-debug-materials (equal retained source selection)"
+    ],
+    "original_sampler_unchanged": true,
+    "native4x_revealed_authored_pixels_exact": 43008,
+    "tiles": [
+      {
+        "id": 161,
+        "native_xywh": [
+          56,
+          272,
+          96,
+          112
+        ],
+        "exact_authored_RGBA_pixels": 10752
+      },
+      {
+        "id": 162,
+        "native_xywh": [
+          152,
+          272,
+          96,
+          112
+        ],
+        "exact_authored_RGBA_pixels": 10752
+      },
+      {
+        "id": 171,
+        "native_xywh": [
+          56,
+          384,
+          96,
+          112
+        ],
+        "exact_authored_RGBA_pixels": 10752
+      },
+      {
+        "id": 172,
+        "native_xywh": [
+          152,
+          384,
+          96,
+          112
+        ],
+        "exact_authored_RGBA_pixels": 10752
+      }
+    ],
+    "still": {
+      "tick": 4931,
+      "dimensions": [
+        1280,
+        800
+      ],
+      "BGRA_sha256": "6de41ac4fb5a4b19e471e9ca28eb58f7a23b51ab9b3daa31b74cd8fc40b8d9b2",
+      "RGBA_sha256": "524325654e690b46305465dd4e5a63dd6ba9064570feccb0712578eddeb67ab4",
+      "PNG_sha256": "ebdce1f8da0fee223a1365da53cd6f47029eff59601a3e2d7e20e60efe45fd50",
+      "path": "/workspace/scratch/f67dd347fa0a/linked31-runtime-20261012/spot4x/actual-4931-native4x.png",
+      "scope": "Actual normal-layer private-survival/diagnostic-Pulse lifecycle, not natural manual gameplay"
+    }
+  },
+  "excluded_invalid_fixtures": {
+    "status": "excluded-invalid-fixture",
+    "reason": "Read-only symlink pack mirrors caused preexisting forest/material sidecar security/integrity validation to reject unrelated sidecars. Original gameplay state matched, but rendered RGB comparisons against ordinary pack are invalid. This is not a linked31 production regression.",
+    "corrected_fixture": "Same payloads, zero-copy hardlinks; fresh runs use -hardlinks labels.",
+    "runs": [
+      {
+        "label": "missing-terrain",
+        "run_summary_sha256": "f59e6612644ab9a3d2ec9e3a275ce2be019469d94623a56a30120a3ad5574ede",
+        "excluded_from_acceptance": true
+      },
+      {
+        "label": "missing-actor",
+        "run_summary_sha256": "b96a13392c300043a3a8226de309c756a6611142e2a11cb923a55fbc40ca4585",
+        "excluded_from_acceptance": true
+      },
+      {
+        "label": "corrupt-actor",
+        "run_summary_sha256": "b84b44c6ea056866fa8bb497fa2c84630e81bc0c7c8384fa8e37c13436164483",
+        "excluded_from_acceptance": true
+      }
+    ]
+  },
+  "artist_source_clarification_sha256": "b8a1da937757ad833a3e48b23b0a92f6ec39a96bbc4578bac2b4ef78ce2ad92b",
+  "review_media": {
+    "candidate/actual-4900-native2x.png": {
+      "bytes": 376796,
+      "sha256": "04e1d3103ad3eb233669773f44e3bb470a5d761a384484c3264f57bbe60ae44b"
+    },
+    "candidate/actual-4902-native2x.png": {
+      "bytes": 375697,
+      "sha256": "1f2103d0387ba70f1db0b9d7e5232bc9f03fbe32a5872ff4ae04150db19e4595"
+    },
+    "candidate/actual-4904-native2x.png": {
+      "bytes": 374155,
+      "sha256": "45780ad80d9de918ef75e602a91f16bc1934695a641c567c81beea6662380899"
+    },
+    "candidate/actual-4905-native2x.png": {
+      "bytes": 374895,
+      "sha256": "1ad6db90eeacd61403066921943cc4bdec80f325846f0254cb977e4b57ec02bc"
+    },
+    "candidate/actual-4931-native2x.png": {
+      "bytes": 346234,
+      "sha256": "dc27fa27ccdd923773af1ef32b0a4e4e8bfc99239b767a1196f5a4d25e5cc6d5"
+    },
+    "spot4x/actual-4931-native4x.png": {
+      "bytes": 1209065,
+      "sha256": "ebdce1f8da0fee223a1365da53cd6f47029eff59601a3e2d7e20e60efe45fd50"
+    },
+    "linked31-private-lifecycle-native2x-review12fps.mp4": {
+      "bytes": 322519,
+      "sha256": "07be0e85f2d9ef236ae9b2d8ff45678315cb2628b1487f21fe8deda06038c332"
+    }
+  },
+  "review_clip_note": "One36-frame640x400 clip at12fps for inspection; not a claim of original playback speed. Native PNGs are the exact pixel evidence.",
+  "limits": [
+    "Private artificial Pulse diagnostic inputs and survival; no claim of natural manual combat.",
+    "No full-level playthrough, GPU/fullscreen, Windows compilation or Windows runtime acceptance.",
+    "LSan unavailable under executor ptrace; ASan and UBSan passed."
+  ],
+  "author_review_sha256": "ed4ea86a8b94c5ca0f5c0ca417480755e3eca1d4c512749ab2cef090be16dcbe",
+  "author_review": {
+    "status": "author_visual_pass",
+    "candidate_commit": "e70f9d1f82f307f988b5f1c2f8bc89d7842f11a7",
+    "scope": "Actual normal-layer private-survival diagnostic-Pulse fixture, not natural manual gameplay. Existing36native2xframes4900..4935 plus one true4x4931spot; no new author capture.",
+    "fixture_requests": [
+      {
+        "tick": 4901,
+        "damage": 1
+      },
+      {
+        "tick": 4903,
+        "damage": 99
+      },
+      {
+        "tick": 4905,
+        "damage": 11
+      }
+    ],
+    "reviewed_ticks": [
+      4900,
+      4901,
+      4902,
+      4903,
+      4904,
+      4905,
+      4906,
+      4907,
+      4908,
+      4909,
+      4910,
+      4911,
+      4912,
+      4913,
+      4914,
+      4915,
+      4916,
+      4917,
+      4918,
+      4919,
+      4920,
+      4921,
+      4922,
+      4923,
+      4924,
+      4925,
+      4926,
+      4927,
+      4928,
+      4929,
+      4930,
+      4931,
+      4932,
+      4933,
+      4934,
+      4935
+    ],
+    "native4x_tick": 4931,
+    "independent_hash_checks": "All36native2xPNG/RGBA/BGRA hashes and true4xPNG/RGBA/BGRA hashes verified.",
+    "source_correction": "Explosiontype9 means enemygroundfalse/explonum4; filter remains0. External clarification supersedes frozen ground-tint prose without changing art.",
+    "visual_findings": [
+      "Intact red/brown machinery and two lamps are cohesive at native2x; original one-logical-pixel actor/underlay registration remains intact.",
+      "4901ordinary hit and4903target ice use original effect routine;4902/4904 same pose/filter0 retained. No fabricated blue or ground tint.",
+      "4905original linked removal/explosion transition leads to the corresponding irregular remnant; all36chronological states inspected, with effect occlusion acknowledged.",
+      "First fullyclear4931remnant and4932..4935scroll inspected; matching mounting points and stone/circuit interfaces show no tile seams, footprint expansion or unrelated stone jump.",
+      "True4x4931normal fullscene inspected: coherent exposed underlay, depth/rubble detail and unchanged neighbors."
+    ],
+    "alpha_and_anchor_contract": "Eight original24x28components fullyopaque; terrainanchor0,0; actoranchor6,7; original actor+1sceneY, no addedoffset.",
+    "limitations": "Fixture-shot lifecycle coverage only; no claim of natural player inputs, other weapons/modes, Windows or full-level acceptance. Technical state/filter/fallback ledgers are integrator-owned.",
+    "pinned_evidence": {
+      "candidate/frame-hashes.json": "0f3e29e0189b5d77eb0bcfc280d2274c5410eb498712f05554507d73fe657e1b",
+      "spot4x/frame-hashes.json": "01252235c746cf94212f11c9abca3ff1193ee890a7b1f20013a5b968230f7e2a",
+      "spot4x/actual-4931-native4x.png": "ebdce1f8da0fee223a1365da53cd6f47029eff59601a3e2d7e20e60efe45fd50",
+      "verification.json": "9c70a6359c1f16e460cc3289fffd4953febbe97cff954a74c5d0b5c264f17521",
+      "spot4x-verification.json": "9de7cec2adabc73a8a2f80b15111417610f259b0aceaf8216ae71d5aaec1ec4e"
+    },
+    "external_clarification_sha256": "b8a1da937757ad833a3e48b23b0a92f6ec39a96bbc4578bac2b4ef78ce2ad92b",
+    "36frame_hash_review_sha256": "9b4aeb5f06c4eebe9788acb40f20095cd3b7c0375a2c334a1195cd374c61a231",
+    "unchanged_art_inventory_sha256": "b38bffa1f228b7dc588f45b369f924fd956343c256796617b5125848b4d22bf1"
+  }
+}

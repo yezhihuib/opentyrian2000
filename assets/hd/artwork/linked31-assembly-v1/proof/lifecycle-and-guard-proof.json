@@ -1,0 +1,23 @@
+{
+  "source_main": "1df1d87",
+  "source_code_sha256": {
+    "src/tyrian2.c": "e835e19bad297e9b734348cea18724e9b527ad47ea4dff7c7f201b261f1ef3ba",
+    "src/episodes.c": "640219b48d3081ee996ce66a66f61ad2fe185339fcfaf395808e02fcee0b29e0",
+    "src/sprite.c": "717746c235f76cc818ec6c5d2ef52f70efdbf9ba1e99de00b5d5366e88e5391c"
+  },
+  "source_behavior": {
+    "spawn_eventtime": 3200,
+    "link": 31,
+    "types": [
+      42,
+      43,
+      44,
+      45
+    ],
+    "armor": 12,
+    "damage_forms": null,
+    "nonlethal": "Same frame original ground filter/ice propagation",
+    "lethal": "Original same-link enemy removal, generic large explosions, terrain reveal"
+  },
+  "guard_hashes_reverified": true
+}

@@ -35,7 +35,7 @@ typedef struct {
 } Asset;
 enum { ASSET_NEWSH2=101, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
-static Asset assets[374];
+static Asset assets[382];
 static Asset talon_frames[13];
 typedef struct {
  bool valid;
@@ -56,7 +56,7 @@ void render_mirror_reset_banking(void)
 void render_mirror_set_talon_banking(bool enabled)
 {talon_banking_enabled=enabled;render_mirror_reset_banking();}
 static char terrain_file;
-static struct {const Uint8 *data;unsigned int id;} terrain_sources[195];
+static struct {const Uint8 *data;unsigned int id;} terrain_sources[199];
 static unsigned int terrain_source_count;
 static bool forest_registry_ok=true;
 static SDL_Surface *canvas,*output;
@@ -1481,6 +1481,29 @@ static Asset *scene_asset(int slot,int role,int index,int anchor_x,int anchor_y)
  return a->valid?a:NULL;
 }
 
+/* One coordinated selected-pack family. Preflight is shared by both routes,
+ * completed before any member draw, and cached for the existing Asset lifetime.
+ * Missing/corrupt/nonopaque members disable all eight, never unrelated art.
+ * This family is authored only at8x: no mixed-density or partial-scene fallback. */
+static bool linked31_checked,linked31_valid;
+static bool linked31_family_ready(void)
+{
+ if(game_probe_density!=8||game_probe_missing||game_probe_invalid||!game_probe_assets||
+    (game_probe_scene_assets&3)!=3)return false;
+ if(linked31_checked)return linked31_valid;
+ linked31_checked=true;linked31_valid=true;
+ static const unsigned int ids[8]={161,162,171,172,15,17,53,55};
+ for(int i=0;i<8;i++) {
+  Asset *a=&assets[374+i];
+  a->initialized=true;a->bank=i<4?ASSET_SHAPESZ:ASSET_NEWSH2;a->index=(int)ids[i];
+  a->w=24;a->h=28;a->anchor_x=i<4?0:6;a->anchor_y=i<4?0:7;
+  a->valid=read_asset(a,8);
+  if(a->valid)for(size_t p=3;p<(size_t)24*28*8*8*4;p+=4)if(a->rgba[p]!=255){a->valid=false;break;}
+  if(!a->valid)linked31_valid=false;
+ }
+ return linked31_valid;
+}
+
 bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int base,int part,int filter,const G101EnemyContext *material_context)
 {
  if(!active||surface!=game_screen||reject_reason||!(game_probe_scene_assets&1))return false;
@@ -1496,6 +1519,15 @@ bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array ban
  if(role==ASSET_NEWSH2) {
   static const unsigned int type4_ids[5]={159,161,163,165,167};
   for(int i=0;i<5;i++)if(base==type4_ids[i]){slot=369+i;break;}
+ }
+ /* Linked31 four complete newsh2 composites; original coordinates already
+  * include the one-logical-pixel actor/terrain offset. Never add an offset. */
+ if(role==ASSET_NEWSH2) {
+  static const unsigned int linked31_ids[4]={15,17,53,55};
+  for(int i=0;i<4;i++)if(base==linked31_ids[i]) {
+   if(!linked31_family_ready())return false;
+   slot=378+i;break;
+  }
  }
  if(role==ASSET_NEWSHE) {
   const unsigned int ids[12]={1,3,5,39,41,43,7,9,11,45,47,49};
@@ -1612,9 +1644,16 @@ static int layer3_mechanical_slot(unsigned int id)
  for(int i=0;i<10;i++)if(id==ids[i])return 359+i;
  return -1;
 }
+/* Static linked31 remnants, strictly shapesZ Layer3 pointer registration. */
+static int layer3_linked31_slot(unsigned int id)
+{
+ static const unsigned int ids[4]={161,162,171,172};
+ for(int i=0;i<4;i++)if(id==ids[i])return 374+i;
+ return -1;
+}
 void render_mirror_bind_terrain(unsigned int layer,unsigned int id,const Uint8 *data)
 {
- if(terrain_file=='z'&&((layer==1&&(forest_terrain_slot(id)>=0||grass_sand_slot(id)>=0||stone_foundation_slot(id)>=0||terrain_holes_slot(id)>=0||road_terrain_slot(id)>=0||underlay_terrain_slot(id)>=0||plateau_terrain_slot(id)>=0||ground_terrain_slot(id)>=0||id==101||id==37||id==57||id==49||id==50||id==321||id==322||id==331||id==332))||(layer==2&&cloud_terrain_slot(id)>=0)||(layer==3&&(layer3_gray_slot(id)>=0||layer3_purple_slot(id)>=0||layer3_circuit_slot(id)>=0||layer3_mechanical_slot(id)>=0)))&&terrain_source_count<195) {
+ if(terrain_file=='z'&&((layer==1&&(forest_terrain_slot(id)>=0||grass_sand_slot(id)>=0||stone_foundation_slot(id)>=0||terrain_holes_slot(id)>=0||road_terrain_slot(id)>=0||underlay_terrain_slot(id)>=0||plateau_terrain_slot(id)>=0||ground_terrain_slot(id)>=0||id==101||id==37||id==57||id==49||id==50||id==321||id==322||id==331||id==332))||(layer==2&&cloud_terrain_slot(id)>=0)||(layer==3&&(layer3_gray_slot(id)>=0||layer3_purple_slot(id)>=0||layer3_circuit_slot(id)>=0||layer3_mechanical_slot(id)>=0||layer3_linked31_slot(id)>=0)))&&terrain_source_count<199) {
   terrain_sources[terrain_source_count].data=data;
   terrain_sources[terrain_source_count++].id=id;
  }
@@ -1687,10 +1726,11 @@ unsigned int render_mirror_terrain_row(SDL_Surface *surface,int x,int y,Uint8 **
   int purple_slot=layer3_purple_slot(id);
   int circuit_slot=layer3_circuit_slot(id);
   int mechanical_slot=layer3_mechanical_slot(id);
+  int linked31_slot=layer3_linked31_slot(id);
   int grass_slot=grass_sand_slot(id);
   int forest_slot=forest_terrain_slot(id);
   if(forest_slot>=0&&style!=MIRROR_NORMAL)continue;
-  if((gray_slot>=0||purple_slot>=0||circuit_slot>=0||mechanical_slot>=0)&&style!=MIRROR_NORMAL)continue;
+  if((gray_slot>=0||purple_slot>=0||circuit_slot>=0||mechanical_slot>=0||linked31_slot>=0)&&style!=MIRROR_NORMAL)continue;
   if(slot<0)slot=ground_slot;
   if(slot<0)slot=plateau_slot;
   if(slot<0)slot=underlay_slot;
@@ -1701,13 +1741,15 @@ unsigned int render_mirror_terrain_row(SDL_Surface *surface,int x,int y,Uint8 **
   if(slot<0)slot=purple_slot;
   if(slot<0)slot=circuit_slot;
   if(slot<0)slot=mechanical_slot;
+  if(slot<0)slot=linked31_slot;
   if(slot<0)slot=grass_slot;
   if(slot<0)slot=forest_slot;
   if(slot<0)slot=id==101?10:id==37?11:id==57?12:id==49?13:id==50?14:id==321?19:id==322?20:id==331?21:id==332?22:-1;
   if(slot<0)continue;
+  if(linked31_slot>=0&&!linked31_family_ready())continue;
   Asset *a=scene_asset(slot,ASSET_SHAPESZ,(int)id,0,0);
   /* Missing/invalid new art retains the exact previous fallback and trace. */
-  if((ground_slot>=0||plateau_slot>=0||underlay_slot>=0||road_slot>=0||holes_slot>=0||stone_slot>=0||gray_slot>=0||purple_slot>=0||circuit_slot>=0||mechanical_slot>=0||grass_slot>=0||forest_slot>=0)&&!a)continue;
+  if((ground_slot>=0||plateau_slot>=0||underlay_slot>=0||road_slot>=0||holes_slot>=0||stone_slot>=0||gray_slot>=0||purple_slot>=0||circuit_slot>=0||mechanical_slot>=0||linked31_slot>=0||grass_slot>=0||forest_slot>=0)&&!a)continue;
   const G101Record *material=a&&a->density==8&&material_row==1&&style==MIRROR_NORMAL?ground101_record(ASSET_SHAPESZ,id):NULL;
   ground101_note_draw(material,false);
   const PCapRecord *cap=a&&a->density==8&&material_row==1&&style==MIRROR_NORMAL?plateau_cap_record(id):NULL;

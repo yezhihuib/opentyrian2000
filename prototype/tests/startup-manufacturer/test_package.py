@@ -28,8 +28,8 @@ FROZEN = {
 }
 
 
-# Exact published round inserts and approved type4 additions. Only these seven
-# entries may be projected out of the pre-round-insert historical gameplay pin.
+# Exact published round inserts, type4, and coordinated linked31 additions.
+# Only these finite pinned entries project out of the historical gameplay pin.
 FROZEN_GAMEPLAY_ADDITIONS = {'terrain-shapesz-190-8.hda': {'sha256': '023700d1ad415753564e2f2598c493df9fcc5f56a3112b33cd0056957cd46e70',
                                'header_u32': [2010190, 8, 24, 28, 0, 0],
                                'source_png': 'assets/hd/source/terrain-shapesz-190-8-023700d1ad41.png',
@@ -58,6 +58,40 @@ FROZEN_GAMEPLAY_ADDITIONS = {'terrain-shapesz-190-8.hda': {'sha256': '023700d1ad
                             'header_u32': [1010167, 8, 24, 28, 6, 7],
                             'source_png': 'assets/hd/source/enemy-newsh2-167-8-ce94f5992c37.png',
                             'source_png_sha256': 'be2a4b76d35b407659b0c0bf996d94dd7a35fcbdecb391b34d05d4a01baad1f4'}}
+
+# Exact eight-member append; both banks are one coordinated family.
+FROZEN_GAMEPLAY_ADDITIONS.update({'terrain-shapesz-161-8.hda': {'sha256': 'b8f9e85e0a03929bafe35c250cdff070e1c5b59a61c09d4b183adb38dcb23bcc',
+                               'header_u32': [2010161, 8, 24, 28, 0, 0],
+                               'source_png': 'assets/hd/source/terrain-shapesz-161-8-b8f9e85e0a03.png',
+                               'source_png_sha256': '6129b2ad37c7dc9e4851f96eb34cde95e9db93f9ba10e7a3ccbfeaed14ce8b18'},
+ 'terrain-shapesz-162-8.hda': {'sha256': '9d98cfb0cf5fc155018236736838568f6a71aab9177bcec161e933b3cd5a5939',
+                               'header_u32': [2010162, 8, 24, 28, 0, 0],
+                               'source_png': 'assets/hd/source/terrain-shapesz-162-8-9d98cfb0cf5f.png',
+                               'source_png_sha256': 'd8010c24c9f62595295e6f5eabb0dd85a5f7f7a49021238f9741f5afa59fedf0'},
+ 'terrain-shapesz-171-8.hda': {'sha256': '556d093db425aba78f0446b018bb821775cd53e8126ce98f37d9d3371563b7ec',
+                               'header_u32': [2010171, 8, 24, 28, 0, 0],
+                               'source_png': 'assets/hd/source/terrain-shapesz-171-8-556d093db425.png',
+                               'source_png_sha256': '9bfb9ae75296702fe8d1f0c8c261f7830433d61082dc3a248535ff820bc65909'},
+ 'terrain-shapesz-172-8.hda': {'sha256': 'dcdc10baff0a2da9f44bc182ff840f7a219310398520cf63da88045f4f36f4c6',
+                               'header_u32': [2010172, 8, 24, 28, 0, 0],
+                               'source_png': 'assets/hd/source/terrain-shapesz-172-8-dcdc10baff0a.png',
+                               'source_png_sha256': '9281e7f69cb58f2a5c1a3c7511cd806e80d10490d152e0c00f9f2b464a669765'},
+ 'enemy-newsh2-15-8.hda': {'sha256': 'c20471f23e2f368fbdb8dd78bea37051f6c4be2e268b0d1fc9a114f92ef423da',
+                           'header_u32': [1010015, 8, 24, 28, 6, 7],
+                           'source_png': 'assets/hd/source/enemy-newsh2-15-8-c20471f23e2f.png',
+                           'source_png_sha256': 'a8ac87a3c05c6b54824862c0f60b0515117193f24d8dd9e028cb800b3aaecb59'},
+ 'enemy-newsh2-17-8.hda': {'sha256': '3b8eb8da5f98b7cfea217478038427ad85e79e03e96268a14b0f986587b952cb',
+                           'header_u32': [1010017, 8, 24, 28, 6, 7],
+                           'source_png': 'assets/hd/source/enemy-newsh2-17-8-3b8eb8da5f98.png',
+                           'source_png_sha256': '135dbe6e7a579cdc1a7b13f67b5b46515c7af1217ccce08eb75e3a6c754b5e96'},
+ 'enemy-newsh2-53-8.hda': {'sha256': '8612e05561aaca1a9e26df9414436aa97a8b9fa3f7b6fe58c057f8c137684e3c',
+                           'header_u32': [1010053, 8, 24, 28, 6, 7],
+                           'source_png': 'assets/hd/source/enemy-newsh2-53-8-8612e05561aa.png',
+                           'source_png_sha256': 'a002c33cdaf7629088fa113d15a351b9b815f3ae24c7e4a4819336678dff2c25'},
+ 'enemy-newsh2-55-8.hda': {'sha256': '6a99ec193f4ff580fa5832a8584978efea3378d3173078442f121893736b418f',
+                           'header_u32': [1010055, 8, 24, 28, 6, 7],
+                           'source_png': 'assets/hd/source/enemy-newsh2-55-8-6a99ec193f4f.png',
+                           'source_png_sha256': '88242ad2a6c2c251abb5cb4bdde791b9ae5ff1d37f78e1ee352d6d0b922b23ac'}})
 
 
 def digest(data):
@@ -152,7 +186,7 @@ class ManufacturerPackageTests(unittest.TestCase):
     def test_gameplay_manifest_guard_rejects_widening(self):
         original = self.manifest
         target = original['default_debug_pack']
-        for case in ('unknown-entry', 'old-entry-change', 'known-entry-change', 'partial-family', 'wrong-count'):
+        for case in ('unknown-entry', 'old-entry-change', 'known-entry-change', 'partial-family', 'linked31-partial', 'linked31-change', 'wrong-count'):
             with self.subTest(case=case):
                 changed = json.loads(json.dumps(original))
                 pack = changed['packs'][target]
@@ -167,6 +201,11 @@ class ManufacturerPackageTests(unittest.TestCase):
                 elif case == 'partial-family':
                     del pack['files']['enemy-newsh2-163-8.hda']
                     pack['count'] -= 1
+                elif case == 'linked31-partial':
+                    del pack['files']['enemy-newsh2-15-8.hda']
+                    pack['count'] -= 1
+                elif case == 'linked31-change':
+                    pack['files']['terrain-shapesz-161-8.hda']['sha256'] = '0' * 64
                 else:
                     pack['count'] += 1
                 self.manifest = changed
@@ -208,6 +247,31 @@ class ManufacturerPackageTests(unittest.TestCase):
                     self.assertEqual(digest((ROOT / expected['source_png']).read_bytes()), expected['source_png_sha256'])
                     del pack['files'][name]
                     pack['count'] -= 1
+        linked_ids = [161, 162, 171, 172, 15, 17, 53, 55]
+        linked_names = [('terrain-shapesz' if i < 4 else 'enemy-newsh2') + f'-{sprite_id}-8.hda'
+                        for i, sprite_id in enumerate(linked_ids)]
+        linked_present = any(name in pack['files'] for pack in packs.values() for name in linked_names)
+        if linked_present:
+            family = self.manifest['linked31_installation_v1']
+            self.assertEqual(family['entries'], [
+                {'kind': 'terrain' if i < 4 else 'actor', 'bank_role': 201 if i < 4 else 101,
+                 'id': sprite_id, 'slot': 374 + i, 'anchor': [0, 0] if i < 4 else [6, 7]}
+                for i, sprite_id in enumerate(linked_ids)])
+            for name in linked_names:
+                expected = FROZEN_GAMEPLAY_ADDITIONS[name]
+                self.assertEqual({key for key, pack in packs.items() if name in pack['files']}, defaults)
+                for key in defaults:
+                    pack = packs[key]
+                    self.assertEqual(pack['count'], len(pack['files']))
+                    self.assertEqual(pack['files'][name], expected)
+                    raw = (ROOT / 'assets/hd/packs' / key / name).read_bytes()
+                    self.assertEqual(digest(raw), expected['sha256'])
+                    self.assertEqual(raw[:28], b'HDR1' + struct.pack('<6I', *expected['header_u32']))
+                    self.assertEqual(digest((ROOT / expected['source_png']).read_bytes()), expected['source_png_sha256'])
+                    del pack['files'][name]
+                    pack['count'] -= 1
+        else:
+            self.assertNotIn('linked31_installation_v1', self.manifest)
         self.assertNotIn(PACK, packs)
         self.assertEqual(digest(json.dumps(packs, sort_keys=True, separators=(',', ':')).encode()),
                          'e21f03ac25ac166c432e8270357830aba12d1621dbdd2d8063c5823c2c2b7b4b')
