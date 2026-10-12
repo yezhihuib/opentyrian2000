@@ -1,0 +1,59 @@
+{
+  "status": "PASS bounded old-new readback comparison",
+  "old_candidate": "ed10ce7ad3d7023c154128d75857e8450a9cf032",
+  "new_candidate_prefix": "24fb535",
+  "identical_other_frame_files": 34,
+  "all38_compared": true,
+  "only_changed_frames": [
+    {
+      "tick": 6555,
+      "changed_pixels": 96,
+      "difference_bbox_halfopen": [
+        524,
+        112,
+        528,
+        136
+      ],
+      "all_repaired_pixels_equal_original_baseline": true,
+      "new_png_sha256": "731a6d50f715cd979cd6656389c751edab48bcc3f1ac997e9703c34224cbc33a"
+    },
+    {
+      "tick": 6565,
+      "changed_pixels": 48,
+      "difference_bbox_halfopen": [
+        526,
+        172,
+        528,
+        196
+      ],
+      "all_repaired_pixels_equal_original_baseline": true,
+      "new_png_sha256": "5eb4b617413b983d1eab5db1877e0de8a56fa0202b9e8f457ecb76fe1eb065f9"
+    },
+    {
+      "tick": 6573,
+      "changed_pixels": 48,
+      "difference_bbox_halfopen": [
+        526,
+        220,
+        528,
+        244
+      ],
+      "all_repaired_pixels_equal_original_baseline": true,
+      "new_png_sha256": "3e7fcfe9f57bcac610d881e328e88b7325d498fa222103549650134326571061"
+    },
+    {
+      "tick": 6575,
+      "changed_pixels": 96,
+      "difference_bbox_halfopen": [
+        524,
+        152,
+        528,
+        176
+      ],
+      "all_repaired_pixels_equal_original_baseline": true,
+      "new_png_sha256": "434dbf47ce24d985d3d68bf62b0ecafcbd8cfdc292c22e4dccf37a27f1e5fcd2"
+    }
+  ],
+  "changed_pixels_total": 288,
+  "scope": "This checks correction deltas against retained original baseline; full composition oracle remains separately required."
+}

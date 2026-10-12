@@ -1,0 +1,206 @@
+{
+  "status": "PASS source and boundary repair independent review",
+  "tested_source_checkpoint": "24fb5358841fc7bbffcc5d4d9f2a60f3e157ee55",
+  "initial_source_review": {
+    "status": "PASS_SOURCE_AND_BINDING_ONLY",
+    "checkpoint": "ed10ce7ad3d7023c154128d75857e8450a9cf032",
+    "parent": "2efdc890217330e75a873252ca96b576495b23b9",
+    "checkout_clean_before_and_after": true,
+    "scope": {
+      "bank": 1,
+      "role": 101,
+      "bases": [
+        1,
+        3,
+        5,
+        7,
+        9,
+        11
+      ],
+      "actor_types": [
+        23,
+        22,
+        21,
+        18,
+        19,
+        20
+      ],
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        6,
+        7
+      ],
+      "density": 8,
+      "slots": [
+        404,
+        405,
+        406,
+        407,
+        408,
+        409
+      ]
+    },
+    "findings": {
+      "blockers": [],
+      "approved_frozen_directory_files_byte_identical": 28,
+      "exact_original_alpha_cells": 1482,
+      "independent_native_320_pitch_original_decode": true,
+      "source_only_reproduction_without_original_or_canonical_art": true,
+      "frozen_source_rejections": 80,
+      "existing_ASan_UBSan_binding_cases": 153,
+      "additional_independent_all_member_malformed_cases": 48,
+      "allocation_failure_positions": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "all_members_required_before_draw": true,
+      "family_failure_and_success_cached": true,
+      "unrelated_families_independent": true,
+      "valid_4x_cannot_replace_missing_8x": true,
+      "both_default_packs_passed": true,
+      "prior_bindings_unchanged": 222,
+      "prior_files_checked": 5833,
+      "prior_asset_bytes_identical": 579483635,
+      "prior_manifest_exact_after_finite_projection": true,
+      "independent_projection_rejections": 64,
+      "startup_package_tests": 13,
+      "title_package_tests": 18,
+      "central_HDA_entries_verified": 3068,
+      "central_source_PNGs_verified": 430,
+      "default_pack_counts": [
+        414,
+        418
+      ],
+      "renderer_delta_only_capacity_and_six_family_gate": true,
+      "gameplay_events_filters_operators_unchanged": true
+    },
+    "limitations": [
+      "No game execution, capture, mutation, publication or actual visibility acceptance in this audit.",
+      "ASan/UBSan recorder is not the full game; LSan disabled by existing test because executor ptrace is incompatible.",
+      "Existing Linux build log reviewed, full build not rerun in read-only audit. Windows project source checked only, no Windows build/runtime.",
+      "Natural outer-cap full visibility is not asserted. Runtime lifecycle and compositing checks remain separate.",
+      "Runtime FNV is accidental-corruption detection; SHA256 source/package receipts establish frozen byte identity."
+    ],
+    "renderer_sha256": "cff9d396e6a4ed078c7b7513355ee7a5ecf278c6179d1bd3fafe2784cb383e8d",
+    "evidence_sha256": {
+      "test-results.json": "e529605bf27c76380d4151619c34a9d5919f9392440f5fe6819074565bc7e434",
+      "source.log": "cbef5ce4885ac31fe984bf18aaaec171524acb7e28bd3ea88e7daa25678cacbf",
+      "original-rebuilt.log": "6b9a913c49f07880d0764abf644eb9cf24665858bc44427aa1a64b8011331b1f",
+      "guards/receipt.json": "ce1191295b387e7863a96fd05b46788c7ca22c32fdec63d91d6ed576bf7f7399",
+      "binding/receipt.json": "50bd379385df6a8dd77b2bb8cd3dd8a4c7bdc701a2447fddb8a0adb603f13607",
+      "preservation.json": "60db3382c702144bef70a13954f8362de1cbf80884c308bf35dc9b254832dfcf",
+      "startup.log": "053a6eb5c5fa0fd0f719bffc07c9ed42b95b336b3673c97e39996c29b09fda5c",
+      "title.log": "3dce372d405749f629c499f5ff5cce955400e72137bfd471c8468df433f45f4a",
+      "central-assets.json": "1a6d067fa2d351d19406219b8d8d70aaef262076c4594902c412735cb7302bc8",
+      "independent-checks.json": "62c29c0e76b0d557ca2422f5afe5207ef5b8d88ac14b683ab7859eaf3af6a9c8",
+      "independent_checks.py": "e5ba8a0359a9c37c42b88633adb0a68576f7a3ac8ec114063c22f8887b6a88d3"
+    }
+  },
+  "boundary_repair_review": {
+    "status": "PASS_REVISED_SOURCE_BOUNDARY_AND_OWNERSHIP_UNIT",
+    "checkpoint": "24fb5358841fc7bbffcc5d4d9f2a60f3e157ee55",
+    "parent": "ed10ce7ad3d7023c154128d75857e8450a9cf032",
+    "historical_prior_audit": "../late-spike-independent-audit-20261012/receipt.json",
+    "historical_prior_audit_preserved": true,
+    "checkout_clean_before_and_after": true,
+    "blockers": [],
+    "scope": "Only bank1/newsh2 full bases1/3/5/7/9/11, slots404\u2013409. No gameplay, global blitter, event, filter, clipping operator or prior-family edits.",
+    "geometry": {
+      "exact_layout": [
+        320,
+        200,
+        320,
+        8,
+        1
+      ],
+      "layout_fields": [
+        "width",
+        "height",
+        "pitch",
+        "bits_per_pixel",
+        "bytes_per_pixel"
+      ],
+      "format_required_nonnull": true,
+      "safe_quadrant_x": [
+        0,
+        308
+      ],
+      "pixel_width": 12,
+      "no_x_addition_or_pitch_subtraction": true,
+      "extreme_x_pitch_and_invalid_layout_ASan_UBSan_passed": true,
+      "all_six_four_parts_all256_filters": true,
+      "ordinary_negative_and_bottom_clipped_y_tested": true,
+      "geometric_failure_does_not_poison_family_cache": true,
+      "safe_adjacent_quadrant_remains_HD": true,
+      "playfield_boundary_not_used_as_physical_boundary": true
+    },
+    "ownership": {
+      "preflight_does_not_set_suppress_or_pixel_ownership": true,
+      "return_precedes_draw_asset_filtered": true,
+      "original_blit_still_runs_once_before_entity_end": true,
+      "extracted_production_blitters_and_mirror_pixel_unit_cases": 648,
+      "original_indexed_writes_verified": 40014,
+      "horizontal_wrap_writes_verified": 31461,
+      "all64_subpixels_RGB_and_ownership_exact": true,
+      "unfiltered_and_original_filters": [
+        0,
+        9,
+        255
+      ],
+      "prior_RGB_and_ownership_unchanged_until_classic_write": true,
+      "sanitizers": [
+        "address",
+        "undefined"
+      ]
+    },
+    "regression": {
+      "binding_cases": 153,
+      "prior_bindings_unchanged": 222,
+      "prior_files_checked": 5833,
+      "prior_asset_bytes_unchanged": 579483635,
+      "source_only_original_alpha_HDR1_rebuild_passed": true,
+      "startup_package_tests": 13,
+      "title_package_tests": 18,
+      "renderer_exact_to_historical_after_guard_removal": true,
+      "all_other_gameplay_and_ownership_code_byte_identical": true
+    },
+    "renderer_sha256": "2d93ab3ed787acf6f31a0c96867e2057bd607971f1ac06a4545a3e98589ad69c",
+    "limitations": [
+      "No game executions, captures, repository edits, or publication by this reviewer.",
+      "Actual same-window lifecycle and strict pixel proof acceptance remains a separate test run.",
+      "Ownership test is an isolated extracted-source unit, not gameplay/render capture evidence.",
+      "No general INT_MIN/INT_MAX y-coordinate or arbitrary SDL layout support is claimed. Unsupported layouts fail closed for this family.",
+      "Existing Linux build log reviewed; no full build rerun by this reviewer. No Windows/GPU runtime acceptance."
+    ],
+    "evidence_sha256": {
+      "test-results.json": "9a1851cd57a9bc9ffec6ad1de49b6baa20cd49ee0773cc3fafbc42509c292379",
+      "source.log": "6b9a913c49f07880d0764abf644eb9cf24665858bc44427aa1a64b8011331b1f",
+      "binding/receipt.json": "8f59982d6d3423ed1302dac8413d1fcd865fa8cc35653ea70a64e446a06bf202",
+      "preservation.json": "b1578fcb12256a3d7032c0c2e9b6c58e4c3ec4b6b9f4845658c6534fdd04a2f5",
+      "startup.log": "9712401ff53a918476457b953c1288aa8c019274ad8f5edee675637b82019ba6",
+      "title.log": "83565d51579a37824699baff5fd3660d801c32ccc7cbfbb93117be72993c1531",
+      "structural-review.json": "6c583380219175a91aba47811c86832f312c97a777804cef5e960dc70e4a1530",
+      "ownership-receipt.json": "23b5940499152d14a6ac8be7e911f566f7f371ff4729b4792626e01f4d2dc28f",
+      "ownership-unit.log": "4dd621103a06470df4a233fd2f07a48d3d46a5e9a75eba729a945912344e5678",
+      "ownership_unit.c": "f437a452e39244e019fb35425466a86e5746c26ead2b8645ef1fec40b832e06c",
+      "build_ownership_unit.py": "2cc7fb107732160bfc5f084e9f6ba4c9d4c0d3c18d6e23c902ce8073efc6a566"
+    }
+  },
+  "pins": [
+    {
+      "path": "late-spike-independent-audit-20261012/receipt.json",
+      "sha256": "1b28e23f8e9bb931070e490530494ef0a43c6090dae48282a30f3959b114d2d0"
+    },
+    {
+      "path": "late-spike-boundary-independent-audit-20261012/receipt.json",
+      "sha256": "e4069c8e4e86c7a8d8454b9e504fc434bf19ecf548d5aa9a9e38df97e9fa29ef"
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "record_ids": [
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "raw_armor": 50,
+  "armor_scaling": "Normal50; original JE_makeEnemy difficulty scaling preserved, max254 for finite source armor.",
+  "enemyAvail_initial": 0,
+  "scoreitem_initial": false,
+  "dgr": 0,
+  "dani": 0,
+  "dlevel": 0,
+  "starts_damaged": false,
+  "animation": {
+    "ani": 1,
+    "animate": 0,
+    "cycle": 1,
+    "active": 0,
+    "frames": "Exactly one base per record. No separate animation, firing animation, damage image or wreck image."
+  },
+  "nonfatal_damage": "Armor changes; all source imagery remains the same. No threshold form: dlevel0 is unreachable in nonlethal armorleft>damage branch.",
+  "filter": {
+    "enemyground": true,
+    "why": "(explosiontype8 & 1)==0",
+    "normal_player_shot_hit_palette_flash": true,
+    "hit_link_propagation": "Same nonzero link shares ground palette filter; linked finite armor actors are eligible.",
+    "ice_blue_filter": true,
+    "ice_state": "damage99 sets iced40 for struck/linked ground actors; ice countdown and filter0x09 occur after movement. Ice does not stop horizontal acceleration, scrolling or bounds checks.",
+    "engine_semantics": "Original per-draw filter clears after draw; preserve indexed/filter handling, do not author separate tinted assets.",
+    "source": "src/tyrian2.c:263,364-377,1538-1577,4042"
+  },
+  "death": {
+    "removed_not_wreck": true,
+    "enemyAvail_after": 1,
+    "selected_art_stops": true,
+    "linked_scope": "Lethal damage to a member removes live actors matching its link. Each of links7/8/9/10 is separate; not a single33-piece health group. Generic broader link rules remain unchanged.",
+    "raw_explosiontype": 8,
+    "enemyground": true,
+    "explonum": 4,
+    "initial_effect_types": [
+      2,
+      4,
+      3,
+      5
+    ],
+    "initial_effect_bank": "newsh6.shp",
+    "initial_sprite_ids_by_type": {
+      "2": [
+        192,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203
+      ],
+      "4": [
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163,
+        164,
+        165
+      ],
+      "3": [
+        211,
+        212,
+        213,
+        214,
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221,
+        222
+      ],
+      "5": [
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183,
+        184
+      ]
+    },
+    "repeated_small_explosion": {
+      "type": 1,
+      "sprite_ids": [
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133
+      ],
+      "count": 4
+    },
+    "hit_effect": {
+      "type": 0,
+      "sprite_ids": [
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152
+      ]
+    },
+    "conditions": "Large explosion setup requires y>=0 and free original pools; individual setup y bounds and random repeated positions apply. Shared existing effect assets, no new family-specific explosion.",
+    "source": "src/tyrian2.c:1663-1763,1935-2012;src/varz.c:882-1019"
+  },
+  "offscreen_removal": {
+    "x": "after movement ex<-80 or ex>340",
+    "y": "after movement ey<-112 or ey>190 before tempBackMove is added",
+    "no_death_drop_effect_on_bounds_exit": true,
+    "sentinel999": "Generic removal path exists, but family has no selected999 frame.",
+    "source": "src/tyrian2.c:243-245,316-355"
+  },
+  "body_collision": {
+    "eligible": true,
+    "conditions": "Original coordinate collision and noninvulnerable player; enemyAvail0 and even explosiontype8.",
+    "nonfatal": "Damages actor and player; may impart pushback based on original velocity and armor.",
+    "lethal": "Removes linked live actors and emits same shared large explosions; no alternate wreck.",
+    "source": "src/mainint.c:5056-5135"
+  },
+  "shadow": "No separate shadow draw; original black/dark pixels are part of opaque sprite mask.",
+  "launch": {
+    "type": 0,
+    "frequency": 0
+  },
+  "turrets": {
+    "ids": [
+      0,
+      0,
+      0
+    ],
+    "frequency": [
+      0,
+      0,
+      0
+    ],
+    "dependent_projectile_art": false
+  },
+  "drops": {
+    "default": 0,
+    "known_family_spawn_assignments": [],
+    "value_by_record": {
+      "18": 0,
+      "19": 0,
+      "20": 500,
+      "21": 0,
+      "22": 0,
+      "23": 500
+    },
+    "meaning": "Types20/23 have source cash value500 on lethal shot destruction, not a pickup sprite. No family-specific dropped item or weapon dependency. Earlier link assignments do not persist through JE_makeEnemy resetting enemydie0."
+  },
+  "actual_state_acceptance": "Not run; this is original source control flow and table data."
+}

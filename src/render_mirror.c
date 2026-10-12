@@ -35,7 +35,7 @@ typedef struct {
 } Asset;
 enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
-static Asset assets[404];
+static Asset assets[410];
 static Asset talon_frames[13];
 typedef struct {
  bool valid;
@@ -1588,6 +1588,34 @@ static bool type15_eightheading_family_ready(void)
  return type15_eightheading_valid;
 }
 
+/* Approved late spike six-member bank1 family, selected-pack and 8x only.
+ * Preflight every member before the first replacement. The complete RGBA
+ * integrity stamps also pin the exact original alpha support. Failure stays
+ * coherent for this Asset-cache lifetime; unrelated namespaces are untouched. */
+static bool late_spike_checked,late_spike_valid;
+static bool late_spike_family_ready(void)
+{
+ if(game_probe_density!=8||game_probe_missing||game_probe_invalid||!game_probe_assets||
+    !(game_probe_scene_assets&1))return false;
+ if(late_spike_checked)return late_spike_valid;
+ late_spike_checked=true;late_spike_valid=true;
+ static const unsigned int ids[6]={1,3,5,7,9,11};
+ static const uint64_t rgba_stamps[6]={UINT64_C(0xa200c71744dfb67d),UINT64_C(0x16563f2a13fd9d20),UINT64_C(0xa61fd6d4144d8607),UINT64_C(0x41e6f49abb0f073e),UINT64_C(0x7431a5a306d38062),UINT64_C(0x57fb1ddb756b7bd3)};
+ for(int i=0;i<6;i++) {
+  Asset *a=&assets[404+i];
+  a->initialized=true;a->bank=ASSET_NEWSH2;a->index=(int)ids[i];
+  a->w=24;a->h=28;a->anchor_x=6;a->anchor_y=7;
+  a->valid=read_asset(a,8);
+  if(a->valid) {
+   uint64_t stamp=UINT64_C(0xcbf29ce484222325);
+   for(size_t p=0;p<(size_t)24*28*8*8*4;p++){stamp^=a->rgba[p];stamp*=UINT64_C(0x100000001b3);}
+   if(stamp!=rgba_stamps[i])a->valid=false;
+  }
+  if(!a->valid)late_spike_valid=false;
+ }
+ return late_spike_valid;
+}
+
 bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int base,int part,int filter,const G101EnemyContext *material_context)
 {
  if(!active||surface!=game_screen||reject_reason||!(game_probe_scene_assets&1))return false;
@@ -1612,6 +1640,23 @@ bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array ban
   for(int i=0;i<8;i++)if(base==type15_ids[i]) {
    if(!type15_eightheading_family_ready())return false;
    slot=396+i;break;
+  }
+ }
+ /* Late spike six complete composites form four independent moving rows.
+  * Preserve each original quadrant, alpha, filter, anchor and update order. */
+ if(role==ASSET_NEWSH2) {
+  static const unsigned int late_spike_ids[6]={1,3,5,7,9,11};
+  for(int i=0;i<6;i++)if(base==late_spike_ids[i]) {
+   if(!late_spike_family_ready())return false;
+   /* The original 12px RLE call clips linear addresses, so crossing a
+    * physical row can wrap writes onto another scanline. Keep that entire
+    * quadrant classic; an adjacent in-row quadrant may still use HD.
+    * The mirror uses a fixed indexed 320x200 layout. Fail closed for other
+    * layouts and compare x directly, without overflowing x+12 arithmetic. */
+   if(surface->w!=320||surface->h!=200||surface->pitch!=320||
+      !surface->format||surface->format->BitsPerPixel!=8||
+      surface->format->BytesPerPixel!=1||x<0||x>308)return false;
+   slot=404+i;break;
   }
  }
  /* Linked31 four complete newsh2 composites; original coordinates already

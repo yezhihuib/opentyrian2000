@@ -1,0 +1,172 @@
+{
+  "schema": "late-spike-six-bounded-author-receipt-v1",
+  "status": "PASS within stated actual exposure and sampling limits",
+  "candidate": "24fb5358841fc7bbffcc5d4d9f2a60f3e157ee55",
+  "baseline": "2efdc890217330e75a873252ca96b576495b23b9",
+  "superseded_failed_candidate": "ed10ce7ad3d7023c154128d75857e8450a9cf032",
+  "art_revision_requested": false,
+  "family": {
+    "sheet": "newsh2.shp",
+    "types": [
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "bases": [
+      1,
+      3,
+      5,
+      7,
+      9,
+      11
+    ],
+    "art_manifest_sha256": "618dd16ebcecddb12bfe6fbfbd3d3327d9f03453ea965ee178026c6911ba564b"
+  },
+  "direct_visual_scope": {
+    "normal_native2x": "Viewed baseline/candidate640x400 tick6541 pair. Fresh repaired6541 output is byte-identical to the reviewed candidate still.",
+    "ordered_lifecycle": "Viewed all38 retained640x400 frames6541\u20136578 chronologically as unscaled full-frame contact sheets. After repair, directly viewed changed full-size frames6555/6565/6573/6575; independently proved other34PNG files byte-identical.",
+    "baseline_transition_spots": [
+      6543,
+      6545,
+      6546,
+      6571,
+      6572
+    ],
+    "true_native4x": "Directly viewed prior-build ed10ce7 tick6541 actual1280x800. No revised-build4x execution is claimed.",
+    "findings": [
+      "Silver tapers and red collars retain approved material identity and readable fine bevels; joined rows remain straight without visible seams or halo.",
+      "Original INSERT COIN foreground and shadow remain ordered over the top row.",
+      "Hit/ice blue treatment remains clear while original movement continues. Linked row removal leaves no HD ghost; unaffected rows continue.",
+      "Original white lethal presentation and explosion progression remain coherent. Faint final rings are visible at6571;6572 is first effect-free presentation.",
+      "Corrected physical-edge pixels match original rendering, with no alteration to visible authored art elsewhere."
+    ]
+  },
+  "actual_exposure": {
+    "normal6541_fully_unobscured_complete_bases": [
+      3,
+      5,
+      7,
+      9
+    ],
+    "base11": "Partial only:28 original opaque cells/112native2x pixels, quadrants11/30; offscreen during hit/ice.",
+    "base1": "No authored HD presentation. Original negative-x wrapped palette writes are preserved by the revised fallback; these are not full authored cap exposure.",
+    "occlusion": "Other upper-row instances are partly covered by original text/shadow; full-six alpha and art completeness remain source-contract tests."
+  },
+  "numeric_evidence": {
+    "normal2x": {
+      "source_support_pixels": 19964,
+      "changed_pixels": 19436,
+      "outside_support_mismatches": 0,
+      "text_opaque_coverage": 516,
+      "shadow_only_coverage": 216
+    },
+    "lifecycle": {
+      "frames": 38,
+      "original_state_ticks_equal": 6579,
+      "all100_slot_12phase_census_rows": 45600,
+      "original_blend_rows_equal": 46796,
+      "strict_full_frame_pixels": 9728000,
+      "excluded_pixels": 0,
+      "oracle_mismatches": 0,
+      "outside_original_alpha_changes": 0,
+      "target_slot": 31,
+      "target_type": 18,
+      "target_base": 7,
+      "target_link": 7,
+      "guarded_pulses": [
+        {
+          "tick": 6542,
+          "damage": 1
+        },
+        {
+          "tick": 6544,
+          "damage": 99,
+          "role": "original ice path"
+        },
+        {
+          "tick": 6546,
+          "damage": 49,
+          "role": "lethal"
+        }
+      ],
+      "linked_removals": 7,
+      "cash_delta": 500,
+      "kill_delta": 7,
+      "other_links_preserved": [
+        8,
+        9,
+        10
+      ],
+      "other_link_discovery_equal_rows": 11692,
+      "entry_avail2_discovery_equal_rows": 2088,
+      "entry_first_tick": 6550,
+      "pool_first_clear_after_update": 6571,
+      "last_effect_presentation": 6571,
+      "first_effect_free_presentation": 6572
+    },
+    "boundary_repair": {
+      "superseded_candidate_status": "FAIL288 original linear-RLE write parity pixels across four frames; no acceptance exception granted.",
+      "newly_corrected_pixels": 288,
+      "changed_frames": [
+        6555,
+        6565,
+        6573,
+        6575
+      ],
+      "all_corrected_pixels_equal_original_baseline": true,
+      "other34_frames_byte_identical": true,
+      "qualification": "Six-family, per-quadrant classic fallback for physical-row crossing. Partial-HD at these boundaries is intentional; no whole-scene fallback or artwork revision."
+    },
+    "native4x_equivalence": {
+      "direct_capture_build": "ed10ce7ad3d7023c154128d75857e8450a9cf032",
+      "revised_equivalence": "Derived, not a new4x capture:108 unchanged HD calls, two newly classic base1 calls have zero visible original or authored8x footprint; state/material/order/palette and fresh2x output agree.",
+      "direct_capture_oracle_pixels": 1024000,
+      "mismatches": 0
+    },
+    "fallback": "Three matched fallback comparisons passed across four successful actual executions/readbacks: missing3, corrupt3 and candidate-density4 (with its separately executed density4 baseline). No visual playback claim for these controls."
+  },
+  "verification_pins": {
+    "normal_native2x": {
+      "path": "late-spike-normal-still-20261012/verification-native2x.json",
+      "sha256": "d292ef6a7a7e224606e345b21d6def18c5465e344c7e4f48e63d8fe9b0e03c27"
+    },
+    "old_direct_native4x": {
+      "path": "late-spike-normal-still-20261012/verification-native4x.json",
+      "sha256": "e68f646bd1b5c77a7df2776d1d845b567fa786a4cd18cccd589fcb044c73059d"
+    },
+    "repaired_lifecycle_state": {
+      "path": "late-spike-boundary-lifecycle-20261012/state-verification.json",
+      "sha256": "2c9bf97274102aa3054e6974d4036c1fd33f0f0d37e935ea9dbbe00fc364b1a8"
+    },
+    "repaired_strict_pixels_and_derived4x": {
+      "path": "late-spike-boundary-lifecycle-20261012/pixel-verification.json",
+      "sha256": "e4296699f4a70d117f323292dc77bd6cde14635acc664a4fb4bb42c282d82bba"
+    },
+    "fallback": {
+      "path": "late-spike-fallback-20261012/verification.json",
+      "sha256": "18b1c93cc72934e91c65764554a8690629198847afa15d9f32fc302ec583a26c"
+    },
+    "preserved_old_failure": {
+      "path": "late-spike-lifecycle-20261012/pixel-verification.json",
+      "sha256": "62692a6684cba777bb77bd9d7fb7355ebbe7a4704d40c2cc06dc2ff3cbb68596"
+    }
+  },
+  "capture_and_author_evidence": {
+    "normal_candidate2x_png_sha256": "cbf27bdbeb566b6ec0deed75d0325f4415702da9b216d1c0df8c9ecb892f4349",
+    "old_direct_candidate4x_png_sha256": "dccc9e7bdb726804fdfbeea5c18ff70d4fb37c02065ef0c3ea2bebc88c5cf93e",
+    "all_final38_capture_pins_file": "final-review-inputs.json",
+    "all_final38_capture_pins_sha256": "ee78afe3411376aa6372176df20cdb47a7ba18c9239ec7f9c4147a5d65828560",
+    "independent_boundary_delta_file": "boundary-delta-check.json",
+    "independent_boundary_delta_sha256": "661131cfad1928e216794cccd79766b666a9948ee75f9e86958e0c418a28e6c3"
+  },
+  "limitations": [
+    "Private stationary no-fire player-survival fixture with three explicitly artificial requests through original Pulse155 collision handling; not natural player combat or survival.",
+    "Direct visual evidence is retained PNGs/contact sheets. No continuous-video playback claim.",
+    "Native4x actual image belongs to the prior build; revised4x equivalence is derived as documented, not directly captured.",
+    "Other HD rows remain after link7 dies, so full baseline/candidate equality after lethal is not expected; strict ordered composition and outside-support parity are the acceptance tests.",
+    "No full-family natural exposure, physical-display/Windows/GPU/audio or full-first-level claim. Entry craft is still original indexed artwork in this spike trial."
+  ]
+}

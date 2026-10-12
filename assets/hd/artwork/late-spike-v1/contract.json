@@ -1,0 +1,182 @@
+{
+  "schema": "newsh2-late-six-art-v1",
+  "approval": "Root approved all-four source assembly native2x geometry, joins, tip/cap and steel/red identity on2026-10-12; actual runtime gate remains separate.",
+  "kind": "Six distinct original static composite source sprites forming four independently moving linked rows, not one six-part entity.",
+  "bank": 1,
+  "source_file": "newsh2.shp",
+  "source_sha256": "8773ebcae4be992ecfbb476c0797b0bef4d43faa4c99449890bfaa28c8d9cbcc",
+  "key_namespace": 101,
+  "bases": [
+    1,
+    3,
+    5,
+    7,
+    9,
+    11
+  ],
+  "enemy_type_by_base": {
+    "1": 23,
+    "3": 22,
+    "5": 21,
+    "7": 18,
+    "9": 19,
+    "11": 20
+  },
+  "component_logical_size": [
+    24,
+    28
+  ],
+  "anchor": [
+    6,
+    7
+  ],
+  "density": 8,
+  "rgba_size": [
+    192,
+    224
+  ],
+  "source_quadrant_offsets": [
+    0,
+    1,
+    19,
+    20
+  ],
+  "source_quadrant_placement": [
+    [
+      0,
+      0
+    ],
+    [
+      12,
+      0
+    ],
+    [
+      0,
+      14
+    ],
+    [
+      12,
+      14
+    ]
+  ],
+  "alpha": "Exact original encoded RLE opacity repeated8x, binary0/255; RGB zero atalpha0. Never mirror or recenter.",
+  "opaque_logical_cells": 1482,
+  "technical_matte_rgb": [
+    8,
+    8,
+    8
+  ],
+  "master_registration": [
+    {
+      "id": "a",
+      "bases": [
+        1,
+        3,
+        5
+      ],
+      "master_crop_halfopen": [
+        124,
+        116,
+        1412,
+        348
+      ],
+      "target_halfopen_8x": [
+        0,
+        40,
+        552,
+        168
+      ]
+    },
+    {
+      "id": "b",
+      "bases": [
+        7,
+        9,
+        11
+      ],
+      "master_crop_halfopen": [
+        110,
+        644,
+        1436,
+        861
+      ],
+      "target_halfopen_8x": [
+        16,
+        40,
+        576,
+        168
+      ]
+    }
+  ],
+  "whole_registered_size": [
+    576,
+    224
+  ],
+  "resampling": "Pillow12.3.0 LANCZOS only for whole-triplet source registration. Native2x/4x review uses NEAREST from canonical8x.",
+  "source_layouts": [
+    {
+      "link": 7,
+      "bases": [
+        7,
+        9,
+        9,
+        9,
+        9,
+        9,
+        11
+      ],
+      "predicted_first_tick": 6506
+    },
+    {
+      "link": 8,
+      "bases": [
+        1,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        5
+      ],
+      "predicted_first_tick": 6515
+    },
+    {
+      "link": 9,
+      "bases": [
+        7,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        11
+      ],
+      "predicted_first_tick": 6526
+    },
+    {
+      "link": 10,
+      "bases": [
+        1,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        5
+      ],
+      "predicted_first_tick": 6535
+    }
+  ],
+  "layout_spacing": 24,
+  "runtime_scope": "Existing bank1 namespace101 composite route. Source guards, palette filters, motion, linked removal and actual visibility are engineering responsibilities; no runtime evidence is claimed by this offline source package.",
+  "reused_middle_tiles": [
+    3,
+    9
+  ],
+  "actual_visibility_warning": "Opposite caps move outward. Stationary camera may not expose every base; source complete assembly is not actual exposure evidence."
+}

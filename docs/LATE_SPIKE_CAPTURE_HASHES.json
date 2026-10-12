@@ -1,0 +1,1348 @@
+{
+  "schema": "late-spike-native-capture-hashes-v1",
+  "baseline": "2efdc890217330e75a873252ca96b576495b23b9",
+  "tested_final_candidate": "24fb5358841fc7bbffcc5d4d9f2a60f3e157ee55",
+  "note": "Historical failed, normal, old true4x, repaired candidate and fallback evidence are labeled by paths. Repaired baseline is reused evidence, not another run.",
+  "captures": {
+    "late-spike-normal-still-20261012/baseline-census/frame-hashes.json": {
+      "sha256": "b6b275b2b47d76b4e57402635ca8e86223fe94c6bd5c20a817d72a19ea07afb2",
+      "frames": [
+        {
+          "tick": 6541,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "558914b3564008bd867a0576430e01699e48e137b06644632a7350f6a1ecfe60",
+          "PNG_sha256": "d48784d194feb66e1b2c869f3014193d9593c85a63a48e1c7282163890070e68",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/baseline-census/actual-6541-native2x.png"
+        }
+      ]
+    },
+    "late-spike-normal-still-20261012/baseline-census-4x/frame-hashes.json": {
+      "sha256": "13b8991d2fe20fc9994ad5c5f27be956eaa90367d53b549954041817baba56a0",
+      "frames": [
+        {
+          "tick": 6541,
+          "width": 1280,
+          "height": 800,
+          "RGBA_sha256": "02cf916d1c61c2bf4c16948ce14015d0f5920303cc569039272939fb97e57b5c",
+          "PNG_sha256": "980b78287c20b61801edfb433def5e49b12873caadd93714ec27700b6109eeca",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/baseline-census-4x/actual-6541-native4x.png"
+        }
+      ]
+    },
+    "late-spike-normal-still-20261012/candidate-census/frame-hashes.json": {
+      "sha256": "278aea2e2bb02c8f2dd052055dc01eda64e0598ab06656a3d4166c24bb81d16c",
+      "frames": [
+        {
+          "tick": 6541,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "344ada7fe34b0eb1b8c772203f4a92e3d6fc96c9532ab8764328793690a88add",
+          "PNG_sha256": "cbf27bdbeb566b6ec0deed75d0325f4415702da9b216d1c0df8c9ecb892f4349",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/candidate-census/actual-6541-native2x.png"
+        }
+      ]
+    },
+    "late-spike-normal-still-20261012/candidate-census-4x/frame-hashes.json": {
+      "sha256": "c773899ff63aaea4ad2755de09d72f61e3e5bd2caa026ba07fe0714fc72d6a82",
+      "frames": [
+        {
+          "tick": 6541,
+          "width": 1280,
+          "height": 800,
+          "RGBA_sha256": "07bd4b23d35c026c3126986fd4f84d86f37465d3e37a23f80b0379a70077b888",
+          "PNG_sha256": "dccc9e7bdb726804fdfbeea5c18ff70d4fb37c02065ef0c3ea2bebc88c5cf93e",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/candidate-census-4x/actual-6541-native4x.png"
+        }
+      ]
+    },
+    "late-spike-lifecycle-20261012/baseline-census/frame-hashes.json": {
+      "sha256": "1a8e3de74ab7f8c12e9264166d8e0b4157487c519715d12ff2097cd326558618",
+      "frames": [
+        {
+          "tick": 6541,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "558914b3564008bd867a0576430e01699e48e137b06644632a7350f6a1ecfe60",
+          "PNG_sha256": "d48784d194feb66e1b2c869f3014193d9593c85a63a48e1c7282163890070e68",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6541-native2x.png"
+        },
+        {
+          "tick": 6542,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "d824c8ffbe9cb12d101e1f1652eccb0dad7557a19130bd02c10ce1b23b23af04",
+          "PNG_sha256": "c2e2d2efca9148ac7a3ce2587a753305a1f1643f69a490bfdb7e60a3c8434622",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6542-native2x.png"
+        },
+        {
+          "tick": 6543,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "ba5263e6f5fc00f4aecc3a188272d0baa1e718c48db4bbbe637098c5bf9185c1",
+          "PNG_sha256": "5967f6e803da42c51a8aa7770de21011347cc6b81da8a61a000fc14d9209fa51",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6543-native2x.png"
+        },
+        {
+          "tick": 6544,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "3c5007e2407ddc952bdffda803c399c07736eceaa374d278992f40a477411851",
+          "PNG_sha256": "7d99cfdbc39ba928ef7463a5478dd2206b0349218855a926b9cd44aedc8d0247",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6544-native2x.png"
+        },
+        {
+          "tick": 6545,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "fea0b5a1d28e8f884770fe13c7717da8fac0450f320b8f23fb8d80c25e1d5e5c",
+          "PNG_sha256": "0e46ba103972bc38f86acf7b0f137c83e2ada27a5e06a765541b94c3d5224ac9",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6545-native2x.png"
+        },
+        {
+          "tick": 6546,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "36b16546afda51282f43a6a28be5718b1c617015fc0026f5e33c58af2ca3ccf5",
+          "PNG_sha256": "171418f73c371d804acb451ee0ce4bac222833fecf277b769e2a27696411e4d7",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6546-native2x.png"
+        },
+        {
+          "tick": 6547,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "64741acbe43c6728d8fa4b13b2b904a335732f8c6317eb8d3728588325e10b90",
+          "PNG_sha256": "8a3968a6ee2b91e4c15d68a793319108630ea8631c1249be320501457a8bc953",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6547-native2x.png"
+        },
+        {
+          "tick": 6548,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "e1244ac68cca9cdb67ae695a875f62e648ec78c8b8c648e6e9224df4bedfc5ca",
+          "PNG_sha256": "0c3cec40498f13d4c6517bc2a2f3aa7a2ac7badce694763c8115eacd61fd7a6f",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6548-native2x.png"
+        },
+        {
+          "tick": 6549,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "3345379cdf594d2f973cdc3b10d6955526c955e7e28ebb18ce63749af8311384",
+          "PNG_sha256": "6a661c26c056024d3fd708115e681885908b9477f32d157f9720da322a59cb41",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6549-native2x.png"
+        },
+        {
+          "tick": 6550,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "a5f91a9feb5014255c97de802f643c26c6d042790a6cb5bcff95ea546bb0b195",
+          "PNG_sha256": "ed74cfffd53bba65137be5faa1986cfae787720c479788cb0b450bee93e1af7c",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6550-native2x.png"
+        },
+        {
+          "tick": 6551,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "a6f24dc27e60ffa745e991f1f3fddb38f201d52532b99c02acea3dd53d200edb",
+          "PNG_sha256": "67997f4be251e19dbaec2607bc8b008237def048dcd351cd7c1a203f6bd2d0b6",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6551-native2x.png"
+        },
+        {
+          "tick": 6552,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "43c15a0a004bc3abb5a897c272fcbd0c36d4b3c991066c8d2f6919576a0ac2f9",
+          "PNG_sha256": "5cd4fad10c58638355bfd93a4c857c41f8cbe821fdb17b9a2c6f0e886ffb3307",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6552-native2x.png"
+        },
+        {
+          "tick": 6553,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "b03258928ff5f035dd299ba7985a3af3119fcdcd48e4f5910ff4a266c62ac056",
+          "PNG_sha256": "801d9f1ce3feeaef2023bdeef4c191849e09b8a8e769dd29f6c418c64b4bdf22",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6553-native2x.png"
+        },
+        {
+          "tick": 6554,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "bf387ca46ab723d9fbc2036976f96c21f0caffb31dcbc1b8a64b815b49cce00f",
+          "PNG_sha256": "ff16c47c75e6a0bd766ca1bba09ef4e4b4545066f1ffca0215bcd8360c0f80af",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6554-native2x.png"
+        },
+        {
+          "tick": 6555,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "569f27e53d1d51b3161af34a00e80654b758f782d12579e9c2f83ec7f2ebec54",
+          "PNG_sha256": "4789db7017f1bfbd795836904613ebe505ba65a962248413c9b84ec3746c6bbe",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6555-native2x.png"
+        },
+        {
+          "tick": 6556,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "183870d0a26e71f31017967c19f80750d05bba5a763f9dd89e99808447eb3dbf",
+          "PNG_sha256": "4d5723d81462507cd1050bc1272a7236c74695fe7686f31b159b4732320e3c0e",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6556-native2x.png"
+        },
+        {
+          "tick": 6557,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "48a2e63180d2f97cee839d0f9bd5c9ba861772e0b0cd39e54f34b51d63b02650",
+          "PNG_sha256": "9189cc410095d062197a7737178c542393d609b8d1e01b00ab6f67936f3c9cf0",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6557-native2x.png"
+        },
+        {
+          "tick": 6558,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "b3064c833325672d202b837994274918e205cb5c2c1c59aa3a33fde210befe51",
+          "PNG_sha256": "34a5708c8c8bed06dafd66e39fc72f5d5b02475557a25fe1e740ee3d22319c43",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6558-native2x.png"
+        },
+        {
+          "tick": 6559,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "19ec064e6b42dfc483c1e3b48aa17a821e6734aa03e5dae5a512b200c84da725",
+          "PNG_sha256": "4d726f6f5427505435bf89f7f95e2ae72be308d55896aea7e707a606ec89bac8",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6559-native2x.png"
+        },
+        {
+          "tick": 6560,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "b8ab09bea6b72a270d8809f30aebfd533cfed40ed8cadff00a96b945aa115fa1",
+          "PNG_sha256": "08f5fca39a11b93c83874ab7d681fd2a1b06f4bb62703906d90d84105128b028",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6560-native2x.png"
+        },
+        {
+          "tick": 6561,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "6306d44e0aa3f55e5afc56b0e1f392db1409d2b5962c9c630d1b46c83ac41769",
+          "PNG_sha256": "3235235a0a61353cd3b792b1ccc994ce25a1864d9a2cb957e0f927b7feef8dcf",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6561-native2x.png"
+        },
+        {
+          "tick": 6562,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "23d8fe0f703472178b604e202740cf80115a65133a8c4d6b63c0b3981f519648",
+          "PNG_sha256": "a979b9a5fc62736914476d1fdafd461302e1903f554327daa7e89c59c2c46fa6",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6562-native2x.png"
+        },
+        {
+          "tick": 6563,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "22c20eeb4bee05cdae3ce0cd8380d58cb68670d72197f9e124b3b367447d8309",
+          "PNG_sha256": "43afa46914e71fdd40127856c64cb74c94eb3cdf50afbf95925096f28f43a725",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6563-native2x.png"
+        },
+        {
+          "tick": 6564,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "e8f3d868dac91d446d5c4bce3232b0ee397ad59bd4ee6a1c1eabba626ec2853c",
+          "PNG_sha256": "46e84fb555ba0cef49e5f6be769399f2b14b597e77d704d57eba493604c10ad3",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6564-native2x.png"
+        },
+        {
+          "tick": 6565,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "2464ba5f4150104eac7385aec49dbaf4547130ee1e4adf5a4635a467fa38cc59",
+          "PNG_sha256": "271678442aa9813f32ef75845f0cdd4c0bdf511f81df01e13de330d21dda18d4",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6565-native2x.png"
+        },
+        {
+          "tick": 6566,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "9f185fbe1d7cb3127c3162021fad679fd35f2aba418a1a3893a2df47e199039e",
+          "PNG_sha256": "024f1187a34ffcc8f55e7ee7b5c2b62617d3169ccb309be1953ed8d960d1c5ed",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6566-native2x.png"
+        },
+        {
+          "tick": 6567,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "c049a3be5538aa285415cab2ace65e39bb52bcea94bd98d1d207f698df8f76f2",
+          "PNG_sha256": "c2cc82c190eba2ac4aa578baa69df38df520bf6bc54aa8747b0d4d30b7512ed3",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6567-native2x.png"
+        },
+        {
+          "tick": 6568,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "8f3e3f749ae211bf2e5270f2b7753e780f1168a078c8541ee47547aba67610c5",
+          "PNG_sha256": "000f30f59a80965d9aa8101acef58106a7ae4c110f506ff1fbba5610cdd02db7",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6568-native2x.png"
+        },
+        {
+          "tick": 6569,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "3c491887634234ccd86e4ca7fd8df9265465cf3121f2420ebcee483cf92954a1",
+          "PNG_sha256": "852892af7e3606b72632d65819c2e96707e969c5ad7f64e93717120f4bf2a9da",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6569-native2x.png"
+        },
+        {
+          "tick": 6570,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "bdbf03f02345f986fc83a851f7b7c3ee481baa92a379efef1d2e03169f24bf57",
+          "PNG_sha256": "01f96583813484b7638c2afc8d0764dc8d6b6f5845556092afd8c8f0788f55a6",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6570-native2x.png"
+        },
+        {
+          "tick": 6571,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "f785575173f4ed450e9393f552d450c7beef5d85986d3333f5ed0bf29df65f39",
+          "PNG_sha256": "75c20f41f09d940f24b5c1187be71835217a461e73c62604fd9ed186ea933f9f",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6571-native2x.png"
+        },
+        {
+          "tick": 6572,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "3043b052a2c92772a077265fa7b8b72c6d088d591432d2ffdc5b10dd73c43a57",
+          "PNG_sha256": "ec25df5e634dd3e39388a54e156bb52397ae83d3ea3b8fb0b9deaf1e76a73ded",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6572-native2x.png"
+        },
+        {
+          "tick": 6573,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "d9233efe2e49a8e496c9cc77437c1d83e821377eaf0ed637924d0997e698673c",
+          "PNG_sha256": "ef4767dceb1820856ae82ba1ab2876d1ca9ba3fdc073c1dc2478eb892088a20e",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6573-native2x.png"
+        },
+        {
+          "tick": 6574,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "710e903edfe2576e4064ee60f303d99cbfee51ad8c650912bdfa18a1fb2e70ef",
+          "PNG_sha256": "5ac32f3d846c419b6dac877b84493baaa294cce5c26cd04c784157f91b737a07",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6574-native2x.png"
+        },
+        {
+          "tick": 6575,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "d63f6c7a1c20d9dab6a2c9a1c00d216ba37931861e7c8870f226f6c8dbd62192",
+          "PNG_sha256": "b247bcaafc740dae12f12c974ee73d891c7e0bf969ac30bcc9a6193692e27b6b",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6575-native2x.png"
+        },
+        {
+          "tick": 6576,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "531bd9236829cd66547ae6c95be38f9be057e57f300ed658fd809e68667f4bd0",
+          "PNG_sha256": "c203366ae6f1dc153da0bb3045d5adb96f203148541a4231b8491d7484c09a49",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6576-native2x.png"
+        },
+        {
+          "tick": 6577,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "eed8dd65306b32f1cf0953ec96a2f8507104cd8b4df007aa231b94b5e589e7d1",
+          "PNG_sha256": "246b9a9cfbbd73f4dd16ee867df7cb52d0ac81d74cd5dbe0d1161ab35afa42d3",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6577-native2x.png"
+        },
+        {
+          "tick": 6578,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "df0345da4ac80ecba5c610fbfe610669813a32427045d13ede237565202dcffe",
+          "PNG_sha256": "beba883af98f4f756edc219d3c22574280ee0784db0f3a4fdfbbaacd23e8e3d5",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6578-native2x.png"
+        }
+      ]
+    },
+    "late-spike-lifecycle-20261012/candidate-census/frame-hashes.json": {
+      "sha256": "f1d81e33bf079b82c3566f5388d209f91b759ebbfbfc2dcbec147bec9eb89f77",
+      "frames": [
+        {
+          "tick": 6541,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "344ada7fe34b0eb1b8c772203f4a92e3d6fc96c9532ab8764328793690a88add",
+          "PNG_sha256": "cbf27bdbeb566b6ec0deed75d0325f4415702da9b216d1c0df8c9ecb892f4349",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6541-native2x.png"
+        },
+        {
+          "tick": 6542,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "ad308e5322103bf2defdfb9fa84a9ccf0e99b493ad39e75b7e17cc5ed0808fff",
+          "PNG_sha256": "79ec0f7748eef7b2596bcdd40aaf245ca1055ba2ccb9221664f0a79c069b90bc",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6542-native2x.png"
+        },
+        {
+          "tick": 6543,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "9b40083e1b939251931b7bb17f9aa6095c83d164fe6ff9ecff9085d15d1b3417",
+          "PNG_sha256": "82af795bf8b99ed6ce9b25948099c5da13328f114bb6822273af957ab46026e1",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6543-native2x.png"
+        },
+        {
+          "tick": 6544,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "d760d81ea974254a2bef474ae8d3e41267fb1c3b799b9c8a3094351d4d2c2d5b",
+          "PNG_sha256": "6015cfbba333ba9e7b4c07e91327558ffcd257426a7372876ff7fc627d26cbea",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6544-native2x.png"
+        },
+        {
+          "tick": 6545,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "5418ce2b343afee8341b5d88fe36fb39e121022d69cb178fd6f4a15270459526",
+          "PNG_sha256": "a6e2e3f92ac7cfd126932f817620c8f8019a15ce6ae38ecf8098efee51bd09a3",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6545-native2x.png"
+        },
+        {
+          "tick": 6546,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "29e88b66998610e1b57482f88900fd6604997e1972fce59990d90ebb68503f7b",
+          "PNG_sha256": "0f7ffbf131ac0ecc9a6dd860e397f1942f96f512c9b1b0482479b3827da02ed7",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6546-native2x.png"
+        },
+        {
+          "tick": 6547,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "a8d99197658bfb2186f1b8e4b4b485598aa6bbfbe66a44079153700babb4cd64",
+          "PNG_sha256": "309d88f1281405f2b9a43d445c4640c6c9ac8da27ac0ed100a1b86f57db949c5",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6547-native2x.png"
+        },
+        {
+          "tick": 6548,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "e958336b3b22b78886e1e3967d8a9a7f4676becf4df66e6272e12da0b59b5961",
+          "PNG_sha256": "49edd3ce61c3419202da62d0ec9f208853707ebc03175eeed91a1d36240e4b1d",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6548-native2x.png"
+        },
+        {
+          "tick": 6549,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "025b2a883455a7270bccb47b3917a801a5d41faa9eb512fca51164acbb8fbf0b",
+          "PNG_sha256": "e36989cbe804218926656f31122f602079f80e9022b2f979104cf484d9469ad4",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6549-native2x.png"
+        },
+        {
+          "tick": 6550,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "4a94bf069980e1eb41f208791ceb86fa36cb9cee9ff24cf12f9895468b1a587a",
+          "PNG_sha256": "4176c8e624a0d3cf0136725f3787b48f189642e286dca741ee50a3d8adf4bb3e",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6550-native2x.png"
+        },
+        {
+          "tick": 6551,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "e27405cb8c0cc3367ae0445ddd248e4880c9247f338408f1bbb1637826d2f886",
+          "PNG_sha256": "aa0cce98c665599b07555d970e8a36bd030300d4f9133ce8c23f16a63c7ca2b4",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6551-native2x.png"
+        },
+        {
+          "tick": 6552,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "cbd63403c5444eb30b56e85a9190fea24dd4d8b26aad8f89f6de903802c2995d",
+          "PNG_sha256": "c05b9e891b0c9e8e25da8e804d3e51bcbc35a78f7219cfb45dc38bad3b831465",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6552-native2x.png"
+        },
+        {
+          "tick": 6553,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "b18f1667f059645728e369f48449518902b24ba0b5d8471c7e06f83def8168be",
+          "PNG_sha256": "0dca7a5ee86b318707a7776bd21b3b5376fc50e649376114c8f7e62574eeb3e5",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6553-native2x.png"
+        },
+        {
+          "tick": 6554,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "0a67cf0184a1cc3efb7d8e5972e6e7d5156ad56454b52302102e59891ed1542f",
+          "PNG_sha256": "580c06f5ec75abee3e1103222e9b1a72697d4f3d1f83e13081b65461b93f9794",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6554-native2x.png"
+        },
+        {
+          "tick": 6555,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "345fac461cd47696e707a90e5a33eab6c6ac77b63ff2b4af7c4412f6f81298a9",
+          "PNG_sha256": "b8e1da0e3d79c348515a779a3eabc6c70351cebc062804fe3bad3104581d3e78",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6555-native2x.png"
+        },
+        {
+          "tick": 6556,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "0f142f7ade13c0428a27759b82f9304f1eb8442042885f3d302d04d531f3c297",
+          "PNG_sha256": "92838bf9e7b5c41dec63b25f19b2089c042c461ab9aad76c4e1e6c1327bac668",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6556-native2x.png"
+        },
+        {
+          "tick": 6557,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "c432e484c827104a19d6ffb4a6620608f6d737bf45e6cb7d8bbda929104a3210",
+          "PNG_sha256": "e50e3b6582c92e51a0135e564df3826aafc5cbe12089e539c5e31bc808f75654",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6557-native2x.png"
+        },
+        {
+          "tick": 6558,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "229bc23f22f8fd07fd6defb505d4b42d8be9b89d84b8fdbb3f96673313f7a65b",
+          "PNG_sha256": "4173f1edbb6af35e2817f1500235f67a472f2fa08b69210cbfa3f41a14c4530e",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6558-native2x.png"
+        },
+        {
+          "tick": 6559,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "3241b257b892f9f907657577e08d0a2f855355191ecf6c8b4d61424fc8d60439",
+          "PNG_sha256": "980c2f2ea1a2c396c02feda73bab4025a2014dcae5b2b293489e31e380581490",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6559-native2x.png"
+        },
+        {
+          "tick": 6560,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "463ae47ffb3a54640843936cadcedfee09971b900c762b4ba416cddaf98d3169",
+          "PNG_sha256": "b4744ae70323383258f75b8340e58406c4ee3fc2381debb5d2320b2ccfede52b",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6560-native2x.png"
+        },
+        {
+          "tick": 6561,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "8ac035477b2feec856c38d5817610633509017bb495f1c776b917068864ea233",
+          "PNG_sha256": "d309ef020ececcfb86af2b12fca814f835d5c1e839b02cf9805ff1bad5148d1e",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6561-native2x.png"
+        },
+        {
+          "tick": 6562,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "70bbdbdcbb10c8d222d6398b828ef4f22cdc34a59b958a1472a7208c92c57a62",
+          "PNG_sha256": "afbe8f7d184e4433d11abd99c19b3fb3f244a4dff56a373af082a15a1666e7a5",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6562-native2x.png"
+        },
+        {
+          "tick": 6563,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "a2ce63c607112fab6c43d1cf7fad2cdbe5fd9d5b589b773b66a81cf121eeab6d",
+          "PNG_sha256": "16941251200635ee6b230b69c04cad2625630ad34b3bc8e14bb2df03de16eef0",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6563-native2x.png"
+        },
+        {
+          "tick": 6564,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "090a2bd43dfe572b9d75267a977320bf6f7429f748205155991b417825859dc5",
+          "PNG_sha256": "fb696d0b15ce14e7863dcb305f704842d41d8be028aeb8f5b09d1d574456936c",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6564-native2x.png"
+        },
+        {
+          "tick": 6565,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "776b5d02d7fd959dea598336d1c42849f90723deaa864c5fa8e6ac2422be774e",
+          "PNG_sha256": "407789c0e1adb18efa6c76fb3dfe7b3c3e06848bf28a8dae3a98c507090ea709",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6565-native2x.png"
+        },
+        {
+          "tick": 6566,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "ca14255d93e95a49848b6211c723954b1285ff8af3c69229e5926787d340a931",
+          "PNG_sha256": "b1bf9f86c2eb2f8be61c47fc953b6e4bd0e38af415a533100cbb728175d9c60a",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6566-native2x.png"
+        },
+        {
+          "tick": 6567,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "ff3da72f01f3df6c801b82b56772532d06a0577510ea4c99bfddf0dc7420dcc1",
+          "PNG_sha256": "2bf2b8b51ce4ea51518e56385dc8caf54f256fc19413896ea0de8005a716f317",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6567-native2x.png"
+        },
+        {
+          "tick": 6568,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "a9c5f663636f1c7876e178e1d4e7a902ee88302d610ff6f1f972d2639ae323e3",
+          "PNG_sha256": "e56d5fb9cd136e875f57c6360c77d5ecbd88a8cba9d263f8ac96c0748d89596d",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6568-native2x.png"
+        },
+        {
+          "tick": 6569,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "c4b6f37236f3f6c897a35f3ed01845d1264284e3eae6f2e38785efbb82f321c1",
+          "PNG_sha256": "0ec696caa787da0ed17b106ba4d5886bd5352eeabdd575912677bf85f9362014",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6569-native2x.png"
+        },
+        {
+          "tick": 6570,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "92b2f7a1df1551a7335af8e8e4d399c00ae22105d0d08629d16c4231d37530db",
+          "PNG_sha256": "b33840d5bfe162934f879b94602bd1157536a8f5a8fe6d1969b99dc041fb9e5f",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6570-native2x.png"
+        },
+        {
+          "tick": 6571,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "8d5ec44d22f8dfe79f7dbccf76f26f4ce0083e14b7bd1cfc445dadae62c2eb19",
+          "PNG_sha256": "8c2335863bed5f5752e85fa4ebfa75a6f97e1deb223fb3bcd69ee2424297da35",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6571-native2x.png"
+        },
+        {
+          "tick": 6572,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "e4f0e5a96b8007618f108690ad03af99b74ee26bf2f7cb9ebd60312122a41884",
+          "PNG_sha256": "e0f4dedc010aee322afba5901d28773b6755524a84b217bcd981dc60c254467c",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6572-native2x.png"
+        },
+        {
+          "tick": 6573,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "c2383c60cfba2ebd8d3f1565aafe7dfca39268c76031a2a8c90ef954784be29a",
+          "PNG_sha256": "9f2c13ecef1969d1b0aafb3aaa113088463bd6303c63727ca0ee776faefc969b",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6573-native2x.png"
+        },
+        {
+          "tick": 6574,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "8cf537491d1e2682ffacb167847ea605125d3dd9b9dff896d77afaa3e8f92dce",
+          "PNG_sha256": "9ad44cb843ae53038809ad0435afd6f1fcfbc584e87017ea31fbba194f194cf5",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6574-native2x.png"
+        },
+        {
+          "tick": 6575,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "d2433355a7fd84b7c399c74acac6b60c0360453b595a2b725481f3820c296e9d",
+          "PNG_sha256": "d7c61d4c07ff893ef30aba4630380d9a7f187d6e80f0d85778e97a0951f57750",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6575-native2x.png"
+        },
+        {
+          "tick": 6576,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "76198ad4d6f624543bb42fd3f4832885d7b0eb8e0c393bc5efd99b8b5f14f2cd",
+          "PNG_sha256": "c3553590eae0916e2c39347c3618ffef8c98fefebf26ad9ab46678e9f3cb9c75",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6576-native2x.png"
+        },
+        {
+          "tick": 6577,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "44073efdba2d59c06e0edf0a9f3c93d0c8bead46d594e8f29d9c332ec2271757",
+          "PNG_sha256": "67c9d6ccbd14b835a9fac589c30238dd1dd8208e3c6eec7386f72a613e4c9cd0",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6577-native2x.png"
+        },
+        {
+          "tick": 6578,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "110c741e3983df9813e7edabea30a25a700b64dcf27a4ae900c6e4a80c66c36b",
+          "PNG_sha256": "151a309ecd2765b4b6135be75f01c307cb0e2679612ad73fff6c97888910fc32",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/candidate-census/actual-6578-native2x.png"
+        }
+      ]
+    },
+    "late-spike-boundary-lifecycle-20261012/baseline-census/frame-hashes.json": {
+      "sha256": "1a8e3de74ab7f8c12e9264166d8e0b4157487c519715d12ff2097cd326558618",
+      "frames": [
+        {
+          "tick": 6541,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "558914b3564008bd867a0576430e01699e48e137b06644632a7350f6a1ecfe60",
+          "PNG_sha256": "d48784d194feb66e1b2c869f3014193d9593c85a63a48e1c7282163890070e68",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6541-native2x.png"
+        },
+        {
+          "tick": 6542,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "d824c8ffbe9cb12d101e1f1652eccb0dad7557a19130bd02c10ce1b23b23af04",
+          "PNG_sha256": "c2e2d2efca9148ac7a3ce2587a753305a1f1643f69a490bfdb7e60a3c8434622",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6542-native2x.png"
+        },
+        {
+          "tick": 6543,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "ba5263e6f5fc00f4aecc3a188272d0baa1e718c48db4bbbe637098c5bf9185c1",
+          "PNG_sha256": "5967f6e803da42c51a8aa7770de21011347cc6b81da8a61a000fc14d9209fa51",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6543-native2x.png"
+        },
+        {
+          "tick": 6544,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "3c5007e2407ddc952bdffda803c399c07736eceaa374d278992f40a477411851",
+          "PNG_sha256": "7d99cfdbc39ba928ef7463a5478dd2206b0349218855a926b9cd44aedc8d0247",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6544-native2x.png"
+        },
+        {
+          "tick": 6545,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "fea0b5a1d28e8f884770fe13c7717da8fac0450f320b8f23fb8d80c25e1d5e5c",
+          "PNG_sha256": "0e46ba103972bc38f86acf7b0f137c83e2ada27a5e06a765541b94c3d5224ac9",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6545-native2x.png"
+        },
+        {
+          "tick": 6546,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "36b16546afda51282f43a6a28be5718b1c617015fc0026f5e33c58af2ca3ccf5",
+          "PNG_sha256": "171418f73c371d804acb451ee0ce4bac222833fecf277b769e2a27696411e4d7",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6546-native2x.png"
+        },
+        {
+          "tick": 6547,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "64741acbe43c6728d8fa4b13b2b904a335732f8c6317eb8d3728588325e10b90",
+          "PNG_sha256": "8a3968a6ee2b91e4c15d68a793319108630ea8631c1249be320501457a8bc953",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6547-native2x.png"
+        },
+        {
+          "tick": 6548,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "e1244ac68cca9cdb67ae695a875f62e648ec78c8b8c648e6e9224df4bedfc5ca",
+          "PNG_sha256": "0c3cec40498f13d4c6517bc2a2f3aa7a2ac7badce694763c8115eacd61fd7a6f",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6548-native2x.png"
+        },
+        {
+          "tick": 6549,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "3345379cdf594d2f973cdc3b10d6955526c955e7e28ebb18ce63749af8311384",
+          "PNG_sha256": "6a661c26c056024d3fd708115e681885908b9477f32d157f9720da322a59cb41",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6549-native2x.png"
+        },
+        {
+          "tick": 6550,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "a5f91a9feb5014255c97de802f643c26c6d042790a6cb5bcff95ea546bb0b195",
+          "PNG_sha256": "ed74cfffd53bba65137be5faa1986cfae787720c479788cb0b450bee93e1af7c",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6550-native2x.png"
+        },
+        {
+          "tick": 6551,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "a6f24dc27e60ffa745e991f1f3fddb38f201d52532b99c02acea3dd53d200edb",
+          "PNG_sha256": "67997f4be251e19dbaec2607bc8b008237def048dcd351cd7c1a203f6bd2d0b6",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6551-native2x.png"
+        },
+        {
+          "tick": 6552,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "43c15a0a004bc3abb5a897c272fcbd0c36d4b3c991066c8d2f6919576a0ac2f9",
+          "PNG_sha256": "5cd4fad10c58638355bfd93a4c857c41f8cbe821fdb17b9a2c6f0e886ffb3307",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6552-native2x.png"
+        },
+        {
+          "tick": 6553,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "b03258928ff5f035dd299ba7985a3af3119fcdcd48e4f5910ff4a266c62ac056",
+          "PNG_sha256": "801d9f1ce3feeaef2023bdeef4c191849e09b8a8e769dd29f6c418c64b4bdf22",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6553-native2x.png"
+        },
+        {
+          "tick": 6554,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "bf387ca46ab723d9fbc2036976f96c21f0caffb31dcbc1b8a64b815b49cce00f",
+          "PNG_sha256": "ff16c47c75e6a0bd766ca1bba09ef4e4b4545066f1ffca0215bcd8360c0f80af",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6554-native2x.png"
+        },
+        {
+          "tick": 6555,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "569f27e53d1d51b3161af34a00e80654b758f782d12579e9c2f83ec7f2ebec54",
+          "PNG_sha256": "4789db7017f1bfbd795836904613ebe505ba65a962248413c9b84ec3746c6bbe",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6555-native2x.png"
+        },
+        {
+          "tick": 6556,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "183870d0a26e71f31017967c19f80750d05bba5a763f9dd89e99808447eb3dbf",
+          "PNG_sha256": "4d5723d81462507cd1050bc1272a7236c74695fe7686f31b159b4732320e3c0e",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6556-native2x.png"
+        },
+        {
+          "tick": 6557,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "48a2e63180d2f97cee839d0f9bd5c9ba861772e0b0cd39e54f34b51d63b02650",
+          "PNG_sha256": "9189cc410095d062197a7737178c542393d609b8d1e01b00ab6f67936f3c9cf0",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6557-native2x.png"
+        },
+        {
+          "tick": 6558,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "b3064c833325672d202b837994274918e205cb5c2c1c59aa3a33fde210befe51",
+          "PNG_sha256": "34a5708c8c8bed06dafd66e39fc72f5d5b02475557a25fe1e740ee3d22319c43",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6558-native2x.png"
+        },
+        {
+          "tick": 6559,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "19ec064e6b42dfc483c1e3b48aa17a821e6734aa03e5dae5a512b200c84da725",
+          "PNG_sha256": "4d726f6f5427505435bf89f7f95e2ae72be308d55896aea7e707a606ec89bac8",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6559-native2x.png"
+        },
+        {
+          "tick": 6560,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "b8ab09bea6b72a270d8809f30aebfd533cfed40ed8cadff00a96b945aa115fa1",
+          "PNG_sha256": "08f5fca39a11b93c83874ab7d681fd2a1b06f4bb62703906d90d84105128b028",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6560-native2x.png"
+        },
+        {
+          "tick": 6561,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "6306d44e0aa3f55e5afc56b0e1f392db1409d2b5962c9c630d1b46c83ac41769",
+          "PNG_sha256": "3235235a0a61353cd3b792b1ccc994ce25a1864d9a2cb957e0f927b7feef8dcf",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6561-native2x.png"
+        },
+        {
+          "tick": 6562,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "23d8fe0f703472178b604e202740cf80115a65133a8c4d6b63c0b3981f519648",
+          "PNG_sha256": "a979b9a5fc62736914476d1fdafd461302e1903f554327daa7e89c59c2c46fa6",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6562-native2x.png"
+        },
+        {
+          "tick": 6563,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "22c20eeb4bee05cdae3ce0cd8380d58cb68670d72197f9e124b3b367447d8309",
+          "PNG_sha256": "43afa46914e71fdd40127856c64cb74c94eb3cdf50afbf95925096f28f43a725",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6563-native2x.png"
+        },
+        {
+          "tick": 6564,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "e8f3d868dac91d446d5c4bce3232b0ee397ad59bd4ee6a1c1eabba626ec2853c",
+          "PNG_sha256": "46e84fb555ba0cef49e5f6be769399f2b14b597e77d704d57eba493604c10ad3",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6564-native2x.png"
+        },
+        {
+          "tick": 6565,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "2464ba5f4150104eac7385aec49dbaf4547130ee1e4adf5a4635a467fa38cc59",
+          "PNG_sha256": "271678442aa9813f32ef75845f0cdd4c0bdf511f81df01e13de330d21dda18d4",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6565-native2x.png"
+        },
+        {
+          "tick": 6566,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "9f185fbe1d7cb3127c3162021fad679fd35f2aba418a1a3893a2df47e199039e",
+          "PNG_sha256": "024f1187a34ffcc8f55e7ee7b5c2b62617d3169ccb309be1953ed8d960d1c5ed",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6566-native2x.png"
+        },
+        {
+          "tick": 6567,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "c049a3be5538aa285415cab2ace65e39bb52bcea94bd98d1d207f698df8f76f2",
+          "PNG_sha256": "c2cc82c190eba2ac4aa578baa69df38df520bf6bc54aa8747b0d4d30b7512ed3",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6567-native2x.png"
+        },
+        {
+          "tick": 6568,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "8f3e3f749ae211bf2e5270f2b7753e780f1168a078c8541ee47547aba67610c5",
+          "PNG_sha256": "000f30f59a80965d9aa8101acef58106a7ae4c110f506ff1fbba5610cdd02db7",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6568-native2x.png"
+        },
+        {
+          "tick": 6569,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "3c491887634234ccd86e4ca7fd8df9265465cf3121f2420ebcee483cf92954a1",
+          "PNG_sha256": "852892af7e3606b72632d65819c2e96707e969c5ad7f64e93717120f4bf2a9da",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6569-native2x.png"
+        },
+        {
+          "tick": 6570,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "bdbf03f02345f986fc83a851f7b7c3ee481baa92a379efef1d2e03169f24bf57",
+          "PNG_sha256": "01f96583813484b7638c2afc8d0764dc8d6b6f5845556092afd8c8f0788f55a6",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6570-native2x.png"
+        },
+        {
+          "tick": 6571,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "f785575173f4ed450e9393f552d450c7beef5d85986d3333f5ed0bf29df65f39",
+          "PNG_sha256": "75c20f41f09d940f24b5c1187be71835217a461e73c62604fd9ed186ea933f9f",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6571-native2x.png"
+        },
+        {
+          "tick": 6572,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "3043b052a2c92772a077265fa7b8b72c6d088d591432d2ffdc5b10dd73c43a57",
+          "PNG_sha256": "ec25df5e634dd3e39388a54e156bb52397ae83d3ea3b8fb0b9deaf1e76a73ded",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6572-native2x.png"
+        },
+        {
+          "tick": 6573,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "d9233efe2e49a8e496c9cc77437c1d83e821377eaf0ed637924d0997e698673c",
+          "PNG_sha256": "ef4767dceb1820856ae82ba1ab2876d1ca9ba3fdc073c1dc2478eb892088a20e",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6573-native2x.png"
+        },
+        {
+          "tick": 6574,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "710e903edfe2576e4064ee60f303d99cbfee51ad8c650912bdfa18a1fb2e70ef",
+          "PNG_sha256": "5ac32f3d846c419b6dac877b84493baaa294cce5c26cd04c784157f91b737a07",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6574-native2x.png"
+        },
+        {
+          "tick": 6575,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "d63f6c7a1c20d9dab6a2c9a1c00d216ba37931861e7c8870f226f6c8dbd62192",
+          "PNG_sha256": "b247bcaafc740dae12f12c974ee73d891c7e0bf969ac30bcc9a6193692e27b6b",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6575-native2x.png"
+        },
+        {
+          "tick": 6576,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "531bd9236829cd66547ae6c95be38f9be057e57f300ed658fd809e68667f4bd0",
+          "PNG_sha256": "c203366ae6f1dc153da0bb3045d5adb96f203148541a4231b8491d7484c09a49",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6576-native2x.png"
+        },
+        {
+          "tick": 6577,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "eed8dd65306b32f1cf0953ec96a2f8507104cd8b4df007aa231b94b5e589e7d1",
+          "PNG_sha256": "246b9a9cfbbd73f4dd16ee867df7cb52d0ac81d74cd5dbe0d1161ab35afa42d3",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6577-native2x.png"
+        },
+        {
+          "tick": 6578,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "df0345da4ac80ecba5c610fbfe610669813a32427045d13ede237565202dcffe",
+          "PNG_sha256": "beba883af98f4f756edc219d3c22574280ee0784db0f3a4fdfbbaacd23e8e3d5",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-lifecycle-20261012/baseline-census/actual-6578-native2x.png"
+        }
+      ]
+    },
+    "late-spike-boundary-lifecycle-20261012/candidate-census/frame-hashes.json": {
+      "sha256": "ae4c4f900fa7356a19f6fe75bad90e15fa96ddc267102cb28be713509c766206",
+      "frames": [
+        {
+          "tick": 6541,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "344ada7fe34b0eb1b8c772203f4a92e3d6fc96c9532ab8764328793690a88add",
+          "PNG_sha256": "cbf27bdbeb566b6ec0deed75d0325f4415702da9b216d1c0df8c9ecb892f4349",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6541-native2x.png"
+        },
+        {
+          "tick": 6542,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "ad308e5322103bf2defdfb9fa84a9ccf0e99b493ad39e75b7e17cc5ed0808fff",
+          "PNG_sha256": "79ec0f7748eef7b2596bcdd40aaf245ca1055ba2ccb9221664f0a79c069b90bc",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6542-native2x.png"
+        },
+        {
+          "tick": 6543,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "9b40083e1b939251931b7bb17f9aa6095c83d164fe6ff9ecff9085d15d1b3417",
+          "PNG_sha256": "82af795bf8b99ed6ce9b25948099c5da13328f114bb6822273af957ab46026e1",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6543-native2x.png"
+        },
+        {
+          "tick": 6544,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "d760d81ea974254a2bef474ae8d3e41267fb1c3b799b9c8a3094351d4d2c2d5b",
+          "PNG_sha256": "6015cfbba333ba9e7b4c07e91327558ffcd257426a7372876ff7fc627d26cbea",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6544-native2x.png"
+        },
+        {
+          "tick": 6545,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "5418ce2b343afee8341b5d88fe36fb39e121022d69cb178fd6f4a15270459526",
+          "PNG_sha256": "a6e2e3f92ac7cfd126932f817620c8f8019a15ce6ae38ecf8098efee51bd09a3",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6545-native2x.png"
+        },
+        {
+          "tick": 6546,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "29e88b66998610e1b57482f88900fd6604997e1972fce59990d90ebb68503f7b",
+          "PNG_sha256": "0f7ffbf131ac0ecc9a6dd860e397f1942f96f512c9b1b0482479b3827da02ed7",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6546-native2x.png"
+        },
+        {
+          "tick": 6547,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "a8d99197658bfb2186f1b8e4b4b485598aa6bbfbe66a44079153700babb4cd64",
+          "PNG_sha256": "309d88f1281405f2b9a43d445c4640c6c9ac8da27ac0ed100a1b86f57db949c5",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6547-native2x.png"
+        },
+        {
+          "tick": 6548,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "e958336b3b22b78886e1e3967d8a9a7f4676becf4df66e6272e12da0b59b5961",
+          "PNG_sha256": "49edd3ce61c3419202da62d0ec9f208853707ebc03175eeed91a1d36240e4b1d",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6548-native2x.png"
+        },
+        {
+          "tick": 6549,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "025b2a883455a7270bccb47b3917a801a5d41faa9eb512fca51164acbb8fbf0b",
+          "PNG_sha256": "e36989cbe804218926656f31122f602079f80e9022b2f979104cf484d9469ad4",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6549-native2x.png"
+        },
+        {
+          "tick": 6550,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "4a94bf069980e1eb41f208791ceb86fa36cb9cee9ff24cf12f9895468b1a587a",
+          "PNG_sha256": "4176c8e624a0d3cf0136725f3787b48f189642e286dca741ee50a3d8adf4bb3e",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6550-native2x.png"
+        },
+        {
+          "tick": 6551,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "e27405cb8c0cc3367ae0445ddd248e4880c9247f338408f1bbb1637826d2f886",
+          "PNG_sha256": "aa0cce98c665599b07555d970e8a36bd030300d4f9133ce8c23f16a63c7ca2b4",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6551-native2x.png"
+        },
+        {
+          "tick": 6552,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "cbd63403c5444eb30b56e85a9190fea24dd4d8b26aad8f89f6de903802c2995d",
+          "PNG_sha256": "c05b9e891b0c9e8e25da8e804d3e51bcbc35a78f7219cfb45dc38bad3b831465",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6552-native2x.png"
+        },
+        {
+          "tick": 6553,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "b18f1667f059645728e369f48449518902b24ba0b5d8471c7e06f83def8168be",
+          "PNG_sha256": "0dca7a5ee86b318707a7776bd21b3b5376fc50e649376114c8f7e62574eeb3e5",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6553-native2x.png"
+        },
+        {
+          "tick": 6554,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "0a67cf0184a1cc3efb7d8e5972e6e7d5156ad56454b52302102e59891ed1542f",
+          "PNG_sha256": "580c06f5ec75abee3e1103222e9b1a72697d4f3d1f83e13081b65461b93f9794",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6554-native2x.png"
+        },
+        {
+          "tick": 6555,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "792e7848eac80c4d0896d3ab0fd9f728fb6a1b0d9dc4aa3ba7fe9bf11474c9ca",
+          "PNG_sha256": "731a6d50f715cd979cd6656389c751edab48bcc3f1ac997e9703c34224cbc33a",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6555-native2x.png"
+        },
+        {
+          "tick": 6556,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "0f142f7ade13c0428a27759b82f9304f1eb8442042885f3d302d04d531f3c297",
+          "PNG_sha256": "92838bf9e7b5c41dec63b25f19b2089c042c461ab9aad76c4e1e6c1327bac668",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6556-native2x.png"
+        },
+        {
+          "tick": 6557,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "c432e484c827104a19d6ffb4a6620608f6d737bf45e6cb7d8bbda929104a3210",
+          "PNG_sha256": "e50e3b6582c92e51a0135e564df3826aafc5cbe12089e539c5e31bc808f75654",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6557-native2x.png"
+        },
+        {
+          "tick": 6558,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "229bc23f22f8fd07fd6defb505d4b42d8be9b89d84b8fdbb3f96673313f7a65b",
+          "PNG_sha256": "4173f1edbb6af35e2817f1500235f67a472f2fa08b69210cbfa3f41a14c4530e",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6558-native2x.png"
+        },
+        {
+          "tick": 6559,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "3241b257b892f9f907657577e08d0a2f855355191ecf6c8b4d61424fc8d60439",
+          "PNG_sha256": "980c2f2ea1a2c396c02feda73bab4025a2014dcae5b2b293489e31e380581490",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6559-native2x.png"
+        },
+        {
+          "tick": 6560,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "463ae47ffb3a54640843936cadcedfee09971b900c762b4ba416cddaf98d3169",
+          "PNG_sha256": "b4744ae70323383258f75b8340e58406c4ee3fc2381debb5d2320b2ccfede52b",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6560-native2x.png"
+        },
+        {
+          "tick": 6561,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "8ac035477b2feec856c38d5817610633509017bb495f1c776b917068864ea233",
+          "PNG_sha256": "d309ef020ececcfb86af2b12fca814f835d5c1e839b02cf9805ff1bad5148d1e",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6561-native2x.png"
+        },
+        {
+          "tick": 6562,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "70bbdbdcbb10c8d222d6398b828ef4f22cdc34a59b958a1472a7208c92c57a62",
+          "PNG_sha256": "afbe8f7d184e4433d11abd99c19b3fb3f244a4dff56a373af082a15a1666e7a5",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6562-native2x.png"
+        },
+        {
+          "tick": 6563,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "a2ce63c607112fab6c43d1cf7fad2cdbe5fd9d5b589b773b66a81cf121eeab6d",
+          "PNG_sha256": "16941251200635ee6b230b69c04cad2625630ad34b3bc8e14bb2df03de16eef0",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6563-native2x.png"
+        },
+        {
+          "tick": 6564,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "090a2bd43dfe572b9d75267a977320bf6f7429f748205155991b417825859dc5",
+          "PNG_sha256": "fb696d0b15ce14e7863dcb305f704842d41d8be028aeb8f5b09d1d574456936c",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6564-native2x.png"
+        },
+        {
+          "tick": 6565,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "a18e1f676132f2cc24662a4ea723249f60dd7a81b12a529525ef8aea9dc4cdcb",
+          "PNG_sha256": "5eb4b617413b983d1eab5db1877e0de8a56fa0202b9e8f457ecb76fe1eb065f9",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6565-native2x.png"
+        },
+        {
+          "tick": 6566,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "ca14255d93e95a49848b6211c723954b1285ff8af3c69229e5926787d340a931",
+          "PNG_sha256": "b1bf9f86c2eb2f8be61c47fc953b6e4bd0e38af415a533100cbb728175d9c60a",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6566-native2x.png"
+        },
+        {
+          "tick": 6567,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "ff3da72f01f3df6c801b82b56772532d06a0577510ea4c99bfddf0dc7420dcc1",
+          "PNG_sha256": "2bf2b8b51ce4ea51518e56385dc8caf54f256fc19413896ea0de8005a716f317",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6567-native2x.png"
+        },
+        {
+          "tick": 6568,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "a9c5f663636f1c7876e178e1d4e7a902ee88302d610ff6f1f972d2639ae323e3",
+          "PNG_sha256": "e56d5fb9cd136e875f57c6360c77d5ecbd88a8cba9d263f8ac96c0748d89596d",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6568-native2x.png"
+        },
+        {
+          "tick": 6569,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "c4b6f37236f3f6c897a35f3ed01845d1264284e3eae6f2e38785efbb82f321c1",
+          "PNG_sha256": "0ec696caa787da0ed17b106ba4d5886bd5352eeabdd575912677bf85f9362014",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6569-native2x.png"
+        },
+        {
+          "tick": 6570,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "92b2f7a1df1551a7335af8e8e4d399c00ae22105d0d08629d16c4231d37530db",
+          "PNG_sha256": "b33840d5bfe162934f879b94602bd1157536a8f5a8fe6d1969b99dc041fb9e5f",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6570-native2x.png"
+        },
+        {
+          "tick": 6571,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "8d5ec44d22f8dfe79f7dbccf76f26f4ce0083e14b7bd1cfc445dadae62c2eb19",
+          "PNG_sha256": "8c2335863bed5f5752e85fa4ebfa75a6f97e1deb223fb3bcd69ee2424297da35",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6571-native2x.png"
+        },
+        {
+          "tick": 6572,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "e4f0e5a96b8007618f108690ad03af99b74ee26bf2f7cb9ebd60312122a41884",
+          "PNG_sha256": "e0f4dedc010aee322afba5901d28773b6755524a84b217bcd981dc60c254467c",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6572-native2x.png"
+        },
+        {
+          "tick": 6573,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "ab053f184bc137bf46fe9481202b9db5c1612fa09901507dadee5da798927810",
+          "PNG_sha256": "3e7fcfe9f57bcac610d881e328e88b7325d498fa222103549650134326571061",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6573-native2x.png"
+        },
+        {
+          "tick": 6574,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "8cf537491d1e2682ffacb167847ea605125d3dd9b9dff896d77afaa3e8f92dce",
+          "PNG_sha256": "9ad44cb843ae53038809ad0435afd6f1fcfbc584e87017ea31fbba194f194cf5",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6574-native2x.png"
+        },
+        {
+          "tick": 6575,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "59a0634a9703892eeab6925b81c4ae94252108039ed3264ea1ff78e7618ef9ef",
+          "PNG_sha256": "434dbf47ce24d985d3d68bf62b0ecafcbd8cfdc292c22e4dccf37a27f1e5fcd2",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6575-native2x.png"
+        },
+        {
+          "tick": 6576,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "76198ad4d6f624543bb42fd3f4832885d7b0eb8e0c393bc5efd99b8b5f14f2cd",
+          "PNG_sha256": "c3553590eae0916e2c39347c3618ffef8c98fefebf26ad9ab46678e9f3cb9c75",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6576-native2x.png"
+        },
+        {
+          "tick": 6577,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "44073efdba2d59c06e0edf0a9f3c93d0c8bead46d594e8f29d9c332ec2271757",
+          "PNG_sha256": "67c9d6ccbd14b835a9fac589c30238dd1dd8208e3c6eec7386f72a613e4c9cd0",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6577-native2x.png"
+        },
+        {
+          "tick": 6578,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "110c741e3983df9813e7edabea30a25a700b64dcf27a4ae900c6e4a80c66c36b",
+          "PNG_sha256": "151a309ecd2765b4b6135be75f01c307cb0e2679612ad73fff6c97888910fc32",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/actual-6578-native2x.png"
+        }
+      ]
+    },
+    "late-spike-fallback-20261012/baseline-density4-census/frame-hashes.json": {
+      "sha256": "a9062d0a6ce76551b8445b80fd4cc53d490c18e1a2b74c63e98f3bfc5e28abe6",
+      "frames": [
+        {
+          "tick": 6541,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "50107e167da6341c6eb249dfb7e59ee10a2348c31e7490fd3c51e794586aa55f",
+          "PNG_sha256": "d6c2df14a6974203970bad53ffc7efd04fc7ddae9a2a19b3cc95d1928c1556f5",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/baseline-density4-census/actual-6541-native2x.png"
+        }
+      ]
+    },
+    "late-spike-fallback-20261012/candidate-corrupt3-census/frame-hashes.json": {
+      "sha256": "84859b981358e8eefc75f08eaedad37d25d34219faca41f6c32101556c65f36c",
+      "frames": [
+        {
+          "tick": 6541,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "558914b3564008bd867a0576430e01699e48e137b06644632a7350f6a1ecfe60",
+          "PNG_sha256": "d48784d194feb66e1b2c869f3014193d9593c85a63a48e1c7282163890070e68",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-corrupt3-census/actual-6541-native2x.png"
+        }
+      ]
+    },
+    "late-spike-fallback-20261012/candidate-density4-census/frame-hashes.json": {
+      "sha256": "7e351609d81a3d6c7de87b5269ad7d9b275f716b123a79c15d5f7c8a440b8fc7",
+      "frames": [
+        {
+          "tick": 6541,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "50107e167da6341c6eb249dfb7e59ee10a2348c31e7490fd3c51e794586aa55f",
+          "PNG_sha256": "d6c2df14a6974203970bad53ffc7efd04fc7ddae9a2a19b3cc95d1928c1556f5",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-density4-census/actual-6541-native2x.png"
+        }
+      ]
+    },
+    "late-spike-fallback-20261012/candidate-missing3-census-retry1/frame-hashes.json": {
+      "sha256": "ad9cdd207a0fccb04e51b224882d352fbd2e40e52742e70fed52fd2bae65dd82",
+      "frames": [
+        {
+          "tick": 6541,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "558914b3564008bd867a0576430e01699e48e137b06644632a7350f6a1ecfe60",
+          "PNG_sha256": "d48784d194feb66e1b2c869f3014193d9593c85a63a48e1c7282163890070e68",
+          "path": "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-missing3-census-retry1/actual-6541-native2x.png"
+        }
+      ]
+    }
+  }
+}

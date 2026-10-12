@@ -1,0 +1,4247 @@
+{
+  "status": "PASS_BOUNDED_LIFECYCLE_NATIVE2X_DERIVED_TRUE4X_AND_ACTUAL_FALLBACKS",
+  "baseline": "2efdc890217330e75a873252ca96b576495b23b9",
+  "tested_source_checkpoint": "24fb5358841fc7bbffcc5d4d9f2a60f3e157ee55",
+  "production_render_source_sha256": "2d93ab3ed787acf6f31a0c96867e2057bd607971f1ac06a4545a3e98589ad69c",
+  "post_runtime_delta": "Only runtime-status metadata and acceptance documentation; production renderer, original gameplay sources and all asset payloads match the tested source checkpoint.",
+  "scope": {
+    "bank": 1,
+    "namespace": 101,
+    "ids": [
+      1,
+      3,
+      5,
+      7,
+      9,
+      11
+    ],
+    "slots": [
+      404,
+      405,
+      406,
+      407,
+      408,
+      409
+    ],
+    "native2x_lifecycle_ticks": [
+      6541,
+      6578
+    ],
+    "native4x_spot": 6541,
+    "native4x_status": "Previously executed true1280x800 old-build capture with exact revised-checkpoint equivalence proof; not a fresh revised4x execution.",
+    "private_player_survival": true,
+    "artificial_original_Pulse155_requests": [
+      [
+        6542,
+        31,
+        1
+      ],
+      [
+        6544,
+        31,
+        99
+      ],
+      [
+        6546,
+        31,
+        49
+      ]
+    ],
+    "forced_enemy_camera_layer_or_timing_states": false
+  },
+  "geometry_fallback": {
+    "resource_family_fallback": "All six resources preflight coherently; missing/corrupt/wrong-density resources disable the entire family independently.",
+    "physical_quadrant_fallback": "Only this family declines a quadrant unless indexed target is320x200, pitch320,8bits/1byte and quadrant x0..308. Adjacent safe quadrants can remain HD.",
+    "partial_HD_edges": true,
+    "preserved_original_wrapped_pixels": true,
+    "visible_playfield_is_not_physical_row": "Source playfield x24..287; physical row x0..319.",
+    "original_blitter_and_global_ownership_unchanged": true
+  },
+  "visibility_limits": {
+    "base1": "No natural geometric sprite rectangle or authored HD presentation. Original opposite-edge wrapped palette writes are preserved classic and are not cap exposure.",
+    "base11": "Partial only: max28 of294 original opaque cells; normal6541 shows112 native2x opaque pixels.",
+    "fully_exposed_instances_at6541": [
+      3,
+      5,
+      7,
+      9
+    ],
+    "original_text_overlay": "Upper rows overlap original INSERT COIN glyphs/shadow; exact ordered composition is verified and covered pixels are not claimed directly exposed.",
+    "hit_ice_source_ids_directly_observed": [
+      7,
+      9
+    ],
+    "all_six_resources_source_proven": true,
+    "all_six_naturally_fully_visible": false
+  },
+  "source_gate_summary": {
+    "review": "docs/LATE_SPIKE_SOURCE_REVIEW.json",
+    "validation": "docs/LATE_SPIKE_SOURCE_VALIDATION.json",
+    "source_opaque_cells": 1482,
+    "source_records": 1701,
+    "source_events": 1010,
+    "unchanged_prior_bindings": 222,
+    "prior_files_preserved": 5833,
+    "prior_asset_bytes_identical": 579483635
+  },
+  "actual_discovery": {
+    "executed_candidate": "ed10ce7ad3d7023c154128d75857e8450a9cf032",
+    "renderer_repair_does_not_change_original_state": true,
+    "ticks": [
+      6500,
+      6624
+    ],
+    "all100_slots": true,
+    "includes_avail2": true,
+    "phase_ordinals": [
+      "post-events",
+      "pre-ground-50",
+      "post-ground-50",
+      "pre-ground-100",
+      "post-ground-100",
+      "pre-sky-25",
+      "post-sky-25",
+      "pre-projectiles",
+      "post-projectiles",
+      "pre-body-collision",
+      "post-body-collision",
+      "end-tick"
+    ],
+    "spike_spawn_groups": [
+      {
+        "link": 7,
+        "tick": 6506,
+        "count": 7
+      },
+      {
+        "link": 8,
+        "tick": 6515,
+        "count": 9
+      },
+      {
+        "link": 9,
+        "tick": 6526,
+        "count": 8
+      },
+      {
+        "link": 10,
+        "tick": 6535,
+        "count": 9
+      }
+    ],
+    "spike_last_natural_removal": 6613,
+    "entry_spawn_tick": 6550,
+    "entry_removals": [
+      {
+        "tick": 6619,
+        "slot": 1,
+        "type": 468,
+        "base": 81,
+        "avail": 2,
+        "armor": 255,
+        "scoreitem": 0
+      },
+      {
+        "tick": 6619,
+        "slot": 2,
+        "type": 469,
+        "base": 83,
+        "avail": 2,
+        "armor": 255,
+        "scoreitem": 0
+      },
+      {
+        "tick": 6619,
+        "slot": 3,
+        "type": 470,
+        "base": 85,
+        "avail": 2,
+        "armor": 255,
+        "scoreitem": 0
+      },
+      {
+        "tick": 6622,
+        "slot": 0,
+        "type": 473,
+        "base": 123,
+        "avail": 2,
+        "armor": 255,
+        "scoreitem": 0
+      },
+      {
+        "tick": 6622,
+        "slot": 4,
+        "type": 471,
+        "base": 119,
+        "avail": 2,
+        "armor": 255,
+        "scoreitem": 0
+      },
+      {
+        "tick": 6622,
+        "slot": 5,
+        "type": 472,
+        "base": 121,
+        "avail": 2,
+        "armor": 255,
+        "scoreitem": 0
+      }
+    ],
+    "entry_is_bound_here": false,
+    "all_absent_by6624": true,
+    "material_references": [
+      {
+        "base": 1,
+        "rectangle_reference_count": 0,
+        "first_tick": null,
+        "last_tick": null,
+        "tile_ids": []
+      },
+      {
+        "base": 3,
+        "rectangle_reference_count": 2840,
+        "first_tick": 6519,
+        "last_tick": 6612,
+        "tile_ids": [
+          3,
+          4,
+          22,
+          23
+        ]
+      },
+      {
+        "base": 5,
+        "rectangle_reference_count": 572,
+        "first_tick": 6519,
+        "last_tick": 6612,
+        "tile_ids": [
+          5,
+          6,
+          24,
+          25
+        ]
+      },
+      {
+        "base": 7,
+        "rectangle_reference_count": 552,
+        "first_tick": 6510,
+        "last_tick": 6606,
+        "tile_ids": [
+          7,
+          8,
+          26,
+          27
+        ]
+      },
+      {
+        "base": 9,
+        "rectangle_reference_count": 2064,
+        "first_tick": 6510,
+        "last_tick": 6601,
+        "tile_ids": [
+          9,
+          10,
+          28,
+          29
+        ]
+      },
+      {
+        "base": 11,
+        "rectangle_reference_count": 38,
+        "first_tick": 6510,
+        "last_tick": 6542,
+        "tile_ids": [
+          11,
+          30
+        ]
+      }
+    ],
+    "opaque_projection_maxima": {
+      "1": 0,
+      "3": 267,
+      "5": 174,
+      "7": 186,
+      "9": 267,
+      "11": 28
+    },
+    "type3_prefix": {
+      "rows": 501,
+      "ids": [
+        {
+          "base": 171,
+          "rectangle_reference_count": 89,
+          "first_tick": 6169,
+          "last_tick": 6249,
+          "tile_ids": [
+            171
+          ]
+        },
+        {
+          "base": 190,
+          "rectangle_reference_count": 72,
+          "first_tick": 6171,
+          "last_tick": 6249,
+          "tile_ids": [
+            190
+          ]
+        },
+        {
+          "base": 209,
+          "rectangle_reference_count": 70,
+          "first_tick": 6173,
+          "last_tick": 6249,
+          "tile_ids": [
+            209
+          ]
+        },
+        {
+          "base": 228,
+          "rectangle_reference_count": 82,
+          "first_tick": 6164,
+          "last_tick": 6249,
+          "tile_ids": [
+            228
+          ]
+        },
+        {
+          "base": 247,
+          "rectangle_reference_count": 95,
+          "first_tick": 6165,
+          "last_tick": 6249,
+          "tile_ids": [
+            247
+          ]
+        },
+        {
+          "base": 266,
+          "rectangle_reference_count": 93,
+          "first_tick": 6167,
+          "last_tick": 6249,
+          "tile_ids": [
+            266
+          ]
+        }
+      ],
+      "window": [
+        6145,
+        6249
+      ],
+      "all_six_source_frames_observed": true
+    },
+    "pin": {
+      "path": "late-spike-private-discovery-20261012/verification.json",
+      "sha256": "d4b6404412f7829ec1a0821867d2c8887f256322332d64e6fd5f709cd38070f1"
+    }
+  },
+  "normal6541": {
+    "old_native2x_pin": {
+      "path": "late-spike-normal-still-20261012/verification-native2x.json",
+      "sha256": "d292ef6a7a7e224606e345b21d6def18c5465e344c7e4f48e63d8fe9b0e03c27"
+    },
+    "fresh_revised_lifecycle6541_RGBA_and_PNG_identical_to_old_still": true
+  },
+  "lifecycle_state": {
+    "status": "PASS bounded original-Pulse lifecycle state and isolation",
+    "baseline": "2efdc890217330e75a873252ca96b576495b23b9",
+    "candidate": "24fb5358841fc7bbffcc5d4d9f2a60f3e157ee55",
+    "ticks": [
+      6541,
+      6578
+    ],
+    "logic_state_ticks": 6579,
+    "native_frames_per_side": 38,
+    "original_equal_raw_streams": [
+      "weapon-loadout",
+      "player-shot-requests",
+      "player-shot-emissions",
+      "player-shot-results",
+      "player-shot-draws",
+      "state",
+      "collisions",
+      "presentation",
+      "effects",
+      "enemy-projectiles",
+      "fade-steps",
+      "poses",
+      "fire-events",
+      "player-projectiles",
+      "draw-commands",
+      "scene-enemies",
+      "scene-hits",
+      "restore-regions",
+      "blend-palette",
+      "asset-debug-explosion-pools",
+      "asset-debug-clock",
+      "asset-debug-materials",
+      "sdl-runtime",
+      "talon-bank-visual",
+      "late-census",
+      "late-large-explosions",
+      "late-pulse-guards"
+    ],
+    "expected_different_raw_streams": [
+      "frames",
+      "scene-draw-commands",
+      "rgb-audit",
+      "asset-debug-control",
+      "blend-writes"
+    ],
+    "blend_original_writes_equal": 46796,
+    "blend_arithmetic_mismatches": 0,
+    "coverage_classic_restore_mismatches": 0,
+    "all100_slot_census_rows": 45600,
+    "phase_ordinals": [
+      "post-events",
+      "pre-ground-50",
+      "post-ground-50",
+      "pre-ground-100",
+      "post-ground-100",
+      "pre-sky-25",
+      "post-sky-25",
+      "pre-projectiles",
+      "post-projectiles",
+      "pre-body-collision",
+      "post-body-collision",
+      "end-tick"
+    ],
+    "pulse_geometry": [
+      {
+        "tick": 6542,
+        "target": 31,
+        "live_armor": 50,
+        "shot_origin": [
+          176,
+          40
+        ],
+        "draw_origin": [
+          177,
+          40
+        ],
+        "collision_candidates": [
+          31
+        ],
+        "damage": 1,
+        "live_link_counts": [
+          7,
+          9,
+          8,
+          9
+        ]
+      },
+      {
+        "tick": 6544,
+        "target": 31,
+        "live_armor": 49,
+        "shot_origin": [
+          180,
+          44
+        ],
+        "draw_origin": [
+          181,
+          44
+        ],
+        "collision_candidates": [
+          31
+        ],
+        "damage": 99,
+        "live_link_counts": [
+          7,
+          9,
+          8,
+          9
+        ]
+      },
+      {
+        "tick": 6546,
+        "target": 31,
+        "live_armor": 49,
+        "shot_origin": [
+          184,
+          48
+        ],
+        "draw_origin": [
+          185,
+          48
+        ],
+        "collision_candidates": [
+          31
+        ],
+        "damage": 49,
+        "live_link_counts": [
+          7,
+          9,
+          8,
+          9
+        ]
+      }
+    ],
+    "guards": [
+      {
+        "tick": 6542,
+        "target": 31,
+        "armor": 50,
+        "iced": 0,
+        "filter": 0,
+        "shot_x": 176,
+        "shot_y": 40,
+        "unique_candidates": 1,
+        "link7": 7,
+        "link8": 9,
+        "link9": 8,
+        "link10": 9,
+        "entry": 0
+      },
+      {
+        "tick": 6544,
+        "target": 31,
+        "armor": 49,
+        "iced": 0,
+        "filter": 0,
+        "shot_x": 180,
+        "shot_y": 44,
+        "unique_candidates": 1,
+        "link7": 7,
+        "link8": 9,
+        "link9": 8,
+        "link10": 9,
+        "entry": 0
+      },
+      {
+        "tick": 6546,
+        "target": 31,
+        "armor": 49,
+        "iced": 38,
+        "filter": 9,
+        "shot_x": 184,
+        "shot_y": 48,
+        "unique_candidates": 1,
+        "link7": 7,
+        "link8": 9,
+        "link9": 8,
+        "link10": 9,
+        "entry": 0
+      }
+    ],
+    "removed_link": 7,
+    "removed_slots": [
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "linked_removal_count": 7,
+    "cash_delta": 500,
+    "kill_delta": 7,
+    "large_explosion_calls": [
+      [
+        5,
+        96,
+        119,
+        0,
+        0
+      ],
+      [
+        5,
+        108,
+        119,
+        1,
+        0
+      ],
+      [
+        5,
+        96,
+        133,
+        19,
+        0
+      ],
+      [
+        5,
+        108,
+        133,
+        20,
+        0
+      ],
+      [
+        3,
+        72,
+        119,
+        0,
+        0
+      ],
+      [
+        3,
+        84,
+        119,
+        1,
+        0
+      ],
+      [
+        3,
+        72,
+        133,
+        19,
+        0
+      ],
+      [
+        3,
+        84,
+        133,
+        20,
+        0
+      ],
+      [
+        3,
+        48,
+        119,
+        0,
+        0
+      ],
+      [
+        3,
+        60,
+        119,
+        1,
+        0
+      ],
+      [
+        3,
+        48,
+        133,
+        19,
+        0
+      ],
+      [
+        3,
+        60,
+        133,
+        20,
+        0
+      ],
+      [
+        3,
+        24,
+        119,
+        0,
+        0
+      ],
+      [
+        3,
+        36,
+        119,
+        1,
+        0
+      ],
+      [
+        3,
+        24,
+        133,
+        19,
+        0
+      ],
+      [
+        3,
+        36,
+        133,
+        20,
+        0
+      ],
+      [
+        3,
+        0,
+        119,
+        0,
+        0
+      ],
+      [
+        3,
+        12,
+        119,
+        1,
+        0
+      ],
+      [
+        3,
+        0,
+        133,
+        19,
+        0
+      ],
+      [
+        3,
+        12,
+        133,
+        20,
+        0
+      ],
+      [
+        9,
+        229,
+        97,
+        0,
+        0
+      ],
+      [
+        9,
+        241,
+        97,
+        1,
+        0
+      ],
+      [
+        9,
+        229,
+        111,
+        19,
+        0
+      ],
+      [
+        9,
+        241,
+        111,
+        20,
+        0
+      ],
+      [
+        9,
+        253,
+        97,
+        0,
+        0
+      ],
+      [
+        9,
+        265,
+        97,
+        1,
+        0
+      ],
+      [
+        9,
+        253,
+        111,
+        19,
+        0
+      ],
+      [
+        9,
+        265,
+        111,
+        20,
+        0
+      ],
+      [
+        9,
+        277,
+        97,
+        0,
+        0
+      ],
+      [
+        9,
+        289,
+        97,
+        1,
+        0
+      ],
+      [
+        9,
+        277,
+        111,
+        19,
+        0
+      ],
+      [
+        9,
+        289,
+        111,
+        20,
+        0
+      ],
+      [
+        9,
+        205,
+        97,
+        0,
+        0
+      ],
+      [
+        9,
+        217,
+        97,
+        1,
+        0
+      ],
+      [
+        9,
+        205,
+        111,
+        19,
+        0
+      ],
+      [
+        9,
+        217,
+        111,
+        20,
+        0
+      ],
+      [
+        7,
+        181,
+        97,
+        0,
+        0
+      ],
+      [
+        7,
+        193,
+        97,
+        1,
+        0
+      ],
+      [
+        7,
+        181,
+        111,
+        19,
+        0
+      ],
+      [
+        7,
+        193,
+        111,
+        20,
+        0
+      ],
+      [
+        5,
+        152,
+        79,
+        0,
+        0
+      ],
+      [
+        5,
+        164,
+        79,
+        1,
+        0
+      ],
+      [
+        5,
+        152,
+        93,
+        19,
+        0
+      ],
+      [
+        5,
+        164,
+        93,
+        20,
+        0
+      ],
+      [
+        3,
+        128,
+        79,
+        0,
+        0
+      ],
+      [
+        3,
+        140,
+        79,
+        1,
+        0
+      ],
+      [
+        3,
+        128,
+        93,
+        19,
+        0
+      ],
+      [
+        3,
+        140,
+        93,
+        20,
+        0
+      ],
+      [
+        3,
+        104,
+        79,
+        0,
+        0
+      ],
+      [
+        3,
+        116,
+        79,
+        1,
+        0
+      ],
+      [
+        3,
+        104,
+        93,
+        19,
+        0
+      ],
+      [
+        3,
+        116,
+        93,
+        20,
+        0
+      ],
+      [
+        3,
+        80,
+        79,
+        0,
+        0
+      ],
+      [
+        3,
+        92,
+        79,
+        1,
+        0
+      ],
+      [
+        3,
+        80,
+        93,
+        19,
+        0
+      ],
+      [
+        3,
+        92,
+        93,
+        20,
+        0
+      ],
+      [
+        3,
+        56,
+        79,
+        0,
+        0
+      ],
+      [
+        3,
+        68,
+        79,
+        1,
+        0
+      ],
+      [
+        3,
+        56,
+        93,
+        19,
+        0
+      ],
+      [
+        3,
+        68,
+        93,
+        20,
+        0
+      ],
+      [
+        3,
+        32,
+        79,
+        0,
+        0
+      ],
+      [
+        3,
+        44,
+        79,
+        1,
+        0
+      ],
+      [
+        3,
+        32,
+        93,
+        19,
+        0
+      ],
+      [
+        3,
+        44,
+        93,
+        20,
+        0
+      ],
+      [
+        3,
+        8,
+        79,
+        0,
+        0
+      ],
+      [
+        3,
+        20,
+        79,
+        1,
+        0
+      ],
+      [
+        3,
+        8,
+        93,
+        19,
+        0
+      ],
+      [
+        3,
+        20,
+        93,
+        20,
+        0
+      ]
+    ],
+    "non_target_slot_action_checks": 279,
+    "other_links_full_window_discovery_equal_rows": 11692,
+    "other_links": [
+      8,
+      9,
+      10
+    ],
+    "entry_avail2_full_window_discovery_equal_rows": 2088,
+    "entry_first_tick": 6550,
+    "iced_movement": [
+      {
+        "tick": 6545,
+        "slot": 25,
+        "iced": [
+          40,
+          39
+        ],
+        "position_before": [
+          184,
+          50
+        ],
+        "position_after": [
+          186,
+          52
+        ]
+      },
+      {
+        "tick": 6545,
+        "slot": 26,
+        "iced": [
+          40,
+          39
+        ],
+        "position_before": [
+          208,
+          50
+        ],
+        "position_after": [
+          210,
+          52
+        ]
+      },
+      {
+        "tick": 6545,
+        "slot": 27,
+        "iced": [
+          40,
+          39
+        ],
+        "position_before": [
+          232,
+          50
+        ],
+        "position_after": [
+          234,
+          52
+        ]
+      },
+      {
+        "tick": 6545,
+        "slot": 28,
+        "iced": [
+          40,
+          39
+        ],
+        "position_before": [
+          256,
+          50
+        ],
+        "position_after": [
+          258,
+          52
+        ]
+      },
+      {
+        "tick": 6545,
+        "slot": 29,
+        "iced": [
+          40,
+          39
+        ],
+        "position_before": [
+          280,
+          50
+        ],
+        "position_after": [
+          282,
+          52
+        ]
+      },
+      {
+        "tick": 6545,
+        "slot": 30,
+        "iced": [
+          40,
+          40
+        ],
+        "position_before": [
+          304,
+          50
+        ],
+        "position_after": [
+          306,
+          52
+        ]
+      },
+      {
+        "tick": 6545,
+        "slot": 31,
+        "iced": [
+          40,
+          39
+        ],
+        "position_before": [
+          160,
+          50
+        ],
+        "position_after": [
+          162,
+          52
+        ]
+      },
+      {
+        "tick": 6546,
+        "slot": 25,
+        "iced": [
+          39,
+          38
+        ],
+        "position_before": [
+          186,
+          52
+        ],
+        "position_after": [
+          188,
+          54
+        ]
+      },
+      {
+        "tick": 6546,
+        "slot": 26,
+        "iced": [
+          39,
+          38
+        ],
+        "position_before": [
+          210,
+          52
+        ],
+        "position_after": [
+          212,
+          54
+        ]
+      },
+      {
+        "tick": 6546,
+        "slot": 27,
+        "iced": [
+          39,
+          38
+        ],
+        "position_before": [
+          234,
+          52
+        ],
+        "position_after": [
+          236,
+          54
+        ]
+      },
+      {
+        "tick": 6546,
+        "slot": 28,
+        "iced": [
+          39,
+          38
+        ],
+        "position_before": [
+          258,
+          52
+        ],
+        "position_after": [
+          260,
+          54
+        ]
+      },
+      {
+        "tick": 6546,
+        "slot": 29,
+        "iced": [
+          39,
+          38
+        ],
+        "position_before": [
+          282,
+          52
+        ],
+        "position_after": [
+          284,
+          54
+        ]
+      },
+      {
+        "tick": 6546,
+        "slot": 30,
+        "iced": [
+          40,
+          40
+        ],
+        "position_before": [
+          306,
+          52
+        ],
+        "position_after": [
+          308,
+          54
+        ]
+      },
+      {
+        "tick": 6546,
+        "slot": 31,
+        "iced": [
+          39,
+          38
+        ],
+        "position_before": [
+          162,
+          52
+        ],
+        "position_after": [
+          164,
+          54
+        ]
+      }
+    ],
+    "all_scene_callbacks_match_actual_ground_passes": true,
+    "prior_scene_callbacks_equal": true,
+    "first_post_update_effect_pool_clear": 6571,
+    "last_effect_material_presentation": 6571,
+    "first_effect_free_presentation": 6572,
+    "clean_presentations_retained": 7,
+    "production_filter_operator_sha256": "7964bf04dc67fa5467b24674ef5223e1416ff36334d76e44ebcaa3db3ce78a95",
+    "limits": [
+      "Private player-survival and three artificial original Pulse155 requests; not natural player combat/survival.",
+      "Base1 absent, cap11 partial in normal6541 and offscreen during hit/ice; no full-six visible combat claim.",
+      "Source roles and material rectangles alone are not final RGB proof; see separate pixel-verification.json.",
+      "Other three rows remain HD after link7 dies, so post-lethal full A/B frames are not expected to match.",
+      "No forced enemy/camera/layer/timing states, no entry binding/combat, no Windows/GPU/full-level claim."
+    ],
+    "pins": {
+      "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/provenance.json": "fa489df15e67d15da0bf468fdb290e806162da598dee6b58de3579296e3869b8",
+      "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/run.py": "798dee83db80802ed9f27ff68a542644874c94a0026ba58322abe4f27f47c3ef",
+      "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/verify-state.py": "d5bbc0108595c24e3fd243f6dfd8b5624d800a9f83b2e0fc51d41de7b102f0ce",
+      "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/stream-receipts.json": "447a6395a771227d691d364960dd6375f36c94c23a4764a5e18828b9491624bd",
+      "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/frame-hashes.json": "ae4c4f900fa7356a19f6fe75bad90e15fa96ddc267102cb28be713509c766206",
+      "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/candidate-census/command.json": "2471bdcb95e32065ba09bc8c28c1ecb8ec706d14f59d0cb2a58738e2b1a33493",
+      "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/baseline-census/stream-receipts.json": "5515dac0c537eade602b0d7b32f84053abb11de0b1488a02e437e863c2d86533",
+      "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/baseline-census/frame-hashes.json": "1a8e3de74ab7f8c12e9264166d8e0b4157487c519715d12ff2097cd326558618",
+      "/workspace/scratch/f67dd347fa0a/late-spike-boundary-lifecycle-20261012/baseline-census/command.json": "1af27fecf8803804477d4151e13d2d3806be4e9e176cfa5db47a6af9669e52bc"
+    }
+  },
+  "lifecycle_pixels": {
+    "status": "PASS strict ordered full-frame native2x lifecycle",
+    "acceptance_passed": true,
+    "read_only_analysis_assertions_passed": true,
+    "strict_original_write_parity_violations_native_pixels": 0,
+    "candidate": "24fb5358841fc7bbffcc5d4d9f2a60f3e157ee55",
+    "baseline": "2efdc890217330e75a873252ca96b576495b23b9",
+    "superseded_failed_candidate": "ed10ce7ad3d7023c154128d75857e8450a9cf032",
+    "ticks": [
+      6541,
+      6578
+    ],
+    "frames": 38,
+    "native_dimensions": [
+      640,
+      400
+    ],
+    "strict_parity_validated_frame_pixels": 9728000,
+    "full_frame_exact_without_exceptions": 38,
+    "excluded_pixels": 0,
+    "full_frame_RGBA_mismatches": 0,
+    "outside_original_linear_RLE_family_alpha_mismatches": 0,
+    "outside_projected_family_alpha_changed_pixels": 0,
+    "boundary_restoration": [
+      {
+        "tick": 6555,
+        "slot": 40,
+        "link": 8,
+        "base": 1,
+        "part": 0,
+        "original_tile_index": 1,
+        "quadrant_origin": [
+          -34,
+          50
+        ],
+        "guard_falls_back_to_original": true,
+        "wrapped_visible_native_pixels": 56,
+        "baseline_exact_original_wrapped_palette": true,
+        "candidate_exact_original_wrapped_palette": true,
+        "authored_family_pixels_exposed": 0
+      },
+      {
+        "tick": 6555,
+        "slot": 40,
+        "link": 8,
+        "base": 1,
+        "part": 19,
+        "original_tile_index": 20,
+        "quadrant_origin": [
+          -34,
+          64
+        ],
+        "guard_falls_back_to_original": true,
+        "wrapped_visible_native_pixels": 40,
+        "baseline_exact_original_wrapped_palette": true,
+        "candidate_exact_original_wrapped_palette": true,
+        "authored_family_pixels_exposed": 0
+      },
+      {
+        "tick": 6565,
+        "slot": 39,
+        "link": 8,
+        "base": 3,
+        "part": 0,
+        "original_tile_index": 3,
+        "quadrant_origin": [
+          -33,
+          80
+        ],
+        "guard_falls_back_to_original": true,
+        "wrapped_visible_native_pixels": 28,
+        "baseline_exact_original_wrapped_palette": true,
+        "candidate_exact_original_wrapped_palette": true,
+        "authored_family_pixels_exposed": 0
+      },
+      {
+        "tick": 6565,
+        "slot": 39,
+        "link": 8,
+        "base": 3,
+        "part": 19,
+        "original_tile_index": 22,
+        "quadrant_origin": [
+          -33,
+          94
+        ],
+        "guard_falls_back_to_original": true,
+        "wrapped_visible_native_pixels": 20,
+        "baseline_exact_original_wrapped_palette": true,
+        "candidate_exact_original_wrapped_palette": true,
+        "authored_family_pixels_exposed": 0
+      },
+      {
+        "tick": 6573,
+        "slot": 38,
+        "link": 8,
+        "base": 3,
+        "part": 0,
+        "original_tile_index": 3,
+        "quadrant_origin": [
+          -33,
+          104
+        ],
+        "guard_falls_back_to_original": true,
+        "wrapped_visible_native_pixels": 28,
+        "baseline_exact_original_wrapped_palette": true,
+        "candidate_exact_original_wrapped_palette": true,
+        "authored_family_pixels_exposed": 0
+      },
+      {
+        "tick": 6573,
+        "slot": 38,
+        "link": 8,
+        "base": 3,
+        "part": 19,
+        "original_tile_index": 22,
+        "quadrant_origin": [
+          -33,
+          118
+        ],
+        "guard_falls_back_to_original": true,
+        "wrapped_visible_native_pixels": 20,
+        "baseline_exact_original_wrapped_palette": true,
+        "candidate_exact_original_wrapped_palette": true,
+        "authored_family_pixels_exposed": 0
+      },
+      {
+        "tick": 6575,
+        "slot": 91,
+        "link": 10,
+        "base": 1,
+        "part": 0,
+        "original_tile_index": 1,
+        "quadrant_origin": [
+          -34,
+          70
+        ],
+        "guard_falls_back_to_original": true,
+        "wrapped_visible_native_pixels": 56,
+        "baseline_exact_original_wrapped_palette": true,
+        "candidate_exact_original_wrapped_palette": true,
+        "authored_family_pixels_exposed": 0
+      },
+      {
+        "tick": 6575,
+        "slot": 91,
+        "link": 10,
+        "base": 1,
+        "part": 19,
+        "original_tile_index": 20,
+        "quadrant_origin": [
+          -34,
+          84
+        ],
+        "guard_falls_back_to_original": true,
+        "wrapped_visible_native_pixels": 40,
+        "baseline_exact_original_wrapped_palette": true,
+        "candidate_exact_original_wrapped_palette": true,
+        "authored_family_pixels_exposed": 0
+      }
+    ],
+    "original_source_alpha_proof": [
+      {
+        "base": 1,
+        "source_opaque_logical_pixels": 294,
+        "full8x_alpha_equals_original_RLE": true
+      },
+      {
+        "base": 3,
+        "source_opaque_logical_pixels": 267,
+        "full8x_alpha_equals_original_RLE": true
+      },
+      {
+        "base": 5,
+        "source_opaque_logical_pixels": 174,
+        "full8x_alpha_equals_original_RLE": true
+      },
+      {
+        "base": 7,
+        "source_opaque_logical_pixels": 186,
+        "full8x_alpha_equals_original_RLE": true
+      },
+      {
+        "base": 9,
+        "source_opaque_logical_pixels": 267,
+        "full8x_alpha_equals_original_RLE": true
+      },
+      {
+        "base": 11,
+        "source_opaque_logical_pixels": 294,
+        "full8x_alpha_equals_original_RLE": true
+      }
+    ],
+    "filter_proof": [
+      {
+        "tick": 6543,
+        "slot": 25,
+        "link": 7,
+        "base": 9,
+        "filter": 208,
+        "iced_pre_draw": 0,
+        "origin": [
+          194,
+          39
+        ],
+        "final_family_owner_pixels": 1068,
+        "direct_uncovered_source_pixels": 1068,
+        "direct_uncovered_changed_pixels": 1056,
+        "covered_source_pixels": 0,
+        "all_final_composed_pixels_exact": true
+      },
+      {
+        "tick": 6543,
+        "slot": 26,
+        "link": 7,
+        "base": 9,
+        "filter": 208,
+        "iced_pre_draw": 0,
+        "origin": [
+          218,
+          39
+        ],
+        "final_family_owner_pixels": 1068,
+        "direct_uncovered_source_pixels": 1068,
+        "direct_uncovered_changed_pixels": 1056,
+        "covered_source_pixels": 0,
+        "all_final_composed_pixels_exact": true
+      },
+      {
+        "tick": 6543,
+        "slot": 27,
+        "link": 7,
+        "base": 9,
+        "filter": 208,
+        "iced_pre_draw": 0,
+        "origin": [
+          242,
+          39
+        ],
+        "final_family_owner_pixels": 1068,
+        "direct_uncovered_source_pixels": 1068,
+        "direct_uncovered_changed_pixels": 1056,
+        "covered_source_pixels": 0,
+        "all_final_composed_pixels_exact": true
+      },
+      {
+        "tick": 6543,
+        "slot": 28,
+        "link": 7,
+        "base": 9,
+        "filter": 208,
+        "iced_pre_draw": 0,
+        "origin": [
+          266,
+          39
+        ],
+        "final_family_owner_pixels": 972,
+        "direct_uncovered_source_pixels": 972,
+        "direct_uncovered_changed_pixels": 961,
+        "covered_source_pixels": 0,
+        "all_final_composed_pixels_exact": true
+      },
+      {
+        "tick": 6543,
+        "slot": 31,
+        "link": 7,
+        "base": 7,
+        "filter": 208,
+        "iced_pre_draw": 0,
+        "origin": [
+          170,
+          39
+        ],
+        "final_family_owner_pixels": 744,
+        "direct_uncovered_source_pixels": 677,
+        "direct_uncovered_changed_pixels": 672,
+        "covered_source_pixels": 67,
+        "all_final_composed_pixels_exact": true
+      },
+      {
+        "tick": 6545,
+        "slot": 25,
+        "link": 7,
+        "base": 9,
+        "filter": 208,
+        "iced_pre_draw": 40,
+        "origin": [
+          198,
+          43
+        ],
+        "final_family_owner_pixels": 1068,
+        "direct_uncovered_source_pixels": 1068,
+        "direct_uncovered_changed_pixels": 1056,
+        "covered_source_pixels": 0,
+        "all_final_composed_pixels_exact": true
+      },
+      {
+        "tick": 6545,
+        "slot": 26,
+        "link": 7,
+        "base": 9,
+        "filter": 208,
+        "iced_pre_draw": 40,
+        "origin": [
+          222,
+          43
+        ],
+        "final_family_owner_pixels": 1068,
+        "direct_uncovered_source_pixels": 1068,
+        "direct_uncovered_changed_pixels": 1056,
+        "covered_source_pixels": 0,
+        "all_final_composed_pixels_exact": true
+      },
+      {
+        "tick": 6545,
+        "slot": 27,
+        "link": 7,
+        "base": 9,
+        "filter": 208,
+        "iced_pre_draw": 40,
+        "origin": [
+          246,
+          43
+        ],
+        "final_family_owner_pixels": 1068,
+        "direct_uncovered_source_pixels": 1068,
+        "direct_uncovered_changed_pixels": 1056,
+        "covered_source_pixels": 0,
+        "all_final_composed_pixels_exact": true
+      },
+      {
+        "tick": 6545,
+        "slot": 28,
+        "link": 7,
+        "base": 9,
+        "filter": 208,
+        "iced_pre_draw": 40,
+        "origin": [
+          270,
+          43
+        ],
+        "final_family_owner_pixels": 760,
+        "direct_uncovered_source_pixels": 760,
+        "direct_uncovered_changed_pixels": 751,
+        "covered_source_pixels": 0,
+        "all_final_composed_pixels_exact": true
+      },
+      {
+        "tick": 6545,
+        "slot": 31,
+        "link": 7,
+        "base": 7,
+        "filter": 208,
+        "iced_pre_draw": 40,
+        "origin": [
+          174,
+          43
+        ],
+        "final_family_owner_pixels": 744,
+        "direct_uncovered_source_pixels": 677,
+        "direct_uncovered_changed_pixels": 672,
+        "covered_source_pixels": 67,
+        "all_final_composed_pixels_exact": true
+      },
+      {
+        "tick": 6546,
+        "slot": 25,
+        "link": 7,
+        "base": 9,
+        "filter": 9,
+        "iced_pre_draw": 39,
+        "origin": [
+          200,
+          45
+        ],
+        "final_family_owner_pixels": 1068,
+        "direct_uncovered_source_pixels": 734,
+        "direct_uncovered_changed_pixels": 507,
+        "covered_source_pixels": 334,
+        "all_final_composed_pixels_exact": true
+      },
+      {
+        "tick": 6546,
+        "slot": 26,
+        "link": 7,
+        "base": 9,
+        "filter": 9,
+        "iced_pre_draw": 39,
+        "origin": [
+          224,
+          45
+        ],
+        "final_family_owner_pixels": 1068,
+        "direct_uncovered_source_pixels": 734,
+        "direct_uncovered_changed_pixels": 507,
+        "covered_source_pixels": 334,
+        "all_final_composed_pixels_exact": true
+      },
+      {
+        "tick": 6546,
+        "slot": 27,
+        "link": 7,
+        "base": 9,
+        "filter": 9,
+        "iced_pre_draw": 39,
+        "origin": [
+          248,
+          45
+        ],
+        "final_family_owner_pixels": 1068,
+        "direct_uncovered_source_pixels": 734,
+        "direct_uncovered_changed_pixels": 507,
+        "covered_source_pixels": 334,
+        "all_final_composed_pixels_exact": true
+      },
+      {
+        "tick": 6546,
+        "slot": 28,
+        "link": 7,
+        "base": 9,
+        "filter": 9,
+        "iced_pre_draw": 39,
+        "origin": [
+          272,
+          45
+        ],
+        "final_family_owner_pixels": 648,
+        "direct_uncovered_source_pixels": 439,
+        "direct_uncovered_changed_pixels": 283,
+        "covered_source_pixels": 209,
+        "all_final_composed_pixels_exact": true
+      },
+      {
+        "tick": 6546,
+        "slot": 31,
+        "link": 7,
+        "base": 7,
+        "filter": 9,
+        "iced_pre_draw": 39,
+        "origin": [
+          176,
+          45
+        ],
+        "final_family_owner_pixels": 744,
+        "direct_uncovered_source_pixels": 293,
+        "direct_uncovered_changed_pixels": 187,
+        "covered_source_pixels": 451,
+        "all_final_composed_pixels_exact": true
+      }
+    ],
+    "per_frame": [
+      {
+        "tick": 6541,
+        "original_family_support_native_pixels": 19964,
+        "changed_native_pixels": 19436,
+        "outside_projected_support_native_pixels_equal": 236036,
+        "actual_original_linear_RLE_support_native_pixels": 19964,
+        "outside_original_linear_support_native_pixels_equal": 236036,
+        "original_wrapped_palette_restored_native_pixels": 0,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 19232,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 732,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 0,
+          "font": 732,
+          "effect": 0
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 516,
+          "shadow_only_native_pixels": 216,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6542,
+        "original_family_support_native_pixels": 19776,
+        "changed_native_pixels": 18981,
+        "outside_projected_support_native_pixels_equal": 236224,
+        "actual_original_linear_RLE_support_native_pixels": 19776,
+        "outside_original_linear_support_native_pixels_equal": 236224,
+        "original_wrapped_palette_restored_native_pixels": 0,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 18266,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 1510,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 426,
+          "font": 1084,
+          "effect": 58
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 744,
+          "shadow_only_native_pixels": 340,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6543,
+        "original_family_support_native_pixels": 19772,
+        "changed_native_pixels": 18665,
+        "outside_projected_support_native_pixels_equal": 236228,
+        "actual_original_linear_RLE_support_native_pixels": 19772,
+        "outside_original_linear_support_native_pixels_equal": 236228,
+        "original_wrapped_palette_restored_native_pixels": 0,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 18193,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 1579,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 0,
+          "font": 1512,
+          "effect": 67
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 1044,
+          "shadow_only_native_pixels": 468,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6544,
+        "original_family_support_native_pixels": 20660,
+        "changed_native_pixels": 19313,
+        "outside_projected_support_native_pixels_equal": 235340,
+        "actual_original_linear_RLE_support_native_pixels": 20660,
+        "outside_original_linear_support_native_pixels_equal": 235340,
+        "original_wrapped_palette_restored_native_pixels": 0,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 18304,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 2356,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 426,
+          "font": 1928,
+          "effect": 81
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 1292,
+          "shadow_only_native_pixels": 636,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6545,
+        "original_family_support_native_pixels": 21780,
+        "changed_native_pixels": 20485,
+        "outside_projected_support_native_pixels_equal": 234220,
+        "actual_original_linear_RLE_support_native_pixels": 21780,
+        "outside_original_linear_support_native_pixels_equal": 234220,
+        "original_wrapped_palette_restored_native_pixels": 0,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 19613,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 2167,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 0,
+          "font": 2100,
+          "effect": 67
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 1228,
+          "shadow_only_native_pixels": 872,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6546,
+        "original_family_support_native_pixels": 22900,
+        "changed_native_pixels": 20686,
+        "outside_projected_support_native_pixels_equal": 233100,
+        "actual_original_linear_RLE_support_native_pixels": 22900,
+        "outside_original_linear_support_native_pixels_equal": 233100,
+        "original_wrapped_palette_restored_native_pixels": 0,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 19422,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 3478,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 426,
+          "font": 1816,
+          "effect": 1560
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 972,
+          "shadow_only_native_pixels": 844,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6547,
+        "original_family_support_native_pixels": 19660,
+        "changed_native_pixels": 18889,
+        "outside_projected_support_native_pixels_equal": 236340,
+        "actual_original_linear_RLE_support_native_pixels": 19660,
+        "outside_original_linear_support_native_pixels_equal": 236340,
+        "original_wrapped_palette_restored_native_pixels": 0,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 18248,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 1412,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 0,
+          "font": 1412,
+          "effect": 0
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 756,
+          "shadow_only_native_pixels": 656,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6548,
+        "original_family_support_native_pixels": 20980,
+        "changed_native_pixels": 20441,
+        "outside_projected_support_native_pixels_equal": 235020,
+        "actual_original_linear_RLE_support_native_pixels": 20980,
+        "outside_original_linear_support_native_pixels_equal": 235020,
+        "original_wrapped_palette_restored_native_pixels": 0,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 19908,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 1072,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 0,
+          "font": 1072,
+          "effect": 0
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 528,
+          "shadow_only_native_pixels": 544,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6549,
+        "original_family_support_native_pixels": 22028,
+        "changed_native_pixels": 21445,
+        "outside_projected_support_native_pixels_equal": 233972,
+        "actual_original_linear_RLE_support_native_pixels": 22028,
+        "outside_original_linear_support_native_pixels_equal": 233972,
+        "original_wrapped_palette_restored_native_pixels": 0,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 21064,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 964,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 0,
+          "font": 964,
+          "effect": 0
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 568,
+          "shadow_only_native_pixels": 396,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6550,
+        "original_family_support_native_pixels": 22064,
+        "changed_native_pixels": 21375,
+        "outside_projected_support_native_pixels_equal": 233936,
+        "actual_original_linear_RLE_support_native_pixels": 22064,
+        "outside_original_linear_support_native_pixels_equal": 233936,
+        "original_wrapped_palette_restored_native_pixels": 0,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 20992,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 1072,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 0,
+          "font": 1072,
+          "effect": 0
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 676,
+          "shadow_only_native_pixels": 396,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6551,
+        "original_family_support_native_pixels": 21864,
+        "changed_native_pixels": 20739,
+        "outside_projected_support_native_pixels_equal": 234136,
+        "actual_original_linear_RLE_support_native_pixels": 21864,
+        "outside_original_linear_support_native_pixels_equal": 234136,
+        "original_wrapped_palette_restored_native_pixels": 0,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 20324,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 1540,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 0,
+          "font": 1540,
+          "effect": 0
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 1112,
+          "shadow_only_native_pixels": 428,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6552,
+        "original_family_support_native_pixels": 21656,
+        "changed_native_pixels": 20089,
+        "outside_projected_support_native_pixels_equal": 234344,
+        "actual_original_linear_RLE_support_native_pixels": 21656,
+        "outside_original_linear_support_native_pixels_equal": 234344,
+        "original_wrapped_palette_restored_native_pixels": 0,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 19344,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 2312,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 0,
+          "font": 2312,
+          "effect": 0
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 1552,
+          "shadow_only_native_pixels": 760,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6553,
+        "original_family_support_native_pixels": 21448,
+        "changed_native_pixels": 19988,
+        "outside_projected_support_native_pixels_equal": 234552,
+        "actual_original_linear_RLE_support_native_pixels": 21448,
+        "outside_original_linear_support_native_pixels_equal": 234552,
+        "original_wrapped_palette_restored_native_pixels": 0,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 18936,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 2512,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 0,
+          "font": 2512,
+          "effect": 0
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 1440,
+          "shadow_only_native_pixels": 1072,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6554,
+        "original_family_support_native_pixels": 21236,
+        "changed_native_pixels": 20248,
+        "outside_projected_support_native_pixels_equal": 234764,
+        "actual_original_linear_RLE_support_native_pixels": 21236,
+        "outside_original_linear_support_native_pixels_equal": 234764,
+        "original_wrapped_palette_restored_native_pixels": 0,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 19428,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 1808,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 0,
+          "font": 1808,
+          "effect": 0
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 980,
+          "shadow_only_native_pixels": 828,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6555,
+        "original_family_support_native_pixels": 21040,
+        "changed_native_pixels": 20527,
+        "outside_projected_support_native_pixels_equal": 234960,
+        "actual_original_linear_RLE_support_native_pixels": 21136,
+        "outside_original_linear_support_native_pixels_equal": 234864,
+        "original_wrapped_palette_restored_native_pixels": 96,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 19960,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 1080,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 0,
+          "font": 1080,
+          "effect": 0
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 504,
+          "shadow_only_native_pixels": 576,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6556,
+        "original_family_support_native_pixels": 20864,
+        "changed_native_pixels": 20820,
+        "outside_projected_support_native_pixels_equal": 235136,
+        "actual_original_linear_RLE_support_native_pixels": 20864,
+        "outside_original_linear_support_native_pixels_equal": 235136,
+        "original_wrapped_palette_restored_native_pixels": 0,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 20548,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 316,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 0,
+          "font": 316,
+          "effect": 0
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 36,
+          "shadow_only_native_pixels": 280,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6557,
+        "original_family_support_native_pixels": 20728,
+        "changed_native_pixels": 20721,
+        "outside_projected_support_native_pixels_equal": 235272,
+        "actual_original_linear_RLE_support_native_pixels": 20728,
+        "outside_original_linear_support_native_pixels_equal": 235272,
+        "original_wrapped_palette_restored_native_pixels": 0,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 20728,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 0,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 0,
+          "font": 0,
+          "effect": 0
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 0,
+          "shadow_only_native_pixels": 0,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6558,
+        "original_family_support_native_pixels": 20520,
+        "changed_native_pixels": 20513,
+        "outside_projected_support_native_pixels_equal": 235480,
+        "actual_original_linear_RLE_support_native_pixels": 20520,
+        "outside_original_linear_support_native_pixels_equal": 235480,
+        "original_wrapped_palette_restored_native_pixels": 0,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 20520,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 0,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 0,
+          "font": 0,
+          "effect": 0
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 0,
+          "shadow_only_native_pixels": 0,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6559,
+        "original_family_support_native_pixels": 20280,
+        "changed_native_pixels": 20273,
+        "outside_projected_support_native_pixels_equal": 235720,
+        "actual_original_linear_RLE_support_native_pixels": 20280,
+        "outside_original_linear_support_native_pixels_equal": 235720,
+        "original_wrapped_palette_restored_native_pixels": 0,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 20280,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 0,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 0,
+          "font": 0,
+          "effect": 0
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 0,
+          "shadow_only_native_pixels": 0,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6560,
+        "original_family_support_native_pixels": 20040,
+        "changed_native_pixels": 20034,
+        "outside_projected_support_native_pixels_equal": 235960,
+        "actual_original_linear_RLE_support_native_pixels": 20040,
+        "outside_original_linear_support_native_pixels_equal": 235960,
+        "original_wrapped_palette_restored_native_pixels": 0,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 20040,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 0,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 0,
+          "font": 0,
+          "effect": 0
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 0,
+          "shadow_only_native_pixels": 0,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6561,
+        "original_family_support_native_pixels": 19880,
+        "changed_native_pixels": 19874,
+        "outside_projected_support_native_pixels_equal": 236120,
+        "actual_original_linear_RLE_support_native_pixels": 19880,
+        "outside_original_linear_support_native_pixels_equal": 236120,
+        "original_wrapped_palette_restored_native_pixels": 0,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 19880,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 0,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 0,
+          "font": 0,
+          "effect": 0
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 0,
+          "shadow_only_native_pixels": 0,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6562,
+        "original_family_support_native_pixels": 19680,
+        "changed_native_pixels": 19674,
+        "outside_projected_support_native_pixels_equal": 236320,
+        "actual_original_linear_RLE_support_native_pixels": 19680,
+        "outside_original_linear_support_native_pixels_equal": 236320,
+        "original_wrapped_palette_restored_native_pixels": 0,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 19680,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 0,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 0,
+          "font": 0,
+          "effect": 0
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 0,
+          "shadow_only_native_pixels": 0,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6563,
+        "original_family_support_native_pixels": 19404,
+        "changed_native_pixels": 19398,
+        "outside_projected_support_native_pixels_equal": 236596,
+        "actual_original_linear_RLE_support_native_pixels": 19404,
+        "outside_original_linear_support_native_pixels_equal": 236596,
+        "original_wrapped_palette_restored_native_pixels": 0,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 19404,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 0,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 0,
+          "font": 0,
+          "effect": 0
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 0,
+          "shadow_only_native_pixels": 0,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6564,
+        "original_family_support_native_pixels": 19108,
+        "changed_native_pixels": 19102,
+        "outside_projected_support_native_pixels_equal": 236892,
+        "actual_original_linear_RLE_support_native_pixels": 19108,
+        "outside_original_linear_support_native_pixels_equal": 236892,
+        "original_wrapped_palette_restored_native_pixels": 0,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 19108,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 0,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 0,
+          "font": 0,
+          "effect": 0
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 0,
+          "shadow_only_native_pixels": 0,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6565,
+        "original_family_support_native_pixels": 18820,
+        "changed_native_pixels": 18814,
+        "outside_projected_support_native_pixels_equal": 237180,
+        "actual_original_linear_RLE_support_native_pixels": 18868,
+        "outside_original_linear_support_native_pixels_equal": 237132,
+        "original_wrapped_palette_restored_native_pixels": 48,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 18820,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 0,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 0,
+          "font": 0,
+          "effect": 0
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 0,
+          "shadow_only_native_pixels": 0,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6566,
+        "original_family_support_native_pixels": 18516,
+        "changed_native_pixels": 18510,
+        "outside_projected_support_native_pixels_equal": 237484,
+        "actual_original_linear_RLE_support_native_pixels": 18516,
+        "outside_original_linear_support_native_pixels_equal": 237484,
+        "original_wrapped_palette_restored_native_pixels": 0,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 18516,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 0,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 0,
+          "font": 0,
+          "effect": 0
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 0,
+          "shadow_only_native_pixels": 0,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6567,
+        "original_family_support_native_pixels": 18240,
+        "changed_native_pixels": 18234,
+        "outside_projected_support_native_pixels_equal": 237760,
+        "actual_original_linear_RLE_support_native_pixels": 18240,
+        "outside_original_linear_support_native_pixels_equal": 237760,
+        "original_wrapped_palette_restored_native_pixels": 0,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 18240,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 0,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 0,
+          "font": 0,
+          "effect": 0
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 0,
+          "shadow_only_native_pixels": 0,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6568,
+        "original_family_support_native_pixels": 17904,
+        "changed_native_pixels": 17898,
+        "outside_projected_support_native_pixels_equal": 238096,
+        "actual_original_linear_RLE_support_native_pixels": 17904,
+        "outside_original_linear_support_native_pixels_equal": 238096,
+        "original_wrapped_palette_restored_native_pixels": 0,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 17904,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 0,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 0,
+          "font": 0,
+          "effect": 0
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 0,
+          "shadow_only_native_pixels": 0,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6569,
+        "original_family_support_native_pixels": 17668,
+        "changed_native_pixels": 17662,
+        "outside_projected_support_native_pixels_equal": 238332,
+        "actual_original_linear_RLE_support_native_pixels": 17668,
+        "outside_original_linear_support_native_pixels_equal": 238332,
+        "original_wrapped_palette_restored_native_pixels": 0,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 17668,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 0,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 0,
+          "font": 0,
+          "effect": 0
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 0,
+          "shadow_only_native_pixels": 0,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6570,
+        "original_family_support_native_pixels": 17412,
+        "changed_native_pixels": 17406,
+        "outside_projected_support_native_pixels_equal": 238588,
+        "actual_original_linear_RLE_support_native_pixels": 17412,
+        "outside_original_linear_support_native_pixels_equal": 238588,
+        "original_wrapped_palette_restored_native_pixels": 0,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 17412,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 0,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 0,
+          "font": 0,
+          "effect": 0
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 0,
+          "shadow_only_native_pixels": 0,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6571,
+        "original_family_support_native_pixels": 17068,
+        "changed_native_pixels": 17062,
+        "outside_projected_support_native_pixels_equal": 238932,
+        "actual_original_linear_RLE_support_native_pixels": 17068,
+        "outside_original_linear_support_native_pixels_equal": 238932,
+        "original_wrapped_palette_restored_native_pixels": 0,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 17068,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 0,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 0,
+          "font": 0,
+          "effect": 0
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 0,
+          "shadow_only_native_pixels": 0,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6572,
+        "original_family_support_native_pixels": 16700,
+        "changed_native_pixels": 16695,
+        "outside_projected_support_native_pixels_equal": 239300,
+        "actual_original_linear_RLE_support_native_pixels": 16700,
+        "outside_original_linear_support_native_pixels_equal": 239300,
+        "original_wrapped_palette_restored_native_pixels": 0,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 16700,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 0,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 0,
+          "font": 0,
+          "effect": 0
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 0,
+          "shadow_only_native_pixels": 0,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6573,
+        "original_family_support_native_pixels": 16384,
+        "changed_native_pixels": 16379,
+        "outside_projected_support_native_pixels_equal": 239616,
+        "actual_original_linear_RLE_support_native_pixels": 16432,
+        "outside_original_linear_support_native_pixels_equal": 239568,
+        "original_wrapped_palette_restored_native_pixels": 48,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 16384,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 0,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 0,
+          "font": 0,
+          "effect": 0
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 0,
+          "shadow_only_native_pixels": 0,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6574,
+        "original_family_support_native_pixels": 16008,
+        "changed_native_pixels": 16003,
+        "outside_projected_support_native_pixels_equal": 239992,
+        "actual_original_linear_RLE_support_native_pixels": 16008,
+        "outside_original_linear_support_native_pixels_equal": 239992,
+        "original_wrapped_palette_restored_native_pixels": 0,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 16008,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 0,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 0,
+          "font": 0,
+          "effect": 0
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 0,
+          "shadow_only_native_pixels": 0,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6575,
+        "original_family_support_native_pixels": 15672,
+        "changed_native_pixels": 15667,
+        "outside_projected_support_native_pixels_equal": 240328,
+        "actual_original_linear_RLE_support_native_pixels": 15768,
+        "outside_original_linear_support_native_pixels_equal": 240232,
+        "original_wrapped_palette_restored_native_pixels": 96,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 15672,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 0,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 0,
+          "font": 0,
+          "effect": 0
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 0,
+          "shadow_only_native_pixels": 0,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6576,
+        "original_family_support_native_pixels": 15272,
+        "changed_native_pixels": 15267,
+        "outside_projected_support_native_pixels_equal": 240728,
+        "actual_original_linear_RLE_support_native_pixels": 15272,
+        "outside_original_linear_support_native_pixels_equal": 240728,
+        "original_wrapped_palette_restored_native_pixels": 0,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 15272,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 0,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 0,
+          "font": 0,
+          "effect": 0
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 0,
+          "shadow_only_native_pixels": 0,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6577,
+        "original_family_support_native_pixels": 14940,
+        "changed_native_pixels": 14935,
+        "outside_projected_support_native_pixels_equal": 241060,
+        "actual_original_linear_RLE_support_native_pixels": 14940,
+        "outside_original_linear_support_native_pixels_equal": 241060,
+        "original_wrapped_palette_restored_native_pixels": 0,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 14940,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 0,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 0,
+          "font": 0,
+          "effect": 0
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 0,
+          "shadow_only_native_pixels": 0,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "tick": 6578,
+        "original_family_support_native_pixels": 14636,
+        "changed_native_pixels": 14631,
+        "outside_projected_support_native_pixels_equal": 241364,
+        "actual_original_linear_RLE_support_native_pixels": 14636,
+        "outside_original_linear_support_native_pixels_equal": 241364,
+        "original_wrapped_palette_restored_native_pixels": 0,
+        "full_frame_ordered_RGBA_exact": true,
+        "oracle_mismatches": 0,
+        "outside_projected_support_mismatches": 0,
+        "excluded_pixels": 0,
+        "direct_uncovered_source_pixels": 14636,
+        "source_pixels_covered_by_later_positive_alpha_or_font_operation": 0,
+        "later_operation_support_pixels": {
+          "later_family": 0,
+          "layer2": 0,
+          "entry": 0,
+          "projectile": 0,
+          "font": 0,
+          "effect": 0
+        },
+        "insert_coin_overlay": {
+          "fully_covered_native_pixels": 0,
+          "shadow_only_native_pixels": 0,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "live_family_links_drawn": [
+          8,
+          9,
+          10
+        ]
+      }
+    ],
+    "replayed_operation_pixel_totals": {
+      "family": 732572,
+      "projectile": 1350,
+      "effect": 1836
+    },
+    "layer2_ids": [
+      42,
+      44,
+      45,
+      62
+    ],
+    "indexed_entry_craft_bases": [
+      81,
+      83,
+      85,
+      119,
+      121,
+      123
+    ],
+    "explosion_HDA_ids": [
+      122,
+      123,
+      124,
+      125,
+      126,
+      127,
+      128,
+      129,
+      130,
+      131,
+      132,
+      133,
+      146,
+      147,
+      148,
+      149,
+      150,
+      151,
+      152,
+      154,
+      155,
+      156,
+      157,
+      158,
+      159,
+      160,
+      161,
+      162,
+      163,
+      164,
+      165,
+      173,
+      174,
+      175,
+      176,
+      177,
+      178,
+      179,
+      180,
+      181,
+      182,
+      183,
+      184,
+      192,
+      193,
+      194,
+      195,
+      196,
+      197,
+      198,
+      199,
+      200,
+      201,
+      202,
+      203,
+      211,
+      212,
+      213,
+      214,
+      215,
+      216,
+      217,
+      218,
+      219,
+      220,
+      221,
+      222
+    ],
+    "all256_palette5_entries_match_AB": true,
+    "normalized_original_blend_fields_AB_equal": [
+      "tick",
+      "known_sheet",
+      "index",
+      "origin_x",
+      "origin_y",
+      "x",
+      "y",
+      "before",
+      "source",
+      "after"
+    ],
+    "original_blend_rows_equal": 46796,
+    "player_rectangles_disjoint_from_family_support": true,
+    "font_oracle_sha256": "639d80e92c0f2dbb2e165c565524ce7a67ca8f8d2889fca384501e622719fada",
+    "guard_only_renderer_delta_from_superseded_candidate": true,
+    "rejected_physical_row_crossing_calls": 260,
+    "scope": "Read-only analysis of38 existing revised candidate native2x captures and immutable original baseline evidence. No game runs, new captures or production edits. All visible source, filters and later overlapping operators are independently recomposed; every pixel outside projected family alpha remains exactly baseline.",
+    "limits": [
+      "This is a paired differential proof, not an independent reconstruction of unrelated baseline scenery.",
+      "Source pixels covered by any later positive-alpha draw are separately counted and are not claimed directly exposed, even though final composited pixels are exact.",
+      "Base1 has no authored HD presentation. Its original wrapped palette writes now match the baseline. Base11 is partial only. No full-family natural exposure or natural combat claim.",
+      "Lifecycle proof directly executed native2x only. Native4x6541 equivalence below is derived from existing prior-build4x evidence and exact unchanged visible8x-canvas behavior, not a directly executed revised4x capture."
+    ],
+    "receipts": {
+      "provenance_sha256": "fa489df15e67d15da0bf468fdb290e806162da598dee6b58de3579296e3869b8",
+      "verifier_sha256": "339cd2244940f88f871a02a5fdea159c33c360276266adb0d01b176c16874090",
+      "candidate_frame_hashes_sha256": "ae4c4f900fa7356a19f6fe75bad90e15fa96ddc267102cb28be713509c766206",
+      "baseline_frame_hashes_sha256": "1a8e3de74ab7f8c12e9264166d8e0b4157487c519715d12ff2097cd326558618",
+      "candidate_stream_receipts_sha256": "447a6395a771227d691d364960dd6375f36c94c23a4764a5e18828b9491624bd",
+      "baseline_stream_receipts_sha256": "5515dac0c537eade602b0d7b32f84053abb11de0b1488a02e437e863c2d86533",
+      "preserved_failed_candidate_report_sha256": "62692a6684cba777bb77bd9d7fb7355ebbe7a4704d40c2cc06dc2ff3cbb68596"
+    },
+    "revised_vs_failed_candidate": [
+      {
+        "tick": 6541,
+        "changed_native_pixels": 0,
+        "PNG_bytes_equal": true
+      },
+      {
+        "tick": 6542,
+        "changed_native_pixels": 0,
+        "PNG_bytes_equal": true
+      },
+      {
+        "tick": 6543,
+        "changed_native_pixels": 0,
+        "PNG_bytes_equal": true
+      },
+      {
+        "tick": 6544,
+        "changed_native_pixels": 0,
+        "PNG_bytes_equal": true
+      },
+      {
+        "tick": 6545,
+        "changed_native_pixels": 0,
+        "PNG_bytes_equal": true
+      },
+      {
+        "tick": 6546,
+        "changed_native_pixels": 0,
+        "PNG_bytes_equal": true
+      },
+      {
+        "tick": 6547,
+        "changed_native_pixels": 0,
+        "PNG_bytes_equal": true
+      },
+      {
+        "tick": 6548,
+        "changed_native_pixels": 0,
+        "PNG_bytes_equal": true
+      },
+      {
+        "tick": 6549,
+        "changed_native_pixels": 0,
+        "PNG_bytes_equal": true
+      },
+      {
+        "tick": 6550,
+        "changed_native_pixels": 0,
+        "PNG_bytes_equal": true
+      },
+      {
+        "tick": 6551,
+        "changed_native_pixels": 0,
+        "PNG_bytes_equal": true
+      },
+      {
+        "tick": 6552,
+        "changed_native_pixels": 0,
+        "PNG_bytes_equal": true
+      },
+      {
+        "tick": 6553,
+        "changed_native_pixels": 0,
+        "PNG_bytes_equal": true
+      },
+      {
+        "tick": 6554,
+        "changed_native_pixels": 0,
+        "PNG_bytes_equal": true
+      },
+      {
+        "tick": 6555,
+        "changed_native_pixels": 96,
+        "PNG_bytes_equal": false
+      },
+      {
+        "tick": 6556,
+        "changed_native_pixels": 0,
+        "PNG_bytes_equal": true
+      },
+      {
+        "tick": 6557,
+        "changed_native_pixels": 0,
+        "PNG_bytes_equal": true
+      },
+      {
+        "tick": 6558,
+        "changed_native_pixels": 0,
+        "PNG_bytes_equal": true
+      },
+      {
+        "tick": 6559,
+        "changed_native_pixels": 0,
+        "PNG_bytes_equal": true
+      },
+      {
+        "tick": 6560,
+        "changed_native_pixels": 0,
+        "PNG_bytes_equal": true
+      },
+      {
+        "tick": 6561,
+        "changed_native_pixels": 0,
+        "PNG_bytes_equal": true
+      },
+      {
+        "tick": 6562,
+        "changed_native_pixels": 0,
+        "PNG_bytes_equal": true
+      },
+      {
+        "tick": 6563,
+        "changed_native_pixels": 0,
+        "PNG_bytes_equal": true
+      },
+      {
+        "tick": 6564,
+        "changed_native_pixels": 0,
+        "PNG_bytes_equal": true
+      },
+      {
+        "tick": 6565,
+        "changed_native_pixels": 48,
+        "PNG_bytes_equal": false
+      },
+      {
+        "tick": 6566,
+        "changed_native_pixels": 0,
+        "PNG_bytes_equal": true
+      },
+      {
+        "tick": 6567,
+        "changed_native_pixels": 0,
+        "PNG_bytes_equal": true
+      },
+      {
+        "tick": 6568,
+        "changed_native_pixels": 0,
+        "PNG_bytes_equal": true
+      },
+      {
+        "tick": 6569,
+        "changed_native_pixels": 0,
+        "PNG_bytes_equal": true
+      },
+      {
+        "tick": 6570,
+        "changed_native_pixels": 0,
+        "PNG_bytes_equal": true
+      },
+      {
+        "tick": 6571,
+        "changed_native_pixels": 0,
+        "PNG_bytes_equal": true
+      },
+      {
+        "tick": 6572,
+        "changed_native_pixels": 0,
+        "PNG_bytes_equal": true
+      },
+      {
+        "tick": 6573,
+        "changed_native_pixels": 48,
+        "PNG_bytes_equal": false
+      },
+      {
+        "tick": 6574,
+        "changed_native_pixels": 0,
+        "PNG_bytes_equal": true
+      },
+      {
+        "tick": 6575,
+        "changed_native_pixels": 96,
+        "PNG_bytes_equal": false
+      },
+      {
+        "tick": 6576,
+        "changed_native_pixels": 0,
+        "PNG_bytes_equal": true
+      },
+      {
+        "tick": 6577,
+        "changed_native_pixels": 0,
+        "PNG_bytes_equal": true
+      },
+      {
+        "tick": 6578,
+        "changed_native_pixels": 0,
+        "PNG_bytes_equal": true
+      }
+    ]
+  },
+  "native4x_equivalence": {
+    "status": "PASS derived exact viewport equivalence; revised4x not directly executed",
+    "directly_executed_build": "ed10ce7ad3d7023c154128d75857e8450a9cf032",
+    "revised_build_inferred_equivalent": "24fb5358841fc7bbffcc5d4d9f2a60f3e157ee55",
+    "tick": 6541,
+    "direct_actual_native_dimensions": [
+      1280,
+      800
+    ],
+    "render_density": 8,
+    "direct_old4x_pixels_independently_reconstructed": 1024000,
+    "direct_old4x_oracle_mismatches": 0,
+    "direct_old4x_original_alpha_support_native_pixels": 79856,
+    "fresh_revised2x6541_RGBA_and_PNG_bytes_equal_old2x": true,
+    "original_full_state_shared_census_fields_materials_draw_order_palette_equal": true,
+    "census_extra_lifecycle_columns_not_present_in_old4x": [
+      "cash0",
+      "cash1",
+      "killed"
+    ],
+    "actual_original_family_calls": 110,
+    "unchanged_HD_calls": 108,
+    "new_classic_calls": 2,
+    "new_classic_calls_original_visible_writes": 0,
+    "new_classic_calls_authored_visible_render8x_subpixels": 0,
+    "renderer_only_delta_exact_guard": true,
+    "source_viewport_crop_verified": [
+      24,
+      0,
+      264,
+      184
+    ],
+    "no_later_effect_or_projectile_sampling_at6541": true,
+    "original_insert_coin": {
+      "fully_covered_native_pixels": 2064,
+      "shadow_only_native_pixels": 864,
+      "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+      "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+      "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+    },
+    "reason": "Both newly classic calls are base1 left quadrants at x=-11. Neither their clipped HD source nor any original linear-address write intersects framebuffer x24..287,y0..183. All other calls and palette/state are identical; subsequent operations are identical and pointwise at6541. The final copied render-density8 viewport is therefore unchanged, so its native4x sampling is exactly equivalent to the verified existing prior-build4x capture. Fresh revised2x6541 also matches both prior2x PNGs byte-for-byte.",
+    "limitations": [
+      "This receipt does not claim a directly executed or captured revised-build4x run.",
+      "Equivalence applies only to normal tick6541; no revised4x hit/ice/lethal lifecycle was captured.",
+      "Base1 remains offscreen as authored art and base11 remains partially exposed."
+    ],
+    "receipts": {
+      "old4x_candidate_capture_sha256": "dccc9e7bdb726804fdfbeea5c18ff70d4fb37c02065ef0c3ea2bebc88c5cf93e",
+      "old4x_baseline_capture_sha256": "980b78287c20b61801edfb433def5e49b12873caadd93714ec27700b6109eeca",
+      "old4x_candidate_frame_receipt_sha256": "c773899ff63aaea4ad2755de09d72f61e3e5bd2caa026ba07fe0714fc72d6a82",
+      "old4x_baseline_frame_receipt_sha256": "13b8991d2fe20fc9994ad5c5f27be956eaa90367d53b549954041817baba56a0",
+      "old4x_prior_verification_sha256": "e68f646bd1b5c77a7df2776d1d845b567fa786a4cd18cccd589fcb044c73059d",
+      "fresh_revised2x_capture_sha256": "cbf27bdbeb566b6ec0deed75d0325f4415702da9b216d1c0df8c9ecb892f4349",
+      "old2x_capture_sha256": "cbf27bdbeb566b6ec0deed75d0325f4415702da9b216d1c0df8c9ecb892f4349",
+      "normal_still_provenance_sha256": "62f983559fb221164ab19d916d14589a859cd5c20102af89741529669c23cc64"
+    }
+  },
+  "actual_fallback_controls": {
+    "status": "PASS four finite actual fallback controls",
+    "baseline": "2efdc890217330e75a873252ca96b576495b23b9",
+    "candidate": "24fb5358841fc7bbffcc5d4d9f2a60f3e157ee55",
+    "superseded_candidate": "ed10ce7ad3d7023c154128d75857e8450a9cf032",
+    "successful_game_runs": 4,
+    "successful_game_readbacks": 4,
+    "capture_ticks": [
+      6541
+    ],
+    "stop_tick_exclusive": 6542,
+    "native_scale": 2,
+    "density_selector": "--render-test=4",
+    "density4_is_independent_of_native2x": true,
+    "density4_no_8x_substitution": true,
+    "comparisons": [
+      {
+        "control": "candidate-missing3",
+        "reference_directory": "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/baseline-census",
+        "candidate_directory": "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-missing3-census-retry1",
+        "density": 8,
+        "tick": 6541,
+        "native_dimensions": [
+          640,
+          400
+        ],
+        "RGBA_differing_pixels": 0,
+        "RGBA_differing_channels": 0,
+        "RGBA_sha256": "558914b3564008bd867a0576430e01699e48e137b06644632a7350f6a1ecfe60",
+        "original_gameplay_RNG_and_indexed_surface_rows_exact": 6542,
+        "exact_state_fields": [
+          "players",
+          "enemies",
+          "shots",
+          "particles",
+          "globals",
+          "rng",
+          "hits",
+          "hit_hash",
+          "game_pixels",
+          "output_pixels",
+          "x",
+          "y",
+          "armor",
+          "shield"
+        ],
+        "late_census_rows_exact": 1200,
+        "deterministic_stream_hashes_equal": 30,
+        "stream_count": 31,
+        "equal_deterministic_streams": [
+          "asset-debug-clock",
+          "asset-debug-explosion-pools",
+          "asset-debug-materials",
+          "blend-palette",
+          "blend-writes",
+          "collisions",
+          "draw-commands",
+          "effects",
+          "enemy-projectiles",
+          "fade-steps",
+          "fire-events",
+          "frames",
+          "late-census",
+          "late-large-explosions",
+          "player-projectiles",
+          "player-shot-draws",
+          "player-shot-emissions",
+          "player-shot-requests",
+          "player-shot-results",
+          "poses",
+          "presentation",
+          "restore-regions",
+          "rgb-audit",
+          "scene-draw-commands",
+          "scene-enemies",
+          "scene-hits",
+          "sdl-runtime",
+          "state",
+          "talon-bank-visual",
+          "weapon-loadout"
+        ],
+        "only_nondeterministic_difference": {
+          "stream": "asset-debug-control",
+          "field": "wall_ms",
+          "all_other_fields_exact": true,
+          "reference": [
+            {
+              "next_tick": "6541",
+              "action": "target-frame-complete",
+              "paused": "0",
+              "RNG": "519bffaafcc8d645",
+              "wall_ms": "5628.466"
+            }
+          ],
+          "candidate": [
+            {
+              "next_tick": "6541",
+              "action": "target-frame-complete",
+              "paused": "0",
+              "RNG": "519bffaafcc8d645",
+              "wall_ms": "8695.381"
+            }
+          ]
+        },
+        "ordered_previous_callbacks_at6541_exact": 120,
+        "whole_run_scene_callback_rows_exact": 5792,
+        "no_added_late_six_callbacks": true,
+        "late_family_material_observation_counts": {
+          "9": 42,
+          "7": 8,
+          "5": 6,
+          "3": 42,
+          "11": 2
+        },
+        "complete_six_gate_fallback": true,
+        "base1_source_rectangle_absent_at6541": true,
+        "complete_family_conclusion_uses_source_gate_plus_active_member_runtime_checks": true,
+        "previous_callback_counts": {
+          "201:69": 96,
+          "201:44": 4,
+          "201:45": 4,
+          "201:62": 13,
+          "201:42": 3
+        },
+        "scene_wide_fallback_not_used": true,
+        "frames": [
+          {
+            "tick": "6541",
+            "hd_draws": "122",
+            "occluded_blocks": "6046",
+            "coverage_mismatch": "0",
+            "reason": "hd-ordered",
+            "all_rejections": "",
+            "local_entities": "0",
+            "local_regions": "0",
+            "local_blocks": "0"
+          }
+        ],
+        "frame_hashes": [
+          {
+            "tick": 6541,
+            "width": 640,
+            "height": 400,
+            "RGBA_sha256": "558914b3564008bd867a0576430e01699e48e137b06644632a7350f6a1ecfe60",
+            "PNG_sha256": "d48784d194feb66e1b2c869f3014193d9593c85a63a48e1c7282163890070e68",
+            "path": "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-missing3-census-retry1/actual-6541-native2x.png"
+          }
+        ]
+      },
+      {
+        "control": "candidate-corrupt3",
+        "reference_directory": "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/baseline-census",
+        "candidate_directory": "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-corrupt3-census",
+        "density": 8,
+        "tick": 6541,
+        "native_dimensions": [
+          640,
+          400
+        ],
+        "RGBA_differing_pixels": 0,
+        "RGBA_differing_channels": 0,
+        "RGBA_sha256": "558914b3564008bd867a0576430e01699e48e137b06644632a7350f6a1ecfe60",
+        "original_gameplay_RNG_and_indexed_surface_rows_exact": 6542,
+        "exact_state_fields": [
+          "players",
+          "enemies",
+          "shots",
+          "particles",
+          "globals",
+          "rng",
+          "hits",
+          "hit_hash",
+          "game_pixels",
+          "output_pixels",
+          "x",
+          "y",
+          "armor",
+          "shield"
+        ],
+        "late_census_rows_exact": 1200,
+        "deterministic_stream_hashes_equal": 30,
+        "stream_count": 31,
+        "equal_deterministic_streams": [
+          "asset-debug-clock",
+          "asset-debug-explosion-pools",
+          "asset-debug-materials",
+          "blend-palette",
+          "blend-writes",
+          "collisions",
+          "draw-commands",
+          "effects",
+          "enemy-projectiles",
+          "fade-steps",
+          "fire-events",
+          "frames",
+          "late-census",
+          "late-large-explosions",
+          "player-projectiles",
+          "player-shot-draws",
+          "player-shot-emissions",
+          "player-shot-requests",
+          "player-shot-results",
+          "poses",
+          "presentation",
+          "restore-regions",
+          "rgb-audit",
+          "scene-draw-commands",
+          "scene-enemies",
+          "scene-hits",
+          "sdl-runtime",
+          "state",
+          "talon-bank-visual",
+          "weapon-loadout"
+        ],
+        "only_nondeterministic_difference": {
+          "stream": "asset-debug-control",
+          "field": "wall_ms",
+          "all_other_fields_exact": true,
+          "reference": [
+            {
+              "next_tick": "6541",
+              "action": "target-frame-complete",
+              "paused": "0",
+              "RNG": "519bffaafcc8d645",
+              "wall_ms": "5628.466"
+            }
+          ],
+          "candidate": [
+            {
+              "next_tick": "6541",
+              "action": "target-frame-complete",
+              "paused": "0",
+              "RNG": "519bffaafcc8d645",
+              "wall_ms": "5607.861"
+            }
+          ]
+        },
+        "ordered_previous_callbacks_at6541_exact": 120,
+        "whole_run_scene_callback_rows_exact": 5792,
+        "no_added_late_six_callbacks": true,
+        "late_family_material_observation_counts": {
+          "9": 42,
+          "7": 8,
+          "5": 6,
+          "3": 42,
+          "11": 2
+        },
+        "complete_six_gate_fallback": true,
+        "base1_source_rectangle_absent_at6541": true,
+        "complete_family_conclusion_uses_source_gate_plus_active_member_runtime_checks": true,
+        "previous_callback_counts": {
+          "201:69": 96,
+          "201:44": 4,
+          "201:45": 4,
+          "201:62": 13,
+          "201:42": 3
+        },
+        "scene_wide_fallback_not_used": true,
+        "frames": [
+          {
+            "tick": "6541",
+            "hd_draws": "122",
+            "occluded_blocks": "6046",
+            "coverage_mismatch": "0",
+            "reason": "hd-ordered",
+            "all_rejections": "",
+            "local_entities": "0",
+            "local_regions": "0",
+            "local_blocks": "0"
+          }
+        ],
+        "frame_hashes": [
+          {
+            "tick": 6541,
+            "width": 640,
+            "height": 400,
+            "RGBA_sha256": "558914b3564008bd867a0576430e01699e48e137b06644632a7350f6a1ecfe60",
+            "PNG_sha256": "d48784d194feb66e1b2c869f3014193d9593c85a63a48e1c7282163890070e68",
+            "path": "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-corrupt3-census/actual-6541-native2x.png"
+          }
+        ]
+      },
+      {
+        "control": "candidate-density4",
+        "reference_directory": "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/baseline-density4-census",
+        "candidate_directory": "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-density4-census",
+        "density": 4,
+        "tick": 6541,
+        "native_dimensions": [
+          640,
+          400
+        ],
+        "RGBA_differing_pixels": 0,
+        "RGBA_differing_channels": 0,
+        "RGBA_sha256": "50107e167da6341c6eb249dfb7e59ee10a2348c31e7490fd3c51e794586aa55f",
+        "original_gameplay_RNG_and_indexed_surface_rows_exact": 6542,
+        "exact_state_fields": [
+          "players",
+          "enemies",
+          "shots",
+          "particles",
+          "globals",
+          "rng",
+          "hits",
+          "hit_hash",
+          "game_pixels",
+          "output_pixels",
+          "x",
+          "y",
+          "armor",
+          "shield"
+        ],
+        "late_census_rows_exact": 1200,
+        "deterministic_stream_hashes_equal": 30,
+        "stream_count": 31,
+        "equal_deterministic_streams": [
+          "asset-debug-clock",
+          "asset-debug-explosion-pools",
+          "asset-debug-materials",
+          "blend-palette",
+          "blend-writes",
+          "collisions",
+          "draw-commands",
+          "effects",
+          "enemy-projectiles",
+          "fade-steps",
+          "fire-events",
+          "frames",
+          "late-census",
+          "late-large-explosions",
+          "player-projectiles",
+          "player-shot-draws",
+          "player-shot-emissions",
+          "player-shot-requests",
+          "player-shot-results",
+          "poses",
+          "presentation",
+          "restore-regions",
+          "rgb-audit",
+          "scene-draw-commands",
+          "scene-enemies",
+          "scene-hits",
+          "sdl-runtime",
+          "state",
+          "talon-bank-visual",
+          "weapon-loadout"
+        ],
+        "only_nondeterministic_difference": {
+          "stream": "asset-debug-control",
+          "field": "wall_ms",
+          "all_other_fields_exact": true,
+          "reference": [
+            {
+              "next_tick": "6541",
+              "action": "target-frame-complete",
+              "paused": "0",
+              "RNG": "519bffaafcc8d645",
+              "wall_ms": "5033.168"
+            }
+          ],
+          "candidate": [
+            {
+              "next_tick": "6541",
+              "action": "target-frame-complete",
+              "paused": "0",
+              "RNG": "519bffaafcc8d645",
+              "wall_ms": "5200.974"
+            }
+          ]
+        },
+        "ordered_previous_callbacks_at6541_exact": 24,
+        "whole_run_scene_callback_rows_exact": 5696,
+        "no_added_late_six_callbacks": true,
+        "late_family_material_observation_counts": {
+          "9": 42,
+          "7": 8,
+          "5": 6,
+          "3": 42,
+          "11": 2
+        },
+        "complete_six_gate_fallback": true,
+        "base1_source_rectangle_absent_at6541": true,
+        "complete_family_conclusion_uses_source_gate_plus_active_member_runtime_checks": true,
+        "previous_callback_counts": {
+          "201:44": 4,
+          "201:45": 4,
+          "201:62": 13,
+          "201:42": 3
+        },
+        "scene_wide_fallback_not_used": true,
+        "frames": [
+          {
+            "tick": "6541",
+            "hd_draws": "0",
+            "occluded_blocks": "0",
+            "coverage_mismatch": "0",
+            "reason": "hd-ordered",
+            "all_rejections": "",
+            "local_entities": "0",
+            "local_regions": "0",
+            "local_blocks": "0"
+          }
+        ],
+        "frame_hashes": [
+          {
+            "tick": 6541,
+            "width": 640,
+            "height": 400,
+            "RGBA_sha256": "50107e167da6341c6eb249dfb7e59ee10a2348c31e7490fd3c51e794586aa55f",
+            "PNG_sha256": "d6c2df14a6974203970bad53ffc7efd04fc7ddae9a2a19b3cc95d1928c1556f5",
+            "path": "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-density4-census/actual-6541-native2x.png"
+          }
+        ]
+      }
+    ],
+    "independent_previous_family_gates": [
+      {
+        "function": "linked31_family_ready",
+        "exactly_equal_to_predecessor": true,
+        "sha256": "2b773e2426e4078422797296ba925a59fe21fe097c5003964dd1d7ceed8d1dc2",
+        "no_late_spike_gate_dependency": true
+      },
+      {
+        "function": "newsh4_long7_family_ready",
+        "exactly_equal_to_predecessor": true,
+        "sha256": "58b268431092ead9c0497262f2b0111672792cc2b77a46ff7e85a55de7c0c26d",
+        "no_late_spike_gate_dependency": true
+      },
+      {
+        "function": "newsh4_opposite7_family_ready",
+        "exactly_equal_to_predecessor": true,
+        "sha256": "82cc2257c24b01deeba520163cad7e7def3b5b5b1d967b9177302155ba97d1dd",
+        "no_late_spike_gate_dependency": true
+      },
+      {
+        "function": "type15_eightheading_family_ready",
+        "exactly_equal_to_predecessor": true,
+        "sha256": "3a270a6931791f59c4d1a887d364feb625a9aa69869a52d87f1895bdd5006727",
+        "no_late_spike_gate_dependency": true
+      }
+    ],
+    "late_gate_source_sha256": "b507d394cc256148b9af5b2fd7f674f131c4e538e0b6aa42dd91b3b6bf20b485",
+    "mutation": {
+      "source": "/workspace/scratch/f67dd347fa0a/late-spike-private-discovery-20261012/candidate-pack/enemy-newsh2-3-8.hda",
+      "target": "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-corrupt3-pack/enemy-newsh2-3-8.hda",
+      "source_sha256": "05d5d8933937d6a43036e6aed32f42eaa56734912732319b2628b298169d22e1",
+      "mutated_sha256": "e92b84e8b2ffdf966c08927448baf950f147d1c183a8016d9dd687fab9e8e6ca",
+      "file_size": 172060,
+      "header_bytes": 28,
+      "file_byte_offset": 36956,
+      "rgba_payload_byte_offset": 36928,
+      "channel": "R",
+      "pixel_xy": [
+        16,
+        48
+      ],
+      "before": 8,
+      "after": 9,
+      "source_inode": 1586608,
+      "mutated_inode": 1588913,
+      "mutated_link_count": 1,
+      "exactly_one_RGB_byte_changed": true,
+      "header_and_alpha_unchanged": true
+    },
+    "pack_storage": {
+      "unchanged_hardlinks": 1708,
+      "hardlinked_bytes": 309558468,
+      "independent_copied_bytes": 172060,
+      "runtime_read_only_enforced": true,
+      "source_modes_and_hashes_unchanged": true
+    },
+    "candidate_link": {
+      "command": [
+        "cc",
+        "-std=iso9899:1999",
+        "-pedantic",
+        "-Wall",
+        "-Wextra",
+        "-Wno-format-truncation",
+        "-Wno-missing-field-initializers",
+        "-O2",
+        "-L/workspace/scratch/f67dd347fa0a/recovery-dependencies-20261012/sysroot/usr/lib/x86_64-linux-gnu",
+        "-o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-opentyrian2000",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/animlib.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/arg_parse.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/asset_debug-private.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/backgrnd.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/config.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/config_file.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/destruct.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/editship.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/entity_draw.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/episodes.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/file.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/font.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/fonthand.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/forest13_material.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/game_menu.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-private-discovery-20261012/game_probe-private.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/gameplay_hud.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/gameplay_hud_components.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/gameplay_hud_fixed_text.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/gameplay_hud_font.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/gameplay_hud_indicators.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/gameplay_hud_meters.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/ground101_material.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/helptext.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/joystick.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/jukebox.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/keyboard.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/lds_play.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/loudness.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/lvllib.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/lvlmast.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/mainint.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/menus.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/mouse.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/mtrand.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/musmast.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/network.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/nortsong.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/nortvars.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/opentyr.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/opl.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/palette.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/params.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/pcxload.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/pcxmast.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/picload.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/plateau_cap_material.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/player.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/render_mirror.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/shots.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/sizebuf.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/sndmast.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/sprite.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/starlib.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/startup_logos.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/title_layers.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/tyrian2-private.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/varz.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/vga256d.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/vga_palette.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/video.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/video_scale.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/video_scale_hqNx.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/world_material.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/world_material_fast.o",
+        "/workspace/scratch/f67dd347fa0a/late-spike-integration-20261012/obj/xmas.o",
+        "-lm",
+        "-lSDL2_net",
+        "-lSDL2"
+      ],
+      "private_object_overrides": {
+        "obj/tyrian2.o": "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/tyrian2-private.o",
+        "obj/asset_debug.o": "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/asset_debug-private.o",
+        "obj/game_probe.o": "/workspace/scratch/f67dd347fa0a/late-spike-private-discovery-20261012/game_probe-private.o"
+      },
+      "normal_still_private_objects_only": true,
+      "lifecycle_objects_used": false
+    },
+    "preserved_zero_tick_failed_attempt": {
+      "directory": "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-missing3-census",
+      "preserved_file_sha256": {
+        "asset-debug-materials.tsv.gz": "c02607eeb6e51b50a53b8a4f89230f0c1233540ae9a3f629b689806b0e2b85f2",
+        "frames.tsv.gz": "bd92ec492ecdbbf0a27cdbc797ca2d0f220929099ec610c1b1cd39454cb8bcac",
+        "late-census.tsv.gz": "7f7ae2df6cfd5a0dac1a66e1e3c1b6462e8f7eedb2812c621fdf62a89f78386e",
+        "collisions.tsv.gz": "13fce0e55698aa31833bb5a88eb651f6a1081b5f72e93955deaef9bce790f940",
+        "command.json": "fbd57dd5c5d8cbe9ac05ce7be72c7ee548855a87ea37ae6f9314dd7490223a1a",
+        "STOP.json": "bb5732f3c321e6dbed0018db0740530f2dd32470ec036faa530a5d99ae0259b2",
+        "presentation.tsv.gz": "f3d3dc9ff7e8b1d4d8b7b7748561f8010ee93b86a1f578a5117c77fdc5004457",
+        "draw-commands.tsv.gz": "49b97af3b7d55c41191cf776ea98c8cf6e774f785c135ada1bcd837164fb570d",
+        "stderr.log": "820b789b36c8226480870290ca023b713a5db54054699e44a37b87c04f710172",
+        "scene-hits.tsv.gz": "e64b70e5eb414e3ae82f5553ae42d6891692a15a24d7059f236c58be74fb8cfe",
+        "asset-debug-control.tsv.gz": "f2d40f070e8905ceefa13aa8a5841785b65b9247c4aec78dfd523ad18e79b838",
+        "asset-debug-explosion-pools.tsv.gz": "a76d0a12cbc7de3c490298ba2fd2744663ace8d459c00101fd6c5c802941bf78",
+        "weapon-loadout.tsv.gz": "8293a15badcbe2f704569ec966c0a775fb23abdeddfae6943264e8fa6de39419",
+        "player-shot-results.tsv.gz": "4dde5ac54a7c0950fb8f4e2ce9262a74cc28ecd625d1fa9abcc77875d3d0a872",
+        "rgb-audit.tsv.gz": "6c7c2db45b05b5968d1543719de9ab9e4ef25ed4a1425b599c25111a57286731",
+        "late-large-explosions.tsv.gz": "3ccefb0cb570ff6a085ca1f96f6fb6da6afaa40b759ef7c3748c6096601d5290",
+        "player-shot-draws.tsv.gz": "8e1d819ad2be180f2a9526f1416f48280d1342b5cc7a7420f6f44de1441f4ef6",
+        "blend-writes.tsv.gz": "57e9df6a196a5447f7eaf522430385a235786b92608142138e4459014292cf79",
+        "stream-receipts.json": "0e5fabf72994fafd2d2e6d88ac80c6fa5a4db8dbbe3f82327e408ebe544ee3a0",
+        "effects.tsv.gz": "875a96d3efffe77703e8f4fc251302e6fd259854b22e34112f7846ecd57277eb",
+        "state.tsv.gz": "47dd19beb8eeceeb140621b19d2fe58f94fcc5716ca9efb7fc32df5a5d977340",
+        "blend-palette.tsv.gz": "f569ef024f9726c00d20a5032905a5f135f001d094be3299e8a8ec1346d27fbd",
+        "player-shot-requests.tsv.gz": "319d53a375d5e35cd87ff153c2d082b0ad34335b5f0f4d4b55654751415c1672",
+        "player-shot-emissions.tsv.gz": "c32fe4e18466f71b00bb309aa4403489249ab3625153934045f96b77fc23e2ac",
+        "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "restore-regions.tsv.gz": "4bc4f21d09dd6965ab9f2d516344496374e5b5509d4ab41fce1814490a246254",
+        "scene-draw-commands.tsv.gz": "45c76e7ca0110f5961c6a20e1d69a0cbbd86f9ac8c40f32f7be58b076c4941df",
+        "asset-debug-clock.tsv.gz": "b2634cbbe846e9c9ac9ded0c208819bec2be8ba9624ac846cee5aa2f5d23a409"
+      },
+      "logic_ticks": 0,
+      "native_captures": 0,
+      "failure": "unresolved SDL2_net before main; LD_LIBRARY_PATH was not sourced",
+      "retry_authorized_by_parent": true
+    },
+    "production_worktree_clean": true,
+    "no_production_edits_by_controls": true,
+    "no_publication": true,
+    "evidence_sha256": {
+      "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/baseline-census/actual-6541-native2x.png": "d48784d194feb66e1b2c869f3014193d9593c85a63a48e1c7282163890070e68",
+      "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/baseline-census/asset-debug-clock.tsv.gz": "275ae4d2fc3b947e74bec4168e1f8d0d34e45077ca6283b651ed9b225b72bd70",
+      "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/baseline-census/asset-debug-control.tsv.gz": "be42bf12764ba13c67fba4e06da4a0c7ab800b8482b74e0c9c60212591e84455",
+      "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/baseline-census/asset-debug-explosion-pools.tsv.gz": "1f65d22a0499e564c890bcfa4e269337e4f7df60d1d6ee2a17c027d8c59aa0de",
+      "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/baseline-census/asset-debug-materials.tsv.gz": "a1a8ca008088df8ff2608c3a1fb0f5464b9c1b824df68ce8f59b330664c402da",
+      "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/baseline-census/blend-palette.tsv.gz": "a7a4de3673fe447edd5961eccaceca6c9b0f5c76db59acdb6e5ce91c1ad2a43c",
+      "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/baseline-census/blend-writes.tsv.gz": "1174eeb764e0778e54dd4917bfc805e2f9938a48c7ae4d86afc5213d400126d8",
+      "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/baseline-census/collisions.tsv.gz": "c28a67fe862ce4877504519c2e41de861fa3288e260ee9bef5298a170007b1d9",
+      "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/baseline-census/command.json": "36fe99e21a9f37aa3fc19d74e0409fd837ada0cd5b20706a47df808d4f214903",
+      "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/baseline-census/draw-commands.tsv.gz": "659eec578a1179375ebdb055239b02668b49db0491fef4eb8f309321ac8860f7",
+      "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/baseline-census/effects.tsv.gz": "b1e6af3ed54563442598258882327bc5e9c71b8f1d5df6573a326e0bd91a1bf5",
+      "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/baseline-census/frame-hashes.json": "b6b275b2b47d76b4e57402635ca8e86223fe94c6bd5c20a817d72a19ea07afb2",
+      "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/baseline-census/frames.tsv.gz": "95a0420fdae102579b80e2b625b80b9b3b7e1f820fac67998f9906b09ee11efe",
+      "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/baseline-census/late-census.tsv.gz": "5aaeb6b7fff78576155ee1f879bc27ee118ac993cf6e98a186b5b63cb2106835",
+      "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/baseline-census/late-large-explosions.tsv.gz": "c29662112e25b1b959755df86f7696694cfbf261cd79b1042cd2b5934b0e0c3d",
+      "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/baseline-census/player-shot-draws.tsv.gz": "1429e380a7feb5fba8eb4ca3c651823e35ebcd41604c2ac6e7568fc5220cb30f",
+      "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/baseline-census/player-shot-emissions.tsv.gz": "ea4e398dd82235fe4b2014cd6767195a9e2a729781296b02aa08935301ba1680",
+      "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/baseline-census/player-shot-requests.tsv.gz": "98b7814c2213b0f51aac1e64b45a29a17bcabf19aec1a31300faca5d4e99cdf3",
+      "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/baseline-census/player-shot-results.tsv.gz": "b2dc5c7a3669ec660c9ba002634a3dce09f6ddb3958159d2119cb07d3527730e",
+      "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/baseline-census/presentation.tsv.gz": "4e370082eb761b102cd0f807d08add1fa6d855a1f5d3ff0d8a152b0b95ec190a",
+      "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/baseline-census/restore-regions.tsv.gz": "b1f7779d072312a2711c51fd38e8fbc865ef72d1b03b93a018cc99b58459f184",
+      "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/baseline-census/rgb-audit.tsv.gz": "07807ae0ec4723fcb9a9b606a1e2a691e9863e605b4a35a12c7b81e1e624069b",
+      "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/baseline-census/run-summary.json": "b70cb0021bf5be0531b56e883c9ce4e6cf85743380eb5d90fbf09227fc86051b",
+      "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/baseline-census/scene-draw-commands.tsv.gz": "1200b9093f0d762ffdd4ef06e19b48d66ebc4bf57f193587501d03f1c986f2f8",
+      "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/baseline-census/scene-hits.tsv.gz": "44cdb82334183cdc5b3e7a353ef4be3c7f5cf8f458e3c4495d41c60c5bb5c3b5",
+      "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/baseline-census/state.tsv.gz": "1ba8066a91705bf0c909f5b54863c2aee9e370abf17cb43f945220715afb809e",
+      "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/baseline-census/stderr.log": "b21434767755eb96d1820c4d11277ae591e96d2993d9c056d1fb48c60602818d",
+      "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/baseline-census/stdout.log": "b64355209b22a7d753097e10bdc9dccd6db143aea14a2eb9d6658bc788640db8",
+      "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/baseline-census/stream-receipts.json": "95db5a2f0b49739c6817c4a68098c04b4d7b2a329a0ba158e0df529f34f52f50",
+      "/workspace/scratch/f67dd347fa0a/late-spike-normal-still-20261012/baseline-census/weapon-loadout.tsv.gz": "6a961ddccb838f82f52a26b032edcbac7c29e0c258ac561444717247ab41557e",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-missing3-census-retry1/actual-6541-native2x.png": "d48784d194feb66e1b2c869f3014193d9593c85a63a48e1c7282163890070e68",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-missing3-census-retry1/asset-debug-clock.tsv.gz": "897730b6bbb4f47f6a30cf8dbdbb5207290a8d1befe45587053ebbf2df6508da",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-missing3-census-retry1/asset-debug-control.tsv.gz": "585f6c8ca69b05737c6989a84df316ce8651348ea993036282aeb090de4074d8",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-missing3-census-retry1/asset-debug-explosion-pools.tsv.gz": "4608a95b7e134db58a8a482bac6603a61b4668b2a0bae5272adaa72f3c9cf5e4",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-missing3-census-retry1/asset-debug-materials.tsv.gz": "c454ab6d3bcedb6efe3f1dc912588b7607c38b56e9243985eacbff68e421f207",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-missing3-census-retry1/blend-palette.tsv.gz": "4b3bb4e8c9c8aa553241179b04e22609e9c276cc0d1ac02ea5fb1d3ec87abc84",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-missing3-census-retry1/blend-writes.tsv.gz": "759c712dda51fc78d88c14d66d70de7ab451cd564746da723f12ca662024a7c5",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-missing3-census-retry1/collisions.tsv.gz": "e4e2704e7e7e92a0d73e72b9a9522509402650571912a7cc36e31d24f4f7695a",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-missing3-census-retry1/command.json": "26127daebba87cc2738473373c09144a7cf5bd14ddc636d18f6938cdf01083ad",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-missing3-census-retry1/draw-commands.tsv.gz": "010191b634c99f9aefa915dd9568db2a4f8a6427139ceb9ff68fad8e55deec67",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-missing3-census-retry1/effects.tsv.gz": "0f26e3f16978fdc5855f4c2a6b0aa50b1ca1601a85a4989fb26a80d138c49839",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-missing3-census-retry1/frame-hashes.json": "ad9cdd207a0fccb04e51b224882d352fbd2e40e52742e70fed52fd2bae65dd82",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-missing3-census-retry1/frames.tsv.gz": "f3e75026843cddedbc874d8e573f7584afeeb157546d8fca5b3a348aa9762cb6",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-missing3-census-retry1/late-census.tsv.gz": "b5fde8e472635aad35f2a5f39c761eea01899ca4d6c467144595866fbe7b4544",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-missing3-census-retry1/late-large-explosions.tsv.gz": "d352561e9773e700e5f63bec4f1dc354b1354d1b9bfed00b216dd75396d1caa6",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-missing3-census-retry1/player-shot-draws.tsv.gz": "73bc8086e961a4e8035af1363ca684e6372ff96f153d2e3112106e775bfd5ce9",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-missing3-census-retry1/player-shot-emissions.tsv.gz": "6d857bd4997792d7f7a101205ce5503b12f2e7dce81309b0c4e048f5e30f2ca8",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-missing3-census-retry1/player-shot-requests.tsv.gz": "3187c7eb8fd835aa5e7db5144037a082bf1f76d082afdc4e252c9c68ac5bb32b",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-missing3-census-retry1/player-shot-results.tsv.gz": "00115445734f1c8c32a8d95b0e80ecce0cbec4c78126085bb39bec1938bd87bb",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-missing3-census-retry1/presentation.tsv.gz": "b0bcdbf7a4dac6baf7903ee60daba98c44b66846d94d1b0e831a9c203933a0d5",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-missing3-census-retry1/restore-regions.tsv.gz": "7b2e94d75beb5e92df3f20ba40a4fb612b787bcdb02797fd199d7904e9e0bd58",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-missing3-census-retry1/rgb-audit.tsv.gz": "bba93305fcfac365405b95f1b935706d2953348d693c2f858473452c0f91b6df",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-missing3-census-retry1/run-summary.json": "a43eb8b423fa4099a244c013b5a7a77486d75bf2517d9a464f3ff0432aadb2a6",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-missing3-census-retry1/scene-draw-commands.tsv.gz": "717169ba3badbd64ef5978202ae76c1f51ff473bff3dd4b7a3700dd2aadf50a7",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-missing3-census-retry1/scene-hits.tsv.gz": "8b429e0809c62a1a3d6c50154e432fedc4e46bfb01dac3dda1b70b319a6b5918",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-missing3-census-retry1/state.tsv.gz": "a536e9046c214604e9a1f2334d7a1ea003636aa5e88252dec5129f6b6b5e1192",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-missing3-census-retry1/stderr.log": "b21434767755eb96d1820c4d11277ae591e96d2993d9c056d1fb48c60602818d",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-missing3-census-retry1/stdout.log": "ee88541bd3cd3b3a6587e60b42691fc7f355980f82040bc4dd0e66b9a37dcc95",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-missing3-census-retry1/stream-receipts.json": "1de4ecbb07a4da4a47988d1938328b7d26692d22d9ddbc0bcd5a945f9873d0a1",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-missing3-census-retry1/weapon-loadout.tsv.gz": "3673fee7b9309ce3075c1d895e2235f523fee5df91934dbd695bb90743355640",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-corrupt3-census/actual-6541-native2x.png": "d48784d194feb66e1b2c869f3014193d9593c85a63a48e1c7282163890070e68",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-corrupt3-census/asset-debug-clock.tsv.gz": "f257a56733088b06622619c30affaba6298f27ffd3d9c0b4441b69aab8a6f074",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-corrupt3-census/asset-debug-control.tsv.gz": "61ed3ed2d5a467b195b8bd58922185a438a7e4024785f9ef27491e6312fe55f0",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-corrupt3-census/asset-debug-explosion-pools.tsv.gz": "d2d6d7c307d38819ed152f73362cbb62cde4bfad50cef2f724c6506ff78bb241",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-corrupt3-census/asset-debug-materials.tsv.gz": "35ccbc765ab385fe85c6e6ca425a96ce5122f0937f43eb7cbf0550edce6cec8a",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-corrupt3-census/blend-palette.tsv.gz": "8722a79df81bffde6e0eab9b7edb8ae5df5a35f53d3a1584db6ddf321c0a4da7",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-corrupt3-census/blend-writes.tsv.gz": "2ac24b4e392e9d2c47fb439de15968683071fb23f1e024685a155afabdfbd45a",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-corrupt3-census/collisions.tsv.gz": "1b6e5faae189b01f2c21c0885ca5164215b2ca0e4c8ea4fc5ca14eabc1852454",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-corrupt3-census/command.json": "a2bcdbc60ab94ebbdf9c27d1acab802f190ad389ac7bf2da2f88b0facfe1f3ec",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-corrupt3-census/draw-commands.tsv.gz": "690161bf86d28480bdd19e8b0057e9b1dfa535ab3f2450d67d51b40fb6e3bf55",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-corrupt3-census/effects.tsv.gz": "b0aae2c379772c01b3e16c529d21edba2a866afd28caece8c78d0e0c93bae2c7",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-corrupt3-census/frame-hashes.json": "84859b981358e8eefc75f08eaedad37d25d34219faca41f6c32101556c65f36c",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-corrupt3-census/frames.tsv.gz": "e77327786b164f0de466ce03557965eb841538e6928f38d02fe92b192586206f",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-corrupt3-census/late-census.tsv.gz": "32e201ca11d5081b772bbda9ca6641b1f30d46aaba8425e5d14ec8daeb88d57c",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-corrupt3-census/late-large-explosions.tsv.gz": "15c6d7567271464205b51442ce3e7cde490e2b3e3ba9decd80c6f43927e9429a",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-corrupt3-census/player-shot-draws.tsv.gz": "0a1713ae47bdb126eb7b147f600433662f5afc527e6b23a741be71b6459f1e73",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-corrupt3-census/player-shot-emissions.tsv.gz": "3799e94f9b846faff1ad6b624df7ccbc9422919f5c6693974fa9aa8ef28c68e6",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-corrupt3-census/player-shot-requests.tsv.gz": "9b682dca26e6a7abfc9b13e1b7415bc15a23e2bbe93161d8c841577aa4f0113c",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-corrupt3-census/player-shot-results.tsv.gz": "a9d3e2a73f237dc1157bdd817fafc99a2ed46ac4b535074be504cefd730f03fa",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-corrupt3-census/presentation.tsv.gz": "37579791bdafef59e92c61b02195f057217480ee143c2421c050e28b6bbe9dae",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-corrupt3-census/restore-regions.tsv.gz": "5512a2bc57c22cd2f5827f4f8ffcd4e826031bca5d8d002d3c161102d2753200",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-corrupt3-census/rgb-audit.tsv.gz": "bb7e641ca11ad6cf77b30139ff8b853f1a0b209ee1120d6ca842b00c4b005ab6",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-corrupt3-census/run-summary.json": "43315c6eb0d30b0dfef7c1b2a188e6770752a9892636f1d6d8c61b60f467de2e",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-corrupt3-census/scene-draw-commands.tsv.gz": "1dea07581f346593cab04e3166631425009d472adde1607e52bae6a0b0a3e431",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-corrupt3-census/scene-hits.tsv.gz": "eb3846cfdfc826f43ce143b1d9a1f2fd460ce1404344496da89da78fce5ecab2",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-corrupt3-census/state.tsv.gz": "66ef7f488374aa37f5f1b9b09f38f9325d223a29fff504ae3a2e6d85b04808da",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-corrupt3-census/stderr.log": "b21434767755eb96d1820c4d11277ae591e96d2993d9c056d1fb48c60602818d",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-corrupt3-census/stdout.log": "9f3db5183e207332bb97df378ba8d659737b3138675897a9bc47ae60735af730",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-corrupt3-census/stream-receipts.json": "b7dac798c9f78eabc7119ea7b5fc3f11580768552a7263b7d5b272f262942e1e",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-corrupt3-census/weapon-loadout.tsv.gz": "39603a06a98881834e5ebb8efd6e38e1b68ecb66aeb7e3e371280fbe4fec2a99",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/baseline-density4-census/actual-6541-native2x.png": "d6c2df14a6974203970bad53ffc7efd04fc7ddae9a2a19b3cc95d1928c1556f5",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/baseline-density4-census/asset-debug-clock.tsv.gz": "c5422804784a931b725dbcb1f6095c42d5d7e6877cb6f50bb7fd95af3e25cdef",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/baseline-density4-census/asset-debug-control.tsv.gz": "0ac37cfee8970dfab5e408c160b30bfec0a02c2720587e3d11d27ad04e8d55df",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/baseline-density4-census/asset-debug-explosion-pools.tsv.gz": "e6729e7499136dfa4d96b3a253e870fc1e358e2caf92b78b5cd64a744af20292",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/baseline-density4-census/asset-debug-materials.tsv.gz": "312926e4c51a85f45ef74caf5270bdbdcc9fe4448bf84e733e36fe25595a44e6",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/baseline-density4-census/blend-palette.tsv.gz": "9225dd066e4384723d232bde93f7f2ac173c3b2b1e47f7c49a61d89b47429a93",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/baseline-density4-census/blend-writes.tsv.gz": "54c1bae3f1b526749be9498b90d6eace33c39421e73c52af790750acca809cee",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/baseline-density4-census/collisions.tsv.gz": "67346fa96e17e90f2cb9c2b242505c8b8d839837b7a6d21a2705dccf958f2251",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/baseline-density4-census/command.json": "eb06cf53c31f6c39f149ee8708cb8988965cc9819c2d914da518797ebf220256",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/baseline-density4-census/draw-commands.tsv.gz": "29c3a80bbd5585ba1d49efd58f2ba5ce97e43de519656911f18eed6c51e1fff6",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/baseline-density4-census/effects.tsv.gz": "e0d22cc77266c408d221eafbbc070335232e2af7caa67e1d90f7f8c0bcb00a85",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/baseline-density4-census/frame-hashes.json": "a9062d0a6ce76551b8445b80fd4cc53d490c18e1a2b74c63e98f3bfc5e28abe6",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/baseline-density4-census/frames.tsv.gz": "0ccb27853a5a4b9ec71d2f6dfdb2ee23fff43f5744aff90c3ab969e83ac9d88e",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/baseline-density4-census/late-census.tsv.gz": "7875dd8c7cff64a3666c59dbba044c4189cafc84e1d3b270946b006e67a21e23",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/baseline-density4-census/late-large-explosions.tsv.gz": "227178b9f73ddc4edf1590526a29dcf594210f7a6407d8e56a809d0b5549291d",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/baseline-density4-census/player-shot-draws.tsv.gz": "d7971574e7fe942c4ca06e5a916e0346d7a6312a9f022363a856484dbd014716",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/baseline-density4-census/player-shot-emissions.tsv.gz": "f7e392f029f4ec63c362e838983db4ed2375eb1c0d1b47c3381ebc6230cc28ee",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/baseline-density4-census/player-shot-requests.tsv.gz": "86ae039fc58974805669feb0fd3a300b336f4b1a8c163dfdf325ea0a34594b68",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/baseline-density4-census/player-shot-results.tsv.gz": "f6f524baf2357f1db10d7ac1bc9a36f0c784ce990361df2d92f9dff946dbb13d",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/baseline-density4-census/presentation.tsv.gz": "4ced6ada0e05911cd44ff42c06d070b2b1d172f194ffd139486953e0a91d0fd8",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/baseline-density4-census/restore-regions.tsv.gz": "4abef942595dd8c7d6261bc44922888f8ffec7ff869bf10a2215ce79f33cfcce",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/baseline-density4-census/rgb-audit.tsv.gz": "a8813afb75fe048e20a774f946d41f9bd08bf271cde748b9e78e3c4f4e10d502",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/baseline-density4-census/run-summary.json": "ceb429bb46dab38ef433d3f775d226a095a4943f3e12baf2e84e3f46e79d7270",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/baseline-density4-census/scene-draw-commands.tsv.gz": "f3490a5ed73b22edc6a89b756f1f001fa5930e9f442688094fb2b39ccda97e59",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/baseline-density4-census/scene-hits.tsv.gz": "6bc27c5748d901733690f02fb1f452aac39be4f4455c425a74c57ff790a96cc0",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/baseline-density4-census/state.tsv.gz": "f013729ee823a0b959568b4016c10014ac424fae010a7b8744fa1ffbe48a7a02",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/baseline-density4-census/stderr.log": "b21434767755eb96d1820c4d11277ae591e96d2993d9c056d1fb48c60602818d",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/baseline-density4-census/stdout.log": "b8c8d59c92e8406c15ad2b7bdfc388005d5edd80044dd75241a84893c0ea6e97",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/baseline-density4-census/stream-receipts.json": "7aa1b5f67b7089dc9ea6f6a3318155aaaa1ed0faaf1526f7ea6eb8e0341d08a9",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/baseline-density4-census/weapon-loadout.tsv.gz": "86c4b4fcfdacc6c0d219772c15573eea64f514600306eaf69b4ce87f392913b7",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-density4-census/actual-6541-native2x.png": "d6c2df14a6974203970bad53ffc7efd04fc7ddae9a2a19b3cc95d1928c1556f5",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-density4-census/asset-debug-clock.tsv.gz": "94db17afcad0dd05293a55804b5f0073a9eff3c074c56160c5aac0cc63a0162f",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-density4-census/asset-debug-control.tsv.gz": "c6e080e14ee09d7f2a0e9243dd14ee80cd818ab56e43db72baa74c709cb7808c",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-density4-census/asset-debug-explosion-pools.tsv.gz": "ee6eeca72001a80654f54defdff261332362e20d717734fc6c86b8c7847c43ee",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-density4-census/asset-debug-materials.tsv.gz": "9a11feaf721d34f7d755e8d6950611de265364a1c2eb8524eab33a91dbafcdf7",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-density4-census/blend-palette.tsv.gz": "4694ac878d110ee657a212da7abceb4c1f1ea41e7eacb09fafb9c9abaac55543",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-density4-census/blend-writes.tsv.gz": "2183c71f64fa65c0235be4576b1094a30eaa915b9db0d9b62eea333c2e1b1a73",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-density4-census/collisions.tsv.gz": "5bd84304b78b23f0b1658d1a04dfa5069a5e1a039d1169f9171ac16efeccd19b",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-density4-census/command.json": "8bdd060c014fff559829af0ca495f007d961be78bf91737fa51ea084aba973a6",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-density4-census/draw-commands.tsv.gz": "34af1759471c0ddbbac8074f535d9ad35a30320f26230a2c8acfc6a3707dbba0",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-density4-census/effects.tsv.gz": "fbf445e56abe7083d5d9e15cf4cdc97f62a979f71f860039fb0745768c9d9853",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-density4-census/frame-hashes.json": "7e351609d81a3d6c7de87b5269ad7d9b275f716b123a79c15d5f7c8a440b8fc7",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-density4-census/frames.tsv.gz": "27a459bbcc1f41a6c847ff85cbd7d1947321279310a40bb18622cf7b54e1efce",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-density4-census/late-census.tsv.gz": "6e51e5f4efd5435eb10fd65a717e679ddf876c537e85d636b6394ac6daa91659",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-density4-census/late-large-explosions.tsv.gz": "100da55529b3afbdab8111029b6574779f2e6b9ba2b12d7b2330197f2b0015eb",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-density4-census/player-shot-draws.tsv.gz": "9d14167770af5c7b33dcc4d63e306c0654b83fde835d3c03de2d52b84b7123ef",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-density4-census/player-shot-emissions.tsv.gz": "291ec9e47b7c6ca0818e0de9e4a50a6bd72d7200adaf738af0f586a912b0ab9f",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-density4-census/player-shot-requests.tsv.gz": "7ade90643066c3afcd0c96c1ffe94d809a95945a6db2720cefb36696766763cf",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-density4-census/player-shot-results.tsv.gz": "8b69469270a6643f2b07007723c0fb9baa1ff2b7fb25859e956f7464be963df8",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-density4-census/presentation.tsv.gz": "5096ef39aaaed516191bb6975de4c64e3798476458e3df4b025813ce1f5914da",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-density4-census/restore-regions.tsv.gz": "bc8d7f15f2b58411ecaa2154e209f7501c72e77ca05f2de6074ad983ea9281eb",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-density4-census/rgb-audit.tsv.gz": "3f1703678816c88132c3c4eeaa11c84c990fbc7e22aea80e584971073d7754bd",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-density4-census/run-summary.json": "3bd47439b71c434a8f41a8cfa2b140f123c02da20039564ea9362b2043feec83",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-density4-census/scene-draw-commands.tsv.gz": "4e9b03a9cc7f05e354847631f4058166a58b5ea35099396eb2a3cb313662b850",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-density4-census/scene-hits.tsv.gz": "2d202677388968d75f53c7717098e38d177043354651bebd0bd63303a2004cb3",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-density4-census/state.tsv.gz": "7dab586ae59ad20b43781346e83c2100cf830cc233d58c7588c6744fd079c9d0",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-density4-census/stderr.log": "b21434767755eb96d1820c4d11277ae591e96d2993d9c056d1fb48c60602818d",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-density4-census/stdout.log": "2d6fe1e44c26a8ed8a1f319a619c425b078c57415834937593b25639b4bc1fcb",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-density4-census/stream-receipts.json": "9774c6b3f799378374de1ba90d727d000b74d3b4e55f90cd068e8ad1238d6936",
+      "/workspace/scratch/f67dd347fa0a/late-spike-fallback-20261012/candidate-density4-census/weapon-loadout.tsv.gz": "361866a114dbc3c1caf35919e55fe5c5ffc56a43069f07459424805586f65a74"
+    },
+    "verification_source_sha256": "4a1229b175725b8963b6b51295fa8982e7eda9823031a4b38882683903e6032a",
+    "provenance_sha256": "b9b1cabb177ccbcd83a35fa997980d6ef7d58467f845b10abac32246838719dc",
+    "collector_sha256": "d36672fae6e4977ae52901c0b372b8c653f01e20ac3364370ef0c1fb75247ea8",
+    "scope_limits": [
+      "Only the authorized private stationary player-survival fixture and single6541 native2x readback were used.",
+      "Stream hashes cover the bounded 0..6541 run; retained actor census is only6541.",
+      "Base1 has no material source rectangle at6541. Whole-family fallback uses the active five-member observations plus the six-member all-or-nothing source gate; no extra scene or lifecycle run was added.",
+      "The first missing3 attempt exited in the dynamic loader before main with zero ticks/captures; its evidence is preserved and one explicitly approved corrected attempt succeeded."
+    ]
+  },
+  "preserved_failed_evidence": {
+    "candidate": "ed10ce7ad3d7023c154128d75857e8450a9cf032",
+    "status": "FAIL",
+    "suppressed_original_wrapped_native_pixels": 288,
+    "affected_ticks": [
+      6555,
+      6565,
+      6573,
+      6575
+    ],
+    "pin": {
+      "path": "late-spike-lifecycle-20261012/pixel-verification.json",
+      "sha256": "62692a6684cba777bb77bd9d7fb7355ebbe7a4704d40c2cc06dc2ff3cbb68596"
+    },
+    "diagnostic_doc": "docs/LATE_SPIKE_BOUNDARY_DIAGNOSTIC.json",
+    "corrected_without_mask_exclusion": true
+  },
+  "author_review": "docs/LATE_SPIKE_AUTHOR_REVIEW.json",
+  "capture_hashes": "docs/LATE_SPIKE_CAPTURE_HASHES.json",
+  "limits": [
+    "Private player-survival fixture, not ordinary survival or naturally fired combat.",
+    "Four independent rows; not a single six-part building.",
+    "Partially classic physical-edge quadrants intentionally preserve original linear-address wrapping.",
+    "No forced camera/layers/actors and no extra run to expose absent caps.",
+    "No entry-craft binding or combat; avail2 entry excluded by original shot/body collision.",
+    "No new hurt/wreck/drop art dependency; original palette filters/rewards/explosions retained.",
+    "No Windows/GPU/full-level runtime claim."
+  ],
+  "pins": [
+    {
+      "path": "late-spike-boundary-lifecycle-20261012/state-verification.json",
+      "sha256": "2c9bf97274102aa3054e6974d4036c1fd33f0f0d37e935ea9dbbe00fc364b1a8"
+    },
+    {
+      "path": "late-spike-boundary-lifecycle-20261012/pixel-verification.json",
+      "sha256": "e4296699f4a70d117f323292dc77bd6cde14635acc664a4fb4bb42c282d82bba"
+    },
+    {
+      "path": "late-spike-fallback-20261012/verification.json",
+      "sha256": "18b1c93cc72934e91c65764554a8690629198847afa15d9f32fc302ec583a26c"
+    },
+    {
+      "path": "late-spike-normal-still-20261012/input-description-correction.json",
+      "sha256": "d4e623f2f028c11a9181fabe575135e2f93da2a78b49b20491ec7f79cd04648e"
+    }
+  ]
+}
