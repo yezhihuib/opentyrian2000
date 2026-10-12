@@ -66,3 +66,11 @@ default preview329/debug333. This batch still needs Windows-specific acceptance.
 purple gray backings and the three turret144 backings. No production code or
 asset-count change. See [ISLAND_CONTINUITY_VALIDATION.md](ISLAND_CONTINUITY_VALIDATION.md).
 Windows acceptance of this art revision remains pending.
+
+## Poison Bomb physical parent and HD bookkeeping capacity
+
+One new player head103 completes the tested parent/green-child chain at selected
+powers1/6/11. HD region capacity is now65,536 static entries, retaining overflow
+protection and original gameplay pools. Dense-burst whole-frame fallback is
+resolved in the bounded matrix. Current18 packs:2,900 HDA entries,342 PNGs;
+default preview330/debug334. See [POISON_PARENT_CAPACITY_VALIDATION.md](POISON_PARENT_CAPACITY_VALIDATION.md).

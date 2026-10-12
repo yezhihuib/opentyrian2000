@@ -1,0 +1,2270 @@
+{
+  "status": "passed",
+  "baseline_commit": "603176dbce9f2aacde93503028d309321009c029",
+  "production_renderer_sha256": "6036ebb924b4332848a39771cdf40815eaf44e3a0df2752fc3726480b1e3b2d1",
+  "source_scope": {
+    "changed_files": [
+      "src/render_mirror.c"
+    ],
+    "source_files_checked": 107,
+    "candidate_renderer_sha256": "6036ebb924b4332848a39771cdf40815eaf44e3a0df2752fc3726480b1e3b2d1",
+    "baseline_renderer_sha256": "1288cd2855061bae69a0c3230ccaf5614349dea8829c26670884651ed5a45bc4",
+    "exact_renderer_changes": [
+      "capacity325-to326",
+      "one-player-bank8-TILE103-slot325",
+      "exact-HD_REGION_CAPACITY65536-region-array"
+    ],
+    "private_capture_hooks_permitted": false,
+    "unchanged": [
+      "entity_draw.c (original indexed writes still always execute)",
+      "player/enemy weapon tables",
+      "gameplay/timing/movement/collision/RNG",
+      "original59/green/other banks/shadows/compositor",
+      "enemy-shot exact112/113 gate"
+    ]
+  },
+  "art_contract": {
+    "frames": [
+      {
+        "id": 103,
+        "header": [
+          80103,
+          8,
+          12,
+          14,
+          0,
+          0
+        ],
+        "hda_sha256": "9e325d7cd9cc4e90c943ef921b9e80858dbcce926d124e4ce3ab8834b44c2ccb",
+        "source_png_sha256": "981bc053924ca1f635bb43602b7adcf76f678b2181213fc617e126d0389bbcdf",
+        "rgba_sha256": "d012689722b0e71cb0f08d93a1144a609249d3975354cc3b4e878077427f39fa",
+        "zero_alpha": 4289,
+        "fractional_alpha": 6161,
+        "opaque_alpha": 302
+      }
+    ],
+    "unchanged_pack_files": 333,
+    "candidate_pack_files": 334,
+    "accepted59_hda_sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
+    "manifest_sha256": "d281a6e5399289f299ff606dfd55390ba7b76fa8940f15951b982a21eef8b02c"
+  },
+  "binding_oracle": "PASS: 4591030 assertions; 806400 pixel oracles; finite banks/layouts/IDs0..599; exact slots and anchors; actual RGBA; all6 header words, magic, short/trailing data; missing each/all; density fallback; normal/shadow2x4x8x; clipping/pitch/ownership; parent103-only missing fallback; old59/Pulse/green/trail83 and enemy112/113 scope.",
+  "binding_mutations": [
+    {
+      "name": "capacity325",
+      "exit_code": 3,
+      "diagnostic": "FAIL line 67: sizeof(assets)/sizeof(*assets)==326"
+    },
+    {
+      "name": "removed-parent-binding",
+      "exit_code": 3,
+      "diagnostic": "FAIL line 72: found==slot"
+    },
+    {
+      "name": "wrong-ID103-to104",
+      "exit_code": 3,
+      "diagnostic": "FAIL line 72: found==slot"
+    },
+    {
+      "name": "wrong-bank8-to12",
+      "exit_code": 3,
+      "diagnostic": "FAIL line 72: found==slot"
+    },
+    {
+      "name": "wrong-layout-QUAD",
+      "exit_code": 3,
+      "diagnostic": "FAIL line 72: found==slot"
+    },
+    {
+      "name": "wrong-slot324",
+      "exit_code": 3,
+      "diagnostic": "FAIL line 72: found==slot"
+    },
+    {
+      "name": "parent-anchor-wrong",
+      "exit_code": 3,
+      "diagnostic": "FAIL line 73: q->anchor_x==(b==1?5:b==0&&id==59?-1:0)"
+    },
+    {
+      "name": "enemy-gate-expanded",
+      "exit_code": 3,
+      "diagnostic": "FAIL line 78: !got&&draws==0"
+    },
+    {
+      "name": "opaque-alpha",
+      "exit_code": 3,
+      "diagnostic": "FAIL line 143: *((Uint32*)((Uint8*)canvas->pixels+py*canvas->pitch)+px)==want"
+    },
+    {
+      "name": "wrong-shadow-alpha",
+      "exit_code": 3,
+      "diagnostic": "FAIL line 143: *((Uint32*)((Uint8*)canvas->pixels+py*canvas->pitch)+px)==want"
+    },
+    {
+      "name": "green-head-scope-expanded",
+      "exit_code": 3,
+      "diagnostic": "FAIL line 138: draws==1&&region_count==1&&suppress&&!suppress_cloud&&!suppress_green_smoke&&!green_head_count"
+    },
+    {
+      "name": "parent-shadow-bypassed",
+      "exit_code": 3,
+      "diagnostic": "FAIL line 151: render_mirror_entity(game_screen,1,1,spriteSheet8,target_ids[j],MIRROR_SHADOW,ENTITY_TILE)"
+    },
+    {
+      "name": "missing-parent-disables-descendants",
+      "exit_code": 3,
+      "diagnostic": "FAIL line 159: render_mirror_entity(game_screen,1,1,spriteSheet8,control_ids[j],MIRROR_NORMAL,ENTITY_TILE)"
+    }
+  ],
+  "capacity": {
+    "status": "passed",
+    "source_renderer_sha256": "6036ebb924b4332848a39771cdf40815eaf44e3a0df2752fc3726480b1e3b2d1",
+    "source_capacity": 65536,
+    "base_renderer_sha256": "105f5cf1e189696c934825f6d75b2352d7e2cc2e53e36eec47c4aae840d8d760",
+    "candidate_renderer_sha256": "6036ebb924b4332848a39771cdf40815eaf44e3a0df2752fc3726480b1e3b2d1",
+    "only_source_change": "/* Fixed presentation bookkeeping budget; gameplay pools are unchanged. */\n#define HD_REGION_CAPACITY 65536\nstatic HdRegion regions[HD_REGION_CAPACITY];",
+    "capacity": 65536,
+    "region_size": 32,
+    "static_bytes": 2097152,
+    "additional_bytes": 2088960,
+    "conservative_wrapper_call_bound": 1122,
+    "current_deduplicated_bound": 822,
+    "headroom_over_call_bound": 64414,
+    "unchanged_composition": [
+      "composition d=2 digest=047ed27c4270482f regions=124 green=1",
+      "composition d=4 digest=73bc250db4a91773 regions=124 green=1",
+      "composition d=8 digest=1e2c84274f64b743 regions=124 green=1"
+    ],
+    "results": {
+      "old-composition": "composition d=2 digest=047ed27c4270482f regions=124 green=1\ncomposition d=4 digest=73bc250db4a91773 regions=124 green=1\ncomposition d=8 digest=1e2c84274f64b743 regions=124 green=1\nPASS region nonoverflow composition: 34346 checks; capacity=256.\n",
+      "interim1024-composition": "composition d=2 digest=047ed27c4270482f regions=124 green=1\ncomposition d=4 digest=73bc250db4a91773 regions=124 green=1\ncomposition d=8 digest=1e2c84274f64b743 regions=124 green=1\nPASS region nonoverflow composition: 34346 checks; capacity=1024.\n",
+      "new-composition": "composition d=2 digest=047ed27c4270482f regions=124 green=1\ncomposition d=4 digest=73bc250db4a91773 regions=124 green=1\ncomposition d=8 digest=1e2c84274f64b743 regions=124 green=1\nPASS region nonoverflow composition: 34346 checks; capacity=65536.\n",
+      "new-stress": "composition d=2 digest=047ed27c4270482f regions=124 green=1\ncomposition d=4 digest=73bc250db4a91773 regions=124 green=1\ncomposition d=8 digest=1e2c84274f64b743 regions=124 green=1\nPASS region boundary/reset/green stress: 10792208 checks; capacity=65536.\n"
+    },
+    "sanitizers": "address,undefined",
+    "game_runs": 0,
+    "captures": 0
+  },
+  "capacity_negative_controls": [
+    {
+      "name": "off-by-one-guard",
+      "returncode": 1,
+      "diagnostic": "/tmp/hd-region-budget-p4vrw8_p/off-by-one-guard/production-helpers.inc:297:72: runtime error: index 65536 out of bounds for type 'HdRegion [65536]'\n    #0 0x56352a66c79b in draw_asset_filtered /tmp/hd-region-budget-p4vrw8_p/off-by-one-guard/production-helpers.inc:297\n    #1 0x56352a671b26 in draw_asset /tmp/hd-region-budget-p4vrw8_p/off-by-one-guard/production-helpers.inc:351\n    #2 0x56352a671b26 in render_mirror_entity /tmp/hd-region-budget-p4vrw8_p/off-by-one-guard/production-helpers.inc:366\n    #3 0x56352a675a28 in parent /workspace/scratch/f67dd347fa0a/opentyrian2000-cloud/prototype/fixtures/test-hd-region-budget.c:68\n    #4 0x56352a676183 in overflow_case /workspace/scratch/f67dd347fa0a/opentyrian2000-cloud/prototype/fixtures/test-hd-region-budget.c:88\n    #5 0x56352a6798d4 in main /workspace/scratch/f67dd347fa0a/opentyrian2000-cloud/prototype/fixtures/test-hd-region-budget.c:106\n    #6 0x7fe42a365ca7  (/lib/x86_64-linux-gnu/libc.so.6+0x29ca7) (BuildId: 5e5b51f4c39af9ac589408c1dc432ba390a273cc)\n    #7 0x7fe42a365d64 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x29d64) (BuildId: 5e5b51f4c39af9ac589408c1dc432ba390a273cc)\n    #8 0x56352a666380 in _start (/tmp/hd-region-budget-p4vrw8_p/off-by-one-guard/test+0x23380) (BuildId: d0a8c7a098f0e2b0ee570c1c57707906a7c9737b)\n\n"
+    },
+    {
+      "name": "missing-region-reset",
+      "returncode": 3,
+      "diagnostic": "FAIL line 66: active&&!reject_reason&&!region_count&&!green_head_count&&!suppress&&!suppress_cloud&&!suppress_green_smoke&&!all_rejections[0]\n"
+    },
+    {
+      "name": "missing-green-reset",
+      "returncode": 3,
+      "diagnostic": "FAIL line 100: !hd_owner[n]&&!cloud_owner[n]&&!green_first[n]\n"
+    },
+    {
+      "name": "old-capacity",
+      "returncode": 3,
+      "diagnostic": "FAIL line 83: cap==65536&&sizeof(HdRegion)==32&&sizeof(regions)==2097152\n"
+    }
+  ],
+  "final_runtime": {
+    "status": "passed",
+    "capacity": 65536,
+    "static_bytes": 2097152,
+    "renderer_frames": 3600,
+    "all_RGBA_exact_to1024": true,
+    "cases": [
+      {
+        "case": "p1-2x-local",
+        "frames": 510,
+        "original_logs_exact": [
+          "state.tsv",
+          "collisions.tsv",
+          "poses.tsv",
+          "player-shot-requests.tsv",
+          "player-shot-emissions.tsv",
+          "player-shot-results.tsv",
+          "player-shot-draws.tsv",
+          "player-projectiles.tsv",
+          "fire-events.tsv",
+          "asset-debug-materials.tsv",
+          "enemy-projectiles.tsv"
+        ],
+        "RGB_exact_to1024": 510,
+        "peak": {
+          "tick": "530",
+          "regions": "313",
+          "capacity": "65536",
+          "region_bytes": "2097152"
+        }
+      },
+      {
+        "case": "p1-4x-local",
+        "frames": 510,
+        "original_logs_exact": [
+          "state.tsv",
+          "collisions.tsv",
+          "poses.tsv",
+          "player-shot-requests.tsv",
+          "player-shot-emissions.tsv",
+          "player-shot-results.tsv",
+          "player-shot-draws.tsv",
+          "player-projectiles.tsv",
+          "fire-events.tsv",
+          "asset-debug-materials.tsv",
+          "enemy-projectiles.tsv"
+        ],
+        "RGB_exact_to1024": 510,
+        "peak": {
+          "tick": "530",
+          "regions": "313",
+          "capacity": "65536",
+          "region_bytes": "2097152"
+        }
+      },
+      {
+        "case": "p11-2x-local",
+        "frames": 510,
+        "original_logs_exact": [
+          "state.tsv",
+          "collisions.tsv",
+          "poses.tsv",
+          "player-shot-requests.tsv",
+          "player-shot-emissions.tsv",
+          "player-shot-results.tsv",
+          "player-shot-draws.tsv",
+          "player-projectiles.tsv",
+          "fire-events.tsv",
+          "asset-debug-materials.tsv",
+          "enemy-projectiles.tsv"
+        ],
+        "RGB_exact_to1024": 510,
+        "peak": {
+          "tick": "292",
+          "regions": "398",
+          "capacity": "65536",
+          "region_bytes": "2097152"
+        }
+      },
+      {
+        "case": "p11-2x-parent-missing",
+        "frames": 270,
+        "original_logs_exact": [
+          "state.tsv",
+          "collisions.tsv",
+          "poses.tsv",
+          "player-shot-requests.tsv",
+          "player-shot-emissions.tsv",
+          "player-shot-results.tsv",
+          "player-shot-draws.tsv",
+          "player-projectiles.tsv",
+          "fire-events.tsv",
+          "asset-debug-materials.tsv",
+          "enemy-projectiles.tsv"
+        ],
+        "RGB_exact_to1024": 270,
+        "peak": {
+          "tick": "292",
+          "regions": "378",
+          "capacity": "65536",
+          "region_bytes": "2097152"
+        }
+      },
+      {
+        "case": "p11-4x-local",
+        "frames": 510,
+        "original_logs_exact": [
+          "state.tsv",
+          "collisions.tsv",
+          "poses.tsv",
+          "player-shot-requests.tsv",
+          "player-shot-emissions.tsv",
+          "player-shot-results.tsv",
+          "player-shot-draws.tsv",
+          "player-projectiles.tsv",
+          "fire-events.tsv",
+          "asset-debug-materials.tsv",
+          "enemy-projectiles.tsv"
+        ],
+        "RGB_exact_to1024": 510,
+        "peak": {
+          "tick": "292",
+          "regions": "398",
+          "capacity": "65536",
+          "region_bytes": "2097152"
+        }
+      },
+      {
+        "case": "p11-4x-parent-missing",
+        "frames": 270,
+        "original_logs_exact": [
+          "state.tsv",
+          "collisions.tsv",
+          "poses.tsv",
+          "player-shot-requests.tsv",
+          "player-shot-emissions.tsv",
+          "player-shot-results.tsv",
+          "player-shot-draws.tsv",
+          "player-projectiles.tsv",
+          "fire-events.tsv",
+          "asset-debug-materials.tsv",
+          "enemy-projectiles.tsv"
+        ],
+        "RGB_exact_to1024": 270,
+        "peak": {
+          "tick": "292",
+          "regions": "378",
+          "capacity": "65536",
+          "region_bytes": "2097152"
+        }
+      },
+      {
+        "case": "p6-2x-local",
+        "frames": 510,
+        "original_logs_exact": [
+          "state.tsv",
+          "collisions.tsv",
+          "poses.tsv",
+          "player-shot-requests.tsv",
+          "player-shot-emissions.tsv",
+          "player-shot-results.tsv",
+          "player-shot-draws.tsv",
+          "player-projectiles.tsv",
+          "fire-events.tsv",
+          "asset-debug-materials.tsv",
+          "enemy-projectiles.tsv"
+        ],
+        "RGB_exact_to1024": 510,
+        "peak": {
+          "tick": "396",
+          "regions": "389",
+          "capacity": "65536",
+          "region_bytes": "2097152"
+        }
+      },
+      {
+        "case": "p6-4x-local",
+        "frames": 510,
+        "original_logs_exact": [
+          "state.tsv",
+          "collisions.tsv",
+          "poses.tsv",
+          "player-shot-requests.tsv",
+          "player-shot-emissions.tsv",
+          "player-shot-results.tsv",
+          "player-shot-draws.tsv",
+          "player-projectiles.tsv",
+          "fire-events.tsv",
+          "asset-debug-materials.tsv",
+          "enemy-projectiles.tsv"
+        ],
+        "RGB_exact_to1024": 510,
+        "peak": {
+          "tick": "396",
+          "regions": "389",
+          "capacity": "65536",
+          "region_bytes": "2097152"
+        }
+      }
+    ],
+    "capture_reuse": "The corrected 1024 p6/p11 videos and original nonoverflow p1 video are presentation-equivalent to the final65536 build; no change to the draw/compositing equation."
+  },
+  "production_smoke": {
+    "status": "passed",
+    "frames": 510,
+    "production_binary": true,
+    "no_private_hooks": true,
+    "exact_to_private_reference": [
+      "state.tsv",
+      "rgb-audit.tsv",
+      "collisions.tsv",
+      "effects.tsv",
+      "player-shot-emissions.tsv",
+      "frames.tsv"
+    ],
+    "args": [
+      "/workspace/scratch/f67dd347fa0a/opentyrian2000-cloud/opentyrian2000",
+      "--data=/workspace/scratch/f67dd347fa0a/opentyrian-cloud-runtime/data/tyrian2000",
+      "--no-sound",
+      "--no-joystick",
+      "--no-xmas",
+      "--asset-debug=custom",
+      "--asset-debug-tick=90",
+      "--asset-debug-running",
+      "--render-ticks=600",
+      "--render-test=local",
+      "--render-assets=/workspace/scratch/f67dd347fa0a/opentyrian2000-cloud/assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+      "--render-front-port=33",
+      "--render-front-power=11",
+      "--render-scene=v1",
+      "--render-no-capture"
+    ]
+  },
+  "timing": {
+    "status": "passed",
+    "scope": "Sequential ABBA headless software-rendered log-writing trials, not a real-time FPS benchmark",
+    "results": [
+      {
+        "capacity": 1024,
+        "wall_seconds": 12.340121372006251,
+        "maxrss_kib": 84144,
+        "frames": 120
+      },
+      {
+        "capacity": 65536,
+        "wall_seconds": 12.332363415000145,
+        "maxrss_kib": 84152,
+        "frames": 120
+      },
+      {
+        "capacity": 65536,
+        "wall_seconds": 12.840530569999828,
+        "maxrss_kib": 84100,
+        "frames": 120
+      },
+      {
+        "capacity": 1024,
+        "wall_seconds": 12.81753930701234,
+        "maxrss_kib": 84232,
+        "frames": 120
+      }
+    ],
+    "RGB_state_collision_exact": true
+  },
+  "episode_dependency_source_only": {
+    "status": "passed",
+    "scope": "Read-only complete source-table dependency check, not e4/e5 gameplay capture",
+    "evidence_sha256": "9b9b3b201ad4adff373199d49107cbb2fc5a6e473c637fbaca42601428428bdd",
+    "parent_rows": [
+      {
+        "weapon": 636,
+        "e1_3_filter": 240,
+        "e4_e5_filter": 16
+      },
+      {
+        "weapon": 637,
+        "e1_3_filter": 240,
+        "e4_e5_filter": 16
+      },
+      {
+        "weapon": 638,
+        "e1_3_filter": 240,
+        "e4_e5_filter": 16
+      },
+      {
+        "weapon": 639,
+        "e1_3_filter": 240,
+        "e4_e5_filter": 16
+      },
+      {
+        "weapon": 640,
+        "e1_3_filter": 240,
+        "e4_e5_filter": 16
+      },
+      {
+        "weapon": 641,
+        "e1_3_filter": 240,
+        "e4_e5_filter": 16
+      },
+      {
+        "weapon": 642,
+        "e1_3_filter": 240,
+        "e4_e5_filter": 16
+      },
+      {
+        "weapon": 643,
+        "e1_3_filter": 240,
+        "e4_e5_filter": 16
+      },
+      {
+        "weapon": 644,
+        "e1_3_filter": 240,
+        "e4_e5_filter": 16
+      },
+      {
+        "weapon": 645,
+        "e1_3_filter": 240,
+        "e4_e5_filter": 16
+      },
+      {
+        "weapon": 646,
+        "e1_3_filter": 240,
+        "e4_e5_filter": 16
+      }
+    ],
+    "child71_all_groups_exact": true,
+    "production_gameplay_source_hashes": {
+      "src/shots.c": "ec0f326f407849037af1a0218a1bfed1f3f2a720301a053afd3a7d25c7391405",
+      "src/tyrian2.c": "d5c23bd88b27a8a1ef7572880e5f3f184424684d1ef22d9fadda114e61ce493a",
+      "src/episodes.c": "640219b48d3081ee996ce66a66f61ad2fe185339fcfaf395808e02fcee0b29e0",
+      "src/varz.c": "c202e6ac010a49ba7bf5f7ef9c88dd7fff90fb510bd75daa129b8e7d5920eb4e"
+    }
+  },
+  "natural_chain": {
+    "status": "passed",
+    "natural_collision_calls": [
+      {
+        "request": {
+          "call": "52",
+          "tick": "284",
+          "player": "1",
+          "port": "0",
+          "bay": "4",
+          "weapon": "71",
+          "x": "249",
+          "y": "158"
+        },
+        "eight_patterns": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8"
+        ]
+      },
+      {
+        "request": {
+          "call": "53",
+          "tick": "284",
+          "player": "1",
+          "port": "0",
+          "bay": "4",
+          "weapon": "71",
+          "x": "241",
+          "y": "159"
+        },
+        "eight_patterns": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8"
+        ]
+      }
+    ],
+    "actual_visible_phase_ticks": {
+      "shapes8.dat": {
+        "214": [
+          284,
+          285,
+          288,
+          290,
+          295,
+          296,
+          299,
+          300,
+          310,
+          311,
+          314,
+          315
+        ],
+        "215": [
+          285,
+          286,
+          289,
+          296,
+          297,
+          300,
+          301,
+          311,
+          312,
+          315,
+          316
+        ],
+        "216": [
+          286,
+          287,
+          290,
+          297,
+          298,
+          301,
+          302,
+          312,
+          313,
+          316,
+          317
+        ],
+        "217": [
+          287,
+          288,
+          291,
+          298,
+          299,
+          302,
+          303,
+          313,
+          314,
+          317,
+          318
+        ]
+      },
+      "explosions-shapes6": {
+        "78": [
+          284,
+          285,
+          286,
+          287,
+          288,
+          289,
+          290,
+          291,
+          295,
+          296,
+          297,
+          298,
+          299,
+          300,
+          301,
+          302,
+          303,
+          310,
+          311,
+          312,
+          313,
+          314,
+          315,
+          316,
+          317,
+          318
+        ],
+        "79": [
+          285,
+          286,
+          287,
+          288,
+          289,
+          290,
+          291,
+          292,
+          296,
+          297,
+          298,
+          299,
+          300,
+          301,
+          302,
+          303,
+          304,
+          311,
+          312,
+          313,
+          314,
+          315,
+          316,
+          317,
+          318,
+          319
+        ],
+        "80": [
+          286,
+          287,
+          288,
+          289,
+          290,
+          291,
+          292,
+          293,
+          297,
+          298,
+          299,
+          300,
+          301,
+          302,
+          303,
+          304,
+          305,
+          312,
+          313,
+          314,
+          315,
+          316,
+          317,
+          318,
+          319,
+          320
+        ],
+        "81": [
+          287,
+          288,
+          289,
+          290,
+          291,
+          292,
+          293,
+          294,
+          298,
+          299,
+          300,
+          301,
+          302,
+          303,
+          304,
+          305,
+          306,
+          313,
+          314,
+          315,
+          316,
+          317,
+          318,
+          319,
+          320,
+          321
+        ],
+        "82": [
+          288,
+          289,
+          290,
+          291,
+          292,
+          293,
+          294,
+          295,
+          299,
+          300,
+          301,
+          302,
+          303,
+          304,
+          305,
+          306,
+          307,
+          314,
+          315,
+          316,
+          317,
+          318,
+          319,
+          320,
+          321,
+          322
+        ],
+        "83": [
+          289,
+          290,
+          291,
+          292,
+          293,
+          294,
+          295,
+          296,
+          300,
+          301,
+          302,
+          303,
+          304,
+          305,
+          306,
+          307,
+          308,
+          315,
+          316,
+          317,
+          318,
+          319,
+          320,
+          321,
+          322,
+          323
+        ],
+        "84": [
+          290,
+          291,
+          292,
+          293,
+          294,
+          295,
+          296,
+          297,
+          301,
+          302,
+          303,
+          304,
+          305,
+          306,
+          307,
+          308,
+          309,
+          316,
+          317,
+          318,
+          319,
+          320,
+          321,
+          322,
+          323,
+          324
+        ]
+      }
+    },
+    "no_synthetic_hit_or_weapon_injection": true
+  },
+  "visual": {
+    "status": "passed",
+    "frames": 180,
+    "powers": [
+      1,
+      6,
+      11
+    ],
+    "native_scale": 2,
+    "intervals": [
+      [
+        180,
+        239
+      ],
+      [
+        270,
+        329
+      ],
+      [
+        270,
+        329
+      ]
+    ],
+    "method": "Exhaustive chronological native-frame inspection; not real-time playback",
+    "final65536_equivalence": {
+      "1": {
+        "source": "/workspace/scratch/f67dd347fa0a/tyrian-background-redraw/runtime-runs/poison-parent103-p1-stream2x",
+        "captured_ticks": [
+          180,
+          239
+        ],
+        "frames": 60,
+        "RGB_audit_rows_exact_to_final65536": 60,
+        "renderer_outcomes": {
+          "hd-ordered": 60
+        }
+      },
+      "6": {
+        "source": "/workspace/scratch/f67dd347fa0a/tyrian-background-redraw/runtime-runs/poison-parent103-capacity-p6-stream2x",
+        "captured_ticks": [
+          270,
+          329
+        ],
+        "frames": 60,
+        "RGB_audit_rows_exact_to_final65536": 60,
+        "renderer_outcomes": {
+          "hd-ordered": 60
+        }
+      },
+      "11": {
+        "source": "/workspace/scratch/f67dd347fa0a/tyrian-background-redraw/runtime-runs/poison-parent103-capacity-p11-stream2x",
+        "captured_ticks": [
+          270,
+          329
+        ],
+        "frames": 60,
+        "RGB_audit_rows_exact_to_final65536": 60,
+        "renderer_outcomes": {
+          "hd-ordered": 60
+        }
+      },
+      "p11_decoded_frames_RGBA_hash_exact": 60
+    },
+    "final65536_actual4x_peak": 292,
+    "limits": [
+      "P1 collision199 consumes all children, only214 visible there; p6 supplies full cycle.",
+      "Original stacked shadows retained.",
+      "Episode4/5 filter dependency is source-only.",
+      "No full-arsenal, whole-game or Windows acceptance."
+    ]
+  },
+  "storage": {
+    "media_bytes": 7151405166,
+    "media_GiB": 6.6602650713175535,
+    "files": 37967,
+    "free_bytes": 10169876480,
+    "warning_bytes": 5368709120,
+    "cap_bytes": 10737418240,
+    "deleted_files": 0,
+    "additional_binary_or_compressed_evidence_bytes": 139377168,
+    "conservative_combined_GiB": 6.790070174261928
+  },
+  "private_capture_hooks_in_production": false,
+  "independent_runtime": {
+    "status": "passed",
+    "scope": "Read existing logs, source and generated HDA only; no game runs, captures or production edits",
+    "initial": [
+      {
+        "case": "p1-2x-classic",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "expected_rejected_capacity256_ticks": [],
+        "reason_counts": {
+          "classic-assets": 270
+        }
+      },
+      {
+        "case": "p1-2x-local",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "expected_rejected_capacity256_ticks": [
+          266
+        ],
+        "reason_counts": {
+          "hd-ordered": 269,
+          "hd-region-capacity": 1
+        }
+      },
+      {
+        "case": "p1-2x-missing",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "expected_rejected_capacity256_ticks": [],
+        "reason_counts": {
+          "classic-assets": 270
+        }
+      },
+      {
+        "case": "p1-2x-invalid",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "expected_rejected_capacity256_ticks": [],
+        "reason_counts": {
+          "classic-assets": 270
+        }
+      },
+      {
+        "case": "p1-2x-parent-missing",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "expected_rejected_capacity256_ticks": [],
+        "reason_counts": {
+          "hd-ordered": 270
+        }
+      },
+      {
+        "case": "p1-2x-baseline",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "expected_rejected_capacity256_ticks": [],
+        "reason_counts": {
+          "hd-ordered": 270
+        }
+      },
+      {
+        "case": "p1-4x-classic",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "expected_rejected_capacity256_ticks": [],
+        "reason_counts": {
+          "classic-assets": 270
+        }
+      },
+      {
+        "case": "p1-4x-local",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "expected_rejected_capacity256_ticks": [
+          266
+        ],
+        "reason_counts": {
+          "hd-ordered": 269,
+          "hd-region-capacity": 1
+        }
+      },
+      {
+        "case": "p1-4x-missing",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "expected_rejected_capacity256_ticks": [],
+        "reason_counts": {
+          "classic-assets": 270
+        }
+      },
+      {
+        "case": "p1-4x-invalid",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "expected_rejected_capacity256_ticks": [],
+        "reason_counts": {
+          "classic-assets": 270
+        }
+      },
+      {
+        "case": "p1-4x-parent-missing",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "expected_rejected_capacity256_ticks": [],
+        "reason_counts": {
+          "hd-ordered": 270
+        }
+      },
+      {
+        "case": "p1-4x-baseline",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "expected_rejected_capacity256_ticks": [],
+        "reason_counts": {
+          "hd-ordered": 270
+        }
+      },
+      {
+        "case": "p6-2x-classic",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "expected_rejected_capacity256_ticks": [],
+        "reason_counts": {
+          "classic-assets": 270
+        }
+      },
+      {
+        "case": "p6-2x-local",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "expected_rejected_capacity256_ticks": [
+          290,
+          291,
+          301,
+          302
+        ],
+        "reason_counts": {
+          "hd-ordered": 266,
+          "hd-region-capacity": 4
+        }
+      },
+      {
+        "case": "p6-2x-missing",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "expected_rejected_capacity256_ticks": [],
+        "reason_counts": {
+          "classic-assets": 270
+        }
+      },
+      {
+        "case": "p6-2x-invalid",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "expected_rejected_capacity256_ticks": [],
+        "reason_counts": {
+          "classic-assets": 270
+        }
+      },
+      {
+        "case": "p6-2x-parent-missing",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "expected_rejected_capacity256_ticks": [
+          290,
+          301,
+          302
+        ],
+        "reason_counts": {
+          "hd-ordered": 267,
+          "hd-region-capacity": 3
+        }
+      },
+      {
+        "case": "p6-2x-baseline",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "expected_rejected_capacity256_ticks": [
+          290,
+          301,
+          302
+        ],
+        "reason_counts": {
+          "hd-ordered": 267,
+          "hd-region-capacity": 3
+        }
+      },
+      {
+        "case": "p6-4x-classic",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "expected_rejected_capacity256_ticks": [],
+        "reason_counts": {
+          "classic-assets": 270
+        }
+      },
+      {
+        "case": "p6-4x-local",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "expected_rejected_capacity256_ticks": [
+          290,
+          291,
+          301,
+          302
+        ],
+        "reason_counts": {
+          "hd-ordered": 266,
+          "hd-region-capacity": 4
+        }
+      },
+      {
+        "case": "p6-4x-missing",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "expected_rejected_capacity256_ticks": [],
+        "reason_counts": {
+          "classic-assets": 270
+        }
+      },
+      {
+        "case": "p6-4x-invalid",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "expected_rejected_capacity256_ticks": [],
+        "reason_counts": {
+          "classic-assets": 270
+        }
+      },
+      {
+        "case": "p6-4x-parent-missing",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "expected_rejected_capacity256_ticks": [
+          290,
+          301,
+          302
+        ],
+        "reason_counts": {
+          "hd-ordered": 267,
+          "hd-region-capacity": 3
+        }
+      },
+      {
+        "case": "p6-4x-baseline",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "expected_rejected_capacity256_ticks": [
+          290,
+          301,
+          302
+        ],
+        "reason_counts": {
+          "hd-ordered": 267,
+          "hd-region-capacity": 3
+        }
+      },
+      {
+        "case": "p11-2x-classic",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "expected_rejected_capacity256_ticks": [],
+        "reason_counts": {
+          "classic-assets": 270
+        }
+      },
+      {
+        "case": "p11-2x-local",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "expected_rejected_capacity256_ticks": [
+          286,
+          287,
+          288,
+          289,
+          290,
+          291,
+          292,
+          293,
+          294,
+          295,
+          296,
+          297,
+          298,
+          299,
+          300,
+          301,
+          302,
+          303
+        ],
+        "reason_counts": {
+          "hd-ordered": 252,
+          "hd-region-capacity": 18
+        }
+      },
+      {
+        "case": "p11-2x-missing",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "expected_rejected_capacity256_ticks": [],
+        "reason_counts": {
+          "classic-assets": 270
+        }
+      },
+      {
+        "case": "p11-2x-invalid",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "expected_rejected_capacity256_ticks": [],
+        "reason_counts": {
+          "classic-assets": 270
+        }
+      },
+      {
+        "case": "p11-2x-parent-missing",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "expected_rejected_capacity256_ticks": [
+          286,
+          287,
+          288,
+          289,
+          290,
+          291,
+          292,
+          293,
+          294,
+          295,
+          296,
+          297,
+          298,
+          299,
+          300,
+          301,
+          302
+        ],
+        "reason_counts": {
+          "hd-ordered": 253,
+          "hd-region-capacity": 17
+        }
+      },
+      {
+        "case": "p11-2x-baseline",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "expected_rejected_capacity256_ticks": [
+          286,
+          287,
+          288,
+          289,
+          290,
+          291,
+          292,
+          293,
+          294,
+          295,
+          296,
+          297,
+          298,
+          299,
+          300,
+          301,
+          302
+        ],
+        "reason_counts": {
+          "hd-ordered": 253,
+          "hd-region-capacity": 17
+        }
+      },
+      {
+        "case": "p11-4x-classic",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "expected_rejected_capacity256_ticks": [],
+        "reason_counts": {
+          "classic-assets": 270
+        }
+      },
+      {
+        "case": "p11-4x-local",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "expected_rejected_capacity256_ticks": [
+          286,
+          287,
+          288,
+          289,
+          290,
+          291,
+          292,
+          293,
+          294,
+          295,
+          296,
+          297,
+          298,
+          299,
+          300,
+          301,
+          302,
+          303
+        ],
+        "reason_counts": {
+          "hd-ordered": 252,
+          "hd-region-capacity": 18
+        }
+      },
+      {
+        "case": "p11-4x-missing",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "expected_rejected_capacity256_ticks": [],
+        "reason_counts": {
+          "classic-assets": 270
+        }
+      },
+      {
+        "case": "p11-4x-invalid",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "expected_rejected_capacity256_ticks": [],
+        "reason_counts": {
+          "classic-assets": 270
+        }
+      },
+      {
+        "case": "p11-4x-parent-missing",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "expected_rejected_capacity256_ticks": [
+          286,
+          287,
+          288,
+          289,
+          290,
+          291,
+          292,
+          293,
+          294,
+          295,
+          296,
+          297,
+          298,
+          299,
+          300,
+          301,
+          302
+        ],
+        "reason_counts": {
+          "hd-ordered": 253,
+          "hd-region-capacity": 17
+        }
+      },
+      {
+        "case": "p11-4x-baseline",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "expected_rejected_capacity256_ticks": [
+          286,
+          287,
+          288,
+          289,
+          290,
+          291,
+          292,
+          293,
+          294,
+          295,
+          296,
+          297,
+          298,
+          299,
+          300,
+          301,
+          302
+        ],
+        "reason_counts": {
+          "hd-ordered": 253,
+          "hd-region-capacity": 17
+        }
+      }
+    ],
+    "final": [
+      {
+        "case": "p1-2x-local",
+        "comparison1024_path": "/workspace/scratch/f67dd347fa0a/opentyrian-cloud-runtime/poison-parent103-capacity-runs/p1-discovery2x",
+        "state_ticks": 600,
+        "renderer_frames": 510,
+        "all_deterministic_tsv_exact_to1024": [
+          "asset-debug-clock.tsv",
+          "asset-debug-materials.tsv",
+          "blend-palette.tsv",
+          "blend-writes.tsv",
+          "collisions.tsv",
+          "draw-commands.tsv",
+          "effects.tsv",
+          "enemy-projectiles.tsv",
+          "fade-steps.tsv",
+          "fire-events.tsv",
+          "frames.tsv",
+          "player-projectiles.tsv",
+          "player-shot-draws.tsv",
+          "player-shot-emissions.tsv",
+          "player-shot-requests.tsv",
+          "player-shot-results.tsv",
+          "poses.tsv",
+          "presentation.tsv",
+          "restore-regions.tsv",
+          "rgb-audit.tsv",
+          "scene-draw-commands.tsv",
+          "scene-enemies.tsv",
+          "scene-hits.tsv",
+          "state.tsv",
+          "talon-bank-visual.tsv",
+          "weapon-loadout.tsv"
+        ],
+        "RGB_hashes_exact_to1024": 510,
+        "peak_regions": 313,
+        "zero_rejections": true,
+        "original_and_effect_prefix_exact_to256": true,
+        "nonoverflow256_RGB_hashes_exact": 269,
+        "parent103_mirrored": "1",
+        "parent103_draws": 1201,
+        "children_normal_HD": {
+          "214": 131,
+          "215": 71,
+          "216": 70,
+          "217": 70
+        },
+        "children_shadow_classic": {
+          "214": 115,
+          "215": 71,
+          "216": 70,
+          "217": 69
+        },
+        "trail_original_pixel_writes": {
+          "78": 33962,
+          "79": 45734,
+          "80": 32336,
+          "81": 22085,
+          "82": 14620,
+          "83": 6800,
+          "84": 2704
+        }
+      },
+      {
+        "case": "p1-4x-local",
+        "comparison1024_path": "/workspace/scratch/f67dd347fa0a/opentyrian-cloud-runtime/poison-parent103-capacity-runs/p1-discovery2x",
+        "state_ticks": 600,
+        "renderer_frames": 510,
+        "all_deterministic_tsv_exact_to1024": [
+          "asset-debug-clock.tsv",
+          "asset-debug-materials.tsv",
+          "blend-palette.tsv",
+          "blend-writes.tsv",
+          "collisions.tsv",
+          "draw-commands.tsv",
+          "effects.tsv",
+          "enemy-projectiles.tsv",
+          "fade-steps.tsv",
+          "fire-events.tsv",
+          "frames.tsv",
+          "player-projectiles.tsv",
+          "player-shot-draws.tsv",
+          "player-shot-emissions.tsv",
+          "player-shot-requests.tsv",
+          "player-shot-results.tsv",
+          "poses.tsv",
+          "presentation.tsv",
+          "restore-regions.tsv",
+          "rgb-audit.tsv",
+          "scene-draw-commands.tsv",
+          "scene-enemies.tsv",
+          "scene-hits.tsv",
+          "state.tsv",
+          "talon-bank-visual.tsv",
+          "weapon-loadout.tsv"
+        ],
+        "RGB_hashes_exact_to1024": 510,
+        "peak_regions": 313,
+        "zero_rejections": true,
+        "original_and_effect_prefix_exact_to256": true,
+        "nonoverflow256_RGB_hashes_exact": 269,
+        "parent103_mirrored": "1",
+        "parent103_draws": 1201,
+        "children_normal_HD": {
+          "214": 131,
+          "215": 71,
+          "216": 70,
+          "217": 70
+        },
+        "children_shadow_classic": {
+          "214": 115,
+          "215": 71,
+          "216": 70,
+          "217": 69
+        },
+        "trail_original_pixel_writes": {
+          "78": 33962,
+          "79": 45734,
+          "80": 32336,
+          "81": 22085,
+          "82": 14620,
+          "83": 6800,
+          "84": 2704
+        }
+      },
+      {
+        "case": "p11-2x-local",
+        "comparison1024_path": "/workspace/scratch/f67dd347fa0a/opentyrian-cloud-runtime/poison-parent103-capacity-runs/p11-discovery2x",
+        "state_ticks": 600,
+        "renderer_frames": 510,
+        "all_deterministic_tsv_exact_to1024": [
+          "asset-debug-clock.tsv",
+          "asset-debug-materials.tsv",
+          "blend-palette.tsv",
+          "blend-writes.tsv",
+          "collisions.tsv",
+          "draw-commands.tsv",
+          "effects.tsv",
+          "enemy-projectiles.tsv",
+          "fade-steps.tsv",
+          "fire-events.tsv",
+          "frames.tsv",
+          "player-projectiles.tsv",
+          "player-shot-draws.tsv",
+          "player-shot-emissions.tsv",
+          "player-shot-requests.tsv",
+          "player-shot-results.tsv",
+          "poses.tsv",
+          "presentation.tsv",
+          "restore-regions.tsv",
+          "rgb-audit.tsv",
+          "scene-draw-commands.tsv",
+          "scene-enemies.tsv",
+          "scene-hits.tsv",
+          "state.tsv",
+          "talon-bank-visual.tsv",
+          "weapon-loadout.tsv"
+        ],
+        "RGB_hashes_exact_to1024": 510,
+        "peak_regions": 398,
+        "zero_rejections": true,
+        "original_and_effect_prefix_exact_to256": true,
+        "nonoverflow256_RGB_hashes_exact": 252,
+        "parent103_mirrored": "1",
+        "parent103_draws": 14156,
+        "children_normal_HD": {
+          "214": 349,
+          "215": 241,
+          "216": 227,
+          "217": 218
+        },
+        "children_shadow_classic": {
+          "214": 205,
+          "215": 177,
+          "216": 182,
+          "217": 186
+        },
+        "trail_original_pixel_writes": {
+          "79": 100364,
+          "80": 74416,
+          "78": 68471,
+          "81": 54691,
+          "82": 39368,
+          "83": 19060,
+          "84": 7608
+        }
+      },
+      {
+        "case": "p11-2x-parent-missing",
+        "comparison1024_path": "/workspace/scratch/f67dd347fa0a/opentyrian-cloud-runtime/poison-parent103-capacity-runs/p11-2x-parent-missing",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "all_deterministic_tsv_exact_to1024": [
+          "asset-debug-clock.tsv",
+          "asset-debug-materials.tsv",
+          "blend-palette.tsv",
+          "blend-writes.tsv",
+          "collisions.tsv",
+          "draw-commands.tsv",
+          "effects.tsv",
+          "enemy-projectiles.tsv",
+          "fade-steps.tsv",
+          "fire-events.tsv",
+          "frames.tsv",
+          "player-projectiles.tsv",
+          "player-shot-draws.tsv",
+          "player-shot-emissions.tsv",
+          "player-shot-requests.tsv",
+          "player-shot-results.tsv",
+          "poses.tsv",
+          "presentation.tsv",
+          "restore-regions.tsv",
+          "rgb-audit.tsv",
+          "scene-draw-commands.tsv",
+          "scene-enemies.tsv",
+          "scene-hits.tsv",
+          "state.tsv",
+          "talon-bank-visual.tsv",
+          "weapon-loadout.tsv"
+        ],
+        "RGB_hashes_exact_to1024": 270,
+        "peak_regions": 378,
+        "zero_rejections": true,
+        "original_and_effect_prefix_exact_to256": true,
+        "nonoverflow256_RGB_hashes_exact": 253,
+        "parent103_mirrored": "0",
+        "parent103_draws": 7594,
+        "children_normal_HD": {
+          "214": 192,
+          "215": 133,
+          "216": 132,
+          "217": 128
+        },
+        "children_shadow_classic": {
+          "214": 121,
+          "215": 105,
+          "216": 109,
+          "217": 114
+        },
+        "trail_original_pixel_writes": {
+          "79": 52988,
+          "80": 38667,
+          "78": 37056,
+          "81": 28079,
+          "82": 20268,
+          "83": 10080,
+          "84": 4032
+        }
+      },
+      {
+        "case": "p11-4x-local",
+        "comparison1024_path": "/workspace/scratch/f67dd347fa0a/opentyrian-cloud-runtime/poison-parent103-capacity-runs/p11-discovery2x",
+        "state_ticks": 600,
+        "renderer_frames": 510,
+        "all_deterministic_tsv_exact_to1024": [
+          "asset-debug-clock.tsv",
+          "asset-debug-materials.tsv",
+          "blend-palette.tsv",
+          "blend-writes.tsv",
+          "collisions.tsv",
+          "draw-commands.tsv",
+          "effects.tsv",
+          "enemy-projectiles.tsv",
+          "fade-steps.tsv",
+          "fire-events.tsv",
+          "frames.tsv",
+          "player-projectiles.tsv",
+          "player-shot-draws.tsv",
+          "player-shot-emissions.tsv",
+          "player-shot-requests.tsv",
+          "player-shot-results.tsv",
+          "poses.tsv",
+          "presentation.tsv",
+          "restore-regions.tsv",
+          "rgb-audit.tsv",
+          "scene-draw-commands.tsv",
+          "scene-enemies.tsv",
+          "scene-hits.tsv",
+          "state.tsv",
+          "talon-bank-visual.tsv",
+          "weapon-loadout.tsv"
+        ],
+        "RGB_hashes_exact_to1024": 510,
+        "peak_regions": 398,
+        "zero_rejections": true,
+        "original_and_effect_prefix_exact_to256": true,
+        "nonoverflow256_RGB_hashes_exact": 252,
+        "parent103_mirrored": "1",
+        "parent103_draws": 14156,
+        "children_normal_HD": {
+          "214": 349,
+          "215": 241,
+          "216": 227,
+          "217": 218
+        },
+        "children_shadow_classic": {
+          "214": 205,
+          "215": 177,
+          "216": 182,
+          "217": 186
+        },
+        "trail_original_pixel_writes": {
+          "79": 100364,
+          "80": 74416,
+          "78": 68471,
+          "81": 54691,
+          "82": 39368,
+          "83": 19060,
+          "84": 7608
+        }
+      },
+      {
+        "case": "p11-4x-parent-missing",
+        "comparison1024_path": "/workspace/scratch/f67dd347fa0a/opentyrian-cloud-runtime/poison-parent103-capacity-runs/p11-4x-parent-missing",
+        "state_ticks": 360,
+        "renderer_frames": 270,
+        "all_deterministic_tsv_exact_to1024": [
+          "asset-debug-clock.tsv",
+          "asset-debug-materials.tsv",
+          "blend-palette.tsv",
+          "blend-writes.tsv",
+          "collisions.tsv",
+          "draw-commands.tsv",
+          "effects.tsv",
+          "enemy-projectiles.tsv",
+          "fade-steps.tsv",
+          "fire-events.tsv",
+          "frames.tsv",
+          "player-projectiles.tsv",
+          "player-shot-draws.tsv",
+          "player-shot-emissions.tsv",
+          "player-shot-requests.tsv",
+          "player-shot-results.tsv",
+          "poses.tsv",
+          "presentation.tsv",
+          "restore-regions.tsv",
+          "rgb-audit.tsv",
+          "scene-draw-commands.tsv",
+          "scene-enemies.tsv",
+          "scene-hits.tsv",
+          "state.tsv",
+          "talon-bank-visual.tsv",
+          "weapon-loadout.tsv"
+        ],
+        "RGB_hashes_exact_to1024": 270,
+        "peak_regions": 378,
+        "zero_rejections": true,
+        "original_and_effect_prefix_exact_to256": true,
+        "nonoverflow256_RGB_hashes_exact": 253,
+        "parent103_mirrored": "0",
+        "parent103_draws": 7594,
+        "children_normal_HD": {
+          "214": 192,
+          "215": 133,
+          "216": 132,
+          "217": 128
+        },
+        "children_shadow_classic": {
+          "214": 121,
+          "215": 105,
+          "216": 109,
+          "217": 114
+        },
+        "trail_original_pixel_writes": {
+          "79": 52988,
+          "80": 38667,
+          "78": 37056,
+          "81": 28079,
+          "82": 20268,
+          "83": 10080,
+          "84": 4032
+        }
+      },
+      {
+        "case": "p6-2x-local",
+        "comparison1024_path": "/workspace/scratch/f67dd347fa0a/opentyrian-cloud-runtime/poison-parent103-capacity-runs/p6-discovery2x",
+        "state_ticks": 600,
+        "renderer_frames": 510,
+        "all_deterministic_tsv_exact_to1024": [
+          "asset-debug-clock.tsv",
+          "asset-debug-materials.tsv",
+          "blend-palette.tsv",
+          "blend-writes.tsv",
+          "collisions.tsv",
+          "draw-commands.tsv",
+          "effects.tsv",
+          "enemy-projectiles.tsv",
+          "fade-steps.tsv",
+          "fire-events.tsv",
+          "frames.tsv",
+          "player-projectiles.tsv",
+          "player-shot-draws.tsv",
+          "player-shot-emissions.tsv",
+          "player-shot-requests.tsv",
+          "player-shot-results.tsv",
+          "poses.tsv",
+          "presentation.tsv",
+          "restore-regions.tsv",
+          "rgb-audit.tsv",
+          "scene-draw-commands.tsv",
+          "scene-enemies.tsv",
+          "scene-hits.tsv",
+          "state.tsv",
+          "talon-bank-visual.tsv",
+          "weapon-loadout.tsv"
+        ],
+        "RGB_hashes_exact_to1024": 510,
+        "peak_regions": 389,
+        "zero_rejections": true,
+        "original_and_effect_prefix_exact_to256": true,
+        "nonoverflow256_RGB_hashes_exact": 266,
+        "parent103_mirrored": "1",
+        "parent103_draws": 7174,
+        "children_normal_HD": {
+          "214": 327,
+          "215": 209,
+          "216": 196,
+          "217": 192
+        },
+        "children_shadow_classic": {
+          "214": 192,
+          "215": 168,
+          "216": 164,
+          "217": 162
+        },
+        "trail_original_pixel_writes": {
+          "78": 71271,
+          "79": 104077,
+          "80": 77265,
+          "81": 56223,
+          "82": 38933,
+          "83": 18160,
+          "84": 7248
+        }
+      },
+      {
+        "case": "p6-4x-local",
+        "comparison1024_path": "/workspace/scratch/f67dd347fa0a/opentyrian-cloud-runtime/poison-parent103-capacity-runs/p6-discovery2x",
+        "state_ticks": 600,
+        "renderer_frames": 510,
+        "all_deterministic_tsv_exact_to1024": [
+          "asset-debug-clock.tsv",
+          "asset-debug-materials.tsv",
+          "blend-palette.tsv",
+          "blend-writes.tsv",
+          "collisions.tsv",
+          "draw-commands.tsv",
+          "effects.tsv",
+          "enemy-projectiles.tsv",
+          "fade-steps.tsv",
+          "fire-events.tsv",
+          "frames.tsv",
+          "player-projectiles.tsv",
+          "player-shot-draws.tsv",
+          "player-shot-emissions.tsv",
+          "player-shot-requests.tsv",
+          "player-shot-results.tsv",
+          "poses.tsv",
+          "presentation.tsv",
+          "restore-regions.tsv",
+          "rgb-audit.tsv",
+          "scene-draw-commands.tsv",
+          "scene-enemies.tsv",
+          "scene-hits.tsv",
+          "state.tsv",
+          "talon-bank-visual.tsv",
+          "weapon-loadout.tsv"
+        ],
+        "RGB_hashes_exact_to1024": 510,
+        "peak_regions": 389,
+        "zero_rejections": true,
+        "original_and_effect_prefix_exact_to256": true,
+        "nonoverflow256_RGB_hashes_exact": 266,
+        "parent103_mirrored": "1",
+        "parent103_draws": 7174,
+        "children_normal_HD": {
+          "214": 327,
+          "215": 209,
+          "216": 196,
+          "217": 192
+        },
+        "children_shadow_classic": {
+          "214": 192,
+          "215": 168,
+          "216": 164,
+          "217": 162
+        },
+        "trail_original_pixel_writes": {
+          "78": 71271,
+          "79": 104077,
+          "80": 77265,
+          "81": 56223,
+          "82": 38933,
+          "83": 18160,
+          "84": 7248
+        }
+      }
+    ],
+    "checked_at_utc": "2026-10-12T01:37:06.455315+00:00",
+    "checks": 8333,
+    "initial_cases": 36,
+    "initial_renderer_frames": 9720,
+    "initial_matrix_acceptance": "256-capacity HD overflows deliberately rejected; used only for parity, fallback and nonoverflow comparison",
+    "final_cases": 8,
+    "final_renderer_frames": 3600,
+    "final_original_logic_ticks": 4320,
+    "original_logs_exact": [
+      "state.tsv",
+      "collisions.tsv",
+      "poses.tsv",
+      "player-shot-requests.tsv",
+      "player-shot-emissions.tsv",
+      "player-shot-results.tsv",
+      "player-shot-draws.tsv",
+      "player-projectiles.tsv",
+      "fire-events.tsv",
+      "asset-debug-materials.tsv",
+      "enemy-projectiles.tsv",
+      "effects.tsv",
+      "fade-steps.tsv",
+      "restore-regions.tsv",
+      "scene-enemies.tsv",
+      "scene-hits.tsv",
+      "weapon-loadout.tsv",
+      "blend-palette.tsv",
+      "asset-debug-clock.tsv"
+    ],
+    "original_draw_columns_exact": {
+      "draw-commands.tsv": [
+        "mirrored"
+      ],
+      "blend-writes.tsv": [
+        "hd_subpixels_before",
+        "restored_blocks",
+        "rgba"
+      ]
+    },
+    "source_scope": {
+      "main_source_files_exact_to_frozen_final_candidate": 107,
+      "renderer_sha256": "6036ebb924b4332848a39771cdf40815eaf44e3a0df2752fc3726480b1e3b2d1",
+      "only_changes": "assets325->326; bank8 TILE103 slot325; exact65536 region block; no capture/gameplay changes"
+    },
+    "assets": {
+      "candidate_count": 334,
+      "prior_preserved": 333,
+      "parent_missing_physical_count": 333,
+      "all_main_tracked_HDA_blobs_unchanged": 2898,
+      "default_blue_count": 334,
+      "default_talon_count": 330,
+      "all_existing_default_pack_entries_match_pinned_candidate": true,
+      "talon_preexisting_omissions": [
+        "enemy-newsh2-123-8.hda",
+        "enemy-newsh2-125-8.hda",
+        "enemy-newsh2-85-8.hda",
+        "enemy-newsh2-87-8.hda"
+      ],
+      "candidate_receipt_sha256": "38592c4743dad5bf642913c03ef25cb07261295fefe5017386433d8633e823d5"
+    },
+    "limits": [
+      "RGB byte-equivalence is checked through existing per-frame FNV64 rgb_hash logs, not retained raw frame buffers.",
+      "Actual HD rendering is logged from tick90 onward; original logic logs start at0.",
+      "No new game runs or captures; no visual-art judgment performed.",
+      "Initial missing/invalid modes exercise whole-pack test flags; physically missing103-only case separately verifies local fallback.",
+      "Classic is density1; missing/invalid density8. Cross-density RGB hashes are not comparable. Fallback verified via original indexed state, zero HD draws, classic-assets reason, matching missing/invalid RGB, and source path.",
+      "Trail HD compositor suppresses the later original per-pixel compatibility blend, so blend-writes.rgba is0; it is not an HD-sprite success flag. Exact trail bytes/source and full original trail-write parity are checked.",
+      "classic_mismatches is computed only in original-reference mode and is not used as an independent pixel oracle here.",
+      "Final local600-tick cases compare to1024 discovery2x600-tick references; final4xSDL output dimensions are separately verified. The renderer density is8 in both presentation scales.",
+      "scene-draw-commands includes renderer-dependent terrain attempts; across classic/HD modes only original entity draw-command columns and original blend writes are compared. The full scene-draw TSV is exact between1024 and65536.",
+      "The six original baseline cases record the earlier main executable hash; that path now contains the rebuilt final production binary. Private initial/final executable hashes remain byte-verified. Historical baseline identity relies on its preserved run receipts and exact original logs."
+    ],
+    "production_smoke": {
+      "status": "passed",
+      "renderer_frames": 510,
+      "state_ticks": 600,
+      "exact_complete_tsv": [
+        "asset-debug-clock.tsv",
+        "asset-debug-materials.tsv",
+        "blend-palette.tsv",
+        "blend-writes.tsv",
+        "collisions.tsv",
+        "draw-commands.tsv",
+        "effects.tsv",
+        "enemy-projectiles.tsv",
+        "fade-steps.tsv",
+        "fire-events.tsv",
+        "frames.tsv",
+        "player-projectiles.tsv",
+        "player-shot-draws.tsv",
+        "player-shot-emissions.tsv",
+        "player-shot-requests.tsv",
+        "player-shot-results.tsv",
+        "poses.tsv",
+        "presentation.tsv",
+        "restore-regions.tsv",
+        "rgb-audit.tsv",
+        "scene-draw-commands.tsv",
+        "scene-enemies.tsv",
+        "scene-hits.tsv",
+        "sdl-runtime.tsv",
+        "state.tsv",
+        "talon-bank-visual.tsv",
+        "weapon-loadout.tsv"
+      ],
+      "control_exact_except_wall_ms": true,
+      "private_probe_hook_absent": true
+    },
+    "natural_chain": {
+      "status": "passed",
+      "case": "p11-2x-parent-missing",
+      "chain_calls": [
+        {
+          "request": {
+            "call": "57",
+            "tick": "284",
+            "player": "1",
+            "port": "0",
+            "bay": "4",
+            "weapon": "71",
+            "x": "238",
+            "y": "135"
+          },
+          "emissions": 8,
+          "patterns": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+          ],
+          "same_tick_natural_collisions": 4,
+          "child_initial_ID": 214,
+          "animation_count": 4,
+          "trail": 12
+        },
+        {
+          "request": {
+            "call": "59",
+            "tick": "285",
+            "player": "1",
+            "port": "0",
+            "bay": "4",
+            "weapon": "71",
+            "x": "258",
+            "y": "155"
+          },
+          "emissions": 8,
+          "patterns": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+          ],
+          "same_tick_natural_collisions": 5,
+          "child_initial_ID": 214,
+          "animation_count": 4,
+          "trail": 12
+        }
+      ]
+    },
+    "input_receipts": {
+      "initial/p1-2x-classic": {
+        "tsv_files": 27,
+        "names_and_sha256_receipt": "e3b277bbad31ff998d68600f1830fab24898e17cd5420c75004b73b12743c0ab"
+      },
+      "initial/p1-2x-local": {
+        "tsv_files": 28,
+        "names_and_sha256_receipt": "68736b3f82999355ff91e24bda03e53ad748aad747b0dfaf508416efa4f54b72"
+      },
+      "initial/p1-2x-missing": {
+        "tsv_files": 28,
+        "names_and_sha256_receipt": "459f38c9fcbbdcd767362e5e3fe5ad7984ac2f5cf0875562f0b97a054e5aac0b"
+      },
+      "initial/p1-2x-invalid": {
+        "tsv_files": 28,
+        "names_and_sha256_receipt": "d6c53cc2f5479a82c30d047bd6639a44316008b0c4cd36dd1b5fc2a7531e4747"
+      },
+      "initial/p1-2x-parent-missing": {
+        "tsv_files": 28,
+        "names_and_sha256_receipt": "8a8fa7b20a17e4f7a5e1731c30f1987413557b03d1a17092de48c3d72a8eeabd"
+      },
+      "initial/p1-2x-baseline": {
+        "tsv_files": 28,
+        "names_and_sha256_receipt": "f2da1c3f91be8dd1a889f1a0977c43cd3c537ae6a8c5a6dbeb1d18e442263895"
+      },
+      "initial/p1-4x-classic": {
+        "tsv_files": 27,
+        "names_and_sha256_receipt": "c40cca22fcc72f64f00231d082fe7f4508fc2333d315325a96c060a1ee1c1692"
+      },
+      "initial/p1-4x-local": {
+        "tsv_files": 28,
+        "names_and_sha256_receipt": "590120ae71354807b221b6546d9c904708e526c3e78dd7c831e431e4b74b50c4"
+      },
+      "initial/p1-4x-missing": {
+        "tsv_files": 28,
+        "names_and_sha256_receipt": "1986d09e93fd414972404f7d55e5fdb3ba77f8d0a26ac4c033e885c2d27b09d5"
+      },
+      "initial/p1-4x-invalid": {
+        "tsv_files": 28,
+        "names_and_sha256_receipt": "dbf28400447a1ab2de9ef823aacfdb12d41000a8f355127493806f1ca6d68734"
+      },
+      "initial/p1-4x-parent-missing": {
+        "tsv_files": 28,
+        "names_and_sha256_receipt": "9cf6db39e685b47d5ab398f4d52c18946132fc8d23f2c4349a487d171757b581"
+      },
+      "initial/p1-4x-baseline": {
+        "tsv_files": 28,
+        "names_and_sha256_receipt": "f2a9b1ceef2d623f63bc7e44015a97a869d87f31d861da50ede2f13ce76d86e1"
+      },
+      "initial/p6-2x-classic": {
+        "tsv_files": 27,
+        "names_and_sha256_receipt": "e06017a91980cc174c51f75e1583ffdcdb791189ba82f05dfa1107e0ce11d7e2"
+      },
+      "initial/p6-2x-local": {
+        "tsv_files": 28,
+        "names_and_sha256_receipt": "2f2b47f23cad62caed8feed6541c1735f2fb7ec58a16e231d078777f9fe76bd3"
+      },
+      "initial/p6-2x-missing": {
+        "tsv_files": 28,
+        "names_and_sha256_receipt": "71c8e511c28707509adfe5ddfde824e649788b5022c7415f67561399078f88d9"
+      },
+      "initial/p6-2x-invalid": {
+        "tsv_files": 28,
+        "names_and_sha256_receipt": "b7af6c25367d5479c1793aaab0e88dc062f0bb5f1f4b154f4f34421a317aaa45"
+      },
+      "initial/p6-2x-parent-missing": {
+        "tsv_files": 28,
+        "names_and_sha256_receipt": "8b977e8ffc6d36e0a43b6f37086fb9c4b6423a1f6f9c907526c9a50185c42b08"
+      },
+      "initial/p6-2x-baseline": {
+        "tsv_files": 28,
+        "names_and_sha256_receipt": "8d627ba05d65f6d1ba1fdeac11494bd7e4ee579ac219d4ffd929b67f670c6062"
+      },
+      "initial/p6-4x-classic": {
+        "tsv_files": 27,
+        "names_and_sha256_receipt": "99f301a72e611ecc29e0b38f76f30544343df6feeee1a7a203e5310c0ef6e65a"
+      },
+      "initial/p6-4x-local": {
+        "tsv_files": 28,
+        "names_and_sha256_receipt": "55a387bd9a685ca525030ba19345ecc6ac15ea112132ed233ae9347a676adba7"
+      },
+      "initial/p6-4x-missing": {
+        "tsv_files": 28,
+        "names_and_sha256_receipt": "8471520a91a95407482f69708cb7ac1d588df9d65e3b283fa335c9ecc90e856a"
+      },
+      "initial/p6-4x-invalid": {
+        "tsv_files": 28,
+        "names_and_sha256_receipt": "321dbce7cc58af03cfc806c029cda5b40a66a2e15fe83c7cd5253abbbd8d0951"
+      },
+      "initial/p6-4x-parent-missing": {
+        "tsv_files": 28,
+        "names_and_sha256_receipt": "ce28e373df6eb1532d21ad193d11ba8af3d1f2795a4edbbf2ab6798bbea4771a"
+      },
+      "initial/p6-4x-baseline": {
+        "tsv_files": 28,
+        "names_and_sha256_receipt": "d8c83b199159650c91ef5a086f1a92a48feadef1f579947d08017b9cde0a7dc4"
+      },
+      "initial/p11-2x-classic": {
+        "tsv_files": 27,
+        "names_and_sha256_receipt": "1c1bf2b0dcca1a8ca924acbb8048997f7ff30225191c5861d008affe0c27ea8b"
+      },
+      "initial/p11-2x-local": {
+        "tsv_files": 28,
+        "names_and_sha256_receipt": "0b10595420d1d8167a9aefefcb9cc5940a510bbfd0fb6f22bff4a3e49f66aa7d"
+      },
+      "initial/p11-2x-missing": {
+        "tsv_files": 28,
+        "names_and_sha256_receipt": "3f734a5c2301a53044a520734d95ad8dd7b7a7995d21b608ee4964ca3a01d5e3"
+      },
+      "initial/p11-2x-invalid": {
+        "tsv_files": 28,
+        "names_and_sha256_receipt": "d2d7edc02929de5c097acedab0fc65e8cf3504a24dd47b1b7893e57af290463b"
+      },
+      "initial/p11-2x-parent-missing": {
+        "tsv_files": 28,
+        "names_and_sha256_receipt": "7a0ecbbfa84f1ca5a7207b314dd75fdd488100d6371cbb2434eb080f93a11d92"
+      },
+      "initial/p11-2x-baseline": {
+        "tsv_files": 28,
+        "names_and_sha256_receipt": "210db980e5e7a34ad3e88898b07841a1c068d8bb9fda7eb727278d141d205101"
+      },
+      "initial/p11-4x-classic": {
+        "tsv_files": 27,
+        "names_and_sha256_receipt": "f7337b5399b4777009225cc4774d4c333b80463131b12ec10a236764377d3f1d"
+      },
+      "initial/p11-4x-local": {
+        "tsv_files": 28,
+        "names_and_sha256_receipt": "0164e2d0f660644ef96bb575e1ff79d1de3471ea4b474ff58983b6a9af2b7c7c"
+      },
+      "initial/p11-4x-missing": {
+        "tsv_files": 28,
+        "names_and_sha256_receipt": "d1682ecd2d69d0e1255b308b4fab7043651f57261654c4acc8342209db4d88a6"
+      },
+      "initial/p11-4x-invalid": {
+        "tsv_files": 28,
+        "names_and_sha256_receipt": "6cb7d726f94c1d04d821b94bde00cb9ba56b7b5771559af8bd35b55ff616ffd0"
+      },
+      "initial/p11-4x-parent-missing": {
+        "tsv_files": 28,
+        "names_and_sha256_receipt": "27514c042d429a874267ea9694e141012be68718dc3b33b2254b284876c18e90"
+      },
+      "initial/p11-4x-baseline": {
+        "tsv_files": 28,
+        "names_and_sha256_receipt": "f3d574168bb69f88b32a834164d6990adf2193d8ab1e750da589b539be6da080"
+      },
+      "final/p1-2x-local": {
+        "tsv_files": 29,
+        "names_and_sha256_receipt": "b2465901f05434643f3637837d94e81945a4b864e3a9695316802ae52fa4aea9"
+      },
+      "final/p1-4x-local": {
+        "tsv_files": 29,
+        "names_and_sha256_receipt": "26a680ce6ef1ee05ffaa5397b9da635de5dd1bb3c3031cca6bfa3467d57b18f4"
+      },
+      "final/p11-2x-local": {
+        "tsv_files": 29,
+        "names_and_sha256_receipt": "a5bada69ef986e53ec94e0a8d5dc3057cdb3f55dc4fdbf16c0e30bd58e9cc05c"
+      },
+      "final/p11-2x-parent-missing": {
+        "tsv_files": 29,
+        "names_and_sha256_receipt": "163565f50ee06f8058c5b016bf91d32ebc7dd41e7717ff010ae4d06c88fbee16"
+      },
+      "final/p11-4x-local": {
+        "tsv_files": 29,
+        "names_and_sha256_receipt": "08467178137e95525f4927ad76e2655b32496edf8c6c1a3a17090ee30454cad5"
+      },
+      "final/p11-4x-parent-missing": {
+        "tsv_files": 29,
+        "names_and_sha256_receipt": "def206997478684c93eb711980a64c9ba60adfc1d87c9b15b800b51edaaed72d"
+      },
+      "final/p6-2x-local": {
+        "tsv_files": 29,
+        "names_and_sha256_receipt": "5eab2d93d6d17ab2483149e7932287c301fc507f55fe7bf040dcb832c5ebe9a1"
+      },
+      "final/p6-4x-local": {
+        "tsv_files": 29,
+        "names_and_sha256_receipt": "22313da3d66361517ab55445782b2d2856b04f47fb619132139012b86d7aafa9"
+      }
+    },
+    "invocations": {
+      "all44_cases_power_port_mode_verified": true,
+      "current_private_executable_hashes_verified": true,
+      "historical_baseline_binary_replaced_by_production_build": [
+        {
+          "case": "p1-2x-baseline",
+          "recorded_sha256": "f83041d180135bdcf9bd0b1d3ffbadca7f0854d6ac0773f1f352ba5ffe057b04",
+          "current_rebuilt_production_sha256": "a5c6a940cb5c00bf2b07840a92df2d35613df36e7e1eaefa844c0e48243bbacd"
+        },
+        {
+          "case": "p1-4x-baseline",
+          "recorded_sha256": "f83041d180135bdcf9bd0b1d3ffbadca7f0854d6ac0773f1f352ba5ffe057b04",
+          "current_rebuilt_production_sha256": "a5c6a940cb5c00bf2b07840a92df2d35613df36e7e1eaefa844c0e48243bbacd"
+        },
+        {
+          "case": "p6-2x-baseline",
+          "recorded_sha256": "f83041d180135bdcf9bd0b1d3ffbadca7f0854d6ac0773f1f352ba5ffe057b04",
+          "current_rebuilt_production_sha256": "a5c6a940cb5c00bf2b07840a92df2d35613df36e7e1eaefa844c0e48243bbacd"
+        },
+        {
+          "case": "p6-4x-baseline",
+          "recorded_sha256": "f83041d180135bdcf9bd0b1d3ffbadca7f0854d6ac0773f1f352ba5ffe057b04",
+          "current_rebuilt_production_sha256": "a5c6a940cb5c00bf2b07840a92df2d35613df36e7e1eaefa844c0e48243bbacd"
+        },
+        {
+          "case": "p11-2x-baseline",
+          "recorded_sha256": "f83041d180135bdcf9bd0b1d3ffbadca7f0854d6ac0773f1f352ba5ffe057b04",
+          "current_rebuilt_production_sha256": "a5c6a940cb5c00bf2b07840a92df2d35613df36e7e1eaefa844c0e48243bbacd"
+        },
+        {
+          "case": "p11-4x-baseline",
+          "recorded_sha256": "f83041d180135bdcf9bd0b1d3ffbadca7f0854d6ac0773f1f352ba5ffe057b04",
+          "current_rebuilt_production_sha256": "a5c6a940cb5c00bf2b07840a92df2d35613df36e7e1eaefa844c0e48243bbacd"
+        }
+      ],
+      "all_capture_and_survival_flags_false": true,
+      "requested_2x4x_SDL_dimensions_verified_cases": 38,
+      "classic_cases_without_SDL_dimension_log": [
+        "p1-2x-classic",
+        "p1-4x-classic",
+        "p6-2x-classic",
+        "p6-4x-classic",
+        "p11-2x-classic",
+        "p11-4x-classic"
+      ],
+      "executables": {
+        "/workspace/scratch/f67dd347fa0a/opentyrian-cloud-runtime/poison-parent103-fixture/opentyrian2000": "2a066a726301ab64e1bb0475d5300c52aff081d078971049af7e5617bdc7f85a",
+        "/workspace/scratch/f67dd347fa0a/opentyrian-cloud-runtime/poison-parent103-capacity65536-fixture/opentyrian2000": "11e144070d83c260b86a724e02d86cf5cef6473041bc473eb06b13edfffcea76"
+      }
+    },
+    "main_head_at_final_read": "242e3fdd7307459a99927c2e9b80949fcf43bb8f"
+  }
+}

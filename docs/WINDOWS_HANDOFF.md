@@ -75,3 +75,12 @@ default preview329/debug333. This batch still needs Windows-specific acceptance.
 purple gray backings and the three turret144 backings. No production code or
 asset-count change. See [ISLAND_CONTINUITY_VALIDATION.md](ISLAND_CONTINUITY_VALIDATION.md).
 Windows acceptance of this art revision remains pending.
+
+### Poison Bomb parent103 / region65,536 follow-up
+
+Cloud acceptance now includes selected port33 powers1/6/11, original collision
+chain and dense bursts without HD-region fallback. Windows has not yet run this
+batch. Build and use the exact command in `POISON_PARENT_CAPACITY_VALIDATION.md`,
+with your legal data path and2×/4× configuration; inspect ticks284–303 at power11.
+The two-megabyte static registry changes no gameplay pools. Keep original shadow
+behavior and do not treat this as full arsenal or whole-game acceptance.

@@ -1,0 +1,104 @@
+{
+  "identity": "poison-bomb-parent103-v1",
+  "status": "Root visually approved offline source-vs-HD actual4x/2x on2026-10-12 for runtime trial; in-game acceptance pending.",
+  "scope": "Exactly one static spriteSheet8 player parent103; accepted green214\u2013217 and explosion78\u201384 unchanged; no weapon or gameplay edits.",
+  "tool": "Built-in image_gen; two prompts retained, selected second-pass master supplied.",
+  "alpha": "Generated straight RGBA preserved; only recorded whole-sprite crop/resample/placement.",
+  "frames": [
+    {
+      "runtime_role": "player_projectile_only",
+      "sprite_sheet": 8,
+      "sprite_id": 103,
+      "binding_key": "8:103",
+      "runtime_asset_key": 80103,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "animation_frames": 1,
+      "master": "selected-masters/poison103-master.png",
+      "master_sha256": "3a191bc9443cb86aa03e6475dd78c42cd4c5c1cfb4b8788ee964e0188b66e6ad",
+      "transform": {
+        "crop": [
+          156,
+          74,
+          1084,
+          1288
+        ],
+        "resize": [
+          74,
+          98
+        ],
+        "paste": [
+          15,
+          7
+        ],
+        "canvas": [
+          96,
+          112
+        ],
+        "resampler": "Lanczos"
+      },
+      "source_png": "exports/shapes8-id103-96x112.png",
+      "source_png_sha256": "981bc053924ca1f635bb43602b7adcf76f678b2181213fc617e126d0389bbcdf",
+      "hda": "runtime/bullet-103-8.hda",
+      "hda_sha256": "9e325d7cd9cc4e90c943ef921b9e80858dbcce926d124e4ce3ab8834b44c2ccb",
+      "header_u32": [
+        80103,
+        8,
+        12,
+        14,
+        0,
+        0
+      ]
+    }
+  ],
+  "source_registration": {
+    "logical_size": [
+      12,
+      14
+    ],
+    "occupied_bbox": [
+      2,
+      1,
+      11,
+      13
+    ],
+    "anchor": [
+      0,
+      0
+    ]
+  },
+  "dependencies_unchanged": {
+    "child_shot": 71,
+    "head_keys": [
+      "8:214",
+      "8:215",
+      "8:216",
+      "8:217"
+    ],
+    "trail_keys": [
+      "explosion:78",
+      "explosion:79",
+      "explosion:80",
+      "explosion:81",
+      "explosion:82",
+      "explosion:83",
+      "explosion:84"
+    ],
+    "phase_semantics": "Actual collision spawns shot71; surviving children cycle214..217 and emit trail12\u2192explosion78..84."
+  },
+  "runtime_checks_required": [
+    "Existing legal-loadout fixture: front-port33 powers1/6/11 after island priority",
+    "Actual parent103 collision\u2192child71\u2192all214..217\u2192all78..84 observed",
+    "Integer2x/4x classic, HD, missing-parent-only and invalid fallback",
+    "Unchanged state/RNG/collision hashes and accepted child/trail assets",
+    "Correct physical parent origin, shadow, occlusion and color; no animation added"
+  ],
+  "coverage_limit": "Completes one missing Poison Bomb static parent identity after runtime acceptance; not all player weapons or configurations tested."
+}

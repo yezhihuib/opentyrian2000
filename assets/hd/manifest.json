@@ -1,7 +1,7 @@
 {
   "schema": "opentyrian-accepted-hd-runtime-v1",
   "baseline_branch": "hd-render-prototype",
-  "status": "Coordinated island art revision: smooth rims, coherent stone interfaces and matched protected object backings",
+  "status": "Poison Bomb parent103 and bounded65536 HD presentation-region capacity; coordinated island continuity retained",
   "default_preview_pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
   "default_debug_pack": "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
   "packs": {
@@ -29154,7 +29154,7 @@
       }
     },
     "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 329,
+      "count": 330,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -33432,11 +33432,24 @@
           ],
           "source_png": "assets/hd/source/bullet-165-8-255fa3dc879f.png",
           "source_png_sha256": "70493abb68156ecaff07f731d421c3ed780c4ff88911a3cb2a607a1d86050004"
+        },
+        "bullet-103-8.hda": {
+          "sha256": "9e325d7cd9cc4e90c943ef921b9e80858dbcce926d124e4ce3ab8834b44c2ccb",
+          "header_u32": [
+            80103,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/bullet-103-8-9e325d7cd9cc.png",
+          "source_png_sha256": "981bc053924ca1f635bb43602b7adcf76f678b2181213fc617e126d0389bbcdf"
         }
       }
     },
     "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 333,
+      "count": 334,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -37766,6 +37779,19 @@
           ],
           "source_png": "assets/hd/source/bullet-165-8-255fa3dc879f.png",
           "source_png_sha256": "70493abb68156ecaff07f731d421c3ed780c4ff88911a3cb2a607a1d86050004"
+        },
+        "bullet-103-8.hda": {
+          "sha256": "9e325d7cd9cc4e90c943ef921b9e80858dbcce926d124e4ce3ab8834b44c2ccb",
+          "header_u32": [
+            80103,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/bullet-103-8-9e325d7cd9cc.png",
+          "source_png_sha256": "981bc053924ca1f635bb43602b7adcf76f678b2181213fc617e126d0389bbcdf"
         }
       }
     }
@@ -39930,6 +39956,12 @@
       "sha256": "2f359892910096932b0e410becd7128e6adb26d7377be5ce7099fc56cb4044a7",
       "RGBA_sha256": "fce6eaca846d4827803649dc4973268d4b3b2e35cb944e879cba088ea300569b",
       "note": "Coordinated generated gray island continuity; protected purple geometry and turret phases retained"
+    },
+    "9e325d7cd9cc4e90c943ef921b9e80858dbcce926d124e4ce3ab8834b44c2ccb": {
+      "path": "assets/hd/source/bullet-103-8-9e325d7cd9cc.png",
+      "sha256": "981bc053924ca1f635bb43602b7adcf76f678b2181213fc617e126d0389bbcdf",
+      "RGBA_sha256": "d012689722b0e71cb0f08d93a1144a609249d3975354cc3b4e878077427f39fa",
+      "note": "Generated physical Poison Bomb parent103; actual powers1/6/11 and original child collision chain verified"
     }
   },
   "no_original_game_data": true,

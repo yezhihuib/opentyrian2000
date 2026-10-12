@@ -21,7 +21,7 @@ typedef struct {
 } Asset;
 enum { ASSET_NEWSH2=101, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
-static Asset assets[325];
+static Asset assets[326];
 static Asset talon_frames[13];
 typedef struct {
  bool valid;
@@ -71,7 +71,9 @@ static bool suppress_green_smoke;
 static const char *reject_reason;
 static unsigned int draws,occlusions,mismatch;
 typedef struct { SDL_Rect rect; int bank,index,style; bool live; } HdRegion;
-static HdRegion regions[256];
+/* Fixed presentation bookkeeping budget; gameplay pools are unchanged. */
+#define HD_REGION_CAPACITY 65536
+static HdRegion regions[HD_REGION_CAPACITY];
 static unsigned int region_count,local_entities,local_regions,local_blocks;
 static char all_rejections[512];
 static Uint8 restored_mask[320*200];
@@ -399,6 +401,7 @@ static Asset *get_asset(Sprite2_array bank,unsigned int index,int layout)
   static const unsigned int pulse_ids[4]={58,60,62,165};
   for(int i=0;i<4;i++)if(index==pulse_ids[i]){slot=321+i;role=8;break;}
  }
+ if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&index==103) {slot=325;role=8;}
  if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&index>=214&&index<=217) {slot=182+(int)index-214;role=8;}
  if(bank.data==explosionSpriteSheet.data&&layout==ENTITY_TILE) {int explosion_slot=explosion_asset_slot(index);if(explosion_slot>=0){slot=explosion_slot;role=ASSET_EXPLOSION;}}
  if(slot<0||game_probe_density==1||game_probe_missing||(role==ASSET_EXPLOSION&&(!game_probe_assets||game_probe_original_reference))) return NULL;
