@@ -1,0 +1,85 @@
+{
+  "source_inventory_sha256": "231f518b7e9bf613abfca7c47dad2ce19de7f0b590907b54c51d6efea715408e",
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "00310c10bf086d6857191dd4440f1e73db5716720f4131fb12546f6085260a50"
+    },
+    {
+      "path": "rebuild.py",
+      "sha256": "e540854468d1abae33513c8c0ca59240b381b8136e1d27eec530e71cef67cc29"
+    },
+    {
+      "path": "contract.json",
+      "sha256": "1fba24a5ad1cc310390bcc774640257fc939d0895348d68d33aeeeb08b9a0328"
+    },
+    {
+      "path": "recover_masks.py",
+      "sha256": "c63f9efc0c4e0d133599021e0f8b51a88aa3b655d2c79f86ef3a54127a99bf08"
+    },
+    {
+      "path": "inventory.json",
+      "sha256": "231f518b7e9bf613abfca7c47dad2ce19de7f0b590907b54c51d6efea715408e"
+    },
+    {
+      "path": "masks/source-alpha-density8.png",
+      "sha256": "ccc9a525c5abbd88cb1a546824c610149418d064a88d9c601e6e068da0a2331d"
+    },
+    {
+      "path": "sources/prompt.txt",
+      "sha256": "97aa73eb6163cfd3e4562aaf03e50d945eb7074691b1acfd233f2a5b0946e13d"
+    },
+    {
+      "path": "sources/generated-context.png",
+      "sha256": "a32ae9178946d43b90c083bedf73136e355ac6c75954f07b9e87565a77888a0c"
+    },
+    {
+      "path": "proof/unchanged-neighbor-guards.json",
+      "sha256": "a9dc164e1bb733e73f9ae546ce1f6772efa42ea84cb8486257171f59a4d9f96f"
+    },
+    {
+      "path": "proof/restored-source-masks.json",
+      "sha256": "0d5e3eac95acd08bef41c65266576e7792b4d816cd88f70336b55faa962c9ae1"
+    },
+    {
+      "path": "output/terrain-shapesz-198-8.png",
+      "sha256": "95e3391c8c04754cb229040a5fa2d302082ec555cd873dab66347dc18b40bab8"
+    },
+    {
+      "path": "output/2010198.hda",
+      "sha256": "0090a9cd533a8121d2412d8168e50c21b75cc83d95c62e8a7f787832375e498d"
+    },
+    {
+      "path": "output/terrain-shapesz-189-8.png",
+      "sha256": "1aea879f5395337d87a59b086f8393718bbc0fce1d775acc09f1576b9c16262e"
+    },
+    {
+      "path": "output/rebuild-receipt.json",
+      "sha256": "24d1f67038e68b0e4379fbfe879e2baa976eda926e3b7201264858668ef23047"
+    },
+    {
+      "path": "output/2010199.hda",
+      "sha256": "6d76f348ff7cae12906a640ab916b2b20ffcd24a7f7b8496d673ef36bcb005b5"
+    },
+    {
+      "path": "output/2010188.hda",
+      "sha256": "9f1b905e9406832242ea5ce8b81e952fdf63b4d0bc934b814445f7acd5266e55"
+    },
+    {
+      "path": "output/terrain-shapesz-199-8.png",
+      "sha256": "92315b46daff8b997d3183ea1f1a5c903808537f01e281f17fc1fd24090299d2"
+    },
+    {
+      "path": "output/terrain-shapesz-188-8.png",
+      "sha256": "aa2bd9d74fb8831ea18b45bc7fd01fb40c2c4975e93537092bd7017b64654ddd"
+    },
+    {
+      "path": "output/2010189.hda",
+      "sha256": "4b278456dc33f77748d7046b8b731bc45a0c1e9492137a1c3101d742cc1fae6e"
+    }
+  ],
+  "omitted": {
+    "freeze.py": "One-time author inventory constructor names a local recovery checkout; not a standalone rebuild dependency."
+  },
+  "runtime_acceptance": "Passed fresh bounded28-frame normal-layer private-survival sample and native4x spot; see docs/MECHANICAL_RIGHT4.md"
+}

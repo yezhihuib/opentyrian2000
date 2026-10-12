@@ -1,3 +1,14 @@
+Mechanical right-four extension (current): IDs 188/189/198/199 use slots
+359..362. Asset capacity is 363; the pointer registry is 189. ID200 stays
+excluded. The extracted source tests cover all four finite bindings, other
+layers/styles, malformed/missing files, selected density4 fallback and registry
+boundaries. The original forest/circuit routing tests remain active. Four new
+negative controls verify slot shift, ID200 admission, style leakage and missing
+art trace leakage are detected. Actual raster evidence is a separate gate.
+
+The historical circuit/forest notes below describe their original checkpoint;
+capacity references there are superseded by the current bounds above.
+
 Forest13 and circuit10 renderer binding oracle
 ================================
 

@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "bank": "shapesz.dat",
+  "layer": 3,
+  "mode": "NORMAL",
+  "output_ids": [
+    188,
+    189,
+    198,
+    199
+  ],
+  "guard_excluded_id": 200,
+  "master": "sources/generated-context.png",
+  "registered_master_size": [
+    768,
+    896
+  ],
+  "assembly_crop": [
+    192,
+    224,
+    576,
+    672
+  ],
+  "mask": "masks/source-alpha-density8.png",
+  "entries": [
+    {
+      "source_id": 188,
+      "hda_id": 2010188,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "anchor": [
+        0,
+        0
+      ],
+      "assembly_crop": [
+        0,
+        0,
+        192,
+        224
+      ]
+    },
+    {
+      "source_id": 189,
+      "hda_id": 2010189,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "anchor": [
+        0,
+        0
+      ],
+      "assembly_crop": [
+        192,
+        0,
+        384,
+        224
+      ]
+    },
+    {
+      "source_id": 198,
+      "hda_id": 2010198,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "anchor": [
+        0,
+        0
+      ],
+      "assembly_crop": [
+        0,
+        224,
+        192,
+        448
+      ]
+    },
+    {
+      "source_id": 199,
+      "hda_id": 2010199,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "anchor": [
+        0,
+        0
+      ],
+      "assembly_crop": [
+        192,
+        224,
+        384,
+        448
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "status": "passed",
+  "baseline": "56efa26181cd342347f8645f1c9adefc1e45d4ef",
+  "renderer_sha256": "0aa15ad0190708e795be57ce2042114b4f205a0f5a5a893de7cf7fb7e6372448",
+  "ids": [
+    188,
+    189,
+    198,
+    199
+  ],
+  "slots": [
+    359,
+    360,
+    361,
+    362
+  ],
+  "ordered_native2x_frames": 28,
+  "ticks": [
+    5630,
+    5657
+  ],
+  "native4x_spot": 5640,
+  "author_readback_hashes_verified": 29,
+  "state_ledger_pairs": 16,
+  "target_draws": 112,
+  "outside_nonzero_source_mask_changes": 0,
+  "source_assertions": 707489,
+  "negative_controls": 21,
+  "receipt_sha256": {
+    "binding": "90c2d440c1eb4655ee79232821835ab4d37897102704ebc2bd3674342cd39cd4",
+    "mutants": "f89b421310a6c87f6c1f369362e400bfcef50a317704a1bbe8757daa5cf5e1e2",
+    "independent_source": "de4615e980a130242f714e4ab2cab3aa3e29579b33e2ddf1d35b85df5f98862b",
+    "runtime2x": "6e5ae7c5ab6136607df3e4eb27e7ecf16d27511f28956dbba297e027df97b928",
+    "runtime4x": "923b84e5bcc5e15f9311bba224d97dd05efc35cb6e5c852b450379325ec0bf2d",
+    "absent": "1fb7390ec89c8bbdd0b3cdc639e58bae1185018b2ed8a369da47de4f1c6f9687",
+    "invalid189": "008a6fc6b1975c300df7abc794f2d50318d8c78d2a08202d6b1a0b2cfb62c2bd",
+    "author": "eb14060a742a5b5e2f43166e8308e6bfecf61ea5730efd94d911179da653a40c",
+    "path_guards": "1d13d6fa4a546798e06548c0afbe7dd8f698192d6a3322a825caa0c83e151777"
+  },
+  "limits": [
+    "Original-layer private-survival diagnostic, not natural gameplay survival",
+    "All three placements static; one actual assembly sample",
+    "Insert200 not visible in these runs",
+    "Malformed189 test is log-only",
+    "Windows XML only; no Windows compile/runtime",
+    "No whole-level acceptance"
+  ],
+  "private_hooks_in_production": false
+}
