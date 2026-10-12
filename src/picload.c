@@ -17,6 +17,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 #include "picload.h"
+#include "render_mirror.h"
 
 #include "file.h"
 #include "opentyr.h"
@@ -29,6 +30,7 @@
 
 void JE_loadPic(SDL_Surface *screen, JE_byte PCXnumber, JE_boolean storepal)
 {
+	render_mirror_hud_reset();
 	PCXnumber--;
 
 	FILE *f = dir_fopen_die(data_dir(), "tyrian.pic", "rb");

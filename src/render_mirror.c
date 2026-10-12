@@ -4,6 +4,11 @@
  * Unsupported effects or incomplete changed-pixel coverage reject the full frame.
  */
 #include "render_mirror.h"
+#include "gameplay_hud.h"
+#include "config.h"
+#include "episodes.h"
+#include "fonthand.h"
+#include "player.h"
 #include "plateau_cap_material.h"
 #include "forest13_material.h"
 #include "game_probe.h"
@@ -54,6 +59,18 @@ static SDL_Surface *fade_saved;
 static Uint32 fade_saved_palette[256],last_output_palette[256];
 static Uint8 last_output_indices[320*200];
 static bool last_output_valid,have_fade_saved;
+/* HUD1 admits only whole opaque logical blocks. These output-coordinate masks
+ * therefore represent every actually replaced subpixel exactly, independently
+ * of scene-space hd_owner. They are not a screen-identification heuristic. */
+static Uint8 hud_output_owner[320*200],hud_saved_owner[320*200];
+static Uint32 hud_output_palette[256];
+static uint64_t hud_generation,hud_output_generation,hud_saved_generation;
+static bool hud_gameplay,hud_suspended,hud_live,last_output_scene_hd;
+/* Lease the persistent indexed surface, not merely coincident pixel values. */
+static SDL_Surface *hud_source_surface;
+static void *hud_source_pixels;
+static SDL_PixelFormat *hud_source_format;
+static int hud_source_pitch,hud_source_width,hud_source_height;
 static int fade_mode;
 static SDL_Texture *texture;
 static Uint8 expected[320*200], selected[320*200];
@@ -231,8 +248,218 @@ static void upscale(SDL_Surface *dst,SDL_Surface *src)
  }
 }
 
+static bool hud_source_matches(void)
+{
+ /* Compare identity before dereferencing; a replaced/freed old allocation is
+  * never read. True video teardown revokes before freeing the current one. */
+ return VGAScreenSeg&&VGAScreenSeg==hud_source_surface&&
+   VGAScreenSeg->pixels&&VGAScreenSeg->pixels==hud_source_pixels&&
+   VGAScreenSeg->format&&VGAScreenSeg->format==hud_source_format&&
+   VGAScreenSeg->pitch==hud_source_pitch&&VGAScreenSeg->w==hud_source_width&&
+   VGAScreenSeg->h==hud_source_height&&VGAScreenSeg->format->BitsPerPixel==8&&
+   VGAScreenSeg->format->BytesPerPixel==1;
+}
+
+static bool hud_cached_indices_match(void)
+{
+ if(!hud_source_matches())return false;
+ for(int y=0;y<200;y++)
+  if(memcmp(last_output_indices+y*320,(Uint8 *)VGAScreenSeg->pixels+y*VGAScreenSeg->pitch,320)!=0)return false;
+ return true;
+}
+
+/* Remove only baked HUD samples. The scene fade image survives suspension when
+ * the original indexed/palette snapshot still describes this output. A stale
+ * cache cannot be repaired from a different screen and is rejected instead. */
+static void hud_clear_cached(void)
+{
+ bool owned=memchr(hud_output_owner,1,sizeof(hud_output_owner))!=NULL;
+ bool saved=memchr(hud_saved_owner,1,sizeof(hud_saved_owner))!=NULL;
+ if(owned||saved) {
+  bool verified=output&&output->w==320*game_probe_density&&output->h==200*game_probe_density&&
+    hud_cached_indices_match()&&memcmp(hud_output_palette,rgb_palette,sizeof(hud_output_palette))==0;
+  if(!verified) {
+   ready=false;last_output_valid=false;have_fade_saved=false;fade_mode=0;
+  } else {
+   int d=game_probe_density;
+   for(int y=0;y<200;y++)for(int x=0;x<320;x++) {
+    unsigned int i=(unsigned int)(y*320+x);Uint8 index=last_output_indices[i];
+    if(!hud_output_owner[i]&&!hud_saved_owner[i])continue;
+    for(int sy=0;sy<d;sy++)for(int sx=0;sx<d;sx++) {
+     if(hud_output_owner[i])
+      ((Uint32 *)((Uint8 *)output->pixels+(y*d+sy)*output->pitch))[x*d+sx]=palette_rgb(index);
+     if(hud_saved_owner[i]&&have_fade_saved&&fade_saved)
+      ((Uint32 *)((Uint8 *)fade_saved->pixels+(y*d+sy)*fade_saved->pitch))[x*d+sx]=0xff000000u|(fade_saved_palette[index]&0xffffffu);
+    }
+   }
+   last_output_valid=last_output_valid&&last_output_scene_hd;
+   if(!last_output_scene_hd) {have_fade_saved=false;fade_mode=0;}
+  }
+ }
+ memset(hud_output_owner,0,sizeof(hud_output_owner));
+ memset(hud_saved_owner,0,sizeof(hud_saved_owner));
+ hud_output_generation=hud_saved_generation=0;
+}
+
+void render_mirror_hud_reset(void)
+{
+ hud_clear_cached();
+ ++hud_generation;if(!hud_generation)++hud_generation;
+ hud_gameplay=false;hud_suspended=false;hud_live=false;gameplay_hud_forget_source();
+ hud_source_surface=NULL;hud_source_pixels=NULL;hud_source_format=NULL;
+ hud_source_pitch=hud_source_width=hud_source_height=0;
+}
+
+void render_mirror_hud_shutdown(void)
+{
+ render_mirror_hud_reset();gameplay_hud_shutdown();
+}
+
+/* Validate the original bytecode as well as declared dimensions: malformed RLE
+ * must not silently write past an audited font/icon/mode footprint. All bounds
+ * are tiny fixed HUD limits; this is allocation-free and never paints a sprite. */
+static bool hud_sprite_decode(unsigned int table,unsigned int index,unsigned int max_w,unsigned int max_h,Uint8 *indices,Uint8 *opaque)
+{
+ if(table>=SPRITE_TABLES_MAX||sprite_table[table].count>SPRITES_PER_TABLE_MAX||
+    index>=sprite_table[table].count)return false;
+ const Sprite *s=&sprite_table[table].sprite[index];
+ if(!s->data||!s->width||!s->height||s->width>max_w||s->height>max_h||
+    !s->size||s->size>2u*s->width*s->height+s->height)return false;
+ if(indices)memset(indices,0,(size_t)s->width*s->height);
+ if(opaque)memset(opaque,0,(size_t)s->width*s->height);
+ unsigned int x=0,y=0;
+ for(unsigned int i=0;i<s->size;i++) {
+  if(y>=s->height)return false;
+  Uint8 v=s->data[i];
+  if(v==255) {
+   if(++i>=s->size||s->data[i]>s->width-x)return false;
+   x+=s->data[i];
+  } else if(v==254)x=s->width;
+  else if(v==253)++x;
+  else {
+   if(indices)indices[y*s->width+x]=v;
+   if(opaque)opaque[y*s->width+x]=255;
+   ++x;
+  }
+  if(x>=s->width) {x=0;++y;}
+ }
+ return true;
+}
+
+static bool hud_runtime_compatible(bool live)
+{
+ if(!gameplay_hud_has_expansion())return true;
+ bool checked[SPRITES_PER_TABLE_MAX]={false};
+ for(unsigned int c=0;c<256;c++) {
+  int id=font_ascii[c];
+  if(id<0)continue;
+  if(id>=SPRITES_PER_TABLE_MAX)return false;
+  if(!checked[id]&&!hud_sprite_decode(TINY_FONT,(unsigned int)id,6,8,NULL,NULL))return false;
+  checked[id]=true;
+ }
+ memset(checked,0,sizeof(checked));
+ for(unsigned int i=0;i<=OPTION_NUM;i++) {
+  unsigned int ammo=options[i].ammo,unit=MAX(1u,ammo/10u);
+  if((ammo+unit-1)/unit>10)return false;
+  unsigned int icon=options[i].icongr;
+  if(!icon)continue;
+  --icon;
+  if(icon>=SPRITES_PER_TABLE_MAX)return false;
+  if(!checked[icon]&&!hud_sprite_decode(OPTION_SHAPES,icon,28,13,NULL,NULL))return false;
+  checked[icon]=true;
+ }
+ for(unsigned int i=0;i<=SHIELD_NUM;i++)if(shields[i].mpwr>14)return false;
+ if(!memchr(levelName,'\0',sizeof(levelName)))return false;
+ Uint8 mode_indices[2][80],mode_opaque[2][80];
+ for(unsigned int i=0;i<2;i++) {
+  if(!hud_sprite_decode(OPTION_SHAPES,18+i,10,8,mode_indices[i],mode_opaque[i])||
+     sprite_table[OPTION_SHAPES].sprite[18+i].width!=10||sprite_table[OPTION_SHAPES].sprite[18+i].height!=8)return false;
+ }
+ if(!gameplay_hud_verify_modes((const Uint8 (*)[80])mode_indices,(const Uint8 (*)[80])mode_opaque))return false;
+ if(live) {
+  if(power>900||lastPower>90||player[0].shield>28||player[0].shield_max>28||player[0].armor>28)return false;
+  for(unsigned int i=0;i<2;i++) {
+   if(player[0].items.weapon[i].power>11||player[0].items.sidekick[i]>OPTION_NUM)return false;
+   int ammo=player[0].sidekick[i].ammo,maximum=player[0].sidekick[i].ammo_max;
+   if(ammo<0||maximum<0||ammo>maximum||maximum>255)return false;
+   unsigned int unit=MAX(1u,(unsigned int)maximum/10u);
+   if(((unsigned int)maximum+unit-1)/unit>10)return false;
+  }
+ }
+ return true;
+}
+
+static void hud_check_mode(void)
+{
+ if(((twoPlayerMode||galagaMode)&&(hud_gameplay||hud_suspended))||
+    (hud_gameplay&&(!hud_source_matches()||!hud_runtime_compatible(hud_live))))render_mirror_hud_reset();
+}
+
+void render_mirror_hud_start(SDL_Surface *decoded_pic3)
+{
+ /* This is called only at the successful gameplay PIC3 load, before options
+  * and text. Generic JE_loadPic never grants gameplay ownership. */
+ render_mirror_hud_reset();
+ if(twoPlayerMode||galagaMode||!game_probe_enabled||game_probe_missing||game_probe_invalid||
+    game_probe_original_reference||(game_probe_density!=4&&game_probe_density!=8)||
+    !decoded_pic3||decoded_pic3!=VGAScreenSeg||!decoded_pic3->pixels||decoded_pic3->w!=320||decoded_pic3->h!=200||decoded_pic3->pitch<320||
+    !decoded_pic3->format||decoded_pic3->format->BitsPerPixel!=8||decoded_pic3->format->BytesPerPixel!=1)return;
+ if(gameplay_hud_load(game_probe_assets)&&gameplay_hud_capture(decoded_pic3->pixels,decoded_pic3->pitch)) {
+  if(hud_runtime_compatible(false)) {
+   hud_source_surface=decoded_pic3;hud_source_pixels=decoded_pic3->pixels;hud_source_format=decoded_pic3->format;
+   hud_source_pitch=decoded_pic3->pitch;hud_source_width=decoded_pic3->w;hud_source_height=decoded_pic3->h;
+   hud_gameplay=true;
+  }
+  else gameplay_hud_forget_source();
+ }
+}
+
+void render_mirror_hud_suspend(void)
+{
+ hud_check_mode();
+ hud_clear_cached();
+ if(hud_gameplay)hud_suspended=true;
+}
+
+static void hud_begin(void)
+{
+ /* PIC capture precedes level stat initialization. Live gauge bounds become
+  * meaningful at the first simulation begin, then stay checked through fades. */
+ if(hud_gameplay)hud_live=true;
+ hud_check_mode();
+ /* Reset revokes the generation; only an intact gameplay capture may resume. */
+ if(hud_gameplay&&gameplay_hud_ready())hud_suspended=false;
+ memset(hud_output_owner,0,sizeof(hud_output_owner));
+ memset(hud_saved_owner,0,sizeof(hud_saved_owner));
+ hud_output_generation=hud_saved_generation=0;
+}
+
+static bool hud_compose(void)
+{
+ if(!hud_gameplay||hud_suspended||!gameplay_hud_ready()||game_probe_original_reference)return false;
+ int d=game_probe_density;
+ if((d!=4&&d!=8)||!output||output->w!=320*d||output->h!=200*d)return false;
+ bool retained=false;
+ for(int y=0;y<200;y++)for(int x=0;x<320;x++) {
+  if(x<264&&y<184)continue;
+  Uint8 index=((Uint8 *)VGAScreenSeg->pixels)[y*VGAScreenSeg->pitch+x];
+  if(!gameplay_hud_sample(x,y,0,0,d,index))continue;
+  for(int sy=0;sy<d;sy++) {
+   Uint32 *row=(Uint32 *)((Uint8 *)output->pixels+(y*d+sy)*output->pitch)+x*d;
+   for(int sx=0;sx<d;sx++) {
+    const Uint8 *rgba=gameplay_hud_sample(x,y,sx,sy,d,index);
+    row[sx]=0xff000000u|((Uint32)rgba[0]<<16)|((Uint32)rgba[1]<<8)|rgba[2];
+   }
+  }
+  hud_output_owner[y*320+x]=1;retained=true;
+ }
+ if(retained)hud_output_generation=hud_generation;
+ return retained;
+}
+
 void render_mirror_begin(void)
 {
+ hud_begin();
  /* JE_main level_loop calls begin exactly once per simulation tick. Neither
   * individual sprites, shadows nor repeated Present calls advance this clock. */
  ground101_frame_reset();
@@ -1052,6 +1279,7 @@ void render_mirror_sprite2_blend_pixel(SDL_Surface *surface,Uint8 *address,Uint8
 
 void render_mirror_finish(bool ordinary_crop)
 {
+ hud_check_mode();
  if(!active)return;
  if(!ordinary_crop) render_mirror_unsupported("special-output-composition");
  if(memcmp(initial_palette,rgb_palette,sizeof(initial_palette))!=0) render_mirror_unsupported("hd-palette-change");
@@ -1076,7 +1304,9 @@ void render_mirror_finish(bool ordinary_crop)
   int d=game_probe_density;
   for(int y=0;y<184*d;y++) memcpy((Uint8 *)output->pixels+y*output->pitch,(Uint8 *)canvas->pixels+y*canvas->pitch+24*d*4,(size_t)264*d*4);
  }
- bool retained_hd=memchr(hd_owner,1,(size_t)canvas->w*canvas->h)!=NULL||memchr(hd_owner,2,(size_t)canvas->w*canvas->h)!=NULL;
+ bool retained_hud=!reject_reason&&ordinary_crop&&hud_compose();
+ bool retained_scene_hd=memchr(hd_owner,1,(size_t)canvas->w*canvas->h)!=NULL||memchr(hd_owner,2,(size_t)canvas->w*canvas->h)!=NULL;
+ bool retained_hd=retained_scene_hd||retained_hud;
  unsigned int classic_mismatches=0;
  if(game_probe_original_reference)for(int y=0;y<output->h;y++) {
   const Uint32 *row=(const Uint32 *)((Uint8 *)output->pixels+y*output->pitch);
@@ -1084,8 +1314,10 @@ void render_mirror_finish(bool ordinary_crop)
   for(int x=0;x<output->w;x++)if(row[x]!=palette_rgb(classic[x/game_probe_density]))++classic_mismatches;
  }
  game_probe_rgb_audit(output,classic_mismatches);
+ last_output_scene_hd=!reject_reason&&retained_scene_hd;
  last_output_valid=!reject_reason&&retained_hd;
  memcpy(last_output_palette,rgb_palette,sizeof(last_output_palette));
+ if(retained_hud)memcpy(hud_output_palette,rgb_palette,sizeof(hud_output_palette));
  for(int y=0;y<200;y++)memcpy(last_output_indices+y*320,(Uint8 *)VGAScreenSeg->pixels+y*VGAScreenSeg->pitch,320);
  ground101_frame_report(game_probe_tick,reject_reason);
  game_probe_frame(draws,occlusions,mismatch,reject_reason?reject_reason:retained_hd?"hd-ordered":"classic-assets",all_rejections,local_entities,local_regions,local_blocks);
@@ -1100,6 +1332,7 @@ void render_mirror_finish(bool ordinary_crop)
  * schedule. Classic pixels use the original newly updated palette directly. */
 void render_mirror_fade_start(const SDL_Color *target,const SDL_Color *solid,unsigned int first,unsigned int last)
 {
+ hud_check_mode();
  bool cached=last_output_valid;last_output_valid=false;fade_mode=0;ready=false;
  if(!game_probe_enabled||game_probe_density<2||!output||!cached||first!=0||last!=255)return;
  for(int y=0;y<200;y++)if(memcmp(last_output_indices+y*320,(Uint8 *)VGAScreenSeg->pixels+y*VGAScreenSeg->pitch,320)!=0)return;
@@ -1108,7 +1341,9 @@ void render_mirror_fade_start(const SDL_Color *target,const SDL_Color *solid,uns
   if(!fade_saved)fade_saved=SDL_CreateRGBSurfaceWithFormat(0,output->w,output->h,32,SDL_PIXELFORMAT_ARGB8888);
   if(!fade_saved)return;
   for(int y=0;y<output->h;y++)memcpy((Uint8 *)fade_saved->pixels+y*fade_saved->pitch,(Uint8 *)output->pixels+y*output->pitch,(size_t)output->w*4);
-  memcpy(fade_saved_palette,rgb_palette,sizeof(fade_saved_palette));have_fade_saved=true;fade_mode=solid->r==0?1:2;
+  memcpy(fade_saved_palette,rgb_palette,sizeof(fade_saved_palette));
+  memcpy(hud_saved_owner,hud_output_owner,sizeof(hud_saved_owner));hud_saved_generation=hud_output_generation;
+  have_fade_saved=true;fade_mode=solid->r==0?1:2;
  } else if(target&&have_fade_saved) {
   for(int i=0;i<256;i++)if((fade_saved_palette[i]&0xffffffu)!=(((Uint32)target[i].r<<16)|((Uint32)target[i].g<<8)|target[i].b))return;
   fade_mode=3;
@@ -1118,13 +1353,18 @@ void render_mirror_fade_start(const SDL_Color *target,const SDL_Color *solid,uns
 
 void render_mirror_fade_step(int steps)
 {
+ hud_check_mode();
  if(!fade_mode||steps<=0)return;
+ if(hud_output_generation&&!hud_cached_indices_match()) {hud_clear_cached();return;}
  int d=game_probe_density;unsigned int hd_pixels=0;
  for(int y=0;y<output->h;y++) {
   Uint32 *row=(Uint32 *)((Uint8 *)output->pixels+y*output->pitch);
   const Uint32 *saved=(Uint32 *)((Uint8 *)fade_saved->pixels+y*fade_saved->pitch);
   for(int x=0;x<output->w;x++) {
-   bool hd=x<264*d&&y<184*d&&hd_owner[y*canvas->w+x+24*d]!=0;
+   unsigned int logical=(unsigned int)((y/d)*320+x/d);
+   bool hud=hud_output_generation==hud_generation&&hud_saved_generation==hud_generation&&
+     hud_output_owner[logical]&&hud_saved_owner[logical];
+   bool hd=(x<264*d&&y<184*d&&hd_owner[y*canvas->w+x+24*d]!=0)||hud;
    if(hd) {
     Uint32 target=fade_mode==1?0:fade_mode==2?0xffffffu:saved[x];
     Uint32 color=0xff000000u;
@@ -1136,12 +1376,15 @@ void render_mirror_fade_step(int steps)
    } else row[x]=palette_rgb(((Uint8 *)VGAScreenSeg->pixels)[(y/d)*VGAScreenSeg->pitch+x/d]);
   }
  }
+ if(hud_output_generation)memcpy(hud_output_palette,rgb_palette,sizeof(hud_output_palette));
  ready=true;game_probe_fade_sample(output,steps,hd_pixels,fade_mode);
  if(steps==1)fade_mode=0;
 }
 
 bool render_mirror_present(SDL_Renderer *renderer,SDL_Surface *src,const SDL_Rect *dst)
 {
+ hud_check_mode();
+ if(hud_output_generation&&(!hud_cached_indices_match()||memcmp(hud_output_palette,rgb_palette,sizeof(hud_output_palette))!=0))hud_clear_cached();
  if(!ready||src!=VGAScreenSeg)return false;ready=false;
  if(game_probe_skip) { uint64_t rng=mt_state_fingerprint();game_probe_present(0,rng,rng);return true; }
  if(!texture) texture=SDL_CreateTexture(renderer,SDL_PIXELFORMAT_ARGB8888,SDL_TEXTUREACCESS_STREAMING,output->w,output->h);
@@ -1164,6 +1407,9 @@ bool render_mirror_present(SDL_Renderer *renderer,SDL_Surface *src,const SDL_Rec
 
 void render_mirror_release_texture(void)
 {
+ /* Renderer recreation keeps the gameplay lease, but discards pending HUD.
+  * True video teardown separately revokes it before freeing indexed surfaces. */
+ render_mirror_hud_suspend();
  if(texture) {SDL_DestroyTexture(texture);texture=NULL;}
  ready=false;
  render_mirror_reset_banking();

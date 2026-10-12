@@ -1,0 +1,1281 @@
+{
+  "status": "PASS bounded static gameplay HUD V5",
+  "baseline_commit": "3e962ccc30dd839b160e738b1df95be1ce922182",
+  "reviewed_HUD_source_commit": "57b03afcc70a894b32cd5b28d14fca18a5550691",
+  "selected_resource_sha256": "4ff6cd95d4c3ec5b7e4825e38a5242fc96c1cd305987a873bea4a55fa5a04482",
+  "owned_logical_pixels": 6667,
+  "incremental_mask_sha256": "903328448558ea0a8b7ea1e895339602736664bad73b0828b8ace4b3732263d2",
+  "evidence": {
+    "hud-v5-runtime-review/engineering-receipt.json": {
+      "sha256": "1584d8d801f10d8b3698ddcedccefe3087e33e1c33b5fd43aa308c1e83cc25e0",
+      "report": {
+        "status": "all authorized bounded runtime gates passed",
+        "baseline_commit": "3e962ccc30dd839b160e738b1df95be1ce922182",
+        "HUD_delta_frozen_commit": "57b03afcc70a894b32cd5b28d14fca18a5550691",
+        "HUD_resource_sha256": "4ff6cd95d4c3ec5b7e4825e38a5242fc96c1cd305987a873bea4a55fa5a04482",
+        "logical_mask_cells": 6667,
+        "ordinary": {
+          "ticks_per_side": 120,
+          "native2x_tick": 100,
+          "changed_native_pixels": 26668,
+          "changed_outside_mask": 0,
+          "candidate2x": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/candidate-ordinary-2x/actual-100-native2x.png",
+          "candidate4x": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/candidate-ordinary-4x/actual-100-native4x.png",
+          "native4x_same_original_state_and_internal8x_rgb": true
+        },
+        "modals": {
+          "ticks_per_side": 120,
+          "entry_ticks": [
+            60,
+            80,
+            100
+          ],
+          "actual_handlers": [
+            "JE_pauseGame",
+            "JE_inGameHelp",
+            "JE_doInGameSetup"
+          ],
+          "frames_per_side": 9,
+          "all_three_modal_outputs_baseline_exact": true,
+          "return_frames_HUD_only": true,
+          "input_and_rng_neutral_on_return": true,
+          "actual_cleanup_polls_per_modal": 2,
+          "label": "Private scripted entry into unchanged actual handlers; normal handler loops retained; play_demo unchanged"
+        },
+        "fades": {
+          "ticks_per_side": 122,
+          "presentations_per_side": 32,
+          "captured_frames_per_side": 6,
+          "every_native_RGBA_FNV64_matches_original_integer_fade_schedule": true,
+          "black_white_endpoints_baseline_exact": true,
+          "palette_restore_exact_pre_fade_RGBA": true,
+          "label": "Existing explicit fade-cycle; not natural death/level transition"
+        },
+        "proof_receipts": {
+          "pair-ordinary.json": {
+            "path": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/pair-ordinary.json",
+            "sha256": "b246722dc8940ba90871789f985f981938e5904e46368827b905fa8360f4c93d"
+          },
+          "verify-native4x.json": {
+            "path": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/verify-native4x.json",
+            "sha256": "2cd8fd7a4c3924b497dfb9a4a0d64e2bd83b2e093ef7f3f03b84599737ee395d"
+          },
+          "pair-modals-r2.json": {
+            "path": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/pair-modals-r2.json",
+            "sha256": "180ad8895ad027cc431dca5ae601c4916e38bb956f325ba85e013ee1908a4bad"
+          },
+          "pair-fade.json": {
+            "path": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/pair-fade.json",
+            "sha256": "c4f23bcef812c04499f523277359b19be2c05a5f83534d331f679a20c24c5855"
+          },
+          "production-and-private-separation.json": {
+            "path": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/production-and-private-separation.json",
+            "sha256": "80aa811d96759bb3a4e169a77f91bd533e85fc4c6b62512f183b2d03893e1eda"
+          }
+        },
+        "cases": [
+          {
+            "case": "baseline-ordinary-2x",
+            "status": "passed",
+            "opened_streams": 31,
+            "PNG_frames": 1,
+            "receipt": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/baseline-ordinary-2x/stream-receipts.json",
+            "receipt_sha256": "64b21bfdff0e944c3b66b8c92d53e122cced87e432bd045e0c077a66d0912df2",
+            "frame_receipt_sha256": "c3c1fe96757fa82ab8e1e92703f0cd956d446baaf1eaeebfe1641c142693d960",
+            "collisions_lines_including_header": 1
+          },
+          {
+            "case": "candidate-ordinary-2x",
+            "status": "passed",
+            "opened_streams": 31,
+            "PNG_frames": 1,
+            "receipt": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/candidate-ordinary-2x/stream-receipts.json",
+            "receipt_sha256": "d7b8292be88b817f46e78bf3884be68f8d14e5f1578344e5c7d76166616b99b2",
+            "frame_receipt_sha256": "e7e53530977e8357c4cbe3a57580df15e57d1b6b43eeef643038c67f3edec9a2",
+            "collisions_lines_including_header": 1
+          },
+          {
+            "case": "candidate-ordinary-4x",
+            "status": "passed",
+            "opened_streams": 31,
+            "PNG_frames": 1,
+            "receipt": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/candidate-ordinary-4x/stream-receipts.json",
+            "receipt_sha256": "d31b88e02a75276fb4282fab25c9e737a46e35a050eda81d6420174ada4f351f",
+            "frame_receipt_sha256": "edcce37407d54f5e3aaa6efedadc106d77c22891d387c5e220d9480fe194ff08",
+            "collisions_lines_including_header": 1
+          },
+          {
+            "case": "baseline-modals-2x-r2",
+            "status": "passed",
+            "opened_streams": 31,
+            "PNG_frames": 9,
+            "receipt": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/baseline-modals-2x-r2/stream-receipts.json",
+            "receipt_sha256": "bab63f58d85236c87d1494b5b26d8c3a303d564eeb77461c35f1f846aa86dd6a",
+            "frame_receipt_sha256": "96fcc74d74a7e5ecf3cee3fff32ade1c4d9dd064d788efbc992c0f10c8a46c92",
+            "collisions_lines_including_header": 1
+          },
+          {
+            "case": "candidate-modals-2x-r2",
+            "status": "passed",
+            "opened_streams": 31,
+            "PNG_frames": 9,
+            "receipt": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/candidate-modals-2x-r2/stream-receipts.json",
+            "receipt_sha256": "d985f67f85f0bd09ec174d46ce72f192782645f763a7f5fe5e1d216a34ee2117",
+            "frame_receipt_sha256": "45df888399712ad8c95130134cea52fc0359ac6b0986e6aae0a44dd2eef431f0",
+            "collisions_lines_including_header": 1
+          },
+          {
+            "case": "baseline-fade-2x",
+            "status": "passed",
+            "opened_streams": 31,
+            "PNG_frames": 6,
+            "receipt": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/baseline-fade-2x/stream-receipts.json",
+            "receipt_sha256": "fae8d74c3c77b6c9dd7cfac4b58565fc92c017231dbaec1a72a9eae351494145",
+            "frame_receipt_sha256": "f5682a0bfbf2640dde9917b51ea923d826e75c059400e581ebc322b67b9b4492",
+            "collisions_lines_including_header": 1
+          },
+          {
+            "case": "candidate-fade-2x",
+            "status": "passed",
+            "opened_streams": 31,
+            "PNG_frames": 6,
+            "receipt": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/candidate-fade-2x/stream-receipts.json",
+            "receipt_sha256": "a1ded532e673a73458ca85775c31a5e5263e53dfa66ac0dba95cb4c4697e7ccc",
+            "frame_receipt_sha256": "bef9bc5a028db0d3247f7f816b5f9277017a5dba55898a0c107e4d7a06ddf047",
+            "collisions_lines_including_header": 1
+          },
+          {
+            "case": "baseline-modals-2x",
+            "status": "preserved private adapter failure",
+            "opened_streams": 31,
+            "PNG_frames": 2,
+            "receipt": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/baseline-modals-2x/stream-receipts.json",
+            "receipt_sha256": "a2c90c62a9b55f351f64b2f8fe5ef7e283fdc06a28ea39171427afc5cbdc2f27",
+            "frame_receipt_sha256": "a00b32af1416cfb0b645b888a0685c3c5366d035fc6b8ed2b3b9f3edf616b879",
+            "collisions_lines_including_header": 1
+          },
+          {
+            "case": "candidate-modals-2x",
+            "status": "preserved private adapter failure",
+            "opened_streams": 31,
+            "PNG_frames": 2,
+            "receipt": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/candidate-modals-2x/stream-receipts.json",
+            "receipt_sha256": "f5e004891de6fff16a649de836f59ddcc3260fb0a21c8f0b0789f431c74544eb",
+            "frame_receipt_sha256": "c25c279fecf6bc037f44026b8266b431deb7ac28ba3dbfa049065220d24a3dae",
+            "collisions_lines_including_header": 1
+          }
+        ],
+        "retained_successful_PNG_frames": 33,
+        "retained_failed_adapter_PNG_frames": 4,
+        "all_FIFO_gzip_raw_hash_bytes_counts_reverified": true,
+        "nonempty_stream_receipts_verified": 279,
+        "raw_stream_bytes_verified": 18207418,
+        "media_bytes": 9723168,
+        "retained_total_bytes": 59639107,
+        "hard_cap_bytes": 104857600,
+        "private_source_binary_pack_fingerprints_reverified": true,
+        "production_contains_no_private_fixture_hooks": true,
+        "main_observed_head": "3e962ccc30dd839b160e738b1df95be1ce922182",
+        "main_qualification": "Parent-authorized parallel final integration; this worker did not edit main.",
+        "unproven_actual_gameplay": [
+          "natural death",
+          "restart",
+          "next-level",
+          "two-player/Galaga transitions"
+        ],
+        "no_more_runs_needed": true
+      }
+    },
+    "hud-v5-runtime-review/pair-ordinary.json": {
+      "sha256": "b246722dc8940ba90871789f985f981938e5904e46368827b905fa8360f4c93d",
+      "report": {
+        "status": "passed",
+        "case": "ordinary",
+        "frames_per_side": 1,
+        "full_original_state_RNG_indexed_material_clock_collision_effect_ledgers_exact": true,
+        "exact_raw_ledger_names": [
+          "asset-debug-clock.tsv",
+          "asset-debug-explosion-pools.tsv",
+          "asset-debug-materials.tsv",
+          "blend-palette.tsv",
+          "blend-writes.tsv",
+          "collisions.tsv",
+          "draw-commands.tsv",
+          "effects.tsv",
+          "enemy-projectiles.tsv",
+          "fade-steps.tsv",
+          "fire-events.tsv",
+          "frames.tsv",
+          "ground101-actors.tsv",
+          "ground101-material.tsv",
+          "player-projectiles.tsv",
+          "player-shot-draws.tsv",
+          "player-shot-emissions.tsv",
+          "player-shot-requests.tsv",
+          "player-shot-results.tsv",
+          "poses.tsv",
+          "presentation.tsv",
+          "private-hud-events.tsv",
+          "restore-regions.tsv",
+          "scene-draw-commands.tsv",
+          "scene-enemies.tsv",
+          "scene-hits.tsv",
+          "sdl-runtime.tsv",
+          "sidekick-loadout.tsv",
+          "sidekick-states.tsv",
+          "state.tsv",
+          "talon-bank-visual.tsv",
+          "weapon-loadout.tsv"
+        ],
+        "expected_changed_ledger_names": [
+          "asset-debug-control.tsv",
+          "private-hud-presentations.tsv",
+          "rgb-audit.tsv"
+        ],
+        "every_observed_original_surface_RNG_and_presentation_ordinal_exact": true,
+        "suspended_presentations_native_FNV_exact": 0,
+        "HUD_mask_cells": 6667,
+        "selected_frames": [
+          {
+            "tick": 100,
+            "ordinal": 101,
+            "phase": 10,
+            "changed_inside": 26668,
+            "changed_outside": 0,
+            "HUD_suspended": false,
+            "baseline_png": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/baseline-ordinary-2x/actual-100-native2x.png",
+            "candidate_png": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/candidate-ordinary-2x/actual-100-native2x.png"
+          }
+        ],
+        "claims": "Actual modal handlers / explicit real-engine fade fixture only; no natural death, restart or next-level evidence."
+      }
+    },
+    "hud-v5-runtime-review/verify-native4x.json": {
+      "sha256": "2cd8fd7a4c3924b497dfb9a4a0d64e2bd83b2e093ef7f3f03b84599737ee395d",
+      "report": {
+        "status": "passed",
+        "native_output": [
+          1280,
+          800
+        ],
+        "all120_original_state_and_internal_density8_rgb_exact_to_native2x": true,
+        "differing_ledgers": [
+          "asset-debug-control.tsv",
+          "private-hud-presentations.tsv",
+          "sdl-runtime.tsv"
+        ],
+        "native_readback_PNG_roundtrip_exact": true,
+        "native_cross_scale_hash_equality_not_claimed": true,
+        "frame": {
+          "capture_index": 1,
+          "tick": 100,
+          "width": 1280,
+          "height": 800,
+          "BGRA_SHA256": "df9e11a076c3c3f6767045c1ada78322e5bb0753d893f7952af9dabbc6b7ac37",
+          "RGBA_SHA256": "9e4deb3413c7e803c614bf5ba0ddf67b944723ba736769a7024c1be942e71bcd",
+          "RGBA_FNV64": "231053467322f8da",
+          "PNG_SHA256": "209422ff2a913e0e37181a1e25797e95de07cdac06c20c4adf21c4d7384b6f4b",
+          "path": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/candidate-ordinary-4x/actual-100-native4x.png",
+          "PNG_roundtrip_exact": true,
+          "ordinal": 101,
+          "phase": 10,
+          "observer_FNV64_exact": true
+        }
+      }
+    },
+    "hud-v5-runtime-review/pair-modals-r2.json": {
+      "sha256": "180ad8895ad027cc431dca5ae601c4916e38bb956f325ba85e013ee1908a4bad",
+      "report": {
+        "status": "passed",
+        "case": "modals",
+        "frames_per_side": 9,
+        "full_original_state_RNG_indexed_material_clock_collision_effect_ledgers_exact": true,
+        "exact_raw_ledger_names": [
+          "asset-debug-clock.tsv",
+          "asset-debug-explosion-pools.tsv",
+          "asset-debug-materials.tsv",
+          "blend-palette.tsv",
+          "blend-writes.tsv",
+          "collisions.tsv",
+          "draw-commands.tsv",
+          "effects.tsv",
+          "enemy-projectiles.tsv",
+          "fade-steps.tsv",
+          "fire-events.tsv",
+          "frames.tsv",
+          "ground101-actors.tsv",
+          "ground101-material.tsv",
+          "player-projectiles.tsv",
+          "player-shot-draws.tsv",
+          "player-shot-emissions.tsv",
+          "player-shot-requests.tsv",
+          "player-shot-results.tsv",
+          "poses.tsv",
+          "presentation.tsv",
+          "private-hud-events.tsv",
+          "restore-regions.tsv",
+          "scene-draw-commands.tsv",
+          "scene-enemies.tsv",
+          "scene-hits.tsv",
+          "sdl-runtime.tsv",
+          "sidekick-loadout.tsv",
+          "sidekick-states.tsv",
+          "state.tsv",
+          "talon-bank-visual.tsv",
+          "weapon-loadout.tsv"
+        ],
+        "expected_changed_ledger_names": [
+          "asset-debug-control.tsv",
+          "private-hud-presentations.tsv",
+          "rgb-audit.tsv"
+        ],
+        "every_observed_original_surface_RNG_and_presentation_ordinal_exact": true,
+        "suspended_presentations_native_FNV_exact": 3,
+        "HUD_mask_cells": 6667,
+        "selected_frames": [
+          {
+            "tick": 60,
+            "ordinal": 61,
+            "phase": 1,
+            "changed_inside": 26668,
+            "changed_outside": 0,
+            "HUD_suspended": false,
+            "baseline_png": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/baseline-modals-2x-r2/capture-01-tick60-native2x.png",
+            "candidate_png": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/candidate-modals-2x-r2/capture-01-tick60-native2x.png"
+          },
+          {
+            "tick": 60,
+            "ordinal": 62,
+            "phase": 2,
+            "changed_inside": 0,
+            "changed_outside": 0,
+            "HUD_suspended": true,
+            "baseline_png": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/baseline-modals-2x-r2/capture-02-tick60-native2x.png",
+            "candidate_png": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/candidate-modals-2x-r2/capture-02-tick60-native2x.png"
+          },
+          {
+            "tick": 61,
+            "ordinal": 63,
+            "phase": 3,
+            "changed_inside": 26668,
+            "changed_outside": 0,
+            "HUD_suspended": false,
+            "baseline_png": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/baseline-modals-2x-r2/capture-03-tick61-native2x.png",
+            "candidate_png": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/candidate-modals-2x-r2/capture-03-tick61-native2x.png"
+          },
+          {
+            "tick": 80,
+            "ordinal": 82,
+            "phase": 4,
+            "changed_inside": 26668,
+            "changed_outside": 0,
+            "HUD_suspended": false,
+            "baseline_png": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/baseline-modals-2x-r2/capture-04-tick80-native2x.png",
+            "candidate_png": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/candidate-modals-2x-r2/capture-04-tick80-native2x.png"
+          },
+          {
+            "tick": 80,
+            "ordinal": 83,
+            "phase": 5,
+            "changed_inside": 0,
+            "changed_outside": 0,
+            "HUD_suspended": true,
+            "baseline_png": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/baseline-modals-2x-r2/capture-05-tick80-native2x.png",
+            "candidate_png": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/candidate-modals-2x-r2/capture-05-tick80-native2x.png"
+          },
+          {
+            "tick": 81,
+            "ordinal": 84,
+            "phase": 6,
+            "changed_inside": 26668,
+            "changed_outside": 0,
+            "HUD_suspended": false,
+            "baseline_png": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/baseline-modals-2x-r2/capture-06-tick81-native2x.png",
+            "candidate_png": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/candidate-modals-2x-r2/capture-06-tick81-native2x.png"
+          },
+          {
+            "tick": 100,
+            "ordinal": 103,
+            "phase": 7,
+            "changed_inside": 26668,
+            "changed_outside": 0,
+            "HUD_suspended": false,
+            "baseline_png": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/baseline-modals-2x-r2/capture-07-tick100-native2x.png",
+            "candidate_png": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/candidate-modals-2x-r2/capture-07-tick100-native2x.png"
+          },
+          {
+            "tick": 100,
+            "ordinal": 104,
+            "phase": 8,
+            "changed_inside": 0,
+            "changed_outside": 0,
+            "HUD_suspended": true,
+            "baseline_png": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/baseline-modals-2x-r2/capture-08-tick100-native2x.png",
+            "candidate_png": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/candidate-modals-2x-r2/capture-08-tick100-native2x.png"
+          },
+          {
+            "tick": 101,
+            "ordinal": 105,
+            "phase": 9,
+            "changed_inside": 26668,
+            "changed_outside": 0,
+            "HUD_suspended": false,
+            "baseline_png": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/baseline-modals-2x-r2/capture-09-tick101-native2x.png",
+            "candidate_png": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/candidate-modals-2x-r2/capture-09-tick101-native2x.png"
+          }
+        ],
+        "claims": "Actual modal handlers / explicit real-engine fade fixture only; no natural death, restart or next-level evidence."
+      }
+    },
+    "hud-v5-runtime-review/pair-fade.json": {
+      "sha256": "c4f23bcef812c04499f523277359b19be2c05a5f83534d331f679a20c24c5855",
+      "report": {
+        "status": "passed",
+        "original_ticks": 122,
+        "original_state_RNG_indexed_material_clock_collision_effect_ledgers_exact": true,
+        "all32_original_fade_step_fields_exact_except_intentional_HD_ownership": true,
+        "added_HD_subpixels_per_fade_step": 426688,
+        "native_presentations_verified_per_side": 32,
+        "whole_frame_integer_fade_schedule_FNV64_verified": true,
+        "selected_native_frames_per_side": 6,
+        "native_black_white_endpoints_baseline_exact": true,
+        "palette_restore_endpoints_equal_same_side_prefade_RGBA": true,
+        "selected_frames": [
+          {
+            "phase": 20,
+            "tick": 120,
+            "ordinal": 121,
+            "changed_inside": 26668,
+            "changed_outside": 0,
+            "candidate_png": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/candidate-fade-2x/capture-01-tick120-native2x.png",
+            "native_RGBA_SHA256": "d98954a2f1911f66f72dbf8960cae121c5aea1a7b2d1827bfb222667d026bcde"
+          },
+          {
+            "phase": 21,
+            "tick": 120,
+            "ordinal": 129,
+            "changed_inside": 0,
+            "changed_outside": 0,
+            "candidate_png": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/candidate-fade-2x/capture-02-tick120-native2x.png",
+            "native_RGBA_SHA256": "b25808d9d6d6af751a3bd9905a1f79c1136ff048c0d6adf5c1907895e058daa1"
+          },
+          {
+            "phase": 22,
+            "tick": 120,
+            "ordinal": 137,
+            "changed_inside": 26668,
+            "changed_outside": 0,
+            "candidate_png": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/candidate-fade-2x/capture-03-tick120-native2x.png",
+            "native_RGBA_SHA256": "d98954a2f1911f66f72dbf8960cae121c5aea1a7b2d1827bfb222667d026bcde"
+          },
+          {
+            "phase": 23,
+            "tick": 120,
+            "ordinal": 145,
+            "changed_inside": 0,
+            "changed_outside": 0,
+            "candidate_png": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/candidate-fade-2x/capture-04-tick120-native2x.png",
+            "native_RGBA_SHA256": "620cfbd60ff8ce98cd5dfef7ef9df4e4aa9c5141bce65b712d90b08019822bd3"
+          },
+          {
+            "phase": 24,
+            "tick": 120,
+            "ordinal": 153,
+            "changed_inside": 26668,
+            "changed_outside": 0,
+            "candidate_png": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/candidate-fade-2x/capture-05-tick120-native2x.png",
+            "native_RGBA_SHA256": "d98954a2f1911f66f72dbf8960cae121c5aea1a7b2d1827bfb222667d026bcde"
+          },
+          {
+            "phase": 25,
+            "tick": 121,
+            "ordinal": 154,
+            "changed_inside": 26668,
+            "changed_outside": 0,
+            "candidate_png": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/candidate-fade-2x/capture-06-tick121-native2x.png",
+            "native_RGBA_SHA256": "71836eb3b545047f7cddabbb8ecb8fc48d18a3019f3465aa5921a859d82a0ebb"
+          }
+        ],
+        "every_frame_proof": {
+          "baseline": [
+            {
+              "ordinal": 122,
+              "phase": 21,
+              "remaining_steps": 8,
+              "observed_RGBA_FNV64": "6374bf643b5f71d7",
+              "derived_expected_RGBA_SHA256": "5fe028b0f2b2363d8612d2fc6cc963a7a8d45ad12fde834f65893a78fc1f7032",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 123,
+              "phase": 21,
+              "remaining_steps": 7,
+              "observed_RGBA_FNV64": "c6ef95c5ca5cbc9b",
+              "derived_expected_RGBA_SHA256": "07036b2b60c123d197d089565f0a969ac93964ec984cc719a4a9feb97761bb49",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 124,
+              "phase": 21,
+              "remaining_steps": 6,
+              "observed_RGBA_FNV64": "567ff2aae35cbc82",
+              "derived_expected_RGBA_SHA256": "432bd0fb20703f3ab689e85784bce0c99fc959429c4d73625d09a46816b8f3f9",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 125,
+              "phase": 21,
+              "remaining_steps": 5,
+              "observed_RGBA_FNV64": "68e9fabde672722f",
+              "derived_expected_RGBA_SHA256": "1d774cc0fe8f0b4330e486f7cd7334f2730c57a79688b7a6562b12d7e2f59696",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 126,
+              "phase": 21,
+              "remaining_steps": 4,
+              "observed_RGBA_FNV64": "25dbe409e194bf56",
+              "derived_expected_RGBA_SHA256": "b21c0cbc92f37b1a4775f0ae7853615ba40d698c2847178d7cdcaf5051f1194d",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 127,
+              "phase": 21,
+              "remaining_steps": 3,
+              "observed_RGBA_FNV64": "0c5eb76ff93e44d4",
+              "derived_expected_RGBA_SHA256": "2618962bb550f0cae78935c9a7cf54af44bb92387c22b2c2faf2d663ee665683",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 128,
+              "phase": 21,
+              "remaining_steps": 2,
+              "observed_RGBA_FNV64": "6b50b9eb98b7b2e3",
+              "derived_expected_RGBA_SHA256": "e8ccc40029daa6959b1c6f37aa5aa853762c174f1a55889cc3d770975fbf5457",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 129,
+              "phase": 21,
+              "remaining_steps": 1,
+              "observed_RGBA_FNV64": "f02755cd81466325",
+              "derived_expected_RGBA_SHA256": "b25808d9d6d6af751a3bd9905a1f79c1136ff048c0d6adf5c1907895e058daa1",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 130,
+              "phase": 22,
+              "remaining_steps": 8,
+              "observed_RGBA_FNV64": "ad200d2c09ac1f2a",
+              "derived_expected_RGBA_SHA256": "2fd2811e1713d45075c94257fe85129d174d47f2c9a6fd068347f07f56b104a3",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 131,
+              "phase": 22,
+              "remaining_steps": 7,
+              "observed_RGBA_FNV64": "096194c08f107f96",
+              "derived_expected_RGBA_SHA256": "3840e26d9e10f8d2cf83f87d456b79ab999221bd5ea32b62a9775dc5435c5ffe",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 132,
+              "phase": 22,
+              "remaining_steps": 6,
+              "observed_RGBA_FNV64": "6b2261854bf85169",
+              "derived_expected_RGBA_SHA256": "67a89291a69d22918e4e30e345191ef02e70070366c42c6299bb360290f92e49",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 133,
+              "phase": 22,
+              "remaining_steps": 5,
+              "observed_RGBA_FNV64": "2ec64085ea9e39a2",
+              "derived_expected_RGBA_SHA256": "9a4e3c34147697570fa9b64d71d5f8cc9350113685a545d169c7ae2bc5fcbae0",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 134,
+              "phase": 22,
+              "remaining_steps": 4,
+              "observed_RGBA_FNV64": "3826ec805359041d",
+              "derived_expected_RGBA_SHA256": "743b5bae953548170c628d8ec0b811789948a5b053add60372c44ba528b456bb",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 135,
+              "phase": 22,
+              "remaining_steps": 3,
+              "observed_RGBA_FNV64": "639ca760a3a34485",
+              "derived_expected_RGBA_SHA256": "a318f7712a567d4722b01b7146559285531e4031c56ffc1000aad124906e6b8e",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 136,
+              "phase": 22,
+              "remaining_steps": 2,
+              "observed_RGBA_FNV64": "da9c2ae9d52868f2",
+              "derived_expected_RGBA_SHA256": "95704cf7b142535903ba6b3535e3e5ae97b976b9d966137c556cec9c9caae450",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 137,
+              "phase": 22,
+              "remaining_steps": 1,
+              "observed_RGBA_FNV64": "09ebf2f52579fc0c",
+              "derived_expected_RGBA_SHA256": "b8e40cf500665e454876bc724b2983fafaad50f169a0d50bbd9e36f5639f6ef0",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 138,
+              "phase": 23,
+              "remaining_steps": 8,
+              "observed_RGBA_FNV64": "cc3b0ff23e20c80f",
+              "derived_expected_RGBA_SHA256": "67e4a1b892ecb964d3d51fc208a8ddc0777a56b9aac93a32e3eb9a1c81d1a1d2",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 139,
+              "phase": 23,
+              "remaining_steps": 7,
+              "observed_RGBA_FNV64": "7f25b58581d4c469",
+              "derived_expected_RGBA_SHA256": "45b34aef8b1768b7d1a53d8c93f286f55e9dc5527c5d59f0cf67a369d9fcf6b4",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 140,
+              "phase": 23,
+              "remaining_steps": 6,
+              "observed_RGBA_FNV64": "f1f3e07ed3c77a4c",
+              "derived_expected_RGBA_SHA256": "16b3c7a6c2391cdc683af9d3bfc41161ebb58e59419810f0c3fa266f61f99af1",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 141,
+              "phase": 23,
+              "remaining_steps": 5,
+              "observed_RGBA_FNV64": "09a73e4fb9b89b76",
+              "derived_expected_RGBA_SHA256": "ced26e0f2c756dc54fcc70819edde185e4e7b5f988df67245e355ba1b6ad671a",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 142,
+              "phase": 23,
+              "remaining_steps": 4,
+              "observed_RGBA_FNV64": "8a0fa843e189d0b1",
+              "derived_expected_RGBA_SHA256": "c561c7964f0e1615fd4d34c65be48d616de215ae75bd83968116a225d1ea0715",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 143,
+              "phase": 23,
+              "remaining_steps": 3,
+              "observed_RGBA_FNV64": "8613f8f007466a26",
+              "derived_expected_RGBA_SHA256": "b99f35d65a743f8d1adcb385a111b6c015aabe56018d4556b531dfb84f000049",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 144,
+              "phase": 23,
+              "remaining_steps": 2,
+              "observed_RGBA_FNV64": "f5d163f00f681ac3",
+              "derived_expected_RGBA_SHA256": "017d6260a7b6910ed6c6359b62bd70c455c6f86133e68cdbbee069518c721773",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 145,
+              "phase": 23,
+              "remaining_steps": 1,
+              "observed_RGBA_FNV64": "87389b5a644f4325",
+              "derived_expected_RGBA_SHA256": "620cfbd60ff8ce98cd5dfef7ef9df4e4aa9c5141bce65b712d90b08019822bd3",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 146,
+              "phase": 24,
+              "remaining_steps": 8,
+              "observed_RGBA_FNV64": "232a601519ac38aa",
+              "derived_expected_RGBA_SHA256": "4a517e4914ef55de47f5a5e997eb62f126884f58ab4a08ccf1d15ed8e26ad265",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 147,
+              "phase": 24,
+              "remaining_steps": 7,
+              "observed_RGBA_FNV64": "cbac2cd28f80b4f8",
+              "derived_expected_RGBA_SHA256": "859d03dced7a5afbfaeabfef60a6258cb136f99f443844ad16788fa2801ef632",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 148,
+              "phase": 24,
+              "remaining_steps": 6,
+              "observed_RGBA_FNV64": "dd4c16de5f92a1ab",
+              "derived_expected_RGBA_SHA256": "33790a3651cbcaafcbcd7444f1dd3b0d8df6dd115f0b6f62ff53c786e2f0b8ec",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 149,
+              "phase": 24,
+              "remaining_steps": 5,
+              "observed_RGBA_FNV64": "ae9ed967982abc03",
+              "derived_expected_RGBA_SHA256": "c24805b807e6c6231d4d47040cf38ceaa05d9ec8af9c095d75c6ade43b1db9ab",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 150,
+              "phase": 24,
+              "remaining_steps": 4,
+              "observed_RGBA_FNV64": "3e2b8761eb7ef9e4",
+              "derived_expected_RGBA_SHA256": "cef088353abb61d74325c0e0d8298d2b24d80b4cb3bf9de39373a45ef03252e6",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 151,
+              "phase": 24,
+              "remaining_steps": 3,
+              "observed_RGBA_FNV64": "181a5705a7b116f3",
+              "derived_expected_RGBA_SHA256": "c078f2bc359fe579b1309013e9fa981df301c50e4dc4b6d1f8a1bb52f1a830cb",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 152,
+              "phase": 24,
+              "remaining_steps": 2,
+              "observed_RGBA_FNV64": "18ecb5571c8f6bda",
+              "derived_expected_RGBA_SHA256": "b9e50788afbfa67a15e978dea75966c5f697c5b34f5541bba333a05abcd91956",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 153,
+              "phase": 24,
+              "remaining_steps": 1,
+              "observed_RGBA_FNV64": "09ebf2f52579fc0c",
+              "derived_expected_RGBA_SHA256": "b8e40cf500665e454876bc724b2983fafaad50f169a0d50bbd9e36f5639f6ef0",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            }
+          ],
+          "candidate": [
+            {
+              "ordinal": 122,
+              "phase": 21,
+              "remaining_steps": 8,
+              "observed_RGBA_FNV64": "c22a6b218970fbdb",
+              "derived_expected_RGBA_SHA256": "974b4240d52d5ace572289b4bde8a704095db4a807837978e09bd652b6f793ec",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 123,
+              "phase": 21,
+              "remaining_steps": 7,
+              "observed_RGBA_FNV64": "556a8e2dd6ddd6f0",
+              "derived_expected_RGBA_SHA256": "f27cb56c36ac200b5e558751196481944e5ee68047a7bdd94fd71dcce34444ef",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 124,
+              "phase": 21,
+              "remaining_steps": 6,
+              "observed_RGBA_FNV64": "b2724523bb31ac76",
+              "derived_expected_RGBA_SHA256": "3a34a55197af65ff591e5216c341bea8262d640df8696b5efae137b6549058df",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 125,
+              "phase": 21,
+              "remaining_steps": 5,
+              "observed_RGBA_FNV64": "db919a6192afded8",
+              "derived_expected_RGBA_SHA256": "4228a78767dedb58fa4a5beb0fe9fcf82a70f7d43aa7992f7705c7d0950475c3",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 126,
+              "phase": 21,
+              "remaining_steps": 4,
+              "observed_RGBA_FNV64": "9d783d13c4dc1057",
+              "derived_expected_RGBA_SHA256": "d0a75e76177e170d00117ad04afd4c542e7125001c9651dd71b86b4d2bee0c96",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 127,
+              "phase": 21,
+              "remaining_steps": 3,
+              "observed_RGBA_FNV64": "b4e849de7a43e83f",
+              "derived_expected_RGBA_SHA256": "e0a28dd9e03782b843c59b9eb65769a4e68ef37d2ea22d34498636d976618c6f",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 128,
+              "phase": 21,
+              "remaining_steps": 2,
+              "observed_RGBA_FNV64": "1a65bbb0922d515c",
+              "derived_expected_RGBA_SHA256": "9d20bf84cd08cfa53844ae20bcc0ba007c30127f4c820ab0ac9ee495a4b23c27",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 129,
+              "phase": 21,
+              "remaining_steps": 1,
+              "observed_RGBA_FNV64": "f02755cd81466325",
+              "derived_expected_RGBA_SHA256": "b25808d9d6d6af751a3bd9905a1f79c1136ff048c0d6adf5c1907895e058daa1",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 130,
+              "phase": 22,
+              "remaining_steps": 8,
+              "observed_RGBA_FNV64": "a6381256435ce8dc",
+              "derived_expected_RGBA_SHA256": "d5904940228492c5866e5ccc9d74539feb29886510593308f517c317cf75b23c",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 131,
+              "phase": 22,
+              "remaining_steps": 7,
+              "observed_RGBA_FNV64": "77835f360c300e35",
+              "derived_expected_RGBA_SHA256": "1c284b5e733aee1d69c821bc7a407417c14bf2653fdaafada69a4a7ed4d49231",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 132,
+              "phase": 22,
+              "remaining_steps": 6,
+              "observed_RGBA_FNV64": "6e943d9898b0e40b",
+              "derived_expected_RGBA_SHA256": "035e7693baa63a2f45522d0c4b50cc841674a7fd66f02d2204da6332ff4341f6",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 133,
+              "phase": 22,
+              "remaining_steps": 5,
+              "observed_RGBA_FNV64": "083d87b01b8d80a9",
+              "derived_expected_RGBA_SHA256": "f8d6dddf2bf752a1e3c138ab4bc4af5eca35fcb8563de444e7c1056fe5cf5dea",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 134,
+              "phase": 22,
+              "remaining_steps": 4,
+              "observed_RGBA_FNV64": "d64841d6e56f51a4",
+              "derived_expected_RGBA_SHA256": "1413240161c0de8a1bfe31d7fd3601888f0c6a7770b95799652edc18ec3fa185",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 135,
+              "phase": 22,
+              "remaining_steps": 3,
+              "observed_RGBA_FNV64": "3f5d547c7318b3c2",
+              "derived_expected_RGBA_SHA256": "30eb4c12e6f48bac68ef5ffd16af630c6a3b5b3dbaa6feb6cf8d7ee0cd42f83a",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 136,
+              "phase": 22,
+              "remaining_steps": 2,
+              "observed_RGBA_FNV64": "5d9c6424f067df49",
+              "derived_expected_RGBA_SHA256": "38f82cc31ef6dfb195fa11014b7ded1789c90dc2328edceed41918a4b206d333",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 137,
+              "phase": 22,
+              "remaining_steps": 1,
+              "observed_RGBA_FNV64": "424c841b94e50c94",
+              "derived_expected_RGBA_SHA256": "d98954a2f1911f66f72dbf8960cae121c5aea1a7b2d1827bfb222667d026bcde",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 138,
+              "phase": 23,
+              "remaining_steps": 8,
+              "observed_RGBA_FNV64": "0e48240250835f9f",
+              "derived_expected_RGBA_SHA256": "49a910d558895c2ff53bdaa4f3d19d97c03d1f8db08347c3fe2489cffe22dfac",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 139,
+              "phase": 23,
+              "remaining_steps": 7,
+              "observed_RGBA_FNV64": "b8106ceef6d98de8",
+              "derived_expected_RGBA_SHA256": "71be6713b221924ae7f4e33fcaa50322ad72fe36e264442a36985121c84994b7",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 140,
+              "phase": 23,
+              "remaining_steps": 6,
+              "observed_RGBA_FNV64": "18108fdd2668a4f9",
+              "derived_expected_RGBA_SHA256": "e99100ae1dfcb145202bf9e9e763a9023c47c62c40f20feda8096bd9f3df2697",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 141,
+              "phase": 23,
+              "remaining_steps": 5,
+              "observed_RGBA_FNV64": "00b22d524a44b191",
+              "derived_expected_RGBA_SHA256": "51ded2eee6d5a0c0c1c9024a0cad1c212b2054165800f981156773d37e923c47",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 142,
+              "phase": 23,
+              "remaining_steps": 4,
+              "observed_RGBA_FNV64": "d41b6e3dfa0f279e",
+              "derived_expected_RGBA_SHA256": "eb8e391dbc53ae6f335d9384154a01376fd263f5595c7000d5b2d3eebe21eb9d",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 143,
+              "phase": 23,
+              "remaining_steps": 3,
+              "observed_RGBA_FNV64": "e6f830512bba99ce",
+              "derived_expected_RGBA_SHA256": "60e30f915ca9ad0ad1be112bbf6e707f4fad7ec12b91e3d80da6a9740952c725",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 144,
+              "phase": 23,
+              "remaining_steps": 2,
+              "observed_RGBA_FNV64": "8f13ccfe3551953a",
+              "derived_expected_RGBA_SHA256": "82baf0c5a0f248670bf19f8cdfae2011af707a4a40d179d860e7459e2252c634",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 145,
+              "phase": 23,
+              "remaining_steps": 1,
+              "observed_RGBA_FNV64": "87389b5a644f4325",
+              "derived_expected_RGBA_SHA256": "620cfbd60ff8ce98cd5dfef7ef9df4e4aa9c5141bce65b712d90b08019822bd3",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 146,
+              "phase": 24,
+              "remaining_steps": 8,
+              "observed_RGBA_FNV64": "56d915ce6bb6475c",
+              "derived_expected_RGBA_SHA256": "e64ac77288a72443ef05e5cd025f538702da4d8a5aa96224681f8b9b83f21416",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 147,
+              "phase": 24,
+              "remaining_steps": 7,
+              "observed_RGBA_FNV64": "432e627694903f81",
+              "derived_expected_RGBA_SHA256": "6d447da9ec944650a9393150b08ed001b7e19e7207a0338e732b944d4dd45709",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 148,
+              "phase": 24,
+              "remaining_steps": 6,
+              "observed_RGBA_FNV64": "5b534f67089d8e72",
+              "derived_expected_RGBA_SHA256": "d9572ddec4d17bc46cbea7139ce1d596119d6a01166af954a689946550cfbe54",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 149,
+              "phase": 24,
+              "remaining_steps": 5,
+              "observed_RGBA_FNV64": "db1c8eb567ee63c8",
+              "derived_expected_RGBA_SHA256": "995eb6af23586bb930eed23e7d9ad1225df3536231302d3634ec59676941605a",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 150,
+              "phase": 24,
+              "remaining_steps": 4,
+              "observed_RGBA_FNV64": "d74dd25ade1c5093",
+              "derived_expected_RGBA_SHA256": "2c463ffbdd2d7517db24b1f774a5d275e6c67fa79b464c01060d750337ba5530",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 151,
+              "phase": 24,
+              "remaining_steps": 3,
+              "observed_RGBA_FNV64": "67aa139df34935b7",
+              "derived_expected_RGBA_SHA256": "8d6b2f292df443dd11309a4d6578a67b624ac4604958083cda773a5b49f51546",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 152,
+              "phase": 24,
+              "remaining_steps": 2,
+              "observed_RGBA_FNV64": "9c61c70e352de6bf",
+              "derived_expected_RGBA_SHA256": "4fef9b8b6dce17b5173cbdc12aec4ee0b335f96d831291a5e2d9b415ff8de53f",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            },
+            {
+              "ordinal": 153,
+              "phase": 24,
+              "remaining_steps": 1,
+              "observed_RGBA_FNV64": "424c841b94e50c94",
+              "derived_expected_RGBA_SHA256": "d98954a2f1911f66f72dbf8960cae121c5aea1a7b2d1827bfb222667d026bcde",
+              "whole_native_frame_matches_original_integer_fade_schedule": true
+            }
+          ]
+        },
+        "expected_changed_ledger_names": [
+          "asset-debug-control.tsv",
+          "fade-steps.tsv",
+          "private-hud-presentations.tsv",
+          "rgb-audit.tsv"
+        ],
+        "scope": "Existing explicit fade-cycle, not natural death or level transition. Per-presentation observation is FNV64; retained endpoint PNGs additionally have raw SHA256 and exact readback roundtrip."
+      }
+    },
+    "hud-v5-runtime-review/production-and-private-separation.json": {
+      "sha256": "80aa811d96759bb3a4e169a77f91bd533e85fc4c6b62512f183b2d03893e1eda",
+      "report": {
+        "baseline_production_commit": "3e962ccc30dd839b160e738b1df95be1ce922182",
+        "HUD_delta_base": "a49e46e5f8880b98cfb41028b6389e97d0636433",
+        "HUD_delta_final": "57b03afcc70a894b32cd5b28d14fca18a5550691",
+        "source_only_HUD_patch": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/frozen-production-hud-source.patch",
+        "source_only_HUD_patch_sha256": "0e4db696d0d0a9f288d1a50ed857a14e31a2496b0dc35be40ce37b717efce284",
+        "production_test_docs_not_copied_into_source_only_fixture": true,
+        "private_instrumentation_excluded_from_production": true,
+        "main_qualification": "Parent independently prepared integration after private inputs were frozen. This worker never modifies main.",
+        "v1_private_patch_sha256": "9ab692c8c588fb0d80794675626160cb4f5fcf5be3df573399eff8b82379ebb7",
+        "r2_private_patch_sha256": "1db21e01b9c54a178b4ae540595a835b624c3991eb1de332a45ca33d294eeecc"
+      }
+    },
+    "hud-packaging-review-3e962ccc/receipt.json": {
+      "sha256": "780e5b65fbd72b589444486d64ebdc4fb685912070e4765fd240028f995b9235",
+      "report": {
+        "status": "PASS independent packaging/code-combination review; actual modal/display gates separate",
+        "baseline_commit": "3e962ccc30dd839b160e738b1df95be1ce922182",
+        "reviewed_HUD_source_commit": "57b03afcc70a894b32cd5b28d14fca18a5550691",
+        "branch": "integrate-gameplay-hud-v5",
+        "main_renderer_minus_exact_HUD_delta_equals_published_circuit_renderer": true,
+        "other_HUD_production_files_byte_exact_to_reviewed_commit": 8,
+        "prior_HDA_entries_sha256_exact": 2966,
+        "prior_source_inventory_files_sha256_exact": 415,
+        "frozen_source_package_copy_exact_files": 16,
+        "source_package_symlinks": 0,
+        "source_boundary": "Generated raster masters/reference, clean geometry guide, binary ownership masks, coordinate-only TSV and checksum metadata; no original game RGB/index payload or dependency. Image provenance follows frozen author records.",
+        "full_manifest_verifier": {
+          "packs": 18,
+          "HDR1_entries": 2966,
+          "HDR1_source_PNGs": 379,
+          "HUD1_sidecars": 2,
+          "HUD_source_PNGs": 1,
+          "material_sidecars": 4,
+          "cap_sidecars": 2,
+          "forest_sidecars_and_policies": 4
+        },
+        "independent_fresh_rebuild": {
+          "PNG_file_exact": true,
+          "decoded_mask_exact": true,
+          "HUD1_exact": true,
+          "source_package_unchanged": true,
+          "HUD1_sha256": "4ff6cd95d4c3ec5b7e4825e38a5242fc96c1cd305987a873bea4a55fa5a04482"
+        },
+        "wrapper_negative_output_cases": [
+          "existing external directory",
+          "symlink parent with new child",
+          "repository directory",
+          "repository ancestor"
+        ],
+        "negative_cases_exit2_no_mutation": true,
+        "Windows_project_C_sources": 59,
+        "Windows_gameplay_HUD_entry_exactly_once": true,
+        "Windows_compile_runtime": "not performed",
+        "reviewer_game_runs_captures_or_main_writes": false,
+        "file_sha256": {
+          "prototype/gameplay_hud_bundle.py": "7f2b289b4a25b096281462a95b88f5ed4ae957ac64be0159dabb77bd3a27bf7a",
+          "prototype/build-gameplay-hud-art.py": "6889c6667c5bdce9c681029622855450d77cc6b774480d1bce38805add63061c",
+          "prototype/build-hd-assets.py": "c5d6b06b52c23625e095bb6f9da4af1c9751f40af8fb9de6e4d9472898c5287d",
+          "src/render_mirror.c": "090b947987c2f97b00289f1a8dd57a8002c597d073a7161f1dd94df5aaec9132",
+          "src/gameplay_hud.c": "433eda956728f7c2f0071cc0b5419cb8485f3781730fddc5191af80ee1ffe770",
+          "src/gameplay_hud.h": "a151d8def1a76c4855193e80d022a6b2d8e5ebfab91b93e4e1ee74eef0dcaf59",
+          "assets/hd/artwork/gameplay-hud-v5/manifest.json": "8eb59c317f902ad2da899fa03275a0803cd3d3e9aae9636865a733a5cc31bfcc",
+          "assets/hd/source/gameplay-hud-v5-4-4ff6cd95d4c3.png": "36dd302d8bf18db2203820fec8b92fac8faeee7f7afab2d8da1339387b2acc70"
+        },
+        "limits": [
+          "Current integration is uncommitted and main contains coordinator changes; no clean-main claim.",
+          "The central builder retains its existing fresh-directory behavior; stronger external/symlink rejection belongs to the new HUD wrapper.",
+          "Actual native/modal/fade and publication acceptance are separate gates."
+        ]
+      }
+    },
+    "tyrian-hd-art/gameplay-hud-v5-components/AUTHOR_NATIVE_2X_4X_RECEIPT.json": {
+      "sha256": "7fd811e663d21e0a4851537d7467999576901a12cd4d0f6c72fa1596e300a5f5",
+      "report": {
+        "receipt_schema": "gameplay-hud-author-visual-review-v1",
+        "status": "PASS_NATIVE2X_AND_NATIVE4X",
+        "date_utc": "2026-10-12T13:03:48Z",
+        "accepted_art": "v5-components",
+        "frozen_resource_sha256": "4ff6cd95d4c3ec5b7e4825e38a5242fc96c1cd305987a873bea4a55fa5a04482",
+        "owned_logical_pixels": 6667,
+        "captures": {
+          "native2x": {
+            "path": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/candidate-ordinary-2x/actual-100-native2x.png",
+            "size": [
+              640,
+              400
+            ],
+            "sha256": "88189602769cba1036095af0ae681be770c8926b4bd448992a14ea25da47f527"
+          },
+          "native4x": {
+            "path": "/workspace/scratch/f67dd347fa0a/hud-v5-runtime-review/candidate-ordinary-4x/actual-100-native4x.png",
+            "size": [
+              1280,
+              800
+            ],
+            "sha256": "209422ff2a913e0e37181a1e25797e95de07cdac06c20c4adf21c4d7384b6f4b"
+          }
+        },
+        "pixel_proofs": {
+          "native2x_vs_its_baseline_plus_frozen4x_art_nearest_RGBA_differences": 0,
+          "native4x_owned_pixels_vs_frozen4x_RGBA_differences": 0,
+          "native4x_nearest_to_native2x_HUD_owned_RGBA_differences": 0,
+          "whole_frame_cross_scale_hash_equality_claimed": false
+        },
+        "visual_findings": [
+          "Thin nested bezels and recessed rail seams remain crisp at actual640x400",
+          "Actual1280x800 shows continuous fine edges and coherent component assembly",
+          "Original live glyphs, gauges, lamps and message slot remain clear",
+          "No broad white border, edge dropout, broken assembly seam or playfield intrusion observed",
+          "Accepted warm layered cast-metal character preserved at both actual presentation scales"
+        ],
+        "art_or_sampling_changes_requested": false,
+        "limitations": [
+          "Review is of the two actual ordinary tick100 SDL runtime stills; not a motion/flicker proof",
+          "Cross-scale pixel equality is asserted only for ownedHUD, not the independently sampled gameplay viewport",
+          "Modal, fallback, source/data guard and fade lifecycle tests remain integrator-owned and are not claimed by this author receipt",
+          "Receipt does not authorize publication or supersede later user feedback"
+        ]
+      }
+    },
+    "hud-static-rails-handoff.json": {
+      "sha256": "7b9b2086138d1ab11fc5e4921d61ea467bad374611f5414a119cdebd2fb9c486",
+      "report": {
+        "commit": "57b03afcc70a894b32cd5b28d14fca18a5550691",
+        "parent_checkpoint": "06c944165c16f46ea734e419fc7ebf74d31fb3da",
+        "worktree": "/workspace/scratch/f67dd347fa0a/hud-static-hooks",
+        "clean": true,
+        "patch": {
+          "path": "/workspace/scratch/f67dd347fa0a/hud-static-rails.patch",
+          "sha256": "2de59a722e1632fd0415c7ab5aa7967120c82ded69fc8fce42e176757a5fa10b"
+        },
+        "files": {
+          "prototype/tests/gameplay-hud/README.md": "0e8dd07c73cedcbc8317670f2e645fa64fd222967208e41553376b35e4ed4fc0",
+          "prototype/tests/gameplay-hud/approved-rails.spans": "cde1241de08d275891e9450a9e342fbe8a286f5d3226daaf54ea661b26abb7c2",
+          "prototype/tests/gameplay-hud/rejected-candidates.spans": "edc58a3709d6a26220b9c1e07e16752c5a1ec2120d51f3cee43f7258765402f8",
+          "prototype/tests/gameplay-hud/run_tests.py": "e8f9aeabfc65539ee6202339e407b5e9e377f15bd26e12d42f80306d59d09b8e",
+          "prototype/tests/gameplay-hud/test_asset_runtime.py": "24e15d82775e257bd9fe7ae01b75aa5925da77f94a54f018b740c2a5845b6644",
+          "prototype/tests/gameplay-hud/test_gameplay_hud.c": "d35c1e2dde2853201474d1193af5097753bcc681b05d5e3195120c970481d835",
+          "prototype/tests/gameplay-hud/test_renderer.c": "208f2f92ab88a51860893ab9ca2ae7462abc4dd8219ece46a327a95ebd751ed7",
+          "prototype/tests/gameplay-hud/test_renderer.py": "83115b97b69a4012feabf7f9e31b475b53d7d4d55e321ca95806d83564400c12",
+          "prototype/tests/gameplay-hud/test_writers.py": "76e0092593582a49d28cd5320eaa27d12d39164bb544872938db739bdda7aadb",
+          "src/gameplay_hud.c": "433eda956728f7c2f0071cc0b5419cb8485f3781730fddc5191af80ee1ffe770",
+          "src/gameplay_hud.h": "a151d8def1a76c4855193e80d022a6b2d8e5ebfab91b93e4e1ee74eef0dcaf59",
+          "src/render_mirror.c": "66e38a1380369ac6569eb0c3b7523720273557724d4a77a330eb774431be1f2f"
+        },
+        "production_scope": [
+          "src/gameplay_hud.c",
+          "src/gameplay_hud.h",
+          "src/render_mirror.c"
+        ],
+        "art_integrated": false,
+        "main_worktree_edited": false,
+        "pushed": false,
+        "binary_sha256": "34b3142a90d2b28e1df71a74b79301a1dbdda1be6edfdabffaed4d5fddbb394c",
+        "approved_incremental_mask_sha256": "903328448558ea0a8b7ea1e895339602736664bad73b0828b8ace4b3732263d2",
+        "incremental_pixels": 310,
+        "total_cap": 6667,
+        "rejected_candidates": 261,
+        "tests": {
+          "loader": "689 synthetic cases, 5120000 samples; normal and ASan/UBSan passed",
+          "renderer": "baseline digest068fd9dadfb774fd; 29 binding mutations, nine identity/layout replacements, density4/8 lifecycle/fade; normal and ASan/UBSan passed",
+          "writer": "58 shield/armor states,3330 ammo states,36950 rectangles, source-bound finite generator/weapon/icon/text domains; normal and ASan/UBSan passed",
+          "build": "Linux make and disabled-renderer syntax checks passed; existing warnings only",
+          "no_asset": {
+            "path": "/workspace/scratch/f67dd347fa0a/hud-expanded-noasset-proof/summary.json",
+            "sha256": "773d4a145e5fffb18b872844d47d14b8284f8e178d01f06dd11ed9055abd154f",
+            "runs": 4,
+            "ticks_each": 120,
+            "result": "all TSV and RGB hashes match preserved checkpoint"
+          },
+          "actual_ownership": {
+            "path": "/workspace/scratch/f67dd347fa0a/hud-expanded-ownership-proof/summary.json",
+            "sha256": "a0bbd58d16770887b8dc5176ab77992d8dbc99994354fba06a2788bd00ee4df9",
+            "runs": 2,
+            "ticks_each": 60,
+            "owners_every_frame": 6667,
+            "rgba_mismatches": 0,
+            "original_state_equal": true,
+            "captures": 0
+          }
+        },
+        "limits": [
+          "Collision streams are header-only; no eventful collision coverage",
+          "No Windows build",
+          "Physical display sampling and actual pause/help/options/death/restart/results visual acceptance are parent-owned pending trials",
+          "No source indices, original RGB or artwork in source patch"
+        ],
+        "guard_cost": {
+          "actual_sprites_per_check": 143,
+          "actual_rle_bytes_per_check": 5458,
+          "worst_sprites_per_check": 192,
+          "worst_rle_bytes_per_check": 44302,
+          "ordinary_checks_per_tick": 3,
+          "measured_checks": 282,
+          "measured_guard_cpu_seconds": 0.007783,
+          "note": "Temporary instrumented host sample including startup/fades; not a frame-rate guarantee"
+        }
+      }
+    },
+    "hud-v5-integration/full-manifest-verification.json": {
+      "sha256": "06f1c038aeef69bfb6261c07e23f6a58e010ec14df921a794dfd8cb89a66e238",
+      "report": {
+        "verified_pack_count": 18,
+        "verified_HDA_entries": 2966,
+        "verified_exact_source_pngs": 379,
+        "verified_material_sidecars": 4,
+        "verified_cap_sidecars": 2,
+        "verified_forest_sidecars_and_policies": 4,
+        "verified_gameplay_hud_sidecars": 2,
+        "verified_hud_source_pngs": 1,
+        "default_pack_counts": [
+          363,
+          367
+        ],
+        "rebuild_output": null,
+        "all_runtime_RGBA_and_header_bytes_exact": true
+      }
+    },
+    "hud-v5-integration/windows-project.json": {
+      "sha256": "1bb39c6a0a61bc54d5a826bdc331979a983ec9f513057ba226524eea47bf8436",
+      "report": {
+        "status": "passed",
+        "C_sources": 59,
+        "listed_headers": 61,
+        "resources": 1,
+        "material_modules": [
+          "ground101_material",
+          "world_material",
+          "world_material_fast",
+          "plateau_cap_material",
+          "forest13_material"
+        ],
+        "all_current_C_sources_listed_once": true,
+        "scope": "Project XML, paths and source inventory only; no Windows compilation or runtime claim"
+      }
+    }
+  },
+  "integrated_test_log_sha256": {
+    "loader-sanitizer.log": "9f620987c168841fc11449c8f957f93fe76d1c7310533101b17ef4c6dd69b578",
+    "renderer-sanitizer.log": "ea7aec165f31866b173779dfbf12f9d7eaabd86fe177cab7292031450cc3b5f8",
+    "writer.log": "0e50019595123b1a675617ca8de83ecfa6623f3108321fc834e35241061f64e2",
+    "linux-build.log": "e823958759db51a128ec81194b01d05af02a8b4e8596e1c1ff6db0c51eddd07d",
+    "source-rebuild.log": "a2969aad3ff65fea98dd335d0c3c3d77329fd352bd53a6f0eca062608a0743b0"
+  },
+  "limits": [
+    "Real modal handlers were entered through an identically scripted private fixture, not natural demo key input.",
+    "Death/restart/nextlevel and two-player/Galaga transition safety is source/synthetic coverage only.",
+    "Small ownership/no-asset collision streams were header-only.",
+    "Classic modal presentation is visibly different from ordinary HD scene/HUD.",
+    "No Windows compiler/runtime or CI claim.",
+    "Next labels/shield-bar pilot is not part of this batch."
+  ]
+}

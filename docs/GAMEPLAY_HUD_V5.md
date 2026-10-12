@@ -1,0 +1,37 @@
+# Finite single-player static gameplay HUD
+
+The component-authored V5 frame retains the original320×200 layout and all original dynamic readouts. It owns exactly6,667 logical pixels: the prior6,357 static frame cells plus310 specifically audited rail/bevel cells. The261 rejected audit candidates, original glyphs, mode lamps, power indicators and228×9 bottom message slot remain original. There is no viewport enlargement or dynamic text redesign.
+
+The immutable generated-only source is `assets/hd/artwork/gameplay-hud-v5`. Its freeze-time trial wording is retained as provenance; integration acceptance is recorded separately. `gameplay-hud-v1.hda` names the HUD1 version1 format, not rejected artworkV1. The V5 resource is4,160,064bytes:64-byte header,64,000-byte logical mask and4,096,000-byte density4RGBA. The loader uses one bounded4,160,000-byte allocation; no HUD per-frame allocation or file I/O occurs. Existing scene assets/materials remain unchanged.
+
+## Ownership and fallback
+
+Only the actual successful single-player gameplay PIC3 load grants a source lease. Full indexed source checksum, SDL surface/pixel/format identity and layout must match the persistent screen. Every owned current pixel must still equal its captured PIC3 index. This guard supplements explicit lifecycle ownership; equal-looking replacement buffers cannot inherit a lease. PIC6/two-player/Galaga and unsupported output routes retain classic HUD.
+
+Missing, malformed, truncated, extra-byte, mismatched-source or incompatible HUD inputs disable only this HUD overlay. The selected scene HD pack remains active. File sizes, header fields, dimensions, mask bounds/count, exact alpha ownership and checksums are validated before activation. FNV64 is accidental-corruption detection, not authentication. Source/publication receipts use SHA256.
+
+The310 additional cells are a finite coordinate allowlist. Fonts, sprite bytecode footprints, sidekick icons/ammo, shield/armor and weapon/generator bounds are checked. All three checked original item tables have shield mpwr≤14 and shield_max≤28, placing bars/markers at y≥137. The26 approved mode-rim points must match both opaque OPTION18/19 states and raw PIC3. Label glyph boxes and their zero-index moats remain protected. Unsupported data fails closed rather than painting over gauges.
+
+Generic PIC loads, level/map changes and teardown revoke ownership. Pause/help/options suspend it; the next eligible ordinary frame can resume the same valid source lease. Two-player/Galaga observed at begin/finish/fade/present revokes it until a fresh eligible capture. Active end-level flight frames may retain the frame; the subsequent level transition revokes it. Benign renderer recreation suspends cached output without incorrectly granting a new lease. Separate current/saved HUD ownership follows black/white fades and palette restoration. Reset clears only verifiable cached HUD pixels or invalidates an unsafe cache; scene ownership is independent.
+
+Modal screens deliberately retain the existing classic presentation route, including indexed scene content where the original handler uses it. Thus the frame and scene can visibly switch when entering a modal and return to HD on the next gameplay frame. This is a documented bounded first implementation, not a universal menu/UI replacement.
+
+## Source reproduction and engineering proof
+
+`python prototype/build-gameplay-hud-art.py --output OUTPUT` requires a fresh external directory. It reconstructs the selected resource from generated component crops and the exact mask, then checks canonical PNG and HDR1-independent HUD1 bytes. The central `prototype/build-hd-assets.py` verifies/rebuilds HUD sidecars in both default packs in addition to all prior assets. The379 pack-referenced sprite/terrain PNGs remain unchanged; the separate HUD source makes380 pack-referenced PNGs. Historical canonical inventory files are retained separately.
+
+The loader suite passes689 synthetic cases and5,120,000 density4/8 samples under ASan/UBSan. The renderer oracle covers source replacement after freeing old allocations,29 compatibility mutations, all nine identity/layout failures, modal/cache/generation transitions, black/white/restoration and exact no-art output. The finite writer oracle checks58 shield/armor states,3,330 ammo states and36,950 rectangles plus source-bound generator/weapon/icon/font domains. These tests extract actual production helpers but are not interactive gameplay acceptance.
+
+An actual60-tick HUD-only diagnostic owns exactly6,667 pixels every frame, with every owned subpixel equal to the selected art and zero RGBA mismatches. Its state/RNG/indexed proof is exact against HUD-off. Four120-tick no-art runs also match the prior no-HUD behavior exactly. Collision ledgers in those small cases are header-only; they do not demonstrate eventful collisions.
+
+Original compatible data decodes143 tiny sprites/5,458 RLE bytes per compatibility check; ordinary begin/finish/present makes three checks per tick. The permitted bound is192 sprites/44,302 bytes. One instrumented60-tick sample recorded282 checks including startup/fades and7.783ms aggregate guard CPU. This is a diagnostic host measurement, not an FPS or broad performance guarantee.
+
+## Actual visual scope
+
+The actual ordinary tick100 images use native640×400 and1280×800 SDL readback. Root and author reviewed both. At2×,26,668 output pixels change, all inside the approved mask; the playfield and every unowned pixel are exact. Original-state/gameplay ledgers across120 ticks and the internal density8 audit match across corresponding trials. Each native image is checked against its own readback hash, not asserted equal across scale. Actual owned4×RGBA equals the frozen density4art; nearest4×→2× sampling exactly matches actual2×HUD.
+
+A private scripted trial enters the unchanged original pause/help/options handlers at ticks60/80/100. All three modal presentations equal the identically controlled baseline pixel-for-pixel; each first ordinary return restores changes only inside the approved mask. All32 compared original gameplay streams across120 ticks remain exact. The initial private exit-event adapter failed the same cleanup assertion on both sides; preserved failed attempts were superseded by the corrected adapter without any production change.
+
+The explicit122-tick fade fixture reaches the real black/white/restore functions. All32 presentations per side match the original integer fade schedule; six retained frames per side additionally have SHA256/readback proof. Black/white endpoints match baseline, restored palette output matches the pre-fade V5 frame, and all retained differences stay inside the mask. The only expected fade-ledger addition is426,688 owned HUD subpixels. Both fixtures and capture hooks are excluded from production. Death, restart, next-level and mode-transition coverage must remain explicitly source/synthetic-only unless the receipt records an actual run. No full-game/menu coverage is claimed.
+
+Linux build and Windows project source-list checks are separate from Windows compilation/runtime. The Visual Studio project lists gameplay_hud.c/.h once; no Windows compiler or user-computer test was run for this batch. Original game pixels/data, private event/capture hooks and test media are excluded from the repository. Prior published checkpoint3e962ccc30dd839b160e738b1df95be1ce922182 is retained for rollback.

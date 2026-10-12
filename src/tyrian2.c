@@ -655,6 +655,7 @@ void JE_main(void)
 	   the loadmap function. */
 
 start_level:
+	render_mirror_hud_reset();
 
 	mouseSetRelative(false);
 
@@ -744,6 +745,7 @@ start_level_first:
 	extraGame = false;
 
 	doNotSaveBackup = false;
+	render_mirror_hud_reset();
 	JE_loadMap();
 
 	if (mainLevel == 0)  // if quit itemscreen
@@ -784,6 +786,8 @@ start_level_first:
 	}
 	
 	JE_loadPic(VGAScreen, twoPlayerMode ? 6 : 3, false);
+	if (!twoPlayerMode && !galagaMode)
+		render_mirror_hud_start(VGAScreen);
 
 	JE_drawOptions();
 
@@ -1102,7 +1106,7 @@ start_level_first:
 	BKwrap3 = BKwrap3to = &megaData3.mainmap[1][0];
 
 level_loop:
-	if(asset_debug_before_tick())return;
+	if(asset_debug_before_tick()) {render_mirror_hud_reset();return;}
 	render_mirror_begin();
 
 	//tempScreenSeg = game_screen; /* side-effect of game_screen */
@@ -2415,7 +2419,7 @@ draw_player_shot_loop_end:
 
 	/*Other Network Functions*/
 	JE_handleChat();
-	if (game_probe_end_tick()) return;
+	if (game_probe_end_tick()) {render_mirror_hud_reset();return;}
 
 	if (reallyEndLevel)
 	{

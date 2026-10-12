@@ -63,4 +63,16 @@ if manifest.get('forest13_bundles'):
    assert (repo/'assets/hd/packs'/pack/name).read_bytes()==data
    if a.output:(output/pack/name).write_bytes(data)
    forest_count+=1
-print(json.dumps({'verified_pack_count':len(manifest['packs']),'verified_HDA_entries':checked,'verified_exact_source_pngs':len(payloads),'verified_material_sidecars':material_count,'verified_cap_sidecars':cap_count,'verified_forest_sidecars_and_policies':forest_count,'default_pack_counts':[manifest['packs'][manifest[k]]['count'] for k in ['default_preview_pack','default_debug_pack']],'rebuild_output':str(output) if a.output else None,'all_runtime_RGBA_and_header_bytes_exact':True},indent=2))
+hud_count=0
+if manifest.get('gameplay_hud_v5'):
+ from gameplay_hud_bundle import build_bundle as build_hud, FILENAME as HUD_FILE
+ raw,receipt=build_hud(repo)
+ family=manifest['gameplay_hud_v5']
+ assert set(family['packs'])=={manifest['default_preview_pack'],manifest['default_debug_pack']}
+ for pack,items in family['packs'].items():
+  assert set(items)=={HUD_FILE} and items[HUD_FILE]==receipt
+  path=repo/'assets/hd/packs'/pack/HUD_FILE
+  assert path.is_file() and not path.is_symlink() and path.read_bytes()==raw
+  if a.output:(output/pack/HUD_FILE).write_bytes(raw)
+  hud_count+=1
+print(json.dumps({'verified_pack_count':len(manifest['packs']),'verified_HDA_entries':checked,'verified_exact_source_pngs':len(payloads),'verified_material_sidecars':material_count,'verified_cap_sidecars':cap_count,'verified_forest_sidecars_and_policies':forest_count,'verified_gameplay_hud_sidecars':hud_count,'verified_hud_source_pngs':int(bool(hud_count)),'default_pack_counts':[manifest['packs'][manifest[k]]['count'] for k in ['default_preview_pack','default_debug_pack']],'rebuild_output':str(output) if a.output else None,'all_runtime_RGBA_and_header_bytes_exact':True},indent=2))

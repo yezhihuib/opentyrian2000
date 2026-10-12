@@ -1,0 +1,310 @@
+{
+  "status": "READ_ONLY_AUDIT_PROPOSAL_NOT_APPROVED_NOT_ACTIVATED",
+  "source_commit": "06c944165c16f46ea734e419fc7ebf74d31fb3da",
+  "candidate_count": 571,
+  "safe_static_proposal_count": 310,
+  "remain_excluded_count": 261,
+  "current_production_mask_count": 6357,
+  "hypothetical_count_if_all310_later_approved": 6667,
+  "reason_counts": {
+    "preserve_complete_original_lamp_and_lens": 40,
+    "preserve_original_label_glyph": 90,
+    "static_generator_rail": 27,
+    "preserve_static_red_power_prefix": 24,
+    "mode_rim_exact_both_states_and_pic3": 26,
+    "exclude_dynamic_mode_rim_or_transparency": 66,
+    "exclude_mode_rim_invariant_but_pic3_mismatch": 4,
+    "static_mode_label_outer_bevel": 1,
+    "static_sidekick_outer_or_divider_rail": 40,
+    "exclude_sidekick_clear_icon_ammo_writer": 5,
+    "static_level_name_outer_rail": 73,
+    "exclude_possible_level_name_glyph": 32,
+    "static_gauge_top_rail": 39,
+    "static_shield_label_outer_bevel": 51,
+    "static_armor_label_outer_bevel": 53
+  },
+  "region_summary": {
+    "generator_window": {
+      "candidates": 27,
+      "safe_static_proposal": 27,
+      "remain_excluded": 0
+    },
+    "front_label_and_power": {
+      "candidates": 40,
+      "safe_static_proposal": 0,
+      "remain_excluded": 40
+    },
+    "rear_label_and_power": {
+      "candidates": 33,
+      "safe_static_proposal": 0,
+      "remain_excluded": 33
+    },
+    "rear_mode_left_sprite18_19": {
+      "candidates": 48,
+      "safe_static_proposal": 12,
+      "remain_excluded": 36
+    },
+    "rear_mode_right_sprite18_19": {
+      "candidates": 48,
+      "safe_static_proposal": 14,
+      "remain_excluded": 34
+    },
+    "mode_label": {
+      "candidates": 19,
+      "safe_static_proposal": 1,
+      "remain_excluded": 18
+    },
+    "sidekick_icons_ammo": {
+      "candidates": 45,
+      "safe_static_proposal": 40,
+      "remain_excluded": 5
+    },
+    "level_name": {
+      "candidates": 105,
+      "safe_static_proposal": 73,
+      "remain_excluded": 32
+    },
+    "shield_window_and_capacity": {
+      "candidates": 21,
+      "safe_static_proposal": 21,
+      "remain_excluded": 0
+    },
+    "armor_window": {
+      "candidates": 18,
+      "safe_static_proposal": 18,
+      "remain_excluded": 0
+    },
+    "static_shield_label": {
+      "candidates": 53,
+      "safe_static_proposal": 51,
+      "remain_excluded": 2
+    },
+    "static_armor_label": {
+      "candidates": 74,
+      "safe_static_proposal": 53,
+      "remain_excluded": 21
+    },
+    "top_red_lamp": {
+      "candidates": 40,
+      "safe_static_proposal": 0,
+      "remain_excluded": 40
+    }
+  },
+  "source_hashes": {
+    "pic3_indices_sha256": "83c5979f54de07f79e0c13970f242ae6f7435d4d396a168b340458c955c0e0f4",
+    "tyrian.shp_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+    "palette.dat_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0",
+    "candidate_tsv_sha256": "7a4622acd004eacd50f582f132a4b29325d0b9ab19349507873ebff1535c121a",
+    "current_mask_raw_sha256": "18953b36b9799836b46ec1bbb3d1d73c987aa472b57b43d10c2011f2cc5318a7"
+  },
+  "label_preservation": {
+    "letter_boxes_half_open": {
+      "SHIELD": [
+        [
+          285,
+          138,
+          290,
+          143
+        ],
+        [
+          285,
+          144,
+          290,
+          149
+        ],
+        [
+          285,
+          150,
+          290,
+          155
+        ],
+        [
+          285,
+          156,
+          290,
+          161
+        ],
+        [
+          285,
+          162,
+          290,
+          167
+        ],
+        [
+          285,
+          168,
+          290,
+          173
+        ]
+      ],
+      "ARMOR": [
+        [
+          296,
+          138,
+          301,
+          143
+        ],
+        [
+          296,
+          144,
+          301,
+          149
+        ],
+        [
+          296,
+          150,
+          301,
+          155
+        ],
+        [
+          296,
+          156,
+          301,
+          161
+        ],
+        [
+          296,
+          162,
+          301,
+          167
+        ]
+      ]
+    },
+    "foreground_counts": {
+      "SHIELD": 90,
+      "ARMOR": 91
+    },
+    "candidate_glyph_intersections": {
+      "SHIELD": 2,
+      "ARMOR": 21
+    },
+    "all_glyph_boxes_have_exact_zero_index_1pixel_moat": true,
+    "safe_label_bevel_intersection_with_foreground": 0
+  },
+  "font_constraints": {
+    "max_mapped_width": 6,
+    "max_mapped_height": 8,
+    "max_mapped_opaque_row": 7,
+    "level_name_origin": [
+      268,
+      118
+    ],
+    "possible_glyph_rows_inclusive": [
+      118,
+      125
+    ],
+    "levelName_max_bytes": 10
+  },
+  "item_data_checks": {
+    "tyrian.hdt": {
+      "sha256": "fde8506326e7bb0916b38c362e33bf8a8a5affa561206c021af7f65b4a17745b",
+      "shield_mpwr_max": 14,
+      "shield_max_max": 28,
+      "minimum_capacity_marker_y": 137,
+      "ammo_values": [
+        0,
+        5,
+        6,
+        8,
+        20,
+        30,
+        60,
+        80,
+        100
+      ],
+      "sidekick_sprite_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        37,
+        38
+      ],
+      "icon_max_width": 28,
+      "icon_max_height": 13,
+      "max_ammo_segments": 10
+    },
+    "tyrian4.lvl": {
+      "sha256": "6589b898094887925e7717c8663c4b8b5e4b76f3c89a7898ed9f4691c1f2cc16",
+      "shield_mpwr_max": 14,
+      "shield_max_max": 28,
+      "minimum_capacity_marker_y": 137,
+      "ammo_values": [
+        0,
+        5,
+        6,
+        8,
+        20,
+        30,
+        60,
+        80,
+        100
+      ],
+      "sidekick_sprite_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        37,
+        38
+      ],
+      "icon_max_width": 28,
+      "icon_max_height": 13,
+      "max_ammo_segments": 10
+    },
+    "tyrian5.lvl": {
+      "sha256": "275b5aaf55caecee8dc95e26f7cf118a9ee265f095ce61945b9ece56a4523323",
+      "shield_mpwr_max": 14,
+      "shield_max_max": 28,
+      "minimum_capacity_marker_y": 137,
+      "ammo_values": [
+        0,
+        5,
+        6,
+        8,
+        20,
+        30,
+        60,
+        80,
+        100
+      ],
+      "sidekick_sprite_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        37,
+        38
+      ],
+      "icon_max_width": 28,
+      "icon_max_height": 13,
+      "max_ammo_segments": 10
+    }
+  },
+  "proposal_mask_sha256": "903328448558ea0a8b7ea1e895339602736664bad73b0828b8ace4b3732263d2",
+  "bottom_message_ribs": "Not evaluated; outside571 selection; remain excluded."
+}

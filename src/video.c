@@ -114,6 +114,7 @@ void init_video(void)
 
 void deinit_video(void)
 {
+	render_mirror_hud_shutdown();
 	deinit_texture();
 	deinit_renderer();
 

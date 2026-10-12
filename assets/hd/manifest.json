@@ -1,7 +1,7 @@
 {
   "schema": "opentyrian-accepted-hd-runtime-v1",
   "baseline_branch": "hd-render-prototype",
-  "status": "Reviewed finite circuit/deck10 integration with generated-only reproducible sources; bounded runtime and fallback validation passed",
+  "status": "Reviewed static single-player gameplay HUD V5 with exact scene preservation and bounded modal/fade proof",
   "default_preview_pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
   "default_debug_pack": "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
   "packs": {
@@ -42112,5 +42112,34 @@
     "source_inventory_sha256": "a8b806d31062e3355449f1475bede7f6596ca643ac145a59542cbb3d575e0281",
     "scope": "Ten physically placed circuit/deck IDs; 191 remains unbound reference-only",
     "runtime_status": "passed bounded normal-layer survival samples: 84 native2x frames, native4x4320, finite routing/fallback and exact original-state proof"
+  },
+  "gameplay_hud_v5": {
+    "schema": "singleplayer-pic3-static-hud1-v1",
+    "source": "assets/hd/artwork/gameplay-hud-v5",
+    "source_manifest_sha256": "8eb59c317f902ad2da899fa03275a0803cd3d3e9aae9636865a733a5cc31bfcc",
+    "source_png": "assets/hd/source/gameplay-hud-v5-4-4ff6cd95d4c3.png",
+    "source_png_sha256": "36dd302d8bf18db2203820fec8b92fac8faeee7f7afab2d8da1339387b2acc70",
+    "source_pic3_fnv1a64": "14c1441f3d5dc0e2",
+    "density": 4,
+    "logical_size": [
+      320,
+      200
+    ],
+    "owned_pixels": 6667,
+    "packs": {
+      "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
+        "gameplay-hud-v1.hda": {
+          "bytes": 4160064,
+          "sha256": "4ff6cd95d4c3ec5b7e4825e38a5242fc96c1cd305987a873bea4a55fa5a04482"
+        }
+      },
+      "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
+        "gameplay-hud-v1.hda": {
+          "bytes": 4160064,
+          "sha256": "4ff6cd95d4c3ec5b7e4825e38a5242fc96c1cd305987a873bea4a55fa5a04482"
+        }
+      }
+    },
+    "runtime_status": "passed actual native2x/4x, scripted original pause/help/options, real black/white/restore fade, finite fallback/source/sanitizer tests"
   }
 }

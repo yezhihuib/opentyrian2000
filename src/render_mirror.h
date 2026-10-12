@@ -5,6 +5,10 @@
 #include "ground101_material.h"
 enum { MIRROR_NORMAL, MIRROR_BLEND, MIRROR_SHADOW };
 #ifdef RENDER_MIRROR_DISABLED
+#define render_mirror_hud_shutdown(...) ((void)0)
+#define render_mirror_hud_reset(...) ((void)0)
+#define render_mirror_hud_start(...) ((void)0)
+#define render_mirror_hud_suspend(...) ((void)0)
 #define render_mirror_begin(...) ((void)0)
 #define render_mirror_pixel(...) ((void)0)
 #define render_mirror_rect(...) ((void)0)
@@ -29,6 +33,10 @@ enum { MIRROR_NORMAL, MIRROR_BLEND, MIRROR_SHADOW };
 #define render_mirror_reset_banking(...) ((void)0)
 #define render_mirror_player_pose(...) ((void)0)
 #else
+void render_mirror_hud_shutdown(void);
+void render_mirror_hud_reset(void);
+void render_mirror_hud_start(SDL_Surface *decoded_pic3);
+void render_mirror_hud_suspend(void);
 void render_mirror_begin(void);
 bool render_mirror_enemy_shot(SDL_Surface *, int x, int y, Sprite2_array, unsigned int index);
 void render_mirror_pixel(SDL_Surface *, Uint8 *address, Uint8 source, int style);

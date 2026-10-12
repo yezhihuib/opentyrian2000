@@ -1391,6 +1391,7 @@ JE_boolean JE_gammaCheck(void)
 
 void JE_doInGameSetup(void)
 {
+	render_mirror_hud_suspend();
 	render_mirror_reset_banking();
 	mouseSetRelative(false);
 
@@ -1923,6 +1924,7 @@ JE_boolean JE_inGameSetup(void)
 
 void JE_inGameHelp(void)
 {
+	render_mirror_hud_suspend();
 	SDL_Surface *temp_surface = VGAScreen;
 	VGAScreen = VGAScreenSeg; /* side-effect of game_screen */
 
@@ -3396,6 +3398,7 @@ void JE_mainKeyboardInput(void)
 
 void JE_pauseGame(void)
 {
+	render_mirror_hud_suspend();
 	render_mirror_reset_banking();
 	mouseSetRelative(false);
 
