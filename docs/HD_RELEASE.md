@@ -1,3 +1,7 @@
+# Latest finite forest canopy (2026-10-12)
+
+[Continuous forest canopy](FOREST13_WORLD_CANOPY.md) adds13 finite Layer1 shapes with one96×112 world-period material, preserving fixed trunks and accepted terrain. Actual review is a28-frame private layer-isolated authoring window plus paired normal compositing and native4×; four IDs remain static-only. Current manifest:18 packs,2,946 HDA entries,369 active PNGs; defaults353/357. Earlier counts below are historical.
+
 # Latest finite regular missile update (2026-10-12)
 
 [Regular Missile Launcher](REGULAR_MISSILE_VALIDATION.md) adds three physical bank8 heads31–33 with source-faithful silver/copper designs, original shadows and collision effects. Current manifest:18 packs,2,920 HDA entries,356 active PNGs; defaults340/344. Current lower-ground and raised-cap materials remain unchanged. Earlier counts below are historical.

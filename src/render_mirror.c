@@ -5,6 +5,7 @@
  */
 #include "render_mirror.h"
 #include "plateau_cap_material.h"
+#include "forest13_material.h"
 #include "game_probe.h"
 #include "asset_debug.h"
 #include "entity_draw.h"
@@ -24,7 +25,7 @@ typedef struct {
 } Asset;
 enum { ASSET_NEWSH2=101, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
-static Asset assets[336];
+static Asset assets[349];
 static Asset talon_frames[13];
 typedef struct {
  bool valid;
@@ -45,8 +46,9 @@ void render_mirror_reset_banking(void)
 void render_mirror_set_talon_banking(bool enabled)
 {talon_banking_enabled=enabled;render_mirror_reset_banking();}
 static char terrain_file;
-static struct {const Uint8 *data;unsigned int id;} terrain_sources[162];
+static struct {const Uint8 *data;unsigned int id;} terrain_sources[175];
 static unsigned int terrain_source_count;
+static bool forest_registry_ok=true;
 static SDL_Surface *canvas,*output;
 static SDL_Surface *fade_saved;
 static Uint32 fade_saved_palette[256],last_output_palette[256];
@@ -589,7 +591,7 @@ static Uint32 green_head_composite(int dx,int dy,unsigned int first,Uint32 color
  return color;
 }
 
-static bool draw_asset_filtered(int x,int y,Asset *a,int style,const SDL_Rect *part,Uint8 filter,const G101Record *material,const PCapRecord *cap)
+static bool draw_asset_filtered(int x,int y,Asset *a,int style,const SDL_Rect *part,Uint8 filter,const G101Record *material,const PCapRecord *cap,const Forest13Record *forest)
 {
  /* Original Talon invulnerability uses half-opacity, not a different sprite.
   * Preserve that effect over the ordered RGBA scene and keep the engine's
@@ -629,6 +631,7 @@ static bool draw_asset_filtered(int x,int y,Asset *a,int style,const SDL_Rect *p
   int n=(ay*ad/d)*pw+(ax*ad/d);const Uint8 *src=a->rgba+n*4;if(!src[3])continue;
   Uint8 world_material[4];if(material){ground101_select(material,src,(unsigned)n,dx,dy,world_material);src=world_material;}
   Uint8 cap_material[4];if(cap){plateau_cap_select(cap,src,(unsigned)n,dx,dy,cap_material);src=cap_material;}
+  Uint8 forest_material[4];if(forest){forest13_select(forest,src,(unsigned)n,dx,dy,forest_material);src=forest_material;}
   Uint8 filtered[4];if(filter){enemy_filter_rgba(src,filter,filtered);src=filtered;}
   Uint32 *p=(Uint32 *)((Uint8 *)canvas->pixels+dy*canvas->pitch)+dx;
   int owner_index=dy*canvas->w+dx;
@@ -666,7 +669,7 @@ static bool draw_asset_filtered(int x,int y,Asset *a,int style,const SDL_Rect *p
 }
 
 static bool draw_asset(int x,int y,Asset *a,int style,const SDL_Rect *part)
-{return draw_asset_filtered(x,y,a,style,part,0,NULL,NULL);}
+{return draw_asset_filtered(x,y,a,style,part,0,NULL,NULL,NULL);}
 
 bool render_mirror_entity(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int index,int style,int layout)
 {
@@ -737,13 +740,13 @@ bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array ban
   const G101Record *material=a->density==8&&ground101_enemy_eligible(material_context,(unsigned)role,base)?ground101_record((unsigned)role,base):NULL;
   ground101_actor_trace(game_probe_tick,material_context,(unsigned)role,base,part,filter,x,y,material!=NULL);
   ground101_note_draw(material,true);
-  mirrored=draw_asset_filtered(x-px,y-py,a,MIRROR_NORMAL,&quadrant,(Uint8)filter,material,NULL);
+  mirrored=draw_asset_filtered(x-px,y-py,a,MIRROR_NORMAL,&quadrant,(Uint8)filter,material,NULL,NULL);
  }
  game_probe_scene_draw(role,base,x,y,part,filter?3:MIRROR_NORMAL,mirrored);return mirrored;
 }
 
 void render_mirror_map_begin(char shape_file)
-{ground101_frame_reset();terrain_file=shape_file=='Z'?'z':shape_file;terrain_source_count=0;render_mirror_reset_banking();}
+{ground101_frame_reset();terrain_file=shape_file=='Z'?'z':shape_file;terrain_source_count=0;forest_registry_ok=true;render_mirror_reset_banking();}
 /* Only shapesZ layer2 cloud IDs; no renderer/filter or game-state changes. */
 static int cloud_terrain_slot(unsigned int id)
 {
@@ -811,18 +814,34 @@ static int layer3_purple_slot(unsigned int id)
  for(int i=0;i<13;i++)if(id==ids[i])return 290+i;
  return -1;
 }
-/* Finite low-grass/sand Layer1 family; neighboring forest remains original. */
+/* Finite low-grass/sand Layer1 family. */
 static int grass_sand_slot(unsigned int id)
 {
  static const unsigned int ids[9]={66,67,69,76,78,79,80,89,90};
  for(int i=0;i<9;i++)if(id==ids[i])return 312+i;
  return -1;
 }
+/* Exactly the reviewed forest family; no implicit bank-wide replacement. */
+static int forest_terrain_slot(unsigned int id)
+{
+ static const unsigned int ids[13]={211,212,213,215,221,222,223,224,225,231,232,233,234};
+ for(int i=0;i<13;i++)if(id==ids[i])return 336+i;
+ return -1;
+}
 void render_mirror_bind_terrain(unsigned int layer,unsigned int id,const Uint8 *data)
 {
- if(terrain_file=='z'&&((layer==1&&(grass_sand_slot(id)>=0||stone_foundation_slot(id)>=0||terrain_holes_slot(id)>=0||road_terrain_slot(id)>=0||underlay_terrain_slot(id)>=0||plateau_terrain_slot(id)>=0||ground_terrain_slot(id)>=0||id==101||id==37||id==57||id==49||id==50||id==321||id==322||id==331||id==332))||(layer==2&&cloud_terrain_slot(id)>=0)||(layer==3&&(layer3_gray_slot(id)>=0||layer3_purple_slot(id)>=0)))&&terrain_source_count<162) {
+ if(terrain_file=='z'&&((layer==1&&(forest_terrain_slot(id)>=0||grass_sand_slot(id)>=0||stone_foundation_slot(id)>=0||terrain_holes_slot(id)>=0||road_terrain_slot(id)>=0||underlay_terrain_slot(id)>=0||plateau_terrain_slot(id)>=0||ground_terrain_slot(id)>=0||id==101||id==37||id==57||id==49||id==50||id==321||id==322||id==331||id==332))||(layer==2&&cloud_terrain_slot(id)>=0)||(layer==3&&(layer3_gray_slot(id)>=0||layer3_purple_slot(id)>=0)))&&terrain_source_count<175) {
   terrain_sources[terrain_source_count].data=data;
   terrain_sources[terrain_source_count++].id=id;
+ }
+ /* Validate each actually attempted forest pointer, including duplicate-ID
+  * loader slots. Other maps need not contain all thirteen numeric IDs. */
+ if(terrain_file=='z'&&layer==1&&forest_terrain_slot(id)>=0) {
+  bool found=false;
+  for(unsigned k=0;k<terrain_source_count;k++)if(terrain_sources[k].data==data) {
+   found=data&&terrain_sources[k].id==id;break;
+  }
+  if(!found)forest_registry_ok=false;
  }
 }
 /* Selected-pack lookup retains the existing HDA validation and density gate. */
@@ -837,6 +856,8 @@ static const uint8_t *plateau_cap_selected_source(unsigned index,unsigned slot,v
 void render_mirror_ground101_layer1(SDL_Surface *surface,const void *first,int x,int y)
 {
  ground101_frame_reset();
+ /* Declaration is independent of lower/context validation and its early exits. */
+ forest13_policy_check(game_probe_assets);
  if(!active||surface!=game_screen||reject_reason||terrain_file!='z'||game_probe_density!=8||
     game_probe_missing||game_probe_invalid||game_probe_original_reference||!game_probe_assets||
     (game_probe_scene_assets&3)!=3||!ground101_bundle_load(game_probe_assets))return;
@@ -855,6 +876,7 @@ void render_mirror_ground101_layer1(SDL_Surface *surface,const void *first,int x
  if(source_valid&&ground101_layer1_preflight(megaData1.mainmap,sizeof(megaData1.mainmap),first,sizeof(JE_byte *),x,y)) {
   /* Optional cap failure leaves the successfully verified lower family live. */
   if(plateau_cap_bundle_load(game_probe_assets))plateau_cap_verify_sources(plateau_cap_selected_source,NULL);
+  forest13_prepare(game_probe_assets,plateau_cap_selected_source,NULL);
  }
 }
 unsigned int render_mirror_terrain_row(SDL_Surface *surface,int x,int y,Uint8 **map,int style)
@@ -879,6 +901,8 @@ unsigned int render_mirror_terrain_row(SDL_Surface *surface,int x,int y,Uint8 **
   int gray_slot=layer3_gray_slot(id);
   int purple_slot=layer3_purple_slot(id);
   int grass_slot=grass_sand_slot(id);
+  int forest_slot=forest_terrain_slot(id);
+  if(forest_slot>=0&&style!=MIRROR_NORMAL)continue;
   if((gray_slot>=0||purple_slot>=0)&&style!=MIRROR_NORMAL)continue;
   if(slot<0)slot=ground_slot;
   if(slot<0)slot=plateau_slot;
@@ -889,15 +913,20 @@ unsigned int render_mirror_terrain_row(SDL_Surface *surface,int x,int y,Uint8 **
   if(slot<0)slot=gray_slot;
   if(slot<0)slot=purple_slot;
   if(slot<0)slot=grass_slot;
+  if(slot<0)slot=forest_slot;
   if(slot<0)slot=id==101?10:id==37?11:id==57?12:id==49?13:id==50?14:id==321?19:id==322?20:id==331?21:id==332?22:-1;
   if(slot<0)continue;
   Asset *a=scene_asset(slot,ASSET_SHAPESZ,(int)id,0,0);
   /* Missing/invalid new art retains the exact previous fallback and trace. */
-  if((ground_slot>=0||plateau_slot>=0||underlay_slot>=0||road_slot>=0||holes_slot>=0||stone_slot>=0||gray_slot>=0||purple_slot>=0||grass_slot>=0)&&!a)continue;
+  if((ground_slot>=0||plateau_slot>=0||underlay_slot>=0||road_slot>=0||holes_slot>=0||stone_slot>=0||gray_slot>=0||purple_slot>=0||grass_slot>=0||forest_slot>=0)&&!a)continue;
   const G101Record *material=a&&a->density==8&&material_row==1&&style==MIRROR_NORMAL?ground101_record(ASSET_SHAPESZ,id):NULL;
   ground101_note_draw(material,false);
   const PCapRecord *cap=a&&a->density==8&&material_row==1&&style==MIRROR_NORMAL?plateau_cap_record(id):NULL;
-  bool mirrored=a?draw_asset_filtered(x+tile*24,y,a,style,NULL,0,material,cap):false;
+  const Forest13Record *forest=a&&a->density==8&&material_row==1&&forest_registry_ok&&style==MIRROR_NORMAL?forest13_record(id):NULL;
+  /* A declared coupled family cannot expose rejected fixed canopy repeats.
+   * Unmarked custom packs retain their ordinary selected-art behavior. */
+  if(forest_slot>=0&&forest13_declared()&&!forest)continue;
+  bool mirrored=a?draw_asset_filtered(x+tile*24,y,a,style,NULL,0,material,cap,forest):false;
   suppress=false;
   if(mirrored)replaced|=1u<<tile;
   game_probe_scene_draw(ASSET_SHAPESZ,id,x+tile*24,y,0,style,mirrored);

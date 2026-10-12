@@ -1,0 +1,255 @@
+{
+  "schema": "finite-forest13-world-canopy-validation-v1",
+  "status": "passed",
+  "baseline_commit": "75f4dcf5033c9e2455eaf96563aba606dac61c67",
+  "ids": [
+    211,
+    212,
+    213,
+    215,
+    221,
+    222,
+    223,
+    224,
+    225,
+    231,
+    232,
+    233,
+    234
+  ],
+  "slots": [
+    336,
+    348
+  ],
+  "source_inventory_sha256": "e734d037291c47d9b47ffddc42a0b1079d9918aaf3297187cb0236dbbe6ce6ea",
+  "bundle": {
+    "filename": "forest13-world-material.fcan",
+    "bytes": 3311804,
+    "header_bytes": 188,
+    "payload_bytes": 3311616,
+    "sha256": "f25f6d3b096a9607f28c6c5165ee1004625d7f256c8eba7daccb53368f59e455",
+    "fnv64": "201c962b9ca58c20",
+    "inventory_sha256": "e734d037291c47d9b47ffddc42a0b1079d9918aaf3297187cb0236dbbe6ce6ea",
+    "composition_sha256": "69b44242c9bcb001a46dc6ccc25d6a5fcbcd43824874217149dd8a3575f22015",
+    "atlas_rgba_sha256": "e71a1b179c85b177cb8e094703f7376c88e4aacc99f2cae5837d6757cd4b57f7",
+    "sources": [
+      {
+        "id": 211,
+        "hda_sha256": "a3c6d4a7598858da1b5a1499b4cd15c94a30b7e1dc9139e46a696091ae2bc777",
+        "rgba_sha256": "95617c86a0a55f8184fcfdc22f339dc315469487125cf68cbc7227bfc3ea8389",
+        "mask_sha256": "f93daa8e85bcc01fe87f828ab4e19758e110583b4f7270fc737bf6966defb16d"
+      },
+      {
+        "id": 212,
+        "hda_sha256": "38fe4d8e79837952906a4e1da7f92173369036b5f23245e206c214bd9d9ebffa",
+        "rgba_sha256": "d3a20203dfc0d1bc0313ece7cc918c437a5a41cc4150458467ab275fc35abed2",
+        "mask_sha256": "d0afb715eb144a2b0eafa9510a23821f451c263559d639357e69128c19a8a101"
+      },
+      {
+        "id": 213,
+        "hda_sha256": "366258b3c9c852f728131663b8af38286c89ded4808fef727c3e623f83c43ab5",
+        "rgba_sha256": "cbe5ef9a194c4877fd7dcf0e59ac920201fd227458812a27b979006a8628c407",
+        "mask_sha256": "4586cd85208c66c8b8574b620be987cb741716a3fcd7931eb61c782bcb881835"
+      },
+      {
+        "id": 215,
+        "hda_sha256": "e3d4d913b086dab1b948a150994a8d250b07993f6a2a6580966cafd3a56cb0a3",
+        "rgba_sha256": "a7882d23c6882616cbdbc491d4d3a291d6d41af8bcc0df385ce3807040a95d3b",
+        "mask_sha256": "7759449ffcb96d54a6178631fd88372c57e7af77953816d1f8b31a7a24c76594"
+      },
+      {
+        "id": 221,
+        "hda_sha256": "bf50a08c93877205a32a09b7e993591ddf37a3352ebd9a46814889e89fdb3db8",
+        "rgba_sha256": "3d2307421b93f1563e6b9bdb356e1caa677a7dcaf4c1419489da91129eb84a67",
+        "mask_sha256": "5f7047e19de4989bea8600f589c8f1325f448c743f61b5796afab6812eba6f65"
+      },
+      {
+        "id": 222,
+        "hda_sha256": "361de8697bcf88b282f3ed04c7be3e9e1af0945ca9eccdd81a5cc6378514b7da",
+        "rgba_sha256": "4a3677e39d427adb3e0f0d439a8ae50634438fd5b776f64dd233a129bcf83279",
+        "mask_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25"
+      },
+      {
+        "id": 223,
+        "hda_sha256": "533b896c30a9eb981975371fcc01cd8d9d2d29f299f945ae0d0c49ead75cd72d",
+        "rgba_sha256": "dfe4cd1386fd1b1e77ce633d77527f5a31f1c8454a2dab268bf18813915a226b",
+        "mask_sha256": "058e96a3d54dba762acf5b0e45763b8f1c8b833e589bbcbf1b1429eba6202da0"
+      },
+      {
+        "id": 224,
+        "hda_sha256": "a1df0b15915444541a3543f4620a306fdbc8f996ec38bd5c94c53a4ab4600f22",
+        "rgba_sha256": "a7882d23c6882616cbdbc491d4d3a291d6d41af8bcc0df385ce3807040a95d3b",
+        "mask_sha256": "37d47350ac4e8381484aec6192f1fced90840397d422573bf26215766fbedb7b"
+      },
+      {
+        "id": 225,
+        "hda_sha256": "49cf8da848f65a08c73357d57ec6c91278286e4aced9e54818d8c8cb511a136f",
+        "rgba_sha256": "a7882d23c6882616cbdbc491d4d3a291d6d41af8bcc0df385ce3807040a95d3b",
+        "mask_sha256": "317588abccdf10ba0bb7eb085db25f7e0d2f0c837035981ef8aaf11c21507bde"
+      },
+      {
+        "id": 231,
+        "hda_sha256": "ac644d33a1361e7039fbc9a34f57dbeef7eb2ce8bee56e977ab4f77e72ea24e3",
+        "rgba_sha256": "90bbd3c69374aa88a24374b4f514997abcbb76250f6393ae8e2e7b50b73f868e",
+        "mask_sha256": "46624bbb4e8f1fe61d73d06b4f31d239bb92b193e5e6a8cceb9910c2603e82e8"
+      },
+      {
+        "id": 232,
+        "hda_sha256": "ac0ef9811f772c0cfbaa70c335ac521c225a005c1638a966e25fb51132e5bc27",
+        "rgba_sha256": "82dfbc7df37570a9c1a7137e547eb09c30c9d283bbd283faa62c7613d3af5cef",
+        "mask_sha256": "aa2a63198deaf76405ad781caedc663026bae5f7c22c51b8b04b4b08f06b020e"
+      },
+      {
+        "id": 233,
+        "hda_sha256": "65fe33e449a9354af51270d3c76462d7f9268ceee7b760f971dc7485281fa07a",
+        "rgba_sha256": "77a0fce6e6ba3ab7b0d058b314395f42d42ecbf6c7413d54796f87785ffcd9d4",
+        "mask_sha256": "d2d4f49cb93a1b7086e5a3b8137e83a4c419963052af60e4f91d2be6c903511c"
+      },
+      {
+        "id": 234,
+        "hda_sha256": "ecd64e9d80fe3e4e0cbcc8c3bcc856c3dc285e20b6e26229fd32f08dc12596de",
+        "rgba_sha256": "20574498262ec86bcb233561c1624eb6632cfa8915027eb8398adf54d31e5e5b",
+        "mask_sha256": "53442cb9839194396c030245381c32876417db28624b1b793d1f3f6f7020d1de"
+      }
+    ],
+    "checksum_purpose": "accidental corruption only; not authentication",
+    "policy": "absent declaration retains selected-pack art; present invalid declaration or required input disables only forest13 to indexed original"
+  },
+  "production_executable_sha256": "85dadd4b625b1075f769a6a37818739f6f7777cca26b9201d005e4ab9e84a427",
+  "private_capture_executable_sha256": "2e32be0a71361ff541bfede1f2fe16de14f076ace3b102227f714441f836005a",
+  "source_files": {
+    "src/render_mirror.c": "f573ad00252301f7878c85dde6be6c3b2a68ed33436dfd404a5df3150ec369a6",
+    "src/forest13_material.c": "a96be3f33ec951d74ee5bf6e49e0c4315420016b8f119c64b1e2bbf972c1f4b1",
+    "src/forest13_material.h": "8a50b1e31566088d6cd47e159fb53de27d889ab5a1a6616029480fa070fe68a2",
+    "src/forest13_bundle_index.h": "8ba706d26a2c70848bee5f387940bb3c2d9a7137559a1da21c42ed18cc2c63bc"
+  },
+  "static": {
+    "tile_phases": 208,
+    "pair_phases": 1040,
+    "assertions": 2733,
+    "selected_image_outputs_rebuilt": 27,
+    "HDA_outputs_rebuilt": 13,
+    "accepted_guard_assets_exact": 22
+  },
+  "loader": {
+    "cases": 484,
+    "sanitized": true,
+    "sampler": "PASS synthetic forest sampler: 9599296 pixels, all13 masks, all alpha/weights, wraps/extreme origins, scroll, clipping, lower isolation; one setup allocation, zero frame allocations",
+    "leak_check": false,
+    "report_sha256": "5f72eef3ad1c8046672f97322095cf2045f7e9a6183d95c4ad922ba54d09d7bb"
+  },
+  "binding": {
+    "assertions": 34417,
+    "sanitizers": [
+      "address",
+      "undefined"
+    ],
+    "processes": 7,
+    "negative_controls_rejected": 9,
+    "report_sha256": "18a2fd3561a7f472e118480a3fd13ff657f9e6bc5a74ff114bbbc6eb90b576f0",
+    "mutation_report_sha256": "c101799c53eec9fe669abb359078909a23b55d05bc2e361dad1aaf60cf5fd6c0"
+  },
+  "actual": {
+    "simulation_ticks": [
+      0,
+      4020
+    ],
+    "rendered_window": [
+      3960,
+      4020
+    ],
+    "isolated_scroll": [
+      3993,
+      4020
+    ],
+    "isolated_scroll_frames": 28,
+    "native2x": [
+      640,
+      400
+    ],
+    "native4x": [
+      1280,
+      800
+    ],
+    "state_rows_exact_per_case": 4021,
+    "normal_changed_pixels_4020": 122,
+    "isolated_changed_pixels_4020": 28916,
+    "outside_tile_and_HUD_changes": 0,
+    "pixel_change_scope": "17 complete source forest tile rectangles",
+    "actual_ids": [
+      211,
+      213,
+      215,
+      221,
+      222,
+      231,
+      232,
+      233,
+      234
+    ],
+    "static_only_ids": [
+      212,
+      223,
+      224,
+      225
+    ],
+    "normal_visibility": "heavily occluded by original foreground",
+    "private_authoring_scope": "original survival, only Layer2/3 row blits hidden; actors/UI retained; private hooks excluded from production",
+    "review": "all28 ordered native2x frames plus native4x4020; source/state/RGBA hashes and scroll-locked patch verified"
+  },
+  "runtime_fallback": {
+    "status": "both passed",
+    "cases": [
+      "missing sidecar",
+      "missing211 HDA"
+    ],
+    "all13_original": true,
+    "all61_RGB_rows_exact_to_preforest": true,
+    "all4021_state_rows_exact": true,
+    "other_HD_families_retained": true,
+    "report_sha256": "db03155190bddeb88ae74f2043a93bd2e788b32473c8f528d7fac2381b622b4b"
+  },
+  "timing": {
+    "metric": "Monotonic whole game-process elapsed, from immediately before Popen until process exit; includes startup, input loading, fast-forward, rendering and diagnostic log writes. Excludes postrun validation and artifact writing. This is diagnostic elapsed, not FPS or isolated renderer time.",
+    "pairs": 3,
+    "baseline_seconds": [
+      7.503011923,
+      7.800196932,
+      7.825885527
+    ],
+    "candidate_seconds": [
+      7.733138863,
+      8.357166443,
+      8.278665563
+    ],
+    "paired_candidate_to_baseline_ratios": [
+      1.0306712747309599,
+      1.071404544764127,
+      1.0578567159509131
+    ],
+    "median_paired_ratio": 1.0578567159509131,
+    "scope": "Only this diagnostic61rendered-frame isolated window. Startup/fast-forward included; not gameplay FPS, a full-level benchmark, or a statistical significance claim."
+  },
+  "memory": {
+    "atlas_mask_payload_bytes": 3311616,
+    "additional13_RGBA_cache_bytes": 2236416,
+    "combined_image_MiB": 5.291015625,
+    "per_frame_allocations": 0,
+    "additional_phase_tables": 0
+  },
+  "reviews": {
+    "author_receipt_sha256": "807c15f0bfd65a4b9879b4fe470246e496ae85bb25f50e6c2c4eb4a097b67245",
+    "source_review_sha256": "d2bc6ae01a4afda72e78001d9242054eee07cfe86f09a1498dff8dcbd972e31c",
+    "implementation_review_sha256": "e36f0339917790cb26c628abbc6bc448a5cc66f2126dd0bba9444f3329e30422"
+  },
+  "limits": [
+    "Four forest IDs static-phase/source coverage only",
+    "Normal4020 visibility heavily occluded; isolated preview is explicitly private diagnostic",
+    "96x112 material remains periodic",
+    "Windows build/runtime untested; pre-existing explicit project source-list gaps",
+    "LSan unavailable under ptrace; ASan/UBSan passed",
+    "FNV is nonsecurity corruption detection, not authentication",
+    "Small2x2 wood is shallower than original",
+    "No full-game, ordinary survival, full-clear or FPS claim"
+  ]
+}

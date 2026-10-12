@@ -1,0 +1,327 @@
+{
+  "status": "source-compatible outer-frame authoring primitive, not an extracted full island",
+  "layout": [
+    [
+      211,
+      212,
+      213
+    ],
+    [
+      221,
+      222,
+      223
+    ],
+    [
+      231,
+      232,
+      233
+    ]
+  ],
+  "logical_size": [
+    72,
+    84
+  ],
+  "all12_cardinal_pairs_present": true,
+  "pair_evidence": [
+    {
+      "id": 211,
+      "side": "right",
+      "neighbor": 212,
+      "count": 8,
+      "example": [
+        6,
+        5,
+        6,
+        6
+      ]
+    },
+    {
+      "id": 211,
+      "side": "down",
+      "neighbor": 221,
+      "count": 10,
+      "example": [
+        6,
+        5,
+        7,
+        5
+      ]
+    },
+    {
+      "id": 212,
+      "side": "right",
+      "neighbor": 213,
+      "count": 10,
+      "example": [
+        6,
+        7,
+        6,
+        8
+      ]
+    },
+    {
+      "id": 212,
+      "side": "down",
+      "neighbor": 222,
+      "count": 29,
+      "example": [
+        6,
+        6,
+        7,
+        6
+      ]
+    },
+    {
+      "id": 213,
+      "side": "down",
+      "neighbor": 223,
+      "count": 6,
+      "example": [
+        19,
+        5,
+        20,
+        5
+      ]
+    },
+    {
+      "id": 221,
+      "side": "right",
+      "neighbor": 222,
+      "count": 25,
+      "example": [
+        0,
+        1,
+        0,
+        2
+      ]
+    },
+    {
+      "id": 221,
+      "side": "down",
+      "neighbor": 231,
+      "count": 12,
+      "example": [
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": 222,
+      "side": "right",
+      "neighbor": 223,
+      "count": 25,
+      "example": [
+        0,
+        5,
+        0,
+        6
+      ]
+    },
+    {
+      "id": 222,
+      "side": "down",
+      "neighbor": 232,
+      "count": 18,
+      "example": [
+        1,
+        4,
+        2,
+        4
+      ]
+    },
+    {
+      "id": 223,
+      "side": "down",
+      "neighbor": 233,
+      "count": 9,
+      "example": [
+        0,
+        6,
+        1,
+        6
+      ]
+    },
+    {
+      "id": 231,
+      "side": "right",
+      "neighbor": 232,
+      "count": 6,
+      "example": [
+        10,
+        5,
+        10,
+        6
+      ]
+    },
+    {
+      "id": 232,
+      "side": "right",
+      "neighbor": 233,
+      "count": 5,
+      "example": [
+        2,
+        4,
+        2,
+        5
+      ]
+    }
+  ],
+  "all4_internal_vertex_neighborhoods_present": true,
+  "vertex_evidence": [
+    {
+      "layout": [
+        [
+          211,
+          212
+        ],
+        [
+          221,
+          222
+        ]
+      ],
+      "source_top_left_witnesses": [
+        [
+          6,
+          5
+        ],
+        [
+          25,
+          7
+        ],
+        [
+          39,
+          3
+        ],
+        [
+          58,
+          10
+        ],
+        [
+          60,
+          8
+        ]
+      ]
+    },
+    {
+      "layout": [
+        [
+          212,
+          213
+        ],
+        [
+          222,
+          223
+        ]
+      ],
+      "source_top_left_witnesses": [
+        [
+          19,
+          4
+        ],
+        [
+          24,
+          11
+        ],
+        [
+          40,
+          9
+        ],
+        [
+          58,
+          11
+        ]
+      ]
+    },
+    {
+      "layout": [
+        [
+          221,
+          222
+        ],
+        [
+          231,
+          232
+        ]
+      ],
+      "source_top_left_witnesses": [
+        [
+          9,
+          5
+        ],
+        [
+          40,
+          3
+        ],
+        [
+          59,
+          3
+        ]
+      ]
+    },
+    {
+      "layout": [
+        [
+          222,
+          223
+        ],
+        [
+          232,
+          233
+        ]
+      ],
+      "source_top_left_witnesses": [
+        [
+          41,
+          9
+        ],
+        [
+          66,
+          9
+        ]
+      ]
+    }
+  ],
+  "full3x3_source_occurrences": [],
+  "still_requires": [
+    215,
+    224,
+    225,
+    234
+  ],
+  "front_connector_proposal": {
+    "open_canopy_y": [
+      0,
+      11
+    ],
+    "leaf_shadow_transition_y": [
+      12,
+      15
+    ],
+    "wood_shadow_y": [
+      16,
+      20
+    ],
+    "root_ground_foot_y": [
+      21,
+      27
+    ],
+    "warning": "Broad authoring bands, not rectangular masks. Normalize source-compatible lateral front connectors and preserve curved/diagonal exposure inside them."
+  },
+  "front_geometry": {
+    "231": "Left endcap with diagonal internal front exposure; ground at W and S, front connection at E. Some source wood rises inside around y5 before its lateral band.",
+    "232": "Lower/straighter front, wood/shadow mostly in lower half.",
+    "233": "Opposing diagonal endcap; ground at E and S, front connection at W. Internal face can rise high near the inner/right shoulder.",
+    "234": "Higher central front exposure than232, with compatible lateral connections; preserve as a distinct variant."
+  },
+  "not_proved_by_one_coherent3x3": [
+    "231 right233",
+    "232 right232",
+    "232 right234",
+    "234 right232",
+    "234 right234",
+    "other65-pair corner and side combinations"
+  ],
+  "style": "Retain approved v2 leaf clusters, shading and individual trunk appearance. Source geometry does not require source dither or bark copying."
+}

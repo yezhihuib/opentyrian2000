@@ -43,4 +43,24 @@ if manifest.get('plateau_cap_bundles'):
   assert (repo/'assets/hd/packs'/pack/FILENAME).read_bytes()==raw
   if a.output:(output/pack/FILENAME).write_bytes(raw)
   cap_count+=1
-print(json.dumps({'verified_pack_count':len(manifest['packs']),'verified_HDA_entries':checked,'verified_exact_source_pngs':len(payloads),'verified_material_sidecars':material_count,'verified_cap_sidecars':cap_count,'default_pack_counts':[manifest['packs'][manifest[k]]['count'] for k in ['default_preview_pack','default_debug_pack']],'rebuild_output':str(output) if a.output else None,'all_runtime_RGBA_and_header_bytes_exact':True},indent=2))
+forest_count=0
+if manifest.get('forest13_bundles'):
+ from forest13_bundle import build_bundle as build_forest, render_header as forest_header, FILENAME as FOREST_FILE, POLICY
+ raw,records,receipt=build_forest(repo/'assets/hd/artwork/forest13-world-canopy-v1')
+ family=manifest['forest13_bundles']
+ assert family['schema']=='forest13-coupled-world-canopy-v1' and family['bundle']==receipt
+ assert (repo/'src/forest13_bundle_index.h').read_text()==forest_header(records,receipt)
+ assert set(family['packs'])=={manifest['default_preview_pack'],manifest['default_debug_pack']}
+ for pack,items in family['packs'].items():
+  assert pack in manifest['packs'] and set(items)=={FOREST_FILE,'forest13.policy'}
+  for source in receipt['sources']:
+   entry=manifest['packs'][pack]['files'][f'terrain-shapesz-{source["id"]}-8.hda']
+   assert entry['sha256']==source['hda_sha256']
+  policy_path=repo/'assets/hd/packs'/pack/'forest13.policy'
+  assert policy_path.is_file() and not policy_path.is_symlink()
+  for name,data in [(FOREST_FILE,raw),('forest13.policy',POLICY)]:
+   assert items[name]=={'sha256':sha(data),'bytes':len(data)}
+   assert (repo/'assets/hd/packs'/pack/name).read_bytes()==data
+   if a.output:(output/pack/name).write_bytes(data)
+   forest_count+=1
+print(json.dumps({'verified_pack_count':len(manifest['packs']),'verified_HDA_entries':checked,'verified_exact_source_pngs':len(payloads),'verified_material_sidecars':material_count,'verified_cap_sidecars':cap_count,'verified_forest_sidecars_and_policies':forest_count,'default_pack_counts':[manifest['packs'][manifest[k]]['count'] for k in ['default_preview_pack','default_debug_pack']],'rebuild_output':str(output) if a.output else None,'all_runtime_RGBA_and_header_bytes_exact':True},indent=2))

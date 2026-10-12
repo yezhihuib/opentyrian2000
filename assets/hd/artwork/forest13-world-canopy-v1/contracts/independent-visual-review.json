@@ -1,0 +1,56 @@
+{
+  "reviewed_at_utc": "2026-10-12T10:38:30Z",
+  "scope": "Read-only offline visual review and independent in-memory checks. No generation, art edits, captures, gameplay or checkout writes. This receipt is the only new artifact.",
+  "verdict": "Bounded continuous-material and visible-seam pass. Source front-height treatment and the complete compact-notch witness remain limited as noted below; not full geometry or runtime acceptance.",
+  "viewed": [
+    "context-0-native2x.png", "context-1-native2x.png", "context-2-native2x.png", "context-3-native2x.png",
+    "all65-pairs-native2x.png",
+    "phases-215-native2x.png", "phases-224-native2x.png", "phases-225-native2x.png", "phases-234-native2x.png",
+    "phases-222-native2x.png", "phases-231-native2x.png", "phases-232-native2x.png", "phases-233-native2x.png",
+    "../probe/context-182.png"
+  ],
+  "visual_findings": {
+    "continuous_canopy": "The world-phase field carries across adjacent cells without an obvious 24x28 one-crown-per-tile beat. Broad clumps and dark gaps survive at native2x. The existing larger-scale directional texture is material character, not a newly observed tile seam.",
+    "first17": "Connected stepped island; readable brown front wood, no obvious internal straight cut, grass strip, or tile-sized hole. The three internal69 cells and the southeast66 retain their proper roles.",
+    "small2x2": "The same211/213/231/233 forms one connected small grove rather than four tree stamps. However its woody front is visibly shallower than the source: foliage hangs lower over231/233, reducing the exposed stem band. It is readable but source-height preservation should not be described as fully settled.",
+    "wide_inward_context": "The opposing224/225 corners preserve the open ground bowl and stepped side/front transitions; no wood bridge closes that opening.",
+    "all65_pairs": "No conspicuous hard seam or disconnected wood cut found at the supplied actual example phases.234 remains a distinct front variation; its joins do not require repainting the frozen canopy material.",
+    "compact_notch_limit": "The exact four-cell guard [225,224;233,231] is not assembled in the supplied context0..3. Its pair pieces show separation, and numeric lower-edge checks below rule out a wood bridge at the233/231 common edge. A full four-cell visual witness is still missing.",
+    "phase_sheet_limit": "All65-pairs-native2x shows65 actual example-phase pairs, not all1040 pair-phase combinations. The per-ID contacts separately show16 phases for each ID. This review does not claim visual inspection of all1040 combinations."
+  },
+  "independent_checks": {
+    "frozen_atlas_rgba_sha256": "e71a1b179c85b177cb8e094703f7376c88e4aacc99f2cae5837d6757cd4b57f7",
+    "atlas_matches_requested_frozen_material": true,
+    "tile_phase_compositions_checked": 208,
+    "alpha_errors": 0,
+    "zero_mask_base_preservation_errors": 0,
+    "accepted69_and66_RGBA_match_current_accepted_source_pngs": true,
+    "context0_through3_candidate_panels_exactly_match_current_bases_masks_world_phase_and_grass": true,
+    "protected_actual69_66_cell_counts_context0_through3": [25, 12, 15, 93],
+    "compact_notch_lower233_right_edge": "Mask zero along all224 samples; base equals accepted69 at matching local coordinate.",
+    "compact_notch_lower231_left_edge": "Mask zero along all224 samples; base equals accepted69 at matching local coordinate.",
+    "corner_mask_minima": {"215": 36, "224": 13, "225": 13},
+    "corner_mask_limit": "These corner masks use softened residual canopy rather than a zero-weight ground core. Exact actual69/66 tiles are verified; this is not certification that every forest-side exposed-ground pixel equals69."
+  },
+  "next_bounded_decisions": [
+    "Decide whether the shorter visible231/233 trunk band in the small grove adequately preserves source height before freezing canonical geometry.",
+    "Include the compact225/224 over233/231 notch as one visual witness before full topology sign-off.",
+    "Do not interpret offline compositing or this review as natural runtime visibility; the real scene remains heavily occluded."
+  ],
+  "addendum_2026_10_12_1042_utc": {
+    "status": "Compact-notch visual witness reviewed and passed; prior missing-witness limitation is closed.",
+    "viewed": "context-4-native2x.png",
+    "actual_map_context": "Rows26..29, columns7..10; central [225,224;233,231] at row27,column8.",
+    "visual_finding": "The narrow ground opening remains visibly open between the two forest toes. Opposing canopy corners and separated brown trunk ends are coherent; no wood bridge, cliff face or hard junction seam is apparent at native2x.",
+    "composition_check": "Independently recomposed in memory from the current fixed bases/masks, accepted69 and frozen atlas world coordinates; supplied candidate panel matches exactly.",
+    "all_phase_audit_read": "all-phase-audit.json reports pass for208 tile-phase cases,1040 pair-phase cases and2733 assertions. This is numeric sampling/protected-byte evidence, not a claim that all1040 pairs were visually inspected.",
+    "visual_pair_scope_unchanged": "65 pairs at their actual example phases, plus the supplied16-phase per-ID sheets and actual context witnesses.",
+    "root_decision": "Parent reports that root accepted contexts0/1/2 and requested freeze after the shallower small2x2 wood observation was explicitly disclosed. That visual observation remains documented; no new art edit is requested by this addendum.",
+    "latest_bounded_verdict": "Offline material, visible-seam and shown topology witnesses pass, with the disclosed source-height difference accepted by root. Runtime visibility and perceptual inspection of every pair-phase combination remain outside this review."
+  },
+  "inputs_read": [
+    "phase-probe-report.json", "../qa_probe.py", "../build_probe.py", "../compose.cpp",
+    "../../forest13-readonly/author-planning-review/canonical-topology-contract.json",
+    "../../forest13-canopy-atlas-v1/wrap/material-freeze.json"
+  ]
+}

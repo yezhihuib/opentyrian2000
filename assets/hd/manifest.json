@@ -1,7 +1,7 @@
 {
   "schema": "opentyrian-accepted-hd-runtime-v1",
   "baseline_branch": "hd-render-prototype",
-  "status": "Finite regular Missile Launcher31\u201333 heads added; accepted terrain materials and original gameplay retained",
+  "status": "Finite forest13 continuous canopy accepted in bounded normal/isolated diagnostics; prior materials and gameplay retained",
   "default_preview_pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
   "default_debug_pack": "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
   "packs": {
@@ -29154,7 +29154,7 @@
       }
     },
     "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 340,
+      "count": 353,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -33575,11 +33575,180 @@
           ],
           "source_png": "assets/hd/source/bullet-33-8-1d7272a227d8.png",
           "source_png_sha256": "ca3de4581dc4cab5078c73f5a69e04b1633e7512b3cc70b9ab1789206c3b88e4"
+        },
+        "terrain-shapesz-211-8.hda": {
+          "sha256": "a3c6d4a7598858da1b5a1499b4cd15c94a30b7e1dc9139e46a696091ae2bc777",
+          "header_u32": [
+            2010211,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-211-8-a3c6d4a75988.png",
+          "source_png_sha256": "60c6b2df44d519465b935c6d5545742779ee1ff57e7fee3233e0d109a0c9c3a5"
+        },
+        "terrain-shapesz-212-8.hda": {
+          "sha256": "38fe4d8e79837952906a4e1da7f92173369036b5f23245e206c214bd9d9ebffa",
+          "header_u32": [
+            2010212,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-212-8-38fe4d8e7983.png",
+          "source_png_sha256": "368ee2cd298eed23a65eda4b8e349923e37823cd304a2d9e42b4c33ff83ce999"
+        },
+        "terrain-shapesz-213-8.hda": {
+          "sha256": "366258b3c9c852f728131663b8af38286c89ded4808fef727c3e623f83c43ab5",
+          "header_u32": [
+            2010213,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-213-8-366258b3c9c8.png",
+          "source_png_sha256": "4ff11f7e40e6f35ad015c6f10782363e5a972b302c45cf2fdbc4791d518ff17a"
+        },
+        "terrain-shapesz-215-8.hda": {
+          "sha256": "e3d4d913b086dab1b948a150994a8d250b07993f6a2a6580966cafd3a56cb0a3",
+          "header_u32": [
+            2010215,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-215-8-e3d4d913b086.png",
+          "source_png_sha256": "6ff99feb6fb477825b59f50733629c6050416cb049e31ae80b94309f1674c5d8"
+        },
+        "terrain-shapesz-221-8.hda": {
+          "sha256": "bf50a08c93877205a32a09b7e993591ddf37a3352ebd9a46814889e89fdb3db8",
+          "header_u32": [
+            2010221,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-221-8-bf50a08c9387.png",
+          "source_png_sha256": "199e14138a8122de0e065c08216c26f1d6a36f62ebab417a0872050aa4cb21be"
+        },
+        "terrain-shapesz-222-8.hda": {
+          "sha256": "361de8697bcf88b282f3ed04c7be3e9e1af0945ca9eccdd81a5cc6378514b7da",
+          "header_u32": [
+            2010222,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-222-8-361de8697bcf.png",
+          "source_png_sha256": "dc47a84135b83b1e8741bb0199aa186b4483099dce00543f6e796f77fdaec76d"
+        },
+        "terrain-shapesz-223-8.hda": {
+          "sha256": "533b896c30a9eb981975371fcc01cd8d9d2d29f299f945ae0d0c49ead75cd72d",
+          "header_u32": [
+            2010223,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-223-8-533b896c30a9.png",
+          "source_png_sha256": "b544fd504a9baa44c57f6ea35e7e39d8a61fbd13788a1aee86926786c141b372"
+        },
+        "terrain-shapesz-224-8.hda": {
+          "sha256": "a1df0b15915444541a3543f4620a306fdbc8f996ec38bd5c94c53a4ab4600f22",
+          "header_u32": [
+            2010224,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-224-8-a1df0b159154.png",
+          "source_png_sha256": "6ff99feb6fb477825b59f50733629c6050416cb049e31ae80b94309f1674c5d8"
+        },
+        "terrain-shapesz-225-8.hda": {
+          "sha256": "49cf8da848f65a08c73357d57ec6c91278286e4aced9e54818d8c8cb511a136f",
+          "header_u32": [
+            2010225,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-225-8-49cf8da848f6.png",
+          "source_png_sha256": "6ff99feb6fb477825b59f50733629c6050416cb049e31ae80b94309f1674c5d8"
+        },
+        "terrain-shapesz-231-8.hda": {
+          "sha256": "ac644d33a1361e7039fbc9a34f57dbeef7eb2ce8bee56e977ab4f77e72ea24e3",
+          "header_u32": [
+            2010231,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-231-8-ac644d33a136.png",
+          "source_png_sha256": "91aa486d15423a95771d22f16ef0e67c9cc0537497efc28133c4bdd3e0718ff7"
+        },
+        "terrain-shapesz-232-8.hda": {
+          "sha256": "ac0ef9811f772c0cfbaa70c335ac521c225a005c1638a966e25fb51132e5bc27",
+          "header_u32": [
+            2010232,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-232-8-ac0ef9811f77.png",
+          "source_png_sha256": "d4ea99bda688485de61726975655ff9d9a99008f9e4ff1e5544543e0f07cf6f0"
+        },
+        "terrain-shapesz-233-8.hda": {
+          "sha256": "65fe33e449a9354af51270d3c76462d7f9268ceee7b760f971dc7485281fa07a",
+          "header_u32": [
+            2010233,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-233-8-65fe33e449a9.png",
+          "source_png_sha256": "5690fe4c63868a81c7b50f4c1b3a78bf61683a25820ae844e67dc2f9ad4496d4"
+        },
+        "terrain-shapesz-234-8.hda": {
+          "sha256": "ecd64e9d80fe3e4e0cbcc8c3bcc856c3dc285e20b6e26229fd32f08dc12596de",
+          "header_u32": [
+            2010234,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-234-8-ecd64e9d80fe.png",
+          "source_png_sha256": "f17f9306dedd620a90b338443d39a7832654617fc12062c5060becb9afdc9a1c"
         }
       }
     },
     "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 344,
+      "count": 357,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -38052,6 +38221,175 @@
           ],
           "source_png": "assets/hd/source/bullet-33-8-1d7272a227d8.png",
           "source_png_sha256": "ca3de4581dc4cab5078c73f5a69e04b1633e7512b3cc70b9ab1789206c3b88e4"
+        },
+        "terrain-shapesz-211-8.hda": {
+          "sha256": "a3c6d4a7598858da1b5a1499b4cd15c94a30b7e1dc9139e46a696091ae2bc777",
+          "header_u32": [
+            2010211,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-211-8-a3c6d4a75988.png",
+          "source_png_sha256": "60c6b2df44d519465b935c6d5545742779ee1ff57e7fee3233e0d109a0c9c3a5"
+        },
+        "terrain-shapesz-212-8.hda": {
+          "sha256": "38fe4d8e79837952906a4e1da7f92173369036b5f23245e206c214bd9d9ebffa",
+          "header_u32": [
+            2010212,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-212-8-38fe4d8e7983.png",
+          "source_png_sha256": "368ee2cd298eed23a65eda4b8e349923e37823cd304a2d9e42b4c33ff83ce999"
+        },
+        "terrain-shapesz-213-8.hda": {
+          "sha256": "366258b3c9c852f728131663b8af38286c89ded4808fef727c3e623f83c43ab5",
+          "header_u32": [
+            2010213,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-213-8-366258b3c9c8.png",
+          "source_png_sha256": "4ff11f7e40e6f35ad015c6f10782363e5a972b302c45cf2fdbc4791d518ff17a"
+        },
+        "terrain-shapesz-215-8.hda": {
+          "sha256": "e3d4d913b086dab1b948a150994a8d250b07993f6a2a6580966cafd3a56cb0a3",
+          "header_u32": [
+            2010215,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-215-8-e3d4d913b086.png",
+          "source_png_sha256": "6ff99feb6fb477825b59f50733629c6050416cb049e31ae80b94309f1674c5d8"
+        },
+        "terrain-shapesz-221-8.hda": {
+          "sha256": "bf50a08c93877205a32a09b7e993591ddf37a3352ebd9a46814889e89fdb3db8",
+          "header_u32": [
+            2010221,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-221-8-bf50a08c9387.png",
+          "source_png_sha256": "199e14138a8122de0e065c08216c26f1d6a36f62ebab417a0872050aa4cb21be"
+        },
+        "terrain-shapesz-222-8.hda": {
+          "sha256": "361de8697bcf88b282f3ed04c7be3e9e1af0945ca9eccdd81a5cc6378514b7da",
+          "header_u32": [
+            2010222,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-222-8-361de8697bcf.png",
+          "source_png_sha256": "dc47a84135b83b1e8741bb0199aa186b4483099dce00543f6e796f77fdaec76d"
+        },
+        "terrain-shapesz-223-8.hda": {
+          "sha256": "533b896c30a9eb981975371fcc01cd8d9d2d29f299f945ae0d0c49ead75cd72d",
+          "header_u32": [
+            2010223,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-223-8-533b896c30a9.png",
+          "source_png_sha256": "b544fd504a9baa44c57f6ea35e7e39d8a61fbd13788a1aee86926786c141b372"
+        },
+        "terrain-shapesz-224-8.hda": {
+          "sha256": "a1df0b15915444541a3543f4620a306fdbc8f996ec38bd5c94c53a4ab4600f22",
+          "header_u32": [
+            2010224,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-224-8-a1df0b159154.png",
+          "source_png_sha256": "6ff99feb6fb477825b59f50733629c6050416cb049e31ae80b94309f1674c5d8"
+        },
+        "terrain-shapesz-225-8.hda": {
+          "sha256": "49cf8da848f65a08c73357d57ec6c91278286e4aced9e54818d8c8cb511a136f",
+          "header_u32": [
+            2010225,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-225-8-49cf8da848f6.png",
+          "source_png_sha256": "6ff99feb6fb477825b59f50733629c6050416cb049e31ae80b94309f1674c5d8"
+        },
+        "terrain-shapesz-231-8.hda": {
+          "sha256": "ac644d33a1361e7039fbc9a34f57dbeef7eb2ce8bee56e977ab4f77e72ea24e3",
+          "header_u32": [
+            2010231,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-231-8-ac644d33a136.png",
+          "source_png_sha256": "91aa486d15423a95771d22f16ef0e67c9cc0537497efc28133c4bdd3e0718ff7"
+        },
+        "terrain-shapesz-232-8.hda": {
+          "sha256": "ac0ef9811f772c0cfbaa70c335ac521c225a005c1638a966e25fb51132e5bc27",
+          "header_u32": [
+            2010232,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-232-8-ac0ef9811f77.png",
+          "source_png_sha256": "d4ea99bda688485de61726975655ff9d9a99008f9e4ff1e5544543e0f07cf6f0"
+        },
+        "terrain-shapesz-233-8.hda": {
+          "sha256": "65fe33e449a9354af51270d3c76462d7f9268ceee7b760f971dc7485281fa07a",
+          "header_u32": [
+            2010233,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-233-8-65fe33e449a9.png",
+          "source_png_sha256": "5690fe4c63868a81c7b50f4c1b3a78bf61683a25820ae844e67dc2f9ad4496d4"
+        },
+        "terrain-shapesz-234-8.hda": {
+          "sha256": "ecd64e9d80fe3e4e0cbcc8c3bcc856c3dc285e20b6e26229fd32f08dc12596de",
+          "header_u32": [
+            2010234,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-234-8-ecd64e9d80fe.png",
+          "source_png_sha256": "f17f9306dedd620a90b338443d39a7832654617fc12062c5060becb9afdc9a1c"
         }
       }
     }
@@ -40408,6 +40746,84 @@
       "sha256": "ca3de4581dc4cab5078c73f5a69e04b1633e7512b3cc70b9ab1789206c3b88e4",
       "RGBA_sha256": "973a2a9dc6fc820d41611a0787abca705c2cdf844b84e823dacd1b8c1754b785",
       "note": "Generated static physical Missile Launcher bank8 head; source offset, original smoke/shadows and collision children retained"
+    },
+    "a3c6d4a7598858da1b5a1499b4cd15c94a30b7e1dc9139e46a696091ae2bc777": {
+      "path": "assets/hd/source/terrain-shapesz-211-8-a3c6d4a75988.png",
+      "sha256": "60c6b2df44d519465b935c6d5545742779ee1ff57e7fee3233e0d109a0c9c3a5",
+      "RGBA_sha256": "95617c86a0a55f8184fcfdc22f339dc315469487125cf68cbc7227bfc3ea8389",
+      "note": "Generated fixed forest silhouette/trunks; coupled world canopy requires forest13.policy and validated sidecar"
+    },
+    "38fe4d8e79837952906a4e1da7f92173369036b5f23245e206c214bd9d9ebffa": {
+      "path": "assets/hd/source/terrain-shapesz-212-8-38fe4d8e7983.png",
+      "sha256": "368ee2cd298eed23a65eda4b8e349923e37823cd304a2d9e42b4c33ff83ce999",
+      "RGBA_sha256": "d3a20203dfc0d1bc0313ece7cc918c437a5a41cc4150458467ab275fc35abed2",
+      "note": "Generated fixed forest silhouette/trunks; coupled world canopy requires forest13.policy and validated sidecar"
+    },
+    "366258b3c9c852f728131663b8af38286c89ded4808fef727c3e623f83c43ab5": {
+      "path": "assets/hd/source/terrain-shapesz-213-8-366258b3c9c8.png",
+      "sha256": "4ff11f7e40e6f35ad015c6f10782363e5a972b302c45cf2fdbc4791d518ff17a",
+      "RGBA_sha256": "cbe5ef9a194c4877fd7dcf0e59ac920201fd227458812a27b979006a8628c407",
+      "note": "Generated fixed forest silhouette/trunks; coupled world canopy requires forest13.policy and validated sidecar"
+    },
+    "e3d4d913b086dab1b948a150994a8d250b07993f6a2a6580966cafd3a56cb0a3": {
+      "path": "assets/hd/source/terrain-shapesz-215-8-e3d4d913b086.png",
+      "sha256": "6ff99feb6fb477825b59f50733629c6050416cb049e31ae80b94309f1674c5d8",
+      "RGBA_sha256": "a7882d23c6882616cbdbc491d4d3a291d6d41af8bcc0df385ce3807040a95d3b",
+      "note": "Generated fixed forest silhouette/trunks; coupled world canopy requires forest13.policy and validated sidecar"
+    },
+    "bf50a08c93877205a32a09b7e993591ddf37a3352ebd9a46814889e89fdb3db8": {
+      "path": "assets/hd/source/terrain-shapesz-221-8-bf50a08c9387.png",
+      "sha256": "199e14138a8122de0e065c08216c26f1d6a36f62ebab417a0872050aa4cb21be",
+      "RGBA_sha256": "3d2307421b93f1563e6b9bdb356e1caa677a7dcaf4c1419489da91129eb84a67",
+      "note": "Generated fixed forest silhouette/trunks; coupled world canopy requires forest13.policy and validated sidecar"
+    },
+    "361de8697bcf88b282f3ed04c7be3e9e1af0945ca9eccdd81a5cc6378514b7da": {
+      "path": "assets/hd/source/terrain-shapesz-222-8-361de8697bcf.png",
+      "sha256": "dc47a84135b83b1e8741bb0199aa186b4483099dce00543f6e796f77fdaec76d",
+      "RGBA_sha256": "4a3677e39d427adb3e0f0d439a8ae50634438fd5b776f64dd233a129bcf83279",
+      "note": "Generated fixed forest silhouette/trunks; coupled world canopy requires forest13.policy and validated sidecar"
+    },
+    "533b896c30a9eb981975371fcc01cd8d9d2d29f299f945ae0d0c49ead75cd72d": {
+      "path": "assets/hd/source/terrain-shapesz-223-8-533b896c30a9.png",
+      "sha256": "b544fd504a9baa44c57f6ea35e7e39d8a61fbd13788a1aee86926786c141b372",
+      "RGBA_sha256": "dfe4cd1386fd1b1e77ce633d77527f5a31f1c8454a2dab268bf18813915a226b",
+      "note": "Generated fixed forest silhouette/trunks; coupled world canopy requires forest13.policy and validated sidecar"
+    },
+    "a1df0b15915444541a3543f4620a306fdbc8f996ec38bd5c94c53a4ab4600f22": {
+      "path": "assets/hd/source/terrain-shapesz-224-8-a1df0b159154.png",
+      "sha256": "6ff99feb6fb477825b59f50733629c6050416cb049e31ae80b94309f1674c5d8",
+      "RGBA_sha256": "a7882d23c6882616cbdbc491d4d3a291d6d41af8bcc0df385ce3807040a95d3b",
+      "note": "Generated fixed forest silhouette/trunks; coupled world canopy requires forest13.policy and validated sidecar"
+    },
+    "49cf8da848f65a08c73357d57ec6c91278286e4aced9e54818d8c8cb511a136f": {
+      "path": "assets/hd/source/terrain-shapesz-225-8-49cf8da848f6.png",
+      "sha256": "6ff99feb6fb477825b59f50733629c6050416cb049e31ae80b94309f1674c5d8",
+      "RGBA_sha256": "a7882d23c6882616cbdbc491d4d3a291d6d41af8bcc0df385ce3807040a95d3b",
+      "note": "Generated fixed forest silhouette/trunks; coupled world canopy requires forest13.policy and validated sidecar"
+    },
+    "ac644d33a1361e7039fbc9a34f57dbeef7eb2ce8bee56e977ab4f77e72ea24e3": {
+      "path": "assets/hd/source/terrain-shapesz-231-8-ac644d33a136.png",
+      "sha256": "91aa486d15423a95771d22f16ef0e67c9cc0537497efc28133c4bdd3e0718ff7",
+      "RGBA_sha256": "90bbd3c69374aa88a24374b4f514997abcbb76250f6393ae8e2e7b50b73f868e",
+      "note": "Generated fixed forest silhouette/trunks; coupled world canopy requires forest13.policy and validated sidecar"
+    },
+    "ac0ef9811f772c0cfbaa70c335ac521c225a005c1638a966e25fb51132e5bc27": {
+      "path": "assets/hd/source/terrain-shapesz-232-8-ac0ef9811f77.png",
+      "sha256": "d4ea99bda688485de61726975655ff9d9a99008f9e4ff1e5544543e0f07cf6f0",
+      "RGBA_sha256": "82dfbc7df37570a9c1a7137e547eb09c30c9d283bbd283faa62c7613d3af5cef",
+      "note": "Generated fixed forest silhouette/trunks; coupled world canopy requires forest13.policy and validated sidecar"
+    },
+    "65fe33e449a9354af51270d3c76462d7f9268ceee7b760f971dc7485281fa07a": {
+      "path": "assets/hd/source/terrain-shapesz-233-8-65fe33e449a9.png",
+      "sha256": "5690fe4c63868a81c7b50f4c1b3a78bf61683a25820ae844e67dc2f9ad4496d4",
+      "RGBA_sha256": "77a0fce6e6ba3ab7b0d058b314395f42d42ecbf6c7413d54796f87785ffcd9d4",
+      "note": "Generated fixed forest silhouette/trunks; coupled world canopy requires forest13.policy and validated sidecar"
+    },
+    "ecd64e9d80fe3e4e0cbcc8c3bcc856c3dc285e20b6e26229fd32f08dc12596de": {
+      "path": "assets/hd/source/terrain-shapesz-234-8-ecd64e9d80fe.png",
+      "sha256": "f17f9306dedd620a90b338443d39a7832654617fc12062c5060becb9afdc9a1c",
+      "RGBA_sha256": "20574498262ec86bcb233561c1624eb6632cfa8915027eb8398adf54d31e5e5b",
+      "note": "Generated fixed forest silhouette/trunks; coupled world canopy requires forest13.policy and validated sidecar"
     }
   },
   "no_original_game_data": true,
@@ -41228,5 +41644,125 @@
       ],
       "checksum_purpose": "accidental corruption only; not authentication"
     }
+  },
+  "forest13_bundles": {
+    "schema": "forest13-coupled-world-canopy-v1",
+    "packs": {
+      "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
+        "forest13-world-material.fcan": {
+          "sha256": "f25f6d3b096a9607f28c6c5165ee1004625d7f256c8eba7daccb53368f59e455",
+          "bytes": 3311804
+        },
+        "forest13.policy": {
+          "sha256": "9c40db8510a02a0ba46fb33d13b245143544e0b6bcbbc0031f0e7fca51714509",
+          "bytes": 29
+        }
+      },
+      "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
+        "forest13-world-material.fcan": {
+          "sha256": "f25f6d3b096a9607f28c6c5165ee1004625d7f256c8eba7daccb53368f59e455",
+          "bytes": 3311804
+        },
+        "forest13.policy": {
+          "sha256": "9c40db8510a02a0ba46fb33d13b245143544e0b6bcbbc0031f0e7fca51714509",
+          "bytes": 29
+        }
+      }
+    },
+    "bundle": {
+      "filename": "forest13-world-material.fcan",
+      "bytes": 3311804,
+      "header_bytes": 188,
+      "payload_bytes": 3311616,
+      "sha256": "f25f6d3b096a9607f28c6c5165ee1004625d7f256c8eba7daccb53368f59e455",
+      "fnv64": "201c962b9ca58c20",
+      "inventory_sha256": "e734d037291c47d9b47ffddc42a0b1079d9918aaf3297187cb0236dbbe6ce6ea",
+      "composition_sha256": "69b44242c9bcb001a46dc6ccc25d6a5fcbcd43824874217149dd8a3575f22015",
+      "atlas_rgba_sha256": "e71a1b179c85b177cb8e094703f7376c88e4aacc99f2cae5837d6757cd4b57f7",
+      "sources": [
+        {
+          "id": 211,
+          "hda_sha256": "a3c6d4a7598858da1b5a1499b4cd15c94a30b7e1dc9139e46a696091ae2bc777",
+          "rgba_sha256": "95617c86a0a55f8184fcfdc22f339dc315469487125cf68cbc7227bfc3ea8389",
+          "mask_sha256": "f93daa8e85bcc01fe87f828ab4e19758e110583b4f7270fc737bf6966defb16d"
+        },
+        {
+          "id": 212,
+          "hda_sha256": "38fe4d8e79837952906a4e1da7f92173369036b5f23245e206c214bd9d9ebffa",
+          "rgba_sha256": "d3a20203dfc0d1bc0313ece7cc918c437a5a41cc4150458467ab275fc35abed2",
+          "mask_sha256": "d0afb715eb144a2b0eafa9510a23821f451c263559d639357e69128c19a8a101"
+        },
+        {
+          "id": 213,
+          "hda_sha256": "366258b3c9c852f728131663b8af38286c89ded4808fef727c3e623f83c43ab5",
+          "rgba_sha256": "cbe5ef9a194c4877fd7dcf0e59ac920201fd227458812a27b979006a8628c407",
+          "mask_sha256": "4586cd85208c66c8b8574b620be987cb741716a3fcd7931eb61c782bcb881835"
+        },
+        {
+          "id": 215,
+          "hda_sha256": "e3d4d913b086dab1b948a150994a8d250b07993f6a2a6580966cafd3a56cb0a3",
+          "rgba_sha256": "a7882d23c6882616cbdbc491d4d3a291d6d41af8bcc0df385ce3807040a95d3b",
+          "mask_sha256": "7759449ffcb96d54a6178631fd88372c57e7af77953816d1f8b31a7a24c76594"
+        },
+        {
+          "id": 221,
+          "hda_sha256": "bf50a08c93877205a32a09b7e993591ddf37a3352ebd9a46814889e89fdb3db8",
+          "rgba_sha256": "3d2307421b93f1563e6b9bdb356e1caa677a7dcaf4c1419489da91129eb84a67",
+          "mask_sha256": "5f7047e19de4989bea8600f589c8f1325f448c743f61b5796afab6812eba6f65"
+        },
+        {
+          "id": 222,
+          "hda_sha256": "361de8697bcf88b282f3ed04c7be3e9e1af0945ca9eccdd81a5cc6378514b7da",
+          "rgba_sha256": "4a3677e39d427adb3e0f0d439a8ae50634438fd5b776f64dd233a129bcf83279",
+          "mask_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25"
+        },
+        {
+          "id": 223,
+          "hda_sha256": "533b896c30a9eb981975371fcc01cd8d9d2d29f299f945ae0d0c49ead75cd72d",
+          "rgba_sha256": "dfe4cd1386fd1b1e77ce633d77527f5a31f1c8454a2dab268bf18813915a226b",
+          "mask_sha256": "058e96a3d54dba762acf5b0e45763b8f1c8b833e589bbcbf1b1429eba6202da0"
+        },
+        {
+          "id": 224,
+          "hda_sha256": "a1df0b15915444541a3543f4620a306fdbc8f996ec38bd5c94c53a4ab4600f22",
+          "rgba_sha256": "a7882d23c6882616cbdbc491d4d3a291d6d41af8bcc0df385ce3807040a95d3b",
+          "mask_sha256": "37d47350ac4e8381484aec6192f1fced90840397d422573bf26215766fbedb7b"
+        },
+        {
+          "id": 225,
+          "hda_sha256": "49cf8da848f65a08c73357d57ec6c91278286e4aced9e54818d8c8cb511a136f",
+          "rgba_sha256": "a7882d23c6882616cbdbc491d4d3a291d6d41af8bcc0df385ce3807040a95d3b",
+          "mask_sha256": "317588abccdf10ba0bb7eb085db25f7e0d2f0c837035981ef8aaf11c21507bde"
+        },
+        {
+          "id": 231,
+          "hda_sha256": "ac644d33a1361e7039fbc9a34f57dbeef7eb2ce8bee56e977ab4f77e72ea24e3",
+          "rgba_sha256": "90bbd3c69374aa88a24374b4f514997abcbb76250f6393ae8e2e7b50b73f868e",
+          "mask_sha256": "46624bbb4e8f1fe61d73d06b4f31d239bb92b193e5e6a8cceb9910c2603e82e8"
+        },
+        {
+          "id": 232,
+          "hda_sha256": "ac0ef9811f772c0cfbaa70c335ac521c225a005c1638a966e25fb51132e5bc27",
+          "rgba_sha256": "82dfbc7df37570a9c1a7137e547eb09c30c9d283bbd283faa62c7613d3af5cef",
+          "mask_sha256": "aa2a63198deaf76405ad781caedc663026bae5f7c22c51b8b04b4b08f06b020e"
+        },
+        {
+          "id": 233,
+          "hda_sha256": "65fe33e449a9354af51270d3c76462d7f9268ceee7b760f971dc7485281fa07a",
+          "rgba_sha256": "77a0fce6e6ba3ab7b0d058b314395f42d42ecbf6c7413d54796f87785ffcd9d4",
+          "mask_sha256": "d2d4f49cb93a1b7086e5a3b8137e83a4c419963052af60e4f91d2be6c903511c"
+        },
+        {
+          "id": 234,
+          "hda_sha256": "ecd64e9d80fe3e4e0cbcc8c3bcc856c3dc285e20b6e26229fd32f08dc12596de",
+          "rgba_sha256": "20574498262ec86bcb233561c1624eb6632cfa8915027eb8398adf54d31e5e5b",
+          "mask_sha256": "53442cb9839194396c030245381c32876417db28624b1b793d1f3f6f7020d1de"
+        }
+      ],
+      "checksum_purpose": "accidental corruption only; not authentication",
+      "policy": "absent declaration retains selected-pack art; present invalid declaration or required input disables only forest13 to indexed original"
+    },
+    "scope": "13 finite shapesZ Layer1 NORMAL source identities; original silhouette/trunk geometry and all other materials retained",
+    "runtime_status": "passed bounded original-state, fallback and native2x/4x review; four IDs static-only"
   }
 }

@@ -1,0 +1,55 @@
+{
+  "generated_only": true,
+  "original_game_pixels_bundled": false,
+  "registered_sources_are_authoritative_rebuild_inputs": true,
+  "full_raw_imagegen_masters_retained_outside_package": [
+    {
+      "path": "tyrian-background-redraw/forest13-canopy-atlas-v1/generated-continuous-canopy.png",
+      "sha256": "31eee370934681362a13f8a4502a117c52af81ba5bccbdd940982310bf5bc0fb"
+    },
+    {
+      "path": "tyrian-background-redraw/forest13-canopy-atlas-v1/wrap/generated-seam-repair.png",
+      "sha256": "7a34e49b647a50f38054a4cd3d4048c6685f2617da09c198e40764c999516302"
+    },
+    {
+      "path": "tyrian-background-redraw/forest13-canonical-v2/outer-frame/generated-frame.png",
+      "sha256": "0eb65c27866f2b16a8966174ecde42b15f505ccdb814eb5cd85417349ac9787c"
+    }
+  ],
+  "atlas_registration": "Lanczos768x896; half-offset384,448; generated seam palette factors recorded in wrap receipt; localized24HDcore+40HDfade cross; inverse offset",
+  "frame_registration": "Generated fullframe to504x672 centered576x672; affine y*.95+32. Foliage-only palette calibration inside compose_bases.cpp.",
+  "front234_lineage": {
+    "source": "tyrian-background-redraw/forest13-style-pilot-v2/offline-forest-pilot.png",
+    "source_rgba_sha256": "9017e40133bcb5f88e1d44a0e07049895d266e483a052b3d4518239ecd721d4b",
+    "crop_xywh": [
+      384,
+      896,
+      192,
+      224
+    ]
+  },
+  "mask_recipe_source": "tyrian-background-redraw/forest13-canonical-v2/build_probe.py",
+  "mask_recipe_sha256": "216ef8d334950d41f13bb64c4fe70384fc05f4eaee9ce51c5cf761334dfcfb18",
+  "mask_intent": "Authored semantic canopy eligibility; not original dither/pixel-index masks. Frozen initial masks then shared fixed connector composition.",
+  "frame_palette_factors_foliage_only": [
+    0.68039836,
+    0.87371704,
+    0.61345
+  ],
+  "authored_mask_design": {
+    "alpha_support_threshold": 160,
+    "edge_eligibility_distance_HD": "smoothstep((distance_to_support_boundary-2)/14)",
+    "front_canopy_height_logical": {
+      "231": "5+9*smoothstep((x-7)/17)",
+      "232": 14,
+      "233": "14-8*smoothstep(x/17)",
+      "234": "14-4*sin(pi*x/24)^2"
+    },
+    "front_weight": "1-smoothstep((y-height+2)/4), with bounded brown-wood zero guard belowy5",
+    "corner215": "NE ellipse8x7; inherited222 connectors remain255",
+    "corner224": "SW ellipse10x12; inherited222 connectors remain255",
+    "corner225": "SE ellipse10x18; inherited222 connectors remain255",
+    "shared_connector_processing": "source/compose_bases.cpp copies consecutive halves of coherent source interfaces over32HDpixels with smooth transition, not opposing endpoint equality",
+    "mask_scope": "semantic world canopy eligibility; all fixed wood/ground lives in finalbase whereweight0"
+  }
+}

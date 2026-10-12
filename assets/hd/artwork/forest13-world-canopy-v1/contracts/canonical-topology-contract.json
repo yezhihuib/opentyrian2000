@@ -1,0 +1,1203 @@
+{
+  "scope": "Read-only semantic contract; no masks, original pixel dumps, generated art or runtime claims.",
+  "source_verification": {
+    "shapesz_sha256": "3ecc9b59c82e8e7d9c91889aac7d337ca28a59519c4970e256250e4603a9b248",
+    "all13_source_indices_match_closure": true,
+    "source69_indices_match_retained_manifest": true
+  },
+  "style_reference": "tyrian-background-redraw/forest13-style-pilot-v2/offline-forest-pilot.png",
+  "exactness": "Preserve pair membership, orientation, corner endpoints, shared canonical connector data and fixed grass pixels. Opposing RGB or material labels need not be equal at a legitimate boundary turn.",
+  "corner_basis": 222,
+  "corner_zones": {
+    "215": {
+      "inclusive_xy_box": [
+        16,
+        0,
+        23,
+        6
+      ],
+      "shared_full_edges": [
+        "left",
+        "down"
+      ],
+      "shared_partial_edges": {
+        "up": [
+          0,
+          15
+        ],
+        "right": [
+          7,
+          27
+        ]
+      }
+    },
+    "224": {
+      "inclusive_xy_box": [
+        0,
+        16,
+        9,
+        27
+      ],
+      "shared_full_edges": [
+        "up",
+        "right"
+      ],
+      "shared_partial_edges": {
+        "left": [
+          0,
+          15
+        ],
+        "down": [
+          10,
+          23
+        ]
+      }
+    },
+    "225": {
+      "inclusive_xy_box": [
+        14,
+        10,
+        23,
+        27
+      ],
+      "shared_full_edges": [
+        "up",
+        "left"
+      ],
+      "shared_partial_edges": {
+        "right": [
+          0,
+          9
+        ],
+        "down": [
+          0,
+          13
+        ]
+      }
+    }
+  },
+  "corner_mask_warning": "Boxes bound original differences only. Author smooth broad semantic corners; do not use source changed-pixel or palette thresholds as masks.",
+  "forest69_edge_profiles": [
+    {
+      "id": 211,
+      "side": "left",
+      "neighbor": 69,
+      "count": 17,
+      "example": [
+        6,
+        5,
+        6,
+        4
+      ],
+      "same_local_source69_equal_samples": 28,
+      "edge_sample_count": 28,
+      "semantic_contract": "ground_or_ground_shadow_use_fixed69_phase",
+      "sustained_woody_crossing_required": false,
+      "isolated_source_wood_sample": null
+    },
+    {
+      "id": 211,
+      "side": "up",
+      "neighbor": 69,
+      "count": 17,
+      "example": [
+        6,
+        5,
+        5,
+        5
+      ],
+      "same_local_source69_equal_samples": 24,
+      "edge_sample_count": 24,
+      "semantic_contract": "ground_or_ground_shadow_use_fixed69_phase",
+      "sustained_woody_crossing_required": false,
+      "isolated_source_wood_sample": null
+    },
+    {
+      "id": 212,
+      "side": "up",
+      "neighbor": 69,
+      "count": 29,
+      "example": [
+        6,
+        6,
+        5,
+        6
+      ],
+      "same_local_source69_equal_samples": 24,
+      "edge_sample_count": 24,
+      "semantic_contract": "ground_or_ground_shadow_use_fixed69_phase",
+      "sustained_woody_crossing_required": false,
+      "isolated_source_wood_sample": null
+    },
+    {
+      "id": 213,
+      "side": "right",
+      "neighbor": 69,
+      "count": 27,
+      "example": [
+        6,
+        8,
+        6,
+        9
+      ],
+      "same_local_source69_equal_samples": 28,
+      "edge_sample_count": 28,
+      "semantic_contract": "ground_or_ground_shadow_use_fixed69_phase",
+      "sustained_woody_crossing_required": false,
+      "isolated_source_wood_sample": null
+    },
+    {
+      "id": 213,
+      "side": "up",
+      "neighbor": 69,
+      "count": 28,
+      "example": [
+        6,
+        8,
+        5,
+        8
+      ],
+      "same_local_source69_equal_samples": 24,
+      "edge_sample_count": 24,
+      "semantic_contract": "ground_or_ground_shadow_use_fixed69_phase",
+      "sustained_woody_crossing_required": false,
+      "isolated_source_wood_sample": null
+    },
+    {
+      "id": 215,
+      "side": "up",
+      "neighbor": 69,
+      "count": 1,
+      "example": [
+        187,
+        7,
+        186,
+        7
+      ],
+      "same_local_source69_equal_samples": 5,
+      "edge_sample_count": 24,
+      "semantic_contract": "canopy_shadow_onset_or_continuation_no_ground_frame",
+      "sustained_woody_crossing_required": false,
+      "isolated_source_wood_sample": null
+    },
+    {
+      "id": 221,
+      "side": "left",
+      "neighbor": 69,
+      "count": 29,
+      "example": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "same_local_source69_equal_samples": 28,
+      "edge_sample_count": 28,
+      "semantic_contract": "ground_or_ground_shadow_use_fixed69_phase",
+      "sustained_woody_crossing_required": false,
+      "isolated_source_wood_sample": null
+    },
+    {
+      "id": 223,
+      "side": "right",
+      "neighbor": 69,
+      "count": 25,
+      "example": [
+        0,
+        6,
+        0,
+        7
+      ],
+      "same_local_source69_equal_samples": 27,
+      "edge_sample_count": 28,
+      "semantic_contract": "ground_or_ground_shadow_use_fixed69_phase",
+      "sustained_woody_crossing_required": false,
+      "isolated_source_wood_sample": null
+    },
+    {
+      "id": 231,
+      "side": "down",
+      "neighbor": 69,
+      "count": 24,
+      "example": [
+        1,
+        1,
+        2,
+        1
+      ],
+      "same_local_source69_equal_samples": 24,
+      "edge_sample_count": 24,
+      "semantic_contract": "ground_or_ground_shadow_use_fixed69_phase",
+      "sustained_woody_crossing_required": false,
+      "isolated_source_wood_sample": null
+    },
+    {
+      "id": 231,
+      "side": "left",
+      "neighbor": 69,
+      "count": 23,
+      "example": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "same_local_source69_equal_samples": 28,
+      "edge_sample_count": 28,
+      "semantic_contract": "ground_or_ground_shadow_use_fixed69_phase",
+      "sustained_woody_crossing_required": false,
+      "isolated_source_wood_sample": null
+    },
+    {
+      "id": 232,
+      "side": "down",
+      "neighbor": 69,
+      "count": 18,
+      "example": [
+        2,
+        4,
+        3,
+        4
+      ],
+      "same_local_source69_equal_samples": 13,
+      "edge_sample_count": 24,
+      "semantic_contract": "ground_or_ground_shadow_use_fixed69_phase",
+      "sustained_woody_crossing_required": false,
+      "isolated_source_wood_sample": 0
+    },
+    {
+      "id": 233,
+      "side": "down",
+      "neighbor": 69,
+      "count": 33,
+      "example": [
+        1,
+        6,
+        2,
+        6
+      ],
+      "same_local_source69_equal_samples": 24,
+      "edge_sample_count": 24,
+      "semantic_contract": "ground_or_ground_shadow_use_fixed69_phase",
+      "sustained_woody_crossing_required": false,
+      "isolated_source_wood_sample": null
+    },
+    {
+      "id": 233,
+      "side": "right",
+      "neighbor": 69,
+      "count": 32,
+      "example": [
+        1,
+        6,
+        1,
+        7
+      ],
+      "same_local_source69_equal_samples": 28,
+      "edge_sample_count": 28,
+      "semantic_contract": "ground_or_ground_shadow_use_fixed69_phase",
+      "sustained_woody_crossing_required": false,
+      "isolated_source_wood_sample": null
+    },
+    {
+      "id": 234,
+      "side": "down",
+      "neighbor": 69,
+      "count": 6,
+      "example": [
+        164,
+        7,
+        165,
+        7
+      ],
+      "same_local_source69_equal_samples": 14,
+      "edge_sample_count": 24,
+      "semantic_contract": "ground_or_ground_shadow_use_fixed69_phase",
+      "sustained_woody_crossing_required": false,
+      "isolated_source_wood_sample": null
+    }
+  ],
+  "forward_internal_pair_count": 65,
+  "forward_internal_pairs": [
+    {
+      "id": 211,
+      "side": "down",
+      "neighbor": 215,
+      "count": 1,
+      "example": [
+        24,
+        9,
+        25,
+        9
+      ],
+      "compatibility_class": "intentional_upper_ground_canopy_turn"
+    },
+    {
+      "id": 211,
+      "side": "down",
+      "neighbor": 221,
+      "count": 10,
+      "example": [
+        6,
+        5,
+        7,
+        5
+      ],
+      "compatibility_class": "left_ground_shoulder_connector"
+    },
+    {
+      "id": 211,
+      "side": "down",
+      "neighbor": 222,
+      "count": 5,
+      "example": [
+        19,
+        2,
+        20,
+        2
+      ],
+      "compatibility_class": "intentional_upper_ground_canopy_turn"
+    },
+    {
+      "id": 211,
+      "side": "down",
+      "neighbor": 231,
+      "count": 1,
+      "example": [
+        183,
+        8,
+        184,
+        8
+      ],
+      "compatibility_class": "left_ground_shoulder_connector"
+    },
+    {
+      "id": 211,
+      "side": "right",
+      "neighbor": 212,
+      "count": 8,
+      "example": [
+        6,
+        5,
+        6,
+        6
+      ],
+      "compatibility_class": "upper_apron_to_canopy_connector"
+    },
+    {
+      "id": 211,
+      "side": "right",
+      "neighbor": 213,
+      "count": 2,
+      "example": [
+        54,
+        2,
+        54,
+        3
+      ],
+      "compatibility_class": "upper_apron_to_canopy_connector"
+    },
+    {
+      "id": 211,
+      "side": "right",
+      "neighbor": 215,
+      "count": 1,
+      "example": [
+        187,
+        6,
+        187,
+        7
+      ],
+      "compatibility_class": "intentional_upper_ground_canopy_turn"
+    },
+    {
+      "id": 211,
+      "side": "right",
+      "neighbor": 222,
+      "count": 6,
+      "example": [
+        20,
+        1,
+        20,
+        2
+      ],
+      "compatibility_class": "intentional_upper_ground_canopy_turn"
+    },
+    {
+      "id": 212,
+      "side": "down",
+      "neighbor": 222,
+      "count": 29,
+      "example": [
+        6,
+        6,
+        7,
+        6
+      ],
+      "compatibility_class": "continuous_canopy_connector"
+    },
+    {
+      "id": 212,
+      "side": "right",
+      "neighbor": 212,
+      "count": 15,
+      "example": [
+        6,
+        6,
+        6,
+        7
+      ],
+      "compatibility_class": "upper_apron_to_canopy_connector"
+    },
+    {
+      "id": 212,
+      "side": "right",
+      "neighbor": 213,
+      "count": 10,
+      "example": [
+        6,
+        7,
+        6,
+        8
+      ],
+      "compatibility_class": "upper_apron_to_canopy_connector"
+    },
+    {
+      "id": 212,
+      "side": "right",
+      "neighbor": 215,
+      "count": 1,
+      "example": [
+        25,
+        8,
+        25,
+        9
+      ],
+      "compatibility_class": "intentional_upper_ground_canopy_turn"
+    },
+    {
+      "id": 212,
+      "side": "right",
+      "neighbor": 222,
+      "count": 2,
+      "example": [
+        60,
+        9,
+        60,
+        10
+      ],
+      "compatibility_class": "intentional_upper_ground_canopy_turn"
+    },
+    {
+      "id": 213,
+      "side": "down",
+      "neighbor": 215,
+      "count": 18,
+      "example": [
+        6,
+        8,
+        7,
+        8
+      ],
+      "compatibility_class": "right_shoulder_or_northeast_elbow"
+    },
+    {
+      "id": 213,
+      "side": "down",
+      "neighbor": 222,
+      "count": 1,
+      "example": [
+        160,
+        5,
+        161,
+        5
+      ],
+      "compatibility_class": "intentional_upper_ground_canopy_turn"
+    },
+    {
+      "id": 213,
+      "side": "down",
+      "neighbor": 223,
+      "count": 6,
+      "example": [
+        19,
+        5,
+        20,
+        5
+      ],
+      "compatibility_class": "right_shoulder_or_northeast_elbow"
+    },
+    {
+      "id": 213,
+      "side": "down",
+      "neighbor": 233,
+      "count": 3,
+      "example": [
+        8,
+        10,
+        9,
+        10
+      ],
+      "compatibility_class": "right_shoulder_or_northeast_elbow"
+    },
+    {
+      "id": 215,
+      "side": "down",
+      "neighbor": 222,
+      "count": 20,
+      "example": [
+        7,
+        8,
+        8,
+        8
+      ],
+      "compatibility_class": "continuous_canopy_connector"
+    },
+    {
+      "id": 215,
+      "side": "down",
+      "neighbor": 225,
+      "count": 1,
+      "example": [
+        8,
+        9,
+        9,
+        9
+      ],
+      "compatibility_class": "canopy_into_inward_corner"
+    },
+    {
+      "id": 215,
+      "side": "down",
+      "neighbor": 234,
+      "count": 1,
+      "example": [
+        189,
+        9,
+        190,
+        9
+      ],
+      "compatibility_class": "canopy_into_front_band"
+    },
+    {
+      "id": 215,
+      "side": "right",
+      "neighbor": 212,
+      "count": 4,
+      "example": [
+        40,
+        7,
+        40,
+        8
+      ],
+      "compatibility_class": "upper_apron_to_canopy_connector"
+    },
+    {
+      "id": 215,
+      "side": "right",
+      "neighbor": 213,
+      "count": 16,
+      "example": [
+        7,
+        8,
+        7,
+        9
+      ],
+      "compatibility_class": "upper_apron_to_canopy_connector"
+    },
+    {
+      "id": 215,
+      "side": "right",
+      "neighbor": 222,
+      "count": 1,
+      "example": [
+        25,
+        9,
+        25,
+        10
+      ],
+      "compatibility_class": "intentional_upper_ground_canopy_turn"
+    },
+    {
+      "id": 221,
+      "side": "down",
+      "neighbor": 221,
+      "count": 14,
+      "example": [
+        7,
+        5,
+        8,
+        5
+      ],
+      "compatibility_class": "left_ground_shoulder_connector"
+    },
+    {
+      "id": 221,
+      "side": "down",
+      "neighbor": 222,
+      "count": 3,
+      "example": [
+        59,
+        10,
+        60,
+        10
+      ],
+      "compatibility_class": "intentional_upper_ground_canopy_turn"
+    },
+    {
+      "id": 221,
+      "side": "down",
+      "neighbor": 231,
+      "count": 12,
+      "example": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "compatibility_class": "left_ground_shoulder_connector"
+    },
+    {
+      "id": 221,
+      "side": "right",
+      "neighbor": 215,
+      "count": 1,
+      "example": [
+        55,
+        2,
+        55,
+        3
+      ],
+      "compatibility_class": "continuous_canopy_connector"
+    },
+    {
+      "id": 221,
+      "side": "right",
+      "neighbor": 222,
+      "count": 25,
+      "example": [
+        0,
+        1,
+        0,
+        2
+      ],
+      "compatibility_class": "continuous_canopy_connector"
+    },
+    {
+      "id": 221,
+      "side": "right",
+      "neighbor": 225,
+      "count": 3,
+      "example": [
+        2,
+        2,
+        2,
+        3
+      ],
+      "compatibility_class": "continuous_canopy_connector"
+    },
+    {
+      "id": 222,
+      "side": "down",
+      "neighbor": 222,
+      "count": 212,
+      "example": [
+        0,
+        3,
+        1,
+        3
+      ],
+      "compatibility_class": "continuous_canopy_connector"
+    },
+    {
+      "id": 222,
+      "side": "down",
+      "neighbor": 224,
+      "count": 15,
+      "example": [
+        0,
+        2,
+        1,
+        2
+      ],
+      "compatibility_class": "canopy_into_inward_corner"
+    },
+    {
+      "id": 222,
+      "side": "down",
+      "neighbor": 225,
+      "count": 24,
+      "example": [
+        0,
+        5,
+        1,
+        5
+      ],
+      "compatibility_class": "canopy_into_inward_corner"
+    },
+    {
+      "id": 222,
+      "side": "down",
+      "neighbor": 232,
+      "count": 18,
+      "example": [
+        1,
+        4,
+        2,
+        4
+      ],
+      "compatibility_class": "canopy_into_front_band"
+    },
+    {
+      "id": 222,
+      "side": "down",
+      "neighbor": 234,
+      "count": 5,
+      "example": [
+        163,
+        7,
+        164,
+        7
+      ],
+      "compatibility_class": "canopy_into_front_band"
+    },
+    {
+      "id": 222,
+      "side": "right",
+      "neighbor": 212,
+      "count": 1,
+      "example": [
+        161,
+        5,
+        161,
+        6
+      ],
+      "compatibility_class": "intentional_upper_ground_canopy_turn"
+    },
+    {
+      "id": 222,
+      "side": "right",
+      "neighbor": 215,
+      "count": 19,
+      "example": [
+        7,
+        7,
+        7,
+        8
+      ],
+      "compatibility_class": "continuous_canopy_connector"
+    },
+    {
+      "id": 222,
+      "side": "right",
+      "neighbor": 222,
+      "count": 189,
+      "example": [
+        0,
+        2,
+        0,
+        3
+      ],
+      "compatibility_class": "continuous_canopy_connector"
+    },
+    {
+      "id": 222,
+      "side": "right",
+      "neighbor": 223,
+      "count": 25,
+      "example": [
+        0,
+        5,
+        0,
+        6
+      ],
+      "compatibility_class": "continuous_canopy_connector"
+    },
+    {
+      "id": 222,
+      "side": "right",
+      "neighbor": 225,
+      "count": 19,
+      "example": [
+        1,
+        4,
+        1,
+        5
+      ],
+      "compatibility_class": "continuous_canopy_connector"
+    },
+    {
+      "id": 223,
+      "side": "down",
+      "neighbor": 215,
+      "count": 2,
+      "example": [
+        157,
+        2,
+        158,
+        2
+      ],
+      "compatibility_class": "right_shoulder_or_northeast_elbow"
+    },
+    {
+      "id": 223,
+      "side": "down",
+      "neighbor": 223,
+      "count": 14,
+      "example": [
+        25,
+        12,
+        26,
+        12
+      ],
+      "compatibility_class": "right_shoulder_or_northeast_elbow"
+    },
+    {
+      "id": 223,
+      "side": "down",
+      "neighbor": 233,
+      "count": 9,
+      "example": [
+        0,
+        6,
+        1,
+        6
+      ],
+      "compatibility_class": "right_shoulder_or_northeast_elbow"
+    },
+    {
+      "id": 224,
+      "side": "down",
+      "neighbor": 221,
+      "count": 4,
+      "example": [
+        1,
+        2,
+        2,
+        2
+      ],
+      "compatibility_class": "southwest_corner_to_left_side_or_front_end"
+    },
+    {
+      "id": 224,
+      "side": "down",
+      "neighbor": 231,
+      "count": 11,
+      "example": [
+        10,
+        7,
+        11,
+        7
+      ],
+      "compatibility_class": "southwest_corner_to_left_side_or_front_end"
+    },
+    {
+      "id": 224,
+      "side": "right",
+      "neighbor": 222,
+      "count": 12,
+      "example": [
+        1,
+        2,
+        1,
+        3
+      ],
+      "compatibility_class": "continuous_canopy_connector"
+    },
+    {
+      "id": 224,
+      "side": "right",
+      "neighbor": 225,
+      "count": 2,
+      "example": [
+        10,
+        7,
+        10,
+        8
+      ],
+      "compatibility_class": "connected_narrow_canopy_lobe"
+    },
+    {
+      "id": 225,
+      "side": "down",
+      "neighbor": 223,
+      "count": 4,
+      "example": [
+        64,
+        10,
+        65,
+        10
+      ],
+      "compatibility_class": "southeast_corner_to_right_side_or_front_end"
+    },
+    {
+      "id": 225,
+      "side": "down",
+      "neighbor": 233,
+      "count": 21,
+      "example": [
+        1,
+        5,
+        2,
+        5
+      ],
+      "compatibility_class": "southeast_corner_to_right_side_or_front_end"
+    },
+    {
+      "id": 225,
+      "side": "right",
+      "neighbor": 224,
+      "count": 1,
+      "example": [
+        27,
+        8,
+        27,
+        9
+      ],
+      "compatibility_class": "paired_inward_ground_notch"
+    },
+    {
+      "id": 225,
+      "side": "right",
+      "neighbor": 232,
+      "count": 3,
+      "example": [
+        2,
+        3,
+        2,
+        4
+      ],
+      "compatibility_class": "southeast_inward_front_turn"
+    },
+    {
+      "id": 225,
+      "side": "right",
+      "neighbor": 233,
+      "count": 20,
+      "example": [
+        1,
+        5,
+        1,
+        6
+      ],
+      "compatibility_class": "southeast_inward_front_turn"
+    },
+    {
+      "id": 225,
+      "side": "right",
+      "neighbor": 234,
+      "count": 1,
+      "example": [
+        164,
+        6,
+        164,
+        7
+      ],
+      "compatibility_class": "southeast_inward_front_turn"
+    },
+    {
+      "id": 231,
+      "side": "right",
+      "neighbor": 224,
+      "count": 9,
+      "example": [
+        1,
+        1,
+        1,
+        2
+      ],
+      "compatibility_class": "southwest_inward_front_turn"
+    },
+    {
+      "id": 231,
+      "side": "right",
+      "neighbor": 232,
+      "count": 6,
+      "example": [
+        10,
+        5,
+        10,
+        6
+      ],
+      "compatibility_class": "continuous_front_canopy_wood_shadow"
+    },
+    {
+      "id": 231,
+      "side": "right",
+      "neighbor": 233,
+      "count": 6,
+      "example": [
+        3,
+        2,
+        3,
+        3
+      ],
+      "compatibility_class": "continuous_front_canopy_wood_shadow"
+    },
+    {
+      "id": 231,
+      "side": "right",
+      "neighbor": 234,
+      "count": 2,
+      "example": [
+        180,
+        10,
+        180,
+        11
+      ],
+      "compatibility_class": "continuous_front_canopy_wood_shadow"
+    },
+    {
+      "id": 232,
+      "side": "right",
+      "neighbor": 224,
+      "count": 3,
+      "example": [
+        10,
+        6,
+        10,
+        7
+      ],
+      "compatibility_class": "southwest_inward_front_turn"
+    },
+    {
+      "id": 232,
+      "side": "right",
+      "neighbor": 232,
+      "count": 7,
+      "example": [
+        41,
+        4,
+        41,
+        5
+      ],
+      "compatibility_class": "continuous_front_canopy_wood_shadow"
+    },
+    {
+      "id": 232,
+      "side": "right",
+      "neighbor": 233,
+      "count": 5,
+      "example": [
+        2,
+        4,
+        2,
+        5
+      ],
+      "compatibility_class": "continuous_front_canopy_wood_shadow"
+    },
+    {
+      "id": 232,
+      "side": "right",
+      "neighbor": 234,
+      "count": 2,
+      "example": [
+        164,
+        8,
+        164,
+        9
+      ],
+      "compatibility_class": "continuous_front_canopy_wood_shadow"
+    },
+    {
+      "id": 233,
+      "side": "right",
+      "neighbor": 231,
+      "count": 1,
+      "example": [
+        28,
+        8,
+        28,
+        9
+      ],
+      "compatibility_class": "ground_notch_between_front_endcaps"
+    },
+    {
+      "id": 234,
+      "side": "right",
+      "neighbor": 224,
+      "count": 2,
+      "example": [
+        164,
+        9,
+        164,
+        10
+      ],
+      "compatibility_class": "southwest_inward_front_turn"
+    },
+    {
+      "id": 234,
+      "side": "right",
+      "neighbor": 232,
+      "count": 2,
+      "example": [
+        164,
+        7,
+        164,
+        8
+      ],
+      "compatibility_class": "continuous_front_canopy_wood_shadow"
+    },
+    {
+      "id": 234,
+      "side": "right",
+      "neighbor": 233,
+      "count": 1,
+      "example": [
+        190,
+        9,
+        190,
+        10
+      ],
+      "compatibility_class": "continuous_front_canopy_wood_shadow"
+    },
+    {
+      "id": 234,
+      "side": "right",
+      "neighbor": 234,
+      "count": 1,
+      "example": [
+        180,
+        11,
+        180,
+        12
+      ],
+      "compatibility_class": "continuous_front_canopy_wood_shadow"
+    }
+  ],
+  "diagonal66_guard": [
+    {
+      "id": 233,
+      "side": "lower-right",
+      "neighbor": 66,
+      "count": 1,
+      "example": [
+        190,
+        10,
+        191,
+        11
+      ]
+    }
+  ],
+  "notch_guard": {
+    "upper_row": [
+      225,
+      224
+    ],
+    "lower_row": [
+      233,
+      231
+    ],
+    "example_upper_positions": [
+      [
+        27,
+        8
+      ],
+      [
+        27,
+        9
+      ]
+    ],
+    "constraint": "Maintain a narrow ground notch; do not join233 and231 with wood."
+  }
+}

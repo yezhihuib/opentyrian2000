@@ -1,0 +1,90 @@
+{
+  "schema": "forest13-all-phase-audit-v1",
+  "status": "pass offline sampling and protected-byte audit; visual acceptance separate",
+  "ids": [
+    211,
+    212,
+    213,
+    215,
+    221,
+    222,
+    223,
+    224,
+    225,
+    231,
+    232,
+    233,
+    234
+  ],
+  "phases_per_id": 16,
+  "tile_phase_cases": 208,
+  "pair_phase_cases": 1040,
+  "assertions": 2733,
+  "phase_rgba_stream_sha256": "eab2ab9f023fa2cfd7bf87b3857bc95aee415da014980316fa07eb4b3f160afd",
+  "pair_rgba_stream_sha256": "cd5ec593c49c8dc0b12beafef92d193b8462c9df03ad48bd205f6c6be0b89f18",
+  "all_opacity255": true,
+  "all_weight0_pixels_equal_fixed_base": true,
+  "all_weight255_pixels_equal_continuous_world_atlas": true,
+  "adjacent_tile_phase_is_consecutive_world_sampling": true,
+  "corner_full_canopy_connectors_exact": true,
+  "accepted69_ground_facing_outer_samples_exact": [
+    [
+      211,
+      "left"
+    ],
+    [
+      211,
+      "up"
+    ],
+    [
+      212,
+      "up"
+    ],
+    [
+      213,
+      "right"
+    ],
+    [
+      213,
+      "up"
+    ],
+    [
+      221,
+      "left"
+    ],
+    [
+      223,
+      "right"
+    ],
+    [
+      231,
+      "down"
+    ],
+    [
+      231,
+      "left"
+    ],
+    [
+      232,
+      "down"
+    ],
+    [
+      233,
+      "down"
+    ],
+    [
+      233,
+      "right"
+    ],
+    [
+      234,
+      "down"
+    ]
+  ],
+  "source215N_canopy_exception_preserved": true,
+  "limitations": [
+    "Static proof only, not runtime visibility.",
+    "Pair proof verifies material registration and protected bytes, not automatic perceptual seam absence.",
+    "Atlas world period is96x112logical; it is not nonrepeating."
+  ]
+}
