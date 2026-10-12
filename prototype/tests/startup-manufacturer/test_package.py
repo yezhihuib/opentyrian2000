@@ -94,6 +94,37 @@ FROZEN_GAMEPLAY_ADDITIONS.update({'terrain-shapesz-161-8.hda': {'sha256': 'b8f9e
                            'source_png_sha256': '88242ad2a6c2c251abb5cb4bdde791b9ae5ff1d37f78e1ee352d6d0b922b23ac'}})
 
 
+# Exact seven-member bank2 append; no previous gameplay pin is relaxed.
+FROZEN_GAMEPLAY_ADDITIONS.update({'enemy-newsh4-153-8.hda': {'sha256': 'd89711791d4266a106687b27f9e8ad4010fc31b4a870418761d7f48237f3825a',
+                            'header_u32': [1020153, 8, 24, 28, 6, 7],
+                            'source_png': 'assets/hd/source/enemy-newsh4-153-8-d89711791d42.png',
+                            'source_png_sha256': 'e16b6c5d799c13c2348407888ead1e1585eb7e2d92e22ff105b72ccec46653a5'},
+ 'enemy-newsh4-155-8.hda': {'sha256': '7f178909b53826e234ec07dca2b20b1626bc82238472df2720cbe87017741782',
+                            'header_u32': [1020155, 8, 24, 28, 6, 7],
+                            'source_png': 'assets/hd/source/enemy-newsh4-155-8-7f178909b538.png',
+                            'source_png_sha256': '84055718b9df6971fe53dacb2ab1b0c13897d4c4764842aa3a87e8bb20996ec6'},
+ 'enemy-newsh4-157-8.hda': {'sha256': '1c4773c33e549f389038e97fa9bcb8d7c422f5cb2d09cf19085560e3ed6ce124',
+                            'header_u32': [1020157, 8, 24, 28, 6, 7],
+                            'source_png': 'assets/hd/source/enemy-newsh4-157-8-1c4773c33e54.png',
+                            'source_png_sha256': 'a8a28b7381c86bf4580905ca802a49c71c7d85d61d7609bab36da96f357830ba'},
+ 'enemy-newsh4-159-8.hda': {'sha256': '860b79d9fd1b0e4d5efed8e81819ea33558f8c48d6f420923b11b007d1f011d9',
+                            'header_u32': [1020159, 8, 24, 28, 6, 7],
+                            'source_png': 'assets/hd/source/enemy-newsh4-159-8-860b79d9fd1b.png',
+                            'source_png_sha256': '0fc5eed45e9e9ba9dbd01279421db0473f4b51ddc38ec695fe164bef42e9deca'},
+ 'enemy-newsh4-191-8.hda': {'sha256': 'a2103ee891632976f7e9a365aa04841e4769e84079a2123cec77310be227cb5f',
+                            'header_u32': [1020191, 8, 24, 28, 6, 7],
+                            'source_png': 'assets/hd/source/enemy-newsh4-191-8-a2103ee89163.png',
+                            'source_png_sha256': '75be686f4730a2c2272d2040b24bcec665cd8eb2a8d647e5fc2d262a0c799703'},
+ 'enemy-newsh4-193-8.hda': {'sha256': '7774492351928616b1aced51b511d336ce183d84516998b6c47c65e51f2108a2',
+                            'header_u32': [1020193, 8, 24, 28, 6, 7],
+                            'source_png': 'assets/hd/source/enemy-newsh4-193-8-777449235192.png',
+                            'source_png_sha256': '7b35aff0d3f8d6282e961cc64db19615baa459fbb8187ab291984e53928c4675'},
+ 'enemy-newsh4-195-8.hda': {'sha256': '3324bbcf029c7c0aa0ca7cac8407f8634cb9c1614c9aff6bf8a0a71d866e6efd',
+                            'header_u32': [1020195, 8, 24, 28, 6, 7],
+                            'source_png': 'assets/hd/source/enemy-newsh4-195-8-3324bbcf029c.png',
+                            'source_png_sha256': '19cb7a37c8c6e52dbfe60459e33fa4c9c5ec137cd7a976492a749e3035c5f3c6'}})
+
+
 def digest(data):
     return hashlib.sha256(data).hexdigest()
 
@@ -186,7 +217,7 @@ class ManufacturerPackageTests(unittest.TestCase):
     def test_gameplay_manifest_guard_rejects_widening(self):
         original = self.manifest
         target = original['default_debug_pack']
-        for case in ('unknown-entry', 'old-entry-change', 'known-entry-change', 'partial-family', 'linked31-partial', 'linked31-change', 'wrong-count'):
+        for case in ('unknown-entry', 'old-entry-change', 'known-entry-change', 'partial-family', 'linked31-partial', 'linked31-change', 'newsh4-partial', 'newsh4-change', 'wrong-count'):
             with self.subTest(case=case):
                 changed = json.loads(json.dumps(original))
                 pack = changed['packs'][target]
@@ -204,6 +235,11 @@ class ManufacturerPackageTests(unittest.TestCase):
                 elif case == 'linked31-partial':
                     del pack['files']['enemy-newsh2-15-8.hda']
                     pack['count'] -= 1
+                elif case == 'newsh4-partial':
+                    del pack['files']['enemy-newsh4-153-8.hda']
+                    pack['count'] -= 1
+                elif case == 'newsh4-change':
+                    pack['files']['enemy-newsh4-155-8.hda']['sha256'] = '0' * 64
                 elif case == 'linked31-change':
                     pack['files']['terrain-shapesz-161-8.hda']['sha256'] = '0' * 64
                 else:
@@ -225,6 +261,7 @@ class ManufacturerPackageTests(unittest.TestCase):
         groups = [
             ('terrain_layer3_mechanical_round_inserts_v1', [190, 200], [367, 368], 'terrain-shapesz'),
             ('enemy_type4_fivepose_v1', [159, 161, 163, 165, 167], [369, 370, 371, 372, 373], 'enemy-newsh2'),
+            ('newsh4_long7_v1', [153, 155, 157, 159, 191, 193, 195], list(range(382, 389)), 'enemy-newsh4'),
         ]
         for family, ids, slots, prefix in groups:
             names = [f'{prefix}-{sprite_id}-8.hda' for sprite_id in ids]

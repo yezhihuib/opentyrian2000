@@ -1,0 +1,62 @@
+{
+  "status": "PASS_SOURCE_REVIEW_NO_BLOCKER_FOUND",
+  "reviewed_utc": "2026-10-12T20:20:30.165618+00:00",
+  "candidate": "20cae6e06f5165b901e606ee7277091b0c40a59a",
+  "baseline": "aba8650c3e33eb02a43a21530b8fba2965eb9e44",
+  "candidate_clean_before_and_after": true,
+  "main_observed_clean_at_baseline": true,
+  "findings": [],
+  "scope": {
+    "production_change": "Only src/render_mirror.c; 42 inserted and 3 replaced lines. Removing finite namespace, prefix, size and route additions reconstructs baseline exactly.",
+    "namespace": "newsh4 source bank 2 maps to namespace 102 only; bases 153,155,157,159,191,193,195; slots 382..388; identical numeric newsh2 and mirrored-right families remain isolated.",
+    "fallback": "All seven members preflight before first replacement. Guards require selected pack, density 8 and enemy scene bit. Complete-family failure/success remains cached for process asset lifetime; no 4x substitution.",
+    "malformed_handling": "Existing HDR1 reader checks magic, full header, all six fixed fields, exact payload length and EOF; size derives from fixed expected geometry, never untrusted file dimensions. Full RGBA stamps reject altered alpha/RGB. Every allocation position fails coherently.",
+    "source_registration": "Independent original-bank x/y RLE decode matches all seven alpha masks exactly; in-memory generated-master registration matches all source PNG and both default-pack HDA bytes, compiled FNV stamps and SHA pins. Anchor 6,7 and ordered quadrants 0,1,19,20 are unchanged.",
+    "regression": "All 200 prior actor/terrain binding records unchanged, 199 terrain registry capacity unchanged, material eligibility excludes namespace 102; no simulation, sampler, original indexed writes, HUD, startup runtime or filter-function edits."
+  },
+  "tests": {
+    "binding_sanitizers": [
+      "ASan",
+      "UBSan"
+    ],
+    "family_fixture_cases": 85,
+    "allocation_failure_positions": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "prior_binding_records": 200,
+    "new_binding_records": 7,
+    "startup_package_source_tests": 9,
+    "preservation_prior_files": 5621,
+    "unchanged_prior_asset_bytes": 542374044,
+    "independent_alpha_registration": true,
+    "normal_renderer_syntax": "passed; one identical pre-existing misleading-indentation warning in render_mirror_present",
+    "disabled_renderer_syntax": "passed"
+  },
+  "limits": [
+    "Source/loader evidence only: no game launch, captures, gameplay lifecycle or presented-pixel validation.",
+    "No Windows build/runtime or full new linked application build in this independent review.",
+    "LSan disabled by existing harness; ASan/UBSan ran, fixture resets free allocations.",
+    "Failed family preflight retains up to seven fixed 172032-byte buffers until process exit; bounded existing cache design, no retry growth.",
+    "FNV stamps are corruption guards, not malicious-content authentication.",
+    "Only test outputs, temporary source/package fixtures and this receipt were created; no integration edits, deployment/package installation, publication or art edits."
+  ],
+  "evidence": [
+    "renderer.diff",
+    "binding/receipt.json",
+    "binding.log",
+    "preservation.json",
+    "startup-package.log",
+    "independent-alpha-registration.json",
+    "renderer-syntax.log",
+    "renderer-disabled-syntax.log",
+    "candidate-status-before.txt",
+    "candidate-status-after.txt",
+    "main-status-observed.txt"
+  ]
+}

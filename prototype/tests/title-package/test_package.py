@@ -117,15 +117,63 @@ class TitlePackageTests(unittest.TestCase):
 
     def test_existing_manifest_fields_and_bytes_unchanged_from_baseline(self):
         baseline = subprocess.check_output(['git', 'show', 'aba8650:assets/hd/manifest.json'], cwd=ROOT)
-        actual = (ROOT / 'assets/hd/manifest.json').read_bytes()
-        self.assertTrue(actual.startswith(baseline[:-3] + b',\n'))
-        without_title = dict(self.manifest)
+        without_title = json.loads(json.dumps(self.manifest))
+        # A later finite bank2 family may coexist with this title checkpoint.
+        # Pin every added receipt to its reviewed source commit before removal;
+        # unknown fields, resources, packs and changes to older entries fail.
+        added = without_title.pop('newsh4_long7_v1', None)
+        if added is not None:
+            frozen = json.loads(subprocess.check_output([
+                'git', 'show', '20cae6e06f5165b901e606ee7277091b0c40a59a:assets/hd/manifest.json'], cwd=ROOT))
+            self.assertEqual({k: v for k, v in added.items() if k != 'runtime_status'},
+                             {k: v for k, v in frozen['newsh4_long7_v1'].items() if k != 'runtime_status'})
+            self.assertTrue(all(frozen['packs'][frozen['default_preview_pack']]['files'][f'enemy-newsh4-{i}-8.hda']['sha256'] in without_title['source_pngs'] for i in [153, 155, 157, 159, 191, 193, 195]))
+            for key in ['default_preview_pack', 'default_debug_pack']:
+                name = without_title[key]
+                pack = without_title['packs'][name]
+                self.assertEqual(pack['count'], len(pack['files']))
+                for identity in [153, 155, 157, 159, 191, 193, 195]:
+                    filename = f'enemy-newsh4-{identity}-8.hda'
+                    receipt = pack['files'].pop(filename)
+                    self.assertEqual(receipt, frozen['packs'][name]['files'][filename])
+                    self.assertEqual(sha((ROOT / 'assets/hd/packs' / name / filename).read_bytes()), receipt['sha256'])
+                    self.assertEqual(without_title['source_pngs'].get(receipt['sha256'],
+                                     frozen['source_pngs'][receipt['sha256']]), frozen['source_pngs'][receipt['sha256']])
+                    without_title['source_pngs'].pop(receipt['sha256'], None)
+                    pack['count'] -= 1
         del without_title['startup_title_v1']
         self.assertEqual(without_title, json.loads(baseline))
+        self.assertEqual((json.dumps(without_title, indent=2) + '\n').encode(), baseline)
         self.assertNotIn('startup-title-v1', self.manifest['packs'])
         self.assertEqual(self.family['count'], 5)
         self.assertEqual(self.family['title_count'], 3)
         self.assertEqual(self.family['manufacturer_compatibility_count'], 2)
+
+    def test_finite_gameplay_coexistence_guard_rejects_mutations(self):
+        if 'newsh4_long7_v1' not in self.manifest:
+            self.skipTest('Finite gameplay family is absent')
+        original = self.manifest
+        for case in ['extra-member', 'changed-member', 'count', 'source-png', 'old-title-neighbor']:
+            with self.subTest(case=case):
+                changed = json.loads(json.dumps(original))
+                pack = changed['packs'][changed['default_preview_pack']]
+                if case == 'extra-member':
+                    pack['files']['enemy-newsh4-197-8.hda'] = dict(pack['files']['enemy-newsh4-195-8.hda'])
+                    pack['count'] += 1
+                elif case == 'changed-member':
+                    pack['files']['enemy-newsh4-157-8.hda']['header_u32'][0] += 1
+                elif case == 'count':
+                    pack['count'] += 1
+                elif case == 'source-png':
+                    del changed['source_pngs'][pack['files']['enemy-newsh4-157-8.hda']['sha256']]
+                else:
+                    changed['linked31_installation_v1']['original_relative_actor_y'] = 99
+                self.manifest = changed
+                try:
+                    with self.assertRaises(AssertionError):
+                        self.test_existing_manifest_fields_and_bytes_unchanged_from_baseline()
+                finally:
+                    self.manifest = original
 
     def test_original_mfg1_family_source_and_pack_are_unchanged(self):
         paths = ['assets/hd/artwork/startup-manufacturer-v1',

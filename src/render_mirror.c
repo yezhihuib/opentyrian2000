@@ -33,9 +33,9 @@ typedef struct {
  int bank,index,w,h,anchor_x,anchor_y,density;
  Uint8 *rgba;
 } Asset;
-enum { ASSET_NEWSH2=101, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106 };
+enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
-static Asset assets[382];
+static Asset assets[389];
 static Asset talon_frames[13];
 typedef struct {
  bool valid;
@@ -1121,7 +1121,7 @@ static bool decode_tile(Sprite2_array bank,unsigned int index,Uint8 *indices,Uin
 static bool read_asset(Asset *a,int wanted)
 {
  char name[1024];
- const char *prefix=a->bank==9?"ship":a->bank==8?"bullet":a->bank==ASSET_NEWSH2?"enemy-newsh2":a->bank==ASSET_NEWSHE?"enemy-newshe":a->bank==ASSET_TALON_BANK?"talon-bank":a->bank==ASSET_EXPLOSION?"explosion-newsh6":"terrain-shapesz";
+ const char *prefix=a->bank==9?"ship":a->bank==8?"bullet":a->bank==ASSET_NEWSH2?"enemy-newsh2":a->bank==ASSET_NEWSH4?"enemy-newsh4":a->bank==ASSET_NEWSHE?"enemy-newshe":a->bank==ASSET_TALON_BANK?"talon-bank":a->bank==ASSET_EXPLOSION?"explosion-newsh6":"terrain-shapesz";
  if(!game_probe_assets||snprintf(name,sizeof(name),"%s/%s-%d-%d.hda",game_probe_assets,prefix,a->index,wanted)>=(int)sizeof(name)) return false;
  FILE *f=fopen(name,"rb");if(!f)return false;
  Uint8 h[28]={0};bool ok=fread(h,1,sizeof(h),f)==sizeof(h)&&memcmp(h,"HDR1",4)==0;
@@ -1504,6 +1504,34 @@ static bool linked31_family_ready(void)
  return linked31_valid;
 }
 
+/* Approved newsh4 long-seven family, selected-pack and 8x only.
+ * Preflight every member before the first replacement. The complete RGBA
+ * integrity stamps also pin the exact original alpha support. Failure stays
+ * coherent for this Asset-cache lifetime; unrelated namespaces are untouched. */
+static bool newsh4_long7_checked,newsh4_long7_valid;
+static bool newsh4_long7_family_ready(void)
+{
+ if(game_probe_density!=8||game_probe_missing||game_probe_invalid||!game_probe_assets||
+    !(game_probe_scene_assets&1))return false;
+ if(newsh4_long7_checked)return newsh4_long7_valid;
+ newsh4_long7_checked=true;newsh4_long7_valid=true;
+ static const unsigned int ids[7]={153,155,157,159,191,193,195};
+ static const uint64_t rgba_stamps[7]={UINT64_C(0x467dfe0e38d4d6af),UINT64_C(0xc94f12efbf56fa95),UINT64_C(0xe029beb9289c7f9f),UINT64_C(0x027743ab3ea4c742),UINT64_C(0xa9ff3f5e5ff49200),UINT64_C(0x5cd069e1cf31bb95),UINT64_C(0x568006eacc4be79e)};
+ for(int i=0;i<7;i++) {
+  Asset *a=&assets[382+i];
+  a->initialized=true;a->bank=ASSET_NEWSH4;a->index=(int)ids[i];
+  a->w=24;a->h=28;a->anchor_x=6;a->anchor_y=7;
+  a->valid=read_asset(a,8);
+  if(a->valid) {
+   uint64_t stamp=UINT64_C(0xcbf29ce484222325);
+   for(size_t p=0;p<(size_t)24*28*8*8*4;p++){stamp^=a->rgba[p];stamp*=UINT64_C(0x100000001b3);}
+   if(stamp!=rgba_stamps[i])a->valid=false;
+  }
+  if(!a->valid)newsh4_long7_valid=false;
+ }
+ return newsh4_long7_valid;
+}
+
 bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int base,int part,int filter,const G101EnemyContext *material_context)
 {
  if(!active||surface!=game_screen||reject_reason||!(game_probe_scene_assets&1))return false;
@@ -1511,6 +1539,7 @@ bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array ban
  for(int i=0;i<4;i++)if(bank.data&&bank.data==enemySpriteSheets[i].data) {
   if(enemySpriteSheetIds[i]==1)role=ASSET_NEWSH2;
   else if(enemySpriteSheetIds[i]==9)role=ASSET_NEWSHE;
+  else if(enemySpriteSheetIds[i]==2)role=ASSET_NEWSH4;
  }
  /* Existing ground201..209 and rotor210..217 remain unchanged. */
  int slot=base==169?303:base==207?304:base==245?305:base==273?306:base==275?307:base==277?308:base==279?309:base==281?310:base==283?311:base==153?269:base==155?270:base==157?271:base==49?265:base==51?266:base==89?267:base==127?268:base==267?243:base==269?244:base==271?245:base==81?231:base==83?232:base==119?233:base==121?234:(base>=229&&base<=243&&base%2==1)?210+(int)(base-229)/2:base==77?6:base==79?7:base==115?8:base==117?9:base==85?15:base==87?16:base==123?17:base==125?18:(base>=191&&base<=205&&base%2==1)?23+(int)(base-191)/2:-1;
@@ -1527,6 +1556,16 @@ bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array ban
   for(int i=0;i<4;i++)if(base==linked31_ids[i]) {
    if(!linked31_family_ready())return false;
    slot=378+i;break;
+  }
+ }
+ /* Exactly the approved left seven-part bank2 family; never borrow newsh2
+  * slots for matching base numbers or bind the mirrored right-hand family. */
+ if(role==ASSET_NEWSH4) {
+  static const unsigned int newsh4_long7_ids[7]={153,155,157,159,191,193,195};
+  slot=-1;
+  for(int i=0;i<7;i++)if(base==newsh4_long7_ids[i]) {
+   if(!newsh4_long7_family_ready())return false;
+   slot=382+i;break;
   }
  }
  if(role==ASSET_NEWSHE) {

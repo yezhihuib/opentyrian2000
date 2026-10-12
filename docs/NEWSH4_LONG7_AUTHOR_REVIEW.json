@@ -1,0 +1,111 @@
+{
+  "status": "AUTHOR_VISUAL_PASS_BOUNDED",
+  "reviewed_at_utc": "2026-10-12T20:35:18Z",
+  "candidate_commit": "20cae6e06f5165b901e606ee7277091b0c40a59a",
+  "art_inventory_sha256": "dd6c3f91282e98b9dc583701267ef4963833bbc7ec0dbaaa8ade450be2726fbb",
+  "evidence_pins": {
+    "brown-strip-lifecycle-20261012/verification.json": "2acec6f885b8d7537019618d82cd87b0e4264d0fc6faa64a24e41ff1472e12da",
+    "brown-strip-lifecycle-20261012/candidate-census/frame-hashes.json": "af10c6fede18fd6433614824d42ae839de5b278388ade64bc216d1a910012f26",
+    "brown-strip-lifecycle-20261012/baseline-census/frame-hashes.json": "193286b2173fbad92e64bdde52964d75f6275dd44a2168768cb76e4fb4ace98d",
+    "brown-strip-finite-runtime-20261012/true4x/candidate-census/frame-hashes.json": "7bc5cb18ce08ba6dffb44f9df11e5b8a86bdf61195f69918c15df3bb0f179c79",
+    "brown-strip-finite-runtime-20261012/true4x/candidate-census/actual-5868-native4x.png": "f2ef9f1fdfd6679fe8702d02a8518f8bfc9d8f32ae6645a4173a67324255c7bf"
+  },
+  "independent_decode_checks": {
+    "native2x_candidate": 36,
+    "native2x_baseline": 36,
+    "ticks": [
+      5868,
+      5903
+    ],
+    "PNG_and_RGBA_hashes_exact": true,
+    "true4x_tick": 5868,
+    "true4x_size": [
+      1280,
+      800
+    ],
+    "true4x_PNG_and_RGBA_hashes_exact": true
+  },
+  "visual_inspection": [
+    "Full normal-layer baseline and candidate5868 at native2x and candidate5868 at true4x.",
+    "Every chronological candidate target context5868..5903 viewed at native scale in derived wide contact sheets.",
+    "Exposed asymmetric bulge, collars and tapered brown-metal center stay cohesive; no visible crop seam, box, fringe, positional pop or detached joint.",
+    "Original later Layer3 covers both ends. Stone, round inserts and mechanical guards retain clean overlap interfaces.",
+    "Observed ordinary-hit filter208, ice-related filter208 then filter9 presentation, original lethal explosions, disappearance and clean revealed terrain."
+  ],
+  "runtime_facts_from_pinned_integrator_receipt": {
+    "state_ticks_equal": 5904,
+    "diagnostic_shots": [
+      {
+        "tick": "5869",
+        "kind": "player-shot",
+        "a": "0",
+        "b": "53",
+        "value": "1"
+      },
+      {
+        "tick": "5871",
+        "kind": "player-shot",
+        "a": "0",
+        "b": "53",
+        "value": "99"
+      },
+      {
+        "tick": "5873",
+        "kind": "player-shot",
+        "a": "0",
+        "b": "53",
+        "value": "49"
+      }
+    ],
+    "hit": {
+      "tick": 5869,
+      "target": 53,
+      "armor": [
+        50,
+        49
+      ],
+      "propagated_filter": 208
+    },
+    "ice": {
+      "tick": 5871,
+      "target_armor_unchanged": 49,
+      "all_seven_iced": 40,
+      "all_seven_filter": 208,
+      "next_original_draw_filter9_set_after_update": 5872,
+      "filter9_presented": 5873
+    },
+    "lethal": {
+      "tick": 5873,
+      "actual_target": 53,
+      "live_damage": 49,
+      "removed_slots": [
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56
+      ],
+      "enemyKilled_delta": 7,
+      "cash_delta": 1000,
+      "no_active_link1_after": true
+    },
+    "first_actor_free_equal_frame": 5874,
+    "first_explosion_pool_free_equal_frame": 5900,
+    "outside_support_all36_equal": true
+  },
+  "limits": [
+    "Private survival with three artificial Pulse155 shots through original collision routines; no natural-combat claim.",
+    "Both end bases153 and195 are fully occluded at5868. Review does not establish their actual visible appearance or full unoccluded168x28 assembly.",
+    "Only this bounded instance/window reviewed; no claim across all three spawn sets.",
+    "True4x review covers intact5868 only, not the entire lifecycle.",
+    "Normalized intermediate blend fields were not retained; no equality claim for those fields.",
+    "Technical fallback and merged-title regression gates remain owned by integrator."
+  ],
+  "external_source_prose_clarification": {
+    "frozen_art_unchanged": true,
+    "statement": "The frozen source summary calls explonum12 twelve repeaters. The exact original parameter is12; JE_setupExplosionLarge interprets it as big=true and subtracts10, giving repeater TTL2. Runtime receipt pins this behavior. No package or artwork changed."
+  },
+  "author_result": "No art defect found in visible tested coverage; approved for integrator final gates."
+}

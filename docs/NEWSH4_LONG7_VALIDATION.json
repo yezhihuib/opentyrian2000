@@ -1,0 +1,530 @@
+{
+  "status": "PASS_BOUNDED_SOURCE_AND_ACTUAL_RUNTIME",
+  "source_candidate": "20cae6e06f5165b901e606ee7277091b0c40a59a",
+  "pre_title_baseline": "aba8650c3e33eb02a43a21530b8fba2965eb9e44",
+  "title_parent": "349b3ca5219e45da4d58f8af254496b0c29669d1",
+  "merged_runtime_checkpoint": "acdac114625596f1dee414ab7b270a31224e4bda",
+  "final_change_contract": "After this merged-runtime checkpoint, only finite family runtime metadata, documentation, baseline pins and the strict title-package coexistence test changed; production source and asset payloads remain exact.",
+  "frozen_inventory_sha256": "dd6c3f91282e98b9dc583701267ef4963833bbc7ec0dbaaa8ade450be2726fbb",
+  "source_scope": {
+    "bank": 2,
+    "role": 102,
+    "types": [
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72
+    ],
+    "bases": [
+      153,
+      155,
+      157,
+      159,
+      191,
+      193,
+      195
+    ],
+    "slots": [
+      382,
+      383,
+      384,
+      385,
+      386,
+      387,
+      388
+    ],
+    "asset_capacity": 389,
+    "terrain_capacity": 199,
+    "source_geometry": [
+      24,
+      28
+    ],
+    "density": 8,
+    "anchor": [
+      6,
+      7
+    ],
+    "original_alpha_exact": true,
+    "renderer_sha256": "194f18dad828f249888e845fd6bf56db53b7ffcd567bcbab9079c66d26ab1524",
+    "opposite_types73_79_link2": "unbound; source-only; excluded"
+  },
+  "source_gates": {
+    "generated_only_reproduction": "exact headers, RGBA and PNGs; original RLE alpha/anchor independently verified",
+    "sanitizers": [
+      "address",
+      "undefined"
+    ],
+    "family_fixture_cases": 85,
+    "prior_bindings_exact": 200,
+    "source_guard_receipt": {
+      "status": "passed",
+      "valid_generated_only_reproduction": true,
+      "rejected_cases": [
+        "existing",
+        "repository",
+        "repository-child",
+        "repository-parent",
+        "symlink-parent",
+        "symlink-output",
+        "master",
+        "prompt",
+        "contract",
+        "recipe",
+        "inventory",
+        "proof",
+        "canonical-png",
+        "packed-hda",
+        "unlisted-source",
+        "source-symlink",
+        "widened4x"
+      ],
+      "original_RGB_inputs": false,
+      "game_runs": 0
+    },
+    "preservation": {
+      "status": "passed",
+      "baseline": "349b3ca5219e45da4d58f8af254496b0c29669d1",
+      "renderer_reverts_exactly_after_finite_family_removal": true,
+      "previous_tracked_files_checked": 5655,
+      "previous_changed_files": [
+        "assets/hd/manifest.json",
+        "prototype/build-hd-assets.py",
+        "prototype/tests/startup-manufacturer/test_package.py",
+        "prototype/tests/title-package/test_package.py",
+        "src/render_mirror.c"
+      ],
+      "previous_asset_payload_bytes_identical": 566682686,
+      "previous_manifest_restored_exactly": true,
+      "all_gameplay_startup_sources_unchanged": true,
+      "Windows_project_XML": "parsed; all compile references exist; unchanged existing renderer unit listed",
+      "Windows_compilation_runtime": false,
+      "render_source_sha256": "194f18dad828f249888e845fd6bf56db53b7ffcd567bcbab9079c66d26ab1524",
+      "default_pack_counts": [
+        393,
+        397
+      ]
+    },
+    "aggregate": {
+      "verified_newsh4_long7_family_members": 7,
+      "verified_startup_title_resources": 3,
+      "verified_startup_title_source_files": 19,
+      "verified_startup_title_manufacturer_compatibility_copies": 2,
+      "verified_linked31_family_members": 8,
+      "verified_type4_composites": 5,
+      "verified_startup_manufacturer_resources": 2,
+      "verified_startup_manufacturer_source_files": 22,
+      "verified_hud_meter_sidecars": 2,
+      "verified_hud_meter_source_files": 13,
+      "verified_pack_count": 18,
+      "verified_HDA_entries": 3026,
+      "verified_exact_source_pngs": 409,
+      "verified_material_sidecars": 4,
+      "verified_cap_sidecars": 2,
+      "verified_forest_sidecars_and_policies": 4,
+      "verified_gameplay_hud_sidecars": 2,
+      "verified_hud_source_pngs": 1,
+      "verified_hud_font_sidecars": 2,
+      "verified_hud_font_source_files": 19,
+      "verified_hud_fixed_text_sidecars": 2,
+      "verified_hud_fixed_text_source_pngs": 12,
+      "verified_hud_extension_sidecars": 4,
+      "verified_hud_extension_source_pngs": 21,
+      "default_pack_counts": [
+        393,
+        397
+      ],
+      "rebuild_output": null,
+      "all_runtime_RGBA_and_header_bytes_exact": true
+    },
+    "Linux": "fresh complete merged build PASS",
+    "Windows": "XML and all compile references checked; no compilation or runtime"
+  },
+  "census": {
+    "original_state_ticks_equal": 5869,
+    "six_ordinal_all100_slot_rows_equal": 156600,
+    "observed_live_link1_at5868": [
+      {
+        "slot": 50,
+        "type": 66,
+        "base": 153,
+        "armor": 50
+      },
+      {
+        "slot": 51,
+        "type": 67,
+        "base": 155,
+        "armor": 50
+      },
+      {
+        "slot": 52,
+        "type": 68,
+        "base": 157,
+        "armor": 50
+      },
+      {
+        "slot": 53,
+        "type": 69,
+        "base": 159,
+        "armor": 50
+      },
+      {
+        "slot": 54,
+        "type": 70,
+        "base": 191,
+        "armor": 50
+      },
+      {
+        "slot": 55,
+        "type": 71,
+        "base": 193,
+        "armor": 50
+      },
+      {
+        "slot": 56,
+        "type": 72,
+        "base": 195,
+        "armor": 50
+      }
+    ],
+    "selected_target": {
+      "slot": 53,
+      "type": 69,
+      "base": 159,
+      "reason": "Unique original collision candidate and fully exposed central support."
+    },
+    "never_assume_seven": "All active linked members counted before selecting target and again before lethal; earlier set occupied different slots."
+  },
+  "actual_lifecycle": {
+    "exact_original_state_ticks": 5904,
+    "original_indexed_final_gameplay_and_output_pixels_equal": true,
+    "blend_intermediate_fields": "Full raw hash differs in HD observer columns; normalized intermediate blend log was not retained. No equality claim for those intermediate fields.",
+    "original_collision_hits": [
+      {
+        "tick": "5869",
+        "kind": "player-shot",
+        "a": "0",
+        "b": "53",
+        "value": "1"
+      },
+      {
+        "tick": "5871",
+        "kind": "player-shot",
+        "a": "0",
+        "b": "53",
+        "value": "99"
+      },
+      {
+        "tick": "5873",
+        "kind": "player-shot",
+        "a": "0",
+        "b": "53",
+        "value": "49"
+      }
+    ],
+    "seven_original_large_explosion_calls": [
+      {
+        "tick": "5873",
+        "slot": "50",
+        "type": "66",
+        "ground": "1",
+        "explonum": "12",
+        "x": "88",
+        "y": "80"
+      },
+      {
+        "tick": "5873",
+        "slot": "51",
+        "type": "67",
+        "ground": "1",
+        "explonum": "12",
+        "x": "112",
+        "y": "80"
+      },
+      {
+        "tick": "5873",
+        "slot": "52",
+        "type": "68",
+        "ground": "1",
+        "explonum": "12",
+        "x": "136",
+        "y": "80"
+      },
+      {
+        "tick": "5873",
+        "slot": "53",
+        "type": "69",
+        "ground": "1",
+        "explonum": "12",
+        "x": "160",
+        "y": "80"
+      },
+      {
+        "tick": "5873",
+        "slot": "54",
+        "type": "70",
+        "ground": "1",
+        "explonum": "12",
+        "x": "184",
+        "y": "80"
+      },
+      {
+        "tick": "5873",
+        "slot": "55",
+        "type": "71",
+        "ground": "1",
+        "explonum": "12",
+        "x": "208",
+        "y": "80"
+      },
+      {
+        "tick": "5873",
+        "slot": "56",
+        "type": "72",
+        "ground": "1",
+        "explonum": "12",
+        "x": "232",
+        "y": "80"
+      }
+    ],
+    "explonum12_semantics": "JE_setupExplosionLarge sets big=true and subtracts10, giving repeater ttl2; no actor/explosion field was forced.",
+    "hit": {
+      "tick": 5869,
+      "target": 53,
+      "armor": [
+        50,
+        49
+      ],
+      "propagated_filter": 208
+    },
+    "ice": {
+      "tick": 5871,
+      "target_armor_unchanged": 49,
+      "all_seven_iced": 40,
+      "all_seven_filter": 208,
+      "next_original_draw_filter9_set_after_update": 5872,
+      "filter9_presented": 5873
+    },
+    "lethal": {
+      "tick": 5873,
+      "actual_target": 53,
+      "live_damage": 49,
+      "removed_slots": [
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56
+      ],
+      "enemyKilled_delta": 7,
+      "cash_delta": 1000,
+      "no_active_link1_after": true
+    },
+    "first_actor_free_equal_frame": 5874,
+    "first_explosion_free_equal_frame": 5900,
+    "coverage_classic_restore_mismatches": 0,
+    "captures_per_side": 36,
+    "scope": "Private survival and three explicitly artificial Pulse155 diagnostic shots through original collision/removal/effect routines; no natural-combat or full-level claim."
+  },
+  "presentation_order": {
+    "original_top_draw_precedes_collision": true,
+    "hit208_presented": 5870,
+    "ice_first208_presented": 5872,
+    "ice9_presented": 5873,
+    "same5873_ordinal": "Filter9 structure drawn before lethal collision; explosions rendered later in that same frame. No structure from5874."
+  },
+  "pixels": {
+    "native2x_window": [
+      5868,
+      5903
+    ],
+    "every_frame_outside_original_support_exact": true,
+    "later_Layer3_alpha_composition_exact_at5868": true,
+    "native2x_original_support_at5868": 8184,
+    "actual_changed_pixels_at5868": 5060,
+    "exact_unoccluded_art_pixels_at5868": 5003,
+    "exact_later_Layer3_partially_blended_changed_pixels": 57,
+    "true4x": {
+      "native_frame": {
+        "tick": 5868,
+        "width": 1280,
+        "height": 800,
+        "RGBA_sha256": "245ac6469127a154e111de85840c6e0b6de337c21c1f4ff601ee974156a27456",
+        "PNG_sha256": "f2ef9f1fdfd6679fe8702d02a8518f8bfc9d8f32ae6645a4173a67324255c7bf",
+        "path": "/workspace/scratch/f67dd347fa0a/brown-strip-finite-runtime-20261012/true4x/candidate-census/actual-5868-native4x.png"
+      },
+      "source_render_density": 8,
+      "same_internal_rgb_audit_as_native2x": true,
+      "original_state_ticks_equal": 5869,
+      "source_alpha_and_later_Layer3_composition_exact": true,
+      "native_support_pixels": 32736,
+      "per_member": [
+        {
+          "base": 153,
+          "native_support_pixels": 8064,
+          "native_pixels_equal_unoccluded_art": 0
+        },
+        {
+          "base": 155,
+          "native_support_pixels": 6896,
+          "native_pixels_equal_unoccluded_art": 6056
+        },
+        {
+          "base": 157,
+          "native_support_pixels": 4816,
+          "native_pixels_equal_unoccluded_art": 4816
+        },
+        {
+          "base": 159,
+          "native_support_pixels": 4272,
+          "native_pixels_equal_unoccluded_art": 4272
+        },
+        {
+          "base": 191,
+          "native_support_pixels": 3680,
+          "native_pixels_equal_unoccluded_art": 3680
+        },
+        {
+          "base": 193,
+          "native_support_pixels": 3248,
+          "native_pixels_equal_unoccluded_art": 1187
+        },
+        {
+          "base": 195,
+          "native_support_pixels": 1760,
+          "native_pixels_equal_unoccluded_art": 0
+        }
+      ],
+      "qualification": "Actual1280x800 native readback, not an enlargement of native2x. Bases153/195 remain fully covered, so no visibility acceptance for those ends."
+    },
+    "hidden_ends": "Bases153 and195 wholly covered at intact5868. Sparse later tinted pixels of195 do not establish full end-art acceptance. No complete unobscured168x28 presentation claim."
+  },
+  "actual_coherent_fallbacks": {
+    "missing": {
+      "full_native_RGBA_equal": true,
+      "original_state_ticks_equal": 5869,
+      "all_scene_callbacks_equal": true,
+      "new_family_HD_callbacks": 0,
+      "all_raw_stream_hashes_equal_except_wall_time": true,
+      "reference": "/workspace/scratch/f67dd347fa0a/brown-strip-census-preparation-20261012/baseline-census"
+    },
+    "corrupt": {
+      "full_native_RGBA_equal": true,
+      "original_state_ticks_equal": 5869,
+      "all_scene_callbacks_equal": true,
+      "new_family_HD_callbacks": 0,
+      "all_raw_stream_hashes_equal_except_wall_time": true,
+      "reference": "/workspace/scratch/f67dd347fa0a/brown-strip-census-preparation-20261012/baseline-census"
+    },
+    "density4": {
+      "full_native_RGBA_equal": true,
+      "original_state_ticks_equal": 5869,
+      "all_scene_callbacks_equal": true,
+      "new_family_HD_callbacks": 0,
+      "all_raw_stream_hashes_equal_except_wall_time": true,
+      "reference": "/workspace/scratch/f67dd347fa0a/brown-strip-finite-runtime-20261012/density4-control/baseline-census"
+    }
+  },
+  "post_title_regression": {
+    "status": "passed",
+    "candidate": "acdac114625596f1dee414ab7b270a31224e4bda",
+    "title_parent": "349b3ca5219e45da4d58f8af254496b0c29669d1",
+    "comparison": "frozen pre-title candidate20cae6e against fresh merged-title candidate",
+    "original_state_ticks_equal": 5904,
+    "all_raw_stream_hashes_equal_except_wall_time": true,
+    "original_normalized_wall_time_control_equal": true,
+    "native_RGBA_hash_frames_equal": 36,
+    "native_ticks": [
+      5868,
+      5903
+    ],
+    "persisted_media_files": 0,
+    "all_source_object_asset_data_hashes_verified": true,
+    "reference_receipt_sha256": "2acec6f885b8d7537019618d82cd87b0e4264d0fc6faa64a24e41ff1472e12da"
+  },
+  "independent_source_review": {
+    "included": "docs/NEWSH4_LONG7_SOURCE_REVIEW.json",
+    "path": "brown-strip-independent-audit-20261012/receipt.json",
+    "sha256": "ca40029f3e7ae06dbae6a94cc88d6365b472d88f25493be292a141d6921a9ada"
+  },
+  "bounded_author_review": {
+    "included": "docs/NEWSH4_LONG7_AUTHOR_REVIEW.json",
+    "path": "tyrian-background-redraw/long7-author-runtime-review/author-review.json",
+    "sha256": "17e79ae09cbaf9bc77a6cd7cd5c49685ce2a615ed4c596d90fb5acacfe8f5971"
+  },
+  "source_prose_clarification": "Frozen summary wording twelve repeaters is not runtime semantics. Exact original explonum12 sets big=true and then ttl2 after subtracting10. Frozen inventory unchanged.",
+  "evidence_pins": [
+    {
+      "path": "brown-strip-source-delivery-20261012/receipt.json",
+      "sha256": "95254cb7e64610c53dfcd19b508f5928d8548e4aa2b226c0461b4b04cb19a69f"
+    },
+    {
+      "path": "brown-strip-census-preparation-20261012/verification.json",
+      "sha256": "4ea7695e1c9491251febdde56c3a99b45f51eb682fa65c082c9d900ff0e7eaa0"
+    },
+    {
+      "path": "brown-strip-lifecycle-20261012/verification.json",
+      "sha256": "2acec6f885b8d7537019618d82cd87b0e4264d0fc6faa64a24e41ff1472e12da"
+    },
+    {
+      "path": "brown-strip-finite-runtime-20261012/verification.json",
+      "sha256": "02fb69d88c3fb3c74f4c65ed5d03c460459662a38b2df70915dd32873d9ad255"
+    },
+    {
+      "path": "brown-strip-title-regression-20261012/verification.json",
+      "sha256": "336cd0458d0835263460301a40a67b10a94ecdca4cfdd9eb1b53ad25318a4b8f"
+    },
+    {
+      "path": "brown-strip-title-regression-20261012/binding/receipt.json",
+      "sha256": "3e8df3168b013dccbb3d2f123ffcf93fcad33bc0b7814baf4104e083bbdb1895"
+    },
+    {
+      "path": "brown-strip-title-regression-20261012/source-guards/receipt.json",
+      "sha256": "7e79fe5efb5ca2a2e1a3d8c32db3c1dc78bb7b300283519222f1306d1d80a105"
+    },
+    {
+      "path": "brown-strip-title-regression-20261012/aggregate-final.json",
+      "sha256": "04888fc0314ad0732204a684ca8f7c3a7e9a1ca294ee5b5df6b48550d1f25c62"
+    },
+    {
+      "path": "brown-strip-title-regression-20261012/startup-package.log",
+      "sha256": "76e1b91cb21c1615fa40e7225e02ee2dc6af43b0f9b755f9ca33485cfc682d90"
+    },
+    {
+      "path": "brown-strip-title-regression-20261012/title-package-final14.log",
+      "sha256": "1ac7da003fdd6733c1e702dbdde3cf7f7dd8e27a438179806f6d3771c4a51a17"
+    },
+    {
+      "path": "brown-strip-title-regression-20261012/title-source.log",
+      "sha256": "cfbf2d2925be44e241152bfec9142c0342f69c4bc337f2cac01ced4347b96f4f"
+    },
+    {
+      "path": "brown-strip-title-regression-20261012/title-sanitizer.log",
+      "sha256": "587772f10bbf6ec2d27ec2ac68dd758f229c34062d92e06a986c5aa88f35c80c"
+    },
+    {
+      "path": "brown-strip-title-regression-20261012/aggregate-final-after-tests.json",
+      "sha256": "04888fc0314ad0732204a684ca8f7c3a7e9a1ca294ee5b5df6b48550d1f25c62"
+    }
+  ],
+  "limits": [
+    "Private player survival and artificial diagnostic input through original routines, not natural manual combat.",
+    "One bounded placement/lifecycle and one intact true4x spot; no full-level, all-spawn-set or unobscured whole-family review.",
+    "No GPU/fullscreen or Windows runtime testing.",
+    "Private hooks, original game data and retained game screenshots are external evidence only; not imported into production source/assets.",
+    "Earlier A/B intermediate blend log normalization was not retained; final indexed gameplay/output hashes are exact, but no intermediate equality claim.",
+    "Readback is SDL software renderer; one later title merge regression retained hashes only and no media."
+  ],
+  "final_title_startup_checks": {
+    "startup_package_tests": 9,
+    "title_package_tests": 14,
+    "finite_title_manifest_negative_mutations": 5,
+    "title_sanitized_production_presentations": 736,
+    "title_source_guards": "passed",
+    "title_runtime_and_art_vs349b": "exact"
+  }
+}

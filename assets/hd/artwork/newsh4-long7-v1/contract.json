@@ -1,0 +1,221 @@
+{
+  "version": 1,
+  "bank": "newsh4.shp",
+  "bank_id": 2,
+  "asset_namespace": 102,
+  "required_integration": "Finite new-bankregistration ASSET_NEWSH4=102 and enemy-newsh4 filenameprefix, not previouslysupportedbinding.",
+  "logical_assembly_size": [
+    168,
+    28
+  ],
+  "master": "sources/generated-whole.png",
+  "registered_master_size": [
+    1536,
+    512
+  ],
+  "assembly_crop": [
+    96,
+    144,
+    1440,
+    368
+  ],
+  "alpha": "masks/alpha-assembly8x.png",
+  "matte_RGB": [
+    12,
+    8,
+    0
+  ],
+  "entries": [
+    {
+      "base": 153,
+      "enemy_type": 66,
+      "hda_id": 1020153,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "anchor": [
+        6,
+        7
+      ],
+      "runtime_quad_offsets": [
+        0,
+        1,
+        19,
+        20
+      ],
+      "assembly_crop": [
+        0,
+        0,
+        192,
+        224
+      ]
+    },
+    {
+      "base": 155,
+      "enemy_type": 67,
+      "hda_id": 1020155,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "anchor": [
+        6,
+        7
+      ],
+      "runtime_quad_offsets": [
+        0,
+        1,
+        19,
+        20
+      ],
+      "assembly_crop": [
+        192,
+        0,
+        384,
+        224
+      ]
+    },
+    {
+      "base": 157,
+      "enemy_type": 68,
+      "hda_id": 1020157,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "anchor": [
+        6,
+        7
+      ],
+      "runtime_quad_offsets": [
+        0,
+        1,
+        19,
+        20
+      ],
+      "assembly_crop": [
+        384,
+        0,
+        576,
+        224
+      ]
+    },
+    {
+      "base": 159,
+      "enemy_type": 69,
+      "hda_id": 1020159,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "anchor": [
+        6,
+        7
+      ],
+      "runtime_quad_offsets": [
+        0,
+        1,
+        19,
+        20
+      ],
+      "assembly_crop": [
+        576,
+        0,
+        768,
+        224
+      ]
+    },
+    {
+      "base": 191,
+      "enemy_type": 70,
+      "hda_id": 1020191,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "anchor": [
+        6,
+        7
+      ],
+      "runtime_quad_offsets": [
+        0,
+        1,
+        19,
+        20
+      ],
+      "assembly_crop": [
+        768,
+        0,
+        960,
+        224
+      ]
+    },
+    {
+      "base": 193,
+      "enemy_type": 71,
+      "hda_id": 1020193,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "anchor": [
+        6,
+        7
+      ],
+      "runtime_quad_offsets": [
+        0,
+        1,
+        19,
+        20
+      ],
+      "assembly_crop": [
+        960,
+        0,
+        1152,
+        224
+      ]
+    },
+    {
+      "base": 195,
+      "enemy_type": 72,
+      "hda_id": 1020195,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "anchor": [
+        6,
+        7
+      ],
+      "runtime_quad_offsets": [
+        0,
+        1,
+        19,
+        20
+      ],
+      "assembly_crop": [
+        1152,
+        0,
+        1344,
+        224
+      ]
+    }
+  ],
+  "excluded_mirrored_types": [
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79
+  ]
+}
