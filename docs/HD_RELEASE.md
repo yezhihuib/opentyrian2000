@@ -82,3 +82,12 @@ Micro/Heavy/Guided and Widget context matrix. ID22 remains original.
 Current18 packs:2,908 HDA entries,346 PNGs; preview334/debug338.
 See [GUIDED_BOMB_VALIDATION.md](GUIDED_BOMB_VALIDATION.md) for exact scope,
 fallback checks and reproduction. This batch has not been Windows-validated.
+
+## Coordinated matte sand follow-up
+
+21 existing road/grass backing assets now use the accepted quieter sand material.
+Protected stone/grass pixels and all production source remain unchanged.
+Historical road regeneration retains an explicit hash-checked old input route.
+Counts:18 packs,2,908 HDA entries,350 active canonical PNGs; preview334/debug338.
+See [SAND_ROAD_GRASS_VALIDATION.md](SAND_ROAD_GRASS_VALIDATION.md) for the
+bounded road/grass-tail evidence and ID38 static-only limit. Windows remains pending.

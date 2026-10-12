@@ -1,0 +1,555 @@
+{
+  "schema": "grass9-proven-pure-backing-mask-contract-v1",
+  "purpose": "Authorize no artwork edit by itself. Defines the strict sand-only writable domain for later accepted-new47 propagation. Everything outside the mask is protected.",
+  "dimensions": [
+    192,
+    224
+  ],
+  "mask_type": "uint8, 0 protected, 1 proven frozen47 backing",
+  "mask_flattening": "row-major y*192+x; RLE pairs[start,length] mark one-valued runs",
+  "ids": [
+    66,
+    67,
+    69,
+    76,
+    78,
+    79,
+    80,
+    89,
+    90
+  ],
+  "writable_ids": [
+    66,
+    67,
+    76,
+    78,
+    79,
+    80,
+    89,
+    90
+  ],
+  "unchanged_guard_ids": [
+    69
+  ],
+  "source_crop_origins": {
+    "69": [
+      0,
+      0
+    ],
+    "66": [
+      192,
+      0
+    ],
+    "67": [
+      0,
+      224
+    ],
+    "76": [
+      192,
+      672
+    ],
+    "78": [
+      0,
+      672
+    ],
+    "79": [
+      192,
+      224
+    ],
+    "80": [
+      0,
+      896
+    ],
+    "89": [
+      192,
+      448
+    ],
+    "90": [
+      0,
+      448
+    ]
+  },
+  "fringe_layout": [
+    [
+      90,
+      89
+    ],
+    [
+      78,
+      76
+    ],
+    [
+      80,
+      79
+    ]
+  ],
+  "inputs": {
+    "family_v1": {
+      "relative_path": "inputs/family_v1.png",
+      "file_sha256": "995f120f262d6bf98618373296b0c11c95df150e0fdd99205c8f2d3bf79e1d91",
+      "rgba_sha256": "a19506dad67c2e1a6e81921f359e4352fa45d029d92258dc7c692f48901f4d36",
+      "size": [
+        768,
+        1120
+      ],
+      "alpha_values": [
+        255
+      ]
+    },
+    "fringe_v3": {
+      "relative_path": "inputs/fringe_v3.png",
+      "file_sha256": "b7098029dc74653ece387861b45ae0649e8652b1937126aca738264f5e28d245",
+      "rgba_sha256": "4ec2691751859def54c0eda7c5b7dc6a740c3e44af635d221f9d3fbf3c2b295b",
+      "size": [
+        384,
+        672
+      ],
+      "alpha_values": [
+        255
+      ]
+    },
+    "old47": {
+      "relative_path": "inputs/old47.png",
+      "file_sha256": "c326f278ba8abbee37c5312c39bf39ae468ea5769b467d73dbd0c19e014f7c3d",
+      "rgba_sha256": "0c762de0ceca06f9a2ed0589b209289ea4f47abad9cf5156d11054037a9c6c70",
+      "size": [
+        192,
+        224
+      ],
+      "alpha_values": [
+        255
+      ]
+    },
+    "new47": {
+      "relative_path": "inputs/new47.png",
+      "file_sha256": "23856f4f1d4f844864548aabb36d877dfdb2240d1101a70a3149be3fb38cd8fe",
+      "rgba_sha256": "d3f202bb2f676b2f07ed086aa5bef5f08ebf40877d7bed0f72ca0643779c1ebd",
+      "size": [
+        192,
+        224
+      ],
+      "alpha_values": [
+        255
+      ]
+    },
+    "package_contract": {
+      "relative_path": "inputs/package_contract.json",
+      "file_sha256": "7b487e929a0c744227b474f16362a704a6938a6ab3cc5ae8ffe201eba05ac9b4"
+    },
+    "register_vegetation": {
+      "relative_path": "inputs/register_vegetation.cpp",
+      "file_sha256": "972d5d0803e069a51b807fe73d48baf977c693377176f6370e81bcbe39f15699"
+    },
+    "register_interior": {
+      "relative_path": "inputs/register_interior.cpp",
+      "file_sha256": "dc04d050716cbcd2cb2c31b7e8a8a795a55b2176b15aab5691e2de6fd329159f"
+    },
+    "register_footprint": {
+      "relative_path": "inputs/register_footprint.cpp",
+      "file_sha256": "1772870f1d1af08e36790769de2d089bbfd3b629d44c726f04c6ea47258110df"
+    },
+    "package_rebuilder": {
+      "relative_path": "inputs/package_rebuilder.py",
+      "file_sha256": "a2eaaa07e6e50fc143342f7fe9134be1264c7e7689fefe7693666cb46588ca64"
+    },
+    "accepted_v3_66": {
+      "relative_path": "inputs/accepted_v3_66.png",
+      "file_sha256": "833a20a532865e836711d0fad78a5668016b3ca41ec62e9d57c69e9ab0998276",
+      "rgba_sha256": "a5ba884ffbeb00d9a845c721b9728f121e9ac8657bd36086ca821209a2975053",
+      "size": [
+        192,
+        224
+      ],
+      "alpha_values": [
+        255
+      ]
+    },
+    "accepted_v3_67": {
+      "relative_path": "inputs/accepted_v3_67.png",
+      "file_sha256": "8d46bc09400da3dedf96db32e7f35fd57a62f947ad3ac0dde12e56239b0287d7",
+      "rgba_sha256": "7a799b5df91d7eea3397fbe19fe06cdef3150cc2b80745ecc5e9321e12496e16",
+      "size": [
+        192,
+        224
+      ],
+      "alpha_values": [
+        255
+      ]
+    },
+    "accepted_v3_69": {
+      "relative_path": "inputs/accepted_v3_69.png",
+      "file_sha256": "6ff99feb6fb477825b59f50733629c6050416cb049e31ae80b94309f1674c5d8",
+      "rgba_sha256": "a7882d23c6882616cbdbc491d4d3a291d6d41af8bcc0df385ce3807040a95d3b",
+      "size": [
+        192,
+        224
+      ],
+      "alpha_values": [
+        255
+      ]
+    },
+    "accepted_v3_76": {
+      "relative_path": "inputs/accepted_v3_76.png",
+      "file_sha256": "b550068b236a34f44291783251775d5efd227fe53cde958e4b50042fc8f24622",
+      "rgba_sha256": "94c044dc69cb61be3d667f6d9a080e0ed0ee7cff8e7d0340d345c2b6a1f24f17",
+      "size": [
+        192,
+        224
+      ],
+      "alpha_values": [
+        255
+      ]
+    },
+    "accepted_v2_76": {
+      "relative_path": "inputs/accepted_v2_76.png",
+      "file_sha256": "775f4ff749e408cab86150a146158a13f5fdc642d668ae296e88f933de58de21",
+      "rgba_sha256": "7d33d36f8b6f742da27b98bca39a04e38bb06ad7628e7fb3bbfdf3be42f8e108",
+      "size": [
+        192,
+        224
+      ],
+      "alpha_values": [
+        255
+      ]
+    },
+    "accepted_v3_78": {
+      "relative_path": "inputs/accepted_v3_78.png",
+      "file_sha256": "24e707313dfaaf1fc03b015e453d51b3bbe5d2d640771dfe6c9926a7516120a3",
+      "rgba_sha256": "d71287a0a5f8e7d04d108c0b73a1689d49deadc9f0fc867cb494ae9d682ba029",
+      "size": [
+        192,
+        224
+      ],
+      "alpha_values": [
+        255
+      ]
+    },
+    "accepted_v2_78": {
+      "relative_path": "inputs/accepted_v2_78.png",
+      "file_sha256": "800351e5476f76afda36deff2c3af9222b98998c87d402d08cf1723c47509cc2",
+      "rgba_sha256": "d867619d6e818e52a50e0618b7bf9ecdf661c8d8b8eb4e92ede113c5146c94fc",
+      "size": [
+        192,
+        224
+      ],
+      "alpha_values": [
+        255
+      ]
+    },
+    "accepted_v3_79": {
+      "relative_path": "inputs/accepted_v3_79.png",
+      "file_sha256": "0a39ae9056488b04cfeb827cba5efb61f643901aa89c96f441e25b482d70db54",
+      "rgba_sha256": "c3e6b8188b8bd6982cb7d2fef53a004e0c9b2c7f496dc31d2bae8bea538316eb",
+      "size": [
+        192,
+        224
+      ],
+      "alpha_values": [
+        255
+      ]
+    },
+    "accepted_v2_79": {
+      "relative_path": "inputs/accepted_v2_79.png",
+      "file_sha256": "fca7b9f3e21a179a6992f545701b28a8a9f544d9e20e0f29ae636eb99596b7c1",
+      "rgba_sha256": "5036716f3a94ec95b10a4a98fc7059a51c9804c146f3090c915bc4c54eb29f80",
+      "size": [
+        192,
+        224
+      ],
+      "alpha_values": [
+        255
+      ]
+    },
+    "accepted_v3_80": {
+      "relative_path": "inputs/accepted_v3_80.png",
+      "file_sha256": "dc27bde74551f9b3719a6a17c895c3dd26aad2270acb60c60d25e656c47219c9",
+      "rgba_sha256": "1d6394b5affaec1616025103e503997389f9609c592d54d7182011f80584a30b",
+      "size": [
+        192,
+        224
+      ],
+      "alpha_values": [
+        255
+      ]
+    },
+    "accepted_v2_80": {
+      "relative_path": "inputs/accepted_v2_80.png",
+      "file_sha256": "981a81cd8b7e6977266f3a8c3ba328a9eb1813974eaa16553d2a1ccaa28d7ecf",
+      "rgba_sha256": "35277488b6b907925920985860aac961d48128cd2c3e7fbfbf1ff5ed9703dbeb",
+      "size": [
+        192,
+        224
+      ],
+      "alpha_values": [
+        255
+      ]
+    },
+    "accepted_v3_89": {
+      "relative_path": "inputs/accepted_v3_89.png",
+      "file_sha256": "ad915b950415db9211e98f57919bd32cadf2da8fa061774e76e739f0c40965de",
+      "rgba_sha256": "b1ae34c929f0417bf148a3da90a7639738ad4de5ebb5c5d66d7ef8afd9abdc46",
+      "size": [
+        192,
+        224
+      ],
+      "alpha_values": [
+        255
+      ]
+    },
+    "accepted_v2_89": {
+      "relative_path": "inputs/accepted_v2_89.png",
+      "file_sha256": "d2eb456f476a8da8a323728fb6dae47d9a76f4417f162fe27c41410783adb6b9",
+      "rgba_sha256": "784298a4ab9e26527a80045705252ece75884db1ae6dc44ba6d1b0a190f0610f",
+      "size": [
+        192,
+        224
+      ],
+      "alpha_values": [
+        255
+      ]
+    },
+    "accepted_v3_90": {
+      "relative_path": "inputs/accepted_v3_90.png",
+      "file_sha256": "37cd4a1ccab0b5f7c1a23d228a5edbac3100feccd1b70652fa8dbaf6ab4cb1a8",
+      "rgba_sha256": "4c0d9397485ea45c4c3ee0082a3d07a955294cd090851c4ad614c7f45edb0ceb",
+      "size": [
+        192,
+        224
+      ],
+      "alpha_values": [
+        255
+      ]
+    },
+    "accepted_v2_90": {
+      "relative_path": "inputs/accepted_v2_90.png",
+      "file_sha256": "bf6b55a7c3319d68aa58b5e2ed1895b8742ba8dd4b5cbb24d7c45b6d3c53a069",
+      "rgba_sha256": "d50a33060e3de34e4f2646d61232fac9c6ff3e84630b5ee2df2161c0539351ba",
+      "size": [
+        192,
+        224
+      ],
+      "alpha_values": [
+        255
+      ]
+    }
+  },
+  "mask_file": "pure-sand-masks.rle.json",
+  "mask_file_sha256": "ee0ac725105f4c049bf622c524db2554b1d20d8fe9a9ce1cc4c71cb66069d07e",
+  "derivation": {
+    "v1_support": "green-max(red,blue)>=3 on exact canonical generated-family-v1 crop. Disk-radius2 closing with clamped coordinates, followed by3x3 box sum. w1_numerator is integer0..9; ID69 is forced9.",
+    "v3_addition": "For six fringe tiles only: w3_positive=(accepted_v2 green-max(red,blue)<3) AND (generated_fringe green-max(red,blue)>2) AND (minimum tile-edge distance>3). For66/67/69 w3_positive=false.",
+    "pure_sand": "(w1_numerator==0) AND NOT w3_positive. No final RGB equality or newly guessed grass segmentation selects a pixel.",
+    "interior_proof": "Where w1=0, register_vegetation copies frozen47 exactly. register_interior requires old RGB != frozen47, so its weight is0 there. Therefore final remains frozen47 exactly when w3=0.",
+    "clamped_border": "Dilation, erosion and box sum clamp coordinates independently at each selected192x224 tile, matching register_vegetation.cpp. V3 tile-edge uses local x%192 and y%224, matching register_footprint.cpp.",
+    "rounding": "Pure backing selection is integer-only; does not approximate lround, infer alpha from output, or collapse staged rounded blends."
+  },
+  "invariants": [
+    "Only RGB inside the one mask may change in a subsequent sand-only rebase. Keep source alpha255 and accepted RGBA outside the mask bit-identical.",
+    "Accepted green RGB and full accepted green occupancy stay bit-identical. All mixed-transition pixels are protected.",
+    "Do not freeze the entire four-HD-pixel tile border: its proven-pure-sand pixels belong to the writable domain, while its grass and transition pixels remain protected.",
+    "Use new47 at identical local pixel coordinates, with no source crop offset or global phase shift.",
+    "69 mask is all zero; its accepted PNG/HDA remain bit-identical. Include69 in all-nine family QA and existing builder/hash checks only.",
+    "Original native source alpha occupancy is all opaque. Accepted green shape differs from original native green pixels; do not claim pixel-identical original grass geometry."
+  ],
+  "totals": {
+    "pure_backing_HD_pixels": 207954,
+    "rounding_coincidences_excluded_from_pure_mask": 33,
+    "mixed_transition_HD_pixels": 18627,
+    "accepted_green_with_sand_component": 7968,
+    "expected_changed_pixels_if_strict_rebase": 207775
+  },
+  "tiles": [
+    {
+      "id": 66,
+      "slot": 312,
+      "selected_RGBA_sha256": "a5ba884ffbeb00d9a845c721b9728f121e9ac8657bd36086ca821209a2975053",
+      "pure_backing_HD_pixels": 8084,
+      "pure_backing_mask_sha256_u8": "13c0b1fa8146658b57f6ad4ae3124df1f66f8ff8cf85e83113881d22557a1922",
+      "accepted_green_HD_pixels": 31944,
+      "accepted_green_mask_sha256_u8": "2d1ca8b3e2aab93d970d5aae0b660eb063356b0a2b6ddde280227b7be7fb887f",
+      "mixed_transition_HD_pixels": 3042,
+      "mixed_transition_mask_sha256_u8": "edba6f3ec07761333644ce547c82f18c4520d7610b46a55c4b2f2485419c2cd8",
+      "accepted_green_with_sand_component": 966,
+      "rounding_coincidences_excluded_from_pure_mask": 5,
+      "pure_backing_on_outermost_edges": {
+        "N": 0,
+        "E": 128,
+        "S": 88,
+        "W": 0
+      },
+      "pure_backing_in_4HD_border": 828,
+      "expected_changed_pixels_if_strict_rebase": 8076
+    },
+    {
+      "id": 67,
+      "slot": 313,
+      "selected_RGBA_sha256": "7a799b5df91d7eea3397fbe19fe06cdef3150cc2b80745ecc5e9321e12496e16",
+      "pure_backing_HD_pixels": 23709,
+      "pure_backing_mask_sha256_u8": "88b6efef3cefa1e89f86d0bd8953a9c3c99f81078c9ee398b74fc1d65ccb7d8a",
+      "accepted_green_HD_pixels": 16555,
+      "accepted_green_mask_sha256_u8": "7bfdeb06c3774103eca444b8d45a424be106e750ec6b8a7f8097ee4d66bc8d82",
+      "mixed_transition_HD_pixels": 3118,
+      "mixed_transition_mask_sha256_u8": "38ccb0bc839ebcfcc3a08196c0fd05f2e58e871ad4625b13d35e2506ebc10b67",
+      "accepted_green_with_sand_component": 991,
+      "rounding_coincidences_excluded_from_pure_mask": 5,
+      "pure_backing_on_outermost_edges": {
+        "N": 0,
+        "E": 127,
+        "S": 192,
+        "W": 142
+      },
+      "pure_backing_in_4HD_border": 1788,
+      "expected_changed_pixels_if_strict_rebase": 23690
+    },
+    {
+      "id": 69,
+      "slot": 314,
+      "selected_RGBA_sha256": "a7882d23c6882616cbdbc491d4d3a291d6d41af8bcc0df385ce3807040a95d3b",
+      "pure_backing_HD_pixels": 0,
+      "pure_backing_mask_sha256_u8": "ccc1a10b7aac17225febe0b37d40d5b4575aebdad5bb1c291429f04d1a5892b4",
+      "accepted_green_HD_pixels": 43008,
+      "accepted_green_mask_sha256_u8": "47608175edc77e4c76608803290bd335c159562fcb2b653892ba34e92fc67415",
+      "mixed_transition_HD_pixels": 0,
+      "mixed_transition_mask_sha256_u8": "ccc1a10b7aac17225febe0b37d40d5b4575aebdad5bb1c291429f04d1a5892b4",
+      "accepted_green_with_sand_component": 0,
+      "rounding_coincidences_excluded_from_pure_mask": 0,
+      "pure_backing_on_outermost_edges": {
+        "N": 0,
+        "E": 0,
+        "S": 0,
+        "W": 0
+      },
+      "pure_backing_in_4HD_border": 0,
+      "expected_changed_pixels_if_strict_rebase": 0
+    },
+    {
+      "id": 76,
+      "slot": 315,
+      "selected_RGBA_sha256": "94c044dc69cb61be3d667f6d9a080e0ed0ee7cff8e7d0340d345c2b6a1f24f17",
+      "pure_backing_HD_pixels": 17526,
+      "pure_backing_mask_sha256_u8": "d4c104bd57c9eead76234eaada12a319c88fb2a4f8316f25642db11bab55f983",
+      "accepted_green_HD_pixels": 23867,
+      "accepted_green_mask_sha256_u8": "8f00264de5ab74962c7a03a445b43d60fdfb915c40fe22890ec84905e6d48d22",
+      "mixed_transition_HD_pixels": 2591,
+      "mixed_transition_mask_sha256_u8": "5d83b5772014945ab10ff728c7ae79f45425015d02f9a5a7f8b5dcdce80efb74",
+      "accepted_green_with_sand_component": 1297,
+      "rounding_coincidences_excluded_from_pure_mask": 5,
+      "pure_backing_on_outermost_edges": {
+        "N": 112,
+        "E": 224,
+        "S": 103,
+        "W": 0
+      },
+      "pure_backing_in_4HD_border": 1700,
+      "expected_changed_pixels_if_strict_rebase": 17508
+    },
+    {
+      "id": 78,
+      "slot": 316,
+      "selected_RGBA_sha256": "d71287a0a5f8e7d04d108c0b73a1689d49deadc9f0fc867cb494ae9d682ba029",
+      "pure_backing_HD_pixels": 17615,
+      "pure_backing_mask_sha256_u8": "95b2f62adb3f085c4946578b70657cfd020de542cee1480fff40ba3bcdedeec5",
+      "accepted_green_HD_pixels": 23576,
+      "accepted_green_mask_sha256_u8": "8c85f04ff88d7e23168513b3dcc6d2ad2e8f502a1a541770924c68e665a62c83",
+      "mixed_transition_HD_pixels": 3058,
+      "mixed_transition_mask_sha256_u8": "7466990cf6e45e39dfc93445b9affbda77eb80a60e5f0763cc5f2c4315179840",
+      "accepted_green_with_sand_component": 1518,
+      "rounding_coincidences_excluded_from_pure_mask": 9,
+      "pure_backing_on_outermost_edges": {
+        "N": 90,
+        "E": 0,
+        "S": 86,
+        "W": 224
+      },
+      "pure_backing_in_4HD_border": 1589,
+      "expected_changed_pixels_if_strict_rebase": 17602
+    },
+    {
+      "id": 79,
+      "slot": 317,
+      "selected_RGBA_sha256": "c3e6b8188b8bd6982cb7d2fef53a004e0c9b2c7f496dc31d2bae8bea538316eb",
+      "pure_backing_HD_pixels": 35443,
+      "pure_backing_mask_sha256_u8": "be7d828c831d832be486ca9f5212f2d0383e4a7cc5b3924b91e862c3f514ee01",
+      "accepted_green_HD_pixels": 6285,
+      "accepted_green_mask_sha256_u8": "7858be37e5d40bf5ccc5a382dbe3072a3382db29eef4fe22cf2ba075cfdb784d",
+      "mixed_transition_HD_pixels": 1980,
+      "mixed_transition_mask_sha256_u8": "b6a72ac367bbf29de37f1ca05e1989bff8148dd1f3789f96c8995e13760471b4",
+      "accepted_green_with_sand_component": 907,
+      "rounding_coincidences_excluded_from_pure_mask": 4,
+      "pure_backing_on_outermost_edges": {
+        "N": 97,
+        "E": 224,
+        "S": 192,
+        "W": 132
+      },
+      "pure_backing_in_4HD_border": 2550,
+      "expected_changed_pixels_if_strict_rebase": 35415
+    },
+    {
+      "id": 80,
+      "slot": 318,
+      "selected_RGBA_sha256": "1d6394b5affaec1616025103e503997389f9609c592d54d7182011f80584a30b",
+      "pure_backing_HD_pixels": 34442,
+      "pure_backing_mask_sha256_u8": "7d449ce83a8e61a893c8cfdf945668641bcd1b4b480649a16262d3932cfaedf3",
+      "accepted_green_HD_pixels": 7580,
+      "accepted_green_mask_sha256_u8": "bd4036c0ce8df26d938fc65e19cf2b2de8ad27ae9812c3890a399c627733532b",
+      "mixed_transition_HD_pixels": 1477,
+      "mixed_transition_mask_sha256_u8": "29036e8ece449f7167f12db03a94372dfcf3a0079d0b84864bc48feee01b2dcd",
+      "accepted_green_with_sand_component": 672,
+      "rounding_coincidences_excluded_from_pure_mask": 2,
+      "pure_backing_on_outermost_edges": {
+        "N": 88,
+        "E": 89,
+        "S": 192,
+        "W": 224
+      },
+      "pure_backing_in_4HD_border": 2313,
+      "expected_changed_pixels_if_strict_rebase": 34412
+    },
+    {
+      "id": 89,
+      "slot": 319,
+      "selected_RGBA_sha256": "b1ae34c929f0417bf148a3da90a7639738ad4de5ebb5c5d66d7ef8afd9abdc46",
+      "pure_backing_HD_pixels": 34881,
+      "pure_backing_mask_sha256_u8": "fa55ab962c3fac6c4a69fd4dc8d14a8110471d4039bcb9c67c19261cb04d22c1",
+      "accepted_green_HD_pixels": 6948,
+      "accepted_green_mask_sha256_u8": "9b468ab6b7347a13fc253ad94cab6c6dba44452044ef6e20b659d01fdcf95db2",
+      "mixed_transition_HD_pixels": 1865,
+      "mixed_transition_mask_sha256_u8": "4c22b50949ebc73c3b17800defffc4410b8bdf1b96069cb26d07c6df9df3dc7e",
+      "accepted_green_with_sand_component": 875,
+      "rounding_coincidences_excluded_from_pure_mask": 2,
+      "pure_backing_on_outermost_edges": {
+        "N": 192,
+        "E": 224,
+        "S": 101,
+        "W": 121
+      },
+      "pure_backing_in_4HD_border": 2480,
+      "expected_changed_pixels_if_strict_rebase": 34845
+    },
+    {
+      "id": 90,
+      "slot": 320,
+      "selected_RGBA_sha256": "4c0d9397485ea45c4c3ee0082a3d07a955294cd090851c4ad614c7f45edb0ceb",
+      "pure_backing_HD_pixels": 36254,
+      "pure_backing_mask_sha256_u8": "f3b27bd4bab2222f07aa15a123818264e38dcaed0cb7eb84e4ece6491a5b5bdf",
+      "accepted_green_HD_pixels": 5824,
+      "accepted_green_mask_sha256_u8": "d4aadc711e85b13f22848ca235e9e6b92d9716762c0ee6b93415b31eae0185ff",
+      "mixed_transition_HD_pixels": 1496,
+      "mixed_transition_mask_sha256_u8": "9380988d108048d0b4c81b3018ee76a307b3f8a9e8104368d5988a0d398b8727",
+      "accepted_green_with_sand_component": 742,
+      "rounding_coincidences_excluded_from_pure_mask": 1,
+      "pure_backing_on_outermost_edges": {
+        "N": 192,
+        "E": 120,
+        "S": 87,
+        "W": 224
+      },
+      "pure_backing_in_4HD_border": 2449,
+      "expected_changed_pixels_if_strict_rebase": 36227
+    }
+  ],
+  "interface_report": "../../sand47-dependency-audit/grass9-mask-dependency-report.json",
+  "context_review_scope": "All26 non69 placements, all five79 placements, all110 distinct69 contexts; retain existing136-context QA index. Map directional interfaces are in interface_report.",
+  "audit_limits": "Mask-only extraction and retained-source validation. No C++ compilation, rebuild, new art, production edit, runtime capture or image/contact batch."
+}

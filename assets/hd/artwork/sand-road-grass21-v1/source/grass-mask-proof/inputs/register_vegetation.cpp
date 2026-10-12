@@ -1,0 +1,8 @@
+#include <fstream>
+#include <vector>
+#include <cmath>
+#include <algorithm>
+int main(int argc,char**argv){if(argc!=5)return 2;int id=std::stoi(argv[4]);const int W=192,H=224,N=W*H;std::vector<unsigned char>a(N*4),sand(N*4);std::ifstream f(argv[1],std::ios::binary),g(argv[2],std::ios::binary);if(!f.read((char*)a.data(),N*4)||!g.read((char*)sand.data(),N*4))return 3;std::vector<int>m(N),d(N),e(N);for(int q=0;q<N;q++)m[q]=a[4*q+1]-std::max(a[4*q],a[4*q+2])>=3;for(int y=0;y<H;y++)for(int x=0;x<W;x++){int v=0;for(int dy=-2;dy<=2;dy++)for(int dx=-2;dx<=2;dx++)if(dx*dx+dy*dy<=4)v=std::max(v,m[std::clamp(y+dy,0,H-1)*W+std::clamp(x+dx,0,W-1)]);d[y*W+x]=v;}for(int y=0;y<H;y++)for(int x=0;x<W;x++){int v=1;for(int dy=-2;dy<=2;dy++)for(int dx=-2;dx<=2;dx++)if(dx*dx+dy*dy<=4)v=std::min(v,d[std::clamp(y+dy,0,H-1)*W+std::clamp(x+dx,0,W-1)]);e[y*W+x]=v;}auto out=sand;for(int y=0;y<H;y++)for(int x=0;x<W;x++){int n=4*(y*W+x),sum=0;for(int dy=-1;dy<=1;dy++)for(int dx=-1;dx<=1;dx++)sum+=e[std::clamp(y+dy,0,H-1)*W+std::clamp(x+dx,0,W-1)];double w=id==69?1.:sum/9.;// Keep the original dark-green ramp continuously shaded, rather than the generator's olive highlights.
+const double ramp[5][3]={{4,40,12},{8,52,12},{12,65,16},{20,77,20},{32,89,28}};
+double shade=std::clamp((double(a[n+1])-24)/84.,0.,1.)*4;int lo=std::min(3,int(shade));double t=shade-lo;
+for(int c=0;c<3;c++){double art=a[n+c];if(id==69||int(a[n+1])-std::max(a[n],a[n+2])>=3)art=ramp[lo][c]*(1-t)+ramp[lo+1][c]*t;out[n+c]=std::lround(art*w+sand[n+c]*(1-w));}out[n+3]=255;}std::ofstream(argv[3],std::ios::binary).write((char*)out.data(),out.size());}

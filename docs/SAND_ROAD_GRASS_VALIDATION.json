@@ -1,0 +1,1746 @@
+{
+  "status": "passed",
+  "base_commit": "2bb45a60852c7a2d40491f55ca364eadfa9f0d6d",
+  "scope": "21 existing terrain material replacements; production source unchanged",
+  "evidence": {
+    "source": {
+      "sha256": "427b26424d87a8016bed69e4b15ca6625de7ab1f7e24058ad364a5f61f236c3d",
+      "report": {
+        "status": "passed",
+        "scope": "independent static and standalone generated-only rebuild audit; no app/capture, no main repository writes",
+        "inventory_sha256": "d92297015681a78336e32acf2b75d46dea82986388f42ceeaa6c5ef3c72af87e",
+        "revision": 1,
+        "inventory": {
+          "listed_files": 133,
+          "files_including_inventory": 134,
+          "listed_bytes": 14425118,
+          "all_hashes_exact": true,
+          "no_symlinks": true
+        },
+        "main_head_observed": "2bb45a60852c7a2d40491f55ca364eadfa9f0d6d",
+        "baseline_commit": "3f05b84b6b63141f9f7ce3bc3b7e9399ccbb4b8e",
+        "changed_ids": [
+          36,
+          37,
+          38,
+          39,
+          40,
+          46,
+          47,
+          48,
+          49,
+          50,
+          56,
+          57,
+          58,
+          66,
+          67,
+          76,
+          78,
+          79,
+          80,
+          89,
+          90
+        ],
+        "unchanged_guard_ids": [
+          69
+        ],
+        "standalone_rebuild": {
+          "exact_decoded_rgba": 22,
+          "exact_hda": 22,
+          "fully_opaque": true,
+          "headers_exact": true,
+          "exit_code": 0,
+          "log": "/workspace/scratch/f67dd347fa0a/sand21-preintegration-audit/rebuild.log",
+          "note": "Non-fatal Fontconfig cache warnings.",
+          "syscall_trace": "Unavailable: ptrace denied by environment; no escalation or retry. Self-contained dependency audit is from source review and successful package rebuild.",
+          "png_encodings_exact": true
+        },
+        "historical_rebuild": {
+          "status": "passed",
+          "outputs": 9,
+          "all_rgba_hda_exact": true,
+          "all_png_exact": true,
+          "log": "/workspace/scratch/f67dd347fa0a/sand21-preintegration-audit/road-nine-rebuild.log"
+        },
+        "output_safety_negative_tests": {
+          "existing_output": {
+            "exit_code": 1,
+            "rejected": true
+          },
+          "symlink_output": {
+            "exit_code": 1,
+            "rejected": true
+          },
+          "inside_package": {
+            "exit_code": 1,
+            "rejected": true
+          }
+        },
+        "integration_constraints": [
+          "Freeze package inventory revision1 unchanged and verify every listed SHA before integration.",
+          "Install only changed21 runtime HDA files; retain69 as unchanged guard. All header, alpha, anchor, logical-size and slot contracts remain unchanged.",
+          "Preserve old source PNGs and old road-nine-v2 recipe/contracts; change only wrapper historical-input routing.",
+          "Materialize37/49/50/57 from sand21 source/accepted plus headers; hash-check against road-nine-v2 frozen_hda. For its14 other frozen inputs, preserve their exact historical bytes.",
+          "Do not repoint old historical recipe at refreshed runtime data or alter expected old hashes.",
+          "Standalone decoded RGBA and HDA are portable contract; package PNG encoding hashes identify stored files.",
+          "Runtime scrolling, foreground, missing-art fallback and state parity remain required before publication."
+        ],
+        "limits": [
+          "Source classification is supported by self-contained generated-source inventory and provenance; this audit did not reproduce remote image generation.",
+          "No runtime, map-occurrence or visual acceptance checks performed.",
+          "Road masks preserve the declared conservative mask; they are not proof of perfect semantic segmentation."
+        ],
+        "protection": {
+          "road_zero_weight_pixels_exact": 346583,
+          "grass_pure_backing_pixels": 207954,
+          "grass_mixed_pixels_exact": 18627,
+          "grass_green_pixels_exact": 165587,
+          "grass_changed_pixels": 196877,
+          "grass_source_masks_independently_derived": true
+        },
+        "historical_frozen_inputs_count": 18,
+        "historical_reconstructed": [
+          {
+            "id": 37,
+            "sha256": "86bddc5854ec813416d9dfd3a02ddab1c1f82fe796c74b7373689b91cd9bed7b",
+            "route": "sand21 accepted PNG + exact headers"
+          },
+          {
+            "id": 49,
+            "sha256": "72b49a92546bcc600e46fe7cdeb31845c069daaa555f790a165c3a9df9eb836b",
+            "route": "sand21 accepted PNG + exact headers"
+          },
+          {
+            "id": 50,
+            "sha256": "b29cfd48860383b651b870636d188775f6c72c65c9294f0abd0b0e31910434f1",
+            "route": "sand21 accepted PNG + exact headers"
+          },
+          {
+            "id": 57,
+            "sha256": "29c04f71ba49a6ab385e832941c14542e235e02a41b02cf73f8b77a42fcd6b95",
+            "route": "sand21 accepted PNG + exact headers"
+          }
+        ],
+        "both_default_pack_baselines_exact": true,
+        "source_hashes_file": "/workspace/scratch/f67dd347fa0a/sand21-preintegration-audit/source-hashes.json",
+        "source_hashes_file_sha256": "bce7487d523daf72bb73f6f71e33802454810eeccf3ff09b9bc0fa33df0e28e9",
+        "full_report": "/workspace/scratch/f67dd347fa0a/sand21-preintegration-audit/audit-report.json",
+        "final_inventory_recheck": true
+      }
+    },
+    "runtime": {
+      "sha256": "7f41041f50bfff312a5b4bf69d8f5bac495bc53c2b8550a22d3b5ab5da301a69",
+      "report": {
+        "status": "passed_with_coverage_limits",
+        "scope": "Independent read-only integration and retained-log audit; no application run, capture, FIFO open, or main-repository write.",
+        "base_commit": "2bb45a60852c7a2d40491f55ca364eadfa9f0d6d",
+        "main_head_observed": "2bb45a60852c7a2d40491f55ca364eadfa9f0d6d",
+        "main_src_exact_to_base": true,
+        "main_source_file_count": 107,
+        "imported_inventory_sha256": "d92297015681a78336e32acf2b75d46dea82986388f42ceeaa6c5ef3c72af87e",
+        "imported_package_exact": true,
+        "runtime_pack_scope": {
+          "total": 338,
+          "changed": 21,
+          "unchanged": 317,
+          "changed_ids": [
+            36,
+            37,
+            38,
+            39,
+            40,
+            46,
+            47,
+            48,
+            49,
+            50,
+            56,
+            57,
+            58,
+            66,
+            67,
+            76,
+            78,
+            79,
+            80,
+            89,
+            90
+          ],
+          "guard69_unchanged": true,
+          "baseline_matches_base_manifest": true,
+          "candidate_matches_worktree_manifest": true
+        },
+        "rebuilds": {
+          "formal_rgba_hda_exact": 22,
+          "historical_road_exact": 9,
+          "historical_frozen_inputs_exact": 18,
+          "old_recipe_unmodified": true
+        },
+        "fixture": {
+          "exe_sha256": "c9ae24cdbc382051a329564f4e9f92220eaf06d6efe2340365d014d2a5b5e32c",
+          "changed_files": [
+            "src/asset_debug.c",
+            "src/tyrian2.c"
+          ],
+          "reviewed_patch": "/workspace/scratch/f67dd347fa0a/sand21-preintegration-audit/private-fixture-reviewed.patch",
+          "changes": "Environment-gated SDL framebuffer stream hook and asset_debug-gated survival setting invulnerable_ticks to2 when alive. No weapon or input injection.",
+          "main_code_unchanged": true
+        },
+        "matrix_terminal": true,
+        "runs": 12,
+        "runtime_changed_ids_referenced": [
+          36,
+          37,
+          39,
+          40,
+          46,
+          47,
+          48,
+          49,
+          50,
+          56,
+          57,
+          58,
+          66,
+          67,
+          76,
+          78,
+          79,
+          80,
+          89,
+          90
+        ],
+        "changed_ids_not_referenced_in_windows": [
+          38
+        ],
+        "producer_proof_limitation": "All baseline/candidate blend TSVs were streamed to FIFOs. Audit compares retained producer-computed original indexed hashes and per-tick counts/hashes; raw rows cannot be independently rehashed or inspected afterward. HD ownership/RGBA fields are deliberately excluded from indexed normalization. This is producer-proof parity, not independent raw-blend-row verification.",
+        "limits": [
+          "Road38 is absent from the retained presentation windows; its references occur during grass fast-forward ticks645\u20133395. It has static, rebuild and pre-target source-reference coverage, not presented-window coverage.",
+          "Grass3480\u20133599 uses the disclosed private survival fixture, so it is not an ordinary survivability or full gameplay acceptance run.",
+          "No new app runs, captures or image-based visual acceptance performed.",
+          "Coverage is bounded to these120-tick windows, scales2x/4x, road missing-art and processor4 wild cases."
+        ],
+        "retained_log_hashes": "/workspace/scratch/f67dd347fa0a/sand21-preintegration-audit/runtime-log-hashes.json",
+        "production_smoke": {
+          "status": "passed",
+          "frames": 120,
+          "ticks": [
+            500,
+            619
+          ],
+          "exe_sha256": "4caacb2d6ea6b0c692bef0a8e46901f63a809ef2df36d42d21f1f8d92adbb4d8",
+          "binary_matches_current_main": true,
+          "regular_tsv_exact_to_private_candidate": 26,
+          "control_exact_except_wall_ms": true,
+          "normalized_blend_proof_exact": true,
+          "same338_assets": true,
+          "survival": false
+        },
+        "total_completed_runs_including_production": 13,
+        "build_hd_assets_producer_summary": {
+          "verified_pack_count": 18,
+          "verified_HDA_entries": 2908,
+          "verified_exact_source_pngs": 350,
+          "default_pack_counts": [
+            334,
+            338
+          ],
+          "rebuild_output": null,
+          "all_runtime_RGBA_and_header_bytes_exact": true
+        },
+        "default_packs_verified": 2,
+        "pairs": [
+          {
+            "case": "grass-2x-local",
+            "status": "passed",
+            "ticks": [
+              3480,
+              3599
+            ],
+            "regular_tsv_exact": 25,
+            "state_rows": 3600,
+            "draw_path": "hd-ordered",
+            "changed_rgb_frames": 120,
+            "indexed_blend_rows": 32099,
+            "restored_mismatches": 0,
+            "coverage_mismatches": 0,
+            "survival_fixture": true
+          },
+          {
+            "case": "road-2x-local",
+            "status": "passed",
+            "ticks": [
+              500,
+              619
+            ],
+            "regular_tsv_exact": 25,
+            "state_rows": 620,
+            "draw_path": "hd-ordered",
+            "changed_rgb_frames": 120,
+            "indexed_blend_rows": 0,
+            "restored_mismatches": 0,
+            "coverage_mismatches": 0,
+            "survival_fixture": false
+          },
+          {
+            "case": "grass-4x-local",
+            "status": "passed",
+            "ticks": [
+              3480,
+              3599
+            ],
+            "regular_tsv_exact": 25,
+            "state_rows": 3600,
+            "draw_path": "hd-ordered",
+            "changed_rgb_frames": 120,
+            "indexed_blend_rows": 32099,
+            "restored_mismatches": 0,
+            "coverage_mismatches": 0,
+            "survival_fixture": true
+          },
+          {
+            "case": "road-2x-missing",
+            "status": "passed",
+            "ticks": [
+              500,
+              619
+            ],
+            "regular_tsv_exact": 25,
+            "state_rows": 620,
+            "draw_path": "classic-assets",
+            "changed_rgb_frames": 0,
+            "indexed_blend_rows": 0,
+            "restored_mismatches": 0,
+            "coverage_mismatches": 0,
+            "survival_fixture": false
+          },
+          {
+            "case": "road-2x-wild",
+            "status": "passed",
+            "ticks": [
+              500,
+              619
+            ],
+            "regular_tsv_exact": 25,
+            "state_rows": 620,
+            "draw_path": "hd-ordered",
+            "changed_rgb_frames": 120,
+            "indexed_blend_rows": 0,
+            "restored_mismatches": 0,
+            "coverage_mismatches": 0,
+            "survival_fixture": false
+          },
+          {
+            "case": "road-4x-local",
+            "status": "passed",
+            "ticks": [
+              500,
+              619
+            ],
+            "regular_tsv_exact": 25,
+            "state_rows": 620,
+            "draw_path": "hd-ordered",
+            "changed_rgb_frames": 120,
+            "indexed_blend_rows": 0,
+            "restored_mismatches": 0,
+            "coverage_mismatches": 0,
+            "survival_fixture": false
+          }
+        ],
+        "full_report": "/workspace/scratch/f67dd347fa0a/sand21-preintegration-audit/integration-runtime-report.json"
+      }
+    },
+    "actual_readback_scope": {
+      "sha256": "7e097ab8ecb67c7280bb617d40b564185a1d9421cbb3ed5f6b7f1ff8a133e0b1",
+      "report": [
+        {
+          "kind": "road",
+          "ticks": [
+            500,
+            619
+          ],
+          "candidate_frames": 120,
+          "all240_baseline_and_candidate_RGBA_hashes_exact": true,
+          "all_frame_differences_inside21_rects": true,
+          "logs_byte_identical": {
+            "asset-debug-clock.tsv": true,
+            "asset-debug-materials.tsv": true,
+            "scene-draw-commands.tsv": true,
+            "collisions.tsv": true,
+            "effects.tsv": true,
+            "enemy-projectiles.tsv": true,
+            "player-projectiles.tsv": true,
+            "fire-events.tsv": true
+          },
+          "frames": [
+            {
+              "tick": 500,
+              "changed_pixels": 16064,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 501,
+              "changed_pixels": 16305,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 502,
+              "changed_pixels": 16538,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 503,
+              "changed_pixels": 16751,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 504,
+              "changed_pixels": 16956,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 505,
+              "changed_pixels": 17187,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 506,
+              "changed_pixels": 17387,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 507,
+              "changed_pixels": 17559,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 508,
+              "changed_pixels": 17683,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 509,
+              "changed_pixels": 17822,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 510,
+              "changed_pixels": 17919,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 511,
+              "changed_pixels": 18007,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 512,
+              "changed_pixels": 18096,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 513,
+              "changed_pixels": 18205,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 514,
+              "changed_pixels": 18337,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 515,
+              "changed_pixels": 18480,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 516,
+              "changed_pixels": 18608,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 517,
+              "changed_pixels": 18744,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 518,
+              "changed_pixels": 18890,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 519,
+              "changed_pixels": 19013,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 520,
+              "changed_pixels": 19124,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 521,
+              "changed_pixels": 19055,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 522,
+              "changed_pixels": 18896,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 523,
+              "changed_pixels": 18700,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 524,
+              "changed_pixels": 18484,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 525,
+              "changed_pixels": 18236,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 526,
+              "changed_pixels": 18057,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 527,
+              "changed_pixels": 17917,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 528,
+              "changed_pixels": 17779,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 529,
+              "changed_pixels": 17663,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 530,
+              "changed_pixels": 17514,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 531,
+              "changed_pixels": 17439,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 532,
+              "changed_pixels": 17312,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 533,
+              "changed_pixels": 17182,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 534,
+              "changed_pixels": 17125,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 535,
+              "changed_pixels": 17191,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 536,
+              "changed_pixels": 17287,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 537,
+              "changed_pixels": 17351,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 538,
+              "changed_pixels": 17332,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 539,
+              "changed_pixels": 17271,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 540,
+              "changed_pixels": 17183,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 541,
+              "changed_pixels": 17061,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 542,
+              "changed_pixels": 16904,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 543,
+              "changed_pixels": 16751,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 544,
+              "changed_pixels": 16610,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 545,
+              "changed_pixels": 16463,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 546,
+              "changed_pixels": 16312,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 547,
+              "changed_pixels": 16160,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 548,
+              "changed_pixels": 16007,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 549,
+              "changed_pixels": 15853,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 550,
+              "changed_pixels": 15713,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 551,
+              "changed_pixels": 15589,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 552,
+              "changed_pixels": 15485,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 553,
+              "changed_pixels": 15405,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 554,
+              "changed_pixels": 15361,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 555,
+              "changed_pixels": 15353,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 556,
+              "changed_pixels": 15379,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 557,
+              "changed_pixels": 15442,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 558,
+              "changed_pixels": 15524,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 559,
+              "changed_pixels": 15616,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 560,
+              "changed_pixels": 15716,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 561,
+              "changed_pixels": 15828,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 562,
+              "changed_pixels": 15950,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 563,
+              "changed_pixels": 16077,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 564,
+              "changed_pixels": 16204,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 565,
+              "changed_pixels": 16334,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 566,
+              "changed_pixels": 16460,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 567,
+              "changed_pixels": 16573,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 568,
+              "changed_pixels": 16675,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 569,
+              "changed_pixels": 16745,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 570,
+              "changed_pixels": 16803,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 571,
+              "changed_pixels": 16855,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 572,
+              "changed_pixels": 16914,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 573,
+              "changed_pixels": 16962,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 574,
+              "changed_pixels": 16999,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 575,
+              "changed_pixels": 17033,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 576,
+              "changed_pixels": 17063,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 577,
+              "changed_pixels": 17071,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 578,
+              "changed_pixels": 17074,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 579,
+              "changed_pixels": 17076,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 580,
+              "changed_pixels": 17079,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 581,
+              "changed_pixels": 17089,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 582,
+              "changed_pixels": 17105,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 583,
+              "changed_pixels": 17114,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 584,
+              "changed_pixels": 17127,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 585,
+              "changed_pixels": 17139,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 586,
+              "changed_pixels": 17149,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 587,
+              "changed_pixels": 17156,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 588,
+              "changed_pixels": 17153,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 589,
+              "changed_pixels": 17174,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 590,
+              "changed_pixels": 17193,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 591,
+              "changed_pixels": 17209,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 592,
+              "changed_pixels": 17229,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 593,
+              "changed_pixels": 17243,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 594,
+              "changed_pixels": 17245,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 595,
+              "changed_pixels": 17253,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 596,
+              "changed_pixels": 17276,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 597,
+              "changed_pixels": 17308,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 598,
+              "changed_pixels": 17332,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 599,
+              "changed_pixels": 17344,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 600,
+              "changed_pixels": 17348,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 601,
+              "changed_pixels": 17367,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 602,
+              "changed_pixels": 17394,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 603,
+              "changed_pixels": 17422,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 604,
+              "changed_pixels": 17439,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 605,
+              "changed_pixels": 17456,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 606,
+              "changed_pixels": 17491,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 607,
+              "changed_pixels": 17545,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 608,
+              "changed_pixels": 17582,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 609,
+              "changed_pixels": 17624,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 610,
+              "changed_pixels": 17678,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 611,
+              "changed_pixels": 17740,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 612,
+              "changed_pixels": 17813,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 613,
+              "changed_pixels": 17892,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 614,
+              "changed_pixels": 17983,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 615,
+              "changed_pixels": 18078,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 616,
+              "changed_pixels": 18167,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 617,
+              "changed_pixels": 18284,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 618,
+              "changed_pixels": 18398,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 619,
+              "changed_pixels": 18510,
+              "outside21_rects": 0
+            }
+          ],
+          "visual_review": "pending",
+          "label": "Ordinary gameplay, no controls"
+        },
+        {
+          "kind": "grass",
+          "ticks": [
+            3480,
+            3599
+          ],
+          "candidate_frames": 120,
+          "all240_baseline_and_candidate_RGBA_hashes_exact": true,
+          "all_frame_differences_inside21_rects": true,
+          "logs_byte_identical": {
+            "asset-debug-clock.tsv": true,
+            "asset-debug-materials.tsv": true,
+            "scene-draw-commands.tsv": true,
+            "collisions.tsv": true,
+            "effects.tsv": true,
+            "enemy-projectiles.tsv": true,
+            "player-projectiles.tsv": true,
+            "fire-events.tsv": true
+          },
+          "frames": [
+            {
+              "tick": 3480,
+              "changed_pixels": 90692,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3481,
+              "changed_pixels": 90439,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3482,
+              "changed_pixels": 90168,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3483,
+              "changed_pixels": 90449,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3484,
+              "changed_pixels": 90661,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3485,
+              "changed_pixels": 91131,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3486,
+              "changed_pixels": 91555,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3487,
+              "changed_pixels": 91822,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3488,
+              "changed_pixels": 91874,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3489,
+              "changed_pixels": 92218,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3490,
+              "changed_pixels": 92101,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3491,
+              "changed_pixels": 91947,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3492,
+              "changed_pixels": 91969,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3493,
+              "changed_pixels": 91772,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3494,
+              "changed_pixels": 91524,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3495,
+              "changed_pixels": 91801,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3496,
+              "changed_pixels": 91170,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3497,
+              "changed_pixels": 90972,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3498,
+              "changed_pixels": 90841,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3499,
+              "changed_pixels": 90893,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3500,
+              "changed_pixels": 90922,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3501,
+              "changed_pixels": 91098,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3502,
+              "changed_pixels": 90889,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3503,
+              "changed_pixels": 90760,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3504,
+              "changed_pixels": 90768,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3505,
+              "changed_pixels": 90666,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3506,
+              "changed_pixels": 90052,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3507,
+              "changed_pixels": 89815,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3508,
+              "changed_pixels": 88997,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3509,
+              "changed_pixels": 88463,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3510,
+              "changed_pixels": 88043,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3511,
+              "changed_pixels": 87523,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3512,
+              "changed_pixels": 87189,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3513,
+              "changed_pixels": 87111,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3514,
+              "changed_pixels": 87021,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3515,
+              "changed_pixels": 87178,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3516,
+              "changed_pixels": 87064,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3517,
+              "changed_pixels": 86868,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3518,
+              "changed_pixels": 86434,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3519,
+              "changed_pixels": 86463,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3520,
+              "changed_pixels": 86112,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3521,
+              "changed_pixels": 85671,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3522,
+              "changed_pixels": 85195,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3523,
+              "changed_pixels": 84579,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3524,
+              "changed_pixels": 84056,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3525,
+              "changed_pixels": 84018,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3526,
+              "changed_pixels": 83541,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3527,
+              "changed_pixels": 83372,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3528,
+              "changed_pixels": 83132,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3529,
+              "changed_pixels": 83119,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3530,
+              "changed_pixels": 83137,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3531,
+              "changed_pixels": 83105,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3532,
+              "changed_pixels": 82822,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3533,
+              "changed_pixels": 82462,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3534,
+              "changed_pixels": 82236,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3535,
+              "changed_pixels": 82140,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3536,
+              "changed_pixels": 81749,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3537,
+              "changed_pixels": 81718,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3538,
+              "changed_pixels": 81398,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3539,
+              "changed_pixels": 81254,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3540,
+              "changed_pixels": 81227,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3541,
+              "changed_pixels": 81076,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3542,
+              "changed_pixels": 80906,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3543,
+              "changed_pixels": 80811,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3544,
+              "changed_pixels": 80615,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3545,
+              "changed_pixels": 80739,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3546,
+              "changed_pixels": 80421,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3547,
+              "changed_pixels": 79995,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3548,
+              "changed_pixels": 79395,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3549,
+              "changed_pixels": 79339,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3550,
+              "changed_pixels": 79152,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3551,
+              "changed_pixels": 79098,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3552,
+              "changed_pixels": 78946,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3553,
+              "changed_pixels": 78664,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3554,
+              "changed_pixels": 78318,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3555,
+              "changed_pixels": 78258,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3556,
+              "changed_pixels": 77891,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3557,
+              "changed_pixels": 77745,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3558,
+              "changed_pixels": 77481,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3559,
+              "changed_pixels": 77591,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3560,
+              "changed_pixels": 77623,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3561,
+              "changed_pixels": 77373,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3562,
+              "changed_pixels": 76782,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3563,
+              "changed_pixels": 76251,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3564,
+              "changed_pixels": 75736,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3565,
+              "changed_pixels": 75863,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3566,
+              "changed_pixels": 75734,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3567,
+              "changed_pixels": 75595,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3568,
+              "changed_pixels": 75175,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3569,
+              "changed_pixels": 74942,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3570,
+              "changed_pixels": 74521,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3571,
+              "changed_pixels": 74290,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3572,
+              "changed_pixels": 73917,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3573,
+              "changed_pixels": 73649,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3574,
+              "changed_pixels": 73526,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3575,
+              "changed_pixels": 73645,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3576,
+              "changed_pixels": 73315,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3577,
+              "changed_pixels": 73064,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3578,
+              "changed_pixels": 72402,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3579,
+              "changed_pixels": 71631,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3580,
+              "changed_pixels": 70947,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3581,
+              "changed_pixels": 70552,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3582,
+              "changed_pixels": 70038,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3583,
+              "changed_pixels": 69712,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3584,
+              "changed_pixels": 69274,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3585,
+              "changed_pixels": 68991,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3586,
+              "changed_pixels": 68494,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3587,
+              "changed_pixels": 68300,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3588,
+              "changed_pixels": 67833,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3589,
+              "changed_pixels": 67836,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3590,
+              "changed_pixels": 67719,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3591,
+              "changed_pixels": 67557,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3592,
+              "changed_pixels": 67108,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3593,
+              "changed_pixels": 66818,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3594,
+              "changed_pixels": 66300,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3595,
+              "changed_pixels": 65981,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3596,
+              "changed_pixels": 65490,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3597,
+              "changed_pixels": 65143,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3598,
+              "changed_pixels": 64640,
+              "outside21_rects": 0
+            },
+            {
+              "tick": 3599,
+              "changed_pixels": 64370,
+              "outside21_rects": 0
+            }
+          ],
+          "visual_review": "pending",
+          "label": "Private survival, no injection or hit controls"
+        }
+      ]
+    },
+    "production_smoke": {
+      "sha256": "ab7cb8ab225c5dbf8cf2751d1a53d7b3e02a05dfac63d2eb80399a2081a8110b",
+      "report": {
+        "status": "passed",
+        "frames": 120,
+        "production_binary": true,
+        "formal_assets_exact_private_test_pack": 338,
+        "exact_files": [
+          "state.tsv",
+          "collisions.tsv",
+          "effects.tsv",
+          "rgb-audit.tsv",
+          "draw-commands.tsv",
+          "frames.tsv"
+        ],
+        "production_source_unchanged": true
+      }
+    }
+  },
+  "visual_review": {
+    "sha256": "75f66fbb12efc5fe8c9b021ac4655abe7ce84effecdaa68d5a7db006ed31faf2",
+    "report": {
+      "result": "PASS within the bounded reviewed contexts",
+      "reviewed_utc": "2026-10-12T02:39:00Z",
+      "selected_terrain_ids": [
+        36,
+        37,
+        38,
+        39,
+        40,
+        46,
+        47,
+        48,
+        49,
+        50,
+        56,
+        57,
+        58,
+        66,
+        67,
+        76,
+        78,
+        79,
+        80,
+        89,
+        90
+      ],
+      "visual_review": {
+        "road": {
+          "ticks": [
+            500,
+            619
+          ],
+          "frames_inspected": 120,
+          "presentation": "actual native 2x",
+          "fixture": "ordinary replay; no injected hit controls",
+          "findings": "Quieter sand retains warm palette and fine variation. Preserved near-edge stones and shaded road transitions remain coherent. No new tile grid, flash, cut boundary or foreground overwrite observed."
+        },
+        "grass": {
+          "ticks": [
+            3480,
+            3599
+          ],
+          "frames_inspected": 120,
+          "presentation": "actual native 2x",
+          "fixture": "private survival; no weapon injection or hit controls",
+          "findings": "Grass silhouette and internal green texture remain intact. Sand backing blends with the broad sand field. Natural Layer3 occlusion progresses consistently; no bright backing ring, new rectangle, seam jump or flicker observed."
+        },
+        "additional_spots": {
+          "native_2x_baseline_and_candidate": [
+            510,
+            3490
+          ],
+          "native_4x_candidate": [
+            510,
+            3490
+          ],
+          "result": "pass"
+        },
+        "inspection_method": "Every candidate frame inspected in chronological 12-frame contacts with each playfield crop at native 2x; separate full-frame native stills checked. Contacts are reproducible using review_runtime.py; no extra game capture."
+      },
+      "independent_technical_review": {
+        "decoded_RGBA_hashes_exact": 480,
+        "frame_pairs_with_diffs_confined_to_selected_tile_rectangles": 240,
+        "outside_selected_rectangles_changed_pixels": 0,
+        "selected_logs_byte_identical": {
+          "road": {
+            "asset-debug-clock.tsv": true,
+            "asset-debug-materials.tsv": true,
+            "scene-draw-commands.tsv": true,
+            "collisions.tsv": true,
+            "effects.tsv": true,
+            "enemy-projectiles.tsv": true,
+            "player-projectiles.tsv": true,
+            "fire-events.tsv": true
+          },
+          "grass": {
+            "asset-debug-clock.tsv": true,
+            "asset-debug-materials.tsv": true,
+            "scene-draw-commands.tsv": true,
+            "collisions.tsv": true,
+            "effects.tsv": true,
+            "enemy-projectiles.tsv": true,
+            "player-projectiles.tsv": true,
+            "fire-events.tsv": true
+          }
+        },
+        "runtime_audit_sha256": "14e485f2a21dd382382ff3f8fa17fa55dcfca72c0c939f08adeb9caded3daa64",
+        "reproducer_sha256": "dde1c1d68b76d73fd3b01701985251d0019ef0ae0b18f5078478b7c4c5accc3a"
+      },
+      "coverage_qualification": "Engineering reports 20/21 changed IDs in the two presentation windows. ID38 is static-neighbor/rebuild-only here. This review does not claim every map placement, whole-game coverage, or ordinary gameplay for the late grass continuation.",
+      "out_of_scope": "Previously accepted rocks, brown plateau, clouds, islands and unrelated late original enemies remain outside this sand-material revision.",
+      "source_inventory_sha256": "d92297015681a78336e32acf2b75d46dea82986388f42ceeaa6c5ef3c72af87e",
+      "evidence_sha256": {
+        "tyrian-background-redraw/runtime-runs/sand21-road-baseline-2x/actual-lossless.mkv": "df9aac7f38ac0c07432a80eff9ad2d0c3550f9800d3659eb45fd06aaa391dfe1",
+        "tyrian-background-redraw/runtime-runs/sand21-road-baseline-2x/real-frame-hashes.json": "2bf7a258230e177fb7559bac973b212f0dda46b45b1c7dc7fe3e01d8a2be74d0",
+        "tyrian-background-redraw/runtime-runs/sand21-road-baseline-2x/run.json": "163eb9828a360e4ed6d1392fe9607e5e11eb69ed2cb17e9c94ab34cd15fcad0c",
+        "tyrian-background-redraw/runtime-runs/sand21-road-candidate-2x/actual-lossless.mkv": "9186358ac67e9e25af3b2d8b9625fc66f5766c868b67093d26342dbd24318b2b",
+        "tyrian-background-redraw/runtime-runs/sand21-road-candidate-2x/real-frame-hashes.json": "e4f034904ea4032f8ef32d1f6c4ef0d28d41dd342b895e9979f6f7df844eb5a7",
+        "tyrian-background-redraw/runtime-runs/sand21-road-candidate-2x/run.json": "61c2ece54fdc028176ed532c4aeb7a644a4a1861bf18b38a68a434d6f084f7dc",
+        "tyrian-background-redraw/runtime-runs/sand21-road-candidate-2x/actual-frame-0510.png": "fb927ed710e65a736f5fff84812442f8c14ecc0e9715b2a31461b63316ef2861",
+        "tyrian-background-redraw/runtime-runs/sand21-road-candidate-4x/actual-frame-0510.png": "56f99e3140cb675a06718041149a9aac44a2d63b68dcfe4feb8c474c9069c647",
+        "tyrian-background-redraw/runtime-runs/sand21-grass-baseline-2x/actual-lossless.mkv": "813ad643a45ea5547bf171583d076745d0f10df3db8ec9956c5c9a048d2a68af",
+        "tyrian-background-redraw/runtime-runs/sand21-grass-baseline-2x/real-frame-hashes.json": "f117352aaee9d184cccb9eca453e5f8d6ff6d55c729d0b1eb8e70e2dbc5406cd",
+        "tyrian-background-redraw/runtime-runs/sand21-grass-baseline-2x/run.json": "8e5fe1da72634d59d15a5e4765e9c997c9614db94686f5743c5ad56d81f173b1",
+        "tyrian-background-redraw/runtime-runs/sand21-grass-candidate-2x/actual-lossless.mkv": "702c64b2c81df6cfb8800ace21ef7a005b69ec2bcd66ff9fbcfe0a91b914944c",
+        "tyrian-background-redraw/runtime-runs/sand21-grass-candidate-2x/real-frame-hashes.json": "51a747410465d4416e0c662c4ca9df45f38557692c6cc5a25661eefef994e87f",
+        "tyrian-background-redraw/runtime-runs/sand21-grass-candidate-2x/run.json": "7f7781a5c17ee0a30ee393e8ec1df44df04737cad1e8e36f62f38cc49cac21ee",
+        "tyrian-background-redraw/runtime-runs/sand21-grass-candidate-2x/actual-frame-3490.png": "91136cc22017d088c7986824b701cf5f57300dde093ab230e63ed3952814fbf6",
+        "tyrian-background-redraw/runtime-runs/sand21-grass-candidate-4x/actual-frame-3490.png": "14be9d1881c98f6ba1357312df0b200c6c0c80b92153c3c33c403ad5b2485ecc"
+      }
+    }
+  },
+  "limits": [
+    "Road38 lacks presentation-window coverage.",
+    "Grass tail3480\u20133599 is private-survival.",
+    "Other original enemies, brown101 rock, clouds, plateau and island artwork are outside this refresh.",
+    "No Windows or whole-game claim."
+  ]
+}

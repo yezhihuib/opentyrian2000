@@ -1,0 +1,48 @@
+{
+  "status": "unintegrated material direction pilot",
+  "source": "Fresh imagegen with no reference raster, palette-only numeric description",
+  "generated_master": "generated-matte-sand-master.png",
+  "generated_master_sha256": "27f264ecd6a6636b76852566eca826211d654cf02abbbc5b0d017a9f95828f54",
+  "registration": [
+    "ImageMagick default resize entire square master to192x224; no crop geometry inherited",
+    "Native GEGL tile-seamless at registered resolution",
+    "Uniform red subtract3.62269%, green subtract3.16461%, blue unchanged to match current sand overall palette; alpha255"
+  ],
+  "logical_size": [
+    24,
+    28
+  ],
+  "density": 8,
+  "alpha": "fully opaque",
+  "art_scope": [
+    47
+  ],
+  "neighbor_scope_pending": {
+    "cardinal": [
+      37,
+      39,
+      40,
+      46,
+      47,
+      48,
+      49,
+      50,
+      57,
+      67,
+      76,
+      78,
+      79,
+      80,
+      89,
+      90
+    ],
+    "diagonal_additions": [
+      36,
+      38,
+      56,
+      58,
+      66
+    ]
+  },
+  "no_production_integration": true
+}
