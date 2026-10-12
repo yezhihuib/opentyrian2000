@@ -1,0 +1,616 @@
+{
+  "schema": "gameplay-hud-fixed-text-manifest-v1",
+  "status": "FROZEN_GENERATED_ONLY_TRIAL_ART_NOT_RUNTIME_INTEGRATED",
+  "density": 4,
+  "layout_id": 1,
+  "tile_count": 12,
+  "logical_cells": 370,
+  "scope": "MODE 19x5, SHIELD six disjoint 5x5 cells, ARMOR five disjoint 5x5 cells; 370 logical cells. Vertical gaps and surrounding black insets are excluded.",
+  "ownership": {
+    "canvas_logical": [
+      320,
+      200
+    ],
+    "mask_format": "uint8 row-major 0/255",
+    "mask_sha256": "40360dde85cdcd98eb1a65c6e9b0972c5fa596618adc4a07ce79953ce19483b0",
+    "whole_tile_owned_including_black": true,
+    "vertical_gap_cells_owned": 0
+  },
+  "source_370": {
+    "order": "MODE, SHIELD top-down, ARMOR top-down; row-major within each box",
+    "bytes": 370,
+    "sha256": "272f2995359bd118dd62cb3b597ad937034527a25180115b399f8978777c59f6",
+    "fnv1a64": "b110512dd1fc63f4",
+    "verified_against_original_pic3": true
+  },
+  "resource": {
+    "path": "gameplay-hud-fixed-text-v1.hda",
+    "magic": "HUT1",
+    "version": 1,
+    "header_struct": "<4s7I4Q",
+    "header_bytes": 64,
+    "density": 4,
+    "tile_count": 12,
+    "logical_cells": 370,
+    "payload_bytes": 23680,
+    "layout_id": 1,
+    "reserved": 0,
+    "total_bytes": 23744,
+    "pic3_fnv1a64": "14c1441f3d5dc0e2",
+    "palette_fnv1a64": "5e80e83992be2927",
+    "source_370_fnv1a64": "b110512dd1fc63f4",
+    "payload_fnv1a64": "a2433de596bd3873",
+    "payload_sha256": "d412de9274fad601712ccbeeee617382ae9ec1c250df74580ea015bb997cf893",
+    "sha256": "6d096f31085b22fb381761d3c8460bd06956c2bd039a1e0cc97481bc09819745",
+    "payload_order": "MODE, SHIELD top-down, ARMOR top-down",
+    "pixel_order": "top-to-bottom, left-to-right, RGBA8, no stride padding",
+    "alpha": "255 throughout every tile, including black"
+  },
+  "source_input_sha256": {
+    "provenance.json": "94e17ddff9715dadf3c3600048ff4c510f13b89aafe20ed6683290631a930b6a",
+    "selected-glyph-paths.json": "89652889cfb81221e0c318aeaaa822b10aca3a4cc335288f9f6df8c45a5c3836"
+  },
+  "dependencies": {
+    "Pillow": "12.3.0",
+    "numpy": "2.3.5",
+    "zlib_runtime": "1.3.2"
+  },
+  "fnv1a64": {
+    "offset_basis_hex": "cbf29ce484222325",
+    "prime_hex": "00000100000001b3",
+    "modulus": "2^64",
+    "hex_representation": "numeric value, not serialized byte order"
+  },
+  "tiles": [
+    {
+      "name": "MODE",
+      "source_metric_name": "MODE",
+      "logical_box_half_open": [
+        284,
+        54,
+        303,
+        59
+      ],
+      "png_path": "tiles/fixed-MODE-4x.png",
+      "pilot_png_reference": "hud-typography-pilot-v1/generated/fixed-MODE-4x.png",
+      "png_bytes": 1084,
+      "png_sha256": "af06241d5b28f0e3c8565bafa672166848d1f977054be9efb5858671c2b5c5e3",
+      "decoded_rgba_sha256": "b7cb0c0ba56fc14a125b9f032640f5796abc5088706c3f7f60fa01815957f579",
+      "decoded_rgba_fnv1a64": "42cca31d6d0dd6c9",
+      "pixel_size": [
+        76,
+        20
+      ],
+      "source_index_bytes_sha256": "73406fa9edcba17ccb8ae2eff7e266f94120079d072a37bdf43116927c31a577",
+      "source_index_bytes_fnv1a64": "a958dac12bf36c8f",
+      "tile_index": 0,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "logical_cells": 95,
+      "letters": [
+        {
+          "character": "M",
+          "local_x": 0,
+          "width": 5,
+          "height": 5
+        },
+        {
+          "character": "O",
+          "local_x": 6,
+          "width": 4,
+          "height": 5
+        },
+        {
+          "character": "D",
+          "local_x": 11,
+          "width": 4,
+          "height": 5
+        },
+        {
+          "character": "E",
+          "local_x": 16,
+          "width": 3,
+          "height": 5
+        }
+      ],
+      "payload_offset": 0,
+      "resource_offset": 64,
+      "rgba_bytes": 6080
+    },
+    {
+      "name": "SHIELD_S0",
+      "source_metric_name": "SHIELD_0_S",
+      "logical_box_half_open": [
+        285,
+        138,
+        290,
+        143
+      ],
+      "png_path": "tiles/fixed-SHIELD_S0-4x.png",
+      "pilot_png_reference": "hud-typography-pilot-v1/generated/fixed-SHIELD_S0-4x.png",
+      "png_bytes": 415,
+      "png_sha256": "c5eac4ccd22ee40a4488de7ce16cdee2031907c8cc5f09607403670b83e52144",
+      "decoded_rgba_sha256": "86218b92f732b348f354846c2e0eb871e2edd70a75e9c8e4e7f3fdfaeecff9df",
+      "decoded_rgba_fnv1a64": "fc30c4b35d0e9ad5",
+      "pixel_size": [
+        20,
+        20
+      ],
+      "source_index_bytes_sha256": "272619b1acefacbcaf354168de6f30f9502bc5233208bee68f54b5dc36919f96",
+      "source_index_bytes_fnv1a64": "ebf3a990c05b4ce8",
+      "tile_index": 1,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "logical_cells": 25,
+      "letters": [
+        {
+          "character": "S",
+          "local_x": 0,
+          "width": 5,
+          "height": 5
+        }
+      ],
+      "payload_offset": 6080,
+      "resource_offset": 6144,
+      "rgba_bytes": 1600
+    },
+    {
+      "name": "SHIELD_H1",
+      "source_metric_name": "SHIELD_1_H",
+      "logical_box_half_open": [
+        285,
+        144,
+        290,
+        149
+      ],
+      "png_path": "tiles/fixed-SHIELD_H1-4x.png",
+      "pilot_png_reference": "hud-typography-pilot-v1/generated/fixed-SHIELD_H1-4x.png",
+      "png_bytes": 241,
+      "png_sha256": "75b9df08d0c0dd5c72db0ecec1eed6b82e77b67b9d6a879acc4683db8ee351de",
+      "decoded_rgba_sha256": "6705b7e4fa4f78e09d52a195f509daf73b0a6f1ca56eba99e2f4e48d7696fa3f",
+      "decoded_rgba_fnv1a64": "fc5242181036260f",
+      "pixel_size": [
+        20,
+        20
+      ],
+      "source_index_bytes_sha256": "35d804a7fc25a2c3fb27cd911e3f02fc23796afc3bb958ed4cf3f10c5b951c1c",
+      "source_index_bytes_fnv1a64": "fa57e5c148df605b",
+      "tile_index": 2,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "logical_cells": 25,
+      "letters": [
+        {
+          "character": "H",
+          "local_x": 0,
+          "width": 5,
+          "height": 5
+        }
+      ],
+      "payload_offset": 7680,
+      "resource_offset": 7744,
+      "rgba_bytes": 1600
+    },
+    {
+      "name": "SHIELD_I2",
+      "source_metric_name": "SHIELD_2_I",
+      "logical_box_half_open": [
+        285,
+        150,
+        290,
+        155
+      ],
+      "png_path": "tiles/fixed-SHIELD_I2-4x.png",
+      "pilot_png_reference": "hud-typography-pilot-v1/generated/fixed-SHIELD_I2-4x.png",
+      "png_bytes": 241,
+      "png_sha256": "00a46a81ae2c49368ca2030ac234f03a4fdf877d9c877bf8bfd635367da6bba3",
+      "decoded_rgba_sha256": "b71794a9445f5f0a285341c94de042c54cf4a9a93ad76680b778122445dbfc4d",
+      "decoded_rgba_fnv1a64": "9dd0adcbedd637ed",
+      "pixel_size": [
+        20,
+        20
+      ],
+      "source_index_bytes_sha256": "09c25e9df0b5119ab70506bddf0bf762052b644a498061795693e6e5197e1cf2",
+      "source_index_bytes_fnv1a64": "fdae5fc9dd6d3952",
+      "tile_index": 3,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "logical_cells": 25,
+      "letters": [
+        {
+          "character": "I",
+          "local_x": 0,
+          "width": 5,
+          "height": 5
+        }
+      ],
+      "payload_offset": 9280,
+      "resource_offset": 9344,
+      "rgba_bytes": 1600
+    },
+    {
+      "name": "SHIELD_E3",
+      "source_metric_name": "SHIELD_3_E",
+      "logical_box_half_open": [
+        285,
+        156,
+        290,
+        161
+      ],
+      "png_path": "tiles/fixed-SHIELD_E3-4x.png",
+      "pilot_png_reference": "hud-typography-pilot-v1/generated/fixed-SHIELD_E3-4x.png",
+      "png_bytes": 283,
+      "png_sha256": "07641a1f66f1b45c2a2d19e872e70268f44a0c4d5d1fa637989f6824bd0da47e",
+      "decoded_rgba_sha256": "91ff7527510455dabb76213dcf3299ee0534459319e72bc929bb31ef0e1d613b",
+      "decoded_rgba_fnv1a64": "ba3020e39c482c4f",
+      "pixel_size": [
+        20,
+        20
+      ],
+      "source_index_bytes_sha256": "c3a13edc20d340c7333b4965976143e7d4b118ce7543a884688590a0d6f756d4",
+      "source_index_bytes_fnv1a64": "891d08a21b261201",
+      "tile_index": 4,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "logical_cells": 25,
+      "letters": [
+        {
+          "character": "E",
+          "local_x": 0,
+          "width": 5,
+          "height": 5
+        }
+      ],
+      "payload_offset": 10880,
+      "resource_offset": 10944,
+      "rgba_bytes": 1600
+    },
+    {
+      "name": "SHIELD_L4",
+      "source_metric_name": "SHIELD_4_L",
+      "logical_box_half_open": [
+        285,
+        162,
+        290,
+        167
+      ],
+      "png_path": "tiles/fixed-SHIELD_L4-4x.png",
+      "pilot_png_reference": "hud-typography-pilot-v1/generated/fixed-SHIELD_L4-4x.png",
+      "png_bytes": 192,
+      "png_sha256": "28d34803591048545324ef5133961af873bc73b4957bb2dff068b789d061580e",
+      "decoded_rgba_sha256": "8e804393b1186c4b620acaf6ad7f2d56293bcefd3f0a49331742041f8103872f",
+      "decoded_rgba_fnv1a64": "94693e196ee98874",
+      "pixel_size": [
+        20,
+        20
+      ],
+      "source_index_bytes_sha256": "48c5a81c4d200d5b7957a1492e74b931fcd83e4465764b19d1d4e14335fd4190",
+      "source_index_bytes_fnv1a64": "7faf7a9d795d889e",
+      "tile_index": 5,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "logical_cells": 25,
+      "letters": [
+        {
+          "character": "L",
+          "local_x": 0,
+          "width": 5,
+          "height": 5
+        }
+      ],
+      "payload_offset": 12480,
+      "resource_offset": 12544,
+      "rgba_bytes": 1600
+    },
+    {
+      "name": "SHIELD_D5",
+      "source_metric_name": "SHIELD_5_D",
+      "logical_box_half_open": [
+        285,
+        168,
+        290,
+        173
+      ],
+      "png_path": "tiles/fixed-SHIELD_D5-4x.png",
+      "pilot_png_reference": "hud-typography-pilot-v1/generated/fixed-SHIELD_D5-4x.png",
+      "png_bytes": 385,
+      "png_sha256": "f8297dafd0d9062d8cf9cdf2cfa1bd22111e167ef7053a5da4ce0c37d87db6d5",
+      "decoded_rgba_sha256": "be17fff203224b1941552cdc9461b00e46fc3addfbf29ee57faac2333c137b42",
+      "decoded_rgba_fnv1a64": "bdb04c796f28ba67",
+      "pixel_size": [
+        20,
+        20
+      ],
+      "source_index_bytes_sha256": "0d78dc2071f92b85b8cbcff35c110c44b8d17d6392aeeb872c1628888d68ddb8",
+      "source_index_bytes_fnv1a64": "02c77d203559e62d",
+      "tile_index": 6,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "logical_cells": 25,
+      "letters": [
+        {
+          "character": "D",
+          "local_x": 0,
+          "width": 5,
+          "height": 5
+        }
+      ],
+      "payload_offset": 14080,
+      "resource_offset": 14144,
+      "rgba_bytes": 1600
+    },
+    {
+      "name": "ARMOR_A0",
+      "source_metric_name": "ARMOR_0_A",
+      "logical_box_half_open": [
+        296,
+        138,
+        301,
+        143
+      ],
+      "png_path": "tiles/fixed-ARMOR_A0-4x.png",
+      "pilot_png_reference": "hud-typography-pilot-v1/generated/fixed-ARMOR_A0-4x.png",
+      "png_bytes": 355,
+      "png_sha256": "594e8f2b0af2fe29c9102e0b596be26a47fb19437446d2e4793f5208e26133cc",
+      "decoded_rgba_sha256": "4d4d8a929312580198f6406c8ee134e91590fa5d1d09f2bbc113af4ebc687ad2",
+      "decoded_rgba_fnv1a64": "3523060cf1737d28",
+      "pixel_size": [
+        20,
+        20
+      ],
+      "source_index_bytes_sha256": "bd72de12d4cbb78e2efb12fe37daaf426ecad82fdb5490cb013d6310f7e96a2e",
+      "source_index_bytes_fnv1a64": "016a02b0380cdcd7",
+      "tile_index": 7,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "logical_cells": 25,
+      "letters": [
+        {
+          "character": "A",
+          "local_x": 0,
+          "width": 5,
+          "height": 5
+        }
+      ],
+      "payload_offset": 15680,
+      "resource_offset": 15744,
+      "rgba_bytes": 1600
+    },
+    {
+      "name": "ARMOR_R1",
+      "source_metric_name": "ARMOR_1_R",
+      "logical_box_half_open": [
+        296,
+        144,
+        301,
+        149
+      ],
+      "png_path": "tiles/fixed-ARMOR_R1-4x.png",
+      "pilot_png_reference": "hud-typography-pilot-v1/generated/fixed-ARMOR_R1-4x.png",
+      "png_bytes": 462,
+      "png_sha256": "8135bb08a0a0417415db56409bb360cc6807fb84ff891ad70c3192e648803089",
+      "decoded_rgba_sha256": "0e3368023e062ff3081323674fd5c1549a6bf2be1931e0010467a2fa7d004b9d",
+      "decoded_rgba_fnv1a64": "2683a340e24327f8",
+      "pixel_size": [
+        20,
+        20
+      ],
+      "source_index_bytes_sha256": "d8c2bb6defe994e311535e9fa79b35c3a814a77cafd8fd4b3ac45057da3c0b2a",
+      "source_index_bytes_fnv1a64": "f02ac51cd6ce5abc",
+      "tile_index": 8,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "logical_cells": 25,
+      "letters": [
+        {
+          "character": "R",
+          "local_x": 0,
+          "width": 5,
+          "height": 5
+        }
+      ],
+      "payload_offset": 17280,
+      "resource_offset": 17344,
+      "rgba_bytes": 1600
+    },
+    {
+      "name": "ARMOR_M2",
+      "source_metric_name": "ARMOR_2_M",
+      "logical_box_half_open": [
+        296,
+        150,
+        301,
+        155
+      ],
+      "png_path": "tiles/fixed-ARMOR_M2-4x.png",
+      "pilot_png_reference": "hud-typography-pilot-v1/generated/fixed-ARMOR_M2-4x.png",
+      "png_bytes": 493,
+      "png_sha256": "a6046e51be6b44d73d36aec3951659ada5bfb3618c25b0ccaa3e55697f19ed6c",
+      "decoded_rgba_sha256": "f9044ba5c6956d1fc2a694280089e0e1c34d16ace2bd8a3e3ff8bd75301c2138",
+      "decoded_rgba_fnv1a64": "9b517f942d4c54cc",
+      "pixel_size": [
+        20,
+        20
+      ],
+      "source_index_bytes_sha256": "5ac64f86d16c6750e79b3cfa0e674b57b92f6a0768936ca8fd86152d5925a777",
+      "source_index_bytes_fnv1a64": "e8ebae01f0740d34",
+      "tile_index": 9,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "logical_cells": 25,
+      "letters": [
+        {
+          "character": "M",
+          "local_x": 0,
+          "width": 5,
+          "height": 5
+        }
+      ],
+      "payload_offset": 18880,
+      "resource_offset": 18944,
+      "rgba_bytes": 1600
+    },
+    {
+      "name": "ARMOR_O3",
+      "source_metric_name": "ARMOR_3_O",
+      "logical_box_half_open": [
+        296,
+        156,
+        301,
+        161
+      ],
+      "png_path": "tiles/fixed-ARMOR_O3-4x.png",
+      "pilot_png_reference": "hud-typography-pilot-v1/generated/fixed-ARMOR_O3-4x.png",
+      "png_bytes": 401,
+      "png_sha256": "71e2fb545e8ef03448df8d4cecc8121335c521efef7dc9ca741c30b190ab77bb",
+      "decoded_rgba_sha256": "7a7b412cc2fcd1dc729d6b817b4dd9cc4a50f80302be37680929aec2449d338a",
+      "decoded_rgba_fnv1a64": "7157f7aca493d2b4",
+      "pixel_size": [
+        20,
+        20
+      ],
+      "source_index_bytes_sha256": "56719d4bce15da5ef8ce4edc5e6aabf54fa7e25d0f8368b0a60ffe8473aebc52",
+      "source_index_bytes_fnv1a64": "49ffb1c873dd482a",
+      "tile_index": 10,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "logical_cells": 25,
+      "letters": [
+        {
+          "character": "O",
+          "local_x": 0,
+          "width": 5,
+          "height": 5
+        }
+      ],
+      "payload_offset": 20480,
+      "resource_offset": 20544,
+      "rgba_bytes": 1600
+    },
+    {
+      "name": "ARMOR_R4",
+      "source_metric_name": "ARMOR_4_R",
+      "logical_box_half_open": [
+        296,
+        162,
+        301,
+        167
+      ],
+      "png_path": "tiles/fixed-ARMOR_R4-4x.png",
+      "pilot_png_reference": "hud-typography-pilot-v1/generated/fixed-ARMOR_R4-4x.png",
+      "png_bytes": 462,
+      "png_sha256": "8135bb08a0a0417415db56409bb360cc6807fb84ff891ad70c3192e648803089",
+      "decoded_rgba_sha256": "0e3368023e062ff3081323674fd5c1549a6bf2be1931e0010467a2fa7d004b9d",
+      "decoded_rgba_fnv1a64": "2683a340e24327f8",
+      "pixel_size": [
+        20,
+        20
+      ],
+      "source_index_bytes_sha256": "d8c2bb6defe994e311535e9fa79b35c3a814a77cafd8fd4b3ac45057da3c0b2a",
+      "source_index_bytes_fnv1a64": "f02ac51cd6ce5abc",
+      "tile_index": 11,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "logical_cells": 25,
+      "letters": [
+        {
+          "character": "R",
+          "local_x": 0,
+          "width": 5,
+          "height": 5
+        }
+      ],
+      "payload_offset": 22080,
+      "resource_offset": 22144,
+      "rgba_bytes": 1600
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "fixed-label-mask-370.bin",
+      "bytes": 64000,
+      "sha256": "40360dde85cdcd98eb1a65c6e9b0972c5fa596618adc4a07ce79953ce19483b0"
+    },
+    {
+      "path": "fixed-label-mask-370.png",
+      "bytes": 251,
+      "sha256": "14ca948afad2bfa3cd672d04832decf3289f61101cc734cb26b677432e3255e5"
+    },
+    {
+      "path": "gameplay-hud-fixed-text-v1.hda",
+      "bytes": 23744,
+      "sha256": "6d096f31085b22fb381761d3c8460bd06956c2bd039a1e0cc97481bc09819745"
+    },
+    {
+      "path": "tiles/fixed-ARMOR_A0-4x.png",
+      "bytes": 355,
+      "sha256": "594e8f2b0af2fe29c9102e0b596be26a47fb19437446d2e4793f5208e26133cc"
+    },
+    {
+      "path": "tiles/fixed-ARMOR_M2-4x.png",
+      "bytes": 493,
+      "sha256": "a6046e51be6b44d73d36aec3951659ada5bfb3618c25b0ccaa3e55697f19ed6c"
+    },
+    {
+      "path": "tiles/fixed-ARMOR_O3-4x.png",
+      "bytes": 401,
+      "sha256": "71e2fb545e8ef03448df8d4cecc8121335c521efef7dc9ca741c30b190ab77bb"
+    },
+    {
+      "path": "tiles/fixed-ARMOR_R1-4x.png",
+      "bytes": 462,
+      "sha256": "8135bb08a0a0417415db56409bb360cc6807fb84ff891ad70c3192e648803089"
+    },
+    {
+      "path": "tiles/fixed-ARMOR_R4-4x.png",
+      "bytes": 462,
+      "sha256": "8135bb08a0a0417415db56409bb360cc6807fb84ff891ad70c3192e648803089"
+    },
+    {
+      "path": "tiles/fixed-MODE-4x.png",
+      "bytes": 1084,
+      "sha256": "af06241d5b28f0e3c8565bafa672166848d1f977054be9efb5858671c2b5c5e3"
+    },
+    {
+      "path": "tiles/fixed-SHIELD_D5-4x.png",
+      "bytes": 385,
+      "sha256": "f8297dafd0d9062d8cf9cdf2cfa1bd22111e167ef7053a5da4ce0c37d87db6d5"
+    },
+    {
+      "path": "tiles/fixed-SHIELD_E3-4x.png",
+      "bytes": 283,
+      "sha256": "07641a1f66f1b45c2a2d19e872e70268f44a0c4d5d1fa637989f6824bd0da47e"
+    },
+    {
+      "path": "tiles/fixed-SHIELD_H1-4x.png",
+      "bytes": 241,
+      "sha256": "75b9df08d0c0dd5c72db0ecec1eed6b82e77b67b9d6a879acc4683db8ee351de"
+    },
+    {
+      "path": "tiles/fixed-SHIELD_I2-4x.png",
+      "bytes": 241,
+      "sha256": "00a46a81ae2c49368ca2030ac234f03a4fdf877d9c877bf8bfd635367da6bba3"
+    },
+    {
+      "path": "tiles/fixed-SHIELD_L4-4x.png",
+      "bytes": 192,
+      "sha256": "28d34803591048545324ef5133961af873bc73b4957bb2dff068b789d061580e"
+    },
+    {
+      "path": "tiles/fixed-SHIELD_S0-4x.png",
+      "bytes": 415,
+      "sha256": "c5eac4ccd22ee40a4488de7ce16cdee2031907c8cc5f09607403670b83e52144"
+    }
+  ],
+  "checks": {
+    "all_tile_png_files_equal_pilot": true,
+    "all_tile_decoded_rgba_equal_pilot": true,
+    "all_tile_alpha_255": true,
+    "mask_equal_pilot": true,
+    "vertical_gaps_excluded": true,
+    "overlapping_tiles": 0,
+    "header_and_payload_verified": true,
+    "original_source_files_required_to_rebuild": false
+  },
+  "limits": "No runtime, capture, repository, HUD1, HUC1, HUL1, or dynamic 127-glyph atlas changes. This package proves art reproduction only."
+}

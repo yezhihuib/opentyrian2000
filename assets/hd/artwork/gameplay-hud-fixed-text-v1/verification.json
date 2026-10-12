@@ -1,0 +1,39 @@
+{
+  "schema": "fixed-green-label-freeze-verification-v1",
+  "status": "PASS",
+  "scope": "Separate generated-only trial package for 370 fixed logical cells.",
+  "tile_count": 12,
+  "selected_vector_glyph_count": 10,
+  "all_12_png_files_byte_exact_to_pilot": true,
+  "all_12_decoded_rgba_byte_exact_to_pilot": true,
+  "all_5920_rgba_pixels_alpha_255": true,
+  "exact_370_cell_mask_byte_exact_bin_and_png": true,
+  "vertical_gap_ownership_cells": 0,
+  "overlap_cells": {
+    "HUD1": 0,
+    "HUC1": 0,
+    "HUL1": 0
+  },
+  "HUT1_header": "<4s7I4Q, 64 bytes, all fields verified",
+  "resource_bytes": 23744,
+  "payload_bytes": 23680,
+  "resource_sha256": "6d096f31085b22fb381761d3c8460bd06956c2bd039a1e0cc97481bc09819745",
+  "payload_sha256": "d412de9274fad601712ccbeeee617382ae9ec1c250df74580ea015bb997cf893",
+  "payload_fnv1a64": "a2433de596bd3873",
+  "source_370_sha256": "272f2995359bd118dd62cb3b597ad937034527a25180115b399f8978777c59f6",
+  "source_370_fnv1a64": "b110512dd1fc63f4",
+  "standalone_repeat_builds": 2,
+  "generated_outputs_per_repeat": 16,
+  "all_repeat_outputs_byte_equal": true,
+  "preserved_intermediates": true,
+  "protected_pilot_and_existing_package_files_unchanged": 155,
+  "original_pic_font_bitmap_palette_array_capture_payload_included": false,
+  "runtime_repository_capture_upload_publication_changes": false,
+  "proof_files": [
+    "verification/pilot-comparison.json",
+    "verification/source-scope.json",
+    "verification/repeat-build-proof.json",
+    "verification/protected-files-before.json",
+    "verification/protected-files-after.json"
+  ]
+}

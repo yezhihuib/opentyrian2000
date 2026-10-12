@@ -1,0 +1,18 @@
+{
+  "schema": "gameplay-hud-fixed370-validation-v1",
+  "parent": "7b6a40021cbc534130c85624900415b4eaa744cd",
+  "tested_source_commit": "65cb639638e898eb354ca5850c48751b107f6f76",
+  "combined_renderer_sha256": "b18c14134b72f4beb10f547c32b5b1f9d8268d616a662f03eed33b8d34faf1c9",
+  "resource_sha256": "6d096f31085b22fb381761d3c8460bd06956c2bd039a1e0cc97481bc09819745",
+  "evidence": {
+    "hud-fixed-text-handoff.json": "6276b81abac8962900fc76268613ab18ed3dead8e41d1c9971639967f860ab61",
+    "hud-typography-independent-review/stage1-receipt.json": "dd55c813e730d80475f8d322d96eaffafcb54039be72b34dba809f47731e90e4",
+    "hud-typography-runtime-review/stage1-runtime-receipt.json": "1dba6f27abb450b02ab4849f5089dedef137244cc18ca427a345d40034981c6e",
+    "hud-typography-runtime-review/author-fixed370-review/AUTHOR_FIXED370_NATIVE_RECEIPT.json": "07511a724025cccca07f32be2f13a202ab78451b034064b98a87bb7c036058d9",
+    "hud-combined-stage1-runtime-review/combined-runtime-receipt.json": "6b4d84c5a588917c6a3f60e390919cbd661d624725ffc21cbeab899bfc2a0789"
+  },
+  "owned_cells": 370,
+  "dynamic_production_hooks": false,
+  "Windows_runtime": false,
+  "CI_claim": false
+}

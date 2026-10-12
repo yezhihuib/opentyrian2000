@@ -42634,5 +42634,244 @@
       "bytes": 4160064,
       "sha256": "98cd6cfefa02a9ae79b75a65e02dd2566d3dec1492552f20b042b3c61c19cd17"
     }
+  },
+  "gameplay_hud_fixed_text_v1": {
+    "schema": "finite-pic3-hut1-fixed370-v1",
+    "source": "assets/hd/artwork/gameplay-hud-fixed-text-v1",
+    "source_files": {
+      "README.md": {
+        "bytes": 6872,
+        "sha256": "aae633e13b39e1c74ec673fb95306f1546e48ced19df40f886ff6eadc04b3a6e"
+      },
+      "build_assets.py": {
+        "bytes": 11708,
+        "sha256": "afb841c8dcad071e7eb2d9a1c55000d5f13f61b777c22f10809261d304d14d4e"
+      },
+      "fixed-label-mask-370.bin": {
+        "bytes": 64000,
+        "sha256": "40360dde85cdcd98eb1a65c6e9b0972c5fa596618adc4a07ce79953ce19483b0"
+      },
+      "fixed-label-mask-370.png": {
+        "bytes": 251,
+        "sha256": "14ca948afad2bfa3cd672d04832decf3289f61101cc734cb26b677432e3255e5"
+      },
+      "gameplay-hud-fixed-text-v1.hda": {
+        "bytes": 23744,
+        "sha256": "6d096f31085b22fb381761d3c8460bd06956c2bd039a1e0cc97481bc09819745"
+      },
+      "manifest.json": {
+        "bytes": 18935,
+        "sha256": "ffae68af32dfb44774fe75de14571a2551bbcb85cc4984faaf9b5023631aef58"
+      },
+      "provenance.json": {
+        "bytes": 13369,
+        "sha256": "94e17ddff9715dadf3c3600048ff4c510f13b89aafe20ed6683290631a930b6a"
+      },
+      "requirements.txt": {
+        "bytes": 28,
+        "sha256": "d0524439f7a0da67c1283d44683e00fcc795a0657e726f22087cfcbe198f7c89"
+      },
+      "selected-glyph-paths.json": {
+        "bytes": 4159,
+        "sha256": "89652889cfb81221e0c318aeaaa822b10aca3a4cc335288f9f6df8c45a5c3836"
+      },
+      "tiles/fixed-ARMOR_A0-4x.png": {
+        "bytes": 355,
+        "sha256": "594e8f2b0af2fe29c9102e0b596be26a47fb19437446d2e4793f5208e26133cc"
+      },
+      "tiles/fixed-ARMOR_M2-4x.png": {
+        "bytes": 493,
+        "sha256": "a6046e51be6b44d73d36aec3951659ada5bfb3618c25b0ccaa3e55697f19ed6c"
+      },
+      "tiles/fixed-ARMOR_O3-4x.png": {
+        "bytes": 401,
+        "sha256": "71e2fb545e8ef03448df8d4cecc8121335c521efef7dc9ca741c30b190ab77bb"
+      },
+      "tiles/fixed-ARMOR_R1-4x.png": {
+        "bytes": 462,
+        "sha256": "8135bb08a0a0417415db56409bb360cc6807fb84ff891ad70c3192e648803089"
+      },
+      "tiles/fixed-ARMOR_R4-4x.png": {
+        "bytes": 462,
+        "sha256": "8135bb08a0a0417415db56409bb360cc6807fb84ff891ad70c3192e648803089"
+      },
+      "tiles/fixed-MODE-4x.png": {
+        "bytes": 1084,
+        "sha256": "af06241d5b28f0e3c8565bafa672166848d1f977054be9efb5858671c2b5c5e3"
+      },
+      "tiles/fixed-SHIELD_D5-4x.png": {
+        "bytes": 385,
+        "sha256": "f8297dafd0d9062d8cf9cdf2cfa1bd22111e167ef7053a5da4ce0c37d87db6d5"
+      },
+      "tiles/fixed-SHIELD_E3-4x.png": {
+        "bytes": 283,
+        "sha256": "07641a1f66f1b45c2a2d19e872e70268f44a0c4d5d1fa637989f6824bd0da47e"
+      },
+      "tiles/fixed-SHIELD_H1-4x.png": {
+        "bytes": 241,
+        "sha256": "75b9df08d0c0dd5c72db0ecec1eed6b82e77b67b9d6a879acc4683db8ee351de"
+      },
+      "tiles/fixed-SHIELD_I2-4x.png": {
+        "bytes": 241,
+        "sha256": "00a46a81ae2c49368ca2030ac234f03a4fdf877d9c877bf8bfd635367da6bba3"
+      },
+      "tiles/fixed-SHIELD_L4-4x.png": {
+        "bytes": 192,
+        "sha256": "28d34803591048545324ef5133961af873bc73b4957bb2dff068b789d061580e"
+      },
+      "tiles/fixed-SHIELD_S0-4x.png": {
+        "bytes": 415,
+        "sha256": "c5eac4ccd22ee40a4488de7ce16cdee2031907c8cc5f09607403670b83e52144"
+      },
+      "verification.json": {
+        "bytes": 1578,
+        "sha256": "b6e88b45ddb92408ed63a87182eea6dbbefff2607f4de1434d2f531d2b53588c"
+      },
+      "verify_package.py": {
+        "bytes": 7710,
+        "sha256": "7151ce0712a36138be0d1ea0d3f79824313ec4e57fe974eab4aff492c3a08f69"
+      }
+    },
+    "filename": "gameplay-hud-fixed-text-v1.hda",
+    "tiles": [
+      {
+        "authored": "tiles/fixed-MODE-4x.png",
+        "source_png": "assets/hd/source/hud-fixed-MODE-4x.png",
+        "png_sha256": "af06241d5b28f0e3c8565bafa672166848d1f977054be9efb5858671c2b5c5e3",
+        "rgba_sha256": "b7cb0c0ba56fc14a125b9f032640f5796abc5088706c3f7f60fa01815957f579",
+        "size": [
+          76,
+          20
+        ]
+      },
+      {
+        "authored": "tiles/fixed-SHIELD_S0-4x.png",
+        "source_png": "assets/hd/source/hud-fixed-SHIELD_S0-4x.png",
+        "png_sha256": "c5eac4ccd22ee40a4488de7ce16cdee2031907c8cc5f09607403670b83e52144",
+        "rgba_sha256": "86218b92f732b348f354846c2e0eb871e2edd70a75e9c8e4e7f3fdfaeecff9df",
+        "size": [
+          20,
+          20
+        ]
+      },
+      {
+        "authored": "tiles/fixed-SHIELD_H1-4x.png",
+        "source_png": "assets/hd/source/hud-fixed-SHIELD_H1-4x.png",
+        "png_sha256": "75b9df08d0c0dd5c72db0ecec1eed6b82e77b67b9d6a879acc4683db8ee351de",
+        "rgba_sha256": "6705b7e4fa4f78e09d52a195f509daf73b0a6f1ca56eba99e2f4e48d7696fa3f",
+        "size": [
+          20,
+          20
+        ]
+      },
+      {
+        "authored": "tiles/fixed-SHIELD_I2-4x.png",
+        "source_png": "assets/hd/source/hud-fixed-SHIELD_I2-4x.png",
+        "png_sha256": "00a46a81ae2c49368ca2030ac234f03a4fdf877d9c877bf8bfd635367da6bba3",
+        "rgba_sha256": "b71794a9445f5f0a285341c94de042c54cf4a9a93ad76680b778122445dbfc4d",
+        "size": [
+          20,
+          20
+        ]
+      },
+      {
+        "authored": "tiles/fixed-SHIELD_E3-4x.png",
+        "source_png": "assets/hd/source/hud-fixed-SHIELD_E3-4x.png",
+        "png_sha256": "07641a1f66f1b45c2a2d19e872e70268f44a0c4d5d1fa637989f6824bd0da47e",
+        "rgba_sha256": "91ff7527510455dabb76213dcf3299ee0534459319e72bc929bb31ef0e1d613b",
+        "size": [
+          20,
+          20
+        ]
+      },
+      {
+        "authored": "tiles/fixed-SHIELD_L4-4x.png",
+        "source_png": "assets/hd/source/hud-fixed-SHIELD_L4-4x.png",
+        "png_sha256": "28d34803591048545324ef5133961af873bc73b4957bb2dff068b789d061580e",
+        "rgba_sha256": "8e804393b1186c4b620acaf6ad7f2d56293bcefd3f0a49331742041f8103872f",
+        "size": [
+          20,
+          20
+        ]
+      },
+      {
+        "authored": "tiles/fixed-SHIELD_D5-4x.png",
+        "source_png": "assets/hd/source/hud-fixed-SHIELD_D5-4x.png",
+        "png_sha256": "f8297dafd0d9062d8cf9cdf2cfa1bd22111e167ef7053a5da4ce0c37d87db6d5",
+        "rgba_sha256": "be17fff203224b1941552cdc9461b00e46fc3addfbf29ee57faac2333c137b42",
+        "size": [
+          20,
+          20
+        ]
+      },
+      {
+        "authored": "tiles/fixed-ARMOR_A0-4x.png",
+        "source_png": "assets/hd/source/hud-fixed-ARMOR_A0-4x.png",
+        "png_sha256": "594e8f2b0af2fe29c9102e0b596be26a47fb19437446d2e4793f5208e26133cc",
+        "rgba_sha256": "4d4d8a929312580198f6406c8ee134e91590fa5d1d09f2bbc113af4ebc687ad2",
+        "size": [
+          20,
+          20
+        ]
+      },
+      {
+        "authored": "tiles/fixed-ARMOR_R1-4x.png",
+        "source_png": "assets/hd/source/hud-fixed-ARMOR_R1-4x.png",
+        "png_sha256": "8135bb08a0a0417415db56409bb360cc6807fb84ff891ad70c3192e648803089",
+        "rgba_sha256": "0e3368023e062ff3081323674fd5c1549a6bf2be1931e0010467a2fa7d004b9d",
+        "size": [
+          20,
+          20
+        ]
+      },
+      {
+        "authored": "tiles/fixed-ARMOR_M2-4x.png",
+        "source_png": "assets/hd/source/hud-fixed-ARMOR_M2-4x.png",
+        "png_sha256": "a6046e51be6b44d73d36aec3951659ada5bfb3618c25b0ccaa3e55697f19ed6c",
+        "rgba_sha256": "f9044ba5c6956d1fc2a694280089e0e1c34d16ace2bd8a3e3ff8bd75301c2138",
+        "size": [
+          20,
+          20
+        ]
+      },
+      {
+        "authored": "tiles/fixed-ARMOR_O3-4x.png",
+        "source_png": "assets/hd/source/hud-fixed-ARMOR_O3-4x.png",
+        "png_sha256": "71e2fb545e8ef03448df8d4cecc8121335c521efef7dc9ca741c30b190ab77bb",
+        "rgba_sha256": "7a7b412cc2fcd1dc729d6b817b4dd9cc4a50f80302be37680929aec2449d338a",
+        "size": [
+          20,
+          20
+        ]
+      },
+      {
+        "authored": "tiles/fixed-ARMOR_R4-4x.png",
+        "source_png": "assets/hd/source/hud-fixed-ARMOR_R4-4x.png",
+        "png_sha256": "8135bb08a0a0417415db56409bb360cc6807fb84ff891ad70c3192e648803089",
+        "rgba_sha256": "0e3368023e062ff3081323674fd5c1549a6bf2be1931e0010467a2fa7d004b9d",
+        "size": [
+          20,
+          20
+        ]
+      }
+    ],
+    "bundle": {
+      "bytes": 23744,
+      "sha256": "6d096f31085b22fb381761d3c8460bd06956c2bd039a1e0cc97481bc09819745"
+    },
+    "packs": {
+      "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
+        "gameplay-hud-fixed-text-v1.hda": {
+          "bytes": 23744,
+          "sha256": "6d096f31085b22fb381761d3c8460bd06956c2bd039a1e0cc97481bc09819745"
+        }
+      },
+      "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
+        "gameplay-hud-fixed-text-v1.hda": {
+          "bytes": 23744,
+          "sha256": "6d096f31085b22fb381761d3c8460bd06956c2bd039a1e0cc97481bc09819745"
+        }
+      }
+    }
   }
 }

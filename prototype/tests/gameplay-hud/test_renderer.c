@@ -9,6 +9,7 @@
 #include "gameplay_hud.h"
 #include "gameplay_hud_components.h"
 #include "gameplay_hud_indicators.h"
+#include "gameplay_hud_fixed_text.h"
 typedef uint8_t Uint8;
 typedef uint16_t Uint16;
 typedef uint32_t Uint32;
@@ -93,6 +94,15 @@ static Uint32 indicator_under[82][64],indicator_saved_under[82][64];
 static Uint8 indicator_under_owner[82],indicator_saved_under_owner[82];
 static uint64_t indicator_under_generation,indicator_saved_under_generation;
 static const Uint16 indicator_overlap_positions[82]={14365,14366,14369,14372,14373,14374,14375,14376,14377,14378,14379,14380,14381,14382,14383,14386,14389,14390,14391,14693,14695,14696,14697,14698,14699,14700,14701,14710,15015,15016,15017,15018,15019,15020,15021,15335,15336,15337,15338,15339,15340,15341,15655,15656,15657,15658,15659,15660,15661,15975,15976,15977,15978,15979,15980,15981,15982,16292,16293,16295,16296,16297,16298,16299,16300,16301,16303,16309,16310,16606,16613,16614,16615,16616,16617,16618,16619,16620,16621,16622,16623,16630};
+/* Disjoint HUT1 fixed-label ownership, compact370-cell ledger. */
+static Uint8 fixed_text_output_owner[370],fixed_text_saved_owner[370];
+static Uint32 fixed_text_output_palette[256];
+static uint64_t fixed_text_generation,fixed_text_output_generation,fixed_text_saved_generation;
+static bool fixed_text_gameplay,fixed_text_suspended;
+static SDL_Surface *fixed_text_source_surface;
+static void *fixed_text_source_pixels;
+static SDL_PixelFormat *fixed_text_source_format;
+static int fixed_text_source_pitch;
 static bool active,suppress,ready,suppress_green_smoke,suppress_cloud,have_initial_palette,last_output_valid,have_fade_saved;
 static int fade_mode;
 static const char *reject_reason;
@@ -123,6 +133,8 @@ static struct {
  struct {struct {unsigned int power;} weapon[2];unsigned int sidekick[2];} items;
  struct {int ammo,ammo_max;} sidekick[2];
 } player[2];
+static bool components_owned(void);
+static bool indicators_owned(void);
 #include "production.inc"
 
 static uint64_t aggregate=UINT64_C(14695981039346656037);
@@ -134,7 +146,7 @@ static void cleanup(void)
  canvas=output=fade_saved=game_screen=VGAScreenSeg=NULL;
  free(hd_owner);free(cloud_owner);free(green_first);free(green_under);free(green_under_owner);
  hd_owner=cloud_owner=green_under_owner=NULL;green_first=NULL;green_under=NULL;
- gameplay_hud_shutdown();hud_components_shutdown();hud_indicators_shutdown();
+ gameplay_hud_shutdown();hud_components_shutdown();hud_indicators_shutdown();hud_fixed_text_shutdown();
 }
 static void setup(int d,const char *directory)
 {
@@ -143,6 +155,9 @@ static void setup(int d,const char *directory)
  game_probe_skip=true;game_probe_repeat=false;twoPlayerMode=galagaMode=false;
  last_output_valid=have_fade_saved=have_initial_palette=ready=active=false;fade_mode=0;texture=NULL;
  hud_source_surface=NULL;hud_source_pixels=NULL;hud_source_format=NULL;
+ fixed_text_gameplay=fixed_text_suspended=false;fixed_text_source_surface=NULL;fixed_text_source_pixels=NULL;fixed_text_source_format=NULL;
+ fixed_text_output_generation=fixed_text_saved_generation=0;
+ memset(fixed_text_output_owner,0,sizeof(fixed_text_output_owner));memset(fixed_text_saved_owner,0,sizeof(fixed_text_saved_owner));
  indicator_gameplay=indicator_suspended=false;indicator_source_surface=NULL;indicator_source_pixels=NULL;indicator_source_format=NULL;
  indicator_output_generation=indicator_saved_generation=0;
  memset(indicator_output_owner,0,sizeof(indicator_output_owner));memset(indicator_saved_owner,0,sizeof(indicator_saved_owner));

@@ -7,6 +7,7 @@
 #include "gameplay_hud.h"
 #include "gameplay_hud_components.h"
 #include "gameplay_hud_indicators.h"
+#include "gameplay_hud_fixed_text.h"
 #include "config.h"
 #include "episodes.h"
 #include "fonthand.h"
@@ -95,6 +96,15 @@ static Uint32 indicator_under[82][64],indicator_saved_under[82][64];
 static Uint8 indicator_under_owner[82],indicator_saved_under_owner[82];
 static uint64_t indicator_under_generation,indicator_saved_under_generation;
 static const Uint16 indicator_overlap_positions[82]={14365,14366,14369,14372,14373,14374,14375,14376,14377,14378,14379,14380,14381,14382,14383,14386,14389,14390,14391,14693,14695,14696,14697,14698,14699,14700,14701,14710,15015,15016,15017,15018,15019,15020,15021,15335,15336,15337,15338,15339,15340,15341,15655,15656,15657,15658,15659,15660,15661,15975,15976,15977,15978,15979,15980,15981,15982,16292,16293,16295,16296,16297,16298,16299,16300,16301,16303,16309,16310,16606,16613,16614,16615,16616,16617,16618,16619,16620,16621,16622,16623,16630};
+/* Disjoint HUT1 fixed-label ownership, compact370-cell ledger. */
+static Uint8 fixed_text_output_owner[370],fixed_text_saved_owner[370];
+static Uint32 fixed_text_output_palette[256];
+static uint64_t fixed_text_generation,fixed_text_output_generation,fixed_text_saved_generation;
+static bool fixed_text_gameplay,fixed_text_suspended;
+static SDL_Surface *fixed_text_source_surface;
+static void *fixed_text_source_pixels;
+static SDL_PixelFormat *fixed_text_source_format;
+static int fixed_text_source_pitch;
 static int fade_mode;
 static SDL_Texture *texture;
 static Uint8 expected[320*200], selected[320*200];
@@ -294,6 +304,98 @@ static int indicator_overlap(int x,int y)
  for(unsigned int i=0;i<82;i++)if(indicator_overlap_positions[i]==logical)return (int)i;
  return -1;
 }
+/* HUT1 has no overlap with the three existing HUD families. */
+static bool components_owned(void);
+static bool indicators_owned(void);
+static bool fixed_text_owned(void)
+{return memchr(fixed_text_output_owner,1,sizeof(fixed_text_output_owner))!=NULL;}
+static bool fixed_text_source_matches(void)
+{
+ return VGAScreenSeg&&VGAScreenSeg==fixed_text_source_surface&&
+  VGAScreenSeg->pixels&&VGAScreenSeg->pixels==fixed_text_source_pixels&&
+  VGAScreenSeg->format&&VGAScreenSeg->format==fixed_text_source_format&&
+  VGAScreenSeg->w==320&&VGAScreenSeg->h==200&&VGAScreenSeg->pitch==fixed_text_source_pitch&&
+  VGAScreenSeg->format->BitsPerPixel==8&&VGAScreenSeg->format->BytesPerPixel==1;
+}
+static bool fixed_text_cached_indices_match(void)
+{
+ if(!fixed_text_source_matches())return false;
+ for(int y=0;y<200;y++)
+  if(memcmp(last_output_indices+y*320,(Uint8 *)VGAScreenSeg->pixels+y*VGAScreenSeg->pitch,320))return false;
+ return true;
+}
+static void fixed_text_clear_cached(void)
+{
+ if(!fixed_text_owned()&&!memchr(fixed_text_saved_owner,1,sizeof(fixed_text_saved_owner)))return;
+ int d=game_probe_density;
+ bool verified=(d==4||d==8)&&output&&output->w==320*d&&output->h==200*d&&
+  fixed_text_output_generation==fixed_text_generation&&
+  (!memchr(fixed_text_saved_owner,1,sizeof(fixed_text_saved_owner))||fixed_text_saved_generation==fixed_text_generation)&&
+  fixed_text_cached_indices_match()&&memcmp(fixed_text_output_palette,rgb_palette,sizeof(fixed_text_output_palette))==0&&
+  (!have_fade_saved||(fade_saved&&fade_saved->w==output->w&&fade_saved->h==output->h));
+ if(!verified) {ready=false;last_output_valid=false;have_fade_saved=false;fade_mode=0;}
+ for(unsigned i=0;i<370;i++) {
+  if(!fixed_text_output_owner[i]&&!fixed_text_saved_owner[i])continue;
+  int x,y;hud_fixed_text_position(i,&x,&y);Uint8 index=last_output_indices[y*320+x];
+  if(verified)for(int sy=0;sy<d;sy++)for(int sx=0;sx<d;sx++) {
+   if(fixed_text_output_owner[i])((Uint32 *)((Uint8 *)output->pixels+(y*d+sy)*output->pitch))[x*d+sx]=palette_rgb(index);
+   if(fixed_text_saved_owner[i]&&have_fade_saved)
+    ((Uint32 *)((Uint8 *)fade_saved->pixels+(y*d+sy)*fade_saved->pitch))[x*d+sx]=0xff000000u|(fade_saved_palette[index]&0xffffffu);
+  }
+ }
+ memset(fixed_text_output_owner,0,sizeof(fixed_text_output_owner));memset(fixed_text_saved_owner,0,sizeof(fixed_text_saved_owner));
+ fixed_text_output_generation=fixed_text_saved_generation=0;
+ if(verified) {
+  bool retained=last_output_scene_hd||memchr(hud_output_owner,1,sizeof(hud_output_owner))||components_owned()||indicators_owned();
+  last_output_valid=last_output_valid&&retained;if(!retained) {have_fade_saved=false;fade_mode=0;}
+ }
+}
+static void fixed_text_reset(void)
+{
+ fixed_text_clear_cached();++fixed_text_generation;if(!fixed_text_generation)++fixed_text_generation;
+ fixed_text_gameplay=fixed_text_suspended=false;hud_fixed_text_forget_source();
+ fixed_text_source_surface=NULL;fixed_text_source_pixels=NULL;fixed_text_source_format=NULL;fixed_text_source_pitch=0;
+}
+static void fixed_text_check_mode(void)
+{
+ if(fixed_text_gameplay&&(twoPlayerMode||galagaMode||!fixed_text_source_matches()))fixed_text_reset();
+}
+static void fixed_text_start(SDL_Surface *source)
+{
+ /* Grant is pristine indexedPIC3; normalRGB palette is installed later. */
+ if(hud_fixed_text_load(game_probe_assets)&&hud_fixed_text_capture(source->pixels,source->pitch)) {
+  fixed_text_source_surface=source;fixed_text_source_pixels=source->pixels;
+  fixed_text_source_format=source->format;fixed_text_source_pitch=source->pitch;fixed_text_gameplay=true;
+ }
+}
+static void fixed_text_begin(void)
+{
+ if(!fixed_text_gameplay)return;
+ fixed_text_suspended=false;
+ memset(fixed_text_output_owner,0,sizeof(fixed_text_output_owner));memset(fixed_text_saved_owner,0,sizeof(fixed_text_saved_owner));
+ fixed_text_output_generation=fixed_text_saved_generation=0;
+}
+static bool fixed_text_compose(void)
+{
+ if(!fixed_text_gameplay||fixed_text_suspended||!hud_fixed_text_ready()||game_probe_original_reference||
+  !hud_fixed_text_palette_matches(rgb_palette))return false;
+ int d=game_probe_density;
+ if((d!=4&&d!=8)||!output||output->w!=320*d||output->h!=200*d)return false;
+ bool groups[3],retained=false;
+ for(unsigned g=0;g<3;g++)groups[g]=hud_fixed_text_group_matches(g,VGAScreenSeg->pixels,VGAScreenSeg->pitch);
+ for(unsigned i=0;i<370;i++) {
+  if(!groups[i<95?0:i<245?1:2])continue;
+  int x,y;hud_fixed_text_position(i,&x,&y);
+  for(int sy=0;sy<d;sy++)for(int sx=0;sx<d;sx++) {
+   const Uint8 *rgba=hud_fixed_text_sample(i,sx,sy,d);
+   ((Uint32 *)((Uint8 *)output->pixels+(y*d+sy)*output->pitch))[x*d+sx]=0xff000000u|((Uint32)rgba[0]<<16)|((Uint32)rgba[1]<<8)|rgba[2];
+  }
+  fixed_text_output_owner[i]=1;retained=true;
+ }
+ if(retained)fixed_text_output_generation=fixed_text_generation;
+ return retained;
+}
+
 static bool indicators_owned(void)
 {
  return memchr(indicator_output_owner,1,sizeof(indicator_output_owner))!=NULL||
@@ -361,7 +463,7 @@ static void indicators_clear_cached(unsigned int bits)
  if(!memchr(indicator_saved_owner,1,sizeof(indicator_saved_owner))&&!memchr(indicator_saved_owner,2,sizeof(indicator_saved_owner)))indicator_saved_generation=0;
  if(verified) {
   bool retained=last_output_scene_hd||memchr(hud_output_owner,1,sizeof(hud_output_owner))||
-    memchr(component_output_owner,1,sizeof(component_output_owner))||memchr(component_output_owner,2,sizeof(component_output_owner))||indicators_owned();
+    memchr(component_output_owner,1,sizeof(component_output_owner))||memchr(component_output_owner,2,sizeof(component_output_owner))||indicators_owned()||fixed_text_owned();
   last_output_valid=last_output_valid&&retained;
   if(!retained) {have_fade_saved=false;fade_mode=0;}
  }
@@ -511,7 +613,7 @@ static void components_clear_cached(unsigned int bits)
  if(!components_owned())component_output_generation=0;
  if(!memchr(component_saved_owner,1,sizeof(component_saved_owner))&&!memchr(component_saved_owner,2,sizeof(component_saved_owner)))component_saved_generation=0;
  if(verified) {
-  bool retained=last_output_scene_hd||memchr(hud_output_owner,1,sizeof(hud_output_owner))||components_owned()||indicators_owned();
+  bool retained=last_output_scene_hd||memchr(hud_output_owner,1,sizeof(hud_output_owner))||components_owned()||indicators_owned()||fixed_text_owned();
   last_output_valid=last_output_valid&&retained;
   if(!retained) {have_fade_saved=false;fade_mode=0;}
  }
@@ -649,7 +751,7 @@ static void hud_clear_cached(void)
       ((Uint32 *)((Uint8 *)fade_saved->pixels+(y*d+sy)*fade_saved->pitch))[x*d+sx]=0xff000000u|(fade_saved_palette[index]&0xffffffu);
     }
    }
-   bool retained=last_output_scene_hd||components_owned()||indicators_owned();
+   bool retained=last_output_scene_hd||components_owned()||indicators_owned()||fixed_text_owned();
    last_output_valid=last_output_valid&&retained;
    if(!retained) {have_fade_saved=false;fade_mode=0;}
   }
@@ -671,12 +773,12 @@ static void hud_frame_reset(void)
 
 void render_mirror_hud_reset(void)
 {
- indicators_reset();components_reset();hud_frame_reset();
+ fixed_text_reset();indicators_reset();components_reset();hud_frame_reset();
 }
 
 void render_mirror_hud_shutdown(void)
 {
- render_mirror_hud_reset();gameplay_hud_shutdown();hud_components_shutdown();hud_indicators_shutdown();
+ render_mirror_hud_reset();gameplay_hud_shutdown();hud_components_shutdown();hud_indicators_shutdown();hud_fixed_text_shutdown();
 }
 
 /* Validate the original bytecode as well as declared dimensions: malformed RLE
@@ -755,7 +857,7 @@ static bool hud_runtime_compatible(bool live)
 
 static void hud_check_mode(void)
 {
- indicators_check_mode();components_check_mode();
+ fixed_text_check_mode();indicators_check_mode();components_check_mode();
  if(((twoPlayerMode||galagaMode)&&(hud_gameplay||hud_suspended))||
     (hud_gameplay&&(!hud_source_matches()||!hud_runtime_compatible(hud_live))))hud_frame_reset();
 }
@@ -777,12 +879,13 @@ void render_mirror_hud_start(SDL_Surface *decoded_pic3)
   }
   else gameplay_hud_forget_source();
  }
- components_start(decoded_pic3);indicators_start(decoded_pic3);
+ components_start(decoded_pic3);indicators_start(decoded_pic3);fixed_text_start(decoded_pic3);
 }
 
 void render_mirror_hud_suspend(void)
 {
  hud_check_mode();
+ fixed_text_clear_cached();if(fixed_text_gameplay)fixed_text_suspended=true;
  indicators_clear_cached(3);if(indicator_gameplay)indicator_suspended=true;
  components_clear_cached(3);
  if(component_gameplay)component_suspended=true;
@@ -801,7 +904,7 @@ static void hud_begin(void)
  memset(hud_output_owner,0,sizeof(hud_output_owner));
  memset(hud_saved_owner,0,sizeof(hud_saved_owner));
  hud_output_generation=hud_saved_generation=0;
- components_begin();indicators_begin();
+ components_begin();indicators_begin();fixed_text_begin();
 }
 
 static bool hud_compose(void)
@@ -1678,8 +1781,9 @@ void render_mirror_finish(bool ordinary_crop)
  bool retained_hud=!reject_reason&&ordinary_crop&&hud_compose();
  bool retained_components=!reject_reason&&ordinary_crop&&components_compose();
  bool retained_indicators=!reject_reason&&ordinary_crop&&indicators_compose();
+ bool retained_fixed_text=!reject_reason&&ordinary_crop&&fixed_text_compose();
  bool retained_scene_hd=memchr(hd_owner,1,(size_t)canvas->w*canvas->h)!=NULL||memchr(hd_owner,2,(size_t)canvas->w*canvas->h)!=NULL;
- bool retained_hd=retained_scene_hd||retained_hud||retained_components||retained_indicators;
+ bool retained_hd=retained_scene_hd||retained_hud||retained_components||retained_indicators||retained_fixed_text;
  unsigned int classic_mismatches=0;
  if(game_probe_original_reference)for(int y=0;y<output->h;y++) {
   const Uint32 *row=(const Uint32 *)((Uint8 *)output->pixels+y*output->pitch);
@@ -1693,6 +1797,7 @@ void render_mirror_finish(bool ordinary_crop)
  if(retained_hud)memcpy(hud_output_palette,rgb_palette,sizeof(hud_output_palette));
  if(retained_components)memcpy(component_output_palette,rgb_palette,sizeof(component_output_palette));
  if(retained_indicators)memcpy(indicator_output_palette,rgb_palette,sizeof(indicator_output_palette));
+ if(retained_fixed_text)memcpy(fixed_text_output_palette,rgb_palette,sizeof(fixed_text_output_palette));
  for(int y=0;y<200;y++)memcpy(last_output_indices+y*320,(Uint8 *)VGAScreenSeg->pixels+y*VGAScreenSeg->pitch,320);
  ground101_frame_report(game_probe_tick,reject_reason);
  game_probe_frame(draws,occlusions,mismatch,reject_reason?reject_reason:retained_hd?"hd-ordered":"classic-assets",all_rejections,local_entities,local_regions,local_blocks);
@@ -1718,6 +1823,7 @@ void render_mirror_fade_start(const SDL_Color *target,const SDL_Color *solid,uns
   for(int y=0;y<output->h;y++)memcpy((Uint8 *)fade_saved->pixels+y*fade_saved->pitch,(Uint8 *)output->pixels+y*output->pitch,(size_t)output->w*4);
   memcpy(fade_saved_palette,rgb_palette,sizeof(fade_saved_palette));
   memcpy(hud_saved_owner,hud_output_owner,sizeof(hud_saved_owner));hud_saved_generation=hud_output_generation;
+  memcpy(fixed_text_saved_owner,fixed_text_output_owner,sizeof(fixed_text_saved_owner));fixed_text_saved_generation=fixed_text_output_generation;
   memcpy(component_saved_owner,component_output_owner,sizeof(component_saved_owner));component_saved_generation=component_output_generation;
   memcpy(indicator_saved_owner,indicator_output_owner,sizeof(indicator_saved_owner));indicator_saved_generation=indicator_output_generation;
   memcpy(indicator_saved_under,indicator_under,sizeof(indicator_saved_under));
@@ -1734,6 +1840,7 @@ void render_mirror_fade_step(int steps)
 {
  hud_check_mode();
  if(!fade_mode||steps<=0)return;
+ if(fixed_text_output_generation&&!fixed_text_cached_indices_match()) {fixed_text_clear_cached();return;}
  if(indicator_output_generation&&(!indicators_cached_indices_match()||!indicators_underlay_matches())) {indicators_clear_cached(3);return;}
  if(hud_output_generation&&!hud_cached_indices_match()) {hud_clear_cached();return;}
  if(component_output_generation&&!components_cached_indices_match()) {components_clear_cached(3);return;}
@@ -1750,7 +1857,10 @@ void render_mirror_fade_step(int steps)
    int cell=indicator_output_generation?indicator_cell(x/d,y/d):-1;
    bool indicator=cell>=0&&indicator_output_generation==indicator_generation&&indicator_saved_generation==indicator_generation&&
      indicator_output_owner[cell]&&indicator_saved_owner[cell];
-   bool hd=(x<264*d&&y<184*d&&hd_owner[y*canvas->w+x+24*d]!=0)||hud||component||indicator;
+   int fixed_cell=fixed_text_output_generation?hud_fixed_text_cell(x/d,y/d):-1;
+   bool fixed=fixed_cell>=0&&fixed_text_output_generation==fixed_text_generation&&fixed_text_saved_generation==fixed_text_generation&&
+    fixed_text_output_owner[fixed_cell]&&fixed_text_saved_owner[fixed_cell];
+   bool hd=(x<264*d&&y<184*d&&hd_owner[y*canvas->w+x+24*d]!=0)||hud||component||indicator||fixed;
    if(hd) {
     Uint32 target=fade_mode==1?0:fade_mode==2?0xffffffu:saved[x];
     Uint32 color=0xff000000u;
@@ -1766,6 +1876,7 @@ void render_mirror_fade_step(int steps)
  if(indicator_output_generation)memcpy(indicator_output_palette,rgb_palette,sizeof(indicator_output_palette));
  if(hud_output_generation)memcpy(hud_output_palette,rgb_palette,sizeof(hud_output_palette));
  if(component_output_generation)memcpy(component_output_palette,rgb_palette,sizeof(component_output_palette));
+ if(fixed_text_output_generation)memcpy(fixed_text_output_palette,rgb_palette,sizeof(fixed_text_output_palette));
  ready=true;game_probe_fade_sample(output,steps,hd_pixels,fade_mode);
  if(steps==1)fade_mode=0;
 }
@@ -1773,6 +1884,7 @@ void render_mirror_fade_step(int steps)
 bool render_mirror_present(SDL_Renderer *renderer,SDL_Surface *src,const SDL_Rect *dst)
 {
  hud_check_mode();
+ if(fixed_text_output_generation&&(!fixed_text_cached_indices_match()||memcmp(fixed_text_output_palette,rgb_palette,sizeof(fixed_text_output_palette))!=0))fixed_text_clear_cached();
  if(indicator_output_generation&&(!indicators_cached_indices_match()||!indicators_underlay_matches()||memcmp(indicator_output_palette,rgb_palette,sizeof(indicator_output_palette))!=0))indicators_clear_cached(3);
  if(hud_output_generation&&(!hud_cached_indices_match()||memcmp(hud_output_palette,rgb_palette,sizeof(hud_output_palette))!=0))hud_clear_cached();
  if(component_output_generation&&(!components_cached_indices_match()||memcmp(component_output_palette,rgb_palette,sizeof(component_output_palette))!=0))components_clear_cached(3);

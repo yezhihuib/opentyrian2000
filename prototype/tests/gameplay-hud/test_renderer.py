@@ -10,6 +10,7 @@ import tempfile
 from run_tests import checked_points
 
 ROOT = Path(__file__).resolve().parents[3]
+FIXED_FUNCTIONS = ['fixed_text_owned','fixed_text_source_matches','fixed_text_cached_indices_match','fixed_text_clear_cached','fixed_text_reset','fixed_text_check_mode','fixed_text_start','fixed_text_begin','fixed_text_compose']
 INDICATOR_FUNCTIONS = ['hud_sprite_decode', 'indicator_cell', 'indicator_position', 'indicator_overlap', 'indicators_owned', 'indicators_source_matches', 'indicators_cached_indices_match', 'indicators_underlay_matches', 'indicators_clear_cached', 'indicators_reset', 'indicators_decode_modes', 'indicators_check_mode', 'indicators_start', 'indicators_begin', 'render_mirror_hud_mode_drawn', 'indicators_compose', 'indicators_fade_underlay']
 
 BASE = 'a49e46e5f8880b98cfb41028b6389e97d0636433'
@@ -93,13 +94,13 @@ def main():
         outputs = {}
         for variant,source in sources.items():
             # HUD definitions precede begin/finish; declarations remain in harness.
-            names = common[:3] + (INDICATOR_FUNCTIONS+[n for n in hud if n!='hud_sprite_decode'] if variant=='candidate' else []) + common[3:]
+            names = common[:3] + (FIXED_FUNCTIONS+INDICATOR_FUNCTIONS+[n for n in hud if n!='hud_sprite_decode'] if variant=='candidate' else []) + common[3:]
             (path/'production.inc').write_text('\n'.join(extract(source,n) for n in names))
             executable = path/variant
             command = [os.environ.get('CC','cc'),'-std=c99','-O1','-g','-Wall','-Wextra','-Wno-unused-parameter','-Wno-unused-variable','-Wno-unused-function','-Wno-misleading-indentation','-I'+str(path),'-I'+str(ROOT/'src')]
             if variant=='baseline': command += ['-DBASELINE_RENDERER']
             if args.sanitize: command += ['-fsanitize=address,undefined','-fno-omit-frame-pointer','-no-pie']
-            command += [str(Path(__file__).with_suffix('.c')),str(ROOT/'src/gameplay_hud.c'),str(ROOT/'src/gameplay_hud_components.c'),str(ROOT/'src/gameplay_hud_indicators.c'),'-o',str(executable)]
+            command += [str(Path(__file__).with_suffix('.c')),str(ROOT/'src/gameplay_hud.c'),str(ROOT/'src/gameplay_hud_components.c'),str(ROOT/'src/gameplay_hud_indicators.c'),str(ROOT/'src/gameplay_hud_fixed_text.c'),'-o',str(executable)]
             subprocess.run(command,check=True)
             env=dict(os.environ)
             if args.sanitize:

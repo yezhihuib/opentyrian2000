@@ -4,7 +4,7 @@ from pathlib import Path
 import argparse,importlib.util,os,struct,subprocess,sys,tempfile,shutil
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[2]
 sys.path.insert(0,str(HERE.parent/'gameplay-hud'))
-from test_renderer import extract,fnv,INDICATOR_FUNCTIONS
+from test_renderer import extract,fnv,INDICATOR_FUNCTIONS,FIXED_FUNCTIONS
 spec=importlib.util.spec_from_file_location('huc_fixture',HERE.parent/'gameplay-hud-components/test_renderer.py');huc=importlib.util.module_from_spec(spec);spec.loader.exec_module(huc)
 RIM={44:[285,286,289,292,293,294,302,303,306,309,310,311],45:[293,310],49:[302],50:[292,293,303,309,310],51:[286,293,294,302,303,310]}
 OVERLAP={(x,y) for y in range(44,52) for x in range(295,302)}|{(x,y) for y,xs in RIM.items() for x in xs}
@@ -59,8 +59,8 @@ def main():
  huc_names=['components_owned','components_source_matches','components_cached_indices_match','components_clear_cached','components_reset','components_check_mode','components_start','components_begin','render_mirror_hud_shield_wiped','render_mirror_hud_shield_drawn','components_compose','hud_source_matches','hud_cached_indices_match','hud_clear_cached','hud_frame_reset','render_mirror_hud_reset','render_mirror_hud_shutdown','hud_runtime_compatible','hud_check_mode','render_mirror_hud_start','render_mirror_hud_suspend','hud_begin','hud_compose','render_mirror_begin','render_mirror_finish','render_mirror_fade_start','render_mirror_fade_step','render_mirror_present','render_mirror_release_texture']
  with tempfile.TemporaryDirectory(prefix='hul-renderer-') as directory:
   d=Path(directory);flags=fixtures(d)
-  (d/'production.inc').write_text('\n'.join(extract(source,n) for n in ['palette_rgb','upscale','render_mirror_unsupported']+INDICATOR_FUNCTIONS+huc_names))
-  cmd=[os.environ.get('CC','cc'),'-std=c99','-O1','-g','-Wall','-Wextra','-Wno-unused-parameter','-Wno-unused-variable','-Wno-unused-function','-Wno-misleading-indentation','-I'+str(d),'-I'+str(ROOT/'src')]+flags+[str(HERE/'test_renderer.c')]+[str(ROOT/'src'/n) for n in ('gameplay_hud.c','gameplay_hud_components.c','gameplay_hud_indicators.c')]+['-o',str(d/'test')]
+  (d/'production.inc').write_text('\n'.join(extract(source,n) for n in ['palette_rgb','upscale','render_mirror_unsupported']+FIXED_FUNCTIONS+INDICATOR_FUNCTIONS+huc_names))
+  cmd=[os.environ.get('CC','cc'),'-std=c99','-O1','-g','-Wall','-Wextra','-Wno-unused-parameter','-Wno-unused-variable','-Wno-unused-function','-Wno-misleading-indentation','-I'+str(d),'-I'+str(ROOT/'src')]+flags+[str(HERE/'test_renderer.c')]+[str(ROOT/'src'/n) for n in ('gameplay_hud.c','gameplay_hud_components.c','gameplay_hud_indicators.c','gameplay_hud_fixed_text.c')]+['-o',str(d/'test')]
   if a.sanitize:cmd+=['-fsanitize=address,undefined','-fno-omit-frame-pointer','-no-pie']
   subprocess.run(cmd,check=True);subprocess.run([str(d/'test'),str(d)],check=True,env=dict(os.environ,ASAN_OPTIONS='detect_leaks=0:halt_on_error=1',UBSAN_OPTIONS='halt_on_error=1'))
 if __name__=='__main__':main()

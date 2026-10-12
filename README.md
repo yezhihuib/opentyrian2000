@@ -18,8 +18,8 @@ It builds on OpenTyrian2000 and OpenTyrian; the upstream README is preserved bel
 - Acceptance covers documented, bounded Linux scenarios, including native
   2×/4× checks. It is not whole-game, all-level, GPU/fullscreen or performance
   certification. The latest changes still need Windows runtime acceptance.
-- Fixed MODE/SHIELD/ARMOR lettering, dynamic text and other meters remain
-  separate candidates. Startup screens and logos are planned work.
+- Fixed MODE/SHIELD/ARMOR lettering is integrated; dynamic text and other
+  meters remain separate candidates. Startup screens and logos are planned work.
 
 ## Build and try
 
@@ -52,7 +52,8 @@ The [manifest](assets/hd/manifest.json) defines current pack defaults and hashes
 older reports retain checkpoint-specific counts. See [terrain/circuits](docs/CIRCUIT10.md),
 [forest material](docs/FOREST13_WORLD_CANOPY.md), [HUD frame](docs/GAMEPLAY_HUD_V5.md),
 [labels/shield/mode](docs/GAMEPLAY_HUD_COMPONENTS_INDICATORS.md), and
-[corner V2](docs/GAMEPLAY_HUD_CORNER_V2.md) for exact scope and fallback limits.
+[corner V2](docs/GAMEPLAY_HUD_CORNER_V2.md), and
+[fixed green labels](docs/GAMEPLAY_HUD_FIXED_TEXT.md) for exact scope and fallback limits.
 Upstream attribution and [COPYING](COPYING) are retained.
 
 ## Upstream README (preserved)
