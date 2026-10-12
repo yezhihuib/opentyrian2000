@@ -102,3 +102,10 @@ identical, integrity-checked two-part material bundle. Counts remain18 packs/2,9
 350 canonical PNGs, defaults334/338. Exact rebuild and bounded runtime evidence
 are in [GROUND101_WORLD_ATLAS_VALIDATION.json](GROUND101_WORLD_ATLAS_VALIDATION.json).
 This release is distinct from the rejected single-tile coordinated v2 artwork.
+
+## Exact material fast-path follow-up
+
+The [fully replaced material fast path](GROUND101_OPAQUE_FAST.md) retains exact
+reviewed pixels and original state. Three paired diagnostic runs show11.01%
+lower median elapsed time with the shipped two-part loader. No art, bundle,
+loader, memory budget or gameplay change is included; this is not an FPS claim.

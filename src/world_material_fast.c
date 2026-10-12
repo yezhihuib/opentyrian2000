@@ -32,7 +32,12 @@ bool g101_fast_select_pixel(const G101FastContext *f,const G101Pixel *p,bool eli
  if(!eligible||!p->accepted_rgba[3]||(!p->primary_weight&&!p->footer_weight&&!p->generated_weight)||
     !p->clean_rgba||!p->reconstruction_verified||(p->generated_weight&&!p->generated_footer_rgba)||
     !f||!f->valid||(unsigned)x>=G101_CANVAS_W_HD||(unsigned)y>=G101_CANVAS_H_HD)return false;
- const uint8_t *material=f->rgba+f->rows[y]+f->columns[x];uint8_t composed[4];
+ const uint8_t *material=f->rgba+f->rows[y]+f->columns[x];
+ /* Exact full-primary identity, after all guards. Keep selected-pack alpha. */
+ if(p->primary_weight==255&&!p->generated_weight&&!p->footer_weight) {
+  memcpy(out,material,3);return true;
+ }
+ uint8_t composed[4];
  /* Same ordered integer compositor as the scalar oracle, including alpha. */
  g101_compose_footer(p->clean_rgba,material,p->generated_footer_rgba,
   p->primary_weight,p->generated_weight,p->footer_weight,composed);

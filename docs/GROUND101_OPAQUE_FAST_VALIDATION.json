@@ -1,0 +1,92 @@
+{
+  "status": "passed",
+  "baseline_commit": "d3062a44f1e4e7e342417bbd98b7d5a669051168",
+  "changed_runtime_files": [
+    "src/world_material_fast.c"
+  ],
+  "changed_test_files": [
+    "prototype/tests/world-material/test_fast.c"
+  ],
+  "assets_loader_and_original_gameplay_unchanged": true,
+  "source_sha256": {
+    "src/world_material_fast.c": "d50fe6b809680f350a939407bfc289f9f22695238685a139fbea036a7f18e028",
+    "prototype/tests/world-material/test_fast.c": "4be69e0345cbf0a0c0ff7c60297806806d5cb26309b9c4b24c64f799eefcd7ce"
+  },
+  "synthetic": {
+    "asan_ubsan": "passed",
+    "leak_sanitizer": "disabled for ptrace limitation",
+    "scalar_fast_samples": 49152000,
+    "independent_alpha_color_cases": 16777216,
+    "successful_nonzero_alpha_replacements": 16711680,
+    "secondary_weight_cases": 1638400,
+    "split_loader_cases": 35,
+    "recipe_cases": 372,
+    "formal_test_log_sha256": "309596357f421b71526bbc0a61bdfe473ef9f506895d134e8487491f1488c806"
+  },
+  "runtime": {
+    "reviewed_window_frames": 348,
+    "whole_frame_rgb_audit_original_logs_and_blend_proofs": "all exact",
+    "new_capture_frames": 0,
+    "equivalence_receipt_sha256": "8dba7b62667903e91fd414e3a02adf33718ae6c4559926920a1b45e8bddc5694",
+    "timing_receipt_sha256": "907c75d8af9262630c5f8e499b0bc6ef82f01a22352b1ee31b7410db723038a0"
+  },
+  "paired_timing": {
+    "status": "passed",
+    "configuration": {
+      "name": "road",
+      "start": 500,
+      "end": 560
+    },
+    "sequence": [
+      "timing-0-split",
+      "timing-0-split-opaque",
+      "timing-1-split-opaque",
+      "timing-1-split",
+      "timing-2-split",
+      "timing-2-split-opaque"
+    ],
+    "elapsed_seconds": {
+      "split": [
+        9.093118172997492,
+        8.795727069009445,
+        9.245844264005427
+      ],
+      "split-opaque": [
+        8.088246874991455,
+        8.091774610002176,
+        8.138235570993857
+      ]
+    },
+    "child_cpu_seconds": {
+      "split": [
+        9.086874,
+        8.796143999999998,
+        9.216549999999996
+      ],
+      "split-opaque": [
+        8.048918000000002,
+        8.090905999999999,
+        8.107900000000006
+      ]
+    },
+    "elapsed_medians": {
+      "split": 9.093118172997492,
+      "split-opaque": 8.091774610002176
+    },
+    "cpu_medians": {
+      "split": 9.086874,
+      "split-opaque": 8.090905999999999
+    },
+    "optimized_over_baseline_elapsed_ratio": 0.8898789673745954,
+    "elapsed_reduction_percent": 11.012103262540462,
+    "optimized_over_baseline_cpu_ratio": 0.8903948706672943,
+    "scope": "Sequential same-window diagnostic harness including loading, hashing, FIFO logging and indexed simulation; not a gameplay FPS measurement. Three paired runs; no sampler-only benchmark.",
+    "all_runs_exact_reference_logs_rgba_blend": true,
+    "captures": 0
+  },
+  "limits": [
+    "Instrumented software-renderer timing includes loading/hashing/FIFO logs; no gameplay FPS or Windows claim.",
+    "The earlier33% feature-on overhead was measured in a different window and cannot be reduced by subtracting this percentage.",
+    "Existing artwork period, clipping and visibility limitations remain."
+  ]
+}
