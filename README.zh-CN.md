@@ -14,7 +14,7 @@
 - 未覆盖、缺失或不兼容的资源按各功能规则回退；暂停、帮助、选项仍用原版界面。
 - 已验收的是文档列明的有限 Linux 场景，包括原生 2×/4× 检查；不代表全游戏、
   全关卡、GPU/全屏或性能认证。最新修改尚未完成 Windows 运行验收。
-- 固定 MODE/SHIELD/ARMOR 文字和有限范围的游戏内小字体已接入；其他仪表仍是独立待验收候选；
+- 固定 MODE/SHIELD/ARMOR 文字、有限范围的游戏内小字体及火力、能量、粗分组装甲条已接入；
   启动画面与 Logo 的重绘属于后续计划。
 
 ## 构建与体验
@@ -51,7 +51,8 @@ Windows 构建或运行验收。
 [标签/护盾/模式指示](docs/GAMEPLAY_HUD_COMPONENTS_INDICATORS.md)及
 [右下角 V2](docs/GAMEPLAY_HUD_CORNER_V2.md)及
 [固定绿字](docs/GAMEPLAY_HUD_FIXED_TEXT.md)及
-[游戏内小字体](docs/GAMEPLAY_HUD_DYNAMIC_FONT.md)。
+[游戏内小字体](docs/GAMEPLAY_HUD_DYNAMIC_FONT.md)及
+[其他仪表](docs/GAMEPLAY_HUD_METERS.md)。
 
 原上游介绍、数据说明、键位、联网说明及项目链接均保留在
 [英文版的上游部分](README.md#upstream-readme-preserved)。

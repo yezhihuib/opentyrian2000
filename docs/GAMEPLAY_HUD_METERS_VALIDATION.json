@@ -1,0 +1,127 @@
+{
+  "status": "PASS bounded Linux integration and exact final left4 merge",
+  "baseline": "705fcde51ae688394a49a0a1750044331c336a9e",
+  "reviewed_source": "7fb7586f3a3fbcbf642e623c8a0dc77182698872",
+  "resource": {
+    "bytes": 621920,
+    "sha256": "3f8d9c35a3a9791d554a3c46f3431289c8ecd68b57419747ce3a40c225dafa4c"
+  },
+  "source_reviews": [
+    {
+      "name": "FINAL_RECEIPT.json",
+      "sha256": "584c78bc7113faa243d473cb1c5bcb91085cbbfbcc494fe533ce694b8cc9122e"
+    },
+    {
+      "name": "receipt.json",
+      "sha256": "13c6838765f7dca50a70cdf57a7990cd2a5df3472553950d289108833ff14075"
+    },
+    {
+      "name": "receipt.json",
+      "sha256": "b8e8d27ed6dd9b0013380a4c44a2442d937cf38cb85db929a9a68cb25945c6e6"
+    }
+  ],
+  "actual": {
+    "case_results": {
+      "core": "passed",
+      "spot4x": "passed",
+      "death": "passed",
+      "missing": "passed",
+      "corrupt": "passed"
+    },
+    "gameplay_runs": 8,
+    "retained_PNGs": 6,
+    "retained_native_clip_frames": 7,
+    "strict_internal_and_native_A_B_samples": 15,
+    "canonical_owned_subpixels_exact": 635392,
+    "raw_internal_frames_retained": 0,
+    "qualifications": [
+      "Death native tick0 is identical opaque black; visible meter proof is5/9/10/11.",
+      "Blank A0 wipe is intermediate event evidence; actual presented A0 retains original18-cell baseline.",
+      "Fallback duration metadata120 vs baseline265 differs as requested; all state/indexed/RGB/writer columns remain exact."
+    ]
+  },
+  "actual_receipt": {
+    "name": "final-receipt.json",
+    "sha256": "80341233ac9659dc0e1d79b1308880f23c214f628fa0605c2ea00fa569e7fac4"
+  },
+  "actual_proof_hashes": {
+    "provenance.json": "b277e8c53057d8ade1eac4d55bf95125eea064a0c2fcce903f1dcc671ea8004b",
+    "approved-fixture/fixture-receipt.json": "dcbe75203a1a598e1bd7afe75270e1a1fb5e427c710529ab6ca8091e402bc7b4",
+    "run.py": "245e0565c771a812e3e7157bba4b3d09d858641a5700741ebfb8d5ce5b98628a",
+    "verify.py": "79641ab06e2d053a43c4ac17ea8a9cafe465c8c8a97af34397fd3eca7dc08957",
+    "canonical_sampler.py": "2d14dc08b9fd7079b8380101fa7163c7bda0b87c0f7acb88a7f2660f8d2618a1",
+    "RESULT.md": "24a1376052edc8980972455f014853ba918d4596ab187dd8261c76e6018e30ab",
+    "fallback-duration-metadata.json": "2b3c8673634d89bb80c0fef07ce85c3aabb7e843309df3ca81eae1423b56ca66",
+    "core/verification.json": "e9063198bb829afdda26b1ee8041519b55ba118c555951ab6c9f049d0de78410",
+    "spot4x/verification.json": "1cbfeb84428dd6c2e7e76e903d9d6c0af0f11ea457133392753c719bcfdaf03d",
+    "death/verification.json": "0fa50b51ae3bc985be3eb957343052eaf6edeb6ba1809d59b0cc74ee8ab8b8bb",
+    "missing/verification.json": "9528feccb99d7319c9cfbb7b45f3c9ad6cd06a102d4d3cc754365ef73fac5d2e",
+    "corrupt/verification.json": "15ea9a5b9dfa2df9237b7cb65dbc988a82278444d15c95de4c4f7c864761fa2b",
+    "core/selected-frame-proof.json": "f5a5c509b49b679847469f849d20772c3eee5fff558c2494e097f10fffe90f6c",
+    "spot4x/selected-frame-proof.json": "7aabcb7f12cf18fdee6d4ece3a08325baefe705005aa21bc2e2d140bebe619f0",
+    "death/selected-frame-proof.json": "d611fb7d83f8da9f45d606e45f4ed8b2455c526d3933111c9b24885d4db37bb3",
+    "core/candidate-transition248_254-review8fps.mp4": "c5886973fb3ab81101678a8ac0929fbf547400d7b417585b0ba9cbd0568add39",
+    "core/candidate-transition248_254.orf1.gz": "35248cad557001d9c0202bcdd5e3eb0ca011eb5a256467891ee5fd328b74c701",
+    "core/candidate/actual-100-native2x.png": "5c01ab187279eb3db432800db700c7301fd090df4e5073c9167d6efb7170bb58",
+    "core/candidate/actual-250-native2x.png": "8dcacc6fb11c9c997e76f449e457b585d99217280a844b68a3f09807e353bef0",
+    "core/candidate/actual-5-native2x.png": "d48667909477d2f65e3bf2021d00bf25cf058e4d78a6019778462ac3b4ee6688",
+    "death/candidate/actual-5-native2x.png": "ec147da587306ff820cedc157abcc2cf4c6ba8870625c05a6c617370da47e3cb",
+    "death/candidate/actual-9-native2x.png": "4368e0aa685ad20595df141baea2b4e6715bfa97c0dcc7ad6706190aaff7a798",
+    "spot4x/candidate/actual-250-native4x.png": "713efa0966207ac5688b6d5df9feb244647226b9de8cf9773ec179e7d1223385"
+  },
+  "author": {
+    "name": "author-receipt.json",
+    "sha256": "3193a9af129816d90ef77301c1ab2b2ea196bb4e633d70ef75d811cc3b69faa3"
+  },
+  "source_tests": {
+    "combined_gates": 47,
+    "original_writers_unchanged_except_passive_observers": true,
+    "no_per_frame_allocation": true,
+    "actual_fixture_code_in_production": false,
+    "Windows_project_XML_only": true
+  },
+  "actual_limits": [
+    "Ordinary265 ticks; matching4x265 ticks; built-in debug-death60 ticks; absent/corrupt120 ticks each.",
+    "No actual arcade900, modal, fade, unsupported mode or extended full-game coverage; those remain source-scoped where documented.",
+    "Armor10 remains constant in ordinary trial; separate debug-death capturesA4/A0.",
+    "Original live energy and painted generator history are deliberately distinct."
+  ],
+  "final_merge": {
+    "source_commit": "e29261067d2394b965760b613a6b68438cc9969e",
+    "parent_publication": "9a696a1d4e8ee36d6b4f9042f824f307e0bc0ade",
+    "receipt_sha256": "649cf5ca0e1558d94e36a785cc9f4386179ab8a433d3384c2491cc1f93b9b707",
+    "exact_raw_streams": [
+      "weapon-loadout",
+      "sidekick-loadout",
+      "sidekick-states",
+      "player-shot-requests",
+      "player-shot-emissions",
+      "player-shot-results",
+      "player-shot-draws",
+      "state",
+      "collisions",
+      "frames",
+      "presentation",
+      "effects",
+      "enemy-projectiles",
+      "fade-steps",
+      "poses",
+      "fire-events",
+      "player-projectiles",
+      "draw-commands",
+      "scene-draw-commands",
+      "scene-enemies",
+      "scene-hits",
+      "rgb-audit",
+      "restore-regions",
+      "blend-palette",
+      "sdl-runtime",
+      "talon-bank-visual",
+      "blend-writes"
+    ],
+    "ticks": 265,
+    "private_hooks": false,
+    "captures": 0,
+    "original_state_indexed_RNG_internal8xRGB_exact": true
+  }
+}

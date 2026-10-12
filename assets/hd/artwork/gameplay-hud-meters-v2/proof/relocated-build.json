@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "source_recipe_sha256": "967f9d54b043b8e6cfcc209c3630485eee51f2e69cdeec1e003bf75bf4af3b22",
+  "selected_rgb_sha256": "98eb282953779812db0a1f2461e2a8c9701e57138638cabc550a4492c5b49e2e",
+  "versions": {
+    "python": "3.12.14",
+    "Pillow": "12.3.0",
+    "numpy": "2.3.5"
+  },
+  "sections": {
+    "firepower-tiles.rgba": {
+      "bytes": 4224,
+      "sha256": "ac0cc47c2c5586b20ab4000be6af9ee93f787af8e9454b3176cd96a0f5e1d4a5",
+      "fnv64": "92ce2a65c65f67db"
+    },
+    "armor-tiles.rgba": {
+      "bytes": 51840,
+      "sha256": "bace2bdf649ab7703bc6c30d10523b559edc36fce4bf066ea2fd2620b3bdbbe1",
+      "fnv64": "33f13810daec0125"
+    },
+    "generator-material-rows.rgba": {
+      "bytes": 120832,
+      "sha256": "fec8194ec5015585b41c54aa41f396b971fa51e1e8d9b88602946c663415cb6c",
+      "fnv64": "c4231771a5413868"
+    },
+    "generator-run-row-lookup.u16le": {
+      "bytes": 444912,
+      "sha256": "c5b08bee80b40b4099c4a02a2896f900eb9c92e7480892576cfb40e69eae221f",
+      "fnv64": "1d129d23c2edc134"
+    }
+  },
+  "payload_bytes": 621808,
+  "payload_sha256": "c7a03b1a2f546fa1ffff4fbc9b0d0bf1fdc6f9fdc0461457b7152d693fefb989",
+  "payload_fnv64": "fcc77c108870c9db",
+  "resource_bytes": 621920,
+  "resource_sha256": "3f8d9c35a3a9791d554a3c46f3431289c8ecd68b57419747ce3a40c225dafa4c",
+  "resource_fnv64": "52667536bbd9a9a8",
+  "header_unpacked_matches_contract": true,
+  "exact_eof": true,
+  "firepower_tiles": 11,
+  "coarse_armor_tiles": 29,
+  "generator_runs_reconstructed_and_hashed": 1196,
+  "generator_hash_list_matches_frozen_sha256": "e1bc71e41501f6f1b06a0eff421090086f8738e9e332fe31a20b512e855834d6",
+  "generator_unique_rows": 944,
+  "generator_lookup_entries": 222456,
+  "generator_lookup_min_id": 0,
+  "generator_lookup_max_id": 943,
+  "every_lookup_start_formula_verified": true,
+  "scope_cells": 1390,
+  "scope_mask_sha256": "38f313fc060ee5195071e6b5d2ed2727541e243038808147710b5575bf24d95f",
+  "canonical_resource_or_image_input_used": false,
+  "original_game_data_input_used": false,
+  "runtime_installed_or_executed": false,
+  "external_new_output_only": true
+}

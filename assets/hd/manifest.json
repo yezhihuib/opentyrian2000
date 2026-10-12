@@ -43241,5 +43241,85 @@
     "source_inventory_sha256": "8b7a3ce28a7dd6b7748165327401952afcdffa366e1a781db32e36fa2324f5e5",
     "scope": "Three complete left mechanical assemblies; original190 excluded; published right4 unchanged",
     "runtime_status": "offline all3 source contexts approved; baseline all4 visible at tick5930 map284,9; candidate actual normal-layer review pending"
+  },
+  "gameplay_hud_meters_v2": {
+    "schema": "finite-gameplay-hum2-raster-history-v2",
+    "source": "assets/hd/artwork/gameplay-hud-meters-v2",
+    "filename": "gameplay-hud-meters-v2.hda",
+    "scope_cells": 1390,
+    "generator_run_materials": 1196,
+    "armor_group_tiles": 29,
+    "source_files": {
+      "FILES.txt": {
+        "bytes": 253,
+        "sha256": "0df1735a3bb9dcce45dadefcba8f96d9180888ffbdeda831fe23f84813f8be39"
+      },
+      "README.md": {
+        "bytes": 7032,
+        "sha256": "1aa8171c0e2ff1a769735625e803941ff6716249653b6c27b9bec863e4d727d3"
+      },
+      "SHA256SUMS": {
+        "bytes": 1034,
+        "sha256": "2d7a0cfd343dac2136a363a973f50611e0200e4a927d32f2d1b6724975603813"
+      },
+      "build_resource.py": {
+        "bytes": 9023,
+        "sha256": "c744beced774ce0aba120776f50f0bed9d2e67bf8416ff0957ef29567afd754d"
+      },
+      "canonical/gameplay-hud-meters-v2.hda": {
+        "bytes": 621920,
+        "sha256": "3f8d9c35a3a9791d554a3c46f3431289c8ecd68b57419747ce3a40c225dafa4c"
+      },
+      "canonical/meter-scope-1390.mask": {
+        "bytes": 64000,
+        "sha256": "38f313fc060ee5195071e6b5d2ed2727541e243038808147710b5575bf24d95f"
+      },
+      "contract.json": {
+        "bytes": 4754,
+        "sha256": "a5d1b707561b1119646b0eb230f51970e557c06391abcc2cca3f2a64cdb8b149"
+      },
+      "manifest.json": {
+        "bytes": 1771,
+        "sha256": "61dce3d8496265b0e4b02f6c12b7143e183225ccdb5be329477a19e5735a0f72"
+      },
+      "materials.py": {
+        "bytes": 1404,
+        "sha256": "967f9d54b043b8e6cfcc209c3630485eee51f2e69cdeec1e003bf75bf4af3b22"
+      },
+      "proof/portable-path-checks.json": {
+        "bytes": 1263,
+        "sha256": "7d2b4f0756113b9de42ea02de44454d95210b672746fb04016d01fbd98eee635"
+      },
+      "proof/relocated-build.json": {
+        "bytes": 2107,
+        "sha256": "232378429718e3e8ecf1e187b6161e8feee000246866b54daf21482f22dc36bf"
+      },
+      "requirements.txt": {
+        "bytes": 28,
+        "sha256": "d0524439f7a0da67c1283d44683e00fcc795a0657e726f22087cfcbe198f7c89"
+      },
+      "selected-rgb.json": {
+        "bytes": 1958,
+        "sha256": "98eb282953779812db0a1f2461e2a8c9701e57138638cabc550a4492c5b49e2e"
+      }
+    },
+    "bundle": {
+      "bytes": 621920,
+      "sha256": "3f8d9c35a3a9791d554a3c46f3431289c8ecd68b57419747ce3a40c225dafa4c"
+    },
+    "packs": {
+      "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
+        "gameplay-hud-meters-v2.hda": {
+          "bytes": 621920,
+          "sha256": "3f8d9c35a3a9791d554a3c46f3431289c8ecd68b57419747ce3a40c225dafa4c"
+        }
+      },
+      "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
+        "gameplay-hud-meters-v2.hda": {
+          "bytes": 621920,
+          "sha256": "3f8d9c35a3a9791d554a3c46f3431289c8ecd68b57419747ce3a40c225dafa4c"
+        }
+      }
+    }
   }
 }

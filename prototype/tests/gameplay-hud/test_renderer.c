@@ -8,6 +8,7 @@
 #include <string.h>
 #include "gameplay_hud.h"
 #include "gameplay_hud_components.h"
+#include "gameplay_hud_meters.h"
 #include "gameplay_hud_indicators.h"
 #include "gameplay_hud_fixed_text.h"
 #include "gameplay_hud_font.h"
@@ -173,7 +174,7 @@ static void cleanup(void)
  canvas=output=fade_saved=game_screen=VGAScreenSeg=NULL;
  free(hd_owner);free(cloud_owner);free(green_first);free(green_under);free(green_under_owner);
  hd_owner=cloud_owner=green_under_owner=NULL;green_first=NULL;green_under=NULL;
- gameplay_hud_shutdown();hud_components_shutdown();hud_indicators_shutdown();hud_fixed_text_shutdown();
+ gameplay_hud_shutdown();hud_components_shutdown();hud_meters_shutdown();hud_indicators_shutdown();hud_fixed_text_shutdown();
 }
 static void setup(int d,const char *directory)
 {

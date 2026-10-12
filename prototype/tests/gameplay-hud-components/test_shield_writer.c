@@ -22,6 +22,8 @@ static void render_mirror_hud_shield_drawn(SDL_Surface *p,unsigned s,unsigned m)
 {assert(p==VGAScreen);++draws;last_s=s;last_m=m;}
 static void render_mirror_hud_shield_wiped(SDL_Surface *p)
 {assert(p==VGAScreenSeg);++wipes;}
+#define render_mirror_hud_meter_begin(...) ((void)0)
+#define render_mirror_hud_meter_end(...) ((void)0)
 #include "writers.inc"
 static uint8_t scalar(int x,int y,unsigned s,unsigned m)
 {

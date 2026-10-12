@@ -111,4 +111,15 @@ if manifest.get('gameplay_hud_font_v1'):
   assert path.is_file() and not path.is_symlink() and path.read_bytes()==raw
   if a.output:(output/pack/FONT_FILE).write_bytes(raw)
   font_count+=1
-print(json.dumps({'verified_pack_count':len(manifest['packs']),'verified_HDA_entries':checked,'verified_exact_source_pngs':len(payloads),'verified_material_sidecars':material_count,'verified_cap_sidecars':cap_count,'verified_forest_sidecars_and_policies':forest_count,'verified_gameplay_hud_sidecars':hud_count,'verified_hud_source_pngs':int(bool(hud_count)), 'verified_hud_font_sidecars':font_count,'verified_hud_font_source_files':19 if font_count else 0, 'verified_hud_fixed_text_sidecars':fixed_text_count,'verified_hud_fixed_text_source_pngs':12 if fixed_text_count else 0, 'verified_hud_extension_sidecars':extension_count, 'verified_hud_extension_source_pngs':21 if extension_count else 0,'default_pack_counts':[manifest['packs'][manifest[k]]['count'] for k in ['default_preview_pack','default_debug_pack']],'rebuild_output':str(output) if a.output else None,'all_runtime_RGBA_and_header_bytes_exact':True},indent=2))
+meter_count=0
+if manifest.get('gameplay_hud_meters_v2'):
+ from gameplay_hud_meter_bundle import build_bundle as build_meters, FILENAME as METER_FILE
+ raw,receipt=build_meters(repo);family=manifest['gameplay_hud_meters_v2']
+ assert set(family['packs'])=={manifest['default_preview_pack'],manifest['default_debug_pack']}
+ for pack,items in family['packs'].items():
+  assert pack in manifest['packs'] and items=={METER_FILE:receipt}
+  path=repo/'assets/hd/packs'/pack/METER_FILE
+  assert path.is_file() and not path.is_symlink() and path.read_bytes()==raw
+  if a.output:(output/pack/METER_FILE).write_bytes(raw)
+  meter_count+=1
+print(json.dumps({'verified_hud_meter_sidecars':meter_count,'verified_hud_meter_source_files':13 if meter_count else 0,'verified_pack_count':len(manifest['packs']),'verified_HDA_entries':checked,'verified_exact_source_pngs':len(payloads),'verified_material_sidecars':material_count,'verified_cap_sidecars':cap_count,'verified_forest_sidecars_and_policies':forest_count,'verified_gameplay_hud_sidecars':hud_count,'verified_hud_source_pngs':int(bool(hud_count)), 'verified_hud_font_sidecars':font_count,'verified_hud_font_source_files':19 if font_count else 0, 'verified_hud_fixed_text_sidecars':fixed_text_count,'verified_hud_fixed_text_source_pngs':12 if fixed_text_count else 0, 'verified_hud_extension_sidecars':extension_count, 'verified_hud_extension_source_pngs':21 if extension_count else 0,'default_pack_counts':[manifest['packs'][manifest[k]]['count'] for k in ['default_preview_pack','default_debug_pack']],'rebuild_output':str(output) if a.output else None,'all_runtime_RGBA_and_header_bytes_exact':True},indent=2))

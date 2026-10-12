@@ -40,7 +40,7 @@ def main():
    if variant=='corrupt':
     data=bytearray((temp/'gameplay-hud-components-v1.hda').read_bytes());data[0]^=1;(d/'gameplay-hud-components-v1.hda').write_bytes(data)
   (temp/'production.inc').write_text('\n'.join(extract(source,n) for n in names[:3]+FIXED_FUNCTIONS+INDICATOR_FUNCTIONS+[v for v in names[3:] if v!='hud_sprite_decode']))
-  cmd=[os.environ.get('CC','cc'),'-std=c99','-O1','-g','-Wall','-Wextra','-Wno-unused-parameter','-Wno-unused-variable','-Wno-unused-function','-Wno-misleading-indentation','-I'+str(temp),'-I'+str(ROOT/'src'),str(HERE/'test_renderer.c'),str(ROOT/'src/gameplay_hud.c'),str(ROOT/'src/gameplay_hud_components.c'),str(ROOT/'src/gameplay_hud_indicators.c'),str(ROOT/'src/gameplay_hud_fixed_text.c'),str(ROOT/'src/gameplay_hud_font.c'),'-o',str(temp/'test')]
+  cmd=[os.environ.get('CC','cc'),'-std=c99','-O1','-g','-Wall','-Wextra','-Wno-unused-parameter','-Wno-unused-variable','-Wno-unused-function','-Wno-misleading-indentation','-I'+str(temp),'-I'+str(ROOT/'src'),str(HERE/'test_renderer.c'),str(ROOT/'src/gameplay_hud.c'),str(ROOT/'src/gameplay_hud_components.c'),str(ROOT/'src/gameplay_hud_meters.c'),str(ROOT/'src/gameplay_hud_indicators.c'),str(ROOT/'src/gameplay_hud_fixed_text.c'),str(ROOT/'src/gameplay_hud_font.c'),'-o',str(temp/'test')]
   if a.sanitize:cmd+=['-fsanitize=address,undefined','-fno-omit-frame-pointer','-no-pie']
   subprocess.run(cmd,check=True);subprocess.run([str(temp/'test'),str(temp)],check=True,env=dict(os.environ,ASAN_OPTIONS='detect_leaks=0:halt_on_error=1',UBSAN_OPTIONS='halt_on_error=1'))
 if __name__=='__main__':main()

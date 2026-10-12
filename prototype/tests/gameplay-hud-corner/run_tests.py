@@ -15,7 +15,7 @@ ROOT = HERE.parents[2]
 BASE = 'f82630507ab7f405117dc84ca70095ca04dc470a'
 sys.path.insert(0, str(HERE.parent / 'gameplay-hud'))
 from run_tests import checked_points
-from test_renderer import fnv, extract, INDICATOR_FUNCTIONS
+from test_renderer import fnv, extract, INDICATOR_FUNCTIONS, FIXED_FUNCTIONS
 from test_writers import extract as extract_writer
 
 MASK_SHA = 'dfc1e98e0d25b1a45645fc572d42396cf0407db975e44b3aefe91662255811b8'
@@ -168,7 +168,7 @@ def main():
             renderer = (ROOT / 'src/render_mirror.c').read_text() if variant == 'candidate' else subprocess.check_output(
                 ['git', 'show', BASE + ':src/render_mirror.c'], cwd=ROOT, text=True)
             (path / 'production.inc').write_text('\n'.join(extract(renderer, name)
-                for name in common + INDICATOR_FUNCTIONS + helpers))
+                for name in common + (FIXED_FUNCTIONS if variant == 'candidate' else []) + INDICATOR_FUNCTIONS + helpers))
             source = ROOT / 'src/gameplay_hud.c'
             extra = []
             if variant == 'baseline':
@@ -177,7 +177,7 @@ def main():
                 extra = ['-DCORNER_BASELINE']
             executable = path / variant
             subprocess.run(cc + flags + extra + [str(HERE / 'test_renderer.c'), str(source),
-                str(ROOT / 'src/gameplay_hud_components.c'), str(ROOT / 'src/gameplay_hud_indicators.c'),
+                str(ROOT / 'src/gameplay_hud_components.c'), str(ROOT / 'src/gameplay_hud_meters.c'), str(ROOT / 'src/gameplay_hud_indicators.c'), str(ROOT / 'src/gameplay_hud_fixed_text.c'), str(ROOT / 'src/gameplay_hud_font.c'),
                 '-o', str(executable)], check=True)
             results[variant] = subprocess.check_output([str(executable), str(path)], env=environment, text=True)
             print(variant + ': ' + results[variant].strip())

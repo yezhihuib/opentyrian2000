@@ -23,5 +23,5 @@ with tempfile.TemporaryDirectory(prefix='huf-renderer-') as tmp:
  (d/'production.inc').write_text('\n'.join(parts))
  common=[os.environ.get('CC','cc'),'-std=c99','-O1','-g','-Wall','-Wextra','-Wno-unused-parameter','-Wno-unused-variable','-Wno-unused-function','-Wno-misleading-indentation','-I'+str(d),'-I'+str(ROOT/'src')]
  if a.sanitize:common+=['-fsanitize=address,undefined','-fno-omit-frame-pointer','-no-pie']
- cmd=common+flags(values)+[str(HERE/'test_renderer.c')]+[str(ROOT/'src'/n) for n in ('gameplay_hud.c','gameplay_hud_components.c','gameplay_hud_indicators.c','gameplay_hud_fixed_text.c','gameplay_hud_font.c')]+['-o',str(d/'test')]
+ cmd=common+flags(values)+[str(HERE/'test_renderer.c')]+[str(ROOT/'src'/n) for n in ('gameplay_hud.c','gameplay_hud_components.c','gameplay_hud_meters.c','gameplay_hud_indicators.c','gameplay_hud_fixed_text.c','gameplay_hud_font.c')]+['-o',str(d/'test')]
  subprocess.run(cmd,check=True);subprocess.run([str(d/'test'),str(d)]+(['quick'] if a.quick else []),check=True,env=dict(os.environ,ASAN_OPTIONS='detect_leaks=0:halt_on_error=1',UBSAN_OPTIONS='halt_on_error=1'))

@@ -19,8 +19,8 @@ It builds on OpenTyrian2000 and OpenTyrian; the upstream README is preserved bel
   2×/4× checks. It is not whole-game, all-level, GPU/fullscreen or performance
   certification. The latest changes still need Windows runtime acceptance.
 - Fixed MODE/SHIELD/ARMOR lettering and finite gameplay tiny-font rendering
-  are integrated. Remaining meters are a separate candidate; startup screens
-  and logos are planned work.
+  are integrated, along with finite firepower, generator and coarse armor
+  meter refinement. Startup screens and logos are planned work.
 
 ## Build and try
 
@@ -55,7 +55,8 @@ older reports retain checkpoint-specific counts. See [terrain/circuits](docs/CIR
 [labels/shield/mode](docs/GAMEPLAY_HUD_COMPONENTS_INDICATORS.md),
 [corner V2](docs/GAMEPLAY_HUD_CORNER_V2.md),
 [fixed green labels](docs/GAMEPLAY_HUD_FIXED_TEXT.md), and
-[gameplay tiny font](docs/GAMEPLAY_HUD_DYNAMIC_FONT.md) for exact scope and fallback limits.
+[gameplay tiny font](docs/GAMEPLAY_HUD_DYNAMIC_FONT.md), and
+[remaining meters](docs/GAMEPLAY_HUD_METERS.md) for exact scope and fallback limits.
 Upstream attribution and [COPYING](COPYING) are retained.
 
 ## Upstream README (preserved)

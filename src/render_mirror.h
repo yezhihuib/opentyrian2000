@@ -3,6 +3,7 @@
 #define RENDER_MIRROR_H
 #include "sprite.h"
 #include "ground101_material.h"
+#include "gameplay_hud_meters.h"
 enum { MIRROR_NORMAL, MIRROR_BLEND, MIRROR_SHADOW };
 #ifdef RENDER_MIRROR_DISABLED
 #define render_mirror_text_begin(...) ((void)0)
@@ -23,6 +24,8 @@ enum { MIRROR_NORMAL, MIRROR_BLEND, MIRROR_SHADOW };
 #define render_mirror_hud_shield_wiped(...) ((void)0)
 #define render_mirror_hud_shield_drawn(...) ((void)0)
 #define render_mirror_hud_mode_drawn(...) ((void)0)
+#define render_mirror_hud_meter_begin(...) ((void)0)
+#define render_mirror_hud_meter_end(...) ((void)0)
 #define render_mirror_begin(...) ((void)0)
 #define render_mirror_pixel(...) ((void)0)
 #define render_mirror_rect(...) ((void)0)
@@ -63,6 +66,8 @@ void render_mirror_hud_reset(void);
 void render_mirror_hud_start(SDL_Surface *decoded_pic3);
 void render_mirror_hud_suspend(void);
 void render_mirror_hud_mode_drawn(SDL_Surface *surface,unsigned int mode);
+void render_mirror_hud_meter_begin(SDL_Surface *surface,SDL_Surface *draw_surface,unsigned int kind,unsigned int a,unsigned int b);
+void render_mirror_hud_meter_end(SDL_Surface *surface,unsigned int kind);
 void render_mirror_hud_shield_wiped(SDL_Surface *surface);
 void render_mirror_hud_shield_drawn(SDL_Surface *surface,unsigned int shield,unsigned int maximum);
 void render_mirror_begin(void);

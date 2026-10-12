@@ -1021,6 +1021,7 @@ void JE_setupExplosionLarge(JE_boolean enemyGround, JE_byte exploNum, JE_integer
 void JE_wipeShieldArmorBars(void)
 {
 	render_mirror_hud_shield_wiped(VGAScreenSeg);
+	render_mirror_hud_meter_begin(VGAScreenSeg, VGAScreenSeg, HUD_WRITE_ARMOR_WIPE, player[0].armor, 0);
 	if (!twoPlayerMode || galagaMode)
 	{
 		fill_rectangle_xy(VGAScreenSeg, 270, 137, 278, 194 - player[0].shield * 2, 0);
@@ -1039,6 +1040,7 @@ void JE_wipeShieldArmorBars(void)
 		fill_rectangle_xy(VGAScreenSeg, 307, 60 - 44, 315, 60, 0);
 		fill_rectangle_xy(VGAScreenSeg, 307, 194 - 44, 315, 194, 0);
 	}
+	render_mirror_hud_meter_end(VGAScreenSeg, HUD_WRITE_ARMOR_WIPE);
 }
 
 JE_byte JE_playerDamage(JE_byte temp,
@@ -1139,6 +1141,7 @@ void JE_drawArmor(void)
 		if (player[i].armor > 28)
 			player[i].armor = 28;
 
+	render_mirror_hud_meter_begin(VGAScreen, VGAScreen, HUD_WRITE_ARMOR_DRAW, player[0].armor, 0);
 	if (twoPlayerMode && !galagaMode)
 	{
 		for (uint i = 0; i < COUNTOF(player); ++i)
@@ -1148,6 +1151,7 @@ void JE_drawArmor(void)
 	{
 		JE_dBar3(VGAScreen, 307, 194, player[0].armor, 224);
 	}
+	render_mirror_hud_meter_end(VGAScreen, HUD_WRITE_ARMOR_DRAW);
 }
 
 void JE_doSP(JE_word x, JE_word y, JE_word num, JE_byte explowidth, JE_byte color) /* superpixels */

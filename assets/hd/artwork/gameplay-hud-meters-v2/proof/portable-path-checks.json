@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "relocated_source_inputs": [
+    "build_resource.py",
+    "materials.py",
+    "selected-rgb.json",
+    "contract.json",
+    "requirements.txt"
+  ],
+  "canonical_inputs_absent": true,
+  "original_assets_absent": true,
+  "relocated_paths_with_spaces": true,
+  "foreign_cwd": true,
+  "resource_and_mask_equal_canonical_bytes": true,
+  "output_guard_tests": [
+    {
+      "case": "source-root",
+      "rejected": true,
+      "stderr": "HUM2 build failed: Output must be outside the source package"
+    },
+    {
+      "case": "source-descendant",
+      "rejected": true,
+      "stderr": "HUM2 build failed: Output must be outside the source package"
+    },
+    {
+      "case": "existing-external-output",
+      "rejected": true,
+      "stderr": "HUM2 build failed: Output directory must not already exist"
+    },
+    {
+      "case": "normalized-source-descendant",
+      "rejected": true,
+      "stderr": "HUM2 build failed: Output must be outside the source package"
+    },
+    {
+      "case": "symlink-parent",
+      "rejected": true,
+      "stderr": "HUM2 build failed: Output path must not contain symlinks"
+    }
+  ],
+  "source_files_unchanged_after_rejected_writes": true,
+  "recovery_tree_unchanged": true,
+  "no_game_execution": true
+}

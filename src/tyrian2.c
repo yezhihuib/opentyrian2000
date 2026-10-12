@@ -1243,6 +1243,7 @@ level_loop:
 				int x = twoPlayerMode ? 286 : 289,
 				    y = (i == 0) ? (twoPlayerMode ? 6 : 17) : (twoPlayerMode ? 100 : 38);
 
+				render_mirror_hud_meter_begin(VGAScreenSeg, VGAScreen, i == 0 ? HUD_WRITE_FRONT : HUD_WRITE_REAR, item_power, 0);
 				fill_rectangle_xy(VGAScreenSeg, x, y, x + 1 + 10 * 2, y + 2, 0);
 
 				for (uint j = 1; j <= item_power; ++j)
@@ -1250,6 +1251,7 @@ level_loop:
 					JE_rectangle(VGAScreen, x, y, x + 1, y + 2, 115 + j); /* SEGa000 */
 					x += 2;
 				}
+				render_mirror_hud_meter_end(VGAScreenSeg, i == 0 ? HUD_WRITE_FRONT : HUD_WRITE_REAR);
 			}
 		}
 
@@ -1268,11 +1270,13 @@ level_loop:
 
 			if (temp != lastPower)
 			{
+				render_mirror_hud_meter_begin(VGAScreenSeg, VGAScreenSeg, HUD_WRITE_GENERATOR, lastPower, temp);
 				if (temp > lastPower)
 					fill_rectangle_xy(VGAScreenSeg, 269, 113 - 11 - temp, 276, 114 - 11 - lastPower, 113 + temp / 7);
 				else
 					fill_rectangle_xy(VGAScreenSeg, 269, 113 - 11 - lastPower, 276, 114 - 11 - temp, 0);
 				
+				render_mirror_hud_meter_end(VGAScreenSeg, HUD_WRITE_GENERATOR);
 				lastPower = temp;
 			}
 		}

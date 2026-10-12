@@ -29,9 +29,9 @@ REJECTED_SHA = 'f318812df425dd11419446752272f32917ee97f2c4e8541893c7bc16ed0fe10e
 # below are extracted anew on every run. Ignore comments/whitespace, not tokens.
 SOURCE_HASHES = {
     'varz.c:JE_drawOptions': '964dcf5b57743d7c755651cc7f4e42780200bf4343243a3b8ba92a57227ebd56',
-    'varz.c:JE_wipeShieldArmorBars': '41a6cbd9c69abe8649368ac6fbc1b65a9cb775f2380337dccffa46721f7bf17e',
+    'varz.c:JE_wipeShieldArmorBars': '438e55796936968c7b744d1619a133354af4f9b0367f931ef2fb3ec9a56e8487',
     'varz.c:JE_drawShield': '78915a5416c2b27514821a271698a64c7824c0b85223e31dd0c1df036e65b468',
-    'varz.c:JE_drawArmor': '28be6c9463aaad957898bdbd2ef8414fa7ee2f4e6f6fe7962946e368374722f0',
+    'varz.c:JE_drawArmor': 'b3275dcb4c54359a0d19a9bd9768b6d21b59128f71af59ab8c30d8800d89dda7',
     'mainint.c:JE_drawPortConfigButtons': 'c9766cc8fd6cf251466d0d02891c637056e7a1fa8438b53aa122c2a28b13bd7b',
     'mainint.c:JE_playerMovement': 'a0a81df6996a2a101218c9032c87c9637c85d7aaf95eb8fdee5d12682cfa7fc1',
     'mainint.c:JE_mainGamePlayerFunctions': '9da3ef27089e1a02466dde475b3850ff647b4d88b2743a377366a2b1a3de78b6',
@@ -43,8 +43,8 @@ SOURCE_HASHES = {
     'vga256d.h:fill_rectangle_wh': 'ca89f5ae0366ddda814d41b7cfeca7816d256bd39b736886035d9088ad908bcd',
     'gameplay_hud.c:valid_glyph_moats': 'f8ab9a5ee292a559ad6d3c3f54a57f0952e0670589c6a065906834527cf60cdf',
     'gameplay_hud.c:gameplay_hud_verify_modes': 'a4304d0b838539579530415ae45c83aa24890272ef9be6c9853556ed4510a8cc',
-    'tyrian2.c:weapon-display': 'a46d4863b48620f8e37dfc6ec4fa0995b45647f5ca7205bc59ce89e76e99f22c',
-    'tyrian2.c:generator-display': 'bacdf4b37aa922c0adf3525cc8316146dbc13625e6bfecb52656f3c809d1fe81',
+    'tyrian2.c:weapon-display': '0c7c3afe748adb093efd51033a4ed60ec90fc2e24dac84dc9cebd6c380182e6f',
+    'tyrian2.c:generator-display': '63bdccc334e8a53e052937cd8d7330de8b2634e7d6667ecd6aee5ea8779d0ed9',
 }
 
 
@@ -102,10 +102,30 @@ def require(source, *expressions):
         assert normalized(expression) in compact, 'Source bound changed: ' + expression
 
 
+def original_geometry_body(name, source):
+    # HUF1's additive observers are covered by its actual-writer renderer suite.
+    # Keep these two original geometry hashes pinned: strip only exact reviewed
+    # notification strings (including the two wrapped early returns), with counts.
+    observers = {
+        'mainint.c:JE_drawTextWindow': (
+            ('render_mirror_text_message_begin(text,textErase>0);', 1, ''),
+            ('render_mirror_text_message_backdrop();', 1, ''),
+            ('render_mirror_text_message_end();', 1, '')),
+        'sprite.c:blit_sprite_hv_unsafe': (
+            ('render_mirror_text_glyph_begin(surface,x,y,table,index,false,hue,value);', 1, ''),
+            ('{ render_mirror_text_glyph_end(); return; }', 2, 'return;'),
+            ('render_mirror_text_glyph_end();', 1, '')),
+    }
+    for event, count, replacement in observers.get(name, ()):
+        assert source.count(event) == count, 'Review changed HUF observer: ' + name
+        source = source.replace(event, replacement)
+    return source
+
+
 def source_contract(sources, functions):
     assert functions.keys() == SOURCE_HASHES.keys(), 'Writer source hash coverage changed'
     for name, source in functions.items():
-        actual = hashlib.sha256(normalized(source).encode()).hexdigest()
+        actual = hashlib.sha256(normalized(original_geometry_body(name, source)).encode()).hexdigest()
         assert actual == SOURCE_HASHES[name], f'{name} drifted; review finite writer proof ({actual})'
     require(sources['tyrian2.c'],
             'JE_outText(VGAScreen, 268, twoPlayerMode ? 76 : 118, levelName, 12, 4);',
