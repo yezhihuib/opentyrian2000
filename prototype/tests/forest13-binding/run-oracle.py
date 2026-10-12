@@ -15,7 +15,7 @@ import subprocess
 
 HERE = Path(__file__).resolve().parent
 CIRCUIT = [181,182,184,185,192,193,194,195,201,202]
-MECHANICAL = [188,189,198,199]
+MECHANICAL = [188,189,198,199,186,187,196,197]
 FOREST = [211, 212, 213, 215, 221, 222, 223, 224, 225, 231, 232, 233, 234]
 OLD = [101,37,57,49,50,321,322,331,332,99,100,106,107,109,110,118,119,120,
        96,97,98,108,323,324,333,334,36,39,40,46,48,56,58,38,47,111,114,113,
@@ -115,7 +115,7 @@ def fixtures(out):
     root.mkdir()
     base = root / 'canonical8'
     base.mkdir()
-    for sprite_id in sorted(set(OLD + GRASS + CLOUD + GRAY + PURPLE + FOREST + CIRCUIT + MECHANICAL + [191,200])):
+    for sprite_id in sorted(set(OLD + GRASS + CLOUD + GRAY + PURPLE + FOREST + CIRCUIT + MECHANICAL + [190,191,200])):
         for density in (8, 4):
             (base / f'terrain-shapesz-{sprite_id}-{density}.hda').write_bytes(make_hda(sprite_id, density))
     def variant(label, overrides, omissions=()):
@@ -248,6 +248,11 @@ def main():
     report = dict(status='passed', sanitizers=['address', 'undefined'], leak_detection=args.leak_detection,
                   source_sha256=sha(source_bytes), engine_loader_sha256=sha(loader_bytes),
                   forest_header_sha256=sha(forest_header_bytes),
+                  test_package_sha256={name: sha((HERE / name).read_bytes()) for name in
+                                       ('run-oracle.py', 'test-forest13-binding.c', 'frozen-prior-mappings.json')},
+                  mechanical_ids=MECHANICAL, mechanical_slots=list(range(359,367)),
+                  explicitly_excluded_mechanical_ids=[190,200],
+                  expected_asset_capacity=367, expected_registry_capacity=193,
                   production_function_sha256={k: sha(v.encode()) for k, v in helpers.items()},
                   preserved_prior_mappings=selected, preserved_lower_cap_sources=unchanged,
                   source_assertions=['policy detection before lower early returns',
@@ -256,7 +261,7 @@ def main():
                                      'circuit NORMAL-only skip before source load'],
                   compile_command=command, runs=results,
                   limitations=['LeakSanitizer is optional because ptrace-based hosts cannot run it; ASan/UBSan are always enabled.',
-                               'Material policy/preparation/world context and draw calls are explicit test doubles.',
+                               'Material policy/preparation/world context, font-before-effect and draw calls are explicit test doubles.',
                                'Uses actual HDA loader and actual source callbacks with synthetic HDAs.',
                                'Does not validate canonical checksums, policy file parser, sidecar parser, blending, pixels, gameplay, or appearance.',
                                'No game process, captures, authored art, network, candidate checkout edits, or publication.'])

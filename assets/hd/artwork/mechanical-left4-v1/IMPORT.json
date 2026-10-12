@@ -1,0 +1,84 @@
+{
+  "source_inventory_sha256": "8b7a3ce28a7dd6b7748165327401952afcdffa366e1a781db32e36fa2324f5e5",
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "a4df3f0160e4ed28093b2968b01c5df7615f7ecfeaed63a092507584bafe78f9"
+    },
+    {
+      "path": "contract.json",
+      "sha256": "e5348cf2e67cd15401e475efafe7e83ac29e65b48f52b1862149e242dbcf778e"
+    },
+    {
+      "path": "inventory.json",
+      "sha256": "8b7a3ce28a7dd6b7748165327401952afcdffa366e1a781db32e36fa2324f5e5"
+    },
+    {
+      "path": "masks/source-alpha-density8.png",
+      "sha256": "b7752ef45bd37e08a7bc619f8dfcd4004a68c19260a3685b3575883b81a4aaca"
+    },
+    {
+      "path": "output/2010186.hda",
+      "sha256": "f2632c7e2d134424f2736e7372917b504dacf47e6b90be7acda674ab98254e6a"
+    },
+    {
+      "path": "output/2010187.hda",
+      "sha256": "44cc3b517167c4e5578cc52cb8af09014e186145b798bf5ef60043a3b3a52ca7"
+    },
+    {
+      "path": "output/2010196.hda",
+      "sha256": "9c3e3865bf0e56b9cf177843de70ea1c9ff21e452f79de52e1b7622fc2b6b989"
+    },
+    {
+      "path": "output/2010197.hda",
+      "sha256": "5c9533f2553ee992465d7f0720aa143bca43aa5a94b9461d9463564c51994062"
+    },
+    {
+      "path": "output/rebuild-receipt.json",
+      "sha256": "c3ca3874c8092320504df2bcdac0fd3c91ae5e6d2eb2453caaed96513e234eab"
+    },
+    {
+      "path": "output/terrain-shapesz-186-8.png",
+      "sha256": "c720e0e6e7db5f169f114e67bf7ad8cedd3ae80035daef2cb7ada0478b27465b"
+    },
+    {
+      "path": "output/terrain-shapesz-187-8.png",
+      "sha256": "3ac6c2d278288f44e4de4909b3ef24045a57c972c02171d16207d3a10815d67a"
+    },
+    {
+      "path": "output/terrain-shapesz-196-8.png",
+      "sha256": "3ce4d3a3cf7c65c502421e5eac72a3946e14098e9f675eaa8f9deda4a94b4fa8"
+    },
+    {
+      "path": "output/terrain-shapesz-197-8.png",
+      "sha256": "74843de180cf25a2e73234781e0292ea592410fb56ab491518523213fd87792c"
+    },
+    {
+      "path": "proof/pilot-proof.json",
+      "sha256": "2aba053815d0113a1e615b1d070451e5cbf4888a8aaf59c3c060d692e6c5b7d6"
+    },
+    {
+      "path": "proof/source-proof.json",
+      "sha256": "7deecfc5b524804424bb55ca80ff8feb7b594ecc8545ffa6d2daa46b102b5b3a"
+    },
+    {
+      "path": "proof/unchanged-guards.json",
+      "sha256": "c7d351627fa049fc742e4ddcf6c72057be63bc7c6b9cb58bfe93fe08b8fce3f7"
+    },
+    {
+      "path": "rebuild.py",
+      "sha256": "8d1aa64599c8766af113238d2db094df882cc803a5769830175ae6d63c170cf5"
+    },
+    {
+      "path": "sources/generated-context.png",
+      "sha256": "59992aa03aaaf1da59fd61ae0e7d0f8259f179895c2d47a63381745c71946e7e"
+    },
+    {
+      "path": "sources/prompt.txt",
+      "sha256": "cb17fec8264ed27fbdf7324dbd15e7970dcf3b528fb0b21a2a6db8a162b19ea5"
+    }
+  ],
+  "omitted": {},
+  "integration_baseline": "705fcde51ae688394a49a0a1750044331c336a9e",
+  "runtime_acceptance": "Offline all3 source contexts approved; baseline normal-layer all4 visibility established at tick5930 map284,9. Candidate actual runtime acceptance remains pending."
+}

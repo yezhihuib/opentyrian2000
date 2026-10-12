@@ -2,6 +2,7 @@
 """Negative controls for the binding oracle; edits extracted copies only."""
 from pathlib import Path
 import argparse
+import hashlib
 import json
 import os
 import subprocess
@@ -23,10 +24,13 @@ MUTATIONS = [
     ('circuit-191-admitted', 'ids[10]={181,182,184,185,192,193,194,195,201,202}', 'ids[10]={181,182,184,185,191,193,194,195,201,202}', 'suite'),
     ('circuit-style-leak', 'if((gray_slot>=0||purple_slot>=0||circuit_slot>=0||mechanical_slot>=0)&&style!=MIRROR_NORMAL)continue;', 'if((gray_slot>=0||purple_slot>=0||mechanical_slot>=0)&&style!=MIRROR_NORMAL)continue;', 'suite'),
     ('circuit-missing-art-trace-leak', '||circuit_slot>=0||mechanical_slot>=0||grass_slot>=0||forest_slot>=0)&&!a)continue;', '||grass_slot>=0||forest_slot>=0)&&!a)continue;', 'suite'),
-    ('registry-old175-bound', 'terrain_source_count<189', 'terrain_source_count<175', 'suite'),
-    ('registry-one-past-bound', 'terrain_source_count<189', 'terrain_source_count<=189', 'suite'),
+    ('registry-old175-bound', 'terrain_source_count<193', 'terrain_source_count<175', 'suite'),
+    ('registry-one-past-bound', 'terrain_source_count<193', 'terrain_source_count<=193', 'suite'),
     ('mechanical-slot-shift', 'return 359+i;', 'return 358+i;', 'suite'),
-    ('mechanical-200-admitted', 'ids[4]={188,189,198,199}', 'ids[4]={188,189,198,200}', 'suite'),
+    ('mechanical-200-admitted', 'static int layer3_mechanical_slot(unsigned int id)\n{', 'static int layer3_mechanical_slot(unsigned int id)\n{\n if(id==200)return 362;', 'suite'),
+    ('mechanical-left-slot-shift', 'return 359+i;', 'return 359+i+(i>=4);', 'suite'),
+    ('mechanical-left-190-admitted', 'static int layer3_mechanical_slot(unsigned int id)\n{', 'static int layer3_mechanical_slot(unsigned int id)\n{\n if(id==190)return 363;', 'suite'),
+    ('registry-previous189-bound', 'terrain_source_count<193', 'terrain_source_count<189', 'suite'),
     ('mechanical-style-leak', '||circuit_slot>=0||mechanical_slot>=0)&&style!=MIRROR_NORMAL', '||circuit_slot>=0)&&style!=MIRROR_NORMAL', 'suite'),
     ('mechanical-missing-art-trace-leak', '||mechanical_slot>=0||grass_slot>=0', '||grass_slot>=0', 'suite'),
     ('selected4-fallback-omitted', 'if(!a->valid&&game_probe_density==8)a->valid=read_asset(a,4);', '/* deliberately omitted selected4 fallback */', 'suite'),
@@ -46,6 +50,10 @@ def main():
         parser.error('--out must be new and outside candidate, tests, and prior run')
     receipt = json.loads((run / 'result.json').read_text())
     assert receipt['status'] == 'passed'
+    source_hash = hashlib.sha256((candidate / 'src' / 'render_mirror.c').read_bytes()).hexdigest()
+    assert source_hash == receipt['source_sha256'], 'Candidate renderer changed after the successful oracle'
+    for name, digest in receipt.get('test_package_sha256', {}).items():
+        assert hashlib.sha256((HERE / name).read_bytes()).hexdigest() == digest, 'Oracle test input changed: ' + name
     out.mkdir(parents=True)
     helpers = (run / 'production-helpers.inc').read_text()
     results = []
@@ -70,10 +78,15 @@ def main():
         (directory / 'run.log').write_text(executed.stdout + executed.stderr)
         assert executed.returncode != 0, 'Mutant unexpectedly passed: ' + name
         assert 'FAIL ' in executed.stderr or 'AddressSanitizer' in executed.stderr or 'runtime error:' in executed.stderr
-        results.append(dict(name=name, rejected=True, exit_code=executed.returncode,
+        results.append(dict(name=name, rejected=True, compile_command=command, exit_code=executed.returncode,
                             diagnostic=executed.stderr.strip().splitlines()[0]))
         print(name + ': rejected', flush=True)
-    (out / 'result.json').write_text(json.dumps(dict(status='passed', mutants=results,
+    assert hashlib.sha256((candidate / 'src' / 'render_mirror.c').read_bytes()).hexdigest() == source_hash, 'Candidate renderer changed during mutants'
+    (out / 'result.json').write_text(json.dumps(dict(status='passed', source_sha256=source_hash,
+                                                   oracle_receipt=str(run / 'result.json'),
+                                                   test_package_sha256=receipt.get('test_package_sha256', {}),
+                                                   mutation_runner_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+                                                   mutants=results,
                                                    scope='Only isolated extracted helper copies were mutated.'), indent=2)+'\n')
     print('Report: ' + str(out / 'result.json'))
 

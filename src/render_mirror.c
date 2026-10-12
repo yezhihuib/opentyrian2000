@@ -34,7 +34,7 @@ typedef struct {
 } Asset;
 enum { ASSET_NEWSH2=101, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
-static Asset assets[363];
+static Asset assets[367];
 static Asset talon_frames[13];
 typedef struct {
  bool valid;
@@ -55,7 +55,7 @@ void render_mirror_reset_banking(void)
 void render_mirror_set_talon_banking(bool enabled)
 {talon_banking_enabled=enabled;render_mirror_reset_banking();}
 static char terrain_file;
-static struct {const Uint8 *data;unsigned int id;} terrain_sources[189];
+static struct {const Uint8 *data;unsigned int id;} terrain_sources[193];
 static unsigned int terrain_source_count;
 static bool forest_registry_ok=true;
 static SDL_Surface *canvas,*output;
@@ -1544,16 +1544,16 @@ static int layer3_circuit_slot(unsigned int id)
  for(int i=0;i<10;i++)if(id==ids[i])return 349+i;
  return -1;
 }
-/* Four source-registered right mechanical tiles; insert200 remains original. */
+/* Finite right/left mechanical assemblies; original190/200 stay excluded. */
 static int layer3_mechanical_slot(unsigned int id)
 {
- static const unsigned int ids[4]={188,189,198,199};
- for(int i=0;i<4;i++)if(id==ids[i])return 359+i;
+ static const unsigned int ids[8]={188,189,198,199,186,187,196,197};
+ for(int i=0;i<8;i++)if(id==ids[i])return 359+i;
  return -1;
 }
 void render_mirror_bind_terrain(unsigned int layer,unsigned int id,const Uint8 *data)
 {
- if(terrain_file=='z'&&((layer==1&&(forest_terrain_slot(id)>=0||grass_sand_slot(id)>=0||stone_foundation_slot(id)>=0||terrain_holes_slot(id)>=0||road_terrain_slot(id)>=0||underlay_terrain_slot(id)>=0||plateau_terrain_slot(id)>=0||ground_terrain_slot(id)>=0||id==101||id==37||id==57||id==49||id==50||id==321||id==322||id==331||id==332))||(layer==2&&cloud_terrain_slot(id)>=0)||(layer==3&&(layer3_gray_slot(id)>=0||layer3_purple_slot(id)>=0||layer3_circuit_slot(id)>=0||layer3_mechanical_slot(id)>=0)))&&terrain_source_count<189) {
+ if(terrain_file=='z'&&((layer==1&&(forest_terrain_slot(id)>=0||grass_sand_slot(id)>=0||stone_foundation_slot(id)>=0||terrain_holes_slot(id)>=0||road_terrain_slot(id)>=0||underlay_terrain_slot(id)>=0||plateau_terrain_slot(id)>=0||ground_terrain_slot(id)>=0||id==101||id==37||id==57||id==49||id==50||id==321||id==322||id==331||id==332))||(layer==2&&cloud_terrain_slot(id)>=0)||(layer==3&&(layer3_gray_slot(id)>=0||layer3_purple_slot(id)>=0||layer3_circuit_slot(id)>=0||layer3_mechanical_slot(id)>=0)))&&terrain_source_count<193) {
   terrain_sources[terrain_source_count].data=data;
   terrain_sources[terrain_source_count++].id=id;
  }

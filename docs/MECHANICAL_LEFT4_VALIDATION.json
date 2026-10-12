@@ -1,0 +1,102 @@
+{
+  "schema": "mechanical-left4-bounded-validation-v1",
+  "status": "PASS",
+  "baseline": "705fcde51ae688394a49a0a1750044331c336a9e",
+  "tested_source_commit": "23b674e7c22e32106864442e761bd38d7ba694f0",
+  "ids": [
+    186,
+    187,
+    196,
+    197
+  ],
+  "slots": [
+    363,
+    364,
+    365,
+    366
+  ],
+  "mode": "Layer3 NORMAL shapesZ only",
+  "source_alpha_exact": true,
+  "unchanged_guards": [
+    190,
+    200
+  ],
+  "actual": {
+    "ticks": [
+      5920,
+      5947
+    ],
+    "frames": 28,
+    "placement": [
+      284,
+      9
+    ],
+    "active_target_draws": 112,
+    "native2x_outside_alpha_differences": 0,
+    "changed_pixels_5930": 10412,
+    "source_support_5930": 10448,
+    "scroll_pixels_per_tick": 6,
+    "original_state_rng_indexed_clock_exact": true,
+    "native4x5930": true,
+    "missing_all_baseline_rgb_exact_frames": 28,
+    "invalid187_other_draws": 84,
+    "private_survival": true,
+    "control_injection": false
+  },
+  "source_tests": {
+    "sanitizer_oracle_assertions": 941923,
+    "rejected_mutants": 24,
+    "source_negative_guards": 7,
+    "output_path_guards": 5,
+    "linux_build": true,
+    "windows_project_xml_only": true,
+    "canonical_pack_pngs": 387,
+    "packs": 18,
+    "hdr1_entries": 2982,
+    "default_counts": [
+      371,
+      375
+    ]
+  },
+  "evidence": {
+    "source_integration": {
+      "sha256": "33d8611bb729a73ab9c74e13d1e53309bda2a3bfdbd549c908f63c682e752dc8",
+      "bytes": 11572
+    },
+    "final_actual": {
+      "sha256": "162133c126ffbba71df5200138a54a49272c61ced91937cee03a42fca8e97184",
+      "bytes": 2731
+    },
+    "motion": {
+      "sha256": "72c5db317a91b58aca872025d7e9eb532b67f8f82aa288b6c491b75ba092f122",
+      "bytes": 69410
+    },
+    "ordered_scroll": {
+      "sha256": "8548fe3e25f9c5bfd08d4b6f0c42dda9e7ac28760bf7b532a091572d7d3fef88",
+      "bytes": 29588
+    },
+    "spot4x": {
+      "sha256": "f4c70f456cf97603385e51311e375e3b953ad4d8eac4ca29ae745b755d021ec4",
+      "bytes": 7073
+    },
+    "missing": {
+      "sha256": "494823f62ae0e9f093c600181b282dcd19e5777b0bede8732b7fdf42370079f5",
+      "bytes": 24927
+    },
+    "invalid187": {
+      "sha256": "458c2753489fb3022c0a64615388d945b4f80a38a1b4ae84b55d00340c591aef",
+      "bytes": 24956
+    },
+    "author": {
+      "sha256": "babf341f71b1e6172df1f9dc0634fbdc0235586a34836a3042daf536ec1871f9",
+      "bytes": 8718
+    }
+  },
+  "limits": [
+    "One ofthree placements actual; allthree offline/source checked",
+    "Original190 not visible in this actual window",
+    "Brown bridge/actor outside scope",
+    "Incidental forest registration is not additional visual acceptance",
+    "No current Windows runtime, CI or whole-game claim"
+  ]
+}

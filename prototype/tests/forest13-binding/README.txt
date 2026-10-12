@@ -1,10 +1,29 @@
-Mechanical right-four extension (current): IDs 188/189/198/199 use slots
-359..362. Asset capacity is 363; the pointer registry is 189. ID200 stays
-excluded. The extracted source tests cover all four finite bindings, other
-layers/styles, malformed/missing files, selected density4 fallback and registry
-boundaries. The original forest/circuit routing tests remain active. Four new
-negative controls verify slot shift, ID200 admission, style leakage and missing
-art trace leakage are detected. Actual raster evidence is a separate gate.
+Mechanical eight-member extension (current)
+==========================================
+Right IDs 188/189/198/199 retain slots 359..362. Left IDs 186/187/196/197
+use slots 363..366. Asset capacity is 367; the pointer registry is 193.
+Original190 and original200 stay excluded, including with valid synthetic
+8x/4x assets present. All eight finite bindings are covered across layers,
+all 256 banks, styles, global gates, missing/malformed sources, selected 4x
+fallback and explicit 4x, selected-byte preservation, pointer identity/order,
+registry boundaries and forest-policy isolation. Each missing/malformed member
+leaves all seven mechanical neighbors live with exact slot/density routing.
+
+The original right-four mixed row remains, with an additional all-eight row
+checking exact slots, order, positions, both exclusions and circuit/gray art.
+The real engine loop still attempts 213 source registrations. With 141 earlier
+cloud/Layer3 sources, exactly 52/72 forest pointers fit the new registry.
+Capacity expectations use named test constants; source ID189 remains unchanged.
+
+All 24 negative controls must fail. Prior controls remain, plus left-only slot
+shift, original190 admission, and regression to the previous 189-entry bound.
+The 190 and 200 admission mutants preserve all eight allowed IDs so they prove
+exclusion rather than failing because an allowed ID disappeared.
+
+The current row's font_before_effect hook is a bounds-checking test double;
+font restoration pixels are outside this binder oracle, like raster drawing.
+Actual raster evidence is a separate gate. result.json records the exact
+production SHA256, test source hashes, mechanical IDs/slots and capacity bounds.
 
 The historical circuit/forest notes below describe their original checkpoint;
 capacity references there are superseded by the current bounds above.
