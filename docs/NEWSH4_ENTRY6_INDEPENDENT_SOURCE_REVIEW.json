@@ -1,0 +1,152 @@
+{
+  "status": "PASS bounded independent source/unit review; no new source blocker",
+  "created_at_utc": "2026-10-12T22:56:13.739638+00:00",
+  "commit": "7513d828cab46919a78e8d3fe00229cafbfcad9c",
+  "tree": "90097e7f82e1a574f4219c60d096ff50dbc6e9c9",
+  "parent": "fe5f5d7922105dccf67bfe2648ac366c3031bc66",
+  "checkout_clean": true,
+  "published_checkpoint_refs": {
+    "hd-render-prototype": "2efdc890217330e75a873252ca96b576495b23b9",
+    "origin/hd-render-prototype": "2efdc890217330e75a873252ca96b576495b23b9"
+  },
+  "source_manifest_sha256": "96c59e764ab2456d51476ba00f0c27e423fa4758469c512791c95d1e4dd87f04",
+  "production_renderer_sha256": "54bac8607c45879e0674344525e9f2f6af0d873c1537fac87cb80ef1cef376eb",
+  "fresh_checks": {
+    "source_rejections": {
+      "standard": 238,
+      "independent_original_extension": 6,
+      "total": 244
+    },
+    "sanitizer_binding_cases": 180,
+    "original_RLE_differential": {
+      "executed": true,
+      "source_sha256": "ab8881b4a26e723650780b19d5aed4ebfe410ea450d4bf7b80840628d61fd89b",
+      "result": "PASS original RLE: 29568 differential cases, 8776 row-wrap differences, 24 cells/20 nonempty/4 empty, 1768 opaque cells",
+      "method": "Unchanged extracted original blitter versus independently decoded source cells and linear-address clipping, padded storage under sanitizers; HD route recorder does not claim final RGB"
+    },
+    "prior_binding_counts": [
+      228,
+      232
+    ],
+    "new_routes": 6,
+    "projection_cases_per_pack": 218,
+    "projection_pack_count": 2,
+    "projection_missing_or_malformed_cases": 3,
+    "projection_opaque_subpixels": 104640,
+    "unchanged_prior_files": 5893,
+    "unchanged_prior_asset_bytes": 584497652
+  },
+  "runtime_acceptance": false,
+  "game_runs": 0,
+  "captures": 0,
+  "external_writes": 0,
+  "publication_authorized_or_performed": false,
+  "limits": [
+    "Extracted function unit harness with unrelated subsystem stubs, no live-frame/GPU acceptance.",
+    "Original classic blitter not invoked with INT_MIN/MAX; mirror route rejects them before arithmetic.",
+    "LSan unavailable under ptrace; ASan/UBSan passed.",
+    "No remote contact; local published-checkpoint references verified only."
+  ],
+  "evidence": [
+    {
+      "path": "REPORT.md",
+      "bytes": 5047,
+      "sha256": "63c6bf34274bad929818848675924eebb042ad32f36f33f52742186a86e84121"
+    },
+    {
+      "path": "binding/receipt.json",
+      "bytes": 29918,
+      "sha256": "7abe48b18100de585f9830b4398cd298fd69f6560f54d274d6f1177c5812395a"
+    },
+    {
+      "path": "binding/original-rle.log",
+      "bytes": 120,
+      "sha256": "f2d7ae5f1c6f78d0c65e99d80bbfca394c919fd88154ce18299b7521e5e83c4c"
+    },
+    {
+      "path": "binding/physical-row-boundaries.log",
+      "bytes": 101,
+      "sha256": "9580b4a9e73c1de7b7d6c423809428dd64a7fe8ace03c68e1ee3cb14632d6809"
+    },
+    {
+      "path": "source-guards/receipt.json",
+      "bytes": 29094,
+      "sha256": "dc6048b0491c9aeff7d5756c6fa7da39c55b41d9c6f1ac831e64fcbe9f8aa6e0"
+    },
+    {
+      "path": "original-guard-extension.json",
+      "bytes": 1158,
+      "sha256": "530529508453a32348c50ba28215af2e2d33d531f066bf5de4b1ca00e3693457"
+    },
+    {
+      "path": "original_guard_extension.py",
+      "bytes": 1561,
+      "sha256": "85924b596fc6c09e0beaec6b1819257a592c576781fa623ebb737e15d29951a7"
+    },
+    {
+      "path": "rebuild.log",
+      "bytes": 1344,
+      "sha256": "669864132e63c068d8cda4e2686fbd6d4c1ea86cd49a7f54e6cca54d01b6a110"
+    },
+    {
+      "path": "preservation.json",
+      "bytes": 980,
+      "sha256": "93aa3e17fd8903d579ec290ad32bfd4bd29497b97a10e244cc29997350015b26"
+    },
+    {
+      "path": "handoff-source-pins.json",
+      "bytes": 5662,
+      "sha256": "456e7d1712376e185d6859ca13b36c5421c526071606a94eee5416760ad61004"
+    },
+    {
+      "path": "projection_test.c",
+      "bytes": 8732,
+      "sha256": "cb0838e450c7db14606daf6548cb7b0be6cc9f42a15663a710a81a9ac2f75ac4"
+    },
+    {
+      "path": "build_projection_test.py",
+      "bytes": 793,
+      "sha256": "643fea034a10135ecd48842de38aacc168d8bd0463821d9c0a742b6b239be182"
+    },
+    {
+      "path": "projection_functions.inc",
+      "bytes": 14397,
+      "sha256": "5e52449da818041a71f825d885b0080c2ea6b1c24ea618ce647a3c527b2c1dd9"
+    },
+    {
+      "path": "projection_source_pins.json",
+      "bytes": 723,
+      "sha256": "35fd58aca0fdd35da6f29aff53319bdae6fdd5a7ad591ef7f7c389d770cbc88e"
+    },
+    {
+      "path": "projection_compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "projection-default_debug_pack.log",
+      "bytes": 202,
+      "sha256": "0e7000ff235ec7f31d3576917e22c7b48f1196373629c8385711b3d1d0f8f233"
+    },
+    {
+      "path": "projection-default_preview_pack.log",
+      "bytes": 202,
+      "sha256": "0e7000ff235ec7f31d3576917e22c7b48f1196373629c8385711b3d1d0f8f233"
+    },
+    {
+      "path": "projection-enemy-newsh4-121-8.hda-rgb.log",
+      "bytes": 124,
+      "sha256": "ac0a2a48d74b3a7b2869c9dd9f660aa46541134b93e017d1c24f217c3a6a945b"
+    },
+    {
+      "path": "projection-enemy-newsh4-123-8.hda-field-5.log",
+      "bytes": 124,
+      "sha256": "ac0a2a48d74b3a7b2869c9dd9f660aa46541134b93e017d1c24f217c3a6a945b"
+    },
+    {
+      "path": "projection-enemy-newsh4-81-8.hda-missing.log",
+      "bytes": 124,
+      "sha256": "ac0a2a48d74b3a7b2869c9dd9f660aa46541134b93e017d1c24f217c3a6a945b"
+    }
+  ]
+}

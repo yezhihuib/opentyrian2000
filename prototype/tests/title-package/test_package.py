@@ -457,6 +457,155 @@ def project_late_spike_family(test, manifest):
             pack['count'] -= 1
 
 
+# Exact frozen entry-craft append; prior pinned entries remain unchanged.
+NEWSH4_ENTRY6 = {'schema': 'newsh4-entry-six-v1',
+ 'source': 'assets/hd/artwork/newsh4-entry6-v1',
+ 'source_manifest_sha256': '96c59e764ab2456d51476ba00f0c27e423fa4758469c512791c95d1e4dd87f04',
+ 'source_contract_sha256': '9a1e8d8da2a4439e41b9c462289ca132099efc4ab27bb627ef48badae9764153',
+ 'density': 8,
+ 'logical_size': [24, 28],
+ 'anchor': [6, 7],
+ 'assembly_size': [72, 52],
+ 'ids': [81, 83, 85, 119, 121, 123],
+ 'slots': [410, 411, 412, 413, 414, 415],
+ 'actor_types': [468, 469, 470, 471, 472, 473],
+ 'bank_id': 2,
+ 'bank_role': 102,
+ 'runtime_components': [0, 1, 19, 20],
+ 'source_order_placements': [[123, 48, 24],
+                             [81, 0, 0],
+                             [83, 24, 0],
+                             [85, 48, 0],
+                             [119, 0, 24],
+                             [121, 24, 24]],
+ 'vertical_stride': 24,
+ 'row_envelope_overlap': 4,
+ 'summed_opaque_logical_cells': 1768,
+ 'union_opaque_logical_cells': 1635,
+ 'overlap_opaque_logical_cells': 133,
+ 'original_alpha_exact': True,
+ 'source_armor': 0,
+ 'constructed_avail': 2,
+ 'constructed_armor': 255,
+ 'preserve_recycled_scoreitem': True,
+ 'excluded_boss_bases': [86, 124],
+ 'fallback': 'All six approved members required before any replacement; '
+             '8x-only selected-pack cached fallback is local to this family',
+ 'entries': [{'bank_role': 102,
+              'id': 81,
+              'slot': 410,
+              'anchor': [6, 7],
+              'rgba_fnv1a64': 'd568531aec92422c'},
+             {'bank_role': 102,
+              'id': 83,
+              'slot': 411,
+              'anchor': [6, 7],
+              'rgba_fnv1a64': 'bf0fa10dfdd98241'},
+             {'bank_role': 102,
+              'id': 85,
+              'slot': 412,
+              'anchor': [6, 7],
+              'rgba_fnv1a64': '095506cac33b7e8e'},
+             {'bank_role': 102,
+              'id': 119,
+              'slot': 413,
+              'anchor': [6, 7],
+              'rgba_fnv1a64': '568183ac9f82133c'},
+             {'bank_role': 102,
+              'id': 121,
+              'slot': 414,
+              'anchor': [6, 7],
+              'rgba_fnv1a64': 'bd0f65394c14826d'},
+             {'bank_role': 102,
+              'id': 123,
+              'slot': 415,
+              'anchor': [6, 7],
+              'rgba_fnv1a64': 'd3f58ab88accaf9d'}]}
+NEWSH4_ENTRY6_FILES = {'enemy-newsh4-81-8.hda': {'sha256': 'd78b6ba515aba9ef724bf1acefc494695b2933c3242e4d9877d121790c2f82ee',
+                           'header_u32': [1020081, 8, 24, 28, 6, 7],
+                           'source_png': 'assets/hd/source/enemy-newsh4-81-8-d78b6ba515ab.png',
+                           'source_png_sha256': '11501a276a5c8aa75f8bd6f79a309b900f8391af0f3343a84402068157ce200f'},
+ 'enemy-newsh4-83-8.hda': {'sha256': 'e5c0a248adc1a809229edd587b6f17b336bd1a7fb4c378d7763d2f228c416469',
+                           'header_u32': [1020083, 8, 24, 28, 6, 7],
+                           'source_png': 'assets/hd/source/enemy-newsh4-83-8-e5c0a248adc1.png',
+                           'source_png_sha256': '2272fbde064bf7ffaadc456c998ca33bd48cd1517cc4aea68d210c2d6ca9b832'},
+ 'enemy-newsh4-85-8.hda': {'sha256': 'a6b713aa635127db3823983b0570b1ed84b279a3c6be9a5771d79dfe0bcd78f7',
+                           'header_u32': [1020085, 8, 24, 28, 6, 7],
+                           'source_png': 'assets/hd/source/enemy-newsh4-85-8-a6b713aa6351.png',
+                           'source_png_sha256': 'ce5485a8ec6cc54cd8f8e469b9fbd4d6ac78d8b12208bc7511946397c6074a53'},
+ 'enemy-newsh4-119-8.hda': {'sha256': '19c097ad5174af544b505d48664c74bb6c3e7cc6d3ce12923c11196aebab6ccf',
+                            'header_u32': [1020119, 8, 24, 28, 6, 7],
+                            'source_png': 'assets/hd/source/enemy-newsh4-119-8-19c097ad5174.png',
+                            'source_png_sha256': '97235d1dc7c2db7b12734a6063e6e93f24352cda376b86769513364fa8684eaf'},
+ 'enemy-newsh4-121-8.hda': {'sha256': '32deb03acb4403f8c655480ca6e96f3854c7c98260241f6c38a47b4c87a1d949',
+                            'header_u32': [1020121, 8, 24, 28, 6, 7],
+                            'source_png': 'assets/hd/source/enemy-newsh4-121-8-32deb03acb44.png',
+                            'source_png_sha256': '23309e94a8991cb60c1e8cb14d61b0b50a38fcf985404740986727ee741dbfda'},
+ 'enemy-newsh4-123-8.hda': {'sha256': 'cb8dcc2ff7fe9a5cee036cb1c4ccf381db6cf9d272cb8f30f62d2c4efaee10d7',
+                            'header_u32': [1020123, 8, 24, 28, 6, 7],
+                            'source_png': 'assets/hd/source/enemy-newsh4-123-8-cb8dcc2ff7fe.png',
+                            'source_png_sha256': '7190bc9759884556e44e475aa5132196d7dce67e4480104c8bee5de7b01c0516'}}
+NEWSH4_ENTRY6_PNGS = {'d78b6ba515aba9ef724bf1acefc494695b2933c3242e4d9877d121790c2f82ee': {'path': 'assets/hd/source/enemy-newsh4-81-8-d78b6ba515ab.png',
+                                                                      'sha256': '11501a276a5c8aa75f8bd6f79a309b900f8391af0f3343a84402068157ce200f',
+                                                                      'RGBA_sha256': 'ba540e76525c3d3c195f2bccb02ae292b2498aaf06c84333169ec581bb378a9c'},
+ 'e5c0a248adc1a809229edd587b6f17b336bd1a7fb4c378d7763d2f228c416469': {'path': 'assets/hd/source/enemy-newsh4-83-8-e5c0a248adc1.png',
+                                                                      'sha256': '2272fbde064bf7ffaadc456c998ca33bd48cd1517cc4aea68d210c2d6ca9b832',
+                                                                      'RGBA_sha256': 'af3660e983649de1d3cba25d383a2070a143c7074900b8cbc994300c4fd605f7'},
+ 'a6b713aa635127db3823983b0570b1ed84b279a3c6be9a5771d79dfe0bcd78f7': {'path': 'assets/hd/source/enemy-newsh4-85-8-a6b713aa6351.png',
+                                                                      'sha256': 'ce5485a8ec6cc54cd8f8e469b9fbd4d6ac78d8b12208bc7511946397c6074a53',
+                                                                      'RGBA_sha256': '84bbe1014d5231dcb9bb7f59788b224d70b7ea0bf64eded43c699f4e29e36b4e'},
+ '19c097ad5174af544b505d48664c74bb6c3e7cc6d3ce12923c11196aebab6ccf': {'path': 'assets/hd/source/enemy-newsh4-119-8-19c097ad5174.png',
+                                                                      'sha256': '97235d1dc7c2db7b12734a6063e6e93f24352cda376b86769513364fa8684eaf',
+                                                                      'RGBA_sha256': '3b0031b1e4f157e577f97cb9626d080f9e94dfbf1b019b1cf076fbfab98b23ee'},
+ '32deb03acb4403f8c655480ca6e96f3854c7c98260241f6c38a47b4c87a1d949': {'path': 'assets/hd/source/enemy-newsh4-121-8-32deb03acb44.png',
+                                                                      'sha256': '23309e94a8991cb60c1e8cb14d61b0b50a38fcf985404740986727ee741dbfda',
+                                                                      'RGBA_sha256': '29c751affe8475127803800fe43e3682c46aa0da0c4c36ee112cd8337fbccbd9'},
+ 'cb8dcc2ff7fe9a5cee036cb1c4ccf381db6cf9d272cb8f30f62d2c4efaee10d7': {'path': 'assets/hd/source/enemy-newsh4-123-8-cb8dcc2ff7fe.png',
+                                                                      'sha256': '7190bc9759884556e44e475aa5132196d7dce67e4480104c8bee5de7b01c0516',
+                                                                      'RGBA_sha256': 'e787e60ce85ba69e760c027f69bf61243a7ddf756c99d0261a38c6ded3f84972'}}
+
+def project_newsh4_entry6_family(test, manifest):
+    """Validate the complete finite append before removing it from a copy."""
+    packs = manifest['packs']
+    present = ('newsh4_entry6_v1' in manifest or
+               any(name in pack['files'] for pack in packs.values() for name in NEWSH4_ENTRY6_FILES) or
+               any(stamp in manifest['source_pngs'] for stamp in NEWSH4_ENTRY6_PNGS))
+    if not present:
+        return
+    test.assertIn('newsh4_entry6_v1', manifest)
+    family = manifest.pop('newsh4_entry6_v1')
+    test.assertEqual({k: v for k, v in family.items() if k != 'runtime_status'}, NEWSH4_ENTRY6)
+    source = ROOT / NEWSH4_ENTRY6['source']
+    test.assertEqual(sha((source / 'manifest.json').read_bytes()), NEWSH4_ENTRY6['source_manifest_sha256'])
+    test.assertEqual(sha((source / 'contract.json').read_bytes()), NEWSH4_ENTRY6['source_contract_sha256'])
+    defaults = {manifest['default_preview_pack'], manifest['default_debug_pack']}
+    test.assertEqual(len(defaults), 2)
+    # No alias or duplicate source-index entry may hide beside the six pins.
+    stems = tuple(f'enemy-newsh4-{identity}-8-' for identity in NEWSH4_ENTRY6['ids'])
+    test.assertEqual({stamp for stamp, item in manifest['source_pngs'].items()
+                      if Path(item['path']).name.startswith(stems)}, set(NEWSH4_ENTRY6_PNGS))
+    for stamp, expected in NEWSH4_ENTRY6_PNGS.items():
+        test.assertIn(stamp, manifest['source_pngs'])
+        test.assertEqual(manifest['source_pngs'].pop(stamp), expected)
+    for filename, expected in NEWSH4_ENTRY6_FILES.items():
+        test.assertEqual({name for name, pack in packs.items() if filename in pack['files']}, defaults)
+        png = ROOT / expected['source_png']
+        test.assertEqual(sha(png.read_bytes()), expected['source_png_sha256'])
+        with Image.open(png) as image:
+            test.assertEqual((image.mode, image.size), ('RGBA', (192, 224)))
+            rgba = image.tobytes()
+        test.assertEqual(sha(rgba), NEWSH4_ENTRY6_PNGS[expected['sha256']]['RGBA_sha256'])
+        for name in defaults:
+            pack = packs[name]
+            test.assertEqual(pack['count'], len(pack['files']))
+            test.assertEqual(pack['files'].pop(filename), expected)
+            raw = (ROOT / 'assets/hd/packs' / name / filename).read_bytes()
+            test.assertEqual(sha(raw), expected['sha256'])
+            test.assertEqual(raw[:28], b'HDR1' + struct.pack('<6I', *expected['header_u32']))
+            test.assertEqual(raw[28:], rgba)
+            pack['count'] -= 1
+
+
 class TitlePackageTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -596,6 +745,79 @@ class TitlePackageTests(unittest.TestCase):
                     with self.assertRaises(AssertionError):
                         self.test_existing_manifest_fields_and_bytes_unchanged_from_baseline()
 
+    def test_newsh4_entry6_coexistence_guard_rejects_mutations(self):
+        original = self.manifest
+        self.assertIn('newsh4_entry6_v1', original)
+        for case in ('missing-base81', 'foreign-bank-header', 'wrong-size-header',
+                     'unexpected-member', 'changed-member', 'changed-png-receipt',
+                     'missing-png-index', 'changed-png-index', 'changed-rgba-index',
+                     'duplicate-png-index', 'foreign-pack', 'changed-family-metadata',
+                     'changed-source-order', 'extra-family-field', 'missing-family'):
+            with self.subTest(case=case):
+                changed = json.loads(json.dumps(original))
+                pack = changed['packs'][changed['default_preview_pack']]
+                filename = 'enemy-newsh4-81-8.hda'
+                receipt = pack['files'][filename]
+                stamp = receipt['sha256']
+                if case == 'missing-base81':
+                    del pack['files'][filename]
+                    pack['count'] -= 1
+                elif case == 'foreign-bank-header':
+                    receipt['header_u32'][0] = 1010081
+                elif case == 'wrong-size-header':
+                    receipt['header_u32'][2] += 1
+                elif case == 'unexpected-member':
+                    pack['files']['enemy-newsh4-86-8.hda'] = dict(receipt)
+                    pack['count'] += 1
+                elif case == 'changed-member':
+                    receipt['sha256'] = '0' * 64
+                elif case == 'changed-png-receipt':
+                    receipt['source_png_sha256'] = '0' * 64
+                elif case == 'missing-png-index':
+                    del changed['source_pngs'][stamp]
+                elif case == 'changed-png-index':
+                    changed['source_pngs'][stamp]['sha256'] = '0' * 64
+                elif case == 'changed-rgba-index':
+                    changed['source_pngs'][stamp]['RGBA_sha256'] = '0' * 64
+                elif case == 'duplicate-png-index':
+                    changed['source_pngs']['0' * 64] = dict(changed['source_pngs'][stamp])
+                elif case == 'foreign-pack':
+                    other = next(value for name, value in changed['packs'].items()
+                                 if name not in {changed['default_preview_pack'], changed['default_debug_pack']})
+                    other['files'][filename] = dict(receipt)
+                    other['count'] += 1
+                elif case == 'changed-family-metadata':
+                    changed['newsh4_entry6_v1']['bank_role'] = 101
+                elif case == 'changed-source-order':
+                    changed['newsh4_entry6_v1']['source_order_placements'].reverse()
+                elif case == 'extra-family-field':
+                    changed['newsh4_entry6_v1']['unapproved'] = True
+                else:
+                    del changed['newsh4_entry6_v1']
+                self.manifest = changed
+                try:
+                    with self.assertRaises(AssertionError):
+                        self.test_existing_manifest_fields_and_bytes_unchanged_from_baseline()
+                finally:
+                    self.manifest = original
+
+    def test_newsh4_entry6_coexistence_guard_rejects_changed_artwork_bytes(self):
+        # Intercept reads only: shared historical assets are never mutated.
+        filename = 'enemy-newsh4-81-8.hda'
+        targets = [ROOT / NEWSH4_ENTRY6_FILES[filename]['source_png'],
+                   ROOT / 'assets/hd/packs' / self.manifest['default_preview_pack'] / filename,
+                   ROOT / NEWSH4_ENTRY6['source'] / 'manifest.json',
+                   ROOT / NEWSH4_ENTRY6['source'] / 'contract.json']
+        read_bytes = Path.read_bytes
+        for target in targets:
+            with self.subTest(path=target):
+                def changed_bytes(path):
+                    raw = read_bytes(path)
+                    return raw[:-1] + bytes([raw[-1] ^ 1]) if path == target else raw
+                with mock.patch.object(Path, 'read_bytes', changed_bytes):
+                    with self.assertRaises(AssertionError):
+                        self.test_existing_manifest_fields_and_bytes_unchanged_from_baseline()
+
     def test_type15_coexistence_guard_rejects_mutations(self):
         original = self.manifest
         self.assertIn('enemy_type15_eightheading_v1', original)
@@ -672,6 +894,7 @@ class TitlePackageTests(unittest.TestCase):
     def test_existing_manifest_fields_and_bytes_unchanged_from_baseline(self):
         baseline = subprocess.check_output(['git', 'show', 'aba8650:assets/hd/manifest.json'], cwd=ROOT)
         without_title = json.loads(json.dumps(self.manifest))
+        project_newsh4_entry6_family(self, without_title)
         project_late_spike_family(self, without_title)
         project_type15_family(self, without_title)
         opposite = without_title.pop('newsh4_opposite7_v1', None)

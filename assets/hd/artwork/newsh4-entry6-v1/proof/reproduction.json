@@ -1,0 +1,53 @@
+{
+  "status": "PASS",
+  "relocated_source_only_build": true,
+  "canonical_outputs_present_in_build_input": false,
+  "original_game_assets_required": false,
+  "exact_files": [
+    "enemy-newsh4-81-8.png",
+    "enemy-newsh4-81-8.hda",
+    "enemy-newsh4-83-8.png",
+    "enemy-newsh4-83-8.hda",
+    "enemy-newsh4-85-8.png",
+    "enemy-newsh4-85-8.hda",
+    "enemy-newsh4-119-8.png",
+    "enemy-newsh4-119-8.hda",
+    "enemy-newsh4-121-8.png",
+    "enemy-newsh4-121-8.hda",
+    "enemy-newsh4-123-8.png",
+    "enemy-newsh4-123-8.hda"
+  ],
+  "png_hdr1_pairs": 6,
+  "all_expected_rgba_and_alpha_hashes_verified": true,
+  "source_order_rejoin_byte_exact": true,
+  "summed_opaque_logical_cells": 1768,
+  "union_opaque_logical_cells": 1635,
+  "overlap_opaque_logical_cells": 133,
+  "path_guards": [
+    {
+      "case": "relative",
+      "rejected": true
+    },
+    {
+      "case": "existing",
+      "rejected": true
+    },
+    {
+      "case": "inside-source",
+      "rejected": true
+    },
+    {
+      "case": "source-self",
+      "rejected": true
+    },
+    {
+      "case": "missing-parent",
+      "rejected": true
+    },
+    {
+      "case": "symlink-parent",
+      "rejected": true
+    }
+  ],
+  "runtime_claims": false
+}

@@ -1,0 +1,700 @@
+{
+  "schema": "late-newsh4-entry-art-contract-v1",
+  "status": "Original source audit; artist owns new art separately. No binding, game, capture or publication from this audit.",
+  "bank": 2,
+  "sheet": "newsh4.shp",
+  "render_role": 102,
+  "logical_size": [
+    24,
+    28
+  ],
+  "anchor": [
+    6,
+    7
+  ],
+  "density": 8,
+  "pixel_size": [
+    192,
+    224
+  ],
+  "bases": [
+    81,
+    83,
+    85,
+    119,
+    121,
+    123
+  ],
+  "hda_ids": {
+    "81": 1020081,
+    "83": 1020083,
+    "85": 1020085,
+    "119": 1020119,
+    "121": 1020121,
+    "123": 1020123
+  },
+  "filenames": [
+    "enemy-newsh4-81-8.hda",
+    "enemy-newsh4-83-8.hda",
+    "enemy-newsh4-85-8.hda",
+    "enemy-newsh4-119-8.hda",
+    "enemy-newsh4-121-8.hda",
+    "enemy-newsh4-123-8.hda"
+  ],
+  "per_component_originals": [
+    {
+      "type": 468,
+      "base": 81,
+      "parts": [
+        {
+          "id": 81,
+          "offset": 11091,
+          "encoded_bytes": 46,
+          "encoded_sha256": "629677f41eece90d9c19e882a0bf0c052ab3949b8320d61fbdcc62ceffbc65f7",
+          "indices_sha256": "aba8ef126cd2e619899703f26973fb4d590860de8698936ef47981e31203d68e",
+          "opacity_sha256": "8739f14f21234572ad5cef4a4208294bf3de1513f5490c9e1e205ebb6d2a1b2e",
+          "opaque_pixels": 23
+        },
+        {
+          "id": 82,
+          "offset": 11137,
+          "encoded_bytes": 94,
+          "encoded_sha256": "3c495ee73ff7bbf8e7384b9accf8fca15f6eb69d5da620f9b211a06fb3ef997e",
+          "indices_sha256": "fdfa11f6c5cfb0606c863b2071fd4c96412b03854afaf0f1d5add204182dd515",
+          "opacity_sha256": "dd0f6c9583244cab5f4eae28d3659834e9d13e2f5ce433ec14cb695c3b7c157e",
+          "opaque_pixels": 64
+        },
+        {
+          "id": 100,
+          "offset": 12798,
+          "encoded_bytes": 79,
+          "encoded_sha256": "c445cc623ca9f3adb160f496ab37cc64a9af5d49c9b3dd78aa363708fc02ff8b",
+          "indices_sha256": "bd4faaa7ba19ed851103319671b75faa43339d627abe0394c8ec963d3aefd9df",
+          "opacity_sha256": "c564a101951af7a340e6529c88ca4fba20360ea39b0b07198c525fc2ec4a004c",
+          "opaque_pixels": 51
+        },
+        {
+          "id": 101,
+          "offset": 12877,
+          "encoded_bytes": 155,
+          "encoded_sha256": "c715b3840fb44e013db4ada553b21bce8d3db403ef779a097eebd57ea136f0f5",
+          "indices_sha256": "5c48141d2212e6ea7aaf028c5eeff3708e65fad33cd11acb3d9e20d1ac6059b2",
+          "opacity_sha256": "28dc486a3d60f81d79d222082df36ce2d1f7a80693c986231f97fd90379c9ff9",
+          "opaque_pixels": 125
+        }
+      ],
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        6,
+        7
+      ],
+      "alpha_bbox": [
+        8,
+        2,
+        24,
+        28
+      ],
+      "opaque_pixels": 263,
+      "indices_sha256": "456f8fb6c6910f4fdd8fd76b5250542b4aa091c98c39859660b5794174c7e3f0",
+      "opacity_sha256": "50c1b59d2396818203d062be3c78db140d2b0cfd3a495272f58d2bf64b10f8da",
+      "rgba_sha256": "0893f4439a12e87ef21df9084de141d9f29cd359f5b60cd27fb0acab061a92e9",
+      "mask_path": "tyrian-hd-art/newsh4-six-panel-v1/source-reference/original-81.mask",
+      "indices_path": "tyrian-hd-art/newsh4-six-panel-v1/source-reference/original-81.indices"
+    },
+    {
+      "type": 469,
+      "base": 83,
+      "parts": [
+        {
+          "id": 83,
+          "offset": 11231,
+          "encoded_bytes": 58,
+          "encoded_sha256": "2b5f5e147ce17a3e2b7242cc55a34571f5c2f3b073931abc87aec8ee3e2e51ec",
+          "indices_sha256": "3db86e51ec3692c856a1276b6bfa33aa0b183a09290345d4a4f45104b3888c35",
+          "opacity_sha256": "535acf27b8969f9eda5f0aab888242e975da3617d9e62731c3b826e8a47b81a7",
+          "opaque_pixels": 39
+        },
+        {
+          "id": 84,
+          "offset": 11289,
+          "encoded_bytes": 70,
+          "encoded_sha256": "b1bdc3e53ef10e69f3e90d5d0129b2fa66115ab853470c6e97d8e387a14ff507",
+          "indices_sha256": "3edbf0dcc21223967ae518adb542327c72f5953119335275d3860f54d4736e00",
+          "opacity_sha256": "5ba535138e6af3429d16047a8d4e8ba77c175231b8ef7fe00eb9b605542a6fa6",
+          "opaque_pixels": 45
+        },
+        {
+          "id": 102,
+          "offset": 13032,
+          "encoded_bytes": 185,
+          "encoded_sha256": "5cf7a8ea43c57d181b0e465456bfcbe4c88b26438026819166b46c7109235b92",
+          "indices_sha256": "1f15ec9d9123a02e919b750cd62cb8836f4e427de50263654f6d25005782cbc1",
+          "opacity_sha256": "fb7396b36fbe64430bdde31caf06cecfd07b7ae95d75352f42c11b2c26f323b4",
+          "opaque_pixels": 157
+        },
+        {
+          "id": 103,
+          "offset": 13217,
+          "encoded_bytes": 142,
+          "encoded_sha256": "d66f69d21da749830746adfe164a26490ed62559158bc8feed6f524c9b8627fa",
+          "indices_sha256": "83aa1455513b1ba821e190adf62da535b6bc7152269565f625a16ddad1cb75ea",
+          "opacity_sha256": "185f697c869407a4f0e5eee0b5d209f4fc0f873d49a582e7cd9d1b59885a1b78",
+          "opaque_pixels": 110
+        }
+      ],
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        6,
+        7
+      ],
+      "alpha_bbox": [
+        0,
+        2,
+        24,
+        28
+      ],
+      "opaque_pixels": 351,
+      "indices_sha256": "9af6bd7c80b194d246a3521aef1ff201b85e24bc79fff7760434396bb10c913e",
+      "opacity_sha256": "3e7f8fdc9535ee8af04d2a2865a232424964fec52b72a8fd1d9c5c4e0898477b",
+      "rgba_sha256": "302b2cafd08a1ccc3a62aaa71c717949564061014e7ec1bd3bd724edf8218e9e",
+      "mask_path": "tyrian-hd-art/newsh4-six-panel-v1/source-reference/original-83.mask",
+      "indices_path": "tyrian-hd-art/newsh4-six-panel-v1/source-reference/original-83.indices"
+    },
+    {
+      "type": 470,
+      "base": 85,
+      "parts": [
+        {
+          "id": 85,
+          "offset": 11359,
+          "encoded_bytes": 63,
+          "encoded_sha256": "109b9185f01ed98b08815df29ec55a73f6c21581014c4d39be9802df99e35234",
+          "indices_sha256": "72c1894195c89476265ae688ce6594a5dae891eb23b2672e4c8629d8c838bbac",
+          "opacity_sha256": "2dd62973211d0c92f15987f9eeb0346d055493851c1a057e3aa3e5ca969b256e",
+          "opaque_pixels": 39
+        },
+        {
+          "id": 86,
+          "offset": 11422,
+          "encoded_bytes": 1,
+          "encoded_sha256": "dc0e9c3658a1a3ed1ec94274d8b19925c93e1abb7ddba294923ad9bde30f8cb8",
+          "indices_sha256": "e3c2af35d1dfc500e16f826a071cc311bf55003a3de77de7ea3376c6b6fa2857",
+          "opacity_sha256": "e3c2af35d1dfc500e16f826a071cc311bf55003a3de77de7ea3376c6b6fa2857",
+          "opaque_pixels": 0
+        },
+        {
+          "id": 104,
+          "offset": 13359,
+          "encoded_bytes": 102,
+          "encoded_sha256": "b9b89d86cc344f03c7bd4522f3e35a3cfc3439e1299e63f631c3a00d49f1b373",
+          "indices_sha256": "20be1e633f1512dea4c1d88f3de7962b71a0de4ffce562beccedf5630ab4e954",
+          "opacity_sha256": "c2fc79a1aceaccdde1e703798a4c486736aaa4cdeed6b1119a266e76493a1b97",
+          "opaque_pixels": 74
+        },
+        {
+          "id": 105,
+          "offset": 13461,
+          "encoded_bytes": 1,
+          "encoded_sha256": "dc0e9c3658a1a3ed1ec94274d8b19925c93e1abb7ddba294923ad9bde30f8cb8",
+          "indices_sha256": "e3c2af35d1dfc500e16f826a071cc311bf55003a3de77de7ea3376c6b6fa2857",
+          "opacity_sha256": "e3c2af35d1dfc500e16f826a071cc311bf55003a3de77de7ea3376c6b6fa2857",
+          "opaque_pixels": 0
+        }
+      ],
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        6,
+        7
+      ],
+      "alpha_bbox": [
+        0,
+        4,
+        6,
+        28
+      ],
+      "opaque_pixels": 113,
+      "indices_sha256": "a3e6be06a57446e7d9c1ca8b148dde6f6a26e0e124a7c7eafd966390472c371e",
+      "opacity_sha256": "2e11aaa4c4abfce89f1dcb1e91438335f88842f6180d99978927ea0900004681",
+      "rgba_sha256": "92bb7fb65f80d9624756fdfe47fa7565e99becf4ff2eec5df68e84d251fd0142",
+      "mask_path": "tyrian-hd-art/newsh4-six-panel-v1/source-reference/original-85.mask",
+      "indices_path": "tyrian-hd-art/newsh4-six-panel-v1/source-reference/original-85.indices"
+    },
+    {
+      "type": 471,
+      "base": 119,
+      "parts": [
+        {
+          "id": 119,
+          "offset": 14392,
+          "encoded_bytes": 83,
+          "encoded_sha256": "17cbfd11568b390502f3f48b6aace928bffe790f433e6ac2816037de96ce87db",
+          "indices_sha256": "814b86f5cfdae95922dc0514fb715b7668ded71e28807590e27c714c1bb42aff",
+          "opacity_sha256": "fa76d17b3cdfd798ed214b655cbea09e53490caa4956b085ca985f3bb3676e02",
+          "opaque_pixels": 59
+        },
+        {
+          "id": 120,
+          "offset": 14475,
+          "encoded_bytes": 179,
+          "encoded_sha256": "347b73b9eddb84ca572e5c4204435f2dd59ee2f5db498b8a5960f77bf3697829",
+          "indices_sha256": "95f597947346b3e58db46eea52da528a679201011a7cc37d0b5eb722b8ca8a12",
+          "opacity_sha256": "c5e3df1b45118224a77fb2c8eec8d21bc411291c06c4ec68492bd226c1b84aad",
+          "opaque_pixels": 148
+        },
+        {
+          "id": 138,
+          "offset": 15760,
+          "encoded_bytes": 74,
+          "encoded_sha256": "07d8af2528e06b0741e3f93eb86d09ec5e037a90c6973f04818d7ea6769a601a",
+          "indices_sha256": "4e941a9b6257bc86621387be414ba9a97eb04b81db22907bc7ecfbef2f3a59ff",
+          "opacity_sha256": "730cb2904ce9033e9d38bea4d78290d3163c9b02cc5f6696126768d4001f6846",
+          "opaque_pixels": 49
+        },
+        {
+          "id": 139,
+          "offset": 15834,
+          "encoded_bytes": 133,
+          "encoded_sha256": "51395586c3a15d482170cfa3d89879299cbce068e8e2ca1495a0d0aefca27e82",
+          "indices_sha256": "86481697496ba7dcc1c43e9220b69f98b52feb8a21190858d8454de8bbc78d64",
+          "opacity_sha256": "5fa04ed122ede29c5b6cebd4019057509230cdc5bd7335ebd82c779671b1e372",
+          "opaque_pixels": 109
+        }
+      ],
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        6,
+        7
+      ],
+      "alpha_bbox": [
+        3,
+        0,
+        24,
+        26
+      ],
+      "opaque_pixels": 365,
+      "indices_sha256": "1024ea0858256c4012690b2076c8b10c32427dba0cc7a402114944a229ada649",
+      "opacity_sha256": "af7d3b1613b9f1e02f5e9c6aa05892f880e108bf8cf1cbd147c7917cd6335d4f",
+      "rgba_sha256": "85c5efdbfc4f310c064a6c3d08f2a52d36f3b83742f29d83c9b626d76d36cebd",
+      "mask_path": "tyrian-hd-art/newsh4-six-panel-v1/source-reference/original-119.mask",
+      "indices_path": "tyrian-hd-art/newsh4-six-panel-v1/source-reference/original-119.indices"
+    },
+    {
+      "type": 472,
+      "base": 121,
+      "parts": [
+        {
+          "id": 121,
+          "offset": 14654,
+          "encoded_bytes": 196,
+          "encoded_sha256": "73ae4a75534dfdd8eda90e5a7bb8c651fa972aa3194317257d289c4dd5f4acff",
+          "indices_sha256": "f100cf5ed91ee0c6fc3566b793908fbe1d36691c4cdad43df2291fbe7b209ca1",
+          "opacity_sha256": "d4aeb32717fdf59836f8b090ed470955826756e10de9db193f79fbe5794f110f",
+          "opaque_pixels": 168
+        },
+        {
+          "id": 122,
+          "offset": 14850,
+          "encoded_bytes": 184,
+          "encoded_sha256": "17790917590b4fa865cfe5e7157367e5967a06fe7d779a67966e2d5585cfec71",
+          "indices_sha256": "5c92e47bf9c13e27741b8ff983f22e75f96e555583dee79ba9e55944099a0a70",
+          "opacity_sha256": "762e469899dccf76ee1429a41604ea7098aec6a0a8ae579f20edf2a755343625",
+          "opaque_pixels": 154
+        },
+        {
+          "id": 140,
+          "offset": 15967,
+          "encoded_bytes": 140,
+          "encoded_sha256": "31256736c8d606fb62db1c8392fbab906407112fc7a93d56e21f8f36571621ff",
+          "indices_sha256": "fb4941afe94e73b41a7935454c32ddc61ca99ea0d03d6f407b1bae1c0bd080ae",
+          "opacity_sha256": "b753d052a384132b6089f79f29e2954f077c7146ab0628d0ebb5eba6c8dfc18c",
+          "opaque_pixels": 118
+        },
+        {
+          "id": 141,
+          "offset": 16107,
+          "encoded_bytes": 126,
+          "encoded_sha256": "dcd4210681b9465583ddcba02f6b06b8ab8705f1d794c72466804e7b27d71c6b",
+          "indices_sha256": "97e8c24d2caab9aa9be5724a0edd19dcad74d70c7012ebc1365abbe555c90080",
+          "opacity_sha256": "bd671e45f17354f4fe8ee443b9d88821c87770e9383788324f000f31f649a41c",
+          "opaque_pixels": 101
+        }
+      ],
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        6,
+        7
+      ],
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        26
+      ],
+      "opaque_pixels": 541,
+      "indices_sha256": "81cd177ebcac47b306e9ba37b3468c029c30918bd120d89cedc95b727df26c3b",
+      "opacity_sha256": "e29e5be3082eef15012237d950dff9ff39e82b27aa7804c401f3a139ee2f0fc8",
+      "rgba_sha256": "3e44fbe4ad2b2231fd5d854d5949030c2ea5488480278edbae850ca0628dfcfe",
+      "mask_path": "tyrian-hd-art/newsh4-six-panel-v1/source-reference/original-121.mask",
+      "indices_path": "tyrian-hd-art/newsh4-six-panel-v1/source-reference/original-121.indices"
+    },
+    {
+      "type": 473,
+      "base": 123,
+      "parts": [
+        {
+          "id": 123,
+          "offset": 15034,
+          "encoded_bytes": 101,
+          "encoded_sha256": "3b4989df4ed877550d0687f4c164b5252877b3788581f9455a3c3e14decad188",
+          "indices_sha256": "7306b0e327181914b51fa812f3f915ba11b71ba30bfff7d54cf3d9464536acc8",
+          "opacity_sha256": "ac16c681d7c8e6acd269d70fbb3fe81465db71322a9b62f32e4a3dd75c913d27",
+          "opaque_pixels": 75
+        },
+        {
+          "id": 124,
+          "offset": 15135,
+          "encoded_bytes": 1,
+          "encoded_sha256": "dc0e9c3658a1a3ed1ec94274d8b19925c93e1abb7ddba294923ad9bde30f8cb8",
+          "indices_sha256": "e3c2af35d1dfc500e16f826a071cc311bf55003a3de77de7ea3376c6b6fa2857",
+          "opacity_sha256": "e3c2af35d1dfc500e16f826a071cc311bf55003a3de77de7ea3376c6b6fa2857",
+          "opaque_pixels": 0
+        },
+        {
+          "id": 142,
+          "offset": 16233,
+          "encoded_bytes": 88,
+          "encoded_sha256": "8f3414a556b2fb20d5626fdd58b79f5861f5eef40c1a5b459aac61b38974f047",
+          "indices_sha256": "6d31f5990f5cdcc0562ad4df7906db89e169479546c73db8786d12b5efb97a66",
+          "opacity_sha256": "5dc1a3ee50001725152bdc346872b12bdce4fb7a45f73dbfcfb061ae5e7fec93",
+          "opaque_pixels": 60
+        },
+        {
+          "id": 143,
+          "offset": 16321,
+          "encoded_bytes": 1,
+          "encoded_sha256": "dc0e9c3658a1a3ed1ec94274d8b19925c93e1abb7ddba294923ad9bde30f8cb8",
+          "indices_sha256": "e3c2af35d1dfc500e16f826a071cc311bf55003a3de77de7ea3376c6b6fa2857",
+          "opacity_sha256": "e3c2af35d1dfc500e16f826a071cc311bf55003a3de77de7ea3376c6b6fa2857",
+          "opaque_pixels": 0
+        }
+      ],
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        6,
+        7
+      ],
+      "alpha_bbox": [
+        0,
+        0,
+        11,
+        26
+      ],
+      "opaque_pixels": 135,
+      "indices_sha256": "b66701f1f9c00293e96afc69a9274f9efbfeb59bab724b15fd3f70dee0416a5e",
+      "opacity_sha256": "62e634d6bae579c2c065ac0a73d088b37427260e6575a2757999be866551dd39",
+      "rgba_sha256": "c606011056601e4f76be10033850579abdde172447b962b7cf15c8dc20069c9f",
+      "mask_path": "tyrian-hd-art/newsh4-six-panel-v1/source-reference/original-123.mask",
+      "indices_path": "tyrian-hd-art/newsh4-six-panel-v1/source-reference/original-123.indices"
+    }
+  ],
+  "source_assembly": {
+    "size": [
+      72,
+      52
+    ],
+    "logical_cell_size": [
+      24,
+      28
+    ],
+    "anchor": [
+      6,
+      7
+    ],
+    "source_order_placements": [
+      [
+        123,
+        48,
+        24
+      ],
+      [
+        81,
+        0,
+        0
+      ],
+      [
+        83,
+        24,
+        0
+      ],
+      [
+        85,
+        48,
+        0
+      ],
+      [
+        119,
+        0,
+        24
+      ],
+      [
+        121,
+        24,
+        24
+      ]
+    ],
+    "stride": [
+      24,
+      24
+    ],
+    "vertical_envelope_overlap": 4,
+    "sum_independent_opaque": 1768,
+    "union_opaque": 1635,
+    "overlap_opaque": 133,
+    "opaque_bbox": [
+      3,
+      2,
+      59,
+      50
+    ],
+    "overlap_order_counts": [
+      {
+        "earlier": 123,
+        "later": 85,
+        "count": 3
+      },
+      {
+        "earlier": 81,
+        "later": 119,
+        "count": 39
+      },
+      {
+        "earlier": 83,
+        "later": 121,
+        "count": 91
+      }
+    ],
+    "allocation_order": "First-free slots0\u201324 for each original event; no removals intervene, so successful newly allocated slots ascend in event order. Never sort actors by base for rendering.",
+    "draw_order": "Ascending slot; each composite retains part0,1,19,20 source gates and draw ordering. Source actor123 is before85, while119/121 follow81/83."
+  },
+  "mask": "Expand each original independent RLE occupancy mask at exact8x to binary0/255. No silhouette growth, opacity smoothing, added outline/shadow, fabricated fills or removal of original occupied pixels. Bases85/123 right two cells are fully empty.",
+  "coherence": "One registered72\u00d752 craft can supply cohesive colors/materials across overlap, but export six full24\u00d728 independent assets. Do not change24px vertical stride to28, collapse actors, reorder them, or promote half-empty bases to12\u00d728 assets.",
+  "overlap_denominator": "1768 summed actor opaque samples,1635 unique source pixels after133 source-order overlaps. Hidden overlap samples remain source-integrity tests, not simultaneous natural-visible requirements.",
+  "runtime_route": "Use bank2/role102 full-base selection, then each original quadrant crop at parts0,1,19,20 with unchanged original gates, anchors, filters and draw order. Equal bank1/newsh2 numeric bases are unrelated.",
+  "material_context": "These actors move and have avail2; do not force static-ground eligibility or alter context. Do not require scoreitem=false, which can be recycled state.",
+  "reuse": [
+    {
+      "record": 56,
+      "base": 86,
+      "selectors": [
+        "egraphic[0]"
+      ],
+      "full_base_member": false,
+      "shared_cells": [
+        {
+          "id": 86,
+          "source_opaque_pixels": 0
+        },
+        {
+          "id": 105,
+          "source_opaque_pixels": 0
+        }
+      ]
+    },
+    {
+      "record": 61,
+      "base": 124,
+      "selectors": [
+        "egraphic[0]"
+      ],
+      "full_base_member": false,
+      "shared_cells": [
+        {
+          "id": 124,
+          "source_opaque_pixels": 0
+        },
+        {
+          "id": 143,
+          "source_opaque_pixels": 0
+        }
+      ]
+    },
+    {
+      "record": 468,
+      "base": 81,
+      "selectors": [
+        "egraphic[0]"
+      ],
+      "full_base_member": true,
+      "shared_cells": [
+        {
+          "id": 81,
+          "source_opaque_pixels": 23
+        },
+        {
+          "id": 82,
+          "source_opaque_pixels": 64
+        },
+        {
+          "id": 100,
+          "source_opaque_pixels": 51
+        },
+        {
+          "id": 101,
+          "source_opaque_pixels": 125
+        }
+      ]
+    },
+    {
+      "record": 469,
+      "base": 83,
+      "selectors": [
+        "egraphic[0]"
+      ],
+      "full_base_member": true,
+      "shared_cells": [
+        {
+          "id": 83,
+          "source_opaque_pixels": 39
+        },
+        {
+          "id": 84,
+          "source_opaque_pixels": 45
+        },
+        {
+          "id": 102,
+          "source_opaque_pixels": 157
+        },
+        {
+          "id": 103,
+          "source_opaque_pixels": 110
+        }
+      ]
+    },
+    {
+      "record": 470,
+      "base": 85,
+      "selectors": [
+        "egraphic[0]"
+      ],
+      "full_base_member": true,
+      "shared_cells": [
+        {
+          "id": 85,
+          "source_opaque_pixels": 39
+        },
+        {
+          "id": 86,
+          "source_opaque_pixels": 0
+        },
+        {
+          "id": 104,
+          "source_opaque_pixels": 74
+        },
+        {
+          "id": 105,
+          "source_opaque_pixels": 0
+        }
+      ]
+    },
+    {
+      "record": 471,
+      "base": 119,
+      "selectors": [
+        "egraphic[0]"
+      ],
+      "full_base_member": true,
+      "shared_cells": [
+        {
+          "id": 119,
+          "source_opaque_pixels": 59
+        },
+        {
+          "id": 120,
+          "source_opaque_pixels": 148
+        },
+        {
+          "id": 138,
+          "source_opaque_pixels": 49
+        },
+        {
+          "id": 139,
+          "source_opaque_pixels": 109
+        }
+      ]
+    },
+    {
+      "record": 472,
+      "base": 121,
+      "selectors": [
+        "egraphic[0]"
+      ],
+      "full_base_member": true,
+      "shared_cells": [
+        {
+          "id": 121,
+          "source_opaque_pixels": 168
+        },
+        {
+          "id": 122,
+          "source_opaque_pixels": 154
+        },
+        {
+          "id": 140,
+          "source_opaque_pixels": 118
+        },
+        {
+          "id": 141,
+          "source_opaque_pixels": 101
+        }
+      ]
+    },
+    {
+      "record": 473,
+      "base": 123,
+      "selectors": [
+        "egraphic[0]"
+      ],
+      "full_base_member": true,
+      "shared_cells": [
+        {
+          "id": 123,
+          "source_opaque_pixels": 75
+        },
+        {
+          "id": 124,
+          "source_opaque_pixels": 0
+        },
+        {
+          "id": 142,
+          "source_opaque_pixels": 60
+        },
+        {
+          "id": 143,
+          "source_opaque_pixels": 0
+        }
+      ]
+    }
+  ],
+  "reuse_constraint": "All full-base users in the1701loaded HDT records are468\u2013473. Boss56/base86 and61/base124 share only entirely empty cells86/105/124/143. No opaque source dependency requires additional boss art; preserve their fallback and all other bases.",
+  "terrain": "No exact600-tile shapesz index match or80% masked index match. No event/code attachment or separate shadow. This is a moving sky-layer craft. Terrain can occlude and should be observed, not redrawn automatically.",
+  "state_contract": "lifecycle.json",
+  "binding_absent_in_pinned_manifest": true
+}

@@ -1,0 +1,201 @@
+{
+  "status": "PASS independent exact actual-native pixel review",
+  "created_at_utc": "2026-10-12T23:02:18.698843+00:00",
+  "candidate": "7513d828cab46919a78e8d3fe00229cafbfcad9c",
+  "baseline": "fe5f5d7922105dccf67bfe2648ac366c3031bc66",
+  "native2x_ticks": [
+    6550,
+    6574,
+    6582,
+    6583,
+    6584,
+    6585,
+    6586,
+    6587,
+    6607,
+    6608,
+    6609,
+    6610,
+    6611,
+    6612,
+    6623
+  ],
+  "native4x_ticks": [
+    6585
+  ],
+  "actual_paired_frames_verified": 16,
+  "full_frame_RGBA_pixels_compared": 4864000,
+  "exact_RGBA_mismatches": 0,
+  "outside_family_RGBA_differences": 0,
+  "pixel_exclusions": 0,
+  "pixel_tolerance": 0,
+  "source_alpha": "Independently decoded all24 original newsh4 RLE cells; exact binary alpha match to frozen6 HDA resources at density8",
+  "logical_sum_union_overlap": [
+    1768,
+    1635,
+    133
+  ],
+  "source_draw_order": [
+    123,
+    81,
+    83,
+    85,
+    119,
+    121
+  ],
+  "exact_sampling": "Native2x selects source coordinate2 modulo4; native4x selects1 modulo2. No interpolation. Both independently checked against actual native readback.",
+  "later_original_operators": "Original INSERT COIN decoded from tyrian.shp, palette5, shadow+2,+2 then F0 value-3; later original player rectangles provably disjoint; original HUD outside support retained from identical paired baseline. Every final pixel checked.",
+  "top_exit_text_native2x": {
+    "6607": {
+      "fully_covered_native_pixels": 852,
+      "shadow_only_native_pixels": 580
+    },
+    "6608": {
+      "fully_covered_native_pixels": 664,
+      "shadow_only_native_pixels": 304
+    },
+    "6609": {
+      "fully_covered_native_pixels": 112,
+      "shadow_only_native_pixels": 8
+    }
+  },
+  "whole_frame_identical_no_entry_residue_native2x": [
+    6611,
+    6612,
+    6623
+  ],
+  "original_state_rows_equal_per_pair": 6625,
+  "all100_phase_rows_equal_per_pair": 150000,
+  "game_launches_by_reviewer": 0,
+  "captures_by_reviewer": 0,
+  "production_edits_by_reviewer": 0,
+  "publication": false,
+  "limits": [
+    "Bounded private stationary/no-fire player-survival setup; no natural survival or combat claim.",
+    "Only retained ticks are final-pixel proofs; logged original state and draw references cover the wider census window.",
+    "No full-level, hardware-GPU, Windows, or publication claim.",
+    "Original classic INT_MIN/MAX coordinates remain untested; source guarded route rejects them before arithmetic."
+  ],
+  "evidence": [
+    {
+      "path": "entry-craft-native-pixel-review-20261012/text_oracle.py",
+      "bytes": 2627,
+      "sha256": "639d80e92c0f2dbb2e165c565524ce7a67ca8f8d2889fca384501e622719fada"
+    },
+    {
+      "path": "entry-craft-native-pixel-review-20261012/tick-6550-native2x.json",
+      "bytes": 3311,
+      "sha256": "71cb1d6e149d055dcf9b7ef3de6c81b3ed79bf519cc0a18e13478b2bd4f17c88"
+    },
+    {
+      "path": "entry-craft-native-pixel-review-20261012/tick-6574-native2x.json",
+      "bytes": 3318,
+      "sha256": "8c2b2b90b77e0c7c3a9642e3e4895b41934773f6d011f04484ceb8de3bffbd3d"
+    },
+    {
+      "path": "entry-craft-native-pixel-review-20261012/tick-6582-native2x.json",
+      "bytes": 3318,
+      "sha256": "33a23da73f5c5b40bca9df8b593470014a1754f4c13805937d2e1eb54db8a687"
+    },
+    {
+      "path": "entry-craft-native-pixel-review-20261012/tick-6583-native2x.json",
+      "bytes": 3318,
+      "sha256": "574ca184adf0a46be1b29907f02d7e1f8f2cf31f9b3ffc9a5ca61cd525af06ec"
+    },
+    {
+      "path": "entry-craft-native-pixel-review-20261012/tick-6584-native2x.json",
+      "bytes": 3315,
+      "sha256": "b55e7fa2ad3515c8cb39de56d1790f7e732390da873c32e76cbb55d147c729bf"
+    },
+    {
+      "path": "entry-craft-native-pixel-review-20261012/tick-6585-native2x.json",
+      "bytes": 3315,
+      "sha256": "d25134fd31b9ab23c4490296841d66c925b22950e519f82ea2b10c1edce42833"
+    },
+    {
+      "path": "entry-craft-native-pixel-review-20261012/tick-6585-native4x.json",
+      "bytes": 3334,
+      "sha256": "3ad4bc8ae8175228b5b5460ed2c89ade805dc73ba9f911684a4841d89cd234c7"
+    },
+    {
+      "path": "entry-craft-native-pixel-review-20261012/tick-6586-native2x.json",
+      "bytes": 3315,
+      "sha256": "24d1e87ace3fce42d051ec09cda1df0382c937d02cdfbf0e868d37ac1c12959e"
+    },
+    {
+      "path": "entry-craft-native-pixel-review-20261012/tick-6587-native2x.json",
+      "bytes": 3315,
+      "sha256": "cba20a3b7d73b0587b499d8cb774fe6452efa574817b38bc95ab750463e03fed"
+    },
+    {
+      "path": "entry-craft-native-pixel-review-20261012/tick-6607-native2x.json",
+      "bytes": 3319,
+      "sha256": "7d08939b57fb9543a488728138681cf71f919d2fa150e77c7cdb297b7e866c4d"
+    },
+    {
+      "path": "entry-craft-native-pixel-review-20261012/tick-6608-native2x.json",
+      "bytes": 3196,
+      "sha256": "ea4210e3d9b0c6435a117c8830e29c178dbfc79102a498c1cc7296b2a924fc2c"
+    },
+    {
+      "path": "entry-craft-native-pixel-review-20261012/tick-6609-native2x.json",
+      "bytes": 3193,
+      "sha256": "d4b51507e1d1c770fbccc2add2a947cc1bb38919cd9dfcbe8bc1c4c52b894adb"
+    },
+    {
+      "path": "entry-craft-native-pixel-review-20261012/tick-6610-native2x.json",
+      "bytes": 3185,
+      "sha256": "4281d0162756dbe523e5e2c841f21af03017204084b8b034ccf740e32872bf36"
+    },
+    {
+      "path": "entry-craft-native-pixel-review-20261012/tick-6611-native2x.json",
+      "bytes": 3167,
+      "sha256": "2a78abf94604cc4f7153d937e1d3e5492fbcdb5120c7854666fe5b459fc763f3"
+    },
+    {
+      "path": "entry-craft-native-pixel-review-20261012/tick-6612-native2x.json",
+      "bytes": 3048,
+      "sha256": "e79469ffc6b72ad51099493eea9c66f11edd0e28fcd23951ce72051bacf8f0d8"
+    },
+    {
+      "path": "entry-craft-native-pixel-review-20261012/tick-6623-native2x.json",
+      "bytes": 3048,
+      "sha256": "6a98165347d1ddd53f587b49e0f4f652bf240d1251a0c61a7db3e7fce67631f1"
+    },
+    {
+      "path": "entry-craft-native-pixel-review-20261012/verification-native2x-6585.json",
+      "bytes": 8176,
+      "sha256": "b2e16dd358f4c0fc9f92fe99ad2079d74585845bc383d6a1dddb728dd93a88e6"
+    },
+    {
+      "path": "entry-craft-native-pixel-review-20261012/verification-native2x-6585.log",
+      "bytes": 1124,
+      "sha256": "6f4d19e0d820f38a14de63a6ab534f3fa87306aecec4f646aff593f666a96484"
+    },
+    {
+      "path": "entry-craft-native-pixel-review-20261012/verification-native2x-all.json",
+      "bytes": 59968,
+      "sha256": "ea322256ccae4d460162e7eb464f49f9e12682307d17737edc1c1011769861eb"
+    },
+    {
+      "path": "entry-craft-native-pixel-review-20261012/verification-native2x-all.log",
+      "bytes": 15046,
+      "sha256": "edfd624323420ea219b1655b7d8ca5ef99f7f90d354d052f552de0ece57825d2"
+    },
+    {
+      "path": "entry-craft-native-pixel-review-20261012/verification-native4x-all.json",
+      "bytes": 8195,
+      "sha256": "9c32e44f3754af014ce06a506d993c0ea1efd5f02daf62555cb7dd0af3ce0d06"
+    },
+    {
+      "path": "entry-craft-native-pixel-review-20261012/verification-native4x-all.log",
+      "bytes": 1129,
+      "sha256": "f4ce76b42cce95a705779acdec4f64c662e17bf2f29e5ea3825768ed510c1f79"
+    },
+    {
+      "path": "entry-craft-native-pixel-review-20261012/verify.py",
+      "bytes": 11971,
+      "sha256": "d71dc706c58793aa118a5c9611a77dd9f445295cb82030103179fb33d667e679"
+    }
+  ]
+}

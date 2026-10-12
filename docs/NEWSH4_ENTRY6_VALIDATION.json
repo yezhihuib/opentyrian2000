@@ -1,0 +1,763 @@
+{
+  "status": "PASS bounded original-source, native2x/native4x motion/overlap/exit and actual family-fallback validation",
+  "tested_source_checkpoint": "7513d828cab46919a78e8d3fe00229cafbfcad9c",
+  "tested_local_baseline": "fe5f5d7922105dccf67bfe2648ac366c3031bc66",
+  "publication_parent_equivalence": {
+    "published_commit": "305c43aae91f0a20cc4cd622fc0a99b1bb37a37c",
+    "tested_local_commit": "fe5f5d7922105dccf67bfe2648ac366c3031bc66",
+    "equal_tree": "e1227fb4ca2f8fe95ae14fa6e614f7d5cdc62f87",
+    "verified_equal": true,
+    "interpretation": "The paired actual tests used the tested local spike commit before publication. The later published spike commit has the identical full tree. Frozen receipts retain their historical commit IDs/status; no replay was performed merely to rename that equivalent parent."
+  },
+  "frozen_V2_manifest_sha256": "96c59e764ab2456d51476ba00f0c27e423fa4758469c512791c95d1e4dd87f04",
+  "no_production_code_change_after_tested_source": true,
+  "actual_setup": {
+    "mode": "Bounded private stationary player-survival/no-fire probe, original initialization fromtick0",
+    "same_private_units_baseline_candidate": true,
+    "private_enemy_damage_requests": 0,
+    "original_avail": 2,
+    "original_armor": 255,
+    "recycled_scoreitem_preserved": true,
+    "render_density": 8,
+    "software_SDL": true,
+    "native2x_size": [
+      640,
+      400
+    ],
+    "true_native4x_size": [
+      1280,
+      800
+    ],
+    "native2x_ticks": [
+      6550,
+      6574,
+      6582,
+      6583,
+      6584,
+      6585,
+      6586,
+      6587,
+      6607,
+      6608,
+      6609,
+      6610,
+      6611,
+      6612,
+      6623
+    ],
+    "true_native4x_ticks": [
+      6585
+    ],
+    "logic_ticks": [
+      0,
+      6624
+    ],
+    "all100_census_ticks": [
+      6500,
+      6624
+    ]
+  },
+  "independent_pixel_review": {
+    "status": "PASS independent exact actual-native pixel review",
+    "created_at_utc": "2026-10-12T23:02:18.698843+00:00",
+    "candidate": "7513d828cab46919a78e8d3fe00229cafbfcad9c",
+    "baseline": "fe5f5d7922105dccf67bfe2648ac366c3031bc66",
+    "native2x_ticks": [
+      6550,
+      6574,
+      6582,
+      6583,
+      6584,
+      6585,
+      6586,
+      6587,
+      6607,
+      6608,
+      6609,
+      6610,
+      6611,
+      6612,
+      6623
+    ],
+    "native4x_ticks": [
+      6585
+    ],
+    "actual_paired_frames_verified": 16,
+    "full_frame_RGBA_pixels_compared": 4864000,
+    "exact_RGBA_mismatches": 0,
+    "outside_family_RGBA_differences": 0,
+    "pixel_exclusions": 0,
+    "pixel_tolerance": 0,
+    "source_alpha": "Independently decoded all24 original newsh4 RLE cells; exact binary alpha match to frozen6 HDA resources at density8",
+    "logical_sum_union_overlap": [
+      1768,
+      1635,
+      133
+    ],
+    "source_draw_order": [
+      123,
+      81,
+      83,
+      85,
+      119,
+      121
+    ],
+    "exact_sampling": "Native2x selects source coordinate2 modulo4; native4x selects1 modulo2. No interpolation. Both independently checked against actual native readback.",
+    "later_original_operators": "Original INSERT COIN decoded from tyrian.shp, palette5, shadow+2,+2 then F0 value-3; later original player rectangles provably disjoint; original HUD outside support retained from identical paired baseline. Every final pixel checked.",
+    "top_exit_text_native2x": {
+      "6607": {
+        "fully_covered_native_pixels": 852,
+        "shadow_only_native_pixels": 580
+      },
+      "6608": {
+        "fully_covered_native_pixels": 664,
+        "shadow_only_native_pixels": 304
+      },
+      "6609": {
+        "fully_covered_native_pixels": 112,
+        "shadow_only_native_pixels": 8
+      }
+    },
+    "whole_frame_identical_no_entry_residue_native2x": [
+      6611,
+      6612,
+      6623
+    ],
+    "original_state_rows_equal_per_pair": 6625,
+    "all100_phase_rows_equal_per_pair": 150000,
+    "game_launches_by_reviewer": 0,
+    "captures_by_reviewer": 0,
+    "production_edits_by_reviewer": 0,
+    "publication": false,
+    "limits": [
+      "Bounded private stationary/no-fire player-survival setup; no natural survival or combat claim.",
+      "Only retained ticks are final-pixel proofs; logged original state and draw references cover the wider census window.",
+      "No full-level, hardware-GPU, Windows, or publication claim.",
+      "Original classic INT_MIN/MAX coordinates remain untested; source guarded route rejects them before arithmetic."
+    ],
+    "evidence": [
+      {
+        "path": "entry-craft-native-pixel-review-20261012/text_oracle.py",
+        "bytes": 2627,
+        "sha256": "639d80e92c0f2dbb2e165c565524ce7a67ca8f8d2889fca384501e622719fada"
+      },
+      {
+        "path": "entry-craft-native-pixel-review-20261012/tick-6550-native2x.json",
+        "bytes": 3311,
+        "sha256": "71cb1d6e149d055dcf9b7ef3de6c81b3ed79bf519cc0a18e13478b2bd4f17c88"
+      },
+      {
+        "path": "entry-craft-native-pixel-review-20261012/tick-6574-native2x.json",
+        "bytes": 3318,
+        "sha256": "8c2b2b90b77e0c7c3a9642e3e4895b41934773f6d011f04484ceb8de3bffbd3d"
+      },
+      {
+        "path": "entry-craft-native-pixel-review-20261012/tick-6582-native2x.json",
+        "bytes": 3318,
+        "sha256": "33a23da73f5c5b40bca9df8b593470014a1754f4c13805937d2e1eb54db8a687"
+      },
+      {
+        "path": "entry-craft-native-pixel-review-20261012/tick-6583-native2x.json",
+        "bytes": 3318,
+        "sha256": "574ca184adf0a46be1b29907f02d7e1f8f2cf31f9b3ffc9a5ca61cd525af06ec"
+      },
+      {
+        "path": "entry-craft-native-pixel-review-20261012/tick-6584-native2x.json",
+        "bytes": 3315,
+        "sha256": "b55e7fa2ad3515c8cb39de56d1790f7e732390da873c32e76cbb55d147c729bf"
+      },
+      {
+        "path": "entry-craft-native-pixel-review-20261012/tick-6585-native2x.json",
+        "bytes": 3315,
+        "sha256": "d25134fd31b9ab23c4490296841d66c925b22950e519f82ea2b10c1edce42833"
+      },
+      {
+        "path": "entry-craft-native-pixel-review-20261012/tick-6585-native4x.json",
+        "bytes": 3334,
+        "sha256": "3ad4bc8ae8175228b5b5460ed2c89ade805dc73ba9f911684a4841d89cd234c7"
+      },
+      {
+        "path": "entry-craft-native-pixel-review-20261012/tick-6586-native2x.json",
+        "bytes": 3315,
+        "sha256": "24d1e87ace3fce42d051ec09cda1df0382c937d02cdfbf0e868d37ac1c12959e"
+      },
+      {
+        "path": "entry-craft-native-pixel-review-20261012/tick-6587-native2x.json",
+        "bytes": 3315,
+        "sha256": "cba20a3b7d73b0587b499d8cb774fe6452efa574817b38bc95ab750463e03fed"
+      },
+      {
+        "path": "entry-craft-native-pixel-review-20261012/tick-6607-native2x.json",
+        "bytes": 3319,
+        "sha256": "7d08939b57fb9543a488728138681cf71f919d2fa150e77c7cdb297b7e866c4d"
+      },
+      {
+        "path": "entry-craft-native-pixel-review-20261012/tick-6608-native2x.json",
+        "bytes": 3196,
+        "sha256": "ea4210e3d9b0c6435a117c8830e29c178dbfc79102a498c1cc7296b2a924fc2c"
+      },
+      {
+        "path": "entry-craft-native-pixel-review-20261012/tick-6609-native2x.json",
+        "bytes": 3193,
+        "sha256": "d4b51507e1d1c770fbccc2add2a947cc1bb38919cd9dfcbe8bc1c4c52b894adb"
+      },
+      {
+        "path": "entry-craft-native-pixel-review-20261012/tick-6610-native2x.json",
+        "bytes": 3185,
+        "sha256": "4281d0162756dbe523e5e2c841f21af03017204084b8b034ccf740e32872bf36"
+      },
+      {
+        "path": "entry-craft-native-pixel-review-20261012/tick-6611-native2x.json",
+        "bytes": 3167,
+        "sha256": "2a78abf94604cc4f7153d937e1d3e5492fbcdb5120c7854666fe5b459fc763f3"
+      },
+      {
+        "path": "entry-craft-native-pixel-review-20261012/tick-6612-native2x.json",
+        "bytes": 3048,
+        "sha256": "e79469ffc6b72ad51099493eea9c66f11edd0e28fcd23951ce72051bacf8f0d8"
+      },
+      {
+        "path": "entry-craft-native-pixel-review-20261012/tick-6623-native2x.json",
+        "bytes": 3048,
+        "sha256": "6a98165347d1ddd53f587b49e0f4f652bf240d1251a0c61a7db3e7fce67631f1"
+      },
+      {
+        "path": "entry-craft-native-pixel-review-20261012/verification-native2x-6585.json",
+        "bytes": 8176,
+        "sha256": "b2e16dd358f4c0fc9f92fe99ad2079d74585845bc383d6a1dddb728dd93a88e6"
+      },
+      {
+        "path": "entry-craft-native-pixel-review-20261012/verification-native2x-6585.log",
+        "bytes": 1124,
+        "sha256": "6f4d19e0d820f38a14de63a6ab534f3fa87306aecec4f646aff593f666a96484"
+      },
+      {
+        "path": "entry-craft-native-pixel-review-20261012/verification-native2x-all.json",
+        "bytes": 59968,
+        "sha256": "ea322256ccae4d460162e7eb464f49f9e12682307d17737edc1c1011769861eb"
+      },
+      {
+        "path": "entry-craft-native-pixel-review-20261012/verification-native2x-all.log",
+        "bytes": 15046,
+        "sha256": "edfd624323420ea219b1655b7d8ca5ef99f7f90d354d052f552de0ece57825d2"
+      },
+      {
+        "path": "entry-craft-native-pixel-review-20261012/verification-native4x-all.json",
+        "bytes": 8195,
+        "sha256": "9c32e44f3754af014ce06a506d993c0ea1efd5f02daf62555cb7dd0af3ce0d06"
+      },
+      {
+        "path": "entry-craft-native-pixel-review-20261012/verification-native4x-all.log",
+        "bytes": 1129,
+        "sha256": "f4ce76b42cce95a705779acdec4f64c662e17bf2f29e5ea3825768ed510c1f79"
+      },
+      {
+        "path": "entry-craft-native-pixel-review-20261012/verify.py",
+        "bytes": 11971,
+        "sha256": "d71dc706c58793aa118a5c9611a77dd9f445295cb82030103179fb33d667e679"
+      }
+    ]
+  },
+  "paired_state_and_lifecycle": {
+    "status": "PASS paired original state/lifecycle and coverage; pixel oracle separate",
+    "baseline": "fe5f5d7922105dccf67bfe2648ac366c3031bc66",
+    "candidate": "7513d828cab46919a78e8d3fe00229cafbfcad9c",
+    "baseline_is_published": false,
+    "raw_differing_streams": [
+      "frames",
+      "scene-draw-commands",
+      "rgb-audit",
+      "asset-debug-control"
+    ],
+    "original_equal_streams": [
+      "weapon-loadout",
+      "player-shot-requests",
+      "player-shot-emissions",
+      "player-shot-results",
+      "player-shot-draws",
+      "state",
+      "collisions",
+      "presentation",
+      "effects",
+      "enemy-projectiles",
+      "fade-steps",
+      "poses",
+      "fire-events",
+      "player-projectiles",
+      "draw-commands",
+      "scene-enemies",
+      "scene-hits",
+      "restore-regions",
+      "blend-palette",
+      "asset-debug-explosion-pools",
+      "asset-debug-clock",
+      "asset-debug-materials",
+      "sdl-runtime",
+      "talon-bank-visual",
+      "blend-writes",
+      "late-census"
+    ],
+    "original_state_ticks_equal": 6625,
+    "all100_phase_rows_equal": 150000,
+    "identical_to_retained_original_discovery_census": true,
+    "spawn": [
+      {
+        "tick": 6550,
+        "phase": "post-events",
+        "eventLoc": 855,
+        "curLoc": 5000,
+        "difficulty": 2,
+        "background3over": 1,
+        "topEnemyOver": 0,
+        "slot": 0,
+        "avail": 2,
+        "type": 473,
+        "bank": 2,
+        "base": 123,
+        "cycle": 1,
+        "link": 0,
+        "x": 148,
+        "y": 190,
+        "mapoffset": 0,
+        "xc": 0,
+        "yc": 0,
+        "fixedmovey": 0,
+        "xcc": 0,
+        "ycc": -8,
+        "xccw": 0,
+        "xccadd": -1,
+        "xaccel": 0,
+        "yaccel": 0,
+        "armor": 255,
+        "ground": 1,
+        "iced": 0,
+        "filter": 0,
+        "explonum": 0,
+        "damaged": 0,
+        "dgr": 0,
+        "dani": 0,
+        "dlevel": -1,
+        "drop": 0,
+        "value": 0,
+        "scoreitem": 0
+      },
+      {
+        "tick": 6550,
+        "phase": "post-events",
+        "eventLoc": 855,
+        "curLoc": 5000,
+        "difficulty": 2,
+        "background3over": 1,
+        "topEnemyOver": 0,
+        "slot": 1,
+        "avail": 2,
+        "type": 468,
+        "bank": 2,
+        "base": 81,
+        "cycle": 1,
+        "link": 0,
+        "x": 100,
+        "y": 166,
+        "mapoffset": 0,
+        "xc": 0,
+        "yc": 0,
+        "fixedmovey": 0,
+        "xcc": 0,
+        "ycc": -8,
+        "xccw": 0,
+        "xccadd": -1,
+        "xaccel": 0,
+        "yaccel": 0,
+        "armor": 255,
+        "ground": 1,
+        "iced": 0,
+        "filter": 0,
+        "explonum": 0,
+        "damaged": 0,
+        "dgr": 0,
+        "dani": 0,
+        "dlevel": -1,
+        "drop": 0,
+        "value": 0,
+        "scoreitem": 0
+      },
+      {
+        "tick": 6550,
+        "phase": "post-events",
+        "eventLoc": 855,
+        "curLoc": 5000,
+        "difficulty": 2,
+        "background3over": 1,
+        "topEnemyOver": 0,
+        "slot": 2,
+        "avail": 2,
+        "type": 469,
+        "bank": 2,
+        "base": 83,
+        "cycle": 1,
+        "link": 0,
+        "x": 124,
+        "y": 166,
+        "mapoffset": 0,
+        "xc": 0,
+        "yc": 0,
+        "fixedmovey": 0,
+        "xcc": 0,
+        "ycc": -8,
+        "xccw": 0,
+        "xccadd": -1,
+        "xaccel": 0,
+        "yaccel": 0,
+        "armor": 255,
+        "ground": 1,
+        "iced": 0,
+        "filter": 0,
+        "explonum": 0,
+        "damaged": 0,
+        "dgr": 0,
+        "dani": 0,
+        "dlevel": -1,
+        "drop": 0,
+        "value": 0,
+        "scoreitem": 0
+      },
+      {
+        "tick": 6550,
+        "phase": "post-events",
+        "eventLoc": 855,
+        "curLoc": 5000,
+        "difficulty": 2,
+        "background3over": 1,
+        "topEnemyOver": 0,
+        "slot": 3,
+        "avail": 2,
+        "type": 470,
+        "bank": 2,
+        "base": 85,
+        "cycle": 1,
+        "link": 0,
+        "x": 148,
+        "y": 166,
+        "mapoffset": 0,
+        "xc": 0,
+        "yc": 0,
+        "fixedmovey": 0,
+        "xcc": 0,
+        "ycc": -8,
+        "xccw": 0,
+        "xccadd": -1,
+        "xaccel": 0,
+        "yaccel": 0,
+        "armor": 255,
+        "ground": 1,
+        "iced": 0,
+        "filter": 0,
+        "explonum": 0,
+        "damaged": 0,
+        "dgr": 0,
+        "dani": 0,
+        "dlevel": -1,
+        "drop": 0,
+        "value": 0,
+        "scoreitem": 0
+      },
+      {
+        "tick": 6550,
+        "phase": "post-events",
+        "eventLoc": 855,
+        "curLoc": 5000,
+        "difficulty": 2,
+        "background3over": 1,
+        "topEnemyOver": 0,
+        "slot": 4,
+        "avail": 2,
+        "type": 471,
+        "bank": 2,
+        "base": 119,
+        "cycle": 1,
+        "link": 0,
+        "x": 100,
+        "y": 190,
+        "mapoffset": 0,
+        "xc": 0,
+        "yc": 0,
+        "fixedmovey": 0,
+        "xcc": 0,
+        "ycc": -8,
+        "xccw": 0,
+        "xccadd": -1,
+        "xaccel": 0,
+        "yaccel": 0,
+        "armor": 255,
+        "ground": 1,
+        "iced": 0,
+        "filter": 0,
+        "explonum": 0,
+        "damaged": 0,
+        "dgr": 0,
+        "dani": 0,
+        "dlevel": -1,
+        "drop": 0,
+        "value": 0,
+        "scoreitem": 0
+      },
+      {
+        "tick": 6550,
+        "phase": "post-events",
+        "eventLoc": 855,
+        "curLoc": 5000,
+        "difficulty": 2,
+        "background3over": 1,
+        "topEnemyOver": 0,
+        "slot": 5,
+        "avail": 2,
+        "type": 472,
+        "bank": 2,
+        "base": 121,
+        "cycle": 1,
+        "link": 0,
+        "x": 124,
+        "y": 190,
+        "mapoffset": 0,
+        "xc": 0,
+        "yc": 0,
+        "fixedmovey": 0,
+        "xcc": 0,
+        "ycc": -8,
+        "xccw": 0,
+        "xccadd": -1,
+        "xaccel": 0,
+        "yaccel": 0,
+        "armor": 255,
+        "ground": 1,
+        "iced": 0,
+        "filter": 0,
+        "explonum": 0,
+        "damaged": 0,
+        "dgr": 0,
+        "dani": 0,
+        "dlevel": -1,
+        "drop": 0,
+        "value": 0,
+        "scoreitem": 0
+      }
+    ],
+    "removals": [
+      {
+        "tick": 6619,
+        "slot": 1,
+        "base": 81,
+        "avail_before": 2,
+        "avail_after": 1,
+        "y_before": -106,
+        "y_after": -114
+      },
+      {
+        "tick": 6619,
+        "slot": 2,
+        "base": 83,
+        "avail_before": 2,
+        "avail_after": 1,
+        "y_before": -106,
+        "y_after": -114
+      },
+      {
+        "tick": 6619,
+        "slot": 3,
+        "base": 85,
+        "avail_before": 2,
+        "avail_after": 1,
+        "y_before": -106,
+        "y_after": -114
+      },
+      {
+        "tick": 6622,
+        "slot": 0,
+        "base": 123,
+        "avail_before": 2,
+        "avail_after": 1,
+        "y_before": -107,
+        "y_after": -116
+      },
+      {
+        "tick": 6622,
+        "slot": 4,
+        "base": 119,
+        "avail_before": 2,
+        "avail_after": 1,
+        "y_before": -107,
+        "y_after": -116
+      },
+      {
+        "tick": 6622,
+        "slot": 5,
+        "base": 121,
+        "avail_before": 2,
+        "avail_after": 1,
+        "y_before": -107,
+        "y_after": -116
+      }
+    ],
+    "entry_HD_callbacks": 1320,
+    "entry_callback_ids": [
+      81,
+      83,
+      85,
+      119,
+      121,
+      123
+    ],
+    "all_added_callbacks_mirrored": true,
+    "prior_scene_callbacks_exact": true,
+    "source_draw_order_preserved": true,
+    "zero_coverage_restore_or_classic_RGB_mismatches": true,
+    "native2x_capture_ticks": [
+      6550,
+      6574,
+      6582,
+      6583,
+      6584,
+      6585,
+      6586,
+      6587,
+      6607,
+      6608,
+      6609,
+      6610,
+      6611,
+      6612,
+      6623
+    ],
+    "native2x_dimensions": [
+      640,
+      400
+    ],
+    "clear_after_removal_tick": 6623,
+    "clear6623_whole_frame_RGBA_equal": true,
+    "zero_fire_events_and_player_shot_emissions": true,
+    "limits": [
+      "Private stationary no-fire survival setup, not natural-survival proof.",
+      "Entry avail2/armor255 remains unchanged; no forced combat.",
+      "Native final authored RGB is verified separately, not inferred from callbacks or source support.",
+      "No Windows/GPU/full-level or publication claim."
+    ]
+  },
+  "finite_actual_fallback": {
+    "status": "PASS finite actual family fallback",
+    "tested_candidate": "7513d828cab46919a78e8d3fe00229cafbfcad9c",
+    "tested_baseline": "fe5f5d7922105dccf67bfe2648ac366c3031bc66",
+    "baseline_publication": "Unpublished tested local checkpoint",
+    "cases": [
+      {
+        "baseline": "baseline",
+        "candidate": "missing83",
+        "tick": 6585,
+        "native_dimensions": [
+          640,
+          400
+        ],
+        "pixels_equal": 256000,
+        "RGBA_sha256": "fbcd7fd69a3841fa27dcc6808ff78fdc5b282fc453852ab03c29dd358a03d05d",
+        "source_state_ticks_equal": 6625,
+        "all100_phase_rows_equal": 150000,
+        "all_six_entry_HD_callbacks_absent": true,
+        "all_prior_scene_callbacks_equal": true,
+        "all_original_material_references_equal": true,
+        "zero_coverage_restore_or_classic_RGB_mismatches": true,
+        "raw_differing_streams": [
+          "asset-debug-control"
+        ],
+        "candidate_frame_SHA256": "887fc0b27fdecfcd1aeaa744135b76641d4c4849cbc96ce94f1a741dc7bf8b58"
+      },
+      {
+        "baseline": "baseline",
+        "candidate": "corrupt83",
+        "tick": 6585,
+        "native_dimensions": [
+          640,
+          400
+        ],
+        "pixels_equal": 256000,
+        "RGBA_sha256": "fbcd7fd69a3841fa27dcc6808ff78fdc5b282fc453852ab03c29dd358a03d05d",
+        "source_state_ticks_equal": 6625,
+        "all100_phase_rows_equal": 150000,
+        "all_six_entry_HD_callbacks_absent": true,
+        "all_prior_scene_callbacks_equal": true,
+        "all_original_material_references_equal": true,
+        "zero_coverage_restore_or_classic_RGB_mismatches": true,
+        "raw_differing_streams": [
+          "asset-debug-control"
+        ],
+        "candidate_frame_SHA256": "887fc0b27fdecfcd1aeaa744135b76641d4c4849cbc96ce94f1a741dc7bf8b58"
+      },
+      {
+        "baseline": "baseline-density4",
+        "candidate": "candidate-density4",
+        "tick": 6585,
+        "native_dimensions": [
+          640,
+          400
+        ],
+        "pixels_equal": 256000,
+        "RGBA_sha256": "3be12cb243e8bc232acac3fa960d982b176a41905b92dbe9a0a33410426c5237",
+        "source_state_ticks_equal": 6625,
+        "all100_phase_rows_equal": 150000,
+        "all_six_entry_HD_callbacks_absent": true,
+        "all_prior_scene_callbacks_equal": true,
+        "all_original_material_references_equal": true,
+        "zero_coverage_restore_or_classic_RGB_mismatches": true,
+        "raw_differing_streams": [
+          "asset-debug-control"
+        ],
+        "candidate_frame_SHA256": "e1618e50ca005558491114dd9abdd887ad734198cf646c46f48b9297cdac456e"
+      }
+    ],
+    "total_full_frame_pixels_equal": 768000,
+    "no_new_damage_or_player_fire": true,
+    "limits": [
+      "Private stationary survival setup.",
+      "Finite chosen missing83/same-length RGB-corrupt83/density4 cases only; broader malformed permutations remain source-unit tests.",
+      "No Windows/GPU/full-level or publication."
+    ]
+  },
+  "all8_runs_original_state_census_material_and_presentation_hashes_equal": true,
+  "all8_runs_original_entity_draw_fields_equal_ignoring_HD_selection": true,
+  "cross_density_draw_log_note": "The draw-command mirrored selection marker legitimately differs between density8 and4; all original bank/index/coordinate/style/layout fields match. Paired baseline/candidate logs match exactly for each fallback control.",
+  "visual_inspection": {
+    "actual_frames_inspected_by_implementation_worker": [
+      "native2x6550",
+      "native2x6585",
+      "native2x6608",
+      "native2x6623",
+      "native4x6585"
+    ],
+    "finding": "Complete selected V2 bronze/gray/red craft is clear at6585; original source clip is retained at entry and top exit; original top text remains in front; final6623 frame has no entry residue. The art itself was not changed."
+  },
+  "source_review_receipt": {
+    "sha256": "34ff6463030eaa7f44f87aaaa90811d0508e3eee4b1caa8eed53c75433ee27ee",
+    "path": "docs/NEWSH4_ENTRY6_INDEPENDENT_SOURCE_REVIEW.json"
+  },
+  "runtime_artifacts": {
+    "provenance_sha256": "4fc00d514e70ba4acc13c65dc58a61d9f8519af2a24e8e6d18a028cbb6274355",
+    "preparation_script_sha256": "4e47de3cb02c01642848539ff77ad519994619ae280777626d5f11f325885bfb",
+    "runner_sha256": "63cd3e71a5c72d1007a234664dbb8d9aa6c28aa856bf8e56923bae7834acae59",
+    "state_verification_sha256": "1d355279564d3bf5e34bdc1a562e166a526cc06a09bea3e23ae2f70f31b01655",
+    "fallback_verification_sha256": "e57825da975536e87e409c457a77545b6410653b4348b6644dd9e71dc8ef3926",
+    "independent_pixel_receipt_sha256": "99ed55e813ae80d076eb732e82afbf0abb90772d7897b710ef1e7cee20d2efbe",
+    "capture_manifest": "docs/NEWSH4_ENTRY6_CAPTURE_HASHES.json",
+    "production_object_archive": {
+      "path": "entry-craft-native-validation-20261012/shared-object-freeze.json",
+      "sha256": "cc6c0c22ea7ab910da967dfd6c7bcaca556cbd274f4d3ef1f11dcf0d95f31909",
+      "scope": "63 independent byte-exact object copies; original provenance is unchanged"
+    }
+  },
+  "acceptance_boundaries": [
+    "Only retained native frames are pixel proofs; wider state/material logs are separate evidence.",
+    "All six full source masks overlap by133 logical cells; visible union is1635, never claim1768 simultaneous unoccluded cells.",
+    "No forced combat/hit/ice/death test applies to the original avail2 family.",
+    "Private player survival is not ordinary natural-survival acceptance.",
+    "No full-level, hardwareGPU or Windows runtime result.",
+    "Source INT_MIN/MAX tests cover mirror-route rejection; unchanged classic blitter was not executed at those extremes.",
+    "Publication is handled by the coordinator; this receipt does not claim remote publication."
+  ]
+}

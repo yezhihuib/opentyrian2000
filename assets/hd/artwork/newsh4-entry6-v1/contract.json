@@ -1,0 +1,106 @@
+{
+  "schema": "newsh4-entry-six-art-v1",
+  "selected_art": "V2 worn-bronze material correction; V1 gold draft rejected and excluded from this canonical package.",
+  "approval": "Root approved V2 native2x on2026-10-12; artist inspected native2x/4x. Actual runtime remains separate.",
+  "bank": 2,
+  "source_file": "newsh4.shp",
+  "source_sha256": "ab8881b4a26e723650780b19d5aed4ebfe410ea450d4bf7b80840628d61fd89b",
+  "key_namespace": 102,
+  "bases": [
+    81,
+    83,
+    85,
+    119,
+    121,
+    123
+  ],
+  "enemy_types": [
+    468,
+    469,
+    470,
+    471,
+    472,
+    473
+  ],
+  "logical_component_size": [
+    24,
+    28
+  ],
+  "anchor": [
+    6,
+    7
+  ],
+  "density": 8,
+  "pixel_size": [
+    192,
+    224
+  ],
+  "whole_assembly_size": [
+    72,
+    52
+  ],
+  "source_order_placements": [
+    [
+      123,
+      48,
+      24
+    ],
+    [
+      81,
+      0,
+      0
+    ],
+    [
+      83,
+      24,
+      0
+    ],
+    [
+      85,
+      48,
+      0
+    ],
+    [
+      119,
+      0,
+      24
+    ],
+    [
+      121,
+      24,
+      24
+    ]
+  ],
+  "vertical_stride": 24,
+  "row_envelope_overlap": 4,
+  "summed_opaque_logical_cells": 1768,
+  "union_opaque_logical_cells": 1635,
+  "overlap_opaque_logical_cells": 133,
+  "registration_crop_halfopen": [
+    204,
+    259,
+    1034,
+    965
+  ],
+  "registration_target_halfopen_8x": [
+    24,
+    16,
+    472,
+    400
+  ],
+  "whole_registered_size_8x": [
+    576,
+    416
+  ],
+  "matte_rgb": [
+    12,
+    8,
+    0
+  ],
+  "alpha": "Six independent original encoded RLE opacity masks repeated8x; empty original quadrants stay empty. Clear RGB underalpha0.",
+  "resampling": "Pillow12.3.0 LANCZOS whole-image registration; NEAREST native2x/4x sampling.",
+  "partition": "All pieces sampled from one registered coherent material image, then masked independently; exact source-order rejoin equals whole union. Overlapping regions share the registered material image.",
+  "runtime_scope": "Only six full-composite bank2 keys. Do not replace raw sprite quadrants or bind boss86/124, whose shared quadrants are empty.",
+  "state_contract": "Original avail2/armor255 craft with upward acceleration and no ordinary shot/ram damage; no forced combat trial. Preserve recycled scoreitem and all original state.",
+  "actual_claims": "None. Predicted6550 remains source-derived; shared future discovery establishes actual entry, movement, overlap and exit."
+}

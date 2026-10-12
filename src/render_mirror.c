@@ -35,7 +35,7 @@ typedef struct {
 } Asset;
 enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
-static Asset assets[410];
+static Asset assets[416];
 static Asset talon_frames[13];
 typedef struct {
  bool valid;
@@ -1616,6 +1616,34 @@ static bool late_spike_family_ready(void)
  return late_spike_valid;
 }
 
+/* Approved newsh4 entry six-member bank2 family, selected-pack and 8x only.
+ * Preflight every member before the first replacement. The complete RGBA
+ * integrity stamps also pin the exact original alpha support. Failure stays
+ * coherent for this Asset-cache lifetime; unrelated namespaces are untouched. */
+static bool newsh4_entry6_checked,newsh4_entry6_valid;
+static bool newsh4_entry6_family_ready(void)
+{
+ if(game_probe_density!=8||game_probe_missing||game_probe_invalid||!game_probe_assets||
+    !(game_probe_scene_assets&1))return false;
+ if(newsh4_entry6_checked)return newsh4_entry6_valid;
+ newsh4_entry6_checked=true;newsh4_entry6_valid=true;
+ static const unsigned int ids[6]={81,83,85,119,121,123};
+ static const uint64_t rgba_stamps[6]={UINT64_C(0xd568531aec92422c),UINT64_C(0xbf0fa10dfdd98241),UINT64_C(0x095506cac33b7e8e),UINT64_C(0x568183ac9f82133c),UINT64_C(0xbd0f65394c14826d),UINT64_C(0xd3f58ab88accaf9d)};
+ for(int i=0;i<6;i++) {
+  Asset *a=&assets[410+i];
+  a->initialized=true;a->bank=ASSET_NEWSH4;a->index=(int)ids[i];
+  a->w=24;a->h=28;a->anchor_x=6;a->anchor_y=7;
+  a->valid=read_asset(a,8);
+  if(a->valid) {
+   uint64_t stamp=UINT64_C(0xcbf29ce484222325);
+   for(size_t p=0;p<(size_t)24*28*8*8*4;p++){stamp^=a->rgba[p];stamp*=UINT64_C(0x100000001b3);}
+   if(stamp!=rgba_stamps[i])a->valid=false;
+  }
+  if(!a->valid)newsh4_entry6_valid=false;
+ }
+ return newsh4_entry6_valid;
+}
+
 bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int base,int part,int filter,const G101EnemyContext *material_context)
 {
  if(!active||surface!=game_screen||reject_reason||!(game_probe_scene_assets&1))return false;
@@ -1683,6 +1711,20 @@ bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array ban
   for(int i=0;i<7;i++)if(base==newsh4_opposite7_ids[i]) {
    if(!newsh4_opposite7_family_ready())return false;
    slot=389+i;break;
+  }
+  /* Entry craft remains six independent source actors with ordered overlap.
+   * Only these full composites are bound; raw cells and boss86/124 stay classic. */
+  static const unsigned int newsh4_entry6_ids[6]={81,83,85,119,121,123};
+  for(int i=0;i<6;i++)if(base==newsh4_entry6_ids[i]) {
+   if(!newsh4_entry6_family_ready())return false;
+   /* Preserve original linear-address RLE row wrapping by declining HD for
+    * any quadrant crossing a physical row or an unsupported indexed layout.
+    * Wholly offscreen y calls also stay classic before subtraction/scaling;
+    * the accepted -13..199 range retains every partial 14px vertical clip. */
+   if(surface->w!=320||surface->h!=200||surface->pitch!=320||
+      !surface->format||surface->format->BitsPerPixel!=8||
+      surface->format->BytesPerPixel!=1||x<0||x>308||y<-13||y>199)return false;
+   slot=410+i;break;
   }
  }
  if(role==ASSET_NEWSHE) {

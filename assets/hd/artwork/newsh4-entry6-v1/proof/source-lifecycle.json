@@ -1,0 +1,131 @@
+{
+  "family": {
+    "records": [
+      468,
+      469,
+      470,
+      471,
+      472,
+      473
+    ],
+    "bank": 2,
+    "bases": [
+      81,
+      83,
+      85,
+      119,
+      121,
+      123
+    ]
+  },
+  "animation": {
+    "ani": 1,
+    "animate": 0,
+    "enemycycle": 1,
+    "aniactive": 0,
+    "animax": 0,
+    "aniwhenfire": 0,
+    "egr_table": "One nonzero base, followed by nineteen zeros. No event19/20/24 cycle override during the source lifetime. No firing animation, alternate damage frame or shadow sprite."
+  },
+  "damage": {
+    "source_armor": 0,
+    "constructed_armorleft": 255,
+    "enemyAvail": 2,
+    "dgr": 0,
+    "dani": 0,
+    "dlevel": -1,
+    "edamaged": false,
+    "ordinary_player_shot": "Excluded by enemyAvail==0 check, including ordinary, piercing, ice damage99, special shots and Zinglon collision branch. No ordinary hit, ice or lethal-damage exposure requirement for this family.",
+    "body_collision": "Ordinary damaging collision branch also requires enemyAvail==0. With scoreitem=false, these pass-through entry actors do not harm the player.",
+    "exception_scope": "Do not forcibly clear, freeze or bypass original enemy state. Generic global destruction link254 could remove other active entries, but no first-level source event uses link254. No actor damage/armor/drop/event replacement override occurs within this family source lifetime."
+  },
+  "ground_filter": {
+    "explosiontype": 0,
+    "enemyground": true,
+    "explonum": 0,
+    "note": "enemyground is explosion/filter classification and does not select the movement layer. Actual event18 actor is sky pool0\u201324 with tempBackMove0.",
+    "initial_filter": 0,
+    "hit_filter": "Normal shot-hit path is unreachable for avail2, and link0 is converted to255 when another unlinked enemy is hit, so there is no link0 shared flash.",
+    "ice": "Initial iced0; ordinary ice shot cannot select avail2. Do not fabricate an ice variant. Generic indexed filter support must remain unchanged. If iced is present for another valid reason, engine sets0x09 after movement; it does not freeze movement.",
+    "implementation": "Preserve original per-quadrant filter argument and original clear-after-draw. No separate tinted asset."
+  },
+  "state_inheritance_caveat": {
+    "scoreitem": "JE_makeEnemy sets scoreitem=false only in the armor>0 branch; armor0/value0 leaves the recycled slot scoreitem unchanged. Fresh level enemy array is zeroed, but intervening prior occupants may have set it. Do not assert every entry instance has scoreitem=false without state evidence.",
+    "consequences": "At center X100/124/148, boundary correction for scoreitem never changes X. If inherited scoreitem=true and the player overlaps, collection removes that one actor, awards0 cash, plays item sound, and requests fixed type0 effect (newsh6:145). No family pickup art is created. totalEnemy counter and guided-shot eligibility also depend on scoreitem.",
+    "observer": "Preserve state; source census should record scoreitem if available. Existing scene-enemies logger cannot supply it for this family."
+  },
+  "reward_drop": {
+    "value": 0,
+    "eenemydie": 0,
+    "event33_or45_assignment_during_lifetime": false,
+    "source_reward": "No authored cash, cube, pickup or weapon reward. Family link0 has no first-level drop assignment. State-inheritance collection caveat is separate.",
+    "bounds_exit": "Individual enemyAvail becomes1; no award, explosion, enemyKilled increment or drop in enemy_gone branch."
+  },
+  "weapons": {
+    "tur": [
+      0,
+      0,
+      0
+    ],
+    "freq": [
+      0,
+      0,
+      0
+    ],
+    "eshotwait": [
+      255,
+      255,
+      255
+    ],
+    "launchfreq": 0,
+    "launchtype": 0,
+    "launchwait": 0,
+    "launchspecial": 0,
+    "dependency": "No enemy projectile, launch, trail or turret art. Difficulty/galaga fire changes cannot create a turret fromzero. Player guided-shot target selection uses avail!=1 and !scoreitem, so may target an invulnerable entry; keep original targeting unchanged. Arbitrary player arsenal behavior is not runtime-validated."
+  },
+  "mode_and_event_substitutions": {
+    "JE_makeEnemy": "Only534\u2192533 superArcade substitution exists here; it does not affect468\u2013473.",
+    "spawn_types": "All six are explicit event18; no custom sprite/bank events49\u201352, random spawn, launch or four-record implicit family assembly.",
+    "mode_gates": "All1010 events audited. Earlier flag event793 at4515 skips794\u2013795 only. No gate, mode branch, timer or jump spans848\u2013853. No mutation during5000\u20135230.",
+    "event33_and45": "Those pickup substitutions apply elsewhere; none changes this family. No stored prior link0 drop is inherited because makeEnemy resets enemydie0.",
+    "all_modes_qualification": "Table/event reasoning is valid for the loaded first-level data. It does not certify arbitrary-mode runtime allocation, prior slot contents, survival or arbitrary-loadout behavior."
+  },
+  "removal": {
+    "source_upward_motion": "eyc\u2212=1 every8updates, draw before update. Fixedmovey0 and tempBackMove0. No reversal before removal.",
+    "top_records": [
+      468,
+      469,
+      470
+    ],
+    "top_removal_tick": 6619,
+    "bottom_records": [
+      471,
+      472,
+      473
+    ],
+    "bottom_removal_tick": 6622,
+    "conditions": "Scalar source model only; allocation and state-dependent collection remain actual-observation questions. Last draw reference can precede removal by11ticks.",
+    "source_bounds": "ex<\u221280 or ex>340; then ey<\u2212112 or ey>190 after movement. These center-position entries leave above the screen."
+  },
+  "layer_order": {
+    "pool": [
+      0,
+      24
+    ],
+    "map_offset": "mapX2Ofs (41 for stationary player100); no ground\u221212 correction",
+    "skyEnemyOverAll": false,
+    "background2over": 1,
+    "background3over": 1,
+    "topEnemyOver": false,
+    "position_in_frame": "After ground actors and background2; before top actors, player shots, enemy shots, late background3, explosions and player/UI drawing. Later calls may occlude.",
+    "relationship": "Independent foreground craft, not terrain-anchored. Relative cell displacement remains rigid before individual removal; original actor event order must remain authoritative."
+  },
+  "source_references": [
+    "src/episodes.c:55\u201372,185\u2013227",
+    "src/tyrian2.c:168\u2013190,193\u2013374,1047\u20131074,1294\u20131296,1378\u20131472,1492\u20131496,1538\u20131577,1666\u20131758,1914\u20131938,3993\u20134167,4218\u20134281,4285\u20134353,4485\u20134590,4590\u20135300",
+    "src/mainint.c:4718\u20134743,4757\u20134770,4990\u20135066",
+    "src/shots.c:503\u2013525",
+    "src/varz.c:545\u2013568,879\u2013970"
+  ],
+  "claims": "Read-only source audit, not observed runtime damage, collision, collection, shot or lifecycle acceptance."
+}

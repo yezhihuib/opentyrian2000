@@ -1,0 +1,539 @@
+{
+  "status": "36 genuine native readbacks verified",
+  "source_checkpoint": "7513d828cab46919a78e8d3fe00229cafbfcad9c",
+  "baseline": "fe5f5d7922105dccf67bfe2648ac366c3031bc66",
+  "native_readback": "SDL_GetRendererOutputSize plus SDL_RenderReadPixels ARGB8888; no resize for capture",
+  "capture_count": 36,
+  "frames": [
+    {
+      "tick": 6550,
+      "width": 640,
+      "height": 400,
+      "RGBA_sha256": "ef786cbcf8c6e2ba0b44455027330c8e20b207729fd13bd67f6a6bea7ef6e05c",
+      "PNG_sha256": "a24acb6f785e8beecf78c9ef6fae82aba72794c98d7e807442c17dd8016ea191",
+      "path": "entry-craft-native-validation-20261012/baseline-census/actual-6550-native2x.png",
+      "bytes": 163438,
+      "run": "baseline-census"
+    },
+    {
+      "tick": 6574,
+      "width": 640,
+      "height": 400,
+      "RGBA_sha256": "12c0c1cc51d41c1ea8bfd3de2177fd35d969373fd0b2553b01b9691a20adaa8b",
+      "PNG_sha256": "8791f3862a592c8280ffc25c7d38c25041dd03d198c59a768c85dcff40d795b6",
+      "path": "entry-craft-native-validation-20261012/baseline-census/actual-6574-native2x.png",
+      "bytes": 152181,
+      "run": "baseline-census"
+    },
+    {
+      "tick": 6582,
+      "width": 640,
+      "height": 400,
+      "RGBA_sha256": "2105fd8ef66db123dd4d59bb5253d57b6c77e0fadf15d86347008bb086420f0b",
+      "PNG_sha256": "550f889c1218fb416d164cc207b6b2075054976356038debd785fa9c609fa879",
+      "path": "entry-craft-native-validation-20261012/baseline-census/actual-6582-native2x.png",
+      "bytes": 149520,
+      "run": "baseline-census"
+    },
+    {
+      "tick": 6583,
+      "width": 640,
+      "height": 400,
+      "RGBA_sha256": "240f7826157b00c6b98f764612e2f20b87a3c81dfdb2c74ef1a78c10f72aec94",
+      "PNG_sha256": "09b1fc286e55704c171071edff3e9fd69ad80cb2ecac064ddf42b9d5bd7aa26d",
+      "path": "entry-craft-native-validation-20261012/baseline-census/actual-6583-native2x.png",
+      "bytes": 149395,
+      "run": "baseline-census"
+    },
+    {
+      "tick": 6584,
+      "width": 640,
+      "height": 400,
+      "RGBA_sha256": "f5dc3baca14a889ae433439bdb9a7f1ede2cc02893475050ef87d4c03ec5719d",
+      "PNG_sha256": "cd8b167515e5af592422b34bf36779edd033d946d99dce84cb01a141363ced93",
+      "path": "entry-craft-native-validation-20261012/baseline-census/actual-6584-native2x.png",
+      "bytes": 148990,
+      "run": "baseline-census"
+    },
+    {
+      "tick": 6585,
+      "width": 640,
+      "height": 400,
+      "RGBA_sha256": "fbcd7fd69a3841fa27dcc6808ff78fdc5b282fc453852ab03c29dd358a03d05d",
+      "PNG_sha256": "887fc0b27fdecfcd1aeaa744135b76641d4c4849cbc96ce94f1a741dc7bf8b58",
+      "path": "entry-craft-native-validation-20261012/baseline-census/actual-6585-native2x.png",
+      "bytes": 149703,
+      "run": "baseline-census"
+    },
+    {
+      "tick": 6586,
+      "width": 640,
+      "height": 400,
+      "RGBA_sha256": "72c62fc51e7410c2038e79396528b34c195dfedf5cfbd54901dbf01d59795e5c",
+      "PNG_sha256": "b0ed9f4eedbaf876b16d5d84d2fde33bae0ebfc17665a0bd4c389494287b8d0f",
+      "path": "entry-craft-native-validation-20261012/baseline-census/actual-6586-native2x.png",
+      "bytes": 149710,
+      "run": "baseline-census"
+    },
+    {
+      "tick": 6587,
+      "width": 640,
+      "height": 400,
+      "RGBA_sha256": "1e8eaf44549e244bd70f4be9afb8ebd8cb76e49697acc686a8f060bec87cf73a",
+      "PNG_sha256": "1d94e63c90c06f03071a13f8a106bdfaf9dece7a699623e578e48149be591383",
+      "path": "entry-craft-native-validation-20261012/baseline-census/actual-6587-native2x.png",
+      "bytes": 149517,
+      "run": "baseline-census"
+    },
+    {
+      "tick": 6607,
+      "width": 640,
+      "height": 400,
+      "RGBA_sha256": "0116f36b7dd0e0cb75b5492435b0dff8fbf4caea57e96dec7016e69f47378b7e",
+      "PNG_sha256": "c735464f2332aa0a29102606b130ac130e704bcd13b078709e7c690fad36041a",
+      "path": "entry-craft-native-validation-20261012/baseline-census/actual-6607-native2x.png",
+      "bytes": 201541,
+      "run": "baseline-census"
+    },
+    {
+      "tick": 6608,
+      "width": 640,
+      "height": 400,
+      "RGBA_sha256": "9691afae71141dd2314b873d8eebaccc93fc5a75f3b445da7e964e741c9e7b98",
+      "PNG_sha256": "ef8a836dbf0046963721e8eb8d55a53d2f2ff76082fa37fa9ce71d1a17e79c4a",
+      "path": "entry-craft-native-validation-20261012/baseline-census/actual-6608-native2x.png",
+      "bytes": 202956,
+      "run": "baseline-census"
+    },
+    {
+      "tick": 6609,
+      "width": 640,
+      "height": 400,
+      "RGBA_sha256": "cc89bf97e77b0f7848829cb4ee6da1a2ef188e98b215119750d246990f7cec89",
+      "PNG_sha256": "3de08067995a330786e8e3e055132783fc7ff7410eb9c0a746565b28110c9709",
+      "path": "entry-craft-native-validation-20261012/baseline-census/actual-6609-native2x.png",
+      "bytes": 204261,
+      "run": "baseline-census"
+    },
+    {
+      "tick": 6610,
+      "width": 640,
+      "height": 400,
+      "RGBA_sha256": "b65475a972989eda78f0e5e4674329644337643073875dec97169e1cee6ca984",
+      "PNG_sha256": "08684dfbcd955a1e3f573074b226a86101a05ca619e598eca3bf4d50c3c3a2cb",
+      "path": "entry-craft-native-validation-20261012/baseline-census/actual-6610-native2x.png",
+      "bytes": 204704,
+      "run": "baseline-census"
+    },
+    {
+      "tick": 6611,
+      "width": 640,
+      "height": 400,
+      "RGBA_sha256": "83f4620b4eda962eeac62552c73f8cd380774c073f9b461be1bb57f94c6cbaca",
+      "PNG_sha256": "c46f2211951b1f17addc61fe39f23af72d4c08cc652250053a10b483bb332557",
+      "path": "entry-craft-native-validation-20261012/baseline-census/actual-6611-native2x.png",
+      "bytes": 205120,
+      "run": "baseline-census"
+    },
+    {
+      "tick": 6612,
+      "width": 640,
+      "height": 400,
+      "RGBA_sha256": "b830f637e175b8753634da48a2744a85981ad03849e804b07f42c36ac0d7e816",
+      "PNG_sha256": "14988745d3eec1cad0559e89c176a5ffec084107391f00a8c16c30f3b201bdd8",
+      "path": "entry-craft-native-validation-20261012/baseline-census/actual-6612-native2x.png",
+      "bytes": 208125,
+      "run": "baseline-census"
+    },
+    {
+      "tick": 6623,
+      "width": 640,
+      "height": 400,
+      "RGBA_sha256": "28863329605145f90717e4a57c6a40d0f100b70bc168b5963def97f95388d874",
+      "PNG_sha256": "cb8afeaa5bb0269a48e2dfb257cc6904570e9127b39b5da83fb6ec829e05b163",
+      "path": "entry-craft-native-validation-20261012/baseline-census/actual-6623-native2x.png",
+      "bytes": 251029,
+      "run": "baseline-census"
+    },
+    {
+      "tick": 6550,
+      "width": 640,
+      "height": 400,
+      "RGBA_sha256": "aa30520836200c146df7ddda1b76f18e3321f9fc6f42a3de5e58129739d663db",
+      "PNG_sha256": "7a872d40362a9f60083a940ccda7896bb3f240188ce84440e662f550e530c0e5",
+      "path": "entry-craft-native-validation-20261012/candidate-census/actual-6550-native2x.png",
+      "bytes": 168161,
+      "run": "candidate-census"
+    },
+    {
+      "tick": 6574,
+      "width": 640,
+      "height": 400,
+      "RGBA_sha256": "6e4559ca32cf3c902ff6d85866b918b993d6cb55cbcc9565ee1e0d5fcd25b325",
+      "PNG_sha256": "c89ac3fc2807cc7dfee9f6a54b8ffc67ef0b397bae5388d8f55aafeb2468e308",
+      "path": "entry-craft-native-validation-20261012/candidate-census/actual-6574-native2x.png",
+      "bytes": 166420,
+      "run": "candidate-census"
+    },
+    {
+      "tick": 6582,
+      "width": 640,
+      "height": 400,
+      "RGBA_sha256": "bdf199bef4563fc1f88d8fe19e750ece5e896b7746a299157167918fc3a65de1",
+      "PNG_sha256": "ea9bce1005088e2cd41f2c33fe3170c9cb44dc872b0d988a4111d4f0f00398ff",
+      "path": "entry-craft-native-validation-20261012/candidate-census/actual-6582-native2x.png",
+      "bytes": 164150,
+      "run": "candidate-census"
+    },
+    {
+      "tick": 6583,
+      "width": 640,
+      "height": 400,
+      "RGBA_sha256": "7b4e8df18ae5696f002ced2d752f428a54504b7df5b3c9111bf23024663bcbee",
+      "PNG_sha256": "b7067ebef05eee76c9323781eca5cb5d376ab6425099213b28cbf0f12f6f05c5",
+      "path": "entry-craft-native-validation-20261012/candidate-census/actual-6583-native2x.png",
+      "bytes": 163787,
+      "run": "candidate-census"
+    },
+    {
+      "tick": 6584,
+      "width": 640,
+      "height": 400,
+      "RGBA_sha256": "68835dc97882047e9133722822da4aed7c779a3d64336a1266261082d249a038",
+      "PNG_sha256": "a4d74e6c7d94256cb97d28fe5c26acbe004c7bb214174274427ec5fee6436f15",
+      "path": "entry-craft-native-validation-20261012/candidate-census/actual-6584-native2x.png",
+      "bytes": 163445,
+      "run": "candidate-census"
+    },
+    {
+      "tick": 6585,
+      "width": 640,
+      "height": 400,
+      "RGBA_sha256": "a6eea7b07d64729dba0dc16018c9cfda5458bc987e3e05e53d5375359c57d303",
+      "PNG_sha256": "17c8b61d0c3e5100aa73e8793f31d2cd38214e30a60942b36b0b48c6c3d9902d",
+      "path": "entry-craft-native-validation-20261012/candidate-census/actual-6585-native2x.png",
+      "bytes": 164097,
+      "run": "candidate-census"
+    },
+    {
+      "tick": 6586,
+      "width": 640,
+      "height": 400,
+      "RGBA_sha256": "ab13a7a16996f42d18577a137435a211c420e72546a1d4ee55b6935a27cfd9f4",
+      "PNG_sha256": "4c400776a15b378a7a11f4d59828cd1a3da48be9826a36163e695276432ae6fc",
+      "path": "entry-craft-native-validation-20261012/candidate-census/actual-6586-native2x.png",
+      "bytes": 163936,
+      "run": "candidate-census"
+    },
+    {
+      "tick": 6587,
+      "width": 640,
+      "height": 400,
+      "RGBA_sha256": "cecfbc9f60e0d0256f9024b8d3135398cbbc9c861a232691bb09d032dbc6a763",
+      "PNG_sha256": "c66a38569c7a51576d3f30eddeaa695c95ba0556483dd127610a76d2217f9e89",
+      "path": "entry-craft-native-validation-20261012/candidate-census/actual-6587-native2x.png",
+      "bytes": 163922,
+      "run": "candidate-census"
+    },
+    {
+      "tick": 6607,
+      "width": 640,
+      "height": 400,
+      "RGBA_sha256": "66655657f213880ba02f9a3753ce723c48fb84998ea25107226e58ab0e425c10",
+      "PNG_sha256": "d0be1dd291d60b53ad3fd4003d7081b81bc99cbd5bc8e1cab9452db21f713114",
+      "path": "entry-craft-native-validation-20261012/candidate-census/actual-6607-native2x.png",
+      "bytes": 209927,
+      "run": "candidate-census"
+    },
+    {
+      "tick": 6608,
+      "width": 640,
+      "height": 400,
+      "RGBA_sha256": "6a4291c1f8d4a254ebfe37458c49528e7207710e2035fcb7a7ad7a700a5f3bd1",
+      "PNG_sha256": "1948aaceed49f2185e9fb857fe9119ed729d4fb75c3329a994f53f8f045b3165",
+      "path": "entry-craft-native-validation-20261012/candidate-census/actual-6608-native2x.png",
+      "bytes": 208935,
+      "run": "candidate-census"
+    },
+    {
+      "tick": 6609,
+      "width": 640,
+      "height": 400,
+      "RGBA_sha256": "9d65c2f7b42b2fb2e70cc2a4259fc78552e9aecb153d16f04390d6e62b44f070",
+      "PNG_sha256": "571d489ea15d1b7c96496a6ca63a2c5104d10dd905bf09ecb8243dab6dc28f66",
+      "path": "entry-craft-native-validation-20261012/candidate-census/actual-6609-native2x.png",
+      "bytes": 208336,
+      "run": "candidate-census"
+    },
+    {
+      "tick": 6610,
+      "width": 640,
+      "height": 400,
+      "RGBA_sha256": "edc91b4dc470df0f70473fe1769ec708a09f1e55723e2665cf14775887bbdf2c",
+      "PNG_sha256": "76e75ff41591452a51f7a10440062f2211cff610b1f6247598f3d77ad86d2379",
+      "path": "entry-craft-native-validation-20261012/candidate-census/actual-6610-native2x.png",
+      "bytes": 206262,
+      "run": "candidate-census"
+    },
+    {
+      "tick": 6611,
+      "width": 640,
+      "height": 400,
+      "RGBA_sha256": "83f4620b4eda962eeac62552c73f8cd380774c073f9b461be1bb57f94c6cbaca",
+      "PNG_sha256": "c46f2211951b1f17addc61fe39f23af72d4c08cc652250053a10b483bb332557",
+      "path": "entry-craft-native-validation-20261012/candidate-census/actual-6611-native2x.png",
+      "bytes": 205120,
+      "run": "candidate-census"
+    },
+    {
+      "tick": 6612,
+      "width": 640,
+      "height": 400,
+      "RGBA_sha256": "b830f637e175b8753634da48a2744a85981ad03849e804b07f42c36ac0d7e816",
+      "PNG_sha256": "14988745d3eec1cad0559e89c176a5ffec084107391f00a8c16c30f3b201bdd8",
+      "path": "entry-craft-native-validation-20261012/candidate-census/actual-6612-native2x.png",
+      "bytes": 208125,
+      "run": "candidate-census"
+    },
+    {
+      "tick": 6623,
+      "width": 640,
+      "height": 400,
+      "RGBA_sha256": "28863329605145f90717e4a57c6a40d0f100b70bc168b5963def97f95388d874",
+      "PNG_sha256": "cb8afeaa5bb0269a48e2dfb257cc6904570e9127b39b5da83fb6ec829e05b163",
+      "path": "entry-craft-native-validation-20261012/candidate-census/actual-6623-native2x.png",
+      "bytes": 251029,
+      "run": "candidate-census"
+    },
+    {
+      "tick": 6585,
+      "width": 1280,
+      "height": 800,
+      "RGBA_sha256": "4763bc13f2b29ce7e3b9efd244f17d20a9356919bb48be7f3aa5176f685195ad",
+      "PNG_sha256": "16255bdd2ff14a42ff6f0b094e6a213606fa4347f4b65b62e17d06ab5edd434a",
+      "path": "entry-craft-native-validation-20261012/baseline-census-4x/actual-6585-native4x.png",
+      "bytes": 507617,
+      "run": "baseline-census-4x"
+    },
+    {
+      "tick": 6585,
+      "width": 1280,
+      "height": 800,
+      "RGBA_sha256": "7bca230cb461d6301335204475961fd8aa46c78d46d5083ef39652a30dd03491",
+      "PNG_sha256": "3d39e4db91b668c172edc8fab9ea215cefdbbee7982c989a49c5e6bef68a514b",
+      "path": "entry-craft-native-validation-20261012/candidate-census-4x/actual-6585-native4x.png",
+      "bytes": 569083,
+      "run": "candidate-census-4x"
+    },
+    {
+      "tick": 6585,
+      "width": 640,
+      "height": 400,
+      "RGBA_sha256": "fbcd7fd69a3841fa27dcc6808ff78fdc5b282fc453852ab03c29dd358a03d05d",
+      "PNG_sha256": "887fc0b27fdecfcd1aeaa744135b76641d4c4849cbc96ce94f1a741dc7bf8b58",
+      "path": "entry-craft-native-validation-20261012/missing83-census/actual-6585-native2x.png",
+      "bytes": 149703,
+      "run": "missing83-census"
+    },
+    {
+      "tick": 6585,
+      "width": 640,
+      "height": 400,
+      "RGBA_sha256": "fbcd7fd69a3841fa27dcc6808ff78fdc5b282fc453852ab03c29dd358a03d05d",
+      "PNG_sha256": "887fc0b27fdecfcd1aeaa744135b76641d4c4849cbc96ce94f1a741dc7bf8b58",
+      "path": "entry-craft-native-validation-20261012/corrupt83-census/actual-6585-native2x.png",
+      "bytes": 149703,
+      "run": "corrupt83-census"
+    },
+    {
+      "tick": 6585,
+      "width": 640,
+      "height": 400,
+      "RGBA_sha256": "3be12cb243e8bc232acac3fa960d982b176a41905b92dbe9a0a33410426c5237",
+      "PNG_sha256": "e1618e50ca005558491114dd9abdd887ad734198cf646c46f48b9297cdac456e",
+      "path": "entry-craft-native-validation-20261012/baseline-density4-census/actual-6585-native2x.png",
+      "bytes": 97082,
+      "run": "baseline-density4-census"
+    },
+    {
+      "tick": 6585,
+      "width": 640,
+      "height": 400,
+      "RGBA_sha256": "3be12cb243e8bc232acac3fa960d982b176a41905b92dbe9a0a33410426c5237",
+      "PNG_sha256": "e1618e50ca005558491114dd9abdd887ad734198cf646c46f48b9297cdac456e",
+      "path": "entry-craft-native-validation-20261012/candidate-density4-census/actual-6585-native2x.png",
+      "bytes": 97082,
+      "run": "candidate-density4-census"
+    }
+  ],
+  "runs": [
+    {
+      "directory": "entry-craft-native-validation-20261012/baseline-census",
+      "summary": {
+        "status": "completed; paired verification pending",
+        "label": "baseline",
+        "commit": "fe5f5d7922105dccf67bfe2648ac366c3031bc66",
+        "logic_ticks": [
+          0,
+          6624
+        ],
+        "census_rows": 150000,
+        "elapsed_seconds": 22.569903288000205,
+        "native_captures": 15,
+        "scale": 2,
+        "projectile_injections": 0,
+        "integrity_passed": true
+      },
+      "command_sha256": "691a9df43f7048a079e58cb3c8a1ed5e30c2a8598a3589cbef28ea45c596e789",
+      "stream_receipts_sha256": "61e451a2bb03feb29c0527df9a1fd86f3022a19fa20795b110e0fa7533d08b53",
+      "frame_hashes_sha256": "0e74c2a25d55ca2a964b6df8841c64d076de5e1e68c31fc40dfa51339a807fb8"
+    },
+    {
+      "directory": "entry-craft-native-validation-20261012/candidate-census",
+      "summary": {
+        "status": "completed; paired verification pending",
+        "label": "candidate",
+        "commit": "7513d828cab46919a78e8d3fe00229cafbfcad9c",
+        "logic_ticks": [
+          0,
+          6624
+        ],
+        "census_rows": 150000,
+        "elapsed_seconds": 23.190687352998793,
+        "native_captures": 15,
+        "scale": 2,
+        "projectile_injections": 0,
+        "integrity_passed": true
+      },
+      "command_sha256": "380386897ae5bafb775f3f30c01bfb9ce66e178db5c5b1e95d01e37ce77d7de3",
+      "stream_receipts_sha256": "1c23899007c21ba88eb53b58bd346e4c5bfa042afb736ecbf903e84a5363d116",
+      "frame_hashes_sha256": "486879c612cdc84f52647c2a2593503626113f128ce64015133b98ca74b07cc1"
+    },
+    {
+      "directory": "entry-craft-native-validation-20261012/baseline-census-4x",
+      "summary": {
+        "status": "completed; paired verification pending",
+        "label": "baseline",
+        "commit": "fe5f5d7922105dccf67bfe2648ac366c3031bc66",
+        "logic_ticks": [
+          0,
+          6624
+        ],
+        "census_rows": 150000,
+        "elapsed_seconds": 23.68590686099924,
+        "native_captures": 1,
+        "scale": 4,
+        "projectile_injections": 0,
+        "integrity_passed": true
+      },
+      "command_sha256": "2c1279020c1406f7591d4c3967ea512886f1405852f5f36813d7101f9230a8d3",
+      "stream_receipts_sha256": "20085261ae57fc7a50e2bcc1f9a52886fa8ddeabd471167dd319a5aa2ed5c4d4",
+      "frame_hashes_sha256": "b9958122f1dcf1ebdf7ac8ab12c48ab41c811fd1d1d0720e2400e4fc53de20de"
+    },
+    {
+      "directory": "entry-craft-native-validation-20261012/candidate-census-4x",
+      "summary": {
+        "status": "completed; paired verification pending",
+        "label": "candidate",
+        "commit": "7513d828cab46919a78e8d3fe00229cafbfcad9c",
+        "logic_ticks": [
+          0,
+          6624
+        ],
+        "census_rows": 150000,
+        "elapsed_seconds": 24.057909905000997,
+        "native_captures": 1,
+        "scale": 4,
+        "projectile_injections": 0,
+        "integrity_passed": true
+      },
+      "command_sha256": "f69820c45a3fca8f9a0582c803b1fbcfa0eab1f12bef25349c1103159eb0976c",
+      "stream_receipts_sha256": "b12fe73755d5b00688b9871c74eb74c5b712c89f57e73b742cd93fd58672d0f6",
+      "frame_hashes_sha256": "10992dce159d291838d8fea52bc92c31840a872eb2fd7471e9ca8a44a9fce9b5"
+    },
+    {
+      "directory": "entry-craft-native-validation-20261012/missing83-census",
+      "summary": {
+        "status": "completed; paired verification pending",
+        "label": "missing83",
+        "commit": "7513d828cab46919a78e8d3fe00229cafbfcad9c",
+        "logic_ticks": [
+          0,
+          6624
+        ],
+        "census_rows": 150000,
+        "elapsed_seconds": 23.4502404340019,
+        "native_captures": 1,
+        "scale": 2,
+        "projectile_injections": 0,
+        "integrity_passed": true
+      },
+      "command_sha256": "ad12223a97161154d11e076a3f2ebf545d47ed7dccb1cd419c9a37faac71bae5",
+      "stream_receipts_sha256": "db3d3581ea1e27118757bb0418c0674e4426fbf8a15b13fac4210b8a863e35d1",
+      "frame_hashes_sha256": "8fc3b22059cefeed7d346bd1bfb42a146df24e1b93887993de6135e6fa29fe3f"
+    },
+    {
+      "directory": "entry-craft-native-validation-20261012/corrupt83-census",
+      "summary": {
+        "status": "completed; paired verification pending",
+        "label": "corrupt83",
+        "commit": "7513d828cab46919a78e8d3fe00229cafbfcad9c",
+        "logic_ticks": [
+          0,
+          6624
+        ],
+        "census_rows": 150000,
+        "elapsed_seconds": 24.971686229000625,
+        "native_captures": 1,
+        "scale": 2,
+        "projectile_injections": 0,
+        "integrity_passed": true
+      },
+      "command_sha256": "0722a1360fbad91d4fc1ab52822c33c5901f5dfbb3f0f45b25de7e1a7894d49e",
+      "stream_receipts_sha256": "0072088722f90d79ce9bc1a6547b3d47fb4859a0d531b0a212e269c0490c4682",
+      "frame_hashes_sha256": "2f332562ad9dd0cd4e4989da995e8bc0947a22746ae6aba6800fc7101060795a"
+    },
+    {
+      "directory": "entry-craft-native-validation-20261012/baseline-density4-census",
+      "summary": {
+        "status": "completed; paired verification pending",
+        "label": "baseline-density4",
+        "commit": "fe5f5d7922105dccf67bfe2648ac366c3031bc66",
+        "logic_ticks": [
+          0,
+          6624
+        ],
+        "census_rows": 150000,
+        "elapsed_seconds": 10.294239045000722,
+        "native_captures": 1,
+        "scale": 2,
+        "projectile_injections": 0,
+        "integrity_passed": true
+      },
+      "command_sha256": "3883d3a603020771447581f5d42ed97bbc0cb26140466006069fdc5b05d1f7f4",
+      "stream_receipts_sha256": "e36806bc0a0ec8392895f971acb5e1db1c4da8335b0a0f9a7b2ac15fbb7608bd",
+      "frame_hashes_sha256": "8e3e60aa05987679fc0be817dba1f6433a70258096fa45798185201359288625"
+    },
+    {
+      "directory": "entry-craft-native-validation-20261012/candidate-density4-census",
+      "summary": {
+        "status": "completed; paired verification pending",
+        "label": "candidate-density4",
+        "commit": "7513d828cab46919a78e8d3fe00229cafbfcad9c",
+        "logic_ticks": [
+          0,
+          6624
+        ],
+        "census_rows": 150000,
+        "elapsed_seconds": 10.096056076999957,
+        "native_captures": 1,
+        "scale": 2,
+        "projectile_injections": 0,
+        "integrity_passed": true
+      },
+      "command_sha256": "9ce4300b5d85c5548659a5ef10a90442a96f5636911180416691d13dbb3e45c4",
+      "stream_receipts_sha256": "ce2d2675be24c269cc29d8a4d7ac16c6d81beb8ecb11e46bd037cdf0d99cbf83",
+      "frame_hashes_sha256": "5a5014474be9dbe2cd61325769f13ac217c152e67588f5412af1659d9a4e0820"
+    }
+  ]
+}

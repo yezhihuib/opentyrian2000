@@ -1,0 +1,271 @@
+{
+  "status": "PASS existing shared-census reuse; no new game execution",
+  "original_discovery_commits": {
+    "baseline": "2efdc890217330e75a873252ca96b576495b23b9",
+    "candidate": "ed10ce7ad3d7023c154128d75857e8450a9cf032"
+  },
+  "current_entry_baseline": "fe5f5d7922105dccf67bfe2648ac366c3031bc66",
+  "original_equal_all100_rows": 150000,
+  "all100_phases": [
+    "post-events",
+    "pre-ground-50",
+    "post-ground-50",
+    "pre-ground-100",
+    "post-ground-100",
+    "pre-sky-25",
+    "post-sky-25",
+    "pre-projectiles",
+    "post-projectiles",
+    "pre-body-collision",
+    "post-body-collision",
+    "end-tick"
+  ],
+  "spawn_tick": 6550,
+  "source_draw_order": [
+    123,
+    81,
+    83,
+    85,
+    119,
+    121
+  ],
+  "spawn_slots": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "avail": 2,
+  "armor": 255,
+  "observed_scoreitem": 0,
+  "preserve_other_recycled_scoreitem_values": true,
+  "removals": [
+    {
+      "tick": 6619,
+      "slot": 1,
+      "base": 81,
+      "before_avail": 2,
+      "after_avail": 1,
+      "before_y": -106,
+      "after_y": -114,
+      "scoreitem": 0
+    },
+    {
+      "tick": 6619,
+      "slot": 2,
+      "base": 83,
+      "before_avail": 2,
+      "after_avail": 1,
+      "before_y": -106,
+      "after_y": -114,
+      "scoreitem": 0
+    },
+    {
+      "tick": 6619,
+      "slot": 3,
+      "base": 85,
+      "before_avail": 2,
+      "after_avail": 1,
+      "before_y": -106,
+      "after_y": -114,
+      "scoreitem": 0
+    },
+    {
+      "tick": 6622,
+      "slot": 0,
+      "base": 123,
+      "before_avail": 2,
+      "after_avail": 1,
+      "before_y": -107,
+      "after_y": -116,
+      "scoreitem": 0
+    },
+    {
+      "tick": 6622,
+      "slot": 4,
+      "base": 119,
+      "before_avail": 2,
+      "after_avail": 1,
+      "before_y": -107,
+      "after_y": -116,
+      "scoreitem": 0
+    },
+    {
+      "tick": 6622,
+      "slot": 5,
+      "base": 121,
+      "before_avail": 2,
+      "after_avail": 1,
+      "before_y": -107,
+      "after_y": -116,
+      "scoreitem": 0
+    }
+  ],
+  "references": [
+    {
+      "base": 81,
+      "source_opaque": 263,
+      "rectangle_references": 228,
+      "rectangle_first_last": [
+        6550,
+        6607
+      ],
+      "actual_reference_derived_opaque_first_last": [
+        6550,
+        6607
+      ],
+      "max_original_alpha_inbounds": 263,
+      "tile_ids": [
+        81,
+        82,
+        100,
+        101
+      ]
+    },
+    {
+      "base": 83,
+      "source_opaque": 351,
+      "rectangle_references": 228,
+      "rectangle_first_last": [
+        6550,
+        6607
+      ],
+      "actual_reference_derived_opaque_first_last": [
+        6550,
+        6607
+      ],
+      "max_original_alpha_inbounds": 351,
+      "tile_ids": [
+        83,
+        84,
+        102,
+        103
+      ]
+    },
+    {
+      "base": 85,
+      "source_opaque": 113,
+      "rectangle_references": 228,
+      "rectangle_first_last": [
+        6550,
+        6607
+      ],
+      "actual_reference_derived_opaque_first_last": [
+        6550,
+        6607
+      ],
+      "max_original_alpha_inbounds": 113,
+      "tile_ids": [
+        85,
+        86,
+        104,
+        105
+      ]
+    },
+    {
+      "base": 119,
+      "source_opaque": 365,
+      "rectangle_references": 208,
+      "rectangle_first_last": [
+        6550,
+        6611
+      ],
+      "actual_reference_derived_opaque_first_last": [
+        6550,
+        6610
+      ],
+      "max_original_alpha_inbounds": 365,
+      "tile_ids": [
+        119,
+        120,
+        138,
+        139
+      ]
+    },
+    {
+      "base": 121,
+      "source_opaque": 541,
+      "rectangle_references": 208,
+      "rectangle_first_last": [
+        6550,
+        6611
+      ],
+      "actual_reference_derived_opaque_first_last": [
+        6550,
+        6610
+      ],
+      "max_original_alpha_inbounds": 541,
+      "tile_ids": [
+        121,
+        122,
+        140,
+        141
+      ]
+    },
+    {
+      "base": 123,
+      "source_opaque": 135,
+      "rectangle_references": 208,
+      "rectangle_first_last": [
+        6550,
+        6611
+      ],
+      "actual_reference_derived_opaque_first_last": [
+        6550,
+        6610
+      ],
+      "max_original_alpha_inbounds": 135,
+      "tile_ids": [
+        123,
+        124,
+        142,
+        143
+      ]
+    }
+  ],
+  "actual_quadrant_x_range": [
+    135,
+    195
+  ],
+  "actual_quadrant_y_range": [
+    -13,
+    183
+  ],
+  "actual_references_pass_entry_geometry_guard": true,
+  "source_masks_applied_to_actual_references_full_window": [
+    6574,
+    6603
+  ],
+  "full_window_summed_cells": 1768,
+  "full_window_union_cells": 1635,
+  "full_window_self_overlap_cells": 133,
+  "candidate_still": {
+    "tick": 6585,
+    "whole_origin": [
+      135,
+      95
+    ],
+    "size": [
+      72,
+      52
+    ],
+    "union_alpha_inbounds": 1635,
+    "source_self_overlap": 133
+  },
+  "source_log_pins": {
+    "late-spike-private-discovery-20261012/baseline-census/late-census.tsv.gz": "8affe72c2c0323e380c6bfee231eb3e2b45095da4da3f15a43233b6456765c45",
+    "late-spike-private-discovery-20261012/baseline-census/asset-debug-materials.tsv.gz": "aea11e6a09c0fa40dd785f908322ca1ed5830c375a5a23587f28815bff42e552",
+    "late-spike-private-discovery-20261012/baseline-census/state.tsv.gz": "084f3acc385a53ec04fefa9a3c0ef3e4205b89ce943d42e74b64e469a171ffb0",
+    "late-spike-private-discovery-20261012/candidate-census/late-census.tsv.gz": "8affe72c2c0323e380c6bfee231eb3e2b45095da4da3f15a43233b6456765c45",
+    "late-spike-private-discovery-20261012/candidate-census/asset-debug-materials.tsv.gz": "aea11e6a09c0fa40dd785f908322ca1ed5830c375a5a23587f28815bff42e552",
+    "late-spike-private-discovery-20261012/candidate-census/state.tsv.gz": "084f3acc385a53ec04fefa9a3c0ef3e4205b89ce943d42e74b64e469a171ffb0"
+  },
+  "limits": [
+    "Existing private-survival, no-fire census; no natural-survival claim.",
+    "Source alpha applied to observed rectangles, not final unoccluded RGB.",
+    "Entry was unbound in both discovery builds; new entry HD callbacks/rendering remain untested.",
+    "No new actual run, capture, forced combat, full-level or Windows/GPU acceptance."
+  ]
+}
