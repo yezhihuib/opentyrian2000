@@ -1,7 +1,7 @@
 {
   "schema": "opentyrian-accepted-hd-runtime-v1",
   "baseline_branch": "hd-render-prototype",
-  "status": "Coordinated matte sand material refresh across13 roads and8 grass backings; no geometry changes",
+  "status": "Optional finite Layer1 world-coordinate rock material atlas; accepted HDA fallback resources remain byte-identical",
   "default_preview_pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
   "default_debug_pack": "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
   "packs": {
@@ -40722,5 +40722,57 @@
     ],
     "source": "assets/hd/artwork/grass-sand9-v3",
     "scope": "Nine-tile source closure. ID80 enters75\u201390; six-tile grass motif has bounded private-survival tail acceptance3480\u20133599; other family/forest adjacency coverage is static."
+  },
+  "material_bundles": {
+    "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
+      "file": "ground101-world-material.g101",
+      "sha256": "5d62aca342fb5b6038a82bd719086f6e6691107f6e03786511fc65b4b43fccc5",
+      "fnv64": "2938b4ea92ef5675",
+      "bytes": 16386812,
+      "payload_bytes": 16386048,
+      "material_records": 61,
+      "parts": [
+        {
+          "file": "ground101-world-material.g101.0",
+          "offset": 0,
+          "bytes": 8388608,
+          "sha256": "95b570efb704d89070d4b6db43797ef3c241f4c53bcef2a8a7939d77649cd17b"
+        },
+        {
+          "file": "ground101-world-material.g101.1",
+          "offset": 8388608,
+          "bytes": 7998204,
+          "sha256": "eaa06dc540d128f01ab9be5c0afc4580311af4b183066dee7d4f4f3015e1a473"
+        }
+      ],
+      "source_inventory_sha256": "e16e4956538b942e3264c860726bdd06392a19e2287048887b4cdb59229affe6",
+      "atlas_rgba_sha256": "c5d990f8ca33212c30def6b5777e627132a8ae9a515142987af1d2cfc7d4be45",
+      "checksum_purpose": "accidental corruption only; not authentication"
+    },
+    "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
+      "file": "ground101-world-material.g101",
+      "sha256": "5d62aca342fb5b6038a82bd719086f6e6691107f6e03786511fc65b4b43fccc5",
+      "fnv64": "2938b4ea92ef5675",
+      "bytes": 16386812,
+      "payload_bytes": 16386048,
+      "material_records": 61,
+      "parts": [
+        {
+          "file": "ground101-world-material.g101.0",
+          "offset": 0,
+          "bytes": 8388608,
+          "sha256": "95b570efb704d89070d4b6db43797ef3c241f4c53bcef2a8a7939d77649cd17b"
+        },
+        {
+          "file": "ground101-world-material.g101.1",
+          "offset": 8388608,
+          "bytes": 7998204,
+          "sha256": "eaa06dc540d128f01ab9be5c0afc4580311af4b183066dee7d4f4f3015e1a473"
+        }
+      ],
+      "source_inventory_sha256": "e16e4956538b942e3264c860726bdd06392a19e2287048887b4cdb59229affe6",
+      "atlas_rgba_sha256": "c5d990f8ca33212c30def6b5777e627132a8ae9a515142987af1d2cfc7d4be45",
+      "checksum_purpose": "accidental corruption only; not authentication"
+    }
   }
 }

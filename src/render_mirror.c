@@ -1,3 +1,4 @@
+#ifndef RENDER_MIRROR_DISABLED
 /* SPDX-License-Identifier: GPL-2.0-or-later
  * Display-only ordered mirror. The engine always executes original 1x writes.
  * Unsupported effects or incomplete changed-pixel coverage reject the full frame.
@@ -9,6 +10,7 @@
 #include "palette.h"
 #include "mtrand.h"
 #include "video.h"
+#include "varz.h"
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -230,6 +232,7 @@ void render_mirror_begin(void)
 {
  /* JE_main level_loop calls begin exactly once per simulation tick. Neither
   * individual sprites, shadows nor repeated Present calls advance this clock. */
+ ground101_frame_reset();
  ++mirror_logic_tick;banking_draw_player=0;
  last_output_valid=false;have_fade_saved=false;fade_mode=0;
  ready=false; active=false; suppress=false;suppress_green_smoke=false;suppress_cloud=false;
@@ -581,7 +584,7 @@ static Uint32 green_head_composite(int dx,int dy,unsigned int first,Uint32 color
  return color;
 }
 
-static bool draw_asset_filtered(int x,int y,Asset *a,int style,const SDL_Rect *part,Uint8 filter)
+static bool draw_asset_filtered(int x,int y,Asset *a,int style,const SDL_Rect *part,Uint8 filter,const G101Record *material)
 {
  /* Original Talon invulnerability uses half-opacity, not a different sprite.
   * Preserve that effect over the ordered RGBA scene and keep the engine's
@@ -619,6 +622,7 @@ static bool draw_asset_filtered(int x,int y,Asset *a,int style,const SDL_Rect *p
  for(int ay=y0;ay<y1;ay++) for(int ax=x0;ax<x1;ax++) {
   int dx=x*d+ax,dy=y*d+ay;if(dx<0||dy<0||dx>=canvas->w||dy>=canvas->h)continue;
   int n=(ay*ad/d)*pw+(ax*ad/d);const Uint8 *src=a->rgba+n*4;if(!src[3])continue;
+  Uint8 world_material[4];if(material){ground101_select(material,src,(unsigned)n,dx,dy,world_material);src=world_material;}
   Uint8 filtered[4];if(filter){enemy_filter_rgba(src,filter,filtered);src=filtered;}
   Uint32 *p=(Uint32 *)((Uint8 *)canvas->pixels+dy*canvas->pitch)+dx;
   int owner_index=dy*canvas->w+dx;
@@ -656,7 +660,7 @@ static bool draw_asset_filtered(int x,int y,Asset *a,int style,const SDL_Rect *p
 }
 
 static bool draw_asset(int x,int y,Asset *a,int style,const SDL_Rect *part)
-{return draw_asset_filtered(x,y,a,style,part,0);}
+{return draw_asset_filtered(x,y,a,style,part,0,NULL);}
 
 bool render_mirror_entity(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int index,int style,int layout)
 {
@@ -700,7 +704,7 @@ static Asset *scene_asset(int slot,int role,int index,int anchor_x,int anchor_y)
  return a->valid?a:NULL;
 }
 
-bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int base,int part,int filter)
+bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int base,int part,int filter,const G101EnemyContext *material_context)
 {
  if(!active||surface!=game_screen||reject_reason||!(game_probe_scene_assets&1))return false;
  int role=0;
@@ -720,13 +724,16 @@ bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array ban
  Asset *a=scene_asset(slot,role,(int)base,6,7);bool mirrored=false;
  if(a) {
   SDL_Rect quadrant={px,py,12,14};
-  mirrored=draw_asset_filtered(x-px,y-py,a,MIRROR_NORMAL,&quadrant,(Uint8)filter);
+  const G101Record *material=a->density==8&&ground101_enemy_eligible(material_context,(unsigned)role,base)?ground101_record((unsigned)role,base):NULL;
+  ground101_actor_trace(game_probe_tick,material_context,(unsigned)role,base,part,filter,x,y,material!=NULL);
+  ground101_note_draw(material,true);
+  mirrored=draw_asset_filtered(x-px,y-py,a,MIRROR_NORMAL,&quadrant,(Uint8)filter,material);
  }
  game_probe_scene_draw(role,base,x,y,part,filter?3:MIRROR_NORMAL,mirrored);return mirrored;
 }
 
 void render_mirror_map_begin(char shape_file)
-{terrain_file=shape_file=='Z'?'z':shape_file;terrain_source_count=0;render_mirror_reset_banking();}
+{ground101_frame_reset();terrain_file=shape_file=='Z'?'z':shape_file;terrain_source_count=0;render_mirror_reset_banking();}
 /* Only shapesZ layer2 cloud IDs; no renderer/filter or game-state changes. */
 static int cloud_terrain_slot(unsigned int id)
 {
@@ -808,10 +815,34 @@ void render_mirror_bind_terrain(unsigned int layer,unsigned int id,const Uint8 *
   terrain_sources[terrain_source_count++].id=id;
  }
 }
+/* Optional finite bundle: the selected pack remains the unchanged fallback.
+ * Validate all 61 source assets and the entire pass before changing a pixel. */
+void render_mirror_ground101_layer1(SDL_Surface *surface,const void *first,int x,int y)
+{
+ ground101_frame_reset();
+ if(!active||surface!=game_screen||reject_reason||terrain_file!='z'||game_probe_density!=8||
+    game_probe_missing||game_probe_invalid||game_probe_original_reference||!game_probe_assets||
+    (game_probe_scene_assets&3)!=3||!ground101_bundle_load(game_probe_assets))return;
+ static bool source_checked,source_valid;
+ if(!source_checked) {
+  source_checked=true;source_valid=true;
+  for(unsigned i=0;i<61;i++) {
+   const G101Record *r=ground101_record_at(i);
+   Asset *a=scene_asset((int)r->slot,(int)r->role,(int)r->index,r->role==201?0:6,r->role==201?0:7);
+   if(!a||a->density!=8||memcmp(a->rgba,ground101_base(r),G101_TILE_PIXELS*4)!=0){source_valid=false;break;}
+  }
+#ifdef GROUND101_MATERIAL_TRACE
+  if(!source_valid)fprintf(stderr,"ground101 optional bundle: source mismatch; selected pack unchanged\n");
+#endif
+ }
+ if(source_valid)ground101_layer1_preflight(megaData1.mainmap,sizeof(megaData1.mainmap),first,sizeof(JE_byte *),x,y);
+}
 unsigned int render_mirror_terrain_row(SDL_Surface *surface,int x,int y,Uint8 **map,int style)
 {
  if(!active||surface!=game_screen||reject_reason||!(game_probe_scene_assets&2))return 0;
  if(x<0||x+12*24>surface->pitch) {render_mirror_unsupported("terrain-row-outside-linear-layout");return 0;}
+ int material_row=ground101_layer1_row(map,x,y);
+ if(material_row<0){render_mirror_unsupported("ground101-row-context-mismatch");return 0;}
  unsigned int replaced=0;
  for(int tile=0;tile<12;tile++) {
   unsigned int id=0;
@@ -843,7 +874,9 @@ unsigned int render_mirror_terrain_row(SDL_Surface *surface,int x,int y,Uint8 **
   Asset *a=scene_asset(slot,ASSET_SHAPESZ,(int)id,0,0);
   /* Missing/invalid new art retains the exact previous fallback and trace. */
   if((ground_slot>=0||plateau_slot>=0||underlay_slot>=0||road_slot>=0||holes_slot>=0||stone_slot>=0||gray_slot>=0||purple_slot>=0||grass_slot>=0)&&!a)continue;
-  bool mirrored=a?draw_asset(x+tile*24,y,a,style,NULL):false;
+  const G101Record *material=a&&a->density==8&&material_row==1&&style==MIRROR_NORMAL?ground101_record(ASSET_SHAPESZ,id):NULL;
+  ground101_note_draw(material,false);
+  bool mirrored=a?draw_asset_filtered(x+tile*24,y,a,style,NULL,0,material):false;
   suppress=false;
   if(mirrored)replaced|=1u<<tile;
   game_probe_scene_draw(ASSET_SHAPESZ,id,x+tile*24,y,0,style,mirrored);
@@ -995,6 +1028,7 @@ void render_mirror_finish(bool ordinary_crop)
  last_output_valid=!reject_reason&&retained_hd;
  memcpy(last_output_palette,rgb_palette,sizeof(last_output_palette));
  for(int y=0;y<200;y++)memcpy(last_output_indices+y*320,(Uint8 *)VGAScreenSeg->pixels+y*VGAScreenSeg->pitch,320);
+ ground101_frame_report(game_probe_tick,reject_reason);
  game_probe_frame(draws,occlusions,mismatch,reject_reason?reject_reason:retained_hd?"hd-ordered":"classic-assets",all_rejections,local_entities,local_regions,local_blocks);
  if(game_probe_capture_tick()) {
   char name[64];snprintf(name,sizeof(name),"display-%04u.bmp",game_probe_tick);game_probe_export(output,name);
@@ -1075,3 +1109,7 @@ void render_mirror_release_texture(void)
  ready=false;
  render_mirror_reset_banking();
 }
+
+#else
+typedef int render_mirror_disabled_translation_unit;
+#endif

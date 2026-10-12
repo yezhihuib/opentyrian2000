@@ -2,6 +2,7 @@
 #ifndef RENDER_MIRROR_H
 #define RENDER_MIRROR_H
 #include "sprite.h"
+#include "ground101_material.h"
 enum { MIRROR_NORMAL, MIRROR_BLEND, MIRROR_SHADOW };
 #ifdef RENDER_MIRROR_DISABLED
 #define render_mirror_begin(...) ((void)0)
@@ -21,6 +22,7 @@ enum { MIRROR_NORMAL, MIRROR_BLEND, MIRROR_SHADOW };
 #define render_mirror_map_begin(...) ((void)0)
 #define render_mirror_bind_terrain(...) ((void)0)
 #define render_mirror_terrain_row(...) 0u
+#define render_mirror_ground101_layer1(...) ((void)0)
 #define render_mirror_terrain_pixel(...) ((void)0)
 #define render_mirror_sprite2_blend_pixel(...) ((void)0)
 #define render_mirror_set_talon_banking(...) ((void)0)
@@ -40,7 +42,8 @@ void render_mirror_release_texture(void);
 void render_mirror_brightness_pixel(SDL_Surface *, Uint8 *address, int value);
 void render_mirror_fade_start(const SDL_Color *colors, const SDL_Color *solid, unsigned int first, unsigned int last);
 void render_mirror_fade_step(int steps);
-bool render_mirror_enemy_tile(SDL_Surface *, int x, int y, Sprite2_array, unsigned int base, int part, int filter);
+bool render_mirror_enemy_tile(SDL_Surface *, int x, int y, Sprite2_array, unsigned int base, int part, int filter, const G101EnemyContext *);
+void render_mirror_ground101_layer1(SDL_Surface *, const void *first_cell, int x, int y);
 void render_mirror_map_begin(char shape_file);
 void render_mirror_bind_terrain(unsigned int layer, unsigned int id, const Uint8 *data);
 unsigned int render_mirror_terrain_row(SDL_Surface *, int x, int y, Uint8 **map, int style);

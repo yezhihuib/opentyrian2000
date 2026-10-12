@@ -22,4 +22,15 @@ for pack,items in manifest['packs'].items():
   assert sha(raw)==item['sha256'] and (repo/'assets/hd/packs'/pack/filename).read_bytes()==raw
   if a.output:(output/pack/filename).write_bytes(raw)
   checked+=1
-print(json.dumps({'verified_pack_count':len(manifest['packs']),'verified_HDA_entries':checked,'verified_exact_source_pngs':len(payloads),'default_pack_counts':[manifest['packs'][manifest[k]]['count'] for k in ['default_preview_pack','default_debug_pack']],'rebuild_output':str(output) if a.output else None,'all_runtime_RGBA_and_header_bytes_exact':True},indent=2))
+material_count=0
+if manifest.get('material_bundles'):
+ from world_material_bundle import build_bundle
+ raw,records,receipt=build_bundle(repo)
+ for pack,item in manifest['material_bundles'].items():
+  assert pack in manifest['packs'] and item==receipt
+  for part in receipt['parts']:
+   data=raw[part['offset']:part['offset']+part['bytes']]
+   assert (repo/'assets/hd/packs'/pack/part['file']).read_bytes()==data and sha(data)==part['sha256']
+   if a.output:(output/pack/part['file']).write_bytes(data)
+   material_count+=1
+print(json.dumps({'verified_pack_count':len(manifest['packs']),'verified_HDA_entries':checked,'verified_exact_source_pngs':len(payloads),'verified_material_sidecars':material_count,'default_pack_counts':[manifest['packs'][manifest[k]]['count'] for k in ['default_preview_pack','default_debug_pack']],'rebuild_output':str(output) if a.output else None,'all_runtime_RGBA_and_header_bytes_exact':True},indent=2))

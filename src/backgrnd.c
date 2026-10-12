@@ -165,6 +165,7 @@ void draw_background_1(SDL_Surface *surface)
 	render_mirror_rect(surface,NULL);
 	
 	Uint8 **map = (Uint8 **)mapYPos + mapXbpPos - 12;
+	render_mirror_ground101_layer1(surface,map,mapXPos,backPos-28);
 	
 	for (int i = -1; i < 7; i++)
 	{

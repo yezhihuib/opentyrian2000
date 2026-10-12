@@ -91,3 +91,14 @@ Historical road regeneration retains an explicit hash-checked old input route.
 Counts:18 packs,2,908 HDA entries,350 active canonical PNGs; preview334/debug338.
 See [SAND_ROAD_GRASS_VALIDATION.md](SAND_ROAD_GRASS_VALIDATION.md) for the
 bounded road/grass-tail evidence and ID38 static-only limit. Windows remains pending.
+
+## Finite world-coordinate rock material
+
+The optional [world-material atlas](GROUND101_WORLD_ATLAS.md) replaces the small
+repeated ground101 pattern with one authored 96×112-logical-pixel field and
+61 matching terrain/static-object backing masks. Existing HDA and canonical
+sprite PNGs remain unchanged; the two default packs additionally carry one
+identical, integrity-checked two-part material bundle. Counts remain18 packs/2,908 HDA/
+350 canonical PNGs, defaults334/338. Exact rebuild and bounded runtime evidence
+are in [GROUND101_WORLD_ATLAS_VALIDATION.json](GROUND101_WORLD_ATLAS_VALIDATION.json).
+This release is distinct from the rejected single-tile coordinated v2 artwork.

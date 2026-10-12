@@ -173,7 +173,13 @@ inline static void blit_enemy(SDL_Surface *surface, unsigned int i, signed int x
 	const unsigned int index = enemy[i].egr[enemy[i].enemycycle - 1] + sprite_offset;
 	if(asset_debug_enabled){for(int b=0;b<4;b++)if(enemy[i].sprite2s->data==enemySpriteSheets[b].data&&enemySpriteSheetIds[b]>0){char sheet[32];snprintf(sheet,sizeof(sheet),"newsh%c.shp",tolower((unsigned char)shapeFile[enemySpriteSheetIds[b]-1]));asset_debug_reference("enemy",sheet,enemy[i].egr[enemy[i].enemycycle-1],index,x,y,12,14);break;}}
 	/* Each original quadrant remains its own ordered call and game object. */
-	render_mirror_enemy_tile(surface,x,y,*enemy[i].sprite2s,enemy[i].egr[enemy[i].enemycycle - 1],sprite_offset,enemy[i].filter);
+#ifndef RENDER_MIRROR_DISABLED
+	const G101EnemyContext material_context={enemy[i].enemytype,i,enemyAvail[i],enemy[i].size,
+		enemy[i].scoreitem,enemy[i].edamaged,
+		enemy[i].exc||enemy[i].eyc||enemy[i].fixedmovey||enemy[i].excc||enemy[i].eycc||enemy[i].xaccel||enemy[i].yaccel,
+		enemy[i].ani==1&&enemy[i].enemycycle==1&&enemy[i].aniactive==0};
+	render_mirror_enemy_tile(surface,x,y,*enemy[i].sprite2s,enemy[i].egr[enemy[i].enemycycle - 1],sprite_offset,enemy[i].filter,&material_context);
+#endif
 
 	if (enemy[i].filter != 0)
 		blit_sprite2_filter(surface, x, y, *enemy[i].sprite2s, index, enemy[i].filter);

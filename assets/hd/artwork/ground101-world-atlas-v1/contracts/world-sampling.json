@@ -1,0 +1,35 @@
+{
+  "status": "root-approved offline atlas; private renderer prototype pending",
+  "source_density": 8,
+  "atlas_pixels": [
+    768,
+    896
+  ],
+  "logical_period": [
+    96,
+    112
+  ],
+  "origin": "Layer1 map row0,col0",
+  "modulo": "positive modulo in both axes, including negative world coordinates",
+  "sampling": "Use actual original Layer1 draw snapshot to transform composited pixel coordinates into original world coordinates. Terrain uses its exact static map placement and local HD coordinate. Actors use the same saved ground transform at their actual draw position. Do not add historical +8HD actor phase after world sampling.",
+  "source_rgb": "Published baseline generated PNGs listed in material-bindings.json. Never use the rejected v2 baked outputs as the source.",
+  "blend": "B(a,b,w) = floor((a*(255-w)+b*w+127)/255), per RGB channel; preserve source alpha.",
+  "normal": "RGB = B(published_source, world_atlas_sample, material_weight); terrain101 uses weight255; terrain111 is a zero-weight unchanged guard.",
+  "footer119_120": [
+    "stage1 = B(published_source, world_atlas_sample, material_weight)",
+    "stage2 = B(stage1, registered_generated_footer_crop, generated_weight)",
+    "final = B(stage2, same_world_atlas_sample, ground_weight)"
+  ],
+  "footer_constraints": "Retain the three sequential integer rounding steps. Do not collapse weights to one average. Upper184HD rows of the footer-specific stages are exact stage1; masks for stages2/3 are zero there. Footer crops stay source-local; only atlas sampling is world-space.",
+  "invariants": [
+    "original alpha, holes, anchor, logical bounds and entity physical geometry",
+    "all protected sand pixels exact",
+    "original indexed gameplay, map, RNG and placement unchanged",
+    "finite 61 material consumers + terrain111 unchanged guard; no arbitrary global renderer application"
+  ],
+  "qualifications": [
+    "96x112 logical periodicity is retained; this is not a zero-repetition claim",
+    "offline material and wrap accepted; no actual runtime visual acceptance yet"
+  ],
+  "supersedes": "Only the material fill and sampling model of rejected v2. Its semantic masks, published source bases and reviewed footer geometry are retained."
+}

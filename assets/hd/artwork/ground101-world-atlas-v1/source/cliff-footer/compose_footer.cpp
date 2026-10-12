@@ -1,0 +1,7 @@
+#include <fstream>
+#include <vector>
+#include <cmath>
+#include <algorithm>
+#include <string>
+using namespace std;using B=vector<unsigned char>;B rd(string p){ifstream f(p,ios::binary);return B((istreambuf_iterator<char>(f)),{});}void wr(string p,B b){ofstream(p,ios::binary).write((char*)b.data(),b.size());}double sm(double a){a=clamp(a,0.,1.);return a*a*(3.-2.*a);}double prof(double x,const vector<pair<double,double>>& p){for(int n=1;n<(int)p.size();n++)if(x<=p[n].first){double t=sm((x-p[n-1].first)/(p[n].first-p[n-1].first));return p[n-1].second*(1-t)+p[n].second*t;}return p.back().second;}
+int main(int c,char**v){if(c!=9)return 2;int id=stoi(v[1]);B old=rd(v[2]),gen=rd(v[3]),fill=rd(v[4]),prior=rd(v[5]);if(old.size()!=192*224*4||gen.size()!=old.size()||fill.size()!=old.size()||prior.size()!=192*224)return 3;B out=old,gm(prior.size()),fm(prior.size());vector<pair<double,double>>p=id==119?vector<pair<double,double>>{{0,198},{20,209},{47,207},{71,213},{98,207},{125,214},{155,209},{180,211},{191,198}}:vector<pair<double,double>>{{0,198},{30,212},{60,209},{87,211},{117,203},{150,194},{175,187},{191,184}};for(int y=0;y<224;y++)for(int x=0;x<192;x++){int z=y*192+x;if(y<184)continue;double ground=sm((y-prof(x,p))/10.);if(y>=222)ground=1;double g=sm((y-184)/16.)*sm(min(x,191-x)/8.)*(1-prior[z]/255.);gm[z]=lround(g*255);fm[z]=lround(ground*255);for(int k=0;k<3;k++){int q=(old[z*4+k]*(255-gm[z])+gen[z*4+k]*gm[z]+127)/255;out[z*4+k]=(q*(255-fm[z])+fill[z*4+k]*fm[z]+127)/255;}}wr(v[6],out);wr(string(v[7])+".gray",gm);wr(string(v[8])+".gray",fm);}

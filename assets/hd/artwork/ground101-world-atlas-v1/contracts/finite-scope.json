@@ -1,0 +1,254 @@
+{
+  "schema": "tyrian-brown101-finite-scope-v2",
+  "checkpoint": "856a365",
+  "resource_count": 62,
+  "changed_resource_count": 61,
+  "changed": [
+    "enemy-newsh2-115-8",
+    "enemy-newsh2-117-8",
+    "enemy-newsh2-119-8",
+    "enemy-newsh2-121-8",
+    "enemy-newsh2-77-8",
+    "enemy-newsh2-79-8",
+    "enemy-newsh2-81-8",
+    "enemy-newsh2-83-8",
+    "enemy-newshe-1-8",
+    "enemy-newshe-11-8",
+    "enemy-newshe-3-8",
+    "enemy-newshe-39-8",
+    "enemy-newshe-41-8",
+    "enemy-newshe-43-8",
+    "enemy-newshe-45-8",
+    "enemy-newshe-47-8",
+    "enemy-newshe-49-8",
+    "enemy-newshe-5-8",
+    "enemy-newshe-7-8",
+    "enemy-newshe-9-8",
+    "terrain-shapesz-100-8",
+    "terrain-shapesz-101-8",
+    "terrain-shapesz-106-8",
+    "terrain-shapesz-107-8",
+    "terrain-shapesz-108-8",
+    "terrain-shapesz-110-8",
+    "terrain-shapesz-113-8",
+    "terrain-shapesz-114-8",
+    "terrain-shapesz-118-8",
+    "terrain-shapesz-119-8",
+    "terrain-shapesz-120-8",
+    "terrain-shapesz-321-8",
+    "terrain-shapesz-322-8",
+    "terrain-shapesz-323-8",
+    "terrain-shapesz-324-8",
+    "terrain-shapesz-331-8",
+    "terrain-shapesz-332-8",
+    "terrain-shapesz-333-8",
+    "terrain-shapesz-334-8",
+    "terrain-shapesz-341-8",
+    "terrain-shapesz-342-8",
+    "terrain-shapesz-343-8",
+    "terrain-shapesz-351-8",
+    "terrain-shapesz-352-8",
+    "terrain-shapesz-353-8",
+    "terrain-shapesz-36-8",
+    "terrain-shapesz-37-8",
+    "terrain-shapesz-38-8",
+    "terrain-shapesz-39-8",
+    "terrain-shapesz-40-8",
+    "terrain-shapesz-46-8",
+    "terrain-shapesz-48-8",
+    "terrain-shapesz-49-8",
+    "terrain-shapesz-50-8",
+    "terrain-shapesz-56-8",
+    "terrain-shapesz-57-8",
+    "terrain-shapesz-58-8",
+    "terrain-shapesz-96-8",
+    "terrain-shapesz-97-8",
+    "terrain-shapesz-98-8",
+    "terrain-shapesz-99-8"
+  ],
+  "unchanged_guard": [
+    "terrain-shapesz-111-8"
+  ],
+  "excluded_full_asset_guards": [
+    {
+      "id": 47,
+      "no_candidate_override": true,
+      "exact_baseline_hda": true,
+      "hda_sha256": "9147c8ad25d73d52b8d05ed74833ee0dca206a7efccc1aaa3a8e4bef471207ff"
+    },
+    {
+      "id": 66,
+      "no_candidate_override": true,
+      "exact_baseline_hda": true,
+      "hda_sha256": "4b031965a3c342d46144a907098e36d68a26e378c6598fe627bac5339618f4bc"
+    },
+    {
+      "id": 67,
+      "no_candidate_override": true,
+      "exact_baseline_hda": true,
+      "hda_sha256": "25f8c1030686b4686c06acd6f2dd13129aa1d2506cef4d6249eb56fdd150dd2e"
+    },
+    {
+      "id": 69,
+      "no_candidate_override": true,
+      "exact_baseline_hda": true,
+      "hda_sha256": "6cd5e8934dcf40702a1515603c255fd7fd5665f02a883b5ff115ac06bff23049"
+    },
+    {
+      "id": 76,
+      "no_candidate_override": true,
+      "exact_baseline_hda": true,
+      "hda_sha256": "1005df43b9abdf0155b74334f53ef3f12dc72d20f1ffd9904103f0217c8f4c89"
+    },
+    {
+      "id": 78,
+      "no_candidate_override": true,
+      "exact_baseline_hda": true,
+      "hda_sha256": "928946f97b8dce6d50a290f2f60838d76a314cbe19fb7f3b9a5dfc1a1c238922"
+    },
+    {
+      "id": 79,
+      "no_candidate_override": true,
+      "exact_baseline_hda": true,
+      "hda_sha256": "379ae7b1857451e8804963d43e6085b8d3892471df76405cf3fbc9facfb2aef9"
+    },
+    {
+      "id": 80,
+      "no_candidate_override": true,
+      "exact_baseline_hda": true,
+      "hda_sha256": "877c38ba1fa555e135f973e8db3708ffb16b7464a9c1e8669a38d67fd6d52210"
+    },
+    {
+      "id": 89,
+      "no_candidate_override": true,
+      "exact_baseline_hda": true,
+      "hda_sha256": "e4a12a3081970a942925687b709c87288ca4c8d974b652bfc694f3e2aeb56715"
+    },
+    {
+      "id": 90,
+      "no_candidate_override": true,
+      "exact_baseline_hda": true,
+      "hda_sha256": "281a837356ad00055ffd29a13a6b3d1884d42de97ed8b9259025fa661021e3a5"
+    }
+  ],
+  "scope_groups": {
+    "terrain101_fill": {
+      "namespace": "terrain-shapesz",
+      "ids": [
+        101
+      ]
+    },
+    "plateau_exterior12": {
+      "namespace": "terrain-shapesz",
+      "ids": [
+        96,
+        97,
+        98,
+        99,
+        100,
+        106,
+        107,
+        108,
+        110,
+        118,
+        119,
+        120
+      ]
+    },
+    "road_dark_backing12": {
+      "namespace": "terrain-shapesz",
+      "ids": [
+        36,
+        37,
+        38,
+        39,
+        40,
+        46,
+        48,
+        49,
+        50,
+        56,
+        57,
+        58
+      ]
+    },
+    "rock_backing3": {
+      "namespace": "terrain-shapesz",
+      "ids": [
+        111,
+        113,
+        114
+      ]
+    },
+    "foundation4": {
+      "namespace": "terrain-shapesz",
+      "ids": [
+        321,
+        322,
+        331,
+        332
+      ]
+    },
+    "physical_underlay4": {
+      "namespace": "terrain-shapesz",
+      "ids": [
+        323,
+        324,
+        333,
+        334
+      ]
+    },
+    "terrain_stone_remnant6": {
+      "namespace": "terrain-shapesz",
+      "ids": [
+        341,
+        342,
+        343,
+        351,
+        352,
+        353
+      ]
+    },
+    "turret121_124": {
+      "namespace": "enemy-newsh2",
+      "ids": [
+        77,
+        79,
+        115,
+        117
+      ]
+    },
+    "installation125_128": {
+      "namespace": "enemy-newsh2",
+      "ids": [
+        81,
+        83,
+        119,
+        121
+      ]
+    },
+    "stone_intact6": {
+      "namespace": "enemy-newshe",
+      "ids": [
+        1,
+        3,
+        5,
+        39,
+        41,
+        43
+      ]
+    },
+    "stone_exposed6": {
+      "namespace": "enemy-newshe",
+      "ids": [
+        7,
+        9,
+        11,
+        45,
+        47,
+        49
+      ]
+    }
+  },
+  "non_scope_policy": "No resource outside this exact set may be replaced. Full47 and nine grass resources are excluded and remain byte-exact."
+}

@@ -101,3 +101,20 @@ Historical road regeneration retains an explicit hash-checked old input route.
 Counts:18 packs,2,908 HDA entries,350 active canonical PNGs; preview334/debug338.
 See [SAND_ROAD_GRASS_VALIDATION.md](SAND_ROAD_GRASS_VALIDATION.md) for the
 bounded road/grass-tail evidence and ID38 static-only limit. Windows remains pending.
+
+## Optional world-coordinate ground material
+
+The default packs now include `ground101-world-material.g101.0` and `.1`; retain
+both beside the HDA files. They form one verified stream; either missing part
+disables the complete material feature. Verify with `python prototype/build-hd-assets.py` and
+`python prototype/build-ground101-world-material.py --verify`, then build normally.
+The runtime has no new crypto-library dependency. A missing or incompatible
+sidecar coherently disables this finite feature and renders the selected pack.
+The 15.63MiB payload supplements existing renderer memory; diagnostic cloud timing
+is not a Windows FPS guarantee. New Windows acceptance remains pending.
+
+Start with the existing ordinary blue fixture around ticks500–559 at native2×
+and4×. Check scrolling rock phase, road/plateau transitions and foreground order.
+The later lifecycle footage uses explicitly private survival/original-control
+fixtures, not a claim that the ordinary run survives those later windows.
+See [GROUND101_WORLD_ATLAS.md](GROUND101_WORLD_ATLAS.md) for scope and reproduction.

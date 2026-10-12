@@ -1,0 +1,2991 @@
+{
+  "terrain-shapesz-101-8": {
+    "source": "source/published-generated/terrain-shapesz-101-8.png",
+    "source_hda_sha256": "709c0ed19741ce90205a7fd1ad7f36bf65d37180e51c30a13a87f22fa993fc99",
+    "source_rgba_sha256": "b237d89542276fea3a8dc2298ecb57b874979f3952fcb97822f995cae4b01a1b",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010101,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231f5ab1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "6b41550bb88c1ebc14eac3494e7aab40183ab68a5790adf7ab0a4b97b7f5e0e6",
+    "scope_group": "terrain101_fill",
+    "weight": null,
+    "guard": null,
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-101-8.png",
+      "file_sha256": "a7fbb893c2f02b1d546d8f29899de121b74082dd03e90240a188d17cfad484f4",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "b237d89542276fea3a8dc2298ecb57b874979f3952fcb97822f995cae4b01a1b",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "constant": 255
+    }
+  },
+  "terrain-shapesz-96-8": {
+    "source": "source/published-generated/terrain-shapesz-96-8.png",
+    "source_hda_sha256": "8ef129d0d7ea91bbc055ea32087240417ab352fc23bcf9cc85b52f2e819185e5",
+    "source_rgba_sha256": "369938d3b3f5e66f025e508b47146544c39c26ea2d817b7e9b76ab979081f2ba",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010096,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231f0ab1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "7488a9078f57eac0547a27bb955194bf2662395e4faeb6af07fefaef8b4a85aa",
+    "scope_group": "plateau_exterior12",
+    "weight": "contracts/weights/terrain-shapesz-96-8.png",
+    "guard": null,
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-96-8.png",
+      "file_sha256": "83a531df89b40c4f4a0a7d59214735f1cf62745d7ce06d5c9fb555fe58cfdc3f",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "369938d3b3f5e66f025e508b47146544c39c26ea2d817b7e9b76ab979081f2ba",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-96-8.png",
+      "file_sha256": "88ba96bc7ee3b815f6c1e58559844cd8efd623c441f3932cf10d4d04acd1e8b4",
+      "decoded_mode": "L",
+      "decoded_sha256": "1ff282d0ae350edc134c5f14c4176946831f9c8c41e619ac5f59323fca6d24a1",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-97-8": {
+    "source": "source/published-generated/terrain-shapesz-97-8.png",
+    "source_hda_sha256": "a5e35c92263aff8c813d5823223bec9dfff5b48a978c40968184c53eb0f99303",
+    "source_rgba_sha256": "3495ca69b0049c8f8db164e391bad4e2b60ee1e8e30c18a47d733f7cf456f57f",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010097,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231f1ab1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "e63a65cbe123ef791385889f43364a034cdd1a2fdd067eabd64e43f08c278880",
+    "scope_group": "plateau_exterior12",
+    "weight": "contracts/weights/terrain-shapesz-97-8.png",
+    "guard": null,
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-97-8.png",
+      "file_sha256": "b0b3d971f64fab065d102dc7169acc576af7344cccbe18ad368b01472222570b",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "3495ca69b0049c8f8db164e391bad4e2b60ee1e8e30c18a47d733f7cf456f57f",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-97-8.png",
+      "file_sha256": "e21dbf9d92b1ef1040c40b1f4bc306e2a6746551bf83dee1c0aac149ed9f3aa2",
+      "decoded_mode": "L",
+      "decoded_sha256": "cdd8736e5c4e2d4bd31d6597e9c31fb6c60a464bf3b6455d34a1c3555a464ad4",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-98-8": {
+    "source": "source/published-generated/terrain-shapesz-98-8.png",
+    "source_hda_sha256": "04ab6e4004920a7d392adabb831bfc6c8d24f48e347d90878de5ef9e3edc95c8",
+    "source_rgba_sha256": "39253addc60f8a1e10af75a81c4d20179082339bb04fa8619a10d56e4e0b38c1",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010098,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231f2ab1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "daa15bd8b49263ae2feab144e0a27c78c9de0f41c051bd9b8ad311fc8e88fe4b",
+    "scope_group": "plateau_exterior12",
+    "weight": "contracts/weights/terrain-shapesz-98-8.png",
+    "guard": null,
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-98-8.png",
+      "file_sha256": "fc840e4c24733a8f97f33d5aec167fa007ec4fc68259cf46ee5b86b0329c5f7b",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "39253addc60f8a1e10af75a81c4d20179082339bb04fa8619a10d56e4e0b38c1",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-98-8.png",
+      "file_sha256": "91e0260a004aec294f2faacc41ec53f91976a5a86ee99081425f427b10ea62da",
+      "decoded_mode": "L",
+      "decoded_sha256": "5865f1a8ff02be95042a8b666ca62350ab3843d3bee16c476d4ea87cfd2e01b4",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-99-8": {
+    "source": "source/published-generated/terrain-shapesz-99-8.png",
+    "source_hda_sha256": "17225799434e4c93c87051effe8394ea9c23062b9447e6fbd09b9c43d72332a0",
+    "source_rgba_sha256": "6e9cc86e0c8b9b00f2e2dc2657b1765f497de0deeb1d817ea08fb63ceee0e6e7",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010099,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231f3ab1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "61d1ceea6cb85931281bc5816e4cf69f11a4985ee09b6d5cc015210031da0af1",
+    "scope_group": "plateau_exterior12",
+    "weight": "contracts/weights/terrain-shapesz-99-8.png",
+    "guard": null,
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-99-8.png",
+      "file_sha256": "768160c884f82c5fde541cb7cacda2c5b8d6a87ea05af33b0e1edf7b2d2afe5f",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "6e9cc86e0c8b9b00f2e2dc2657b1765f497de0deeb1d817ea08fb63ceee0e6e7",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-99-8.png",
+      "file_sha256": "0888915c4839130d6e3360f000077154726f9e8f3499936906bc26ab3ae1954b",
+      "decoded_mode": "L",
+      "decoded_sha256": "83256b1887b1d1762ecfc42bb8c7f51cd9b36289ac61f6893686d957d95f75e6",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-100-8": {
+    "source": "source/published-generated/terrain-shapesz-100-8.png",
+    "source_hda_sha256": "d3154b8d770b98c3152c62d57f3b2649a66c0fc8cbb6dc82f60fba6ca237fb76",
+    "source_rgba_sha256": "c446489943ca6fd7f8f3ca43808ead2fcaea9d436fe62e3c85ad5ee0a76360e2",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010100,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231f4ab1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "77577e42d88e5235b45d67d1754eced515631ef48939a7103e78124de659d7b8",
+    "scope_group": "plateau_exterior12",
+    "weight": "contracts/weights/terrain-shapesz-100-8.png",
+    "guard": null,
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-100-8.png",
+      "file_sha256": "1323bf96298864fe1ff4d1c04e807e37f8969e7c88dddd7d3022ea8977f52f91",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "c446489943ca6fd7f8f3ca43808ead2fcaea9d436fe62e3c85ad5ee0a76360e2",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-100-8.png",
+      "file_sha256": "48a8e5906942e2560fcc3ac5d4f57e6daa62684833244a453b15a5e78d90e328",
+      "decoded_mode": "L",
+      "decoded_sha256": "236298c4dc1ba31f5c2c3eab81a3b46225105573bb4b89e094e630384007ed4f",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-106-8": {
+    "source": "source/published-generated/terrain-shapesz-106-8.png",
+    "source_hda_sha256": "a1368d9affee531417bdcc3938fa7dc389eb2ee47495fa272617968e5f7fb9c2",
+    "source_rgba_sha256": "6f426b82947d04ee6f4224aa6a28c3fa6d06ff5ad571fd7fd3b279250fbad0b3",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010106,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231faab1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "0a422f1641af41775ef2949768e261623c9c21b643bc7431fe81052bb4bd1dcd",
+    "scope_group": "plateau_exterior12",
+    "weight": "contracts/weights/terrain-shapesz-106-8.png",
+    "guard": null,
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-106-8.png",
+      "file_sha256": "22f09b394aebf9be7e0b7bd563db040f18f32c88e8e22384b1f5b31b1cbf102a",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "6f426b82947d04ee6f4224aa6a28c3fa6d06ff5ad571fd7fd3b279250fbad0b3",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-106-8.png",
+      "file_sha256": "f281428c9ced323871475696cb58a2f3147a688640e027a66ac09ecbec17ebd7",
+      "decoded_mode": "L",
+      "decoded_sha256": "aa7d29158c28569c7d9aeabb4e59982b3a406623cfd414f9cca81270a3748372",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-107-8": {
+    "source": "source/published-generated/terrain-shapesz-107-8.png",
+    "source_hda_sha256": "1d18efba84add8d0acc145cf157da4e968b0b034997d7f8e5a4ed852e3885142",
+    "source_rgba_sha256": "90f084448fcf2eb5eaccb56eafa5bea3f234d6da3a30a25f068e633df4ecbc1a",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010107,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231fbab1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "e2d1660b8caff06593c867db965bc5df5a2305bad8d85849919408fec8fe8b23",
+    "scope_group": "plateau_exterior12",
+    "weight": "contracts/weights/terrain-shapesz-107-8.png",
+    "guard": null,
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-107-8.png",
+      "file_sha256": "c6d598b89d48f40b7b20e938f487f2efd630e578b6ac1e4a6ea2cfd29ca75884",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "90f084448fcf2eb5eaccb56eafa5bea3f234d6da3a30a25f068e633df4ecbc1a",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-107-8.png",
+      "file_sha256": "b99809f2bf8e972ee99377db5f6d2d32cbad4e3a6e72947353a50cc0973d3ef7",
+      "decoded_mode": "L",
+      "decoded_sha256": "ac4703d7bd97d58c3bafa6503f9471d631ace55cba6fc42906953c2fbd002948",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-108-8": {
+    "source": "source/published-generated/terrain-shapesz-108-8.png",
+    "source_hda_sha256": "7bee4bf3052a322bf93fcb9b354e0ccad48447444f3834108bacc27d3f92fa55",
+    "source_rgba_sha256": "a258c4d1bdc992d59d1dbb3430f6495892b32b9e9d93e68032bdc84b5fbe6f35",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010108,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231fcab1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "82e998773acaa47927008466805b3b2190896f6279fcdf21fa42f53035c5ee98",
+    "scope_group": "plateau_exterior12",
+    "weight": "contracts/weights/terrain-shapesz-108-8.png",
+    "guard": null,
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-108-8.png",
+      "file_sha256": "65ff1bfe691cd5e6476e86e5b1ab8a90a94d152d8b5ab6a6eb7b66c9838e60e1",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "a258c4d1bdc992d59d1dbb3430f6495892b32b9e9d93e68032bdc84b5fbe6f35",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-108-8.png",
+      "file_sha256": "fd06020b834691c237f57fa50300f35461942150b457475aad63ce4f67721ae2",
+      "decoded_mode": "L",
+      "decoded_sha256": "8eb93798a4956de2ffc83905762e0325fdb51c02a1658beac31db89d8158a2df",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-110-8": {
+    "source": "source/published-generated/terrain-shapesz-110-8.png",
+    "source_hda_sha256": "a8ea5ccb970ed428b237ab56a2d0a7c5bb062f07be0be91ffb6c1112ef8310a6",
+    "source_rgba_sha256": "0db8e4bbc1c700cda6f0b88f42313579b6888511113e0bad9489f1a907fddc6e",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010110,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231feab1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "112355e0104e195f32e39226c95cea368572afecd22413d5ab4746ff14a22ddd",
+    "scope_group": "plateau_exterior12",
+    "weight": "contracts/weights/terrain-shapesz-110-8.png",
+    "guard": null,
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-110-8.png",
+      "file_sha256": "4adaa36a30a39ea9c9e9a75770e7759e7b8d00e7d9f9e83317960f8984d51a36",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "0db8e4bbc1c700cda6f0b88f42313579b6888511113e0bad9489f1a907fddc6e",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-110-8.png",
+      "file_sha256": "084a307dbb533544447b37232430c86670db9c761954c79534d32d53d9db6252",
+      "decoded_mode": "L",
+      "decoded_sha256": "4359a7c8cbe89ef1f1b1de02ba1fe6121920fbd046576bf6f4de396c1f53cf2e",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-118-8": {
+    "source": "source/published-generated/terrain-shapesz-118-8.png",
+    "source_hda_sha256": "0dbf50d77af0856f398ec3b68f46bc682d6adf387f229a89213571c27d6ff93e",
+    "source_rgba_sha256": "624edc67c0a2120ddddc9ebe9af319906e0a104de47cac4b56f538ea92eb76d6",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010118,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "4844523106ac1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "990fd81c072190f2ac3d7bf95d6b49b00c32b773f97fe816e93c7266dface014",
+    "scope_group": "plateau_exterior12",
+    "weight": "contracts/weights/terrain-shapesz-118-8.png",
+    "guard": null,
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-118-8.png",
+      "file_sha256": "4de03d9689dc2e97196ff5b1c6bc2d46495d6e7e541f23a3ea4680f500f21e94",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "624edc67c0a2120ddddc9ebe9af319906e0a104de47cac4b56f538ea92eb76d6",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-118-8.png",
+      "file_sha256": "93778aecfcae923699daaf00dc70a12b1be3418542107f363b5a600c852f1550",
+      "decoded_mode": "L",
+      "decoded_sha256": "4636249bfe3a4499e0f0422eb149bfc8ef76f1c866df27d450d1d2a3a9d9e6c2",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-119-8": {
+    "source": "source/published-generated/terrain-shapesz-119-8.png",
+    "source_hda_sha256": "0f0c5338316341a2ec0d0f8b5e39124e4873dd577c64c78e618bf69797130ba6",
+    "source_rgba_sha256": "9c002db60dc543b8a0d81bf6498932d6dca44710af81381f8b5de9589fcdf0d4",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010119,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "4844523107ac1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "d42a74ded52e9f8ee269e57250a0e78b703968d548c7a7e4731b06b102cc7acb",
+    "scope_group": "plateau_exterior12",
+    "weight": "contracts/weights/terrain-shapesz-119-8.png",
+    "guard": null,
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "footer": {
+      "id": 119,
+      "registered_crop": [
+        192,
+        224,
+        192,
+        224
+      ],
+      "unchanged_upper_rows": 184,
+      "generated_weight": "contracts/footer/generated-weight-119.png",
+      "ground_weight": "contracts/footer/new-ground-weight-119.png",
+      "generated_input": {
+        "path": "source/cliff-footer/registered-footer-119.png",
+        "file_sha256": "b4d74eaaed4a99152c9bfc437ac6eab83148e3f491ea87cea9a17fe9006d895c",
+        "decoded_mode": "RGBA",
+        "decoded_sha256": "79cb9a0bf3ece75c9589551073bc4ec77edf65ea4c3eeed5f46ac2960164790c",
+        "size": [
+          192,
+          224
+        ]
+      },
+      "generated_weight_input": {
+        "path": "contracts/footer/generated-weight-119.png",
+        "file_sha256": "934c064b13b2e297744ffde79d6359bfafb44998bf849c5ec76f502fe70f4c0f",
+        "decoded_mode": "L",
+        "decoded_sha256": "ab03830f44d6a1876e34e1c51dea761fcfe19f3ee2059611807e11fb26783a12",
+        "size": [
+          192,
+          224
+        ]
+      },
+      "ground_weight_input": {
+        "path": "contracts/footer/new-ground-weight-119.png",
+        "file_sha256": "889cd96b4ad2a1a2cb29de26614ae772a892fc3eb7ca371dbbe53ec0a9e5085f",
+        "decoded_mode": "L",
+        "decoded_sha256": "9ea890a0b8569bd2355e1a641392da64a99d394b53df75c89fc6537dd26bc119",
+        "size": [
+          192,
+          224
+        ]
+      }
+    },
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-119-8.png",
+      "file_sha256": "c39a4ff0ed7fbd1d380483781238672f2e4f76d23591c8052d08ed15a22325f2",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "9c002db60dc543b8a0d81bf6498932d6dca44710af81381f8b5de9589fcdf0d4",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-119-8.png",
+      "file_sha256": "4c0630f62367ff8e298366b66ede11d3e02067101b3465e3d9ceb3c9e0eba372",
+      "decoded_mode": "L",
+      "decoded_sha256": "99669ae775e83517da42e18fcda384eb0279f7c3d6b63cfc91e88bf1a4ecf8f5",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-120-8": {
+    "source": "source/published-generated/terrain-shapesz-120-8.png",
+    "source_hda_sha256": "774dffd6470c8f66d1a3a6051703a8549087791e08b80eab2ee42677fe3cc342",
+    "source_rgba_sha256": "b4a82f3f17c1541d679f4fcb9aeb8e830b508d20aef55d5439b36a3f02a809b4",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010120,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "4844523108ac1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "cfb32defc92180d965770fe4a734e6d9f8801ba19e38ea8dd61937a048f74e0e",
+    "scope_group": "plateau_exterior12",
+    "weight": "contracts/weights/terrain-shapesz-120-8.png",
+    "guard": null,
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "footer": {
+      "id": 120,
+      "registered_crop": [
+        384,
+        224,
+        192,
+        224
+      ],
+      "unchanged_upper_rows": 184,
+      "generated_weight": "contracts/footer/generated-weight-120.png",
+      "ground_weight": "contracts/footer/new-ground-weight-120.png",
+      "generated_input": {
+        "path": "source/cliff-footer/registered-footer-120.png",
+        "file_sha256": "dc4b72a204448261605166b983abbd0e24dff5f9395ffda9b03279714c524edb",
+        "decoded_mode": "RGBA",
+        "decoded_sha256": "d03ed3691a7c389afce66b1f7602c5fb933d6821db9dbab3dda811bfcce36354",
+        "size": [
+          192,
+          224
+        ]
+      },
+      "generated_weight_input": {
+        "path": "contracts/footer/generated-weight-120.png",
+        "file_sha256": "4ebfc2a16b1c618dec203fbdb3d66d73f1a68f188cd31d61a9fe1162b62d2fa8",
+        "decoded_mode": "L",
+        "decoded_sha256": "b24a6f4d0922c94eb0db4d75a52e0c24d5e723f00e1f688c352a89dd74b0e6ef",
+        "size": [
+          192,
+          224
+        ]
+      },
+      "ground_weight_input": {
+        "path": "contracts/footer/new-ground-weight-120.png",
+        "file_sha256": "25dbbce91405c588c721e14a80aeeb90c084d86e3955b1dbff26193cb4c9bb8e",
+        "decoded_mode": "L",
+        "decoded_sha256": "ef4f08f9fba400bd52e71a06ecbf377794c6b32eeb2731fa4d50c47c97f4acbe",
+        "size": [
+          192,
+          224
+        ]
+      }
+    },
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-120-8.png",
+      "file_sha256": "c462ada86565fd92d4c28b6fa272798653426b43ab94ff99a7d23eaa56002c73",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "b4a82f3f17c1541d679f4fcb9aeb8e830b508d20aef55d5439b36a3f02a809b4",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-120-8.png",
+      "file_sha256": "188cdcc5bebc3ec104e8be0947baf9384a63cd4d9310933ea1abaf85f4e7818e",
+      "decoded_mode": "L",
+      "decoded_sha256": "99f7856c8f448c65e4ca022a5bba403984689a5762e9c72408817d3f2c504dad",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-36-8": {
+    "source": "source/published-generated/terrain-shapesz-36-8.png",
+    "source_hda_sha256": "cc0b265149262b5f8fc7641bc2366e3d28acebb8069a6d48b3244d1aef7e7905",
+    "source_rgba_sha256": "7a6660661e4d16cfbb854d812e5ea2f4cc355376a1babec5f0365c7dd44c02e7",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010036,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231b4ab1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "71f582c79781e59791d67302311b5e3cc8725e815d89a0f44954da4921c930c0",
+    "scope_group": "road_dark_backing12",
+    "weight": "contracts/weights/terrain-shapesz-36-8.png",
+    "guard": null,
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-36-8.png",
+      "file_sha256": "ba5aa01bd68cf71f9f7e60215f7434654ef5ddfe60177b5df9800861878c9bab",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "7a6660661e4d16cfbb854d812e5ea2f4cc355376a1babec5f0365c7dd44c02e7",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-36-8.png",
+      "file_sha256": "407ac43896a913a6f5e000fb6c60f9092ab70b19efbb397af1891468643cb7e0",
+      "decoded_mode": "L",
+      "decoded_sha256": "59787610c921da74aa91a2f21be21be1e5e08a2db8f15f901c958a04edbef41e",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-37-8": {
+    "source": "source/published-generated/terrain-shapesz-37-8.png",
+    "source_hda_sha256": "69a79fffbcff1180ec3d7d8089259810405e022479c662a39ba9ba5a65e0de79",
+    "source_rgba_sha256": "048e7c5ac78ab68ecd5410b4a283f5b968da4673689994f4e9723167b9889196",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010037,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231b5ab1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "5d6c54a3839678e8772c347197dd1e6d499d22cc0359c4d889075d7e5b14d90b",
+    "scope_group": "road_dark_backing12",
+    "weight": "contracts/weights/terrain-shapesz-37-8.png",
+    "guard": null,
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-37-8.png",
+      "file_sha256": "8af3e7df5337e61c62379d861c7546ba93e7d6c3d8c4a0899624ed5646b45bf7",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "048e7c5ac78ab68ecd5410b4a283f5b968da4673689994f4e9723167b9889196",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-37-8.png",
+      "file_sha256": "c88895f0526b2a2327d2cc00efd053699bad1a8dabdfe03eea441f8da15b249c",
+      "decoded_mode": "L",
+      "decoded_sha256": "26b234a3683bde251db7922e7963f90db7f2490c38b932701016731cd1544c07",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-38-8": {
+    "source": "source/published-generated/terrain-shapesz-38-8.png",
+    "source_hda_sha256": "33952c86e6cb3190f108660fe128ad9e668b65538a5bc1d004496adb2d4ed44b",
+    "source_rgba_sha256": "a5696bca88254e6bbbc9ef62475947db3f51a40b798b46f52332d4253349e00e",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010038,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231b6ab1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "99071b9e5538aed819252d918ba0f01084b43c38d439272f3ade49a2fcb3db99",
+    "scope_group": "road_dark_backing12",
+    "weight": "contracts/weights/terrain-shapesz-38-8.png",
+    "guard": null,
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-38-8.png",
+      "file_sha256": "ac7e693366eb9b9dc409b9218845abe1e32640ef9d697f25ce6940530e4f85dc",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "a5696bca88254e6bbbc9ef62475947db3f51a40b798b46f52332d4253349e00e",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-38-8.png",
+      "file_sha256": "552c4e3dc915ec958a07fbc1cacebc11bb911eddb6c5ed912c7d36fe717bd746",
+      "decoded_mode": "L",
+      "decoded_sha256": "c604be80a429ce473911bea28c65b828a6e5472b893529135e14ca36bc4e3650",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-39-8": {
+    "source": "source/published-generated/terrain-shapesz-39-8.png",
+    "source_hda_sha256": "5ef34310067b2f67c8ade82fc4eb30fc693991eb18c4948ac41b2c50a600eb8e",
+    "source_rgba_sha256": "c0ee2d03c017193f889efc5ad4709e68f809f9629ef24993f0d76a73d94ab16c",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010039,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231b7ab1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "0bbfcffa24eb3c6a36fa2b0ffdde1b906060588e7549f802972e1d07c034eb44",
+    "scope_group": "road_dark_backing12",
+    "weight": "contracts/weights/terrain-shapesz-39-8.png",
+    "guard": null,
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-39-8.png",
+      "file_sha256": "f34ad2117345610120eab737f4967ca904342fe78b2089fdd2be0e6f1d9f3156",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "c0ee2d03c017193f889efc5ad4709e68f809f9629ef24993f0d76a73d94ab16c",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-39-8.png",
+      "file_sha256": "2e8d9ae23586e521c2882d5a21e060b1aeeeef49f5f8776845526ef6896d0c2d",
+      "decoded_mode": "L",
+      "decoded_sha256": "3a677c2cffd1400c9aec26738f8dc17bb7f6ecec2aa28fafde665d2fd0aabefb",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-40-8": {
+    "source": "source/published-generated/terrain-shapesz-40-8.png",
+    "source_hda_sha256": "3ea7cd0c68e80fe6a6cab17b7c05455f242ab96a390bfccd212e2ba4b7b26350",
+    "source_rgba_sha256": "fba7d6fc58240fa12f1c68d09baa693c5116c8072d313f74a89dee96127b4773",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010040,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231b8ab1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "c97a4b716b6ed4542face632643290e65e2065c49c70383584a9b8790e02f5ce",
+    "scope_group": "road_dark_backing12",
+    "weight": "contracts/weights/terrain-shapesz-40-8.png",
+    "guard": null,
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-40-8.png",
+      "file_sha256": "353e3dbfd4ddb4627fa2a234ded0006749792e6dcb4aff316e7a436f6547ab86",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "fba7d6fc58240fa12f1c68d09baa693c5116c8072d313f74a89dee96127b4773",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-40-8.png",
+      "file_sha256": "a55dd073de4392eb89302a5f09651672519d6efe1f9ff87c0c22f946140fd3e2",
+      "decoded_mode": "L",
+      "decoded_sha256": "17e70d55425a53067c7c6eeb50f4a244c62a936185ad023432a8f298be19ba53",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-46-8": {
+    "source": "source/published-generated/terrain-shapesz-46-8.png",
+    "source_hda_sha256": "ce438be6c2d53209a499f092ba1becfdce6fc1197f77c004e0730a3f272b7ecd",
+    "source_rgba_sha256": "352f0cc91485e3ca51f15ca6f548d485683431e31f6c5e2212223d2e966cfd39",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010046,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231beab1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "65fad94faf916f6c1cf43161725aa9441f7cbc5972ea5d3835f14abaeb393ae0",
+    "scope_group": "road_dark_backing12",
+    "weight": "contracts/weights/terrain-shapesz-46-8.png",
+    "guard": null,
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-46-8.png",
+      "file_sha256": "6e06f1076bf3b24d9e8e017e7d534f55602e5af26824562f4f7762b0a56032da",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "352f0cc91485e3ca51f15ca6f548d485683431e31f6c5e2212223d2e966cfd39",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-46-8.png",
+      "file_sha256": "501dc486c10a6bd97373f4218e5e22218fd553e4065225dd943500162287bfa1",
+      "decoded_mode": "L",
+      "decoded_sha256": "53b11d37be310b61f1d12ad752b8068c71fd8a114e0cb1a61cb44467068f2b72",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-48-8": {
+    "source": "source/published-generated/terrain-shapesz-48-8.png",
+    "source_hda_sha256": "2f621fbfde4dd099902603fa59a9db45ec7d7f60785fa7ed4274ac6e031435cf",
+    "source_rgba_sha256": "8664aca237b4c778ce38a4fb2a8c5b29b9e9c996b1e41fa3441a3c7918db284c",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010048,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231c0ab1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "731f1837e9dbead40eee23c866c84c7011a3d1cc87c8e291297a80c148ae4af9",
+    "scope_group": "road_dark_backing12",
+    "weight": "contracts/weights/terrain-shapesz-48-8.png",
+    "guard": null,
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-48-8.png",
+      "file_sha256": "ea1dd2a5fdc90d4d775223d607391a4119c8329a10c33ff914e4d0ff7f382442",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "8664aca237b4c778ce38a4fb2a8c5b29b9e9c996b1e41fa3441a3c7918db284c",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-48-8.png",
+      "file_sha256": "87fa1af4363e91b70d1bde9dfd406bbc836ded0858b9d1def2a07317ff8ee2c9",
+      "decoded_mode": "L",
+      "decoded_sha256": "d4d2e7a03f8fb04c0091bd34c6a28077ccfa22c8894c46f4b3c5864982074aa4",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-49-8": {
+    "source": "source/published-generated/terrain-shapesz-49-8.png",
+    "source_hda_sha256": "4b0c7a2266123f2d2b16ae30ac3a8f1b0aee47feac7ad4ad6837b2d5c47911c1",
+    "source_rgba_sha256": "7cc61842af681c0af3ad39da14299d5bcc04dbfd84ab6d7e794081e57e625ee1",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010049,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231c1ab1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "f4f8b39e82e72cfb5f8de8158ec0e8bd9393cc896f4acca2576905ec8c683c8c",
+    "scope_group": "road_dark_backing12",
+    "weight": "contracts/weights/terrain-shapesz-49-8.png",
+    "guard": null,
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-49-8.png",
+      "file_sha256": "661b2af28035516fa7a07a814b20b62033d3ba41e6f8219d75c3ae0d44eea8f3",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "7cc61842af681c0af3ad39da14299d5bcc04dbfd84ab6d7e794081e57e625ee1",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-49-8.png",
+      "file_sha256": "4c8fc1ffc1d6ff91de67f744f77fcf888900539abd6cae1837ebde52b643c2e9",
+      "decoded_mode": "L",
+      "decoded_sha256": "3d04605358fec18ddc5ad3ca4b75a90a9ee3b849933f2f7cafe9b8c2912bcfbf",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-50-8": {
+    "source": "source/published-generated/terrain-shapesz-50-8.png",
+    "source_hda_sha256": "f77899eaf52768cb1e9f163345cb54ac66ae1cf0cca857b2a86abcaa23750d6e",
+    "source_rgba_sha256": "a7f4d59cef80719e7805caec1e8ed99923f398d74119288f8e14b5ba71116d29",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010050,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231c2ab1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "569279d467ec2269a8f0205e0ff7ff7d73959a3666414587032f73b15bbfbd3d",
+    "scope_group": "road_dark_backing12",
+    "weight": "contracts/weights/terrain-shapesz-50-8.png",
+    "guard": null,
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-50-8.png",
+      "file_sha256": "69e135bbf3bf9ed7afbf5a07febe4ab07e87d10da4c53e99b1aa41da82a4a086",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "a7f4d59cef80719e7805caec1e8ed99923f398d74119288f8e14b5ba71116d29",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-50-8.png",
+      "file_sha256": "03bb33454538adbbcd1ed95b8c8378cd90ff2ca772cc065de3f588132065b8d4",
+      "decoded_mode": "L",
+      "decoded_sha256": "0e4d944c534c6d9ae08feceb918f78e6dd9f8d048982a153b8a1529cfad060db",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-56-8": {
+    "source": "source/published-generated/terrain-shapesz-56-8.png",
+    "source_hda_sha256": "4c8875b304e7f32efbc87b21b2d214c5e29f2513b21f2c0ea037c216c313f251",
+    "source_rgba_sha256": "fce6ff5e6583197a27dd3fa0bc2c7a18e97653047f7333fc5daf74d5cccdbffd",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010056,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231c8ab1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "d8ec22e44cf39e92f412c2eff95b778ece34d13ce6b490cd38a86086f9c7ad80",
+    "scope_group": "road_dark_backing12",
+    "weight": "contracts/weights/terrain-shapesz-56-8.png",
+    "guard": null,
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-56-8.png",
+      "file_sha256": "b37bcd6db9d0624f5dca3fdf0f8f162ac64a070765d3ee71dce512797ab4dc14",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "fce6ff5e6583197a27dd3fa0bc2c7a18e97653047f7333fc5daf74d5cccdbffd",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-56-8.png",
+      "file_sha256": "ad4e32e926bb28f1b2848f6f0ac163b01b75e24d4e7c8cf02fa610017306337e",
+      "decoded_mode": "L",
+      "decoded_sha256": "c5503e056a3f5b394ca6f4b83a97df5531434ee91cddd6e344c9430ee7581bdc",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-57-8": {
+    "source": "source/published-generated/terrain-shapesz-57-8.png",
+    "source_hda_sha256": "6ac7ee4ef4a8860530a8a5c2fbf4dd0a597e317325c200b24bb0635774d801db",
+    "source_rgba_sha256": "e9910de2a199dc7d24fcde956bc84b9ac6bb44aed36281c1afadcc3ef0ccdebc",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010057,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231c9ab1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "25eab5c68c69a9bc74e2ddda87af8c081b33336302e858d90548812e52ace5b3",
+    "scope_group": "road_dark_backing12",
+    "weight": "contracts/weights/terrain-shapesz-57-8.png",
+    "guard": null,
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-57-8.png",
+      "file_sha256": "78a80a13acb4319975b3b7791b5cc49db4ab423cd8be22c3bf2203f6b0d3c2fb",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "e9910de2a199dc7d24fcde956bc84b9ac6bb44aed36281c1afadcc3ef0ccdebc",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-57-8.png",
+      "file_sha256": "97b3503c7138d5287d77dfafbafa8f16c5e7886bf0523ee9f9ab971f59442f83",
+      "decoded_mode": "L",
+      "decoded_sha256": "cdb5bcf21b94a983f71d7b27d5ca3a6efe184096a1e4f283833646372c6d940d",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-58-8": {
+    "source": "source/published-generated/terrain-shapesz-58-8.png",
+    "source_hda_sha256": "a52a1fffc31ab69bffd2512968c92a76508ddc65263e8042704408a3eeb13420",
+    "source_rgba_sha256": "3ce50daedcddd95cb06191a458999a1f4bb95046b9449a55b7c35eb9164ceeb5",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010058,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231caab1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "1969388630a3734191142057f71285d4538fd77cef92d588d61628c942089755",
+    "scope_group": "road_dark_backing12",
+    "weight": "contracts/weights/terrain-shapesz-58-8.png",
+    "guard": null,
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-58-8.png",
+      "file_sha256": "48bb5a6dfa43ecafb16cf79da29e3c9a8c4a491a031f0bb4bb9e4b21087d1816",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "3ce50daedcddd95cb06191a458999a1f4bb95046b9449a55b7c35eb9164ceeb5",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-58-8.png",
+      "file_sha256": "7526c9b6ecd869ad57bedea2f33ed7b7a954933ae84345cc93ad22bea88dd318",
+      "decoded_mode": "L",
+      "decoded_sha256": "c7b051b462d7e436830f53cd257f90217f29a28798f648304b988d16865692a8",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-111-8": {
+    "source": "source/published-generated/terrain-shapesz-111-8.png",
+    "source_hda_sha256": "ae597697acd4d720cf61b30d6e4d57e7c56e20355b9069a3abe8ba37736741d5",
+    "source_rgba_sha256": "b6f4bfd3f9f20aeafbce7842f4af170ba26e49bc1a688ed5fe7818468eb176ed",
+    "alpha_sha256": "7b55573c3edea5579be83c24ebbfc75c85f3fdbcac4a8aad62b72a56775391ea",
+    "header": [
+      2010111,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231ffab1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "416d2711b52092cdfe17e62f2767e274b0a8042f7c102714e2038ed63ac5d2a8",
+    "scope_group": "rock_backing3",
+    "weight": "contracts/weights/terrain-shapesz-111-8.png",
+    "guard": "contracts/guards/terrain-shapesz-111-8.png",
+    "changed": false,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-111-8.png",
+      "file_sha256": "ca69ab24cc54efd2706fd391b1ecb98057fedd7dae2c93be329c36c95dcba9bf",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "b6f4bfd3f9f20aeafbce7842f4af170ba26e49bc1a688ed5fe7818468eb176ed",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-111-8.png",
+      "file_sha256": "64f3f2f4638392c0bf9485b0f51949cc7efff6ca564266638058e240549e2812",
+      "decoded_mode": "L",
+      "decoded_sha256": "ccc1a10b7aac17225febe0b37d40d5b4575aebdad5bb1c291429f04d1a5892b4",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/terrain-shapesz-111-8.png",
+      "file_sha256": "b1326e57cfdef107e5bc95dbf116dde331e05e89c1b94fadff209d6dd8554ef8",
+      "decoded_mode": "L",
+      "decoded_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-113-8": {
+    "source": "source/published-generated/terrain-shapesz-113-8.png",
+    "source_hda_sha256": "241aabc9a7eeb983d4f96fa3a1680c08d3ba8746402bfeb2fbd87151d588c673",
+    "source_rgba_sha256": "c8c754d7b8c2d5d802375a4abaf169229c6e9d5a963d188e3bb33b4f3ba11b8d",
+    "alpha_sha256": "bc96127df0b1f4fa5cd75cd795c791a07147869edf453ef552b571fda83ccc17",
+    "header": [
+      2010113,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "4844523101ac1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "19857021e65c4a97cfc1cb59b6852e59378232fd06e62d732d79fa470129787d",
+    "scope_group": "rock_backing3",
+    "weight": "contracts/weights/terrain-shapesz-113-8.png",
+    "guard": "contracts/guards/terrain-shapesz-113-8.png",
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-113-8.png",
+      "file_sha256": "dd2f57c5a45a5f4a3428dfb0a23b23b28e02f6ea7cc4cc58a86c89866ded03eb",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "c8c754d7b8c2d5d802375a4abaf169229c6e9d5a963d188e3bb33b4f3ba11b8d",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-113-8.png",
+      "file_sha256": "2043750807b4a1e51d60ba60637b5a13d68830d94c44ad4c3caccf8fb2f96dd0",
+      "decoded_mode": "L",
+      "decoded_sha256": "9e6097e6c7d52a6348802e1f959c57976e83be75095b8db47866cb4c760ce2fe",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/terrain-shapesz-113-8.png",
+      "file_sha256": "7cadae0d4b7e6e0d759333acc31110c0ee00cc62a693040e414a3827fbdffbef",
+      "decoded_mode": "L",
+      "decoded_sha256": "a25d0831720b5c2bd7585fa53dbc5651aaf8fdb7be224ab96654e478b3ba789c",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-114-8": {
+    "source": "source/published-generated/terrain-shapesz-114-8.png",
+    "source_hda_sha256": "2e5c9bd9bccf9146f60ec196571ee3677cc77b7f035ef1abe99ac65de03a8707",
+    "source_rgba_sha256": "ddc3d5ff176b8f579ca820d5f705ef8a82a7996bcb98969a3467fc49dd94ab1d",
+    "alpha_sha256": "86ac98e0e19ff6fe14401d94362f43bf39640d6687faeefded90e70824712812",
+    "header": [
+      2010114,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "4844523102ac1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "37db51b55c5eaa0914e6d243ef8d09c765889bec4f102a29a0fb5fcf65c54570",
+    "scope_group": "rock_backing3",
+    "weight": "contracts/weights/terrain-shapesz-114-8.png",
+    "guard": "contracts/guards/terrain-shapesz-114-8.png",
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-114-8.png",
+      "file_sha256": "b64524186b27ba4d9e0be14b19d3832c1e38094b5863cce16808c44d6b4bf3aa",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "ddc3d5ff176b8f579ca820d5f705ef8a82a7996bcb98969a3467fc49dd94ab1d",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-114-8.png",
+      "file_sha256": "d4d15a6c87ea2104bb49648bfc735bb0c6f75230416f3c8081e42774b3ef1502",
+      "decoded_mode": "L",
+      "decoded_sha256": "621cc6f67b24940380ed31e35815aa2d130e0cef74ca0bd7c8122d2723d07a4a",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/terrain-shapesz-114-8.png",
+      "file_sha256": "c1526ad80a1bd8d050eb56c9a246f7903f827e19352a08e51affbf2829d95cd3",
+      "decoded_mode": "L",
+      "decoded_sha256": "e5fe766bf1e094ba34289cb60943baf30515a73a7052f7e1052449afc65cecb4",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-321-8": {
+    "source": "source/published-generated/terrain-shapesz-321-8.png",
+    "source_hda_sha256": "ce27b96058387f2e27fd9693844fc7133d94b942348eb9c8a88b22e60410bced",
+    "source_rgba_sha256": "a3e0073ab35c43fdf30994fa81eab3e9435aec64fe17eee4866c13b1300541c5",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010321,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231d1ac1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "6e4f02aa24a1ce73eee6fc4fb4e75e331156fe1164d36765794f7fff4272f438",
+    "scope_group": "foundation4",
+    "weight": "contracts/weights/terrain-shapesz-321-8.png",
+    "guard": "contracts/guards/terrain-shapesz-321-8.png",
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-321-8.png",
+      "file_sha256": "f15744e25628e84cc4629719498f74dcccdd7b186e1bb9e337b894b87700308f",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "a3e0073ab35c43fdf30994fa81eab3e9435aec64fe17eee4866c13b1300541c5",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-321-8.png",
+      "file_sha256": "21db836a04f1fe88df2e7ad0c13c436f9b61f47fd61f71706ab3516ea5185bee",
+      "decoded_mode": "L",
+      "decoded_sha256": "7adaa6865ccd87a5a977f8ca20c2fdef62fff27e70339b3a6351234c71f119dc",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/terrain-shapesz-321-8.png",
+      "file_sha256": "8f901df034d70d5e357c46599cfce539d99ae5e7878804a1e827118207f56fa5",
+      "decoded_mode": "L",
+      "decoded_sha256": "d294a779a95699f46ab8896bb53f1971978c89d996f733c62c954e0cb0f34274",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-322-8": {
+    "source": "source/published-generated/terrain-shapesz-322-8.png",
+    "source_hda_sha256": "2c700c77aeae036c83598a9c3c76273b512f6c914769a03297fdb5c67914b77b",
+    "source_rgba_sha256": "dda216b927bd951310ed89d3630ead515ee0defed9e33ca12f0870d9fe2be156",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010322,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231d2ac1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "88c362b6e32acb0c5e7f9d313da9515f691cd3204f1c2ba855a42579be7cba25",
+    "scope_group": "foundation4",
+    "weight": "contracts/weights/terrain-shapesz-322-8.png",
+    "guard": "contracts/guards/terrain-shapesz-322-8.png",
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-322-8.png",
+      "file_sha256": "3a126554e459b656ee44d66f8d95e464d4ba9cbc08e3aa6ea951af33a3152430",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "dda216b927bd951310ed89d3630ead515ee0defed9e33ca12f0870d9fe2be156",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-322-8.png",
+      "file_sha256": "1c60e0c096cabbb62a47ec408d0b601065de6bcbb518c115179e06623ba28473",
+      "decoded_mode": "L",
+      "decoded_sha256": "7f7f796b7f2ca75b1b18792ea67326b52d580656e2a48c4f070a48f04edf2175",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/terrain-shapesz-322-8.png",
+      "file_sha256": "fda2f6dbe4b0bb97be55e0a6e53a6b026487eda52eb3dc248ca6af229a77e121",
+      "decoded_mode": "L",
+      "decoded_sha256": "5b6636cf8ceca6cd5dd35de109c5b7585b385001687ede4a39f9207f4587e5e9",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-331-8": {
+    "source": "source/published-generated/terrain-shapesz-331-8.png",
+    "source_hda_sha256": "ef4cc2f6b380ceb325d0f06b8cd6255ebb880fa299f37589458a1c136fd956f4",
+    "source_rgba_sha256": "a099d33977e6cc9b7407d4959e30cf17bf3b3404e30a9a9107094d1615666d6b",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010331,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231dbac1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "d2deb0a1d376d3ccff8a96770c5e58e88d35ea12095cf5ca723d765794df1581",
+    "scope_group": "foundation4",
+    "weight": "contracts/weights/terrain-shapesz-331-8.png",
+    "guard": "contracts/guards/terrain-shapesz-331-8.png",
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-331-8.png",
+      "file_sha256": "92bb37522b6702f3d55f1b034f67d06dbf3ffad7784a8034b9280f03b1f3b767",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "a099d33977e6cc9b7407d4959e30cf17bf3b3404e30a9a9107094d1615666d6b",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-331-8.png",
+      "file_sha256": "8025f69c36f230117c10fc91447744db73affbde4fb38481611e1b75acb9ad08",
+      "decoded_mode": "L",
+      "decoded_sha256": "170a462367d69fa947101b21c5105373fea7721cf202af03e13a934d79305e7b",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/terrain-shapesz-331-8.png",
+      "file_sha256": "89a4d41b9457cc35f2ef6af879f1eaf3c68076659f1a5b36edfe389c8e6eed15",
+      "decoded_mode": "L",
+      "decoded_sha256": "771fe79110d7b072e28ae0b55d3427417bd00b3e2b9891e9293e5a474102e948",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-332-8": {
+    "source": "source/published-generated/terrain-shapesz-332-8.png",
+    "source_hda_sha256": "a2eed4eda2e955c800f350043d291982a424221de75092fc56c0db4e22efe060",
+    "source_rgba_sha256": "f65f3fa4f563e11eb291b56a495ff2c42bb7f0ceac1d6a266cffdd6b9624b462",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010332,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231dcac1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "992024d37a9330b0da8f1b633b7c58b0902c6c1290c534bcc05dfaec917eed8c",
+    "scope_group": "foundation4",
+    "weight": "contracts/weights/terrain-shapesz-332-8.png",
+    "guard": "contracts/guards/terrain-shapesz-332-8.png",
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-332-8.png",
+      "file_sha256": "86068e2974a2a2bef822c1519b1d201a2d4b1c9bc57a7d00df4f43b5cd9e88c1",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "f65f3fa4f563e11eb291b56a495ff2c42bb7f0ceac1d6a266cffdd6b9624b462",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-332-8.png",
+      "file_sha256": "5811c97f8a0f2b7a86372f2e4863441f54a2c9bf75d0a4a8e051cd3eebfdfc2b",
+      "decoded_mode": "L",
+      "decoded_sha256": "6f0568a96ddeebbec17f4eb096d038a17e2d42848f5b4c57ce173cddcb4d19f3",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/terrain-shapesz-332-8.png",
+      "file_sha256": "933075b7f0a9f097e23fcff0833c2d4ae5a699e9584f8599416d93021729d8be",
+      "decoded_mode": "L",
+      "decoded_sha256": "1606284a861384a61ac1a42454da108840a819ab943330e436da638eb385b8e1",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-323-8": {
+    "source": "source/published-generated/terrain-shapesz-323-8.png",
+    "source_hda_sha256": "b4979b6e9eb10c7290bb87ecfca89bd4bdf72d5b51589823611c29251b267f3d",
+    "source_rgba_sha256": "58183760a066b8f1bfe510f8b8989dbe0319e4814e6154471b53ee56e5657f53",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010323,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231d3ac1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "27c1aa7538e588ea566a319ca74064c41ec09e379966de87e759b3782d358d25",
+    "scope_group": "physical_underlay4",
+    "weight": "contracts/weights/terrain-shapesz-323-8.png",
+    "guard": "contracts/guards/terrain-shapesz-323-8.png",
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-323-8.png",
+      "file_sha256": "61f98a66243632930a5418e64c5b39a802cd98a1330aa3afa93ac89492bf6800",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "58183760a066b8f1bfe510f8b8989dbe0319e4814e6154471b53ee56e5657f53",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-323-8.png",
+      "file_sha256": "badbe43ad99b6eb2619425e946a9dfa2dc6bc5adf11d5e44c446039e324b8e51",
+      "decoded_mode": "L",
+      "decoded_sha256": "4cd82e28a875bfe62765c63efcce3e318270035f0a2d19b4ccb0e5947bf600d9",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/terrain-shapesz-323-8.png",
+      "file_sha256": "eb907c5b34f30769b8d939c33a0c2dd946be81e0250627bc8caa9ba20f186929",
+      "decoded_mode": "L",
+      "decoded_sha256": "ad25eb1b22487f3f028dbc18adce3543c610626dbb7e7c28160fbfb277e83716",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-324-8": {
+    "source": "source/published-generated/terrain-shapesz-324-8.png",
+    "source_hda_sha256": "6c74ef2cf9cbdfa2b5b2951af44d80a51916c19505a646b8b5e084fd863d6371",
+    "source_rgba_sha256": "9d32b2aac0030f8c49262ae6b77f960b26e19c95fae17024a46d150d10f9d654",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010324,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231d4ac1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "7ab0a123db9cef227c915bc915d6a2b2381d5c8ee7bb6a3d2f83e06f34379ebb",
+    "scope_group": "physical_underlay4",
+    "weight": "contracts/weights/terrain-shapesz-324-8.png",
+    "guard": "contracts/guards/terrain-shapesz-324-8.png",
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-324-8.png",
+      "file_sha256": "a24e1bfebd6a44dde4f97340630ba7888b4e517378b2cc697436a07ba18322b3",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "9d32b2aac0030f8c49262ae6b77f960b26e19c95fae17024a46d150d10f9d654",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-324-8.png",
+      "file_sha256": "6cff37d8ee0a4a0a788f7740ee70604bbbd15015c5f9fbef59e583e231961ed7",
+      "decoded_mode": "L",
+      "decoded_sha256": "a6080a78b1a09743709110172405a38e6a30c7e23b135fedd5916cd39d03f9df",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/terrain-shapesz-324-8.png",
+      "file_sha256": "0d0c28c8679f9ac104c8f10093bc5b9854ea42c58e5e066a969eb5fc1ef62286",
+      "decoded_mode": "L",
+      "decoded_sha256": "046531fc066538d37c923c5b03a117a05ee32b2369db08c6f9f878e57c3d48f7",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-333-8": {
+    "source": "source/published-generated/terrain-shapesz-333-8.png",
+    "source_hda_sha256": "359ecf04af3365c6a1b05ee55da461e6616d7e2506e5e2118e59311cab867d1d",
+    "source_rgba_sha256": "2f2dd7ef5c85ca759377fc575997514197eeb66278ca43dae4032d94e56be641",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010333,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231ddac1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "058c16b1282a97103d956f75f21c63efdb020ca32c9a4ae06c0f6dbc5453e121",
+    "scope_group": "physical_underlay4",
+    "weight": "contracts/weights/terrain-shapesz-333-8.png",
+    "guard": "contracts/guards/terrain-shapesz-333-8.png",
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-333-8.png",
+      "file_sha256": "0e32eea90a09e43c0347c5de5fa1705c4caf23f116b52c84e227e3a19c394a26",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "2f2dd7ef5c85ca759377fc575997514197eeb66278ca43dae4032d94e56be641",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-333-8.png",
+      "file_sha256": "f3b59692e64657dab559bb43fa92ab1566b99d307c35914f597cf900cdda1b90",
+      "decoded_mode": "L",
+      "decoded_sha256": "e937702e0889d9af14d3c87667423a6519f04b79201ec3e40823b8086aa8c533",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/terrain-shapesz-333-8.png",
+      "file_sha256": "b568d11745d03d6e6a1719d8931058b1670fa28dd5764125aa70009d19475360",
+      "decoded_mode": "L",
+      "decoded_sha256": "57d356fb7080475fa53ea7a4552c29330743adfded11632441c39b9ddea509d8",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-334-8": {
+    "source": "source/published-generated/terrain-shapesz-334-8.png",
+    "source_hda_sha256": "31aa6e7069799cf1702e0671f2ca43ba84b9c19853075357568f47bf7d112b6e",
+    "source_rgba_sha256": "d215399c8330494cf738e8bf54868f43d0c0508929d0c53ea0858dd64d7eaf13",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010334,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231deac1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "d338894ce1054faf1368831de491a73ae8bf68c5634aa70c479e46d3096fa6b0",
+    "scope_group": "physical_underlay4",
+    "weight": "contracts/weights/terrain-shapesz-334-8.png",
+    "guard": "contracts/guards/terrain-shapesz-334-8.png",
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-334-8.png",
+      "file_sha256": "d2c1472644fc3d489eed4997d80ab4488c592191d0a905609bc5a8c6941f7a76",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "d215399c8330494cf738e8bf54868f43d0c0508929d0c53ea0858dd64d7eaf13",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-334-8.png",
+      "file_sha256": "ba6e875fce5f36480444b7da57b2561e664c732cf6e7c758d014f1b1e7563977",
+      "decoded_mode": "L",
+      "decoded_sha256": "9a83d5279c7c91a8fbacf5be43f92b6045b703701af679bb0ecceba18dab2e83",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/terrain-shapesz-334-8.png",
+      "file_sha256": "813293163bba66d716d2b03c3f77d32620e790e49c9c56dd9cf799ff9c1ded91",
+      "decoded_mode": "L",
+      "decoded_sha256": "27588da632824ef76be423bfab4b42b68ac92dff0a31a5566b152d2502623a2a",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-341-8": {
+    "source": "source/published-generated/terrain-shapesz-341-8.png",
+    "source_hda_sha256": "b2f7b9bc8a076a5fa8450beeb92714981f13b321d057610fdf771e115f93e6a8",
+    "source_rgba_sha256": "43879a35d6780f8a0d131275046721e597e5030e2d57ffab2762892204ffc8b1",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010341,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231e5ac1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "3d47da6585c82b9e9be1dce29f776c0b41fb4fcda9fb6a5e0b65c3c915456418",
+    "scope_group": "terrain_stone_remnant6",
+    "weight": "contracts/weights/terrain-shapesz-341-8.png",
+    "guard": "contracts/guards/terrain-shapesz-341-8.png",
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-341-8.png",
+      "file_sha256": "f99d3802d2c020f3ec4a3d4e1c3894db910d818d9a9c900be2edc670f7d4ecb4",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "43879a35d6780f8a0d131275046721e597e5030e2d57ffab2762892204ffc8b1",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-341-8.png",
+      "file_sha256": "20abe22b89f7caeb776ea5d3d00af88112a3003d1bc68147d4a2e1802cf016e0",
+      "decoded_mode": "L",
+      "decoded_sha256": "41d63bd72e29b9c373a36be98ad228a7292e74c92dc6e63130d17f3bc61dcbe0",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/terrain-shapesz-341-8.png",
+      "file_sha256": "d5eaac34d6923d9804bd5fe3ddc07b515c3877979b3645de99a71c5f6047533d",
+      "decoded_mode": "L",
+      "decoded_sha256": "c5f03a83be803be47b8d55f876eec4df4a645ea9343272433e2c9a81fbe171f3",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-342-8": {
+    "source": "source/published-generated/terrain-shapesz-342-8.png",
+    "source_hda_sha256": "cb3ca68e74d54c60541ff5ae2de864cfb813a2cd555885690e3730ac24a38f46",
+    "source_rgba_sha256": "483b0844e176520e5b6f1b678725748803011be8abcd5eff700c1dd8b7a4e3f8",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010342,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231e6ac1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "d285b53ece2f9db747c6339be1f07fc970d4a66b68d8abcd407b2697c2cfaba9",
+    "scope_group": "terrain_stone_remnant6",
+    "weight": "contracts/weights/terrain-shapesz-342-8.png",
+    "guard": "contracts/guards/terrain-shapesz-342-8.png",
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-342-8.png",
+      "file_sha256": "4e085e497f9b7b8f77d307af0f58b6ec1e6cd2b095b42c6ab1a196b5073f4379",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "483b0844e176520e5b6f1b678725748803011be8abcd5eff700c1dd8b7a4e3f8",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-342-8.png",
+      "file_sha256": "aa09fcfe4f62b8713ede335fb09f80037d0a13c55f0aeb1765dce98a72b15f11",
+      "decoded_mode": "L",
+      "decoded_sha256": "3aea2311fcaf73a1b330b8a0995761ff4499dc6699c2c8311af2959e39d619af",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/terrain-shapesz-342-8.png",
+      "file_sha256": "1f86d933c286b47d7692b925379c0da3ec0c2a7ccb45347a5d572f3482182da5",
+      "decoded_mode": "L",
+      "decoded_sha256": "0a1af194f14ddbc699d5106b1e9991ed636e15d9f1f12faea1bbaefc62b82020",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-343-8": {
+    "source": "source/published-generated/terrain-shapesz-343-8.png",
+    "source_hda_sha256": "d78d2c9c16db424d2e2c80071e1bd0d666bc5f98547b995a4d356137b09a2210",
+    "source_rgba_sha256": "533fb34d2067bbf36ede367f3eade7a94673510a480b7aa51c4b169a3692702b",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010343,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231e7ac1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "8625623f69cb4b70b4a88bd671bd36864a9d419c832b67ee2767d442de5d05f2",
+    "scope_group": "terrain_stone_remnant6",
+    "weight": "contracts/weights/terrain-shapesz-343-8.png",
+    "guard": "contracts/guards/terrain-shapesz-343-8.png",
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-343-8.png",
+      "file_sha256": "5ee68f3a81b08f7b090cd93a61514683425c6b12e8c9d1b077859b9de97d9331",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "533fb34d2067bbf36ede367f3eade7a94673510a480b7aa51c4b169a3692702b",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-343-8.png",
+      "file_sha256": "0fb3e8463274e4ff016e5c4b62c54dd1a0bd166487ecbb85eb864f153cddc15b",
+      "decoded_mode": "L",
+      "decoded_sha256": "dafeb0922b3ab99d02e8c2a4237ca8229a8f88e42a26cd5681b04d2459d22fe1",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/terrain-shapesz-343-8.png",
+      "file_sha256": "44354285307112494b4691c4ba0f2c2a33edbdeb065fd452f9f72aec522c32c2",
+      "decoded_mode": "L",
+      "decoded_sha256": "52c267d137580ed0c7f8517298eda823249f521782d8b2ab1dfec00ec5d03517",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-351-8": {
+    "source": "source/published-generated/terrain-shapesz-351-8.png",
+    "source_hda_sha256": "8a148c7aebc32665ff1b6d8aa2839a777b2e82014e3f14e0eb70ff8e5155965d",
+    "source_rgba_sha256": "2250c723f0bf7c7f095b12406c56defc8e3f4d50f2a825e891679f3238222e63",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010351,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231efac1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "a13d4b3fdf7c26240974196e3927553889139fb98f2ec4a61a49af359213e66e",
+    "scope_group": "terrain_stone_remnant6",
+    "weight": "contracts/weights/terrain-shapesz-351-8.png",
+    "guard": "contracts/guards/terrain-shapesz-351-8.png",
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-351-8.png",
+      "file_sha256": "199c422901754d7c3a5d208ce51bf1a88dc5b98fc28fe4ddca4f7032adb51ea6",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "2250c723f0bf7c7f095b12406c56defc8e3f4d50f2a825e891679f3238222e63",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-351-8.png",
+      "file_sha256": "4b28c3cd77a6ed6d63da560d2edcfdd3f548f98a3288caa1ccb5d33ec85df6e8",
+      "decoded_mode": "L",
+      "decoded_sha256": "21123b667fce3865076e277bde802fe301f3646cb3c8386126510b61fdaa411d",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/terrain-shapesz-351-8.png",
+      "file_sha256": "406c8db3e8f0be4752dcaae3e34d66eb3d2e66a31171ba133b8cca4b87efa739",
+      "decoded_mode": "L",
+      "decoded_sha256": "27385cd4bf872c364ac84c570635e40689c0c37f614d1e92465a1a47560a7186",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-352-8": {
+    "source": "source/published-generated/terrain-shapesz-352-8.png",
+    "source_hda_sha256": "7c6c7ce14e5c0f455a6c987e67db32d6fd4d7502c20bf72bb3fd47d8cf14bcac",
+    "source_rgba_sha256": "1d3445f2802f18ed32fe74cc0b8929638cfe0e3d0267f8ce3b39bfc717e8a228",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010352,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231f0ac1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "dbd1360a49d7b49f317b560d931fc3d7fe23644d6d80110f0df326a714c6b76a",
+    "scope_group": "terrain_stone_remnant6",
+    "weight": "contracts/weights/terrain-shapesz-352-8.png",
+    "guard": "contracts/guards/terrain-shapesz-352-8.png",
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-352-8.png",
+      "file_sha256": "fb26a68a152a689d71041ce5f5e8a1ecabb725854698ae08ad014bc5151725ad",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "1d3445f2802f18ed32fe74cc0b8929638cfe0e3d0267f8ce3b39bfc717e8a228",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-352-8.png",
+      "file_sha256": "3c92969e12a87f0faaf7fa0290664b41527f54ea19a68608fbd85edea3fcd6c4",
+      "decoded_mode": "L",
+      "decoded_sha256": "b4a4b9cc9c3752f81e48f4b7351267fbe74471528952da4a6e48a3bcc35787f0",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/terrain-shapesz-352-8.png",
+      "file_sha256": "22071456991d56f5bd67697b9913e861a362f96371cb958b9d3b4d8deb8b2e05",
+      "decoded_mode": "L",
+      "decoded_sha256": "46dfc89a81656cca49cd7ea07ddadeb7bd317fc9653bc7fe3a202045f1626364",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "terrain-shapesz-353-8": {
+    "source": "source/published-generated/terrain-shapesz-353-8.png",
+    "source_hda_sha256": "441df0f51129c8a1d8287aa5f336c4bb185f12c139bfcc6c35056141deb1248c",
+    "source_rgba_sha256": "4088c9f06ba231b4f37e285ba443da518ee8510f7f927f7f2ae8f3cb5b3880b9",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      2010353,
+      8,
+      24,
+      28,
+      0,
+      0
+    ],
+    "header_hex": "48445231f1ac1e0008000000180000001c0000000000000000000000",
+    "header_sha256": "0278455f2c11b33a7bf635039460b6b0901574f8bcdcbe0a4bb66471b8cea3af",
+    "scope_group": "terrain_stone_remnant6",
+    "weight": "contracts/weights/terrain-shapesz-353-8.png",
+    "guard": "contracts/guards/terrain-shapesz-353-8.png",
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/terrain-shapesz-353-8.png",
+      "file_sha256": "2a0c535c2c4eed4ce6e8a49ee81859d626df262a45efdabec6136a1321faa6b0",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "4088c9f06ba231b4f37e285ba443da518ee8510f7f927f7f2ae8f3cb5b3880b9",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/terrain-shapesz-353-8.png",
+      "file_sha256": "41a1b224da7fe4ede3fceac16d255690af8c14b892230af910858748d8dcf36c",
+      "decoded_mode": "L",
+      "decoded_sha256": "e93951b47dc3ca8c21ea10a7586c19e5d3cd240ee82630b1d7fb76049e380050",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/terrain-shapesz-353-8.png",
+      "file_sha256": "d65acde1fa7f98d1cfd20248135dfc57d1ba98293ccd9ee844df51ce2e785e7b",
+      "decoded_mode": "L",
+      "decoded_sha256": "37aabb57cf5b3a3224d2f4cd26a92e7298c914ab014a030a807e1375f93465fe",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "enemy-newsh2-77-8": {
+    "source": "source/published-generated/enemy-newsh2-77-8.png",
+    "source_hda_sha256": "15aaf856c273d4496f3195b93f73949518377d08aae276994d5aba83fc57b4bf",
+    "source_rgba_sha256": "282f2165c5151945ba0e0b28af3a0dbac8391df3b0819bfb98b3dd9a017e8ee3",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      1010077,
+      8,
+      24,
+      28,
+      6,
+      7
+    ],
+    "header_hex": "484452319d690f0008000000180000001c0000000600000007000000",
+    "header_sha256": "5130778426bcf33d589c3b90d1039d55e228050a695476b5a3f970e6e199e090",
+    "scope_group": "turret121_124",
+    "weight": "contracts/weights/enemy-newsh2-77-8.png",
+    "guard": "contracts/guards/enemy-newsh2-77-8.png",
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/enemy-newsh2-77-8.png",
+      "file_sha256": "484df9c1dfeca31448c21cf3df259be47e7f318034f2513d11f1a49f69159738",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "282f2165c5151945ba0e0b28af3a0dbac8391df3b0819bfb98b3dd9a017e8ee3",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/enemy-newsh2-77-8.png",
+      "file_sha256": "158e38da65b44a247e49cf7b86b38875826ef61fd9d5353df20c88af0b598638",
+      "decoded_mode": "L",
+      "decoded_sha256": "33b5846df1b4cf9f1d1dbdc0221f544440c1d6e01358b154d77a573936daa72d",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/enemy-newsh2-77-8.png",
+      "file_sha256": "28fe1118106a7754e7222b30ce5075a65032b89400d23fd3b9d39e5018066f39",
+      "decoded_mode": "L",
+      "decoded_sha256": "c185adde24ee99afdb98e26928043431b3cb1252e95a72cefe55a5f46c4e23e3",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "enemy-newsh2-79-8": {
+    "source": "source/published-generated/enemy-newsh2-79-8.png",
+    "source_hda_sha256": "a261dcb27cdc41bd5e6274ee9bacfd2a5483dfe8da58b4ff5cf457151dc849b4",
+    "source_rgba_sha256": "a7ce93dd08e5de3b0c19cc91473dc576676596cab86a6fefd8f79df1a2d1e9b9",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      1010079,
+      8,
+      24,
+      28,
+      6,
+      7
+    ],
+    "header_hex": "484452319f690f0008000000180000001c0000000600000007000000",
+    "header_sha256": "9022407224d02f8eb1e5c92a65fb7a26bd08c700113b019bc22be99209fafe78",
+    "scope_group": "turret121_124",
+    "weight": "contracts/weights/enemy-newsh2-79-8.png",
+    "guard": "contracts/guards/enemy-newsh2-79-8.png",
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/enemy-newsh2-79-8.png",
+      "file_sha256": "5a6f1247d61ffede0b502d81c445cb02b574b879826f4d2bdc2dddeb854857a8",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "a7ce93dd08e5de3b0c19cc91473dc576676596cab86a6fefd8f79df1a2d1e9b9",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/enemy-newsh2-79-8.png",
+      "file_sha256": "c79bf3cfa08ea6e6e3ab0dedca392a9ca675cb28f691ae1a88b92964aca88381",
+      "decoded_mode": "L",
+      "decoded_sha256": "d437bfa1e6e72f76721dfab5cd594d537a929095bdeb96dcec27a998ed5418b1",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/enemy-newsh2-79-8.png",
+      "file_sha256": "1ed78f57b01a7a81093e8e4a97688d91dae07bd616367312a051208b1e3f6628",
+      "decoded_mode": "L",
+      "decoded_sha256": "9533169e8f1bc566dbbfeb08da18f9e75689e969205e2481805580e033034c61",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "enemy-newsh2-115-8": {
+    "source": "source/published-generated/enemy-newsh2-115-8.png",
+    "source_hda_sha256": "85c503262038dcefc242f9023fdaddfc2cd6372ff3bd6d71c1566470ef4d3d14",
+    "source_rgba_sha256": "4039cd3d4540f874fbed829f820a480741dd49d5f252bc68950acb2edfdda320",
+    "alpha_sha256": "c6710820fefaf24ebaf33f7dd644843e292c5582bbf296ca1ef2a1b288736e16",
+    "header": [
+      1010115,
+      8,
+      24,
+      28,
+      6,
+      7
+    ],
+    "header_hex": "48445231c3690f0008000000180000001c0000000600000007000000",
+    "header_sha256": "4506cd318626a515015af0e89720ed4dda80f79e79ebfa2cac7c39bad32550e3",
+    "scope_group": "turret121_124",
+    "weight": "contracts/weights/enemy-newsh2-115-8.png",
+    "guard": "contracts/guards/enemy-newsh2-115-8.png",
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/enemy-newsh2-115-8.png",
+      "file_sha256": "ed25db4b5035789c32b195eac51c823aefd37bf5ebc8bb1198f4458106b23c89",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "4039cd3d4540f874fbed829f820a480741dd49d5f252bc68950acb2edfdda320",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/enemy-newsh2-115-8.png",
+      "file_sha256": "8e996650658288d945adbd2f91319299f7aba1c82d9d323bd99e53d76ed304c6",
+      "decoded_mode": "L",
+      "decoded_sha256": "34a02e9d14d7e454e21b37d009dbb1e619c8126f804f24581d6c0733642e86f3",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/enemy-newsh2-115-8.png",
+      "file_sha256": "eeeff90d57a453284482d20f6c0860279e324a78dead281514d7d351e9384d4d",
+      "decoded_mode": "L",
+      "decoded_sha256": "a4445c38aa119e18da0a3f28503c1f2c2fd119a67fac7a0c9b2ffe0b588a7402",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "enemy-newsh2-117-8": {
+    "source": "source/published-generated/enemy-newsh2-117-8.png",
+    "source_hda_sha256": "f9217370be7a497dc1718dbab751b1cd6afe8bfdbd3ce1a982a8e5a4a6bfa1b8",
+    "source_rgba_sha256": "b86114d71fba1f7dbf58130919877e0b7ba338509df444c48f501a2c9a2406be",
+    "alpha_sha256": "182cedf82a26fce5e19ae0437bbbe8e1e57260b33814f5d3159c74c1eae68da7",
+    "header": [
+      1010117,
+      8,
+      24,
+      28,
+      6,
+      7
+    ],
+    "header_hex": "48445231c5690f0008000000180000001c0000000600000007000000",
+    "header_sha256": "eb5a81ee7d3b6b5f031d35cf42cb93a489eb31ca7e39b68e46efa425e024ef69",
+    "scope_group": "turret121_124",
+    "weight": "contracts/weights/enemy-newsh2-117-8.png",
+    "guard": "contracts/guards/enemy-newsh2-117-8.png",
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/enemy-newsh2-117-8.png",
+      "file_sha256": "706deda7dc0489d9af29f5aa450b234590f8494f124ca66810bfe5d8d4a4cb5a",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "b86114d71fba1f7dbf58130919877e0b7ba338509df444c48f501a2c9a2406be",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/enemy-newsh2-117-8.png",
+      "file_sha256": "48fe01dc93a5d5064ee2c01059ff9adbf7693245be5f59031903ccdb8dbcd4ab",
+      "decoded_mode": "L",
+      "decoded_sha256": "4433e49ddc928a48ddef686e6f7dc75f39e5db96ad5c6146a40feb2328dfd776",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/enemy-newsh2-117-8.png",
+      "file_sha256": "a9803f68d8eeb6908e2c9a73311aa8b7ae434b1ea1eab1881d9093c95058fa20",
+      "decoded_mode": "L",
+      "decoded_sha256": "445085c2ad9aec405dcf933c5a70d92c0fbfc8c7ac30e88594221112c26fa140",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "enemy-newsh2-81-8": {
+    "source": "source/published-generated/enemy-newsh2-81-8.png",
+    "source_hda_sha256": "cf8957b48fc5a4273b1bcb259935266db1af4ab0cc84d9ac21991de5b8a5a87d",
+    "source_rgba_sha256": "6a9301869be3cfc37a49d905a220e3e9026ed84fd98d20b302032569c100a52c",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      1010081,
+      8,
+      24,
+      28,
+      6,
+      7
+    ],
+    "header_hex": "48445231a1690f0008000000180000001c0000000600000007000000",
+    "header_sha256": "9d879dca2e3e0b0a094a2f38e021a9585642326cec73dce8bdf3135918840ce8",
+    "scope_group": "installation125_128",
+    "weight": "contracts/weights/enemy-newsh2-81-8.png",
+    "guard": "contracts/guards/enemy-newsh2-81-8.png",
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/enemy-newsh2-81-8.png",
+      "file_sha256": "3ad71978b88bd000463ba903481b45f8fa1194f5f802573728656ad3aabe79e5",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "6a9301869be3cfc37a49d905a220e3e9026ed84fd98d20b302032569c100a52c",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/enemy-newsh2-81-8.png",
+      "file_sha256": "dd4fe56ba21b076507300095ce2a840710bb5e63aa93a3b3078f1dae6434d749",
+      "decoded_mode": "L",
+      "decoded_sha256": "b3fb746fa7801e5c8426c56a88e885e884267dc0fb0cb35277c26514aa7da87f",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/enemy-newsh2-81-8.png",
+      "file_sha256": "f1d8469c38d38d9eec08592d4a9eda5d5bd4659c56944b8b9d97e31b00d9574c",
+      "decoded_mode": "L",
+      "decoded_sha256": "f8baf5b26952b9a4f2d4e03e22adbe8885b675cabc8ed271408b89e22ae43cdf",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "enemy-newsh2-83-8": {
+    "source": "source/published-generated/enemy-newsh2-83-8.png",
+    "source_hda_sha256": "1844e0fa600eab8f95c9903b482ebc71f092c48cb520a04923bcb487ec090c3a",
+    "source_rgba_sha256": "45bfe582aa9fde36cdedfbda5357ace74cb4eb631faef3360fa421d33f2fbadb",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      1010083,
+      8,
+      24,
+      28,
+      6,
+      7
+    ],
+    "header_hex": "48445231a3690f0008000000180000001c0000000600000007000000",
+    "header_sha256": "182bc266d3451f56aeab9c2d34b2866c0b8dfb93d704b5f47ebaad862f4d3d6a",
+    "scope_group": "installation125_128",
+    "weight": "contracts/weights/enemy-newsh2-83-8.png",
+    "guard": "contracts/guards/enemy-newsh2-83-8.png",
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/enemy-newsh2-83-8.png",
+      "file_sha256": "6c1341250f0a9b0aee0145c0af243939c9487f2f750479202c0a5fcd24e75386",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "45bfe582aa9fde36cdedfbda5357ace74cb4eb631faef3360fa421d33f2fbadb",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/enemy-newsh2-83-8.png",
+      "file_sha256": "14646e6faed4064a1736c848ea52cd4571a7aecf26a182f827340491beb5235e",
+      "decoded_mode": "L",
+      "decoded_sha256": "804ff5d9ce091f3221bd10e60013009a3c05f56263757e65e5284c499975c08e",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/enemy-newsh2-83-8.png",
+      "file_sha256": "0681e1d8558660f227e0d19500cb8e507751886dbc7c0857f21aa2ae7b8eb376",
+      "decoded_mode": "L",
+      "decoded_sha256": "df059bbd592dfcbcfc0d025c28fc4bc8855753795003ac0983ea1abc6bf1d24a",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "enemy-newsh2-119-8": {
+    "source": "source/published-generated/enemy-newsh2-119-8.png",
+    "source_hda_sha256": "384816db94b86ed0cac20bc08096cd62415f740c7b49942d52b947cc0df9a4c9",
+    "source_rgba_sha256": "090ec18a8f2ff75850e7724c6077768fbdb6bf0afd24a405ec09451dba5d2112",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      1010119,
+      8,
+      24,
+      28,
+      6,
+      7
+    ],
+    "header_hex": "48445231c7690f0008000000180000001c0000000600000007000000",
+    "header_sha256": "f2120d2b7e470f9901fcc82ee1a74b3f01ec46abe04f4fc6739dd43bc3d60bf1",
+    "scope_group": "installation125_128",
+    "weight": "contracts/weights/enemy-newsh2-119-8.png",
+    "guard": "contracts/guards/enemy-newsh2-119-8.png",
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/enemy-newsh2-119-8.png",
+      "file_sha256": "9b9ffeb9525681e992f18a04e8c38d840d1e9c031e1891827790db5863d4e9b8",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "090ec18a8f2ff75850e7724c6077768fbdb6bf0afd24a405ec09451dba5d2112",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/enemy-newsh2-119-8.png",
+      "file_sha256": "79574b2b8756bc453b2d9c129440c8c856d25ce960fe193ccc7331711187c757",
+      "decoded_mode": "L",
+      "decoded_sha256": "ed37375449e0a516afd3284ce5bf21cd38e7533258f9fba058723fcc963a29d8",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/enemy-newsh2-119-8.png",
+      "file_sha256": "91cff556c5f35efe9701db27669505f1575f7931c0aa0e8d9fbde0d807b82b41",
+      "decoded_mode": "L",
+      "decoded_sha256": "58e5fad4538abad9340c7ab46c06ed73fa1d44924f066b35d50a6a46645f936b",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "enemy-newsh2-121-8": {
+    "source": "source/published-generated/enemy-newsh2-121-8.png",
+    "source_hda_sha256": "647e3489a5eb88becf25a77454ccef2818179d213b95352bf05b51defe652b9f",
+    "source_rgba_sha256": "02558ec77c69a30dad9453866f4c29e018fc2bed29a4e05fe5df31a0ca9adbc7",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      1010121,
+      8,
+      24,
+      28,
+      6,
+      7
+    ],
+    "header_hex": "48445231c9690f0008000000180000001c0000000600000007000000",
+    "header_sha256": "9348a6ddeebd8f7efa5b29ca5955590493df0a42d28ccbd9db3fb5e8b4b4c4f7",
+    "scope_group": "installation125_128",
+    "weight": "contracts/weights/enemy-newsh2-121-8.png",
+    "guard": "contracts/guards/enemy-newsh2-121-8.png",
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/enemy-newsh2-121-8.png",
+      "file_sha256": "1441e6ee08896c1f733b1e9164451e60adf2b7913aa65be3c522ff028014319f",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "02558ec77c69a30dad9453866f4c29e018fc2bed29a4e05fe5df31a0ca9adbc7",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/enemy-newsh2-121-8.png",
+      "file_sha256": "550dd35b8fc28223db275daf063a4ccbaa1b5f09ed87ac47f31bbedef6ddfb21",
+      "decoded_mode": "L",
+      "decoded_sha256": "49b4e4c00040b1485da00c7f32aaaff6d1778ff83ccf16ddb456b644dc2e0811",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/enemy-newsh2-121-8.png",
+      "file_sha256": "9a6bfdaa5a1f06fa4a5431bc3a3a4fb65ae359eb533f94aa6b65b257974b5d06",
+      "decoded_mode": "L",
+      "decoded_sha256": "4c88a75cc4a3b820671cc42bd7d8ae33c4f160ecef3f0774735e8201788a4c98",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "enemy-newshe-1-8": {
+    "source": "source/published-generated/enemy-newshe-1-8.png",
+    "source_hda_sha256": "51c69047aa54fb00cd4213f9077e10b6168f7eb3c12d5f18db1e8344024c946e",
+    "source_rgba_sha256": "0500481731d5c13687021133444bb564be2bab9533c4d03ab0c366f9edcf7c84",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      1100001,
+      8,
+      24,
+      28,
+      6,
+      7
+    ],
+    "header_hex": "48445231e1c8100008000000180000001c0000000600000007000000",
+    "header_sha256": "7bf11f71f5dafdc0d3b7f672cba059e292e81227a76ce328deb6371c29300624",
+    "scope_group": "stone_intact6",
+    "weight": "contracts/weights/enemy-newshe-1-8.png",
+    "guard": "contracts/guards/enemy-newshe-1-8.png",
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/enemy-newshe-1-8.png",
+      "file_sha256": "d1982acd66829f3063025d51638c591dd9ca6b86321916b4074fba3dd543c806",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "0500481731d5c13687021133444bb564be2bab9533c4d03ab0c366f9edcf7c84",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/enemy-newshe-1-8.png",
+      "file_sha256": "bfcdcc433edd99ed591492da359194495f838099ac77acb4d054a60d445685df",
+      "decoded_mode": "L",
+      "decoded_sha256": "2023f956239fb916e44bc8df1621e0307cc6e408714998afa9c900cf9ec7f1a7",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/enemy-newshe-1-8.png",
+      "file_sha256": "1db3a63a8e27d24c266c5f582d57b480172289ba4e20f88b46e1ef17b4f4c354",
+      "decoded_mode": "L",
+      "decoded_sha256": "c541fba257b2e75f1e1e4b891b8cfe050c7fe5e9a4b4dd218007c1df13a052a0",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "enemy-newshe-3-8": {
+    "source": "source/published-generated/enemy-newshe-3-8.png",
+    "source_hda_sha256": "94112df4acaeec80a5dc87391a7b77c17fc0e82e2cdb14fee2c75d87d4742265",
+    "source_rgba_sha256": "5b0f01aa61e7974c4088b5e4b97c59fb4b98933b4aa20724fd4632f47eceb5ab",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      1100003,
+      8,
+      24,
+      28,
+      6,
+      7
+    ],
+    "header_hex": "48445231e3c8100008000000180000001c0000000600000007000000",
+    "header_sha256": "01164de076e9b5ac3950eb433aa4627b30e86f6a68f0ce10634d273b01971280",
+    "scope_group": "stone_intact6",
+    "weight": "contracts/weights/enemy-newshe-3-8.png",
+    "guard": "contracts/guards/enemy-newshe-3-8.png",
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/enemy-newshe-3-8.png",
+      "file_sha256": "b1297dbc253fd7f2b0d69603d9eaa1fdaeb36a5052458af4369bdf42480d6b3e",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "5b0f01aa61e7974c4088b5e4b97c59fb4b98933b4aa20724fd4632f47eceb5ab",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/enemy-newshe-3-8.png",
+      "file_sha256": "a847fbd350012f2c7959bdacfed56b6c83d68df3c2e165ae44494bf0cd945666",
+      "decoded_mode": "L",
+      "decoded_sha256": "5a90907c92af52fe09cdf7a9b27b06fd504e2b48301ac23418b3561025bf436e",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/enemy-newshe-3-8.png",
+      "file_sha256": "0c908dba722a5931df28cf01290a209582818ca15066cd7a154c1d31a13f5ae7",
+      "decoded_mode": "L",
+      "decoded_sha256": "0e92799084576bf2261b4f616ae04fde725ab57ebac08c96dcc11a288484ce9a",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "enemy-newshe-5-8": {
+    "source": "source/published-generated/enemy-newshe-5-8.png",
+    "source_hda_sha256": "3e008902a4347c959afbd38f5e0f7ac2c241145c9d966d04d14bf0b5564df2c9",
+    "source_rgba_sha256": "71cfdd93f7c4d0fe8381f18681106f3c403067fc674096f5b0d94d705e81915e",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      1100005,
+      8,
+      24,
+      28,
+      6,
+      7
+    ],
+    "header_hex": "48445231e5c8100008000000180000001c0000000600000007000000",
+    "header_sha256": "39ec50fe2b801db05ece77d04837dc619a8a817c021627bfac89188fb08347ab",
+    "scope_group": "stone_intact6",
+    "weight": "contracts/weights/enemy-newshe-5-8.png",
+    "guard": "contracts/guards/enemy-newshe-5-8.png",
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/enemy-newshe-5-8.png",
+      "file_sha256": "000d3772280db683509b2b653ac391348cd49dbdfb53efecc35495dc70710dd0",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "71cfdd93f7c4d0fe8381f18681106f3c403067fc674096f5b0d94d705e81915e",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/enemy-newshe-5-8.png",
+      "file_sha256": "413d9eabb1e6429cb3d46518ccbaf26f397cad61ffd1abc4d94a4b0cda0ac703",
+      "decoded_mode": "L",
+      "decoded_sha256": "3c4fe5ac6ce140015a81c09fd72ce2e920f9d4b3b2ac50d3b5282fc3f2b2e31c",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/enemy-newshe-5-8.png",
+      "file_sha256": "0fef974a5d71da45b5e3357cd48710b412a7153e792adf846b7839834576a212",
+      "decoded_mode": "L",
+      "decoded_sha256": "d28210324d599a3f076ebdc4dca10f5f3b6cd948e74f759638b9cd91efa0a443",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "enemy-newshe-39-8": {
+    "source": "source/published-generated/enemy-newshe-39-8.png",
+    "source_hda_sha256": "bd5d9fdc384ca4659b12927a32904d8164839fa443d93fb84af24e95e4e22654",
+    "source_rgba_sha256": "addf8819661ce90bb35cca79f7de37c80c628f0de0a0760399cc456ff4c4f6c8",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      1100039,
+      8,
+      24,
+      28,
+      6,
+      7
+    ],
+    "header_hex": "4844523107c9100008000000180000001c0000000600000007000000",
+    "header_sha256": "e2857a7d4c90051e1061c273a19d570cbe97e769eb2b4ae13497b3faa5235be2",
+    "scope_group": "stone_intact6",
+    "weight": "contracts/weights/enemy-newshe-39-8.png",
+    "guard": "contracts/guards/enemy-newshe-39-8.png",
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/enemy-newshe-39-8.png",
+      "file_sha256": "53f7f3767de800a70092f1eabe057e4ef70a061907120f0a7595adb202497242",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "addf8819661ce90bb35cca79f7de37c80c628f0de0a0760399cc456ff4c4f6c8",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/enemy-newshe-39-8.png",
+      "file_sha256": "61125a4102acf5fcd4a939cea5e78cec97fdb1e55d434d02ae847810e9602d8b",
+      "decoded_mode": "L",
+      "decoded_sha256": "4a1eead4573a979a5c298471470a0cdf269f12bcea7e8efce9fe5e783dec2d95",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/enemy-newshe-39-8.png",
+      "file_sha256": "b138d8e7fd85d26367ad45b652573b9508f37b415f261a8088716ea524b97aee",
+      "decoded_mode": "L",
+      "decoded_sha256": "7565725afe36de57af7239b0b244c3a4b9041b5877be0e16e24296d730999b61",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "enemy-newshe-41-8": {
+    "source": "source/published-generated/enemy-newshe-41-8.png",
+    "source_hda_sha256": "1463d8e4cbd1da0bfb7ec5f3f42424e6db731b10bf02a39d5924559ffcb4be1c",
+    "source_rgba_sha256": "c454f7b303fd4f392d560dfe36e23fc854f649343ac8bb4d53356e9cd15c1c59",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      1100041,
+      8,
+      24,
+      28,
+      6,
+      7
+    ],
+    "header_hex": "4844523109c9100008000000180000001c0000000600000007000000",
+    "header_sha256": "15fea9a0117156b5af4c2a65a6e9a01a371c1c207f5fed80933490fc69fc1b37",
+    "scope_group": "stone_intact6",
+    "weight": "contracts/weights/enemy-newshe-41-8.png",
+    "guard": "contracts/guards/enemy-newshe-41-8.png",
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/enemy-newshe-41-8.png",
+      "file_sha256": "ccbd8b4c75474e4c6a3acef6aa09ba965113497f9aaf24c33b9d4dc4c50cf095",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "c454f7b303fd4f392d560dfe36e23fc854f649343ac8bb4d53356e9cd15c1c59",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/enemy-newshe-41-8.png",
+      "file_sha256": "5f47c57d65066ad6473159640b44bc9899f163db635236f2a6d72fb6bb50d209",
+      "decoded_mode": "L",
+      "decoded_sha256": "f6f441eede644a62be7b95dd78b676a0b216ef0d381149b16d00e72896a05e4b",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/enemy-newshe-41-8.png",
+      "file_sha256": "ed49e2b39b4e03d1407b22f4084c8f935690ef7f46ebcdcf3edbed6e47e9dade",
+      "decoded_mode": "L",
+      "decoded_sha256": "7ec3e1a9a54300d935acbbde08e6f04218312440c8637fa48aac145eadf14142",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "enemy-newshe-43-8": {
+    "source": "source/published-generated/enemy-newshe-43-8.png",
+    "source_hda_sha256": "bb13103761a66d2077080eafd31173c5902750ab1b98cb6dc1d7713aab4dc28c",
+    "source_rgba_sha256": "6f23d037794e236dee7999cabd08a1d7a6355079fad527334cc5f1569611fcf6",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      1100043,
+      8,
+      24,
+      28,
+      6,
+      7
+    ],
+    "header_hex": "484452310bc9100008000000180000001c0000000600000007000000",
+    "header_sha256": "fe375142d933560ab7881b3767700a0829ab68beefd51fc638307fbba0321158",
+    "scope_group": "stone_intact6",
+    "weight": "contracts/weights/enemy-newshe-43-8.png",
+    "guard": "contracts/guards/enemy-newshe-43-8.png",
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/enemy-newshe-43-8.png",
+      "file_sha256": "71462439e88188d2c990512d2dafc50f7beaabd7daaabc99e321f74270d130a2",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "6f23d037794e236dee7999cabd08a1d7a6355079fad527334cc5f1569611fcf6",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/enemy-newshe-43-8.png",
+      "file_sha256": "94e6415009fef481df0c71bca2d3ad08bc403b4c9d2c14aee01fbb1195ba9766",
+      "decoded_mode": "L",
+      "decoded_sha256": "e69267057890bcc590d3b75ed4d752146f1d9f1c5a69529aaf988f910e03e1fa",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/enemy-newshe-43-8.png",
+      "file_sha256": "a4622d3d67de2e965c40e75ce5f53be3ff8d68ab8a58b570977f7076069c7c9b",
+      "decoded_mode": "L",
+      "decoded_sha256": "0660ed6821dd834dd68ccb3cacc90f15e885030df0e74d64f90c42bdaae1ba7e",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "enemy-newshe-7-8": {
+    "source": "source/published-generated/enemy-newshe-7-8.png",
+    "source_hda_sha256": "fb0ade2619453d35f2197043b86d552f0289df570f661016e2095f06972bce21",
+    "source_rgba_sha256": "86d241002100400a276e5f1a9e01b16f73704843150e7cf5815e60485f6dac77",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      1100007,
+      8,
+      24,
+      28,
+      6,
+      7
+    ],
+    "header_hex": "48445231e7c8100008000000180000001c0000000600000007000000",
+    "header_sha256": "489d94a1e92e73a745693173594fc885d15030173fa9461dcee49bbc3f9ea7c1",
+    "scope_group": "stone_exposed6",
+    "weight": "contracts/weights/enemy-newshe-7-8.png",
+    "guard": "contracts/guards/enemy-newshe-7-8.png",
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/enemy-newshe-7-8.png",
+      "file_sha256": "82d5ffe20383dad43322359556db01bb0a8be5713e58d353a5f170662cf22032",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "86d241002100400a276e5f1a9e01b16f73704843150e7cf5815e60485f6dac77",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/enemy-newshe-7-8.png",
+      "file_sha256": "31fb30449e24e9e9b6a9b5e0dd0b75a7f8a16b7d70ddde3beb272a94af565809",
+      "decoded_mode": "L",
+      "decoded_sha256": "b409dbdc0de08d35a6931a853da9c1672aad48e62ab4ded60927e2ba6c5eaa9b",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/enemy-newshe-7-8.png",
+      "file_sha256": "19dfca6e0d56fc72ff0bbe08ae59fc7270598035bafb78e22acf0325a0637033",
+      "decoded_mode": "L",
+      "decoded_sha256": "81e85f04eaa7b6c1dcd40d9dce9ad9f03c29436fa342c00862c01232f6365be8",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "enemy-newshe-9-8": {
+    "source": "source/published-generated/enemy-newshe-9-8.png",
+    "source_hda_sha256": "6cbe2e8afc2b4d19204ea5644f9301d14a869de2e73e0a85c2e25f2d58801b6f",
+    "source_rgba_sha256": "68a080681fd65286d44b458e8e2386850b25f0027f0b8c8d927580d204c2e782",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      1100009,
+      8,
+      24,
+      28,
+      6,
+      7
+    ],
+    "header_hex": "48445231e9c8100008000000180000001c0000000600000007000000",
+    "header_sha256": "e1477e559eb808ce67cfeeba40078d336387f698d235a01a5a7de4895c9072dd",
+    "scope_group": "stone_exposed6",
+    "weight": "contracts/weights/enemy-newshe-9-8.png",
+    "guard": "contracts/guards/enemy-newshe-9-8.png",
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/enemy-newshe-9-8.png",
+      "file_sha256": "e9cc0293d9c8027de860002e4fbf3bc7058ac32572be93224a54cabd441820ce",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "68a080681fd65286d44b458e8e2386850b25f0027f0b8c8d927580d204c2e782",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/enemy-newshe-9-8.png",
+      "file_sha256": "ac61a4d6b84a05332f856e88f950dbc4d922751c67427d4f55398101fbcf202c",
+      "decoded_mode": "L",
+      "decoded_sha256": "e238e6f772f7125264832a38031f57811f923b54b0fc605fd5a11903139282d0",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/enemy-newshe-9-8.png",
+      "file_sha256": "dd915c5e6c2f4ed0c8447dc493ac63fce9eb31ff72c89f810f7396857770c594",
+      "decoded_mode": "L",
+      "decoded_sha256": "af798902df8833e1262a15439ed9a70d520e6d9129a31c2ca32e63f6c05702b5",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "enemy-newshe-11-8": {
+    "source": "source/published-generated/enemy-newshe-11-8.png",
+    "source_hda_sha256": "50a5630237e369df88f3c42d6c2f5827d0ae7b917e58f31dd8fa57ca38d03b20",
+    "source_rgba_sha256": "b3caa623f9cfae57452bc1525fbbc8897c5176b464738df4dde58c377d4803a7",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      1100011,
+      8,
+      24,
+      28,
+      6,
+      7
+    ],
+    "header_hex": "48445231ebc8100008000000180000001c0000000600000007000000",
+    "header_sha256": "51a0ea435155cd2ae793a4bd12f500a6bb8dc9482e7b6483e447eb6f7cd2540d",
+    "scope_group": "stone_exposed6",
+    "weight": "contracts/weights/enemy-newshe-11-8.png",
+    "guard": "contracts/guards/enemy-newshe-11-8.png",
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/enemy-newshe-11-8.png",
+      "file_sha256": "04fbfbe6f6170bf063713bc91a6df2e831dba1e9c69a22296962e48fa7399870",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "b3caa623f9cfae57452bc1525fbbc8897c5176b464738df4dde58c377d4803a7",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/enemy-newshe-11-8.png",
+      "file_sha256": "ca0b25282ccea5c3782d9a349ba0c8e13be15bbd27a2d4af14907a2d54cfc1f4",
+      "decoded_mode": "L",
+      "decoded_sha256": "ccbc358c8a7178e7e5700d3fbfd2cf6b62057db4e12f191032c930f52951e1c5",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/enemy-newshe-11-8.png",
+      "file_sha256": "1916d59f00f655bf6c28da45f62d22e0204b468bce083127af6ea8f21db3a5c3",
+      "decoded_mode": "L",
+      "decoded_sha256": "61ea52d07e99e9dcce18179f2bde8fe29dcf0d9b5028c3a0d70c64122d51aacf",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "enemy-newshe-45-8": {
+    "source": "source/published-generated/enemy-newshe-45-8.png",
+    "source_hda_sha256": "012f2e80e91c1e41b817df5dd04d49bb68cb83f23e5ee44af01e803ec14c81d6",
+    "source_rgba_sha256": "37ca19a2f0b75ea44a6b3784d351e8cb1bf65f2aa41b85d2e4d5cbdebb45a4c4",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      1100045,
+      8,
+      24,
+      28,
+      6,
+      7
+    ],
+    "header_hex": "484452310dc9100008000000180000001c0000000600000007000000",
+    "header_sha256": "b2f91f1507892d507020c736a39e97a5f1e3081a163e54d41402b031cdf85be3",
+    "scope_group": "stone_exposed6",
+    "weight": "contracts/weights/enemy-newshe-45-8.png",
+    "guard": "contracts/guards/enemy-newshe-45-8.png",
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/enemy-newshe-45-8.png",
+      "file_sha256": "52c00df1e2612e651f3787bdb63a4175d53989cdedb0d5fe611335e7c3064bd5",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "37ca19a2f0b75ea44a6b3784d351e8cb1bf65f2aa41b85d2e4d5cbdebb45a4c4",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/enemy-newshe-45-8.png",
+      "file_sha256": "7b2f72412824843a4edc662df378b89820a97d9b57fbdc514e8634b100072e77",
+      "decoded_mode": "L",
+      "decoded_sha256": "e324c676c46d61942942b599e457b7d5eb14ba29471bafbb50694ac273dd6350",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/enemy-newshe-45-8.png",
+      "file_sha256": "23c958c31a17b3fb79370c59acb87d718d8ace46c9421740ef1555be9b4acde8",
+      "decoded_mode": "L",
+      "decoded_sha256": "621cbeb2720bc465f0abde389b62869925dcc5e5e91f22705da5dfdaf4bd5fba",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "enemy-newshe-47-8": {
+    "source": "source/published-generated/enemy-newshe-47-8.png",
+    "source_hda_sha256": "b666cf888ec52dd513f2fbb95a97baadf4325e8ede370af1838fdf22eecab118",
+    "source_rgba_sha256": "e9b1130eef3a18f6d06dbca5bdb99fb3158f1e6da5b32493817257bb78fbeb01",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      1100047,
+      8,
+      24,
+      28,
+      6,
+      7
+    ],
+    "header_hex": "484452310fc9100008000000180000001c0000000600000007000000",
+    "header_sha256": "fd8e06d37f2ee52b2fdd1a9b7e2cc210a1a0936f66199d613eb6a83bc9f8f249",
+    "scope_group": "stone_exposed6",
+    "weight": "contracts/weights/enemy-newshe-47-8.png",
+    "guard": "contracts/guards/enemy-newshe-47-8.png",
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/enemy-newshe-47-8.png",
+      "file_sha256": "b0de56a9ab1e0ba37e5758b93cca6f5b94238bc674c2db7f6ac65e7123939727",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "e9b1130eef3a18f6d06dbca5bdb99fb3158f1e6da5b32493817257bb78fbeb01",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/enemy-newshe-47-8.png",
+      "file_sha256": "9d11e4ef07963815649896f6dac7d77f3ce0e1545d1c5acad69244b036bc3f64",
+      "decoded_mode": "L",
+      "decoded_sha256": "b0f12df3615f27b16ce6881e9e7c402d207c8643b572523407b5fbee32da6a4f",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/enemy-newshe-47-8.png",
+      "file_sha256": "b2bfa48b22ebc695d960e8d96c070cdeae25844d42345e709147e4fd092dca85",
+      "decoded_mode": "L",
+      "decoded_sha256": "880b1ae375c989346367c3f5a3fbbf49bbfee245e86fa4451a12a3c26363fe24",
+      "size": [
+        192,
+        224
+      ]
+    }
+  },
+  "enemy-newshe-49-8": {
+    "source": "source/published-generated/enemy-newshe-49-8.png",
+    "source_hda_sha256": "d897e23a1c3d582bb2c2440ad905ab8c84c34d495d93c55259b95e592d0c0929",
+    "source_rgba_sha256": "7418770d4e02bf3ef76caee1bfd028d93c8ce945b2939e80198720af8db51dbe",
+    "alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+    "header": [
+      1100049,
+      8,
+      24,
+      28,
+      6,
+      7
+    ],
+    "header_hex": "4844523111c9100008000000180000001c0000000600000007000000",
+    "header_sha256": "9f2d96e01521fc8848259a7bbd1b802b27ee457c38c6e2833fe4f6c6020d4017",
+    "scope_group": "stone_exposed6",
+    "weight": "contracts/weights/enemy-newshe-49-8.png",
+    "guard": "contracts/guards/enemy-newshe-49-8.png",
+    "changed": true,
+    "material_world_phase": "global Layer1 world coordinates; no legacy actor +8 offset",
+    "base": {
+      "path": "source/published-generated/enemy-newshe-49-8.png",
+      "file_sha256": "30a1d22f5f39d4404fdb0bf6a5f89fc5493ff9d80e3c4d95fdc0cacee0ad2fb3",
+      "decoded_mode": "RGBA",
+      "decoded_sha256": "7418770d4e02bf3ef76caee1bfd028d93c8ce945b2939e80198720af8db51dbe",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "material_weight": {
+      "path": "contracts/weights/enemy-newshe-49-8.png",
+      "file_sha256": "1a30c0acc95780fa61d6e9eede65953d3276ec1f37c8aceae1be396040e82188",
+      "decoded_mode": "L",
+      "decoded_sha256": "c35defe991ff41ffde65f9cdfbb587ef0229a83db6ce5bb0cb837c168db6af20",
+      "size": [
+        192,
+        224
+      ]
+    },
+    "strict_guard": {
+      "path": "contracts/guards/enemy-newshe-49-8.png",
+      "file_sha256": "4c0309e3d572ffd5b3f8f9b7c2d477d1386ce16d71e22df7cb9ccb44ddc2cf31",
+      "decoded_mode": "L",
+      "decoded_sha256": "93d55330285224323aed9cc394d09cbc24f50b16cb5dec9d6e17bd335f2cf61c",
+      "size": [
+        192,
+        224
+      ]
+    }
+  }
+}
