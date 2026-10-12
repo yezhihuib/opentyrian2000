@@ -1,7 +1,7 @@
 {
   "schema": "opentyrian-accepted-hd-runtime-v1",
   "baseline_branch": "hd-render-prototype",
-  "status": "Finite forest13 continuous canopy accepted in bounded normal/isolated diagnostics; prior materials and gameplay retained",
+  "status": "Reviewed finite circuit/deck10 integration with generated-only reproducible sources; bounded runtime and fallback validation passed",
   "default_preview_pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
   "default_debug_pack": "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
   "packs": {
@@ -29154,7 +29154,7 @@
       }
     },
     "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 353,
+      "count": 363,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -33744,11 +33744,141 @@
           ],
           "source_png": "assets/hd/source/terrain-shapesz-234-8-ecd64e9d80fe.png",
           "source_png_sha256": "f17f9306dedd620a90b338443d39a7832654617fc12062c5060becb9afdc9a1c"
+        },
+        "terrain-shapesz-181-8.hda": {
+          "sha256": "e8b677fed337c78137802a471d5b6344e5491c15f827326fd344fd5dc9a2bb88",
+          "header_u32": [
+            2010181,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-181-8-e8b677fed337.png",
+          "source_png_sha256": "7c081f2101b60502990f7399abb65ded489c61d09319b1fa1e4bd6e3c24dee35"
+        },
+        "terrain-shapesz-182-8.hda": {
+          "sha256": "a5231f9a2d06f7f5fbc474193a485ed75b5dad72b32578ab39c295f3a90bc0be",
+          "header_u32": [
+            2010182,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-182-8-a5231f9a2d06.png",
+          "source_png_sha256": "ccd24d8ca482064383133e2cb23694c561710ae96ed0a7f012d0b0c149d6145b"
+        },
+        "terrain-shapesz-184-8.hda": {
+          "sha256": "fe88e63d852a67d2b801b2495501d60abd9dbd8c586251f1d2f30780e0baaed7",
+          "header_u32": [
+            2010184,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-184-8-fe88e63d852a.png",
+          "source_png_sha256": "e812d3e96972d9d68465b1196b5413875d45e7a2c0164cd3ce58d8a569491d31"
+        },
+        "terrain-shapesz-185-8.hda": {
+          "sha256": "ff5c24a3f0b3b0eb0fae81693b14cfed013a518ad496b934e8203aa2360bbf55",
+          "header_u32": [
+            2010185,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-185-8-ff5c24a3f0b3.png",
+          "source_png_sha256": "0959429b5d4db175d6a4484dbc2d7333c32f5942855a5113766bf9654c163118"
+        },
+        "terrain-shapesz-192-8.hda": {
+          "sha256": "e3f281528ce6663e28bdd36e80027394171d6beff09ce574fbfed448cdb3732b",
+          "header_u32": [
+            2010192,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-192-8-e3f281528ce6.png",
+          "source_png_sha256": "e81efbb6deea6a3c5145cc4a1d74dd49730c8894095746f15b4c1cbd1576feff"
+        },
+        "terrain-shapesz-193-8.hda": {
+          "sha256": "d9fe3507f4ae48faa059cb2d97c300c8212f035476ec49085ac833d338b46aea",
+          "header_u32": [
+            2010193,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-193-8-d9fe3507f4ae.png",
+          "source_png_sha256": "642f2ac01ab6fcfeecff7a2f13fa803e87bb812607848115c5d238806cbfeb1c"
+        },
+        "terrain-shapesz-194-8.hda": {
+          "sha256": "2758dc6595a210093d49918c01c0bf81550427dc29ca4c848a043d4f916726de",
+          "header_u32": [
+            2010194,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-194-8-2758dc6595a2.png",
+          "source_png_sha256": "c623b1db3672f8ddd2d15693c64b0921faa3930724f0c8af72bc6025edd2f7b2"
+        },
+        "terrain-shapesz-195-8.hda": {
+          "sha256": "e1275cdcff9a43a22b08e601397e812b18c3a311fa458cd0edd9b2115f928bab",
+          "header_u32": [
+            2010195,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-195-8-e1275cdcff9a.png",
+          "source_png_sha256": "8e085a6e0973bdf002630c652b37c74e12b6f3a487a665472155ef246c41b364"
+        },
+        "terrain-shapesz-201-8.hda": {
+          "sha256": "9c776aed57404c7a431fd44e805a5459f4b084bb68f4e2622c015ae337bdfffc",
+          "header_u32": [
+            2010201,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-201-8-9c776aed5740.png",
+          "source_png_sha256": "90f6c555e040aa04699ce7ffd66b6250d2a81e59ae047f2a97bb8b68bee71ee6"
+        },
+        "terrain-shapesz-202-8.hda": {
+          "sha256": "c9ee05c2e74d66ba191fb67cd62fdf889e094180bde75e8fb5665d70dcdc6652",
+          "header_u32": [
+            2010202,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-202-8-c9ee05c2e74d.png",
+          "source_png_sha256": "c6170e4c9398789c5d98dba799d9e07e7442f07d1aaaa6dfa0fc5dbbb867f81b"
         }
       }
     },
     "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 357,
+      "count": 367,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -38390,6 +38520,136 @@
           ],
           "source_png": "assets/hd/source/terrain-shapesz-234-8-ecd64e9d80fe.png",
           "source_png_sha256": "f17f9306dedd620a90b338443d39a7832654617fc12062c5060becb9afdc9a1c"
+        },
+        "terrain-shapesz-181-8.hda": {
+          "sha256": "e8b677fed337c78137802a471d5b6344e5491c15f827326fd344fd5dc9a2bb88",
+          "header_u32": [
+            2010181,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-181-8-e8b677fed337.png",
+          "source_png_sha256": "7c081f2101b60502990f7399abb65ded489c61d09319b1fa1e4bd6e3c24dee35"
+        },
+        "terrain-shapesz-182-8.hda": {
+          "sha256": "a5231f9a2d06f7f5fbc474193a485ed75b5dad72b32578ab39c295f3a90bc0be",
+          "header_u32": [
+            2010182,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-182-8-a5231f9a2d06.png",
+          "source_png_sha256": "ccd24d8ca482064383133e2cb23694c561710ae96ed0a7f012d0b0c149d6145b"
+        },
+        "terrain-shapesz-184-8.hda": {
+          "sha256": "fe88e63d852a67d2b801b2495501d60abd9dbd8c586251f1d2f30780e0baaed7",
+          "header_u32": [
+            2010184,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-184-8-fe88e63d852a.png",
+          "source_png_sha256": "e812d3e96972d9d68465b1196b5413875d45e7a2c0164cd3ce58d8a569491d31"
+        },
+        "terrain-shapesz-185-8.hda": {
+          "sha256": "ff5c24a3f0b3b0eb0fae81693b14cfed013a518ad496b934e8203aa2360bbf55",
+          "header_u32": [
+            2010185,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-185-8-ff5c24a3f0b3.png",
+          "source_png_sha256": "0959429b5d4db175d6a4484dbc2d7333c32f5942855a5113766bf9654c163118"
+        },
+        "terrain-shapesz-192-8.hda": {
+          "sha256": "e3f281528ce6663e28bdd36e80027394171d6beff09ce574fbfed448cdb3732b",
+          "header_u32": [
+            2010192,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-192-8-e3f281528ce6.png",
+          "source_png_sha256": "e81efbb6deea6a3c5145cc4a1d74dd49730c8894095746f15b4c1cbd1576feff"
+        },
+        "terrain-shapesz-193-8.hda": {
+          "sha256": "d9fe3507f4ae48faa059cb2d97c300c8212f035476ec49085ac833d338b46aea",
+          "header_u32": [
+            2010193,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-193-8-d9fe3507f4ae.png",
+          "source_png_sha256": "642f2ac01ab6fcfeecff7a2f13fa803e87bb812607848115c5d238806cbfeb1c"
+        },
+        "terrain-shapesz-194-8.hda": {
+          "sha256": "2758dc6595a210093d49918c01c0bf81550427dc29ca4c848a043d4f916726de",
+          "header_u32": [
+            2010194,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-194-8-2758dc6595a2.png",
+          "source_png_sha256": "c623b1db3672f8ddd2d15693c64b0921faa3930724f0c8af72bc6025edd2f7b2"
+        },
+        "terrain-shapesz-195-8.hda": {
+          "sha256": "e1275cdcff9a43a22b08e601397e812b18c3a311fa458cd0edd9b2115f928bab",
+          "header_u32": [
+            2010195,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-195-8-e1275cdcff9a.png",
+          "source_png_sha256": "8e085a6e0973bdf002630c652b37c74e12b6f3a487a665472155ef246c41b364"
+        },
+        "terrain-shapesz-201-8.hda": {
+          "sha256": "9c776aed57404c7a431fd44e805a5459f4b084bb68f4e2622c015ae337bdfffc",
+          "header_u32": [
+            2010201,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-201-8-9c776aed5740.png",
+          "source_png_sha256": "90f6c555e040aa04699ce7ffd66b6250d2a81e59ae047f2a97bb8b68bee71ee6"
+        },
+        "terrain-shapesz-202-8.hda": {
+          "sha256": "c9ee05c2e74d66ba191fb67cd62fdf889e094180bde75e8fb5665d70dcdc6652",
+          "header_u32": [
+            2010202,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-202-8-c9ee05c2e74d.png",
+          "source_png_sha256": "c6170e4c9398789c5d98dba799d9e07e7442f07d1aaaa6dfa0fc5dbbb867f81b"
         }
       }
     }
@@ -40824,6 +41084,66 @@
       "sha256": "f17f9306dedd620a90b338443d39a7832654617fc12062c5060becb9afdc9a1c",
       "RGBA_sha256": "20574498262ec86bcb233561c1624eb6632cfa8915027eb8398adf54d31e5e5b",
       "note": "Generated fixed forest silhouette/trunks; coupled world canopy requires forest13.policy and validated sidecar"
+    },
+    "e8b677fed337c78137802a471d5b6344e5491c15f827326fd344fd5dc9a2bb88": {
+      "path": "assets/hd/source/terrain-shapesz-181-8-e8b677fed337.png",
+      "sha256": "7c081f2101b60502990f7399abb65ded489c61d09319b1fa1e4bd6e3c24dee35",
+      "RGBA_sha256": "13d54ea50ba3b2e183f2d404dc4deaae190f448cd9fd91234eaf6ac939c4d767",
+      "note": "Generated finite Layer3 circuit/deck; intentional source route topology and accepted gray interfaces preserved"
+    },
+    "a5231f9a2d06f7f5fbc474193a485ed75b5dad72b32578ab39c295f3a90bc0be": {
+      "path": "assets/hd/source/terrain-shapesz-182-8-a5231f9a2d06.png",
+      "sha256": "ccd24d8ca482064383133e2cb23694c561710ae96ed0a7f012d0b0c149d6145b",
+      "RGBA_sha256": "69874102d4124851116e964d4767df027af6b977b4af25f7903a33f5e15eecc2",
+      "note": "Generated finite Layer3 circuit/deck; intentional source route topology and accepted gray interfaces preserved"
+    },
+    "fe88e63d852a67d2b801b2495501d60abd9dbd8c586251f1d2f30780e0baaed7": {
+      "path": "assets/hd/source/terrain-shapesz-184-8-fe88e63d852a.png",
+      "sha256": "e812d3e96972d9d68465b1196b5413875d45e7a2c0164cd3ce58d8a569491d31",
+      "RGBA_sha256": "82146c66360be15a06b294a12fe3d155afbdfa7efd0b821f12d7e564e329d86c",
+      "note": "Generated finite Layer3 circuit/deck; intentional source route topology and accepted gray interfaces preserved"
+    },
+    "ff5c24a3f0b3b0eb0fae81693b14cfed013a518ad496b934e8203aa2360bbf55": {
+      "path": "assets/hd/source/terrain-shapesz-185-8-ff5c24a3f0b3.png",
+      "sha256": "0959429b5d4db175d6a4484dbc2d7333c32f5942855a5113766bf9654c163118",
+      "RGBA_sha256": "23b9d65d958b932d463e7aebf46d382eba7acb646283a8385df49a320a865547",
+      "note": "Generated finite Layer3 circuit/deck; intentional source route topology and accepted gray interfaces preserved"
+    },
+    "e3f281528ce6663e28bdd36e80027394171d6beff09ce574fbfed448cdb3732b": {
+      "path": "assets/hd/source/terrain-shapesz-192-8-e3f281528ce6.png",
+      "sha256": "e81efbb6deea6a3c5145cc4a1d74dd49730c8894095746f15b4c1cbd1576feff",
+      "RGBA_sha256": "871b7d0dfc184f4b91eda00a1c3c24a1ebc776d18350c8b16ab7682222eb80b8",
+      "note": "Generated finite Layer3 circuit/deck; intentional source route topology and accepted gray interfaces preserved"
+    },
+    "d9fe3507f4ae48faa059cb2d97c300c8212f035476ec49085ac833d338b46aea": {
+      "path": "assets/hd/source/terrain-shapesz-193-8-d9fe3507f4ae.png",
+      "sha256": "642f2ac01ab6fcfeecff7a2f13fa803e87bb812607848115c5d238806cbfeb1c",
+      "RGBA_sha256": "d218dd0b06a6ba548597d19eb187372dcf32c1e45b31f37d530001fe028de7ad",
+      "note": "Generated finite Layer3 circuit/deck; intentional source route topology and accepted gray interfaces preserved"
+    },
+    "2758dc6595a210093d49918c01c0bf81550427dc29ca4c848a043d4f916726de": {
+      "path": "assets/hd/source/terrain-shapesz-194-8-2758dc6595a2.png",
+      "sha256": "c623b1db3672f8ddd2d15693c64b0921faa3930724f0c8af72bc6025edd2f7b2",
+      "RGBA_sha256": "123e1ba65c27f24ddb45d385edda762f3ac5d10fde8af4d424d963c257b51753",
+      "note": "Generated finite Layer3 circuit/deck; intentional source route topology and accepted gray interfaces preserved"
+    },
+    "e1275cdcff9a43a22b08e601397e812b18c3a311fa458cd0edd9b2115f928bab": {
+      "path": "assets/hd/source/terrain-shapesz-195-8-e1275cdcff9a.png",
+      "sha256": "8e085a6e0973bdf002630c652b37c74e12b6f3a487a665472155ef246c41b364",
+      "RGBA_sha256": "e12949bbeb60838129e184352a14038ca771048cc8228f54e3fd097a549d0625",
+      "note": "Generated finite Layer3 circuit/deck; intentional source route topology and accepted gray interfaces preserved"
+    },
+    "9c776aed57404c7a431fd44e805a5459f4b084bb68f4e2622c015ae337bdfffc": {
+      "path": "assets/hd/source/terrain-shapesz-201-8-9c776aed5740.png",
+      "sha256": "90f6c555e040aa04699ce7ffd66b6250d2a81e59ae047f2a97bb8b68bee71ee6",
+      "RGBA_sha256": "decc68773ca24e2ec82e56b3859f53831edbbfe3bf0aa614ba35098ae8eef8be",
+      "note": "Generated finite Layer3 circuit/deck; intentional source route topology and accepted gray interfaces preserved"
+    },
+    "c9ee05c2e74d66ba191fb67cd62fdf889e094180bde75e8fb5665d70dcdc6652": {
+      "path": "assets/hd/source/terrain-shapesz-202-8-c9ee05c2e74d.png",
+      "sha256": "c6170e4c9398789c5d98dba799d9e07e7442f07d1aaaa6dfa0fc5dbbb867f81b",
+      "RGBA_sha256": "2ff1705616f09543f2b52984cec5279836881f29ead4bb3f5014a666549a8546",
+      "note": "Generated finite Layer3 circuit/deck; intentional source route topology and accepted gray interfaces preserved"
     }
   },
   "no_original_game_data": true,
@@ -41764,5 +42084,33 @@
     },
     "scope": "13 finite shapesZ Layer1 NORMAL source identities; original silhouette/trunk geometry and all other materials retained",
     "runtime_status": "passed bounded original-state, fallback and native2x/4x review; four IDs static-only"
+  },
+  "terrain_layer3_circuit10_v1": {
+    "ids": [
+      181,
+      182,
+      184,
+      185,
+      192,
+      193,
+      194,
+      195,
+      201,
+      202
+    ],
+    "layer": 3,
+    "style": "NORMAL",
+    "logical_size": [
+      24,
+      28
+    ],
+    "anchor": [
+      0,
+      0
+    ],
+    "source": "assets/hd/artwork/circuit10-v1",
+    "source_inventory_sha256": "a8b806d31062e3355449f1475bede7f6596ca643ac145a59542cbb3d575e0281",
+    "scope": "Ten physically placed circuit/deck IDs; 191 remains unbound reference-only",
+    "runtime_status": "passed bounded normal-layer survival samples: 84 native2x frames, native4x4320, finite routing/fallback and exact original-state proof"
   }
 }

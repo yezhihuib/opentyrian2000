@@ -1,0 +1,317 @@
+{
+  "version": 1,
+  "bank": "shapesz.dat",
+  "layer": 3,
+  "mode": "NORMAL",
+  "output_ids": [
+    181,
+    182,
+    184,
+    185,
+    192,
+    193,
+    194,
+    195,
+    201,
+    202
+  ],
+  "guard_excluded_id": 191,
+  "base": "sources/frozen-approved-gray132.png",
+  "entries": [
+    {
+      "source_id": 181,
+      "asset_slot": 349,
+      "hda_id": 2010181,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "anchor": [
+        0,
+        0
+      ],
+      "master": "sources/generated-approved-pilot-v2.png",
+      "registered_master_size": [
+        768,
+        1568
+      ],
+      "crop": [
+        384,
+        1120,
+        576,
+        1344
+      ],
+      "mask": "masks/metal-181.png",
+      "ports": "EW"
+    },
+    {
+      "source_id": 182,
+      "asset_slot": 350,
+      "hda_id": 2010182,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "anchor": [
+        0,
+        0
+      ],
+      "master": "sources/generated-remaining-five.png",
+      "registered_master_size": [
+        1728,
+        1344
+      ],
+      "crop": [
+        192,
+        224,
+        384,
+        448
+      ],
+      "mask": "masks/metal-182.png",
+      "ports": "EWS"
+    },
+    {
+      "source_id": 184,
+      "asset_slot": 351,
+      "hda_id": 2010184,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "anchor": [
+        0,
+        0
+      ],
+      "master": "sources/generated-approved-pilot-v2.png",
+      "registered_master_size": [
+        768,
+        1568
+      ],
+      "crop": [
+        192,
+        224,
+        384,
+        448
+      ],
+      "mask": "masks/metal-184.png",
+      "ports": "ES"
+    },
+    {
+      "source_id": 185,
+      "asset_slot": 352,
+      "hda_id": 2010185,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "anchor": [
+        0,
+        0
+      ],
+      "master": "sources/generated-remaining-five.png",
+      "registered_master_size": [
+        1728,
+        1344
+      ],
+      "crop": [
+        768,
+        224,
+        960,
+        448
+      ],
+      "mask": "masks/metal-185.png",
+      "ports": "WS"
+    },
+    {
+      "source_id": 192,
+      "asset_slot": 353,
+      "hda_id": 2010192,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "anchor": [
+        0,
+        0
+      ],
+      "master": "sources/generated-remaining-five.png",
+      "registered_master_size": [
+        1728,
+        1344
+      ],
+      "crop": [
+        1344,
+        224,
+        1536,
+        448
+      ],
+      "mask": "masks/metal-192.png",
+      "ports": "NESW"
+    },
+    {
+      "source_id": 193,
+      "asset_slot": 354,
+      "hda_id": 2010193,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "anchor": [
+        0,
+        0
+      ],
+      "master": "sources/generated-remaining-five.png",
+      "registered_master_size": [
+        1728,
+        1344
+      ],
+      "crop": [
+        192,
+        896,
+        384,
+        1120
+      ],
+      "mask": "masks/metal-193.png",
+      "ports": "NWS"
+    },
+    {
+      "source_id": 194,
+      "asset_slot": 355,
+      "hda_id": 2010194,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "anchor": [
+        0,
+        0
+      ],
+      "master": "sources/generated-remaining-five.png",
+      "registered_master_size": [
+        1728,
+        1344
+      ],
+      "crop": [
+        768,
+        896,
+        960,
+        1120
+      ],
+      "mask": "masks/metal-194.png",
+      "ports": "NE"
+    },
+    {
+      "source_id": 195,
+      "asset_slot": 356,
+      "hda_id": 2010195,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "anchor": [
+        0,
+        0
+      ],
+      "master": "sources/generated-approved-pilot-v2.png",
+      "registered_master_size": [
+        768,
+        1568
+      ],
+      "crop": [
+        384,
+        224,
+        576,
+        448
+      ],
+      "mask": "masks/metal-195.png",
+      "ports": "NW"
+    },
+    {
+      "source_id": 201,
+      "asset_slot": 357,
+      "hda_id": 2010201,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "anchor": [
+        0,
+        0
+      ],
+      "master": "sources/generated-approved-pilot-v2.png",
+      "registered_master_size": [
+        768,
+        1568
+      ],
+      "crop": [
+        192,
+        672,
+        384,
+        896
+      ],
+      "mask": "masks/metal-201.png",
+      "ports": "NS"
+    },
+    {
+      "source_id": 202,
+      "asset_slot": 358,
+      "hda_id": 2010202,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "anchor": [
+        0,
+        0
+      ],
+      "master": "sources/generated-approved-pilot-v2.png",
+      "registered_master_size": [
+        768,
+        1568
+      ],
+      "crop": [
+        192,
+        1120,
+        384,
+        1344
+      ],
+      "mask": "masks/metal-202.png",
+      "ports": "NEW"
+    }
+  ],
+  "registered_resize": "ImageMagick Lanczos exact specified size, depth8 RGBA",
+  "mask_compose": "(generated*mask + base*(255-mask) +127)//255, RGB only; base alpha255",
+  "ports_contract": {
+    "vertical_x_halfopen": [
+      24,
+      176
+    ],
+    "horizontal_y_halfopen": [
+      32,
+      200
+    ],
+    "authoritative_vertical": "rounded average of prejoin201 north/south profiles",
+    "authoritative_horizontal": "rounded average of prejoin181 west/east profiles",
+    "depth_8px_weights": [
+      255,
+      255,
+      218,
+      182,
+      145,
+      109,
+      72,
+      36
+    ]
+  },
+  "scope": "finite10 independent HDA assets; no material sampler; external accepted tiles unchanged"
+}

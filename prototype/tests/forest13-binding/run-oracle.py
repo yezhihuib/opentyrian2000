@@ -14,6 +14,7 @@ import struct
 import subprocess
 
 HERE = Path(__file__).resolve().parent
+CIRCUIT = [181,182,184,185,192,193,194,195,201,202]
 FOREST = [211, 212, 213, 215, 221, 222, 223, 224, 225, 231, 232, 233, 234]
 OLD = [101,37,57,49,50,321,322,331,332,99,100,106,107,109,110,118,119,120,
        96,97,98,108,323,324,333,334,36,39,40,46,48,56,58,38,47,111,114,113,
@@ -27,7 +28,7 @@ SLOT_FUNCTIONS = ['cloud_terrain_slot', 'ground_terrain_slot', 'plateau_terrain_
                   'stone_foundation_slot', 'layer3_gray_slot', 'layer3_purple_slot',
                   'grass_sand_slot']
 FUNCTIONS = ['read_asset', 'scene_asset', 'render_mirror_map_begin'] + SLOT_FUNCTIONS + [
-    'forest_terrain_slot', 'render_mirror_bind_terrain', 'plateau_cap_selected_source',
+    'forest_terrain_slot', 'layer3_circuit_slot', 'render_mirror_bind_terrain', 'plateau_cap_selected_source',
     'render_mirror_ground101_layer1', 'render_mirror_terrain_row']
 UNMODIFIED_FILES = ['ground101_material.c', 'ground101_material.h', 'plateau_cap_material.c',
                     'plateau_cap_material.h', 'world_material.c', 'world_material.h',
@@ -113,7 +114,7 @@ def fixtures(out):
     root.mkdir()
     base = root / 'canonical8'
     base.mkdir()
-    for sprite_id in sorted(set(OLD + GRASS + CLOUD + GRAY + PURPLE + FOREST)):
+    for sprite_id in sorted(set(OLD + GRASS + CLOUD + GRAY + PURPLE + FOREST + CIRCUIT + [191])):
         for density in (8, 4):
             (base / f'terrain-shapesz-{sprite_id}-{density}.hda').write_bytes(make_hda(sprite_id, density))
     def variant(label, overrides, omissions=()):
@@ -145,6 +146,27 @@ def fixtures(out):
         variant(f'corrupt-{sprite_id}', {high: make_hda(sprite_id, 8, 31)})
         variant(f'alpha-{sprite_id}', {high: make_hda(sprite_id, 8, alpha=254)})
         variant(f'density4-{sprite_id}', {}, {high})
+    for sprite_id in CIRCUIT:
+        high = f'terrain-shapesz-{sprite_id}-8.hda'
+        low = f'terrain-shapesz-{sprite_id}-4.hda'
+        variant(f'circuit-missing-{sprite_id}', {}, {high, low})
+        variant(f'circuit-invalid-{sprite_id}', {high: b'INVALID'}, {low})
+        variant(f'circuit-density4-{sprite_id}', {}, {high})
+        variant(f'circuit-invalid8-valid4-{sprite_id}', {high: b'INVALID'})
+        variant(f'circuit-selected-{sprite_id}', {high: make_hda(sprite_id, 8, 31)})
+        valid = make_hda(sprite_id,8)
+        bads = {
+          'wrong-id': valid[:4] + struct.pack('<I',2010000+sprite_id+1) + valid[8:],
+          'wrong-bank': valid[:4] + struct.pack('<I',1010000+sprite_id) + valid[8:],
+          'wrong-density': valid[:8] + struct.pack('<I',4) + valid[12:],
+          'wrong-width': valid[:12] + struct.pack('<I',12) + valid[16:],
+          'wrong-height': valid[:16] + struct.pack('<I',14) + valid[20:],
+          'wrong-anchorx': valid[:20] + struct.pack('<I',1) + valid[24:],
+          'wrong-anchory': valid[:24] + struct.pack('<I',1) + valid[28:],
+          'truncated': valid[:-1], 'trailing': valid+b'X',
+        }
+        for reason,data in bads.items():
+            variant(f'circuit-{reason}-{sprite_id}', {high:data}, {low})
     return root
 
 
@@ -179,6 +201,8 @@ def main():
     assert 'if(forest_slot>=0&&forest13_declared()&&!forest)continue;' in row
     assert row.index('if(forest_slot>=0&&forest13_declared()&&!forest)continue;') < row.index('draw_asset_filtered(')
     assert 'const Forest13Record *forest' in extract(source, 'draw_asset_filtered')
+    circuit_guard = 'if((gray_slot>=0||purple_slot>=0||circuit_slot>=0)&&style!=MIRROR_NORMAL)continue;'
+    assert row.index(circuit_guard) < row.index('scene_asset('), 'Circuit NORMAL-only skip must precede source load'
     definitions = []
     for pattern in [r'typedef struct \{\s*bool initialized,valid;.*?\} Asset;',
                     r'static Asset assets\[\d+\];',
@@ -225,7 +249,8 @@ def main():
                   preserved_prior_mappings=selected, preserved_lower_cap_sources=unchanged,
                   source_assertions=['policy detection before lower early returns',
                                      'forest NORMAL-only skip before scene_asset',
-                                     'declared forest skip before draw', 'Forest13Record draw signature'],
+                                     'declared forest skip before draw', 'Forest13Record draw signature',
+                                     'circuit NORMAL-only skip before source load'],
                   compile_command=command, runs=results,
                   limitations=['LeakSanitizer is optional because ptrace-based hosts cannot run it; ASan/UBSan are always enabled.',
                                'Material policy/preparation/world context and draw calls are explicit test doubles.',

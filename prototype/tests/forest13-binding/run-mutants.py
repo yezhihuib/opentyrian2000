@@ -19,6 +19,15 @@ MUTATIONS = [
     ('row-readiness-bypassed', 'a&&a->density==8&&material_row==1&&forest_registry_ok&&style==MIRROR_NORMAL?forest13_record(id)', 'a&&a->density==8&&forest_registry_ok&&style==MIRROR_NORMAL?forest13_record(id)', 'suite'),
     ('policy-detection-omitted', 'forest13_policy_check(game_probe_assets);', '/* deliberately omitted independent policy check */', 'lower-missing'),
     ('wrong-layer-forest-admitted', 'if(terrain_file==\'z\'&&((layer==1&&', 'if(terrain_file==\'z\'&&(((layer==1||layer==2)&&', 'suite'),
+    ('circuit-slot-shift', 'return 349+i;', 'return 348+i;', 'suite'),
+    ('circuit-191-admitted', 'ids[10]={181,182,184,185,192,193,194,195,201,202}', 'ids[10]={181,182,184,185,191,193,194,195,201,202}', 'suite'),
+    ('circuit-style-leak', 'if((gray_slot>=0||purple_slot>=0||circuit_slot>=0)&&style!=MIRROR_NORMAL)continue;', 'if((gray_slot>=0||purple_slot>=0)&&style!=MIRROR_NORMAL)continue;', 'suite'),
+    ('circuit-missing-art-trace-leak', '||circuit_slot>=0||grass_slot>=0||forest_slot>=0)&&!a)continue;', '||grass_slot>=0||forest_slot>=0)&&!a)continue;', 'suite'),
+    ('registry-old175-bound', 'terrain_source_count<185', 'terrain_source_count<175', 'suite'),
+    ('registry-one-past-bound', 'terrain_source_count<185', 'terrain_source_count<=185', 'suite'),
+    ('selected4-fallback-omitted', 'if(!a->valid&&game_probe_density==8)a->valid=read_asset(a,4);', '/* deliberately omitted selected4 fallback */', 'suite'),
+    ('pointer-last-match-overwrite', 'id=terrain_sources[k].id;break;', 'id=terrain_sources[k].id;', 'suite'),
+
 ]
 
 

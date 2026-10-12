@@ -1,0 +1,326 @@
+{
+  "review": "Independent bounded offline visual and port-edge review",
+  "reviewed_at_utc": "2026-10-12T12:08:45Z",
+  "candidate_directory": "tyrian-background-redraw/circuit10-canonical-v1/selected-tiles",
+  "verdict": "No blocking findings in reviewed scope. No concrete lost/moved major route, wrong port, pasted rectangular artwork patch, or major drift from approved quiet dark-metal material found.",
+  "scope": [
+    "All ten source designs from original10-plus191-contact.png compared visually with individual selected candidate PNGs.",
+    "All five supplied native2x original-versus-candidate actual-map contexts reviewed visually.",
+    "Adjacency inventory read; all actual family-family cardinal pairs with mutually connecting ports tested for exact RGB continuity at the port face.",
+    "Approved five v2 material tiles compared numerically with selected candidates."
+  ],
+  "route_ports": {
+    "181": "EW",
+    "182": "EWS",
+    "184": "ES",
+    "185": "WS",
+    "192": "NESW",
+    "193": "NWS",
+    "194": "NE",
+    "195": "NW",
+    "201": "NS",
+    "202": "NEW"
+  },
+  "specific_findings": [
+    "182 retains the upper closed rim and E/W/S tee. Both actual tee placements are consistent with the map inventory.",
+    "192 retains N/E/S/W cross; no arm is lost or spuriously blocked in the cross-junction context.",
+    "193 retains N/W/S with closed east rim. Right-facing groove branches remain internal; there is no east route port.",
+    "185 and 194 retain W/S and N/E elbows respectively; the short 185-over-194 turn reads correctly in the secondary-spur context.",
+    "181 horizontal repeat and 201 distinct vertical repeat remain intentional and readable. 184/195 elbows and 202 north-facing tee preserve their major route roles.",
+    "All five contexts retain coherent dark-metal route silhouettes against fixed gray/purple terrain and the source debris interface. No conspicuous pasted rectangle was observed.",
+    "Remaining-five material reads as the same quiet dark metal at native2x. Lower whole-tile brightness of 192/193 is consistent with their smaller stone area, not a visible bright/dark tile patch."
+  ],
+  "contexts": {
+    "first-spur": "No blocking visual finding",
+    "secondary-spur": "No blocking visual finding",
+    "cross-junctions": "No blocking visual finding",
+    "loop-right": "No blocking visual finding",
+    "debris-interface": "No blocking visual finding"
+  },
+  "candidate_format": {
+    "count": 10,
+    "all_dimensions_wh": [
+      192,
+      224
+    ],
+    "all_alpha_min_max": [
+      255,
+      255
+    ]
+  },
+  "adjacency_inventory": {
+    "cardinal_types": 96,
+    "diagonal_types": 156,
+    "cardinal_occurrences": 563,
+    "diagonal_occurrences": 681
+  },
+  "connecting_port_check": {
+    "unique_actual_pair_types": 28,
+    "actual_occurrences": 187,
+    "port_ranges_HD": "N/S x=24..175 inclusive; E/W y=32..199 inclusive",
+    "maximum_RGB_edge_delta": 0,
+    "pairs": [
+      {
+        "direction": "E",
+        "a": 181,
+        "b": 181,
+        "occurrences": 98,
+        "max_abs_RGB_port_edge_delta": 0
+      },
+      {
+        "direction": "E",
+        "a": 181,
+        "b": 182,
+        "occurrences": 2,
+        "max_abs_RGB_port_edge_delta": 0
+      },
+      {
+        "direction": "E",
+        "a": 181,
+        "b": 185,
+        "occurrences": 3,
+        "max_abs_RGB_port_edge_delta": 0
+      },
+      {
+        "direction": "E",
+        "a": 181,
+        "b": 192,
+        "occurrences": 2,
+        "max_abs_RGB_port_edge_delta": 0
+      },
+      {
+        "direction": "E",
+        "a": 181,
+        "b": 193,
+        "occurrences": 1,
+        "max_abs_RGB_port_edge_delta": 0
+      },
+      {
+        "direction": "E",
+        "a": 181,
+        "b": 195,
+        "occurrences": 2,
+        "max_abs_RGB_port_edge_delta": 0
+      },
+      {
+        "direction": "E",
+        "a": 181,
+        "b": 202,
+        "occurrences": 5,
+        "max_abs_RGB_port_edge_delta": 0
+      },
+      {
+        "direction": "E",
+        "a": 182,
+        "b": 181,
+        "occurrences": 2,
+        "max_abs_RGB_port_edge_delta": 0
+      },
+      {
+        "direction": "E",
+        "a": 184,
+        "b": 181,
+        "occurrences": 3,
+        "max_abs_RGB_port_edge_delta": 0
+      },
+      {
+        "direction": "E",
+        "a": 184,
+        "b": 195,
+        "occurrences": 1,
+        "max_abs_RGB_port_edge_delta": 0
+      },
+      {
+        "direction": "E",
+        "a": 192,
+        "b": 181,
+        "occurrences": 2,
+        "max_abs_RGB_port_edge_delta": 0
+      },
+      {
+        "direction": "E",
+        "a": 194,
+        "b": 181,
+        "occurrences": 2,
+        "max_abs_RGB_port_edge_delta": 0
+      },
+      {
+        "direction": "E",
+        "a": 202,
+        "b": 181,
+        "occurrences": 4,
+        "max_abs_RGB_port_edge_delta": 0
+      },
+      {
+        "direction": "E",
+        "a": 202,
+        "b": 185,
+        "occurrences": 1,
+        "max_abs_RGB_port_edge_delta": 0
+      },
+      {
+        "direction": "S",
+        "a": 182,
+        "b": 192,
+        "occurrences": 1,
+        "max_abs_RGB_port_edge_delta": 0
+      },
+      {
+        "direction": "S",
+        "a": 182,
+        "b": 201,
+        "occurrences": 1,
+        "max_abs_RGB_port_edge_delta": 0
+      },
+      {
+        "direction": "S",
+        "a": 184,
+        "b": 201,
+        "occurrences": 4,
+        "max_abs_RGB_port_edge_delta": 0
+      },
+      {
+        "direction": "S",
+        "a": 185,
+        "b": 194,
+        "occurrences": 1,
+        "max_abs_RGB_port_edge_delta": 0
+      },
+      {
+        "direction": "S",
+        "a": 185,
+        "b": 201,
+        "occurrences": 3,
+        "max_abs_RGB_port_edge_delta": 0
+      },
+      {
+        "direction": "S",
+        "a": 192,
+        "b": 201,
+        "occurrences": 1,
+        "max_abs_RGB_port_edge_delta": 0
+      },
+      {
+        "direction": "S",
+        "a": 192,
+        "b": 202,
+        "occurrences": 1,
+        "max_abs_RGB_port_edge_delta": 0
+      },
+      {
+        "direction": "S",
+        "a": 193,
+        "b": 201,
+        "occurrences": 1,
+        "max_abs_RGB_port_edge_delta": 0
+      },
+      {
+        "direction": "S",
+        "a": 201,
+        "b": 192,
+        "occurrences": 1,
+        "max_abs_RGB_port_edge_delta": 0
+      },
+      {
+        "direction": "S",
+        "a": 201,
+        "b": 193,
+        "occurrences": 1,
+        "max_abs_RGB_port_edge_delta": 0
+      },
+      {
+        "direction": "S",
+        "a": 201,
+        "b": 194,
+        "occurrences": 1,
+        "max_abs_RGB_port_edge_delta": 0
+      },
+      {
+        "direction": "S",
+        "a": 201,
+        "b": 195,
+        "occurrences": 3,
+        "max_abs_RGB_port_edge_delta": 0
+      },
+      {
+        "direction": "S",
+        "a": 201,
+        "b": 201,
+        "occurrences": 36,
+        "max_abs_RGB_port_edge_delta": 0
+      },
+      {
+        "direction": "S",
+        "a": 201,
+        "b": 202,
+        "occurrences": 4,
+        "max_abs_RGB_port_edge_delta": 0
+      }
+    ]
+  },
+  "approved_pilot_comparison": {
+    "181": {
+      "max_delta_excluding_8px_border": 0,
+      "mean_absolute_RGB_delta": 0.051626,
+      "mean_RGB_delta": [
+        0.00818,
+        0.009,
+        0.00911
+      ]
+    },
+    "184": {
+      "max_delta_excluding_8px_border": 0,
+      "mean_absolute_RGB_delta": 0.269446,
+      "mean_RGB_delta": [
+        -0.03097,
+        -0.02946,
+        -0.03111
+      ]
+    },
+    "195": {
+      "max_delta_excluding_8px_border": 0,
+      "mean_absolute_RGB_delta": 0.320212,
+      "mean_RGB_delta": [
+        -0.01539,
+        -0.01402,
+        -0.01446
+      ]
+    },
+    "201": {
+      "max_delta_excluding_8px_border": 0,
+      "mean_absolute_RGB_delta": 0.045712,
+      "mean_RGB_delta": [
+        0.00691,
+        0.00535,
+        0.00202
+      ]
+    },
+    "202": {
+      "max_delta_excluding_8px_border": 0,
+      "mean_absolute_RGB_delta": 0.099741,
+      "mean_RGB_delta": [
+        -0.0013,
+        -0.0037,
+        -0.00646
+      ]
+    }
+  },
+  "candidate_sha256": {
+    "181": "7c081f2101b60502990f7399abb65ded489c61d09319b1fa1e4bd6e3c24dee35",
+    "182": "ccd24d8ca482064383133e2cb23694c561710ae96ed0a7f012d0b0c149d6145b",
+    "184": "e812d3e96972d9d68465b1196b5413875d45e7a2c0164cd3ce58d8a569491d31",
+    "185": "0959429b5d4db175d6a4484dbc2d7333c32f5942855a5113766bf9654c163118",
+    "192": "e81efbb6deea6a3c5145cc4a1d74dd49730c8894095746f15b4c1cbd1576feff",
+    "193": "642f2ac01ab6fcfeecff7a2f13fa803e87bb812607848115c5d238806cbfeb1c",
+    "194": "c623b1db3672f8ddd2d15693c64b0921faa3930724f0c8af72bc6025edd2f7b2",
+    "195": "8e085a6e0973bdf002630c652b37c74e12b6f3a487a665472155ef246c41b364",
+    "201": "90f6c555e040aa04699ce7ffd66b6250d2a81e59ae047f2a97bb8b68bee71ee6",
+    "202": "c6170e4c9398789c5d98dba799d9e07e7442f07d1aaaa6dfa0fc5dbbb867f81b"
+  },
+  "limits": [
+    "Offline artwork review only; no game launch, capture, runtime integration, production binding, or runtime proof.",
+    "Port-face equality is a bounded technical check, not a claim of pixel-identical original circuit shading or exhaustive continuity for every surrounding stone texture.",
+    "191 remains reference-only and was not authored or bound.",
+    "No selected artwork, main code, frozen reference, or context image was changed by this reviewer."
+  ]
+}

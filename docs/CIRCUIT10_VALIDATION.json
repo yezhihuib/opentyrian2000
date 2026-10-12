@@ -1,0 +1,1105 @@
+{
+  "status": "PASS bounded circuit10 integration",
+  "baseline_commit": "a49e46e5f8880b98cfb41028b6389e97d0636433",
+  "ids": [
+    181,
+    182,
+    184,
+    185,
+    192,
+    193,
+    194,
+    195,
+    201,
+    202
+  ],
+  "slots": [
+    349,
+    350,
+    351,
+    352,
+    353,
+    354,
+    355,
+    356,
+    357,
+    358
+  ],
+  "source_inventory_sha256": "a8b806d31062e3355449f1475bede7f6596ca643ac145a59542cbb3d575e0281",
+  "evidence": {
+    "circuit10-motion-review/delivery-summary.json": {
+      "sha256": "82e05eb1a90af6cc62447ff8848421755c799d6251c3f0124335095bb5634cfe",
+      "report": {
+        "status": "all requested runtime gates passed; independent artist review requested separately",
+        "native2x_windows": [
+          [
+            4303,
+            4330
+          ],
+          [
+            4731,
+            4758
+          ],
+          [
+            4933,
+            4960
+          ]
+        ],
+        "frames_per_side": 84,
+        "all10_full_tile_coverage": {
+          "181": {
+            "fully_framed_frame_count": 73,
+            "first_retained_full_tick": 4303,
+            "last_retained_full_tick": 4960,
+            "native_changed_pixels_per_full_rect_minmax": [
+              1871,
+              2682
+            ]
+          },
+          "182": {
+            "fully_framed_frame_count": 14,
+            "first_retained_full_tick": 4947,
+            "last_retained_full_tick": 4960,
+            "native_changed_pixels_per_full_rect_minmax": [
+              2056,
+              2636
+            ]
+          },
+          "184": {
+            "fully_framed_frame_count": 28,
+            "first_retained_full_tick": 4303,
+            "last_retained_full_tick": 4330,
+            "native_changed_pixels_per_full_rect_minmax": [
+              2682,
+              2682
+            ]
+          },
+          "185": {
+            "fully_framed_frame_count": 11,
+            "first_retained_full_tick": 4751,
+            "last_retained_full_tick": 4935,
+            "native_changed_pixels_per_full_rect_minmax": [
+              2332,
+              2683
+            ]
+          },
+          "192": {
+            "fully_framed_frame_count": 28,
+            "first_retained_full_tick": 4933,
+            "last_retained_full_tick": 4960,
+            "native_changed_pixels_per_full_rect_minmax": [
+              2675,
+              2675
+            ]
+          },
+          "193": {
+            "fully_framed_frame_count": 9,
+            "first_retained_full_tick": 4731,
+            "last_retained_full_tick": 4739,
+            "native_changed_pixels_per_full_rect_minmax": [
+              2684,
+              2684
+            ]
+          },
+          "194": {
+            "fully_framed_frame_count": 8,
+            "first_retained_full_tick": 4751,
+            "last_retained_full_tick": 4758,
+            "native_changed_pixels_per_full_rect_minmax": [
+              2180,
+              2188
+            ]
+          },
+          "195": {
+            "fully_framed_frame_count": 28,
+            "first_retained_full_tick": 4303,
+            "last_retained_full_tick": 4330,
+            "native_changed_pixels_per_full_rect_minmax": [
+              2680,
+              2680
+            ]
+          },
+          "201": {
+            "fully_framed_frame_count": 84,
+            "first_retained_full_tick": 4303,
+            "last_retained_full_tick": 4960,
+            "native_changed_pixels_per_full_rect_minmax": [
+              2334,
+              2681
+            ]
+          },
+          "202": {
+            "fully_framed_frame_count": 56,
+            "first_retained_full_tick": 4303,
+            "last_retained_full_tick": 4960,
+            "native_changed_pixels_per_full_rect_minmax": [
+              2665,
+              2676
+            ]
+          }
+        },
+        "all84_outside_pixels_changed": 0,
+        "all84_HUD_exact": true,
+        "all84_original_full_prefix_hashes_exact": true,
+        "all_new_calls_NORMAL_and_mirrored": true,
+        "zero_area_renderer_call_count": 55,
+        "all_zero_area_calls_source_registered": true,
+        "media_bytes": 8222112,
+        "fallbacks": "fallback-results.json",
+        "candidate4x_verification": "../circuit10-runtime-review/canonical4x4320/verification.json",
+        "candidate4x_still": "../circuit10-runtime-review/canonical4x4320/actual-4320-native4x.png",
+        "limits": [
+          "Gapped84-frame samples, not continuous playback.",
+          "ID182 partly overlaps original unredrawn enemy art during every fully framed retained frame.",
+          "Invalid182 fallback is log-only; no spatial pixel-confinement claim.",
+          "Native2x/4x hashes are separate from internal8x audit.",
+          "Main checkout changed under parent-authorized parallel integration prep; private baselines remained exact."
+        ],
+        "worker_did_not_modify_main_source_or_frozen_art": true,
+        "first_numeric_name_trial_preserved": "../circuit10-runtime-review/verification.json"
+      }
+    },
+    "circuit10-motion-review/fallback-results.json": {
+      "sha256": "6fff81dc4bf1baeee0f9cbdabe4e5448ccaf692ea41374274df072391745fd08",
+      "report": {
+        "status": "passed",
+        "missing_all": {
+          "status": "passed",
+          "case": "missing all10",
+          "captures": 0,
+          "exact_full_baseline_ledgers": [
+            "weapon-loadout",
+            "presentation",
+            "scene-hits",
+            "fade-steps",
+            "rgb-audit",
+            "blend-palette",
+            "effects",
+            "player-shot-results",
+            "player-shot-requests",
+            "fire-events",
+            "player-projectiles",
+            "player-shot-emissions",
+            "collisions",
+            "restore-regions",
+            "player-shot-draws",
+            "frames",
+            "scene-enemies",
+            "draw-commands",
+            "sdl-runtime",
+            "state",
+            "poses",
+            "asset-debug-explosion-pools",
+            "scene-draw-commands",
+            "talon-bank-visual",
+            "enemy-projectiles",
+            "asset-debug-materials",
+            "asset-debug-clock"
+          ],
+          "control_exact_except_wall_time": true,
+          "all28_density8_RGB_hashes_exact_to_baseline": true,
+          "original_blend_and_HD_ownership_proof_exact": true,
+          "all10_circuit_calls_absent": true,
+          "selected_existing_pack": "/workspace/scratch/f67dd347fa0a/forest13-private-pack"
+        },
+        "invalid182": {
+          "status": "passed with log-only spatial limitation",
+          "case": "invalid182 header magic only",
+          "captures": 0,
+          "exact_full_candidate_ledgers": [
+            "weapon-loadout",
+            "presentation",
+            "scene-hits",
+            "fade-steps",
+            "blend-palette",
+            "effects",
+            "player-shot-results",
+            "player-shot-requests",
+            "fire-events",
+            "player-projectiles",
+            "player-shot-emissions",
+            "collisions",
+            "restore-regions",
+            "player-shot-draws",
+            "scene-enemies",
+            "draw-commands",
+            "sdl-runtime",
+            "state",
+            "poses",
+            "asset-debug-explosion-pools",
+            "talon-bank-visual",
+            "enemy-projectiles",
+            "asset-debug-materials",
+            "asset-debug-clock"
+          ],
+          "control_exact_except_wall_time": true,
+          "exact_other_scene_calls": true,
+          "removed182_calls": 28,
+          "one_HD_draw_removed_per_frame": true,
+          "original_blend_proof_exact": true,
+          "rendered_window": [
+            4933,
+            4960
+          ],
+          "renderer_errors": 0,
+          "spatial_pixel_confinement_directly_measured": false,
+          "qualification": "Capture-free run. All non182 scene commands and original/state/material/clock/effect ledgers are exact; only182 loses its HD draw. No pixel-level spatial confinement claim is made for this fallback run."
+        },
+        "media_bytes": 8222112,
+        "evidence_bytes": 9438372,
+        "frozen_source_binary_canonical_pack_unchanged": true
+      }
+    },
+    "circuit10-runtime-review/canonical4x4320/verification.json": {
+      "sha256": "eda6d0ede1d541522d00c1c2ffdcc29ab26829d6e161db150c881e0db37fc315",
+      "report": {
+        "status": "passed",
+        "capture": {
+          "tick": 4320,
+          "width": 1280,
+          "height": 800,
+          "bytes": 4096000,
+          "raw_BGRA_sha256": "ef3748660771ddc2b46f58750c5dbfa622f1865d4e06d278a643fec7a3bb874e",
+          "RGBA_sha256": "c2e6c8b9574f36badae7f4c043641d0f5ca9d2c5a9155b8bd6504e2aa8be80bd",
+          "PNG_sha256": "3a4f4025c1eba77c2d97b3910139c42eb35fae8d253fea58b1f1450a1d62ffbb",
+          "path": "/workspace/scratch/f67dd347fa0a/circuit10-runtime-review/canonical4x4320/actual-4320-native4x.png",
+          "surface": "SDL native4x readback1280x800, not internal density8 rgb-audit surface"
+        },
+        "native4x_1280x800_real_ORF1_readback": true,
+        "native_raw_BGRA_RGBA_PNG_roundtrip_exact": true,
+        "same4321_original_state_and_all26_full_ledgers_exact_to_candidate_native2x": [
+          "weapon-loadout",
+          "rgb-audit",
+          "player-shot-results",
+          "fade-steps",
+          "restore-regions",
+          "scene-hits",
+          "player-shot-draws",
+          "effects",
+          "player-shot-emissions",
+          "fire-events",
+          "scene-enemies",
+          "frames",
+          "player-shot-requests",
+          "blend-palette",
+          "enemy-projectiles",
+          "collisions",
+          "presentation",
+          "poses",
+          "scene-draw-commands",
+          "state",
+          "talon-bank-visual",
+          "asset-debug-explosion-pools",
+          "player-projectiles",
+          "draw-commands",
+          "asset-debug-materials",
+          "asset-debug-clock"
+        ],
+        "control_exact_except_wall_ms": true,
+        "SDL_only_differences": [
+          "window_w",
+          "window_h",
+          "render_output_w",
+          "render_output_h"
+        ],
+        "internal8x_rgb_audit_exact_to_native2x_run": {
+          "tick": "4320",
+          "density": "8",
+          "rgb_hash": "bb0e742d0ce90cb2",
+          "classic_mismatches": "0"
+        },
+        "internal_surface_dimensions": [
+          2560,
+          1600
+        ],
+        "cross_scale_native_hash_equality_claimed": false,
+        "original_and_HD_blend_proof_exact": true,
+        "no_additional_motion": true,
+        "captures": 1,
+        "private_binary_source_canonical_pack_unchanged": true,
+        "main_status_qualification": "Parent-authorized integration preparation remains in progress; no clean-main claim and no main edits by runtime worker.",
+        "source_of_run_state": {
+          "status": "single native4x still completed, analysis pending",
+          "exit_code": 0,
+          "elapsed_seconds": 3.2528001989994664,
+          "compressed_streams": 28,
+          "blend_streamed": true,
+          "captures": 1,
+          "retained_bytes": 4318682,
+          "free_bytes": 17706782720,
+          "private_source_binary_pack_unchanged": true,
+          "old_main_pack_bytes_exact": true,
+          "main_status_qualification": "Parallel parent-authorized import; no clean-main claim",
+          "main_after": {
+            "commit": "a49e46e5f8880b98cfb41028b6389e97d0636433",
+            "status": " M assets/hd/manifest.json\n M prototype/tests/forest13-binding/README.txt\n M prototype/tests/forest13-binding/run-mutants.py\n M prototype/tests/forest13-binding/run-oracle.py\n M prototype/tests/forest13-binding/test-forest13-binding.c\n M src/render_mirror.c\n?? assets/hd/artwork/circuit10-v1/\n?? assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesz-181-8.hda\n?? assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesz-182-8.hda\n?? assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesz-184-8.hda\n?? assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesz-185-8.hda\n?? assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesz-192-8.hda\n?? assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesz-193-8.hda\n?? assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesz-194-8.hda\n?? assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesz-195-8.hda\n?? assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesz-201-8.hda\n?? assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesz-202-8.hda\n?? assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesz-181-8.hda\n?? assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesz-182-8.hda\n?? assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesz-184-8.hda\n?? assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesz-185-8.hda\n?? assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesz-192-8.hda\n?? assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesz-193-8.hda\n?? assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesz-194-8.hda\n?? assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesz-195-8.hda\n?? assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesz-201-8.hda\n?? assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesz-202-8.hda\n?? assets/hd/source/terrain-shapesz-181-8-e8b677fed337.png\n?? assets/hd/source/terrain-shapesz-182-8-a5231f9a2d06.png\n?? assets/hd/source/terrain-shapesz-184-8-fe88e63d852a.png\n?? assets/hd/source/terrain-shapesz-185-8-ff5c24a3f0b3.png\n?? assets/hd/source/terrain-shapesz-192-8-e3f281528ce6.png\n?? assets/hd/source/terrain-shapesz-193-8-d9fe3507f4ae.png\n?? assets/hd/source/terrain-shapesz-194-8-2758dc6595a2.png\n?? assets/hd/source/terrain-shapesz-195-8-e1275cdcff9a.png\n?? assets/hd/source/terrain-shapesz-201-8-9c776aed5740.png\n?? assets/hd/source/terrain-shapesz-202-8-c9ee05c2e74d.png\n?? prototype/build-circuit10-art.py\n",
+            "manifest_sha256": "6514ab93973cd3705ef098e90bc77e3999ff5e3e106f479bd8512b4b67040165"
+          }
+        },
+        "preflight_correction": "A stale baseline image filename was corrected before game launch; exactly one4x game run/capture occurred."
+      }
+    },
+    "circuit10-runtime-review/canonical4320/verification.json": {
+      "sha256": "12c72a6cf8a38503edd998bf91375e556778eb45bfc9fff9311fc47637a70315",
+      "report": {
+        "status": "passed",
+        "scope": "One normal-scene4320 candidate still after private-pack filename correction only",
+        "baseline": "/workspace/scratch/f67dd347fa0a/layer3-background-baseline-a49e46e/normal4320",
+        "candidate_exe_sha256": "4196a22a03405b3ceee79e83b4ed6a65af2376143232676bf7ffbe4c1c3dfd99",
+        "frozen_inventory_sha256": "a8b806d31062e3355449f1475bede7f6596ca643ac145a59542cbb3d575e0281",
+        "capture": {
+          "tick": 4320,
+          "width": 640,
+          "height": 400,
+          "bytes": 1024000,
+          "raw_BGRA_sha256": "265c5e3daca5eb8e3a44f3cb66873570333761e91e8f03e643056f42b9db210c",
+          "RGBA_sha256": "11c158e5901f0d979fd6868fd77d4633a7fb01bd0de0c74d1c66f0f7a620a802",
+          "PNG_sha256": "26f6620cf237f0a0b9ca1e07ee0fe4291263c693e99e18002de879987ef1f82d",
+          "path": "/workspace/scratch/f67dd347fa0a/circuit10-runtime-review/canonical4320/actual-4320-native2x.png",
+          "surface": "SDL native2x readback640x400, not internal density8 rgb-audit surface"
+        },
+        "all4321_original_state_columns_exact": [
+          "tick",
+          "players",
+          "enemies",
+          "shots",
+          "particles",
+          "globals",
+          "rng",
+          "hits",
+          "hit_hash",
+          "game_pixels",
+          "output_pixels",
+          "x",
+          "y",
+          "armor",
+          "shield"
+        ],
+        "exact_full_ledgers": [
+          "weapon-loadout",
+          "sdl-runtime",
+          "player-shot-draws",
+          "effects",
+          "player-shot-requests",
+          "presentation",
+          "blend-palette",
+          "scene-enemies",
+          "player-shot-results",
+          "player-shot-emissions",
+          "fade-steps",
+          "restore-regions",
+          "poses",
+          "player-projectiles",
+          "scene-hits",
+          "fire-events",
+          "asset-debug-explosion-pools",
+          "collisions",
+          "enemy-projectiles",
+          "talon-bank-visual",
+          "state",
+          "draw-commands",
+          "asset-debug-materials",
+          "asset-debug-clock"
+        ],
+        "exact_control_excluding_wall_ms": true,
+        "material_clock_RNG_collision_exact": true,
+        "new_circuit_calls": 18,
+        "all_new_calls_NORMAL_and_mirrored": true,
+        "seen_family_ids": [
+          181,
+          184,
+          195,
+          201,
+          202
+        ],
+        "not_seen_at4320": [
+          182,
+          185,
+          192,
+          193,
+          194
+        ],
+        "all_non_circuit_scene_draws_exact": true,
+        "new_draw_positions_match_actual_materials": true,
+        "pixel_confinement": {
+          "changed_native_pixels_inside_actual18circuit_rectangles": 42803,
+          "changed_native_pixels_outside": 0,
+          "native_union_rectangle_pixels": 44640,
+          "right_HUD_exact": true,
+          "bottom_HUD_exact": true,
+          "placements": [
+            {
+              "source_id": 201,
+              "logical_xy": [
+                62,
+                -11
+              ],
+              "native_clipped_xywh": [
+                76,
+                0,
+                48,
+                34
+              ],
+              "changed_native_pixels": 1629,
+              "native_rect_pixels": 1632
+            },
+            {
+              "source_id": 184,
+              "logical_xy": [
+                38,
+                17
+              ],
+              "native_clipped_xywh": [
+                28,
+                34,
+                48,
+                56
+              ],
+              "changed_native_pixels": 2682,
+              "native_rect_pixels": 2688
+            },
+            {
+              "source_id": 195,
+              "logical_xy": [
+                62,
+                17
+              ],
+              "native_clipped_xywh": [
+                76,
+                34,
+                48,
+                56
+              ],
+              "changed_native_pixels": 2680,
+              "native_rect_pixels": 2688
+            },
+            {
+              "source_id": 201,
+              "logical_xy": [
+                38,
+                45
+              ],
+              "native_clipped_xywh": [
+                28,
+                90,
+                48,
+                56
+              ],
+              "changed_native_pixels": 2681,
+              "native_rect_pixels": 2688
+            },
+            {
+              "source_id": 201,
+              "logical_xy": [
+                38,
+                73
+              ],
+              "native_clipped_xywh": [
+                28,
+                146,
+                48,
+                56
+              ],
+              "changed_native_pixels": 2681,
+              "native_rect_pixels": 2688
+            },
+            {
+              "source_id": 201,
+              "logical_xy": [
+                38,
+                101
+              ],
+              "native_clipped_xywh": [
+                28,
+                202,
+                48,
+                56
+              ],
+              "changed_native_pixels": 2681,
+              "native_rect_pixels": 2688
+            },
+            {
+              "source_id": 181,
+              "logical_xy": [
+                14,
+                129
+              ],
+              "native_clipped_xywh": [
+                0,
+                258,
+                28,
+                56
+              ],
+              "changed_native_pixels": 1566,
+              "native_rect_pixels": 1568
+            },
+            {
+              "source_id": 202,
+              "logical_xy": [
+                38,
+                129
+              ],
+              "native_clipped_xywh": [
+                28,
+                258,
+                48,
+                56
+              ],
+              "changed_native_pixels": 2676,
+              "native_rect_pixels": 2688
+            },
+            {
+              "source_id": 181,
+              "logical_xy": [
+                62,
+                129
+              ],
+              "native_clipped_xywh": [
+                76,
+                258,
+                48,
+                56
+              ],
+              "changed_native_pixels": 2051,
+              "native_rect_pixels": 2688
+            },
+            {
+              "source_id": 181,
+              "logical_xy": [
+                86,
+                129
+              ],
+              "native_clipped_xywh": [
+                124,
+                258,
+                48,
+                56
+              ],
+              "changed_native_pixels": 2682,
+              "native_rect_pixels": 2688
+            },
+            {
+              "source_id": 181,
+              "logical_xy": [
+                110,
+                129
+              ],
+              "native_clipped_xywh": [
+                172,
+                258,
+                48,
+                56
+              ],
+              "changed_native_pixels": 2682,
+              "native_rect_pixels": 2688
+            },
+            {
+              "source_id": 181,
+              "logical_xy": [
+                134,
+                129
+              ],
+              "native_clipped_xywh": [
+                220,
+                258,
+                48,
+                56
+              ],
+              "changed_native_pixels": 2682,
+              "native_rect_pixels": 2688
+            },
+            {
+              "source_id": 181,
+              "logical_xy": [
+                158,
+                129
+              ],
+              "native_clipped_xywh": [
+                268,
+                258,
+                48,
+                56
+              ],
+              "changed_native_pixels": 2682,
+              "native_rect_pixels": 2688
+            },
+            {
+              "source_id": 181,
+              "logical_xy": [
+                182,
+                129
+              ],
+              "native_clipped_xywh": [
+                316,
+                258,
+                48,
+                56
+              ],
+              "changed_native_pixels": 2682,
+              "native_rect_pixels": 2688
+            },
+            {
+              "source_id": 181,
+              "logical_xy": [
+                206,
+                129
+              ],
+              "native_clipped_xywh": [
+                364,
+                258,
+                48,
+                56
+              ],
+              "changed_native_pixels": 2051,
+              "native_rect_pixels": 2688
+            },
+            {
+              "source_id": 181,
+              "logical_xy": [
+                230,
+                129
+              ],
+              "native_clipped_xywh": [
+                412,
+                258,
+                48,
+                56
+              ],
+              "changed_native_pixels": 2682,
+              "native_rect_pixels": 2688
+            },
+            {
+              "source_id": 181,
+              "logical_xy": [
+                254,
+                129
+              ],
+              "native_clipped_xywh": [
+                460,
+                258,
+                48,
+                56
+              ],
+              "changed_native_pixels": 2682,
+              "native_rect_pixels": 2688
+            },
+            {
+              "source_id": 181,
+              "logical_xy": [
+                278,
+                129
+              ],
+              "native_clipped_xywh": [
+                508,
+                258,
+                20,
+                56
+              ],
+              "changed_native_pixels": 651,
+              "native_rect_pixels": 1120
+            }
+          ],
+          "qualification": "Confinement uses all18 actual circuit-family tile placements, including partial edge tiles. The10-cell spur is one subset; only5 of10 family IDs occur at4320."
+        },
+        "internal8x_rgb_audit": {
+          "tick": "4320",
+          "density": "8",
+          "rgb_hash": "bb0e742d0ce90cb2",
+          "classic_mismatches": "0"
+        },
+        "native2x_and_internal8x_surfaces_recorded_separately": true,
+        "endpoint_frame_audit": {
+          "tick": "4320",
+          "hd_draws": "213",
+          "occluded_blocks": "1279",
+          "coverage_mismatch": "0",
+          "reason": "hd-ordered",
+          "all_rejections": "",
+          "local_entities": "0",
+          "local_regions": "0",
+          "local_blocks": "0"
+        },
+        "endpoint_effect_audit": {
+          "tick": "4320",
+          "brightness_hd_blocks": "0",
+          "restored_classic_blocks_checked": "0",
+          "restored_mismatches": "0",
+          "expanded_regions": "0",
+          "boundary_crossings": "0",
+          "invulnerable_ticks": "1",
+          "level_brightness": "-99",
+          "filter_fade": "0"
+        },
+        "original_normalized_blend_proof_exact": true,
+        "blend_hd_owned_rows": 266,
+        "baseline_blend_hd_owned_rows": 264,
+        "no_fire_controls_or_hidden_layers": true,
+        "gzip_stream_count": 28,
+        "gzip_CRC_raw_SHA_bytes_counts_verified": true,
+        "candidate_source_binary_pack_main_unchanged": true,
+        "captures": 1,
+        "videos": 0,
+        "elapsed_seconds": 3.1781832209962886,
+        "retained_bytes": 3756244,
+        "first_trial": "Preserved separately: ten valid HDA payloads had numeric filenames, causing correct missing-file fallback. This was a private-pack filename mapping error, not a renderer defect.",
+        "stopping_condition": "Authorized corrected4320 trial complete. No further replay or capture performed."
+      }
+    },
+    "circuit10-integration/main-oracle/result.json": {
+      "sha256": "f74f7c7ca1ad9441ff2b3358e408221fde1460179f362502cadb651fbde7dd74",
+      "report": {
+        "status": "passed",
+        "sanitizers": [
+          "address",
+          "undefined"
+        ],
+        "leak_detection": false,
+        "source_sha256": "345725ceac8bad8bc876e5d573f874b046f758f487914560729aebb5989fcea7",
+        "engine_loader_sha256": "3242060ba1b172f8209329d4e43866d28deb0565919b4ece5f8cdb6ad5bd4afa",
+        "forest_header_sha256": "8a50b1e31566088d6cd47e159fb53de27d889ab5a1a6616029480fa070fe68a2",
+        "production_function_sha256": {
+          "read_asset": "17084e42f6d0cb486f7a40548d29fa09f241f57c375ca4feab8f9c33f53629e4",
+          "scene_asset": "c3ce091d907f6695e7acbac25c579b9e04469fe1319a792fde51ac87adcf5503",
+          "render_mirror_map_begin": "911e4864c5a7d827e7c67df5e85252f52d87546719aa5cefa1a34d220266aa24",
+          "cloud_terrain_slot": "310774522cd834d5620415dd024e33d4d4f89a8a2fb17eeb57981ac686d1334c",
+          "ground_terrain_slot": "f9e6c4e5eab475b448207a37455690d13327584fe8cd0b13ca49e888826883d3",
+          "plateau_terrain_slot": "8cb189c4346f8a1aa128ecd353c7084c2e7176a2c65f37954036d9e9c36cfbfc",
+          "underlay_terrain_slot": "e006805592995794f24e79c5847a91dfe7c3d82109df770fc6ee57b61a9692df",
+          "road_terrain_slot": "f02d69226be3c8441b6b5cae28d6a973416e090dd93f7633dddc3a63a3b135b2",
+          "terrain_holes_slot": "a7a0bcd57bab129dfe34e7c832d50968b38ea4d3334d6d3c4b8403967ac3232e",
+          "stone_foundation_slot": "1b197c9988a7334fc118ab210f481ef3a98b82bab62041b14e41d144aa4c0234",
+          "layer3_gray_slot": "8a0243f2a7ec23f40a6e4b1c60782837c5b9c17e43994779e82348b2a8c5c3e5",
+          "layer3_purple_slot": "2dfabb8fec33c865fa0ba4dd3e6127496f840638229028574239559297baf193",
+          "grass_sand_slot": "8218c0184627b9bdaa0bc6295667f2c45f572303253b604e27b402cb09c85931",
+          "forest_terrain_slot": "0a62f0f993949a9637ceeb94007877a75f5c343805ec2a53c8a53239b7cb2757",
+          "layer3_circuit_slot": "cc6e9c2765365d643e5d1904e5ee61c25d38dc2547b90d50254934f32a4ab955",
+          "render_mirror_bind_terrain": "0b630a70059b6240043c6ae34a3c77ef2acb723a4cf28fb6889bd98cd47d611c",
+          "plateau_cap_selected_source": "c48c861da374c3cd30af5d0196d234c95de9e8ed079bca4f029655a3513ac154",
+          "render_mirror_ground101_layer1": "c75eb8757398baa2432f8617fa7711bd1217d49ba9abb38d4ea6b717c77032db",
+          "render_mirror_terrain_row": "ca32d08ac52b92b2fab116593d3f9da87d82a694fd9d569e495e3ffff805df26"
+        },
+        "preserved_prior_mappings": {
+          "cloud_terrain_slot": "310774522cd834d5620415dd024e33d4d4f89a8a2fb17eeb57981ac686d1334c",
+          "ground_terrain_slot": "f9e6c4e5eab475b448207a37455690d13327584fe8cd0b13ca49e888826883d3",
+          "plateau_terrain_slot": "8cb189c4346f8a1aa128ecd353c7084c2e7176a2c65f37954036d9e9c36cfbfc",
+          "underlay_terrain_slot": "e006805592995794f24e79c5847a91dfe7c3d82109df770fc6ee57b61a9692df",
+          "road_terrain_slot": "f02d69226be3c8441b6b5cae28d6a973416e090dd93f7633dddc3a63a3b135b2",
+          "terrain_holes_slot": "a7a0bcd57bab129dfe34e7c832d50968b38ea4d3334d6d3c4b8403967ac3232e",
+          "stone_foundation_slot": "1b197c9988a7334fc118ab210f481ef3a98b82bab62041b14e41d144aa4c0234",
+          "layer3_gray_slot": "8a0243f2a7ec23f40a6e4b1c60782837c5b9c17e43994779e82348b2a8c5c3e5",
+          "layer3_purple_slot": "2dfabb8fec33c865fa0ba4dd3e6127496f840638229028574239559297baf193",
+          "grass_sand_slot": "8218c0184627b9bdaa0bc6295667f2c45f572303253b604e27b402cb09c85931",
+          "explosion_asset_slot": "00d117c7d38f192ac14a6f30067abfb722392bc3966dcd9b53f30c9406d24a8c",
+          "read_asset": "17084e42f6d0cb486f7a40548d29fa09f241f57c375ca4feab8f9c33f53629e4",
+          "scene_asset": "c3ce091d907f6695e7acbac25c579b9e04469fe1319a792fde51ac87adcf5503",
+          "get_asset_selection": "eca1b11a7d69fac60bdfbd0d1c8d9e2b2871474b367a6f6dd3246e193977e381",
+          "render_mirror_enemy_tile_selection": "4dd69c6cf71071417fa90cd1a8edb3b56439e140bbb94e5ab773c44af40436f1",
+          "original_engine_registration_loop": "237bd905c33f8e1b8c3721c8b189220e069a48ec04d4deb13f80ceaafa25f459"
+        },
+        "preserved_lower_cap_sources": {
+          "ground101_material.c": "c520102853e558bc9dedd2f1aa40ce886a82a82b90a377eab9b3f6bd9789dfd0",
+          "ground101_material.h": "ca8bed2e22f473d1556b9aa53e016eb924c865c5bd5bd3a75cbb882aa94d0690",
+          "plateau_cap_material.c": "54f3770dbfe2a5b91c6ac1f5de5f8a3317f437f9b00af7c744cab4fadf6b4623",
+          "plateau_cap_material.h": "0edaf035fa9c5f03488a6dcb3c2c89a840266115b652b00aa6ef158f35d6f2d9",
+          "world_material.c": "7aa2fb5a12ccec668037a53c88e0e2d9e29fed971f5e4b864fc96e2031fccc47",
+          "world_material.h": "07552d48974b5719de05af3010106d270cba2b886cfcfa2e862b805b2059752c",
+          "world_material_fast.c": "54feac5f47619c449f67c35a758394a63a215bfacdfe2c1f051b3d4f47b3b377",
+          "world_material_fast.h": "73462afc02ebc1d2792ea9678c8061ff89e67df8485ffeb8f20cd295892f270b"
+        },
+        "source_assertions": [
+          "policy detection before lower early returns",
+          "forest NORMAL-only skip before scene_asset",
+          "declared forest skip before draw",
+          "Forest13Record draw signature",
+          "circuit NORMAL-only skip before source load"
+        ],
+        "compile_command": [
+          "cc",
+          "-std=c99",
+          "-O1",
+          "-g",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-Wno-misleading-indentation",
+          "-fsanitize=address,undefined",
+          "-fno-omit-frame-pointer",
+          "-fno-pie",
+          "-no-pie",
+          "-I/workspace/scratch/f67dd347fa0a/circuit10-integration/main-oracle",
+          "-I/workspace/scratch/f67dd347fa0a/opentyrian2000-atlas-integration/src",
+          "/workspace/scratch/f67dd347fa0a/opentyrian2000-atlas-integration/prototype/tests/forest13-binding/test-forest13-binding.c",
+          "-o",
+          "/workspace/scratch/f67dd347fa0a/circuit10-integration/main-oracle/oracle"
+        ],
+        "runs": [
+          {
+            "mode": "suite",
+            "stdout": "PASS suite: 479985 assertions; actual extracted binding/row/preflight/HDA loader and engine registration loops, all 13 forest + 10 circuit IDs, prior finite slots, 185-pointer bounds, coupled/uncoupled decisions; draw/material doubles, no pixels.",
+            "exit_code": 0
+          },
+          {
+            "mode": "lower-missing",
+            "stdout": "PASS lower-missing: 41 assertions; policy detected before lower exit; all 13 forest draws indexed, selected nonforest art retained.",
+            "exit_code": 0
+          },
+          {
+            "mode": "preflight-failed",
+            "stdout": "PASS preflight-failed: 164 assertions; policy detected before lower exit; all 13 forest draws indexed, selected nonforest art retained.",
+            "exit_code": 0
+          },
+          {
+            "mode": "lower-source-failed",
+            "stdout": "PASS lower-source-failed: 44 assertions; policy detected before lower exit; all 13 forest draws indexed, selected nonforest art retained.",
+            "exit_code": 0
+          },
+          {
+            "mode": "terrain-only",
+            "stdout": "PASS terrain-only: 40 assertions; policy detected before lower exit; all 13 forest draws indexed, selected nonforest art retained.",
+            "exit_code": 0
+          },
+          {
+            "mode": "density4",
+            "stdout": "PASS density4: 40 assertions; policy detected before lower exit; all 13 forest draws indexed, selected nonforest art retained.",
+            "exit_code": 0
+          },
+          {
+            "mode": "original-reference",
+            "stdout": "PASS original-reference: 40 assertions; policy detected before lower exit; all 13 forest draws indexed, selected nonforest art retained.",
+            "exit_code": 0
+          }
+        ],
+        "limitations": [
+          "LeakSanitizer is optional because ptrace-based hosts cannot run it; ASan/UBSan are always enabled.",
+          "Material policy/preparation/world context and draw calls are explicit test doubles.",
+          "Uses actual HDA loader and actual source callbacks with synthetic HDAs.",
+          "Does not validate canonical checksums, policy file parser, sidecar parser, blending, pixels, gameplay, or appearance.",
+          "No game process, captures, authored art, network, candidate checkout edits, or publication."
+        ]
+      }
+    },
+    "circuit10-integration/main-mutants/result.json": {
+      "sha256": "36c00e373ec4cc93ec4d8c936124f6d28a74fb8f7f1cf739bad73b64f9683b2f",
+      "report": {
+        "status": "passed",
+        "mutants": [
+          {
+            "name": "forest-slot-shift",
+            "rejected": true,
+            "exit_code": 1
+          },
+          {
+            "name": "forest-registry-loss-ignored",
+            "rejected": true,
+            "exit_code": 1
+          },
+          {
+            "name": "forest-map-reset-omitted",
+            "rejected": true,
+            "exit_code": 1
+          },
+          {
+            "name": "forest-style-leak",
+            "rejected": true,
+            "exit_code": 1
+          },
+          {
+            "name": "declared-fixed-base-leak",
+            "rejected": true,
+            "exit_code": 1
+          },
+          {
+            "name": "registry-readiness-bypassed",
+            "rejected": true,
+            "exit_code": 1
+          },
+          {
+            "name": "row-readiness-bypassed",
+            "rejected": true,
+            "exit_code": 1
+          },
+          {
+            "name": "policy-detection-omitted",
+            "rejected": true,
+            "exit_code": 1
+          },
+          {
+            "name": "wrong-layer-forest-admitted",
+            "rejected": true,
+            "exit_code": 1
+          },
+          {
+            "name": "circuit-slot-shift",
+            "rejected": true,
+            "exit_code": 1
+          },
+          {
+            "name": "circuit-191-admitted",
+            "rejected": true,
+            "exit_code": 1
+          },
+          {
+            "name": "circuit-style-leak",
+            "rejected": true,
+            "exit_code": 1
+          },
+          {
+            "name": "circuit-missing-art-trace-leak",
+            "rejected": true,
+            "exit_code": 1
+          },
+          {
+            "name": "registry-old175-bound",
+            "rejected": true,
+            "exit_code": 1
+          },
+          {
+            "name": "registry-one-past-bound",
+            "rejected": true,
+            "exit_code": 1
+          },
+          {
+            "name": "selected4-fallback-omitted",
+            "rejected": true,
+            "exit_code": 1
+          },
+          {
+            "name": "pointer-last-match-overwrite",
+            "rejected": true,
+            "exit_code": 1
+          }
+        ],
+        "scope": "Only isolated extracted helper copies were mutated."
+      }
+    },
+    "circuit10-integration/full-manifest-verification.json": {
+      "sha256": "c717fe03ce409bcab4da922cf6548d7e3005d4dd84a45516e20fbcf11f7c2d29",
+      "report": {
+        "verified_pack_count": 18,
+        "verified_HDA_entries": 2966,
+        "verified_exact_source_pngs": 379,
+        "verified_material_sidecars": 4,
+        "verified_cap_sidecars": 2,
+        "verified_forest_sidecars_and_policies": 4,
+        "default_pack_counts": [
+          363,
+          367
+        ],
+        "rebuild_output": null,
+        "all_runtime_RGBA_and_header_bytes_exact": true
+      }
+    },
+    "circuit10-binding-review/integration-receipt.json": {
+      "sha256": "c8e7734184fcbe96d91d67ae152598994df38d0d199a9866a25ee67306a4afed",
+      "report": {
+        "status": "passed with private-fixture source qualification",
+        "candidate_renderer_sha256": "345725ceac8bad8bc876e5d573f874b046f758f487914560729aebb5989fcea7",
+        "baseline_a49_renderer_sha256": "f573ad00252301f7878c85dde6be6c3b2a68ed33436dfd404a5df3150ec369a6",
+        "portable_patch": "/workspace/scratch/f67dd347fa0a/circuit10-binding-review/portable-oracle.patch",
+        "portable_patch_sha256": "1d7a4b8b843dc4182848006ca0a9bead53eca51cb22936ac0ca33286aec7ca09",
+        "git_apply_check": "passed again after concurrent main renderer staging; test patch not applied by reviewer",
+        "frozen_prior_mapping_file_unchanged": true,
+        "forest_lower_cap_world_source_bytes_unchanged_vs_a49": {
+          "forest13_material.c": false,
+          "forest13_material.h": true,
+          "ground101_material.c": true,
+          "ground101_material.h": true,
+          "plateau_cap_material.c": true,
+          "plateau_cap_material.h": true,
+          "world_material.c": true,
+          "world_material.h": true,
+          "world_material_fast.c": true,
+          "world_material_fast.h": true
+        },
+        "private_forest_source_difference": "Only missing a49 Windows S_ISREG compatibility guard; all function bodies otherwise byte-identical. Main retains guard. Do not copy private forest13_material.c.",
+        "concurrent_main_renderer_sha256": "345725ceac8bad8bc876e5d573f874b046f758f487914560729aebb5989fcea7",
+        "baseline_note": "Coordinator staged main renderer after oracle began; committed a49 blobs are independent comparison authority. Reviewer made no main/candidate writes.",
+        "final_test_files_sha256": {
+          "run-mutants.py": "f8ffc29d9253b518591cc7ede30cb095e45dcd80cb786948cdf359c60d3ebdd5",
+          "frozen-prior-mappings.json": "c5b1e58c06aa654bf1ad963530093068766b27044b1803ae8ad8400bce6eeab2",
+          "run-oracle.py": "e1898fbe80decabc22f944d9c041a85edfaddc73024c037b2f33b895515ec9ea",
+          "test-forest13-binding.c": "aff89da0a02dc0625f527b094205debafb0e8bbb881ccfcbd8054d4114025e37",
+          "README.txt": "deee06b5b0dafcd036c2db1d5de91124c48232b8256e36e56206362a0243f5a7"
+        },
+        "scope": "Test-only prepared patch; candidate/main never edited by reviewer.",
+        "unix_preprocessor_verification": {
+          "command_flags": [
+            "cc",
+            "-E",
+            "-P",
+            "-x",
+            "c",
+            "-DTARGET_UNIX",
+            "-DNDEBUG",
+            "-DWITH_NETWORK",
+            "-I/workspace/scratch/f67dd347fa0a/opentyrian-cloud-deps/prefix/include",
+            "-I/workspace/scratch/f67dd347fa0a/opentyrian-cloud-deps/prefix/include/SDL2",
+            "-I/workspace/scratch/f67dd347fa0a/opentyrian-cloud-deps/prefix/include/SDL2",
+            "-I/workspace/scratch/f67dd347fa0a/opentyrian-cloud-deps/prefix/include/SDL2"
+          ],
+          "TARGET_UNIX": true,
+          "_WIN32": false,
+          "TARGET_WIN32": false,
+          "a49_and_private_preprocessed_bytes_equal": true,
+          "preprocessed_sha256": "8a7734b049edb38b7e7b53c75703b5248eebc09789965116ec08dc503844e0a8",
+          "bytes": 1682939,
+          "scope": "Current UNIX preprocessor configuration only; no Windows equivalence claim."
+        },
+        "final_mutations": {
+          "status": "passed",
+          "count": 17
+        },
+        "review": "REVIEW.md",
+        "final_run": "run-final/result.json",
+        "formal_review": "formal-review.json"
+      }
+    },
+    "tyrian-background-redraw/circuit10-author-runtime-review/author-runtime-receipt.json": {
+      "sha256": "77fda4179918c69a8833f2a5a4099fc038f1358693090c5bf2fb7da285af3fd2",
+      "report": {
+        "result": "PASS bounded author runtime art review",
+        "formal_inventory_SHA256": "a8b806d31062e3355449f1475bede7f6596ca643ac145a59542cbb3d575e0281",
+        "actual_windows": [
+          [
+            4303,
+            4330
+          ],
+          [
+            4731,
+            4758
+          ],
+          [
+            4933,
+            4960
+          ]
+        ],
+        "candidate_frames_visually_reviewed": 84,
+        "method": "Every chronological native2x candidate frame inspected through lossless decoded, unscaled scene contacts; native4320 full window and six endpointA/B comparisons also inspected.",
+        "decoded_frames_hash_checked": 168,
+        "readback_proof_SHA256": "9d907990005c751efd454c1e72a60547a24827dca734439e022339a8f0166e6c",
+        "pixel_scope": "All84 A/B frames independently checked: zero changes outside actual circuit placement rectangles; HUD x>=528 byte-exact.",
+        "native4x4320": {
+          "RGBA_SHA256": "c2e6c8b9574f36badae7f4c043641d0f5ca9d2c5a9155b8bd6504e2aa8be80bd",
+          "exact_readback_hash": true,
+          "visual_pass": true
+        },
+        "observations": [
+          "No visible sliding, connector flash, missing turn or new pasted rectangle.",
+          "Recessed dark metal channels retain legibility with restrained highlights; stone/forest palette and foreground remain coherent.",
+          "All10 source designs appear within the bounded samples; full rectangles do not imply every pixel unobscured."
+        ],
+        "qualifications": [
+          "Three gapped28-frame samples, not one continuous4303\u20134960 capture.",
+          "Normal scene layering with original actors/UI, established private survival only; no layer suppression.",
+          "ID182 left edge remains partly occluded by original newsh2 foreground during its fully framed4947\u20134960 interval; full connector geometry is supplemented by static offline closure.",
+          "Original unredrawn machinery/debris and unrelated foreground remain out of scope."
+        ],
+        "art_changes_requested": false,
+        "source_package_mutated": false
+      }
+    }
+  },
+  "Windows_compile_or_runtime": "not run",
+  "CI": "not claimed",
+  "HUD_art_or_code_included": false
+}

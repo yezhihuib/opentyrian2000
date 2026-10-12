@@ -1,9 +1,9 @@
-Forest13 renderer binding oracle
+Forest13 and circuit10 renderer binding oracle
 ================================
 
 Portable test-only package for the finite shapesZ / Layer1 forest family:
 211, 212, 213, 215, 221, 222, 223, 224, 225, 231, 232, 233, 234.
-Expected asset slots: 336..348. Asset capacity: 349. Pointer registry: 175.
+Expected asset slots: 336..348. Circuit slots: 349..358. Asset capacity: 359. Pointer registry: 185.
 
 Run from any directory with Python 3 and a C99 GCC/Clang-compatible compiler:
 
@@ -60,7 +60,7 @@ Explicit test doubles
 
 Coverage
 --------
-- All 13 exact slots, UINT_MAX and ID/layer/bank exclusions; 349/175 bounds.
+- All 13 exact slots, UINT_MAX and ID/layer/bank exclusions; 359/185 bounds.
 - Every existing terrain mapping exercised and finite selector fingerprints
   (including player, enemy and explosion selection) frozen from pre-forest
   commit 75f4dcf5033c9e2455eaf96563aba606dac61c67.
@@ -73,7 +73,7 @@ Coverage
   pointer, null forest source or ambiguous forest association disables only
   the declared forest family. The same failed registry does not opt unmarked
   packs into coupled fallback. Capacity boundary, reset and one-ID subset maps.
-- Real 213-registration engine loop preserves the first 175 sources, including
+- Real 213-registration engine loop preserves the first 185 sources, including
   forest pointer loss after earlier numeric nonforest IDs; no bitset shortcut.
 - Declared success supplies all 13 forest records. Invalid declaration,
   unavailable payload (missing/invalid simulated), each of 13 missing/invalid/
@@ -91,10 +91,39 @@ Coverage
   draw failures without claiming the underlying rasterizer is exercised.
 - Source assertions AND fresh-process runtime checks establish independent
   declaration detection before lower early returns.
-- Nine negative-control mutations of extracted copies must be rejected:
+- Seventeen negative-control mutations of extracted copies must be rejected:
   slot shift, lost-registration ignored, missing map reset, style leakage,
   declared fixed-base leakage, registry/row readiness bypass, omitted policy
-  detection and wrong-layer binding. No candidate file is mutated.
+  detection and wrong-layer binding; circuit slot/191/style/missing-art trace
+  faults, old registry capacity, one-past registry bound, lost selected4 fallback,
+  and pointer first-match corruption. No candidate file is mutated.
+
+Circuit10 coverage (additive; prior forest regressions retained)
+-------------------------------------------------------------
+- Exact Layer3 shapesZ IDs 181,182,184,185,192,193,194,195,201,202 map to
+  slots349..358. Exhaustive ID/layer checks and all256 bank values apply.
+-191 is excluded even with a valid synthetic191 HDA present. Null pointers,
+  same bytes at unrelated pointers, repeated-ID pointers, conflicting pointer
+  aliases, wrong layers and every non-NORMAL style retain established routing.
+- Every member gets missing and malformed8x tests, wrong bank/id/density/size/
+  anchor headers, truncated payload and trailing bytes, absent8x/valid4x,
+  invalid8x/valid4x, explicit density4 and arbitrary selected RGBA checks.
+  A failed member does not disable its circuit neighbors or accepted gray art.
+- All prior finite selector/loader fingerprints and lower/cap files retain
+  their frozen pre-forest checks. No expected mapping hash was loosened.
+- Capacity tests now check185 exactly:184 earlier sources plus the last
+  accepted source; the186th distinct pointer must not register. Declared
+  forest pointer loss still triggers only forest fallback. Reset recovers.
+- The real engine loop still attempts213 source registrations. With71 cloud
+  plus70 circuit/other Layer3 sources sorted before forest, exactly44 of72
+  forest pointers fit185. The original175 fixture expected34; this expectation
+  is updated to44, not removed. Another fixture puts200 nonforest sources
+  before13 forest sources and still proves true forest loss.
+- Circuit art remains independent of all forest policies, declared forest
+  registry failure and lower/cap material state. Mixed circuit/gray/cloud rows
+  check exact replacement bits, order, positions and draw-failure cleanup.
+- HDA bytes are synthetic. Raster drawing, real material parsing and native
+  gameplay/capture evidence remain outside this oracle.
 
 Limits
 ------

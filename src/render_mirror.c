@@ -25,7 +25,7 @@ typedef struct {
 } Asset;
 enum { ASSET_NEWSH2=101, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
-static Asset assets[349];
+static Asset assets[359];
 static Asset talon_frames[13];
 typedef struct {
  bool valid;
@@ -46,7 +46,7 @@ void render_mirror_reset_banking(void)
 void render_mirror_set_talon_banking(bool enabled)
 {talon_banking_enabled=enabled;render_mirror_reset_banking();}
 static char terrain_file;
-static struct {const Uint8 *data;unsigned int id;} terrain_sources[175];
+static struct {const Uint8 *data;unsigned int id;} terrain_sources[185];
 static unsigned int terrain_source_count;
 static bool forest_registry_ok=true;
 static SDL_Surface *canvas,*output;
@@ -828,9 +828,16 @@ static int forest_terrain_slot(unsigned int id)
  for(int i=0;i<13;i++)if(id==ids[i])return 336+i;
  return -1;
 }
+/* Exactly ten reviewed Layer3 circuit/deck designs; source191 stays original. */
+static int layer3_circuit_slot(unsigned int id)
+{
+ static const unsigned int ids[10]={181,182,184,185,192,193,194,195,201,202};
+ for(int i=0;i<10;i++)if(id==ids[i])return 349+i;
+ return -1;
+}
 void render_mirror_bind_terrain(unsigned int layer,unsigned int id,const Uint8 *data)
 {
- if(terrain_file=='z'&&((layer==1&&(forest_terrain_slot(id)>=0||grass_sand_slot(id)>=0||stone_foundation_slot(id)>=0||terrain_holes_slot(id)>=0||road_terrain_slot(id)>=0||underlay_terrain_slot(id)>=0||plateau_terrain_slot(id)>=0||ground_terrain_slot(id)>=0||id==101||id==37||id==57||id==49||id==50||id==321||id==322||id==331||id==332))||(layer==2&&cloud_terrain_slot(id)>=0)||(layer==3&&(layer3_gray_slot(id)>=0||layer3_purple_slot(id)>=0)))&&terrain_source_count<175) {
+ if(terrain_file=='z'&&((layer==1&&(forest_terrain_slot(id)>=0||grass_sand_slot(id)>=0||stone_foundation_slot(id)>=0||terrain_holes_slot(id)>=0||road_terrain_slot(id)>=0||underlay_terrain_slot(id)>=0||plateau_terrain_slot(id)>=0||ground_terrain_slot(id)>=0||id==101||id==37||id==57||id==49||id==50||id==321||id==322||id==331||id==332))||(layer==2&&cloud_terrain_slot(id)>=0)||(layer==3&&(layer3_gray_slot(id)>=0||layer3_purple_slot(id)>=0||layer3_circuit_slot(id)>=0)))&&terrain_source_count<185) {
   terrain_sources[terrain_source_count].data=data;
   terrain_sources[terrain_source_count++].id=id;
  }
@@ -900,10 +907,11 @@ unsigned int render_mirror_terrain_row(SDL_Surface *surface,int x,int y,Uint8 **
   int stone_slot=stone_foundation_slot(id);
   int gray_slot=layer3_gray_slot(id);
   int purple_slot=layer3_purple_slot(id);
+  int circuit_slot=layer3_circuit_slot(id);
   int grass_slot=grass_sand_slot(id);
   int forest_slot=forest_terrain_slot(id);
   if(forest_slot>=0&&style!=MIRROR_NORMAL)continue;
-  if((gray_slot>=0||purple_slot>=0)&&style!=MIRROR_NORMAL)continue;
+  if((gray_slot>=0||purple_slot>=0||circuit_slot>=0)&&style!=MIRROR_NORMAL)continue;
   if(slot<0)slot=ground_slot;
   if(slot<0)slot=plateau_slot;
   if(slot<0)slot=underlay_slot;
@@ -912,13 +920,14 @@ unsigned int render_mirror_terrain_row(SDL_Surface *surface,int x,int y,Uint8 **
   if(slot<0)slot=stone_slot;
   if(slot<0)slot=gray_slot;
   if(slot<0)slot=purple_slot;
+  if(slot<0)slot=circuit_slot;
   if(slot<0)slot=grass_slot;
   if(slot<0)slot=forest_slot;
   if(slot<0)slot=id==101?10:id==37?11:id==57?12:id==49?13:id==50?14:id==321?19:id==322?20:id==331?21:id==332?22:-1;
   if(slot<0)continue;
   Asset *a=scene_asset(slot,ASSET_SHAPESZ,(int)id,0,0);
   /* Missing/invalid new art retains the exact previous fallback and trace. */
-  if((ground_slot>=0||plateau_slot>=0||underlay_slot>=0||road_slot>=0||holes_slot>=0||stone_slot>=0||gray_slot>=0||purple_slot>=0||grass_slot>=0||forest_slot>=0)&&!a)continue;
+  if((ground_slot>=0||plateau_slot>=0||underlay_slot>=0||road_slot>=0||holes_slot>=0||stone_slot>=0||gray_slot>=0||purple_slot>=0||circuit_slot>=0||grass_slot>=0||forest_slot>=0)&&!a)continue;
   const G101Record *material=a&&a->density==8&&material_row==1&&style==MIRROR_NORMAL?ground101_record(ASSET_SHAPESZ,id):NULL;
   ground101_note_draw(material,false);
   const PCapRecord *cap=a&&a->density==8&&material_row==1&&style==MIRROR_NORMAL?plateau_cap_record(id):NULL;
