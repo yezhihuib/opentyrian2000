@@ -68,9 +68,17 @@ for offset, sprite_id in enumerate(IDS):
     for pack_name, pack in manifest['packs'].items():
         if pack_name not in (manifest['default_preview_pack'], manifest['default_debug_pack']):
             assert f'terrain-shapesz-{sprite_id}-8.hda' not in pack['files']
+# The later round-insert family is independent of this four-tile rebuild.
+# Preserve the historical exclusion unless that exact finite addition is declared.
+round_inserts = manifest.get('terrain_layer3_mechanical_round_inserts_v1')
+if round_inserts:
+    assert round_inserts['ids'] == [190, 200] and round_inserts['slots'] == [367, 368]
+    assert round_inserts['layer'] == 3 and round_inserts['style'] == 'NORMAL'
 for key in ('default_preview_pack', 'default_debug_pack'):
-    assert all(f'terrain-shapesz-{i}-{d}.hda' not in manifest['packs'][manifest[key]]['files']
-               for i in (190, 200) for d in (4, 8))
+    files = manifest['packs'][manifest[key]]['files']
+    for i in (190, 200):
+        assert f'terrain-shapesz-{i}-4.hda' not in files
+        assert (f'terrain-shapesz-{i}-8.hda' in files) == bool(round_inserts)
 if a.original_data:
     original = a.original_data.read_bytes()
     proof = json.loads((source / 'proof/source-proof.json').read_text())

@@ -29154,7 +29154,7 @@
       }
     },
     "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 371,
+      "count": 373,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -33978,11 +33978,37 @@
           ],
           "source_png": "assets/hd/source/terrain-shapesz-197-8-5c9533f2553e.png",
           "source_png_sha256": "74843de180cf25a2e73234781e0292ea592410fb56ab491518523213fd87792c"
+        },
+        "terrain-shapesz-190-8.hda": {
+          "sha256": "023700d1ad415753564e2f2598c493df9fcc5f56a3112b33cd0056957cd46e70",
+          "header_u32": [
+            2010190,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-190-8-023700d1ad41.png",
+          "source_png_sha256": "dbdbdce20f9a67a779fa6448e4de6e5985afa9ec3728e55a3bff31aa184e0e37"
+        },
+        "terrain-shapesz-200-8.hda": {
+          "sha256": "bde737956fc39f626064af9aba6b2b418bfec02829b9e6e70b300e232455ba07",
+          "header_u32": [
+            2010200,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-200-8-bde737956fc3.png",
+          "source_png_sha256": "851c3f94970f7165667ebe52ac0b07ab665d79dd295b4a2b5dcee10d4f93f4d1"
         }
       }
     },
     "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 375,
+      "count": 377,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -38858,6 +38884,32 @@
           ],
           "source_png": "assets/hd/source/terrain-shapesz-197-8-5c9533f2553e.png",
           "source_png_sha256": "74843de180cf25a2e73234781e0292ea592410fb56ab491518523213fd87792c"
+        },
+        "terrain-shapesz-190-8.hda": {
+          "sha256": "023700d1ad415753564e2f2598c493df9fcc5f56a3112b33cd0056957cd46e70",
+          "header_u32": [
+            2010190,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-190-8-023700d1ad41.png",
+          "source_png_sha256": "dbdbdce20f9a67a779fa6448e4de6e5985afa9ec3728e55a3bff31aa184e0e37"
+        },
+        "terrain-shapesz-200-8.hda": {
+          "sha256": "bde737956fc39f626064af9aba6b2b418bfec02829b9e6e70b300e232455ba07",
+          "header_u32": [
+            2010200,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesz-200-8-bde737956fc3.png",
+          "source_png_sha256": "851c3f94970f7165667ebe52ac0b07ab665d79dd295b4a2b5dcee10d4f93f4d1"
         }
       }
     }
@@ -41352,6 +41404,18 @@
       "sha256": "c6170e4c9398789c5d98dba799d9e07e7442f07d1aaaa6dfa0fc5dbbb867f81b",
       "RGBA_sha256": "2ff1705616f09543f2b52984cec5279836881f29ead4bb3f5014a666549a8546",
       "note": "Generated finite Layer3 circuit/deck; intentional source route topology and accepted gray interfaces preserved"
+    },
+    "023700d1ad415753564e2f2598c493df9fcc5f56a3112b33cd0056957cd46e70": {
+      "path": "assets/hd/source/terrain-shapesz-190-8-023700d1ad41.png",
+      "sha256": "dbdbdce20f9a67a779fa6448e4de6e5985afa9ec3728e55a3bff31aa184e0e37",
+      "RGBA_sha256": "52575e5e9764c0245f1213c01c00acb961aa183c080631542cdcee61e9677c21",
+      "note": "Exact frozen independently generated round insert; original fully opaque alpha; actual runtime acceptance pending"
+    },
+    "bde737956fc39f626064af9aba6b2b418bfec02829b9e6e70b300e232455ba07": {
+      "path": "assets/hd/source/terrain-shapesz-200-8-bde737956fc3.png",
+      "sha256": "851c3f94970f7165667ebe52ac0b07ab665d79dd295b4a2b5dcee10d4f93f4d1",
+      "RGBA_sha256": "c0fc23c8e9c94d7bbedd2526718b40b20d23eba5d8c54856951f2893329fcada",
+      "note": "Exact frozen independently generated round insert; original fully opaque alpha; actual runtime acceptance pending"
     }
   },
   "no_original_game_data": true,
@@ -43320,6 +43384,39 @@
           "sha256": "3f8d9c35a3a9791d554a3c46f3431289c8ecd68b57419747ce3a40c225dafa4c"
         }
       }
+    }
+  },
+  "terrain_layer3_mechanical_round_inserts_v1": {
+    "ids": [
+      190,
+      200
+    ],
+    "slots": [
+      367,
+      368
+    ],
+    "layer": 3,
+    "style": "NORMAL",
+    "logical_size": [
+      24,
+      28
+    ],
+    "density": 8,
+    "anchor": [
+      0,
+      0
+    ],
+    "source": "assets/hd/artwork/mechanical-round-inserts-v1",
+    "source_inventory_sha256": "e7dff3b5ff421bc65606c083afa872f2696dedd8e610777413f0f72d28e747ab",
+    "scope": "Exactly two static round inserts; previous left/right mechanical and gray neighbors unchanged",
+    "runtime_status": "Standalone pair and all seven offline source contexts approved; actual normal-layer RGB, original-state and finite fallback review pending",
+    "planned_actual_window": {
+      "ticks": [
+        5858,
+        5881
+      ],
+      "still": 5868,
+      "basis": "Both IDs fully geometrically registered; final visibility/exposure remains to be verified"
     }
   }
 }

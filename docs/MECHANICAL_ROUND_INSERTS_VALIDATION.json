@@ -1,0 +1,129 @@
+{
+  "schema": "mechanical-round-inserts-source-validation-v1",
+  "status": "PASS_SOURCE_AND_BOUNDED_ACTUAL",
+  "baseline": "8227affc09edf11499885b896338f5318be3d424",
+  "ids": [
+    190,
+    200
+  ],
+  "slots": [
+    367,
+    368
+  ],
+  "mode": "shapesZ Layer3 NORMAL only",
+  "source_alpha_exact": true,
+  "source_index_identity_exact": true,
+  "opaque_logical_cells_per_id": 672,
+  "previous_eight_mechanical_rebuilds_exact": true,
+  "previous_assets_and_manifest_entries_unchanged": true,
+  "offline_contexts_approved": 7,
+  "runtime_renderer_sha256": "89efc8ca2a9701012f8460720298a57de76320ab2d577be9cc4eeeebcea08b0c",
+  "test_package_sha256": {
+    "run-oracle.py": "2e41a9df306a43485da3341e81bf67bb706a1df9214e5ed9792ab49a96eded59",
+    "test-forest13-binding.c": "ca6541bde9b91ccef2dbd4d06fe6455e7d88e8d31ed64efaf870ab8690aa3142",
+    "frozen-prior-mappings.json": "c5b1e58c06aa654bf1ad963530093068766b27044b1803ae8ad8400bce6eeab2"
+  },
+  "source_tests": {
+    "sanitizer_process_modes": 7,
+    "sanitizer_oracle_assertions": 1056583,
+    "rejected_renderer_mutants": 29,
+    "source_negative_controls": 10,
+    "output_path_negative_controls": 5,
+    "asset_capacity": 369,
+    "pointer_registry_capacity": 195,
+    "linux_build": true,
+    "windows_project_xml_only": true,
+    "windows_source_inventory_exact": true,
+    "packs": 18,
+    "hdr1_entries": 2986,
+    "canonical_pack_pngs": 389,
+    "default_pack_counts": [
+      373,
+      377
+    ]
+  },
+  "actual": {
+    "status": "PASS bounded normal-layer private-survival",
+    "baseline": "8227affc09edf11499885b896338f5318be3d424",
+    "tested_source": "24b40b5f98e6d5335ed0b938efea403cd1f8151e",
+    "ticks": [
+      5858,
+      5881
+    ],
+    "still": 5868,
+    "frames": 24,
+    "replacement_draws": 48,
+    "native_original_support_pixels": 5376,
+    "outside_support_changed_pixels": 0,
+    "original_ledgers_exact": 16,
+    "native_scales": [
+      2,
+      4
+    ],
+    "missing_pair_full_HD_RGB_exact": true,
+    "corrupt190_local_fallback_200_draws": 24,
+    "private_hooks_published": false,
+    "one_actual_placement_per_id": {
+      "190": [
+        290,
+        11
+      ],
+      "200": [
+        293,
+        4
+      ]
+    },
+    "other_placements_offline_only": true,
+    "receipt_sha256": "e6cbac02cf78a7cf469d7a8350396bf83904afa152d3f3a6b7e49fa3b8c7832a",
+    "author_receipt_sha256": "6c5329cc8b3dfff62bd95d0ce907066e60236cb89ab463c059a4f2f95fcd9586",
+    "proofs": {
+      "candidate/verification.json": "d8e0be5b6fa34d39d8bac0697b9770b4fa080fabca350c500d154de8db642a98",
+      "spot4x/verification.json": "f80be1ceeca1e101c5a842e2f429b5ab669e0bbe78b8bbd92b26d87423b2a727",
+      "missing/verification.json": "a103b71cabd05cd23f97f54963526185065c4bef049024741e303b9218fd9b6b",
+      "invalid/verification.json": "a1ae4d75e06f4fa64af5a90c83676c4812faa8c0dff871d0d0aeaa6a8444fcdb",
+      "ordered24-proof.json": "54bd9a1de8af429bce97ae332c87af185eef1127afd478ff3f227187b13f8f59"
+    },
+    "media": {
+      "spot4x/actual-5868-native4x.png": {
+        "bytes": 1212960,
+        "sha256": "382a36528114024e323f7acde262d0bc7279263ddf8d6ab4a80b00c9d593d88f"
+      },
+      "candidate/native-readbacks.orf1.gz": {
+        "bytes": 8599510,
+        "sha256": "7f61ff094b3efce70e32bef46e106649dd7c67dc0c9f72430d3117b3a13c6b6a"
+      },
+      "candidate/actual-5868-native2x.png": {
+        "bytes": 345310,
+        "sha256": "89534c03d99803ce333e3a1c9a5d45f02a73dd5a6fdf3282e32c4c96ce1f6aab"
+      }
+    }
+  },
+  "evidence": {
+    "binder_oracle": {
+      "sha256": "334ecc3cb246be58297439a99cfcfb24a37c009da8e5031d1ad2eaf90191ff8f",
+      "bytes": 8495
+    },
+    "binder_mutants": {
+      "sha256": "ca4fa9854fbfb381216806da9cc088b5cc40cd9e695da27646ad40287515e094",
+      "bytes": 32619
+    },
+    "source_and_previous_rebuild_guards": {
+      "sha256": "e2c02e81f59af197bcf4076a0779b6d2c0b4932b06e71f3c477b3f46c8c39527",
+      "bytes": 3127
+    },
+    "all_assets": {
+      "sha256": "c65570deda62fb7c80e3df8914c7b9677c324f9ed6ae5735f3faaf64389fe247",
+      "bytes": 732
+    },
+    "linux_build": {
+      "sha256": "2cc2f13599bd928ed7cb433d5a362fe75773cc795b7a12e51b14c5a972431722",
+      "bytes": 33772
+    }
+  },
+  "limits": [
+    "No game execution, captures or actual final-RGB review performed in this source integration",
+    "Synthetic binder HDAs and draw/material/font test doubles are not pixel evidence",
+    "Seven offline contexts do not establish full-level or runtime coverage",
+    "No Windows compilation/runtime or publication claim"
+  ]
+}

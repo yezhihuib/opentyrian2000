@@ -15,7 +15,7 @@ typedef struct { int pitch; } SDL_Surface;
 typedef struct { int x,y,w,h; } SDL_Rect;
 enum {ASSET_NEWSH2=101,ASSET_NEWSHE=110,ASSET_TALON_BANK=109,ASSET_EXPLOSION=106,ASSET_SHAPESZ=201};
 enum {MIRROR_NORMAL,MIRROR_BLEND,MIRROR_SHADOW};
-enum {ASSET_CAPACITY=367,TERRAIN_SOURCE_CAPACITY=193,MECHANICAL_COUNT=8};
+enum {ASSET_CAPACITY=369,TERRAIN_SOURCE_CAPACITY=195,MECHANICAL_COUNT=10};
 #include "production-types.inc"
 static unsigned long checks;
 #define CHECK(x) do { if(!(x)){fprintf(stderr,"FAIL %s:%d: %s\n",__FILE__,__LINE__,#x);exit(1);} ++checks; } while(0)
@@ -35,7 +35,7 @@ static const unsigned cloud_ids[]={41,42,43,44,45,51,52,53,54,55,61,62,63,64,65}
 static const unsigned gray_ids[]={121,122,123,124,125,131,132,133,134,135,141,142,143,144,151,152,153,154};
 static const unsigned purple_ids[]={150,156,157,158,159,160,166,168,169,170,176,177,178};
 static const unsigned circuit_ids[]={181,182,184,185,192,193,194,195,201,202};
-static const unsigned mechanical_ids[]={188,189,198,199,186,187,196,197};
+static const unsigned mechanical_ids[]={188,189,198,199,186,187,196,197,190,200};
 static Uint8 pointers[700][672];
 static const char *root;
 static char pack[4096];
@@ -309,7 +309,7 @@ static void actual_loader(void)
  CHECK(draw_pointer(megaData1.shapes[0].sh,MIRROR_NORMAL)==1&&draw_ids[0]==99);CHECK(draw_pointer(megaData1.shapes[71].sh,MIRROR_NORMAL)==1);CHECK(!ref[1][71]&&!ref[2][70]&&!ref[2][71]);
  reset("canonical8",POLICY_VALID);for(unsigned s=0;s<128;s++){mapSh[0][s]=211;mapSh[1][s]=41;mapSh[2][s]=150;}run_loader();CHECK(terrain_source_count==TERRAIN_SOURCE_CAPACITY&&!forest_registry_ok);preflight();
  for(unsigned s=0;s<72;s++)CHECK(!draw_pointer(megaData1.shapes[s].sh,MIRROR_NORMAL));CHECK(draw_pointer(megaData2.shapes[0].sh,MIRROR_NORMAL)==1&&draw_ids[0]==41);CHECK(draw_pointer(megaData3.shapes[0].sh,MIRROR_NORMAL)==1&&draw_ids[0]==150);
- reset("canonical8",POLICY_ABSENT);run_loader();CHECK(terrain_source_count==TERRAIN_SOURCE_CAPACITY&&!forest_registry_ok);preflight();for(unsigned s=0;s<72;s++)CHECK(draw_pointer(megaData1.shapes[s].sh,MIRROR_NORMAL)==(unsigned)(s<52));
+ reset("canonical8",POLICY_ABSENT);run_loader();CHECK(terrain_source_count==TERRAIN_SOURCE_CAPACITY&&!forest_registry_ok);preflight();for(unsigned s=0;s<72;s++)CHECK(draw_pointer(megaData1.shapes[s].sh,MIRROR_NORMAL)==(unsigned)(s<54));
  /* Thirteen forest pointers are attempted after 200 earlier nonforest
   * registrations. Even absent forest IDs in the filled registry are caught. */
  reset("canonical8",POLICY_VALID);for(unsigned s=0;s<128;s++){mapSh[0][s]=s<13?forest_ids[s]:99;mapSh[1][s]=41;mapSh[2][s]=150;}run_loader();CHECK(terrain_source_count==TERRAIN_SOURCE_CAPACITY&&!forest_registry_ok);/* 200 nonforest registrations precede forest, so this is another genuine loss. */
@@ -336,7 +336,7 @@ int main(int argc,char **argv)
  for(unsigned n=0;n<G101_TILE_PIXELS;n++){lower_pixels[n*4]=99;lower_pixels[n*4+1]=0;lower_pixels[n*4+2]=77;lower_pixels[n*4+3]=255;}
  for(unsigned i=0;i<13;i++){forest_records[i].index=forest_ids[i];forest_records[i].slot=336+i;}
  if(strcmp(argv[2],"suite"))lower_failure(argv[2]);
- else {finite_mapping();circuit_tests();mechanical_tests();mechanical_review_additions();selected_source_metadata();policies();pointers_and_capacity();guards_and_rows();actual_loader();printf("PASS suite: %lu assertions; actual extracted binding/row/preflight/HDA loader and engine registration loops, all 13 forest + 10 circuit + 8 mechanical IDs, prior finite slots, 193-pointer bounds, coupled/uncoupled decisions; draw/material doubles, no pixels.\n",checks);}
+ else {finite_mapping();circuit_tests();mechanical_tests();mechanical_review_additions();selected_source_metadata();policies();pointers_and_capacity();guards_and_rows();actual_loader();printf("PASS suite: %lu assertions; actual extracted binding/row/preflight/HDA loader and engine registration loops, all 13 forest + 10 circuit + 10 mechanical IDs, prior finite slots, 195-pointer bounds, coupled/uncoupled decisions; draw/material doubles, no pixels.\n",checks);}
  for(unsigned i=0;i<ASSET_CAPACITY;i++)free(assets[i].rgba);
  return 0;
 }
@@ -419,14 +419,14 @@ static void circuit_tests(void)
  render_mirror_bind_terrain(3,181,pointers[TERRAIN_SOURCE_CAPACITY]);CHECK(terrain_source_count==TERRAIN_SOURCE_CAPACITY&&forest_registry_ok&&!draw_pointer(pointers[TERRAIN_SOURCE_CAPACITY],MIRROR_NORMAL));
  render_mirror_bind_terrain(3,202,pointers[TERRAIN_SOURCE_CAPACITY-1]);CHECK(terrain_source_count==TERRAIN_SOURCE_CAPACITY&&draw_pointer(pointers[TERRAIN_SOURCE_CAPACITY-1],MIRROR_NORMAL)==1&&draw_ids[0]==202);
  render_mirror_map_begin('Z');CHECK(!terrain_source_count&&forest_registry_ok&&!draw_pointer(pointers[TERRAIN_SOURCE_CAPACITY-1],MIRROR_NORMAL));bind_circuit();check_circuit(UINT_MAX,8);
- /* Exact production loader's worst213 attempts must truncate at193; forest
+ /* Exact production loader's worst213 attempts must truncate at195; forest
   * partial registrations cannot become an apparently complete coupled family. */
  reset("canonical8",POLICY_VALID);for(unsigned s=0;s<128;s++){mapSh[0][s]=211;mapSh[1][s]=41;mapSh[2][s]=181;}run_loader();CHECK(source_attempts==213&&terrain_source_count==TERRAIN_SOURCE_CAPACITY&&!forest_registry_ok);preflight();
  for(unsigned s=0;s<72;s++)CHECK(!draw_pointer(megaData1.shapes[s].sh,MIRROR_NORMAL));
  for(unsigned s=0;s<70;s++)CHECK(draw_pointer(megaData3.shapes[s].sh,MIRROR_NORMAL)==1&&draw_ids[0]==181&&draw_slots[0]==349);
  reset("canonical8",POLICY_ABSENT);run_loader();CHECK(terrain_source_count==TERRAIN_SOURCE_CAPACITY&&!forest_registry_ok);
- /*71 cloud +70 circuit registrations precede forest => exactly52/72 forest pointers fit. */
- for(unsigned s=0;s<72;s++)CHECK(draw_pointer(megaData1.shapes[s].sh,MIRROR_NORMAL)==(unsigned)(s<52));
+ /*71 cloud +70 circuit registrations precede forest => exactly54/72 forest pointers fit. */
+ for(unsigned s=0;s<72;s++)CHECK(draw_pointer(megaData1.shapes[s].sh,MIRROR_NORMAL)==(unsigned)(s<54));
  /* Ordered mixed finite row preserves replacement bits and selected callbacks. */
  reset("canonical8",POLICY_ABSENT);bind_circuit();render_mirror_bind_terrain(3,121,pointers[550]);render_mirror_bind_terrain(2,41,pointers[551]);
  Uint8 *row[12]={pointers[500],NULL,pointers[550],pointers[509],pointers[551],pointers[699],pointers[504]};clear_draws();
@@ -442,7 +442,7 @@ static void mechanical_tests(void)
   int expected=-1;for(unsigned i=0;i<MECHANICAL_COUNT;i++)if(id==mechanical_ids[i])expected=359+(int)i;
   CHECK(layer3_mechanical_slot(id)==expected);
  }
- CHECK(layer3_mechanical_slot(UINT_MAX)==-1&&layer3_mechanical_slot(190)==-1&&layer3_mechanical_slot(200)==-1);
+ CHECK(layer3_mechanical_slot(UINT_MAX)==-1&&layer3_mechanical_slot(190)==367&&layer3_mechanical_slot(200)==368&&layer3_mechanical_slot(191)==-1&&layer3_mechanical_slot(203)==-1);
  for(unsigned i=0;i<MECHANICAL_COUNT;i++) {
   unsigned id=mechanical_ids[i];
   for(unsigned layer=0;layer<6;layer++) {
@@ -476,8 +476,8 @@ static void mechanical_tests(void)
   render_mirror_bind_terrain(3,id,pointers[TERRAIN_SOURCE_CAPACITY-1]);CHECK(terrain_source_count==TERRAIN_SOURCE_CAPACITY&&draw_pointer(pointers[TERRAIN_SOURCE_CAPACITY-1],MIRROR_NORMAL)==1&&draw_slots[0]==359+i);
   render_mirror_bind_terrain(3,id,pointers[TERRAIN_SOURCE_CAPACITY]);CHECK(terrain_source_count==TERRAIN_SOURCE_CAPACITY&&!draw_pointer(pointers[TERRAIN_SOURCE_CAPACITY],MIRROR_NORMAL));
  }
- /* Valid synthetic 190 and 200 assets are present: exclusion is finite routing. */
- const unsigned excluded[]={190,200};
+ /* Valid synthetic 191 and 203 assets are present: exclusion is finite routing. */
+ const unsigned excluded[]={191,203};
  for(unsigned i=0;i<2;i++)for(unsigned layer=0;layer<6;layer++) {
   reset("canonical8",POLICY_ABSENT);render_mirror_bind_terrain(layer,excluded[i],pointers[500]);
   CHECK(!terrain_source_count&&forest_registry_ok&&!draw_pointer(pointers[500],MIRROR_NORMAL)&&!draws&&!traces&&!suppress);
@@ -533,23 +533,31 @@ static void mechanical_review_additions(void)
   draw_success=false;CHECK(!draw_pointer(pointers[500],MIRROR_NORMAL)&&draws==1&&traces==1&&!suppress);
  }
  reset("canonical8",POLICY_ABSENT);for(unsigned i=0;i<MECHANICAL_COUNT;i++)render_mirror_bind_terrain(3,mechanical_ids[i],pointers[500+i]);
- render_mirror_bind_terrain(3,200,pointers[550]);render_mirror_bind_terrain(3,181,pointers[551]);render_mirror_bind_terrain(3,121,pointers[552]);
+ render_mirror_bind_terrain(3,203,pointers[550]);render_mirror_bind_terrain(3,181,pointers[551]);render_mirror_bind_terrain(3,121,pointers[552]);
  Uint8 *row[12]={pointers[500],pointers[550],pointers[501],NULL,pointers[502],pointers[551],pointers[503],pointers[552]};clear_draws();
  CHECK(render_mirror_terrain_row(game_screen,16,33,row,MIRROR_NORMAL)==245&&draws==6&&traces==6&&!suppress);
  const unsigned ids[]={188,189,198,181,199,121};const int xs[]={16,64,112,136,160,184};
  for(unsigned i=0;i<6;i++)CHECK(draw_ids[i]==ids[i]&&draw_x[i]==xs[i]);
- /* All eight, both explicit exclusions, and unrelated circuit/gray neighbors. */
- render_mirror_bind_terrain(3,190,pointers[553]);
- Uint8 *all_row[12]={pointers[500],pointers[553],pointers[504],pointers[501],pointers[505],pointers[550],pointers[502],pointers[506],pointers[551],pointers[503],pointers[507],pointers[552]};clear_draws();
- CHECK(render_mirror_terrain_row(game_screen,16,33,all_row,MIRROR_NORMAL)==4061&&draws==10&&traces==10&&!suppress);
- const unsigned all_ids[]={188,186,189,187,198,196,181,199,197,121};
- const unsigned all_slots[]={359,363,360,364,361,365,349,362,366,272};
- const int all_xs[]={16,64,88,112,160,184,208,232,256,280};
- for(unsigned i=0;i<10;i++)CHECK(draw_ids[i]==all_ids[i]&&draw_slots[i]==all_slots[i]&&draw_x[i]==all_xs[i]&&draw_y[i]==33&&!draw_lower[i]&&!draw_cap[i]&&!draw_forest[i]);
+ /* All ten exact bindings and unrelated circuit/gray neighbors. */
+ Uint8 *all_row[12]={pointers[500],pointers[508],pointers[504],pointers[501],pointers[505],pointers[509],pointers[502],pointers[506],pointers[551],pointers[503],pointers[507],pointers[552]};clear_draws();
+ CHECK(render_mirror_terrain_row(game_screen,16,33,all_row,MIRROR_NORMAL)==4095&&draws==12&&traces==12&&!suppress);
+ const unsigned all_ids[]={188,190,186,189,187,200,198,196,181,199,197,121};
+ const unsigned all_slots[]={359,367,363,360,364,368,361,365,349,362,366,272};
+ for(unsigned i=0;i<12;i++)CHECK(draw_ids[i]==all_ids[i]&&draw_slots[i]==all_slots[i]&&draw_x[i]==16+(int)i*24&&draw_y[i]==33&&!draw_lower[i]&&!draw_cap[i]&&!draw_forest[i]);
+ /* Simultaneously missing/invalid round inserts leave all earlier members live. */
+ for(unsigned bad=0;bad<2;bad++) {
+  reset(bad?"mechanical-inserts-invalid":"mechanical-inserts-missing",POLICY_ABSENT);
+  for(unsigned i=0;i<MECHANICAL_COUNT;i++)render_mirror_bind_terrain(3,mechanical_ids[i],pointers[500+i]);
+  for(unsigned i=0;i<MECHANICAL_COUNT;i++) {
+   CHECK(draw_pointer(pointers[500+i],MIRROR_NORMAL)==(unsigned)(i<8));
+   CHECK(draws==(unsigned)(i<8)&&traces==draws&&!suppress&&forest_registry_ok);
+   if(i<8)CHECK(draw_ids[0]==mechanical_ids[i]&&draw_slots[0]==359+i&&draw_density[0]==8);
+  }
+ }
  for(int policy_case=POLICY_ABSENT;policy_case<=POLICY_VALID;policy_case++) {
   reset("canonical8",policy_case);for(unsigned s=0;s<128;s++){mapSh[0][s]=211;mapSh[1][s]=41;mapSh[2][s]=mechanical_ids[s%MECHANICAL_COUNT];}run_loader();
   CHECK(source_attempts==213&&terrain_source_count==TERRAIN_SOURCE_CAPACITY&&!forest_registry_ok);preflight();
   for(unsigned s=0;s<70;s++)CHECK(draw_pointer(megaData3.shapes[s].sh,MIRROR_NORMAL)==1&&draw_ids[0]==mechanical_ids[s%MECHANICAL_COUNT]);
-  for(unsigned s=0;s<72;s++)CHECK(draw_pointer(megaData1.shapes[s].sh,MIRROR_NORMAL)==(unsigned)(policy_case==POLICY_ABSENT&&s<52));
+  for(unsigned s=0;s<72;s++)CHECK(draw_pointer(megaData1.shapes[s].sh,MIRROR_NORMAL)==(unsigned)(policy_case==POLICY_ABSENT&&s<54));
  }
 }

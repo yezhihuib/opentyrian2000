@@ -1,29 +1,32 @@
-Mechanical eight-member extension (current)
-==========================================
+Mechanical ten-member extension (current)
+=========================================
 Right IDs 188/189/198/199 retain slots 359..362. Left IDs 186/187/196/197
-use slots 363..366. Asset capacity is 367; the pointer registry is 193.
-Original190 and original200 stay excluded, including with valid synthetic
-8x/4x assets present. All eight finite bindings are covered across layers,
-all 256 banks, styles, global gates, missing/malformed sources, selected 4x
-fallback and explicit 4x, selected-byte preservation, pointer identity/order,
-registry boundaries and forest-policy isolation. Each missing/malformed member
-leaves all seven mechanical neighbors live with exact slot/density routing.
+retain slots 363..366. Static round inserts 190/200 append slots 367/368.
+Asset capacity is 369; the source-pointer registry is 195. IDs 191 and 203
+stay excluded, including with valid synthetic 8x/4x assets present.
 
-The original right-four mixed row remains, with an additional all-eight row
-checking exact slots, order, positions, both exclusions and circuit/gray art.
-The real engine loop still attempts 213 source registrations. With 141 earlier
-cloud/Layer3 sources, exactly 52/72 forest pointers fit the new registry.
-Capacity expectations use named test constants; source ID189 remains unchanged.
+All ten bindings are covered across layers, all 256 banks, styles, global
+gates, missing/malformed sources, selected 4x fallback and explicit 4x,
+selected-byte preservation, pointer identity/order, registry boundaries and
+forest-policy isolation. Each missing/malformed member leaves all nine other
+mechanical members live with exact slot/density routing. Simultaneously
+missing or malformed 190/200 leaves the prior eight mechanical members live.
 
-All 24 negative controls must fail. Prior controls remain, plus left-only slot
-shift, original190 admission, and regression to the previous 189-entry bound.
-The 190 and 200 admission mutants preserve all eight allowed IDs so they prove
-exclusion rather than failing because an allowed ID disappeared.
+The original right-four mixed row retains a finite excluded-ID gap. An all-ten
+row checks exact slots, order, positions and circuit/gray neighbors. The real
+engine loop still attempts 213 source registrations. With 141 earlier
+cloud/Layer3 sources, exactly 54/72 forest pointers fit the new registry.
+Capacity expectations use named test constants; source ID193 is unchanged.
 
-The current row's font_before_effect hook is a bounds-checking test double;
-font restoration pixels are outside this binder oracle, like raster drawing.
-Actual raster evidence is a separate gate. result.json records the exact
-production SHA256, test source hashes, mechanical IDs/slots and capacity bounds.
+All 29 negative controls must fail. Earlier controls remain; obsolete 190/200
+exclusion controls now use 191/203 without removing any allowed ID. Added
+controls cover pair-only slot shifts, each missing insert, aliasing both into
+one slot, and regression to the previous 193-entry bound.
+
+The font_before_effect hook and drawing/material callbacks are test doubles.
+Actual raster and gameplay evidence remains a separate gate. result.json
+records the exact production SHA256, test-source hashes, mechanical IDs/slots
+and capacity bounds. No game is run by this oracle.
 
 The historical circuit/forest notes below describe their original checkpoint;
 capacity references there are superseded by the current bounds above.

@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "bank": "shapesz.dat",
+  "layer": 3,
+  "mode": "NORMAL",
+  "output_ids": [
+    190,
+    200
+  ],
+  "entries": [
+    {
+      "source_id": 190,
+      "hda_id": 2010190,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "anchor": [
+        0,
+        0
+      ],
+      "master": "sources/generated190-context.png",
+      "registered_master_size": [
+        576,
+        672
+      ],
+      "crop": [
+        192,
+        224,
+        384,
+        448
+      ],
+      "alpha": "255 throughout exact original occupancy"
+    },
+    {
+      "source_id": 200,
+      "hda_id": 2010200,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "anchor": [
+        0,
+        0
+      ],
+      "master": "sources/generated200-context.png",
+      "registered_master_size": [
+        576,
+        672
+      ],
+      "crop": [
+        192,
+        224,
+        384,
+        448
+      ],
+      "alpha": "255 throughout exact original occupancy"
+    }
+  ]
+}
