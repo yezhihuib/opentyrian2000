@@ -21,7 +21,7 @@ typedef struct {
 } Asset;
 enum { ASSET_NEWSH2=101, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
-static Asset assets[326];
+static Asset assets[330];
 static Asset talon_frames[13];
 typedef struct {
  bool valid;
@@ -402,6 +402,10 @@ static Asset *get_asset(Sprite2_array bank,unsigned int index,int layout)
   for(int i=0;i<4;i++)if(index==pulse_ids[i]){slot=321+i;role=8;break;}
  }
  if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&index==103) {slot=325;role=8;}
+ if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE) {
+  static const unsigned int guided_ids[4]={19,171,20,21};
+  for(int i=0;i<4;i++)if(index==guided_ids[i]){slot=326+i;role=8;break;}
+ }
  if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&index>=214&&index<=217) {slot=182+(int)index-214;role=8;}
  if(bank.data==explosionSpriteSheet.data&&layout==ENTITY_TILE) {int explosion_slot=explosion_asset_slot(index);if(explosion_slot>=0){slot=explosion_slot;role=ASSET_EXPLOSION;}}
  if(slot<0||game_probe_density==1||game_probe_missing||(role==ASSET_EXPLOSION&&(!game_probe_assets||game_probe_original_reference))) return NULL;

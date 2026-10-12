@@ -1,7 +1,7 @@
 {
   "schema": "opentyrian-accepted-hd-runtime-v1",
   "baseline_branch": "hd-render-prototype",
-  "status": "Poison Bomb parent103 and bounded65536 HD presentation-region capacity; coordinated island continuity retained",
+  "status": "Finite guided-bomb19/171 and shared20/21 artwork; original tables,22 fallback and65536 region budget retained",
   "default_preview_pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
   "default_debug_pack": "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
   "packs": {
@@ -29154,7 +29154,7 @@
       }
     },
     "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 330,
+      "count": 334,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -33445,11 +33445,63 @@
           ],
           "source_png": "assets/hd/source/bullet-103-8-9e325d7cd9cc.png",
           "source_png_sha256": "981bc053924ca1f635bb43602b7adcf76f678b2181213fc617e126d0389bbcdf"
+        },
+        "bullet-19-8.hda": {
+          "sha256": "a2d5fa45e652a34b9d0ad3a69ec0714c5be8393708e204c5386a03b4035f7b3b",
+          "header_u32": [
+            80019,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/bullet-19-8-a2d5fa45e652.png",
+          "source_png_sha256": "4090e464494453211727d1133a364ad03615ea656116aab322ff9de4089b2469"
+        },
+        "bullet-171-8.hda": {
+          "sha256": "3fe2e8483924980b351628edc367d3641706e31d1d846634e8e0a56cd2f7018b",
+          "header_u32": [
+            80171,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/bullet-171-8-3fe2e8483924.png",
+          "source_png_sha256": "d31cdd82535e3f1993dfb96141a32423d2e0ec6b7ae55e61230b8a9e3349d4d4"
+        },
+        "bullet-20-8.hda": {
+          "sha256": "328f9831389399fa7c8d623889732bbc1574dac458a30b97511e2d031dd7aed8",
+          "header_u32": [
+            80020,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/bullet-20-8-328f98313893.png",
+          "source_png_sha256": "c57af39f8c74d3d05128b29511c988ef08a588ea9ee3d25560bf93201c72ba32"
+        },
+        "bullet-21-8.hda": {
+          "sha256": "a8fbcb2952ec4a4b3f84388f1b410ec70648052cbaff35487d2ed930c9b5dc55",
+          "header_u32": [
+            80021,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/bullet-21-8-a8fbcb2952ec.png",
+          "source_png_sha256": "4665bca2aa56716237c870dd13158f67c47c42db9d4fead330077149d4421331"
         }
       }
     },
     "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 334,
+      "count": 338,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -37792,6 +37844,58 @@
           ],
           "source_png": "assets/hd/source/bullet-103-8-9e325d7cd9cc.png",
           "source_png_sha256": "981bc053924ca1f635bb43602b7adcf76f678b2181213fc617e126d0389bbcdf"
+        },
+        "bullet-19-8.hda": {
+          "sha256": "a2d5fa45e652a34b9d0ad3a69ec0714c5be8393708e204c5386a03b4035f7b3b",
+          "header_u32": [
+            80019,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/bullet-19-8-a2d5fa45e652.png",
+          "source_png_sha256": "4090e464494453211727d1133a364ad03615ea656116aab322ff9de4089b2469"
+        },
+        "bullet-171-8.hda": {
+          "sha256": "3fe2e8483924980b351628edc367d3641706e31d1d846634e8e0a56cd2f7018b",
+          "header_u32": [
+            80171,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/bullet-171-8-3fe2e8483924.png",
+          "source_png_sha256": "d31cdd82535e3f1993dfb96141a32423d2e0ec6b7ae55e61230b8a9e3349d4d4"
+        },
+        "bullet-20-8.hda": {
+          "sha256": "328f9831389399fa7c8d623889732bbc1574dac458a30b97511e2d031dd7aed8",
+          "header_u32": [
+            80020,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/bullet-20-8-328f98313893.png",
+          "source_png_sha256": "c57af39f8c74d3d05128b29511c988ef08a588ea9ee3d25560bf93201c72ba32"
+        },
+        "bullet-21-8.hda": {
+          "sha256": "a8fbcb2952ec4a4b3f84388f1b410ec70648052cbaff35487d2ed930c9b5dc55",
+          "header_u32": [
+            80021,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/bullet-21-8-a8fbcb2952ec.png",
+          "source_png_sha256": "4665bca2aa56716237c870dd13158f67c47c42db9d4fead330077149d4421331"
         }
       }
     }
@@ -39962,6 +40066,30 @@
       "sha256": "981bc053924ca1f635bb43602b7adcf76f678b2181213fc617e126d0389bbcdf",
       "RGBA_sha256": "d012689722b0e71cb0f08d93a1144a609249d3975354cc3b4e878077427f39fa",
       "note": "Generated physical Poison Bomb parent103; actual powers1/6/11 and original child collision chain verified"
+    },
+    "a2d5fa45e652a34b9d0ad3a69ec0714c5be8393708e204c5386a03b4035f7b3b": {
+      "path": "assets/hd/source/bullet-19-8-a2d5fa45e652.png",
+      "sha256": "4090e464494453211727d1133a364ad03615ea656116aab322ff9de4089b2469",
+      "RGBA_sha256": "94c0864b412f8cfc8e987c3969802ab62d9d518c349fdb87d1477c8d8b6a6606",
+      "note": "Generated static guided parent or shared warm fragment; finite player-bank8 identity"
+    },
+    "3fe2e8483924980b351628edc367d3641706e31d1d846634e8e0a56cd2f7018b": {
+      "path": "assets/hd/source/bullet-171-8-3fe2e8483924.png",
+      "sha256": "d31cdd82535e3f1993dfb96141a32423d2e0ec6b7ae55e61230b8a9e3349d4d4",
+      "RGBA_sha256": "2d3d8bc7bc65d14a4ef43a037430150201e3a4bdba7fcd32497f5cc36756cbad",
+      "note": "Generated static guided parent or shared warm fragment; finite player-bank8 identity"
+    },
+    "328f9831389399fa7c8d623889732bbc1574dac458a30b97511e2d031dd7aed8": {
+      "path": "assets/hd/source/bullet-20-8-328f98313893.png",
+      "sha256": "c57af39f8c74d3d05128b29511c988ef08a588ea9ee3d25560bf93201c72ba32",
+      "RGBA_sha256": "13889990d48adf4fd67f828e03f2e1e8f2545d36a452a074f216c6280b3909ed",
+      "note": "Generated static guided parent or shared warm fragment; finite player-bank8 identity"
+    },
+    "a8fbcb2952ec4a4b3f84388f1b410ec70648052cbaff35487d2ed930c9b5dc55": {
+      "path": "assets/hd/source/bullet-21-8-a8fbcb2952ec.png",
+      "sha256": "4665bca2aa56716237c870dd13158f67c47c42db9d4fead330077149d4421331",
+      "RGBA_sha256": "b944d16803cead7f9f875a407cbc786da88043fe7ab43308a636724964086a29",
+      "note": "Generated static guided parent or shared warm fragment; finite player-bank8 identity"
     }
   },
   "no_original_game_data": true,

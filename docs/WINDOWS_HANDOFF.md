@@ -84,3 +84,11 @@ batch. Build and use the exact command in `POISON_PARENT_CAPACITY_VALIDATION.md`
 with your legal data path and2×/4× configuration; inspect ticks284–303 at power11.
 The two-megabyte static registry changes no gameplay pools. Keep original shadow
 behavior and do not treat this as full arsenal or whole-game acceptance.
+
+## Guided four-identity follow-up
+
+Player bank8 heads19/171 and shared warm20/21 are accepted in the bounded
+Micro/Heavy/Guided and Widget context matrix. ID22 remains original.
+Current18 packs:2,908 HDA entries,346 PNGs; preview334/debug338.
+See [GUIDED_BOMB_VALIDATION.md](GUIDED_BOMB_VALIDATION.md) for exact scope,
+fallback checks and reproduction. This batch has not been Windows-validated.

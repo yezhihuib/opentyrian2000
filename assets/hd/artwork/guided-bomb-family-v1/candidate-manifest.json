@@ -1,0 +1,258 @@
+{
+  "identity": "guided-bomb-family-v1",
+  "status": "All four designs approved offline for a bounded runtime trial by root on2026-10-12. No runtime acceptance claimed.",
+  "scope": "Exactly four independent static spriteSheet8 player identities19,171,20,21; no22, no animation or gameplay changes.",
+  "tool": "Built-in image_gen; selected unchanged source masters and complete prompts retained.",
+  "alpha": "Generated straight RGBA preserved; only recorded whole-object crop/resample/placement.",
+  "source_commit": "3f05b84b6b63141f9f7ce3bc3b7e9399ccbb4b8e",
+  "frames": [
+    {
+      "runtime_role": "player_projectile_only",
+      "sprite_sheet": 8,
+      "sprite_id": 19,
+      "binding_key": "8:19",
+      "runtime_asset_key": 80019,
+      "renderer_slot_hint": 326,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "animation_frames": 1,
+      "material": "opaque blue metal with warm recessed center",
+      "original_occupied_bounds": [
+        1,
+        2,
+        11,
+        12
+      ],
+      "master": "selected-masters/guided19-master.png",
+      "master_sha256": "b567f8bb6cd466d4e51076743a21988935a7feb7e5ab12c687b3269da42ed072",
+      "transform": {
+        "crop": [
+          74,
+          180,
+          1086,
+          1173
+        ],
+        "resize": [
+          82,
+          82
+        ],
+        "paste": [
+          7,
+          15
+        ],
+        "canvas": [
+          96,
+          112
+        ],
+        "resampler": "Lanczos"
+      },
+      "source_png": "exports/shapes8-id19-96x112.png",
+      "source_png_sha256": "4090e464494453211727d1133a364ad03615ea656116aab322ff9de4089b2469",
+      "hda": "runtime/bullet-19-8.hda",
+      "hda_sha256": "a2d5fa45e652a34b9d0ad3a69ec0714c5be8393708e204c5386a03b4035f7b3b",
+      "header_u32": [
+        80019,
+        8,
+        12,
+        14,
+        0,
+        0
+      ]
+    },
+    {
+      "runtime_role": "player_projectile_only",
+      "sprite_sheet": 8,
+      "sprite_id": 171,
+      "binding_key": "8:171",
+      "runtime_asset_key": 80171,
+      "renderer_slot_hint": 327,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "animation_frames": 1,
+      "material": "opaque blue metal with warm recessed center",
+      "original_occupied_bounds": [
+        1,
+        2,
+        11,
+        12
+      ],
+      "master": "selected-masters/guided171-master.png",
+      "master_sha256": "03e5bbd4d4dfa72b91def7bb371c496c1ccef000b5607d4ca702dff3f375acef",
+      "transform": {
+        "crop": [
+          160,
+          260,
+          1001,
+          1098
+        ],
+        "resize": [
+          82,
+          82
+        ],
+        "paste": [
+          7,
+          15
+        ],
+        "canvas": [
+          96,
+          112
+        ],
+        "resampler": "Lanczos"
+      },
+      "source_png": "exports/shapes8-id171-96x112.png",
+      "source_png_sha256": "d31cdd82535e3f1993dfb96141a32423d2e0ec6b7ae55e61230b8a9e3349d4d4",
+      "hda": "runtime/bullet-171-8.hda",
+      "hda_sha256": "3fe2e8483924980b351628edc367d3641706e31d1d846634e8e0a56cd2f7018b",
+      "header_u32": [
+        80171,
+        8,
+        12,
+        14,
+        0,
+        0
+      ]
+    },
+    {
+      "runtime_role": "player_projectile_only",
+      "sprite_sheet": 8,
+      "sprite_id": 20,
+      "binding_key": "8:20",
+      "runtime_asset_key": 80020,
+      "renderer_slot_hint": 328,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "animation_frames": 1,
+      "material": "warm luminous effect with true partial-alpha shoulder",
+      "original_occupied_bounds": [
+        4,
+        4,
+        9,
+        11
+      ],
+      "master": "selected-masters/guided20-rounded-master.png",
+      "master_sha256": "d7fdeed52d18322e6a1e05ff6935d92d4b4c5380923442142c8fbd06025dd879",
+      "transform": {
+        "crop": [
+          99,
+          151,
+          956,
+          1352
+        ],
+        "resize": [
+          46,
+          62
+        ],
+        "paste": [
+          29,
+          29
+        ],
+        "canvas": [
+          96,
+          112
+        ],
+        "resampler": "Lanczos"
+      },
+      "source_png": "exports/shapes8-id20-96x112.png",
+      "source_png_sha256": "c57af39f8c74d3d05128b29511c988ef08a588ea9ee3d25560bf93201c72ba32",
+      "hda": "runtime/bullet-20-8.hda",
+      "hda_sha256": "328f9831389399fa7c8d623889732bbc1574dac458a30b97511e2d031dd7aed8",
+      "header_u32": [
+        80020,
+        8,
+        12,
+        14,
+        0,
+        0
+      ]
+    },
+    {
+      "runtime_role": "player_projectile_only",
+      "sprite_sheet": 8,
+      "sprite_id": 21,
+      "binding_key": "8:21",
+      "runtime_asset_key": 80021,
+      "renderer_slot_hint": 329,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "animation_frames": 1,
+      "material": "warm luminous effect with true partial-alpha shoulder",
+      "original_occupied_bounds": [
+        4,
+        3,
+        9,
+        12
+      ],
+      "master": "selected-masters/guided21-rounded-master.png",
+      "master_sha256": "a4fa08a9485eddea093c3951c1e870343617fd4090b264a056a25081e8882b46",
+      "transform": {
+        "crop": [
+          130,
+          116,
+          811,
+          1589
+        ],
+        "resize": [
+          44,
+          76
+        ],
+        "paste": [
+          30,
+          22
+        ],
+        "canvas": [
+          96,
+          112
+        ],
+        "resampler": "Lanczos"
+      },
+      "source_png": "exports/shapes8-id21-96x112.png",
+      "source_png_sha256": "4665bca2aa56716237c870dd13158f67c47c42db9d4fead330077149d4421331",
+      "hda": "runtime/bullet-21-8.hda",
+      "hda_sha256": "a8fbcb2952ec4a4b3f84388f1b410ec70648052cbaff35487d2ed930c9b5dc55",
+      "header_u32": [
+        80021,
+        8,
+        12,
+        14,
+        0,
+        0
+      ]
+    }
+  ],
+  "runtime_checks_required": [
+    "Root offline review approved all four designs; in-game visual acceptance remains pending",
+    "Finite natural collisions under existing legal-loadout fixture",
+    "Observe19,171,20 and21 under original tables; no invented frames",
+    "Integer2x/4x classic/HD/missing/invalid with original state/RNG/collision parity",
+    "Original origin, shadows, smoke overlap and occlusion; unchanged prior assets"
+  ],
+  "coverage_limit": "Source contract covers99 guided configurations; no complete shared-user or all-power runtime claim."
+}

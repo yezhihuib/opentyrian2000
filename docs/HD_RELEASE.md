@@ -74,3 +74,11 @@ powers1/6/11. HD region capacity is now65,536 static entries, retaining overflow
 protection and original gameplay pools. Dense-burst whole-frame fallback is
 resolved in the bounded matrix. Current18 packs:2,900 HDA entries,342 PNGs;
 default preview330/debug334. See [POISON_PARENT_CAPACITY_VALIDATION.md](POISON_PARENT_CAPACITY_VALIDATION.md).
+
+## Guided four-identity follow-up
+
+Player bank8 heads19/171 and shared warm20/21 are accepted in the bounded
+Micro/Heavy/Guided and Widget context matrix. ID22 remains original.
+Current18 packs:2,908 HDA entries,346 PNGs; preview334/debug338.
+See [GUIDED_BOMB_VALIDATION.md](GUIDED_BOMB_VALIDATION.md) for exact scope,
+fallback checks and reproduction. This batch has not been Windows-validated.
