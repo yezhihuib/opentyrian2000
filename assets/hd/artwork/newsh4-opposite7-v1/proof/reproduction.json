@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "source_only_relocated_build": true,
+  "canonical_output_inputs_present": false,
+  "original_RGB_inputs_present": false,
+  "seven_PNG_and_HDR1_byte_exact": true,
+  "rebuild_receipt_sha256": "4804aed5075c9e3258dd9e6519084033e399ef3d1aa85dbc1b09258cd0c70656",
+  "finite_path_guards": [
+    {
+      "case": "relative",
+      "rejected": true,
+      "error": "ValueError: absolute external output required"
+    },
+    {
+      "case": "existing",
+      "rejected": true,
+      "error": "ValueError: output must not exist"
+    },
+    {
+      "case": "in_package",
+      "rejected": true,
+      "error": "ValueError: output must be outside source package"
+    },
+    {
+      "case": "ancestor",
+      "rejected": true,
+      "error": "ValueError: output must not exist"
+    },
+    {
+      "case": "symlink",
+      "rejected": true,
+      "error": "ValueError: output symlinks forbidden"
+    },
+    {
+      "case": "missing_parent",
+      "rejected": true,
+      "error": "ValueError: output parent must exist"
+    }
+  ],
+  "runtime_claims": "None; right-family actual integration remains separate."
+}

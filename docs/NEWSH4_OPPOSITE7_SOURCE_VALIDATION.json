@@ -1,0 +1,606 @@
+{
+  "schema": "newsh4-opposite7-source-validation-v1",
+  "status": "PASS source gates; actual right-family gates not started",
+  "baseline_commit": "67656d102a67cd1bd76c823a2b20f6023f7bb9f0",
+  "scope": {
+    "bank": 2,
+    "namespace": 102,
+    "records": [
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79
+    ],
+    "bases": [
+      231,
+      233,
+      235,
+      267,
+      269,
+      271,
+      273
+    ],
+    "slots": [
+      389,
+      390,
+      391,
+      392,
+      393,
+      394,
+      395
+    ],
+    "logical_size": [
+      24,
+      28
+    ],
+    "anchor": [
+      6,
+      7
+    ],
+    "density": 8,
+    "link": 2,
+    "opaque_logical_cells": 2027
+  },
+  "source": {
+    "status": "PASS",
+    "source_manifest_sha256": "fce309722a55c0f62ab563af15ff7af41b9a739d09b3099878753030ec5774bd",
+    "source_files": 29,
+    "generated_only_reproduction": true,
+    "exact_PNG_HDR1_pairs": 7,
+    "finite_default_packs": true,
+    "alpha_anchors_RGBA_FNV_verified": true,
+    "original_data": {
+      "original_RLE_components": 28,
+      "empty_231": true,
+      "two_cell_232": true,
+      "HDT_records_audited": 1701,
+      "level_events_decoded": 1010,
+      "link2_spawns": 21,
+      "link2_acceleration_events": 6,
+      "source_lifecycle_verified": true,
+      "original_RGB_art_inputs": false
+    },
+    "game_runs": 0,
+    "runtime_acceptance": "Not established by this source validation."
+  },
+  "binding": {
+    "status": "passed",
+    "baseline": "67656d102a67cd1bd76c823a2b20f6023f7bb9f0",
+    "sanitizers": [
+      "address",
+      "undefined"
+    ],
+    "leak_detection": false,
+    "leak_detection_reason": "LSan cannot run under this executor ptrace; allocations freed by recorder reset",
+    "unchanged_prior_bindings": 207,
+    "new_bindings": 7,
+    "separate_left_right_fallback": true,
+    "empty_quadrant231_preserves_complete_composite": true,
+    "fixture_mirrors": "read-only-by-workflow hardlinks, never symlinks or mutated in place",
+    "all_sheet_identities_checked": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36
+    ],
+    "preflight_allocation_failure_positions": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "disabled_scene_combinations": [
+      0,
+      2
+    ],
+    "cache_lifecycle": "startup-selected pack; failed and successful preflight are cached; process/cache reset retries successfully; no mid-session reload writer",
+    "family_fallback_cases": [
+      "complete-seven",
+      "enemy-newsh4-231-8.hda-missing",
+      "enemy-newsh4-231-8.hda-magic",
+      "enemy-newsh4-231-8.hda-truncated",
+      "enemy-newsh4-231-8.hda-trailing",
+      "enemy-newsh4-231-8.hda-alpha",
+      "enemy-newsh4-231-8.hda-rgb",
+      "enemy-newsh4-231-8.hda-field-0",
+      "enemy-newsh4-231-8.hda-field-1",
+      "enemy-newsh4-231-8.hda-field-2",
+      "enemy-newsh4-231-8.hda-field-3",
+      "enemy-newsh4-231-8.hda-field-4",
+      "enemy-newsh4-231-8.hda-field-5",
+      "enemy-newsh4-233-8.hda-missing",
+      "enemy-newsh4-233-8.hda-magic",
+      "enemy-newsh4-233-8.hda-truncated",
+      "enemy-newsh4-233-8.hda-trailing",
+      "enemy-newsh4-233-8.hda-alpha",
+      "enemy-newsh4-233-8.hda-rgb",
+      "enemy-newsh4-233-8.hda-field-0",
+      "enemy-newsh4-233-8.hda-field-1",
+      "enemy-newsh4-233-8.hda-field-2",
+      "enemy-newsh4-233-8.hda-field-3",
+      "enemy-newsh4-233-8.hda-field-4",
+      "enemy-newsh4-233-8.hda-field-5",
+      "enemy-newsh4-235-8.hda-missing",
+      "enemy-newsh4-235-8.hda-magic",
+      "enemy-newsh4-235-8.hda-truncated",
+      "enemy-newsh4-235-8.hda-trailing",
+      "enemy-newsh4-235-8.hda-alpha",
+      "enemy-newsh4-235-8.hda-rgb",
+      "enemy-newsh4-235-8.hda-field-0",
+      "enemy-newsh4-235-8.hda-field-1",
+      "enemy-newsh4-235-8.hda-field-2",
+      "enemy-newsh4-235-8.hda-field-3",
+      "enemy-newsh4-235-8.hda-field-4",
+      "enemy-newsh4-235-8.hda-field-5",
+      "enemy-newsh4-267-8.hda-missing",
+      "enemy-newsh4-267-8.hda-magic",
+      "enemy-newsh4-267-8.hda-truncated",
+      "enemy-newsh4-267-8.hda-trailing",
+      "enemy-newsh4-267-8.hda-alpha",
+      "enemy-newsh4-267-8.hda-rgb",
+      "enemy-newsh4-267-8.hda-field-0",
+      "enemy-newsh4-267-8.hda-field-1",
+      "enemy-newsh4-267-8.hda-field-2",
+      "enemy-newsh4-267-8.hda-field-3",
+      "enemy-newsh4-267-8.hda-field-4",
+      "enemy-newsh4-267-8.hda-field-5",
+      "enemy-newsh4-269-8.hda-missing",
+      "enemy-newsh4-269-8.hda-magic",
+      "enemy-newsh4-269-8.hda-truncated",
+      "enemy-newsh4-269-8.hda-trailing",
+      "enemy-newsh4-269-8.hda-alpha",
+      "enemy-newsh4-269-8.hda-rgb",
+      "enemy-newsh4-269-8.hda-field-0",
+      "enemy-newsh4-269-8.hda-field-1",
+      "enemy-newsh4-269-8.hda-field-2",
+      "enemy-newsh4-269-8.hda-field-3",
+      "enemy-newsh4-269-8.hda-field-4",
+      "enemy-newsh4-269-8.hda-field-5",
+      "enemy-newsh4-271-8.hda-missing",
+      "enemy-newsh4-271-8.hda-magic",
+      "enemy-newsh4-271-8.hda-truncated",
+      "enemy-newsh4-271-8.hda-trailing",
+      "enemy-newsh4-271-8.hda-alpha",
+      "enemy-newsh4-271-8.hda-rgb",
+      "enemy-newsh4-271-8.hda-field-0",
+      "enemy-newsh4-271-8.hda-field-1",
+      "enemy-newsh4-271-8.hda-field-2",
+      "enemy-newsh4-271-8.hda-field-3",
+      "enemy-newsh4-271-8.hda-field-4",
+      "enemy-newsh4-271-8.hda-field-5",
+      "enemy-newsh4-273-8.hda-missing",
+      "enemy-newsh4-273-8.hda-magic",
+      "enemy-newsh4-273-8.hda-truncated",
+      "enemy-newsh4-273-8.hda-trailing",
+      "enemy-newsh4-273-8.hda-alpha",
+      "enemy-newsh4-273-8.hda-rgb",
+      "enemy-newsh4-273-8.hda-field-0",
+      "enemy-newsh4-273-8.hda-field-1",
+      "enemy-newsh4-273-8.hda-field-2",
+      "enemy-newsh4-273-8.hda-field-3",
+      "enemy-newsh4-273-8.hda-field-4",
+      "enemy-newsh4-273-8.hda-field-5",
+      "left-independent-enemy-newsh4-153-8.hda-missing",
+      "left-independent-enemy-newsh4-153-8.hda-corrupt",
+      "left-independent-enemy-newsh4-155-8.hda-missing",
+      "left-independent-enemy-newsh4-155-8.hda-corrupt",
+      "left-independent-enemy-newsh4-157-8.hda-missing",
+      "left-independent-enemy-newsh4-157-8.hda-corrupt",
+      "left-independent-enemy-newsh4-159-8.hda-missing",
+      "left-independent-enemy-newsh4-159-8.hda-corrupt",
+      "left-independent-enemy-newsh4-191-8.hda-missing",
+      "left-independent-enemy-newsh4-191-8.hda-corrupt",
+      "left-independent-enemy-newsh4-193-8.hda-missing",
+      "left-independent-enemy-newsh4-193-8.hda-corrupt",
+      "left-independent-enemy-newsh4-195-8.hda-missing",
+      "left-independent-enemy-newsh4-195-8.hda-corrupt",
+      "right-independent-enemy-newsh4-231-8.hda-missing",
+      "right-independent-enemy-newsh4-231-8.hda-corrupt",
+      "right-independent-enemy-newsh4-233-8.hda-missing",
+      "right-independent-enemy-newsh4-233-8.hda-corrupt",
+      "right-independent-enemy-newsh4-235-8.hda-missing",
+      "right-independent-enemy-newsh4-235-8.hda-corrupt",
+      "right-independent-enemy-newsh4-267-8.hda-missing",
+      "right-independent-enemy-newsh4-267-8.hda-corrupt",
+      "right-independent-enemy-newsh4-269-8.hda-missing",
+      "right-independent-enemy-newsh4-269-8.hda-corrupt",
+      "right-independent-enemy-newsh4-271-8.hda-missing",
+      "right-independent-enemy-newsh4-271-8.hda-corrupt",
+      "right-independent-enemy-newsh4-273-8.hda-missing",
+      "right-independent-enemy-newsh4-273-8.hda-corrupt"
+    ],
+    "functions": {
+      "baseline": {
+        "read_asset": "ff8984aa1253ba4027001db3a1a5768dcc48967721e2005ac8893e42c5fd923b",
+        "scene_asset": "c3ce091d907f6695e7acbac25c579b9e04469fe1319a792fde51ac87adcf5503",
+        "linked31_family_ready": "61eef24d03b08b2bd9a7161c88e14bfa81f80c5256f2137356d402fdff26dbf5",
+        "newsh4_long7_family_ready": "8b87b12894f106699b6607224be7869c1f2684bc899569ffb6936e0d9d008a9c",
+        "render_mirror_enemy_tile": "ae4598746e8a87a2906c44785a985e3153f77e14a3b94b2063cdac6c24f810a4",
+        "render_mirror_map_begin": "911e4864c5a7d827e7c67df5e85252f52d87546719aa5cefa1a34d220266aa24",
+        "cloud_terrain_slot": "310774522cd834d5620415dd024e33d4d4f89a8a2fb17eeb57981ac686d1334c",
+        "ground_terrain_slot": "f9e6c4e5eab475b448207a37455690d13327584fe8cd0b13ca49e888826883d3",
+        "plateau_terrain_slot": "8cb189c4346f8a1aa128ecd353c7084c2e7176a2c65f37954036d9e9c36cfbfc",
+        "underlay_terrain_slot": "e006805592995794f24e79c5847a91dfe7c3d82109df770fc6ee57b61a9692df",
+        "road_terrain_slot": "f02d69226be3c8441b6b5cae28d6a973416e090dd93f7633dddc3a63a3b135b2",
+        "terrain_holes_slot": "a7a0bcd57bab129dfe34e7c832d50968b38ea4d3334d6d3c4b8403967ac3232e",
+        "stone_foundation_slot": "1b197c9988a7334fc118ab210f481ef3a98b82bab62041b14e41d144aa4c0234",
+        "layer3_gray_slot": "8a0243f2a7ec23f40a6e4b1c60782837c5b9c17e43994779e82348b2a8c5c3e5",
+        "layer3_purple_slot": "2dfabb8fec33c865fa0ba4dd3e6127496f840638229028574239559297baf193",
+        "grass_sand_slot": "8218c0184627b9bdaa0bc6295667f2c45f572303253b604e27b402cb09c85931",
+        "forest_terrain_slot": "0a62f0f993949a9637ceeb94007877a75f5c343805ec2a53c8a53239b7cb2757",
+        "layer3_circuit_slot": "cc6e9c2765365d643e5d1904e5ee61c25d38dc2547b90d50254934f32a4ab955",
+        "layer3_mechanical_slot": "a2266753366667b3b87d78ba9213a0cbddd151db2d8a5937632fb32f357ae8e8",
+        "layer3_linked31_slot": "4db1898fbc3ad96c78612e7ab9be2c9b18996a4bec3f56e955b288e805c8a4ad",
+        "render_mirror_bind_terrain": "5653d11b4fa6536127a6a984471d743a5ed2843cb5ee6b78b21ec9d6485694f0",
+        "render_mirror_terrain_row": "466388137f9f871163bf925fd07e201baf4b3733701de5637a8e37c43c23519a",
+        "palette_rgb": "3d8e2f2e1edebd62bce8ad34128bfb346f89a2ba35001abe20179e3dc1738aaa",
+        "enemy_filter_rgba": "dc782d1e0458883a5b9802eb109cb9a4fac533c4d7a4c8522453f6faffd1bc61"
+      },
+      "candidate": {
+        "read_asset": "ff8984aa1253ba4027001db3a1a5768dcc48967721e2005ac8893e42c5fd923b",
+        "scene_asset": "c3ce091d907f6695e7acbac25c579b9e04469fe1319a792fde51ac87adcf5503",
+        "linked31_family_ready": "61eef24d03b08b2bd9a7161c88e14bfa81f80c5256f2137356d402fdff26dbf5",
+        "newsh4_long7_family_ready": "8b87b12894f106699b6607224be7869c1f2684bc899569ffb6936e0d9d008a9c",
+        "newsh4_opposite7_family_ready": "03c3e437e28931d9a8ef9658cc631c08744a1ac3493eaff7786d9dd8148fe15e",
+        "render_mirror_enemy_tile": "0ab708587cb5b91d53df24b61c9daf6c559ddf98b262e03352ccb735ea1b09f4",
+        "render_mirror_map_begin": "911e4864c5a7d827e7c67df5e85252f52d87546719aa5cefa1a34d220266aa24",
+        "cloud_terrain_slot": "310774522cd834d5620415dd024e33d4d4f89a8a2fb17eeb57981ac686d1334c",
+        "ground_terrain_slot": "f9e6c4e5eab475b448207a37455690d13327584fe8cd0b13ca49e888826883d3",
+        "plateau_terrain_slot": "8cb189c4346f8a1aa128ecd353c7084c2e7176a2c65f37954036d9e9c36cfbfc",
+        "underlay_terrain_slot": "e006805592995794f24e79c5847a91dfe7c3d82109df770fc6ee57b61a9692df",
+        "road_terrain_slot": "f02d69226be3c8441b6b5cae28d6a973416e090dd93f7633dddc3a63a3b135b2",
+        "terrain_holes_slot": "a7a0bcd57bab129dfe34e7c832d50968b38ea4d3334d6d3c4b8403967ac3232e",
+        "stone_foundation_slot": "1b197c9988a7334fc118ab210f481ef3a98b82bab62041b14e41d144aa4c0234",
+        "layer3_gray_slot": "8a0243f2a7ec23f40a6e4b1c60782837c5b9c17e43994779e82348b2a8c5c3e5",
+        "layer3_purple_slot": "2dfabb8fec33c865fa0ba4dd3e6127496f840638229028574239559297baf193",
+        "grass_sand_slot": "8218c0184627b9bdaa0bc6295667f2c45f572303253b604e27b402cb09c85931",
+        "forest_terrain_slot": "0a62f0f993949a9637ceeb94007877a75f5c343805ec2a53c8a53239b7cb2757",
+        "layer3_circuit_slot": "cc6e9c2765365d643e5d1904e5ee61c25d38dc2547b90d50254934f32a4ab955",
+        "layer3_mechanical_slot": "a2266753366667b3b87d78ba9213a0cbddd151db2d8a5937632fb32f357ae8e8",
+        "layer3_linked31_slot": "4db1898fbc3ad96c78612e7ab9be2c9b18996a4bec3f56e955b288e805c8a4ad",
+        "render_mirror_bind_terrain": "5653d11b4fa6536127a6a984471d743a5ed2843cb5ee6b78b21ec9d6485694f0",
+        "render_mirror_terrain_row": "466388137f9f871163bf925fd07e201baf4b3733701de5637a8e37c43c23519a",
+        "palette_rgb": "3d8e2f2e1edebd62bce8ad34128bfb346f89a2ba35001abe20179e3dc1738aaa",
+        "enemy_filter_rgba": "dc782d1e0458883a5b9802eb109cb9a4fac533c4d7a4c8522453f6faffd1bc61"
+      }
+    },
+    "limitations": [
+      "Recorder only; no game runs, rendered pixels or Windows runtime."
+    ]
+  },
+  "preservation": {
+    "status": "passed",
+    "baseline": "67656d102a67cd1bd76c823a2b20f6023f7bb9f0",
+    "renderer_reverts_exactly_after_finite_family_removal": true,
+    "left_family_cache_and_route_unchanged": true,
+    "previous_tracked_files_checked": 5697,
+    "previous_changed_files": [
+      "assets/hd/manifest.json",
+      "prototype/build-hd-assets.py",
+      "prototype/tests/startup-manufacturer/test_package.py",
+      "prototype/tests/title-package/test_package.py",
+      "src/render_mirror.c"
+    ],
+    "previous_asset_payload_bytes_identical": 569838514,
+    "previous_manifest_restored_exactly": true,
+    "all_gameplay_startup_sources_unchanged": true,
+    "Windows_project_XML": "parsed; all compile references exist; unchanged existing renderer unit listed",
+    "Windows_compilation_runtime": false,
+    "render_source_sha256": "3bcc55de40a4ba6062d9c9ef5efa7414be9be8e1db445a67a24551628f712984",
+    "default_pack_counts": [
+      400,
+      404
+    ]
+  },
+  "source_negative_cases": {
+    "status": "PASS",
+    "valid_source_validation": true,
+    "generated_only_reproduction_without_canonical_outputs": true,
+    "rejected_cases": [
+      {
+        "case": "existing",
+        "reason": "output must be fresh",
+        "returncode": 1
+      },
+      {
+        "case": "repository",
+        "reason": "output must be fresh",
+        "returncode": 1
+      },
+      {
+        "case": "repository-parent",
+        "reason": "output must be fresh",
+        "returncode": 1
+      },
+      {
+        "case": "repository-child",
+        "reason": "output must be outside repository",
+        "returncode": 1
+      },
+      {
+        "case": "relative",
+        "reason": "output must be absolute",
+        "returncode": 1
+      },
+      {
+        "case": "missing-parent",
+        "reason": "output parent must exist",
+        "returncode": 1
+      },
+      {
+        "case": "symlink-parent",
+        "reason": "symlink path forbidden",
+        "returncode": 1
+      },
+      {
+        "case": "symlink-output",
+        "reason": "symlink path forbidden",
+        "returncode": 1
+      },
+      {
+        "case": "master",
+        "reason": "source file mismatch",
+        "returncode": 1
+      },
+      {
+        "case": "prompt",
+        "reason": "source file mismatch",
+        "returncode": 1
+      },
+      {
+        "case": "mask",
+        "reason": "source file mismatch",
+        "returncode": 1
+      },
+      {
+        "case": "contract",
+        "reason": "source file mismatch",
+        "returncode": 1
+      },
+      {
+        "case": "expected-hashes",
+        "reason": "source file mismatch",
+        "returncode": 1
+      },
+      {
+        "case": "recipe",
+        "reason": "source file mismatch",
+        "returncode": 1
+      },
+      {
+        "case": "source-manifest",
+        "reason": "source manifest freeze mismatch",
+        "returncode": 1
+      },
+      {
+        "case": "source-checksums",
+        "reason": "source FILES.sha256 freeze mismatch",
+        "returncode": 1
+      },
+      {
+        "case": "source-proof",
+        "reason": "source file mismatch",
+        "returncode": 1
+      },
+      {
+        "case": "source-audit",
+        "reason": "source file mismatch",
+        "returncode": 1
+      },
+      {
+        "case": "frozen-png",
+        "reason": "source file mismatch",
+        "returncode": 1
+      },
+      {
+        "case": "frozen-hda",
+        "reason": "source file mismatch",
+        "returncode": 1
+      },
+      {
+        "case": "canonical-png",
+        "reason": "canonical PNG mismatch",
+        "returncode": 1
+      },
+      {
+        "case": "packed-hda",
+        "reason": "packed HDR1 mismatch",
+        "returncode": 1
+      },
+      {
+        "case": "unlisted-source",
+        "reason": "source inventory differs",
+        "returncode": 1
+      },
+      {
+        "case": "unlisted-empty-directory",
+        "reason": "source inventory differs",
+        "returncode": 1
+      },
+      {
+        "case": "source-symlink",
+        "reason": "source symlink",
+        "returncode": 1
+      },
+      {
+        "case": "source-directory-symlink",
+        "reason": "source symlink",
+        "returncode": 1
+      },
+      {
+        "case": "widened4x",
+        "reason": "widened pack",
+        "returncode": 1
+      },
+      {
+        "case": "widened-other-pack",
+        "reason": "widened pack",
+        "returncode": 1
+      },
+      {
+        "case": "widened-quadrant",
+        "reason": "widened pack",
+        "returncode": 1
+      },
+      {
+        "case": "alias-header",
+        "reason": "widened pack",
+        "returncode": 1
+      },
+      {
+        "case": "family-anchor",
+        "reason": "entry/FNV binding mismatch",
+        "returncode": 1
+      },
+      {
+        "case": "family-FNV",
+        "reason": "entry/FNV binding mismatch",
+        "returncode": 1
+      },
+      {
+        "case": "source-index",
+        "reason": "source PNG index mismatch",
+        "returncode": 1
+      },
+      {
+        "case": "pack-count",
+        "reason": "pack count mismatch",
+        "returncode": 1
+      },
+      {
+        "case": "unindexed-disk4x",
+        "reason": "widened on-disk pack inventory",
+        "returncode": 1
+      }
+    ],
+    "rejected_count": 35,
+    "independent_copies_only": true,
+    "real_inputs_unchanged": true,
+    "original_RGB_inputs": false,
+    "game_runs": 0
+  },
+  "aggregate": {
+    "verified_newsh4_opposite7_family_members": 7,
+    "verified_newsh4_long7_family_members": 7,
+    "verified_startup_title_resources": 3,
+    "verified_startup_title_source_files": 19,
+    "verified_startup_title_manufacturer_compatibility_copies": 2,
+    "verified_linked31_family_members": 8,
+    "verified_type4_composites": 5,
+    "verified_startup_manufacturer_resources": 2,
+    "verified_startup_manufacturer_source_files": 22,
+    "verified_hud_meter_sidecars": 2,
+    "verified_hud_meter_source_files": 13,
+    "verified_pack_count": 18,
+    "verified_HDA_entries": 3040,
+    "verified_exact_source_pngs": 416,
+    "verified_material_sidecars": 4,
+    "verified_cap_sidecars": 2,
+    "verified_forest_sidecars_and_policies": 4,
+    "verified_gameplay_hud_sidecars": 2,
+    "verified_hud_source_pngs": 1,
+    "verified_hud_font_sidecars": 2,
+    "verified_hud_font_source_files": 19,
+    "verified_hud_fixed_text_sidecars": 2,
+    "verified_hud_fixed_text_source_pngs": 12,
+    "verified_hud_extension_sidecars": 4,
+    "verified_hud_extension_source_pngs": 21,
+    "default_pack_counts": [
+      400,
+      404
+    ],
+    "rebuild_output": null,
+    "all_runtime_RGBA_and_header_bytes_exact": true
+  },
+  "startup_package_tests": {
+    "passed": 9,
+    "log_sha256": "2e8ea18d62e6e62d4bc74b32f0632a61010f8d858ac3f6d801bb10bc0d126332"
+  },
+  "title_package_tests": {
+    "passed": 14,
+    "log_sha256": "d2c924eee1a78f9de88efb8be19a19a9da37f9feb25f8a01445cff8cb97b887f"
+  },
+  "Linux_build": {
+    "status": "PASS",
+    "command": "make -j4 using the existing recovered official SDL development-package environment",
+    "initial_attempt": "Failed before build because that shell lacked the existing pkg-config setup; retried with the verified recovered environment.",
+    "warnings": 5,
+    "warning_scope": "Existing misleading-indentation statements in unchanged asset_debug.c/game_probe_fields.inc and unchanged render_mirror_present; no new family warning.",
+    "log_sha256": "b2efc5309be72141318e193c607b2d79064e0757485a9ebfefcc66adbb9a2192",
+    "binary_sha256": "cbe1411616e5e314486be654cf9fedaf721b3776d71c520e223bb19a45d2bbc5",
+    "game_executed": false
+  },
+  "Windows": "Unchanged project XML and all compilation paths verified; no Windows compilation/runtime.",
+  "next_gate": {
+    "requires_independent_review_and_permission": true,
+    "baseline": "67656d102a67cd1bd76c823a2b20f6023f7bb9f0",
+    "candidate": "this source checkpoint",
+    "scenario": "same original-event, stationary no-fire, private-survival diagnostic used by retained evidence; no artificial projectiles",
+    "logic_ticks": [
+      0,
+      5624
+    ],
+    "census_ticks": [
+      5565,
+      5624
+    ],
+    "census_actor_slots": 100,
+    "census_ordinals": [
+      "post-events",
+      "pre-top-draw",
+      "post-top-draw",
+      "pre-projectiles",
+      "post-projectiles",
+      "end-tick"
+    ],
+    "media_captures": 0,
+    "comparison": "all original state/indexed output/RNG, all-slot census, original materials/draw order and unrelated coverage",
+    "proposed_later_still_tick": 5590,
+    "still_requires_numeric_coverage_first": true,
+    "synthetic_hit_ice_lethal": "not started; later exact plan must use live link2 count and original collisions/support"
+  },
+  "limits": [
+    "No actual link2 runtime acceptance, final RGB exposure or art-author runtime acceptance.",
+    "No natural manual combat, full-level, GPU/fullscreen or Windows runtime.",
+    "Original game data and private diagnostic hooks remain outside Git."
+  ]
+}

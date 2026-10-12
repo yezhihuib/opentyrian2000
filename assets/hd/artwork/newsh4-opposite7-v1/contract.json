@@ -1,0 +1,184 @@
+{
+  "schema": "newsh4-opposite7-art-v1",
+  "status": "root-reviewed offline art freeze 2026-10-12; actual right-family runtime gates pending",
+  "scope": {
+    "bank": 2,
+    "source_sheet": "newsh4.shp",
+    "source_sha256": "ab8881b4a26e723650780b19d5aed4ebfe410ea450d4bf7b80840628d61fd89b",
+    "records": [
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79
+    ],
+    "bases": [
+      231,
+      233,
+      235,
+      267,
+      269,
+      271,
+      273
+    ],
+    "link": 2,
+    "source_palette": 5,
+    "density": 8,
+    "canvas": [
+      24,
+      28
+    ],
+    "anchor": [
+      6,
+      7
+    ],
+    "assembly": [
+      168,
+      28
+    ],
+    "namespace": 102,
+    "key_formula": "1020000+base",
+    "quadrants": [
+      0,
+      1,
+      19,
+      20
+    ]
+  },
+  "registration": {
+    "master_alpha_threshold": 16,
+    "master_alpha_bbox": [
+      122,
+      196,
+      2050,
+      507
+    ],
+    "assembly_target_bbox_8x": [
+      16,
+      8,
+      1344,
+      208
+    ],
+    "reason": "Preserve full logical canvas and source silhouette while registering the generated continuous assembly; no per-piece crop/recenter or mirrored art"
+  },
+  "alpha": {
+    "logical_owned_cells": 2027,
+    "per_piece": [
+      110,
+      201,
+      229,
+      263,
+      295,
+      425,
+      504
+    ],
+    "source": "Exact original RLE opacity repeated8x",
+    "values": [
+      0,
+      255
+    ],
+    "outside_RGBA": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "technical_matte_RGB": [
+      12,
+      8,
+      0
+    ],
+    "original_RGB_in_outputs": false
+  },
+  "provenance": {
+    "generator": "built-in imagegen",
+    "original_source_audit_sha256": "ee1712ed893fbf4ba4a263ca3cf3eb2231a17dcf75f7f14e337ad475f7689131",
+    "approved_other_family_style_master_sha256": "3d11192f315a4ac4069d2fa79728eb3c32245b875385274e9008f902c96e2076",
+    "style_only_reference": "Other-facing source is a style reference only; all seven opposite originals were independently decoded and inspected",
+    "difference_from_mirrored_left_original": {
+      "RGBA_logical_cells": 1028,
+      "alpha_logical_cells": 51
+    },
+    "original_reference_pixels_excluded": true
+  },
+  "canonical_outputs": [
+    {
+      "base": 231,
+      "png": "enemy-newsh4-231-8.png",
+      "hda": "enemy-newsh4-231-8.hda",
+      "png_sha256": "e2cee96271b7b15aaa258a65e7c46218f538ffbdfa9807ddc450da5094bb4990",
+      "rgba_sha256": "bce31d3bdc1c026757e64cdd9349f832a4b50a8ede48a66e5d33432cfc58588d",
+      "hda_sha256": "76740ae794198be75ba5d91f66f833a11204a5af2ebe5aea5123d25e75abf19f",
+      "hda_bytes": 172060,
+      "alpha_sha256": "2346657f19de17b79937a943fac98db2f0482bff9e77ac6c306a85ff22574424"
+    },
+    {
+      "base": 233,
+      "png": "enemy-newsh4-233-8.png",
+      "hda": "enemy-newsh4-233-8.hda",
+      "png_sha256": "ae60fa466453c8098b34371bec92cf2d83dbfbd3b37a7f09e200e990db7d6a38",
+      "rgba_sha256": "b24b7901d4e4795b75efb206ec3cbeb208bbfb73ccb65a64094567b611ee0258",
+      "hda_sha256": "d775e0a19addd5387751d4d6f968b5f1496ab163b1b4fde66676da63a0c97aba",
+      "hda_bytes": 172060,
+      "alpha_sha256": "55f82eb3e492244bdfa4f3170df76b7c494c4ca0b6b13e0c2e793a04309789d7"
+    },
+    {
+      "base": 235,
+      "png": "enemy-newsh4-235-8.png",
+      "hda": "enemy-newsh4-235-8.hda",
+      "png_sha256": "45aa3307069848b75db8e6866448c18188d8def8445363955115aacdd85a9b1b",
+      "rgba_sha256": "0d0bffef2bc5dc36634ee57996ddc8155015408a07739e3d4f3a935a4dc6da0d",
+      "hda_sha256": "dcfbceba15dc235a1a159c8f4776fb6999ee0cf2b119e42f464016af59c5d3fb",
+      "hda_bytes": 172060,
+      "alpha_sha256": "bab005ebabb829cba2a66b2fd0eb8cf5fc45a5ff50c289186815b19823325e0c"
+    },
+    {
+      "base": 267,
+      "png": "enemy-newsh4-267-8.png",
+      "hda": "enemy-newsh4-267-8.hda",
+      "png_sha256": "5bd9c613f4570b25672f9be484dd91437d750e0c85aa91ff91e71dca57228206",
+      "rgba_sha256": "01b5cdbcad2395bb15d5fef855f2996d6cf9350252b87400d620f2528530d26f",
+      "hda_sha256": "80422d5d07e88de6dac735b89a5923623319dd35d4559923d88e04487e3a5554",
+      "hda_bytes": 172060,
+      "alpha_sha256": "aeae782a74f2e42497d548f4e90948ad809e271038a005a80e6cca65ff2d3bdc"
+    },
+    {
+      "base": 269,
+      "png": "enemy-newsh4-269-8.png",
+      "hda": "enemy-newsh4-269-8.hda",
+      "png_sha256": "2956f1059155fb6661c36e8f8f2b7e582ca61e9e0f72d65ec874f16f74187089",
+      "rgba_sha256": "4b033ca269be237a0fa7c23a4f0f3a9dce80b0f97efbe1caeb2c9c390d848835",
+      "hda_sha256": "807c5e983a9bdbcfc029467e0967efc91b29c668801c38611ab03097445d302c",
+      "hda_bytes": 172060,
+      "alpha_sha256": "c71ce80832837af278d92db3943e16b6b88fbfe0c56e11b4df46dd0a437d0735"
+    },
+    {
+      "base": 271,
+      "png": "enemy-newsh4-271-8.png",
+      "hda": "enemy-newsh4-271-8.hda",
+      "png_sha256": "d6eac8e74ec26b8d5a058195c258ca1c5cc53718072ec76ab2fb12d1d5291c4e",
+      "rgba_sha256": "60109281e71cd09cc4d96122f08504cb900a2f5d3fc69a8833e4d2753fbd60f2",
+      "hda_sha256": "e6f159a02dfadab3c883d04c5d17418ba0c3b5f66f322f1fadd72e83d6ddec92",
+      "hda_bytes": 172060,
+      "alpha_sha256": "cd738029591b4041798a30961333bc3f876eb5211ab3b5d624d74f724ec0c090"
+    },
+    {
+      "base": 273,
+      "png": "enemy-newsh4-273-8.png",
+      "hda": "enemy-newsh4-273-8.hda",
+      "png_sha256": "8e5ad4402891610c1fd8fedda4f5cff071463693b3d1c4f4bf0453d0827a56bc",
+      "rgba_sha256": "7813fd611d11b30eb6f4f51eb3c23eb5bd30a1c05eeebe1b7f00d449636448ab",
+      "hda_sha256": "85f4fe5fd01dc69c857c039b4c589cbf4becd29c696cef2503f79b647a2e92fe",
+      "hda_bytes": 172060,
+      "alpha_sha256": "83bbd5f0cfdd0ddc2d87c4c84fd74f4d58158caf3009d920aaef92173f52872d"
+    }
+  ],
+  "runtime_limits": [
+    "Root acceptance covers offline art only; do not reuse link1 runtime QA.",
+    "Preserve three link2 spawn groups, actor movement, layer3 occlusion, original hit/ice filters, link2 removal and reward/explosion behavior.",
+    "First references5568, full quadrant reference presence5578, first-group references end5617; references are not final exposure.",
+    "Do not replace global raw sprite-bank quadrants or bind equal numeric IDs in another bank."
+  ]
+}

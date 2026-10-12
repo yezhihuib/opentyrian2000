@@ -37,6 +37,119 @@ EXPECTED = {
 SOURCE_MANIFEST = 'd7bd240f1210d01c3d0e01a81ec5511fe02be7972014d6564e333c54306bd7cc'
 
 
+# Finite opposite-family receipts are pinned independently of mutable manifests.
+OPPOSITE7 = {'source': 'assets/hd/artwork/newsh4-opposite7-v1',
+ 'source_manifest_sha256': 'fce309722a55c0f62ab563af15ff7af41b9a739d09b3099878753030ec5774bd',
+ 'density': 8,
+ 'logical_size': [24, 28],
+ 'assembly_size': [168, 28],
+ 'ids': [231, 233, 235, 267, 269, 271, 273],
+ 'slots': [389, 390, 391, 392, 393, 394, 395],
+ 'actor_types': [73, 74, 75, 76, 77, 78, 79],
+ 'bank_id': 2,
+ 'link': 2,
+ 'runtime_components': [0, 1, 19, 20],
+ 'excluded_actor_types': [66, 67, 68, 69, 70, 71, 72],
+ 'entries': [{'kind': 'actor',
+              'bank_role': 102,
+              'id': 231,
+              'enemy_type': 73,
+              'slot': 389,
+              'anchor': [6, 7],
+              'rgba_fnv1a64': '7772ad387ba647e1'},
+             {'kind': 'actor',
+              'bank_role': 102,
+              'id': 233,
+              'enemy_type': 74,
+              'slot': 390,
+              'anchor': [6, 7],
+              'rgba_fnv1a64': '46ec9cc03cb2a64d'},
+             {'kind': 'actor',
+              'bank_role': 102,
+              'id': 235,
+              'enemy_type': 75,
+              'slot': 391,
+              'anchor': [6, 7],
+              'rgba_fnv1a64': '6cf67a53c0c3c617'},
+             {'kind': 'actor',
+              'bank_role': 102,
+              'id': 267,
+              'enemy_type': 76,
+              'slot': 392,
+              'anchor': [6, 7],
+              'rgba_fnv1a64': '3b6f6b5a0675dfab'},
+             {'kind': 'actor',
+              'bank_role': 102,
+              'id': 269,
+              'enemy_type': 77,
+              'slot': 393,
+              'anchor': [6, 7],
+              'rgba_fnv1a64': '4e35f12d37d40aa1'},
+             {'kind': 'actor',
+              'bank_role': 102,
+              'id': 271,
+              'enemy_type': 78,
+              'slot': 394,
+              'anchor': [6, 7],
+              'rgba_fnv1a64': '4fb033fc9820579f'},
+             {'kind': 'actor',
+              'bank_role': 102,
+              'id': 273,
+              'enemy_type': 79,
+              'slot': 395,
+              'anchor': [6, 7],
+              'rgba_fnv1a64': '638ffb21f4fcc1dc'}]}
+OPPOSITE7_FILES = {'enemy-newsh4-231-8.hda': {'sha256': '76740ae794198be75ba5d91f66f833a11204a5af2ebe5aea5123d25e75abf19f',
+                            'header_u32': [1020231, 8, 24, 28, 6, 7],
+                            'source_png': 'assets/hd/source/enemy-newsh4-231-8-76740ae79419.png',
+                            'source_png_sha256': 'e2cee96271b7b15aaa258a65e7c46218f538ffbdfa9807ddc450da5094bb4990'},
+ 'enemy-newsh4-233-8.hda': {'sha256': 'd775e0a19addd5387751d4d6f968b5f1496ab163b1b4fde66676da63a0c97aba',
+                            'header_u32': [1020233, 8, 24, 28, 6, 7],
+                            'source_png': 'assets/hd/source/enemy-newsh4-233-8-d775e0a19add.png',
+                            'source_png_sha256': 'ae60fa466453c8098b34371bec92cf2d83dbfbd3b37a7f09e200e990db7d6a38'},
+ 'enemy-newsh4-235-8.hda': {'sha256': 'dcfbceba15dc235a1a159c8f4776fb6999ee0cf2b119e42f464016af59c5d3fb',
+                            'header_u32': [1020235, 8, 24, 28, 6, 7],
+                            'source_png': 'assets/hd/source/enemy-newsh4-235-8-dcfbceba15dc.png',
+                            'source_png_sha256': '45aa3307069848b75db8e6866448c18188d8def8445363955115aacdd85a9b1b'},
+ 'enemy-newsh4-267-8.hda': {'sha256': '80422d5d07e88de6dac735b89a5923623319dd35d4559923d88e04487e3a5554',
+                            'header_u32': [1020267, 8, 24, 28, 6, 7],
+                            'source_png': 'assets/hd/source/enemy-newsh4-267-8-80422d5d07e8.png',
+                            'source_png_sha256': '5bd9c613f4570b25672f9be484dd91437d750e0c85aa91ff91e71dca57228206'},
+ 'enemy-newsh4-269-8.hda': {'sha256': '807c5e983a9bdbcfc029467e0967efc91b29c668801c38611ab03097445d302c',
+                            'header_u32': [1020269, 8, 24, 28, 6, 7],
+                            'source_png': 'assets/hd/source/enemy-newsh4-269-8-807c5e983a9b.png',
+                            'source_png_sha256': '2956f1059155fb6661c36e8f8f2b7e582ca61e9e0f72d65ec874f16f74187089'},
+ 'enemy-newsh4-271-8.hda': {'sha256': 'e6f159a02dfadab3c883d04c5d17418ba0c3b5f66f322f1fadd72e83d6ddec92',
+                            'header_u32': [1020271, 8, 24, 28, 6, 7],
+                            'source_png': 'assets/hd/source/enemy-newsh4-271-8-e6f159a02dfa.png',
+                            'source_png_sha256': 'd6eac8e74ec26b8d5a058195c258ca1c5cc53718072ec76ab2fb12d1d5291c4e'},
+ 'enemy-newsh4-273-8.hda': {'sha256': '85f4fe5fd01dc69c857c039b4c589cbf4becd29c696cef2503f79b647a2e92fe',
+                            'header_u32': [1020273, 8, 24, 28, 6, 7],
+                            'source_png': 'assets/hd/source/enemy-newsh4-273-8-85f4fe5fd01d.png',
+                            'source_png_sha256': '8e5ad4402891610c1fd8fedda4f5cff071463693b3d1c4f4bf0453d0827a56bc'}}
+OPPOSITE7_PNGS = {'76740ae794198be75ba5d91f66f833a11204a5af2ebe5aea5123d25e75abf19f': {'path': 'assets/hd/source/enemy-newsh4-231-8-76740ae79419.png',
+                                                                      'sha256': 'e2cee96271b7b15aaa258a65e7c46218f538ffbdfa9807ddc450da5094bb4990',
+                                                                      'RGBA_sha256': 'bce31d3bdc1c026757e64cdd9349f832a4b50a8ede48a66e5d33432cfc58588d'},
+ 'd775e0a19addd5387751d4d6f968b5f1496ab163b1b4fde66676da63a0c97aba': {'path': 'assets/hd/source/enemy-newsh4-233-8-d775e0a19add.png',
+                                                                      'sha256': 'ae60fa466453c8098b34371bec92cf2d83dbfbd3b37a7f09e200e990db7d6a38',
+                                                                      'RGBA_sha256': 'b24b7901d4e4795b75efb206ec3cbeb208bbfb73ccb65a64094567b611ee0258'},
+ 'dcfbceba15dc235a1a159c8f4776fb6999ee0cf2b119e42f464016af59c5d3fb': {'path': 'assets/hd/source/enemy-newsh4-235-8-dcfbceba15dc.png',
+                                                                      'sha256': '45aa3307069848b75db8e6866448c18188d8def8445363955115aacdd85a9b1b',
+                                                                      'RGBA_sha256': '0d0bffef2bc5dc36634ee57996ddc8155015408a07739e3d4f3a935a4dc6da0d'},
+ '80422d5d07e88de6dac735b89a5923623319dd35d4559923d88e04487e3a5554': {'path': 'assets/hd/source/enemy-newsh4-267-8-80422d5d07e8.png',
+                                                                      'sha256': '5bd9c613f4570b25672f9be484dd91437d750e0c85aa91ff91e71dca57228206',
+                                                                      'RGBA_sha256': '01b5cdbcad2395bb15d5fef855f2996d6cf9350252b87400d620f2528530d26f'},
+ '807c5e983a9bdbcfc029467e0967efc91b29c668801c38611ab03097445d302c': {'path': 'assets/hd/source/enemy-newsh4-269-8-807c5e983a9b.png',
+                                                                      'sha256': '2956f1059155fb6661c36e8f8f2b7e582ca61e9e0f72d65ec874f16f74187089',
+                                                                      'RGBA_sha256': '4b033ca269be237a0fa7c23a4f0f3a9dce80b0f97efbe1caeb2c9c390d848835'},
+ 'e6f159a02dfadab3c883d04c5d17418ba0c3b5f66f322f1fadd72e83d6ddec92': {'path': 'assets/hd/source/enemy-newsh4-271-8-e6f159a02dfa.png',
+                                                                      'sha256': 'd6eac8e74ec26b8d5a058195c258ca1c5cc53718072ec76ab2fb12d1d5291c4e',
+                                                                      'RGBA_sha256': '60109281e71cd09cc4d96122f08504cb900a2f5d3fc69a8833e4d2753fbd60f2'},
+ '85f4fe5fd01dc69c857c039b4c589cbf4becd29c696cef2503f79b647a2e92fe': {'path': 'assets/hd/source/enemy-newsh4-273-8-85f4fe5fd01d.png',
+                                                                      'sha256': '8e5ad4402891610c1fd8fedda4f5cff071463693b3d1c4f4bf0453d0827a56bc',
+                                                                      'RGBA_sha256': '7813fd611d11b30eb6f4f51eb3c23eb5bd30a1c05eeebe1b7f00d449636448ab'}}
+
+
 def sha(data):
     return hashlib.sha256(data).hexdigest()
 
@@ -118,6 +231,22 @@ class TitlePackageTests(unittest.TestCase):
     def test_existing_manifest_fields_and_bytes_unchanged_from_baseline(self):
         baseline = subprocess.check_output(['git', 'show', 'aba8650:assets/hd/manifest.json'], cwd=ROOT)
         without_title = json.loads(json.dumps(self.manifest))
+        opposite = without_title.pop('newsh4_opposite7_v1', None)
+        if opposite is not None:
+            self.assertEqual({k: v for k, v in opposite.items() if k != 'runtime_status'}, OPPOSITE7)
+            self.assertTrue(all(digest in without_title['source_pngs'] for digest in OPPOSITE7_PNGS))
+            for key in ['default_preview_pack', 'default_debug_pack']:
+                name = without_title[key]
+                pack = without_title['packs'][name]
+                self.assertEqual(pack['count'], len(pack['files']))
+                for filename, expected in OPPOSITE7_FILES.items():
+                    receipt = pack['files'].pop(filename)
+                    self.assertEqual(receipt, expected)
+                    self.assertEqual(sha((ROOT / 'assets/hd/packs' / name / filename).read_bytes()), receipt['sha256'])
+                    self.assertEqual(sha((ROOT / receipt['source_png']).read_bytes()), receipt['source_png_sha256'])
+                    self.assertEqual(without_title['source_pngs'].get(receipt['sha256'], OPPOSITE7_PNGS[receipt['sha256']]), OPPOSITE7_PNGS[receipt['sha256']])
+                    without_title['source_pngs'].pop(receipt['sha256'], None)
+                    pack['count'] -= 1
         # A later finite bank2 family may coexist with this title checkpoint.
         # Pin every added receipt to its reviewed source commit before removal;
         # unknown fields, resources, packs and changes to older entries fail.
@@ -153,7 +282,7 @@ class TitlePackageTests(unittest.TestCase):
         if 'newsh4_long7_v1' not in self.manifest:
             self.skipTest('Finite gameplay family is absent')
         original = self.manifest
-        for case in ['extra-member', 'changed-member', 'count', 'source-png', 'old-title-neighbor']:
+        for case in ['extra-member', 'changed-member', 'count', 'source-png', 'opposite7-member', 'opposite7-png', 'old-title-neighbor']:
             with self.subTest(case=case):
                 changed = json.loads(json.dumps(original))
                 pack = changed['packs'][changed['default_preview_pack']]
@@ -166,6 +295,10 @@ class TitlePackageTests(unittest.TestCase):
                     pack['count'] += 1
                 elif case == 'source-png':
                     del changed['source_pngs'][pack['files']['enemy-newsh4-157-8.hda']['sha256']]
+                elif case == 'opposite7-member':
+                    pack['files']['enemy-newsh4-273-8.hda']['header_u32'][0] += 1
+                elif case == 'opposite7-png':
+                    del changed['source_pngs'][pack['files']['enemy-newsh4-231-8.hda']['sha256']]
                 else:
                     changed['linked31_installation_v1']['original_relative_actor_y'] = 99
                 self.manifest = changed

@@ -1,0 +1,91 @@
+{
+  "status": "PASS",
+  "scope": "Opposite/right seven-piece family types73\u201379, newsh4 bases231/233/235/267/269/271/273",
+  "candidate": "ac95ac1e5bfd64bead95eee33da6d1c10e477985",
+  "baseline": "67656d102a67cd1bd76c823a2b20f6023f7bb9f0",
+  "art_revision_requested": false,
+  "direct_visual_review": {
+    "intact": "Native640x400 tick5590 baseline/candidate pair",
+    "ordered_lifecycle": "All36 ticks5590\u20135625 reviewed as unscaled native2x crops; selected full candidate5592,5594,5596,5622 and baseline5592,5594,5595,5622,5623",
+    "true4x": "Native1280x800 candidate tick5590, unchanged internal density8",
+    "findings": [
+      "Distinct taper, shoulder and collars preserve original geometry; dark-brown metal and restrained highlights match approved art.",
+      "Movement remains continuous; original blue hit/ice filtering reads clearly without detached HD fragments.",
+      "Linked removal leaves no authored ghost; original explosions remain visually consistent.",
+      "Tick5622 has cleared post-update explosion pools but still presents faint final red rings. Tick5623 is the first visually explosion-free equal presentation."
+    ]
+  },
+  "numeric_evidence": {
+    "no_fire": {
+      "original_state_ticks": 5625,
+      "census_rows": 36000,
+      "right_callbacks": 632,
+      "visible_authored_pixels_2x": 7376,
+      "right_source_support_pixels_2x": 8108,
+      "outside_support_changes": 0,
+      "cap273_visible": 1284,
+      "cap273_support": 2016,
+      "cap273_layer3_hidden": 732
+    },
+    "lifecycle": {
+      "original_state_ticks": 5626,
+      "normalized_original_blend_rows": 95236,
+      "census_rows": 21600,
+      "right_callbacks": 168,
+      "outside_support_frames_passed": 36,
+      "full_equality_ticks": [
+        5596,
+        5625
+      ],
+      "exposed_filters_all_seven": [
+        208,
+        9
+      ],
+      "collisions": [
+        {
+          "tick": 5591,
+          "damage": 1,
+          "target_slot": 53,
+          "type": 76,
+          "base": 267
+        },
+        {
+          "tick": 5593,
+          "damage": 99,
+          "role": "original ice path"
+        },
+        {
+          "tick": 5595,
+          "damage": 49,
+          "role": "lethal, all7 link2 removed"
+        }
+      ],
+      "pool_first_clear": 5622,
+      "presentation_first_clear": 5623
+    },
+    "true4x": {
+      "source_support_pixels": 32432,
+      "cap273_visible": 5136,
+      "cap273_support": 8064,
+      "cap273_hidden": 2928
+    },
+    "finite_fallback": "Missing/corrupt resources return classic with zero right callbacks; density4 checked against its own matched control."
+  },
+  "verification_sha256": {
+    "no_fire": "a10db43c581fc7694cd5aa205b72e5787ce8221f4079959c832741cd8e90be00",
+    "lifecycle": "5332cf9987aff90dd831716b47f6e6da161b7fafe5ebfa8ee87da7fc2b5a035f",
+    "finite": "b975184d321fd421437fdc852cf7dfa8b8122b721bddf0274ec2cb322380d6df"
+  },
+  "visual_evidence_sha256": {
+    "true4x5590": "8cdb61a4bc8d6232fc42eaf81519a7d849b9b9f5eca71c5db15682a8062c67d1",
+    "ordered36_native2x_crops": "409bfb591fe4086d65b275f1ed86a32d6da077f99d7226d072810b11ae92facc"
+  },
+  "limitations": [
+    "Lifecycle is a private stationary/no-fire survival fixture with three artificial requests through original Pulse155 collision handling, not natural combat.",
+    "Lethal5595 precedes left-family spawn5614; no simultaneous cross-link combat isolation claim. Later left state parity is numeric only.",
+    "Part of cap273 is genuinely hidden by later Layer3; concealed art is not a visible in-game acceptance sample.",
+    "Direct visual evidence consists of retained PNGs/contact sheet. No continuous video playback, physical display/GPU or full-first-level claim.",
+    "Missing/corrupt prefix equality is limited to retained evidence through5590; no unretained raw-prefix claim."
+  ],
+  "pin_correction": "Final lifecycle verification SHA replaces the intermediate a2e367827c47a0de84ce61d81dec1d3890b3e7d11bd884d38088176fe243579d after presentation-clear proof finalized."
+}

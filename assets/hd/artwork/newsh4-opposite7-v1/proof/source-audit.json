@@ -1,0 +1,4772 @@
+{
+  "schema": "opposite-strip-source-audit-v1",
+  "provenance": {
+    "commit": "349b3ca5219e45da4d58f8af254496b0c29669d1",
+    "data_sha256": {
+      "tyrian.hdt": "fde8506326e7bb0916b38c362e33bf8a8a5affa561206c021af7f65b4a17745b",
+      "tyrian1.lvl": "54cbb00b57b84aa992a70cfcb170cb1edeb59507873723630d60080ba8351352",
+      "newsh4.shp": "ab8881b4a26e723650780b19d5aed4ebfe410ea450d4bf7b80840628d61fd89b"
+    },
+    "source_sha256": {
+      "src/episodes.c": "640219b48d3081ee996ce66a66f61ad2fe185339fcfaf395808e02fcee0b29e0",
+      "src/tyrian2.c": "d17a9b07478640d91619958dd51ee9622d419887600deab0cbea03254f3929ff",
+      "src/sprite.c": "b912773976c4b745f355d471b4da6a4ea25907e7bf80eb7356c9a59ae361237c",
+      "src/render_mirror.c": "f5b05680a3418a58ef3350ceafacdd7a13ba4dd552979838cb3661f78bc50bbd",
+      "src/varz.c": "d4502557903eea9fc082b83385fee3448564124040ff27faa1a4af16c8e394c7"
+    },
+    "inventory_sha256": {
+      "first-level-inventory.json": "7f8c748d678bfef2502385e36396ed327db8cdbdd4c67d3ef769dd8c1f0976ce",
+      "decoded-tables.json": "5be6ca063a2ae3e167904f94d92dc10f3170525913e09ceaf54d3e1ee0e78b46",
+      "inventory.py": "b8997e633aa60c796e11fe0385c3a469fb5eaf61330454021f68a2e9eca4c6e0"
+    },
+    "full_enemy_record_count": 1701,
+    "event_count": 1010,
+    "game_runs": 0,
+    "captures": 0,
+    "repository_edits": 0
+  },
+  "records": [
+    {
+      "id": 73,
+      "ani": 1,
+      "tur": [
+        0,
+        0,
+        0
+      ],
+      "freq": [
+        0,
+        0,
+        0
+      ],
+      "xmove": 0,
+      "ymove": 0,
+      "xaccel": 0,
+      "yaccel": 0,
+      "xcaccel": 0,
+      "ycaccel": 0,
+      "startx": 0,
+      "starty": 0,
+      "startxc": 0,
+      "startyc": 0,
+      "armor": 50,
+      "esize": 1,
+      "egraphic": [
+        231,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "explosiontype": 24,
+      "animate": 0,
+      "shapebank": 2,
+      "xrev": 0,
+      "yrev": 0,
+      "dgr": 0,
+      "dlevel": 0,
+      "dani": 0,
+      "elaunchfreq": 0,
+      "elaunchtype": 0,
+      "value": 0,
+      "eenemydie": 0,
+      "audit_sprite": {
+        "base": 231,
+        "tile_ids": [
+          231,
+          232,
+          250,
+          251
+        ],
+        "logical_size": [
+          24,
+          28
+        ],
+        "anchor": [
+          6,
+          7
+        ],
+        "opaque_pixels": 110,
+        "nonzero_pixels": 110,
+        "bounds_inclusive": [
+          2,
+          13,
+          23,
+          25
+        ],
+        "palette_high_nibbles": [
+          1
+        ],
+        "edge_opaque_rows": {
+          "left": [],
+          "right": [
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ]
+        },
+        "raw_record_offset": 169636,
+        "raw_record_size": 77
+      }
+    },
+    {
+      "id": 74,
+      "ani": 1,
+      "tur": [
+        0,
+        0,
+        0
+      ],
+      "freq": [
+        0,
+        0,
+        0
+      ],
+      "xmove": 0,
+      "ymove": 0,
+      "xaccel": 0,
+      "yaccel": 0,
+      "xcaccel": 0,
+      "ycaccel": 0,
+      "startx": 0,
+      "starty": 0,
+      "startxc": 0,
+      "startyc": 0,
+      "armor": 50,
+      "esize": 1,
+      "egraphic": [
+        233,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "explosiontype": 24,
+      "animate": 0,
+      "shapebank": 2,
+      "xrev": 0,
+      "yrev": 0,
+      "dgr": 0,
+      "dlevel": 0,
+      "dani": 0,
+      "elaunchfreq": 0,
+      "elaunchtype": 0,
+      "value": 0,
+      "eenemydie": 0,
+      "audit_sprite": {
+        "base": 233,
+        "tile_ids": [
+          233,
+          234,
+          252,
+          253
+        ],
+        "logical_size": [
+          24,
+          28
+        ],
+        "anchor": [
+          6,
+          7
+        ],
+        "opaque_pixels": 201,
+        "nonzero_pixels": 201,
+        "bounds_inclusive": [
+          0,
+          6,
+          23,
+          19
+        ],
+        "palette_high_nibbles": [
+          0,
+          1
+        ],
+        "edge_opaque_rows": {
+          "left": [
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "right": [
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ]
+        },
+        "raw_record_offset": 169713,
+        "raw_record_size": 77
+      }
+    },
+    {
+      "id": 75,
+      "ani": 1,
+      "tur": [
+        0,
+        0,
+        0
+      ],
+      "freq": [
+        0,
+        0,
+        0
+      ],
+      "xmove": 0,
+      "ymove": 0,
+      "xaccel": 0,
+      "yaccel": 0,
+      "xcaccel": 0,
+      "ycaccel": 0,
+      "startx": 0,
+      "starty": 0,
+      "startxc": 0,
+      "startyc": 0,
+      "armor": 50,
+      "esize": 1,
+      "egraphic": [
+        235,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "explosiontype": 24,
+      "animate": 0,
+      "shapebank": 2,
+      "xrev": 0,
+      "yrev": 0,
+      "dgr": 0,
+      "dlevel": 0,
+      "dani": 0,
+      "elaunchfreq": 0,
+      "elaunchtype": 0,
+      "value": 0,
+      "eenemydie": 0,
+      "audit_sprite": {
+        "base": 235,
+        "tile_ids": [
+          235,
+          236,
+          254,
+          255
+        ],
+        "logical_size": [
+          24,
+          28
+        ],
+        "anchor": [
+          6,
+          7
+        ],
+        "opaque_pixels": 229,
+        "nonzero_pixels": 229,
+        "bounds_inclusive": [
+          0,
+          3,
+          23,
+          15
+        ],
+        "palette_high_nibbles": [
+          0,
+          1
+        ],
+        "edge_opaque_rows": {
+          "left": [
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "right": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        },
+        "raw_record_offset": 169790,
+        "raw_record_size": 77
+      }
+    },
+    {
+      "id": 76,
+      "ani": 1,
+      "tur": [
+        0,
+        0,
+        0
+      ],
+      "freq": [
+        0,
+        0,
+        0
+      ],
+      "xmove": 0,
+      "ymove": 0,
+      "xaccel": 0,
+      "yaccel": 0,
+      "xcaccel": 0,
+      "ycaccel": 0,
+      "startx": 0,
+      "starty": 0,
+      "startxc": 0,
+      "startyc": 0,
+      "armor": 50,
+      "esize": 1,
+      "egraphic": [
+        267,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "explosiontype": 24,
+      "animate": 0,
+      "shapebank": 2,
+      "xrev": 0,
+      "yrev": 0,
+      "dgr": 0,
+      "dlevel": 0,
+      "dani": 0,
+      "elaunchfreq": 0,
+      "elaunchtype": 0,
+      "value": 0,
+      "eenemydie": 0,
+      "audit_sprite": {
+        "base": 267,
+        "tile_ids": [
+          267,
+          268,
+          286,
+          287
+        ],
+        "logical_size": [
+          24,
+          28
+        ],
+        "anchor": [
+          6,
+          7
+        ],
+        "opaque_pixels": 263,
+        "nonzero_pixels": 263,
+        "bounds_inclusive": [
+          0,
+          1,
+          23,
+          12
+        ],
+        "palette_high_nibbles": [
+          0,
+          1,
+          6
+        ],
+        "edge_opaque_rows": {
+          "left": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "right": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        },
+        "raw_record_offset": 169867,
+        "raw_record_size": 77
+      }
+    },
+    {
+      "id": 77,
+      "ani": 1,
+      "tur": [
+        0,
+        0,
+        0
+      ],
+      "freq": [
+        0,
+        0,
+        0
+      ],
+      "xmove": 0,
+      "ymove": 0,
+      "xaccel": 0,
+      "yaccel": 0,
+      "xcaccel": 0,
+      "ycaccel": 0,
+      "startx": 0,
+      "starty": 0,
+      "startxc": 0,
+      "startyc": 0,
+      "armor": 50,
+      "esize": 1,
+      "egraphic": [
+        269,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "explosiontype": 24,
+      "animate": 0,
+      "shapebank": 2,
+      "xrev": 0,
+      "yrev": 0,
+      "dgr": 0,
+      "dlevel": 0,
+      "dani": 0,
+      "elaunchfreq": 0,
+      "elaunchtype": 0,
+      "value": 0,
+      "eenemydie": 0,
+      "audit_sprite": {
+        "base": 269,
+        "tile_ids": [
+          269,
+          270,
+          288,
+          289
+        ],
+        "logical_size": [
+          24,
+          28
+        ],
+        "anchor": [
+          6,
+          7
+        ],
+        "opaque_pixels": 295,
+        "nonzero_pixels": 295,
+        "bounds_inclusive": [
+          0,
+          1,
+          23,
+          14
+        ],
+        "palette_high_nibbles": [
+          0,
+          1,
+          6,
+          10
+        ],
+        "edge_opaque_rows": {
+          "left": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "right": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        "raw_record_offset": 169944,
+        "raw_record_size": 77
+      }
+    },
+    {
+      "id": 78,
+      "ani": 1,
+      "tur": [
+        0,
+        0,
+        0
+      ],
+      "freq": [
+        0,
+        0,
+        0
+      ],
+      "xmove": 0,
+      "ymove": 0,
+      "xaccel": 0,
+      "yaccel": 0,
+      "xcaccel": 0,
+      "ycaccel": 0,
+      "startx": 0,
+      "starty": 0,
+      "startxc": 0,
+      "startyc": 0,
+      "armor": 50,
+      "esize": 1,
+      "egraphic": [
+        271,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "explosiontype": 24,
+      "animate": 0,
+      "shapebank": 2,
+      "xrev": 0,
+      "yrev": 0,
+      "dgr": 0,
+      "dlevel": 0,
+      "dani": 0,
+      "elaunchfreq": 0,
+      "elaunchtype": 0,
+      "value": 0,
+      "eenemydie": 0,
+      "audit_sprite": {
+        "base": 271,
+        "tile_ids": [
+          271,
+          272,
+          290,
+          291
+        ],
+        "logical_size": [
+          24,
+          28
+        ],
+        "anchor": [
+          6,
+          7
+        ],
+        "opaque_pixels": 425,
+        "nonzero_pixels": 425,
+        "bounds_inclusive": [
+          0,
+          1,
+          23,
+          21
+        ],
+        "palette_high_nibbles": [
+          1
+        ],
+        "edge_opaque_rows": {
+          "left": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "right": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21
+          ]
+        },
+        "raw_record_offset": 170021,
+        "raw_record_size": 77
+      }
+    },
+    {
+      "id": 79,
+      "ani": 1,
+      "tur": [
+        0,
+        0,
+        0
+      ],
+      "freq": [
+        0,
+        0,
+        0
+      ],
+      "xmove": 0,
+      "ymove": 0,
+      "xaccel": 0,
+      "yaccel": 0,
+      "xcaccel": 0,
+      "ycaccel": 0,
+      "startx": 0,
+      "starty": 0,
+      "startxc": 0,
+      "startyc": 0,
+      "armor": 50,
+      "esize": 1,
+      "egraphic": [
+        273,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "explosiontype": 24,
+      "animate": 0,
+      "shapebank": 2,
+      "xrev": 0,
+      "yrev": 0,
+      "dgr": 0,
+      "dlevel": 0,
+      "dani": 0,
+      "elaunchfreq": 0,
+      "elaunchtype": 0,
+      "value": 1000,
+      "eenemydie": 0,
+      "audit_sprite": {
+        "base": 273,
+        "tile_ids": [
+          273,
+          274,
+          292,
+          293
+        ],
+        "logical_size": [
+          24,
+          28
+        ],
+        "anchor": [
+          6,
+          7
+        ],
+        "opaque_pixels": 504,
+        "nonzero_pixels": 504,
+        "bounds_inclusive": [
+          0,
+          1,
+          23,
+          21
+        ],
+        "palette_high_nibbles": [
+          1
+        ],
+        "edge_opaque_rows": {
+          "left": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21
+          ],
+          "right": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21
+          ]
+        },
+        "raw_record_offset": 170098,
+        "raw_record_size": 77
+      }
+    }
+  ],
+  "tiles": [
+    {
+      "id": 231,
+      "source_offset": 22975,
+      "source_length": 1,
+      "source_sha256": "dc0e9c3658a1a3ed1ec94274d8b19925c93e1abb7ddba294923ad9bde30f8cb8",
+      "opaque_pixels": 0,
+      "nonzero_pixels": 0,
+      "bounds_inclusive": null
+    },
+    {
+      "id": 232,
+      "source_offset": 22976,
+      "source_length": 17,
+      "source_sha256": "3a7dcc4d160a2fa87569a43418246ee0f9c461a729fe0420c2f236f0cc45eb1b",
+      "opaque_pixels": 2,
+      "nonzero_pixels": 2,
+      "bounds_inclusive": [
+        10,
+        13,
+        11,
+        13
+      ]
+    },
+    {
+      "id": 250,
+      "source_offset": 24451,
+      "source_length": 54,
+      "source_sha256": "50ae76c466b8e63e194b2ce691f8c52a710359b19fd821771eb10872549ecea6",
+      "opaque_pixels": 34,
+      "nonzero_pixels": 34,
+      "bounds_inclusive": [
+        2,
+        4,
+        11,
+        11
+      ]
+    },
+    {
+      "id": 251,
+      "source_offset": 24505,
+      "source_length": 92,
+      "source_sha256": "7273df202d47ba429e3220e9f0e7e9b3464744c28fed28069a542240b887bc94",
+      "opaque_pixels": 74,
+      "nonzero_pixels": 74,
+      "bounds_inclusive": [
+        0,
+        0,
+        11,
+        8
+      ]
+    },
+    {
+      "id": 233,
+      "source_offset": 22993,
+      "source_length": 57,
+      "source_sha256": "0ce0108eece812d1805926df8da18e389ba11b4c94a5a85479cb42d662f6056e",
+      "opaque_pixels": 38,
+      "nonzero_pixels": 38,
+      "bounds_inclusive": [
+        0,
+        9,
+        11,
+        13
+      ]
+    },
+    {
+      "id": 234,
+      "source_offset": 23050,
+      "source_length": 99,
+      "source_sha256": "9abcd8101c1b0e3a744a46b80adba18362b4dc418a525b51d1327371f8b76010",
+      "opaque_pixels": 77,
+      "nonzero_pixels": 77,
+      "bounds_inclusive": [
+        0,
+        6,
+        11,
+        13
+      ]
+    },
+    {
+      "id": 252,
+      "source_offset": 24597,
+      "source_length": 69,
+      "source_sha256": "3412a44252649d94dc4bef372dbedd5b6bd0b8f09b0f233d46a27142974b37fa",
+      "opaque_pixels": 57,
+      "nonzero_pixels": 57,
+      "bounds_inclusive": [
+        0,
+        0,
+        11,
+        5
+      ]
+    },
+    {
+      "id": 253,
+      "source_offset": 24666,
+      "source_length": 35,
+      "source_sha256": "2519c1fe3bb184974d625cffe054ae35e92bb6fe5f095ce6b3846e02efa42629",
+      "opaque_pixels": 29,
+      "nonzero_pixels": 29,
+      "bounds_inclusive": [
+        0,
+        0,
+        11,
+        2
+      ]
+    },
+    {
+      "id": 235,
+      "source_offset": 23149,
+      "source_length": 126,
+      "source_sha256": "2545bf77208dda68a61eddd712f69569585ffd64cd84101ab332b10627a074bd",
+      "opaque_pixels": 103,
+      "nonzero_pixels": 103,
+      "bounds_inclusive": [
+        0,
+        5,
+        11,
+        13
+      ]
+    },
+    {
+      "id": 236,
+      "source_offset": 23275,
+      "source_length": 142,
+      "source_sha256": "e197691007f874442975178f7e578b2e557cbfb64cf89a7e8a3069b0f50bb153",
+      "opaque_pixels": 117,
+      "nonzero_pixels": 117,
+      "bounds_inclusive": [
+        0,
+        3,
+        11,
+        13
+      ]
+    },
+    {
+      "id": 254,
+      "source_offset": 24701,
+      "source_length": 13,
+      "source_sha256": "f8d50ce89778b298dd6ae33943160ee1f1a5e36b56edfed0cccdbcad04d1bc57",
+      "opaque_pixels": 9,
+      "nonzero_pixels": 9,
+      "bounds_inclusive": [
+        0,
+        0,
+        7,
+        1
+      ]
+    },
+    {
+      "id": 255,
+      "source_offset": 24714,
+      "source_length": 1,
+      "source_sha256": "dc0e9c3658a1a3ed1ec94274d8b19925c93e1abb7ddba294923ad9bde30f8cb8",
+      "opaque_pixels": 0,
+      "nonzero_pixels": 0,
+      "bounds_inclusive": null
+    },
+    {
+      "id": 267,
+      "source_offset": 25170,
+      "source_length": 150,
+      "source_sha256": "7b76fdf0d818e3b34e6fd686abc80293685e68625342b30c6744a264699f6b21",
+      "opaque_pixels": 126,
+      "nonzero_pixels": 126,
+      "bounds_inclusive": [
+        0,
+        2,
+        11,
+        12
+      ]
+    },
+    {
+      "id": 268,
+      "source_offset": 25320,
+      "source_length": 162,
+      "source_sha256": "24398c5f1a15786da68d684eafcb709d0e1d1bc0f612b17aebd9f2f00329aef3",
+      "opaque_pixels": 137,
+      "nonzero_pixels": 137,
+      "bounds_inclusive": [
+        0,
+        1,
+        11,
+        12
+      ]
+    },
+    {
+      "id": 286,
+      "source_offset": 26713,
+      "source_length": 1,
+      "source_sha256": "dc0e9c3658a1a3ed1ec94274d8b19925c93e1abb7ddba294923ad9bde30f8cb8",
+      "opaque_pixels": 0,
+      "nonzero_pixels": 0,
+      "bounds_inclusive": null
+    },
+    {
+      "id": 287,
+      "source_offset": 26714,
+      "source_length": 1,
+      "source_sha256": "dc0e9c3658a1a3ed1ec94274d8b19925c93e1abb7ddba294923ad9bde30f8cb8",
+      "opaque_pixels": 0,
+      "nonzero_pixels": 0,
+      "bounds_inclusive": null
+    },
+    {
+      "id": 269,
+      "source_offset": 25482,
+      "source_length": 169,
+      "source_sha256": "38a90fcfc1bee3c6a33aa01544296b1a1f729650ad5d8e555f527010c500a385",
+      "opaque_pixels": 144,
+      "nonzero_pixels": 144,
+      "bounds_inclusive": [
+        0,
+        1,
+        11,
+        12
+      ]
+    },
+    {
+      "id": 270,
+      "source_offset": 25651,
+      "source_length": 176,
+      "source_sha256": "35235450b4685f749e75d27cdc0c89f04b5b22a56f784e20d01fa19f33e75b23",
+      "opaque_pixels": 149,
+      "nonzero_pixels": 149,
+      "bounds_inclusive": [
+        0,
+        1,
+        11,
+        13
+      ]
+    },
+    {
+      "id": 288,
+      "source_offset": 26715,
+      "source_length": 1,
+      "source_sha256": "dc0e9c3658a1a3ed1ec94274d8b19925c93e1abb7ddba294923ad9bde30f8cb8",
+      "opaque_pixels": 0,
+      "nonzero_pixels": 0,
+      "bounds_inclusive": null
+    },
+    {
+      "id": 289,
+      "source_offset": 26716,
+      "source_length": 4,
+      "source_sha256": "5e23ea5e132989bdc2739af79c0ed909761f56e7553033c8ec757f5e3d508758",
+      "opaque_pixels": 2,
+      "nonzero_pixels": 2,
+      "bounds_inclusive": [
+        10,
+        0,
+        11,
+        0
+      ]
+    },
+    {
+      "id": 271,
+      "source_offset": 25827,
+      "source_length": 180,
+      "source_sha256": "8606e58743cc4688c7954ba41d4af51af7817db0b1c8672b7bc3b0cb53b9b8a5",
+      "opaque_pixels": 153,
+      "nonzero_pixels": 153,
+      "bounds_inclusive": [
+        0,
+        1,
+        11,
+        13
+      ]
+    },
+    {
+      "id": 272,
+      "source_offset": 26007,
+      "source_length": 173,
+      "source_sha256": "76843c8ade3ca4b8f88a00255fb8024a3cb8c71663321d341a78b41c5ca82309",
+      "opaque_pixels": 146,
+      "nonzero_pixels": 146,
+      "bounds_inclusive": [
+        0,
+        1,
+        11,
+        13
+      ]
+    },
+    {
+      "id": 290,
+      "source_offset": 26720,
+      "source_length": 67,
+      "source_sha256": "d0802ad8c1566e3b5f579aa8f66a6401f031947db5c5e6e4d1e614f6ce418cdd",
+      "opaque_pixels": 55,
+      "nonzero_pixels": 55,
+      "bounds_inclusive": [
+        0,
+        0,
+        11,
+        5
+      ]
+    },
+    {
+      "id": 291,
+      "source_offset": 26787,
+      "source_length": 87,
+      "source_sha256": "bdf9d666f0092f1064fd269f7ddeb0b4b5336af9ed234b35608763a62250f93f",
+      "opaque_pixels": 71,
+      "nonzero_pixels": 71,
+      "bounds_inclusive": [
+        0,
+        0,
+        11,
+        7
+      ]
+    },
+    {
+      "id": 273,
+      "source_offset": 26180,
+      "source_length": 183,
+      "source_sha256": "9677c01e285e04f2e48c11a67c5c527bfe28a99f0e3576fea537c1392ce3e19a",
+      "opaque_pixels": 156,
+      "nonzero_pixels": 156,
+      "bounds_inclusive": [
+        0,
+        1,
+        11,
+        13
+      ]
+    },
+    {
+      "id": 274,
+      "source_offset": 26363,
+      "source_length": 183,
+      "source_sha256": "cb0f59c08414661f72855b929ddfbade1b0722ff197f26dfe8afdba5393f93c4",
+      "opaque_pixels": 156,
+      "nonzero_pixels": 156,
+      "bounds_inclusive": [
+        0,
+        1,
+        11,
+        13
+      ]
+    },
+    {
+      "id": 292,
+      "source_offset": 26874,
+      "source_length": 112,
+      "source_sha256": "68afb22426f928c9702bcb2e00047e5c0fa67c3078b38034996021f64ccc55f7",
+      "opaque_pixels": 96,
+      "nonzero_pixels": 96,
+      "bounds_inclusive": [
+        0,
+        0,
+        11,
+        7
+      ]
+    },
+    {
+      "id": 293,
+      "source_offset": 26986,
+      "source_length": 112,
+      "source_sha256": "39e1e37a161f1000d7fc6cc22fb5312abcc0c7760cc6a0255fcb3cb198ff99e7",
+      "opaque_pixels": 96,
+      "nonzero_pixels": 96,
+      "bounds_inclusive": [
+        0,
+        0,
+        11,
+        7
+      ]
+    }
+  ],
+  "groups": [
+    {
+      "eventtime": 3525,
+      "tick": 5565,
+      "spawn_event_indexes": [
+        717,
+        718,
+        719,
+        720,
+        721,
+        722,
+        723
+      ],
+      "spawn_order_records": [
+        79,
+        78,
+        77,
+        76,
+        75,
+        74,
+        73
+      ],
+      "spawn_order_bases": [
+        273,
+        271,
+        269,
+        267,
+        235,
+        233,
+        231
+      ],
+      "left_to_right_records": [
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79
+      ],
+      "left_to_right_bases": [
+        231,
+        233,
+        235,
+        267,
+        269,
+        271,
+        273
+      ],
+      "left_to_right_event_x": [
+        156,
+        180,
+        204,
+        228,
+        252,
+        276,
+        300
+      ],
+      "all_y": -28,
+      "all_y_increment_from_event": 0,
+      "all_fixedmovey": 0,
+      "stride": [
+        24,
+        0
+      ],
+      "union_rectangle": [
+        168,
+        28
+      ],
+      "events": [
+        {
+          "eventtime": 3525,
+          "type": 7,
+          "dat": 79,
+          "dat2": 300,
+          "dat3": 0,
+          "dat5": 0,
+          "dat6": 0,
+          "dat4": 2,
+          "index": 717,
+          "scalar_predicted_tick": 5565
+        },
+        {
+          "eventtime": 3525,
+          "type": 7,
+          "dat": 78,
+          "dat2": 276,
+          "dat3": 0,
+          "dat5": 0,
+          "dat6": 0,
+          "dat4": 2,
+          "index": 718,
+          "scalar_predicted_tick": 5565
+        },
+        {
+          "eventtime": 3525,
+          "type": 7,
+          "dat": 77,
+          "dat2": 252,
+          "dat3": 0,
+          "dat5": 0,
+          "dat6": 0,
+          "dat4": 2,
+          "index": 719,
+          "scalar_predicted_tick": 5565
+        },
+        {
+          "eventtime": 3525,
+          "type": 7,
+          "dat": 76,
+          "dat2": 228,
+          "dat3": 0,
+          "dat5": 0,
+          "dat6": 0,
+          "dat4": 2,
+          "index": 720,
+          "scalar_predicted_tick": 5565
+        },
+        {
+          "eventtime": 3525,
+          "type": 7,
+          "dat": 75,
+          "dat2": 204,
+          "dat3": 0,
+          "dat5": 0,
+          "dat6": 0,
+          "dat4": 2,
+          "index": 721,
+          "scalar_predicted_tick": 5565
+        },
+        {
+          "eventtime": 3525,
+          "type": 7,
+          "dat": 74,
+          "dat2": 180,
+          "dat3": 0,
+          "dat5": 0,
+          "dat6": 0,
+          "dat4": 2,
+          "index": 722,
+          "scalar_predicted_tick": 5565
+        },
+        {
+          "eventtime": 3525,
+          "type": 7,
+          "dat": 73,
+          "dat2": 156,
+          "dat3": 0,
+          "dat5": 0,
+          "dat6": 0,
+          "dat4": 2,
+          "index": 723,
+          "scalar_predicted_tick": 5565
+        }
+      ]
+    },
+    {
+      "eventtime": 3863,
+      "tick": 5903,
+      "spawn_event_indexes": [
+        744,
+        745,
+        746,
+        747,
+        748,
+        749,
+        750
+      ],
+      "spawn_order_records": [
+        77,
+        76,
+        75,
+        74,
+        73,
+        79,
+        78
+      ],
+      "spawn_order_bases": [
+        269,
+        267,
+        235,
+        233,
+        231,
+        273,
+        271
+      ],
+      "left_to_right_records": [
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79
+      ],
+      "left_to_right_bases": [
+        231,
+        233,
+        235,
+        267,
+        269,
+        271,
+        273
+      ],
+      "left_to_right_event_x": [
+        108,
+        132,
+        156,
+        180,
+        204,
+        228,
+        252
+      ],
+      "all_y": -28,
+      "all_y_increment_from_event": 0,
+      "all_fixedmovey": 0,
+      "stride": [
+        24,
+        0
+      ],
+      "union_rectangle": [
+        168,
+        28
+      ],
+      "events": [
+        {
+          "eventtime": 3863,
+          "type": 7,
+          "dat": 77,
+          "dat2": 204,
+          "dat3": 0,
+          "dat5": 0,
+          "dat6": 0,
+          "dat4": 2,
+          "index": 744,
+          "scalar_predicted_tick": 5903
+        },
+        {
+          "eventtime": 3863,
+          "type": 7,
+          "dat": 76,
+          "dat2": 180,
+          "dat3": 0,
+          "dat5": 0,
+          "dat6": 0,
+          "dat4": 2,
+          "index": 745,
+          "scalar_predicted_tick": 5903
+        },
+        {
+          "eventtime": 3863,
+          "type": 7,
+          "dat": 75,
+          "dat2": 156,
+          "dat3": 0,
+          "dat5": 0,
+          "dat6": 0,
+          "dat4": 2,
+          "index": 746,
+          "scalar_predicted_tick": 5903
+        },
+        {
+          "eventtime": 3863,
+          "type": 7,
+          "dat": 74,
+          "dat2": 132,
+          "dat3": 0,
+          "dat5": 0,
+          "dat6": 0,
+          "dat4": 2,
+          "index": 747,
+          "scalar_predicted_tick": 5903
+        },
+        {
+          "eventtime": 3863,
+          "type": 7,
+          "dat": 73,
+          "dat2": 108,
+          "dat3": 0,
+          "dat5": 0,
+          "dat6": 0,
+          "dat4": 2,
+          "index": 748,
+          "scalar_predicted_tick": 5903
+        },
+        {
+          "eventtime": 3863,
+          "type": 7,
+          "dat": 79,
+          "dat2": 252,
+          "dat3": 0,
+          "dat5": 0,
+          "dat6": 0,
+          "dat4": 2,
+          "index": 749,
+          "scalar_predicted_tick": 5903
+        },
+        {
+          "eventtime": 3863,
+          "type": 7,
+          "dat": 78,
+          "dat2": 228,
+          "dat3": 0,
+          "dat5": 0,
+          "dat6": 0,
+          "dat4": 2,
+          "index": 750,
+          "scalar_predicted_tick": 5903
+        }
+      ]
+    },
+    {
+      "eventtime": 3928,
+      "tick": 5968,
+      "spawn_event_indexes": [
+        753,
+        754,
+        755,
+        756,
+        757,
+        758,
+        759
+      ],
+      "spawn_order_records": [
+        79,
+        78,
+        77,
+        76,
+        75,
+        74,
+        73
+      ],
+      "spawn_order_bases": [
+        273,
+        271,
+        269,
+        267,
+        235,
+        233,
+        231
+      ],
+      "left_to_right_records": [
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79
+      ],
+      "left_to_right_bases": [
+        231,
+        233,
+        235,
+        267,
+        269,
+        271,
+        273
+      ],
+      "left_to_right_event_x": [
+        108,
+        132,
+        156,
+        180,
+        204,
+        228,
+        252
+      ],
+      "all_y": -28,
+      "all_y_increment_from_event": 0,
+      "all_fixedmovey": 0,
+      "stride": [
+        24,
+        0
+      ],
+      "union_rectangle": [
+        168,
+        28
+      ],
+      "events": [
+        {
+          "eventtime": 3928,
+          "type": 7,
+          "dat": 79,
+          "dat2": 252,
+          "dat3": 0,
+          "dat5": 0,
+          "dat6": 0,
+          "dat4": 2,
+          "index": 753,
+          "scalar_predicted_tick": 5968
+        },
+        {
+          "eventtime": 3928,
+          "type": 7,
+          "dat": 78,
+          "dat2": 228,
+          "dat3": 0,
+          "dat5": 0,
+          "dat6": 0,
+          "dat4": 2,
+          "index": 754,
+          "scalar_predicted_tick": 5968
+        },
+        {
+          "eventtime": 3928,
+          "type": 7,
+          "dat": 77,
+          "dat2": 204,
+          "dat3": 0,
+          "dat5": 0,
+          "dat6": 0,
+          "dat4": 2,
+          "index": 755,
+          "scalar_predicted_tick": 5968
+        },
+        {
+          "eventtime": 3928,
+          "type": 7,
+          "dat": 76,
+          "dat2": 180,
+          "dat3": 0,
+          "dat5": 0,
+          "dat6": 0,
+          "dat4": 2,
+          "index": 756,
+          "scalar_predicted_tick": 5968
+        },
+        {
+          "eventtime": 3928,
+          "type": 7,
+          "dat": 75,
+          "dat2": 156,
+          "dat3": 0,
+          "dat5": 0,
+          "dat6": 0,
+          "dat4": 2,
+          "index": 757,
+          "scalar_predicted_tick": 5968
+        },
+        {
+          "eventtime": 3928,
+          "type": 7,
+          "dat": 74,
+          "dat2": 132,
+          "dat3": 0,
+          "dat5": 0,
+          "dat6": 0,
+          "dat4": 2,
+          "index": 758,
+          "scalar_predicted_tick": 5968
+        },
+        {
+          "eventtime": 3928,
+          "type": 7,
+          "dat": 73,
+          "dat2": 108,
+          "dat3": 0,
+          "dat5": 0,
+          "dat6": 0,
+          "dat4": 2,
+          "index": 759,
+          "scalar_predicted_tick": 5968
+        }
+      ]
+    }
+  ],
+  "geometry": {
+    "assembly_axis": "horizontal",
+    "individual_composite": [
+      24,
+      28
+    ],
+    "logical_anchor": [
+      6,
+      7
+    ],
+    "quadrant_draw_order": [
+      {
+        "part": 0,
+        "offset": [
+          -6,
+          -7
+        ]
+      },
+      {
+        "part": 1,
+        "offset": [
+          6,
+          -7
+        ]
+      },
+      {
+        "part": 19,
+        "offset": [
+          -6,
+          7
+        ]
+      },
+      {
+        "part": 20,
+        "offset": [
+          6,
+          7
+        ]
+      }
+    ],
+    "vertical_relationship": "All seven actors have identical y; within each composite top and bottom rows are 14 logical pixels apart with zero overlap. No vertical seven-piece stack exists in these events.",
+    "piece_stride": [
+      24,
+      0
+    ],
+    "union_size": [
+      168,
+      28
+    ],
+    "pairwise_piece_rectangle_overlap_pixels": 0,
+    "seams": [
+      {
+        "left_base": 231,
+        "right_base": 233,
+        "rectangle_overlap_pixels": 0,
+        "opaque_edge_adjacency_rows": [
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "left_edge_rows": [
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "right_edge_rows": [
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19
+        ]
+      },
+      {
+        "left_base": 233,
+        "right_base": 235,
+        "rectangle_overlap_pixels": 0,
+        "opaque_edge_adjacency_rows": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "left_edge_rows": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "right_edge_rows": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ]
+      },
+      {
+        "left_base": 235,
+        "right_base": 267,
+        "rectangle_overlap_pixels": 0,
+        "opaque_edge_adjacency_rows": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "left_edge_rows": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "right_edge_rows": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      {
+        "left_base": 267,
+        "right_base": 269,
+        "rectangle_overlap_pixels": 0,
+        "opaque_edge_adjacency_rows": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "left_edge_rows": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "right_edge_rows": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      {
+        "left_base": 269,
+        "right_base": 271,
+        "rectangle_overlap_pixels": 0,
+        "opaque_edge_adjacency_rows": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "left_edge_rows": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "right_edge_rows": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ]
+      },
+      {
+        "left_base": 271,
+        "right_base": 273,
+        "rectangle_overlap_pixels": 0,
+        "opaque_edge_adjacency_rows": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21
+        ],
+        "left_edge_rows": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21
+        ],
+        "right_edge_rows": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21
+        ]
+      }
+    ],
+    "top_row_gate": "ey > -13",
+    "bottom_row_gate": "ey > -26 && ey < 182",
+    "x_draw_gate": "-29 < ex+tempMapXOfs < 300",
+    "spawn_slot_range": [
+      50,
+      74
+    ],
+    "draw_slot_order": "ascending; slots allocated first-free for each event, so complete fresh groups follow event order"
+  },
+  "relevant_mutator_events": [
+    {
+      "eventtime": 3530,
+      "type": 20,
+      "dat": -2,
+      "dat2": 0,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 2,
+      "index": 724,
+      "scalar_predicted_tick": 5570
+    },
+    {
+      "eventtime": 3540,
+      "type": 20,
+      "dat": 2,
+      "dat2": 0,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 2,
+      "index": 725,
+      "scalar_predicted_tick": 5580
+    },
+    {
+      "eventtime": 3579,
+      "type": 20,
+      "dat": 2,
+      "dat2": 0,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 1,
+      "index": 733,
+      "scalar_predicted_tick": 5619
+    },
+    {
+      "eventtime": 3589,
+      "type": 20,
+      "dat": -2,
+      "dat2": 0,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 1,
+      "index": 734,
+      "scalar_predicted_tick": 5629
+    },
+    {
+      "eventtime": 3803,
+      "type": 20,
+      "dat": 2,
+      "dat2": 0,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 1,
+      "index": 742,
+      "scalar_predicted_tick": 5843
+    },
+    {
+      "eventtime": 3813,
+      "type": 20,
+      "dat": -2,
+      "dat2": 0,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 1,
+      "index": 743,
+      "scalar_predicted_tick": 5853
+    },
+    {
+      "eventtime": 3868,
+      "type": 20,
+      "dat": -2,
+      "dat2": 0,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 2,
+      "index": 751,
+      "scalar_predicted_tick": 5908
+    },
+    {
+      "eventtime": 3878,
+      "type": 20,
+      "dat": 2,
+      "dat2": 0,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 2,
+      "index": 752,
+      "scalar_predicted_tick": 5918
+    },
+    {
+      "eventtime": 3933,
+      "type": 20,
+      "dat": -2,
+      "dat2": 0,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 2,
+      "index": 760,
+      "scalar_predicted_tick": 5973
+    },
+    {
+      "eventtime": 3943,
+      "type": 20,
+      "dat": 2,
+      "dat2": 0,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 2,
+      "index": 761,
+      "scalar_predicted_tick": 5983
+    },
+    {
+      "eventtime": 4073,
+      "type": 20,
+      "dat": 2,
+      "dat2": 0,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 1,
+      "index": 771,
+      "scalar_predicted_tick": 6087
+    },
+    {
+      "eventtime": 4083,
+      "type": 20,
+      "dat": -2,
+      "dat2": 0,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 1,
+      "index": 772,
+      "scalar_predicted_tick": 6092
+    }
+  ],
+  "reuse": {
+    "all_hdt_enemy_users_of_base_ids_in_bank2": [
+      {
+        "record_id": 73,
+        "base_ids": [
+          231
+        ]
+      },
+      {
+        "record_id": 74,
+        "base_ids": [
+          233
+        ]
+      },
+      {
+        "record_id": 75,
+        "base_ids": [
+          235
+        ]
+      },
+      {
+        "record_id": 76,
+        "base_ids": [
+          267
+        ]
+      },
+      {
+        "record_id": 77,
+        "base_ids": [
+          269
+        ]
+      },
+      {
+        "record_id": 78,
+        "base_ids": [
+          271
+        ]
+      },
+      {
+        "record_id": 79,
+        "base_ids": [
+          273
+        ]
+      }
+    ],
+    "all_hdt_enemy_users_of_any_target_quadrant_in_bank2": [
+      {
+        "record_id": 73,
+        "tile_ids": [
+          231,
+          232,
+          250,
+          251
+        ]
+      },
+      {
+        "record_id": 74,
+        "tile_ids": [
+          233,
+          234,
+          252,
+          253
+        ]
+      },
+      {
+        "record_id": 75,
+        "tile_ids": [
+          235,
+          236,
+          254,
+          255
+        ]
+      },
+      {
+        "record_id": 76,
+        "tile_ids": [
+          267,
+          268,
+          286,
+          287
+        ]
+      },
+      {
+        "record_id": 77,
+        "tile_ids": [
+          269,
+          270,
+          288,
+          289
+        ]
+      },
+      {
+        "record_id": 78,
+        "tile_ids": [
+          271,
+          272,
+          290,
+          291
+        ]
+      },
+      {
+        "record_id": 79,
+        "tile_ids": [
+          273,
+          274,
+          292,
+          293
+        ]
+      }
+    ],
+    "scope": "All 1701 enemy records in episode1\u20133 tyrian.hdt table; does not claim episode4/5 custom item tables audited. Three full first-level groups. Other level event routes not audited."
+  },
+  "retained_evidence": [
+    {
+      "evidence": {
+        "id": "recovered-static-private",
+        "kind": "retained ordered indexed draw references; rectangle intersects playfield, later draws may occlude",
+        "path": "mechanical4-visibility-recovered-20261012-1620/logs/asset-debug-materials.tsv.gz",
+        "gzip_sha256": "ae6ef36ca7e6c96896a5ca534b92d0a4d09300da1894a6157350cb18f90d30f9",
+        "retained_tick_span": [
+          0,
+          5667
+        ],
+        "source_commit": "56efa26181cd342347f8645f1c9adefc1e45d4ef",
+        "scenario": "private-survival, stationary(100,160), no firing/injection; original events; not ordinary survival",
+        "counts_not_merged_across_distinct_runs": true
+      },
+      "summary_by_base": {
+        "271": {
+          "first_tick": 5568,
+          "last_tick": 5606,
+          "calls": 144,
+          "tiles": [
+            271,
+            272,
+            290,
+            291
+          ],
+          "first_by_tile": {
+            "290": 5568,
+            "291": 5568,
+            "271": 5573,
+            "272": 5573
+          },
+          "first_reference": {
+            "tick": 5568,
+            "id": 271,
+            "tile_id": 290,
+            "x": 266,
+            "y": -12
+          }
+        },
+        "269": {
+          "first_tick": 5568,
+          "last_tick": 5609,
+          "calls": 156,
+          "tiles": [
+            269,
+            270,
+            288,
+            289
+          ],
+          "first_by_tile": {
+            "288": 5568,
+            "289": 5568,
+            "269": 5573,
+            "270": 5573
+          },
+          "first_reference": {
+            "tick": 5568,
+            "id": 269,
+            "tile_id": 288,
+            "x": 242,
+            "y": -12
+          }
+        },
+        "267": {
+          "first_tick": 5568,
+          "last_tick": 5611,
+          "calls": 164,
+          "tiles": [
+            267,
+            268,
+            286,
+            287
+          ],
+          "first_by_tile": {
+            "286": 5568,
+            "287": 5568,
+            "267": 5573,
+            "268": 5573
+          },
+          "first_reference": {
+            "tick": 5568,
+            "id": 267,
+            "tile_id": 286,
+            "x": 218,
+            "y": -12
+          }
+        },
+        "235": {
+          "first_tick": 5568,
+          "last_tick": 5613,
+          "calls": 172,
+          "tiles": [
+            235,
+            236,
+            254,
+            255
+          ],
+          "first_by_tile": {
+            "254": 5568,
+            "255": 5568,
+            "235": 5573,
+            "236": 5573
+          },
+          "first_reference": {
+            "tick": 5568,
+            "id": 235,
+            "tile_id": 254,
+            "x": 194,
+            "y": -12
+          }
+        },
+        "233": {
+          "first_tick": 5568,
+          "last_tick": 5615,
+          "calls": 180,
+          "tiles": [
+            233,
+            234,
+            252,
+            253
+          ],
+          "first_by_tile": {
+            "252": 5568,
+            "253": 5568,
+            "233": 5573,
+            "234": 5573
+          },
+          "first_reference": {
+            "tick": 5568,
+            "id": 233,
+            "tile_id": 252,
+            "x": 170,
+            "y": -12
+          }
+        },
+        "231": {
+          "first_tick": 5568,
+          "last_tick": 5617,
+          "calls": 188,
+          "tiles": [
+            231,
+            232,
+            250,
+            251
+          ],
+          "first_by_tile": {
+            "250": 5568,
+            "251": 5568,
+            "231": 5573,
+            "232": 5573
+          },
+          "first_reference": {
+            "tick": 5568,
+            "id": 231,
+            "tile_id": 250,
+            "x": 146,
+            "y": -12
+          }
+        },
+        "273": {
+          "first_tick": 5574,
+          "last_tick": 5603,
+          "calls": 108,
+          "tiles": [
+            273,
+            274,
+            292,
+            293
+          ],
+          "first_by_tile": {
+            "273": 5574,
+            "292": 5574,
+            "274": 5578,
+            "293": 5578
+          },
+          "first_reference": {
+            "tick": 5574,
+            "id": 273,
+            "tile_id": 273,
+            "x": 286,
+            "y": -8
+          }
+        }
+      },
+      "selected_ordered_geometry": {
+        "5568": [
+          {
+            "tick": 5568,
+            "id": 271,
+            "tile_id": 290,
+            "x": 266,
+            "y": -12
+          },
+          {
+            "tick": 5568,
+            "id": 271,
+            "tile_id": 291,
+            "x": 278,
+            "y": -12
+          },
+          {
+            "tick": 5568,
+            "id": 269,
+            "tile_id": 288,
+            "x": 242,
+            "y": -12
+          },
+          {
+            "tick": 5568,
+            "id": 269,
+            "tile_id": 289,
+            "x": 254,
+            "y": -12
+          },
+          {
+            "tick": 5568,
+            "id": 267,
+            "tile_id": 286,
+            "x": 218,
+            "y": -12
+          },
+          {
+            "tick": 5568,
+            "id": 267,
+            "tile_id": 287,
+            "x": 230,
+            "y": -12
+          },
+          {
+            "tick": 5568,
+            "id": 235,
+            "tile_id": 254,
+            "x": 194,
+            "y": -12
+          },
+          {
+            "tick": 5568,
+            "id": 235,
+            "tile_id": 255,
+            "x": 206,
+            "y": -12
+          },
+          {
+            "tick": 5568,
+            "id": 233,
+            "tile_id": 252,
+            "x": 170,
+            "y": -12
+          },
+          {
+            "tick": 5568,
+            "id": 233,
+            "tile_id": 253,
+            "x": 182,
+            "y": -12
+          },
+          {
+            "tick": 5568,
+            "id": 231,
+            "tile_id": 250,
+            "x": 146,
+            "y": -12
+          },
+          {
+            "tick": 5568,
+            "id": 231,
+            "tile_id": 251,
+            "x": 158,
+            "y": -12
+          }
+        ],
+        "5573": [
+          {
+            "tick": 5573,
+            "id": 271,
+            "tile_id": 271,
+            "x": 264,
+            "y": -11
+          },
+          {
+            "tick": 5573,
+            "id": 271,
+            "tile_id": 272,
+            "x": 276,
+            "y": -11
+          },
+          {
+            "tick": 5573,
+            "id": 271,
+            "tile_id": 290,
+            "x": 264,
+            "y": 3
+          },
+          {
+            "tick": 5573,
+            "id": 271,
+            "tile_id": 291,
+            "x": 276,
+            "y": 3
+          },
+          {
+            "tick": 5573,
+            "id": 269,
+            "tile_id": 269,
+            "x": 240,
+            "y": -11
+          },
+          {
+            "tick": 5573,
+            "id": 269,
+            "tile_id": 270,
+            "x": 252,
+            "y": -11
+          },
+          {
+            "tick": 5573,
+            "id": 269,
+            "tile_id": 288,
+            "x": 240,
+            "y": 3
+          },
+          {
+            "tick": 5573,
+            "id": 269,
+            "tile_id": 289,
+            "x": 252,
+            "y": 3
+          },
+          {
+            "tick": 5573,
+            "id": 267,
+            "tile_id": 267,
+            "x": 216,
+            "y": -11
+          },
+          {
+            "tick": 5573,
+            "id": 267,
+            "tile_id": 268,
+            "x": 228,
+            "y": -11
+          },
+          {
+            "tick": 5573,
+            "id": 267,
+            "tile_id": 286,
+            "x": 216,
+            "y": 3
+          },
+          {
+            "tick": 5573,
+            "id": 267,
+            "tile_id": 287,
+            "x": 228,
+            "y": 3
+          },
+          {
+            "tick": 5573,
+            "id": 235,
+            "tile_id": 235,
+            "x": 192,
+            "y": -11
+          },
+          {
+            "tick": 5573,
+            "id": 235,
+            "tile_id": 236,
+            "x": 204,
+            "y": -11
+          },
+          {
+            "tick": 5573,
+            "id": 235,
+            "tile_id": 254,
+            "x": 192,
+            "y": 3
+          },
+          {
+            "tick": 5573,
+            "id": 235,
+            "tile_id": 255,
+            "x": 204,
+            "y": 3
+          },
+          {
+            "tick": 5573,
+            "id": 233,
+            "tile_id": 233,
+            "x": 168,
+            "y": -11
+          },
+          {
+            "tick": 5573,
+            "id": 233,
+            "tile_id": 234,
+            "x": 180,
+            "y": -11
+          },
+          {
+            "tick": 5573,
+            "id": 233,
+            "tile_id": 252,
+            "x": 168,
+            "y": 3
+          },
+          {
+            "tick": 5573,
+            "id": 233,
+            "tile_id": 253,
+            "x": 180,
+            "y": 3
+          },
+          {
+            "tick": 5573,
+            "id": 231,
+            "tile_id": 231,
+            "x": 144,
+            "y": -11
+          },
+          {
+            "tick": 5573,
+            "id": 231,
+            "tile_id": 232,
+            "x": 156,
+            "y": -11
+          },
+          {
+            "tick": 5573,
+            "id": 231,
+            "tile_id": 250,
+            "x": 144,
+            "y": 3
+          },
+          {
+            "tick": 5573,
+            "id": 231,
+            "tile_id": 251,
+            "x": 156,
+            "y": 3
+          }
+        ],
+        "5580": [
+          {
+            "tick": 5580,
+            "id": 273,
+            "tile_id": 273,
+            "x": 265,
+            "y": 10
+          },
+          {
+            "tick": 5580,
+            "id": 273,
+            "tile_id": 274,
+            "x": 277,
+            "y": 10
+          },
+          {
+            "tick": 5580,
+            "id": 273,
+            "tile_id": 292,
+            "x": 265,
+            "y": 24
+          },
+          {
+            "tick": 5580,
+            "id": 273,
+            "tile_id": 293,
+            "x": 277,
+            "y": 24
+          },
+          {
+            "tick": 5580,
+            "id": 271,
+            "tile_id": 271,
+            "x": 241,
+            "y": 10
+          },
+          {
+            "tick": 5580,
+            "id": 271,
+            "tile_id": 272,
+            "x": 253,
+            "y": 10
+          },
+          {
+            "tick": 5580,
+            "id": 271,
+            "tile_id": 290,
+            "x": 241,
+            "y": 24
+          },
+          {
+            "tick": 5580,
+            "id": 271,
+            "tile_id": 291,
+            "x": 253,
+            "y": 24
+          },
+          {
+            "tick": 5580,
+            "id": 269,
+            "tile_id": 269,
+            "x": 217,
+            "y": 10
+          },
+          {
+            "tick": 5580,
+            "id": 269,
+            "tile_id": 270,
+            "x": 229,
+            "y": 10
+          },
+          {
+            "tick": 5580,
+            "id": 269,
+            "tile_id": 288,
+            "x": 217,
+            "y": 24
+          },
+          {
+            "tick": 5580,
+            "id": 269,
+            "tile_id": 289,
+            "x": 229,
+            "y": 24
+          },
+          {
+            "tick": 5580,
+            "id": 267,
+            "tile_id": 267,
+            "x": 193,
+            "y": 10
+          },
+          {
+            "tick": 5580,
+            "id": 267,
+            "tile_id": 268,
+            "x": 205,
+            "y": 10
+          },
+          {
+            "tick": 5580,
+            "id": 267,
+            "tile_id": 286,
+            "x": 193,
+            "y": 24
+          },
+          {
+            "tick": 5580,
+            "id": 267,
+            "tile_id": 287,
+            "x": 205,
+            "y": 24
+          },
+          {
+            "tick": 5580,
+            "id": 235,
+            "tile_id": 235,
+            "x": 169,
+            "y": 10
+          },
+          {
+            "tick": 5580,
+            "id": 235,
+            "tile_id": 236,
+            "x": 181,
+            "y": 10
+          },
+          {
+            "tick": 5580,
+            "id": 235,
+            "tile_id": 254,
+            "x": 169,
+            "y": 24
+          },
+          {
+            "tick": 5580,
+            "id": 235,
+            "tile_id": 255,
+            "x": 181,
+            "y": 24
+          },
+          {
+            "tick": 5580,
+            "id": 233,
+            "tile_id": 233,
+            "x": 145,
+            "y": 10
+          },
+          {
+            "tick": 5580,
+            "id": 233,
+            "tile_id": 234,
+            "x": 157,
+            "y": 10
+          },
+          {
+            "tick": 5580,
+            "id": 233,
+            "tile_id": 252,
+            "x": 145,
+            "y": 24
+          },
+          {
+            "tick": 5580,
+            "id": 233,
+            "tile_id": 253,
+            "x": 157,
+            "y": 24
+          },
+          {
+            "tick": 5580,
+            "id": 231,
+            "tile_id": 231,
+            "x": 121,
+            "y": 10
+          },
+          {
+            "tick": 5580,
+            "id": 231,
+            "tile_id": 232,
+            "x": 133,
+            "y": 10
+          },
+          {
+            "tick": 5580,
+            "id": 231,
+            "tile_id": 250,
+            "x": 121,
+            "y": 24
+          },
+          {
+            "tick": 5580,
+            "id": 231,
+            "tile_id": 251,
+            "x": 133,
+            "y": 24
+          }
+        ],
+        "5600": [
+          {
+            "tick": 5600,
+            "id": 273,
+            "tile_id": 273,
+            "x": 265,
+            "y": 70
+          },
+          {
+            "tick": 5600,
+            "id": 273,
+            "tile_id": 274,
+            "x": 277,
+            "y": 70
+          },
+          {
+            "tick": 5600,
+            "id": 273,
+            "tile_id": 292,
+            "x": 265,
+            "y": 84
+          },
+          {
+            "tick": 5600,
+            "id": 273,
+            "tile_id": 293,
+            "x": 277,
+            "y": 84
+          },
+          {
+            "tick": 5600,
+            "id": 271,
+            "tile_id": 271,
+            "x": 241,
+            "y": 70
+          },
+          {
+            "tick": 5600,
+            "id": 271,
+            "tile_id": 272,
+            "x": 253,
+            "y": 70
+          },
+          {
+            "tick": 5600,
+            "id": 271,
+            "tile_id": 290,
+            "x": 241,
+            "y": 84
+          },
+          {
+            "tick": 5600,
+            "id": 271,
+            "tile_id": 291,
+            "x": 253,
+            "y": 84
+          },
+          {
+            "tick": 5600,
+            "id": 269,
+            "tile_id": 269,
+            "x": 217,
+            "y": 70
+          },
+          {
+            "tick": 5600,
+            "id": 269,
+            "tile_id": 270,
+            "x": 229,
+            "y": 70
+          },
+          {
+            "tick": 5600,
+            "id": 269,
+            "tile_id": 288,
+            "x": 217,
+            "y": 84
+          },
+          {
+            "tick": 5600,
+            "id": 269,
+            "tile_id": 289,
+            "x": 229,
+            "y": 84
+          },
+          {
+            "tick": 5600,
+            "id": 267,
+            "tile_id": 267,
+            "x": 193,
+            "y": 70
+          },
+          {
+            "tick": 5600,
+            "id": 267,
+            "tile_id": 268,
+            "x": 205,
+            "y": 70
+          },
+          {
+            "tick": 5600,
+            "id": 267,
+            "tile_id": 286,
+            "x": 193,
+            "y": 84
+          },
+          {
+            "tick": 5600,
+            "id": 267,
+            "tile_id": 287,
+            "x": 205,
+            "y": 84
+          },
+          {
+            "tick": 5600,
+            "id": 235,
+            "tile_id": 235,
+            "x": 169,
+            "y": 70
+          },
+          {
+            "tick": 5600,
+            "id": 235,
+            "tile_id": 236,
+            "x": 181,
+            "y": 70
+          },
+          {
+            "tick": 5600,
+            "id": 235,
+            "tile_id": 254,
+            "x": 169,
+            "y": 84
+          },
+          {
+            "tick": 5600,
+            "id": 235,
+            "tile_id": 255,
+            "x": 181,
+            "y": 84
+          },
+          {
+            "tick": 5600,
+            "id": 233,
+            "tile_id": 233,
+            "x": 145,
+            "y": 70
+          },
+          {
+            "tick": 5600,
+            "id": 233,
+            "tile_id": 234,
+            "x": 157,
+            "y": 70
+          },
+          {
+            "tick": 5600,
+            "id": 233,
+            "tile_id": 252,
+            "x": 145,
+            "y": 84
+          },
+          {
+            "tick": 5600,
+            "id": 233,
+            "tile_id": 253,
+            "x": 157,
+            "y": 84
+          },
+          {
+            "tick": 5600,
+            "id": 231,
+            "tile_id": 231,
+            "x": 121,
+            "y": 70
+          },
+          {
+            "tick": 5600,
+            "id": 231,
+            "tile_id": 232,
+            "x": 133,
+            "y": 70
+          },
+          {
+            "tick": 5600,
+            "id": 231,
+            "tile_id": 250,
+            "x": 121,
+            "y": 84
+          },
+          {
+            "tick": 5600,
+            "id": 231,
+            "tile_id": 251,
+            "x": 133,
+            "y": 84
+          }
+        ]
+      }
+    },
+    {
+      "evidence": {
+        "id": "retained-late-private",
+        "kind": "retained ordered indexed draw references; rectangle intersects playfield, later draws may occlude",
+        "path": "mechanical-left4-visibility-705fcde-20261012/logs/asset-debug-materials.tsv.gz",
+        "gzip_sha256": "17b56fa26cf5869deb2555ccaa55f276a19501caed23223b7dd2b926fdc4bd3f",
+        "retained_tick_span": [
+          5800,
+          5956
+        ],
+        "source_commit": "705fcde51ae688394a49a0a1750044331c336a9e",
+        "scenario": "private-survival, stationary(100,160), no firing/injection; original events; not ordinary survival",
+        "counts_not_merged_across_distinct_runs": true
+      },
+      "summary_by_base": {
+        "269": {
+          "first_tick": 5906,
+          "last_tick": 5951,
+          "calls": 172,
+          "tiles": [
+            269,
+            270,
+            288,
+            289
+          ],
+          "first_by_tile": {
+            "288": 5906,
+            "289": 5906,
+            "269": 5911,
+            "270": 5911
+          },
+          "first_reference": {
+            "tick": 5906,
+            "id": 269,
+            "tile_id": 288,
+            "x": 194,
+            "y": -12
+          }
+        },
+        "267": {
+          "first_tick": 5906,
+          "last_tick": 5953,
+          "calls": 180,
+          "tiles": [
+            267,
+            268,
+            286,
+            287
+          ],
+          "first_by_tile": {
+            "286": 5906,
+            "287": 5906,
+            "267": 5911,
+            "268": 5911
+          },
+          "first_reference": {
+            "tick": 5906,
+            "id": 267,
+            "tile_id": 286,
+            "x": 170,
+            "y": -12
+          }
+        },
+        "235": {
+          "first_tick": 5906,
+          "last_tick": 5955,
+          "calls": 188,
+          "tiles": [
+            235,
+            236,
+            254,
+            255
+          ],
+          "first_by_tile": {
+            "254": 5906,
+            "255": 5906,
+            "235": 5911,
+            "236": 5911
+          },
+          "first_reference": {
+            "tick": 5906,
+            "id": 235,
+            "tile_id": 254,
+            "x": 146,
+            "y": -12
+          }
+        },
+        "233": {
+          "first_tick": 5906,
+          "last_tick": 5956,
+          "calls": 194,
+          "tiles": [
+            233,
+            234,
+            252,
+            253
+          ],
+          "first_by_tile": {
+            "252": 5906,
+            "253": 5906,
+            "233": 5911,
+            "234": 5911
+          },
+          "first_reference": {
+            "tick": 5906,
+            "id": 233,
+            "tile_id": 252,
+            "x": 122,
+            "y": -12
+          }
+        },
+        "231": {
+          "first_tick": 5906,
+          "last_tick": 5956,
+          "calls": 194,
+          "tiles": [
+            231,
+            232,
+            250,
+            251
+          ],
+          "first_by_tile": {
+            "250": 5906,
+            "251": 5906,
+            "231": 5911,
+            "232": 5911
+          },
+          "first_reference": {
+            "tick": 5906,
+            "id": 231,
+            "tile_id": 250,
+            "x": 98,
+            "y": -12
+          }
+        },
+        "273": {
+          "first_tick": 5906,
+          "last_tick": 5947,
+          "calls": 156,
+          "tiles": [
+            273,
+            274,
+            292,
+            293
+          ],
+          "first_by_tile": {
+            "292": 5906,
+            "293": 5906,
+            "273": 5911,
+            "274": 5911
+          },
+          "first_reference": {
+            "tick": 5906,
+            "id": 273,
+            "tile_id": 292,
+            "x": 242,
+            "y": -12
+          }
+        },
+        "271": {
+          "first_tick": 5906,
+          "last_tick": 5949,
+          "calls": 164,
+          "tiles": [
+            271,
+            272,
+            290,
+            291
+          ],
+          "first_by_tile": {
+            "290": 5906,
+            "291": 5906,
+            "271": 5911,
+            "272": 5911
+          },
+          "first_reference": {
+            "tick": 5906,
+            "id": 271,
+            "tile_id": 290,
+            "x": 218,
+            "y": -12
+          }
+        }
+      },
+      "selected_ordered_geometry": {
+        "5906": [
+          {
+            "tick": 5906,
+            "id": 269,
+            "tile_id": 288,
+            "x": 194,
+            "y": -12
+          },
+          {
+            "tick": 5906,
+            "id": 269,
+            "tile_id": 289,
+            "x": 206,
+            "y": -12
+          },
+          {
+            "tick": 5906,
+            "id": 267,
+            "tile_id": 286,
+            "x": 170,
+            "y": -12
+          },
+          {
+            "tick": 5906,
+            "id": 267,
+            "tile_id": 287,
+            "x": 182,
+            "y": -12
+          },
+          {
+            "tick": 5906,
+            "id": 235,
+            "tile_id": 254,
+            "x": 146,
+            "y": -12
+          },
+          {
+            "tick": 5906,
+            "id": 235,
+            "tile_id": 255,
+            "x": 158,
+            "y": -12
+          },
+          {
+            "tick": 5906,
+            "id": 233,
+            "tile_id": 252,
+            "x": 122,
+            "y": -12
+          },
+          {
+            "tick": 5906,
+            "id": 233,
+            "tile_id": 253,
+            "x": 134,
+            "y": -12
+          },
+          {
+            "tick": 5906,
+            "id": 231,
+            "tile_id": 250,
+            "x": 98,
+            "y": -12
+          },
+          {
+            "tick": 5906,
+            "id": 231,
+            "tile_id": 251,
+            "x": 110,
+            "y": -12
+          },
+          {
+            "tick": 5906,
+            "id": 273,
+            "tile_id": 292,
+            "x": 242,
+            "y": -12
+          },
+          {
+            "tick": 5906,
+            "id": 273,
+            "tile_id": 293,
+            "x": 254,
+            "y": -12
+          },
+          {
+            "tick": 5906,
+            "id": 271,
+            "tile_id": 290,
+            "x": 218,
+            "y": -12
+          },
+          {
+            "tick": 5906,
+            "id": 271,
+            "tile_id": 291,
+            "x": 230,
+            "y": -12
+          }
+        ],
+        "5911": [
+          {
+            "tick": 5911,
+            "id": 269,
+            "tile_id": 269,
+            "x": 192,
+            "y": -11
+          },
+          {
+            "tick": 5911,
+            "id": 269,
+            "tile_id": 270,
+            "x": 204,
+            "y": -11
+          },
+          {
+            "tick": 5911,
+            "id": 269,
+            "tile_id": 288,
+            "x": 192,
+            "y": 3
+          },
+          {
+            "tick": 5911,
+            "id": 269,
+            "tile_id": 289,
+            "x": 204,
+            "y": 3
+          },
+          {
+            "tick": 5911,
+            "id": 267,
+            "tile_id": 267,
+            "x": 168,
+            "y": -11
+          },
+          {
+            "tick": 5911,
+            "id": 267,
+            "tile_id": 268,
+            "x": 180,
+            "y": -11
+          },
+          {
+            "tick": 5911,
+            "id": 267,
+            "tile_id": 286,
+            "x": 168,
+            "y": 3
+          },
+          {
+            "tick": 5911,
+            "id": 267,
+            "tile_id": 287,
+            "x": 180,
+            "y": 3
+          },
+          {
+            "tick": 5911,
+            "id": 235,
+            "tile_id": 235,
+            "x": 144,
+            "y": -11
+          },
+          {
+            "tick": 5911,
+            "id": 235,
+            "tile_id": 236,
+            "x": 156,
+            "y": -11
+          },
+          {
+            "tick": 5911,
+            "id": 235,
+            "tile_id": 254,
+            "x": 144,
+            "y": 3
+          },
+          {
+            "tick": 5911,
+            "id": 235,
+            "tile_id": 255,
+            "x": 156,
+            "y": 3
+          },
+          {
+            "tick": 5911,
+            "id": 233,
+            "tile_id": 233,
+            "x": 120,
+            "y": -11
+          },
+          {
+            "tick": 5911,
+            "id": 233,
+            "tile_id": 234,
+            "x": 132,
+            "y": -11
+          },
+          {
+            "tick": 5911,
+            "id": 233,
+            "tile_id": 252,
+            "x": 120,
+            "y": 3
+          },
+          {
+            "tick": 5911,
+            "id": 233,
+            "tile_id": 253,
+            "x": 132,
+            "y": 3
+          },
+          {
+            "tick": 5911,
+            "id": 231,
+            "tile_id": 231,
+            "x": 96,
+            "y": -11
+          },
+          {
+            "tick": 5911,
+            "id": 231,
+            "tile_id": 232,
+            "x": 108,
+            "y": -11
+          },
+          {
+            "tick": 5911,
+            "id": 231,
+            "tile_id": 250,
+            "x": 96,
+            "y": 3
+          },
+          {
+            "tick": 5911,
+            "id": 231,
+            "tile_id": 251,
+            "x": 108,
+            "y": 3
+          },
+          {
+            "tick": 5911,
+            "id": 273,
+            "tile_id": 273,
+            "x": 240,
+            "y": -11
+          },
+          {
+            "tick": 5911,
+            "id": 273,
+            "tile_id": 274,
+            "x": 252,
+            "y": -11
+          },
+          {
+            "tick": 5911,
+            "id": 273,
+            "tile_id": 292,
+            "x": 240,
+            "y": 3
+          },
+          {
+            "tick": 5911,
+            "id": 273,
+            "tile_id": 293,
+            "x": 252,
+            "y": 3
+          },
+          {
+            "tick": 5911,
+            "id": 271,
+            "tile_id": 271,
+            "x": 216,
+            "y": -11
+          },
+          {
+            "tick": 5911,
+            "id": 271,
+            "tile_id": 272,
+            "x": 228,
+            "y": -11
+          },
+          {
+            "tick": 5911,
+            "id": 271,
+            "tile_id": 290,
+            "x": 216,
+            "y": 3
+          },
+          {
+            "tick": 5911,
+            "id": 271,
+            "tile_id": 291,
+            "x": 228,
+            "y": 3
+          }
+        ],
+        "5930": [
+          {
+            "tick": 5930,
+            "id": 269,
+            "tile_id": 269,
+            "x": 145,
+            "y": 46
+          },
+          {
+            "tick": 5930,
+            "id": 269,
+            "tile_id": 270,
+            "x": 157,
+            "y": 46
+          },
+          {
+            "tick": 5930,
+            "id": 269,
+            "tile_id": 288,
+            "x": 145,
+            "y": 60
+          },
+          {
+            "tick": 5930,
+            "id": 269,
+            "tile_id": 289,
+            "x": 157,
+            "y": 60
+          },
+          {
+            "tick": 5930,
+            "id": 267,
+            "tile_id": 267,
+            "x": 121,
+            "y": 46
+          },
+          {
+            "tick": 5930,
+            "id": 267,
+            "tile_id": 268,
+            "x": 133,
+            "y": 46
+          },
+          {
+            "tick": 5930,
+            "id": 267,
+            "tile_id": 286,
+            "x": 121,
+            "y": 60
+          },
+          {
+            "tick": 5930,
+            "id": 267,
+            "tile_id": 287,
+            "x": 133,
+            "y": 60
+          },
+          {
+            "tick": 5930,
+            "id": 235,
+            "tile_id": 235,
+            "x": 97,
+            "y": 46
+          },
+          {
+            "tick": 5930,
+            "id": 235,
+            "tile_id": 236,
+            "x": 109,
+            "y": 46
+          },
+          {
+            "tick": 5930,
+            "id": 235,
+            "tile_id": 254,
+            "x": 97,
+            "y": 60
+          },
+          {
+            "tick": 5930,
+            "id": 235,
+            "tile_id": 255,
+            "x": 109,
+            "y": 60
+          },
+          {
+            "tick": 5930,
+            "id": 233,
+            "tile_id": 233,
+            "x": 73,
+            "y": 46
+          },
+          {
+            "tick": 5930,
+            "id": 233,
+            "tile_id": 234,
+            "x": 85,
+            "y": 46
+          },
+          {
+            "tick": 5930,
+            "id": 233,
+            "tile_id": 252,
+            "x": 73,
+            "y": 60
+          },
+          {
+            "tick": 5930,
+            "id": 233,
+            "tile_id": 253,
+            "x": 85,
+            "y": 60
+          },
+          {
+            "tick": 5930,
+            "id": 231,
+            "tile_id": 231,
+            "x": 49,
+            "y": 46
+          },
+          {
+            "tick": 5930,
+            "id": 231,
+            "tile_id": 232,
+            "x": 61,
+            "y": 46
+          },
+          {
+            "tick": 5930,
+            "id": 231,
+            "tile_id": 250,
+            "x": 49,
+            "y": 60
+          },
+          {
+            "tick": 5930,
+            "id": 231,
+            "tile_id": 251,
+            "x": 61,
+            "y": 60
+          },
+          {
+            "tick": 5930,
+            "id": 273,
+            "tile_id": 273,
+            "x": 193,
+            "y": 46
+          },
+          {
+            "tick": 5930,
+            "id": 273,
+            "tile_id": 274,
+            "x": 205,
+            "y": 46
+          },
+          {
+            "tick": 5930,
+            "id": 273,
+            "tile_id": 292,
+            "x": 193,
+            "y": 60
+          },
+          {
+            "tick": 5930,
+            "id": 273,
+            "tile_id": 293,
+            "x": 205,
+            "y": 60
+          },
+          {
+            "tick": 5930,
+            "id": 271,
+            "tile_id": 271,
+            "x": 169,
+            "y": 46
+          },
+          {
+            "tick": 5930,
+            "id": 271,
+            "tile_id": 272,
+            "x": 181,
+            "y": 46
+          },
+          {
+            "tick": 5930,
+            "id": 271,
+            "tile_id": 290,
+            "x": 169,
+            "y": 60
+          },
+          {
+            "tick": 5930,
+            "id": 271,
+            "tile_id": 291,
+            "x": 181,
+            "y": 60
+          }
+        ],
+        "5950": [
+          {
+            "tick": 5950,
+            "id": 269,
+            "tile_id": 269,
+            "x": 265,
+            "y": 106
+          },
+          {
+            "tick": 5950,
+            "id": 269,
+            "tile_id": 270,
+            "x": 277,
+            "y": 106
+          },
+          {
+            "tick": 5950,
+            "id": 269,
+            "tile_id": 288,
+            "x": 265,
+            "y": 120
+          },
+          {
+            "tick": 5950,
+            "id": 269,
+            "tile_id": 289,
+            "x": 277,
+            "y": 120
+          },
+          {
+            "tick": 5950,
+            "id": 267,
+            "tile_id": 267,
+            "x": 241,
+            "y": 106
+          },
+          {
+            "tick": 5950,
+            "id": 267,
+            "tile_id": 268,
+            "x": 253,
+            "y": 106
+          },
+          {
+            "tick": 5950,
+            "id": 267,
+            "tile_id": 286,
+            "x": 241,
+            "y": 120
+          },
+          {
+            "tick": 5950,
+            "id": 267,
+            "tile_id": 287,
+            "x": 253,
+            "y": 120
+          },
+          {
+            "tick": 5950,
+            "id": 235,
+            "tile_id": 235,
+            "x": 217,
+            "y": 106
+          },
+          {
+            "tick": 5950,
+            "id": 235,
+            "tile_id": 236,
+            "x": 229,
+            "y": 106
+          },
+          {
+            "tick": 5950,
+            "id": 235,
+            "tile_id": 254,
+            "x": 217,
+            "y": 120
+          },
+          {
+            "tick": 5950,
+            "id": 235,
+            "tile_id": 255,
+            "x": 229,
+            "y": 120
+          },
+          {
+            "tick": 5950,
+            "id": 233,
+            "tile_id": 233,
+            "x": 193,
+            "y": 106
+          },
+          {
+            "tick": 5950,
+            "id": 233,
+            "tile_id": 234,
+            "x": 205,
+            "y": 106
+          },
+          {
+            "tick": 5950,
+            "id": 233,
+            "tile_id": 252,
+            "x": 193,
+            "y": 120
+          },
+          {
+            "tick": 5950,
+            "id": 233,
+            "tile_id": 253,
+            "x": 205,
+            "y": 120
+          },
+          {
+            "tick": 5950,
+            "id": 231,
+            "tile_id": 231,
+            "x": 169,
+            "y": 106
+          },
+          {
+            "tick": 5950,
+            "id": 231,
+            "tile_id": 232,
+            "x": 181,
+            "y": 106
+          },
+          {
+            "tick": 5950,
+            "id": 231,
+            "tile_id": 250,
+            "x": 169,
+            "y": 120
+          },
+          {
+            "tick": 5950,
+            "id": 231,
+            "tile_id": 251,
+            "x": 181,
+            "y": 120
+          }
+        ]
+      }
+    }
+  ],
+  "current_binding": {
+    "manifest_sha256": "a2978bca531d606ce238d26c632ac41b622bf8396129bee2a9060d967a1a29c5",
+    "target_names_present": [],
+    "bank2_renderer_role_missing": true,
+    "warning": "Numerically identical bases in ASSET_NEWSH2 or ASSET_NEWSHE do not bind newsh4; render_mirror_enemy_tile maps only bank1 and bank9."
+  },
+  "motion": {
+    "initial_velocity": [
+      0,
+      0
+    ],
+    "initial_acceleration": [
+      0,
+      0
+    ],
+    "fixedmovey": 0,
+    "backMove3": 3,
+    "vertical_delta_per_logic_tick": 3,
+    "scalar_motion_formula": "ey at draw = -28 + 3 * age, absent removal; all pieces have identical y. Draw is before movement.",
+    "link2_changes": [
+      {
+        "eventtime": 3530,
+        "type": 20,
+        "dat": -2,
+        "dat2": 0,
+        "dat3": 0,
+        "dat5": 0,
+        "dat6": 0,
+        "dat4": 2,
+        "index": 724,
+        "scalar_predicted_tick": 5570
+      },
+      {
+        "eventtime": 3540,
+        "type": 20,
+        "dat": 2,
+        "dat2": 0,
+        "dat3": 0,
+        "dat5": 0,
+        "dat6": 0,
+        "dat4": 2,
+        "index": 725,
+        "scalar_predicted_tick": 5580
+      },
+      {
+        "eventtime": 3868,
+        "type": 20,
+        "dat": -2,
+        "dat2": 0,
+        "dat3": 0,
+        "dat5": 0,
+        "dat6": 0,
+        "dat4": 2,
+        "index": 751,
+        "scalar_predicted_tick": 5908
+      },
+      {
+        "eventtime": 3878,
+        "type": 20,
+        "dat": 2,
+        "dat2": 0,
+        "dat3": 0,
+        "dat5": 0,
+        "dat6": 0,
+        "dat4": 2,
+        "index": 752,
+        "scalar_predicted_tick": 5918
+      },
+      {
+        "eventtime": 3933,
+        "type": 20,
+        "dat": -2,
+        "dat2": 0,
+        "dat3": 0,
+        "dat5": 0,
+        "dat6": 0,
+        "dat4": 2,
+        "index": 760,
+        "scalar_predicted_tick": 5973
+      },
+      {
+        "eventtime": 3943,
+        "type": 20,
+        "dat": 2,
+        "dat2": 0,
+        "dat3": 0,
+        "dat5": 0,
+        "dat6": 0,
+        "dat4": 2,
+        "index": 761,
+        "scalar_predicted_tick": 5983
+      }
+    ],
+    "link1_changes": [
+      {
+        "eventtime": 3579,
+        "type": 20,
+        "dat": 2,
+        "dat2": 0,
+        "dat3": 0,
+        "dat5": 0,
+        "dat6": 0,
+        "dat4": 1,
+        "index": 733,
+        "scalar_predicted_tick": 5619
+      },
+      {
+        "eventtime": 3589,
+        "type": 20,
+        "dat": -2,
+        "dat2": 0,
+        "dat3": 0,
+        "dat5": 0,
+        "dat6": 0,
+        "dat4": 1,
+        "index": 734,
+        "scalar_predicted_tick": 5629
+      },
+      {
+        "eventtime": 3803,
+        "type": 20,
+        "dat": 2,
+        "dat2": 0,
+        "dat3": 0,
+        "dat5": 0,
+        "dat6": 0,
+        "dat4": 1,
+        "index": 742,
+        "scalar_predicted_tick": 5843
+      },
+      {
+        "eventtime": 3813,
+        "type": 20,
+        "dat": -2,
+        "dat2": 0,
+        "dat3": 0,
+        "dat5": 0,
+        "dat6": 0,
+        "dat4": 1,
+        "index": 743,
+        "scalar_predicted_tick": 5853
+      },
+      {
+        "eventtime": 4073,
+        "type": 20,
+        "dat": 2,
+        "dat2": 0,
+        "dat3": 0,
+        "dat5": 0,
+        "dat6": 0,
+        "dat4": 1,
+        "index": 771,
+        "scalar_predicted_tick": 6087
+      },
+      {
+        "eventtime": 4083,
+        "type": 20,
+        "dat": -2,
+        "dat2": 0,
+        "dat3": 0,
+        "dat5": 0,
+        "dat6": 0,
+        "dat4": 1,
+        "index": 772,
+        "scalar_predicted_tick": 6092
+      }
+    ],
+    "link2_semantics": "Type20 dat -2 at age5 sets the acceleration interval to2 and delta-v to-1; dat +2 at age15 changes delta-v to+1. These are not velocities. The first change slows/reverses only after accumulated velocity is repaid.",
+    "link1_difference": "The left family uses +2 then -2, opposite signs. Its event times and x placements are separate.",
+    "selected_source_arithmetic": [
+      {
+        "age": 0,
+        "draw_dx": 0,
+        "draw_ey": -28,
+        "draw_composite_top_y": -35,
+        "velocity_before_update": 0
+      },
+      {
+        "age": 3,
+        "draw_dx": 0,
+        "draw_ey": -19,
+        "draw_composite_top_y": -26,
+        "velocity_before_update": 0
+      },
+      {
+        "age": 5,
+        "draw_dx": 0,
+        "draw_ey": -13,
+        "draw_composite_top_y": -20,
+        "velocity_before_update": 0
+      },
+      {
+        "age": 6,
+        "draw_dx": 0,
+        "draw_ey": -10,
+        "draw_composite_top_y": -17,
+        "velocity_before_update": 0
+      },
+      {
+        "age": 7,
+        "draw_dx": -1,
+        "draw_ey": -7,
+        "draw_composite_top_y": -14,
+        "velocity_before_update": -1
+      },
+      {
+        "age": 9,
+        "draw_dx": -4,
+        "draw_ey": -1,
+        "draw_composite_top_y": -8,
+        "velocity_before_update": -2
+      },
+      {
+        "age": 13,
+        "draw_dx": -16,
+        "draw_ey": 11,
+        "draw_composite_top_y": 4,
+        "velocity_before_update": -4
+      },
+      {
+        "age": 15,
+        "draw_dx": -25,
+        "draw_ey": 17,
+        "draw_composite_top_y": 10,
+        "velocity_before_update": -5
+      },
+      {
+        "age": 16,
+        "draw_dx": -30,
+        "draw_ey": 20,
+        "draw_composite_top_y": 13,
+        "velocity_before_update": -5
+      },
+      {
+        "age": 24,
+        "draw_dx": -50,
+        "draw_ey": 44,
+        "draw_composite_top_y": 37,
+        "velocity_before_update": -1
+      },
+      {
+        "age": 25,
+        "draw_dx": -50,
+        "draw_ey": 47,
+        "draw_composite_top_y": 40,
+        "velocity_before_update": 0
+      },
+      {
+        "age": 26,
+        "draw_dx": -50,
+        "draw_ey": 50,
+        "draw_composite_top_y": 43,
+        "velocity_before_update": 0
+      },
+      {
+        "age": 35,
+        "draw_dx": -25,
+        "draw_ey": 77,
+        "draw_composite_top_y": 70,
+        "velocity_before_update": 5
+      },
+      {
+        "age": 45,
+        "draw_dx": 50,
+        "draw_ey": 107,
+        "draw_composite_top_y": 100,
+        "velocity_before_update": 10
+      },
+      {
+        "age": 52,
+        "draw_dx": 132,
+        "draw_ey": 128,
+        "draw_composite_top_y": 121,
+        "velocity_before_update": 13
+      }
+    ],
+    "not_a_runtime_test": true,
+    "ice_does_not_freeze_motion": true,
+    "source": "src/tyrian2.c:267-374, 4657-4701"
+  },
+  "lifecycle": {
+    "initial_enemyAvail": 0,
+    "initial_scoreitem": false,
+    "initial_enemycycle": 1,
+    "initial_aniactive": 0,
+    "initial_edamaged": false,
+    "initial_iced": 0,
+    "initial_filter": 0,
+    "source_armor": 50,
+    "armor_by_difficulty": {
+      "wimp_or_minus1": 26,
+      "easy": 38,
+      "normal": 50,
+      "hard": 60,
+      "impossible": 75,
+      "insanity": 90,
+      "suicide": 100,
+      "maniacal": 150,
+      "zinglon": 200,
+      "nortaneous_or_10": 254
+    },
+    "enemyground": true,
+    "why_ground": "explosiontype24 is even; this flag controls hit/ice/death appearance, while event7 still puts actors in the top-enemy draw pass.",
+    "explonum": 12,
+    "hurt_or_wreck_sprite": null,
+    "source_damage_fields": {
+      "dani": 0,
+      "dgr": 0,
+      "dlevel": 0
+    },
+    "weapons": {
+      "tur": [
+        0,
+        0,
+        0
+      ],
+      "freq": [
+        0,
+        0,
+        0
+      ],
+      "launchfreq": 0,
+      "launchtype": 0
+    },
+    "default_drop_record": 0,
+    "first_level_live_overrides": "No armor, animation, turret, drop, link reassignment, or special-flag overrides target this family during its3525\u20134100 eventtime interval; only listed type20 motion changes.",
+    "reward": "Record79 only has source value1000; others0. Difficulty scaling applies. It is enemy cash on destruction, not a pickup actor.",
+    "nonlethal_damage": "Only the struck actor armor is reduced. Ground hit filters are propagated to all active actors with link2.",
+    "lethal_damage": "A lethal hit removes all active same-link2 actors through the shared death loop; link1 is not included. No wreck replacement because edlevel != -1.",
+    "ice": "Damage99 becomes damage0 and sets iced40; this propagates to active ground actors with the same link. iced is decremented after drawing and after movement; it sets filter0x09 for a later draw and skips firing/launch. It does not stop this strip moving.",
+    "filter_transform": "blit_sprite2_filter uses filter | (source_palette_index & 0x0f). Drawing clears filter0, then iced can set it again.",
+    "death_fx": "JE_setupExplosionLarge(true,12,x,y): ground burst types2,4,3,5, then big=true repeating explosion ttl2. Repeats can generate generic air-large bursts; no new family sprite. Explosion allocation/RNG can limit actual effects.",
+    "exit": "After drawing and acceleration, ex<\u221280 or ex>340 removes the individual actor; after eyc, ey<\u2212112 or ey>190 removes it. tempBackMove3 is added after those checks. Rectangle reference clipping can stop well before removal.",
+    "source": "src/tyrian2.c:267-374,1536-1755,3993-4283; src/sprite.c:679-711; src/varz.c:972-1019; src/tyrian2.c:1941-1980"
+  },
+  "mode_and_layer": {
+    "event_type": 7,
+    "runtime_slot_pool": [
+      50,
+      74
+    ],
+    "draw_pass": "JE_drawEnemy(75), top enemy; not ground slot pools25..49/75..99",
+    "same_event_route_for_one_or_two_players": true,
+    "mode_qualification": "No local type63/66 branch gates these21 spawns. Difficulty affects armor/reward; prior branches/death/slot occupancy still limit runtime existence. This is not a claim of every game mode outcome.",
+    "bank_load": {
+      "event_index": 2,
+      "eventtime": 0,
+      "bank_ids": [
+        1,
+        2,
+        9,
+        20
+      ],
+      "bank2_file": "newsh4.shp",
+      "later_bank_load_events": 0
+    },
+    "spawn_background3x1": false,
+    "spawn_background3x1b": false,
+    "spawn_position_formula": "ex = eventdat2 \u2212 mapX3*24 \u2212 48 + 6; ey = \u221228. Draw x = ex + oldMapX3Ofs \u2212 6 for the composite top-left; retain camera/parallax offsets.",
+    "layer_overrides": {
+      "event_index715": {
+        "eventtime": 3500,
+        "type": 21,
+        "result": "background3over=1"
+      },
+      "event_index716": {
+        "eventtime": 3500,
+        "type": 28,
+        "result": "topEnemyOver=false"
+      }
+    },
+    "occlusion_order": "Top enemy draws before player shots, enemy shots and subsequently background layer3 at background3over1. Therefore layer3 may cover some source pixels. Later players/effects can also cover.",
+    "source": "src/tyrian2.c:874-875,1466-1472,1914-1922,4315-4352,4458-4492,4703-4705,4786-4792"
+  },
+  "left_comparison": {
+    "record_pair_differences": [
+      {
+        "left_record": 66,
+        "right_record": 73,
+        "different_fields": {
+          "id": {
+            "left": 66,
+            "right": 73
+          },
+          "egraphic": {
+            "left": [
+              153,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "right": [
+              231,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "left_record": 67,
+        "right_record": 74,
+        "different_fields": {
+          "id": {
+            "left": 67,
+            "right": 74
+          },
+          "egraphic": {
+            "left": [
+              155,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "right": [
+              233,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "left_record": 68,
+        "right_record": 75,
+        "different_fields": {
+          "id": {
+            "left": 68,
+            "right": 75
+          },
+          "egraphic": {
+            "left": [
+              157,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "right": [
+              235,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "left_record": 69,
+        "right_record": 76,
+        "different_fields": {
+          "id": {
+            "left": 69,
+            "right": 76
+          },
+          "egraphic": {
+            "left": [
+              159,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "right": [
+              267,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "left_record": 70,
+        "right_record": 77,
+        "different_fields": {
+          "id": {
+            "left": 70,
+            "right": 77
+          },
+          "egraphic": {
+            "left": [
+              191,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "right": [
+              269,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "left_record": 71,
+        "right_record": 78,
+        "different_fields": {
+          "id": {
+            "left": 71,
+            "right": 78
+          },
+          "egraphic": {
+            "left": [
+              193,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "right": [
+              271,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "left_record": 72,
+        "right_record": 79,
+        "different_fields": {
+          "id": {
+            "left": 72,
+            "right": 79
+          },
+          "egraphic": {
+            "left": [
+              195,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "right": [
+              273,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    ],
+    "spatial_order": "Right ascending records73..79 run left-to-right with narrow end at73; do not reverse or vertically stack. Link1 first group instead ascending66..72 event order at x48..192.",
+    "source_art_difference": "Right source masks are authoritative, not synthesized by mirroring left. Parent independently reports1028 RGBA-cell and51 silhouette-cell differences to mirrored left; those comparison counts are contextual parent findings, not recomputed by this audit."
+  },
+  "limits": [
+    "No new game run, render, image extraction, screenshot or capture was performed.",
+    "Retained references come from two earlier private survival traces, not ordinary survival or current-commit runtime verification.",
+    "A retained draw reference is only a12\u00d714 rectangle intersecting x[24,288),y[0,184); it is not proof that opaque pixels were visible, unoccluded, or HD-bound.",
+    "First draw-reference5568 applies to six bases; base273 begins5574, and its right quadrants begin5578.",
+    "The first group last retained reference is5617. The retained5640 screenshot mentioned by the parent cannot prove this opposite family visible; no image was inspected by this audit.",
+    "Third spawn group at5968 is source-scheduled, beyond retained coverage ending5956.",
+    "No death, hurt, ice or player-fire acceptance was established by retained no-firing evidence.",
+    "All1701 episode1\u20133 hdt enemy records were checked for base/quadrant reuse; episode4/5 custom item tables and other level routes were not audited.",
+    "Current renderer has no bank2 role, so equal numeric IDs in other banks do not constitute an HD binding."
+  ],
+  "package_note": "Metadata-only copied audit from baseline349b3ca. Bank2 binding absence describes that baseline, not future integration. Machine-root prefixes normalized; no original RGB included."
+}

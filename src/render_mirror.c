@@ -35,7 +35,7 @@ typedef struct {
 } Asset;
 enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
-static Asset assets[389];
+static Asset assets[396];
 static Asset talon_frames[13];
 typedef struct {
  bool valid;
@@ -1532,6 +1532,34 @@ static bool newsh4_long7_family_ready(void)
  return newsh4_long7_valid;
 }
 
+/* Approved opposite newsh4 seven-part family, selected-pack and 8x only.
+ * Preflight every member before the first replacement. The complete RGBA
+ * integrity stamps also pin the exact original alpha support. Failure stays
+ * coherent for this Asset-cache lifetime; unrelated namespaces are untouched. */
+static bool newsh4_opposite7_checked,newsh4_opposite7_valid;
+static bool newsh4_opposite7_family_ready(void)
+{
+ if(game_probe_density!=8||game_probe_missing||game_probe_invalid||!game_probe_assets||
+    !(game_probe_scene_assets&1))return false;
+ if(newsh4_opposite7_checked)return newsh4_opposite7_valid;
+ newsh4_opposite7_checked=true;newsh4_opposite7_valid=true;
+ static const unsigned int ids[7]={231,233,235,267,269,271,273};
+ static const uint64_t rgba_stamps[7]={UINT64_C(0x7772ad387ba647e1),UINT64_C(0x46ec9cc03cb2a64d),UINT64_C(0x6cf67a53c0c3c617),UINT64_C(0x3b6f6b5a0675dfab),UINT64_C(0x4e35f12d37d40aa1),UINT64_C(0x4fb033fc9820579f),UINT64_C(0x638ffb21f4fcc1dc)};
+ for(int i=0;i<7;i++) {
+  Asset *a=&assets[389+i];
+  a->initialized=true;a->bank=ASSET_NEWSH4;a->index=(int)ids[i];
+  a->w=24;a->h=28;a->anchor_x=6;a->anchor_y=7;
+  a->valid=read_asset(a,8);
+  if(a->valid) {
+   uint64_t stamp=UINT64_C(0xcbf29ce484222325);
+   for(size_t p=0;p<(size_t)24*28*8*8*4;p++){stamp^=a->rgba[p];stamp*=UINT64_C(0x100000001b3);}
+   if(stamp!=rgba_stamps[i])a->valid=false;
+  }
+  if(!a->valid)newsh4_opposite7_valid=false;
+ }
+ return newsh4_opposite7_valid;
+}
+
 bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int base,int part,int filter,const G101EnemyContext *material_context)
 {
  if(!active||surface!=game_screen||reject_reason||!(game_probe_scene_assets&1))return false;
@@ -1558,14 +1586,21 @@ bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array ban
    slot=378+i;break;
   }
  }
- /* Exactly the approved left seven-part bank2 family; never borrow newsh2
-  * slots for matching base numbers or bind the mirrored right-hand family. */
+ /* Explicit bank2 left-family allowlist; matching numbers never borrow
+  * newsh2 slots. The distinct opposite family is handled separately below. */
  if(role==ASSET_NEWSH4) {
   static const unsigned int newsh4_long7_ids[7]={153,155,157,159,191,193,195};
   slot=-1;
   for(int i=0;i<7;i++)if(base==newsh4_long7_ids[i]) {
    if(!newsh4_long7_family_ready())return false;
    slot=382+i;break;
+  }
+  /* Distinct opposite/link2 composites have their own coherent fallback.
+   * Base231 remains a full composite even though its first quadrant is empty. */
+  static const unsigned int newsh4_opposite7_ids[7]={231,233,235,267,269,271,273};
+  for(int i=0;i<7;i++)if(base==newsh4_opposite7_ids[i]) {
+   if(!newsh4_opposite7_family_ready())return false;
+   slot=389+i;break;
   }
  }
  if(role==ASSET_NEWSHE) {

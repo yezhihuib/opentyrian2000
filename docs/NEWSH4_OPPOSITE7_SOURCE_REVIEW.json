@@ -1,0 +1,79 @@
+{
+  "schema": "opposite7-independent-source-binding-review-v1",
+  "reviewed_at_utc": "2026-10-12T20:57:36.738636+00:00",
+  "status": "PASS: no blocking source/binding findings; not runtime or visual acceptance",
+  "checkpoint": "ac95ac1e5bfd64bead95eee33da6d1c10e477985",
+  "tree": "961989e124fec72f634007c1df10f6a456504f20",
+  "baseline": "67656d102a67cd1bd76c823a2b20f6023f7bb9f0",
+  "scope": "Read-only source/asset review and bounded existing test reruns, with external in-memory strict coexistence mutations; no game/captures/publication",
+  "findings": [
+    {
+      "result": "PASS",
+      "subject": "Namespace/cache isolation",
+      "detail": "Only actual sheet identity 2 maps to namespace 102. Explicit opposite bases 231/233/235/267/269/271/273 use separate checked/valid state and slots 389\u2013395 within assets[396]. Existing left slots 382\u2013388 and all prior routing survive exact projection to baseline."
+    },
+    {
+      "result": "PASS",
+      "subject": "Preflight/fallback/bounds",
+      "detail": "Seven-member preflight checks fixed 24x28 density 8 anchor (6,7) HDR1 headers, exact payload length and RGBA FNV before draw. Header values never size allocation; all new allocations are bounded at 172032 bytes per member. Any missing, invalid, modified-alpha/RGB or allocation-failed member disables only the opposite family. Mode guards run before cached result. No fallback to 4x; no repeated disk loads."
+    },
+    {
+      "result": "PASS",
+      "subject": "Original support and partially empty base231",
+      "detail": "Original read-only RLE proof confirms 28 components and 2027 logical opaque cells. Base 231 first quadrant has 0, second 2, lower 34/74: complete 110-cell composite still records every ordered quadrant. Headers and outputs retain original anchor (6,7); transparent RGB is zero."
+    },
+    {
+      "result": "PASS",
+      "subject": "Independent left/right behavior",
+      "detail": "Both directions of missing/corrupt-member fallback pass; seven allocation-failure positions preserve left and unrelated newsh2 neighbor. Recorder checks all 37 sheet identities/bases 0\u2013700, terrain 1\u2013600/layers 1\u20133, four parts/all 256 filters and all seven possible first members."
+    },
+    {
+      "result": "PASS",
+      "subject": "Strict title/startup coexistence projection",
+      "detail": "Finite additions are pinned before subtraction; title projection checks complete source-index presence first and compares all remaining manifest fields and serialization to baseline. All 26 extra in-memory mutation probes were rejected. runtime_status exclusion is intentional metadata flexibility, not asset/binding flexibility."
+    },
+    {
+      "result": "PASS",
+      "subject": "Predecessor preservation",
+      "detail": "Checked 5697 prior tracked files. All 569838514 prior asset bytes match; only five expected predecessor files changed. Renderer exact after finite family removal; original gameplay/startup/Windows project source unchanged."
+    }
+  ],
+  "rerun_results": {
+    "ASan_UBSan_binding_cases": 113,
+    "unchanged_prior_bindings": 207,
+    "new_bindings": 7,
+    "source_negative_cases": 35,
+    "extra_projection_negative_cases": 26,
+    "source_original_validation": "PASS: generated-only exact reproduction; 28 RLE components, 1701 enemy records, 1010 events, 21 link2 spawns, 6 acceleration events",
+    "aggregate_HDA": 3040,
+    "aggregate_PNG": 416,
+    "default_pack_counts": [
+      400,
+      404
+    ],
+    "startup_tests": 9,
+    "title_tests": 14,
+    "tracked_worktree_clean_after_tests": true
+  },
+  "nonblocking_note": "The inherited left-only comment immediately before the namespace 102 branch still says not to bind the right family; adjacent explicit opposite-family comment/code correctly defines the new scope. Documentation-only clarity nit.",
+  "limitations": [
+    "Recorder stubs final drawing/material hooks, so routing tests are not final-pixel or game-state proof.",
+    "LSan disabled as existing harness specifies; ASan and UBSan passed. Retained family buffers are bounded by process/cache lifetime.",
+    "No actual runtime replay, hit/ice/removal acceptance, visual/art-author acceptance, GPU/fullscreen or Windows build/runtime.",
+    "No new full Linux game build was run in this independent pass."
+  ],
+  "artifacts": {
+    "aggregate.log": "4219660a8cbd5193b5b5b76c66728108af9ad574df0d620e6825a9ccd709f813",
+    "binding.log": "636d58084310b1f1ee120079fdae5705f9c09d85a5ddb695d0529ed22c144c94",
+    "checkpoint.txt": "21029e9fc1bdac218f1c29ba8ddddc890bd4507292f1471be6e4518ef8c248e7",
+    "preservation.json": "8fa140322e1304c1b3a75c739cc21fdab4ca513e34a70554675c93bae4db0657",
+    "preservation.log": "8fa140322e1304c1b3a75c739cc21fdab4ca513e34a70554675c93bae4db0657",
+    "projection-probes.py": "3731f947666453ec17382b1ca5a42a41bc44e2a12c0706bb572e57516e5a062b",
+    "projection-receipt.json": "e0d63033d5347a2c5ea03e3c6324fbb597f938681098050336f181cc215400ad",
+    "projection.log": "e0d63033d5347a2c5ea03e3c6324fbb597f938681098050336f181cc215400ad",
+    "source-guards.log": "431a48ed75321d43c15f5b3b92cab7b4353534a073bc278bd6a41c64756853e8",
+    "source-original.log": "97d077edb12639dff304b19728c2a785f16f7d1ec82599c317b55dedbf5d7add",
+    "startup.log": "4bc591414ef87cd8bf1c3451d6fb76cbf07f0c59608d4eccf4b258ff9a2a04a8",
+    "title.log": "d49a113e2177decea0425f29682e827686b2a947ca47ffb481e44778e9e935dd"
+  }
+}
