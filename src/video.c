@@ -19,6 +19,7 @@
 #include "video.h"
 #include "render_mirror.h"
 #include "asset_debug.h"
+#include "startup_logos.h"
 
 #include "keyboard.h"
 #include "opentyr.h"
@@ -115,6 +116,7 @@ void init_video(void)
 void deinit_video(void)
 {
 	render_mirror_hud_shutdown();
+	startup_logos_shutdown();
 	deinit_texture();
 	deinit_renderer();
 
@@ -142,6 +144,7 @@ static void deinit_renderer(void)
 {
 	if (main_window_renderer != NULL)
 	{
+		startup_logos_release_texture();
 		render_mirror_release_texture();
 		SDL_DestroyRenderer(main_window_renderer);
 		main_window_renderer = NULL;
@@ -312,6 +315,7 @@ bool set_scaling_mode_by_name(const char *name)
 
 void JE_clr256(SDL_Surface *screen)
 {
+	startup_logos_reset();
 	SDL_FillRect(screen, NULL, 0);
 	render_mirror_rect(screen,NULL);
 }
@@ -395,6 +399,7 @@ static void scale_and_flip(SDL_Surface *src_surface)
 
 	SDL_Rect dst_rect;
 	calc_dst_render_rect(src_surface, &dst_rect);
+	if(startup_logos_present(main_window_renderer,src_surface,&dst_rect)) { last_output_rect=dst_rect; return; }
 	if(render_mirror_present(main_window_renderer,src_surface,&dst_rect)) { last_output_rect=dst_rect; return; }
 
 	// Clear the window and blit the output texture to it

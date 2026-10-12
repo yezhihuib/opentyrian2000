@@ -17,6 +17,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 #include "params.h"
+#include "startup_logos.h"
 
 #include "arg_parse.h"
 #include "file.h"
@@ -51,6 +52,7 @@ void JE_paramCheck(int argc, char *argv[])
 		{ 'x', 'x', "no-xmas",           false },
 		
 		{ 't', 't', "data",              true },
+		{ 258, 0,   "startup-assets",    true },
 		
 		{ 'n', 'n', "net",               true },
 		{ 256, 0,   "net-player-name",   true }, // TODO: no short codes because there should
@@ -92,7 +94,8 @@ void JE_paramCheck(int argc, char *argv[])
 			       "  -s, --no-sound               Disable audio\n"
 			       "  -j, --no-joystick            Disable joystick/gamepad input\n"
 			       "  -x, --no-xmas                Disable Christmas mode\n\n"
-			       "  -t, --data=DIR               Set Tyrian data directory\n\n"
+			       "  -t, --data=DIR               Set Tyrian data directory\n"
+			       "  --startup-assets=DIR        Optional HD manufacturer cards (release, local startup only)\n\n"
 			       "  -n, --net=HOST[:PORT]        Start a networked game\n"
 			       "  --net-player-name=NAME       Sets local player name in a networked game\n"
 			       "  --net-player-number=NUMBER   Sets local player number in a networked game\n"
@@ -122,6 +125,14 @@ void JE_paramCheck(int argc, char *argv[])
 			custom_data_dir = option.arg;
 			break;
 			
+		case 258: // --startup-assets
+			if (!startup_logos_set_directory(option.arg))
+			{
+				fprintf(stderr, "Startup assets require a nonempty directory\n");
+				exit(EXIT_FAILURE);
+			}
+			break;
+
 		case 'n':
 			isNetworkGame = true;
 			

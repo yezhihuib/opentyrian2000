@@ -11,8 +11,9 @@ It builds on OpenTyrian2000 and OpenTyrian; the upstream README is preserved bel
 - Integrated work covers selected ships, enemies, weapons/effects, layered
   terrain, clouds and world materials. The finite single-player HUD includes
   its frame, weapon labels, shield bands, mode indicators and refined corner.
-- HD is currently opt-in through controlled preview/asset-debug entrypoints.
-  Ordinary startup without those options retains classic rendering.
+- Gameplay HD is opt-in through controlled preview/asset-debug entrypoints.
+  Two manufacturer cards have a separate startup-only opt-in below. Ordinary
+  startup without those options retains classic rendering.
 - Uncovered, missing or incompatible inputs use documented per-feature
   fallbacks. Pause/help/options retain classic presentation.
 - Acceptance covers documented, bounded Linux scenarios, including native
@@ -20,7 +21,10 @@ It builds on OpenTyrian2000 and OpenTyrian; the upstream README is preserved bel
   certification. The latest changes still need Windows runtime acceptance.
 - Fixed MODE/SHIELD/ARMOR lettering and finite gameplay tiny-font rendering
   are integrated, along with finite firepower, generator and coarse armor
-  meter refinement. Startup screens and logos are planned work.
+  meter refinement. Manufacturer PIC10/PIC12 have a separate opt-in; title/menu
+  artwork remains classic. Startup checks passed at native 2×/4× output sizes
+  using the actual engine with SDL dummy/software; physical-window/GPU acceptance
+  remains separate.
 
 ## Build and try
 
@@ -36,12 +40,39 @@ python3 prototype/build-hd-assets.py
 ./opentyrian2000 --data=/absolute/path/to/tyrian2000
 ```
 
-The last command is ordinary classic startup. HD uses the separate bounded
+The last command is ordinary classic startup. Gameplay HD uses the separate bounded
 [preview launcher](prototype/start-actual-preview.ps1) or
 [asset-debug launcher](prototype/start-asset-debug.ps1), with their documented
 external data/dependencies. These are controlled replay tools, not a full-campaign
 manual-input HD release. See [debug controls](docs/ASSET_DEBUG.md) and the
 [bounded command example](docs/FIRST30_HD_COVERAGE.md#later-windows-acceptance).
+
+### Optional manufacturer cards
+
+A release/NDEBUG build can use the two reviewed manufacturer cards during its
+normal local startup:
+
+```sh
+./opentyrian2000 --data=/absolute/path/to/tyrian2000 \
+  --startup-assets=assets/hd/packs/startup-manufacturer-v1
+```
+
+Run from the repository root, or give an absolute asset-directory path. This
+option replaces only PIC10 (XSIV GAMES) and PIC12 (ECLIPSE); title, menus and
+subsequent manual gameplay retain their existing classic presentation. Missing,
+invalid or incompatible cards fall back independently to their originals.
+Original fades and skip/input code are preserved. Do not combine this option
+with network, render-test or asset-debug modes; those combinations are rejected.
+Without this option, ordinary startup remains classic. Debug builds reject it
+because their original startup skips the cards.
+
+[Startup contract and checks](docs/STARTUP_MANUFACTURER.md) record passing source/
+unit checks and 12 bounded actual-engine executions: native-sized 2×/4×, original
+fades, queued key/held-mouse skipping, independent missing-card fallback and
+classic title handoff. These used SDL dummy/software; physical desktop/GPU,
+fullscreen, physical joystick and Windows runtime remain untested. Instrumented
+clips/timings are not original-speed or FPS proof. This option does not provide
+manual-gameplay HD coverage.
 
 Windows: use the [build entrypoint](prototype/build-game.ps1) and
 [setup/acceptance limits](docs/WINDOWS_HANDOFF.md). These instructions do not

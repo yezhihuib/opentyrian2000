@@ -18,6 +18,7 @@
  */
 #include "picload.h"
 #include "render_mirror.h"
+#include "startup_logos.h"
 
 #include "file.h"
 #include "opentyr.h"
@@ -30,6 +31,7 @@
 
 void JE_loadPic(SDL_Surface *screen, JE_byte PCXnumber, JE_boolean storepal)
 {
+	startup_logos_reset();
 	render_mirror_hud_reset();
 	PCXnumber--;
 

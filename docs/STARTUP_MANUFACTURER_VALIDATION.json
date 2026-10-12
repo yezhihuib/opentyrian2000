@@ -1,0 +1,1169 @@
+{
+  "date": "2026-10-12",
+  "status": "PASS",
+  "scope": "PRIVATE actual-engine SDL dummy/software at native output dimensions; not physical window/GPU/fullscreen",
+  "baseline": "eec06f5c6fa2f57917ed8f30dfb38a1c23c660be",
+  "audited_startup": "4640fbb8153ecf05e58e6f71b492933bd2f3ff3a",
+  "candidate_tested": "8837edd11b8b828979ac1a9a803e02a82c128ff1",
+  "cases_passed": 7,
+  "engine_executions": 12,
+  "common_private_seed": "0x4d464731",
+  "common_private_version": "startup-qa-20261012",
+  "private_binary_sha256": {
+    "baseline": "17d015c06ca148b24674ad05a25023be7749709b7b58db0250a92c2e118befba",
+    "candidate": "cdfe484e2e62501e503833f4995f48d9df54f61553a6c48527dc71f0f038d21b"
+  },
+  "source_gate": "Passed source preservation, option gating, original sequence, source-identity lease, malformed MFG1, independent fallback, palette recurrence, SDL failure/lifetime, ASan/UBSan, package reproduction and Windows source inventory checks; independent audit passed.",
+  "all_12_runs_preserve_original_intro_counts": {
+    "presentations": 82,
+    "delay1": 80,
+    "delay200": 2,
+    "other_delays": 0,
+    "fades": 5,
+    "palette_steps": 80
+  },
+  "production_resources": {
+    "peak_explicit_cpu_bytes": 8258048,
+    "peak_production_heap_bytes": 8192000,
+    "nominal_one_texture_bytes": 4096000,
+    "note": "Source/unit accounting; SDL/driver overhead is implementation-dependent. Independent of disk evidence."
+  },
+  "private_evidence_bytes_excluding_hardlinked_resources": 9979893,
+  "private_receipts_sha256": {
+    "actual-matrix-receipt.json": "a22b6f80ffd185074e904affc4ca2ae89bf2f66a5cdcf623f6503f4c0cd97007",
+    "provenance.json": "7fa325cc72f539e7a85758cae2c1fad70fcdd05699c3848ac623a17c833908d3",
+    "prelaunch-self-verification.json": "165bf21f5ac3f74f41f488e55433fbba35d16e1f29704472017a6382735e4452",
+    "merge-proof.json": "5cc2536e4f8d48322af1dedd897ca990b9a3482f4333675dbb51e5cafb8d3c60",
+    "observer_synthetic_receipt.json": "3b29605aa5414c4fa0b8ae6c6fe06ebfcdb12285e023881c5383f7c58f292d79",
+    "author-review-receipt.json": "6ef8f99326a299541f899603d1c009f1d95a3544596296035a38a8e47098cc77",
+    "author-review-verbatim.txt": "565430bcce5d8c16b94c14c2801047d3a164c83999a855f0adeb1c8d8df5781d"
+  },
+  "cases": {
+    "core2": {
+      "status": "PASS",
+      "runs": {
+        "baseline": {
+          "input": "none",
+          "scale": 2,
+          "output_width": 640,
+          "output_height": 400,
+          "intro_frames": 82,
+          "title_frames": 60,
+          "intro_delay1_count": 80,
+          "intro_delay200_count": 2,
+          "intro_other_delay_count": 0,
+          "intro_fade_count": 5,
+          "intro_palette_step_count": 80,
+          "event_injection_count": 0,
+          "rng_intro_begin": "9ed59c37949baeb3",
+          "rng_intro_end": "9ed59c37949baeb3",
+          "rng_title_end": "4c4384f9ad34f45c",
+          "intro_visual_trace_fnv64": "5006abe11622f136",
+          "title_visual_trace_fnv64": "a12665cb82e7d64c",
+          "intro_elapsed_us": 7440693,
+          "intro_palette_steps_total_us": 280,
+          "intro_palette_step_max_us": 7,
+          "waits": [
+            {
+              "card": 10,
+              "elapsed_us": 2875819,
+              "input": false,
+              "key": false,
+              "mouse": false,
+              "joy": false,
+              "after_newkey": false,
+              "after_mousedown": false
+            },
+            {
+              "card": 12,
+              "elapsed_us": 2874468,
+              "input": false,
+              "key": false,
+              "mouse": false,
+              "joy": false,
+              "after_newkey": false,
+              "after_mousedown": false
+            }
+          ],
+          "evidence_sha256": {
+            "frames.tsv": "317cdcf8fd2cd613aee86830221d1fac3e9e3019bc669b6bacd76717091082da",
+            "events.tsv": "ac0e3b85349ed63ee30b2f246e4c9a903b067295f23bf0b4d95ff27a3186bdb4",
+            "fades.tsv": "57894808a082d9b1ba34526ad66c8147b770e3f5b28263d02c9b4a8c96fc2325",
+            "summary.json": "86c380fa70cca60019801ce5e71cc0f9c26705bff1bb3c3e5ac47595d3192bc3",
+            "receipt.json": "625b9f55cd9270af7cc30d5955fdd11bc1a652fb8115991fc5f49e366d4232e1"
+          }
+        },
+        "candidate": {
+          "input": "none",
+          "scale": 2,
+          "output_width": 640,
+          "output_height": 400,
+          "intro_frames": 82,
+          "title_frames": 60,
+          "intro_delay1_count": 80,
+          "intro_delay200_count": 2,
+          "intro_other_delay_count": 0,
+          "intro_fade_count": 5,
+          "intro_palette_step_count": 80,
+          "event_injection_count": 0,
+          "rng_intro_begin": "9ed59c37949baeb3",
+          "rng_intro_end": "9ed59c37949baeb3",
+          "rng_title_end": "4c4384f9ad34f45c",
+          "intro_visual_trace_fnv64": "89364450279e39bd",
+          "title_visual_trace_fnv64": "a12665cb82e7d64c",
+          "intro_elapsed_us": 7467702,
+          "intro_palette_steps_total_us": 452134,
+          "intro_palette_step_max_us": 18409,
+          "waits": [
+            {
+              "card": 10,
+              "elapsed_us": 2875309,
+              "input": false,
+              "key": false,
+              "mouse": false,
+              "joy": false,
+              "after_newkey": false,
+              "after_mousedown": false
+            },
+            {
+              "card": 12,
+              "elapsed_us": 2874690,
+              "input": false,
+              "key": false,
+              "mouse": false,
+              "joy": false,
+              "after_newkey": false,
+              "after_mousedown": false
+            }
+          ],
+          "evidence_sha256": {
+            "frames.tsv": "9a2b995e23fb19c1a5334cb5951324e79c1baf9fc72dd9a22ea00057f0215bb6",
+            "events.tsv": "e6773c6620b4236c8460d67b1dcf9a896e8ee671dfeb813e54981d31f5938150",
+            "fades.tsv": "5f95e21bd7cfd9fd076f84c3d997cd1ef9f2d8fdc77ca014d5d02eff70809d1f",
+            "summary.json": "ceabe69a41644d153e1ef91d512ee3e92b05b270ea665e15d14d0fc874c7dcb5",
+            "receipt.json": "d313e7d83ff39af92713531f88becc02c4bcf16d66ed57ece1977b41d7c00ebc"
+          }
+        }
+      },
+      "assertions": {
+        "case": "core2",
+        "status": "PASS",
+        "candidate": "8837edd11b8b828979ac1a9a803e02a82c128ff1",
+        "baseline": "eec06f5c6fa2f57917ed8f30dfb38a1c23c660be",
+        "scope": "Actual SDL dummy/software native-sized engine readback; not physical window/GPU/fullscreen",
+        "all82_original_indexed_palette_rng_input_states_equal": true,
+        "all60_classic_title_states_and_readbacks_equal": true,
+        "authored_fade_readbacks_exact_frames25_through82": true,
+        "waits": [
+          {
+            "card": 10,
+            "elapsed_us": 2875309,
+            "input": false,
+            "key": false,
+            "mouse": false,
+            "joy": false,
+            "after_newkey": false,
+            "after_mousedown": false
+          },
+          {
+            "card": 12,
+            "elapsed_us": 2874690,
+            "input": false,
+            "key": false,
+            "mouse": false,
+            "joy": false,
+            "after_newkey": false,
+            "after_mousedown": false
+          }
+        ],
+        "diagnostic_timing": {
+          "baseline": {
+            "intro_elapsed_us": 7440693,
+            "intro_palette_steps_total_us": 280,
+            "intro_palette_step_max_us": 7
+          },
+          "candidate": {
+            "intro_elapsed_us": 7467702,
+            "intro_palette_steps_total_us": 452134,
+            "intro_palette_step_max_us": 18409
+          }
+        }
+      }
+    },
+    "core4": {
+      "status": "PASS",
+      "runs": {
+        "baseline": {
+          "input": "none",
+          "scale": 4,
+          "output_width": 1280,
+          "output_height": 800,
+          "intro_frames": 82,
+          "title_frames": 60,
+          "intro_delay1_count": 80,
+          "intro_delay200_count": 2,
+          "intro_other_delay_count": 0,
+          "intro_fade_count": 5,
+          "intro_palette_step_count": 80,
+          "event_injection_count": 0,
+          "rng_intro_begin": "9ed59c37949baeb3",
+          "rng_intro_end": "9ed59c37949baeb3",
+          "rng_title_end": "4c4384f9ad34f45c",
+          "intro_visual_trace_fnv64": "fe98b41b2074b217",
+          "title_visual_trace_fnv64": "6bf478a885077b65",
+          "intro_elapsed_us": 10288777,
+          "intro_palette_steps_total_us": 330,
+          "intro_palette_step_max_us": 13,
+          "waits": [
+            {
+              "card": 10,
+              "elapsed_us": 2874968,
+              "input": false,
+              "key": false,
+              "mouse": false,
+              "joy": false,
+              "after_newkey": false,
+              "after_mousedown": false
+            },
+            {
+              "card": 12,
+              "elapsed_us": 2875163,
+              "input": false,
+              "key": false,
+              "mouse": false,
+              "joy": false,
+              "after_newkey": false,
+              "after_mousedown": false
+            }
+          ],
+          "evidence_sha256": {
+            "frames.tsv": "1c97c855fc677426b0474720bb7d840db5463e1dd5486dcfe4a9f4353d7acfe2",
+            "events.tsv": "f368836eaefdd7a81d2999d75cab26d6313aadc46a17e38e4c6c72140acb04a7",
+            "fades.tsv": "4a6c65620f950629d79670ac518c65631c063bd1157ec7a6a1b1cfeda424d99c",
+            "summary.json": "3c12dbe677d6f196b98e35c27ae117dbc4ad9dfdfab5b5e356ddb6cfbf4b8a43",
+            "receipt.json": "b22f8459294f3455165519d99f16620c78faac0f3090667dcefeacc72bdfedf5"
+          }
+        },
+        "candidate": {
+          "input": "none",
+          "scale": 4,
+          "output_width": 1280,
+          "output_height": 800,
+          "intro_frames": 82,
+          "title_frames": 60,
+          "intro_delay1_count": 80,
+          "intro_delay200_count": 2,
+          "intro_other_delay_count": 0,
+          "intro_fade_count": 5,
+          "intro_palette_step_count": 80,
+          "event_injection_count": 0,
+          "rng_intro_begin": "9ed59c37949baeb3",
+          "rng_intro_end": "9ed59c37949baeb3",
+          "rng_title_end": "4c4384f9ad34f45c",
+          "intro_visual_trace_fnv64": "1a53250ba8e0d2ff",
+          "title_visual_trace_fnv64": "6bf478a885077b65",
+          "intro_elapsed_us": 9775156,
+          "intro_palette_steps_total_us": 516549,
+          "intro_palette_step_max_us": 69141,
+          "waits": [
+            {
+              "card": 10,
+              "elapsed_us": 2875958,
+              "input": false,
+              "key": false,
+              "mouse": false,
+              "joy": false,
+              "after_newkey": false,
+              "after_mousedown": false
+            },
+            {
+              "card": 12,
+              "elapsed_us": 2875115,
+              "input": false,
+              "key": false,
+              "mouse": false,
+              "joy": false,
+              "after_newkey": false,
+              "after_mousedown": false
+            }
+          ],
+          "evidence_sha256": {
+            "frames.tsv": "2dfd7d795d71fc3fccbbbab0d3cf1d5b79f38469c86e974df4ff8a2bde49a4e1",
+            "events.tsv": "c3ea7cc12d1739b80dceb581f324fdfca233be5763e8d30dcb61734f6dfc377f",
+            "fades.tsv": "a3bb6adc1ed9232f7fff0bef13f2500ddad4924beb3b66f8b9d8399d63bde97f",
+            "summary.json": "dc53418e2edeb4e3919187178af9002730902ab8c9562fce95149170c4617cdf",
+            "receipt.json": "453f715595647d6d91bc3cb2c2f1390ddd6b9f8d8e199afbc76ddd9fa4033b37"
+          }
+        }
+      },
+      "assertions": {
+        "case": "core4",
+        "status": "PASS",
+        "candidate": "8837edd11b8b828979ac1a9a803e02a82c128ff1",
+        "baseline": "eec06f5c6fa2f57917ed8f30dfb38a1c23c660be",
+        "scope": "Actual SDL dummy/software native-sized engine readback; not physical window/GPU/fullscreen",
+        "all82_original_indexed_palette_rng_input_states_equal": true,
+        "all60_classic_title_states_and_readbacks_equal": true,
+        "authored_fade_readbacks_exact_frames25_through82": true,
+        "waits": [
+          {
+            "card": 10,
+            "elapsed_us": 2875958,
+            "input": false,
+            "key": false,
+            "mouse": false,
+            "joy": false,
+            "after_newkey": false,
+            "after_mousedown": false
+          },
+          {
+            "card": 12,
+            "elapsed_us": 2875115,
+            "input": false,
+            "key": false,
+            "mouse": false,
+            "joy": false,
+            "after_newkey": false,
+            "after_mousedown": false
+          }
+        ],
+        "diagnostic_timing": {
+          "baseline": {
+            "intro_elapsed_us": 10288777,
+            "intro_palette_steps_total_us": 330,
+            "intro_palette_step_max_us": 13
+          },
+          "candidate": {
+            "intro_elapsed_us": 9775156,
+            "intro_palette_steps_total_us": 516549,
+            "intro_palette_step_max_us": 69141
+          }
+        }
+      }
+    },
+    "key": {
+      "status": "PASS",
+      "runs": {
+        "baseline": {
+          "input": "key",
+          "scale": 2,
+          "output_width": 640,
+          "output_height": 400,
+          "intro_frames": 82,
+          "title_frames": 60,
+          "intro_delay1_count": 80,
+          "intro_delay200_count": 2,
+          "intro_other_delay_count": 0,
+          "intro_fade_count": 5,
+          "intro_palette_step_count": 80,
+          "event_injection_count": 2,
+          "rng_intro_begin": "9ed59c37949baeb3",
+          "rng_intro_end": "9ed59c37949baeb3",
+          "rng_title_end": "4c4384f9ad34f45c",
+          "intro_visual_trace_fnv64": "5006abe11622f136",
+          "title_visual_trace_fnv64": "a12665cb82e7d64c",
+          "intro_elapsed_us": 4009174,
+          "intro_palette_steps_total_us": 275,
+          "intro_palette_step_max_us": 22,
+          "waits": [
+            {
+              "card": 10,
+              "elapsed_us": 93,
+              "input": true,
+              "key": true,
+              "mouse": false,
+              "joy": false,
+              "after_newkey": false,
+              "after_mousedown": false
+            },
+            {
+              "card": 12,
+              "elapsed_us": 2874606,
+              "input": false,
+              "key": false,
+              "mouse": false,
+              "joy": false,
+              "after_newkey": false,
+              "after_mousedown": false
+            }
+          ],
+          "evidence_sha256": {
+            "frames.tsv": "017de8945f98f1d5f36c9ecb7f11902acddae7587b85b3b0bd15b2c72f0ca7ce",
+            "events.tsv": "680ca5499c98f0181718704d50465b851b36496c69edd511bcbbb38975fc7bdd",
+            "fades.tsv": "0bf5e74f490bdfca071e533c601e6fdd04519089e56a502e39a213325bab0d06",
+            "summary.json": "ba412f92c78a303e30cfbf342276c8dd9b7787a07aa3d5dc9137bb5ce3511e72",
+            "receipt.json": "df676f14fa21f1e6eec22d4b752568f75e7814ab1c412fbc07a2d3e3d578cc5e"
+          }
+        },
+        "candidate": {
+          "input": "key",
+          "scale": 2,
+          "output_width": 640,
+          "output_height": 400,
+          "intro_frames": 82,
+          "title_frames": 60,
+          "intro_delay1_count": 80,
+          "intro_delay200_count": 2,
+          "intro_other_delay_count": 0,
+          "intro_fade_count": 5,
+          "intro_palette_step_count": 80,
+          "event_injection_count": 2,
+          "rng_intro_begin": "9ed59c37949baeb3",
+          "rng_intro_end": "9ed59c37949baeb3",
+          "rng_title_end": "4c4384f9ad34f45c",
+          "intro_visual_trace_fnv64": "89364450279e39bd",
+          "title_visual_trace_fnv64": "a12665cb82e7d64c",
+          "intro_elapsed_us": 4051341,
+          "intro_palette_steps_total_us": 387222,
+          "intro_palette_step_max_us": 14147,
+          "waits": [
+            {
+              "card": 10,
+              "elapsed_us": 26,
+              "input": true,
+              "key": true,
+              "mouse": false,
+              "joy": false,
+              "after_newkey": false,
+              "after_mousedown": false
+            },
+            {
+              "card": 12,
+              "elapsed_us": 2873301,
+              "input": false,
+              "key": false,
+              "mouse": false,
+              "joy": false,
+              "after_newkey": false,
+              "after_mousedown": false
+            }
+          ],
+          "evidence_sha256": {
+            "frames.tsv": "3a121e653857d9e9a3d103eaad74a72556732c23587c6812eae6de395b00b068",
+            "events.tsv": "a1f5f6157ed46f13021091e729b5fa01104201a2a3d33ca0cd904c9b9777d1cf",
+            "fades.tsv": "4778f4f6fc2c1c71c7237a55ec8e93cd894459f51e7afcd51c38506f98b1acf7",
+            "summary.json": "b52516b1acedd22001c6b94e7efa0dad72274b450beb5dd8daa383edfdad7f80",
+            "receipt.json": "f2641f473e5ef3821a7b4fec7ea4ac1f5f31549b1758a85142acc1e4e95b4d72"
+          }
+        }
+      },
+      "assertions": {
+        "case": "key",
+        "status": "PASS",
+        "candidate": "8837edd11b8b828979ac1a9a803e02a82c128ff1",
+        "baseline": "eec06f5c6fa2f57917ed8f30dfb38a1c23c660be",
+        "scope": "Actual SDL dummy/software native-sized engine readback; not physical window/GPU/fullscreen",
+        "all82_original_indexed_palette_rng_input_states_equal": true,
+        "all60_classic_title_states_and_readbacks_equal": true,
+        "authored_fade_readbacks_exact_frames25_through82": true,
+        "waits": [
+          {
+            "card": 10,
+            "elapsed_us": 26,
+            "input": true,
+            "key": true,
+            "mouse": false,
+            "joy": false,
+            "after_newkey": false,
+            "after_mousedown": false
+          },
+          {
+            "card": 12,
+            "elapsed_us": 2873301,
+            "input": false,
+            "key": false,
+            "mouse": false,
+            "joy": false,
+            "after_newkey": false,
+            "after_mousedown": false
+          }
+        ],
+        "diagnostic_timing": {
+          "baseline": {
+            "intro_elapsed_us": 4009174,
+            "intro_palette_steps_total_us": 275,
+            "intro_palette_step_max_us": 22
+          },
+          "candidate": {
+            "intro_elapsed_us": 4051341,
+            "intro_palette_steps_total_us": 387222,
+            "intro_palette_step_max_us": 14147
+          }
+        }
+      }
+    },
+    "held-mouse": {
+      "status": "PASS",
+      "runs": {
+        "baseline": {
+          "input": "held-mouse",
+          "scale": 2,
+          "output_width": 640,
+          "output_height": 400,
+          "intro_frames": 82,
+          "title_frames": 60,
+          "intro_delay1_count": 80,
+          "intro_delay200_count": 2,
+          "intro_other_delay_count": 0,
+          "intro_fade_count": 5,
+          "intro_palette_step_count": 80,
+          "event_injection_count": 2,
+          "rng_intro_begin": "9ed59c37949baeb3",
+          "rng_intro_end": "9ed59c37949baeb3",
+          "rng_title_end": "4c4384f9ad34f45c",
+          "intro_visual_trace_fnv64": "5006abe11622f136",
+          "title_visual_trace_fnv64": "1406a60dd49d777d",
+          "intro_elapsed_us": 1129156,
+          "intro_palette_steps_total_us": 494,
+          "intro_palette_step_max_us": 185,
+          "waits": [
+            {
+              "card": 10,
+              "elapsed_us": 42,
+              "input": true,
+              "key": false,
+              "mouse": true,
+              "joy": false,
+              "after_newkey": false,
+              "after_mousedown": true
+            },
+            {
+              "card": 12,
+              "elapsed_us": 14,
+              "input": true,
+              "key": false,
+              "mouse": true,
+              "joy": false,
+              "after_newkey": false,
+              "after_mousedown": true
+            }
+          ],
+          "evidence_sha256": {
+            "frames.tsv": "f184055f35cb57a6eea9e61e193cb5f4100018a2fc2e50ff629f8cdef6f7d56f",
+            "events.tsv": "31d60717ef1d78a27367f0e684a6d4c0366d3bb28b173ba6687e9640c4ad6bcb",
+            "fades.tsv": "af272230b6cf23436b211cd73494775302323988c4772d453c0370ad9e145dec",
+            "summary.json": "0f1e8cbd515b2e134f6dde4e87ea1d0cfefeef63f8840aa377a80a5fe42854b4",
+            "receipt.json": "ad62c93b84e7c2a8a8f969c65c04535917a1021bdc910d397c76ef7882601a80"
+          }
+        },
+        "candidate": {
+          "input": "held-mouse",
+          "scale": 2,
+          "output_width": 640,
+          "output_height": 400,
+          "intro_frames": 82,
+          "title_frames": 60,
+          "intro_delay1_count": 80,
+          "intro_delay200_count": 2,
+          "intro_other_delay_count": 0,
+          "intro_fade_count": 5,
+          "intro_palette_step_count": 80,
+          "event_injection_count": 2,
+          "rng_intro_begin": "9ed59c37949baeb3",
+          "rng_intro_end": "9ed59c37949baeb3",
+          "rng_title_end": "4c4384f9ad34f45c",
+          "intro_visual_trace_fnv64": "89364450279e39bd",
+          "title_visual_trace_fnv64": "1406a60dd49d777d",
+          "intro_elapsed_us": 1160504,
+          "intro_palette_steps_total_us": 359282,
+          "intro_palette_step_max_us": 9171,
+          "waits": [
+            {
+              "card": 10,
+              "elapsed_us": 236,
+              "input": true,
+              "key": false,
+              "mouse": true,
+              "joy": false,
+              "after_newkey": false,
+              "after_mousedown": true
+            },
+            {
+              "card": 12,
+              "elapsed_us": 11,
+              "input": true,
+              "key": false,
+              "mouse": true,
+              "joy": false,
+              "after_newkey": false,
+              "after_mousedown": true
+            }
+          ],
+          "evidence_sha256": {
+            "frames.tsv": "e3fed1d7a85564014591669456a5637a40b153941bd3cfafe75a3008536deea6",
+            "events.tsv": "7d204485a902da54df7a205cc0be2d7ff6a9737211ccd2b0c4415387324e8484",
+            "fades.tsv": "27dfd2e931dd9ae53853234400b83248b4594909bea2158e21fa3fc32b86cbcb",
+            "summary.json": "6af53c066967726fef20681a1a3d889cca5b9649d2f563e524c100b406e6d271",
+            "receipt.json": "6d7e01cc88ca0b1c967edc4c2d1b042be4cd655e1fbc1dd73f8ce637ccaff3f0"
+          }
+        }
+      },
+      "assertions": {
+        "case": "held-mouse",
+        "status": "PASS",
+        "candidate": "8837edd11b8b828979ac1a9a803e02a82c128ff1",
+        "baseline": "eec06f5c6fa2f57917ed8f30dfb38a1c23c660be",
+        "scope": "Actual SDL dummy/software native-sized engine readback; not physical window/GPU/fullscreen",
+        "all82_original_indexed_palette_rng_input_states_equal": true,
+        "all60_classic_title_states_and_readbacks_equal": true,
+        "authored_fade_readbacks_exact_frames25_through82": true,
+        "waits": [
+          {
+            "card": 10,
+            "elapsed_us": 236,
+            "input": true,
+            "key": false,
+            "mouse": true,
+            "joy": false,
+            "after_newkey": false,
+            "after_mousedown": true
+          },
+          {
+            "card": 12,
+            "elapsed_us": 11,
+            "input": true,
+            "key": false,
+            "mouse": true,
+            "joy": false,
+            "after_newkey": false,
+            "after_mousedown": true
+          }
+        ],
+        "diagnostic_timing": {
+          "baseline": {
+            "intro_elapsed_us": 1129156,
+            "intro_palette_steps_total_us": 494,
+            "intro_palette_step_max_us": 185
+          },
+          "candidate": {
+            "intro_elapsed_us": 1160504,
+            "intro_palette_steps_total_us": 359282,
+            "intro_palette_step_max_us": 9171
+          }
+        }
+      }
+    },
+    "missing10": {
+      "status": "PASS",
+      "runs": {
+        "candidate": {
+          "input": "none",
+          "scale": 2,
+          "output_width": 640,
+          "output_height": 400,
+          "intro_frames": 82,
+          "title_frames": 60,
+          "intro_delay1_count": 80,
+          "intro_delay200_count": 2,
+          "intro_other_delay_count": 0,
+          "intro_fade_count": 5,
+          "intro_palette_step_count": 80,
+          "event_injection_count": 0,
+          "rng_intro_begin": "9ed59c37949baeb3",
+          "rng_intro_end": "9ed59c37949baeb3",
+          "rng_title_end": "4c4384f9ad34f45c",
+          "intro_visual_trace_fnv64": "ca76ae8763486d31",
+          "title_visual_trace_fnv64": "a12665cb82e7d64c",
+          "intro_elapsed_us": 6929967,
+          "intro_palette_steps_total_us": 168695,
+          "intro_palette_step_max_us": 16663,
+          "waits": [
+            {
+              "card": 10,
+              "elapsed_us": 2875257,
+              "input": false,
+              "key": false,
+              "mouse": false,
+              "joy": false,
+              "after_newkey": false,
+              "after_mousedown": false
+            },
+            {
+              "card": 12,
+              "elapsed_us": 2875176,
+              "input": false,
+              "key": false,
+              "mouse": false,
+              "joy": false,
+              "after_newkey": false,
+              "after_mousedown": false
+            }
+          ],
+          "evidence_sha256": {
+            "frames.tsv": "35942920a9a3e384c60a83df4d446072334d0c69bf084873bcfe6e7e4419ce74",
+            "events.tsv": "74e240626bd229d0c9daccf194a1d456b34ea926c76244d615e1e714fe685b46",
+            "fades.tsv": "dd06df3cb4b095261862a0830c82b84aacaa91186347c3f63620659e0c93e802",
+            "summary.json": "f00289b6990360267e0b92ff42d1795c18258348200e75f93dce75b376ded645",
+            "receipt.json": "dd73cb4cfcb75e66efe5afd39686a19003ec26988d590cde0a7d3fc01e93eb36"
+          }
+        }
+      },
+      "assertions": {
+        "case": "missing10",
+        "status": "PASS",
+        "candidate": "8837edd11b8b828979ac1a9a803e02a82c128ff1",
+        "baseline": "eec06f5c6fa2f57917ed8f30dfb38a1c23c660be",
+        "scope": "Actual SDL dummy/software native-sized engine readback; not physical window/GPU/fullscreen",
+        "independent_missing_card": 10
+      }
+    },
+    "missing12": {
+      "status": "PASS",
+      "runs": {
+        "candidate": {
+          "input": "none",
+          "scale": 2,
+          "output_width": 640,
+          "output_height": 400,
+          "intro_frames": 82,
+          "title_frames": 60,
+          "intro_delay1_count": 80,
+          "intro_delay200_count": 2,
+          "intro_other_delay_count": 0,
+          "intro_fade_count": 5,
+          "intro_palette_step_count": 80,
+          "event_injection_count": 0,
+          "rng_intro_begin": "9ed59c37949baeb3",
+          "rng_intro_end": "9ed59c37949baeb3",
+          "rng_title_end": "4c4384f9ad34f45c",
+          "intro_visual_trace_fnv64": "971ba1938b2a5e62",
+          "title_visual_trace_fnv64": "a12665cb82e7d64c",
+          "intro_elapsed_us": 6897805,
+          "intro_palette_steps_total_us": 218845,
+          "intro_palette_step_max_us": 7223,
+          "waits": [
+            {
+              "card": 10,
+              "elapsed_us": 2875157,
+              "input": false,
+              "key": false,
+              "mouse": false,
+              "joy": false,
+              "after_newkey": false,
+              "after_mousedown": false
+            },
+            {
+              "card": 12,
+              "elapsed_us": 2875235,
+              "input": false,
+              "key": false,
+              "mouse": false,
+              "joy": false,
+              "after_newkey": false,
+              "after_mousedown": false
+            }
+          ],
+          "evidence_sha256": {
+            "frames.tsv": "25a1653b50446611fa399398d4bee86f70c238b8aa50867d1a3274a66aa191a6",
+            "events.tsv": "1c4b33d95d7836ce5fad193352a06bb10735cca1bd1d33bbbfc6dede7f1c8737",
+            "fades.tsv": "0d2c2559480ea501d84b31d7c9baab16ced54bec01e9624ed64faca0704982e9",
+            "summary.json": "f281b11931525e6cc97609b62523b3341f44868adfa21db5b0bd10a10534fdb3",
+            "receipt.json": "152dfb509edd790b48f6bab6df56557cb82f6d51473d95d5cf39c1a23a91428c"
+          }
+        }
+      },
+      "assertions": {
+        "case": "missing12",
+        "status": "PASS",
+        "candidate": "8837edd11b8b828979ac1a9a803e02a82c128ff1",
+        "baseline": "eec06f5c6fa2f57917ed8f30dfb38a1c23c660be",
+        "scope": "Actual SDL dummy/software native-sized engine readback; not physical window/GPU/fullscreen",
+        "independent_missing_card": 12
+      }
+    },
+    "key-during-fade": {
+      "status": "PASS",
+      "runs": {
+        "baseline": {
+          "input": "key-during-fade",
+          "scale": 2,
+          "output_width": 640,
+          "output_height": 400,
+          "intro_frames": 82,
+          "title_frames": 60,
+          "intro_delay1_count": 80,
+          "intro_delay200_count": 2,
+          "intro_other_delay_count": 0,
+          "intro_fade_count": 5,
+          "intro_palette_step_count": 80,
+          "event_injection_count": 2,
+          "rng_intro_begin": "9ed59c37949baeb3",
+          "rng_intro_end": "9ed59c37949baeb3",
+          "rng_title_end": "4c4384f9ad34f45c",
+          "intro_visual_trace_fnv64": "5006abe11622f136",
+          "title_visual_trace_fnv64": "a12665cb82e7d64c",
+          "intro_elapsed_us": 4008832,
+          "intro_palette_steps_total_us": 1134,
+          "intro_palette_step_max_us": 889,
+          "waits": [
+            {
+              "card": 10,
+              "elapsed_us": 11,
+              "input": true,
+              "key": true,
+              "mouse": false,
+              "joy": false,
+              "after_newkey": false,
+              "after_mousedown": false
+            },
+            {
+              "card": 12,
+              "elapsed_us": 2875594,
+              "input": false,
+              "key": false,
+              "mouse": false,
+              "joy": false,
+              "after_newkey": false,
+              "after_mousedown": false
+            }
+          ],
+          "evidence_sha256": {
+            "frames.tsv": "f991777a2a75fa7c66bd25467453b2fe94592a3b778c68082cc02d6e129b2bc8",
+            "events.tsv": "6d2496e5e21a80f3458a7ff71c7de2a19d12f6a333a7377e481fb2e1f730233e",
+            "fades.tsv": "51e503af1dc1ad8ea229d4899cc10b851faa6c1ba3fd4bf7e2b1f4c1e3e23ded",
+            "summary.json": "ba5df5231d98c9558a09d0e0d5a97a998e6e5fcd937c35e163795b565293c229",
+            "receipt.json": "6c2c7df5ff7e2d700fab1afb16a9529deb6efc4f5a0fb95c20247c50ec9b112e"
+          }
+        },
+        "candidate": {
+          "input": "key-during-fade",
+          "scale": 2,
+          "output_width": 640,
+          "output_height": 400,
+          "intro_frames": 82,
+          "title_frames": 60,
+          "intro_delay1_count": 80,
+          "intro_delay200_count": 2,
+          "intro_other_delay_count": 0,
+          "intro_fade_count": 5,
+          "intro_palette_step_count": 80,
+          "event_injection_count": 2,
+          "rng_intro_begin": "9ed59c37949baeb3",
+          "rng_intro_end": "9ed59c37949baeb3",
+          "rng_title_end": "4c4384f9ad34f45c",
+          "intro_visual_trace_fnv64": "89364450279e39bd",
+          "title_visual_trace_fnv64": "a12665cb82e7d64c",
+          "intro_elapsed_us": 4036749,
+          "intro_palette_steps_total_us": 352190,
+          "intro_palette_step_max_us": 7988,
+          "waits": [
+            {
+              "card": 10,
+              "elapsed_us": 11,
+              "input": true,
+              "key": true,
+              "mouse": false,
+              "joy": false,
+              "after_newkey": false,
+              "after_mousedown": false
+            },
+            {
+              "card": 12,
+              "elapsed_us": 2874498,
+              "input": false,
+              "key": false,
+              "mouse": false,
+              "joy": false,
+              "after_newkey": false,
+              "after_mousedown": false
+            }
+          ],
+          "evidence_sha256": {
+            "frames.tsv": "5ec39ab8ed97140342583ad52759c1da142348bfc0ac6f665ca37fe306caf358",
+            "events.tsv": "1c022e1f445beb279daf66b364fc0d5d7c9b316d620db53e5187cb6e115cac64",
+            "fades.tsv": "852d5e91f6c14f124ad1b2cfd05629893aed78d3d5b3f4f1e64296ecf974545b",
+            "summary.json": "6922fba63ce5c88838e8b900249e69132304f0b85cccae44c46f33f9a97a72e6",
+            "receipt.json": "4086518d3b1d09fdcbefd645aa116a05f6e701500b58db7c237ce619d9f0dc3d"
+          }
+        }
+      },
+      "assertions": {
+        "case": "key-during-fade",
+        "status": "PASS",
+        "candidate": "8837edd11b8b828979ac1a9a803e02a82c128ff1",
+        "baseline": "eec06f5c6fa2f57917ed8f30dfb38a1c23c660be",
+        "scope": "Actual SDL dummy/software native-sized engine readback; not physical window/GPU/fullscreen",
+        "all82_original_indexed_palette_rng_input_states_equal": true,
+        "all60_classic_title_states_and_readbacks_equal": true,
+        "authored_fade_readbacks_exact_frames25_through82": true,
+        "waits": [
+          {
+            "card": 10,
+            "elapsed_us": 11,
+            "input": true,
+            "key": true,
+            "mouse": false,
+            "joy": false,
+            "after_newkey": false,
+            "after_mousedown": false
+          },
+          {
+            "card": 12,
+            "elapsed_us": 2874498,
+            "input": false,
+            "key": false,
+            "mouse": false,
+            "joy": false,
+            "after_newkey": false,
+            "after_mousedown": false
+          }
+        ],
+        "diagnostic_timing": {
+          "baseline": {
+            "intro_elapsed_us": 4008832,
+            "intro_palette_steps_total_us": 1134,
+            "intro_palette_step_max_us": 889
+          },
+          "candidate": {
+            "intro_elapsed_us": 4036749,
+            "intro_palette_steps_total_us": 352190,
+            "intro_palette_step_max_us": 7988
+          }
+        }
+      }
+    }
+  },
+  "native_readbacks": {
+    "runs/core2/baseline/intro-025-initial-white.png": {
+      "bytes": 1636,
+      "sha256": "c9d20dd6add00bbc62fc9b9d6ed608360e5b70aa1a0eeadaabeba810b4ecdab8"
+    },
+    "runs/core2/baseline/intro-038-PIC10-in.png": {
+      "bytes": 58957,
+      "sha256": "b581144aa1196e49d8339496a194eac4299294b5f7cdf0beab8b3c12e8958b46"
+    },
+    "runs/core2/baseline/intro-051-PIC10-in.png": {
+      "bytes": 60815,
+      "sha256": "47ef98bac39a213f1fafdb42a9027ce443928c8bff8ed75af8ea8534199ffa20"
+    },
+    "runs/core2/baseline/intro-056-PIC10-out.png": {
+      "bytes": 65282,
+      "sha256": "caf2764f40f054fdb4669beca5cfc0e57a69a8e8d273031bb970b5fe6cb5fbc4"
+    },
+    "runs/core2/baseline/intro-061-PIC10-out.png": {
+      "bytes": 824,
+      "sha256": "3d924ebc0556fa8fa666923ab457e46527832572eca0ffc6b3895d5941cfff0b"
+    },
+    "runs/core2/baseline/intro-067-PIC12-in.png": {
+      "bytes": 55619,
+      "sha256": "ebea5ff282a4fad42e8dc6265487731f5e8ccd4ce26480eedf43adc85c318c8c"
+    },
+    "runs/core2/baseline/intro-072-PIC12-in.png": {
+      "bytes": 54547,
+      "sha256": "696433fb10af4c4f88dbf0dbe66c6093705962f37a602166584652ba8c937baa"
+    },
+    "runs/core2/baseline/intro-082-PIC12-out.png": {
+      "bytes": 824,
+      "sha256": "3d924ebc0556fa8fa666923ab457e46527832572eca0ffc6b3895d5941cfff0b"
+    },
+    "runs/core2/baseline/startup.mp4": {
+      "bytes": 244164,
+      "sha256": "cdba19bcd49ebfaa4085ab361c04f914017d01ca5f03524cc853ddde4240d930"
+    },
+    "runs/core2/baseline/title-060-title.png": {
+      "bytes": 59656,
+      "sha256": "7f3d575fab1f557b1d525de98232a3a0a2f45dcc6787aa34ee133d6114fb4082"
+    },
+    "runs/core2/candidate/intro-025-initial-white.png": {
+      "bytes": 1636,
+      "sha256": "c9d20dd6add00bbc62fc9b9d6ed608360e5b70aa1a0eeadaabeba810b4ecdab8"
+    },
+    "runs/core2/candidate/intro-038-PIC10-in.png": {
+      "bytes": 160937,
+      "sha256": "70e9ac32cbc056b46ada4fa96cb0a14ef7186b88a2e99020fc0a946ec0a113b9"
+    },
+    "runs/core2/candidate/intro-051-PIC10-in.png": {
+      "bytes": 314758,
+      "sha256": "7d3e312eadc974d8c9d00c4089a31bb8f0d4b0a8b99096a996af9a05132a4092"
+    },
+    "runs/core2/candidate/intro-056-PIC10-out.png": {
+      "bytes": 277748,
+      "sha256": "450d51f83c45fae57ba2565f210bb09b03caf93e7e7784afd2c85fd89700ae79"
+    },
+    "runs/core2/candidate/intro-061-PIC10-out.png": {
+      "bytes": 824,
+      "sha256": "3d924ebc0556fa8fa666923ab457e46527832572eca0ffc6b3895d5941cfff0b"
+    },
+    "runs/core2/candidate/intro-067-PIC12-in.png": {
+      "bytes": 290105,
+      "sha256": "ca58bd1b0efae9d0ae6c70afdc873bc28bb4578f754d26892b56ba2fbd2be673"
+    },
+    "runs/core2/candidate/intro-072-PIC12-in.png": {
+      "bytes": 408060,
+      "sha256": "6a813b8b851b5c4fe793962100d6f4b4477cf03b38d0a735a01ceba1d0b58fd5"
+    },
+    "runs/core2/candidate/intro-082-PIC12-out.png": {
+      "bytes": 824,
+      "sha256": "3d924ebc0556fa8fa666923ab457e46527832572eca0ffc6b3895d5941cfff0b"
+    },
+    "runs/core2/candidate/startup.mp4": {
+      "bytes": 280563,
+      "sha256": "46d04d9585029146103f8eb437c6bbf903b65bc28475995087b3b4d095954020"
+    },
+    "runs/core2/candidate/title-060-title.png": {
+      "bytes": 59656,
+      "sha256": "7f3d575fab1f557b1d525de98232a3a0a2f45dcc6787aa34ee133d6114fb4082"
+    },
+    "runs/core4/baseline/intro-025-initial-white.png": {
+      "bytes": 4788,
+      "sha256": "0348875b77ec1b123637c9332d1fcf0ce3f1c62d981189e9fec02f2a9d6a5b3c"
+    },
+    "runs/core4/baseline/intro-038-PIC10-in.png": {
+      "bytes": 73060,
+      "sha256": "a8d5c189a61aa351853ba52c52fe8a934ad5ec067eb59bfff822246f36b2faf2"
+    },
+    "runs/core4/baseline/intro-051-PIC10-in.png": {
+      "bytes": 74320,
+      "sha256": "dd288b4945c57b5aa2c4a35e368b4304ae9fe930d741df4cca237490536f55d1"
+    },
+    "runs/core4/baseline/intro-056-PIC10-out.png": {
+      "bytes": 80064,
+      "sha256": "7a30e680e4a21bc59668420b9cf717cd9a628d3d05c08b46a1179ae12c44494b"
+    },
+    "runs/core4/baseline/intro-061-PIC10-out.png": {
+      "bytes": 3057,
+      "sha256": "05713dbacb00cfa92e8cad1581147b0f1349f6ee14c97d122440aff36011bd53"
+    },
+    "runs/core4/baseline/intro-067-PIC12-in.png": {
+      "bytes": 70525,
+      "sha256": "0c001b664a6dd54debcd268e4b86d85f28a22ee740c932f0d6ae3fb8cf82ec63"
+    },
+    "runs/core4/baseline/intro-072-PIC12-in.png": {
+      "bytes": 69115,
+      "sha256": "3473e57960fb9921d31755933dfd6a1c477907ca398c1137484f409c90bfee1c"
+    },
+    "runs/core4/baseline/intro-082-PIC12-out.png": {
+      "bytes": 3057,
+      "sha256": "05713dbacb00cfa92e8cad1581147b0f1349f6ee14c97d122440aff36011bd53"
+    },
+    "runs/core4/baseline/startup.mp4": {
+      "bytes": 926066,
+      "sha256": "19334b10bca42593a8f8b8da8150a7f173d8840c56ace15bfc6e379a62197e0d"
+    },
+    "runs/core4/baseline/title-060-title.png": {
+      "bytes": 74484,
+      "sha256": "5647ad1c150bf6b3b264b192cf6adfdfda10d75c5775bf86ff6e1bbe5d6ea427"
+    },
+    "runs/core4/candidate/intro-025-initial-white.png": {
+      "bytes": 4788,
+      "sha256": "0348875b77ec1b123637c9332d1fcf0ce3f1c62d981189e9fec02f2a9d6a5b3c"
+    },
+    "runs/core4/candidate/intro-038-PIC10-in.png": {
+      "bytes": 500043,
+      "sha256": "037887824e479d7261b5b47cea603d66fcea1ba3bff2cc45aef649e7a635b13a"
+    },
+    "runs/core4/candidate/intro-051-PIC10-in.png": {
+      "bytes": 993536,
+      "sha256": "00fd3fa8dccd72edc7621fe1b94e0f7ab60ca011e15ea886bfac2dcef63688bd"
+    },
+    "runs/core4/candidate/intro-056-PIC10-out.png": {
+      "bytes": 872877,
+      "sha256": "fc65e9dad02c99141afe61ef7200b77a15712d7afa755e8fa8aa3defdb84a5e6"
+    },
+    "runs/core4/candidate/intro-061-PIC10-out.png": {
+      "bytes": 3057,
+      "sha256": "05713dbacb00cfa92e8cad1581147b0f1349f6ee14c97d122440aff36011bd53"
+    },
+    "runs/core4/candidate/intro-067-PIC12-in.png": {
+      "bytes": 925244,
+      "sha256": "0afa0f98c20f24630109467d9b772ef9995664805c2b2afd228d3f7a4d6af11e"
+    },
+    "runs/core4/candidate/intro-072-PIC12-in.png": {
+      "bytes": 1311955,
+      "sha256": "1e84bae41415ea278257c81ab29397f97e586c87af0169e0fa497a2c87effa34"
+    },
+    "runs/core4/candidate/intro-082-PIC12-out.png": {
+      "bytes": 3057,
+      "sha256": "05713dbacb00cfa92e8cad1581147b0f1349f6ee14c97d122440aff36011bd53"
+    },
+    "runs/core4/candidate/startup.mp4": {
+      "bytes": 953526,
+      "sha256": "35e34b2efb514d6b3bef4c9b758c49bf7caec6e1667c3279620b3834b8b06954"
+    },
+    "runs/core4/candidate/title-060-title.png": {
+      "bytes": 74484,
+      "sha256": "5647ad1c150bf6b3b264b192cf6adfdfda10d75c5775bf86ff6e1bbe5d6ea427"
+    }
+  },
+  "timing_caveat": "Single diagnostic observer-instrumented samples. Readback, hashing, PNG export and FIFO encoding/backpressure can extend observed intervals. No original-speed, FPS or performance claim; original delay counts unchanged.",
+  "limitations": [
+    "SDL dummy/software actual engine only; physical desktop/GPU/fullscreen and Windows runtime untested.",
+    "Synthetic queued key/mouse events; physical joystick and hardware event delivery untested.",
+    "Private common seed/version and observer/input/exit hooks are absent from production source.",
+    "Chronological clips include readback/encoding/FIFO backpressure; timings are diagnostic, not original-speed/FPS proof.",
+    "No new manual-gameplay HD coverage is established by these startup-only trials.",
+    "Title PIC4, PLANET146/151 and menu/version/cursor artwork remain classic; no title-art replacement.",
+    "Private fixture/code/binaries/media are excluded from Git."
+  ],
+  "author_review": {
+    "status": "PASS",
+    "reviewer": "manufacturer artwork author",
+    "candidate": "8837edd11b8b828979ac1a9a803e02a82c128ff1",
+    "baseline": "eec06f5c6fa2f57917ed8f30dfb38a1c23c660be",
+    "direct_visual_scope": [
+      "all9 retained core2 candidate PNGs in chronological order",
+      "both baseline logo endpoints",
+      "core4 XSIV in/full/out, ECLIPSE in/full and final title"
+    ],
+    "findings": [
+      "Original identity, lettering/TM, palette and registration preserved",
+      "Sampled fades clear without residual manufacturer pixels at title",
+      "All four native2x/4x endpoint PNG files equal frozen art byte-for-byte",
+      "No art revision requested"
+    ],
+    "numeric_receipts": {
+      "core2": {
+        "sha256": "78ebe8d1b68ddc55d6cee5d6aa129e6ba72f57c390c7917994fbaab50f79c3a1",
+        "status": "PASS"
+      },
+      "core4": {
+        "sha256": "7515891de6021b3afb5b6deb76d9e94573431f401d4072be45c1e0d0bd6d9c99",
+        "status": "PASS"
+      },
+      "key": {
+        "sha256": "35bd60e74565a67130b4591b2b5c55ec960c19e0b0e3f33f35c1bb105d8031d3",
+        "status": "PASS"
+      },
+      "held-mouse": {
+        "sha256": "5b51f02e34d03d5ecff244ea928049a7b1b6abf9212983be793d2db3d58e1761",
+        "status": "PASS"
+      },
+      "missing10": {
+        "sha256": "ad9164d19f6c24db9726e6f6b34ef5aa3f3ec050d6d9ac288ac58c47817d3b91",
+        "status": "PASS"
+      },
+      "missing12": {
+        "sha256": "34a9f5903d492a6bada28eb21c4e515cb344bcd0f7869bbab532b9667c14e40b",
+        "status": "PASS"
+      },
+      "key-during-fade": {
+        "sha256": "e6ec15fea07b5acbcd66b9bfe21d2b38519fc500aa183e2a25876767b24769b3",
+        "status": "PASS"
+      }
+    },
+    "limits": [
+      "Review of retained chronological PNGs; no continuous video playback claim",
+      "Input and independent missing-card behavior supported by numeric receipts, not uncaptured visual playback",
+      "Actual SDL dummy/software output, not physical window/GPU/fullscreen",
+      "Physical joystick and actual corrupt-resource trial untested; malformed-input source tests separate",
+      "MP4 is lossy and timing includes observer overhead"
+    ],
+    "full_report_verbatim": "Final read-only author receipt: PASS for candidate8837edd11b8b828979ac1a9a803e02a82c128ff1 against baselineeec06f5c6fa2f57917ed8f30dfb38a1c23c660be. Direct visual scope: all9 retained core2 candidate PNGs in chronological order, both baseline logo endpoints, and core4 XSIV in/full/out, ECLIPSE in/full and final title. Both logos retain identity, text/TM, colors and registration; sampled fades clear cleanly; title has no manufacturer residue. All four2\u00d7/4\u00d7 endpoint PNGs are byte-identical to frozen artwork. No art revision needed.\nNumeric evidence separately reviewed:7/7 verification receipts PASS for core2/core4/key/held-mouse/key-during-fade/missing10/missing12,12 executions. Full cases retain82 indexed/palette/RNG/input states, authored fade oracle and60 classic title readbacks. Key is consumed at the first wait, held mouse skips both waits, fade-time key preserves fade steps then skips the wait, and each missing card independently falls back. This is receipt evidence, not claimed visual playback of uncaptured input/fallback cases.\nLimits: native-sized SDL dummy/software output, not physical window/GPU/fullscreen; no joystick or corrupt-resource actual case claimed. MP4 is lossy with observer-instrumented timing, not exact pixels or performance proof; I inspected retained chronological PNGs rather than asserting continuous video playback. No game runs, file edits or uploads by this review. Core2 verification SHA78ebe8d1b68ddc55d6cee5d6aa129e6ba72f57c390c7917994fbaab50f79c3a1; core4 SHA7515891de6021b3afb5b6deb76d9e94573431f401d4072be45c1e0d0bd6d9c99. Please retain this text with the existing numeric receipts.\n"
+  },
+  "formal_generated_only_import": {
+    "status": "PASS",
+    "file_count": 22,
+    "raster_count": 6,
+    "rasters": [
+      "assets/hd/artwork/startup-manufacturer-v1/masters/pic10-xsiv-generated-master.png",
+      "assets/hd/artwork/startup-manufacturer-v1/masters/pic12-eclipse-generated-master.png",
+      "assets/hd/artwork/startup-manufacturer-v1/previews/pic10-candidate-native2x.png",
+      "assets/hd/artwork/startup-manufacturer-v1/previews/pic10-candidate-native4x.png",
+      "assets/hd/artwork/startup-manufacturer-v1/previews/pic12-candidate-native2x.png",
+      "assets/hd/artwork/startup-manufacturer-v1/previews/pic12-candidate-native4x.png"
+    ],
+    "original_comparison_reference_rasters_included": false,
+    "private_runtime_fixture_media_included": false,
+    "import_manifest_sha256": "96b2534f12da76fac187b6210804074aab8185d77a25d24f36dc7fea5709569f"
+  }
+}

@@ -19,6 +19,7 @@
 #include "opentyr.h"
 #include "game_probe.h"
 #include "asset_debug.h"
+#include "startup_logos.h"
 
 #include "config.h"
 #include "destruct.h"
@@ -772,6 +773,20 @@ int main(int argc, char *argv[])
 
 	game_probe_parse(&argc, argv);
 	JE_paramCheck(argc, argv);
+	if (startup_logos_configured())
+	{
+#ifndef NDEBUG
+		fprintf(stderr, "Startup assets require a release/NDEBUG build\n");
+		SDL_Quit();
+		return 2;
+#endif
+		if (isNetworkGame || game_probe_enabled)
+		{
+			fprintf(stderr, "Startup assets cannot be combined with network, render-test, or asset-debug modes\n");
+			SDL_Quit();
+			return 2;
+		}
+	}
 
 	if (!override_xmas) // arg handler may override
 		xmas = xmas_time();

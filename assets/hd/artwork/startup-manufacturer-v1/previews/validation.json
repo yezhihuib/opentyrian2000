@@ -1,0 +1,43 @@
+{
+  "status": "OFFLINE_PILOT_ONLY",
+  "generation": "Built-in imagegen, one edit per original manufacturer card",
+  "postprocessing": "Full master RGB LANCZOS fit to1280x800; nearest2x preview. No repaint or fake runtime capture.",
+  "files": [
+    {
+      "pic_id": 10,
+      "master": "pic10-xsiv-generated-master.png",
+      "master_dimensions": [
+        1586,
+        992
+      ],
+      "master_sha256": "8cb1be9d12efd38f129447116ce37bd5bd8347d24ff5e331b0e5cf29bb217ad9",
+      "canonical4x_png_sha256": "00fd3fa8dccd72edc7621fe1b94e0f7ab60ca011e15ea886bfac2dcef63688bd",
+      "canonical4x_rgb_sha256": "af1361363f0d4405008ecf3458d5fcaae1ffc39159572dad0448c8d92fe9765e",
+      "native2x_png_sha256": "7d3e312eadc974d8c9d00c4089a31bb8f0d4b0a8b99096a996af9a05132a4092",
+      "native2x_sampling": "Nearest from canonical4x",
+      "logical_size": [
+        320,
+        200
+      ],
+      "opaque": true
+    },
+    {
+      "pic_id": 12,
+      "master": "pic12-eclipse-generated-master.png",
+      "master_dimensions": [
+        1586,
+        992
+      ],
+      "master_sha256": "264220752c724600b5912c1de61906bb934c36e7684179d747e3aa5837b91a74",
+      "canonical4x_png_sha256": "1e84bae41415ea278257c81ab29397f97e586c87af0169e0fa497a2c87effa34",
+      "canonical4x_rgb_sha256": "60ebe4edccdd61588a707bd28c5d6fcd50f2aa2460060ee93812469b8e6a92c9",
+      "native2x_png_sha256": "6a813b8b851b5c4fe793962100d6f4b4477cf03b38d0a735a01ceba1d0b58fd5",
+      "native2x_sampling": "Nearest from canonical4x",
+      "logical_size": [
+        320,
+        200
+      ],
+      "opaque": true
+    }
+  ]
+}

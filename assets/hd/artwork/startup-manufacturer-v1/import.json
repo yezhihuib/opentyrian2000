@@ -1,0 +1,136 @@
+{
+  "schema": "startup-manufacturer-generated-only-import-v1",
+  "frozen_pilot": "startup-manufacturer-pilot-v1",
+  "policy": "No original game data or runtime captures are included. Selected generated masters, generated previews and textual provenance only.",
+  "copied_files": [
+    {
+      "pilot_path": "FILES.txt",
+      "imported_path": "provenance/pilot-FILES.txt",
+      "bytes": 520,
+      "sha256": "9d14630760b6c46367faa7c678c473c3fd345badb1a1bae8c02362f3086d8d9a"
+    },
+    {
+      "pilot_path": "README.md",
+      "imported_path": "provenance/pilot-README.md",
+      "bytes": 4931,
+      "sha256": "d6da26748146976b4d75c2199fa8e2ec85941a0b01a108c57bde929802bfdf9c"
+    },
+    {
+      "pilot_path": "SHA256SUMS",
+      "imported_path": "provenance/pilot-SHA256SUMS",
+      "bytes": 1697,
+      "sha256": "9693293336a7c9fdc6f0add193ad2f8a71cd5340aa0f0c79a4c755f10335d1a4"
+    },
+    {
+      "pilot_path": "build_previews.py",
+      "imported_path": "build_previews.py",
+      "bytes": 2795,
+      "sha256": "fe83af81db18a96ca93a5538a48c0ae58216148d4ebeb27f4bbef81092a8fb5a"
+    },
+    {
+      "pilot_path": "manifest.json",
+      "imported_path": "provenance/pilot-manifest.json",
+      "bytes": 2897,
+      "sha256": "28981a9b3b35bede968c0a3ec1eab7445edfe66f0cea5022ee3641337ecac627"
+    },
+    {
+      "pilot_path": "masters/pic10-xsiv-generated-master.png",
+      "imported_path": "masters/pic10-xsiv-generated-master.png",
+      "bytes": 1537701,
+      "sha256": "8cb1be9d12efd38f129447116ce37bd5bd8347d24ff5e331b0e5cf29bb217ad9"
+    },
+    {
+      "pilot_path": "masters/pic12-eclipse-generated-master.png",
+      "imported_path": "masters/pic12-eclipse-generated-master.png",
+      "bytes": 1957873,
+      "sha256": "264220752c724600b5912c1de61906bb934c36e7684179d747e3aa5837b91a74"
+    },
+    {
+      "pilot_path": "previews/pic10-candidate-native2x.png",
+      "imported_path": "previews/pic10-candidate-native2x.png",
+      "bytes": 314758,
+      "sha256": "7d3e312eadc974d8c9d00c4089a31bb8f0d4b0a8b99096a996af9a05132a4092"
+    },
+    {
+      "pilot_path": "previews/pic10-candidate-native4x.png",
+      "imported_path": "previews/pic10-candidate-native4x.png",
+      "bytes": 993536,
+      "sha256": "00fd3fa8dccd72edc7621fe1b94e0f7ab60ca011e15ea886bfac2dcef63688bd"
+    },
+    {
+      "pilot_path": "previews/pic12-candidate-native2x.png",
+      "imported_path": "previews/pic12-candidate-native2x.png",
+      "bytes": 408060,
+      "sha256": "6a813b8b851b5c4fe793962100d6f4b4477cf03b38d0a735a01ceba1d0b58fd5"
+    },
+    {
+      "pilot_path": "previews/pic12-candidate-native4x.png",
+      "imported_path": "previews/pic12-candidate-native4x.png",
+      "bytes": 1311955,
+      "sha256": "1e84bae41415ea278257c81ab29397f97e586c87af0169e0fa497a2c87effa34"
+    },
+    {
+      "pilot_path": "previews/validation.json",
+      "imported_path": "previews/validation.json",
+      "bytes": 1593,
+      "sha256": "9a4acf90eb4aa6d43006079e9dbd68a2ea0c60e57c7f9de33184afecbbc4c016"
+    },
+    {
+      "pilot_path": "prompts.json",
+      "imported_path": "prompts.json",
+      "bytes": 3625,
+      "sha256": "05f290875aa7b2f6f053a05832a564cae7314310960723b328e5db561bc30095"
+    },
+    {
+      "pilot_path": "registration-review.json",
+      "imported_path": "registration-review.json",
+      "bytes": 858,
+      "sha256": "5b3bdef85691dc9ec278f6e3ac190c560ac4035a01354069804cc830c8cdc454"
+    },
+    {
+      "pilot_path": "reproduction-proof.json",
+      "imported_path": "reproduction-proof.json",
+      "bytes": 972,
+      "sha256": "6a33a4970b181c81d4238aebfc4fcfe77f5217d55673030d42e6af06c4c63bae"
+    },
+    {
+      "pilot_path": "requirements.txt",
+      "imported_path": "requirements.txt",
+      "bytes": 15,
+      "sha256": "41b54a6fb2918667ca47a61d73b522629d84490f3d78f0f20b21135faba10d35"
+    },
+    {
+      "pilot_path": "source-compatibility.json",
+      "imported_path": "source-compatibility.json",
+      "bytes": 6761,
+      "sha256": "f67fb148b73a4194779027753fe54833bbbcb864dd41e6d677f70eb4cf47e95f"
+    }
+  ],
+  "omitted_files": [
+    {
+      "pilot_path": "previews/pic10-original-vs-pilot-native2x.png",
+      "bytes": 398475,
+      "sha256": "66d367aabea7570290cfa11f8e838f87fbe94a64ce5328ebfbe68d1e8a91c594",
+      "reason": "Contains original game pixels; excluded from repository import and runtime."
+    },
+    {
+      "pilot_path": "previews/pic12-original-vs-pilot-native2x.png",
+      "bytes": 484262,
+      "sha256": "0ec49ebd4ce3082fbcd95d8f6c1a4a1b03b78eca6d79decdf2f921afb8792ce0",
+      "reason": "Contains original game pixels; excluded from repository import and runtime."
+    },
+    {
+      "pilot_path": "pic10-source-native4x-reference.png",
+      "bytes": 74320,
+      "sha256": "dd288b4945c57b5aa2c4a35e368b4304ae9fe930d741df4cca237490536f55d1",
+      "reason": "Contains original game pixels; excluded from repository import and runtime."
+    },
+    {
+      "pilot_path": "pic12-source-native4x-reference.png",
+      "bytes": 69115,
+      "sha256": "3473e57960fb9921d31755933dfd6a1c477907ca398c1137484f409c90bfee1c",
+      "reason": "Contains original game pixels; excluded from repository import and runtime."
+    }
+  ],
+  "provenance_note": "provenance/pilot-* inventories describe the prior offline pilot, including omitted review files; FILES.txt and the repository manifest describe this import."
+}

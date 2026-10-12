@@ -21,6 +21,7 @@
 #include "entity_draw.h"
 #include "game_probe.h"
 #include "asset_debug.h"
+#include "startup_logos.h"
 
 #include "animlib.h"
 #include "backgrnd.h"
@@ -3826,6 +3827,7 @@ bool newSuperTyrianGame(void)
 
 void intro_logos(void)
 {
+	startup_logos_begin();
 	moveTyrianLogoUp = true;
 
 	SDL_FillRect(VGAScreen, NULL, 0);
@@ -3833,6 +3835,7 @@ void intro_logos(void)
 	fade_white(25);
 
 	JE_loadPic(VGAScreen, 10, false);
+	startup_logos_bind(VGAScreen, 10, colors);
 	JE_showVGA();
 
 	fade_palette(colors, 25, 0, 255);
@@ -3843,6 +3846,7 @@ void intro_logos(void)
 	fade_black(10);
 
 	JE_loadPic(VGAScreen, 12, false);
+	startup_logos_bind(VGAScreen, 12, colors);
 	JE_showVGA();
 
 	fade_palette(colors, 10, 0, 255);
@@ -3851,6 +3855,7 @@ void intro_logos(void)
 	wait_delayorinput();
 
 	fade_black(10);
+	startup_logos_end();
 }
 
 void JE_readTextSync(void)

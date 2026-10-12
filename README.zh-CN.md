@@ -10,12 +10,14 @@
 
 - 已接入部分船机、敌人、武器/特效、分层地形、云和世界材质。有限的单人
   HUD 改造包括框架、武器标签、护盾条、模式指示和右下角连接结构。
-- 高清目前通过受控预览/素材调试入口启用。普通无相关参数启动仍走原版显示。
+- 游戏内高清通过受控预览/素材调试入口启用；两张厂商画面另有独立启动参数，见下文。
+  普通无相关参数启动仍走原版显示。
 - 未覆盖、缺失或不兼容的资源按各功能规则回退；暂停、帮助、选项仍用原版界面。
 - 已验收的是文档列明的有限 Linux 场景，包括原生 2×/4× 检查；不代表全游戏、
   全关卡、GPU/全屏或性能认证。最新修改尚未完成 Windows 运行验收。
 - 固定 MODE/SHIELD/ARMOR 文字、有限范围的游戏内小字体及火力、能量、粗分组装甲条已接入；
-  启动画面与 Logo 的重绘属于后续计划。
+  厂商 PIC10/PIC12 可通过独立参数启用；标题与菜单仍用原版。已通过实际引擎在
+  SDL dummy/software 下的原生 2×/4× 输出检查，实体窗口/GPU 验收仍须另行进行。
 
 ## 构建与体验
 
@@ -31,12 +33,33 @@ python3 prototype/build-hd-assets.py
 ./opentyrian2000 --data=/absolute/path/to/tyrian2000
 ```
 
-最后一条命令是普通原版显示启动。高清使用独立的
+最后一条命令是普通原版显示启动。游戏内高清使用独立的
 [有限预览入口](prototype/start-actual-preview.ps1)或
 [素材调试入口](prototype/start-asset-debug.ps1)，需按说明准备外部数据和依赖。
 这些是受控重播工具，尚非完整战役的手动操作高清发行版。参见
 [调试操作](docs/ASSET_DEBUG.md)与
 [有限场景启动示例](docs/FIRST30_HD_COVERAGE.md#later-windows-acceptance)。
+
+### 可选厂商启动画面
+
+Release/NDEBUG 构建可在原有本地启动流程中使用两张已审阅的厂商画面：
+
+```sh
+./opentyrian2000 --data=/absolute/path/to/tyrian2000 \
+  --startup-assets=assets/hd/packs/startup-manufacturer-v1
+```
+
+请从仓库根目录运行，或把素材路径改为绝对路径。该参数只替换 PIC10（XSIV GAMES）
+与 PIC12（ECLIPSE）；标题、菜单及之后的手动游戏继续使用现有原版显示。
+某一张资源缺失、损坏或不兼容时，只让该张回退到原版；原淡入淡出与输入跳过代码保持不变。
+不能与联网、render-test 或 asset-debug 模式组合使用，程序会拒绝这些组合。
+不加该参数时，普通启动保持原版。Debug 构建的原启动流程本就跳过厂商画面，因此会拒绝该参数。
+
+[启动画面契约与检查](docs/STARTUP_MANUFACTURER.md)记录已通过的源码/单元检查及 12 次
+有限实际引擎运行：原生尺寸 2×/4×、原淡入淡出、队列按键/持续鼠标按下跳过、
+缺失资源逐张回退和原版标题衔接。运行使用 SDL dummy/software；实体桌面/GPU、全屏、
+实体手柄和 Windows 运行仍未验收。带观测开销的录像/计时不证明原速或帧率。
+该参数不代表手动游戏已支持高清。
 
 Windows 使用[构建脚本](prototype/build-game.ps1)，环境与验收边界见
 [Windows 说明](docs/WINDOWS_HANDOFF.md)。提供这些入口不代表最新版本已经通过

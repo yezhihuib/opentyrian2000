@@ -1,0 +1,37 @@
+{
+  "status": "OFFLINE_DESIGN_REVIEW",
+  "original_canvas": [
+    320,
+    200
+  ],
+  "canonical4x": [
+    1280,
+    800
+  ],
+  "native2x": [
+    640,
+    400
+  ],
+  "xsiv_card_edge_measurement": [
+    {
+      "image": "original",
+      "top_card_bright_edge_logical": [
+        68.0,
+        263.0
+      ]
+    },
+    {
+      "image": "candidate4x",
+      "top_card_bright_edge_logical": [
+        68.0,
+        262.75
+      ]
+    }
+  ],
+  "master_dimensions": [
+    1586,
+    992
+  ],
+  "aspect_adjustment": "Full-frame deterministic fit, no crop;1.59879 master ratio to1.6 game ratio, approximately0.076 percent horizontal aspect adjustment.",
+  "qualification": "New continuous raster reconstruction, not source-pixel identity. Logo/text/layout visually compared at native2x and4x; exact source topology and visual acceptance require reviewer signoff."
+}
