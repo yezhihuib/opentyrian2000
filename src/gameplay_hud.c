@@ -19,10 +19,22 @@ enum {
 	HUD_RGBA_BYTES = 4096000, HUD_HEADER_BYTES = 64,
 	HUD_PAYLOAD_BYTES = HUD_PIXELS + HUD_RGBA_BYTES,
 	HUD_FILE_BYTES = HUD_HEADER_BYTES + HUD_PAYLOAD_BYTES,
-	HUD_MAX_OWNED_PIXELS = 6667
+	HUD_MAX_OWNED_PIXELS = 6667, HUD_CORNER_OWNED_PIXELS = 6853
 };
 
-static bool attempted, captured, expansion;
+/* Geometry only, not an artwork identity: V5 union [248,184,269,200).
+ * 6853 cells; SHA256 of the 64000-byte 0/255 mask:
+ * dfc1e98e0d25b1a45645fc572d42396cf0407db975e44b3aefe91662255811b8.
+ * A different/partial mask never receives the corner exception. */
+#define HUD_CORNER_MASK_FNV UINT64_C(0xb0f84ef16e11c6a2)
+#ifndef HUD_CORNER_PIC3_FNV
+#define HUD_CORNER_PIC3_FNV UINT64_C(0x14c1441f3d5dc0e2)
+#endif
+#ifndef HUD_CORNER_REGION_FNV
+#define HUD_CORNER_REGION_FNV UINT64_C(0xca5548b4cdd8767a)
+#endif
+
+static bool attempted, captured, expansion, corner, corner_ready;
 static uint8_t *payload;
 static uint8_t source_indices[HUD_PIXELS];
 static uint64_t source_fnv64;
@@ -48,6 +60,19 @@ static uint64_t fnv_update(uint64_t hash, const uint8_t *bytes, size_t count)
 uint64_t gameplay_hud_fnv64(const uint8_t *bytes, size_t count)
 {
 	return fnv_update(UINT64_C(14695981039346656037), bytes, count);
+}
+
+static bool corner_pixel(int x, int y)
+{
+	return x >= 248 && x < 269 && y >= 184 && y < 200;
+}
+
+static uint64_t corner_source_fnv(const uint8_t *indices, int pitch)
+{
+	uint64_t hash = UINT64_C(14695981039346656037);
+	for (int y = 184; y < 200; ++y)
+		hash = fnv_update(hash, indices + (size_t)y * (size_t)pitch + 248, 21);
+	return hash;
 }
 
 /* Exact coordinate-only expansion: 310 approved rail/bevel pixels. Each
@@ -163,8 +188,12 @@ static bool valid_payload(const uint8_t *data, const uint8_t *header)
 {
 	unsigned owned = 0;
 	const uint8_t *rgba = data + HUD_PIXELS;
-	if (gameplay_hud_fnv64(data, HUD_PIXELS) != read_u64(header + 44) ||
+	uint64_t mask_hash = gameplay_hud_fnv64(data, HUD_PIXELS);
+	bool corner_mask = mask_hash == HUD_CORNER_MASK_FNV;
+	if (mask_hash != read_u64(header + 44) ||
 	    gameplay_hud_fnv64(rgba, HUD_RGBA_BYTES) != read_u64(header + 52))
+		return false;
+	if (corner_mask && read_u64(header + 36) != HUD_CORNER_PIC3_FNV)
 		return false;
 	for (int y = 0; y < HUD_HEIGHT; ++y)
 	{
@@ -173,8 +202,11 @@ static bool valid_payload(const uint8_t *data, const uint8_t *header)
 			uint8_t mask = data[y * HUD_WIDTH + x];
 			if (mask != 0 && mask != 255)
 				return false;
-			if (mask && ((!allowed_pixel(x, y) && !expanded_pixel(x, y)) ||
-			             ++owned > HUD_MAX_OWNED_PIXELS))
+			if (corner_mask && corner_pixel(x, y) && mask != 255)
+				return false;
+			if (mask && ((!allowed_pixel(x, y) && !expanded_pixel(x, y) &&
+			              !(corner_mask && corner_pixel(x, y))) ||
+			             ++owned > (corner_mask ? HUD_CORNER_OWNED_PIXELS : HUD_MAX_OWNED_PIXELS)))
 				return false;
 			for (int sy = 0; sy < HUD_DENSITY; ++sy)
 				for (int sx = 0; sx < HUD_DENSITY; ++sx)
@@ -186,7 +218,7 @@ static bool valid_payload(const uint8_t *data, const uint8_t *header)
 				}
 		}
 	}
-	return owned != 0;
+	return corner_mask ? owned == HUD_CORNER_OWNED_PIXELS : owned != 0;
 }
 
 bool gameplay_hud_load(const char *directory)
@@ -233,6 +265,7 @@ done:
 		return false;
 	}
 	payload = data;
+	corner = read_u64(header + 44) == HUD_CORNER_MASK_FNV;
 	for (int y = 0; y < HUD_HEIGHT && !expansion; ++y)
 		for (int x = 0; x < HUD_WIDTH && !expansion; ++x)
 			expansion = data[y * HUD_WIDTH + x] && expanded_pixel(x, y);
@@ -266,7 +299,7 @@ static bool valid_glyph_moats(const uint8_t *indices, int pitch)
 bool gameplay_hud_capture(const uint8_t *indices, int pitch)
 {
 	uint64_t hash = UINT64_C(14695981039346656037);
-	captured = false;
+	captured = corner_ready = false;
 	if (!payload || !indices || pitch < HUD_WIDTH ||
 	    (size_t)pitch > (SIZE_MAX - HUD_WIDTH) / (HUD_HEIGHT - 1))
 		return false;
@@ -275,15 +308,34 @@ bool gameplay_hud_capture(const uint8_t *indices, int pitch)
 		const uint8_t *row = indices + (size_t)y * (size_t)pitch;
 		hash = fnv_update(hash, row, HUD_WIDTH);
 		for (int x = 0; x < HUD_WIDTH; ++x)
-			if (payload[y * HUD_WIDTH + x] && row[x] == 0)
+			if (payload[y * HUD_WIDTH + x] && row[x] == 0 &&
+			    !(corner && corner_pixel(x, y)))
 				return false;
 	}
-	if (hash != source_fnv64 || (expansion && !valid_glyph_moats(indices, pitch)))
+	if (hash != source_fnv64 || (expansion && !valid_glyph_moats(indices, pitch)) ||
+	    (corner && corner_source_fnv(indices, pitch) != HUD_CORNER_REGION_FNV))
 		return false;
 	for (int y = 0; y < HUD_HEIGHT; ++y)
 		memcpy(source_indices + y * HUD_WIDTH, indices + (size_t)y * (size_t)pitch,
 		       HUD_WIDTH);
 	captured = true;
+	return true;
+}
+
+bool gameplay_hud_prepare_corner(const uint8_t *indices, int pitch)
+{
+	corner_ready = false;
+	if (!payload || !captured || !corner || !indices || pitch < HUD_WIDTH ||
+	    (size_t)pitch > (SIZE_MAX - HUD_WIDTH) / (HUD_HEIGHT - 1))
+		return false;
+	/* Atomic ownership: even one overlong message pixel revokes all 336 cells,
+	 * including V5's 150 old frame cells. Never erase lingering message tails.
+	 * Exact byte equality is checked anew at every ordinary composition. */
+	for (int y = 184; y < 200; ++y)
+		if (memcmp(indices + (size_t)y * (size_t)pitch + 248,
+		           source_indices + y * HUD_WIDTH + 248, 21) != 0)
+			return false;
+	corner_ready = true;
 	return true;
 }
 
@@ -327,7 +379,8 @@ const uint8_t *gameplay_hud_sample(int x, int y, int sx, int sy, int density,
 	    sx < 0 || sx >= density || sy < 0 || sy >= density)
 		return NULL;
 	index = (size_t)y * HUD_WIDTH + (size_t)x;
-	if (!payload[index] || current_index != source_indices[index])
+	if (!payload[index] || current_index != source_indices[index] ||
+	    (corner && corner_pixel(x, y) && !corner_ready))
 		return NULL;
 	divisor = density / HUD_DENSITY;
 	index = ((size_t)(y * HUD_DENSITY + sy / divisor) * HUD_RGBA_WIDTH +
@@ -342,7 +395,7 @@ bool gameplay_hud_ready(void)
 
 void gameplay_hud_forget_source(void)
 {
-	captured = false;
+	captured = corner_ready = false;
 }
 
 void gameplay_hud_shutdown(void)
@@ -352,5 +405,6 @@ void gameplay_hud_shutdown(void)
 	source_fnv64 = 0;
 	captured = false;
 	expansion = false;
+	corner = corner_ready = false;
 	attempted = false;
 }

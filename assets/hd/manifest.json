@@ -42130,13 +42130,13 @@
       "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
         "gameplay-hud-v1.hda": {
           "bytes": 4160064,
-          "sha256": "4ff6cd95d4c3ec5b7e4825e38a5242fc96c1cd305987a873bea4a55fa5a04482"
+          "sha256": "98cd6cfefa02a9ae79b75a65e02dd2566d3dec1492552f20b042b3c61c19cd17"
         }
       },
       "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
         "gameplay-hud-v1.hda": {
           "bytes": 4160064,
-          "sha256": "4ff6cd95d4c3ec5b7e4825e38a5242fc96c1cd305987a873bea4a55fa5a04482"
+          "sha256": "98cd6cfefa02a9ae79b75a65e02dd2566d3dec1492552f20b042b3c61c19cd17"
         }
       }
     },
@@ -42613,6 +42613,26 @@
           "sha256": "c7e5925631cfeecb28a09b547702824af55ef3d9b5abe83f568dcf4672638631"
         }
       }
+    }
+  },
+  "gameplay_hud_corner_v2": {
+    "source": "assets/hd/artwork/gameplay-hud-corner-v2",
+    "source_manifest_sha256": "f285b559769fee01484779c61c339f8ed17d827efa21d759dcba0d492d66137e",
+    "import_sha256": "93556235d4e072be44ec8a75425bd68540e2508267522429e971f6653b2c419a",
+    "source_png": "assets/hd/source/gameplay-hud-corner-v2-4x.png",
+    "source_png_sha256": "6a0ee4b44791e70336b96ca39a401057e921461dd164b860f3746f0b4e6e1df3",
+    "box": [
+      248,
+      184,
+      269,
+      200
+    ],
+    "owned_pixels": 6853,
+    "previous_owned_pixels_preserved": 6667,
+    "baseline_sha256": "4ff6cd95d4c3ec5b7e4825e38a5242fc96c1cd305987a873bea4a55fa5a04482",
+    "runtime": {
+      "bytes": 4160064,
+      "sha256": "98cd6cfefa02a9ae79b75a65e02dd2566d3dec1492552f20b042b3c61c19cd17"
     }
   }
 }

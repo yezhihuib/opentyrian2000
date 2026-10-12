@@ -8,7 +8,7 @@ def fnv(b):
  h=14695981039346656037
  for c in b:h=((h^c)*1099511628211)&0xffffffffffffffff
  return h
-def build_bundle(repo):
+def build_bundle(repo, include_corner=True):
  repo=Path(repo);m=json.loads((repo/'assets/hd/manifest.json').read_text())['gameplay_hud_v5'];p=repo/m['source'];f=p/'manifest.json'
  assert sha(f.read_bytes())==m['source_manifest_sha256']
  authored=json.loads(f.read_text())
@@ -24,4 +24,7 @@ def build_bundle(repo):
  assert m['source_pic3_fnv1a64']=='14c1441f3d5dc0e2'
  header=struct.pack('<4s8I3QI',b'HUD1',1,320,200,4,0,0,64000,4096000,int(m['source_pic3_fnv1a64'],16),fnv(rawmask),fnv(rgba),0)
  raw=header+rawmask+rgba;assert len(raw)==4160064 and raw==(p/FILENAME).read_bytes()
+ if include_corner and json.loads((repo/'assets/hd/manifest.json').read_text()).get('gameplay_hud_corner_v2'):
+  from gameplay_hud_corner_bundle import apply_corner
+  raw=apply_corner(repo,raw)
  return raw,{'bytes':len(raw),'sha256':sha(raw)}

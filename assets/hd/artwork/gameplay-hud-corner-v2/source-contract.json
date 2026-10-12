@@ -1,0 +1,49 @@
+{
+  "source_commit": "f82630507ab7f405117dc84ca70095ca04dc470a",
+  "proposal_only": false,
+  "box_half_open": [
+    248,
+    184,
+    269,
+    200
+  ],
+  "cells": 336,
+  "existing_frame_cells": 150,
+  "new_cells": 186,
+  "source_black_cells": 46,
+  "source_index_sha256": "0c25d658f16177ade5667a76d652375f4a28f42a59a518d542d1946c94b3df50",
+  "source_index_fnv1a64": "ca5548b4cdd8767a",
+  "mask_sha256": "b665a329150569cb516f24ad007c13464f0ccf02dd7e4a150ef81aa734da3248",
+  "overlap_sha256": "05bca1c5abf54c4f4cec8c69a2118a7a8337e38215bb992166c571de5876d6d6",
+  "new_mask_sha256": "87bd105cd8632b79e74ad0b77242d33bef3bf5261d7257b46e4ae655f01f4675",
+  "disjoint_from": {
+    "playfield": [
+      0,
+      0,
+      264,
+      184
+    ],
+    "normal_message_erase": [
+      16,
+      189,
+      244,
+      198
+    ],
+    "shield_channel": [
+      270,
+      137,
+      279,
+      195
+    ]
+  },
+  "message_history_risk": "Unclipped JE_outText at20,190 can enter corner; do not assert static against all strings. Require whole336 source equality at each composition and valid PIC3/mode/lease. Original overlong tails persist beyond eraser and must not be cleaned.",
+  "pilot_mask_approved": true,
+  "production_art_and_runtime_acceptance_pending": true,
+  "root_scope_approval_utc": "2026-10-12T14:45:18Z",
+  "status": "V2_ROOT_REVIEWED_FROZEN_FOR_REVERSIBLE_ACTUAL_TRIAL",
+  "user_feedback_pending": true,
+  "offline_art_review_utc": "2026-10-12T15:05:24Z",
+  "unchanged_v5_overlap_cells": 150,
+  "unchanged_black_boundary_cells": 10,
+  "authored_new_interior_cells": 176
+}

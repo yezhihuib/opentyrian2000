@@ -809,6 +809,7 @@ static bool hud_compose(void)
  if(!hud_gameplay||hud_suspended||!gameplay_hud_ready()||game_probe_original_reference)return false;
  int d=game_probe_density;
  if((d!=4&&d!=8)||!output||output->w!=320*d||output->h!=200*d)return false;
+ gameplay_hud_prepare_corner(VGAScreenSeg->pixels,VGAScreenSeg->pitch);
  bool retained=false;
  for(int y=0;y<200;y++)for(int x=0;x<320;x++) {
   if(x<264&&y<184)continue;

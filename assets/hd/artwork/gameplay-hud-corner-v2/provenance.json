@@ -1,0 +1,24 @@
+{
+  "revision": "corner V2, supersedes rejected V1",
+  "generation_tool": "built-in image_gen.imagegen",
+  "generated_master": "sources/generated-junction-master.png",
+  "master_sha256": "a9bb574b7f225dda870e46a0d9c7a0180603d1b65b3187d8cf38f3b64f1f62ae",
+  "master_dimensions": [
+    1619,
+    971
+  ],
+  "sampling": "full master resized120x72 LANCZOS thencrop[16,8,100,72]; composite exact150 generated V5 cells; restore10 audited source-black seam cells",
+  "canonical_tile": [
+    84,
+    64
+  ],
+  "logical_box_half_open": [
+    248,
+    184,
+    269,
+    200
+  ],
+  "baseline_dependency_sha256": "4ff6cd95d4c3ec5b7e4825e38a5242fc96c1cd305987a873bea4a55fa5a04482",
+  "original_game_payloads_bundled": false,
+  "runtime_repository_or_publication_changes": false
+}
