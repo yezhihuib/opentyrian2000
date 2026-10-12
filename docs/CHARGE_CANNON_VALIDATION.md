@@ -1,0 +1,11 @@
+# Charge Cannon finite artwork acceptance
+
+Bank8 heads252/253/254 are three static charge designs for legal option3 on either mount. Logical12×14, density8, anchor0,0. Original bank9 launcher bodies, indexed shadows, input/charging, damage2/5/10, velocity−12/−10/−8, hit filters and gameplay remain unchanged. Shot record103 is distinct from Poison sprite103.
+
+The [renderer gate](CHARGE_CANNON_RENDERER_GATE.md) and [machine receipt](CHARGE_CANNON_RENDERER_GATE.json) record26 bounded runs/2,340 frames, both mounts, episode1/4/5 loaded tables, native2×/4×, deterministic repeat, each missing/invalid head, classic/global missing/invalid and density4 fallback. Source binder boundary/cache tests pass ASan/UBSan. E4 physical9 retains its original water-routing fallback; E4 physical3 proves actual HD with matched natural collisions. Latent unused793/1793 animation reuse is outside runtime acceptance.
+
+Final visual acceptance inspects every one of90 consecutive native640×400 frames0–89, plus native1280×800 spots5/27/69. Original button presses at2/24/66 produce each charge stage. Bright blue/cyan cores and fine wisps remain stable over terrain/cloud; no alpha box, dark matte, flicker, stale head or cleanup residue was seen. Tick5 is dimmed by the original opening fade; stage0 is clearly visible at14. Original pixelated shadows are conspicuous on clouds and retained. This is ordered frame inspection, not continuous4× playback or a whole-game/Windows acceptance claim. All90 lossless frames match direct SDL readback hashes; capture-only hooks are private and excluded from production.
+
+The frozen source recipe reproduces all3 PNG/HDA bytes without game data. Run `python prototype/build-charge-cannon-art.py --output NEW_EXTERNAL_DIRECTORY` (Python/Pillow/NumPy and DejaVu font). Accepted prior HDA/PNG and both lower-world-material parts are unchanged. New3 heads are added only to the two current packs;18 packs contain2,914 HDA entries and353 formal PNGs, current defaults337/341. The cap material prototype is separate and absent from this commit.
+
+Two fresh formal-tree smoke runs (E1 and E4 supported level3) match every tested TSV and streamed blend proof exactly. The source test runner accepts the imported frozen manifest and current candidate pack, excluding only these three new files when reconstructing the accepted baseline.

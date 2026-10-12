@@ -1,7 +1,7 @@
 {
   "schema": "opentyrian-accepted-hd-runtime-v1",
   "baseline_branch": "hd-render-prototype",
-  "status": "Optional finite Layer1 world-coordinate rock material atlas; accepted HDA fallback resources remain byte-identical",
+  "status": "Finite Charge Cannon252\u2013254 heads added; accepted world materials, original launcher/shadow and all gameplay remain unchanged",
   "default_preview_pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
   "default_debug_pack": "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
   "packs": {
@@ -29154,7 +29154,7 @@
       }
     },
     "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 334,
+      "count": 337,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -33497,11 +33497,50 @@
           ],
           "source_png": "assets/hd/source/bullet-21-8-a8fbcb2952ec.png",
           "source_png_sha256": "4665bca2aa56716237c870dd13158f67c47c42db9d4fead330077149d4421331"
+        },
+        "bullet-252-8.hda": {
+          "sha256": "7317453f640efaf6e983a76c89687722136e1b8e3a103b39ea2d4fbd823cf288",
+          "header_u32": [
+            80252,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/bullet-252-8-7317453f640e.png",
+          "source_png_sha256": "e70fd87717237079609710e329e76c13f4783380a87738cb1567b7456760eacb"
+        },
+        "bullet-253-8.hda": {
+          "sha256": "56faa8fd8567eab34157b0325523a410e2836230428419cb4d3ecb5894734d06",
+          "header_u32": [
+            80253,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/bullet-253-8-56faa8fd8567.png",
+          "source_png_sha256": "a7625b19ace56eb63801cf78facaa62263fb23dfbbce27fa9ef00820a8e9f997"
+        },
+        "bullet-254-8.hda": {
+          "sha256": "e38fb46beecabd5af8bf72f065b193a82388288efca294b3c2ef8194118aafe4",
+          "header_u32": [
+            80254,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/bullet-254-8-e38fb46beeca.png",
+          "source_png_sha256": "0e75f955c707c81af97ad592d2c17b8387097e063706bb51c279b5f5e6564a3a"
         }
       }
     },
     "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 338,
+      "count": 341,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -37896,6 +37935,45 @@
           ],
           "source_png": "assets/hd/source/bullet-21-8-a8fbcb2952ec.png",
           "source_png_sha256": "4665bca2aa56716237c870dd13158f67c47c42db9d4fead330077149d4421331"
+        },
+        "bullet-252-8.hda": {
+          "sha256": "7317453f640efaf6e983a76c89687722136e1b8e3a103b39ea2d4fbd823cf288",
+          "header_u32": [
+            80252,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/bullet-252-8-7317453f640e.png",
+          "source_png_sha256": "e70fd87717237079609710e329e76c13f4783380a87738cb1567b7456760eacb"
+        },
+        "bullet-253-8.hda": {
+          "sha256": "56faa8fd8567eab34157b0325523a410e2836230428419cb4d3ecb5894734d06",
+          "header_u32": [
+            80253,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/bullet-253-8-56faa8fd8567.png",
+          "source_png_sha256": "a7625b19ace56eb63801cf78facaa62263fb23dfbbce27fa9ef00820a8e9f997"
+        },
+        "bullet-254-8.hda": {
+          "sha256": "e38fb46beecabd5af8bf72f065b193a82388288efca294b3c2ef8194118aafe4",
+          "header_u32": [
+            80254,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/bullet-254-8-e38fb46beeca.png",
+          "source_png_sha256": "0e75f955c707c81af97ad592d2c17b8387097e063706bb51c279b5f5e6564a3a"
         }
       }
     }
@@ -40216,6 +40294,24 @@
       "sha256": "baea31085aceaa9430fa46c1e25fb0c22339b4c6c54e3ec0c789cbc189e757d7",
       "RGBA_sha256": "64c3138251cd33625c365d3d498920cffbad1ec373440da4a7b237029da78994",
       "note": "Generated matte sand refresh; protected road stone and grass colors retained"
+    },
+    "7317453f640efaf6e983a76c89687722136e1b8e3a103b39ea2d4fbd823cf288": {
+      "path": "assets/hd/source/bullet-252-8-7317453f640e.png",
+      "sha256": "e70fd87717237079609710e329e76c13f4783380a87738cb1567b7456760eacb",
+      "RGBA_sha256": "b78dddc7b5decaee3d7c96426b0360ac601a4568bae9cb3246fca844562c23d2",
+      "note": "Generated static Charge Cannon bank8 head; original option3 charge states and launcher bodies retained"
+    },
+    "56faa8fd8567eab34157b0325523a410e2836230428419cb4d3ecb5894734d06": {
+      "path": "assets/hd/source/bullet-253-8-56faa8fd8567.png",
+      "sha256": "a7625b19ace56eb63801cf78facaa62263fb23dfbbce27fa9ef00820a8e9f997",
+      "RGBA_sha256": "a699b1ba9c45c41deb443010c60a4826d293c55c2f6c1f70a0c1769c6945c8cd",
+      "note": "Generated static Charge Cannon bank8 head; original option3 charge states and launcher bodies retained"
+    },
+    "e38fb46beecabd5af8bf72f065b193a82388288efca294b3c2ef8194118aafe4": {
+      "path": "assets/hd/source/bullet-254-8-e38fb46beeca.png",
+      "sha256": "0e75f955c707c81af97ad592d2c17b8387097e063706bb51c279b5f5e6564a3a",
+      "RGBA_sha256": "7f3c13462e4d37c7be3feeb08c07bb96515229085bd2eb2dc0728fc07bc68a55",
+      "note": "Generated static Charge Cannon bank8 head; original option3 charge states and launcher bodies retained"
     }
   },
   "no_original_game_data": true,

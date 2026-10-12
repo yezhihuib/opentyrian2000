@@ -1,0 +1,212 @@
+[
+  {
+    "stage": 0,
+    "sheet": 8,
+    "sprite_id": 252,
+    "shot_record": 101,
+    "source": "sources/stage0-generated-soft-edge-v2.png",
+    "source_sha256": "54f36ff40c48bcc95d4a136b1f0dc77acf78ba9564192ee67e2619f67907e843",
+    "crop_xyxy_exclusive": [
+      250,
+      166,
+      819,
+      1289
+    ],
+    "crop_basis": "Generated alpha >1 bounds; only isolated alpha=1 noise outside retained crop is omitted.",
+    "target_xyxy_exclusive": [
+      24,
+      0,
+      56,
+      88
+    ],
+    "logical_size": [
+      12,
+      14
+    ],
+    "source_size": [
+      96,
+      112
+    ],
+    "anchor": [
+      0,
+      0
+    ],
+    "resampler": "Pillow Lanczos RGBA premultiplied-alpha resize; whole sprite only",
+    "filename": "frames8x/shapes8-id252-96x112.png",
+    "sha256": "e70fd87717237079609710e329e76c13f4783380a87738cb1567b7456760eacb",
+    "bounds_alpha_gt0": [
+      24,
+      0,
+      56,
+      88
+    ],
+    "bounds_alpha_gt16": [
+      26,
+      1,
+      55,
+      86
+    ],
+    "bounds_alpha_gt128": [
+      27,
+      5,
+      53,
+      82
+    ],
+    "bounds_alpha_gt240": [
+      30,
+      8,
+      50,
+      78
+    ],
+    "edge_alpha_max": 5,
+    "alpha_coverage_logical_pixels": 20.039,
+    "alpha_weighted_luminance_sum": 146047.633,
+    "alpha_centroid_hd": [
+      39.581,
+      38.421
+    ],
+    "partial_alpha_pixels": 1978,
+    "opaque_pixels": 0,
+    "transparent_pixels": 8774
+  },
+  {
+    "stage": 1,
+    "sheet": 8,
+    "sprite_id": 253,
+    "shot_record": 102,
+    "source": "sources/stage1-generated-soft-edge.png",
+    "source_sha256": "3a9da5a2b49c52577ed955094f9a3e6d41fac599f2e58dd114005e91239a2c2f",
+    "crop_xyxy_exclusive": [
+      15,
+      137,
+      835,
+      1715
+    ],
+    "crop_basis": "Generated alpha >1 bounds; only isolated alpha=1 noise outside retained crop is omitted.",
+    "target_xyxy_exclusive": [
+      16,
+      0,
+      56,
+      88
+    ],
+    "logical_size": [
+      12,
+      14
+    ],
+    "source_size": [
+      96,
+      112
+    ],
+    "anchor": [
+      0,
+      0
+    ],
+    "resampler": "Pillow Lanczos RGBA premultiplied-alpha resize; whole sprite only",
+    "filename": "frames8x/shapes8-id253-96x112.png",
+    "sha256": "a7625b19ace56eb63801cf78facaa62263fb23dfbbce27fa9ef00820a8e9f997",
+    "bounds_alpha_gt0": [
+      16,
+      0,
+      56,
+      88
+    ],
+    "bounds_alpha_gt16": [
+      17,
+      1,
+      55,
+      87
+    ],
+    "bounds_alpha_gt128": [
+      19,
+      2,
+      54,
+      84
+    ],
+    "bounds_alpha_gt240": [
+      21,
+      4,
+      51,
+      80
+    ],
+    "edge_alpha_max": 8,
+    "alpha_coverage_logical_pixels": 26.662,
+    "alpha_weighted_luminance_sum": 271963.933,
+    "alpha_centroid_hd": [
+      35.424,
+      34.359
+    ],
+    "partial_alpha_pixels": 2310,
+    "opaque_pixels": 0,
+    "transparent_pixels": 8442
+  },
+  {
+    "stage": 2,
+    "sheet": 8,
+    "sprite_id": 254,
+    "shot_record": 103,
+    "source": "sources/stage2-generated-soft-edge.png",
+    "source_sha256": "84a3bebc9f8c00aa0ac77296622142e94c83740e815222f9041bb53c75f4c756",
+    "crop_xyxy_exclusive": [
+      7,
+      112,
+      1060,
+      1319
+    ],
+    "crop_basis": "Generated alpha >1 bounds; only isolated alpha=1 noise outside retained crop is omitted.",
+    "target_xyxy_exclusive": [
+      0,
+      0,
+      80,
+      112
+    ],
+    "logical_size": [
+      12,
+      14
+    ],
+    "source_size": [
+      96,
+      112
+    ],
+    "anchor": [
+      0,
+      0
+    ],
+    "resampler": "Pillow Lanczos RGBA premultiplied-alpha resize; whole sprite only",
+    "filename": "frames8x/shapes8-id254-96x112.png",
+    "sha256": "0e75f955c707c81af97ad592d2c17b8387097e063706bb51c279b5f5e6564a3a",
+    "bounds_alpha_gt0": [
+      0,
+      0,
+      80,
+      112
+    ],
+    "bounds_alpha_gt16": [
+      1,
+      1,
+      80,
+      111
+    ],
+    "bounds_alpha_gt128": [
+      2,
+      6,
+      79,
+      109
+    ],
+    "bounds_alpha_gt240": [
+      4,
+      9,
+      75,
+      107
+    ],
+    "edge_alpha_max": 12,
+    "alpha_coverage_logical_pixels": 77.01,
+    "alpha_weighted_luminance_sum": 756503.111,
+    "alpha_centroid_hd": [
+      39.325,
+      53.176
+    ],
+    "partial_alpha_pixels": 6261,
+    "opaque_pixels": 0,
+    "transparent_pixels": 4491
+  }
+]

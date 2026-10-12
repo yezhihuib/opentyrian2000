@@ -23,7 +23,7 @@ typedef struct {
 } Asset;
 enum { ASSET_NEWSH2=101, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
-static Asset assets[330];
+static Asset assets[333];
 static Asset talon_frames[13];
 typedef struct {
  bool valid;
@@ -409,6 +409,8 @@ static Asset *get_asset(Sprite2_array bank,unsigned int index,int layout)
   static const unsigned int guided_ids[4]={19,171,20,21};
   for(int i=0;i<4;i++)if(index==guided_ids[i]){slot=326+i;role=8;break;}
  }
+ /* Charge Cannon static heads only; original bank9 launcher bodies stay separate. */
+ if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&index>=252&&index<=254) {slot=330+(int)index-252;role=8;}
  if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&index>=214&&index<=217) {slot=182+(int)index-214;role=8;}
  if(bank.data==explosionSpriteSheet.data&&layout==ENTITY_TILE) {int explosion_slot=explosion_asset_slot(index);if(explosion_slot>=0){slot=explosion_slot;role=ASSET_EXPLOSION;}}
  if(slot<0||game_probe_density==1||game_probe_missing||(role==ASSET_EXPLOSION&&(!game_probe_assets||game_probe_original_reference))) return NULL;
@@ -665,6 +667,8 @@ static bool draw_asset(int x,int y,Asset *a,int style,const SDL_Rect *part)
 bool render_mirror_entity(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int index,int style,int layout)
 {
  if(!active||surface!=game_screen||reject_reason)return false;
+ /* Charge Cannon shadows retain their original indexed silhouettes and origin. */
+ if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&index>=252&&index<=254&&style==MIRROR_SHADOW)return false;
  /* Keep the green214..217 shadows on their original indexed path and origin. */
  if(bank.data==spriteSheet8.data&&index>=214&&index<=217&&style==MIRROR_SHADOW)return false;
  Asset *a=get_asset(bank,index,layout);

@@ -1,0 +1,379 @@
+{
+  "schema": "opentyrian-charge-cannon-hd-art-pilot-v1",
+  "identity": "charge-cannon-family-v1-soft-edge-frozen",
+  "status": "Root-approved art pilot for bounded runtime trial; NOT runtime-accepted or integrated",
+  "frozen_utc": "2026-10-12T07:02:08Z",
+  "target_repo_head_at_assignment": "85cdb5dd31f97f8bf10dd564027cd26ff24c4891",
+  "scope": {
+    "bank": 8,
+    "sprite_ids": [
+      252,
+      253,
+      254
+    ],
+    "option": 3,
+    "option_name": "Charge Cannon",
+    "charge_stages": [
+      0,
+      1,
+      2
+    ],
+    "shot_records": [
+      101,
+      102,
+      103
+    ],
+    "logical_canvas": [
+      12,
+      14
+    ],
+    "density": 8,
+    "png_canvas": [
+      96,
+      112
+    ],
+    "anchor": [
+      0,
+      0
+    ],
+    "state_type": "three separate STATIC charge designs, not an animation cycle",
+    "not_poison_sprite103": true,
+    "bank9_launcher_bodies": "untouched; separate IDs258-260/277-279/296-298",
+    "latent_records793_1793": "outside active fixture scope; possible reuse is a documented caveat, not a full-coverage claim",
+    "gameplay_code_or_data_changes": false
+  },
+  "frames": [
+    {
+      "stage": 0,
+      "sheet": 8,
+      "sprite_id": 252,
+      "shot_record": 101,
+      "source": "sources/stage0-generated-soft-edge-v2.png",
+      "source_sha256": "54f36ff40c48bcc95d4a136b1f0dc77acf78ba9564192ee67e2619f67907e843",
+      "crop_xyxy_exclusive": [
+        250,
+        166,
+        819,
+        1289
+      ],
+      "crop_basis": "Generated alpha >1 bounds; only isolated alpha=1 noise outside retained crop is omitted.",
+      "target_xyxy_exclusive": [
+        24,
+        0,
+        56,
+        88
+      ],
+      "logical_size": [
+        12,
+        14
+      ],
+      "source_size": [
+        96,
+        112
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "resampler": "Pillow Lanczos RGBA premultiplied-alpha resize; whole sprite only",
+      "filename": "frames8x/shapes8-id252-96x112.png",
+      "sha256": "e70fd87717237079609710e329e76c13f4783380a87738cb1567b7456760eacb",
+      "bounds_alpha_gt0": [
+        24,
+        0,
+        56,
+        88
+      ],
+      "bounds_alpha_gt16": [
+        26,
+        1,
+        55,
+        86
+      ],
+      "bounds_alpha_gt128": [
+        27,
+        5,
+        53,
+        82
+      ],
+      "bounds_alpha_gt240": [
+        30,
+        8,
+        50,
+        78
+      ],
+      "edge_alpha_max": 5,
+      "alpha_coverage_logical_pixels": 20.039,
+      "alpha_weighted_luminance_sum": 146047.633,
+      "alpha_centroid_hd": [
+        39.581,
+        38.421
+      ],
+      "partial_alpha_pixels": 1978,
+      "opaque_pixels": 0,
+      "transparent_pixels": 8774,
+      "target_boundary_alpha_max_top_bottom_left_right": [
+        5,
+        3,
+        4,
+        3
+      ],
+      "original_bounds_logical_xyxy_exclusive": [
+        3,
+        0,
+        7,
+        11
+      ],
+      "damage": 2,
+      "velocity": [
+        0,
+        -12
+      ],
+      "animation_frames": 1,
+      "no_trail": true,
+      "no_child": true,
+      "hda": "runtime/bullet-252-8.hda",
+      "hda_sha256": "7317453f640efaf6e983a76c89687722136e1b8e3a103b39ea2d4fbd823cf288",
+      "hda_rgba_bytes_preserved": true,
+      "hda_header_u32": [
+        80252,
+        8,
+        12,
+        14,
+        0,
+        0
+      ]
+    },
+    {
+      "stage": 1,
+      "sheet": 8,
+      "sprite_id": 253,
+      "shot_record": 102,
+      "source": "sources/stage1-generated-soft-edge.png",
+      "source_sha256": "3a9da5a2b49c52577ed955094f9a3e6d41fac599f2e58dd114005e91239a2c2f",
+      "crop_xyxy_exclusive": [
+        15,
+        137,
+        835,
+        1715
+      ],
+      "crop_basis": "Generated alpha >1 bounds; only isolated alpha=1 noise outside retained crop is omitted.",
+      "target_xyxy_exclusive": [
+        16,
+        0,
+        56,
+        88
+      ],
+      "logical_size": [
+        12,
+        14
+      ],
+      "source_size": [
+        96,
+        112
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "resampler": "Pillow Lanczos RGBA premultiplied-alpha resize; whole sprite only",
+      "filename": "frames8x/shapes8-id253-96x112.png",
+      "sha256": "a7625b19ace56eb63801cf78facaa62263fb23dfbbce27fa9ef00820a8e9f997",
+      "bounds_alpha_gt0": [
+        16,
+        0,
+        56,
+        88
+      ],
+      "bounds_alpha_gt16": [
+        17,
+        1,
+        55,
+        87
+      ],
+      "bounds_alpha_gt128": [
+        19,
+        2,
+        54,
+        84
+      ],
+      "bounds_alpha_gt240": [
+        21,
+        4,
+        51,
+        80
+      ],
+      "edge_alpha_max": 8,
+      "alpha_coverage_logical_pixels": 26.662,
+      "alpha_weighted_luminance_sum": 271963.933,
+      "alpha_centroid_hd": [
+        35.424,
+        34.359
+      ],
+      "partial_alpha_pixels": 2310,
+      "opaque_pixels": 0,
+      "transparent_pixels": 8442,
+      "target_boundary_alpha_max_top_bottom_left_right": [
+        8,
+        4,
+        9,
+        10
+      ],
+      "original_bounds_logical_xyxy_exclusive": [
+        2,
+        0,
+        7,
+        11
+      ],
+      "damage": 5,
+      "velocity": [
+        0,
+        -10
+      ],
+      "animation_frames": 1,
+      "no_trail": true,
+      "no_child": true,
+      "hda": "runtime/bullet-253-8.hda",
+      "hda_sha256": "56faa8fd8567eab34157b0325523a410e2836230428419cb4d3ecb5894734d06",
+      "hda_rgba_bytes_preserved": true,
+      "hda_header_u32": [
+        80253,
+        8,
+        12,
+        14,
+        0,
+        0
+      ]
+    },
+    {
+      "stage": 2,
+      "sheet": 8,
+      "sprite_id": 254,
+      "shot_record": 103,
+      "source": "sources/stage2-generated-soft-edge.png",
+      "source_sha256": "84a3bebc9f8c00aa0ac77296622142e94c83740e815222f9041bb53c75f4c756",
+      "crop_xyxy_exclusive": [
+        7,
+        112,
+        1060,
+        1319
+      ],
+      "crop_basis": "Generated alpha >1 bounds; only isolated alpha=1 noise outside retained crop is omitted.",
+      "target_xyxy_exclusive": [
+        0,
+        0,
+        80,
+        112
+      ],
+      "logical_size": [
+        12,
+        14
+      ],
+      "source_size": [
+        96,
+        112
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "resampler": "Pillow Lanczos RGBA premultiplied-alpha resize; whole sprite only",
+      "filename": "frames8x/shapes8-id254-96x112.png",
+      "sha256": "0e75f955c707c81af97ad592d2c17b8387097e063706bb51c279b5f5e6564a3a",
+      "bounds_alpha_gt0": [
+        0,
+        0,
+        80,
+        112
+      ],
+      "bounds_alpha_gt16": [
+        1,
+        1,
+        80,
+        111
+      ],
+      "bounds_alpha_gt128": [
+        2,
+        6,
+        79,
+        109
+      ],
+      "bounds_alpha_gt240": [
+        4,
+        9,
+        75,
+        107
+      ],
+      "edge_alpha_max": 12,
+      "alpha_coverage_logical_pixels": 77.01,
+      "alpha_weighted_luminance_sum": 756503.111,
+      "alpha_centroid_hd": [
+        39.325,
+        53.176
+      ],
+      "partial_alpha_pixels": 6261,
+      "opaque_pixels": 0,
+      "transparent_pixels": 4491,
+      "target_boundary_alpha_max_top_bottom_left_right": [
+        4,
+        2,
+        12,
+        42
+      ],
+      "original_bounds_logical_xyxy_exclusive": [
+        0,
+        0,
+        10,
+        14
+      ],
+      "damage": 10,
+      "velocity": [
+        0,
+        -8
+      ],
+      "animation_frames": 1,
+      "no_trail": true,
+      "no_child": true,
+      "hda": "runtime/bullet-254-8.hda",
+      "hda_sha256": "e38fb46beecabd5af8bf72f065b193a82388288efca294b3c2ef8194118aafe4",
+      "hda_rgba_bytes_preserved": true,
+      "hda_header_u32": [
+        80254,
+        8,
+        12,
+        14,
+        0,
+        0
+      ]
+    }
+  ],
+  "source_generation_provenance": "generation-provenance.json",
+  "generation_prompts": "sources/*-prompt-*.txt",
+  "reproduction": [
+    "python build_pilot.py",
+    "python build_pilot.py --point"
+  ],
+  "preview_notes": {
+    "native_scales": [
+      1,
+      2,
+      4
+    ],
+    "original_sampling": "nearest-neighbor",
+    "hd_sampling": "Both nearest/point and Lanczos review variants, separately named and labeled",
+    "backgrounds": [
+      "dark RGB13,20,34",
+      "mid RGB62,70,81",
+      "light RGB215,219,225",
+      "checker RGB75/130"
+    ],
+    "interpretation": "Literal-size offline source-over composites, not engine output. Do not enlarge screenshots and call them native review.",
+    "private_reference_content": "Comparison PNGs contain original legal reference pixels and must not be committed or shipped with generated art."
+  },
+  "runtime_review_required": [
+    "All three static states on both option3 mounts using published charge-stages fixture.",
+    "Actual native Integer2x and targeted Integer4x on cloud/terrain: core readability, dense bright-wisp sparkle/aliasing, alpha edge behavior, split tails.",
+    "Check sprite254 extreme right soft fringe: generated source meets source right edge; retained frame target boundary max alpha42/255 at x79, no pixels outside x80. This is recorded, not repaired after freeze.",
+    "Preserve original launcher bodies, coordinates, shadows, collision, damage, velocity, RNG and fallback; root/integrator own runtime acceptance."
+  ]
+}

@@ -1,0 +1,1259 @@
+{
+  "status": "passed",
+  "source_baseline": "85cdb5dd31f97f8bf10dd564027cd26ff24c4891",
+  "candidate_manifest_sha256": "e66f9b47a48233164b9f9537440d620f90b9c3de63998d1da4f09c5659df60be",
+  "candidate_hda_sha256": {
+    "252": "7317453f640efaf6e983a76c89687722136e1b8e3a103b39ea2d4fbd823cf288",
+    "253": "56faa8fd8567eab34157b0325523a410e2836230428419cb4d3ecb5894734d06",
+    "254": "e38fb46beecabd5af8bf72f065b193a82388288efca294b3c2ef8194118aafe4"
+  },
+  "baseline_executable_sha256": "0eff1579b87c8ab8f9540ed934e86458803e20b83746e6138188b8b394111dcd",
+  "candidate_executable_sha256": "04997a545299781066b5c26cddf53f11ef10a236cdb1f7d59055584b172c73ac",
+  "game_runs": 26,
+  "logic_ticks": 2340,
+  "media_bytes": 0,
+  "scope": "Finite bank8 tile252..254 heads; original indexed shadows and bank9 launchers. Latent793/1793 reuse untested.",
+  "effects_comparison": "Exact indexed state includes particles, RNG and collision state. Effect semantic fields exact; renderer ownership counters may differ. Restored/classic pixel mismatches must remain zero.",
+  "mount_boundaries": "Runtime both mounts; standalone0/3 selection proof reused from published fixture. Binder neighbor/bank/layout/cache boundaries separately tested.",
+  "binding_patch_sha256": "19d6a63402cec05a5116eff98c1ffb4c4b1d4621cb4cc0aa967fa4f4832d6de7",
+  "proof_summary_sha256": "6b761016a61c57aaeb3cc826380accd0c0e6c0cf15231d4e8e8122258d5bb4db",
+  "source_baseline_unchanged": true,
+  "production_integration": false,
+  "capture_media_created": false,
+  "boundary_unit": {
+    "status": "passed",
+    "capacity": 333,
+    "charge_slots": [
+      330,
+      331,
+      332
+    ],
+    "checked": [
+      "bank8 tile252..254",
+      "index0/251/255/UINT_MAX reject",
+      "wrong bank/layout reject",
+      "reverse-order cache identity",
+      "explosion252..254 remain distinct",
+      "guided21 remains slot329"
+    ],
+    "asan_ubsan": "passed",
+    "leak_sanitizer": "not run successfully: runtime ptrace restriction; passing sanitized run used detect_leaks=0"
+  },
+  "static_checks": {
+    "strict_C_syntax": "passed",
+    "python_compile": "passed",
+    "diff_check": "passed"
+  },
+  "binder_independent_review": "Parent reviewed six-line binder before runtime; no issue found.",
+  "files_sha256": {
+    "src/render_mirror.c": "29e635301e0a7009efe12b8900747e1050a8e3ed963046fe90c3f6d18874d4c3",
+    "prototype/test-charge-render.py": "945ea40646ef8ec9ca050f54f17ac1507c529b26c452ee0e319220e5700904d7",
+    "prototype/test-charge-binding.c": "042c42e1c53ec72f33a711e3f3dfaaeeaf2e46a80d08f1ad408e30c368cd2994"
+  },
+  "cases": [
+    {
+      "case": "e1-baseline-2x",
+      "episode": 1,
+      "level": 9,
+      "scale": 2,
+      "mode": "8",
+      "pack": "full",
+      "baseline": true,
+      "known_water_fallback": false,
+      "coverage": {
+        "requests": 6,
+        "emissions": 6,
+        "draws": 208,
+        "head_ids": [
+          252,
+          253,
+          254
+        ],
+        "mounts": [
+          0,
+          1
+        ],
+        "natural_collisions": 0,
+        "passive_charge_and_reset_proved": true,
+        "power_rejections": 0,
+        "capacity_rejections": 0
+      },
+      "frames": 90,
+      "window": [
+        640,
+        400
+      ],
+      "hd_draws": 12038,
+      "head_draws": {
+        "252": 28,
+        "253": 34,
+        "254": 42
+      },
+      "shadow_draws": 104,
+      "mirrored_ids": [],
+      "media_bytes": 0,
+      "state_sha256": "28590efc4e30b530c10ba90731ffff1026411ae15fe8599e0b731c8fdf38d484",
+      "collision_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+      "draw_sha256": "8d8a2c4be5b860edfcca70b6346dc83ea0a2bff3f63319be723a571a9eebd417"
+    },
+    {
+      "case": "e1-candidate-2x",
+      "episode": 1,
+      "level": 9,
+      "scale": 2,
+      "mode": "8",
+      "pack": "full",
+      "baseline": false,
+      "known_water_fallback": false,
+      "coverage": {
+        "requests": 6,
+        "emissions": 6,
+        "draws": 208,
+        "head_ids": [
+          252,
+          253,
+          254
+        ],
+        "mounts": [
+          0,
+          1
+        ],
+        "natural_collisions": 0,
+        "passive_charge_and_reset_proved": true,
+        "power_rejections": 0,
+        "capacity_rejections": 0
+      },
+      "frames": 90,
+      "window": [
+        640,
+        400
+      ],
+      "hd_draws": 12142,
+      "head_draws": {
+        "252": 28,
+        "253": 34,
+        "254": 42
+      },
+      "shadow_draws": 104,
+      "mirrored_ids": [
+        252,
+        253,
+        254
+      ],
+      "media_bytes": 0,
+      "state_sha256": "28590efc4e30b530c10ba90731ffff1026411ae15fe8599e0b731c8fdf38d484",
+      "collision_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+      "draw_sha256": "8d8a2c4be5b860edfcca70b6346dc83ea0a2bff3f63319be723a571a9eebd417"
+    },
+    {
+      "case": "e4-baseline-2x",
+      "episode": 4,
+      "level": 3,
+      "scale": 2,
+      "mode": "8",
+      "pack": "full",
+      "baseline": true,
+      "known_water_fallback": false,
+      "coverage": {
+        "requests": 6,
+        "emissions": 6,
+        "draws": 160,
+        "head_ids": [
+          252,
+          253,
+          254
+        ],
+        "mounts": [
+          0,
+          1
+        ],
+        "natural_collisions": 4,
+        "passive_charge_and_reset_proved": true,
+        "power_rejections": 0,
+        "capacity_rejections": 0
+      },
+      "frames": 90,
+      "window": [
+        640,
+        400
+      ],
+      "hd_draws": 2650,
+      "head_draws": {
+        "252": 28,
+        "253": 32,
+        "254": 20
+      },
+      "shadow_draws": 80,
+      "mirrored_ids": [],
+      "media_bytes": 0,
+      "state_sha256": "61f1d7e95ecad2bfdf4c49a00a81e5c0ec967927ca2ed42321d28e5e079757d8",
+      "collision_sha256": "ee61f1f0c3687d49847535add2cc888ed6af960b92bba2f0b0bf322cd466742e",
+      "draw_sha256": "9f00b25ab05c074c7fd0ab30bfa68eb3c248190d45a979a3d7e345deec480bb7"
+    },
+    {
+      "case": "e4-candidate-2x",
+      "episode": 4,
+      "level": 3,
+      "scale": 2,
+      "mode": "8",
+      "pack": "full",
+      "baseline": false,
+      "known_water_fallback": false,
+      "coverage": {
+        "requests": 6,
+        "emissions": 6,
+        "draws": 160,
+        "head_ids": [
+          252,
+          253,
+          254
+        ],
+        "mounts": [
+          0,
+          1
+        ],
+        "natural_collisions": 4,
+        "passive_charge_and_reset_proved": true,
+        "power_rejections": 0,
+        "capacity_rejections": 0
+      },
+      "frames": 90,
+      "window": [
+        640,
+        400
+      ],
+      "hd_draws": 2730,
+      "head_draws": {
+        "252": 28,
+        "253": 32,
+        "254": 20
+      },
+      "shadow_draws": 80,
+      "mirrored_ids": [
+        252,
+        253,
+        254
+      ],
+      "media_bytes": 0,
+      "state_sha256": "61f1d7e95ecad2bfdf4c49a00a81e5c0ec967927ca2ed42321d28e5e079757d8",
+      "collision_sha256": "ee61f1f0c3687d49847535add2cc888ed6af960b92bba2f0b0bf322cd466742e",
+      "draw_sha256": "9f00b25ab05c074c7fd0ab30bfa68eb3c248190d45a979a3d7e345deec480bb7"
+    },
+    {
+      "case": "e5-baseline-2x",
+      "episode": 5,
+      "level": 1,
+      "scale": 2,
+      "mode": "8",
+      "pack": "full",
+      "baseline": true,
+      "known_water_fallback": false,
+      "coverage": {
+        "requests": 6,
+        "emissions": 6,
+        "draws": 208,
+        "head_ids": [
+          252,
+          253,
+          254
+        ],
+        "mounts": [
+          0,
+          1
+        ],
+        "natural_collisions": 0,
+        "passive_charge_and_reset_proved": true,
+        "power_rejections": 0,
+        "capacity_rejections": 0
+      },
+      "frames": 90,
+      "window": [
+        640,
+        400
+      ],
+      "hd_draws": 9734,
+      "head_draws": {
+        "252": 28,
+        "253": 34,
+        "254": 42
+      },
+      "shadow_draws": 104,
+      "mirrored_ids": [],
+      "media_bytes": 0,
+      "state_sha256": "6ad3a88dd9ead5b2a57a4c93832d00ebbecabe72b04be037d8b446b43ad2623c",
+      "collision_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+      "draw_sha256": "8d8a2c4be5b860edfcca70b6346dc83ea0a2bff3f63319be723a571a9eebd417"
+    },
+    {
+      "case": "e5-candidate-2x",
+      "episode": 5,
+      "level": 1,
+      "scale": 2,
+      "mode": "8",
+      "pack": "full",
+      "baseline": false,
+      "known_water_fallback": false,
+      "coverage": {
+        "requests": 6,
+        "emissions": 6,
+        "draws": 208,
+        "head_ids": [
+          252,
+          253,
+          254
+        ],
+        "mounts": [
+          0,
+          1
+        ],
+        "natural_collisions": 0,
+        "passive_charge_and_reset_proved": true,
+        "power_rejections": 0,
+        "capacity_rejections": 0
+      },
+      "frames": 90,
+      "window": [
+        640,
+        400
+      ],
+      "hd_draws": 9838,
+      "head_draws": {
+        "252": 28,
+        "253": 34,
+        "254": 42
+      },
+      "shadow_draws": 104,
+      "mirrored_ids": [
+        252,
+        253,
+        254
+      ],
+      "media_bytes": 0,
+      "state_sha256": "6ad3a88dd9ead5b2a57a4c93832d00ebbecabe72b04be037d8b446b43ad2623c",
+      "collision_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+      "draw_sha256": "8d8a2c4be5b860edfcca70b6346dc83ea0a2bff3f63319be723a571a9eebd417"
+    },
+    {
+      "case": "e4-level9-baseline-fallback",
+      "episode": 4,
+      "level": 9,
+      "scale": 2,
+      "mode": "8",
+      "pack": "full",
+      "baseline": true,
+      "known_water_fallback": true,
+      "coverage": {
+        "requests": 6,
+        "emissions": 6,
+        "draws": 192,
+        "head_ids": [
+          252,
+          253,
+          254
+        ],
+        "mounts": [
+          0,
+          1
+        ],
+        "natural_collisions": 1,
+        "passive_charge_and_reset_proved": true,
+        "power_rejections": 0,
+        "capacity_rejections": 0
+      },
+      "frames": 90,
+      "window": [
+        640,
+        400
+      ],
+      "hd_draws": 0,
+      "head_draws": {
+        "252": 28,
+        "253": 26,
+        "254": 42
+      },
+      "shadow_draws": 96,
+      "mirrored_ids": [],
+      "media_bytes": 0,
+      "state_sha256": "c955b9dd1d2110a5e2b3f75f4023a272d47eef720004b2dd3a533b8193fad81c",
+      "collision_sha256": "68be2d968506bdbf1b89749d3ecf151de8509d08fef97a67ea3afa299ca37cfa",
+      "draw_sha256": "465348f6a92ec1e10fc86eae27d1de64a76c4fc768746f3abd28e1e90c00beed"
+    },
+    {
+      "case": "e4-level9-candidate-fallback",
+      "episode": 4,
+      "level": 9,
+      "scale": 2,
+      "mode": "8",
+      "pack": "full",
+      "baseline": false,
+      "known_water_fallback": true,
+      "coverage": {
+        "requests": 6,
+        "emissions": 6,
+        "draws": 192,
+        "head_ids": [
+          252,
+          253,
+          254
+        ],
+        "mounts": [
+          0,
+          1
+        ],
+        "natural_collisions": 1,
+        "passive_charge_and_reset_proved": true,
+        "power_rejections": 0,
+        "capacity_rejections": 0
+      },
+      "frames": 90,
+      "window": [
+        640,
+        400
+      ],
+      "hd_draws": 0,
+      "head_draws": {
+        "252": 28,
+        "253": 26,
+        "254": 42
+      },
+      "shadow_draws": 96,
+      "mirrored_ids": [],
+      "media_bytes": 0,
+      "state_sha256": "c955b9dd1d2110a5e2b3f75f4023a272d47eef720004b2dd3a533b8193fad81c",
+      "collision_sha256": "68be2d968506bdbf1b89749d3ecf151de8509d08fef97a67ea3afa299ca37cfa",
+      "draw_sha256": "465348f6a92ec1e10fc86eae27d1de64a76c4fc768746f3abd28e1e90c00beed"
+    },
+    {
+      "case": "e1-baseline-4x",
+      "episode": 1,
+      "level": 9,
+      "scale": 4,
+      "mode": "8",
+      "pack": "full",
+      "baseline": true,
+      "known_water_fallback": false,
+      "coverage": {
+        "requests": 6,
+        "emissions": 6,
+        "draws": 208,
+        "head_ids": [
+          252,
+          253,
+          254
+        ],
+        "mounts": [
+          0,
+          1
+        ],
+        "natural_collisions": 0,
+        "passive_charge_and_reset_proved": true,
+        "power_rejections": 0,
+        "capacity_rejections": 0
+      },
+      "frames": 90,
+      "window": [
+        1280,
+        800
+      ],
+      "hd_draws": 12038,
+      "head_draws": {
+        "252": 28,
+        "253": 34,
+        "254": 42
+      },
+      "shadow_draws": 104,
+      "mirrored_ids": [],
+      "media_bytes": 0,
+      "state_sha256": "28590efc4e30b530c10ba90731ffff1026411ae15fe8599e0b731c8fdf38d484",
+      "collision_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+      "draw_sha256": "8d8a2c4be5b860edfcca70b6346dc83ea0a2bff3f63319be723a571a9eebd417"
+    },
+    {
+      "case": "e1-candidate-4x",
+      "episode": 1,
+      "level": 9,
+      "scale": 4,
+      "mode": "8",
+      "pack": "full",
+      "baseline": false,
+      "known_water_fallback": false,
+      "coverage": {
+        "requests": 6,
+        "emissions": 6,
+        "draws": 208,
+        "head_ids": [
+          252,
+          253,
+          254
+        ],
+        "mounts": [
+          0,
+          1
+        ],
+        "natural_collisions": 0,
+        "passive_charge_and_reset_proved": true,
+        "power_rejections": 0,
+        "capacity_rejections": 0
+      },
+      "frames": 90,
+      "window": [
+        1280,
+        800
+      ],
+      "hd_draws": 12142,
+      "head_draws": {
+        "252": 28,
+        "253": 34,
+        "254": 42
+      },
+      "shadow_draws": 104,
+      "mirrored_ids": [
+        252,
+        253,
+        254
+      ],
+      "media_bytes": 0,
+      "state_sha256": "28590efc4e30b530c10ba90731ffff1026411ae15fe8599e0b731c8fdf38d484",
+      "collision_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+      "draw_sha256": "8d8a2c4be5b860edfcca70b6346dc83ea0a2bff3f63319be723a571a9eebd417"
+    },
+    {
+      "case": "e1-candidate-repeat",
+      "episode": 1,
+      "level": 9,
+      "scale": 2,
+      "mode": "8",
+      "pack": "full",
+      "baseline": false,
+      "known_water_fallback": false,
+      "coverage": {
+        "requests": 6,
+        "emissions": 6,
+        "draws": 208,
+        "head_ids": [
+          252,
+          253,
+          254
+        ],
+        "mounts": [
+          0,
+          1
+        ],
+        "natural_collisions": 0,
+        "passive_charge_and_reset_proved": true,
+        "power_rejections": 0,
+        "capacity_rejections": 0
+      },
+      "frames": 90,
+      "window": [
+        640,
+        400
+      ],
+      "hd_draws": 12142,
+      "head_draws": {
+        "252": 28,
+        "253": 34,
+        "254": 42
+      },
+      "shadow_draws": 104,
+      "mirrored_ids": [
+        252,
+        253,
+        254
+      ],
+      "media_bytes": 0,
+      "state_sha256": "28590efc4e30b530c10ba90731ffff1026411ae15fe8599e0b731c8fdf38d484",
+      "collision_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+      "draw_sha256": "8d8a2c4be5b860edfcca70b6346dc83ea0a2bff3f63319be723a571a9eebd417"
+    },
+    {
+      "case": "e1-family-all-missing",
+      "episode": 1,
+      "level": 9,
+      "scale": 2,
+      "mode": "8",
+      "pack": "missing-all",
+      "baseline": false,
+      "known_water_fallback": false,
+      "coverage": {
+        "requests": 6,
+        "emissions": 6,
+        "draws": 208,
+        "head_ids": [
+          252,
+          253,
+          254
+        ],
+        "mounts": [
+          0,
+          1
+        ],
+        "natural_collisions": 0,
+        "passive_charge_and_reset_proved": true,
+        "power_rejections": 0,
+        "capacity_rejections": 0
+      },
+      "frames": 90,
+      "window": [
+        640,
+        400
+      ],
+      "hd_draws": 12038,
+      "head_draws": {
+        "252": 28,
+        "253": 34,
+        "254": 42
+      },
+      "shadow_draws": 104,
+      "mirrored_ids": [],
+      "media_bytes": 0,
+      "state_sha256": "28590efc4e30b530c10ba90731ffff1026411ae15fe8599e0b731c8fdf38d484",
+      "collision_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+      "draw_sha256": "8d8a2c4be5b860edfcca70b6346dc83ea0a2bff3f63319be723a571a9eebd417"
+    },
+    {
+      "case": "e1-missing-252",
+      "episode": 1,
+      "level": 9,
+      "scale": 2,
+      "mode": "8",
+      "pack": "missing-252",
+      "baseline": false,
+      "known_water_fallback": false,
+      "coverage": {
+        "requests": 6,
+        "emissions": 6,
+        "draws": 208,
+        "head_ids": [
+          252,
+          253,
+          254
+        ],
+        "mounts": [
+          0,
+          1
+        ],
+        "natural_collisions": 0,
+        "passive_charge_and_reset_proved": true,
+        "power_rejections": 0,
+        "capacity_rejections": 0
+      },
+      "frames": 90,
+      "window": [
+        640,
+        400
+      ],
+      "hd_draws": 12114,
+      "head_draws": {
+        "252": 28,
+        "253": 34,
+        "254": 42
+      },
+      "shadow_draws": 104,
+      "mirrored_ids": [
+        253,
+        254
+      ],
+      "media_bytes": 0,
+      "state_sha256": "28590efc4e30b530c10ba90731ffff1026411ae15fe8599e0b731c8fdf38d484",
+      "collision_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+      "draw_sha256": "8d8a2c4be5b860edfcca70b6346dc83ea0a2bff3f63319be723a571a9eebd417"
+    },
+    {
+      "case": "e1-missing-253",
+      "episode": 1,
+      "level": 9,
+      "scale": 2,
+      "mode": "8",
+      "pack": "missing-253",
+      "baseline": false,
+      "known_water_fallback": false,
+      "coverage": {
+        "requests": 6,
+        "emissions": 6,
+        "draws": 208,
+        "head_ids": [
+          252,
+          253,
+          254
+        ],
+        "mounts": [
+          0,
+          1
+        ],
+        "natural_collisions": 0,
+        "passive_charge_and_reset_proved": true,
+        "power_rejections": 0,
+        "capacity_rejections": 0
+      },
+      "frames": 90,
+      "window": [
+        640,
+        400
+      ],
+      "hd_draws": 12108,
+      "head_draws": {
+        "252": 28,
+        "253": 34,
+        "254": 42
+      },
+      "shadow_draws": 104,
+      "mirrored_ids": [
+        252,
+        254
+      ],
+      "media_bytes": 0,
+      "state_sha256": "28590efc4e30b530c10ba90731ffff1026411ae15fe8599e0b731c8fdf38d484",
+      "collision_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+      "draw_sha256": "8d8a2c4be5b860edfcca70b6346dc83ea0a2bff3f63319be723a571a9eebd417"
+    },
+    {
+      "case": "e1-missing-254",
+      "episode": 1,
+      "level": 9,
+      "scale": 2,
+      "mode": "8",
+      "pack": "missing-254",
+      "baseline": false,
+      "known_water_fallback": false,
+      "coverage": {
+        "requests": 6,
+        "emissions": 6,
+        "draws": 208,
+        "head_ids": [
+          252,
+          253,
+          254
+        ],
+        "mounts": [
+          0,
+          1
+        ],
+        "natural_collisions": 0,
+        "passive_charge_and_reset_proved": true,
+        "power_rejections": 0,
+        "capacity_rejections": 0
+      },
+      "frames": 90,
+      "window": [
+        640,
+        400
+      ],
+      "hd_draws": 12100,
+      "head_draws": {
+        "252": 28,
+        "253": 34,
+        "254": 42
+      },
+      "shadow_draws": 104,
+      "mirrored_ids": [
+        252,
+        253
+      ],
+      "media_bytes": 0,
+      "state_sha256": "28590efc4e30b530c10ba90731ffff1026411ae15fe8599e0b731c8fdf38d484",
+      "collision_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+      "draw_sha256": "8d8a2c4be5b860edfcca70b6346dc83ea0a2bff3f63319be723a571a9eebd417"
+    },
+    {
+      "case": "e1-invalid-252",
+      "episode": 1,
+      "level": 9,
+      "scale": 2,
+      "mode": "8",
+      "pack": "invalid-252",
+      "baseline": false,
+      "known_water_fallback": false,
+      "coverage": {
+        "requests": 6,
+        "emissions": 6,
+        "draws": 208,
+        "head_ids": [
+          252,
+          253,
+          254
+        ],
+        "mounts": [
+          0,
+          1
+        ],
+        "natural_collisions": 0,
+        "passive_charge_and_reset_proved": true,
+        "power_rejections": 0,
+        "capacity_rejections": 0
+      },
+      "frames": 90,
+      "window": [
+        640,
+        400
+      ],
+      "hd_draws": 12114,
+      "head_draws": {
+        "252": 28,
+        "253": 34,
+        "254": 42
+      },
+      "shadow_draws": 104,
+      "mirrored_ids": [
+        253,
+        254
+      ],
+      "media_bytes": 0,
+      "state_sha256": "28590efc4e30b530c10ba90731ffff1026411ae15fe8599e0b731c8fdf38d484",
+      "collision_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+      "draw_sha256": "8d8a2c4be5b860edfcca70b6346dc83ea0a2bff3f63319be723a571a9eebd417"
+    },
+    {
+      "case": "e1-invalid-253",
+      "episode": 1,
+      "level": 9,
+      "scale": 2,
+      "mode": "8",
+      "pack": "invalid-253",
+      "baseline": false,
+      "known_water_fallback": false,
+      "coverage": {
+        "requests": 6,
+        "emissions": 6,
+        "draws": 208,
+        "head_ids": [
+          252,
+          253,
+          254
+        ],
+        "mounts": [
+          0,
+          1
+        ],
+        "natural_collisions": 0,
+        "passive_charge_and_reset_proved": true,
+        "power_rejections": 0,
+        "capacity_rejections": 0
+      },
+      "frames": 90,
+      "window": [
+        640,
+        400
+      ],
+      "hd_draws": 12108,
+      "head_draws": {
+        "252": 28,
+        "253": 34,
+        "254": 42
+      },
+      "shadow_draws": 104,
+      "mirrored_ids": [
+        252,
+        254
+      ],
+      "media_bytes": 0,
+      "state_sha256": "28590efc4e30b530c10ba90731ffff1026411ae15fe8599e0b731c8fdf38d484",
+      "collision_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+      "draw_sha256": "8d8a2c4be5b860edfcca70b6346dc83ea0a2bff3f63319be723a571a9eebd417"
+    },
+    {
+      "case": "e1-invalid-254",
+      "episode": 1,
+      "level": 9,
+      "scale": 2,
+      "mode": "8",
+      "pack": "invalid-254",
+      "baseline": false,
+      "known_water_fallback": false,
+      "coverage": {
+        "requests": 6,
+        "emissions": 6,
+        "draws": 208,
+        "head_ids": [
+          252,
+          253,
+          254
+        ],
+        "mounts": [
+          0,
+          1
+        ],
+        "natural_collisions": 0,
+        "passive_charge_and_reset_proved": true,
+        "power_rejections": 0,
+        "capacity_rejections": 0
+      },
+      "frames": 90,
+      "window": [
+        640,
+        400
+      ],
+      "hd_draws": 12100,
+      "head_draws": {
+        "252": 28,
+        "253": 34,
+        "254": 42
+      },
+      "shadow_draws": 104,
+      "mirrored_ids": [
+        252,
+        253
+      ],
+      "media_bytes": 0,
+      "state_sha256": "28590efc4e30b530c10ba90731ffff1026411ae15fe8599e0b731c8fdf38d484",
+      "collision_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+      "draw_sha256": "8d8a2c4be5b860edfcca70b6346dc83ea0a2bff3f63319be723a571a9eebd417"
+    },
+    {
+      "case": "e1-baseline-classic",
+      "episode": 1,
+      "level": 9,
+      "scale": 2,
+      "mode": "classic",
+      "pack": "full",
+      "baseline": true,
+      "known_water_fallback": false,
+      "coverage": {
+        "requests": 6,
+        "emissions": 6,
+        "draws": 208,
+        "head_ids": [
+          252,
+          253,
+          254
+        ],
+        "mounts": [
+          0,
+          1
+        ],
+        "natural_collisions": 0,
+        "passive_charge_and_reset_proved": true,
+        "power_rejections": 0,
+        "capacity_rejections": 0
+      },
+      "frames": 90,
+      "window": null,
+      "hd_draws": 0,
+      "head_draws": {
+        "252": 28,
+        "253": 34,
+        "254": 42
+      },
+      "shadow_draws": 104,
+      "mirrored_ids": [],
+      "media_bytes": 0,
+      "state_sha256": "28590efc4e30b530c10ba90731ffff1026411ae15fe8599e0b731c8fdf38d484",
+      "collision_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+      "draw_sha256": "8d8a2c4be5b860edfcca70b6346dc83ea0a2bff3f63319be723a571a9eebd417"
+    },
+    {
+      "case": "e1-candidate-classic",
+      "episode": 1,
+      "level": 9,
+      "scale": 2,
+      "mode": "classic",
+      "pack": "full",
+      "baseline": false,
+      "known_water_fallback": false,
+      "coverage": {
+        "requests": 6,
+        "emissions": 6,
+        "draws": 208,
+        "head_ids": [
+          252,
+          253,
+          254
+        ],
+        "mounts": [
+          0,
+          1
+        ],
+        "natural_collisions": 0,
+        "passive_charge_and_reset_proved": true,
+        "power_rejections": 0,
+        "capacity_rejections": 0
+      },
+      "frames": 90,
+      "window": null,
+      "hd_draws": 0,
+      "head_draws": {
+        "252": 28,
+        "253": 34,
+        "254": 42
+      },
+      "shadow_draws": 104,
+      "mirrored_ids": [],
+      "media_bytes": 0,
+      "state_sha256": "28590efc4e30b530c10ba90731ffff1026411ae15fe8599e0b731c8fdf38d484",
+      "collision_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+      "draw_sha256": "8d8a2c4be5b860edfcca70b6346dc83ea0a2bff3f63319be723a571a9eebd417"
+    },
+    {
+      "case": "e1-baseline-missing",
+      "episode": 1,
+      "level": 9,
+      "scale": 2,
+      "mode": "missing",
+      "pack": "full",
+      "baseline": true,
+      "known_water_fallback": false,
+      "coverage": {
+        "requests": 6,
+        "emissions": 6,
+        "draws": 208,
+        "head_ids": [
+          252,
+          253,
+          254
+        ],
+        "mounts": [
+          0,
+          1
+        ],
+        "natural_collisions": 0,
+        "passive_charge_and_reset_proved": true,
+        "power_rejections": 0,
+        "capacity_rejections": 0
+      },
+      "frames": 90,
+      "window": [
+        640,
+        400
+      ],
+      "hd_draws": 0,
+      "head_draws": {
+        "252": 28,
+        "253": 34,
+        "254": 42
+      },
+      "shadow_draws": 104,
+      "mirrored_ids": [],
+      "media_bytes": 0,
+      "state_sha256": "28590efc4e30b530c10ba90731ffff1026411ae15fe8599e0b731c8fdf38d484",
+      "collision_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+      "draw_sha256": "8d8a2c4be5b860edfcca70b6346dc83ea0a2bff3f63319be723a571a9eebd417"
+    },
+    {
+      "case": "e1-candidate-missing",
+      "episode": 1,
+      "level": 9,
+      "scale": 2,
+      "mode": "missing",
+      "pack": "full",
+      "baseline": false,
+      "known_water_fallback": false,
+      "coverage": {
+        "requests": 6,
+        "emissions": 6,
+        "draws": 208,
+        "head_ids": [
+          252,
+          253,
+          254
+        ],
+        "mounts": [
+          0,
+          1
+        ],
+        "natural_collisions": 0,
+        "passive_charge_and_reset_proved": true,
+        "power_rejections": 0,
+        "capacity_rejections": 0
+      },
+      "frames": 90,
+      "window": [
+        640,
+        400
+      ],
+      "hd_draws": 0,
+      "head_draws": {
+        "252": 28,
+        "253": 34,
+        "254": 42
+      },
+      "shadow_draws": 104,
+      "mirrored_ids": [],
+      "media_bytes": 0,
+      "state_sha256": "28590efc4e30b530c10ba90731ffff1026411ae15fe8599e0b731c8fdf38d484",
+      "collision_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+      "draw_sha256": "8d8a2c4be5b860edfcca70b6346dc83ea0a2bff3f63319be723a571a9eebd417"
+    },
+    {
+      "case": "e1-baseline-invalid",
+      "episode": 1,
+      "level": 9,
+      "scale": 2,
+      "mode": "invalid",
+      "pack": "full",
+      "baseline": true,
+      "known_water_fallback": false,
+      "coverage": {
+        "requests": 6,
+        "emissions": 6,
+        "draws": 208,
+        "head_ids": [
+          252,
+          253,
+          254
+        ],
+        "mounts": [
+          0,
+          1
+        ],
+        "natural_collisions": 0,
+        "passive_charge_and_reset_proved": true,
+        "power_rejections": 0,
+        "capacity_rejections": 0
+      },
+      "frames": 90,
+      "window": [
+        640,
+        400
+      ],
+      "hd_draws": 0,
+      "head_draws": {
+        "252": 28,
+        "253": 34,
+        "254": 42
+      },
+      "shadow_draws": 104,
+      "mirrored_ids": [],
+      "media_bytes": 0,
+      "state_sha256": "28590efc4e30b530c10ba90731ffff1026411ae15fe8599e0b731c8fdf38d484",
+      "collision_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+      "draw_sha256": "8d8a2c4be5b860edfcca70b6346dc83ea0a2bff3f63319be723a571a9eebd417"
+    },
+    {
+      "case": "e1-candidate-invalid",
+      "episode": 1,
+      "level": 9,
+      "scale": 2,
+      "mode": "invalid",
+      "pack": "full",
+      "baseline": false,
+      "known_water_fallback": false,
+      "coverage": {
+        "requests": 6,
+        "emissions": 6,
+        "draws": 208,
+        "head_ids": [
+          252,
+          253,
+          254
+        ],
+        "mounts": [
+          0,
+          1
+        ],
+        "natural_collisions": 0,
+        "passive_charge_and_reset_proved": true,
+        "power_rejections": 0,
+        "capacity_rejections": 0
+      },
+      "frames": 90,
+      "window": [
+        640,
+        400
+      ],
+      "hd_draws": 0,
+      "head_draws": {
+        "252": 28,
+        "253": 34,
+        "254": 42
+      },
+      "shadow_draws": 104,
+      "mirrored_ids": [],
+      "media_bytes": 0,
+      "state_sha256": "28590efc4e30b530c10ba90731ffff1026411ae15fe8599e0b731c8fdf38d484",
+      "collision_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+      "draw_sha256": "8d8a2c4be5b860edfcca70b6346dc83ea0a2bff3f63319be723a571a9eebd417"
+    },
+    {
+      "case": "e1-baseline-4",
+      "episode": 1,
+      "level": 9,
+      "scale": 2,
+      "mode": "4",
+      "pack": "full",
+      "baseline": true,
+      "known_water_fallback": false,
+      "coverage": {
+        "requests": 6,
+        "emissions": 6,
+        "draws": 208,
+        "head_ids": [
+          252,
+          253,
+          254
+        ],
+        "mounts": [
+          0,
+          1
+        ],
+        "natural_collisions": 0,
+        "passive_charge_and_reset_proved": true,
+        "power_rejections": 0,
+        "capacity_rejections": 0
+      },
+      "frames": 90,
+      "window": [
+        640,
+        400
+      ],
+      "hd_draws": 0,
+      "head_draws": {
+        "252": 28,
+        "253": 34,
+        "254": 42
+      },
+      "shadow_draws": 104,
+      "mirrored_ids": [],
+      "media_bytes": 0,
+      "state_sha256": "28590efc4e30b530c10ba90731ffff1026411ae15fe8599e0b731c8fdf38d484",
+      "collision_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+      "draw_sha256": "8d8a2c4be5b860edfcca70b6346dc83ea0a2bff3f63319be723a571a9eebd417"
+    },
+    {
+      "case": "e1-candidate-4",
+      "episode": 1,
+      "level": 9,
+      "scale": 2,
+      "mode": "4",
+      "pack": "full",
+      "baseline": false,
+      "known_water_fallback": false,
+      "coverage": {
+        "requests": 6,
+        "emissions": 6,
+        "draws": 208,
+        "head_ids": [
+          252,
+          253,
+          254
+        ],
+        "mounts": [
+          0,
+          1
+        ],
+        "natural_collisions": 0,
+        "passive_charge_and_reset_proved": true,
+        "power_rejections": 0,
+        "capacity_rejections": 0
+      },
+      "frames": 90,
+      "window": [
+        640,
+        400
+      ],
+      "hd_draws": 0,
+      "head_draws": {
+        "252": 28,
+        "253": 34,
+        "254": 42
+      },
+      "shadow_draws": 104,
+      "mirrored_ids": [],
+      "media_bytes": 0,
+      "state_sha256": "28590efc4e30b530c10ba90731ffff1026411ae15fe8599e0b731c8fdf38d484",
+      "collision_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+      "draw_sha256": "8d8a2c4be5b860edfcca70b6346dc83ea0a2bff3f63319be723a571a9eebd417"
+    }
+  ],
+  "candidate_manifest": "candidate-manifest.json, supplied explicitly with --manifest",
+  "portability_followup": "Added explicit candidate-pack input and excluded candidate filenames from base links after original26-run gate; pack reconstruction independently matches retained tested contents. No game logic change or additional game run."
+}

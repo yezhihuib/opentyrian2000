@@ -1,3 +1,7 @@
+# Latest finite Charge Cannon update (2026-10-12)
+
+See [Charge Cannon acceptance](CHARGE_CANNON_VALIDATION.md): three static bank8 heads252–254, legal original charging on both mounts, scoped fallback/state and native-size visual checks. Current manifest:18 packs,2,914 HDA entries,353 formal PNGs; defaults337/341. Earlier counts below are historical.
+
 # Current scoped release (2026-10-11)
 
 The manifest is authoritative:18 packs, 2828 HDA entries, 306 formal PNGs, defaults 294/298. Latest additions are the [plateau edge correction](PLATEAU_FOUR_VALIDATION.md) [static installation](INSTALLATION_VALIDATION.md), [physical terrain underlay](UNDERLAY_VALIDATION.md), and the [complete road family](ROAD_NINE_VALIDATION.md). The final [terrain111/114 batch](TERRAIN_HOLES_VALIDATION.md) closes the [audited first-30-second milestone](FIRST30_HD_COVERAGE.md):222 nonempty HD identities plus5 intentional empty shield identities out of227 observed.
