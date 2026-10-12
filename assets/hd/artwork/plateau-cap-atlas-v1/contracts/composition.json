@@ -1,0 +1,31 @@
+{
+  "status": "root-approved offline material; actual cap/cliff join acceptance pending",
+  "atlas_dimensions": [
+    768,
+    896
+  ],
+  "density": 8,
+  "logical_period": [
+    96,
+    112
+  ],
+  "world_phase": "reuse exact accepted Layer1 world transform, maprow0/col0, positive modulo; no new RNG or tile variant selection",
+  "finite_scope": "only enabled terrain-layer1 NORMAL bases;109 is the only additional base record, other10 reuse accepted lower-bundle bases;98/118 are zero-weight guards",
+  "operation": "For every RGB channel, B(a, cap_world_sample, w) = floor((a*(255-w)+cap_world_sample*w+127)/255); preserve source alpha. New cap weight is0 wherever any existing lower-ground or119/120 footer weight is nonzero.",
+  "priority": "Current HDA bases and the lower-ground atlas bundle are immutable. This sidecar adds cap-only sampling; do not replace13 HDA images or rebake16 variants.",
+  "protected": [
+    "all current lower-atlas RGB/phase/weights and sand",
+    "vertical cliff geometry and edge rock lumps outside explicit cap domains",
+    "119/120 full lower band HDrows184..223 and existing ordered footer stages",
+    "all current alpha/anchors/bounds/indexed game logic",
+    "98/118 entire original generated RGBA"
+  ],
+  "pilot_segmentation": "13-ID review closure,11 nonempty explicit top-facing masks plus2 unchanged guards. All-map cap-facing joins still require current-geometry runtime/offline verification; no statement of perfect seam closure from material-only preview.",
+  "runtime_required": [
+    "native2x and4x cap/cliff joins",
+    "109 two-axis repeat and atlas wrap, no sliding",
+    "compact/narrow/diagonal plateau reuse",
+    "all noncap pixels and existing lower atlas exact",
+    "missing/invalid sidecar fallback retains current accepted game"
+  ]
+}

@@ -1,3 +1,7 @@
+# Latest finite plateau cap material (2026-10-12)
+
+[Continuous warm plateau caps](PLATEAU_CAP_WORLD_ATLAS.md) add one bounded optional3.24MiB material with11 finite masks and two unchanged guards. Lower-ground material and all Charge Cannon/HDA artwork stay exact. Actual acceptance is the28-frame private-survival window1094–1121 plus native4×1104, with explicit all-map limits.
+
 # Latest finite Charge Cannon update (2026-10-12)
 
 See [Charge Cannon acceptance](CHARGE_CANNON_VALIDATION.md): three static bank8 heads252–254, legal original charging on both mounts, scoped fallback/state and native-size visual checks. Current manifest:18 packs,2,914 HDA entries,353 formal PNGs; defaults337/341. Earlier counts below are historical.

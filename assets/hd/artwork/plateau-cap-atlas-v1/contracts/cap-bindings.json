@@ -1,0 +1,669 @@
+{
+  "schema": "finite-plateau-cap-v1",
+  "current_base_checkpoint": "9dbb8036aa0d02fb83f7a6661d53219afb9044e6",
+  "ids": [
+    96,
+    97,
+    98,
+    99,
+    100,
+    106,
+    107,
+    108,
+    109,
+    110,
+    118,
+    119,
+    120
+  ],
+  "enabled_ids": [
+    96,
+    97,
+    99,
+    100,
+    106,
+    107,
+    108,
+    109,
+    110,
+    119,
+    120
+  ],
+  "guard_only_ids": [
+    98,
+    118
+  ],
+  "rows": [
+    {
+      "id": 96,
+      "bank": "shapesZ.dat",
+      "layer": 1,
+      "style": "NORMAL",
+      "header_hex": "48445231f0ab1e0008000000180000001c0000000000000000000000",
+      "source_hda_sha256": "8ef129d0d7ea91bbc055ea32087240417ab352fc23bcf9cc85b52f2e819185e5",
+      "base": {
+        "path": "source/bases/terrain-shapesz-96-8.png",
+        "file_sha256": "83a531df89b40c4f4a0a7d59214735f1cf62745d7ce06d5c9fb555fe58cfdc3f",
+        "decoded_mode": "RGBA",
+        "decoded_sha256": "369938d3b3f5e66f025e508b47146544c39c26ea2d817b7e9b76ab979081f2ba",
+        "size": [
+          192,
+          224
+        ]
+      },
+      "cap_weight": {
+        "path": "selected/cap-weights/terrain-shapesz-96-8.png",
+        "file_sha256": "d1d2e65839ebc42453e0e466c0f4c3fa406acdc6300dfc69df1a11085e00c837",
+        "decoded_mode": "L",
+        "decoded_sha256": "4450565d1a3f1b9b9197ae7d6eb13f586ea39e1141343368d22e83099645c1ab",
+        "size": [
+          192,
+          224
+        ]
+      },
+      "enabled": true,
+      "nonzero_weight_pixels": 21133,
+      "full_weight_pixels": 16829,
+      "original_alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+      "lower_guard_inputs": [
+        {
+          "role": "primary",
+          "path": "contracts/lower-weights/96-primary.png",
+          "file_sha256": "88ba96bc7ee3b815f6c1e58559844cd8efd623c441f3932cf10d4d04acd1e8b4",
+          "decoded_mode": "L",
+          "decoded_sha256": "1ff282d0ae350edc134c5f14c4176946831f9c8c41e619ac5f59323fca6d24a1",
+          "size": [
+            192,
+            224
+          ]
+        }
+      ],
+      "existing_lower_atlas_consumer": true
+    },
+    {
+      "id": 97,
+      "bank": "shapesZ.dat",
+      "layer": 1,
+      "style": "NORMAL",
+      "header_hex": "48445231f1ab1e0008000000180000001c0000000000000000000000",
+      "source_hda_sha256": "a5e35c92263aff8c813d5823223bec9dfff5b48a978c40968184c53eb0f99303",
+      "base": {
+        "path": "source/bases/terrain-shapesz-97-8.png",
+        "file_sha256": "b0b3d971f64fab065d102dc7169acc576af7344cccbe18ad368b01472222570b",
+        "decoded_mode": "RGBA",
+        "decoded_sha256": "3495ca69b0049c8f8db164e391bad4e2b60ee1e8e30c18a47d733f7cf456f57f",
+        "size": [
+          192,
+          224
+        ]
+      },
+      "cap_weight": {
+        "path": "selected/cap-weights/terrain-shapesz-97-8.png",
+        "file_sha256": "ee82183b41a723699ba7c857a4c39a631ae1327b73c451fcdf9f4436fcc55eea",
+        "decoded_mode": "L",
+        "decoded_sha256": "335bb50e97bcea01fd3a1411998f030d5adf429ed234690120ac5359150cc8f5",
+        "size": [
+          192,
+          224
+        ]
+      },
+      "enabled": true,
+      "nonzero_weight_pixels": 22398,
+      "full_weight_pixels": 18185,
+      "original_alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+      "lower_guard_inputs": [
+        {
+          "role": "primary",
+          "path": "contracts/lower-weights/97-primary.png",
+          "file_sha256": "e21dbf9d92b1ef1040c40b1f4bc306e2a6746551bf83dee1c0aac149ed9f3aa2",
+          "decoded_mode": "L",
+          "decoded_sha256": "cdd8736e5c4e2d4bd31d6597e9c31fb6c60a464bf3b6455d34a1c3555a464ad4",
+          "size": [
+            192,
+            224
+          ]
+        }
+      ],
+      "existing_lower_atlas_consumer": true
+    },
+    {
+      "id": 98,
+      "bank": "shapesZ.dat",
+      "layer": 1,
+      "style": "NORMAL",
+      "header_hex": "48445231f2ab1e0008000000180000001c0000000000000000000000",
+      "source_hda_sha256": "04ab6e4004920a7d392adabb831bfc6c8d24f48e347d90878de5ef9e3edc95c8",
+      "base": {
+        "path": "source/bases/terrain-shapesz-98-8.png",
+        "file_sha256": "fc840e4c24733a8f97f33d5aec167fa007ec4fc68259cf46ee5b86b0329c5f7b",
+        "decoded_mode": "RGBA",
+        "decoded_sha256": "39253addc60f8a1e10af75a81c4d20179082339bb04fa8619a10d56e4e0b38c1",
+        "size": [
+          192,
+          224
+        ]
+      },
+      "cap_weight": {
+        "path": "selected/cap-weights/terrain-shapesz-98-8.png",
+        "file_sha256": "e087f4a51685cf5ac908f44bb04d13bb7127b5f22b63f2ac79607888a20ea689",
+        "decoded_mode": "L",
+        "decoded_sha256": "ccc1a10b7aac17225febe0b37d40d5b4575aebdad5bb1c291429f04d1a5892b4",
+        "size": [
+          192,
+          224
+        ]
+      },
+      "enabled": false,
+      "nonzero_weight_pixels": 0,
+      "full_weight_pixels": 0,
+      "original_alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+      "lower_guard_inputs": [
+        {
+          "role": "primary",
+          "path": "contracts/lower-weights/98-primary.png",
+          "file_sha256": "91e0260a004aec294f2faacc41ec53f91976a5a86ee99081425f427b10ea62da",
+          "decoded_mode": "L",
+          "decoded_sha256": "5865f1a8ff02be95042a8b666ca62350ab3843d3bee16c476d4ea87cfd2e01b4",
+          "size": [
+            192,
+            224
+          ]
+        }
+      ],
+      "existing_lower_atlas_consumer": true
+    },
+    {
+      "id": 99,
+      "bank": "shapesZ.dat",
+      "layer": 1,
+      "style": "NORMAL",
+      "header_hex": "48445231f3ab1e0008000000180000001c0000000000000000000000",
+      "source_hda_sha256": "17225799434e4c93c87051effe8394ea9c23062b9447e6fbd09b9c43d72332a0",
+      "base": {
+        "path": "source/bases/terrain-shapesz-99-8.png",
+        "file_sha256": "768160c884f82c5fde541cb7cacda2c5b8d6a87ea05af33b0e1edf7b2d2afe5f",
+        "decoded_mode": "RGBA",
+        "decoded_sha256": "6e9cc86e0c8b9b00f2e2dc2657b1765f497de0deeb1d817ea08fb63ceee0e6e7",
+        "size": [
+          192,
+          224
+        ]
+      },
+      "cap_weight": {
+        "path": "selected/cap-weights/terrain-shapesz-99-8.png",
+        "file_sha256": "12157489f14f4233755ac43c441737fcd520fa26eb74f848f433a3f6f98043ef",
+        "decoded_mode": "L",
+        "decoded_sha256": "3b1c0764ad9a9332c74cfcaa6f5906bff64a7a795ba518cc23a91adf6dede926",
+        "size": [
+          192,
+          224
+        ]
+      },
+      "enabled": true,
+      "nonzero_weight_pixels": 8832,
+      "full_weight_pixels": 5952,
+      "original_alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+      "lower_guard_inputs": [
+        {
+          "role": "primary",
+          "path": "contracts/lower-weights/99-primary.png",
+          "file_sha256": "0888915c4839130d6e3360f000077154726f9e8f3499936906bc26ab3ae1954b",
+          "decoded_mode": "L",
+          "decoded_sha256": "83256b1887b1d1762ecfc42bb8c7f51cd9b36289ac61f6893686d957d95f75e6",
+          "size": [
+            192,
+            224
+          ]
+        }
+      ],
+      "existing_lower_atlas_consumer": true
+    },
+    {
+      "id": 100,
+      "bank": "shapesZ.dat",
+      "layer": 1,
+      "style": "NORMAL",
+      "header_hex": "48445231f4ab1e0008000000180000001c0000000000000000000000",
+      "source_hda_sha256": "d3154b8d770b98c3152c62d57f3b2649a66c0fc8cbb6dc82f60fba6ca237fb76",
+      "base": {
+        "path": "source/bases/terrain-shapesz-100-8.png",
+        "file_sha256": "1323bf96298864fe1ff4d1c04e807e37f8969e7c88dddd7d3022ea8977f52f91",
+        "decoded_mode": "RGBA",
+        "decoded_sha256": "c446489943ca6fd7f8f3ca43808ead2fcaea9d436fe62e3c85ad5ee0a76360e2",
+        "size": [
+          192,
+          224
+        ]
+      },
+      "cap_weight": {
+        "path": "selected/cap-weights/terrain-shapesz-100-8.png",
+        "file_sha256": "6b044b46fd982fb4465e4effb0e702bb964992db4e9c567221c11be707a305d8",
+        "decoded_mode": "L",
+        "decoded_sha256": "ffd66ef8fe87bce291c9774cef3aef3953ed655190f44604d5f9ceef620afec4",
+        "size": [
+          192,
+          224
+        ]
+      },
+      "enabled": true,
+      "nonzero_weight_pixels": 1297,
+      "full_weight_pixels": 478,
+      "original_alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+      "lower_guard_inputs": [
+        {
+          "role": "primary",
+          "path": "contracts/lower-weights/100-primary.png",
+          "file_sha256": "48a8e5906942e2560fcc3ac5d4f57e6daa62684833244a453b15a5e78d90e328",
+          "decoded_mode": "L",
+          "decoded_sha256": "236298c4dc1ba31f5c2c3eab81a3b46225105573bb4b89e094e630384007ed4f",
+          "size": [
+            192,
+            224
+          ]
+        }
+      ],
+      "existing_lower_atlas_consumer": true
+    },
+    {
+      "id": 106,
+      "bank": "shapesZ.dat",
+      "layer": 1,
+      "style": "NORMAL",
+      "header_hex": "48445231faab1e0008000000180000001c0000000000000000000000",
+      "source_hda_sha256": "a1368d9affee531417bdcc3938fa7dc389eb2ee47495fa272617968e5f7fb9c2",
+      "base": {
+        "path": "source/bases/terrain-shapesz-106-8.png",
+        "file_sha256": "22f09b394aebf9be7e0b7bd563db040f18f32c88e8e22384b1f5b31b1cbf102a",
+        "decoded_mode": "RGBA",
+        "decoded_sha256": "6f426b82947d04ee6f4224aa6a28c3fa6d06ff5ad571fd7fd3b279250fbad0b3",
+        "size": [
+          192,
+          224
+        ]
+      },
+      "cap_weight": {
+        "path": "selected/cap-weights/terrain-shapesz-106-8.png",
+        "file_sha256": "68c15b0a63db90c063eb4606bdba55e20a810a2b7431be3307c6662f5aa16e38",
+        "decoded_mode": "L",
+        "decoded_sha256": "0af43d2e0492a68cfa2dc7acb609bd0a200be3a6afa6d9af3ff00eb1b448c76a",
+        "size": [
+          192,
+          224
+        ]
+      },
+      "enabled": true,
+      "nonzero_weight_pixels": 30009,
+      "full_weight_pixels": 26457,
+      "original_alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+      "lower_guard_inputs": [
+        {
+          "role": "primary",
+          "path": "contracts/lower-weights/106-primary.png",
+          "file_sha256": "f281428c9ced323871475696cb58a2f3147a688640e027a66ac09ecbec17ebd7",
+          "decoded_mode": "L",
+          "decoded_sha256": "aa7d29158c28569c7d9aeabb4e59982b3a406623cfd414f9cca81270a3748372",
+          "size": [
+            192,
+            224
+          ]
+        }
+      ],
+      "existing_lower_atlas_consumer": true
+    },
+    {
+      "id": 107,
+      "bank": "shapesZ.dat",
+      "layer": 1,
+      "style": "NORMAL",
+      "header_hex": "48445231fbab1e0008000000180000001c0000000000000000000000",
+      "source_hda_sha256": "1d18efba84add8d0acc145cf157da4e968b0b034997d7f8e5a4ed852e3885142",
+      "base": {
+        "path": "source/bases/terrain-shapesz-107-8.png",
+        "file_sha256": "c6d598b89d48f40b7b20e938f487f2efd630e578b6ac1e4a6ea2cfd29ca75884",
+        "decoded_mode": "RGBA",
+        "decoded_sha256": "90f084448fcf2eb5eaccb56eafa5bea3f234d6da3a30a25f068e633df4ecbc1a",
+        "size": [
+          192,
+          224
+        ]
+      },
+      "cap_weight": {
+        "path": "selected/cap-weights/terrain-shapesz-107-8.png",
+        "file_sha256": "4af0a93a162e9645075cdbbc3123cd32872b7ee431a4b833bdbe4be48524a5dc",
+        "decoded_mode": "L",
+        "decoded_sha256": "bf15c547388beeefcdc48327cf0b34bf57b7f60c47069db42456ece545b87598",
+        "size": [
+          192,
+          224
+        ]
+      },
+      "enabled": true,
+      "nonzero_weight_pixels": 24418,
+      "full_weight_pixels": 20546,
+      "original_alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+      "lower_guard_inputs": [
+        {
+          "role": "primary",
+          "path": "contracts/lower-weights/107-primary.png",
+          "file_sha256": "b99809f2bf8e972ee99377db5f6d2d32cbad4e3a6e72947353a50cc0973d3ef7",
+          "decoded_mode": "L",
+          "decoded_sha256": "ac4703d7bd97d58c3bafa6503f9471d631ace55cba6fc42906953c2fbd002948",
+          "size": [
+            192,
+            224
+          ]
+        }
+      ],
+      "existing_lower_atlas_consumer": true
+    },
+    {
+      "id": 108,
+      "bank": "shapesZ.dat",
+      "layer": 1,
+      "style": "NORMAL",
+      "header_hex": "48445231fcab1e0008000000180000001c0000000000000000000000",
+      "source_hda_sha256": "7bee4bf3052a322bf93fcb9b354e0ccad48447444f3834108bacc27d3f92fa55",
+      "base": {
+        "path": "source/bases/terrain-shapesz-108-8.png",
+        "file_sha256": "65ff1bfe691cd5e6476e86e5b1ab8a90a94d152d8b5ab6a6eb7b66c9838e60e1",
+        "decoded_mode": "RGBA",
+        "decoded_sha256": "a258c4d1bdc992d59d1dbb3430f6495892b32b9e9d93e68032bdc84b5fbe6f35",
+        "size": [
+          192,
+          224
+        ]
+      },
+      "cap_weight": {
+        "path": "selected/cap-weights/terrain-shapesz-108-8.png",
+        "file_sha256": "dc0ffe59ee9eedfbca49b2d8cf31003513b2b49d8da3760034f1a57514f06f9c",
+        "decoded_mode": "L",
+        "decoded_sha256": "b0649ed9412084810552e460a9b0c00aff174cd48031de83c042d3743313088c",
+        "size": [
+          192,
+          224
+        ]
+      },
+      "enabled": true,
+      "nonzero_weight_pixels": 2448,
+      "full_weight_pixels": 1267,
+      "original_alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+      "lower_guard_inputs": [
+        {
+          "role": "primary",
+          "path": "contracts/lower-weights/108-primary.png",
+          "file_sha256": "fd06020b834691c237f57fa50300f35461942150b457475aad63ce4f67721ae2",
+          "decoded_mode": "L",
+          "decoded_sha256": "8eb93798a4956de2ffc83905762e0325fdb51c02a1658beac31db89d8158a2df",
+          "size": [
+            192,
+            224
+          ]
+        }
+      ],
+      "existing_lower_atlas_consumer": true
+    },
+    {
+      "id": 109,
+      "bank": "shapesZ.dat",
+      "layer": 1,
+      "style": "NORMAL",
+      "header_hex": "48445231fdab1e0008000000180000001c0000000000000000000000",
+      "source_hda_sha256": "7930a8ccdd5a23fc6f6b88e867a38c9a0aa67d0c91790e9da67cfc6aa593060f",
+      "base": {
+        "path": "source/bases/terrain-shapesz-109-8.png",
+        "file_sha256": "50f1426463a8bbf794dc017040308130c7b3640bc193728df343e79939f20a61",
+        "decoded_mode": "RGBA",
+        "decoded_sha256": "873ef491dfff65588699b1fdf27c28c593c5be1a9c28dbc7be10940bb8bc16a7",
+        "size": [
+          192,
+          224
+        ]
+      },
+      "cap_weight": {
+        "path": "selected/cap-weights/terrain-shapesz-109-8.png",
+        "file_sha256": "95f6ca1b110b50bbef2bccc630b21437a7e54961e3214f087df766e3d310e904",
+        "decoded_mode": "L",
+        "decoded_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+        "size": [
+          192,
+          224
+        ]
+      },
+      "enabled": true,
+      "nonzero_weight_pixels": 43008,
+      "full_weight_pixels": 43008,
+      "original_alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+      "lower_guard_inputs": [],
+      "existing_lower_atlas_consumer": false
+    },
+    {
+      "id": 110,
+      "bank": "shapesZ.dat",
+      "layer": 1,
+      "style": "NORMAL",
+      "header_hex": "48445231feab1e0008000000180000001c0000000000000000000000",
+      "source_hda_sha256": "a8ea5ccb970ed428b237ab56a2d0a7c5bb062f07be0be91ffb6c1112ef8310a6",
+      "base": {
+        "path": "source/bases/terrain-shapesz-110-8.png",
+        "file_sha256": "4adaa36a30a39ea9c9e9a75770e7759e7b8d00e7d9f9e83317960f8984d51a36",
+        "decoded_mode": "RGBA",
+        "decoded_sha256": "0db8e4bbc1c700cda6f0b88f42313579b6888511113e0bad9489f1a907fddc6e",
+        "size": [
+          192,
+          224
+        ]
+      },
+      "cap_weight": {
+        "path": "selected/cap-weights/terrain-shapesz-110-8.png",
+        "file_sha256": "28734016c480ac99db2f894ed62a8faa472c64fd72151edf56fc42e3457a2001",
+        "decoded_mode": "L",
+        "decoded_sha256": "cd323e9dd4220521d29fa121c5396f291f812fa03cabaca2d80937ea31072bd7",
+        "size": [
+          192,
+          224
+        ]
+      },
+      "enabled": true,
+      "nonzero_weight_pixels": 10647,
+      "full_weight_pixels": 7959,
+      "original_alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+      "lower_guard_inputs": [
+        {
+          "role": "primary",
+          "path": "contracts/lower-weights/110-primary.png",
+          "file_sha256": "084a307dbb533544447b37232430c86670db9c761954c79534d32d53d9db6252",
+          "decoded_mode": "L",
+          "decoded_sha256": "4359a7c8cbe89ef1f1b1de02ba1fe6121920fbd046576bf6f4de396c1f53cf2e",
+          "size": [
+            192,
+            224
+          ]
+        }
+      ],
+      "existing_lower_atlas_consumer": true
+    },
+    {
+      "id": 118,
+      "bank": "shapesZ.dat",
+      "layer": 1,
+      "style": "NORMAL",
+      "header_hex": "4844523106ac1e0008000000180000001c0000000000000000000000",
+      "source_hda_sha256": "0dbf50d77af0856f398ec3b68f46bc682d6adf387f229a89213571c27d6ff93e",
+      "base": {
+        "path": "source/bases/terrain-shapesz-118-8.png",
+        "file_sha256": "4de03d9689dc2e97196ff5b1c6bc2d46495d6e7e541f23a3ea4680f500f21e94",
+        "decoded_mode": "RGBA",
+        "decoded_sha256": "624edc67c0a2120ddddc9ebe9af319906e0a104de47cac4b56f538ea92eb76d6",
+        "size": [
+          192,
+          224
+        ]
+      },
+      "cap_weight": {
+        "path": "selected/cap-weights/terrain-shapesz-118-8.png",
+        "file_sha256": "e087f4a51685cf5ac908f44bb04d13bb7127b5f22b63f2ac79607888a20ea689",
+        "decoded_mode": "L",
+        "decoded_sha256": "ccc1a10b7aac17225febe0b37d40d5b4575aebdad5bb1c291429f04d1a5892b4",
+        "size": [
+          192,
+          224
+        ]
+      },
+      "enabled": false,
+      "nonzero_weight_pixels": 0,
+      "full_weight_pixels": 0,
+      "original_alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+      "lower_guard_inputs": [
+        {
+          "role": "primary",
+          "path": "contracts/lower-weights/118-primary.png",
+          "file_sha256": "93778aecfcae923699daaf00dc70a12b1be3418542107f363b5a600c852f1550",
+          "decoded_mode": "L",
+          "decoded_sha256": "4636249bfe3a4499e0f0422eb149bfc8ef76f1c866df27d450d1d2a3a9d9e6c2",
+          "size": [
+            192,
+            224
+          ]
+        }
+      ],
+      "existing_lower_atlas_consumer": true
+    },
+    {
+      "id": 119,
+      "bank": "shapesZ.dat",
+      "layer": 1,
+      "style": "NORMAL",
+      "header_hex": "4844523107ac1e0008000000180000001c0000000000000000000000",
+      "source_hda_sha256": "0f0c5338316341a2ec0d0f8b5e39124e4873dd577c64c78e618bf69797130ba6",
+      "base": {
+        "path": "source/bases/terrain-shapesz-119-8.png",
+        "file_sha256": "c39a4ff0ed7fbd1d380483781238672f2e4f76d23591c8052d08ed15a22325f2",
+        "decoded_mode": "RGBA",
+        "decoded_sha256": "9c002db60dc543b8a0d81bf6498932d6dca44710af81381f8b5de9589fcdf0d4",
+        "size": [
+          192,
+          224
+        ]
+      },
+      "cap_weight": {
+        "path": "selected/cap-weights/terrain-shapesz-119-8.png",
+        "file_sha256": "a9095856f5f2ed089e26b299f455946fd985e060d6fd8a68baa9b80a769e15a8",
+        "decoded_mode": "L",
+        "decoded_sha256": "1beae81a3e4e8540411f3a0c27ed8527f675b0c299a802a2378d2b151d8cf1ce",
+        "size": [
+          192,
+          224
+        ]
+      },
+      "enabled": true,
+      "nonzero_weight_pixels": 3264,
+      "full_weight_pixels": 1920,
+      "original_alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+      "lower_guard_inputs": [
+        {
+          "role": "primary",
+          "path": "contracts/lower-weights/119-primary.png",
+          "file_sha256": "4c0630f62367ff8e298366b66ede11d3e02067101b3465e3d9ceb3c9e0eba372",
+          "decoded_mode": "L",
+          "decoded_sha256": "99669ae775e83517da42e18fcda384eb0279f7c3d6b63cfc91e88bf1a4ecf8f5",
+          "size": [
+            192,
+            224
+          ]
+        },
+        {
+          "role": "generated_weight",
+          "path": "contracts/lower-weights/119-generated_weight.png",
+          "file_sha256": "934c064b13b2e297744ffde79d6359bfafb44998bf849c5ec76f502fe70f4c0f",
+          "decoded_mode": "L",
+          "decoded_sha256": "ab03830f44d6a1876e34e1c51dea761fcfe19f3ee2059611807e11fb26783a12",
+          "size": [
+            192,
+            224
+          ]
+        },
+        {
+          "role": "ground_weight",
+          "path": "contracts/lower-weights/119-ground_weight.png",
+          "file_sha256": "889cd96b4ad2a1a2cb29de26614ae772a892fc3eb7ca371dbbe53ec0a9e5085f",
+          "decoded_mode": "L",
+          "decoded_sha256": "9ea890a0b8569bd2355e1a641392da64a99d394b53df75c89fc6537dd26bc119",
+          "size": [
+            192,
+            224
+          ]
+        }
+      ],
+      "existing_lower_atlas_consumer": true
+    },
+    {
+      "id": 120,
+      "bank": "shapesZ.dat",
+      "layer": 1,
+      "style": "NORMAL",
+      "header_hex": "4844523108ac1e0008000000180000001c0000000000000000000000",
+      "source_hda_sha256": "774dffd6470c8f66d1a3a6051703a8549087791e08b80eab2ee42677fe3cc342",
+      "base": {
+        "path": "source/bases/terrain-shapesz-120-8.png",
+        "file_sha256": "c462ada86565fd92d4c28b6fa272798653426b43ab94ff99a7d23eaa56002c73",
+        "decoded_mode": "RGBA",
+        "decoded_sha256": "b4a82f3f17c1541d679f4fcb9aeb8e830b508d20aef55d5439b36a3f02a809b4",
+        "size": [
+          192,
+          224
+        ]
+      },
+      "cap_weight": {
+        "path": "selected/cap-weights/terrain-shapesz-120-8.png",
+        "file_sha256": "e773b58a55cfd56f7ac321427295cd1d605d9ca0aebbb2ae1215ff80399f968e",
+        "decoded_mode": "L",
+        "decoded_sha256": "30d572644c0fd26332a14db217e7bce03870209f904416610f7644a398ff834f",
+        "size": [
+          192,
+          224
+        ]
+      },
+      "enabled": true,
+      "nonzero_weight_pixels": 450,
+      "full_weight_pixels": 178,
+      "original_alpha_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+      "lower_guard_inputs": [
+        {
+          "role": "primary",
+          "path": "contracts/lower-weights/120-primary.png",
+          "file_sha256": "188cdcc5bebc3ec104e8be0947baf9384a63cd4d9310933ea1abaf85f4e7818e",
+          "decoded_mode": "L",
+          "decoded_sha256": "99f7856c8f448c65e4ca022a5bba403984689a5762e9c72408817d3f2c504dad",
+          "size": [
+            192,
+            224
+          ]
+        },
+        {
+          "role": "generated_weight",
+          "path": "contracts/lower-weights/120-generated_weight.png",
+          "file_sha256": "4ebfc2a16b1c618dec203fbdb3d66d73f1a68f188cd31d61a9fe1162b62d2fa8",
+          "decoded_mode": "L",
+          "decoded_sha256": "b24a6f4d0922c94eb0db4d75a52e0c24d5e723f00e1f688c352a89dd74b0e6ef",
+          "size": [
+            192,
+            224
+          ]
+        },
+        {
+          "role": "ground_weight",
+          "path": "contracts/lower-weights/120-ground_weight.png",
+          "file_sha256": "25dbbce91405c588c721e14a80aeeb90c084d86e3955b1dbff26193cb4c9bb8e",
+          "decoded_mode": "L",
+          "decoded_sha256": "ef4f08f9fba400bd52e71a06ecbf377794c6b32eeb2731fa4d50c47c97f4acbe",
+          "size": [
+            192,
+            224
+          ]
+        }
+      ],
+      "existing_lower_atlas_consumer": true
+    }
+  ],
+  "mask_revision": 3
+}

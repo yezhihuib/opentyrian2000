@@ -131,3 +131,14 @@ bool g101_select_pixel(const G101Context *ctx,const G101Atlas *atlas,
  memcpy(out,composed,3); /* Alpha is ALWAYS the immutable accepted asset alpha. */
  return true;
 }
+
+bool g101_select_cap_pixel(const G101Context *ctx,const G101Atlas *atlas,
+ const uint8_t accepted[4],uint8_t weight,int density,int64_t sx,int64_t sy,uint8_t out[4])
+{
+ memcpy(out,accepted,4);
+ if(!weight||!accepted[3])return false;
+ uint8_t material[4];
+ if(!g101_sample(ctx,atlas,density,sx,sy,material))return false;
+ for(int c=0;c<3;c++)out[c]=mix(accepted[c],material[c],weight);
+ return true;
+}

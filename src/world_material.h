@@ -53,4 +53,7 @@ void g101_compose_layers(const uint8_t clean[4],const uint8_t material[4],
 void g101_compose_footer(const uint8_t clean[4],const uint8_t material[4],
  const uint8_t generated[4],uint8_t primary_weight,uint8_t generated_weight,
  uint8_t ground_weight,uint8_t out[4]);
+/* Independent cap oracle: blend only the frozen cap weight, retaining alpha. */
+bool g101_select_cap_pixel(const G101Context *,const G101Atlas *,
+ const uint8_t accepted[4],uint8_t weight,int density,int64_t sx,int64_t sy,uint8_t out[4]);
 #endif

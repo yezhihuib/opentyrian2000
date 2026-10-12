@@ -13,4 +13,8 @@ void g101_fast_invalidate(G101FastContext *);
 bool g101_fast_prepare(G101FastContext *,const G101Context *,const G101Atlas *,int density);
 bool g101_fast_sample(const G101FastContext *,int x,int y,uint8_t out[4]);
 bool g101_fast_select_pixel(const G101FastContext *,const G101Pixel *,bool eligible,int x,int y,uint8_t out[4]);
+/* cap_rgba is a separately verified atlas of the same finite dimensions.
+ * Reuse the lower material's saved offsets, without a second lookup table. */
+bool g101_fast_select_cap(const G101FastContext *,const uint8_t *cap_rgba,
+ const uint8_t accepted[4],uint8_t weight,int x,int y,uint8_t out[4]);
 #endif

@@ -4,6 +4,7 @@
  * Unsupported effects or incomplete changed-pixel coverage reject the full frame.
  */
 #include "render_mirror.h"
+#include "plateau_cap_material.h"
 #include "game_probe.h"
 #include "asset_debug.h"
 #include "entity_draw.h"
@@ -586,7 +587,7 @@ static Uint32 green_head_composite(int dx,int dy,unsigned int first,Uint32 color
  return color;
 }
 
-static bool draw_asset_filtered(int x,int y,Asset *a,int style,const SDL_Rect *part,Uint8 filter,const G101Record *material)
+static bool draw_asset_filtered(int x,int y,Asset *a,int style,const SDL_Rect *part,Uint8 filter,const G101Record *material,const PCapRecord *cap)
 {
  /* Original Talon invulnerability uses half-opacity, not a different sprite.
   * Preserve that effect over the ordered RGBA scene and keep the engine's
@@ -625,6 +626,7 @@ static bool draw_asset_filtered(int x,int y,Asset *a,int style,const SDL_Rect *p
   int dx=x*d+ax,dy=y*d+ay;if(dx<0||dy<0||dx>=canvas->w||dy>=canvas->h)continue;
   int n=(ay*ad/d)*pw+(ax*ad/d);const Uint8 *src=a->rgba+n*4;if(!src[3])continue;
   Uint8 world_material[4];if(material){ground101_select(material,src,(unsigned)n,dx,dy,world_material);src=world_material;}
+  Uint8 cap_material[4];if(cap){plateau_cap_select(cap,src,(unsigned)n,dx,dy,cap_material);src=cap_material;}
   Uint8 filtered[4];if(filter){enemy_filter_rgba(src,filter,filtered);src=filtered;}
   Uint32 *p=(Uint32 *)((Uint8 *)canvas->pixels+dy*canvas->pitch)+dx;
   int owner_index=dy*canvas->w+dx;
@@ -662,7 +664,7 @@ static bool draw_asset_filtered(int x,int y,Asset *a,int style,const SDL_Rect *p
 }
 
 static bool draw_asset(int x,int y,Asset *a,int style,const SDL_Rect *part)
-{return draw_asset_filtered(x,y,a,style,part,0,NULL);}
+{return draw_asset_filtered(x,y,a,style,part,0,NULL,NULL);}
 
 bool render_mirror_entity(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int index,int style,int layout)
 {
@@ -731,7 +733,7 @@ bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array ban
   const G101Record *material=a->density==8&&ground101_enemy_eligible(material_context,(unsigned)role,base)?ground101_record((unsigned)role,base):NULL;
   ground101_actor_trace(game_probe_tick,material_context,(unsigned)role,base,part,filter,x,y,material!=NULL);
   ground101_note_draw(material,true);
-  mirrored=draw_asset_filtered(x-px,y-py,a,MIRROR_NORMAL,&quadrant,(Uint8)filter,material);
+  mirrored=draw_asset_filtered(x-px,y-py,a,MIRROR_NORMAL,&quadrant,(Uint8)filter,material,NULL);
  }
  game_probe_scene_draw(role,base,x,y,part,filter?3:MIRROR_NORMAL,mirrored);return mirrored;
 }
@@ -819,6 +821,13 @@ void render_mirror_bind_terrain(unsigned int layer,unsigned int id,const Uint8 *
   terrain_sources[terrain_source_count++].id=id;
  }
 }
+/* Selected-pack lookup retains the existing HDA validation and density gate. */
+static const uint8_t *plateau_cap_selected_source(unsigned index,unsigned slot,void *context)
+{
+ (void)context;
+ Asset *a=scene_asset((int)slot,ASSET_SHAPESZ,(int)index,0,0);
+ return a&&a->bank==ASSET_SHAPESZ&&a->index==(int)index&&a->density==8&&a->w==24&&a->h==28&&a->anchor_x==0&&a->anchor_y==0?a->rgba:NULL;
+}
 /* Optional finite bundle: the selected pack remains the unchanged fallback.
  * Validate all 61 source assets and the entire pass before changing a pixel. */
 void render_mirror_ground101_layer1(SDL_Surface *surface,const void *first,int x,int y)
@@ -839,7 +848,10 @@ void render_mirror_ground101_layer1(SDL_Surface *surface,const void *first,int x
   if(!source_valid)fprintf(stderr,"ground101 optional bundle: source mismatch; selected pack unchanged\n");
 #endif
  }
- if(source_valid)ground101_layer1_preflight(megaData1.mainmap,sizeof(megaData1.mainmap),first,sizeof(JE_byte *),x,y);
+ if(source_valid&&ground101_layer1_preflight(megaData1.mainmap,sizeof(megaData1.mainmap),first,sizeof(JE_byte *),x,y)) {
+  /* Optional cap failure leaves the successfully verified lower family live. */
+  if(plateau_cap_bundle_load(game_probe_assets))plateau_cap_verify_sources(plateau_cap_selected_source,NULL);
+ }
 }
 unsigned int render_mirror_terrain_row(SDL_Surface *surface,int x,int y,Uint8 **map,int style)
 {
@@ -880,7 +892,8 @@ unsigned int render_mirror_terrain_row(SDL_Surface *surface,int x,int y,Uint8 **
   if((ground_slot>=0||plateau_slot>=0||underlay_slot>=0||road_slot>=0||holes_slot>=0||stone_slot>=0||gray_slot>=0||purple_slot>=0||grass_slot>=0)&&!a)continue;
   const G101Record *material=a&&a->density==8&&material_row==1&&style==MIRROR_NORMAL?ground101_record(ASSET_SHAPESZ,id):NULL;
   ground101_note_draw(material,false);
-  bool mirrored=a?draw_asset_filtered(x+tile*24,y,a,style,NULL,0,material):false;
+  const PCapRecord *cap=a&&a->density==8&&material_row==1&&style==MIRROR_NORMAL?plateau_cap_record(id):NULL;
+  bool mirrored=a?draw_asset_filtered(x+tile*24,y,a,style,NULL,0,material,cap):false;
   suppress=false;
   if(mirrored)replaced|=1u<<tile;
   game_probe_scene_draw(ASSET_SHAPESZ,id,x+tile*24,y,0,style,mirrored);

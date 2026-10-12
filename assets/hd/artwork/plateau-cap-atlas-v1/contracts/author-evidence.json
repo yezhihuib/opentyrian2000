@@ -1,0 +1,193 @@
+{
+  "status": "formal source rebuild and independent final mask delta pass; actual runtime join/scroll acceptance pending",
+  "atlas": {
+    "method": "half-offset imagegen seam repair, uniform RGB calibration, localized smooth cross composite, inverse roll",
+    "rgb_calibration": [
+      0.9176272608942845,
+      0.9530076432621992,
+      1.089816460451228
+    ],
+    "rgba_sha256": "c5350695a3b35db652c9820d3262cf9d8c54659acf9a9e5203f7a2999de1fe33",
+    "logical_size": [
+      96,
+      112
+    ],
+    "density": 8,
+    "source_size": [
+      768,
+      896
+    ],
+    "alpha_opaque": true,
+    "zero_weight_pixels_exact": true,
+    "zero_weight_pixel_count": 494340,
+    "changed_pixel_count": 173961,
+    "edit_max_inward_hd_pixels": 64,
+    "edge_neighbor_rgb_MAD": {
+      "x": 5.119791666666667,
+      "y": 5.748263888888889
+    },
+    "interior_adjacent_rgb_MAD": {
+      "x": 3.590499278264109,
+      "y": 4.297879810676599
+    }
+  },
+  "mask_revision": {
+    "revision": 3,
+    "changed_ids": [
+      108,
+      110
+    ],
+    "atlas_unchanged": true,
+    "all_masks_only_reduced": true,
+    "full_connector_108_x190_191_and110_x0": true,
+    "rows": [
+      {
+        "id": 96,
+        "changed_weight_pixels": 0,
+        "removed_support_pixels": 0,
+        "nonzero_pixels": 21133,
+        "full_pixels": 16829,
+        "only_reduced": true,
+        "decoded_sha256": "4450565d1a3f1b9b9197ae7d6eb13f586ea39e1141343368d22e83099645c1ab"
+      },
+      {
+        "id": 97,
+        "changed_weight_pixels": 0,
+        "removed_support_pixels": 0,
+        "nonzero_pixels": 22398,
+        "full_pixels": 18185,
+        "only_reduced": true,
+        "decoded_sha256": "335bb50e97bcea01fd3a1411998f030d5adf429ed234690120ac5359150cc8f5"
+      },
+      {
+        "id": 98,
+        "changed_weight_pixels": 0,
+        "removed_support_pixels": 0,
+        "nonzero_pixels": 0,
+        "full_pixels": 0,
+        "only_reduced": true,
+        "decoded_sha256": "ccc1a10b7aac17225febe0b37d40d5b4575aebdad5bb1c291429f04d1a5892b4"
+      },
+      {
+        "id": 99,
+        "changed_weight_pixels": 0,
+        "removed_support_pixels": 0,
+        "nonzero_pixels": 8832,
+        "full_pixels": 5952,
+        "only_reduced": true,
+        "decoded_sha256": "3b1c0764ad9a9332c74cfcaa6f5906bff64a7a795ba518cc23a91adf6dede926"
+      },
+      {
+        "id": 100,
+        "changed_weight_pixels": 0,
+        "removed_support_pixels": 0,
+        "nonzero_pixels": 1297,
+        "full_pixels": 478,
+        "only_reduced": true,
+        "decoded_sha256": "ffd66ef8fe87bce291c9774cef3aef3953ed655190f44604d5f9ceef620afec4"
+      },
+      {
+        "id": 106,
+        "changed_weight_pixels": 0,
+        "removed_support_pixels": 0,
+        "nonzero_pixels": 30009,
+        "full_pixels": 26457,
+        "only_reduced": true,
+        "decoded_sha256": "0af43d2e0492a68cfa2dc7acb609bd0a200be3a6afa6d9af3ff00eb1b448c76a"
+      },
+      {
+        "id": 107,
+        "changed_weight_pixels": 0,
+        "removed_support_pixels": 0,
+        "nonzero_pixels": 24418,
+        "full_pixels": 20546,
+        "only_reduced": true,
+        "decoded_sha256": "bf15c547388beeefcdc48327cf0b34bf57b7f60c47069db42456ece545b87598"
+      },
+      {
+        "id": 108,
+        "changed_weight_pixels": 2303,
+        "removed_support_pixels": 1584,
+        "nonzero_pixels": 2448,
+        "full_pixels": 1267,
+        "only_reduced": true,
+        "decoded_sha256": "b0649ed9412084810552e460a9b0c00aff174cd48031de83c042d3743313088c"
+      },
+      {
+        "id": 109,
+        "changed_weight_pixels": 0,
+        "removed_support_pixels": 0,
+        "nonzero_pixels": 43008,
+        "full_pixels": 43008,
+        "only_reduced": true,
+        "decoded_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25"
+      },
+      {
+        "id": 110,
+        "changed_weight_pixels": 1705,
+        "removed_support_pixels": 1225,
+        "nonzero_pixels": 10647,
+        "full_pixels": 7959,
+        "only_reduced": true,
+        "decoded_sha256": "cd323e9dd4220521d29fa121c5396f291f812fa03cabaca2d80937ea31072bd7"
+      },
+      {
+        "id": 118,
+        "changed_weight_pixels": 0,
+        "removed_support_pixels": 0,
+        "nonzero_pixels": 0,
+        "full_pixels": 0,
+        "only_reduced": true,
+        "decoded_sha256": "ccc1a10b7aac17225febe0b37d40d5b4575aebdad5bb1c291429f04d1a5892b4"
+      },
+      {
+        "id": 119,
+        "changed_weight_pixels": 0,
+        "removed_support_pixels": 0,
+        "nonzero_pixels": 3264,
+        "full_pixels": 1920,
+        "only_reduced": true,
+        "decoded_sha256": "1beae81a3e4e8540411f3a0c27ed8527f675b0c299a802a2378d2b151d8cf1ce"
+      },
+      {
+        "id": 120,
+        "changed_weight_pixels": 0,
+        "removed_support_pixels": 0,
+        "nonzero_pixels": 450,
+        "full_pixels": 178,
+        "only_reduced": true,
+        "decoded_sha256": "30d572644c0fd26332a14db217e7bce03870209f904416610f7644a398ff834f"
+      }
+    ]
+  },
+  "offline_context": {
+    "status": "offline clear-cap style placement, not actual runtime or final world phase",
+    "allowed_review_rect": [
+      336,
+      64,
+      528,
+      224
+    ],
+    "material_native2x_origin": [
+      336,
+      32
+    ],
+    "no_outer_wrap_used": true,
+    "samples": 26111,
+    "every_edited_source_sample_matches_actual_current_HD": true,
+    "all_pixels_outside_cap_support_exact": true,
+    "changed_native_pixels": 25957,
+    "original_RGBA_sha256": "abff95372a462d7b03ab960cc3ae6f68b0818b4dcede6a086624eed3f54f7d2e",
+    "offline_RGBA_sha256": "2fec996cdb6c8650b4ffdd121238d781e8f37fd554cb33f1373ea6a31c5c9425",
+    "mask_decoded_sha256": "0937ea18bc842edaebd93b507f54808f328ab7367b51fb062a18f2d88ff2866e"
+  },
+  "explicit_limitations": [
+    "The96x112logical atlas has a4x4tile repetition period.",
+    "108mixed rim fringe must be viewed at native2x/4x after integration.",
+    "99top-facing shelf is retained; no definite intrusion established.",
+    "Offline1104uses a limited clear cap region and provisional phase, not final runtime proof.",
+    "Existing cap/cliff silhouette, lower material, actor art and sand are not edited."
+  ],
+  "source_only": true,
+  "independent_mask_delta_sha256": "a8adf3fb703dbe9ab9697c1ce217803100317ec7a5a4e8ea72c49e6042f26ac3"
+}

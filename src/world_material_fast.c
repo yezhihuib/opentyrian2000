@@ -43,3 +43,15 @@ bool g101_fast_select_pixel(const G101FastContext *f,const G101Pixel *p,bool eli
   p->primary_weight,p->generated_weight,p->footer_weight,composed);
  memcpy(out,composed,3);return true;
 }
+
+bool g101_fast_select_cap(const G101FastContext *f,const uint8_t *cap_rgba,
+ const uint8_t accepted[4],uint8_t weight,int x,int y,uint8_t out[4])
+{
+ memcpy(out,accepted,4);
+ if(!weight||!accepted[3]||!cap_rgba||!f||!f->valid||
+    (unsigned)x>=G101_CANVAS_W_HD||(unsigned)y>=G101_CANVAS_H_HD)return false;
+ const uint8_t *material=cap_rgba+f->rows[y]+f->columns[x];
+ if(weight==255){memcpy(out,material,3);return true;}
+ for(int c=0;c<3;c++)out[c]=(uint8_t)(((unsigned)accepted[c]*(255-weight)+(unsigned)material[c]*weight+127)/255);
+ return true;
+}

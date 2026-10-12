@@ -1,0 +1,206 @@
+{
+  "status": "passed-source-runtime-visual-and-final-merged-output",
+  "base_commit": "dca75b5541b440dea12e2e61514f68b153410fd7",
+  "bundle": {
+    "file": "plateau-cap-world-material.pcap",
+    "sha256": "f6a8714193a7f837c3f931e5126399ae885f7982a7d2f320298a50f96f20dbd9",
+    "fnv64": "b7cd77280defa87c",
+    "bytes": 3397820,
+    "header_bytes": 188,
+    "payload_bytes": 3397632,
+    "atlas_bytes": 2752512,
+    "mask_bytes": 473088,
+    "base109_bytes": 172032,
+    "base109_offset": 3225600,
+    "records": 13,
+    "enabled_masks": 11,
+    "guard_ids": [
+      98,
+      118
+    ],
+    "additional_lookup_bytes": 0,
+    "source_inventory_sha256": "2ed570352eabad2f9e552635bf1602eac47cfcfe5ebe008de26ef2e1503d7f91",
+    "cap_bindings_sha256": "65768cfccd83ce505492d8356a8342c1a516d9605806ef55cf8cfa536b9eb582",
+    "atlas_rgba_sha256": "c5350695a3b35db652c9820d3262cf9d8c54659acf9a9e5203f7a2999de1fe33",
+    "lower_bundle_sha256": "5d62aca342fb5b6038a82bd719086f6e6691107f6e03786511fc65b4b43fccc5",
+    "sources": [
+      {
+        "id": 96,
+        "source_hda_sha256": "8ef129d0d7ea91bbc055ea32087240417ab352fc23bcf9cc85b52f2e819185e5",
+        "cap_weight_sha256": "4450565d1a3f1b9b9197ae7d6eb13f586ea39e1141343368d22e83099645c1ab",
+        "selected_base_exact": true,
+        "lower_footer_overlap": 0,
+        "semantic_domain_checked": true
+      },
+      {
+        "id": 97,
+        "source_hda_sha256": "a5e35c92263aff8c813d5823223bec9dfff5b48a978c40968184c53eb0f99303",
+        "cap_weight_sha256": "335bb50e97bcea01fd3a1411998f030d5adf429ed234690120ac5359150cc8f5",
+        "selected_base_exact": true,
+        "lower_footer_overlap": 0,
+        "semantic_domain_checked": true
+      },
+      {
+        "id": 98,
+        "source_hda_sha256": "04ab6e4004920a7d392adabb831bfc6c8d24f48e347d90878de5ef9e3edc95c8",
+        "cap_weight_sha256": "ccc1a10b7aac17225febe0b37d40d5b4575aebdad5bb1c291429f04d1a5892b4",
+        "selected_base_exact": true,
+        "lower_footer_overlap": 0,
+        "semantic_domain_checked": true
+      },
+      {
+        "id": 99,
+        "source_hda_sha256": "17225799434e4c93c87051effe8394ea9c23062b9447e6fbd09b9c43d72332a0",
+        "cap_weight_sha256": "3b1c0764ad9a9332c74cfcaa6f5906bff64a7a795ba518cc23a91adf6dede926",
+        "selected_base_exact": true,
+        "lower_footer_overlap": 0,
+        "semantic_domain_checked": true
+      },
+      {
+        "id": 100,
+        "source_hda_sha256": "d3154b8d770b98c3152c62d57f3b2649a66c0fc8cbb6dc82f60fba6ca237fb76",
+        "cap_weight_sha256": "ffd66ef8fe87bce291c9774cef3aef3953ed655190f44604d5f9ceef620afec4",
+        "selected_base_exact": true,
+        "lower_footer_overlap": 0,
+        "semantic_domain_checked": true
+      },
+      {
+        "id": 106,
+        "source_hda_sha256": "a1368d9affee531417bdcc3938fa7dc389eb2ee47495fa272617968e5f7fb9c2",
+        "cap_weight_sha256": "0af43d2e0492a68cfa2dc7acb609bd0a200be3a6afa6d9af3ff00eb1b448c76a",
+        "selected_base_exact": true,
+        "lower_footer_overlap": 0,
+        "semantic_domain_checked": true
+      },
+      {
+        "id": 107,
+        "source_hda_sha256": "1d18efba84add8d0acc145cf157da4e968b0b034997d7f8e5a4ed852e3885142",
+        "cap_weight_sha256": "bf15c547388beeefcdc48327cf0b34bf57b7f60c47069db42456ece545b87598",
+        "selected_base_exact": true,
+        "lower_footer_overlap": 0,
+        "semantic_domain_checked": true
+      },
+      {
+        "id": 108,
+        "source_hda_sha256": "7bee4bf3052a322bf93fcb9b354e0ccad48447444f3834108bacc27d3f92fa55",
+        "cap_weight_sha256": "b0649ed9412084810552e460a9b0c00aff174cd48031de83c042d3743313088c",
+        "selected_base_exact": true,
+        "lower_footer_overlap": 0,
+        "semantic_domain_checked": true
+      },
+      {
+        "id": 109,
+        "source_hda_sha256": "7930a8ccdd5a23fc6f6b88e867a38c9a0aa67d0c91790e9da67cfc6aa593060f",
+        "cap_weight_sha256": "6e312f5edc9d624a24598c6eb9cd67b60b634c40e6fe97c0b3e3e16248b32b25",
+        "selected_base_exact": true,
+        "lower_footer_overlap": 0,
+        "semantic_domain_checked": true
+      },
+      {
+        "id": 110,
+        "source_hda_sha256": "a8ea5ccb970ed428b237ab56a2d0a7c5bb062f07be0be91ffb6c1112ef8310a6",
+        "cap_weight_sha256": "cd323e9dd4220521d29fa121c5396f291f812fa03cabaca2d80937ea31072bd7",
+        "selected_base_exact": true,
+        "lower_footer_overlap": 0,
+        "semantic_domain_checked": true
+      },
+      {
+        "id": 118,
+        "source_hda_sha256": "0dbf50d77af0856f398ec3b68f46bc682d6adf387f229a89213571c27d6ff93e",
+        "cap_weight_sha256": "ccc1a10b7aac17225febe0b37d40d5b4575aebdad5bb1c291429f04d1a5892b4",
+        "selected_base_exact": true,
+        "lower_footer_overlap": 0,
+        "semantic_domain_checked": true
+      },
+      {
+        "id": 119,
+        "source_hda_sha256": "0f0c5338316341a2ec0d0f8b5e39124e4873dd577c64c78e618bf69797130ba6",
+        "cap_weight_sha256": "1beae81a3e4e8540411f3a0c27ed8527f675b0c299a802a2378d2b151d8cf1ce",
+        "selected_base_exact": true,
+        "lower_footer_overlap": 0,
+        "semantic_domain_checked": true
+      },
+      {
+        "id": 120,
+        "source_hda_sha256": "774dffd6470c8f66d1a3a6051703a8549087791e08b80eab2ee42677fe3cc342",
+        "cap_weight_sha256": "30d572644c0fd26332a14db217e7bce03870209f904416610f7644a398ff834f",
+        "selected_base_exact": true,
+        "lower_footer_overlap": 0,
+        "semantic_domain_checked": true
+      }
+    ],
+    "checksum_purpose": "accidental corruption only; not authentication"
+  },
+  "source_inventory_sha256": "2ed570352eabad2f9e552635bf1602eac47cfcfe5ebe008de26ef2e1503d7f91",
+  "visual": {
+    "chronological_native2x_frames": 28,
+    "ticks": [
+      1094,
+      1121
+    ],
+    "additional_native4x_still": 1104,
+    "observed": "Warm broad facets remain attached to terrain during scrolling; preserved rim lumps and vertical cliff faces read clearly. No conspicuous rectangular join, moving cusp, cap leak or new shadow/footer line was observed."
+  },
+  "preservation": "Every changed native pixel lies in exact nearest-sampled positive support of11 cap masks without dilation; zero-support/lower/footer/98/118 guards, alpha and HUD are exact against accepted lower-atlas baseline.",
+  "scope_limits": [
+    "Private-survival continuation, not ordinary gameplay.",
+    "28frames and one4x still do not prove every whole-map placement.",
+    "The4x4logical-tile material period remains; no zero-repeat claim.",
+    "No new captures or art edits were made during review."
+  ],
+  "source_tests": {
+    "scalar_fast_assertions": 183284559,
+    "loader_cases": 40,
+    "renderer_scenarios": 16,
+    "package_checks": 27,
+    "ASan_UBSan": true,
+    "lower_records_all_bytes_exact": 61
+  },
+  "actual": {
+    "tick_first": 1094,
+    "tick_last": 1121,
+    "private_survival": true,
+    "no_weapon_or_hit_injection": true,
+    "state_RNG_collision_indexed_exact": true,
+    "same_scale_baseline_RGB_matches_accepted_lower": true,
+    "cap_delta_exact_positive_mask_support": true,
+    "HUD_alpha_zero_support_exact": true,
+    "native4x_logical_RGB_exact_to2x": true,
+    "expected_SDL_output_sizes": [
+      [
+        640,
+        400
+      ],
+      [
+        1280,
+        800
+      ]
+    ]
+  },
+  "author_receipt_sha256": "030cddd1d082c55b9c800632d1c378eccf0ee8f510f4d009c65c53a5c5cb63b3",
+  "actual_fallback": {
+    "status": "passed",
+    "runs": 11,
+    "frames": 436,
+    "cases": [
+      "absent cap",
+      "corrupt cap",
+      "truncated cap",
+      "missing lower dependency on/off",
+      "modified109 same selected pack on/off",
+      "classic on/off",
+      "density4 on/off"
+    ],
+    "accepted_baseline_exact_for_absent_corrupt_truncated": true,
+    "mismatched_pack_compared_to_its_own_cap_off": true,
+    "zero_coverage_or_restoration_mismatches": true,
+    "media_bytes": 0
+  },
+  "final_merged_equivalence": {
+    "status": "passed",
+    "reviewed28frame_RGB_exact": true,
+    "all_deterministic_logs_exact": true,
+    "blend_proof_exact": true,
+    "published_Charge_binding_preserved": true
+  }
+}

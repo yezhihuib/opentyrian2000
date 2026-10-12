@@ -2,6 +2,7 @@
 #ifndef GROUND101_MATERIAL_H
 #define GROUND101_MATERIAL_H
 #include "world_material.h"
+#include "world_material_fast.h"
 typedef struct {
  unsigned role,index,slot,base_offset,mask_offset,generated_offset,generated_weight_offset,ground_weight_offset;
 } G101Record;
@@ -13,6 +14,9 @@ bool ground101_bundle_load(const char *asset_directory);
 const G101Record *ground101_record(unsigned role,unsigned index);
 const G101Record *ground101_record_at(unsigned index);
 const uint8_t *ground101_base(const G101Record *record);
+/* Read-only dependency for the finite cap extension; lower data stays exact. */
+const G101FastContext *ground101_fast_context(void);
+bool ground101_weights_disjoint(const G101Record *,const uint8_t *weights,size_t bytes);
 void ground101_frame_reset(void);
 bool ground101_layer1_preflight(const void *map,size_t bytes,const void *first,size_t stride,int x,int y);
 /* -1: inconsistent recognized Layer1 row; 0: unrelated/inactive; 1: valid. */

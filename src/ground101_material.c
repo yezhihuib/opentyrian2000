@@ -123,6 +123,19 @@ const G101Record *ground101_record(unsigned role,unsigned index)
  return NULL;
 }
 const uint8_t *ground101_base(const G101Record *r){return ready&&r?payload+r->base_offset:NULL;}
+const G101FastContext *ground101_fast_context(void)
+{return ready&&world.valid&&!world.rejected&&fast_world.valid?&fast_world:NULL;}
+bool ground101_weights_disjoint(const G101Record *r,const uint8_t *weights,size_t bytes)
+{
+ if(!ready||!r||!weights||bytes!=G101_TILE_PIXELS)return false;
+ bool member=false;for(unsigned i=0;i<61;i++)if(r==&g101_records[i])member=true;
+ if(!member)return false;
+ for(unsigned n=0;n<G101_TILE_PIXELS;n++)if(weights[n]&&
+    (payload[r->mask_offset+n]||
+     (r->generated_weight_offset&&payload[r->generated_weight_offset+n])||
+     (r->ground_weight_offset&&payload[r->ground_weight_offset+n])))return false;
+ return true;
+}
 void ground101_frame_reset(void)
 {
  g101_fast_invalidate(&fast_world);g101_begin_frame(&world);map_base=NULL;map_bytes=map_stride=0;
