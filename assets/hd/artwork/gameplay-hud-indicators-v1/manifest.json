@@ -1,0 +1,640 @@
+{
+  "schema": "generated-hud-mode-assembly-trial-package-v1",
+  "status": "FROZEN_ACCEPTED_ART_FOR_SEPARATE_HUL1_TRIAL_NOT_RUNTIME_VALIDATED",
+  "acceptance": "The full paired MODE sockets and center grille V2 were accepted; the unchanged prior top lens remains selected.",
+  "scope": {
+    "top_box_half_open": [
+      269,
+      4,
+      276,
+      7
+    ],
+    "assembly_box_half_open": [
+      285,
+      44,
+      312,
+      52
+    ],
+    "top_pixels": 21,
+    "assembly_pixels": 216,
+    "combined_pixels": 237,
+    "frame_overlap_pixels": 82,
+    "live_area_pixels": 134,
+    "frame_overlap_breakdown": {
+      "invariant_socket_rim_pixels": 26,
+      "center_grille_pixels": 56
+    },
+    "mask_files": [
+      "top-plus-assembly-mask.mask",
+      "assembly-frame-overlap.mask",
+      "assembly-mask.mask",
+      "assembly-live-area.mask"
+    ]
+  },
+  "hash_contract": {
+    "sha256": "SHA-256, lowercase hexadecimal",
+    "fnv1a64": "Standard FNV-1a 64-bit: offset basis 0xcbf29ce484222325; xor byte, multiply by 0x100000001b3 modulo 2^64; 16 lowercase hexadecimal digits.",
+    "png_file_hashes": "Hash the complete PNG file bytes.",
+    "png_decoded_hashes": "Hash native decoded mode bytes (RGB for masters, RGBA for tiles, L for masks), row-major without padding.",
+    "mask_raw": "320 x 200 unsigned bytes, values 0 or 255, row-major without header."
+  },
+  "inputs": {
+    "generated-assembly-master.png": {
+      "bytes": 1521836,
+      "sha256": "e4116e4e34a89e961e5827d8ad08a754d55f7cbd07c2ed477544685ab0dd85a0",
+      "fnv1a64": "605e72327c316cc1",
+      "decoded": {
+        "mode": "RGB",
+        "width": 1774,
+        "height": 887,
+        "layout": "Row-major, top-to-bottom, left-to-right; interleaved mode channels; no padding.",
+        "bytes": 4720614,
+        "sha256": "7ba010c973df2ac401bbee76167c65cd777130a1f67162b7ca762d62ded0a778",
+        "fnv1a64": "011faff6a60783fa"
+      }
+    },
+    "generated-lenses-master.png": {
+      "bytes": 1215034,
+      "sha256": "961d7f5f9cd4c09571544c65b2a3520a039f0945da6ef26e2a7cfa8646281abd",
+      "fnv1a64": "3487bb8c9eec6a09",
+      "decoded": {
+        "mode": "RGB",
+        "width": 1774,
+        "height": 887,
+        "layout": "Row-major, top-to-bottom, left-to-right; interleaved mode channels; no padding.",
+        "bytes": 4720614,
+        "sha256": "c1c008829954564ef90c8fa0dfc82b14611e1df0d883f6d51c913f698cf4b067",
+        "fnv1a64": "30766ba86dba03f3"
+      }
+    }
+  },
+  "exports": {
+    "assembly-frame-overlap-1x.png": {
+      "bytes": 214,
+      "sha256": "77195b4585baf230d4b05370a7f94a7e1347a7f05ab948bbd600d1d0464bc1a4",
+      "fnv1a64": "f3d57aafde137307",
+      "decoded": {
+        "mode": "L",
+        "width": 320,
+        "height": 200,
+        "layout": "Row-major, top-to-bottom, left-to-right; interleaved mode channels; no padding.",
+        "bytes": 64000,
+        "sha256": "25137f74f9ea6036d149ace652a15342315d8767e61344fbcd8f6847dd1ac7bc",
+        "fnv1a64": "03573eb416332b55"
+      }
+    },
+    "assembly-frame-overlap.mask": {
+      "bytes": 64000,
+      "sha256": "25137f74f9ea6036d149ace652a15342315d8767e61344fbcd8f6847dd1ac7bc",
+      "fnv1a64": "03573eb416332b55"
+    },
+    "assembly-live-area-1x.png": {
+      "bytes": 204,
+      "sha256": "999fd25aada96da37bf93c5b2d536c4e2a891b61afb257bd0962cbd5e55d48b3",
+      "fnv1a64": "8d9582c5624d82ee",
+      "decoded": {
+        "mode": "L",
+        "width": 320,
+        "height": 200,
+        "layout": "Row-major, top-to-bottom, left-to-right; interleaved mode channels; no padding.",
+        "bytes": 64000,
+        "sha256": "4f389ea4227eac6531ef1200e42dba101be75abfc15d244a2f83ec232f6f59f8",
+        "fnv1a64": "bbb3e086c65de6c9"
+      }
+    },
+    "assembly-live-area.mask": {
+      "bytes": 64000,
+      "sha256": "4f389ea4227eac6531ef1200e42dba101be75abfc15d244a2f83ec232f6f59f8",
+      "fnv1a64": "bbb3e086c65de6c9"
+    },
+    "assembly-mask-1x.png": {
+      "bytes": 173,
+      "sha256": "ec6b127e7880c47acfb0651d15f51b6d0a506ae6665d0b10fd1b67a81ffc1786",
+      "fnv1a64": "b2dd7456a6833c28",
+      "decoded": {
+        "mode": "L",
+        "width": 320,
+        "height": 200,
+        "layout": "Row-major, top-to-bottom, left-to-right; interleaved mode channels; no padding.",
+        "bytes": 64000,
+        "sha256": "57fe6dfd4a9ea48ae9e5a3e382d34dcfb9acbc6f17425e10f34ff154c8024014",
+        "fnv1a64": "9d7ff9e4d8d88f25"
+      }
+    },
+    "assembly-mask.mask": {
+      "bytes": 64000,
+      "sha256": "57fe6dfd4a9ea48ae9e5a3e382d34dcfb9acbc6f17425e10f34ff154c8024014",
+      "fnv1a64": "9d7ff9e4d8d88f25"
+    },
+    "assembly-mode1-4x.png": {
+      "bytes": 6042,
+      "sha256": "cc1f1ca62eaa72a728bff79e66bb9f73c7b3d439cec64b1a7c674ed2522b4a23",
+      "fnv1a64": "bce4d720d5ab3663",
+      "decoded": {
+        "mode": "RGBA",
+        "width": 108,
+        "height": 32,
+        "layout": "Row-major, top-to-bottom, left-to-right; interleaved mode channels; no padding.",
+        "bytes": 13824,
+        "sha256": "64ef5580136dea57ddc9b28dc0810f3e2e917a4f3143079f2a6dbe0796f6e906",
+        "fnv1a64": "74190f7046eac68a"
+      }
+    },
+    "assembly-mode2-4x.png": {
+      "bytes": 6048,
+      "sha256": "a76fe10a443e8288fc1ddc997c81b62d10470baecc46d962790d08443b3549a8",
+      "fnv1a64": "c1d42add7cc0310b",
+      "decoded": {
+        "mode": "RGBA",
+        "width": 108,
+        "height": 32,
+        "layout": "Row-major, top-to-bottom, left-to-right; interleaved mode channels; no padding.",
+        "bytes": 13824,
+        "sha256": "06a341964720e1047c89328b753624df134f6c9afc8733b578ebdaba5939a8d4",
+        "fnv1a64": "ef8c67dc4a7d045e"
+      }
+    },
+    "gameplay-hud-indicators-v1.hda": {
+      "bytes": 29072,
+      "sha256": "c7e5925631cfeecb28a09b547702824af55ef3d9b5abe83f568dcf4672638631",
+      "fnv1a64": "59a95fbd7c3b63fd"
+    },
+    "lens-top-4x.png": {
+      "bytes": 712,
+      "sha256": "397b5af9da094f1aa1a8b3b7c8b3bf57222e4faf72f04b0b420c3960747bded9",
+      "fnv1a64": "296f3026e95a3f4a",
+      "decoded": {
+        "mode": "RGBA",
+        "width": 28,
+        "height": 12,
+        "layout": "Row-major, top-to-bottom, left-to-right; interleaved mode channels; no padding.",
+        "bytes": 1344,
+        "sha256": "148988e34111b14bf268745cc3f27f028a04ca8936d8dc0b67276868ce2372bf",
+        "fnv1a64": "5ca8d6686d28d8b6"
+      }
+    },
+    "top-plus-assembly-mask-1x.png": {
+      "bytes": 192,
+      "sha256": "fb961a9a7e88010f27fe55aa48bd5f37fa3f7008d4e8d8731336ad9081d4893c",
+      "fnv1a64": "ac93b04a3cbf5154",
+      "decoded": {
+        "mode": "L",
+        "width": 320,
+        "height": 200,
+        "layout": "Row-major, top-to-bottom, left-to-right; interleaved mode channels; no padding.",
+        "bytes": 64000,
+        "sha256": "91d51bff2f5240dfcdcefcee8b71a328d542fee974fbd53c5ccf55b4ec632138",
+        "fnv1a64": "bf6d4381d92b1182"
+      }
+    },
+    "top-plus-assembly-mask.mask": {
+      "bytes": 64000,
+      "sha256": "91d51bff2f5240dfcdcefcee8b71a328d542fee974fbd53c5ccf55b4ec632138",
+      "fnv1a64": "bf6d4381d92b1182"
+    }
+  },
+  "build_recipe": {
+    "canonical_density": 4,
+    "assembly_crop_half_open": [
+      138,
+      221,
+      1638,
+      666
+    ],
+    "assembly_output_size": [
+      108,
+      32
+    ],
+    "assembly_operation_order": "Convert master to RGBA, crop the whole assembly, then resize once with Pillow LANCZOS.",
+    "assembly_logical_box_half_open": [
+      285,
+      44,
+      312,
+      52
+    ],
+    "top_logical_box_half_open": [
+      269,
+      4,
+      276,
+      7
+    ],
+    "lens_crops": {
+      "top": {
+        "crop_half_open": [
+          39,
+          324,
+          553,
+          543
+        ],
+        "output_size": [
+          28,
+          12
+        ],
+        "expected_decoded_rgba": {
+          "sha256": "148988e34111b14bf268745cc3f27f028a04ca8936d8dc0b67276868ce2372bf",
+          "fnv1a64": "5ca8d6686d28d8b6"
+        }
+      },
+      "lit": {
+        "crop_half_open": [
+          630,
+          306,
+          1144,
+          562
+        ],
+        "output_size": [
+          32,
+          16
+        ],
+        "expected_decoded_rgba": {
+          "sha256": "abc776755b1707eef721ae63fedc4f2b1a667688048f255282b5c8843eb69e3e",
+          "fnv1a64": "d946ebf259ec3d1f"
+        }
+      },
+      "unlit": {
+        "crop_half_open": [
+          1222,
+          306,
+          1736,
+          562
+        ],
+        "output_size": [
+          32,
+          16
+        ],
+        "expected_decoded_rgba": {
+          "sha256": "0f2c0a0fc6f20edf980f6101137ab0593b12223cd70da81b8c4892c0d9bf4a64",
+          "fnv1a64": "f496d4057cc12af5"
+        }
+      }
+    },
+    "lens_offsets": {
+      "left": [
+        4,
+        8
+      ],
+      "right": [
+        72,
+        8
+      ]
+    },
+    "mode_lenses": {
+      "1": {
+        "left": "lit",
+        "right": "unlit"
+      },
+      "2": {
+        "left": "unlit",
+        "right": "lit"
+      }
+    },
+    "lens_operation_order": "Convert lens master to RGB, crop each whole optical surface, resize with Pillow LANCZOS, then convert to opaque RGBA.",
+    "composition": "Paste unchanged opaque lens tiles into the generated metal base. No repaint, recolor, internal warp, or original pixel texture.",
+    "frame_overlap_row_spans_half_open": [
+      [
+        44,
+        [
+          [
+            285,
+            287
+          ],
+          [
+            289,
+            290
+          ],
+          [
+            292,
+            304
+          ],
+          [
+            306,
+            307
+          ],
+          [
+            309,
+            312
+          ]
+        ]
+      ],
+      [
+        45,
+        [
+          [
+            293,
+            294
+          ],
+          [
+            295,
+            302
+          ],
+          [
+            310,
+            311
+          ]
+        ]
+      ],
+      [
+        46,
+        [
+          [
+            295,
+            302
+          ]
+        ]
+      ],
+      [
+        47,
+        [
+          [
+            295,
+            302
+          ]
+        ]
+      ],
+      [
+        48,
+        [
+          [
+            295,
+            302
+          ]
+        ]
+      ],
+      [
+        49,
+        [
+          [
+            295,
+            303
+          ]
+        ]
+      ],
+      [
+        50,
+        [
+          [
+            292,
+            294
+          ],
+          [
+            295,
+            302
+          ],
+          [
+            303,
+            304
+          ],
+          [
+            309,
+            311
+          ]
+        ]
+      ],
+      [
+        51,
+        [
+          [
+            286,
+            287
+          ],
+          [
+            293,
+            304
+          ],
+          [
+            310,
+            311
+          ]
+        ]
+      ]
+    ],
+    "density8_sampling": "Repeat each canonical 4x pixel as a 2 x 2 block. No filtering.",
+    "native2_preview_sampling": "Pillow NEAREST downsample of canonical 4x. Output (x,y) selects 4x source (2x+1,2y+1)."
+  },
+  "resource_binding": {
+    "filename": "gameplay-hud-indicators-v1.hda",
+    "magic": "HUL1",
+    "header_struct": "<4s7I6Q",
+    "endianness": "little",
+    "header_bytes": 80,
+    "version": 1,
+    "density": 4,
+    "top_width": 28,
+    "top_height": 12,
+    "mode_width": 108,
+    "mode_height": 32,
+    "payload_bytes": 28992,
+    "whole_file_bytes": 29072,
+    "payload_order": [
+      "lens-top-4x.png",
+      "assembly-mode1-4x.png",
+      "assembly-mode2-4x.png"
+    ],
+    "payload_decoding": "Opaque unpremultiplied RGBA8, row-major, top-to-bottom, left-to-right, no padding.",
+    "payload_segments": [
+      {
+        "asset": "lens-top-4x.png",
+        "payload_offset": 0,
+        "file_offset": 80,
+        "bytes": 1344
+      },
+      {
+        "asset": "assembly-mode1-4x.png",
+        "payload_offset": 1344,
+        "file_offset": 1424,
+        "bytes": 13824
+      },
+      {
+        "asset": "assembly-mode2-4x.png",
+        "payload_offset": 15168,
+        "file_offset": 15248,
+        "bytes": 13824
+      }
+    ],
+    "source_guard_fnv1a64": {
+      "pic3_indices": "14c1441f3d5dc0e2",
+      "normal_palette_rgb": "5e80e83992be2927",
+      "top21_indices": "328ef0a75cce2260",
+      "mode1_full216_indices": "55f78c15a1ce495a",
+      "mode2_full216_indices": "f7a97c521d045d18"
+    },
+    "header_fields": [
+      {
+        "offset": 0,
+        "type": "char[4]",
+        "name": "magic",
+        "value": "HUL1"
+      },
+      {
+        "offset": 4,
+        "type": "u32le",
+        "name": "version",
+        "value": 1
+      },
+      {
+        "offset": 8,
+        "type": "u32le",
+        "name": "density",
+        "value": 4
+      },
+      {
+        "offset": 12,
+        "type": "u32le",
+        "name": "topWidth",
+        "value": 28
+      },
+      {
+        "offset": 16,
+        "type": "u32le",
+        "name": "topHeight",
+        "value": 12
+      },
+      {
+        "offset": 20,
+        "type": "u32le",
+        "name": "modeWidth",
+        "value": 108
+      },
+      {
+        "offset": 24,
+        "type": "u32le",
+        "name": "modeHeight",
+        "value": 32
+      },
+      {
+        "offset": 28,
+        "type": "u32le",
+        "name": "payloadBytes",
+        "value": 28992
+      },
+      {
+        "offset": 32,
+        "type": "u64le",
+        "name": "pic3_indices_fnv1a64",
+        "hex_value": "14c1441f3d5dc0e2"
+      },
+      {
+        "offset": 40,
+        "type": "u64le",
+        "name": "normal_palette_rgb_fnv1a64",
+        "hex_value": "5e80e83992be2927"
+      },
+      {
+        "offset": 48,
+        "type": "u64le",
+        "name": "top21_indices_fnv1a64",
+        "hex_value": "328ef0a75cce2260"
+      },
+      {
+        "offset": 56,
+        "type": "u64le",
+        "name": "mode1_full216_indices_fnv1a64",
+        "hex_value": "55f78c15a1ce495a"
+      },
+      {
+        "offset": 64,
+        "type": "u64le",
+        "name": "mode2_full216_indices_fnv1a64",
+        "hex_value": "f7a97c521d045d18"
+      },
+      {
+        "offset": 72,
+        "type": "u64le",
+        "name": "combined_payload_fnv1a64",
+        "hex_value": "9496d22c5cd69c6e"
+      }
+    ],
+    "masks_in_hda": false,
+    "compiled_guard_requirement": "Fixed top and assembly coordinates and exact 82-pixel frame overlap. Keep HUC1 and HUD1 separate and unchanged.",
+    "combined_payload_hashes": {
+      "sha256": "16ad5b4586e6cb379c40f8b1e27edc620e7d811f64667a686d77fb89aba57fb6",
+      "fnv1a64": "9496d22c5cd69c6e"
+    }
+  },
+  "source_state_contract": "source-state-contract.json",
+  "reproduction_environment": {
+    "python": "3.12.14",
+    "pillow": "12.3.0",
+    "zlib_compile": "1.3.2",
+    "zlib_runtime": "1.3.2"
+  },
+  "runtime_validation": "Not performed. A separate integration trial is required after label/shield trial passes. No source checkout, HUC1 resource, or HUD1 resource was changed.",
+  "package_policy": "Only generated masters/art, binary geometric masks, prompts, code, hashes, and text metadata. No original PIC pixels/indices, sprite files, captures, or old edit guides.",
+  "support_files": {
+    "README.md": {
+      "bytes": 4447,
+      "sha256": "722badee92a74ae8f1a3672bfa1feec575b186e452df2b99f53f2a8211404d90",
+      "fnv1a64": "db62f562aa3f161c"
+    },
+    "assembly-prompt.txt": {
+      "bytes": 1922,
+      "sha256": "c6380da89e31ea2e1157faa5beca3d69f3a5e07b968a2d8b8119d6713b016faf",
+      "fnv1a64": "6b31f13d53fc49f7"
+    },
+    "lenses-prompt.txt": {
+      "bytes": 1900,
+      "sha256": "6ffe1efa756664f776435e228be2b17d58318e7b9d003b6413236b87807370ed",
+      "fnv1a64": "aded11b86247f4b4"
+    },
+    "placement-state.csv": {
+      "bytes": 577,
+      "sha256": "74d324211c7f8f8792c98582e9df57b70175cf22f7c42257767ffc0eb88a3dbe",
+      "fnv1a64": "85824d9900629af3"
+    },
+    "provenance.json": {
+      "bytes": 5481,
+      "sha256": "e06d6c0f2902d3316950e39eacfd03669e56eee9b5f30a1dd56f107ad5067a32",
+      "fnv1a64": "67f234e95cf86733"
+    },
+    "repeat-build-proof.json": {
+      "bytes": 9076,
+      "sha256": "3e58e4b432a70c549cd0a312261d8cf18ec64ecd7143256d4b157778ea7709c8",
+      "fnv1a64": "f25ea083fa5103ce"
+    },
+    "reproduce_generated_only.py": {
+      "bytes": 9259,
+      "sha256": "661e63adbc94ee8768a0f457bdb37bb06169c141fda4a8ef4e0bab7bc41722d2",
+      "fnv1a64": "49471b91f84036ce"
+    },
+    "requirements.txt": {
+      "bytes": 15,
+      "sha256": "41b54a6fb2918667ca47a61d73b522629d84490f3d78f0f20b21135faba10d35",
+      "fnv1a64": "b9257a50e1f8859e"
+    },
+    "source-state-contract.json": {
+      "bytes": 5233,
+      "sha256": "19cc619f67214d3ad58e044d7906f6f27bb1ebad1bc53fa1aff21ff0bb9a6f8c",
+      "fnv1a64": "0d126990761fa57a"
+    }
+  },
+  "package_inventory": [
+    "FNV1A64SUMS",
+    "README.md",
+    "SHA256SUMS",
+    "assembly-frame-overlap-1x.png",
+    "assembly-frame-overlap.mask",
+    "assembly-live-area-1x.png",
+    "assembly-live-area.mask",
+    "assembly-mask-1x.png",
+    "assembly-mask.mask",
+    "assembly-mode1-4x.png",
+    "assembly-mode2-4x.png",
+    "assembly-prompt.txt",
+    "gameplay-hud-indicators-v1.hda",
+    "generated-assembly-master.png",
+    "generated-lenses-master.png",
+    "lens-top-4x.png",
+    "lenses-prompt.txt",
+    "manifest.json",
+    "placement-state.csv",
+    "provenance.json",
+    "repeat-build-proof.json",
+    "reproduce_generated_only.py",
+    "requirements.txt",
+    "source-state-contract.json",
+    "top-plus-assembly-mask-1x.png",
+    "top-plus-assembly-mask.mask"
+  ],
+  "repeat_build_proof": "repeat-build-proof.json",
+  "self_hash_note": "manifest.json is covered by SHA256SUMS and FNV1A64SUMS; those two index files exclude themselves and each other to avoid self-reference."
+}

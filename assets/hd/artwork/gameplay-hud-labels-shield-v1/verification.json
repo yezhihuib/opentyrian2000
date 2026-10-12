@@ -1,0 +1,42 @@
+{
+  "proof_scope": "Frozen generated art and exact resource binding only; no runtime or capture sweeps.",
+  "tile_count": 20,
+  "all_tiles_mode_RGBA": true,
+  "all_tile_alpha_bytes_255": true,
+  "label_scope_logical_pixels": 350,
+  "source_comparisons": [
+    {
+      "S": 10,
+      "M": 10,
+      "shield_channel_RGBA_byte_exact": true,
+      "four_label_regions_RGBA_byte_exact": true
+    },
+    {
+      "S": 5,
+      "M": 10,
+      "shield_channel_RGBA_byte_exact": true,
+      "four_label_regions_RGBA_byte_exact": true
+    },
+    {
+      "S": 1,
+      "M": 10,
+      "shield_channel_RGBA_byte_exact": true,
+      "four_label_regions_RGBA_byte_exact": true
+    }
+  ],
+  "source_V1_label_tiles_RGBA_byte_exact": true,
+  "active_zero_has_baseline": true,
+  "wipe_only_zero_is_blank": true,
+  "HUC1_header_and_offsets_exact": true,
+  "HUC1_bytes": 38592,
+  "HUC1_sha256": "c40c9ecf16a0d654876597195880deb484c17e36b1d1a17a9c1a241fb2b26d33",
+  "two_successive_builds_identical": true,
+  "source_files_unchanged": true,
+  "package_has_no_original_PIC_pixels_indices_or_captures": true,
+  "reproduction_reads_no_source_files": true,
+  "toolchain": {
+    "python": "3.12.14",
+    "Pillow": "12.3.0",
+    "numpy": "2.3.5"
+  }
+}

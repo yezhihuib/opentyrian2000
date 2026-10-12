@@ -5,6 +5,8 @@
  */
 #include "render_mirror.h"
 #include "gameplay_hud.h"
+#include "gameplay_hud_components.h"
+#include "gameplay_hud_indicators.h"
 #include "config.h"
 #include "episodes.h"
 #include "fonthand.h"
@@ -71,6 +73,28 @@ static SDL_Surface *hud_source_surface;
 static void *hud_source_pixels;
 static SDL_PixelFormat *hud_source_format;
 static int hud_source_pitch,hud_source_width,hud_source_height;
+static Uint8 component_output_owner[320*200],component_saved_owner[320*200];
+static Uint32 component_output_palette[256];
+static uint64_t component_generation,component_output_generation,component_saved_generation;
+static bool component_gameplay,component_suspended;
+static SDL_Surface *component_source_surface;
+static void *component_source_pixels;
+static SDL_PixelFormat *component_source_format;
+static int component_source_pitch;
+/* HUL1 is the only overlapping HUD layer. Save the actual already-composed
+ * HUD1 subpixels, never reconstruct its authored RGB from indexed pixels. */
+static Uint8 indicator_output_owner[237],indicator_saved_owner[237];
+static Uint32 indicator_output_palette[256];
+static uint64_t indicator_generation,indicator_output_generation,indicator_saved_generation;
+static bool indicator_gameplay,indicator_suspended;
+static SDL_Surface *indicator_source_surface;
+static void *indicator_source_pixels;
+static SDL_PixelFormat *indicator_source_format;
+static int indicator_source_pitch,indicator_under_density;
+static Uint32 indicator_under[82][64],indicator_saved_under[82][64];
+static Uint8 indicator_under_owner[82],indicator_saved_under_owner[82];
+static uint64_t indicator_under_generation,indicator_saved_under_generation;
+static const Uint16 indicator_overlap_positions[82]={14365,14366,14369,14372,14373,14374,14375,14376,14377,14378,14379,14380,14381,14382,14383,14386,14389,14390,14391,14693,14695,14696,14697,14698,14699,14700,14701,14710,15015,15016,15017,15018,15019,15020,15021,15335,15336,15337,15338,15339,15340,15341,15655,15656,15657,15658,15659,15660,15661,15975,15976,15977,15978,15979,15980,15981,15982,16292,16293,16295,16296,16297,16298,16299,16300,16301,16303,16309,16310,16606,16613,16614,16615,16616,16617,16618,16619,16620,16621,16622,16623,16630};
 static int fade_mode;
 static SDL_Texture *texture;
 static Uint8 expected[320*200], selected[320*200];
@@ -248,6 +272,336 @@ static void upscale(SDL_Surface *dst,SDL_Surface *src)
  }
 }
 
+/* Finite logical coordinates, top21 followed by the complete mode216. */
+static int indicator_cell(int x,int y)
+{
+ if(x>=269&&x<276&&y>=4&&y<7)return (y-4)*7+x-269;
+ if(x>=285&&x<312&&y>=44&&y<52)return 21+(y-44)*27+x-285;
+ return -1;
+}
+static void indicator_position(unsigned int cell,int *x,int *y)
+{
+ if(cell<21) {*x=269+(int)(cell%7);*y=4+(int)(cell/7);}
+ else {cell-=21;*x=285+(int)(cell%27);*y=44+(int)(cell/27);}
+}
+/* Exact approved 26 rim cells plus the 7x8 center grille; no other lower
+ * layer may overlap HUL1. Row-major positions double as the bounded ledger. */
+static int indicator_overlap(int x,int y)
+{
+
+ if(x<285||x>=312||y<44||y>=52)return -1;
+ unsigned int logical=(unsigned int)(y*320+x);
+ for(unsigned int i=0;i<82;i++)if(indicator_overlap_positions[i]==logical)return (int)i;
+ return -1;
+}
+static bool indicators_owned(void)
+{
+ return memchr(indicator_output_owner,1,sizeof(indicator_output_owner))!=NULL||
+   memchr(indicator_output_owner,2,sizeof(indicator_output_owner))!=NULL;
+}
+static bool indicators_source_matches(void)
+{
+ return VGAScreenSeg&&VGAScreenSeg==indicator_source_surface&&
+   VGAScreenSeg->pixels&&VGAScreenSeg->pixels==indicator_source_pixels&&
+   VGAScreenSeg->format&&VGAScreenSeg->format==indicator_source_format&&
+   VGAScreenSeg->w==320&&VGAScreenSeg->h==200&&VGAScreenSeg->pitch==indicator_source_pitch&&
+   VGAScreenSeg->format->BitsPerPixel==8&&VGAScreenSeg->format->BytesPerPixel==1;
+}
+static bool indicators_cached_indices_match(void)
+{
+ if(!indicators_source_matches())return false;
+ for(int y=0;y<200;y++)
+  if(memcmp(last_output_indices+y*320,(Uint8 *)VGAScreenSeg->pixels+y*VGAScreenSeg->pitch,320)!=0)return false;
+ return true;
+}
+static bool indicators_underlay_matches(void)
+{
+ if(indicator_under_density!=game_probe_density||
+    (indicators_owned()&&indicator_output_generation!=indicator_generation)||
+    ((memchr(indicator_saved_owner,1,sizeof(indicator_saved_owner))||memchr(indicator_saved_owner,2,sizeof(indicator_saved_owner)))&&indicator_saved_generation!=indicator_generation))return false;
+ for(unsigned int i=0;i<82;i++) {
+  unsigned int logical=indicator_overlap_positions[i];
+  int cell=indicator_cell((int)(logical%320),(int)(logical/320));
+  if(indicator_under_owner[i]&&(indicator_under_generation!=hud_generation||hud_output_generation!=hud_generation||
+     !hud_output_owner[logical]||!indicator_output_owner[cell]))return false;
+  if(indicator_saved_under_owner[i]&&(indicator_saved_under_generation!=hud_generation||hud_saved_generation!=hud_generation||
+     !hud_saved_owner[logical]||!indicator_saved_owner[cell]))return false;
+ }
+ return true;
+}
+/* bits1=top, bits2=mode. Upper-layer removal restores the actual lower HUD1
+ * RGB, including its independent fade history. Without lower ownership the
+ * verified indexed/palette snapshot remains the authority. */
+static void indicators_clear_cached(unsigned int bits)
+{
+ bool any=false;
+ for(unsigned int i=0;i<237;i++)if((indicator_output_owner[i]|indicator_saved_owner[i])&bits) {any=true;break;}
+ if(!any)return;
+ int d=game_probe_density;
+ bool verified=(d==4||d==8)&&output&&output->w==320*d&&output->h==200*d&&
+   indicators_cached_indices_match()&&indicators_underlay_matches()&&
+   memcmp(indicator_output_palette,rgb_palette,sizeof(indicator_output_palette))==0&&
+   (!have_fade_saved||(fade_saved&&fade_saved->w==output->w&&fade_saved->h==output->h));
+ if(!verified) {ready=false;last_output_valid=false;have_fade_saved=false;fade_mode=0;}
+ for(unsigned int i=0;i<237;i++) {
+  bool current=(indicator_output_owner[i]&bits)!=0,saved=(indicator_saved_owner[i]&bits)!=0;
+  if(!current&&!saved)continue;
+  int x,y;indicator_position(i,&x,&y);int under=indicator_overlap(x,y);Uint8 index=last_output_indices[y*320+x];
+  if(verified)for(int sy=0;sy<d;sy++)for(int sx=0;sx<d;sx++) {
+   if(current)((Uint32 *)((Uint8 *)output->pixels+(y*d+sy)*output->pitch))[x*d+sx]=
+     under>=0&&indicator_under_owner[under]?indicator_under[under][sy*d+sx]:palette_rgb(index);
+   if(saved&&have_fade_saved)
+    ((Uint32 *)((Uint8 *)fade_saved->pixels+(y*d+sy)*fade_saved->pitch))[x*d+sx]=
+     under>=0&&indicator_saved_under_owner[under]?indicator_saved_under[under][sy*d+sx]:0xff000000u|(fade_saved_palette[index]&0xffffffu);
+  }
+  if(under>=0) {if(current)indicator_under_owner[under]=0;if(saved)indicator_saved_under_owner[under]=0;}
+  indicator_output_owner[i]&=(Uint8)~bits;indicator_saved_owner[i]&=(Uint8)~bits;
+ }
+ if(!indicators_owned())indicator_output_generation=0;
+ if(!memchr(indicator_saved_owner,1,sizeof(indicator_saved_owner))&&!memchr(indicator_saved_owner,2,sizeof(indicator_saved_owner)))indicator_saved_generation=0;
+ if(verified) {
+  bool retained=last_output_scene_hd||memchr(hud_output_owner,1,sizeof(hud_output_owner))||
+    memchr(component_output_owner,1,sizeof(component_output_owner))||memchr(component_output_owner,2,sizeof(component_output_owner))||indicators_owned();
+  last_output_valid=last_output_valid&&retained;
+  if(!retained) {have_fade_saved=false;fade_mode=0;}
+ }
+}
+static void indicators_reset(void)
+{
+ indicators_clear_cached(3);
+ ++indicator_generation;if(!indicator_generation)++indicator_generation;
+ indicator_gameplay=indicator_suspended=false;hud_indicators_forget_source();
+ indicator_source_surface=NULL;indicator_source_pixels=NULL;indicator_source_format=NULL;indicator_source_pitch=0;
+ memset(indicator_under_owner,0,sizeof(indicator_under_owner));memset(indicator_saved_under_owner,0,sizeof(indicator_saved_under_owner));
+}
+static bool hud_sprite_decode(unsigned int table,unsigned int index,unsigned int max_w,unsigned int max_h,Uint8 *indices,Uint8 *opaque);
+static bool indicators_decode_modes(Uint8 indices[2][80],Uint8 opaque[2][80])
+{
+ for(unsigned int i=0;i<2;i++)
+  if(!hud_sprite_decode(OPTION_SHAPES,18+i,10,8,indices[i],opaque[i])||
+     sprite_table[OPTION_SHAPES].sprite[18+i].width!=10||sprite_table[OPTION_SHAPES].sprite[18+i].height!=8)return false;
+ return hud_indicators_verify_modes((const Uint8 (*)[80])indices,(const Uint8 (*)[80])opaque);
+}
+static void indicators_check_mode(void)
+{
+ if(!indicator_gameplay)return;
+ Uint8 indices[2][80],opaque[2][80];
+ if(twoPlayerMode||galagaMode||!indicators_source_matches()||!indicators_decode_modes(indices,opaque))indicators_reset();
+}
+static void indicators_start(SDL_Surface *source)
+{
+ Uint8 indices[2][80],opaque[2][80];
+ if(hud_indicators_load(game_probe_assets)&&indicators_decode_modes(indices,opaque)&&
+    hud_indicators_capture(source->pixels,source->pitch,(const Uint8 (*)[80])indices,(const Uint8 (*)[80])opaque)) {
+  indicator_source_surface=source;indicator_source_pixels=source->pixels;
+  indicator_source_format=source->format;indicator_source_pitch=source->pitch;indicator_gameplay=true;
+ }
+}
+static void indicators_begin(void)
+{
+ if(indicator_gameplay)indicator_suspended=false;
+ memset(indicator_output_owner,0,sizeof(indicator_output_owner));memset(indicator_saved_owner,0,sizeof(indicator_saved_owner));
+ memset(indicator_under_owner,0,sizeof(indicator_under_owner));memset(indicator_saved_under_owner,0,sizeof(indicator_saved_under_owner));
+ indicator_output_generation=indicator_saved_generation=0;
+ indicator_under_generation=indicator_saved_under_generation=0;indicator_under_density=game_probe_density;
+}
+void render_mirror_hud_mode_drawn(SDL_Surface *surface,unsigned int mode)
+{
+ if(!indicator_gameplay)return;
+ indicators_check_mode();if(!indicator_gameplay)return;
+ if(surface!=VGAScreenSeg||(mode!=1&&mode!=2)) {
+  indicators_clear_cached(2);hud_indicators_mode_wiped();return;
+ }
+ /* Called only after both original OPTION blits completed. No game state is
+  * inferred or modified; later composition verifies all 216 indexed cells. */
+ hud_indicators_mode_drawn((int)mode);
+}
+static bool indicators_compose(void)
+{
+ if(!indicator_gameplay||indicator_suspended||!hud_indicators_ready()||game_probe_original_reference||
+    !hud_indicators_palette_matches(rgb_palette))return false;
+ int d=game_probe_density;
+ if((d!=4&&d!=8)||!output||output->w!=320*d||output->h!=200*d)return false;
+ bool top=hud_indicators_top_matches(VGAScreenSeg->pixels,VGAScreenSeg->pitch);
+ bool mode=hud_indicators_mode_ready()&&hud_indicators_mode_matches(VGAScreenSeg->pixels,VGAScreenSeg->pitch);
+ if(!mode)hud_indicators_mode_wiped();
+ bool retained=false;indicator_under_density=d;
+ for(unsigned int i=0;i<237;i++) {
+  if(i<21?!top:!mode)continue;
+  int x,y;indicator_position(i,&x,&y);int under=indicator_overlap(x,y);
+  Uint8 index=((Uint8 *)VGAScreenSeg->pixels)[y*VGAScreenSeg->pitch+x];
+  if(!hud_indicators_sample(x,y,0,0,d,index))continue;
+  bool lower=under>=0&&hud_output_generation==hud_generation&&hud_output_owner[y*320+x];
+  for(int sy=0;sy<d;sy++) {
+   Uint32 *row=(Uint32 *)((Uint8 *)output->pixels+(y*d+sy)*output->pitch)+x*d;
+   for(int sx=0;sx<d;sx++) {
+    if(lower)indicator_under[under][sy*d+sx]=row[sx];
+    const Uint8 *rgba=hud_indicators_sample(x,y,sx,sy,d,index);
+    row[sx]=0xff000000u|((Uint32)rgba[0]<<16)|((Uint32)rgba[1]<<8)|rgba[2];
+   }
+  }
+  if(lower) {indicator_under_owner[under]=1;indicator_under_generation=hud_generation;}
+  indicator_output_owner[i]=i<21?1:2;retained=true;
+ }
+ if(retained)indicator_output_generation=indicator_generation;
+ return retained;
+}
+/* Hidden lower RGB follows the same rounded channel recurrence as visible
+ * HUD1. Restore targets its saved underlay, never the upper indicator image. */
+static void indicators_fade_underlay(int steps)
+{
+ for(unsigned int i=0;i<82;i++)if(indicator_under_owner[i]&&indicator_saved_under_owner[i])
+  for(int sub=0;sub<game_probe_density*game_probe_density;sub++) {
+   Uint32 target=fade_mode==1?0:fade_mode==2?0xffffffu:indicator_saved_under[i][sub],color=0xff000000u;
+   for(int shift=0;shift<24;shift+=8) {
+    int old=(indicator_under[i][sub]>>shift)&255,want=(target>>shift)&255;
+    color|=(Uint32)(old+(want-old)/steps)<<shift;
+   }
+   indicator_under[i][sub]=color;
+  }
+}
+
+/* HUC1 label and shield ownership is independent of the static HUD1 frame. */
+static bool components_owned(void)
+{
+ return memchr(component_output_owner,1,sizeof(component_output_owner))!=NULL||
+   memchr(component_output_owner,2,sizeof(component_output_owner))!=NULL;
+}
+
+static bool components_source_matches(void)
+{
+ return VGAScreenSeg&&VGAScreenSeg==component_source_surface&&
+   VGAScreenSeg->pixels&&VGAScreenSeg->pixels==component_source_pixels&&
+   VGAScreenSeg->format&&VGAScreenSeg->format==component_source_format&&
+   VGAScreenSeg->w==320&&VGAScreenSeg->h==200&&VGAScreenSeg->pitch==component_source_pitch&&
+   VGAScreenSeg->format->BitsPerPixel==8&&VGAScreenSeg->format->BytesPerPixel==1;
+}
+
+static bool components_cached_indices_match(void)
+{
+ if(!components_source_matches())return false;
+ for(int y=0;y<200;y++)
+  if(memcmp(last_output_indices+y*320,(Uint8 *)VGAScreenSeg->pixels+y*VGAScreenSeg->pitch,320)!=0)return false;
+ return true;
+}
+
+/* bits1=labels, bits2=shield. A wipe removes only baked shield samples; modal
+ * suspension removes both. Never reconstruct from an unverified/freed source. */
+static void components_clear_cached(unsigned int bits)
+{
+ bool any=false;
+ for(unsigned int i=0;i<320*200;i++)
+  if((component_output_owner[i]|component_saved_owner[i])&bits) {any=true;break;}
+ if(!any)return;
+ bool verified=output&&output->w==320*game_probe_density&&output->h==200*game_probe_density&&
+   components_cached_indices_match()&&memcmp(component_output_palette,rgb_palette,sizeof(component_output_palette))==0;
+ if(!verified) {ready=false;last_output_valid=false;have_fade_saved=false;fade_mode=0;}
+ int d=game_probe_density;
+ for(int y=0;y<200;y++)for(int x=0;x<320;x++) {
+  unsigned int i=(unsigned int)(y*320+x);
+  bool current=(component_output_owner[i]&bits)!=0,saved=(component_saved_owner[i]&bits)!=0;
+  if(!current&&!saved)continue;
+  if(verified)for(int sy=0;sy<d;sy++)for(int sx=0;sx<d;sx++) {
+   if(current)((Uint32 *)((Uint8 *)output->pixels+(y*d+sy)*output->pitch))[x*d+sx]=palette_rgb(last_output_indices[i]);
+   if(saved&&have_fade_saved&&fade_saved)
+    ((Uint32 *)((Uint8 *)fade_saved->pixels+(y*d+sy)*fade_saved->pitch))[x*d+sx]=0xff000000u|(fade_saved_palette[last_output_indices[i]]&0xffffffu);
+  }
+  component_output_owner[i]&=(Uint8)~bits;component_saved_owner[i]&=(Uint8)~bits;
+ }
+ if(!components_owned())component_output_generation=0;
+ if(!memchr(component_saved_owner,1,sizeof(component_saved_owner))&&!memchr(component_saved_owner,2,sizeof(component_saved_owner)))component_saved_generation=0;
+ if(verified) {
+  bool retained=last_output_scene_hd||memchr(hud_output_owner,1,sizeof(hud_output_owner))||components_owned()||indicators_owned();
+  last_output_valid=last_output_valid&&retained;
+  if(!retained) {have_fade_saved=false;fade_mode=0;}
+ }
+}
+
+static void components_reset(void)
+{
+ components_clear_cached(3);
+ ++component_generation;if(!component_generation)++component_generation;
+ component_gameplay=component_suspended=false;hud_components_forget_source();
+ component_source_surface=NULL;component_source_pixels=NULL;component_source_format=NULL;component_source_pitch=0;
+}
+
+static void components_check_mode(void)
+{
+ if(component_gameplay&&(twoPlayerMode||galagaMode||!components_source_matches()))components_reset();
+}
+
+static void components_start(SDL_Surface *source)
+{
+ /* Caller already checked the explicit pristine PIC3 grant and 8-bit layout. */
+ if(hud_components_load(game_probe_assets)&&hud_components_capture(source->pixels,source->pitch)) {
+  component_source_surface=source;component_source_pixels=source->pixels;
+  component_source_format=source->format;component_source_pitch=source->pitch;component_gameplay=true;
+ }
+}
+
+static void components_begin(void)
+{
+ if(!component_gameplay)return;
+ component_suspended=false;
+ memset(component_output_owner,0,sizeof(component_output_owner));
+ memset(component_saved_owner,0,sizeof(component_saved_owner));
+ component_output_generation=component_saved_generation=0;
+}
+
+void render_mirror_hud_shield_wiped(SDL_Surface *surface)
+{
+ if(!component_gameplay)return;
+ components_check_mode();
+ if(!component_gameplay)return;
+ /* Notification precedes original clears, so valid cached scene/frame/labels
+  * can survive shield removal. The subsequent indexed write stays authoritative. */
+ components_clear_cached(2);hud_components_shield_wiped();
+ (void)surface;
+}
+
+void render_mirror_hud_shield_drawn(SDL_Surface *surface,unsigned int shield,unsigned int maximum)
+{
+ if(!component_gameplay)return;
+ components_check_mode();
+ if(!component_gameplay)return;
+ if(surface!=VGAScreenSeg||shield>28||maximum>28||shield>maximum) {
+  components_clear_cached(2);hud_components_shield_wiped();return;
+ }
+ /* This runs after the original writer, never simulates or updates game state.
+  * A later finish verifies every one of the 522 indexed channel pixels. */
+ hud_components_shield_drawn((int)shield,(int)maximum);
+}
+
+static bool components_compose(void)
+{
+ if(!component_gameplay||component_suspended||!hud_components_ready()||game_probe_original_reference||
+    !hud_components_palette_matches(rgb_palette))return false;
+ int d=game_probe_density;
+ if((d!=4&&d!=8)||!output||output->w!=320*d||output->h!=200*d)return false;
+ bool shield=hud_components_shield_ready()&&hud_components_shield_matches(VGAScreenSeg->pixels,VGAScreenSeg->pitch);
+ if(!shield)hud_components_shield_wiped();
+ static const int boxes[][4]={{285,5,309,10},{285,11,299,16},{285,26,303,31},{285,32,299,37},{270,137,279,195}};
+ bool retained=false;
+ for(unsigned int box=0;box<COUNTOF(boxes);box++) {
+  bool bar=box==4;if(bar&&!shield)continue;
+  for(int y=boxes[box][1];y<boxes[box][3];y++)for(int x=boxes[box][0];x<boxes[box][2];x++) {
+   Uint8 index=((Uint8 *)VGAScreenSeg->pixels)[y*VGAScreenSeg->pitch+x];
+   const Uint8 *rgba=bar?hud_components_shield_sample(x,y,0,0,d,index):hud_components_label_sample(x,y,0,0,d,index);
+   if(!rgba)continue;
+   for(int sy=0;sy<d;sy++) {
+    Uint32 *row=(Uint32 *)((Uint8 *)output->pixels+(y*d+sy)*output->pitch)+x*d;
+    for(int sx=0;sx<d;sx++) {
+     rgba=bar?hud_components_shield_sample(x,y,sx,sy,d,index):hud_components_label_sample(x,y,sx,sy,d,index);
+     row[sx]=0xff000000u|((Uint32)rgba[0]<<16)|((Uint32)rgba[1]<<8)|rgba[2];
+    }
+   }
+   component_output_owner[y*320+x]=bar?2:1;retained=true;
+  }
+ }
+ if(retained)component_output_generation=component_generation;
+ return retained;
+}
+
 static bool hud_source_matches(void)
 {
  /* Compare identity before dereferencing; a replaced/freed old allocation is
@@ -285,23 +639,28 @@ static void hud_clear_cached(void)
    for(int y=0;y<200;y++)for(int x=0;x<320;x++) {
     unsigned int i=(unsigned int)(y*320+x);Uint8 index=last_output_indices[i];
     if(!hud_output_owner[i]&&!hud_saved_owner[i])continue;
+    int cell=indicator_cell(x,y),under=indicator_overlap(x,y);
+    bool upper=cell>=0&&indicator_output_owner[cell],saved_upper=cell>=0&&indicator_saved_owner[cell];
+    if(under>=0) {indicator_under_owner[under]=0;indicator_saved_under_owner[under]=0;}
     for(int sy=0;sy<d;sy++)for(int sx=0;sx<d;sx++) {
-     if(hud_output_owner[i])
+     if(hud_output_owner[i]&&!upper)
       ((Uint32 *)((Uint8 *)output->pixels+(y*d+sy)*output->pitch))[x*d+sx]=palette_rgb(index);
-     if(hud_saved_owner[i]&&have_fade_saved&&fade_saved)
+     if(hud_saved_owner[i]&&!saved_upper&&have_fade_saved&&fade_saved)
       ((Uint32 *)((Uint8 *)fade_saved->pixels+(y*d+sy)*fade_saved->pitch))[x*d+sx]=0xff000000u|(fade_saved_palette[index]&0xffffffu);
     }
    }
-   last_output_valid=last_output_valid&&last_output_scene_hd;
-   if(!last_output_scene_hd) {have_fade_saved=false;fade_mode=0;}
+   bool retained=last_output_scene_hd||components_owned()||indicators_owned();
+   last_output_valid=last_output_valid&&retained;
+   if(!retained) {have_fade_saved=false;fade_mode=0;}
   }
  }
  memset(hud_output_owner,0,sizeof(hud_output_owner));
  memset(hud_saved_owner,0,sizeof(hud_saved_owner));
+ memset(indicator_under_owner,0,sizeof(indicator_under_owner));memset(indicator_saved_under_owner,0,sizeof(indicator_saved_under_owner));
  hud_output_generation=hud_saved_generation=0;
 }
 
-void render_mirror_hud_reset(void)
+static void hud_frame_reset(void)
 {
  hud_clear_cached();
  ++hud_generation;if(!hud_generation)++hud_generation;
@@ -310,9 +669,14 @@ void render_mirror_hud_reset(void)
  hud_source_pitch=hud_source_width=hud_source_height=0;
 }
 
+void render_mirror_hud_reset(void)
+{
+ indicators_reset();components_reset();hud_frame_reset();
+}
+
 void render_mirror_hud_shutdown(void)
 {
- render_mirror_hud_reset();gameplay_hud_shutdown();
+ render_mirror_hud_reset();gameplay_hud_shutdown();hud_components_shutdown();hud_indicators_shutdown();
 }
 
 /* Validate the original bytecode as well as declared dimensions: malformed RLE
@@ -391,8 +755,9 @@ static bool hud_runtime_compatible(bool live)
 
 static void hud_check_mode(void)
 {
+ indicators_check_mode();components_check_mode();
  if(((twoPlayerMode||galagaMode)&&(hud_gameplay||hud_suspended))||
-    (hud_gameplay&&(!hud_source_matches()||!hud_runtime_compatible(hud_live))))render_mirror_hud_reset();
+    (hud_gameplay&&(!hud_source_matches()||!hud_runtime_compatible(hud_live))))hud_frame_reset();
 }
 
 void render_mirror_hud_start(SDL_Surface *decoded_pic3)
@@ -412,11 +777,15 @@ void render_mirror_hud_start(SDL_Surface *decoded_pic3)
   }
   else gameplay_hud_forget_source();
  }
+ components_start(decoded_pic3);indicators_start(decoded_pic3);
 }
 
 void render_mirror_hud_suspend(void)
 {
  hud_check_mode();
+ indicators_clear_cached(3);if(indicator_gameplay)indicator_suspended=true;
+ components_clear_cached(3);
+ if(component_gameplay)component_suspended=true;
  hud_clear_cached();
  if(hud_gameplay)hud_suspended=true;
 }
@@ -432,6 +801,7 @@ static void hud_begin(void)
  memset(hud_output_owner,0,sizeof(hud_output_owner));
  memset(hud_saved_owner,0,sizeof(hud_saved_owner));
  hud_output_generation=hud_saved_generation=0;
+ components_begin();indicators_begin();
 }
 
 static bool hud_compose(void)
@@ -1305,8 +1675,10 @@ void render_mirror_finish(bool ordinary_crop)
   for(int y=0;y<184*d;y++) memcpy((Uint8 *)output->pixels+y*output->pitch,(Uint8 *)canvas->pixels+y*canvas->pitch+24*d*4,(size_t)264*d*4);
  }
  bool retained_hud=!reject_reason&&ordinary_crop&&hud_compose();
+ bool retained_components=!reject_reason&&ordinary_crop&&components_compose();
+ bool retained_indicators=!reject_reason&&ordinary_crop&&indicators_compose();
  bool retained_scene_hd=memchr(hd_owner,1,(size_t)canvas->w*canvas->h)!=NULL||memchr(hd_owner,2,(size_t)canvas->w*canvas->h)!=NULL;
- bool retained_hd=retained_scene_hd||retained_hud;
+ bool retained_hd=retained_scene_hd||retained_hud||retained_components||retained_indicators;
  unsigned int classic_mismatches=0;
  if(game_probe_original_reference)for(int y=0;y<output->h;y++) {
   const Uint32 *row=(const Uint32 *)((Uint8 *)output->pixels+y*output->pitch);
@@ -1318,6 +1690,8 @@ void render_mirror_finish(bool ordinary_crop)
  last_output_valid=!reject_reason&&retained_hd;
  memcpy(last_output_palette,rgb_palette,sizeof(last_output_palette));
  if(retained_hud)memcpy(hud_output_palette,rgb_palette,sizeof(hud_output_palette));
+ if(retained_components)memcpy(component_output_palette,rgb_palette,sizeof(component_output_palette));
+ if(retained_indicators)memcpy(indicator_output_palette,rgb_palette,sizeof(indicator_output_palette));
  for(int y=0;y<200;y++)memcpy(last_output_indices+y*320,(Uint8 *)VGAScreenSeg->pixels+y*VGAScreenSeg->pitch,320);
  ground101_frame_report(game_probe_tick,reject_reason);
  game_probe_frame(draws,occlusions,mismatch,reject_reason?reject_reason:retained_hd?"hd-ordered":"classic-assets",all_rejections,local_entities,local_regions,local_blocks);
@@ -1343,6 +1717,10 @@ void render_mirror_fade_start(const SDL_Color *target,const SDL_Color *solid,uns
   for(int y=0;y<output->h;y++)memcpy((Uint8 *)fade_saved->pixels+y*fade_saved->pitch,(Uint8 *)output->pixels+y*output->pitch,(size_t)output->w*4);
   memcpy(fade_saved_palette,rgb_palette,sizeof(fade_saved_palette));
   memcpy(hud_saved_owner,hud_output_owner,sizeof(hud_saved_owner));hud_saved_generation=hud_output_generation;
+  memcpy(component_saved_owner,component_output_owner,sizeof(component_saved_owner));component_saved_generation=component_output_generation;
+  memcpy(indicator_saved_owner,indicator_output_owner,sizeof(indicator_saved_owner));indicator_saved_generation=indicator_output_generation;
+  memcpy(indicator_saved_under,indicator_under,sizeof(indicator_saved_under));
+  memcpy(indicator_saved_under_owner,indicator_under_owner,sizeof(indicator_saved_under_owner));indicator_saved_under_generation=indicator_under_generation;
   have_fade_saved=true;fade_mode=solid->r==0?1:2;
  } else if(target&&have_fade_saved) {
   for(int i=0;i<256;i++)if((fade_saved_palette[i]&0xffffffu)!=(((Uint32)target[i].r<<16)|((Uint32)target[i].g<<8)|target[i].b))return;
@@ -1355,7 +1733,9 @@ void render_mirror_fade_step(int steps)
 {
  hud_check_mode();
  if(!fade_mode||steps<=0)return;
+ if(indicator_output_generation&&(!indicators_cached_indices_match()||!indicators_underlay_matches())) {indicators_clear_cached(3);return;}
  if(hud_output_generation&&!hud_cached_indices_match()) {hud_clear_cached();return;}
+ if(component_output_generation&&!components_cached_indices_match()) {components_clear_cached(3);return;}
  int d=game_probe_density;unsigned int hd_pixels=0;
  for(int y=0;y<output->h;y++) {
   Uint32 *row=(Uint32 *)((Uint8 *)output->pixels+y*output->pitch);
@@ -1364,7 +1744,12 @@ void render_mirror_fade_step(int steps)
    unsigned int logical=(unsigned int)((y/d)*320+x/d);
    bool hud=hud_output_generation==hud_generation&&hud_saved_generation==hud_generation&&
      hud_output_owner[logical]&&hud_saved_owner[logical];
-   bool hd=(x<264*d&&y<184*d&&hd_owner[y*canvas->w+x+24*d]!=0)||hud;
+   bool component=component_output_generation==component_generation&&component_saved_generation==component_generation&&
+     component_output_owner[logical]&&component_saved_owner[logical];
+   int cell=indicator_output_generation?indicator_cell(x/d,y/d):-1;
+   bool indicator=cell>=0&&indicator_output_generation==indicator_generation&&indicator_saved_generation==indicator_generation&&
+     indicator_output_owner[cell]&&indicator_saved_owner[cell];
+   bool hd=(x<264*d&&y<184*d&&hd_owner[y*canvas->w+x+24*d]!=0)||hud||component||indicator;
    if(hd) {
     Uint32 target=fade_mode==1?0:fade_mode==2?0xffffffu:saved[x];
     Uint32 color=0xff000000u;
@@ -1376,7 +1761,10 @@ void render_mirror_fade_step(int steps)
    } else row[x]=palette_rgb(((Uint8 *)VGAScreenSeg->pixels)[(y/d)*VGAScreenSeg->pitch+x/d]);
   }
  }
+ indicators_fade_underlay(steps);
+ if(indicator_output_generation)memcpy(indicator_output_palette,rgb_palette,sizeof(indicator_output_palette));
  if(hud_output_generation)memcpy(hud_output_palette,rgb_palette,sizeof(hud_output_palette));
+ if(component_output_generation)memcpy(component_output_palette,rgb_palette,sizeof(component_output_palette));
  ready=true;game_probe_fade_sample(output,steps,hd_pixels,fade_mode);
  if(steps==1)fade_mode=0;
 }
@@ -1384,7 +1772,9 @@ void render_mirror_fade_step(int steps)
 bool render_mirror_present(SDL_Renderer *renderer,SDL_Surface *src,const SDL_Rect *dst)
 {
  hud_check_mode();
+ if(indicator_output_generation&&(!indicators_cached_indices_match()||!indicators_underlay_matches()||memcmp(indicator_output_palette,rgb_palette,sizeof(indicator_output_palette))!=0))indicators_clear_cached(3);
  if(hud_output_generation&&(!hud_cached_indices_match()||memcmp(hud_output_palette,rgb_palette,sizeof(hud_output_palette))!=0))hud_clear_cached();
+ if(component_output_generation&&(!components_cached_indices_match()||memcmp(component_output_palette,rgb_palette,sizeof(component_output_palette))!=0))components_clear_cached(3);
  if(!ready||src!=VGAScreenSeg)return false;ready=false;
  if(game_probe_skip) { uint64_t rng=mt_state_fingerprint();game_probe_present(0,rng,rng);return true; }
  if(!texture) texture=SDL_CreateTexture(renderer,SDL_PIXELFORMAT_ARGB8888,SDL_TEXTUREACCESS_STREAMING,output->w,output->h);

@@ -7,6 +7,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include "gameplay_hud.h"
+#include "gameplay_hud_components.h"
+#include "gameplay_hud_indicators.h"
 typedef uint8_t Uint8;
 typedef uint16_t Uint16;
 typedef uint32_t Uint32;
@@ -69,6 +71,28 @@ static SDL_Surface *hud_source_surface;
 static void *hud_source_pixels;
 static SDL_PixelFormat *hud_source_format;
 static int hud_source_pitch,hud_source_width,hud_source_height;
+static Uint8 component_output_owner[64000],component_saved_owner[64000];
+static Uint32 component_output_palette[256];
+static uint64_t component_generation,component_output_generation,component_saved_generation;
+static bool component_gameplay,component_suspended;
+static SDL_Surface *component_source_surface;
+static void *component_source_pixels;
+static SDL_PixelFormat *component_source_format;
+static int component_source_pitch;
+/* HUL1 is the only overlapping HUD layer. Save the actual already-composed
+ * HUD1 subpixels, never reconstruct its authored RGB from indexed pixels. */
+static Uint8 indicator_output_owner[237],indicator_saved_owner[237];
+static Uint32 indicator_output_palette[256];
+static uint64_t indicator_generation,indicator_output_generation,indicator_saved_generation;
+static bool indicator_gameplay,indicator_suspended;
+static SDL_Surface *indicator_source_surface;
+static void *indicator_source_pixels;
+static SDL_PixelFormat *indicator_source_format;
+static int indicator_source_pitch,indicator_under_density;
+static Uint32 indicator_under[82][64],indicator_saved_under[82][64];
+static Uint8 indicator_under_owner[82],indicator_saved_under_owner[82];
+static uint64_t indicator_under_generation,indicator_saved_under_generation;
+static const Uint16 indicator_overlap_positions[82]={14365,14366,14369,14372,14373,14374,14375,14376,14377,14378,14379,14380,14381,14382,14383,14386,14389,14390,14391,14693,14695,14696,14697,14698,14699,14700,14701,14710,15015,15016,15017,15018,15019,15020,15021,15335,15336,15337,15338,15339,15340,15341,15655,15656,15657,15658,15659,15660,15661,15975,15976,15977,15978,15979,15980,15981,15982,16292,16293,16295,16296,16297,16298,16299,16300,16301,16303,16309,16310,16606,16613,16614,16615,16616,16617,16618,16619,16620,16621,16622,16623,16630};
 static bool active,suppress,ready,suppress_green_smoke,suppress_cloud,have_initial_palette,last_output_valid,have_fade_saved;
 static int fade_mode;
 static const char *reject_reason;
@@ -110,7 +134,7 @@ static void cleanup(void)
  canvas=output=fade_saved=game_screen=VGAScreenSeg=NULL;
  free(hd_owner);free(cloud_owner);free(green_first);free(green_under);free(green_under_owner);
  hd_owner=cloud_owner=green_under_owner=NULL;green_first=NULL;green_under=NULL;
- gameplay_hud_shutdown();
+ gameplay_hud_shutdown();hud_components_shutdown();hud_indicators_shutdown();
 }
 static void setup(int d,const char *directory)
 {
@@ -119,6 +143,13 @@ static void setup(int d,const char *directory)
  game_probe_skip=true;game_probe_repeat=false;twoPlayerMode=galagaMode=false;
  last_output_valid=have_fade_saved=have_initial_palette=ready=active=false;fade_mode=0;texture=NULL;
  hud_source_surface=NULL;hud_source_pixels=NULL;hud_source_format=NULL;
+ indicator_gameplay=indicator_suspended=false;indicator_source_surface=NULL;indicator_source_pixels=NULL;indicator_source_format=NULL;
+ indicator_output_generation=indicator_saved_generation=0;
+ memset(indicator_output_owner,0,sizeof(indicator_output_owner));memset(indicator_saved_owner,0,sizeof(indicator_saved_owner));
+ memset(indicator_under_owner,0,sizeof(indicator_under_owner));memset(indicator_saved_under_owner,0,sizeof(indicator_saved_under_owner));
+ component_gameplay=component_suspended=false;component_source_surface=NULL;component_source_pixels=NULL;component_source_format=NULL;
+ component_output_generation=component_saved_generation=0;
+ memset(component_output_owner,0,sizeof(component_output_owner));memset(component_saved_owner,0,sizeof(component_saved_owner));
  hud_gameplay=hud_suspended=hud_live=false;hud_output_generation=hud_saved_generation=0;last_output_scene_hd=false;
  memset(hud_output_owner,0,sizeof(hud_output_owner));memset(hud_saved_owner,0,sizeof(hud_saved_owner));
  game_screen=SDL_CreateRGBSurfaceWithFormat(0,320,200,8,0);VGAScreenSeg=SDL_CreateRGBSurfaceWithFormat(0,320,200,8,0);

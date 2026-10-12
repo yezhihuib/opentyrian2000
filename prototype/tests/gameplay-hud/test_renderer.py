@@ -10,6 +10,8 @@ import tempfile
 from run_tests import checked_points
 
 ROOT = Path(__file__).resolve().parents[3]
+INDICATOR_FUNCTIONS = ['hud_sprite_decode', 'indicator_cell', 'indicator_position', 'indicator_overlap', 'indicators_owned', 'indicators_source_matches', 'indicators_cached_indices_match', 'indicators_underlay_matches', 'indicators_clear_cached', 'indicators_reset', 'indicators_decode_modes', 'indicators_check_mode', 'indicators_start', 'indicators_begin', 'render_mirror_hud_mode_drawn', 'indicators_compose', 'indicators_fade_underlay']
+
 BASE = 'a49e46e5f8880b98cfb41028b6389e97d0636433'
 
 def extract(source, name):
@@ -81,7 +83,7 @@ def main():
     args = parser.parse_args()
     check_hooks()
     common = ['palette_rgb','upscale','render_mirror_unsupported','render_mirror_begin','render_mirror_finish','render_mirror_fade_start','render_mirror_fade_step','render_mirror_present','render_mirror_release_texture']
-    hud = ['hud_source_matches','hud_cached_indices_match','hud_clear_cached','render_mirror_hud_reset','render_mirror_hud_shutdown','hud_sprite_decode','hud_runtime_compatible','hud_check_mode','render_mirror_hud_start','render_mirror_hud_suspend','hud_begin','hud_compose']
+    hud = ['components_owned','components_source_matches','components_cached_indices_match','components_clear_cached','components_reset','components_check_mode','components_start','components_begin','render_mirror_hud_shield_wiped','render_mirror_hud_shield_drawn','components_compose','hud_source_matches','hud_cached_indices_match','hud_clear_cached','hud_frame_reset','render_mirror_hud_reset','render_mirror_hud_shutdown','hud_sprite_decode','hud_runtime_compatible','hud_check_mode','render_mirror_hud_start','render_mirror_hud_suspend','hud_begin','hud_compose']
     sources = {'baseline':subprocess.check_output(['git','show',BASE+':src/render_mirror.c'],cwd=ROOT,text=True),'candidate':(ROOT/'src/render_mirror.c').read_text()}
     with tempfile.TemporaryDirectory(prefix='hud-renderer-') as directory:
         path = Path(directory)
@@ -91,13 +93,13 @@ def main():
         outputs = {}
         for variant,source in sources.items():
             # HUD definitions precede begin/finish; declarations remain in harness.
-            names = common[:3] + (hud if variant=='candidate' else []) + common[3:]
+            names = common[:3] + (INDICATOR_FUNCTIONS+[n for n in hud if n!='hud_sprite_decode'] if variant=='candidate' else []) + common[3:]
             (path/'production.inc').write_text('\n'.join(extract(source,n) for n in names))
             executable = path/variant
             command = [os.environ.get('CC','cc'),'-std=c99','-O1','-g','-Wall','-Wextra','-Wno-unused-parameter','-Wno-unused-variable','-Wno-unused-function','-Wno-misleading-indentation','-I'+str(path),'-I'+str(ROOT/'src')]
             if variant=='baseline': command += ['-DBASELINE_RENDERER']
             if args.sanitize: command += ['-fsanitize=address,undefined','-fno-omit-frame-pointer','-no-pie']
-            command += [str(Path(__file__).with_suffix('.c')),str(ROOT/'src/gameplay_hud.c'),'-o',str(executable)]
+            command += [str(Path(__file__).with_suffix('.c')),str(ROOT/'src/gameplay_hud.c'),str(ROOT/'src/gameplay_hud_components.c'),str(ROOT/'src/gameplay_hud_indicators.c'),'-o',str(executable)]
             subprocess.run(command,check=True)
             env=dict(os.environ)
             if args.sanitize:

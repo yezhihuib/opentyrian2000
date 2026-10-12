@@ -1,0 +1,133 @@
+{
+  "logical_box_half_open": [
+    285,
+    44,
+    312,
+    52
+  ],
+  "original_state_recipe": "Start with the decoded PIC3 27 x 8 rectangle. Overlay fully opaque 10 x 8 OPTION18/19 at local x = 0 and x = 17. Mode 1 uses (18, 19); mode 2 uses (19, 18). The 7 x 8 center remains decoded PIC3. No original indexed or RGB pixels are bundled.",
+  "mode_checksums": {
+    "1": {
+      "indexed_bytes": 216,
+      "sha256": "f9500b1b4f31a22ee9e7d0241f3771662def846d80ab83347213b214c4fa24eb",
+      "fnv1a64": "55f78c15a1ce495a"
+    },
+    "2": {
+      "indexed_bytes": 216,
+      "sha256": "dfb9f993dcf127286a3e4d2cda9c91ca522c97b70cdbb6648968c92e3240ef7e",
+      "fnv1a64": "f7a97c521d045d18"
+    }
+  },
+  "top_and_source_checksums": {
+    "source_file_hashes": {
+      "tyrian.pic": "76fa51ba6878c886f67daa65cf6d19968615e4423822c9fe1dde797fc2f8d802",
+      "tyrian.shp": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+      "palette.dat": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+    },
+    "normal_palette_rgb_sha256": "d4c24a49efb588abd6dc1ffd0f0d1279a498c422cdd26fba4fc921b07f8c159f",
+    "normal_palette_rgb_fnv64": "5e80e83992be2927",
+    "sprite_table": 5,
+    "sprites": {
+      "18": {
+        "size": [
+          10,
+          8
+        ],
+        "encoded_bytes": 80,
+        "opaque_count": 80,
+        "full_indices_sha256": "13244dfdea184b3bada38c045798a2d1a409078ae6a681f9fda59dcb23f3f780",
+        "full_indices_fnv64": "d36b9afd4df898cf",
+        "full_rgba_sha256": "48835f3125f33221d2b287d9220b07945801d7f23e2ac1a865c9720d2c00a4f3",
+        "full_rgba_fnv64": "b12084d3443a2a80",
+        "lens_indices_sha256": "5c243bf795c127791f0a339bcaf0010cc7a59745b24f15fe3bbcf9eb83bfd166",
+        "lens_indices_fnv64": "706b12e2374bbfc1",
+        "local_lens_box_half_open": [
+          1,
+          2,
+          9,
+          6
+        ]
+      },
+      "19": {
+        "size": [
+          10,
+          8
+        ],
+        "encoded_bytes": 80,
+        "opaque_count": 80,
+        "full_indices_sha256": "322c8ea0cc3b0d95c54f70961654922aed40450ba959381e74da3b355ad6e7f9",
+        "full_indices_fnv64": "ac3fca9154ec0310",
+        "full_rgba_sha256": "e890353d17037e2af9ab9d6a24f5d79b881a60e12d50016ce4415bfa0b0333e9",
+        "full_rgba_fnv64": "274d7f6c880c2044",
+        "lens_indices_sha256": "a7cbbfdfe39c7df7502aa43b785e40940817b89fbff7834b364d2e343c80c25c",
+        "lens_indices_fnv64": "adad96b55ebc35a5",
+        "local_lens_box_half_open": [
+          1,
+          2,
+          9,
+          6
+        ]
+      }
+    },
+    "pic3_indices_sha256": "83c5979f54de07f79e0c13970f242ae6f7435d4d396a168b340458c955c0e0f4",
+    "pic3_indices_fnv64": "14c1441f3d5dc0e2",
+    "top": {
+      "lens_box_half_open": [
+        269,
+        4,
+        276,
+        7
+      ],
+      "lens_indices_sha256": "8efdf42ef51e4c015216544b266515b24d6737ec72bbac83ac4ee85a8821dd58",
+      "lens_indices_fnv64": "328ef0a75cce2260",
+      "full_lamp_box_half_open": [
+        269,
+        3,
+        277,
+        8
+      ],
+      "full_lamp_indices_sha256": "3572537a1d102324fc53dfde8fed0397145b9de51fce79368d688391f8a59de8",
+      "full_lamp_indices_fnv64": "5236961bdc9ece6e"
+    }
+  },
+  "ownership": "The complete 216-pixel assembly replaces 82 existing frame-owned pixels and 134 live-sprite-area pixels. The separate top lens owns 21 pixels; combined ownership is 237. No changes are permitted outside these two regions. The shared OPTION bank remains unchanged.",
+  "status": "Authoritative reconciled source-state contract for the accepted full-assembly trial; the historical 85-pixel lens-only runtime proposal is superseded.",
+  "authoritative_scope": {
+    "top_box_half_open": [
+      269,
+      4,
+      276,
+      7
+    ],
+    "assembly_box_half_open": [
+      285,
+      44,
+      312,
+      52
+    ],
+    "top_pixels": 21,
+    "assembly_pixels": 216,
+    "combined_pixels": 237,
+    "frame_overlap_pixels": 82,
+    "live_area_pixels": 134,
+    "frame_overlap_breakdown": {
+      "invariant_socket_rim_pixels": 26,
+      "center_grille_pixels": 56
+    },
+    "mask_files": [
+      "top-plus-assembly-mask.mask",
+      "assembly-frame-overlap.mask",
+      "assembly-mask.mask",
+      "assembly-live-area.mask"
+    ]
+  },
+  "integration_requirements": [
+    "Use the known decoded PIC3 source and normal palette guards before applying indicator art.",
+    "Validate the complete 216-byte original indexed assembly state against mode 1 or mode 2; this includes both full 10 x 8 sprites and the unchanged 7 x 8 PIC3 center.",
+    "Validate the top lens separately against its 21 original indexed pixels.",
+    "The assembly may replace the exact 82-pixel local frame overlap. Do not apply the historical 26-pixel rim-preservation restriction to this accepted assembly.",
+    "Suppress on absent original draw, unsupported mode or source data, foreign writes, or stale lifecycle. Respect source, mode, fade, and modal ownership; fades present cached owner pixels rather than freshly bright art.",
+    "Do not replace OPTION_SHAPES globally; shop use remains classic.",
+    "HUL1 contains no masks. Its fixed coordinates and exact 82-pixel overlap require compiled integration guards."
+  ]
+}

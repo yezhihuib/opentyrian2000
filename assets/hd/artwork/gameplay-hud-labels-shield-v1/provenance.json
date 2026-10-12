@@ -1,0 +1,203 @@
+{
+  "source_reference_base": "/workspace/scratch/f67dd347fa0a (audit location only; reproduction never opens it)",
+  "description": "Source audit, V1 authored label files/recipe, and V2 material recipe/validation/three M10 fixtures. Source paths and hashes only; no source PIC, indices, frame pixels or captures included.",
+  "sources": [
+    {
+      "reference": "hud-labels-shield-audit/README.md",
+      "file_sha256": "9404129831f6abad4e395500d84eee182da5497003793156f5d857710635b0a8",
+      "file_bytes": 9750
+    },
+    {
+      "reference": "tyrian-hd-art/hud-labels-shield-pilot-v1/build_pilot.py",
+      "file_sha256": "732a2abab9322a4fb641f0683a0d3d69ea02990f004de44c663025941e22742b",
+      "file_bytes": 9800
+    },
+    {
+      "reference": "tyrian-hd-art/hud-labels-shield-pilot-v1/label-FRONT-4x.png",
+      "file_sha256": "01caac9061368fcf19c77d996848205321adea624142523103f32b7a2544bf67",
+      "file_bytes": 1427,
+      "width": 96,
+      "height": 20,
+      "decoded_rgba_sha256": "86ac4df85a5be45e1ca85eae715abb3dd0683d0d919e733c9b64d5fb3bd58322"
+    },
+    {
+      "reference": "tyrian-hd-art/hud-labels-shield-pilot-v1/label-GUN_front-4x.png",
+      "file_sha256": "dba02fdae0c671b9b2ac360a7cb25b797768a4b69a3019f71c907ab5f1569d76",
+      "file_bytes": 978,
+      "width": 56,
+      "height": 20,
+      "decoded_rgba_sha256": "55b2a8f359dabcfa1dc6ab7413418332348b5e134788d79a51832c5e36ee2b89"
+    },
+    {
+      "reference": "tyrian-hd-art/hud-labels-shield-pilot-v1/label-REAR-4x.png",
+      "file_sha256": "7a5527da7b56b05b427df59300ab93ab2515be8760ce1c339566b5c40428fea5",
+      "file_bytes": 1043,
+      "width": 72,
+      "height": 20,
+      "decoded_rgba_sha256": "6e0ef76c203ccc6ef9098376af329b977870119aa91bbb1e242c9a8c02662670"
+    },
+    {
+      "reference": "tyrian-hd-art/hud-labels-shield-pilot-v1/label-GUN_rear-4x.png",
+      "file_sha256": "dba02fdae0c671b9b2ac360a7cb25b797768a4b69a3019f71c907ab5f1569d76",
+      "file_bytes": 978,
+      "width": 56,
+      "height": 20,
+      "decoded_rgba_sha256": "55b2a8f359dabcfa1dc6ab7413418332348b5e134788d79a51832c5e36ee2b89"
+    },
+    {
+      "reference": "tyrian-hd-art/hud-labels-shield-pilot-v2/build_pilot.py",
+      "file_sha256": "010387aaf48727d21686be81a3460e5d8e84eb73bcfd1afd95cf23fbb6f0efcc",
+      "file_bytes": 5946
+    },
+    {
+      "reference": "tyrian-hd-art/hud-labels-shield-pilot-v2/validation.json",
+      "file_sha256": "84e7823c1b4c32c3e8211b8d7a1fd22bc11ddfae89cd6546321c13a842759115",
+      "file_bytes": 4020
+    },
+    {
+      "reference": "tyrian-hd-art/hud-labels-shield-pilot-v2/pilot-S10-M10-4x.png",
+      "file_sha256": "2863b74404d53b329dbe66cc3ccdbd523757070fc00d72b660b13eccdb8d01ca",
+      "file_bytes": 1054779,
+      "width": 1280,
+      "height": 800,
+      "decoded_rgba_sha256": "5bf42b5469592b23dcce558c18d68b138996d568fa93eed7db0b7faf699b9ad1"
+    },
+    {
+      "reference": "tyrian-hd-art/hud-labels-shield-pilot-v2/pilot-S5-M10-4x.png",
+      "file_sha256": "787832b2891649979803299a64fbd2b723650d0f53bb44a5601bcb63b906395e",
+      "file_bytes": 1054209,
+      "width": 1280,
+      "height": 800,
+      "decoded_rgba_sha256": "9ac8b83b3297382e003f26644056ce2276dde507055417678d1b7f84556c346c"
+    },
+    {
+      "reference": "tyrian-hd-art/hud-labels-shield-pilot-v2/pilot-S1-M10-4x.png",
+      "file_sha256": "61bcb18f733c519fd6ed43d9ce116a0a89264ff59e1c89d28e773efa6880ce5a",
+      "file_bytes": 1053753,
+      "width": 1280,
+      "height": 800,
+      "decoded_rgba_sha256": "c7b1c069f2636622c13172a2ef56858ba1f063e62cc165dc8cd10f9db5a53ec1"
+    }
+  ],
+  "expected_labels": {
+    "FRONT": {
+      "source": "tyrian-hd-art/hud-labels-shield-pilot-v1/label-FRONT-4x.png",
+      "logical_rect_half_open": [
+        285,
+        5,
+        309,
+        10
+      ],
+      "decoded_rgba_sha256": "86ac4df85a5be45e1ca85eae715abb3dd0683d0d919e733c9b64d5fb3bd58322",
+      "decoded_rgba_fnv1a64": "c1bf33a57c78f7ea"
+    },
+    "GUN_front": {
+      "source": "tyrian-hd-art/hud-labels-shield-pilot-v1/label-GUN_front-4x.png",
+      "logical_rect_half_open": [
+        285,
+        11,
+        299,
+        16
+      ],
+      "decoded_rgba_sha256": "55b2a8f359dabcfa1dc6ab7413418332348b5e134788d79a51832c5e36ee2b89",
+      "decoded_rgba_fnv1a64": "7a5118678c2a616c"
+    },
+    "REAR": {
+      "source": "tyrian-hd-art/hud-labels-shield-pilot-v1/label-REAR-4x.png",
+      "logical_rect_half_open": [
+        285,
+        26,
+        303,
+        31
+      ],
+      "decoded_rgba_sha256": "6e0ef76c203ccc6ef9098376af329b977870119aa91bbb1e242c9a8c02662670",
+      "decoded_rgba_fnv1a64": "2141d9734b01a227"
+    },
+    "GUN_rear": {
+      "source": "tyrian-hd-art/hud-labels-shield-pilot-v1/label-GUN_rear-4x.png",
+      "logical_rect_half_open": [
+        285,
+        32,
+        299,
+        37
+      ],
+      "decoded_rgba_sha256": "55b2a8f359dabcfa1dc6ab7413418332348b5e134788d79a51832c5e36ee2b89",
+      "decoded_rgba_fnv1a64": "7a5118678c2a616c"
+    }
+  },
+  "expected_m10_fixtures": [
+    {
+      "S": 10,
+      "M": 10,
+      "source": "tyrian-hd-art/hud-labels-shield-pilot-v2/pilot-S10-M10-4x.png",
+      "shield_crop_4x_rect_half_open": [
+        1080,
+        548,
+        1116,
+        780
+      ],
+      "shield_crop_decoded_rgba_sha256": "c6dfe2e66931f5f06b260085db29907f098bcf84e9e4b8ad79cdf86c52a1cd5d",
+      "shield_crop_decoded_rgba_fnv1a64": "cc87e6520bbec81e",
+      "labels_rgba_byte_exact": {
+        "FRONT": true,
+        "GUN_front": true,
+        "REAR": true,
+        "GUN_rear": true
+      }
+    },
+    {
+      "S": 5,
+      "M": 10,
+      "source": "tyrian-hd-art/hud-labels-shield-pilot-v2/pilot-S5-M10-4x.png",
+      "shield_crop_4x_rect_half_open": [
+        1080,
+        548,
+        1116,
+        780
+      ],
+      "shield_crop_decoded_rgba_sha256": "37d09fde29d2eb7a73cd9a4a46b7c6e5f8d0fa9918b832d046f71b8aa4096164",
+      "shield_crop_decoded_rgba_fnv1a64": "094b9ad7cf0976d0",
+      "labels_rgba_byte_exact": {
+        "FRONT": true,
+        "GUN_front": true,
+        "REAR": true,
+        "GUN_rear": true
+      }
+    },
+    {
+      "S": 1,
+      "M": 10,
+      "source": "tyrian-hd-art/hud-labels-shield-pilot-v2/pilot-S1-M10-4x.png",
+      "shield_crop_4x_rect_half_open": [
+        1080,
+        548,
+        1116,
+        780
+      ],
+      "shield_crop_decoded_rgba_sha256": "02dc655b6b82cb4ecd77e52bc66a83639d28ee2af103752e0141117100ecea45",
+      "shield_crop_decoded_rgba_fnv1a64": "8ee9dd8dc4a31695",
+      "labels_rgba_byte_exact": {
+        "FRONT": true,
+        "GUN_front": true,
+        "REAR": true,
+        "GUN_rear": true
+      }
+    }
+  ],
+  "palette_reference": {
+    "source": "tyrian-hd-art/gameplay-hud-v1/pic3-original-palette5.png",
+    "source_png_file_sha256": "ff6a485ed0cd9e684e02d7b140cf233c22eb1a884b89483039130d1ad28ba3a0",
+    "read_scope": "768 palette bytes only for binding; no source PIC pixels or indices copied into package",
+    "palette_format": "256 row-major RGB triples after VGA expansion, before gamma/fade",
+    "palette_bytes": 768,
+    "palette_rgb_sha256": "d4c24a49efb588abd6dc1ffd0f0d1279a498c422cdd26fba4fc921b07f8c159f",
+    "palette_rgb_fnv1a64": "5e80e83992be2927",
+    "stored_as": "checksum and needed role constants; no full original palette dependency"
+  },
+  "PIC3_index_binding": {
+    "required_fnv1a64": "14c1441f3d5dc0e2",
+    "source": "integrator-supplied HUC1 contract",
+    "audited_index_sha256": "83c5979f54de07f79e0c13970f242ae6f7435d4d396a168b340458c955c0e0f4",
+    "source_indices_included": false
+  }
+}

@@ -1,2 +1,5 @@
 # Preserve the frozen authored TSV's CRLF records and empty final fields byte-exact.
 assets/hd/artwork/gameplay-hud-v5/ownership-audit-safe-static-310.tsv -text whitespace=-blank-at-eol
+# Preserve immutable authored CSV records and the frozen reproducer's source bytes.
+assets/hd/artwork/gameplay-hud-indicators-v1/placement-state.csv -text whitespace=-blank-at-eol
+assets/hd/artwork/gameplay-hud-labels-shield-v1/build_assets.py -text whitespace=-blank-at-eol

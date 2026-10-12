@@ -1,7 +1,7 @@
 {
   "schema": "opentyrian-accepted-hd-runtime-v1",
   "baseline_branch": "hd-render-prototype",
-  "status": "Reviewed static single-player gameplay HUD V5 with exact scene preservation and bounded modal/fade proof",
+  "status": "HD prototype: accepted static HUD V5 plus bounded HUC1 labels/event-driven shield and HUL1 top lens/paired mode assembly; original gameplay preserved, remaining typography separate",
   "default_preview_pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
   "default_debug_pack": "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
   "packs": {
@@ -42141,5 +42141,478 @@
       }
     },
     "runtime_status": "passed actual native2x/4x, scripted original pause/help/options, real black/white/restore fade, finite fallback/source/sanitizer tests"
+  },
+  "gameplay_hud_extensions_v1": {
+    "schema": "finite-pic3-huc1-hul1-v1",
+    "resources": {
+      "components": {
+        "source": "assets/hd/artwork/gameplay-hud-labels-shield-v1",
+        "filename": "gameplay-hud-components-v1.hda",
+        "source_files": {
+          "README.md": {
+            "bytes": 6301,
+            "sha256": "6f93f674bc8f247e09a1de0663806efa9dcd98e28b21069a0a3aaf09d0765685"
+          },
+          "build_assets.py": {
+            "bytes": 13888,
+            "sha256": "3beb526762bea05f2cd088e8a9cefd72070940f8929443a19a1ae35beb876459"
+          },
+          "gameplay-hud-components-v1.hda": {
+            "bytes": 38592,
+            "sha256": "c40c9ecf16a0d654876597195880deb484c17e36b1d1a17a9c1a241fb2b26d33"
+          },
+          "manifest.json": {
+            "bytes": 27424,
+            "sha256": "9db0617d0a9a6362fa4e24fd50907742832ad7bd0717cf8359fff4d3cfe9f163"
+          },
+          "provenance.json": {
+            "bytes": 7536,
+            "sha256": "74de73415fcc1623df4ec388b878a9329572144f90ef033f380c35b87c9052fd"
+          },
+          "requirements.txt": {
+            "bytes": 28,
+            "sha256": "d0524439f7a0da67c1283d44683e00fcc795a0657e726f22087cfcbe198f7c89"
+          },
+          "tiles/label-FRONT-4x.png": {
+            "bytes": 1520,
+            "sha256": "f1644d33216ec424c8d00bb53121af319522dc06b288acc8fa66ebd9e3730f48"
+          },
+          "tiles/label-GUN_front-4x.png": {
+            "bytes": 1055,
+            "sha256": "49bbae05ba1030b428573666e9dbae394519085a8a84350d89289526e6738803"
+          },
+          "tiles/label-GUN_rear-4x.png": {
+            "bytes": 1055,
+            "sha256": "49bbae05ba1030b428573666e9dbae394519085a8a84350d89289526e6738803"
+          },
+          "tiles/label-REAR-4x.png": {
+            "bytes": 1128,
+            "sha256": "0d4374b3d82a345ec970676099793d471c3dfae0621377e62bfdcf49cf30e8ce"
+          },
+          "tiles/shield-band-role146-4x.png": {
+            "bytes": 244,
+            "sha256": "b2d162be5d263e5dec9eb9a492d0c04da577f8397a63788bbc39209caea1cced"
+          },
+          "tiles/shield-band-role147-4x.png": {
+            "bytes": 247,
+            "sha256": "ed3195a22bcffba11fbf18fcf8da55e12a516b83a8fece57b9c9a5cfc85eb429"
+          },
+          "tiles/shield-band-role148-4x.png": {
+            "bytes": 248,
+            "sha256": "88157399c4b49a653336dcd4e4686ecf26ecfcab71faa251ad2e5f6e3a95e2ba"
+          },
+          "tiles/shield-band-role149-4x.png": {
+            "bytes": 263,
+            "sha256": "f5e1b914f65b5ea0b3850d534d6bd42d1cc1ff655605c2d8ce4882c2d4c5b6eb"
+          },
+          "tiles/shield-band-role150-4x.png": {
+            "bytes": 277,
+            "sha256": "a0d1ef7a34dfcd84460c0fcec000572437487f816cd24f3b174745625cab8a6c"
+          },
+          "tiles/shield-band-role151-4x.png": {
+            "bytes": 331,
+            "sha256": "7f77f01f5644dc382748b88b76cab6db1f491595a8a6710f4fc26b929b61b436"
+          },
+          "tiles/shield-band-role152-4x.png": {
+            "bytes": 357,
+            "sha256": "d9b58d2ff5bba5af36fb944e2e278753208f919feb076b64a76c08818ceb5c69"
+          },
+          "tiles/shield-band-role153-4x.png": {
+            "bytes": 372,
+            "sha256": "99b4c8c4a980be9a58d41cb835ce46a518ef0d1fd447be137e1a595fa4b14434"
+          },
+          "tiles/shield-band-role154-4x.png": {
+            "bytes": 362,
+            "sha256": "e9968e11e4835efefb25aa8997b22df58c77f5515474f26842983952e367c73b"
+          },
+          "tiles/shield-band-role155-4x.png": {
+            "bytes": 346,
+            "sha256": "701fa2df23a30bc6eca1fede09fb886498c1bd62c0cf313d15d078d54b197681"
+          },
+          "tiles/shield-band-role156-4x.png": {
+            "bytes": 374,
+            "sha256": "abd68a8bea5f1fc3d0b5e72dbfef85c9bcee5c1e8a3c3f7c05260c610845a2ca"
+          },
+          "tiles/shield-band-role157-4x.png": {
+            "bytes": 387,
+            "sha256": "6925c22e3aa2e9a7db1cf8314c6897e91b3fcd29a34918ae0bcf6b276159c786"
+          },
+          "tiles/shield-band-role158-4x.png": {
+            "bytes": 412,
+            "sha256": "4d538271acdf9e6733a10804a1e860553d87f42414d02f968623ef00f1a0d914"
+          },
+          "tiles/shield-band-role159-4x.png": {
+            "bytes": 405,
+            "sha256": "c720977435eb569ef1e864a99ca3b27da8c09fcab912546e2a7302e4c6f519bb"
+          },
+          "tiles/shield-capacity-marker-4x.png": {
+            "bytes": 81,
+            "sha256": "ee1ebbfee997dd18e385010ffd4f5096c54add06ef72355bcee5aa52c9e01f96"
+          },
+          "tiles/shield-track-4x.png": {
+            "bytes": 218,
+            "sha256": "1ad734e68174bb23bb79f5f0708940e05002af5680e70d6a1f33fbcfdb985aff"
+          },
+          "verification.json": {
+            "bytes": 1223,
+            "sha256": "2dcd4bfbc3f0f200f54ce5c8743a890765fc43f0281ff0cbe8373e420a71b228"
+          }
+        },
+        "tiles": [
+          {
+            "authored": "tiles/label-FRONT-4x.png",
+            "source_png": "assets/hd/source/hud-components-label-FRONT-4x-f1644d33216e.png",
+            "png_sha256": "f1644d33216ec424c8d00bb53121af319522dc06b288acc8fa66ebd9e3730f48",
+            "rgba_sha256": "86ac4df85a5be45e1ca85eae715abb3dd0683d0d919e733c9b64d5fb3bd58322",
+            "size": [
+              96,
+              20
+            ]
+          },
+          {
+            "authored": "tiles/label-GUN_front-4x.png",
+            "source_png": "assets/hd/source/hud-components-label-GUN_front-4x-49bbae05ba10.png",
+            "png_sha256": "49bbae05ba1030b428573666e9dbae394519085a8a84350d89289526e6738803",
+            "rgba_sha256": "55b2a8f359dabcfa1dc6ab7413418332348b5e134788d79a51832c5e36ee2b89",
+            "size": [
+              56,
+              20
+            ]
+          },
+          {
+            "authored": "tiles/label-REAR-4x.png",
+            "source_png": "assets/hd/source/hud-components-label-REAR-4x-0d4374b3d82a.png",
+            "png_sha256": "0d4374b3d82a345ec970676099793d471c3dfae0621377e62bfdcf49cf30e8ce",
+            "rgba_sha256": "6e0ef76c203ccc6ef9098376af329b977870119aa91bbb1e242c9a8c02662670",
+            "size": [
+              72,
+              20
+            ]
+          },
+          {
+            "authored": "tiles/label-GUN_rear-4x.png",
+            "source_png": "assets/hd/source/hud-components-label-GUN_rear-4x-49bbae05ba10.png",
+            "png_sha256": "49bbae05ba1030b428573666e9dbae394519085a8a84350d89289526e6738803",
+            "rgba_sha256": "55b2a8f359dabcfa1dc6ab7413418332348b5e134788d79a51832c5e36ee2b89",
+            "size": [
+              56,
+              20
+            ]
+          },
+          {
+            "authored": "tiles/shield-band-role146-4x.png",
+            "source_png": "assets/hd/source/hud-components-shield-band-role146-4x-b2d162be5d26.png",
+            "png_sha256": "b2d162be5d263e5dec9eb9a492d0c04da577f8397a63788bbc39209caea1cced",
+            "rgba_sha256": "0913867d870def1e1c9c15e7f86a95424b3af253ddac09cc2fd3ecda5683765e",
+            "size": [
+              36,
+              8
+            ]
+          },
+          {
+            "authored": "tiles/shield-band-role147-4x.png",
+            "source_png": "assets/hd/source/hud-components-shield-band-role147-4x-ed3195a22bcf.png",
+            "png_sha256": "ed3195a22bcffba11fbf18fcf8da55e12a516b83a8fece57b9c9a5cfc85eb429",
+            "rgba_sha256": "68d5c9b8c6d280d50f4c048f1df67a3ba9c5829780b752010f8d0ef146f35f9c",
+            "size": [
+              36,
+              8
+            ]
+          },
+          {
+            "authored": "tiles/shield-band-role148-4x.png",
+            "source_png": "assets/hd/source/hud-components-shield-band-role148-4x-88157399c4b4.png",
+            "png_sha256": "88157399c4b49a653336dcd4e4686ecf26ecfcab71faa251ad2e5f6e3a95e2ba",
+            "rgba_sha256": "fa5e2099de1cd3c6aac8fa4318947a59548d04b6dad432a9d5c75ba6ee8f28f5",
+            "size": [
+              36,
+              8
+            ]
+          },
+          {
+            "authored": "tiles/shield-band-role149-4x.png",
+            "source_png": "assets/hd/source/hud-components-shield-band-role149-4x-f5e1b914f65b.png",
+            "png_sha256": "f5e1b914f65b5ea0b3850d534d6bd42d1cc1ff655605c2d8ce4882c2d4c5b6eb",
+            "rgba_sha256": "0a88010f7583a4cedc0b438eb9a445e6983e95bf6eb01bc5eaf178c706978a54",
+            "size": [
+              36,
+              8
+            ]
+          },
+          {
+            "authored": "tiles/shield-band-role150-4x.png",
+            "source_png": "assets/hd/source/hud-components-shield-band-role150-4x-a0d1ef7a34df.png",
+            "png_sha256": "a0d1ef7a34dfcd84460c0fcec000572437487f816cd24f3b174745625cab8a6c",
+            "rgba_sha256": "935ef04ecf0aac0747abb3c17002d2555fe02cebdc282af70e270f1a51141d5d",
+            "size": [
+              36,
+              8
+            ]
+          },
+          {
+            "authored": "tiles/shield-band-role151-4x.png",
+            "source_png": "assets/hd/source/hud-components-shield-band-role151-4x-7f77f01f5644.png",
+            "png_sha256": "7f77f01f5644dc382748b88b76cab6db1f491595a8a6710f4fc26b929b61b436",
+            "rgba_sha256": "c9bccc83da3dd684d49f9ffdee30f4ed4b6bc89b12fdab20a9afbcde9eee1aa3",
+            "size": [
+              36,
+              8
+            ]
+          },
+          {
+            "authored": "tiles/shield-band-role152-4x.png",
+            "source_png": "assets/hd/source/hud-components-shield-band-role152-4x-d9b58d2ff5bb.png",
+            "png_sha256": "d9b58d2ff5bba5af36fb944e2e278753208f919feb076b64a76c08818ceb5c69",
+            "rgba_sha256": "9f8fe2ad721791fe158d91fd6609a510acbd1e92d567887da09c06e14ae04194",
+            "size": [
+              36,
+              8
+            ]
+          },
+          {
+            "authored": "tiles/shield-band-role153-4x.png",
+            "source_png": "assets/hd/source/hud-components-shield-band-role153-4x-99b4c8c4a980.png",
+            "png_sha256": "99b4c8c4a980be9a58d41cb835ce46a518ef0d1fd447be137e1a595fa4b14434",
+            "rgba_sha256": "d6c7ca7e9f59e30595ae9e02806ce22848bab3028b84d3bbcb848a5b725d61ae",
+            "size": [
+              36,
+              8
+            ]
+          },
+          {
+            "authored": "tiles/shield-band-role154-4x.png",
+            "source_png": "assets/hd/source/hud-components-shield-band-role154-4x-e9968e11e483.png",
+            "png_sha256": "e9968e11e4835efefb25aa8997b22df58c77f5515474f26842983952e367c73b",
+            "rgba_sha256": "a1b4ad2f318043ecea98db3428c64707b4b5ba793e824c65c5b9c5a5d66236c3",
+            "size": [
+              36,
+              8
+            ]
+          },
+          {
+            "authored": "tiles/shield-band-role155-4x.png",
+            "source_png": "assets/hd/source/hud-components-shield-band-role155-4x-701fa2df23a3.png",
+            "png_sha256": "701fa2df23a30bc6eca1fede09fb886498c1bd62c0cf313d15d078d54b197681",
+            "rgba_sha256": "32737c00249e7dfcd4a8faccd5b2407c2350f18838d339ff431594d3e8feded0",
+            "size": [
+              36,
+              8
+            ]
+          },
+          {
+            "authored": "tiles/shield-band-role156-4x.png",
+            "source_png": "assets/hd/source/hud-components-shield-band-role156-4x-abd68a8bea5f.png",
+            "png_sha256": "abd68a8bea5f1fc3d0b5e72dbfef85c9bcee5c1e8a3c3f7c05260c610845a2ca",
+            "rgba_sha256": "d8496bbcd30e230784f6a04aff4d329e7d8a0a233cc120c7c7053d3045054166",
+            "size": [
+              36,
+              8
+            ]
+          },
+          {
+            "authored": "tiles/shield-band-role157-4x.png",
+            "source_png": "assets/hd/source/hud-components-shield-band-role157-4x-6925c22e3aa2.png",
+            "png_sha256": "6925c22e3aa2e9a7db1cf8314c6897e91b3fcd29a34918ae0bcf6b276159c786",
+            "rgba_sha256": "8554739d6173a4a8690447d4b623b28e4fbdd872055cc86e96983ceadca0a85b",
+            "size": [
+              36,
+              8
+            ]
+          },
+          {
+            "authored": "tiles/shield-band-role158-4x.png",
+            "source_png": "assets/hd/source/hud-components-shield-band-role158-4x-4d538271acdf.png",
+            "png_sha256": "4d538271acdf9e6733a10804a1e860553d87f42414d02f968623ef00f1a0d914",
+            "rgba_sha256": "499eb50ca9cbb893b63f3af1ec0753ac1da45f93a087491f009ba053b2689f9f",
+            "size": [
+              36,
+              8
+            ]
+          },
+          {
+            "authored": "tiles/shield-band-role159-4x.png",
+            "source_png": "assets/hd/source/hud-components-shield-band-role159-4x-c720977435eb.png",
+            "png_sha256": "c720977435eb569ef1e864a99ca3b27da8c09fcab912546e2a7302e4c6f519bb",
+            "rgba_sha256": "76aee48a948aac5e2826c2f2a67ca3a6a5bd0de527c55a2b56655534e84612d8",
+            "size": [
+              36,
+              8
+            ]
+          }
+        ],
+        "bundle": {
+          "bytes": 38592,
+          "sha256": "c40c9ecf16a0d654876597195880deb484c17e36b1d1a17a9c1a241fb2b26d33"
+        }
+      },
+      "indicators": {
+        "source": "assets/hd/artwork/gameplay-hud-indicators-v1",
+        "filename": "gameplay-hud-indicators-v1.hda",
+        "source_files": {
+          "FNV1A64SUMS": {
+            "bytes": 981,
+            "sha256": "1587bbe8595484ca46346166947d78139233b25c77c92ea1f2fe1505985108da"
+          },
+          "README.md": {
+            "bytes": 4447,
+            "sha256": "722badee92a74ae8f1a3672bfa1feec575b186e452df2b99f53f2a8211404d90"
+          },
+          "SHA256SUMS": {
+            "bytes": 2133,
+            "sha256": "cc1acab310fd6a9173023463ce41953aa96576f0448a011c06fa359147b5ce77"
+          },
+          "assembly-frame-overlap-1x.png": {
+            "bytes": 214,
+            "sha256": "77195b4585baf230d4b05370a7f94a7e1347a7f05ab948bbd600d1d0464bc1a4"
+          },
+          "assembly-frame-overlap.mask": {
+            "bytes": 64000,
+            "sha256": "25137f74f9ea6036d149ace652a15342315d8767e61344fbcd8f6847dd1ac7bc"
+          },
+          "assembly-live-area-1x.png": {
+            "bytes": 204,
+            "sha256": "999fd25aada96da37bf93c5b2d536c4e2a891b61afb257bd0962cbd5e55d48b3"
+          },
+          "assembly-live-area.mask": {
+            "bytes": 64000,
+            "sha256": "4f389ea4227eac6531ef1200e42dba101be75abfc15d244a2f83ec232f6f59f8"
+          },
+          "assembly-mask-1x.png": {
+            "bytes": 173,
+            "sha256": "ec6b127e7880c47acfb0651d15f51b6d0a506ae6665d0b10fd1b67a81ffc1786"
+          },
+          "assembly-mask.mask": {
+            "bytes": 64000,
+            "sha256": "57fe6dfd4a9ea48ae9e5a3e382d34dcfb9acbc6f17425e10f34ff154c8024014"
+          },
+          "assembly-mode1-4x.png": {
+            "bytes": 6042,
+            "sha256": "cc1f1ca62eaa72a728bff79e66bb9f73c7b3d439cec64b1a7c674ed2522b4a23"
+          },
+          "assembly-mode2-4x.png": {
+            "bytes": 6048,
+            "sha256": "a76fe10a443e8288fc1ddc997c81b62d10470baecc46d962790d08443b3549a8"
+          },
+          "assembly-prompt.txt": {
+            "bytes": 1922,
+            "sha256": "c6380da89e31ea2e1157faa5beca3d69f3a5e07b968a2d8b8119d6713b016faf"
+          },
+          "gameplay-hud-indicators-v1.hda": {
+            "bytes": 29072,
+            "sha256": "c7e5925631cfeecb28a09b547702824af55ef3d9b5abe83f568dcf4672638631"
+          },
+          "generated-assembly-master.png": {
+            "bytes": 1521836,
+            "sha256": "e4116e4e34a89e961e5827d8ad08a754d55f7cbd07c2ed477544685ab0dd85a0"
+          },
+          "generated-lenses-master.png": {
+            "bytes": 1215034,
+            "sha256": "961d7f5f9cd4c09571544c65b2a3520a039f0945da6ef26e2a7cfa8646281abd"
+          },
+          "lens-top-4x.png": {
+            "bytes": 712,
+            "sha256": "397b5af9da094f1aa1a8b3b7c8b3bf57222e4faf72f04b0b420c3960747bded9"
+          },
+          "lenses-prompt.txt": {
+            "bytes": 1900,
+            "sha256": "6ffe1efa756664f776435e228be2b17d58318e7b9d003b6413236b87807370ed"
+          },
+          "manifest.json": {
+            "bytes": 17653,
+            "sha256": "00bab7d7fda9541a21ece633d284cd502c165c793dcef8844e74f65511e42722"
+          },
+          "placement-state.csv": {
+            "bytes": 577,
+            "sha256": "74d324211c7f8f8792c98582e9df57b70175cf22f7c42257767ffc0eb88a3dbe"
+          },
+          "provenance.json": {
+            "bytes": 5481,
+            "sha256": "e06d6c0f2902d3316950e39eacfd03669e56eee9b5f30a1dd56f107ad5067a32"
+          },
+          "repeat-build-proof.json": {
+            "bytes": 9076,
+            "sha256": "3e58e4b432a70c549cd0a312261d8cf18ec64ecd7143256d4b157778ea7709c8"
+          },
+          "reproduce_generated_only.py": {
+            "bytes": 9259,
+            "sha256": "661e63adbc94ee8768a0f457bdb37bb06169c141fda4a8ef4e0bab7bc41722d2"
+          },
+          "requirements.txt": {
+            "bytes": 15,
+            "sha256": "41b54a6fb2918667ca47a61d73b522629d84490f3d78f0f20b21135faba10d35"
+          },
+          "source-state-contract.json": {
+            "bytes": 5233,
+            "sha256": "19cc619f67214d3ad58e044d7906f6f27bb1ebad1bc53fa1aff21ff0bb9a6f8c"
+          },
+          "top-plus-assembly-mask-1x.png": {
+            "bytes": 192,
+            "sha256": "fb961a9a7e88010f27fe55aa48bd5f37fa3f7008d4e8d8731336ad9081d4893c"
+          },
+          "top-plus-assembly-mask.mask": {
+            "bytes": 64000,
+            "sha256": "91d51bff2f5240dfcdcefcee8b71a328d542fee974fbd53c5ccf55b4ec632138"
+          }
+        },
+        "tiles": [
+          {
+            "authored": "lens-top-4x.png",
+            "source_png": "assets/hd/source/hud-indicators-lens-top-4x-397b5af9da09.png",
+            "png_sha256": "397b5af9da094f1aa1a8b3b7c8b3bf57222e4faf72f04b0b420c3960747bded9",
+            "rgba_sha256": "148988e34111b14bf268745cc3f27f028a04ca8936d8dc0b67276868ce2372bf",
+            "size": [
+              28,
+              12
+            ]
+          },
+          {
+            "authored": "assembly-mode1-4x.png",
+            "source_png": "assets/hd/source/hud-indicators-assembly-mode1-4x-cc1f1ca62eaa.png",
+            "png_sha256": "cc1f1ca62eaa72a728bff79e66bb9f73c7b3d439cec64b1a7c674ed2522b4a23",
+            "rgba_sha256": "64ef5580136dea57ddc9b28dc0810f3e2e917a4f3143079f2a6dbe0796f6e906",
+            "size": [
+              108,
+              32
+            ]
+          },
+          {
+            "authored": "assembly-mode2-4x.png",
+            "source_png": "assets/hd/source/hud-indicators-assembly-mode2-4x-a76fe10a443e.png",
+            "png_sha256": "a76fe10a443e8288fc1ddc997c81b62d10470baecc46d962790d08443b3549a8",
+            "rgba_sha256": "06a341964720e1047c89328b753624df134f6c9afc8733b578ebdaba5939a8d4",
+            "size": [
+              108,
+              32
+            ]
+          }
+        ],
+        "bundle": {
+          "bytes": 29072,
+          "sha256": "c7e5925631cfeecb28a09b547702824af55ef3d9b5abe83f568dcf4672638631"
+        }
+      }
+    },
+    "packs": {
+      "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
+        "gameplay-hud-components-v1.hda": {
+          "bytes": 38592,
+          "sha256": "c40c9ecf16a0d654876597195880deb484c17e36b1d1a17a9c1a241fb2b26d33"
+        },
+        "gameplay-hud-indicators-v1.hda": {
+          "bytes": 29072,
+          "sha256": "c7e5925631cfeecb28a09b547702824af55ef3d9b5abe83f568dcf4672638631"
+        }
+      },
+      "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
+        "gameplay-hud-components-v1.hda": {
+          "bytes": 38592,
+          "sha256": "c40c9ecf16a0d654876597195880deb484c17e36b1d1a17a9c1a241fb2b26d33"
+        },
+        "gameplay-hud-indicators-v1.hda": {
+          "bytes": 29072,
+          "sha256": "c7e5925631cfeecb28a09b547702824af55ef3d9b5abe83f568dcf4672638631"
+        }
+      }
+    }
   }
 }

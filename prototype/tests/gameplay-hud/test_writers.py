@@ -29,10 +29,10 @@ REJECTED_SHA = 'f318812df425dd11419446752272f32917ee97f2c4e8541893c7bc16ed0fe10e
 # below are extracted anew on every run. Ignore comments/whitespace, not tokens.
 SOURCE_HASHES = {
     'varz.c:JE_drawOptions': '964dcf5b57743d7c755651cc7f4e42780200bf4343243a3b8ba92a57227ebd56',
-    'varz.c:JE_wipeShieldArmorBars': '1f7068f814a0c364eb44292a02b68fe57b77ea7e1fa3c7bdf56d1b5ec6cf7c23',
-    'varz.c:JE_drawShield': 'c564f6412f67081e31594dacfe03b34b26615a93f6519631de16d0c26ec749c5',
+    'varz.c:JE_wipeShieldArmorBars': '41a6cbd9c69abe8649368ac6fbc1b65a9cb775f2380337dccffa46721f7bf17e',
+    'varz.c:JE_drawShield': '78915a5416c2b27514821a271698a64c7824c0b85223e31dd0c1df036e65b468',
     'varz.c:JE_drawArmor': '28be6c9463aaad957898bdbd2ef8414fa7ee2f4e6f6fe7962946e368374722f0',
-    'mainint.c:JE_drawPortConfigButtons': 'ce11aa104558ab266b63ce7053b3b111b00df3b93d720b3011ccbb4fae11945a',
+    'mainint.c:JE_drawPortConfigButtons': 'c9766cc8fd6cf251466d0d02891c637056e7a1fa8438b53aa122c2a28b13bd7b',
     'mainint.c:JE_playerMovement': 'a0a81df6996a2a101218c9032c87c9637c85d7aaf95eb8fdee5d12682cfa7fc1',
     'mainint.c:JE_mainGamePlayerFunctions': '9da3ef27089e1a02466dde475b3850ff647b4d88b2743a377366a2b1a3de78b6',
     'mainint.c:JE_drawTextWindow': '85b1521acfb78982c34ad2ba20ca8fe5d488abf4239e3f5172800f86ece447a4',

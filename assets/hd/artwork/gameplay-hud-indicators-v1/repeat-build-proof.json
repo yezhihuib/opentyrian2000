@@ -1,0 +1,293 @@
+{
+  "status": "PASS",
+  "method": "Two separate empty-directory standalone builds, compared byte-for-byte against each other and the frozen exports; then an independent offset-by-offset HUL1 and ownership audit.",
+  "environment": {
+    "python": "3.12.14",
+    "pillow": "12.3.0",
+    "zlib_compile": "1.3.2",
+    "zlib_runtime": "1.3.2"
+  },
+  "run_1_command": "python reproduce_generated_only.py --output-dir /tmp/mode-assembly-build-1",
+  "run_2_command": "python reproduce_generated_only.py --output-dir /tmp/mode-assembly-build-2",
+  "run_1_and_2_identical": true,
+  "both_runs_match_frozen_exports": true,
+  "build_output_records": {
+    "assembly-frame-overlap-1x.png": {
+      "bytes": 214,
+      "sha256": "77195b4585baf230d4b05370a7f94a7e1347a7f05ab948bbd600d1d0464bc1a4",
+      "fnv1a64": "f3d57aafde137307",
+      "decoded": {
+        "mode": "L",
+        "width": 320,
+        "height": 200,
+        "layout": "Row-major, top-to-bottom, left-to-right; interleaved mode channels; no padding.",
+        "bytes": 64000,
+        "sha256": "25137f74f9ea6036d149ace652a15342315d8767e61344fbcd8f6847dd1ac7bc",
+        "fnv1a64": "03573eb416332b55"
+      }
+    },
+    "assembly-frame-overlap.mask": {
+      "bytes": 64000,
+      "sha256": "25137f74f9ea6036d149ace652a15342315d8767e61344fbcd8f6847dd1ac7bc",
+      "fnv1a64": "03573eb416332b55"
+    },
+    "assembly-live-area-1x.png": {
+      "bytes": 204,
+      "sha256": "999fd25aada96da37bf93c5b2d536c4e2a891b61afb257bd0962cbd5e55d48b3",
+      "fnv1a64": "8d9582c5624d82ee",
+      "decoded": {
+        "mode": "L",
+        "width": 320,
+        "height": 200,
+        "layout": "Row-major, top-to-bottom, left-to-right; interleaved mode channels; no padding.",
+        "bytes": 64000,
+        "sha256": "4f389ea4227eac6531ef1200e42dba101be75abfc15d244a2f83ec232f6f59f8",
+        "fnv1a64": "bbb3e086c65de6c9"
+      }
+    },
+    "assembly-live-area.mask": {
+      "bytes": 64000,
+      "sha256": "4f389ea4227eac6531ef1200e42dba101be75abfc15d244a2f83ec232f6f59f8",
+      "fnv1a64": "bbb3e086c65de6c9"
+    },
+    "assembly-mask-1x.png": {
+      "bytes": 173,
+      "sha256": "ec6b127e7880c47acfb0651d15f51b6d0a506ae6665d0b10fd1b67a81ffc1786",
+      "fnv1a64": "b2dd7456a6833c28",
+      "decoded": {
+        "mode": "L",
+        "width": 320,
+        "height": 200,
+        "layout": "Row-major, top-to-bottom, left-to-right; interleaved mode channels; no padding.",
+        "bytes": 64000,
+        "sha256": "57fe6dfd4a9ea48ae9e5a3e382d34dcfb9acbc6f17425e10f34ff154c8024014",
+        "fnv1a64": "9d7ff9e4d8d88f25"
+      }
+    },
+    "assembly-mask.mask": {
+      "bytes": 64000,
+      "sha256": "57fe6dfd4a9ea48ae9e5a3e382d34dcfb9acbc6f17425e10f34ff154c8024014",
+      "fnv1a64": "9d7ff9e4d8d88f25"
+    },
+    "assembly-mode1-4x.png": {
+      "bytes": 6042,
+      "sha256": "cc1f1ca62eaa72a728bff79e66bb9f73c7b3d439cec64b1a7c674ed2522b4a23",
+      "fnv1a64": "bce4d720d5ab3663",
+      "decoded": {
+        "mode": "RGBA",
+        "width": 108,
+        "height": 32,
+        "layout": "Row-major, top-to-bottom, left-to-right; interleaved mode channels; no padding.",
+        "bytes": 13824,
+        "sha256": "64ef5580136dea57ddc9b28dc0810f3e2e917a4f3143079f2a6dbe0796f6e906",
+        "fnv1a64": "74190f7046eac68a"
+      }
+    },
+    "assembly-mode2-4x.png": {
+      "bytes": 6048,
+      "sha256": "a76fe10a443e8288fc1ddc997c81b62d10470baecc46d962790d08443b3549a8",
+      "fnv1a64": "c1d42add7cc0310b",
+      "decoded": {
+        "mode": "RGBA",
+        "width": 108,
+        "height": 32,
+        "layout": "Row-major, top-to-bottom, left-to-right; interleaved mode channels; no padding.",
+        "bytes": 13824,
+        "sha256": "06a341964720e1047c89328b753624df134f6c9afc8733b578ebdaba5939a8d4",
+        "fnv1a64": "ef8c67dc4a7d045e"
+      }
+    },
+    "build-report.json": {
+      "bytes": 7042,
+      "sha256": "3e459e773e526771660ed7e53a2f73230fe78467eb0419af09b16fd2315fd9f8",
+      "fnv1a64": "5b0546486038e496"
+    },
+    "gameplay-hud-indicators-v1.hda": {
+      "bytes": 29072,
+      "sha256": "c7e5925631cfeecb28a09b547702824af55ef3d9b5abe83f568dcf4672638631",
+      "fnv1a64": "59a95fbd7c3b63fd"
+    },
+    "lens-top-4x.png": {
+      "bytes": 712,
+      "sha256": "397b5af9da094f1aa1a8b3b7c8b3bf57222e4faf72f04b0b420c3960747bded9",
+      "fnv1a64": "296f3026e95a3f4a",
+      "decoded": {
+        "mode": "RGBA",
+        "width": 28,
+        "height": 12,
+        "layout": "Row-major, top-to-bottom, left-to-right; interleaved mode channels; no padding.",
+        "bytes": 1344,
+        "sha256": "148988e34111b14bf268745cc3f27f028a04ca8936d8dc0b67276868ce2372bf",
+        "fnv1a64": "5ca8d6686d28d8b6"
+      }
+    },
+    "top-plus-assembly-mask-1x.png": {
+      "bytes": 192,
+      "sha256": "fb961a9a7e88010f27fe55aa48bd5f37fa3f7008d4e8d8731336ad9081d4893c",
+      "fnv1a64": "ac93b04a3cbf5154",
+      "decoded": {
+        "mode": "L",
+        "width": 320,
+        "height": 200,
+        "layout": "Row-major, top-to-bottom, left-to-right; interleaved mode channels; no padding.",
+        "bytes": 64000,
+        "sha256": "91d51bff2f5240dfcdcefcee8b71a328d542fee974fbd53c5ccf55b4ec632138",
+        "fnv1a64": "bf6d4381d92b1182"
+      }
+    },
+    "top-plus-assembly-mask.mask": {
+      "bytes": 64000,
+      "sha256": "91d51bff2f5240dfcdcefcee8b71a328d542fee974fbd53c5ccf55b4ec632138",
+      "fnv1a64": "bf6d4381d92b1182"
+    }
+  },
+  "independent_hul1_audit": {
+    "method": "Manual fixed-offset little-endian integer reads; independent FNV arithmetic; no struct.unpack and no manifest-derived offsets.",
+    "magic": "HUL1",
+    "whole_file_bytes": 29072,
+    "header_bytes": 80,
+    "payload_bytes": 28992,
+    "u32_offsets": [
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      28
+    ],
+    "u32_values": [
+      1,
+      4,
+      28,
+      12,
+      108,
+      32,
+      28992
+    ],
+    "u64_offsets": [
+      32,
+      40,
+      48,
+      56,
+      64,
+      72
+    ],
+    "u64_hex_values": [
+      "14c1441f3d5dc0e2",
+      "5e80e83992be2927",
+      "328ef0a75cce2260",
+      "55f78c15a1ce495a",
+      "f7a97c521d045d18",
+      "9496d22c5cd69c6e"
+    ],
+    "segments": [
+      {
+        "file": "lens-top-4x.png",
+        "file_offset": 80,
+        "bytes": 1344,
+        "opaque_alpha": 255,
+        "accepted_pilot_png_bytes_equal": true,
+        "payload_bytes_equal_decoded_png": true
+      },
+      {
+        "file": "assembly-mode1-4x.png",
+        "file_offset": 1424,
+        "bytes": 13824,
+        "opaque_alpha": 255,
+        "accepted_pilot_png_bytes_equal": true,
+        "payload_bytes_equal_decoded_png": true
+      },
+      {
+        "file": "assembly-mode2-4x.png",
+        "file_offset": 15248,
+        "bytes": 13824,
+        "opaque_alpha": 255,
+        "accepted_pilot_png_bytes_equal": true,
+        "payload_bytes_equal_decoded_png": true
+      }
+    ],
+    "payload_hashes": {
+      "sha256": "16ad5b4586e6cb379c40f8b1e27edc620e7d811f64667a686d77fb89aba57fb6",
+      "fnv1a64": "9496d22c5cd69c6e"
+    }
+  },
+  "mask_audit": {
+    "binary_values": [
+      0,
+      255
+    ],
+    "dimensions": [
+      320,
+      200
+    ],
+    "assembly": 216,
+    "frame_overlap": 82,
+    "live_area": 134,
+    "combined": 237,
+    "top_only": 21,
+    "overlap_live_disjoint": true,
+    "overlap_plus_live_equals_assembly": true,
+    "combined_minus_assembly_is_exact_top_box": true,
+    "all_mask_png_and_raw_files_match_pilot": true
+  },
+  "sampling_raw_rgba": {
+    "lens-top-4x.png": {
+      "native2_preview_raw_rgba": {
+        "size": [
+          14,
+          6
+        ],
+        "sha256": "32c8e5c9fe472824e51a11b8751fdd7fa45dbaf602db0cebcdb2a17a412c0a37",
+        "fnv1a64": "d383d8279ed01cc4"
+      },
+      "density8_repeat2x2_raw_rgba": {
+        "size": [
+          56,
+          24
+        ],
+        "sha256": "282243bcd3a06f0b2345d256838b59e760d7a87df10e14e30f807d186d4a49f2",
+        "fnv1a64": "6ef903ec45dd3875"
+      }
+    },
+    "assembly-mode1-4x.png": {
+      "native2_preview_raw_rgba": {
+        "size": [
+          54,
+          16
+        ],
+        "sha256": "1f1ee9043b8097d23f81e0b5ad2f99470a274d74c1152112f6fbf3a58170ee68",
+        "fnv1a64": "d63ea7e2443b2bcc"
+      },
+      "density8_repeat2x2_raw_rgba": {
+        "size": [
+          216,
+          64
+        ],
+        "sha256": "44fe1df5212bd16a72e51b55d6d9fe1c3e11b52182787735db2c5dc2d2fd555b",
+        "fnv1a64": "7c458db1c6b05695"
+      }
+    },
+    "assembly-mode2-4x.png": {
+      "native2_preview_raw_rgba": {
+        "size": [
+          54,
+          16
+        ],
+        "sha256": "08f636390f0a1f623bc5e19d539e318eea78b6211efae831120e3d2c6c8e8de0",
+        "fnv1a64": "86b487d8dd8fdff8"
+      },
+      "density8_repeat2x2_raw_rgba": {
+        "size": [
+          216,
+          64
+        ],
+        "sha256": "2f7a5bfa46a461f2395b72e999d7c394240b548b48fee8d352d0d8ba82f503ea",
+        "fnv1a64": "2ed9afc28b4c4a35"
+      }
+    }
+  },
+  "masters_and_prompt_copies_byte_exact": true,
+  "preexisting_pilot_and_lens_only_draft_files_changed": [],
+  "runtime_tested": false
+}

@@ -1,0 +1,116 @@
+{
+  "status": "Accepted-pilot art frozen without changes.",
+  "selected_source_directories": [
+    "hud-mode-assembly-pilot-v2",
+    "hud-lamps-pilot-v1"
+  ],
+  "byte_exact_copies": {
+    "generated-assembly-master.png": {
+      "source": "hud-mode-assembly-pilot-v2/generated-assembly-master.png",
+      "sha256": "e4116e4e34a89e961e5827d8ad08a754d55f7cbd07c2ed477544685ab0dd85a0",
+      "fnv1a64": "605e72327c316cc1"
+    },
+    "generated-lenses-master.png": {
+      "source": "hud-lamps-pilot-v1/generated-lenses-master.png",
+      "sha256": "961d7f5f9cd4c09571544c65b2a3520a039f0945da6ef26e2a7cfa8646281abd",
+      "fnv1a64": "3487bb8c9eec6a09"
+    },
+    "assembly-prompt.txt": {
+      "source": "hud-mode-assembly-pilot-v2/pilot-prompt.txt",
+      "sha256": "c6380da89e31ea2e1157faa5beca3d69f3a5e07b968a2d8b8119d6713b016faf",
+      "fnv1a64": "6b31f13d53fc49f7"
+    },
+    "lenses-prompt.txt": {
+      "source": "hud-lamps-pilot-v1/pilot-prompt.txt",
+      "sha256": "6ffe1efa756664f776435e228be2b17d58318e7b9d003b6413236b87807370ed",
+      "fnv1a64": "aded11b86247f4b4"
+    },
+    "lens-top-4x.png": {
+      "source": "hud-lamps-pilot-v1/lens-top-4x.png",
+      "sha256": "397b5af9da094f1aa1a8b3b7c8b3bf57222e4faf72f04b0b420c3960747bded9",
+      "fnv1a64": "296f3026e95a3f4a"
+    },
+    "assembly-mode1-4x.png": {
+      "source": "hud-mode-assembly-pilot-v2/assembly-mode1-4x.png",
+      "sha256": "cc1f1ca62eaa72a728bff79e66bb9f73c7b3d439cec64b1a7c674ed2522b4a23",
+      "fnv1a64": "bce4d720d5ab3663"
+    },
+    "assembly-mode2-4x.png": {
+      "source": "hud-mode-assembly-pilot-v2/assembly-mode2-4x.png",
+      "sha256": "a76fe10a443e8288fc1ddc997c81b62d10470baecc46d962790d08443b3549a8",
+      "fnv1a64": "c1d42add7cc0310b"
+    },
+    "assembly-mask-1x.png": {
+      "source": "hud-mode-assembly-pilot-v2/assembly-mask-1x.png",
+      "sha256": "ec6b127e7880c47acfb0651d15f51b6d0a506ae6665d0b10fd1b67a81ffc1786",
+      "fnv1a64": "b2dd7456a6833c28"
+    },
+    "assembly-mask.mask": {
+      "source": "hud-mode-assembly-pilot-v2/assembly-mask.mask",
+      "sha256": "57fe6dfd4a9ea48ae9e5a3e382d34dcfb9acbc6f17425e10f34ff154c8024014",
+      "fnv1a64": "9d7ff9e4d8d88f25"
+    },
+    "assembly-frame-overlap-1x.png": {
+      "source": "hud-mode-assembly-pilot-v2/assembly-frame-overlap-1x.png",
+      "sha256": "77195b4585baf230d4b05370a7f94a7e1347a7f05ab948bbd600d1d0464bc1a4",
+      "fnv1a64": "f3d57aafde137307"
+    },
+    "assembly-frame-overlap.mask": {
+      "source": "hud-mode-assembly-pilot-v2/assembly-frame-overlap.mask",
+      "sha256": "25137f74f9ea6036d149ace652a15342315d8767e61344fbcd8f6847dd1ac7bc",
+      "fnv1a64": "03573eb416332b55"
+    },
+    "assembly-live-area-1x.png": {
+      "source": "hud-mode-assembly-pilot-v2/assembly-live-area-1x.png",
+      "sha256": "999fd25aada96da37bf93c5b2d536c4e2a891b61afb257bd0962cbd5e55d48b3",
+      "fnv1a64": "8d9582c5624d82ee"
+    },
+    "assembly-live-area.mask": {
+      "source": "hud-mode-assembly-pilot-v2/assembly-live-area.mask",
+      "sha256": "4f389ea4227eac6531ef1200e42dba101be75abfc15d244a2f83ec232f6f59f8",
+      "fnv1a64": "bbb3e086c65de6c9"
+    },
+    "top-plus-assembly-mask-1x.png": {
+      "source": "hud-mode-assembly-pilot-v2/top-plus-assembly-mask-1x.png",
+      "sha256": "fb961a9a7e88010f27fe55aa48bd5f37fa3f7008d4e8d8731336ad9081d4893c",
+      "fnv1a64": "ac93b04a3cbf5154"
+    },
+    "top-plus-assembly-mask.mask": {
+      "source": "hud-mode-assembly-pilot-v2/top-plus-assembly-mask.mask",
+      "sha256": "91d51bff2f5240dfcdcefcee8b71a328d542fee974fbd53c5ccf55b4ec632138",
+      "fnv1a64": "bf6d4381d92b1182"
+    }
+  },
+  "original_source_state_contract": {
+    "reference": "hud-mode-assembly-pilot-v2/source-state-contract.json",
+    "sha256": "db46ba9055859a79d9c0fc9d63dc861f87fd22f2aa0c64de6648b83ad4b72143",
+    "fnv1a64": "ea6ba93baf5db3a4",
+    "included_as_pixels": false,
+    "reconciliation": "All source hashes and the full-state recipe retained. The nested historical runtime_proposal was omitted and replaced by the authoritative 237-pixel scope, 82-pixel overlap, and complete 216-byte mode-state guards."
+  },
+  "pilot_records": {
+    "hud-mode-assembly-pilot-v2/build_review.py": {
+      "sha256": "f0ba0bd0b83c6d8450d28a58fb73a159d5ed031be97f045b4a72e97df6e50147",
+      "fnv1a64": "c6cbf7b2de8c911a"
+    },
+    "hud-mode-assembly-pilot-v2/validation.json": {
+      "sha256": "13f9e4a53d27f3a4174f9c4b0efc4c336a3c6df249bb906d9fd13e4130e0f544",
+      "fnv1a64": "0c779b9dc87a8cdd"
+    },
+    "hud-lamps-pilot-v1/build_review.py": {
+      "sha256": "1fcf8ba823d6afa7c43f0470c457f90682d1afb73519e7a78421ffb2c4335f75",
+      "fnv1a64": "5f3012378519364b"
+    },
+    "hud-lamps-pilot-v1/validation.json": {
+      "sha256": "fa965342cbd8a4c1c842f73b76ec5cc825edad8618d3b4f18923ba3df581ffbb",
+      "fnv1a64": "fb48fdf719039fbc"
+    }
+  },
+  "generation": "Both masters are preserved built-in imagegen outputs. Assembly generation used a clean layout guide and prior HUD material context; the lens generation used its prior guide and HUD context. Guides, prior source imagery, and all review/capture images are excluded.",
+  "prompt_copies": {
+    "assembly-prompt.txt": "hud-mode-assembly-pilot-v2/pilot-prompt.txt",
+    "lenses-prompt.txt": "hud-lamps-pilot-v1/pilot-prompt.txt"
+  },
+  "guard_hash_origin": "Source-state audit supplied by the parent task; no original indexed or RGB game payload is bundled or needed for this build.",
+  "forbidden_payload_present": false
+}

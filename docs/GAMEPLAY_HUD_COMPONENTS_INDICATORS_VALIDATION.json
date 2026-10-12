@@ -1,0 +1,79 @@
+{
+  "status": "all bounded source and runtime gates pass; publication pending",
+  "base": "d2f0a36b3529b94418404a374e06333d734ca13b",
+  "reviewed_code": "4afc8167c2a5227262ea1138fd69b7a654487555",
+  "resources": {
+    "HUC1": "c40c9ecf16a0d654876597195880deb484c17e36b1d1a17a9c1a241fb2b26d33",
+    "HUL1": "c7e5925631cfeecb28a09b547702824af55ef3d9b5abe83f568dcf4672638631"
+  },
+  "evidence": [
+    {
+      "relative_external_path": "hud-labels-shield-handoff.json",
+      "sha256": "0c8d6779f7f7818c1c5c6da39724bb859a61d41587d485662e1176ad2ccc816c",
+      "bytes": 5297
+    },
+    {
+      "relative_external_path": "hud-indicators-handoff.json",
+      "sha256": "9041a11f79b783c25f0a09ad672c782b779a9b1c6324ff2497df2893b97f0305",
+      "bytes": 6037
+    },
+    {
+      "relative_external_path": "hud-components-independent-review/receipt.json",
+      "sha256": "5ee1064065e4e0bf40d0e967cba64380027c02b817de00e548d576483eb023d5",
+      "bytes": 3217
+    },
+    {
+      "relative_external_path": "hud-indicators-independent-review/receipt.json",
+      "sha256": "b4836a487e5c36fd6dc0754157d4f08f39b643f2e4b71d3f3ba467a6985939b2",
+      "bytes": 6517
+    },
+    {
+      "relative_external_path": "hud-components-runtime-review/engineering-receipt.json",
+      "sha256": "b7b807023b6644a85deb50a375d7cffe2f4d6fc020fbfa1c944822edfc932437",
+      "bytes": 20310
+    },
+    {
+      "relative_external_path": "hud-indicators-runtime-review/engineering-receipt.json",
+      "sha256": "b72fec5084e62aa82186f27cf6ca04646db4020f1c8e9d091de3795846f8bee6",
+      "bytes": 9388
+    },
+    {
+      "relative_external_path": "hud-components-runtime-review/author-huc1-review/AUTHOR_NATIVE_2X_4X_RECEIPT.json",
+      "sha256": "91010a957ce2a69d9bbc21334379b918a6c73e19275c66867f46e970511c62bf",
+      "bytes": 4036
+    },
+    {
+      "relative_external_path": "hud-indicators-runtime-review/author-hul1-review/AUTHOR_NATIVE_2X_4X_RECEIPT.json",
+      "sha256": "53aa579511c21c51c7dc96702b2d7a1bc6a11082ea92979161232632ef4b1990",
+      "bytes": 2769
+    },
+    {
+      "relative_external_path": "hud-components-independent-rebuild-receipt.json",
+      "sha256": "9166f335449f6276fa614cdb84064e069106608d70d1aa731da85be6a651bed6",
+      "bytes": 298
+    },
+    {
+      "relative_external_path": "hud-indicators-independent-rebuild-receipt.json",
+      "sha256": "30e88bbf3e8d58d3cb692fa8f28f4ebce2a5ed93f93baacd421d91e87643ec17",
+      "bytes": 616
+    },
+    {
+      "relative_external_path": "hud-extensions-build-proof.json",
+      "sha256": "7c28e5932be48da04583d5aa0ca81cfb2fe8529437e0b8c8e3d8edfae69b4ef2",
+      "bytes": 494
+    },
+    {
+      "relative_external_path": "hud-extensions-source-rebuild.log",
+      "sha256": "28964e688a40bb153d1ae3b6cc11c0392953db0d64d7819f83f8f1c7f25d5a8e",
+      "bytes": 641
+    }
+  ],
+  "limitations": [
+    "Scripted original mode-input fixture, not natural user input",
+    "Debug-death blank distinct from shield-zero draw",
+    "Restart/next-level and reverse layer removal source/synthetic only",
+    "No Windows runtime or CI claim",
+    "Remaining green labels, digits and messages unchanged",
+    "Mode fixture does not fire; rear shot position remains zero, so nonzero-to-zero shot reset is source-only"
+  ]
+}

@@ -187,6 +187,7 @@ void JE_drawPortConfigButtons(void) // rear weapon pattern indicator
 		blit_sprite(VGAScreenSeg, 285, 44, OPTION_SHAPES, 19);  // unlit
 		blit_sprite(VGAScreenSeg, 302, 44, OPTION_SHAPES, 18);  // lit
 	}
+	render_mirror_hud_mode_drawn(VGAScreenSeg, player[0].weapon_mode);
 }
 
 static bool helpSystemPage(Uint8 *topic, bool *restart);

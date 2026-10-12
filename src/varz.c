@@ -1020,6 +1020,7 @@ void JE_setupExplosionLarge(JE_boolean enemyGround, JE_byte exploNum, JE_integer
 
 void JE_wipeShieldArmorBars(void)
 {
+	render_mirror_hud_shield_wiped(VGAScreenSeg);
 	if (!twoPlayerMode || galagaMode)
 	{
 		fill_rectangle_xy(VGAScreenSeg, 270, 137, 278, 194 - player[0].shield * 2, 0);
@@ -1129,6 +1130,7 @@ void JE_drawShield(void)
 			JE_rectangle(VGAScreen, 270, y, 278, y, 68); /* <MXD> SEGa000 */
 		}
 	}
+	render_mirror_hud_shield_drawn(VGAScreen, player[0].shield, player[0].shield_max);
 }
 
 void JE_drawArmor(void)

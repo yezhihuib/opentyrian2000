@@ -1,0 +1,878 @@
+{
+  "schema": "generated-art-manifest-v1",
+  "status": "FROZEN_GENERATED_ART_FOR_EXPLICITLY_APPROVED_TRIAL",
+  "resource_format_binding": "HUC1, exact integrator-supplied 64-byte header and ordered RGBA payload",
+  "resource": {
+    "path": "gameplay-hud-components-v1.hda",
+    "magic": "HUC1",
+    "version": 1,
+    "file_bytes": 38592,
+    "file_sha256": "c40c9ecf16a0d654876597195880deb484c17e36b1d1a17a9c1a241fb2b26d33",
+    "file_fnv1a64": "ca45d0284bb72682",
+    "endianness": "little",
+    "header_bytes": 64,
+    "header_struct": "<4s7I4Q",
+    "PIC3_index_fnv1a64": "14c1441f3d5dc0e2",
+    "normal_palette_RGB_fnv1a64": "5e80e83992be2927",
+    "label_payload": {
+      "offset": 64,
+      "bytes": 22400,
+      "decoded_rgba_sha256": "72b00b688b06795a42141d873383fca99a46cd852415ad383fc4a5d0a3c6fbc1",
+      "decoded_rgba_fnv1a64": "c24e8ce447f9f0e8",
+      "order": [
+        "FRONT",
+        "GUN_front",
+        "REAR",
+        "GUN_rear"
+      ]
+    },
+    "band_payload": {
+      "offset": 22464,
+      "bytes": 16128,
+      "decoded_rgba_sha256": "7b12af59eee82a3e6d1bbbff86321b0b89e1a0f112329e9c5181cdd4d8b0e8e8",
+      "decoded_rgba_fnv1a64": "20b6e884fe4a23ce",
+      "role_order": [
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159
+      ]
+    },
+    "track_and_marker": "not included; runtime retains original indexed black/marker output",
+    "density8": "exact nearest-neighbor 2x replication of each 4x pixel in both axes"
+  },
+  "density": 4,
+  "pixel_format": "RGBA8",
+  "alpha": "255 everywhere, including black",
+  "decoded_hash_serialization": "top-to-bottom, left-to-right, row-major R,G,B,A bytes; no stride padding",
+  "fnv1a64": {
+    "variant": "FNV-1a",
+    "offset_basis_hex": "cbf29ce484222325",
+    "prime_hex": "00000100000001b3",
+    "arithmetic": "unsigned modulo 2^64",
+    "encoding": "16 lowercase hex digits, numeric value, not byte-swapped"
+  },
+  "toolchain": {
+    "python": "3.12.14",
+    "Pillow": "12.3.0",
+    "numpy": "2.3.5"
+  },
+  "reproducer_sha256": "3beb526762bea05f2cd088e8a9cefd72070940f8929443a19a1ae35beb876459",
+  "provenance_sha256": "74de73415fcc1623df4ec388b878a9329572144f90ef033f380c35b87c9052fd",
+  "label_scope_logical_pixels": 350,
+  "label_source_audit_ink_pixels": 215,
+  "label_source_audit_black_pixels": 135,
+  "shield_channel_half_open": [
+    270,
+    137,
+    279,
+    195
+  ],
+  "shield_assembly": {
+    "bounds": "integer 0 <= S <= M <= 28; reject other values",
+    "event_activity": "explicit active draw versus wipe-only inactive; never derive from S",
+    "inactive": "blank black track, no band and no marker",
+    "active": "paste track, then z=0..S inclusive in original draw order, then marker if S!=M",
+    "band_role": "146 + max(0, floor((z-1)/2))",
+    "band_global_logical_rect": "[270,193-2*z,279,195-2*z)",
+    "band_tile_local_4x_xy": "[0,4*(56-2*z)]",
+    "marker_global_logical_rect": "[270,193-2*M,279,194-2*M)",
+    "marker_tile_local_4x_xy": "[0,4*(56-2*M)]",
+    "no_capacity_normalization": true,
+    "active_S0_M0": "one role146 baseline at local y224..231 inclusive, no marker",
+    "active_S28_M28": "29 bands cover all 232 rows; role159 is top band; no marker"
+  },
+  "provenance": {
+    "source_reference_base": "/workspace/scratch/f67dd347fa0a (audit location only; reproduction never opens it)",
+    "description": "Source audit, V1 authored label files/recipe, and V2 material recipe/validation/three M10 fixtures. Source paths and hashes only; no source PIC, indices, frame pixels or captures included.",
+    "sources": [
+      {
+        "reference": "hud-labels-shield-audit/README.md",
+        "file_sha256": "9404129831f6abad4e395500d84eee182da5497003793156f5d857710635b0a8",
+        "file_bytes": 9750
+      },
+      {
+        "reference": "tyrian-hd-art/hud-labels-shield-pilot-v1/build_pilot.py",
+        "file_sha256": "732a2abab9322a4fb641f0683a0d3d69ea02990f004de44c663025941e22742b",
+        "file_bytes": 9800
+      },
+      {
+        "reference": "tyrian-hd-art/hud-labels-shield-pilot-v1/label-FRONT-4x.png",
+        "file_sha256": "01caac9061368fcf19c77d996848205321adea624142523103f32b7a2544bf67",
+        "file_bytes": 1427,
+        "width": 96,
+        "height": 20,
+        "decoded_rgba_sha256": "86ac4df85a5be45e1ca85eae715abb3dd0683d0d919e733c9b64d5fb3bd58322"
+      },
+      {
+        "reference": "tyrian-hd-art/hud-labels-shield-pilot-v1/label-GUN_front-4x.png",
+        "file_sha256": "dba02fdae0c671b9b2ac360a7cb25b797768a4b69a3019f71c907ab5f1569d76",
+        "file_bytes": 978,
+        "width": 56,
+        "height": 20,
+        "decoded_rgba_sha256": "55b2a8f359dabcfa1dc6ab7413418332348b5e134788d79a51832c5e36ee2b89"
+      },
+      {
+        "reference": "tyrian-hd-art/hud-labels-shield-pilot-v1/label-REAR-4x.png",
+        "file_sha256": "7a5527da7b56b05b427df59300ab93ab2515be8760ce1c339566b5c40428fea5",
+        "file_bytes": 1043,
+        "width": 72,
+        "height": 20,
+        "decoded_rgba_sha256": "6e0ef76c203ccc6ef9098376af329b977870119aa91bbb1e242c9a8c02662670"
+      },
+      {
+        "reference": "tyrian-hd-art/hud-labels-shield-pilot-v1/label-GUN_rear-4x.png",
+        "file_sha256": "dba02fdae0c671b9b2ac360a7cb25b797768a4b69a3019f71c907ab5f1569d76",
+        "file_bytes": 978,
+        "width": 56,
+        "height": 20,
+        "decoded_rgba_sha256": "55b2a8f359dabcfa1dc6ab7413418332348b5e134788d79a51832c5e36ee2b89"
+      },
+      {
+        "reference": "tyrian-hd-art/hud-labels-shield-pilot-v2/build_pilot.py",
+        "file_sha256": "010387aaf48727d21686be81a3460e5d8e84eb73bcfd1afd95cf23fbb6f0efcc",
+        "file_bytes": 5946
+      },
+      {
+        "reference": "tyrian-hd-art/hud-labels-shield-pilot-v2/validation.json",
+        "file_sha256": "84e7823c1b4c32c3e8211b8d7a1fd22bc11ddfae89cd6546321c13a842759115",
+        "file_bytes": 4020
+      },
+      {
+        "reference": "tyrian-hd-art/hud-labels-shield-pilot-v2/pilot-S10-M10-4x.png",
+        "file_sha256": "2863b74404d53b329dbe66cc3ccdbd523757070fc00d72b660b13eccdb8d01ca",
+        "file_bytes": 1054779,
+        "width": 1280,
+        "height": 800,
+        "decoded_rgba_sha256": "5bf42b5469592b23dcce558c18d68b138996d568fa93eed7db0b7faf699b9ad1"
+      },
+      {
+        "reference": "tyrian-hd-art/hud-labels-shield-pilot-v2/pilot-S5-M10-4x.png",
+        "file_sha256": "787832b2891649979803299a64fbd2b723650d0f53bb44a5601bcb63b906395e",
+        "file_bytes": 1054209,
+        "width": 1280,
+        "height": 800,
+        "decoded_rgba_sha256": "9ac8b83b3297382e003f26644056ce2276dde507055417678d1b7f84556c346c"
+      },
+      {
+        "reference": "tyrian-hd-art/hud-labels-shield-pilot-v2/pilot-S1-M10-4x.png",
+        "file_sha256": "61bcb18f733c519fd6ed43d9ce116a0a89264ff59e1c89d28e773efa6880ce5a",
+        "file_bytes": 1053753,
+        "width": 1280,
+        "height": 800,
+        "decoded_rgba_sha256": "c7b1c069f2636622c13172a2ef56858ba1f063e62cc165dc8cd10f9db5a53ec1"
+      }
+    ],
+    "expected_labels": {
+      "FRONT": {
+        "source": "tyrian-hd-art/hud-labels-shield-pilot-v1/label-FRONT-4x.png",
+        "logical_rect_half_open": [
+          285,
+          5,
+          309,
+          10
+        ],
+        "decoded_rgba_sha256": "86ac4df85a5be45e1ca85eae715abb3dd0683d0d919e733c9b64d5fb3bd58322",
+        "decoded_rgba_fnv1a64": "c1bf33a57c78f7ea"
+      },
+      "GUN_front": {
+        "source": "tyrian-hd-art/hud-labels-shield-pilot-v1/label-GUN_front-4x.png",
+        "logical_rect_half_open": [
+          285,
+          11,
+          299,
+          16
+        ],
+        "decoded_rgba_sha256": "55b2a8f359dabcfa1dc6ab7413418332348b5e134788d79a51832c5e36ee2b89",
+        "decoded_rgba_fnv1a64": "7a5118678c2a616c"
+      },
+      "REAR": {
+        "source": "tyrian-hd-art/hud-labels-shield-pilot-v1/label-REAR-4x.png",
+        "logical_rect_half_open": [
+          285,
+          26,
+          303,
+          31
+        ],
+        "decoded_rgba_sha256": "6e0ef76c203ccc6ef9098376af329b977870119aa91bbb1e242c9a8c02662670",
+        "decoded_rgba_fnv1a64": "2141d9734b01a227"
+      },
+      "GUN_rear": {
+        "source": "tyrian-hd-art/hud-labels-shield-pilot-v1/label-GUN_rear-4x.png",
+        "logical_rect_half_open": [
+          285,
+          32,
+          299,
+          37
+        ],
+        "decoded_rgba_sha256": "55b2a8f359dabcfa1dc6ab7413418332348b5e134788d79a51832c5e36ee2b89",
+        "decoded_rgba_fnv1a64": "7a5118678c2a616c"
+      }
+    },
+    "expected_m10_fixtures": [
+      {
+        "S": 10,
+        "M": 10,
+        "source": "tyrian-hd-art/hud-labels-shield-pilot-v2/pilot-S10-M10-4x.png",
+        "shield_crop_4x_rect_half_open": [
+          1080,
+          548,
+          1116,
+          780
+        ],
+        "shield_crop_decoded_rgba_sha256": "c6dfe2e66931f5f06b260085db29907f098bcf84e9e4b8ad79cdf86c52a1cd5d",
+        "shield_crop_decoded_rgba_fnv1a64": "cc87e6520bbec81e",
+        "labels_rgba_byte_exact": {
+          "FRONT": true,
+          "GUN_front": true,
+          "REAR": true,
+          "GUN_rear": true
+        }
+      },
+      {
+        "S": 5,
+        "M": 10,
+        "source": "tyrian-hd-art/hud-labels-shield-pilot-v2/pilot-S5-M10-4x.png",
+        "shield_crop_4x_rect_half_open": [
+          1080,
+          548,
+          1116,
+          780
+        ],
+        "shield_crop_decoded_rgba_sha256": "37d09fde29d2eb7a73cd9a4a46b7c6e5f8d0fa9918b832d046f71b8aa4096164",
+        "shield_crop_decoded_rgba_fnv1a64": "094b9ad7cf0976d0",
+        "labels_rgba_byte_exact": {
+          "FRONT": true,
+          "GUN_front": true,
+          "REAR": true,
+          "GUN_rear": true
+        }
+      },
+      {
+        "S": 1,
+        "M": 10,
+        "source": "tyrian-hd-art/hud-labels-shield-pilot-v2/pilot-S1-M10-4x.png",
+        "shield_crop_4x_rect_half_open": [
+          1080,
+          548,
+          1116,
+          780
+        ],
+        "shield_crop_decoded_rgba_sha256": "02dc655b6b82cb4ecd77e52bc66a83639d28ee2af103752e0141117100ecea45",
+        "shield_crop_decoded_rgba_fnv1a64": "8ee9dd8dc4a31695",
+        "labels_rgba_byte_exact": {
+          "FRONT": true,
+          "GUN_front": true,
+          "REAR": true,
+          "GUN_rear": true
+        }
+      }
+    ],
+    "palette_reference": {
+      "source": "tyrian-hd-art/gameplay-hud-v1/pic3-original-palette5.png",
+      "source_png_file_sha256": "ff6a485ed0cd9e684e02d7b140cf233c22eb1a884b89483039130d1ad28ba3a0",
+      "read_scope": "768 palette bytes only for binding; no source PIC pixels or indices copied into package",
+      "palette_format": "256 row-major RGB triples after VGA expansion, before gamma/fade",
+      "palette_bytes": 768,
+      "palette_rgb_sha256": "d4c24a49efb588abd6dc1ffd0f0d1279a498c422cdd26fba4fc921b07f8c159f",
+      "palette_rgb_fnv1a64": "5e80e83992be2927",
+      "stored_as": "checksum and needed role constants; no full original palette dependency"
+    },
+    "PIC3_index_binding": {
+      "required_fnv1a64": "14c1441f3d5dc0e2",
+      "source": "integrator-supplied HUC1 contract",
+      "audited_index_sha256": "83c5979f54de07f79e0c13970f242ae6f7435d4d396a168b340458c955c0e0f4",
+      "source_indices_included": false
+    }
+  },
+  "validation": {
+    "checks": [
+      {
+        "kind": "frozen_label",
+        "label": "FRONT",
+        "source_rgba_byte_exact": true
+      },
+      {
+        "kind": "frozen_label",
+        "label": "GUN_front",
+        "source_rgba_byte_exact": true
+      },
+      {
+        "kind": "frozen_label",
+        "label": "REAR",
+        "source_rgba_byte_exact": true
+      },
+      {
+        "kind": "frozen_label",
+        "label": "GUN_rear",
+        "source_rgba_byte_exact": true
+      },
+      {
+        "kind": "supplied_m10_fixture",
+        "S": 10,
+        "M": 10,
+        "source": "tyrian-hd-art/hud-labels-shield-pilot-v2/pilot-S10-M10-4x.png",
+        "shield_rgba_byte_exact": true,
+        "source_labels_rgba_byte_exact": {
+          "FRONT": true,
+          "GUN_front": true,
+          "REAR": true,
+          "GUN_rear": true
+        },
+        "assembled_decoded_rgba_sha256": "c6dfe2e66931f5f06b260085db29907f098bcf84e9e4b8ad79cdf86c52a1cd5d",
+        "assembled_decoded_rgba_fnv1a64": "cc87e6520bbec81e"
+      },
+      {
+        "kind": "supplied_m10_fixture",
+        "S": 5,
+        "M": 10,
+        "source": "tyrian-hd-art/hud-labels-shield-pilot-v2/pilot-S5-M10-4x.png",
+        "shield_rgba_byte_exact": true,
+        "source_labels_rgba_byte_exact": {
+          "FRONT": true,
+          "GUN_front": true,
+          "REAR": true,
+          "GUN_rear": true
+        },
+        "assembled_decoded_rgba_sha256": "37d09fde29d2eb7a73cd9a4a46b7c6e5f8d0fa9918b832d046f71b8aa4096164",
+        "assembled_decoded_rgba_fnv1a64": "094b9ad7cf0976d0"
+      },
+      {
+        "kind": "supplied_m10_fixture",
+        "S": 1,
+        "M": 10,
+        "source": "tyrian-hd-art/hud-labels-shield-pilot-v2/pilot-S1-M10-4x.png",
+        "shield_rgba_byte_exact": true,
+        "source_labels_rgba_byte_exact": {
+          "FRONT": true,
+          "GUN_front": true,
+          "REAR": true,
+          "GUN_rear": true
+        },
+        "assembled_decoded_rgba_sha256": "02dc655b6b82cb4ecd77e52bc66a83639d28ee2af103752e0141117100ecea45",
+        "assembled_decoded_rgba_fnv1a64": "8ee9dd8dc4a31695"
+      }
+    ],
+    "opaque_tiles": 20,
+    "s0_wipe_is_distinct": true,
+    "bounded_fixture_count": 3,
+    "test_or_capture_sweep": false
+  },
+  "tiles": [
+    {
+      "path": "tiles/label-FRONT-4x.png",
+      "format": "PNG",
+      "mode": "RGBA",
+      "width": 96,
+      "height": 20,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "decoded_bytes": 7680,
+      "file_bytes": 1520,
+      "decoded_rgba_sha256": "86ac4df85a5be45e1ca85eae715abb3dd0683d0d919e733c9b64d5fb3bd58322",
+      "decoded_rgba_fnv1a64": "c1bf33a57c78f7ea",
+      "file_sha256": "f1644d33216ec424c8d00bb53121af319522dc06b288acc8fa66ebd9e3730f48",
+      "file_fnv1a64": "996119db2136ecbe",
+      "kind": "fixed_label",
+      "label": "FRONT",
+      "logical_rect_half_open": [
+        285,
+        5,
+        309,
+        10
+      ]
+    },
+    {
+      "path": "tiles/label-GUN_front-4x.png",
+      "format": "PNG",
+      "mode": "RGBA",
+      "width": 56,
+      "height": 20,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "decoded_bytes": 4480,
+      "file_bytes": 1055,
+      "decoded_rgba_sha256": "55b2a8f359dabcfa1dc6ab7413418332348b5e134788d79a51832c5e36ee2b89",
+      "decoded_rgba_fnv1a64": "7a5118678c2a616c",
+      "file_sha256": "49bbae05ba1030b428573666e9dbae394519085a8a84350d89289526e6738803",
+      "file_fnv1a64": "a7a9ca0ca9dc8574",
+      "kind": "fixed_label",
+      "label": "GUN_front",
+      "logical_rect_half_open": [
+        285,
+        11,
+        299,
+        16
+      ]
+    },
+    {
+      "path": "tiles/label-REAR-4x.png",
+      "format": "PNG",
+      "mode": "RGBA",
+      "width": 72,
+      "height": 20,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "decoded_bytes": 5760,
+      "file_bytes": 1128,
+      "decoded_rgba_sha256": "6e0ef76c203ccc6ef9098376af329b977870119aa91bbb1e242c9a8c02662670",
+      "decoded_rgba_fnv1a64": "2141d9734b01a227",
+      "file_sha256": "0d4374b3d82a345ec970676099793d471c3dfae0621377e62bfdcf49cf30e8ce",
+      "file_fnv1a64": "b6d438536526100d",
+      "kind": "fixed_label",
+      "label": "REAR",
+      "logical_rect_half_open": [
+        285,
+        26,
+        303,
+        31
+      ]
+    },
+    {
+      "path": "tiles/label-GUN_rear-4x.png",
+      "format": "PNG",
+      "mode": "RGBA",
+      "width": 56,
+      "height": 20,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "decoded_bytes": 4480,
+      "file_bytes": 1055,
+      "decoded_rgba_sha256": "55b2a8f359dabcfa1dc6ab7413418332348b5e134788d79a51832c5e36ee2b89",
+      "decoded_rgba_fnv1a64": "7a5118678c2a616c",
+      "file_sha256": "49bbae05ba1030b428573666e9dbae394519085a8a84350d89289526e6738803",
+      "file_fnv1a64": "a7a9ca0ca9dc8574",
+      "kind": "fixed_label",
+      "label": "GUN_rear",
+      "logical_rect_half_open": [
+        285,
+        32,
+        299,
+        37
+      ]
+    },
+    {
+      "path": "tiles/shield-band-role146-4x.png",
+      "format": "PNG",
+      "mode": "RGBA",
+      "width": 36,
+      "height": 8,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "decoded_bytes": 1152,
+      "file_bytes": 244,
+      "decoded_rgba_sha256": "0913867d870def1e1c9c15e7f86a95424b3af253ddac09cc2fd3ecda5683765e",
+      "decoded_rgba_fnv1a64": "4e56031e640ba5ee",
+      "file_sha256": "b2d162be5d263e5dec9eb9a492d0c04da577f8397a63788bbc39209caea1cced",
+      "file_fnv1a64": "1ca05649c4b3356b",
+      "kind": "shield_band",
+      "palette_role": 146,
+      "palette_rgb": [
+        0,
+        0,
+        81
+      ],
+      "logical_size": [
+        9,
+        2
+      ]
+    },
+    {
+      "path": "tiles/shield-band-role147-4x.png",
+      "format": "PNG",
+      "mode": "RGBA",
+      "width": 36,
+      "height": 8,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "decoded_bytes": 1152,
+      "file_bytes": 247,
+      "decoded_rgba_sha256": "68d5c9b8c6d280d50f4c048f1df67a3ba9c5829780b752010f8d0ef146f35f9c",
+      "decoded_rgba_fnv1a64": "4ca80dc9c12635ff",
+      "file_sha256": "ed3195a22bcffba11fbf18fcf8da55e12a516b83a8fece57b9c9a5cfc85eb429",
+      "file_fnv1a64": "1cfd5fb310dd1bd8",
+      "kind": "shield_band",
+      "palette_role": 147,
+      "palette_rgb": [
+        0,
+        0,
+        109
+      ],
+      "logical_size": [
+        9,
+        2
+      ]
+    },
+    {
+      "path": "tiles/shield-band-role148-4x.png",
+      "format": "PNG",
+      "mode": "RGBA",
+      "width": 36,
+      "height": 8,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "decoded_bytes": 1152,
+      "file_bytes": 248,
+      "decoded_rgba_sha256": "fa5e2099de1cd3c6aac8fa4318947a59548d04b6dad432a9d5c75ba6ee8f28f5",
+      "decoded_rgba_fnv1a64": "6d30dc3b32641843",
+      "file_sha256": "88157399c4b49a653336dcd4e4686ecf26ecfcab71faa251ad2e5f6e3a95e2ba",
+      "file_fnv1a64": "428cd5950ef03a00",
+      "kind": "shield_band",
+      "palette_role": 148,
+      "palette_rgb": [
+        0,
+        0,
+        138
+      ],
+      "logical_size": [
+        9,
+        2
+      ]
+    },
+    {
+      "path": "tiles/shield-band-role149-4x.png",
+      "format": "PNG",
+      "mode": "RGBA",
+      "width": 36,
+      "height": 8,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "decoded_bytes": 1152,
+      "file_bytes": 263,
+      "decoded_rgba_sha256": "0a88010f7583a4cedc0b438eb9a445e6983e95bf6eb01bc5eaf178c706978a54",
+      "decoded_rgba_fnv1a64": "49eb98834c0aec5e",
+      "file_sha256": "f5e1b914f65b5ea0b3850d534d6bd42d1cc1ff655605c2d8ce4882c2d4c5b6eb",
+      "file_fnv1a64": "8352f1cd87a8d2c8",
+      "kind": "shield_band",
+      "palette_role": 149,
+      "palette_rgb": [
+        0,
+        0,
+        170
+      ],
+      "logical_size": [
+        9,
+        2
+      ]
+    },
+    {
+      "path": "tiles/shield-band-role150-4x.png",
+      "format": "PNG",
+      "mode": "RGBA",
+      "width": 36,
+      "height": 8,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "decoded_bytes": 1152,
+      "file_bytes": 277,
+      "decoded_rgba_sha256": "935ef04ecf0aac0747abb3c17002d2555fe02cebdc282af70e270f1a51141d5d",
+      "decoded_rgba_fnv1a64": "129c7c6eb1f7b8be",
+      "file_sha256": "a0d1ef7a34dfcd84460c0fcec000572437487f816cd24f3b174745625cab8a6c",
+      "file_fnv1a64": "99078cd564c961db",
+      "kind": "shield_band",
+      "palette_role": 150,
+      "palette_rgb": [
+        0,
+        0,
+        199
+      ],
+      "logical_size": [
+        9,
+        2
+      ]
+    },
+    {
+      "path": "tiles/shield-band-role151-4x.png",
+      "format": "PNG",
+      "mode": "RGBA",
+      "width": 36,
+      "height": 8,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "decoded_bytes": 1152,
+      "file_bytes": 331,
+      "decoded_rgba_sha256": "c9bccc83da3dd684d49f9ffdee30f4ed4b6bc89b12fdab20a9afbcde9eee1aa3",
+      "decoded_rgba_fnv1a64": "737c5abba3b231fa",
+      "file_sha256": "7f77f01f5644dc382748b88b76cab6db1f491595a8a6710f4fc26b929b61b436",
+      "file_fnv1a64": "0a1d294c8c9c4e20",
+      "kind": "shield_band",
+      "palette_role": 151,
+      "palette_rgb": [
+        8,
+        16,
+        207
+      ],
+      "logical_size": [
+        9,
+        2
+      ]
+    },
+    {
+      "path": "tiles/shield-band-role152-4x.png",
+      "format": "PNG",
+      "mode": "RGBA",
+      "width": 36,
+      "height": 8,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "decoded_bytes": 1152,
+      "file_bytes": 357,
+      "decoded_rgba_sha256": "9f8fe2ad721791fe158d91fd6609a510acbd1e92d567887da09c06e14ae04194",
+      "decoded_rgba_fnv1a64": "2b193667170987e0",
+      "file_sha256": "d9b58d2ff5bba5af36fb944e2e278753208f919feb076b64a76c08818ceb5c69",
+      "file_fnv1a64": "37487aeacec58467",
+      "kind": "shield_band",
+      "palette_role": 152,
+      "palette_rgb": [
+        20,
+        40,
+        219
+      ],
+      "logical_size": [
+        9,
+        2
+      ]
+    },
+    {
+      "path": "tiles/shield-band-role153-4x.png",
+      "format": "PNG",
+      "mode": "RGBA",
+      "width": 36,
+      "height": 8,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "decoded_bytes": 1152,
+      "file_bytes": 372,
+      "decoded_rgba_sha256": "d6c7ca7e9f59e30595ae9e02806ce22848bab3028b84d3bbcb848a5b725d61ae",
+      "decoded_rgba_fnv1a64": "241161e4726e51a8",
+      "file_sha256": "99b4c8c4a980be9a58d41cb835ce46a518ef0d1fd447be137e1a595fa4b14434",
+      "file_fnv1a64": "d2634f8d2bf49e55",
+      "kind": "shield_band",
+      "palette_role": 153,
+      "palette_rgb": [
+        28,
+        60,
+        227
+      ],
+      "logical_size": [
+        9,
+        2
+      ]
+    },
+    {
+      "path": "tiles/shield-band-role154-4x.png",
+      "format": "PNG",
+      "mode": "RGBA",
+      "width": 36,
+      "height": 8,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "decoded_bytes": 1152,
+      "file_bytes": 362,
+      "decoded_rgba_sha256": "a1b4ad2f318043ecea98db3428c64707b4b5ba793e824c65c5b9c5a5d66236c3",
+      "decoded_rgba_fnv1a64": "d3987d6c4831d874",
+      "file_sha256": "e9968e11e4835efefb25aa8997b22df58c77f5515474f26842983952e367c73b",
+      "file_fnv1a64": "a6696357703285bd",
+      "kind": "shield_band",
+      "palette_role": 154,
+      "palette_rgb": [
+        40,
+        81,
+        235
+      ],
+      "logical_size": [
+        9,
+        2
+      ]
+    },
+    {
+      "path": "tiles/shield-band-role155-4x.png",
+      "format": "PNG",
+      "mode": "RGBA",
+      "width": 36,
+      "height": 8,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "decoded_bytes": 1152,
+      "file_bytes": 346,
+      "decoded_rgba_sha256": "32737c00249e7dfcd4a8faccd5b2407c2350f18838d339ff431594d3e8feded0",
+      "decoded_rgba_fnv1a64": "71f5d6541896fd18",
+      "file_sha256": "701fa2df23a30bc6eca1fede09fb886498c1bd62c0cf313d15d078d54b197681",
+      "file_fnv1a64": "4f710aedb03bdcb8",
+      "kind": "shield_band",
+      "palette_role": 155,
+      "palette_rgb": [
+        52,
+        105,
+        247
+      ],
+      "logical_size": [
+        9,
+        2
+      ]
+    },
+    {
+      "path": "tiles/shield-band-role156-4x.png",
+      "format": "PNG",
+      "mode": "RGBA",
+      "width": 36,
+      "height": 8,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "decoded_bytes": 1152,
+      "file_bytes": 374,
+      "decoded_rgba_sha256": "d8496bbcd30e230784f6a04aff4d329e7d8a0a233cc120c7c7053d3045054166",
+      "decoded_rgba_fnv1a64": "ce53e3902c6a626c",
+      "file_sha256": "abd68a8bea5f1fc3d0b5e72dbfef85c9bcee5c1e8a3c3f7c05260c610845a2ca",
+      "file_fnv1a64": "9f0d1c167760c286",
+      "kind": "shield_band",
+      "palette_role": 156,
+      "palette_rgb": [
+        73,
+        134,
+        243
+      ],
+      "logical_size": [
+        9,
+        2
+      ]
+    },
+    {
+      "path": "tiles/shield-band-role157-4x.png",
+      "format": "PNG",
+      "mode": "RGBA",
+      "width": 36,
+      "height": 8,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "decoded_bytes": 1152,
+      "file_bytes": 387,
+      "decoded_rgba_sha256": "8554739d6173a4a8690447d4b623b28e4fbdd872055cc86e96983ceadca0a85b",
+      "decoded_rgba_fnv1a64": "0bd8944d7ee194a1",
+      "file_sha256": "6925c22e3aa2e9a7db1cf8314c6897e91b3fcd29a34918ae0bcf6b276159c786",
+      "file_fnv1a64": "413b8b6be8c1d9c4",
+      "kind": "shield_band",
+      "palette_role": 157,
+      "palette_rgb": [
+        89,
+        158,
+        239
+      ],
+      "logical_size": [
+        9,
+        2
+      ]
+    },
+    {
+      "path": "tiles/shield-band-role158-4x.png",
+      "format": "PNG",
+      "mode": "RGBA",
+      "width": 36,
+      "height": 8,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "decoded_bytes": 1152,
+      "file_bytes": 412,
+      "decoded_rgba_sha256": "499eb50ca9cbb893b63f3af1ec0753ac1da45f93a087491f009ba053b2689f9f",
+      "decoded_rgba_fnv1a64": "1d3e1c5f1f21ec8e",
+      "file_sha256": "4d538271acdf9e6733a10804a1e860553d87f42414d02f968623ef00f1a0d914",
+      "file_fnv1a64": "32f8aaf29e8f0a27",
+      "kind": "shield_band",
+      "palette_role": 158,
+      "palette_rgb": [
+        105,
+        174,
+        235
+      ],
+      "logical_size": [
+        9,
+        2
+      ]
+    },
+    {
+      "path": "tiles/shield-band-role159-4x.png",
+      "format": "PNG",
+      "mode": "RGBA",
+      "width": 36,
+      "height": 8,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "decoded_bytes": 1152,
+      "file_bytes": 405,
+      "decoded_rgba_sha256": "76aee48a948aac5e2826c2f2a67ca3a6a5bd0de527c55a2b56655534e84612d8",
+      "decoded_rgba_fnv1a64": "8347a08b134ce10c",
+      "file_sha256": "c720977435eb569ef1e864a99ca3b27da8c09fcab912546e2a7302e4c6f519bb",
+      "file_fnv1a64": "b9f0fa562d1eae0c",
+      "kind": "shield_band",
+      "palette_role": 159,
+      "palette_rgb": [
+        121,
+        190,
+        231
+      ],
+      "logical_size": [
+        9,
+        2
+      ]
+    },
+    {
+      "path": "tiles/shield-track-4x.png",
+      "format": "PNG",
+      "mode": "RGBA",
+      "width": 36,
+      "height": 232,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "decoded_bytes": 33408,
+      "file_bytes": 218,
+      "decoded_rgba_sha256": "54deca6b352c1ee2b491d76448b0a5ff81b79b52ff3616ccc4c97e9a14dc08d8",
+      "decoded_rgba_fnv1a64": "4b6fdb12e82b5c25",
+      "file_sha256": "1ad734e68174bb23bb79f5f0708940e05002af5680e70d6a1f33fbcfdb985aff",
+      "file_fnv1a64": "1d79ecda5e493a77",
+      "kind": "shield_track",
+      "palette_role": 0,
+      "logical_rect_half_open": [
+        270,
+        137,
+        279,
+        195
+      ]
+    },
+    {
+      "path": "tiles/shield-capacity-marker-4x.png",
+      "format": "PNG",
+      "mode": "RGBA",
+      "width": 36,
+      "height": 4,
+      "alpha_min": 255,
+      "alpha_max": 255,
+      "decoded_bytes": 576,
+      "file_bytes": 81,
+      "decoded_rgba_sha256": "a3982d7d0f1aea1470085523d4f7a078fa4e3d6793f4aef7d524970e0fa3f13b",
+      "decoded_rgba_fnv1a64": "1b342fc6d048b5a5",
+      "file_sha256": "ee1ebbfee997dd18e385010ffd4f5096c54add06ef72355bcee5aa52c9e01f96",
+      "file_fnv1a64": "e9eb4d8f5e3ebf25",
+      "kind": "shield_capacity_marker",
+      "palette_role": 68,
+      "palette_rgb": [
+        85,
+        28,
+        16
+      ],
+      "logical_size": [
+        9,
+        1
+      ]
+    }
+  ]
+}
