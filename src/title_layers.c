@@ -3,6 +3,8 @@
  * delays, motion and RNG remain owned by the original engine.
  */
 #include "title_layers.h"
+#include "font.h"
+#include "fonthand.h"
 #include "palette.h"
 #include "sprite.h"
 #include "video.h"
@@ -89,6 +91,8 @@ static struct {
  SDL_Texture *texture;
 } state;
 static const char *asset_directory;
+static void tm_end(void);
+static bool tm_check(void);
 
 static uint32_t tl_u32(const Uint8 *p)
 { return (uint32_t)p[0]|((uint32_t)p[1]<<8)|((uint32_t)p[2]<<16)|((uint32_t)p[3]<<24); }
@@ -111,12 +115,13 @@ void title_layers_release_texture(void)
 { if(state.texture)SDL_DestroyTexture(state.texture);state.texture=NULL; }
 void title_layers_end(void)
 {
+ tm_end();
  title_layers_release_texture();
  for(unsigned i=0;i<3;i++){free(state.rgba[i]);state.rgba[i]=NULL;}
  free(state.output);state.output=NULL;state.active=false;state.stage=ST_NONE;
 }
 void title_layers_sprite_table_reset(unsigned int table)
-{ if(table==PLANET_SHAPES)title_layers_end(); }
+{ if(table==PLANET_SHAPES)title_layers_end();else if(table==SMALL_FONT_SHAPES)tm_end(); }
 static bool tl_geometry(SDL_Surface *s)
 { return s&&s->pixels&&s->format&&s->w==TL_W&&s->h==TL_H&&s->pitch==TL_W&&s->format->BitsPerPixel==8&&s->format->BytesPerPixel==1; }
 static bool tl_layout(void)
@@ -153,6 +158,7 @@ static bool tl_check(void)
 {
  if(!state.active)return false;
  if(!tl_source_matches()||!tl_palette_matches()){title_layers_end();return false;}
+ (void)tm_check();
  return true;
 }
 static bool tl_decode(unsigned i)
@@ -207,6 +213,8 @@ done:
  if(TL_CLOSE(fd))ok=false;
  if(!ok){free(rgba);return NULL;}return rgba;
 }
+#include "title_menu_font.inc"
+
 void title_layers_begin(SDL_Surface *source,const SDL_Color *target,bool animate)
 {
  title_layers_end();
@@ -227,6 +235,7 @@ void title_layers_begin(SDL_Surface *source,const SDL_Color *target,bool animate
  if(!state.rgba[0]&&!state.rgba[1]&&!state.rgba[2])return;
  state.output=malloc(TL_OUT_BYTES);if(!state.output){title_layers_end();return;}
  state.active=true;state.phase=PH_VERSION;state.stage=ST_VERSION;
+ tm_load(asset_directory);
 }
 void title_layers_version_done(void)
 {
@@ -252,7 +261,7 @@ void title_layers_save_after(enum TitleCheckpoint kind)
  if(!tl_layout()||!tl_sprites()||!tl_palette_matches()||state.pending_save!=(int)kind||
     memcmp(state.pixels,state.expected,TL_N)||memcmp(state.backup_pixels,state.expected,TL_N)) {title_layers_end();return;}
  memcpy(state.checkpoint,state.expected,TL_N);state.checkpoint_valid=true;state.checkpoint_kind=kind;state.pending_save=-1;
- if(kind==TITLE_MENU){state.menu_base=state.menu;state.phase=PH_UI_START;}
+ if(kind==TITLE_MENU){state.menu_base=state.menu;tm_save();state.phase=PH_UI_START;}
 }
 void title_layers_restore_before(enum TitleCheckpoint kind)
 {
@@ -271,7 +280,7 @@ void title_layers_restore_after(enum TitleCheckpoint kind)
     memcmp(state.backup_pixels,state.checkpoint,TL_N)||memcmp(state.pixels,state.checkpoint,TL_N)){title_layers_end();return;}
  memcpy(state.expected,state.checkpoint,TL_N);state.pending_restore=-1;
  if(kind==TITLE_BACKGROUND)state.pose_ready=true;
- else {state.menu=state.menu_base;state.stage=ST_HIGHLIGHT;state.highlight_ready=false;memset(state.cursor.coverage,0,TL_N);}
+ else {state.menu=state.menu_base;tm_restore();state.stage=ST_HIGHLIGHT;state.highlight_ready=false;memset(state.cursor.coverage,0,TL_N);}
 }
 static bool tl_logo_done(unsigned i)
 { return state.logo_count==state.opaque_count[i-1]; }
@@ -300,19 +309,19 @@ void title_layers_menu_begin(void)
 {
  if(!tl_check())return;
  if(state.phase!=PH_MENU_READY||state.stage!=ST_NONE){title_layers_end();return;}
- state.stage=ST_MENU;state.phase=PH_MENU_BUILD;
+ state.stage=ST_MENU;state.phase=PH_MENU_BUILD;tm_base_begin();
 }
 void title_layers_menu_done(void)
 {
  if(!tl_check())return;
  if(state.phase!=PH_MENU_BUILD||state.stage!=ST_MENU){title_layers_end();return;}
- state.stage=ST_NONE;state.phase=PH_MENU_DONE;
+ tm_base_done();state.stage=ST_NONE;state.phase=PH_MENU_DONE;
 }
 void title_layers_highlight_done(void)
 {
  if(!tl_check())return;
  if(state.phase!=PH_LIVE||state.stage!=ST_HIGHLIGHT){title_layers_end();return;}
- state.stage=ST_NONE;state.highlight_ready=true;
+ tm_highlight_done();state.stage=ST_NONE;state.highlight_ready=true;
 }
 void title_layers_cursor_begin(void)
 {
@@ -355,6 +364,7 @@ void title_layers_pixel(SDL_Surface *surface,Uint8 *address,enum TitleWriter wri
  } else {title_layers_end();return;}
  state.expected[offset]=*address;
  if(plane){plane->coverage[offset]=1;plane->index[offset]=*address;}
+ if(plane==&state.menu)tm_pixel((unsigned)offset,*address);
 }
 void title_layers_fade_start(const SDL_Color *target,const SDL_Color *solid,unsigned first,unsigned last)
 {
@@ -423,7 +433,9 @@ bool title_layers_present(SDL_Renderer *renderer,SDL_Surface *source,const SDL_R
                (state.phase==PH_LIVE&&(state.cursor_live||state.remaining==0))||state.phase==PH_OUT;
  if(!renderer||!destination||source!=state.screen||state.stage!=ST_NONE||!phase_ok||state.pending_save!=-1||state.pending_restore!=-1||state.pose_ready){title_layers_end();return false;}
  for(unsigned p=0;p<TL_OUT_N;p++)state.output[p]=state.rgba[0]?tl_art(state.rgba[0]+4*p):tl_classic(state.pic4[(p/(TL_W*TL_D)/TL_D)*TL_W+(p%(TL_W*TL_D))/TL_D]);
- tl_plane(&state.version);tl_logo(1);tl_logo(2);tl_plane(&state.menu);tl_plane(&state.cursor);
+ tl_plane(&state.version);tl_logo(1);tl_logo(2);
+ if(!tm_render(destination))tl_plane(&state.menu);
+ tl_plane(&state.cursor);
  if(!state.texture) {
   state.texture=SDL_CreateTexture(renderer,SDL_PIXELFORMAT_ARGB8888,SDL_TEXTUREACCESS_STREAMING,TL_W*TL_D,TL_H*TL_D);
   if(!state.texture||SDL_SetTextureScaleMode(state.texture,SDL_ScaleModeNearest)||SDL_SetTextureBlendMode(state.texture,SDL_BLENDMODE_NONE))goto failed;

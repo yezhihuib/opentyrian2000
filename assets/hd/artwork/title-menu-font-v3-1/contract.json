@@ -1,0 +1,115 @@
+{
+  "schema": "title-menu-normal-font-v3.1-art-freeze",
+  "scope": "Title-only medium/table1 initial trial. Larger bank0 headings, bank2 load rows and setup shadow activation are follow-on scopes.",
+  "art": "Root approved genuine cubic V3 glyphs plus font-only native2x ordered coverage integration on2026-10-12. Original85 slots/76 visible;9 original blanks preserved. V2 chamfered geometry is superseded. Root approved isolated lowercase j dot-to-stem correction; all other84 slots and every original reviewed title output are byte-exact.",
+  "density": 4,
+  "atlas_size": [
+    896,
+    384
+  ],
+  "cells": [
+    56,
+    64
+  ],
+  "inset": 4,
+  "registration": "Original width,height,top-left baseline and advance width+1; no crop/recenter; preserve local ascender blanks.",
+  "roles": {
+    "body": 13,
+    "top_first_0_4_logical": 15,
+    "top_next_0_45_logical": 14,
+    "bottom_last_0_35_logical": 12,
+    "coverage0_role": 0,
+    "caller": "Exact original hue,value,tilde+4,clamp0..15; palette8 index255 is red and is not overridden."
+  },
+  "rendering": {
+    "title_outline": [
+      [
+        -1,
+        -1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        -1
+      ],
+      [
+        -1,
+        1
+      ]
+    ],
+    "outline_value": -10,
+    "normal_value": -3,
+    "selected_value": -1,
+    "hue": 15,
+    "order": "For each menu row four whole-string diagonal color passes then foreground; after all rows replay selected foreground. Preserve overlapping descenders and ordered writes.",
+    "sampling": "Canonical4x. At native2x keep title underlay nearest; for each2x2 canonical font group replay all ordered original glyph passes over the same nearest underlay RGB, resolving each live palette role first and using original integer source-over. Reduce final four RGB samples with(sum+2)//4. At native4x use unchanged canonical composition. Do not average palette indices, artwork, or each text pass separately. Other output sizes remain unapproved pending engineering.",
+    "unsupported": "Entire text run stays classic for missing glyph85/extended/unreviewed bytes or unsupported context. Original blank slots must advance without ink. No global bank mutation."
+  },
+  "compatibility": {
+    "source_commit": "2efdc890217330e75a873252ca96b576495b23b9",
+    "source_files": {
+      "tyrian.shp": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+      "src/fonthand.c": "1d6c63d81e02538272a9225f70c26731c86a2048640a41e5857096cdeb03825e"
+    },
+    "header_source_fnv64": {
+      "font_ascii": "845b16939661b466",
+      "metrics": "f0dec0f37828f1c4",
+      "encoded_normal": "96f0e4e668876f23",
+      "eligible_0255": "a3861b64f710cb1f",
+      "palette8": "8f64628a08533287"
+    },
+    "serialization": "font_ascii256 signedLE32;85 metrics(width,height,width+1)u16;85 encoded(width,height,size)u16+RLE with no count/presence;85 eligibility bytes0/255;palette8 expandedRGB256 triples. No source RLE/RGB is distributed."
+  },
+  "resource": {
+    "filename": "title-menu-font-v1.hda",
+    "magic": "TMF1",
+    "header_bytes": 128,
+    "header_format": "<4s15I8Q",
+    "alpha_offset": 128,
+    "alpha_bytes": 344064,
+    "roles_offset": 344192,
+    "roles_bytes": 344064,
+    "total_bytes": 688256,
+    "reserved": "u32 index14 and u64 index6/7 zero"
+  },
+  "provenance": {
+    "method": "Independently authored cubic centerlines with source-specific medium M/W arches and asymmetric V, rounded bowls and shoulders. Exact original metrics and blank slots. No original bitmap coverage is reused.",
+    "canonical_raster": "Pillow12.3.0: sample each cubic at32 equal parameter intervals, exact full-precision control points; supersample32 logical; stroke round(1.90*32),butt endcaps,round joins,dot disks; exact original bbox clip; BOX downsample4x.",
+    "svg": "Editable true-cubic SVG with explicit bbox clipping. Canonical numerical raster is rebuild.py."
+  },
+  "expected_outputs": {
+    "menu-normal-coverage-4x.alpha.bin": {
+      "bytes": 344064,
+      "sha256": "6f9153c664e9fc6bf2aa02cb7f8e67b3275fe84c6d5da9a0b00bcbce3bb52192",
+      "fnv64": "1db77261d924ef10"
+    },
+    "menu-normal-coverage-4x.png": {
+      "bytes": 29735,
+      "sha256": "0d38c454fd80f5593151172ce517d5a8146d99f85196e32a0db54885becec4c2",
+      "fnv64": "f9e02e1e4460535f"
+    },
+    "menu-normal-roles-4x.bin": {
+      "bytes": 344064,
+      "sha256": "6747bc42a57ae7789effaac28c9709b9ad2de61e1f19ede15492096d0e3b947e",
+      "fnv64": "412362a116786bb4"
+    },
+    "menu-normal-roles-4x.png": {
+      "bytes": 6864,
+      "sha256": "e49865c0e6d0fc1f8d8fd81c4aca083770b97838083d7d9589c2472bd513bf42",
+      "fnv64": "b6285ed593db982d"
+    },
+    "menu-normal-vector-atlas.svg": {
+      "bytes": 31658,
+      "sha256": "7ddea8d9a9cf583b338b0ac692ac2dc6d124fa8a50a82c2cb6efd4a411b6bf1c",
+      "fnv64": "6505bcbfa095c1c1"
+    },
+    "title-menu-font-v1.hda": {
+      "bytes": 688256,
+      "sha256": "26e4f9eabed4f90bfe74896e04ee59e647e445ffd44a9feaf003c91444275a4d",
+      "fnv64": "eb898499551a7434"
+    }
+  }
+}

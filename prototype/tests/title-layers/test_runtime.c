@@ -88,6 +88,9 @@ SDL_Surface *VGAScreen,*VGAScreenSeg,*VGAScreen2;
 SDL_PixelFormat *main_window_tex_format;
 Uint32 rgb_palette[256];
 Sprite_array sprite_table[SPRITE_TABLES_MAX];
+#ifndef TITLE_MENU_TEST_FONT
+const int font_ascii[256]={0}; /* This suite never supplies the optional font. */
+#endif
 static SDL_Surface *display;
 static SDL_Renderer *renderer;
 static SDL_Rect destination={0,0,1280,800};

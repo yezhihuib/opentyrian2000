@@ -1,0 +1,64 @@
+{
+  "offline_only": true,
+  "original_menu_strings_widths_origins_and_row_step_exact": true,
+  "outline_pass_order": [
+    [
+      -1,
+      -1
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      -1
+    ],
+    [
+      -1,
+      1
+    ]
+  ],
+  "title_hue": 15,
+  "values": {
+    "outline": -10,
+    "normal": -3,
+    "selected": -1
+  },
+  "runtime_fallback_proposal": "Only populated reviewed bank1 ASCII. Preserve9 original blank slots; unsupported/missing85/extended runs remain original. No global replacement.",
+  "shade_roles": [
+    12,
+    13,
+    14,
+    15
+  ],
+  "coverage_slots": 85,
+  "visible_glyphs": 76,
+  "states": [
+    {
+      "state": "normal",
+      "selected": null,
+      "changed4x_pixels": 37764,
+      "outside_original_menu_run_envelopes": 0
+    },
+    {
+      "state": "selected-new-game",
+      "selected": 0,
+      "changed4x_pixels": 37746,
+      "outside_original_menu_run_envelopes": 0
+    },
+    {
+      "state": "selected-setup",
+      "selected": 4,
+      "changed4x_pixels": 37748,
+      "outside_original_menu_run_envelopes": 0
+    },
+    {
+      "state": "selected-quit",
+      "selected": 6,
+      "changed4x_pixels": 37747,
+      "outside_original_menu_run_envelopes": 0
+    }
+  ],
+  "underlay": "Accepted canonical4x PIC4 and corrected146/151 art; original retained version region copied unchanged from native2x and replicated for4x; offline comparison only."
+}

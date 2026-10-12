@@ -57,13 +57,22 @@ pack = repo / 'assets/hd/packs' / manifest['default_preview_pack']
 debug_pack = repo / 'assets/hd/packs' / manifest['default_debug_pack']
 env = dict(os.environ, ASAN_OPTIONS='detect_leaks=0:halt_on_error=1', UBSAN_OPTIONS='halt_on_error=1:print_stacktrace=1')
 traces, debug_traces, functions, source_pins = {}, {}, {}, {}
+# This historical recorder's baseline predates the title-only TMF1 addition.
+# Project only the exact independently tested f067d30 title bytes; never exempt
+# arbitrary title edits or any other gameplay/source drift from the old guard.
+TITLE_ONLY_SOURCE_SHA256 = {'src/title_layers.c': '58691e41f8183e7f45c3c4b85ecb80cf835ae43413e9cf03ba10595d22eb6c5c', 'src/title_layers.h': 'be304a77f1d244b192e631dde633c239ea64e0de0185ef7ae2b635afb57b41e4', 'src/title_menu_font.inc': '557d0904df07e410025df6d90885d03408a76ce7cf650fc2298f4ef228b2711d', 'src/tyrian2.c': '0a042621d599fdba15f89012c9bb1007327cd6f5df0e0a41865ea61c08856d02'}
+title_only_projection = 'startup_title_menu_v1' in manifest
+if title_only_projection:
+    for path, expected in TITLE_ONLY_SOURCE_SHA256.items():
+        assert sha((repo / path).read_bytes()) == expected, 'Unreviewed title-only projection: ' + path
 # All original gameplay/call-site files must remain unchanged, including the
 # recycled scoreitem behavior. The recorder never simulates that state itself.
 for path in git('ls-tree', '-r', '--name-only', a.baseline, 'src').decode().splitlines():
     if path == 'src/render_mirror.c':
         continue
     before, after = git('show', a.baseline + ':' + path), (repo / path).read_bytes()
-    assert before == after, 'Changed original source: ' + path
+    if not (title_only_projection and path in TITLE_ONLY_SOURCE_SHA256):
+        assert before == after, 'Changed original source: ' + path
     source_pins[path] = sha(after)
 for label, source in [('baseline', baseline), ('candidate', current)]:
     d = out / label

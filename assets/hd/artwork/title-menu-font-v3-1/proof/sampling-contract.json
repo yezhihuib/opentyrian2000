@@ -1,0 +1,293 @@
+{
+  "scope": "Private offline font-only sampling evaluation. No actual engine run, capture, resource adoption, production source change, global filter or broad blur.",
+  "native2x_method": "Each canonical2x2 group uses one original nearest-sampled title underlay pixel; replay all original ordered glyph passes with live palette RGB and exact integer source-over, then(sumRGB+2)//4. This integrates coverage/color without averaging palette indices or artwork.",
+  "premultiplied_reference": "Independently accumulate P=C*a+Pold*(1-a), A=a+Aold*(1-a); average each2x2 P/A group; source-over unchanged nearest title underlay. Rational checks distinguish exact coverage from per-pass8-bit quantization.",
+  "native4x_method": "Unchanged original ordered canonical4x source-over; both sampler choices share exact bytes.",
+  "other_output_sizes": "Not evaluated or approved. Do not infer arbitrary-ratio filtering,3x,fullscreen orGPU support.",
+  "underlay_note": "Accepted title art, with unchanged original version footer reconstructed from an existing retained2x still; offline comparison only.",
+  "states": [
+    {
+      "state": "normal",
+      "selected": null,
+      "commands": 275,
+      "changed_native2x_pixels": 8259,
+      "outside_font_coverage_cells_changed": 0,
+      "native4x_paths_byte_exact": true,
+      "premultiplied_rational_checked_pixels": 64,
+      "integer_operator_vs_exact_premul_max_channel_delta": 1,
+      "integer_operator_vs_exact_premul_differing_channels": 3236
+    },
+    {
+      "state": "selected-new-game",
+      "selected": 0,
+      "commands": 287,
+      "changed_native2x_pixels": 8263,
+      "outside_font_coverage_cells_changed": 0,
+      "native4x_paths_byte_exact": true,
+      "premultiplied_rational_checked_pixels": 64,
+      "integer_operator_vs_exact_premul_max_channel_delta": 1,
+      "integer_operator_vs_exact_premul_differing_channels": 3230
+    },
+    {
+      "state": "selected-setup",
+      "selected": 4,
+      "commands": 280,
+      "changed_native2x_pixels": 8261,
+      "outside_font_coverage_cells_changed": 0,
+      "native4x_paths_byte_exact": true,
+      "premultiplied_rational_checked_pixels": 64,
+      "integer_operator_vs_exact_premul_max_channel_delta": 1,
+      "integer_operator_vs_exact_premul_differing_channels": 3253
+    },
+    {
+      "state": "selected-quit",
+      "selected": 6,
+      "commands": 279,
+      "changed_native2x_pixels": 8259,
+      "outside_font_coverage_cells_changed": 0,
+      "native4x_paths_byte_exact": true,
+      "premultiplied_rational_checked_pixels": 64,
+      "integer_operator_vs_exact_premul_max_channel_delta": 1,
+      "integer_operator_vs_exact_premul_differing_channels": 3225
+    },
+    {
+      "state": "ui-half",
+      "outside_font_coverage_cells_changed": 0,
+      "premultiplied_rational_checked_pixels": 64,
+      "integer_operator_vs_exact_premul_max_channel_delta": 1,
+      "integer_operator_vs_exact_premul_differing_channels": 3528
+    },
+    {
+      "state": "custom-live-palette",
+      "outside_font_coverage_cells_changed": 0,
+      "premultiplied_rational_checked_pixels": 64,
+      "integer_operator_vs_exact_premul_max_channel_delta": 1,
+      "integer_operator_vs_exact_premul_differing_channels": 3219
+    },
+    {
+      "state": "role255-red",
+      "diagnostic_tilde_control_in_first_row": true,
+      "palette_index255_rgb": [
+        255,
+        0,
+        0
+      ],
+      "covered_index255_color_samples": 8464,
+      "outside_font_coverage_cells_changed": 0,
+      "premultiplied_rational_checked_pixels": 64,
+      "integer_operator_vs_exact_premul_max_channel_delta": 1,
+      "integer_operator_vs_exact_premul_differing_channels": 3457
+    },
+    {
+      "state": "role255-red-ui-half",
+      "diagnostic_tilde_control_in_first_row": true,
+      "palette_index255_rgb": [
+        127,
+        0,
+        0
+      ],
+      "covered_index255_color_samples": 8464,
+      "outside_font_coverage_cells_changed": 0,
+      "premultiplied_rational_checked_pixels": 64,
+      "integer_operator_vs_exact_premul_max_channel_delta": 1,
+      "integer_operator_vs_exact_premul_differing_channels": 3473
+    },
+    {
+      "state": "role255-red-ui-black",
+      "diagnostic_tilde_control_in_first_row": true,
+      "palette_index255_rgb": [
+        0,
+        0,
+        0
+      ],
+      "covered_index255_color_samples": 175991,
+      "outside_font_coverage_cells_changed": 0,
+      "premultiplied_rational_checked_pixels": 64,
+      "integer_operator_vs_exact_premul_max_channel_delta": 1,
+      "integer_operator_vs_exact_premul_differing_channels": 1594
+    }
+  ],
+  "ordered_overlap_witness": {
+    "native2x_pixel_xy": [
+      371,
+      208
+    ],
+    "unchanged_underlay_rgb": [
+      94,
+      44,
+      45
+    ],
+    "ordered_subsamples_then_reduce_rgb": [
+      165,
+      143,
+      118
+    ],
+    "incorrect_reduce_each_pass_first_rgb": [
+      204,
+      189,
+      140
+    ],
+    "max_channel_difference": 46,
+    "all_image_differing_pixels": 3951,
+    "ordered_overlapping_commands": [
+      {
+        "ordered_glyph_command": 8,
+        "coverage2x2": [
+          [
+            255,
+            255
+          ],
+          [
+            255,
+            255
+          ]
+        ],
+        "live_rgb2x2": [
+          [
+            [
+              73,
+              28,
+              52
+            ],
+            [
+              73,
+              28,
+              52
+            ]
+          ],
+          [
+            [
+              73,
+              28,
+              52
+            ],
+            [
+              73,
+              28,
+              52
+            ]
+          ]
+        ]
+      },
+      {
+        "ordered_glyph_command": 32,
+        "coverage2x2": [
+          [
+            255,
+            255
+          ],
+          [
+            255,
+            255
+          ]
+        ],
+        "live_rgb2x2": [
+          [
+            [
+              73,
+              28,
+              52
+            ],
+            [
+              73,
+              28,
+              52
+            ]
+          ],
+          [
+            [
+              73,
+              28,
+              52
+            ],
+            [
+              73,
+              28,
+              52
+            ]
+          ]
+        ]
+      },
+      {
+        "ordered_glyph_command": 56,
+        "coverage2x2": [
+          [
+            0,
+            4
+          ],
+          [
+            247,
+            255
+          ]
+        ],
+        "live_rgb2x2": [
+          [
+            [
+              20,
+              4,
+              20
+            ],
+            [
+              235,
+              223,
+              146
+            ]
+          ],
+          [
+            [
+              235,
+              223,
+              146
+            ],
+            [
+              235,
+              223,
+              146
+            ]
+          ]
+        ]
+      },
+      {
+        "ordered_glyph_command": 283,
+        "coverage2x2": [
+          [
+            0,
+            4
+          ],
+          [
+            247,
+            255
+          ]
+        ],
+        "live_rgb2x2": [
+          [
+            [
+              20,
+              4,
+              20
+            ],
+            [
+              255,
+              255,
+              182
+            ]
+          ],
+          [
+            [
+              255,
+              255,
+              182
+            ],
+            [
+              255,
+              255,
+              182
+            ]
+          ]
+        ]
+      }
+    ]
+  },
+  "external_evaluation_receipt_sha256": "ed1e73ebb13dc830040b6ec27f07ea65106a725964dffdbcf73089d6d139a502",
+  "author_reference_equality": "Independent pixel check: evaluator nearest normal/selected outputs equal authored preview at2x and4x. This is offline evidence, not runtime."
+}

@@ -99,6 +99,26 @@ include observer overhead. Explicit title CPU storage peaks at 12,075,752 bytes,
 plus one nominal 4,096,000-byte SDL texture. Physical GPU/fullscreen, Windows,
 physical joystick and demo gameplay remain untested; gameplay HD selection is unchanged.
 
+### Optional title menu typography trial
+
+The separate six-file pack adds the reviewed medium-font V3.1 lettering to the
+existing manufacturer/title artwork:
+
+```sh
+./opentyrian2000 --data=/absolute/path/to/tyrian2000 \
+  --startup-assets=assets/hd/packs/startup-title-menu-v1
+```
+
+Native2× uses font-only coverage integration; native4× retains crisp canonical
+lettering. Other output sizes use classic menu text while keeping title artwork.
+Only the seven main-title rows use the new glyphs. Original indexed text, widths,
+centering, hit boxes, input, palette fades and cursor remain authoritative. Missing
+or incompatible typography falls back to the whole classic menu while valid title
+art remains active. Version text, setup/load screens and gameplay HUF1 are unchanged.
+The old five-file title pack and default pack selections are unchanged.
+[Protocol and current checks](docs/TITLE_MENU_FONT.md) distinguish source/synthetic
+checks from the still-pending actual-engine visual and interaction acceptance.
+
 Windows: use the [build entrypoint](prototype/build-game.ps1) and
 [setup/acceptance limits](docs/WINDOWS_HANDOFF.md). These instructions do not
 constitute a new Windows build or runtime acceptance claim.

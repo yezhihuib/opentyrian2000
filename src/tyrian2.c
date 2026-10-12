@@ -3421,11 +3421,21 @@ bool titleScreen(void)
 				const int x = xCenter - wMenuItem[i] / 2;
 				const int y = yMenuItems + hMenuItem * i;
 
+				title_layers_menu_text_begin(VGAScreen, x - 1, y - 1, menuText[i], normal_font, left_aligned, 15, -10);
 				draw_font_hv(VGAScreen, x - 1, y - 1, menuText[i], normal_font, left_aligned, 15, -10);
+				title_layers_menu_text_done();
+				title_layers_menu_text_begin(VGAScreen, x + 1, y + 1, menuText[i], normal_font, left_aligned, 15, -10);
 				draw_font_hv(VGAScreen, x + 1, y + 1, menuText[i], normal_font, left_aligned, 15, -10);
+				title_layers_menu_text_done();
+				title_layers_menu_text_begin(VGAScreen, x + 1, y - 1, menuText[i], normal_font, left_aligned, 15, -10);
 				draw_font_hv(VGAScreen, x + 1, y - 1, menuText[i], normal_font, left_aligned, 15, -10);
+				title_layers_menu_text_done();
+				title_layers_menu_text_begin(VGAScreen, x - 1, y + 1, menuText[i], normal_font, left_aligned, 15, -10);
 				draw_font_hv(VGAScreen, x - 1, y + 1, menuText[i], normal_font, left_aligned, 15, -10);
+				title_layers_menu_text_done();
+				title_layers_menu_text_begin(VGAScreen, x,     y,     menuText[i], normal_font, left_aligned, 15, -3);
 				draw_font_hv(VGAScreen, x,     y,     menuText[i], normal_font, left_aligned, 15, -3);
+				title_layers_menu_text_done();
 			}
 
 			title_layers_menu_done();
@@ -3446,7 +3456,9 @@ bool titleScreen(void)
 		title_layers_restore_after(TITLE_MENU);
 
 		// Highlight selected menu item.
+		title_layers_menu_text_begin(VGAScreen, VGAScreen->w / 2, yMenuItems + hMenuItem * selectedIndex, menuText[selectedIndex], normal_font, centered, 15, -1);
 		draw_font_hv(VGAScreen, VGAScreen->w / 2, yMenuItems + hMenuItem * selectedIndex, menuText[selectedIndex], normal_font, centered, 15, -1);
+		title_layers_menu_text_done();
 		title_layers_highlight_done();
 
 		service_SDL_events(true);

@@ -1,0 +1,83 @@
+{
+  "status": "PASS",
+  "coverage_slots": 85,
+  "inked_slots": 76,
+  "blank_slots": [
+    60,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    84
+  ],
+  "support": "All authored alpha stays within original glyph bbox/canvas; all original dimensions and advances retained.",
+  "zero_padding_and_transparent_rgb": true,
+  "header_payload_exact": true,
+  "canonical_v3_atlas_bytes_unchanged": true,
+  "relocated_source_only_rebuild": {
+    "outputs": {
+      "menu-normal-coverage-4x.alpha.bin": {
+        "bytes": 344064,
+        "sha256": "6f9153c664e9fc6bf2aa02cb7f8e67b3275fe84c6d5da9a0b00bcbce3bb52192",
+        "fnv64": "1db77261d924ef10"
+      },
+      "menu-normal-coverage-4x.png": {
+        "bytes": 29735,
+        "sha256": "0d38c454fd80f5593151172ce517d5a8146d99f85196e32a0db54885becec4c2",
+        "fnv64": "f9e02e1e4460535f"
+      },
+      "menu-normal-roles-4x.bin": {
+        "bytes": 344064,
+        "sha256": "6747bc42a57ae7789effaac28c9709b9ad2de61e1f19ede15492096d0e3b947e",
+        "fnv64": "412362a116786bb4"
+      },
+      "menu-normal-roles-4x.png": {
+        "bytes": 6864,
+        "sha256": "e49865c0e6d0fc1f8d8fd81c4aca083770b97838083d7d9589c2472bd513bf42",
+        "fnv64": "b6285ed593db982d"
+      },
+      "menu-normal-vector-atlas.svg": {
+        "bytes": 31658,
+        "sha256": "7ddea8d9a9cf583b338b0ac692ac2dc6d124fa8a50a82c2cb6efd4a411b6bf1c",
+        "fnv64": "6505bcbfa095c1c1"
+      },
+      "title-menu-font-v1.hda": {
+        "bytes": 688256,
+        "sha256": "26e4f9eabed4f90bfe74896e04ee59e647e445ffd44a9feaf003c91444275a4d",
+        "fnv64": "eb898499551a7434"
+      }
+    },
+    "canonical_inputs_used": false,
+    "original_game_data_used": false
+  },
+  "path_guards": [
+    {
+      "case": "source",
+      "rejected": true
+    },
+    {
+      "case": "source_child",
+      "rejected": true
+    },
+    {
+      "case": "source_ancestor",
+      "rejected": true
+    },
+    {
+      "case": "existing_output",
+      "rejected": true
+    },
+    {
+      "case": "symlink_output",
+      "rejected": true
+    },
+    {
+      "case": "symlink_parent",
+      "rejected": true
+    }
+  ],
+  "runtime_or_capture_claim": false
+}

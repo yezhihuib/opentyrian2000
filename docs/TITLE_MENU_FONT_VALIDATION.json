@@ -1,0 +1,161 @@
+{
+  "schema": "title-menu-font-v31-runtime-validation-v1",
+  "status": "PASS_BOUNDED_ACTUAL_AND_SOURCE_GATES",
+  "tested_title_commit": "f067d301512396a69c79977101ce15200591b3cd",
+  "actual_baseline_commit": "305c43aae91f0a20cc4cd622fc0a99b1bb37a37c",
+  "art_sha256": "26e4f9eabed4f90bfe74896e04ee59e647e445ffd44a9feaf003c91444275a4d",
+  "actual_environment": "Original release engine, deterministic common seed0x4d464731/version startup-qa-20261012, SDL dummy/software, unchanged original waits/input handling/indexed draws, private observers only. No physical desktop/GPU claim.",
+  "cases": {
+    "core_native2": {
+      "paired": true,
+      "intro_frames_each": 82,
+      "title_frames_each": 60,
+      "events_each": 0,
+      "all_output_hashes_reconstructed": true
+    },
+    "core_native4": {
+      "paired": true,
+      "intro_frames_each": 82,
+      "title_frames_each": 60,
+      "events_each": 0,
+      "all_output_hashes_reconstructed": true
+    },
+    "interactive_native2": {
+      "paired": true,
+      "intro_frames_each": 82,
+      "postintro_frames_each": 151,
+      "title_frames_each": 125,
+      "classic_instructions_frames_each": 26,
+      "events_each": 12,
+      "cursor_erase_boundaries": [
+        60,
+        61,
+        62,
+        63,
+        135,
+        136
+      ],
+      "all_title_output_hashes_reconstructed": true,
+      "all_classic_instructions_readbacks_equal": true
+    },
+    "title_fade_key_native2": {
+      "paired": true,
+      "intro_frames_each": 82,
+      "title_frames_each": 60,
+      "events_each": 2,
+      "original_keydown_at": 5,
+      "original_keyup_at": 8,
+      "all_output_hashes_reconstructed": true
+    },
+    "all_selections_native2": {
+      "paired": true,
+      "intro_frames_each": 82,
+      "title_frames_each": 66,
+      "events_each": 12,
+      "selections_at_live_frames60_to66": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "all_output_hashes_reconstructed": true
+    },
+    "missing_optional_font_native2": {
+      "executions": 1,
+      "intro_frames": 82,
+      "title_frames": 60,
+      "events": 0,
+      "all142_readbacks_equal_valid_art_classic_text_baseline": true
+    },
+    "corrupt_optional_font_native2": {
+      "executions": 1,
+      "intro_frames": 82,
+      "title_frames": 60,
+      "events": 0,
+      "all142_readbacks_equal_valid_art_classic_text_baseline": true
+    }
+  },
+  "invariants": [
+    "Original indexed pixels, live palettes, RNG, input and ordered glyph-write streams exact across pairs",
+    "Original wait/fade/delay branches unchanged",
+    "No pixel change outside old or new font coverage",
+    "Complete correlated subsample glyph stack then reduction at2x; canonical4x unchanged",
+    "Cursor remains last; pre/post erase and menu_base backups match exactly",
+    "Font/title ownership releases on Instructions and cleanup; return reacquires without stale selection",
+    "Missing/corrupt optional typography retains valid title artwork and classic text"
+  ],
+  "source_and_module_gates": {
+    "normal_final_art_presentations": 381,
+    "independent_sanitized_sampler_presentations": 412,
+    "independent_all85_slots_presentations": 439,
+    "legacy_title_presentations": 736,
+    "package_tests": 6,
+    "legacy_title_package_tests": 18,
+    "legacy_manufacturer_package_tests": 13,
+    "frozen_source_files": 17,
+    "unchanged_compatibility_payloads": 5,
+    "relocated_vector_rebuild": "six outputs byte-exact",
+    "other_scales_allocation_failure_unsupported_text": "Fail-closed classic-menu fallback independently covered in source/module tests; no arbitrary-scale or translated-menu actual acceptance claimed"
+  },
+  "memory_bytes": {
+    "menu_fixed": 69896,
+    "font_planes": 688128,
+    "reusable_samples": 1904640,
+    "full_title_dynamic_peak": 13802496,
+    "explicit_title_cpu": 14738416,
+    "existing_nominal_texture": 4096000
+  },
+  "scratch_logical_xyxy": [
+    0,
+    103,
+    320,
+    196
+  ],
+  "root_actual_native2_review": {
+    "time_utc": "2026-10-12T23:21:14Z",
+    "reported_by": "parent coordinator",
+    "verbatim": "Root viewed actual title060 native2x V3.1: rounded strokes smooth and filled, selected gold clear, no remaining coarse chamfered artifacts; visual actual accepted."
+  },
+  "artist_actual_review": {
+    "status": "PASS",
+    "receipt": "TITLE_MENU_FONT_AUTHOR_REVIEW.json",
+    "sha256": "c421f8ad2704972aed354a5d6e1853761b5a3b2a2d1339efc8e6c0a193d44955",
+    "scope": "Direct retained native2x/4x core, all seven selected states and cursor/Instructions/return/exit PNGs; fade evidence numeric, not continuous-video review."
+  },
+  "receipt_identities": {
+    "core": {
+      "file": "final-receipt.json",
+      "evidence_directory": "title-menu-v3-actual-core-20261012",
+      "sha256": "b06a3e8f6fe17ef4bdc3db5aca9bfd1e6e2d72626ccd43631738d88dde949fa5"
+    },
+    "input": {
+      "file": "final-receipt.json",
+      "evidence_directory": "title-menu-v3-input-20261012",
+      "sha256": "09496d911b05a18560c67a0be483c949ee56662a095a778cd9daeaa2b31592d7"
+    },
+    "fallback": {
+      "file": "final-receipt.json",
+      "evidence_directory": "title-menu-v3-fallback-actual-20261012",
+      "sha256": "0ed99a65f92741f12a8251d5f1e48ccae6b01c6f4c9757e8b2929c98d19b2d84"
+    },
+    "seven": {
+      "file": "final-receipt.json",
+      "evidence_directory": "title-menu-v3-seven-selections-20261012",
+      "sha256": "99314fe2260c01f3a84b4efa5e0c629906619efec9f5c90ebbe6cc8d06d09ba1"
+    }
+  },
+  "representative_actual_png_sha256": {
+    "native2": "c3db36181a4d54e79362cbfb795118c28171103b8da48a5ae4e59c3c4f3e8fae",
+    "native4": "d5e6b1f143fdc369b1f88e300f21cb420a35bf60f6fa0a3de866b9a19b755032"
+  },
+  "publication": "Local candidate validation; publication and later merge identity proof recorded separately.",
+  "merged_published_commit": "e6fd18a8d53c31f90d15c0ac1bce9d0e927336ac",
+  "merge_identity_proof": "TITLE_MENU_FONT_MERGE_PROOF.json",
+  "legacy_package_rerun_after_merge": {
+    "title_package_tests": 20,
+    "manufacturer_package_tests": 15
+  }
+}

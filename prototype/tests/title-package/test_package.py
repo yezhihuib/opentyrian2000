@@ -896,6 +896,16 @@ class TitlePackageTests(unittest.TestCase):
         without_title = json.loads(json.dumps(self.manifest))
         project_newsh4_entry6_family(self, without_title)
         project_late_spike_family(self, without_title)
+        added_menu = without_title.pop('startup_title_menu_v1', None)
+        if added_menu is not None:
+            sys.path.insert(0, str(ROOT / 'prototype'))
+            from title_menu_font_bundle import build_family as menu_family, build_bundles as menu_bundles
+            try:
+                _, expected_menu = menu_family(ROOT)
+                menu_bundles(ROOT)
+            except ValueError as error:
+                self.fail(str(error))
+            self.assertEqual(added_menu, expected_menu)
         project_type15_family(self, without_title)
         opposite = without_title.pop('newsh4_opposite7_v1', None)
         if opposite is not None:
@@ -1148,7 +1158,7 @@ class TitlePackageTests(unittest.TestCase):
     def test_aggregate_title_block_verifies_and_outputs_only_five_files(self):
         # Execute only the real title-family block, never the aggregate rebuild.
         text = (ROOT / 'prototype/build-hd-assets.py').read_text()
-        block = text[text.index('title_count=0\n'):text.index('type4_count=0\n')]
+        block = text[text.index('title_count=0\n'):text.index('title_menu_count=0\n')]
         with tempfile.TemporaryDirectory(prefix='title-aggregate-block-') as temporary:
             namespace = {'repo': ROOT, 'manifest': self.manifest,
                          'a': SimpleNamespace(output=True), 'output': Path(temporary)}
