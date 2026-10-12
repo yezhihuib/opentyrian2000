@@ -1,7 +1,7 @@
 {
   "schema": "opentyrian-accepted-hd-runtime-v1",
   "baseline_branch": "hd-render-prototype",
-  "status": "Accepted Charge Cannon heads plus finite continuous plateau cap material; lower atlas and all HDA assets unchanged",
+  "status": "Finite regular Missile Launcher31\u201333 heads added; accepted terrain materials and original gameplay retained",
   "default_preview_pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
   "default_debug_pack": "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
   "packs": {
@@ -29154,7 +29154,7 @@
       }
     },
     "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 337,
+      "count": 340,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -33536,11 +33536,50 @@
           ],
           "source_png": "assets/hd/source/bullet-254-8-e38fb46beeca.png",
           "source_png_sha256": "0e75f955c707c81af97ad592d2c17b8387097e063706bb51c279b5f5e6564a3a"
+        },
+        "bullet-31-8.hda": {
+          "sha256": "1886c94a18ad50eae1acf0a364fe7a204efd35dec16fb80fdde0b939ac688a66",
+          "header_u32": [
+            80031,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/bullet-31-8-1886c94a18ad.png",
+          "source_png_sha256": "6197c093fe4bacc04a86a22ef94f7c789b18c55fcb134c2fd1f71a909abc1939"
+        },
+        "bullet-32-8.hda": {
+          "sha256": "dfe3680a20876e59ce112e932f531c244e94a987b1b156441189f7f942fa73d8",
+          "header_u32": [
+            80032,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/bullet-32-8-dfe3680a2087.png",
+          "source_png_sha256": "3d1fa8e5248cd2e979dcbbeffdced7e35b4ca1f50fcb16681ffcc50e81fab4d3"
+        },
+        "bullet-33-8.hda": {
+          "sha256": "1d7272a227d827b63ff3120813a8b229ae961fac77611fad7e468f63a8656e37",
+          "header_u32": [
+            80033,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/bullet-33-8-1d7272a227d8.png",
+          "source_png_sha256": "ca3de4581dc4cab5078c73f5a69e04b1633e7512b3cc70b9ab1789206c3b88e4"
         }
       }
     },
     "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 341,
+      "count": 344,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -37974,6 +38013,45 @@
           ],
           "source_png": "assets/hd/source/bullet-254-8-e38fb46beeca.png",
           "source_png_sha256": "0e75f955c707c81af97ad592d2c17b8387097e063706bb51c279b5f5e6564a3a"
+        },
+        "bullet-31-8.hda": {
+          "sha256": "1886c94a18ad50eae1acf0a364fe7a204efd35dec16fb80fdde0b939ac688a66",
+          "header_u32": [
+            80031,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/bullet-31-8-1886c94a18ad.png",
+          "source_png_sha256": "6197c093fe4bacc04a86a22ef94f7c789b18c55fcb134c2fd1f71a909abc1939"
+        },
+        "bullet-32-8.hda": {
+          "sha256": "dfe3680a20876e59ce112e932f531c244e94a987b1b156441189f7f942fa73d8",
+          "header_u32": [
+            80032,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/bullet-32-8-dfe3680a2087.png",
+          "source_png_sha256": "3d1fa8e5248cd2e979dcbbeffdced7e35b4ca1f50fcb16681ffcc50e81fab4d3"
+        },
+        "bullet-33-8.hda": {
+          "sha256": "1d7272a227d827b63ff3120813a8b229ae961fac77611fad7e468f63a8656e37",
+          "header_u32": [
+            80033,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/bullet-33-8-1d7272a227d8.png",
+          "source_png_sha256": "ca3de4581dc4cab5078c73f5a69e04b1633e7512b3cc70b9ab1789206c3b88e4"
         }
       }
     }
@@ -40312,6 +40390,24 @@
       "sha256": "0e75f955c707c81af97ad592d2c17b8387097e063706bb51c279b5f5e6564a3a",
       "RGBA_sha256": "7f3c13462e4d37c7be3feeb08c07bb96515229085bd2eb2dc0728fc07bc68a55",
       "note": "Generated static Charge Cannon bank8 head; original option3 charge states and launcher bodies retained"
+    },
+    "1886c94a18ad50eae1acf0a364fe7a204efd35dec16fb80fdde0b939ac688a66": {
+      "path": "assets/hd/source/bullet-31-8-1886c94a18ad.png",
+      "sha256": "6197c093fe4bacc04a86a22ef94f7c789b18c55fcb134c2fd1f71a909abc1939",
+      "RGBA_sha256": "d044dd676790f04d861018693033559c61c8eec9c688d27868ef6a66630b9493",
+      "note": "Generated static physical Missile Launcher bank8 head; source offset, original smoke/shadows and collision children retained"
+    },
+    "dfe3680a20876e59ce112e932f531c244e94a987b1b156441189f7f942fa73d8": {
+      "path": "assets/hd/source/bullet-32-8-dfe3680a2087.png",
+      "sha256": "3d1fa8e5248cd2e979dcbbeffdced7e35b4ca1f50fcb16681ffcc50e81fab4d3",
+      "RGBA_sha256": "561294138c07f6a391646b91702c39c48c0cba0926a62d4a2589f77c7ff72c04",
+      "note": "Generated static physical Missile Launcher bank8 head; source offset, original smoke/shadows and collision children retained"
+    },
+    "1d7272a227d827b63ff3120813a8b229ae961fac77611fad7e468f63a8656e37": {
+      "path": "assets/hd/source/bullet-33-8-1d7272a227d8.png",
+      "sha256": "ca3de4581dc4cab5078c73f5a69e04b1633e7512b3cc70b9ab1789206c3b88e4",
+      "RGBA_sha256": "973a2a9dc6fc820d41611a0787abca705c2cdf844b84e823dacd1b8c1754b785",
+      "note": "Generated static physical Missile Launcher bank8 head; source offset, original smoke/shadows and collision children retained"
     }
   },
   "no_original_game_data": true,

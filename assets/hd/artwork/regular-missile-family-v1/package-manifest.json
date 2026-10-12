@@ -1,0 +1,112 @@
+{
+  "package": "regular-missile-family-v1-generated-only-source.zip",
+  "status": "Frozen generated-only source and runtime payload; art approved for bounded runtime trial, not runtime acceptance",
+  "excluded": [
+    "All original-pixel references",
+    "Original-vs-pilot comparison contacts",
+    "Source-audit original pixel rows",
+    "Unselected/rejected masters (none generated)"
+  ],
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 3372,
+      "sha256": "5c69635baefd6a7b0a28df4f60e2a0674d68c59214118da4a9e3ae4092cf6ef2"
+    },
+    {
+      "path": "candidate-manifest.json",
+      "bytes": 10907,
+      "sha256": "2bd0ee672cc9dcbee8532dde5f3a1102d9afbaf810ee09d7ea362d9435c0281a"
+    },
+    {
+      "path": "encode_runtime.py",
+      "bytes": 611,
+      "sha256": "06d907308bcc9957394375c951df4da3542e7dd16e2cd93bc90e33273573baba"
+    },
+    {
+      "path": "export_pilot.sh",
+      "bytes": 886,
+      "sha256": "d4eda0ef8d654f292b4ddd5d988b36ba7ff5c2816db2121aa7c139cd749eee5c"
+    },
+    {
+      "path": "frames/bank8-id31-96x112.png",
+      "bytes": 9991,
+      "sha256": "6197c093fe4bacc04a86a22ef94f7c789b18c55fcb134c2fd1f71a909abc1939"
+    },
+    {
+      "path": "frames/bank8-id32-96x112.png",
+      "bytes": 13846,
+      "sha256": "3d1fa8e5248cd2e979dcbbeffdced7e35b4ca1f50fcb16681ffcc50e81fab4d3"
+    },
+    {
+      "path": "frames/bank8-id33-96x112.png",
+      "bytes": 14822,
+      "sha256": "ca3de4581dc4cab5078c73f5a69e04b1633e7512b3cc70b9ab1789206c3b88e4"
+    },
+    {
+      "path": "generation-provenance.json",
+      "bytes": 3288,
+      "sha256": "f2e502f5de1e2c2958cd7ce744e96b49c9d4637965605f92bdaf89f622c953af"
+    },
+    {
+      "path": "reproduction-verification.json",
+      "bytes": 456,
+      "sha256": "9ac7b0669319a5afd80080c47050c205df67fcfda23290ddfef5149f2d6b749e"
+    },
+    {
+      "path": "review/hd-pixels-1to1-dark-light.png",
+      "bytes": 134168,
+      "sha256": "85228a3233b664a06b04dd96a269214bd33404d93044c06c20bd5232672144b9"
+    },
+    {
+      "path": "runtime/bullet-31-8.hda",
+      "bytes": 43036,
+      "sha256": "1886c94a18ad50eae1acf0a364fe7a204efd35dec16fb80fdde0b939ac688a66"
+    },
+    {
+      "path": "runtime/bullet-32-8.hda",
+      "bytes": 43036,
+      "sha256": "dfe3680a20876e59ce112e932f531c244e94a987b1b156441189f7f942fa73d8"
+    },
+    {
+      "path": "runtime/bullet-33-8.hda",
+      "bytes": 43036,
+      "sha256": "1d7272a227d827b63ff3120813a8b229ae961fac77611fad7e468f63a8656e37"
+    },
+    {
+      "path": "sources/missile-31-generated-v1.png",
+      "bytes": 402140,
+      "sha256": "29adc2a6d47bc00f12929d1fc1405e9901bf6624daa27e9d40c1f772adce05d9"
+    },
+    {
+      "path": "sources/missile-31-prompt-v1.txt",
+      "bytes": 1959,
+      "sha256": "3f42b069dfa574d7939fcdbcd2bab650269bd942db660eb2f22471641c932169"
+    },
+    {
+      "path": "sources/missile-32-generated-v1.png",
+      "bytes": 828200,
+      "sha256": "6211f515aa3942c4edf03cf3c8722a0e68e714e69fc43f7a9e316955b85f9119"
+    },
+    {
+      "path": "sources/missile-32-prompt-v1.txt",
+      "bytes": 1963,
+      "sha256": "1592a75aa8ed48968e15e9d29bceb6d7f088e9124509f8e61a8faf813f29fd01"
+    },
+    {
+      "path": "sources/missile-33-generated-v1.png",
+      "bytes": 1341020,
+      "sha256": "65a01219272e430be92e2aad1c57097b957fa4b2eb3680a518321ca2f4fef02f"
+    },
+    {
+      "path": "sources/missile-33-prompt-v1.txt",
+      "bytes": 2099,
+      "sha256": "9dc44078468036cf757dc4658ba5628f7fc0313215e706fb2c5c35b8a460722f"
+    },
+    {
+      "path": "validation.json",
+      "bytes": 1124,
+      "sha256": "7d6fbc2c9d441fb9be4a9d8d06bc2620b85c272a2d215002792ea214f23ba947"
+    }
+  ]
+}

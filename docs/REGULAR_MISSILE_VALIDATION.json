@@ -1,0 +1,123 @@
+{
+  "status": "passed",
+  "baseline_commit": "8542a2d5d05774074cc589544f92ba435dc4ca46",
+  "finite_player_bank8_ids": [
+    31,
+    32,
+    33
+  ],
+  "slots": [
+    333,
+    334,
+    335
+  ],
+  "geometry": {
+    "density": 8,
+    "logical": [
+      12,
+      14
+    ],
+    "anchor": [
+      0,
+      0
+    ]
+  },
+  "cases": [
+    {
+      "episode": 1,
+      "level": 9,
+      "front": 17,
+      "power": 6,
+      "ticks": 600
+    },
+    {
+      "episode": 1,
+      "level": 9,
+      "front": 17,
+      "power": 8,
+      "ticks": 600
+    },
+    {
+      "episode": 1,
+      "level": 9,
+      "front": 17,
+      "power": 11,
+      "ticks": 600
+    },
+    {
+      "episode": 4,
+      "level": 3,
+      "front": 17,
+      "power": 11,
+      "ticks": 600
+    }
+  ],
+  "matched_initial_frames_per_side": 2400,
+  "original_indexed_blend_rows_exact": 7373783,
+  "normal_new_HD_draws": 9497,
+  "target_original_shadow_draws": 9365,
+  "all_prior_manifest_entries_exact": true,
+  "new_HDA_files": 6,
+  "new_active_canonical_PNGs": 3,
+  "all_assets_verification": {
+    "verified_pack_count": 18,
+    "verified_HDA_entries": 2920,
+    "verified_exact_source_pngs": 356,
+    "verified_material_sidecars": 4,
+    "verified_cap_sidecars": 2,
+    "default_pack_counts": [
+      340,
+      344
+    ],
+    "rebuild_output": null,
+    "all_runtime_RGBA_and_header_bytes_exact": true
+  },
+  "formal_all_scene_smoke": {
+    "ticks": 600,
+    "full_29_streams_RGB_FIFO_exact": true,
+    "indexed_blend_rows": 1784269,
+    "executable_sha256": "09c047c13737ab6626f6a44278a3363e005fa2c88acae115a2f1bef42b2b5ae5"
+  },
+  "source_archive_sha256": "845643847f3bb349d7b17b11822f329858bf2d5ce5ac8c570b68a0576eb249dd",
+  "original_data_or_capture_committed": false,
+  "evidence_receipts": [
+    {
+      "name": "regular-missile-candidate-8542a2d/parity-report.json",
+      "sha256": "3c17f28be6a5da9876326ac4ef6cbf4b63ffd93b55a3916fd9d20be4171123cd"
+    },
+    {
+      "name": "regular-missile-fallback-validation/parity-report.json",
+      "sha256": "552612a57ecadd60e9126418cd40153d3e1e2245db178fee0e95a94fbbef8de5"
+    },
+    {
+      "name": "regular-missile-formal-production-check/parity-report.json",
+      "sha256": "3c45e5d823e4b06b7c7dad3a1c523ca970e83a2343e2d781dd311ae47cffe94e"
+    },
+    {
+      "name": "regular-missile-formal-oracle/result.json",
+      "sha256": "235e7f8530f0101c3df4709720541fc4fe48d1694f67c1574cb62e55aa5a0665"
+    },
+    {
+      "name": "regular-missile-source-rebuild/receipt.json",
+      "sha256": "88e2a5b74a018874ac8240e5a0cf5a53e34de27817220b0c551013dbdae97a4e"
+    }
+  ],
+  "limits": [
+    "Representative powers6/8/11; not all11power gameplay cases",
+    "E5table source-only",
+    "Special19 and latent120/1120 source-only;30and22notadded",
+    "Old isolatedweaponstreams have originalscene backgrounds; deliveryfullcurrentHDscene",
+    "Windows not run",
+    "Ongoing firing; no globalclear-tail claim"
+  ],
+  "visual_review": {
+    "ordered_native2x_frames": 300,
+    "isolated_original_background_frames": 240,
+    "merged_current_HD_background_frames": 60,
+    "native4x_spots": 3,
+    "all_decoded_RGBA_hashes_exact": true,
+    "independent_visual_pass": true,
+    "receipt_sha256": "e7066810bbc90331f2d2e667668db52b8493d278dff4f1258f47fae0b14b8309",
+    "review_mode": "Exhaustive chronological frame inspection, not a separate full-speed player review"
+  }
+}

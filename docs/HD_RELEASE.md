@@ -1,3 +1,7 @@
+# Latest finite regular missile update (2026-10-12)
+
+[Regular Missile Launcher](REGULAR_MISSILE_VALIDATION.md) adds three physical bank8 heads31–33 with source-faithful silver/copper designs, original shadows and collision effects. Current manifest:18 packs,2,920 HDA entries,356 active PNGs; defaults340/344. Current lower-ground and raised-cap materials remain unchanged. Earlier counts below are historical.
+
 # Latest finite plateau cap material (2026-10-12)
 
 [Continuous warm plateau caps](PLATEAU_CAP_WORLD_ATLAS.md) add one bounded optional3.24MiB material with11 finite masks and two unchanged guards. Lower-ground material and all Charge Cannon/HDA artwork stay exact. Actual acceptance is the28-frame private-survival window1094–1121 plus native4×1104, with explicit all-map limits.

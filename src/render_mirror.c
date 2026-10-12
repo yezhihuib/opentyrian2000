@@ -24,7 +24,7 @@ typedef struct {
 } Asset;
 enum { ASSET_NEWSH2=101, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
-static Asset assets[333];
+static Asset assets[336];
 static Asset talon_frames[13];
 typedef struct {
  bool valid;
@@ -410,6 +410,8 @@ static Asset *get_asset(Sprite2_array bank,unsigned int index,int layout)
   static const unsigned int guided_ids[4]={19,171,20,21};
   for(int i=0;i<4;i++)if(index==guided_ids[i]){slot=326+i;role=8;break;}
  }
+ /* Regular Missile Launcher: three static physical player heads. */
+ if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&index>=31&&index<=33) {slot=333+(int)index-31;role=8;}
  /* Charge Cannon static heads only; original bank9 launcher bodies stay separate. */
  if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&index>=252&&index<=254) {slot=330+(int)index-252;role=8;}
  if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&index>=214&&index<=217) {slot=182+(int)index-214;role=8;}
@@ -669,6 +671,8 @@ static bool draw_asset(int x,int y,Asset *a,int style,const SDL_Rect *part)
 bool render_mirror_entity(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int index,int style,int layout)
 {
  if(!active||surface!=game_screen||reject_reason)return false;
+ /* Regular Missile Launcher shadows retain their original indexed silhouettes and origin. */
+ if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&index>=31&&index<=33&&style==MIRROR_SHADOW)return false;
  /* Charge Cannon shadows retain their original indexed silhouettes and origin. */
  if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&index>=252&&index<=254&&style==MIRROR_SHADOW)return false;
  /* Keep the green214..217 shadows on their original indexed path and origin. */
