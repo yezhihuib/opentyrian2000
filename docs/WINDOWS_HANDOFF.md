@@ -1,5 +1,32 @@
 # Windows handoff to dot
 
+## Current material source-list repair (2026-10-12)
+
+The Visual Studio project now explicitly lists the five existing world-material
+modules and their eight associated headers/generated indices. The PowerShell
+build entrypoint uses this project; MSYS/Cygwin Makefile builds already include
+all source files through a wildcard. No compiler, SDK, macro, gameplay, artwork
+or runtime setting changed. `python prototype/test-windows-project.py` verifies
+all current C sources are present exactly once and the project paths resolve.
+Linux rebuilding passes; pinning the same revision string reproduces the
+accepted forest executable bytes. The normal build embeds the current Git
+revision string instead. **Windows compilation
+and runtime remain untested at this checkpoint.**
+
+The last actual Windows acceptance was7a5c62f: classic/HD first15-second SDL runs,
+limited2×/4× checks and audio initialization. The next bounded smoke should use
+this current branch and rebuild all18 packs (2,946 HDA entries;369 active PNGs).
+Keep both lower-world parts, the cap sidecar, and the forest sidecar/declaration
+with each default pack. Start with classic and HD ordinary first15 seconds at
+native2×/4×, then inspect ordinary road/rock phase around500–559. Verify corrupt
+or absent material inputs follow their documented family fallback. Later cap and
+forest windows require explicitly labeled private-survival tools; the forest
+layer-isolated preview is authoring evidence, not ordinary gameplay. Manual
+keyboard behavior, listening, fullscreen and later-scene Windows review are
+still pending. No user-computer task was started for this source-list repair.
+
+Historical handoffs and counts follow.
+
 Latest cloud milestone and current Windows acceptance command: [FIRST30_HD_COVERAGE.md](FIRST30_HD_COVERAGE.md). The remainder below is historical, including its old counts and WIP claims.
 
 This is the historical eaebe318 handoff. Current cloud integration and corrected214–217 mapping are documented in [GREEN_RENDER_VALIDATION.md](GREEN_RENDER_VALIDATION.md). Use `prepare-green-review.py` for the current renderer; `prepare-effects.py` intentionally reproduces the archived historical fixture.

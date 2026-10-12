@@ -37,6 +37,6 @@ Three alternating baseline/candidate pairs measured median**+5.79% whole diagnos
 
 `prototype/tests/forest13/run_tests.py` checks malformed declarations, structural bounds, corruption, every missing/mismatched source and an independent scalar sampler oracle. The final suite covers484 loader cases and9,599,296 sampler pixels under ASan/UBSan. `prototype/tests/forest13-binding/run-oracle.py` checks extracted production routing/loader functions:34,417 assertions, seven processes and nine rejected negative-control mutations. Its draw/material stubs are not pixel evidence.
 
-Linux production and private builds pass. LeakSanitizer is unavailable under this executor’s ptrace restrictions; ASan/UBSan and explicit allocation/free assertions run. Windows code is source-reviewed only. The Windows project’s explicit source list has material-module integration gaps predating this batch, so no Windows build/runtime claim is made.
+Linux production and private builds pass. LeakSanitizer is unavailable under this executor’s ptrace restrictions; ASan/UBSan and explicit allocation/free assertions run. Windows code is source-reviewed only. The material-module source-list gap identified during this batch is addressed by the subsequent Windows project maintenance. Windows compilation and execution remain unverified; see WINDOWS_HANDOFF.md.
 
 The prior published checkpoint is75f4dcf5033c9e2455eaf96563aba606dac61c67. Formal source and compact receipts are retained; original game data, private survival/layer-isolation/capture hooks and test media are not repository content.
