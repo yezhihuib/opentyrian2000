@@ -13,10 +13,14 @@ All selectors require `--render-test=MODE` or `--asset-debug=PRESET`:
   excluding internal port 16. Zero disables that bay; its power and mode must be 1.
 - `--render-front-power=1..11`, `--render-rear-power=1..11`.
 - `--render-rear-mode=1..2`: additionally checked against the loaded port's `opnum`.
+- `--render-left-sidekick=0|3`, `--render-right-sidekick=0|3`: independently select
+  no sidekick or the named Charge Cannon from the selected episode table.
+- `--render-sidekick-input=charge-stages`: fixed 90-tick stationary input described
+  below; no configurable press/release timing.
 - `--render-no-capture`: disables automatic probe exports and explicit asset-debug
   window captures; TSV observation remains enabled.
 
-Defaults remain front 1/power 1, rear 0/power 1/mode 1. Values are decimal digits
+Defaults remain front 1/power 1, rear 0/power 1/mode 1, both sidekicks 0. Values are decimal digits
 only. Malformed values, internal/test ports, and unsupported table combinations
 exit 2. Validation happens against the actual selected episode table, after
 `asset_debug_level`. `weapon-loadout.tsv` records that episode/level, resolved shot
@@ -24,9 +28,10 @@ records, complete initial player hash, and RNG fingerprint.
 
 This is a direct named-table selector, not a shop/acquisition validator: it permits
 examining a named port in either bay when its firing table is valid. Do not call an
-arbitrary selection a normally obtainable loadout. Sidekick selection/charge input,
-player-2 linking, special-weapon acquisition, and a full arsenal sweep are separate
-work. Existing default items and gameplay firing/input code are untouched.
+arbitrary selection a normally obtainable loadout. Charge Cannon is legal in both
+shop slots across all episodes, but this preview is not a campaign purchase
+demonstration. Other sidekick selection, player-2 linking, special-weapon acquisition,
+and a full arsenal sweep remain separate work. Existing default items and gameplay firing/input code are untouched.
 
 For Pulse-Cannon use front port 1 at powers 1, 2, 6, and 11. These resolve to records
 155, 156, 160, and 165 and collectively draw spriteSheet8 identities
@@ -99,3 +104,85 @@ The default pre-change/current classic and HD8 paths match exactly. The final
 coverage check reconciles 76,178 candidate head/shadow commands, including 37,650
 shadows, and observes natural OPTION_SHAPES and Poison Bomb collision children.
 The new code also passed strict C syntax checks and independent read-only review.
+
+## Charge Cannon: fixed, original-input proof
+
+The optional `charge-stages` preset lasts exactly 90 ticks. It requires existing
+front/rear selectors both set to 0 and at least one sidekick set to 3. It rejects
+any explicit `--render-ticks`, even 90, rather than allowing an incomplete or
+extended schedule. Both named sidekick selectors accept decimal digits only and
+only values 0 and 3; omitted mounts stay 0. These options all require a render or
+asset-debug probe. The named input preset overrides the ordinary probe input.
+
+The preset keeps normal fire off and presses each selected mount's dedicated
+button for one tick at 2, 24 and 66, releasing it at every other tick. Original
+JE_drawOptions initialization and the gameplay loop own charge, the 20-tick passive
+charge counter, cooldown, energy consumption, firing and charge reset. The fixture
+only selects items and inputs; it never writes those runtime values or item tables.
+
+Example, with the external accepted pack and legal data:
+
+```
+--data=/path/to/legal/tyrian2000 --no-sound --no-joystick --no-xmas
+--asset-debug=custom --asset-debug-index-only --asset-debug-reference
+--render-test=classic --render-assets=/path/to/accepted/pack
+--render-scene-assets=off --render-front-port=0 --render-rear-port=0
+--render-left-sidekick=3 --render-right-sidekick=3
+--render-sidekick-input=charge-stages --render-no-capture
+```
+
+`sidekick-loadout.tsv` records the resolved episode, physical level, item, mount,
+maximum charge, power-cost port and base shot. It is separate from the unchanged
+legacy weapon-loadout schema. `sidekick-states.tsv` logs a read-only snapshot per
+mount at input and tick-end: position, player position, charge/counter, cooldown,
+buttons and shared power. Both files are only enabled by the new selectors/preset.
+Input-phase sidekick coordinates can still be the prior tick's coordinates; compare
+actual shot request origins with the end-phase row. The original first-tick clamp
+moves player y=180 to160 after sampling the mouse target; this is not an injected
+fixture motion. From tick1 onward the stationary firing origins are left(86,160),
+right(116,160), exactly player-target x-14 and x+16.
+
+The existing request/result/emission/draw logs prove each mount fires:
+- charge0: shot101, bank8 identity252, damage2, velocity(0,-12), repeat6
+- charge1: shot102, bank8 identity253, damage5, velocity(0,-10), repeat10
+- charge2: shot103, bank8 identity254, damage10, velocity(0,-8), repeat16
+
+These are separate static heads, each with animation span1, TTL255, no acceleration,
+trail or collision child. Shot record103 is unrelated to bank8 sprite103 (Poison
+Bomb). The nine bank9 launcher-body identities and shop/HUD icons retain original
+rendering; this adds no art or sprite mapping. Latent loaded records793/1793 use
+252–260 and271–279, but have no direct supported named-item reference in the audited
+tables. Their animation and any future reuse remain out of scope.
+
+Run the narrow regression with a separately built unchanged9dbb8036 baseline:
+
+```
+python prototype/test-charge-preview.py --exe /path/to/candidate/opentyrian2000 \
+  --baseline-exe /path/to/unchanged9dbb8036/opentyrian2000 \
+  --data /path/to/legal/tyrian2000 --assets /path/to/accepted/pack \
+  --out /new/output/directory
+```
+
+The runner uses the existing streamed blend-proof implementation, now also included
+as prototype/stream-blend-proof.py. Each verbose blend log is a FIFO: full raw and
+original-indexed per-tick hashes are retained, not its raw rows. Other bounded TSVs
+retain complete observations. It requires real renderer frames, uses isolated
+Integer2x configs, and produces no captures. Checks include exact default classic
+and HD8 baseline equality, explicit-zero equivalence, passive charging without
+sidekick button presses, each mount independently, both mounts in episodes1/4/5,
+classic/HD8 equal gameplay, deterministic repeat, input/loadout/tick rejection,
+and exact request-to-emission-to-draw reconciliation.
+
+The episode1 90-tick route contains no natural enemy collision. Other selected
+episodes can contain natural collisions, which remain in the unchanged collision
+log and are compared exactly between classic/HD8 runs. This fixture certifies
+charging, origins, firing and projectile behavior, not natural-hit tint/effect
+coverage, launcher art, Dragonwing, latent animations or full-game acceptance. No
+targets are injected to manufacture hit coverage.
+
+Recorded acceptance: 16 bounded game runs, 38 invalid-input rejections, 1,620 real
+renderer frames, zero capture bytes. Default HD8 has 1,170 actual HD draws in both
+unchanged/current builds. The nine selected-mount runs additionally passed the
+strengthened final read-only verifier. Independent review repeated those checks
+and the default exact comparisons, and rejected an extra unrelated-slot draw
+mutation. See CHARGE_CANNON_PREVIEW_VALIDATION.json for hashes and case receipts.

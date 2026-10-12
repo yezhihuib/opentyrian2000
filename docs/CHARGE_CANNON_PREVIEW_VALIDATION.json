@@ -1,0 +1,1121 @@
+{
+  "status": "passed",
+  "scope": "Charge Cannon debug input fixture, no new art; no campaign acquisition or hit-effect acceptance.",
+  "baseline_executable_sha256": "b4f4daceaf5612200089287e9182b52200874a1cdbbe4504263645308477a3be",
+  "candidate_executable_sha256": "9d806cc1caa02c0beac7d435149acfc414d5f8db56d91dea5d00d9c0382ab7f1",
+  "data_sha256": {
+    "tyrian.hdt": "fde8506326e7bb0916b38c362e33bf8a8a5affa561206c021af7f65b4a17745b",
+    "tyrian4.lvl": "6589b898094887925e7717c8663c4b8b5e4b76f3c89a7898ed9f4691c1f2cc16",
+    "tyrian5.lvl": "275b5aaf55caecee8dc95e26f7cf118a9ee265f095ce61945b9ece56a4523323"
+  },
+  "default_classic_hd_exact": true,
+  "no_capture_media_bytes": 0,
+  "results": [
+    {
+      "case": "baseline-classic",
+      "ticks": 120,
+      "renderer_frames": 120,
+      "hd_draws": 0,
+      "tsv_sha256": {
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "effects.tsv": "56fd257f1b7a621326a22635c12d23c485d5cb637c2f6b94a589048911877ab7",
+        "fire-events.tsv": "bd835b2ef653beb24947be057f33c480d10eb6c102ecbff747da872cd3dcaa48",
+        "scene-draw-commands.tsv": "1355d7c9c0f4c84800b0693e06f3301a157ffdba73245ab14327b92949c4133d",
+        "blend-palette.tsv": "cb425cfe3e3f8cf1316ad8475fda177b187d189c8b4b0eaa55dbb7ab1d3ed994",
+        "state.tsv": "e1f916e2381949545ab35b337a7c8fedbbc6a568602df9f5f74889040b2f45f4",
+        "rgb-audit.tsv": "402510caef64a4183978d12b5f4d07964acf89f40495bbf787f321153d4acff5",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "frames.tsv": "f01181a64c66d687b2c7853e21dc0e10cce7e8fc2521608bdcc8bc0415891384",
+        "weapon-loadout.tsv": "4f88a84082ff5d7d4d1221929a9dc546efbb8dd143db882f6cf8772fbc1fecae",
+        "asset-debug-materials.tsv": "a605e7f3ef5450e7507c2a1e54012b7bf815bb4e5f28badc0c3f63514db8dd4f",
+        "player-shot-requests.tsv": "e42ad0b26416fbc1a6dba0dfd198d0eebc9c479726a44ea2d0938261cfdd8531",
+        "player-projectiles.tsv": "4c03a46e6bbbf3df6f1ff434c8de9ec7d4ef93e83547b69be09472a2e1b12f47",
+        "player-shot-emissions.tsv": "abea3cb81389bf05b91a26021b014f758f314479997c4a06a6123b1029cca5af",
+        "player-shot-draws.tsv": "b400a626438a86364dd1e59da084ac44c806d85bd8cf1b015c423157d22f56ee",
+        "scene-enemies.tsv": "59ef540fc263340b37a8d32c241ac92f40ebe0b603b54b694f4332f78e37a5a7",
+        "poses.tsv": "a90f22e1b0a9d93d855ffa2ace6b7cca23936771ab9a39f4c81c05bdec351d16",
+        "restore-regions.tsv": "b517bb19a5662a6c82c7c78a54e31bc7a0d09533fed0a664ca933466127883a3",
+        "player-shot-results.tsv": "0624b0d4437c3cc5cf26c3e18b79c6bfae96ac0927a70b7bbfe035aa464ab6b9",
+        "talon-bank-visual.tsv": "72f83d18d08f5d36898de59b4c19af1ce84f7cd0e25d63ebd248e674e3b23579",
+        "asset-debug-clock.tsv": "cfbc17ff14bc4a8ee542090ab48b4216a234ecac046260e527697e068030820e",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb",
+        "draw-commands.tsv": "ded7f309cd56175090e1e10ef8175dd7337e8109845cb64e22d3c786c876eb84",
+        "presentation.tsv": "281732566d638e726b346755d449b504021f8b4577a253ff0d3f88e5bed80bed"
+      },
+      "blend_raw_sha256": "a9ddb2bebec340ce3ee64d72accb935148871c9fffb097d3215a6fd655a1602f",
+      "blend_rows_streamed": 26600,
+      "blend_bytes_streamed": 1056672,
+      "media_bytes": 0
+    },
+    {
+      "case": "default-classic",
+      "ticks": 120,
+      "renderer_frames": 120,
+      "hd_draws": 0,
+      "tsv_sha256": {
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "effects.tsv": "56fd257f1b7a621326a22635c12d23c485d5cb637c2f6b94a589048911877ab7",
+        "fire-events.tsv": "bd835b2ef653beb24947be057f33c480d10eb6c102ecbff747da872cd3dcaa48",
+        "scene-draw-commands.tsv": "1355d7c9c0f4c84800b0693e06f3301a157ffdba73245ab14327b92949c4133d",
+        "blend-palette.tsv": "cb425cfe3e3f8cf1316ad8475fda177b187d189c8b4b0eaa55dbb7ab1d3ed994",
+        "state.tsv": "e1f916e2381949545ab35b337a7c8fedbbc6a568602df9f5f74889040b2f45f4",
+        "rgb-audit.tsv": "402510caef64a4183978d12b5f4d07964acf89f40495bbf787f321153d4acff5",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "frames.tsv": "f01181a64c66d687b2c7853e21dc0e10cce7e8fc2521608bdcc8bc0415891384",
+        "weapon-loadout.tsv": "4f88a84082ff5d7d4d1221929a9dc546efbb8dd143db882f6cf8772fbc1fecae",
+        "asset-debug-materials.tsv": "a605e7f3ef5450e7507c2a1e54012b7bf815bb4e5f28badc0c3f63514db8dd4f",
+        "player-shot-requests.tsv": "e42ad0b26416fbc1a6dba0dfd198d0eebc9c479726a44ea2d0938261cfdd8531",
+        "player-projectiles.tsv": "4c03a46e6bbbf3df6f1ff434c8de9ec7d4ef93e83547b69be09472a2e1b12f47",
+        "player-shot-emissions.tsv": "abea3cb81389bf05b91a26021b014f758f314479997c4a06a6123b1029cca5af",
+        "player-shot-draws.tsv": "b400a626438a86364dd1e59da084ac44c806d85bd8cf1b015c423157d22f56ee",
+        "scene-enemies.tsv": "59ef540fc263340b37a8d32c241ac92f40ebe0b603b54b694f4332f78e37a5a7",
+        "poses.tsv": "a90f22e1b0a9d93d855ffa2ace6b7cca23936771ab9a39f4c81c05bdec351d16",
+        "restore-regions.tsv": "b517bb19a5662a6c82c7c78a54e31bc7a0d09533fed0a664ca933466127883a3",
+        "player-shot-results.tsv": "0624b0d4437c3cc5cf26c3e18b79c6bfae96ac0927a70b7bbfe035aa464ab6b9",
+        "talon-bank-visual.tsv": "72f83d18d08f5d36898de59b4c19af1ce84f7cd0e25d63ebd248e674e3b23579",
+        "asset-debug-clock.tsv": "cfbc17ff14bc4a8ee542090ab48b4216a234ecac046260e527697e068030820e",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb",
+        "draw-commands.tsv": "ded7f309cd56175090e1e10ef8175dd7337e8109845cb64e22d3c786c876eb84",
+        "presentation.tsv": "281732566d638e726b346755d449b504021f8b4577a253ff0d3f88e5bed80bed"
+      },
+      "blend_raw_sha256": "a9ddb2bebec340ce3ee64d72accb935148871c9fffb097d3215a6fd655a1602f",
+      "blend_rows_streamed": 26600,
+      "blend_bytes_streamed": 1056672,
+      "media_bytes": 0
+    },
+    {
+      "case": "zero-sidekicks-classic",
+      "ticks": 120,
+      "renderer_frames": 120,
+      "hd_draws": 0,
+      "tsv_sha256": {
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "effects.tsv": "56fd257f1b7a621326a22635c12d23c485d5cb637c2f6b94a589048911877ab7",
+        "sidekick-loadout.tsv": "a84024d03495ce17cd4920f73a9f74659764a31cc2848624530595896ae32572",
+        "fire-events.tsv": "bd835b2ef653beb24947be057f33c480d10eb6c102ecbff747da872cd3dcaa48",
+        "scene-draw-commands.tsv": "1355d7c9c0f4c84800b0693e06f3301a157ffdba73245ab14327b92949c4133d",
+        "sidekick-states.tsv": "8244aa400532c06cdbd1750c4a2b3d4c5141debae64f5c59a379cd59db9a27a4",
+        "blend-palette.tsv": "cb425cfe3e3f8cf1316ad8475fda177b187d189c8b4b0eaa55dbb7ab1d3ed994",
+        "state.tsv": "e1f916e2381949545ab35b337a7c8fedbbc6a568602df9f5f74889040b2f45f4",
+        "rgb-audit.tsv": "402510caef64a4183978d12b5f4d07964acf89f40495bbf787f321153d4acff5",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "frames.tsv": "f01181a64c66d687b2c7853e21dc0e10cce7e8fc2521608bdcc8bc0415891384",
+        "weapon-loadout.tsv": "4f88a84082ff5d7d4d1221929a9dc546efbb8dd143db882f6cf8772fbc1fecae",
+        "asset-debug-materials.tsv": "a605e7f3ef5450e7507c2a1e54012b7bf815bb4e5f28badc0c3f63514db8dd4f",
+        "player-shot-requests.tsv": "e42ad0b26416fbc1a6dba0dfd198d0eebc9c479726a44ea2d0938261cfdd8531",
+        "player-projectiles.tsv": "4c03a46e6bbbf3df6f1ff434c8de9ec7d4ef93e83547b69be09472a2e1b12f47",
+        "player-shot-emissions.tsv": "abea3cb81389bf05b91a26021b014f758f314479997c4a06a6123b1029cca5af",
+        "player-shot-draws.tsv": "b400a626438a86364dd1e59da084ac44c806d85bd8cf1b015c423157d22f56ee",
+        "scene-enemies.tsv": "59ef540fc263340b37a8d32c241ac92f40ebe0b603b54b694f4332f78e37a5a7",
+        "poses.tsv": "a90f22e1b0a9d93d855ffa2ace6b7cca23936771ab9a39f4c81c05bdec351d16",
+        "restore-regions.tsv": "b517bb19a5662a6c82c7c78a54e31bc7a0d09533fed0a664ca933466127883a3",
+        "player-shot-results.tsv": "0624b0d4437c3cc5cf26c3e18b79c6bfae96ac0927a70b7bbfe035aa464ab6b9",
+        "talon-bank-visual.tsv": "72f83d18d08f5d36898de59b4c19af1ce84f7cd0e25d63ebd248e674e3b23579",
+        "asset-debug-clock.tsv": "cfbc17ff14bc4a8ee542090ab48b4216a234ecac046260e527697e068030820e",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb",
+        "draw-commands.tsv": "ded7f309cd56175090e1e10ef8175dd7337e8109845cb64e22d3c786c876eb84",
+        "presentation.tsv": "281732566d638e726b346755d449b504021f8b4577a253ff0d3f88e5bed80bed"
+      },
+      "blend_raw_sha256": "a9ddb2bebec340ce3ee64d72accb935148871c9fffb097d3215a6fd655a1602f",
+      "blend_rows_streamed": 26600,
+      "blend_bytes_streamed": 1056672,
+      "media_bytes": 0
+    },
+    {
+      "case": "baseline-8",
+      "ticks": 120,
+      "renderer_frames": 120,
+      "hd_draws": 1170,
+      "tsv_sha256": {
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "effects.tsv": "bd05585bcbc9ddcb61cb01c7c1b0469cd8f0442fddb5286953c1e2a0e026f257",
+        "fire-events.tsv": "bd835b2ef653beb24947be057f33c480d10eb6c102ecbff747da872cd3dcaa48",
+        "scene-draw-commands.tsv": "1355d7c9c0f4c84800b0693e06f3301a157ffdba73245ab14327b92949c4133d",
+        "blend-palette.tsv": "cb425cfe3e3f8cf1316ad8475fda177b187d189c8b4b0eaa55dbb7ab1d3ed994",
+        "state.tsv": "e1f916e2381949545ab35b337a7c8fedbbc6a568602df9f5f74889040b2f45f4",
+        "rgb-audit.tsv": "8489fadac616688dfbb6a6a50aef98069b18c3ac88897dd3a361ff67e2ae1ac1",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "frames.tsv": "a932371306a1d59db4f8964b536553b6eba3b03139e7ece6f53ccc53f26d3c88",
+        "weapon-loadout.tsv": "4f88a84082ff5d7d4d1221929a9dc546efbb8dd143db882f6cf8772fbc1fecae",
+        "asset-debug-materials.tsv": "a605e7f3ef5450e7507c2a1e54012b7bf815bb4e5f28badc0c3f63514db8dd4f",
+        "player-shot-requests.tsv": "e42ad0b26416fbc1a6dba0dfd198d0eebc9c479726a44ea2d0938261cfdd8531",
+        "player-projectiles.tsv": "4c03a46e6bbbf3df6f1ff434c8de9ec7d4ef93e83547b69be09472a2e1b12f47",
+        "player-shot-emissions.tsv": "abea3cb81389bf05b91a26021b014f758f314479997c4a06a6123b1029cca5af",
+        "player-shot-draws.tsv": "b400a626438a86364dd1e59da084ac44c806d85bd8cf1b015c423157d22f56ee",
+        "scene-enemies.tsv": "59ef540fc263340b37a8d32c241ac92f40ebe0b603b54b694f4332f78e37a5a7",
+        "poses.tsv": "a90f22e1b0a9d93d855ffa2ace6b7cca23936771ab9a39f4c81c05bdec351d16",
+        "restore-regions.tsv": "b517bb19a5662a6c82c7c78a54e31bc7a0d09533fed0a664ca933466127883a3",
+        "player-shot-results.tsv": "0624b0d4437c3cc5cf26c3e18b79c6bfae96ac0927a70b7bbfe035aa464ab6b9",
+        "talon-bank-visual.tsv": "6753ff0b4127e9d08721e303438113e006c164ce7feb990aacb5655c1bddc075",
+        "asset-debug-clock.tsv": "cfbc17ff14bc4a8ee542090ab48b4216a234ecac046260e527697e068030820e",
+        "sdl-runtime.tsv": "d26dee3c975dbf4099de35850c6a989ae453de557e7e9a0aa240da77d7687a11",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb",
+        "draw-commands.tsv": "2725e91504c10b8245544dd716bf2b7a681bec8c406c289be0b531908876009c",
+        "presentation.tsv": "2b0d7185ee61dd78c69c3965bbe21ea0c8e275d45e4679ad4079b0ead8ecc13f"
+      },
+      "blend_raw_sha256": "7fd46ab8236a937b2705e3fffdfb39193b9488d3a483f403df0a936fee38f2d4",
+      "blend_rows_streamed": 26600,
+      "blend_bytes_streamed": 1080531,
+      "media_bytes": 0
+    },
+    {
+      "case": "default-8",
+      "ticks": 120,
+      "renderer_frames": 120,
+      "hd_draws": 1170,
+      "tsv_sha256": {
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "effects.tsv": "bd05585bcbc9ddcb61cb01c7c1b0469cd8f0442fddb5286953c1e2a0e026f257",
+        "fire-events.tsv": "bd835b2ef653beb24947be057f33c480d10eb6c102ecbff747da872cd3dcaa48",
+        "scene-draw-commands.tsv": "1355d7c9c0f4c84800b0693e06f3301a157ffdba73245ab14327b92949c4133d",
+        "blend-palette.tsv": "cb425cfe3e3f8cf1316ad8475fda177b187d189c8b4b0eaa55dbb7ab1d3ed994",
+        "state.tsv": "e1f916e2381949545ab35b337a7c8fedbbc6a568602df9f5f74889040b2f45f4",
+        "rgb-audit.tsv": "8489fadac616688dfbb6a6a50aef98069b18c3ac88897dd3a361ff67e2ae1ac1",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "frames.tsv": "a932371306a1d59db4f8964b536553b6eba3b03139e7ece6f53ccc53f26d3c88",
+        "weapon-loadout.tsv": "4f88a84082ff5d7d4d1221929a9dc546efbb8dd143db882f6cf8772fbc1fecae",
+        "asset-debug-materials.tsv": "a605e7f3ef5450e7507c2a1e54012b7bf815bb4e5f28badc0c3f63514db8dd4f",
+        "player-shot-requests.tsv": "e42ad0b26416fbc1a6dba0dfd198d0eebc9c479726a44ea2d0938261cfdd8531",
+        "player-projectiles.tsv": "4c03a46e6bbbf3df6f1ff434c8de9ec7d4ef93e83547b69be09472a2e1b12f47",
+        "player-shot-emissions.tsv": "abea3cb81389bf05b91a26021b014f758f314479997c4a06a6123b1029cca5af",
+        "player-shot-draws.tsv": "b400a626438a86364dd1e59da084ac44c806d85bd8cf1b015c423157d22f56ee",
+        "scene-enemies.tsv": "59ef540fc263340b37a8d32c241ac92f40ebe0b603b54b694f4332f78e37a5a7",
+        "poses.tsv": "a90f22e1b0a9d93d855ffa2ace6b7cca23936771ab9a39f4c81c05bdec351d16",
+        "restore-regions.tsv": "b517bb19a5662a6c82c7c78a54e31bc7a0d09533fed0a664ca933466127883a3",
+        "player-shot-results.tsv": "0624b0d4437c3cc5cf26c3e18b79c6bfae96ac0927a70b7bbfe035aa464ab6b9",
+        "talon-bank-visual.tsv": "6753ff0b4127e9d08721e303438113e006c164ce7feb990aacb5655c1bddc075",
+        "asset-debug-clock.tsv": "cfbc17ff14bc4a8ee542090ab48b4216a234ecac046260e527697e068030820e",
+        "sdl-runtime.tsv": "d26dee3c975dbf4099de35850c6a989ae453de557e7e9a0aa240da77d7687a11",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb",
+        "draw-commands.tsv": "2725e91504c10b8245544dd716bf2b7a681bec8c406c289be0b531908876009c",
+        "presentation.tsv": "2b0d7185ee61dd78c69c3965bbe21ea0c8e275d45e4679ad4079b0ead8ecc13f"
+      },
+      "blend_raw_sha256": "7fd46ab8236a937b2705e3fffdfb39193b9488d3a483f403df0a936fee38f2d4",
+      "blend_rows_streamed": 26600,
+      "blend_bytes_streamed": 1080531,
+      "media_bytes": 0
+    },
+    {
+      "case": "zero-sidekicks-8",
+      "ticks": 120,
+      "renderer_frames": 120,
+      "hd_draws": 1170,
+      "tsv_sha256": {
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "effects.tsv": "bd05585bcbc9ddcb61cb01c7c1b0469cd8f0442fddb5286953c1e2a0e026f257",
+        "sidekick-loadout.tsv": "a84024d03495ce17cd4920f73a9f74659764a31cc2848624530595896ae32572",
+        "fire-events.tsv": "bd835b2ef653beb24947be057f33c480d10eb6c102ecbff747da872cd3dcaa48",
+        "scene-draw-commands.tsv": "1355d7c9c0f4c84800b0693e06f3301a157ffdba73245ab14327b92949c4133d",
+        "sidekick-states.tsv": "8244aa400532c06cdbd1750c4a2b3d4c5141debae64f5c59a379cd59db9a27a4",
+        "blend-palette.tsv": "cb425cfe3e3f8cf1316ad8475fda177b187d189c8b4b0eaa55dbb7ab1d3ed994",
+        "state.tsv": "e1f916e2381949545ab35b337a7c8fedbbc6a568602df9f5f74889040b2f45f4",
+        "rgb-audit.tsv": "8489fadac616688dfbb6a6a50aef98069b18c3ac88897dd3a361ff67e2ae1ac1",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "frames.tsv": "a932371306a1d59db4f8964b536553b6eba3b03139e7ece6f53ccc53f26d3c88",
+        "weapon-loadout.tsv": "4f88a84082ff5d7d4d1221929a9dc546efbb8dd143db882f6cf8772fbc1fecae",
+        "asset-debug-materials.tsv": "a605e7f3ef5450e7507c2a1e54012b7bf815bb4e5f28badc0c3f63514db8dd4f",
+        "player-shot-requests.tsv": "e42ad0b26416fbc1a6dba0dfd198d0eebc9c479726a44ea2d0938261cfdd8531",
+        "player-projectiles.tsv": "4c03a46e6bbbf3df6f1ff434c8de9ec7d4ef93e83547b69be09472a2e1b12f47",
+        "player-shot-emissions.tsv": "abea3cb81389bf05b91a26021b014f758f314479997c4a06a6123b1029cca5af",
+        "player-shot-draws.tsv": "b400a626438a86364dd1e59da084ac44c806d85bd8cf1b015c423157d22f56ee",
+        "scene-enemies.tsv": "59ef540fc263340b37a8d32c241ac92f40ebe0b603b54b694f4332f78e37a5a7",
+        "poses.tsv": "a90f22e1b0a9d93d855ffa2ace6b7cca23936771ab9a39f4c81c05bdec351d16",
+        "restore-regions.tsv": "b517bb19a5662a6c82c7c78a54e31bc7a0d09533fed0a664ca933466127883a3",
+        "player-shot-results.tsv": "0624b0d4437c3cc5cf26c3e18b79c6bfae96ac0927a70b7bbfe035aa464ab6b9",
+        "talon-bank-visual.tsv": "6753ff0b4127e9d08721e303438113e006c164ce7feb990aacb5655c1bddc075",
+        "asset-debug-clock.tsv": "cfbc17ff14bc4a8ee542090ab48b4216a234ecac046260e527697e068030820e",
+        "sdl-runtime.tsv": "d26dee3c975dbf4099de35850c6a989ae453de557e7e9a0aa240da77d7687a11",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb",
+        "draw-commands.tsv": "2725e91504c10b8245544dd716bf2b7a681bec8c406c289be0b531908876009c",
+        "presentation.tsv": "2b0d7185ee61dd78c69c3965bbe21ea0c8e275d45e4679ad4079b0ead8ecc13f"
+      },
+      "blend_raw_sha256": "7fd46ab8236a937b2705e3fffdfb39193b9488d3a483f403df0a936fee38f2d4",
+      "blend_rows_streamed": 26600,
+      "blend_bytes_streamed": 1080531,
+      "media_bytes": 0
+    },
+    {
+      "case": "episode1-both-classic",
+      "ticks": 90,
+      "renderer_frames": 90,
+      "hd_draws": 0,
+      "tsv_sha256": {
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "effects.tsv": "1f7f765ed8e1db0de83a67ca10fb3cc2cd0245d365cd2f7b6cbc95235f124118",
+        "sidekick-loadout.tsv": "85409050df03c8507ea2f9f49db8f817e273ecc1d478f8d39337bf1393eccd39",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "scene-draw-commands.tsv": "1355d7c9c0f4c84800b0693e06f3301a157ffdba73245ab14327b92949c4133d",
+        "sidekick-states.tsv": "7ddf9009d0caf955e6bb3b8b59d9c03b080b4d3c84b8a0b35031b341eb1ad12a",
+        "blend-palette.tsv": "cb425cfe3e3f8cf1316ad8475fda177b187d189c8b4b0eaa55dbb7ab1d3ed994",
+        "state.tsv": "28590efc4e30b530c10ba90731ffff1026411ae15fe8599e0b731c8fdf38d484",
+        "rgb-audit.tsv": "84cc286989df24530becf5b3fe88a38caf0f3b8cec8bb43d84d02b82287eb980",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "frames.tsv": "2894a972da34decdcf9d7536d26b1a7d07b8ce3b716c530896dafaa87d617d75",
+        "weapon-loadout.tsv": "0da03187fb39f069abc0e6aa69fbc5238591ca62e0e3b733d57020242684f578",
+        "asset-debug-materials.tsv": "7250583e16638282a21aba65830b99d1aba788608a75083e3718e4817f469ccf",
+        "player-shot-requests.tsv": "877c934eac2b468b709cec8be159b822a11738e16fc15483cd722180e4de77b4",
+        "player-projectiles.tsv": "3b1022a2b7b75dd27f833d32b78874edf92cc5fa7857495060fdabdfeb29f849",
+        "player-shot-emissions.tsv": "b0f9ee2b550f9e0532e32afec916477bda9164b2355594f4f6ed24c5b6f9e4d7",
+        "player-shot-draws.tsv": "8d8a2c4be5b860edfcca70b6346dc83ea0a2bff3f63319be723a571a9eebd417",
+        "scene-enemies.tsv": "59ef540fc263340b37a8d32c241ac92f40ebe0b603b54b694f4332f78e37a5a7",
+        "poses.tsv": "f4c97d0a2ae23234222d4640494dda76440773c7a29523afe71e239c9b731055",
+        "restore-regions.tsv": "b517bb19a5662a6c82c7c78a54e31bc7a0d09533fed0a664ca933466127883a3",
+        "player-shot-results.tsv": "792077dbf97eb6877bf93ba79c99c21cf6af1bf8190b5b6b1eff3bc122fae618",
+        "talon-bank-visual.tsv": "eaa2236eb007cfd5e1fb62bdebe41350a1d2d7748e0ee05a4b086b6ead39bcea",
+        "asset-debug-clock.tsv": "350477e3bfe11a2be837dbd283a9575941420b9493fbbf4ae7a81fc2e1534499",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb",
+        "draw-commands.tsv": "9faae5184d006af5705e74c3209d971539dcc50fa3f61b8dbaa7587b198a31e8",
+        "presentation.tsv": "281732566d638e726b346755d449b504021f8b4577a253ff0d3f88e5bed80bed"
+      },
+      "blend_raw_sha256": "94794134adc385bb845ec39c9f5a4b68c1c1ad8c37637050ee1f7daf8e95383d",
+      "blend_rows_streamed": 23940,
+      "blend_bytes_streamed": 950619,
+      "media_bytes": 0,
+      "requests": 6,
+      "emissions": 6,
+      "draws": 208,
+      "head_ids": [
+        252,
+        253,
+        254
+      ],
+      "mounts": [
+        0,
+        1
+      ],
+      "natural_collisions": 0,
+      "passive_charge_and_reset_proved": true,
+      "power_rejections": 0,
+      "capacity_rejections": 0
+    },
+    {
+      "case": "episode1-both-8",
+      "ticks": 90,
+      "renderer_frames": 90,
+      "hd_draws": 180,
+      "tsv_sha256": {
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "effects.tsv": "1259350561ed964fec7516de4627632a35b688a14108233afed5ae453e5a2096",
+        "sidekick-loadout.tsv": "85409050df03c8507ea2f9f49db8f817e273ecc1d478f8d39337bf1393eccd39",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "scene-draw-commands.tsv": "1355d7c9c0f4c84800b0693e06f3301a157ffdba73245ab14327b92949c4133d",
+        "sidekick-states.tsv": "7ddf9009d0caf955e6bb3b8b59d9c03b080b4d3c84b8a0b35031b341eb1ad12a",
+        "blend-palette.tsv": "cb425cfe3e3f8cf1316ad8475fda177b187d189c8b4b0eaa55dbb7ab1d3ed994",
+        "state.tsv": "28590efc4e30b530c10ba90731ffff1026411ae15fe8599e0b731c8fdf38d484",
+        "rgb-audit.tsv": "cf2b49ccf7b66c5d15b0b6a414a97353efc49a9bcb220f4c631af9259ca265ed",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "frames.tsv": "a2e55daf2f342e9c8cfffba0b6f7128159052e1fc521de9b0421936b8fe59e3c",
+        "weapon-loadout.tsv": "0da03187fb39f069abc0e6aa69fbc5238591ca62e0e3b733d57020242684f578",
+        "asset-debug-materials.tsv": "7250583e16638282a21aba65830b99d1aba788608a75083e3718e4817f469ccf",
+        "player-shot-requests.tsv": "877c934eac2b468b709cec8be159b822a11738e16fc15483cd722180e4de77b4",
+        "player-projectiles.tsv": "3b1022a2b7b75dd27f833d32b78874edf92cc5fa7857495060fdabdfeb29f849",
+        "player-shot-emissions.tsv": "b0f9ee2b550f9e0532e32afec916477bda9164b2355594f4f6ed24c5b6f9e4d7",
+        "player-shot-draws.tsv": "8d8a2c4be5b860edfcca70b6346dc83ea0a2bff3f63319be723a571a9eebd417",
+        "scene-enemies.tsv": "59ef540fc263340b37a8d32c241ac92f40ebe0b603b54b694f4332f78e37a5a7",
+        "poses.tsv": "f4c97d0a2ae23234222d4640494dda76440773c7a29523afe71e239c9b731055",
+        "restore-regions.tsv": "b517bb19a5662a6c82c7c78a54e31bc7a0d09533fed0a664ca933466127883a3",
+        "player-shot-results.tsv": "792077dbf97eb6877bf93ba79c99c21cf6af1bf8190b5b6b1eff3bc122fae618",
+        "talon-bank-visual.tsv": "050b0d3caa18ba7e002fe62fa169c96425d65d96c1f5d015ae848daaeeb685ff",
+        "asset-debug-clock.tsv": "350477e3bfe11a2be837dbd283a9575941420b9493fbbf4ae7a81fc2e1534499",
+        "sdl-runtime.tsv": "d26dee3c975dbf4099de35850c6a989ae453de557e7e9a0aa240da77d7687a11",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb",
+        "draw-commands.tsv": "c05bd9c61937183d3d45494b036526e95405dd23a7254a343b9ab4cd0f1898b6",
+        "presentation.tsv": "0eb14478ba282c64b64fb9e770c7f902a19a8dfb398f406fb857e925acfa5cfd"
+      },
+      "blend_raw_sha256": "5c11b298ce8bd82f6dc147ec8d15a79491a4dd1d1fc11e777553b688bff89811",
+      "blend_rows_streamed": 23940,
+      "blend_bytes_streamed": 971228,
+      "media_bytes": 0,
+      "requests": 6,
+      "emissions": 6,
+      "draws": 208,
+      "head_ids": [
+        252,
+        253,
+        254
+      ],
+      "mounts": [
+        0,
+        1
+      ],
+      "natural_collisions": 0,
+      "passive_charge_and_reset_proved": true,
+      "power_rejections": 0,
+      "capacity_rejections": 0
+    },
+    {
+      "case": "episode4-both-classic",
+      "ticks": 90,
+      "renderer_frames": 90,
+      "hd_draws": 0,
+      "tsv_sha256": {
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "effects.tsv": "1f7f765ed8e1db0de83a67ca10fb3cc2cd0245d365cd2f7b6cbc95235f124118",
+        "sidekick-loadout.tsv": "664c5e9c4cf4faec0cc37ddf6e1662b1082fe61f26a0e2b8a8b468c6eb0b3026",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "scene-draw-commands.tsv": "1355d7c9c0f4c84800b0693e06f3301a157ffdba73245ab14327b92949c4133d",
+        "sidekick-states.tsv": "7ddf9009d0caf955e6bb3b8b59d9c03b080b4d3c84b8a0b35031b341eb1ad12a",
+        "blend-palette.tsv": "cb425cfe3e3f8cf1316ad8475fda177b187d189c8b4b0eaa55dbb7ab1d3ed994",
+        "state.tsv": "c955b9dd1d2110a5e2b3f75f4023a272d47eef720004b2dd3a533b8193fad81c",
+        "rgb-audit.tsv": "47e86359f17149db8ab990ae8378e062c54caaca91d5b5af2f7aeea95a1e0270",
+        "collisions.tsv": "68be2d968506bdbf1b89749d3ecf151de8509d08fef97a67ea3afa299ca37cfa",
+        "frames.tsv": "b63a945e8705d4de2f813855e034310e3c8edb1f3b92808ed9f42007068c2372",
+        "weapon-loadout.tsv": "529732f6a19adf4a164e42b87296df2fe17edb9c98fa1f6d5235281cae61bcf0",
+        "asset-debug-materials.tsv": "ef4b5c16b66307b80586dbad5a7e397813eeb0c134c8ef4931036890aebb7ec4",
+        "player-shot-requests.tsv": "877c934eac2b468b709cec8be159b822a11738e16fc15483cd722180e4de77b4",
+        "player-projectiles.tsv": "481adde3f3b85fe4c9582a55dceb8e6ff2146a1d6fd545d10598008954e166b7",
+        "player-shot-emissions.tsv": "b0f9ee2b550f9e0532e32afec916477bda9164b2355594f4f6ed24c5b6f9e4d7",
+        "player-shot-draws.tsv": "465348f6a92ec1e10fc86eae27d1de64a76c4fc768746f3abd28e1e90c00beed",
+        "scene-enemies.tsv": "59ef540fc263340b37a8d32c241ac92f40ebe0b603b54b694f4332f78e37a5a7",
+        "poses.tsv": "f4c97d0a2ae23234222d4640494dda76440773c7a29523afe71e239c9b731055",
+        "restore-regions.tsv": "b517bb19a5662a6c82c7c78a54e31bc7a0d09533fed0a664ca933466127883a3",
+        "player-shot-results.tsv": "792077dbf97eb6877bf93ba79c99c21cf6af1bf8190b5b6b1eff3bc122fae618",
+        "talon-bank-visual.tsv": "eaa2236eb007cfd5e1fb62bdebe41350a1d2d7748e0ee05a4b086b6ead39bcea",
+        "asset-debug-clock.tsv": "fd2ec6c08fe880eb41a63d81cb3c72397bc7a1d3f43d004b7f6067d0ff2f53fa",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb",
+        "draw-commands.tsv": "4faff915c9e406d124e9bf201afbf576391661d24552c4089fb1613271ed1cd1",
+        "presentation.tsv": "281732566d638e726b346755d449b504021f8b4577a253ff0d3f88e5bed80bed"
+      },
+      "blend_raw_sha256": "c93c439d8c94538ddbd9a7928ee60c87987859d7d017a58ce8af22fccd5a835a",
+      "blend_rows_streamed": 24119,
+      "blend_bytes_streamed": 949885,
+      "media_bytes": 0,
+      "requests": 6,
+      "emissions": 6,
+      "draws": 192,
+      "head_ids": [
+        252,
+        253,
+        254
+      ],
+      "mounts": [
+        0,
+        1
+      ],
+      "natural_collisions": 1,
+      "passive_charge_and_reset_proved": true,
+      "power_rejections": 0,
+      "capacity_rejections": 0
+    },
+    {
+      "case": "episode4-both-8",
+      "ticks": 90,
+      "renderer_frames": 90,
+      "hd_draws": 0,
+      "tsv_sha256": {
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "effects.tsv": "1f7f765ed8e1db0de83a67ca10fb3cc2cd0245d365cd2f7b6cbc95235f124118",
+        "sidekick-loadout.tsv": "664c5e9c4cf4faec0cc37ddf6e1662b1082fe61f26a0e2b8a8b468c6eb0b3026",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "scene-draw-commands.tsv": "1355d7c9c0f4c84800b0693e06f3301a157ffdba73245ab14327b92949c4133d",
+        "sidekick-states.tsv": "7ddf9009d0caf955e6bb3b8b59d9c03b080b4d3c84b8a0b35031b341eb1ad12a",
+        "blend-palette.tsv": "cb425cfe3e3f8cf1316ad8475fda177b187d189c8b4b0eaa55dbb7ab1d3ed994",
+        "state.tsv": "c955b9dd1d2110a5e2b3f75f4023a272d47eef720004b2dd3a533b8193fad81c",
+        "rgb-audit.tsv": "a1cfdb76dafdad2834967aaa2808c0e753477aa84bab662d23c4e19d53e57a1b",
+        "collisions.tsv": "68be2d968506bdbf1b89749d3ecf151de8509d08fef97a67ea3afa299ca37cfa",
+        "frames.tsv": "b63a945e8705d4de2f813855e034310e3c8edb1f3b92808ed9f42007068c2372",
+        "weapon-loadout.tsv": "529732f6a19adf4a164e42b87296df2fe17edb9c98fa1f6d5235281cae61bcf0",
+        "asset-debug-materials.tsv": "ef4b5c16b66307b80586dbad5a7e397813eeb0c134c8ef4931036890aebb7ec4",
+        "player-shot-requests.tsv": "877c934eac2b468b709cec8be159b822a11738e16fc15483cd722180e4de77b4",
+        "player-projectiles.tsv": "481adde3f3b85fe4c9582a55dceb8e6ff2146a1d6fd545d10598008954e166b7",
+        "player-shot-emissions.tsv": "b0f9ee2b550f9e0532e32afec916477bda9164b2355594f4f6ed24c5b6f9e4d7",
+        "player-shot-draws.tsv": "465348f6a92ec1e10fc86eae27d1de64a76c4fc768746f3abd28e1e90c00beed",
+        "scene-enemies.tsv": "59ef540fc263340b37a8d32c241ac92f40ebe0b603b54b694f4332f78e37a5a7",
+        "poses.tsv": "f4c97d0a2ae23234222d4640494dda76440773c7a29523afe71e239c9b731055",
+        "restore-regions.tsv": "b517bb19a5662a6c82c7c78a54e31bc7a0d09533fed0a664ca933466127883a3",
+        "player-shot-results.tsv": "792077dbf97eb6877bf93ba79c99c21cf6af1bf8190b5b6b1eff3bc122fae618",
+        "talon-bank-visual.tsv": "050b0d3caa18ba7e002fe62fa169c96425d65d96c1f5d015ae848daaeeb685ff",
+        "asset-debug-clock.tsv": "fd2ec6c08fe880eb41a63d81cb3c72397bc7a1d3f43d004b7f6067d0ff2f53fa",
+        "sdl-runtime.tsv": "d26dee3c975dbf4099de35850c6a989ae453de557e7e9a0aa240da77d7687a11",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb",
+        "draw-commands.tsv": "4faff915c9e406d124e9bf201afbf576391661d24552c4089fb1613271ed1cd1",
+        "presentation.tsv": "65632014dea027e4c80d185f6e2e5e4089c120b2bfe2b3363276b53e5b904aa8"
+      },
+      "blend_raw_sha256": "c93c439d8c94538ddbd9a7928ee60c87987859d7d017a58ce8af22fccd5a835a",
+      "blend_rows_streamed": 24119,
+      "blend_bytes_streamed": 949885,
+      "media_bytes": 0,
+      "requests": 6,
+      "emissions": 6,
+      "draws": 192,
+      "head_ids": [
+        252,
+        253,
+        254
+      ],
+      "mounts": [
+        0,
+        1
+      ],
+      "natural_collisions": 1,
+      "passive_charge_and_reset_proved": true,
+      "power_rejections": 0,
+      "capacity_rejections": 0
+    },
+    {
+      "case": "episode5-both-classic",
+      "ticks": 90,
+      "renderer_frames": 90,
+      "hd_draws": 0,
+      "tsv_sha256": {
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "effects.tsv": "1f7f765ed8e1db0de83a67ca10fb3cc2cd0245d365cd2f7b6cbc95235f124118",
+        "sidekick-loadout.tsv": "8a394e2583342a835a7dd32b1b7f18029d7824cd9781c2177631fe94fd6f1f0e",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "scene-draw-commands.tsv": "1355d7c9c0f4c84800b0693e06f3301a157ffdba73245ab14327b92949c4133d",
+        "sidekick-states.tsv": "7ddf9009d0caf955e6bb3b8b59d9c03b080b4d3c84b8a0b35031b341eb1ad12a",
+        "blend-palette.tsv": "cb425cfe3e3f8cf1316ad8475fda177b187d189c8b4b0eaa55dbb7ab1d3ed994",
+        "state.tsv": "6ad3a88dd9ead5b2a57a4c93832d00ebbecabe72b04be037d8b446b43ad2623c",
+        "rgb-audit.tsv": "829e7a3c270a23cdad711ae9db77ed9911cf98888d0611639ef220985a9aeaae",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "frames.tsv": "2894a972da34decdcf9d7536d26b1a7d07b8ce3b716c530896dafaa87d617d75",
+        "weapon-loadout.tsv": "d17f7207452929fec8f9326ff0a94f483ac7b2ce6cabe2b188ba514f50115027",
+        "asset-debug-materials.tsv": "8b3676acf499eac75ec26527b0d1dc0d91eb34cefc3e319ec2fb5a566570310a",
+        "player-shot-requests.tsv": "877c934eac2b468b709cec8be159b822a11738e16fc15483cd722180e4de77b4",
+        "player-projectiles.tsv": "3b1022a2b7b75dd27f833d32b78874edf92cc5fa7857495060fdabdfeb29f849",
+        "player-shot-emissions.tsv": "b0f9ee2b550f9e0532e32afec916477bda9164b2355594f4f6ed24c5b6f9e4d7",
+        "player-shot-draws.tsv": "8d8a2c4be5b860edfcca70b6346dc83ea0a2bff3f63319be723a571a9eebd417",
+        "scene-enemies.tsv": "59ef540fc263340b37a8d32c241ac92f40ebe0b603b54b694f4332f78e37a5a7",
+        "poses.tsv": "f4c97d0a2ae23234222d4640494dda76440773c7a29523afe71e239c9b731055",
+        "restore-regions.tsv": "b517bb19a5662a6c82c7c78a54e31bc7a0d09533fed0a664ca933466127883a3",
+        "player-shot-results.tsv": "792077dbf97eb6877bf93ba79c99c21cf6af1bf8190b5b6b1eff3bc122fae618",
+        "talon-bank-visual.tsv": "eaa2236eb007cfd5e1fb62bdebe41350a1d2d7748e0ee05a4b086b6ead39bcea",
+        "asset-debug-clock.tsv": "18854fb486cacdb6308ed017a3f5b65164a01648763d34ad084381bac7f553b2",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb",
+        "draw-commands.tsv": "9faae5184d006af5705e74c3209d971539dcc50fa3f61b8dbaa7587b198a31e8",
+        "presentation.tsv": "281732566d638e726b346755d449b504021f8b4577a253ff0d3f88e5bed80bed"
+      },
+      "blend_raw_sha256": "178a3a52e617e2256814bfe13bea55e28f053ccb66ab82bc961b34738e77c3a9",
+      "blend_rows_streamed": 23940,
+      "blend_bytes_streamed": 942266,
+      "media_bytes": 0,
+      "requests": 6,
+      "emissions": 6,
+      "draws": 208,
+      "head_ids": [
+        252,
+        253,
+        254
+      ],
+      "mounts": [
+        0,
+        1
+      ],
+      "natural_collisions": 0,
+      "passive_charge_and_reset_proved": true,
+      "power_rejections": 0,
+      "capacity_rejections": 0
+    },
+    {
+      "case": "episode5-both-8",
+      "ticks": 90,
+      "renderer_frames": 90,
+      "hd_draws": 180,
+      "tsv_sha256": {
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "effects.tsv": "1259350561ed964fec7516de4627632a35b688a14108233afed5ae453e5a2096",
+        "sidekick-loadout.tsv": "8a394e2583342a835a7dd32b1b7f18029d7824cd9781c2177631fe94fd6f1f0e",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "scene-draw-commands.tsv": "1355d7c9c0f4c84800b0693e06f3301a157ffdba73245ab14327b92949c4133d",
+        "sidekick-states.tsv": "7ddf9009d0caf955e6bb3b8b59d9c03b080b4d3c84b8a0b35031b341eb1ad12a",
+        "blend-palette.tsv": "cb425cfe3e3f8cf1316ad8475fda177b187d189c8b4b0eaa55dbb7ab1d3ed994",
+        "state.tsv": "6ad3a88dd9ead5b2a57a4c93832d00ebbecabe72b04be037d8b446b43ad2623c",
+        "rgb-audit.tsv": "1c908b9a31bba32eba417ccbfc605aa1038594fe847b3bb3ad2e54d9f3887a22",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "frames.tsv": "a2e55daf2f342e9c8cfffba0b6f7128159052e1fc521de9b0421936b8fe59e3c",
+        "weapon-loadout.tsv": "d17f7207452929fec8f9326ff0a94f483ac7b2ce6cabe2b188ba514f50115027",
+        "asset-debug-materials.tsv": "8b3676acf499eac75ec26527b0d1dc0d91eb34cefc3e319ec2fb5a566570310a",
+        "player-shot-requests.tsv": "877c934eac2b468b709cec8be159b822a11738e16fc15483cd722180e4de77b4",
+        "player-projectiles.tsv": "3b1022a2b7b75dd27f833d32b78874edf92cc5fa7857495060fdabdfeb29f849",
+        "player-shot-emissions.tsv": "b0f9ee2b550f9e0532e32afec916477bda9164b2355594f4f6ed24c5b6f9e4d7",
+        "player-shot-draws.tsv": "8d8a2c4be5b860edfcca70b6346dc83ea0a2bff3f63319be723a571a9eebd417",
+        "scene-enemies.tsv": "59ef540fc263340b37a8d32c241ac92f40ebe0b603b54b694f4332f78e37a5a7",
+        "poses.tsv": "f4c97d0a2ae23234222d4640494dda76440773c7a29523afe71e239c9b731055",
+        "restore-regions.tsv": "b517bb19a5662a6c82c7c78a54e31bc7a0d09533fed0a664ca933466127883a3",
+        "player-shot-results.tsv": "792077dbf97eb6877bf93ba79c99c21cf6af1bf8190b5b6b1eff3bc122fae618",
+        "talon-bank-visual.tsv": "050b0d3caa18ba7e002fe62fa169c96425d65d96c1f5d015ae848daaeeb685ff",
+        "asset-debug-clock.tsv": "18854fb486cacdb6308ed017a3f5b65164a01648763d34ad084381bac7f553b2",
+        "sdl-runtime.tsv": "d26dee3c975dbf4099de35850c6a989ae453de557e7e9a0aa240da77d7687a11",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb",
+        "draw-commands.tsv": "c05bd9c61937183d3d45494b036526e95405dd23a7254a343b9ab4cd0f1898b6",
+        "presentation.tsv": "0eb14478ba282c64b64fb9e770c7f902a19a8dfb398f406fb857e925acfa5cfd"
+      },
+      "blend_raw_sha256": "3c44470e5f905959719db395036457296c52a61a51d705931cfe47985dc17520",
+      "blend_rows_streamed": 23940,
+      "blend_bytes_streamed": 962875,
+      "media_bytes": 0,
+      "requests": 6,
+      "emissions": 6,
+      "draws": 208,
+      "head_ids": [
+        252,
+        253,
+        254
+      ],
+      "mounts": [
+        0,
+        1
+      ],
+      "natural_collisions": 0,
+      "passive_charge_and_reset_proved": true,
+      "power_rejections": 0,
+      "capacity_rejections": 0
+    },
+    {
+      "case": "episode1-both-repeat",
+      "ticks": 90,
+      "renderer_frames": 90,
+      "hd_draws": 0,
+      "tsv_sha256": {
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "effects.tsv": "1f7f765ed8e1db0de83a67ca10fb3cc2cd0245d365cd2f7b6cbc95235f124118",
+        "sidekick-loadout.tsv": "85409050df03c8507ea2f9f49db8f817e273ecc1d478f8d39337bf1393eccd39",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "scene-draw-commands.tsv": "1355d7c9c0f4c84800b0693e06f3301a157ffdba73245ab14327b92949c4133d",
+        "sidekick-states.tsv": "7ddf9009d0caf955e6bb3b8b59d9c03b080b4d3c84b8a0b35031b341eb1ad12a",
+        "blend-palette.tsv": "cb425cfe3e3f8cf1316ad8475fda177b187d189c8b4b0eaa55dbb7ab1d3ed994",
+        "state.tsv": "28590efc4e30b530c10ba90731ffff1026411ae15fe8599e0b731c8fdf38d484",
+        "rgb-audit.tsv": "84cc286989df24530becf5b3fe88a38caf0f3b8cec8bb43d84d02b82287eb980",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "frames.tsv": "2894a972da34decdcf9d7536d26b1a7d07b8ce3b716c530896dafaa87d617d75",
+        "weapon-loadout.tsv": "0da03187fb39f069abc0e6aa69fbc5238591ca62e0e3b733d57020242684f578",
+        "asset-debug-materials.tsv": "7250583e16638282a21aba65830b99d1aba788608a75083e3718e4817f469ccf",
+        "player-shot-requests.tsv": "877c934eac2b468b709cec8be159b822a11738e16fc15483cd722180e4de77b4",
+        "player-projectiles.tsv": "3b1022a2b7b75dd27f833d32b78874edf92cc5fa7857495060fdabdfeb29f849",
+        "player-shot-emissions.tsv": "b0f9ee2b550f9e0532e32afec916477bda9164b2355594f4f6ed24c5b6f9e4d7",
+        "player-shot-draws.tsv": "8d8a2c4be5b860edfcca70b6346dc83ea0a2bff3f63319be723a571a9eebd417",
+        "scene-enemies.tsv": "59ef540fc263340b37a8d32c241ac92f40ebe0b603b54b694f4332f78e37a5a7",
+        "poses.tsv": "f4c97d0a2ae23234222d4640494dda76440773c7a29523afe71e239c9b731055",
+        "restore-regions.tsv": "b517bb19a5662a6c82c7c78a54e31bc7a0d09533fed0a664ca933466127883a3",
+        "player-shot-results.tsv": "792077dbf97eb6877bf93ba79c99c21cf6af1bf8190b5b6b1eff3bc122fae618",
+        "talon-bank-visual.tsv": "eaa2236eb007cfd5e1fb62bdebe41350a1d2d7748e0ee05a4b086b6ead39bcea",
+        "asset-debug-clock.tsv": "350477e3bfe11a2be837dbd283a9575941420b9493fbbf4ae7a81fc2e1534499",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb",
+        "draw-commands.tsv": "9faae5184d006af5705e74c3209d971539dcc50fa3f61b8dbaa7587b198a31e8",
+        "presentation.tsv": "281732566d638e726b346755d449b504021f8b4577a253ff0d3f88e5bed80bed"
+      },
+      "blend_raw_sha256": "94794134adc385bb845ec39c9f5a4b68c1c1ad8c37637050ee1f7daf8e95383d",
+      "blend_rows_streamed": 23940,
+      "blend_bytes_streamed": 950619,
+      "media_bytes": 0,
+      "requests": 6,
+      "emissions": 6,
+      "draws": 208,
+      "head_ids": [
+        252,
+        253,
+        254
+      ],
+      "mounts": [
+        0,
+        1
+      ],
+      "natural_collisions": 0,
+      "passive_charge_and_reset_proved": true,
+      "power_rejections": 0,
+      "capacity_rejections": 0
+    },
+    {
+      "case": "episode1-left",
+      "ticks": 90,
+      "renderer_frames": 90,
+      "hd_draws": 0,
+      "tsv_sha256": {
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "effects.tsv": "1f7f765ed8e1db0de83a67ca10fb3cc2cd0245d365cd2f7b6cbc95235f124118",
+        "sidekick-loadout.tsv": "58f875a58a439d68106105daf0ccf58a1393b3d23c94d98e852f0001e0bfc59d",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "scene-draw-commands.tsv": "1355d7c9c0f4c84800b0693e06f3301a157ffdba73245ab14327b92949c4133d",
+        "sidekick-states.tsv": "ea2fbfc875b3ad924191107a303b206f29f0433798409ab995d804f792ce7340",
+        "blend-palette.tsv": "cb425cfe3e3f8cf1316ad8475fda177b187d189c8b4b0eaa55dbb7ab1d3ed994",
+        "state.tsv": "c7268666ec5530f5b7dd6a7d6da95f550c1c41297aac8792ff0b5a630c8f9a93",
+        "rgb-audit.tsv": "d97bbef0483d2878e6712b6c60eedc05a23d57452c3741435edfd39568bb8a7a",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "frames.tsv": "2894a972da34decdcf9d7536d26b1a7d07b8ce3b716c530896dafaa87d617d75",
+        "weapon-loadout.tsv": "612e1b36ce757b36af11d67eb49e7b0d1d18b9f493e9c1d8626ea774498dcdcd",
+        "asset-debug-materials.tsv": "373c7d832e7d3d741454565c8916ae019c8a3a924c3f1f4cffb03e3aed20b067",
+        "player-shot-requests.tsv": "ecc0d0c5ea919984052ed60f287742d9a5c562aee7338960140ea8d5f7e9474c",
+        "player-projectiles.tsv": "5c969e1bab2f973ab36a027e651bb4f09ee530362b455ad7b450b17b67dd8d31",
+        "player-shot-emissions.tsv": "45cbac38d30fe67efda71b507de68d0cf1730a2bdac3e3018d09fb683cc79278",
+        "player-shot-draws.tsv": "233857488f7e572dabb6ab6f9dccbbe40d52b0bc3497b47799dcc1bbfb6cc896",
+        "scene-enemies.tsv": "59ef540fc263340b37a8d32c241ac92f40ebe0b603b54b694f4332f78e37a5a7",
+        "poses.tsv": "f4c97d0a2ae23234222d4640494dda76440773c7a29523afe71e239c9b731055",
+        "restore-regions.tsv": "b517bb19a5662a6c82c7c78a54e31bc7a0d09533fed0a664ca933466127883a3",
+        "player-shot-results.tsv": "23ce6b59b0a8f4edb024eb4fda227aee86c55b951b1430c43a9477338da09e58",
+        "talon-bank-visual.tsv": "eaa2236eb007cfd5e1fb62bdebe41350a1d2d7748e0ee05a4b086b6ead39bcea",
+        "asset-debug-clock.tsv": "350477e3bfe11a2be837dbd283a9575941420b9493fbbf4ae7a81fc2e1534499",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb",
+        "draw-commands.tsv": "47ddbdd6334c74e2ac2c0abdff0e0ee13bf8fb18ad091e30befcdd10a9265a3d",
+        "presentation.tsv": "281732566d638e726b346755d449b504021f8b4577a253ff0d3f88e5bed80bed"
+      },
+      "blend_raw_sha256": "94794134adc385bb845ec39c9f5a4b68c1c1ad8c37637050ee1f7daf8e95383d",
+      "blend_rows_streamed": 23940,
+      "blend_bytes_streamed": 950619,
+      "media_bytes": 0,
+      "requests": 3,
+      "emissions": 3,
+      "draws": 104,
+      "head_ids": [
+        252,
+        253,
+        254
+      ],
+      "mounts": [
+        0
+      ],
+      "natural_collisions": 0,
+      "passive_charge_and_reset_proved": true,
+      "power_rejections": 0,
+      "capacity_rejections": 0
+    },
+    {
+      "case": "episode1-right",
+      "ticks": 90,
+      "renderer_frames": 90,
+      "hd_draws": 0,
+      "tsv_sha256": {
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "effects.tsv": "1f7f765ed8e1db0de83a67ca10fb3cc2cd0245d365cd2f7b6cbc95235f124118",
+        "sidekick-loadout.tsv": "61af593a7cd7c33a12243df92f26611c95123e76c7d369a09ddcd2fe20f0d164",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "scene-draw-commands.tsv": "1355d7c9c0f4c84800b0693e06f3301a157ffdba73245ab14327b92949c4133d",
+        "sidekick-states.tsv": "b21ce57953bc73c0e414f1de3b6958e8b68b6db19a3d2358bf90838b93af9100",
+        "blend-palette.tsv": "cb425cfe3e3f8cf1316ad8475fda177b187d189c8b4b0eaa55dbb7ab1d3ed994",
+        "state.tsv": "d38eefe159ff1fd64d200171300cccf19a1f36e99b857d8b84cf68c690395cf1",
+        "rgb-audit.tsv": "15e2468d26d509134ed30cc2a963515667dfc9e7c9ab2751302dd3be11481eac",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "frames.tsv": "2894a972da34decdcf9d7536d26b1a7d07b8ce3b716c530896dafaa87d617d75",
+        "weapon-loadout.tsv": "6a47d8b50b1db9c12f5cd73ae04fc281759947060ba2fe7d88ca1adcb649ca47",
+        "asset-debug-materials.tsv": "37f7d9f06cd4685cb4e7e1a67d9f6117465cd7aa6a401b38e13e1d11f40fd620",
+        "player-shot-requests.tsv": "c7f7c016719d99d7e6920257794b638b3aefb826d2dbadf30483f37f232a2ef3",
+        "player-projectiles.tsv": "440513263168d4b6afa704b77f21ea4313561cae0519ff3355c4459f130c51a1",
+        "player-shot-emissions.tsv": "c4e924b45090eef15649cc47ad2f19f7f23f5fb52c77699119b6af9ee7c8e756",
+        "player-shot-draws.tsv": "96f02cd203ab9239ec5e778d4445a4545f72431eac08b9fdaddbbde3ab91c58c",
+        "scene-enemies.tsv": "59ef540fc263340b37a8d32c241ac92f40ebe0b603b54b694f4332f78e37a5a7",
+        "poses.tsv": "f4c97d0a2ae23234222d4640494dda76440773c7a29523afe71e239c9b731055",
+        "restore-regions.tsv": "b517bb19a5662a6c82c7c78a54e31bc7a0d09533fed0a664ca933466127883a3",
+        "player-shot-results.tsv": "23ce6b59b0a8f4edb024eb4fda227aee86c55b951b1430c43a9477338da09e58",
+        "talon-bank-visual.tsv": "eaa2236eb007cfd5e1fb62bdebe41350a1d2d7748e0ee05a4b086b6ead39bcea",
+        "asset-debug-clock.tsv": "350477e3bfe11a2be837dbd283a9575941420b9493fbbf4ae7a81fc2e1534499",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb",
+        "draw-commands.tsv": "c3793a3c5513e8af3236a872d716d9859aece7470fab28786c064a7ad0ebe59a",
+        "presentation.tsv": "281732566d638e726b346755d449b504021f8b4577a253ff0d3f88e5bed80bed"
+      },
+      "blend_raw_sha256": "94794134adc385bb845ec39c9f5a4b68c1c1ad8c37637050ee1f7daf8e95383d",
+      "blend_rows_streamed": 23940,
+      "blend_bytes_streamed": 950619,
+      "media_bytes": 0,
+      "requests": 3,
+      "emissions": 3,
+      "draws": 104,
+      "head_ids": [
+        252,
+        253,
+        254
+      ],
+      "mounts": [
+        1
+      ],
+      "natural_collisions": 0,
+      "passive_charge_and_reset_proved": true,
+      "power_rejections": 0,
+      "capacity_rejections": 0
+    },
+    {
+      "case": "passive-main-button",
+      "ticks": 90,
+      "renderer_frames": 90,
+      "hd_draws": 0,
+      "tsv_sha256": {
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "effects.tsv": "1f7f765ed8e1db0de83a67ca10fb3cc2cd0245d365cd2f7b6cbc95235f124118",
+        "sidekick-loadout.tsv": "3ae1f0ace33951302e03d1ba0a5f46687b7b4187a7d74a87f7c1e158571b0a88",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "scene-draw-commands.tsv": "1355d7c9c0f4c84800b0693e06f3301a157ffdba73245ab14327b92949c4133d",
+        "sidekick-states.tsv": "fd4a89fda84be3d7135966079f18b31c29bc3fe9d612beec47757f87c96a5d44",
+        "blend-palette.tsv": "cb425cfe3e3f8cf1316ad8475fda177b187d189c8b4b0eaa55dbb7ab1d3ed994",
+        "state.tsv": "6b98ba83d0e8b32f7827e10343311cfe3e4d749fcfadf6c3eeb5385c4b4239cb",
+        "rgb-audit.tsv": "c8c7cdd4b6d895ddd656c684e1ec887c13e08fcdd086fffb0106220ee1c0717f",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "frames.tsv": "2894a972da34decdcf9d7536d26b1a7d07b8ce3b716c530896dafaa87d617d75",
+        "weapon-loadout.tsv": "0da03187fb39f069abc0e6aa69fbc5238591ca62e0e3b733d57020242684f578",
+        "asset-debug-materials.tsv": "6fc1f17266df9e3302562cd8349d3f107299d118017ee43c4f171b0f4b302f75",
+        "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+        "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+        "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+        "player-shot-draws.tsv": "92e05c14219ee2de82d71e14b31343d0e910754718b1d1967fb35166fec7a24f",
+        "scene-enemies.tsv": "59ef540fc263340b37a8d32c241ac92f40ebe0b603b54b694f4332f78e37a5a7",
+        "poses.tsv": "f4c97d0a2ae23234222d4640494dda76440773c7a29523afe71e239c9b731055",
+        "restore-regions.tsv": "b517bb19a5662a6c82c7c78a54e31bc7a0d09533fed0a664ca933466127883a3",
+        "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+        "talon-bank-visual.tsv": "eaa2236eb007cfd5e1fb62bdebe41350a1d2d7748e0ee05a4b086b6ead39bcea",
+        "asset-debug-clock.tsv": "350477e3bfe11a2be837dbd283a9575941420b9493fbbf4ae7a81fc2e1534499",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb",
+        "draw-commands.tsv": "4e05413fa76fb6706c9e1ce97de9979b3439ba1c0433b6ed99d12d93491eea09",
+        "presentation.tsv": "281732566d638e726b346755d449b504021f8b4577a253ff0d3f88e5bed80bed"
+      },
+      "blend_raw_sha256": "94794134adc385bb845ec39c9f5a4b68c1c1ad8c37637050ee1f7daf8e95383d",
+      "blend_rows_streamed": 23940,
+      "blend_bytes_streamed": 950619,
+      "media_bytes": 0,
+      "passive_charge_without_dedicated_fire_proved": true
+    },
+    {
+      "case": "invalid-00",
+      "rejected": true,
+      "flags": [
+        "--render-left-sidekick="
+      ]
+    },
+    {
+      "case": "invalid-01",
+      "rejected": true,
+      "flags": [
+        "--render-left-sidekick=1"
+      ]
+    },
+    {
+      "case": "invalid-02",
+      "rejected": true,
+      "flags": [
+        "--render-left-sidekick=2"
+      ]
+    },
+    {
+      "case": "invalid-03",
+      "rejected": true,
+      "flags": [
+        "--render-left-sidekick=4"
+      ]
+    },
+    {
+      "case": "invalid-04",
+      "rejected": true,
+      "flags": [
+        "--render-left-sidekick=-1"
+      ]
+    },
+    {
+      "case": "invalid-05",
+      "rejected": true,
+      "flags": [
+        "--render-left-sidekick=+3"
+      ]
+    },
+    {
+      "case": "invalid-06",
+      "rejected": true,
+      "flags": [
+        "--render-left-sidekick= 3"
+      ]
+    },
+    {
+      "case": "invalid-07",
+      "rejected": true,
+      "flags": [
+        "--render-left-sidekick=3x"
+      ]
+    },
+    {
+      "case": "invalid-08",
+      "rejected": true,
+      "flags": [
+        "--render-left-sidekick=3.0"
+      ]
+    },
+    {
+      "case": "invalid-09",
+      "rejected": true,
+      "flags": [
+        "--render-left-sidekick=999999999999999999999"
+      ]
+    },
+    {
+      "case": "invalid-10",
+      "rejected": true,
+      "flags": [
+        "--render-right-sidekick="
+      ]
+    },
+    {
+      "case": "invalid-11",
+      "rejected": true,
+      "flags": [
+        "--render-right-sidekick=1"
+      ]
+    },
+    {
+      "case": "invalid-12",
+      "rejected": true,
+      "flags": [
+        "--render-right-sidekick=2"
+      ]
+    },
+    {
+      "case": "invalid-13",
+      "rejected": true,
+      "flags": [
+        "--render-right-sidekick=4"
+      ]
+    },
+    {
+      "case": "invalid-14",
+      "rejected": true,
+      "flags": [
+        "--render-right-sidekick=-1"
+      ]
+    },
+    {
+      "case": "invalid-15",
+      "rejected": true,
+      "flags": [
+        "--render-right-sidekick=+3"
+      ]
+    },
+    {
+      "case": "invalid-16",
+      "rejected": true,
+      "flags": [
+        "--render-right-sidekick= 3"
+      ]
+    },
+    {
+      "case": "invalid-17",
+      "rejected": true,
+      "flags": [
+        "--render-right-sidekick=3x"
+      ]
+    },
+    {
+      "case": "invalid-18",
+      "rejected": true,
+      "flags": [
+        "--render-right-sidekick=3.0"
+      ]
+    },
+    {
+      "case": "invalid-19",
+      "rejected": true,
+      "flags": [
+        "--render-right-sidekick=999999999999999999999"
+      ]
+    },
+    {
+      "case": "invalid-20",
+      "rejected": true,
+      "flags": [
+        "--render-sidekick-input="
+      ]
+    },
+    {
+      "case": "invalid-21",
+      "rejected": true,
+      "flags": [
+        "--render-sidekick-input=unknown"
+      ]
+    },
+    {
+      "case": "invalid-22",
+      "rejected": true,
+      "flags": [
+        "--render-sidekick-input=charge-stagesx"
+      ]
+    },
+    {
+      "case": "invalid-23",
+      "rejected": true,
+      "flags": [
+        "--render-front-port=0",
+        "--render-rear-port=0",
+        "--render-sidekick-input=charge-stages"
+      ]
+    },
+    {
+      "case": "invalid-24",
+      "rejected": true,
+      "flags": [
+        "--render-front-port=0",
+        "--render-rear-port=0",
+        "--render-sidekick-input=charge-stages",
+        "--render-left-sidekick=3",
+        "--render-front-port=1"
+      ]
+    },
+    {
+      "case": "invalid-25",
+      "rejected": true,
+      "flags": [
+        "--render-front-port=0",
+        "--render-rear-port=0",
+        "--render-sidekick-input=charge-stages",
+        "--render-right-sidekick=3",
+        "--render-rear-port=1"
+      ]
+    },
+    {
+      "case": "invalid-26",
+      "rejected": true,
+      "flags": [
+        "--render-front-port=0",
+        "--render-rear-port=0",
+        "--render-sidekick-input=charge-stages",
+        "--render-left-sidekick=3",
+        "--render-ticks="
+      ]
+    },
+    {
+      "case": "invalid-27",
+      "rejected": true,
+      "flags": [
+        "--render-front-port=0",
+        "--render-rear-port=0",
+        "--render-sidekick-input=charge-stages",
+        "--render-left-sidekick=3",
+        "--render-ticks=0"
+      ]
+    },
+    {
+      "case": "invalid-28",
+      "rejected": true,
+      "flags": [
+        "--render-front-port=0",
+        "--render-rear-port=0",
+        "--render-sidekick-input=charge-stages",
+        "--render-left-sidekick=3",
+        "--render-ticks=-1"
+      ]
+    },
+    {
+      "case": "invalid-29",
+      "rejected": true,
+      "flags": [
+        "--render-front-port=0",
+        "--render-rear-port=0",
+        "--render-sidekick-input=charge-stages",
+        "--render-left-sidekick=3",
+        "--render-ticks=+90"
+      ]
+    },
+    {
+      "case": "invalid-30",
+      "rejected": true,
+      "flags": [
+        "--render-front-port=0",
+        "--render-rear-port=0",
+        "--render-sidekick-input=charge-stages",
+        "--render-left-sidekick=3",
+        "--render-ticks= 90"
+      ]
+    },
+    {
+      "case": "invalid-31",
+      "rejected": true,
+      "flags": [
+        "--render-front-port=0",
+        "--render-rear-port=0",
+        "--render-sidekick-input=charge-stages",
+        "--render-left-sidekick=3",
+        "--render-ticks=90"
+      ]
+    },
+    {
+      "case": "invalid-32",
+      "rejected": true,
+      "flags": [
+        "--render-front-port=0",
+        "--render-rear-port=0",
+        "--render-sidekick-input=charge-stages",
+        "--render-left-sidekick=3",
+        "--render-ticks=91"
+      ]
+    },
+    {
+      "case": "invalid-33",
+      "rejected": true,
+      "flags": [
+        "--render-front-port=0",
+        "--render-rear-port=0",
+        "--render-sidekick-input=charge-stages",
+        "--render-left-sidekick=3",
+        "--render-ticks=90x"
+      ]
+    },
+    {
+      "case": "invalid-34",
+      "rejected": true,
+      "flags": [
+        "--render-front-port=0",
+        "--render-rear-port=0",
+        "--render-sidekick-input=charge-stages",
+        "--render-left-sidekick=3",
+        "--render-ticks=999999999999999999999"
+      ]
+    },
+    {
+      "case": "requires-probe-0",
+      "rejected": true,
+      "flags": [
+        "--render-left-sidekick=3"
+      ]
+    },
+    {
+      "case": "requires-probe-1",
+      "rejected": true,
+      "flags": [
+        "--render-right-sidekick=0"
+      ]
+    },
+    {
+      "case": "requires-probe-2",
+      "rejected": true,
+      "flags": [
+        "--render-sidekick-input=charge-stages"
+      ]
+    }
+  ],
+  "source_baseline_commit": "9dbb8036aa0d02fb83f7a6661d53219afb9044e6",
+  "source_only": true,
+  "gameplay_source_changed": [
+    "src/game_probe.c"
+  ],
+  "game_runs": 16,
+  "invalid_rejections": 38,
+  "renderer_frames": 1620,
+  "final_validator_rechecked_saved_charge_runs": 9,
+  "independent_review": {
+    "status": "passed",
+    "new_game_runs": 0,
+    "default_tsv_and_fifo_proofs_rechecked": true,
+    "all_nine_charge_cases_rechecked": true,
+    "extra_unrelated_slot_draw_mutation_rejected": true,
+    "fifo_helper_identical_to_existing_script": true
+  },
+  "syntax_checks": {
+    "C": "passed: -std=c99 -Wall -Wextra -Werror -Wno-misleading-indentation -fsyntax-only",
+    "python": "passed: py_compile",
+    "git_diff_check": "passed"
+  },
+  "natural_hit_scope": "Only episode4 has one matched natural player-shot hit at tick33, slot0 vs enemy3, damage5. No tint/effect acceptance is claimed.",
+  "script_sha256": {
+    "src/game_probe.c": "16d14f4709a8b0633515cd1030315104f15c436fac5a202e4807054683017295",
+    "prototype/test-charge-preview.py": "1f7ec1be8a4a36183af361ad554d2433eebf636c47cadfa414361fb9ff915ec5",
+    "prototype/stream-blend-proof.py": "7c420eade4ea0a523f21f5842d909a202ea00c3afdd93d0558f9d519fcf6f516"
+  },
+  "reproduce_command": "python prototype/test-charge-preview.py --exe /path/to/candidate/opentyrian2000 --baseline-exe /path/to/unchanged9dbb8036/opentyrian2000 --data /path/to/legal/tyrian2000 --assets /path/to/accepted/pack --out /new/output/directory"
+}

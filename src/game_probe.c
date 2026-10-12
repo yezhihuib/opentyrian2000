@@ -36,6 +36,9 @@ static FILE *scene_draw_commands;
 static FILE *shot_requests, *shot_emissions, *shot_results, *shot_draws;
 static unsigned int shot_request_id;
 static bool loadout_selected, no_capture;
+static bool sidekicks_selected, charge_stages;
+static unsigned int preview_sidekick[2];
+static FILE *sidekick_states;
 static unsigned int preview_port[2] = {1, 0}, preview_power[2] = {1, 1}, preview_rear_mode = 1;
 static FILE *scene_enemies,*scene_hits;
 static FILE *rgb_audits;
@@ -152,6 +155,42 @@ static void preview_loadout(void)
   }
   player[0].weapon_mode=preview_rear_mode;
  }
+ if(sidekicks_selected) {
+  for(unsigned int mount=0;mount<2;mount++) {
+   unsigned int id=preview_sidekick[mount];
+   if(id) {
+    const JE_OptionType *option=&options[id];
+    /* Validate the selected episode's real named item; never patch its data. */
+    if(option->pwr!=2||option->wport!=16||option->wpnum!=101||option->ammo||
+       option->tr||option->option!=1||option->ani!=9) {
+     fprintf(stderr,"Weapon preview: unsupported Charge Cannon in loaded episode %u\n",episodeNum);exit(2);
+    }
+    for(unsigned int stage=0;stage<=option->pwr;stage++) {
+     const unsigned int weapon=option->wpnum+stage;
+     if(weapon>WEAP_NUM||!weapons[weapon].max||weapons[weapon].max>8||!weapons[weapon].multi) {
+      fprintf(stderr,"Weapon preview: unsupported sidekick shot in loaded episode %u\n",episodeNum);exit(2);
+     }
+    }
+   }
+   /* Normal JE_drawOptions initialization still owns charge, ammo and timers. */
+   player[0].items.sidekick[mount]=id;
+  }
+ }
+ if(charge_stages&&(player[0].items.weapon[0].id||player[0].items.weapon[1].id||
+                    (!player[0].items.sidekick[0]&&!player[0].items.sidekick[1]))) {
+  fprintf(stderr,"Weapon preview: charge-stages requires front/rear port 0 and at least one sidekick 3\n");exit(2);
+ }
+ if(sidekicks_selected||charge_stages) {
+  FILE *f=fopen("sidekick-loadout.tsv","w");
+  if(!f){fprintf(stderr,"Unable to create sidekick loadout record\n");exit(2);}
+  fprintf(f,"episode\tlevel\tmount\titem\tmax_charge\tport\tbase_shot\tinput\tticks\n");
+  for(unsigned int mount=0;mount<2;mount++) {
+   unsigned int id=player[0].items.sidekick[mount];
+   fprintf(f,"%u\t%u\t%u\t%u\t%u\t%u\t%u\t%s\t%u\n",episodeNum,lvlFileNum,mount,id,
+    options[id].pwr,options[id].wport,options[id].wpnum,charge_stages?"charge-stages":"default",tick_limit);
+  }
+  fclose(f);
+ }
  FILE *f=fopen("weapon-loadout.tsv","w");
  if(!f){fprintf(stderr,"Unable to create weapon preview record\n");exit(2);}
  fprintf(f,"episode\tlevel\tselected\tfront_port\tfront_power\tfront_shot\trear_port\trear_power\trear_mode\trear_shot\tplayers_hash\trng\n");
@@ -170,6 +209,7 @@ void game_probe_parse(int *argc, char **argv)
  asset_debug_parse(argc,argv);
  if(asset_debug_enabled){game_probe_enabled=true;game_probe_density=8;game_probe_local_blend=true;game_probe_known_blend=true;game_probe_scene_assets=3;enemy_hit_scene=true;tick_limit=6000;}
  int out=1;
+ bool explicit_ticks=false;
  for(int i=1;i<*argc;i++) {
   if(strncmp(argv[i],"--render-test=",14)==0) {
    const char *mode=argv[i]+14; game_probe_enabled=true;
@@ -184,6 +224,7 @@ void game_probe_parse(int *argc, char **argv)
    else if(strcmp(mode,"local")==0) { game_probe_density=8; game_probe_local_blend=true; }
    else { fprintf(stderr,"Invalid --render-test mode\n"); exit(2); }
   } else if(strncmp(argv[i],"--render-ticks=",15)==0) {
+   explicit_ticks=true;
    char *end=NULL; unsigned long v=strtoul(argv[i]+15,&end,10);
    if(!end||*end||v<60||v>6000) { fprintf(stderr,"Render ticks must be 60..6000\n");exit(2); }
    tick_limit=(unsigned int)v;
@@ -197,6 +238,14 @@ void game_probe_parse(int *argc, char **argv)
    preview_power[REAR_WEAPON]=preview_number(argv[i]+20,1,11,"rear power");loadout_selected=true;
   } else if(strncmp(argv[i],"--render-rear-mode=",19)==0) {
    preview_rear_mode=preview_number(argv[i]+19,1,2,"rear mode");loadout_selected=true;
+  } else if(strncmp(argv[i],"--render-left-sidekick=",23)==0||strncmp(argv[i],"--render-right-sidekick=",24)==0) {
+   unsigned int mount=argv[i][9]=='l'?LEFT_SIDEKICK:RIGHT_SIDEKICK;
+   unsigned int id=preview_number(argv[i]+(mount==LEFT_SIDEKICK?23:24),0,3,"sidekick");
+   if(id!=0&&id!=3){fprintf(stderr,"Weapon preview: sidekick must be 0 or 3\n");exit(2);}
+   preview_sidekick[mount]=id;sidekicks_selected=true;
+  } else if(strncmp(argv[i],"--render-sidekick-input=",24)==0) {
+   if(strcmp(argv[i]+24,"charge-stages")){fprintf(stderr,"Weapon preview: invalid sidekick input preset\n");exit(2);}
+   charge_stages=true;
   } else if(strcmp(argv[i],"--render-no-capture")==0) no_capture=true;
   else if(strncmp(argv[i],"--render-assets=",16)==0) game_probe_assets=argv[i]+16;
   else if(strcmp(argv[i],"--render-local-blend")==0) game_probe_local_blend=true;
@@ -224,7 +273,11 @@ void game_probe_parse(int *argc, char **argv)
   }
   else argv[out++]=argv[i];
  }
- if((loadout_selected||no_capture)&&!game_probe_enabled) {
+ if(charge_stages) {
+  if(explicit_ticks){fprintf(stderr,"Weapon preview: charge-stages is fixed at 90 ticks; omit --render-ticks\n");exit(2);}
+  tick_limit=90;
+ }
+ if((loadout_selected||sidekicks_selected||charge_stages||no_capture)&&!game_probe_enabled) {
   fprintf(stderr,"Weapon preview options require --render-test or --asset-debug\n");exit(2);
  }
  argv[out]=NULL; *argc=out;
@@ -232,6 +285,11 @@ void game_probe_parse(int *argc, char **argv)
 
 void game_probe_start(void)
 {
+ if(sidekicks_selected||charge_stages) {
+  sidekick_states=fopen("sidekick-states.tsv","w");
+  if(!sidekick_states){fprintf(stderr,"Unable to create sidekick state record\n");exit(2);}
+  fprintf(sidekick_states,"tick\tphase\tmount\titem\tplayer_x\tplayer_y\tx\ty\tcharge\tcharge_ticks\trepeat\tbutton\tmain_button\tpower\n");
+ }
  shot_requests=fopen("player-shot-requests.tsv","w");shot_emissions=fopen("player-shot-emissions.tsv","w");
  shot_results=fopen("player-shot-results.tsv","w");shot_draws=fopen("player-shot-draws.tsv","w");
  if(!shot_requests||!shot_emissions||!shot_results||!shot_draws){fprintf(stderr,"Unable to create player shot records\n");exit(2);}
@@ -274,7 +332,7 @@ void game_probe_start(void)
  play_demo=true; record_demo=false; stopped_demo=false;
  gameLoaded=false; jumpSection=false;
  printf("Controlled scene v1: default episode=1 TYRIAN lvlFileNum=9 ship=1; resolved loadout in weapon-loadout.tsv; seed=0x5eed ticks=%u\n",tick_limit);
- printf("Input scene: %s\n",enemy_hit_scene?"enemy-hit: no firing, stationary, natural enemies/projectiles":banking_scene?"banking: finite left/release/right/release/left/release inputs, original pose selection":"v1: fixed fire and left/right sequence");
+ printf("Input scene: %s\n",charge_stages?"charge-stages: stationary, dedicated one-tick presses at 2/24/66, 90 ticks":enemy_hit_scene?"enemy-hit: no firing, stationary, natural enemies/projectiles":banking_scene?"banking: finite left/release/right/release/left/release inputs, original pose selection":"v1: fixed fire and left/right sequence");
 }
 
 bool game_probe_level(void)
@@ -288,8 +346,28 @@ bool game_probe_level(void)
  return true;
 }
 
+static void preview_sidekick_state(const char *phase)
+{
+ if(!sidekick_states)return;
+ const Player *p=&player[0];
+ for(unsigned int mount=0;mount<2;mount++) {
+  unsigned int bay=mount==LEFT_SIDEKICK?SHOT_LEFT_SIDEKICK:SHOT_RIGHT_SIDEKICK;
+  fprintf(sidekick_states,"%u\t%s\t%u\t%u\t%d\t%d\t%d\t%d\t%u\t%u\t%u\t%d\t%d\t%u\n",
+   game_probe_tick,phase,mount,p->items.sidekick[mount],p->x,p->y,
+   p->sidekick[mount].x,p->sidekick[mount].y,p->sidekick[mount].charge,p->sidekick[mount].charge_ticks,
+   shotRepeat[bay],button[1+mount],button[0],power);
+ }
+}
+
 bool game_probe_input(void)
 {
+ if(charge_stages) {
+  const bool press=game_probe_tick==2||game_probe_tick==24||game_probe_tick==66;
+  button[0]=button[3]=false;
+  for(unsigned int mount=0;mount<2;mount++)button[1+mount]=press&&player[0].items.sidekick[mount]==3;
+  preview_sidekick_state("input");
+  return true;
+ }
  /* Dedicated finite sequence: fire constantly; stay central for 180 ticks,
   * then left 60, right 120, left 60. Vertical position is unchanged. */
  if(banking_scene) {
@@ -302,6 +380,7 @@ bool game_probe_input(void)
   player[0].x += phase<60||phase>=180 ? -CURRENT_KEY_SPEED:CURRENT_KEY_SPEED;
  }
  button[0]=!enemy_hit_scene; button[1]=button[2]=button[3]=false;
+ preview_sidekick_state("input");
  return true;
 }
 
@@ -477,6 +556,7 @@ bool game_probe_capture_tick(void)
 bool game_probe_end_tick(void)
 {
  if(!game_probe_enabled) return false;
+ preview_sidekick_state("end");
  for(int i=0;i<100;i++) {
   const struct JE_SingleEnemyType *e=&enemy[i];
   if(e->enemytype>=121&&e->enemytype<=124)
@@ -507,6 +587,7 @@ bool game_probe_end_tick(void)
  fflush(trace); hits=0; hit_hash=HASH_START;capture_pose_change=false;
  asset_debug_end_tick();
  if(++game_probe_tick>=tick_limit) {
+  if(sidekick_states){fclose(sidekick_states);sidekick_states=NULL;}
   fclose(shot_requests);fclose(shot_emissions);fclose(shot_results);fclose(shot_draws);
   shot_requests=shot_emissions=shot_results=shot_draws=NULL;
   fclose(trace);fclose(collisions);fclose(frames);fclose(presentations);fclose(effects);fclose(projectiles);fclose(fade_steps);fclose(poses);fclose(fire_events);fclose(player_projectiles);fclose(draw_commands);fclose(scene_draw_commands);fclose(scene_enemies);fclose(scene_hits);fclose(rgb_audits);fclose(blend_writes);fclose(restore_regions);fclose(blend_palette);
