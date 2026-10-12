@@ -1,0 +1,219 @@
+{
+  "identity": "pulse-cannon-four-missing-heads-v1",
+  "status": "Root approved offline actual2x/4x revision for runtime trial; in-game acceptance pending.",
+  "scope": "Exactly four new static spriteSheet8 player heads58/60/62/165. Accepted59 untouched. No animation or weapon-table changes.",
+  "tool": "Built-in image_gen; prompt set in prompts/. Selected output masters retained.",
+  "alpha": "Straight RGBA preserved from generated masters; only whole-canvas crop/resample/placement during export.",
+  "accepted59": {
+    "preserved": true,
+    "anchor": [
+      -1,
+      0
+    ],
+    "source_png_sha256": "b95925b600464c12244b292d14c5c3b0d05fa8ed125b111459c479360afa3304",
+    "included_as_runtime_binding": false
+  },
+  "frames": [
+    {
+      "runtime_role": "player_projectile_only",
+      "sprite_sheet": 8,
+      "sprite_id": 58,
+      "binding_key": "8:58",
+      "runtime_asset_key": 80058,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "master": "selected-masters/pulse58-master.png",
+      "master_sha256": "ff9d1c0043ed2687d607a0114011ffa7b327ec557fa07ab9a2bbe0fbdd1c17c5",
+      "transform": {
+        "crop": null,
+        "resize": [
+          96,
+          104
+        ],
+        "reason": "Whole-sprite height registered to accepted59 family; transparent last8 source pixels.",
+        "paste": [
+          0,
+          0
+        ],
+        "canvas": [
+          96,
+          112
+        ],
+        "resampler": "Lanczos"
+      },
+      "source_png": "exports/shapes8-id58-96x112.png",
+      "source_png_sha256": "45a11f50dfac38b52b062c32c9085abc0f72c25b2471aced8305d3f2eea85166",
+      "hda": "runtime/bullet-58-8.hda",
+      "hda_sha256": "571feee3e3a572c6178fad80ca8fe3ca12e2cde21438464fa916b68cab1b43b0",
+      "header_u32": [
+        80058,
+        8,
+        12,
+        14,
+        0,
+        0
+      ]
+    },
+    {
+      "runtime_role": "player_projectile_only",
+      "sprite_sheet": 8,
+      "sprite_id": 60,
+      "binding_key": "8:60",
+      "runtime_asset_key": 80060,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "master": "selected-masters/pulse60-master.png",
+      "master_sha256": "1630b22eb8be574307ad50866cd6c28c2d4f9a8f2911dc94c1b8cbb4b5b4e5e6",
+      "transform": {
+        "crop": null,
+        "resize": [
+          96,
+          112
+        ],
+        "reason": "Whole generated canvas registered to original12x14 tile.",
+        "paste": [
+          0,
+          0
+        ],
+        "canvas": [
+          96,
+          112
+        ],
+        "resampler": "Lanczos"
+      },
+      "source_png": "exports/shapes8-id60-96x112.png",
+      "source_png_sha256": "9c40ba8e225cf758e6ff0adf5b5c9c2101ce61fba134c6a57077b0fee0164cf9",
+      "hda": "runtime/bullet-60-8.hda",
+      "hda_sha256": "e570776739129ff48f15aa5d4f5f809974e3420bf8bc55241429d419ce08f0d8",
+      "header_u32": [
+        80060,
+        8,
+        12,
+        14,
+        0,
+        0
+      ]
+    },
+    {
+      "runtime_role": "player_projectile_only",
+      "sprite_sheet": 8,
+      "sprite_id": 62,
+      "binding_key": "8:62",
+      "runtime_asset_key": 80062,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "master": "selected-masters/pulse62-master.png",
+      "master_sha256": "766a4370f6fdbbd65e7a707fb36c37f355b24e52a428b843fbc0952e0f6eb7de",
+      "transform": {
+        "crop": [
+          126,
+          0,
+          1215,
+          1173
+        ],
+        "resize": [
+          96,
+          112
+        ],
+        "reason": "Whole-sprite horizontal registration restores original broad five-lobe spread after generation narrowed it; no individual-lobe change.",
+        "paste": [
+          0,
+          0
+        ],
+        "canvas": [
+          96,
+          112
+        ],
+        "resampler": "Lanczos"
+      },
+      "source_png": "exports/shapes8-id62-96x112.png",
+      "source_png_sha256": "fc279beae018eb0506910ddf5503c1c6a599c411536b75a0b9f3c397f4529b4b",
+      "hda": "runtime/bullet-62-8.hda",
+      "hda_sha256": "0da3659e64942dfef38833193b19f5186586ca0f43b99f8fa5e31b7792a18ecf",
+      "header_u32": [
+        80062,
+        8,
+        12,
+        14,
+        0,
+        0
+      ]
+    },
+    {
+      "runtime_role": "player_projectile_only",
+      "sprite_sheet": 8,
+      "sprite_id": 165,
+      "binding_key": "8:165",
+      "runtime_asset_key": 80165,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "master": "selected-masters/pulse165-master.png",
+      "master_sha256": "19ac18aa35a95786ee88bb7609c3c82ee5df9f9911a068d09d16a63663d2d6d0",
+      "transform": {
+        "crop": null,
+        "resize": [
+          96,
+          112
+        ],
+        "reason": "Whole generated canvas registered to original12x14 tile.",
+        "paste": [
+          0,
+          0
+        ],
+        "canvas": [
+          96,
+          112
+        ],
+        "resampler": "Lanczos"
+      },
+      "source_png": "exports/shapes8-id165-96x112.png",
+      "source_png_sha256": "70493abb68156ecaff07f731d421c3ed780c4ff88911a3cb2a607a1d86050004",
+      "hda": "runtime/bullet-165-8.hda",
+      "hda_sha256": "255fa3dc879f33cb014f4393b56305bc118ef651c51f3ad6892f67922d959047",
+      "header_u32": [
+        80165,
+        8,
+        12,
+        14,
+        0,
+        0
+      ]
+    }
+  ],
+  "runtime_checks_required": [
+    "Legal Pulse-Cannon front-port1 powers1,2,6,11",
+    "Integer2x and4x, classic control, HD, missing and invalid fallback",
+    "Observed identities58,59,60,62,165 with correct source bank and anchor",
+    "Real in-game color, nucleus, halo, tail, origin and occlusion review",
+    "State/RNG/collision parity and no weapon timing changes"
+  ],
+  "coverage_limit": "Completes only Pulse-Cannon static head artwork after runtime acceptance; not all player weapons or upgrades."
+}

@@ -1,0 +1,354 @@
+{
+  "status": "passed",
+  "cases": 40,
+  "rendered_frames": 4800,
+  "ticks_each_case": 210,
+  "powers": [
+    1,
+    2,
+    6,
+    11
+  ],
+  "scales": [
+    2,
+    4
+  ],
+  "original_fields_byte_exact_across_all5_modes_and_scales": [
+    "state.tsv",
+    "collisions.tsv",
+    "poses.tsv",
+    "player-shot-requests.tsv",
+    "player-shot-emissions.tsv",
+    "player-shot-results.tsv",
+    "player-shot-draws.tsv",
+    "player-projectiles.tsv",
+    "fire-events.tsv",
+    "asset-debug-materials.tsv"
+  ],
+  "proof": [
+    {
+      "power": 1,
+      "scale": 2,
+      "ids": [
+        59
+      ],
+      "HD_heads": 483,
+      "HD_shadows": 483,
+      "all_normal_shadow_commands_HD": true,
+      "fallback_classic_pixel_mismatches": 0,
+      "missing_invalid_same_density_RGB_exact": true,
+      "prior59_control_RGB_exact": true,
+      "frames_each_mode": 120
+    },
+    {
+      "power": 1,
+      "scale": 4,
+      "ids": [
+        59
+      ],
+      "HD_heads": 483,
+      "HD_shadows": 483,
+      "all_normal_shadow_commands_HD": true,
+      "fallback_classic_pixel_mismatches": 0,
+      "missing_invalid_same_density_RGB_exact": true,
+      "prior59_control_RGB_exact": true,
+      "frames_each_mode": 120
+    },
+    {
+      "power": 2,
+      "scale": 2,
+      "ids": [
+        60
+      ],
+      "HD_heads": 387,
+      "HD_shadows": 387,
+      "all_normal_shadow_commands_HD": true,
+      "fallback_classic_pixel_mismatches": 0,
+      "missing_invalid_same_density_RGB_exact": true,
+      "prior59_control_RGB_exact": false,
+      "frames_each_mode": 120
+    },
+    {
+      "power": 2,
+      "scale": 4,
+      "ids": [
+        60
+      ],
+      "HD_heads": 387,
+      "HD_shadows": 387,
+      "all_normal_shadow_commands_HD": true,
+      "fallback_classic_pixel_mismatches": 0,
+      "missing_invalid_same_density_RGB_exact": true,
+      "prior59_control_RGB_exact": false,
+      "frames_each_mode": 120
+    },
+    {
+      "power": 6,
+      "scale": 2,
+      "ids": [
+        58,
+        165
+      ],
+      "HD_heads": 963,
+      "HD_shadows": 963,
+      "all_normal_shadow_commands_HD": true,
+      "fallback_classic_pixel_mismatches": 0,
+      "missing_invalid_same_density_RGB_exact": true,
+      "prior59_control_RGB_exact": false,
+      "frames_each_mode": 120
+    },
+    {
+      "power": 6,
+      "scale": 4,
+      "ids": [
+        58,
+        165
+      ],
+      "HD_heads": 963,
+      "HD_shadows": 963,
+      "all_normal_shadow_commands_HD": true,
+      "fallback_classic_pixel_mismatches": 0,
+      "missing_invalid_same_density_RGB_exact": true,
+      "prior59_control_RGB_exact": false,
+      "frames_each_mode": 120
+    },
+    {
+      "power": 11,
+      "scale": 2,
+      "ids": [
+        59,
+        62
+      ],
+      "HD_heads": 1705,
+      "HD_shadows": 1671,
+      "all_normal_shadow_commands_HD": true,
+      "fallback_classic_pixel_mismatches": 0,
+      "missing_invalid_same_density_RGB_exact": true,
+      "prior59_control_RGB_exact": false,
+      "frames_each_mode": 120
+    },
+    {
+      "power": 11,
+      "scale": 4,
+      "ids": [
+        59,
+        62
+      ],
+      "HD_heads": 1705,
+      "HD_shadows": 1671,
+      "all_normal_shadow_commands_HD": true,
+      "fallback_classic_pixel_mismatches": 0,
+      "missing_invalid_same_density_RGB_exact": true,
+      "prior59_control_RGB_exact": false,
+      "frames_each_mode": 120
+    }
+  ],
+  "new_survival_or_weapon_record_injection": false,
+  "oracle": {
+    "status": "passed",
+    "sanitize": true,
+    "baseline_commit": "b595707d04a90ff0833f8751975d36a398c5606b",
+    "source_scope": {
+      "changed_files": [
+        "src/render_mirror.c"
+      ],
+      "source_files_checked": 107,
+      "candidate_renderer_sha256": "1288cd2855061bae69a0c3230ccaf5614349dea8829c26670884651ed5a45bc4",
+      "baseline_renderer_sha256": "376a34e0200650e0927a4c341c81cad3278de49b33964d1c7118b7ad206a3b68",
+      "exact_renderer_changes": [
+        "capacity321-to325",
+        "four-bank8-TILE-bindings"
+      ],
+      "private_fifo_readback_excluded_from_production_patch": true,
+      "unchanged": [
+        "entity_draw.c (original indexed writes still always execute)",
+        "player/enemy weapon tables",
+        "gameplay/timing/movement/collision/RNG",
+        "original59/green/other banks/shadows/compositor",
+        "enemy-shot exact112/113 gate"
+      ]
+    },
+    "art_contract": {
+      "frames": [
+        {
+          "id": 58,
+          "header": [
+            80058,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "hda_sha256": "571feee3e3a572c6178fad80ca8fe3ca12e2cde21438464fa916b68cab1b43b0",
+          "source_png_sha256": "45a11f50dfac38b52b062c32c9085abc0f72c25b2471aced8305d3f2eea85166",
+          "rgba_sha256": "ac55b0f90929246b98caa65efc3a0298b20a41b9ab9bd2c8fe630008d21f7b19",
+          "zero_alpha": 7950,
+          "fractional_alpha": 2802,
+          "opaque_alpha": 0
+        },
+        {
+          "id": 60,
+          "header": [
+            80060,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "hda_sha256": "e570776739129ff48f15aa5d4f5f809974e3420bf8bc55241429d419ce08f0d8",
+          "source_png_sha256": "9c40ba8e225cf758e6ff0adf5b5c9c2101ce61fba134c6a57077b0fee0164cf9",
+          "rgba_sha256": "3e2674384100fbccce719423002f2d2e4078db73e86f4ee45d57ebef0801aa91",
+          "zero_alpha": 1630,
+          "fractional_alpha": 9077,
+          "opaque_alpha": 45
+        },
+        {
+          "id": 62,
+          "header": [
+            80062,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "hda_sha256": "0da3659e64942dfef38833193b19f5186586ca0f43b99f8fa5e31b7792a18ecf",
+          "source_png_sha256": "fc279beae018eb0506910ddf5503c1c6a599c411536b75a0b9f3c397f4529b4b",
+          "rgba_sha256": "6ea73219f025170526cbb0556e78283116f9fe3fc9dd718ef9c40827a4ae1497",
+          "zero_alpha": 2924,
+          "fractional_alpha": 7828,
+          "opaque_alpha": 0
+        },
+        {
+          "id": 165,
+          "header": [
+            80165,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "hda_sha256": "255fa3dc879f33cb014f4393b56305bc118ef651c51f3ad6892f67922d959047",
+          "source_png_sha256": "70493abb68156ecaff07f731d421c3ed780c4ff88911a3cb2a607a1d86050004",
+          "rgba_sha256": "0fe5fb1da647ff0a9ee6d4237aef47ffd989cbe0d72f29264fd20949f049aa23",
+          "zero_alpha": 3581,
+          "fractional_alpha": 7171,
+          "opaque_alpha": 0
+        }
+      ],
+      "unchanged_pack_files": 329,
+      "candidate_pack_files": 333,
+      "accepted59_hda_sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
+      "manifest_sha256": "29199fa10d27f42ff8c5d966ab394796a382f962cd76bb377e29c307f3ea750e"
+    },
+    "extracted_production_functions": [
+      "palette_rgb",
+      "complete_turret_group",
+      "restore_classic_rect",
+      "blend_rgba",
+      "cloud_asset",
+      "darken_rgba",
+      "decode_tile",
+      "read_asset",
+      "explosion_asset_slot",
+      "get_asset",
+      "talon_frame",
+      "enemy_filter_rgba",
+      "explosion_asset_blend_rgba",
+      "green_background_snapshot",
+      "green_background_peak",
+      "green_head_composite",
+      "draw_asset_filtered",
+      "draw_asset",
+      "render_mirror_entity",
+      "render_mirror_enemy_shot"
+    ],
+    "oracle_result": "PASS: 18801646 assertions; 3225600 pixel oracles; finite banks/layouts/IDs0..599; exact slots and anchors; actual RGBA; all6 header words, magic, short/trailing data; missing each/all; density fallback; normal/shadow2x4x8x; clipping/pitch/ownership; old59/green/83 and enemy112/113 scope.",
+    "negative_controls": [
+      {
+        "name": "capacity324",
+        "exit_code": 3,
+        "diagnostic": "FAIL line 66: sizeof(assets)/sizeof(*assets)==325"
+      },
+      {
+        "name": "removed-four-bindings",
+        "exit_code": 3,
+        "diagnostic": "FAIL line 71: found==slot"
+      },
+      {
+        "name": "wrong-ID58-to57",
+        "exit_code": 3,
+        "diagnostic": "FAIL line 71: found==slot"
+      },
+      {
+        "name": "wrong-bank8-to12",
+        "exit_code": 3,
+        "diagnostic": "FAIL line 71: found==slot"
+      },
+      {
+        "name": "wrong-layout-QUAD",
+        "exit_code": 3,
+        "diagnostic": "FAIL line 71: found==slot"
+      },
+      {
+        "name": "wrong-slots320",
+        "exit_code": 3,
+        "diagnostic": "FAIL line 71: found==slot"
+      },
+      {
+        "name": "anchor59-broken",
+        "exit_code": 3,
+        "diagnostic": "FAIL line 72: q->anchor_x==(b==1?5:b==0&&id==59?-1:0)"
+      },
+      {
+        "name": "enemy-gate-expanded",
+        "exit_code": 3,
+        "diagnostic": "FAIL line 77: !got&&draws==0"
+      },
+      {
+        "name": "opaque-alpha",
+        "exit_code": 3,
+        "diagnostic": "FAIL line 142: *((Uint32*)((Uint8*)canvas->pixels+py*canvas->pitch)+px)==want"
+      },
+      {
+        "name": "wrong-shadow-alpha",
+        "exit_code": 3,
+        "diagnostic": "FAIL line 142: *((Uint32*)((Uint8*)canvas->pixels+py*canvas->pitch)+px)==want"
+      },
+      {
+        "name": "green-head-scope-expanded",
+        "exit_code": 3,
+        "diagnostic": "FAIL line 137: draws==1&&region_count==1&&suppress&&!suppress_cloud&&!suppress_green_smoke&&!green_head_count"
+      }
+    ],
+    "retained_test_work": "/tmp/pulse-upgrade-oracle-sztey60p",
+    "limitations": [
+      "No game run or capture. These checks do not establish in-game visibility or visual acceptance.",
+      "Original indexed drawing is unchanged by exact source comparison; unit tests isolate the HD binder and compositor.",
+      "ASan leak detector disabled only because of executor ptrace; address and undefined-behavior checks remain enabled."
+    ]
+  },
+  "visual_review": {
+    "frames": 240,
+    "powers": [
+      1,
+      2,
+      6,
+      11
+    ],
+    "ticks": [
+      90,
+      149
+    ],
+    "native_scale": 2,
+    "four_x_stills": [
+      2,
+      6,
+      11
+    ],
+    "passed": true
+  }
+}

@@ -1,7 +1,7 @@
 {
   "schema": "opentyrian-accepted-hd-runtime-v1",
   "baseline_branch": "hd-render-prototype",
-  "status": "Accepted finite HD families; latest correction softens cloud64 lower edge while preserving all neighboring joins",
+  "status": "Accepted bounded Pulse-Cannon upgrade heads; gray island quality revision remains pending",
   "default_preview_pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
   "default_debug_pack": "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
   "packs": {
@@ -29154,7 +29154,7 @@
       }
     },
     "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 325,
+      "count": 329,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -33380,11 +33380,63 @@
           ],
           "source_png": "assets/hd/source/terrain-shapesz-90-8-c70d83c8cf84.png",
           "source_png_sha256": "37cd4a1ccab0b5f7c1a23d228a5edbac3100feccd1b70652fa8dbaf6ab4cb1a8"
+        },
+        "bullet-58-8.hda": {
+          "sha256": "571feee3e3a572c6178fad80ca8fe3ca12e2cde21438464fa916b68cab1b43b0",
+          "header_u32": [
+            80058,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/bullet-58-8-571feee3e3a5.png",
+          "source_png_sha256": "45a11f50dfac38b52b062c32c9085abc0f72c25b2471aced8305d3f2eea85166"
+        },
+        "bullet-60-8.hda": {
+          "sha256": "e570776739129ff48f15aa5d4f5f809974e3420bf8bc55241429d419ce08f0d8",
+          "header_u32": [
+            80060,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/bullet-60-8-e57077673912.png",
+          "source_png_sha256": "9c40ba8e225cf758e6ff0adf5b5c9c2101ce61fba134c6a57077b0fee0164cf9"
+        },
+        "bullet-62-8.hda": {
+          "sha256": "0da3659e64942dfef38833193b19f5186586ca0f43b99f8fa5e31b7792a18ecf",
+          "header_u32": [
+            80062,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/bullet-62-8-0da3659e6494.png",
+          "source_png_sha256": "fc279beae018eb0506910ddf5503c1c6a599c411536b75a0b9f3c397f4529b4b"
+        },
+        "bullet-165-8.hda": {
+          "sha256": "255fa3dc879f33cb014f4393b56305bc118ef651c51f3ad6892f67922d959047",
+          "header_u32": [
+            80165,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/bullet-165-8-255fa3dc879f.png",
+          "source_png_sha256": "70493abb68156ecaff07f731d421c3ed780c4ff88911a3cb2a607a1d86050004"
         }
       }
     },
     "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 329,
+      "count": 333,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -37662,6 +37714,58 @@
           ],
           "source_png": "assets/hd/source/terrain-shapesz-90-8-c70d83c8cf84.png",
           "source_png_sha256": "37cd4a1ccab0b5f7c1a23d228a5edbac3100feccd1b70652fa8dbaf6ab4cb1a8"
+        },
+        "bullet-58-8.hda": {
+          "sha256": "571feee3e3a572c6178fad80ca8fe3ca12e2cde21438464fa916b68cab1b43b0",
+          "header_u32": [
+            80058,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/bullet-58-8-571feee3e3a5.png",
+          "source_png_sha256": "45a11f50dfac38b52b062c32c9085abc0f72c25b2471aced8305d3f2eea85166"
+        },
+        "bullet-60-8.hda": {
+          "sha256": "e570776739129ff48f15aa5d4f5f809974e3420bf8bc55241429d419ce08f0d8",
+          "header_u32": [
+            80060,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/bullet-60-8-e57077673912.png",
+          "source_png_sha256": "9c40ba8e225cf758e6ff0adf5b5c9c2101ce61fba134c6a57077b0fee0164cf9"
+        },
+        "bullet-62-8.hda": {
+          "sha256": "0da3659e64942dfef38833193b19f5186586ca0f43b99f8fa5e31b7792a18ecf",
+          "header_u32": [
+            80062,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/bullet-62-8-0da3659e6494.png",
+          "source_png_sha256": "fc279beae018eb0506910ddf5503c1c6a599c411536b75a0b9f3c397f4529b4b"
+        },
+        "bullet-165-8.hda": {
+          "sha256": "255fa3dc879f33cb014f4393b56305bc118ef651c51f3ad6892f67922d959047",
+          "header_u32": [
+            80165,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/bullet-165-8-255fa3dc879f.png",
+          "source_png_sha256": "70493abb68156ecaff07f731d421c3ed780c4ff88911a3cb2a607a1d86050004"
         }
       }
     }
@@ -39556,6 +39660,30 @@
       "sha256": "37cd4a1ccab0b5f7c1a23d228a5edbac3100feccd1b70652fa8dbaf6ab4cb1a8",
       "RGBA_sha256": "4c0d9397485ea45c4c3ee0082a3d07a955294cd090851c4ad614c7f45edb0ceb",
       "note": "Generated low grass/sand family; frozen accepted sand47; fully opaque"
+    },
+    "571feee3e3a572c6178fad80ca8fe3ca12e2cde21438464fa916b68cab1b43b0": {
+      "path": "assets/hd/source/bullet-58-8-571feee3e3a5.png",
+      "sha256": "45a11f50dfac38b52b062c32c9085abc0f72c25b2471aced8305d3f2eea85166",
+      "RGBA_sha256": "ac55b0f90929246b98caa65efc3a0298b20a41b9ab9bd2c8fe630008d21f7b19",
+      "note": "Generated Pulse-Cannon player-only head; actual powers1/2/6/11 verified"
+    },
+    "e570776739129ff48f15aa5d4f5f809974e3420bf8bc55241429d419ce08f0d8": {
+      "path": "assets/hd/source/bullet-60-8-e57077673912.png",
+      "sha256": "9c40ba8e225cf758e6ff0adf5b5c9c2101ce61fba134c6a57077b0fee0164cf9",
+      "RGBA_sha256": "3e2674384100fbccce719423002f2d2e4078db73e86f4ee45d57ebef0801aa91",
+      "note": "Generated Pulse-Cannon player-only head; actual powers1/2/6/11 verified"
+    },
+    "0da3659e64942dfef38833193b19f5186586ca0f43b99f8fa5e31b7792a18ecf": {
+      "path": "assets/hd/source/bullet-62-8-0da3659e6494.png",
+      "sha256": "fc279beae018eb0506910ddf5503c1c6a599c411536b75a0b9f3c397f4529b4b",
+      "RGBA_sha256": "6ea73219f025170526cbb0556e78283116f9fe3fc9dd718ef9c40827a4ae1497",
+      "note": "Generated Pulse-Cannon player-only head; actual powers1/2/6/11 verified"
+    },
+    "255fa3dc879f33cb014f4393b56305bc118ef651c51f3ad6892f67922d959047": {
+      "path": "assets/hd/source/bullet-165-8-255fa3dc879f.png",
+      "sha256": "70493abb68156ecaff07f731d421c3ed780c4ff88911a3cb2a607a1d86050004",
+      "RGBA_sha256": "0fe5fb1da647ff0a9ee6d4237aef47ffd989cbe0d72f29264fd20949f049aa23",
+      "note": "Generated Pulse-Cannon player-only head; actual powers1/2/6/11 verified"
     }
   },
   "no_original_game_data": true,

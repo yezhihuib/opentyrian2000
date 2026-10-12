@@ -52,3 +52,10 @@ See [WINDOW60_75_VALIDATION.md](WINDOW60_75_VALIDATION.md). The final522-frame p
 ## Low grass / sand9 and75–90 mapping closure
 
 See [GRASS_SAND_VALIDATION.md](GRASS_SAND_VALIDATION.md) and [WINDOW75_90_VALIDATION.md](WINDOW75_90_VALIDATION.md). Nine finite Layer1 assets are added; defaults325/329,337 active canonical PNGs,2,890 HDA entries across18 packs. The120-frame private-survival grass tail is visually accepted. Final 522-frame native 2×75–90 visual review passed; original-state/mapping audit has zero gaps. Windows native acceptance remains pending. Verify with `python prototype/build-hd-assets.py`; rebuild generated grass with `python prototype/build-grass-sand-art.py --output NEW_EXTERNAL_DIRECTORY`.
+
+## Pulse-Cannon upgrade follow-up
+
+Four additional player heads58/60/62/165 are accepted at powers1/2/6/11.
+See [PULSE_UPGRADE_VALIDATION.md](PULSE_UPGRADE_VALIDATION.md) for bounded actual
+2×/4× evidence and reproduction. Current18 packs:2898 HDA entries,341 PNGs;
+default preview329/debug333. This batch still needs Windows-specific acceptance.
