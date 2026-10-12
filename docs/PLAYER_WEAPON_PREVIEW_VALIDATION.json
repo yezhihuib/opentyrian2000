@@ -1,0 +1,1571 @@
+{
+  "schema": "opentyrian-player-weapon-preview-validation-v1",
+  "base_commit": "7a5c62f81b5c34d521692ff6817ee1f64956fdb0",
+  "passed": true,
+  "cases": 64,
+  "successful_game_runs": 43,
+  "invalid_input_rejections": 21,
+  "total_render_frames": 7200,
+  "media_bytes": 0,
+  "baseline_classic_exact_match": true,
+  "baseline_hd8_exact_match": {
+    "passed": true,
+    "ticks": 120,
+    "files_equal": {
+      "state.tsv": "e1f916e2381949545ab35b337a7c8fedbbc6a568602df9f5f74889040b2f45f4",
+      "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+      "poses.tsv": "a90f22e1b0a9d93d855ffa2ace6b7cca23936771ab9a39f4c81c05bdec351d16",
+      "fire-events.tsv": "bd835b2ef653beb24947be057f33c480d10eb6c102ecbff747da872cd3dcaa48",
+      "player-projectiles.tsv": "4c03a46e6bbbf3df6f1ff434c8de9ec7d4ef93e83547b69be09472a2e1b12f47",
+      "presentation.tsv": "2b0d7185ee61dd78c69c3965bbe21ea0c8e275d45e4679ad4079b0ead8ecc13f",
+      "frames.tsv": "a932371306a1d59db4f8964b536553b6eba3b03139e7ece6f53ccc53f26d3c88",
+      "rgb-audit.tsv": "8489fadac616688dfbb6a6a50aef98069b18c3ac88897dd3a361ff67e2ae1ac1"
+    }
+  },
+  "final_read_only_assertions": {
+    "render_frames": 6960,
+    "candidate_draws": 76178,
+    "shadow_draws": 37650,
+    "bank12_material_rows": 2488,
+    "option_shapes_material_rows": 112
+  },
+  "source_sha256": {
+    "src/asset_debug.c": "8be5161623d0d34c960ae7d229a3b9ac1b0889fe54bec407e131f267346b7bf8",
+    "src/entity_draw.c": "f53e4b531023ad54d54f9755d427f5e028213d02a1b5bc6c042d27b4566c24ba",
+    "src/game_probe.c": "dddffb1781da21f5f12e5309aa827d0dc81af00c6f7a4847bd917199e0691dd1",
+    "src/game_probe.h": "611101cc09718ffcd0a0b12bfa08669e1c903f183c6e05cf7a586b114c701355",
+    "src/shots.c": "ec0f326f407849037af1a0218a1bfed1f3f2a720301a053afd3a7d25c7391405",
+    "prototype/asset-index.py": "543462dd01c3b2ae19a3ed750316878a44b6e7a67e04a06fdad374cb651d074d",
+    "prototype/test-weapon-preview.py": "e35e3453532e4435ff3186406b4dafd1fd7854ab9c5eef5856a265ae69d2523d"
+  },
+  "baseline_exe_sha256": "ea543ee903659d8692c2c8e285cff1fa4056fe5648a75c991c4f587b90230622",
+  "candidate_exe_sha256": "28c5e73ffa9607b7d2667391d4db1dbfd8d700d956d1375565cd4d3c8260f3d1",
+  "build": "make -j4 with existing local SDL2/SDL2_net pkg-config prefix: PASS; existing misleading-indentation warnings only",
+  "review": "Independent read-only review; bank12/source qualification, positive HD assertion and exact head/shadow log coverage findings addressed.",
+  "validation_method": "62-run real renderer suite plus two no-selector pre-change/current HD8 runs. Final stricter assertions were also applied read-only to every completed log after the test script was tightened; all passed.",
+  "limits": [
+    "No new HD art or visual acceptance is included.",
+    "Integer2x display, dummy SDL/software renderer; density4 mode tests missing 4-density-file fallback, not display4x.",
+    "No full arsenal, sidekick-charge, player2-link, or special-weapon sweep.",
+    "Capacity/bounds creator result branches reviewed statically; normal energy failures and collision-child creation exercised."
+  ],
+  "run_summary": {
+    "scope": "Debug fixture and observability; no new HD art is included.",
+    "data_sha256": {
+      "tyrian.hdt": "fde8506326e7bb0916b38c362e33bf8a8a5affa561206c021af7f65b4a17745b",
+      "tyrian4.lvl": "6589b898094887925e7717c8663c4b8b5e4b76f3c89a7898ed9f4691c1f2cc16",
+      "tyrian5.lvl": "275b5aaf55caecee8dc95e26f7cf118a9ee265f095ce61945b9ece56a4523323"
+    },
+    "no_capture_media_bytes": 0,
+    "baseline_checked": true,
+    "results": [
+      {
+        "case": "default",
+        "ticks": 120,
+        "state_sha256": "e1f916e2381949545ab35b337a7c8fedbbc6a568602df9f5f74889040b2f45f4",
+        "collisions_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 0,
+        "render_frames": 120,
+        "hd_draws": 0,
+        "requests": 32,
+        "emissions": 30,
+        "draws": 930,
+        "identities": [
+          "8:59"
+        ],
+        "results": {
+          "power": 2,
+          "complete": 30
+        },
+        "loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "0",
+          "front_port": "1",
+          "front_power": "1",
+          "front_shot": "155",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "53e5ada52cce2ee0",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "baseline",
+        "ticks": 120,
+        "state_sha256": "e1f916e2381949545ab35b337a7c8fedbbc6a568602df9f5f74889040b2f45f4",
+        "collisions_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 0,
+        "render_frames": 120,
+        "hd_draws": 0
+      },
+      {
+        "case": "pulse-p1-classic",
+        "ticks": 120,
+        "state_sha256": "e1f916e2381949545ab35b337a7c8fedbbc6a568602df9f5f74889040b2f45f4",
+        "collisions_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 0,
+        "render_frames": 120,
+        "hd_draws": 0,
+        "requests": 32,
+        "emissions": 30,
+        "draws": 930,
+        "identities": [
+          "8:59"
+        ],
+        "results": {
+          "power": 2,
+          "complete": 30
+        },
+        "loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "1",
+          "front_port": "1",
+          "front_power": "1",
+          "front_shot": "155",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "53e5ada52cce2ee0",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "pulse-p1-4",
+        "ticks": 120,
+        "state_sha256": "e1f916e2381949545ab35b337a7c8fedbbc6a568602df9f5f74889040b2f45f4",
+        "collisions_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 0,
+        "render_frames": 120,
+        "hd_draws": 0,
+        "requests": 32,
+        "emissions": 30,
+        "draws": 930,
+        "identities": [
+          "8:59"
+        ],
+        "results": {
+          "power": 2,
+          "complete": 30
+        },
+        "loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "1",
+          "front_port": "1",
+          "front_power": "1",
+          "front_shot": "155",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "53e5ada52cce2ee0",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "pulse-p1-8",
+        "ticks": 120,
+        "state_sha256": "e1f916e2381949545ab35b337a7c8fedbbc6a568602df9f5f74889040b2f45f4",
+        "collisions_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 0,
+        "render_frames": 120,
+        "hd_draws": 1170,
+        "requests": 32,
+        "emissions": 30,
+        "draws": 930,
+        "identities": [
+          "8:59"
+        ],
+        "results": {
+          "power": 2,
+          "complete": 30
+        },
+        "loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "1",
+          "front_port": "1",
+          "front_power": "1",
+          "front_shot": "155",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "53e5ada52cce2ee0",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "pulse-p1-missing",
+        "ticks": 120,
+        "state_sha256": "e1f916e2381949545ab35b337a7c8fedbbc6a568602df9f5f74889040b2f45f4",
+        "collisions_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 0,
+        "render_frames": 120,
+        "hd_draws": 0,
+        "requests": 32,
+        "emissions": 30,
+        "draws": 930,
+        "identities": [
+          "8:59"
+        ],
+        "results": {
+          "power": 2,
+          "complete": 30
+        },
+        "loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "1",
+          "front_port": "1",
+          "front_power": "1",
+          "front_shot": "155",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "53e5ada52cce2ee0",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "pulse-p1-invalid",
+        "ticks": 120,
+        "state_sha256": "e1f916e2381949545ab35b337a7c8fedbbc6a568602df9f5f74889040b2f45f4",
+        "collisions_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 0,
+        "render_frames": 120,
+        "hd_draws": 0,
+        "requests": 32,
+        "emissions": 30,
+        "draws": 930,
+        "identities": [
+          "8:59"
+        ],
+        "results": {
+          "power": 2,
+          "complete": 30
+        },
+        "loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "1",
+          "front_port": "1",
+          "front_power": "1",
+          "front_shot": "155",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "53e5ada52cce2ee0",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "pulse-p1-repeat",
+        "ticks": 120,
+        "state_sha256": "e1f916e2381949545ab35b337a7c8fedbbc6a568602df9f5f74889040b2f45f4",
+        "collisions_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 0,
+        "render_frames": 120,
+        "hd_draws": 1170,
+        "requests": 32,
+        "emissions": 30,
+        "draws": 930,
+        "identities": [
+          "8:59"
+        ],
+        "results": {
+          "power": 2,
+          "complete": 30
+        },
+        "loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "1",
+          "front_port": "1",
+          "front_power": "1",
+          "front_shot": "155",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "53e5ada52cce2ee0",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "pulse-p2-classic",
+        "ticks": 120,
+        "state_sha256": "12c141dadac38801aba0606828c328ca827ca17f6f38991f1150ff8d5e4a066d",
+        "collisions_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 0,
+        "render_frames": 120,
+        "hd_draws": 0,
+        "requests": 25,
+        "emissions": 24,
+        "draws": 756,
+        "identities": [
+          "8:60"
+        ],
+        "results": {
+          "power": 1,
+          "complete": 24
+        },
+        "loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "1",
+          "front_port": "1",
+          "front_power": "2",
+          "front_shot": "156",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "9ea474982135298e",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "pulse-p2-4",
+        "ticks": 120,
+        "state_sha256": "12c141dadac38801aba0606828c328ca827ca17f6f38991f1150ff8d5e4a066d",
+        "collisions_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 0,
+        "render_frames": 120,
+        "hd_draws": 0,
+        "requests": 25,
+        "emissions": 24,
+        "draws": 756,
+        "identities": [
+          "8:60"
+        ],
+        "results": {
+          "power": 1,
+          "complete": 24
+        },
+        "loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "1",
+          "front_port": "1",
+          "front_power": "2",
+          "front_shot": "156",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "9ea474982135298e",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "pulse-p2-8",
+        "ticks": 120,
+        "state_sha256": "12c141dadac38801aba0606828c328ca827ca17f6f38991f1150ff8d5e4a066d",
+        "collisions_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 0,
+        "render_frames": 120,
+        "hd_draws": 240,
+        "requests": 25,
+        "emissions": 24,
+        "draws": 756,
+        "identities": [
+          "8:60"
+        ],
+        "results": {
+          "power": 1,
+          "complete": 24
+        },
+        "loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "1",
+          "front_port": "1",
+          "front_power": "2",
+          "front_shot": "156",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "9ea474982135298e",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "pulse-p2-missing",
+        "ticks": 120,
+        "state_sha256": "12c141dadac38801aba0606828c328ca827ca17f6f38991f1150ff8d5e4a066d",
+        "collisions_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 0,
+        "render_frames": 120,
+        "hd_draws": 0,
+        "requests": 25,
+        "emissions": 24,
+        "draws": 756,
+        "identities": [
+          "8:60"
+        ],
+        "results": {
+          "power": 1,
+          "complete": 24
+        },
+        "loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "1",
+          "front_port": "1",
+          "front_power": "2",
+          "front_shot": "156",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "9ea474982135298e",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "pulse-p2-invalid",
+        "ticks": 120,
+        "state_sha256": "12c141dadac38801aba0606828c328ca827ca17f6f38991f1150ff8d5e4a066d",
+        "collisions_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 0,
+        "render_frames": 120,
+        "hd_draws": 0,
+        "requests": 25,
+        "emissions": 24,
+        "draws": 756,
+        "identities": [
+          "8:60"
+        ],
+        "results": {
+          "power": 1,
+          "complete": 24
+        },
+        "loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "1",
+          "front_port": "1",
+          "front_power": "2",
+          "front_shot": "156",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "9ea474982135298e",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "pulse-p2-repeat",
+        "ticks": 120,
+        "state_sha256": "12c141dadac38801aba0606828c328ca827ca17f6f38991f1150ff8d5e4a066d",
+        "collisions_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 0,
+        "render_frames": 120,
+        "hd_draws": 240,
+        "requests": 25,
+        "emissions": 24,
+        "draws": 756,
+        "identities": [
+          "8:60"
+        ],
+        "results": {
+          "power": 1,
+          "complete": 24
+        },
+        "loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "1",
+          "front_port": "1",
+          "front_power": "2",
+          "front_shot": "156",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "9ea474982135298e",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "pulse-p6-classic",
+        "ticks": 120,
+        "state_sha256": "b85e3575814bebb4b8d2b6f4f21ef4e7f51127e545235f55a9ee07e68111736d",
+        "collisions_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 0,
+        "render_frames": 120,
+        "hd_draws": 0,
+        "requests": 21,
+        "emissions": 60,
+        "draws": 1896,
+        "identities": [
+          "8:165",
+          "8:58"
+        ],
+        "results": {
+          "power": 1,
+          "complete": 20
+        },
+        "loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "1",
+          "front_port": "1",
+          "front_power": "6",
+          "front_shot": "160",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "a61837e65de02b66",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "pulse-p6-4",
+        "ticks": 120,
+        "state_sha256": "b85e3575814bebb4b8d2b6f4f21ef4e7f51127e545235f55a9ee07e68111736d",
+        "collisions_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 0,
+        "render_frames": 120,
+        "hd_draws": 0,
+        "requests": 21,
+        "emissions": 60,
+        "draws": 1896,
+        "identities": [
+          "8:165",
+          "8:58"
+        ],
+        "results": {
+          "power": 1,
+          "complete": 20
+        },
+        "loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "1",
+          "front_port": "1",
+          "front_power": "6",
+          "front_shot": "160",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "a61837e65de02b66",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "pulse-p6-8",
+        "ticks": 120,
+        "state_sha256": "b85e3575814bebb4b8d2b6f4f21ef4e7f51127e545235f55a9ee07e68111736d",
+        "collisions_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 0,
+        "render_frames": 120,
+        "hd_draws": 240,
+        "requests": 21,
+        "emissions": 60,
+        "draws": 1896,
+        "identities": [
+          "8:165",
+          "8:58"
+        ],
+        "results": {
+          "power": 1,
+          "complete": 20
+        },
+        "loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "1",
+          "front_port": "1",
+          "front_power": "6",
+          "front_shot": "160",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "a61837e65de02b66",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "pulse-p6-missing",
+        "ticks": 120,
+        "state_sha256": "b85e3575814bebb4b8d2b6f4f21ef4e7f51127e545235f55a9ee07e68111736d",
+        "collisions_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 0,
+        "render_frames": 120,
+        "hd_draws": 0,
+        "requests": 21,
+        "emissions": 60,
+        "draws": 1896,
+        "identities": [
+          "8:165",
+          "8:58"
+        ],
+        "results": {
+          "power": 1,
+          "complete": 20
+        },
+        "loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "1",
+          "front_port": "1",
+          "front_power": "6",
+          "front_shot": "160",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "a61837e65de02b66",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "pulse-p6-invalid",
+        "ticks": 120,
+        "state_sha256": "b85e3575814bebb4b8d2b6f4f21ef4e7f51127e545235f55a9ee07e68111736d",
+        "collisions_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 0,
+        "render_frames": 120,
+        "hd_draws": 0,
+        "requests": 21,
+        "emissions": 60,
+        "draws": 1896,
+        "identities": [
+          "8:165",
+          "8:58"
+        ],
+        "results": {
+          "power": 1,
+          "complete": 20
+        },
+        "loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "1",
+          "front_port": "1",
+          "front_power": "6",
+          "front_shot": "160",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "a61837e65de02b66",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "pulse-p6-repeat",
+        "ticks": 120,
+        "state_sha256": "b85e3575814bebb4b8d2b6f4f21ef4e7f51127e545235f55a9ee07e68111736d",
+        "collisions_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 0,
+        "render_frames": 120,
+        "hd_draws": 240,
+        "requests": 21,
+        "emissions": 60,
+        "draws": 1896,
+        "identities": [
+          "8:165",
+          "8:58"
+        ],
+        "results": {
+          "power": 1,
+          "complete": 20
+        },
+        "loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "1",
+          "front_port": "1",
+          "front_power": "6",
+          "front_shot": "160",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "a61837e65de02b66",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "pulse-p11-classic",
+        "ticks": 120,
+        "state_sha256": "98d916579453dc674f4a640e0a3eeda4d650f0b115472a3d77fbe8382b6e8c8f",
+        "collisions_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 0,
+        "render_frames": 120,
+        "hd_draws": 0,
+        "requests": 21,
+        "emissions": 100,
+        "draws": 3194,
+        "identities": [
+          "8:59",
+          "8:62"
+        ],
+        "results": {
+          "power": 1,
+          "complete": 20
+        },
+        "loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "1",
+          "front_port": "1",
+          "front_power": "11",
+          "front_shot": "165",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "dc834eb9f04c0f34",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "pulse-p11-4",
+        "ticks": 120,
+        "state_sha256": "98d916579453dc674f4a640e0a3eeda4d650f0b115472a3d77fbe8382b6e8c8f",
+        "collisions_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 0,
+        "render_frames": 120,
+        "hd_draws": 0,
+        "requests": 21,
+        "emissions": 100,
+        "draws": 3194,
+        "identities": [
+          "8:59",
+          "8:62"
+        ],
+        "results": {
+          "power": 1,
+          "complete": 20
+        },
+        "loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "1",
+          "front_port": "1",
+          "front_power": "11",
+          "front_shot": "165",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "dc834eb9f04c0f34",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "pulse-p11-8",
+        "ticks": 120,
+        "state_sha256": "98d916579453dc674f4a640e0a3eeda4d650f0b115472a3d77fbe8382b6e8c8f",
+        "collisions_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 0,
+        "render_frames": 120,
+        "hd_draws": 2802,
+        "requests": 21,
+        "emissions": 100,
+        "draws": 3194,
+        "identities": [
+          "8:59",
+          "8:62"
+        ],
+        "results": {
+          "power": 1,
+          "complete": 20
+        },
+        "loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "1",
+          "front_port": "1",
+          "front_power": "11",
+          "front_shot": "165",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "dc834eb9f04c0f34",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "pulse-p11-missing",
+        "ticks": 120,
+        "state_sha256": "98d916579453dc674f4a640e0a3eeda4d650f0b115472a3d77fbe8382b6e8c8f",
+        "collisions_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 0,
+        "render_frames": 120,
+        "hd_draws": 0,
+        "requests": 21,
+        "emissions": 100,
+        "draws": 3194,
+        "identities": [
+          "8:59",
+          "8:62"
+        ],
+        "results": {
+          "power": 1,
+          "complete": 20
+        },
+        "loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "1",
+          "front_port": "1",
+          "front_power": "11",
+          "front_shot": "165",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "dc834eb9f04c0f34",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "pulse-p11-invalid",
+        "ticks": 120,
+        "state_sha256": "98d916579453dc674f4a640e0a3eeda4d650f0b115472a3d77fbe8382b6e8c8f",
+        "collisions_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 0,
+        "render_frames": 120,
+        "hd_draws": 0,
+        "requests": 21,
+        "emissions": 100,
+        "draws": 3194,
+        "identities": [
+          "8:59",
+          "8:62"
+        ],
+        "results": {
+          "power": 1,
+          "complete": 20
+        },
+        "loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "1",
+          "front_port": "1",
+          "front_power": "11",
+          "front_shot": "165",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "dc834eb9f04c0f34",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "pulse-p11-repeat",
+        "ticks": 120,
+        "state_sha256": "98d916579453dc674f4a640e0a3eeda4d650f0b115472a3d77fbe8382b6e8c8f",
+        "collisions_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 0,
+        "render_frames": 120,
+        "hd_draws": 2802,
+        "requests": 21,
+        "emissions": 100,
+        "draws": 3194,
+        "identities": [
+          "8:59",
+          "8:62"
+        ],
+        "results": {
+          "power": 1,
+          "complete": 20
+        },
+        "loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "1",
+          "front_port": "1",
+          "front_power": "11",
+          "front_shot": "165",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "dc834eb9f04c0f34",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "bank12-classic",
+        "ticks": 120,
+        "state_sha256": "71c21f622b2e69efe42cf571577fb91cf01bd79f29cfc1f1e31ab5c45d8de767",
+        "collisions_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 0,
+        "render_frames": 120,
+        "hd_draws": 0,
+        "requests": 31,
+        "emissions": 44,
+        "draws": 1244,
+        "identities": [
+          "12:117",
+          "12:118",
+          "12:98",
+          "12:99"
+        ],
+        "results": {
+          "power": 20,
+          "complete": 11
+        },
+        "loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "1",
+          "front_port": "3",
+          "front_power": "6",
+          "front_shot": "182",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "9cb3396e09e1aadc",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "bank12-8",
+        "ticks": 120,
+        "state_sha256": "71c21f622b2e69efe42cf571577fb91cf01bd79f29cfc1f1e31ab5c45d8de767",
+        "collisions_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 0,
+        "render_frames": 120,
+        "hd_draws": 240,
+        "requests": 31,
+        "emissions": 44,
+        "draws": 1244,
+        "identities": [
+          "12:117",
+          "12:118",
+          "12:98",
+          "12:99"
+        ],
+        "results": {
+          "power": 20,
+          "complete": 11
+        },
+        "loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "1",
+          "front_port": "3",
+          "front_power": "6",
+          "front_shot": "182",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "9cb3396e09e1aadc",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "rear-mode1-classic",
+        "ticks": 120,
+        "state_sha256": "6adfead253543f0faa4eb09e805baa147d617b10b2f267b4a5347ec00e98613f",
+        "collisions_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 0,
+        "render_frames": 120,
+        "hd_draws": 0,
+        "requests": 19,
+        "emissions": 51,
+        "draws": 1086,
+        "identities": [
+          "8:3",
+          "8:41",
+          "8:77"
+        ],
+        "results": {
+          "power": 2,
+          "complete": 17
+        },
+        "loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "1",
+          "front_port": "0",
+          "front_power": "1",
+          "front_shot": "0",
+          "rear_port": "10",
+          "rear_power": "6",
+          "rear_mode": "1",
+          "rear_shot": "259",
+          "players_hash": "96d5d73da069c49e",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "rear-mode1-8",
+        "ticks": 120,
+        "state_sha256": "6adfead253543f0faa4eb09e805baa147d617b10b2f267b4a5347ec00e98613f",
+        "collisions_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 0,
+        "render_frames": 120,
+        "hd_draws": 240,
+        "requests": 19,
+        "emissions": 51,
+        "draws": 1086,
+        "identities": [
+          "8:3",
+          "8:41",
+          "8:77"
+        ],
+        "results": {
+          "power": 2,
+          "complete": 17
+        },
+        "loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "1",
+          "front_port": "0",
+          "front_power": "1",
+          "front_shot": "0",
+          "rear_port": "10",
+          "rear_power": "6",
+          "rear_mode": "1",
+          "rear_shot": "259",
+          "players_hash": "96d5d73da069c49e",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "rear-mode2-classic",
+        "ticks": 120,
+        "state_sha256": "eb7776931f30e45eb17aa3d959e83cdb7cd5aa601e07890c5131a9b9b213dcc6",
+        "collisions_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 0,
+        "render_frames": 120,
+        "hd_draws": 0,
+        "requests": 19,
+        "emissions": 85,
+        "draws": 1414,
+        "identities": [
+          "8:182",
+          "8:183",
+          "8:277",
+          "8:278",
+          "8:77"
+        ],
+        "results": {
+          "power": 2,
+          "complete": 17
+        },
+        "loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "1",
+          "front_port": "0",
+          "front_power": "1",
+          "front_shot": "0",
+          "rear_port": "10",
+          "rear_power": "6",
+          "rear_mode": "2",
+          "rear_shot": "270",
+          "players_hash": "6236feda52667117",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "rear-mode2-8",
+        "ticks": 120,
+        "state_sha256": "eb7776931f30e45eb17aa3d959e83cdb7cd5aa601e07890c5131a9b9b213dcc6",
+        "collisions_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 0,
+        "render_frames": 120,
+        "hd_draws": 240,
+        "requests": 19,
+        "emissions": 85,
+        "draws": 1414,
+        "identities": [
+          "8:182",
+          "8:183",
+          "8:277",
+          "8:278",
+          "8:77"
+        ],
+        "results": {
+          "power": 2,
+          "complete": 17
+        },
+        "loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "1",
+          "front_port": "0",
+          "front_power": "1",
+          "front_shot": "0",
+          "rear_port": "10",
+          "rear_power": "6",
+          "rear_mode": "2",
+          "rear_shot": "270",
+          "players_hash": "6236feda52667117",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "option-child-classic",
+        "ticks": 900,
+        "state_sha256": "8c526ce9c27b972ba3b28b9f6ce6a893d859059784a18d845944ca8a7b4d3e22",
+        "collisions_sha256": "09308794d59c90bcd075cdaa3bc3d1637c489c5e0fc9cdcc7e171a1ba9da869d",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 56,
+        "render_frames": 900,
+        "hd_draws": 0,
+        "requests": 58,
+        "emissions": 58,
+        "draws": 5868,
+        "identities": [
+          "5:33",
+          "8:153",
+          "8:154",
+          "8:155",
+          "8:156"
+        ],
+        "results": {
+          "complete": 58
+        },
+        "loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "1",
+          "front_port": "0",
+          "front_power": "1",
+          "front_shot": "0",
+          "rear_port": "24",
+          "rear_power": "6",
+          "rear_mode": "1",
+          "rear_shot": "522",
+          "players_hash": "f13f4f9ad5c7d2c8",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "option-child-8",
+        "ticks": 900,
+        "state_sha256": "8c526ce9c27b972ba3b28b9f6ce6a893d859059784a18d845944ca8a7b4d3e22",
+        "collisions_sha256": "09308794d59c90bcd075cdaa3bc3d1637c489c5e0fc9cdcc7e171a1ba9da869d",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 56,
+        "render_frames": 900,
+        "hd_draws": 12085,
+        "requests": 58,
+        "emissions": 58,
+        "draws": 5868,
+        "identities": [
+          "5:33",
+          "8:153",
+          "8:154",
+          "8:155",
+          "8:156"
+        ],
+        "results": {
+          "complete": 58
+        },
+        "loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "1",
+          "front_port": "0",
+          "front_power": "1",
+          "front_shot": "0",
+          "rear_port": "24",
+          "rear_power": "6",
+          "rear_mode": "1",
+          "rear_shot": "522",
+          "players_hash": "f13f4f9ad5c7d2c8",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "poison-child-classic",
+        "ticks": 360,
+        "state_sha256": "1f89725af5a245504dc3358e7de5997f9912c4ff4a3446d13652931124f19438",
+        "collisions_sha256": "30b9b9c1f58a117b58acb54d127eb629d01afad1ca46d75c1a54bdc84c75f204",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 43,
+        "render_frames": 360,
+        "hd_draws": 0,
+        "requests": 35,
+        "emissions": 76,
+        "draws": 1216,
+        "identities": [
+          "8:103",
+          "8:214",
+          "8:215",
+          "8:216",
+          "8:217"
+        ],
+        "results": {
+          "power": 1,
+          "complete": 34
+        },
+        "loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "1",
+          "front_port": "33",
+          "front_power": "1",
+          "front_shot": "636",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "1b5674e9efd84880",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "poison-child-8",
+        "ticks": 360,
+        "state_sha256": "1f89725af5a245504dc3358e7de5997f9912c4ff4a3446d13652931124f19438",
+        "collisions_sha256": "30b9b9c1f58a117b58acb54d127eb629d01afad1ca46d75c1a54bdc84c75f204",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 43,
+        "render_frames": 360,
+        "hd_draws": 5378,
+        "requests": 35,
+        "emissions": 76,
+        "draws": 1216,
+        "identities": [
+          "8:103",
+          "8:214",
+          "8:215",
+          "8:216",
+          "8:217"
+        ],
+        "results": {
+          "power": 1,
+          "complete": 34
+        },
+        "loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "1",
+          "front_port": "33",
+          "front_power": "1",
+          "front_shot": "636",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "1b5674e9efd84880",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "episode4-classic",
+        "ticks": 120,
+        "state_sha256": "ddde9da76157ee177c87c5c9fda56186d4553df1ca82fbb81b3bab3c9714a8b6",
+        "collisions_sha256": "99ff39c7c841d2eca08ab4718c1d55a4fef4afd08a7d57ceeeecd10ba287aa74",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 27,
+        "render_frames": 120,
+        "hd_draws": 0,
+        "requests": 21,
+        "emissions": 100,
+        "draws": 2809,
+        "identities": [
+          "8:59",
+          "8:62"
+        ],
+        "results": {
+          "power": 1,
+          "complete": 20
+        },
+        "loadout": {
+          "episode": "4",
+          "level": "9",
+          "selected": "1",
+          "front_port": "1",
+          "front_power": "11",
+          "front_shot": "165",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "dc834eb9f04c0f34",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "episode4-8",
+        "ticks": 120,
+        "state_sha256": "ddde9da76157ee177c87c5c9fda56186d4553df1ca82fbb81b3bab3c9714a8b6",
+        "collisions_sha256": "99ff39c7c841d2eca08ab4718c1d55a4fef4afd08a7d57ceeeecd10ba287aa74",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 27,
+        "render_frames": 120,
+        "hd_draws": 0,
+        "requests": 21,
+        "emissions": 100,
+        "draws": 2809,
+        "identities": [
+          "8:59",
+          "8:62"
+        ],
+        "results": {
+          "power": 1,
+          "complete": 20
+        },
+        "loadout": {
+          "episode": "4",
+          "level": "9",
+          "selected": "1",
+          "front_port": "1",
+          "front_power": "11",
+          "front_shot": "165",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "dc834eb9f04c0f34",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "episode5-classic",
+        "ticks": 120,
+        "state_sha256": "095e47c0df28716c83a6710a5cdad814bb1504d11ee91ddcc03ec33cc1c1a55c",
+        "collisions_sha256": "99eb4dfdb4269a1d0b01ba05f3025864efb4e9084c2d285016c7024d4e3fa03c",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 4,
+        "render_frames": 120,
+        "hd_draws": 0,
+        "requests": 21,
+        "emissions": 100,
+        "draws": 3194,
+        "identities": [
+          "8:59",
+          "8:62"
+        ],
+        "results": {
+          "power": 1,
+          "complete": 20
+        },
+        "loadout": {
+          "episode": "5",
+          "level": "1",
+          "selected": "1",
+          "front_port": "1",
+          "front_power": "11",
+          "front_shot": "165",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "dc834eb9f04c0f34",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "episode5-8",
+        "ticks": 120,
+        "state_sha256": "095e47c0df28716c83a6710a5cdad814bb1504d11ee91ddcc03ec33cc1c1a55c",
+        "collisions_sha256": "99eb4dfdb4269a1d0b01ba05f3025864efb4e9084c2d285016c7024d4e3fa03c",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 4,
+        "render_frames": 120,
+        "hd_draws": 2814,
+        "requests": 21,
+        "emissions": 100,
+        "draws": 3194,
+        "identities": [
+          "8:59",
+          "8:62"
+        ],
+        "results": {
+          "power": 1,
+          "complete": 20
+        },
+        "loadout": {
+          "episode": "5",
+          "level": "1",
+          "selected": "1",
+          "front_port": "1",
+          "front_power": "11",
+          "front_shot": "165",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "dc834eb9f04c0f34",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      {
+        "case": "invalid-00",
+        "rejected": true
+      },
+      {
+        "case": "invalid-01",
+        "rejected": true
+      },
+      {
+        "case": "invalid-02",
+        "rejected": true
+      },
+      {
+        "case": "invalid-03",
+        "rejected": true
+      },
+      {
+        "case": "invalid-04",
+        "rejected": true
+      },
+      {
+        "case": "invalid-05",
+        "rejected": true
+      },
+      {
+        "case": "invalid-06",
+        "rejected": true
+      },
+      {
+        "case": "invalid-07",
+        "rejected": true
+      },
+      {
+        "case": "invalid-08",
+        "rejected": true
+      },
+      {
+        "case": "invalid-09",
+        "rejected": true
+      },
+      {
+        "case": "invalid-10",
+        "rejected": true
+      },
+      {
+        "case": "invalid-11",
+        "rejected": true
+      },
+      {
+        "case": "invalid-12",
+        "rejected": true
+      },
+      {
+        "case": "invalid-13",
+        "rejected": true
+      },
+      {
+        "case": "invalid-14",
+        "rejected": true
+      },
+      {
+        "case": "invalid-15",
+        "rejected": true
+      },
+      {
+        "case": "invalid-16",
+        "rejected": true
+      },
+      {
+        "case": "invalid-17",
+        "rejected": true
+      },
+      {
+        "case": "invalid-18",
+        "rejected": true
+      },
+      {
+        "case": "requires-probe",
+        "rejected": true
+      },
+      {
+        "case": "no-capture-requires-probe",
+        "rejected": true
+      },
+      {
+        "case": "capture-disabled",
+        "ticks": 120,
+        "state_sha256": "e1f916e2381949545ab35b337a7c8fedbbc6a568602df9f5f74889040b2f45f4",
+        "collisions_sha256": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "config_sha256": "f6dcc46852f10282fb8f8878652269e8c4e2c7a6f06b2c7878e8be43ac47efd5",
+        "collisions": 0,
+        "render_frames": 120,
+        "hd_draws": 0,
+        "requests": 32,
+        "emissions": 30,
+        "draws": 930,
+        "identities": [
+          "8:59"
+        ],
+        "results": {
+          "power": 2,
+          "complete": 30
+        },
+        "loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "0",
+          "front_port": "1",
+          "front_power": "1",
+          "front_shot": "155",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "53e5ada52cce2ee0",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      }
+    ]
+  },
+  "additional_checks": [
+    "Four changed C translation units: -fsyntax-only -Wall -Wextra -Werror, with pre-existing misleading-indentation warnings suppressed: PASS",
+    "Python compile checks for runner and asset index: PASS",
+    "git diff --check with cr-at-eol for preserved original shots.c line endings: PASS"
+  ]
+}

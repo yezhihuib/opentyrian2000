@@ -33,6 +33,10 @@ static unsigned int tick_limit = 600;
 static FILE *trace, *collisions, *frames, *presentations, *effects, *projectiles, *fade_steps;
 static FILE *poses, *fire_events, *player_projectiles, *draw_commands;
 static FILE *scene_draw_commands;
+static FILE *shot_requests, *shot_emissions, *shot_results, *shot_draws;
+static unsigned int shot_request_id;
+static bool loadout_selected, no_capture;
+static unsigned int preview_port[2] = {1, 0}, preview_power[2] = {1, 1}, preview_rear_mode = 1;
 static FILE *scene_enemies,*scene_hits;
 static FILE *rgb_audits;
 static FILE *blend_writes;
@@ -110,6 +114,57 @@ static uint64_t surface_hash(SDL_Surface *s)
  return h;
 }
 
+/* Debug selectors are decimal-only and bounded before any table lookup. */
+static unsigned int preview_number(const char *text, unsigned int lo, unsigned int hi, const char *name)
+{
+ unsigned int value=0;
+ if(!*text)goto invalid;
+ for(const char *p=text;*p;p++) {
+  if(*p<'0'||*p>'9'||value>hi/10)goto invalid;
+  value=value*10+(unsigned int)(*p-'0');
+  if(value>hi)goto invalid;
+ }
+ if(value>=lo)return value;
+invalid:
+ fprintf(stderr,"Weapon preview: invalid %s (expected %u..%u)\n",name,lo,hi);exit(2);
+}
+
+static void preview_loadout(void)
+{
+ if(loadout_selected) {
+  /* Named port definitions only; 16 is the internal option power-cost port.
+   * This debug mount selects a table directly, not shop availability. */
+  for(unsigned int bay=0;bay<2;bay++) {
+   unsigned int port=preview_port[bay],mode=bay==REAR_WEAPON?preview_rear_mode:1;
+   if(port==16||(!port&&(preview_power[bay]!=1||mode!=1))) {
+    fprintf(stderr,"Weapon preview: invalid empty/internal port configuration\n");exit(2);
+   }
+   if(port) {
+    unsigned int weapon=weaponPort[port].op[mode-1][preview_power[bay]-1];
+    if((bay==REAR_WEAPON&&mode>weaponPort[port].opnum)||!weapon||
+       weapon>WEAP_NUM||(weapon>WEAP_END1&&weapon<WEAP_START2)||
+       !weapons[weapon].max||weapons[weapon].max>8||!weapons[weapon].multi) {
+     fprintf(stderr,"Weapon preview: unsupported port/mode/power in loaded episode %u\n",episodeNum);exit(2);
+    }
+   }
+   player[0].items.weapon[bay].id=port;
+   player[0].items.weapon[bay].power=preview_power[bay];
+  }
+  player[0].weapon_mode=preview_rear_mode;
+ }
+ FILE *f=fopen("weapon-loadout.tsv","w");
+ if(!f){fprintf(stderr,"Unable to create weapon preview record\n");exit(2);}
+ fprintf(f,"episode\tlevel\tselected\tfront_port\tfront_power\tfront_shot\trear_port\trear_power\trear_mode\trear_shot\tplayers_hash\trng\n");
+ unsigned int front=player[0].items.weapon[FRONT_WEAPON].id,rear=player[0].items.weapon[REAR_WEAPON].id;
+ fprintf(f,"%u\t%u\t%d\t%u\t%u\t%u\t%u\t%u\t%u\t%u\t%016llx\t%016llx\n",
+  episodeNum,lvlFileNum,loadout_selected,front,player[0].items.weapon[0].power,
+  front?weaponPort[front].op[0][player[0].items.weapon[0].power-1]:0,
+  rear,player[0].items.weapon[1].power,player[0].weapon_mode,
+  rear?weaponPort[rear].op[player[0].weapon_mode-1][player[0].items.weapon[1].power-1]:0,
+  (unsigned long long)players_hash(),(unsigned long long)mt_state_fingerprint());
+ fclose(f);
+}
+
 void game_probe_parse(int *argc, char **argv)
 {
  asset_debug_parse(argc,argv);
@@ -132,7 +187,18 @@ void game_probe_parse(int *argc, char **argv)
    char *end=NULL; unsigned long v=strtoul(argv[i]+15,&end,10);
    if(!end||*end||v<60||v>6000) { fprintf(stderr,"Render ticks must be 60..6000\n");exit(2); }
    tick_limit=(unsigned int)v;
-  } else if(strncmp(argv[i],"--render-assets=",16)==0) game_probe_assets=argv[i]+16;
+  } else if(strncmp(argv[i],"--render-front-port=",20)==0) {
+   preview_port[FRONT_WEAPON]=preview_number(argv[i]+20,0,47,"front port");loadout_selected=true;
+  } else if(strncmp(argv[i],"--render-rear-port=",19)==0) {
+   preview_port[REAR_WEAPON]=preview_number(argv[i]+19,0,47,"rear port");loadout_selected=true;
+  } else if(strncmp(argv[i],"--render-front-power=",21)==0) {
+   preview_power[FRONT_WEAPON]=preview_number(argv[i]+21,1,11,"front power");loadout_selected=true;
+  } else if(strncmp(argv[i],"--render-rear-power=",20)==0) {
+   preview_power[REAR_WEAPON]=preview_number(argv[i]+20,1,11,"rear power");loadout_selected=true;
+  } else if(strncmp(argv[i],"--render-rear-mode=",19)==0) {
+   preview_rear_mode=preview_number(argv[i]+19,1,2,"rear mode");loadout_selected=true;
+  } else if(strcmp(argv[i],"--render-no-capture")==0) no_capture=true;
+  else if(strncmp(argv[i],"--render-assets=",16)==0) game_probe_assets=argv[i]+16;
   else if(strcmp(argv[i],"--render-local-blend")==0) game_probe_local_blend=true;
   else if(strcmp(argv[i],"--render-original-reference")==0) game_probe_original_reference=true;
   else if(strcmp(argv[i],"--render-known-explosion-blend")==0) game_probe_known_blend=true;
@@ -158,11 +224,21 @@ void game_probe_parse(int *argc, char **argv)
   }
   else argv[out++]=argv[i];
  }
+ if((loadout_selected||no_capture)&&!game_probe_enabled) {
+  fprintf(stderr,"Weapon preview options require --render-test or --asset-debug\n");exit(2);
+ }
  argv[out]=NULL; *argc=out;
 }
 
 void game_probe_start(void)
 {
+ shot_requests=fopen("player-shot-requests.tsv","w");shot_emissions=fopen("player-shot-emissions.tsv","w");
+ shot_results=fopen("player-shot-results.tsv","w");shot_draws=fopen("player-shot-draws.tsv","w");
+ if(!shot_requests||!shot_emissions||!shot_results||!shot_draws){fprintf(stderr,"Unable to create player shot records\n");exit(2);}
+ fprintf(shot_requests,"call\ttick\tplayer\tport\tbay\tweapon\tx\ty\n");
+ fprintf(shot_results,"call\ttick\tresult\temitted\tlast_slot\n");
+ fprintf(shot_emissions,"call\ttick\tmulti\tpattern\tslot\tplayer\tx\ty\tvx\tvy\tax\tay\traw_index\tanimation\tanimation_max\tttl\tdamage\tchain\ttrail\taim\n");
+ fprintf(shot_draws,"tick\tslot\tplayer\traw_index\tbank\tindex\tx\ty\tstyle\twidth\theight\n");
  trace=fopen("state.tsv","w"); collisions=fopen("collisions.tsv","w"); frames=fopen("frames.tsv","w");
  presentations=fopen("presentation.tsv","w");
  effects=fopen("effects.tsv","w");projectiles=fopen("enemy-projectiles.tsv","w");
@@ -197,7 +273,7 @@ void game_probe_start(void)
  JE_initEpisode(1); JE_initPlayerData();
  play_demo=true; record_demo=false; stopped_demo=false;
  gameLoaded=false; jumpSection=false;
- printf("Controlled scene v1: episode=1 TYRIAN lvlFileNum=9 ship=1 front-port=1 power=1 seed=0x5eed ticks=%u\n",tick_limit);
+ printf("Controlled scene v1: default episode=1 TYRIAN lvlFileNum=9 ship=1; resolved loadout in weapon-loadout.tsv; seed=0x5eed ticks=%u\n",tick_limit);
  printf("Input scene: %s\n",enemy_hit_scene?"enemy-hit: no firing, stationary, natural enemies/projectiles":banking_scene?"banking: finite left/release/right/release/left/release inputs, original pose selection":"v1: fixed fire and left/right sequence");
 }
 
@@ -208,7 +284,7 @@ bool game_probe_level(void)
  JE_initEpisode(1); initial_episode_num=1;
  strcpy(levelName,"TYRIAN    "); lvlFileNum=9; levelSong=18;
  asset_debug_level();
- /* The item configuration remains JE_initPlayerData's default. */
+ preview_loadout();
  return true;
 }
 
@@ -244,11 +320,45 @@ void game_probe_fire(int pnum,int port,int bay,int x,int y,int weapon,int slot)
  fprintf(fire_events,"%u\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%u\t%d\t%d\t%u\n",game_probe_tick,pnum,port,bay,x,y,weapon,slot,valid?shotAvail[slot]:0,valid?playerShotData[slot].shotX:0,valid?playerShotData[slot].shotY:0,valid?playerShotData[slot].shotGr:0);
 }
 
+unsigned int game_probe_shot_begin(unsigned int port,unsigned int bay,unsigned int weapon,unsigned int pnum,int x,int y)
+{
+ if(!game_probe_enabled||!shot_requests)return 0;
+ unsigned int call=++shot_request_id;
+ fprintf(shot_requests,"%u\t%u\t%u\t%u\t%u\t%u\t%d\t%d\n",call,game_probe_tick,pnum,port,bay,weapon,x,y);
+ return call;
+}
+
+void game_probe_shot_result(unsigned int call,const char *result,unsigned int emitted,int slot)
+{
+ if(call&&shot_results)fprintf(shot_results,"%u\t%u\t%s\t%u\t%d\n",call,game_probe_tick,result,emitted,slot);
+}
+
+void game_probe_shot_emit(unsigned int call,unsigned int multi,unsigned int pattern,int slot)
+{
+ if(!call||!shot_emissions)return;
+ const PlayerShotDataType *s=&playerShotData[slot];
+ fprintf(shot_emissions,"%u\t%u\t%u\t%u\t%d\t%u\t%d\t%d\t%d\t%d\t%d\t%d\t%u\t%u\t%u\t%u\t%u\t%u\t%u\t%u\n",
+  call,game_probe_tick,multi,pattern,slot,s->playerNumber,s->shotX,s->shotY,s->shotXM,s->shotYM,
+  s->shotXC,s->shotYC,s->shotGr,s->shotAni,s->shotAniMax,shotAvail[slot],s->shotDmg,s->chainReaction,s->shotTrail,s->aimAtEnemy);
+}
+
+void game_probe_shot_draw(int slot,unsigned int raw,int bank,unsigned int index,int x,int y,int style,int width,int height)
+{
+ if(!game_probe_enabled||!shot_draws)return;
+ fprintf(shot_draws,"%u\t%d\t%u\t%u\t%d\t%u\t%d\t%d\t%d\t%d\t%d\n",
+  game_probe_tick,slot,playerShotData[slot].playerNumber,raw,bank,index,x,y,style,width,height);
+ if(bank==5) {
+  /* OPTION_SHAPES uses variable-size blended sprites, bypassing entity_draw. */
+  asset_debug_reference("player-projectile","OPTION_SHAPES",index,index,x,y,width,height);
+  if(draw_commands)fprintf(draw_commands,"%u\t%d\t%u\t%d\t%d\t%d\t%d\t%d\n",game_probe_tick,bank,index,x,y,style,-1,0);
+ }
+}
+
 void game_probe_draw(int bank,unsigned int index,int x,int y,int style,int layout,bool mirrored)
 {
  if(!game_probe_enabled||!draw_commands)return;
- if(asset_debug_enabled&&(bank==9||bank==8))asset_debug_reference(bank==9?"player":"player-projectile",bank==9?"shapes9.dat":"shapes8.dat",index,index,x,y,layout?24:12,layout?28:14);
- if((bank==9&&index>=229&&index<=237&&index%2==1)||(bank==8&&index==59))
+ if(asset_debug_enabled&&(bank==9||bank==8||bank==12))asset_debug_reference(bank==9?"player":"player-projectile",bank==9?"shapes9.dat":bank==8?"shapes8.dat":"shapes12.dat",index,index,x,y,layout?24:12,layout?28:14);
+ if((bank==9&&index>=229&&index<=237&&index%2==1)||bank==8||bank==12)
   fprintf(draw_commands,"%u\t%d\t%u\t%d\t%d\t%d\t%d\t%d\n",game_probe_tick,bank,index,x,y,style,layout,mirrored);
 }
 
@@ -335,7 +445,7 @@ void game_probe_fade_sample(SDL_Surface *surface,int remaining,unsigned int hd_p
 
 void game_probe_export(SDL_Surface *s,const char *name)
 {
- if(!game_probe_enabled) return;
+ if(!game_probe_enabled||no_capture) return;
  if(s->format->BytesPerPixel==4) {
   if(SDL_SaveBMP(s,name)!=0) fprintf(stderr,"RGBA frame export failed: %s\n",SDL_GetError());
   return;
@@ -348,8 +458,11 @@ void game_probe_export(SDL_Surface *s,const char *name)
  SDL_FreeSurface(rgb);
 }
 
+bool game_probe_capture_disabled(void){return no_capture;}
+
 bool game_probe_capture_tick(void)
 {
+ if(no_capture)return false;
  if(asset_debug_enabled)return asset_debug_capture_tick()&&!asset_debug_window_only();
  if(game_probe_blend_capture&&game_probe_tick>=192&&game_probe_tick<=212)return true;
  if(game_probe_tick>=128&&game_probe_tick<=360&&game_probe_tick%8==0)return true;
@@ -394,6 +507,8 @@ bool game_probe_end_tick(void)
  fflush(trace); hits=0; hit_hash=HASH_START;capture_pose_change=false;
  asset_debug_end_tick();
  if(++game_probe_tick>=tick_limit) {
+  fclose(shot_requests);fclose(shot_emissions);fclose(shot_results);fclose(shot_draws);
+  shot_requests=shot_emissions=shot_results=shot_draws=NULL;
   fclose(trace);fclose(collisions);fclose(frames);fclose(presentations);fclose(effects);fclose(projectiles);fclose(fade_steps);fclose(poses);fclose(fire_events);fclose(player_projectiles);fclose(draw_commands);fclose(scene_draw_commands);fclose(scene_enemies);fclose(scene_hits);fclose(rgb_audits);fclose(blend_writes);fclose(restore_regions);fclose(blend_palette);
   trace=collisions=frames=presentations=effects=projectiles=fade_steps=poses=fire_events=player_projectiles=draw_commands=scene_draw_commands=NULL;
   printf("Controlled scene completed %u logic ticks\n",game_probe_tick); return true;

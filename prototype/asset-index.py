@@ -27,7 +27,7 @@ a=p.parse_args()
 if a.command=='build':
  r=a.run.resolve();clock=rows(r/'asset-debug-clock.tsv');draws=rows(r/'asset-debug-materials.tsv');state=rows(r/'state.tsv');assert len(clock)==len(state) and all(int(x['tick'])==i for i,x in enumerate(clock));assert clock
  for x in draws:
-  x['sheet']={'shapes9.dat':'tyrian.shp#spriteSheet9','shapes8.dat':'tyrian.shp#spriteSheet8','explosions-shapes6':'newsh6.shp'}.get(x['sheet'],x['sheet'].lower())
+  x['sheet']={'shapes9.dat':'tyrian.shp#spriteSheet9','shapes8.dat':'tyrian.shp#spriteSheet8','shapes12.dat':'tyrian.shp#spriteSheet12','OPTION_SHAPES':'tyrian.shp#OPTION_SHAPES','explosions-shapes6':'newsh6.shp'}.get(x['sheet'],x['sheet'].lower())
  ticks={int(x['tick']):x for x in clock};segments={};materials={}
  for x in clock:
   sid=int(float(x['start_ms'])//15000);seg=segments.setdefault(sid,{'number':sid,'start_tick':int(x['tick']),'end_tick':int(x['tick']),'nominal_start_ms':float(x['start_ms']),'nominal_end_ms':float(x['end_ms']),'index_window_ms':15000,'materials':{},'hard_playback_stop':False});seg['end_tick']=int(x['tick']);seg['nominal_end_ms']=float(x['end_ms'])

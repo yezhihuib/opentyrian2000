@@ -11,7 +11,7 @@ void draw_entity_sprite2(SDL_Surface *target, int x, int y,
 {
 	bool mirrored=render_mirror_entity(target,x,y,bank,index,style,layout);
 #ifndef RENDER_MIRROR_DISABLED
-	int role=bank.data==spriteSheet9.data?9:bank.data==spriteSheet8.data?8:bank.data==explosionSpriteSheet.data?6:0;
+	int role=bank.data==spriteSheet9.data?9:bank.data==spriteSheet8.data?8:bank.data==spriteSheet12.data?12:bank.data==explosionSpriteSheet.data?6:0;
 	game_probe_draw(role,index,x,y,style,layout,mirrored);
 #else
 	(void)mirrored;

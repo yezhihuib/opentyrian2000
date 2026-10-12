@@ -21,6 +21,7 @@
 #include "player.h"
 #include "sprite.h"
 #include "entity_draw.h"
+#include "game_probe.h"
 #include "video.h"
 #include "varz.h"
 
@@ -264,6 +265,7 @@ bool player_shot_move_and_draw(
 		}
 
 		JE_word sprite_frame = shot->shotGr + shot->shotAni;
+		const JE_word raw_frame = sprite_frame;
 		if (++shot->shotAni == shot->shotAniMax)
 			shot->shotAni = 0;
 
@@ -276,6 +278,8 @@ bool player_shot_move_and_draw(
 
 		if (*out_is_special)
 		{
+			game_probe_shot_draw(shot_id, raw_frame, 5, sprite_frame - 60001, *out_shotx+1, *out_shoty, ENTITY_BLEND,
+			                     sprite(OPTION_SHAPES, sprite_frame - 60001)->width, sprite(OPTION_SHAPES, sprite_frame - 60001)->height);
 			blit_sprite_blend(VGAScreen, *out_shotx+1, *out_shoty, OPTION_SHAPES, sprite_frame - 60001);
 
 			*out_special_radiusw = sprite(OPTION_SHAPES, sprite_frame - 60001)->width / 2;
@@ -291,13 +295,21 @@ bool player_shot_move_and_draw(
 			if (sprite_frame > 500)
 			{
 				if (background2 && *out_shoty + shadowYDist < 190 && tmp_shotXM < 100)
+				{
+					game_probe_shot_draw(shot_id, raw_frame, 12, sprite_frame - 500, *out_shotx+1, *out_shoty + shadowYDist, ENTITY_SHADOW, 12, 14);
 					draw_entity_sprite2(VGAScreen, *out_shotx+1, *out_shoty + shadowYDist, spriteSheet12, sprite_frame - 500, ENTITY_SHADOW, ENTITY_TILE);
+				}
+				game_probe_shot_draw(shot_id, raw_frame, 12, sprite_frame - 500, *out_shotx+1, *out_shoty, ENTITY_NORMAL, 12, 14);
 				draw_entity_sprite2(VGAScreen, *out_shotx+1, *out_shoty, spriteSheet12, sprite_frame - 500, ENTITY_NORMAL, ENTITY_TILE);
 			}
 			else
 			{
 				if (background2 && *out_shoty + shadowYDist < 190 && tmp_shotXM < 100)
+				{
+					game_probe_shot_draw(shot_id, raw_frame, 8, sprite_frame, *out_shotx+1, *out_shoty + shadowYDist, ENTITY_SHADOW, 12, 14);
 					draw_entity_sprite2(VGAScreen, *out_shotx+1, *out_shoty + shadowYDist, spriteSheet8, sprite_frame, ENTITY_SHADOW, ENTITY_TILE);
+				}
+				game_probe_shot_draw(shot_id, raw_frame, 8, sprite_frame, *out_shotx+1, *out_shoty, ENTITY_NORMAL, 12, 14);
 				draw_entity_sprite2(VGAScreen, *out_shotx+1, *out_shoty, spriteSheet8, sprite_frame, ENTITY_NORMAL, ENTITY_TILE);
 			}
 		}
@@ -310,14 +322,22 @@ JE_integer player_shot_create(JE_word portNum, uint bay_i, JE_word PX, JE_word P
 {
 	static const JE_byte soundChannel[11] /* [1..11] */ = {0, 2, 4, 4, 2, 2, 5, 5, 1, 4, 1};
 
+	unsigned int probe_call = game_probe_shot_begin(portNum, bay_i, wpNum, playerNum, PX, PY);
+
 	// Bounds check
 	if (portNum > PORT_NUM || wpNum <= 0 || wpNum > WEAP_NUM)
+	{
+		game_probe_shot_result(probe_call, "bounds", 0, MAX_PWEAPON);
 		return MAX_PWEAPON;
+	}
 
 	const JE_WeaponType* weapon = &weapons[wpNum];
 
 	if (power < weaponPort[portNum].poweruse)
+	{
+		game_probe_shot_result(probe_call, "power", 0, MAX_PWEAPON);
 		return MAX_PWEAPON;
+	}
 	power -= weaponPort[portNum].poweruse;
 
 	if (weapon->sound > 0)
@@ -331,7 +351,10 @@ JE_integer player_shot_create(JE_word portNum, uint bay_i, JE_word PX, JE_word P
 			if (shotAvail[shot_id] == 0)
 				break;
 		if (shot_id == MAX_PWEAPON)
+		{
+			game_probe_shot_result(probe_call, "capacity", multi_i - 1, MAX_PWEAPON);
 			return MAX_PWEAPON;
+		}
 
 		if (shotMultiPos[bay_i] == weapon->max || shotMultiPos[bay_i] > 8)
 			shotMultiPos[bay_i] = 1;
@@ -503,7 +526,9 @@ JE_integer player_shot_create(JE_word portNum, uint bay_i, JE_word PX, JE_word P
 		}
 
 		shotRepeat[bay_i] = weapon->shotrepeat;
+		game_probe_shot_emit(probe_call, multi_i, shotMultiPos[bay_i], shot_id);
 	}
 
+	game_probe_shot_result(probe_call, "complete", weapon->multi, shot_id);
 	return shot_id;
 }

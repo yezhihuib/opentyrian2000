@@ -139,6 +139,7 @@ void asset_debug_projectile(void)
 }
 bool asset_debug_capture_tick(void)
 {
+ if(game_probe_capture_disabled())return false;
  unsigned int start=capture_start==UINT32_MAX?first_visible:capture_start;
  return asset_debug_enabled&&capture&&first_visible!=UINT32_MAX&&game_probe_tick>=first_visible&&game_probe_tick>=start&&game_probe_tick-start<capture_count;
 }
