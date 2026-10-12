@@ -5,6 +5,17 @@
 #include "ground101_material.h"
 enum { MIRROR_NORMAL, MIRROR_BLEND, MIRROR_SHADOW };
 #ifdef RENDER_MIRROR_DISABLED
+#define render_mirror_text_begin(...) ((void)0)
+#define render_mirror_text_end(...) ((void)0)
+#define render_mirror_text_glyph_begin(...) ((void)0)
+#define render_mirror_text_glyph_end(...) ((void)0)
+#define render_mirror_text_level_begin(...) ((void)0)
+#define render_mirror_text_level_end(...) ((void)0)
+#define render_mirror_text_message_begin(...) ((void)0)
+#define render_mirror_text_message_backdrop(...) ((void)0)
+#define render_mirror_text_message_end(...) ((void)0)
+#define render_mirror_text_message_erase_begin(...) ((void)0)
+#define render_mirror_text_message_erased(...) ((void)0)
 #define render_mirror_hud_shutdown(...) ((void)0)
 #define render_mirror_hud_reset(...) ((void)0)
 #define render_mirror_hud_start(...) ((void)0)
@@ -36,6 +47,17 @@ enum { MIRROR_NORMAL, MIRROR_BLEND, MIRROR_SHADOW };
 #define render_mirror_reset_banking(...) ((void)0)
 #define render_mirror_player_pose(...) ((void)0)
 #else
+void render_mirror_text_begin(SDL_Surface *,unsigned kind,int x,int y,const char *,unsigned hue,int value);
+void render_mirror_text_end(void);
+void render_mirror_text_glyph_begin(SDL_Surface *,int x,int y,unsigned table,unsigned id,bool black,unsigned hue,int value);
+void render_mirror_text_glyph_end(void);
+void render_mirror_text_level_begin(SDL_Surface *,const char *);
+void render_mirror_text_level_end(void);
+void render_mirror_text_message_begin(const char *,bool will_erase);
+void render_mirror_text_message_backdrop(void);
+void render_mirror_text_message_end(void);
+void render_mirror_text_message_erase_begin(void);
+void render_mirror_text_message_erased(bool help_prompt);
 void render_mirror_hud_shutdown(void);
 void render_mirror_hud_reset(void);
 void render_mirror_hud_start(SDL_Surface *decoded_pic3);

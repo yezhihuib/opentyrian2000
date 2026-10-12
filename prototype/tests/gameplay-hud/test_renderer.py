@@ -100,7 +100,7 @@ def main():
             command = [os.environ.get('CC','cc'),'-std=c99','-O1','-g','-Wall','-Wextra','-Wno-unused-parameter','-Wno-unused-variable','-Wno-unused-function','-Wno-misleading-indentation','-I'+str(path),'-I'+str(ROOT/'src')]
             if variant=='baseline': command += ['-DBASELINE_RENDERER']
             if args.sanitize: command += ['-fsanitize=address,undefined','-fno-omit-frame-pointer','-no-pie']
-            command += [str(Path(__file__).with_suffix('.c')),str(ROOT/'src/gameplay_hud.c'),str(ROOT/'src/gameplay_hud_components.c'),str(ROOT/'src/gameplay_hud_indicators.c'),str(ROOT/'src/gameplay_hud_fixed_text.c'),'-o',str(executable)]
+            command += [str(Path(__file__).with_suffix('.c')),str(ROOT/'src/gameplay_hud.c'),str(ROOT/'src/gameplay_hud_components.c'),str(ROOT/'src/gameplay_hud_indicators.c'),str(ROOT/'src/gameplay_hud_fixed_text.c'),str(ROOT/'src/gameplay_hud_font.c'),'-o',str(executable)]
             subprocess.run(command,check=True)
             env=dict(os.environ)
             if args.sanitize:

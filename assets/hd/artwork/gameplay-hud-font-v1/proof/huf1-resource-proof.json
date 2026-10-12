@@ -1,0 +1,543 @@
+{
+  "status": "PASS",
+  "resource_filename": "gameplay-hud-font-v1.hda",
+  "resource_bytes": 163952,
+  "resource_sha256": "3c328c1537cf1e09529ae8805e98a8deb57a859ea80ba269cfea0b55cfae539e",
+  "header_struct": "<4s11I8Q",
+  "header_bytes": 112,
+  "header_fields_verified_by_unpack": true,
+  "payload_bytes": 163840,
+  "exact_eof_verified": true,
+  "payload_equals_vector_reproduced_canonical_alpha": true,
+  "payload_sha256": "e4f245519b2922b3f3575ae499f0419bfc85742d059a07680f3693e68ddbaeb7",
+  "payload_fnv1a64": "85cddeb8bd7ea09a",
+  "font_ascii_fnv1a64_independently_recomputed": "845b16939661b466",
+  "font_ascii_encoding": "256 signed 32-bit integers, little-endian",
+  "metrics_fnv1a64_independently_recomputed": "0908ca85cbf2a1e3",
+  "metrics_encoding": "Glyph IDs 0 through 126, each u16le(width,height,width+1); 762 bytes",
+  "eligible_mask_fnv1a64_independently_recomputed": "68e8c2bab3c43d0d",
+  "eligible_mask_encoding": "127 bytes in glyph-ID order; 255 for mapped ASCII IDs 0 through 85, otherwise 0",
+  "nonzero_alpha_outside_original_w_by_h_at_inset_4": 0,
+  "unused_slot_127_entirely_zero": true,
+  "glyph_canvas_checks": [
+    {
+      "sprite_id": 0,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 1,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 2,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 3,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 4,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 5,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 6,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 7,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 8,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 9,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 10,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 11,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 12,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 13,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 14,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 15,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 16,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 17,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 18,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 19,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 20,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 21,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 22,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 23,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 24,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 25,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 26,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 27,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 28,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 29,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 30,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 31,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 32,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 33,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 34,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 35,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 36,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 37,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 38,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 39,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 40,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 41,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 42,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 43,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 44,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 45,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 46,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 47,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 48,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 49,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 50,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 51,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 52,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 53,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 54,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 55,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 56,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 57,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 58,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 59,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 60,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 61,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 62,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 63,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 64,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 65,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 66,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 67,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 68,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 69,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 70,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 71,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 72,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 73,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 74,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 75,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 76,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 77,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 78,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 79,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 80,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 81,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 82,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 83,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 84,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 85,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 86,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 87,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 88,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 89,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 90,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 91,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 92,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 93,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 94,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 95,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 96,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 97,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 98,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 99,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 100,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 101,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 102,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 103,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 104,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 105,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 106,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 107,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 108,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 109,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 110,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 111,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 112,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 113,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 114,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 115,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 116,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 117,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 118,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 119,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 120,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 121,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 122,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 123,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 124,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 125,
+      "canvas_at_inset_4": true
+    },
+    {
+      "sprite_id": 126,
+      "canvas_at_inset_4": true
+    }
+  ],
+  "geometry_records": 127,
+  "eligible_ascii_glyphs": 86,
+  "extended_or_accented_runs": "Wholly classic",
+  "authored_stroke_role": 7,
+  "source_asset_compatibility_stamps": {
+    "status": "Supplied by hook engineer; not recomputed from game assets by this package",
+    "pic3_fnv1a64": "14c1441f3d5dc0e2",
+    "palette_fnv1a64": "5e80e83992be2927",
+    "tiny_encoded_fnv1a64": "2ed2973d82ce6f3d"
+  },
+  "runtime_installed_or_executed_by_this_build": false
+}

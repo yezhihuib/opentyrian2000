@@ -8,6 +8,7 @@
 #include "gameplay_hud_components.h"
 #include "gameplay_hud_indicators.h"
 #include "gameplay_hud_fixed_text.h"
+#include "gameplay_hud_font.h"
 #include "config.h"
 #include "episodes.h"
 #include "fonthand.h"
@@ -136,6 +137,7 @@ static Uint8 restored_mask[320*200];
 static unsigned int brightness_blocks,restored_checks,restored_mismatches,expanded_regions,boundary_crossings;
 static Uint32 palette_rgb(Uint8 index);
 static unsigned int blend_source_index;
+#include "gameplay_hud_font_mirror.inc"
 
 /* Display grouping requires all four recognized rectangles at their exact
  * original adjacency. It never reads/modifies enemy state or death links. */
@@ -178,6 +180,7 @@ static void restore_classic_rect(SDL_Rect r)
    }
   }
  } while(changed);
+ font_before_effect(r);
  for(unsigned int i=0;i<region_count;i++) if(regions[i].live) {
   SDL_Rect q=regions[i].rect;
   if(r.x<q.x+q.w&&r.x+r.w>q.x&&r.y<q.y+q.h&&r.y+r.h>q.y) {
@@ -255,6 +258,7 @@ void render_mirror_brightness_pixel(SDL_Surface *surface,Uint8 *address,int valu
  if(off<0||off>=(intptr_t)surface->pitch*surface->h) {render_mirror_unsupported("invalid-brightness-address");return;}
  int y=(int)(off/surface->pitch),x=(int)(off%surface->pitch);
  if(x>=320||y>=200)return;
+ font_before_effect((SDL_Rect){x,y,1,1});
  expected[y*320+x]=*address;
  if(value<-15||value>15) {render_mirror_unsupported("brightness-outside-signed-ramp");return;}
  if(reject_reason)return;
@@ -346,7 +350,7 @@ static void fixed_text_clear_cached(void)
  memset(fixed_text_output_owner,0,sizeof(fixed_text_output_owner));memset(fixed_text_saved_owner,0,sizeof(fixed_text_saved_owner));
  fixed_text_output_generation=fixed_text_saved_generation=0;
  if(verified) {
-  bool retained=last_output_scene_hd||memchr(hud_output_owner,1,sizeof(hud_output_owner))||components_owned()||indicators_owned();
+  bool retained=last_output_scene_hd||memchr(hud_output_owner,1,sizeof(hud_output_owner))||components_owned()||indicators_owned()||font_owned();
   last_output_valid=last_output_valid&&retained;if(!retained) {have_fade_saved=false;fade_mode=0;}
  }
 }
@@ -463,7 +467,7 @@ static void indicators_clear_cached(unsigned int bits)
  if(!memchr(indicator_saved_owner,1,sizeof(indicator_saved_owner))&&!memchr(indicator_saved_owner,2,sizeof(indicator_saved_owner)))indicator_saved_generation=0;
  if(verified) {
   bool retained=last_output_scene_hd||memchr(hud_output_owner,1,sizeof(hud_output_owner))||
-    memchr(component_output_owner,1,sizeof(component_output_owner))||memchr(component_output_owner,2,sizeof(component_output_owner))||indicators_owned()||fixed_text_owned();
+    memchr(component_output_owner,1,sizeof(component_output_owner))||memchr(component_output_owner,2,sizeof(component_output_owner))||indicators_owned()||fixed_text_owned()||font_owned();
   last_output_valid=last_output_valid&&retained;
   if(!retained) {have_fade_saved=false;fade_mode=0;}
  }
@@ -613,7 +617,7 @@ static void components_clear_cached(unsigned int bits)
  if(!components_owned())component_output_generation=0;
  if(!memchr(component_saved_owner,1,sizeof(component_saved_owner))&&!memchr(component_saved_owner,2,sizeof(component_saved_owner)))component_saved_generation=0;
  if(verified) {
-  bool retained=last_output_scene_hd||memchr(hud_output_owner,1,sizeof(hud_output_owner))||components_owned()||indicators_owned()||fixed_text_owned();
+  bool retained=last_output_scene_hd||memchr(hud_output_owner,1,sizeof(hud_output_owner))||components_owned()||indicators_owned()||fixed_text_owned()||font_owned();
   last_output_valid=last_output_valid&&retained;
   if(!retained) {have_fade_saved=false;fade_mode=0;}
  }
@@ -751,7 +755,7 @@ static void hud_clear_cached(void)
       ((Uint32 *)((Uint8 *)fade_saved->pixels+(y*d+sy)*fade_saved->pitch))[x*d+sx]=0xff000000u|(fade_saved_palette[index]&0xffffffu);
     }
    }
-   bool retained=last_output_scene_hd||components_owned()||indicators_owned()||fixed_text_owned();
+   bool retained=last_output_scene_hd||components_owned()||indicators_owned()||fixed_text_owned()||font_owned();
    last_output_valid=last_output_valid&&retained;
    if(!retained) {have_fade_saved=false;fade_mode=0;}
   }
@@ -773,12 +777,12 @@ static void hud_frame_reset(void)
 
 void render_mirror_hud_reset(void)
 {
- fixed_text_reset();indicators_reset();components_reset();hud_frame_reset();
+ font_reset();fixed_text_reset();indicators_reset();components_reset();hud_frame_reset();
 }
 
 void render_mirror_hud_shutdown(void)
 {
- render_mirror_hud_reset();gameplay_hud_shutdown();hud_components_shutdown();hud_indicators_shutdown();hud_fixed_text_shutdown();
+ render_mirror_hud_reset();gameplay_hud_shutdown();hud_components_shutdown();hud_indicators_shutdown();hud_fixed_text_shutdown();font_shutdown();
 }
 
 /* Validate the original bytecode as well as declared dimensions: malformed RLE
@@ -857,7 +861,7 @@ static bool hud_runtime_compatible(bool live)
 
 static void hud_check_mode(void)
 {
- fixed_text_check_mode();indicators_check_mode();components_check_mode();
+ font_check_mode();fixed_text_check_mode();indicators_check_mode();components_check_mode();
  if(((twoPlayerMode||galagaMode)&&(hud_gameplay||hud_suspended))||
     (hud_gameplay&&(!hud_source_matches()||!hud_runtime_compatible(hud_live))))hud_frame_reset();
 }
@@ -879,13 +883,13 @@ void render_mirror_hud_start(SDL_Surface *decoded_pic3)
   }
   else gameplay_hud_forget_source();
  }
- components_start(decoded_pic3);indicators_start(decoded_pic3);fixed_text_start(decoded_pic3);
+ components_start(decoded_pic3);indicators_start(decoded_pic3);fixed_text_start(decoded_pic3);font_start(decoded_pic3);
 }
 
 void render_mirror_hud_suspend(void)
 {
  hud_check_mode();
- fixed_text_clear_cached();if(fixed_text_gameplay)fixed_text_suspended=true;
+ font_suspend();fixed_text_clear_cached();if(fixed_text_gameplay)fixed_text_suspended=true;
  indicators_clear_cached(3);if(indicator_gameplay)indicator_suspended=true;
  components_clear_cached(3);
  if(component_gameplay)component_suspended=true;
@@ -904,7 +908,7 @@ static void hud_begin(void)
  memset(hud_output_owner,0,sizeof(hud_output_owner));
  memset(hud_saved_owner,0,sizeof(hud_saved_owner));
  hud_output_generation=hud_saved_generation=0;
- components_begin();indicators_begin();fixed_text_begin();
+ components_begin();indicators_begin();fixed_text_begin();font_begin();
 }
 
 static bool hud_compose(void)
@@ -973,6 +977,7 @@ void render_mirror_pixel(SDL_Surface *surface,Uint8 *address,Uint8 source,int st
  if(x>=320||y>=200) return;
  Uint8 before=expected[y*320+x];expected[y*320+x]=*address;
  if(reject_reason) return;
+ if(font_pixel(x,y,*address,style))return;
  if(suppress) {
   /* The replacement's transparent pixels preserve the earlier RGB scene.
    * Original covered pixels still advance the indexed engine, but must not
@@ -1298,6 +1303,9 @@ static bool draw_asset_filtered(int x,int y,Asset *a,int style,const SDL_Rect *p
   * Preserve that effect over the ordered RGBA scene and keep the engine's
   * original indexed blend writes for gameplay/coverage. Other sources and
   * the explicit original-copy diagnostic keep their established fallback. */
+ font_before_effect((SDL_Rect){x,y,a->w,a->h});
+ if(a->bank==ASSET_EXPLOSION&&a->index>=78&&a->index<=84&&style==MIRROR_BLEND)
+  font_before_effect((SDL_Rect){x-1,y-1,14,16});
  bool talon_blend=style==MIRROR_BLEND&&a->bank==9&&a->index>=229&&a->index<=237&&a->index%2==1&&!game_probe_original_reference;
  bool explosion_blend=style==MIRROR_BLEND&&a->bank==ASSET_EXPLOSION&&explosion_asset_slot((unsigned int)a->index)>=0&&!game_probe_original_reference;
  if(style==MIRROR_BLEND&&!talon_blend&&!explosion_blend) {
@@ -1598,6 +1606,7 @@ unsigned int render_mirror_terrain_row(SDL_Surface *surface,int x,int y,Uint8 **
 {
  if(!active||surface!=game_screen||reject_reason||!(game_probe_scene_assets&2))return 0;
  if(x<0||x+12*24>surface->pitch) {render_mirror_unsupported("terrain-row-outside-linear-layout");return 0;}
+ font_before_effect((SDL_Rect){x,y,12*24,28});
  int material_row=ground101_layer1_row(map,x,y);
  if(material_row<0){render_mirror_unsupported("ground101-row-context-mismatch");return 0;}
  unsigned int replaced=0;
@@ -1732,6 +1741,7 @@ void render_mirror_sprite2_blend_pixel(SDL_Surface *surface,Uint8 *address,Uint8
  if(off<0||off>=(intptr_t)surface->pitch*surface->h) {render_mirror_pixel(surface,address,source,MIRROR_BLEND);return;}
  int y=(int)(off/surface->pitch),x=(int)(off%surface->pitch);
  if(x>=320||y>=200)return;
+ font_before_effect((SDL_Rect){x,y,1,1});
  bool known=bank.data&&bank.data==explosionSpriteSheet.data&&index&&2*(size_t)index<=bank.size;
  Uint8 before=expected[y*320+x];unsigned int subpixels=0,old_blocks=local_blocks;
  int d=game_probe_density;
@@ -1764,6 +1774,7 @@ void render_mirror_finish(bool ordinary_crop)
 {
  hud_check_mode();
  if(!active)return;
+ font_prepare_finish();
  if(!ordinary_crop) render_mirror_unsupported("special-output-composition");
  if(memcmp(initial_palette,rgb_palette,sizeof(initial_palette))!=0) render_mirror_unsupported("hd-palette-change");
  /* Negative test corrupts only the display coverage ledger, never game pixels. */
@@ -1791,8 +1802,9 @@ void render_mirror_finish(bool ordinary_crop)
  bool retained_components=!reject_reason&&ordinary_crop&&components_compose();
  bool retained_indicators=!reject_reason&&ordinary_crop&&indicators_compose();
  bool retained_fixed_text=!reject_reason&&ordinary_crop&&fixed_text_compose();
+ bool retained_font=font_finish(!reject_reason&&ordinary_crop);
  bool retained_scene_hd=memchr(hd_owner,1,(size_t)canvas->w*canvas->h)!=NULL||memchr(hd_owner,2,(size_t)canvas->w*canvas->h)!=NULL;
- bool retained_hd=retained_scene_hd||retained_hud||retained_components||retained_indicators||retained_fixed_text;
+ bool retained_hd=retained_scene_hd||retained_hud||retained_components||retained_indicators||retained_fixed_text||retained_font;
  unsigned int classic_mismatches=0;
  if(game_probe_original_reference)for(int y=0;y<output->h;y++) {
   const Uint32 *row=(const Uint32 *)((Uint8 *)output->pixels+y*output->pitch);
@@ -1822,6 +1834,7 @@ void render_mirror_finish(bool ordinary_crop)
 void render_mirror_fade_start(const SDL_Color *target,const SDL_Color *solid,unsigned int first,unsigned int last)
 {
  hud_check_mode();
+ if(font_cached()&&!font_cached_indices_match())font_clear_cached(15);
  bool cached=last_output_valid;last_output_valid=false;fade_mode=0;ready=false;
  if(!game_probe_enabled||game_probe_density<2||!output||!cached||first!=0||last!=255)return;
  for(int y=0;y<200;y++)if(memcmp(last_output_indices+y*320,(Uint8 *)VGAScreenSeg->pixels+y*VGAScreenSeg->pitch,320)!=0)return;
@@ -1837,7 +1850,7 @@ void render_mirror_fade_start(const SDL_Color *target,const SDL_Color *solid,uns
   memcpy(indicator_saved_owner,indicator_output_owner,sizeof(indicator_saved_owner));indicator_saved_generation=indicator_output_generation;
   memcpy(indicator_saved_under,indicator_under,sizeof(indicator_saved_under));
   memcpy(indicator_saved_under_owner,indicator_under_owner,sizeof(indicator_saved_under_owner));indicator_saved_under_generation=indicator_under_generation;
-  have_fade_saved=true;fade_mode=solid->r==0?1:2;
+  font_fade_save();have_fade_saved=true;fade_mode=solid->r==0?1:2;
  } else if(target&&have_fade_saved) {
   for(int i=0;i<256;i++)if((fade_saved_palette[i]&0xffffffu)!=(((Uint32)target[i].r<<16)|((Uint32)target[i].g<<8)|target[i].b))return;
   fade_mode=3;
@@ -1849,6 +1862,7 @@ void render_mirror_fade_step(int steps)
 {
  hud_check_mode();
  if(!fade_mode||steps<=0)return;
+ if(font_cached()&&!font_cached_indices_match()){font_clear_cached(15);return;}
  if(fixed_text_output_generation&&!fixed_text_cached_indices_match()) {fixed_text_clear_cached();return;}
  if(indicator_output_generation&&(!indicators_cached_indices_match()||!indicators_underlay_matches())) {indicators_clear_cached(3);return;}
  if(hud_output_generation&&!hud_cached_indices_match()) {hud_clear_cached();return;}
@@ -1869,7 +1883,9 @@ void render_mirror_fade_step(int steps)
    int fixed_cell=fixed_text_output_generation?hud_fixed_text_cell(x/d,y/d):-1;
    bool fixed=fixed_cell>=0&&fixed_text_output_generation==fixed_text_generation&&fixed_text_saved_generation==fixed_text_generation&&
     fixed_text_output_owner[fixed_cell]&&fixed_text_saved_owner[fixed_cell];
-   bool hd=(x<264*d&&y<184*d&&hd_owner[y*canvas->w+x+24*d]!=0)||hud||component||indicator||fixed;
+   int font_cell=font_output_generation?font_pcell(x/d,y/d):-1;
+   bool text=font_cell>=0&&font_output_generation==font_generation&&font_saved_generation==font_generation&&font_powner[font_cell]&&font_psaved_owner[font_cell];
+   bool hd=(x<264*d&&y<184*d&&hd_owner[y*canvas->w+x+24*d]!=0)||hud||component||indicator||fixed||text;
    if(hd) {
     Uint32 target=fade_mode==1?0:fade_mode==2?0xffffffu:saved[x];
     Uint32 color=0xff000000u;
@@ -1881,7 +1897,7 @@ void render_mirror_fade_step(int steps)
    } else row[x]=palette_rgb(((Uint8 *)VGAScreenSeg->pixels)[(y/d)*VGAScreenSeg->pitch+x/d]);
   }
  }
- indicators_fade_underlay(steps);
+ indicators_fade_underlay(steps);font_fade_underlay(steps);
  if(indicator_output_generation)memcpy(indicator_output_palette,rgb_palette,sizeof(indicator_output_palette));
  if(hud_output_generation)memcpy(hud_output_palette,rgb_palette,sizeof(hud_output_palette));
  if(component_output_generation)memcpy(component_output_palette,rgb_palette,sizeof(component_output_palette));
@@ -1893,6 +1909,7 @@ void render_mirror_fade_step(int steps)
 bool render_mirror_present(SDL_Renderer *renderer,SDL_Surface *src,const SDL_Rect *dst)
 {
  hud_check_mode();
+ if(font_cached()&&(!font_cached_indices_match()||memcmp(font_output_palette,rgb_palette,sizeof(font_output_palette))))font_clear_cached(15);
  if(fixed_text_output_generation&&(!fixed_text_cached_indices_match()||memcmp(fixed_text_output_palette,rgb_palette,sizeof(fixed_text_output_palette))!=0))fixed_text_clear_cached();
  if(indicator_output_generation&&(!indicators_cached_indices_match()||!indicators_underlay_matches()||memcmp(indicator_output_palette,rgb_palette,sizeof(indicator_output_palette))!=0))indicators_clear_cached(3);
  if(hud_output_generation&&(!hud_cached_indices_match()||memcmp(hud_output_palette,rgb_palette,sizeof(hud_output_palette))!=0))hud_clear_cached();

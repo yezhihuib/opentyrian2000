@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "input_files": [
+    "reproduce.py",
+    "build_resource.py",
+    "requirements.txt",
+    "sources/glyph-vectors.json",
+    "sources/resource-contract.json",
+    "sources/source-font-metrics.json",
+    "sources/original-atlas-manifest.json"
+  ],
+  "canonical_images_or_resources_in_relocated_inputs": false,
+  "original_game_assets_required": false,
+  "relocated_paths_with_spaces": true,
+  "invoked_from_foreign_working_directory": true,
+  "subprocess_invocation": "Argument list with explicit --output and --proof-output paths; no shell interpolation",
+  "output_results": {
+    "tiny-coverage-atlas-4x.png": {
+      "sha256": "f81c31f85ec8646e5fd5e29e9cb9e6f03b8f51988e3dfc945bc2fa6821dfed92",
+      "bytes": 20474,
+      "equals_canonical_bytes": true
+    },
+    "tiny-coverage-atlas-4x.alpha.bin": {
+      "sha256": "e4f245519b2922b3f3575ae499f0419bfc85742d059a07680f3693e68ddbaeb7",
+      "bytes": 163840,
+      "equals_canonical_bytes": true
+    },
+    "tiny-vector-atlas.svg": {
+      "sha256": "eced60613272f6553626d28391e96b919d73a5ee3868b7d978edac64b9e2592b",
+      "bytes": 58612,
+      "equals_canonical_bytes": true
+    },
+    "gameplay-hud-font-v1.hda": {
+      "sha256": "3c328c1537cf1e09529ae8805e98a8deb57a859ea80ba269cfea0b55cfae539e",
+      "bytes": 163952,
+      "equals_canonical_bytes": true
+    }
+  },
+  "geometry_count": 127,
+  "runtime_eligible_ascii_count": 86,
+  "glyph_ids_eligible": [
+    0,
+    85
+  ],
+  "glyph_ids_extended_classic": [
+    86,
+    126
+  ],
+  "compatibility_stamps_unchanged": true,
+  "recovery_tree_unchanged": true,
+  "runtime_installed_or_executed": false
+}

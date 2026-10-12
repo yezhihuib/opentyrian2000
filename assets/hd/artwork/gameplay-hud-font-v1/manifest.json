@@ -1,0 +1,89 @@
+{
+  "schema": "portable-huf1-formal-package-v1",
+  "artwork_revision": false,
+  "geometry_glyphs": 127,
+  "runtime_eligible_ascii_glyphs": 86,
+  "runtime_resource": "canonical/gameplay-hud-font-v1.hda",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 6231,
+      "sha256": "362a37f74498d676ef4cb47397193eb6726db25d605d4d71c5c146e20f994bfc"
+    },
+    {
+      "path": "build_resource.py",
+      "bytes": 7677,
+      "sha256": "88d2c675a98a6d796f136f0f505899166a03578e0a6ad06c3871eda86dc86746"
+    },
+    {
+      "path": "canonical/gameplay-hud-font-v1.hda",
+      "bytes": 163952,
+      "sha256": "3c328c1537cf1e09529ae8805e98a8deb57a859ea80ba269cfea0b55cfae539e"
+    },
+    {
+      "path": "canonical/tiny-coverage-atlas-4x.alpha.bin",
+      "bytes": 163840,
+      "sha256": "e4f245519b2922b3f3575ae499f0419bfc85742d059a07680f3693e68ddbaeb7"
+    },
+    {
+      "path": "canonical/tiny-coverage-atlas-4x.png",
+      "bytes": 20474,
+      "sha256": "f81c31f85ec8646e5fd5e29e9cb9e6f03b8f51988e3dfc945bc2fa6821dfed92"
+    },
+    {
+      "path": "canonical/tiny-vector-atlas.svg",
+      "bytes": 58612,
+      "sha256": "eced60613272f6553626d28391e96b919d73a5ee3868b7d978edac64b9e2592b"
+    },
+    {
+      "path": "proof/huf1-resource-proof.json",
+      "bytes": 10259,
+      "sha256": "19c4b392079581056d9442cfb72d2de0ee58319a456e02820309263ee11c2a1e"
+    },
+    {
+      "path": "proof/metadata-normalization.json",
+      "bytes": 2005,
+      "sha256": "4ffe8c4148c509b55416b2ef36befb8ec57cc70573d842c8503fa0397e104daa"
+    },
+    {
+      "path": "proof/relocated-build.json",
+      "bytes": 1633,
+      "sha256": "a9e55a92618172a098338ca99255724cb1cc8aafed4ea9517cdfddec103e261e"
+    },
+    {
+      "path": "proof/reproduction-report.json",
+      "bytes": 25249,
+      "sha256": "5bf8e6a45ff4f8816f372dd420db2565c5f5bc9608d8abfe1bf5b3f656070381"
+    },
+    {
+      "path": "reproduce.py",
+      "bytes": 9809,
+      "sha256": "d8d70bb3818af385f9cedd48784bca96ca99cb98390e247baebd43f45800e48a"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 155,
+      "sha256": "b846c5ba935f8424572db759ac67cfb143a10bbe25df10e3c5aeb4eaadd4bbc7"
+    },
+    {
+      "path": "sources/glyph-vectors.json",
+      "bytes": 134165,
+      "sha256": "742171aed4062bd1f46b301b74ee35df02f5df0c93ecb3de337a049351318ff3"
+    },
+    {
+      "path": "sources/original-atlas-manifest.json",
+      "bytes": 58344,
+      "sha256": "79ac45ec1868d9ad26b76e811df6d67d8730903e3eb632bdabe887015c51bd43"
+    },
+    {
+      "path": "sources/resource-contract.json",
+      "bytes": 2067,
+      "sha256": "4a66e8061ee2ee0b6a7eaa82b51ca95c5c8fd3a693095cf0f2d9b49bf73c6a05"
+    },
+    {
+      "path": "sources/source-font-metrics.json",
+      "bytes": 83304,
+      "sha256": "46d34fabd3014be2ef53282ffb2162fc16c75f0196054794cad500b57819f41a"
+    }
+  ]
+}

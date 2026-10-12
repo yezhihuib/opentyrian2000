@@ -1,0 +1,149 @@
+{
+  "schema": "bounded-gameplay-huf1-validation-v1",
+  "status": "PASS bounded source, packaging and actual trial",
+  "published_baseline": "a50d25799105962e9100eaffa0c1949227ff7b89",
+  "tested_production_candidate": "280e100a7204c907709a04f4186ec3b72d5542f2",
+  "runtime_resource": {
+    "format": "HUF1",
+    "bytes": 163952,
+    "sha256": "3c328c1537cf1e09529ae8805e98a8deb57a859ea80ba269cfea0b55cfae539e",
+    "reviewed_ascii_glyphs": 86,
+    "geometry_records": 127,
+    "canonical_density": 4
+  },
+  "source": {
+    "formal_files": 19,
+    "formal_manifest_sha256": "5ec927fa8f6fc14a6021407da81bf97b985308139c5cb120c413173118fc3fc0",
+    "relocated_source_only_exact": true,
+    "original_game_bitmaps_published": false
+  },
+  "source_checks": {
+    "asan_ubsan": true,
+    "writer_abort_cases": 190,
+    "fade_cases": 64,
+    "persistent_cases": 88,
+    "scalar_maximal_cases": 42,
+    "trust_cases": 92,
+    "halo_cases": 216,
+    "history_allocations_freed": 1268,
+    "safe_allocation_failures": 2,
+    "retained_bytes": 3016953,
+    "invalid_resources": 254,
+    "intercepted_io_failures": 11,
+    "source_mutations": 3870,
+    "real_source_4x8x_samples": 150800,
+    "leak_sanitizer_available": false
+  },
+  "actual": {
+    "ticks": 265,
+    "original_state_indexed_rows_exact": 265,
+    "shared_ledgers_exact": 22,
+    "real_collision_records": 38,
+    "strict_internal_owner_comparisons": 21,
+    "outside_owner_changed_subpixels": 0,
+    "native2x_mask": "conservative4x4 block union of internal8x ownership",
+    "native2x_stills": 6,
+    "ordered_native2x_transition_frames": 17,
+    "native4x_stills": 1,
+    "cash_awards_and_rendered_values": [
+      {
+        "tick": 186,
+        "value": 15
+      },
+      {
+        "tick": 252,
+        "value": 35
+      },
+      {
+        "tick": 259,
+        "value": 55
+      }
+    ],
+    "message_replacement_tick": 22,
+    "natural_message_expiry_tick": 122,
+    "end_level_event_after_tick": 256,
+    "ending_textErase": 97,
+    "ending_history_through_tick": 264,
+    "render_errors": 0,
+    "private_original_routine_fixture": true,
+    "survival_hook": false,
+    "private_fixture_excluded_from_production": true
+  },
+  "evidence": {
+    "independent_source": {
+      "sha256": "f0bdf95a8edad80da183ecbf517271b154916855373455cf0f04919eed7bad22",
+      "bytes": 15393
+    },
+    "fixture_source": {
+      "sha256": "d1e424d914300911bc33db7c9a29405624c8eead364524f5684241ab43845fef",
+      "bytes": 3185
+    },
+    "fixture_export": {
+      "sha256": "b5697522a9fbd619f3d219970a5dfda34ce0d63eff24d8585a71e5fbf0bb719c",
+      "bytes": 3220
+    },
+    "actual_final": {
+      "sha256": "4ef92b2407507d42fd2df876dc34c1aca15e9a340cb93fe5ca0b04e8dd5ec0aa",
+      "bytes": 521
+    },
+    "actual_core": {
+      "sha256": "f0d90c72127899a101d70cbbecd2c58121632a6c59c33d5a0a6efebcc7cd4e7e",
+      "bytes": 28720
+    },
+    "selected_frames": {
+      "sha256": "8dcd3d42c8254ce24b84095859ef1777d7c051c83a93f374ae780822aad206b8",
+      "bytes": 17233
+    },
+    "actual4x": {
+      "sha256": "f38e112017e2c20cdc8f359b40f090ec783140d3a782fb05cc686d18ea8ed358",
+      "bytes": 7763
+    },
+    "author": {
+      "sha256": "86238e072809c03b9d645ae4e10417f180081778a52868b6628958ace1958bfc",
+      "bytes": 5661
+    },
+    "actual_fallback": {
+      "sha256": "64aafabebfdae8984800089114d334b9ac1e2560e85265d7f88d6e51aca481e8",
+      "bytes": 17253
+    },
+    "packaging": {
+      "sha256": "fb6f79951425279142fc0f43afdfbf989a14bd1e9fa825b512fcb83776914c20",
+      "bytes": 8798
+    },
+    "independent_packaging": {
+      "sha256": "ad725e9bdb25a1dcc469a90267025bf319996e04291b521021fdd173d7f3d9a6",
+      "bytes": 5087
+    }
+  },
+  "limits": [
+    "No actual arcade-name visual trial",
+    "Unsupported-byte, overflow, modal and repeated fade coverage is source-test evidence",
+    "No current Windows runtime or CI claim",
+    "No whole-game or full first-level typography claim",
+    "Large INSERT COIN lettering remains original",
+    "Delivery clip is17actualframes slowed12fps with lossy encoding"
+  ],
+  "fallback_actual": {
+    "cases": [
+      "missing",
+      "one_byte_corrupt"
+    ],
+    "ticks_each": 120,
+    "baseline": "a50d25799105962e9100eaffa0c1949227ff7b89",
+    "original_state_indexed_and_hd_rgb_exact": true,
+    "font_owned_pixels": 0,
+    "other_hd_active_ticks_each": 120,
+    "captures": 0,
+    "private_generation_counter_difference": "candidate3 vs baseline stub0; not original state",
+    "collision_rows": 0
+  },
+  "packaging": {
+    "formal_files_exact": 19,
+    "default_huf_sidecars": 2,
+    "prior_main_assets_unchanged": 4832,
+    "hdr1_entries": 2974,
+    "packs": 18,
+    "fresh_source_builds": 3,
+    "output_path_guards": 5
+  }
+}

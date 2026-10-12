@@ -48,3 +48,7 @@ lifecycle coverage. Private observer hooks are excluded from production.
 Latest Windows compile/runtime, CI and whole-game typography are not claimed.
 Dynamic protocol documents/models remain design work only; this checkpoint has
 no HUF1 loader or dynamic typography production hooks.
+
+The subsequent [dynamic HUF1 stage](GAMEPLAY_HUD_DYNAMIC_FONT.md) records the
+separately tested tiny-font implementation; the limits above describe this
+historical fixed-label checkpoint.

@@ -10,12 +10,16 @@
 #include "gameplay_hud_components.h"
 #include "gameplay_hud_indicators.h"
 #include "gameplay_hud_fixed_text.h"
+#include "gameplay_hud_font.h"
 typedef uint8_t Uint8;
+typedef int8_t Sint8;
+typedef int16_t Sint16;
 typedef uint16_t Uint16;
 typedef uint32_t Uint32;
 typedef struct { int BytesPerPixel,BitsPerPixel; } SDL_PixelFormat;
-typedef struct { int w,h,pitch; void *pixels; SDL_PixelFormat *format; } SDL_Surface;
 typedef struct { int x,y,w,h; } SDL_Rect;
+typedef struct { int w,h,pitch; void *pixels; SDL_PixelFormat *format; SDL_Rect clip_rect; } SDL_Surface;
+
 typedef struct { Uint8 r,g,b,a; } SDL_Color;
 typedef int SDL_Renderer;
 typedef int SDL_Texture;
@@ -30,6 +34,7 @@ static SDL_Surface *SDL_CreateRGBSurfaceWithFormat(unsigned flags,int w,int h,in
 {
  SDL_Surface *p=calloc(1,sizeof(*p));assert(p);p->w=w;p->h=h;p->pitch=w*(depth/8);
  p->pixels=calloc((size_t)p->pitch,h);p->format=malloc(sizeof(*p->format));assert(p->pixels&&p->format);
+ p->clip_rect=(SDL_Rect){0,0,w,h};
  p->format->BytesPerPixel=depth/8;p->format->BitsPerPixel=depth;++allocations;return p;
 }
 static void SDL_FreeSurface(SDL_Surface *p) {if(p){free(p->pixels);free(p->format);free(p);}}
@@ -135,6 +140,27 @@ static struct {
 } player[2];
 static bool components_owned(void);
 static bool indicators_owned(void);
+static Uint32 palette_rgb(Uint8 index);
+void render_mirror_unsupported(const char *reason);
+enum {MIRROR_NORMAL,MIRROR_BLEND,MIRROR_SHADOW};
+#ifndef BASELINE_RENDERER
+#ifdef FONT_ALLOCATION_ORACLE
+static size_t font_alloc_calls,font_alloc_bytes,font_free_calls,font_alloc_failed;
+static bool font_alloc_fail;
+static void *font_test_calloc(size_t n,size_t bytes)
+{++font_alloc_calls;if(font_alloc_fail){++font_alloc_failed;return NULL;}void *p=calloc(n,bytes);if(p)font_alloc_bytes+=n*bytes;return p;}
+static void font_test_free(void *p){if(p)++font_free_calls;free(p);}
+#define calloc font_test_calloc
+#define free font_test_free
+#endif
+#include "gameplay_hud_font_mirror.inc"
+#ifdef FONT_ALLOCATION_ORACLE
+#undef calloc
+#undef free
+#endif
+#else
+#define font_shutdown() hud_font_shutdown()
+#endif
 #include "production.inc"
 
 static uint64_t aggregate=UINT64_C(14695981039346656037);
@@ -142,6 +168,7 @@ static void digest(const void *p,size_t n) {const Uint8 *b=p;for(size_t i=0;i<n;
 static Uint32 *pixel(SDL_Surface *p,int x,int y) {return (Uint32 *)((Uint8 *)p->pixels+y*p->pitch)+x;}
 static void cleanup(void)
 {
+ font_shutdown();
  SDL_FreeSurface(canvas);SDL_FreeSurface(output);SDL_FreeSurface(fade_saved);SDL_FreeSurface(game_screen);SDL_FreeSurface(VGAScreenSeg);
  canvas=output=fade_saved=game_screen=VGAScreenSeg=NULL;
  free(hd_owner);free(cloud_owner);free(green_first);free(green_under);free(green_under_owner);

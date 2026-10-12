@@ -1,0 +1,86 @@
+{
+  "schema": "HUF1-recovered-contract-v1",
+  "recovery_note": "Exact retained field values; this JSON serialization is new.",
+  "struct_format": "<4s11I8Q",
+  "header_bytes": 112,
+  "magic": "HUF1",
+  "u32_order": [
+    "version",
+    "density",
+    "width",
+    "height",
+    "glyph_count",
+    "eligible_count",
+    "cell_width",
+    "cell_height",
+    "inset",
+    "payload_bytes",
+    "authored_stroke_role"
+  ],
+  "u32_values": [
+    1,
+    4,
+    512,
+    320,
+    127,
+    86,
+    32,
+    40,
+    4,
+    163840,
+    7
+  ],
+  "u64_order": [
+    "pic3_fnv1a64",
+    "palette_fnv1a64",
+    "font_ascii_fnv1a64",
+    "metrics_fnv1a64",
+    "tiny_encoded_fnv1a64",
+    "alpha_payload_fnv1a64",
+    "eligible_mask_fnv1a64",
+    "reserved"
+  ],
+  "u64_values_hex": [
+    "14c1441f3d5dc0e2",
+    "5e80e83992be2927",
+    "845b16939661b466",
+    "0908ca85cbf2a1e3",
+    "2ed2973d82ce6f3d",
+    "85cddeb8bd7ea09a",
+    "68e8c2bab3c43d0d",
+    "0000000000000000"
+  ],
+  "total_bytes": 163952,
+  "geometry_count": 127,
+  "runtime_eligible_mapped_ascii_count": 86,
+  "extended_runs": "Wholly classic",
+  "foreground_role": 7,
+  "foreground_semantics": "Original caller hue/value and tilde +4 arithmetic; original byte advances.",
+  "full_shade_ordered_whole_string_black_pass_offsets": [
+    [
+      -1,
+      0
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      0,
+      -1
+    ],
+    [
+      0,
+      1
+    ]
+  ],
+  "foreground_after_all_four_black_passes": true,
+  "sampling": "Canonical 4x; 2x nearest samples 4x, 8x repeats each 4x sample 2x2.",
+  "runtime_qa": "Historical runtime QA is unavailable after reset. No runtime installation or proof is claimed by this recovery.",
+  "stamp_serializations": {
+    "font_ascii": "256 signed LE32 integers",
+    "metrics": "127 glyph-ID-ordered u16LE(width,height,width+1) triples",
+    "tiny_encoded": "u32LE127 then each glyph u16LE(width,height,encoded_size) plus original bytes; verified transiently during dependency recovery, never bundled",
+    "eligible_mask": "127 bytes, 255 for glyph IDs0..85, zero otherwise"
+  }
+}

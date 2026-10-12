@@ -77,11 +77,14 @@ bool pause_pressed = false, ingamemenu_pressed = false;
 /* Draws a message at the bottom text window on the playing screen */
 void JE_drawTextWindow(const char *text)
 {
+	render_mirror_text_message_begin(text,textErase>0);
 	if (textErase > 0) // erase current text
 		blit_sprite(VGAScreenSeg, 16, 189, OPTION_SHAPES, 36);  // in-game text area
 
 	textErase = 100;
+	render_mirror_text_message_backdrop();
 	JE_outText(VGAScreenSeg, 20, 190, text, 0, 4);
+	render_mirror_text_message_end();
 }
 
 void JE_outCharGlow(JE_word x, JE_word y, const char *s)
@@ -2002,7 +2005,9 @@ void JE_inGameHelp(void)
 	}
 
 	// "press a key"
+	render_mirror_text_message_erase_begin();
 	blit_sprite(VGAScreenSeg, 16, 189, OPTION_SHAPES, 36);  // in-game text area
+	render_mirror_text_message_erased(true);
 	JE_outText(VGAScreenSeg, 120 - JE_textWidth(miscText[5-1], TINY_FONT) / 2 + 20, 190, miscText[5-1], 0, 4);
 
 	do
@@ -3090,7 +3095,11 @@ void JE_inGameDisplays(void)
 		if (smoothies[6-1])
 			JE_textShade(VGAScreen, 30 + 200 * i, 175, tempstr, 8, 8, FULL_SHADE);
 		else
+		{
+			if (i == 0 && !isNetworkGame) render_mirror_text_begin(VGAScreen,0,30,175,tempstr,2,4);
 			JE_textShade(VGAScreen, 30 + 200 * i, 175, tempstr, 2, 4, FULL_SHADE);
+			render_mirror_text_end();
+		}
 	}
 
 	/*Special Weapon?*/
@@ -3131,7 +3140,9 @@ void JE_inGameDisplays(void)
 			}
 
 			tempW = (temp == 0) ? 28 : (285 - JE_textWidth(stemp, TINY_FONT));
+			if (temp == 0 && !isNetworkGame) render_mirror_text_begin(VGAScreen,1,tempW,y-7,stemp,2,6);
 			JE_textShade(VGAScreen, tempW, y - 7, stemp, 2, 6, FULL_SHADE);
+			render_mirror_text_end();
 		}
 	}
 

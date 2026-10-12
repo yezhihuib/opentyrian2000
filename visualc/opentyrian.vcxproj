@@ -164,6 +164,7 @@
     <ClCompile Include="..\src\gameplay_hud_components.c" />
     <ClCompile Include="..\src\gameplay_hud_indicators.c" />
     <ClCompile Include="..\src\gameplay_hud_fixed_text.c" />
+    <ClCompile Include="..\src\gameplay_hud_font.c" />
     <ClCompile Include="..\src\starlib.c" />
     <ClCompile Include="..\src\tyrian2.c" />
     <ClCompile Include="..\src\varz.c" />
@@ -230,6 +231,8 @@
     <ClInclude Include="..\src\gameplay_hud_components.h" />
     <ClInclude Include="..\src\gameplay_hud_indicators.h" />
     <ClInclude Include="..\src\gameplay_hud_fixed_text.h" />
+    <ClInclude Include="..\src\gameplay_hud_font.h" />
+    <ClInclude Include="..\src\gameplay_hud_font_mirror.inc" />
     <ClInclude Include="..\src\forest13_bundle_index.h" />
     <ClInclude Include="..\src\starlib.h" />
     <ClInclude Include="..\src\tyrian2.h" />

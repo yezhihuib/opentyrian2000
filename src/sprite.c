@@ -229,10 +229,11 @@ void blit_sprite_blend(SDL_Surface *surface, int x, int y, unsigned int table, u
 // we can replace it when we know that we don't rely on that 'feature'
 void blit_sprite_hv_unsafe(SDL_Surface *surface, int x, int y, unsigned int table, unsigned int index, Uint8 hue, Sint8 value)
 {
+	render_mirror_text_glyph_begin(surface,x,y,table,index,false,hue,value);
 	if (index >= sprite_table[table].count || !sprite_exists(table, index))
 	{
 		assert(false);
-		return;
+		{ render_mirror_text_glyph_end(); return; }
 	}
 	
 	hue <<= 4;
@@ -272,7 +273,7 @@ void blit_sprite_hv_unsafe(SDL_Surface *surface, int x, int y, unsigned int tabl
 			
 		default:  // set a pixel
 			if (pixels >= pixels_ul)
-				return;
+				{ render_mirror_text_glyph_end(); return; }
 			if (pixels >= pixels_ll)
 				{ *pixels = hue | ((*data & 0x0f) + value); render_mirror_pixel(surface,pixels,*pixels,MIRROR_NORMAL); }
 			
@@ -286,6 +287,7 @@ void blit_sprite_hv_unsafe(SDL_Surface *surface, int x, int y, unsigned int tabl
 			x_offset = 0;
 		}
 	}
+	render_mirror_text_glyph_end();
 }
 
 // does not clip on left or right edges of surface
@@ -427,10 +429,11 @@ void blit_sprite_hv_blend(SDL_Surface *surface, int x, int y, unsigned int table
 // does not clip on left or right edges of surface
 void blit_sprite_dark(SDL_Surface *surface, int x, int y, unsigned int table, unsigned int index, bool black)
 {
+	render_mirror_text_glyph_begin(surface,x,y,table,index,black,0,black?-1:0);
 	if (index >= sprite_table[table].count || !sprite_exists(table, index))
 	{
 		assert(false);
-		return;
+		{ render_mirror_text_glyph_end(); return; }
 	}
 	
 	const Sprite * const cur_sprite = sprite(table, index);
@@ -468,7 +471,7 @@ void blit_sprite_dark(SDL_Surface *surface, int x, int y, unsigned int table, un
 			
 		default:  // set a pixel
 			if (pixels >= pixels_ul)
-				return;
+				{ render_mirror_text_glyph_end(); return; }
 			if (pixels >= pixels_ll)
 				{ *pixels = black ? 0x00 : ((*pixels & 0xf0) | ((*pixels & 0x0f) / 2)); render_mirror_pixel(surface,pixels,0,black?MIRROR_NORMAL:MIRROR_SHADOW); }
 			
@@ -482,6 +485,7 @@ void blit_sprite_dark(SDL_Surface *surface, int x, int y, unsigned int table, un
 			x_offset = 0;
 		}
 	}
+	render_mirror_text_glyph_end();
 }
 
 void JE_loadCompShapes(Sprite2_array *sprite2s, char s)

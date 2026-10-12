@@ -1,0 +1,671 @@
+{
+  "status": "PASS",
+  "input_scope": "Frozen vector JSON and original metadata only; no image input",
+  "runtime_resource_header_or_layout": "PENDING_HOOK_ENGINEER_NOT_DEFINED_HERE",
+  "versions": {
+    "python": "3.12.14",
+    "Pillow": "12.3.0",
+    "zlib_build": "1.3.2",
+    "zlib_runtime": "1.3.2"
+  },
+  "geometric_glyph_count": 127,
+  "first_candidate_eligible_mapped_ascii_glyph_count": 86,
+  "extended_geometric_glyph_count_excluded_from_first_candidate": 41,
+  "png_sha256": "f81c31f85ec8646e5fd5e29e9cb9e6f03b8f51988e3dfc945bc2fa6821dfed92",
+  "expected_png_sha256": "f81c31f85ec8646e5fd5e29e9cb9e6f03b8f51988e3dfc945bc2fa6821dfed92",
+  "png_bytes_match_frozen_canonical": true,
+  "raw_alpha_sha256": "e4f245519b2922b3f3575ae499f0419bfc85742d059a07680f3693e68ddbaeb7",
+  "expected_raw_alpha_sha256": "e4f245519b2922b3f3575ae499f0419bfc85742d059a07680f3693e68ddbaeb7",
+  "raw_alpha_match_frozen_canonical": true,
+  "raw_rgba_sha256": "4ac48c606ed982ec197c4b2c580ee218ac9d8c23671dcfbb12cd43b2038f39f3",
+  "svg_sha256": "eced60613272f6553626d28391e96b919d73a5ee3868b7d978edac64b9e2592b",
+  "atlas_size": [
+    512,
+    320
+  ],
+  "mode": "RGBA",
+  "raw_alpha_size_bytes": 163840,
+  "all_nontransparent_pixels_have_white_rgb": true,
+  "opaque_black_pixel_count": 0,
+  "fully_transparent_pixel_count": 143338,
+  "transparent_black_padding_pixel_count": 118672,
+  "transparent_white_tile_pixel_count": 24666,
+  "intermediate_alpha_pixel_count": 9931,
+  "glyph_checks": [
+    {
+      "sprite_id": 0,
+      "coverage_sha256": "3af375b40498229f9a5d0a9b320476884c13817770ebf63a61d6a4c268daf2a5",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 1,
+      "coverage_sha256": "69d571fabea4382a95f822f22c41e4287940e20b8d6a4d18716867e9477f6765",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 2,
+      "coverage_sha256": "422f2db10bc4e3f3f08ed27d5ae1585d6a696907274e7c7cddad084a1b487969",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 3,
+      "coverage_sha256": "dab3e6921b4ce69b802c69a256d7d6ad33252bf3f56c6a1578cdd94d29007dd9",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 4,
+      "coverage_sha256": "e140e7bf72233ad7b0c6e949dad3df5bdcc00c080d42af35485c57c8368668b5",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 5,
+      "coverage_sha256": "d59bb3e045a71838c247b0b737406b00773c7e88cf29aa79d70bdc149f42be9f",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 6,
+      "coverage_sha256": "7612e8dec17656d3cab94462a9e965a85610d42b691b0f4ea78b8f9812c2bb57",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 7,
+      "coverage_sha256": "aa7ac4a4bd24e5d663435c63fbfa9544cdee053a75eba2d1b27424825f406a20",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 8,
+      "coverage_sha256": "88f859b9d8989ab736e51bcfa58837ed1468b8fbb90b84a484204ba52d5bc293",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 9,
+      "coverage_sha256": "fba3bed50e650c0561e9c521fc594b98df7c78afd8bf066f36b542295247cab7",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 10,
+      "coverage_sha256": "30ab36eca4c055eb4e0551f08d302843ad214d2ca2b2c750a8844ee338f6d4ae",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 11,
+      "coverage_sha256": "8ebe9473aad3b7da9bf5bbecdb78899619161f362fbf98f0da8391523d0a0976",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 12,
+      "coverage_sha256": "b7d5ba05453be8f9bfa1bd27ab1eaa26344a642b70241ce95675e565044196cc",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 13,
+      "coverage_sha256": "099eaa656a61bfee08c8aaedf1910fc97123108b3af61f9cefdff322908189b0",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 14,
+      "coverage_sha256": "a75a44d44d667fb7362bd98dde3158aeb73f40e3fceb80dff4cbe9fcf2493de6",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 15,
+      "coverage_sha256": "62a8148fe8758b26c701d803ceaa7c268b8abc77342dc07473c47dd05f89234d",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 16,
+      "coverage_sha256": "e1a49206b5d9b38b4bdffb13e5e2efc5e4d2ce791974324ac3f3d4366d285fff",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 17,
+      "coverage_sha256": "148e4c06976c18b910b3909a16d3138a78e1108a2efdd306bc223251fe1aeaee",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 18,
+      "coverage_sha256": "0d94e930a886dc69199e4b05af76e4b97f166654b41c110fc02c98093e35cf44",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 19,
+      "coverage_sha256": "f1e6d9ac196fb136a25ea11fc1ee6c9f514c7fc1ec124720663e0eeeecb6ef53",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 20,
+      "coverage_sha256": "542af68132275b0ae0c4a1d5c45d7fc2c05f19a41d82a3b816e9b32ad2eae62c",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 21,
+      "coverage_sha256": "f0482fd5147db35aa162a4e401df7565b8a162979a794ebfdf7e5cea3aa7a579",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 22,
+      "coverage_sha256": "ca8bc68d1f99d26010d4a323ff8a77c1c73e3b1e70c47a5ae1b89b2e9387254b",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 23,
+      "coverage_sha256": "dbb6f095894b4cb3df1fcc248f84c04aefb7de9c9eac9eba2c38fd405aec68c6",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 24,
+      "coverage_sha256": "8458ad0a5a49300ab4dd8524be4b04466ad30bcd03ee353a5112d35db19010bd",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 25,
+      "coverage_sha256": "7fc35cacb8fe7803c0284a3b4a3f659c743c357c1f0ea5580b273199a50b6786",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 26,
+      "coverage_sha256": "b3da36b09bd01003f3b89dbcd695de0a480dfed62b87d406c39fd2ce352a9247",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 27,
+      "coverage_sha256": "bfa80d81be8510b800ae8dd2fd35e908c9d2965d2660d77458e205c0117f340f",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 28,
+      "coverage_sha256": "c2f574fefb9d9daf14ef09984d25a982f4d2e77f5d89198c2892287de8d18804",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 29,
+      "coverage_sha256": "26781f00a1fddc07b43511ad3cb71c739c0d3d46bf0f8d8ae8298f26917d053b",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 30,
+      "coverage_sha256": "42436556b90834e8bec350933351ea86c41b31e640a18ddbf7e1cff879a0edcb",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 31,
+      "coverage_sha256": "e1091c058c84a3069c1544f3e6d0e6a04b67c1b3b0320c735d0f11b84610e139",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 32,
+      "coverage_sha256": "6aa78c423156a564b253ecdbae24289131caa674cd1f9ec4b4496434583b57f5",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 33,
+      "coverage_sha256": "87d42e8bd5d2c8f9dc05a49a9794fb62721b05bcecac3ba68a4c31c0d33de012",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 34,
+      "coverage_sha256": "e316bc4a1c1bbae78afed1bbbc3a1e8112cc2442304485ec043452b982e8d2bf",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 35,
+      "coverage_sha256": "771f37a5d817e1588128668ff0c8209a5687768ee422b07e3f19e47f7d33f5f5",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 36,
+      "coverage_sha256": "5c3cb94cb3db205de9fa7c621d803a3898ce35938f52ed86c459026aa522345c",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 37,
+      "coverage_sha256": "2da27ef04fe0c9321942219e72b5e31e344d8fef4a7d17ca9bc58aede4908db6",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 38,
+      "coverage_sha256": "b300d1d46ba1bf07c68676d5e4572d64043822a4c2ce876103845d0690c5df68",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 39,
+      "coverage_sha256": "f994e4a44920b4c481dea64f5ec3e1fa7128527cc33c5c9f4ace0930edaedae3",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 40,
+      "coverage_sha256": "99881a7fa222851489a695c32517ccb316701965888166177f9d0beb2df0458f",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 41,
+      "coverage_sha256": "b3fa719bf99934fd1e35d7a6a1375f24587b7a85252765edcd3437f7a3d383eb",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 42,
+      "coverage_sha256": "175f05cdb51c1ea4d05bdf695d321d930a351a7b403b0d35bbdb75713460e408",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 43,
+      "coverage_sha256": "7fd7092b1a2541c72c67486b1770c9052e0b2b97b7a4e844513f0f8b084436b3",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 44,
+      "coverage_sha256": "a79d0b650ee6a664333da377df193fa3c61c6693d68185ec0d334c1e9f6d5dbf",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 45,
+      "coverage_sha256": "383871a16d4f2620cdcbafd3e5167bd5db9484283552c8504f1993084681ff7e",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 46,
+      "coverage_sha256": "ed4087232ce1f1b1fdeb366e9fc1ec8005ce767d317d6c0282790fbe46a6f23a",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 47,
+      "coverage_sha256": "86f524220e1544353f3b540b8f7271eb4b3612b326596cd60e6c4247730ad3e8",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 48,
+      "coverage_sha256": "546a7b6466584ce1766c1be3f72daaa7a14b9425ecd06725f88939d69768244a",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 49,
+      "coverage_sha256": "42f6857000822b4460f8a964e66486e1182858fe433510630d60a55f1b430459",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 50,
+      "coverage_sha256": "365ca633e95a1e2664bf7a393e4886cb08f7a6783540bfd2e0fad66c69e20858",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 51,
+      "coverage_sha256": "35a737afc11e7602ff56a123eae37d2a594182afd874df4fd9f1a74fbae2e49e",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 52,
+      "coverage_sha256": "7a660e87f07fd797b501fdda89400d6ad23d4c81e273cbf9d7d127044f43d4b7",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 53,
+      "coverage_sha256": "c74b1f95a8fa4612b5ed0ed5a4efdc981c4848eaff44d20bd59cf74cae1a9ec8",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 54,
+      "coverage_sha256": "15d654ea18a48e938736561e7333544dc906bc06efc5a89c0eae82e444a96ecd",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 55,
+      "coverage_sha256": "0301c40b27382f6dfb200e1f8d65a4399a15f60846f1e0adad72e0082d8ca364",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 56,
+      "coverage_sha256": "98f539adece9f1dabcf8dd9b56ba1e5b7e31ef86e3f3b3095ce2230176bfcab5",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 57,
+      "coverage_sha256": "35fd9621be9e1a805d6434e27d48100c5c87bbe047d139dae29f7dc1e1b36854",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 58,
+      "coverage_sha256": "13404a87f96f98a7c0b171b65d7f9511b6e4ba209535ba54ee42dd6bf59369f9",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 59,
+      "coverage_sha256": "aaa78834c94b041b9af9aadc8a2f1670a58a1f2a3e44a38004e70c6723a6935d",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 60,
+      "coverage_sha256": "261b666e8019f5c64a1e392c60da1681b067c59915664ea4b5425fb2aa92112a",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 61,
+      "coverage_sha256": "1eb30b5b28319cc690d0072fa1ff3721e7b6d84db90ab464c199239f8acdc8fc",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 62,
+      "coverage_sha256": "f08019f3caecada49bd1dfb2f51c165cdb3d5b2564b1f51560ca2afbd20c6023",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 63,
+      "coverage_sha256": "cfc8ceab9d66d88109508673bd36ae574b0165c4d662a44c4af83ae1f5d561ff",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 64,
+      "coverage_sha256": "508e0d408cb935f9c2c7124bd3f735d1721258eba2e2b1e648c90b455bdb7652",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 65,
+      "coverage_sha256": "616afa0a5e107198ef4e6f2ce332c35f43cece9f4cb3dc67b3109a4499b7e864",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 66,
+      "coverage_sha256": "4bf3018daf4c2b0694983a3acaf62c0c9da2667d669103c81391eb0ba59292eb",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 67,
+      "coverage_sha256": "44985691fe7f5ff44fe065aa3ad3ffac781a76a55c18d197e6febd86bf6a06d9",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 68,
+      "coverage_sha256": "a759a6629ccc23bdc6f2f5cfe31dcabf6f91a5186cf148dd3b066e1604370b60",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 69,
+      "coverage_sha256": "89955d774a27ee1cedc6f05f0024be0366ded0aab99c1297723b06a2584a128c",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 70,
+      "coverage_sha256": "fde244c68a4c685f997e47f2168558664c52f8ce68c6308a478e59819bf02c6a",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 71,
+      "coverage_sha256": "51ec92a39cd98e445cd4fad5cd8501ff68c8081790b87c46878ffc34c11e1f74",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 72,
+      "coverage_sha256": "6d3c0c134ee83ec3a091263f9c09da1aed0ca5b41a8af51a33a5ef4a4f4a02a8",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 73,
+      "coverage_sha256": "29716e595b410d44a90d764bf82aa4665e94af4615d891a2a7de1747da0e0466",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 74,
+      "coverage_sha256": "e6bad345da3f569ebe02069d34d18a959676d32af601de3e17b7a84368b51d86",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 75,
+      "coverage_sha256": "c936b95e86dda7ac91256d6f5381f67a8bfafafeafe4107afd29f8449d0d1142",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 76,
+      "coverage_sha256": "f6d04f9853c35c078f091b08d101acff36143b33c24d50d01f438e0222569c73",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 77,
+      "coverage_sha256": "7d88cfa9ab4f39293fbddaadf6f241b1ace0fd6f295deeb3f1274555bc2c5f9a",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 78,
+      "coverage_sha256": "a643e313fa74aabdaf1976cf135e7e237d740e3d17a238f7c992c6ee18732ad3",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 79,
+      "coverage_sha256": "a75a44d44d667fb7362bd98dde3158aeb73f40e3fceb80dff4cbe9fcf2493de6",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 80,
+      "coverage_sha256": "cf00eaf01daa00251472acf45a7ec97f2df31e3ac0c10a322e38037da6999f0b",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 81,
+      "coverage_sha256": "bd861546c594cc8156c95a6bd2aa0dfa76e0371204cfb625ea7943485f9d04f4",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 82,
+      "coverage_sha256": "0fe7a5375c07a2a7b28b11b25b99371900200fde6b895054af657fca379920a9",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 83,
+      "coverage_sha256": "37e85fce8a2d5caa81aa55488bc4e25fb4c7815fd0dd554df99e37fe41ac7e61",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 84,
+      "coverage_sha256": "8323db9a81848b4154a4a5fe8cef0683db28cd1caa708a75cb50a1d8932fb289",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 85,
+      "coverage_sha256": "4f7c126bc846697588021dbd1c940045d155c2e408df8bf15f894464c91daaec",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 86,
+      "coverage_sha256": "9b836a999386700315a0b78d6c19490117249cedb10ee95a1104fff362cba280",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 87,
+      "coverage_sha256": "4b2690f4e2616132a38d73828dee12399c393470021315fb3654323ffa847e54",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 88,
+      "coverage_sha256": "cdaca9343743a091a6ba3f052bc61ebf4bc8b0e690fd189375a318d68f039b40",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 89,
+      "coverage_sha256": "5e051712e061b0bab3082cb4749eb1b82d46a631cc21cadf2367e337a8979053",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 90,
+      "coverage_sha256": "098944489e7483f7b172f16789727571a7c0adb384b7cd53f6f0b8d74b43d202",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 91,
+      "coverage_sha256": "be61a9cfd32a1c5ea67a59e8670e355463ec73c7a5d55d9fddf5bda050509e92",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 92,
+      "coverage_sha256": "4c19c1db96a39a98fa21905699003887fcbf557a2e7f2a167efb51f488699cec",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 93,
+      "coverage_sha256": "0b532ad1c19684fc4087842bef8a7231cbd6a476e196e7a8e17ca0c9f3651a08",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 94,
+      "coverage_sha256": "a8b79cf373d307e564c7da5521a3d5c3cf6c5fddd492bfc7185f9184725fef56",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 95,
+      "coverage_sha256": "bf7dd469cd5c121bd756243488c0cef0965ad591b6e798c3bf9b0bf0096c09f4",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 96,
+      "coverage_sha256": "9c41fce65bf0422c6b37fe0c2a12755920996d30646cca63584e907dba0bedb1",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 97,
+      "coverage_sha256": "b5b1c039b20f7607048d3edd7892215f6e9fb1b5c63ad9e15c048faf85b1e7bb",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 98,
+      "coverage_sha256": "684479b57305ef5eed358c1634ebc017e2d1158051553a5e30ce22e56065029c",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 99,
+      "coverage_sha256": "f00bb39fc74e4bb9ded7734e89beac1d811daf1cdc79e4364a9372a1ef872909",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 100,
+      "coverage_sha256": "48f5f3c0da655493546f04f5afe2b44d8aec010fefba9f8068af7614e878f498",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 101,
+      "coverage_sha256": "2a5194f81d1b8f3fc3e23c9ffa2004df9fc5734af46223ac17a2aa445ea75bda",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 102,
+      "coverage_sha256": "84f017e1fe6babf452bf17bb29f08e1ac45f6cff1ee6737a7df876ae472e2179",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 103,
+      "coverage_sha256": "a64ba92faddaeb10da9ac88d7cb0c81912fe9b5c62ac1bcf4142df787a571aed",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 104,
+      "coverage_sha256": "907b72b10259c8cb7836327544e61f1f93d8f3237fd65b92cf538fec8dbbcb8b",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 105,
+      "coverage_sha256": "dba5ab3e512b51c3d3dba01e4dedaa2f4dd50d8bb4a9890abfcbbcdf3b258b26",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 106,
+      "coverage_sha256": "ada6d9ce6744d880ac2e633d59c23907d9190ff97354169165a904413b24fc3b",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 107,
+      "coverage_sha256": "e309ac793e7770885315eaf1e25ca37fc84b3f9f9a0d42f096b2ca35cd72ee93",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 108,
+      "coverage_sha256": "3f3d8ce3d8436ff2aeba783de7d14197ff2b4e1d9d4b1125274d9fcb253bc993",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 109,
+      "coverage_sha256": "9055b8de05f66c955987ec36cc20b3dc5fea9fabca30c4ee45395a6cbce94d82",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 110,
+      "coverage_sha256": "f579110b39ea29e2d8d84a8e85c1a9442458fb71adb6c7e4f779501a01fcfdf2",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 111,
+      "coverage_sha256": "ada6d9ce6744d880ac2e633d59c23907d9190ff97354169165a904413b24fc3b",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 112,
+      "coverage_sha256": "1fb8a3f519650e2d5e884f29ae3911cb83d38c7683dbf89af88ad4e7b178f5db",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 113,
+      "coverage_sha256": "db53d605da4f31f4a9935ce9f85a30008083e45050bfc6dda01fff297d9a9245",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 114,
+      "coverage_sha256": "18409545bdeb027f32110b1ca9c5fe4b8a4af8df137194b4932838a95683a62c",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 115,
+      "coverage_sha256": "f8297929d7ab2e3661ad52493aee70241fc16356989b5aa846f84b13b6f5dddf",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 116,
+      "coverage_sha256": "42364db5ba5f182a25d97d0db0d39652222128b34879538ef950f2fc1db2fbe1",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 117,
+      "coverage_sha256": "d7b5b9e4ba606dab3e79af972439bce15fa5e7fe655284c50ed5b8cb2cf2850a",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 118,
+      "coverage_sha256": "9eaa8fc7d202ad82047af810e598830126848109d5df6bdd3d1c20034dba25f0",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 119,
+      "coverage_sha256": "cb3d61d96a22576a85b29c13237fc5e11f392cd649b610207d0c36ba74eadbdb",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 120,
+      "coverage_sha256": "29cd4b3f74cbc95873f1e87763e45ae8279399ba35f8795891cc9a9c44243a62",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 121,
+      "coverage_sha256": "bfddc1a2e492c29977a8af272a788dac91e1e83a8050f8c2b6198295a42bd50c",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 122,
+      "coverage_sha256": "abe89b4e310e0af47e42106a852289b0b75fbb1f0a2a94550894c4719a282cbf",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 123,
+      "coverage_sha256": "93ba71f21026d1dd1bac151b2f29ad1a5d46b99c3b9a08654938276a27f8314a",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 124,
+      "coverage_sha256": "8e61debb9a29c3654de796d2b78bd3126cf0b3ba57a03999fbfea6a303220ba5",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 125,
+      "coverage_sha256": "28e21f2f4e03db899989cc2b52bf07ce69c55afd572f28a1b02f4521c5dfe5a0",
+      "matches_frozen_vector_and_original_manifest": true
+    },
+    {
+      "sprite_id": 126,
+      "coverage_sha256": "0f8b2e3a65f679a89e442c6ac16ca4dc4229a27a754f5f297374b1b03dadff21",
+      "matches_frozen_vector_and_original_manifest": true
+    }
+  ]
+}

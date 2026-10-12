@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "scope": "Portable metadata names only; no source asset, vector, raster or HUF1 changes",
+  "source_metadata": {
+    "file": "sources/source-font-metrics.json",
+    "before_sha256": "8cdbd0e369bf619f99a92f03ce3b196201d425ad2a417551d4eb2a8dd3fc4db1",
+    "after_sha256": "46d34fabd3014be2ef53282ffb2162fc16c75f0196054794cad500b57819f41a",
+    "changed_json_pointers": [
+      "/source_files/tyrian.shp/path",
+      "/source_files/fonthand.c/path"
+    ],
+    "portable_values": [
+      "tyrian.shp",
+      "src/fonthand.c"
+    ]
+  },
+  "dependent_metadata": {
+    "file": "sources/original-atlas-manifest.json",
+    "before_sha256": "be60821434b72d972d905d0167ee730b2e7b872eca1ed3cc18c7b4cead0f9f3b",
+    "after_sha256": "79ac45ec1868d9ad26b76e811df6d67d8730903e3eb632bdabe887015c51bd43",
+    "changed_json_pointers": [
+      "/metrics_source_sha256"
+    ]
+  },
+  "unchanged_source_files": {
+    "reproduce.py": "d8d70bb3818af385f9cedd48784bca96ca99cb98390e247baebd43f45800e48a",
+    "build_resource.py": "88d2c675a98a6d796f136f0f505899166a03578e0a6ad06c3871eda86dc86746",
+    "requirements.txt": "b846c5ba935f8424572db759ac67cfb143a10bbe25df10e3c5aeb4eaadd4bbc7",
+    "sources/glyph-vectors.json": "742171aed4062bd1f46b301b74ee35df02f5df0c93ecb3de337a049351318ff3",
+    "sources/resource-contract.json": "4a66e8061ee2ee0b6a7eaa82b51ca95c5c8fd3a693095cf0f2d9b49bf73c6a05"
+  },
+  "approved_outputs_sha256": {
+    "tiny-coverage-atlas-4x.png": "f81c31f85ec8646e5fd5e29e9cb9e6f03b8f51988e3dfc945bc2fa6821dfed92",
+    "tiny-coverage-atlas-4x.alpha.bin": "e4f245519b2922b3f3575ae499f0419bfc85742d059a07680f3693e68ddbaeb7",
+    "tiny-vector-atlas.svg": "eced60613272f6553626d28391e96b919d73a5ee3868b7d978edac64b9e2592b",
+    "gameplay-hud-font-v1.hda": "3c328c1537cf1e09529ae8805e98a8deb57a859ea80ba269cfea0b55cfae539e"
+  },
+  "immutable_recovery_directory_altered": false,
+  "notes": "Prior recovery metadata remains immutable. No vanished runtime QA evidence is included or asserted."
+}

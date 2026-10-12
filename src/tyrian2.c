@@ -791,7 +791,9 @@ start_level_first:
 
 	JE_drawOptions();
 
+	render_mirror_text_level_begin(VGAScreen,levelName);
 	JE_outText(VGAScreen, 268, twoPlayerMode ? 76 : 118, levelName, 12, 4);
+	render_mirror_text_level_end();
 
 	JE_showVGA();
 	JE_gammaCorrect(&colors, gammaCorrection);
@@ -1163,7 +1165,11 @@ level_loop:
 
 		/*-----------------------Message Bar------------------------*/
 		if (textErase > 0 && --textErase == 0)
+		{
+			render_mirror_text_message_erase_begin();
 			blit_sprite(VGAScreenSeg, 16, 189, OPTION_SHAPES, 36);  // in-game message area
+			render_mirror_text_message_erased(false);
+		}
 
 		/*------------------------Shield Gen-------------------------*/
 		if (galagaMode)
