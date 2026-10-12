@@ -35,7 +35,7 @@ typedef struct {
 } Asset;
 enum { ASSET_NEWSH2=101, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
-static Asset assets[369];
+static Asset assets[374];
 static Asset talon_frames[13];
 typedef struct {
  bool valid;
@@ -1491,6 +1491,12 @@ bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array ban
  }
  /* Existing ground201..209 and rotor210..217 remain unchanged. */
  int slot=base==169?303:base==207?304:base==245?305:base==273?306:base==275?307:base==277?308:base==279?309:base==281?310:base==283?311:base==153?269:base==155?270:base==157?271:base==49?265:base==51?266:base==89?267:base==127?268:base==267?243:base==269?244:base==271?245:base==81?231:base==83?232:base==119?233:base==121?234:(base>=229&&base<=243&&base%2==1)?210+(int)(base-229)/2:base==77?6:base==79?7:base==115?8:base==117?9:base==85?15:base==87?16:base==123?17:base==125?18:(base>=191&&base<=205&&base%2==1)?23+(int)(base-191)/2:-1;
+ /* Type4: five complete24x28 newsh2 composites, never individual cells.
+  * Keep the original four ordered quadrant calls, cycle, filters and death. */
+ if(role==ASSET_NEWSH2) {
+  static const unsigned int type4_ids[5]={159,161,163,165,167};
+  for(int i=0;i<5;i++)if(base==type4_ids[i]){slot=369+i;break;}
+ }
  if(role==ASSET_NEWSHE) {
   const unsigned int ids[12]={1,3,5,39,41,43,7,9,11,45,47,49};
   slot=-1;for(int i=0;i<12;i++)if(base==ids[i])slot=253+i;

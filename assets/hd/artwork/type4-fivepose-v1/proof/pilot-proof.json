@@ -1,0 +1,91 @@
+{
+  "status": "unapproved offline pilot",
+  "density": 8,
+  "logical_size": [
+    24,
+    28
+  ],
+  "anchor": [
+    6,
+    7
+  ],
+  "frames": [
+    {
+      "base": 159,
+      "crop": [
+        32,
+        48,
+        224,
+        272
+      ],
+      "original_alpha_exact": true,
+      "png_sha256": "085c12d8b17e5e634fa4b3de859845bd022ab8876261b4a96db56c58dfc3916f"
+    },
+    {
+      "base": 161,
+      "crop": [
+        288,
+        48,
+        480,
+        272
+      ],
+      "original_alpha_exact": true,
+      "png_sha256": "fa25e9d52e9c9a7d7ad35cb84246bc0d430f008d32160a24ae537bd6240c647d"
+    },
+    {
+      "base": 163,
+      "crop": [
+        544,
+        48,
+        736,
+        272
+      ],
+      "original_alpha_exact": true,
+      "png_sha256": "652a7ba3c9fc4cb0836a19d38c8bbd64b1b72020215bbb9f805bf6611878d6de"
+    },
+    {
+      "base": 165,
+      "crop": [
+        32,
+        368,
+        224,
+        592
+      ],
+      "original_alpha_exact": true,
+      "png_sha256": "9c4332fbaf819542c995815b4b18a3bba968dee5cf70c62d594a93d43a9ceb46"
+    },
+    {
+      "base": 167,
+      "crop": [
+        288,
+        368,
+        480,
+        592
+      ],
+      "original_alpha_exact": true,
+      "png_sha256": "be2a4b76d35b407659b0c0bf996d94dd7a35fcbdecb391b34d05d4a01baad1f4"
+    }
+  ],
+  "cycle": [
+    159,
+    159,
+    161,
+    161,
+    163,
+    163,
+    165,
+    165,
+    167,
+    167,
+    165,
+    165,
+    163,
+    163,
+    161,
+    161,
+    159,
+    159,
+    159,
+    159
+  ]
+}

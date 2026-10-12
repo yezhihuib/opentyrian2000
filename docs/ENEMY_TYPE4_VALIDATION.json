@@ -1,0 +1,68 @@
+{
+  "status": "bounded_actual_and_author_pass",
+  "source_commit": "447069479164295f97b6432d30c8da07afb58b9d",
+  "baseline_commit": "eec06f5c6fa2f57917ed8f30dfb38a1c23c660be",
+  "source_eventtime": 2700,
+  "first_spawn_tick": 3300,
+  "discovery_last_tick": 3360,
+  "reviewed_ticks": [
+    3340,
+    3359
+  ],
+  "native2x_frames": 20,
+  "native4x_spot_tick": 3348,
+  "selected_order": [
+    159,
+    159,
+    161,
+    161,
+    163,
+    163,
+    165,
+    165,
+    167,
+    167,
+    165,
+    165,
+    163,
+    163,
+    161,
+    161,
+    159,
+    159,
+    159,
+    159
+  ],
+  "source_binding_count": 280,
+  "visible_source_qualified_quadrants": 268,
+  "all_original_state_indexed_rng_and_source_streams_exact_through3359": true,
+  "all_native2x_pixels_outside_type4_source_support_and_rectangles_exact": true,
+  "all_selected_actor_opaque_RGB_pixels_equal_authored_native2x": true,
+  "true4x_selected_actor_opaque_RGB_pixels_equal_authored": true,
+  "missing_family_full_internal_RGB_exact_baseline": true,
+  "corrupt_pose163_local_fallback_other4_active": true,
+  "filter_or_shadow_path_changed": false,
+  "no_spawn_animation_or_fire_injection": true,
+  "private_survival": "Same min2 invulnerability control in both fixtures; original no-fire replay and original events retained.",
+  "controls": "Paired control action,pause,next_tick and RNG exact; volatile wall_ms measurement excluded.4x spot has a separately declared capture marker.",
+  "author_review": "All20 chronological frames and native2x/4x normal scene pass; no art changes.",
+  "media": {
+    "native2x_png_sha256": "ff101dcbd49c30a53a235263a4512e4f7d5f49d19c3ea155399c232f34d5cb3f",
+    "native4x_png_sha256": "2382d27e9103ff450cb2b368e5273c0a388797cb1e6626ae663a30c0e525015d",
+    "lossless20frame_ORF_gzip_sha256": "f0f8a4216be1397f4d518fc3c847690ac0203db7a2e52cb4831dbca24ac128cd"
+  },
+  "evidence_sha256": {
+    "selection.json": "6ef2510d164daae6951551ab787423bc37f7acd92651fb7bc43cf6af975a5abf",
+    "candidate/frame-hashes.json": "2d6c393a82cdacecb6df34f582e50c8d160b648e390cd55a6ad2f166b54c1bbc",
+    "spot4x/frame-hashes.json": "8fd683fc55a6e5afaec3dbd481ff4732b94c65d8c3f46ef2a0b1e91205872efd",
+    "full-cycle-exposure.json": "58b78302e7260f9b62dc929a582000ac9a8a4324eee662c977323327477efe4d"
+  },
+  "author_review_sha256": "60381dc09dfffc82c863e7b17243af331d9a77dd11d5ace33d82e69d372caef8",
+  "limits": [
+    "No natural hit/ice filter or death visual coverage in no-fire window. No dedicated hurt/shadow art invented.",
+    "Existing scene-hits observer only targets types121\u2013124; not used as type4 hurt evidence.",
+    "4x spot state/indexed/RNG complete prefix exact through3348. Two hash-only auxiliary traces (poses,enemy-projectiles) have retained raw prefix equality only through3300;20-frame paired2x traces are fully exact through3359.",
+    "Native software/dummy SDL renderer evidence, not GPU/fullscreen/manual input/full-level/Windows acceptance.",
+    "Fifty source-loader corruption/absence cases and actual missing/corrupt family tests do not cover every interaction."
+  ]
+}

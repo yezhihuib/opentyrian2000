@@ -1,0 +1,1410 @@
+{
+  "schema": "type4-original-reference-handoff-v1",
+  "source_commit": "8227affc09edf11499885b896338f5318be3d424",
+  "original_sources_sha256": {
+    "tyrian.hdt": "fde8506326e7bb0916b38c362e33bf8a8a5affa561206c021af7f65b4a17745b",
+    "newsh2.shp": "8773ebcae4be992ecfbb476c0797b0bef4d43faa4c99449890bfaa28c8d9cbcc",
+    "palette.dat": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0",
+    "tyrian1.lvl": "54cbb00b57b84aa992a70cfcb170cb1edeb59507873723630d60080ba8351352"
+  },
+  "record4": {
+    "id": 4,
+    "ani": 20,
+    "tur": [
+      0,
+      0,
+      0
+    ],
+    "freq": [
+      0,
+      0,
+      0
+    ],
+    "xmove": 0,
+    "ymove": 1,
+    "xaccel": 0,
+    "yaccel": 0,
+    "xcaccel": 0,
+    "ycaccel": 0,
+    "startx": 130,
+    "starty": -13,
+    "startxc": 100,
+    "startyc": 0,
+    "armor": 4,
+    "esize": 1,
+    "egraphic": [
+      159,
+      159,
+      161,
+      161,
+      163,
+      163,
+      165,
+      165,
+      167,
+      167,
+      165,
+      165,
+      163,
+      163,
+      161,
+      161,
+      159,
+      159,
+      159,
+      159
+    ],
+    "explosiontype": 2,
+    "animate": 1,
+    "shapebank": 1,
+    "xrev": 0,
+    "yrev": 0,
+    "dgr": 0,
+    "dlevel": 0,
+    "dani": 0,
+    "elaunchfreq": 0,
+    "elaunchtype": 0,
+    "value": 25,
+    "eenemydie": 0
+  },
+  "frames": [
+    {
+      "base_id": 159,
+      "bank": "newsh2.shp",
+      "cells": [
+        {
+          "id": 159,
+          "offset": 18470,
+          "source_record_bytes": 71,
+          "source_record_sha256": "7251586d95c93867fee7021740605e677a8f267b11098dc1437b58e07374318d",
+          "opaque_pixels": 49,
+          "bank": "newsh2.shp",
+          "sprite_offset": 0,
+          "local_xy": [
+            0,
+            0
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 160,
+          "offset": 18541,
+          "source_record_bytes": 69,
+          "source_record_sha256": "bd791f8909bc103106e83b30e4ee1636ce431ffcfc52a5ef1cea64cba2d705b9",
+          "opaque_pixels": 47,
+          "bank": "newsh2.shp",
+          "sprite_offset": 1,
+          "local_xy": [
+            12,
+            0
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 178,
+          "offset": 20844,
+          "source_record_bytes": 79,
+          "source_record_sha256": "ee1b8acc83947695c05ea16781d2ecb98f792782b27d5b21eec656784cde6367",
+          "opaque_pixels": 61,
+          "bank": "newsh2.shp",
+          "sprite_offset": 19,
+          "local_xy": [
+            0,
+            14
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 179,
+          "offset": 20923,
+          "source_record_bytes": 78,
+          "source_record_sha256": "9c24bd24ce94752af8e1e940ebb7af4c28ec3b95e6a078de20909fa33a629fd7",
+          "opaque_pixels": 60,
+          "bank": "newsh2.shp",
+          "sprite_offset": 20,
+          "local_xy": [
+            12,
+            14
+          ],
+          "size": [
+            12,
+            14
+          ]
+        }
+      ],
+      "size": [
+        24,
+        28
+      ],
+      "anchor": [
+        6,
+        7
+      ],
+      "alpha_bbox_xyxy_exclusive": [
+        4,
+        6,
+        20,
+        23
+      ],
+      "opaque_pixels": 217,
+      "mask_centroid_pixel_indices": [
+        11.451612903225806,
+        14.23963133640553
+      ],
+      "indices_sha256": "a9079be0e8174242f24debb367a197fdd57467d63bdbedaf083d6d4dd1372fc3",
+      "alpha_sha256": "52e964ab77e0129d89d3bb44c939903d1665979bb3ba6239fe5491602313947f",
+      "native_png": "original-newsh2-159-24x28.png",
+      "native_png_sha256": "71758243e62514589aaa956eb473f4d56c38abbfadb381dc5ac06e976cc1454c",
+      "rgba_sha256": "c17fe259711dd358f655e6aea47b71d3667646ef405fa6e8719ed9564a266620"
+    },
+    {
+      "base_id": 161,
+      "bank": "newsh2.shp",
+      "cells": [
+        {
+          "id": 161,
+          "offset": 18610,
+          "source_record_bytes": 63,
+          "source_record_sha256": "a5a5086132146bcfc98993992cbadfdacf9094a2d517f9116920c1b4efda754d",
+          "opaque_pixels": 42,
+          "bank": "newsh2.shp",
+          "sprite_offset": 0,
+          "local_xy": [
+            0,
+            0
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 162,
+          "offset": 18673,
+          "source_record_bytes": 61,
+          "source_record_sha256": "03cf894a6b7ca22e38c61ef19a7856408c5fd497911a3cc127ecb3c938e91d8b",
+          "opaque_pixels": 40,
+          "bank": "newsh2.shp",
+          "sprite_offset": 1,
+          "local_xy": [
+            12,
+            0
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 180,
+          "offset": 21001,
+          "source_record_bytes": 90,
+          "source_record_sha256": "5b8e54b93dd68c3fdbe02434f47bfa5b3bc815a6bd158cde0cf1fdd9d89b2938",
+          "opaque_pixels": 70,
+          "bank": "newsh2.shp",
+          "sprite_offset": 19,
+          "local_xy": [
+            0,
+            14
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 181,
+          "offset": 21091,
+          "source_record_bytes": 89,
+          "source_record_sha256": "4a674db535524cddfc55c273a559ecc6cee6763ee2e78b27cbe3ce23df3f7792",
+          "opaque_pixels": 69,
+          "bank": "newsh2.shp",
+          "sprite_offset": 20,
+          "local_xy": [
+            12,
+            14
+          ],
+          "size": [
+            12,
+            14
+          ]
+        }
+      ],
+      "size": [
+        24,
+        28
+      ],
+      "anchor": [
+        6,
+        7
+      ],
+      "alpha_bbox_xyxy_exclusive": [
+        3,
+        7,
+        21,
+        24
+      ],
+      "opaque_pixels": 221,
+      "mask_centroid_pixel_indices": [
+        11.452488687782806,
+        15.20814479638009
+      ],
+      "indices_sha256": "6d23d4df9af46c3409d833d07e5282e2d76697bf9a666ea9aaef044c2bd68183",
+      "alpha_sha256": "965b0c8e834dde31380f91c2274c95e663ded0ce115a9f5b508c219299fbf805",
+      "native_png": "original-newsh2-161-24x28.png",
+      "native_png_sha256": "ec4ce7d3ba035f0848ca1ee713ff180150cf71e5964dc78c0241371a59a24b07",
+      "rgba_sha256": "de0219efa7569ddde163a53a84919fe3311f4cfd0b7bf7e82f5d8fa29f4b9c94"
+    },
+    {
+      "base_id": 163,
+      "bank": "newsh2.shp",
+      "cells": [
+        {
+          "id": 163,
+          "offset": 18734,
+          "source_record_bytes": 65,
+          "source_record_sha256": "9b40def9d85951a31fb0ca9226a88d3815a8812d4480baa5594e52d679dec1fa",
+          "opaque_pixels": 44,
+          "bank": "newsh2.shp",
+          "sprite_offset": 0,
+          "local_xy": [
+            0,
+            0
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 164,
+          "offset": 18799,
+          "source_record_bytes": 63,
+          "source_record_sha256": "7fb76fc7110e573b5ee405d052883481e76658d35bc10e3b8cb5c4653113ab8c",
+          "opaque_pixels": 42,
+          "bank": "newsh2.shp",
+          "sprite_offset": 1,
+          "local_xy": [
+            12,
+            0
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 182,
+          "offset": 21180,
+          "source_record_bytes": 92,
+          "source_record_sha256": "0255b6d2b320621a2968f9c8fc217ed2118b839db8619ebcdd37d1e05557a4a8",
+          "opaque_pixels": 72,
+          "bank": "newsh2.shp",
+          "sprite_offset": 19,
+          "local_xy": [
+            0,
+            14
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 183,
+          "offset": 21272,
+          "source_record_bytes": 92,
+          "source_record_sha256": "a7909e845049ebf2b7dda51974492fefdca045c151d0d86722b1a44da1c8dd28",
+          "opaque_pixels": 72,
+          "bank": "newsh2.shp",
+          "sprite_offset": 20,
+          "local_xy": [
+            12,
+            14
+          ],
+          "size": [
+            12,
+            14
+          ]
+        }
+      ],
+      "size": [
+        24,
+        28
+      ],
+      "anchor": [
+        6,
+        7
+      ],
+      "alpha_bbox_xyxy_exclusive": [
+        2,
+        7,
+        22,
+        24
+      ],
+      "opaque_pixels": 230,
+      "mask_centroid_pixel_indices": [
+        11.482608695652173,
+        15.134782608695652
+      ],
+      "indices_sha256": "c4d7971f84b1e7f6f593082ba55fe1447ebeadef1944bc5807c7487a9777ac2b",
+      "alpha_sha256": "ecdd318fd30808c0558e2ea1f670f2544c427070a049d8138fe8cf001916a1d2",
+      "native_png": "original-newsh2-163-24x28.png",
+      "native_png_sha256": "40388fe8ee2b4d6cfd52bcd58c45d03c7deb13a1d6404ebb5ecc72194372b3ef",
+      "rgba_sha256": "9d80feab30ac3e210b80c472853a96ef39638f68742530d787765f16b14f9bc6"
+    },
+    {
+      "base_id": 165,
+      "bank": "newsh2.shp",
+      "cells": [
+        {
+          "id": 165,
+          "offset": 18862,
+          "source_record_bytes": 71,
+          "source_record_sha256": "4dc936bd789dcdd9dddf10061f1424df31d5b41a381eba1ed9f1186f7c81ea09",
+          "opaque_pixels": 49,
+          "bank": "newsh2.shp",
+          "sprite_offset": 0,
+          "local_xy": [
+            0,
+            0
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 166,
+          "offset": 18933,
+          "source_record_bytes": 69,
+          "source_record_sha256": "dc01b910164cba64ddfd13ac7de694d6ebae396e21ffa8c37004bd049a228417",
+          "opaque_pixels": 47,
+          "bank": "newsh2.shp",
+          "sprite_offset": 1,
+          "local_xy": [
+            12,
+            0
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 184,
+          "offset": 21364,
+          "source_record_bytes": 97,
+          "source_record_sha256": "dcdcf688f3b128525d5f3bfae508048ba9c1d974fe5a427d6a3549c97b589516",
+          "opaque_pixels": 77,
+          "bank": "newsh2.shp",
+          "sprite_offset": 19,
+          "local_xy": [
+            0,
+            14
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 185,
+          "offset": 21461,
+          "source_record_bytes": 96,
+          "source_record_sha256": "da1f8d82633282996ef93b6ecd89993bd152f7c5b95b51968f0cb32bbaf2eabf",
+          "opaque_pixels": 76,
+          "bank": "newsh2.shp",
+          "sprite_offset": 20,
+          "local_xy": [
+            12,
+            14
+          ],
+          "size": [
+            12,
+            14
+          ]
+        }
+      ],
+      "size": [
+        24,
+        28
+      ],
+      "anchor": [
+        6,
+        7
+      ],
+      "alpha_bbox_xyxy_exclusive": [
+        1,
+        7,
+        23,
+        24
+      ],
+      "opaque_pixels": 249,
+      "mask_centroid_pixel_indices": [
+        11.457831325301205,
+        15.016064257028113
+      ],
+      "indices_sha256": "61a3de74d24ca3b9c7b133021c064ad63545dc5fc8f0841261e71c686b9ccf65",
+      "alpha_sha256": "265be82396d7e0922deafe7c0bd31a66e07135604b8eeb00625ffa484d1b8db8",
+      "native_png": "original-newsh2-165-24x28.png",
+      "native_png_sha256": "8eee5a468635f167715c04862a8467d27f92f3811ebb0b4adc264fef28432989",
+      "rgba_sha256": "9468afc289aff25e440e08ad4248c394996671456debfae814041bdff5539dc3"
+    },
+    {
+      "base_id": 167,
+      "bank": "newsh2.shp",
+      "cells": [
+        {
+          "id": 167,
+          "offset": 19002,
+          "source_record_bytes": 75,
+          "source_record_sha256": "78e0fac3dacb4891d5c83f6d8dd0d472f1c1fcbaabcc6a4afe635a623d459bfd",
+          "opaque_pixels": 53,
+          "bank": "newsh2.shp",
+          "sprite_offset": 0,
+          "local_xy": [
+            0,
+            0
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 168,
+          "offset": 19077,
+          "source_record_bytes": 73,
+          "source_record_sha256": "fa1183159b730fff9567ffcfb7806be50c07fc3c9c3e2dbeca04a9ba118cdad4",
+          "opaque_pixels": 51,
+          "bank": "newsh2.shp",
+          "sprite_offset": 1,
+          "local_xy": [
+            12,
+            0
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 186,
+          "offset": 21557,
+          "source_record_bytes": 102,
+          "source_record_sha256": "daf2d7b82dfedd37f0683b78cc4911e001dd6eff299955bc91fd480442a39142",
+          "opaque_pixels": 82,
+          "bank": "newsh2.shp",
+          "sprite_offset": 19,
+          "local_xy": [
+            0,
+            14
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 187,
+          "offset": 21659,
+          "source_record_bytes": 101,
+          "source_record_sha256": "cb1d34592aad7e48e93ac0b919dd6823ee86d560f4411357e96830d770893c72",
+          "opaque_pixels": 81,
+          "bank": "newsh2.shp",
+          "sprite_offset": 20,
+          "local_xy": [
+            12,
+            14
+          ],
+          "size": [
+            12,
+            14
+          ]
+        }
+      ],
+      "size": [
+        24,
+        28
+      ],
+      "anchor": [
+        6,
+        7
+      ],
+      "alpha_bbox_xyxy_exclusive": [
+        0,
+        7,
+        24,
+        24
+      ],
+      "opaque_pixels": 267,
+      "mask_centroid_pixel_indices": [
+        11.460674157303371,
+        14.94756554307116
+      ],
+      "indices_sha256": "244899407c4f95ef9a4fb7e6a1968283d69759b9046b70cb595d60521a6b26b4",
+      "alpha_sha256": "5a010f9e9de47a6b14f7e8101155fd1776eee72111529edb62579dff7082d69e",
+      "native_png": "original-newsh2-167-24x28.png",
+      "native_png_sha256": "e6dc88a0f482dce419b703f2f8485a533458581ca634742d243161f70ea2269f",
+      "rgba_sha256": "9c962315a96ab6e813eb9940dbd64958daab3f39ec69940d4998eee6e58ec596"
+    }
+  ],
+  "composition": {
+    "native_size": [
+      24,
+      28
+    ],
+    "cell_size": [
+      12,
+      14
+    ],
+    "cell_offsets": [
+      0,
+      1,
+      19,
+      20
+    ],
+    "local_positions": [
+      [
+        0,
+        0
+      ],
+      [
+        12,
+        0
+      ],
+      [
+        0,
+        14
+      ],
+      [
+        12,
+        14
+      ]
+    ],
+    "anchor_from_composite_top_left": [
+      6,
+      7
+    ],
+    "composite_top_left": "(enemy.ex + tempMapXOfs - 6, enemy.ey - 7)",
+    "native_game_calls": "four separately ordered calls; partial quadrants may be clipped or omitted near vertical bounds",
+    "source": "src/tyrian2.c:160-185,230-260; src/sprite.c:524-558"
+  },
+  "animation": {
+    "order": [
+      159,
+      159,
+      161,
+      161,
+      163,
+      163,
+      165,
+      165,
+      167,
+      167,
+      165,
+      165,
+      163,
+      163,
+      161,
+      161,
+      159,
+      159,
+      159,
+      159
+    ],
+    "cycle_ticks": 20,
+    "per_cycle_counts": {
+      "159": 6,
+      "161": 4,
+      "163": 4,
+      "165": 4,
+      "167": 2
+    },
+    "logic_tick_ms": 28.750023,
+    "cycle_duration_ms_while_active": 575.00046,
+    "advance_condition": "Once per JE_drawEnemy call when enemy.ex+tempMapXOfs > -29 and <300; advance before drawing; x-offscreen pauses cycle; death/slot removal stops it. Native y clipping does not change selected frame.",
+    "initial_cycle": 0,
+    "first_selected_cycle": 1,
+    "initial_aniactive": 1,
+    "animax": 0,
+    "animin": 1,
+    "source": "src/tyrian2.c:230-260,4032-4054"
+  },
+  "lifecycle": {
+    "raw_armor": 4,
+    "effective_armor": "difficulty-scaled by JE_makeEnemy; do not treat raw4 as universal HP",
+    "hurt": "same selected five-frame artwork with original palette filter; dgr=dani=dlevel0 so no separate hurt/destroyed image; enemyground=true allows weapon blast filter and ice filter0x09",
+    "shadow": "No independent shadow draw in this original enemy path. Do not bake a ground shadow or invent a shadow sprite. Source dark pixels remain part of the original design.",
+    "death": {
+      "explosiontype": 2,
+      "enemyground": true,
+      "explonum": 1,
+      "effect_bank": "newsh6.shp",
+      "initial_types": [
+        2,
+        4,
+        3,
+        5
+      ],
+      "initial_tile_sequences": {
+        "2": [
+          192,
+          193,
+          194,
+          195,
+          196,
+          197,
+          198,
+          199,
+          200,
+          201,
+          202,
+          203
+        ],
+        "4": [
+          154,
+          155,
+          156,
+          157,
+          158,
+          159,
+          160,
+          161,
+          162,
+          163,
+          164,
+          165
+        ],
+        "3": [
+          211,
+          212,
+          213,
+          214,
+          215,
+          216,
+          217,
+          218,
+          219,
+          220,
+          221,
+          222
+        ],
+        "5": [
+          173,
+          174,
+          175,
+          176,
+          177,
+          178,
+          179,
+          180,
+          181,
+          182,
+          183,
+          184
+        ]
+      },
+      "repeat": "explonum1 schedules one small repeated explosion type1, using122\u2013133, if pool slot available",
+      "asset_reuse": "all these generic death effect frames currently mapped; retain original shared effect assets",
+      "source": "src/tyrian2.c:3990-4001,1751-1760,1943-1977; src/varz.c:972-1019"
+    },
+    "turrets": [
+      0,
+      0,
+      0
+    ],
+    "initial_fire_frequency": [
+      0,
+      0,
+      0
+    ],
+    "launch_type": 0,
+    "launch_frequency": 0,
+    "record_default_drop": 0,
+    "conditional_arcade_drop_assignments": [
+      {
+        "eventtime": 2735,
+        "type": 45,
+        "dat": 618,
+        "dat2": 0,
+        "dat3": 0,
+        "dat5": 0,
+        "dat6": 0,
+        "dat4": 17,
+        "index": 496,
+        "scalar_predicted_tick": 3405
+      },
+      {
+        "eventtime": 2765,
+        "type": 45,
+        "dat": 602,
+        "dat2": 0,
+        "dat3": 0,
+        "dat5": 0,
+        "dat6": 0,
+        "dat4": 7,
+        "index": 510,
+        "scalar_predicted_tick": 3495
+      },
+      {
+        "eventtime": 2845,
+        "type": 45,
+        "dat": 628,
+        "dat2": 0,
+        "dat3": 0,
+        "dat5": 0,
+        "dat6": 0,
+        "dat4": 17,
+        "index": 538,
+        "scalar_predicted_tick": 3735
+      },
+      {
+        "eventtime": 2875,
+        "type": 45,
+        "dat": 628,
+        "dat2": 0,
+        "dat3": 0,
+        "dat5": 0,
+        "dat6": 0,
+        "dat4": 7,
+        "index": 552,
+        "scalar_predicted_tick": 3825
+      },
+      {
+        "eventtime": 3345,
+        "type": 45,
+        "dat": 628,
+        "dat2": 0,
+        "dat3": 0,
+        "dat5": 0,
+        "dat6": 0,
+        "dat4": 17,
+        "index": 686,
+        "scalar_predicted_tick": 5235
+      },
+      {
+        "eventtime": 3415,
+        "type": 45,
+        "dat": 628,
+        "dat2": 0,
+        "dat3": 0,
+        "dat5": 0,
+        "dat6": 0,
+        "dat4": 17,
+        "index": 712,
+        "scalar_predicted_tick": 5445
+      }
+    ],
+    "drop_qualification": "Event45 applies only twoPlayerMode or onePlayerAction (and not superTyrian). In normal one-player story mode these assignments are skipped. Keep existing pickup families out of the five-pose art scope.",
+    "global_asset_reuse": "All1701 loaded enemy records checked; only record4 references these five bases in bank1. Other bank numeric matches are unrelated."
+  },
+  "spawn_events": [
+    {
+      "eventtime": 2700,
+      "type": 7,
+      "dat": 4,
+      "dat2": 40,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 10,
+      "index": 476,
+      "scalar_predicted_tick": 3300
+    },
+    {
+      "eventtime": 2705,
+      "type": 7,
+      "dat": 4,
+      "dat2": 40,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 11,
+      "index": 478,
+      "scalar_predicted_tick": 3315
+    },
+    {
+      "eventtime": 2710,
+      "type": 7,
+      "dat": 4,
+      "dat2": 40,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 12,
+      "index": 480,
+      "scalar_predicted_tick": 3330
+    },
+    {
+      "eventtime": 2715,
+      "type": 7,
+      "dat": 4,
+      "dat2": 40,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 13,
+      "index": 482,
+      "scalar_predicted_tick": 3345
+    },
+    {
+      "eventtime": 2720,
+      "type": 7,
+      "dat": 4,
+      "dat2": 40,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 14,
+      "index": 484,
+      "scalar_predicted_tick": 3360
+    },
+    {
+      "eventtime": 2725,
+      "type": 7,
+      "dat": 4,
+      "dat2": 40,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 15,
+      "index": 486,
+      "scalar_predicted_tick": 3375
+    },
+    {
+      "eventtime": 2730,
+      "type": 7,
+      "dat": 4,
+      "dat2": 40,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 16,
+      "index": 488,
+      "scalar_predicted_tick": 3390
+    },
+    {
+      "eventtime": 2730,
+      "type": 7,
+      "dat": 4,
+      "dat2": 300,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 18,
+      "index": 489,
+      "scalar_predicted_tick": 3390
+    },
+    {
+      "eventtime": 2735,
+      "type": 7,
+      "dat": 4,
+      "dat2": 40,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 17,
+      "index": 492,
+      "scalar_predicted_tick": 3405
+    },
+    {
+      "eventtime": 2735,
+      "type": 7,
+      "dat": 4,
+      "dat2": 300,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 1,
+      "index": 493,
+      "scalar_predicted_tick": 3405
+    },
+    {
+      "eventtime": 2740,
+      "type": 7,
+      "dat": 4,
+      "dat2": 300,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 2,
+      "index": 497,
+      "scalar_predicted_tick": 3420
+    },
+    {
+      "eventtime": 2745,
+      "type": 7,
+      "dat": 4,
+      "dat2": 300,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 3,
+      "index": 500,
+      "scalar_predicted_tick": 3435
+    },
+    {
+      "eventtime": 2750,
+      "type": 7,
+      "dat": 4,
+      "dat2": 300,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 4,
+      "index": 502,
+      "scalar_predicted_tick": 3450
+    },
+    {
+      "eventtime": 2755,
+      "type": 7,
+      "dat": 4,
+      "dat2": 300,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 5,
+      "index": 504,
+      "scalar_predicted_tick": 3465
+    },
+    {
+      "eventtime": 2760,
+      "type": 7,
+      "dat": 4,
+      "dat2": 300,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 6,
+      "index": 506,
+      "scalar_predicted_tick": 3480
+    },
+    {
+      "eventtime": 2765,
+      "type": 7,
+      "dat": 4,
+      "dat2": 300,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 7,
+      "index": 508,
+      "scalar_predicted_tick": 3495
+    },
+    {
+      "eventtime": 2810,
+      "type": 7,
+      "dat": 4,
+      "dat2": 40,
+      "dat3": 1,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 10,
+      "index": 517,
+      "scalar_predicted_tick": 3630
+    },
+    {
+      "eventtime": 2815,
+      "type": 7,
+      "dat": 4,
+      "dat2": 40,
+      "dat3": 1,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 11,
+      "index": 519,
+      "scalar_predicted_tick": 3645
+    },
+    {
+      "eventtime": 2820,
+      "type": 7,
+      "dat": 4,
+      "dat2": 40,
+      "dat3": 1,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 12,
+      "index": 522,
+      "scalar_predicted_tick": 3660
+    },
+    {
+      "eventtime": 2825,
+      "type": 7,
+      "dat": 4,
+      "dat2": 40,
+      "dat3": 1,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 13,
+      "index": 524,
+      "scalar_predicted_tick": 3675
+    },
+    {
+      "eventtime": 2830,
+      "type": 7,
+      "dat": 4,
+      "dat2": 40,
+      "dat3": 1,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 14,
+      "index": 526,
+      "scalar_predicted_tick": 3690
+    },
+    {
+      "eventtime": 2835,
+      "type": 7,
+      "dat": 4,
+      "dat2": 40,
+      "dat3": 1,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 15,
+      "index": 528,
+      "scalar_predicted_tick": 3705
+    },
+    {
+      "eventtime": 2840,
+      "type": 7,
+      "dat": 4,
+      "dat2": 40,
+      "dat3": 1,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 16,
+      "index": 530,
+      "scalar_predicted_tick": 3720
+    },
+    {
+      "eventtime": 2840,
+      "type": 7,
+      "dat": 4,
+      "dat2": 300,
+      "dat3": 1,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 18,
+      "index": 531,
+      "scalar_predicted_tick": 3720
+    },
+    {
+      "eventtime": 2845,
+      "type": 7,
+      "dat": 4,
+      "dat2": 40,
+      "dat3": 1,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 17,
+      "index": 534,
+      "scalar_predicted_tick": 3735
+    },
+    {
+      "eventtime": 2845,
+      "type": 7,
+      "dat": 4,
+      "dat2": 300,
+      "dat3": 1,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 1,
+      "index": 535,
+      "scalar_predicted_tick": 3735
+    },
+    {
+      "eventtime": 2850,
+      "type": 7,
+      "dat": 4,
+      "dat2": 300,
+      "dat3": 1,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 2,
+      "index": 539,
+      "scalar_predicted_tick": 3750
+    },
+    {
+      "eventtime": 2855,
+      "type": 7,
+      "dat": 4,
+      "dat2": 300,
+      "dat3": 1,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 3,
+      "index": 541,
+      "scalar_predicted_tick": 3765
+    },
+    {
+      "eventtime": 2860,
+      "type": 7,
+      "dat": 4,
+      "dat2": 300,
+      "dat3": 1,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 4,
+      "index": 543,
+      "scalar_predicted_tick": 3780
+    },
+    {
+      "eventtime": 2865,
+      "type": 7,
+      "dat": 4,
+      "dat2": 300,
+      "dat3": 1,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 5,
+      "index": 545,
+      "scalar_predicted_tick": 3795
+    },
+    {
+      "eventtime": 2870,
+      "type": 7,
+      "dat": 4,
+      "dat2": 300,
+      "dat3": 1,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 6,
+      "index": 547,
+      "scalar_predicted_tick": 3810
+    },
+    {
+      "eventtime": 2875,
+      "type": 7,
+      "dat": 4,
+      "dat2": 300,
+      "dat3": 1,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 7,
+      "index": 550,
+      "scalar_predicted_tick": 3825
+    },
+    {
+      "eventtime": 3310,
+      "type": 7,
+      "dat": 4,
+      "dat2": 40,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 10,
+      "index": 661,
+      "scalar_predicted_tick": 5130
+    },
+    {
+      "eventtime": 3315,
+      "type": 7,
+      "dat": 4,
+      "dat2": 40,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 11,
+      "index": 665,
+      "scalar_predicted_tick": 5145
+    },
+    {
+      "eventtime": 3320,
+      "type": 7,
+      "dat": 4,
+      "dat2": 40,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 12,
+      "index": 668,
+      "scalar_predicted_tick": 5160
+    },
+    {
+      "eventtime": 3325,
+      "type": 7,
+      "dat": 4,
+      "dat2": 40,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 13,
+      "index": 671,
+      "scalar_predicted_tick": 5175
+    },
+    {
+      "eventtime": 3330,
+      "type": 7,
+      "dat": 4,
+      "dat2": 40,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 14,
+      "index": 674,
+      "scalar_predicted_tick": 5190
+    },
+    {
+      "eventtime": 3335,
+      "type": 7,
+      "dat": 4,
+      "dat2": 40,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 15,
+      "index": 677,
+      "scalar_predicted_tick": 5205
+    },
+    {
+      "eventtime": 3340,
+      "type": 7,
+      "dat": 4,
+      "dat2": 40,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 16,
+      "index": 680,
+      "scalar_predicted_tick": 5220
+    },
+    {
+      "eventtime": 3345,
+      "type": 7,
+      "dat": 4,
+      "dat2": 40,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 17,
+      "index": 683,
+      "scalar_predicted_tick": 5235
+    },
+    {
+      "eventtime": 3380,
+      "type": 7,
+      "dat": 4,
+      "dat2": 300,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 10,
+      "index": 687,
+      "scalar_predicted_tick": 5340
+    },
+    {
+      "eventtime": 3385,
+      "type": 7,
+      "dat": 4,
+      "dat2": 300,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 11,
+      "index": 690,
+      "scalar_predicted_tick": 5355
+    },
+    {
+      "eventtime": 3390,
+      "type": 7,
+      "dat": 4,
+      "dat2": 300,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 12,
+      "index": 693,
+      "scalar_predicted_tick": 5370
+    },
+    {
+      "eventtime": 3395,
+      "type": 7,
+      "dat": 4,
+      "dat2": 300,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 13,
+      "index": 696,
+      "scalar_predicted_tick": 5385
+    },
+    {
+      "eventtime": 3400,
+      "type": 7,
+      "dat": 4,
+      "dat2": 300,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 14,
+      "index": 699,
+      "scalar_predicted_tick": 5400
+    },
+    {
+      "eventtime": 3405,
+      "type": 7,
+      "dat": 4,
+      "dat2": 300,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 15,
+      "index": 703,
+      "scalar_predicted_tick": 5415
+    },
+    {
+      "eventtime": 3410,
+      "type": 7,
+      "dat": 4,
+      "dat2": 300,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 16,
+      "index": 706,
+      "scalar_predicted_tick": 5430
+    },
+    {
+      "eventtime": 3415,
+      "type": 7,
+      "dat": 4,
+      "dat2": 300,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 17,
+      "index": 709,
+      "scalar_predicted_tick": 5445
+    }
+  ],
+  "retained_evidence": {
+    "first_source_spawn_tick": 3300,
+    "first_source_spawn_eventtime": 2700,
+    "first_references": {
+      "159": 3316,
+      "161": 3314,
+      "163": 3304,
+      "165": 3306,
+      "167": 3308
+    },
+    "material_trace": "mechanical4-visibility-recovered-20261012-1620/logs/asset-debug-materials.tsv.gz",
+    "condition": "private-survival/no-fire retained references; not a new run or final RGB proof"
+  },
+  "palette": {
+    "index": 5,
+    "selection": "original level palette, retained palette5/runtime equality proof",
+    "transparent_rule": "RLE skipped pixels alpha0; explicitly written palette pixels alpha255, including palette index0 if present",
+    "source": "mechanical4-visibility-recovered-20261012-1620/runtime-palette-verified.json"
+  },
+  "outputs": "Original decoded source references only; no generated art, composite game scene or runtime capture."
+}

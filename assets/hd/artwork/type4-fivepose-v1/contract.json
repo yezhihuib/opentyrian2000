@@ -1,0 +1,149 @@
+{
+  "version": 1,
+  "bank": "newsh2.shp",
+  "category": "enemy",
+  "enemy_type": 4,
+  "output_bases": [
+    159,
+    161,
+    163,
+    165,
+    167
+  ],
+  "runtime_components": [
+    0,
+    1,
+    19,
+    20
+  ],
+  "order": [
+    159,
+    159,
+    161,
+    161,
+    163,
+    163,
+    165,
+    165,
+    167,
+    167,
+    165,
+    165,
+    163,
+    163,
+    161,
+    161,
+    159,
+    159,
+    159,
+    159
+  ],
+  "master": "sources/generated-fivepose.png",
+  "registered_master_size": [
+    768,
+    640
+  ],
+  "transparent_edge_RGB_handling": "Premultiplied generated RGBA over original12gray outline matte, then original RLE occupancy. Prevents transparent colored fringe leakage.",
+  "entries": [
+    {
+      "base": 159,
+      "hda_id": 1010159,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "anchor": [
+        6,
+        7
+      ],
+      "crop": [
+        32,
+        48,
+        224,
+        272
+      ],
+      "mask": "masks/alpha-159.png"
+    },
+    {
+      "base": 161,
+      "hda_id": 1010161,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "anchor": [
+        6,
+        7
+      ],
+      "crop": [
+        288,
+        48,
+        480,
+        272
+      ],
+      "mask": "masks/alpha-161.png"
+    },
+    {
+      "base": 163,
+      "hda_id": 1010163,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "anchor": [
+        6,
+        7
+      ],
+      "crop": [
+        544,
+        48,
+        736,
+        272
+      ],
+      "mask": "masks/alpha-163.png"
+    },
+    {
+      "base": 165,
+      "hda_id": 1010165,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "anchor": [
+        6,
+        7
+      ],
+      "crop": [
+        32,
+        368,
+        224,
+        592
+      ],
+      "mask": "masks/alpha-165.png"
+    },
+    {
+      "base": 167,
+      "hda_id": 1010167,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "anchor": [
+        6,
+        7
+      ],
+      "crop": [
+        288,
+        368,
+        480,
+        592
+      ],
+      "mask": "masks/alpha-167.png"
+    }
+  ]
+}

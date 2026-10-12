@@ -28,6 +28,38 @@ FROZEN = {
 }
 
 
+# Exact published round inserts and approved type4 additions. Only these seven
+# entries may be projected out of the pre-round-insert historical gameplay pin.
+FROZEN_GAMEPLAY_ADDITIONS = {'terrain-shapesz-190-8.hda': {'sha256': '023700d1ad415753564e2f2598c493df9fcc5f56a3112b33cd0056957cd46e70',
+                               'header_u32': [2010190, 8, 24, 28, 0, 0],
+                               'source_png': 'assets/hd/source/terrain-shapesz-190-8-023700d1ad41.png',
+                               'source_png_sha256': 'dbdbdce20f9a67a779fa6448e4de6e5985afa9ec3728e55a3bff31aa184e0e37'},
+ 'terrain-shapesz-200-8.hda': {'sha256': 'bde737956fc39f626064af9aba6b2b418bfec02829b9e6e70b300e232455ba07',
+                               'header_u32': [2010200, 8, 24, 28, 0, 0],
+                               'source_png': 'assets/hd/source/terrain-shapesz-200-8-bde737956fc3.png',
+                               'source_png_sha256': '851c3f94970f7165667ebe52ac0b07ab665d79dd295b4a2b5dcee10d4f93f4d1'},
+ 'enemy-newsh2-159-8.hda': {'sha256': '95299c134dc5e4eab1eb12dfe425205fdca069a93eb019fcad8905feb51b5684',
+                            'header_u32': [1010159, 8, 24, 28, 6, 7],
+                            'source_png': 'assets/hd/source/enemy-newsh2-159-8-95299c134dc5.png',
+                            'source_png_sha256': '085c12d8b17e5e634fa4b3de859845bd022ab8876261b4a96db56c58dfc3916f'},
+ 'enemy-newsh2-161-8.hda': {'sha256': 'a1b512605f485ef4238e22e5d9cd2d15e3d937a5aa2eac7fab4c49b208425a0d',
+                            'header_u32': [1010161, 8, 24, 28, 6, 7],
+                            'source_png': 'assets/hd/source/enemy-newsh2-161-8-a1b512605f48.png',
+                            'source_png_sha256': 'fa25e9d52e9c9a7d7ad35cb84246bc0d430f008d32160a24ae537bd6240c647d'},
+ 'enemy-newsh2-163-8.hda': {'sha256': '57ed11e6c01d414846bf7429805b92ed74673357488f133175e0a549024812ee',
+                            'header_u32': [1010163, 8, 24, 28, 6, 7],
+                            'source_png': 'assets/hd/source/enemy-newsh2-163-8-57ed11e6c01d.png',
+                            'source_png_sha256': '652a7ba3c9fc4cb0836a19d38c8bbd64b1b72020215bbb9f805bf6611878d6de'},
+ 'enemy-newsh2-165-8.hda': {'sha256': '4b10683ba005d54a64be04501c076171580e1c99419a63c4da7a93bab8f2cb91',
+                            'header_u32': [1010165, 8, 24, 28, 6, 7],
+                            'source_png': 'assets/hd/source/enemy-newsh2-165-8-4b10683ba005.png',
+                            'source_png_sha256': '9c4332fbaf819542c995815b4b18a3bba968dee5cf70c62d594a93d43a9ceb46'},
+ 'enemy-newsh2-167-8.hda': {'sha256': 'ce94f5992c37815ababde4dba95197726a8817df248efa6d6a6f3882b60a7110',
+                            'header_u32': [1010167, 8, 24, 28, 6, 7],
+                            'source_png': 'assets/hd/source/enemy-newsh2-167-8-ce94f5992c37.png',
+                            'source_png_sha256': 'be2a4b76d35b407659b0c0bf996d94dd7a35fcbdecb391b34d05d4a01baad1f4'}}
+
+
 def digest(data):
     return hashlib.sha256(data).hexdigest()
 
@@ -117,8 +149,65 @@ class ManufacturerPackageTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 API['validate_resource'](corrupt)
 
+    def test_gameplay_manifest_guard_rejects_widening(self):
+        original = self.manifest
+        target = original['default_debug_pack']
+        for case in ('unknown-entry', 'old-entry-change', 'known-entry-change', 'partial-family', 'wrong-count'):
+            with self.subTest(case=case):
+                changed = json.loads(json.dumps(original))
+                pack = changed['packs'][target]
+                if case == 'unknown-entry':
+                    pack['files']['unapproved-extra.hda'] = dict(next(iter(pack['files'].values())))
+                    pack['count'] += 1
+                elif case == 'old-entry-change':
+                    name = next(name for name in pack['files'] if name not in FROZEN_GAMEPLAY_ADDITIONS)
+                    pack['files'][name]['sha256'] = '0' * 64
+                elif case == 'known-entry-change':
+                    pack['files']['enemy-newsh2-163-8.hda']['sha256'] = '0' * 64
+                elif case == 'partial-family':
+                    del pack['files']['enemy-newsh2-163-8.hda']
+                    pack['count'] -= 1
+                else:
+                    pack['count'] += 1
+                self.manifest = changed
+                try:
+                    with self.assertRaises(AssertionError):
+                        self.test_gameplay_manifest_unchanged()
+                finally:
+                    self.manifest = original
+
     def test_gameplay_manifest_unchanged(self):
-        packs = self.manifest['packs']
+        # The unchanged startup resources coexist with two later finite art
+        # families. Validate their exact entries/bytes and complete default-pack
+        # scope before comparing every remaining entry to the original pin.
+        packs = json.loads(json.dumps(self.manifest['packs']))
+        defaults = {self.manifest['default_preview_pack'], self.manifest['default_debug_pack']}
+        self.assertEqual(len(defaults), 2)
+        groups = [
+            ('terrain_layer3_mechanical_round_inserts_v1', [190, 200], [367, 368], 'terrain-shapesz'),
+            ('enemy_type4_fivepose_v1', [159, 161, 163, 165, 167], [369, 370, 371, 372, 373], 'enemy-newsh2'),
+        ]
+        for family, ids, slots, prefix in groups:
+            names = [f'{prefix}-{sprite_id}-8.hda' for sprite_id in ids]
+            present = any(name in pack['files'] for pack in packs.values() for name in names)
+            if not present:
+                self.assertNotIn(family, self.manifest)
+                continue
+            self.assertEqual(self.manifest[family]['ids'], ids)
+            self.assertEqual(self.manifest[family]['slots'], slots)
+            for name in names:
+                expected = FROZEN_GAMEPLAY_ADDITIONS[name]
+                self.assertEqual({key for key, pack in packs.items() if name in pack['files']}, defaults)
+                for key in defaults:
+                    pack = packs[key]
+                    self.assertEqual(pack['count'], len(pack['files']))
+                    self.assertEqual(pack['files'][name], expected)
+                    raw = (ROOT / 'assets/hd/packs' / key / name).read_bytes()
+                    self.assertEqual(digest(raw), expected['sha256'])
+                    self.assertEqual(raw[:28], b'HDR1' + struct.pack('<6I', *expected['header_u32']))
+                    self.assertEqual(digest((ROOT / expected['source_png']).read_bytes()), expected['source_png_sha256'])
+                    del pack['files'][name]
+                    pack['count'] -= 1
         self.assertNotIn(PACK, packs)
         self.assertEqual(digest(json.dumps(packs, sort_keys=True, separators=(',', ':')).encode()),
                          'e21f03ac25ac166c432e8270357830aba12d1621dbdd2d8063c5823c2c2b7b4b')
