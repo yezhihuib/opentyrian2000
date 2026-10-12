@@ -59,3 +59,10 @@ Four additional player heads58/60/62/165 are accepted at powers1/2/6/11.
 See [PULSE_UPGRADE_VALIDATION.md](PULSE_UPGRADE_VALIDATION.md) for bounded actual
 2×/4× evidence and reproduction. Current18 packs:2898 HDA entries,341 PNGs;
 default preview329/debug333. This batch still needs Windows-specific acceptance.
+
+## Coordinated island continuity correction
+
+41 existing art resources are revised together: gray rims/interiors/craters,
+purple gray backings and the three turret144 backings. No production code or
+asset-count change. See [ISLAND_CONTINUITY_VALIDATION.md](ISLAND_CONTINUITY_VALIDATION.md).
+Windows acceptance of this art revision remains pending.

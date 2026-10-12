@@ -1,0 +1,201 @@
+{
+  "baseline_commit": "b1c7d776d071d21949c55d644c192c6ec33efe1b",
+  "production_source_changes": 0,
+  "changed_resources": 41,
+  "unchanged_debug_resources": 292,
+  "normal_matrix": {
+    "status": "passed",
+    "runs": 8,
+    "render_frames": 2160,
+    "private_survival_only": true,
+    "original_logs": [
+      "state.tsv",
+      "collisions.tsv",
+      "poses.tsv",
+      "player-projectiles.tsv",
+      "fire-events.tsv",
+      "asset-debug-materials.tsv",
+      "scene-enemies.tsv",
+      "scene-hits.tsv",
+      "player-shot-requests.tsv",
+      "player-shot-emissions.tsv",
+      "player-shot-results.tsv",
+      "player-shot-draws.tsv",
+      "enemy-projectiles.tsv"
+    ],
+    "proof": [
+      {
+        "scale": 2,
+        "mode": "local",
+        "original_log_count": 13,
+        "exact": true,
+        "RGB_exact": false
+      },
+      {
+        "scale": 2,
+        "mode": "missing",
+        "original_log_count": 13,
+        "exact": true,
+        "RGB_exact": true
+      },
+      {
+        "scale": 4,
+        "mode": "local",
+        "original_log_count": 13,
+        "exact": true,
+        "RGB_exact": false
+      },
+      {
+        "scale": 4,
+        "mode": "missing",
+        "original_log_count": 13,
+        "exact": true,
+        "RGB_exact": true
+      }
+    ],
+    "wild_processor4": {
+      "runs": 2,
+      "render_frames": 540,
+      "original_logs_exact": true,
+      "zero_coverage_errors": true
+    }
+  },
+  "controls": {
+    "status": "passed",
+    "checks": [
+      {
+        "family": "turret",
+        "original_logs_exact": [
+          "state.tsv",
+          "collisions.tsv",
+          "scene-enemies.tsv",
+          "scene-hits.tsv",
+          "enemy-projectiles.tsv",
+          "player-projectiles.tsv",
+          "fire-events.tsv",
+          "asset-debug-explosion-pools.tsv",
+          "asset-debug-materials.tsv",
+          "player-shot-requests.tsv",
+          "player-shot-emissions.tsv",
+          "player-shot-results.tsv",
+          "player-shot-draws.tsv"
+        ],
+        "frames": 68,
+        "recipe": null
+      },
+      {
+        "family": "purple",
+        "original_logs_exact": [
+          "state.tsv",
+          "collisions.tsv",
+          "scene-enemies.tsv",
+          "scene-hits.tsv",
+          "enemy-projectiles.tsv",
+          "player-projectiles.tsv",
+          "fire-events.tsv",
+          "asset-debug-explosion-pools.tsv",
+          "asset-debug-materials.tsv",
+          "player-shot-requests.tsv",
+          "player-shot-emissions.tsv",
+          "player-shot-results.tsv",
+          "player-shot-draws.tsv"
+        ],
+        "frames": 120,
+        "recipe": [
+          {
+            "type": 41,
+            "slot": 59,
+            "hit_tick": 2549,
+            "destroy_tick": 2551
+          },
+          {
+            "type": 36,
+            "slot": 62,
+            "hit_tick": 2553,
+            "destroy_tick": 2555
+          },
+          {
+            "type": 33,
+            "slot": 54,
+            "hit_tick": 2557,
+            "destroy_tick": 2559
+          },
+          {
+            "type": 38,
+            "slot": 58,
+            "hit_tick": 2581,
+            "destroy_tick": 2583
+          },
+          {
+            "type": 39,
+            "slot": 60,
+            "hit_tick": 2585,
+            "destroy_tick": 2587
+          },
+          {
+            "type": 35,
+            "slot": 64,
+            "hit_tick": 2589,
+            "destroy_tick": 2591
+          },
+          {
+            "type": 37,
+            "slot": 63,
+            "hit_tick": 2593,
+            "destroy_tick": 2595
+          },
+          {
+            "type": 32,
+            "slot": 53,
+            "hit_tick": 2597,
+            "destroy_tick": 2599
+          },
+          {
+            "type": 34,
+            "slot": 55,
+            "hit_tick": 2601,
+            "destroy_tick": 2603
+          }
+        ]
+      }
+    ]
+  },
+  "package_inventory_sha256": "dffca3e0dc90c7b8945b4a4425e077acf9ee39540d5da6ddba6550bdd2f914d7",
+  "independent_source_rebuild_outputs": 43,
+  "source_audit": {
+    "outputs": 43,
+    "changed": 41,
+    "headers_anchors_exact": true,
+    "accepted_generated_input_RGBA_matches": 40,
+    "protected_purple_texels_exact": 708329,
+    "chromatic_seed_texels_exact": 641860,
+    "purple_alpha_exact": true,
+    "turret_original_exporter_and_atlas_exact": true,
+    "independent_rebuild_png_RGBA_HDA_exact": 43,
+    "repo_wrapper_new_external_output_only": true
+  },
+  "media_budget": {
+    "retained_media_bytes": 7218901866,
+    "retained_media_GiB": 6.723126271739602,
+    "free_bytes": 11723288576,
+    "island_media_bytes": 18105426,
+    "island_media_files": 14,
+    "deletion": false
+  },
+  "actual_pixel_scope": {
+    "frames": 120,
+    "differences_only_inside41_resource_rectangles": true,
+    "HUD_exact": true,
+    "prior_capture_matches_current_baseline": true
+  },
+  "visual_review": {
+    "scroll_frames": 120,
+    "purple_control_frames": 120,
+    "turret_control_frames": 68,
+    "author_all308_pass": true,
+    "root_native2x2700_pass": true,
+    "native4x2700_pass": true,
+    "bounded_scope": true,
+    "residual": "repeated stone pattern remains visible"
+  }
+}
