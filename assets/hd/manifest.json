@@ -44152,5 +44152,283 @@
     "fallback": "Both scene bits and all eight selected-pack 8x HDR1 resources must validate before either draw route replaces any member. One missing, corrupt or nonopaque resource disables this family only; no 4x substitution. Cache lifetime follows existing selected-pack Asset cache.",
     "original_relative_actor_y": 1,
     "runtime_status": "Bounded original private-survival/diagnostic-Pulse lifecycle4900\u20134935 passed: same-pose hit, target-only damage99 iced40/filter0, original linked31 lethal removal and exact fully revealed underlays; full4936-tick original state/indexed/RNG and outside-support RGB equal baseline. True4x4931 spot and coherent missing-terrain/missing-actor/corrupt-actor fallback passed. Natural manual combat, full-level, GPU/fullscreen and Windows remain unverified."
+  },
+  "startup_title_v1": {
+    "schema": "finite-startup-title-tlv1-v1",
+    "source": "assets/hd/artwork/title-screen-v1",
+    "pack": "startup-title-v1",
+    "count": 5,
+    "title_count": 3,
+    "manufacturer_compatibility_count": 2,
+    "title_resource_bytes": 7113968,
+    "manufacturer_compatibility_bytes": 8192128,
+    "manufacturer_compatibility_source_pack": "startup-manufacturer-v1",
+    "source_manifest_sha256": "d7bd240f1210d01c3d0e01a81ec5511fe02be7972014d6564e333c54306bd7cc",
+    "files": {
+      "startup-pic10-v1.hda": {
+        "bytes": 4096064,
+        "sha256": "a885d023f89b0e214a81df1d02dbf62d6e36645820c1a15e9a0ad74a2c5e2c79",
+        "pic_id": 10,
+        "palette_zero_based": 20,
+        "density": 4,
+        "logical_dimensions": [
+          320,
+          200
+        ],
+        "pixel_dimensions": [
+          1280,
+          800
+        ],
+        "payload_bytes": 4096000,
+        "header_bytes": 64,
+        "decoded_indices_fnv64": "720d8ce9dda3f5f4",
+        "palette_rgb_fnv64": "b50ac0b9e5f1a73d",
+        "payload_fnv64": "46944845146f2d39",
+        "reserved": 0,
+        "source_png": "previews/pic10-candidate-native4x.png",
+        "source_png_sha256": "00fd3fa8dccd72edc7621fe1b94e0f7ab60ca011e15ea886bfac2dcef63688bd",
+        "canonical_rgb_sha256": "af1361363f0d4405008ecf3458d5fcaae1ffc39159572dad0448c8d92fe9765e"
+      },
+      "startup-pic12-v1.hda": {
+        "bytes": 4096064,
+        "sha256": "bd358e8006a99467e08bc8bf257e6ead51fe5f216c63c57088612ef5039c7669",
+        "pic_id": 12,
+        "palette_zero_based": 22,
+        "density": 4,
+        "logical_dimensions": [
+          320,
+          200
+        ],
+        "pixel_dimensions": [
+          1280,
+          800
+        ],
+        "payload_bytes": 4096000,
+        "header_bytes": 64,
+        "decoded_indices_fnv64": "98d7341da720b7ab",
+        "palette_rgb_fnv64": "20261a06b61711d5",
+        "payload_fnv64": "3d97f250a0cae51a",
+        "reserved": 0,
+        "source_png": "previews/pic12-candidate-native4x.png",
+        "source_png_sha256": "1e84bae41415ea278257c81ab29397f97e586c87af0169e0fa497a2c87effa34",
+        "canonical_rgb_sha256": "60ebe4edccdd61588a707bd28c5d6fcd50f2aa2460060ee93812469b8e6a92c9"
+      },
+      "title-pic4-v1.hda": {
+        "bytes": 4096080,
+        "sha256": "0149d26dd7c860f497089f27d5650dec7af21846ad92cc8269a66b5375592c31",
+        "format": "TLV1",
+        "header_bytes": 80,
+        "header_u32": [
+          1,
+          4,
+          4,
+          320,
+          200,
+          8,
+          0,
+          4096000,
+          0,
+          0,
+          0
+        ],
+        "asset_id": 4,
+        "density": 4,
+        "logical_dimensions": [
+          320,
+          200
+        ],
+        "pixel_dimensions": [
+          1280,
+          800
+        ],
+        "palette_zero_based": 8,
+        "alpha_mode": 0,
+        "payload_bytes": 4096000,
+        "decoded_indices_fnv64": "9a3f7cb8ec37073e",
+        "opacity_fnv64": "9c9baa40cbccf525",
+        "palette_rgb_fnv64": "8f64628a08533287",
+        "payload_fnv64": "0abb22518a6634df",
+        "source_png": "canonical/pic4-canonical4x.png",
+        "source_png_sha256": "3f7f99e0df6474d830494f4e8a4d1135083d8be709c59d753c0fd2de89458d89",
+        "canonical_rgba_sha256": "abc27e251bc0cd5f18d9572dc91d6c23100503f5723d70823d513640dcb1eff8",
+        "alpha_sha256": "620cfbd60ff8ce98cd5dfef7ef9df4e4aa9c5141bce65b712d90b08019822bd3",
+        "alpha_support_bounds_4x": [
+          0,
+          0,
+          1280,
+          800
+        ]
+      },
+      "title-planet146-v1.hda": {
+        "bytes": 2354256,
+        "sha256": "ff126712e87c052b2176365b228a8248d5ec7e04386e5d233614405e51537b05",
+        "format": "TLV1",
+        "header_bytes": 80,
+        "header_u32": [
+          1,
+          4,
+          146,
+          304,
+          121,
+          8,
+          1,
+          2354176,
+          0,
+          0,
+          0
+        ],
+        "asset_id": 146,
+        "density": 4,
+        "logical_dimensions": [
+          304,
+          121
+        ],
+        "pixel_dimensions": [
+          1216,
+          484
+        ],
+        "palette_zero_based": 8,
+        "alpha_mode": 1,
+        "payload_bytes": 2354176,
+        "decoded_indices_fnv64": "30f8dbf0554a03ae",
+        "opacity_fnv64": "0cb7de8084912543",
+        "palette_rgb_fnv64": "8f64628a08533287",
+        "payload_fnv64": "623a5b10ca52dae3",
+        "source_png": "canonical/tyrian146-canonical4x.png",
+        "source_png_sha256": "fbdf75e7f3bd6424dae2671c6a4828e5809520d39b07bd397636163620df1b43",
+        "canonical_rgba_sha256": "1d05908eae6a0b86becb057b27989f261c4ec2250ece2fe6d9d5233fb3e80dca",
+        "alpha_sha256": "fc06f8683b0892fbcc0b4d68a7148dbe6cc1922c7ae0d3afc834f3d6741624ae",
+        "alpha_support_bounds_4x": [
+          4,
+          4,
+          1216,
+          484
+        ]
+      },
+      "title-planet151-v1.hda": {
+        "bytes": 663632,
+        "sha256": "325c3602bce555f3b8023dd6b6167099d540fc828bf9e84c3bd21b85d0787357",
+        "format": "TLV1",
+        "header_bytes": 80,
+        "header_u32": [
+          1,
+          4,
+          151,
+          162,
+          64,
+          8,
+          1,
+          663552,
+          0,
+          0,
+          0
+        ],
+        "asset_id": 151,
+        "density": 4,
+        "logical_dimensions": [
+          162,
+          64
+        ],
+        "pixel_dimensions": [
+          648,
+          256
+        ],
+        "palette_zero_based": 8,
+        "alpha_mode": 1,
+        "payload_bytes": 663552,
+        "decoded_indices_fnv64": "4562ec954d257998",
+        "opacity_fnv64": "ee71b0121c53f8df",
+        "palette_rgb_fnv64": "8f64628a08533287",
+        "payload_fnv64": "df98d9dd374ce169",
+        "source_png": "canonical/year151-canonical4x.png",
+        "source_png_sha256": "c57dd507d55d20b7b4738b4e84a574a6b59363c171c61d3c52b88fcfc6a2b6a6",
+        "canonical_rgba_sha256": "3fadeb272efa7678a1c21f7a18d0f928a237f4c40ae9506c3448ede5adbfcec6",
+        "alpha_sha256": "bd8622640fb1ce3c8f221489c5c0d9c44040986a2e153d440eb6cd69700c25d0",
+        "alpha_support_bounds_4x": [
+          8,
+          8,
+          644,
+          252
+        ]
+      }
+    },
+    "source_files": {
+      "FILES.sha256": {
+        "bytes": 1666,
+        "sha256": "1520410a7f4f05865dfbd71ec637aa57ed20bf15c9030c2abf19835a675ba8b2"
+      },
+      "README.md": {
+        "bytes": 4474,
+        "sha256": "e1b7b762f7655b6ed7fa4f21f82854e0e14219684e71f9ff442c93065c606252"
+      },
+      "build.py": {
+        "bytes": 7164,
+        "sha256": "8adf7eea00900be48e05ce5ad3b6d181b126858611087007ef4eb6046345f72f"
+      },
+      "canonical/pic4-canonical4x.png": {
+        "bytes": 1247201,
+        "sha256": "3f7f99e0df6474d830494f4e8a4d1135083d8be709c59d753c0fd2de89458d89"
+      },
+      "canonical/tyrian146-canonical4x.png": {
+        "bytes": 384845,
+        "sha256": "fbdf75e7f3bd6424dae2671c6a4828e5809520d39b07bd397636163620df1b43"
+      },
+      "canonical/year151-canonical4x.png": {
+        "bytes": 163176,
+        "sha256": "c57dd507d55d20b7b4738b4e84a574a6b59363c171c61d3c52b88fcfc6a2b6a6"
+      },
+      "expected-hashes.json": {
+        "bytes": 1613,
+        "sha256": "65202bff436199f40b7fb2c9c576f7eb91d1419f4bc0bb897e2688034bc9cdb2"
+      },
+      "generation-provenance.json": {
+        "bytes": 11174,
+        "sha256": "0af07d602860f5a257636a05d942498575b34e78c59dfa8da3267530893da573"
+      },
+      "manifest.json": {
+        "bytes": 3000,
+        "sha256": "d7bd240f1210d01c3d0e01a81ec5511fe02be7972014d6564e333c54306bd7cc"
+      },
+      "masters/left-clearance-master.png": {
+        "bytes": 1530805,
+        "sha256": "c33b2c27748b417191be9f812f6387da70b72bf7f840d83215c04da98ec7034c"
+      },
+      "masters/pic4-master.png": {
+        "bytes": 1499410,
+        "sha256": "4d42fab3113cb3cec60cd39c62b5053abd2ffc5ac277a690e15899a942a0b603"
+      },
+      "masters/right-clearance-master.png": {
+        "bytes": 1830590,
+        "sha256": "0ba6cba52d0321409508643ac6372b33b7258a76cddf4c26ca110534ebae9385"
+      },
+      "masters/tyrian146-master.png": {
+        "bytes": 987332,
+        "sha256": "27e407c7c4f9141c740c9e9afdc4e231e8bf9e399e90f93b4b83c4501196dbc2"
+      },
+      "masters/year151-master.png": {
+        "bytes": 1250406,
+        "sha256": "a9984983ac8c264e92a57845913ec3e3188d5af041ecef78d0867bf62390dac8"
+      },
+      "proof/offline-validation.json": {
+        "bytes": 14593,
+        "sha256": "9c203a57023a1aa061133d5b7cb2ba94c168a63e2eef03fb8fba95dc0bb2bb90"
+      },
+      "proof/reproduction.json": {
+        "bytes": 1583,
+        "sha256": "154655fce42ad8a91e58960634b750889b22300ad52218f0536ea7d37b8cd7d7"
+      },
+      "proof/tyrian-alpha-correction-boundary-mask4x.png": {
+        "bytes": 932,
+        "sha256": "93bf1154e6e315fb6b1dd15c41db7b597a068e6b773e286153e06a38447eb0b9"
+      },
+      "requirements.txt": {
+        "bytes": 15,
+        "sha256": "41b54a6fb2918667ca47a61d73b522629d84490f3d78f0f20b21135faba10d35"
+      },
+      "source-compatibility.json": {
+        "bytes": 62567,
+        "sha256": "dfdf5b46bfacbb0184d044c0c94d368777652137e12241255fc9735ebaa969c6"
+      }
+    }
   }
 }

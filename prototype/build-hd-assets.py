@@ -132,6 +132,18 @@ if manifest.get('startup_manufacturer_v1'):
   if a.output:(output/MANUFACTURER_PACK/name).write_bytes(raw)
   manufacturer_count+=1
  manufacturer_source_count=len(MANUFACTURER_SOURCES)
+title_count=0
+title_source_count=0
+title_compatibility_count=0
+if manifest.get('startup_title_v1'):
+ from title_layer_bundle import build_bundles as build_titles, PACK as TITLE_PACK, SOURCE_FILES as TITLE_SOURCES, TITLE_FILES
+ bundles=build_titles(repo)
+ if a.output:(output/TITLE_PACK).mkdir()
+ for name,(raw,receipt) in bundles.items():
+  if a.output:(output/TITLE_PACK/name).write_bytes(raw)
+  if name in TITLE_FILES:title_count+=1
+  else:title_compatibility_count+=1
+ title_source_count=len(TITLE_SOURCES)
 type4_count=0
 if manifest.get('enemy_type4_fivepose_v1'):
  import subprocess,sys,tempfile
@@ -144,4 +156,4 @@ if manifest.get('linked31_installation_v1'):
  with tempfile.TemporaryDirectory(prefix='linked31-source-check-') as temporary:
   subprocess.run([sys.executable,str(repo/'prototype/build-linked31-art.py'),'--output',str(Path(temporary)/'rebuilt')],check=True,capture_output=True,text=True)
  linked31_count=8
-print(json.dumps({'verified_linked31_family_members':linked31_count,'verified_type4_composites':type4_count,'verified_startup_manufacturer_resources':manufacturer_count,'verified_startup_manufacturer_source_files':manufacturer_source_count,'verified_hud_meter_sidecars':meter_count,'verified_hud_meter_source_files':13 if meter_count else 0,'verified_pack_count':len(manifest['packs']),'verified_HDA_entries':checked,'verified_exact_source_pngs':len(payloads),'verified_material_sidecars':material_count,'verified_cap_sidecars':cap_count,'verified_forest_sidecars_and_policies':forest_count,'verified_gameplay_hud_sidecars':hud_count,'verified_hud_source_pngs':int(bool(hud_count)), 'verified_hud_font_sidecars':font_count,'verified_hud_font_source_files':19 if font_count else 0, 'verified_hud_fixed_text_sidecars':fixed_text_count,'verified_hud_fixed_text_source_pngs':12 if fixed_text_count else 0, 'verified_hud_extension_sidecars':extension_count, 'verified_hud_extension_source_pngs':21 if extension_count else 0,'default_pack_counts':[manifest['packs'][manifest[k]]['count'] for k in ['default_preview_pack','default_debug_pack']],'rebuild_output':str(output) if a.output else None,'all_runtime_RGBA_and_header_bytes_exact':True},indent=2))
+print(json.dumps({'verified_startup_title_resources':title_count,'verified_startup_title_source_files':title_source_count,'verified_startup_title_manufacturer_compatibility_copies':title_compatibility_count,'verified_linked31_family_members':linked31_count,'verified_type4_composites':type4_count,'verified_startup_manufacturer_resources':manufacturer_count,'verified_startup_manufacturer_source_files':manufacturer_source_count,'verified_hud_meter_sidecars':meter_count,'verified_hud_meter_source_files':13 if meter_count else 0,'verified_pack_count':len(manifest['packs']),'verified_HDA_entries':checked,'verified_exact_source_pngs':len(payloads),'verified_material_sidecars':material_count,'verified_cap_sidecars':cap_count,'verified_forest_sidecars_and_policies':forest_count,'verified_gameplay_hud_sidecars':hud_count,'verified_hud_source_pngs':int(bool(hud_count)), 'verified_hud_font_sidecars':font_count,'verified_hud_font_source_files':19 if font_count else 0, 'verified_hud_fixed_text_sidecars':fixed_text_count,'verified_hud_fixed_text_source_pngs':12 if fixed_text_count else 0, 'verified_hud_extension_sidecars':extension_count, 'verified_hud_extension_source_pngs':21 if extension_count else 0,'default_pack_counts':[manifest['packs'][manifest[k]]['count'] for k in ['default_preview_pack','default_debug_pack']],'rebuild_output':str(output) if a.output else None,'all_runtime_RGBA_and_header_bytes_exact':True},indent=2))

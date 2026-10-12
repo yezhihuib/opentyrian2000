@@ -18,6 +18,7 @@
  */
 #include "sprite.h"
 #include "render_mirror.h"
+#include "title_layers.h"
 #include "asset_debug.h"
 
 #include "file.h"
@@ -89,6 +90,7 @@ void load_sprites(unsigned int table, FILE *f)
 
 void free_sprites(unsigned int table)
 {
+	title_layers_sprite_table_reset(table);
 	for (unsigned int i = 0; i < sprite_table[table].count; ++i)
 	{
 		Sprite * const cur_sprite = sprite(table, i);
@@ -150,7 +152,7 @@ void blit_sprite(SDL_Surface *surface, int x, int y, unsigned int table, unsigne
 			if (pixels >= pixels_ul)
 				return;
 			if (pixels >= pixels_ll)
-				{ *pixels = *data; render_mirror_pixel(surface,pixels,*pixels,MIRROR_NORMAL); }
+				{ *pixels = *data; render_mirror_pixel(surface,pixels,*pixels,MIRROR_NORMAL); title_layers_pixel(surface,pixels,TITLE_WRITE_LOGO); }
 			
 			pixels++;
 			x_offset++;
@@ -343,7 +345,7 @@ void blit_sprite_hv(SDL_Surface *surface, int x, int y, unsigned int table, unsi
 				if (temp_value > 0xf)
 					temp_value = (temp_value >= 0x1f) ? 0x0 : 0xf;
 				
-				{ *pixels = hue | temp_value; render_mirror_pixel(surface,pixels,*pixels,MIRROR_NORMAL); }
+				{ *pixels = hue | temp_value; render_mirror_pixel(surface,pixels,*pixels,MIRROR_NORMAL); title_layers_pixel(surface,pixels,TITLE_WRITE_FONT); }
 			}
 			
 			pixels++;
@@ -473,7 +475,7 @@ void blit_sprite_dark(SDL_Surface *surface, int x, int y, unsigned int table, un
 			if (pixels >= pixels_ul)
 				{ render_mirror_text_glyph_end(); return; }
 			if (pixels >= pixels_ll)
-				{ *pixels = black ? 0x00 : ((*pixels & 0xf0) | ((*pixels & 0x0f) / 2)); render_mirror_pixel(surface,pixels,0,black?MIRROR_NORMAL:MIRROR_SHADOW); }
+				{ *pixels = black ? 0x00 : ((*pixels & 0xf0) | ((*pixels & 0x0f) / 2)); render_mirror_pixel(surface,pixels,0,black?MIRROR_NORMAL:MIRROR_SHADOW); title_layers_pixel(surface,pixels,TITLE_WRITE_SHADOW); }
 			
 			pixels++;
 			x_offset++;
@@ -740,7 +742,7 @@ void blit_sprite2_filter_clip(SDL_Surface *surface, int x, int y, Sprite2_array 
 				++data;
 
 				if (x >= 0 && x < surface->pitch)
-					{ pixel_row[x] = filter | (*data & 0x0f);; render_mirror_pixel(surface,&pixel_row[x],pixel_row[x],MIRROR_NORMAL); }
+					{ pixel_row[x] = filter | (*data & 0x0f);; render_mirror_pixel(surface,&pixel_row[x],pixel_row[x],MIRROR_NORMAL); title_layers_pixel(surface,&pixel_row[x],TITLE_WRITE_CURSOR); }
 				x += 1;
 			} while (--fill_count);
 		}

@@ -9,6 +9,10 @@ Windows runtime, physical joystick, whole-game HD and performance acceptance
 remain outside this result. Exact results are in
 [the validation record](STARTUP_MANUFACTURER_VALIDATION.json).
 
+This document describes the unchanged two-file manufacturer directory. The separate
+[combined title pack](STARTUP_TITLE.md) uses the same selector but additionally opts
+into layered title artwork; its source/runtime acceptance is documented separately.
+
 ## Explicit opt-in
 
 From the repository root, with a release/NDEBUG build:

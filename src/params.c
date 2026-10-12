@@ -18,6 +18,7 @@
  */
 #include "params.h"
 #include "startup_logos.h"
+#include "title_layers.h"
 
 #include "arg_parse.h"
 #include "file.h"
@@ -95,7 +96,7 @@ void JE_paramCheck(int argc, char *argv[])
 			       "  -j, --no-joystick            Disable joystick/gamepad input\n"
 			       "  -x, --no-xmas                Disable Christmas mode\n\n"
 			       "  -t, --data=DIR               Set Tyrian data directory\n"
-			       "  --startup-assets=DIR        Optional HD manufacturer cards (release, local startup only)\n\n"
+			       "  --startup-assets=DIR        Optional HD manufacturer/title art (release, local startup only)\n\n"
 			       "  -n, --net=HOST[:PORT]        Start a networked game\n"
 			       "  --net-player-name=NAME       Sets local player name in a networked game\n"
 			       "  --net-player-number=NUMBER   Sets local player number in a networked game\n"
@@ -131,6 +132,7 @@ void JE_paramCheck(int argc, char *argv[])
 				fprintf(stderr, "Startup assets require a nonempty directory\n");
 				exit(EXIT_FAILURE);
 			}
+			title_layers_set_directory(option.arg);
 			break;
 
 		case 'n':

@@ -1,0 +1,2318 @@
+{
+  "schema": "opentyrian-title-source-contract-v1",
+  "audit_date_utc": "2026-10-12",
+  "source_commit": "eec06f5c6fa2f57917ed8f30dfb38a1c23c660be",
+  "source_files_sha256": {
+    "src/tyrian2.c": "7faab1f034b737b2413952f8c9ba5c7cdc307d407f4346eb08c0834332ea1ae7",
+    "src/sprite.c": "717746c235f76cc818ec6c5d2ef52f70efdbf9ba1e99de00b5d5366e88e5391c",
+    "src/palette.c": "dd3f3ccf6b3e2b2b9078b020d9957bfc7c360a966a9f81a2c6c3e56c6bc6fca4",
+    "src/picload.c": "78246fbde5101cb4a6de0a0dc3621e9f4fea56bb524056ea6e75b641ececef7b",
+    "src/pcxmast.c": "41a5367659b8096b13727d3c087ea0e34341881c7270072bdf0782c25a248653",
+    "src/font.c": "a4d9125a15ac161efb1f97e8bc2f37c537647339902c0f5ad875874150a71cc8",
+    "src/mouse.c": "3d6b35b1284418c584c28c7aa4600c5ba67426656fa03429303d054d3bea8a30",
+    "src/video.c": "5f6e317f172eeed1e6b06c18216a0ecd67c2b7f395a0aca49c6ef6562d1892f7"
+  },
+  "data_sha256": {
+    "tyrian.pic": "76fa51ba6878c886f67daa65cf6d19968615e4423822c9fe1dde797fc2f8d802",
+    "tyrian.shp": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+    "tyrianc.shp": "e980f02021395d39b86491acdc2ecd6dd47ea2a9f859fe3928f81b75e244fd7d",
+    "palette.dat": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+  },
+  "coordinate_system": {
+    "native_screen_wh": [
+      320,
+      200
+    ],
+    "integer_density": 4,
+    "output_screen_wh": [
+      1280,
+      800
+    ],
+    "pixel_geometry": "square logical pixels; integer4x positions; preserve aspect/presentation behavior",
+    "bbox_convention": "[left,top,right,bottom), right/bottom exclusive",
+    "anchor": "top-left; no recentering or trim"
+  },
+  "assets": {
+    "pic4": {
+      "kind": "opaque_background",
+      "source_file": "tyrian.pic",
+      "one_based_picture_id": 4,
+      "native_canvas_wh": [
+        320,
+        200
+      ],
+      "output_4x_canvas_wh": [
+        1280,
+        800
+      ],
+      "anchor_native_xy": [
+        0,
+        0
+      ],
+      "anchor_4x_xy": [
+        0,
+        0
+      ],
+      "alpha_requirement": "255 at every pixel, including palette index 0",
+      "opacity_native_pixels": 64000,
+      "source_palette_index_ranges_inclusive": [
+        [
+          0,
+          48
+        ],
+        [
+          65,
+          85
+        ],
+        [
+          128,
+          133
+        ]
+      ],
+      "index0_pixels_opaque": 16550,
+      "decoded_indices_sha256": "6bb5b252cac38ece47df9ba99e44cf835f18fd93af1ceee000baf45fc2414961",
+      "decoded_indices_fnv64": "9a3f7cb8ec37073e",
+      "normal_RGB_sha256": "3a4af04c06f0ebb2b476b381a243f535a155109a0a7efc7bc753db5d14074e36",
+      "encoded_bytes": 35835,
+      "decoder_consumed_encoded_bytes": 35834,
+      "trailing_encoded_section_bytes_ignored_by_original_decoder": 1,
+      "opaque_mask_fnv64": "9c9baa40cbccf525"
+    },
+    "planet146": {
+      "kind": "independent_alpha_logo",
+      "source_file": "tyrian.shp",
+      "table_id": 3,
+      "table_macro": "PLANET_SHAPES",
+      "zero_based_sprite_id": 146,
+      "native_canvas_wh": [
+        304,
+        121
+      ],
+      "output_4x_canvas_wh": [
+        1216,
+        484
+      ],
+      "registration_origin": "upper-left of full uncropped sprite canvas",
+      "native_opaque_bbox_xyxy_half_open": [
+        1,
+        1,
+        304,
+        121
+      ],
+      "output_4x_reference_opaque_bbox_xyxy_half_open": [
+        4,
+        4,
+        1216,
+        484
+      ],
+      "native_full_transparent_outer_margins_ltrb": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "native_opaque_pixels": 8794,
+      "native_transparent_pixels": 27990,
+      "opaque_index0_pixels": 0,
+      "source_palette_indices": [
+        95,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        113,
+        114,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126
+      ],
+      "source_palette_index_ranges_inclusive": [
+        [
+          95,
+          95
+        ],
+        [
+          101,
+          111
+        ],
+        [
+          113,
+          114
+        ],
+        [
+          116,
+          126
+        ]
+      ],
+      "source_alpha_values": [
+        0,
+        255
+      ],
+      "opacity_source": "encoded skip instructions 253/254/255; not index0 and not RGB key",
+      "encoded_sha256": "c2477fcbb45cb42ee942d79af8bfe3a9cf4eafa3618495fc0cb8b86fac20b9fd",
+      "decoded_indices_sha256": "01e12d260f0af288f68ca6cd98ee172d02ecc6bf3aa09aace1fbf2ee6bb196f4",
+      "opaque_mask_sha256": "da20e13d3a460b79cbbbd7e86e13e57312def574f11bd759cee6400ce4ea1465",
+      "normal_RGBA_sha256": "1d07726e0866e6ed432211c412d005684d07eb05ab21442341986d1be0319833",
+      "christmas_variant_encoded_byte_equal": true,
+      "decoded_indices_fnv64": "30f8dbf0554a03ae",
+      "opaque_mask_fnv64": "0cb7de8084912543",
+      "encoded_fnv64": "f19983d3c8b5e3a1",
+      "encoded_bytes": 9955
+    },
+    "planet151": {
+      "kind": "independent_alpha_logo",
+      "source_file": "tyrian.shp",
+      "table_id": 3,
+      "table_macro": "PLANET_SHAPES",
+      "zero_based_sprite_id": 151,
+      "native_canvas_wh": [
+        162,
+        64
+      ],
+      "output_4x_canvas_wh": [
+        648,
+        256
+      ],
+      "registration_origin": "upper-left of full uncropped sprite canvas",
+      "native_opaque_bbox_xyxy_half_open": [
+        2,
+        2,
+        161,
+        63
+      ],
+      "output_4x_reference_opaque_bbox_xyxy_half_open": [
+        8,
+        8,
+        644,
+        252
+      ],
+      "native_full_transparent_outer_margins_ltrb": [
+        2,
+        2,
+        1,
+        1
+      ],
+      "native_opaque_pixels": 2788,
+      "native_transparent_pixels": 7580,
+      "opaque_index0_pixels": 0,
+      "source_palette_indices": [
+        26,
+        29,
+        40,
+        44,
+        45,
+        48,
+        93,
+        102,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        124
+      ],
+      "source_palette_index_ranges_inclusive": [
+        [
+          26,
+          26
+        ],
+        [
+          29,
+          29
+        ],
+        [
+          40,
+          40
+        ],
+        [
+          44,
+          45
+        ],
+        [
+          48,
+          48
+        ],
+        [
+          93,
+          93
+        ],
+        [
+          102,
+          102
+        ],
+        [
+          104,
+          121
+        ],
+        [
+          124,
+          124
+        ]
+      ],
+      "source_alpha_values": [
+        0,
+        255
+      ],
+      "opacity_source": "encoded skip instructions 253/254/255; not index0 and not RGB key",
+      "encoded_sha256": "43f579942be92cfb7b05dc3632ff2910ac1ac347db44b03102b5f5e05c1bd5e3",
+      "decoded_indices_sha256": "ae5d9b036a3ce864075a727bb253717e2a606bcb76256a42f67825ba2f7f2e14",
+      "opaque_mask_sha256": "09fbe9e2139ee3bea3192ba1425efc3a2769bba35262774b9e2ff4daa00579e7",
+      "normal_RGBA_sha256": "101ab33a919abf21fcd6703c13bd227b4f13ca364604f17272fcd4c1a6af25cb",
+      "christmas_variant_encoded_byte_equal": true,
+      "decoded_indices_fnv64": "4562ec954d257998",
+      "opaque_mask_fnv64": "ee71b0121c53f8df",
+      "encoded_fnv64": "9133efa73da3f836",
+      "encoded_bytes": 3592
+    }
+  },
+  "palette": {
+    "source_file": "palette.dat",
+    "zero_based_palette_id": 8,
+    "RGB_expansion": "(VGA_6bit << 2) | (VGA_6bit >> 4)",
+    "RGB_sha256": "24ed30cdcce656bafab1bd684d8f51c6f0dee280b84f2fb324baca50c8ab9747",
+    "RGB_fnv64": "8f64628a08533287",
+    "art_fade": {
+      "range_inclusive": [
+        0,
+        239
+      ],
+      "steps": 10,
+      "delay_units_each_step": 1,
+      "scene": "initial logos or directly settled restart"
+    },
+    "UI_fade": {
+      "range_inclusive": [
+        240,
+        255
+      ],
+      "steps": 20,
+      "delay_units_each_step": 1,
+      "begins": "after final logo state and after all menu items are drawn"
+    },
+    "all_three_art_assets_use_only_indices_below240": true,
+    "index0_is_not_global_transparency": true,
+    "version_shadow": "underlying destination hue nibble retained, value nibble halved; drawn before main version glyphs",
+    "rgba_requirement": "Retain original palette-driven timing through an explicit art/UI layer fade contract; do not apply the late UI fade to the generated art."
+  },
+  "motion": {
+    "initial_native_xy": {
+      "146": [
+        11,
+        62
+      ],
+      "151": [
+        155,
+        41
+      ]
+    },
+    "movement_count": 29,
+    "movement_formula_zero_based_i": "146=(11,60-2*i);151=(155,45+i);i=0..28",
+    "delay_units_per_movement": 2,
+    "first_frame_native_jump": {
+      "146": [
+        0,
+        -2
+      ],
+      "151": [
+        0,
+        4
+      ]
+    },
+    "subsequent_frame_native_delta": {
+      "146": [
+        0,
+        -2
+      ],
+      "151": [
+        0,
+        1
+      ]
+    },
+    "settled_native_xy": {
+      "146": [
+        11,
+        4
+      ],
+      "151": [
+        155,
+        73
+      ]
+    },
+    "each_movement_starts_from": "VGAScreen2 saved PIC4 plus version text/shadow, before either logo was drawn",
+    "restart_behavior": "When moveTyrianLogoUp is false, draw settled logos directly and fade art. Replays are enabled by intro_logos() or the play_demo return path. Do not move the logos for every restart.",
+    "phases": [
+      {
+        "state": "initial_before_10_step_fade",
+        "movement_iteration_zero_based": null,
+        "draws_in_order": [
+          {
+            "sprite": 146,
+            "native_xy": [
+              11,
+              62
+            ],
+            "output_4x_xy": [
+              44,
+              248
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              11,
+              62,
+              315,
+              183
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              12,
+              63,
+              315,
+              183
+            ],
+            "opaque_pixels_y_ge104": 7513
+          },
+          {
+            "sprite": 151,
+            "native_xy": [
+              155,
+              41
+            ],
+            "output_4x_xy": [
+              620,
+              164
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              155,
+              41,
+              317,
+              105
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              157,
+              43,
+              316,
+              104
+            ],
+            "opaque_pixels_y_ge104": 0
+          }
+        ],
+        "opaque_logo_overlap_pixels": 162,
+        "art_only_composite_indices_sha256": "2fa4c49030e50a83f952e9371115623552ad7e89f5dce817aadc3fddbeb6851a",
+        "art_only_composite_RGB_sha256": "1d5107d0d7f350d3b9357b091458cad930d8087a188025c7cab900d3f06a030d",
+        "all_full_canvases_inside_screen": true
+      },
+      {
+        "state": "movement",
+        "movement_iteration_zero_based": 0,
+        "draws_in_order": [
+          {
+            "sprite": 146,
+            "native_xy": [
+              11,
+              60
+            ],
+            "output_4x_xy": [
+              44,
+              240
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              11,
+              60,
+              315,
+              181
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              12,
+              61,
+              315,
+              181
+            ],
+            "opaque_pixels_y_ge104": 7163
+          },
+          {
+            "sprite": 151,
+            "native_xy": [
+              155,
+              45
+            ],
+            "output_4x_xy": [
+              620,
+              180
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              155,
+              45,
+              317,
+              109
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              157,
+              47,
+              316,
+              108
+            ],
+            "opaque_pixels_y_ge104": 51
+          }
+        ],
+        "opaque_logo_overlap_pixels": 242,
+        "art_only_composite_indices_sha256": "b30362cef41831e0ea028e004fb6ce1ab46b9483db5434224df7286b385f3a80",
+        "art_only_composite_RGB_sha256": "49e297622429b4642c2f014d62790e0dde761542d8e709c6802df9b3217d2a29",
+        "all_full_canvases_inside_screen": true
+      },
+      {
+        "state": "movement",
+        "movement_iteration_zero_based": 1,
+        "draws_in_order": [
+          {
+            "sprite": 146,
+            "native_xy": [
+              11,
+              58
+            ],
+            "output_4x_xy": [
+              44,
+              232
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              11,
+              58,
+              315,
+              179
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              12,
+              59,
+              315,
+              179
+            ],
+            "opaque_pixels_y_ge104": 6797
+          },
+          {
+            "sprite": 151,
+            "native_xy": [
+              155,
+              46
+            ],
+            "output_4x_xy": [
+              620,
+              184
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              155,
+              46,
+              317,
+              110
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              157,
+              48,
+              316,
+              109
+            ],
+            "opaque_pixels_y_ge104": 66
+          }
+        ],
+        "opaque_logo_overlap_pixels": 279,
+        "art_only_composite_indices_sha256": "22915ca94d6a4f75e99362b446c005ad06adac9fd6074fa28aa0ce4826a8b431",
+        "art_only_composite_RGB_sha256": "d255d41ebe3344ec8fed75b7cd0eef3d9bb83ac32e71ba87e5f26d4b53feabd3",
+        "all_full_canvases_inside_screen": true
+      },
+      {
+        "state": "movement",
+        "movement_iteration_zero_based": 2,
+        "draws_in_order": [
+          {
+            "sprite": 146,
+            "native_xy": [
+              11,
+              56
+            ],
+            "output_4x_xy": [
+              44,
+              224
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              11,
+              56,
+              315,
+              177
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              12,
+              57,
+              315,
+              177
+            ],
+            "opaque_pixels_y_ge104": 6419
+          },
+          {
+            "sprite": 151,
+            "native_xy": [
+              155,
+              47
+            ],
+            "output_4x_xy": [
+              620,
+              188
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              155,
+              47,
+              317,
+              111
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              157,
+              49,
+              316,
+              110
+            ],
+            "opaque_pixels_y_ge104": 83
+          }
+        ],
+        "opaque_logo_overlap_pixels": 372,
+        "art_only_composite_indices_sha256": "411150aef66b77a75647ff192c3fa8e4ab51e66026cf3e3252bd5c15b1cb9741",
+        "art_only_composite_RGB_sha256": "8e42df1e2c873673195e1442326167879b9984ee44732ed082b5e43f6dd83ea3",
+        "all_full_canvases_inside_screen": true
+      },
+      {
+        "state": "movement",
+        "movement_iteration_zero_based": 3,
+        "draws_in_order": [
+          {
+            "sprite": 146,
+            "native_xy": [
+              11,
+              54
+            ],
+            "output_4x_xy": [
+              44,
+              216
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              11,
+              54,
+              315,
+              175
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              12,
+              55,
+              315,
+              175
+            ],
+            "opaque_pixels_y_ge104": 6068
+          },
+          {
+            "sprite": 151,
+            "native_xy": [
+              155,
+              48
+            ],
+            "output_4x_xy": [
+              620,
+              192
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              155,
+              48,
+              317,
+              112
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              157,
+              50,
+              316,
+              111
+            ],
+            "opaque_pixels_y_ge104": 99
+          }
+        ],
+        "opaque_logo_overlap_pixels": 504,
+        "art_only_composite_indices_sha256": "0a1f111c28ad473118f767e4f355be73e5c3e464af04d70e1b44b5ec4c1eb545",
+        "art_only_composite_RGB_sha256": "8a0ab732cd81a22a203364c5bdcdfa24b2c20e8d9702a3ac68c01ab17d6adec7",
+        "all_full_canvases_inside_screen": true
+      },
+      {
+        "state": "movement",
+        "movement_iteration_zero_based": 4,
+        "draws_in_order": [
+          {
+            "sprite": 146,
+            "native_xy": [
+              11,
+              52
+            ],
+            "output_4x_xy": [
+              44,
+              208
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              11,
+              52,
+              315,
+              173
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              12,
+              53,
+              315,
+              173
+            ],
+            "opaque_pixels_y_ge104": 5746
+          },
+          {
+            "sprite": 151,
+            "native_xy": [
+              155,
+              49
+            ],
+            "output_4x_xy": [
+              620,
+              196
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              155,
+              49,
+              317,
+              113
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              157,
+              51,
+              316,
+              112
+            ],
+            "opaque_pixels_y_ge104": 118
+          }
+        ],
+        "opaque_logo_overlap_pixels": 598,
+        "art_only_composite_indices_sha256": "9380d070c708a64701b46fd3380d3e6f7a8e7d1b003edb8725eba373f6bcc71a",
+        "art_only_composite_RGB_sha256": "2e73ac71880ad75790ebb82d115d41664ccaa8cc1d29064039ecec7845e9169f",
+        "all_full_canvases_inside_screen": true
+      },
+      {
+        "state": "movement",
+        "movement_iteration_zero_based": 5,
+        "draws_in_order": [
+          {
+            "sprite": 146,
+            "native_xy": [
+              11,
+              50
+            ],
+            "output_4x_xy": [
+              44,
+              200
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              11,
+              50,
+              315,
+              171
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              12,
+              51,
+              315,
+              171
+            ],
+            "opaque_pixels_y_ge104": 5430
+          },
+          {
+            "sprite": 151,
+            "native_xy": [
+              155,
+              50
+            ],
+            "output_4x_xy": [
+              620,
+              200
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              155,
+              50,
+              317,
+              114
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              157,
+              52,
+              316,
+              113
+            ],
+            "opaque_pixels_y_ge104": 138
+          }
+        ],
+        "opaque_logo_overlap_pixels": 682,
+        "art_only_composite_indices_sha256": "acf66221361d8a6c9c5f319121dadc1f856b961fd1ab06567588bf05cde3d02e",
+        "art_only_composite_RGB_sha256": "eba366eda58101c93478d38e546d52f9b742eb0b6ffc19778c19786ef68fb95a",
+        "all_full_canvases_inside_screen": true
+      },
+      {
+        "state": "movement",
+        "movement_iteration_zero_based": 6,
+        "draws_in_order": [
+          {
+            "sprite": 146,
+            "native_xy": [
+              11,
+              48
+            ],
+            "output_4x_xy": [
+              44,
+              192
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              11,
+              48,
+              315,
+              169
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              12,
+              49,
+              315,
+              169
+            ],
+            "opaque_pixels_y_ge104": 5112
+          },
+          {
+            "sprite": 151,
+            "native_xy": [
+              155,
+              51
+            ],
+            "output_4x_xy": [
+              620,
+              204
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              155,
+              51,
+              317,
+              115
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              157,
+              53,
+              316,
+              114
+            ],
+            "opaque_pixels_y_ge104": 155
+          }
+        ],
+        "opaque_logo_overlap_pixels": 777,
+        "art_only_composite_indices_sha256": "81e21fc57c400f3a1caa28fd211eca328a42502e6a1bfa82c2c904b62629464f",
+        "art_only_composite_RGB_sha256": "e5ad83aad9587c04d02bc69d60c4a4690913f0b816f25f2f1b00f9f2f63d6338",
+        "all_full_canvases_inside_screen": true
+      },
+      {
+        "state": "movement",
+        "movement_iteration_zero_based": 7,
+        "draws_in_order": [
+          {
+            "sprite": 146,
+            "native_xy": [
+              11,
+              46
+            ],
+            "output_4x_xy": [
+              44,
+              184
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              11,
+              46,
+              315,
+              167
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              12,
+              47,
+              315,
+              167
+            ],
+            "opaque_pixels_y_ge104": 4798
+          },
+          {
+            "sprite": 151,
+            "native_xy": [
+              155,
+              52
+            ],
+            "output_4x_xy": [
+              620,
+              208
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              155,
+              52,
+              317,
+              116
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              157,
+              54,
+              316,
+              115
+            ],
+            "opaque_pixels_y_ge104": 168
+          }
+        ],
+        "opaque_logo_overlap_pixels": 872,
+        "art_only_composite_indices_sha256": "91c42b17a94c40e240c97e1e51265752d664fb9857c296ae68d41086d50b4fd2",
+        "art_only_composite_RGB_sha256": "b542ee421afae25ea5fa9a6418e5ee6aad961898d3d27dc042a92c73d55a5498",
+        "all_full_canvases_inside_screen": true
+      },
+      {
+        "state": "movement",
+        "movement_iteration_zero_based": 8,
+        "draws_in_order": [
+          {
+            "sprite": 146,
+            "native_xy": [
+              11,
+              44
+            ],
+            "output_4x_xy": [
+              44,
+              176
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              11,
+              44,
+              315,
+              165
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              12,
+              45,
+              315,
+              165
+            ],
+            "opaque_pixels_y_ge104": 4500
+          },
+          {
+            "sprite": 151,
+            "native_xy": [
+              155,
+              53
+            ],
+            "output_4x_xy": [
+              620,
+              212
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              155,
+              53,
+              317,
+              117
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              157,
+              55,
+              316,
+              116
+            ],
+            "opaque_pixels_y_ge104": 230
+          }
+        ],
+        "opaque_logo_overlap_pixels": 957,
+        "art_only_composite_indices_sha256": "f6f2c0f15b0cd86ac1cc52735cf7ba67f874efc7e396e72af50af8e42d172cd6",
+        "art_only_composite_RGB_sha256": "8969ffde9de75818d13b8956beb876271a7d52d7bbba0a4f7ba647fdfa4aa744",
+        "all_full_canvases_inside_screen": true
+      },
+      {
+        "state": "movement",
+        "movement_iteration_zero_based": 9,
+        "draws_in_order": [
+          {
+            "sprite": 146,
+            "native_xy": [
+              11,
+              42
+            ],
+            "output_4x_xy": [
+              44,
+              168
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              11,
+              42,
+              315,
+              163
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              12,
+              43,
+              315,
+              163
+            ],
+            "opaque_pixels_y_ge104": 4197
+          },
+          {
+            "sprite": 151,
+            "native_xy": [
+              155,
+              54
+            ],
+            "output_4x_xy": [
+              620,
+              216
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              155,
+              54,
+              317,
+              118
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              157,
+              56,
+              316,
+              117
+            ],
+            "opaque_pixels_y_ge104": 312
+          }
+        ],
+        "opaque_logo_overlap_pixels": 1016,
+        "art_only_composite_indices_sha256": "b7e09a3ab042738b33c6a596cde920270f61482df98d48808cbbd0f6f2f02668",
+        "art_only_composite_RGB_sha256": "8888ada80c2dbedc8e9f25153df644cac4b379261806e67892eb05d89ffcd23b",
+        "all_full_canvases_inside_screen": true
+      },
+      {
+        "state": "movement",
+        "movement_iteration_zero_based": 10,
+        "draws_in_order": [
+          {
+            "sprite": 146,
+            "native_xy": [
+              11,
+              40
+            ],
+            "output_4x_xy": [
+              44,
+              160
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              11,
+              40,
+              315,
+              161
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              12,
+              41,
+              315,
+              161
+            ],
+            "opaque_pixels_y_ge104": 3889
+          },
+          {
+            "sprite": 151,
+            "native_xy": [
+              155,
+              55
+            ],
+            "output_4x_xy": [
+              620,
+              220
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              155,
+              55,
+              317,
+              119
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              157,
+              57,
+              316,
+              118
+            ],
+            "opaque_pixels_y_ge104": 402
+          }
+        ],
+        "opaque_logo_overlap_pixels": 1065,
+        "art_only_composite_indices_sha256": "11cb8aba3b086d3905b287462712d76f2abafb84a02ea4b8ea6c1e4ca8b481e0",
+        "art_only_composite_RGB_sha256": "4081d6185915aa91df30e82492e59bf3193ce635ff7c48e9453088615e1e2930",
+        "all_full_canvases_inside_screen": true
+      },
+      {
+        "state": "movement",
+        "movement_iteration_zero_based": 11,
+        "draws_in_order": [
+          {
+            "sprite": 146,
+            "native_xy": [
+              11,
+              38
+            ],
+            "output_4x_xy": [
+              44,
+              152
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              11,
+              38,
+              315,
+              159
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              12,
+              39,
+              315,
+              159
+            ],
+            "opaque_pixels_y_ge104": 3569
+          },
+          {
+            "sprite": 151,
+            "native_xy": [
+              155,
+              56
+            ],
+            "output_4x_xy": [
+              620,
+              224
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              155,
+              56,
+              317,
+              120
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              157,
+              58,
+              316,
+              119
+            ],
+            "opaque_pixels_y_ge104": 482
+          }
+        ],
+        "opaque_logo_overlap_pixels": 1105,
+        "art_only_composite_indices_sha256": "1f6e4c29900fd3b3013c8474f296eeca7fd05525123e460b0487ecfe34d3c8ab",
+        "art_only_composite_RGB_sha256": "d0c7d42cf2f877718700591a59a33715b909d22c1abfe0087b157b6b784c18b6",
+        "all_full_canvases_inside_screen": true
+      },
+      {
+        "state": "movement",
+        "movement_iteration_zero_based": 12,
+        "draws_in_order": [
+          {
+            "sprite": 146,
+            "native_xy": [
+              11,
+              36
+            ],
+            "output_4x_xy": [
+              44,
+              144
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              11,
+              36,
+              315,
+              157
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              12,
+              37,
+              315,
+              157
+            ],
+            "opaque_pixels_y_ge104": 3244
+          },
+          {
+            "sprite": 151,
+            "native_xy": [
+              155,
+              57
+            ],
+            "output_4x_xy": [
+              620,
+              228
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              155,
+              57,
+              317,
+              121
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              157,
+              59,
+              316,
+              120
+            ],
+            "opaque_pixels_y_ge104": 565
+          }
+        ],
+        "opaque_logo_overlap_pixels": 1193,
+        "art_only_composite_indices_sha256": "0acd705d057e6534787b80e0a89a508a1d5e0837b7fe02da9240ef83777d0710",
+        "art_only_composite_RGB_sha256": "6e364b8e0874187c63e91c1fc797905d394944b497c10d6b78180c5b96c814cc",
+        "all_full_canvases_inside_screen": true
+      },
+      {
+        "state": "movement",
+        "movement_iteration_zero_based": 13,
+        "draws_in_order": [
+          {
+            "sprite": 146,
+            "native_xy": [
+              11,
+              34
+            ],
+            "output_4x_xy": [
+              44,
+              136
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              11,
+              34,
+              315,
+              155
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              12,
+              35,
+              315,
+              155
+            ],
+            "opaque_pixels_y_ge104": 2920
+          },
+          {
+            "sprite": 151,
+            "native_xy": [
+              155,
+              58
+            ],
+            "output_4x_xy": [
+              620,
+              232
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              155,
+              58,
+              317,
+              122
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              157,
+              60,
+              316,
+              121
+            ],
+            "opaque_pixels_y_ge104": 630
+          }
+        ],
+        "opaque_logo_overlap_pixels": 1306,
+        "art_only_composite_indices_sha256": "a746d44291dd7e0ce66f607cac067d257097ff241019bd383e80d4d96e7ccc4f",
+        "art_only_composite_RGB_sha256": "b44d0f40a7c6fcbfea4d0ea767c50082ec5b1ca182c33e36303d4d849726b88e",
+        "all_full_canvases_inside_screen": true
+      },
+      {
+        "state": "movement",
+        "movement_iteration_zero_based": 14,
+        "draws_in_order": [
+          {
+            "sprite": 146,
+            "native_xy": [
+              11,
+              32
+            ],
+            "output_4x_xy": [
+              44,
+              128
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              11,
+              32,
+              315,
+              153
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              12,
+              33,
+              315,
+              153
+            ],
+            "opaque_pixels_y_ge104": 2586
+          },
+          {
+            "sprite": 151,
+            "native_xy": [
+              155,
+              59
+            ],
+            "output_4x_xy": [
+              620,
+              236
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              155,
+              59,
+              317,
+              123
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              157,
+              61,
+              316,
+              122
+            ],
+            "opaque_pixels_y_ge104": 685
+          }
+        ],
+        "opaque_logo_overlap_pixels": 1365,
+        "art_only_composite_indices_sha256": "59fcb2ab6597c4ca9b7d2676802db822771d7c087a129d7ab4b1bd81ca1f625a",
+        "art_only_composite_RGB_sha256": "71c4b759f0dcf774ab1c377d287957755a15fd3c631d6a253b7cdefb7dc2f8a7",
+        "all_full_canvases_inside_screen": true
+      },
+      {
+        "state": "movement",
+        "movement_iteration_zero_based": 15,
+        "draws_in_order": [
+          {
+            "sprite": 146,
+            "native_xy": [
+              11,
+              30
+            ],
+            "output_4x_xy": [
+              44,
+              120
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              11,
+              30,
+              315,
+              151
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              12,
+              31,
+              315,
+              151
+            ],
+            "opaque_pixels_y_ge104": 2212
+          },
+          {
+            "sprite": 151,
+            "native_xy": [
+              155,
+              60
+            ],
+            "output_4x_xy": [
+              620,
+              240
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              155,
+              60,
+              317,
+              124
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              157,
+              62,
+              316,
+              123
+            ],
+            "opaque_pixels_y_ge104": 733
+          }
+        ],
+        "opaque_logo_overlap_pixels": 1280,
+        "art_only_composite_indices_sha256": "954391f893f7d55636f1d4d6fd176ffbd624eb50e977b26894e889f016b0d8eb",
+        "art_only_composite_RGB_sha256": "9337949e00d9f6060f7f330b8ad71c2d1665fcb30f14c655fb5573ac800aee71",
+        "all_full_canvases_inside_screen": true
+      },
+      {
+        "state": "movement",
+        "movement_iteration_zero_based": 16,
+        "draws_in_order": [
+          {
+            "sprite": 146,
+            "native_xy": [
+              11,
+              28
+            ],
+            "output_4x_xy": [
+              44,
+              112
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              11,
+              28,
+              315,
+              149
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              12,
+              29,
+              315,
+              149
+            ],
+            "opaque_pixels_y_ge104": 1843
+          },
+          {
+            "sprite": 151,
+            "native_xy": [
+              155,
+              61
+            ],
+            "output_4x_xy": [
+              620,
+              244
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              155,
+              61,
+              317,
+              125
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              157,
+              63,
+              316,
+              124
+            ],
+            "opaque_pixels_y_ge104": 775
+          }
+        ],
+        "opaque_logo_overlap_pixels": 1178,
+        "art_only_composite_indices_sha256": "b831c9a04674d3be19232ce2c07a479dc6467380a479a00079439a50abe7ee31",
+        "art_only_composite_RGB_sha256": "93f471a7b89483e97bbe55adceec93c6458383310cd76cfbe0e3f08af06b33dd",
+        "all_full_canvases_inside_screen": true
+      },
+      {
+        "state": "movement",
+        "movement_iteration_zero_based": 17,
+        "draws_in_order": [
+          {
+            "sprite": 146,
+            "native_xy": [
+              11,
+              26
+            ],
+            "output_4x_xy": [
+              44,
+              104
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              11,
+              26,
+              315,
+              147
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              12,
+              27,
+              315,
+              147
+            ],
+            "opaque_pixels_y_ge104": 1485
+          },
+          {
+            "sprite": 151,
+            "native_xy": [
+              155,
+              62
+            ],
+            "output_4x_xy": [
+              620,
+              248
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              155,
+              62,
+              317,
+              126
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              157,
+              64,
+              316,
+              125
+            ],
+            "opaque_pixels_y_ge104": 812
+          }
+        ],
+        "opaque_logo_overlap_pixels": 1177,
+        "art_only_composite_indices_sha256": "f3cfe9cea43bcfe71e2e86ba65a035e9ef34a7d9975dd89f434d78706f828fc7",
+        "art_only_composite_RGB_sha256": "84ed6bee4460f9489319dfb25c194b724df3bfcabf09be09fb971daab8b6486e",
+        "all_full_canvases_inside_screen": true
+      },
+      {
+        "state": "movement",
+        "movement_iteration_zero_based": 18,
+        "draws_in_order": [
+          {
+            "sprite": 146,
+            "native_xy": [
+              11,
+              24
+            ],
+            "output_4x_xy": [
+              44,
+              96
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              11,
+              24,
+              315,
+              145
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              12,
+              25,
+              315,
+              145
+            ],
+            "opaque_pixels_y_ge104": 1148
+          },
+          {
+            "sprite": 151,
+            "native_xy": [
+              155,
+              63
+            ],
+            "output_4x_xy": [
+              620,
+              252
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              155,
+              63,
+              317,
+              127
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              157,
+              65,
+              316,
+              126
+            ],
+            "opaque_pixels_y_ge104": 850
+          }
+        ],
+        "opaque_logo_overlap_pixels": 1249,
+        "art_only_composite_indices_sha256": "c9f1e7490b8b19867381bca157bd93c1d65b4eedff890625315763d9eee5783d",
+        "art_only_composite_RGB_sha256": "077a123c8bc456296beb4f1ad3a211107245a611043831321064d737200ce05a",
+        "all_full_canvases_inside_screen": true
+      },
+      {
+        "state": "movement",
+        "movement_iteration_zero_based": 19,
+        "draws_in_order": [
+          {
+            "sprite": 146,
+            "native_xy": [
+              11,
+              22
+            ],
+            "output_4x_xy": [
+              44,
+              88
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              11,
+              22,
+              315,
+              143
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              12,
+              23,
+              315,
+              143
+            ],
+            "opaque_pixels_y_ge104": 1023
+          },
+          {
+            "sprite": 151,
+            "native_xy": [
+              155,
+              64
+            ],
+            "output_4x_xy": [
+              620,
+              256
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              155,
+              64,
+              317,
+              128
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              157,
+              66,
+              316,
+              127
+            ],
+            "opaque_pixels_y_ge104": 889
+          }
+        ],
+        "opaque_logo_overlap_pixels": 1233,
+        "art_only_composite_indices_sha256": "5b44bae7bbaa3eec7f5814c0022ba2bdb8da75ccecf388cc237f1302ad867b31",
+        "art_only_composite_RGB_sha256": "7cca8385a5d6d4713656daf79b61c1382dd512e632afcd5f35bf45f2b4047ae0",
+        "all_full_canvases_inside_screen": true
+      },
+      {
+        "state": "movement",
+        "movement_iteration_zero_based": 20,
+        "draws_in_order": [
+          {
+            "sprite": 146,
+            "native_xy": [
+              11,
+              20
+            ],
+            "output_4x_xy": [
+              44,
+              80
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              11,
+              20,
+              315,
+              141
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              12,
+              21,
+              315,
+              141
+            ],
+            "opaque_pixels_y_ge104": 929
+          },
+          {
+            "sprite": 151,
+            "native_xy": [
+              155,
+              65
+            ],
+            "output_4x_xy": [
+              620,
+              260
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              155,
+              65,
+              317,
+              129
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              157,
+              67,
+              316,
+              128
+            ],
+            "opaque_pixels_y_ge104": 929
+          }
+        ],
+        "opaque_logo_overlap_pixels": 1175,
+        "art_only_composite_indices_sha256": "f0c80f8e9a807d2174cefe3c4a8d5aefdcf6475241feea63f3a70b753da827ff",
+        "art_only_composite_RGB_sha256": "d3ee519c9831c9c8bcb1355e7687d6bdebc34d20a698b0d6515626306d60e415",
+        "all_full_canvases_inside_screen": true
+      },
+      {
+        "state": "movement",
+        "movement_iteration_zero_based": 21,
+        "draws_in_order": [
+          {
+            "sprite": 146,
+            "native_xy": [
+              11,
+              18
+            ],
+            "output_4x_xy": [
+              44,
+              72
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              11,
+              18,
+              315,
+              139
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              12,
+              19,
+              315,
+              139
+            ],
+            "opaque_pixels_y_ge104": 805
+          },
+          {
+            "sprite": 151,
+            "native_xy": [
+              155,
+              66
+            ],
+            "output_4x_xy": [
+              620,
+              264
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              155,
+              66,
+              317,
+              130
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              157,
+              68,
+              316,
+              129
+            ],
+            "opaque_pixels_y_ge104": 970
+          }
+        ],
+        "opaque_logo_overlap_pixels": 1131,
+        "art_only_composite_indices_sha256": "02879c520d53701d1fcaba63c01b0cb972285f02944034f3d3ed088ecda9f27a",
+        "art_only_composite_RGB_sha256": "8390fb5fecf967c30ccfc101a124ab61372f72f8e9742de9ef454376befb0df6",
+        "all_full_canvases_inside_screen": true
+      },
+      {
+        "state": "movement",
+        "movement_iteration_zero_based": 22,
+        "draws_in_order": [
+          {
+            "sprite": 146,
+            "native_xy": [
+              11,
+              16
+            ],
+            "output_4x_xy": [
+              44,
+              64
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              11,
+              16,
+              315,
+              137
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              12,
+              17,
+              315,
+              137
+            ],
+            "opaque_pixels_y_ge104": 652
+          },
+          {
+            "sprite": 151,
+            "native_xy": [
+              155,
+              67
+            ],
+            "output_4x_xy": [
+              620,
+              268
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              155,
+              67,
+              317,
+              131
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              157,
+              69,
+              316,
+              130
+            ],
+            "opaque_pixels_y_ge104": 1014
+          }
+        ],
+        "opaque_logo_overlap_pixels": 1069,
+        "art_only_composite_indices_sha256": "f4946cf1396f58f88a2cbb955bcefabf93343f8a780d2a9e26796c40a0e7229c",
+        "art_only_composite_RGB_sha256": "155713ce4773f69da2cdd11ac53df9b7e06ed6ebf1d5360c4dad3ecae1d95496",
+        "all_full_canvases_inside_screen": true
+      },
+      {
+        "state": "movement",
+        "movement_iteration_zero_based": 23,
+        "draws_in_order": [
+          {
+            "sprite": 146,
+            "native_xy": [
+              11,
+              14
+            ],
+            "output_4x_xy": [
+              44,
+              56
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              11,
+              14,
+              315,
+              135
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              12,
+              15,
+              315,
+              135
+            ],
+            "opaque_pixels_y_ge104": 498
+          },
+          {
+            "sprite": 151,
+            "native_xy": [
+              155,
+              68
+            ],
+            "output_4x_xy": [
+              620,
+              272
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              155,
+              68,
+              317,
+              132
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              157,
+              70,
+              316,
+              131
+            ],
+            "opaque_pixels_y_ge104": 1057
+          }
+        ],
+        "opaque_logo_overlap_pixels": 1038,
+        "art_only_composite_indices_sha256": "83b5170177944493683e165930a819f0fd00c56b0b7aae207989b835a0414a9f",
+        "art_only_composite_RGB_sha256": "1f6ba6bf277bf988e63bfe26960bb825a010e4a1b9112784ba8947413efdc202",
+        "all_full_canvases_inside_screen": true
+      },
+      {
+        "state": "movement",
+        "movement_iteration_zero_based": 24,
+        "draws_in_order": [
+          {
+            "sprite": 146,
+            "native_xy": [
+              11,
+              12
+            ],
+            "output_4x_xy": [
+              44,
+              48
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              11,
+              12,
+              315,
+              133
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              12,
+              13,
+              315,
+              133
+            ],
+            "opaque_pixels_y_ge104": 356
+          },
+          {
+            "sprite": 151,
+            "native_xy": [
+              155,
+              69
+            ],
+            "output_4x_xy": [
+              620,
+              276
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              155,
+              69,
+              317,
+              133
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              157,
+              71,
+              316,
+              132
+            ],
+            "opaque_pixels_y_ge104": 1102
+          }
+        ],
+        "opaque_logo_overlap_pixels": 965,
+        "art_only_composite_indices_sha256": "ed2189ffd03a24ecfb07715697615eac03bb778dbc411b0d32a178f49c0e58b0",
+        "art_only_composite_RGB_sha256": "52bd33f0da2f95a4df8c3cce5d17d384693bfa1d5c65be205a0069c2ecb80629",
+        "all_full_canvases_inside_screen": true
+      },
+      {
+        "state": "movement",
+        "movement_iteration_zero_based": 25,
+        "draws_in_order": [
+          {
+            "sprite": 146,
+            "native_xy": [
+              11,
+              10
+            ],
+            "output_4x_xy": [
+              44,
+              40
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              11,
+              10,
+              315,
+              131
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              12,
+              11,
+              315,
+              131
+            ],
+            "opaque_pixels_y_ge104": 327
+          },
+          {
+            "sprite": 151,
+            "native_xy": [
+              155,
+              70
+            ],
+            "output_4x_xy": [
+              620,
+              280
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              155,
+              70,
+              317,
+              134
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              157,
+              72,
+              316,
+              133
+            ],
+            "opaque_pixels_y_ge104": 1147
+          }
+        ],
+        "opaque_logo_overlap_pixels": 843,
+        "art_only_composite_indices_sha256": "7a12001c6555f657e2114f3cf0e0685e3fbfa083c89da07ae536e177265490cd",
+        "art_only_composite_RGB_sha256": "7cdeb28229f1a29856f1676895d9396be3bab122bb87551c8fa7839c659c0d1d",
+        "all_full_canvases_inside_screen": true
+      },
+      {
+        "state": "movement",
+        "movement_iteration_zero_based": 26,
+        "draws_in_order": [
+          {
+            "sprite": 146,
+            "native_xy": [
+              11,
+              8
+            ],
+            "output_4x_xy": [
+              44,
+              32
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              11,
+              8,
+              315,
+              129
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              12,
+              9,
+              315,
+              129
+            ],
+            "opaque_pixels_y_ge104": 299
+          },
+          {
+            "sprite": 151,
+            "native_xy": [
+              155,
+              71
+            ],
+            "output_4x_xy": [
+              620,
+              284
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              155,
+              71,
+              317,
+              135
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              157,
+              73,
+              316,
+              134
+            ],
+            "opaque_pixels_y_ge104": 1194
+          }
+        ],
+        "opaque_logo_overlap_pixels": 711,
+        "art_only_composite_indices_sha256": "e9ac71f5511bf957653b6d1d3d2d26090e5712bde8d01351425a4e30894852d8",
+        "art_only_composite_RGB_sha256": "15e4bbf213ceaf5f20c5415a6eee8036ca12011a3b24754cadfe2f11af2d65fa",
+        "all_full_canvases_inside_screen": true
+      },
+      {
+        "state": "movement",
+        "movement_iteration_zero_based": 27,
+        "draws_in_order": [
+          {
+            "sprite": 146,
+            "native_xy": [
+              11,
+              6
+            ],
+            "output_4x_xy": [
+              44,
+              24
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              11,
+              6,
+              315,
+              127
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              12,
+              7,
+              315,
+              127
+            ],
+            "opaque_pixels_y_ge104": 269
+          },
+          {
+            "sprite": 151,
+            "native_xy": [
+              155,
+              72
+            ],
+            "output_4x_xy": [
+              620,
+              288
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              155,
+              72,
+              317,
+              136
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              157,
+              74,
+              316,
+              135
+            ],
+            "opaque_pixels_y_ge104": 1244
+          }
+        ],
+        "opaque_logo_overlap_pixels": 612,
+        "art_only_composite_indices_sha256": "ab0f850f499e0bd9e4691c592b7556534a446dd9c91913ce2c2fcee4899dadb4",
+        "art_only_composite_RGB_sha256": "9c6230b6b070077b5577949bbbaecd3df9404873b1f77851a0d9551bc84bb737",
+        "all_full_canvases_inside_screen": true
+      },
+      {
+        "state": "movement",
+        "movement_iteration_zero_based": 28,
+        "draws_in_order": [
+          {
+            "sprite": 146,
+            "native_xy": [
+              11,
+              4
+            ],
+            "output_4x_xy": [
+              44,
+              16
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              11,
+              4,
+              315,
+              125
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              12,
+              5,
+              315,
+              125
+            ],
+            "opaque_pixels_y_ge104": 240
+          },
+          {
+            "sprite": 151,
+            "native_xy": [
+              155,
+              73
+            ],
+            "output_4x_xy": [
+              620,
+              292
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              155,
+              73,
+              317,
+              137
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              157,
+              75,
+              316,
+              136
+            ],
+            "opaque_pixels_y_ge104": 1295
+          }
+        ],
+        "opaque_logo_overlap_pixels": 525,
+        "art_only_composite_indices_sha256": "5c5175d800410ec819cd9010a58e2c34659a9d1ab737289b84dc2586dccd82aa",
+        "art_only_composite_RGB_sha256": "d6321bce3ef1ecaa4eee38ebf01b75114b489b079a82d4bfaf30c0d1facf7f78",
+        "all_full_canvases_inside_screen": true
+      },
+      {
+        "state": "settled_restart",
+        "movement_iteration_zero_based": null,
+        "draws_in_order": [
+          {
+            "sprite": 146,
+            "native_xy": [
+              11,
+              4
+            ],
+            "output_4x_xy": [
+              44,
+              16
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              11,
+              4,
+              315,
+              125
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              12,
+              5,
+              315,
+              125
+            ],
+            "opaque_pixels_y_ge104": 240
+          },
+          {
+            "sprite": 151,
+            "native_xy": [
+              155,
+              73
+            ],
+            "output_4x_xy": [
+              620,
+              292
+            ],
+            "native_full_canvas_xyxy_half_open": [
+              155,
+              73,
+              317,
+              137
+            ],
+            "native_opaque_bbox_xyxy_half_open": [
+              157,
+              75,
+              316,
+              136
+            ],
+            "opaque_pixels_y_ge104": 1295
+          }
+        ],
+        "opaque_logo_overlap_pixels": 525,
+        "art_only_composite_indices_sha256": "5c5175d800410ec819cd9010a58e2c34659a9d1ab737289b84dc2586dccd82aa",
+        "art_only_composite_RGB_sha256": "d6321bce3ef1ecaa4eee38ebf01b75114b489b079a82d4bfaf30c0d1facf7f78",
+        "all_full_canvases_inside_screen": true
+      }
+    ]
+  },
+  "draw_order": [
+    {
+      "order": 1,
+      "action": "JE_loadPic(VGAScreen,4,false)",
+      "effect": "fully replaces 320x200 indexed screen; copies palette8 into target colors; does not immediately apply palette"
+    },
+    {
+      "order": 2,
+      "action": "version darkened shadow",
+      "origin_native_xy": [
+        3,
+        193
+      ],
+      "font": "small_font",
+      "black": false
+    },
+    {
+      "order": 3,
+      "action": "version glyphs",
+      "origin_native_xy": [
+        2,
+        192
+      ],
+      "font": "small_font",
+      "alignment": "left_aligned",
+      "hue": 15,
+      "value": 0,
+      "string": "opentyrian_version, retain dynamic original"
+    },
+    {
+      "order": 4,
+      "action": "optional save background/version to VGAScreen2; then restore that base per movement frame"
+    },
+    {
+      "order": 5,
+      "action": "blit_sprite planet146 at phase origin"
+    },
+    {
+      "order": 6,
+      "action": "blit_sprite planet151 at phase origin; opaque companion pixels win any overlap"
+    },
+    {
+      "order": 7,
+      "action": "after animation, draw each menu item 0..6",
+      "x": "screen_width/2 - JE_textWidth(item,normal_font)/2",
+      "native_y_values": [
+        104,
+        117,
+        130,
+        143,
+        156,
+        169,
+        182
+      ],
+      "font": "normal_font",
+      "hue": 15,
+      "per_item_draws": [
+        {
+          "delta_xy": [
+            -1,
+            -1
+          ],
+          "value": -10
+        },
+        {
+          "delta_xy": [
+            1,
+            1
+          ],
+          "value": -10
+        },
+        {
+          "delta_xy": [
+            1,
+            -1
+          ],
+          "value": -10
+        },
+        {
+          "delta_xy": [
+            -1,
+            1
+          ],
+          "value": -10
+        },
+        {
+          "delta_xy": [
+            0,
+            0
+          ],
+          "value": -3
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "action": "save complete settled art plus menu into VGAScreen2; set normal cursor; fade UI palette; on each interaction restore saved complete screen"
+    },
+    {
+      "order": 9,
+      "action": "draw selected item highlight",
+      "x": 160,
+      "y": "104+13*selectedIndex",
+      "font": "normal_font",
+      "hue": 15,
+      "value": -1,
+      "alignment": "centered"
+    },
+    {
+      "order": 10,
+      "action": "service events; JE_mouseStartFilter(0xF0); JE_showVGA(); JE_mouseReplace()",
+      "cursor": "normal pointer Sprite2 quad base273, original clipping/hotspot/underlay handling"
+    }
+  ],
+  "generated_asset_minimum_contract": {
+    "scope": "Three separate4x assets only: PIC4, PLANET_SHAPES146, PLANET_SHAPES151. Background contains no text/logos/menu/version/cursor. Logo files contain only their respective identity, including original trademark on151.",
+    "canvas": "Match exact output_4x_canvas_wh; never tight-crop or auto-center; keep full transparent registration padding.",
+    "PIC4_alpha": "Every pixel255, including dark/black space; no transparency.",
+    "logos_alpha": "RGBA with a genuine alpha channel; unassociated/straight alpha; transparent background and glyph counters; no opaque rectangle/checkerboard/matte. Source has binary alpha; candidate may use bounded soft coverage for high-resolution edges, with independently rendered alpha.",
+    "minimum_support_bound": "For registration-preserving pilot, alpha must be zero outside the source opaque bbox scaled4x (provided for each sprite). Retain internal counters/negative space and original silhouette; any intended silhouette expansion requires review. This bbox bound alone does not establish fidelity.",
+    "not_required": "Do not force the generated alpha to a nearest-neighbor copy of the original1x mask; that would retain1x stair-step geometry. Preserve source mask as verification reference, not authored art.",
+    "transparent_RGB": "Prefer zero RGB where alpha0 to avoid hidden matte/color fringe; alpha, not RGB, determines support.",
+    "palette_and_identity": "True-color generated RGB need not be quantized to256 colors. Preserve original red/white planet, dark space, sculpted gold Tyrian lettering, and gold2000/trademark; palette roles and timings remain behavior contracts.",
+    "foreground": "Never bake or regenerate menu/version/cursor. Both logos extend into y>=104 after settling; draw native UI over them rather than applying a rectangular menu exclusion mask.",
+    "lease": "Artwork selection must be explicitly titleScreen/context-bound, with source/asset validation. Do not enable it globally from PIC4/table3/id coincidence. No renderer activation authorized by this audit.",
+    "missing_invalid_resources": "Preserve classic output and original input/timing on missing or invalid asset; no partial stale logo/background cache.",
+    "required_review_states": "initial, all29 movement positions, settled/restart, art-only fade0..239, UI-only fade240..255, version/shadow, live menu selection/cursor and submenu return; this audit supplies static contracts, not runtime validation."
+  },
+  "preserve_interaction": {
+    "menu_count": 7,
+    "menu_item_step_native": 13,
+    "mouse_hitboxes": "existing JE_textWidth centered widths and y in [104+13*i,104+13*(i+1))",
+    "keyboard_joystick": "keep existing wrap, action, cancel and special-name behavior",
+    "idle_demo_ms": 30000,
+    "audio": "SONG_TITLE, existing cursor/select sounds",
+    "no_changes": "menu text, fonts, layout, version string, selection, cursor, timing, input, demo return or menu restart behavior"
+  },
+  "status": "OFFLINE_ART_SOURCE_FREEZE_ROOT_REVIEWED_2026_10_12; runtime integration and actual title sequence checks remain pending",
+  "normalization": "Only source paths and full palette data omitted from the source audit; source identities and behavior contracts retained.",
+  "hash_canonicalization": {
+    "fnv": "FNV-1a64 standard offset14695981039346656037 and prime1099511628211",
+    "source_indices": "row-major full original logical canvas; transparent slots zero",
+    "source_opacity": "row-major full original logical canvas; 0/255 bytes",
+    "palette": "256 RGB triples after original VGA6-to8 expansion",
+    "art": "row-major canonical4x straight RGBA; alpha0 RGB normalized zero"
+  }
+}

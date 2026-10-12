@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "source_only_relocated_build": true,
+  "canonical_resource_files_available_to_builder": false,
+  "original_game_data_available_to_builder": false,
+  "canonical_png_sha256": {
+    "pic4-canonical4x.png": "3f7f99e0df6474d830494f4e8a4d1135083d8be709c59d753c0fd2de89458d89",
+    "tyrian146-canonical4x.png": "fbdf75e7f3bd6424dae2671c6a4828e5809520d39b07bd397636163620df1b43",
+    "year151-canonical4x.png": "c57dd507d55d20b7b4738b4e84a574a6b59363c171c61d3c52b88fcfc6a2b6a6"
+  },
+  "offline_validation_byte_exact": true,
+  "source_master_count": 5,
+  "input_guard": "five exact master file hashes checked before output creation",
+  "output_guards": [
+    {
+      "case": "relative",
+      "rejected": true,
+      "last_error": "ValueError: output must be an absolute path"
+    },
+    {
+      "case": "existing",
+      "rejected": true,
+      "last_error": "ValueError: output must not already exist"
+    },
+    {
+      "case": "inside_source",
+      "rejected": true,
+      "last_error": "ValueError: output must be external to the source package"
+    },
+    {
+      "case": "source_ancestor",
+      "rejected": true,
+      "last_error": "ValueError: output must not already exist"
+    },
+    {
+      "case": "symlink_parent",
+      "rejected": true,
+      "last_error": "ValueError: output path must not contain symlinks"
+    },
+    {
+      "case": "missing_parent",
+      "rejected": true,
+      "last_error": "ValueError: output parent must already exist"
+    }
+  ],
+  "limits": "Offline source build and sampling only; no game execution or actual title QA."
+}

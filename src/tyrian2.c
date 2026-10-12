@@ -22,6 +22,7 @@
 #include "game_probe.h"
 #include "asset_debug.h"
 #include "startup_logos.h"
+#include "title_layers.h"
 
 #include "animlib.h"
 #include "backgrnd.h"
@@ -3364,24 +3365,36 @@ bool titleScreen(void)
 			play_song(SONG_TITLE);
 
 			JE_loadPic(VGAScreen, 4, false);
+			title_layers_begin(VGAScreen, colors, moveTyrianLogoUp);
 
 			draw_font_hv_shadow(VGAScreen, 2, 192, opentyrian_version, small_font, left_aligned, 15, 0, false, 1);
+			title_layers_version_done();
 
 			if (moveTyrianLogoUp)
 			{
+				title_layers_save_before(TITLE_BACKGROUND);
 				memcpy(VGAScreen2->pixels, VGAScreen->pixels, VGAScreen2->pitch * VGAScreen2->h);
+				title_layers_save_after(TITLE_BACKGROUND);
 
+				title_layers_logo(146, 11, 62);
 				blit_sprite(VGAScreenSeg, 11, 62, PLANET_SHAPES, 146); // tyrian logo
+				title_layers_logo(151, 155, 41);
 				blit_sprite(VGAScreenSeg, 155, 41, PLANET_SHAPES, 151); // 2000(tm)
+				title_layers_art_ready();
 				fade_palette(colors, 10, 0, 255 - 16);
 
 				for (int yLogo = 60, y2K = 45; yLogo >= 4; yLogo -= 2, ++y2K)
 				{
 					setDelay(2);
 
+					title_layers_restore_before(TITLE_BACKGROUND);
 					memcpy(VGAScreen->pixels, VGAScreen2->pixels, VGAScreen->pitch * VGAScreen->h);
+					title_layers_restore_after(TITLE_BACKGROUND);
+					title_layers_logo(146, 11, yLogo);
 					blit_sprite(VGAScreenSeg, 11, yLogo, PLANET_SHAPES, 146); // tyrian logo
+					title_layers_logo(151, 155, y2K);
 					blit_sprite(VGAScreenSeg, 155, y2K, PLANET_SHAPES, 151); // 2000(tm)
+					title_layers_art_ready();
 					JE_showVGA();
 
 					service_wait_delay();
@@ -3390,11 +3403,15 @@ bool titleScreen(void)
 			}
 			else
 			{
+				title_layers_logo(146, 11, 4);
 				blit_sprite(VGAScreenSeg, 11, 4, PLANET_SHAPES, 146); // tyrian logo
+				title_layers_logo(151, 155, 73);
 				blit_sprite(VGAScreenSeg, 155, 73, PLANET_SHAPES, 151); // 2000(tm)
+				title_layers_art_ready();
 				fade_palette(colors, 10, 0, 255 - 16);
 			}
 
+			title_layers_menu_begin();
 			// Draw menu items.
 			for (size_t i = 0; i < COUNTOF(menuText); ++i)
 			{
@@ -3411,7 +3428,10 @@ bool titleScreen(void)
 				draw_font_hv(VGAScreen, x,     y,     menuText[i], normal_font, left_aligned, 15, -3);
 			}
 
+			title_layers_menu_done();
+			title_layers_save_before(TITLE_MENU);
 			memcpy(VGAScreen2->pixels, VGAScreen->pixels, VGAScreen2->pitch * VGAScreen2->h);
+			title_layers_save_after(TITLE_MENU);
 
 			mouseCursor = MOUSE_POINTER_NORMAL;
 
@@ -3421,16 +3441,22 @@ bool titleScreen(void)
 			restart = false;
 		}
 
+		title_layers_restore_before(TITLE_MENU);
 		memcpy(VGAScreen->pixels, VGAScreen2->pixels, VGAScreen->pitch * VGAScreen->h);
+		title_layers_restore_after(TITLE_MENU);
 
 		// Highlight selected menu item.
 		draw_font_hv(VGAScreen, VGAScreen->w / 2, yMenuItems + hMenuItem * selectedIndex, menuText[selectedIndex], normal_font, centered, 15, -1);
+		title_layers_highlight_done();
 
 		service_SDL_events(true);
 
+		title_layers_cursor_begin();
 		JE_mouseStartFilter(0xF0);
+		title_layers_cursor_done();
 		JE_showVGA();
 		JE_mouseReplace();
+		title_layers_cursor_erased();
 
 		const Uint32 idleStartTick = SDL_GetTicks();
 
@@ -3443,6 +3469,7 @@ bool titleScreen(void)
 				fade_black(15);
 
 				play_demo = true;
+				title_layers_end();
 				return true;
 			}
 
@@ -3565,15 +3592,18 @@ bool titleScreen(void)
 							fade_black(10);
 
 							loadDestruct = true;
+							title_layers_end();
 							return true;
 						}
 						else if (i + 1 == SA_ENGAGE)
 						{
 							JE_playSampleNum(V_DANGER);
 
+							title_layers_end();
 							JE_whoa();
 							set_colors((SDL_Color) { 0, 0, 0 }, 0, 255);
 
+							title_layers_end();
 							if (newSuperTyrianGame())
 								return true;
 
@@ -3583,6 +3613,7 @@ bool titleScreen(void)
 						{
 							fade_black(10);
 
+							title_layers_end();
 							if (newSuperArcadeGame(i))
 								return true;
 
@@ -3603,6 +3634,7 @@ bool titleScreen(void)
 			{
 				fade_black(15);
 
+				title_layers_end();
 				if (newGame())
 					return true;
 
@@ -3613,6 +3645,7 @@ bool titleScreen(void)
 			{
 				fade_black(15);
 
+				title_layers_end();
 				if (JE_loadScreen())
 					return true;
 
@@ -3623,6 +3656,7 @@ bool titleScreen(void)
 			{
 				fade_black(15);
 
+				title_layers_end();
 				JE_highScoreScreen();
 
 				restart = true;
@@ -3632,6 +3666,7 @@ bool titleScreen(void)
 			{
 				fade_black(15);
 
+				title_layers_end();
 				JE_helpSystem(1);
 
 				restart = true;
@@ -3641,6 +3676,7 @@ bool titleScreen(void)
 			{
 				fade_black(15);
 
+				title_layers_end();
 				setupMenu();
 
 				restart = true;
@@ -3651,12 +3687,14 @@ bool titleScreen(void)
 				fade_black(15);
 
 				play_demo = true;
+				title_layers_end();
 				return true;
 			}
 			case MENU_ITEM_QUIT:
 			{
 				fade_black(15);
 
+				title_layers_end();
 				return false;
 			}
 			default:
@@ -3668,6 +3706,7 @@ bool titleScreen(void)
 		{
 			fade_black(15);
 
+			title_layers_end();
 			return false;
 		}
 	}

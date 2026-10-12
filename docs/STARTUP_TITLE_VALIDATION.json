@@ -1,0 +1,564 @@
+{
+  "schema": "startup-title-validation-v1",
+  "status": "source-unit-package-and-bounded-actual-engine-pass",
+  "published_baseline": "aba8650c3e33eb02a43a21530b8fba2965eb9e44",
+  "source_checkpoint": "654005bed13e7334d7109b50c669b7c1257f1c6d",
+  "hardened_source_checkpoint": "38e8a046c6389f06f79684c8bf062143f3b66e93",
+  "source_tree": "646dc6468a96bcbff78d75de4e9f99e898a5e862",
+  "independent_source_receipt_sha256": "486a8849d7de719e9db6368d0ff8d4a0193d3580afb350cd97570f45db8c93d2",
+  "gates": {
+    "source_preservation": "PASS",
+    "runtime_presentations": 736,
+    "asan_ubsan_presentations": 736,
+    "independent_adversarial_asan_ubsan_presentations": 806,
+    "hardening": "invalid checkpoint enums/no-before sequencing and defined unsigned extreme-address guards",
+    "package_tests": 13,
+    "source_only_relocated_art_rebuild": "byte-exact PASS",
+    "central_builder": {
+      "verified_startup_title_resources": 3,
+      "verified_startup_title_source_files": 19,
+      "verified_startup_title_manufacturer_compatibility_copies": 2,
+      "verified_linked31_family_members": 8,
+      "verified_type4_composites": 5,
+      "verified_startup_manufacturer_resources": 2,
+      "verified_startup_manufacturer_source_files": 22,
+      "verified_hud_meter_sidecars": 2,
+      "verified_hud_meter_source_files": 13,
+      "verified_pack_count": 18,
+      "verified_HDA_entries": 3012,
+      "verified_exact_source_pngs": 402,
+      "verified_material_sidecars": 4,
+      "verified_cap_sidecars": 2,
+      "verified_forest_sidecars_and_policies": 4,
+      "verified_gameplay_hud_sidecars": 2,
+      "verified_hud_source_pngs": 1,
+      "verified_hud_font_sidecars": 2,
+      "verified_hud_font_source_files": 19,
+      "verified_hud_fixed_text_sidecars": 2,
+      "verified_hud_fixed_text_source_pngs": 12,
+      "verified_hud_extension_sidecars": 4,
+      "verified_hud_extension_source_pngs": 21,
+      "default_pack_counts": [
+        386,
+        390
+      ],
+      "rebuild_output": null,
+      "all_runtime_RGBA_and_header_bytes_exact": true
+    },
+    "windows": "source/project inventory only, not Windows compilation or runtime",
+    "manufacturer_package_tests": 9,
+    "source_preservation_exception": "Only explicit CLI help literal documenting title art; all original executable flow preserved",
+    "final_linux_production_build": {
+      "status": "PASS",
+      "command": "make -j2 with recovery-dependencies environment",
+      "private_QA_hooks": false,
+      "warning": "Existing published render_mirror.c:2027 misleading-indentation warning; that file is byte-exact aba8650c and has no title delta"
+    },
+    "final_windows_source_inventory": {
+      "status": "passed",
+      "C_sources": 66,
+      "listed_headers": 69,
+      "resources": 1,
+      "material_modules": [
+        "ground101_material",
+        "world_material",
+        "world_material_fast",
+        "plateau_cap_material",
+        "forest13_material"
+      ],
+      "all_current_C_sources_listed_once": true,
+      "scope": "Project XML, paths and source inventory only; no Windows compilation or runtime claim"
+    }
+  },
+  "frozen_art_manifest_sha256": "d7bd240f1210d01c3d0e01a81ec5511fe02be7972014d6564e333c54306bd7cc",
+  "generated_only_source_files": 19,
+  "generated_only_source_bytes": 9002546,
+  "no_original_comparison_rasters_or_game_data_in_git": true,
+  "runtime_files": {
+    "startup-pic10-v1.hda": {
+      "bytes": 4096064,
+      "sha256": "a885d023f89b0e214a81df1d02dbf62d6e36645820c1a15e9a0ad74a2c5e2c79",
+      "pic_id": 10,
+      "palette_zero_based": 20,
+      "density": 4,
+      "logical_dimensions": [
+        320,
+        200
+      ],
+      "pixel_dimensions": [
+        1280,
+        800
+      ],
+      "payload_bytes": 4096000,
+      "header_bytes": 64,
+      "decoded_indices_fnv64": "720d8ce9dda3f5f4",
+      "palette_rgb_fnv64": "b50ac0b9e5f1a73d",
+      "payload_fnv64": "46944845146f2d39",
+      "reserved": 0,
+      "source_png": "previews/pic10-candidate-native4x.png",
+      "source_png_sha256": "00fd3fa8dccd72edc7621fe1b94e0f7ab60ca011e15ea886bfac2dcef63688bd",
+      "canonical_rgb_sha256": "af1361363f0d4405008ecf3458d5fcaae1ffc39159572dad0448c8d92fe9765e"
+    },
+    "startup-pic12-v1.hda": {
+      "bytes": 4096064,
+      "sha256": "bd358e8006a99467e08bc8bf257e6ead51fe5f216c63c57088612ef5039c7669",
+      "pic_id": 12,
+      "palette_zero_based": 22,
+      "density": 4,
+      "logical_dimensions": [
+        320,
+        200
+      ],
+      "pixel_dimensions": [
+        1280,
+        800
+      ],
+      "payload_bytes": 4096000,
+      "header_bytes": 64,
+      "decoded_indices_fnv64": "98d7341da720b7ab",
+      "palette_rgb_fnv64": "20261a06b61711d5",
+      "payload_fnv64": "3d97f250a0cae51a",
+      "reserved": 0,
+      "source_png": "previews/pic12-candidate-native4x.png",
+      "source_png_sha256": "1e84bae41415ea278257c81ab29397f97e586c87af0169e0fa497a2c87effa34",
+      "canonical_rgb_sha256": "60ebe4edccdd61588a707bd28c5d6fcd50f2aa2460060ee93812469b8e6a92c9"
+    },
+    "title-pic4-v1.hda": {
+      "bytes": 4096080,
+      "sha256": "0149d26dd7c860f497089f27d5650dec7af21846ad92cc8269a66b5375592c31",
+      "format": "TLV1",
+      "header_bytes": 80,
+      "header_u32": [
+        1,
+        4,
+        4,
+        320,
+        200,
+        8,
+        0,
+        4096000,
+        0,
+        0,
+        0
+      ],
+      "asset_id": 4,
+      "density": 4,
+      "logical_dimensions": [
+        320,
+        200
+      ],
+      "pixel_dimensions": [
+        1280,
+        800
+      ],
+      "palette_zero_based": 8,
+      "alpha_mode": 0,
+      "payload_bytes": 4096000,
+      "decoded_indices_fnv64": "9a3f7cb8ec37073e",
+      "opacity_fnv64": "9c9baa40cbccf525",
+      "palette_rgb_fnv64": "8f64628a08533287",
+      "payload_fnv64": "0abb22518a6634df",
+      "source_png": "canonical/pic4-canonical4x.png",
+      "source_png_sha256": "3f7f99e0df6474d830494f4e8a4d1135083d8be709c59d753c0fd2de89458d89",
+      "canonical_rgba_sha256": "abc27e251bc0cd5f18d9572dc91d6c23100503f5723d70823d513640dcb1eff8",
+      "alpha_sha256": "620cfbd60ff8ce98cd5dfef7ef9df4e4aa9c5141bce65b712d90b08019822bd3",
+      "alpha_support_bounds_4x": [
+        0,
+        0,
+        1280,
+        800
+      ]
+    },
+    "title-planet146-v1.hda": {
+      "bytes": 2354256,
+      "sha256": "ff126712e87c052b2176365b228a8248d5ec7e04386e5d233614405e51537b05",
+      "format": "TLV1",
+      "header_bytes": 80,
+      "header_u32": [
+        1,
+        4,
+        146,
+        304,
+        121,
+        8,
+        1,
+        2354176,
+        0,
+        0,
+        0
+      ],
+      "asset_id": 146,
+      "density": 4,
+      "logical_dimensions": [
+        304,
+        121
+      ],
+      "pixel_dimensions": [
+        1216,
+        484
+      ],
+      "palette_zero_based": 8,
+      "alpha_mode": 1,
+      "payload_bytes": 2354176,
+      "decoded_indices_fnv64": "30f8dbf0554a03ae",
+      "opacity_fnv64": "0cb7de8084912543",
+      "palette_rgb_fnv64": "8f64628a08533287",
+      "payload_fnv64": "623a5b10ca52dae3",
+      "source_png": "canonical/tyrian146-canonical4x.png",
+      "source_png_sha256": "fbdf75e7f3bd6424dae2671c6a4828e5809520d39b07bd397636163620df1b43",
+      "canonical_rgba_sha256": "1d05908eae6a0b86becb057b27989f261c4ec2250ece2fe6d9d5233fb3e80dca",
+      "alpha_sha256": "fc06f8683b0892fbcc0b4d68a7148dbe6cc1922c7ae0d3afc834f3d6741624ae",
+      "alpha_support_bounds_4x": [
+        4,
+        4,
+        1216,
+        484
+      ]
+    },
+    "title-planet151-v1.hda": {
+      "bytes": 663632,
+      "sha256": "325c3602bce555f3b8023dd6b6167099d540fc828bf9e84c3bd21b85d0787357",
+      "format": "TLV1",
+      "header_bytes": 80,
+      "header_u32": [
+        1,
+        4,
+        151,
+        162,
+        64,
+        8,
+        1,
+        663552,
+        0,
+        0,
+        0
+      ],
+      "asset_id": 151,
+      "density": 4,
+      "logical_dimensions": [
+        162,
+        64
+      ],
+      "pixel_dimensions": [
+        648,
+        256
+      ],
+      "palette_zero_based": 8,
+      "alpha_mode": 1,
+      "payload_bytes": 663552,
+      "decoded_indices_fnv64": "4562ec954d257998",
+      "opacity_fnv64": "ee71b0121c53f8df",
+      "palette_rgb_fnv64": "8f64628a08533287",
+      "payload_fnv64": "df98d9dd374ce169",
+      "source_png": "canonical/year151-canonical4x.png",
+      "source_png_sha256": "c57dd507d55d20b7b4738b4e84a574a6b59363c171c61d3c52b88fcfc6a2b6a6",
+      "canonical_rgba_sha256": "3fadeb272efa7678a1c21f7a18d0f928a237f4c40ae9506c3448ede5adbfcec6",
+      "alpha_sha256": "bd8622640fb1ce3c8f221489c5c0d9c44040986a2e153d440eb6cd69700c25d0",
+      "alpha_support_bounds_4x": [
+        8,
+        8,
+        644,
+        252
+      ]
+    }
+  },
+  "source_package_compatibility": {
+    "existing_manufacturer_directory": "unchanged two-file path",
+    "combined_directory": "assets/hd/packs/startup-title-v1",
+    "unique_TLV1_bytes": 7113968,
+    "MFG1_compatibility_copy_bytes": 8192128,
+    "manufacturer_copies_same_git_blobs": true,
+    "default_pack_selection": "unchanged"
+  },
+  "allocation": {
+    "persistent_cpu_bytes": 12075752,
+    "nominal_sdl_texture_bytes": 4096000,
+    "driver_overhead": "unmeasured",
+    "cpu_allocations_per_presentation": 0,
+    "resource_io_per_presentation": 0
+  },
+  "actual_engine_executions": 14,
+  "limitations": [
+    "Physical desktop/GPU/fullscreen untested",
+    "Windows source registration only",
+    "Physical joystick untested",
+    "Audio quality untested",
+    "Actual corrupt-resource cases untested; bounded source/unit fault coverage instead",
+    "ENGAGE/special-name/new-game/load/high-score/setup paths source/unit coverage only",
+    "Christmas actual title and complete demo playback/return untested",
+    "Author visual review is retained stills; no continuous-video playback claim",
+    "Observer/encoding timing is diagnostic, not FPS or original-speed evidence"
+  ],
+  "evidence_sha256": {
+    "title-central-build-20261012.json": "47fe5fe85f841f5119d2bdca498f99d19ddfe02ab7fb49295a6a023b5c55943c",
+    "title-package-rebuild-20261012.json": "3d0fc1180d9add2f79607d9e5e6264bc6dcf3b6dd55161c86e2b971071ccf9c9",
+    "title-package-tests-20261012.log": "8a9f0329bd9705fd6f04118d09acccc866fbf39d36dad70b4252af3ce3e7d8d0",
+    "title-layer-hardening-source.log": "c09331290c5038576393c0f6aa76df45869b568bc68c3d97f8f0ba009243579f",
+    "title-layer-hardening-runtime.log": "587772f10bbf6ec2d27ec2ac68dd758f229c34062d92e06a986c5aa88f35c80c",
+    "title-layer-hardening-sanitizer.log": "587772f10bbf6ec2d27ec2ac68dd758f229c34062d92e06a986c5aa88f35c80c",
+    "title-central-final-build-20261012.json": "09ea5bc9746812c0bf7e5fb05bc88e0899bce59f28ee4c14cd6461665a7d3dbb",
+    "title-final-merge-package-proof-20261012.json": "02d6cc92eab2b79bdb8b49003a97dc1c16b58bf1457e9291e30c318f12742a1c",
+    "matrix-receipt.json": "c6c2bd85287487632147b8b509f4cd8055c7f3b0c10d09f5f6739f0ec072fdac",
+    "author-review.txt": "14cef913e94c31ca36a241e0c170404bfaf000949f3c33395339af901590c06e",
+    "title-final-runtime-20261012.log": "587772f10bbf6ec2d27ec2ac68dd758f229c34062d92e06a986c5aa88f35c80c",
+    "title-final-sanitizer-20261012.log": "587772f10bbf6ec2d27ec2ac68dd758f229c34062d92e06a986c5aa88f35c80c",
+    "title-final-manufacturer-runtime-20261012.log": "19f3917e57687d0161e892ce683c68196257c6fc1d0ad6f2fe972dc57543824d",
+    "title-final-manufacturer-sanitizer-20261012.log": "19f3917e57687d0161e892ce683c68196257c6fc1d0ad6f2fe972dc57543824d",
+    "title-final-manufacturer-package-20261012.log": "6638d4135245cc4e4d0ab675fdcafd9e7cf6a2c0f08de187de86384284f659ce",
+    "title-final-source-20261012.log": "cfbf2d2925be44e241152bfec9142c0342f69c4bc337f2cac01ced4347b96f4f",
+    "title-final-manufacturer-source-20261012.log": "9ad607f5fdc6bb2008486109322fa74e675937d594b351d0fa43c9d01146f674",
+    "title-final-title-package-20261012.log": "2be625e7833b4f53c2f0e9a5a703eddac34755a73272be5795e19ad855f17b90",
+    "title-final-windows-source-20261012.json": "ac85a2102b474d3b9084a5999aaa7989a957bc2e199db8df3bdfecc10d9834e9",
+    "title-final-production-build-20261012.log": "a007eae87e4f30d938bbd35d67e15bcbe6a3cdbb918dee0869f2ad06092b0776"
+  },
+  "actual_matrix_baseline": "1df1d87b49b478d0e8b2eb5c5a4778c3f20866a8",
+  "actual_matrix_candidate": "b62a99b7f48909d653a8d46c0ca709e10bfd8eba",
+  "merged_runtime_checkpoint": "49c4e0363ae526527c5ab3e11713ff7b09d61308",
+  "merge_checkpoint": "f73d31d5c89672c34ffd36329028ec657c8c6468",
+  "audited_title_module_sha256": "9f8c01380eebb220a690c90495bd791dd423ce22b77db4756cc2172cd2135e68",
+  "actual_engine_presentations": 2200,
+  "actual_matrix": {
+    "status": "PASS",
+    "baseline": "1df1d87b49b478d0e8b2eb5c5a4778c3f20866a8",
+    "tested_candidate": "b62a99b7f48909d653a8d46c0ca709e10bfd8eba",
+    "executions": 13,
+    "presentations": 2058,
+    "intro_presentations": 1066,
+    "title_presentations": 940,
+    "foreign_presentations": 52,
+    "seed": 1296451377,
+    "version": "startup-qa-20261012",
+    "scope": "Actual release engine SDL dummy/software readback before original SDL_RenderPresent at native output sizes",
+    "title_AB_isolation": "Both sides use identical HD manufacturer cards; only candidate enables title resources",
+    "all_original_indexed_palette_rng_input_delay_states_preserved": true,
+    "all_title_hashes_match_independent_ordered_source_index_and_straight_alpha_oracle": true,
+    "retained_candidate_PNGs": 14,
+    "retained_baseline_PNGs": 14,
+    "core2_lossy_MP4s": 2,
+    "diagnostic_timing": {
+      "core2": {
+        "baseline": {
+          "first_title_begin_to_last_readback_us": 1239512,
+          "title_render_and_capture_total_us": 38231,
+          "title_render_and_capture_median_us": 606.5,
+          "title_palette_30_steps_sum_us": 59,
+          "title_palette_step_max_us": 3
+        },
+        "candidate": {
+          "first_title_begin_to_last_readback_us": 1249678,
+          "title_render_and_capture_total_us": 284778,
+          "title_render_and_capture_median_us": 4371.0,
+          "title_palette_30_steps_sum_us": 892,
+          "title_palette_step_max_us": 49
+        }
+      },
+      "core4": {
+        "baseline": {
+          "first_title_begin_to_last_readback_us": 1246900,
+          "title_render_and_capture_total_us": 126870,
+          "title_render_and_capture_median_us": 2003.5,
+          "title_palette_30_steps_sum_us": 57,
+          "title_palette_step_max_us": 4
+        },
+        "candidate": {
+          "first_title_begin_to_last_readback_us": 1254675,
+          "title_render_and_capture_total_us": 350118,
+          "title_render_and_capture_median_us": 5415.0,
+          "title_palette_30_steps_sum_us": 834,
+          "title_palette_step_max_us": 45
+        }
+      }
+    },
+    "timing_limits": "Instrumented observer/capture costs; core2 FIFO encoding/backpressure may extend intervals. No FPS, original-speed, desktop or GPU performance claim. Original delays unchanged.",
+    "idle_branch_elapsed_ms": {
+      "baseline": 30004,
+      "candidate": 30007
+    },
+    "idle_result": "Original true/play_demo handoff after 15 outgoing fade frames; private stop before gameplay, no demo playback/return claim",
+    "author_review_sha256": "14cef913e94c31ca36a241e0c170404bfaf000949f3c33395339af901590c06e",
+    "limits": [
+      "Physical desktop/GPU/fullscreen untested",
+      "Windows source registration only",
+      "Physical joystick untested",
+      "Audio quality untested",
+      "Actual corrupt-resource cases untested; bounded source/unit fault coverage instead",
+      "ENGAGE/special-name/new-game/load/high-score/setup paths source/unit coverage only",
+      "Christmas actual title and complete demo playback/return untested",
+      "Author visual review is retained stills; no continuous-video playback claim"
+    ],
+    "private_fixture_source_media_kept_out_of_git": true,
+    "cases": {
+      "core2": {
+        "status": "PASS",
+        "executions": 2,
+        "sides": [
+          "baseline",
+          "candidate"
+        ],
+        "native_output": [
+          640,
+          400
+        ],
+        "presentations_per_execution": 142,
+        "intro_presentations_per_execution": 82,
+        "title_presentations_per_execution": 60,
+        "foreign_presentations_per_execution": 0,
+        "oracle_sha256": "eb672296082ebfbaf1ca172ec5cdd0cecd35ff114ceeb06bb08e1dbccdea1e12",
+        "retained_candidate_pngs": 7
+      },
+      "core4": {
+        "status": "PASS",
+        "executions": 2,
+        "sides": [
+          "baseline",
+          "candidate"
+        ],
+        "native_output": [
+          1280,
+          800
+        ],
+        "presentations_per_execution": 142,
+        "intro_presentations_per_execution": 82,
+        "title_presentations_per_execution": 60,
+        "foreign_presentations_per_execution": 0,
+        "oracle_sha256": "dc36464940db8b3cb00d0c68c7f24e64d8a3ecf334edc8abec4695506cd2d80b",
+        "retained_candidate_pngs": 2
+      },
+      "missing4": {
+        "status": "PASS",
+        "executions": 1,
+        "sides": [
+          "candidate"
+        ],
+        "native_output": [
+          640,
+          400
+        ],
+        "presentations_per_execution": 142,
+        "intro_presentations_per_execution": 82,
+        "title_presentations_per_execution": 60,
+        "foreign_presentations_per_execution": 0,
+        "oracle_sha256": "f4e8cc8bd7ff36d1b7f910ddcce86f34d1f308ec7b0b2cffc6d2e4fb53b4ca99",
+        "retained_candidate_pngs": 0
+      },
+      "missing146": {
+        "status": "PASS",
+        "executions": 1,
+        "sides": [
+          "candidate"
+        ],
+        "native_output": [
+          640,
+          400
+        ],
+        "presentations_per_execution": 142,
+        "intro_presentations_per_execution": 82,
+        "title_presentations_per_execution": 60,
+        "foreign_presentations_per_execution": 0,
+        "oracle_sha256": "9c676c44bbe912d9fb2f046deaddd45b85888689528c141f65ad70333820cc1e",
+        "retained_candidate_pngs": 0
+      },
+      "missing151": {
+        "status": "PASS",
+        "executions": 1,
+        "sides": [
+          "candidate"
+        ],
+        "native_output": [
+          640,
+          400
+        ],
+        "presentations_per_execution": 142,
+        "intro_presentations_per_execution": 82,
+        "title_presentations_per_execution": 60,
+        "foreign_presentations_per_execution": 0,
+        "oracle_sha256": "2c0489d2fc43e05598e3bf85990906603c60fcd2d2d672a18fd8d094ffe7a6e3",
+        "retained_candidate_pngs": 0
+      },
+      "interactive": {
+        "status": "PASS",
+        "executions": 2,
+        "sides": [
+          "baseline",
+          "candidate"
+        ],
+        "native_output": [
+          640,
+          400
+        ],
+        "presentations_per_execution": 233,
+        "intro_presentations_per_execution": 82,
+        "title_presentations_per_execution": 125,
+        "foreign_presentations_per_execution": 26,
+        "oracle_sha256": "0bfa2fa18dc01bc0200cfc9d5519f0b9b74e408df27fddcb22f173944341443f",
+        "retained_candidate_pngs": 5
+      },
+      "title-fade-key": {
+        "status": "PASS",
+        "executions": 2,
+        "sides": [
+          "baseline",
+          "candidate"
+        ],
+        "native_output": [
+          640,
+          400
+        ],
+        "presentations_per_execution": 142,
+        "intro_presentations_per_execution": 82,
+        "title_presentations_per_execution": 60,
+        "foreign_presentations_per_execution": 0,
+        "oracle_sha256": "83b1ffb2845feb369e0e82622e642ea593cd94da171560244151e2871abfb28c",
+        "retained_candidate_pngs": 0
+      },
+      "idle30": {
+        "status": "PASS",
+        "executions": 2,
+        "sides": [
+          "baseline",
+          "candidate"
+        ],
+        "native_output": [
+          640,
+          400
+        ],
+        "presentations_per_execution": 157,
+        "intro_presentations_per_execution": 82,
+        "title_presentations_per_execution": 75,
+        "foreign_presentations_per_execution": 0,
+        "oracle_sha256": "5f19bbf482f2bfe41cbb92086d476b0b404564ab86fafdd4efa0beb0e4867b5f",
+        "retained_candidate_pngs": 0
+      }
+    }
+  },
+  "postmerge_regression": {
+    "status": "PASS",
+    "scope": "One merged candidate execution compared to frozen, independently verified b62 core2 candidate; no new A/B pair or media",
+    "tested_reference": "b62a99b7f48909d653a8d46c0ca709e10bfd8eba",
+    "merged_candidate": "49c4e0363ae526527c5ab3e11713ff7b09d61308",
+    "reference_oracle_sha256": "eb672296082ebfbaf1ca172ec5cdd0cecd35ff114ceeb06bb08e1dbccdea1e12",
+    "merged_binary_sha256": "e3528724d0417fad274f6bc0937caf1307d8621d52aa03419b0b858155f9e292",
+    "intro_presentations": 82,
+    "title_presentations": 60,
+    "all142_indexed_palette_rgb_rng_input_fields_exact": true,
+    "all_original_write_coverage_and_palette_bytes_exact": true,
+    "all_original_delay_fade_wait_event_fields_exact_except_diagnostic_time": true,
+    "seed": 1296451377,
+    "version": "startup-qa-20261012",
+    "new_media_files": 0,
+    "production_source_proof_sha256": "6b39fabca4a5fd8ba208904056818fe54794c905f93cc90bcb860443f10a243f",
+    "provenance_sha256": "562c9bedc4837ed906e937f75f76efa2348f7e4afb0b7033aed7df786dd28859",
+    "observer_exact_frozen_core2": true,
+    "timing": "Observer-instrumented functional regression only; no performance comparison",
+    "verification_sha256": "0e47356478350c43f7da772fa20d46493dbe23c821930f7db339a1ff187da7b7"
+  },
+  "author_review": {
+    "status": "PASS",
+    "text": "Title artwork author receipt: PASS, 2026-10-12. Tested candidate b62a99b7f48909d653a8d46c0ca709e10bfd8eba against baseline 1df1d87b49b478d0e8b2eb5c5a4778c3f20866a8. Frozen three-asset artwork and registration remain unchanged.\n\nDirect visual review covered 14 retained candidate PNGs: core2 ordinals 001/010/025/039/049/059/060 at 640×400; core4 010/060 at 1280×800; interactive title063, foreign089, title135/136/151 at 640×400. I also inspected core2 baseline039/060. The gold identities, trademark, corrected Tyrian channels, 2000 counters, alpha edges and planet placement are clean at both native sizes. Logo overlap remains ordered, the UI fade leaves art stable, and original menu/highlight/version/shadow remain correctly layered. Visible cursor/hover works in the retained Instructions and Quit frames. The Help Menu takes over without title residue, return restores the settled title and selection, and exit is clean black. No art revision is needed.\n\nSeparately, I read the eight passing numerical case receipts covering 13 executions: core2, core4, missing4, missing146, missing151, interactive, title-fade-key and idle30. Their independent reconstruction supports all 29 motion positions, the separate art/UI fades, canonical sampling, same-index UI writes, original indexed/palette/RNG/input parity, individual-layer fallback, all six interactive cursor erases and zero title ownership across the 26 foreign frames. The fade-key schedule retains the original latch/clear behavior. The real idle branch fired after 30,004/30,007 ms, followed by 15 outgoing fade frames and zero-ownership demo handoff.\n\nScope limits: direct review was of retained stills, not continuous video playback. MP4 is lossy and instrumented timing. This is actual-engine SDL dummy/software readback, without physical-display/GPU/fullscreen, audio-quality or demo-gameplay claims. Missing-layer, fade-key and idle cases were numerical review only. The forthcoming mechanical merge regression is separate from this tested-candidate receipt.\n\nOracle SHA256 pins: core2 eb672296082ebfbaf1ca172ec5cdd0cecd35ff114ceeb06bb08e1dbccdea1e12; core4 dc36464940db8b3cb00d0c68c7f24e64d8a3ecf334edc8abec4695506cd2d80b; missing4 f4e8cc8bd7ff36d1b7f910ddcce86f34d1f308ec7b0b2cffc6d2e4fb53b4ca99; missing146 9c676c44bbe912d9fb2f046deaddd45b85888689528c141f65ad70333820cc1e; missing151 2c0489d2fc43e05598e3bf85990906603c60fcd2d2d672a18fd8d094ffe7a6e3; interactive 0bfa2fa18dc01bc0200cfc9d5519f0b9b74e408df27fddcb22f173944341443f; title-fade-key 83b1ffb2845feb369e0e82622e642ea593cd94da171560244151e2871abfb28c; idle30 5f19bbf482f2bfe41cbb92086d476b0b404564ab86fafdd4efa0beb0e4867b5f.\n",
+    "text_sha256": "14cef913e94c31ca36a241e0c170404bfaf000949f3c33395339af901590c06e",
+    "direct_candidate_stills": 14,
+    "direct_baseline_stills": 2,
+    "continuous_video_playback_claimed": false
+  },
+  "private_fixtures_and_media_in_git": false
+}

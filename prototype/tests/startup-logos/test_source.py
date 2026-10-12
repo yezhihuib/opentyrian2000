@@ -14,7 +14,7 @@ def extract(text,name):
 def main():
  for path,want in BASE_HASHES.items():
   text=(ROOT/path).read_text()
-  stripped=''.join(line for line in text.splitlines(keepends=True) if 'startup_logos_' not in line and '#include "startup_logos.h"' not in line)
+  stripped=''.join(line for line in text.splitlines(keepends=True) if 'startup_logos_' not in line and '#include "startup_logos.h"' not in line and 'title_layers_' not in line and '#include "title_layers.h"' not in line)
   assert hashlib.sha256(stripped.encode()).hexdigest()==want,(path,'Original source changed beyond display-only hooks')
  main=(ROOT/'src/opentyr.c').read_text();params=(ROOT/'src/params.c').read_text();module=(ROOT/'src/startup_logos.c').read_text()
  assert '#ifdef NDEBUG\n\tif (!isNetworkGame && !game_probe_enabled)\n\t\tintro_logos();\n#endif' in main

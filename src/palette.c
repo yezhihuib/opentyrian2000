@@ -19,6 +19,7 @@
 #include "palette.h"
 #include "render_mirror.h"
 #include "startup_logos.h"
+#include "title_layers.h"
 
 #include "file.h"
 #include "nortsong.h"
@@ -90,6 +91,7 @@ void set_colors(SDL_Color color, unsigned int first_color, unsigned int last_col
 void init_step_fade_palette(int diff[256][3], Palette colors, unsigned int first_color, unsigned int last_color)
 {
 	startup_logos_fade_start(colors,NULL,first_color,last_color);
+	title_layers_fade_start(colors,NULL,first_color,last_color);
 	render_mirror_fade_start(colors,NULL,first_color,last_color);
 	for (unsigned int i = first_color; i <= last_color; i++)
 	{
@@ -102,6 +104,7 @@ void init_step_fade_palette(int diff[256][3], Palette colors, unsigned int first
 void init_step_fade_solid(int diff[256][3], SDL_Color color, unsigned int first_color, unsigned int last_color)
 {
 	startup_logos_fade_start(NULL,&color,first_color,last_color);
+	title_layers_fade_start(NULL,&color,first_color,last_color);
 	render_mirror_fade_start(NULL,&color,first_color,last_color);
 	for (unsigned int i = first_color; i <= last_color; i++)
 	{
@@ -131,6 +134,7 @@ void step_fade_palette(int diff[256][3], int steps, unsigned int first_color, un
 		yuv_palette[i] = rgb_to_yuv(palette[i].r, palette[i].g, palette[i].b);
 	}
 	startup_logos_fade_step(steps,first_color,last_color);
+	title_layers_fade_step(steps,first_color,last_color);
 	render_mirror_fade_step(steps);
 }
 

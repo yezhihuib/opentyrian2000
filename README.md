@@ -12,7 +12,7 @@ It builds on OpenTyrian2000 and OpenTyrian; the upstream README is preserved bel
   terrain, clouds and world materials. The finite single-player HUD includes
   its frame, weapon labels, shield bands, mode indicators and refined corner.
 - Gameplay HD is opt-in through controlled preview/asset-debug entrypoints.
-  Two manufacturer cards have a separate startup-only opt-in below. Ordinary
+  Manufacturer cards and layered title artwork have explicit startup opt-ins below. Ordinary
   startup without those options retains classic rendering.
 - Uncovered, missing or incompatible inputs use documented per-feature
   fallbacks. Pause/help/options retain classic presentation.
@@ -21,8 +21,11 @@ It builds on OpenTyrian2000 and OpenTyrian; the upstream README is preserved bel
   certification. The latest changes still need Windows runtime acceptance.
 - Fixed MODE/SHIELD/ARMOR lettering and finite gameplay tiny-font rendering
   are integrated, along with finite firepower, generator and coarse armor
-  meter refinement. Manufacturer PIC10/PIC12 have a separate opt-in; title/menu
-  artwork remains classic. Startup checks passed at native 2×/4× output sizes
+  meter refinement. Manufacturer PIC10/PIC12 have a separate opt-in. A separate
+  combined pack adds PIC4 and the two title logos; live title UI remains classic.
+  Title checks pass in eight bounded cases / 13 actual-engine executions, plus one
+  exact post-merge regression. Native 2×/4×, cursor/restart and real idle handoff are covered.
+  Manufacturer startup checks passed at native 2×/4× output sizes
   using the actual engine with SDL dummy/software; physical-window/GPU acceptance
   remains separate.
 
@@ -58,7 +61,7 @@ normal local startup:
 ```
 
 Run from the repository root, or give an absolute asset-directory path. This
-option replaces only PIC10 (XSIV GAMES) and PIC12 (ECLIPSE); title, menus and
+two-card directory replaces only PIC10 (XSIV GAMES) and PIC12 (ECLIPSE); title, menus and
 subsequent manual gameplay retain their existing classic presentation. Missing,
 invalid or incompatible cards fall back independently to their originals.
 Original fades and skip/input code are preserved. Do not combine this option
@@ -73,6 +76,28 @@ classic title handoff. These used SDL dummy/software; physical desktop/GPU,
 fullscreen, physical joystick and Windows runtime remain untested. Instrumented
 clips/timings are not original-speed or FPS proof. This option does not provide
 manual-gameplay HD coverage.
+
+### Optional layered title
+
+The separate combined pack keeps the two manufacturer cards and adds the PIC4
+background plus independently moving Tyrian and 2000™ logo layers:
+
+```sh
+./opentyrian2000 --data=/absolute/path/to/tyrian2000 \
+  --startup-assets=assets/hd/packs/startup-title-v1
+```
+
+The original 29 positions, split art/UI fades, version, menu/highlight and cursor
+writes are retained. Missing resources fall back per layer; invalid ownership
+returns the whole title to classic. The old two-card directory remains unchanged.
+[Title contract and checks](docs/STARTUP_TITLE.md) record eight passing cases / 13
+actual-engine executions: native 2×/4×, independent missing layers, keyboard/mouse
+menu and cursor erase, Instructions/settled restart, fade-time input and the real
+30-second idle demo handoff. A further media-free merged regression matches all
+142 original-state/output presentations. These use SDL dummy/software; timings
+include observer overhead. Explicit title CPU storage peaks at 12,075,752 bytes,
+plus one nominal 4,096,000-byte SDL texture. Physical GPU/fullscreen, Windows,
+physical joystick and demo gameplay remain untested; gameplay HD selection is unchanged.
 
 Windows: use the [build entrypoint](prototype/build-game.ps1) and
 [setup/acceptance limits](docs/WINDOWS_HANDOFF.md). These instructions do not
