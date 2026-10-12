@@ -1,0 +1,327 @@
+{
+  "schema": "type15-independent-source-review-v1",
+  "result": "PASS_SOURCE_ONLY_NATIVE_ACCEPTANCE_PENDING",
+  "reviewed_at_utc": "2026-10-12T21:33:46.890965+00:00",
+  "candidate": "4ff388d0da25e7d23309abbdf2eaf6dbfe974133",
+  "candidate_tree": "63d60d771a52e6657148089df41cfadb836f7bfa",
+  "baseline": "d86be2545df2d67634d442eef1037e29d5d530e5",
+  "source_findings": {
+    "blocking_findings": [],
+    "finite_delta_only": true,
+    "capacity": [
+      396,
+      404
+    ],
+    "slots": [
+      396,
+      403
+    ],
+    "bank_id": 1,
+    "namespace": 101,
+    "ids": [
+      39,
+      41,
+      43,
+      45,
+      91,
+      93,
+      129,
+      131
+    ],
+    "all_eight_preflight_before_first_draw": true,
+    "coherent_cached_missing_and_corrupt_fallback_including91": true,
+    "selection_not_animation": true,
+    "density8_only_no4x_family_fallback": true,
+    "exact_original_alpha_and_anchor": [
+      6,
+      7
+    ],
+    "prior_bindings_preserved": 214,
+    "prior_asset_bytes_unchanged": 574416171,
+    "previous_files_checked": 5757,
+    "gameplay_sources_unchanged": true,
+    "source_clipping_and_filter_operators_unchanged": true,
+    "allocation_bounds": "Eight fixed-size 172032-byte payload allocations maximum per cache lifetime, maximum appended slot403; allocation/header/truncation/integrity failures prevent all family draws. Invalid decoded payloads remain bounded to the process cache; no repeated load loop.",
+    "aliases": "37 bank identities traced; bank9 numeric aliases and both existing bank2 families remain independent.",
+    "strict_projection": "Pinned exact family metadata, both-pack memberships/counts, HDA+PNG+RGBA bytes and source index before removal; historical comparison unchanged. runtime_status remains intentionally mutable acceptance metadata."
+  },
+  "reruns": {
+    "binding_sanitizer_cases": 105,
+    "sanitizers": [
+      "ASan",
+      "UBSan"
+    ],
+    "LSan": false,
+    "guards": 20,
+    "original_RLE_tiles": 32,
+    "original_enemy_records": 1701,
+    "original_bank_qualified_reusers": [
+      15
+    ],
+    "aggregate_HDA": 3056,
+    "aggregate_PNG": 424,
+    "startup_package_tests": 11,
+    "title_package_tests": 16,
+    "optimized_projection_tests_per_suite": 3,
+    "type15_projection_manifest_mutations_per_suite": 15,
+    "type15_projection_read_intercept_mutations_per_suite": 4,
+    "extra_independent_projection_mutations": 6,
+    "title_synthetic_presentations_normal": 736,
+    "title_synthetic_presentations_sanitized": 736,
+    "full_renderer_translation_unit_compiled": true,
+    "diff_whitespace_passed": true
+  },
+  "case_count_explanation": {
+    "initial": 97,
+    "final": 105,
+    "added": "One partial-alpha corruption case for each of eight members",
+    "removed": 0
+  },
+  "independent_mask_decode": [
+    {
+      "base": 39,
+      "opaque_logical_pixels": 157,
+      "alpha_sha256": "6ced5bfc235c982590eb7ba8746b2707aafb84daa1db96fab2c527d1b9936d23",
+      "bbox": [
+        3,
+        7,
+        21,
+        19
+      ]
+    },
+    {
+      "base": 41,
+      "opaque_logical_pixels": 158,
+      "alpha_sha256": "4f6f0727544e2e067340b7aa51b934d674d1012fced1550365cd6d08c84f4014",
+      "bbox": [
+        5,
+        7,
+        18,
+        24
+      ]
+    },
+    {
+      "base": 43,
+      "opaque_logical_pixels": 157,
+      "alpha_sha256": "4b93eaf684d0efc0af9cae79f584bd66808b2958e40401477ea5b85bc0c5bd08",
+      "bbox": [
+        4,
+        7,
+        22,
+        19
+      ]
+    },
+    {
+      "base": 45,
+      "opaque_logical_pixels": 161,
+      "alpha_sha256": "0ef7992316b5f95cca21882404c34f802aa61edee36988ddfe2528b9609ce636",
+      "bbox": [
+        5,
+        2,
+        18,
+        20
+      ]
+    },
+    {
+      "base": 91,
+      "opaque_logical_pixels": 137,
+      "alpha_sha256": "08b7433fe802dc209eb822e5ad56d5dd53279d3db2d250a5697747037a6c627f",
+      "bbox": [
+        5,
+        4,
+        20,
+        20
+      ]
+    },
+    {
+      "base": 93,
+      "opaque_logical_pixels": 142,
+      "alpha_sha256": "df2393fbc54c2f223a94ba7ef08c0c409a7b22a66826e5bafc418fe87e75c12b",
+      "bbox": [
+        5,
+        4,
+        20,
+        20
+      ]
+    },
+    {
+      "base": 129,
+      "opaque_logical_pixels": 140,
+      "alpha_sha256": "dab825de4e6cb3fa4da461a8812ad23f3f1594ebd27ce50e160b7c1179c333e2",
+      "bbox": [
+        4,
+        7,
+        20,
+        21
+      ]
+    },
+    {
+      "base": 131,
+      "opaque_logical_pixels": 139,
+      "alpha_sha256": "94528764e6e09a04374b16e8444782f274186e8a493b880e49a146aa39e07151",
+      "bbox": [
+        5,
+        7,
+        21,
+        21
+      ]
+    }
+  ],
+  "executed_commands": [
+    {
+      "name": "preservation",
+      "command": [
+        "python3",
+        "prototype/test-type15-preservation.py",
+        "--out",
+        "/workspace/scratch/f67dd347fa0a/type15-independent-audit-20261012/preservation.json"
+      ],
+      "exit_code": 0,
+      "seconds": 0.99
+    },
+    {
+      "name": "guards",
+      "command": [
+        "python3",
+        "prototype/test-type15-source-guards.py",
+        "--out",
+        "/workspace/scratch/f67dd347fa0a/type15-independent-audit-20261012/guards"
+      ],
+      "exit_code": 0,
+      "seconds": 2.95
+    },
+    {
+      "name": "binding",
+      "command": [
+        "python3",
+        "prototype/test-type15-binding.py",
+        "--out",
+        "/workspace/scratch/f67dd347fa0a/type15-independent-audit-20261012/binding"
+      ],
+      "exit_code": 0,
+      "seconds": 17.52
+    },
+    {
+      "name": "title-source",
+      "command": [
+        "python3",
+        "prototype/tests/title-layers/test_source.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.19
+    },
+    {
+      "name": "title-package",
+      "command": [
+        "python3",
+        "prototype/tests/title-package/test_package.py"
+      ],
+      "exit_code": 0,
+      "seconds": 16.77
+    },
+    {
+      "name": "startup",
+      "command": [
+        "python3",
+        "prototype/tests/startup-manufacturer/test_package.py"
+      ],
+      "exit_code": 0,
+      "seconds": 22.13
+    },
+    {
+      "name": "startup-optimized",
+      "command": [
+        "python3",
+        "-O",
+        "prototype/tests/startup-manufacturer/test_package.py",
+        "ManufacturerPackageTests.test_gameplay_manifest_unchanged",
+        "ManufacturerPackageTests.test_type15_coexistence_guard_rejects_mutations",
+        "ManufacturerPackageTests.test_type15_coexistence_guard_rejects_changed_artwork_bytes"
+      ],
+      "exit_code": 0,
+      "seconds": 2.81
+    },
+    {
+      "name": "title-optimized",
+      "command": [
+        "python3",
+        "-O",
+        "prototype/tests/title-package/test_package.py",
+        "TitlePackageTests.test_existing_manifest_fields_and_bytes_unchanged_from_baseline",
+        "TitlePackageTests.test_type15_coexistence_guard_rejects_mutations",
+        "TitlePackageTests.test_type15_coexistence_guard_rejects_changed_artwork_bytes"
+      ],
+      "exit_code": 0,
+      "seconds": 3.2
+    },
+    {
+      "name": "title-normal",
+      "command": [
+        "python3",
+        "prototype/tests/title-layers/test_runtime.py"
+      ],
+      "exit_code": 0,
+      "seconds": 14.88
+    },
+    {
+      "name": "title-sanitize",
+      "command": [
+        "python3",
+        "prototype/tests/title-layers/test_runtime.py",
+        "--sanitize"
+      ],
+      "exit_code": 0,
+      "seconds": 31.6
+    }
+  ],
+  "constraints": {
+    "repository_edited": false,
+    "game_executed": false,
+    "captures_taken": false,
+    "art_changed": false,
+    "published": false,
+    "broad_package_copies": false,
+    "candidate_worktree_clean": true
+  },
+  "limits": [
+    "Source/loader recorder and title synthetic tests only; native type15 final pixels, clipping in actual presentation, later-draw partial-alpha composition, and gameplay state parity await paired native review.",
+    "No natural NW91 exposure claim; source-only member remains mandatory.",
+    "No type15 hit/ice/death/projectile/drop actual acceptance.",
+    "No Windows build/runtime, fullscreen/GPU acceptance or full-level claim.",
+    "Full renderer object compiled only; no full game link/run was performed during this independent review."
+  ],
+  "evidence": [
+    {
+      "path": "checks.json",
+      "sha256": "73444d10efbc1c1655a5375051263b2a88e204018800bf55405a27719017c33c"
+    },
+    {
+      "path": "independent-checks.json",
+      "sha256": "4ab67bf6f3b0a054dbf004f1cbce12e70fb9cbc322fbaf5d6637a58fd1289f55"
+    },
+    {
+      "path": "binding/receipt.json",
+      "sha256": "37beaa505e2464d087205c4c43423f470120176473f3fb13970347e86fddc54c"
+    },
+    {
+      "path": "preservation.json",
+      "sha256": "df8bdc2565aeb59f47d0fb24ed2a33d81488198a8fb69e589c25c20891ac9848"
+    },
+    {
+      "path": "guards/receipt.json",
+      "sha256": "588e5e0bbde813e72b598abefafc853a5f76d1fcf821de322c3c647211f804c6"
+    },
+    {
+      "path": "original-proof.log",
+      "sha256": "5991e483c0cde6415eb89be95dc81abbba1b20ce9b41ea3d36c53a3bec85b458"
+    },
+    {
+      "path": "aggregate.json",
+      "sha256": "b50569c2ac8361ee7b8c78fc13e2fc7e4e29a780376a1d31fec701c42a681207"
+    },
+    {
+      "path": "renderer-compile.log",
+      "sha256": "849e66119c4818369f0262f751b4a5e508e11056ed22ec2e9ed40624b9063aa2"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "schema": "type15-eightheading-future-art-contract-v1",
+  "status": "read-only source contract, no binding or renderer change",
+  "bank": "newsh2.shp",
+  "bank_role": 101,
+  "enemy_type": 15,
+  "ids": [
+    39,
+    41,
+    43,
+    45,
+    91,
+    93,
+    129,
+    131
+  ],
+  "selector_order": [
+    91,
+    45,
+    93,
+    39,
+    43,
+    129,
+    41,
+    131
+  ],
+  "selector_visual_headings": [
+    "NW",
+    "N",
+    "NE",
+    "W",
+    "E",
+    "SW",
+    "S",
+    "SE"
+  ],
+  "headings_qualification": "Visual interpretation of original barrel direction; authoritative identity is selector/base pair.",
+  "logical_size": [
+    24,
+    28
+  ],
+  "density": 8,
+  "pixel_size": [
+    192,
+    224
+  ],
+  "anchor": [
+    6,
+    7
+  ],
+  "runtime_components": [
+    0,
+    1,
+    19,
+    20
+  ],
+  "runtime_local_positions": [
+    [
+      0,
+      0
+    ],
+    [
+      12,
+      0
+    ],
+    [
+      0,
+      14
+    ],
+    [
+      12,
+      14
+    ]
+  ],
+  "hda_ids": {
+    "39": 1010039,
+    "41": 1010041,
+    "43": 1010043,
+    "45": 1010045,
+    "91": 1010091,
+    "93": 1010093,
+    "129": 1010129,
+    "131": 1010131
+  },
+  "style": "NORMAL",
+  "alpha": "Exact original per-heading RLE mask expanded8x, binary0/255. Do not rotate a single master mask or enlarge geometry.",
+  "rigid_structure": "Individually redraw all eight matching original barrel, ochre hub, gray/black mechanical carriage and rear red marker. Preserve construction/perspective consistently; no invented joints, organic bending or synthetic interpolated angles.",
+  "compatible_existing_route": "src/render_mirror.c:1535-1586 already supports bank-qualified complete24x28 composites, anchor6,7, original per-quadrant ordered calls and filter handling. Future finite asset selection can use this route; no new renderer, state or rotation algorithm needed.",
+  "current_mapping": "All eight currently unmapped in every manifest pack; fallback remains original. No assets or binding added by audit.",
+  "namespace_guard": "newsh2 bases39/41/43/45 must not alias same numeric IDs in newshe or newsh4. All1701 source records check finds only record15 for bases and quadrant-overlap in bank1.",
+  "engine_invariants": [
+    "Keep event19 selector assignments and exact event order",
+    "Keep four independent draw calls and clipping thresholds",
+    "Keep original anchor/movement/no automatic animation",
+    "Keep no hurt/wreck/shadow art and existing generic effects",
+    "Do not force base91 into natural first-level capture",
+    "Keep weapon/drop families separate"
+  ],
+  "scope": "Preparation and source review only; this contract is not publication or code authorization."
+}

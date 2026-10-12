@@ -1,0 +1,1927 @@
+{
+  "status": "PASS_BOUNDED_NO_FIRE_NATIVE2X_TRUE4X_FALLBACKS",
+  "baseline": "d86be2545df2d67634d442eef1037e29d5d530e5",
+  "tested_source_checkpoint": "4ff388d0da25e7d23309abbdf2eaf6dbfe974133",
+  "production_render_source_sha256": "229aefa51f2b4ee2a12cff413d610aa2d706ccaf778c7c30db23e3de11e16e00",
+  "post_runtime_delta": "Only finite runtime-status metadata and acceptance documentation; production source and every asset payload are exact to the tested source checkpoint.",
+  "scope": {
+    "enemy_type": 15,
+    "bank": 1,
+    "namespace": 101,
+    "ids": [
+      39,
+      41,
+      43,
+      45,
+      91,
+      93,
+      129,
+      131
+    ],
+    "source_only_nonpresented_base": 91,
+    "native2x_windows": [
+      [
+        4214,
+        4215
+      ],
+      [
+        4521,
+        4530
+      ]
+    ],
+    "native4x_one_replay_spots": [
+      4214,
+      4215,
+      4521,
+      4525,
+      4527,
+      4530
+    ],
+    "no_fire": true,
+    "private_survival": true,
+    "projectile_injections": 0,
+    "game_runs": 7,
+    "native_captured_frames": 34,
+    "gameplay_sources_unchanged": true
+  },
+  "source_gate_summary": {
+    "independent_review": "docs/TYPE15_EIGHTHEADING_SOURCE_REVIEW.json",
+    "source_validation": "docs/TYPE15_EIGHTHEADING_SOURCE_VALIDATION.json",
+    "sanitizer_binding_cases": 105,
+    "source_negative_cases": 20,
+    "prior_bindings": 214,
+    "previous_asset_bytes_exact": 574416171,
+    "source_records": 1701,
+    "source_RLE_tiles": 32
+  },
+  "native2x": {
+    "status": "PASS_BOUNDED_NO_FIRE_NATIVE2X",
+    "baseline": "d86be2545df2d67634d442eef1037e29d5d530e5",
+    "candidate": "4ff388d0da25e7d23309abbdf2eaf6dbfe974133",
+    "exact_original_state_ticks": 4531,
+    "original_equal_streams": [
+      "weapon-loadout",
+      "player-shot-requests",
+      "player-shot-emissions",
+      "player-shot-results",
+      "player-shot-draws",
+      "state",
+      "collisions",
+      "presentation",
+      "effects",
+      "enemy-projectiles",
+      "fade-steps",
+      "poses",
+      "fire-events",
+      "player-projectiles",
+      "draw-commands",
+      "scene-enemies",
+      "scene-hits",
+      "restore-regions",
+      "blend-palette",
+      "asset-debug-explosion-pools",
+      "asset-debug-clock",
+      "asset-debug-materials",
+      "sdl-runtime",
+      "talon-bank-visual",
+      "blend-writes",
+      "type15-census"
+    ],
+    "wall_time_normalized_control_equal": true,
+    "census_rows": 7200,
+    "census_equal": true,
+    "new_family_callbacks": 64,
+    "prior_scene_callbacks_exact": true,
+    "actual_material_reference_counts_through4530": {
+      "39": {
+        "rows": 176,
+        "first_tick": 4166,
+        "last_tick": 4214
+      },
+      "41": {
+        "rows": 2156,
+        "first_tick": 4173,
+        "last_tick": 4376
+      },
+      "43": {
+        "rows": 20,
+        "first_tick": 4166,
+        "last_tick": 4529
+      },
+      "45": {
+        "rows": 540,
+        "first_tick": 4382,
+        "last_tick": 4523
+      },
+      "91": {
+        "rows": 0,
+        "first_tick": null,
+        "last_tick": null
+      },
+      "93": {
+        "rows": 12,
+        "first_tick": 4524,
+        "last_tick": 4526
+      },
+      "129": {
+        "rows": 18,
+        "first_tick": 4170,
+        "last_tick": 4217
+      },
+      "131": {
+        "rows": 10,
+        "first_tick": 4170,
+        "last_tick": 4530
+      }
+    },
+    "base91": "No actual material references through4530; whole-first-level nonselection remains separate original-event proof.",
+    "naturally_presented_headings": [
+      39,
+      41,
+      43,
+      45,
+      93,
+      129,
+      131
+    ],
+    "accepted_heading_samples": [
+      {
+        "tick": 4214,
+        "base": 41,
+        "source_rect": [
+          206,
+          21,
+          24,
+          28
+        ],
+        "parts": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "source_opaque_native_pixels": 632,
+        "onscreen_opaque_native_pixels": 632,
+        "opaque_support_complete": true,
+        "rectangle_inside": true,
+        "later_logged_rectangle_intersections": [],
+        "exact_final_RGB_verified": true,
+        "qualified_view": "Original source-alpha complete where flagged, but later INSERT COIN glyph/shadow can cover the heading; exact ordered compositing is verified, not unobscured whole-art visibility."
+      },
+      {
+        "tick": 4214,
+        "base": 39,
+        "source_rect": [
+          70,
+          21,
+          24,
+          28
+        ],
+        "parts": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "source_opaque_native_pixels": 628,
+        "onscreen_opaque_native_pixels": 628,
+        "opaque_support_complete": true,
+        "rectangle_inside": true,
+        "later_logged_rectangle_intersections": [],
+        "exact_final_RGB_verified": true,
+        "qualified_view": "Original source-alpha complete where flagged, but later INSERT COIN glyph/shadow can cover the heading; exact ordered compositing is verified, not unobscured whole-art visibility."
+      },
+      {
+        "tick": 4215,
+        "base": 129,
+        "source_rect": [
+          68,
+          22,
+          24,
+          28
+        ],
+        "parts": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "source_opaque_native_pixels": 560,
+        "onscreen_opaque_native_pixels": 560,
+        "opaque_support_complete": true,
+        "rectangle_inside": true,
+        "later_logged_rectangle_intersections": [],
+        "exact_final_RGB_verified": true,
+        "qualified_view": "Original source-alpha complete where flagged, but later INSERT COIN glyph/shadow can cover the heading; exact ordered compositing is verified, not unobscured whole-art visibility."
+      },
+      {
+        "tick": 4521,
+        "base": 45,
+        "source_rect": [
+          158,
+          -2,
+          24,
+          28
+        ],
+        "parts": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "source_opaque_native_pixels": 644,
+        "onscreen_opaque_native_pixels": 644,
+        "opaque_support_complete": true,
+        "rectangle_inside": false,
+        "later_logged_rectangle_intersections": [],
+        "exact_final_RGB_verified": true,
+        "qualified_view": "Original source-alpha complete where flagged, but later INSERT COIN glyph/shadow can cover the heading; exact ordered compositing is verified, not unobscured whole-art visibility."
+      },
+      {
+        "tick": 4525,
+        "base": 93,
+        "source_rect": [
+          158,
+          -4,
+          24,
+          28
+        ],
+        "parts": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "source_opaque_native_pixels": 568,
+        "onscreen_opaque_native_pixels": 568,
+        "opaque_support_complete": true,
+        "rectangle_inside": false,
+        "later_logged_rectangle_intersections": [],
+        "exact_final_RGB_verified": true,
+        "qualified_view": "Original source-alpha complete where flagged, but later INSERT COIN glyph/shadow can cover the heading; exact ordered compositing is verified, not unobscured whole-art visibility."
+      },
+      {
+        "tick": 4527,
+        "base": 43,
+        "source_rect": [
+          158,
+          -2,
+          24,
+          28
+        ],
+        "parts": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "source_opaque_native_pixels": 628,
+        "onscreen_opaque_native_pixels": 628,
+        "opaque_support_complete": true,
+        "rectangle_inside": false,
+        "later_logged_rectangle_intersections": [],
+        "exact_final_RGB_verified": true,
+        "qualified_view": "Original source-alpha complete where flagged, but later INSERT COIN glyph/shadow can cover the heading; exact ordered compositing is verified, not unobscured whole-art visibility."
+      },
+      {
+        "tick": 4530,
+        "base": 131,
+        "source_rect": [
+          158,
+          1,
+          24,
+          28
+        ],
+        "parts": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "source_opaque_native_pixels": 556,
+        "onscreen_opaque_native_pixels": 556,
+        "opaque_support_complete": true,
+        "rectangle_inside": true,
+        "later_logged_rectangle_intersections": [],
+        "exact_final_RGB_verified": true,
+        "qualified_view": "Original source-alpha complete where flagged, but later INSERT COIN glyph/shadow can cover the heading; exact ordered compositing is verified, not unobscured whole-art visibility."
+      }
+    ],
+    "native2x_frames": [
+      {
+        "tick": 4214,
+        "source_support_native_pixels": 1728,
+        "actual_changed_pixels": 1726,
+        "outside_source_support_exact": true,
+        "ordered_RGBA_exact": true,
+        "later_insert_coin_overlay": {
+          "fully_covered_native_pixels": 0,
+          "shadow_only_native_pixels": 0,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        }
+      },
+      {
+        "tick": 4215,
+        "source_support_native_pixels": 1660,
+        "actual_changed_pixels": 1659,
+        "outside_source_support_exact": true,
+        "ordered_RGBA_exact": true,
+        "later_insert_coin_overlay": {
+          "fully_covered_native_pixels": 0,
+          "shadow_only_native_pixels": 0,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        }
+      },
+      {
+        "tick": 4521,
+        "source_support_native_pixels": 644,
+        "actual_changed_pixels": 527,
+        "outside_source_support_exact": true,
+        "ordered_RGBA_exact": true,
+        "later_insert_coin_overlay": {
+          "fully_covered_native_pixels": 116,
+          "shadow_only_native_pixels": 48,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        }
+      },
+      {
+        "tick": 4522,
+        "source_support_native_pixels": 632,
+        "actual_changed_pixels": 530,
+        "outside_source_support_exact": true,
+        "ordered_RGBA_exact": true,
+        "later_insert_coin_overlay": {
+          "fully_covered_native_pixels": 100,
+          "shadow_only_native_pixels": 48,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        }
+      },
+      {
+        "tick": 4523,
+        "source_support_native_pixels": 620,
+        "actual_changed_pixels": 527,
+        "outside_source_support_exact": true,
+        "ordered_RGBA_exact": true,
+        "later_insert_coin_overlay": {
+          "fully_covered_native_pixels": 92,
+          "shadow_only_native_pixels": 36,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        }
+      },
+      {
+        "tick": 4524,
+        "source_support_native_pixels": 560,
+        "actual_changed_pixels": 481,
+        "outside_source_support_exact": true,
+        "ordered_RGBA_exact": true,
+        "later_insert_coin_overlay": {
+          "fully_covered_native_pixels": 76,
+          "shadow_only_native_pixels": 32,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        }
+      },
+      {
+        "tick": 4525,
+        "source_support_native_pixels": 568,
+        "actual_changed_pixels": 477,
+        "outside_source_support_exact": true,
+        "ordered_RGBA_exact": true,
+        "later_insert_coin_overlay": {
+          "fully_covered_native_pixels": 88,
+          "shadow_only_native_pixels": 40,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        }
+      },
+      {
+        "tick": 4526,
+        "source_support_native_pixels": 568,
+        "actual_changed_pixels": 466,
+        "outside_source_support_exact": true,
+        "ordered_RGBA_exact": true,
+        "later_insert_coin_overlay": {
+          "fully_covered_native_pixels": 100,
+          "shadow_only_native_pixels": 44,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        }
+      },
+      {
+        "tick": 4527,
+        "source_support_native_pixels": 628,
+        "actual_changed_pixels": 511,
+        "outside_source_support_exact": true,
+        "ordered_RGBA_exact": true,
+        "later_insert_coin_overlay": {
+          "fully_covered_native_pixels": 116,
+          "shadow_only_native_pixels": 44,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        }
+      },
+      {
+        "tick": 4528,
+        "source_support_native_pixels": 628,
+        "actual_changed_pixels": 488,
+        "outside_source_support_exact": true,
+        "ordered_RGBA_exact": true,
+        "later_insert_coin_overlay": {
+          "fully_covered_native_pixels": 140,
+          "shadow_only_native_pixels": 52,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        }
+      },
+      {
+        "tick": 4529,
+        "source_support_native_pixels": 628,
+        "actual_changed_pixels": 464,
+        "outside_source_support_exact": true,
+        "ordered_RGBA_exact": true,
+        "later_insert_coin_overlay": {
+          "fully_covered_native_pixels": 164,
+          "shadow_only_native_pixels": 52,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        }
+      },
+      {
+        "tick": 4530,
+        "source_support_native_pixels": 556,
+        "actual_changed_pixels": 357,
+        "outside_source_support_exact": true,
+        "ordered_RGBA_exact": true,
+        "later_insert_coin_overlay": {
+          "fully_covered_native_pixels": 196,
+          "shadow_only_native_pixels": 88,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        }
+      }
+    ],
+    "all_source_supports": [
+      {
+        "tick": 4214,
+        "base": 41,
+        "source_rect": [
+          206,
+          21,
+          24,
+          28
+        ],
+        "parts": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "source_opaque_native_pixels": 632,
+        "onscreen_opaque_native_pixels": 632,
+        "opaque_support_complete": true,
+        "rectangle_inside": true,
+        "later_logged_rectangle_intersections": [],
+        "exact_final_RGB_verified": true,
+        "qualified_view": "Original source-alpha complete where flagged, but later INSERT COIN glyph/shadow can cover the heading; exact ordered compositing is verified, not unobscured whole-art visibility."
+      },
+      {
+        "tick": 4214,
+        "base": 41,
+        "source_rect": [
+          274,
+          21,
+          24,
+          28
+        ],
+        "parts": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "source_opaque_native_pixels": 632,
+        "onscreen_opaque_native_pixels": 468,
+        "opaque_support_complete": false,
+        "rectangle_inside": false,
+        "later_logged_rectangle_intersections": [],
+        "exact_final_RGB_verified": true,
+        "qualified_view": "Original source-alpha complete where flagged, but later INSERT COIN glyph/shadow can cover the heading; exact ordered compositing is verified, not unobscured whole-art visibility."
+      },
+      {
+        "tick": 4214,
+        "base": 39,
+        "source_rect": [
+          70,
+          21,
+          24,
+          28
+        ],
+        "parts": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "source_opaque_native_pixels": 628,
+        "onscreen_opaque_native_pixels": 628,
+        "opaque_support_complete": true,
+        "rectangle_inside": true,
+        "later_logged_rectangle_intersections": [],
+        "exact_final_RGB_verified": true,
+        "qualified_view": "Original source-alpha complete where flagged, but later INSERT COIN glyph/shadow can cover the heading; exact ordered compositing is verified, not unobscured whole-art visibility."
+      },
+      {
+        "tick": 4215,
+        "base": 41,
+        "source_rect": [
+          206,
+          22,
+          24,
+          28
+        ],
+        "parts": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "source_opaque_native_pixels": 632,
+        "onscreen_opaque_native_pixels": 632,
+        "opaque_support_complete": true,
+        "rectangle_inside": true,
+        "later_logged_rectangle_intersections": [],
+        "exact_final_RGB_verified": true,
+        "qualified_view": "Original source-alpha complete where flagged, but later INSERT COIN glyph/shadow can cover the heading; exact ordered compositing is verified, not unobscured whole-art visibility."
+      },
+      {
+        "tick": 4215,
+        "base": 41,
+        "source_rect": [
+          274,
+          22,
+          24,
+          28
+        ],
+        "parts": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "source_opaque_native_pixels": 632,
+        "onscreen_opaque_native_pixels": 468,
+        "opaque_support_complete": false,
+        "rectangle_inside": false,
+        "later_logged_rectangle_intersections": [],
+        "exact_final_RGB_verified": true,
+        "qualified_view": "Original source-alpha complete where flagged, but later INSERT COIN glyph/shadow can cover the heading; exact ordered compositing is verified, not unobscured whole-art visibility."
+      },
+      {
+        "tick": 4215,
+        "base": 129,
+        "source_rect": [
+          68,
+          22,
+          24,
+          28
+        ],
+        "parts": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "source_opaque_native_pixels": 560,
+        "onscreen_opaque_native_pixels": 560,
+        "opaque_support_complete": true,
+        "rectangle_inside": true,
+        "later_logged_rectangle_intersections": [],
+        "exact_final_RGB_verified": true,
+        "qualified_view": "Original source-alpha complete where flagged, but later INSERT COIN glyph/shadow can cover the heading; exact ordered compositing is verified, not unobscured whole-art visibility."
+      },
+      {
+        "tick": 4521,
+        "base": 45,
+        "source_rect": [
+          158,
+          -2,
+          24,
+          28
+        ],
+        "parts": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "source_opaque_native_pixels": 644,
+        "onscreen_opaque_native_pixels": 644,
+        "opaque_support_complete": true,
+        "rectangle_inside": false,
+        "later_logged_rectangle_intersections": [],
+        "exact_final_RGB_verified": true,
+        "qualified_view": "Original source-alpha complete where flagged, but later INSERT COIN glyph/shadow can cover the heading; exact ordered compositing is verified, not unobscured whole-art visibility."
+      },
+      {
+        "tick": 4522,
+        "base": 45,
+        "source_rect": [
+          158,
+          -3,
+          24,
+          28
+        ],
+        "parts": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "source_opaque_native_pixels": 644,
+        "onscreen_opaque_native_pixels": 632,
+        "opaque_support_complete": false,
+        "rectangle_inside": false,
+        "later_logged_rectangle_intersections": [],
+        "exact_final_RGB_verified": true,
+        "qualified_view": "Original source-alpha complete where flagged, but later INSERT COIN glyph/shadow can cover the heading; exact ordered compositing is verified, not unobscured whole-art visibility."
+      },
+      {
+        "tick": 4523,
+        "base": 45,
+        "source_rect": [
+          158,
+          -4,
+          24,
+          28
+        ],
+        "parts": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "source_opaque_native_pixels": 644,
+        "onscreen_opaque_native_pixels": 620,
+        "opaque_support_complete": false,
+        "rectangle_inside": false,
+        "later_logged_rectangle_intersections": [],
+        "exact_final_RGB_verified": true,
+        "qualified_view": "Original source-alpha complete where flagged, but later INSERT COIN glyph/shadow can cover the heading; exact ordered compositing is verified, not unobscured whole-art visibility."
+      },
+      {
+        "tick": 4524,
+        "base": 93,
+        "source_rect": [
+          158,
+          -5,
+          24,
+          28
+        ],
+        "parts": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "source_opaque_native_pixels": 568,
+        "onscreen_opaque_native_pixels": 560,
+        "opaque_support_complete": false,
+        "rectangle_inside": false,
+        "later_logged_rectangle_intersections": [],
+        "exact_final_RGB_verified": true,
+        "qualified_view": "Original source-alpha complete where flagged, but later INSERT COIN glyph/shadow can cover the heading; exact ordered compositing is verified, not unobscured whole-art visibility."
+      },
+      {
+        "tick": 4525,
+        "base": 93,
+        "source_rect": [
+          158,
+          -4,
+          24,
+          28
+        ],
+        "parts": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "source_opaque_native_pixels": 568,
+        "onscreen_opaque_native_pixels": 568,
+        "opaque_support_complete": true,
+        "rectangle_inside": false,
+        "later_logged_rectangle_intersections": [],
+        "exact_final_RGB_verified": true,
+        "qualified_view": "Original source-alpha complete where flagged, but later INSERT COIN glyph/shadow can cover the heading; exact ordered compositing is verified, not unobscured whole-art visibility."
+      },
+      {
+        "tick": 4526,
+        "base": 93,
+        "source_rect": [
+          158,
+          -3,
+          24,
+          28
+        ],
+        "parts": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "source_opaque_native_pixels": 568,
+        "onscreen_opaque_native_pixels": 568,
+        "opaque_support_complete": true,
+        "rectangle_inside": false,
+        "later_logged_rectangle_intersections": [],
+        "exact_final_RGB_verified": true,
+        "qualified_view": "Original source-alpha complete where flagged, but later INSERT COIN glyph/shadow can cover the heading; exact ordered compositing is verified, not unobscured whole-art visibility."
+      },
+      {
+        "tick": 4527,
+        "base": 43,
+        "source_rect": [
+          158,
+          -2,
+          24,
+          28
+        ],
+        "parts": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "source_opaque_native_pixels": 628,
+        "onscreen_opaque_native_pixels": 628,
+        "opaque_support_complete": true,
+        "rectangle_inside": false,
+        "later_logged_rectangle_intersections": [],
+        "exact_final_RGB_verified": true,
+        "qualified_view": "Original source-alpha complete where flagged, but later INSERT COIN glyph/shadow can cover the heading; exact ordered compositing is verified, not unobscured whole-art visibility."
+      },
+      {
+        "tick": 4528,
+        "base": 43,
+        "source_rect": [
+          158,
+          -1,
+          24,
+          28
+        ],
+        "parts": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "source_opaque_native_pixels": 628,
+        "onscreen_opaque_native_pixels": 628,
+        "opaque_support_complete": true,
+        "rectangle_inside": false,
+        "later_logged_rectangle_intersections": [],
+        "exact_final_RGB_verified": true,
+        "qualified_view": "Original source-alpha complete where flagged, but later INSERT COIN glyph/shadow can cover the heading; exact ordered compositing is verified, not unobscured whole-art visibility."
+      },
+      {
+        "tick": 4529,
+        "base": 43,
+        "source_rect": [
+          158,
+          0,
+          24,
+          28
+        ],
+        "parts": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "source_opaque_native_pixels": 628,
+        "onscreen_opaque_native_pixels": 628,
+        "opaque_support_complete": true,
+        "rectangle_inside": true,
+        "later_logged_rectangle_intersections": [],
+        "exact_final_RGB_verified": true,
+        "qualified_view": "Original source-alpha complete where flagged, but later INSERT COIN glyph/shadow can cover the heading; exact ordered compositing is verified, not unobscured whole-art visibility."
+      },
+      {
+        "tick": 4530,
+        "base": 131,
+        "source_rect": [
+          158,
+          1,
+          24,
+          28
+        ],
+        "parts": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "source_opaque_native_pixels": 556,
+        "onscreen_opaque_native_pixels": 556,
+        "opaque_support_complete": true,
+        "rectangle_inside": true,
+        "later_logged_rectangle_intersections": [],
+        "exact_final_RGB_verified": true,
+        "qualified_view": "Original source-alpha complete where flagged, but later INSERT COIN glyph/shadow can cover the heading; exact ordered compositing is verified, not unobscured whole-art visibility."
+      }
+    ],
+    "later_original_insert_coin_text_and_half_shadow_replayed_exactly": true,
+    "source_alpha_and_ordered_final_RGB_exact": true,
+    "outside_original_support_exact": true,
+    "capture_files": {
+      "baseline": [
+        {
+          "tick": 4214,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "e0992387ac30ef34edb2338e28e8160de99094e52249b7a8b946682788bed0b6",
+          "PNG_sha256": "6c825f669d20c24693acd72ee3c290d01916e6e62d0adc64502575eadf563f16",
+          "path": "/workspace/scratch/f67dd347fa0a/type15-private-runtime-20261012/baseline-window/actual-4214-native2x.png"
+        },
+        {
+          "tick": 4215,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "bf0fe187cb483a49d7b167aad974ca3d0c3d70f550cb5a449eb3ee8b3317b4f3",
+          "PNG_sha256": "861c431667f133e87e07141ab8b203bedc84504bbf815b827550ede56cb863d7",
+          "path": "/workspace/scratch/f67dd347fa0a/type15-private-runtime-20261012/baseline-window/actual-4215-native2x.png"
+        },
+        {
+          "tick": 4521,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "b04f45fdcb5753e5db46e169b8e6eb1180fe69213435403786d3f4252ced5b93",
+          "PNG_sha256": "f12e1be65ff4289587e04c715bbf84fa26fa60f96dd90aaeab64fe554ca371e9",
+          "path": "/workspace/scratch/f67dd347fa0a/type15-private-runtime-20261012/baseline-window/actual-4521-native2x.png"
+        },
+        {
+          "tick": 4522,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "5afecbc016838808bd52403f3418f2d7b5e8a4a92056aa3c16bd55b5b1daf8f9",
+          "PNG_sha256": "fc91178ab98222221d9357bf9cf36d1ba37d7e91878e6ac333aa3ebddc42c150",
+          "path": "/workspace/scratch/f67dd347fa0a/type15-private-runtime-20261012/baseline-window/actual-4522-native2x.png"
+        },
+        {
+          "tick": 4523,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "fa121b49c8c02849b2494ee395faa8eb3639013bdd4d00e349d04b76fe4e6549",
+          "PNG_sha256": "dc0ba26c23ad2838dbd67c46f993e7ad0feb4c9d72e1c156b8847b94c5e97ba2",
+          "path": "/workspace/scratch/f67dd347fa0a/type15-private-runtime-20261012/baseline-window/actual-4523-native2x.png"
+        },
+        {
+          "tick": 4524,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "49bff7013c8c167fee973730fca2ac8f94c7091d937baa6d3901990a68a2853b",
+          "PNG_sha256": "ac86d29e6e8c1508e4a358bb04c011794752d9b325176494b37e59bc515385c5",
+          "path": "/workspace/scratch/f67dd347fa0a/type15-private-runtime-20261012/baseline-window/actual-4524-native2x.png"
+        },
+        {
+          "tick": 4525,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "1f4f51e212d2cc11973e8ad49dc711fa36a1b89610c7b5058103d30c8d958880",
+          "PNG_sha256": "533b5192a1d50c59e26bd23b01541374340cd52c7935b03608413125821338b0",
+          "path": "/workspace/scratch/f67dd347fa0a/type15-private-runtime-20261012/baseline-window/actual-4525-native2x.png"
+        },
+        {
+          "tick": 4526,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "985cedec75535f4967f03ff106529387672582c51b078681265e440cdd27de4f",
+          "PNG_sha256": "22025c99df0e8cef581895cce371a1145fce5816b46512f2be86c97715b6f680",
+          "path": "/workspace/scratch/f67dd347fa0a/type15-private-runtime-20261012/baseline-window/actual-4526-native2x.png"
+        },
+        {
+          "tick": 4527,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "323524e2b4f95e48cac33f233e14935bbc741d93e4c1fb3033fc0a1215668bee",
+          "PNG_sha256": "a579fe8da8a816dd13c3af8ab7a620639ecb321101171a443f40957ceda5134e",
+          "path": "/workspace/scratch/f67dd347fa0a/type15-private-runtime-20261012/baseline-window/actual-4527-native2x.png"
+        },
+        {
+          "tick": 4528,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "0e0bf06139baedc34e0018a60c79238cb3ed1813e5ab9eef3c2db7b4a955a992",
+          "PNG_sha256": "19077ab83fde218e0b9bf8b7ab3cb63c30754f28f02d6bb2acde9c61a373b202",
+          "path": "/workspace/scratch/f67dd347fa0a/type15-private-runtime-20261012/baseline-window/actual-4528-native2x.png"
+        },
+        {
+          "tick": 4529,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "46653760cb806c3f68303af25dfa6a6ec418bbd9e74e37a26761254f822fd507",
+          "PNG_sha256": "bba9d4021aa90ed2311e2fc4f99708f3880993a798031ec2472a05dfdf1f4950",
+          "path": "/workspace/scratch/f67dd347fa0a/type15-private-runtime-20261012/baseline-window/actual-4529-native2x.png"
+        },
+        {
+          "tick": 4530,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "f6549c46f1bd19028c59f5db4315f574e0f66f3b5869d8caedeff9a5734006a2",
+          "PNG_sha256": "bbfc1a0e1cd15c614d5fdfb236ce4b72987eeb5a887dd46632370193d463b069",
+          "path": "/workspace/scratch/f67dd347fa0a/type15-private-runtime-20261012/baseline-window/actual-4530-native2x.png"
+        }
+      ],
+      "candidate": [
+        {
+          "tick": 4214,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "e88a53062f457f3150f9bf85a665ef7d9f0a8659a5f112872e25d8b74c6d703b",
+          "PNG_sha256": "809590e8dbef48c14d8ec556e3e925a0356ad558d453fc163323006971e1c438",
+          "path": "/workspace/scratch/f67dd347fa0a/type15-private-runtime-20261012/candidate-window/actual-4214-native2x.png"
+        },
+        {
+          "tick": 4215,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "6e70f0afbcba34ce502f9d76e91d18c5e12ad027b37cfca5388d483b165d8215",
+          "PNG_sha256": "b3ea73ff4a4ea3d161b294660e7eae4d6720552933658c0d09ed3fd924b8fe19",
+          "path": "/workspace/scratch/f67dd347fa0a/type15-private-runtime-20261012/candidate-window/actual-4215-native2x.png"
+        },
+        {
+          "tick": 4521,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "52d05d59d64c4392353d78b93f61b583991e727e99c19eb4ba5ee18365b0f1c5",
+          "PNG_sha256": "6d07bbe399ed16e2c088d6c54f965ce9936e58ed3375951c3b8cee364d6cb3bb",
+          "path": "/workspace/scratch/f67dd347fa0a/type15-private-runtime-20261012/candidate-window/actual-4521-native2x.png"
+        },
+        {
+          "tick": 4522,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "0d79acb026fc56eaf4c42a14ab1f66fa32b33efca88e73401a2a0fcb7c1dfd95",
+          "PNG_sha256": "b5ed2412dd3af9514331859634155fa947b3e2cffc50fcf4eb31d27b1e1f49f7",
+          "path": "/workspace/scratch/f67dd347fa0a/type15-private-runtime-20261012/candidate-window/actual-4522-native2x.png"
+        },
+        {
+          "tick": 4523,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "1a865c2a05995f862c2ec0ac1ad618604c99bacc872e690fea6bb2bdc2d54d5b",
+          "PNG_sha256": "8a3f4cd895fc8d66fe9d93c307c85d99907e4e5ed688af5b47ded6832a2551fa",
+          "path": "/workspace/scratch/f67dd347fa0a/type15-private-runtime-20261012/candidate-window/actual-4523-native2x.png"
+        },
+        {
+          "tick": 4524,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "8c27ff69d25629a831baf9278a9ee5eb7c66017663ca8843d0f09c0b27d8e472",
+          "PNG_sha256": "b4eb6bf9bbfbba5c0357664b47f670e4514990628a0d715aecb9d0f3a1b04a4a",
+          "path": "/workspace/scratch/f67dd347fa0a/type15-private-runtime-20261012/candidate-window/actual-4524-native2x.png"
+        },
+        {
+          "tick": 4525,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "bb15ca17892c11a52e178891b72a12d98702730e31da31199b3bb068be450d2b",
+          "PNG_sha256": "ff4cb9c9e4a311f8b5164093565f7229dcf7b183efa22527b149212d6a7ecbcf",
+          "path": "/workspace/scratch/f67dd347fa0a/type15-private-runtime-20261012/candidate-window/actual-4525-native2x.png"
+        },
+        {
+          "tick": 4526,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "9e2cc260363dbd450db051b0e672d604c5c0662166ff837d7326759849cb7949",
+          "PNG_sha256": "00418102caabef189108e0f4dbb0decefa04f96a291568e5d4116d05ac719e0a",
+          "path": "/workspace/scratch/f67dd347fa0a/type15-private-runtime-20261012/candidate-window/actual-4526-native2x.png"
+        },
+        {
+          "tick": 4527,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "e0f9d7832b010b4c119a289693699c56caa8f496ac35996a0e107e0076328f57",
+          "PNG_sha256": "f2ec4690d997cfcbf5d3c348906733e28ae305c867c5dbe482a5d20e3ba851d4",
+          "path": "/workspace/scratch/f67dd347fa0a/type15-private-runtime-20261012/candidate-window/actual-4527-native2x.png"
+        },
+        {
+          "tick": 4528,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "684715a97b412df8a1e6489b84dccd4def9d0aae70cd12562043b070655e511f",
+          "PNG_sha256": "9b85463148c388fc5565d746be2bdfb5ab6fc044e2de7064e4aaed4f9bc8d6cb",
+          "path": "/workspace/scratch/f67dd347fa0a/type15-private-runtime-20261012/candidate-window/actual-4528-native2x.png"
+        },
+        {
+          "tick": 4529,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "af762fcd5b9aeb96b85bca1c5d65354f027e50915578cf930518f28fad91fe1d",
+          "PNG_sha256": "8d23c9692d7d0df3afa2709d6ff45af6f80475c9c61089a5eccea6be619c7452",
+          "path": "/workspace/scratch/f67dd347fa0a/type15-private-runtime-20261012/candidate-window/actual-4529-native2x.png"
+        },
+        {
+          "tick": 4530,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "055cfc9d6814b439877c57f7f63befdba9a5eaece6ba1ea7c50123f85091e7f0",
+          "PNG_sha256": "c9b48805bcf331bb1586ba1467a03d29623415e2d4193f1b871701de3bf1d31e",
+          "path": "/workspace/scratch/f67dd347fa0a/type15-private-runtime-20261012/candidate-window/actual-4530-native2x.png"
+        }
+      ]
+    },
+    "qualification": "No-fire, stationary player with explicit private survival; seven selected headings, no lifecycle/death/pickup acceptance. All selected samples match exact authored RGBA followed by original INSERT COIN glyph/half-shadow operations, including transparent-only source clipping at93. Later text occlusion is retained and disclosed. No alpha>0 occlusion mask was used.",
+    "limits": [
+      "Native2x SDL software only; true4x and actual fallback gates pending.",
+      "Generic projectile/pickup logs are incomplete; finalRGB is established by full-frame actual A/B and exact authored support equality, not their absence from logs."
+    ]
+  },
+  "native4x": {
+    "status": "PASS_BOUNDED_TRUE4X_SIX_SPOTS",
+    "source_candidate": "4ff388d0da25e7d23309abbdf2eaf6dbfe974133",
+    "native_dimensions": [
+      1280,
+      800
+    ],
+    "internal_render_density": 8,
+    "one_replay_six_spots": [
+      4214,
+      4215,
+      4521,
+      4525,
+      4527,
+      4530
+    ],
+    "internal8x_RGB_audit_equal_to_verified2x_run": true,
+    "original_state_ticks_equal": 4531,
+    "six_phase_census_rows_equal": 7200,
+    "scene_draw_order_equal": true,
+    "samples": [
+      {
+        "tick": 4214,
+        "support_native_pixels": 6912,
+        "exact_source_plus_original_text_shadow_RGBA": true,
+        "later_insert_coin": {
+          "fully_covered_native_pixels": 0,
+          "shadow_only_native_pixels": 0,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "groups": [
+          {
+            "base": 41,
+            "source_origin": [
+              206,
+              21
+            ],
+            "parts": [
+              0,
+              1,
+              19,
+              20
+            ]
+          },
+          {
+            "base": 41,
+            "source_origin": [
+              274,
+              21
+            ],
+            "parts": [
+              0,
+              1,
+              19,
+              20
+            ]
+          },
+          {
+            "base": 39,
+            "source_origin": [
+              70,
+              21
+            ],
+            "parts": [
+              0,
+              1,
+              19,
+              20
+            ]
+          }
+        ]
+      },
+      {
+        "tick": 4215,
+        "support_native_pixels": 6640,
+        "exact_source_plus_original_text_shadow_RGBA": true,
+        "later_insert_coin": {
+          "fully_covered_native_pixels": 0,
+          "shadow_only_native_pixels": 0,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "groups": [
+          {
+            "base": 41,
+            "source_origin": [
+              206,
+              22
+            ],
+            "parts": [
+              0,
+              1,
+              19,
+              20
+            ]
+          },
+          {
+            "base": 41,
+            "source_origin": [
+              274,
+              22
+            ],
+            "parts": [
+              0,
+              1,
+              19,
+              20
+            ]
+          },
+          {
+            "base": 129,
+            "source_origin": [
+              68,
+              22
+            ],
+            "parts": [
+              0,
+              1,
+              19,
+              20
+            ]
+          }
+        ]
+      },
+      {
+        "tick": 4521,
+        "support_native_pixels": 2576,
+        "exact_source_plus_original_text_shadow_RGBA": true,
+        "later_insert_coin": {
+          "fully_covered_native_pixels": 464,
+          "shadow_only_native_pixels": 192,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "groups": [
+          {
+            "base": 45,
+            "source_origin": [
+              158,
+              -2
+            ],
+            "parts": [
+              0,
+              1,
+              19,
+              20
+            ]
+          }
+        ]
+      },
+      {
+        "tick": 4525,
+        "support_native_pixels": 2272,
+        "exact_source_plus_original_text_shadow_RGBA": true,
+        "later_insert_coin": {
+          "fully_covered_native_pixels": 352,
+          "shadow_only_native_pixels": 160,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "groups": [
+          {
+            "base": 93,
+            "source_origin": [
+              158,
+              -4
+            ],
+            "parts": [
+              0,
+              1,
+              19,
+              20
+            ]
+          }
+        ]
+      },
+      {
+        "tick": 4527,
+        "support_native_pixels": 2512,
+        "exact_source_plus_original_text_shadow_RGBA": true,
+        "later_insert_coin": {
+          "fully_covered_native_pixels": 464,
+          "shadow_only_native_pixels": 176,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "groups": [
+          {
+            "base": 43,
+            "source_origin": [
+              158,
+              -2
+            ],
+            "parts": [
+              0,
+              1,
+              19,
+              20
+            ]
+          }
+        ]
+      },
+      {
+        "tick": 4530,
+        "support_native_pixels": 2224,
+        "exact_source_plus_original_text_shadow_RGBA": true,
+        "later_insert_coin": {
+          "fully_covered_native_pixels": 784,
+          "shadow_only_native_pixels": 352,
+          "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+          "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+          "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        },
+        "groups": [
+          {
+            "base": 131,
+            "source_origin": [
+              158,
+              1
+            ],
+            "parts": [
+              0,
+              1,
+              19,
+              20
+            ]
+          }
+        ]
+      }
+    ],
+    "frames": [
+      {
+        "tick": 4214,
+        "width": 1280,
+        "height": 800,
+        "RGBA_sha256": "084eba25a1d20672e86f8d2906701f34696160b020e4351d1f6dceb5d102e69c",
+        "PNG_sha256": "5f2fef3f3401d0623eb46e4c9626a9d1f8e7a85c2049a6dacd99da37b312434f",
+        "path": "/workspace/scratch/f67dd347fa0a/type15-finite-cases-20261012/true4x/candidate-window/actual-4214-native4x.png"
+      },
+      {
+        "tick": 4215,
+        "width": 1280,
+        "height": 800,
+        "RGBA_sha256": "1640ac25a6339a0368c860651383bcee211a9337fef3f5c98f1f0a67aa9ab231",
+        "PNG_sha256": "46f825bc1d7a730f5306b1e2d68149541ad244e437ded674f06a274e2fa7f9fa",
+        "path": "/workspace/scratch/f67dd347fa0a/type15-finite-cases-20261012/true4x/candidate-window/actual-4215-native4x.png"
+      },
+      {
+        "tick": 4521,
+        "width": 1280,
+        "height": 800,
+        "RGBA_sha256": "5363569574cf4bb68d120a337ae641a6784bd810fff67ffa7a72506ab540f5ff",
+        "PNG_sha256": "392f69e8131fe3fc51fcba3e3f306813b4a3c83434561734c53d014e8cd68ba3",
+        "path": "/workspace/scratch/f67dd347fa0a/type15-finite-cases-20261012/true4x/candidate-window/actual-4521-native4x.png"
+      },
+      {
+        "tick": 4525,
+        "width": 1280,
+        "height": 800,
+        "RGBA_sha256": "2e175c104bb6c56e1ac3d9dfc859db80e49c7aed83811e0762306efc6ebe82c7",
+        "PNG_sha256": "2026b87578c18da12c7cbe2c08bdad45fbf956a94f02831526437ff9cbdf86ad",
+        "path": "/workspace/scratch/f67dd347fa0a/type15-finite-cases-20261012/true4x/candidate-window/actual-4525-native4x.png"
+      },
+      {
+        "tick": 4527,
+        "width": 1280,
+        "height": 800,
+        "RGBA_sha256": "3eb59613eecc96ab1a227626c44a5991e39015a0645ebb1236a001f140801ef9",
+        "PNG_sha256": "ed5ebd0a181eb21ce3e563902fcfbcd37fb9bc845deab0f7551078f35e5d70ce",
+        "path": "/workspace/scratch/f67dd347fa0a/type15-finite-cases-20261012/true4x/candidate-window/actual-4527-native4x.png"
+      },
+      {
+        "tick": 4530,
+        "width": 1280,
+        "height": 800,
+        "RGBA_sha256": "3b0457c0b744d5691f3df2602e2d1fd0bacd5f87145e83de9a8e2b5e06408f3c",
+        "PNG_sha256": "8d656e461e7285c3c8b7b73ee95a241e7b5fdd2247baa51de48f3c592e2efc11",
+        "path": "/workspace/scratch/f67dd347fa0a/type15-finite-cases-20261012/true4x/candidate-window/actual-4530-native4x.png"
+      }
+    ],
+    "limits": [
+      "No separate baseline4x run; outside-family preservation is established by exact paired2x frames plus identical internal8x RGB/state/draw streams.",
+      "Seven source-selected headings, with original INSERT COIN partial occlusion, not seven wholly unobscured views.",
+      "No natural NW91 or combat lifecycle claim."
+    ]
+  },
+  "fallbacks": {
+    "status": "PASS_BOUNDED_COHERENT_FALLBACKS",
+    "cases": {
+      "missing91": {
+        "original_state_ticks_equal": 4526,
+        "full_native_RGBA_equal_to_predecessor": true,
+        "all_retained_scene_callbacks_equal": true,
+        "internal8x_RGBA_audit_equal": true,
+        "new_family_callbacks": 0,
+        "frame": {
+          "tick": 4525,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "1f4f51e212d2cc11973e8ad49dc711fa36a1b89610c7b5058103d30c8d958880",
+          "PNG_sha256": "533b5192a1d50c59e26bd23b01541374340cd52c7935b03608413125821338b0",
+          "path": "/workspace/scratch/f67dd347fa0a/type15-finite-cases-20261012/missing91/candidate-window/actual-4525-native2x.png"
+        }
+      },
+      "corrupt": {
+        "original_state_ticks_equal": 4526,
+        "full_native_RGBA_equal_to_predecessor": true,
+        "all_retained_scene_callbacks_equal": true,
+        "internal8x_RGBA_audit_equal": true,
+        "new_family_callbacks": 0,
+        "frame": {
+          "tick": 4525,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "1f4f51e212d2cc11973e8ad49dc711fa36a1b89610c7b5058103d30c8d958880",
+          "PNG_sha256": "533b5192a1d50c59e26bd23b01541374340cd52c7935b03608413125821338b0",
+          "path": "/workspace/scratch/f67dd347fa0a/type15-finite-cases-20261012/corrupt/candidate-window/actual-4525-native2x.png"
+        }
+      },
+      "density4": {
+        "original_state_ticks_equal": 4526,
+        "all_raw_streams_equal_except_wall_time": true,
+        "all_scene_callbacks_equal": true,
+        "full_native_RGBA_equal": true,
+        "new_family_callbacks": 0,
+        "frame": {
+          "tick": 4525,
+          "width": 640,
+          "height": 400,
+          "RGBA_sha256": "d2841b4096e83b2c29c22537bb156cd6c28f0829a4fb5f1ffc86a411a13bc44c",
+          "PNG_sha256": "c08ac90eb5a8fbfc9179e70bfeadfb8e62010b649fdda080bda5947895f3663e",
+          "path": "/workspace/scratch/f67dd347fa0a/type15-finite-cases-20261012/density4-candidate/candidate-window/actual-4525-native2x.png"
+        }
+      }
+    },
+    "limits": [
+      "One finite4525 native2x spot per fallback case; all-eight malformed-member matrix is separately source/sanitizer tested.",
+      "No lifecycle, natural NW91, Windows or GPU/fullscreen acceptance."
+    ]
+  },
+  "oracle_refinement": {
+    "status": "initial_bare_art_oracle_stopped; source-derived_later_text_oracle_passed_without_game_rerun",
+    "initial_sha256": "d317a81f91ad50c7d198f134f1c0bb14170aad25bc5a9bf47717b085cc30d452",
+    "initial_path": "verify-bare-art-initial.py",
+    "exact_initial_failure": {
+      "tick": 4521,
+      "bare_art_mismatching_native_pixels": 160,
+      "text_covered": 116,
+      "shadow_only_RGB_changed_pixels": 44,
+      "shadow_only_covered_pixels": 48,
+      "shadow_only_black_RGB_noop_pixels": 4
+    },
+    "revised_oracle_sha256": "a21f0b1cd017fe7d201a91c9a7e9748d196a5f64674be2f887d3112cf56b4e77",
+    "text_oracle_sha256": "639d80e92c0f2dbb2e165c565524ce7a67ca8f8d2889fca384501e622719fada",
+    "final_verification_sha256": "fb65c082bbf6263d7be1f8a9d9730cd370c9a1a423ffad3e0900d05f0d258b44",
+    "reason": "Original later JE_dString INSERT COIN glyphs and nonblack round-half shadow were absent from material logs. Independently decode original glyph data and replay exact source operations. No runtime, art, captured frame, or state change."
+  },
+  "view_coverage": {
+    "status": "exact_original_font_mask_qualification",
+    "rows": [
+      {
+        "tick": 4214,
+        "base": 41,
+        "native_scale": 2,
+        "source_opaque_complete_native_pixels": 632,
+        "onscreen_source_opaque_pixels": 632,
+        "later_opaque_text_pixels": 0,
+        "later_shadow_only_pixels": 0,
+        "unobscured_source_pixels": 632
+      },
+      {
+        "tick": 4214,
+        "base": 39,
+        "native_scale": 2,
+        "source_opaque_complete_native_pixels": 628,
+        "onscreen_source_opaque_pixels": 628,
+        "later_opaque_text_pixels": 0,
+        "later_shadow_only_pixels": 0,
+        "unobscured_source_pixels": 628
+      },
+      {
+        "tick": 4215,
+        "base": 129,
+        "native_scale": 2,
+        "source_opaque_complete_native_pixels": 560,
+        "onscreen_source_opaque_pixels": 560,
+        "later_opaque_text_pixels": 0,
+        "later_shadow_only_pixels": 0,
+        "unobscured_source_pixels": 560
+      },
+      {
+        "tick": 4521,
+        "base": 45,
+        "native_scale": 2,
+        "source_opaque_complete_native_pixels": 644,
+        "onscreen_source_opaque_pixels": 644,
+        "later_opaque_text_pixels": 116,
+        "later_shadow_only_pixels": 48,
+        "unobscured_source_pixels": 480
+      },
+      {
+        "tick": 4525,
+        "base": 93,
+        "native_scale": 2,
+        "source_opaque_complete_native_pixels": 568,
+        "onscreen_source_opaque_pixels": 568,
+        "later_opaque_text_pixels": 88,
+        "later_shadow_only_pixels": 40,
+        "unobscured_source_pixels": 440
+      },
+      {
+        "tick": 4527,
+        "base": 43,
+        "native_scale": 2,
+        "source_opaque_complete_native_pixels": 628,
+        "onscreen_source_opaque_pixels": 628,
+        "later_opaque_text_pixels": 116,
+        "later_shadow_only_pixels": 44,
+        "unobscured_source_pixels": 468
+      },
+      {
+        "tick": 4530,
+        "base": 131,
+        "native_scale": 2,
+        "source_opaque_complete_native_pixels": 556,
+        "onscreen_source_opaque_pixels": 556,
+        "later_opaque_text_pixels": 196,
+        "later_shadow_only_pixels": 88,
+        "unobscured_source_pixels": 272
+      },
+      {
+        "tick": 4214,
+        "base": 41,
+        "native_scale": 4,
+        "source_opaque_complete_native_pixels": 2528,
+        "onscreen_source_opaque_pixels": 2528,
+        "later_opaque_text_pixels": 0,
+        "later_shadow_only_pixels": 0,
+        "unobscured_source_pixels": 2528
+      },
+      {
+        "tick": 4214,
+        "base": 39,
+        "native_scale": 4,
+        "source_opaque_complete_native_pixels": 2512,
+        "onscreen_source_opaque_pixels": 2512,
+        "later_opaque_text_pixels": 0,
+        "later_shadow_only_pixels": 0,
+        "unobscured_source_pixels": 2512
+      },
+      {
+        "tick": 4215,
+        "base": 129,
+        "native_scale": 4,
+        "source_opaque_complete_native_pixels": 2240,
+        "onscreen_source_opaque_pixels": 2240,
+        "later_opaque_text_pixels": 0,
+        "later_shadow_only_pixels": 0,
+        "unobscured_source_pixels": 2240
+      },
+      {
+        "tick": 4521,
+        "base": 45,
+        "native_scale": 4,
+        "source_opaque_complete_native_pixels": 2576,
+        "onscreen_source_opaque_pixels": 2576,
+        "later_opaque_text_pixels": 464,
+        "later_shadow_only_pixels": 192,
+        "unobscured_source_pixels": 1920
+      },
+      {
+        "tick": 4525,
+        "base": 93,
+        "native_scale": 4,
+        "source_opaque_complete_native_pixels": 2272,
+        "onscreen_source_opaque_pixels": 2272,
+        "later_opaque_text_pixels": 352,
+        "later_shadow_only_pixels": 160,
+        "unobscured_source_pixels": 1760
+      },
+      {
+        "tick": 4527,
+        "base": 43,
+        "native_scale": 4,
+        "source_opaque_complete_native_pixels": 2512,
+        "onscreen_source_opaque_pixels": 2512,
+        "later_opaque_text_pixels": 464,
+        "later_shadow_only_pixels": 176,
+        "unobscured_source_pixels": 1872
+      },
+      {
+        "tick": 4530,
+        "base": 131,
+        "native_scale": 4,
+        "source_opaque_complete_native_pixels": 2224,
+        "onscreen_source_opaque_pixels": 2224,
+        "later_opaque_text_pixels": 784,
+        "later_shadow_only_pixels": 352,
+        "unobscured_source_pixels": 1088
+      }
+    ],
+    "qualification": "All seven headings have directly exposed pixels. N/NE/E/SE retain later text/shadow occlusion; source-alpha-complete registration is not unobscured artwork acceptance."
+  },
+  "author_review": "docs/TYPE15_EIGHTHEADING_AUTHOR_REVIEW.json",
+  "author_capture_hashes": "docs/TYPE15_EIGHTHEADING_CAPTURE_HASHES.json",
+  "important_qualifications": [
+    "Seven headings naturally presented through4530; NW91 required by the source contract but no actual reference through4530. Whole-first-level absence is original-event proof.",
+    "Base93 source rectangle is clipped at y\u22124 while its complete original opaque support is in bounds; original INSERT COIN text still partly covers its final view.",
+    "N/NE/E/SE have later original text/shadow occlusion. Their visible pixels and exact composition pass; not seven wholly unobscured artwork views.",
+    "Original JE_dString SMALL_FONT_SHAPES glyphs and round-half shadow are independently decoded/replayed. Support masks were not relaxed and alpha>0 was not treated as opaque.",
+    "Odd explosiontype3 implies enemyground=false and no ordinary ground-hit or ice-blue tint. No hit/ice/lethal/drop lifecycle was executed or accepted.",
+    "No separate baseline4x replay. Exact internal8x RGB/state/draw equivalence connects the true4x source/font pixel checks to the paired2x full-frame preservation proof.",
+    "Native SDL software only; no Windows, GPU/fullscreen, full-campaign or performance certification.",
+    "Private hooks, original game data and actual game screenshots remain external validation evidence, not production assets."
+  ],
+  "evidence": [
+    {
+      "path": "type15-private-runtime-20261012/verification-native2x.json",
+      "sha256": "fb65c082bbf6263d7be1f8a9d9730cd370c9a1a423ffad3e0900d05f0d258b44"
+    },
+    {
+      "path": "type15-finite-cases-20261012/verification-true4x.json",
+      "sha256": "7fbca0082dae03e23fa92dc1b6632331e2806178632efafb757ddb1e5aa562a4"
+    },
+    {
+      "path": "type15-finite-cases-20261012/verification-fallbacks.json",
+      "sha256": "28f748bf5d8716d20cf28320335c9193ff3fdcb6c4af289add04b43e2f425a66"
+    },
+    {
+      "path": "type15-independent-audit-20261012/receipt.json",
+      "sha256": "486af4e5358d823e009a42e903f38476a3df2d96014b2cb4a5b8cc372f4ec822"
+    },
+    {
+      "path": "tyrian-background-redraw/type15-author-runtime-review/author-review.json",
+      "sha256": "0de0002d36339e33e1c923d15113c9bb14a157d6bce8b70ce8eb5a93bdb5a30f"
+    },
+    {
+      "path": "tyrian-background-redraw/type15-author-runtime-review/capture-hashes.json",
+      "sha256": "91a9b61a8a4662d05f779eeb25cd4b32406bead27f0ae52840e4eae1925ac6d6"
+    },
+    {
+      "path": "type15-private-runtime-20261012/oracle-refinement.json",
+      "sha256": "dec13c5e95a7aa49e18bcd7af33f4900681b5e168596440e83bd19d3707b213d"
+    },
+    {
+      "path": "type15-private-runtime-20261012/view-coverage.json",
+      "sha256": "bf88d6422e2a501f8b730ce0949022e7c66bd58d50dd8089d4e6513d48c920a4"
+    },
+    {
+      "path": "type15-private-runtime-20261012/baseline-configuration.json",
+      "sha256": "e7eda3dced92ce6ccf2683c05c83efdcf1fce046a3731e35d3e0c052c02f9118"
+    },
+    {
+      "path": "type15-private-runtime-20261012/baseline-launch.log",
+      "sha256": "2177269a1dd307358bd7f4b0ef99c7a9759a59d90939d0c30492612b24c26a0e"
+    },
+    {
+      "path": "type15-private-runtime-20261012/baseline-window/command.json",
+      "sha256": "d396d6028880f0d52e673e0b82b82862bd18098331eb2853f60e8fcd20a8eca2"
+    },
+    {
+      "path": "type15-private-runtime-20261012/baseline-window/frame-hashes.json",
+      "sha256": "8a5202397719034b25cfeb755ce09afd72b635b7f90e5c2b7f14c808b314fc4f"
+    },
+    {
+      "path": "type15-private-runtime-20261012/baseline-window/run-summary.json",
+      "sha256": "0ffc0b4919e01a949cc1a4ba0daeb6e1552d820696654821082a510545a8fc04"
+    },
+    {
+      "path": "type15-private-runtime-20261012/baseline-window/stream-receipts.json",
+      "sha256": "c5a344cf8d86fd213f6537c556f1b65d92423a9ee58160b52e74480bbe8d2388"
+    },
+    {
+      "path": "type15-private-runtime-20261012/baseline-window/type15-material-counts.json",
+      "sha256": "bdd4c434a5f9a0d1f8450d37bfe4301b5b4ba9b9e49a44ea3c36031e07126898"
+    },
+    {
+      "path": "type15-private-runtime-20261012/candidate-configuration.json",
+      "sha256": "28d3f3e50b7b68b52938588978027c0b73be67732767a189d34867caafdc70c4"
+    },
+    {
+      "path": "type15-private-runtime-20261012/candidate-launch.log",
+      "sha256": "c80ca5cdbb18cdbcd10df55ee45d4aa5e5273d7a7841bf7f002054a42c34f959"
+    },
+    {
+      "path": "type15-private-runtime-20261012/candidate-window/command.json",
+      "sha256": "a1fff184580f3c2040488ac74df2dcd7c812314ed4c0282685431e6b037ba0dc"
+    },
+    {
+      "path": "type15-private-runtime-20261012/candidate-window/frame-hashes.json",
+      "sha256": "16888eedf7d4e17d85901d973f955a8f8f79853d33b55bbe33bc01f7091397d2"
+    },
+    {
+      "path": "type15-private-runtime-20261012/candidate-window/run-summary.json",
+      "sha256": "dea92683a65e422ff57ad2486475dc8058bf4b8c83bab502f587d0a547531fe3"
+    },
+    {
+      "path": "type15-private-runtime-20261012/candidate-window/stream-receipts.json",
+      "sha256": "0d3dbc810624fe85710dc9d6abcc24352ce7a3a1e209bba2a171ecba41c6b03d"
+    },
+    {
+      "path": "type15-private-runtime-20261012/candidate-window/type15-material-counts.json",
+      "sha256": "bdd4c434a5f9a0d1f8450d37bfe4301b5b4ba9b9e49a44ea3c36031e07126898"
+    },
+    {
+      "path": "type15-private-runtime-20261012/measure-view-coverage.py",
+      "sha256": "9cbb4dd7c56c4de0988bd02a05c3b1ef5c4dcb61714a8e250c489ba31c9075bc"
+    },
+    {
+      "path": "type15-private-runtime-20261012/oracle-refinement.json",
+      "sha256": "dec13c5e95a7aa49e18bcd7af33f4900681b5e168596440e83bd19d3707b213d"
+    },
+    {
+      "path": "type15-private-runtime-20261012/prepare-readback.py",
+      "sha256": "b2563c7f50857c1ad53e2bf0badedc2fe26f91303e33718bce14b3b713dc38db"
+    },
+    {
+      "path": "type15-private-runtime-20261012/prepare.py",
+      "sha256": "2ab78fe76f75789717257f02fad1559a1e63622eda1b4fbc676a1df0f6ec179b"
+    },
+    {
+      "path": "type15-private-runtime-20261012/private-native-readback.patch",
+      "sha256": "0199aa40d853123af6fece3c66764d3e909d04ff19596803a7c11984d6f11743"
+    },
+    {
+      "path": "type15-private-runtime-20261012/private-observer-survival.patch",
+      "sha256": "8f1115016be88e0f2ded14fe3b1103af0aa38bd0975d8db2cca8546f8a06c906"
+    },
+    {
+      "path": "type15-private-runtime-20261012/provenance.json",
+      "sha256": "d573421615d11c98bd0dd74f02e4f093f6943aa7763b787ee73d6882a4936493"
+    },
+    {
+      "path": "type15-private-runtime-20261012/run.py",
+      "sha256": "8bd7f808c9d3ec78c96166b2a52920aff6f33d7296530e1a7dd63cd4a6942085"
+    },
+    {
+      "path": "type15-private-runtime-20261012/text_oracle.py",
+      "sha256": "639d80e92c0f2dbb2e165c565524ce7a67ca8f8d2889fca384501e622719fada"
+    },
+    {
+      "path": "type15-private-runtime-20261012/verification-native2x.json",
+      "sha256": "fb65c082bbf6263d7be1f8a9d9730cd370c9a1a423ffad3e0900d05f0d258b44"
+    },
+    {
+      "path": "type15-private-runtime-20261012/verify-bare-art-initial.py",
+      "sha256": "d317a81f91ad50c7d198f134f1c0bb14170aad25bc5a9bf47717b085cc30d452"
+    },
+    {
+      "path": "type15-private-runtime-20261012/verify.py",
+      "sha256": "a21f0b1cd017fe7d201a91c9a7e9748d196a5f64674be2f887d3112cf56b4e77"
+    },
+    {
+      "path": "type15-private-runtime-20261012/view-coverage.json",
+      "sha256": "bf88d6422e2a501f8b730ce0949022e7c66bd58d50dd8089d4e6513d48c920a4"
+    },
+    {
+      "path": "type15-finite-cases-20261012/corrupt/candidate-window/command.json",
+      "sha256": "401b36ca973f04836d41f93509047052b275c03c0e3b7dfb1881d38452fe39a1"
+    },
+    {
+      "path": "type15-finite-cases-20261012/corrupt/candidate-window/frame-hashes.json",
+      "sha256": "48abb60ea5208f4a4292409012cc3b7f1c69d2dc8eb1bd076477ac2d832c9c7c"
+    },
+    {
+      "path": "type15-finite-cases-20261012/corrupt/candidate-window/run-summary.json",
+      "sha256": "3ad94eff0ed99fa0ca9069154ce201dd3507b4be012a32ceafa87a311bb13b35"
+    },
+    {
+      "path": "type15-finite-cases-20261012/corrupt/candidate-window/stream-receipts.json",
+      "sha256": "41f621103b97b12481f59e3735315a8451f9456352763c822aeef2af329e818f"
+    },
+    {
+      "path": "type15-finite-cases-20261012/corrupt/candidate-window/type15-material-counts.json",
+      "sha256": "03aae7c87de489c22329c3893bde7f7696db385d47b52675d222517d7e207839"
+    },
+    {
+      "path": "type15-finite-cases-20261012/corrupt/launch.log",
+      "sha256": "c6eaf062565e6ade50c341cedeadb4a1ac242a0abddfbadec4909259f1c42dc7"
+    },
+    {
+      "path": "type15-finite-cases-20261012/corrupt/provenance.json",
+      "sha256": "e3d56305130de767d83f93edd350417daeeb13b78208dd35a746a271b874a6ec"
+    },
+    {
+      "path": "type15-finite-cases-20261012/corrupt/run.py",
+      "sha256": "8bd7f808c9d3ec78c96166b2a52920aff6f33d7296530e1a7dd63cd4a6942085"
+    },
+    {
+      "path": "type15-finite-cases-20261012/density4-baseline/baseline-window/command.json",
+      "sha256": "682dac2090364b8db5c38e045abb31841555972e0e06d1c0c3ad748f54cc9f0d"
+    },
+    {
+      "path": "type15-finite-cases-20261012/density4-baseline/baseline-window/frame-hashes.json",
+      "sha256": "f250119a48e9645ccbe408f0747f4b4c7fe6f6f4a0369c1d4b159b5ae97b33aa"
+    },
+    {
+      "path": "type15-finite-cases-20261012/density4-baseline/baseline-window/run-summary.json",
+      "sha256": "903debf4d42071bca2a7687fe1b600093b973c676d2f44e811ef14daf179fd7c"
+    },
+    {
+      "path": "type15-finite-cases-20261012/density4-baseline/baseline-window/stream-receipts.json",
+      "sha256": "6436cc0c0313609e18eed8b690de5a10c567f61f785c6bd14a52f2c0df19d3bd"
+    },
+    {
+      "path": "type15-finite-cases-20261012/density4-baseline/baseline-window/type15-material-counts.json",
+      "sha256": "03aae7c87de489c22329c3893bde7f7696db385d47b52675d222517d7e207839"
+    },
+    {
+      "path": "type15-finite-cases-20261012/density4-baseline/launch.log",
+      "sha256": "d958b96097e2460e52acde7866a423e23510b04e1a892938b9d62ab36917c909"
+    },
+    {
+      "path": "type15-finite-cases-20261012/density4-baseline/provenance.json",
+      "sha256": "32d40d425e981da81553e2dbbb6f2f6703cc2130859d0073ad65f68ff8e1c74d"
+    },
+    {
+      "path": "type15-finite-cases-20261012/density4-baseline/run.py",
+      "sha256": "8bd7f808c9d3ec78c96166b2a52920aff6f33d7296530e1a7dd63cd4a6942085"
+    },
+    {
+      "path": "type15-finite-cases-20261012/density4-candidate/candidate-window/command.json",
+      "sha256": "8f6cbe27fd32a8143168e7a38efddf75fbaf5d520c5d343e59b7ebb22a439e55"
+    },
+    {
+      "path": "type15-finite-cases-20261012/density4-candidate/candidate-window/frame-hashes.json",
+      "sha256": "4f5d0051e2bb0d15c7da465c1ffee26cfcf3f12428ac2fcba33cd971e23360fa"
+    },
+    {
+      "path": "type15-finite-cases-20261012/density4-candidate/candidate-window/run-summary.json",
+      "sha256": "93825f11c71dfbc935e2d2fdbda74cf7b99a495a444bf3ffbfe328117bb7e7d1"
+    },
+    {
+      "path": "type15-finite-cases-20261012/density4-candidate/candidate-window/stream-receipts.json",
+      "sha256": "5aa434b0802a633794de793774a1fbe59618e58c6fb1a4db5f997dbc80d944e6"
+    },
+    {
+      "path": "type15-finite-cases-20261012/density4-candidate/candidate-window/type15-material-counts.json",
+      "sha256": "03aae7c87de489c22329c3893bde7f7696db385d47b52675d222517d7e207839"
+    },
+    {
+      "path": "type15-finite-cases-20261012/density4-candidate/launch.log",
+      "sha256": "c6eaf062565e6ade50c341cedeadb4a1ac242a0abddfbadec4909259f1c42dc7"
+    },
+    {
+      "path": "type15-finite-cases-20261012/density4-candidate/provenance.json",
+      "sha256": "c46e0218fde74dc68f417ee60ce2d1beaae6c1de24c12ee2ffc5c81faab98742"
+    },
+    {
+      "path": "type15-finite-cases-20261012/density4-candidate/run.py",
+      "sha256": "8bd7f808c9d3ec78c96166b2a52920aff6f33d7296530e1a7dd63cd4a6942085"
+    },
+    {
+      "path": "type15-finite-cases-20261012/missing91/candidate-window/command.json",
+      "sha256": "51d11b513c17236bbd11602ff8537647e6fc4f79e9b46a844927912ececfb945"
+    },
+    {
+      "path": "type15-finite-cases-20261012/missing91/candidate-window/frame-hashes.json",
+      "sha256": "7a3b0885ed30336630b86ff85f3e54a531b44eeb869ba9b1c914d75766156509"
+    },
+    {
+      "path": "type15-finite-cases-20261012/missing91/candidate-window/run-summary.json",
+      "sha256": "23f48dfb29c23b8181f14e124b4af8368c4b0ae0605c4ad0ff4f048ce1d1ec2f"
+    },
+    {
+      "path": "type15-finite-cases-20261012/missing91/candidate-window/stream-receipts.json",
+      "sha256": "1fb841d84c1f057aa3fdac04fc0c2a54040d60d8565b8aa9a934d77286b01987"
+    },
+    {
+      "path": "type15-finite-cases-20261012/missing91/candidate-window/type15-material-counts.json",
+      "sha256": "03aae7c87de489c22329c3893bde7f7696db385d47b52675d222517d7e207839"
+    },
+    {
+      "path": "type15-finite-cases-20261012/missing91/launch.log",
+      "sha256": "c6eaf062565e6ade50c341cedeadb4a1ac242a0abddfbadec4909259f1c42dc7"
+    },
+    {
+      "path": "type15-finite-cases-20261012/missing91/provenance.json",
+      "sha256": "8b89bff73cf4163a6ce4262ed3537649fad43b1742587d3b791480ed565aa347"
+    },
+    {
+      "path": "type15-finite-cases-20261012/missing91/run.py",
+      "sha256": "8bd7f808c9d3ec78c96166b2a52920aff6f33d7296530e1a7dd63cd4a6942085"
+    },
+    {
+      "path": "type15-finite-cases-20261012/preparation.json",
+      "sha256": "09f9e09833e37f2906f46c4876410c48db3b10e1a3a680197a9d79499b61465c"
+    },
+    {
+      "path": "type15-finite-cases-20261012/prepare.py",
+      "sha256": "0e5ac9573e8cfeb0560aa3e1db1ec258ae944e866f475868e42e268e4d0ff242"
+    },
+    {
+      "path": "type15-finite-cases-20261012/true4x/candidate-window/command.json",
+      "sha256": "1eb48a1b4ddd1cbc9dde56c8c72c19f562cb3ecc710b9bd7aa181d4fb832dd68"
+    },
+    {
+      "path": "type15-finite-cases-20261012/true4x/candidate-window/frame-hashes.json",
+      "sha256": "588f1a042fd9956e78b6d0dd02a6e4857339695b0fd5a537b546e452806c53a9"
+    },
+    {
+      "path": "type15-finite-cases-20261012/true4x/candidate-window/run-summary.json",
+      "sha256": "f70b5a2a429bf744b04b63ae0497ede11bfc94a8d67ca00d1e4a3174d793a43f"
+    },
+    {
+      "path": "type15-finite-cases-20261012/true4x/candidate-window/stream-receipts.json",
+      "sha256": "1501217a00e34f6ecbaaafcec8f18c955d9b90e33385505d2077b49daff4169c"
+    },
+    {
+      "path": "type15-finite-cases-20261012/true4x/candidate-window/type15-material-counts.json",
+      "sha256": "bdd4c434a5f9a0d1f8450d37bfe4301b5b4ba9b9e49a44ea3c36031e07126898"
+    },
+    {
+      "path": "type15-finite-cases-20261012/true4x/configuration.json",
+      "sha256": "d49f6cbac7188a47eb92312e89c740e421fe62ddb8cee9a3d43faedcd5027f5a"
+    },
+    {
+      "path": "type15-finite-cases-20261012/true4x/launch.log",
+      "sha256": "346b099d4825ad72b776ac7a92d04ad2df416cdc857f2e511d3fa3af5cae4ebd"
+    },
+    {
+      "path": "type15-finite-cases-20261012/true4x/provenance.json",
+      "sha256": "0eb8c182000fbe3ddf2f17644d040b800d6b44243632f871004f052e06ff836f"
+    },
+    {
+      "path": "type15-finite-cases-20261012/true4x/run.py",
+      "sha256": "8bd7f808c9d3ec78c96166b2a52920aff6f33d7296530e1a7dd63cd4a6942085"
+    },
+    {
+      "path": "type15-finite-cases-20261012/verification-fallbacks.json",
+      "sha256": "28f748bf5d8716d20cf28320335c9193ff3fdcb6c4af289add04b43e2f425a66"
+    },
+    {
+      "path": "type15-finite-cases-20261012/verification-true4x.json",
+      "sha256": "7fbca0082dae03e23fa92dc1b6632331e2806178632efafb757ddb1e5aa562a4"
+    },
+    {
+      "path": "type15-finite-cases-20261012/verify.py",
+      "sha256": "3442f655e46d66b873389ce8f3e0dc93355137cb96f0f3296e6286420c5d9fc0"
+    },
+    {
+      "path": "type15-aggregate-final-20261012.json",
+      "sha256": "b50569c2ac8361ee7b8c78fc13e2fc7e4e29a780376a1d31fec701c42a681207"
+    },
+    {
+      "path": "type15-preservation-final-20261012.json",
+      "sha256": "df8bdc2565aeb59f47d0fb24ed2a33d81488198a8fb69e589c25c20891ac9848"
+    },
+    {
+      "path": "type15-startup-package-final-20261012.log",
+      "sha256": "72b6dceac820d1496dd7868be6e2e68065045172b6eb82d0b7b2ad85461648c4"
+    },
+    {
+      "path": "type15-title-package-final-20261012.log",
+      "sha256": "6a7e56266ee480a37562545d1906fc24b7375b8c4226b6359460d84a12f5916a"
+    }
+  ],
+  "final_metadata_regression": {
+    "aggregate": "passed;3056 HDA/424 PNG/default packs408,412",
+    "preservation": "passed; previous5757 files/574416171 asset bytes exact",
+    "startup_package_tests": 11,
+    "title_package_tests": 16,
+    "production_and_art_change_after_runtime": false
+  }
+}

@@ -1,0 +1,1557 @@
+{
+  "schema": "type15-eightheading-original-source-proof-v1",
+  "source_commit": "67656d102a67cd1bd76c823a2b20f6023f7bb9f0",
+  "original_sources_sha256": {
+    "tyrian.hdt": "fde8506326e7bb0916b38c362e33bf8a8a5affa561206c021af7f65b4a17745b",
+    "newsh2.shp": "8773ebcae4be992ecfbb476c0797b0bef4d43faa4c99449890bfaa28c8d9cbcc",
+    "palette.dat": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0",
+    "tyrian1.lvl": "54cbb00b57b84aa992a70cfcb170cb1edeb59507873723630d60080ba8351352"
+  },
+  "record15": {
+    "id": 15,
+    "ani": 8,
+    "tur": [
+      2,
+      3,
+      4
+    ],
+    "freq": [
+      0,
+      0,
+      0
+    ],
+    "xmove": 0,
+    "ymove": 0,
+    "xaccel": 0,
+    "yaccel": 0,
+    "xcaccel": 0,
+    "ycaccel": 0,
+    "startx": 130,
+    "starty": -13,
+    "startxc": 125,
+    "startyc": 0,
+    "armor": 10,
+    "esize": 1,
+    "egraphic": [
+      91,
+      45,
+      93,
+      39,
+      43,
+      129,
+      41,
+      131,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "explosiontype": 3,
+    "animate": 0,
+    "shapebank": 1,
+    "xrev": 0,
+    "yrev": 0,
+    "dgr": 0,
+    "dlevel": 0,
+    "dani": 0,
+    "elaunchfreq": 0,
+    "elaunchtype": 0,
+    "value": 20,
+    "eenemydie": 0
+  },
+  "frames": [
+    {
+      "base_id": 39,
+      "selector": 4,
+      "bank": "newsh2.shp",
+      "cells": [
+        {
+          "id": 39,
+          "offset": 4056,
+          "bytes": 61,
+          "source_record_sha256": "6ca665173d0baea3961e3f49cc7fcf4b692f259d4ccff3d488369117cbfdd7d5",
+          "opaque_pixels": 41,
+          "opaque_palette_zero": 0,
+          "sprite_offset": 0,
+          "local_xy": [
+            0,
+            0
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 40,
+          "offset": 4117,
+          "bytes": 82,
+          "source_record_sha256": "4c235440ecee0dcdda2c72ba3be7dfa55fd669048e6f66ca15c9c346a3202925",
+          "opaque_pixels": 61,
+          "opaque_palette_zero": 0,
+          "sprite_offset": 1,
+          "local_xy": [
+            12,
+            0
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 58,
+          "offset": 5964,
+          "bytes": 20,
+          "source_record_sha256": "86cdea5a661e40501d1c7ecfa5877ba3a4ad3421658ce4eb6f96ad5aae689fba",
+          "opaque_pixels": 14,
+          "opaque_palette_zero": 0,
+          "sprite_offset": 19,
+          "local_xy": [
+            0,
+            14
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 59,
+          "offset": 5984,
+          "bytes": 51,
+          "source_record_sha256": "d8b59508c5d45bf2f2f7f1df8e6d06dd99a04ee0b6c6e4099b363fd18e031985",
+          "opaque_pixels": 41,
+          "opaque_palette_zero": 0,
+          "sprite_offset": 20,
+          "local_xy": [
+            12,
+            14
+          ],
+          "size": [
+            12,
+            14
+          ]
+        }
+      ],
+      "size": [
+        24,
+        28
+      ],
+      "anchor": [
+        6,
+        7
+      ],
+      "alpha_bbox_xyxy_exclusive": [
+        3,
+        7,
+        21,
+        19
+      ],
+      "opaque_pixels": 157,
+      "opaque_palette_zero": 0,
+      "indices_sha256": "1d412815cc9b623774eaa7bc447a733217e3125d59923f6f95e1758761bcb628",
+      "alpha_sha256": "6ced5bfc235c982590eb7ba8746b2707aafb84daa1db96fab2c527d1b9936d23",
+      "rgba_sha256": "79579785f38f1c7422643e93988bc3f85ea16e9b1c68a61eca1934c90d50d176",
+      "native_png": "original-newsh2-39-24x28.png",
+      "native_png_sha256": "4425779bdee2dffe06d99705a359daa05e06a0d280afc08c28e9f1a4c1b938bc"
+    },
+    {
+      "base_id": 41,
+      "selector": 7,
+      "bank": "newsh2.shp",
+      "cells": [
+        {
+          "id": 41,
+          "offset": 4199,
+          "bytes": 65,
+          "source_record_sha256": "55aad58689cc4df106f0a420bd1ee4d0901a09d05de0d2b1e0d2d441fa2e0a50",
+          "opaque_pixels": 44,
+          "opaque_palette_zero": 0,
+          "sprite_offset": 0,
+          "local_xy": [
+            0,
+            0
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 42,
+          "offset": 4264,
+          "bytes": 59,
+          "source_record_sha256": "06978a4112f1bb856103a9c3d5b656f0fcc4baa16b4669b8d79de3b41c33e3b7",
+          "opaque_pixels": 38,
+          "opaque_palette_zero": 0,
+          "sprite_offset": 1,
+          "local_xy": [
+            12,
+            0
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 60,
+          "offset": 6035,
+          "bytes": 63,
+          "source_record_sha256": "47c71c2a2aa78268150e597c46966f736c2045e42d94c52467215ed6444a0282",
+          "opaque_pixels": 43,
+          "opaque_palette_zero": 0,
+          "sprite_offset": 19,
+          "local_xy": [
+            0,
+            14
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 61,
+          "offset": 6098,
+          "bytes": 53,
+          "source_record_sha256": "0c8dbb639820a30fd95e04fc8d594e0d4632433ef5f50f1eb4df5a4df512d9a7",
+          "opaque_pixels": 33,
+          "opaque_palette_zero": 0,
+          "sprite_offset": 20,
+          "local_xy": [
+            12,
+            14
+          ],
+          "size": [
+            12,
+            14
+          ]
+        }
+      ],
+      "size": [
+        24,
+        28
+      ],
+      "anchor": [
+        6,
+        7
+      ],
+      "alpha_bbox_xyxy_exclusive": [
+        5,
+        7,
+        18,
+        24
+      ],
+      "opaque_pixels": 158,
+      "opaque_palette_zero": 0,
+      "indices_sha256": "5e498a8ef93cc9dc99067a5925d8064c01faa0b0087150eb46c9fe25e69fa33c",
+      "alpha_sha256": "4f6f0727544e2e067340b7aa51b934d674d1012fced1550365cd6d08c84f4014",
+      "rgba_sha256": "bea1d1d4957e7a70f5b08b43f65b7996046daa2c13eef9f0c31946741ddbe3c9",
+      "native_png": "original-newsh2-41-24x28.png",
+      "native_png_sha256": "f2cfb966deab8778390439f8e1deff003cc42202b2ff541216171e9b17838b16"
+    },
+    {
+      "base_id": 43,
+      "selector": 5,
+      "bank": "newsh2.shp",
+      "cells": [
+        {
+          "id": 43,
+          "offset": 4323,
+          "bytes": 75,
+          "source_record_sha256": "bdc902cd44565ed54202a38ecd092fde61071e8e72a23db2e5f85a546e7be4eb",
+          "opaque_pixels": 54,
+          "opaque_palette_zero": 0,
+          "sprite_offset": 0,
+          "local_xy": [
+            0,
+            0
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 44,
+          "offset": 4398,
+          "bytes": 69,
+          "source_record_sha256": "037bc073abbbfe89370c7f843bcec9cac333e22d5c994035bf3254c5bb834c72",
+          "opaque_pixels": 48,
+          "opaque_palette_zero": 0,
+          "sprite_offset": 1,
+          "local_xy": [
+            12,
+            0
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 62,
+          "offset": 6151,
+          "bytes": 47,
+          "source_record_sha256": "5117b75ddf3c10cf4c79714fff12e7688d733701fd36643ca04bdada6f63937a",
+          "opaque_pixels": 37,
+          "opaque_palette_zero": 0,
+          "sprite_offset": 19,
+          "local_xy": [
+            0,
+            14
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 63,
+          "offset": 6198,
+          "bytes": 26,
+          "source_record_sha256": "2e749c302092ad4ec776f4c194331cdc6edbc4587b64e0dc12c763a3ad3b0a87",
+          "opaque_pixels": 18,
+          "opaque_palette_zero": 0,
+          "sprite_offset": 20,
+          "local_xy": [
+            12,
+            14
+          ],
+          "size": [
+            12,
+            14
+          ]
+        }
+      ],
+      "size": [
+        24,
+        28
+      ],
+      "anchor": [
+        6,
+        7
+      ],
+      "alpha_bbox_xyxy_exclusive": [
+        4,
+        7,
+        22,
+        19
+      ],
+      "opaque_pixels": 157,
+      "opaque_palette_zero": 0,
+      "indices_sha256": "d48c1562e5e188eea0d722be19af788d68ee3cecee7ef1084d6640345a38a691",
+      "alpha_sha256": "4b93eaf684d0efc0af9cae79f584bd66808b2958e40401477ea5b85bc0c5bd08",
+      "rgba_sha256": "ad11a4971d006aaf698ec2ed01969279c39bae550989852b3fd58b60d3136ae2",
+      "native_png": "original-newsh2-43-24x28.png",
+      "native_png_sha256": "5f68e2374bcdfb5c9cc0689c5fe34146ef6fb2817cc23c2f976ab3ec271d1de9"
+    },
+    {
+      "base_id": 45,
+      "selector": 2,
+      "bank": "newsh2.shp",
+      "cells": [
+        {
+          "id": 45,
+          "offset": 4467,
+          "bytes": 78,
+          "source_record_sha256": "b9b2bbe72a96a8b28040ed7d341e6668cb2fb4330007dbd29ea559eb1aee2a69",
+          "opaque_pixels": 52,
+          "opaque_palette_zero": 0,
+          "sprite_offset": 0,
+          "local_xy": [
+            0,
+            0
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 46,
+          "offset": 4545,
+          "bytes": 66,
+          "source_record_sha256": "1d67d637d819a4e087fb249bb6da3eea04938d5d557857d4ed7623bf4dc1571a",
+          "opaque_pixels": 40,
+          "opaque_palette_zero": 0,
+          "sprite_offset": 1,
+          "local_xy": [
+            12,
+            0
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 64,
+          "offset": 6224,
+          "bytes": 49,
+          "source_record_sha256": "8434c341378f86e90b540806c7c596b356593eecf4b1e3ad7946fdfc979d3132",
+          "opaque_pixels": 37,
+          "opaque_palette_zero": 0,
+          "sprite_offset": 19,
+          "local_xy": [
+            0,
+            14
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 65,
+          "offset": 6273,
+          "bytes": 44,
+          "source_record_sha256": "80b10958bae22e87dfeca8e21f111657895ca6de4ed01d84dac4f2352103e848",
+          "opaque_pixels": 32,
+          "opaque_palette_zero": 0,
+          "sprite_offset": 20,
+          "local_xy": [
+            12,
+            14
+          ],
+          "size": [
+            12,
+            14
+          ]
+        }
+      ],
+      "size": [
+        24,
+        28
+      ],
+      "anchor": [
+        6,
+        7
+      ],
+      "alpha_bbox_xyxy_exclusive": [
+        5,
+        2,
+        18,
+        20
+      ],
+      "opaque_pixels": 161,
+      "opaque_palette_zero": 0,
+      "indices_sha256": "a769f06ed657a9a38d1e18315334c04d5d721eb70179fbc222c6cc2185c26198",
+      "alpha_sha256": "0ef7992316b5f95cca21882404c34f802aa61edee36988ddfe2528b9609ce636",
+      "rgba_sha256": "0bf6e8862b3616ef952107faa66629a00de25e3e2067a450188761a90a6f48d3",
+      "native_png": "original-newsh2-45-24x28.png",
+      "native_png_sha256": "1ea97757e4a542333f7383244f551ad090e9a8df2acb95cec9a25a8103960fa2"
+    },
+    {
+      "base_id": 91,
+      "selector": 1,
+      "bank": "newsh2.shp",
+      "cells": [
+        {
+          "id": 91,
+          "offset": 9930,
+          "bytes": 76,
+          "source_record_sha256": "cbfa05de335473c9bc2ff833f71b730b7042714b57ba4acaeb82e259d1659227",
+          "opaque_pixels": 52,
+          "opaque_palette_zero": 0,
+          "sprite_offset": 0,
+          "local_xy": [
+            0,
+            0
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 92,
+          "offset": 10006,
+          "bytes": 53,
+          "source_record_sha256": "9c7da3603f2a6d99854505f297c2b6a2d9c77887ee20f29b92ed4e51e7fea24b",
+          "opaque_pixels": 32,
+          "opaque_palette_zero": 0,
+          "sprite_offset": 1,
+          "local_xy": [
+            12,
+            0
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 110,
+          "offset": 12387,
+          "bytes": 32,
+          "source_record_sha256": "3d5c268eb3ddbef2bf1e09474dd9ce43e1d91176663e46002a228fa00d54dc7f",
+          "opaque_pixels": 20,
+          "opaque_palette_zero": 0,
+          "sprite_offset": 19,
+          "local_xy": [
+            0,
+            14
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 111,
+          "offset": 12419,
+          "bytes": 45,
+          "source_record_sha256": "6d660fdda44b75fe9bfbbeb6dcae4dc835df4de9e45d5f95b2c15ac4c1195a26",
+          "opaque_pixels": 33,
+          "opaque_palette_zero": 0,
+          "sprite_offset": 20,
+          "local_xy": [
+            12,
+            14
+          ],
+          "size": [
+            12,
+            14
+          ]
+        }
+      ],
+      "size": [
+        24,
+        28
+      ],
+      "anchor": [
+        6,
+        7
+      ],
+      "alpha_bbox_xyxy_exclusive": [
+        5,
+        4,
+        20,
+        20
+      ],
+      "opaque_pixels": 137,
+      "opaque_palette_zero": 0,
+      "indices_sha256": "901ac6a4fef0fa5f5995e1f27a5d0574bc4ebae48912cf6f1cd4e6aab5daa8cf",
+      "alpha_sha256": "08b7433fe802dc209eb822e5ad56d5dd53279d3db2d250a5697747037a6c627f",
+      "rgba_sha256": "ed0fcc15249a790a114e874616cdd41076898c2cfef4bd8067969d5ce5a4a12a",
+      "native_png": "original-newsh2-91-24x28.png",
+      "native_png_sha256": "fce41268e3efcaded14846b0f0b41dd50a9a076b63076f15bee410378f68d959"
+    },
+    {
+      "base_id": 93,
+      "selector": 3,
+      "bank": "newsh2.shp",
+      "cells": [
+        {
+          "id": 93,
+          "offset": 10059,
+          "bytes": 45,
+          "source_record_sha256": "915adaa3760fab2624839595a954433e6fd7d2c64ac95de27af48c968a539850",
+          "opaque_pixels": 25,
+          "opaque_palette_zero": 0,
+          "sprite_offset": 0,
+          "local_xy": [
+            0,
+            0
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 94,
+          "offset": 10104,
+          "bytes": 83,
+          "source_record_sha256": "183dae38f0a9ac53e681e004346e8349ea37ec98c449ed1a0cbb61379b60bc39",
+          "opaque_pixels": 58,
+          "opaque_palette_zero": 0,
+          "sprite_offset": 1,
+          "local_xy": [
+            12,
+            0
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 112,
+          "offset": 12464,
+          "bytes": 43,
+          "source_record_sha256": "a1b85147a2d5c48a93f3de425d2aed8432aef0252ff676c6e0c94eb38367be5b",
+          "opaque_pixels": 31,
+          "opaque_palette_zero": 0,
+          "sprite_offset": 19,
+          "local_xy": [
+            0,
+            14
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 113,
+          "offset": 12507,
+          "bytes": 40,
+          "source_record_sha256": "fde35b17e3b01d30efaed96e52e2f5c020c0329f20eb28958e86707e4ae6bd68",
+          "opaque_pixels": 28,
+          "opaque_palette_zero": 0,
+          "sprite_offset": 20,
+          "local_xy": [
+            12,
+            14
+          ],
+          "size": [
+            12,
+            14
+          ]
+        }
+      ],
+      "size": [
+        24,
+        28
+      ],
+      "anchor": [
+        6,
+        7
+      ],
+      "alpha_bbox_xyxy_exclusive": [
+        5,
+        4,
+        20,
+        20
+      ],
+      "opaque_pixels": 142,
+      "opaque_palette_zero": 0,
+      "indices_sha256": "22abf69165edafb02d6acbc15bd468f6878c2098eafa246a77d2485bbc478f53",
+      "alpha_sha256": "df2393fbc54c2f223a94ba7ef08c0c409a7b22a66826e5bafc418fe87e75c12b",
+      "rgba_sha256": "2be2235c14102bb8126c2c75a66b3b3d0844e04d8602c1aa262ac21c9ca587cd",
+      "native_png": "original-newsh2-93-24x28.png",
+      "native_png_sha256": "8a005b3effaef886ffc66c740a8840d9b8bfc876fc564bec4f7600a3174caa43"
+    },
+    {
+      "base_id": 129,
+      "selector": 6,
+      "bank": "newsh2.shp",
+      "cells": [
+        {
+          "id": 129,
+          "offset": 14742,
+          "bytes": 45,
+          "source_record_sha256": "5f14b7680f175f89f756d559a42fb837a23d7a758d01a0fec9e43586b681da8f",
+          "opaque_pixels": 24,
+          "opaque_palette_zero": 0,
+          "sprite_offset": 0,
+          "local_xy": [
+            0,
+            0
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 130,
+          "offset": 14787,
+          "bytes": 67,
+          "source_record_sha256": "dbad055623ff05d5a82a1c4e3aee5d3772d2b1b53ba40f9fba4e7f6185f5b3ce",
+          "opaque_pixels": 46,
+          "opaque_palette_zero": 0,
+          "sprite_offset": 1,
+          "local_xy": [
+            12,
+            0
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 148,
+          "offset": 17103,
+          "bytes": 58,
+          "source_record_sha256": "25a1910ccb764659fbbcfa93da9dc15a2f1811a329922add83e7e3a72bb0cb36",
+          "opaque_pixels": 43,
+          "opaque_palette_zero": 0,
+          "sprite_offset": 19,
+          "local_xy": [
+            0,
+            14
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 149,
+          "offset": 17161,
+          "bytes": 39,
+          "source_record_sha256": "a22e91ddb7aac401c16b328b6a1b953a9b6f7930f3665eef14735b043eb6f67f",
+          "opaque_pixels": 27,
+          "opaque_palette_zero": 0,
+          "sprite_offset": 20,
+          "local_xy": [
+            12,
+            14
+          ],
+          "size": [
+            12,
+            14
+          ]
+        }
+      ],
+      "size": [
+        24,
+        28
+      ],
+      "anchor": [
+        6,
+        7
+      ],
+      "alpha_bbox_xyxy_exclusive": [
+        4,
+        7,
+        20,
+        21
+      ],
+      "opaque_pixels": 140,
+      "opaque_palette_zero": 0,
+      "indices_sha256": "1a9b1920dbe060a461bc1b39bd4e36d9474a257b7fb55e0ecb490e34e2a85864",
+      "alpha_sha256": "dab825de4e6cb3fa4da461a8812ad23f3f1594ebd27ce50e160b7c1179c333e2",
+      "rgba_sha256": "f56e7a5d57e60f3d3a8bc2e207089292c4abf2c256082082c87a23a34ee31c84",
+      "native_png": "original-newsh2-129-24x28.png",
+      "native_png_sha256": "823c512038be1ba6aecf291b8b1eb2dd7e5ed8adb7ba5a538c9805e6b8e584f1"
+    },
+    {
+      "base_id": 131,
+      "selector": 8,
+      "bank": "newsh2.shp",
+      "cells": [
+        {
+          "id": 131,
+          "offset": 14854,
+          "bytes": 60,
+          "source_record_sha256": "4465afb63bfcaaf94169daa8d6f50f4603733fea5af41ba9ed8faef9ae66d1fc",
+          "opaque_pixels": 39,
+          "opaque_palette_zero": 0,
+          "sprite_offset": 0,
+          "local_xy": [
+            0,
+            0
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 132,
+          "offset": 14914,
+          "bytes": 53,
+          "source_record_sha256": "a26033d1984188ea73eb04ed4e518a2ed0a84ba57529e76daea8e4845cd9c0ad",
+          "opaque_pixels": 32,
+          "opaque_palette_zero": 0,
+          "sprite_offset": 1,
+          "local_xy": [
+            12,
+            0
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 150,
+          "offset": 17200,
+          "bytes": 31,
+          "source_record_sha256": "57c7f90fbdc92bb5a9c467e1d6eb6ccaf5001d815b13b994d0851d143443c8db",
+          "opaque_pixels": 21,
+          "opaque_palette_zero": 0,
+          "sprite_offset": 19,
+          "local_xy": [
+            0,
+            14
+          ],
+          "size": [
+            12,
+            14
+          ]
+        },
+        {
+          "id": 151,
+          "offset": 17231,
+          "bytes": 62,
+          "source_record_sha256": "5007b99d7aaaa1505f7ca3f7641c07bc15aa213e673a0dc82f43fdb2d822af42",
+          "opaque_pixels": 47,
+          "opaque_palette_zero": 0,
+          "sprite_offset": 20,
+          "local_xy": [
+            12,
+            14
+          ],
+          "size": [
+            12,
+            14
+          ]
+        }
+      ],
+      "size": [
+        24,
+        28
+      ],
+      "anchor": [
+        6,
+        7
+      ],
+      "alpha_bbox_xyxy_exclusive": [
+        5,
+        7,
+        21,
+        21
+      ],
+      "opaque_pixels": 139,
+      "opaque_palette_zero": 0,
+      "indices_sha256": "dc2c5f5fb7f9ff75a24b86038fa3fe9b7575374811657a341f16086788499d1c",
+      "alpha_sha256": "94528764e6e09a04374b16e8444782f274186e8a493b880e49a146aa39e07151",
+      "rgba_sha256": "a5b7d152909080e10d2901a8bef82ac23de7776a3e0cf2510c35cc43e2a132f8",
+      "native_png": "original-newsh2-131-24x28.png",
+      "native_png_sha256": "125b6445e93e423a314f3464638f9662197513eace2e028240507082721930fc"
+    }
+  ],
+  "selector_order": [
+    91,
+    45,
+    93,
+    39,
+    43,
+    129,
+    41,
+    131
+  ],
+  "selection": "animate0: starts cycle1, aniactive0; event19 dat5>0 assigns cycle; no automatic rotation or 8-tick animation",
+  "composition": {
+    "logical_size": [
+      24,
+      28
+    ],
+    "anchor": [
+      6,
+      7
+    ],
+    "runtime_quadrants": [
+      0,
+      1,
+      19,
+      20
+    ],
+    "local_positions": [
+      [
+        0,
+        0
+      ],
+      [
+        12,
+        0
+      ],
+      [
+        0,
+        14
+      ],
+      [
+        12,
+        14
+      ]
+    ],
+    "top_left": "[enemy.ex+tempMapXOfs-6, enemy.ey-7]",
+    "draw_order": "base,base+1,base+19,base+20; individual native calls retained"
+  },
+  "palette": {
+    "index": 5,
+    "alpha_rule": "RLE skips are transparent; all written pixels opaque, including palette0 if present",
+    "retained_equality_receipt": "mechanical4-visibility-recovered-20261012-1620/runtime-palette-verified.json"
+  },
+  "reuse_audit": {
+    "loaded_records": 1701,
+    "base_users": [
+      {
+        "id": 15,
+        "matching_bases": [
+          39,
+          41,
+          43,
+          45,
+          91,
+          93,
+          129,
+          131
+        ],
+        "record": {
+          "id": 15,
+          "ani": 8,
+          "tur": [
+            2,
+            3,
+            4
+          ],
+          "freq": [
+            0,
+            0,
+            0
+          ],
+          "xmove": 0,
+          "ymove": 0,
+          "xaccel": 0,
+          "yaccel": 0,
+          "xcaccel": 0,
+          "ycaccel": 0,
+          "startx": 130,
+          "starty": -13,
+          "startxc": 125,
+          "startyc": 0,
+          "armor": 10,
+          "esize": 1,
+          "egraphic": [
+            91,
+            45,
+            93,
+            39,
+            43,
+            129,
+            41,
+            131,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "explosiontype": 3,
+          "animate": 0,
+          "shapebank": 1,
+          "xrev": 0,
+          "yrev": 0,
+          "dgr": 0,
+          "dlevel": 0,
+          "dani": 0,
+          "elaunchfreq": 0,
+          "elaunchtype": 0,
+          "value": 20,
+          "eenemydie": 0
+        }
+      }
+    ],
+    "quadrant_overlap_users": [
+      {
+        "id": 15,
+        "matching_tiles": [
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          91,
+          92,
+          93,
+          94,
+          110,
+          111,
+          112,
+          113,
+          129,
+          130,
+          131,
+          132,
+          148,
+          149,
+          150,
+          151
+        ]
+      }
+    ]
+  },
+  "weapon_records": {
+    "2": {
+      "id": 2,
+      "drain": 10,
+      "shotrepeat": 4,
+      "multi": 1,
+      "weapani": 0,
+      "max": 1,
+      "tx": 0,
+      "ty": 0,
+      "aim": 0,
+      "attack": [
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "del": [
+        255,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "sx": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "sy": [
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "bx": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "by": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "sg": [
+        146,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "acceleration": 0,
+      "accelerationx": 0,
+      "circlesize": 0,
+      "sound": 4,
+      "trail": 255,
+      "shipblastfilter": 208
+    },
+    "3": {
+      "id": 3,
+      "drain": 10,
+      "shotrepeat": 4,
+      "multi": 1,
+      "weapani": 0,
+      "max": 1,
+      "tx": 0,
+      "ty": 0,
+      "aim": 0,
+      "attack": [
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "del": [
+        255,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "sx": [
+        -3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "sy": [
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "bx": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "by": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "sg": [
+        147,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "acceleration": 0,
+      "accelerationx": 0,
+      "circlesize": 0,
+      "sound": 4,
+      "trail": 255,
+      "shipblastfilter": 208
+    },
+    "4": {
+      "id": 4,
+      "drain": 10,
+      "shotrepeat": 4,
+      "multi": 1,
+      "weapani": 0,
+      "max": 1,
+      "tx": 0,
+      "ty": 0,
+      "aim": 0,
+      "attack": [
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "del": [
+        255,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "sx": [
+        -3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "sy": [
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "bx": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "by": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "sg": [
+        145,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "acceleration": 0,
+      "accelerationx": 0,
+      "circlesize": 0,
+      "sound": 4,
+      "trail": 255,
+      "shipblastfilter": 208
+    }
+  },
+  "outputs": "Original decoded sources only, no art generation, game execution, capture or repository writes",
+  "initial_selector_overwrites": [
+    {
+      "spawn": {
+        "eventtime": 2986,
+        "type": 7,
+        "dat": 15,
+        "dat2": 240,
+        "dat3": 0,
+        "dat5": 0,
+        "dat6": 0,
+        "dat4": 4,
+        "index": 563,
+        "scalar_predicted_tick": 4158
+      },
+      "same_dispatch_final_heading_event": {
+        "eventtime": 2986,
+        "type": 19,
+        "dat": -2,
+        "dat2": 0,
+        "dat3": 0,
+        "dat5": 4,
+        "dat6": 0,
+        "dat4": 4,
+        "index": 567,
+        "scalar_predicted_tick": 4158
+      },
+      "selected_base": 39
+    },
+    {
+      "spawn": {
+        "eventtime": 2986,
+        "type": 7,
+        "dat": 15,
+        "dat2": 260,
+        "dat3": 0,
+        "dat5": 0,
+        "dat6": 0,
+        "dat4": 14,
+        "index": 564,
+        "scalar_predicted_tick": 4158
+      },
+      "same_dispatch_final_heading_event": {
+        "eventtime": 2986,
+        "type": 19,
+        "dat": 2,
+        "dat2": 0,
+        "dat3": 0,
+        "dat5": 5,
+        "dat6": 0,
+        "dat4": 14,
+        "index": 566,
+        "scalar_predicted_tick": 4158
+      },
+      "selected_base": 43
+    },
+    {
+      "spawn": {
+        "eventtime": 2986,
+        "type": 7,
+        "dat": 15,
+        "dat2": 192,
+        "dat3": 0,
+        "dat5": 0,
+        "dat6": 0,
+        "dat4": 5,
+        "index": 565,
+        "scalar_predicted_tick": 4158
+      },
+      "same_dispatch_final_heading_event": {
+        "eventtime": 2986,
+        "type": 19,
+        "dat": -2,
+        "dat2": 0,
+        "dat3": 0,
+        "dat5": 4,
+        "dat6": 0,
+        "dat4": 5,
+        "index": 568,
+        "scalar_predicted_tick": 4158
+      },
+      "selected_base": 39
+    },
+    {
+      "spawn": {
+        "eventtime": 3058,
+        "type": 7,
+        "dat": 15,
+        "dat2": 168,
+        "dat3": 0,
+        "dat5": 0,
+        "dat6": 0,
+        "dat4": 6,
+        "index": 584,
+        "scalar_predicted_tick": 4374
+      },
+      "same_dispatch_final_heading_event": {
+        "eventtime": 3058,
+        "type": 19,
+        "dat": 0,
+        "dat2": 0,
+        "dat3": 0,
+        "dat5": 2,
+        "dat6": 0,
+        "dat4": 6,
+        "index": 585,
+        "scalar_predicted_tick": 4374
+      },
+      "selected_base": 45
+    },
+    {
+      "spawn": {
+        "eventtime": 3116,
+        "type": 7,
+        "dat": 15,
+        "dat2": 130,
+        "dat3": 0,
+        "dat5": 0,
+        "dat6": 0,
+        "dat4": 7,
+        "index": 604,
+        "scalar_predicted_tick": 4548
+      },
+      "same_dispatch_final_heading_event": {
+        "eventtime": 3116,
+        "type": 19,
+        "dat": 0,
+        "dat2": 0,
+        "dat3": 0,
+        "dat5": 7,
+        "dat6": 0,
+        "dat4": 7,
+        "index": 606,
+        "scalar_predicted_tick": 4548
+      },
+      "selected_base": 41
+    },
+    {
+      "spawn": {
+        "eventtime": 3116,
+        "type": 7,
+        "dat": 15,
+        "dat2": 48,
+        "dat3": 0,
+        "dat5": 0,
+        "dat6": 0,
+        "dat4": 8,
+        "index": 605,
+        "scalar_predicted_tick": 4548
+      },
+      "same_dispatch_final_heading_event": {
+        "eventtime": 3116,
+        "type": 19,
+        "dat": 0,
+        "dat2": 0,
+        "dat3": 0,
+        "dat5": 5,
+        "dat6": 0,
+        "dat4": 8,
+        "index": 607,
+        "scalar_predicted_tick": 4548
+      },
+      "selected_base": 43
+    },
+    {
+      "spawn": {
+        "eventtime": 3228,
+        "type": 7,
+        "dat": 15,
+        "dat2": 48,
+        "dat3": 0,
+        "dat5": 0,
+        "dat6": 0,
+        "dat4": 3,
+        "index": 626,
+        "scalar_predicted_tick": 4884
+      },
+      "same_dispatch_final_heading_event": {
+        "eventtime": 3228,
+        "type": 19,
+        "dat": 0,
+        "dat2": 0,
+        "dat3": 0,
+        "dat5": 5,
+        "dat6": 0,
+        "dat4": 3,
+        "index": 628,
+        "scalar_predicted_tick": 4884
+      },
+      "selected_base": 43
+    },
+    {
+      "spawn": {
+        "eventtime": 3228,
+        "type": 7,
+        "dat": 15,
+        "dat2": 72,
+        "dat3": 0,
+        "dat5": 0,
+        "dat6": 0,
+        "dat4": 4,
+        "index": 627,
+        "scalar_predicted_tick": 4884
+      },
+      "same_dispatch_final_heading_event": {
+        "eventtime": 3228,
+        "type": 19,
+        "dat": 2,
+        "dat2": 0,
+        "dat3": 0,
+        "dat5": 5,
+        "dat6": 0,
+        "dat4": 4,
+        "index": 630,
+        "scalar_predicted_tick": 4884
+      },
+      "selected_base": 43
+    },
+    {
+      "spawn": {
+        "eventtime": 3238,
+        "type": 7,
+        "dat": 15,
+        "dat2": 72,
+        "dat3": 0,
+        "dat5": 0,
+        "dat6": 0,
+        "dat4": 2,
+        "index": 631,
+        "scalar_predicted_tick": 4914
+      },
+      "same_dispatch_final_heading_event": {
+        "eventtime": 3238,
+        "type": 19,
+        "dat": 0,
+        "dat2": 0,
+        "dat3": 0,
+        "dat5": 5,
+        "dat6": 0,
+        "dat4": 2,
+        "index": 634,
+        "scalar_predicted_tick": 4914
+      },
+      "selected_base": 43
+    },
+    {
+      "spawn": {
+        "eventtime": 3238,
+        "type": 7,
+        "dat": 15,
+        "dat2": 48,
+        "dat3": 0,
+        "dat5": 0,
+        "dat6": 0,
+        "dat4": 1,
+        "index": 632,
+        "scalar_predicted_tick": 4914
+      },
+      "same_dispatch_final_heading_event": {
+        "eventtime": 3238,
+        "type": 19,
+        "dat": 0,
+        "dat2": 0,
+        "dat3": 0,
+        "dat5": 5,
+        "dat6": 0,
+        "dat4": 1,
+        "index": 633,
+        "scalar_predicted_tick": 4914
+      },
+      "selected_base": 43
+    }
+  ],
+  "lifecycle_file": "type15-lifecycle.json",
+  "contract_file": "type15-art-contract.json",
+  "independent_native320pitch_decoder_verified": [
+    39,
+    41,
+    43,
+    45,
+    91,
+    93,
+    129,
+    131
+  ]
+}

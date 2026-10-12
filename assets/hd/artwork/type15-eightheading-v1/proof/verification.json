@@ -1,0 +1,37 @@
+{
+  "source_commit": "67656d102a67cd1bd76c823a2b20f6023f7bb9f0",
+  "repo_status_before": "clean recorded on audit entry",
+  "repo_status_after": "",
+  "all8_independent_native_pitch_decode": [
+    39,
+    41,
+    43,
+    45,
+    91,
+    93,
+    129,
+    131
+  ],
+  "all1701_bank_qualified_record_base_and_quadrant_reuse": "record15 only",
+  "all10_initial_heading_overwrites_verified": 10,
+  "all8_current_manifest_absence_verified": true,
+  "original_file_hashes": {
+    "tyrian.hdt": "fde8506326e7bb0916b38c362e33bf8a8a5affa561206c021af7f65b4a17745b",
+    "newsh2.shp": "8773ebcae4be992ecfbb476c0797b0bef4d43faa4c99449890bfaa28c8d9cbcc",
+    "palette.dat": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0",
+    "tyrian1.lvl": "54cbb00b57b84aa992a70cfcb170cb1edeb59507873723630d60080ba8351352"
+  },
+  "current_source_hashes": {
+    "src/episodes.c": "640219b48d3081ee996ce66a66f61ad2fe185339fcfaf395808e02fcee0b29e0",
+    "src/tyrian2.c": "d17a9b07478640d91619958dd51ee9622d419887600deab0cbea03254f3929ff",
+    "src/sprite.c": "b912773976c4b745f355d471b4da6a4ea25907e7bf80eb7356c9a59ae361237c",
+    "src/mainint.c": "9dcc36f29e71bbd9999fd6097fa43148de65e4476967353cbd9b1e1013a52805",
+    "src/varz.c": "d4502557903eea9fc082b83385fee3448564124040ff27faa1a4af16c8e394c7",
+    "src/render_mirror.c": "194f18dad828f249888e845fd6bf56db53b7ffcd567bcbab9079c66d26ab1524",
+    "src/asset_debug.c": "8be5161623d0d34c960ae7d229a3b9ac1b0889fe54bec407e131f267346b7bf8",
+    "src/game_probe.c": "16d14f4709a8b0633515cd1030315104f15c436fac5a202e4807054683017295",
+    "assets/hd/manifest.json": "c7ca4c55b65fc2d856b2eb85055626596cb7c35940a62bfe9e9a04a564b9559d"
+  },
+  "no_game_no_capture_no_repo_writes": true,
+  "scope": "Source and retained logs only; no fresh runtime acceptance."
+}

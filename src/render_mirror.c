@@ -35,7 +35,7 @@ typedef struct {
 } Asset;
 enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
-static Asset assets[396];
+static Asset assets[404];
 static Asset talon_frames[13];
 typedef struct {
  bool valid;
@@ -1560,6 +1560,34 @@ static bool newsh4_opposite7_family_ready(void)
  return newsh4_opposite7_valid;
 }
 
+/* Approved type15 eight-heading bank1 family, selected-pack and 8x only.
+ * Preflight every member before the first replacement. The complete RGBA
+ * integrity stamps also pin the exact original alpha support. Failure stays
+ * coherent for this Asset-cache lifetime; unrelated namespaces are untouched. */
+static bool type15_eightheading_checked,type15_eightheading_valid;
+static bool type15_eightheading_family_ready(void)
+{
+ if(game_probe_density!=8||game_probe_missing||game_probe_invalid||!game_probe_assets||
+    !(game_probe_scene_assets&1))return false;
+ if(type15_eightheading_checked)return type15_eightheading_valid;
+ type15_eightheading_checked=true;type15_eightheading_valid=true;
+ static const unsigned int ids[8]={39,41,43,45,91,93,129,131};
+ static const uint64_t rgba_stamps[8]={UINT64_C(0x63fd993042755636),UINT64_C(0xf6583f60603839a3),UINT64_C(0x4cd47c32a4b23eaa),UINT64_C(0xe9d34663cade254d),UINT64_C(0xbaa804b312e1f561),UINT64_C(0x0fcf5a0c3f773e03),UINT64_C(0x047bb0296b21548b),UINT64_C(0x6db63fa17b194c7e)};
+ for(int i=0;i<8;i++) {
+  Asset *a=&assets[396+i];
+  a->initialized=true;a->bank=ASSET_NEWSH2;a->index=(int)ids[i];
+  a->w=24;a->h=28;a->anchor_x=6;a->anchor_y=7;
+  a->valid=read_asset(a,8);
+  if(a->valid) {
+   uint64_t stamp=UINT64_C(0xcbf29ce484222325);
+   for(size_t p=0;p<(size_t)24*28*8*8*4;p++){stamp^=a->rgba[p];stamp*=UINT64_C(0x100000001b3);}
+   if(stamp!=rgba_stamps[i])a->valid=false;
+  }
+  if(!a->valid)type15_eightheading_valid=false;
+ }
+ return type15_eightheading_valid;
+}
+
 bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int base,int part,int filter,const G101EnemyContext *material_context)
 {
  if(!active||surface!=game_screen||reject_reason||!(game_probe_scene_assets&1))return false;
@@ -1576,6 +1604,15 @@ bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array ban
  if(role==ASSET_NEWSH2) {
   static const unsigned int type4_ids[5]={159,161,163,165,167};
   for(int i=0;i<5;i++)if(base==type4_ids[i]){slot=369+i;break;}
+ }
+ /* Type15 eight event-selected complete composites, never a rotation cycle.
+  * Retain each original quadrant call, anchor, clipping, filter and lifecycle. */
+ if(role==ASSET_NEWSH2) {
+  static const unsigned int type15_ids[8]={39,41,43,45,91,93,129,131};
+  for(int i=0;i<8;i++)if(base==type15_ids[i]) {
+   if(!type15_eightheading_family_ready())return false;
+   slot=396+i;break;
+  }
  }
  /* Linked31 four complete newsh2 composites; original coordinates already
   * include the one-logical-pixel actor/terrain offset. Never add an offset. */

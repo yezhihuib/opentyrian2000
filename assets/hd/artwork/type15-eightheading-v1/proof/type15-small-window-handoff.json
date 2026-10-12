@@ -1,0 +1,276 @@
+{
+  "source_commit": "67656d102a67cd1bd76c823a2b20f6023f7bb9f0",
+  "smallest_all_seven_source_alpha_complete_contiguous_interval": [
+    4214,
+    4530
+  ],
+  "two_short_source_alpha_complete_windows": [
+    [
+      4214,
+      4215
+    ],
+    [
+      4521,
+      4530
+    ]
+  ],
+  "optional_transition_context_windows": [
+    [
+      4213,
+      4219
+    ],
+    [
+      4518,
+      4534
+    ]
+  ],
+  "selected_samples": [
+    {
+      "tick": 4214,
+      "base": 39,
+      "source_rect": [
+        70,
+        21,
+        24,
+        28
+      ],
+      "native2x_rect": [
+        92,
+        42,
+        48,
+        56
+      ],
+      "parts": [
+        0,
+        1,
+        19,
+        20
+      ],
+      "all_quadrants_referenced": true,
+      "rectangle_inside_playfield": true,
+      "original_opaque_pixels_intersecting_playfield_in_called_parts": 157,
+      "final_rgb_verified": false,
+      "material_row_orders": [
+        201,
+        202,
+        203,
+        204
+      ],
+      "last_layer3_row_order": 188,
+      "later_logged_rectangles_intersecting_original_alpha": [],
+      "occlusion_qualifier": "No claim about unlogged draw families, source opacity of overlapping rectangles, runtime RGBA replacement or final presentation."
+    },
+    {
+      "tick": 4214,
+      "base": 41,
+      "source_rect": [
+        206,
+        21,
+        24,
+        28
+      ],
+      "native2x_rect": [
+        364,
+        42,
+        48,
+        56
+      ],
+      "parts": [
+        0,
+        1,
+        19,
+        20
+      ],
+      "all_quadrants_referenced": true,
+      "rectangle_inside_playfield": true,
+      "original_opaque_pixels_intersecting_playfield_in_called_parts": 158,
+      "final_rgb_verified": false,
+      "material_row_orders": [
+        189,
+        190,
+        191,
+        192
+      ],
+      "last_layer3_row_order": 188,
+      "later_logged_rectangles_intersecting_original_alpha": [],
+      "occlusion_qualifier": "No claim about unlogged draw families, source opacity of overlapping rectangles, runtime RGBA replacement or final presentation."
+    },
+    {
+      "tick": 4215,
+      "base": 129,
+      "source_rect": [
+        68,
+        22,
+        24,
+        28
+      ],
+      "native2x_rect": [
+        88,
+        44,
+        48,
+        56
+      ],
+      "parts": [
+        0,
+        1,
+        19,
+        20
+      ],
+      "all_quadrants_referenced": true,
+      "rectangle_inside_playfield": true,
+      "original_opaque_pixels_intersecting_playfield_in_called_parts": 140,
+      "final_rgb_verified": false,
+      "material_row_orders": [
+        201,
+        202,
+        203,
+        204
+      ],
+      "last_layer3_row_order": 188,
+      "later_logged_rectangles_intersecting_original_alpha": [],
+      "occlusion_qualifier": "No claim about unlogged draw families, source opacity of overlapping rectangles, runtime RGBA replacement or final presentation."
+    },
+    {
+      "tick": 4521,
+      "base": 45,
+      "source_rect": [
+        158,
+        -2,
+        24,
+        28
+      ],
+      "native2x_rect": [
+        268,
+        -4,
+        48,
+        56
+      ],
+      "parts": [
+        0,
+        1,
+        19,
+        20
+      ],
+      "all_quadrants_referenced": true,
+      "rectangle_inside_playfield": false,
+      "original_opaque_pixels_intersecting_playfield_in_called_parts": 161,
+      "final_rgb_verified": false,
+      "material_row_orders": [
+        155,
+        156,
+        157,
+        158
+      ],
+      "last_layer3_row_order": 150,
+      "later_logged_rectangles_intersecting_original_alpha": [],
+      "occlusion_qualifier": "No claim about unlogged draw families, source opacity of overlapping rectangles, runtime RGBA replacement or final presentation."
+    },
+    {
+      "tick": 4525,
+      "base": 93,
+      "source_rect": [
+        158,
+        -4,
+        24,
+        28
+      ],
+      "native2x_rect": [
+        268,
+        -8,
+        48,
+        56
+      ],
+      "parts": [
+        0,
+        1,
+        19,
+        20
+      ],
+      "all_quadrants_referenced": true,
+      "rectangle_inside_playfield": false,
+      "original_opaque_pixels_intersecting_playfield_in_called_parts": 142,
+      "final_rgb_verified": false,
+      "material_row_orders": [
+        155,
+        156,
+        157,
+        158
+      ],
+      "last_layer3_row_order": 150,
+      "later_logged_rectangles_intersecting_original_alpha": [],
+      "occlusion_qualifier": "No claim about unlogged draw families, source opacity of overlapping rectangles, runtime RGBA replacement or final presentation."
+    },
+    {
+      "tick": 4527,
+      "base": 43,
+      "source_rect": [
+        158,
+        -2,
+        24,
+        28
+      ],
+      "native2x_rect": [
+        268,
+        -4,
+        48,
+        56
+      ],
+      "parts": [
+        0,
+        1,
+        19,
+        20
+      ],
+      "all_quadrants_referenced": true,
+      "rectangle_inside_playfield": false,
+      "original_opaque_pixels_intersecting_playfield_in_called_parts": 157,
+      "final_rgb_verified": false,
+      "material_row_orders": [
+        167,
+        168,
+        169,
+        170
+      ],
+      "last_layer3_row_order": 162,
+      "later_logged_rectangles_intersecting_original_alpha": [],
+      "occlusion_qualifier": "No claim about unlogged draw families, source opacity of overlapping rectangles, runtime RGBA replacement or final presentation."
+    },
+    {
+      "tick": 4530,
+      "base": 131,
+      "source_rect": [
+        158,
+        1,
+        24,
+        28
+      ],
+      "native2x_rect": [
+        268,
+        2,
+        48,
+        56
+      ],
+      "parts": [
+        0,
+        1,
+        19,
+        20
+      ],
+      "all_quadrants_referenced": true,
+      "rectangle_inside_playfield": true,
+      "original_opaque_pixels_intersecting_playfield_in_called_parts": 139,
+      "final_rgb_verified": false,
+      "material_row_orders": [
+        175,
+        176,
+        177,
+        178
+      ],
+      "last_layer3_row_order": 170,
+      "later_logged_rectangles_intersecting_original_alpha": [],
+      "occlusion_qualifier": "No claim about unlogged draw families, source opacity of overlapping rectangles, runtime RGBA replacement or final presentation."
+    }
+  ],
+  "base91_status": "All ten scheduled spawns have selector1 initialization overwritten by same-eventtime selector2/4/5/7 before drawing. No event selects1. No retained reference. Source art required for full record contract; do not inject it to claim natural first-level exposure.",
+  "final_visible_RGB": "Not established: references record intersecting12x14 rectangles regardless of RLE alpha; source occupancy calculation adds no occlusion/opacity/presentation proof. Later original draws and layers may cover them. No new gameplay or captures."
+}

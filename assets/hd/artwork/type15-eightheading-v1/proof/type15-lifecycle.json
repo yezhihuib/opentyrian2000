@@ -1,0 +1,288 @@
+{
+  "record": 15,
+  "raw_armor": 10,
+  "armor_scaling": "Normal10; other difficulties use original JE_makeEnemy scaling. No uniformHP claim.",
+  "enemyAvail_initial": 0,
+  "scoreitem_initial": false,
+  "dgr": 0,
+  "dani": 0,
+  "dlevel": 0,
+  "starts_damaged": false,
+  "nonfatal_damage": "Retains selected heading; no separate hurt frame or threshold transformation. Nonfatal shot hit uses existing generic type0 effect.",
+  "filter": {
+    "enemyground": false,
+    "why": "(explosiontype3 & 1)==0 is false. The variable name does not change event7 top-layer placement.",
+    "normal_hit_palette_flash": false,
+    "ice_blue_filter": false,
+    "ice_state": "damage99 sets iced40; after movement iced countdown suppresses firing/launch but does not recolor this record.",
+    "first_level_event_filter_override": false,
+    "engine_semantics": "Any externally selected filter continues through existing original palette filter route; do not invent filter assets.",
+    "source": "src/tyrian2.c:364-377,1538-1577,4042,4780-4781"
+  },
+  "player_body_collision": "JE_playerCollide hostile-body branch requires even explosiontype; odd3 excludes this record from that branch (src/mainint.c:5056-5057).",
+  "death": {
+    "removed_not_wreck": true,
+    "enemyAvail_after": 1,
+    "selected_art_stops": true,
+    "raw_explosiontype": 3,
+    "enemyground": false,
+    "explonum": 1,
+    "initial_effect_types": [
+      7,
+      9,
+      8,
+      10
+    ],
+    "initial_effect_bank": "newsh6.shp",
+    "initial_sprite_ids_by_type": {
+      "7": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "9": [
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52
+      ],
+      "8": [
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
+      ],
+      "10": [
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71
+      ]
+    },
+    "repeated_small_explosion": {
+      "type": 1,
+      "sprite_ids": [
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133
+      ],
+      "count": 1
+    },
+    "conditions": "Large setup requires y>=0 and available explosion slots; repeated small blast uses original random position and pool. Player-shot lethal branch can destroy linked actors and then spawn assigned drop if pool permits.",
+    "source": "src/tyrian2.c:1663-1763,1935-2009;src/varz.c:972-1019"
+  },
+  "offscreen_removal": {
+    "x": "after movement ex<-80 or ex>340",
+    "y": "after movement ey<-112 or ey>190 (before tempBackMove addition)",
+    "no_death_drop_effect_on_bounds_exit": true,
+    "sentinel999": "Generic removal path exists, but no type15 selected entry is999.",
+    "source": "src/tyrian2.c:243-245,316-355"
+  },
+  "shadow": "No independent shadow draw in this enemy path; original dark pixels are structural shading.",
+  "launch": {
+    "type": 0,
+    "frequency": 0,
+    "relevant_event58_override": false
+  },
+  "turrets": {
+    "initial_ids": [
+      2,
+      3,
+      4
+    ],
+    "initial_frequency": [
+      0,
+      0,
+      0
+    ],
+    "event31_applies": true,
+    "event31_resets_waits_to1": true,
+    "slot1": {
+      "weapon": 2,
+      "sprite_bank": "tyrian.shp#spriteSheet8",
+      "sprite": 146,
+      "enemy_velocity": [
+        0,
+        4
+      ],
+      "damage": 3,
+      "duration": 255,
+      "animation": 0,
+      "frequency_enabled": 30
+    },
+    "slot2": {
+      "weapon": 3,
+      "sprite_bank": "tyrian.shp#spriteSheet8",
+      "sprite": 147,
+      "enemy_velocity": [
+        3,
+        3
+      ],
+      "damage": 3,
+      "duration": 255,
+      "animation": 0,
+      "frequency_enabled": 30,
+      "assignment": "event614, eventtime3138/tick4614, link7. Until that point slot1 was stopped by event611."
+    },
+    "slot3": {
+      "weapon": 4,
+      "sprite_bank": "tyrian.shp#spriteSheet8",
+      "sprite": 145,
+      "enemy_velocity": [
+        -3,
+        3
+      ],
+      "damage": 3,
+      "duration": 255,
+      "animation": 0,
+      "first_level_active": false,
+      "reason": "All relevant fire overrides have dat3=0."
+    },
+    "frequency_conditions": "Higher difficulty shortens reset; iced, edamaged, x bounds, galaga gating and shot-pool availability can suppress emission. These are source schedules, not sprite-specific retained emission proof.",
+    "art_dependency_scope": "Projectiles145/146/147 are separate global bank8 assets. Existing native route only has dedicated enemy-orb binding for112/113; do not bind a player asset by numericID.",
+    "source": "src/tyrian2.c:379-394,449-542,4806-4826,1888-1909"
+  },
+  "drops": {
+    "default": 0,
+    "assignments": [
+      {
+        "eventtime": 2992,
+        "type": 33,
+        "dat": 513,
+        "dat2": 0,
+        "dat3": 0,
+        "dat5": 0,
+        "dat6": 0,
+        "dat4": 14,
+        "index": 575,
+        "scalar_predicted_tick": 4176
+      },
+      {
+        "eventtime": 3108,
+        "type": 33,
+        "dat": 393,
+        "dat2": 0,
+        "dat3": 0,
+        "dat5": 0,
+        "dat6": 0,
+        "dat4": 6,
+        "index": 599,
+        "scalar_predicted_tick": 4524
+      },
+      {
+        "eventtime": 3253,
+        "type": 33,
+        "dat": 534,
+        "dat2": 0,
+        "dat3": 0,
+        "dat5": 0,
+        "dat6": 0,
+        "dat4": 6,
+        "index": 642,
+        "scalar_predicted_tick": 4959
+      }
+    ],
+    "record513": {
+      "bank": "tyrian.shp#spriteSheet11",
+      "size": [
+        24,
+        28
+      ],
+      "bases": [
+        159,
+        161,
+        163,
+        197,
+        199,
+        201,
+        235,
+        237,
+        239,
+        273,
+        275,
+        277
+      ],
+      "role": "datacube value1",
+      "assignment": "link14 event575 tick4176",
+      "condition": "event33 suppresses513 in twoPlayerMode, onePlayerAction or superTyrian; requires actor destroyed after assignment."
+    },
+    "record393": {
+      "bank": "tyrian.shp#spriteSheet11",
+      "size": [
+        12,
+        14
+      ],
+      "bases": [
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "value": 75,
+      "assignment": "link6 event599 tick4524",
+      "condition": "Requires actor destroyed after assignment; uses ordinary generic pickup collection."
+    },
+    "record534": {
+      "bank": "tyrian.shp#spriteSheet11",
+      "size": [
+        24,
+        28
+      ],
+      "bases": [
+        203,
+        205,
+        207
+      ],
+      "value": -2,
+      "assignment": "link6 event642 tick4959",
+      "qualification": "Link-matching event only, not a guaranteed type15 drop. On the retained no-fire route the unique link6 type15 at x158 last references4712 and source y-bound removes by4714, well before4959. No later type15 link6 spawn. Do not silently include534 as observed type15 dependency.",
+      "alternate_modes": "event33 remaps534 to827 for superArcade or829/830/832/833 for superTyrian; same lifecycle qualification applies."
+    },
+    "retained_pickup_claim": "Not proven. No firing/death in selected trace; global pickup-bank material logging is incomplete.",
+    "source": "src/tyrian2.c:1688-1724,4833-4860;src/mainint.c:4978-5054"
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "status": "AUTHOR_VISUAL_PASS_BOUNDED_NO_FIRE",
+  "reviewed_at_utc": "2026-10-12T21:41:24Z",
+  "candidate": "4ff388d0da25e7d23309abbdf2eaf6dbfe974133",
+  "baseline": "d86be2545df2d67634d442eef1037e29d5d530e5",
+  "evidence_pins": {
+    "type15-private-runtime-20261012/verification-native2x.json": "fb65c082bbf6263d7be1f8a9d9730cd370c9a1a423ffad3e0900d05f0d258b44",
+    "type15-private-runtime-20261012/baseline-window/frame-hashes.json": "8a5202397719034b25cfeb755ce09afd72b635b7f90e5c2b7f14c808b314fc4f",
+    "type15-private-runtime-20261012/candidate-window/frame-hashes.json": "16888eedf7d4e17d85901d973f955a8f8f79853d33b55bbe33bc01f7091397d2",
+    "type15-finite-cases-20261012/verification-true4x.json": "7fbca0082dae03e23fa92dc1b6632331e2806178632efafb757ddb1e5aa562a4",
+    "type15-finite-cases-20261012/true4x/candidate-window/frame-hashes.json": "588f1a042fd9956e78b6d0dd02a6e4857339695b0fd5a537b546e452806c53a9",
+    "tyrian-background-redraw/formal-type15-eightheading-v1/inventory.json": "17780d02fef4c08636d22651c1299e3641234d0b992f7283fe32e64d92ca67d9"
+  },
+  "independent_capture_checks": {
+    "candidate2x_ticks": [
+      4214,
+      4215,
+      4521,
+      4522,
+      4523,
+      4524,
+      4525,
+      4526,
+      4527,
+      4528,
+      4529,
+      4530
+    ],
+    "baseline2x_same12_ticks": true,
+    "true4x_ticks": [
+      4214,
+      4215,
+      4521,
+      4525,
+      4527,
+      4530
+    ],
+    "all_PNG_and_decoded_RGBA_hashes_exact": true,
+    "native_sizes": [
+      [
+        640,
+        400
+      ],
+      [
+        1280,
+        800
+      ]
+    ]
+  },
+  "visual_review": [
+    "All12 ordered native2x target contexts inspected, with full scene4214 and4525.",
+    "All six existing full-scene true4x spots inspected.",
+    "Seven naturally presented headings39,41,129,45,93,43,131 retain consistent rigid ochre hub, gray carriage, barrel direction/length and small rear marker where visible.",
+    "No unexpected anchor jump, crop seam, box, alpha fringe or detached hardware observed.",
+    "Circuit and stone context remains cohesive under motion; original later text and half-shadow composition is retained."
+  ],
+  "numeric_gate_from_pinned_integrator_receipts": {
+    "original_state_ticks": 4531,
+    "source_census_rows": 7200,
+    "exact_ordered_final_RGBA_with_original_text_shadow": true,
+    "outside_original_support_exact": true,
+    "true4x_internal8x_streams_equal_to2x": true
+  },
+  "limits": [
+    "No-fire private-survival observation only; no damage, ice, lethal, firing or pickup lifecycle acceptance.",
+    "Base91/NW remains source-only; no actual presentation through4530 and whole-level nonselection is separate source-event proof.",
+    "Later INSERT COIN text and half-shadow obscure portions of N/NE/E/SE views. Seven headings are presented, not all wholly unobscured.",
+    "Base93 full source opaque support fits the playfield at4525/4526 while its transparent24x28 canvas margin remains clipped.",
+    "No separate baseline4x replay claim.",
+    "Only the two retained finite windows and six spots were reviewed; no whole-level gameplay claim.",
+    "Fallback and other technical release gates remain integrator-owned."
+  ],
+  "art_changed": false,
+  "result": "No defect in visible tested coverage; bounded author acceptance for integration gates."
+}
