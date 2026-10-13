@@ -1,0 +1,72 @@
+{
+  "status": "PASS",
+  "game_runs": 0,
+  "mutations": [
+    {
+      "mutation": "body-wrong-bank",
+      "status": "KILLED",
+      "returncode": 3,
+      "diagnostic": "FAIL line110: k<6?cash75_pickup(&screen,x,y,spriteSheet11,ids[k],0,0,&c):popup(&screen,x,y,explosionSpriteSheet,223,b?MIRROR_BLEND:MIRROR_NORMAL,ENTITY_TILE,true)\n"
+    },
+    {
+      "mutation": "body-wrong-slot",
+      "status": "KILLED",
+      "returncode": 3,
+      "diagnostic": "FAIL line75: cloud_owner[n]==(s[3]?0:1)\n"
+    },
+    {
+      "mutation": "body-no-record-gate",
+      "status": "KILLED",
+      "returncode": 3,
+      "diagnostic": "FAIL line81: !cash75_pickup(&screen,98,100,spriteSheet11,20,0,0,&c)\n"
+    },
+    {
+      "mutation": "value-nonfixed-admitted",
+      "status": "KILLED",
+      "returncode": 3,
+      "diagnostic": "FAIL line82: !popup(&screen,98,100,explosionSpriteSheet,223,MIRROR_NORMAL,ENTITY_TILE,false)\n"
+    },
+    {
+      "mutation": "value-context-leaks",
+      "status": "KILLED",
+      "returncode": 3,
+      "diagnostic": "FAIL line78: !cash75_fixed_value\n"
+    },
+    {
+      "mutation": "alpha-forced-opaque",
+      "status": "KILLED",
+      "returncode": 3,
+      "diagnostic": "FAIL line75: ((Uint32*)canvas->pixels)[n]==want\n"
+    },
+    {
+      "mutation": "blend-no-value-average",
+      "status": "KILLED",
+      "returncode": 3,
+      "diagnostic": "FAIL line75: ((Uint32*)canvas->pixels)[n]==want\n"
+    },
+    {
+      "mutation": "family-allows-missing",
+      "status": "KILLED",
+      "returncode": 3,
+      "diagnostic": "FAIL line109: cash75_family_ready()==valid\n"
+    },
+    {
+      "mutation": "skip-original-after-hd",
+      "status": "KILLED",
+      "returncode": 3,
+      "diagnostic": "FAIL line91: original_calls==before+1\n"
+    },
+    {
+      "mutation": "75-depends-on-25",
+      "status": "KILLED",
+      "returncode": 3,
+      "diagnostic": "FAIL line94: cash75_family_ready()==!!(mask&2)\n"
+    },
+    {
+      "mutation": "missing75-poisons25",
+      "status": "KILLED",
+      "returncode": 3,
+      "diagnostic": "FAIL line96: cash25_pickup(&screen,98,100,spriteSheet11,7,0,0,&a)==!!(mask&1)\n"
+    }
+  ]
+}

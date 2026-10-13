@@ -1,0 +1,49 @@
+{
+  "gates": {
+    "normal75_and_linked37_plus37": "PASS",
+    "preserved25_and_linked12_plus12": "PASS",
+    "full_sky_pool_all25_positions_before_release": "PASS",
+    "full200_effect_pool": "PASS",
+    "setup_y_bounds_and187_to189_cancel": "PASS",
+    "fixed223_and185_exact_eight_draws_and_clear": "PASS",
+    "original_candidate_all200_explosion_bytes_and_indexed_calls": "PASS",
+    "moving_types45_and49_callsite_ineligible_at223": "PASS",
+    "mixed185_and223_callsite_gate_independence": "PASS",
+    "all_reward_difficulties_and_threshold_cap_cases": "PASS",
+    "packet_exact_event33_event45_mode_matrix": "PASS",
+    "super_tyrian_exception_and_link0_isolation": "PASS",
+    "super_arcade628_drop_suppression": "PASS"
+  },
+  "status": "PASS",
+  "evidence_kind": "byte-exact-original-source-unit",
+  "gameplay_runs": 0,
+  "production_edits": 0,
+  "baseline_commit": "96be433c41a5042121102510d862446385105381",
+  "scenarios_per_build": 499,
+  "assertions_per_build": 19368,
+  "builds": {
+    "optimized": {
+      "status": "PASS",
+      "scenarios": 499,
+      "checks": 19368,
+      "evidence_kind": "source-unit-only",
+      "gameplay_runs": 0
+    },
+    "sanitized": {
+      "status": "PASS",
+      "scenarios": 499,
+      "checks": 19368,
+      "evidence_kind": "source-unit-only",
+      "gameplay_runs": 0
+    }
+  },
+  "limitations": [
+    "Extracted branches and source-derived constants; not a full game, natural collection, original-input run or mode runtime matrix.",
+    "The complete original JE_makeEnemy reward block is executed; the rest of the constructor is not. A labeled constructor stub is used only for allocator positive controls and mode drop observations.",
+    "Full-pool negative allocation never reaches that stub. No allocator, collection, drop, reward, setup, draw-loop or mode-condition body is hand-reimplemented.",
+    "Renderer and eligibility functions are observation stubs; moving223 rejection means original draw-site eligibility is false, not renderer/pixel proof.",
+    "LeakSanitizer is disabled because executor ptrace is incompatible; AddressSanitizer and UBSan remain enabled."
+  ],
+  "source_manifest": "source-manifest.json",
+  "toolchain": "gcc (Debian 14.2.0-19) 14.2.0"
+}

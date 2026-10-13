@@ -1,0 +1,85 @@
+{
+  "status": "PASS",
+  "execution_count": 3,
+  "collection_tick": 446,
+  "terminal_tick": 455,
+  "hard_ceiling_ticks": 480,
+  "difficulty": "Normal",
+  "story_mode": true,
+  "private_survival": true,
+  "artificial_original_Pulse155": true,
+  "no_actual_baseline_RGB_claim": true,
+  "no_natural_manual_play_claim": true,
+  "cases": {
+    "baseline": {
+      "logic_ticks": 456,
+      "state_raw_sha256": "64655c31df987d45c0132ff6c401765728b10993ea03fe029f085209e2354ab5",
+      "original_pairs_identical": true,
+      "control_identical_except_elapsed_wall_ms": true,
+      "native_images": 0,
+      "native_dimensions": null,
+      "all_selected_calls_mirrored": false,
+      "selected_body_ids": [
+        23,
+        24,
+        25,
+        20,
+        21,
+        22,
+        23
+      ],
+      "popup_draws": 8,
+      "retained_bytes": 120910,
+      "all_stream_raw_bytes": 7787129
+    },
+    "candidate2": {
+      "logic_ticks": 456,
+      "state_raw_sha256": "64655c31df987d45c0132ff6c401765728b10993ea03fe029f085209e2354ab5",
+      "original_pairs_identical": true,
+      "control_identical_except_elapsed_wall_ms": true,
+      "native_images": 15,
+      "native_dimensions": [
+        640,
+        400
+      ],
+      "all_selected_calls_mirrored": true,
+      "selected_body_ids": [
+        23,
+        24,
+        25,
+        20,
+        21,
+        22,
+        23
+      ],
+      "popup_draws": 8,
+      "retained_bytes": 5594890,
+      "all_stream_raw_bytes": 7789550
+    },
+    "candidate4": {
+      "logic_ticks": 456,
+      "state_raw_sha256": "64655c31df987d45c0132ff6c401765728b10993ea03fe029f085209e2354ab5",
+      "original_pairs_identical": true,
+      "control_identical_except_elapsed_wall_ms": true,
+      "native_images": 1,
+      "native_dimensions": [
+        1280,
+        800
+      ],
+      "all_selected_calls_mirrored": true,
+      "selected_body_ids": [
+        23,
+        24,
+        25,
+        20,
+        21,
+        22,
+        23
+      ],
+      "popup_draws": 8,
+      "retained_bytes": 1377485,
+      "all_stream_raw_bytes": 7789552
+    }
+  },
+  "cumulative_retained_bytes": 7093285
+}

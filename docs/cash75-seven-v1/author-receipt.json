@@ -1,0 +1,44 @@
+{
+  "status": "PASS_BOUNDED_CASH75_ACTUAL_AUTHOR_REVIEW",
+  "art_inventory_SHA256": "4a185168566b0f1055c8ae98d8facd21bc9a8552ae193f880569eb0a038cdd03",
+  "native2_ticks": [
+    440,
+    441,
+    442,
+    443,
+    444,
+    445,
+    446,
+    447,
+    448,
+    449,
+    450,
+    451,
+    452,
+    453,
+    454
+  ],
+  "native4_ticks": [
+    447
+  ],
+  "all16_PNG_RGBA_hashes_independently_verified": true,
+  "evidence_pins": {
+    "coin75-runtime-evidence-20261013/runs/candidate2/frame-hashes.json": "4239cab923a63db3f80063be0a1df1f659377caaa8b99f39d6c291c8d02cb476",
+    "coin75-runtime-evidence-20261013/runs/candidate4/frame-hashes.json": "0bf86caff45961aecae6eb11ee4249571e336bf06ad3e7976333d58dd7d44e09",
+    "coin75-runtime-evidence-20261013/runtime-verification.json": "58db76d5f0bed6ee20ed758d2acf9f479157f6ee08c9ce108abb22268d8eae2d"
+  },
+  "findings": [
+    "Six body poses read as rigid silver rotation with distinct widths/thickness and stable restrained rim highlights.",
+    "Coin silhouette and dark silver face remain readable over actual bright clouds; no added glow, matte box or irregular rim flicker observed.",
+    "Fixed75 numeral stays legible over bright clouds through446-453, including447 true4x; source blend context is retained.",
+    "454 clears the symbol without residue. Collection-tick prior coin drawing and popup can legitimately coexist."
+  ],
+  "limits": [
+    "Private original RIGHT input20-28, artificial originalPulse155 at358 and survival fixture; not unassisted/manual gameplay.",
+    "No actual baselineRGB captured or full baselineRGB comparison claim; original state/RNG/indexed/source collection parity is the technical gate.",
+    "One six-pose2x cycle plus eight-draw popup lifetime;4x covers447popup only, not coin rotation.",
+    "Story/Normal first240assignment path only; later340/440 arcade/two-player628 substitution and other difficulty awards are source-qualified, not tested here.",
+    "No general long-playback or other cash-family acceptance claim."
+  ],
+  "reviewed_utc": "2026-10-13T13:17:13Z"
+}

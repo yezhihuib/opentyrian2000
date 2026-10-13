@@ -1,0 +1,62 @@
+{
+  "status": "FROZEN_CANDIDATE_PENDING_ACTUAL",
+  "density": 8,
+  "logical_size": [
+    12,
+    14
+  ],
+  "pixel_size": [
+    96,
+    112
+  ],
+  "anchor": [
+    0,
+    0
+  ],
+  "bodies": {
+    "role": 114,
+    "prefix": "coin75-bank11",
+    "ids": [
+      20,
+      21,
+      22,
+      23,
+      24,
+      25
+    ],
+    "keys": [
+      1140020,
+      1140021,
+      1140022,
+      1140023,
+      1140024,
+      1140025
+    ],
+    "record": 393,
+    "sequence": [
+      20,
+      21,
+      22,
+      23,
+      24,
+      25
+    ],
+    "timing": "One state per active original draw call, unchanged original gate/motion."
+  },
+  "value": {
+    "role": 115,
+    "prefix": "coin75-value-newsh6",
+    "id": 223,
+    "key": 1150223,
+    "fixed": true,
+    "max_original_draws": 8,
+    "render_semantics": "NORMAL authored-alpha source-over; BLEND original hue-overwrite/value-average, not50percent opacity or generic explosion HSV. Preserve original indexed fallback."
+  },
+  "header": "HDR1 followed by six little-endian u32(key,8,12,14,0,0),96x112 straight RGBA and EOF;43036bytes",
+  "coverage": "Generated alpha restrained inward by original support; solid silver metal interior, fractional rim coverage only, no expansion or glow. Popup readable cyan75 with intentional darknavy contrast.",
+  "edge_recipe": "Generated alpha min clip((Gaussian(original_support,sigma2)-0.5)/0.35,0,1)*255 then zero outside source support.",
+  "fallback": "Seven-resource finite family preflight; no separate4x artwork fallback.",
+  "root_pilot_gate_utc": "2026-10-13T12:51:53Z",
+  "source_limits": "First240drop assignment unconditional;340/440 mode-dependent substitute628 remains outside scope. Actual cash difficulty-scaled, linked integer halves; fixed75 symbol unchanged. Normal/Christmas sourcebank11 byte-identical. No hurt/shadow/trail/new animation. Coin25 resources remain unchanged.",
+  "actual_pending": "Sixstate rotation temporal/rim stability and original carrier/drop/collection/fixed75/clear within approved runtime scope."
+}

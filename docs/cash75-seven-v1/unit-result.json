@@ -1,0 +1,458 @@
+{
+  "status": "PASS",
+  "game_runs": 0,
+  "sanitizers": [
+    "ASan",
+    "UBSan"
+  ],
+  "baseline_commit": "96be433c41a5042121102510d862446385105381",
+  "changed_production_files": [
+    "src/render_mirror.c",
+    "src/render_mirror.h",
+    "src/tyrian2.c"
+  ],
+  "full_additive_inverse": "all three production files byte-identical",
+  "unchanged_functions": [
+    "cash25_family_ready",
+    "cash25_surface_ready",
+    "cash25_pickup",
+    "render_mirror_coin25_value_begin",
+    "get_asset",
+    "explosion_asset_slot",
+    "render_mirror_enemy_shot",
+    "enemy_energy_family_ready",
+    "recognized_value_effect",
+    "recognized_contact_effect",
+    "render_mirror_sprite2_blend_pixel",
+    "explosion_asset_blend_rgba",
+    "render_mirror_pixel"
+  ],
+  "historical_25_test_files": "byte-identical; new harness explicitly adjusts only capacity/selected family and adds mixed assertions",
+  "manifest_projection": "identical to baseline; every previous pack payload hashed",
+  "immutable_inventory_sha256": "4a185168566b0f1055c8ae98d8facd21bc9a8552ae193f880569eb0a038cdd03",
+  "renderer_results": {
+    "25/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": "{\"status\":\"PASS\",\"checks\":3520676,\"pixel_checks\":1027584}",
+    "25/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": "{\"status\":\"PASS\",\"checks\":3520676,\"pixel_checks\":1027584}",
+    "75/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": "{\"status\":\"PASS\",\"checks\":3520683,\"pixel_checks\":1027584}",
+    "75/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": "{\"status\":\"PASS\",\"checks\":3520683,\"pixel_checks\":1027584}"
+  },
+  "mixed_family_results": [
+    "PASS mixed families mask0 checks45",
+    "PASS mixed families mask1 checks45",
+    "PASS mixed families mask2 checks45",
+    "PASS mixed families mask3 checks10799"
+  ],
+  "resource_rejections": [
+    [
+      "coin75-bank11-20-8.hda",
+      "missing"
+    ],
+    [
+      "coin75-bank11-20-8.hda",
+      "magic"
+    ],
+    [
+      "coin75-bank11-20-8.hda",
+      "short-header"
+    ],
+    [
+      "coin75-bank11-20-8.hda",
+      "truncated"
+    ],
+    [
+      "coin75-bank11-20-8.hda",
+      "trailing"
+    ],
+    [
+      "coin75-bank11-20-8.hda",
+      "rgba"
+    ],
+    [
+      "coin75-bank11-20-8.hda",
+      "alpha"
+    ],
+    [
+      "coin75-bank11-20-8.hda",
+      "key"
+    ],
+    [
+      "coin75-bank11-20-8.hda",
+      "density"
+    ],
+    [
+      "coin75-bank11-20-8.hda",
+      "width"
+    ],
+    [
+      "coin75-bank11-20-8.hda",
+      "height"
+    ],
+    [
+      "coin75-bank11-20-8.hda",
+      "anchor-x"
+    ],
+    [
+      "coin75-bank11-20-8.hda",
+      "anchor-y"
+    ],
+    [
+      "coin75-bank11-21-8.hda",
+      "missing"
+    ],
+    [
+      "coin75-bank11-21-8.hda",
+      "magic"
+    ],
+    [
+      "coin75-bank11-21-8.hda",
+      "short-header"
+    ],
+    [
+      "coin75-bank11-21-8.hda",
+      "truncated"
+    ],
+    [
+      "coin75-bank11-21-8.hda",
+      "trailing"
+    ],
+    [
+      "coin75-bank11-21-8.hda",
+      "rgba"
+    ],
+    [
+      "coin75-bank11-21-8.hda",
+      "alpha"
+    ],
+    [
+      "coin75-bank11-21-8.hda",
+      "key"
+    ],
+    [
+      "coin75-bank11-21-8.hda",
+      "density"
+    ],
+    [
+      "coin75-bank11-21-8.hda",
+      "width"
+    ],
+    [
+      "coin75-bank11-21-8.hda",
+      "height"
+    ],
+    [
+      "coin75-bank11-21-8.hda",
+      "anchor-x"
+    ],
+    [
+      "coin75-bank11-21-8.hda",
+      "anchor-y"
+    ],
+    [
+      "coin75-bank11-22-8.hda",
+      "missing"
+    ],
+    [
+      "coin75-bank11-22-8.hda",
+      "magic"
+    ],
+    [
+      "coin75-bank11-22-8.hda",
+      "short-header"
+    ],
+    [
+      "coin75-bank11-22-8.hda",
+      "truncated"
+    ],
+    [
+      "coin75-bank11-22-8.hda",
+      "trailing"
+    ],
+    [
+      "coin75-bank11-22-8.hda",
+      "rgba"
+    ],
+    [
+      "coin75-bank11-22-8.hda",
+      "alpha"
+    ],
+    [
+      "coin75-bank11-22-8.hda",
+      "key"
+    ],
+    [
+      "coin75-bank11-22-8.hda",
+      "density"
+    ],
+    [
+      "coin75-bank11-22-8.hda",
+      "width"
+    ],
+    [
+      "coin75-bank11-22-8.hda",
+      "height"
+    ],
+    [
+      "coin75-bank11-22-8.hda",
+      "anchor-x"
+    ],
+    [
+      "coin75-bank11-22-8.hda",
+      "anchor-y"
+    ],
+    [
+      "coin75-bank11-23-8.hda",
+      "missing"
+    ],
+    [
+      "coin75-bank11-23-8.hda",
+      "magic"
+    ],
+    [
+      "coin75-bank11-23-8.hda",
+      "short-header"
+    ],
+    [
+      "coin75-bank11-23-8.hda",
+      "truncated"
+    ],
+    [
+      "coin75-bank11-23-8.hda",
+      "trailing"
+    ],
+    [
+      "coin75-bank11-23-8.hda",
+      "rgba"
+    ],
+    [
+      "coin75-bank11-23-8.hda",
+      "alpha"
+    ],
+    [
+      "coin75-bank11-23-8.hda",
+      "key"
+    ],
+    [
+      "coin75-bank11-23-8.hda",
+      "density"
+    ],
+    [
+      "coin75-bank11-23-8.hda",
+      "width"
+    ],
+    [
+      "coin75-bank11-23-8.hda",
+      "height"
+    ],
+    [
+      "coin75-bank11-23-8.hda",
+      "anchor-x"
+    ],
+    [
+      "coin75-bank11-23-8.hda",
+      "anchor-y"
+    ],
+    [
+      "coin75-bank11-24-8.hda",
+      "missing"
+    ],
+    [
+      "coin75-bank11-24-8.hda",
+      "magic"
+    ],
+    [
+      "coin75-bank11-24-8.hda",
+      "short-header"
+    ],
+    [
+      "coin75-bank11-24-8.hda",
+      "truncated"
+    ],
+    [
+      "coin75-bank11-24-8.hda",
+      "trailing"
+    ],
+    [
+      "coin75-bank11-24-8.hda",
+      "rgba"
+    ],
+    [
+      "coin75-bank11-24-8.hda",
+      "alpha"
+    ],
+    [
+      "coin75-bank11-24-8.hda",
+      "key"
+    ],
+    [
+      "coin75-bank11-24-8.hda",
+      "density"
+    ],
+    [
+      "coin75-bank11-24-8.hda",
+      "width"
+    ],
+    [
+      "coin75-bank11-24-8.hda",
+      "height"
+    ],
+    [
+      "coin75-bank11-24-8.hda",
+      "anchor-x"
+    ],
+    [
+      "coin75-bank11-24-8.hda",
+      "anchor-y"
+    ],
+    [
+      "coin75-bank11-25-8.hda",
+      "missing"
+    ],
+    [
+      "coin75-bank11-25-8.hda",
+      "magic"
+    ],
+    [
+      "coin75-bank11-25-8.hda",
+      "short-header"
+    ],
+    [
+      "coin75-bank11-25-8.hda",
+      "truncated"
+    ],
+    [
+      "coin75-bank11-25-8.hda",
+      "trailing"
+    ],
+    [
+      "coin75-bank11-25-8.hda",
+      "rgba"
+    ],
+    [
+      "coin75-bank11-25-8.hda",
+      "alpha"
+    ],
+    [
+      "coin75-bank11-25-8.hda",
+      "key"
+    ],
+    [
+      "coin75-bank11-25-8.hda",
+      "density"
+    ],
+    [
+      "coin75-bank11-25-8.hda",
+      "width"
+    ],
+    [
+      "coin75-bank11-25-8.hda",
+      "height"
+    ],
+    [
+      "coin75-bank11-25-8.hda",
+      "anchor-x"
+    ],
+    [
+      "coin75-bank11-25-8.hda",
+      "anchor-y"
+    ],
+    [
+      "coin75-value-newsh6-223-8.hda",
+      "missing"
+    ],
+    [
+      "coin75-value-newsh6-223-8.hda",
+      "magic"
+    ],
+    [
+      "coin75-value-newsh6-223-8.hda",
+      "short-header"
+    ],
+    [
+      "coin75-value-newsh6-223-8.hda",
+      "truncated"
+    ],
+    [
+      "coin75-value-newsh6-223-8.hda",
+      "trailing"
+    ],
+    [
+      "coin75-value-newsh6-223-8.hda",
+      "rgba"
+    ],
+    [
+      "coin75-value-newsh6-223-8.hda",
+      "alpha"
+    ],
+    [
+      "coin75-value-newsh6-223-8.hda",
+      "key"
+    ],
+    [
+      "coin75-value-newsh6-223-8.hda",
+      "density"
+    ],
+    [
+      "coin75-value-newsh6-223-8.hda",
+      "width"
+    ],
+    [
+      "coin75-value-newsh6-223-8.hda",
+      "height"
+    ],
+    [
+      "coin75-value-newsh6-223-8.hda",
+      "anchor-x"
+    ],
+    [
+      "coin75-value-newsh6-223-8.hda",
+      "anchor-y"
+    ],
+    [
+      "all",
+      "4x-only"
+    ],
+    [
+      "all",
+      "invalid8-valid4"
+    ]
+  ],
+  "extracted_functions_sha256": {
+    "palette_rgb": "3d8e2f2e1edebd62bce8ad34128bfb346f89a2ba35001abe20179e3dc1738aaa",
+    "blend_rgba": "df7ddcb9c6a742e4b227b7b12f4a134f8ebd08fe12a4a2a6e8e36c96b1c7b3fc",
+    "cloud_asset": "2be4be802906d698476a6aa4547a82990b79b5ed34962f22fab166465ce91e90",
+    "darken_rgba": "31194f5f89d033493c36e6a82fb290c0d539c6fb3fab8c5df43aace4dbb633d8",
+    "decode_tile": "356e5c5d3cfbffadf047ce1fcfca196756b9f5bff0fdafe86d125540c3d78a48",
+    "read_asset": "ac8f72c17acc59b3391c0c5e4283b396b2c39ff8035064d17f2ed03ac99c09d1",
+    "cash25_family_ready": "3d95646d8921a780b0f50e096d60fc1e10bdeff9413559f87963d8da4d98132b",
+    "cash75_family_ready": "50f5987f72200d5785a896133402cdbf9a38c4972ec195f6efa1c01d4759049c",
+    "cash25_surface_ready": "03346a8e8ff9137a6c9e6b2f854d4678fa697203795aeecc83c6b689adf770d6",
+    "render_mirror_coin25_value_begin": "7d654bc4e4ea8e10d1ac15c6e8eb189f19b59a2e79b64bf39592de9640dd797a",
+    "render_mirror_coin75_value_begin": "b3e26d869fc744aa13b510863af30cf2765ea39f6961a2650d145990afa0b7de",
+    "explosion_asset_slot": "00d117c7d38f192ac14a6f30067abfb722392bc3966dcd9b53f30c9406d24a8c",
+    "get_asset": "b6ea533792e42b2f7c9f48415056882fc6e13e2f513133222a602c599751a7a9",
+    "talon_frame": "7f1ad4d861cfee14c9aede9f15298d4b18200c809aea9e115e9a711253f81a6e",
+    "enemy_filter_rgba": "dc782d1e0458883a5b9802eb109cb9a4fac533c4d7a4c8522453f6faffd1bc61",
+    "explosion_asset_blend_rgba": "26fc53617c2a685d318e87150ebfe18a4eb6a9b498dbe6a759dee728a2f665ac",
+    "green_background_snapshot": "180e4758895c463a6a17c529c5710284681b57c5b114b9ffb95781a870b456da",
+    "green_background_peak": "0034111d043810c6dc8fbb1ff245a720335a31e1444bbc7ae90b0ef3f28cda0b",
+    "green_head_composite": "8f0f7bc2f4c051c6faed960d5c180d8299a53544a4a2328cf4ba06f7de818261",
+    "draw_asset_filtered": "344d875ac855c4d75533f4a192854a1b80e48a2be15070ece4f28d82913e229d",
+    "draw_asset": "8a4aa2b5da7be247146e3e240afa8f81e80829b999cbcbd3b6553672362cb94c",
+    "cash25_pickup": "a79b2820313d937007e2fba0bcbf8ebca435dbf225ca8a40631b3d73827ff315",
+    "cash75_pickup": "c5996fe1f4d8a847a19494a1fd257b8db3a66f75c79b1a6fec090f2c9a619ca9",
+    "render_mirror_entity": "fd32157925561a697a8d1bc7f8d00226291c17b9bfaaeef4b56075eb0cd6ea0c",
+    "enemy_energy_slot": "f553c53885de01a9506277327c272e761b1b31d62bbb753f70e3480288fccc8d",
+    "enemy_energy_family_ready": "66cb5d444c70d347d0e8242a246578c099c8b7d07e109829a6eeb55402446e8d",
+    "render_mirror_enemy_shot": "c7a4844c406599dd6b51f911d12f566ca945c63472c8d2bf8daa9f685b0144b0",
+    "render_mirror_entity_end": "cd471145d83e77ca6c97acc9ae476f8140fdd78b54a8b363d456403f4e1f1e52"
+  },
+  "source_sha256": {
+    "src/render_mirror.c": "f411150ed27008865eed38bbca61447b4c23836d7b8a7c41bb5108fa9f00a301",
+    "src/render_mirror.h": "95df0d61114c210f1a6d86cc15411c1521aa24fb303c187bc98a89c4e4640ea9",
+    "src/tyrian2.c": "0250fe33d3e3b29c20271eeb617e08eb2bdc891c6aa53c1f52899f990aeb080c"
+  },
+  "limitations": [
+    "No actual game/RGB evidence.",
+    "Per family/pair 96 indexed transactions use unchanged real blitters/wrapper; display pixel hooks isolated, RGBA tested separately."
+  ]
+}

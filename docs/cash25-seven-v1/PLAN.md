@@ -46,6 +46,9 @@ blitters and entity wrapper were tested separately against decoded original
 RLE pixels; display hooks are isolated in that subtest. Original gameplay edge
 cases are verified by separate extracted units, rather than extra game scenes.
 
+The fixed 25 label is nominal. The cash25 and linked12+12 numerical claims
+apply to Normal difficulty; the original difficulty scaling remains unchanged.
+
 ## Bounded actual-engine evidence
 
 Three executions used Episode 1, physical level 9, normal difficulty, seed

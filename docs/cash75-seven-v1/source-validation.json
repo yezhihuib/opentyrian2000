@@ -1,0 +1,67 @@
+{
+  "status": "PASS_SOURCE_GATES",
+  "baseline_commit": "96be433c41a5042121102510d862446385105381",
+  "production_files": [
+    "src/render_mirror.c",
+    "src/render_mirror.h",
+    "src/tyrian2.c"
+  ],
+  "production_source_sha256": {
+    "src/render_mirror.c": "f411150ed27008865eed38bbca61447b4c23836d7b8a7c41bb5108fa9f00a301",
+    "src/render_mirror.h": "95df0d61114c210f1a6d86cc15411c1521aa24fb303c187bc98a89c4e4640ea9",
+    "src/tyrian2.c": "0250fe33d3e3b29c20271eeb617e08eb2bdc891c6aa53c1f52899f990aeb080c"
+  },
+  "inventory_sha256": "4a185168566b0f1055c8ae98d8facd21bc9a8552ae193f880569eb0a038cdd03",
+  "build": {
+    "production": "PASS; WITH_NETWORK=false",
+    "disabled_renderer_syntax": "PASS",
+    "warnings": "Five pre-existing misleading-indentation warnings in unchanged source sections; no build errors"
+  },
+  "checks": {
+    "exact_art_rebuild": true,
+    "preserved25_art_rebuild": true,
+    "full_additive_source_inverse": true,
+    "previous_manifest_projection_and_all_pack_bytes": true,
+    "default_pack_counts": [
+      487,
+      494
+    ],
+    "source_plan_count_correction": "Archived planning prose stated493 predecessor entries; pinned96be433 actually has487 and candidate494, an exact seven-entry addition to each default pack. No archived runtime planning pins changed.",
+    "families": 2,
+    "selected_packs": 2,
+    "pixel_checks_per_family_per_pack": 1027584,
+    "indexed_transactions_per_family_per_pack": 96,
+    "resource_rejections": 93,
+    "mixed_family_validity_combinations": 4,
+    "killed_mutations": 11,
+    "original_scenarios_per_build": 499,
+    "original_assertions_per_build": 19368,
+    "original_builds": [
+      "optimized",
+      "ASan/UBSan"
+    ],
+    "game_runs_by_implementation": 0
+  },
+  "receipts": {
+    "art-rebuild.json": "3fa7c23d0b37350bd9d8957d3eb23c2163c208f3f89c34132a60c67698facdaa",
+    "unit-result.json": "b8702df13319b12aa4657c52eb0f9898820ab57f2a034b482e9ec6f693e33e29",
+    "mutation-result.json": "3ca5bff8d692e62c0076dc6f8808277b0b5419a1fb8c236980359b0863fda114",
+    "original-unit-result.json": "bf96f020b809e120b278f49bbaa3bf65c43744ab4bcf3c45895fe198636a2dad",
+    "original-source-excerpts.json": "7e11612a80169c51237773a03bfaffe322fea6feae3b6c3e3d0a78a22fb04a37",
+    "original-data-fixture.json": "985442ebe5a020f8610fc91eccef0dbd85072b7642254eb34881df7ce7659a46"
+  },
+  "boundaries": [
+    "No actual-engine or author/runtime claim here.",
+    "Original-source constructor positive controls use an explicit stub; real negative full-pool proof does not reach it.",
+    "The fixed25/75 labels are nominal; exact Normal reward/split assertions do not override original difficulty scaling.",
+    "All pre-existing25 code/art/provenance and historical tests are unchanged except two documentation paragraphs qualifying Normal."
+  ],
+  "tested_candidate_commit": "36c44dfabb7ae7ca19905b855d2e844a39667d96",
+  "receipt_normalization": {
+    "file": "art-rebuild.json",
+    "previous_sha256": "0680f89c8dc6b2ec8502dfc143031fb646ae4553f2010d24fac5e602c8eb6dce",
+    "normalized_sha256": "3fa7c23d0b37350bd9d8957d3eb23c2163c208f3f89c34132a60c67698facdaa",
+    "removed_prefix": "PASS seven exact coin75 outputs\\n",
+    "change": "Removed exporter progress line only; JSON payload and all production/art/test inputs remain byte-identical; no new execution."
+  }
+}

@@ -1,0 +1,219 @@
+{
+  "status": "PASS_TECHNICAL_REVIEW",
+  "reviewed_utc": "2026-10-13T13:19:54.118553+00:00",
+  "scope": "Independent read-only source/import/test/fixture/runtime review. Reviewer ran no game or unit binary and changed no repository files; only this receipt was written.",
+  "baseline_commit": "96be433c41a5042121102510d862446385105381",
+  "tested_candidate_commit": "36c44dfabb7ae7ca19905b855d2e844a39667d96",
+  "production_source_sha256": {
+    "src/render_mirror.c": "f411150ed27008865eed38bbca61447b4c23836d7b8a7c41bb5108fa9f00a301",
+    "src/render_mirror.h": "95df0d61114c210f1a6d86cc15411c1521aa24fb303c187bc98a89c4e4640ea9",
+    "src/tyrian2.c": "0250fe33d3e3b29c20271eeb617e08eb2bdc891c6aa53c1f52899f990aeb080c"
+  },
+  "source_findings": [
+    "Finite record393/global spriteSheet11/size0/part0/IDs20..25 body path; roles114/115 and slots479..485 independent of published25 roles112/113 and slots472..478.",
+    "Fixed223 requires original fixedPosition, no followPlayer, deltaY0, sprite222 and ttl<=8 display-call lease. Both leases consumed before every early return and cleared at frame begin/entity end; moving223 is not globally bound.",
+    "All seven exact8x resources pass HDR1 geometry, EOF and frozen RGBA stamps together. Independent75 failure cannot disable25, and inverse isolation is covered.",
+    "Original indexed blits, RLE transparency, source ordering, filters and existing palette policy remain unchanged. NORMAL authored alpha and continuous hue/value-average BLEND have separate pixel oracles.",
+    "Source inverse exactly restores all three production files to96be433. Previous manifest projection, all predecessor pack bytes and historical25 tests remain exact; only Normal-specific documentation was clarified.",
+    "Normal75 and linked37+37 are nominal-value-specific observations. Difficulty scaling and mode628 substitutions remain original; Christmas bank11 parity is source-only, not Christmas runtime acceptance."
+  ],
+  "art_import": {
+    "inventory_sha256": "4a185168566b0f1055c8ae98d8facd21bc9a8552ae193f880569eb0a038cdd03",
+    "members": 7,
+    "default_pack_bindings": 14,
+    "predecessor_and_candidate_pack_count": [
+      487,
+      494
+    ],
+    "headers_rgba_png_fnv_independently_verified": true,
+    "original_six_source_poses_and_seven_generated_assets_viewed": true
+  },
+  "finite_units": {
+    "renderer_result_sha256": "b8702df13319b12aa4657c52eb0f9898820ab57f2a034b482e9ec6f693e33e29",
+    "pixel_checks_per_family_per_pack": 1027584,
+    "real_indexed_RLE_transactions_per_family_per_pack": 96,
+    "families": 2,
+    "default_packs": 2,
+    "resource_rejections": 93,
+    "mixed_family_validity_combinations": 4,
+    "mutation_result_sha256": "3ca5bff8d692e62c0076dc6f8808277b0b5419a1fb8c236980359b0863fda114",
+    "targeted_mutations_killed": 11,
+    "original_unit_result_sha256": "bf96f020b809e120b278f49bbaa3bf65c43744ab4bcf3c45895fe198636a2dad",
+    "original_scenarios_per_build": 499,
+    "original_assertions_per_build": 19368,
+    "builds": [
+      "optimized original-source units",
+      "ASan+UBSan original-source units",
+      "ASan+UBSan finite renderer tests",
+      "production build",
+      "renderer-disabled syntax"
+    ],
+    "original_tests_cover": [
+      "Normal75/linked37+37 and preserved25/12+12",
+      "all25 full sky-pool positions before carrier release",
+      "full200 effect slots, setup bounds and y187..189 cancellation",
+      "fixed223/185 eight draws, moving45/49 crossing223 rejected, mixed calls",
+      "all original difficulty reward branches and threshold/cap values",
+      "exact240/340/440 event33/event45 conditions, SuperTyrian, link0 isolation, super-arcade628 suppression"
+    ],
+    "limits": "Original-source wrappers include explicitly labeled constructor/render observation stubs. LeakSanitizer unavailable under ptrace; ASan and UBSan passed."
+  },
+  "private_fixture": {
+    "baseline_source_pins_sha256": "51dcb0b4177e2517ed20d4ded759bf6c2f98afdc34f1fcb4771ea780a68da6c9",
+    "candidate_source_pins_sha256": "1c5a6d42c32540efcaddc295eb1eee63f72a8467a17666da1a7127a5bd6a9770",
+    "runner_sha256": "0275794f50d6c9e1e980ed41d489a89381caa449884d53935d0160ee6df0510a",
+    "baseline_binary_sha256": "195718254e53982fc15bfc56cc8258dcbad88a5a253d5bb37387c00c69734f45",
+    "candidate_binary_sha256": "74112857fe93378c76326980c36b7f1fb0159c61ce93b467e238d81436b21db6",
+    "same_helpers_and_exact_three_source_differences": true,
+    "replay_demo_keys_inverse_byte_identical": true,
+    "first_carrier_event": 240,
+    "pulse_tick": 358,
+    "hard_ceiling_ticks": 480,
+    "one_attempt_per_case": true,
+    "input": "RIGHT bit3 ticks20..28 inclusive; neutral otherwise, through unchanged original demo-key application and movement. No coordinate/velocity/enemy-field writes.",
+    "qualification": "Explicit private survival via invulnerable_ticks; artificial existing Pulse155 helper. Controlled original-input proof, not unassisted/manual natural play."
+  },
+  "runtime": {
+    "execution_count": 3,
+    "logic_ticks_each": 456,
+    "collection_tick": 446,
+    "terminal_tick": 455,
+    "carrier_slot": 0,
+    "pickup_slot": 6,
+    "popup_slot": 0,
+    "first_collision_slot": 0,
+    "collision_candidates": 1,
+    "pulse_damage": 3,
+    "pulse_power_before_after": [
+      900,
+      870
+    ],
+    "carrier_cash_before_after": [
+      0,
+      15
+    ],
+    "collection_cash_before_after": [
+      15,
+      90
+    ],
+    "body_ticks": [
+      359,
+      446
+    ],
+    "body_draws": 88,
+    "capture_body_ids": [
+      23,
+      24,
+      25,
+      20,
+      21,
+      22,
+      23
+    ],
+    "precollection_body_origin": [
+      150,
+      146
+    ],
+    "collection_popup_origin": [
+      150,
+      147
+    ],
+    "popup_ticks": [
+      446,
+      447,
+      448,
+      449,
+      450,
+      451,
+      452,
+      453
+    ],
+    "popup_draw_ttl": [
+      8,
+      7,
+      6,
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    "popup_clear_ticks": [
+      454,
+      455
+    ],
+    "native2_capture_ticks": [
+      440,
+      441,
+      442,
+      443,
+      444,
+      445,
+      446,
+      447,
+      448,
+      449,
+      450,
+      451,
+      452,
+      453,
+      454
+    ],
+    "native4_capture_ticks": [
+      447
+    ],
+    "all16_images_viewed_and_PNG_RGBA_hashes_recomputed": true,
+    "all_retained_stream_gzip_raw_hashes_counts_recomputed": true,
+    "coverage_restoration_mismatches": 0,
+    "presentation_RNG_preserved": true,
+    "source_binary_data_pack_immutability_recorded_and_source_binary_rechecked": true,
+    "no_actual_baseline_RGB_comparison": true,
+    "cases": {
+      "baseline": {
+        "summary_sha256": "7d47fa6bb079b4e10b685095e42768bced4a430209a51ee5affff933a10734b4",
+        "stream_receipts_sha256": "4f6ff7b273e740cd54ef969769e3b9674be4c10e07d350be9bb32d3b409d8024",
+        "retained_streams_rehashed": 18,
+        "original_byte_identical_streams": 12,
+        "control_identical_excluding_elapsed_wall_ms": true,
+        "actual_body_draws": 88,
+        "actual_fixed_popup_draws": 8,
+        "selected_calls_mirrored": false,
+        "native_images": 0
+      },
+      "candidate2": {
+        "summary_sha256": "919cc80d0979351f742e9b741789f451ffd2b5c4131017ced1aa5d68fb34b099",
+        "stream_receipts_sha256": "08d2fdb64b898715899921a419749cd75ae8f26138e8361c223f75d4759d7071",
+        "retained_streams_rehashed": 18,
+        "original_byte_identical_streams": 12,
+        "control_identical_excluding_elapsed_wall_ms": true,
+        "actual_body_draws": 88,
+        "actual_fixed_popup_draws": 8,
+        "selected_calls_mirrored": true,
+        "native_images": 15
+      },
+      "candidate4": {
+        "summary_sha256": "48683c772e532d406b86a29fc83deb03988b52f48f3416469a84b18e8f9193cd",
+        "stream_receipts_sha256": "beade199b08f125ae42ddbb59ab3ad6cce98125ff14915cc6fc11c593749a13d",
+        "retained_streams_rehashed": 18,
+        "original_byte_identical_streams": 12,
+        "control_identical_excluding_elapsed_wall_ms": true,
+        "actual_body_draws": 88,
+        "actual_fixed_popup_draws": 8,
+        "selected_calls_mirrored": true,
+        "native_images": 1
+      }
+    },
+    "retained_bytes": 7093285,
+    "retained_limit_bytes": 12582912
+  },
+  "visual_findings": "All16 actual native images were inspected. Silver body poses remain physical, anchored and distinct; fixed75 is legible and stationary through the eight-draw window and absent at454. The same-tick446 body/popup overlap follows the unchanged original call order. No additional frame/run was created.",
+  "archive": {
+    "name": "coin75-runtime-evidence-20261013.tar.gz",
+    "bytes": 7120527,
+    "sha256": "448eb50650c472eefeb1d3ac4b217008707377c0dc7dc78ac855d30f71983368",
+    "every_member_readback_verified": true
+  },
+  "runtime_verification_sha256": "58db76d5f0bed6ee20ed758d2acf9f479157f6ee08c9ce108abb22268d8eae2d",
+  "publication_note": "No technical blockers. Stored75 art-rebuild.json was normalized to pure JSON by removing only its PASS stdout prefix; reviewer verified identical parsed result and unchanged tested production/art data. Final documentation records old/new receipt hashes.",
+  "normalized_art_rebuild_json_sha256": "3fa7c23d0b37350bd9d8957d3eb23c2163c208f3f89c34132a60c67698facdaa"
+}

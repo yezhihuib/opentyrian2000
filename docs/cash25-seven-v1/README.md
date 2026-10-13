@@ -17,9 +17,13 @@ only the finite routes described below. The immutable source inventory is
   hue/value-average analogue, with authored alpha only for coverage. Exact
   original0x90 palette shades are preserved in the indexed fallback only.
 - Original indexed draws always execute. Coin movement, six-phase cadence,
-  allocation, drop conditions,25-credit reward, linked12+12 split, effect
+  allocation, drop conditions, difficulty-scaled reward (Normal25; linked12+12), effect
   admission/eight-draw lifetime, collision and RNG remain original.
 - Existing bank8 orb112/113 and their keys80112/80113/cache218/219 are unchanged.
+
+The fixed 25 label is nominal; the numerical cash and linked-split assertions
+below are specific to Normal difficulty. Other difficulties retain the original
+reward scaling, without changing this popup label.
 
 ## Verification commands
 
