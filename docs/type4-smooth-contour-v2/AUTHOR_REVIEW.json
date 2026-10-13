@@ -1,0 +1,590 @@
+{
+  "schema": "type4-frozen-art-actual-author-review-v1",
+  "reviewed_at_utc": "2026-10-13T19:11:00Z",
+  "decision": "PASS_BOUNDED_ACTUAL_VISUAL_REVIEW",
+  "subject": {
+    "family": "B/type4",
+    "namespace": 101,
+    "pose_ids": [
+      159,
+      161,
+      163,
+      165,
+      167
+    ],
+    "logical_canvas": [
+      24,
+      28
+    ],
+    "density": 8,
+    "anchor": [
+      6,
+      7
+    ],
+    "source_base": "317bf551db59df9c4e3754d2072446c7313ab1f4",
+    "frozen_art_archive": {
+      "path": "roundcraft-tank-edge-pilot-20261013/type4-fivepose-smooth-contour-v2-generated-art.tar.gz",
+      "bytes": 3716900,
+      "sha256": "a327f79a79a414ab605b04b0e0f2181490ec1cbf97c480b71d9862ae52f45a4c",
+      "library_file_id": "libfile_f3d47765004c8191ba1305e349ee390b"
+    }
+  },
+  "review_method": {
+    "candidate_full_frames": "Visually inspected each of the 20 existing native 640x400 captures, ticks 3340 through 3359.",
+    "paired_baseline_comparison": "Visually inspected all 20 same-size actor56 baseline/candidate crop pairs in chronological order; source captures were not rescaled.",
+    "true4x": "Visually inspected the actual native 1280x800 tick3348 capture plus its exact actor56 crop. This is a separately rendered native4x capture, not enlarged native2x.",
+    "reviewer_game_executions": 0,
+    "reviewer_new_captures": 0,
+    "reviewer_art_edits": 0
+  },
+  "phase_order": [
+    159,
+    159,
+    161,
+    161,
+    163,
+    163,
+    165,
+    165,
+    167,
+    167,
+    165,
+    165,
+    163,
+    163,
+    161,
+    161,
+    159,
+    159,
+    159,
+    159
+  ],
+  "visual_findings": [
+    {
+      "check": "Contour and native-size readability",
+      "result": "PASS",
+      "observation": "Rounded casing edges are materially smoother than shipped-v1, and restrained metal seams/highlights remain readable against the captured stone/dirt terrain at native2x and true4x."
+    },
+    {
+      "check": "Size and registration stability",
+      "result": "PASS",
+      "observation": "The full ordered phase sequence has no unexplained position jump or global size shrink relative to the matched baseline. Expected arm extension and pose silhouette changes remain visible."
+    },
+    {
+      "check": "Casing, arms and lighting",
+      "result": "PASS",
+      "observation": "Mechanical casing/arm identity and consistent lighting remain coherent through extension and retraction; no unexpected shape pop is visible in the reviewed sequence."
+    },
+    {
+      "check": "Red-tip progression",
+      "result": "PASS",
+      "observation": "159/161 remain visually unlit,163 is restrained, and165/167 carry the stronger red tips. The reverse sequence preserves the same progression."
+    },
+    {
+      "check": "Quadrant joins, backing and fringe",
+      "result": "PASS",
+      "observation": "No visible quadrant seam, forced opaque dark block, disconnected edge or light/dark fringe was found in the reviewed native captures."
+    },
+    {
+      "check": "Foreground/occlusion scope",
+      "result": "LIMITED_TO_OBSERVED_EXPOSURE",
+      "observation": "The selected actor56 is fully exposed for every reviewed phase. Its final displayed surface is clean, but these frames do not establish an additional later-foreground-occlusion case. No general occlusion acceptance is inferred."
+    }
+  ],
+  "numeric_gate_reference": {
+    "independent_from_visual_decision": true,
+    "status_as_recorded": "PASS",
+    "receipt": {
+      "path": "RESULT-all.json",
+      "bytes": 5627,
+      "sha256": "c83077cf4575d00e388369fafc24a3334a25793ac9794b1914e30c8013264ffd"
+    },
+    "verifier": {
+      "path": "verify.py",
+      "bytes": 9745,
+      "sha256": "df9ec2f147bcf5159d88e12e5beb2f66cdf4062d44c4cf2fefc4686395111231"
+    },
+    "paired_complete_state_indexed_rng_ticks": 3360,
+    "exact_outside_full_rectangles_native_pixels": 4953248,
+    "candidate_exact_per_call_canvas_samples": 2668032,
+    "candidate_fractional_samples": 932354,
+    "candidate_oracle_mismatches": 0,
+    "selected_actor_pool": 56,
+    "selected_actor_all20_phases_fully_exposed": true,
+    "true4x_tick3348_exact_foreground_pixels": 4274,
+    "missing_five_false_HD_returns": 280,
+    "missing_five_exact_final_original_foreground_pixels": 1068,
+    "missing_five_whole_frame_RGB_equals_v1_not_claimed": true,
+    "proof_only_clipping_correction": {
+      "review": {
+        "path": "REVIEW-CLIPPING.json",
+        "bytes": 4791,
+        "sha256": "8d69a31470e2b3537500a23cf28d0058f5cd4c990f11577fdfa99f7f725e1040"
+      },
+      "summary": "The original offscreen actor61 condition legitimately emits bottom-only calls at3347-3352. The offline assertion alone was corrected, with its first failure and prior verifier retained. Selected actor56 still requires all four ordered parts. No capture or game rerun was used."
+    }
+  },
+  "scope": {
+    "qualification": "Seeded stationary/no-fire Linux dummy/software display diagnostic with matched private alive-only invulnerability floor2 after original events.",
+    "total_existing_executions": 4,
+    "total_existing_native_captures": 42,
+    "not_established": [
+      "Natural survival or natural hit/ice/death",
+      "Manual-input play",
+      "GPU/fullscreen rendering",
+      "Full-level coverage",
+      "Windows runtime acceptance",
+      "C/type15 actual runtime acceptance",
+      "Additional unobserved later-foreground occlusion"
+    ],
+    "approval_boundary": "Author visual acceptance is limited to the frozen B art and these pinned actual diagnostic outputs. It is not publication or production-default replacement authorization."
+  },
+  "evidence_pins": [
+    {
+      "path": "SCOPE.json",
+      "bytes": 2183,
+      "sha256": "36cfe1d998772e4f158e294dc83cb899c3e79ef057e48cd742fa7a1bf631b1fc"
+    },
+    {
+      "path": "FINAL_PRE_RUN_SOURCE_SNAPSHOT.json",
+      "bytes": 1833,
+      "sha256": "cbb64a2924bc4b49afe17c8eb0d12860392b4d4b261dbd58af3f147d1b21f2d8"
+    },
+    {
+      "path": "runs/candidate/frame-hashes.json",
+      "bytes": 5743,
+      "sha256": "81cc24b892913c6537f75cd9a002852de1a6871ccd92660e0ac5474a1704bf46"
+    },
+    {
+      "path": "runs/baseline/frame-hashes.json",
+      "bytes": 5743,
+      "sha256": "ef7679573a1a4b96ec00ed3c0bb71d78894909c32b9310ea457d6c8dac50861b"
+    },
+    {
+      "path": "runs/spot4/actual-3348-native4x.png",
+      "bytes": 1129222,
+      "sha256": "3a6ef89188487a2f3bd40ed46705afefb674111addbc4c1b854eed0dc2203a2d"
+    },
+    {
+      "path": "comparisons/candidate-3348-actor56-native4x.png",
+      "bytes": 25575,
+      "sha256": "aec3fbb93d12d4d68cd01c4c0d52da37d98480d57071b6539ca3cf9f987c82aa"
+    },
+    {
+      "path": "comparisons/all20-native2x-before-after.png",
+      "bytes": 143214,
+      "sha256": "894fbcf865ce75767b836904e06fa36d1b02076ca00b0b2f3fcf11f29450de82"
+    },
+    {
+      "path": "author-review/B-all20-actual-native2x-crops.png",
+      "bytes": 172613,
+      "sha256": "983a1957a9692645be84a3542667a048ef6cf4c5fe30b7bd4b515bb4f942208c"
+    }
+  ],
+  "native2x_capture_pins": {
+    "candidate": [
+      {
+        "tick": 3340,
+        "path": "runs/candidate/actual-3340-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "cb696a3a12a0ffa9d37aa284954ffaaf1c85973fdc5f5ce95f592c0d2bb4d613",
+        "RGBA_sha256": "39227b7adccf7f5fb8a36ab85c672b04bf6360e6471302072e8c41d51ce9171f"
+      },
+      {
+        "tick": 3341,
+        "path": "runs/candidate/actual-3341-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "84dabd522b30e11cfa16f78aad8a6fb6b8f49f44008421ae389a80e373c5c478",
+        "RGBA_sha256": "22c2eac303a3a64efef9fe5b39a1534693c36c899d85db9a97912e9e34c5d6a3"
+      },
+      {
+        "tick": 3342,
+        "path": "runs/candidate/actual-3342-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "bf2b76dff5519dec6da003cbf6c8f8ad907c8c5902a4ff52fadfad83d964cc62",
+        "RGBA_sha256": "266e2f17f84c3934298b097928312755d961ca220480315aeb50bc3735c65775"
+      },
+      {
+        "tick": 3343,
+        "path": "runs/candidate/actual-3343-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "4079096891de9c9988ff4a880cb2909a69bda1d6b9fed54b69723a011c553730",
+        "RGBA_sha256": "fb4880298915282fca4573150cb65f4c288f258e03d8bf31d1f366fb62b32e56"
+      },
+      {
+        "tick": 3344,
+        "path": "runs/candidate/actual-3344-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "6439ba9ca1548333db8de2d16e912fbcb65b65aa8a957f6fbe793694809c6e80",
+        "RGBA_sha256": "e69e26e855fbb78664362242a3911cc93982571e5686646e10585be88d07517b"
+      },
+      {
+        "tick": 3345,
+        "path": "runs/candidate/actual-3345-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "7cf43ed441348d710020e454a104bba1944b09869978fea8d71eb85dc77bf681",
+        "RGBA_sha256": "dbdda87136bce354abe351b3ef37373c0fe113bca4c6768836bfe92a612d628b"
+      },
+      {
+        "tick": 3346,
+        "path": "runs/candidate/actual-3346-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "c75eb176493c8c7a002be1bab79642ff6e58b175d03927b2733584ca66d99420",
+        "RGBA_sha256": "0bbe90e473d232980b7a96288b1aeffa8f30ba2d428c829c8a4e6a5bc3cb31f5"
+      },
+      {
+        "tick": 3347,
+        "path": "runs/candidate/actual-3347-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "a4386f3ec9e9177af503c3bbda506e4a3d8e2e2d81b0d01826a500edade3ecb3",
+        "RGBA_sha256": "b6b0cb685fb32d5d6f054e915d06d973101f27d439df69553154699dff21ffe6"
+      },
+      {
+        "tick": 3348,
+        "path": "runs/candidate/actual-3348-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "7ff607538f65801b9b1bc385dc6089cfaf99453258ae5c857ec0bd5b9d84e1c8",
+        "RGBA_sha256": "4c59a4f7d4e144d45a494340d89e75a6d0d8d8f8c80560e260aa2b5cd916bd81"
+      },
+      {
+        "tick": 3349,
+        "path": "runs/candidate/actual-3349-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "5dc05e7e87376880f215b300ffbc253cae40f317e72bf522c71c26efdfafda6e",
+        "RGBA_sha256": "d4311d3294bf3622dda68d1e8aaa1ab85ac924f2ba5bc66bbd6646b82026d7a0"
+      },
+      {
+        "tick": 3350,
+        "path": "runs/candidate/actual-3350-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "641c8f618515577a90f44e2d3493b416eb8d5f06aa3fb4aa34fc7b665dc2e7fe",
+        "RGBA_sha256": "7a934fd31fae30d2aace284aec174c4ccf27950ec437961d1d79e0f5cfec3e13"
+      },
+      {
+        "tick": 3351,
+        "path": "runs/candidate/actual-3351-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "1d82276cba72dd22704dafb5bb861962dd0c66a34aee336dd72ac5fc87f772da",
+        "RGBA_sha256": "9004a95d515e3b0ff93da8ce1091e2677488e24b017fe5a03b26aa410edb79e6"
+      },
+      {
+        "tick": 3352,
+        "path": "runs/candidate/actual-3352-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "e4adf8462ca329844323b037a6eb8ed623d3671c4958c26d13c45b9fd6383cf0",
+        "RGBA_sha256": "f1fa2598f8b22115d0fdf5cbab568e3f3da241c41023e7c430263073a57b275e"
+      },
+      {
+        "tick": 3353,
+        "path": "runs/candidate/actual-3353-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "66f84af9604a66d5d8eea183d969f2cd7ddeae5e476859f706757f932adbbe6e",
+        "RGBA_sha256": "51d20dd9744c2bc714b501dbc0399744e00e9b1aadcc83df0d8f91bdd49cd18f"
+      },
+      {
+        "tick": 3354,
+        "path": "runs/candidate/actual-3354-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "9c13551e41691ed5c3d1fedb559dbd6c320fe69e9a7188170bbedff9ab585337",
+        "RGBA_sha256": "8886c19b6919a7496138ff46a21b3093f673b66dda94b9e00039f76d488d0256"
+      },
+      {
+        "tick": 3355,
+        "path": "runs/candidate/actual-3355-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "75cfc5da0403c554a953f2a1ed5976a9b1410077dbf6dfdf69834d3910383a41",
+        "RGBA_sha256": "7b71af1f5a941cd535dc3e120aec706ebde8d8742dac58977f0eeecd19749af0"
+      },
+      {
+        "tick": 3356,
+        "path": "runs/candidate/actual-3356-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "23cd33f74be0a1d12db6096b299e1338eb86593367b951d28dfcf9f1f8a08282",
+        "RGBA_sha256": "483a9a82ba3775136b9bec4c893d2c2b855233dc814fdcfdfa86e206bfa3d46a"
+      },
+      {
+        "tick": 3357,
+        "path": "runs/candidate/actual-3357-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "430c0eaacf82112431d528d04572e4857d6524da05ff7ac1f657d90d2fbee4d8",
+        "RGBA_sha256": "e82975bd4443c23447e48fbe0319768c267d4c49d7f49786e0a7984e10dd5382"
+      },
+      {
+        "tick": 3358,
+        "path": "runs/candidate/actual-3358-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "b1f10d8227c5b496401c89fd7a9114be4a70e6cb870ffb837ab6443d962ab5a9",
+        "RGBA_sha256": "893383a91ddc629d9ca4e61f1df26f3e8a4428f087d2e1c2ed2ca4b85e705acc"
+      },
+      {
+        "tick": 3359,
+        "path": "runs/candidate/actual-3359-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "d25ffafc8089b860c3ca53a9803908a38604213ca82cf04ba218cb8a87490586",
+        "RGBA_sha256": "b3c67e5997c9421f30e74ac626423dc2af3c576e36f238b19bf4f5c162ab3f09"
+      }
+    ],
+    "baseline": [
+      {
+        "tick": 3340,
+        "path": "runs/baseline/actual-3340-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "7bcda430fd33322b6bf95c17efc32899a72abd8e8e13b773765006d3d9d9c913",
+        "RGBA_sha256": "646c70d0d96e4f07144adad6dc4fa30ee279153ab1451c33c03be60f2f7420dc"
+      },
+      {
+        "tick": 3341,
+        "path": "runs/baseline/actual-3341-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "a641ca018604943dcbf537b00b75d8e125940c4708686d6d23aeb5282e2c94b5",
+        "RGBA_sha256": "5fd2752eff82eac2435d1fc1407ef118720c586ed6734b13615b95e048b9999e"
+      },
+      {
+        "tick": 3342,
+        "path": "runs/baseline/actual-3342-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "06f7ce61b0c3649bbfe423a798e76da75e39845e766d7433989985a78999b27f",
+        "RGBA_sha256": "3549025f309a91c7df8b5cdc56ff0c2decfcea87f30f529d9b2ba7f55a204b1f"
+      },
+      {
+        "tick": 3343,
+        "path": "runs/baseline/actual-3343-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "dd19c37181f4fd5ffbab912c4c6aa9de4c1a9fff42e48acc711f70d063ce044e",
+        "RGBA_sha256": "0724fa3b446a23bf5b13a4e909de742fd76d7cec232f119342cf705fe1e17c69"
+      },
+      {
+        "tick": 3344,
+        "path": "runs/baseline/actual-3344-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "2ece9646f0a1356a92f6dfef834b355e090699e3e43b2d618cb23e86f3491f7a",
+        "RGBA_sha256": "4a895a054cad62eb075c69949bb1e5f7d4f833f1091e52b11a71bc06750f87b2"
+      },
+      {
+        "tick": 3345,
+        "path": "runs/baseline/actual-3345-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "8607e6232b141bf2b6120ea3f81a7445106528a37cd7ead368c6b608b7f90b0b",
+        "RGBA_sha256": "d662b3bcd0d495caf69cc85d73ccbdf1d134da8ce82610be8981d5646f4a0d78"
+      },
+      {
+        "tick": 3346,
+        "path": "runs/baseline/actual-3346-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "0b13f9d7dc6b071e10cda0a9fa6dff307d7d4e9e3f981af23516f0bebf9a111c",
+        "RGBA_sha256": "31f565dca9d5b12c87be19f89f51cf6d450a12398c051d131b3e88519da02fa1"
+      },
+      {
+        "tick": 3347,
+        "path": "runs/baseline/actual-3347-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "97bb7f629d6051f56fc4bd303e7394241419d4de1a4b1135a09f4f167b6b6086",
+        "RGBA_sha256": "869469766c6e02a2545aec9f4c7008bfea5c2b0a6e6c1895422337c4915aac8a"
+      },
+      {
+        "tick": 3348,
+        "path": "runs/baseline/actual-3348-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "ff101dcbd49c30a53a235263a4512e4f7d5f49d19c3ea155399c232f34d5cb3f",
+        "RGBA_sha256": "e1c1b95929922855264d77107a62cb7893829c29dda3f8ff0a703b9cfd2c5efc"
+      },
+      {
+        "tick": 3349,
+        "path": "runs/baseline/actual-3349-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "ebf17f3b842f5150c0673da4ef8128805f7b69a68da060efa7058ba3599ae7ce",
+        "RGBA_sha256": "2862f703bab939b711fee890412c06507b67cd48a7d07f524c2c1230be72c0e2"
+      },
+      {
+        "tick": 3350,
+        "path": "runs/baseline/actual-3350-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "352fe6dc0323ae674d5ad9df7347b9f503c747de33731ac2ca34cc3188933c38",
+        "RGBA_sha256": "80c72dbd31b7e02e17acfe6616a23327e58dd499eecdafd4186cf7678b083b00"
+      },
+      {
+        "tick": 3351,
+        "path": "runs/baseline/actual-3351-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "7da1fcf07b5cc41015a24b8fde57ff070b85a905f88dd1a65cc9038dd2423fb6",
+        "RGBA_sha256": "899e98e92be2694a1af73c3d5c2d93ecd3c6c355b8687883daf61f7c932c31fa"
+      },
+      {
+        "tick": 3352,
+        "path": "runs/baseline/actual-3352-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "ec53e05ad4066fadee816ecd861833f635c3542a01807014d80eafeb1340dd94",
+        "RGBA_sha256": "859e1c3b696cb2808ca7794bc4e205d22756e72a1d3ffb89deb06655f7f116ab"
+      },
+      {
+        "tick": 3353,
+        "path": "runs/baseline/actual-3353-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "6a4246c8c90d7e6d38ed981dd3d089e50c8b00671a94fecbcc44264ef48a0ebd",
+        "RGBA_sha256": "ee6872958eecc2d14f1589976f1e0bb61fe1f89153e4d9ba0d5f00aa22413f86"
+      },
+      {
+        "tick": 3354,
+        "path": "runs/baseline/actual-3354-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "e820b31bee0068b41724314cc8a5b6c0c06c84c52634cc94c61e99243d559ba5",
+        "RGBA_sha256": "1860051ad7f3d8f29d8c6bec7b85844e6afa1ef55601ec9bd6c6776d01e46012"
+      },
+      {
+        "tick": 3355,
+        "path": "runs/baseline/actual-3355-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "024932f0a0fcf9cedc7158f8f641adc7503ca9eb2c8b8668022102b19c29aa13",
+        "RGBA_sha256": "02c558a928d54c16fc8eb3f5e02255887b241f34660711aee3477291537ba2e9"
+      },
+      {
+        "tick": 3356,
+        "path": "runs/baseline/actual-3356-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "bd5c330ab0826303db8f021726380a29a6ce2cf8171f25b16b293559277f448b",
+        "RGBA_sha256": "1d8a4cd95051cd43a91beb58daaaff2156f31f4e6997fc0792db9b638a92ea5e"
+      },
+      {
+        "tick": 3357,
+        "path": "runs/baseline/actual-3357-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "5a94a712027ead75a7e4e44875feca06e031c593daf8f3a018ebbe03dda2e041",
+        "RGBA_sha256": "2945d7c764ffe91a4fdd2643ace23c608f32115fd93ef8b7c7f007b9f9c04ce1"
+      },
+      {
+        "tick": 3358,
+        "path": "runs/baseline/actual-3358-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "1195fb2f5255939c977817671955c17413cfa1f97d2bcf6e51ae684635ff6161",
+        "RGBA_sha256": "5872c94e7540be60e7d6229dc88fe485b41df7d8e7d2458742ad93257fb43749"
+      },
+      {
+        "tick": 3359,
+        "path": "runs/baseline/actual-3359-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "53dd4790b86a81473a7ea8fbb02aa2c8b33ba14ea51db05a1de58095bb360df9",
+        "RGBA_sha256": "1ea2e2d94c70895bb7066e7594c7516b9c9ca46b3f5ef6236672289aeb54dad0"
+      }
+    ]
+  }
+}

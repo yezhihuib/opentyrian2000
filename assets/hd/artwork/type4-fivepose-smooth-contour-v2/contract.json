@@ -1,0 +1,328 @@
+{
+  "schema": "type4-smooth-contour-art-v2",
+  "status": "Frozen art after root nearest2x approval; not imported or runtime-approved.",
+  "bank": "newsh2.shp",
+  "namespace": 101,
+  "enemy_type": 4,
+  "ids": [
+    159,
+    161,
+    163,
+    165,
+    167
+  ],
+  "density": 8,
+  "logical_size": [
+    24,
+    28
+  ],
+  "anchor": [
+    6,
+    7
+  ],
+  "quadrant_offsets": [
+    0,
+    1,
+    19,
+    20
+  ],
+  "order": [
+    159,
+    159,
+    161,
+    161,
+    163,
+    163,
+    165,
+    165,
+    167,
+    167,
+    165,
+    165,
+    163,
+    163,
+    161,
+    161,
+    159,
+    159,
+    159,
+    159
+  ],
+  "reconstruction": {
+    "engine": "Pillow",
+    "version": "12.3.0",
+    "steps": [
+      "Read named generated PNG as RGBA",
+      "Crop exact stored generated_crop_alpha_ge128_xyxy; bbox is defined from alpha>=128 but alpha values themselves are NOT thresholded",
+      "Resize cropped RGBA to registered_piece_size using Pillow Resampling.LANCZOS",
+      "Create transparent RGBA192x224, alpha_composite resized piece at registered_paste_xy",
+      "Use these exact RGBA bytes, encode PNG with Pillow and HDR1 header +6 little-endian u32 fields +RGBA"
+    ],
+    "no_original_rgb_used_for_rebuild": true,
+    "no_original_alpha_imposed": true,
+    "no_opaque_backing": true,
+    "no_runtime_or_code_changes": false,
+    "repository_and_runtime_unchanged": true,
+    "standalone_reproducer": "rebuild.py",
+    "requirements": "requirements.txt",
+    "relocated_source_only_rebuild_pass": true
+  },
+  "support_evidence": "masks/support-additions and support-removals contain exact8-bit alpha differences from nearest8x original alpha. Original masks are proof, not alpha constraints. All authored samples remain within registered24x28 rectangle.",
+  "entries": [
+    {
+      "id": 159,
+      "namespace": 101,
+      "hda_id": 1010159,
+      "header_u32": [
+        1010159,
+        8,
+        24,
+        28,
+        6,
+        7
+      ],
+      "source": "sources/generated-159.png",
+      "source_sha256": "86225ac287305e3819fbaff8dc7e3a3d2b2163a6d92207e71f94f5bffe33d015",
+      "generated_crop_alpha_ge128_xyxy": [
+        251,
+        311,
+        909,
+        1027
+      ],
+      "registered_paste_xy": [
+        32,
+        48
+      ],
+      "registered_piece_size": [
+        128,
+        136
+      ],
+      "RGBA_sha256": "c8426704685b48e955bf0c3261f0943295467cbcf502f220b8d97348c29ff778",
+      "PNG_sha256": "075817a626879b5aed993641b933bc976a4856e69f513bb39637b5b92f837e32",
+      "HDA_sha256": "516844423ddf715fe7ecef00a01d55bb214873ad6e52a722dff5fb77378baa85",
+      "RGBA_fnv1a64": "b56bb8348f01c35b",
+      "original_bbox_logical": [
+        4,
+        6,
+        20,
+        23
+      ],
+      "registered_bbox8_alpha128": [
+        32,
+        48,
+        160,
+        184
+      ],
+      "added_pixels_alpha_ge128": 208,
+      "removed_pixels_alpha_ge128": 376,
+      "max_outward_distance_density8_alpha_ge128": 5.0,
+      "max_outward_distance_density8_nonzero": 6.0,
+      "strong_red_area_density8": 0,
+      "generated_RGBA_rebuild_exact": true
+    },
+    {
+      "id": 161,
+      "namespace": 101,
+      "hda_id": 1010161,
+      "header_u32": [
+        1010161,
+        8,
+        24,
+        28,
+        6,
+        7
+      ],
+      "source": "sources/generated-161.png",
+      "source_sha256": "2f4ee643bb78628eca92ecd1d714083c4419c3349fb2fdfb6e8d21fbe1e20249",
+      "generated_crop_alpha_ge128_xyxy": [
+        190,
+        311,
+        970,
+        1031
+      ],
+      "registered_paste_xy": [
+        24,
+        56
+      ],
+      "registered_piece_size": [
+        144,
+        136
+      ],
+      "RGBA_sha256": "c842896c2bd7bcb9bfd0eb66c22c5fa20cc2403add76ad1598e1c14287272291",
+      "PNG_sha256": "a69f731342bcf3ee1a27a20e1c4d108ec1ca0da904ca21417e13fef7553419ee",
+      "HDA_sha256": "f51ff7b9f800929c38f1c921a09080d137d5cdc98f289fac7d51644e143bc78c",
+      "RGBA_fnv1a64": "173ef35999032cbb",
+      "original_bbox_logical": [
+        3,
+        7,
+        21,
+        24
+      ],
+      "registered_bbox8_alpha128": [
+        24,
+        56,
+        168,
+        192
+      ],
+      "added_pixels_alpha_ge128": 241,
+      "removed_pixels_alpha_ge128": 521,
+      "max_outward_distance_density8_alpha_ge128": 4.0,
+      "max_outward_distance_density8_nonzero": 6.0,
+      "strong_red_area_density8": 1,
+      "generated_RGBA_rebuild_exact": true
+    },
+    {
+      "id": 163,
+      "namespace": 101,
+      "hda_id": 1010163,
+      "header_u32": [
+        1010163,
+        8,
+        24,
+        28,
+        6,
+        7
+      ],
+      "source": "sources/generated-163.png",
+      "source_sha256": "03de0915a0e3c9373ad642d4f1159bebeff012c9a0913a9e2567a8a6cbc4c22a",
+      "generated_crop_alpha_ge128_xyxy": [
+        140,
+        317,
+        1020,
+        1026
+      ],
+      "registered_paste_xy": [
+        16,
+        56
+      ],
+      "registered_piece_size": [
+        160,
+        136
+      ],
+      "RGBA_sha256": "f43c170f9e0058371c1911afd15d0661033a2edd02f6b26a919895855d448950",
+      "PNG_sha256": "280c42e5ba9220b2c56063d77192d3c72093a474be9ceba56b5a8a75a22c9720",
+      "HDA_sha256": "09f805d16d5c12dd005fcb3fea62291d9fa7eb8dbbbddac96830fb42f454f3cc",
+      "RGBA_fnv1a64": "b833e058e3dc2afd",
+      "original_bbox_logical": [
+        2,
+        7,
+        22,
+        24
+      ],
+      "registered_bbox8_alpha128": [
+        16,
+        56,
+        176,
+        192
+      ],
+      "added_pixels_alpha_ge128": 214,
+      "removed_pixels_alpha_ge128": 941,
+      "max_outward_distance_density8_alpha_ge128": 5.0,
+      "max_outward_distance_density8_nonzero": 6.0,
+      "strong_red_area_density8": 50,
+      "generated_RGBA_rebuild_exact": true
+    },
+    {
+      "id": 165,
+      "namespace": 101,
+      "hda_id": 1010165,
+      "header_u32": [
+        1010165,
+        8,
+        24,
+        28,
+        6,
+        7
+      ],
+      "source": "sources/generated-165.png",
+      "source_sha256": "82d1067c9b48543b1e47625658b6f5ea2a00ec56219efed19b6b5d48bd2c5946",
+      "generated_crop_alpha_ge128_xyxy": [
+        127,
+        313,
+        1032,
+        1024
+      ],
+      "registered_paste_xy": [
+        8,
+        56
+      ],
+      "registered_piece_size": [
+        176,
+        136
+      ],
+      "RGBA_sha256": "0ae98d507c6b02e627cbf6f9c390428a4a6506250bdc39e6cf7897261a9477c0",
+      "PNG_sha256": "e987f9796fae333de42b5c093a60e821a43ba173452c1f0e4322aea93f1c4a5c",
+      "HDA_sha256": "b3ce6d5081153b4c9a35623427cabf6625a376fcbe00de3c1e8c072691b5d5a9",
+      "RGBA_fnv1a64": "dff2f55c760670e0",
+      "original_bbox_logical": [
+        1,
+        7,
+        23,
+        24
+      ],
+      "registered_bbox8_alpha128": [
+        8,
+        56,
+        184,
+        192
+      ],
+      "added_pixels_alpha_ge128": 201,
+      "removed_pixels_alpha_ge128": 1018,
+      "max_outward_distance_density8_alpha_ge128": 4.0,
+      "max_outward_distance_density8_nonzero": 6.0,
+      "strong_red_area_density8": 699,
+      "generated_RGBA_rebuild_exact": true
+    },
+    {
+      "id": 167,
+      "namespace": 101,
+      "hda_id": 1010167,
+      "header_u32": [
+        1010167,
+        8,
+        24,
+        28,
+        6,
+        7
+      ],
+      "source": "sources/generated-167.png",
+      "source_sha256": "177d913595331a227c786ff20e44dc68ea4458bb2b6c89a3db1b1ef9de10948e",
+      "generated_crop_alpha_ge128_xyxy": [
+        46,
+        345,
+        1111,
+        1050
+      ],
+      "registered_paste_xy": [
+        0,
+        56
+      ],
+      "registered_piece_size": [
+        192,
+        136
+      ],
+      "RGBA_sha256": "eb0494af8ac99f3ea7e41b3697bc79d829113743aaa32c8b6927f33d81974d5a",
+      "PNG_sha256": "d2e49070473ae9442fe5c7765c15efc0f4889b7d2346400c74cede2107ab28a4",
+      "HDA_sha256": "6838553744899c8fe66124f1132bb325512db1c2050c0e8eb77276714c73dcdd",
+      "RGBA_fnv1a64": "6b8ffcdab2adf5ac",
+      "original_bbox_logical": [
+        0,
+        7,
+        24,
+        24
+      ],
+      "registered_bbox8_alpha128": [
+        0,
+        56,
+        192,
+        192
+      ],
+      "added_pixels_alpha_ge128": 264,
+      "removed_pixels_alpha_ge128": 914,
+      "max_outward_distance_density8_alpha_ge128": 5.0,
+      "max_outward_distance_density8_nonzero": 7.0,
+      "strong_red_area_density8": 1114,
+      "generated_RGBA_rebuild_exact": true
+    }
+  ]
+}

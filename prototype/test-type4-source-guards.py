@@ -43,10 +43,13 @@ assert not (out / 'absent').exists()
 
 manifest = json.loads((repo / 'assets/hd/manifest.json').read_text())
 minimal = out / 'pristine'
-source_path = 'assets/hd/artwork/type4-fivepose-v1'
+source_path = 'assets/hd/artwork/type4-fivepose-smooth-contour-v2'
 (minimal / 'prototype').mkdir(parents=True)
 shutil.copy2(script, minimal / 'prototype/build-type4-art.py')
 shutil.copytree(repo / source_path, minimal / source_path)
+historical = 'assets/hd/artwork/type4-fivepose-v1/proof/type4-source-proof.json'
+(minimal / historical).parent.mkdir(parents=True)
+shutil.copy2(repo / historical, minimal / historical)
 shutil.copy2(repo / 'assets/hd/manifest.json', minimal / 'assets/hd/manifest.json')
 for key in ('default_preview_pack', 'default_debug_pack'):
     name = manifest[key]
@@ -62,12 +65,12 @@ valid = subprocess.run([sys.executable, str(minimal / 'prototype/build-type4-art
 (out / 'valid.log').write_text(valid.stdout + valid.stderr)
 valid.check_returncode()
 mutations = {
-    'master': source_path + '/sources/generated-fivepose.png',
-    'mask': source_path + '/masks/alpha-159.png',
+    'master': source_path + '/sources/generated-159.png',
+    'mask': source_path + '/masks/authored-alpha-159-8.png',
     'contract': source_path + '/contract.json',
     'recipe': source_path + '/rebuild.py',
-    'inventory': source_path + '/inventory.json',
-    'proof': source_path + '/proof/type4-source-proof.json',
+    'inventory': source_path + '/SHA256SUMS.json',
+    'proof': source_path + '/proof/source-only-rebuild-audit.json',
     'canonical-png': manifest['packs'][manifest['default_preview_pack']]['files']['enemy-newsh2-159-8.hda']['source_png'],
     'packed-hda': str(Path('assets/hd/packs') / manifest['default_preview_pack'] / 'enemy-newsh2-159-8.hda'),
 }
@@ -83,9 +86,9 @@ for label in ('unlisted-source', 'source-symlink', 'widened4x'):
     if label == 'unlisted-source':
         (copy / source_path / 'reference.png').write_bytes(b'not-an-approved-input')
     elif label == 'source-symlink':
-        target = copy / source_path / 'sources/generated-fivepose.png'
-        target.unlink()
-        target.symlink_to(minimal / source_path / 'sources/generated-fivepose.png')
+        target = copy / source_path / 'sources/generated-159.png'
+        target.rename(target.with_suffix('.retained'))
+        target.symlink_to(minimal / source_path / 'sources/generated-159.png')
     else:
         path = copy / 'assets/hd/manifest.json'
         modified = json.loads(path.read_text())

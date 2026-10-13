@@ -1,0 +1,111 @@
+{
+  "status": "BOUNDED_TECHNICAL_AND_AUTHOR_PASS",
+  "base": "317bf551db59df9c4e3754d2072446c7313ab1f4",
+  "production_source_unchanged": true,
+  "executions": 4,
+  "native_captures": 42,
+  "native_pair": {
+    "outside_rectangle_pixels_exact": 4953248,
+    "changed_inside_pixels": 60757,
+    "frames": 20
+  },
+  "selected_source_actor": 56,
+  "selected_order": [
+    159,
+    159,
+    161,
+    161,
+    163,
+    163,
+    165,
+    165,
+    167,
+    167,
+    165,
+    165,
+    163,
+    163,
+    161,
+    161,
+    159,
+    159,
+    159,
+    159
+  ],
+  "true4x": {
+    "tick": 3348,
+    "pool": 56,
+    "base": 167,
+    "foreground_pixels_exact": 4274
+  },
+  "missing": {
+    "tick": 3348,
+    "pool": 56,
+    "base": 167,
+    "original_foreground_pixels_exact": 1068,
+    "full_RGB_equals_v1_not_claimed": true
+  },
+  "oracle": {
+    "baseline": {
+      "actual_source_qualified_calls": 280,
+      "exact_canvas_samples": 2668032,
+      "fractional_samples": 0,
+      "mismatches": 0,
+      "fully_registered_actor_rectangles": 52
+    },
+    "candidate": {
+      "actual_source_qualified_calls": 280,
+      "exact_canvas_samples": 2668032,
+      "fractional_samples": 932354,
+      "mismatches": 0,
+      "fully_registered_actor_rectangles": 52
+    },
+    "spot4": {
+      "actual_source_qualified_calls": 112,
+      "exact_canvas_samples": 1062912,
+      "fractional_samples": 384664,
+      "mismatches": 0,
+      "fully_registered_actor_rectangles": 19
+    },
+    "missing": {
+      "actual_source_qualified_calls": 280,
+      "exact_canvas_samples": 2668032,
+      "fractional_samples": 0,
+      "mismatches": 0,
+      "fully_registered_actor_rectangles": 52
+    }
+  },
+  "source_state": {
+    "baseline": {
+      "complete_ticks": 3360,
+      "state_indexed_rng_exact": true,
+      "original_no_fire": true
+    },
+    "candidate": {
+      "complete_ticks": 3360,
+      "state_indexed_rng_exact": true,
+      "original_no_fire": true
+    },
+    "spot4": {
+      "complete_ticks": 3349,
+      "state_indexed_rng_exact": true,
+      "original_no_fire": true
+    },
+    "missing": {
+      "complete_ticks": 3360,
+      "state_indexed_rng_exact": true,
+      "original_no_fire": true
+    }
+  },
+  "scope": "Protected stationary/no-fire seeded Linux software diagnostic; not manual input, natural survival, full level or Windows.",
+  "runtime_art_review": {
+    "status": "PASS_ALL20_NATIVE2X_AND_TRUE4X",
+    "receipt": "docs/type4-smooth-contour-v2/AUTHOR_REVIEW.json",
+    "sha256": "7b3ee91e9fd995917d2bd3df49a9c14526f97096d85f5dae8f0978e5dcef7fe5",
+    "numeric_review_separate": true
+  },
+  "failed_initial_offline_assertion": "Retained; original source-dependent clipping groups corrected with independent review, no game rerun",
+  "legacy_startup_test": "14/15; same unrelated settings-manifest assertion fails on untouched main",
+  "results_SHA256": "c83077cf4575d00e388369fafc24a3334a25793ac9794b1914e30c8013264ffd",
+  "independent_review_sha256": "737bfdcbccace0ee8492a045124a3a037a245db48fb5840bd046b59d012aae7c"
+}

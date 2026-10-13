@@ -1,0 +1,4 @@
+Frozen B/type4 five-pose art. Root native2x/4x gate accepted; no repository import or runtime approval.
+Reproduce with Python3 and requirements.txt (Pillow12.3.0): python rebuild.py --output /a/fresh/path/outside/source
+All RGB/alpha rebuild inputs are generated PNGs. contract.json gives exact deterministic crop/resize/paste recipe and hashes. No original RGB, original alpha imposition, dark backing, or global shrink. Original alpha masks and original/current contact images are proof only. Support delta masks contain exact8-bit additions/removals against original nearest8x occupancy.
+Fresh relocated source-only rebuild matched all5 PNG/RGBA/HDR1 hashes; Python open audit confirmed no canonical output reads. Approved pixels are unchanged. Namespace101, density8,24x28,anchor6,7, IDs159/161/163/165/167 and original20-step order preserved.
