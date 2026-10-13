@@ -805,6 +805,12 @@ int main(int argc, char *argv[])
 
 	game_probe_parse(&argc, argv);
 	JE_paramCheck(argc, argv);
+	if (manual_hd_enabled && (isNetworkGame || record_demo || constantPlay || constantDie || richMode))
+	{
+		fprintf(stderr, "Manual HD assets cannot be combined with network, record, constant, death or loot modes\n");
+		SDL_Quit();
+		return 2;
+	}
 	if (startup_logos_configured())
 	{
 #ifndef NDEBUG

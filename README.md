@@ -11,7 +11,9 @@ It builds on OpenTyrian2000 and OpenTyrian; the upstream README is preserved bel
 - Integrated work covers selected ships, enemies, weapons/effects, layered
   terrain, clouds and world materials. The finite single-player HUD includes
   its frame, weapon labels, shield bands, mode indicators and refined corner.
-- Gameplay HD is opt-in through controlled preview/asset-debug entrypoints.
+- Manual gameplay HD is opt-in for local single-player Episode 1 / physical level 9
+  (the first TYRIAN level), with classic gameplay elsewhere. Controlled preview/asset-debug
+  entrypoints remain separate.
   Manufacturer cards and layered title artwork have explicit startup opt-ins below. Ordinary
   startup without those options retains classic rendering.
 - Uncovered, missing or incompatible inputs use documented per-feature
@@ -43,12 +45,53 @@ python3 prototype/build-hd-assets.py
 ./opentyrian2000 --data=/absolute/path/to/tyrian2000
 ```
 
-The last command is ordinary classic startup. Gameplay HD uses the separate bounded
-[preview launcher](prototype/start-actual-preview.ps1) or
-[asset-debug launcher](prototype/start-asset-debug.ps1), with their documented
-external data/dependencies. These are controlled replay tools, not a full-campaign
-manual-input HD release. See [debug controls](docs/ASSET_DEBUG.md) and the
-[bounded command example](docs/FIRST30_HD_COVERAGE.md#later-windows-acceptance).
+The last command is ordinary classic startup.
+
+### Manual first-level HD
+
+Start the ordinary menus and choose New Game / Episode 1 normally:
+
+```sh
+./opentyrian2000 --data=/absolute/path/to/tyrian2000 \
+  --manual-hd-assets=/absolute/path/to/repo/assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test
+```
+
+The flag selects only density-8 display assets, blend handling and the existing
+13-pose Talon display. Native controls, random seed, health/damage/death, restart,
+saves and progression remain in charge. There is no automatic firing/movement,
+forced loadout or time limit. Only local single-player Episode 1 / physical level 9
+is eligible. Title demos, two-player/Galaga and every other level stay classic.
+Missing or incompatible art retains existing fallbacks. Pause/help/setup and
+outgoing level/menu transition fades can use classic presentation.
+
+Do not combine this flag with any `--render-*` / `--asset-debug*` option, network,
+record, constant, death or loot mode (including legacy spellings). Those combinations
+are rejected. A Release/NDEBUG build may independently add
+`--startup-assets=/absolute/path/to/repo/assets/hd/packs/startup-title-settings-v1`
+for manufacturer/title/settings/load art. Asset paths are independent of `--data`.
+
+Windows uses the separate [manual launcher](prototype/start-manual-hd.ps1):
+
+```powershell
+& .\prototype\start-manual-hd.ps1 -DataDirectory 'C:\Games\Tyrian 2000'
+```
+
+It resolves the EXE and reviewed gameplay pack beside the script's repository,
+uses a persistent dedicated profile under `%LOCALAPPDATA%\OpenTyrian2000-HD\manual-first-level`,
+and creates windowed 2x/Integer settings only when absent. Later settings and saves
+are retained. `-InitialScale 4x` applies only to a new profile; change an existing
+profile through the normal game settings. Absolute `-Executable`, `-AssetsDirectory`,
+`-StartupAssetsDirectory` and `-ProfileDirectory` overrides are available. An existing
+unmarked nonempty profile is refused to avoid overwriting personal saves. No Python
+or diagnostic wrapper is involved. Original data and Windows dependencies stay external.
+
+This is a bounded first-level manual mode, not full-campaign HD certification.
+Windows runtime/device acceptance must be reported separately from source/build checks.
+[Bounded acceptance and open checks](docs/MANUAL_HD_ACCEPTANCE.md) record the exact
+source/unit/build results and four headless synthetic-SDL engine runs.
+The [preview launcher](prototype/start-actual-preview.ps1) and
+[asset-debug launcher](prototype/start-asset-debug.ps1) remain controlled replay tools;
+see [debug controls](docs/ASSET_DEBUG.md).
 
 ### Optional manufacturer cards
 
@@ -62,7 +105,7 @@ normal local startup:
 
 Run from the repository root, or give an absolute asset-directory path. This
 two-card directory replaces only PIC10 (XSIV GAMES) and PIC12 (ECLIPSE); title, menus and
-subsequent manual gameplay retain their existing classic presentation. Missing,
+subsequent manual gameplay retain their existing presentation unless separately opted in. Missing,
 invalid or incompatible cards fall back independently to their originals.
 Original fades and skip/input code are preserved. Do not combine this option
 with network, render-test or asset-debug modes; those combinations are rejected.

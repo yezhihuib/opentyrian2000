@@ -19,6 +19,7 @@
 #include <string.h>
 
 bool game_probe_enabled;
+bool manual_hd_enabled;
 int game_probe_density = 1;
 bool game_probe_missing, game_probe_repeat, game_probe_invalid;
 bool game_probe_coverage_fault;
@@ -206,12 +207,25 @@ static void preview_loadout(void)
 
 void game_probe_parse(int *argc, char **argv)
 {
+ /* Inspect the untouched arguments: asset_debug_parse consumes its options. */
+ bool manual_requested=false,diagnostic_requested=false;
+ for(int i=1;i<*argc;i++) {
+  if(strncmp(argv[i],"--manual-hd-assets=",19)==0)manual_requested=true;
+  if(strncmp(argv[i],"--render-",9)==0||strncmp(argv[i],"--asset-debug",13)==0)diagnostic_requested=true;
+ }
+ if(manual_requested&&diagnostic_requested) {
+  fprintf(stderr,"Manual HD assets cannot be combined with render or asset-debug options\n");exit(2);
+ }
  asset_debug_parse(argc,argv);
  if(asset_debug_enabled){game_probe_enabled=true;game_probe_density=8;game_probe_local_blend=true;game_probe_known_blend=true;game_probe_scene_assets=3;enemy_hit_scene=true;tick_limit=6000;}
  int out=1;
  bool explicit_ticks=false;
  for(int i=1;i<*argc;i++) {
-  if(strncmp(argv[i],"--render-test=",14)==0) {
+  if(strncmp(argv[i],"--manual-hd-assets=",19)==0) {
+   if(!argv[i][19]) {fprintf(stderr,"Manual HD assets require a nonempty directory\n");exit(2);}
+   manual_hd_enabled=true;game_probe_assets=argv[i]+19;
+   game_probe_density=8;game_probe_local_blend=true;game_probe_known_blend=true;game_probe_scene_assets=3;
+  } else if(strncmp(argv[i],"--render-test=",14)==0) {
    const char *mode=argv[i]+14; game_probe_enabled=true;
    if(strcmp(mode,"classic")==0) game_probe_density=1;
    else if(strcmp(mode,"4")==0) game_probe_density=4;
@@ -493,6 +507,7 @@ void game_probe_frame(unsigned int draws,unsigned int covered,unsigned int misma
 
 void game_probe_present(unsigned int count,uint64_t before,uint64_t after)
 {
+ if(!game_probe_enabled)return;
  if(!sdl_runtime_recorded&&main_window) {
   SDL_Renderer *renderer=SDL_GetRenderer(main_window);SDL_RendererInfo info={0};
   int w=0,h=0,rw=0,rh=0;SDL_GetWindowSize(main_window,&w,&h);
@@ -541,7 +556,7 @@ bool game_probe_capture_disabled(void){return no_capture;}
 
 bool game_probe_capture_tick(void)
 {
- if(no_capture)return false;
+ if(!game_probe_enabled||no_capture)return false;
  if(asset_debug_enabled)return asset_debug_capture_tick()&&!asset_debug_window_only();
  if(game_probe_blend_capture&&game_probe_tick>=192&&game_probe_tick<=212)return true;
  if(game_probe_tick>=128&&game_probe_tick<=360&&game_probe_tick%8==0)return true;

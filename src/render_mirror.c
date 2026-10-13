@@ -23,6 +23,7 @@
 #include "entity_draw.h"
 #include "palette.h"
 #include "mtrand.h"
+#include "network.h"
 #include "video.h"
 #include "varz.h"
 #include "xmas.h"
@@ -133,6 +134,17 @@ static Uint8 *green_under_owner;
 static Uint32 initial_palette[256];
 static bool have_initial_palette;
 static bool active,suppress,ready;
+/* PIC3 grants this scene lease independently of optional HUD resources. */
+static bool manual_hd_lease;
+static bool manual_hd_scope(void)
+{
+ return manual_hd_enabled&&episodeNum==1&&lvlFileNum==9&&!isNetworkGame&&
+   !twoPlayerMode&&!galagaMode&&!play_demo&&!record_demo;
+}
+static bool mirror_enabled(void)
+{
+ return game_probe_enabled||(manual_hd_lease&&manual_hd_scope());
+}
 bool render_mirror_owns_display(void) { return active; }
 static bool suppress_green_smoke;
 static const char *reject_reason;
@@ -842,6 +854,11 @@ static void hud_frame_reset(void)
 void render_mirror_hud_reset(void)
 {
  font_reset();fixed_text_reset();indicators_reset();components_reset();hud_frame_reset();
+ if(manual_hd_enabled) {
+  manual_hd_lease=false;active=false;ready=false;
+  last_output_valid=false;last_output_scene_hd=false;have_fade_saved=false;fade_mode=0;
+  have_initial_palette=false;render_mirror_reset_banking();
+ }
 }
 
 void render_mirror_hud_shutdown(void)
@@ -935,10 +952,11 @@ void render_mirror_hud_start(SDL_Surface *decoded_pic3)
  /* This is called only at the successful gameplay PIC3 load, before options
   * and text. Generic JE_loadPic never grants gameplay ownership. */
  render_mirror_hud_reset();
- if(twoPlayerMode||galagaMode||!game_probe_enabled||game_probe_missing||game_probe_invalid||
-    game_probe_original_reference||(game_probe_density!=4&&game_probe_density!=8)||
-    !decoded_pic3||decoded_pic3!=VGAScreenSeg||!decoded_pic3->pixels||decoded_pic3->w!=320||decoded_pic3->h!=200||decoded_pic3->pitch<320||
+ if(!decoded_pic3||decoded_pic3!=VGAScreenSeg||!decoded_pic3->pixels||decoded_pic3->w!=320||decoded_pic3->h!=200||decoded_pic3->pitch<320||
     !decoded_pic3->format||decoded_pic3->format->BitsPerPixel!=8||decoded_pic3->format->BytesPerPixel!=1)return;
+ manual_hd_lease=manual_hd_scope();
+ if(twoPlayerMode||galagaMode||!mirror_enabled()||game_probe_missing||game_probe_invalid||
+    game_probe_original_reference||(game_probe_density!=4&&game_probe_density!=8))return;
  if(gameplay_hud_load(game_probe_assets)&&gameplay_hud_capture(decoded_pic3->pixels,decoded_pic3->pitch)) {
   if(hud_runtime_compatible(false)) {
    hud_source_surface=decoded_pic3;hud_source_pixels=decoded_pic3->pixels;hud_source_format=decoded_pic3->format;
@@ -1005,6 +1023,7 @@ void render_mirror_begin(void)
  cash75_fixed_value=false;
  cash50_fixed_value=false;
  gem100_fixed_value=false;
+ if(manual_hd_enabled&&!mirror_enabled()) {render_mirror_hud_reset();return;}
  hud_begin();
  /* JE_main level_loop calls begin exactly once per simulation tick. Neither
   * individual sprites, shadows nor repeated Present calls advance this clock. */
@@ -1012,7 +1031,7 @@ void render_mirror_begin(void)
  ++mirror_logic_tick;banking_draw_player=0;
  last_output_valid=false;have_fade_saved=false;fade_mode=0;
  ready=false; active=false; suppress=false;suppress_green_smoke=false;suppress_cloud=false;
- if(!game_probe_enabled) return;
+ if(!mirror_enabled()) return;
  if(!have_initial_palette) {memcpy(initial_palette,rgb_palette,sizeof(initial_palette));have_initial_palette=true;}
  if(asset_debug_fast_forward())return;
  if(!canvas) {
@@ -1378,6 +1397,7 @@ static bool talon_frames_ready(void)
 
 void render_mirror_player_pose(unsigned int pnum,Sprite2_array bank,int base,int index,unsigned int invulnerable)
 {
+ if(manual_hd_enabled&&!mirror_enabled())return;
  if(pnum<1||pnum>2)return;
  TalonBank *s=&talon_banks[pnum-1];
  bool supported=bank.data==spriteSheet9.data&&base==233&&index>=229&&index<=237&&index%2==1;
@@ -2284,6 +2304,7 @@ static const uint8_t *plateau_cap_selected_source(unsigned index,unsigned slot,v
 void render_mirror_ground101_layer1(SDL_Surface *surface,const void *first,int x,int y)
 {
  ground101_frame_reset();
+ if(manual_hd_enabled&&!mirror_enabled())return;
  /* Declaration is independent of lower/context validation and its early exits. */
  forest13_policy_check(game_probe_assets);
  if(!active||surface!=game_screen||reject_reason||terrain_file!='z'||game_probe_density!=8||
@@ -2541,10 +2562,11 @@ void render_mirror_finish(bool ordinary_crop)
  * schedule. Classic pixels use the original newly updated palette directly. */
 void render_mirror_fade_start(const SDL_Color *target,const SDL_Color *solid,unsigned int first,unsigned int last)
 {
+ if(manual_hd_enabled&&!mirror_enabled()) {render_mirror_hud_reset();return;}
  hud_check_mode();
  if(font_cached()&&!font_cached_indices_match())font_clear_cached(15);
  bool cached=last_output_valid;last_output_valid=false;fade_mode=0;ready=false;
- if(!game_probe_enabled||game_probe_density<2||!output||!cached||first!=0||last!=255)return;
+ if(!mirror_enabled()||game_probe_density<2||!output||!cached||first!=0||last!=255)return;
  bool component_cached=component_output_generation||component_saved_generation;
  for(unsigned i=0;i<320*200&&!component_cached;i++)component_cached=(component_output_owner[i]|component_saved_owner[i])!=0;
  if(component_cached&&!components_cached_indices_match()) {components_clear_cached(63);return;}
@@ -2571,6 +2593,7 @@ void render_mirror_fade_start(const SDL_Color *target,const SDL_Color *solid,uns
 
 void render_mirror_fade_step(int steps)
 {
+ if(manual_hd_enabled&&!mirror_enabled()) {render_mirror_hud_reset();return;}
  hud_check_mode();
  if(!fade_mode||steps<=0)return;
  if(font_cached()&&!font_cached_indices_match()){font_clear_cached(15);return;}
@@ -2621,6 +2644,7 @@ void render_mirror_fade_step(int steps)
 
 bool render_mirror_present(SDL_Renderer *renderer,SDL_Surface *src,const SDL_Rect *dst)
 {
+ if(manual_hd_enabled&&!mirror_enabled()) {render_mirror_hud_reset();return false;}
  hud_check_mode();
  if(font_cached()&&(!font_cached_indices_match()||memcmp(font_output_palette,rgb_palette,sizeof(font_output_palette))))font_clear_cached(15);
  if(fixed_text_output_generation&&(!fixed_text_cached_indices_match()||memcmp(fixed_text_output_palette,rgb_palette,sizeof(fixed_text_output_palette))!=0))fixed_text_clear_cached();

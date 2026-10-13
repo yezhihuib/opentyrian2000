@@ -10,7 +10,8 @@
 
 - 已接入部分船机、敌人、武器/特效、分层地形、云和世界材质。有限的单人
   HUD 改造包括框架、武器标签、护盾条、模式指示和右下角连接结构。
-- 游戏内高清通过受控预览/素材调试入口启用；厂商画面与分层标题使用下文的显式启动入口。
+- 手动游戏高清通过显式参数启用，仅限本地单人第一章的首关（物理关卡编号 9）；其他关卡保持原版。
+  受控预览/素材调试仍是独立入口；厂商画面与分层标题使用下文的显式启动入口。
   普通无相关参数启动仍走原版显示。
 - 未覆盖、缺失或不兼容的资源按各功能规则回退；暂停、帮助、选项仍用原版界面。
 - 已验收的是文档列明的有限 Linux 场景，包括原生 2×/4× 检查；不代表全游戏、
@@ -35,12 +36,46 @@ python3 prototype/build-hd-assets.py
 ./opentyrian2000 --data=/absolute/path/to/tyrian2000
 ```
 
-最后一条命令是普通原版显示启动。游戏内高清使用独立的
-[有限预览入口](prototype/start-actual-preview.ps1)或
-[素材调试入口](prototype/start-asset-debug.ps1)，需按说明准备外部数据和依赖。
-这些是受控重播工具，尚非完整战役的手动操作高清发行版。参见
-[调试操作](docs/ASSET_DEBUG.md)与
-[有限场景启动示例](docs/FIRST30_HD_COVERAGE.md#later-windows-acceptance)。
+最后一条命令是普通原版显示启动。
+
+### 手动首关高清
+
+正常进入标题菜单，手动选择 New Game / 第一章：
+
+```sh
+./opentyrian2000 --data=/absolute/path/to/tyrian2000 \
+  --manual-hd-assets=/absolute/path/to/repo/assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test
+```
+
+该参数仅启用 8 倍源素材、既有混合处理与 Talon 的 13 姿态显示。按键、随机种子、
+生命值、受伤、死亡、重新开始、存档及关卡推进仍由原版控制；没有自动开火、自动移动、
+强制装备或运行时限。适用范围仅为本地单人第一章 TYRIAN 首关（物理关卡编号 9，
+不是菜单中的第九关）。标题演示、双人/Galaga 模式和其他关卡使用原版显示。
+缺失或不兼容的资源按原有规则回退；暂停、帮助、设置及离开关卡/返回菜单的渐变可使用原版显示。
+
+不能与任何 `--render-*` / `--asset-debug*` 参数、联网、record、constant、death 或 loot
+模式混用（包含旧式参数），程序会拒绝这些组合。Release/NDEBUG 构建可独立追加
+`--startup-assets=/absolute/path/to/repo/assets/hd/packs/startup-title-settings-v1`
+启用厂商/标题/设置/读取界面的素材。素材路径不通过 `--data` 查找。
+
+Windows 使用独立的[手动启动脚本](prototype/start-manual-hd.ps1)：
+
+```powershell
+& .\prototype\start-manual-hd.ps1 -DataDirectory 'C:\Games\Tyrian 2000'
+```
+
+脚本从自身仓库位置定位 EXE 和已审阅的游戏素材包，使用
+`%LOCALAPPDATA%\OpenTyrian2000-HD\manual-first-level` 下持久的独立配置/存档目录。
+仅在配置不存在时创建窗口化 2x/Integer 设置，之后保留用户设置和存档。
+`-InitialScale 4x` 仅对新配置生效；已有配置请通过游戏内设置修改。可使用绝对路径
+覆盖 `-Executable`、`-AssetsDirectory`、`-StartupAssetsDirectory`、`-ProfileDirectory`。
+已有内容但没有专用标记的目录会被拒绝，避免覆盖个人存档。无需 Python 或诊断包装器；
+原版数据及 Windows 依赖仍需另行提供。
+
+这是有限的首关手动模式，不是完整战役高清认证。Windows 实机/设备运行验收须与源码、
+构建检查分开报告。[有限验收与待验证项](docs/MANUAL_HD_ACCEPTANCE.md)记录具体源码/单元/构建结果
+及四次无实体窗口的合成 SDL 事件引擎运行。[有限预览入口](prototype/start-actual-preview.ps1)与
+[素材调试入口](prototype/start-asset-debug.ps1)仍为受控重播工具，详见[调试操作](docs/ASSET_DEBUG.md)。
 
 ### 可选厂商启动画面
 
@@ -52,7 +87,7 @@ Release/NDEBUG 构建可在原有本地启动流程中使用两张已审阅的�
 ```
 
 请从仓库根目录运行，或把素材路径改为绝对路径。这个双图目录只替换 PIC10（XSIV GAMES）
-与 PIC12（ECLIPSE）；标题、菜单及之后的手动游戏继续使用现有原版显示。
+与 PIC12（ECLIPSE）；标题、菜单及之后的手动游戏保持各自原有显示，除非另行显式启用高清。
 某一张资源缺失、损坏或不兼容时，只让该张回退到原版；原淡入淡出与输入跳过代码保持不变。
 不能与联网、render-test 或 asset-debug 模式组合使用，程序会拒绝这些组合。
 不加该参数时，普通启动保持原版。Debug 构建的原启动流程本就跳过厂商画面，因此会拒绝该参数。
