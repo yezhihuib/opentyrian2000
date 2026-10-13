@@ -2453,7 +2453,11 @@ static bool recognized_contact_effect(unsigned int index,unsigned int hue)
   * Their two observed blue/gray ramps use the same checked blend arithmetic;
   * keep the glyph indexed while modulating only the true-color background. */
  bool value=recognized_value_effect(index);
- return (warm&&(hue==0x70||hue==0x40))||(shield&&hue==0x80)||(smoke&&hue==0)||(green&&hue==0x20)||(value&&(hue==0x80||hue==0x90));
+ /* The original Data pickup is fixed sprite266 with a warm0x70 glyph,
+  * unlike the blue/gray cash values. Keep it under the same source/Talon/
+  * monotone-ramp checks instead of restoring the connected HD scene. */
+ bool data=index==266&&hue==0x70;
+ return (warm&&(hue==0x70||hue==0x40))||(shield&&hue==0x80)||(smoke&&hue==0)||(green&&hue==0x20)||(value&&(hue==0x80||hue==0x90))||data;
 }
 
 static bool have_supported_talon(void)

@@ -1,0 +1,186 @@
+{
+  "schema": "datacube-popup-qualified-runtime-review-v1",
+  "status": "PASS_WITH_SCOPE_LIMITS",
+  "review_date_utc": "2026-10-13",
+  "environment": {
+    "platform": "Linux",
+    "sdl_video_driver": "dummy",
+    "sdl_renderer": "software",
+    "readback_pixels": [
+      640,
+      400
+    ],
+    "mode": "Full Game / Episode 1 / Normal",
+    "physical_level": 9
+  },
+  "production_sources": {
+    "baseline_commit": "93008cc051b4b00c512dc9f8599849f6db1132e3",
+    "candidate_commit": "568dc134dd107c5e2331853f43c69a16ff800f3d",
+    "baseline_render_mirror_sha256": "e19b2509887f7615caae6c71ac44d6f54a3871a13e8bfdab10bb8c8f39b888c4",
+    "candidate_render_mirror_sha256": "e0f34183dda510dce380925502a38efe921d9facd76a9730228ac8f021889d3b"
+  },
+  "private_fixture": {
+    "qualification": "Artificial combat: one call to original player_shot_create with deliberately selected carrier-relative spawn arguments; no post-creation shot-field or direct entity/health edits. Original collision, death, drop and collection code is unchanged.",
+    "helper_sha256": "e95404a9cf53414acd202f785ac99d3cc76f661bde2a7fe1c2c5e260f6a5e9c5",
+    "source_inverse_checked_files_per_variant": 143,
+    "private_source_difference": [
+      "src/render_mirror.c"
+    ],
+    "pulse_calls_per_run": 1,
+    "pulse_tick": 718,
+    "pulse_damage": 2,
+    "pulse_spawn_xy": [
+      232,
+      84
+    ],
+    "player_xy_at_call": [
+      236,
+      160
+    ],
+    "carrier_armor_at_call": 2,
+    "power_before_after": [
+      898,
+      868
+    ],
+    "final_hit_projectile_attribution": "Unproven; earlier queued projectiles remained present."
+  },
+  "common_observations": {
+    "post_initialization_zero_cube_tick": 1,
+    "collection_tick": 732,
+    "cube_transition": [
+      0,
+      1
+    ],
+    "drop_record": 513,
+    "fixed_sprite": 265,
+    "fixed_effect_xy": [
+      232,
+      94
+    ],
+    "post_render_ttls": [
+      13,
+      1
+    ],
+    "explosion_transparent": true,
+    "source_inferred_draw_sprite": 266,
+    "source_inferred_draw_ticks_inclusive": [
+      732,
+      745
+    ],
+    "source_inferred_draw_count": 14,
+    "final_draw_qualification": "Tick745 draws with TTL1 before decrement to0; expired effect is absent from post-render telemetry. No direct draw-callback instrumentation.",
+    "rgb_and_initial_palette_hash": "5b65a3db578e46f3",
+    "manual_hd_lease_retained": true,
+    "completed_frame_scene_hd_retained": true,
+    "frame_rejections": 0,
+    "probe_debug_demo_record_enabled": false,
+    "probe_tick": 0,
+    "initialization_qualification": "The tick1 zero-cube baseline can precede first completed rendering; one active initialization sample has scene_hd0. Completed-frame observations retain scene HD.",
+    "drop_observed_ticks_inclusive": [
+      718,
+      731
+    ],
+    "post_render_effect_ticks_inclusive": [
+      732,
+      744
+    ]
+  },
+  "runs": {
+    "baseline": {
+      "private_executable_sha256": "6d66f98079fe4e9daa2ede157d1f1483a9b45f28444bc355104fb59dc339b796",
+      "restored_logical_blocks_at_pickup": 13306,
+      "restored_logical_blocks_ticks732_through745": [
+        13306,
+        13824,
+        13920,
+        14016,
+        14112,
+        14208,
+        4032,
+        4032,
+        5376,
+        6720,
+        4704,
+        10464,
+        10368,
+        1344
+      ],
+      "peak_restored_logical_blocks": 14208,
+      "peak_tick": 737,
+      "restored_logical_blocks_tick746": 0,
+      "exit_code": 0,
+      "stop": "verified pickup plus five seconds",
+      "elapsed_seconds": 108.01100813600351,
+      "cleanup_errors": [],
+      "evidence_sha256": {
+        "transport.tsv": "a3e4369d52b7f18d2f19cd1eb8bee760ea9991af0369ec50ee0ba9a93a485248",
+        "controller-result.json": "b50526f721a56dc67834e8ec3b0a3106365492d97f14af1091867f307b887452",
+        "stderr.log": "64563c0a6db00c5ac5ee2a162bde81ab08a568329eb884095c20cb312197bb61",
+        "captures/data_drop.png": "d13035cfdfc7a9f5e03093ec4fe78994f2430c6b1eeb305619da2d11d9fdadb5",
+        "captures/verified_pickup.png": "f36731ff0ab5d0174e4ccbce54bbf90868fd759fef6d099aa958c095ae39af20",
+        "captures/after_20.png": "f888af8dad0321976d5321921bdf826f84f126af22bea53f2af7a0c06476272f"
+      }
+    },
+    "candidate": {
+      "private_executable_sha256": "558be023c7ba6270b56093ed3a33dfd2ab00c7f0b403cd83f11425ab20978cae",
+      "restored_logical_blocks_at_pickup": 0,
+      "restored_logical_blocks_ticks732_through745": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "peak_restored_logical_blocks": 0,
+      "peak_tick": null,
+      "restored_logical_blocks_tick746": 0,
+      "exit_code": 0,
+      "stop": "verified pickup plus five seconds",
+      "elapsed_seconds": 109.8552646149983,
+      "cleanup_errors": [],
+      "evidence_sha256": {
+        "transport.tsv": "76a38688804677ed5a627c7f1e1984aa6a6c5e5260c53503f2f3643c5b75c652",
+        "controller-result.json": "cd02ad8f50dbf2412d6b90b23cd4ef3db1efa344068ef073b25325b0ee8bfbba",
+        "stderr.log": "64563c0a6db00c5ac5ee2a162bde81ab08a568329eb884095c20cb312197bb61",
+        "captures/data_drop.png": "14a47323ae29db218745d72ab08676937d60eaab0c0e21d0364048171562e468",
+        "captures/verified_pickup.png": "57b7a80686a5b8c87d532c36de6f6e9a1f56d85ae4470a7fe1efbae31e66535f",
+        "captures/after_20.png": "17f64134754216ef8a1e2e9f9ff21b5b4600a4318528195a922838dd6b6cb36d"
+      }
+    }
+  },
+  "independent_checks": [
+    "Replayed complete paired raw state/detail observations and collection guards.",
+    "Verified single raw Pulse155 begin/return record in each run.",
+    "Verified every observed fixed-effect TTL and restoration count across ticks732\u2013746.",
+    "Checked palette, lease, mode and rejection fields in completed-frame observations.",
+    "Verified both pre-run manifests and ELF symbol pins; exact source inverse and identical private hook.",
+    "Verified six PNG/BMP RGBA pairs and visually inspected both lossless pickup images."
+  ],
+  "retained_artifacts": {
+    "data-pickup-native-proof-20261013.tar.gz": {
+      "sha256": "26aff74ada996779ce813e8e8f4252a54b90968d123abaadff7d3c200a21f545",
+      "retained_separately": true
+    },
+    "private-data-diagnostic-source-checkpoint.tar.gz": {
+      "sha256": "2e87e2b4e5078e9bd66d9bc2a334733997857e2e329d6271c9159f5b47dc4892",
+      "retained_separately": true
+    }
+  },
+  "limitations": [
+    "Private artificial-combat fixture with SDL key-event controls; not an unmodified natural-combat-only success.",
+    "Adaptive input and differing effect-slot/RNG state; no whole-frame or full-game-state parity claim.",
+    "Sprite266 and the last draw at tick745 are source-inferred; post-render telemetry observes remaining TTL13 through TTL1.",
+    "Reproduces transient partial restoration; permanent whole-scene classic-only behavior remains unproven.",
+    "Linux software rendering only; no Windows runtime or package validation.",
+    "Raw screenshots, original game data and private hook are not included in this production documentation."
+  ]
+}

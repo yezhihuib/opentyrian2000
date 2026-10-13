@@ -26,8 +26,13 @@ for name in ['game_probe_start','game_probe_level','game_probe_input','game_prob
 # All rendering/art/load/fallback helpers except the finite activation sites stay byte-identical.
 modified={'render_mirror_hud_reset','render_mirror_hud_start','render_mirror_begin','render_mirror_player_pose','render_mirror_fade_start','render_mirror_fade_step','render_mirror_present','render_mirror_ground101_layer1'}
 old=baseline('src/render_mirror.c');names=re.findall(r'^(?:static\s+)?(?:bool|void|int|Uint32|Asset\s*\*)\s+(\w+)\([^;{}]*\)\s*\{',old,re.M)
+# The later Data fix admits exactly its original warm glyph. Keep the original
+# manual-mode preservation gate exact after projecting only that bounded edit.
+data_addition=' /* The original Data pickup is fixed sprite266 with a warm0x70 glyph,\n  * unlike the blue/gray cash values. Keep it under the same source/Talon/\n  * monotone-ramp checks instead of restoring the connected HD scene. */\n bool data=index==266&&hue==0x70;\n'
+assert mirror.count(data_addition)==1
+preserved_mirror=mirror.replace(data_addition,'').replace('||(value&&(hue==0x80||hue==0x90))||data;', '||(value&&(hue==0x80||hue==0x90));')
 for name in names:
-    if name not in modified:assert function(old,name)==function(mirror,name),name
+    if name not in modified:assert function(old,name)==function(preserved_mirror,name),name
 opentyr=(root/'src/opentyr.c').read_text();start=opentyr.index('\tif (manual_hd_enabled &&');end=opentyr.index('\n\tif (!override_xmas)',start)
 validation=opentyr[start:end] # Includes exact existing startup release/network validation.
 only_manual=opentyr[start:opentyr.index('\tif (startup_logos_configured())',start)]

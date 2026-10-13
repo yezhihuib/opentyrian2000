@@ -1,0 +1,566 @@
+{
+  "status": "passed",
+  "base": "2b36d6cae801881e31a5791aa2864b0b2d08614c",
+  "cases": 69,
+  "results": [
+    {
+      "args": [],
+      "result": "passed",
+      "exit": 0
+    },
+    {
+      "args": [
+        "--manual-hd-assets=/absolute/assets with spaces"
+      ],
+      "result": "passed",
+      "exit": 0
+    },
+    {
+      "args": [
+        "--manual-hd-assets=relative/assets"
+      ],
+      "result": "passed",
+      "exit": 0
+    },
+    {
+      "args": [
+        "--manual-hd-assets="
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--manual-hd-assets=/absolute/assets with spaces",
+        "--render-test=8"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--render-test=8",
+        "--manual-hd-assets=/absolute/assets with spaces"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--manual-hd-assets=/absolute/assets with spaces",
+        "--render-assets=x"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--render-assets=x",
+        "--manual-hd-assets=/absolute/assets with spaces"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--manual-hd-assets=/absolute/assets with spaces",
+        "--render-ticks=600"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--render-ticks=600",
+        "--manual-hd-assets=/absolute/assets with spaces"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--manual-hd-assets=/absolute/assets with spaces",
+        "--render-scene=v1"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--render-scene=v1",
+        "--manual-hd-assets=/absolute/assets with spaces"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--manual-hd-assets=/absolute/assets with spaces",
+        "--render-front-port=1"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--render-front-port=1",
+        "--manual-hd-assets=/absolute/assets with spaces"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--manual-hd-assets=/absolute/assets with spaces",
+        "--render-no-capture"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--render-no-capture",
+        "--manual-hd-assets=/absolute/assets with spaces"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--manual-hd-assets=/absolute/assets with spaces",
+        "--render-unknown"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--render-unknown",
+        "--manual-hd-assets=/absolute/assets with spaces"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--manual-hd-assets=/absolute/assets with spaces",
+        "--asset-debug=custom"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--asset-debug=custom",
+        "--manual-hd-assets=/absolute/assets with spaces"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--manual-hd-assets=/absolute/assets with spaces",
+        "--asset-debug-running"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--asset-debug-running",
+        "--manual-hd-assets=/absolute/assets with spaces"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--manual-hd-assets=/absolute/assets with spaces",
+        "--asset-debug-unknown"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--asset-debug-unknown",
+        "--manual-hd-assets=/absolute/assets with spaces"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--manual-hd-assets=/absolute/assets with spaces",
+        "--net=localhost"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--net=localhost",
+        "--manual-hd-assets=/absolute/assets with spaces"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--manual-hd-assets=/absolute/assets with spaces",
+        "--record"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--record",
+        "--manual-hd-assets=/absolute/assets with spaces"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--manual-hd-assets=/absolute/assets with spaces",
+        "--constant"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--constant",
+        "--manual-hd-assets=/absolute/assets with spaces"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--manual-hd-assets=/absolute/assets with spaces",
+        "--death"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--death",
+        "--manual-hd-assets=/absolute/assets with spaces"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--manual-hd-assets=/absolute/assets with spaces",
+        "--loot"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--loot",
+        "--manual-hd-assets=/absolute/assets with spaces"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--manual-hd-assets=/absolute/assets with spaces",
+        "-nlocalhost"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "-nlocalhost",
+        "--manual-hd-assets=/absolute/assets with spaces"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--manual-hd-assets=/absolute/assets with spaces",
+        "-r"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "-r",
+        "--manual-hd-assets=/absolute/assets with spaces"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--manual-hd-assets=/absolute/assets with spaces",
+        "-c"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "-c",
+        "--manual-hd-assets=/absolute/assets with spaces"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--manual-hd-assets=/absolute/assets with spaces",
+        "-k"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "-k",
+        "--manual-hd-assets=/absolute/assets with spaces"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--manual-hd-assets=/absolute/assets with spaces",
+        "-l"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "-l",
+        "--manual-hd-assets=/absolute/assets with spaces"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--manual-hd-assets=/absolute/assets with spaces",
+        "RECORD"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "RECORD",
+        "--manual-hd-assets=/absolute/assets with spaces"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--manual-hd-assets=/absolute/assets with spaces",
+        "CONSTANT"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "CONSTANT",
+        "--manual-hd-assets=/absolute/assets with spaces"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--manual-hd-assets=/absolute/assets with spaces",
+        "DEATH"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "DEATH",
+        "--manual-hd-assets=/absolute/assets with spaces"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--manual-hd-assets=/absolute/assets with spaces",
+        "LOOT"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "LOOT",
+        "--manual-hd-assets=/absolute/assets with spaces"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--manual-hd-assets=/absolute/assets with spaces",
+        "record"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "record",
+        "--manual-hd-assets=/absolute/assets with spaces"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--manual-hd-assets=/absolute/assets with spaces",
+        "constant"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "constant",
+        "--manual-hd-assets=/absolute/assets with spaces"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--manual-hd-assets=/absolute/assets with spaces",
+        "death"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "death",
+        "--manual-hd-assets=/absolute/assets with spaces"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--manual-hd-assets=/absolute/assets with spaces",
+        "loot"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "loot",
+        "--manual-hd-assets=/absolute/assets with spaces"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--manual-hd-assets=/absolute/assets with spaces",
+        "--startup-assets=/absolute/startup"
+      ],
+      "result": "passed",
+      "exit": 0
+    },
+    {
+      "args": [
+        "--manual-hd-assets=/absolute/assets with spaces",
+        "--startup-assets=/absolute/startup"
+      ],
+      "result": "passed",
+      "exit": 2
+    },
+    {
+      "args": [
+        "--render-test=8",
+        "--render-assets=x"
+      ],
+      "result": "passed",
+      "exit": 0
+    },
+    {
+      "args": [
+        "--asset-debug=custom",
+        "--render-assets=x"
+      ],
+      "result": "passed",
+      "exit": 0
+    },
+    {
+      "args": [
+        "--render-assets=x"
+      ],
+      "result": "passed",
+      "exit": 0
+    },
+    {
+      "args": [
+        "unit-probe"
+      ],
+      "result": "passed",
+      "exit": 0
+    },
+    {
+      "args": [
+        "unit-render",
+        "/workspace/scratch/f67dd347fa0a/datacube-manual-hd-regression-20261013/scene-only",
+        "1",
+        "1"
+      ],
+      "result": "passed",
+      "exit": 0
+    },
+    {
+      "args": [
+        "unit-render",
+        "/workspace/scratch/f67dd347fa0a/datacube-manual-hd-regression-20261013/absent",
+        "0",
+        "0"
+      ],
+      "result": "passed",
+      "exit": 0
+    },
+    {
+      "args": [
+        "unit-render",
+        "/workspace/scratch/f67dd347fa0a/datacube-manual-hd-regression-20261013/invalid",
+        "0",
+        "0"
+      ],
+      "result": "passed",
+      "exit": 0
+    }
+  ],
+  "unchanged_render_helpers": 129,
+  "source_sha256": {
+    "src/game_probe.c": "8a8b4985f05736830a1f11223fef28b336674632b8f54d5ec465f4425ec47f00",
+    "src/game_probe.h": "03d6dc208020cbc1f4fe45e8d16390dc42a620133dd678acd706081fc42d9bd6",
+    "src/opentyr.c": "4694e58ac5b6e69b0e6229d957ccad57c0cf01f19ba536fc348d9b80c3cbb8c0",
+    "src/params.c": "9de40cf54cd84f48980b9444a35a3c4445467725bac2dc0aac9dfb1435c02835",
+    "src/render_mirror.c": "e0f34183dda510dce380925502a38efe921d9facd76a9730228ac8f021889d3b"
+  },
+  "scope": "Real-source units only. No game launch, native input or Windows runtime claim."
+}
