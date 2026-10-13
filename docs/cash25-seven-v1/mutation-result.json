@@ -1,0 +1,60 @@
+{
+  "status": "PASS",
+  "game_runs": 0,
+  "mutations": [
+    {
+      "mutation": "body-wrong-bank",
+      "status": "KILLED",
+      "returncode": 3,
+      "diagnostic": "FAIL line93: k<6?cash25_pickup(&screen,x,y,spriteSheet11,ids[k],0,0,&c):popup(&screen,x,y,explosionSpriteSheet,185,b?MIRROR_BLEND:MIRROR_NORMAL,ENTITY_TILE,true)\n"
+    },
+    {
+      "mutation": "body-wrong-slot",
+      "status": "KILLED",
+      "returncode": 3,
+      "diagnostic": "FAIL line75: ((Uint32*)canvas->pixels)[n]==want\n"
+    },
+    {
+      "mutation": "body-no-record-gate",
+      "status": "KILLED",
+      "returncode": 3,
+      "diagnostic": "FAIL line81: !cash25_pickup(&screen,98,100,spriteSheet11,7,0,0,&c)\n"
+    },
+    {
+      "mutation": "value-nonfixed-admitted",
+      "status": "KILLED",
+      "returncode": 3,
+      "diagnostic": "FAIL line82: !popup(&screen,98,100,explosionSpriteSheet,185,MIRROR_NORMAL,ENTITY_TILE,false)\n"
+    },
+    {
+      "mutation": "value-context-leaks",
+      "status": "KILLED",
+      "returncode": 3,
+      "diagnostic": "FAIL line78: !cash25_fixed_value\n"
+    },
+    {
+      "mutation": "alpha-forced-opaque",
+      "status": "KILLED",
+      "returncode": 3,
+      "diagnostic": "FAIL line75: ((Uint32*)canvas->pixels)[n]==want\n"
+    },
+    {
+      "mutation": "blend-no-value-average",
+      "status": "KILLED",
+      "returncode": 3,
+      "diagnostic": "FAIL line75: ((Uint32*)canvas->pixels)[n]==want\n"
+    },
+    {
+      "mutation": "family-allows-missing",
+      "status": "KILLED",
+      "returncode": 3,
+      "diagnostic": "FAIL line92: cash25_family_ready()==valid\n"
+    },
+    {
+      "mutation": "skip-original-after-hd",
+      "status": "KILLED",
+      "returncode": 3,
+      "diagnostic": "FAIL line91: original_calls==before+1\n"
+    }
+  ]
+}

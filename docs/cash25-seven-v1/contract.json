@@ -1,0 +1,173 @@
+{
+  "art_root": "assets/hd/artwork/cash25-seven-v1",
+  "entries": [
+    {
+      "role": 112,
+      "name": "ASSET_CASH25_BODY",
+      "id": 7,
+      "key": 1120007,
+      "file": "coin25-bank11-7-8.hda",
+      "cache_slot": 472,
+      "density": 8,
+      "width": 12,
+      "height": 14,
+      "anchor": [
+        0,
+        0
+      ],
+      "rgba_dimensions": [
+        96,
+        112
+      ],
+      "file_bytes": 43036
+    },
+    {
+      "role": 112,
+      "name": "ASSET_CASH25_BODY",
+      "id": 8,
+      "key": 1120008,
+      "file": "coin25-bank11-8-8.hda",
+      "cache_slot": 473,
+      "density": 8,
+      "width": 12,
+      "height": 14,
+      "anchor": [
+        0,
+        0
+      ],
+      "rgba_dimensions": [
+        96,
+        112
+      ],
+      "file_bytes": 43036
+    },
+    {
+      "role": 112,
+      "name": "ASSET_CASH25_BODY",
+      "id": 9,
+      "key": 1120009,
+      "file": "coin25-bank11-9-8.hda",
+      "cache_slot": 474,
+      "density": 8,
+      "width": 12,
+      "height": 14,
+      "anchor": [
+        0,
+        0
+      ],
+      "rgba_dimensions": [
+        96,
+        112
+      ],
+      "file_bytes": 43036
+    },
+    {
+      "role": 112,
+      "name": "ASSET_CASH25_BODY",
+      "id": 10,
+      "key": 1120010,
+      "file": "coin25-bank11-10-8.hda",
+      "cache_slot": 475,
+      "density": 8,
+      "width": 12,
+      "height": 14,
+      "anchor": [
+        0,
+        0
+      ],
+      "rgba_dimensions": [
+        96,
+        112
+      ],
+      "file_bytes": 43036
+    },
+    {
+      "role": 112,
+      "name": "ASSET_CASH25_BODY",
+      "id": 11,
+      "key": 1120011,
+      "file": "coin25-bank11-11-8.hda",
+      "cache_slot": 476,
+      "density": 8,
+      "width": 12,
+      "height": 14,
+      "anchor": [
+        0,
+        0
+      ],
+      "rgba_dimensions": [
+        96,
+        112
+      ],
+      "file_bytes": 43036
+    },
+    {
+      "role": 112,
+      "name": "ASSET_CASH25_BODY",
+      "id": 12,
+      "key": 1120012,
+      "file": "coin25-bank11-12-8.hda",
+      "cache_slot": 477,
+      "density": 8,
+      "width": 12,
+      "height": 14,
+      "anchor": [
+        0,
+        0
+      ],
+      "rgba_dimensions": [
+        96,
+        112
+      ],
+      "file_bytes": 43036
+    },
+    {
+      "role": 113,
+      "name": "ASSET_CASH25_VALUE",
+      "id": 185,
+      "key": 1130185,
+      "file": "coin25-value-newsh6-185-8.hda",
+      "cache_slot": 478,
+      "density": 8,
+      "width": 12,
+      "height": 14,
+      "anchor": [
+        0,
+        0
+      ],
+      "rgba_dimensions": [
+        96,
+        112
+      ],
+      "file_bytes": 43036
+    }
+  ],
+  "family_readiness": "all_seven_before_any_replacement; density8 only; no density4 resource fallback",
+  "alpha": "Frozen authored fractional inward alpha; unchanged RGBA payloads",
+  "baseline_commit": "72ace9e51651158cd43da9209a2cd483bc741314",
+  "production_candidate_commit": "149fd9590fd8f320aa0f5fdb4d7b1a1326d791cc",
+  "art_inventory_sha256": "75b4973e91204d3fd35969237ff2e4d7f217d64ca23c7d15670712f14955697b",
+  "baseline_source_pins": {
+    "src/render_mirror.c": "638326d487d331977a12c4f899bcc89453169832cfd6dafa2547926fcef6a6ee",
+    "src/render_mirror.h": "5b0e97f7095f1eb60ec12e749b846c7d702127bd2373a98a4eb7d911b9d72e40",
+    "src/tyrian2.c": "1d99538c8a2bb4b9655ecdc4baa3cbb60b57ccb6030c15ce05e83b3200d36390",
+    "src/mainint.c": "0b39b8af90f981bce50762de98eb2458282ed3031780235a8ade405945dcddf8",
+    "src/varz.c": "d4502557903eea9fc082b83385fee3448564124040ff27faa1a4af16c8e394c7",
+    "src/asset_debug.c": "8be5161623d0d34c960ae7d229a3b9ac1b0889fe54bec407e131f267346b7bf8",
+    "src/game_probe.c": "16d14f4709a8b0633515cd1030315104f15c436fac5a202e4807054683017295"
+  },
+  "production_source_pins": {
+    "src/render_mirror.c": "e89765f30ce368deee65bd162308e475ca0a3301c567ac6d394ad1d454720d96",
+    "src/render_mirror.h": "f60f4be9d9216fd9a980ce24c7d525551729a80611da1a4caaca761e13ef2ce0",
+    "src/tyrian2.c": "2e5b699ad0b07b202c7b08134e254ad395ae40411e5496656e09113bd1f9487b"
+  },
+  "reference_documents": [
+    "docs/cash25-seven-v1/PLAN.md",
+    "docs/cash25-seven-v1/README.md"
+  ],
+  "rendering": {
+    "normal": "authored-alpha source-over",
+    "blend": "continuous source hue and averaged source/destination value, with authored alpha coverage",
+    "indexed_fallback": "unchanged original indexed blitters, including exact original0x90 shade arithmetic"
+  }
+}

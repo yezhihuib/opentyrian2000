@@ -1,0 +1,221 @@
+{
+  "status": "PASS_TECHNICAL_REVIEW",
+  "reviewed_utc": "2026-10-13T12:28:50.759298+00:00",
+  "scope": "Independent read-only review of production integration, frozen import, finite renderer tests, private fixture source and three authorized runtime executions. Reviewer executed no game and made no repository edits.",
+  "base_commit": "72ace9e51651158cd43da9209a2cd483bc741314",
+  "reviewed_production_checkpoint": "149fd9590fd8f320aa0f5fdb4d7b1a1326d791cc",
+  "source_sha256": {
+    "src/render_mirror.c": "e89765f30ce368deee65bd162308e475ca0a3301c567ac6d394ad1d454720d96",
+    "src/render_mirror.h": "f60f4be9d9216fd9a980ce24c7d525551729a80611da1a4caaca761e13ef2ce0",
+    "src/tyrian2.c": "2e5b699ad0b07b202c7b08134e254ad395ae40411e5496656e09113bd1f9487b"
+  },
+  "source_findings": [
+    "Body replacement is restricted to record391, global spriteSheet11 pointer identity, small size0, part0, original IDs7..12; roles112 and cache472..477 are separate from orb80112/80113.",
+    "Popup185 requires the original fixed-position/no-follow/deltaY0/sprite184/ttl<=8 call-site eligibility. The lease is consumed before every render_mirror_entity return and cleared on frame begin/entity_end.",
+    "No generic185 asset binding exists. Enemy scene-assets control applies to body only, consistently with existing independent entity controls.",
+    "All seven density8 resources must pass exact header, EOF and frozen RGBA-stamp validation before either new route succeeds. Missing/invalid/original-reference/unsupported-density paths retain classic.",
+    "Authored-alpha NORMAL and continuous authored hue/value-average BLEND are distinct from the unchanged exact indexed fallback. Existing value recognition and0x90 ramp guards are unchanged.",
+    "Only the three intended production files differ; gameplay/data/build membership are unchanged."
+  ],
+  "import_findings": {
+    "inventory_sha256": "75b4973e91204d3fd35969237ff2e4d7f217d64ca23c7d15670712f14955697b",
+    "hda_members": 7,
+    "bytes_per_hda": 43036,
+    "default_pack_bindings": 14,
+    "exact_predecessor_manifest_projection": true,
+    "all_preexisting_default_pack_bytes_unchanged": true,
+    "canonical_png_rgba_equals_hda": true,
+    "fractional_alpha_preserved": true,
+    "exact_rebuild_report": "coin25-source-review-20261013/art-rebuild.json",
+    "exact_rebuild_report_sha256": "aac0cfcb2c7533f0af4e549cddce5f5ec3d5899fb60edc57a9f80d9780dd8730"
+  },
+  "finite_renderer_tests": {
+    "report": "coin25-finite-units-v3-20261013/result.json",
+    "sanitizers": [
+      "ASan",
+      "UBSan"
+    ],
+    "checks_per_default_pack": 3520676,
+    "rgba_pixel_checks_per_default_pack": 1027584,
+    "malformed_missing_resource_rejections": 93,
+    "indexed_real_blitter_wrapper_cases": 96,
+    "coverage": [
+      "full authored NORMAL/BLEND oracle",
+      "synthetic fractional alpha",
+      "alpha0 owner0 and owner1",
+      "ordered7x7 overlaps",
+      "clip and physical-row-wrap fallback",
+      "one-shot consumption and wrong-context rejection",
+      "unrelated original orb slots218/219"
+    ],
+    "mutation_report": "coin25-mutation-tests-20261013/result.json",
+    "targeted_mutations_killed": 9,
+    "report_sha256": "eeddb0d0737021f1143c4c24727e25008ed7f5408f85a8cc033a4bd0d97bb55b",
+    "mutation_report_sha256": "932571c5aa37cb42894a1faf45ca372a5a957088afa2b46fb81781b1514d2875"
+  },
+  "private_fixture": {
+    "diff_sha256": "119c6332b68ac700b86f8bce71e324899deecf899aef78a51be8e0a36f88d765",
+    "runner_sha256": "ccd95fae1d638ba19137dd157f3c861ae7dd62f8d83b48ae5824502d98db28ba",
+    "baseline_source_pins_sha256": "41c2f0ad1328b97c4297755d079cadc352f967ef154d04ec0784f0a3204850fa",
+    "candidate_source_pins_sha256": "092c0a56d80886b44d182093f7fd75b83f8e0f259a7e1fc909ec0fd31cd8385d",
+    "baseline_binary_sha256": "f2e0eb4a3dbbd78806fc597572142a0cd2844fe639fa50550543002f470acbb6",
+    "candidate_binary_sha256": "eba583836f8cb954ad1f155d96619b30cc4f6e97d689af89a964bbe5ab0d43c4",
+    "no_enemy_field_overrides": true,
+    "single_original_Pulse155_tick": 1577,
+    "hard_ceiling_ticks": 1690,
+    "one_attempt_per_case": true,
+    "no_later_carrier_search": true,
+    "qualified_survival_guard": "Explicitly carried private player invulnerability; stationary no-fire scenario; not unassisted natural-play evidence."
+  },
+  "runtime": {
+    "execution_count": 3,
+    "no_image_baseline": true,
+    "collection_tick": 1655,
+    "terminal_tick": 1664,
+    "logic_ticks_each": 1665,
+    "carrier_slot": 26,
+    "geometric_hit_candidates": 3,
+    "first_collision_slot": 26,
+    "pulse_damage": 6,
+    "pulse_power_before_after": [
+      900,
+      870
+    ],
+    "pickup_slot": 29,
+    "carrier_death_reward": 15,
+    "collection_cash_before_after": [
+      15,
+      40
+    ],
+    "popup_slot": 0,
+    "body_ids_1649_through_1655": [
+      12,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "body_draw_origin_on_collection_tick": [
+      98,
+      146
+    ],
+    "collection_and_popup_origin": [
+      98,
+      148
+    ],
+    "popup_draw_ticks": [
+      1655,
+      1656,
+      1657,
+      1658,
+      1659,
+      1660,
+      1661,
+      1662
+    ],
+    "popup_draw_time_ttl": [
+      8,
+      7,
+      6,
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    "popup_clear_ticks": [
+      1663,
+      1664
+    ],
+    "native2_capture_ticks": [
+      1649,
+      1650,
+      1651,
+      1652,
+      1653,
+      1654,
+      1655,
+      1656,
+      1657,
+      1658,
+      1659,
+      1660,
+      1661,
+      1662,
+      1663
+    ],
+    "native2_dimensions": [
+      640,
+      400
+    ],
+    "native4_capture_ticks": [
+      1656
+    ],
+    "native4_dimensions": [
+      1280,
+      800
+    ],
+    "original_streams_byte_identical_across_cases": 8,
+    "all_retained_stream_gzip_and_raw_hashes_recomputed": true,
+    "all16_PNG_and_decoded_RGBA_hashes_recomputed": true,
+    "selected_draws_in_capture_window": 15,
+    "candidate_selected_mirrored": true,
+    "baseline_selected_mirrored": false,
+    "coverage_mismatches": 0,
+    "restoration_mismatches": 0,
+    "presentation_RNG_preserved": true,
+    "postrun_source_binary_data_pack_immutability_verified": true,
+    "retained_bytes": 8099658,
+    "retained_budget_bytes": 12582912,
+    "actual_baseline_RGB_comparison": false
+  },
+  "remaining_release_reviews": [],
+  "runtime_report_sha256": "f9574743a0484ebd163527a89125dd8e1c6236285df3fd83ffba5aa9ed8423cb",
+  "runtime_archive": {
+    "file": "coin25-runtime-evidence-20261013.tar.gz",
+    "sha256": "f617f6d03a69713b30b033504c60d5766d4f7deed937f971b3b2b1e602c48e65",
+    "bytes": 8011013
+  },
+  "original_edge_unit_gate": {
+    "status": "PASS",
+    "scenarios": 53,
+    "assertions_per_run": 7352,
+    "modes": [
+      "optimized",
+      "AddressSanitizer+UndefinedBehaviorSanitizer"
+    ],
+    "leak_sanitizer": "Not validated; unavailable under ptrace. Leak detection disabled for ASan+UBSan. Driver has no heap allocation.",
+    "game_runs": 0,
+    "source_manifest": "coin25-original-lifecycle-units-20261013/source-manifest.json",
+    "source_manifest_sha256": "0b9980a8c1fb1c6b677224df0fbbecc95857e76e2167e3f6f8c288b3f44b70ec",
+    "driver_sha256": "91911bfbd8a747377a966aba419b5a6d18d83f3c10ffad48ec26ad7afb849707",
+    "optimized_result_sha256": "e82c847b53be938aaf13e4010942e7efc559367bf417c9721ffdfeda560829fa",
+    "sanitized_result_sha256": "e82c847b53be938aaf13e4010942e7efc559367bf417c9721ffdfeda560829fa",
+    "exact_excerpts_verified_against_pinned_git_sources": true,
+    "coverage": [
+      "Normal25 and linked12+12 for both collectors",
+      "Full25-slot ground pool at every carrier position, original allocation returns0 before release",
+      "Full200-effect pool preserves collection/removal/cash without popup",
+      "Original setup rejects y<=-16 or y>=190",
+      "Original draw cancels admitted y187..189; y186 draws",
+      "Exact fixed185 eight draws, draw-timeTTL8..1 and clearing, original/candidate state and call equality in NORMAL/BLEND"
+    ],
+    "stub_limits": "Actual JE_newEnemy allocation loop is extracted and observed via GNU ld wrapping. JE_makeEnemy stub is never reached in full-pool proof and is used only for the post-release positive control. Positive real constructor/RNG behavior is verified separately in runtime evidence. Rendering is logged in this lifecycle unit and independently tested by renderer units."
+  },
+  "author_review": {
+    "status": "PASS_BOUNDED_CASH25_ACTUAL_AUTHOR_REVIEW",
+    "receipt": "docs/cash25-seven-v1/author-receipt.json",
+    "receipt_sha256": "638bef6a681d4109b1fda8c0808cc34fa3289be86e5e18b6fb23544ba1f95c12",
+    "reviewer_scope": "Separate author visual review; technical reviewer reviewed the receipt and evidence pins, not a claim of additional visual coverage.",
+    "limits": [
+      "Private survival and artificial originalPulse155 carrier-hit fixture; not naturally played collection footage.",
+      "No baselineRGB comparison or independent whole-frame RGB reconstruction claim in this author receipt. Original state/RNG/indexed/collision/collection parity is the technical gate.",
+      "Collection-tick coin drawing precedes collection; coin plus popup overlap at1655 is legitimate.",
+      "Bright-cloud readability is untested; the observed coin/popup sit chiefly over terrain and actors.",
+      "One six-phase rotation and short fixed-popup lifetime at2x;4x covers popup1656 only, not coin rotation.",
+      "Original NORMAL/BLEND semantics and other fallback modes remain subject to technical source/unit checks; no unsupported visual coverage claim."
+    ]
+  }
+}

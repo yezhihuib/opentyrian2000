@@ -1,0 +1,102 @@
+{
+  "status": "PASS_BOUNDED_COIN25_RUNTIME_AND_RELEASE_GATES",
+  "baseline_commit": "72ace9e51651158cd43da9209a2cd483bc741314",
+  "production_candidate_commit": "149fd9590fd8f320aa0f5fdb4d7b1a1326d791cc",
+  "scenario": {
+    "episode": 1,
+    "physical_level": 9,
+    "difficulty": "normal",
+    "seed": "0x5eed",
+    "input": "unchanged stationary no-fire enemy-hit",
+    "private_survival": true,
+    "artificial_original_Pulse155_tick": 1577,
+    "enemy_field_overrides": false
+  },
+  "execution_count": 3,
+  "logic_ticks_per_execution": 1665,
+  "collection_tick": 1655,
+  "cash_before_after": [
+    15,
+    40
+  ],
+  "popup_draw_ticks": [
+    1655,
+    1662
+  ],
+  "popup_draw_interval_inclusive": true,
+  "popup_draw_count": 8,
+  "popup_clear_ticks": [
+    1663,
+    1664
+  ],
+  "terminal_tick": 1664,
+  "hard_ceiling_ticks": 1690,
+  "capture_schedule": {
+    "baseline_images": 0,
+    "native2": {
+      "frames": 15,
+      "inclusive_tick_interval": [
+        1649,
+        1663
+      ],
+      "pixels": [
+        640,
+        400
+      ]
+    },
+    "native4": {
+      "frames": 1,
+      "tick": 1656,
+      "pixels": [
+        1280,
+        800
+      ]
+    }
+  },
+  "original_streams_identical_across_three_executions": {
+    "state": "2fd385768c4296ea9a9cae0555bc9a8e61cd3eac25f7ef21324354c702e2e4d0",
+    "collisions": "c06d2bce68ca22b2a16359f6ebd65b8c32e7f2a0efbe1d4512b6e8fee617d255",
+    "presentation": "70d308a4024a63201ff96f0bb9897f564e4d5336d337682d4b5140aee29ab58a",
+    "coin25-facts": "81aadb043a72ab3a63e764247c90ef43212840a7a2376f6de0e8b3f9330ef40c",
+    "asset-debug-clock": "9eb1dbc9ce1375803c8496c3ef3fe35776958da6fd59981cc70b04013d5ad89e",
+    "player-shot-emissions": "37439899208a1ec48b4f80778a10d606c7965b36683d56989fffa72d5f64de24",
+    "player-shot-requests": "7beff275e3b34ade1bf20379691c13e03d5d2c7a97b08a9ce1be6522c895fb26",
+    "player-shot-results": "e78dfc5409ce845d1dd96c973e7972bdc8ac0c7038d67f6ba3fd8fbbdaebf02d"
+  },
+  "coverage_and_restoration_mismatches": 0,
+  "art_inventory_sha256": "75b4973e91204d3fd35969237ff2e4d7f217d64ca23c7d15670712f14955697b",
+  "external_evidence": {
+    "archive": {
+      "file": "coin25-runtime-evidence-20261013.tar.gz",
+      "sha256": "f617f6d03a69713b30b033504c60d5766d4f7deed937f971b3b2b1e602c48e65",
+      "bytes": 8011013
+    },
+    "runtime_verification_sha256": "f9574743a0484ebd163527a89125dd8e1c6236285df3fd83ffba5aa9ed8423cb",
+    "frozen_schedule_sha256": "da926ec5aabab9330e538a4a2c13fd653ae116df20c35cad8d63a4d6a2878c8e",
+    "paired_build_receipt_sha256": "084b745fb04033f5845d894e39924497389d82d19a76216f3438196e67c1ccd3",
+    "original_lifecycle_receipt_sha256": "3f689c56f92289098e8a3920035cc074c8537d67ac4026266e4cde35f40fa0ae",
+    "original_lifecycle_source_archive": {
+      "file": "coin25-original-lifecycle-units-20261013.tar.gz",
+      "bytes": 14553,
+      "sha256": "1cd0e3deb66401559f3ddc4a1c3ec642443468ce0b220bc783a2533b50915fa2"
+    }
+  },
+  "release_reviews": {
+    "technical-review.json": {
+      "path": "docs/cash25-seven-v1/technical-review.json",
+      "sha256": "115ee8db788297924e1f4bb12477efb255ac4d71ff96c9cbde2097ebc8eb2d09"
+    },
+    "author-receipt.json": {
+      "path": "docs/cash25-seven-v1/author-receipt.json",
+      "sha256": "638bef6a681d4109b1fda8c0808cc34fa3289be86e5e18b6fb23544ba1f95c12"
+    }
+  },
+  "limits": [
+    "Artificial original-Pulse155 and private-survival fixture; no unqualified natural-play claim.",
+    "No baseline RGB images or before/after RGB comparison.",
+    "Observed terrain/actor context only; bright-cloud readability untested.",
+    "Native4x covers fixed popup1656 only; no4x coin-rotation coverage.",
+    "No Windows/GPU/manual-input or FPS/original-speed claim.",
+    "Raw logs, captures, private fixtures and original game data remain external."
+  ]
+}

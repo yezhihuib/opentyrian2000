@@ -1,0 +1,62 @@
+{
+  "status": "FROZEN_CANDIDATE_PENDING_ACTUAL",
+  "density": 8,
+  "logical_size": [
+    12,
+    14
+  ],
+  "pixel_size": [
+    96,
+    112
+  ],
+  "anchor": [
+    0,
+    0
+  ],
+  "bodies": {
+    "role": 112,
+    "prefix": "coin25-bank11",
+    "ids": [
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "keys": [
+      1120007,
+      1120008,
+      1120009,
+      1120010,
+      1120011,
+      1120012
+    ],
+    "record": 391,
+    "sequence": [
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "timing": "One state per active original draw call; preserve original draw gate and motion, no invented interpolation."
+  },
+  "value": {
+    "role": 113,
+    "prefix": "coin25-value-newsh6",
+    "id": 185,
+    "key": 1130185,
+    "fixed": true,
+    "max_original_draws": 8,
+    "render_semantics": "NORMAL authored-alpha source-over; BLEND original hue-overwrite/value-average, not50percent opacity or generic explosion HSV. Preserve original indexed fallback."
+  },
+  "header": "HDR1 followed by six little-endian u32(key,8,12,14,0,0),96x112 straight RGBA and EOF;43036bytes",
+  "coverage": "Generated alpha restrained inward by original support; solid physical coin interior, fractional rim coverage only, no expansion or glow. Popup remains readable cyan25 with darknavy backing.",
+  "edge_recipe": "Generated alpha min clip((Gaussian(original_support,sigma2)-0.5)/0.35,0,1)*255 then zero outside source support.",
+  "fallback": "Seven-resource finite family preflight; no separate4x artwork fallback.",
+  "root_pilot_gate_utc": "2026-10-13T12:02:32Z",
+  "source_limits": "No separate shadow/hurt/trail. Source allocation/collection/drop conditions preserved; no actual exposure yet. Other bank IDs and cash families excluded.",
+  "actual_pending": "Full6state rotation, rim temporal stability, cloud/terrain readability, original carrier death/drop/collection/fixed25 draw and clear."
+}

@@ -2003,6 +2003,9 @@ draw_player_shot_loop_end:
 			}
 			else
 			{
+				/* Display-only eligibility for this original fixed value draw. */
+				render_mirror_coin25_value_begin(explosions[j].fixedPosition && !explosions[j].followPlayer &&
+				                                explosions[j].deltaY == 0 && explosions[j].sprite == 184 && explosions[j].ttl <= 8);
 				if (explosionTransparent)
 					draw_entity_sprite2(VGAScreen, explosions[j].x, explosions[j].y, explosionSpriteSheet, explosions[j].sprite + 1, ENTITY_BLEND, ENTITY_TILE);
 				else
