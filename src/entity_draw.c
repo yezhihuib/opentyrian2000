@@ -44,6 +44,8 @@ void draw_enemy_shot_sprite2(SDL_Surface *target,int x,int y,Sprite2_array bank,
 #ifndef RENDER_MIRROR_DISABLED
  if(bank.data==spriteSheet8.data&&(index==112||index==113))
   game_probe_scene_draw(108,index,x,y,0,ENTITY_NORMAL,mirrored);
+ else if(bank.data==spriteSheet8.data&&(index==77||index==58||index==182||index==163||index==1||index==183||index==164))
+  game_probe_scene_draw(111,index,x,y,0,ENTITY_NORMAL,mirrored);
 #else
  (void)mirrored;
 #endif

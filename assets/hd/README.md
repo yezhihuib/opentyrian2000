@@ -17,3 +17,5 @@ Physical terrain underlay323/324/333/334: [validation](../../docs/UNDERLAY_VALID
 Complete13-member road family with9 additive/revised tiles: [validation](../../docs/ROAD_NINE_VALIDATION.md).
 
 Layer-3 gray island and type-40 turret: [validation](../../docs/GRAY_ISLAND_TURRET_VALIDATION.md), including selected rim revision and original component-local reveal.
+
+Seven enemy-role directional energy sprites: [finite source, unit and actual 2×/4× validation](../../docs/enemy-energy-seven/README.md). Separate role111 preserves player58 and the existing112/113 orbs; shared-enemy and later-episode limits are explicit.

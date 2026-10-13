@@ -1,0 +1,47 @@
+{
+  "status": "PASS_IMPLEMENTATION_SOURCE_REVIEW",
+  "reviewed_at_utc": "2026-10-13T09:27:12Z",
+  "base_commit": "e50fff31057ee08cca6c27bb7c56f4df06f28b5a",
+  "minimum_corrections": [],
+  "findings": [
+    "Runtime modifications are limited to role111/prefix/array growth, exact seven-member full-RGBA FNV preflight, a finite guarded enemy branch, scene-attempt logging and surviving bank8 shot dispatch.",
+    "Slots462-468 and role111/key1110000+ID are isolated from player58 role8/key80058/slot321 and every prior asset slot. Frozen payload stamps match the earlier independently inspected HDA bytes.",
+    "New branch checks finite index, active mirror, exact game_screen/VGAScreen identity, nonnull matching bank8 data, width320/height200/pitch320 and 8bit/one-byte format before bounded coordinate scaling; x0-308/y-13-199 preserve supported RLE geometry.",
+    "Invalid or missing any member prevents every new-family draw for its cache lifetime. New-family checks do not gate the unchanged112/113 branch or alter boss caches.",
+    "The existing compositor, loader validation body, generic player dispatch, original RLE source and gameplay update branches are unchanged. Original blit and suppression reset remain exactly once.",
+    "Builder/manifest adds only the finite frozen family to both existing defaults and checks exact canonical source links; no old-validator compatibility bypass is introduced."
+  ],
+  "candidate_source_sha256": {
+    "src/render_mirror.c": "94cdc52a5ee1af4fa703023f0eeb788610e3a55c668651db7ea313993b53e02a",
+    "src/entity_draw.c": "7ed285315b48ba7b9f49c8a116f817a411eb5026568cf83b4d60ab2f856a0ba0",
+    "src/tyrian2.c": "1d99538c8a2bb4b9655ecdc4baa3cbb60b57ccb6030c15ce05e83b3200d36390",
+    "src/shots.c": "ec0f326f407849037af1a0218a1bfed1f3f2a720301a053afd3a7d25c7391405",
+    "src/sprite.c": "f55491df5ec34163e3c46da7607c132449fa4d299117a768ae91dd9cf92b5886",
+    "src/render_mirror.h": "5b0e97f7095f1eb60ec12e749b846c7d702127bd2373a98a4eb7d911b9d72e40",
+    "assets/hd/manifest.json": "bd3e6d2214ed6d53f84ccc4e51cf4b058268340f7749b79f73dae02a203e8254",
+    "prototype/build-enemy-energy-seven-art.py": "e316002ecaf61f3f234840fb6a883bb8337e34d4c93b2fee3c2b0fc297b841e2",
+    "prototype/build-hd-assets.py": "c18d5d70760979e448337053e557498ee562707eb86700e1a61f1a756c7f560f"
+  },
+  "preservation_receipt": {
+    "path": "source-preservation.json",
+    "sha256": "2bce8704ba1565972f484d06ecc80e6b23c0f8960b8a6df95d39b8b7697b741f",
+    "reported_other_files_byte_exact": 6901
+  },
+  "aggregate_receipt": {
+    "path": "aggregate.json",
+    "sha256": "80ecf7585f1e8e79b395e93c70f2a5745948bd2ac33314f528ac1d42abcb15f4",
+    "scope": "Read existing planner receipt; reviewer did not execute aggregate."
+  },
+  "pending": [
+    "Extracted-production unit results from unit worker",
+    "Separate finite7378 private fixture source review before launch",
+    "Actual paired7378 runtime/native/alpha evidence"
+  ],
+  "game_runs": 0,
+  "test_runs": 0,
+  "new_captures": 0,
+  "source_edits": 0,
+  "uploads": 0,
+  "original_receipt_sha256": "14d44f5667b4f94b0d88b721c31ddc7560f56831caa668a05c36d687aa0b8d1f",
+  "portability_note": "Only external location fields were removed/replaced. Historical pending stages below were completed by engineering-review.json and author-review.json; inventory metadata was subsequently normalized as recorded separately."
+}

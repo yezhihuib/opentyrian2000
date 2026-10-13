@@ -1,0 +1,150 @@
+{
+  "status": "PASS",
+  "game_runs": 0,
+  "captures": 0,
+  "sanitizers": [
+    "ASan",
+    "UBSan"
+  ],
+  "results": {
+    "preview": {
+      "status": "PASS",
+      "transactions": 964,
+      "accepted": 320,
+      "fallback": 644,
+      "player_cases": 176,
+      "guard_cases": 342,
+      "pixel_comparisons": 12989984,
+      "full_frame_checks": 62,
+      "exact_alpha_cases": 393216
+    },
+    "debug": {
+      "status": "PASS",
+      "transactions": 964,
+      "accepted": 320,
+      "fallback": 644,
+      "player_cases": 176,
+      "guard_cases": 342,
+      "pixel_comparisons": 12989984,
+      "full_frame_checks": 62,
+      "exact_alpha_cases": 393216
+    }
+  },
+  "disabled_build": "PASS nine disabled-build original blits",
+  "source_sha256": {
+    "render_mirror.c": "94cdc52a5ee1af4fa703023f0eeb788610e3a55c668651db7ea313993b53e02a",
+    "entity_draw.c": "7ed285315b48ba7b9f49c8a116f817a411eb5026568cf83b4d60ab2f856a0ba0",
+    "sprite.c": "f55491df5ec34163e3c46da7607c132449fa4d299117a768ae91dd9cf92b5886",
+    "shots.c": "ec0f326f407849037af1a0218a1bfed1f3f2a720301a053afd3a7d25c7391405",
+    "tyrian2.c": "1d99538c8a2bb4b9655ecdc4baa3cbb60b57ccb6030c15ce05e83b3200d36390",
+    "render_mirror.h": "5b0e97f7095f1eb60ec12e749b846c7d702127bd2373a98a4eb7d911b9d72e40"
+  },
+  "function_sha256": {
+    "palette_rgb": "3d8e2f2e1edebd62bce8ad34128bfb346f89a2ba35001abe20179e3dc1738aaa",
+    "blend_rgba": "df7ddcb9c6a742e4b227b7b12f4a134f8ebd08fe12a4a2a6e8e36c96b1c7b3fc",
+    "cloud_shadow_rgba": "3f3a363e6531f887c91de7d726239c870e783558eba214a312203b7b30d8a986",
+    "cloud_asset": "2be4be802906d698476a6aa4547a82990b79b5ed34962f22fab166465ce91e90",
+    "darken_rgba": "31194f5f89d033493c36e6a82fb290c0d539c6fb3fab8c5df43aace4dbb633d8",
+    "decode_tile": "356e5c5d3cfbffadf047ce1fcfca196756b9f5bff0fdafe86d125540c3d78a48",
+    "read_asset": "84435d600b1fb42becf9565ccde6744a6a45ca1f7d5073c7ea154516f656b073",
+    "explosion_asset_slot": "00d117c7d38f192ac14a6f30067abfb722392bc3966dcd9b53f30c9406d24a8c",
+    "get_asset": "1a793e18c60e7752282d922ad7a3e10e8d17461aef2500b55ee9f59664ec2de2",
+    "talon_frame": "7f1ad4d861cfee14c9aede9f15298d4b18200c809aea9e115e9a711253f81a6e",
+    "enemy_filter_rgba": "dc782d1e0458883a5b9802eb109cb9a4fac533c4d7a4c8522453f6faffd1bc61",
+    "explosion_asset_blend_rgba": "26fc53617c2a685d318e87150ebfe18a4eb6a9b498dbe6a759dee728a2f665ac",
+    "green_background_snapshot": "180e4758895c463a6a17c529c5710284681b57c5b114b9ffb95781a870b456da",
+    "green_background_peak": "0034111d043810c6dc8fbb1ff245a720335a31e1444bbc7ae90b0ef3f28cda0b",
+    "green_head_composite": "8f0f7bc2f4c051c6faed960d5c180d8299a53544a4a2328cf4ba06f7de818261",
+    "draw_asset_filtered": "7588232a6924a1cbf8df7a680a6c4e5b56fe512003cb6cae5625ab1dbfb37d31",
+    "draw_asset": "8a4aa2b5da7be247146e3e240afa8f81e80829b999cbcbd3b6553672362cb94c",
+    "render_mirror_entity": "a6e4f43b24316771c9338283eb24a1dcf0c0424a0963839da5def7df6798f1a6",
+    "enemy_energy_slot": "f553c53885de01a9506277327c272e761b1b31d62bbb753f70e3480288fccc8d",
+    "enemy_energy_family_ready": "66cb5d444c70d347d0e8242a246578c099c8b7d07e109829a6eeb55402446e8d",
+    "render_mirror_enemy_shot": "c7a4844c406599dd6b51f911d12f566ca945c63472c8d2bf8daa9f685b0144b0",
+    "render_mirror_pixel": "29fa0586ab19774462af934762663ac4668445c6f0cc617d6bb7677c7ebcd3a3",
+    "render_mirror_entity_end": "560f5f841a976e4f277caa17c5f978b56f1bd525e9f7d44db382b6ab7ac65889",
+    "blit_sprite2": "b0347467fbd8c5378b6fea32a4e29b4cc58c90a9cae5a542d2093d51234e7364",
+    "blit_sprite2_darken": "eb7246a8f16d0d87a8714c0e8161316f3a6a7242077fd164f8b3355d739a8f87",
+    "draw_enemy_shot_sprite2": "f4f19f16f0560fc2c30d282a60a11c990d15e9d25dc6a5238e489f3b92db6f0c",
+    "draw_entity_sprite2": "394bca839b5814595b006b279b526b6cebf8e83119143bf64b90a80d7e5da0d3"
+  },
+  "asset_sha256": {
+    "enemy-energy-77-8.hda": "9d06a7a03a13cabfde61a214b9b5b120494d4e6ac33b5f07b3e0db1fc8988554",
+    "enemy-energy-58-8.hda": "cb1f3cb4a8b8d3f117e0a7210f2bf63fe9b3254a0340d7e35b29d19b6f2ad1ed",
+    "enemy-energy-182-8.hda": "61fdc940efc6a4ed8ddc554928b8f31e71211e887021bf97afc9856e3a04ed76",
+    "enemy-energy-163-8.hda": "56f8e540464e66ab72ffed42cb04b833ebe4e7545c05a5a018c311f52414afaa",
+    "enemy-energy-1-8.hda": "3b00b4258530e32f996c85aec25fc7bfb4f2d1bad14925bf0581d05007dd4c72",
+    "enemy-energy-183-8.hda": "4e2741b3bfc370a405344f2d093c1302ed5abea7d627b96d0bcb38a48d77a2ad",
+    "enemy-energy-164-8.hda": "2ae1c309c036e1a801e01e47baf8f6edf3be9c81652135b1c1647558b2ac4d75",
+    "bullet-112-8.hda": "22e2be2903bc897f2f2d674dc6f95e740f57a510110d8bbcd8df8e969ab5c6fd",
+    "bullet-113-8.hda": "185ae48dcc144f8222e26b3467e9dfea2de8f83de280a08fb2d9481fbf9b3924",
+    "bullet-58-8.hda": "571feee3e3a572c6178fad80ca8fe3ca12e2cde21438464fa916b68cab1b43b0"
+  },
+  "bank_sha256": "9bba1e94d38df61f152412c226bfd6df235e42027c9143c5961d4a5add853a68",
+  "harness_sha256": {
+    "test-enemy-energy-seven.py": "4069afeee4f40f3822e70a6f14f0f50cfda6ad66ec9bf6155d15ec1e072ff594",
+    "test-enemy-energy-seven.c": "51c07cad1fbd9efb37762d859efdcb163c20f4113f678e2f9ee133aa037e86ee"
+  },
+  "coverage": {
+    "mutated_packs": [
+      "missing-77",
+      "missing-58",
+      "missing-182",
+      "missing-163",
+      "missing-1",
+      "missing-183",
+      "missing-164",
+      "changed-77",
+      "changed-58",
+      "changed-182",
+      "changed-163",
+      "changed-1",
+      "changed-183",
+      "changed-164",
+      "magic",
+      "role",
+      "id",
+      "density",
+      "width",
+      "height",
+      "anchor-x",
+      "anchor-y",
+      "truncated",
+      "extra",
+      "alpha",
+      "only4"
+    ],
+    "alpha_operator": [
+      0,
+      1,
+      127,
+      128,
+      254,
+      255
+    ],
+    "original_index": "Actual source bank8 decoded independently; production RLE remains one blit and one reset per wrapper",
+    "pixel_checks": "Every affected ROI after each draw; whole frame every32 transactions and phase boundaries",
+    "isolation": "Player58 normal/shadow and orb112/113 work inside each same damaged pack; six other shared player IDs remain classic",
+    "legacy_density_fallback": "Old orb/player density8-to4 fallback preserved; seven new IDs reject density1, density4 and source4-only",
+    "geometry": "x0/308 and partial vertical clips accepted; physical row wraps fall back; huge coordinates tested before arithmetic",
+    "caller_state": "Complete tyrian2 inverse allowlist equality and unchanged sprite.c/shots.c; no gameplay/RNG functions extracted"
+  },
+  "preserved_source": [
+    "get_asset",
+    "render_mirror_entity",
+    "draw_asset_filtered",
+    "draw_asset",
+    "render_mirror_pixel",
+    "sprite.c",
+    "shots.c",
+    "render_mirror.h",
+    "draw_entity_sprite2",
+    "original enemy112/113 hook branch"
+  ],
+  "limitations": [
+    "Extracted production unit; no gameplay, native presentation or aesthetic acceptance.",
+    "Font/material paths are fail-if-entered or no-op stubs; blend/loader/hook/RLE/compositor are exact source.",
+    "LeakSanitizer disabled; ASan and UBSan enabled.",
+    "Extreme coordinates test the HD hook only; existing original RLE assumptions are not broadened."
+  ]
+}

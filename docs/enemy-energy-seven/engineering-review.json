@@ -1,0 +1,135 @@
+{
+  "status": "PASS_FINAL_BOUNDED_REVIEW",
+  "reviewed_at_utc": "2026-10-13T09:53:51Z",
+  "baseline_commit": "e50fff31057ee08cca6c27bb7c56f4df06f28b5a",
+  "runtime_commit": "f292a2cf59678a23b538f7ee6f7287cad68fa833",
+  "candidate_commit": "8adbbe6dbb2d72a4c229cb266191167aaaadbab0",
+  "scope": "Exactly seven enemy-role directions, existing hooks, and one known actual scene at tick7378, at native2x and4x. Engineering verification; artwork acceptance is separate.",
+  "ids": [
+    77,
+    58,
+    182,
+    163,
+    1,
+    183,
+    164
+  ],
+  "role": 111,
+  "asset_slots": [
+    462,
+    463,
+    464,
+    465,
+    466,
+    467,
+    468
+  ],
+  "source_review": "PASS. Existing player routes, player58,112/113 orb branch, compositor and original RLE/gameplay logic are preserved. Seven-member failure remains family-local.",
+  "unit_review": {
+    "status": "PASS",
+    "receipt_sha256": "ac2dd5f9e6dd6ab604fd9e8b1a9b63bf4d4e8bebf686e882fd1a09fac30ab930",
+    "sanitizers": [
+      "ASan",
+      "UBSan"
+    ],
+    "disabled_build": "PASS",
+    "transactions_per_default_pack": 964,
+    "source_hashes_match_final_runtime": true,
+    "coverage": "Finite missing/corrupt family fallback, role/player/shadow isolation, geometry, indexed writes, alpha and ownership."
+  },
+  "actual_accounting": {
+    "runs": 4,
+    "native_captures": 4,
+    "indexed_captures": 4,
+    "only_capture_tick": 7378,
+    "last_logic_tick": 7378,
+    "state_index_rng_rows_equal_per_lane": 7379,
+    "phase_event_rng_rows_equal_per_lane": 22137,
+    "original_draw_stream_equal_across_all_lanes": true,
+    "no_player_fire": true,
+    "native_png_pixels_equal_recorded_sdl_bmp": true
+  },
+  "proofs": [
+    {
+      "scale": 2,
+      "status": "PASS",
+      "whole_frame_pixels_compared": 256000,
+      "support_pixels_verified_per_lane": 1132,
+      "changed_pixels": 1125,
+      "straight_alpha_subpixels_verified": 75264,
+      "all_seven_positive_and_fractional_witnesses": true,
+      "five_original_orb_draws_accounted": true,
+      "mismatches": 0,
+      "exclusions": 0,
+      "tolerance": 0,
+      "proof_sha256": "f551d54cf04f70a6338077f44366198eaed42473a76af79a52341a0a809faca9"
+    },
+    {
+      "scale": 4,
+      "status": "PASS",
+      "whole_frame_pixels_compared": 1024000,
+      "support_pixels_verified_per_lane": 4528,
+      "changed_pixels": 4497,
+      "straight_alpha_subpixels_verified": 75264,
+      "all_seven_positive_and_fractional_witnesses": true,
+      "five_original_orb_draws_accounted": true,
+      "mismatches": 0,
+      "exclusions": 0,
+      "tolerance": 0,
+      "proof_sha256": "1a5889c3c0edbbe10b07db10e5de62bc67ce03561fea060f2aa3b9b311897a76"
+    }
+  ],
+  "capture_pins": {
+    "baseline2": {
+      "native_png_sha256": "bd1917e0131dba1284a80327329b44f7d8067b77385dfd22b561133950f7c0a9",
+      "indexed_bmp_sha256": "abae50b2761d21ebbcb01b425084bd0b93501a26a76e683940c9cf1bb225a7a7",
+      "snapshot_sha256": "e5f14400296da6be839f2952f8d6c354c8c08c48cb4e27e3891d95f7c5cbda9a",
+      "result_sha256": "553bd9ff46187aded70ddd925b751db8b06fb7e25e68755c9ff07668ad3f6734"
+    },
+    "candidate2": {
+      "native_png_sha256": "fe6f43b681298b5d294d24e1dd36d1808fc9744f89fd6e48dc126e86cdb08f28",
+      "indexed_bmp_sha256": "abae50b2761d21ebbcb01b425084bd0b93501a26a76e683940c9cf1bb225a7a7",
+      "snapshot_sha256": "7395f89ec9fb39e175d63f60df5d3cb9be63b67adcb17615bd17db56d7bcb676",
+      "result_sha256": "88c4c8f831f32f94c121ba7d8de33e424ee20cde5074fd02059ef917ef16a750"
+    },
+    "baseline4": {
+      "native_png_sha256": "ce27c38187a87b00bf9bac84ad17dcbaf57137962cfd53d5114a81d12fcc9470",
+      "indexed_bmp_sha256": "abae50b2761d21ebbcb01b425084bd0b93501a26a76e683940c9cf1bb225a7a7",
+      "snapshot_sha256": "e5f14400296da6be839f2952f8d6c354c8c08c48cb4e27e3891d95f7c5cbda9a",
+      "result_sha256": "a5a84ce310368d32697803910c9194fac56775657a00382c479458c5cded5c89"
+    },
+    "candidate4": {
+      "native_png_sha256": "02da160643b09ba165bebc56519ee8f9c4e1216e7691fa417617632ff16aae6f",
+      "indexed_bmp_sha256": "abae50b2761d21ebbcb01b425084bd0b93501a26a76e683940c9cf1bb225a7a7",
+      "snapshot_sha256": "7395f89ec9fb39e175d63f60df5d3cb9be63b67adcb17615bd17db56d7bcb676",
+      "result_sha256": "3df6c3626da6076d350836377be38125a5f47f23af5fb21c23e84a03f62f5bdb"
+    }
+  },
+  "preserved_initial_stop": {
+    "case": "candidate2",
+    "original_result": "FAIL retained unchanged",
+    "reason": "Twenty-four changed native pixels included five later existing enemy113 normal-alpha draws.",
+    "resolution": "Separate reviewed retained-data correction accounts for exactly those five logged draws and verifies the complete support in both lanes. No extra run, capture, tolerance or exclusion.",
+    "original_result_sha256": "88c4c8f831f32f94c121ba7d8de33e424ee20cde5074fd02059ef917ef16a750"
+  },
+  "evidence": {
+    "completion_sha256": "12289846e9dbf25669b27f92a9ec3d7a66c37dbdca55ba01628dd988115dc59a",
+    "evidence_manifest_sha256": "8e08f028af08c63511833f5a1d597a30705bb611dd643d33fee209dc7d38a349",
+    "manifest_files_verified": 535,
+    "archive_filename": "enemy-energy-seven-actual7378-evidence-20261013.tar.gz",
+    "archive_sha256": "9426addd88e0e1dbff8937cfc60656dc3a5269a195a0316a491557c42b82234e",
+    "original_capture_freeze_sha256": "3017d1b8da3571848e2f85b9cebb240b777f4f0887bb7c7a55975440264c1ac1",
+    "correction_freeze_sha256": "d0fe19a844bc885dd92d220988dd9079c8a4a17221518be895cf87a7fadfdd81",
+    "correction_review_sha256": "fbd79afd13ce378ae846df161bc3b598e4587063e1f4931ccf253a20dea142c5"
+  },
+  "limits": [
+    "SDL dummy/software native output, not physical GPU/Windows/full-campaign acceptance.",
+    "Shared nonboss emitters and later episodes retain source/static coverage only.",
+    "Player/shadow isolation and missing/corrupt fallback rely on the separate production-unit suite, not additional game runs.",
+    "The private trial uses only the preexisting symmetric survival convention; display snapshots are not game-state checkpoints."
+  ],
+  "publication_recommendation": "PASS for the stated finite engineering scope; preserve these limitations and the corrected initial proof-stop history.",
+  "reviewer_new_tests": 0,
+  "reviewer_new_game_runs": 0,
+  "reviewer_new_captures": 0
+}

@@ -1,0 +1,101 @@
+{
+  "status": "PASS",
+  "scale": 4,
+  "paired_native_pixels": 1024000,
+  "changed_native_pixels": 4497,
+  "outside_source_support_mismatches": 0,
+  "straight_alpha_subpixels_verified": 75264,
+  "original_call_index_mismatches": 0,
+  "ownership_mismatches": 0,
+  "both_lane_full_support_mismatches": 0,
+  "support_native_pixels_per_lane": 4528,
+  "changed_pixel_postcall_plus_original_orbs_mismatches": 0,
+  "later_orb_calls": 5,
+  "later_orb_asset_sha256": "185ae48dcc144f8222e26b3467e9dfea2de8f83de280a08fb2d9481fbf9b3924",
+  "later_orb_corrected_changed_native_pixels": 98,
+  "later_orb_energy_support_alpha_overlap_samples": 365,
+  "later_orb_fractional_overlap_samples": 365,
+  "pixel_exclusions": 0,
+  "tolerance": 0,
+  "per_direction": [
+    {
+      "id": 77,
+      "canvas_subpixels_verified": 10752,
+      "source_support_native": 592,
+      "positive_alpha_native": 509,
+      "fractional_alpha_native": 509,
+      "changed_final_native": 592,
+      "visible_positive_native": 509,
+      "visible_fractional_native": 509,
+      "visible_alpha_zero_underlay_native": 83
+    },
+    {
+      "id": 58,
+      "canvas_subpixels_verified": 10752,
+      "source_support_native": 592,
+      "positive_alpha_native": 521,
+      "fractional_alpha_native": 521,
+      "changed_final_native": 592,
+      "visible_positive_native": 521,
+      "visible_fractional_native": 521,
+      "visible_alpha_zero_underlay_native": 71
+    },
+    {
+      "id": 182,
+      "canvas_subpixels_verified": 10752,
+      "source_support_native": 688,
+      "positive_alpha_native": 631,
+      "fractional_alpha_native": 629,
+      "changed_final_native": 674,
+      "visible_positive_native": 619,
+      "visible_fractional_native": 617,
+      "visible_alpha_zero_underlay_native": 55
+    },
+    {
+      "id": 163,
+      "canvas_subpixels_verified": 10752,
+      "source_support_native": 688,
+      "positive_alpha_native": 637,
+      "fractional_alpha_native": 636,
+      "changed_final_native": 688,
+      "visible_positive_native": 637,
+      "visible_fractional_native": 636,
+      "visible_alpha_zero_underlay_native": 51
+    },
+    {
+      "id": 1,
+      "canvas_subpixels_verified": 10752,
+      "source_support_native": 592,
+      "positive_alpha_native": 519,
+      "fractional_alpha_native": 517,
+      "changed_final_native": 592,
+      "visible_positive_native": 519,
+      "visible_fractional_native": 517,
+      "visible_alpha_zero_underlay_native": 73
+    },
+    {
+      "id": 183,
+      "canvas_subpixels_verified": 10752,
+      "source_support_native": 688,
+      "positive_alpha_native": 654,
+      "fractional_alpha_native": 653,
+      "changed_final_native": 671,
+      "visible_positive_native": 639,
+      "visible_fractional_native": 638,
+      "visible_alpha_zero_underlay_native": 32
+    },
+    {
+      "id": 164,
+      "canvas_subpixels_verified": 10752,
+      "source_support_native": 688,
+      "positive_alpha_native": 641,
+      "fractional_alpha_native": 641,
+      "changed_final_native": 688,
+      "visible_positive_native": 641,
+      "visible_fractional_native": 641,
+      "visible_alpha_zero_underlay_native": 47
+    }
+  ],
+  "baseline_snapshot_sha256": "e5f14400296da6be839f2952f8d6c354c8c08c48cb4e27e3891d95f7c5cbda9a",
+  "candidate_snapshot_sha256": "7395f89ec9fb39e175d63f60df5d3cb9be63b67adcb17615bd17db56d7bcb676"
+}

@@ -1,0 +1,51 @@
+{
+  "status": "FROZEN_CANDIDATE_PENDING_RUNTIME",
+  "ids": [
+    77,
+    58,
+    182,
+    163,
+    1,
+    183,
+    164
+  ],
+  "role": 111,
+  "prefix": "enemy-energy",
+  "bank": 8,
+  "density": 8,
+  "logical_size": [
+    12,
+    14
+  ],
+  "pixel_size": [
+    96,
+    112
+  ],
+  "anchor": [
+    0,
+    0
+  ],
+  "HDR1_key": "1110000+ID",
+  "scope": "All ordinary enemy-role uses of these seven source IDs; preserve every player role/path/preview/shadow and existing player58. Not weapon81-exclusive.",
+  "coverage": "Generated straight alpha, smooth inward edge coverage, zero outside original RLE support. No opaque matte or global sampler edits.",
+  "edge_recipe": "Clamp generated alpha to clip((Gaussian(original_support,sigma2)-0.5)/0.35,0,1)*255, then zero outside original support; RGB from generated master only.",
+  "orientation": "Never rotate artwork to velocity. Shared58 remains up-facing even when original enemy shots travel sideways/downward.",
+  "directions": [
+    "down",
+    "up",
+    "down-left",
+    "up-left",
+    "right",
+    "down-right",
+    "up-right"
+  ],
+  "no_animation": true,
+  "outside_scope": [
+    39,
+    201,
+    202
+  ],
+  "source_reuse_limit": "Shared nonboss level1 emitters are fire-dormant; no claim of actual firing. Later episode4/5 extra39 staysclassic.",
+  "root_pilot_gate_utc": "2026-10-13T09:15:17Z",
+  "actual_pending": "Bright cloud readability, exact underlay/fractional alpha, all seven enemy shots and player-path isolation/fallback."
+}

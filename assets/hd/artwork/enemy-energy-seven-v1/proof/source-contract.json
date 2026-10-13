@@ -1,0 +1,810 @@
+{
+  "commit": "e50fff31057ee08cca6c27bb7c56f4df06f28b5a",
+  "repo_clean_before": true,
+  "source_hashes": [
+    {
+      "path": "src/episodes.c",
+      "bytes": 9209,
+      "sha256": "640219b48d3081ee996ce66a66f61ad2fe185339fcfaf395808e02fcee0b29e0"
+    },
+    {
+      "path": "src/episodes.h",
+      "bytes": 4388,
+      "sha256": "e754c9f34372082084752cb2244c132b8ccad1a1e475d22366e5f1e1e2a59ef5"
+    },
+    {
+      "path": "src/lvllib.c",
+      "bytes": 1186,
+      "sha256": "34467e09b9088b646ad7006480c691ebc65491f8bd72c1d3c65b2e4454e4fca5"
+    },
+    {
+      "path": "src/tyrian2.c",
+      "bytes": 132784,
+      "sha256": "0a042621d599fdba15f89012c9bb1007327cd6f5df0e0a41865ea61c08856d02"
+    },
+    {
+      "path": "src/shots.c",
+      "bytes": 15121,
+      "sha256": "ec0f326f407849037af1a0218a1bfed1f3f2a720301a053afd3a7d25c7391405"
+    },
+    {
+      "path": "src/mainint.c",
+      "bytes": 130110,
+      "sha256": "0b39b8af90f981bce50762de98eb2458282ed3031780235a8ade405945dcddf8"
+    },
+    {
+      "path": "src/sprite.c",
+      "bytes": 25817,
+      "sha256": "f55491df5ec34163e3c46da7607c132449fa4d299117a768ae91dd9cf92b5886"
+    },
+    {
+      "path": "src/entity_draw.c",
+      "bytes": 1781,
+      "sha256": "f53e4b531023ad54d54f9755d427f5e028213d02a1b5bc6c042d27b4566c24ba"
+    },
+    {
+      "path": "src/render_mirror.c",
+      "bytes": 124042,
+      "sha256": "1514387960080422866530e8e831629fb2622b98c5be1b5c06ca880b26c36c38"
+    },
+    {
+      "path": "src/picload.c",
+      "bytes": 2267,
+      "sha256": "da627c27a99af47cc6bb25bd6a434de6de21efe3c927819cc7b6e86a6bd0b805"
+    },
+    {
+      "path": "src/pcxmast.c",
+      "bytes": 1114,
+      "sha256": "41a5367659b8096b13727d3c087ea0e34341881c7270072bdf0782c25a248653"
+    },
+    {
+      "path": "src/palette.c",
+      "bytes": 6417,
+      "sha256": "22875c744f395a40ce98f016cd63d1a6b2d9b8bdea937825e397340db10bdd7f"
+    },
+    {
+      "path": "src/backgrnd.c",
+      "bytes": 13953,
+      "sha256": "153188ea0265af1525ea254430812bc6316e18b823f5a42c1cf0a42c1a7d9eb2"
+    },
+    {
+      "path": "assets/hd/manifest.json",
+      "bytes": 1788000,
+      "sha256": "91a6e95bdd37a2b6a5115e1adddacfe67cd4bc7114e5f6191fbd5214265c766a"
+    }
+  ],
+  "data_hashes": [
+    {
+      "path": "source-data/tyrian2000/tyrian.hdt",
+      "bytes": 295069,
+      "sha256": "fde8506326e7bb0916b38c362e33bf8a8a5affa561206c021af7f65b4a17745b"
+    },
+    {
+      "path": "source-data/tyrian2000/tyrian.shp",
+      "bytes": 505983,
+      "sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0"
+    },
+    {
+      "path": "source-data/tyrian2000/palette.dat",
+      "bytes": 18432,
+      "sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+    },
+    {
+      "path": "source-data/tyrian2000/tyrian1.lvl",
+      "bytes": 538856,
+      "sha256": "54cbb00b57b84aa992a70cfcb170cb1edeb59507873723630d60080ba8351352"
+    },
+    {
+      "path": "source-data/tyrian2000/tyrian4.lvl",
+      "bytes": 937303,
+      "sha256": "6589b898094887925e7717c8663c4b8b5e4b76f3c89a7898ed9f4691c1f2cc16"
+    },
+    {
+      "path": "source-data/tyrian2000/tyrian5.lvl",
+      "bytes": 521137,
+      "sha256": "275b5aaf55caecee8dc95e26f7cf118a9ee265f095ce61945b9ece56a4523323"
+    }
+  ],
+  "bank": {
+    "name": "spriteSheet8",
+    "container": "tyrian.shp",
+    "container_chunk_index_zero_based": 7,
+    "offset": 350426,
+    "size": 32060,
+    "sha256": "9bba1e94d38df61f152412c226bfd6df235e42027c9143c5961d4a5add853a68",
+    "sprite_ids_one_based": true
+  },
+  "palette": {
+    "zero_based_index": 5,
+    "raw_sha256": "7b61340087527e9d7c5b6a4dc57e81c955c21bfd2a1f4a922842b7db857b72f4",
+    "RGB_conversion": "(v << 2) | (v >> 4)",
+    "used_colors": {
+      "18": [
+        44,
+        24,
+        4
+      ],
+      "113": [
+        56,
+        0,
+        0
+      ],
+      "114": [
+        81,
+        0,
+        0
+      ],
+      "115": [
+        109,
+        4,
+        0
+      ],
+      "116": [
+        134,
+        4,
+        0
+      ],
+      "117": [
+        158,
+        8,
+        0
+      ],
+      "118": [
+        186,
+        12,
+        0
+      ],
+      "119": [
+        211,
+        20,
+        0
+      ],
+      "120": [
+        223,
+        60,
+        0
+      ],
+      "121": [
+        231,
+        97,
+        12
+      ],
+      "122": [
+        235,
+        138,
+        24
+      ],
+      "123": [
+        243,
+        174,
+        36
+      ],
+      "124": [
+        251,
+        203,
+        48
+      ],
+      "125": [
+        255,
+        231,
+        60
+      ]
+    }
+  },
+  "weapon81": {
+    "id": 81,
+    "drain": 70,
+    "shotrepeat": 2,
+    "multi": 7,
+    "weapani": 0,
+    "max": 7,
+    "tx": 0,
+    "ty": 0,
+    "aim": 0,
+    "attack": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0
+    ],
+    "del": [
+      255,
+      255,
+      255,
+      255,
+      255,
+      255,
+      255,
+      0
+    ],
+    "sx": [
+      -10,
+      10,
+      -7,
+      7,
+      0,
+      -7,
+      7,
+      104
+    ],
+    "sy": [
+      0,
+      0,
+      7,
+      7,
+      -10,
+      -7,
+      -7,
+      111
+    ],
+    "bx": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      111
+    ],
+    "by": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      97
+    ],
+    "sg": [
+      77,
+      58,
+      182,
+      163,
+      1,
+      183,
+      164,
+      35
+    ],
+    "acceleration": 0,
+    "accelerationx": 0,
+    "circlesize": 0,
+    "sound": 6,
+    "trail": 255,
+    "shipblastfilter": 208
+  },
+  "sprites": [
+    {
+      "id": 77,
+      "bank": 8,
+      "dimensions": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "bbox": [
+        4,
+        3,
+        8,
+        14
+      ],
+      "opaque_pixels": 37,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "palette_histogram": {
+        "113": 2,
+        "114": 4,
+        "115": 3,
+        "116": 2,
+        "117": 6,
+        "118": 4,
+        "119": 6,
+        "120": 4,
+        "121": 1,
+        "122": 2,
+        "123": 2,
+        "124": 1
+      },
+      "encoded_offset_in_bank": 8484,
+      "encoded_absolute_offset": 358910,
+      "encoded_bytes": 62,
+      "encoded_sha256": "15a63fb55b5da5e4c23bf16b3726cf7ed67fb886f30585e3d6b1594d977de73d",
+      "index_sha256": "a2c7b72dddfe654df55cc184176e16a84607faf7b783b6eeef43877375366ba7",
+      "mask_sha256": "681f94dc9c60061cd9947709a49ba695977390eb741e46625fa17d97718e66b7",
+      "rgba_sha256": "925894abe9f72c2ece0318c3ea2dbca16486773d8b045ca99b5b0f9cd36f830c",
+      "source_position": 1,
+      "direction": "down",
+      "boss_turret3_velocity": [
+        0,
+        10
+      ],
+      "spawn_offset": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": 58,
+      "bank": 8,
+      "dimensions": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "bbox": [
+        4,
+        0,
+        8,
+        11
+      ],
+      "opaque_pixels": 37,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "palette_histogram": {
+        "113": 2,
+        "114": 4,
+        "115": 3,
+        "116": 2,
+        "117": 6,
+        "118": 4,
+        "119": 6,
+        "120": 4,
+        "121": 1,
+        "122": 2,
+        "123": 2,
+        "124": 1
+      },
+      "encoded_offset_in_bank": 6461,
+      "encoded_absolute_offset": 356887,
+      "encoded_bytes": 59,
+      "encoded_sha256": "11bbddc47da59f91ae1f479c81b9cf952aea1a09ed83d592de989a66d09a8245",
+      "index_sha256": "5c6e071be8c49041bd1a13e79b80eca5e9bddc5cddda9efb57ea5fbf4189ef3a",
+      "mask_sha256": "9697d20b767b9abfebc0c3265cbff8f9948615f5c963f75855367e3f4563070a",
+      "rgba_sha256": "91ec733451f2921b558f1ebdf833f9579588a414c7f78eaa27be3b8ee33dbfbf",
+      "source_position": 2,
+      "direction": "up",
+      "boss_turret3_velocity": [
+        0,
+        -10
+      ],
+      "spawn_offset": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": 182,
+      "bank": 8,
+      "dimensions": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "bbox": [
+        0,
+        3,
+        11,
+        14
+      ],
+      "opaque_pixels": 43,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "palette_histogram": {
+        "18": 1,
+        "115": 5,
+        "116": 7,
+        "117": 3,
+        "118": 5,
+        "119": 3,
+        "120": 6,
+        "121": 6,
+        "122": 4,
+        "123": 2,
+        "125": 1
+      },
+      "encoded_offset_in_bank": 19432,
+      "encoded_absolute_offset": 369858,
+      "encoded_bytes": 68,
+      "encoded_sha256": "ab9b5082518948e4b72abf9e92cb43374bc75349dbde6ac64bac81d3315a5761",
+      "index_sha256": "019f5ee22bc5e35656d9aa4ee3785ab66b93ea317acfe880ff3913444af288af",
+      "mask_sha256": "3da5d2990a562989d846fcb094829f14d6b5a78eb1442e9039965e0a0d737a7b",
+      "rgba_sha256": "6876c72c8fa275ca8774eccedd93ccd90d37c6d271451568d76b428aeba09e70",
+      "source_position": 3,
+      "direction": "down-left",
+      "boss_turret3_velocity": [
+        -7,
+        7
+      ],
+      "spawn_offset": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": 163,
+      "bank": 8,
+      "dimensions": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "bbox": [
+        0,
+        0,
+        11,
+        11
+      ],
+      "opaque_pixels": 43,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "palette_histogram": {
+        "18": 1,
+        "115": 5,
+        "116": 7,
+        "117": 3,
+        "118": 5,
+        "119": 3,
+        "120": 6,
+        "121": 6,
+        "122": 4,
+        "123": 2,
+        "125": 1
+      },
+      "encoded_offset_in_bank": 18061,
+      "encoded_absolute_offset": 368487,
+      "encoded_bytes": 65,
+      "encoded_sha256": "cfc649111e580f509222843025082a3e1799b33cf4def1e922892701619ed582",
+      "index_sha256": "5d9601fb461f6d871d8ee4bbce963dcbdc706b2279940f0e33c40d98c8bf8c27",
+      "mask_sha256": "d1454fcf897ea65fec63d7761e83088f6559d64a1cd08485c1fd426789156dd1",
+      "rgba_sha256": "8a4ed44dc6f423568af1b70bdf125976178fa4edab1aa42a3cb27f9aa43fe599",
+      "source_position": 4,
+      "direction": "up-left",
+      "boss_turret3_velocity": [
+        -7,
+        -7
+      ],
+      "spawn_offset": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": 1,
+      "bank": 8,
+      "dimensions": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "bbox": [
+        1,
+        4,
+        12,
+        8
+      ],
+      "opaque_pixels": 37,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "palette_histogram": {
+        "113": 2,
+        "114": 4,
+        "115": 3,
+        "116": 2,
+        "117": 6,
+        "118": 4,
+        "119": 6,
+        "120": 4,
+        "121": 1,
+        "122": 2,
+        "123": 2,
+        "124": 1
+      },
+      "encoded_offset_in_bank": 608,
+      "encoded_absolute_offset": 351034,
+      "encoded_bytes": 49,
+      "encoded_sha256": "df8f1e5d69d310117e46aeac2c9c7c4ef76527dc413167e324d715f7e24a7167",
+      "index_sha256": "c985c3f475ada5328e4e371a75fcb6b213067a0bf785297e3ac1f57e7bb248f7",
+      "mask_sha256": "77abd009a01c2ad4706f1309e259649618c12137532deb576695709548e62901",
+      "rgba_sha256": "a97b49a5c5e47ec067a74aca6f75b1aa38c00dd02cbfb529e00c6230a44af256",
+      "source_position": 5,
+      "direction": "right",
+      "boss_turret3_velocity": [
+        10,
+        0
+      ],
+      "spawn_offset": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": 183,
+      "bank": 8,
+      "dimensions": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "bbox": [
+        1,
+        3,
+        12,
+        14
+      ],
+      "opaque_pixels": 43,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "palette_histogram": {
+        "18": 1,
+        "115": 5,
+        "116": 7,
+        "117": 3,
+        "118": 5,
+        "119": 3,
+        "120": 6,
+        "121": 6,
+        "122": 4,
+        "123": 2,
+        "125": 1
+      },
+      "encoded_offset_in_bank": 19500,
+      "encoded_absolute_offset": 369926,
+      "encoded_bytes": 68,
+      "encoded_sha256": "6559b61e88b505c80d52b94ce51047e2e255e165c3dfbc07b908b1a6c92339fc",
+      "index_sha256": "0ac3840a072b6169c38e5a3be154bf951267d2d201505d65653dffffe0d7c637",
+      "mask_sha256": "b379cd76fc0237159d592781b51a03f220167d593713701dbde0e6b2e8d9e0da",
+      "rgba_sha256": "a9e094449ab6049aa601f6f43dda6e32bf34736008502f4a20fe3d3938edd909",
+      "source_position": 6,
+      "direction": "down-right",
+      "boss_turret3_velocity": [
+        7,
+        7
+      ],
+      "spawn_offset": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": 164,
+      "bank": 8,
+      "dimensions": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "bbox": [
+        1,
+        0,
+        12,
+        11
+      ],
+      "opaque_pixels": 43,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "palette_histogram": {
+        "18": 1,
+        "115": 5,
+        "116": 7,
+        "117": 3,
+        "118": 5,
+        "119": 3,
+        "120": 6,
+        "121": 6,
+        "122": 4,
+        "123": 2,
+        "125": 1
+      },
+      "encoded_offset_in_bank": 18126,
+      "encoded_absolute_offset": 368552,
+      "encoded_bytes": 65,
+      "encoded_sha256": "99dc2241f8fc3ef0a973bb60d649d5bf95096b1f0b6e4637c464215d414eb9c0",
+      "index_sha256": "5cf853f0b2ebe67a68b8a14dfacd40766bfcc4505ad834ef8b00e1d38091aaf1",
+      "mask_sha256": "cff2f16b68dbd0f8540cc4b49886b905046d709aaecac8a8445148a9fa2c17cf",
+      "rgba_sha256": "fd59cb5d3f9df3c2d82fdf8277347c813a3c5dc5a34e8e71957a4805a30097da",
+      "source_position": 7,
+      "direction": "up-right",
+      "boss_turret3_velocity": [
+        7,
+        -7
+      ],
+      "spawn_offset": [
+        0,
+        0
+      ]
+    }
+  ],
+  "first_level_fire_overrides": [
+    {
+      "eventtime": 6025,
+      "type": 31,
+      "dat": 60,
+      "dat2": 10,
+      "dat3": 5,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 142,
+      "index": 907
+    },
+    {
+      "eventtime": 6075,
+      "type": 31,
+      "dat": 60,
+      "dat2": 10,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 142,
+      "index": 910
+    },
+    {
+      "eventtime": 6275,
+      "type": 31,
+      "dat": 60,
+      "dat2": 10,
+      "dat3": 5,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 142,
+      "index": 921
+    },
+    {
+      "eventtime": 6325,
+      "type": 31,
+      "dat": 60,
+      "dat2": 10,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 142,
+      "index": 924
+    },
+    {
+      "eventtime": 6400,
+      "type": 31,
+      "dat": 60,
+      "dat2": 10,
+      "dat3": 5,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 142,
+      "index": 931
+    },
+    {
+      "eventtime": 6450,
+      "type": 31,
+      "dat": 60,
+      "dat2": 10,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 142,
+      "index": 934
+    },
+    {
+      "eventtime": 6900,
+      "type": 31,
+      "dat": 60,
+      "dat2": 10,
+      "dat3": 5,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 142,
+      "index": 953
+    },
+    {
+      "eventtime": 6950,
+      "type": 31,
+      "dat": 60,
+      "dat2": 10,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 142,
+      "index": 956
+    },
+    {
+      "eventtime": 7640,
+      "type": 31,
+      "dat": 60,
+      "dat2": 10,
+      "dat3": 5,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 142,
+      "index": 988
+    },
+    {
+      "eventtime": 7660,
+      "type": 31,
+      "dat": 60,
+      "dat2": 10,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 142,
+      "index": 989
+    },
+    {
+      "eventtime": 7830,
+      "type": 31,
+      "dat": 60,
+      "dat2": 10,
+      "dat3": 5,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 142,
+      "index": 999
+    },
+    {
+      "eventtime": 7850,
+      "type": 31,
+      "dat": 60,
+      "dat2": 10,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 142,
+      "index": 1000
+    },
+    {
+      "eventtime": 8000,
+      "type": 31,
+      "dat": 20,
+      "dat2": 0,
+      "dat3": 40,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 142,
+      "index": 1009
+    }
+  ],
+  "original_source_crosscheck": "All seven index/mask/RGBA hashes equal existing independent source-contract dependency records.",
+  "classification": "Seven directional red/orange/yellow energy bolts. Binary original coverage; softness is encoded by color/intensity falloff, not stored fractional alpha. No physical casing or green in these originals.",
+  "repo_clean_after": true,
+  "game_runs": 0,
+  "new_captures": 0,
+  "generated_art": 0,
+  "repo_writes": 0,
+  "uploads": 0
+}

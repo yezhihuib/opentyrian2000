@@ -1,0 +1,86 @@
+{
+  "status": "PASS",
+  "reviewed_at_utc": "2026-10-13T09:46:36Z",
+  "correction_freeze_sha256": "d0fe19a844bc885dd92d220988dd9079c8a4a17221518be895cf87a7fadfdd81",
+  "original_capture_freeze_sha256": "3017d1b8da3571848e2f85b9cebb240b777f4f0887bb7c7a55975440264c1ac1",
+  "scope": "Proof-only continuation for exactly five already-observed original enemy113 orb draws; remaining original baseline4/candidate4 lanes only. No additional2x game run or capture.",
+  "operator": {
+    "asset": "bullet-113-8.hda",
+    "role": 8,
+    "key": 80113,
+    "density": 8,
+    "size": [
+      12,
+      14
+    ],
+    "anchor": [
+      0,
+      0
+    ],
+    "sha256": "185ae48dcc144f8222e26b3467e9dfea2de8f83de280a08fb2d9481fbf9b3924",
+    "operation": "Existing normal ordered straight-alpha: (dst*(255-alpha)+src*alpha+127)/255",
+    "observed_slots": [
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "observed_xy": [
+      [
+        182,
+        35
+      ],
+      [
+        181,
+        34
+      ],
+      [
+        183,
+        34
+      ],
+      [
+        180,
+        33
+      ],
+      [
+        184,
+        33
+      ]
+    ]
+  },
+  "independent_offline_result": {
+    "scale": 2,
+    "original_support_native_pixels_per_lane": 1132,
+    "baseline_pre_orb_mismatches": 31,
+    "candidate_pre_orb_mismatches": 31,
+    "baseline_after_five_orbs_mismatches": 0,
+    "candidate_after_five_orbs_mismatches": 0,
+    "original_changed_pixel_failures_resolved": 24,
+    "excluded_pixels": 0,
+    "tolerance": 0
+  },
+  "checks": [
+    "The five orb113 calls follow the seven new directions in the exact logged enemy-shot order in both lanes. Real scene attempts confirm successful normal existing-orb routing.",
+    "Revised verifier checks both baseline and candidate on the complete original-support union, including pixels where the two lanes end equal. It retains full-frame outside-support equality, exact per-call alpha/indices/ownership and per-direction positive/fractional witnesses.",
+    "Revised scripts are separate, frozen and hash-verified. The original freeze, scripts, attempt records, native captures and original candidate2 FAIL result remain unchanged.",
+    "Remaining runner accepts only baseline4/candidate4, validates both freezes and retained inputs, preserves original four-run/four-native/four-indexed budget and refuses reuse of consumed run directories.",
+    "Both-scale synthetic corrected-verifier receipt passes; independent reviewer numerical calculation independently reproduces full2x support with zero mismatches."
+  ],
+  "remaining_cases_cleared": [
+    "baseline4",
+    "candidate4"
+  ],
+  "source_and_binaries_changed": false,
+  "new_game_runs_for_correction": 0,
+  "reviewer_game_runs": 0,
+  "reviewer_captures": 0,
+  "corrected_proof_sha256": "f551d54cf04f70a6338077f44366198eaed42473a76af79a52341a0a809faca9",
+  "corrected_verifier_sha256": "9186bf7b19bc60f7c401018bbf30f9b7c8e5055c1caf049e3c309e2dc9c7e302",
+  "remaining_runner_sha256": "4a7f4504daffac4030c9166fc62ce6b64aaeb5301062774c385e91e7d196762e",
+  "synthetic_receipt_sha256": "7d693d2e5d1aadc101883c9cb291d2b0b1573071962dc4138222ec2c219b65e4",
+  "limits": [
+    "Finite known7378 software-rendered native acceptance only; no new physical-GPU, later-episode or shared-emitter runtime claim.",
+    "No broad replay framework, tolerance, masked pixel exclusion or game-state change was introduced."
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "status": "PASS_BOUNDED_ACTUAL7378_NATIVE2_AND4_AUTHOR_REVIEW",
+  "art_inventory_sha256": "079db886ea82981277ead074e18f60417ace222ad51abafff30bc8465b035dce",
+  "captures": [
+    {
+      "lane": "baseline2",
+      "path": "enemy-energy-seven-preview-20261013/runs/baseline2/actual-7378-native2x.png",
+      "PNG_SHA256": "bd1917e0131dba1284a80327329b44f7d8067b77385dfd22b561133950f7c0a9",
+      "RGBA_SHA256": "7fa6ee2a92826c90b9e9eef3999647a98b58a8979c256ad2453043be64ddb9cf",
+      "dimensions": [
+        640,
+        400
+      ]
+    },
+    {
+      "lane": "candidate2",
+      "path": "enemy-energy-seven-preview-20261013/runs/candidate2/actual-7378-native2x.png",
+      "PNG_SHA256": "fe6f43b681298b5d294d24e1dd36d1808fc9744f89fd6e48dc126e86cdb08f28",
+      "RGBA_SHA256": "88868403feaee0c3465214c2141dc1fe7421043fbb50cfd8997272a88be67408",
+      "dimensions": [
+        640,
+        400
+      ]
+    },
+    {
+      "lane": "baseline4",
+      "path": "enemy-energy-seven-preview-20261013/runs/baseline4/actual-7378-native4x.png",
+      "PNG_SHA256": "ce27c38187a87b00bf9bac84ad17dcbaf57137962cfd53d5114a81d12fcc9470",
+      "RGBA_SHA256": "1f66091cad71439293944a154bd4d3096b84e92b4d7e02954548d03c5a7067e4",
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    {
+      "lane": "candidate4",
+      "path": "enemy-energy-seven-preview-20261013/runs/candidate4/actual-7378-native4x.png",
+      "PNG_SHA256": "02da160643b09ba165bebc56519ee8f9c4e1216e7691fa417617632ff16aae6f",
+      "RGBA_SHA256": "33a17c025b1889e818da520c0abbd30dd74febcb30e9c2eb66341d64ad8f1162",
+      "dimensions": [
+        1280,
+        800
+      ]
+    }
+  ],
+  "independent_PNG_manifest_check": true,
+  "decoded_RGBA_hashes_recorded": true,
+  "numeric_receipts": {
+    "completion.json": "12289846e9dbf25669b27f92a9ec3d7a66c37dbdca55ba01628dd988115dc59a",
+    "runs/candidate2/pair-proof-r2.json": "f551d54cf04f70a6338077f44366198eaed42473a76af79a52341a0a809faca9",
+    "runs/candidate4/pair-proof-r2.json": "1a5889c3c0edbbe10b07db10e5de62bc67ce03561fea060f2aa3b9b311897a76"
+  },
+  "findings": [
+    "All seven original directions read as coherent warm energy bolts with compact bright cores and restrained red tapered tails.",
+    "Smooth fractional edges avoid old source-cell blockiness; no dark matte or bounding box observed.",
+    "Original overlapping orange orbs and boss material remain legible at2x and4x; no unexpected halo/color change."
+  ],
+  "limits": [
+    "Exactly one actual tick7378 at each scale; no motion/full-lifetime visual claim.",
+    "Shot cluster is principally over boss material. The image does not establish seven-shot readability over bright clouds or unobstructed grass.",
+    "Original orb overlap is retained and proven by ordered continuation; no claim that every source sample is uncovered.",
+    "Private symmetric survival convention; no natural manual gameplay claim.",
+    "Shared58 alternate enemy uses and all player paths are source/unit isolation scope, not visually exercised here.",
+    "Future release requires integrator finite controls; this is the requested bounded visual gate."
+  ],
+  "reviewed_utc": "2026-10-13T09:53:00Z"
+}

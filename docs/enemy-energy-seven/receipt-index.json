@@ -1,0 +1,101 @@
+{
+  "runtime_commit": "f292a2cf59678a23b538f7ee6f7287cad68fa833",
+  "test_commit": "8adbbe6dbb2d72a4c229cb266191167aaaadbab0",
+  "baseline_commit": "e50fff31057ee08cca6c27bb7c56f4df06f28b5a",
+  "scope": "Compact publication receipts only. Raw private fixture/log/reference-pixel evidence is retained externally. Library identifiers are owner-scoped recovery references, not public download links.",
+  "private_fixture_binary_sha256": {
+    "baseline": "56c26a6068a0c9a3863d4859d3647d273723d9b90700253378da3e7c35264be8",
+    "candidate": "fb97fc78051da82ced234ff61f070b470c76e47daf5a26da97c916d240893dd2"
+  },
+  "unchanged_runtime_source_sha256": {
+    "render_mirror.c": "94cdc52a5ee1af4fa703023f0eeb788610e3a55c668651db7ea313993b53e02a",
+    "entity_draw.c": "7ed285315b48ba7b9f49c8a116f817a411eb5026568cf83b4d60ab2f856a0ba0",
+    "sprite.c": "f55491df5ec34163e3c46da7607c132449fa4d299117a768ae91dd9cf92b5886",
+    "shots.c": "ec0f326f407849037af1a0218a1bfed1f3f2a720301a053afd3a7d25c7391405",
+    "tyrian2.c": "1d99538c8a2bb4b9655ecdc4baa3cbb60b57ccb6030c15ce05e83b3200d36390",
+    "render_mirror.h": "5b0e97f7095f1eb60ec12e749b846c7d702127bd2373a98a4eb7d911b9d72e40"
+  },
+  "archives": [
+    {
+      "purpose": "Original frozen artwork source",
+      "filename": "formal-enemy-energy-seven-v1.zip",
+      "library_file_id": "libfile_4041bd3b92648191a57834e1bb12884b",
+      "sha256": "8e904998415a224fbc3c904696b769ba2b87dae004cc7504c5a0359781a0aa60"
+    },
+    {
+      "purpose": "Runtime implementation delta from e50fff3",
+      "filename": "enemy-energy-seven-source-f292a2c-20261013.bundle",
+      "library_file_id": "libfile_d291470d9bb88191b5b10b1d23ba92ca",
+      "sha256": "a94fa82f16619652844c471a6a5fe749244766ac950e0caa9377d39b3fac194e"
+    },
+    {
+      "purpose": "Original source, unit and preflight-review evidence",
+      "filename": "enemy-energy-seven-source-unit-review-20261013.tar.gz",
+      "library_file_id": "libfile_94a5dac59d3c8191b94d9db06be770f0",
+      "sha256": "83365f2921fb957b1c634981a4341cb24e7d09667604373e257d8d638f7da798"
+    },
+    {
+      "purpose": "Actual four-lane7378 evidence including original proof-stop and corrected verification",
+      "filename": "enemy-energy-seven-actual7378-evidence-20261013.tar.gz",
+      "library_file_id": "libfile_abf5725433648191a25644c6eb489b00",
+      "sha256": "9426addd88e0e1dbff8937cfc60656dc3a5269a195a0316a491557c42b82234e",
+      "bytes": 11816904
+    }
+  ],
+  "receipts": {
+    "README.md": {
+      "sha256": "445f27f71c29df21edae21b057cfcd5a468d3c3d6bda2e4a92090c6ed5afb266",
+      "bytes": 7525
+    },
+    "aggregate.json": {
+      "sha256": "80ecf7585f1e8e79b395e93c70f2a5745948bd2ac33314f528ac1d42abcb15f4",
+      "bytes": 1586
+    },
+    "author-review.json": {
+      "sha256": "a423ffb2b3847c772ead2426c2a79911468cf311df984ab75af5266125517186",
+      "bytes": 3168
+    },
+    "engineering-review.json": {
+      "sha256": "1a0e3ea680a708c3032c3d28905fc12d0665efb72b1482b08b2633f1cfbd8322",
+      "bytes": 6245
+    },
+    "implementation-review.json": {
+      "sha256": "531ed67583b40e3625143630b9e3b2224d3a033274be104fb70daf5ad93b249b",
+      "bytes": 3388
+    },
+    "pair-2x.json": {
+      "sha256": "f551d54cf04f70a6338077f44366198eaed42473a76af79a52341a0a809faca9",
+      "bytes": 3331
+    },
+    "pair-4x.json": {
+      "sha256": "1a5889c3c0edbbe10b07db10e5de62bc67ce03561fea060f2aa3b9b311897a76",
+      "bytes": 3336
+    },
+    "portable-normalization-review.json": {
+      "sha256": "dc42ad10ca3f66360180edbd85988a5b7c27523a6319d31897e8f5c8d108e3b9",
+      "bytes": 2855
+    },
+    "portable-provenance.json": {
+      "sha256": "73511439875c6f4204a4f36539573a4a0a06d20d3f36f62efd3fba322ead0e7a",
+      "bytes": 2584
+    },
+    "proof-correction-review.json": {
+      "sha256": "fbd79afd13ce378ae846df161bc3b598e4587063e1f4931ccf253a20dea142c5",
+      "bytes": 3398
+    },
+    "source-preservation.json": {
+      "sha256": "2bce8704ba1565972f484d06ecc80e6b23c0f8960b8a6df95d39b8b7697b741f",
+      "bytes": 841
+    },
+    "source-validation.json": {
+      "sha256": "5a053614783f9a064968440cd54f7d07db5771baef9265f758f3b65ca18fa813",
+      "bytes": 1597
+    },
+    "unit.json": {
+      "sha256": "ac2dd5f9e6dd6ab604fd9e8b1a9b63bf4d4e8bebf686e882fd1a09fac30ab930",
+      "bytes": 7175
+    }
+  },
+  "portable_metadata_commit": "2fd65922bbbd207884a615e921ac510768e4793d",
+  "portable_inventory_sha256": "3eb212ba59bc52f2d75e86582e308518e2322c8e2ad09be46567a29c19810e1c"
+}

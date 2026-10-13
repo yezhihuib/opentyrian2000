@@ -1,0 +1,54 @@
+{
+  "status": "PASS_PORTABLE_NORMALIZATION_ADDENDUM",
+  "reviewed_at_utc": "2026-10-13T09:56:46Z",
+  "reviewed_base_commit": "8adbbe6dbb2d72a4c229cb266191167aaaadbab0",
+  "runtime_commit": "f292a2cf59678a23b538f7ee6f7287cad68fa833",
+  "scope": "Only provenance portability and corresponding digest pins; existing source, unit and actual2x/4x acceptance remains applicable.",
+  "path_only_substitutions": {
+    "source_references": 14,
+    "external_data_references": 6,
+    "external_audit_contact_references": 2,
+    "total": 22
+  },
+  "changed_existing_files": [
+    "assets/hd/artwork/enemy-energy-seven-v1/proof/source-contract.json",
+    "assets/hd/artwork/enemy-energy-seven-v1/proof/audit-result.json",
+    "assets/hd/artwork/enemy-energy-seven-v1/inventory.json",
+    "prototype/build-enemy-energy-seven-art.py",
+    "assets/hd/manifest.json"
+  ],
+  "unchanged_prior_files_byte_exact": 6958,
+  "original_inventory_sha256": "079db886ea82981277ead074e18f60417ace222ad51abafff30bc8465b035dce",
+  "portable_inventory_sha256": "3eb212ba59bc52f2d75e86582e308518e2322c8e2ad09be46567a29c19810e1c",
+  "metadata_sha256": {
+    "assets/hd/artwork/enemy-energy-seven-v1/proof/source-contract.json": "86132f0704076167878af8b5291d61c3cbcfb5c16563ee18ca60fae0f2e35f4e",
+    "assets/hd/artwork/enemy-energy-seven-v1/proof/audit-result.json": "b37de96c8fbe5c482cecac2d793d8fdcfc1f1e6fb458f61a19ad030ac3979272"
+  },
+  "preserved": [
+    "All original recorded source/data byte counts and content hashes",
+    "All nonpath metadata and sprite contracts",
+    "Recipe, generated master, prompt, masks, PNG/RGBA/HDA and pack bytes",
+    "Every runtime source and unit test",
+    "All captured evidence and previous frozen receipts"
+  ],
+  "digest_updates_verified": [
+    "Two normalized metadata input hashes",
+    "Inventory digest",
+    "Builder inventory constant",
+    "Manifest inventory digest"
+  ],
+  "external_references": "Logical external original-game-data and audit-contact references remain explicitly nonshipped; no dependency on those paths was added.",
+  "rebuild_and_aggregate": {
+    "planner_receipts": "PASS; recorded digests verified by reviewer",
+    "source_rebuild_log_sha256": "a6c4d959cf8a3302c20ac3004216ec75a2c16f6bf67db0cfde991c3d8318a5b2",
+    "aggregate_log_sha256": "80ecf7585f1e8e79b395e93c70f2a5745948bd2ac33314f528ac1d42abcb15f4",
+    "all_runtime_rgba_header_bytes_exact": true,
+    "reviewer_rerun": false
+  },
+  "portable_provenance_receipt_sha256": "73511439875c6f4204a4f36539573a4a0a06d20d3f36f62efd3fba322ead0e7a",
+  "prior_final_review_sha256": "1a0e3ea680a708c3032c3d28905fc12d0665efb72b1482b08b2633f1cfbd8322",
+  "new_tests": 0,
+  "new_game_runs": 0,
+  "new_captures": 0,
+  "publication_recommendation": "PASS for metadata-only commit. No actual rerun is needed because all execution and artwork bytes remain identical."
+}

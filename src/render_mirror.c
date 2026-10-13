@@ -35,9 +35,9 @@ typedef struct {
  int bank,index,w,h,anchor_x,anchor_y,density;
  Uint8 *rgba;
 } Asset;
-enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106 };
+enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
-static Asset assets[462];
+static Asset assets[469];
 static Asset talon_frames[13];
 typedef struct {
  bool valid;
@@ -1128,7 +1128,7 @@ static bool decode_tile(Sprite2_array bank,unsigned int index,Uint8 *indices,Uin
 static bool read_asset(Asset *a,int wanted)
 {
  char name[1024];
- const char *prefix=a->bank==9?"ship":a->bank==8?"bullet":a->bank==ASSET_NEWSH2?"enemy-newsh2":a->bank==ASSET_NEWSH4?"enemy-newsh4":a->bank==ASSET_NEWSHE?"enemy-newshe":a->bank==ASSET_TALON_BANK?"talon-bank":a->bank==ASSET_EXPLOSION?"explosion-newsh6":"terrain-shapesz";
+ const char *prefix=a->bank==9?"ship":a->bank==8?"bullet":a->bank==ASSET_ENEMY_ENERGY?"enemy-energy":a->bank==ASSET_NEWSH2?"enemy-newsh2":a->bank==ASSET_NEWSH4?"enemy-newsh4":a->bank==ASSET_NEWSHE?"enemy-newshe":a->bank==ASSET_TALON_BANK?"talon-bank":a->bank==ASSET_EXPLOSION?"explosion-newsh6":"terrain-shapesz";
  if(!game_probe_assets||snprintf(name,sizeof(name),"%s/%s-%d-%d.hda",game_probe_assets,prefix,a->index,wanted)>=(int)sizeof(name)) return false;
  FILE *f=fopen(name,"rb");if(!f)return false;
  Uint8 h[28]={0};bool ok=fread(h,1,sizeof(h),f)==sizeof(h)&&memcmp(h,"HDR1",4)==0;
@@ -1462,9 +1462,55 @@ bool render_mirror_entity(SDL_Surface *surface,int x,int y,Sprite2_array bank,un
  return a?draw_asset(x,y,a,style,NULL):false;
 }
 
-/* Enemy-only energy orb binding: shared numeric player IDs are not mapped. */
+/* Seven original static directions, including shared enemy58 uses. This
+ * resource role is separate from player pulse58 and the older enemy orbs.
+ * Frozen inward alpha is composited by the existing ordered normal operator. */
+static int enemy_energy_slot(unsigned int index)
+{
+ static const unsigned int ids[7]={77,58,182,163,1,183,164};
+ for(int i=0;i<7;i++)if(index==ids[i])return 462+i;
+ return -1;
+}
+
+static bool enemy_energy_checked,enemy_energy_valid;
+static bool enemy_energy_family_ready(void)
+{
+ if(game_probe_density!=8||game_probe_missing||game_probe_invalid||
+    game_probe_original_reference||!game_probe_assets)return false;
+ if(enemy_energy_checked)return enemy_energy_valid;
+ enemy_energy_checked=true;enemy_energy_valid=true;
+ static const unsigned int ids[7]={77,58,182,163,1,183,164};
+ static const uint64_t rgba_stamps[7]={UINT64_C(0xe7ad74098293fa74),UINT64_C(0x6bde72d8a3fb5321),UINT64_C(0xdad683e2104c364c),UINT64_C(0xda40a3f50079bbb7),UINT64_C(0x17a96f454b155ee6),UINT64_C(0x46a1a574bc4971cf),UINT64_C(0x03388802eea7f5a4)};
+ for(int i=0;i<7;i++) {
+  Asset *a=&assets[462+i];
+  a->initialized=true;a->bank=ASSET_ENEMY_ENERGY;a->index=(int)ids[i];
+  a->w=12;a->h=14;a->anchor_x=0;a->anchor_y=0;
+  a->valid=read_asset(a,8);
+  if(a->valid) {
+   uint64_t stamp=UINT64_C(0xcbf29ce484222325);
+   for(size_t p=0;p<(size_t)12*14*8*8*4;p++){stamp^=a->rgba[p];stamp*=UINT64_C(0x100000001b3);}
+   if(stamp!=rgba_stamps[i])a->valid=false;
+  }
+  if(!a->valid)enemy_energy_valid=false;
+ }
+ return enemy_energy_valid;
+}
+
+/* Enemy-only bindings: the indexed original still executes in the wrapper. */
 bool render_mirror_enemy_shot(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int index)
 {
+ int energy_slot=enemy_energy_slot(index);
+ if(energy_slot>=0) {
+  if(!active||!surface||surface!=game_screen||surface!=VGAScreen||reject_reason||
+     !bank.data||bank.data!=spriteSheet8.data||
+     surface->w!=320||surface->h!=200||surface->pitch!=320||!surface->format||
+     surface->format->BitsPerPixel!=8||surface->format->BytesPerPixel!=1||
+     x<0||x>308||y<-13||y>199)return false;
+  /* Original RLE clips linear addresses. Decline physical-row wrapping,
+   * retain partial vertical clips, and never rotate art to shot velocity. */
+  if(!enemy_energy_family_ready())return false;
+  return draw_asset(x,y,&assets[energy_slot],MIRROR_NORMAL,NULL);
+ }
  if(!active||surface!=game_screen||reject_reason||bank.data!=spriteSheet8.data||(index!=112&&index!=113)||game_probe_density==1||game_probe_missing||game_probe_invalid||!game_probe_assets)return false;
  Asset *a=&assets[218+(int)index-112];
  if(!a->initialized) {
