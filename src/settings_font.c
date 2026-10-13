@@ -3,6 +3,7 @@
  * Resource/core candidate. Call-site activation is a separately reviewed change.
  */
 #include "settings_font.h"
+#include "load_font.h"
 #include "font.h"
 #include "fonthand.h"
 #include "sprite.h"
@@ -68,7 +69,9 @@ static struct {
  Uint8 *payload[3];Uint32 *output;
 } sf;
 static const char *directory;
-typedef char sf_budget_check[(sizeof(sf)+SF_PAYLOAD+SF_OUT_BYTES+3*128+2048<=SF_CAP)?1:-1];
+size_t settings_font_static_bytes(void){return sizeof(sf);}
+bool settings_font_owns_display(void){return sf.active;}
+typedef char sf_budget_check[(sizeof(sf)+600000+SF_PAYLOAD+SF_OUT_BYTES+3*128+2048<=SF_CAP)?1:-1];
 typedef char sf_command_check[(sizeof(struct SfCommand)<=16)?1:-1];
 static uint64_t hash_more(uint64_t h,const Uint8 *p,size_t n)
 {while(n--)h=(h^*p++)*UINT64_C(1099511628211);return h;}
@@ -158,7 +161,7 @@ static bool palette_matches(void)
 }
 void settings_font_begin(SDL_Surface *screen,SDL_Surface *backup)
 {
- settings_font_end();if(!directory||!geometry(screen)||!geometry(backup)||screen!=VGAScreen||screen!=VGAScreenSeg||backup!=VGAScreen2||palette_count<=7||palette_hash(palettes[7])!=SF_PAL||palette_hash(colors)!=SF_PAL||!main_window_tex_format||main_window_tex_format->BitsPerPixel!=32||hash(backup->pixels,SF_N)!=SF_BASE||!source(true))return;
+ settings_font_end();load_font_end();if(load_font_static_bytes()>600000||!directory||!geometry(screen)||!geometry(backup)||screen!=VGAScreen||screen!=VGAScreenSeg||backup!=VGAScreen2||palette_count<=7||palette_hash(palettes[7])!=SF_PAL||palette_hash(colors)!=SF_PAL||!main_window_tex_format||main_window_tex_format->BitsPerPixel!=32||hash(backup->pixels,SF_N)!=SF_BASE||!source(true))return;
  for(unsigned b=0;b<3;b++)if(!load(b)){settings_font_end();return;}
  sf.output=malloc(SF_OUT_BYTES);if(!sf.output){settings_font_end();return;}
  sf.screen=screen;sf.backup=backup;sf.pixels=screen->pixels;sf.backup_pixels=backup->pixels;sf.format=screen->format;sf.backup_format=backup->format;memcpy(sf.base,backup->pixels,SF_N);

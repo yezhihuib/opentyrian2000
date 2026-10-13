@@ -1,0 +1,465 @@
+{
+  "schema": "load-font-final-author-review-v1",
+  "result": "PASS within bounded actual scope",
+  "tested_candidate": "c0f1f44603779df4c4adec519369cd383c12c341",
+  "baseline": "a4974da93ee75fb18c7ad5827ea42a6b02d1b74d",
+  "report": "PASS for the bounded actual Load Game typography trial on c0f1f44603779df4c4adec519369cd383c12c341. Directly reviewed six retained candidate/reference contexts: true1280x800 Load, native640x400 selected Exit, whole-classic tilde-name fallback, supported second-page reacquisition, classic resized4x and restored enhanced2x. The prior native2x mixed-slot smoke pair also passed. Both headings retain clean counters and gold identity; cyan names/exit and mauve level/episode columns remain aligned and readable. Selected text is distinct. The two footer lines retain their original order, spacing and pale-gold Left/right highlights; original page arrows remain coherent. Fallback and reacquired stills show no stale mixed typography. No art revision is needed. Separately read and hash-verified the frozen numeric aggregate and all51 linked pair/raster/lifecycle receipts:17 completed pairs,474 paired presentations and30,821,376 original indexed/palette bytes per side pass, including original successful loading of synthetic slots1/11/12/22, exact save/config outcomes and one original gameplay tick. This is retained-still visual review with separately attributed numerical lifecycle evidence. No retained still shows cursor-over-text; cursor states are numeric-only. No continuous playback, physical display/GPU, actual reentry/Setup coverage or user-save use is claimed.",
+  "directly_viewed_matrix_pairs": [
+    {
+      "path": "load-font-matrix-evidence-20261013/native4/profiles/reference/output/load_native2.bmp",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "sha256": "6d3f2fe65a6eac1e055d9ba6633b5c4a24a1a37ba17252ed598a831802675d20",
+      "rgb_sha256": "fac1d12380e46c49fd312e9421c387ba21b1b2a0d510385d7f56e9e1ccf7e41e"
+    },
+    {
+      "path": "load-font-matrix-evidence-20261013/native4/profiles/candidate/output/load_native2.bmp",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "sha256": "b531234246b3f55a97e6fdc925602e75c7abbeb578a14ac477fb84e4c99341a7",
+      "rgb_sha256": "333412a7ac3133777f66d9f8482dcbb0c27076cc99236eb8305ab3876783f65c"
+    },
+    {
+      "path": "load-font-matrix-evidence-20261013/navigation/profiles/reference/output/exit_selected.bmp",
+      "dimensions": [
+        640,
+        400
+      ],
+      "sha256": "e42ddf18ced838a7d3107f66ef4c156ef28858e3d628a3f26dbb649181f56a8a",
+      "rgb_sha256": "b5ecdd6c9cf38379d095a09fc9c6a12f4d9f08d304e6dfb5d497b7f091abc797"
+    },
+    {
+      "path": "load-font-matrix-evidence-20261013/navigation/profiles/candidate/output/exit_selected.bmp",
+      "dimensions": [
+        640,
+        400
+      ],
+      "sha256": "6829c0ba32fb93932fb62e8333e2a28ba36b6de879c5add8934b7cb6c9f394a0",
+      "rgb_sha256": "cf8ac7b29bc961682927d3b0e9fe3f16eab6783157cc3a15f9789760a9c558af"
+    },
+    {
+      "path": "load-font-matrix-evidence-20261013/fallback_tilde/profiles/reference/output/reacquired_page1.bmp",
+      "dimensions": [
+        640,
+        400
+      ],
+      "sha256": "d397e26cf9c22cd2182dea51b2f7cc1b6bec38f78fcc668b6c21123ff9f27646",
+      "rgb_sha256": "3ed183fad9f6302c3d28eca6d555c8f67a43b22bea3e36fc8b88d4294fec8b43"
+    },
+    {
+      "path": "load-font-matrix-evidence-20261013/fallback_tilde/profiles/candidate/output/reacquired_page1.bmp",
+      "dimensions": [
+        640,
+        400
+      ],
+      "sha256": "78eb0dec93aff832db2a8c8e13cab2cfb60e96deadcc1e0fc477dd69842fcb4a",
+      "rgb_sha256": "0b249990577701bc05517ea9dcc3f95b9aa1b8e4a861f7ba29bf6f15bf1ca71b"
+    },
+    {
+      "path": "load-font-matrix-evidence-20261013/fallback_tilde/profiles/reference/output/classic_bad_name.bmp",
+      "dimensions": [
+        640,
+        400
+      ],
+      "sha256": "a24537f27d7f29527368489cfb72a1e2cb33c007604b7f9e2e6e3d9c831b2278",
+      "rgb_sha256": "7d743413b6e5f9602982c794a9b0c1d4e7fc9e30d69492b3b90fe42c810c88ef"
+    },
+    {
+      "path": "load-font-matrix-evidence-20261013/fallback_tilde/profiles/candidate/output/classic_bad_name.bmp",
+      "dimensions": [
+        640,
+        400
+      ],
+      "sha256": "a24537f27d7f29527368489cfb72a1e2cb33c007604b7f9e2e6e3d9c831b2278",
+      "rgb_sha256": "7d743413b6e5f9602982c794a9b0c1d4e7fc9e30d69492b3b90fe42c810c88ef"
+    },
+    {
+      "path": "load-font-matrix-evidence-20261013/resize/profiles/reference/output/resized_4x.bmp",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "sha256": "6d3f2fe65a6eac1e055d9ba6633b5c4a24a1a37ba17252ed598a831802675d20",
+      "rgb_sha256": "fac1d12380e46c49fd312e9421c387ba21b1b2a0d510385d7f56e9e1ccf7e41e"
+    },
+    {
+      "path": "load-font-matrix-evidence-20261013/resize/profiles/candidate/output/resized_4x.bmp",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "sha256": "6d3f2fe65a6eac1e055d9ba6633b5c4a24a1a37ba17252ed598a831802675d20",
+      "rgb_sha256": "fac1d12380e46c49fd312e9421c387ba21b1b2a0d510385d7f56e9e1ccf7e41e"
+    },
+    {
+      "path": "load-font-matrix-evidence-20261013/resize/profiles/reference/output/restored_2x.bmp",
+      "dimensions": [
+        640,
+        400
+      ],
+      "sha256": "fe4a1b82f9171f7fc9fb1e53210844b99a7d8b0a803f13134a40fdd8908645d8",
+      "rgb_sha256": "d7be854d8f33bbd78e224550225205a92bc5099b9ec917d6ade7339de287dfde"
+    },
+    {
+      "path": "load-font-matrix-evidence-20261013/resize/profiles/candidate/output/restored_2x.bmp",
+      "dimensions": [
+        640,
+        400
+      ],
+      "sha256": "5fe7fef96ccacce52a98a268f0617f18e44db9b43431bccb6d4ce7e85addc575",
+      "rgb_sha256": "9b08d3a18cb8e1b19c48cd5c34bf973297f69567128242bc6343ae3d2ad9e560"
+    }
+  ],
+  "prior_smoke_author_receipt": {
+    "path": "load-font-author-review-20261013/load-smoke2-author-receipt.json",
+    "sha256": "e4699dd345fbd3a42ae93e15f7f475d031fa532ecc23109f8739f46233e7fde8"
+  },
+  "frozen_resources": [
+    {
+      "file": "settings-font-large-v1.hda",
+      "bytes": 934016,
+      "sha256": "7827555a736375ff45bd78dc2c05c5651e65d3b024527e8dba525d3beff721e5"
+    },
+    {
+      "file": "settings-font-tiny-v1.hda",
+      "bytes": 163968,
+      "sha256": "888b635af0c123dc77fecf2f50a2e603f85a0fb6ad74a1c4215b29affc28a35c"
+    }
+  ],
+  "numeric_aggregate": {
+    "path": "load-font-matrix-evidence-20261013/ACCEPTANCE.json",
+    "sha256": "71fbfd990367d0a9f19a8fcb9066d14a818eab9553ba71c92030f95145104cba",
+    "completed_pairs": 17,
+    "paired_presentations": 474,
+    "indexed_palette_bytes_per_side": 30821376,
+    "outside_font_support_differences": 0
+  },
+  "numeric_cases": [
+    {
+      "name": "smoke2",
+      "presentations": 26,
+      "enhanced": 26,
+      "classic": 0,
+      "pair": {
+        "path": "load-font-smoke2-io-profiles-20261013/PAIR.json",
+        "sha256": "6cb80009b496c3346da5e0746bc03de5ba9ffe9fb84df2f8b32ef45afb3230ec"
+      },
+      "raster": {
+        "path": "load-font-smoke2-evidence-20261013/RASTER.json",
+        "sha256": "7197858cbaf2b6872b0db2309aadbeaef1ff2fb44fdb19d6c7ec67a7006828ce"
+      },
+      "lifecycle": {
+        "path": "load-font-smoke2-evidence-20261013/LIFECYCLE.json",
+        "sha256": "a24af8012a2b2e0ce4cf5985740d0380ce12e0dc2d1c33e3317a36f3b3fc12d3"
+      }
+    },
+    {
+      "name": "corrupt_large",
+      "presentations": 26,
+      "enhanced": 0,
+      "classic": 26,
+      "pair": {
+        "path": "load-font-matrix-evidence-20261013/corrupt_large/PAIR.json",
+        "sha256": "ff6fce3f0a1babd896203e3d81e611a541d9349e4da9a736d25bf1607228690e"
+      },
+      "raster": {
+        "path": "load-font-matrix-evidence-20261013/corrupt_large/RASTER.json",
+        "sha256": "5f6dfb2bc4803c278bdd6f546c1985531f0afdca17809eb60eb63e82f9850b4a"
+      },
+      "lifecycle": {
+        "path": "load-font-matrix-evidence-20261013/corrupt_large/LIFECYCLE.json",
+        "sha256": "a24af8012a2b2e0ce4cf5985740d0380ce12e0dc2d1c33e3317a36f3b3fc12d3"
+      }
+    },
+    {
+      "name": "fallback_control",
+      "presentations": 28,
+      "enhanced": 1,
+      "classic": 27,
+      "pair": {
+        "path": "load-font-matrix-evidence-20261013/fallback_control/PAIR.json",
+        "sha256": "cdbec6a79b2c2e876f98a628686e8a106fb9695d5423bf7d8fed91e0092e5285"
+      },
+      "raster": {
+        "path": "load-font-matrix-evidence-20261013/fallback_control/RASTER.json",
+        "sha256": "a16b1c0809420cb866aa6bf63f37e564e672c683097cd134377e26a67fe89a6f"
+      },
+      "lifecycle": {
+        "path": "load-font-matrix-evidence-20261013/fallback_control/LIFECYCLE.json",
+        "sha256": "2dffe727502129232a1efe83dc7c0b8194c950f608cdc34f5190a727e68a1b9f"
+      }
+    },
+    {
+      "name": "fallback_extended",
+      "presentations": 28,
+      "enhanced": 1,
+      "classic": 27,
+      "pair": {
+        "path": "load-font-matrix-evidence-20261013/fallback_extended/PAIR.json",
+        "sha256": "fadeff77db8cf7ed64d7b501c75ef2639944b6a50e692d4b9d23767884073814"
+      },
+      "raster": {
+        "path": "load-font-matrix-evidence-20261013/fallback_extended/RASTER.json",
+        "sha256": "a16b1c0809420cb866aa6bf63f37e564e672c683097cd134377e26a67fe89a6f"
+      },
+      "lifecycle": {
+        "path": "load-font-matrix-evidence-20261013/fallback_extended/LIFECYCLE.json",
+        "sha256": "2dffe727502129232a1efe83dc7c0b8194c950f608cdc34f5190a727e68a1b9f"
+      }
+    },
+    {
+      "name": "fallback_tilde",
+      "presentations": 28,
+      "enhanced": 1,
+      "classic": 27,
+      "pair": {
+        "path": "load-font-matrix-evidence-20261013/fallback_tilde/PAIR.json",
+        "sha256": "fc9c5c05d0c48114e9ec4a9bc56a34280c7a3003e8f59ca74cd7716c5ebc44eb"
+      },
+      "raster": {
+        "path": "load-font-matrix-evidence-20261013/fallback_tilde/RASTER.json",
+        "sha256": "a16b1c0809420cb866aa6bf63f37e564e672c683097cd134377e26a67fe89a6f"
+      },
+      "lifecycle": {
+        "path": "load-font-matrix-evidence-20261013/fallback_tilde/LIFECYCLE.json",
+        "sha256": "2dffe727502129232a1efe83dc7c0b8194c950f608cdc34f5190a727e68a1b9f"
+      }
+    },
+    {
+      "name": "fallback_unmapped",
+      "presentations": 28,
+      "enhanced": 1,
+      "classic": 27,
+      "pair": {
+        "path": "load-font-matrix-evidence-20261013/fallback_unmapped/PAIR.json",
+        "sha256": "72023e6d5efad8ea3772888450eeab73227680c8fe4781bb790f181e2c9a9c83"
+      },
+      "raster": {
+        "path": "load-font-matrix-evidence-20261013/fallback_unmapped/RASTER.json",
+        "sha256": "a16b1c0809420cb866aa6bf63f37e564e672c683097cd134377e26a67fe89a6f"
+      },
+      "lifecycle": {
+        "path": "load-font-matrix-evidence-20261013/fallback_unmapped/LIFECYCLE.json",
+        "sha256": "2dffe727502129232a1efe83dc7c0b8194c950f608cdc34f5190a727e68a1b9f"
+      }
+    },
+    {
+      "name": "filtered",
+      "presentations": 26,
+      "enhanced": 0,
+      "classic": 26,
+      "pair": {
+        "path": "load-font-matrix-evidence-20261013/filtered/PAIR.json",
+        "sha256": "51e0ac964b668c79012a6f6dabfbbefa72f1b162319f58566470390149503352"
+      },
+      "raster": {
+        "path": "load-font-matrix-evidence-20261013/filtered/RASTER.json",
+        "sha256": "521cdf23112a337993c59ac51f4215e5c3111e47de2d3db27dc4125a7961ccb3"
+      },
+      "lifecycle": {
+        "path": "load-font-matrix-evidence-20261013/filtered/LIFECYCLE.json",
+        "sha256": "a24af8012a2b2e0ce4cf5985740d0380ce12e0dc2d1c33e3317a36f3b3fc12d3"
+      }
+    },
+    {
+      "name": "load11_retry",
+      "presentations": 28,
+      "enhanced": 28,
+      "classic": 0,
+      "pair": {
+        "path": "load-font-matrix-evidence-20261013/load11_retry/PAIR.json",
+        "sha256": "003989b611127d3026bf295f3da95f679ccceb0807be61a20d260b1af00e821e"
+      },
+      "raster": {
+        "path": "load-font-matrix-evidence-20261013/load11_retry/RASTER.json",
+        "sha256": "5c36f61c59e8c5c5771c47f35221876f85b23a601dcf51f238a16658b49f0409"
+      },
+      "lifecycle": {
+        "path": "load-font-matrix-evidence-20261013/load11_retry/LIFECYCLE.json",
+        "sha256": "6e43953af8768f7e8fef40ab06a3480ca0387c915868307b7923dfab8e76da66"
+      }
+    },
+    {
+      "name": "load12_retry",
+      "presentations": 27,
+      "enhanced": 27,
+      "classic": 0,
+      "pair": {
+        "path": "load-font-matrix-evidence-20261013/load12_retry/PAIR.json",
+        "sha256": "4bc7d19c602185d8711139b2a795c7280e9c931c0d5189126baca3c6ef5fbcb4"
+      },
+      "raster": {
+        "path": "load-font-matrix-evidence-20261013/load12_retry/RASTER.json",
+        "sha256": "3f033a0d6f97c6109502b9098b8b5fafe92dd6e32d92d393ac187b15785e7eb6"
+      },
+      "lifecycle": {
+        "path": "load-font-matrix-evidence-20261013/load12_retry/LIFECYCLE.json",
+        "sha256": "3364d634cc835b2baa8a35cd7a50d9084d44fee29a4b66924ae0495211d90047"
+      }
+    },
+    {
+      "name": "load1_retry",
+      "presentations": 26,
+      "enhanced": 26,
+      "classic": 0,
+      "pair": {
+        "path": "load-font-matrix-evidence-20261013/load1_retry/PAIR.json",
+        "sha256": "ffb5e29dbf5a7c2f2ed4f07fcbfd166c2ad72664c8e6459b15be49b61b35816d"
+      },
+      "raster": {
+        "path": "load-font-matrix-evidence-20261013/load1_retry/RASTER.json",
+        "sha256": "5719e1eaf984a1bf8b42be2f9c36c6636d3f57021be347019bf763cb42a1c356"
+      },
+      "lifecycle": {
+        "path": "load-font-matrix-evidence-20261013/load1_retry/LIFECYCLE.json",
+        "sha256": "766f9013bdfad6ed7653b6a012c4a7fa38156053cb77099f21d9e23404d990e2"
+      }
+    },
+    {
+      "name": "load22_retry",
+      "presentations": 29,
+      "enhanced": 29,
+      "classic": 0,
+      "pair": {
+        "path": "load-font-matrix-evidence-20261013/load22_retry/PAIR.json",
+        "sha256": "791c62966580afbb15c5014398dc10e4e484b22e44710f9a8b465f3e953a777b"
+      },
+      "raster": {
+        "path": "load-font-matrix-evidence-20261013/load22_retry/RASTER.json",
+        "sha256": "892815a22ff7c405ee6e4a67daa092de5042820ccdb30566c31a8cfc0063feab"
+      },
+      "lifecycle": {
+        "path": "load-font-matrix-evidence-20261013/load22_retry/LIFECYCLE.json",
+        "sha256": "22be2f64ef862a5c9e157a0e99d066adf040cc4fd9177c2028796d382db640c2"
+      }
+    },
+    {
+      "name": "missing_large",
+      "presentations": 26,
+      "enhanced": 0,
+      "classic": 26,
+      "pair": {
+        "path": "load-font-matrix-evidence-20261013/missing_large/PAIR.json",
+        "sha256": "f15b8af31266854286cfdac070506f8a81842af766ef40ff20fc21d8384881e3"
+      },
+      "raster": {
+        "path": "load-font-matrix-evidence-20261013/missing_large/RASTER.json",
+        "sha256": "5f6dfb2bc4803c278bdd6f546c1985531f0afdca17809eb60eb63e82f9850b4a"
+      },
+      "lifecycle": {
+        "path": "load-font-matrix-evidence-20261013/missing_large/LIFECYCLE.json",
+        "sha256": "a24af8012a2b2e0ce4cf5985740d0380ce12e0dc2d1c33e3317a36f3b3fc12d3"
+      }
+    },
+    {
+      "name": "missing_tiny",
+      "presentations": 26,
+      "enhanced": 0,
+      "classic": 26,
+      "pair": {
+        "path": "load-font-matrix-evidence-20261013/missing_tiny/PAIR.json",
+        "sha256": "fd852231772a2214fd9376c344cbe7276de2ca45b5e892fd7b0949672e5cc7f9"
+      },
+      "raster": {
+        "path": "load-font-matrix-evidence-20261013/missing_tiny/RASTER.json",
+        "sha256": "5f6dfb2bc4803c278bdd6f546c1985531f0afdca17809eb60eb63e82f9850b4a"
+      },
+      "lifecycle": {
+        "path": "load-font-matrix-evidence-20261013/missing_tiny/LIFECYCLE.json",
+        "sha256": "a24af8012a2b2e0ce4cf5985740d0380ce12e0dc2d1c33e3317a36f3b3fc12d3"
+      }
+    },
+    {
+      "name": "native4",
+      "presentations": 26,
+      "enhanced": 26,
+      "classic": 0,
+      "pair": {
+        "path": "load-font-matrix-evidence-20261013/native4/PAIR.json",
+        "sha256": "7502bba9a0731a661e8fd69b085d434f565fbbd2172e9b79db22f31a7f207307"
+      },
+      "raster": {
+        "path": "load-font-matrix-evidence-20261013/native4/RASTER.json",
+        "sha256": "0114621eeee408a4ef183604f646e793d9879c5487dfcbe429b008b3a4bc2865"
+      },
+      "lifecycle": {
+        "path": "load-font-matrix-evidence-20261013/native4/LIFECYCLE.json",
+        "sha256": "a24af8012a2b2e0ce4cf5985740d0380ce12e0dc2d1c33e3317a36f3b3fc12d3"
+      }
+    },
+    {
+      "name": "navigation",
+      "presentations": 42,
+      "enhanced": 42,
+      "classic": 0,
+      "pair": {
+        "path": "load-font-matrix-evidence-20261013/navigation/PAIR.json",
+        "sha256": "98b0c6e65493625dc93094f8df426ebde4d76719d58c784e03e1338182a796c4"
+      },
+      "raster": {
+        "path": "load-font-matrix-evidence-20261013/navigation/RASTER.json",
+        "sha256": "59724a0e289cb42026ec4cf18b5239b6712ea5e6e189146d0f51da5aa9186851"
+      },
+      "lifecycle": {
+        "path": "load-font-matrix-evidence-20261013/navigation/LIFECYCLE.json",
+        "sha256": "78ec109a2f416802a451799b8113819e57be69b59962965c0356dc692a8bc0c5"
+      }
+    },
+    {
+      "name": "resize",
+      "presentations": 28,
+      "enhanced": 27,
+      "classic": 1,
+      "pair": {
+        "path": "load-font-matrix-evidence-20261013/resize/PAIR.json",
+        "sha256": "1f5fd8264ae15f92dca842076b751bcd70ad2059badbc982461f63f9c87f3399"
+      },
+      "raster": {
+        "path": "load-font-matrix-evidence-20261013/resize/RASTER.json",
+        "sha256": "aff661bedb894fc7b52f052b4654b003a29536a1558c63ca33226aa394a39d95"
+      },
+      "lifecycle": {
+        "path": "load-font-matrix-evidence-20261013/resize/LIFECYCLE.json",
+        "sha256": "2dffe727502129232a1efe83dc7c0b8194c950f608cdc34f5190a727e68a1b9f"
+      }
+    },
+    {
+      "name": "truncated_tiny",
+      "presentations": 26,
+      "enhanced": 0,
+      "classic": 26,
+      "pair": {
+        "path": "load-font-matrix-evidence-20261013/truncated_tiny/PAIR.json",
+        "sha256": "4805b9a9fad37ffe72704dcaf6c0e1474f15a8c8bcfa635558ba590d447e215b"
+      },
+      "raster": {
+        "path": "load-font-matrix-evidence-20261013/truncated_tiny/RASTER.json",
+        "sha256": "5f6dfb2bc4803c278bdd6f546c1985531f0afdca17809eb60eb63e82f9850b4a"
+      },
+      "lifecycle": {
+        "path": "load-font-matrix-evidence-20261013/truncated_tiny/LIFECYCLE.json",
+        "sha256": "a24af8012a2b2e0ce4cf5985740d0380ce12e0dc2d1c33e3317a36f3b3fc12d3"
+      }
+    }
+  ],
+  "source_pins_receipt": {
+    "path": "load-font-implementation-20261013/docs/load-font-source-pins.json",
+    "sha256": "626dd049ec7e8bece8286aa964ebe52e51f4cba16c66fdfb2c971729db3caebe"
+  },
+  "limits": [
+    "Direct visual scope is limited to the listed12 matrix BMPs plus the previously reviewed2 smoke BMPs.",
+    "No continuous fade/animation playback or physical fullscreen/GPU review.",
+    "No retained still shows cursor-over-text. Cursor observed states are independently numerically covered, not directly visually accepted.",
+    "No actual reentry or Setup launch coverage is added by these Load fixtures.",
+    "Successful-load results, one original gameplay tick, source-level I/O, save/config outcomes and fallback cases are attributed to pinned engineering evidence; no user saves were read.",
+    "Original PIC2 and page-arrow art remain classic; no redesign acceptance is implied.",
+    "Extended/unmapped/control/tilde-name cases preserve classic fallback; not all127 tiny glyphs are claimed covered.",
+    "One original fixture bound failure is preserved separately; successful-load retries used reviewed original equipment input, with unchanged source/art.",
+    "No new run, capture, art/resource edit or publication occurred in this author review.",
+    "Later merges must independently preserve tested source/resource identity."
+  ]
+}

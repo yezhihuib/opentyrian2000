@@ -17,6 +17,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 #include "mainint.h"
+#include "load_font.h"
 #include "game_probe.h"
 #include "render_mirror.h"
 
@@ -664,13 +665,17 @@ bool JE_loadScreen(void)
 		{
 			JE_loadPic(VGAScreen2, 2, false);
 			fill_rectangle_wh(VGAScreen2, 0, 192, 320, 8, 0);
+			load_font_begin(VGAScreen, VGAScreen2);
 		}
 
 		// Restore background.
 		memcpy(VGAScreen->pixels, VGAScreen2->pixels, (size_t)VGAScreen->pitch * VGAScreen->h);
+		load_font_frame_begin(playersIndex, selectedIndex);
 
 		// Draw header.
+		load_font_run_begin(LOAD_HEADING, 0, VGAScreen, xCenter, yMenuHeader, miscText[38 + playersIndex], large_font, centered, 15, -3);
 		draw_font_hv_shadow(VGAScreen, xCenter, yMenuHeader, miscText[38 + playersIndex], large_font, centered, 15, -3, false, 2);
+		load_font_run_end();
 
 		// Draw menu items.
 
@@ -682,7 +687,9 @@ bool JE_loadScreen(void)
 
 			if (i == menuItemsCount - 1)
 			{
+				load_font_run_begin(LOAD_EXIT, i, VGAScreen, xMenuItemName, y, miscText[33], small_font, left_aligned, 13, selected ? 6 : 2);
 				JE_textShade(VGAScreen, xMenuItemName, y, miscText[33], 13, selected ? 6 : 2, FULL_SHADE);
+				load_font_run_end();
 				continue;
 			}
 
@@ -694,20 +701,30 @@ bool JE_loadScreen(void)
 
 			if (disabled)
 			{
+				load_font_run_begin(LOAD_NAME, i, VGAScreen, xMenuItemName, y, miscText[2], small_font, left_aligned, 13, selected ? 6 : 0);
 				JE_textShade(VGAScreen, xMenuItemName, y, miscText[2], 13, selected ? 6 : 0, FULL_SHADE);
+				load_font_run_end();
 
 				snprintf(buffer, sizeof buffer, "%s -----", miscTextB[2]);
+				load_font_run_begin(LOAD_LEVEL, i, VGAScreen, xMenuItemLastLevel, y, buffer, small_font, left_aligned, 5, selected ? 6 : 0);
 				JE_textShade(VGAScreen, xMenuItemLastLevel, y, buffer, 5, selected ? 6 : 0, FULL_SHADE);
+				load_font_run_end();
 			}
 			else
 			{
+				load_font_run_begin(LOAD_NAME, i, VGAScreen, xMenuItemName, y, saveFile->name, small_font, left_aligned, 13, selected ? 6 : 2);
 				JE_textShade(VGAScreen, xMenuItemName, y, saveFile->name, 13, selected ? 6 : 2, FULL_SHADE);
+				load_font_run_end();
 
 				snprintf(buffer, sizeof buffer, "%s %s", miscTextB[2], saveFile->levelName);
+				load_font_run_begin(LOAD_LEVEL, i, VGAScreen, xMenuItemLastLevel, y, buffer, small_font, left_aligned, 5, selected ? 6 : 2);
 				JE_textShade(VGAScreen, xMenuItemLastLevel, y, buffer, 5, selected ? 6 : 2, FULL_SHADE);
+				load_font_run_end();
 
 				snprintf(buffer, sizeof buffer, "%s %u", miscTextB[1], saveFile->episode);
+				load_font_run_begin(LOAD_EPISODE, i, VGAScreen, xMenuItemEpisode, y, buffer, small_font, left_aligned, 5, selected ? 6 : 2);
 				JE_textShade(VGAScreen, xMenuItemEpisode, y, buffer, 5, selected ? 6 : 2, FULL_SHADE);
+				load_font_run_end();
 			}
 		}
 
@@ -716,14 +733,20 @@ bool JE_loadScreen(void)
 		const bool leftControlVisible = playersIndex > 0;
 		const bool rightControlVisible = playersIndex < 1;
 
+		load_font_arrow_begin();
 		if (leftControlVisible)
 			blit_sprite2x2(VGAScreen, xLeftControl, yControls, shopSpriteSheet, 279);
 
 		if (rightControlVisible)
 			blit_sprite2x2(VGAScreen, xRightControl, yControls, shopSpriteSheet, 281);
 
+		load_font_arrow_end();
+
 		helpBoxColor = 15;
+		load_font_help_begin(VGAScreen, 103, 182, miscText[55], 25);
 		JE_helpBox(VGAScreen, 103, 182, miscText[55], 25);
+		load_font_help_end();
+		load_font_frame_end();
 
 		if (restart)
 		{
@@ -736,9 +759,12 @@ bool JE_loadScreen(void)
 
 		service_SDL_events(true);
 
+		load_font_cursor_begin();
 		JE_mouseStart();
+		load_font_cursor_done();
 		JE_showVGA();
 		JE_mouseReplace();
+		load_font_cursor_erased();
 
 		bool mouseMoved = false;
 		do
@@ -914,6 +940,7 @@ bool JE_loadScreen(void)
 
 					fade_black(15);
 
+					load_font_end();
 					return gameLoaded;
 				}
 			}
@@ -923,6 +950,7 @@ bool JE_loadScreen(void)
 		{
 			fade_black(15);
 
+			load_font_end();
 			return false;
 		}
 	}

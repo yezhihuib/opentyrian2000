@@ -6,6 +6,8 @@
 #include <stddef.h>
 enum SettingsRun { SETTINGS_HEADING, SETTINGS_LABEL, SETTINGS_VALUE, SETTINGS_FOOTER, SETTINGS_PICKER };
 enum SettingsGlyph { SETTINGS_DARK, SETTINGS_BLACK, SETTINGS_FACE, SETTINGS_UNSAFE };
+size_t settings_font_static_bytes(void);
+bool settings_font_owns_display(void);
 void settings_font_set_directory(const char *directory);
 void settings_font_begin(SDL_Surface *screen, SDL_Surface *backup);
 void settings_font_end(void);

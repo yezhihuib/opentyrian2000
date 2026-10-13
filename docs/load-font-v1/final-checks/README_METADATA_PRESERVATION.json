@@ -1,0 +1,37 @@
+{
+  "result": "PASS",
+  "baseline": "a4974da93ee75fb18c7ad5827ea42a6b02d1b74d",
+  "unchanged_prior_files": 6269,
+  "unchanged_asset_bytes": 631706987,
+  "exact_changed_files": [
+    "src/helptext.c",
+    "src/mainint.c",
+    "src/palette.c",
+    "src/params.c",
+    "src/picload.c",
+    "src/render_mirror.c",
+    "src/settings_font.c",
+    "src/settings_font.h",
+    "src/sprite.c",
+    "src/video.c",
+    "tests/run_settings_font_tests.sh",
+    "visualc/opentyrian.vcxproj"
+  ],
+  "exact_readme_additions": [
+    "README.md",
+    "README.zh-CN.md"
+  ],
+  "readme_published_prefixes_unchanged": true,
+  "readme_hashes": {
+    "README.md": "ef945bb1082de27e25094e4c71f08faefb8cde43a6495a81623c36af52ed3c6c",
+    "README.zh-CN.md": "552e86d45195207566eafe71b865a6e53fdf11b2430fc3ea94d5d96bb10d1fd5"
+  },
+  "readme_mutation_rejections": 12,
+  "published_C_token_stream_projections": 10,
+  "pinned_source_and_test_files": 17,
+  "mutation_rejections": 36,
+  "successful_load_release_after_original_fade": true,
+  "input_state_save_and_original_draw_semantics_preserved": true,
+  "windows": "C source/header inventory only, no Windows runtime claim",
+  "runtime_or_user_save_access": false
+}

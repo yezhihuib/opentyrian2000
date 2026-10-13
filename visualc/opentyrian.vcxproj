@@ -151,6 +151,7 @@
     <ClCompile Include="..\src\sizebuf.c" />
     <ClCompile Include="..\src\sndmast.c" />
     <ClCompile Include="..\src\settings_font.c" />
+    <ClCompile Include="..\src\load_font.c" />
     <ClCompile Include="..\src\sprite.c" />
     <ClCompile Include="..\src\entity_draw.c" />
     <ClCompile Include="..\src\game_probe.c" />
@@ -221,6 +222,7 @@
     <ClInclude Include="..\src\sizebuf.h" />
     <ClInclude Include="..\src\sndmast.h" />
     <ClInclude Include="..\src\settings_font.h" />
+    <ClInclude Include="..\src\load_font.h" />
     <ClInclude Include="..\src\sprite.h" />
     <ClInclude Include="..\src\entity_draw.h" />
     <ClInclude Include="..\src\game_probe.h" />

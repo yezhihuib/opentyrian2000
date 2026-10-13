@@ -1,0 +1,11 @@
+{
+  "aggregate_sha256": "71fbfd990367d0a9f19a8fcb9066d14a818eab9553ba71c92030f95145104cba",
+  "total_indexed_palette_state_verified_pairs_of_frames": 474,
+  "independently_reconstructed_native_raster_frames": 447,
+  "whole_classic_paired_framebuffer_hash_frames": 27,
+  "classic_split": {
+    "filtered": 26,
+    "resized_unsupported_output": 1
+  },
+  "reason": "The actual dense oracle deliberately delegates filtered/unsupported geometry to whole-classic pair equality. The raw aggregate and per-case receipts are preserved unchanged; this is the precise final claim."
+}

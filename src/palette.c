@@ -17,6 +17,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 #include "settings_font.h"
+#include "load_font.h"
 #include "palette.h"
 #include "render_mirror.h"
 #include "startup_logos.h"
@@ -94,6 +95,7 @@ void init_step_fade_palette(int diff[256][3], Palette colors, unsigned int first
 	startup_logos_fade_start(colors,NULL,first_color,last_color);
 	title_layers_fade_start(colors,NULL,first_color,last_color);
 	settings_font_fade_start(colors,NULL,first_color,last_color);
+	load_font_fade_start(colors,NULL,first_color,last_color);
 	render_mirror_fade_start(colors,NULL,first_color,last_color);
 	for (unsigned int i = first_color; i <= last_color; i++)
 	{
@@ -108,6 +110,7 @@ void init_step_fade_solid(int diff[256][3], SDL_Color color, unsigned int first_
 	startup_logos_fade_start(NULL,&color,first_color,last_color);
 	title_layers_fade_start(NULL,&color,first_color,last_color);
 	settings_font_fade_start(NULL,&color,first_color,last_color);
+	load_font_fade_start(NULL,&color,first_color,last_color);
 	render_mirror_fade_start(NULL,&color,first_color,last_color);
 	for (unsigned int i = first_color; i <= last_color; i++)
 	{
@@ -139,6 +142,7 @@ void step_fade_palette(int diff[256][3], int steps, unsigned int first_color, un
 	startup_logos_fade_step(steps,first_color,last_color);
 	title_layers_fade_step(steps,first_color,last_color);
 	settings_font_fade_step(steps,first_color,last_color);
+	load_font_fade_step(steps,first_color,last_color);
 	render_mirror_fade_step(steps);
 }
 
@@ -147,6 +151,7 @@ void fade_palette(Palette colors, int steps, unsigned int first_color, unsigned 
 	assert(steps > 0);
 	
 	static int diff[256][3];
+	load_font_fade_declare(steps);
 	init_step_fade_palette(diff, colors, first_color, last_color);
 	
 	for (; steps > 0; steps--)
@@ -166,6 +171,7 @@ void fade_solid(SDL_Color color, int steps, unsigned int first_color, unsigned i
 	assert(steps > 0);
 	
 	static int diff[256][3];
+	load_font_fade_declare(steps);
 	init_step_fade_solid(diff, color, first_color, last_color);
 	
 	for (; steps > 0; steps--)

@@ -17,6 +17,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 #include "helptext.h"
+#include "load_font.h"
 
 #include "config.h"
 #include "episodes.h"
@@ -165,7 +166,9 @@ void JE_helpBox(SDL_Surface *screen,  int x, int y, const char *message, unsigne
 		} while (!((unsigned)(pos - startpos) > boxwidth || endstring));
 
 		SDL_strlcpy(substring, message + startpos - 1, MIN((size_t)(endpos - startpos + 1), sizeof(substring)));
+		load_font_help_line_begin(screen, x, y, substring, helpBoxColor, helpBoxBrightness, helpBoxShadeType);
 		JE_textShade(screen, x, y, substring, helpBoxColor, helpBoxBrightness, helpBoxShadeType);
+		load_font_help_line_end();
 
 		y += verticalHeight;
 
@@ -173,7 +176,9 @@ void JE_helpBox(SDL_Surface *screen,  int x, int y, const char *message, unsigne
 
 	if (endpos != pos + 1)
 	{
+		load_font_help_line_begin(screen, x, y, message + endpos, helpBoxColor, helpBoxBrightness, helpBoxShadeType);
 		JE_textShade(screen, x, y, message + endpos, helpBoxColor, helpBoxBrightness, helpBoxShadeType);
+		load_font_help_line_end();
 	}
 
 	helpBoxColor = 12;

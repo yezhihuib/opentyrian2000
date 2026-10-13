@@ -1,0 +1,479 @@
+{
+  "result": "PASS",
+  "source": "/workspace/scratch/f67dd347fa0a/load-font-implementation-20261013",
+  "projection_base": "a4974da93ee75fb18c7ad5827ea42a6b02d1b74d",
+  "exact_changed_files": {
+    "src/helptext.c": {
+      "current": "514112d21eb7c2d398886de891875021e128b56bad242cd4429e4a20008d5341",
+      "previous": "22e414678bb5c58b6233445bf58c2c673fefde040c0bf54510994cdf9bd62697",
+      "reverse_line_edits": [
+        [
+          19,
+          20,
+          ""
+        ],
+        [
+          168,
+          169,
+          ""
+        ],
+        [
+          170,
+          171,
+          ""
+        ],
+        [
+          178,
+          179,
+          ""
+        ],
+        [
+          180,
+          181,
+          ""
+        ]
+      ]
+    },
+    "src/mainint.c": {
+      "current": "0b39b8af90f981bce50762de98eb2458282ed3031780235a8ade405945dcddf8",
+      "previous": "9dcc36f29e71bbd9999fd6097fa43148de65e4476967353cbd9b1e1013a52805",
+      "reverse_line_edits": [
+        [
+          19,
+          20,
+          ""
+        ],
+        [
+          667,
+          668,
+          ""
+        ],
+        [
+          672,
+          673,
+          ""
+        ],
+        [
+          675,
+          676,
+          ""
+        ],
+        [
+          677,
+          678,
+          ""
+        ],
+        [
+          689,
+          690,
+          ""
+        ],
+        [
+          691,
+          692,
+          ""
+        ],
+        [
+          703,
+          704,
+          ""
+        ],
+        [
+          705,
+          706,
+          ""
+        ],
+        [
+          708,
+          709,
+          ""
+        ],
+        [
+          710,
+          711,
+          ""
+        ],
+        [
+          714,
+          715,
+          ""
+        ],
+        [
+          716,
+          717,
+          ""
+        ],
+        [
+          719,
+          720,
+          ""
+        ],
+        [
+          721,
+          722,
+          ""
+        ],
+        [
+          724,
+          725,
+          ""
+        ],
+        [
+          726,
+          727,
+          ""
+        ],
+        [
+          735,
+          736,
+          ""
+        ],
+        [
+          742,
+          744,
+          ""
+        ],
+        [
+          745,
+          746,
+          ""
+        ],
+        [
+          747,
+          749,
+          ""
+        ],
+        [
+          761,
+          762,
+          ""
+        ],
+        [
+          763,
+          764,
+          ""
+        ],
+        [
+          766,
+          767,
+          ""
+        ],
+        [
+          942,
+          943,
+          ""
+        ],
+        [
+          952,
+          953,
+          ""
+        ]
+      ]
+    },
+    "src/palette.c": {
+      "current": "22875c744f395a40ce98f016cd63d1a6b2d9b8bdea937825e397340db10bdd7f",
+      "previous": "5bbac8824c320b6c398fce427a13f676f6c84295661a0450a6e331fd2cfddf13",
+      "reverse_line_edits": [
+        [
+          18,
+          20,
+          "I2luY2x1ZGUgInNldHRpbmdzX2ZvbnQuaCIK"
+        ],
+        [
+          96,
+          98,
+          "CXNldHRpbmdzX2ZvbnRfZmFkZV9zdGFydChjb2xvcnMsTlVMTCxmaXJzdF9jb2xvcixsYXN0X2NvbG9yKTsK"
+        ],
+        [
+          111,
+          113,
+          "CXNldHRpbmdzX2ZvbnRfZmFkZV9zdGFydChOVUxMLCZjb2xvcixmaXJzdF9jb2xvcixsYXN0X2NvbG9yKTsK"
+        ],
+        [
+          143,
+          145,
+          "CXNldHRpbmdzX2ZvbnRfZmFkZV9zdGVwKHN0ZXBzLGZpcnN0X2NvbG9yLGxhc3RfY29sb3IpOwo="
+        ],
+        [
+          153,
+          154,
+          ""
+        ],
+        [
+          173,
+          174,
+          ""
+        ]
+      ]
+    },
+    "src/params.c": {
+      "current": "b5122da9e4ae7619ef9dd968864d899770699ea3b89436097ab8c7b181a88663",
+      "previous": "4cb7868e6dcbac1489386db214093461c923405c1e072f9fc9beaa4fe5bb893a",
+      "reverse_line_edits": [
+        [
+          19,
+          20,
+          ""
+        ],
+        [
+          138,
+          139,
+          ""
+        ]
+      ]
+    },
+    "src/picload.c": {
+      "current": "da627c27a99af47cc6bb25bd6a434de6de21efe3c927819cc7b6e86a6bd0b805",
+      "previous": "a0c1eb3c819812568bfe0ce01c733d98686d0332d9a003bdb380b9bb7f4f0dbe",
+      "reverse_line_edits": [
+        [
+          19,
+          20,
+          ""
+        ],
+        [
+          39,
+          40,
+          ""
+        ]
+      ]
+    },
+    "src/render_mirror.c": {
+      "current": "b966b9ffe776c47b89a03ff901947cdc735eefa42b8514272eb18eb5dfebab10",
+      "previous": "dca16632259069a08b98788476163a9f5e681536c0e04edd8750bd540702841b",
+      "reverse_line_edits": [
+        [
+          6,
+          7,
+          ""
+        ],
+        [
+          1031,
+          1032,
+          ""
+        ],
+        [
+          1086,
+          1087,
+          ""
+        ]
+      ]
+    },
+    "src/settings_font.c": {
+      "current": "aeefbab87e4b50f48d2b40ab907db6ab5ae4260c8e1b8ecd621f4e15ba1b6980",
+      "previous": "e56c3aa886b1a8440582729e656017e213b2ca56592d387f0ab7401dd186f875",
+      "reverse_line_edits": [
+        [
+          5,
+          6,
+          ""
+        ],
+        [
+          71,
+          74,
+          "dHlwZWRlZiBjaGFyIHNmX2J1ZGdldF9jaGVja1soc2l6ZW9mKHNmKStTRl9QQVlMT0FEK1NGX09VVF9CWVRFUyszKjEyOCsyMDQ4PD1TRl9DQVApPzE6LTFdOwo="
+        ],
+        [
+          163,
+          164,
+          "IHNldHRpbmdzX2ZvbnRfZW5kKCk7aWYoIWRpcmVjdG9yeXx8IWdlb21ldHJ5KHNjcmVlbil8fCFnZW9tZXRyeShiYWNrdXApfHxzY3JlZW4hPVZHQVNjcmVlbnx8c2NyZWVuIT1WR0FTY3JlZW5TZWd8fGJhY2t1cCE9VkdBU2NyZWVuMnx8cGFsZXR0ZV9jb3VudDw9N3x8cGFsZXR0ZV9oYXNoKHBhbGV0dGVzWzddKSE9U0ZfUEFMfHxwYWxldHRlX2hhc2goY29sb3JzKSE9U0ZfUEFMfHwhbWFpbl93aW5kb3dfdGV4X2Zvcm1hdHx8bWFpbl93aW5kb3dfdGV4X2Zvcm1hdC0+Qml0c1BlclBpeGVsIT0zMnx8aGFzaChiYWNrdXAtPnBpeGVscyxTRl9OKSE9U0ZfQkFTRXx8IXNvdXJjZSh0cnVlKSlyZXR1cm47Cg=="
+        ]
+      ]
+    },
+    "src/settings_font.h": {
+      "current": "13dd589922cbdad09b892a815073997d59f6f6bad95df9623247faf571ba109f",
+      "previous": "c4c6791adb92be4c650123f6034ebb8103fa841f9e79a7eff450ec8e6245195d",
+      "reverse_line_edits": [
+        [
+          8,
+          10,
+          ""
+        ]
+      ]
+    },
+    "src/sprite.c": {
+      "current": "f55491df5ec34163e3c46da7607c132449fa4d299117a768ae91dd9cf92b5886",
+      "previous": "89e2d9cca65dc2f0ef0f785b94da5c75127b80822ccf8fd593cf442b08008d96",
+      "reverse_line_edits": [
+        [
+          19,
+          20,
+          ""
+        ],
+        [
+          96,
+          97,
+          ""
+        ],
+        [
+          238,
+          239,
+          ""
+        ],
+        [
+          243,
+          244,
+          "CQl7IHJlbmRlcl9taXJyb3JfdGV4dF9nbHlwaF9lbmQoKTsgc2V0dGluZ3NfZm9udF9nbHlwaF9lbmQoKTsgcmV0dXJuOyB9Cg=="
+        ],
+        [
+          283,
+          284,
+          "CQkJCXsgcmVuZGVyX21pcnJvcl90ZXh0X2dseXBoX2VuZCgpOyBzZXR0aW5nc19mb250X2dseXBoX2VuZCgpOyByZXR1cm47IH0K"
+        ],
+        [
+          298,
+          299,
+          "CXNldHRpbmdzX2ZvbnRfZ2x5cGhfZW5kKCk7Cg=="
+        ],
+        [
+          305,
+          306,
+          ""
+        ],
+        [
+          309,
+          310,
+          "CQlzZXR0aW5nc19mb250X2dseXBoX2VuZCgpOyByZXR1cm47Cg=="
+        ],
+        [
+          349,
+          350,
+          "CQkJCXsgc2V0dGluZ3NfZm9udF9nbHlwaF9lbmQoKTsgcmV0dXJuOyB9Cg=="
+        ],
+        [
+          369,
+          370,
+          "CXNldHRpbmdzX2ZvbnRfZ2x5cGhfZW5kKCk7Cg=="
+        ],
+        [
+          444,
+          445,
+          ""
+        ],
+        [
+          449,
+          450,
+          "CQl7IHJlbmRlcl9taXJyb3JfdGV4dF9nbHlwaF9lbmQoKTsgc2V0dGluZ3NfZm9udF9nbHlwaF9lbmQoKTsgcmV0dXJuOyB9Cg=="
+        ],
+        [
+          487,
+          488,
+          "CQkJCXsgcmVuZGVyX21pcnJvcl90ZXh0X2dseXBoX2VuZCgpOyBzZXR0aW5nc19mb250X2dseXBoX2VuZCgpOyByZXR1cm47IH0K"
+        ],
+        [
+          502,
+          503,
+          "CXNldHRpbmdzX2ZvbnRfZ2x5cGhfZW5kKCk7Cg=="
+        ],
+        [
+          540,
+          541,
+          ""
+        ],
+        [
+          565,
+          566,
+          "CQkJCQlyZXR1cm47Cg=="
+        ],
+        [
+          573,
+          574,
+          ""
+        ],
+        [
+          579,
+          580,
+          ""
+        ],
+        [
+          588,
+          589,
+          "CQkJeyBzZXR0aW5nc19mb250X2N1cnNvcl9zcHJpdGVfZW5kKCk7IHJldHVybjsgfQo="
+        ],
+        [
+          618,
+          619,
+          "CXNldHRpbmdzX2ZvbnRfY3Vyc29yX3Nwcml0ZV9lbmQoKTsK"
+        ]
+      ]
+    },
+    "src/video.c": {
+      "current": "dd28a2f88916df7aa706efd4e6d6d3e6bb30abf1c5195791f72ae19ca1c6f5d5",
+      "previous": "696e307785cfdd26803539c8aa104e62d5d0f21b01efa4efab299472bacb5d4e",
+      "reverse_line_edits": [
+        [
+          19,
+          20,
+          ""
+        ],
+        [
+          124,
+          125,
+          ""
+        ],
+        [
+          155,
+          156,
+          ""
+        ],
+        [
+          185,
+          186,
+          ""
+        ],
+        [
+          218,
+          219,
+          ""
+        ],
+        [
+          248,
+          249,
+          ""
+        ],
+        [
+          335,
+          336,
+          ""
+        ],
+        [
+          421,
+          423,
+          "CWlmKHNldHRpbmdzX2ZvbnRfcHJlc2VudChtYWluX3dpbmRvd19yZW5kZXJlcixzcmNfc3VyZmFjZSwmZHN0X3JlY3QsIHN0YXJ0dXBfbG9nb3Nfb3duc19kaXNwbGF5KCkgfHwgdGl0bGVfbGF5ZXJzX293bnNfZGlzcGxheSgpIHx8IHJlbmRlcl9taXJyb3Jfb3duc19kaXNwbGF5KCkpKSB7IGxhc3Rfb3V0cHV0X3JlY3Q9ZHN0X3JlY3Q7IHJldHVybjsgfQo="
+        ]
+      ]
+    },
+    "tests/run_settings_font_tests.sh": {
+      "current": "37655a7ce0971982e6c5d901ed65c9964ce861f59223caf497f0c61971ffa60f",
+      "previous": "d2f2ff88434e28bf9a5dbfb95a10c9d09ec73f3a3dd25f8ed60a2b7097f8641c",
+      "reverse_line_edits": [
+        [
+          14,
+          15,
+          "ICBzcmMvZm9udGhhbmQuYyBzcmMvZm9udC5jIHNyYy9zcHJpdGUuYyBzcmMvbm9ydHZhcnMuYyBzcmMvdmdhMjU2ZC5jIFwK"
+        ]
+      ]
+    },
+    "visualc/opentyrian.vcxproj": {
+      "current": "ec49a5aa504d942077a09e7aef4d921159d01f3e3ba9c0eb03ea4f4782edc67e",
+      "previous": "baa2c8012c80838e3171632956f26a636e54f486754d6aea647b066646b23302",
+      "reverse_line_edits": [
+        [
+          153,
+          154,
+          ""
+        ],
+        [
+          224,
+          225,
+          ""
+        ]
+      ]
+    }
+  },
+  "mutation_rejections": 36,
+  "historical_files_modified": false,
+  "runtime_test_target": "Current production type3 render helpers; original indexed recorder projection separately pinned and proven token-equal by tests/test_load_font_integration.py",
+  "test": "/workspace/scratch/f67dd347fa0a/load-font-implementation-20261013/prototype/tests/title-menu-font/test_source.py",
+  "test_sha256": "d1cfd50327a6eaab9441008ca255689fb8806611751d332568e93ef196218ac9"
+}

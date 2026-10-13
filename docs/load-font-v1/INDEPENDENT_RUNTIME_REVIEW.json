@@ -1,0 +1,166 @@
+{
+  "schema": "load-font-independent-runtime-review-v1",
+  "result": "PASS_WITH_EXPLICIT_SCOPE",
+  "reviewer": "review_load_font_design",
+  "completed_utc": "2026-10-13T04:28:02.627545+00:00",
+  "source_commit": "c0f1f44603779df4c4adec519369cd383c12c341",
+  "baseline_commit": "a4974da93ee75fb18c7ad5827ea42a6b02d1b74d",
+  "source_worktree_clean": true,
+  "review_activity": "Read-only source, validator, frozen receipt, raw data and inventory audit; no engine launches, captures or production edits. This external receipt is the only review artifact written in this closure.",
+  "pins": {
+    "load-font-matrix-evidence-20261013/ACCEPTANCE.json": "71fbfd990367d0a9f19a8fcb9066d14a818eab9553ba71c92030f95145104cba",
+    "load-font-final-checks-20261013/RECEIPT.json": "f4f64425d08f3fd392bb038f69421386827140772cc16bb3d4b1436e0a4f817a",
+    "load-font-author-review-20261013/final-author-receipt.json": "29b43109686daf5c8df48d7d62273c245b6740a0809631056404d1df651fd8b3",
+    "load-font-independent-source-review-20261013/RECEIPT.json": "dd595e8765f79cc1d753983004c3ca1c26b7b662eb164408082c2dc22733963e",
+    "load-font-final-docs-20261013/ACCEPTANCE.txt": "bc2f95227dfe3178233be11f930f3c8d0b692c5d2a2c2710fad5b6319bb16f3b",
+    "load-font-final-docs-20261013/USAGE.txt": "6a496ea06a3250fa6492c7082d83bdd813e9ef13a77bdf20ca50f32847d58094",
+    "load-font-final-docs-20261013/RASTER_SCOPE.json": "ba11a8d0a8815ce5a8606dca016b39ba902f9aac0737fd0ec84b57dd0d3172b8",
+    "load-font-final-checks-20261013/run_legacy_projection.py": "4a4dff47ef357e2e6275737b1d7ec0f34724c22d14f5de243007f58bf97033e4"
+  },
+  "verified_counts": {
+    "linked_receipts": 51,
+    "raw_inventory_files": 408,
+    "paired_presentations": 474,
+    "enhanced": 235,
+    "classic": 239,
+    "independent_native_raster": 447,
+    "unsupported_output_framebuffer_parity": 27,
+    "retained_native_still_pairs_pixel_compared": 16,
+    "retained_classic_still_pairs_byte_compared": 10,
+    "indexed_palette_bytes_per_side": 30821376
+  },
+  "cases": [
+    {
+      "name": "smoke2",
+      "presentations": 26,
+      "enhanced": 26,
+      "classic": 0
+    },
+    {
+      "name": "corrupt_large",
+      "presentations": 26,
+      "enhanced": 0,
+      "classic": 26
+    },
+    {
+      "name": "fallback_control",
+      "presentations": 28,
+      "enhanced": 1,
+      "classic": 27
+    },
+    {
+      "name": "fallback_extended",
+      "presentations": 28,
+      "enhanced": 1,
+      "classic": 27
+    },
+    {
+      "name": "fallback_tilde",
+      "presentations": 28,
+      "enhanced": 1,
+      "classic": 27
+    },
+    {
+      "name": "fallback_unmapped",
+      "presentations": 28,
+      "enhanced": 1,
+      "classic": 27
+    },
+    {
+      "name": "filtered",
+      "presentations": 26,
+      "enhanced": 0,
+      "classic": 26
+    },
+    {
+      "name": "load11_retry",
+      "presentations": 28,
+      "enhanced": 28,
+      "classic": 0
+    },
+    {
+      "name": "load12_retry",
+      "presentations": 27,
+      "enhanced": 27,
+      "classic": 0
+    },
+    {
+      "name": "load1_retry",
+      "presentations": 26,
+      "enhanced": 26,
+      "classic": 0
+    },
+    {
+      "name": "load22_retry",
+      "presentations": 29,
+      "enhanced": 29,
+      "classic": 0
+    },
+    {
+      "name": "missing_large",
+      "presentations": 26,
+      "enhanced": 0,
+      "classic": 26
+    },
+    {
+      "name": "missing_tiny",
+      "presentations": 26,
+      "enhanced": 0,
+      "classic": 26
+    },
+    {
+      "name": "native4",
+      "presentations": 26,
+      "enhanced": 26,
+      "classic": 0
+    },
+    {
+      "name": "navigation",
+      "presentations": 42,
+      "enhanced": 42,
+      "classic": 0
+    },
+    {
+      "name": "resize",
+      "presentations": 28,
+      "enhanced": 27,
+      "classic": 1
+    },
+    {
+      "name": "truncated_tiny",
+      "presentations": 26,
+      "enhanced": 0,
+      "classic": 26
+    }
+  ],
+  "verified_findings": [
+    "All 51 aggregate-linked pair, raster and lifecycle receipts have matching SHA256 identities and PASS results; all aggregate binary, fixture, validator and failure pins match.",
+    "Reference/candidate original indexed-plus-palette streams and semantics streams match byte-for-byte. All 408 recorded after-inventory files match their actual path set, SHA256, byte count and mode; no symlinks. Disposable final config/save parity and unchanged input inventories verified.",
+    "All paired presentation counts and owner sequences agree with raw logs. Every case has exact original 10-step entry and 15-step exit fade sequences.",
+    "All four successful cases (slots 1, 11, 12, 22) match expected original operation/return player and game fields, keep Load ownership through the 15-step exit fade, release before gameplay, follow bounded original equipment inputs, perform the original pre-game LAST LEVEL backup save, traverse one gameplay loop, then explicitly call original JE_tyrianHalt(0) and original final configuration/save path.",
+    "Raster validator reconstructs original indexed draws and native RGB from literal call-site order, original RLE and frozen authored payloads, never from production command arrays. It verifies original indexed pixels, full native frame hashes and zero outside-font-support changes. Retained native BMPs receive complete pixel comparison; classic retained BMPs are byte-identical across pairs.",
+    "Scoped source-level I/O observer preserves original calls/results and errno, observes legacy dir_fopen/save/config/media and tracked writes/closes/mkdir. Successful errno is intentionally excluded from parity because undefined, while raw evidence retains it. Direct HD resource access is covered by frozen pre/post inventories, not universal syscall tracing.",
+    "Original media copy remains 82 hash-matching read-only files (11,381,888 bytes) with no writable file/directory modes; actual access remains confined to disposable profiles and immutable fixture input.",
+    "Historical adapter checks exact current whole-file pins and reverses only proven Load edits to a4974da in memory, before existing Settings projections. Reverse-edit results match baseline git bytes; 36 arbitrary byte mutations rejected. Type3 production render helpers remain current; only the original indexed recorder uses the proven Load-free projection. Historical and production source files remain unchanged.",
+    "Final source/build regression receipt and every linked final-check file hash validate. Settings wording is corrected to 359 frame calls; source suite remains 192 layouts, distinct from 17 actual pairs. New Load strict C99 passes; Linux build warnings are existing unrelated warnings. Windows result is source/header inventory only.",
+    "Author receipt and its directly viewed image pins validate. Its visual PASS is separately attributed to the author; this reviewer did not create or newly inspect captures during final closure.",
+    "Final acceptance wording now correctly distinguishes 447 independent native raster reconstructions from 27 whole-classic framebuffer parity frames. Raw aggregate broad dense_all_presentations_pass field is qualified by pinned RASTER_SCOPE.json."
+  ],
+  "failure_qualification": {
+    "initial_slot1_reference": "One preserved engine launch reached correct post-load state and 15-step fade, then hit the existing 512 total-presentation cap at original equipment menu. Candidate was not launched. Fixture-only bounded original-input correction used fresh profiles; all four retries passed. This failed fixture is excluded from accepted pairs.",
+    "ptrace": "PTRACE_TRACEME was denied before engine launch. Empty stdout/file-access logs and the infrastructure error remain preserved. Zero engine launches, excluded from actual acceptance."
+  },
+  "limits": [
+    "PASS applies to the named 17 actual reference/candidate pairs and separately reviewed source/synthetic coverage, not an exhaustive actual 192-layout Cartesian matrix.",
+    "447 native rasters are independently reconstructed; 27 filtered/unsupported-output frames prove whole-classic framebuffer-hash equality (26 filtered and one resized frame), without a standalone filter reconstruction.",
+    "Nonretained full-frame output is checked via recorded FNV64 framebuffer hashes; retained native stills are checked pixelwise and classic retained stills bytewise. Hash-based checks are not collision-free mathematical proofs.",
+    "Actual execution uses SDL dummy/software. Physical GPU/display/fullscreen, joystick and Windows runtime are not established.",
+    "No new actual combined-nine-file startup/title/Setup/reentry run. Compatibility is supported by immutable resource identities, source/owner isolation and separate source/synthetic regressions.",
+    "No retained cursor-over-text visual or continuous playback review. Actual cursor states have numeric complete-frame evidence.",
+    "Success stop is an explicit private JE_tyrianHalt fixture callback after one loop, not a player-input exit. Original wait call sequences are compared; equal wall-clock timing is not claimed.",
+    "I/O coverage is deliberately scoped source instrumentation plus exact file inventories, not universal libc/syscall tracing.",
+    "LeakSanitizer cannot operate under executor ptrace. ASan/UBSan and zero owned-allocation ledgers are separate evidence.",
+    "The smoke has complete paired artifacts but no separate EXECUTION.json exit-status receipt. Other 16 cases have paired exit-zero execution receipts. Aggregate 34 completed processes is consistent with artifacts; this review does not invent an independent smoke exit-status log."
+  ],
+  "seal_clearance": "No functional blocker. Metadata-only seal may proceed while retaining exact functional/source/resource/runtime identities and these scope qualifications."
+}

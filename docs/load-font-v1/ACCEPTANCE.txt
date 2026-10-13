@@ -1,0 +1,84 @@
+LOAD GAME TYPOGRAPHY ACCEPTANCE, 2026-10-13
+
+Functional source is the independently reviewed clean checkpoint
+c0f1f44603779df4c4adec519369cd383c12c341, based on published
+a4974da93ee75fb18c7ad5827ea42a6b02d1b74d. Final packaging updates documentation,
+normalizes one display log, and adds exact-hash checks for the two approved
+README additions to the preservation verifier. Production, resource and core
+harness bytes remain identical to the actual-tested checkpoint. This record
+was sealed as an unpublished isolated candidate.
+
+Actual acceptance passes 17 reference/candidate pairs, 474 paired Load
+presentations and 30,821,376 byte-identical indexed/palette bytes per side.
+Every presentation has exact indexed/palette/source/state/input/wait/RNG/write
+parity. Of the 474, 447 native frames also match an independently reconstructed
+complete raster using literal original call sites and frozen authored planes;
+27 filtered/unsupported-output frames instead have whole-classic reference/
+candidate framebuffer-hash equality (26 filtered plus one resized frame). The
+oracle does not consume production command arrays. Native retained stills also
+compare every pixel; classic fallback stills are byte-equal across the pair.
+There are zero differences outside original-or-authored font support.
+
+Coverage includes native 2x and 4x, occupied/empty/Exit selection, empty Return,
+wrap, both keyboard page directions, visible mouse arrows including y=199,
+last-row/gap mouse movement, four unsupported-name classes with whole-frame
+fallback and page reacquisition, filtered scaling, resized-output fallback and
+restoration, missing large/tiny, corrupt large and truncated tiny resources.
+Original 10-step entry and 15-step exit fades remain exact in every pair.
+
+Slots 1, 11, 12 and 22 execute original JE_operation/JE_loadGame on synthetic
+safe episode-1 data. Complete expected player and game fields match after the
+operation and after all 15 exit-fade steps. The owner remains through that fade,
+then releases before return and before gameplay. Original equipment-menu inputs
+reach TYRIAN; the fixture explicitly invokes original JE_tyrianHalt(0) at second
+gameplay-loop entry, after one full original tick. The original pre-game LAST
+LEVEL backup save and final quit/config save both occur and match byte-for-byte.
+
+Every process uses a fresh disposable HOME/XDG profile synthesized from approved
+fixtures. No user save is read, copied, backed up, restored or changed. Original
+media is a separately hash-verified read-only copy; before/after bytes and modes
+match. Legacy media/config/save requested/resolved paths, modes, results, byte/
+character writes and closes are observed without changing calls or errno. This
+is scoped source-level I/O evidence, not universal libc/syscall tracing. Direct
+HD-resource opens remain unchanged and are covered by input inventories.
+
+One initial slot-1 reference reached the original equipment screen and stopped
+at the existing presentation cap because that first fixture lacked equipment
+inputs. Its candidate was not launched. Both are preserved as fixture-bound
+failure evidence. The independently reviewed correction adds only exact original
+SDL equipment inputs, with no state bypass or cap increase, and uses four fresh
+paired profiles. The earlier ptrace failure happened before engine execution and
+is separately preserved as infrastructure evidence.
+
+The author directly viewed six matrix A/B contexts plus the initial smoke and
+found no visual defect. No new art was needed. Cursor-over-text retained-still,
+continuous playback, physical GPU/display/fullscreen, actual Setup/reentry and
+Windows execution are not claimed. Navigation cursor states have numerical
+complete-frame proof; Windows source/header inventory is checked separately.
+
+Source tests cover 192 layouts (144 enhanced, 48 fallback), fixed caps of 40 runs
+and 4,096 commands, observed maxima of 37 runs and 2,822 commands including
+arrows, four whole-string black outline passes followed by the face,
+overlapping footer support, allocation/lifetime failures and sibling-owner
+exclusivity. Settings regression
+covers 359 frame calls. Both pass normal and ASan/UBSan. LeakSanitizer is unavailable
+under executor ptrace; owned allocation ledgers return to zero. Independent
+review adds 183 dense frames, real mouse paths, software targets and production
+palette fades. Conservative font CPU storage is 6,942,456 bytes, below 7 MiB;
+one nominal 4,096,000-byte presentation texture is separate.
+
+Historical source-only menu/type3 preservation guards use a private exact-whole-
+file-pin Load projection before their existing settings projection. Arbitrary
+byte mutations are rejected. Historical/production files are not edited.
+Type3 tests compile current render helpers; only its original indexed recorder
+uses the source-proven Load-free observer projection. Current production Load,
+Settings and menu modules are also tested directly. Full details and reproducible
+private recipes are in the durable evidence package.
+
+Whitespace policy: preserve legacy palette.c CRLF bytes. The final check uses
+  git -c core.whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol diff --check
+No repository-wide attribute or blank-at-eof exemption is added. The original
+compiled-storage report is preserved unchanged in private evidence with SHA256
+8ecca603bb6029f67b9af2578c70d54d5e1d867cadc1763402ac1845d0b3b535.
+Only the published display copy trims two trailing blank lines; its SHA256 is
+f0886b708e4db951adf912afa27f21f10051af541d89881186782bcc75ce847f.

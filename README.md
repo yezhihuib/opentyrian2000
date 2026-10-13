@@ -213,3 +213,5 @@ paired actual-engine controls, fades and lifecycle checks on SDL dummy/software,
 plus source/sanitizer and retained-still author review. Physical GPU/display and
 Windows execution are not claimed. Reproduce the exact nine files with
 `python3 prototype/settings_font_bundle.py --output /absolute/new/directory`.
+
+The same `startup-title-settings-v1` pack now also supports bounded Load typography, with whole-frame classic fallback for unsupported names or scalers; see [Load usage](docs/load-font-v1/USAGE.txt).

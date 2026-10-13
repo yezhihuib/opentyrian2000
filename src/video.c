@@ -17,6 +17,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 #include "settings_font.h"
+#include "load_font.h"
 #include "video.h"
 #include "render_mirror.h"
 #include "asset_debug.h"
@@ -121,6 +122,7 @@ void deinit_video(void)
 	startup_logos_shutdown();
 	title_layers_end();
 	settings_font_end();
+	load_font_end();
 	deinit_texture();
 	deinit_renderer();
 
@@ -151,6 +153,7 @@ static void deinit_renderer(void)
 		startup_logos_release_texture();
 		title_layers_release_texture();
 		settings_font_invalidate();
+	load_font_invalidate();
 		render_mirror_release_texture();
 		SDL_DestroyRenderer(main_window_renderer);
 		main_window_renderer = NULL;
@@ -180,6 +183,7 @@ static void init_texture(void)
 static void deinit_texture(void)
 {
 	settings_font_invalidate();
+	load_font_invalidate();
 	if (main_window_texture != NULL)
 	{
 		SDL_DestroyTexture(main_window_texture);
@@ -212,6 +216,7 @@ static void window_center_in_display(int display_index)
 void reinit_fullscreen(int new_display)
 {
 	settings_font_invalidate();
+	load_font_invalidate();
 	fullscreen_display = new_display;
 
 	if (fullscreen_display >= SDL_GetNumVideoDisplays())
@@ -241,6 +246,7 @@ void reinit_fullscreen(int new_display)
 void video_on_win_resize(void)
 {
 	settings_font_invalidate();
+	load_font_invalidate();
 	int w, h;
 	int scaler_w, scaler_h;
 
@@ -327,6 +333,7 @@ void JE_clr256(SDL_Surface *screen)
 	startup_logos_reset();
 	title_layers_end();
 	settings_font_end();
+	load_font_end();
 	SDL_FillRect(screen, NULL, 0);
 	render_mirror_rect(screen,NULL);
 }
@@ -412,7 +419,8 @@ static void scale_and_flip(SDL_Surface *src_surface)
 	calc_dst_render_rect(src_surface, &dst_rect);
 	if(startup_logos_present(main_window_renderer,src_surface,&dst_rect)) { last_output_rect=dst_rect; return; }
 	if(title_layers_present(main_window_renderer,src_surface,&dst_rect)) { last_output_rect=dst_rect; return; }
-	if(settings_font_present(main_window_renderer,src_surface,&dst_rect, startup_logos_owns_display() || title_layers_owns_display() || render_mirror_owns_display())) { last_output_rect=dst_rect; return; }
+	if(settings_font_present(main_window_renderer,src_surface,&dst_rect, startup_logos_owns_display() || title_layers_owns_display() || render_mirror_owns_display() || load_font_owns_display())) { last_output_rect=dst_rect; return; }
+	if(load_font_present(main_window_renderer,src_surface,&dst_rect, startup_logos_owns_display() || title_layers_owns_display() || render_mirror_owns_display() || settings_font_owns_display())) { last_output_rect=dst_rect; return; }
 	if(render_mirror_present(main_window_renderer,src_surface,&dst_rect)) { last_output_rect=dst_rect; return; }
 
 	// Clear the window and blit the output texture to it

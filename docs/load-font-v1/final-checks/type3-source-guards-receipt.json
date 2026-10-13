@@ -1,0 +1,2202 @@
+{
+  "status": "PASS",
+  "valid_source_validation": true,
+  "generated_only_reproduction_without_canonical_outputs": true,
+  "closed_frozen_import_inventory": true,
+  "optional_original_validation": true,
+  "generated_only_input_files": 8,
+  "input_file_sha256": {
+    "assets/hd/artwork/type3-small-six-v1/output/enemy-newsh2-247-8.hda": "003cb884ee1d5e53086bde63d9854d9ef1d1f713fd5a90414153877c4029b90c",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-171-8.hda": "ab151e5301768c75541fa93eccf3cb4b8e18d36949e01b88079e938f413fc919",
+    "assets/hd/artwork/type3-small-six-v1/output/enemy-newsh2-190-8.hda": "d2850e82a77fc9bf32bf29d383f05de4bf2f2ff12209356ed29a139ba2796d14",
+    "assets/hd/artwork/type3-small-six-v1/output/enemy-newsh2-247-8.png": "4643798248aa7326bbda18f2112982172869d70da535627e43136bf74de48b78",
+    "assets/hd/artwork/type3-small-six-v1/inventory.json": "5012962c54ab3fd0b22cc8a2534fddee272704fa73447e267ffeb4938f787c33",
+    "assets/hd/artwork/type3-small-six-v1/output/enemy-newsh2-228-8.hda": "41745a0504911c41ad35d06621db0826f68f74238006dde4f6592be1df95a12e",
+    "assets/hd/source/enemy-newsh2-171-8-ab151e530176.png": "45ffe1c9b8a5ca35c7701cc44ede663c15b07b05f2439eded81c4ed87d0359a5",
+    "assets/hd/artwork/type3-small-six-v1/output/enemy-newsh2-171-8.png": "45ffe1c9b8a5ca35c7701cc44ede663c15b07b05f2439eded81c4ed87d0359a5",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-209-8.hda": "e329ef037fd32c9a83bc9e92143897dc7e2c60745099597b7a4b830b821fdf55",
+    "src/tyrian2.c": "0a042621d599fdba15f89012c9bb1007327cd6f5df0e0a41865ea61c08856d02",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-190-8.hda": "d2850e82a77fc9bf32bf29d383f05de4bf2f2ff12209356ed29a139ba2796d14",
+    "assets/hd/source/enemy-newsh2-190-8-d2850e82a77f.png": "93a3cf0047da18ef8e8f2a1835f51b8d2951cf15ce6bb10e23df7dcf5cbec5b5",
+    "assets/hd/source/enemy-newsh2-247-8-003cb884ee1d.png": "4643798248aa7326bbda18f2112982172869d70da535627e43136bf74de48b78",
+    "assets/hd/artwork/type3-small-six-v1/sources/generated-six-frame.png": "baf9cab081a0823794233ff87d0f6ed1b1f17c8b8e64eebe4982b8daa1d5cd90",
+    "assets/hd/artwork/type3-small-six-v1/proof/art-input-contract.json": "9c8934790afb66ba2431be75ba68b20a22ad58b522c8db85661a849288cd8686",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-228-8.hda": "41745a0504911c41ad35d06621db0826f68f74238006dde4f6592be1df95a12e",
+    "assets/hd/artwork/type3-small-six-v1/output/enemy-newsh2-266-8.hda": "f6381324f6f1f3e17088a066348d9234d994561938f0f50d8dd1c97b1545ae0d",
+    "assets/hd/artwork/type3-small-six-v1/output/enemy-newsh2-190-8.png": "93a3cf0047da18ef8e8f2a1835f51b8d2951cf15ce6bb10e23df7dcf5cbec5b5",
+    "assets/hd/artwork/type3-small-six-v1/proof/REPORT.md": "160b6b0d8def19c8fac6f1a56c89c9d1bfbc6401dcc84502c39f5e5af1367e7f",
+    "assets/hd/artwork/type3-small-six-v1/output/enemy-newsh2-209-8.png": "447b5cbdfa5912a0474a7dafd98c768ddf9a2174beff81dee9bacba892229794",
+    "assets/hd/artwork/type3-small-six-v1/output/enemy-newsh2-171-8.hda": "ab151e5301768c75541fa93eccf3cb4b8e18d36949e01b88079e938f413fc919",
+    "src/episodes.c": "640219b48d3081ee996ce66a66f61ad2fe185339fcfaf395808e02fcee0b29e0",
+    "assets/hd/artwork/type3-small-six-v1/masks/alpha-209.png": "589e487457e1f08953a0fc32051b1ec1ec48f710094f7948ce41416be6831f7b",
+    "assets/hd/artwork/type3-small-six-v1/output/rebuild-receipt.json": "579b6e46b7187912658326ee13d9a773dd6175f4a3063cbeabacc9c99e50147d",
+    "assets/hd/artwork/type3-small-six-v1/masks/alpha-247.png": "589e487457e1f08953a0fc32051b1ec1ec48f710094f7948ce41416be6831f7b",
+    "assets/hd/artwork/type3-small-six-v1/sources/prompt.txt": "ff9c6fe4c5075144bf3204f47bd867b23e86661ee5fdea9c6f02ba061e94e744",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-247-8.hda": "003cb884ee1d5e53086bde63d9854d9ef1d1f713fd5a90414153877c4029b90c",
+    "assets/hd/artwork/type3-small-six-v1/rebuild.py": "722591af2bd6ae32ee6a7989b94ec5c7eda142f8e2753e413d585472bee0573f",
+    "assets/hd/artwork/type3-small-six-v1/output/enemy-newsh2-266-8.png": "6c2c003c893b095db565e84b2bec19ffd5286493dccb820ce7700e0e3c428290",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-266-8.hda": "f6381324f6f1f3e17088a066348d9234d994561938f0f50d8dd1c97b1545ae0d",
+    "assets/hd/artwork/type3-small-six-v1/masks/alpha-266.png": "589e487457e1f08953a0fc32051b1ec1ec48f710094f7948ce41416be6831f7b",
+    "assets/hd/artwork/type3-small-six-v1/contract.json": "2761040c95659aff37eaadd5601ee14adb8138c38d7231867178c295c275acbd",
+    "assets/hd/artwork/type3-small-six-v1/sources/initial-prompt.txt": "424d4e33cdb1b2b0c1e7c142673bf6e6a32bacad2cd10729997e1de2cba599a0",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-171-8.hda": "ab151e5301768c75541fa93eccf3cb4b8e18d36949e01b88079e938f413fc919",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-190-8.hda": "d2850e82a77fc9bf32bf29d383f05de4bf2f2ff12209356ed29a139ba2796d14",
+    "assets/hd/source/enemy-newsh2-209-8-e329ef037fd3.png": "447b5cbdfa5912a0474a7dafd98c768ddf9a2174beff81dee9bacba892229794",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-266-8.hda": "f6381324f6f1f3e17088a066348d9234d994561938f0f50d8dd1c97b1545ae0d",
+    "assets/hd/artwork/type3-small-six-v1/proof/alpha-verification.json": "92e32229fac90b7ebc9e03e9d6ec6fdcb9c0350704400fc9ea89405f17ecebd8",
+    "prototype/build-type3-small-art.py": "ee89c88a9e399fcbd196fa22f2db97d22e9266f7082ce10ecb4c94404996eafd",
+    "assets/hd/manifest.json": "b9b7ef016af7a87128b7fa76db2fafb1d694980ea799138d1729805c52a10445",
+    "assets/hd/artwork/type3-small-six-v1/proof/source-record-proof.json": "cde606566500a5f47cae2c4b8d20a7bf653ae63574b31c0ace9eb1e05ab59e84",
+    "assets/hd/artwork/type3-small-six-v1/masks/alpha-171.png": "cc79b637946aec41ecaa8713e7293b5280d916a99fe9d4b92dae077d738c9a08",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-228-8.hda": "41745a0504911c41ad35d06621db0826f68f74238006dde4f6592be1df95a12e",
+    "assets/hd/source/enemy-newsh2-266-8-f6381324f6f1.png": "6c2c003c893b095db565e84b2bec19ffd5286493dccb820ce7700e0e3c428290",
+    "assets/hd/source/enemy-newsh2-228-8-41745a050491.png": "036b214f2e2e9a753f7f4be7cf22ffa6dcd991dabd769442dfef2deac35c083b",
+    "assets/hd/artwork/type3-small-six-v1/README.md": "d4bb9f6b3a7b55638ca60ab189dd9eed2d5b390f22c7fdb3d9f31d42c6d5ce00",
+    "assets/hd/artwork/type3-small-six-v1/masks/alpha-228.png": "47455e26059787924366af18dccc17cdf703820d84dd12e86e5a22ba9319448e",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-209-8.hda": "e329ef037fd32c9a83bc9e92143897dc7e2c60745099597b7a4b830b821fdf55",
+    "assets/hd/artwork/type3-small-six-v1/output/enemy-newsh2-228-8.png": "036b214f2e2e9a753f7f4be7cf22ffa6dcd991dabd769442dfef2deac35c083b",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-247-8.hda": "003cb884ee1d5e53086bde63d9854d9ef1d1f713fd5a90414153877c4029b90c",
+    "assets/hd/artwork/type3-small-six-v1/output/enemy-newsh2-209-8.hda": "e329ef037fd32c9a83bc9e92143897dc7e2c60745099597b7a4b830b821fdf55",
+    "assets/hd/artwork/type3-small-six-v1/masks/alpha-190.png": "589e487457e1f08953a0fc32051b1ec1ec48f710094f7948ce41416be6831f7b",
+    "assets/hd/artwork/type3-small-six-v1/proof/verification.json": "c3e873959c87023804f8453c4313b75310a12262666f64c5455ef9f85bfa98a5"
+  },
+  "rejected_cases": [
+    {
+      "case": "existing",
+      "reason": "output must be fresh",
+      "returncode": 1
+    },
+    {
+      "case": "repository",
+      "reason": "output must be fresh",
+      "returncode": 1
+    },
+    {
+      "case": "repository-parent",
+      "reason": "output must be fresh",
+      "returncode": 1
+    },
+    {
+      "case": "repository-child",
+      "reason": "output must be outside repository",
+      "returncode": 1
+    },
+    {
+      "case": "relative",
+      "reason": "output must be absolute",
+      "returncode": 1
+    },
+    {
+      "case": "traversal",
+      "reason": "output traversal forbidden",
+      "returncode": 1
+    },
+    {
+      "case": "missing-parent",
+      "reason": "output parent must exist",
+      "returncode": 1
+    },
+    {
+      "case": "symlink-parent",
+      "reason": "symlink path forbidden",
+      "returncode": 1
+    },
+    {
+      "case": "symlink-output",
+      "reason": "symlink path forbidden",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-README.md",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-frozen-README.md",
+      "reason": "source inventory differs",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-contract.json",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-frozen-contract.json",
+      "reason": "source inventory differs",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-inventory.json",
+      "reason": "source inventory freeze mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-frozen-inventory.json",
+      "reason": "inventory.json",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-masks-alpha-171.png",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-frozen-masks-alpha-171.png",
+      "reason": "source inventory differs",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-masks-alpha-190.png",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-frozen-masks-alpha-190.png",
+      "reason": "source inventory differs",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-masks-alpha-209.png",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-frozen-masks-alpha-209.png",
+      "reason": "source inventory differs",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-masks-alpha-228.png",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-frozen-masks-alpha-228.png",
+      "reason": "source inventory differs",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-masks-alpha-247.png",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-frozen-masks-alpha-247.png",
+      "reason": "source inventory differs",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-masks-alpha-266.png",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-frozen-masks-alpha-266.png",
+      "reason": "source inventory differs",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-output-enemy-newsh2-171-8.hda",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-frozen-output-enemy-newsh2-171-8.hda",
+      "reason": "source inventory differs",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-output-enemy-newsh2-171-8.png",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-frozen-output-enemy-newsh2-171-8.png",
+      "reason": "source inventory differs",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-output-enemy-newsh2-190-8.hda",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-frozen-output-enemy-newsh2-190-8.hda",
+      "reason": "source inventory differs",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-output-enemy-newsh2-190-8.png",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-frozen-output-enemy-newsh2-190-8.png",
+      "reason": "source inventory differs",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-output-enemy-newsh2-209-8.hda",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-frozen-output-enemy-newsh2-209-8.hda",
+      "reason": "source inventory differs",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-output-enemy-newsh2-209-8.png",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-frozen-output-enemy-newsh2-209-8.png",
+      "reason": "source inventory differs",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-output-enemy-newsh2-228-8.hda",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-frozen-output-enemy-newsh2-228-8.hda",
+      "reason": "source inventory differs",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-output-enemy-newsh2-228-8.png",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-frozen-output-enemy-newsh2-228-8.png",
+      "reason": "source inventory differs",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-output-enemy-newsh2-247-8.hda",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-frozen-output-enemy-newsh2-247-8.hda",
+      "reason": "source inventory differs",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-output-enemy-newsh2-247-8.png",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-frozen-output-enemy-newsh2-247-8.png",
+      "reason": "source inventory differs",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-output-enemy-newsh2-266-8.hda",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-frozen-output-enemy-newsh2-266-8.hda",
+      "reason": "source inventory differs",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-output-enemy-newsh2-266-8.png",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-frozen-output-enemy-newsh2-266-8.png",
+      "reason": "source inventory differs",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-output-rebuild-receipt.json",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-frozen-output-rebuild-receipt.json",
+      "reason": "source inventory differs",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-proof-REPORT.md",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-frozen-proof-REPORT.md",
+      "reason": "source inventory differs",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-proof-alpha-verification.json",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-frozen-proof-alpha-verification.json",
+      "reason": "source inventory differs",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-proof-art-input-contract.json",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-frozen-proof-art-input-contract.json",
+      "reason": "source inventory differs",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-proof-source-record-proof.json",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-frozen-proof-source-record-proof.json",
+      "reason": "source inventory differs",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-proof-verification.json",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-frozen-proof-verification.json",
+      "reason": "source inventory differs",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-rebuild.py",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-frozen-rebuild.py",
+      "reason": "source inventory differs",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-sources-generated-six-frame.png",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-frozen-sources-generated-six-frame.png",
+      "reason": "source inventory differs",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-sources-initial-prompt.txt",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-frozen-sources-initial-prompt.txt",
+      "reason": "source inventory differs",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-sources-prompt.txt",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-frozen-sources-prompt.txt",
+      "reason": "source inventory differs",
+      "returncode": 1
+    },
+    {
+      "case": "canonical-png-171",
+      "reason": "canonical PNG mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-canonical-png-171",
+      "reason": "enemy-newsh2-171-8-ab151e530176.png",
+      "returncode": 1
+    },
+    {
+      "case": "default_preview_pack-hda-171",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-default_preview_pack-hda-171",
+      "reason": "enemy-newsh2-171-8.hda",
+      "returncode": 1
+    },
+    {
+      "case": "default_debug_pack-hda-171",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-default_debug_pack-hda-171",
+      "reason": "enemy-newsh2-171-8.hda",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-171-magic",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-171-magic",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-171-magic",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-171-truncated",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-171-truncated",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-171-truncated",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-171-opaque-RGB",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-171-opaque-RGB",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-171-opaque-RGB",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-171-transparent-RGB",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-171-transparent-RGB",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-171-transparent-RGB",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-171-trailing",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-171-trailing",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-171-trailing",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-171-erased-alpha",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-171-erased-alpha",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-171-erased-alpha",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-171-partial-alpha",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-171-partial-alpha",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-171-partial-alpha",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-171-grown-alpha",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-171-grown-alpha",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-171-grown-alpha",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-171-header-0",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-171-header-0",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-171-header-0",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-171-header-1",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-171-header-1",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-171-header-1",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-171-header-2",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-171-header-2",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-171-header-2",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-171-header-3",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-171-header-3",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-171-header-3",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-171-header-4",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-171-header-4",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-171-header-4",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-171-header-5",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-171-header-5",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-171-header-5",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "canonical-png-190",
+      "reason": "canonical PNG mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-canonical-png-190",
+      "reason": "enemy-newsh2-190-8-d2850e82a77f.png",
+      "returncode": 1
+    },
+    {
+      "case": "default_preview_pack-hda-190",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-default_preview_pack-hda-190",
+      "reason": "enemy-newsh2-190-8.hda",
+      "returncode": 1
+    },
+    {
+      "case": "default_debug_pack-hda-190",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-default_debug_pack-hda-190",
+      "reason": "enemy-newsh2-190-8.hda",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-190-magic",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-190-magic",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-190-magic",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-190-truncated",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-190-truncated",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-190-truncated",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-190-opaque-RGB",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-190-opaque-RGB",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-190-opaque-RGB",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-190-transparent-RGB",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-190-transparent-RGB",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-190-transparent-RGB",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-190-trailing",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-190-trailing",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-190-trailing",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-190-erased-alpha",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-190-erased-alpha",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-190-erased-alpha",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-190-partial-alpha",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-190-partial-alpha",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-190-partial-alpha",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-190-grown-alpha",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-190-grown-alpha",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-190-grown-alpha",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-190-header-0",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-190-header-0",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-190-header-0",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-190-header-1",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-190-header-1",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-190-header-1",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-190-header-2",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-190-header-2",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-190-header-2",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-190-header-3",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-190-header-3",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-190-header-3",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-190-header-4",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-190-header-4",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-190-header-4",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-190-header-5",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-190-header-5",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-190-header-5",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "canonical-png-209",
+      "reason": "canonical PNG mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-canonical-png-209",
+      "reason": "enemy-newsh2-209-8-e329ef037fd3.png",
+      "returncode": 1
+    },
+    {
+      "case": "default_preview_pack-hda-209",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-default_preview_pack-hda-209",
+      "reason": "enemy-newsh2-209-8.hda",
+      "returncode": 1
+    },
+    {
+      "case": "default_debug_pack-hda-209",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-default_debug_pack-hda-209",
+      "reason": "enemy-newsh2-209-8.hda",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-209-magic",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-209-magic",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-209-magic",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-209-truncated",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-209-truncated",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-209-truncated",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-209-opaque-RGB",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-209-opaque-RGB",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-209-opaque-RGB",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-209-transparent-RGB",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-209-transparent-RGB",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-209-transparent-RGB",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-209-trailing",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-209-trailing",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-209-trailing",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-209-erased-alpha",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-209-erased-alpha",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-209-erased-alpha",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-209-partial-alpha",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-209-partial-alpha",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-209-partial-alpha",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-209-grown-alpha",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-209-grown-alpha",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-209-grown-alpha",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-209-header-0",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-209-header-0",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-209-header-0",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-209-header-1",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-209-header-1",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-209-header-1",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-209-header-2",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-209-header-2",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-209-header-2",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-209-header-3",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-209-header-3",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-209-header-3",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-209-header-4",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-209-header-4",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-209-header-4",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-209-header-5",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-209-header-5",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-209-header-5",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "canonical-png-228",
+      "reason": "canonical PNG mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-canonical-png-228",
+      "reason": "enemy-newsh2-228-8-41745a050491.png",
+      "returncode": 1
+    },
+    {
+      "case": "default_preview_pack-hda-228",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-default_preview_pack-hda-228",
+      "reason": "enemy-newsh2-228-8.hda",
+      "returncode": 1
+    },
+    {
+      "case": "default_debug_pack-hda-228",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-default_debug_pack-hda-228",
+      "reason": "enemy-newsh2-228-8.hda",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-228-magic",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-228-magic",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-228-magic",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-228-truncated",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-228-truncated",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-228-truncated",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-228-opaque-RGB",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-228-opaque-RGB",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-228-opaque-RGB",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-228-transparent-RGB",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-228-transparent-RGB",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-228-transparent-RGB",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-228-trailing",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-228-trailing",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-228-trailing",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-228-erased-alpha",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-228-erased-alpha",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-228-erased-alpha",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-228-partial-alpha",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-228-partial-alpha",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-228-partial-alpha",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-228-grown-alpha",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-228-grown-alpha",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-228-grown-alpha",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-228-header-0",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-228-header-0",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-228-header-0",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-228-header-1",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-228-header-1",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-228-header-1",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-228-header-2",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-228-header-2",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-228-header-2",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-228-header-3",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-228-header-3",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-228-header-3",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-228-header-4",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-228-header-4",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-228-header-4",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-228-header-5",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-228-header-5",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-228-header-5",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "canonical-png-247",
+      "reason": "canonical PNG mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-canonical-png-247",
+      "reason": "enemy-newsh2-247-8-003cb884ee1d.png",
+      "returncode": 1
+    },
+    {
+      "case": "default_preview_pack-hda-247",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-default_preview_pack-hda-247",
+      "reason": "enemy-newsh2-247-8.hda",
+      "returncode": 1
+    },
+    {
+      "case": "default_debug_pack-hda-247",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-default_debug_pack-hda-247",
+      "reason": "enemy-newsh2-247-8.hda",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-247-magic",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-247-magic",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-247-magic",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-247-truncated",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-247-truncated",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-247-truncated",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-247-opaque-RGB",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-247-opaque-RGB",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-247-opaque-RGB",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-247-transparent-RGB",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-247-transparent-RGB",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-247-transparent-RGB",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-247-trailing",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-247-trailing",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-247-trailing",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-247-erased-alpha",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-247-erased-alpha",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-247-erased-alpha",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-247-partial-alpha",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-247-partial-alpha",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-247-partial-alpha",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-247-grown-alpha",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-247-grown-alpha",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-247-grown-alpha",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-247-header-0",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-247-header-0",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-247-header-0",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-247-header-1",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-247-header-1",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-247-header-1",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-247-header-2",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-247-header-2",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-247-header-2",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-247-header-3",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-247-header-3",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-247-header-3",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-247-header-4",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-247-header-4",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-247-header-4",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-247-header-5",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-247-header-5",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-247-header-5",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "canonical-png-266",
+      "reason": "canonical PNG mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-canonical-png-266",
+      "reason": "enemy-newsh2-266-8-f6381324f6f1.png",
+      "returncode": 1
+    },
+    {
+      "case": "default_preview_pack-hda-266",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-default_preview_pack-hda-266",
+      "reason": "enemy-newsh2-266-8.hda",
+      "returncode": 1
+    },
+    {
+      "case": "default_debug_pack-hda-266",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-default_debug_pack-hda-266",
+      "reason": "enemy-newsh2-266-8.hda",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-266-magic",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-266-magic",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-266-magic",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-266-truncated",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-266-truncated",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-266-truncated",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-266-opaque-RGB",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-266-opaque-RGB",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-266-opaque-RGB",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-266-transparent-RGB",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-266-transparent-RGB",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-266-transparent-RGB",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-266-trailing",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-266-trailing",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-266-trailing",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-266-erased-alpha",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-266-erased-alpha",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-266-erased-alpha",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-266-partial-alpha",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-266-partial-alpha",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-266-partial-alpha",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-266-grown-alpha",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-266-grown-alpha",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-266-grown-alpha",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-266-header-0",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-266-header-0",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-266-header-0",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-266-header-1",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-266-header-1",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-266-header-1",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-266-header-2",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-266-header-2",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-266-header-2",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-266-header-3",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-266-header-3",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-266-header-3",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-266-header-4",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-266-header-4",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-266-header-4",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "frozen-hda-266-header-5",
+      "reason": "source file mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed0-hda-266-header-5",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "packed1-hda-266-header-5",
+      "reason": "packed HDR1 mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "unlisted-source",
+      "reason": "source inventory differs",
+      "returncode": 1
+    },
+    {
+      "case": "unlisted-empty-directory",
+      "reason": "source inventory differs",
+      "returncode": 1
+    },
+    {
+      "case": "source-fifo",
+      "reason": "source symlink or special file forbidden",
+      "returncode": 1
+    },
+    {
+      "case": "source-symlink",
+      "reason": "source symlink",
+      "returncode": 1
+    },
+    {
+      "case": "source-directory-symlink",
+      "reason": "source symlink",
+      "returncode": 1
+    },
+    {
+      "case": "source-root-symlink",
+      "reason": "symlink path forbidden",
+      "returncode": 1
+    },
+    {
+      "case": "canonical-symlink",
+      "reason": "symlink path forbidden",
+      "returncode": 1
+    },
+    {
+      "case": "canonical-parent-symlink",
+      "reason": "symlink path forbidden",
+      "returncode": 1
+    },
+    {
+      "case": "pack-symlink",
+      "reason": "symlink path forbidden",
+      "returncode": 1
+    },
+    {
+      "case": "pack-parent-symlink",
+      "reason": "symlink path forbidden",
+      "returncode": 1
+    },
+    {
+      "case": "manifest-symlink",
+      "reason": "symlink path forbidden",
+      "returncode": 1
+    },
+    {
+      "case": "canonical-fifo",
+      "reason": "regular file required",
+      "returncode": 1
+    },
+    {
+      "case": "pack-fifo",
+      "reason": "regular file required",
+      "returncode": 1
+    },
+    {
+      "case": "manifest-fifo",
+      "reason": "regular file required",
+      "returncode": 1
+    },
+    {
+      "case": "widened4x",
+      "reason": "widened pack",
+      "returncode": 1
+    },
+    {
+      "case": "widened-other-pack",
+      "reason": "widened pack",
+      "returncode": 1
+    },
+    {
+      "case": "alias-header",
+      "reason": "widened pack",
+      "returncode": 1
+    },
+    {
+      "case": "family-FNV",
+      "reason": "entry/FNV binding mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "family-slot",
+      "reason": "entry/FNV binding mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "family-hash",
+      "reason": "entry/FNV binding mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "family-id",
+      "reason": "entry/FNV binding mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "family-missing-entry",
+      "reason": "exact six entries required",
+      "returncode": 1
+    },
+    {
+      "case": "family-extra-entry",
+      "reason": "exact six entries required",
+      "returncode": 1
+    },
+    {
+      "case": "source-index",
+      "reason": "source PNG index mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "source-index-alias",
+      "reason": "widened source PNG index",
+      "returncode": 1
+    },
+    {
+      "case": "source-index-renamed-alias",
+      "reason": "widened source PNG index",
+      "returncode": 1
+    },
+    {
+      "case": "pack-count",
+      "reason": "pack count mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "scope-density",
+      "reason": "family metadata mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "scope-parts",
+      "reason": "family metadata mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "scope-bank",
+      "reason": "family metadata mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "scope-order",
+      "reason": "family metadata mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "scope-size",
+      "reason": "family metadata mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "scope-anchor",
+      "reason": "family metadata mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "scope-bool-anchor",
+      "reason": "family metadata mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "scope-float-density",
+      "reason": "family metadata mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "scope-reuse",
+      "reason": "family metadata mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "scope-extra-field",
+      "reason": "family metadata mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "pack-anchor",
+      "reason": "packed metadata mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "pack-density",
+      "reason": "packed metadata mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "pack-source",
+      "reason": "packed metadata mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "pack-bool-anchor",
+      "reason": "packed metadata mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "unsafe-pack-name",
+      "reason": "unsafe manifest path",
+      "returncode": 1
+    },
+    {
+      "case": "unsafe-pack-file",
+      "reason": "unsafe manifest path",
+      "returncode": 1
+    },
+    {
+      "case": "unsafe-source-path",
+      "reason": "unsafe manifest path",
+      "returncode": 1
+    },
+    {
+      "case": "unsafe-source-index",
+      "reason": "unsafe manifest path",
+      "returncode": 1
+    },
+    {
+      "case": "changed-defaults",
+      "reason": "two established default packs required",
+      "returncode": 1
+    },
+    {
+      "case": "same-defaults",
+      "reason": "two established default packs required",
+      "returncode": 1
+    },
+    {
+      "case": "duplicate-manifest-key",
+      "reason": "duplicate JSON key",
+      "returncode": 1
+    },
+    {
+      "case": "unindexed-disk4x",
+      "reason": "widened on-disk pack inventory",
+      "returncode": 1
+    },
+    {
+      "case": "unindexed-other-pack",
+      "reason": "widened on-disk pack inventory",
+      "returncode": 1
+    },
+    {
+      "case": "unindexed-alias",
+      "reason": "widened on-disk pack inventory",
+      "returncode": 1
+    },
+    {
+      "case": "unindexed-alias-extension",
+      "reason": "widened on-disk pack inventory",
+      "returncode": 1
+    },
+    {
+      "case": "unindexed-source-png",
+      "reason": "widened canonical PNG inventory",
+      "returncode": 1
+    },
+    {
+      "case": "original-output-overlap",
+      "reason": "output must not overlap original data",
+      "returncode": 1
+    },
+    {
+      "case": "reader-pin-episodes.c",
+      "reason": "source reader pin mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "reader-symlink-episodes.c",
+      "reason": "symlink path forbidden",
+      "returncode": 1
+    },
+    {
+      "case": "reader-pin-tyrian2.c",
+      "reason": "source reader pin mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "reader-symlink-tyrian2.c",
+      "reason": "symlink path forbidden",
+      "returncode": 1
+    },
+    {
+      "case": "tampered-original-newsh2.shp",
+      "reason": "original-data identity mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-original-newsh2.shp",
+      "reason": "original data must be regular file",
+      "returncode": 1
+    },
+    {
+      "case": "symlink-original-newsh2.shp",
+      "reason": "symlink path forbidden",
+      "returncode": 1
+    },
+    {
+      "case": "tampered-original-tyrian.hdt",
+      "reason": "original-data identity mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-original-tyrian.hdt",
+      "reason": "original data must be regular file",
+      "returncode": 1
+    },
+    {
+      "case": "symlink-original-tyrian.hdt",
+      "reason": "symlink path forbidden",
+      "returncode": 1
+    },
+    {
+      "case": "tampered-original-tyrian1.lvl",
+      "reason": "original-data identity mismatch",
+      "returncode": 1
+    },
+    {
+      "case": "missing-original-tyrian1.lvl",
+      "reason": "original data must be regular file",
+      "returncode": 1
+    },
+    {
+      "case": "symlink-original-tyrian1.lvl",
+      "reason": "symlink path forbidden",
+      "returncode": 1
+    }
+  ],
+  "rejected_count": 426,
+  "independent_copies_only": true,
+  "real_inputs_unchanged": true,
+  "original_RGB_art_inputs": false,
+  "game_runs": 0,
+  "captures": 0,
+  "native_output": false
+}

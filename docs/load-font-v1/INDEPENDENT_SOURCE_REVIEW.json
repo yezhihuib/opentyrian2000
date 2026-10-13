@@ -1,0 +1,99 @@
+{
+  "schema": "independent-load-font-source-review-v1",
+  "result": "PASS",
+  "candidate": "c0f1f44603779df4c4adec519369cd383c12c341",
+  "baseline": "a4974da93ee75fb18c7ad5827ea42a6b02d1b74d",
+  "review_scope": "Finished source, independent source-only oracle, real mouse and palette routines. No engine main, user profile, captures or production edits.",
+  "source_pins": {
+    "src/load_font.c": "7f13a50a2896001806198f963e5f9a74c5c44f37cf2e5e07843da5198251a54a",
+    "src/load_font.h": "4a79c8f4631fe02e91181535b088b1a9a0853c5d787c0f8e53bfc67efe13fe93",
+    "src/mainint.c": "0b39b8af90f981bce50762de98eb2458282ed3031780235a8ade405945dcddf8",
+    "src/palette.c": "22875c744f395a40ce98f016cd63d1a6b2d9b8bdea937825e397340db10bdd7f",
+    "src/helptext.c": "514112d21eb7c2d398886de891875021e128b56bad242cd4429e4a20008d5341",
+    "src/sprite.c": "f55491df5ec34163e3c46da7607c132449fa4d299117a768ae91dd9cf92b5886",
+    "src/settings_font.c": "aeefbab87e4b50f48d2b40ab907db6ab5ae4260c8e1b8ecd621f4e15ba1b6980",
+    "src/video.c": "dd28a2f88916df7aa706efd4e6d6d3e6bb30abf1c5195791f72ae19ca1c6f5d5",
+    "docs/load-font-source-pins.json": "626dd049ec7e8bece8286aa964ebe52e51f4cba16c66fdfb2c971729db3caebe"
+  },
+  "independent_tests": {
+    "normal": "PASS",
+    "asan_ubsan": "PASS",
+    "lsan": "EXCLUDED: executor ptrace limitation; detect_leaks=0, tracked Load owned allocations zero",
+    "dense_frames": 183,
+    "canonical_4x_samples_per_frame": 1024000,
+    "reduced_2x_pixels_per_frame": 256000,
+    "source_layouts_with_dense_oracle": 144,
+    "actual_mouse_start_replace_cases": 12,
+    "full_sdl_software_output_targets": 2,
+    "production_fade_steps": 25,
+    "fade_delay_and_service_calls": 25,
+    "oracle_independence": "Reconstructed source call-site runs and ordered raw sprite events; does not consume sf.commands, sf.masks, or sf.owner. Reads frozen payloads and source glyph tables independently; validates original-index replay too."
+  },
+  "rerun_existing_suites": {
+    "load_normal_and_asan_ubsan": {
+      "checks": 138723449,
+      "source_layouts": 192,
+      "eligible": 144,
+      "classic_fallback": 48
+    },
+    "settings_normal_and_asan_ubsan": {
+      "checks": 339687940,
+      "frame_calls": 359
+    },
+    "integration": {
+      "result": "PASS",
+      "baseline": "a4974da93ee75fb18c7ad5827ea42a6b02d1b74d",
+      "unchanged_prior_files": 6271,
+      "unchanged_asset_bytes": 631706987,
+      "exact_changed_files": [
+        "src/helptext.c",
+        "src/mainint.c",
+        "src/palette.c",
+        "src/params.c",
+        "src/picload.c",
+        "src/render_mirror.c",
+        "src/settings_font.c",
+        "src/settings_font.h",
+        "src/sprite.c",
+        "src/video.c",
+        "tests/run_settings_font_tests.sh",
+        "visualc/opentyrian.vcxproj"
+      ],
+      "published_C_token_stream_projections": 10,
+      "pinned_source_and_test_files": 17,
+      "mutation_rejections": 36,
+      "successful_load_release_after_original_fade": true,
+      "input_state_save_and_original_draw_semantics_preserved": true,
+      "windows": "C source/header inventory only, no Windows runtime claim",
+      "runtime_or_user_save_access": false
+    },
+    "strict_load_c99_pedantic_wall_wextra_werror": "PASS"
+  },
+  "review_findings": [
+    "No functional source blocker.",
+    "Original drawing, input, save/config and action C tokens preserved after removal of narrowly whitelisted observer calls; all prior asset bytes unchanged.",
+    "Successful JE_operation remains before original 15-step black fade; ownership ends after fade on both original returns. Load font module does not inspect gameplay flags.",
+    "Tiny role 7 faces honor hue 13/5/15 and unsafe OR source indexing. Four complete black passes precede each face; footer toggles reset per original string invocation; complete first line precedes second line.",
+    "Name/level termination checked within original arrays. Empty/all-space visible strings remain valid no-ops; invalid/control/extended/tilde data fails whole frame without normalization. Original malformed-field UB is deliberately never invoked by the guarded tests.",
+    "Resource, source, frame order, renderer/scaler, foreign-owner and lifecycle guards are fail-closed. Separate settings and Load dynamic allocations are released before acquiring the sibling.",
+    "Measured combined static/payload/output/parser bound 6934768 bytes; conservative compiled object storage plus worst active owner heap and 8192-byte reserve 6942456 bytes, under 7340032. Nominal texture 4096000 bytes separate; driver overhead unknown.",
+    "git diff --check has nonfunctional inherited-CRLF added-line whitespace diagnostics in palette.c and a final blank line in compiled-storage.txt; no production edits made."
+  ],
+  "remaining_gates": [
+    "Explicit actual-engine runtime approval.",
+    "Real event/input/state/save matrix and safe successful loads at slots 1/11/12/22.",
+    "Actual window/scaler transition and unchanged gameplay/title/startup regression matrix.",
+    "Visual review of fresh runtime captures.",
+    "No wall-clock timing, physical GPU, physical joystick, Windows or LeakSanitizer acceptance claim."
+  ],
+  "artifacts": {
+    "candidate-sanitize.log": "ff1e08ce40b112af13accc92bc977e548b9b42c5219f87cae633fe4adb64970b",
+    "integration-rerun.json": "f3a8c13aec4680f90bd49a79577a9005fa05749bb45be392bbd4b99721421d25",
+    "normal.log": "7574ef1c7ed0e3a51d2bbdc9115ff960d41785ee90f44a5e8cfa521f905555f2",
+    "review.c": "f9247b0b8e9e31f085f03ef7a41c413414767df004ed6513a9cb2a335894c500",
+    "run-review.sh": "2df160e12e91328a3fe8c5122dcb4655c5446ac36f7e848d9c2a06dc90982e97",
+    "sanitize.log": "7574ef1c7ed0e3a51d2bbdc9115ff960d41785ee90f44a5e8cfa521f905555f2",
+    "settings-normal.log": "5f9d7cb6355bdc11c3d0aaad19d2d19697f388c5aae0e93fe6bbb0a56a4ac972",
+    "settings-sanitize.log": "5f9d7cb6355bdc11c3d0aaad19d2d19697f388c5aae0e93fe6bbb0a56a4ac972"
+  }
+}

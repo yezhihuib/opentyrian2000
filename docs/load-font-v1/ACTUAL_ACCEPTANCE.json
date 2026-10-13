@@ -1,0 +1,647 @@
+{
+  "schema": "load-font-actual-acceptance-v1",
+  "result": "PASS",
+  "source_commit": "c0f1f44603779df4c4adec519369cd383c12c341",
+  "baseline_commit": "a4974da93ee75fb18c7ad5827ea42a6b02d1b74d",
+  "completed_pairs": 17,
+  "completed_engine_launches": 34,
+  "preserved_fixture_failure_launches": 1,
+  "ptrace_infrastructure_attempt_game_launches": 0,
+  "source_changes_after_review": false,
+  "user_save_access": false,
+  "cases": [
+    {
+      "name": "smoke2",
+      "presentations": 26,
+      "candidate_enhanced": 26,
+      "candidate_wholly_classic": 0,
+      "pair_receipt": "load-font-smoke2-io-profiles-20261013/PAIR.json",
+      "pair_sha256": "6cb80009b496c3346da5e0746bc03de5ba9ffe9fb84df2f8b32ef45afb3230ec",
+      "raster_receipt": "load-font-smoke2-evidence-20261013/RASTER.json",
+      "raster_sha256": "7197858cbaf2b6872b0db2309aadbeaef1ff2fb44fdb19d6c7ec67a7006828ce",
+      "lifecycle_receipt": "load-font-smoke2-evidence-20261013/LIFECYCLE.json",
+      "lifecycle_sha256": "a24af8012a2b2e0ce4cf5985740d0380ce12e0dc2d1c33e3317a36f3b3fc12d3",
+      "legacy_file_access_events_per_side": 496,
+      "indexed_palette_bytes_per_side": 1690624,
+      "captures_per_side": 1,
+      "synthetic_profile_files": {
+        "opentyrian2000/opentyrian.cfg": {
+          "equal": true,
+          "bytes": 445,
+          "sha256": "387f27aab0c08f8704f287960a74a575ab1fa7412f8d22390b1bdf29f120fedb",
+          "changed_from_start": true
+        },
+        "opentyrian2000/tyrian.cfg": {
+          "equal": true,
+          "bytes": 28,
+          "sha256": "9252a0b93b9c9b7764a6a8d6660239858f5941d0ac17efa5f0e4503ff5f3bef8",
+          "changed_from_start": true
+        },
+        "opentyrian2000/tyrian.sav": {
+          "equal": true,
+          "bytes": 4722,
+          "sha256": "7fe61924fc1a9b07ce97c81420fa80db5c9f9ea80796d934bb43d33dc39a49f1",
+          "changed_from_start": true
+        }
+      },
+      "normal_disposable_operations": "Original JE_saveConfiguration on normal title quit"
+    },
+    {
+      "name": "corrupt_large",
+      "presentations": 26,
+      "candidate_enhanced": 0,
+      "candidate_wholly_classic": 26,
+      "pair_receipt": "load-font-matrix-evidence-20261013/corrupt_large/PAIR.json",
+      "pair_sha256": "ff6fce3f0a1babd896203e3d81e611a541d9349e4da9a736d25bf1607228690e",
+      "raster_receipt": "load-font-matrix-evidence-20261013/corrupt_large/RASTER.json",
+      "raster_sha256": "5f6dfb2bc4803c278bdd6f546c1985531f0afdca17809eb60eb63e82f9850b4a",
+      "lifecycle_receipt": "load-font-matrix-evidence-20261013/corrupt_large/LIFECYCLE.json",
+      "lifecycle_sha256": "a24af8012a2b2e0ce4cf5985740d0380ce12e0dc2d1c33e3317a36f3b3fc12d3",
+      "legacy_file_access_events_per_side": 496,
+      "indexed_palette_bytes_per_side": 1690624,
+      "captures_per_side": 1,
+      "synthetic_profile_files": {
+        "opentyrian2000/opentyrian.cfg": {
+          "equal": true,
+          "bytes": 445,
+          "sha256": "387f27aab0c08f8704f287960a74a575ab1fa7412f8d22390b1bdf29f120fedb",
+          "changed_from_start": true
+        },
+        "opentyrian2000/tyrian.cfg": {
+          "equal": true,
+          "bytes": 28,
+          "sha256": "9252a0b93b9c9b7764a6a8d6660239858f5941d0ac17efa5f0e4503ff5f3bef8",
+          "changed_from_start": true
+        },
+        "opentyrian2000/tyrian.sav": {
+          "equal": true,
+          "bytes": 4722,
+          "sha256": "7fe61924fc1a9b07ce97c81420fa80db5c9f9ea80796d934bb43d33dc39a49f1",
+          "changed_from_start": true
+        }
+      },
+      "normal_disposable_operations": "Original JE_saveConfiguration on normal title quit"
+    },
+    {
+      "name": "fallback_control",
+      "presentations": 28,
+      "candidate_enhanced": 1,
+      "candidate_wholly_classic": 27,
+      "pair_receipt": "load-font-matrix-evidence-20261013/fallback_control/PAIR.json",
+      "pair_sha256": "cdbec6a79b2c2e876f98a628686e8a106fb9695d5423bf7d8fed91e0092e5285",
+      "raster_receipt": "load-font-matrix-evidence-20261013/fallback_control/RASTER.json",
+      "raster_sha256": "a16b1c0809420cb866aa6bf63f37e564e672c683097cd134377e26a67fe89a6f",
+      "lifecycle_receipt": "load-font-matrix-evidence-20261013/fallback_control/LIFECYCLE.json",
+      "lifecycle_sha256": "2dffe727502129232a1efe83dc7c0b8194c950f608cdc34f5190a727e68a1b9f",
+      "legacy_file_access_events_per_side": 496,
+      "indexed_palette_bytes_per_side": 1820672,
+      "captures_per_side": 2,
+      "synthetic_profile_files": {
+        "opentyrian2000/opentyrian.cfg": {
+          "equal": true,
+          "bytes": 445,
+          "sha256": "387f27aab0c08f8704f287960a74a575ab1fa7412f8d22390b1bdf29f120fedb",
+          "changed_from_start": true
+        },
+        "opentyrian2000/tyrian.cfg": {
+          "equal": true,
+          "bytes": 28,
+          "sha256": "9252a0b93b9c9b7764a6a8d6660239858f5941d0ac17efa5f0e4503ff5f3bef8",
+          "changed_from_start": true
+        },
+        "opentyrian2000/tyrian.sav": {
+          "equal": true,
+          "bytes": 4722,
+          "sha256": "fd68a4973e022662326094272ca421fc60c48b09d5764cffd4d9612f0a3ed95a",
+          "changed_from_start": true
+        }
+      },
+      "normal_disposable_operations": "Original JE_saveConfiguration on normal title quit"
+    },
+    {
+      "name": "fallback_extended",
+      "presentations": 28,
+      "candidate_enhanced": 1,
+      "candidate_wholly_classic": 27,
+      "pair_receipt": "load-font-matrix-evidence-20261013/fallback_extended/PAIR.json",
+      "pair_sha256": "fadeff77db8cf7ed64d7b501c75ef2639944b6a50e692d4b9d23767884073814",
+      "raster_receipt": "load-font-matrix-evidence-20261013/fallback_extended/RASTER.json",
+      "raster_sha256": "a16b1c0809420cb866aa6bf63f37e564e672c683097cd134377e26a67fe89a6f",
+      "lifecycle_receipt": "load-font-matrix-evidence-20261013/fallback_extended/LIFECYCLE.json",
+      "lifecycle_sha256": "2dffe727502129232a1efe83dc7c0b8194c950f608cdc34f5190a727e68a1b9f",
+      "legacy_file_access_events_per_side": 496,
+      "indexed_palette_bytes_per_side": 1820672,
+      "captures_per_side": 2,
+      "synthetic_profile_files": {
+        "opentyrian2000/opentyrian.cfg": {
+          "equal": true,
+          "bytes": 445,
+          "sha256": "387f27aab0c08f8704f287960a74a575ab1fa7412f8d22390b1bdf29f120fedb",
+          "changed_from_start": true
+        },
+        "opentyrian2000/tyrian.cfg": {
+          "equal": true,
+          "bytes": 28,
+          "sha256": "9252a0b93b9c9b7764a6a8d6660239858f5941d0ac17efa5f0e4503ff5f3bef8",
+          "changed_from_start": true
+        },
+        "opentyrian2000/tyrian.sav": {
+          "equal": true,
+          "bytes": 4722,
+          "sha256": "b37d004cb496328adaed4ba08973f134825d9424e29f2537001e173a033c058a",
+          "changed_from_start": true
+        }
+      },
+      "normal_disposable_operations": "Original JE_saveConfiguration on normal title quit"
+    },
+    {
+      "name": "fallback_tilde",
+      "presentations": 28,
+      "candidate_enhanced": 1,
+      "candidate_wholly_classic": 27,
+      "pair_receipt": "load-font-matrix-evidence-20261013/fallback_tilde/PAIR.json",
+      "pair_sha256": "fc9c5c05d0c48114e9ec4a9bc56a34280c7a3003e8f59ca74cd7716c5ebc44eb",
+      "raster_receipt": "load-font-matrix-evidence-20261013/fallback_tilde/RASTER.json",
+      "raster_sha256": "a16b1c0809420cb866aa6bf63f37e564e672c683097cd134377e26a67fe89a6f",
+      "lifecycle_receipt": "load-font-matrix-evidence-20261013/fallback_tilde/LIFECYCLE.json",
+      "lifecycle_sha256": "2dffe727502129232a1efe83dc7c0b8194c950f608cdc34f5190a727e68a1b9f",
+      "legacy_file_access_events_per_side": 496,
+      "indexed_palette_bytes_per_side": 1820672,
+      "captures_per_side": 2,
+      "synthetic_profile_files": {
+        "opentyrian2000/opentyrian.cfg": {
+          "equal": true,
+          "bytes": 445,
+          "sha256": "387f27aab0c08f8704f287960a74a575ab1fa7412f8d22390b1bdf29f120fedb",
+          "changed_from_start": true
+        },
+        "opentyrian2000/tyrian.cfg": {
+          "equal": true,
+          "bytes": 28,
+          "sha256": "9252a0b93b9c9b7764a6a8d6660239858f5941d0ac17efa5f0e4503ff5f3bef8",
+          "changed_from_start": true
+        },
+        "opentyrian2000/tyrian.sav": {
+          "equal": true,
+          "bytes": 4722,
+          "sha256": "cbc7100760040b375a3d67104cb57ad4d3ea8f47fbd3d4075ed06ced1463800f",
+          "changed_from_start": true
+        }
+      },
+      "normal_disposable_operations": "Original JE_saveConfiguration on normal title quit"
+    },
+    {
+      "name": "fallback_unmapped",
+      "presentations": 28,
+      "candidate_enhanced": 1,
+      "candidate_wholly_classic": 27,
+      "pair_receipt": "load-font-matrix-evidence-20261013/fallback_unmapped/PAIR.json",
+      "pair_sha256": "72023e6d5efad8ea3772888450eeab73227680c8fe4781bb790f181e2c9a9c83",
+      "raster_receipt": "load-font-matrix-evidence-20261013/fallback_unmapped/RASTER.json",
+      "raster_sha256": "a16b1c0809420cb866aa6bf63f37e564e672c683097cd134377e26a67fe89a6f",
+      "lifecycle_receipt": "load-font-matrix-evidence-20261013/fallback_unmapped/LIFECYCLE.json",
+      "lifecycle_sha256": "2dffe727502129232a1efe83dc7c0b8194c950f608cdc34f5190a727e68a1b9f",
+      "legacy_file_access_events_per_side": 496,
+      "indexed_palette_bytes_per_side": 1820672,
+      "captures_per_side": 2,
+      "synthetic_profile_files": {
+        "opentyrian2000/opentyrian.cfg": {
+          "equal": true,
+          "bytes": 445,
+          "sha256": "387f27aab0c08f8704f287960a74a575ab1fa7412f8d22390b1bdf29f120fedb",
+          "changed_from_start": true
+        },
+        "opentyrian2000/tyrian.cfg": {
+          "equal": true,
+          "bytes": 28,
+          "sha256": "9252a0b93b9c9b7764a6a8d6660239858f5941d0ac17efa5f0e4503ff5f3bef8",
+          "changed_from_start": true
+        },
+        "opentyrian2000/tyrian.sav": {
+          "equal": true,
+          "bytes": 4722,
+          "sha256": "d1e65aebfd107940bdb79b32226a9ac93dffbfd55b3c29feaf9955a375014b07",
+          "changed_from_start": true
+        }
+      },
+      "normal_disposable_operations": "Original JE_saveConfiguration on normal title quit"
+    },
+    {
+      "name": "filtered",
+      "presentations": 26,
+      "candidate_enhanced": 0,
+      "candidate_wholly_classic": 26,
+      "pair_receipt": "load-font-matrix-evidence-20261013/filtered/PAIR.json",
+      "pair_sha256": "51e0ac964b668c79012a6f6dabfbbefa72f1b162319f58566470390149503352",
+      "raster_receipt": "load-font-matrix-evidence-20261013/filtered/RASTER.json",
+      "raster_sha256": "521cdf23112a337993c59ac51f4215e5c3111e47de2d3db27dc4125a7961ccb3",
+      "lifecycle_receipt": "load-font-matrix-evidence-20261013/filtered/LIFECYCLE.json",
+      "lifecycle_sha256": "a24af8012a2b2e0ce4cf5985740d0380ce12e0dc2d1c33e3317a36f3b3fc12d3",
+      "legacy_file_access_events_per_side": 496,
+      "indexed_palette_bytes_per_side": 1690624,
+      "captures_per_side": 1,
+      "synthetic_profile_files": {
+        "opentyrian2000/opentyrian.cfg": {
+          "equal": true,
+          "bytes": 450,
+          "sha256": "37641af9f6a291a98fe0a0172ce994940341f6b466edeec6f231baaaa6ad0206",
+          "changed_from_start": true
+        },
+        "opentyrian2000/tyrian.cfg": {
+          "equal": true,
+          "bytes": 28,
+          "sha256": "9252a0b93b9c9b7764a6a8d6660239858f5941d0ac17efa5f0e4503ff5f3bef8",
+          "changed_from_start": true
+        },
+        "opentyrian2000/tyrian.sav": {
+          "equal": true,
+          "bytes": 4722,
+          "sha256": "7fe61924fc1a9b07ce97c81420fa80db5c9f9ea80796d934bb43d33dc39a49f1",
+          "changed_from_start": true
+        }
+      },
+      "normal_disposable_operations": "Original JE_saveConfiguration on normal title quit"
+    },
+    {
+      "name": "load11_retry",
+      "presentations": 28,
+      "candidate_enhanced": 28,
+      "candidate_wholly_classic": 0,
+      "pair_receipt": "load-font-matrix-evidence-20261013/load11_retry/PAIR.json",
+      "pair_sha256": "003989b611127d3026bf295f3da95f679ccceb0807be61a20d260b1af00e821e",
+      "raster_receipt": "load-font-matrix-evidence-20261013/load11_retry/RASTER.json",
+      "raster_sha256": "5c36f61c59e8c5c5771c47f35221876f85b23a601dcf51f238a16658b49f0409",
+      "lifecycle_receipt": "load-font-matrix-evidence-20261013/load11_retry/LIFECYCLE.json",
+      "lifecycle_sha256": "6e43953af8768f7e8fef40ab06a3480ca0387c915868307b7923dfab8e76da66",
+      "legacy_file_access_events_per_side": 988,
+      "indexed_palette_bytes_per_side": 1820672,
+      "captures_per_side": 0,
+      "synthetic_profile_files": {
+        "opentyrian2000/opentyrian.cfg": {
+          "equal": true,
+          "bytes": 445,
+          "sha256": "387f27aab0c08f8704f287960a74a575ab1fa7412f8d22390b1bdf29f120fedb",
+          "changed_from_start": true
+        },
+        "opentyrian2000/tyrian.cfg": {
+          "equal": true,
+          "bytes": 28,
+          "sha256": "0d637009dcffcbf214f5377130857770c78406c50cf94a1b2d8136cd66e3cf84",
+          "changed_from_start": true
+        },
+        "opentyrian2000/tyrian.sav": {
+          "equal": true,
+          "bytes": 4722,
+          "sha256": "7fe61924fc1a9b07ce97c81420fa80db5c9f9ea80796d934bb43d33dc39a49f1",
+          "changed_from_start": true
+        }
+      },
+      "normal_disposable_operations": "Original JE_operation/JE_loadGame, original pre-game LAST LEVEL backup in slot 11 or 22, then original JE_tyrianHalt(0) at second loop entry with normal JE_saveConfiguration"
+    },
+    {
+      "name": "load12_retry",
+      "presentations": 27,
+      "candidate_enhanced": 27,
+      "candidate_wholly_classic": 0,
+      "pair_receipt": "load-font-matrix-evidence-20261013/load12_retry/PAIR.json",
+      "pair_sha256": "4bc7d19c602185d8711139b2a795c7280e9c931c0d5189126baca3c6ef5fbcb4",
+      "raster_receipt": "load-font-matrix-evidence-20261013/load12_retry/RASTER.json",
+      "raster_sha256": "3f033a0d6f97c6109502b9098b8b5fafe92dd6e32d92d393ac187b15785e7eb6",
+      "lifecycle_receipt": "load-font-matrix-evidence-20261013/load12_retry/LIFECYCLE.json",
+      "lifecycle_sha256": "3364d634cc835b2baa8a35cd7a50d9084d44fee29a4b66924ae0495211d90047",
+      "legacy_file_access_events_per_side": 988,
+      "indexed_palette_bytes_per_side": 1755648,
+      "captures_per_side": 0,
+      "synthetic_profile_files": {
+        "opentyrian2000/opentyrian.cfg": {
+          "equal": true,
+          "bytes": 445,
+          "sha256": "387f27aab0c08f8704f287960a74a575ab1fa7412f8d22390b1bdf29f120fedb",
+          "changed_from_start": true
+        },
+        "opentyrian2000/tyrian.cfg": {
+          "equal": true,
+          "bytes": 28,
+          "sha256": "0d637009dcffcbf214f5377130857770c78406c50cf94a1b2d8136cd66e3cf84",
+          "changed_from_start": true
+        },
+        "opentyrian2000/tyrian.sav": {
+          "equal": true,
+          "bytes": 4722,
+          "sha256": "7fe61924fc1a9b07ce97c81420fa80db5c9f9ea80796d934bb43d33dc39a49f1",
+          "changed_from_start": true
+        }
+      },
+      "normal_disposable_operations": "Original JE_operation/JE_loadGame, original pre-game LAST LEVEL backup in slot 11 or 22, then original JE_tyrianHalt(0) at second loop entry with normal JE_saveConfiguration"
+    },
+    {
+      "name": "load1_retry",
+      "presentations": 26,
+      "candidate_enhanced": 26,
+      "candidate_wholly_classic": 0,
+      "pair_receipt": "load-font-matrix-evidence-20261013/load1_retry/PAIR.json",
+      "pair_sha256": "ffb5e29dbf5a7c2f2ed4f07fcbfd166c2ad72664c8e6459b15be49b61b35816d",
+      "raster_receipt": "load-font-matrix-evidence-20261013/load1_retry/RASTER.json",
+      "raster_sha256": "5719e1eaf984a1bf8b42be2f9c36c6636d3f57021be347019bf763cb42a1c356",
+      "lifecycle_receipt": "load-font-matrix-evidence-20261013/load1_retry/LIFECYCLE.json",
+      "lifecycle_sha256": "766f9013bdfad6ed7653b6a012c4a7fa38156053cb77099f21d9e23404d990e2",
+      "legacy_file_access_events_per_side": 988,
+      "indexed_palette_bytes_per_side": 1690624,
+      "captures_per_side": 0,
+      "synthetic_profile_files": {
+        "opentyrian2000/opentyrian.cfg": {
+          "equal": true,
+          "bytes": 445,
+          "sha256": "387f27aab0c08f8704f287960a74a575ab1fa7412f8d22390b1bdf29f120fedb",
+          "changed_from_start": true
+        },
+        "opentyrian2000/tyrian.cfg": {
+          "equal": true,
+          "bytes": 28,
+          "sha256": "0d637009dcffcbf214f5377130857770c78406c50cf94a1b2d8136cd66e3cf84",
+          "changed_from_start": true
+        },
+        "opentyrian2000/tyrian.sav": {
+          "equal": true,
+          "bytes": 4722,
+          "sha256": "7fe61924fc1a9b07ce97c81420fa80db5c9f9ea80796d934bb43d33dc39a49f1",
+          "changed_from_start": true
+        }
+      },
+      "normal_disposable_operations": "Original JE_operation/JE_loadGame, original pre-game LAST LEVEL backup in slot 11 or 22, then original JE_tyrianHalt(0) at second loop entry with normal JE_saveConfiguration"
+    },
+    {
+      "name": "load22_retry",
+      "presentations": 29,
+      "candidate_enhanced": 29,
+      "candidate_wholly_classic": 0,
+      "pair_receipt": "load-font-matrix-evidence-20261013/load22_retry/PAIR.json",
+      "pair_sha256": "791c62966580afbb15c5014398dc10e4e484b22e44710f9a8b465f3e953a777b",
+      "raster_receipt": "load-font-matrix-evidence-20261013/load22_retry/RASTER.json",
+      "raster_sha256": "892815a22ff7c405ee6e4a67daa092de5042820ccdb30566c31a8cfc0063feab",
+      "lifecycle_receipt": "load-font-matrix-evidence-20261013/load22_retry/LIFECYCLE.json",
+      "lifecycle_sha256": "22be2f64ef862a5c9e157a0e99d066adf040cc4fd9177c2028796d382db640c2",
+      "legacy_file_access_events_per_side": 988,
+      "indexed_palette_bytes_per_side": 1885696,
+      "captures_per_side": 0,
+      "synthetic_profile_files": {
+        "opentyrian2000/opentyrian.cfg": {
+          "equal": true,
+          "bytes": 445,
+          "sha256": "387f27aab0c08f8704f287960a74a575ab1fa7412f8d22390b1bdf29f120fedb",
+          "changed_from_start": true
+        },
+        "opentyrian2000/tyrian.cfg": {
+          "equal": true,
+          "bytes": 28,
+          "sha256": "0d637009dcffcbf214f5377130857770c78406c50cf94a1b2d8136cd66e3cf84",
+          "changed_from_start": true
+        },
+        "opentyrian2000/tyrian.sav": {
+          "equal": true,
+          "bytes": 4722,
+          "sha256": "7fe61924fc1a9b07ce97c81420fa80db5c9f9ea80796d934bb43d33dc39a49f1",
+          "changed_from_start": true
+        }
+      },
+      "normal_disposable_operations": "Original JE_operation/JE_loadGame, original pre-game LAST LEVEL backup in slot 11 or 22, then original JE_tyrianHalt(0) at second loop entry with normal JE_saveConfiguration"
+    },
+    {
+      "name": "missing_large",
+      "presentations": 26,
+      "candidate_enhanced": 0,
+      "candidate_wholly_classic": 26,
+      "pair_receipt": "load-font-matrix-evidence-20261013/missing_large/PAIR.json",
+      "pair_sha256": "f15b8af31266854286cfdac070506f8a81842af766ef40ff20fc21d8384881e3",
+      "raster_receipt": "load-font-matrix-evidence-20261013/missing_large/RASTER.json",
+      "raster_sha256": "5f6dfb2bc4803c278bdd6f546c1985531f0afdca17809eb60eb63e82f9850b4a",
+      "lifecycle_receipt": "load-font-matrix-evidence-20261013/missing_large/LIFECYCLE.json",
+      "lifecycle_sha256": "a24af8012a2b2e0ce4cf5985740d0380ce12e0dc2d1c33e3317a36f3b3fc12d3",
+      "legacy_file_access_events_per_side": 496,
+      "indexed_palette_bytes_per_side": 1690624,
+      "captures_per_side": 1,
+      "synthetic_profile_files": {
+        "opentyrian2000/opentyrian.cfg": {
+          "equal": true,
+          "bytes": 445,
+          "sha256": "387f27aab0c08f8704f287960a74a575ab1fa7412f8d22390b1bdf29f120fedb",
+          "changed_from_start": true
+        },
+        "opentyrian2000/tyrian.cfg": {
+          "equal": true,
+          "bytes": 28,
+          "sha256": "9252a0b93b9c9b7764a6a8d6660239858f5941d0ac17efa5f0e4503ff5f3bef8",
+          "changed_from_start": true
+        },
+        "opentyrian2000/tyrian.sav": {
+          "equal": true,
+          "bytes": 4722,
+          "sha256": "7fe61924fc1a9b07ce97c81420fa80db5c9f9ea80796d934bb43d33dc39a49f1",
+          "changed_from_start": true
+        }
+      },
+      "normal_disposable_operations": "Original JE_saveConfiguration on normal title quit"
+    },
+    {
+      "name": "missing_tiny",
+      "presentations": 26,
+      "candidate_enhanced": 0,
+      "candidate_wholly_classic": 26,
+      "pair_receipt": "load-font-matrix-evidence-20261013/missing_tiny/PAIR.json",
+      "pair_sha256": "fd852231772a2214fd9376c344cbe7276de2ca45b5e892fd7b0949672e5cc7f9",
+      "raster_receipt": "load-font-matrix-evidence-20261013/missing_tiny/RASTER.json",
+      "raster_sha256": "5f6dfb2bc4803c278bdd6f546c1985531f0afdca17809eb60eb63e82f9850b4a",
+      "lifecycle_receipt": "load-font-matrix-evidence-20261013/missing_tiny/LIFECYCLE.json",
+      "lifecycle_sha256": "a24af8012a2b2e0ce4cf5985740d0380ce12e0dc2d1c33e3317a36f3b3fc12d3",
+      "legacy_file_access_events_per_side": 496,
+      "indexed_palette_bytes_per_side": 1690624,
+      "captures_per_side": 1,
+      "synthetic_profile_files": {
+        "opentyrian2000/opentyrian.cfg": {
+          "equal": true,
+          "bytes": 445,
+          "sha256": "387f27aab0c08f8704f287960a74a575ab1fa7412f8d22390b1bdf29f120fedb",
+          "changed_from_start": true
+        },
+        "opentyrian2000/tyrian.cfg": {
+          "equal": true,
+          "bytes": 28,
+          "sha256": "9252a0b93b9c9b7764a6a8d6660239858f5941d0ac17efa5f0e4503ff5f3bef8",
+          "changed_from_start": true
+        },
+        "opentyrian2000/tyrian.sav": {
+          "equal": true,
+          "bytes": 4722,
+          "sha256": "7fe61924fc1a9b07ce97c81420fa80db5c9f9ea80796d934bb43d33dc39a49f1",
+          "changed_from_start": true
+        }
+      },
+      "normal_disposable_operations": "Original JE_saveConfiguration on normal title quit"
+    },
+    {
+      "name": "native4",
+      "presentations": 26,
+      "candidate_enhanced": 26,
+      "candidate_wholly_classic": 0,
+      "pair_receipt": "load-font-matrix-evidence-20261013/native4/PAIR.json",
+      "pair_sha256": "7502bba9a0731a661e8fd69b085d434f565fbbd2172e9b79db22f31a7f207307",
+      "raster_receipt": "load-font-matrix-evidence-20261013/native4/RASTER.json",
+      "raster_sha256": "0114621eeee408a4ef183604f646e793d9879c5487dfcbe429b008b3a4bc2865",
+      "lifecycle_receipt": "load-font-matrix-evidence-20261013/native4/LIFECYCLE.json",
+      "lifecycle_sha256": "a24af8012a2b2e0ce4cf5985740d0380ce12e0dc2d1c33e3317a36f3b3fc12d3",
+      "legacy_file_access_events_per_side": 496,
+      "indexed_palette_bytes_per_side": 1690624,
+      "captures_per_side": 1,
+      "synthetic_profile_files": {
+        "opentyrian2000/opentyrian.cfg": {
+          "equal": true,
+          "bytes": 445,
+          "sha256": "8377eea9a46e1026eddcb650607e92caf900ef3ec96ecd88d08f967b7a372e93",
+          "changed_from_start": true
+        },
+        "opentyrian2000/tyrian.cfg": {
+          "equal": true,
+          "bytes": 28,
+          "sha256": "9252a0b93b9c9b7764a6a8d6660239858f5941d0ac17efa5f0e4503ff5f3bef8",
+          "changed_from_start": true
+        },
+        "opentyrian2000/tyrian.sav": {
+          "equal": true,
+          "bytes": 4722,
+          "sha256": "7fe61924fc1a9b07ce97c81420fa80db5c9f9ea80796d934bb43d33dc39a49f1",
+          "changed_from_start": true
+        }
+      },
+      "normal_disposable_operations": "Original JE_saveConfiguration on normal title quit"
+    },
+    {
+      "name": "navigation",
+      "presentations": 42,
+      "candidate_enhanced": 42,
+      "candidate_wholly_classic": 0,
+      "pair_receipt": "load-font-matrix-evidence-20261013/navigation/PAIR.json",
+      "pair_sha256": "98b0c6e65493625dc93094f8df426ebde4d76719d58c784e03e1338182a796c4",
+      "raster_receipt": "load-font-matrix-evidence-20261013/navigation/RASTER.json",
+      "raster_sha256": "59724a0e289cb42026ec4cf18b5239b6712ea5e6e189146d0f51da5aa9186851",
+      "lifecycle_receipt": "load-font-matrix-evidence-20261013/navigation/LIFECYCLE.json",
+      "lifecycle_sha256": "78ec109a2f416802a451799b8113819e57be69b59962965c0356dc692a8bc0c5",
+      "legacy_file_access_events_per_side": 496,
+      "indexed_palette_bytes_per_side": 2731008,
+      "captures_per_side": 1,
+      "synthetic_profile_files": {
+        "opentyrian2000/opentyrian.cfg": {
+          "equal": true,
+          "bytes": 445,
+          "sha256": "387f27aab0c08f8704f287960a74a575ab1fa7412f8d22390b1bdf29f120fedb",
+          "changed_from_start": true
+        },
+        "opentyrian2000/tyrian.cfg": {
+          "equal": true,
+          "bytes": 28,
+          "sha256": "9252a0b93b9c9b7764a6a8d6660239858f5941d0ac17efa5f0e4503ff5f3bef8",
+          "changed_from_start": true
+        },
+        "opentyrian2000/tyrian.sav": {
+          "equal": true,
+          "bytes": 4722,
+          "sha256": "7fe61924fc1a9b07ce97c81420fa80db5c9f9ea80796d934bb43d33dc39a49f1",
+          "changed_from_start": true
+        }
+      },
+      "normal_disposable_operations": "Original JE_saveConfiguration on normal title quit"
+    },
+    {
+      "name": "resize",
+      "presentations": 28,
+      "candidate_enhanced": 27,
+      "candidate_wholly_classic": 1,
+      "pair_receipt": "load-font-matrix-evidence-20261013/resize/PAIR.json",
+      "pair_sha256": "1f5fd8264ae15f92dca842076b751bcd70ad2059badbc982461f63f9c87f3399",
+      "raster_receipt": "load-font-matrix-evidence-20261013/resize/RASTER.json",
+      "raster_sha256": "aff661bedb894fc7b52f052b4654b003a29536a1558c63ca33226aa394a39d95",
+      "lifecycle_receipt": "load-font-matrix-evidence-20261013/resize/LIFECYCLE.json",
+      "lifecycle_sha256": "2dffe727502129232a1efe83dc7c0b8194c950f608cdc34f5190a727e68a1b9f",
+      "legacy_file_access_events_per_side": 496,
+      "indexed_palette_bytes_per_side": 1820672,
+      "captures_per_side": 2,
+      "synthetic_profile_files": {
+        "opentyrian2000/opentyrian.cfg": {
+          "equal": true,
+          "bytes": 445,
+          "sha256": "387f27aab0c08f8704f287960a74a575ab1fa7412f8d22390b1bdf29f120fedb",
+          "changed_from_start": true
+        },
+        "opentyrian2000/tyrian.cfg": {
+          "equal": true,
+          "bytes": 28,
+          "sha256": "9252a0b93b9c9b7764a6a8d6660239858f5941d0ac17efa5f0e4503ff5f3bef8",
+          "changed_from_start": true
+        },
+        "opentyrian2000/tyrian.sav": {
+          "equal": true,
+          "bytes": 4722,
+          "sha256": "7fe61924fc1a9b07ce97c81420fa80db5c9f9ea80796d934bb43d33dc39a49f1",
+          "changed_from_start": true
+        }
+      },
+      "normal_disposable_operations": "Original JE_saveConfiguration on normal title quit"
+    },
+    {
+      "name": "truncated_tiny",
+      "presentations": 26,
+      "candidate_enhanced": 0,
+      "candidate_wholly_classic": 26,
+      "pair_receipt": "load-font-matrix-evidence-20261013/truncated_tiny/PAIR.json",
+      "pair_sha256": "4805b9a9fad37ffe72704dcaf6c0e1474f15a8c8bcfa635558ba590d447e215b",
+      "raster_receipt": "load-font-matrix-evidence-20261013/truncated_tiny/RASTER.json",
+      "raster_sha256": "5f6dfb2bc4803c278bdd6f546c1985531f0afdca17809eb60eb63e82f9850b4a",
+      "lifecycle_receipt": "load-font-matrix-evidence-20261013/truncated_tiny/LIFECYCLE.json",
+      "lifecycle_sha256": "a24af8012a2b2e0ce4cf5985740d0380ce12e0dc2d1c33e3317a36f3b3fc12d3",
+      "legacy_file_access_events_per_side": 496,
+      "indexed_palette_bytes_per_side": 1690624,
+      "captures_per_side": 1,
+      "synthetic_profile_files": {
+        "opentyrian2000/opentyrian.cfg": {
+          "equal": true,
+          "bytes": 445,
+          "sha256": "387f27aab0c08f8704f287960a74a575ab1fa7412f8d22390b1bdf29f120fedb",
+          "changed_from_start": true
+        },
+        "opentyrian2000/tyrian.cfg": {
+          "equal": true,
+          "bytes": 28,
+          "sha256": "9252a0b93b9c9b7764a6a8d6660239858f5941d0ac17efa5f0e4503ff5f3bef8",
+          "changed_from_start": true
+        },
+        "opentyrian2000/tyrian.sav": {
+          "equal": true,
+          "bytes": 4722,
+          "sha256": "7fe61924fc1a9b07ce97c81420fa80db5c9f9ea80796d934bb43d33dc39a49f1",
+          "changed_from_start": true
+        }
+      },
+      "normal_disposable_operations": "Original JE_saveConfiguration on normal title quit"
+    }
+  ],
+  "scope_limits": [
+    "SDL dummy/software actual engine, no physical fullscreen or GPU-driver claim",
+    "No actual reentry/Setup launch coverage added; existing source suites and independent source review preserve those siblings",
+    "Retained stills omit visible cursor-over-text; actual navigation cursor states have independent dense numeric full-frame proof"
+  ],
+  "paired_presentations": 474,
+  "paired_original_indexed_palette_bytes": 30821376,
+  "dense_all_presentations_pass": true,
+  "outside_font_support_differences": 0,
+  "pins": {
+    "load-font-runtime-build-io-v2-20261013/opentyrian2000": "36082ef3c272debd1701c9d6ed263ac49849be8a1c1209a49573d1a4ec8c68b9",
+    "load-font-success-build-20261013/opentyrian2000": "5cc3e4a10a4a8b8464900dfe8db9b8f424b2fe7de3549ec46990492f07ececa4",
+    "load-font-runtime-fixture-prep-20261013/load_fixture.c": "dbb554b600b34dd1339f30a2eaa9fc9ea73064fa2c03929337f261fc10b4050b",
+    "load-font-success-fixture-prep-20261013/load_fixture.c": "b3c62976fcf704e3c3dcfd6f7bf3bf601ccf089ceba874d933de8eb8c8b61b31",
+    "load-font-success-fixture-prep-20261013/RECEIPT.json": "44e6008d3996060242fe4bb437d08d2d1a62d6acd2ea9135d3a6ed5c0d805a83",
+    "load-font-matrix-evidence-20261013/verify_actual_raster.py": "6895473585d634a294a19f8ffa5f4059e4925d32ac97a74a992654c8a5193e3b",
+    "load-font-matrix-evidence-20261013/verify_lifecycle.py": "d2926486dc52165496f0e16468f0e980ef8745bf950866b21242c1288a8b35f9",
+    "load-font-matrix-evidence-20261013/run_cases.py": "ff6c6c6e518f9b01bf3cc1870522059d7bd37d0a2001ad9bd9e8eeeb4cab9416",
+    "load-font-success-fixture-prep-20261013/run_cases.py": "526eec4bf31f1412b2f050f9e50074296ca5974e288c0404226fa96993674755",
+    "load-font-matrix-evidence-20261013/load1/BOUND_FAILURE.json": "ee3724fac7105dae594b9f984d8e4c393e6870e0c07b7fc3768b355ccf6edd83"
+  }
+}

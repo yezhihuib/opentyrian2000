@@ -1,0 +1,54 @@
+{
+  "result": "PASS",
+  "selector": "--startup-assets assets/hd/packs/startup-title-settings-v1",
+  "existing_pack_reused_without_change": true,
+  "new_asset_bytes": 0,
+  "files": {
+    "settings-font-large-v1.hda": {
+      "bytes": 934016,
+      "sha256": "7827555a736375ff45bd78dc2c05c5651e65d3b024527e8dba525d3beff721e5"
+    },
+    "settings-font-medium-v1.hda": {
+      "bytes": 688256,
+      "sha256": "51852f5d54516de70a5729e991fb14104871b9ad58991f0352899ab4502bd484"
+    },
+    "settings-font-tiny-v1.hda": {
+      "bytes": 163968,
+      "sha256": "888b635af0c123dc77fecf2f50a2e603f85a0fb6ad74a1c4215b29affc28a35c"
+    },
+    "startup-pic10-v1.hda": {
+      "bytes": 4096064,
+      "sha256": "a885d023f89b0e214a81df1d02dbf62d6e36645820c1a15e9a0ad74a2c5e2c79"
+    },
+    "startup-pic12-v1.hda": {
+      "bytes": 4096064,
+      "sha256": "bd358e8006a99467e08bc8bf257e6ead51fe5f216c63c57088612ef5039c7669"
+    },
+    "title-menu-font-v1.hda": {
+      "bytes": 688256,
+      "sha256": "26e4f9eabed4f90bfe74896e04ee59e647e445ffd44a9feaf003c91444275a4d"
+    },
+    "title-pic4-v1.hda": {
+      "bytes": 4096080,
+      "sha256": "0149d26dd7c860f497089f27d5650dec7af21846ad92cc8269a66b5375592c31"
+    },
+    "title-planet146-v1.hda": {
+      "bytes": 2354256,
+      "sha256": "ff126712e87c052b2176365b228a8248d5ec7e04386e5d233614405e51537b05"
+    },
+    "title-planet151-v1.hda": {
+      "bytes": 663632,
+      "sha256": "325c3602bce555f3b8023dd6b6167099d540fc828bf9e84c3bd21b85d0787357"
+    }
+  },
+  "load_required_families": [
+    "settings-font-large-v1.hda",
+    "settings-font-tiny-v1.hda"
+  ],
+  "settings_required_families": [
+    "settings-font-large-v1.hda",
+    "settings-font-medium-v1.hda",
+    "settings-font-tiny-v1.hda"
+  ],
+  "actual_load_isolation": "The 17 A/B cases contain only large/tiny required resources on candidate side; compatibility with the unchanged full nine-file pack is established by source/owner and aggregate checks, not an extra actual combined-pack run."
+}

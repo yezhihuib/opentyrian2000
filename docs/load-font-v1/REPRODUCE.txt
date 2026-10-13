@@ -1,0 +1,34 @@
+Source/core acceptance (original game data supplied separately):
+  tests/run_load_font_tests.sh ORIGINAL_DATA_DIR assets/hd/packs/startup-title-settings-v1
+  ASAN_OPTIONS=detect_leaks=0 UBSAN_OPTIONS=halt_on_error=1 tests/run_load_font_tests.sh --sanitize ORIGINAL_DATA_DIR assets/hd/packs/startup-title-settings-v1
+  tests/run_settings_font_tests.sh ORIGINAL_DATA_DIR assets/hd/packs/startup-title-settings-v1
+  ASAN_OPTIONS=detect_leaks=0 UBSAN_OPTIONS=halt_on_error=1 tests/run_settings_font_tests.sh --sanitize ORIGINAL_DATA_DIR assets/hd/packs/startup-title-settings-v1
+  python3 tests/test_load_font_integration.py --out NEW_OUTPUT.json
+  python3 prototype/build-hd-assets.py
+  python3 prototype/test-windows-project.py
+  python3 prototype/tests/startup-manufacturer/test_package.py
+  python3 prototype/tests/title-package/test_package.py
+  python3 prototype/tests/title-menu-font/test_package.py
+  python3 prototype/tests/title-menu-font/test_runtime.py --sanitize
+  python3 prototype/test-type3-small-source-guards.py --out NEW_ABSOLUTE_EXTERNAL_DIR --original-data ORIGINAL_DATA_DIR
+  make clean
+  make -j4
+These are source, synthetic-module or package checks; none launches the game.
+
+Historical source-only guards need the private exact-pin Load coexistence adapter
+in the final evidence package. Preserve its sibling layout: a directory named
+load-font-final-checks-20261013 beside the repository named
+load-font-implementation-20261013. Then run:
+  python3 load-font-final-checks-20261013/run_legacy_projection.py prototype/tests/title-menu-font/test_source.py
+  python3 load-font-final-checks-20261013/run_legacy_projection.py prototype/test-type3-small-binding.py --out NEW_ABSOLUTE_EXTERNAL_DIR --data-dir ORIGINAL_DATA_DIR
+The adapter verifies all whole-file source pins, exactly projects Load additions
+to a4974da for the older preservation guards, and rejects arbitrary mutations.
+It changes no file. Actual type3 render helpers remain current candidate bytes.
+
+Actual evidence is private and separately durable, as listed in
+DURABLE_EVIDENCE.json. It contains pinned preparation, input, comparison, dense
+oracle and lifecycle scripts and the original raw streams. Original media must
+be supplied separately; per-profile authored resource copies can be regenerated
+from the unchanged existing pack. Any new actual run must use fresh synthetic
+profiles and match its reviewed source, binary, action, input and resource pins.
+Never reuse a user save or infer new launch authority from an old receipt.

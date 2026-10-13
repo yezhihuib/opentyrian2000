@@ -136,3 +136,5 @@ PIC2 背景、音量条、光标、索引文字、字宽、输入与保存设置
 实际引擎的配对操作、渐变与生命周期检查，以及源码、消毒器和作者静态画面审阅。
 未声明实体 GPU/显示器或 Windows 运行验收。可用以下命令重建完全相同的九文件包：
 `python3 prototype/settings_font_bundle.py --output /absolute/new/directory`。
+
+同一 `startup-title-settings-v1` 资源包现也支持有限范围的读档界面字体，遇到不支持的存档名或缩放方式时整帧回退至原版；详见[读档字体使用说明](docs/load-font-v1/USAGE.txt)。
