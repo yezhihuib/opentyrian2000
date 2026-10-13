@@ -32,5 +32,5 @@ void settings_font_cursor_sprite_end(void);
 void settings_font_cursor_erased(void);
 void settings_font_fade_start(const SDL_Color *, const SDL_Color *, unsigned first, unsigned last);
 void settings_font_fade_step(int remaining, unsigned first, unsigned last);
-bool settings_font_present(SDL_Renderer *, SDL_Surface *, const SDL_Rect *, bool foreign_owner);
+bool settings_font_present(SDL_Renderer *, SDL_Texture *, SDL_Surface *, const SDL_Rect *, bool foreign_owner);
 #endif

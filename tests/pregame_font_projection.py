@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Exact finite observer projection, preserving every byte of the qualified published C parent."""
 from pathlib import Path
-import hashlib,json,subprocess
+import hashlib,json,subprocess,runpy
 from functools import lru_cache
 ROOT=Path(__file__).resolve().parents[1]
+PORTABLE=runpy.run_path(str(ROOT/'tests/portable_font_projection.py'))
 BASE='a35747a9b25a0e7a296165e802e0777a3aaee511'
 LEGACY='317bf551db59df9c4e3754d2072446c7313ab1f4'
 NATIVE='c9232d59778c8689d85f9e87e8fee260b4c3187a'
@@ -12,8 +13,9 @@ ADDED_SOURCE={'src/pregame_font.c','src/pregame_font.h'}
 @lru_cache(maxsize=512)
 def git(*args):return subprocess.check_output(['git','-C',str(ROOT),*args])
 def project(name,raw):
+ if name in EDITS and raw==git('show',BASE+':'+name):return raw
+ raw=PORTABLE['project'](name,raw)
  if name not in EDITS:return raw
- if raw==git('show',BASE+':'+name):return raw
  for before,after in reversed(EDITS[name]):
   before=before.encode();after=after.encode()
   assert raw.count(after)>0,(name,'missing exact observer addition',after[:70])
@@ -21,8 +23,9 @@ def project(name,raw):
  assert raw==git('show',BASE+':'+name),(name,'original published bytes changed')
  return raw
 def verify():
+ portable_sources=PORTABLE['verify']()
  for name in EDITS:project(name,(ROOT/name).read_bytes())
- return {name for name in EDITS if name.startswith('src/')}|ADDED_SOURCE
+ return {name for name in EDITS if name.startswith('src/')}|ADDED_SOURCE|portable_sources
 
 # Historical selector/manual/Data tests still compare their original source.
 # Bridge only whole files from the exact two qualified immutable commits.

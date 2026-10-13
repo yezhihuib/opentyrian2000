@@ -3,8 +3,9 @@
 No game execution, profile/config access or original bitmap distribution.
 """
 from pathlib import Path
-import argparse,hashlib,json,re,subprocess,xml.etree.ElementTree as ET
+import argparse,hashlib,json,re,subprocess,xml.etree.ElementTree as ET,runpy
 ROOT=Path(__file__).resolve().parents[1]
+PORTABLE=runpy.run_path(str(ROOT/'tests/portable_font_projection.py'))
 BASE='a4974da93ee75fb18c7ad5827ea42a6b02d1b74d'
 CHANGED={'src/helptext.c','src/mainint.c','src/palette.c','src/params.c','src/picload.c','src/render_mirror.c','src/settings_font.c','src/settings_font.h','src/sprite.c','src/video.c','tests/run_settings_font_tests.sh','visualc/opentyrian.vcxproj'}
 git=lambda *a:subprocess.check_output(['git','-C',str(ROOT),*a])
@@ -47,6 +48,7 @@ def project(name,text):
         middle=text[a:b].replace('{  return; }','return;');text=text[:a]+middle+text[b:]
     return tokens(text)
 def main():
+    PORTABLE['verify']()
     p=argparse.ArgumentParser();p.add_argument('--out',type=Path,required=True);args=p.parse_args()
     pins=json.loads((ROOT/'docs/load-font-source-pins.json').read_text())
     changed=[];metadata_changed=[];unchanged=0;asset_bytes=0;token_proofs=0
@@ -54,7 +56,7 @@ def main():
         if not line:continue
         metadata,name=line.split(b'\t',1);name=name.decode();mode,kind,blob=metadata.decode().split();path=ROOT/name
         assert path.is_file() and not path.is_symlink(),name
-        raw=path.read_bytes();current=hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest()
+        raw=PORTABLE['project'](name,path.read_bytes());current=hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest()
         if current==blob:
             unchanged+=1
             if name.startswith('assets/'):asset_bytes+=len(raw)
@@ -67,10 +69,10 @@ def main():
                 before=git('show',BASE+':'+name).decode();assert project(name,raw.decode())==tokens(before),(name,'projection');token_proofs+=1
     assert set(changed)==CHANGED
     assert set(metadata_changed)==set(README_ADDITIONS)
-    for name,digest in pins.items():assert sha((ROOT/name).read_bytes())==digest,name
+    for name,digest in pins.items():assert sha(PORTABLE['project'](name,(ROOT/name).read_bytes()))==digest,name
     negatives=0
     for name in CHANGED:
-        raw=(ROOT/name).read_bytes()
+        raw=PORTABLE['project'](name,(ROOT/name).read_bytes())
         for off in {0,len(raw)//2,len(raw)-1}:
             bad=raw[:off]+bytes([raw[off]^1])+raw[off+1:];assert sha(bad)!=pins[name];negatives+=1
     metadata_negatives=0
@@ -92,6 +94,6 @@ def main():
     files=[x.attrib['Include'] for x in tree.findall('.//m:ClCompile',ns) if 'Include' in x.attrib]
     assert len(files)==len(set(files)) and {Path(x.replace('\\','/')).name for x in files}=={x.name for x in (ROOT/'src').glob('*.c')}
     headers=[x.attrib['Include'] for x in tree.findall('.//m:ClInclude',ns) if 'Include'in x.attrib];assert headers.count('..\\src\\load_font.h')==1
-    report={'result':'PASS','baseline':BASE,'unchanged_prior_files':unchanged,'unchanged_asset_bytes':asset_bytes,'exact_changed_files':sorted(changed),'exact_readme_additions':sorted(metadata_changed),'readme_published_prefixes_unchanged':True,'readme_hashes':{name:README_ADDITIONS[name][0] for name in metadata_changed},'readme_mutation_rejections':metadata_negatives,'published_C_token_stream_projections':token_proofs,'pinned_source_and_test_files':len(pins),'mutation_rejections':negatives,'successful_load_release_after_original_fade':True,'input_state_save_and_original_draw_semantics_preserved':True,'windows':'C source/header inventory only, no Windows runtime claim','runtime_or_user_save_access':False}
+    report={'result':'PASS','baseline':BASE,'portable_parent':PORTABLE['BASE'],'unchanged_prior_files':unchanged,'unchanged_asset_bytes':asset_bytes,'exact_changed_files':sorted(changed),'exact_readme_additions':sorted(metadata_changed),'readme_published_prefixes_unchanged':True,'readme_hashes':{name:README_ADDITIONS[name][0] for name in metadata_changed},'readme_mutation_rejections':metadata_negatives,'published_C_token_stream_projections':token_proofs,'pinned_source_and_test_files':len(pins),'mutation_rejections':negatives,'successful_load_release_after_original_fade':True,'input_state_save_and_original_draw_semantics_preserved':True,'windows':'C source/header inventory only, no Windows runtime claim','runtime_or_user_save_access':False}
     args.out.write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
 if __name__=='__main__':main()

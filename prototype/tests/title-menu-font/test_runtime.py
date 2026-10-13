@@ -27,7 +27,7 @@ def main():
     with tempfile.TemporaryDirectory(prefix='title-menu-unit-') as tmp:
         base=Path(tmp);header=base/'map.h';header.write_text('const int font_ascii[256]={'+','.join(map(str,mapping))+'};\n')
         cmd=[os.environ.get('CC','cc'),'-std=c99','-O1' if args.sanitize else '-O2','-g','-Wall','-Wextra','-Werror','-I'+str(ROOT/'src'),'-include',str(header)]+flags
-        cmd+=shlex.split(subprocess.check_output(['pkg-config','--cflags','sdl2'],text=True))+[str(HERE/'test_runtime.c'),'-o',str(base/'test')]+shlex.split(subprocess.check_output(['pkg-config','--libs','sdl2'],text=True))
+        cmd+=shlex.split(subprocess.check_output(['pkg-config','--cflags','sdl2'],text=True))+[str(HERE/'test_runtime.c'),'-lm','-o',str(base/'test')]+shlex.split(subprocess.check_output(['pkg-config','--libs','sdl2'],text=True))
         if args.sanitize:cmd+=['-fsanitize=address,undefined','-fno-omit-frame-pointer','-fno-pie','-no-pie']
         subprocess.run(cmd,check=True)
         subprocess.run([str(base/'test'),tmp],check=True,timeout=300,env=dict(os.environ,ASAN_OPTIONS='detect_leaks=0:halt_on_error=1',UBSAN_OPTIONS='halt_on_error=1'))

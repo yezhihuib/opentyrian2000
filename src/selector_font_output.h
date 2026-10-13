@@ -30,6 +30,23 @@ bool selector_font_output_present(SDL_Renderer *renderer,
  ScalerFunction scale, const SDL_Rect *destination,
  const Uint32 *canonical_premul_argb, const SDL_Rect *support,
  const Uint8 *cursor_mask, unsigned scaler_radius);
+/* Explicit opt-in for portable menus: same contract and untouched indexed
+ * underlay as present(), with continuous premultiplied reconstruction on
+ * enlarged axes. Existing selector/pregame callers keep present() unchanged. */
+bool selector_font_output_present_smooth(SDL_Renderer *renderer,
+ SDL_Texture *reference_texture, SDL_Surface *indexed_underlay,
+ ScalerFunction scale, const SDL_Rect *destination,
+ const Uint32 *canonical_premul_argb, const SDL_Rect *support,
+ const Uint8 *cursor_mask, unsigned scaler_radius);
+
+/* Draw only the ordered transparent font layer over an already rendered
+ * nearest-sampled canonical RGBA underlay. The completed premultiplied font
+ * layer uses bilinear reconstruction on enlarged axes, area integration on
+ * reduced axes. No clear or present; the caller
+ * retains underlay/cursor ordering and performs normal fallback on false. */
+bool selector_font_output_overlay(SDL_Renderer *renderer,
+ const SDL_Rect *destination, const Uint32 *canonical_premul_argb,
+ const SDL_Rect *support);
 void selector_font_output_release(void);
 size_t selector_font_output_static_bytes(void);
 

@@ -38,5 +38,5 @@ void load_font_cursor_erased(void);
 void load_font_fade_declare(int steps);
 void load_font_fade_start(const SDL_Color *, const SDL_Color *, unsigned first, unsigned last);
 void load_font_fade_step(int remaining, unsigned first, unsigned last);
-bool load_font_present(SDL_Renderer *, SDL_Surface *, const SDL_Rect *, bool foreign_owner);
+bool load_font_present(SDL_Renderer *, SDL_Texture *, SDL_Surface *, const SDL_Rect *, bool foreign_owner);
 #endif

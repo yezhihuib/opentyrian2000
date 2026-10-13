@@ -47,7 +47,7 @@ def main():
     with tempfile.TemporaryDirectory(prefix='title-layer-unit-') as tmp:
         exe = str(Path(tmp)/'test-title-layers')
         cmd = [os.environ.get('CC','cc'),'-std=c99','-O1' if args.sanitize else '-O2','-g','-Wall','-Wextra','-Werror','-I'+str(ROOT/'src')]
-        cmd += cflags + flags + [str(HERE/'test_runtime.c'),'-o',exe] + libs
+        cmd += cflags + flags + [str(HERE/'test_runtime.c'),'-lm','-o',exe] + libs
         if args.sanitize:
             cmd += ['-fsanitize=address,undefined','-fno-omit-frame-pointer','-fno-pie','-no-pie']
         subprocess.run(cmd,check=True)

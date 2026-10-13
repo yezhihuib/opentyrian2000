@@ -10,6 +10,8 @@ static Uint8 *font_resource;
 static char font_path[2048];
 static struct Run { int x,y,value;char text[64]; } oracle_runs[36];
 static unsigned oracle_count;
+static bool portable_fade_probe;
+static void check_portable(SDL_Rect dst,int w,int h);
 static Uint32 oracle_output[1024000];
 static const char *rows[7]={"Start New Game","Load Game","High Scores","Instructions","Setup","Demo","Quit"};
 static bool blank_glyph(unsigned id)
@@ -149,6 +151,7 @@ static void menu_fade(bool outgoing,int steps)
   if(outgoing)for(unsigned i=0;i<256;i++)oracle_lut[i]+=(0-(int)oracle_lut[i])/remaining;
   apply_palette();title_layers_fade_step(remaining,first,255);
   if(!outgoing||remaining>1)check_menu_output();
+  if(portable_fade_probe&&remaining==steps/2)check_portable((SDL_Rect){0,0,1920,1200},1920,1200);
  }
  if(outgoing)assert(!state.active&&!menu_font.payload&&!live_bytes);
 }
@@ -180,13 +183,112 @@ static void test_text_sequence(void)
  for(unsigned row=0;row<7;row++)select_row(row,true);
  destination=(SDL_Rect){0,0,1280,800};check_menu_output();
  destination=(SDL_Rect){0,0,960,600};assert(title_layers_present(renderer,VGAScreen,&destination));
- for(unsigned y=0;y<800;y++)for(unsigned x=0;x<1280;x++)assert(state.output[y*1280+x]==expected_pixel(x,y));
+ assert(menu_font.payload&&menu_font.samples[0]==0); /* portable layer is transparent outside text */
  destination=(SDL_Rect){0,0,1280,800};check_menu_output();
  title_layers_release_texture();check_menu_output();menu_fade(true,10);
  initial(false);destination=(SDL_Rect){0,0,640,400};build_menu();select_row(4,true);menu_fade(true,15);destination=(SDL_Rect){0,0,1280,800};
  /* Controls, nine blank glyph slots and their original advances remain valid. */
  rows[0]="A #*(){}[]+ ~A~";initial(false);destination=(SDL_Rect){0,0,640,400};build_menu();select_row(0,true);assert(tm_index(15,3)==255);menu_fade(true,10);destination=(SDL_Rect){0,0,1280,800};rows[0]="Start New Game";
  puts("Ordered outlines/base/selection, all seven selections, cursor erase, restart, UI/outgoing fades, blanks, tilde255 and exact2x/4x pass");
+}
+
+/* Independent ordered premultiplied-layer oracle from the observed original
+ * run text, not production TmCommands or tm_render_portable. */
+static void portable_layer(Uint32 *layer)
+{
+ memset(layer,0,1024000*4);
+ for(unsigned r=0;r<oracle_count;r++) {
+  const struct Run *run=&oracle_runs[r];int ox=run->x,value=run->value;bool hi=false;
+  for(const char *t=run->text;*t;t++) {
+   unsigned ch=(unsigned char)*t;if(ch==' '){ox+=6;continue;}
+   if(ch=='~'){hi=!hi;value+=hi?4:-4;continue;}
+   unsigned id=font_ascii[ch];const Sprite *g=&sprite_table[1].sprite[id];
+   for(unsigned y=0;y<g->height*4;y++)for(unsigned x=0;x<g->width*4;x++) {
+    unsigned p=((id/16)*64+4+y)*896+(id%16)*56+4+x,a=font_resource[128+p];
+    int role=font_resource[128+344064+p]+value;if(role<0)role=0;if(role>15)role=15;
+    const SDL_Color c=engine_palette[240+role];unsigned channels[4]={c.b,c.g,c.r,255};
+    unsigned out=(run->y*4+y)*1280+ox*4+x;Uint32 old=layer[out],v=0;
+    for(unsigned k=0;k<4;k++)v|=((channels[k]*a+((old>>(k*8))&255)*(255-a)+127)/255)<<(k*8);
+    layer[out]=v;
+   }
+   ox+=g->width+1;
+  }
+ }
+}
+static Uint32 portable_sample(const Uint32 *layer,int px,int py,Uint32 base)
+{
+ long double l=(long double)(px-destination.x)*1280/destination.w;
+ long double r=(long double)(px+1-destination.x)*1280/destination.w;
+ long double t=(long double)(py-destination.y)*800/destination.h;
+ long double b=(long double)(py+1-destination.y)*800/destination.h;
+ bool mx=destination.w>1280,my=destination.h>800;long double fx=0,fy=0;
+ if(mx){long double center=(l+r)/2-0.5L;l=floorl(center);fx=center-l;r=l+2;}
+ if(my){long double center=(t+b)/2-0.5L;t=floorl(center);fy=center-t;b=t+2;}
+ long double area=(mx?1:r-l)*(my?1:b-t),sum[4]={0,0,0,0};
+ for(int y=MAX(0,(int)floorl(t));y<MIN(800,(int)ceill(b));y++)for(int x=MAX(0,(int)floorl(l));x<MIN(1280,(int)ceill(r));x++) {
+  long double weight=(mx?(x==l?1-fx:fx):fminl(r,x+1)-fmaxl(l,x))*(my?(y==t?1-fy:fy):fminl(b,y+1)-fmaxl(t,y));
+  Uint32 v=layer[y*1280+x];for(unsigned c=0;c<4;c++)sum[c]+=((v>>(8*c))&255)*weight;
+ }
+ if(sum[3]==0)return base;
+ Uint32 result=0xff000000;
+ for(unsigned c=0;c<3;c++)result|=(unsigned)fminl(255,fmaxl(0,floorl(sum[c]/area+((base>>(c*8))&255)*(1-sum[3]/(255*area))+0.5L)))<<(c*8);
+ return result;
+}
+static void portable_display(int w,int h)
+{
+ title_layers_release_texture();SDL_DestroyRenderer(renderer);SDL_FreeSurface(display);
+ display=SDL_CreateRGBSurfaceWithFormat(0,w,h,32,SDL_PIXELFORMAT_ARGB8888);assert(display);
+ renderer=SDL_CreateSoftwareRenderer(display);assert(renderer);
+}
+static void check_portable(SDL_Rect dst,int w,int h)
+{
+ portable_display(w,h);destination=dst;
+ Uint32 *layer=malloc(1024000*4),*actual=malloc((size_t)w*h*4),*base=malloc((size_t)w*h*4);assert(layer&&actual&&base);
+ portable_layer(layer);
+ Uint8 old_menu[64000],old_cursor[64000],indexed[64000],backup[64000];Uint32 palette[256];
+ memcpy(old_menu,plane_mask[1],64000);memcpy(old_cursor,plane_mask[2],64000);
+ memset(plane_mask[1],0,64000);memset(plane_mask[2],0,64000);
+ for(unsigned y=0;y<800;y++)for(unsigned x=0;x<1280;x++)oracle_output[y*1280+x]=expected_pixel(x,y);
+ memcpy(plane_mask[1],old_menu,64000);memcpy(plane_mask[2],old_cursor,64000);
+ SDL_Texture *tex=SDL_CreateTexture(renderer,SDL_PIXELFORMAT_ARGB8888,SDL_TEXTUREACCESS_STREAMING,1280,800);assert(tex);
+ assert(!SDL_SetTextureScaleMode(tex,SDL_ScaleModeNearest));assert(!SDL_SetTextureBlendMode(tex,SDL_BLENDMODE_NONE));
+ assert(!SDL_UpdateTexture(tex,NULL,oracle_output,1280*4));assert(!SDL_SetRenderDrawColor(renderer,0,0,0,255));assert(!SDL_RenderClear(renderer));assert(!SDL_RenderCopy(renderer,tex,NULL,&destination));
+ assert(!SDL_RenderReadPixels(renderer,NULL,SDL_PIXELFORMAT_ARGB8888,base,w*4));
+ memcpy(indexed,VGAScreen->pixels,64000);memcpy(backup,VGAScreen2->pixels,64000);memcpy(palette,rgb_palette,1024);
+ unsigned na=allocs,nr=reads,no=opens;assert(title_layers_present(renderer,VGAScreen,&destination));assert(na==allocs&&nr==reads&&no==opens);
+ assert(!memcmp(indexed,VGAScreen->pixels,64000)&&!memcmp(backup,VGAScreen2->pixels,64000)&&!memcmp(palette,rgb_palette,1024));
+ assert(!memcmp(layer,menu_font.samples,1024000*4));assert(!SDL_RenderReadPixels(renderer,NULL,SDL_PIXELFORMAT_ARGB8888,actual,w*4));
+ for(int y=0;y<h;y++)for(int x=0;x<w;x++)base[y*w+x]=portable_sample(layer,x,y,base[y*w+x]);
+ SDL_Texture *expected=SDL_CreateTexture(renderer,SDL_PIXELFORMAT_ARGB8888,SDL_TEXTUREACCESS_STREAMING,w,h);assert(expected);
+ assert(!SDL_UpdateTexture(expected,NULL,base,w*4));assert(!SDL_RenderCopy(renderer,expected,NULL,NULL));
+ memset(oracle_output,0,sizeof(oracle_output));
+ for(unsigned y=0;y<800;y++)for(unsigned x=0;x<1280;x++){unsigned p=(y/4)*320+x/4;if(old_cursor[p])oracle_output[y*1280+x]=palette_pixel(plane_value[2][p]);}
+ assert(!SDL_UpdateTexture(tex,NULL,oracle_output,1280*4));assert(!SDL_SetTextureBlendMode(tex,SDL_BLENDMODE_BLEND));assert(!SDL_RenderCopy(renderer,tex,NULL,&destination));
+ assert(!SDL_RenderReadPixels(renderer,NULL,SDL_PIXELFORMAT_ARGB8888,base,w*4));
+ unsigned changed=0;
+ for(int y=0;y<h;y++)for(int x=0;x<w;x++)for(unsigned c=0;c<3;c++){
+  int d=(int)((actual[y*w+x]>>(c*8))&255)-(int)((base[y*w+x]>>(c*8))&255);
+  if(abs(d)>1){fprintf(stderr,"portable oracle %dx%d at%d,%d c%u actual%08x expected%08x\n",w,h,x,y,c,actual[y*w+x],base[y*w+x]);abort();}changed+=d!=0;
+ }
+ assert(changed<(unsigned)(w*h));
+ SDL_DestroyTexture(tex);SDL_DestroyTexture(expected);free(layer);free(actual);free(base);
+ portable_display(1280,800);destination=(SDL_Rect){0,0,1280,800};
+}
+static void test_portable(void)
+{
+ const SDL_Rect rects[]={{0,0,1920,1200},{171,0,1023,767},{8,5,977,603}};
+ const int sizes[][2]={{1920,1200},{1365,767},{997,613}};
+ initial(false);portable_fade_probe=true;build_menu();
+ for(unsigned k=0;k<3;k++) {
+  select_row(k*3,false);check_portable(rects[k],sizes[k][0],sizes[k][1]);
+  Uint8 before[64000];memcpy(before,VGAScreen->pixels,64000);title_layers_cursor_begin();
+  for(unsigned i=0;i<24;i++)if(i%3)write_pixel(2,145+i%6,104+13*k*3+i/6,(Uint8)(240+i%16),TITLE_WRITE_CURSOR);
+  title_layers_cursor_done();check_portable(rects[k],sizes[k][0],sizes[k][1]);
+  memcpy(VGAScreen->pixels,before,64000);title_layers_cursor_erased();memset(plane_mask[2],0,64000);
+  check_menu_output();
+ }
+ menu_fade(true,10);portable_fade_probe=false;assert(!live_bytes&&!gpu_live_bytes);
+ title_layers_end();puts("Portable UI/outgoing fades,1920x1200, odd letterbox and anisotropic reduction: ordered independent layer/output oracle, exact indexed/palette state, sparse cursor holes and renderer recreation pass");
 }
 static void test_font_loader(void)
 {
@@ -244,7 +346,7 @@ int main(int argc,char **argv)
  sprite_table[PLANET_SHAPES].count=152;make_fixture(0);make_fixture(1);make_font();
  for(unsigned k=0;k<3;k++){snprintf(paths[k],sizeof(paths[k]),"%s/%s",directory,names[k]);pack_resource(k);}
  snprintf(font_path,sizeof(font_path),"%s/title-menu-font-v1.hda",directory);pack_font();title_layers_set_directory(directory);
- test_text_sequence();test_font_loader();test_fallback();title_layers_end();assert(!live_bytes&&!gpu_live_bytes);
+ test_text_sequence();test_portable();test_font_loader();test_fallback();title_layers_end();assert(!live_bytes&&!gpu_live_bytes);
  printf("TMF1 fixed state=%zu; optional payload=%u; sampler scratch=%u; combined title dynamic peak=%zu; presentations=%u; allocation ledger empty\n",sizeof(menu_font),TM_PAYLOAD,TM_SAMPLE_BYTES,peak_bytes,presents);
  for(unsigned k=0;k<3;k++)free(resources[k]);
  free(font_resource);

@@ -24,7 +24,8 @@ It builds on OpenTyrian2000 and OpenTyrian; the upstream README is preserved bel
 - Fixed MODE/SHIELD/ARMOR lettering and finite gameplay tiny-font rendering
   are integrated, along with finite firepower, generator and coarse armor
   meter refinement. Manufacturer PIC10/PIC12 have a separate opt-in. A separate
-  combined pack adds PIC4 and the two title logos; live title UI remains classic.
+  combined pack adds PIC4 and the two title logos; title menu typography has
+  its own opt-in below.
   Title checks pass in eight bounded cases / 13 actual-engine executions, plus one
   exact post-merge regression. Native 2×/4×, cursor/restart and real idle handoff are covered.
   Manufacturer startup checks passed at native 2×/4× output sizes
@@ -152,15 +153,16 @@ existing manufacturer/title artwork:
   --startup-assets=assets/hd/packs/startup-title-menu-v1
 ```
 
-Native2× uses font-only coverage integration; native4× retains crisp canonical
-lettering. Other output sizes use classic menu text while keeping title artwork.
-Only the seven main-title rows use the new glyphs. Original indexed text, widths,
-centering, hit boxes, input, palette fades and cursor remain authoritative. Missing
-or incompatible typography falls back to the whole classic menu while valid title
-art remains active. Version text, setup/load screens and gameplay HUF1 are unchanged.
-The old five-file title pack and default pack selections are unchanged.
-[Protocol and current checks](docs/TITLE_MENU_FONT.md) distinguish source/synthetic
-checks from the still-pending actual-engine visual and interaction acceptance.
+Native 2×/4× retain their accepted output exactly. Other valid output sizes use
+font-only coverage reduction and premultiplied linear magnification, while title
+art keeps its original sampling. Only the seven main-title rows use the new glyphs.
+Original colors, indexed text, widths, centering, hit boxes, input, palette fades
+and cursor remain authoritative. Missing or incompatible typography restores the
+whole classic menu while valid title art remains active. Version text, Settings/Load
+typography and gameplay HUF1 remain separate; existing packs/defaults are unchanged.
+See the [historical protocol and acceptance](docs/TITLE_MENU_FONT.md) and
+[current output-portability checks and limits](docs/TITLE_MENU_FONT_PORTABILITY.md),
+including actual 1920×1200 and odd/letterboxed software output.
 
 Windows: use the [build entrypoint](prototype/build-game.ps1) and
 [setup/acceptance limits](docs/WINDOWS_HANDOFF.md). These instructions do not
@@ -246,24 +248,29 @@ resources and adds smooth large, medium and tiny settings lettering:
   --startup-assets=assets/hd/packs/startup-title-settings-v1
 ```
 
-Only Setup, Graphics, Sound and their pickers are enhanced, at exact native
-nearest 2×/4×. PIC2, bars, cursor, indexed text, metrics, input and saved settings
-remain original. Missing or incompatible SFN1 files keep the complete settings
-menu classic while valid title resources remain usable. Filtered/aspect output
-also falls back. Existing packs and default selections are unchanged.
+Only Setup, Graphics, Sound and their pickers are enhanced. Native nearest
+2×/4× preserve the accepted compositor; other valid output geometry, including
+filtered/aspect output, uses the font-only portable path. Original colors, PIC2,
+bars, cursor, indexed text, metrics, input and saved settings remain authoritative.
+Missing or incompatible SFN1 files keep the complete settings menu classic while
+valid title resources remain usable. Existing packs/defaults are unchanged.
+See [current output handling, fallback and validation](docs/SETTINGS_LOAD_FONT_PORTABILITY.md).
 [Protocol and bounded acceptance](docs/settings-font-v1/ACCEPTANCE.txt) include
 paired actual-engine controls, fades and lifecycle checks on SDL dummy/software,
 plus source/sanitizer and retained-still author review. Physical GPU/display and
 Windows execution are not claimed. Reproduce the exact nine files with
 `python3 prototype/settings_font_bundle.py --output /absolute/new/directory`.
 
-The same `startup-title-settings-v1` pack now also supports bounded Load typography, with whole-frame classic fallback for unsupported names or scalers; see [Load usage](docs/load-font-v1/USAGE.txt).
+The same `startup-title-settings-v1` pack supports bounded Load typography with
+the same portable output path. Unsupported names, source data or resources retain
+whole-frame classic fallback. The [output-portability note](docs/SETTINGS_LOAD_FONT_PORTABILITY.md)
+updates the geometry limits in the [historical Load usage](docs/load-font-v1/USAGE.txt).
 
 The same `startup-title-settings-v1` pack now covers Players/mode, Episode,
 Difficulty (including original unlock rows) and Timed Battle selection. These
 four selectors map font coverage to actual output/viewport geometry; native
-2×/4× and an odd 1365×767 output passed bounded software-renderer checks. Existing
-title/Settings/Load geometry limits remain unchanged. The same pack now adds
+2×/4× and an odd 1365×767 output passed bounded software-renderer checks.
+Title/Settings/Load output handling is documented above. The same pack now adds
 text-only support for the ordinary single-player pre-game root and Upgrade Ship category; item
 purchase pages and original ship/background artwork remain unchanged. Keep the
 same `--startup-assets` directory and

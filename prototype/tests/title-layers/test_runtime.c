@@ -83,6 +83,9 @@ static void checked_present(SDL_Renderer *r){++presents;SDL_RenderPresent(r);}
 #undef SDL_RenderCopy
 #undef SDL_DestroyTexture
 #undef SDL_RenderPresent
+#define resources output_resources
+#include "selector_font_output.c"
+#undef resources
 
 SDL_Surface *VGAScreen,*VGAScreenSeg,*VGAScreen2;
 SDL_PixelFormat *main_window_tex_format;

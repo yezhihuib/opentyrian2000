@@ -48,6 +48,7 @@ def regression_projection():
  return selector_sources|pregame_sources|published,mirror
 
 def main():
+ PREGAME['PORTABLE']['verify']()
  PREGAME['verify_published_delta']()  # qualify actual files before idempotent legacy passes
  p=argparse.ArgumentParser();p.add_argument('--out',type=Path);a=p.parse_args();changed=[];unchanged=0;assets=0;proofs=0
  for line in git('ls-tree','-rz',BASE).split(b'\0'):
@@ -75,7 +76,7 @@ def main():
  ns={'m':'http://schemas.microsoft.com/developer/msbuild/2003'};tree=ET.parse(ROOT/'visualc/opentyrian.vcxproj')
  files=[x.attrib['Include'] for x in tree.findall('.//m:ClCompile',ns) if 'Include'in x.attrib]
  assert len(files)==len(set(files)) and {Path(x.replace('\\','/')).name for x in files}=={x.name for x in (ROOT/'src').glob('*.c')}
- report={'result':'PASS','baseline':BASE,'source_token_projections':proofs,'documentation_only_exceptions':sorted(DOCUMENTATION_ONLY),'changed_existing_files':sorted(changed),'unchanged_prior_files':unchanged,'unchanged_asset_bytes':assets,'all_four_menu_input_state_draw_fade_tokens_preserved':True,'windows':'project inventory verified; no Windows runtime','game_runs':False}
+ report={'result':'PASS','baseline':BASE,'portable_parent':PREGAME['PORTABLE']['BASE'],'source_token_projections':proofs,'documentation_only_exceptions':sorted(DOCUMENTATION_ONLY),'changed_existing_files':sorted(changed),'unchanged_prior_files':unchanged,'unchanged_asset_bytes':assets,'all_four_menu_input_state_draw_fade_tokens_preserved':True,'windows':'project inventory verified; no Windows runtime','game_runs':False}
  if a.out:a.out.parent.mkdir(parents=True,exist_ok=True);a.out.write_text(json.dumps(report,indent=2)+'\n')
  print(json.dumps(report,indent=2))
 if __name__=='__main__':main()

@@ -22,7 +22,7 @@ SDL_Surface *VGAScreen,*VGAScreenSeg,*VGAScreen2,*game_screen;
 SDL_Window *main_window;SDL_PixelFormat *main_window_tex_format;
 Palette palettes[24],colors;int palette_count=24;
 Uint32 rgb_palette[256],yuv_palette[256];
-uint scaler=1;ScalingMode scaling_mode=SCALE_INTEGER;
+ScalingMode scaling_mode=SCALE_INTEGER;
 static unsigned checks,states,max_commands;
 static uint64_t trace;static unsigned trace_count;
 void render_mirror_pixel(SDL_Surface *s,Uint8 *p,Uint8 color,int style){(void)color;uintptr_t n=(uintptr_t)p-(uintptr_t)s->pixels;for(unsigned i=0;i<4;i++)trace=(trace^((n>>(i*8))&255))*UINT64_C(1099511628211);trace=(trace^*p)*UINT64_C(1099511628211);trace=(trace^style)*UINT64_C(1099511628211);++trace_count;load_font_pixel(s,p,style);settings_font_pixel(s,p,style);}
@@ -128,6 +128,7 @@ static void footer_overlap_checks(void)
  unsigned overlaps=0;for(unsigned p=0;p<64000;p++)if(coverage[0][p]&&coverage[1][p]){++overlaps;for(unsigned dy=0;dy<4;dy++)for(unsigned dx=0;dx<4;dx++){unsigned x=(p%320)*4+dx,y=(p/320)*4+dy;REQUIRE(sf.output[y*1280+x]==oracle_sample(x,y));}}
  REQUIRE(overlaps==4);
 }
+static void portable_checks(void);
 static void render_checks(void)
 {
  render();REQUIRE(!memcmp(sf.replay,sf.expected,SF_N));footer_overlap_checks();
@@ -135,6 +136,7 @@ static void render_checks(void)
  for(unsigned p=0;p<SF_N;p++)if(!sf.owner[p])for(unsigned dy=0;dy<4;dy++)for(unsigned dx=0;dx<4;dx++)REQUIRE(sf.output[((p/320)*4+dy)*1280+(p%320)*4+dx]==sf.palette[sf.expected[p]]);
  Uint32 pair_oracle[32];unsigned pair_x[32],pair_y[32];for(unsigned n=0;n<32;n++){unsigned x=(n*97+states*31)%640,y=(n*47+states*13)%400;pair_x[n]=x;pair_y[n]=y;Uint32 v=0xff000000,q[4]={oracle_sample(2*x,2*y),oracle_sample(2*x+1,2*y),oracle_sample(2*x,2*y+1),oracle_sample(2*x+1,2*y+1)};for(unsigned sh=0;sh<=16;sh+=8)v|=((((q[0]>>sh)&255)+((q[1]>>sh)&255)+((q[2]>>sh)&255)+((q[3]>>sh)&255)+2)/4)<<sh;pair_oracle[n]=v;}
  Uint32 expected[640];for(unsigned x=0;x<640;x++){Uint32 v=0xff000000;for(unsigned sh=0;sh<=16;sh+=8){unsigned p=2*x;unsigned sum=((sf.output[p]>>sh)&255)+((sf.output[p+1]>>sh)&255)+((sf.output[p+1280]>>sh)&255)+((sf.output[p+1281]>>sh)&255);v|=((sum+2)/4)<<sh;}expected[x]=v;}reduce2();REQUIRE(!memcmp(expected,sf.output,sizeof(expected)));for(unsigned n=0;n<32;n++)REQUIRE(sf.output[pair_y[n]*640+pair_x[n]]==pair_oracle[n]);
+ portable_checks();
 }
 static void write_bytes(const char *path,const Uint8 *p,size_t n)
 {FILE *f=fopen(path,"wb");REQUIRE(f);REQUIRE(fwrite(p,1,n,f)==n);REQUIRE(!fclose(f));}
@@ -196,24 +198,16 @@ static void observer_failures(const char *d)
  acquire(d);frame(0,0);load_font_fade_start(palettes[7],NULL,0,255);REQUIRE(!sf.active);
  acquire(d);frame(0,0);load_font_fade_declare(10);load_font_fade_start(palettes[7],NULL,0,255);load_font_fade_step(9,0,255);REQUIRE(!sf.active);
 }
-static void renderer_lifecycle(const char *d)
-{
- acquire(d);profile(1);sf.initial_done=true;memcpy(sf.expected_palette,palettes[7],sizeof(colors));live_palette(palettes[7]);
- SDL_Surface *target=SDL_CreateRGBSurfaceWithFormat(0,640,400,32,SDL_PIXELFORMAT_ARGB8888);SDL_Renderer *renderer=SDL_CreateSoftwareRenderer(target);REQUIRE(target&&renderer);SDL_Rect destination={0,0,640,400};
- frame(0,0);unsigned allocations_before=allocation_calls;REQUIRE(load_font_present(renderer,VGAScreen,&destination,false));REQUIRE(allocation_calls==allocations_before&&sf.texture);
- REQUIRE(!load_font_present(renderer,VGAScreen,&destination,true));REQUIRE(!sf.frame&&!sf.texture);frame(0,0);REQUIRE(load_font_present(renderer,VGAScreen,&destination,false));
- load_font_invalidate();REQUIRE(!sf.frame&&!sf.texture);SDL_DestroyRenderer(renderer);SDL_FreeSurface(target);
- target=SDL_CreateRGBSurfaceWithFormat(0,1280,800,32,SDL_PIXELFORMAT_ARGB8888);renderer=SDL_CreateSoftwareRenderer(target);REQUIRE(target&&renderer);destination.w=1280;destination.h=800;scaler=7;frame(1,11);REQUIRE(load_font_present(renderer,VGAScreen,&destination,false));
- scaler=2;REQUIRE(!load_font_present(renderer,VGAScreen,&destination,false));REQUIRE(!sf.frame);scaler=7;frame(0,0);SDL_RenderSetLogicalSize(renderer,640,400);REQUIRE(!load_font_present(renderer,VGAScreen,&destination,false));SDL_RenderSetLogicalSize(renderer,0,0);
- frame(0,0);SDL_RenderSetScale(renderer,2,2);REQUIRE(!load_font_present(renderer,VGAScreen,&destination,false));SDL_RenderSetScale(renderer,1,1);
- frame(0,0);SDL_Rect viewport={1,0,1279,800};SDL_RenderSetViewport(renderer,&viewport);REQUIRE(!load_font_present(renderer,VGAScreen,&destination,false));SDL_RenderSetViewport(renderer,NULL);
- frame(0,0);SDL_RenderSetClipRect(renderer,&destination);REQUIRE(!load_font_present(renderer,VGAScreen,&destination,false));SDL_RenderSetClipRect(renderer,NULL);
- frame(0,0);scaling_mode=SCALE_ASPECT_8_5;REQUIRE(!load_font_present(renderer,VGAScreen,&destination,false));scaling_mode=SCALE_INTEGER;
- frame(0,0);REQUIRE(load_font_present(renderer,VGAScreen,&destination,false));load_font_end();REQUIRE(!sf.texture&&allocated==0);SDL_DestroyRenderer(renderer);SDL_FreeSurface(target);scaler=1;
-}
+
+#define PORTABLE_FN(name) load_font_##name
+#define PORTABLE_FACE(role,c) face(role,(c)->value,(c)->hue,(c)->bank==2)
+#define PORTABLE_SOLID(p) append(C_SOLID,(p)%320,(p)/320,1,1,0,0,0,sf.expected[p])
+#define PORTABLE_FRAME() do{profile(1);frame(1,3);}while(0)
+#include "settings_load_portability.inc"
+
 int main(int argc,char **argv)
 {
- REQUIRE(argc==3);main_window_tex_format=SDL_AllocFormat(SDL_PIXELFORMAT_RGB888);VGAScreen=VGAScreenSeg=SDL_CreateRGBSurface(0,320,200,8,0,0,0,0);VGAScreen2=SDL_CreateRGBSurface(0,320,200,8,0,0,0,0);REQUIRE(VGAScreen&&VGAScreen2&&main_window_tex_format);fixtures(argv[1]);strings();acquire(argv[2]);
+ REQUIRE(argc==3);scaler=1;main_window_tex_format=SDL_AllocFormat(SDL_PIXELFORMAT_RGB888);VGAScreen=VGAScreenSeg=SDL_CreateRGBSurface(0,320,200,8,0,0,0,0);VGAScreen2=SDL_CreateRGBSurface(0,320,200,8,0,0,0,0);REQUIRE(VGAScreen&&VGAScreen2&&main_window_tex_format);fixtures(argv[1]);strings();acquire(argv[2]);
  size_t both_static=sizeof(sf)+settings_font_static_bytes();REQUIRE(both_static+1785856+SF_OUT_BYTES+384+2048<=SF_CAP);memcpy(sf.expected_palette,palettes[7],sizeof(colors));live_palette(palettes[7]);sf.initial_done=true;
  unsigned steady_allocations=allocation_calls,eligible=0,fallback=0;Uint8 classic[SF_N];
  for(unsigned p=0;p<8;p++){profile(p);for(unsigned page=0;page<2;page++)for(unsigned selected=0;selected<12;selected++){
@@ -225,7 +219,7 @@ int main(int argc,char **argv)
  profile(1);frame(0,0);
  for(unsigned edge=0;edge<7;edge++){
   const int xs[]={0,10,120,250,103,319,-5},ys[]={0,30,160,160,189,199,-7};int x=xs[edge],y=ys[edge];
-  load_font_cursor_begin();REQUIRE(sf.frame);blit_sprite2x2_clip(VGAScreen,x,y,shopSpriteSheet,273);load_font_cursor_done();REQUIRE(sf.frame&&sf.cursor_quad==4);render();REQUIRE(!memcmp(sf.replay,sf.expected,SF_N));
+  load_font_cursor_begin();REQUIRE(sf.frame);blit_sprite2x2_clip(VGAScreen,x,y,shopSpriteSheet,273);load_font_cursor_done();REQUIRE(sf.frame&&sf.cursor_quad==4);render();REQUIRE(!memcmp(sf.replay,sf.expected,SF_N));portable_checks();
   memcpy(VGAScreen->pixels,sf.pre_cursor,SF_N);load_font_cursor_erased();REQUIRE(sf.frame);render_checks();
  }
  load_font_cursor_begin();load_font_cursor_done();REQUIRE(sf.frame&&sf.cursor_quad==0);memcpy(VGAScreen->pixels,sf.pre_cursor,SF_N);load_font_cursor_erased();REQUIRE(sf.frame);

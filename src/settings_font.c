@@ -5,6 +5,7 @@
 #include "settings_font.h"
 #include "load_font.h"
 #include "selector_font.h"
+#include "selector_font_output.h"
 #include "font.h"
 #include "fonthand.h"
 #include "sprite.h"
@@ -84,7 +85,7 @@ static uint64_t palette_hash(const SDL_Color *p){uint64_t h=SF_FNV;for(unsigned 
 static struct SfGlyph *glyph(unsigned bank,unsigned id){return &sf.glyphs[(bank==0?0:bank==1?60:145)+id];}
 static void reject(void){sf.frame=false;sf.glyph=false;sf.stage=S_IDLE;}
 void settings_font_set_directory(const char *path){settings_font_end();directory=path&&*path?path:NULL;}
-void settings_font_release_texture(void){if(sf.texture)SDL_DestroyTexture(sf.texture);sf.texture=NULL;sf.renderer=NULL;}
+void settings_font_release_texture(void){if(sf.active||sf.output)selector_font_output_release();if(sf.texture)SDL_DestroyTexture(sf.texture);sf.texture=NULL;sf.renderer=NULL;}
 void settings_font_end(void){settings_font_release_texture();for(unsigned b=0;b<3;b++)free(sf.payload[b]);free(sf.output);memset(&sf,0,sizeof(sf));}
 void settings_font_invalidate(void){if(sf.active){++sf.generation;reject();}settings_font_release_texture();}
 void settings_font_table_reset(unsigned table){if(table<3)settings_font_end();}
@@ -448,6 +449,63 @@ static void render(void)
  }
  for(unsigned p=0;p<SF_N;p++)if(sf.cursor_mask[p]){sf.replay[p]=sf.cursor_index[p];paint_original(p,sf.cursor_index[p]);}
 }
+/* Portable output keeps authored glyphs as an ordered premultiplied layer.
+ * sf.replay first proves the complete original indexed command stream. Only
+ * after that proof may the same storage become the font-free underlay. */
+static Uint32 mix_premul(Uint32 dst,Uint32 src,unsigned alpha)
+{
+ Uint32 result=(alpha+(((dst>>24)*(255-alpha)+127)/255))<<24;
+ for(unsigned shift=0;shift<=16;shift+=8)result|=((((src>>shift)&255)*alpha+((dst>>shift)&255)*(255-alpha)+127)/255)<<shift;
+ return result;
+}
+static void clear_layer(unsigned p)
+{
+ unsigned x=(p%SF_W)*4,y=(p/SF_W)*4;
+ for(unsigned dy=0;dy<4;dy++)for(unsigned dx=0;dx<4;dx++)sf.output[(y+dy)*SF_OW+x+dx]=0;
+}
+static bool render_portable(SDL_Rect *support)
+{
+ for(unsigned i=0;i<256;i++){SDL_Color p=sf.expected_palette[i];sf.palette[i]=UINT32_C(0xff000000)|((Uint32)p.r<<16)|((Uint32)p.g<<8)|p.b;}
+ memcpy(sf.replay,sf.base,SF_N);memset(sf.output,0,SF_OUT_BYTES);
+ int left=SF_OW,top=SF_OH,right=0,bottom=0;
+ for(unsigned k=0;k<sf.count;k++){
+  const struct SfCommand *c=&sf.commands[k];
+  if(c->kind==C_SOLID||c->kind==C_SHADE){
+   for(unsigned y=0;y<c->h;y++)for(unsigned x=0;x<c->w;x++){
+    unsigned p=(c->y+y)*SF_W+c->x+x;
+    sf.replay[p]=c->kind==C_SOLID?(Uint8)c->value:shade(sf.replay[p]);
+    clear_layer(p); /* Even a same-index primitive occludes earlier glyphs. */
+   }
+  }else{
+   const struct SfSpec *s=&spec[c->bank];const struct SfGlyph *g=glyph(c->bank,c->id);
+   unsigned ax=(c->id%16)*s->cw+4,ay=(c->id/16)*s->ch+4;
+   left=MIN(left,c->x*4);top=MIN(top,c->y*4);right=MAX(right,(c->x+c->w)*4);bottom=MAX(bottom,(c->y+c->h)*4);
+   for(unsigned y=0;y<c->h*4u;y++)for(unsigned x=0;x<c->w*4u;x++){
+    unsigned a=(ay+y)*s->aw+ax+x;Uint8 alpha=sf.payload[c->bank][a];if(!alpha)continue;
+    unsigned p=(c->y+y/4)*SF_W+c->x+x/4;Uint8 v=c->kind==C_DARK?shade(sf.replay[p]):c->kind==C_BLACK?0:face(c->bank==2?7:sf.payload[c->bank][s->plane+a],c->value);
+    unsigned out=(c->y*4+y)*SF_OW+c->x*4+x;sf.output[out]=mix_premul(sf.output[out],sf.palette[v],alpha);
+   }
+   for(unsigned y=0;y<c->h;y++)for(unsigned x=0;x<c->w;x++){
+    Uint8 role=sf.masks[g->mask+y*c->w+x];if(role==255)continue;unsigned p=(c->y+y)*SF_W+c->x+x;
+    sf.replay[p]=c->kind==C_DARK?shade(sf.replay[p]):c->kind==C_BLACK?0:face(role,c->value);
+   }
+  }
+ }
+ for(unsigned p=0;p<SF_N;p++)if(sf.cursor_mask[p])sf.replay[p]=sf.cursor_index[p];
+ if(memcmp(sf.replay,sf.expected,SF_N))return false;
+ /* C_SHADE is admitted only over cells with no prior glyph ownership.
+  * Consequently its input is identical when glyph commands are omitted. */
+ memcpy(sf.replay,sf.base,SF_N);
+ for(unsigned k=0;k<sf.count;k++){
+  const struct SfCommand *c=&sf.commands[k];if(c->kind!=C_SOLID&&c->kind!=C_SHADE)continue;
+  for(unsigned y=0;y<c->h;y++)for(unsigned x=0;x<c->w;x++){
+   unsigned p=(c->y+y)*SF_W+c->x+x;sf.replay[p]=c->kind==C_SOLID?(Uint8)c->value:shade(sf.replay[p]);
+  }
+ }
+ for(unsigned p=0;p<SF_N;p++)if(sf.cursor_mask[p])sf.replay[p]=sf.cursor_index[p];
+ *support=left<right&&top<bottom?(SDL_Rect){left,top,right-left,bottom-top}:(SDL_Rect){0,0,0,0};
+ return true;
+}
 static void reduce2(void)
 {
  for(unsigned y=0;y<400;y++)for(unsigned x=0;x<640;x++){
@@ -456,20 +514,29 @@ static void reduce2(void)
   sf.output[y*640+x]=v;
  }
 }
-bool settings_font_present(SDL_Renderer *renderer,SDL_Surface *surface,const SDL_Rect *destination,bool foreign_owner)
+bool settings_font_present(SDL_Renderer *renderer,SDL_Texture *reference,SDL_Surface *surface,const SDL_Rect *destination,bool foreign_owner)
 {
  if(!exact())return false;
  if(foreign_owner){settings_font_invalidate();return false;}
  if(sf.stage!=S_READY&&sf.stage!=S_CURSOR_DONE){reject();return false;}
  if(!renderer||surface!=sf.screen||!destination||!main_window_tex_format||main_window_tex_format->format!=SDL_PIXELFORMAT_RGB888||!palette_matches()){reject();return false;}
+ if(scaler>=scalers_count||!scalers[scaler].scaler32||sf.tex_format!=main_window_tex_format||sf.present_scaler!=scaler||(sf.present_w&&(sf.present_w!=destination->w||sf.present_h!=destination->h))||(sf.renderer&&sf.renderer!=renderer)){settings_font_invalidate();return false;}
+ sf.present_w=destination->w;sf.present_h=destination->h;
  int rw=0,rh=0,lw=0,lh=0,ww=0,wh=0;float sx=0,sy=0;SDL_Rect viewport;
  SDL_RenderGetLogicalSize(renderer,&lw,&lh);SDL_RenderGetScale(renderer,&sx,&sy);SDL_RenderGetViewport(renderer,&viewport);
  if(main_window)SDL_GetWindowSize(main_window,&ww,&wh);
- if(SDL_GetRenderTarget(renderer)||SDL_GetRendererOutputSize(renderer,&rw,&rh)||lw||lh||sx!=1.0f||sy!=1.0f||SDL_RenderIsClipEnabled(renderer)||viewport.x||viewport.y||viewport.w!=rw||viewport.h!=rh||destination->x||destination->y||destination->w!=rw||destination->h!=rh||(main_window&&(ww!=rw||wh!=rh))){settings_font_invalidate();return false;}
  bool two=scaler==1&&destination->w==640&&destination->h==400;
  bool four=scaler==7&&destination->w==1280&&destination->h==800;
- if((!two&&!four)||scaling_mode==SCALE_ASPECT_4_3||scaling_mode==SCALE_ASPECT_8_5||sf.tex_format!=main_window_tex_format||sf.present_scaler!=scaler||(sf.present_w&&(sf.present_w!=destination->w||sf.present_h!=destination->h))||(sf.renderer&&sf.renderer!=renderer)){settings_font_invalidate();return false;}
- sf.present_w=destination->w;sf.present_h=destination->h;
+ bool legacy=(two||four)&&scaling_mode!=SCALE_ASPECT_4_3&&scaling_mode!=SCALE_ASPECT_8_5&&
+  !SDL_GetRenderTarget(renderer)&&!SDL_GetRendererOutputSize(renderer,&rw,&rh)&&!lw&&!lh&&sx==1.0f&&sy==1.0f&&!SDL_RenderIsClipEnabled(renderer)&&
+  !viewport.x&&!viewport.y&&viewport.w==rw&&viewport.h==rh&&!destination->x&&!destination->y&&destination->w==rw&&destination->h==rh&&(!main_window||(ww==rw&&wh==rh));
+ if(!legacy){
+  SDL_Rect support;if(!render_portable(&support)){reject();return false;}
+  SDL_Surface underlay=*surface;underlay.pixels=sf.replay;
+  unsigned radius=scaler==0||scaler==1||scaler==4||scaler==7?0:1;
+  if(!selector_font_output_present_smooth(renderer,reference,&underlay,scalers[scaler].scaler32,destination,sf.output,&support,sf.cursor_mask,radius)){settings_font_invalidate();return false;}
+  sf.renderer=renderer;return true;
+ }
  render();if(memcmp(sf.replay,sf.expected,SF_N)){reject();return false;}
  if(two)reduce2();
  if(!sf.texture){sf.texture=SDL_CreateTexture(renderer,SDL_PIXELFORMAT_ARGB8888,SDL_TEXTUREACCESS_STREAMING,SF_OW,SF_OH);if(!sf.texture||SDL_SetTextureScaleMode(sf.texture,SDL_ScaleModeNearest)||SDL_SetTextureBlendMode(sf.texture,SDL_BLENDMODE_NONE)){settings_font_invalidate();return false;}sf.renderer=renderer;}

@@ -167,6 +167,40 @@ static void renderer_case(unsigned scaler_id,int width,int height,int kind,SDL_S
   }
   checks++;
  }
+ /* The RGBA title entry point retains the exact existing underlay and uses
+  * this same geometry/sampling contract, but never clears or presents. */
+ draw(r,reference,base,scalers[scaler_id].scaler32,&dst);
+ REQUIRE(SDL_SetRenderDrawColor(r,41,42,43,44)==0);
+ unsigned before_present=module_presents;
+ REQUIRE(selector_font_output_overlay(r,&dst,layer,&support));
+ REQUIRE(module_presents==before_present);
+ copy_screen(r,screen,actual);
+ int px=g.w>CW?1:0,py=g.h>CH?1:0;
+ SDL_Rect ink=mapped_box(&g,support.x-px,support.y-py,support.w+2*px,support.h+2*py);
+ for(int y=0;y<height;y++)for(int x=0;x<width;x++){
+  unsigned p=y*width+x;
+  bool in=x>=ink.x&&x<ink.x+ink.w&&y>=ink.y&&y<ink.y+ink.h;
+  Uint32 expected=in?sample_overlay(layer,&g,x,y,base_pixels[p]):base_pixels[p];
+  REQUIRE((actual[p]&0xffffff)==(expected&0xffffff));
+ }
+ SDL_RenderGetViewport(r,&after_v);SDL_RenderGetClipRect(r,&after_c);SDL_RenderGetScale(r,&after_x,&after_y);
+ REQUIRE(!memcmp(&saved_v,&after_v,sizeof(saved_v))&&!memcmp(&saved_c,&after_c,sizeof(saved_c))&&saved_x==after_x&&saved_y==after_y);
+ REQUIRE(SDL_GetRenderDrawColor(r,&dr,&dg,&db,&da)==0&&dr==41&&dg==42&&db==43&&da==44);
+ /* Other menus explicitly opt into the same reconstructed font layer;
+  * historical present() retains its preceding exact expectations. */
+ draw(r,reference,classic,scalers[scaler_id].scaler32,&dst);
+ REQUIRE(selector_font_output_present_smooth(r,reference,base,scalers[scaler_id].scaler32,&dst,layer,&support,cursor,radius));
+ copy_screen(r,screen,actual);
+ int smooth_px=pad*4+(g.w>CW?1:0),smooth_py=pad*4+(g.h>CH?1:0);
+ int sl=MAX(0,support.x-smooth_px),st=MAX(0,support.y-smooth_py);
+ SDL_Rect smooth_changed=mapped_box(&g,sl,st,MIN(CW,support.x+support.w+smooth_px)-sl,MIN(CH,support.y+support.h+smooth_py)-st);
+ for(int y=0;y<height;y++)for(int x=0;x<width;x++){
+  unsigned p=y*width+x;
+  bool in=x>=smooth_changed.x&&x<smooth_changed.x+smooth_changed.w&&y>=smooth_changed.y&&y<smooth_changed.y+smooth_changed.h;
+  bool cur=x>=cursor_area.x&&x<cursor_area.x+cursor_area.w&&y>=cursor_area.y&&y<cursor_area.y+cursor_area.h;
+  Uint32 expected=!in?base_pixels[p]:cur?original[p]:sample_overlay(layer,&g,x,y,base_pixels[p]);
+  REQUIRE((actual[p]&0xffffff)==(expected&0xffffff));
+ }
  /* Invalid premultiplication and render-target state must decline without
   * changing any indexed source or presenting a half-built enhanced frame. */
  layer[font_top*4*CW+font_left*4]=0x01020000;
@@ -202,6 +236,30 @@ static void failure_checks(void)
  selector_font_output_release();REQUIRE(module_textures==0);
  SDL_DestroyTexture(reference);SDL_DestroyRenderer(r);SDL_FreeSurface(base);SDL_FreeSurface(classic);SDL_FreeSurface(screen);
 }
+static void overlay_failure_checks(void)
+{
+ SDL_Surface *screen=SDL_CreateRGBSurfaceWithFormat(0,801,503,32,SDL_PIXELFORMAT_ARGB8888);REQUIRE(screen);
+ SDL_Renderer *r=SDL_CreateSoftwareRenderer(screen);REQUIRE(r);
+ SDL_Surface *base=SDL_CreateRGBSurfaceWithFormatFrom(base_index,IW,IH,8,IW,SDL_PIXELFORMAT_INDEX8);REQUIRE(base);
+ SDL_Texture *reference=SDL_CreateTexture(r,SDL_PIXELFORMAT_RGB888,SDL_TEXTUREACCESS_STREAMING,640,400);REQUIRE(reference);
+ SDL_Rect dst={7,11,783,477},support={560,320,120,96};fill_layer();
+ Uint32 *before=malloc(801*503*4),*after=malloc(801*503*4);REQUIRE(before&&after);
+ const enum FaultKind faults[]={F_CREATE,F_READ,F_UPDATE,F_COPY};
+ for(unsigned i=0;i<COUNTOF(faults);i++){
+  selector_font_output_release();draw(r,reference,base,scalers[1].scaler32,&dst);copy_screen(r,screen,before);
+  fault_kind=faults[i];fault_after=fault_count=0;unsigned presented=module_presents;
+  REQUIRE(!selector_font_output_overlay(r,&dst,layer,&support));
+  REQUIRE(module_presents==presented&&module_textures==0);
+  float sx,sy;SDL_RenderGetScale(r,&sx,&sy);REQUIRE(sx==1&&sy==1);
+  fault_kind=F_NONE;
+  /* Caller can redraw its untouched reference after any partial overlay. */
+  draw(r,reference,base,scalers[1].scaler32,&dst);copy_screen(r,screen,after);
+  REQUIRE(!memcmp(before,after,801*503*4));
+  REQUIRE(selector_font_output_overlay(r,&dst,layer,&support));
+ }
+ selector_font_output_release();REQUIRE(module_textures==0);
+ free(before);free(after);SDL_DestroyTexture(reference);SDL_DestroyRenderer(r);SDL_FreeSurface(base);SDL_FreeSurface(screen);
+}
 static void fixture(int fx,int fy,int cx,int cy)
 {
  font_left=fx;font_top=fy;memset(cursor,0,sizeof(cursor));
@@ -222,7 +280,7 @@ int main(void)
  for(unsigned i=0;i<COUNTOF(sizes);i++)renderer_case(1,sizes[i][0],sizes[i][1],0,SDL_ScaleModeNearest);
  const int edges[][4]={{0,0,-4,-5},{290,0,316,-4},{0,176,-4,195},{290,176,316,195}};
  for(unsigned i=0;i<COUNTOF(edges);i++){fixture(edges[i][0],edges[i][1],edges[i][2],edges[i][3]);renderer_case(2,801,503,0,SDL_ScaleModeLinear);}
- fixture(140,80,151,88);failure_checks();
+ fixture(140,80,151,88);failure_checks();overlay_failure_checks();
  REQUIRE(selector_font_output_static_bytes()<35000);
  SDL_Quit();printf("selector output: %u cases, %u checks passed\n",cases,checks);return 0;
 }

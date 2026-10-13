@@ -4,6 +4,7 @@
  */
 #include "title_layers.h"
 #include "font.h"
+#include "selector_font_output.h"
 #include "fonthand.h"
 #include "palette.h"
 #include "sprite.h"
@@ -113,7 +114,8 @@ static Uint8 *tl_indices(unsigned i) { return i==0?state.pic4:i==1?state.i146:st
 static Uint8 *tl_mask(unsigned i) { return i==1?state.m146:state.m151; }
 void title_layers_set_directory(const char *directory) { asset_directory=directory&&*directory?directory:NULL; }
 void title_layers_release_texture(void)
-{ if(state.texture)SDL_DestroyTexture(state.texture);state.texture=NULL; }
+{ if(state.texture)SDL_DestroyTexture(state.texture);state.texture=NULL;
+  if(state.active||state.output)selector_font_output_release(); }
 void title_layers_end(void)
 {
  tm_end();
@@ -435,7 +437,10 @@ bool title_layers_present(SDL_Renderer *renderer,SDL_Surface *source,const SDL_R
  if(!renderer||!destination||source!=state.screen||state.stage!=ST_NONE||!phase_ok||state.pending_save!=-1||state.pending_restore!=-1||state.pose_ready){title_layers_end();return false;}
  for(unsigned p=0;p<TL_OUT_N;p++)state.output[p]=state.rgba[0]?tl_art(state.rgba[0]+4*p):tl_classic(state.pic4[(p/(TL_W*TL_D)/TL_D)*TL_W+(p%(TL_W*TL_D))/TL_D]);
  tl_plane(&state.version);tl_logo(1);tl_logo(2);
- if(!tm_render(destination))tl_plane(&state.menu);
+ float sx,sy;SDL_RenderGetScale(renderer,&sx,&sy);
+ bool native_font=sx==1.0f&&sy==1.0f&&tm_render(destination);
+ bool portable_font=!native_font&&tm_render_portable();
+ if(!native_font&&!portable_font)tl_plane(&state.menu);
  tl_plane(&state.cursor);
  if(!state.texture) {
   state.texture=SDL_CreateTexture(renderer,SDL_PIXELFORMAT_ARGB8888,SDL_TEXTUREACCESS_STREAMING,TL_W*TL_D,TL_H*TL_D);
@@ -443,6 +448,23 @@ bool title_layers_present(SDL_Renderer *renderer,SDL_Surface *source,const SDL_R
  }
  if(SDL_UpdateTexture(state.texture,NULL,state.output,TL_W*TL_D*4)||SDL_SetRenderDrawColor(renderer,0,0,0,255)||
     SDL_RenderClear(renderer)||SDL_RenderCopy(renderer,state.texture,NULL,destination))goto failed;
+ if(portable_font) {
+  SDL_Rect support={0,TM_SAMPLE_Y,TM_SAMPLE_W,TM_SAMPLE_H};
+  if(!selector_font_output_overlay(renderer,destination,menu_font.samples,&support)) {
+   /* Real renderer/resource failure falls back only the optional menu. */
+   tl_plane(&state.menu);tl_plane(&state.cursor);
+   if(SDL_UpdateTexture(state.texture,NULL,state.output,TL_W*TL_D*4)||SDL_RenderClear(renderer)||
+      SDL_RenderCopy(renderer,state.texture,NULL,destination))goto failed;
+  } else if(state.cursor_live) {
+   /* Reuse the title texture for a transparent cursor-only nearest copy.
+    * SDL applies precisely the original title sampling phase at every size. */
+   memset(state.output,0,TL_OUT_BYTES);tl_plane(&state.cursor);
+   if(SDL_UpdateTexture(state.texture,NULL,state.output,TL_W*TL_D*4)||
+      SDL_SetTextureBlendMode(state.texture,SDL_BLENDMODE_BLEND)||
+      SDL_RenderCopy(renderer,state.texture,NULL,destination)||
+      SDL_SetTextureBlendMode(state.texture,SDL_BLENDMODE_NONE))goto failed;
+  }
+ }
  SDL_RenderPresent(renderer);if(state.cursor_live)state.cursor_presented=true;return true;
 failed:
  title_layers_end();return false;

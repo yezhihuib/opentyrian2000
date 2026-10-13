@@ -22,7 +22,7 @@ enum {
  TM_PAYLOAD=688128, TM_HEADER=128, TM_TEXT=64,
  TM_COMMANDS=36*TM_TEXT, TM_EVENTS=TM_TEXT*TM_MAX_W*TM_MAX_H,
  TM_SAMPLE_Y=103*TL_D, TM_SAMPLE_H=(196-103)*TL_D,
- TM_SAMPLE_W=TL_W*TL_D, TM_SAMPLE_BYTES=TM_SAMPLE_W*TM_SAMPLE_H*4
+ TM_SAMPLE_W=TL_W*TL_D, TM_SAMPLE_BYTES=TL_OUT_BYTES
 };
 enum TmPhase { TM_LOADED, TM_BASE, TM_BASE_DONE, TM_SAVED, TM_HIGHLIGHT, TM_READY };
 struct TmGlyph {
@@ -297,6 +297,32 @@ static bool tm_render(const SDL_Rect *destination)
    /* Only the original native2x nearest-sampled texel is replaced. Cells with
     * zero font coverage reproduce their exact original underlay sample. */
    state.output[(TM_SAMPLE_Y+y+1)*TM_SAMPLE_W+x+1]=result;
+  }
+ }
+ return true;
+}
+
+/* Other output geometry uses the same accepted atlas and original command
+ * order. Resolve live palette roles into one premultiplied canonical layer;
+ * only this font layer is integrated, never title artwork or palette indices.
+ * The two accepted native paths above retain their exact per-pass rounding. */
+static bool tm_render_portable(void)
+{
+ if(!tm_check()||(menu_font.phase!=TM_SAVED&&menu_font.phase!=TM_READY)||menu_font.in_run)return false;
+ memset(menu_font.samples,0,TL_OUT_BYTES);
+ const Uint8 *roles=menu_font.payload+TM_PLANE;
+ for(unsigned c=0;c<menu_font.count;c++) {
+  const struct TmCommand *command=&menu_font.command[c];
+  const struct TmGlyph *g=&menu_font.glyph[command->id];
+  unsigned ax=(command->id%16)*TM_CW+TM_INSET,ay=(command->id/16)*TM_CH+TM_INSET;
+  for(unsigned y=0;y<g->h*TL_D;y++)for(unsigned x=0;x<g->w*TL_D;x++) {
+   unsigned p=(ay+y)*TM_AW+ax+x,a=menu_font.payload[p];if(!a)continue;
+   SDL_Color color=state.expected_palette[tm_index(roles[p],command->value)];
+   Uint32 src=((Uint32)color.r<<16)|((Uint32)color.g<<8)|color.b;
+   unsigned pos=(command->y*TL_D+y)*TM_SAMPLE_W+command->x*TL_D+x;
+   Uint32 dst=menu_font.samples[pos],result=(a+(((dst>>24)*(255-a)+127)/255))<<24;
+   for(unsigned shift=0;shift<=16;shift+=8)result|=((((src>>shift)&255)*a+((dst>>shift)&255)*(255-a)+127)/255)<<shift;
+   menu_font.samples[pos]=result;
   }
  }
  return true;

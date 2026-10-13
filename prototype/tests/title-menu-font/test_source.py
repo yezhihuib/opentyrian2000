@@ -32,8 +32,8 @@ def main():
     assert len(re.findall(r'title_layers_menu_text_begin\(([^;]+)\);\s*draw_font_hv\(([^;]+)\);\s*title_layers_menu_text_done\(\);',text))==6
     source=(ROOT/'src/title_menu_font.inc').read_text();layer=(ROOT/'src/title_layers.c').read_text()
     for forbidden in ('SDL_PushEvent','SDL_RenderReadPixels','SDL_Delay','mt_rand','getenv(','setDelay','draw_font_','blit_sprite','VGAScreen->pixels ='):assert forbidden not in source
-    assert 'if(!tm_render(destination))tl_plane(&state.menu);' in layer
-    assert layer.index('if(!tm_render(destination))tl_plane(&state.menu);')<layer.index('tl_plane(&state.cursor);')
+    assert 'if(!native_font&&!portable_font)tl_plane(&state.menu);' in layer
+    assert layer.index('if(!native_font&&!portable_font)tl_plane(&state.menu);')<layer.index('tl_plane(&state.cursor);')
     assert 'menu_font.count=menu_font.base_count' in source
     assert 'else if(table==SMALL_FONT_SHAPES)tm_end()' in layer
     assert '#include "title_menu_font.inc"' in layer

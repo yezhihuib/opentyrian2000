@@ -1,0 +1,1228 @@
+{
+  "baseline": "4597e39c75b949d8f4e1f22bbc6117b432294132",
+  "changed_files": {
+    "prototype/tests/title-layers/test_runtime.c": {
+      "before_sha256": "41e55935ffe7f640dad7d734f742fc8dfac04b419c6e80b7f012c47d571889e8",
+      "after_sha256": "fd9731ebd89886ed567792a7dec67c5dd6c96261f8a1c18aaae6f9acc606cbb4",
+      "hunks": [
+        {
+          "before_lines": [
+            85,
+            85
+          ],
+          "after_lines": [
+            85,
+            88
+          ],
+          "before": "",
+          "after": "#define resources output_resources\n#include \"selector_font_output.c\"\n#undef resources\n"
+        }
+      ]
+    },
+    "prototype/tests/title-layers/test_runtime.py": {
+      "before_sha256": "c8c64e3b03609b00e1730b895aa1c9e3ba69ec85e54c5f53c795342aad8000d6",
+      "after_sha256": "33674c4a2985387c4e75c24b00a9e5698f0472ab3e41a7e93945df3ae5c1607d",
+      "hunks": [
+        {
+          "before_lines": [
+            49,
+            50
+          ],
+          "after_lines": [
+            49,
+            50
+          ],
+          "before": "        cmd += cflags + flags + [str(HERE/'test_runtime.c'),'-o',exe] + libs\n",
+          "after": "        cmd += cflags + flags + [str(HERE/'test_runtime.c'),'-lm','-o',exe] + libs\n"
+        }
+      ]
+    },
+    "prototype/tests/title-menu-font/test_runtime.c": {
+      "before_sha256": "fcaad489d9e25e0b2c47e09158daa688fb5130913191de09bee89ec6989786cc",
+      "after_sha256": "faa3da494ae12fde738f40e30a18cc449faa2a4025526b3f4ffc06b2db9348e3",
+      "hunks": [
+        {
+          "before_lines": [
+            12,
+            12
+          ],
+          "after_lines": [
+            12,
+            14
+          ],
+          "before": "",
+          "after": "static bool portable_fade_probe;\nstatic void check_portable(SDL_Rect dst,int w,int h);\n"
+        },
+        {
+          "before_lines": [
+            151,
+            151
+          ],
+          "after_lines": [
+            153,
+            154
+          ],
+          "before": "",
+          "after": "  if(portable_fade_probe&&remaining==steps/2)check_portable((SDL_Rect){0,0,1920,1200},1920,1200);\n"
+        },
+        {
+          "before_lines": [
+            182,
+            183
+          ],
+          "after_lines": [
+            185,
+            186
+          ],
+          "before": " for(unsigned y=0;y<800;y++)for(unsigned x=0;x<1280;x++)assert(state.output[y*1280+x]==expected_pixel(x,y));\n",
+          "after": " assert(menu_font.payload&&menu_font.samples[0]==0); /* portable layer is transparent outside text */\n"
+        },
+        {
+          "before_lines": [
+            189,
+            189
+          ],
+          "after_lines": [
+            192,
+            291
+          ],
+          "before": "",
+          "after": "}\n\n/* Independent ordered premultiplied-layer oracle from the observed original\n * run text, not production TmCommands or tm_render_portable. */\nstatic void portable_layer(Uint32 *layer)\n{\n memset(layer,0,1024000*4);\n for(unsigned r=0;r<oracle_count;r++) {\n  const struct Run *run=&oracle_runs[r];int ox=run->x,value=run->value;bool hi=false;\n  for(const char *t=run->text;*t;t++) {\n   unsigned ch=(unsigned char)*t;if(ch==' '){ox+=6;continue;}\n   if(ch=='~'){hi=!hi;value+=hi?4:-4;continue;}\n   unsigned id=font_ascii[ch];const Sprite *g=&sprite_table[1].sprite[id];\n   for(unsigned y=0;y<g->height*4;y++)for(unsigned x=0;x<g->width*4;x++) {\n    unsigned p=((id/16)*64+4+y)*896+(id%16)*56+4+x,a=font_resource[128+p];\n    int role=font_resource[128+344064+p]+value;if(role<0)role=0;if(role>15)role=15;\n    const SDL_Color c=engine_palette[240+role];unsigned channels[4]={c.b,c.g,c.r,255};\n    unsigned out=(run->y*4+y)*1280+ox*4+x;Uint32 old=layer[out],v=0;\n    for(unsigned k=0;k<4;k++)v|=((channels[k]*a+((old>>(k*8))&255)*(255-a)+127)/255)<<(k*8);\n    layer[out]=v;\n   }\n   ox+=g->width+1;\n  }\n }\n}\nstatic Uint32 portable_sample(const Uint32 *layer,int px,int py,Uint32 base)\n{\n long double l=(long double)(px-destination.x)*1280/destination.w;\n long double r=(long double)(px+1-destination.x)*1280/destination.w;\n long double t=(long double)(py-destination.y)*800/destination.h;\n long double b=(long double)(py+1-destination.y)*800/destination.h;\n bool mx=destination.w>1280,my=destination.h>800;long double fx=0,fy=0;\n if(mx){long double center=(l+r)/2-0.5L;l=floorl(center);fx=center-l;r=l+2;}\n if(my){long double center=(t+b)/2-0.5L;t=floorl(center);fy=center-t;b=t+2;}\n long double area=(mx?1:r-l)*(my?1:b-t),sum[4]={0,0,0,0};\n for(int y=MAX(0,(int)floorl(t));y<MIN(800,(int)ceill(b));y++)for(int x=MAX(0,(int)floorl(l));x<MIN(1280,(int)ceill(r));x++) {\n  long double weight=(mx?(x==l?1-fx:fx):fminl(r,x+1)-fmaxl(l,x))*(my?(y==t?1-fy:fy):fminl(b,y+1)-fmaxl(t,y));\n  Uint32 v=layer[y*1280+x];for(unsigned c=0;c<4;c++)sum[c]+=((v>>(8*c))&255)*weight;\n }\n if(sum[3]==0)return base;\n Uint32 result=0xff000000;\n for(unsigned c=0;c<3;c++)result|=(unsigned)fminl(255,fmaxl(0,floorl(sum[c]/area+((base>>(c*8))&255)*(1-sum[3]/(255*area))+0.5L)))<<(c*8);\n return result;\n}\nstatic void portable_display(int w,int h)\n{\n title_layers_release_texture();SDL_DestroyRenderer(renderer);SDL_FreeSurface(display);\n display=SDL_CreateRGBSurfaceWithFormat(0,w,h,32,SDL_PIXELFORMAT_ARGB8888);assert(display);\n renderer=SDL_CreateSoftwareRenderer(display);assert(renderer);\n}\nstatic void check_portable(SDL_Rect dst,int w,int h)\n{\n portable_display(w,h);destination=dst;\n Uint32 *layer=malloc(1024000*4),*actual=malloc((size_t)w*h*4),*base=malloc((size_t)w*h*4);assert(layer&&actual&&base);\n portable_layer(layer);\n Uint8 old_menu[64000],old_cursor[64000],indexed[64000],backup[64000];Uint32 palette[256];\n memcpy(old_menu,plane_mask[1],64000);memcpy(old_cursor,plane_mask[2],64000);\n memset(plane_mask[1],0,64000);memset(plane_mask[2],0,64000);\n for(unsigned y=0;y<800;y++)for(unsigned x=0;x<1280;x++)oracle_output[y*1280+x]=expected_pixel(x,y);\n memcpy(plane_mask[1],old_menu,64000);memcpy(plane_mask[2],old_cursor,64000);\n SDL_Texture *tex=SDL_CreateTexture(renderer,SDL_PIXELFORMAT_ARGB8888,SDL_TEXTUREACCESS_STREAMING,1280,800);assert(tex);\n assert(!SDL_SetTextureScaleMode(tex,SDL_ScaleModeNearest));assert(!SDL_SetTextureBlendMode(tex,SDL_BLENDMODE_NONE));\n assert(!SDL_UpdateTexture(tex,NULL,oracle_output,1280*4));assert(!SDL_SetRenderDrawColor(renderer,0,0,0,255));assert(!SDL_RenderClear(renderer));assert(!SDL_RenderCopy(renderer,tex,NULL,&destination));\n assert(!SDL_RenderReadPixels(renderer,NULL,SDL_PIXELFORMAT_ARGB8888,base,w*4));\n memcpy(indexed,VGAScreen->pixels,64000);memcpy(backup,VGAScreen2->pixels,64000);memcpy(palette,rgb_palette,1024);\n unsigned na=allocs,nr=reads,no=opens;assert(title_layers_present(renderer,VGAScreen,&destination));assert(na==allocs&&nr==reads&&no==opens);\n assert(!memcmp(indexed,VGAScreen->pixels,64000)&&!memcmp(backup,VGAScreen2->pixels,64000)&&!memcmp(palette,rgb_palette,1024));\n assert(!memcmp(layer,menu_font.samples,1024000*4));assert(!SDL_RenderReadPixels(renderer,NULL,SDL_PIXELFORMAT_ARGB8888,actual,w*4));\n for(int y=0;y<h;y++)for(int x=0;x<w;x++)base[y*w+x]=portable_sample(layer,x,y,base[y*w+x]);\n SDL_Texture *expected=SDL_CreateTexture(renderer,SDL_PIXELFORMAT_ARGB8888,SDL_TEXTUREACCESS_STREAMING,w,h);assert(expected);\n assert(!SDL_UpdateTexture(expected,NULL,base,w*4));assert(!SDL_RenderCopy(renderer,expected,NULL,NULL));\n memset(oracle_output,0,sizeof(oracle_output));\n for(unsigned y=0;y<800;y++)for(unsigned x=0;x<1280;x++){unsigned p=(y/4)*320+x/4;if(old_cursor[p])oracle_output[y*1280+x]=palette_pixel(plane_value[2][p]);}\n assert(!SDL_UpdateTexture(tex,NULL,oracle_output,1280*4));assert(!SDL_SetTextureBlendMode(tex,SDL_BLENDMODE_BLEND));assert(!SDL_RenderCopy(renderer,tex,NULL,&destination));\n assert(!SDL_RenderReadPixels(renderer,NULL,SDL_PIXELFORMAT_ARGB8888,base,w*4));\n unsigned changed=0;\n for(int y=0;y<h;y++)for(int x=0;x<w;x++)for(unsigned c=0;c<3;c++){\n  int d=(int)((actual[y*w+x]>>(c*8))&255)-(int)((base[y*w+x]>>(c*8))&255);\n  if(abs(d)>1){fprintf(stderr,\"portable oracle %dx%d at%d,%d c%u actual%08x expected%08x\\n\",w,h,x,y,c,actual[y*w+x],base[y*w+x]);abort();}changed+=d!=0;\n }\n assert(changed<(unsigned)(w*h));\n SDL_DestroyTexture(tex);SDL_DestroyTexture(expected);free(layer);free(actual);free(base);\n portable_display(1280,800);destination=(SDL_Rect){0,0,1280,800};\n}\nstatic void test_portable(void)\n{\n const SDL_Rect rects[]={{0,0,1920,1200},{171,0,1023,767},{8,5,977,603}};\n const int sizes[][2]={{1920,1200},{1365,767},{997,613}};\n initial(false);portable_fade_probe=true;build_menu();\n for(unsigned k=0;k<3;k++) {\n  select_row(k*3,false);check_portable(rects[k],sizes[k][0],sizes[k][1]);\n  Uint8 before[64000];memcpy(before,VGAScreen->pixels,64000);title_layers_cursor_begin();\n  for(unsigned i=0;i<24;i++)if(i%3)write_pixel(2,145+i%6,104+13*k*3+i/6,(Uint8)(240+i%16),TITLE_WRITE_CURSOR);\n  title_layers_cursor_done();check_portable(rects[k],sizes[k][0],sizes[k][1]);\n  memcpy(VGAScreen->pixels,before,64000);title_layers_cursor_erased();memset(plane_mask[2],0,64000);\n  check_menu_output();\n }\n menu_fade(true,10);portable_fade_probe=false;assert(!live_bytes&&!gpu_live_bytes);\n title_layers_end();puts(\"Portable UI/outgoing fades,1920x1200, odd letterbox and anisotropic reduction: ordered independent layer/output oracle, exact indexed/palette state, sparse cursor holes and renderer recreation pass\");\n"
+        },
+        {
+          "before_lines": [
+            246,
+            247
+          ],
+          "after_lines": [
+            348,
+            349
+          ],
+          "before": " test_text_sequence();test_font_loader();test_fallback();title_layers_end();assert(!live_bytes&&!gpu_live_bytes);\n",
+          "after": " test_text_sequence();test_portable();test_font_loader();test_fallback();title_layers_end();assert(!live_bytes&&!gpu_live_bytes);\n"
+        }
+      ]
+    },
+    "prototype/tests/title-menu-font/test_runtime.py": {
+      "before_sha256": "10d7afb67f78b056f9c34cc2d17d042ad3b76233910005cb13832ab4497fb4b8",
+      "after_sha256": "c899d9bfd57c740f01f55beacc488ef6a172bbb7667f79f01bbd19b2ccc910b2",
+      "hunks": [
+        {
+          "before_lines": [
+            29,
+            30
+          ],
+          "after_lines": [
+            29,
+            30
+          ],
+          "before": "        cmd+=shlex.split(subprocess.check_output(['pkg-config','--cflags','sdl2'],text=True))+[str(HERE/'test_runtime.c'),'-o',str(base/'test')]+shlex.split(subprocess.check_output(['pkg-config','--libs','sdl2'],text=True))\n",
+          "after": "        cmd+=shlex.split(subprocess.check_output(['pkg-config','--cflags','sdl2'],text=True))+[str(HERE/'test_runtime.c'),'-lm','-o',str(base/'test')]+shlex.split(subprocess.check_output(['pkg-config','--libs','sdl2'],text=True))\n"
+        }
+      ]
+    },
+    "prototype/tests/title-menu-font/test_source.py": {
+      "before_sha256": "d1cfd50327a6eaab9441008ca255689fb8806611751d332568e93ef196218ac9",
+      "after_sha256": "16a7fd66d8003c18a0deffa2ae9aaddef07f93490e8739b7ddab7a2ad10c8156",
+      "hunks": [
+        {
+          "before_lines": [
+            34,
+            36
+          ],
+          "after_lines": [
+            34,
+            36
+          ],
+          "before": "    assert 'if(!tm_render(destination))tl_plane(&state.menu);' in layer\n    assert layer.index('if(!tm_render(destination))tl_plane(&state.menu);')<layer.index('tl_plane(&state.cursor);')\n",
+          "after": "    assert 'if(!native_font&&!portable_font)tl_plane(&state.menu);' in layer\n    assert layer.index('if(!native_font&&!portable_font)tl_plane(&state.menu);')<layer.index('tl_plane(&state.cursor);')\n"
+        }
+      ]
+    },
+    "prototype/type15_source_projection.py": {
+      "before_sha256": "f3c379475429729e3417a98889c3c50ce96739db1b2a4c1b279ecf4b9a4d9563",
+      "after_sha256": "96b4e7ae06deb4f0bdcb2f9a7a0e8f02fb54c10c750c1bd26abad91cc5b7612a",
+      "hunks": [
+        {
+          "before_lines": [
+            61,
+            62
+          ],
+          "after_lines": [
+            61,
+            66
+          ],
+          "before": "    current = {name: (repo/name).read_bytes() for name in tracked}\n",
+          "after": "    # First restore only the exact qualified portable-font output delta.\n    import runpy\n    portable = runpy.run_path(str(repo/'tests/portable_font_projection.py'))\n    portable['verify']()\n    current = {name: portable['project'](name, (repo/name).read_bytes()) for name in tracked}\n"
+        }
+      ]
+    },
+    "src/load_font.c": {
+      "before_sha256": "e0697c2dccdf71daf336a0d9139c6b92c972d6f1a9f1c159694cc29b656221fb",
+      "after_sha256": "a99afd5451835675c496723e252e6a5f021529a3783f25835d75a705b0dec892",
+      "hunks": [
+        {
+          "before_lines": [
+            6,
+            6
+          ],
+          "after_lines": [
+            6,
+            7
+          ],
+          "before": "",
+          "after": "#include \"selector_font_output.h\"\n"
+        },
+        {
+          "before_lines": [
+            91,
+            92
+          ],
+          "after_lines": [
+            92,
+            93
+          ],
+          "before": "void load_font_release_texture(void){if(sf.texture)SDL_DestroyTexture(sf.texture);sf.texture=NULL;sf.renderer=NULL;}\n",
+          "after": "void load_font_release_texture(void){if(sf.active||sf.output)selector_font_output_release();if(sf.texture)SDL_DestroyTexture(sf.texture);sf.texture=NULL;sf.renderer=NULL;}\n"
+        },
+        {
+          "before_lines": [
+            480,
+            480
+          ],
+          "after_lines": [
+            481,
+            538
+          ],
+          "before": "",
+          "after": "/* Portable output keeps authored glyphs as an ordered premultiplied layer.\n * sf.replay first proves the complete original indexed command stream. Only\n * after that proof may the same storage become the font-free underlay. */\nstatic Uint32 mix_premul(Uint32 dst,Uint32 src,unsigned alpha)\n{\n Uint32 result=(alpha+(((dst>>24)*(255-alpha)+127)/255))<<24;\n for(unsigned shift=0;shift<=16;shift+=8)result|=((((src>>shift)&255)*alpha+((dst>>shift)&255)*(255-alpha)+127)/255)<<shift;\n return result;\n}\nstatic void clear_layer(unsigned p)\n{\n unsigned x=(p%SF_W)*4,y=(p/SF_W)*4;\n for(unsigned dy=0;dy<4;dy++)for(unsigned dx=0;dx<4;dx++)sf.output[(y+dy)*SF_OW+x+dx]=0;\n}\nstatic bool render_portable(SDL_Rect *support)\n{\n for(unsigned i=0;i<256;i++){SDL_Color p=sf.expected_palette[i];sf.palette[i]=UINT32_C(0xff000000)|((Uint32)p.r<<16)|((Uint32)p.g<<8)|p.b;}\n memcpy(sf.replay,sf.base,SF_N);memset(sf.output,0,SF_OUT_BYTES);\n int left=SF_OW,top=SF_OH,right=0,bottom=0;\n for(unsigned k=0;k<sf.count;k++){\n  const struct SfCommand *c=&sf.commands[k];\n  if(c->kind==C_SOLID||c->kind==C_SHADE){\n   for(unsigned y=0;y<c->h;y++)for(unsigned x=0;x<c->w;x++){\n    unsigned p=(c->y+y)*SF_W+c->x+x;\n    sf.replay[p]=c->kind==C_SOLID?(Uint8)c->value:shade(sf.replay[p]);\n    clear_layer(p); /* Even a same-index primitive occludes earlier glyphs. */\n   }\n  }else{\n   const struct SfSpec *s=&spec[c->bank];const struct SfGlyph *g=glyph(c->bank,c->id);\n   unsigned ax=(c->id%16)*s->cw+4,ay=(c->id/16)*s->ch+4;\n   left=MIN(left,c->x*4);top=MIN(top,c->y*4);right=MAX(right,(c->x+c->w)*4);bottom=MAX(bottom,(c->y+c->h)*4);\n   for(unsigned y=0;y<c->h*4u;y++)for(unsigned x=0;x<c->w*4u;x++){\n    unsigned a=(ay+y)*s->aw+ax+x;Uint8 alpha=sf.payload[c->bank][a];if(!alpha)continue;\n    unsigned p=(c->y+y/4)*SF_W+c->x+x/4;Uint8 v=c->kind==C_DARK?shade(sf.replay[p]):c->kind==C_BLACK?0:face(c->bank==2?7:sf.payload[c->bank][s->plane+a],c->value,c->hue,c->bank==2);\n    unsigned out=(c->y*4+y)*SF_OW+c->x*4+x;sf.output[out]=mix_premul(sf.output[out],sf.palette[v],alpha);\n   }\n   for(unsigned y=0;y<c->h;y++)for(unsigned x=0;x<c->w;x++){\n    Uint8 role=sf.masks[g->mask+y*c->w+x];if(role==255)continue;unsigned p=(c->y+y)*SF_W+c->x+x;\n    sf.replay[p]=c->kind==C_DARK?shade(sf.replay[p]):c->kind==C_BLACK?0:face(role,c->value,c->hue,c->bank==2);\n   }\n  }\n }\n for(unsigned p=0;p<SF_N;p++)if(sf.cursor_mask[p])sf.replay[p]=sf.cursor_index[p];\n if(memcmp(sf.replay,sf.expected,SF_N))return false;\n /* C_SHADE is admitted only over cells with no prior glyph ownership.\n  * Consequently its input is identical when glyph commands are omitted. */\n memcpy(sf.replay,sf.base,SF_N);\n for(unsigned k=0;k<sf.count;k++){\n  const struct SfCommand *c=&sf.commands[k];if(c->kind!=C_SOLID&&c->kind!=C_SHADE)continue;\n  for(unsigned y=0;y<c->h;y++)for(unsigned x=0;x<c->w;x++){\n   unsigned p=(c->y+y)*SF_W+c->x+x;sf.replay[p]=c->kind==C_SOLID?(Uint8)c->value:shade(sf.replay[p]);\n  }\n }\n for(unsigned p=0;p<SF_N;p++)if(sf.cursor_mask[p])sf.replay[p]=sf.cursor_index[p];\n *support=left<right&&top<bottom?(SDL_Rect){left,top,right-left,bottom-top}:(SDL_Rect){0,0,0,0};\n return true;\n}\n"
+        },
+        {
+          "before_lines": [
+            488,
+            489
+          ],
+          "after_lines": [
+            546,
+            547
+          ],
+          "before": "bool load_font_present(SDL_Renderer *renderer,SDL_Surface *surface,const SDL_Rect *destination,bool foreign_owner)\n",
+          "after": "bool load_font_present(SDL_Renderer *renderer,SDL_Texture *reference,SDL_Surface *surface,const SDL_Rect *destination,bool foreign_owner)\n"
+        },
+        {
+          "before_lines": [
+            494,
+            494
+          ],
+          "after_lines": [
+            552,
+            554
+          ],
+          "before": "",
+          "after": " if(scaler>=scalers_count||!scalers[scaler].scaler32||sf.tex_format!=main_window_tex_format||sf.present_scaler!=scaler||(sf.present_w&&(sf.present_w!=destination->w||sf.present_h!=destination->h))||(sf.renderer&&sf.renderer!=renderer)){load_font_invalidate();return false;}\n sf.present_w=destination->w;sf.present_h=destination->h;\n"
+        },
+        {
+          "before_lines": [
+            497,
+            498
+          ],
+          "after_lines": [
+            557,
+            557
+          ],
+          "before": " if(SDL_GetRenderTarget(renderer)||SDL_GetRendererOutputSize(renderer,&rw,&rh)||lw||lh||sx!=1.0f||sy!=1.0f||SDL_RenderIsClipEnabled(renderer)||viewport.x||viewport.y||viewport.w!=rw||viewport.h!=rh||destination->x||destination->y||destination->w!=rw||destination->h!=rh||(main_window&&(ww!=rw||wh!=rh))){load_font_invalidate();return false;}\n",
+          "after": ""
+        },
+        {
+          "before_lines": [
+            500,
+            502
+          ],
+          "after_lines": [
+            559,
+            569
+          ],
+          "before": " if((!two&&!four)||scaling_mode==SCALE_ASPECT_4_3||scaling_mode==SCALE_ASPECT_8_5||sf.tex_format!=main_window_tex_format||sf.present_scaler!=scaler||(sf.present_w&&(sf.present_w!=destination->w||sf.present_h!=destination->h))||(sf.renderer&&sf.renderer!=renderer)){load_font_invalidate();return false;}\n sf.present_w=destination->w;sf.present_h=destination->h;\n",
+          "after": " bool legacy=(two||four)&&scaling_mode!=SCALE_ASPECT_4_3&&scaling_mode!=SCALE_ASPECT_8_5&&\n  !SDL_GetRenderTarget(renderer)&&!SDL_GetRendererOutputSize(renderer,&rw,&rh)&&!lw&&!lh&&sx==1.0f&&sy==1.0f&&!SDL_RenderIsClipEnabled(renderer)&&\n  !viewport.x&&!viewport.y&&viewport.w==rw&&viewport.h==rh&&!destination->x&&!destination->y&&destination->w==rw&&destination->h==rh&&(!main_window||(ww==rw&&wh==rh));\n if(!legacy){\n  SDL_Rect support;if(!render_portable(&support)){reject();return false;}\n  SDL_Surface underlay=*surface;underlay.pixels=sf.replay;\n  unsigned radius=scaler==0||scaler==1||scaler==4||scaler==7?0:1;\n  if(!selector_font_output_present_smooth(renderer,reference,&underlay,scalers[scaler].scaler32,destination,sf.output,&support,sf.cursor_mask,radius)){load_font_invalidate();return false;}\n  sf.renderer=renderer;return true;\n }\n"
+        }
+      ]
+    },
+    "src/load_font.h": {
+      "before_sha256": "4a79c8f4631fe02e91181535b088b1a9a0853c5d787c0f8e53bfc67efe13fe93",
+      "after_sha256": "ccb135a5450fa6bc3ab17709865966ce417dca0e98e49e54b9d820b879596d1c",
+      "hunks": [
+        {
+          "before_lines": [
+            40,
+            41
+          ],
+          "after_lines": [
+            40,
+            41
+          ],
+          "before": "bool load_font_present(SDL_Renderer *, SDL_Surface *, const SDL_Rect *, bool foreign_owner);\n",
+          "after": "bool load_font_present(SDL_Renderer *, SDL_Texture *, SDL_Surface *, const SDL_Rect *, bool foreign_owner);\n"
+        }
+      ]
+    },
+    "src/selector_font_output.c": {
+      "before_sha256": "3a216c28143024dcd84e39287b13406f41b148ddadee543741578e87854519b8",
+      "after_sha256": "6f4d1af3658c58b3a8cea57bce370cccf58e088700b5e985d8dd82fb4e7f0588",
+      "hunks": [
+        {
+          "before_lines": [
+            192,
+            193
+          ],
+          "after_lines": [
+            192,
+            224
+          ],
+          "before": "bool selector_font_output_present(SDL_Renderer *renderer,SDL_Texture *reference,\n",
+          "after": "/* Continuous reconstruction belongs only to the title-font overlay. Enlarge\n * the completed correlated premultiplied layer, not individual glyph passes.\n * Fully covered flat interiors stay exact; artwork never enters this filter. */\nstatic Uint32 sample_overlay(const Uint32 *layer,const struct OutputGeometry *g,int px,int py,Uint32 base)\n{\n if(g->w<=CW&&g->h<=CH)return sample(layer,g,px,py,base);\n double xa=(px-g->x)*CW/g->w,xb=(px+1.0-g->x)*CW/g->w;\n double ya=(py-g->y)*CH/g->h,yb=(py+1.0-g->y)*CH/g->h;\n bool mx=g->w>CW,my=g->h>CH;double fx=0,fy=0;\n if(mx){double c=(xa+xb)*0.5-0.5;xa=floor(c);fx=c-xa;xb=xa+2;}\n if(my){double c=(ya+yb)*0.5-0.5;ya=floor(c);fy=c-ya;yb=ya+2;}\n double area=(mx?1:xb-xa)*(my?1:yb-ya),sum[4]={0,0,0,0};\n if(xb<=0||yb<=0||xa>=CW||ya>=CH)return base;\n int x0=(int)floor(MAX(xa,0.0)),y0=(int)floor(MAX(ya,0.0));\n int x1=(int)ceil(MIN(xb,(double)CW)),y1=(int)ceil(MIN(yb,(double)CH));\n for(int y=y0;y<y1;y++){\n  double wy=my?(y==ya?1-fy:fy):MIN(y+1.0,yb)-MAX((double)y,ya);\n  for(int x=x0;x<x1;x++){\n   double wx=mx?(x==xa?1-fx:fx):MIN(x+1.0,xb)-MAX((double)x,xa);\n   Uint32 c=layer[y*CW+x];for(unsigned ch=0;ch<4;ch++)sum[ch]+=((c>>(ch*8))&255)*wx*wy;\n  }\n }\n if(sum[3]==0)return base;\n Uint32 result=UINT32_C(0xff000000);double remain=1.0-sum[3]/(255.0*area);\n for(unsigned ch=0;ch<3;ch++){\n  double v=sum[ch]/area+((base>>(ch*8))&255)*remain;\n  result|=(unsigned)MIN(255.0,MAX(0.0,floor(v+0.5)))<<(ch*8);\n }\n return result;\n}\n\nstatic bool present(SDL_Renderer *renderer,SDL_Texture *reference,\n"
+        },
+        {
+          "before_lines": [
+            194,
+            195
+          ],
+          "after_lines": [
+            225,
+            226
+          ],
+          "before": " const Uint32 *layer,const SDL_Rect *support,const Uint8 *cursor,unsigned radius)\n",
+          "after": " const Uint32 *layer,const SDL_Rect *support,const Uint8 *cursor,unsigned radius,bool smooth)\n"
+        },
+        {
+          "before_lines": [
+            210,
+            212
+          ],
+          "after_lines": [
+            241,
+            244
+          ],
+          "before": " SDL_Rect changed=mapped_box(&g,MAX(0,ink.x-pad*4),MAX(0,ink.y-pad*4),\n  MIN(CW,ink.x+ink.w+pad*4)-MAX(0,ink.x-pad*4),MIN(CH,ink.y+ink.h+pad*4)-MAX(0,ink.y-pad*4));\n",
+          "after": " int px=pad*4+(smooth&&g.w>CW?1:0),py=pad*4+(smooth&&g.h>CH?1:0);\n SDL_Rect changed=mapped_box(&g,MAX(0,ink.x-px),MAX(0,ink.y-py),\n  MIN(CW,ink.x+ink.w+px)-MAX(0,ink.x-px),MIN(CH,ink.y+ink.h+py)-MAX(0,ink.y-py));\n"
+        },
+        {
+          "before_lines": [
+            240,
+            241
+          ],
+          "after_lines": [
+            272,
+            273
+          ],
+          "before": "    output.pixels[p]=sample(layer,&g,ox,oy,output.pixels[p]);\n",
+          "after": "    output.pixels[p]=smooth?sample_overlay(layer,&g,ox,oy,output.pixels[p]):sample(layer,&g,ox,oy,output.pixels[p]);\n"
+        },
+        {
+          "before_lines": [
+            257,
+            257
+          ],
+          "after_lines": [
+            289,
+            351
+          ],
+          "before": "",
+          "after": "\nbool selector_font_output_present(SDL_Renderer *r,SDL_Texture *reference,\n SDL_Surface *underlay,ScalerFunction scale,const SDL_Rect *dst,\n const Uint32 *layer,const SDL_Rect *support,const Uint8 *cursor,unsigned radius)\n{return present(r,reference,underlay,scale,dst,layer,support,cursor,radius,false);}\n\nbool selector_font_output_present_smooth(SDL_Renderer *r,SDL_Texture *reference,\n SDL_Surface *underlay,ScalerFunction scale,const SDL_Rect *dst,\n const Uint32 *layer,const SDL_Rect *support,const Uint8 *cursor,unsigned radius)\n{return present(r,reference,underlay,scale,dst,layer,support,cursor,radius,true);}\n\n/* Title artwork has its own authenticated RGBA compositor, so it supplies the\n * unchanged rendered underlay rather than an indexed scaler source. Reuse the\n * exact same output-footprint arithmetic, geometry and bounded tile. */\nbool selector_font_output_overlay(SDL_Renderer *renderer,const SDL_Rect *dst,\n const Uint32 *layer,const SDL_Rect *support)\n{\n struct OutputGeometry g;SDL_RendererInfo info;SDL_Rect canonical={0,0,CW,CH};\n if(!renderer||!dst||dst->w<=0||dst->h<=0||!layer||!support||support->w<0||support->h<0||\n    SDL_GetRendererInfo(renderer,&info)||!geometry(renderer,dst,&info,&g))return false;\n SDL_Rect ink=*support;intersect(&ink,&canonical);\n for(int y=ink.y;y<ink.y+ink.h;y++)for(int x=ink.x;x<ink.x+ink.w;x++){\n  Uint32 c=layer[y*CW+x];unsigned a=c>>24;\n  if((c&255)>a||((c>>8)&255)>a||((c>>16)&255)>a)return false;\n }\n if(output.renderer&&output.renderer!=renderer)selector_font_output_release();\n if(!output.tile){\n  output.renderer=renderer;\n  output.tw=info.max_texture_width>0?MIN(TILE_W,info.max_texture_width):TILE_W;\n  output.th=info.max_texture_height>0?MIN(TILE_H,info.max_texture_height):TILE_H;\n  if(output.tw<1||output.th<1)return false;\n  output.tile=SDL_CreateTexture(renderer,SDL_PIXELFORMAT_ARGB8888,SDL_TEXTUREACCESS_STREAMING,output.tw,output.th);\n  if(!output.tile||SDL_SetTextureBlendMode(output.tile,SDL_BLENDMODE_NONE)||\n     SDL_SetTextureScaleMode(output.tile,SDL_ScaleModeNearest)){\n   selector_font_output_release();return false;\n  }\n }\n int px=g.w>CW?1:0,py=g.h>CH?1:0;\n SDL_Rect changed=mapped_box(&g,ink.x-px,ink.y-py,ink.w+2*px,ink.h+2*py);\n if(SDL_RenderSetScale(renderer,1,1))return false;\n bool ok=false;\n for(int ty=changed.y;ty<changed.y+changed.h;){\n  int height=MIN(output.th,changed.y+changed.h-ty);\n  for(int tx=changed.x;tx<changed.x+changed.w;){\n   int width=MIN(output.tw,changed.x+changed.w-tx);\n   SDL_Rect tile={tx,ty,width,height};\n   if(SDL_RenderReadPixels(renderer,&tile,SDL_PIXELFORMAT_ARGB8888,output.pixels,TILE_W*4))goto finish;\n   for(int y=0;y<height;y++)for(int x=0;x<width;x++){\n    unsigned p=y*TILE_W+x;output.pixels[p]=sample_overlay(layer,&g,tx+x,ty+y,output.pixels[p]);\n   }\n   SDL_Rect source={0,0,width,height},destination={tx-g.viewport.x,ty-g.viewport.y,width,height};\n   if(SDL_UpdateTexture(output.tile,&source,output.pixels,TILE_W*4)||SDL_RenderCopy(renderer,output.tile,&source,&destination))goto finish;\n   tx+=width;\n  }\n  ty+=height;\n }\n ok=true;\n finish:\n if(SDL_RenderSetScale(renderer,g.sx,g.sy))ok=false;\n if(!ok)selector_font_output_release();\n return ok;\n}\n"
+        }
+      ]
+    },
+    "src/selector_font_output.h": {
+      "before_sha256": "c7f487ec2a6c20396f9c0ed4ebc755d53f2ad01eaa73c3eefa6b2440961a92b0",
+      "after_sha256": "b44a2ad5746d1af6eaada643a0db48c403a5745433859c344ae0340084285dec",
+      "hunks": [
+        {
+          "before_lines": [
+            32,
+            32
+          ],
+          "after_lines": [
+            32,
+            49
+          ],
+          "before": "",
+          "after": "/* Explicit opt-in for portable menus: same contract and untouched indexed\n * underlay as present(), with continuous premultiplied reconstruction on\n * enlarged axes. Existing selector/pregame callers keep present() unchanged. */\nbool selector_font_output_present_smooth(SDL_Renderer *renderer,\n SDL_Texture *reference_texture, SDL_Surface *indexed_underlay,\n ScalerFunction scale, const SDL_Rect *destination,\n const Uint32 *canonical_premul_argb, const SDL_Rect *support,\n const Uint8 *cursor_mask, unsigned scaler_radius);\n\n/* Draw only the ordered transparent font layer over an already rendered\n * nearest-sampled canonical RGBA underlay. The completed premultiplied font\n * layer uses bilinear reconstruction on enlarged axes, area integration on\n * reduced axes. No clear or present; the caller\n * retains underlay/cursor ordering and performs normal fallback on false. */\nbool selector_font_output_overlay(SDL_Renderer *renderer,\n const SDL_Rect *destination, const Uint32 *canonical_premul_argb,\n const SDL_Rect *support);\n"
+        }
+      ]
+    },
+    "src/settings_font.c": {
+      "before_sha256": "a966c18c8126dbf5765b9d0eb294fdf6adcf43aba4a52619ff2471186b45784c",
+      "after_sha256": "4ed849613069fb71c9f4bc638e31e7bbc74c93791d3c8d2562f071b416237e4d",
+      "hunks": [
+        {
+          "before_lines": [
+            7,
+            7
+          ],
+          "after_lines": [
+            7,
+            8
+          ],
+          "before": "",
+          "after": "#include \"selector_font_output.h\"\n"
+        },
+        {
+          "before_lines": [
+            86,
+            87
+          ],
+          "after_lines": [
+            87,
+            88
+          ],
+          "before": "void settings_font_release_texture(void){if(sf.texture)SDL_DestroyTexture(sf.texture);sf.texture=NULL;sf.renderer=NULL;}\n",
+          "after": "void settings_font_release_texture(void){if(sf.active||sf.output)selector_font_output_release();if(sf.texture)SDL_DestroyTexture(sf.texture);sf.texture=NULL;sf.renderer=NULL;}\n"
+        },
+        {
+          "before_lines": [
+            450,
+            450
+          ],
+          "after_lines": [
+            451,
+            508
+          ],
+          "before": "",
+          "after": "/* Portable output keeps authored glyphs as an ordered premultiplied layer.\n * sf.replay first proves the complete original indexed command stream. Only\n * after that proof may the same storage become the font-free underlay. */\nstatic Uint32 mix_premul(Uint32 dst,Uint32 src,unsigned alpha)\n{\n Uint32 result=(alpha+(((dst>>24)*(255-alpha)+127)/255))<<24;\n for(unsigned shift=0;shift<=16;shift+=8)result|=((((src>>shift)&255)*alpha+((dst>>shift)&255)*(255-alpha)+127)/255)<<shift;\n return result;\n}\nstatic void clear_layer(unsigned p)\n{\n unsigned x=(p%SF_W)*4,y=(p/SF_W)*4;\n for(unsigned dy=0;dy<4;dy++)for(unsigned dx=0;dx<4;dx++)sf.output[(y+dy)*SF_OW+x+dx]=0;\n}\nstatic bool render_portable(SDL_Rect *support)\n{\n for(unsigned i=0;i<256;i++){SDL_Color p=sf.expected_palette[i];sf.palette[i]=UINT32_C(0xff000000)|((Uint32)p.r<<16)|((Uint32)p.g<<8)|p.b;}\n memcpy(sf.replay,sf.base,SF_N);memset(sf.output,0,SF_OUT_BYTES);\n int left=SF_OW,top=SF_OH,right=0,bottom=0;\n for(unsigned k=0;k<sf.count;k++){\n  const struct SfCommand *c=&sf.commands[k];\n  if(c->kind==C_SOLID||c->kind==C_SHADE){\n   for(unsigned y=0;y<c->h;y++)for(unsigned x=0;x<c->w;x++){\n    unsigned p=(c->y+y)*SF_W+c->x+x;\n    sf.replay[p]=c->kind==C_SOLID?(Uint8)c->value:shade(sf.replay[p]);\n    clear_layer(p); /* Even a same-index primitive occludes earlier glyphs. */\n   }\n  }else{\n   const struct SfSpec *s=&spec[c->bank];const struct SfGlyph *g=glyph(c->bank,c->id);\n   unsigned ax=(c->id%16)*s->cw+4,ay=(c->id/16)*s->ch+4;\n   left=MIN(left,c->x*4);top=MIN(top,c->y*4);right=MAX(right,(c->x+c->w)*4);bottom=MAX(bottom,(c->y+c->h)*4);\n   for(unsigned y=0;y<c->h*4u;y++)for(unsigned x=0;x<c->w*4u;x++){\n    unsigned a=(ay+y)*s->aw+ax+x;Uint8 alpha=sf.payload[c->bank][a];if(!alpha)continue;\n    unsigned p=(c->y+y/4)*SF_W+c->x+x/4;Uint8 v=c->kind==C_DARK?shade(sf.replay[p]):c->kind==C_BLACK?0:face(c->bank==2?7:sf.payload[c->bank][s->plane+a],c->value);\n    unsigned out=(c->y*4+y)*SF_OW+c->x*4+x;sf.output[out]=mix_premul(sf.output[out],sf.palette[v],alpha);\n   }\n   for(unsigned y=0;y<c->h;y++)for(unsigned x=0;x<c->w;x++){\n    Uint8 role=sf.masks[g->mask+y*c->w+x];if(role==255)continue;unsigned p=(c->y+y)*SF_W+c->x+x;\n    sf.replay[p]=c->kind==C_DARK?shade(sf.replay[p]):c->kind==C_BLACK?0:face(role,c->value);\n   }\n  }\n }\n for(unsigned p=0;p<SF_N;p++)if(sf.cursor_mask[p])sf.replay[p]=sf.cursor_index[p];\n if(memcmp(sf.replay,sf.expected,SF_N))return false;\n /* C_SHADE is admitted only over cells with no prior glyph ownership.\n  * Consequently its input is identical when glyph commands are omitted. */\n memcpy(sf.replay,sf.base,SF_N);\n for(unsigned k=0;k<sf.count;k++){\n  const struct SfCommand *c=&sf.commands[k];if(c->kind!=C_SOLID&&c->kind!=C_SHADE)continue;\n  for(unsigned y=0;y<c->h;y++)for(unsigned x=0;x<c->w;x++){\n   unsigned p=(c->y+y)*SF_W+c->x+x;sf.replay[p]=c->kind==C_SOLID?(Uint8)c->value:shade(sf.replay[p]);\n  }\n }\n for(unsigned p=0;p<SF_N;p++)if(sf.cursor_mask[p])sf.replay[p]=sf.cursor_index[p];\n *support=left<right&&top<bottom?(SDL_Rect){left,top,right-left,bottom-top}:(SDL_Rect){0,0,0,0};\n return true;\n}\n"
+        },
+        {
+          "before_lines": [
+            458,
+            459
+          ],
+          "after_lines": [
+            516,
+            517
+          ],
+          "before": "bool settings_font_present(SDL_Renderer *renderer,SDL_Surface *surface,const SDL_Rect *destination,bool foreign_owner)\n",
+          "after": "bool settings_font_present(SDL_Renderer *renderer,SDL_Texture *reference,SDL_Surface *surface,const SDL_Rect *destination,bool foreign_owner)\n"
+        },
+        {
+          "before_lines": [
+            464,
+            464
+          ],
+          "after_lines": [
+            522,
+            524
+          ],
+          "before": "",
+          "after": " if(scaler>=scalers_count||!scalers[scaler].scaler32||sf.tex_format!=main_window_tex_format||sf.present_scaler!=scaler||(sf.present_w&&(sf.present_w!=destination->w||sf.present_h!=destination->h))||(sf.renderer&&sf.renderer!=renderer)){settings_font_invalidate();return false;}\n sf.present_w=destination->w;sf.present_h=destination->h;\n"
+        },
+        {
+          "before_lines": [
+            467,
+            468
+          ],
+          "after_lines": [
+            527,
+            527
+          ],
+          "before": " if(SDL_GetRenderTarget(renderer)||SDL_GetRendererOutputSize(renderer,&rw,&rh)||lw||lh||sx!=1.0f||sy!=1.0f||SDL_RenderIsClipEnabled(renderer)||viewport.x||viewport.y||viewport.w!=rw||viewport.h!=rh||destination->x||destination->y||destination->w!=rw||destination->h!=rh||(main_window&&(ww!=rw||wh!=rh))){settings_font_invalidate();return false;}\n",
+          "after": ""
+        },
+        {
+          "before_lines": [
+            470,
+            472
+          ],
+          "after_lines": [
+            529,
+            539
+          ],
+          "before": " if((!two&&!four)||scaling_mode==SCALE_ASPECT_4_3||scaling_mode==SCALE_ASPECT_8_5||sf.tex_format!=main_window_tex_format||sf.present_scaler!=scaler||(sf.present_w&&(sf.present_w!=destination->w||sf.present_h!=destination->h))||(sf.renderer&&sf.renderer!=renderer)){settings_font_invalidate();return false;}\n sf.present_w=destination->w;sf.present_h=destination->h;\n",
+          "after": " bool legacy=(two||four)&&scaling_mode!=SCALE_ASPECT_4_3&&scaling_mode!=SCALE_ASPECT_8_5&&\n  !SDL_GetRenderTarget(renderer)&&!SDL_GetRendererOutputSize(renderer,&rw,&rh)&&!lw&&!lh&&sx==1.0f&&sy==1.0f&&!SDL_RenderIsClipEnabled(renderer)&&\n  !viewport.x&&!viewport.y&&viewport.w==rw&&viewport.h==rh&&!destination->x&&!destination->y&&destination->w==rw&&destination->h==rh&&(!main_window||(ww==rw&&wh==rh));\n if(!legacy){\n  SDL_Rect support;if(!render_portable(&support)){reject();return false;}\n  SDL_Surface underlay=*surface;underlay.pixels=sf.replay;\n  unsigned radius=scaler==0||scaler==1||scaler==4||scaler==7?0:1;\n  if(!selector_font_output_present_smooth(renderer,reference,&underlay,scalers[scaler].scaler32,destination,sf.output,&support,sf.cursor_mask,radius)){settings_font_invalidate();return false;}\n  sf.renderer=renderer;return true;\n }\n"
+        }
+      ]
+    },
+    "src/settings_font.h": {
+      "before_sha256": "13dd589922cbdad09b892a815073997d59f6f6bad95df9623247faf571ba109f",
+      "after_sha256": "dfef403ad9051b694316a3cfe77f40692cc141cc9feca2cca3b2a3e0660a4506",
+      "hunks": [
+        {
+          "before_lines": [
+            34,
+            35
+          ],
+          "after_lines": [
+            34,
+            35
+          ],
+          "before": "bool settings_font_present(SDL_Renderer *, SDL_Surface *, const SDL_Rect *, bool foreign_owner);\n",
+          "after": "bool settings_font_present(SDL_Renderer *, SDL_Texture *, SDL_Surface *, const SDL_Rect *, bool foreign_owner);\n"
+        }
+      ]
+    },
+    "src/title_layers.c": {
+      "before_sha256": "96baba45f796e808b30a5ae571c727735e282fe23396c9579b992ca5187a3ce5",
+      "after_sha256": "03741794e31b595f387443e6da8edc1937c4d68e8ade9085367f4d3c0a94f9e5",
+      "hunks": [
+        {
+          "before_lines": [
+            6,
+            6
+          ],
+          "after_lines": [
+            6,
+            7
+          ],
+          "before": "",
+          "after": "#include \"selector_font_output.h\"\n"
+        },
+        {
+          "before_lines": [
+            115,
+            116
+          ],
+          "after_lines": [
+            116,
+            118
+          ],
+          "before": "{ if(state.texture)SDL_DestroyTexture(state.texture);state.texture=NULL; }\n",
+          "after": "{ if(state.texture)SDL_DestroyTexture(state.texture);state.texture=NULL;\n  if(state.active||state.output)selector_font_output_release(); }\n"
+        },
+        {
+          "before_lines": [
+            437,
+            438
+          ],
+          "after_lines": [
+            439,
+            443
+          ],
+          "before": " if(!tm_render(destination))tl_plane(&state.menu);\n",
+          "after": " float sx,sy;SDL_RenderGetScale(renderer,&sx,&sy);\n bool native_font=sx==1.0f&&sy==1.0f&&tm_render(destination);\n bool portable_font=!native_font&&tm_render_portable();\n if(!native_font&&!portable_font)tl_plane(&state.menu);\n"
+        },
+        {
+          "before_lines": [
+            445,
+            445
+          ],
+          "after_lines": [
+            450,
+            467
+          ],
+          "before": "",
+          "after": " if(portable_font) {\n  SDL_Rect support={0,TM_SAMPLE_Y,TM_SAMPLE_W,TM_SAMPLE_H};\n  if(!selector_font_output_overlay(renderer,destination,menu_font.samples,&support)) {\n   /* Real renderer/resource failure falls back only the optional menu. */\n   tl_plane(&state.menu);tl_plane(&state.cursor);\n   if(SDL_UpdateTexture(state.texture,NULL,state.output,TL_W*TL_D*4)||SDL_RenderClear(renderer)||\n      SDL_RenderCopy(renderer,state.texture,NULL,destination))goto failed;\n  } else if(state.cursor_live) {\n   /* Reuse the title texture for a transparent cursor-only nearest copy.\n    * SDL applies precisely the original title sampling phase at every size. */\n   memset(state.output,0,TL_OUT_BYTES);tl_plane(&state.cursor);\n   if(SDL_UpdateTexture(state.texture,NULL,state.output,TL_W*TL_D*4)||\n      SDL_SetTextureBlendMode(state.texture,SDL_BLENDMODE_BLEND)||\n      SDL_RenderCopy(renderer,state.texture,NULL,destination)||\n      SDL_SetTextureBlendMode(state.texture,SDL_BLENDMODE_NONE))goto failed;\n  }\n }\n"
+        }
+      ]
+    },
+    "src/title_menu_font.inc": {
+      "before_sha256": "557d0904df07e410025df6d90885d03408a76ce7cf650fc2298f4ef228b2711d",
+      "after_sha256": "384662f1052982f9e0cdb3d68e8df4e7d3bca06ba7c9c059c7640ae4aee94bce",
+      "hunks": [
+        {
+          "before_lines": [
+            24,
+            25
+          ],
+          "after_lines": [
+            24,
+            25
+          ],
+          "before": " TM_SAMPLE_W=TL_W*TL_D, TM_SAMPLE_BYTES=TM_SAMPLE_W*TM_SAMPLE_H*4\n",
+          "after": " TM_SAMPLE_W=TL_W*TL_D, TM_SAMPLE_BYTES=TL_OUT_BYTES\n"
+        },
+        {
+          "before_lines": [
+            303,
+            303
+          ],
+          "after_lines": [
+            303,
+            329
+          ],
+          "before": "",
+          "after": "\n/* Other output geometry uses the same accepted atlas and original command\n * order. Resolve live palette roles into one premultiplied canonical layer;\n * only this font layer is integrated, never title artwork or palette indices.\n * The two accepted native paths above retain their exact per-pass rounding. */\nstatic bool tm_render_portable(void)\n{\n if(!tm_check()||(menu_font.phase!=TM_SAVED&&menu_font.phase!=TM_READY)||menu_font.in_run)return false;\n memset(menu_font.samples,0,TL_OUT_BYTES);\n const Uint8 *roles=menu_font.payload+TM_PLANE;\n for(unsigned c=0;c<menu_font.count;c++) {\n  const struct TmCommand *command=&menu_font.command[c];\n  const struct TmGlyph *g=&menu_font.glyph[command->id];\n  unsigned ax=(command->id%16)*TM_CW+TM_INSET,ay=(command->id/16)*TM_CH+TM_INSET;\n  for(unsigned y=0;y<g->h*TL_D;y++)for(unsigned x=0;x<g->w*TL_D;x++) {\n   unsigned p=(ay+y)*TM_AW+ax+x,a=menu_font.payload[p];if(!a)continue;\n   SDL_Color color=state.expected_palette[tm_index(roles[p],command->value)];\n   Uint32 src=((Uint32)color.r<<16)|((Uint32)color.g<<8)|color.b;\n   unsigned pos=(command->y*TL_D+y)*TM_SAMPLE_W+command->x*TL_D+x;\n   Uint32 dst=menu_font.samples[pos],result=(a+(((dst>>24)*(255-a)+127)/255))<<24;\n   for(unsigned shift=0;shift<=16;shift+=8)result|=((((src>>shift)&255)*a+((dst>>shift)&255)*(255-a)+127)/255)<<shift;\n   menu_font.samples[pos]=result;\n  }\n }\n return true;\n}\n"
+        }
+      ]
+    },
+    "src/video.c": {
+      "before_sha256": "55a579e1228ad5f5fa8c2246915980374baba2846c1917071b0fc797d8a8fe86",
+      "after_sha256": "9c331ab3135aed8a7f6f6241ba58e948812a7d1eead87329f7ecd3cf97de22c9",
+      "hunks": [
+        {
+          "before_lines": [
+            437,
+            439
+          ],
+          "after_lines": [
+            437,
+            439
+          ],
+          "before": "\tif(settings_font_present(main_window_renderer,src_surface,&dst_rect, startup_logos_owns_display() || title_layers_owns_display() || render_mirror_owns_display() || load_font_owns_display() || selector_font_owns_display())) { last_output_rect=dst_rect; return; }\n\tif(load_font_present(main_window_renderer,src_surface,&dst_rect, startup_logos_owns_display() || title_layers_owns_display() || render_mirror_owns_display() || settings_font_owns_display() || selector_font_owns_display())) { last_output_rect=dst_rect; return; }\n",
+          "after": "\tif(settings_font_present(main_window_renderer,main_window_texture,src_surface,&dst_rect, startup_logos_owns_display() || title_layers_owns_display() || render_mirror_owns_display() || load_font_owns_display() || selector_font_owns_display())) { last_output_rect=dst_rect; return; }\n\tif(load_font_present(main_window_renderer,main_window_texture,src_surface,&dst_rect, startup_logos_owns_display() || title_layers_owns_display() || render_mirror_owns_display() || settings_font_owns_display() || selector_font_owns_display())) { last_output_rect=dst_rect; return; }\n"
+        }
+      ]
+    },
+    "tests/load_font_test.c": {
+      "before_sha256": "ebbbb5bd2cd3d45cac9a1c481a7fca9a0c5dc73324583279a3c8e14a11555099",
+      "after_sha256": "1d480f2eadbd0fde7230bee5a9fb5907a73a19e9f14c390060a94518ee4dd120",
+      "hunks": [
+        {
+          "before_lines": [
+            24,
+            25
+          ],
+          "after_lines": [
+            24,
+            25
+          ],
+          "before": "uint scaler=1;ScalingMode scaling_mode=SCALE_INTEGER;\n",
+          "after": "ScalingMode scaling_mode=SCALE_INTEGER;\n"
+        },
+        {
+          "before_lines": [
+            130,
+            130
+          ],
+          "after_lines": [
+            130,
+            131
+          ],
+          "before": "",
+          "after": "static void portable_checks(void);\n"
+        },
+        {
+          "before_lines": [
+            137,
+            137
+          ],
+          "after_lines": [
+            138,
+            139
+          ],
+          "before": "",
+          "after": " portable_checks();\n"
+        },
+        {
+          "before_lines": [
+            198,
+            213
+          ],
+          "after_lines": [
+            200,
+            207
+          ],
+          "before": "static void renderer_lifecycle(const char *d)\n{\n acquire(d);profile(1);sf.initial_done=true;memcpy(sf.expected_palette,palettes[7],sizeof(colors));live_palette(palettes[7]);\n SDL_Surface *target=SDL_CreateRGBSurfaceWithFormat(0,640,400,32,SDL_PIXELFORMAT_ARGB8888);SDL_Renderer *renderer=SDL_CreateSoftwareRenderer(target);REQUIRE(target&&renderer);SDL_Rect destination={0,0,640,400};\n frame(0,0);unsigned allocations_before=allocation_calls;REQUIRE(load_font_present(renderer,VGAScreen,&destination,false));REQUIRE(allocation_calls==allocations_before&&sf.texture);\n REQUIRE(!load_font_present(renderer,VGAScreen,&destination,true));REQUIRE(!sf.frame&&!sf.texture);frame(0,0);REQUIRE(load_font_present(renderer,VGAScreen,&destination,false));\n load_font_invalidate();REQUIRE(!sf.frame&&!sf.texture);SDL_DestroyRenderer(renderer);SDL_FreeSurface(target);\n target=SDL_CreateRGBSurfaceWithFormat(0,1280,800,32,SDL_PIXELFORMAT_ARGB8888);renderer=SDL_CreateSoftwareRenderer(target);REQUIRE(target&&renderer);destination.w=1280;destination.h=800;scaler=7;frame(1,11);REQUIRE(load_font_present(renderer,VGAScreen,&destination,false));\n scaler=2;REQUIRE(!load_font_present(renderer,VGAScreen,&destination,false));REQUIRE(!sf.frame);scaler=7;frame(0,0);SDL_RenderSetLogicalSize(renderer,640,400);REQUIRE(!load_font_present(renderer,VGAScreen,&destination,false));SDL_RenderSetLogicalSize(renderer,0,0);\n frame(0,0);SDL_RenderSetScale(renderer,2,2);REQUIRE(!load_font_present(renderer,VGAScreen,&destination,false));SDL_RenderSetScale(renderer,1,1);\n frame(0,0);SDL_Rect viewport={1,0,1279,800};SDL_RenderSetViewport(renderer,&viewport);REQUIRE(!load_font_present(renderer,VGAScreen,&destination,false));SDL_RenderSetViewport(renderer,NULL);\n frame(0,0);SDL_RenderSetClipRect(renderer,&destination);REQUIRE(!load_font_present(renderer,VGAScreen,&destination,false));SDL_RenderSetClipRect(renderer,NULL);\n frame(0,0);scaling_mode=SCALE_ASPECT_8_5;REQUIRE(!load_font_present(renderer,VGAScreen,&destination,false));scaling_mode=SCALE_INTEGER;\n frame(0,0);REQUIRE(load_font_present(renderer,VGAScreen,&destination,false));load_font_end();REQUIRE(!sf.texture&&allocated==0);SDL_DestroyRenderer(renderer);SDL_FreeSurface(target);scaler=1;\n}\n",
+          "after": "\n#define PORTABLE_FN(name) load_font_##name\n#define PORTABLE_FACE(role,c) face(role,(c)->value,(c)->hue,(c)->bank==2)\n#define PORTABLE_SOLID(p) append(C_SOLID,(p)%320,(p)/320,1,1,0,0,0,sf.expected[p])\n#define PORTABLE_FRAME() do{profile(1);frame(1,3);}while(0)\n#include \"settings_load_portability.inc\"\n\n"
+        },
+        {
+          "before_lines": [
+            215,
+            216
+          ],
+          "after_lines": [
+            209,
+            210
+          ],
+          "before": " REQUIRE(argc==3);main_window_tex_format=SDL_AllocFormat(SDL_PIXELFORMAT_RGB888);VGAScreen=VGAScreenSeg=SDL_CreateRGBSurface(0,320,200,8,0,0,0,0);VGAScreen2=SDL_CreateRGBSurface(0,320,200,8,0,0,0,0);REQUIRE(VGAScreen&&VGAScreen2&&main_window_tex_format);fixtures(argv[1]);strings();acquire(argv[2]);\n",
+          "after": " REQUIRE(argc==3);scaler=1;main_window_tex_format=SDL_AllocFormat(SDL_PIXELFORMAT_RGB888);VGAScreen=VGAScreenSeg=SDL_CreateRGBSurface(0,320,200,8,0,0,0,0);VGAScreen2=SDL_CreateRGBSurface(0,320,200,8,0,0,0,0);REQUIRE(VGAScreen&&VGAScreen2&&main_window_tex_format);fixtures(argv[1]);strings();acquire(argv[2]);\n"
+        },
+        {
+          "before_lines": [
+            227,
+            228
+          ],
+          "after_lines": [
+            221,
+            222
+          ],
+          "before": "  load_font_cursor_begin();REQUIRE(sf.frame);blit_sprite2x2_clip(VGAScreen,x,y,shopSpriteSheet,273);load_font_cursor_done();REQUIRE(sf.frame&&sf.cursor_quad==4);render();REQUIRE(!memcmp(sf.replay,sf.expected,SF_N));\n",
+          "after": "  load_font_cursor_begin();REQUIRE(sf.frame);blit_sprite2x2_clip(VGAScreen,x,y,shopSpriteSheet,273);load_font_cursor_done();REQUIRE(sf.frame&&sf.cursor_quad==4);render();REQUIRE(!memcmp(sf.replay,sf.expected,SF_N));portable_checks();\n"
+        }
+      ]
+    },
+    "tests/pregame_font_projection.py": {
+      "before_sha256": "250fa17449666487d2321dd1461c432f1bf54d602c807bda1fa8920355fb4c80",
+      "after_sha256": "0b923dfae61df35bcdd444136fba692a245c972d7059ae3f1f7a9f9de9e85f48",
+      "hunks": [
+        {
+          "before_lines": [
+            3,
+            4
+          ],
+          "after_lines": [
+            3,
+            4
+          ],
+          "before": "import hashlib,json,subprocess\n",
+          "after": "import hashlib,json,subprocess,runpy\n"
+        },
+        {
+          "before_lines": [
+            6,
+            6
+          ],
+          "after_lines": [
+            6,
+            7
+          ],
+          "before": "",
+          "after": "PORTABLE=runpy.run_path(str(ROOT/'tests/portable_font_projection.py'))\n"
+        },
+        {
+          "before_lines": [
+            14,
+            14
+          ],
+          "after_lines": [
+            15,
+            17
+          ],
+          "before": "",
+          "after": " if name in EDITS and raw==git('show',BASE+':'+name):return raw\n raw=PORTABLE['project'](name,raw)\n"
+        },
+        {
+          "before_lines": [
+            15,
+            16
+          ],
+          "after_lines": [
+            18,
+            18
+          ],
+          "before": " if raw==git('show',BASE+':'+name):return raw\n",
+          "after": ""
+        },
+        {
+          "before_lines": [
+            23,
+            23
+          ],
+          "after_lines": [
+            25,
+            26
+          ],
+          "before": "",
+          "after": " portable_sources=PORTABLE['verify']()\n"
+        },
+        {
+          "before_lines": [
+            24,
+            25
+          ],
+          "after_lines": [
+            27,
+            28
+          ],
+          "before": " return {name for name in EDITS if name.startswith('src/')}|ADDED_SOURCE\n",
+          "after": " return {name for name in EDITS if name.startswith('src/')}|ADDED_SOURCE|portable_sources\n"
+        }
+      ]
+    },
+    "tests/run_load_font_tests.sh": {
+      "before_sha256": "306a9f2da9d52f4202e458fd6b51270c0903e9afc82681e917e24c74daaeb318",
+      "after_sha256": "feb09618469fda956e5960d717111adf2ab2ee7891511f617ec7ce54f3633686",
+      "hunks": [
+        {
+          "before_lines": [
+            14,
+            15
+          ],
+          "after_lines": [
+            14,
+            15
+          ],
+          "before": "  src/settings_font.c src/selector_font.c src/selector_font_output.c src/pregame_font.c src/helptext.c src/fonthand.c src/font.c src/sprite.c src/nortvars.c src/vga256d.c \\\n",
+          "after": "  src/settings_font.c src/selector_font.c src/selector_font_output.c src/video_scale.c src/video_scale_hqNx.c src/pregame_font.c src/helptext.c src/fonthand.c src/font.c src/sprite.c src/nortvars.c src/vga256d.c \\\n"
+        }
+      ]
+    },
+    "tests/run_settings_font_tests.sh": {
+      "before_sha256": "f22fa22025845c712ec02227bd92a1491d8597085db98ed8a97e858f99e98e74",
+      "after_sha256": "5b826c885c7f92cbfb725b648eff84c4ff62c49d21da26a86cb3a9dbe4045f26",
+      "hunks": [
+        {
+          "before_lines": [
+            14,
+            15
+          ],
+          "after_lines": [
+            14,
+            15
+          ],
+          "before": "  src/load_font.c src/selector_font.c src/selector_font_output.c src/pregame_font.c src/helptext.c tests/load_font_globals.c src/fonthand.c src/font.c src/sprite.c src/nortvars.c src/vga256d.c \\\n",
+          "after": "  src/load_font.c src/selector_font.c src/selector_font_output.c src/video_scale.c src/video_scale_hqNx.c src/pregame_font.c src/helptext.c tests/load_font_globals.c src/fonthand.c src/font.c src/sprite.c src/nortvars.c src/vga256d.c \\\n"
+        }
+      ]
+    },
+    "tests/selector_font_output_test.c": {
+      "before_sha256": "8c0a8eafbc4ecbdc779145747c197b3a9213a2f62590bcab2337bb9bbb8d127f",
+      "after_sha256": "6b3501e8381f690be1629e06cd88e2d34e7827553764fa6e444fd2703e6eb2e9",
+      "hunks": [
+        {
+          "before_lines": [
+            169,
+            169
+          ],
+          "after_lines": [
+            169,
+            203
+          ],
+          "before": "",
+          "after": " /* The RGBA title entry point retains the exact existing underlay and uses\n  * this same geometry/sampling contract, but never clears or presents. */\n draw(r,reference,base,scalers[scaler_id].scaler32,&dst);\n REQUIRE(SDL_SetRenderDrawColor(r,41,42,43,44)==0);\n unsigned before_present=module_presents;\n REQUIRE(selector_font_output_overlay(r,&dst,layer,&support));\n REQUIRE(module_presents==before_present);\n copy_screen(r,screen,actual);\n int px=g.w>CW?1:0,py=g.h>CH?1:0;\n SDL_Rect ink=mapped_box(&g,support.x-px,support.y-py,support.w+2*px,support.h+2*py);\n for(int y=0;y<height;y++)for(int x=0;x<width;x++){\n  unsigned p=y*width+x;\n  bool in=x>=ink.x&&x<ink.x+ink.w&&y>=ink.y&&y<ink.y+ink.h;\n  Uint32 expected=in?sample_overlay(layer,&g,x,y,base_pixels[p]):base_pixels[p];\n  REQUIRE((actual[p]&0xffffff)==(expected&0xffffff));\n }\n SDL_RenderGetViewport(r,&after_v);SDL_RenderGetClipRect(r,&after_c);SDL_RenderGetScale(r,&after_x,&after_y);\n REQUIRE(!memcmp(&saved_v,&after_v,sizeof(saved_v))&&!memcmp(&saved_c,&after_c,sizeof(saved_c))&&saved_x==after_x&&saved_y==after_y);\n REQUIRE(SDL_GetRenderDrawColor(r,&dr,&dg,&db,&da)==0&&dr==41&&dg==42&&db==43&&da==44);\n /* Other menus explicitly opt into the same reconstructed font layer;\n  * historical present() retains its preceding exact expectations. */\n draw(r,reference,classic,scalers[scaler_id].scaler32,&dst);\n REQUIRE(selector_font_output_present_smooth(r,reference,base,scalers[scaler_id].scaler32,&dst,layer,&support,cursor,radius));\n copy_screen(r,screen,actual);\n int smooth_px=pad*4+(g.w>CW?1:0),smooth_py=pad*4+(g.h>CH?1:0);\n int sl=MAX(0,support.x-smooth_px),st=MAX(0,support.y-smooth_py);\n SDL_Rect smooth_changed=mapped_box(&g,sl,st,MIN(CW,support.x+support.w+smooth_px)-sl,MIN(CH,support.y+support.h+smooth_py)-st);\n for(int y=0;y<height;y++)for(int x=0;x<width;x++){\n  unsigned p=y*width+x;\n  bool in=x>=smooth_changed.x&&x<smooth_changed.x+smooth_changed.w&&y>=smooth_changed.y&&y<smooth_changed.y+smooth_changed.h;\n  bool cur=x>=cursor_area.x&&x<cursor_area.x+cursor_area.w&&y>=cursor_area.y&&y<cursor_area.y+cursor_area.h;\n  Uint32 expected=!in?base_pixels[p]:cur?original[p]:sample_overlay(layer,&g,x,y,base_pixels[p]);\n  REQUIRE((actual[p]&0xffffff)==(expected&0xffffff));\n }\n"
+        },
+        {
+          "before_lines": [
+            204,
+            204
+          ],
+          "after_lines": [
+            238,
+            262
+          ],
+          "before": "",
+          "after": "static void overlay_failure_checks(void)\n{\n SDL_Surface *screen=SDL_CreateRGBSurfaceWithFormat(0,801,503,32,SDL_PIXELFORMAT_ARGB8888);REQUIRE(screen);\n SDL_Renderer *r=SDL_CreateSoftwareRenderer(screen);REQUIRE(r);\n SDL_Surface *base=SDL_CreateRGBSurfaceWithFormatFrom(base_index,IW,IH,8,IW,SDL_PIXELFORMAT_INDEX8);REQUIRE(base);\n SDL_Texture *reference=SDL_CreateTexture(r,SDL_PIXELFORMAT_RGB888,SDL_TEXTUREACCESS_STREAMING,640,400);REQUIRE(reference);\n SDL_Rect dst={7,11,783,477},support={560,320,120,96};fill_layer();\n Uint32 *before=malloc(801*503*4),*after=malloc(801*503*4);REQUIRE(before&&after);\n const enum FaultKind faults[]={F_CREATE,F_READ,F_UPDATE,F_COPY};\n for(unsigned i=0;i<COUNTOF(faults);i++){\n  selector_font_output_release();draw(r,reference,base,scalers[1].scaler32,&dst);copy_screen(r,screen,before);\n  fault_kind=faults[i];fault_after=fault_count=0;unsigned presented=module_presents;\n  REQUIRE(!selector_font_output_overlay(r,&dst,layer,&support));\n  REQUIRE(module_presents==presented&&module_textures==0);\n  float sx,sy;SDL_RenderGetScale(r,&sx,&sy);REQUIRE(sx==1&&sy==1);\n  fault_kind=F_NONE;\n  /* Caller can redraw its untouched reference after any partial overlay. */\n  draw(r,reference,base,scalers[1].scaler32,&dst);copy_screen(r,screen,after);\n  REQUIRE(!memcmp(before,after,801*503*4));\n  REQUIRE(selector_font_output_overlay(r,&dst,layer,&support));\n }\n selector_font_output_release();REQUIRE(module_textures==0);\n free(before);free(after);SDL_DestroyTexture(reference);SDL_DestroyRenderer(r);SDL_FreeSurface(base);SDL_FreeSurface(screen);\n}\n"
+        },
+        {
+          "before_lines": [
+            224,
+            225
+          ],
+          "after_lines": [
+            282,
+            283
+          ],
+          "before": " fixture(140,80,151,88);failure_checks();\n",
+          "after": " fixture(140,80,151,88);failure_checks();overlay_failure_checks();\n"
+        }
+      ]
+    },
+    "tests/settings_font_test.c": {
+      "before_sha256": "c2b208058e0cce4498148bed5a78e7e5daa740c93a50911283966023cd87d6dc",
+      "after_sha256": "fa82ace2f006083558fd7c559016ea404a04811b30ddd813bdb552e20966824f",
+      "hunks": [
+        {
+          "before_lines": [
+            24,
+            25
+          ],
+          "after_lines": [
+            24,
+            25
+          ],
+          "before": "uint scaler=1;ScalingMode scaling_mode=SCALE_INTEGER;\n",
+          "after": "ScalingMode scaling_mode=SCALE_INTEGER;\n"
+        },
+        {
+          "before_lines": [
+            95,
+            95
+          ],
+          "after_lines": [
+            95,
+            96
+          ],
+          "before": "",
+          "after": "static void portable_checks(void);\n"
+        },
+        {
+          "before_lines": [
+            102,
+            102
+          ],
+          "after_lines": [
+            103,
+            104
+          ],
+          "before": "",
+          "after": " portable_checks();\n"
+        },
+        {
+          "before_lines": [
+            152,
+            167
+          ],
+          "after_lines": [
+            154,
+            160
+          ],
+          "before": "static void renderer_lifecycle(const char *d)\n{\n acquire(d);sf.initial_done=true;memcpy(sf.expected_palette,palettes[7],sizeof(colors));live_palette(palettes[7]);\n SDL_Surface *target=SDL_CreateRGBSurfaceWithFormat(0,640,400,32,SDL_PIXELFORMAT_ARGB8888);SDL_Renderer *renderer=SDL_CreateSoftwareRenderer(target);REQUIRE(target&&renderer);SDL_Rect destination={0,0,640,400};\n frame(2,0,1,12,11,0);unsigned allocations_before=allocation_calls;REQUIRE(settings_font_present(renderer,VGAScreen,&destination,false));REQUIRE(allocation_calls==allocations_before&&sf.texture);\n REQUIRE(!settings_font_present(renderer,VGAScreen,&destination,true));REQUIRE(!sf.frame&&!sf.texture);frame(1,0,0,2,0,0);REQUIRE(settings_font_present(renderer,VGAScreen,&destination,false));\n settings_font_invalidate();REQUIRE(!sf.frame&&!sf.texture);SDL_DestroyRenderer(renderer);SDL_FreeSurface(target);\n target=SDL_CreateRGBSurfaceWithFormat(0,1280,800,32,SDL_PIXELFORMAT_ARGB8888);renderer=SDL_CreateSoftwareRenderer(target);REQUIRE(target&&renderer);destination.w=1280;destination.h=800;scaler=7;frame(2,1,2,9,7,0);REQUIRE(settings_font_present(renderer,VGAScreen,&destination,false));\n scaler=2;REQUIRE(!settings_font_present(renderer,VGAScreen,&destination,false));REQUIRE(!sf.frame);scaler=7;frame(1,0,0,2,0,0);SDL_RenderSetLogicalSize(renderer,640,400);REQUIRE(!settings_font_present(renderer,VGAScreen,&destination,false));SDL_RenderSetLogicalSize(renderer,0,0);\n frame(1,0,0,2,0,0);SDL_RenderSetScale(renderer,2,2);REQUIRE(!settings_font_present(renderer,VGAScreen,&destination,false));SDL_RenderSetScale(renderer,1,1);\n frame(1,0,0,2,0,0);SDL_Rect viewport={1,0,1279,800};SDL_RenderSetViewport(renderer,&viewport);REQUIRE(!settings_font_present(renderer,VGAScreen,&destination,false));SDL_RenderSetViewport(renderer,NULL);\n frame(1,0,0,2,0,0);SDL_RenderSetClipRect(renderer,&destination);REQUIRE(!settings_font_present(renderer,VGAScreen,&destination,false));SDL_RenderSetClipRect(renderer,NULL);\n frame(1,0,0,2,0,0);scaling_mode=SCALE_ASPECT_8_5;REQUIRE(!settings_font_present(renderer,VGAScreen,&destination,false));scaling_mode=SCALE_INTEGER;\n frame(1,0,0,2,0,0);REQUIRE(settings_font_present(renderer,VGAScreen,&destination,false));settings_font_end();REQUIRE(!sf.texture&&allocated==0);SDL_DestroyRenderer(renderer);SDL_FreeSurface(target);scaler=1;\n}\n",
+          "after": "\n#define PORTABLE_FN(name) settings_font_##name\n#define PORTABLE_FACE(role,c) face(role,(c)->value)\n#define PORTABLE_SOLID(p) append(C_SOLID,(p)%320,(p)/320,1,1,0,0,sf.expected[p])\n#define PORTABLE_FRAME() frame(2,1,2,9,7,0)\n#include \"settings_load_portability.inc\"\n"
+        },
+        {
+          "before_lines": [
+            170,
+            171
+          ],
+          "after_lines": [
+            163,
+            164
+          ],
+          "before": " REQUIRE(argc==3);main_window_tex_format=SDL_AllocFormat(SDL_PIXELFORMAT_RGB888);VGAScreen=VGAScreenSeg=SDL_CreateRGBSurface(0,320,200,8,0,0,0,0);VGAScreen2=SDL_CreateRGBSurface(0,320,200,8,0,0,0,0);REQUIRE(VGAScreen&&VGAScreen2&&main_window_tex_format);fixtures(argv[1]);acquire(argv[2]);\n",
+          "after": " REQUIRE(argc==3);scaler=1;main_window_tex_format=SDL_AllocFormat(SDL_PIXELFORMAT_RGB888);VGAScreen=VGAScreenSeg=SDL_CreateRGBSurface(0,320,200,8,0,0,0,0);VGAScreen2=SDL_CreateRGBSurface(0,320,200,8,0,0,0,0);REQUIRE(VGAScreen&&VGAScreen2&&main_window_tex_format);fixtures(argv[1]);acquire(argv[2]);\n"
+        },
+        {
+          "before_lines": [
+            181,
+            182
+          ],
+          "after_lines": [
+            174,
+            175
+          ],
+          "before": "  settings_font_cursor_begin();REQUIRE(sf.frame);blit_sprite2x2_clip(VGAScreen,x,y,shopSpriteSheet,273);settings_font_cursor_done();REQUIRE(sf.frame&&sf.cursor_quad==4);render();REQUIRE(!memcmp(sf.replay,sf.expected,SF_N));\n",
+          "after": "  settings_font_cursor_begin();REQUIRE(sf.frame);blit_sprite2x2_clip(VGAScreen,x,y,shopSpriteSheet,273);settings_font_cursor_done();REQUIRE(sf.frame&&sf.cursor_quad==4);render();REQUIRE(!memcmp(sf.replay,sf.expected,SF_N));portable_checks();\n"
+        }
+      ]
+    },
+    "tests/test_load_font_integration.py": {
+      "before_sha256": "5e96d237353fff0dc6893bfb7fdfd019a1f067a1f486ca913fd2e833bbfa2f0c",
+      "after_sha256": "35521dc8192679fb379dd9bc301ed0f02d374fca764bb6ce3bfebcdc195f6547",
+      "hunks": [
+        {
+          "before_lines": [
+            5,
+            6
+          ],
+          "after_lines": [
+            5,
+            6
+          ],
+          "before": "import argparse,hashlib,json,re,subprocess,xml.etree.ElementTree as ET\n",
+          "after": "import argparse,hashlib,json,re,subprocess,xml.etree.ElementTree as ET,runpy\n"
+        },
+        {
+          "before_lines": [
+            7,
+            7
+          ],
+          "after_lines": [
+            7,
+            8
+          ],
+          "before": "",
+          "after": "PORTABLE=runpy.run_path(str(ROOT/'tests/portable_font_projection.py'))\n"
+        },
+        {
+          "before_lines": [
+            49,
+            49
+          ],
+          "after_lines": [
+            50,
+            51
+          ],
+          "before": "",
+          "after": "    PORTABLE['verify']()\n"
+        },
+        {
+          "before_lines": [
+            56,
+            57
+          ],
+          "after_lines": [
+            58,
+            59
+          ],
+          "before": "        raw=path.read_bytes();current=hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\\0'+raw).hexdigest()\n",
+          "after": "        raw=PORTABLE['project'](name,path.read_bytes());current=hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\\0'+raw).hexdigest()\n"
+        },
+        {
+          "before_lines": [
+            69,
+            70
+          ],
+          "after_lines": [
+            71,
+            72
+          ],
+          "before": "    for name,digest in pins.items():assert sha((ROOT/name).read_bytes())==digest,name\n",
+          "after": "    for name,digest in pins.items():assert sha(PORTABLE['project'](name,(ROOT/name).read_bytes()))==digest,name\n"
+        },
+        {
+          "before_lines": [
+            72,
+            73
+          ],
+          "after_lines": [
+            74,
+            75
+          ],
+          "before": "        raw=(ROOT/name).read_bytes()\n",
+          "after": "        raw=PORTABLE['project'](name,(ROOT/name).read_bytes())\n"
+        },
+        {
+          "before_lines": [
+            94,
+            95
+          ],
+          "after_lines": [
+            96,
+            97
+          ],
+          "before": "    report={'result':'PASS','baseline':BASE,'unchanged_prior_files':unchanged,'unchanged_asset_bytes':asset_bytes,'exact_changed_files':sorted(changed),'exact_readme_additions':sorted(metadata_changed),'readme_published_prefixes_unchanged':True,'readme_hashes':{name:README_ADDITIONS[name][0] for name in metadata_changed},'readme_mutation_rejections':metadata_negatives,'published_C_token_stream_projections':token_proofs,'pinned_source_and_test_files':len(pins),'mutation_rejections':negatives,'successful_load_release_after_original_fade':True,'input_state_save_and_original_draw_semantics_preserved':True,'windows':'C source/header inventory only, no Windows runtime claim','runtime_or_user_save_access':False}\n",
+          "after": "    report={'result':'PASS','baseline':BASE,'portable_parent':PORTABLE['BASE'],'unchanged_prior_files':unchanged,'unchanged_asset_bytes':asset_bytes,'exact_changed_files':sorted(changed),'exact_readme_additions':sorted(metadata_changed),'readme_published_prefixes_unchanged':True,'readme_hashes':{name:README_ADDITIONS[name][0] for name in metadata_changed},'readme_mutation_rejections':metadata_negatives,'published_C_token_stream_projections':token_proofs,'pinned_source_and_test_files':len(pins),'mutation_rejections':negatives,'successful_load_release_after_original_fade':True,'input_state_save_and_original_draw_semantics_preserved':True,'windows':'C source/header inventory only, no Windows runtime claim','runtime_or_user_save_access':False}\n"
+        }
+      ]
+    },
+    "tests/test_pregame_coexistence.py": {
+      "before_sha256": "0f8b32058644909681b1021c526dfaf039bae529fe0f820f1b741e62f4b67a76",
+      "after_sha256": "624441ee5bd26b5c1e36c77d54b0f5736123833baf1d23185e141f60d416ce31",
+      "hunks": [
+        {
+          "before_lines": [
+            6,
+            6
+          ],
+          "after_lines": [
+            6,
+            7
+          ],
+          "before": "",
+          "after": "pf.PORTABLE['verify']()\n"
+        },
+        {
+          "before_lines": [
+            22,
+            23
+          ],
+          "after_lines": [
+            23,
+            24
+          ],
+          "before": " raw=q.read_bytes();expected=hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\\0'+raw).hexdigest()==blob\n",
+          "after": " raw=pf.PORTABLE['project'](name,q.read_bytes());expected=hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\\0'+raw).hexdigest()==blob\n"
+        },
+        {
+          "before_lines": [
+            52,
+            53
+          ],
+          "after_lines": [
+            53,
+            54
+          ],
+          "before": "report=dict(result='PASS',qualified_parent=pf.BASE,qualified_tree='cc1f5da9feeea8d12407bd7e5a079981ef711d13',native_tested_source=pf.NATIVE,production_files=len(current),exact_production_difference='Eight C FNV pins and their one adjacent comment only',production_mutation_rejections=len(rejections),whole_parent_files=len(files),exact_reverse_projection_files=changed,exact_parent_asset_bytes=asset_bytes,approved_asset_mutation_rejections=len(asset_negatives),approved_asset_paths=asset_negatives,old_asset_reversion_rejections=len(asset_reversions),startup_resources=resources,no_source_or_asset_path_wildcards=True,new_game_runs=0,windows='Source inventory is checked separately; no Windows compilation/runtime claim from this script')\n",
+          "after": "report=dict(result='PASS',qualified_parent=pf.BASE,qualified_tree='cc1f5da9feeea8d12407bd7e5a079981ef711d13',native_tested_source=pf.NATIVE,production_files=len(current),exact_projected_production_difference='Eight C FNV pins and their one adjacent comment only',portable_parent=pf.PORTABLE['BASE'],production_mutation_rejections=len(rejections),whole_parent_files=len(files),exact_reverse_projection_files=changed,exact_parent_asset_bytes=asset_bytes,approved_asset_mutation_rejections=len(asset_negatives),approved_asset_paths=asset_negatives,old_asset_reversion_rejections=len(asset_reversions),startup_resources=resources,no_source_or_asset_path_wildcards=True,new_game_runs=0,windows='Source inventory is checked separately; no Windows compilation/runtime claim from this script')\n"
+        }
+      ]
+    },
+    "tests/test_pregame_font_integration.py": {
+      "before_sha256": "d0d8c2b466dd9db96ffdd16f4912c3c319a0438c4f9acbf7066f3f44c407ef3c",
+      "after_sha256": "eef6fe23a37cc9d27d69eee8d9cdf938da5f1800694700c2114d940a5c70e7c1",
+      "hunks": [
+        {
+          "before_lines": [
+            4,
+            5
+          ],
+          "after_lines": [
+            4,
+            5
+          ],
+          "before": "from pregame_font_projection import ROOT,BASE,EDITS,ADDED_SOURCE,git,project,verify\n",
+          "after": "from pregame_font_projection import ROOT,BASE,EDITS,ADDED_SOURCE,git,project,verify,PORTABLE\n"
+        },
+        {
+          "before_lines": [
+            12,
+            13
+          ],
+          "after_lines": [
+            12,
+            13
+          ],
+          "before": " raw=path.read_bytes();same=hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\\0'+raw).hexdigest()==blob\n",
+          "after": " raw=PORTABLE['project'](name,path.read_bytes());same=hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\\0'+raw).hexdigest()==blob\n"
+        },
+        {
+          "before_lines": [
+            31,
+            32
+          ],
+          "after_lines": [
+            31,
+            32
+          ],
+          "before": " assert (ROOT/name).read_bytes()==git('show',BASE+':'+name),name\n",
+          "after": " assert PORTABLE['project'](name,(ROOT/name).read_bytes())==git('show',BASE+':'+name),name\n"
+        },
+        {
+          "before_lines": [
+            37,
+            38
+          ],
+          "after_lines": [
+            37,
+            38
+          ],
+          "before": "report={'result':'PASS','base':BASE,'exact_existing_file_projections':sorted(changed),'unchanged_prior_files':unchanged,'unchanged_asset_bytes':asset_bytes,'mutation_rejections':negative,'production_delta':sorted(production),'two_context_only':True,'original_draw_input_state_save_sound_tokens_and_bytes_preserved':True,'selector_output_and_existing_fonts_exact':True,'windows':'source inventory only; no Windows build/runtime claim','game_runs':False}\n",
+          "after": "report={'result':'PASS','base':BASE,'exact_existing_file_projections':sorted(changed),'unchanged_prior_files':unchanged,'unchanged_asset_bytes':asset_bytes,'mutation_rejections':negative,'production_delta':sorted(production),'two_context_only':True,'original_draw_input_state_save_sound_tokens_and_bytes_preserved':True,'selector_output_and_existing_fonts_exact_after_portability_projection':True,'portable_parent':PORTABLE['BASE'],'windows':'source inventory only; no Windows build/runtime claim','game_runs':False}\n"
+        }
+      ]
+    },
+    "tests/test_selector_font_integration.py": {
+      "before_sha256": "2bbbf3388377b65d66dcffd79d51df60035b00a2d3edb1cf4cc7dee4a396844a",
+      "after_sha256": "3886cea916ac131edcb3bce5fbb2eabb92175ce3d89c9b1c978801044257a840",
+      "hunks": [
+        {
+          "before_lines": [
+            50,
+            50
+          ],
+          "after_lines": [
+            50,
+            51
+          ],
+          "before": "",
+          "after": " PREGAME['PORTABLE']['verify']()\n"
+        },
+        {
+          "before_lines": [
+            77,
+            78
+          ],
+          "after_lines": [
+            78,
+            79
+          ],
+          "before": " report={'result':'PASS','baseline':BASE,'source_token_projections':proofs,'documentation_only_exceptions':sorted(DOCUMENTATION_ONLY),'changed_existing_files':sorted(changed),'unchanged_prior_files':unchanged,'unchanged_asset_bytes':assets,'all_four_menu_input_state_draw_fade_tokens_preserved':True,'windows':'project inventory verified; no Windows runtime','game_runs':False}\n",
+          "after": " report={'result':'PASS','baseline':BASE,'portable_parent':PREGAME['PORTABLE']['BASE'],'source_token_projections':proofs,'documentation_only_exceptions':sorted(DOCUMENTATION_ONLY),'changed_existing_files':sorted(changed),'unchanged_prior_files':unchanged,'unchanged_asset_bytes':assets,'all_four_menu_input_state_draw_fade_tokens_preserved':True,'windows':'project inventory verified; no Windows runtime','game_runs':False}\n"
+        }
+      ]
+    },
+    "README.md": {
+      "before_sha256": "5f1f8cf4f004c60d3c8110f74875c3ee7ca1d11e987239da92d72dfe869cd923",
+      "after_sha256": "59dde8a624b643e3e277e389f4d3972218c847315ccc39829f71a6b7d7765a56",
+      "hunks": [
+        {
+          "before_lines": [
+            26,
+            27
+          ],
+          "after_lines": [
+            26,
+            28
+          ],
+          "before": "  combined pack adds PIC4 and the two title logos; live title UI remains classic.\n",
+          "after": "  combined pack adds PIC4 and the two title logos; title menu typography has\n  its own opt-in below.\n"
+        },
+        {
+          "before_lines": [
+            154,
+            163
+          ],
+          "after_lines": [
+            155,
+            165
+          ],
+          "before": "Native2\u00d7 uses font-only coverage integration; native4\u00d7 retains crisp canonical\nlettering. Other output sizes use classic menu text while keeping title artwork.\nOnly the seven main-title rows use the new glyphs. Original indexed text, widths,\ncentering, hit boxes, input, palette fades and cursor remain authoritative. Missing\nor incompatible typography falls back to the whole classic menu while valid title\nart remains active. Version text, setup/load screens and gameplay HUF1 are unchanged.\nThe old five-file title pack and default pack selections are unchanged.\n[Protocol and current checks](docs/TITLE_MENU_FONT.md) distinguish source/synthetic\nchecks from the still-pending actual-engine visual and interaction acceptance.\n",
+          "after": "Native 2\u00d7/4\u00d7 retain their accepted output exactly. Other valid output sizes use\nfont-only coverage reduction and premultiplied linear magnification, while title\nart keeps its original sampling. Only the seven main-title rows use the new glyphs.\nOriginal colors, indexed text, widths, centering, hit boxes, input, palette fades\nand cursor remain authoritative. Missing or incompatible typography restores the\nwhole classic menu while valid title art remains active. Version text, Settings/Load\ntypography and gameplay HUF1 remain separate; existing packs/defaults are unchanged.\nSee the [historical protocol and acceptance](docs/TITLE_MENU_FONT.md) and\n[current output-portability checks and limits](docs/TITLE_MENU_FONT_PORTABILITY.md),\nincluding actual 1920\u00d71200 and odd/letterboxed software output.\n"
+        },
+        {
+          "before_lines": [
+            248,
+            253
+          ],
+          "after_lines": [
+            250,
+            257
+          ],
+          "before": "Only Setup, Graphics, Sound and their pickers are enhanced, at exact native\nnearest 2\u00d7/4\u00d7. PIC2, bars, cursor, indexed text, metrics, input and saved settings\nremain original. Missing or incompatible SFN1 files keep the complete settings\nmenu classic while valid title resources remain usable. Filtered/aspect output\nalso falls back. Existing packs and default selections are unchanged.\n",
+          "after": "Only Setup, Graphics, Sound and their pickers are enhanced. Native nearest\n2\u00d7/4\u00d7 preserve the accepted compositor; other valid output geometry, including\nfiltered/aspect output, uses the font-only portable path. Original colors, PIC2,\nbars, cursor, indexed text, metrics, input and saved settings remain authoritative.\nMissing or incompatible SFN1 files keep the complete settings menu classic while\nvalid title resources remain usable. Existing packs/defaults are unchanged.\nSee [current output handling, fallback and validation](docs/SETTINGS_LOAD_FONT_PORTABILITY.md).\n"
+        },
+        {
+          "before_lines": [
+            259,
+            260
+          ],
+          "after_lines": [
+            263,
+            267
+          ],
+          "before": "The same `startup-title-settings-v1` pack now also supports bounded Load typography, with whole-frame classic fallback for unsupported names or scalers; see [Load usage](docs/load-font-v1/USAGE.txt).\n",
+          "after": "The same `startup-title-settings-v1` pack supports bounded Load typography with\nthe same portable output path. Unsupported names, source data or resources retain\nwhole-frame classic fallback. The [output-portability note](docs/SETTINGS_LOAD_FONT_PORTABILITY.md)\nupdates the geometry limits in the [historical Load usage](docs/load-font-v1/USAGE.txt).\n"
+        },
+        {
+          "before_lines": [
+            264,
+            266
+          ],
+          "after_lines": [
+            271,
+            273
+          ],
+          "before": "2\u00d7/4\u00d7 and an odd 1365\u00d7767 output passed bounded software-renderer checks. Existing\ntitle/Settings/Load geometry limits remain unchanged. The same pack now adds\n",
+          "after": "2\u00d7/4\u00d7 and an odd 1365\u00d7767 output passed bounded software-renderer checks.\nTitle/Settings/Load output handling is documented above. The same pack now adds\n"
+        }
+      ]
+    },
+    "README.zh-CN.md": {
+      "before_sha256": "c96b81734777e3e354661562976fc20e53e4e4541c44544452821fd047aab385",
+      "after_sha256": "a6c46dc7809b53e36dca4abda31fb4c9ef39055add5dc3a732f20b0a239be2de",
+      "hunks": [
+        {
+          "before_lines": [
+            20,
+            21
+          ],
+          "after_lines": [
+            20,
+            21
+          ],
+          "before": "  \u6807\u9898\u4e2d\u7684\u7248\u672c\u3001\u83dc\u5355\u3001\u9ad8\u4eae\u53ca\u5149\u6807\u4ecd\u7531\u539f\u7248\u7ed8\u5236\u3002\u6807\u9898\u5df2\u901a\u8fc7 8 \u4e2a\u6709\u9650\u573a\u666f\u300113 \u6b21\u5b9e\u9645\u5f15\u64ce\u8fd0\u884c\uff0c\n",
+          "after": "  \u6807\u9898\u83dc\u5355\u5b57\u4f53\u53ef\u901a\u8fc7\u4e0b\u6587\u7684\u72ec\u7acb\u5165\u53e3\u542f\u7528\u3002\u6807\u9898\u5df2\u901a\u8fc7 8 \u4e2a\u6709\u9650\u573a\u666f\u300113 \u6b21\u5b9e\u9645\u5f15\u64ce\u8fd0\u884c\uff0c\n"
+        },
+        {
+          "before_lines": [
+            131,
+            138
+          ],
+          "after_lines": [
+            131,
+            138
+          ],
+          "before": "\u539f\u751f2\u00d7\u4ec5\u5bf9\u83dc\u5355\u5b57\u5f62\u505a\u8986\u76d6\u7387\u6574\u5408\uff0c\u539f\u751f4\u00d7\u4fdd\u7559\u6e05\u6670\u7684\u6807\u51c6\u5b57\u5f62\uff1b\u5176\u4ed6\u8f93\u51fa\u5c3a\u5bf8\u4f7f\u7528\n\u539f\u7248\u83dc\u5355\u6587\u5b57\uff0c\u6807\u9898\u7f8e\u672f\u7ee7\u7eed\u4fdd\u7559\u3002\u4ec5\u4e3b\u6807\u9898\u7684\u4e03\u884c\u83dc\u5355\u4f7f\u7528\u65b0\u5b57\u5f62\u3002\u539f\u59cb\u7d22\u5f15\u7ed8\u5236\u3001\n\u5b57\u5bbd\u3001\u5c45\u4e2d\u3001\u70b9\u51fb\u533a\u57df\u3001\u8f93\u5165\u3001\u8c03\u8272\u677f\n\u6e10\u53d8\u53ca\u5149\u6807\u4ecd\u7531\u539f\u7248\u4ee3\u7801\u51b3\u5b9a\u3002\u5b57\u4f53\u8d44\u6e90\u7f3a\u5931\u6216\u4e0d\u517c\u5bb9\u65f6\uff0c\u6574\u4e2a\u83dc\u5355\u6062\u590d\u539f\u7248\u6587\u5b57\uff0c\n\u6709\u6548\u7684\u6807\u9898\u7f8e\u672f\u4ecd\u7136\u4fdd\u7559\u3002\u7248\u672c\u6587\u5b57\u3001\u8bbe\u7f6e/\u8bfb\u6863\u754c\u9762\u4e0e\u6e38\u620f\u5185 HUF1 \u5747\u4e0d\u53d8\u3002\n\u539f\u4e94\u6587\u4ef6\u6807\u9898\u5305\u53ca\u9ed8\u8ba4\u7d20\u6750\u9009\u62e9\u4e0d\u53d8\u3002[\u534f\u8bae\u4e0e\u5f53\u524d\u68c0\u67e5](docs/TITLE_MENU_FONT.md)\u533a\u5206\n\u5df2\u901a\u8fc7\u7684\u6e90\u7801/\u5408\u6210\u6d4b\u8bd5\u4e0e\u4ecd\u5f85\u8fdb\u884c\u7684\u5b9e\u9645\u5f15\u64ce\u89c6\u89c9\u548c\u4ea4\u4e92\u9a8c\u6536\u3002\n",
+          "after": "\u539f\u751f 2\u00d7/4\u00d7 \u4fdd\u7559\u5df2\u9a8c\u6536\u7684\u7cbe\u786e\u8f93\u51fa\u3002\u5176\u4ed6\u6709\u6548\u8f93\u51fa\u5c3a\u5bf8\u4ec5\u5bf9\u5b57\u4f53\u505a\u8986\u76d6\u7387\u7f29\u5c0f\u548c\n\u9884\u4e58\u989c\u8272/\u900f\u660e\u5ea6\u7684\u7ebf\u6027\u653e\u5927\uff0c\u6807\u9898\u7f8e\u672f\u4ecd\u4f7f\u7528\u539f\u6709\u91c7\u6837\u3002\u65b0\u5b57\u5f62\u4ec5\u7528\u4e8e\u4e3b\u6807\u9898\u7684\u4e03\u884c\u83dc\u5355\u3002\n\u539f\u989c\u8272\u3001\u7d22\u5f15\u6587\u5b57\u3001\u5b57\u5bbd\u3001\u5c45\u4e2d\u3001\u70b9\u51fb\u533a\u57df\u3001\u8f93\u5165\u3001\u8c03\u8272\u677f\u6e10\u53d8\u53ca\u5149\u6807\u4ecd\u7531\u539f\u7248\u51b3\u5b9a\u3002\n\u5b57\u4f53\u8d44\u6e90\u7f3a\u5931\u6216\u4e0d\u517c\u5bb9\u65f6\uff0c\u6574\u4e2a\u83dc\u5355\u6062\u590d\u539f\u7248\u6587\u5b57\uff0c\u6709\u6548\u7684\u6807\u9898\u7f8e\u672f\u4ecd\u4fdd\u7559\u3002\u7248\u672c\u6587\u5b57\u3001\n\u8bbe\u7f6e/\u8bfb\u6863\u5b57\u4f53\u4e0e\u6e38\u620f\u5185 HUF1 \u5404\u81ea\u72ec\u7acb\uff1b\u5df2\u6709\u8d44\u6e90\u5305\u53ca\u9ed8\u8ba4\u9009\u62e9\u4e0d\u53d8\u3002\n\u53c2\u89c1[\u5386\u53f2\u534f\u8bae\u4e0e\u9a8c\u6536](docs/TITLE_MENU_FONT.md)\u53ca[\u5f53\u524d\u8f93\u51fa\u9002\u914d\u68c0\u67e5\u4e0e\u9650\u5236](docs/TITLE_MENU_FONT_PORTABILITY.md)\uff0c\n\u540e\u8005\u5305\u542b\u5b9e\u9645 1920\u00d71200 \u548c\u975e\u6574\u6570\u5c3a\u5bf8/\u7559\u8fb9\u7684\u8f6f\u4ef6\u6e32\u67d3\u68c0\u67e5\u3002\n"
+        },
+        {
+          "before_lines": [
+            165,
+            169
+          ],
+          "after_lines": [
+            165,
+            170
+          ],
+          "before": "\u4ec5\u5728\u7cbe\u786e\u539f\u751f\u6700\u8fd1\u90bb 2\u00d7/4\u00d7 \u4e0b\u589e\u5f3a Setup\u3001Graphics\u3001Sound \u53ca\u5176\u9009\u9879\u5217\u8868\u3002\nPIC2 \u80cc\u666f\u3001\u97f3\u91cf\u6761\u3001\u5149\u6807\u3001\u7d22\u5f15\u6587\u5b57\u3001\u5b57\u5bbd\u3001\u8f93\u5165\u4e0e\u4fdd\u5b58\u8bbe\u7f6e\u4ecd\u4fdd\u6301\u539f\u6837\u3002SFN1 \u6587\u4ef6\n\u7f3a\u5931\u6216\u4e0d\u517c\u5bb9\u65f6\uff0c\u6574\u4e2a\u8bbe\u7f6e\u83dc\u5355\u4f7f\u7528\u539f\u7248\u5b57\u4f53\uff0c\u6709\u6548\u6807\u9898\u8d44\u6e90\u4ecd\u53ef\u4f7f\u7528\uff1b\u6ee4\u955c\u548c\u6bd4\u4f8b\n\u62c9\u4f38\u8f93\u51fa\u540c\u6837\u56de\u9000\u3002\u5df2\u6709\u8d44\u6e90\u5305\u53ca\u9ed8\u8ba4\u9009\u62e9\u4e0d\u53d8\u3002\n",
+          "after": "\u589e\u5f3a\u8303\u56f4\u4ec5\u4e3a Setup\u3001Graphics\u3001Sound \u53ca\u5176\u9009\u9879\u5217\u8868\u3002\u539f\u751f\u6700\u8fd1\u90bb 2\u00d7/4\u00d7 \u4fdd\u7559\n\u5df2\u9a8c\u6536\u7684\u5408\u6210\u8def\u5f84\uff1b\u5176\u4ed6\u6709\u6548\u8f93\u51fa\u5c3a\u5bf8\uff08\u542b\u6ee4\u955c\u548c\u6bd4\u4f8b\u9002\u914d\uff09\u4f7f\u7528\u4ec5\u5904\u7406\u5b57\u4f53\u7684\u65b0\u8def\u5f84\u3002\n\u539f\u989c\u8272\u3001PIC2 \u80cc\u666f\u3001\u97f3\u91cf\u6761\u3001\u5149\u6807\u3001\u7d22\u5f15\u6587\u5b57\u3001\u5b57\u5bbd\u3001\u8f93\u5165\u4e0e\u4fdd\u5b58\u8bbe\u7f6e\u4ecd\u7531\u539f\u7248\u51b3\u5b9a\u3002\nSFN1 \u6587\u4ef6\u7f3a\u5931\u6216\u4e0d\u517c\u5bb9\u65f6\uff0c\u6574\u4e2a\u8bbe\u7f6e\u83dc\u5355\u4f7f\u7528\u539f\u7248\u5b57\u4f53\uff0c\u6709\u6548\u6807\u9898\u8d44\u6e90\u4ecd\u53ef\u4f7f\u7528\u3002\n\u5df2\u6709\u8d44\u6e90\u5305\u53ca\u9ed8\u8ba4\u9009\u62e9\u4e0d\u53d8\u3002\u53c2\u89c1[\u5f53\u524d\u8f93\u51fa\u9002\u914d\u3001\u56de\u9000\u4e0e\u9a8c\u8bc1](docs/SETTINGS_LOAD_FONT_PORTABILITY.md)\u3002\n"
+        },
+        {
+          "before_lines": [
+            174,
+            175
+          ],
+          "after_lines": [
+            175,
+            178
+          ],
+          "before": "\u540c\u4e00 `startup-title-settings-v1` \u8d44\u6e90\u5305\u73b0\u4e5f\u652f\u6301\u6709\u9650\u8303\u56f4\u7684\u8bfb\u6863\u754c\u9762\u5b57\u4f53\uff0c\u9047\u5230\u4e0d\u652f\u6301\u7684\u5b58\u6863\u540d\u6216\u7f29\u653e\u65b9\u5f0f\u65f6\u6574\u5e27\u56de\u9000\u81f3\u539f\u7248\uff1b\u8be6\u89c1[\u8bfb\u6863\u5b57\u4f53\u4f7f\u7528\u8bf4\u660e](docs/load-font-v1/USAGE.txt)\u3002\n",
+          "after": "\u540c\u4e00 `startup-title-settings-v1` \u8d44\u6e90\u5305\u652f\u6301\u6709\u9650\u8303\u56f4\u7684\u8bfb\u6863\u754c\u9762\u5b57\u4f53\uff0c\u5e76\u4f7f\u7528\u76f8\u540c\u7684\n\u8f93\u51fa\u9002\u914d\u8def\u5f84\u3002\u4e0d\u652f\u6301\u7684\u5b58\u6863\u540d\u3001\u6e90\u6570\u636e\u6216\u8d44\u6e90\u4ecd\u89e6\u53d1\u6574\u5e27\u539f\u7248\u56de\u9000\u3002\n[\u8f93\u51fa\u9002\u914d\u8bf4\u660e](docs/SETTINGS_LOAD_FONT_PORTABILITY.md)\u66f4\u65b0\u4e86[\u5386\u53f2\u8bfb\u6863\u4f7f\u7528\u8bf4\u660e](docs/load-font-v1/USAGE.txt)\u4e2d\u7684\u5c3a\u5bf8\u9650\u5236\u3002\n"
+        },
+        {
+          "before_lines": [
+            178,
+            179
+          ],
+          "after_lines": [
+            181,
+            182
+          ],
+          "before": "1365\u00d7767 \u975e\u6574\u6570\u5c3a\u5bf8\u7684\u8f6f\u4ef6\u6e32\u67d3\u6709\u9650\u68c0\u67e5\u3002\u4e3b\u6807\u9898\u3001\u8bbe\u7f6e\u548c\u8bfb\u6863\u7684\u65e2\u6709\u5c3a\u5bf8\u9650\u5236\u4e0d\u53d8\u3002\n",
+          "after": "1365\u00d7767 \u975e\u6574\u6570\u5c3a\u5bf8\u7684\u8f6f\u4ef6\u6e32\u67d3\u6709\u9650\u68c0\u67e5\u3002\u4e3b\u6807\u9898\u3001\u8bbe\u7f6e\u548c\u8bfb\u6863\u7684\u8f93\u51fa\u9002\u914d\u89c1\u4e0a\u6587\u3002\n"
+        }
+      ]
+    }
+  },
+  "added_test_files": {
+    "tests/portable_font_projection.py": "cf8943400d656d40e99916754b47b4c4ef4941cfb95cfc6815ece2b2c39ce905",
+    "tests/test_portable_font_integration.py": "d18b52c668b70d70a238b0f1e380da02d9cf83f9abc53cf9accece99dea1617b",
+    "tests/settings_load_portability.inc": "8382a5c78cba27506a74f18c3315786839b57cb06240adf5049377775884ea8e"
+  }
+}
