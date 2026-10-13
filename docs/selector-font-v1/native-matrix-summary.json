@@ -1,0 +1,115 @@
+{
+  "schema": "startup-selector-native-matrix-v1",
+  "source_commit": "8e23afb77d059f37e0872ca5129d19106188de5c",
+  "source_clean": true,
+  "runs": [
+    {
+      "run": "R1",
+      "original_controller_result": "PASS",
+      "acceptance": "PASS",
+      "elapsed_seconds": 25.228,
+      "captures": 12,
+      "selector_presentations": 260,
+      "size": [
+        640,
+        400
+      ],
+      "requested_outcome_image_missing": false
+    },
+    {
+      "run": "R2",
+      "original_controller_result": "PASS",
+      "acceptance": "PASS",
+      "elapsed_seconds": 25.396,
+      "captures": 12,
+      "selector_presentations": 260,
+      "size": [
+        640,
+        400
+      ],
+      "requested_outcome_image_missing": false
+    },
+    {
+      "run": "R3",
+      "original_controller_result": "PASS",
+      "acceptance": "PASS",
+      "elapsed_seconds": 9.662,
+      "captures": 4,
+      "selector_presentations": 63,
+      "size": [
+        1280,
+        800
+      ],
+      "requested_outcome_image_missing": false
+    },
+    {
+      "run": "R4",
+      "original_controller_result": "PASS",
+      "acceptance": "PASS",
+      "elapsed_seconds": 9.946,
+      "captures": 4,
+      "selector_presentations": 63,
+      "size": [
+        1280,
+        800
+      ],
+      "requested_outcome_image_missing": false
+    },
+    {
+      "run": "R5",
+      "original_controller_result": "FAIL",
+      "acceptance": "PASS by retained-state reevaluation",
+      "elapsed_seconds": 45.495,
+      "captures": 3,
+      "selector_presentations": 66,
+      "size": [
+        1365,
+        767
+      ],
+      "requested_outcome_image_missing": true
+    },
+    {
+      "run": "R6",
+      "original_controller_result": "PASS",
+      "acceptance": "PASS",
+      "elapsed_seconds": 12.919,
+      "captures": 4,
+      "selector_presentations": 66,
+      "size": [
+        1365,
+        767
+      ],
+      "requested_outcome_image_missing": false
+    },
+    {
+      "run": "R7",
+      "original_controller_result": "PASS",
+      "acceptance": "PASS",
+      "elapsed_seconds": 9.663,
+      "captures": 4,
+      "selector_presentations": 63,
+      "size": [
+        640,
+        400
+      ],
+      "requested_outcome_image_missing": false
+    }
+  ],
+  "actual_renderer": "SDL software / dummy video driver",
+  "source_palette_pairs_exact": [
+    "R1/R2",
+    "R3/R4",
+    "R5/R6"
+  ],
+  "settled_pair_changed_pixels_outside_font_support": 0,
+  "missing_medium_classic_png_exact": true,
+  "production_edits_during_matrix": false,
+  "known_qualifications": [
+    "R1 initial capture attempt failed unavailable self-read syscall; retained; fixed observer-only and reran.",
+    "R5 endpoint guard assumptions failed; original FAIL retained; source-derived native state review establishes outcome without rerun; requested gameplay outcome image missing.",
+    "Stack in_fade can miss optimized tail-called fade_solid; actual source palette sequence independently verifies fades and captures must equal target colors.",
+    "Native software-renderer capture does not qualify Windows hardware, DPI, real keyboard modifiers, mouse/joystick, or performance.",
+    "Native hidden difficulty unlocks and unavailable episode roles not exercised; core source matrix covers them.",
+    "Only settled RGB captures compared; per-frame fade RGB images were not retained."
+  ]
+}

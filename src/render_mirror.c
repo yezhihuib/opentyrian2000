@@ -5,6 +5,7 @@
  */
 #include "settings_font.h"
 #include "load_font.h"
+#include "selector_font.h"
 #include "render_mirror.h"
 #include "gameplay_hud.h"
 #include "gameplay_hud_components.h"
@@ -1059,6 +1060,7 @@ void render_mirror_pixel(SDL_Surface *surface,Uint8 *address,Uint8 source,int st
 {
  settings_font_pixel(surface,address,style);
  load_font_pixel(surface,address,style);
+ selector_font_pixel(surface,address,style);
  if(!active||surface!=game_screen) return;
  intptr_t offset=(intptr_t)address-(intptr_t)surface->pixels;
  if(offset<0||offset>=(intptr_t)surface->pitch*surface->h) { render_mirror_unsupported("invalid-write-address");return; }
@@ -1114,6 +1116,7 @@ void render_mirror_rect(SDL_Surface *s,const SDL_Rect *rect)
 {
  settings_font_rect(s,rect);
  load_font_rect(s,rect);
+ selector_font_rect(s,rect);
  if(!active||s!=game_screen) return;
  int x0=rect?rect->x:0,y0=rect?rect->y:0;
  int x1=rect?rect->x+rect->w:s->w,y1=rect?rect->y+rect->h:s->h;

@@ -173,3 +173,10 @@ PIC2 背景、音量条、光标、索引文字、字宽、输入与保存设置
 `python3 prototype/settings_font_bundle.py --output /absolute/new/directory`。
 
 同一 `startup-title-settings-v1` 资源包现也支持有限范围的读档界面字体，遇到不支持的存档名或缩放方式时整帧回退至原版；详见[读档字体使用说明](docs/load-font-v1/USAGE.txt)。
+
+同一 `startup-title-settings-v1` 包现也覆盖人数/模式、章节、难度（含原版解锁行）
+及限时战斗选择。这四个界面的字体按实际输出与视口映射，已通过原生 2×/4× 和
+1365×767 非整数尺寸的软件渲染有限检查。主标题、设置和读档的既有尺寸限制不变；
+进入游戏前的主选单与物品界面仍单独排队处理。继续使用相同 `--startup-assets`
+目录及既有大号/中号 SFN1 文件，无需新美术。
+[选择界面范围、光标回退与验收边界](docs/selector-font-v1/NATIVE-ACCEPTANCE.txt)。

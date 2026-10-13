@@ -18,6 +18,7 @@
  */
 #include "settings_font.h"
 #include "load_font.h"
+#include "selector_font.h"
 #include "sprite.h"
 #include "render_mirror.h"
 #include "title_layers.h"
@@ -95,6 +96,7 @@ void free_sprites(unsigned int table)
 	title_layers_sprite_table_reset(table);
 	settings_font_table_reset(table);
 	load_font_table_reset(table);
+	selector_font_table_reset(table);
 	for (unsigned int i = 0; i < sprite_table[table].count; ++i)
 	{
 		Sprite * const cur_sprite = sprite(table, i);
@@ -237,11 +239,12 @@ void blit_sprite_hv_unsafe(SDL_Surface *surface, int x, int y, unsigned int tabl
 {
 	settings_font_glyph_begin(surface,x,y,table,index,SETTINGS_UNSAFE,hue,value);
 	load_font_glyph_begin(surface,x,y,table,index,LOAD_UNSAFE,hue,value);
+	selector_font_glyph_begin(surface,x,y,table,index,SELECTOR_UNSAFE,hue,value);
 	render_mirror_text_glyph_begin(surface,x,y,table,index,false,hue,value);
 	if (index >= sprite_table[table].count || !sprite_exists(table, index))
 	{
 		assert(false);
-		{ render_mirror_text_glyph_end(); settings_font_glyph_end(); load_font_glyph_end(); return; }
+		{ render_mirror_text_glyph_end(); settings_font_glyph_end(); load_font_glyph_end(); selector_font_glyph_end(); return; }
 	}
 	
 	hue <<= 4;
@@ -281,7 +284,7 @@ void blit_sprite_hv_unsafe(SDL_Surface *surface, int x, int y, unsigned int tabl
 			
 		default:  // set a pixel
 			if (pixels >= pixels_ul)
-				{ render_mirror_text_glyph_end(); settings_font_glyph_end(); load_font_glyph_end(); return; }
+				{ render_mirror_text_glyph_end(); settings_font_glyph_end(); load_font_glyph_end(); selector_font_glyph_end(); return; }
 			if (pixels >= pixels_ll)
 				{ *pixels = hue | ((*data & 0x0f) + value); render_mirror_pixel(surface,pixels,*pixels,MIRROR_NORMAL); }
 			
@@ -296,7 +299,7 @@ void blit_sprite_hv_unsafe(SDL_Surface *surface, int x, int y, unsigned int tabl
 		}
 	}
 	render_mirror_text_glyph_end();
-	settings_font_glyph_end(); load_font_glyph_end();
+	settings_font_glyph_end(); load_font_glyph_end(); selector_font_glyph_end();
 }
 
 // does not clip on left or right edges of surface
@@ -304,10 +307,11 @@ void blit_sprite_hv(SDL_Surface *surface, int x, int y, unsigned int table, unsi
 {
 	settings_font_glyph_begin(surface,x,y,table,index,SETTINGS_FACE,hue,value);
 	load_font_glyph_begin(surface,x,y,table,index,LOAD_FACE,hue,value);
+	selector_font_glyph_begin(surface,x,y,table,index,SELECTOR_FACE,hue,value);
 	if (index >= sprite_table[table].count || !sprite_exists(table, index))
 	{
 		assert(false);
-		settings_font_glyph_end(); load_font_glyph_end(); return;
+		settings_font_glyph_end(); load_font_glyph_end(); selector_font_glyph_end(); return;
 	}
 	
 	hue <<= 4;
@@ -347,7 +351,7 @@ void blit_sprite_hv(SDL_Surface *surface, int x, int y, unsigned int table, unsi
 			
 		default:  // set a pixel
 			if (pixels >= pixels_ul)
-				{ settings_font_glyph_end(); load_font_glyph_end(); return; }
+				{ settings_font_glyph_end(); load_font_glyph_end(); selector_font_glyph_end(); return; }
 			if (pixels >= pixels_ll)
 			{
 				Uint8 temp_value = (*data & 0x0f) + value;
@@ -367,7 +371,7 @@ void blit_sprite_hv(SDL_Surface *surface, int x, int y, unsigned int table, unsi
 			x_offset = 0;
 		}
 	}
-	settings_font_glyph_end(); load_font_glyph_end();
+	settings_font_glyph_end(); load_font_glyph_end(); selector_font_glyph_end();
 }
 
 // does not clip on left or right edges of surface
@@ -443,11 +447,12 @@ void blit_sprite_dark(SDL_Surface *surface, int x, int y, unsigned int table, un
 {
 	settings_font_glyph_begin(surface,x,y,table,index,black ? SETTINGS_BLACK : SETTINGS_DARK,0,0);
 	load_font_glyph_begin(surface,x,y,table,index,black ? LOAD_BLACK : LOAD_DARK,0,0);
+	selector_font_glyph_begin(surface,x,y,table,index,black ? SELECTOR_BLACK : SELECTOR_DARK,0,0);
 	render_mirror_text_glyph_begin(surface,x,y,table,index,black,0,black?-1:0);
 	if (index >= sprite_table[table].count || !sprite_exists(table, index))
 	{
 		assert(false);
-		{ render_mirror_text_glyph_end(); settings_font_glyph_end(); load_font_glyph_end(); return; }
+		{ render_mirror_text_glyph_end(); settings_font_glyph_end(); load_font_glyph_end(); selector_font_glyph_end(); return; }
 	}
 	
 	const Sprite * const cur_sprite = sprite(table, index);
@@ -485,7 +490,7 @@ void blit_sprite_dark(SDL_Surface *surface, int x, int y, unsigned int table, un
 			
 		default:  // set a pixel
 			if (pixels >= pixels_ul)
-				{ render_mirror_text_glyph_end(); settings_font_glyph_end(); load_font_glyph_end(); return; }
+				{ render_mirror_text_glyph_end(); settings_font_glyph_end(); load_font_glyph_end(); selector_font_glyph_end(); return; }
 			if (pixels >= pixels_ll)
 				{ *pixels = black ? 0x00 : ((*pixels & 0xf0) | ((*pixels & 0x0f) / 2)); render_mirror_pixel(surface,pixels,0,black?MIRROR_NORMAL:MIRROR_SHADOW); title_layers_pixel(surface,pixels,TITLE_WRITE_SHADOW); }
 			
@@ -500,7 +505,7 @@ void blit_sprite_dark(SDL_Surface *surface, int x, int y, unsigned int table, un
 		}
 	}
 	render_mirror_text_glyph_end();
-	settings_font_glyph_end(); load_font_glyph_end();
+	settings_font_glyph_end(); load_font_glyph_end(); selector_font_glyph_end();
 }
 
 void JE_loadCompShapes(Sprite2_array *sprite2s, char s)
@@ -578,6 +583,7 @@ void blit_sprite2_clip(SDL_Surface *surface, int x, int y, Sprite2_array sprite2
 {
 	settings_font_cursor_sprite_begin(surface,x,y,sprite2s.data,sprite2s.size,index);
 	load_font_cursor_sprite_begin(surface,x,y,sprite2s.data,sprite2s.size,index);
+	selector_font_cursor_sprite_begin(surface,x,y,sprite2s.data,sprite2s.size,index);
 	asset_debug_effect(surface,sprite2s,index,x,y);
 	assert(surface->format->BitsPerPixel == 8);
 
@@ -586,7 +592,7 @@ void blit_sprite2_clip(SDL_Surface *surface, int x, int y, Sprite2_array sprite2
 	for (; *data != 0x0f; ++data)
 	{
 		if (y >= surface->h)
-			{ settings_font_cursor_sprite_end(); load_font_cursor_sprite_end(); return; }
+			{ settings_font_cursor_sprite_end(); load_font_cursor_sprite_end(); selector_font_cursor_sprite_end(); return; }
 
 		Uint8 skip_count = *data & 0x0f;
 		Uint8 fill_count = (*data >> 4) & 0x0f;
@@ -616,7 +622,7 @@ void blit_sprite2_clip(SDL_Surface *surface, int x, int y, Sprite2_array sprite2
 			x += fill_count;
 		}
 	}
-	settings_font_cursor_sprite_end(); load_font_cursor_sprite_end();
+	settings_font_cursor_sprite_end(); load_font_cursor_sprite_end(); selector_font_cursor_sprite_end();
 }
 
 // does not clip on left or right edges of surface

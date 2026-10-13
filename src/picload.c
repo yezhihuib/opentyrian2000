@@ -18,6 +18,7 @@
  */
 #include "settings_font.h"
 #include "load_font.h"
+#include "selector_font.h"
 #include "picload.h"
 #include "render_mirror.h"
 #include "startup_logos.h"
@@ -38,6 +39,7 @@ void JE_loadPic(SDL_Surface *screen, JE_byte PCXnumber, JE_boolean storepal)
 	title_layers_end();
 	settings_font_end();
 	load_font_end();
+	selector_font_end();
 	render_mirror_hud_reset();
 	PCXnumber--;
 

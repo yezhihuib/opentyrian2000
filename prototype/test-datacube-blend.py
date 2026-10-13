@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Actual glyph/real compositor units. No game launch; prior make required."""
-import argparse, hashlib, json, os, re, shlex, struct, subprocess
+import argparse, hashlib, json, os, re, runpy, shlex, struct, subprocess
 from pathlib import Path
 p=argparse.ArgumentParser(description=__doc__)
 p.add_argument('--data',type=Path,required=True)
@@ -15,10 +15,12 @@ sha=lambda b:hashlib.sha256(b).hexdigest()
 old=subprocess.check_output(['git','-C',root,'show',base+':src/render_mirror.c']).decode()
 new=(root/'src/render_mirror.c').read_text()
 addition=' /* The original Data pickup is fixed sprite266 with a warm0x70 glyph,\n  * unlike the blue/gray cash values. Keep it under the same source/Talon/\n  * monotone-ramp checks instead of restoring the connected HD scene. */\n bool data=index==266&&hue==0x70;\n'
+selector=runpy.run_path(str(root/'tests/test_selector_font_integration.py'))
+selector_sources,selector_projected_mirror=selector['regression_projection']()
 assert new.count(addition)==1
-assert new.replace(addition,'').replace('||(value&&(hue==0x80||hue==0x90))||data;', '||(value&&(hue==0x80||hue==0x90));')==old
+assert selector_projected_mirror.replace(addition,'').replace('||(value&&(hue==0x80||hue==0x90))||data;', '||(value&&(hue==0x80||hue==0x90));')==old
 changed=run(['git','-C',root,'diff',base,'--name-only','--','src','assets']).splitlines()
-assert changed==['src/render_mirror.c'],changed
+assert set(changed)-(selector_sources-{'src/render_mirror.c'})=={'src/render_mirror.c'},changed
 (out/'baseline-render-mirror.c').write_text(old)
 cc=shlex.split(os.environ.get('CC','cc'));flags=shlex.split(run(['pkg-config','--cflags','sdl2','SDL2_net']));libs=shlex.split(run(['pkg-config','--libs','sdl2','SDL2_net']))+['-lm']
 common=cc+['-std=c99','-DTARGET_UNIX','-DWITH_NETWORK','-DNDEBUG','-O1','-g','-I'+str(root/'src')]+flags
@@ -37,5 +39,5 @@ bank=(a.data/'newsh6.shp').read_bytes();pos=struct.unpack_from('<H',bank,265*2)[
 while bank[pos]!=15:
  count=bank[pos]>>4;pos+=1;values.extend(bank[pos:pos+count]);pos+=count
 assert len(values)==85 and set(v&240 for v in values)=={0x70}
-report={'status':'PASS','baseline':base,'results':results,'predicate_combinations':400*256,'only_changed_predicate':delta,'original_glyph266':{'opaque_pixels':len(values),'hues':[0x70],'record_sha256':sha(bank[start:pos+1])},'only_production_edit':'src/render_mirror.c exact266/0x70 predicate','baseline_mirror_sha256':sha(old.encode()),'candidate_mirror_sha256':sha(new.encode()),'data_sha256':{f:sha((a.data/f).read_bytes())for f in ['newsh6.shp','palette.dat']},'qualification':'Real renderer and original indexed sprite decoder; actual source glyph, synthetic connected HD underlay/ship ownership. No engine main, no natural gameplay or Windows claim.'}
+report={'status':'PASS','baseline':base,'results':results,'predicate_combinations':400*256,'only_changed_predicate':delta,'original_glyph266':{'opaque_pixels':len(values),'hues':[0x70],'record_sha256':sha(bank[start:pos+1])},'data_fix_production_edit':'src/render_mirror.c exact266/0x70 predicate','selector_projection_base':selector['BASE'],'selector_source_token_projections':9,'baseline_mirror_sha256':sha(old.encode()),'candidate_mirror_sha256':sha(new.encode()),'data_sha256':{f:sha((a.data/f).read_bytes())for f in ['newsh6.shp','palette.dat']},'qualification':'Real renderer and original indexed sprite decoder; actual source glyph, synthetic connected HD underlay/ship ownership. No engine main, no natural gameplay or Windows claim.'}
 (out/'report.json').write_text(json.dumps(report,indent=2)+'\n')

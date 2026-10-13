@@ -1,0 +1,82 @@
+FINITE STARTUP SELECTOR FONT CANDIDATE
+
+Scope
+Exactly gameplaySelect, episodeSelect, difficultySelect, timedBattleSelect.
+All original source strings and advances remain authoritative. Difficulty has
+3–6 visible rows, including the original sixth label “Lord of Game”. No shop,
+pre-game15-context tree, introductory screen, global font or other old presenter
+migration is included. Existing --startup-assets directory selects the same
+largeV2 and mediumV3.1 SFN1 resources. No new art, tiny resource requirement,
+configuration change, input mapping change, or scaler substitution.
+
+Lease
+Acquire after raw PIC2 is loaded into VGAScreen2, before its one-time heading.
+Authenticate the raw-picture identity, palette7, font map, bank0/1 source RLE,
+metrics, eligibility, SFN1 schema/exact lengths/payloads and atlas padding.
+Capture bounded source strings. Observe the original whole-string shadow pass
+before the face pass and retain the heading's indexed backup plus commands.
+Every original memcpy restore is verified against this cached heading. Row
+frames snapshot selection, visibility, episode availability and disabled Network
+role; bounded run grammar validates source, bank, alignment, coordinates, hue,
+brightness, operators and each original pixel write, including same-index writes.
+Unknown operations or source mismatch reject enhancement; original drawing has
+already proceeded unchanged. Unsupported text rejects the entire enhanced frame.
+
+First complete frame precedes10-step fade-in. Live palette updates are checked
+at each declared fade step. Original10-step accept and15-step cancel remain
+unchanged; lease ends after final presentation and before the original return/
+episode initialization. Cursor writes use the existing authenticated normal
+pointer's four tiles, including clipped pixels. Clear/picture/font-table/renderer
+lifecycle hooks invalidate/end; source-verified restores reacquire frames after
+geometry invalidation. Arbitration excludes startup/title/Settings/Load/gameplay
+owners. Texture release precedes renderer destruction.
+
+Compositing
+Original indexed replay supplies the destination-index operation
+H(i)=(i&240)|((i&15)/2). Authored coverage and discrete roles12–15 generate a
+transparent premultiplied ARGB layer at canonical1280×800. Ordered shadows and
+faces are composed at correlated canonical samples before output integration;
+role indices are never interpolated. Authored gaps remain transparent. The
+indexed pre-font PIC2 plus original cursor is separately passed through the
+exact currently selected software scaler and reference-texture sampling mode.
+No complete RGB scene is reduced to manufacture font antialiasing.
+
+For each output pixel, integrate only the ordered premultiplied font layer across
+its canonical footprint on reducing axes; magnified axes use nearest coverage.
+Composite that result over the exact selected-scaler underlay pixel. This makes
+background pixels outside original/authored glyph influence exactly unchanged.
+The fixed8-bit premultiplication arithmetic is explicit and independently tested;
+it is not claimed bit-identical to previous full-scene Settings/Load compositors
+at fractional alpha. Fully opaque ink and alpha gaps retain exact semantics.
+
+Coordinates derive from actual renderer output, destination, renderer scale and
+physical viewport/clip, matching SDL's software-renderer destination rounding.
+The original window-coordinate destination and inverse input mapping are never
+corrected or rescaled. Thus renderer/window mismatch follows the same baseline
+frame geometry rather than guessing a DPI multiplier. Signed clipping handles
+negative and partial destinations; no640/1280 or monitor-name admission list.
+Original title/Settings/Load geometry restrictions remain separately qualified.
+
+Cursor correctness boundary
+The ordinary cursor keeps its chosen scaler. A conservative cursor/filter source
+dependency rectangle is locally restored from the exact original classic output;
+this retains original text beneath the pointer and avoids nearest-repainted
+cursor edges, missing-text halos and whole-frame typography flicker. HD typography
+inside that small cursor neighbourhood is deliberately not promised. The output
+module tests exact classic pixels there. The source cursor write bounding box is
+expanded by the selected scaler dependency radius (nearest0, Scale/HQ1), plus
+one original pixel when reference sampling is non-nearest. It is mapped outward
+to output pixels and clipped to the affected font region/viewport/output. Those
+exact classic output pixels are saved in reusable streaming128×64 tiles and
+restored1:1 last; this is a correctness fallback,
+not new cursor artwork or a separate cursor/filter compositor.
+
+Bounds
+Fixed canonical font plane4,096,000 bytes; two source payloads1,622,016 bytes;
+source/indexed snapshots, masks and512 commands are fixed-size. The new lease's
+compile-time8MiB fixed CPU working-set accounting includes conservative1.2MiB retained old-owner
+statics and70KiB output-module statics. Dynamically checked cursor-texture pointer descriptors and GPU/software SDL
+texture storage are reported separately; no full-resolution4K CPU output canvas is allocated by the
+new presenter. This new retained static storage also exists while old owners run,
+so older7MiB module-only budget reports do not include the added selector statics.
+Resource/unsupported-renderer failure returns to the original classic presenter.

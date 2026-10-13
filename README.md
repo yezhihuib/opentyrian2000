@@ -258,3 +258,12 @@ Windows execution are not claimed. Reproduce the exact nine files with
 `python3 prototype/settings_font_bundle.py --output /absolute/new/directory`.
 
 The same `startup-title-settings-v1` pack now also supports bounded Load typography, with whole-frame classic fallback for unsupported names or scalers; see [Load usage](docs/load-font-v1/USAGE.txt).
+
+The same `startup-title-settings-v1` pack now covers Players/mode, Episode,
+Difficulty (including original unlock rows) and Timed Battle selection. These
+four selectors map font coverage to actual output/viewport geometry; native
+2×/4× and an odd 1365×767 output passed bounded software-renderer checks. Existing
+title/Settings/Load geometry limits remain unchanged; pre-game root/item screens
+are still queued separately. Keep the same `--startup-assets` directory and
+existing large/medium SFN1 filenames; no new artwork is required.
+[Selector scope, cursor fallback and acceptance limits](docs/selector-font-v1/NATIVE-ACCEPTANCE.txt).

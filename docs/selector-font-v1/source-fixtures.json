@@ -1,0 +1,151 @@
+{
+  "schema": "startup-selector-source-fixtures-v1",
+  "raw_pic2": {
+    "bytes": 64000,
+    "fnv64": "ed50daf064c720e4",
+    "sha256": "7e8e50a667af2766554266581ced6eeda6c6de29e9c0b703e0da9cb0f2d4c052"
+  },
+  "original_files": {
+    "tyrian.hdt": "fde8506326e7bb0916b38c362e33bf8a8a5affa561206c021af7f65b4a17745b",
+    "tyrian.pic": "76fa51ba6878c886f67daa65cf6d19968615e4423822c9fe1dde797fc2f8d802",
+    "tyrian.shp": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+    "palette.dat": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0",
+    "newsh1.shp": "77827c137462ebaa53ad9c6d190224a6e0e1d00bf36cff2c7c66f82b00b7026a"
+  },
+  "menus": {
+    "gameplay": [
+      {
+        "record": 300,
+        "offset": 10292,
+        "text": "Players"
+      },
+      {
+        "record": 301,
+        "offset": 10300,
+        "text": "1 Player Full Game"
+      },
+      {
+        "record": 302,
+        "offset": 10319,
+        "text": "1 Player Arcade"
+      },
+      {
+        "record": 303,
+        "offset": 10335,
+        "text": "1 Player Timed Battle"
+      },
+      {
+        "record": 304,
+        "offset": 10357,
+        "text": "2 Player Arcade"
+      },
+      {
+        "record": 305,
+        "offset": 10373,
+        "text": "Modem/Network Game"
+      }
+    ],
+    "episode": [
+      {
+        "record": 283,
+        "offset": 9994,
+        "text": "Select an Episode"
+      },
+      {
+        "record": 284,
+        "offset": 10012,
+        "text": "Episode 1: Escape"
+      },
+      {
+        "record": 285,
+        "offset": 10030,
+        "text": "Episode 2: Treachery "
+      },
+      {
+        "record": 286,
+        "offset": 10052,
+        "text": "Episode 3: Mission: Suicide"
+      },
+      {
+        "record": 287,
+        "offset": 10080,
+        "text": "Episode 4: An End to Fate"
+      },
+      {
+        "record": 288,
+        "offset": 10106,
+        "text": "Episode 5: Hazudra Fodder"
+      }
+    ],
+    "difficulty": [
+      {
+        "record": 291,
+        "offset": 10182,
+        "text": "Difficulty Level"
+      },
+      {
+        "record": 292,
+        "offset": 10199,
+        "text": "Easy"
+      },
+      {
+        "record": 293,
+        "offset": 10204,
+        "text": "Normal"
+      },
+      {
+        "record": 294,
+        "offset": 10211,
+        "text": "Hard"
+      },
+      {
+        "record": 295,
+        "offset": 10216,
+        "text": "Impossible"
+      },
+      {
+        "record": 296,
+        "offset": 10227,
+        "text": "Suicide"
+      },
+      {
+        "record": 297,
+        "offset": 10235,
+        "text": "Lord of Game"
+      }
+    ],
+    "timed_battle": [
+      {
+        "record": 502,
+        "offset": 17723,
+        "text": "Timed Battle Selection"
+      },
+      {
+        "record": 503,
+        "offset": 17746,
+        "text": "Deliani"
+      },
+      {
+        "record": 504,
+        "offset": 17754,
+        "text": "Space Station"
+      },
+      {
+        "record": 505,
+        "offset": 17768,
+        "text": "Savara"
+      }
+    ]
+  },
+  "resource_sha256": {
+    "settings-font-tiny-v1.hda": "888b635af0c123dc77fecf2f50a2e603f85a0fb6ad74a1c4215b29affc28a35c",
+    "settings-font-large-v1.hda": "7827555a736375ff45bd78dc2c05c5651e65d3b024527e8dba525d3beff721e5",
+    "settings-font-medium-v1.hda": "51852f5d54516de70a5729e991fb14104871b9ad58991f0352899ab4502bd484"
+  },
+  "original_art_distributed": false,
+  "notes": [
+    "Difficulty enum ZINGLON uses original display text Lord of Game.",
+    "Raw PIC2 is not Settings/Load bottom8-cleared PIC2.",
+    "Tiny resource is recorded for existing pack identity but never required by selector lease."
+  ]
+}

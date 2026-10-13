@@ -1,0 +1,81 @@
+2026-10-13: SOURCE/UNIT CHECKPOINT WITH SUBSEQUENT NATIVE ACCEPTANCE
+Base568dc134dd107c5e2331853f43c69a16ff800f3d. Existing urgent Data repair is
+retained byte/token-exact apart from dormant selector observer dispatch.
+The source/unit checkpoint below preceded the runtime gate. Subsequent bounded
+native-executable acceptance is recorded in NATIVE-ACCEPTANCE.txt; isolated test
+profiles were used. Main branch, Windows package and user saves/configs were not
+changed by this candidate. Independent source review had no blocking finding.
+
+Passed against final source
+- Historical gameplay regressions: all69 manual-HD cases; Data baseline/candidate
+  at densities4/8, each20 cases/266 checks,102400 predicates with sole266/0x70
+  delta. Nine-file selector token projection and exact three-line renderer-hook
+  removal keep original C harnesses/assertions intact; six negative controls pass.
+- Independent source review:PASS; fresh separate33-case output rerun and
+  token-projection/source-pin verification. Only a trailing-space cleanup followed.
+- Release build: make -j4 WITH_NETWORK=false, existing local approved SDL prefix.
+- Selector core:203 states,361,097,946 checks, normal and ASan+UBSan.
+  All4 contexts; all32 episode-availability masks; every selected row; difficulty
+  visible3,4,5,6; original native display strings read from tyrian.hdt; cached
+  heading; exact original indexed frames/write traces; independent ordered
+  premultiplied oracle; no original coverage ghost in authored gaps; every10-step
+  enter,10-step accept and15-step cancel; five cursor positions including edges;
+  actual glyph+cursor presenter integration at640×400,1365×767 and partial800×500.
+  Unsupported character, unknown same-index write, command overflow, source-RLE
+  mutation, cached-backup mutation, wrong fade, invalid selected index, geometry
+  invalidation/reacquisition, invalid cursor source and Settings/Load ownership
+  transitions fail/recover within the stated lease. SFN1 header/payload/length,
+  missing/nonregular resource, absent tiny, and all3 own-allocation failures tested.
+- Output module:33 renderer cases,28,246,374 checks, normal and ASan+UBSan.
+  All9 existing scalers, nearest and linear reference sampling;320×200 through
+  3840×2160; odd/negative destination; independent x/y and fractional scale;
+  viewport, clip, logical-size state; alpha gaps; exact local classic cursor
+  footprint and four clipped cursor edges; resource reuse and injected allocation,
+  readback, upload and copy failures. Checks state restoration and next-call recovery.
+- Settings existing core:359 states,339,687,940 checks passed with actual dormant
+  selector module linked. Load existing core:192 source layouts,138,723,449 checks
+  passed. Their runners add only new hook link dependencies, no assertion changes.
+- Source projection:all9 changed existing C files reduce to the exact base token
+  stream after bounded selector hooks are removed. All original input/state,
+  hidden difficulty unlock, transition, mouse/joystick/network/audio and draw/fade
+  statements are preserved. Windows project inventory includes every C source
+  exactly once.691,873,108 existing asset bytes and7,315 prior files unchanged.
+- git diff whitespace check passes with cr-at-eol for the preserved palette.c
+  CRLF convention. New module compilation passes -Wall -Wextra -Werror.
+
+Memory evidence
+Selector static622,264 bytes; peak owned resource/canonical allocation5,718,016;
+output static32,832. Owned allocation accounting returns to zero on shutdown and
+all tested failures. New selector8MiB fixed CPU working-set bound includes conservative1.2MiB
+inactive Settings/Load statics and70KiB output statics. Cursor snapshot texture
+pool and its checked dynamically allocated pointer descriptors are separate storage, tiled128×64 (or smaller actual renderer limits),
+growing only to the observed cursor neighbourhood and reused at stable geometry.
+The new module allocates no full output-resolution CPU canvas.
+
+Limitations and qualifications
+LeakSanitizer itself cannot run under this executor's ptrace; sanitizers were run
+with ASAN_OPTIONS=detect_leaks=0. Explicit module allocation/resource release
+checks pass, but that is not an LSan pass.
+
+Output geometry tests use SDL software renderers. Actual Windows renderer,
+physical DPI100/125/150/200%, monitor movement, real fullscreen/resize during
+menu/fade and physical keyboard/mouse/joystick remain pending. The separate native
+record covers synthetic ordinary SDL key events, settled screenshots and one
+normal window resize on the software/dummy backend. Token projection is not a
+physical control playthrough. Readback latency/performance is not hardware-qualified.
+
+Title/Settings/Load keep their previously bounded portability. Equipment/shop's
+15 contexts are a separate future batch. A small conservative cursor neighbourhood
+is restored from classic pixels, so HD text inside that area is intentionally not
+promised. Ordinary background/scaler/input behavior is preserved elsewhere.
+
+Reproduce
+source the selected environment's existing SDL dependency env.sh, then run:
+  bash tests/run_selector_font_tests.sh ORIGINAL_DATA_DIR SFN1_RESOURCE_DIR
+  ASAN_OPTIONS=detect_leaks=0 bash tests/run_selector_font_tests.sh --sanitize ORIGINAL_DATA_DIR SFN1_RESOURCE_DIR
+  bash tests/run_selector_font_output_tests.sh
+  ASAN_OPTIONS=detect_leaks=0 bash tests/run_selector_font_output_tests.sh --sanitize
+  bash tests/run_settings_font_tests.sh ORIGINAL_DATA_DIR SFN1_RESOURCE_DIR
+  bash tests/run_load_font_tests.sh ORIGINAL_DATA_DIR SFN1_RESOURCE_DIR
+  python3 tests/test_selector_font_integration.py
+No original bitmap, game data, user configuration or save is distributed here.

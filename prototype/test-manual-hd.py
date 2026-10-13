@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Build real-source units, never run the game. Requires a prior Linux make build."""
-import argparse, hashlib, json, os, re, shlex, shutil, subprocess
+import argparse, hashlib, json, os, re, runpy, shlex, shutil, subprocess
 from pathlib import Path
 p=argparse.ArgumentParser(description=__doc__);p.add_argument('--out',type=Path,required=True);a=p.parse_args()
 root=Path(__file__).resolve().parents[1];out=a.out.resolve();assert not out.exists();out.mkdir(parents=True)
@@ -13,7 +13,9 @@ def run(cmd,**kw):
 # Exact-file preservation for all unapproved production files and every asset.
 allowed={'src/game_probe.c','src/game_probe.h','src/opentyr.c','src/params.c','src/render_mirror.c'}
 changed=run(['git','-C',root,'diff',base,'--name-only','--','src','assets']).splitlines()
-assert set(changed)<=allowed,changed
+selector=runpy.run_path(str(root/'tests/test_selector_font_integration.py'))
+selector_sources,selector_projected_mirror=selector['regression_projection']()
+assert set(changed)<=allowed|selector_sources,changed
 baseline=lambda f:subprocess.check_output(['git','-C',root,'show',base+':'+f]).decode()
 def function(source,name):
     m=re.search(r'^[A-Za-z_][^\n;{}]*\b'+name+r'\([^;{}]*\)\s*\{',source,re.M);assert m,name
@@ -30,7 +32,7 @@ old=baseline('src/render_mirror.c');names=re.findall(r'^(?:static\s+)?(?:bool|vo
 # manual-mode preservation gate exact after projecting only that bounded edit.
 data_addition=' /* The original Data pickup is fixed sprite266 with a warm0x70 glyph,\n  * unlike the blue/gray cash values. Keep it under the same source/Talon/\n  * monotone-ramp checks instead of restoring the connected HD scene. */\n bool data=index==266&&hue==0x70;\n'
 assert mirror.count(data_addition)==1
-preserved_mirror=mirror.replace(data_addition,'').replace('||(value&&(hue==0x80||hue==0x90))||data;', '||(value&&(hue==0x80||hue==0x90));')
+preserved_mirror=selector_projected_mirror.replace(data_addition,'').replace('||(value&&(hue==0x80||hue==0x90))||data;', '||(value&&(hue==0x80||hue==0x90));')
 for name in names:
     if name not in modified:assert function(old,name)==function(preserved_mirror,name),name
 opentyr=(root/'src/opentyr.c').read_text();start=opentyr.index('\tif (manual_hd_enabled &&');end=opentyr.index('\n\tif (!override_xmas)',start)
@@ -100,5 +102,5 @@ check(['unit-render',str(fixture),'1','1'],contains='banking units passed')
 check(['unit-render',str(out/'absent'),'0','0'],contains='banking units passed')
 bad=out/'invalid';shutil.copytree(fixture,bad);(bad/'bullet-59-8.hda').write_bytes(b'BAD!');(bad/'talon-bank-1-8.hda').unlink()
 check(['unit-render',str(bad),'0','0'],contains='banking units passed')
-report={'status':'passed','base':base,'cases':len(results),'results':results,'unchanged_render_helpers':len(names)-len(modified),'source_sha256':{f:sha((root/f).read_bytes()) for f in sorted(allowed)},'scope':'Real-source units only. No game launch, native input or Windows runtime claim.'}
+report={'status':'passed','base':base,'cases':len(results),'selector_projection_base':selector['BASE'],'selector_source_token_projections':9,'results':results,'unchanged_render_helpers':len(names)-len(modified),'source_sha256':{f:sha((root/f).read_bytes()) for f in sorted(allowed)},'scope':'Real-source units only. No game launch, native input or Windows runtime claim.'}
 (out/'report.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps({k:v for k,v in report.items() if k!='results'},indent=2))

@@ -1,0 +1,29 @@
+Candidate startup selector typography
+
+The existing --startup-assets directory must contain the unchanged authenticated
+settings-font-large-v1.hda and settings-font-medium-v1.hda from the accepted
+startup-title-settings-v1 pack. No new flag, artwork, configuration or tiny font
+is needed for this finite batch.
+
+Covered screens: Players/gameplay mode, episode, difficulty (all6 original rows
+when unlocked), and Timed Battle Selection. Original disabled roles, layout,
+source-string metrics, state, controls and fades remain unchanged.
+
+The new selector-only output path follows actual renderer destination/viewport
+geometry and the selected scaler at arbitrary supported output dimensions. It
+keeps a small classic cursor/filter neighbourhood to preserve the pointer and
+underlying text exactly. Unsupported resources/source operations or genuine
+renderer failure leave the original classic frame.
+
+This candidate has passed independent source review, source/unit/software-renderer
+tests and the bounded native-executable navigation matrix at 640x400, 1280x800
+and 1365x767. See NATIVE-ACCEPTANCE.txt for the retained R5 endpoint-guard
+exception and exact scope. Windows hardware/DPI/physical controls and performance
+remain unqualified. Existing main-title, Settings and Load output restrictions
+are unchanged; equipment/shop remains separate.
+
+Windows source handoff: visualc/opentyrian.vcxproj includes both new C files
+(src/selector_font.c, src/selector_font_output.c) and both matching headers.
+Keep the same --startup-assets directory and unchanged filenames above. No new
+artwork, SFN1 resource, flag, persistent configuration, or package is required.
+The project source list is integrated; no MSVC build or Windows run is claimed.

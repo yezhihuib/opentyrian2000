@@ -17,6 +17,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 #include "menus.h"
+#include "selector_font.h"
 
 #include "config.h"
 #include "episodes.h"
@@ -70,13 +71,17 @@ bool gameplaySelect(void)
 		if (restart)
 		{
 			JE_loadPic(VGAScreen2, 2, false);
+			selector_font_begin(SELECTOR_GAMEPLAY, VGAScreen, VGAScreen2);
 
 			// Draw header.
+			selector_font_run_begin(SELECTOR_HEADING, 0, VGAScreen2, xCenter, yMenuHeader, gameplay_name[0], large_font, centered, 15, -3);
 			draw_font_hv_shadow(VGAScreen2, xCenter, yMenuHeader, gameplay_name[0], large_font, centered, 15, -3, false, 2);
+			selector_font_run_end();
 		}
 
 		// Restore background and header.
 		memcpy(VGAScreen->pixels, VGAScreen2->pixels, (size_t)VGAScreen->pitch * VGAScreen->h);
+		selector_font_frame_begin(selectedIndex, menuItemsCount);
 
 		// Draw menu items.
 		for (size_t i = 0; i < menuItemsCount; ++i)
@@ -90,8 +95,12 @@ bool gameplaySelect(void)
 			const bool selected = i == selectedIndex;
 			const bool disabled = i == MENU_ITEM_NETWORK;
 
+			selector_font_run_begin(SELECTOR_ROW, i, VGAScreen, x, y, text, normal_font, left_aligned, 15, -4 + (selected ? 2 : 0) + (disabled ? -4 : 0));
 			draw_font_hv_shadow(VGAScreen, x, y, text, normal_font, left_aligned, 15, -4 + (selected ? 2 : 0) + (disabled ? -4 : 0), false, 2);
+			selector_font_run_end();
 		}
+
+		selector_font_frame_end();
 
 		if (restart)
 		{
@@ -104,9 +113,12 @@ bool gameplaySelect(void)
 
 		service_SDL_events(true);
 
+		selector_font_cursor_begin();
 		JE_mouseStart();
+		selector_font_cursor_done();
 		JE_showVGA();
 		JE_mouseReplace();
+		selector_font_cursor_erased();
 
 		bool mouseMoved = false;
 		do
@@ -219,6 +231,7 @@ bool gameplaySelect(void)
 				JE_playSampleNum(S_SELECT);
 
 				fade_black(10);
+				selector_font_end();
 
 				onePlayerAction = selectedIndex == MENU_ITEM_1_PLAYER_ARCADE;
 				timedBattleMode = selectedIndex == MENU_ITEM_1_PLAYER_TIMED_BATTLE;
@@ -238,6 +251,7 @@ bool gameplaySelect(void)
 		if (cancel)
 		{
 			fade_black(15);
+			selector_font_end();
 
 			return false;
 		}
@@ -267,13 +281,17 @@ bool episodeSelect(void)
 		if (restart)
 		{
 			JE_loadPic(VGAScreen2, 2, false);
+			selector_font_begin(SELECTOR_EPISODE, VGAScreen, VGAScreen2);
 
 			// Draw header.
+			selector_font_run_begin(SELECTOR_HEADING, 0, VGAScreen2, xCenter, yMenuHeader, episode_name[0], large_font, centered, 15, -3);
 			draw_font_hv_shadow(VGAScreen2, xCenter, yMenuHeader, episode_name[0], large_font, centered, 15, -3, false, 2);
+			selector_font_run_end();
 		}
 
 		// Restore background and header.
 		memcpy(VGAScreen->pixels, VGAScreen2->pixels, (size_t)VGAScreen->pitch * VGAScreen->h);
+		selector_font_frame_begin(selectedIndex, menuItemsCount);
 
 		// Draw menu items.
 		for (size_t i = 0; i < menuItemsCount; ++i)
@@ -286,8 +304,12 @@ bool episodeSelect(void)
 			const bool selected = i == selectedIndex;
 			const bool disabled = !episodeAvail[i];
 
+			selector_font_run_begin(SELECTOR_ROW, i, VGAScreen, xMenuItem, y, text, normal_font, left_aligned, 15, -4 + (selected ? 2 : 0) + (disabled ? -4 : 0));
 			draw_font_hv_shadow(VGAScreen, xMenuItem, y, text, normal_font, left_aligned, 15, -4 + (selected ? 2 : 0) + (disabled ? -4 : 0), false, 2);
+			selector_font_run_end();
 		}
+
+		selector_font_frame_end();
 
 		if (restart)
 		{
@@ -300,9 +322,12 @@ bool episodeSelect(void)
 
 		service_SDL_events(true);
 
+		selector_font_cursor_begin();
 		JE_mouseStart();
+		selector_font_cursor_done();
 		JE_showVGA();
 		JE_mouseReplace();
+		selector_font_cursor_erased();
 
 		bool mouseMoved = false;
 		do
@@ -411,6 +436,7 @@ bool episodeSelect(void)
 				JE_playSampleNum(S_SELECT);
 
 				fade_black(10);
+				selector_font_end();
 
 				JE_initEpisode(selectedIndex + 1);
 				initial_episode_num = episodeNum;
@@ -425,6 +451,7 @@ bool episodeSelect(void)
 		if (cancel)
 		{
 			fade_black(15);
+			selector_font_end();
 
 			return false;
 		}
@@ -455,13 +482,17 @@ bool difficultySelect(void)
 		if (restart)
 		{
 			JE_loadPic(VGAScreen2, 2, false);
+			selector_font_begin(SELECTOR_DIFFICULTY, VGAScreen, VGAScreen2);
 
 			// Draw header.
+			selector_font_run_begin(SELECTOR_HEADING, 0, VGAScreen2, xCenter, yMenuHeader, difficulty_name[0], large_font, centered, 15, -3);
 			draw_font_hv_shadow(VGAScreen2, xCenter, yMenuHeader, difficulty_name[0], large_font, centered, 15, -3, false, 2);
+			selector_font_run_end();
 		}
 
 		// Restore background and header.
 		memcpy(VGAScreen->pixels, VGAScreen2->pixels, (size_t)VGAScreen->pitch * VGAScreen->h);
+		selector_font_frame_begin(selectedIndex, menuItemsVisibleCount);
 
 		// Draw menu items.
 		for (size_t i = 0; i < menuItemsVisibleCount; ++i)
@@ -474,8 +505,12 @@ bool difficultySelect(void)
 
 			const bool selected = i == selectedIndex;
 
+			selector_font_run_begin(SELECTOR_ROW, i, VGAScreen, x, y, text, normal_font, left_aligned, 15, -4 + (selected ? 2 : 0));
 			draw_font_hv_shadow(VGAScreen, x, y, text, normal_font, left_aligned, 15, -4 + (selected ? 2 : 0), false, 2);
+			selector_font_run_end();
 		}
+
+		selector_font_frame_end();
 
 		if (restart)
 		{
@@ -488,9 +523,12 @@ bool difficultySelect(void)
 
 		service_SDL_events(true);
 
+		selector_font_cursor_begin();
 		JE_mouseStart();
+		selector_font_cursor_done();
 		JE_showVGA();
 		JE_mouseReplace();
+		selector_font_cursor_erased();
 
 		bool mouseMoved = false;
 		do
@@ -662,6 +700,7 @@ bool difficultySelect(void)
 			}
 
 			fade_black(10);
+			selector_font_end();
 
 			return true;
 		}
@@ -669,6 +708,7 @@ bool difficultySelect(void)
 		if (cancel)
 		{
 			fade_black(15);
+			selector_font_end();
 
 			return false;
 		}
@@ -697,13 +737,17 @@ bool timedBattleSelect(void)
 		if (restart)
 		{
 			JE_loadPic(VGAScreen2, 2, false);
+			selector_font_begin(SELECTOR_TIMED, VGAScreen, VGAScreen2);
 
 			// Draw header.
+			selector_font_run_begin(SELECTOR_HEADING, 0, VGAScreen2, xCenter, yMenuHeader, timed_battle_name[0], large_font, centered, 15, -3);
 			draw_font_hv_shadow(VGAScreen2, xCenter, yMenuHeader, timed_battle_name[0], large_font, centered, 15, -3, false, 2);
+			selector_font_run_end();
 		}
 
 		// Restore background and header.
 		memcpy(VGAScreen->pixels, VGAScreen2->pixels, (size_t)VGAScreen->pitch * VGAScreen->h);
+		selector_font_frame_begin(selectedIndex, menuItemsCount);
 
 		// Draw menu items.
 		for (size_t i = 0; i < menuItemsCount; ++i)
@@ -716,8 +760,12 @@ bool timedBattleSelect(void)
 
 			const bool selected = i == selectedIndex;
 
+			selector_font_run_begin(SELECTOR_ROW, i, VGAScreen, x, y, text, normal_font, left_aligned, 15, -4 + (selected ? 2 : 0));
 			draw_font_hv_shadow(VGAScreen, x, y, text, normal_font, left_aligned, 15, -4 + (selected ? 2 : 0), false, 2);
+			selector_font_run_end();
 		}
+
+		selector_font_frame_end();
 
 		if (restart)
 		{
@@ -730,9 +778,12 @@ bool timedBattleSelect(void)
 
 		service_SDL_events(true);
 
+		selector_font_cursor_begin();
 		JE_mouseStart();
+		selector_font_cursor_done();
 		JE_showVGA();
 		JE_mouseReplace();
+		selector_font_cursor_erased();
 
 		bool mouseMoved = false;
 		do
@@ -840,6 +891,7 @@ bool timedBattleSelect(void)
 			JE_playSampleNum(S_SELECT);
 
 			fade_black(10);
+			selector_font_end();
 
 			// I don't know how T2K determines episode from this,
 			// I'm assuming it's hardcoded
@@ -851,6 +903,7 @@ bool timedBattleSelect(void)
 		if (cancel)
 		{
 			fade_black(15);
+			selector_font_end();
 
 			return false;
 		}

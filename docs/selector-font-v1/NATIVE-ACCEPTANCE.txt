@@ -1,0 +1,110 @@
+2026-10-13: BOUNDED NATIVE SELECTOR ACCEPTANCE
+
+Tested production source: 8e23afb77d059f37e0872ca5129d19106188de5c,
+based on Data fix 568dc134dd107c5e2331853f43c69a16ff800f3d. The final
+source branch is based on published Data commit
+4c03d538fd5b2c03fdc6e983511f04c3695cc118, with all production C/header
+bytes, assets and Visual Studio source inventory identical to the tested tree.
+See publication-source-identity.json. Runnable preservation tests use published
+4c03d53 rather than requiring local-only history. Subsequent
+acceptance docs and regression harness changes do not change production bytes.
+Independent source, fixture and native-evidence reviews: PASS, with the R5
+capture exception below. No main merge, publication or Windows package by this
+candidate task.
+
+Scope and actual runs
+- R1/R2: original/candidate at native 2x, 640x400, Integer. Four cancel routes,
+  disabled Network acceptance rejection, Easy/Normal/Hard, Timed Deliani ->
+  Savara -> Deliani wrap, then Full Game / Episode 1 / Normal accept to shop.
+  12 captures each, 260 selector presentations each, 25.2/25.4 seconds.
+- R3/R4: original/candidate at native 4x, 1280x800, Integer. Full / 1 / Normal
+  to shop. Four captures and 63 selector presentations each, under 10 seconds.
+- R5/R6: original/candidate normal SDL window resize to 1365x767, Fit 4:3.
+  Actual output/viewport 1365x767; scene destination (171,0,1022,767).
+  Timed Battle / Savara / Normal native outcome. Three paired selector images
+  and 66 selector presentations each. R6 four captures, 12.9 seconds.
+- R7: candidate 2x with only settings-font-medium-v1.hda omitted in a private
+  pack view. Full / 1 / Normal to shop, four captures, 9.7 seconds. All three
+  selector PNG, indexed and palette files equal the original baseline exactly.
+
+All game processes ran serially, bounded by a 90-second hard watchdog and
+normal SDL_QUIT cleanup. Each used its own temporary profile. Ordinary SDL
+input events only; no modifier state, game state, callbacks or expected labels
+were injected. Backend was SDL software with the dummy video driver, not a
+physical display. Background/scaler/destination/input-transform code unchanged.
+
+Independent evidence
+Authenticated original PIC2, sprite RLE and text metrics reconstruct every
+settled selector indexed capture exactly, including selected/disabled rows.
+Raw ordered original-source/palette signatures match for all 389 paired selector
+presentations (260 + 63 + 66). They establish original 10-step enter/accept and
+15-step cancel fades. All 17 paired settled selector RGB captures change zero
+pixels outside original/authored glyph support. SFN1 resources are authenticated.
+The exact source/palette sequence is a fade proof; individual fade RGB output
+images were not retained and are not claimed pixel-equal. Actual 2x/4x/odd
+screens passed independent visual inspection.
+
+Honest exceptions and observer qualification
+The first R1 attempt stopped at a private capture guard because the executor
+blocks process_vm_readv even for its own buffer. Its receipt is retained. The
+reviewed correction uses ordinary same-process reads from an authenticated live
+SDL surface, fresh readable mappings, exact type/format/pitch/extent checks and
+rejects locked/MUSTLOCK surfaces. It does not escalate access or change the game.
+R1 was rerun successfully with that observer.
+
+The original R5 controller result remains FAIL. Its final guard incorrectly
+expected selected Normal (2) to remain runtime difficulty 2, and an optional HD
+mirror counter to advance in a scene outside that lease. Original source reduces
+episode-5 difficulty to 1. Retained evidence independently proves the actual
+Timed Savara outcome in 438 observations (episode 5, selection 3, one-player,
+alive, level 4 and advancing native level state), and all three selector captures
+pass. The requested fourth gameplay-outcome screenshot is missing. A versioned
+read-only reevaluation records PASS for the native outcome without another run;
+the original FAIL receipt is unchanged. R6 used the corrected original-source
+endpoint and captured its outcome. No combat inputs were sent.
+
+Compiler tail calls make the candidate fade_black stack marker miss fade_solid.
+The in_fade telemetry flag is therefore only a hint. Acceptance instead checks
+actual palette sequences and equality of every settled capture to target colors.
+
+Portability and conservative cursor boundary
+Only these four selector contexts use the new output-coordinate sampler. The
+original title, Settings and Load presenter limits are unchanged and separately
+qualified. Shop/equipment's 15 contexts remain a separate batch. The pointer
+keeps its original scaler; its classic write box is expanded by the selected
+scaler dependency radius (nearest 0; Scale/HQ 1), plus one source pixel for
+non-nearest reference sampling, mapped outward and clipped. Classic output is
+restored only in that local font/cursor neighbourhood. HD text inside this
+conservative region is intentionally not promised; there is no frame-wide font
+fallback or flicker from ordinary cursor movement.
+
+No Windows hardware, physical DPI, monitor move, real modifier/keyboard/mouse/
+joystick, fullscreen/fade resize or performance acceptance is claimed. Native
+hidden difficulty unlocks and unavailable episode roles were not exercised;
+the source/core suite covers all six rows and all episode availability masks.
+
+Windows source handoff
+The same startup-title-settings-v1 --startup-assets directory suffices, with
+unchanged settings-font-large-v1.hda and settings-font-medium-v1.hda. No new art
+or resource format. visualc/opentyrian.vcxproj adds ClCompile entries for
+..\src\selector_font.c and ..\src\selector_font_output.c, and ClInclude entries
+for the matching headers. No new package or MSVC runtime qualification.
+
+Retained native evidence
+Archive selector-native-evidence-8e23afb-20261013.tar.gz: 4,090,457 bytes.
+SHA256 50e524c9cf1826a89d71f595c4d45dd7daaaf5a517c392c50c6cd0ef1ef24c9b.
+Final 247-artifact receipt SHA256:
+d05fa66e138b1d9b36be45c71ff8ab12e3cfb72dfc44f87102bc0972b4c284f3.
+It contains immutable binaries, reviewed private fixture, screenshots, per-present
+source/palette records, independent oracles and preserved failure receipts. No
+original game-data asset directory is included. Native acceptance summary is
+also in native-matrix-summary.json beside this document.
+
+Published-base regression rerun
+A fresh Linux build and both historical regression suites pass again on the
+final isolated 4c03d53-based tree: manual-HD69/69 and Data baseline/candidate
+at densities4/8 (20 cases/266 checks each;102400 predicate combinations).
+Only the intended glyph266/hue0x70 Data predicate differs from its original
+base. Test-only projections retain all original C assertions; negative controls
+reject unrelated source/assets and renderer/predicate changes. English/Chinese
+README additions are explicit documentation-only preservation exceptions.

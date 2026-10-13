@@ -3,6 +3,7 @@
  * Deliberately separate from settings grammar and gameplay font ownership.
  */
 #include "load_font.h"
+#include "selector_font.h"
 #include "settings_font.h"
 #include "config.h"
 #include "helptext.h"
@@ -166,7 +167,7 @@ static bool palette_matches(void)
 }
 void load_font_begin(SDL_Surface *screen,SDL_Surface *backup)
 {
- load_font_end();settings_font_end();if(settings_font_static_bytes()>SF_SETTINGS_STATIC_BOUND||!directory||!geometry(screen)||!geometry(backup)||screen!=VGAScreen||screen!=VGAScreenSeg||backup!=VGAScreen2||palette_count<=7||palette_hash(palettes[7])!=SF_PAL||palette_hash(colors)!=SF_PAL||!main_window_tex_format||main_window_tex_format->BitsPerPixel!=32||hash(backup->pixels,SF_N)!=SF_BASE||!source(true))return;
+ load_font_end();settings_font_end();selector_font_end();if(settings_font_static_bytes()>SF_SETTINGS_STATIC_BOUND||!directory||!geometry(screen)||!geometry(backup)||screen!=VGAScreen||screen!=VGAScreenSeg||backup!=VGAScreen2||palette_count<=7||palette_hash(palettes[7])!=SF_PAL||palette_hash(colors)!=SF_PAL||!main_window_tex_format||main_window_tex_format->BitsPerPixel!=32||hash(backup->pixels,SF_N)!=SF_BASE||!source(true))return;
  for(unsigned b=0;b<3;b+=2)if(!load(b)){load_font_end();return;}
  sf.output=malloc(SF_OUT_BYTES);if(!sf.output){load_font_end();return;}
  sf.screen=screen;sf.backup=backup;sf.pixels=screen->pixels;sf.backup_pixels=backup->pixels;sf.format=screen->format;sf.backup_format=backup->format;memcpy(sf.base,backup->pixels,SF_N);

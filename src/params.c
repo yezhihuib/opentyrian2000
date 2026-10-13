@@ -18,6 +18,7 @@
  */
 #include "settings_font.h"
 #include "load_font.h"
+#include "selector_font.h"
 #include "params.h"
 #include "startup_logos.h"
 #include "title_layers.h"
@@ -139,6 +140,7 @@ void JE_paramCheck(int argc, char *argv[])
 			title_layers_set_directory(option.arg);
 			settings_font_set_directory(option.arg);
 			load_font_set_directory(option.arg);
+			selector_font_set_directory(option.arg);
 			break;
 
 		case 'n':

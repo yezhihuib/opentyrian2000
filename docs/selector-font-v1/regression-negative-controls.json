@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "selector_projection_base": "4c03d538fd5b2c03fdc6e983511f04c3695cc118",
+  "source_commit": "d1373f958e4ce2a674cd2063b596ad38324ab3dd",
+  "documentation_only_exceptions": [
+    "README.md",
+    "README.zh-CN.md"
+  ],
+  "harness_sha256": {
+    "prototype/test-manual-hd.py": "bed43ef2522efb6e646958a0ac48f191fc756ea2902d807122451d3075b95d4d",
+    "prototype/test-datacube-blend.py": "8f01537795869b69e45580b4fe5a17221174663797fee254ac309112aceb46da",
+    "tests/test_selector_font_integration.py": "e3c7a4647a4a4a68b34df15f38e6e23684fff702b69fc5387582eeef66e5d658"
+  },
+  "cases": [
+    {
+      "case": "reject-unrelated-original-source",
+      "result": "rejected-as-required"
+    },
+    {
+      "case": "reject-unrelated-asset",
+      "result": "rejected-as-required"
+    },
+    {
+      "case": "reject-original-menu-token-change",
+      "result": "rejected-as-required"
+    },
+    {
+      "case": "reject-duplicate-renderer-hook",
+      "result": "rejected-as-required"
+    },
+    {
+      "case": "reject-byte-different-renderer-comment",
+      "result": "rejected-as-required"
+    },
+    {
+      "case": "reject-expanded-data-predicate",
+      "result": "rejected-as-required"
+    }
+  ],
+  "production_file_edits": false,
+  "method": "In-memory mutations of read results only; actual source files unchanged."
+}

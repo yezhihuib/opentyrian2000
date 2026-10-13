@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "baseline": "93008cc051b4b00c512dc9f8599849f6db1132e3",
+  "results": [
+    "PASS density=4 baseline=1 cases=20 checks=266 indexed-original-equal",
+    "PASS density=8 baseline=1 cases=20 checks=266 indexed-original-equal",
+    "PASS density=4 baseline=0 cases=20 checks=266 indexed-original-equal",
+    "PASS density=8 baseline=0 cases=20 checks=266 indexed-original-equal"
+  ],
+  "predicate_combinations": 102400,
+  "only_changed_predicate": [
+    [
+      266,
+      112,
+      "0",
+      "1"
+    ]
+  ],
+  "original_glyph266": {
+    "opaque_pixels": 85,
+    "hues": [
+      112
+    ],
+    "record_sha256": "541b6345856a67f8e758cdac796c8bac4b07c90669f617769a554c4a8f989388"
+  },
+  "data_fix_production_edit": "src/render_mirror.c exact266/0x70 predicate",
+  "selector_projection_base": "4c03d538fd5b2c03fdc6e983511f04c3695cc118",
+  "selector_source_token_projections": 9,
+  "baseline_mirror_sha256": "e19b2509887f7615caae6c71ac44d6f54a3871a13e8bfdab10bb8c8f39b888c4",
+  "candidate_mirror_sha256": "fcb559de1d18d2c78f83844605fa74e6836a41dab08feb6fac7ee878305b69c1",
+  "data_sha256": {
+    "newsh6.shp": "49e3d08e122ea71d6a621d2de127da00ce8a26ff73a0fb40d0cdd7ca2909d075",
+    "palette.dat": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+  },
+  "qualification": "Real renderer and original indexed sprite decoder; actual source glyph, synthetic connected HD underlay/ship ownership. No engine main, no natural gameplay or Windows claim."
+}
