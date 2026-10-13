@@ -1,0 +1,225 @@
+{
+  "status": "PASS exact fallback pixel identity",
+  "comparisons": [
+    {
+      "case": "missing266",
+      "tick": 6181,
+      "dimensions": [
+        640,
+        400
+      ],
+      "RGBA_pixels_compared": 256000,
+      "mismatches": 0,
+      "reference": "fresh recovered paired baseline b2a6e4a at same retained tick, before all artificial pulses",
+      "candidate_frame": {
+        "tick": 6181,
+        "width": 640,
+        "height": 400,
+        "path": "/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013/missing266-census/actual-6181-native2x.png",
+        "PNG_sha256": "f04fdb7d70204d6be3a6425f6003417d5f4555261392b6a489e3872139c61fed",
+        "RGBA_sha256": "7f84bf6f5670742ae9f5005df49eb1d4ce0551ac7eef391ba07d802e99714f2e"
+      },
+      "baseline_frame": {
+        "tick": 6181,
+        "width": 640,
+        "height": 400,
+        "path": "/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013/baseline-census/actual-6181-native2x.png",
+        "PNG_sha256": "f04fdb7d70204d6be3a6425f6003417d5f4555261392b6a489e3872139c61fed",
+        "RGBA_sha256": "7f84bf6f5670742ae9f5005df49eb1d4ce0551ac7eef391ba07d802e99714f2e"
+      }
+    },
+    {
+      "case": "missing266",
+      "tick": 6182,
+      "dimensions": [
+        640,
+        400
+      ],
+      "RGBA_pixels_compared": 256000,
+      "mismatches": 0,
+      "reference": "fresh recovered paired baseline b2a6e4a at same retained tick, before all artificial pulses",
+      "candidate_frame": {
+        "tick": 6182,
+        "width": 640,
+        "height": 400,
+        "path": "/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013/missing266-census/actual-6182-native2x.png",
+        "PNG_sha256": "1efc06be128305f877bf9faad6065a2039793823d53be9b0c52877a1263a662f",
+        "RGBA_sha256": "a68455b67bf53c4f7b743578417c1325f8eebe8f90c55292cf8e7773cf7b6f6b"
+      },
+      "baseline_frame": {
+        "tick": 6182,
+        "width": 640,
+        "height": 400,
+        "path": "/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013/baseline-census/actual-6182-native2x.png",
+        "PNG_sha256": "1efc06be128305f877bf9faad6065a2039793823d53be9b0c52877a1263a662f",
+        "RGBA_sha256": "a68455b67bf53c4f7b743578417c1325f8eebe8f90c55292cf8e7773cf7b6f6b"
+      }
+    },
+    {
+      "case": "missing266",
+      "tick": 6183,
+      "dimensions": [
+        640,
+        400
+      ],
+      "RGBA_pixels_compared": 256000,
+      "mismatches": 0,
+      "reference": "fresh recovered paired baseline b2a6e4a at same retained tick, before all artificial pulses",
+      "candidate_frame": {
+        "tick": 6183,
+        "width": 640,
+        "height": 400,
+        "path": "/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013/missing266-census/actual-6183-native2x.png",
+        "PNG_sha256": "318c2ca61700141f59355ecb6542026214565e20f8875a038c5c78ad9daa825a",
+        "RGBA_sha256": "8e6e4d4288389299520a14f44873db5a3db9514217349b8aa811becaa33f7aa7"
+      },
+      "baseline_frame": {
+        "tick": 6183,
+        "width": 640,
+        "height": 400,
+        "path": "/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013/baseline-census/actual-6183-native2x.png",
+        "PNG_sha256": "318c2ca61700141f59355ecb6542026214565e20f8875a038c5c78ad9daa825a",
+        "RGBA_sha256": "8e6e4d4288389299520a14f44873db5a3db9514217349b8aa811becaa33f7aa7"
+      }
+    },
+    {
+      "case": "corrupt209",
+      "tick": 6181,
+      "dimensions": [
+        640,
+        400
+      ],
+      "RGBA_pixels_compared": 256000,
+      "mismatches": 0,
+      "reference": "fresh recovered paired baseline b2a6e4a at same retained tick, before all artificial pulses",
+      "candidate_frame": {
+        "tick": 6181,
+        "width": 640,
+        "height": 400,
+        "path": "/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013/corrupt209-census/actual-6181-native2x.png",
+        "PNG_sha256": "f04fdb7d70204d6be3a6425f6003417d5f4555261392b6a489e3872139c61fed",
+        "RGBA_sha256": "7f84bf6f5670742ae9f5005df49eb1d4ce0551ac7eef391ba07d802e99714f2e"
+      },
+      "baseline_frame": {
+        "tick": 6181,
+        "width": 640,
+        "height": 400,
+        "path": "/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013/baseline-census/actual-6181-native2x.png",
+        "PNG_sha256": "f04fdb7d70204d6be3a6425f6003417d5f4555261392b6a489e3872139c61fed",
+        "RGBA_sha256": "7f84bf6f5670742ae9f5005df49eb1d4ce0551ac7eef391ba07d802e99714f2e"
+      }
+    },
+    {
+      "case": "corrupt209",
+      "tick": 6182,
+      "dimensions": [
+        640,
+        400
+      ],
+      "RGBA_pixels_compared": 256000,
+      "mismatches": 0,
+      "reference": "fresh recovered paired baseline b2a6e4a at same retained tick, before all artificial pulses",
+      "candidate_frame": {
+        "tick": 6182,
+        "width": 640,
+        "height": 400,
+        "path": "/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013/corrupt209-census/actual-6182-native2x.png",
+        "PNG_sha256": "1efc06be128305f877bf9faad6065a2039793823d53be9b0c52877a1263a662f",
+        "RGBA_sha256": "a68455b67bf53c4f7b743578417c1325f8eebe8f90c55292cf8e7773cf7b6f6b"
+      },
+      "baseline_frame": {
+        "tick": 6182,
+        "width": 640,
+        "height": 400,
+        "path": "/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013/baseline-census/actual-6182-native2x.png",
+        "PNG_sha256": "1efc06be128305f877bf9faad6065a2039793823d53be9b0c52877a1263a662f",
+        "RGBA_sha256": "a68455b67bf53c4f7b743578417c1325f8eebe8f90c55292cf8e7773cf7b6f6b"
+      }
+    },
+    {
+      "case": "corrupt209",
+      "tick": 6183,
+      "dimensions": [
+        640,
+        400
+      ],
+      "RGBA_pixels_compared": 256000,
+      "mismatches": 0,
+      "reference": "fresh recovered paired baseline b2a6e4a at same retained tick, before all artificial pulses",
+      "candidate_frame": {
+        "tick": 6183,
+        "width": 640,
+        "height": 400,
+        "path": "/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013/corrupt209-census/actual-6183-native2x.png",
+        "PNG_sha256": "318c2ca61700141f59355ecb6542026214565e20f8875a038c5c78ad9daa825a",
+        "RGBA_sha256": "8e6e4d4288389299520a14f44873db5a3db9514217349b8aa811becaa33f7aa7"
+      },
+      "baseline_frame": {
+        "tick": 6183,
+        "width": 640,
+        "height": 400,
+        "path": "/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013/baseline-census/actual-6183-native2x.png",
+        "PNG_sha256": "318c2ca61700141f59355ecb6542026214565e20f8875a038c5c78ad9daa825a",
+        "RGBA_sha256": "8e6e4d4288389299520a14f44873db5a3db9514217349b8aa811becaa33f7aa7"
+      }
+    },
+    {
+      "case": "density4",
+      "tick": 6181,
+      "dimensions": [
+        640,
+        400
+      ],
+      "RGBA_pixels_compared": 256000,
+      "mismatches": 0,
+      "reference": "fresh recovered density4-baseline b2a6e4a",
+      "candidate_frame": {
+        "tick": 6181,
+        "width": 640,
+        "height": 400,
+        "path": "/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013/density4-candidate-census/actual-6181-native2x.png",
+        "PNG_sha256": "7c6731b0917d769ffd4ffd12ad27cd3a408af642b76a5148fd6cc775be6c4d38",
+        "RGBA_sha256": "c7e143ca8f6b029deff4ec2f100f96a0cd1befcd969611508657c07d370fa708"
+      },
+      "baseline_frame": {
+        "tick": 6181,
+        "width": 640,
+        "height": 400,
+        "path": "/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013/density4-baseline-census/actual-6181-native2x.png",
+        "PNG_sha256": "7c6731b0917d769ffd4ffd12ad27cd3a408af642b76a5148fd6cc775be6c4d38",
+        "RGBA_sha256": "c7e143ca8f6b029deff4ec2f100f96a0cd1befcd969611508657c07d370fa708"
+      }
+    }
+  ],
+  "compared_native_RGBA_pixels": 1792000,
+  "mismatches": 0,
+  "excluded_pixels": 0,
+  "pins": {
+    "missing266": {
+      "summary_sha256": "b1be0ccf2e2584d0c9347a7fdd4155869dd3dc5255ec20b02c58c791183e7fd2",
+      "frame_hashes_sha256": "50388b112a6a716dadeea304c359a7af2381a9a5a4277815c218ff4b819e7f32",
+      "stream_receipts_sha256": "b6bc81a84655922eea35d4f552dc953fcbdc5225a167b0c9a9c7ae3e5a209f30"
+    },
+    "corrupt209": {
+      "summary_sha256": "d1661056661c06c48ca0d5530772d736ec676c42d1825650e95a2f9b286c3fc7",
+      "frame_hashes_sha256": "03923e5b7b482f0dd2052bcfc5477c623d8115723f03b5a9682df8377090890f",
+      "stream_receipts_sha256": "2ae9d4b1b63c17b777585b448fa3cc4b46538b6844ee244d81cb3c589492cb84"
+    },
+    "density4-baseline": {
+      "summary_sha256": "d0f37ade0fd05dc42d01fd7dbdc85a7d0393e00603a7a0c0768952cb719f7fcb",
+      "frame_hashes_sha256": "93667451b785c8ae96722cfc12a60b6980069434a7807e5ccccef1cf60c6a2e5",
+      "stream_receipts_sha256": "d9e79ff3fc623345bd630ff099901cf7607f9837d236a3a282ac6eb335d871ee"
+    },
+    "density4-candidate": {
+      "summary_sha256": "e48b04dd5ac01c817b902b876a86ad6fd6361b8032bca29d8e79f0bb848607c5",
+      "frame_hashes_sha256": "1ea712005b0c885c733804cda14cbe535f725cec81f7d953146c1c4543fa0f34",
+      "stream_receipts_sha256": "409cd03032bdc75d51ed7bd49f7e67e6834c1bea088c74bc078e2096f3e0d9c9"
+    }
+  },
+  "gates_provenance_sha256": "2c1cbb6a802c18f7463913ea48b36ab4159386c5dcf096d372d948a1dfe26d67",
+  "verifier_sha256": "742a2cfb3999422f45d8fa3cda2f5a7eb3cc0dbb3375621391540cf62d5433d5",
+  "limits": [
+    "Pixel identity is bounded to missing266/corrupt209 ticks6181\u20136183 and density4 tick6181. Parent owns broader configuration/state/family gate verification.",
+    "No runtime pack swapping, cache invalidation, other corruption cases, or later lifecycle fallback claim."
+  ]
+}

@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013/verify-gates.py", line 17, in <module>
+    assert rec['fire-events']['lines']==1 and rec['player-shot-emissions']['lines']==1 and not rows(d,'collisions')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

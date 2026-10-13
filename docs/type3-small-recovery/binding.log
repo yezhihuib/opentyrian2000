@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/f67dd347fa0a/type3-small-recovery-20261013/prototype/test-type3-small-binding.py", line 237, in <module>
+    'original_blitter_sha256': sha(extract(original, 'blit_sprite2') + extract(original, 'blit_sprite2_filter').encode()),
+                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: can only concatenate str (not "bytes") to str

@@ -1,0 +1,71 @@
+{
+  "status": "PASS first actual authored native still",
+  "baseline": "b2a6e4a1e924aed71630f9f63c0ba4648e920d6d",
+  "candidate": "e976cb6a81aaa2eb99f5ffee14e58f9fc050dcb0",
+  "tick": 6181,
+  "candidate_native_still": "/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013/candidate-census/actual-6181-native2x.png",
+  "baseline_native_still": "/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013/baseline-census/actual-6181-native2x.png",
+  "native_dimensions": [
+    640,
+    400
+  ],
+  "original_RLE_alpha_exact_at_full_density8": true,
+  "native_mapping": "Production SDL_ScaleModeNearest, source8x center taps2,6 per logical cell to native2x. No averaging, resizing, stitching, or generated evidence image.",
+  "whole_frame_compared_RGBA_pixels": 256000,
+  "whole_frame_mismatches": 0,
+  "changed_native_pixels": 1000,
+  "outside_original_alpha_changes": 0,
+  "draws": [
+    {
+      "id": 171,
+      "origin": [
+        143,
+        40
+      ],
+      "native_opaque_pixels": 392
+    },
+    {
+      "id": 228,
+      "origin": [
+        135,
+        20
+      ],
+      "native_opaque_pixels": 296
+    },
+    {
+      "id": 190,
+      "origin": [
+        122,
+        5
+      ],
+      "native_opaque_pixels": 328
+    },
+    {
+      "id": 247,
+      "origin": [
+        114,
+        -8
+      ],
+      "native_opaque_pixels": 88
+    }
+  ],
+  "text_overlay": {
+    "fully_covered_native_pixels": 104,
+    "shadow_only_native_pixels": 88,
+    "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+    "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+    "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+  },
+  "candidate_png_sha256": "b8b81b4f61286bc9684942a03f6a5f9cfdbddedc977a87a04e9e6c72ce5db9b8",
+  "baseline_png_sha256": "f04fdb7d70204d6be3a6425f6003417d5f4555261392b6a489e3872139c61fed",
+  "pack_pins": {
+    "enemy-newsh2-171-8.hda": "ab151e5301768c75541fa93eccf3cb4b8e18d36949e01b88079e938f413fc919",
+    "enemy-newsh2-228-8.hda": "41745a0504911c41ad35d06621db0826f68f74238006dde4f6592be1df95a12e",
+    "enemy-newsh2-190-8.hda": "d2850e82a77fc9bf32bf29d383f05de4bf2f2ff12209356ed29a139ba2796d14",
+    "enemy-newsh2-247-8.hda": "003cb884ee1d5e53086bde63d9854d9ef1d1f713fd5a90414153877c4029b90c"
+  },
+  "limits": [
+    "Only first captured frame6181 verified here; full32-frame lifecycle verification remains separate.",
+    "Private survival fixture; no ram, type16, later boss, whole-level, Windows, or hardware-GPU claim."
+  ]
+}

@@ -1,0 +1,8008 @@
+{
+  "status": "PASS exact paired native2x pixels",
+  "baseline": "b2a6e4a1e924aed71630f9f63c0ba4648e920d6d",
+  "candidate": "e976cb6a81aaa2eb99f5ffee14e58f9fc050dcb0",
+  "frames": 32,
+  "whole_frame_RGBA_pixels_compared": 8192000,
+  "mismatches": 0,
+  "excluded_pixels": 0,
+  "native_dimensions": [
+    640,
+    400
+  ],
+  "lifecycle": {
+    "target_slot": 0,
+    "artificial_original_pulse_ticks": [
+      6513,
+      6515,
+      6517
+    ],
+    "filter_direct_witnesses": [
+      {
+        "tick": 6514,
+        "slot": 0,
+        "base": 190,
+        "filter": 208,
+        "iced_pre_draw": 0,
+        "origin": [
+          152,
+          116
+        ],
+        "source_native_alpha_support_unclipped": 328,
+        "projected_native_alpha_support": 328,
+        "final_owner_pixels": 328,
+        "direct_source_exposed": 255,
+        "direct_source_changed": 247,
+        "later_covered": 73,
+        "direct_source_witness": {
+          "native_xy": [
+            264,
+            232
+          ],
+          "source8_xy": [
+            34,
+            2
+          ],
+          "authored_RGBA": [
+            19,
+            12,
+            4,
+            255
+          ],
+          "filtered_RGBA": [
+            9,
+            41,
+            58,
+            255
+          ],
+          "actual_final_RGBA": [
+            9,
+            41,
+            58,
+            255
+          ],
+          "baseline_RGBA": [
+            8,
+            40,
+            56,
+            255
+          ]
+        }
+      },
+      {
+        "tick": 6516,
+        "slot": 0,
+        "base": 209,
+        "filter": 208,
+        "iced_pre_draw": 40,
+        "origin": [
+          154,
+          128
+        ],
+        "source_native_alpha_support_unclipped": 328,
+        "projected_native_alpha_support": 328,
+        "final_owner_pixels": 328,
+        "direct_source_exposed": 176,
+        "direct_source_changed": 167,
+        "later_covered": 152,
+        "direct_source_witness": {
+          "native_xy": [
+            268,
+            256
+          ],
+          "source8_xy": [
+            34,
+            2
+          ],
+          "authored_RGBA": [
+            18,
+            10,
+            3,
+            255
+          ],
+          "filtered_RGBA": [
+            8,
+            41,
+            57,
+            255
+          ],
+          "actual_final_RGBA": [
+            8,
+            41,
+            57,
+            255
+          ],
+          "baseline_RGBA": [
+            8,
+            40,
+            56,
+            255
+          ]
+        }
+      },
+      {
+        "tick": 6517,
+        "slot": 0,
+        "base": 228,
+        "filter": 9,
+        "iced_pre_draw": 39,
+        "origin": [
+          155,
+          134
+        ],
+        "source_native_alpha_support_unclipped": 296,
+        "projected_native_alpha_support": 296,
+        "final_owner_pixels": 296,
+        "direct_source_exposed": 6,
+        "direct_source_changed": 3,
+        "later_covered": 290,
+        "direct_source_witness": {
+          "native_xy": [
+            277,
+            285
+          ],
+          "source8_xy": [
+            62,
+            70
+          ],
+          "authored_RGBA": [
+            24,
+            14,
+            5,
+            255
+          ],
+          "filtered_RGBA": [
+            138,
+            139,
+            138,
+            255
+          ],
+          "actual_final_RGBA": [
+            138,
+            139,
+            138,
+            255
+          ],
+          "baseline_RGBA": [
+            162,
+            166,
+            162,
+            255
+          ]
+        }
+      }
+    ],
+    "target_last_draw_tick": 6517,
+    "target_original_removal_phase": "6517 post-projectiles",
+    "first_target_absent_draw_tick": 6518,
+    "last_visible_effect_material_tick": 6526,
+    "first_native_presentation_without_target_or_visible_target_effects": 6527,
+    "first_empty_original_effect_pool_tick": 6528,
+    "death_effect_lifetime": "slot2 reaches y184/ttl1 at6527 beyond native playfield; reaches y188 at6528 and original y>186 removal prevents final133 draw. No ttl-completion/final133 visible claim.",
+    "remaining_type3_actors_at_first_clean_tick": [
+      1,
+      2,
+      3
+    ],
+    "clean_is_target_lifecycle_only": "Scene still contains unrelated original actors and accepted type3 siblings. Never claim whole frame equals baseline or whole scene empty.",
+    "postremoval_restoration": [
+      {
+        "tick": 6518,
+        "previous_target_and_effect_footprint_native_pixels": 1643,
+        "currently_owned_by_surviving_type3_native_pixels": 0,
+        "no_longer_owned_native_pixels_exactly_equal_paired_baseline": 1643,
+        "mismatch_pixels": 0
+      },
+      {
+        "tick": 6519,
+        "previous_target_and_effect_footprint_native_pixels": 1834,
+        "currently_owned_by_surviving_type3_native_pixels": 0,
+        "no_longer_owned_native_pixels_exactly_equal_paired_baseline": 1834,
+        "mismatch_pixels": 0
+      },
+      {
+        "tick": 6520,
+        "previous_target_and_effect_footprint_native_pixels": 2061,
+        "currently_owned_by_surviving_type3_native_pixels": 0,
+        "no_longer_owned_native_pixels_exactly_equal_paired_baseline": 2061,
+        "mismatch_pixels": 0
+      },
+      {
+        "tick": 6521,
+        "previous_target_and_effect_footprint_native_pixels": 2211,
+        "currently_owned_by_surviving_type3_native_pixels": 0,
+        "no_longer_owned_native_pixels_exactly_equal_paired_baseline": 2211,
+        "mismatch_pixels": 0
+      },
+      {
+        "tick": 6522,
+        "previous_target_and_effect_footprint_native_pixels": 2353,
+        "currently_owned_by_surviving_type3_native_pixels": 0,
+        "no_longer_owned_native_pixels_exactly_equal_paired_baseline": 2353,
+        "mismatch_pixels": 0
+      },
+      {
+        "tick": 6523,
+        "previous_target_and_effect_footprint_native_pixels": 2524,
+        "currently_owned_by_surviving_type3_native_pixels": 0,
+        "no_longer_owned_native_pixels_exactly_equal_paired_baseline": 2524,
+        "mismatch_pixels": 0
+      },
+      {
+        "tick": 6524,
+        "previous_target_and_effect_footprint_native_pixels": 2670,
+        "currently_owned_by_surviving_type3_native_pixels": 0,
+        "no_longer_owned_native_pixels_exactly_equal_paired_baseline": 2670,
+        "mismatch_pixels": 0
+      },
+      {
+        "tick": 6525,
+        "previous_target_and_effect_footprint_native_pixels": 2717,
+        "currently_owned_by_surviving_type3_native_pixels": 16,
+        "no_longer_owned_native_pixels_exactly_equal_paired_baseline": 2701,
+        "mismatch_pixels": 0
+      },
+      {
+        "tick": 6526,
+        "previous_target_and_effect_footprint_native_pixels": 2723,
+        "currently_owned_by_surviving_type3_native_pixels": 152,
+        "no_longer_owned_native_pixels_exactly_equal_paired_baseline": 2571,
+        "mismatch_pixels": 0
+      },
+      {
+        "tick": 6527,
+        "previous_target_and_effect_footprint_native_pixels": 2723,
+        "currently_owned_by_surviving_type3_native_pixels": 392,
+        "no_longer_owned_native_pixels_exactly_equal_paired_baseline": 2331,
+        "mismatch_pixels": 0
+      },
+      {
+        "tick": 6528,
+        "previous_target_and_effect_footprint_native_pixels": 2723,
+        "currently_owned_by_surviving_type3_native_pixels": 256,
+        "no_longer_owned_native_pixels_exactly_equal_paired_baseline": 2467,
+        "mismatch_pixels": 0
+      },
+      {
+        "tick": 6529,
+        "previous_target_and_effect_footprint_native_pixels": 2723,
+        "currently_owned_by_surviving_type3_native_pixels": 151,
+        "no_longer_owned_native_pixels_exactly_equal_paired_baseline": 2572,
+        "mismatch_pixels": 0
+      },
+      {
+        "tick": 6530,
+        "previous_target_and_effect_footprint_native_pixels": 2723,
+        "currently_owned_by_surviving_type3_native_pixels": 33,
+        "no_longer_owned_native_pixels_exactly_equal_paired_baseline": 2690,
+        "mismatch_pixels": 0
+      },
+      {
+        "tick": 6531,
+        "previous_target_and_effect_footprint_native_pixels": 2723,
+        "currently_owned_by_surviving_type3_native_pixels": 0,
+        "no_longer_owned_native_pixels_exactly_equal_paired_baseline": 2723,
+        "mismatch_pixels": 0
+      }
+    ],
+    "first_clean_native_still": "/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013/candidate-census/actual-6527-native2x.png",
+    "first_pool_empty_native_still": "/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013/candidate-census/actual-6528-native2x.png"
+  },
+  "all_six_full_cycle_complete_direct_source": true,
+  "sampling": "Exact production SDL_ScaleModeNearest source8x centers2,6 to native2x; no averaging",
+  "cycle": [
+    {
+      "tick": 6181,
+      "base": 171,
+      "cycle_pre": 12,
+      "origin": [
+        143,
+        40
+      ]
+    },
+    {
+      "tick": 6182,
+      "base": 171,
+      "cycle_pre": 1,
+      "origin": [
+        146,
+        44
+      ]
+    },
+    {
+      "tick": 6183,
+      "base": 190,
+      "cycle_pre": 2,
+      "origin": [
+        149,
+        48
+      ]
+    },
+    {
+      "tick": 6184,
+      "base": 190,
+      "cycle_pre": 3,
+      "origin": [
+        152,
+        52
+      ]
+    },
+    {
+      "tick": 6185,
+      "base": 209,
+      "cycle_pre": 4,
+      "origin": [
+        154,
+        57
+      ]
+    },
+    {
+      "tick": 6186,
+      "base": 209,
+      "cycle_pre": 5,
+      "origin": [
+        155,
+        62
+      ]
+    },
+    {
+      "tick": 6187,
+      "base": 228,
+      "cycle_pre": 6,
+      "origin": [
+        156,
+        67
+      ]
+    },
+    {
+      "tick": 6188,
+      "base": 228,
+      "cycle_pre": 7,
+      "origin": [
+        157,
+        72
+      ]
+    },
+    {
+      "tick": 6189,
+      "base": 247,
+      "cycle_pre": 8,
+      "origin": [
+        157,
+        77
+      ]
+    },
+    {
+      "tick": 6190,
+      "base": 247,
+      "cycle_pre": 9,
+      "origin": [
+        157,
+        82
+      ]
+    },
+    {
+      "tick": 6191,
+      "base": 266,
+      "cycle_pre": 10,
+      "origin": [
+        157,
+        87
+      ]
+    },
+    {
+      "tick": 6192,
+      "base": 266,
+      "cycle_pre": 11,
+      "origin": [
+        157,
+        92
+      ]
+    }
+  ],
+  "actor_exposure": [
+    {
+      "tick": 6181,
+      "slot": 0,
+      "base": 171,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        143,
+        40
+      ],
+      "source_native_alpha_support_unclipped": 392,
+      "projected_native_alpha_support": 392,
+      "final_owner_pixels": 392,
+      "direct_source_exposed": 392,
+      "direct_source_changed": 392,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          244,
+          80
+        ],
+        "source8_xy": [
+          26,
+          2
+        ],
+        "authored_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6181,
+      "slot": 1,
+      "base": 228,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        135,
+        20
+      ],
+      "source_native_alpha_support_unclipped": 296,
+      "projected_native_alpha_support": 296,
+      "final_owner_pixels": 296,
+      "direct_source_exposed": 252,
+      "direct_source_changed": 252,
+      "later_covered": 44,
+      "direct_source_witness": {
+        "native_xy": [
+          228,
+          42
+        ],
+        "source8_xy": [
+          26,
+          10
+        ],
+        "authored_RGBA": [
+          8,
+          6,
+          2,
+          255
+        ],
+        "filtered_RGBA": [
+          8,
+          6,
+          2,
+          255
+        ],
+        "actual_final_RGBA": [
+          8,
+          6,
+          2,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6181,
+      "slot": 2,
+      "base": 190,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        122,
+        5
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 180,
+      "direct_source_changed": 180,
+      "later_covered": 148,
+      "direct_source_witness": {
+        "native_xy": [
+          204,
+          10
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6181,
+      "slot": 3,
+      "base": 247,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        114,
+        -8
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 88,
+      "final_owner_pixels": 88,
+      "direct_source_exposed": 88,
+      "direct_source_changed": 88,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          188,
+          0
+        ],
+        "source8_xy": [
+          34,
+          66
+        ],
+        "authored_RGBA": [
+          18,
+          10,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          18,
+          10,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          18,
+          10,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6182,
+      "slot": 0,
+      "base": 171,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        146,
+        44
+      ],
+      "source_native_alpha_support_unclipped": 392,
+      "projected_native_alpha_support": 392,
+      "final_owner_pixels": 392,
+      "direct_source_exposed": 392,
+      "direct_source_changed": 392,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          250,
+          88
+        ],
+        "source8_xy": [
+          26,
+          2
+        ],
+        "authored_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6182,
+      "slot": 1,
+      "base": 247,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        136,
+        24
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          232,
+          48
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6182,
+      "slot": 2,
+      "base": 190,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        125,
+        8
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 76,
+      "direct_source_changed": 76,
+      "later_covered": 252,
+      "direct_source_witness": {
+        "native_xy": [
+          210,
+          16
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6182,
+      "slot": 3,
+      "base": 266,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        117,
+        -6
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 144,
+      "final_owner_pixels": 144,
+      "direct_source_exposed": 144,
+      "direct_source_changed": 144,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          192,
+          0
+        ],
+        "source8_xy": [
+          26,
+          50
+        ],
+        "authored_RGBA": [
+          17,
+          9,
+          2,
+          255
+        ],
+        "filtered_RGBA": [
+          17,
+          9,
+          2,
+          255
+        ],
+        "actual_final_RGBA": [
+          17,
+          9,
+          2,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6183,
+      "slot": 0,
+      "base": 190,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        149,
+        48
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          258,
+          96
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6183,
+      "slot": 1,
+      "base": 247,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        137,
+        28
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          234,
+          56
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6183,
+      "slot": 2,
+      "base": 209,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        128,
+        11
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 48,
+      "direct_source_changed": 48,
+      "later_covered": 280,
+      "direct_source_witness": {
+        "native_xy": [
+          220,
+          22
+        ],
+        "source8_xy": [
+          50,
+          2
+        ],
+        "authored_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6183,
+      "slot": 3,
+      "base": 266,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        119,
+        -4
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 208,
+      "final_owner_pixels": 208,
+      "direct_source_exposed": 208,
+      "direct_source_changed": 208,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          194,
+          0
+        ],
+        "source8_xy": [
+          18,
+          34
+        ],
+        "authored_RGBA": [
+          8,
+          6,
+          2,
+          255
+        ],
+        "filtered_RGBA": [
+          8,
+          6,
+          2,
+          255
+        ],
+        "actual_final_RGBA": [
+          8,
+          6,
+          2,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6184,
+      "slot": 0,
+      "base": 190,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        152,
+        52
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          264,
+          104
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6184,
+      "slot": 1,
+      "base": 266,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        138,
+        32
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          236,
+          64
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6184,
+      "slot": 2,
+      "base": 209,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        131,
+        14
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 112,
+      "direct_source_changed": 112,
+      "later_covered": 216,
+      "direct_source_witness": {
+        "native_xy": [
+          222,
+          28
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "filtered_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "actual_final_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6184,
+      "slot": 3,
+      "base": 171,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        121,
+        -1
+      ],
+      "source_native_alpha_support_unclipped": 392,
+      "projected_native_alpha_support": 364,
+      "final_owner_pixels": 364,
+      "direct_source_exposed": 348,
+      "direct_source_changed": 348,
+      "later_covered": 16,
+      "direct_source_witness": {
+        "native_xy": [
+          198,
+          0
+        ],
+        "source8_xy": [
+          18,
+          10
+        ],
+        "authored_RGBA": [
+          16,
+          11,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          16,
+          11,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          16,
+          11,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6184,
+      "slot": 4,
+      "base": 228,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        109,
+        -12
+      ],
+      "source_native_alpha_support_unclipped": 296,
+      "projected_native_alpha_support": 16,
+      "final_owner_pixels": 16,
+      "direct_source_exposed": 16,
+      "direct_source_changed": 16,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          180,
+          0
+        ],
+        "source8_xy": [
+          42,
+          98
+        ],
+        "authored_RGBA": [
+          8,
+          6,
+          2,
+          255
+        ],
+        "filtered_RGBA": [
+          8,
+          6,
+          2,
+          255
+        ],
+        "actual_final_RGBA": [
+          8,
+          6,
+          2,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6185,
+      "slot": 0,
+      "base": 209,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        154,
+        57
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          268,
+          114
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "filtered_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "actual_final_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6185,
+      "slot": 1,
+      "base": 266,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        139,
+        36
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          238,
+          72
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6185,
+      "slot": 2,
+      "base": 228,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        134,
+        17
+      ],
+      "source_native_alpha_support_unclipped": 296,
+      "projected_native_alpha_support": 296,
+      "final_owner_pixels": 296,
+      "direct_source_exposed": 188,
+      "direct_source_changed": 188,
+      "later_covered": 108,
+      "direct_source_witness": {
+        "native_xy": [
+          236,
+          34
+        ],
+        "source8_xy": [
+          66,
+          2
+        ],
+        "authored_RGBA": [
+          20,
+          12,
+          5,
+          255
+        ],
+        "filtered_RGBA": [
+          20,
+          12,
+          5,
+          255
+        ],
+        "actual_final_RGBA": [
+          20,
+          12,
+          5,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6185,
+      "slot": 3,
+      "base": 171,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        122,
+        2
+      ],
+      "source_native_alpha_support_unclipped": 392,
+      "projected_native_alpha_support": 392,
+      "final_owner_pixels": 392,
+      "direct_source_exposed": 308,
+      "direct_source_changed": 308,
+      "later_covered": 84,
+      "direct_source_witness": {
+        "native_xy": [
+          202,
+          4
+        ],
+        "source8_xy": [
+          26,
+          2
+        ],
+        "authored_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6185,
+      "slot": 4,
+      "base": 247,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        112,
+        -10
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 48,
+      "final_owner_pixels": 48,
+      "direct_source_exposed": 48,
+      "direct_source_changed": 48,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          184,
+          0
+        ],
+        "source8_xy": [
+          34,
+          82
+        ],
+        "authored_RGBA": [
+          8,
+          6,
+          2,
+          255
+        ],
+        "filtered_RGBA": [
+          8,
+          6,
+          2,
+          255
+        ],
+        "actual_final_RGBA": [
+          8,
+          6,
+          2,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6186,
+      "slot": 0,
+      "base": 209,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        155,
+        62
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          270,
+          124
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "filtered_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "actual_final_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6186,
+      "slot": 1,
+      "base": 171,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        140,
+        40
+      ],
+      "source_native_alpha_support_unclipped": 392,
+      "projected_native_alpha_support": 392,
+      "final_owner_pixels": 392,
+      "direct_source_exposed": 392,
+      "direct_source_changed": 392,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          238,
+          80
+        ],
+        "source8_xy": [
+          26,
+          2
+        ],
+        "authored_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6186,
+      "slot": 2,
+      "base": 228,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        137,
+        20
+      ],
+      "source_native_alpha_support_unclipped": 296,
+      "projected_native_alpha_support": 296,
+      "final_owner_pixels": 296,
+      "direct_source_exposed": 256,
+      "direct_source_changed": 256,
+      "later_covered": 40,
+      "direct_source_witness": {
+        "native_xy": [
+          242,
+          40
+        ],
+        "source8_xy": [
+          66,
+          2
+        ],
+        "authored_RGBA": [
+          20,
+          12,
+          5,
+          255
+        ],
+        "filtered_RGBA": [
+          20,
+          12,
+          5,
+          255
+        ],
+        "actual_final_RGBA": [
+          20,
+          12,
+          5,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6186,
+      "slot": 3,
+      "base": 190,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        123,
+        5
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 180,
+      "direct_source_changed": 180,
+      "later_covered": 148,
+      "direct_source_witness": {
+        "native_xy": [
+          206,
+          10
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6186,
+      "slot": 4,
+      "base": 247,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        115,
+        -8
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 88,
+      "final_owner_pixels": 88,
+      "direct_source_exposed": 88,
+      "direct_source_changed": 88,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          190,
+          0
+        ],
+        "source8_xy": [
+          34,
+          66
+        ],
+        "authored_RGBA": [
+          18,
+          10,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          18,
+          10,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          18,
+          10,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6187,
+      "slot": 0,
+      "base": 228,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        156,
+        67
+      ],
+      "source_native_alpha_support_unclipped": 296,
+      "projected_native_alpha_support": 296,
+      "final_owner_pixels": 296,
+      "direct_source_exposed": 296,
+      "direct_source_changed": 296,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          272,
+          134
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "filtered_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "actual_final_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6187,
+      "slot": 1,
+      "base": 171,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        140,
+        44
+      ],
+      "source_native_alpha_support_unclipped": 392,
+      "projected_native_alpha_support": 392,
+      "final_owner_pixels": 392,
+      "direct_source_exposed": 392,
+      "direct_source_changed": 392,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          238,
+          88
+        ],
+        "source8_xy": [
+          26,
+          2
+        ],
+        "authored_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6187,
+      "slot": 2,
+      "base": 247,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        140,
+        24
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          240,
+          48
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6187,
+      "slot": 3,
+      "base": 190,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        124,
+        8
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 80,
+      "direct_source_changed": 80,
+      "later_covered": 248,
+      "direct_source_witness": {
+        "native_xy": [
+          208,
+          16
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6187,
+      "slot": 4,
+      "base": 266,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        118,
+        -6
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 144,
+      "final_owner_pixels": 144,
+      "direct_source_exposed": 144,
+      "direct_source_changed": 144,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          194,
+          0
+        ],
+        "source8_xy": [
+          26,
+          50
+        ],
+        "authored_RGBA": [
+          17,
+          9,
+          2,
+          255
+        ],
+        "filtered_RGBA": [
+          17,
+          9,
+          2,
+          255
+        ],
+        "actual_final_RGBA": [
+          17,
+          9,
+          2,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6188,
+      "slot": 0,
+      "base": 228,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        157,
+        72
+      ],
+      "source_native_alpha_support_unclipped": 296,
+      "projected_native_alpha_support": 296,
+      "final_owner_pixels": 296,
+      "direct_source_exposed": 296,
+      "direct_source_changed": 296,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          274,
+          144
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "filtered_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "actual_final_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6188,
+      "slot": 1,
+      "base": 190,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        139,
+        48
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          238,
+          96
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6188,
+      "slot": 2,
+      "base": 247,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        143,
+        28
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          246,
+          56
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6188,
+      "slot": 3,
+      "base": 209,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        125,
+        11
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 52,
+      "direct_source_changed": 52,
+      "later_covered": 276,
+      "direct_source_witness": {
+        "native_xy": [
+          220,
+          28
+        ],
+        "source8_xy": [
+          74,
+          26
+        ],
+        "authored_RGBA": [
+          53,
+          35,
+          16,
+          255
+        ],
+        "filtered_RGBA": [
+          53,
+          35,
+          16,
+          255
+        ],
+        "actual_final_RGBA": [
+          53,
+          35,
+          16,
+          255
+        ],
+        "baseline_RGBA": [
+          28,
+          16,
+          0,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6188,
+      "slot": 4,
+      "base": 266,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        121,
+        -4
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 208,
+      "final_owner_pixels": 208,
+      "direct_source_exposed": 208,
+      "direct_source_changed": 208,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          198,
+          0
+        ],
+        "source8_xy": [
+          18,
+          34
+        ],
+        "authored_RGBA": [
+          8,
+          6,
+          2,
+          255
+        ],
+        "filtered_RGBA": [
+          8,
+          6,
+          2,
+          255
+        ],
+        "actual_final_RGBA": [
+          8,
+          6,
+          2,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6189,
+      "slot": 0,
+      "base": 247,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        157,
+        77
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          274,
+          154
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6189,
+      "slot": 1,
+      "base": 190,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        138,
+        52
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          236,
+          104
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6189,
+      "slot": 2,
+      "base": 266,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        146,
+        32
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          252,
+          64
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6189,
+      "slot": 3,
+      "base": 209,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        125,
+        14
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 108,
+      "direct_source_changed": 108,
+      "later_covered": 220,
+      "direct_source_witness": {
+        "native_xy": [
+          208,
+          32
+        ],
+        "source8_xy": [
+          26,
+          18
+        ],
+        "authored_RGBA": [
+          65,
+          43,
+          21,
+          255
+        ],
+        "filtered_RGBA": [
+          65,
+          43,
+          21,
+          255
+        ],
+        "actual_final_RGBA": [
+          65,
+          43,
+          21,
+          255
+        ],
+        "baseline_RGBA": [
+          16,
+          8,
+          0,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6189,
+      "slot": 4,
+      "base": 171,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        123,
+        -1
+      ],
+      "source_native_alpha_support_unclipped": 392,
+      "projected_native_alpha_support": 364,
+      "final_owner_pixels": 364,
+      "direct_source_exposed": 336,
+      "direct_source_changed": 336,
+      "later_covered": 28,
+      "direct_source_witness": {
+        "native_xy": [
+          202,
+          0
+        ],
+        "source8_xy": [
+          18,
+          10
+        ],
+        "authored_RGBA": [
+          16,
+          11,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          16,
+          11,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          16,
+          11,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6190,
+      "slot": 0,
+      "base": 247,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        157,
+        82
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          274,
+          164
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6190,
+      "slot": 1,
+      "base": 209,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        136,
+        57
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          232,
+          114
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "filtered_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "actual_final_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6190,
+      "slot": 2,
+      "base": 266,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        149,
+        36
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          258,
+          72
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6190,
+      "slot": 3,
+      "base": 228,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        125,
+        17
+      ],
+      "source_native_alpha_support_unclipped": 296,
+      "projected_native_alpha_support": 296,
+      "final_owner_pixels": 296,
+      "direct_source_exposed": 176,
+      "direct_source_changed": 176,
+      "later_covered": 120,
+      "direct_source_witness": {
+        "native_xy": [
+          210,
+          34
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "filtered_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "actual_final_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6190,
+      "slot": 4,
+      "base": 171,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        124,
+        2
+      ],
+      "source_native_alpha_support_unclipped": 392,
+      "projected_native_alpha_support": 392,
+      "final_owner_pixels": 392,
+      "direct_source_exposed": 300,
+      "direct_source_changed": 300,
+      "later_covered": 92,
+      "direct_source_witness": {
+        "native_xy": [
+          206,
+          4
+        ],
+        "source8_xy": [
+          26,
+          2
+        ],
+        "authored_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6191,
+      "slot": 0,
+      "base": 266,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        157,
+        87
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          274,
+          174
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6191,
+      "slot": 1,
+      "base": 209,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        133,
+        62
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          226,
+          124
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "filtered_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "actual_final_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6191,
+      "slot": 2,
+      "base": 171,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        152,
+        40
+      ],
+      "source_native_alpha_support_unclipped": 392,
+      "projected_native_alpha_support": 392,
+      "final_owner_pixels": 392,
+      "direct_source_exposed": 392,
+      "direct_source_changed": 392,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          262,
+          80
+        ],
+        "source8_xy": [
+          26,
+          2
+        ],
+        "authored_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6191,
+      "slot": 3,
+      "base": 228,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        125,
+        20
+      ],
+      "source_native_alpha_support_unclipped": 296,
+      "projected_native_alpha_support": 296,
+      "final_owner_pixels": 296,
+      "direct_source_exposed": 252,
+      "direct_source_changed": 252,
+      "later_covered": 44,
+      "direct_source_witness": {
+        "native_xy": [
+          208,
+          42
+        ],
+        "source8_xy": [
+          26,
+          10
+        ],
+        "authored_RGBA": [
+          8,
+          6,
+          2,
+          255
+        ],
+        "filtered_RGBA": [
+          8,
+          6,
+          2,
+          255
+        ],
+        "actual_final_RGBA": [
+          8,
+          6,
+          2,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6191,
+      "slot": 4,
+      "base": 190,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        125,
+        5
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 164,
+      "direct_source_changed": 164,
+      "later_covered": 164,
+      "direct_source_witness": {
+        "native_xy": [
+          210,
+          10
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6192,
+      "slot": 0,
+      "base": 266,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        157,
+        92
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          274,
+          184
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6192,
+      "slot": 1,
+      "base": 228,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        130,
+        67
+      ],
+      "source_native_alpha_support_unclipped": 296,
+      "projected_native_alpha_support": 296,
+      "final_owner_pixels": 296,
+      "direct_source_exposed": 296,
+      "direct_source_changed": 296,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          220,
+          134
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "filtered_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "actual_final_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6192,
+      "slot": 2,
+      "base": 171,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        154,
+        44
+      ],
+      "source_native_alpha_support_unclipped": 392,
+      "projected_native_alpha_support": 392,
+      "final_owner_pixels": 392,
+      "direct_source_exposed": 392,
+      "direct_source_changed": 392,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          266,
+          88
+        ],
+        "source8_xy": [
+          26,
+          2
+        ],
+        "authored_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6192,
+      "slot": 3,
+      "base": 247,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        125,
+        24
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          210,
+          48
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6192,
+      "slot": 4,
+      "base": 190,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        126,
+        8
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 80,
+      "direct_source_changed": 80,
+      "later_covered": 248,
+      "direct_source_witness": {
+        "native_xy": [
+          212,
+          16
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6512,
+      "slot": 0,
+      "base": 171,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        150,
+        104
+      ],
+      "source_native_alpha_support_unclipped": 392,
+      "projected_native_alpha_support": 392,
+      "final_owner_pixels": 392,
+      "direct_source_exposed": 392,
+      "direct_source_changed": 392,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          258,
+          208
+        ],
+        "source8_xy": [
+          26,
+          2
+        ],
+        "authored_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6512,
+      "slot": 1,
+      "base": 247,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        118,
+        77
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          196,
+          154
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6512,
+      "slot": 2,
+      "base": 190,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        114,
+        52
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          188,
+          104
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6512,
+      "slot": 3,
+      "base": 266,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        130,
+        32
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          220,
+          64
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6512,
+      "slot": 10,
+      "base": 228,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        119,
+        134
+      ],
+      "source_native_alpha_support_unclipped": 296,
+      "projected_native_alpha_support": 296,
+      "final_owner_pixels": 296,
+      "direct_source_exposed": 296,
+      "direct_source_changed": 296,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          198,
+          268
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "filtered_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "actual_final_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6513,
+      "slot": 0,
+      "base": 190,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        151,
+        110
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 6,
+      "direct_source_changed": 6,
+      "later_covered": 322,
+      "direct_source_witness": {
+        "native_xy": [
+          269,
+          237
+        ],
+        "source8_xy": [
+          62,
+          70
+        ],
+        "authored_RGBA": [
+          48,
+          30,
+          12,
+          255
+        ],
+        "filtered_RGBA": [
+          48,
+          30,
+          12,
+          255
+        ],
+        "actual_final_RGBA": [
+          48,
+          30,
+          12,
+          255
+        ],
+        "baseline_RGBA": [
+          73,
+          44,
+          16,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6513,
+      "slot": 1,
+      "base": 247,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        115,
+        82
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          190,
+          164
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6513,
+      "slot": 2,
+      "base": 209,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        114,
+        57
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          188,
+          114
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "filtered_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "actual_final_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6513,
+      "slot": 3,
+      "base": 266,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        132,
+        36
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          224,
+          72
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6513,
+      "slot": 10,
+      "base": 228,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        116,
+        140
+      ],
+      "source_native_alpha_support_unclipped": 296,
+      "projected_native_alpha_support": 296,
+      "final_owner_pixels": 296,
+      "direct_source_exposed": 296,
+      "direct_source_changed": 296,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          192,
+          280
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "filtered_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "actual_final_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6514,
+      "slot": 0,
+      "base": 190,
+      "filter": 208,
+      "iced_pre_draw": 0,
+      "origin": [
+        152,
+        116
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 255,
+      "direct_source_changed": 247,
+      "later_covered": 73,
+      "direct_source_witness": {
+        "native_xy": [
+          264,
+          232
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          9,
+          41,
+          58,
+          255
+        ],
+        "actual_final_RGBA": [
+          9,
+          41,
+          58,
+          255
+        ],
+        "baseline_RGBA": [
+          8,
+          40,
+          56,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6514,
+      "slot": 1,
+      "base": 266,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        112,
+        87
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          184,
+          174
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6514,
+      "slot": 2,
+      "base": 209,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        114,
+        62
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          188,
+          124
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "filtered_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "actual_final_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6514,
+      "slot": 3,
+      "base": 171,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        134,
+        40
+      ],
+      "source_native_alpha_support_unclipped": 392,
+      "projected_native_alpha_support": 392,
+      "final_owner_pixels": 392,
+      "direct_source_exposed": 392,
+      "direct_source_changed": 392,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          226,
+          80
+        ],
+        "source8_xy": [
+          26,
+          2
+        ],
+        "authored_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6514,
+      "slot": 10,
+      "base": 247,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        113,
+        147
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          186,
+          294
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6515,
+      "slot": 0,
+      "base": 209,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        153,
+        122
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 6,
+      "direct_source_changed": 6,
+      "later_covered": 322,
+      "direct_source_witness": {
+        "native_xy": [
+          273,
+          261
+        ],
+        "source8_xy": [
+          62,
+          70
+        ],
+        "authored_RGBA": [
+          72,
+          53,
+          28,
+          255
+        ],
+        "filtered_RGBA": [
+          72,
+          53,
+          28,
+          255
+        ],
+        "actual_final_RGBA": [
+          72,
+          53,
+          28,
+          255
+        ],
+        "baseline_RGBA": [
+          101,
+          73,
+          32,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6515,
+      "slot": 1,
+      "base": 266,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        110,
+        92
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          180,
+          184
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6515,
+      "slot": 2,
+      "base": 228,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        114,
+        67
+      ],
+      "source_native_alpha_support_unclipped": 296,
+      "projected_native_alpha_support": 296,
+      "final_owner_pixels": 296,
+      "direct_source_exposed": 296,
+      "direct_source_changed": 296,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          188,
+          134
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "filtered_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "actual_final_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6515,
+      "slot": 3,
+      "base": 171,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        136,
+        44
+      ],
+      "source_native_alpha_support_unclipped": 392,
+      "projected_native_alpha_support": 392,
+      "final_owner_pixels": 392,
+      "direct_source_exposed": 392,
+      "direct_source_changed": 392,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          230,
+          88
+        ],
+        "source8_xy": [
+          26,
+          2
+        ],
+        "authored_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6515,
+      "slot": 10,
+      "base": 247,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        110,
+        154
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          180,
+          308
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6516,
+      "slot": 0,
+      "base": 209,
+      "filter": 208,
+      "iced_pre_draw": 40,
+      "origin": [
+        154,
+        128
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 176,
+      "direct_source_changed": 167,
+      "later_covered": 152,
+      "direct_source_witness": {
+        "native_xy": [
+          268,
+          256
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "filtered_RGBA": [
+          8,
+          41,
+          57,
+          255
+        ],
+        "actual_final_RGBA": [
+          8,
+          41,
+          57,
+          255
+        ],
+        "baseline_RGBA": [
+          8,
+          40,
+          56,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6516,
+      "slot": 1,
+      "base": 171,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        108,
+        98
+      ],
+      "source_native_alpha_support_unclipped": 392,
+      "projected_native_alpha_support": 392,
+      "final_owner_pixels": 392,
+      "direct_source_exposed": 392,
+      "direct_source_changed": 392,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          174,
+          196
+        ],
+        "source8_xy": [
+          26,
+          2
+        ],
+        "authored_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6516,
+      "slot": 2,
+      "base": 228,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        115,
+        72
+      ],
+      "source_native_alpha_support_unclipped": 296,
+      "projected_native_alpha_support": 296,
+      "final_owner_pixels": 296,
+      "direct_source_exposed": 296,
+      "direct_source_changed": 296,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          190,
+          144
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "filtered_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "actual_final_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6516,
+      "slot": 3,
+      "base": 190,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        138,
+        48
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          236,
+          96
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6516,
+      "slot": 10,
+      "base": 266,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        107,
+        161
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 242,
+      "direct_source_changed": 242,
+      "later_covered": 86,
+      "direct_source_witness": {
+        "native_xy": [
+          174,
+          322
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6517,
+      "slot": 0,
+      "base": 228,
+      "filter": 9,
+      "iced_pre_draw": 39,
+      "origin": [
+        155,
+        134
+      ],
+      "source_native_alpha_support_unclipped": 296,
+      "projected_native_alpha_support": 296,
+      "final_owner_pixels": 296,
+      "direct_source_exposed": 6,
+      "direct_source_changed": 3,
+      "later_covered": 290,
+      "direct_source_witness": {
+        "native_xy": [
+          277,
+          285
+        ],
+        "source8_xy": [
+          62,
+          70
+        ],
+        "authored_RGBA": [
+          24,
+          14,
+          5,
+          255
+        ],
+        "filtered_RGBA": [
+          138,
+          139,
+          138,
+          255
+        ],
+        "actual_final_RGBA": [
+          138,
+          139,
+          138,
+          255
+        ],
+        "baseline_RGBA": [
+          162,
+          166,
+          162,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6517,
+      "slot": 1,
+      "base": 171,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        106,
+        104
+      ],
+      "source_native_alpha_support_unclipped": 392,
+      "projected_native_alpha_support": 392,
+      "final_owner_pixels": 392,
+      "direct_source_exposed": 392,
+      "direct_source_changed": 392,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          170,
+          208
+        ],
+        "source8_xy": [
+          26,
+          2
+        ],
+        "authored_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6517,
+      "slot": 2,
+      "base": 247,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        116,
+        77
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          192,
+          154
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6517,
+      "slot": 3,
+      "base": 190,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        140,
+        52
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          240,
+          104
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6517,
+      "slot": 10,
+      "base": 266,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        104,
+        168
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 50,
+      "direct_source_changed": 50,
+      "later_covered": 278,
+      "direct_source_witness": {
+        "native_xy": [
+          176,
+          336
+        ],
+        "source8_xy": [
+          66,
+          2
+        ],
+        "authored_RGBA": [
+          20,
+          11,
+          3,
+          255
+        ],
+        "filtered_RGBA": [
+          20,
+          11,
+          3,
+          255
+        ],
+        "actual_final_RGBA": [
+          20,
+          11,
+          3,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6518,
+      "slot": 1,
+      "base": 190,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        104,
+        110
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          168,
+          220
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6518,
+      "slot": 2,
+      "base": 247,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        117,
+        82
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          194,
+          164
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6518,
+      "slot": 3,
+      "base": 209,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        142,
+        57
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          244,
+          114
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "filtered_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "actual_final_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6518,
+      "slot": 10,
+      "base": 171,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        101,
+        175
+      ],
+      "source_native_alpha_support_unclipped": 392,
+      "projected_native_alpha_support": 324,
+      "final_owner_pixels": 324,
+      "direct_source_exposed": 159,
+      "direct_source_changed": 159,
+      "later_covered": 165,
+      "direct_source_witness": {
+        "native_xy": [
+          177,
+          356
+        ],
+        "source8_xy": [
+          94,
+          26
+        ],
+        "authored_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "filtered_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "actual_final_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6519,
+      "slot": 1,
+      "base": 190,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        103,
+        116
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          166,
+          232
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6519,
+      "slot": 2,
+      "base": 266,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        117,
+        87
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          194,
+          174
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6519,
+      "slot": 3,
+      "base": 209,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        144,
+        62
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          248,
+          124
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "filtered_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "actual_final_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6519,
+      "slot": 10,
+      "base": 171,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        98,
+        182
+      ],
+      "source_native_alpha_support_unclipped": 392,
+      "projected_native_alpha_support": 64,
+      "final_owner_pixels": 64,
+      "direct_source_exposed": 36,
+      "direct_source_changed": 36,
+      "later_covered": 28,
+      "direct_source_witness": {
+        "native_xy": [
+          159,
+          364
+        ],
+        "source8_xy": [
+          46,
+          2
+        ],
+        "authored_RGBA": [
+          21,
+          13,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          21,
+          13,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          21,
+          13,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6520,
+      "slot": 1,
+      "base": 209,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        102,
+        122
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          164,
+          244
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "filtered_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "actual_final_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6520,
+      "slot": 2,
+      "base": 266,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        117,
+        92
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          194,
+          184
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6520,
+      "slot": 3,
+      "base": 228,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        145,
+        67
+      ],
+      "source_native_alpha_support_unclipped": 296,
+      "projected_native_alpha_support": 296,
+      "final_owner_pixels": 296,
+      "direct_source_exposed": 296,
+      "direct_source_changed": 296,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          250,
+          134
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "filtered_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "actual_final_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6521,
+      "slot": 1,
+      "base": 209,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        102,
+        128
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          164,
+          256
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "filtered_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "actual_final_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6521,
+      "slot": 2,
+      "base": 171,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        117,
+        98
+      ],
+      "source_native_alpha_support_unclipped": 392,
+      "projected_native_alpha_support": 392,
+      "final_owner_pixels": 392,
+      "direct_source_exposed": 392,
+      "direct_source_changed": 392,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          192,
+          196
+        ],
+        "source8_xy": [
+          26,
+          2
+        ],
+        "authored_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6521,
+      "slot": 3,
+      "base": 228,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        146,
+        72
+      ],
+      "source_native_alpha_support_unclipped": 296,
+      "projected_native_alpha_support": 296,
+      "final_owner_pixels": 296,
+      "direct_source_exposed": 296,
+      "direct_source_changed": 296,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          252,
+          144
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "filtered_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "actual_final_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6522,
+      "slot": 1,
+      "base": 228,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        103,
+        134
+      ],
+      "source_native_alpha_support_unclipped": 296,
+      "projected_native_alpha_support": 296,
+      "final_owner_pixels": 296,
+      "direct_source_exposed": 296,
+      "direct_source_changed": 296,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          166,
+          268
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "filtered_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "actual_final_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6522,
+      "slot": 2,
+      "base": 171,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        117,
+        104
+      ],
+      "source_native_alpha_support_unclipped": 392,
+      "projected_native_alpha_support": 392,
+      "final_owner_pixels": 392,
+      "direct_source_exposed": 392,
+      "direct_source_changed": 392,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          192,
+          208
+        ],
+        "source8_xy": [
+          26,
+          2
+        ],
+        "authored_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6522,
+      "slot": 3,
+      "base": 247,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        147,
+        77
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          254,
+          154
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6523,
+      "slot": 1,
+      "base": 228,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        104,
+        140
+      ],
+      "source_native_alpha_support_unclipped": 296,
+      "projected_native_alpha_support": 296,
+      "final_owner_pixels": 296,
+      "direct_source_exposed": 296,
+      "direct_source_changed": 296,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          168,
+          280
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "filtered_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "actual_final_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6523,
+      "slot": 2,
+      "base": 190,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        117,
+        110
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          194,
+          220
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6523,
+      "slot": 3,
+      "base": 247,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        148,
+        82
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          256,
+          164
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6524,
+      "slot": 1,
+      "base": 247,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        105,
+        147
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          170,
+          294
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6524,
+      "slot": 2,
+      "base": 190,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        116,
+        116
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          192,
+          232
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6524,
+      "slot": 3,
+      "base": 266,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        149,
+        87
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          258,
+          174
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6525,
+      "slot": 1,
+      "base": 247,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        106,
+        154
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          172,
+          308
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6525,
+      "slot": 2,
+      "base": 209,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        114,
+        122
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          188,
+          244
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "filtered_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "actual_final_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6525,
+      "slot": 3,
+      "base": 266,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        150,
+        92
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          260,
+          184
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6526,
+      "slot": 1,
+      "base": 266,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        108,
+        161
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 283,
+      "direct_source_changed": 283,
+      "later_covered": 45,
+      "direct_source_witness": {
+        "native_xy": [
+          176,
+          322
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6526,
+      "slot": 2,
+      "base": 209,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        112,
+        128
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          184,
+          256
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "filtered_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "actual_final_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6526,
+      "slot": 3,
+      "base": 171,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        150,
+        98
+      ],
+      "source_native_alpha_support_unclipped": 392,
+      "projected_native_alpha_support": 392,
+      "final_owner_pixels": 392,
+      "direct_source_exposed": 392,
+      "direct_source_changed": 392,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          258,
+          196
+        ],
+        "source8_xy": [
+          26,
+          2
+        ],
+        "authored_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6527,
+      "slot": 1,
+      "base": 266,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        111,
+        168
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 294,
+      "direct_source_changed": 294,
+      "later_covered": 34,
+      "direct_source_witness": {
+        "native_xy": [
+          182,
+          336
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          16,
+          9,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6527,
+      "slot": 2,
+      "base": 228,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        110,
+        134
+      ],
+      "source_native_alpha_support_unclipped": 296,
+      "projected_native_alpha_support": 296,
+      "final_owner_pixels": 296,
+      "direct_source_exposed": 296,
+      "direct_source_changed": 296,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          180,
+          268
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "filtered_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "actual_final_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6527,
+      "slot": 3,
+      "base": 171,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        150,
+        104
+      ],
+      "source_native_alpha_support_unclipped": 392,
+      "projected_native_alpha_support": 392,
+      "final_owner_pixels": 392,
+      "direct_source_exposed": 392,
+      "direct_source_changed": 392,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          258,
+          208
+        ],
+        "source8_xy": [
+          26,
+          2
+        ],
+        "authored_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6528,
+      "slot": 1,
+      "base": 171,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        114,
+        175
+      ],
+      "source_native_alpha_support_unclipped": 392,
+      "projected_native_alpha_support": 324,
+      "final_owner_pixels": 324,
+      "direct_source_exposed": 324,
+      "direct_source_changed": 324,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          186,
+          350
+        ],
+        "source8_xy": [
+          26,
+          2
+        ],
+        "authored_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6528,
+      "slot": 2,
+      "base": 228,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        108,
+        140
+      ],
+      "source_native_alpha_support_unclipped": 296,
+      "projected_native_alpha_support": 296,
+      "final_owner_pixels": 296,
+      "direct_source_exposed": 296,
+      "direct_source_changed": 296,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          176,
+          280
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "filtered_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "actual_final_RGBA": [
+          13,
+          9,
+          3,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6528,
+      "slot": 3,
+      "base": 190,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        149,
+        110
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          258,
+          220
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6529,
+      "slot": 1,
+      "base": 171,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        117,
+        182
+      ],
+      "source_native_alpha_support_unclipped": 392,
+      "projected_native_alpha_support": 64,
+      "final_owner_pixels": 64,
+      "direct_source_exposed": 64,
+      "direct_source_changed": 64,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          192,
+          364
+        ],
+        "source8_xy": [
+          26,
+          2
+        ],
+        "authored_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          12,
+          8,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6529,
+      "slot": 2,
+      "base": 247,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        106,
+        147
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          172,
+          294
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6529,
+      "slot": 3,
+      "base": 190,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        148,
+        116
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          256,
+          232
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          19,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6530,
+      "slot": 2,
+      "base": 247,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        105,
+        154
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 294,
+      "direct_source_changed": 294,
+      "later_covered": 34,
+      "direct_source_witness": {
+        "native_xy": [
+          170,
+          308
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "filtered_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "actual_final_RGBA": [
+          21,
+          12,
+          4,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6530,
+      "slot": 3,
+      "base": 209,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        146,
+        122
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          252,
+          244
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "filtered_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "actual_final_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6531,
+      "slot": 2,
+      "base": 266,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        104,
+        161
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 126,
+      "direct_source_changed": 126,
+      "later_covered": 202,
+      "direct_source_witness": {
+        "native_xy": [
+          170,
+          322
+        ],
+        "source8_xy": [
+          42,
+          2
+        ],
+        "authored_RGBA": [
+          18,
+          10,
+          2,
+          255
+        ],
+        "filtered_RGBA": [
+          18,
+          10,
+          2,
+          255
+        ],
+        "actual_final_RGBA": [
+          18,
+          10,
+          2,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    },
+    {
+      "tick": 6531,
+      "slot": 3,
+      "base": 209,
+      "filter": 0,
+      "iced_pre_draw": 0,
+      "origin": [
+        144,
+        128
+      ],
+      "source_native_alpha_support_unclipped": 328,
+      "projected_native_alpha_support": 328,
+      "final_owner_pixels": 328,
+      "direct_source_exposed": 328,
+      "direct_source_changed": 328,
+      "later_covered": 0,
+      "direct_source_witness": {
+        "native_xy": [
+          248,
+          256
+        ],
+        "source8_xy": [
+          34,
+          2
+        ],
+        "authored_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "filtered_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "actual_final_RGBA": [
+          18,
+          10,
+          3,
+          255
+        ],
+        "baseline_RGBA": [
+          12,
+          12,
+          12,
+          255
+        ]
+      }
+    }
+  ],
+  "per_frame": [
+    {
+      "tick": 6181,
+      "whole_frame_RGBA_compared": 256000,
+      "mismatch_pixels": 0,
+      "outside_original_family_alpha_changes": 0,
+      "changed_pixels": 1000,
+      "original_family_alpha_native_support": 1104,
+      "direct_source_exposed": 912,
+      "later_operation_support_pixels": {
+        "later_family": 0,
+        "projectile": 0,
+        "player_shadow": 0,
+        "player_halfblend": 0,
+        "font": 192,
+        "effect": 0
+      },
+      "font": {
+        "fully_covered_native_pixels": 104,
+        "shadow_only_native_pixels": 88,
+        "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+        "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+        "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+      },
+      "actors": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "tick": 6182,
+      "whole_frame_RGBA_compared": 256000,
+      "mismatch_pixels": 0,
+      "outside_original_family_alpha_changes": 0,
+      "changed_pixels": 1016,
+      "original_family_alpha_native_support": 1192,
+      "direct_source_exposed": 940,
+      "later_operation_support_pixels": {
+        "later_family": 0,
+        "projectile": 0,
+        "player_shadow": 0,
+        "player_halfblend": 0,
+        "font": 252,
+        "effect": 0
+      },
+      "font": {
+        "fully_covered_native_pixels": 176,
+        "shadow_only_native_pixels": 76,
+        "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+        "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+        "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+      },
+      "actors": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "tick": 6183,
+      "whole_frame_RGBA_compared": 256000,
+      "mismatch_pixels": 0,
+      "outside_original_family_alpha_changes": 0,
+      "changed_pixels": 1024,
+      "original_family_alpha_native_support": 1192,
+      "direct_source_exposed": 912,
+      "later_operation_support_pixels": {
+        "later_family": 0,
+        "projectile": 0,
+        "player_shadow": 0,
+        "player_halfblend": 0,
+        "font": 280,
+        "effect": 0
+      },
+      "font": {
+        "fully_covered_native_pixels": 168,
+        "shadow_only_native_pixels": 112,
+        "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+        "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+        "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+      },
+      "actors": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "tick": 6184,
+      "whole_frame_RGBA_compared": 256000,
+      "mismatch_pixels": 0,
+      "outside_original_family_alpha_changes": 0,
+      "changed_pixels": 1216,
+      "original_family_alpha_native_support": 1364,
+      "direct_source_exposed": 1132,
+      "later_operation_support_pixels": {
+        "later_family": 0,
+        "projectile": 0,
+        "player_shadow": 0,
+        "player_halfblend": 0,
+        "font": 232,
+        "effect": 0
+      },
+      "font": {
+        "fully_covered_native_pixels": 148,
+        "shadow_only_native_pixels": 84,
+        "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+        "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+        "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+      },
+      "actors": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "tick": 6185,
+      "whole_frame_RGBA_compared": 256000,
+      "mismatch_pixels": 0,
+      "outside_original_family_alpha_changes": 0,
+      "changed_pixels": 1260,
+      "original_family_alpha_native_support": 1392,
+      "direct_source_exposed": 1200,
+      "later_operation_support_pixels": {
+        "later_family": 0,
+        "projectile": 0,
+        "player_shadow": 0,
+        "player_halfblend": 0,
+        "font": 192,
+        "effect": 0
+      },
+      "font": {
+        "fully_covered_native_pixels": 132,
+        "shadow_only_native_pixels": 60,
+        "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+        "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+        "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+      },
+      "actors": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "tick": 6186,
+      "whole_frame_RGBA_compared": 256000,
+      "mismatch_pixels": 0,
+      "outside_original_family_alpha_changes": 0,
+      "changed_pixels": 1324,
+      "original_family_alpha_native_support": 1432,
+      "direct_source_exposed": 1244,
+      "later_operation_support_pixels": {
+        "later_family": 0,
+        "projectile": 0,
+        "player_shadow": 0,
+        "player_halfblend": 0,
+        "font": 188,
+        "effect": 0
+      },
+      "font": {
+        "fully_covered_native_pixels": 108,
+        "shadow_only_native_pixels": 80,
+        "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+        "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+        "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+      },
+      "actors": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "tick": 6187,
+      "whole_frame_RGBA_compared": 256000,
+      "mismatch_pixels": 0,
+      "outside_original_family_alpha_changes": 0,
+      "changed_pixels": 1316,
+      "original_family_alpha_native_support": 1488,
+      "direct_source_exposed": 1240,
+      "later_operation_support_pixels": {
+        "later_family": 0,
+        "projectile": 0,
+        "player_shadow": 0,
+        "player_halfblend": 0,
+        "font": 248,
+        "effect": 0
+      },
+      "font": {
+        "fully_covered_native_pixels": 172,
+        "shadow_only_native_pixels": 76,
+        "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+        "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+        "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+      },
+      "actors": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "tick": 6188,
+      "whole_frame_RGBA_compared": 256000,
+      "mismatch_pixels": 0,
+      "outside_original_family_alpha_changes": 0,
+      "changed_pixels": 1316,
+      "original_family_alpha_native_support": 1488,
+      "direct_source_exposed": 1212,
+      "later_operation_support_pixels": {
+        "later_family": 0,
+        "projectile": 0,
+        "player_shadow": 0,
+        "player_halfblend": 0,
+        "font": 276,
+        "effect": 0
+      },
+      "font": {
+        "fully_covered_native_pixels": 172,
+        "shadow_only_native_pixels": 104,
+        "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+        "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+        "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+      },
+      "actors": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "tick": 6189,
+      "whole_frame_RGBA_compared": 256000,
+      "mismatch_pixels": 0,
+      "outside_original_family_alpha_changes": 0,
+      "changed_pixels": 1512,
+      "original_family_alpha_native_support": 1676,
+      "direct_source_exposed": 1428,
+      "later_operation_support_pixels": {
+        "later_family": 0,
+        "projectile": 0,
+        "player_shadow": 0,
+        "player_halfblend": 0,
+        "font": 248,
+        "effect": 0
+      },
+      "font": {
+        "fully_covered_native_pixels": 164,
+        "shadow_only_native_pixels": 84,
+        "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+        "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+        "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+      },
+      "actors": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "tick": 6190,
+      "whole_frame_RGBA_compared": 256000,
+      "mismatch_pixels": 0,
+      "outside_original_family_alpha_changes": 0,
+      "changed_pixels": 1536,
+      "original_family_alpha_native_support": 1672,
+      "direct_source_exposed": 1460,
+      "later_operation_support_pixels": {
+        "later_family": 0,
+        "projectile": 0,
+        "player_shadow": 0,
+        "player_halfblend": 0,
+        "font": 212,
+        "effect": 0
+      },
+      "font": {
+        "fully_covered_native_pixels": 136,
+        "shadow_only_native_pixels": 76,
+        "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+        "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+        "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+      },
+      "actors": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "tick": 6191,
+      "whole_frame_RGBA_compared": 256000,
+      "mismatch_pixels": 0,
+      "outside_original_family_alpha_changes": 0,
+      "changed_pixels": 1556,
+      "original_family_alpha_native_support": 1672,
+      "direct_source_exposed": 1464,
+      "later_operation_support_pixels": {
+        "later_family": 0,
+        "projectile": 0,
+        "player_shadow": 0,
+        "player_halfblend": 0,
+        "font": 208,
+        "effect": 0
+      },
+      "font": {
+        "fully_covered_native_pixels": 116,
+        "shadow_only_native_pixels": 92,
+        "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+        "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+        "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+      },
+      "actors": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "tick": 6192,
+      "whole_frame_RGBA_compared": 256000,
+      "mismatch_pixels": 0,
+      "outside_original_family_alpha_changes": 0,
+      "changed_pixels": 1500,
+      "original_family_alpha_native_support": 1672,
+      "direct_source_exposed": 1424,
+      "later_operation_support_pixels": {
+        "later_family": 0,
+        "projectile": 0,
+        "player_shadow": 0,
+        "player_halfblend": 0,
+        "font": 248,
+        "effect": 0
+      },
+      "font": {
+        "fully_covered_native_pixels": 172,
+        "shadow_only_native_pixels": 76,
+        "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+        "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+        "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+      },
+      "actors": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "tick": 6512,
+      "whole_frame_RGBA_compared": 256000,
+      "mismatch_pixels": 0,
+      "outside_original_family_alpha_changes": 0,
+      "changed_pixels": 1672,
+      "original_family_alpha_native_support": 1672,
+      "direct_source_exposed": 1672,
+      "later_operation_support_pixels": {
+        "later_family": 0,
+        "projectile": 0,
+        "player_shadow": 0,
+        "player_halfblend": 0,
+        "font": 0,
+        "effect": 0
+      },
+      "font": {
+        "fully_covered_native_pixels": 0,
+        "shadow_only_native_pixels": 0,
+        "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+        "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+        "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+      },
+      "actors": [
+        0,
+        1,
+        2,
+        3,
+        10
+      ]
+    },
+    {
+      "tick": 6513,
+      "whole_frame_RGBA_compared": 256000,
+      "mismatch_pixels": 0,
+      "outside_original_family_alpha_changes": 0,
+      "changed_pixels": 1562,
+      "original_family_alpha_native_support": 1608,
+      "direct_source_exposed": 1286,
+      "later_operation_support_pixels": {
+        "later_family": 0,
+        "projectile": 322,
+        "player_shadow": 0,
+        "player_halfblend": 0,
+        "font": 0,
+        "effect": 44
+      },
+      "font": {
+        "fully_covered_native_pixels": 0,
+        "shadow_only_native_pixels": 0,
+        "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+        "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+        "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+      },
+      "actors": [
+        0,
+        1,
+        2,
+        3,
+        10
+      ]
+    },
+    {
+      "tick": 6514,
+      "whole_frame_RGBA_compared": 256000,
+      "mismatch_pixels": 0,
+      "outside_original_family_alpha_changes": 0,
+      "changed_pixels": 1691,
+      "original_family_alpha_native_support": 1704,
+      "direct_source_exposed": 1631,
+      "later_operation_support_pixels": {
+        "later_family": 0,
+        "projectile": 0,
+        "player_shadow": 0,
+        "player_halfblend": 0,
+        "font": 0,
+        "effect": 73
+      },
+      "font": {
+        "fully_covered_native_pixels": 0,
+        "shadow_only_native_pixels": 0,
+        "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+        "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+        "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+      },
+      "actors": [
+        0,
+        1,
+        2,
+        3,
+        10
+      ]
+    },
+    {
+      "tick": 6515,
+      "whole_frame_RGBA_compared": 256000,
+      "mismatch_pixels": 0,
+      "outside_original_family_alpha_changes": 0,
+      "changed_pixels": 1615,
+      "original_family_alpha_native_support": 1672,
+      "direct_source_exposed": 1350,
+      "later_operation_support_pixels": {
+        "later_family": 0,
+        "projectile": 322,
+        "player_shadow": 0,
+        "player_halfblend": 0,
+        "font": 0,
+        "effect": 120
+      },
+      "font": {
+        "fully_covered_native_pixels": 0,
+        "shadow_only_native_pixels": 0,
+        "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+        "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+        "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+      },
+      "actors": [
+        0,
+        1,
+        2,
+        3,
+        10
+      ]
+    },
+    {
+      "tick": 6516,
+      "whole_frame_RGBA_compared": 256000,
+      "mismatch_pixels": 0,
+      "outside_original_family_alpha_changes": 0,
+      "changed_pixels": 1651,
+      "original_family_alpha_native_support": 1672,
+      "direct_source_exposed": 1434,
+      "later_operation_support_pixels": {
+        "later_family": 0,
+        "projectile": 0,
+        "player_shadow": 0,
+        "player_halfblend": 86,
+        "font": 0,
+        "effect": 152
+      },
+      "font": {
+        "fully_covered_native_pixels": 0,
+        "shadow_only_native_pixels": 0,
+        "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+        "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+        "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+      },
+      "actors": [
+        0,
+        1,
+        2,
+        3,
+        10
+      ]
+    },
+    {
+      "tick": 6517,
+      "whole_frame_RGBA_compared": 256000,
+      "mismatch_pixels": 0,
+      "outside_original_family_alpha_changes": 0,
+      "changed_pixels": 1564,
+      "original_family_alpha_native_support": 1672,
+      "direct_source_exposed": 1104,
+      "later_operation_support_pixels": {
+        "later_family": 0,
+        "projectile": 290,
+        "player_shadow": 0,
+        "player_halfblend": 278,
+        "font": 0,
+        "effect": 104
+      },
+      "font": {
+        "fully_covered_native_pixels": 0,
+        "shadow_only_native_pixels": 0,
+        "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+        "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+        "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+      },
+      "actors": [
+        0,
+        1,
+        2,
+        3,
+        10
+      ]
+    },
+    {
+      "tick": 6518,
+      "whole_frame_RGBA_compared": 256000,
+      "mismatch_pixels": 0,
+      "outside_original_family_alpha_changes": 0,
+      "changed_pixels": 1308,
+      "original_family_alpha_native_support": 1308,
+      "direct_source_exposed": 1143,
+      "later_operation_support_pixels": {
+        "later_family": 0,
+        "projectile": 0,
+        "player_shadow": 1,
+        "player_halfblend": 164,
+        "font": 0,
+        "effect": 0
+      },
+      "font": {
+        "fully_covered_native_pixels": 0,
+        "shadow_only_native_pixels": 0,
+        "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+        "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+        "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+      },
+      "actors": [
+        1,
+        2,
+        3,
+        10
+      ]
+    },
+    {
+      "tick": 6519,
+      "whole_frame_RGBA_compared": 256000,
+      "mismatch_pixels": 0,
+      "outside_original_family_alpha_changes": 0,
+      "changed_pixels": 1048,
+      "original_family_alpha_native_support": 1048,
+      "direct_source_exposed": 1020,
+      "later_operation_support_pixels": {
+        "later_family": 0,
+        "projectile": 0,
+        "player_shadow": 28,
+        "player_halfblend": 0,
+        "font": 0,
+        "effect": 0
+      },
+      "font": {
+        "fully_covered_native_pixels": 0,
+        "shadow_only_native_pixels": 0,
+        "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+        "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+        "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+      },
+      "actors": [
+        1,
+        2,
+        3,
+        10
+      ]
+    },
+    {
+      "tick": 6520,
+      "whole_frame_RGBA_compared": 256000,
+      "mismatch_pixels": 0,
+      "outside_original_family_alpha_changes": 0,
+      "changed_pixels": 952,
+      "original_family_alpha_native_support": 952,
+      "direct_source_exposed": 952,
+      "later_operation_support_pixels": {
+        "later_family": 0,
+        "projectile": 0,
+        "player_shadow": 0,
+        "player_halfblend": 0,
+        "font": 0,
+        "effect": 0
+      },
+      "font": {
+        "fully_covered_native_pixels": 0,
+        "shadow_only_native_pixels": 0,
+        "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+        "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+        "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+      },
+      "actors": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "tick": 6521,
+      "whole_frame_RGBA_compared": 256000,
+      "mismatch_pixels": 0,
+      "outside_original_family_alpha_changes": 0,
+      "changed_pixels": 1016,
+      "original_family_alpha_native_support": 1016,
+      "direct_source_exposed": 1016,
+      "later_operation_support_pixels": {
+        "later_family": 0,
+        "projectile": 0,
+        "player_shadow": 0,
+        "player_halfblend": 0,
+        "font": 0,
+        "effect": 0
+      },
+      "font": {
+        "fully_covered_native_pixels": 0,
+        "shadow_only_native_pixels": 0,
+        "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+        "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+        "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+      },
+      "actors": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "tick": 6522,
+      "whole_frame_RGBA_compared": 256000,
+      "mismatch_pixels": 0,
+      "outside_original_family_alpha_changes": 0,
+      "changed_pixels": 1016,
+      "original_family_alpha_native_support": 1016,
+      "direct_source_exposed": 1016,
+      "later_operation_support_pixels": {
+        "later_family": 0,
+        "projectile": 0,
+        "player_shadow": 0,
+        "player_halfblend": 0,
+        "font": 0,
+        "effect": 0
+      },
+      "font": {
+        "fully_covered_native_pixels": 0,
+        "shadow_only_native_pixels": 0,
+        "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+        "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+        "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+      },
+      "actors": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "tick": 6523,
+      "whole_frame_RGBA_compared": 256000,
+      "mismatch_pixels": 0,
+      "outside_original_family_alpha_changes": 0,
+      "changed_pixels": 952,
+      "original_family_alpha_native_support": 952,
+      "direct_source_exposed": 952,
+      "later_operation_support_pixels": {
+        "later_family": 0,
+        "projectile": 0,
+        "player_shadow": 0,
+        "player_halfblend": 0,
+        "font": 0,
+        "effect": 0
+      },
+      "font": {
+        "fully_covered_native_pixels": 0,
+        "shadow_only_native_pixels": 0,
+        "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+        "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+        "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+      },
+      "actors": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "tick": 6524,
+      "whole_frame_RGBA_compared": 256000,
+      "mismatch_pixels": 0,
+      "outside_original_family_alpha_changes": 0,
+      "changed_pixels": 984,
+      "original_family_alpha_native_support": 984,
+      "direct_source_exposed": 984,
+      "later_operation_support_pixels": {
+        "later_family": 0,
+        "projectile": 0,
+        "player_shadow": 0,
+        "player_halfblend": 0,
+        "font": 0,
+        "effect": 0
+      },
+      "font": {
+        "fully_covered_native_pixels": 0,
+        "shadow_only_native_pixels": 0,
+        "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+        "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+        "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+      },
+      "actors": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "tick": 6525,
+      "whole_frame_RGBA_compared": 256000,
+      "mismatch_pixels": 0,
+      "outside_original_family_alpha_changes": 0,
+      "changed_pixels": 984,
+      "original_family_alpha_native_support": 984,
+      "direct_source_exposed": 984,
+      "later_operation_support_pixels": {
+        "later_family": 0,
+        "projectile": 0,
+        "player_shadow": 0,
+        "player_halfblend": 0,
+        "font": 0,
+        "effect": 0
+      },
+      "font": {
+        "fully_covered_native_pixels": 0,
+        "shadow_only_native_pixels": 0,
+        "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+        "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+        "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+      },
+      "actors": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "tick": 6526,
+      "whole_frame_RGBA_compared": 256000,
+      "mismatch_pixels": 0,
+      "outside_original_family_alpha_changes": 0,
+      "changed_pixels": 1048,
+      "original_family_alpha_native_support": 1048,
+      "direct_source_exposed": 1003,
+      "later_operation_support_pixels": {
+        "later_family": 0,
+        "projectile": 0,
+        "player_shadow": 0,
+        "player_halfblend": 45,
+        "font": 0,
+        "effect": 0
+      },
+      "font": {
+        "fully_covered_native_pixels": 0,
+        "shadow_only_native_pixels": 0,
+        "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+        "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+        "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+      },
+      "actors": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "tick": 6527,
+      "whole_frame_RGBA_compared": 256000,
+      "mismatch_pixels": 0,
+      "outside_original_family_alpha_changes": 0,
+      "changed_pixels": 1016,
+      "original_family_alpha_native_support": 1016,
+      "direct_source_exposed": 982,
+      "later_operation_support_pixels": {
+        "later_family": 0,
+        "projectile": 0,
+        "player_shadow": 0,
+        "player_halfblend": 34,
+        "font": 0,
+        "effect": 0
+      },
+      "font": {
+        "fully_covered_native_pixels": 0,
+        "shadow_only_native_pixels": 0,
+        "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+        "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+        "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+      },
+      "actors": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "tick": 6528,
+      "whole_frame_RGBA_compared": 256000,
+      "mismatch_pixels": 0,
+      "outside_original_family_alpha_changes": 0,
+      "changed_pixels": 948,
+      "original_family_alpha_native_support": 948,
+      "direct_source_exposed": 948,
+      "later_operation_support_pixels": {
+        "later_family": 0,
+        "projectile": 0,
+        "player_shadow": 0,
+        "player_halfblend": 0,
+        "font": 0,
+        "effect": 0
+      },
+      "font": {
+        "fully_covered_native_pixels": 0,
+        "shadow_only_native_pixels": 0,
+        "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+        "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+        "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+      },
+      "actors": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "tick": 6529,
+      "whole_frame_RGBA_compared": 256000,
+      "mismatch_pixels": 0,
+      "outside_original_family_alpha_changes": 0,
+      "changed_pixels": 720,
+      "original_family_alpha_native_support": 720,
+      "direct_source_exposed": 720,
+      "later_operation_support_pixels": {
+        "later_family": 0,
+        "projectile": 0,
+        "player_shadow": 0,
+        "player_halfblend": 0,
+        "font": 0,
+        "effect": 0
+      },
+      "font": {
+        "fully_covered_native_pixels": 0,
+        "shadow_only_native_pixels": 0,
+        "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+        "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+        "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+      },
+      "actors": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "tick": 6530,
+      "whole_frame_RGBA_compared": 256000,
+      "mismatch_pixels": 0,
+      "outside_original_family_alpha_changes": 0,
+      "changed_pixels": 656,
+      "original_family_alpha_native_support": 656,
+      "direct_source_exposed": 622,
+      "later_operation_support_pixels": {
+        "later_family": 0,
+        "projectile": 0,
+        "player_shadow": 0,
+        "player_halfblend": 34,
+        "font": 0,
+        "effect": 0
+      },
+      "font": {
+        "fully_covered_native_pixels": 0,
+        "shadow_only_native_pixels": 0,
+        "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+        "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+        "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+      },
+      "actors": [
+        2,
+        3
+      ]
+    },
+    {
+      "tick": 6531,
+      "whole_frame_RGBA_compared": 256000,
+      "mismatch_pixels": 0,
+      "outside_original_family_alpha_changes": 0,
+      "changed_pixels": 656,
+      "original_family_alpha_native_support": 656,
+      "direct_source_exposed": 454,
+      "later_operation_support_pixels": {
+        "later_family": 0,
+        "projectile": 0,
+        "player_shadow": 0,
+        "player_halfblend": 202,
+        "font": 0,
+        "effect": 0
+      },
+      "font": {
+        "fully_covered_native_pixels": 0,
+        "shadow_only_native_pixels": 0,
+        "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+        "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+        "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+      },
+      "actors": [
+        2,
+        3
+      ]
+    }
+  ],
+  "operation_totals": {
+    "family": 40648,
+    "projectile": 976,
+    "effect": 494,
+    "player_halfblend": 843,
+    "player_shadow": 29
+  },
+  "pack_pins": {
+    "enemy-newsh2-171-8.hda": "ab151e5301768c75541fa93eccf3cb4b8e18d36949e01b88079e938f413fc919",
+    "enemy-newsh2-228-8.hda": "41745a0504911c41ad35d06621db0826f68f74238006dde4f6592be1df95a12e",
+    "enemy-newsh2-190-8.hda": "d2850e82a77fc9bf32bf29d383f05de4bf2f2ff12209356ed29a139ba2796d14",
+    "enemy-newsh2-247-8.hda": "003cb884ee1d5e53086bde63d9854d9ef1d1f713fd5a90414153877c4029b90c",
+    "enemy-newsh2-209-8.hda": "e329ef037fd32c9a83bc9e92143897dc7e2c60745099597b7a4b830b821fdf55",
+    "enemy-newsh2-266-8.hda": "f6381324f6f1f3e17088a066348d9234d994561938f0f50d8dd1c97b1545ae0d",
+    "ship-233-8.hda": "d1fe9bfe2dd84207fceb2f453c862eeaea802d9832fd14c1e1c3290622a53964",
+    "bullet-59-8.hda": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
+    "explosion-newsh6-146-8.hda": "4ffc2b7596daf9da246c8c502e7d48a9c5a72271a3f4bd00aded691916eff5e3",
+    "explosion-newsh6-147-8.hda": "babd7fd35c3e5d36b91f3e12fb4321f10710534365966650c0300b6d0fb7baa7",
+    "explosion-newsh6-148-8.hda": "5c264f1bcb8cd5ba90572f1f58fab27918d0d1422b08bf79c10475bb588f358e",
+    "explosion-newsh6-149-8.hda": "4320a1a0771cbbd6f9a58239fcb78adfc193501f6b3bcf4b148f82c15b964ee0",
+    "explosion-newsh6-150-8.hda": "7b68a29d3f1f765cfa830ca83dd2c348a4f13182f9c637f4baa9b1ac4ef3877c",
+    "explosion-newsh6-122-8.hda": "e5a1cff9818e876cd317cc78d34c206b859f6eb6beff695062eefa4ffb603336",
+    "explosion-newsh6-151-8.hda": "5f09994d08e87f4e7ce0ad95f247e477a7a92b957c9dc5f8f6c6188e75f0335c",
+    "explosion-newsh6-123-8.hda": "53626aeff7d46c921c47a9acf4812948f4b09580cb1084efefa3a7677e9b68ea",
+    "explosion-newsh6-152-8.hda": "6d6a2f0addecec74acd0d8e9b1cb3246b5b40e759c3b3f0e24c1dea43d4b2ad7",
+    "explosion-newsh6-124-8.hda": "c82beb74fa1313bde51335a0e29774cb2df03ec5b468018a63806545522055e8",
+    "explosion-newsh6-125-8.hda": "f0e953b8d9132b084aa5ead8389140aa933d95be1f9480e14488fa1aa78503d1",
+    "explosion-newsh6-126-8.hda": "2775f74601f7e3de25daafddf9a11115d0eefe1dbe56a332594c089051305392",
+    "explosion-newsh6-127-8.hda": "d37e797583e156913786bb4c617e059644a6e7ba4ab19b4c3b63e278c5a8fee7",
+    "explosion-newsh6-128-8.hda": "6f4a71509dc1f0a91af3eb15449c7abb25d3506fadf731b45904322261eaf344",
+    "explosion-newsh6-129-8.hda": "0378f90c069578635fe9f09f91100493156fda653757a191cfb1fade15d3d27c",
+    "explosion-newsh6-130-8.hda": "32bd4b3cd65568c231f68de65e8b9e797f31ef2d2ad2c88aae8b8bf6dd07ad5d",
+    "explosion-newsh6-131-8.hda": "8206806e170690297a939c1075d2c18478f4bf3554332b0177d5c2c0d2ee0ddb"
+  },
+  "original_blend_fields": [
+    "tick",
+    "known_sheet",
+    "index",
+    "origin_x",
+    "origin_y",
+    "x",
+    "y",
+    "before",
+    "source",
+    "after"
+  ],
+  "original_blend_rows_equal": 9489,
+  "method": "Differential counterfactual using exact paired baseline, original binary RLE support, authored HDA center samples, independent production integer filters and ordered later player/projectile/shadow/half-opacity/effect/font operators. All actual final full-frame pixels compared with zero tolerance/exclusions.",
+  "limits": [
+    "Private player-survival; three artificial original Pulse155 requests. No natural combat, ram/body-hit, type16 other-level reuse, later boss53, whole-level, Windows or hardware-GPU claim.",
+    "Unrelated scenery uses exact paired baseline, not an independent redraw. Covered pixels are composed and are not claimed directly exposed.",
+    "Only original captured native2x PNGs are evidence; no resized/stiched/forged native capture."
+  ],
+  "receipts": {
+    "provenance_sha256": "2c1cbb6a802c18f7463913ea48b36ab4159386c5dcf096d372d948a1dfe26d67",
+    "verifier_sha256": "f1f6202b46dc47936d14254c67e52c6618e467482f836cf5d4bd7253422babb9",
+    "candidate_frame_hashes_sha256": "ff71c5d74ff331871b09037d0a38df4011550f9e9f75dace7b031ef276e8efc8",
+    "baseline_frame_hashes_sha256": "6fd24ee34b17b96e7b4c5a1a610859ac0435372feb2588ea3d4e9eab84b4eb75",
+    "candidate_stream_receipts_sha256": "7355555ca6405b28f137f52d0c60ea418edbbb898a11e55483054629b83a9fb0",
+    "baseline_stream_receipts_sha256": "50227a9625995c2fb29bb405025706c4bb57222ee6710a6aaddd0823f9ccbb42"
+  }
+}

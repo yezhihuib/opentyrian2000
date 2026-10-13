@@ -1,0 +1,38 @@
+{
+  "status": "ADAPTED_FOR_FRESH_RECOVERY_EVIDENCE_NOT_EXECUTED",
+  "evidence_root": "/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013",
+  "baseline": "b2a6e4a1e924aed71630f9f63c0ba4648e920d6d",
+  "candidate": "e976cb6a81aaa2eb99f5ffee14e58f9fc050dcb0",
+  "production_renderer_sha256": "7a39ffd4959c307c23707ae63c41030cd92ef757375b95f680445ff4f3e85420",
+  "metadata_pins": {
+    "provenance.json": "2c1cbb6a802c18f7463913ea48b36ab4159386c5dcf096d372d948a1dfe26d67",
+    "gates-provenance.json": "2c1cbb6a802c18f7463913ea48b36ab4159386c5dcf096d372d948a1dfe26d67"
+  },
+  "scripts": {
+    "verify-pixels-recovery.py": {
+      "historical_original": "verify-pixels.py",
+      "historical_original_sha256": "0b06f54663bbce9cb06080567d955ab6926d63b844734a2d933a2e8d3d3e673b",
+      "recovery_sha256": "f1f6202b46dc47936d14254c67e52c6618e467482f836cf5d4bd7253422babb9",
+      "syntax_parses": true
+    },
+    "verify-native4-pixels-recovery.py": {
+      "historical_original": "verify-native4-pixels.py",
+      "historical_original_sha256": "b33f6f7e3cee82d6dcfcb2822e56f4210af8804c032fde567af32087c8b5cbdb",
+      "recovery_sha256": "742a2cfb3999422f45d8fa3cda2f5a7eb3cc0dbb3375621391540cf62d5433d5",
+      "syntax_parses": true
+    }
+  },
+  "adaptations": [
+    "Evidence root redirected to regenerated fixture root.",
+    "Helper import redirected to regenerated independently unit-tested local text_oracle.py.",
+    "Historical commit IDs/text labels replaced with exact recovered baseline/candidate pins.",
+    "Verifier receipt SHA now reads the actual adapted script file.",
+    "Added --first CLI for first-frame-only request; full remains default and strict original pixel assertions and composition math are unchanged.",
+    "Added explicit source pin for --first; native4 metadata exact commit pair pinned."
+  ],
+  "preserved": "All original reconstruction, native dimensions, source alpha, integer blending/filter, cycle, log comparisons, complete-frame mismatch and zero-exclusion requirements.",
+  "games_launched": 0,
+  "fresh_frames_checked": 0,
+  "adaptation_diff_sha256": "2d64745f4c3db2a94fab8ebcacad0b8b4f18998a268b81043d5b68106f2eccf6",
+  "helper_sha256": "6b85317290387c4512f3eff8e128cee15e0c6ac23ed14e2b2259e42e2d85f031"
+}

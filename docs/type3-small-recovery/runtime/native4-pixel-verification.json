@@ -1,0 +1,656 @@
+{
+  "status": "PASS exact paired actual native4 pixels",
+  "baseline": "b2a6e4a1e924aed71630f9f63c0ba4648e920d6d",
+  "candidate": "e976cb6a81aaa2eb99f5ffee14e58f9fc050dcb0",
+  "ticks": [
+    6181,
+    6182,
+    6183
+  ],
+  "frames": 3,
+  "whole_frame_RGBA_pixels_compared": 3072000,
+  "mismatches": 0,
+  "excluded_pixels": 0,
+  "source_density": 8,
+  "native_scale": 4,
+  "native_dimensions": [
+    1280,
+    800
+  ],
+  "mapping": "Original render_mirror SDL_ScaleModeNearest: source8 taps1,3,5,7 per logical axis into actual native4 readback. Evidence PNGs are original complete frames; no resize, stitching or generated screenshot.",
+  "authored_source_ids_verified": [
+    171,
+    190,
+    209,
+    228,
+    247,
+    266
+  ],
+  "visible_source_ids": [
+    171,
+    190,
+    209,
+    228,
+    247,
+    266
+  ],
+  "directly_exposed_ids": [
+    171,
+    190,
+    209,
+    228,
+    247,
+    266
+  ],
+  "assets": {
+    "171": {
+      "file": "/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013/fixture-v2/packs/candidate/enemy-newsh2-171-8.hda",
+      "sha256": "ab151e5301768c75541fa93eccf3cb4b8e18d36949e01b88079e938f413fc919",
+      "opaque_logical_cells": 98,
+      "full8x_original_alpha_exact": true
+    },
+    "190": {
+      "file": "/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013/fixture-v2/packs/candidate/enemy-newsh2-190-8.hda",
+      "sha256": "d2850e82a77fc9bf32bf29d383f05de4bf2f2ff12209356ed29a139ba2796d14",
+      "opaque_logical_cells": 82,
+      "full8x_original_alpha_exact": true
+    },
+    "209": {
+      "file": "/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013/fixture-v2/packs/candidate/enemy-newsh2-209-8.hda",
+      "sha256": "e329ef037fd32c9a83bc9e92143897dc7e2c60745099597b7a4b830b821fdf55",
+      "opaque_logical_cells": 82,
+      "full8x_original_alpha_exact": true
+    },
+    "228": {
+      "file": "/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013/fixture-v2/packs/candidate/enemy-newsh2-228-8.hda",
+      "sha256": "41745a0504911c41ad35d06621db0826f68f74238006dde4f6592be1df95a12e",
+      "opaque_logical_cells": 74,
+      "full8x_original_alpha_exact": true
+    },
+    "247": {
+      "file": "/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013/fixture-v2/packs/candidate/enemy-newsh2-247-8.hda",
+      "sha256": "003cb884ee1d5e53086bde63d9854d9ef1d1f713fd5a90414153877c4029b90c",
+      "opaque_logical_cells": 82,
+      "full8x_original_alpha_exact": true
+    },
+    "266": {
+      "file": "/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013/fixture-v2/packs/candidate/enemy-newsh2-266-8.hda",
+      "sha256": "f6381324f6f1f3e17088a066348d9234d994561938f0f50d8dd1c97b1545ae0d",
+      "opaque_logical_cells": 82,
+      "full8x_original_alpha_exact": true
+    }
+  },
+  "frames_detail": [
+    {
+      "tick": 6181,
+      "native_dimensions": [
+        1280,
+        800
+      ],
+      "whole_frame_RGBA_pixels_compared": 1024000,
+      "mismatch_pixels": 0,
+      "excluded_pixels": 0,
+      "outside_original_alpha_changes": 0,
+      "changed_native_pixels": 4000,
+      "original_alpha_union_pixels": 4416,
+      "font_write_overlap_pixels": 768,
+      "later_player_rectangles_disjoint": true,
+      "actors": [
+        {
+          "slot": 0,
+          "base": 171,
+          "origin": [
+            143,
+            40
+          ],
+          "source_opaque_native_pixels": 1568,
+          "projected_opaque_native_pixels": 1568,
+          "full_source_in_view": true,
+          "final_owner_pixels": 1568,
+          "direct_uncovered_source_pixels": 1568,
+          "direct_changed_native_pixels": 1568,
+          "witness": {
+            "native_xy": [
+              488,
+              160
+            ],
+            "source8_xy": [
+              25,
+              1
+            ],
+            "source_RGBA": [
+              8,
+              6,
+              2,
+              255
+            ],
+            "final_RGBA": [
+              8,
+              6,
+              2,
+              255
+            ]
+          }
+        },
+        {
+          "slot": 1,
+          "base": 228,
+          "origin": [
+            135,
+            20
+          ],
+          "source_opaque_native_pixels": 1184,
+          "projected_opaque_native_pixels": 1184,
+          "full_source_in_view": true,
+          "final_owner_pixels": 1184,
+          "direct_uncovered_source_pixels": 1008,
+          "direct_changed_native_pixels": 1008,
+          "witness": {
+            "native_xy": [
+              456,
+              84
+            ],
+            "source8_xy": [
+              25,
+              9
+            ],
+            "source_RGBA": [
+              8,
+              6,
+              2,
+              255
+            ],
+            "final_RGBA": [
+              8,
+              6,
+              2,
+              255
+            ]
+          }
+        },
+        {
+          "slot": 2,
+          "base": 190,
+          "origin": [
+            122,
+            5
+          ],
+          "source_opaque_native_pixels": 1312,
+          "projected_opaque_native_pixels": 1312,
+          "full_source_in_view": true,
+          "final_owner_pixels": 1312,
+          "direct_uncovered_source_pixels": 720,
+          "direct_changed_native_pixels": 720,
+          "witness": {
+            "native_xy": [
+              408,
+              20
+            ],
+            "source8_xy": [
+              33,
+              1
+            ],
+            "source_RGBA": [
+              11,
+              7,
+              2,
+              255
+            ],
+            "final_RGBA": [
+              11,
+              7,
+              2,
+              255
+            ]
+          }
+        },
+        {
+          "slot": 3,
+          "base": 247,
+          "origin": [
+            114,
+            -8
+          ],
+          "source_opaque_native_pixels": 1312,
+          "projected_opaque_native_pixels": 352,
+          "full_source_in_view": false,
+          "final_owner_pixels": 352,
+          "direct_uncovered_source_pixels": 352,
+          "direct_changed_native_pixels": 352,
+          "witness": {
+            "native_xy": [
+              376,
+              0
+            ],
+            "source8_xy": [
+              33,
+              65
+            ],
+            "source_RGBA": [
+              18,
+              11,
+              3,
+              255
+            ],
+            "final_RGBA": [
+              18,
+              11,
+              3,
+              255
+            ]
+          }
+        }
+      ],
+      "original_font_overlay": {
+        "fully_covered_native_pixels": 416,
+        "shadow_only_native_pixels": 352,
+        "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+        "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+        "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+      },
+      "candidate_frame": {
+        "tick": 6181,
+        "width": 1280,
+        "height": 800,
+        "path": "/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013/native4-candidate-census-4x/actual-6181-native4x.png",
+        "PNG_sha256": "d876fbf0b3ee1770da7fd9d7816545e3d38a7ac8eba4a2b428e1cb8c3bf35f14",
+        "RGBA_sha256": "2a2aef0918893f21f88508c19fcb505b91550c48e11734e728f816c29aeda3f6"
+      },
+      "baseline_frame": {
+        "tick": 6181,
+        "width": 1280,
+        "height": 800,
+        "path": "/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013/native4-baseline-census-4x/actual-6181-native4x.png",
+        "PNG_sha256": "91eeb45e1d5e14bcbb655a15d6938c31e402ee1fd56700b59185943599ad8141",
+        "RGBA_sha256": "60d043b714102a9c302d5494024433032b0dd067f42c66b4c2a9442b36567c72"
+      }
+    },
+    {
+      "tick": 6182,
+      "native_dimensions": [
+        1280,
+        800
+      ],
+      "whole_frame_RGBA_pixels_compared": 1024000,
+      "mismatch_pixels": 0,
+      "excluded_pixels": 0,
+      "outside_original_alpha_changes": 0,
+      "changed_native_pixels": 4064,
+      "original_alpha_union_pixels": 4768,
+      "font_write_overlap_pixels": 1008,
+      "later_player_rectangles_disjoint": true,
+      "actors": [
+        {
+          "slot": 0,
+          "base": 171,
+          "origin": [
+            146,
+            44
+          ],
+          "source_opaque_native_pixels": 1568,
+          "projected_opaque_native_pixels": 1568,
+          "full_source_in_view": true,
+          "final_owner_pixels": 1568,
+          "direct_uncovered_source_pixels": 1568,
+          "direct_changed_native_pixels": 1568,
+          "witness": {
+            "native_xy": [
+              500,
+              176
+            ],
+            "source8_xy": [
+              25,
+              1
+            ],
+            "source_RGBA": [
+              8,
+              6,
+              2,
+              255
+            ],
+            "final_RGBA": [
+              8,
+              6,
+              2,
+              255
+            ]
+          }
+        },
+        {
+          "slot": 1,
+          "base": 247,
+          "origin": [
+            136,
+            24
+          ],
+          "source_opaque_native_pixels": 1312,
+          "projected_opaque_native_pixels": 1312,
+          "full_source_in_view": true,
+          "final_owner_pixels": 1312,
+          "direct_uncovered_source_pixels": 1312,
+          "direct_changed_native_pixels": 1312,
+          "witness": {
+            "native_xy": [
+              464,
+              96
+            ],
+            "source8_xy": [
+              33,
+              1
+            ],
+            "source_RGBA": [
+              16,
+              10,
+              4,
+              255
+            ],
+            "final_RGBA": [
+              16,
+              10,
+              4,
+              255
+            ]
+          }
+        },
+        {
+          "slot": 2,
+          "base": 190,
+          "origin": [
+            125,
+            8
+          ],
+          "source_opaque_native_pixels": 1312,
+          "projected_opaque_native_pixels": 1312,
+          "full_source_in_view": true,
+          "final_owner_pixels": 1312,
+          "direct_uncovered_source_pixels": 304,
+          "direct_changed_native_pixels": 304,
+          "witness": {
+            "native_xy": [
+              420,
+              32
+            ],
+            "source8_xy": [
+              33,
+              1
+            ],
+            "source_RGBA": [
+              11,
+              7,
+              2,
+              255
+            ],
+            "final_RGBA": [
+              11,
+              7,
+              2,
+              255
+            ]
+          }
+        },
+        {
+          "slot": 3,
+          "base": 266,
+          "origin": [
+            117,
+            -6
+          ],
+          "source_opaque_native_pixels": 1312,
+          "projected_opaque_native_pixels": 576,
+          "full_source_in_view": false,
+          "final_owner_pixels": 576,
+          "direct_uncovered_source_pixels": 576,
+          "direct_changed_native_pixels": 576,
+          "witness": {
+            "native_xy": [
+              384,
+              0
+            ],
+            "source8_xy": [
+              25,
+              49
+            ],
+            "source_RGBA": [
+              16,
+              9,
+              2,
+              255
+            ],
+            "final_RGBA": [
+              16,
+              9,
+              2,
+              255
+            ]
+          }
+        }
+      ],
+      "original_font_overlay": {
+        "fully_covered_native_pixels": 704,
+        "shadow_only_native_pixels": 304,
+        "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+        "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+        "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+      },
+      "candidate_frame": {
+        "tick": 6182,
+        "width": 1280,
+        "height": 800,
+        "path": "/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013/native4-candidate-census-4x/actual-6182-native4x.png",
+        "PNG_sha256": "fe50ea81dc0f6c9cca9c78766c5d67d1b0969ff2e15f5c67dd796bc4e5aaa63e",
+        "RGBA_sha256": "eed961521239d8402ac3cf34738fa4dea50668739af2f32adc095dad1aa62e2e"
+      },
+      "baseline_frame": {
+        "tick": 6182,
+        "width": 1280,
+        "height": 800,
+        "path": "/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013/native4-baseline-census-4x/actual-6182-native4x.png",
+        "PNG_sha256": "3fba49a256ca77467ccba35f3e5cadd87f8c01921479fb6e8a7389c54d0417bc",
+        "RGBA_sha256": "8fc89ecdf5beeabd4bc618ffd81f42ea76e006c2bacedd4d756bacc0ad09213b"
+      }
+    },
+    {
+      "tick": 6183,
+      "native_dimensions": [
+        1280,
+        800
+      ],
+      "whole_frame_RGBA_pixels_compared": 1024000,
+      "mismatch_pixels": 0,
+      "excluded_pixels": 0,
+      "outside_original_alpha_changes": 0,
+      "changed_native_pixels": 4096,
+      "original_alpha_union_pixels": 4768,
+      "font_write_overlap_pixels": 1120,
+      "later_player_rectangles_disjoint": true,
+      "actors": [
+        {
+          "slot": 0,
+          "base": 190,
+          "origin": [
+            149,
+            48
+          ],
+          "source_opaque_native_pixels": 1312,
+          "projected_opaque_native_pixels": 1312,
+          "full_source_in_view": true,
+          "final_owner_pixels": 1312,
+          "direct_uncovered_source_pixels": 1312,
+          "direct_changed_native_pixels": 1312,
+          "witness": {
+            "native_xy": [
+              516,
+              192
+            ],
+            "source8_xy": [
+              33,
+              1
+            ],
+            "source_RGBA": [
+              11,
+              7,
+              2,
+              255
+            ],
+            "final_RGBA": [
+              11,
+              7,
+              2,
+              255
+            ]
+          }
+        },
+        {
+          "slot": 1,
+          "base": 247,
+          "origin": [
+            137,
+            28
+          ],
+          "source_opaque_native_pixels": 1312,
+          "projected_opaque_native_pixels": 1312,
+          "full_source_in_view": true,
+          "final_owner_pixels": 1312,
+          "direct_uncovered_source_pixels": 1312,
+          "direct_changed_native_pixels": 1312,
+          "witness": {
+            "native_xy": [
+              468,
+              112
+            ],
+            "source8_xy": [
+              33,
+              1
+            ],
+            "source_RGBA": [
+              16,
+              10,
+              4,
+              255
+            ],
+            "final_RGBA": [
+              16,
+              10,
+              4,
+              255
+            ]
+          }
+        },
+        {
+          "slot": 2,
+          "base": 209,
+          "origin": [
+            128,
+            11
+          ],
+          "source_opaque_native_pixels": 1312,
+          "projected_opaque_native_pixels": 1312,
+          "full_source_in_view": true,
+          "final_owner_pixels": 1312,
+          "direct_uncovered_source_pixels": 192,
+          "direct_changed_native_pixels": 192,
+          "witness": {
+            "native_xy": [
+              440,
+              44
+            ],
+            "source8_xy": [
+              49,
+              1
+            ],
+            "source_RGBA": [
+              20,
+              12,
+              4,
+              255
+            ],
+            "final_RGBA": [
+              20,
+              12,
+              4,
+              255
+            ]
+          }
+        },
+        {
+          "slot": 3,
+          "base": 266,
+          "origin": [
+            119,
+            -4
+          ],
+          "source_opaque_native_pixels": 1312,
+          "projected_opaque_native_pixels": 832,
+          "full_source_in_view": false,
+          "final_owner_pixels": 832,
+          "direct_uncovered_source_pixels": 832,
+          "direct_changed_native_pixels": 832,
+          "witness": {
+            "native_xy": [
+              388,
+              0
+            ],
+            "source8_xy": [
+              17,
+              33
+            ],
+            "source_RGBA": [
+              8,
+              6,
+              2,
+              255
+            ],
+            "final_RGBA": [
+              8,
+              6,
+              2,
+              255
+            ]
+          }
+        }
+      ],
+      "original_font_overlay": {
+        "fully_covered_native_pixels": 672,
+        "shadow_only_native_pixels": 448,
+        "text_source": "original tyrian.shp table1 / JE_dString at115,10 / F0 value\u22123 / shadow+2,+2",
+        "original_font_file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+        "original_palette_sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+      },
+      "candidate_frame": {
+        "tick": 6183,
+        "width": 1280,
+        "height": 800,
+        "path": "/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013/native4-candidate-census-4x/actual-6183-native4x.png",
+        "PNG_sha256": "1af69a5f7ba5cdfb43238bc03129bf0ae860ee3da3db300a3d9732bee0cce3b9",
+        "RGBA_sha256": "3661c4c038071c06f8b097f0cd86367e76c1703e9d45ecde8c776f7a6d014e4f"
+      },
+      "baseline_frame": {
+        "tick": 6183,
+        "width": 1280,
+        "height": 800,
+        "path": "/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013/native4-baseline-census-4x/actual-6183-native4x.png",
+        "PNG_sha256": "4f247242c9c26846535ec42d33972e0bdff7661eea8b444eab98cf8432e1460d",
+        "RGBA_sha256": "08d5b71fc3bbf7976b6ebae615b542a031296c41ce4c988603cf2e1d776e3ece"
+      }
+    }
+  ],
+  "pins": {
+    "native4-candidate": {
+      "summary_sha256": "046c402923e1ea47b8fe8144b8302585bea22a9158f4c9618280d3e2faf4b65d",
+      "frame_hashes_sha256": "d62b3e38781937b5cf318ec377ed098a54d4ec6b3fa8da73556a986a42b4b0f5",
+      "stream_receipts_sha256": "412a5242ecd19a466ab0e29cde61b8ff11028de947fb390bcd8c96be6832bb7f"
+    },
+    "native4-baseline": {
+      "summary_sha256": "be9c8d41f8ee36e0dd1078003b6b723aadcc918970d401171059e96c388ab494",
+      "frame_hashes_sha256": "a12cd082b5d7bff23c8c2715054855cd8b5d339c8ae0f212303155dd8a04e4f2",
+      "stream_receipts_sha256": "cb1a15233f1bc0ccf572cbb9fb9c8d75c6eec7931016ed05e30c52530df39685"
+    }
+  },
+  "gates_provenance_sha256": "2c1cbb6a802c18f7463913ea48b36ab4159386c5dcf096d372d948a1dfe26d67",
+  "verifier_sha256": "742a2cfb3999422f45d8fa3cda2f5a7eb3cc0dbb3375621391540cf62d5433d5",
+  "limits": [
+    "Three bounded no-fire/private-survival native4 frames only; no native4 full held-twice-cycle or lifecycle claim. Native2 full32-frame verification is separate.",
+    "Original INSERT COIN glyph/shadow writes are explicitly replayed; source pixels covered by them are not claimed directly visible.",
+    "Paired baseline carries unrelated unchanged scenery. No ram, type16, later boss, whole-level, Windows or hardware-GPU claim."
+  ]
+}

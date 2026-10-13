@@ -1,0 +1,245 @@
+{
+  "status": "PASS_FRESH_BOUNDED_RECOVERY_ACCEPTANCE",
+  "tested_candidate": "e976cb6a81aaa2eb99f5ffee14e58f9fc050dcb0",
+  "published_baseline": "b2a6e4a1e924aed71630f9f63c0ba4648e920d6d",
+  "exact_historical_renderer_sha256": "7a39ffd4959c307c23707ae63c41030cd92ef757375b95f680445ff4f3e85420",
+  "frozen_inventory_sha256": "5012962c54ab3fd0b22cc8a2534fddee272704fa73447e267ffeb4938f787c33",
+  "frozen_contract_sha256": "9c8934790afb66ba2431be75ba68b20a22ad58b522c8db85661a849288cd8686",
+  "all_tested_production_source_and_art_bytes_preserved": true,
+  "manifest_change_after_actual_tests": "Only type3_small_six_v1.runtime_status acceptance metadata",
+  "tested_manifest_sha256": "73acacc35e838f783aebca6eb651aea3a8e4278cede9857b5bae4a68c216aecb",
+  "accepted_manifest_sha256": "aebd2582950fa2c1d9b25ce4f0a1ec649f2dd6ff382432238624c9634e697d80",
+  "fresh_original_state_rows": 6532,
+  "fresh_ordered_census_rows": 38400,
+  "native2": {
+    "frames_per_case": 32,
+    "ticks": [
+      [
+        6181,
+        6192
+      ],
+      [
+        6512,
+        6531
+      ]
+    ],
+    "dimensions": [
+      640,
+      400
+    ],
+    "compared_RGBA_pixels": 8192000,
+    "mismatches": 0,
+    "excluded_pixels": 0,
+    "all_six_held_twice_cycle": true
+  },
+  "native4": {
+    "frames_per_case": 3,
+    "ticks": [
+      6181,
+      6182,
+      6183
+    ],
+    "dimensions": [
+      1280,
+      800
+    ],
+    "compared_RGBA_pixels": 3072000,
+    "mismatches": 0,
+    "excluded_pixels": 0,
+    "all_six_ids_directly_exposed": true,
+    "full_cycle_or_lifecycle": false
+  },
+  "fallback": {
+    "missing266": [
+      6181,
+      6182,
+      6183
+    ],
+    "corrupt209": [
+      6181,
+      6182,
+      6183
+    ],
+    "density4": [
+      6181
+    ],
+    "compared_RGBA_pixels": 1792000,
+    "mismatches": 0,
+    "excluded_pixels": 0
+  },
+  "original_collision_lifecycle": {
+    "artificial_Pulse155_ticks": [
+      6513,
+      6515,
+      6517
+    ],
+    "damage": [
+      1,
+      99,
+      1
+    ],
+    "source_checked_unique_live_target": 0,
+    "link0_to_temporary255_preserved": true,
+    "unrelated_live_ground_link255_rejected": true,
+    "first_target_absent": 6518,
+    "last_visible_effect": 6526,
+    "first_target_effect_clear_presentation": 6527,
+    "first_empty_effect_pool": 6528,
+    "clear_explanation": "At6527 the final effect still has ttl1 at y184, outside the visible playfield; at6528 original y>186 culling ends it at y188. Sibling type3 sprites remain."
+  },
+  "private_survival": "Only the player invulnerability refresh is private; original enemy-shot contacts before the retained windows remain in identical telemetry. This fixture does not establish body/ram behavior.",
+  "recovery_provenance": {
+    "exactly_restored": [
+      "historical renderer",
+      "all frozen artwork",
+      "source guards",
+      "pixel unit harness",
+      "historical native pixel verifier text"
+    ],
+    "adapted_after_exact_recovery": [
+      "one reader hash for published title-screen hooks",
+      "verifier path and source pins"
+    ],
+    "newly_regenerated": [
+      "binding recorder",
+      "finite coexistence and preservation tests",
+      "private runtime fixture/runner/state/gate verifiers",
+      "equivalent original-font oracle without a historical entry-oracle byte pin"
+    ],
+    "old_vanished_evidence_used_as_fresh_proof": false,
+    "fresh_runtime_gates_reexecuted": true
+  },
+  "test_portability": "Lost local commit references replaced only by published exact relevant file/family identities; complete remaining manifests, sources, prior assets and modes remain pinned. See preservation.json and independent-source-review.json.",
+  "fresh_author_visual_pass_sha256": "0a3486871795a27ee6e0e2e110402f5cf4e2456b631a3ef59b3d2097660f9f40",
+  "fresh_independent_source_pass_sha256": "ec8b75f639ce014626f4839ac7472326417db55d849be2a7af5812f8cc04e35d",
+  "superseded_attempts_preserved": [
+    "source receipt entry-case typo corrected to180",
+    "regenerated renderer replaced by exact retained diff",
+    "binding receipt serialization fixed with complete rerun",
+    "unavailable local Git baselines replaced by source-proven published equivalents",
+    "later read-only gate assumption of zero collision telemetry corrected to exact original enemy-shot contacts; no repeated replay"
+  ],
+  "durable_artifacts": [
+    {
+      "filename": "type3-small-recovered-source-20261013-v2.bundle",
+      "sha256": "2f9d552b9d575da8cd642359d74a62b40492375cc0b3ac969e5b12e24a3ee8e3",
+      "scope": "Clean source checkpoint e976cb6 and fresh source/unit proof, requiring published b2a6e4a"
+    },
+    {
+      "filename": "type3-small-recovery-runtime-tools-20261013.tar.gz",
+      "sha256": "384c01137ae43e0adc0a1e96892501b4087380f0f16eabed30b81665ab127126",
+      "scope": "Reviewed private fixture, both compiled binaries and restored/adapted pixel verifier tools"
+    },
+    {
+      "filename": "type3-small-recovery-runtime-evidence-20261013.tar.gz",
+      "sha256": "845fd436a22714f2df7f32bcfcabc98fef6d2a848295a96d905512c8284cea42",
+      "scope": "All78 native PNGs, retained original logs and fresh numerical receipts; includes superseded checker attempt"
+    }
+  ],
+  "proof_files": {
+    "docs/type3-small-recovery/runtime/baseline-census/frame-hashes.json": "6fd24ee34b17b96e7b4c5a1a610859ac0435372feb2588ea3d4e9eab84b4eb75",
+    "docs/type3-small-recovery/runtime/baseline-census/invocation.json": "61adcd0dfaeb20d3c6d44c9eb2497d03d48aeb5affa542852e3b9f692673d2ac",
+    "docs/type3-small-recovery/runtime/baseline-census/run-summary.json": "1aa15d7866550bdba251d94448efcd703b3761f629eea14359c167306bb750f9",
+    "docs/type3-small-recovery/runtime/baseline-census/stream-receipts.json": "50227a9625995c2fb29bb405025706c4bb57222ee6710a6aaddd0823f9ccbb42",
+    "docs/type3-small-recovery/runtime/candidate-census/frame-hashes.json": "ff71c5d74ff331871b09037d0a38df4011550f9e9f75dace7b031ef276e8efc8",
+    "docs/type3-small-recovery/runtime/candidate-census/invocation.json": "dec3b6044f4417900c635bdc06d4c47c031b04ba2a206fc1fc4871009119e405",
+    "docs/type3-small-recovery/runtime/candidate-census/run-summary.json": "e5c9d874ef2dc909ea6652dcbc2cd8143d4536bb90e2226ef089901ac08f99b6",
+    "docs/type3-small-recovery/runtime/candidate-census/stream-receipts.json": "7355555ca6405b28f137f52d0c60ea418edbbb898a11e55483054629b83a9fb0",
+    "docs/type3-small-recovery/runtime/corrupt209-census/frame-hashes.json": "03923e5b7b482f0dd2052bcfc5477c623d8115723f03b5a9682df8377090890f",
+    "docs/type3-small-recovery/runtime/corrupt209-census/invocation.json": "56cff7e2c7671b0484752dd6c22a7b00c8af2b428db28c4772de5e6baee4d70e",
+    "docs/type3-small-recovery/runtime/corrupt209-census/run-summary.json": "d1661056661c06c48ca0d5530772d736ec676c42d1825650e95a2f9b286c3fc7",
+    "docs/type3-small-recovery/runtime/corrupt209-census/stream-receipts.json": "2ae9d4b1b63c17b777585b448fa3cc4b46538b6844ee244d81cb3c589492cb84",
+    "docs/type3-small-recovery/runtime/density4-baseline-census/frame-hashes.json": "93667451b785c8ae96722cfc12a60b6980069434a7807e5ccccef1cf60c6a2e5",
+    "docs/type3-small-recovery/runtime/density4-baseline-census/invocation.json": "f2d9c1eace344c7c2af32ffb3294a27ec21c8182f1c069ce355a8e8496a2e567",
+    "docs/type3-small-recovery/runtime/density4-baseline-census/run-summary.json": "d0f37ade0fd05dc42d01fd7dbdc85a7d0393e00603a7a0c0768952cb719f7fcb",
+    "docs/type3-small-recovery/runtime/density4-baseline-census/stream-receipts.json": "d9e79ff3fc623345bd630ff099901cf7607f9837d236a3a282ac6eb335d871ee",
+    "docs/type3-small-recovery/runtime/density4-candidate-census/frame-hashes.json": "1ea712005b0c885c733804cda14cbe535f725cec81f7d953146c1c4543fa0f34",
+    "docs/type3-small-recovery/runtime/density4-candidate-census/invocation.json": "30c1a7608e5e6a4224ac92e910b3f32e42507b54a9bb2b1c9339d273d9fe0bae",
+    "docs/type3-small-recovery/runtime/density4-candidate-census/run-summary.json": "e48b04dd5ac01c817b902b876a86ad6fd6361b8032bca29d8e79f0bb848607c5",
+    "docs/type3-small-recovery/runtime/density4-candidate-census/stream-receipts.json": "409cd03032bdc75d51ed7bd49f7e67e6834c1bea088c74bc078e2096f3e0d9c9",
+    "docs/type3-small-recovery/runtime/fallback-pixel-verification.json": "269150ef27c1e267c83e8860c2ae2cb47e1159fe165966367a39181e5c3e2298",
+    "docs/type3-small-recovery/runtime/first-still-verification.json": "311b7e2f2af2f8812dd5b32453cb4437ddf1c906fa81b69a4a018335dd3653bd",
+    "docs/type3-small-recovery/runtime/gates-provenance.json": "2c1cbb6a802c18f7463913ea48b36ab4159386c5dcf096d372d948a1dfe26d67",
+    "docs/type3-small-recovery/runtime/gates-verification.json": "66283cf4017e0e4d93fd90506f39aa0c553dd2d9ebc0f6bd317f932047cd0eb9",
+    "docs/type3-small-recovery/runtime/missing266-census/frame-hashes.json": "50388b112a6a716dadeea304c359a7af2381a9a5a4277815c218ff4b819e7f32",
+    "docs/type3-small-recovery/runtime/missing266-census/invocation.json": "49fab3c079f5f91e207d51b97ddc6bd764434f715b49598c4d87fa1e12ae748c",
+    "docs/type3-small-recovery/runtime/missing266-census/run-summary.json": "b1be0ccf2e2584d0c9347a7fdd4155869dd3dc5255ec20b02c58c791183e7fd2",
+    "docs/type3-small-recovery/runtime/missing266-census/stream-receipts.json": "b6bc81a84655922eea35d4f552dc953fcbdc5225a167b0c9a9c7ae3e5a209f30",
+    "docs/type3-small-recovery/runtime/native4-baseline-census-4x/frame-hashes.json": "a12cd082b5d7bff23c8c2715054855cd8b5d339c8ae0f212303155dd8a04e4f2",
+    "docs/type3-small-recovery/runtime/native4-baseline-census-4x/invocation.json": "f376e6989b93dbb40cc8f20f4c6f0a309bc35d5d7fec234a947f69619fe598d4",
+    "docs/type3-small-recovery/runtime/native4-baseline-census-4x/run-summary.json": "be9c8d41f8ee36e0dd1078003b6b723aadcc918970d401171059e96c388ab494",
+    "docs/type3-small-recovery/runtime/native4-baseline-census-4x/stream-receipts.json": "cb1a15233f1bc0ccf572cbb9fb9c8d75c6eec7931016ed05e30c52530df39685",
+    "docs/type3-small-recovery/runtime/native4-candidate-census-4x/frame-hashes.json": "d62b3e38781937b5cf318ec377ed098a54d4ec6b3fa8da73556a986a42b4b0f5",
+    "docs/type3-small-recovery/runtime/native4-candidate-census-4x/invocation.json": "1f4f4ef078b3ac062dc864577590374478daf5affecee2c79fdc74730d19effe",
+    "docs/type3-small-recovery/runtime/native4-candidate-census-4x/run-summary.json": "046c402923e1ea47b8fe8144b8302585bea22a9158f4c9618280d3e2faf4b65d",
+    "docs/type3-small-recovery/runtime/native4-candidate-census-4x/stream-receipts.json": "412a5242ecd19a466ab0e29cde61b8ff11028de947fb390bcd8c96be6832bb7f",
+    "docs/type3-small-recovery/runtime/native4-pixel-verification.json": "461bbe883bc94429d58eccb88e4fd58c65c359ec6729a5ca1deabe1936608586",
+    "docs/type3-small-recovery/runtime/pixel-verification.json": "0fdd40344b10ee62691a75572d48a5d4a9c42b6d88e0a264a2a6f4efc96a59bd",
+    "docs/type3-small-recovery/runtime/provenance.json": "2c1cbb6a802c18f7463913ea48b36ab4159386c5dcf096d372d948a1dfe26d67",
+    "docs/type3-small-recovery/runtime/runtime-evidence-inventory.json": "a592125f968d88eca7b0a60c118165f950bcc92fca53696ac8f6c4e5ca655cc7",
+    "docs/type3-small-recovery/runtime/state-verification.json": "6336638cae316ac351d2932c919bde0f4a984369a3875f3deaa3e105307877f1",
+    "docs/type3-small-recovery/runtime-fixture/FIXTURE-README.md": "07cffd939484906783cce3497cc059eb3430740b498ff15409924e92f418cb32",
+    "docs/type3-small-recovery/runtime-fixture/asset_debug.c.patch.gz": "d614cd5d16a63a2ff62d922e397b2179fa84e80f25cf8d0d163a1b48c9c5d5f0",
+    "docs/type3-small-recovery/runtime-fixture/census.inc": "aec60e4d9d2057c00b880b3e019990d977f01af9d3e8c9878aa26e6141299d7f",
+    "docs/type3-small-recovery/runtime-fixture/fixture-provenance.json": "dba9a33039b0522383d09de937c4f035128c84411b3d891f2a0b676829e75056",
+    "docs/type3-small-recovery/runtime-fixture/game_probe.c.patch.gz": "974bad0ab5525e0ebfab7d0dc716011c094efb50ec4491b672d64baf28d7b21a",
+    "docs/type3-small-recovery/runtime-fixture/gates-verification-superseded.log": "e0cd6510b1c8eff73bc1870d94a79364742f565c8a4e6079dec6c91e647e7404",
+    "docs/type3-small-recovery/runtime-fixture/prepare.py": "8f91132a172e5aa818801a0720c455431c67be65bdd3533f0f410f568b205166",
+    "docs/type3-small-recovery/runtime-fixture/pulses.inc": "5d3af99d2407f42cfad24e772242d02f455a87c00cdcb0a958628d299aceaccc",
+    "docs/type3-small-recovery/runtime-fixture/readback.inc": "ddc8ebc807f5d309c3bbeac708c123d3153f9b8675ba2f0c959438cd3ab1468a",
+    "docs/type3-small-recovery/runtime-fixture/run.py": "a40b9d9d3e5b59d470a3889ad70c07d3ac7ead83cb26a5c7720f5aa3b4e3ab8d",
+    "docs/type3-small-recovery/runtime-fixture/tyrian2.c.patch.gz": "d998919533e2b40dd3f66b944372ac086a9731eb93eb47c3aee18f44681d84da",
+    "docs/type3-small-recovery/runtime-fixture/verify-gates-superseded-no-collision-assumption.py": "7a10f7c2f7b38bb02fbc2bb3e658ff10c5a18533250b833a3a0446f3d3bbafb8",
+    "docs/type3-small-recovery/runtime-fixture/verify-gates.py": "6fd3a341ff385c0e9b36e5f4e7c301ed0bcd10ef445800c846d82218e8f5d1c8",
+    "docs/type3-small-recovery/runtime-fixture/verify-state.py": "d71a0cfb38b2ff5341425f234142b722a1080251b6d712e9e3cd5de49e91613e",
+    "docs/type3-small-recovery/runtime-oracle/oracle-recovery-verification.json": "c0f59c3734c7024809a63f6d537ca1bce5d9d3e277ffffd04f2b1d8d392c2126",
+    "docs/type3-small-recovery/runtime-oracle/recovery-adaptation.json": "46ef14ecf1813bf5f76e2e640550028a17b5dd214b1d15bb19ea95d570e22e03",
+    "docs/type3-small-recovery/runtime-oracle/required-input-schema.json": "b4249dcc17e735f4864b271d58cfbb151616122dc8316ff3e75e8997fd9a43a0",
+    "docs/type3-small-recovery/runtime-oracle/restoration-receipt.json": "a9391399b4af6d02d8ce03e65563b1488621c2ece1cf4a87daf0d8664dd0a596",
+    "docs/type3-small-recovery/runtime-oracle/test-oracle-recovery.py": "1b03198f2b36fb0ee8fa7e60e201882d14fe8b289a1ecaea44594025a7c06a04",
+    "docs/type3-small-recovery/runtime-oracle/text_oracle-retained.py": "639d80e92c0f2dbb2e165c565524ce7a67ca8f8d2889fca384501e622719fada",
+    "docs/type3-small-recovery/runtime-oracle/text_oracle.py": "6b85317290387c4512f3eff8e128cee15e0c6ac23ed14e2b2259e42e2d85f031",
+    "docs/type3-small-recovery/runtime-oracle/verify-native4-pixels-recovery.py": "742a2cfb3999422f45d8fa3cda2f5a7eb3cc0dbb3375621391540cf62d5433d5",
+    "docs/type3-small-recovery/runtime-oracle/verify-native4-pixels.py": "b33f6f7e3cee82d6dcfcb2822e56f4210af8804c032fde567af32087c8b5cbdb",
+    "docs/type3-small-recovery/runtime-oracle/verify-pixels-recovery.py": "f1f6202b46dc47936d14254c67e52c6618e467482f836cf5d4bd7253422babb9",
+    "docs/type3-small-recovery/runtime-oracle/verify-pixels.py": "0b06f54663bbce9cb06080567d955ab6926d63b844734a2d933a2e8d3d3e673b",
+    "docs/type3-small-recovery/author/author-review.json": "0a3486871795a27ee6e0e2e110402f5cf4e2456b631a3ef59b3d2097660f9f40",
+    "docs/type3-small-recovery/author/capture-hashes2x.json": "730bbae8c6608d95f35f2a5aa6e63f229045c5aa6aa6735a81805d934f8b167a",
+    "docs/type3-small-recovery/author/capture-hashes4x.json": "c2817f5573355ef10150069f861b59655c20adc5385555813680f1fec8e970b8",
+    "docs/type3-small-recovery/final-checks/aggregate.json": "dc330a3aa4c0b50658834b359d75f3a6799f0b72afd47e70226a47c8c450a7f6",
+    "docs/type3-small-recovery/final-checks/linux.log.gz": "200b2e07abfb0b55c05d5ea92d41e2ef55ef87dad38e4e59ee2877dd9b09d6d1",
+    "docs/type3-small-recovery/final-checks/menu-package.log": "fb4068f2f857a8deec5cc766cb15c9447afe9279bedab76e924d54fd6a93e6a9",
+    "docs/type3-small-recovery/final-checks/menu-runtime.log": "dcc22c036f0fc39536656bdd1c7ea119b286926badf0c6c0935fd38f23d82ef6",
+    "docs/type3-small-recovery/final-checks/menu-source.log": "d7a417ab3cb4be23487add2c474e812f30c3c24364dc9b066ed6c91b800b2573",
+    "docs/type3-small-recovery/final-checks/preservation.json": "38ac9b8dd176bf9455315bdcdabc21e0cf15e36bcad65bdf2c267791f2b12295",
+    "docs/type3-small-recovery/final-checks/preservation.log": "38ac9b8dd176bf9455315bdcdabc21e0cf15e36bcad65bdf2c267791f2b12295",
+    "docs/type3-small-recovery/final-checks/receipt.json": "9bae4701b27391cfe581cfae377c72394cbbc052b52963f2e46130051d26bab9",
+    "docs/type3-small-recovery/final-checks/recipe-rebuild-receipt.json": "579b6e46b7187912658326ee13d9a773dd6175f4a3063cbeabacc9c99e50147d",
+    "docs/type3-small-recovery/final-checks/source-guards-receipt.json": "b9a4bbf5f9ce1090a6c6ca7f498ed41a0d84cfd28dd98cd9eee1dc0d9d67b583",
+    "docs/type3-small-recovery/final-checks/source-guards.log": "b9a4bbf5f9ce1090a6c6ca7f498ed41a0d84cfd28dd98cd9eee1dc0d9d67b583",
+    "docs/type3-small-recovery/final-checks/source-rebuild.log": "7490e69f5e7e612cc702780c7a9f2fcb1ca7b33d748728c146d70c9e2a8e0432",
+    "docs/type3-small-recovery/final-checks/startup-package.log": "221937ffe4565f1dbe52514735c4bc51ac2d8e924fb81bf1a13de1655320b10c",
+    "docs/type3-small-recovery/final-checks/title-package.log": "85e0698e9eb998e2cf5d7e7f0e098c1942d1a3d1bd793c73aa71cc3d4ee050c6",
+    "docs/type3-small-recovery/runtime-oracle/recovery-adaptation.diff.gz": "9dc5002fd3886f612742f29280365e8c2e1098fb61ffcd0b98a2b4f6bc6ca601"
+  },
+  "limits": [
+    "Private survival and artificial original projectiles; no natural combat or body/ram acceptance",
+    "Type16 and later boss53 launch are source coverage only",
+    "True4x is a three-frame spot, not full-cycle/lifecycle validation",
+    "Actual fallback is finite; resource cache/malformed/allocation cases are source/unit checks",
+    "No whole-level, Windows runtime or hardware-GPU claim",
+    "Publication is owned by the integrating parent"
+  ],
+  "fresh_independent_prelaunch_review": {
+    "type": "Conversation-delivered review; verbatim message forwarded by integrating parent, saved now as a text receipt",
+    "path": "docs/type3-small-recovery/independent-prelaunch-review.txt",
+    "saved_text_sha256": "d27a003c5856a641b0a571dcec0a384f33d452ea89dc983aaa7ca4e98090d48f",
+    "no_historical_file_hash_claim": true
+  },
+  "final_metadata_revalidation": {
+    "path": "docs/type3-small-recovery/final-checks/receipt.json",
+    "sha256": "9bae4701b27391cfe581cfae377c72394cbbc052b52963f2e46130051d26bab9"
+  },
+  "raw_patch_preservation": "Raw fixture patches and verifier adaptation diff are gzip-compressed byte-exact to preserve original whitespace; decompress for inspection.",
+  "adaptation_diff_uncompressed_sha256": "2d64745f4c3db2a94fab8ebcacad0b8b4f18998a268b81043d5b68106f2eccf6"
+}

@@ -1,0 +1,65 @@
+{
+  "status": "PASS synthetic independent oracle tests; no game/capture verification",
+  "helper_origin": "Regenerated from fully retained late-spike text_oracle.py text. Exact historical entry-craft helper byte identity is unproven.",
+  "changes_from_retained_text": "Only original-data directory path changed to recovered source-identical data.",
+  "retained_text_sha256": "639d80e92c0f2dbb2e165c565524ce7a67ca8f8d2889fca384501e622719fada",
+  "adapted_helper_sha256": "6b85317290387c4512f3eff8e128cee15e0c6ac23ed14e2b2259e42e2d85f031",
+  "api": [
+    "apply_insert_coin",
+    "PALETTE",
+    "glyphs",
+    "TEXT",
+    "XY"
+  ],
+  "data_pins": {
+    "tyrian.shp": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+    "palette.dat": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+  },
+  "production_source_pins": {
+    "fonthand.c": "1d6c63d81e02538272a9225f70c26731c86a2048640a41e5857096cdeb03825e",
+    "sprite.c": "b912773976c4b745f355d471b4da6a4ea25907e7bf80eb7356c9a59ae361237c",
+    "mainint.c": "9dcc36f29e71bbd9999fd6097fa43148de65e4476967353cbd9b1e1013a52805",
+    "render_mirror.c": "7a39ffd4959c307c23707ae63c41030cd92ef757375b95f680445ff4f3e85420"
+  },
+  "independent_reference": "Original sprite byte-command stream interpreted with linear320-wide framebuffer address increments and scalar per-subpixel writes; no use of helper glyph arrays/masks.",
+  "synthetic_checks": [
+    {
+      "scale": 2,
+      "support": "all",
+      "pixels_compared": 256000,
+      "mismatches": 0
+    },
+    {
+      "scale": 2,
+      "support": "none",
+      "pixels_compared": 256000,
+      "mismatches": 0
+    },
+    {
+      "scale": 2,
+      "support": "random",
+      "pixels_compared": 256000,
+      "mismatches": 0
+    },
+    {
+      "scale": 4,
+      "support": "all",
+      "pixels_compared": 1024000,
+      "mismatches": 0
+    },
+    {
+      "scale": 4,
+      "support": "none",
+      "pixels_compared": 1024000,
+      "mismatches": 0
+    },
+    {
+      "scale": 4,
+      "support": "random",
+      "pixels_compared": 1024000,
+      "mismatches": 0
+    }
+  ],
+  "test_script_sha256": "1b03198f2b36fb0ee8fa7e60e201882d14fe8b289a1ecaea44594025a7c06a04",
+  "fresh_captures_checked": 0
+}

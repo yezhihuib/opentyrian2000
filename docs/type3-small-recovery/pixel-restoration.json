@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "restoration": "Both test sources restored byte-for-byte from retained task transcript, verified against historical SHA256 pins. No source changes or regeneration differences.",
+  "restored_source_sha256": {
+    "prototype/test-type3-small-pixels.c": "1ae3e70e53053868f9d760b36d7f5995322d36af13e80b570f332d24ca84ddff",
+    "prototype/test-type3-small-pixels.py": "86aa98a1cf49728f55257bc14a51bb83a74a53c0fa2d56596d1f3dabebd0e84b"
+  },
+  "fresh_run_receipt_sha256": "d712e74426bae29f6b9774ccc23d06b305e4875cda92e533e2515a1683f76c2d",
+  "historical_receipt_sha256": "d712e74426bae29f6b9774ccc23d06b305e4875cda92e533e2515a1683f76c2d",
+  "fresh_receipt_bytes_match_historical": true,
+  "repository_edits": [
+    "prototype/test-type3-small-pixels.c",
+    "prototype/test-type3-small-pixels.py"
+  ],
+  "scope": "Non-game unit tests only; no captures, runtime game execution, other repository edits, commits or publication."
+}

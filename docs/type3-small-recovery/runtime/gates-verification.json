@@ -1,0 +1,91 @@
+{
+  "status": "PASS_FRESH_FINITE_4X_AND_FALLBACK_GATES",
+  "superseded_check": "An initial regenerated verifier incorrectly required no collision telemetry. Original enemy-shot contacts occur before the capture window under private survival; the corrected check requires only original enemy-shot records and exact paired/prefix equality. No extra game run or changed fixture.",
+  "candidate": "e976cb6a81aaa2eb99f5ffee14e58f9fc050dcb0",
+  "baseline": "b2a6e4a1e924aed71630f9f63c0ba4648e920d6d",
+  "exact_runs": [
+    "native4-baseline",
+    "native4-candidate",
+    "missing266",
+    "corrupt209",
+    "density4-baseline",
+    "density4-candidate"
+  ],
+  "fresh_run_count": 6,
+  "native_captures": 14,
+  "true4_ticks": [
+    6181,
+    6182,
+    6183
+  ],
+  "missing266_ticks": [
+    6181,
+    6182,
+    6183
+  ],
+  "corrupt209_ticks": [
+    6181,
+    6182,
+    6183
+  ],
+  "density4_ticks": [
+    6181
+  ],
+  "all_stopped_after_tick": 6183,
+  "all_state_and_original_calls_unchanged": true,
+  "missing_and_corrupt_zero_small_family_draws": true,
+  "density4_zero_small_family_draws": true,
+  "original_game_data_unchanged": true,
+  "same_shared_private_source_and_objects": true,
+  "pack_mutations_exact_and_finite": true,
+  "all_native_capture_hashes_pinned": {
+    "native4-baseline": {
+      "run-summary.json": "be9c8d41f8ee36e0dd1078003b6b723aadcc918970d401171059e96c388ab494",
+      "frame-hashes.json": "a12cd082b5d7bff23c8c2715054855cd8b5d339c8ae0f212303155dd8a04e4f2",
+      "stream-receipts.json": "cb1a15233f1bc0ccf572cbb9fb9c8d75c6eec7931016ed05e30c52530df39685",
+      "invocation.json": "f376e6989b93dbb40cc8f20f4c6f0a309bc35d5d7fec234a947f69619fe598d4"
+    },
+    "native4-candidate": {
+      "run-summary.json": "046c402923e1ea47b8fe8144b8302585bea22a9158f4c9618280d3e2faf4b65d",
+      "frame-hashes.json": "d62b3e38781937b5cf318ec377ed098a54d4ec6b3fa8da73556a986a42b4b0f5",
+      "stream-receipts.json": "412a5242ecd19a466ab0e29cde61b8ff11028de947fb390bcd8c96be6832bb7f",
+      "invocation.json": "1f4f4ef078b3ac062dc864577590374478daf5affecee2c79fdc74730d19effe"
+    },
+    "missing266": {
+      "run-summary.json": "b1be0ccf2e2584d0c9347a7fdd4155869dd3dc5255ec20b02c58c791183e7fd2",
+      "frame-hashes.json": "50388b112a6a716dadeea304c359a7af2381a9a5a4277815c218ff4b819e7f32",
+      "stream-receipts.json": "b6bc81a84655922eea35d4f552dc953fcbdc5225a167b0c9a9c7ae3e5a209f30",
+      "invocation.json": "49fab3c079f5f91e207d51b97ddc6bd764434f715b49598c4d87fa1e12ae748c"
+    },
+    "corrupt209": {
+      "run-summary.json": "d1661056661c06c48ca0d5530772d736ec676c42d1825650e95a2f9b286c3fc7",
+      "frame-hashes.json": "03923e5b7b482f0dd2052bcfc5477c623d8115723f03b5a9682df8377090890f",
+      "stream-receipts.json": "2ae9d4b1b63c17b777585b448fa3cc4b46538b6844ee244d81cb3c589492cb84",
+      "invocation.json": "56cff7e2c7671b0484752dd6c22a7b00c8af2b428db28c4772de5e6baee4d70e"
+    },
+    "density4-baseline": {
+      "run-summary.json": "d0f37ade0fd05dc42d01fd7dbdc85a7d0393e00603a7a0c0768952cb719f7fcb",
+      "frame-hashes.json": "93667451b785c8ae96722cfc12a60b6980069434a7807e5ccccef1cf60c6a2e5",
+      "stream-receipts.json": "d9e79ff3fc623345bd630ff099901cf7607f9837d236a3a282ac6eb335d871ee",
+      "invocation.json": "f2d9c1eace344c7c2af32ffb3294a27ec21c8182f1c069ce355a8e8496a2e567"
+    },
+    "density4-candidate": {
+      "run-summary.json": "e48b04dd5ac01c817b902b876a86ad6fd6361b8032bca29d8e79f0bb848607c5",
+      "frame-hashes.json": "1ea712005b0c885c733804cda14cbe535f725cec81f7d953146c1c4543fa0f34",
+      "stream-receipts.json": "409cd03032bdc75d51ed7bd49f7e67e6834c1bea088c74bc078e2096f3e0d9c9",
+      "invocation.json": "30c1a7608e5e6a4224ac92e910b3f32e42507b54a9bb2b1c9339d273d9fe0bae"
+    }
+  },
+  "pixel_receipts": {
+    "native4-pixel-verification.json": "461bbe883bc94429d58eccb88e4fd58c65c359ec6729a5ca1deabe1936608586",
+    "fallback-pixel-verification.json": "269150ef27c1e267c83e8860c2ae2cb47e1159fe165966367a39181e5c3e2298"
+  },
+  "verifier_sha256": "6fd3a341ff385c0e9b36e5f4e7c301ed0bcd10ef445800c846d82218e8f5d1c8",
+  "limits": [
+    "Private survival; no ram, type16, boss launch or full-level claim",
+    "True4\u00d7 three-frame spot, not full4\u00d7 cycle/lifecycle",
+    "Missing/corrupt coverage only first three frames; density4 only first frame",
+    "Cache lifetime/malformed allocation variants are separate source/unit evidence",
+    "No actual runtime pack swapping, Windows or hardware GPU acceptance"
+  ]
+}

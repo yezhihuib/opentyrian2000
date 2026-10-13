@@ -23,7 +23,10 @@ class Package(unittest.TestCase):
   for name,(data,_) in result.items():
    if name!='title-menu-font-v1.hda':self.assertEqual(data,(ROOT/'assets/hd/packs/startup-title-v1'/name).read_bytes())
  def test_manifest_preservation(self):
-  actual=json.loads((ROOT/'assets/hd/manifest.json').read_text());family=actual.pop('startup_title_menu_v1')
+  actual=json.loads((ROOT/'assets/hd/manifest.json').read_text())
+  from type3_small_coexistence import project_type3_small_family
+  project_type3_small_family(self,actual)
+  family=actual.pop('startup_title_menu_v1')
   before=json.loads(subprocess.check_output(['git','show','e6fd18a8d53c31f90d15c0ac1bce9d0e927336ac:assets/hd/manifest.json'],cwd=ROOT))
   self.assertEqual(actual,before);self.assertEqual(family['runtime_bytes'],15994352)
  def test_relocated_vector_only_rebuild(self):self.assertTrue(bundle.verify_source_rebuild(ROOT))

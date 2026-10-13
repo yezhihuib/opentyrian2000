@@ -1,0 +1,210 @@
+{
+  "schema": "type3-small-fresh-independent-recovery-review-v1",
+  "status": "PASS_FRESH_INDEPENDENT_SOURCE_UNIT_GATE",
+  "blocking_findings": [],
+  "approved_candidate_commit": "e976cb6a81aaa2eb99f5ffee14e58f9fc050dcb0",
+  "approved_candidate_tree": "0c7a02ec78e64be7d0390cde1ca9b144ad99675c",
+  "executed_source_commit": "dfb59cc692a949dda5b963faf19f45a2753eb96a",
+  "executed_source_tree": "18fa4b9744e54bdcbd6c759ee2c18d66769ac99a",
+  "published_parent": "b2a6e4a1e924aed71630f9f63c0ba4648e920d6d",
+  "fresh_execution_date_UTC": "2026-10-13",
+  "worktree": "/workspace/scratch/f67dd347fa0a/type3-small-recovery-20261013",
+  "prior_vanished_QA_reused_as_execution_evidence": false,
+  "metadata_correction": {
+    "resolved": true,
+    "original_claim": 192,
+    "actual_entry_binding_cases": 180,
+    "actual_small_binding_cases": 192,
+    "changed_file": "docs/TYPE3_SMALL_SOURCE_VALIDATION.json",
+    "final_diff_verified_metadata_only": true
+  },
+  "scope": {
+    "bank": 1,
+    "namespace": 101,
+    "ids": [
+      171,
+      190,
+      209,
+      228,
+      247,
+      266
+    ],
+    "slots": [
+      416,
+      417,
+      418,
+      419,
+      420,
+      421
+    ],
+    "size": 0,
+    "part": 0,
+    "logical_size": [
+      12,
+      14
+    ],
+    "anchor": [
+      0,
+      0
+    ],
+    "density": 8
+  },
+  "source_review_findings": [
+    "Renderer is byte-exact at the required SHA256. Removing only its two finite appended blocks and restoring the array capacity recovers the published parent renderer exactly.",
+    "Every other src file, including original indexed sprite functions, enemy state/call sites, title menu additions, gameplay hooks, input and timing, equals published b2a6e4a.",
+    "Six-member preflight checks fixed dimensions/header/EOF and full RGBA stamps before any replacement. No 4x or partial-family substitute; malformed and allocation failures remain confined to the selected-pack startup cache for this family.",
+    "Exact bank/base/size/part/layout and direct x/y bounds precede arithmetic/loading. Original linear RLE row wrapping remains classic outside x 0\u2026308, and ordinary partial vertical clips remain supported inside y -13\u2026199.",
+    "Original engine filters, indexed writes and caller-owned entity_end remain unchanged. Fresh pixel and temporal tests establish exact authored alpha coverage, all 64 subpixels, ownership, classic overdraw and incoming shadow behavior within the standalone-unit scope.",
+    "Historical test portability is bounded by exact published renderer/family identity pins, not an arbitrary branch tip. Entry recorder projects away only the SHA-pinned type3 append and verifies exact predecessor restoration; the small route is separately tested on actual current source.",
+    "Regenerated coexistence projection calls the strict frozen source validator before removing six entries and compares the complete remaining serialized manifest to the published parent pin."
+  ],
+  "fresh_executed_checks": {
+    "source_rebuild": {
+      "status": "PASS",
+      "frozen_files": 31,
+      "frozen_inputs": 17,
+      "exact_PNG_RGBA_HDR1_pairs": 6,
+      "original_records": 1701,
+      "first_level_events": 1010
+    },
+    "source_malformed_rejections": 426,
+    "generated_only_eight_input_reproduction": true,
+    "small_binding_cases": 192,
+    "entry_binding_cases": 180,
+    "small_original_RLE_differential": "PASS original normal/filter RLE: 18564 cases, 6545 row-wrap differences, 500 exact opaque cells",
+    "entry_original_RLE_differential": "PASS original RLE: 29568 differential cases, 8776 row-wrap differences, 24 cells/20 nonempty/4 empty, 1768 opaque cells",
+    "small_cache_disk_mutation_cases": 24,
+    "small_geometry_result": "PASS 6082560 all-filter Cartesian physical-layout/row/partial-y geometry cases plus all format fields",
+    "full_production_pixels": {
+      "preview": "PASS production pixel unit: 6864 cases (2328 HD, 4536 classic); 11279744 RGBA writes; 338408 original writes (126270 row-wrapped); 1179648 filter/alpha operator cases; 6883 whole-frame comparisons; 144 production crop cases; all64 subpixels and ownership exact",
+      "debug": "PASS production pixel unit: 6864 cases (2328 HD, 4536 classic); 11279744 RGBA writes; 338408 original writes (126270 row-wrapped); 1179648 filter/alpha operator cases; 6883 whole-frame comparisons; 144 production crop cases; all64 subpixels and ownership exact"
+    },
+    "new_temporal_shadow_and_classic_overdraw": {
+      "preview": "PASS fresh independent temporal: 972 cases; 1944 original RLE shadow transactions; 972 classic overdraws; exact mixed ownership/cloud/green state and all64 subpixels\nPASS production pixel unit: 972 cases (972 HD, 0 classic); 5052672 RGBA writes; 157464 original writes (54 row-wrapped); 1179648 filter/alpha operator cases; 3889 whole-frame comparisons; 1 production crop cases; all64 subpixels and ownership exact",
+      "debug": "PASS fresh independent temporal: 972 cases; 1944 original RLE shadow transactions; 972 classic overdraws; exact mixed ownership/cloud/green state and all64 subpixels\nPASS production pixel unit: 972 cases (972 HD, 0 classic); 5052672 RGBA writes; 157464 original writes (54 row-wrapped); 1179648 filter/alpha operator cases; 3889 whole-frame comparisons; 1 production crop cases; all64 subpixels and ownership exact"
+    },
+    "new_extra_binding_checks": {
+      "malformed_loader_variants": 210,
+      "packs": 2,
+      "actual_context_declaration": true,
+      "additional_scope": "First-invalid context/part/layout recovery, null matching target, unsigned extreme size, extreme filter/density and overlong-path cached fallback"
+    },
+    "prior_files_checked": 5992,
+    "prior_asset_bytes_exact": 606990803,
+    "AddressSanitizer": "PASS",
+    "UndefinedBehaviorSanitizer": "PASS",
+    "LeakSanitizer": "Disabled; no leak-sanitizer claim"
+  },
+  "fixture_adapter": "Both complete binding suites were freshly executed with a saved external wrapper that only reuses one cleared sequential independent-copy fixture directory. Assertions, extracted production code, sanitizer flags, mutation barriers and case labels are unchanged. This avoids duplicating gigabyte-sized fixture sets.",
+  "current_checkpoint_evidence_reviewed_and_sha_verified": {
+    "receipt_count": 23,
+    "gates_not_independently_duplicated": [
+      "Linux build",
+      "renderer-disabled compile",
+      "aggregate 3,092 HDA and 442 canonical PNG checks",
+      "startup/title/title-menu package and synthetic menu tests"
+    ]
+  },
+  "source_pins": {
+    "src/render_mirror.c": "7a39ffd4959c307c23707ae63c41030cd92ef757375b95f680445ff4f3e85420",
+    "src/sprite.c": "b912773976c4b745f355d471b4da6a4ea25907e7bf80eb7356c9a59ae361237c",
+    "src/tyrian2.c": "0a042621d599fdba15f89012c9bb1007327cd6f5df0e0a41865ea61c08856d02",
+    "src/ground101_material.h": "ca8bed2e22f473d1556b9aa53e016eb924c865c5bd5bd3a75cbb882aa94d0690",
+    "assets/hd/manifest.json": "73acacc35e838f783aebca6eb651aea3a8e4278cede9857b5bae4a68c216aecb",
+    "prototype/build-type3-small-art.py": "ee89c88a9e399fcbd196fa22f2db97d22e9266f7082ce10ecb4c94404996eafd",
+    "prototype/test-type3-small-source-guards.py": "466cd09e787efddce04fc2d04edc785926106b1c3e54268f716a4901e1611c0d",
+    "prototype/test-type3-small-binding.c": "588e7e113c7d3420bea245a0134ea564b3dd5952a843f9f6f36508f124967af8",
+    "prototype/test-type3-small-binding.py": "803023c0fb470543b796b570b921e45286ebe3f0afc5c1ba731f3c7293e59b26",
+    "prototype/test-newsh4-entry6-binding.c": "c894eb90d85e90ff1caf79b83b6e797fb8a0963f258d12d608b70c8eedaf2110",
+    "prototype/test-newsh4-entry6-binding.py": "3934f34efc565155fe1c84352ae8b56cfb0fa90cc2759bae2d51e2cdb522726f",
+    "prototype/test-type3-small-pixels.c": "1ae3e70e53053868f9d760b36d7f5995322d36af13e80b570f332d24ca84ddff",
+    "prototype/test-type3-small-pixels.py": "86aa98a1cf49728f55257bc14a51bb83a74a53c0fa2d56596d1f3dabebd0e84b",
+    "prototype/type3_small_coexistence.py": "8404216174647da92306916b61720cb624aa03ca901b20eeba2e03f5b467ca4e",
+    "prototype/test-type3-small-preservation.py": "a3ee1d3d167557dbd7cf14c395941972ff7ba0dddbe25f4bec6f691a5f3147ea"
+  },
+  "checkpoint_sha256": "a0aa56a04bedd1cbe2fb092c4b163e22a69eae1a7a311e7545d7b644c30389f7",
+  "fresh_receipts": {
+    "source-rebuild.json": {
+      "path": "/workspace/scratch/f67dd347fa0a/type3-small-independent-recovery-review-20261013/source-rebuild.json",
+      "sha256": "7490e69f5e7e612cc702780c7a9f2fcb1ca7b33d748728c146d70c9e2a8e0432"
+    },
+    "source-guards/receipt.json": {
+      "path": "/workspace/scratch/f67dd347fa0a/type3-small-independent-recovery-review-20261013/source-guards/receipt.json",
+      "sha256": "1d01c0298951364c34108c44f04c5d005e873c75d06de4d73988f2ad6490b14e"
+    },
+    "preservation.json": {
+      "path": "/workspace/scratch/f67dd347fa0a/type3-small-independent-recovery-review-20261013/preservation.json",
+      "sha256": "38ac9b8dd176bf9455315bdcdabc21e0cf15e36bcad65bdf2c267791f2b12295"
+    },
+    "binding/receipt.json": {
+      "path": "/workspace/scratch/f67dd347fa0a/type3-small-independent-recovery-review-20261013/binding/receipt.json",
+      "sha256": "5fa00a18003da25d3af58a5b5de1b3f98d3af7918ecd42b1f72c72080f62efdd"
+    },
+    "entry-binding/receipt.json": {
+      "path": "/workspace/scratch/f67dd347fa0a/type3-small-independent-recovery-review-20261013/entry-binding/receipt.json",
+      "sha256": "c06986b054f83e820c4ab8e5df3d51cfe318c2e3cff2e72f9b1068bb6b473870"
+    },
+    "pixels/receipt.json": {
+      "path": "/workspace/scratch/f67dd347fa0a/type3-small-independent-recovery-review-20261013/pixels/receipt.json",
+      "sha256": "d712e74426bae29f6b9774ccc23d06b305e4875cda92e533e2515a1683f76c2d"
+    },
+    "shadows/receipt.json": {
+      "path": "/workspace/scratch/f67dd347fa0a/type3-small-independent-recovery-review-20261013/shadows/receipt.json",
+      "sha256": "9f58f1541fee4a46e2a33cc36088c663f291b658b52fe483697be13b21a84470"
+    },
+    "extra-binding/receipt.json": {
+      "path": "/workspace/scratch/f67dd347fa0a/type3-small-independent-recovery-review-20261013/extra-binding/receipt.json",
+      "sha256": "fadb4fdf36f30f2eef69d1ecc21f889d868f1defcff65afc2b4ae614ba10c3de"
+    },
+    "binding-adapter.json": {
+      "path": "/workspace/scratch/f67dd347fa0a/type3-small-independent-recovery-review-20261013/binding-adapter.json",
+      "sha256": "6ed977f7b7f57386be0c71d0a00620e89f3a051be5e5e392b5da8e3e3816cc18"
+    },
+    "entry-binding-adapter.json": {
+      "path": "/workspace/scratch/f67dd347fa0a/type3-small-independent-recovery-review-20261013/entry-binding-adapter.json",
+      "sha256": "5124ad977ebb3c4f3bc7f000eb533d0e65033297bb96a977ef88e2443a4cebb2"
+    },
+    "run-compact-binding.py": {
+      "path": "/workspace/scratch/f67dd347fa0a/type3-small-independent-recovery-review-20261013/run-compact-binding.py",
+      "sha256": "6f29dfde95c931fa6b20d7a94eaa008784515da3a554f0f4ad93588b8172d4d5"
+    },
+    "run-shadow-review.py": {
+      "path": "/workspace/scratch/f67dd347fa0a/type3-small-independent-recovery-review-20261013/run-shadow-review.py",
+      "sha256": "608ebf981621d4b4b95ab66f46113cb000e2b576a19bb8a0e4a7a80adeb4dc0a"
+    },
+    "run-extra-binding.py": {
+      "path": "/workspace/scratch/f67dd347fa0a/type3-small-independent-recovery-review-20261013/run-extra-binding.py",
+      "sha256": "608d65531be2af4bdb94ef4aff8ae89f927360321ea29017f769434e0a9ed7d6"
+    },
+    "binding.log": {
+      "path": "/workspace/scratch/f67dd347fa0a/type3-small-independent-recovery-review-20261013/binding.log",
+      "sha256": "77a50bf4f74c05034aaa8b6121a498931af771299ad4bd211a1be30c47d08d37"
+    },
+    "entry-binding.log": {
+      "path": "/workspace/scratch/f67dd347fa0a/type3-small-independent-recovery-review-20261013/entry-binding.log",
+      "sha256": "bf0223cace0af0fa42a5d5440183b8133e53c3211d4ecbd96c0362e6d2a3fd2f"
+    },
+    "pixels.log": {
+      "path": "/workspace/scratch/f67dd347fa0a/type3-small-independent-recovery-review-20261013/pixels.log",
+      "sha256": "081e07cf9fd75283539bed4c121f4e4e47c3b89498204d54f8aa74978b0a01b3"
+    },
+    "shadows.log": {
+      "path": "/workspace/scratch/f67dd347fa0a/type3-small-independent-recovery-review-20261013/shadows.log",
+      "sha256": "0de097e67f66b2082a84a85fdf87c7e92fb70f1409c85735099ad2f359e81fc8"
+    },
+    "extra-binding.log": {
+      "path": "/workspace/scratch/f67dd347fa0a/type3-small-independent-recovery-review-20261013/extra-binding.log",
+      "sha256": "0900662c4e8f24beefdad3069d6e14f52661c591448dc7405206ce0abd6927a7"
+    }
+  },
+  "limitations": [
+    "Source and standalone-unit gate only. No game runs, native captures, gameplay/state/event execution, native 2x/4x or visual acceptance.",
+    "Type16 other-level exposure, later boss-spawn, body collision/ram, complete-level, Windows runtime and GPU behavior remain outside this review.",
+    "Passing this source gate does not authorize publication or widen the bounded actual-run protocol."
+  ],
+  "actual_game_runs": 0,
+  "native_captures": 0,
+  "publication": false,
+  "reviewer_worktree_edits": false,
+  "worktree_clean_at_completion": true
+}

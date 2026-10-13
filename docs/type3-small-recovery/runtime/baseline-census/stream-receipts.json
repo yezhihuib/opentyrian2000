@@ -1,0 +1,282 @@
+{
+  "asset-debug-clock": {
+    "gzip_sha256": "e50d5e0842c80f1e6a801a20603046ac52373677f6b2e9785095f5761bf2105c",
+    "retention": "all",
+    "raw_sha256": "38be83add61a58deb6b3159d715976ea86ee3c4d8e99c740b8817c3eea3fd847",
+    "raw_bytes": 328925,
+    "lines": 6533,
+    "retained_lines": 6533
+  },
+  "asset-debug-control": {
+    "gzip_sha256": "8ff634f6f980879b764c65d29bf6c303e881f1ecf72170f2a69d6be641c5f4d2",
+    "retention": "all",
+    "raw_sha256": "d0c73695304b5f9e4ba06d1b4fb33dbfd0d542843e5423812e9da05aae21681c",
+    "raw_bytes": 368,
+    "lines": 5,
+    "retained_lines": 5
+  },
+  "asset-debug-explosion-pools": {
+    "gzip_sha256": "34810c4ebd84330118fc06fe605236b33bf6851a4c7d2b4f45b032be92f3821f",
+    "retention": "all",
+    "raw_sha256": "d1641df844b5c4cd4a66ffcc98067db20b7557bffc71c5f6e0d319457cefa7de",
+    "raw_bytes": 96966,
+    "lines": 6533,
+    "retained_lines": 6533
+  },
+  "asset-debug-materials": {
+    "gzip_sha256": "a1e290608fc8e3ce902931c1a2903dd2a78ce8184c7c1095f67b6b9bb2473f28",
+    "retention": "exact-retained-ticks",
+    "raw_sha256": "e0812b0366cc79b431eddafe4bcabdc22a5c1feb1c160ca6639476710b752c97",
+    "raw_bytes": 49564108,
+    "lines": 1121729,
+    "retained_lines": 4884
+  },
+  "blend-palette": {
+    "gzip_sha256": "1c96a3335a50419bf6a956f62196580af0c91e91f84ca7d9efc638523b3754cb",
+    "retention": "all",
+    "raw_sha256": "cb425cfe3e3f8cf1316ad8475fda177b187d189c8b4b0eaa55dbb7ab1d3ed994",
+    "raw_bytes": 3480,
+    "lines": 257,
+    "retained_lines": 257
+  },
+  "blend-writes": {
+    "gzip_sha256": "7401773bc36d8027eb48f781a80ed149566f43d89447275a4803b621dd022574",
+    "retention": "exact-retained-ticks",
+    "raw_sha256": "a5875b1d0a3083ffb5b789b93e438d90b3c0417dbda0f9574c4198559f1d3c76",
+    "raw_bytes": 4059512,
+    "lines": 94344,
+    "retained_lines": 9490
+  },
+  "collisions": {
+    "gzip_sha256": "bf6910b7d1792eabb405b50e8d6ede145b6c3c788e56b6619e2dd577d60c8944",
+    "retention": "all",
+    "raw_sha256": "c61ea920d4b2b06896f2510b0736e74b21ceb675e4923d25f9943fd7039f71ba",
+    "raw_bytes": 2106,
+    "lines": 96,
+    "retained_lines": 96
+  },
+  "draw-commands": {
+    "gzip_sha256": "59c7f3cd8c8ab0505d2bc9b0dfd94decbfe0dc2251b232a6f2e06a44210a4658",
+    "retention": "exact-retained-ticks",
+    "raw_sha256": "e14261fa228d3368d408a4d3f5fb2a2701653bf343319690c2248d6d096b85a2",
+    "raw_bytes": 311503,
+    "lines": 13071,
+    "retained_lines": 71
+  },
+  "effects": {
+    "gzip_sha256": "9cad23de59e5823c0a99c7a9fc7ba1e7d01c0af1fffc26f9efd33058cd8e513f",
+    "retention": "audit-6181-through-stop",
+    "raw_sha256": "9c1342ca96d66bcb44d637f159213a106da55884e3126d01211691ee8747cedc",
+    "raw_bytes": 8235,
+    "lines": 352,
+    "retained_lines": 352
+  },
+  "enemy-projectiles": {
+    "gzip_sha256": "9f7f1cb1c6ecdcbaf30f404fa9d561ca8d22e313c9b7f80bfa2de1fa000e3186",
+    "retention": "exact-retained-ticks",
+    "raw_sha256": "2d3b92b5109b5a0d9969cb29d84d50a2b3a9604e98acf8c2194e2a7d19ddc09f",
+    "raw_bytes": 141120,
+    "lines": 6742,
+    "retained_lines": 1
+  },
+  "fade-steps": {
+    "gzip_sha256": "387d582841d2492a4b2e38c2c38a490b82504295a29b16c46719bc6a3ab75c11",
+    "retention": "all",
+    "raw_sha256": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb",
+    "raw_bytes": 75,
+    "lines": 1,
+    "retained_lines": 1
+  },
+  "fire-events": {
+    "gzip_sha256": "a77d03221f6ff19a56d903e86b779652f2888c3fd2372dfffc0c91b0540a6467",
+    "retention": "all",
+    "raw_sha256": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+    "raw_bytes": 79,
+    "lines": 1,
+    "retained_lines": 1
+  },
+  "frames": {
+    "gzip_sha256": "20d8ffdd1f2f3a548b66954fe73a97ea48de6306717791731b847e10746c1140",
+    "retention": "audit-6181-through-stop",
+    "raw_sha256": "285c32b6ff0ffc2a4545afb48ca45e56dc1f57f9ea5dfab27f184a99c3391ad4",
+    "raw_bytes": 11862,
+    "lines": 352,
+    "retained_lines": 352
+  },
+  "late-census": {
+    "gzip_sha256": "9f7c2249000890a792f7ec83ccea71c75170f27641573668fd57572ee7f5b3fa",
+    "retention": "all",
+    "raw_sha256": "8d35c2c88fe0c8444deba56e3d8c30beb6a7902327d8e3a11808b529e0ba984b",
+    "raw_bytes": 4255707,
+    "lines": 38401,
+    "retained_lines": 38401
+  },
+  "player-projectiles": {
+    "gzip_sha256": "250b9f5ced1715a481e030510c7307eb887061cd5b3c7166a6428db5e197203b",
+    "retention": "exact-retained-ticks",
+    "raw_sha256": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+    "raw_bytes": 50,
+    "lines": 1,
+    "retained_lines": 1
+  },
+  "player-shot-draws": {
+    "gzip_sha256": "335521937a8646a28df5612dd7fe5370e82eb7a88c9603ea6e304dc9a9e4559f",
+    "retention": "exact-retained-ticks",
+    "raw_sha256": "711f9534575df9f5cdda45850d2f8246b0705fcfaeb2965c6c0b68b61d8c5079",
+    "raw_bytes": 259,
+    "lines": 7,
+    "retained_lines": 7
+  },
+  "player-shot-emissions": {
+    "gzip_sha256": "4305c7f647a750ef899ebf3f8ef14a21fba17fdb66936ed48b33f069ac7c9008",
+    "retention": "all",
+    "raw_sha256": "de44fb5d965cf66554c1117d15b853af4611852efcd19f642f063f1be2d6c639",
+    "raw_bytes": 275,
+    "lines": 4,
+    "retained_lines": 4
+  },
+  "player-shot-requests": {
+    "gzip_sha256": "844b77d717955e432c6e3f53b834093c74be06cea1d322c6dec78eb3e888ef08",
+    "retention": "all",
+    "raw_sha256": "842a57fd46ec9140373a43815130909eed93abcc51a09cf8c6a45ce97a6ca674",
+    "raw_bytes": 112,
+    "lines": 4,
+    "retained_lines": 4
+  },
+  "player-shot-results": {
+    "gzip_sha256": "9b6d20821367d2b3dec483a29a55e1983438ed79f4e8c4c664bcde0efc62cecf",
+    "retention": "all",
+    "raw_sha256": "afbfb37c5cc73ea599a5b9d040b239a6bef202d056dfcc0bdd8bb85f7df3190c",
+    "raw_bytes": 95,
+    "lines": 4,
+    "retained_lines": 4
+  },
+  "poses": {
+    "gzip_sha256": "730cb7ecc7efe85484fc41d5798ed0aa0a9b2b2f461fc47c2c2e043a50b3ee79",
+    "retention": "exact-retained-ticks",
+    "raw_sha256": "a59b6573b7a7fbee9a1e49b5b42b89840c17b10a40eeacae70b8374836d50350",
+    "raw_bytes": 273424,
+    "lines": 6533,
+    "retained_lines": 33
+  },
+  "presentation": {
+    "gzip_sha256": "fb7e46c1cdf908149a8c26fea9b119df26995e568cd2e4a1520bcd417ea55c3e",
+    "retention": "all",
+    "raw_sha256": "fb84b0dca7c58cad124c15bd7dad0639e3e326edee068540a9228877f5acef73",
+    "raw_bytes": 14431,
+    "lines": 352,
+    "retained_lines": 352
+  },
+  "restore-regions": {
+    "gzip_sha256": "0135a484dcdeaedb28ec4a06dca9be9013afc6de3cf4b50450d3a85d90e46e43",
+    "retention": "exact-retained-ticks",
+    "raw_sha256": "b517bb19a5662a6c82c7c78a54e31bc7a0d09533fed0a664ca933466127883a3",
+    "raw_bytes": 107,
+    "lines": 1,
+    "retained_lines": 1
+  },
+  "rgb-audit": {
+    "gzip_sha256": "94b773ee74943d963f724f1fc4ba484bc65bac35c671c3d9acab87867bf89d41",
+    "retention": "audit-6181-through-stop",
+    "raw_sha256": "22715dde2ba48cb0af50cb297952f604771289ca29ec91cf64f1ae4ef33b18d7",
+    "raw_bytes": 9167,
+    "lines": 352,
+    "retained_lines": 352
+  },
+  "scene-draw-commands": {
+    "gzip_sha256": "1812f4266df1fdfb49c94f26b1e204e3f9fa3cd8526c68fdafac638c54c92312",
+    "retention": "exact-retained-ticks",
+    "raw_sha256": "8499045b3fcca26e064f8a1ba59a38ad579af6e3450b297cc8c37efd2eff9424",
+    "raw_bytes": 1729957,
+    "lines": 68359,
+    "retained_lines": 5192
+  },
+  "scene-enemies": {
+    "gzip_sha256": "91d72456d7568695bab0fff4b918dfd94e1af863c3a939f9b12524157361e6fb",
+    "retention": "exact-retained-ticks",
+    "raw_sha256": "b59f765794a6af98acf256463201bf8f6e5007251fb6699e0814c2e0b22b6e4a",
+    "raw_bytes": 303130,
+    "lines": 8413,
+    "retained_lines": 1
+  },
+  "scene-hits": {
+    "gzip_sha256": "11119b2df42ed9be2bc40c22f38792363062da348619d830f480df20f5902fc7",
+    "retention": "exact-retained-ticks",
+    "raw_sha256": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+    "raw_bytes": 45,
+    "lines": 1,
+    "retained_lines": 1
+  },
+  "sdl-runtime": {
+    "gzip_sha256": "085f27a237137c6410fd9f72296b893483057e37211c8abfc0516e9dc6183285",
+    "retention": "all",
+    "raw_sha256": "d26dee3c975dbf4099de35850c6a989ae453de557e7e9a0aa240da77d7687a11",
+    "raw_bytes": 204,
+    "lines": 2,
+    "retained_lines": 2
+  },
+  "sidekick-loadout": {
+    "gzip_sha256": "4ff6252933fa1c32ad9d8bbda461cb0ee707a955b418185cf15c52ff57161f39",
+    "retention": "all",
+    "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw_bytes": 0,
+    "lines": 0,
+    "retained_lines": 0
+  },
+  "sidekick-states": {
+    "gzip_sha256": "679d5549dd734859a2fd5c7695f6bbe37207358db9c1ce99df2db78dc3ebb552",
+    "retention": "exact-retained-ticks",
+    "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw_bytes": 0,
+    "lines": 0,
+    "retained_lines": 0
+  },
+  "state": {
+    "gzip_sha256": "ffb5f0c7ef7074e90d5380b96b67c326e6484dc8e9f761b897acce9c1677fd46",
+    "retention": "all",
+    "raw_sha256": "7bd3629349b33f5ad8f40d73f107eb07a847bcd65e7d1f46026d9bed0fd52e9f",
+    "raw_bytes": 1135487,
+    "lines": 6533,
+    "retained_lines": 6533
+  },
+  "type3-explosion-census": {
+    "gzip_sha256": "4bbc7e54d76512e156d689ce9097984748d2d11702ce526976797eaf1a1b09f1",
+    "retention": "all",
+    "raw_sha256": "7861f4ec2171271c0c807a21ae5eb7aa7e483d8b547acc394323ed4152637b5e",
+    "raw_bytes": 90319,
+    "lines": 4001,
+    "retained_lines": 4001
+  },
+  "type3-original-effects": {
+    "gzip_sha256": "a96ba60b7136eeb6ac04de45438bc58c82339b33788a93a63978d2cbcff49000",
+    "retention": "all",
+    "raw_sha256": "0dd62b35fad19cf085efb4d49280b1d157a382f819f63a61807cfd05530276b5",
+    "raw_bytes": 93,
+    "lines": 4,
+    "retained_lines": 4
+  },
+  "type3-pulse-guards": {
+    "gzip_sha256": "c57923d6594a8604647a588a4a8fc17d7db7b019a58d9863721d51c0960f21d7",
+    "retention": "all",
+    "raw_sha256": "97b39e01e920d94e1defa829f138ba0345c178a0ef620cd0284baa2e4086cca4",
+    "raw_bytes": 198,
+    "lines": 4,
+    "retained_lines": 4
+  },
+  "type3-pulse-shots": {
+    "gzip_sha256": "ec8224e24278ba2f560de8546cd2200bbee17025c79450db6714957519aec35e",
+    "retention": "all",
+    "raw_sha256": "d3c02e31d36f4620292bc63cf45cab7ee3e88d36c3cdc261249d9bbf42cbb250",
+    "raw_bytes": 277,
+    "lines": 4,
+    "retained_lines": 4
+  },
+  "weapon-loadout": {
+    "gzip_sha256": "f538c2d295a34a4a3ab77a9156a450231f08a0682acb49c66d5d7a64fea6a7b3",
+    "retention": "all",
+    "raw_sha256": "4f88a84082ff5d7d4d1221929a9dc546efbb8dd143db882f6cf8772fbc1fecae",
+    "raw_bytes": 171,
+    "lines": 2,
+    "retained_lines": 2
+  }
+}

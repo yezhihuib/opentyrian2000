@@ -1,0 +1,14 @@
+fatal: path 'src/render_mirror.c' exists on disk, but not in 'fe5f5d7922105dccf67bfe2648ac366c3031bc66'
+Traceback (most recent call last):
+  File "/workspace/scratch/f67dd347fa0a/type3-small-recovery-20261013/prototype/test-newsh4-entry6-binding.py", line 51, in <module>
+    baseline = git('show', a.baseline + ':src/render_mirror.c').decode()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f67dd347fa0a/type3-small-recovery-20261013/prototype/test-newsh4-entry6-binding.py", line 50, in <lambda>
+    git = lambda *args: subprocess.check_output(['git', '-C', str(repo), *args])
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', '-C', '/workspace/scratch/f67dd347fa0a/type3-small-recovery-20261013', 'show', 'fe5f5d7922105dccf67bfe2648ac366c3031bc66:src/render_mirror.c']' returned non-zero exit status 128.

@@ -17,6 +17,8 @@ from unittest import mock
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[3]
+sys.path.insert(0, str(ROOT / 'prototype'))
+from type3_small_coexistence import project_type3_small_family
 spec = importlib.util.spec_from_file_location('title_layer_bundle', ROOT / 'prototype/title_layer_bundle.py')
 bundle = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(bundle)
@@ -894,6 +896,7 @@ class TitlePackageTests(unittest.TestCase):
     def test_existing_manifest_fields_and_bytes_unchanged_from_baseline(self):
         baseline = subprocess.check_output(['git', 'show', 'aba8650:assets/hd/manifest.json'], cwd=ROOT)
         without_title = json.loads(json.dumps(self.manifest))
+        project_type3_small_family(self, without_title)
         project_newsh4_entry6_family(self, without_title)
         project_late_spike_family(self, without_title)
         added_menu = without_title.pop('startup_title_menu_v1', None)
@@ -928,8 +931,13 @@ class TitlePackageTests(unittest.TestCase):
         # unknown fields, resources, packs and changes to older entries fail.
         added = without_title.pop('newsh4_long7_v1', None)
         if added is not None:
-            frozen = json.loads(subprocess.check_output([
-                'git', 'show', '20cae6e06f5165b901e606ee7277091b0c40a59a:assets/hd/manifest.json'], cwd=ROOT))
+            # Recovery: the original local20cae6e object was never published.
+            # Use its published family checkpoint, with the entire manifest
+            # pinned; no arbitrary branch/tip or weakened family projection.
+            frozen_bytes = subprocess.check_output([
+                'git', 'show', '67656d1:assets/hd/manifest.json'], cwd=ROOT)
+            self.assertEqual(sha(frozen_bytes), 'c7ca4c55b65fc2d856b2eb85055626596cb7c35940a62bfe9e9a04a564b9559d')
+            frozen = json.loads(frozen_bytes)
             self.assertEqual({k: v for k, v in added.items() if k != 'runtime_status'},
                              {k: v for k, v in frozen['newsh4_long7_v1'].items() if k != 'runtime_status'})
             self.assertTrue(all(frozen['packs'][frozen['default_preview_pack']]['files'][f'enemy-newsh4-{i}-8.hda']['sha256'] in without_title['source_pngs'] for i in [153, 155, 157, 159, 191, 193, 195]))

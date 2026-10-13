@@ -1,0 +1,181 @@
+{
+  "status": "passed",
+  "baseline": "b2a6e4a1e924aed71630f9f63c0ba4648e920d6d",
+  "recovery_status": "Newly regenerated binding recorder from published entry recorder plus retained small-sprite contract; fresh results, not historical exact test bytes",
+  "recorder_source_sha256": {
+    "prototype/test-type3-small-binding.c": "588e7e113c7d3420bea245a0134ea564b3dd5952a843f9f6f36508f124967af8",
+    "prototype/test-type3-small-binding.py": "803023c0fb470543b796b570b921e45286ebe3f0afc5c1ba731f3c7293e59b26"
+  },
+  "renderer_source_sha256": {
+    "baseline": "54bac8607c45879e0674344525e9f2f6af0d873c1537fac87cb80ef1cef376eb",
+    "candidate": "7a39ffd4959c307c23707ae63c41030cd92ef757375b95f680445ff4f3e85420"
+  },
+  "sanitizers": [
+    "address",
+    "undefined"
+  ],
+  "leak_detection": false,
+  "leak_detection_reason": "Disabled in this bounded recorder; no LeakSanitizer claim. Recorder reset frees all allocations.",
+  "unchanged_prior_bindings": 234,
+  "unchanged_debug_prior_bindings": 238,
+  "new_bindings": 6,
+  "small_asset_open_counts": "Exactly one 8x attempt/member per preflight, zero 4x attempts; cached calls do not reread",
+  "four_only_family_fallback": true,
+  "absent_selected_directory_fallback": true,
+  "all_sheet_identities_checked": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36
+  ],
+  "actor_bases_checked": [
+    0,
+    700
+  ],
+  "terrain_layers_checked": [
+    1,
+    2,
+    3
+  ],
+  "terrain_ids_checked": [
+    1,
+    600
+  ],
+  "first_member_orders": 6,
+  "preflight_allocation_failure_positions": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "all_six_part0_all_256_filters": true,
+  "invalid_parts_and_missing_or_wrong_size_context_rejected": true,
+  "geometric_small_tile_fallback": {
+    "family_only": true,
+    "required_layout": [
+      320,
+      200,
+      320,
+      8,
+      1
+    ],
+    "safe_x": [
+      0,
+      308
+    ],
+    "safe_y": [
+      -13,
+      199
+    ],
+    "pitch_cases": [
+      "INT_MIN",
+      -1,
+      0,
+      11,
+      12,
+      319,
+      320,
+      321,
+      "INT_MAX"
+    ],
+    "clipped_y_cases": [
+      "INT_MIN",
+      "INT_MIN+13",
+      -214,
+      -28,
+      -15,
+      -14,
+      -13,
+      -12,
+      -1,
+      0,
+      1,
+      183,
+      184,
+      185,
+      186,
+      198,
+      199,
+      200,
+      213,
+      214,
+      "INT_MAX-14",
+      "INT_MAX"
+    ],
+    "all_six_part0_all_256_filters": true,
+    "extreme_xy_cartesian": true,
+    "invalid_width_height_bpp_null_format": true,
+    "invalid_layout_does_not_poison_type15": true
+  },
+  "fixture_mirrors": "Independent copies for every fixture file; no source inode shared; source hashes verified afterward",
+  "disabled_scene_combinations": [
+    0,
+    2
+  ],
+  "scene_combinations_checked": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "cache_lifecycle": "Startup-selected pack. Actual disk changes leave success/failure cached; reset rereads. No mid-session reload writer.",
+  "cache_disk_change_cases": 24,
+  "independent_prior_families": [
+    "long7",
+    "opposite7",
+    "spike",
+    "type15",
+    "entry6",
+    "linked31"
+  ],
+  "both_selected_default_packs_checked": [
+    "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+    "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test"
+  ],
+  "original_blitter_sha256": "6d478eb6753b8904ccd44fbbadc403b9d995ff3c6d1e4640ef1e296a6bd1f8af",
+  "original_rle_differential": {
+    "executed": true,
+    "source_sha256": "8773ebcae4be992ecfbb476c0797b0bef4d43faa4c99449890bfaa28c8d9cbcc",
+    "result": "PASS original normal/filter RLE: 18564 cases, 6545 row-wrap differences, 500 exact opaque cells",
+    "method": "Unchanged extracted original blitter versus independently decoded source cells and linear-address clipping, padded storage under sanitizers; HD route recorder does not claim final RGB"
+  },
+  "limitations": [
+    "Unit recorder only; no game runs, captures, actual actor-state observations, final rendered pixels, or Windows runtime."
+  ]
+}
+Cases: 192

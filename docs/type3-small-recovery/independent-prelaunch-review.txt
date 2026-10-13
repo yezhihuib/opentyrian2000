@@ -1,0 +1,22 @@
+Conversation-delivered independent prelaunch review
+Provenance: verbatim final reviewer message forwarded by the integrating parent on 2026-10-13. This text receipt was saved during final recovery packaging; it is not a recovered historical JSON file. The message below is unchanged.
+
+CLEAR for the bounded prelaunch run using fixture-v2 on e976cb6.
+
+Verified:
+- 2,161 fixture pins and 99 original-data pins
+- Paired linked objects differ only in render_mirror.o
+- Pulses use damage 1 at 6513, ice 99 at 6515, live armor at 6517
+- Every pulse rechecks the unique original collision predicate and excludes unrelated live ground link255 actors
+- No actor teleport or enemy-state rewrite; private survival and artificial projectiles are explicit
+- Exactly 32 main captures, with finite tick, time and output limits
+
+Minor caveat: talon-bank-visual.tsv remains a regular file, covered by the overall output ceiling.
+
+Fixture provenance SHA256:
+dba9a33039b0522383d09de937c4f035128c84411b3d891f2a0b676829e75056
+
+Runner SHA256:
+a40b9d9d3e5b59d470a3889ad70c07d3ac7ead83cb26a5c7720f5aa3b4e3ab8d
+
+No runs or edits performed. Actual paired-state equality remains a runtime gate.

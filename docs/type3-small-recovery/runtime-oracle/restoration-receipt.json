@@ -1,0 +1,32 @@
+{
+  "status": "EXACT_HISTORICAL_SCRIPT_BYTES_RESTORED_NOT_EXECUTED",
+  "recovery_date_utc": "2026-10-13",
+  "source": "Exact script creation and subsequent string-replacement operations retained verbatim in verifier conversation; old workspace files absent. Restored bytes independently matched the recorded historical SHA256 outputs.",
+  "files": {
+    "verify-pixels.py": {
+      "sha256": "0b06f54663bbce9cb06080567d955ab6926d63b844734a2d933a2e8d3d3e673b",
+      "historical_final_sha256_match": true,
+      "syntax_parses": true
+    },
+    "verify-native4-pixels.py": {
+      "sha256": "b33f6f7e3cee82d6dcfcb2822e56f4210af8804c032fde567af32087c8b5cbdb",
+      "historical_final_sha256_match": true,
+      "syntax_parses": true
+    }
+  },
+  "new_game_runs": 0,
+  "fresh_pixel_verification_performed": false,
+  "old_pixel_receipts_copied_as_fresh": false,
+  "production_renderer_verified_path": "/workspace/scratch/f67dd347fa0a/type3-small-recovery-20261013/src/render_mirror.c",
+  "production_renderer_sha256": "7a39ffd4959c307c23707ae63c41030cd92ef757375b95f680445ff4f3e85420",
+  "fresh_execution_prerequisites": [
+    "Fresh provenance.json/gates-provenance.json and fresh paired run artifacts from regenerated fixture.",
+    "Separate recovery copies explicitly adapt provenance paths/commit pins without changing strict pixel assertions."
+  ],
+  "scope": "Restoration and syntax/hash checks only, not a re-verification of lost captured evidence.",
+  "oracle": {
+    "status": "regenerated from retained equivalent text and independently unit-tested; historical entry-craft byte identity unproven",
+    "receipt": "oracle-recovery-verification.json",
+    "fresh_capture_claim": false
+  }
+}

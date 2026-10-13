@@ -17,6 +17,8 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT / 'prototype'))
+from type3_small_coexistence import project_type3_small_family
+sys.path.insert(0, str(ROOT / 'prototype'))
 from startup_manufacturer_bundle import build_bundles, PACK, SOURCE, SOURCE_FILES, RUNTIME_FILES
 
 API = runpy.run_path(str(ROOT / SOURCE / 'build_resource.py'))
@@ -956,6 +958,7 @@ class ManufacturerPackageTests(unittest.TestCase):
         # families. Validate their exact entries/bytes and complete default-pack
         # scope before comparing every remaining entry to the original pin.
         without_type15 = json.loads(json.dumps(self.manifest))
+        project_type3_small_family(self, without_type15)
         project_newsh4_entry6_family(self, without_type15)
         project_late_spike_family(self, without_type15)
         project_type15_family(self, without_type15)

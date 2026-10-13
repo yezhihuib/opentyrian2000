@@ -1,0 +1,260 @@
+{
+  "status": "PASS_FRESH_PAIRED_ORIGINAL_STATE_AND_LIFECYCLE",
+  "baseline": "b2a6e4a1e924aed71630f9f63c0ba4648e920d6d",
+  "candidate": "e976cb6a81aaa2eb99f5ffee14e58f9fc050dcb0",
+  "state_rows_exact": 6532,
+  "census_rows_exact": 38400,
+  "phases": [
+    "post-events",
+    "pre-ground-50",
+    "post-ground-50",
+    "pre-ground-100",
+    "post-ground-100",
+    "pre-sky-25",
+    "post-sky-25",
+    "pre-projectiles",
+    "post-projectiles",
+    "pre-body-collision",
+    "post-body-collision",
+    "end-tick"
+  ],
+  "cycle": [
+    {
+      "tick": 6181,
+      "id": 171,
+      "x": 143,
+      "y": 40,
+      "cycle": 1
+    },
+    {
+      "tick": 6182,
+      "id": 171,
+      "x": 146,
+      "y": 44,
+      "cycle": 2
+    },
+    {
+      "tick": 6183,
+      "id": 190,
+      "x": 149,
+      "y": 48,
+      "cycle": 3
+    },
+    {
+      "tick": 6184,
+      "id": 190,
+      "x": 152,
+      "y": 52,
+      "cycle": 4
+    },
+    {
+      "tick": 6185,
+      "id": 209,
+      "x": 154,
+      "y": 57,
+      "cycle": 5
+    },
+    {
+      "tick": 6186,
+      "id": 209,
+      "x": 155,
+      "y": 62,
+      "cycle": 6
+    },
+    {
+      "tick": 6187,
+      "id": 228,
+      "x": 156,
+      "y": 67,
+      "cycle": 7
+    },
+    {
+      "tick": 6188,
+      "id": 228,
+      "x": 157,
+      "y": 72,
+      "cycle": 8
+    },
+    {
+      "tick": 6189,
+      "id": 247,
+      "x": 157,
+      "y": 77,
+      "cycle": 9
+    },
+    {
+      "tick": 6190,
+      "id": 247,
+      "x": 157,
+      "y": 82,
+      "cycle": 10
+    },
+    {
+      "tick": 6191,
+      "id": 266,
+      "x": 157,
+      "y": 87,
+      "cycle": 11
+    },
+    {
+      "tick": 6192,
+      "id": 266,
+      "x": 157,
+      "y": 92,
+      "cycle": 12
+    }
+  ],
+  "pulse_guards": [
+    {
+      "tick": 6513,
+      "target": 0,
+      "type": 3,
+      "bank": 1,
+      "base": 190,
+      "cycle": 3,
+      "armor": 2,
+      "iced": 0,
+      "filter": 0,
+      "shot_x": 152,
+      "shot_y": 110,
+      "unique_candidates": 0,
+      "alias255": 0
+    },
+    {
+      "tick": 6515,
+      "target": 0,
+      "type": 3,
+      "bank": 1,
+      "base": 209,
+      "cycle": 5,
+      "armor": 1,
+      "iced": 0,
+      "filter": 0,
+      "shot_x": 154,
+      "shot_y": 122,
+      "unique_candidates": 0,
+      "alias255": 0
+    },
+    {
+      "tick": 6517,
+      "target": 0,
+      "type": 3,
+      "bank": 1,
+      "base": 228,
+      "cycle": 7,
+      "armor": 1,
+      "iced": 38,
+      "filter": 9,
+      "shot_x": 156,
+      "shot_y": 134,
+      "unique_candidates": 0,
+      "alias255": 0
+    }
+  ],
+  "post_override_shots": [
+    {
+      "tick": 6513,
+      "shot": 0,
+      "damage": 1,
+      "x": 152,
+      "y": 110,
+      "xm": 0,
+      "ym": 0,
+      "xc": 0,
+      "yc": 0,
+      "frame": 59,
+      "ani": 0,
+      "animax": 1,
+      "filter": 208,
+      "trail": 255,
+      "ttl": 255,
+      "player": 1,
+      "chain": 0,
+      "aim": 0,
+      "complicated": 0,
+      "power_after": 870
+    },
+    {
+      "tick": 6515,
+      "shot": 0,
+      "damage": 99,
+      "x": 154,
+      "y": 122,
+      "xm": 0,
+      "ym": 0,
+      "xc": 0,
+      "yc": 0,
+      "frame": 59,
+      "ani": 0,
+      "animax": 1,
+      "filter": 208,
+      "trail": 255,
+      "ttl": 255,
+      "player": 1,
+      "chain": 0,
+      "aim": 0,
+      "complicated": 0,
+      "power_after": 868
+    },
+    {
+      "tick": 6517,
+      "shot": 0,
+      "damage": 1,
+      "x": 156,
+      "y": 134,
+      "xm": 0,
+      "ym": 0,
+      "xc": 0,
+      "yc": 0,
+      "frame": 59,
+      "ani": 0,
+      "animax": 1,
+      "filter": 208,
+      "trail": 255,
+      "ttl": 255,
+      "player": 1,
+      "chain": 0,
+      "aim": 0,
+      "complicated": 0,
+      "power_after": 866
+    }
+  ],
+  "original_effect_calls": [
+    {
+      "tick": 6513,
+      "slot": 0,
+      "enemytype": 3,
+      "effect_type": 0,
+      "x": 152,
+      "y": 110
+    },
+    {
+      "tick": 6515,
+      "slot": 0,
+      "enemytype": 3,
+      "effect_type": 0,
+      "x": 154,
+      "y": 122
+    },
+    {
+      "tick": 6517,
+      "slot": 0,
+      "enemytype": 3,
+      "effect_type": 1,
+      "x": 156,
+      "y": 140
+    }
+  ],
+  "first_absent_target_tick": 6518,
+  "last_visible_effect_tick": 6526,
+  "first_target_effect_clear_presentation_tick": 6527,
+  "first_empty_effect_pool_tick": 6528,
+  "clear_wording": "6527 has no target/effect presentation, while the final effect slot still has ttl1 at y184; 6528 culls the slot at y188. Sibling type3 actors remain. Pixel-level historical footprint restoration is independently checked.",
+  "qualification": "Private survival; no ram/body-hit coverage. Three artificial original projectiles. No actual type16, later boss53, whole-level, Windows or hardware GPU coverage.",
+  "provenance_sha256": "2c1cbb6a802c18f7463913ea48b36ab4159386c5dcf096d372d948a1dfe26d67",
+  "verifier_sha256": "d71a0cfb38b2ff5341425f234142b722a1080251b6d712e9e3cd5de49e91613e",
+  "capture_hashes": {
+    "candidate-census": "ff71c5d74ff331871b09037d0a38df4011550f9e9f75dace7b031ef276e8efc8",
+    "baseline-census": "6fd24ee34b17b96e7b4c5a1a610859ac0435372feb2588ea3d4e9eab84b4eb75"
+  }
+}

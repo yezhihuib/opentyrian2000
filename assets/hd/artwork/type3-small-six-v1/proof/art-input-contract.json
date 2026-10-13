@@ -1,0 +1,551 @@
+{
+  "source_commit": "2efdc890217330e75a873252ca96b576495b23b9",
+  "sheet": "newsh2.shp",
+  "shape_bank": 1,
+  "source_sha256": "8773ebcae4be992ecfbb476c0797b0bef4d43faa4c99449890bfaa28c8d9cbcc",
+  "palette": "palette5-rgb.json, audit visualization only",
+  "logical_size": [
+    12,
+    14
+  ],
+  "anchor": [
+    0,
+    0
+  ],
+  "source_draw_xy": "enemy.ex + tempMapXOfs, enemy.ey; for first-level event15 sky lane tempMapXOfs=mapX2Ofs; offsets0,0, sprite_offset0",
+  "frame_ids": [
+    171,
+    190,
+    209,
+    228,
+    247,
+    266
+  ],
+  "source_egraphic_order": [
+    171,
+    171,
+    190,
+    190,
+    209,
+    209,
+    228,
+    228,
+    247,
+    247,
+    266,
+    266
+  ],
+  "animation": "animate1,ani12; enemycycle starts0, increments before sprite selection only when -29 < ex+tempMapXOfs <300, wraps1 after12; animation advances even while ey<=-13 prevents drawing; two eligible update steps per distinct table frame",
+  "records": [
+    {
+      "id": 171,
+      "offset": 19542,
+      "record_bytes": 126,
+      "index_sha256": "1bfc2dddb8147e6b55752e631a7a0efaa7797b38dd86bfb2cd3cb2adc295b01f",
+      "alpha_sha256": "f08635ac36726ef97a7ebe57e8e2c28e32aa9108c547ab8a0ba493828a0bc957",
+      "rgba_sha256": "4cb059394d20402b3fbb039a10c38c800c3b634a8a85e047d7ff413b82b38908",
+      "opaque_pixels": 98,
+      "alpha_bbox_xyxy": [
+        1,
+        0,
+        12,
+        14
+      ],
+      "palette_counts": {
+        "1": 32,
+        "17": 1,
+        "18": 13,
+        "19": 16,
+        "20": 8,
+        "21": 9,
+        "22": 6,
+        "23": 5,
+        "25": 5,
+        "27": 1,
+        "28": 1,
+        "31": 1
+      },
+      "alpha_rows": [
+        "...#######..",
+        "..#########.",
+        ".###########",
+        ".###########",
+        ".###########",
+        "..#########.",
+        "..#########.",
+        "...#######..",
+        "...#######..",
+        "....#####...",
+        "....#####...",
+        ".....###....",
+        ".....###....",
+        "......#....."
+      ],
+      "source_record_sha256": "158836c33d295979d6681451d9b4145da6fdc0db8c4224f8bc410cbc8dd0245d",
+      "png_sha256": "19e156d44f865a8c0dc3f5aa853258d8b95e271dd2ff7c2e82c6337cefbf1842",
+      "opaque_palette_zero": 0
+    },
+    {
+      "id": 190,
+      "offset": 22152,
+      "record_bytes": 110,
+      "index_sha256": "406e97f5abfc72e064131f343a3649ea6eb7dd907d9d790245afc172b4e341c9",
+      "alpha_sha256": "0f4b73f6360e2285a654f4734764d546a9c7a67d1965729acacccd68b85384af",
+      "rgba_sha256": "c872b44fddb58bfedd7494af65e985e6e236935761053215d1411a60b4895de5",
+      "opaque_pixels": 82,
+      "alpha_bbox_xyxy": [
+        2,
+        0,
+        11,
+        14
+      ],
+      "palette_counts": {
+        "1": 30,
+        "16": 1,
+        "17": 6,
+        "18": 3,
+        "19": 6,
+        "20": 7,
+        "21": 9,
+        "22": 5,
+        "23": 4,
+        "24": 3,
+        "25": 1,
+        "26": 4,
+        "27": 1,
+        "28": 2
+      },
+      "alpha_rows": [
+        "....#####...",
+        "...#######..",
+        "..#########.",
+        "..#########.",
+        "..#########.",
+        "...#######..",
+        "...#######..",
+        "...#######..",
+        "....#####...",
+        "....#####...",
+        "....#####...",
+        ".....###....",
+        ".....###....",
+        "......#....."
+      ],
+      "source_record_sha256": "9f8546dd313c5409fa7a1fff3eda8a2ee9a17f188738605b7da735250fc57771",
+      "png_sha256": "fbd9e6312245c2a762652f5e96fd73c253e8b4e75cd67d059c7e567c9b1aafe2",
+      "opaque_palette_zero": 0
+    },
+    {
+      "id": 209,
+      "offset": 24100,
+      "record_bytes": 110,
+      "index_sha256": "c02e733bd58e18a922aee75bbbd48cb86826203e45f87d6eb61e4a33448fa202",
+      "alpha_sha256": "0f4b73f6360e2285a654f4734764d546a9c7a67d1965729acacccd68b85384af",
+      "rgba_sha256": "e7162f2e7154340189b91481ad3db7d168b709465d177c604d0966e0acd03583",
+      "opaque_pixels": 82,
+      "alpha_bbox_xyxy": [
+        2,
+        0,
+        11,
+        14
+      ],
+      "palette_counts": {
+        "1": 30,
+        "16": 3,
+        "17": 11,
+        "18": 4,
+        "19": 2,
+        "20": 2,
+        "21": 8,
+        "22": 5,
+        "23": 6,
+        "24": 3,
+        "25": 1,
+        "26": 2,
+        "27": 1,
+        "28": 2,
+        "29": 1,
+        "30": 1
+      },
+      "alpha_rows": [
+        "....#####...",
+        "...#######..",
+        "..#########.",
+        "..#########.",
+        "..#########.",
+        "...#######..",
+        "...#######..",
+        "...#######..",
+        "....#####...",
+        "....#####...",
+        "....#####...",
+        ".....###....",
+        ".....###....",
+        "......#....."
+      ],
+      "source_record_sha256": "65887c4137fc5a2d4484dffc693d439e39a3986236b59f3ef8532e4fce59348e",
+      "png_sha256": "ee82edce4992c42f2403354de5b68c66df372e7f34699a86ba07eac2688986d6",
+      "opaque_palette_zero": 0
+    },
+    {
+      "id": 228,
+      "offset": 25182,
+      "record_bytes": 102,
+      "index_sha256": "1c72ccf7b9d49e21013ab4416eaa77f91e51064e06c9fc07d5ac289417098183",
+      "alpha_sha256": "ec4b9a0e590d7001a0508640693677f067a2d2a44bedade029aa225dfd68f130",
+      "rgba_sha256": "1568578a89b128dc305c230bcf812d7e799c5586332e4cef00a405abab9970e3",
+      "opaque_pixels": 74,
+      "alpha_bbox_xyxy": [
+        3,
+        0,
+        10,
+        14
+      ],
+      "palette_counts": {
+        "1": 30,
+        "16": 6,
+        "17": 7,
+        "18": 9,
+        "19": 1,
+        "20": 3,
+        "22": 4,
+        "23": 1,
+        "24": 3,
+        "25": 4,
+        "26": 2,
+        "28": 2,
+        "29": 1,
+        "31": 1
+      },
+      "alpha_rows": [
+        "....#####...",
+        "...#######..",
+        "...#######..",
+        "...#######..",
+        "...#######..",
+        "...#######..",
+        "...#######..",
+        "....#####...",
+        "....#####...",
+        "....#####...",
+        "....#####...",
+        ".....###....",
+        ".....###....",
+        "......#....."
+      ],
+      "source_record_sha256": "278a9b1887a3bc69cf55c865e482a52f259dd34b46d342071e6f532a24154eba",
+      "png_sha256": "d58d5473b1a044af9334a9a837edfdd361f08af78fca971155de9b153c323f04",
+      "opaque_palette_zero": 0
+    },
+    {
+      "id": 247,
+      "offset": 27256,
+      "record_bytes": 110,
+      "index_sha256": "9c99307b2c626b0718dd5608c22a8274fd4af3da4bbd4e59c63bded205a7b756",
+      "alpha_sha256": "0f4b73f6360e2285a654f4734764d546a9c7a67d1965729acacccd68b85384af",
+      "rgba_sha256": "c483098aedcecc7de2b49efc51856d974c64ff22a05cba3a76eca69cd0de4ef3",
+      "opaque_pixels": 82,
+      "alpha_bbox_xyxy": [
+        2,
+        0,
+        11,
+        14
+      ],
+      "palette_counts": {
+        "1": 30,
+        "16": 3,
+        "17": 11,
+        "18": 4,
+        "19": 2,
+        "20": 2,
+        "21": 8,
+        "22": 5,
+        "23": 6,
+        "24": 3,
+        "25": 1,
+        "26": 2,
+        "27": 1,
+        "28": 2,
+        "29": 1,
+        "30": 1
+      },
+      "alpha_rows": [
+        "....#####...",
+        "...#######..",
+        "..#########.",
+        "..#########.",
+        "..#########.",
+        "...#######..",
+        "...#######..",
+        "...#######..",
+        "....#####...",
+        "....#####...",
+        "....#####...",
+        ".....###....",
+        ".....###....",
+        "......#....."
+      ],
+      "source_record_sha256": "0588ca7e21f74e93bf63fbf137e21415de773efb9918f0c9a1cc470e152c4a50",
+      "png_sha256": "7d5d2aedd19eb0cc9bd6917489dacafac0f2032b0462e07b5c7d66d7a366d8be",
+      "opaque_palette_zero": 0
+    },
+    {
+      "id": 266,
+      "offset": 28940,
+      "record_bytes": 110,
+      "index_sha256": "72f94c3a3f0aff202031c4f169ee0daa80f69ca890f4ff128a9f88bb04497874",
+      "alpha_sha256": "0f4b73f6360e2285a654f4734764d546a9c7a67d1965729acacccd68b85384af",
+      "rgba_sha256": "d413509264e431af4cd57da476b86dd545999282c414e7c90d1b2145d154a39f",
+      "opaque_pixels": 82,
+      "alpha_bbox_xyxy": [
+        2,
+        0,
+        11,
+        14
+      ],
+      "palette_counts": {
+        "1": 30,
+        "16": 1,
+        "17": 6,
+        "18": 3,
+        "19": 6,
+        "20": 7,
+        "21": 9,
+        "22": 5,
+        "23": 4,
+        "24": 3,
+        "25": 1,
+        "26": 4,
+        "27": 1,
+        "28": 2
+      },
+      "alpha_rows": [
+        "....#####...",
+        "...#######..",
+        "..#########.",
+        "..#########.",
+        "..#########.",
+        "...#######..",
+        "...#######..",
+        "...#######..",
+        "....#####...",
+        "....#####...",
+        "....#####...",
+        ".....###....",
+        ".....###....",
+        "......#....."
+      ],
+      "source_record_sha256": "2074b9cd006cf1c9dd67ce4fb30d6e2312537805bb2b8d929c3f157870468d93",
+      "png_sha256": "8bf86ce54841a9891cdb0e700e305a26e715deadd087bd0bd857e8525d3ac02c",
+      "opaque_palette_zero": 0
+    }
+  ],
+  "boundaries": [
+    "Original RGB only in this read-only reference folder; exclude it from any generated-source/art package.",
+    "Preserve six frame-specific original binary alpha masks at nearest-neighbor8x; masks have three unique shapes.",
+    "All six separately indexed authored images required even where alpha masks match.",
+    "Source/retained audit does not authorize game execution, code changes, new captures, art generation or publication.",
+    "Boss53 and whole boss20-component family remain later work; type16 context also unverified."
+  ],
+  "schema": "type3-small-six-art-input-contract-v1",
+  "status": "completed source-only audit; original reference images, no generated artwork or binding",
+  "density": 8,
+  "authored_pixel_size": [
+    96,
+    112
+  ],
+  "renderer_role": 101,
+  "hda_ids": {
+    "171": 1010171,
+    "190": 1010190,
+    "209": 1010209,
+    "228": 1010228,
+    "247": 1010247,
+    "266": 1010266
+  },
+  "filenames": {
+    "171": "enemy-newsh2-171-8.hda",
+    "190": "enemy-newsh2-190-8.hda",
+    "209": "enemy-newsh2-209-8.hda",
+    "228": "enemy-newsh2-228-8.hda",
+    "247": "enemy-newsh2-247-8.hda",
+    "266": "enemy-newsh2-266-8.hda"
+  },
+  "alpha_unique_shapes": 3,
+  "palette_source": {
+    "bank": 5,
+    "file": "palette.dat",
+    "all_opaque_indices": [
+      1,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "colors": {
+      "1": [
+        12,
+        12,
+        12
+      ],
+      "16": [
+        16,
+        8,
+        0
+      ],
+      "17": [
+        28,
+        16,
+        0
+      ],
+      "18": [
+        44,
+        24,
+        4
+      ],
+      "19": [
+        56,
+        36,
+        8
+      ],
+      "20": [
+        73,
+        44,
+        16
+      ],
+      "21": [
+        85,
+        60,
+        24
+      ],
+      "22": [
+        101,
+        73,
+        32
+      ],
+      "23": [
+        113,
+        85,
+        44
+      ],
+      "24": [
+        125,
+        101,
+        56
+      ],
+      "25": [
+        142,
+        113,
+        69
+      ],
+      "26": [
+        154,
+        130,
+        85
+      ],
+      "27": [
+        170,
+        146,
+        101
+      ],
+      "28": [
+        182,
+        162,
+        121
+      ],
+      "29": [
+        207,
+        195,
+        158
+      ],
+      "30": [
+        231,
+        223,
+        199
+      ],
+      "31": [
+        255,
+        255,
+        243
+      ]
+    }
+  },
+  "visual_geometry": "Rigid ochre/brown tapered mechanical spindle-like craft: broad rounded head/shoulder transitions into a narrow descending point, dark opaque outline and moving cream/gold highlight. This is a visual description, not an inferred new mechanic. Preserve source silhouettes and six matching views, no synthetic angle, bending, extra appendages or new frames.",
+  "reuse": {
+    "all_loaded_records": 1701,
+    "direct_base_users": [
+      3,
+      16
+    ],
+    "any_source_tile_overlap_users": [
+      3,
+      16
+    ],
+    "type16_in_first_level_closure": false,
+    "type16_differences": {
+      "xaccel": [
+        92,
+        0
+      ],
+      "startx": [
+        130,
+        150
+      ],
+      "armor": [
+        2,
+        12
+      ]
+    },
+    "launcher_record53": {
+      "target": 3,
+      "launchfreq": 90,
+      "source_spawn_eventtime": 5356,
+      "source_predicted_spawn_tick": 6709,
+      "qualification": "Later boss-family dependency; actual launch and visibility not established."
+    }
+  },
+  "lifecycle": {
+    "size": 0,
+    "explosiontype": 0,
+    "enemyground": true,
+    "explonum": 0,
+    "raw_armor": 2,
+    "hurt_form": null,
+    "wreck_form": null,
+    "dgr": 0,
+    "dani": 0,
+    "dlevel": 0,
+    "turrets": [
+      0,
+      0,
+      0
+    ],
+    "fire_freq": [
+      0,
+      0,
+      0
+    ],
+    "own_launch": 0,
+    "own_drop": 0,
+    "value": 5,
+    "hit_filter": "same sprite; source filter OR(source_index &15); renderer existing enemy_filter_rgba maps source brightness to same palette ramp and preserves alpha; engine timing stays unchanged",
+    "ice_filter": "ground-flagged actor can set iced40 and filter0x09; same geometry",
+    "death_effect": "size0 lethal destruction uses generic explosiontype1 -> newsh6 IDs122..133; hit effecttype0 ->146..152; already separate mapped effect families",
+    "shadow": "No shadow call in blit_enemy or this actor draw branch",
+    "removal": "On lethal hit enemyAvail=1 and generic small explosion. Offscreen removal after movement when ex<-80 or ex>340 or ey<-112 or ey>190. Sentinel999 can remove generic actors, but this six-frame table has no999.",
+    "first_level_drop_assignments": "No event33 or45 targets link0; these scheduled type3 instances have link0, and defaultdrop0."
+  },
+  "compatible_route": "Future finite branch in existing render_mirror_enemy_tile for role101, exact six IDs, part0 and size0; instantiate12x14 anchor0,0 Asset and use existing read_asset/draw_asset_filtered. Current scene_asset is24x28 anchor6,7 and cannot accept small HDA by allowlist alone. Existing get_asset ENTITY_TILE and enemy-shot demonstrate12x14 support but do not bind dynamic enemy banks or carry enemy filters. No generic renderer rewrite or simulation changes."
+}

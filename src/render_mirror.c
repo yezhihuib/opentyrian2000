@@ -35,7 +35,7 @@ typedef struct {
 } Asset;
 enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
-static Asset assets[416];
+static Asset assets[422];
 static Asset talon_frames[13];
 typedef struct {
  bool valid;
@@ -1644,6 +1644,34 @@ static bool newsh4_entry6_family_ready(void)
  return newsh4_entry6_valid;
 }
 
+/* Approved type3 six-member small bank1 family, selected-pack and 8x only.
+ * All six exact 12x14 resources are validated before the first replacement.
+ * Cache/failure lifetime matches the existing startup-selected Asset cache;
+ * full RGBA stamps pin the frozen art and each original binary alpha mask. */
+static bool type3_small_checked,type3_small_valid;
+static bool type3_small_family_ready(void)
+{
+ if(game_probe_density!=8||game_probe_missing||game_probe_invalid||!game_probe_assets||
+    !(game_probe_scene_assets&1))return false;
+ if(type3_small_checked)return type3_small_valid;
+ type3_small_checked=true;type3_small_valid=true;
+ static const unsigned int ids[6]={171,190,209,228,247,266};
+ static const uint64_t rgba_stamps[6]={UINT64_C(0xe50b6977b5066df5),UINT64_C(0xb9a24984f9b4c702),UINT64_C(0xf68843a48851eb04),UINT64_C(0x218f933c0d4477ac),UINT64_C(0xc321dd3cedba226d),UINT64_C(0x890da522ac93848e)};
+ for(int i=0;i<6;i++) {
+  Asset *a=&assets[416+i];
+  a->initialized=true;a->bank=ASSET_NEWSH2;a->index=(int)ids[i];
+  a->w=12;a->h=14;a->anchor_x=0;a->anchor_y=0;
+  a->valid=read_asset(a,8);
+  if(a->valid) {
+   uint64_t stamp=UINT64_C(0xcbf29ce484222325);
+   for(size_t p=0;p<(size_t)12*14*8*8*4;p++){stamp^=a->rgba[p];stamp*=UINT64_C(0x100000001b3);}
+   if(stamp!=rgba_stamps[i])a->valid=false;
+  }
+  if(!a->valid)type3_small_valid=false;
+ }
+ return type3_small_valid;
+}
+
 bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int base,int part,int filter,const G101EnemyContext *material_context)
 {
  if(!active||surface!=game_screen||reject_reason||!(game_probe_scene_assets&1))return false;
@@ -1652,6 +1680,24 @@ bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array ban
   if(enemySpriteSheetIds[i]==1)role=ASSET_NEWSH2;
   else if(enemySpriteSheetIds[i]==9)role=ASSET_NEWSHE;
   else if(enemySpriteSheetIds[i]==2)role=ASSET_NEWSH4;
+ }
+ /* Type3/type16 use one small tile at the original top-left, not a composite.
+  * The original caller owns the held-twice cycle, filter and indexed blit. */
+ if(role==ASSET_NEWSH2) {
+  static const unsigned int type3_small_ids[6]={171,190,209,228,247,266};
+  for(int i=0;i<6;i++)if(base==type3_small_ids[i]) {
+   if(part!=0||!material_context||material_context->size!=0)return false;
+   /* Preserve physical-row RLE wrapping as classic. The original target is
+    * VGAScreen=game_screen; normal playfield-edge and partial vertical clips
+    * remain supported. Direct bounds checks avoid coordinate overflow. */
+   if(!surface||surface->w!=320||surface->h!=200||surface->pitch!=320||
+      !surface->format||surface->format->BitsPerPixel!=8||
+      surface->format->BytesPerPixel!=1||x<0||x>308||y<-13||y>199)return false;
+   if(!type3_small_family_ready())return false;
+   bool mirrored=draw_asset_filtered(x,y,&assets[416+i],MIRROR_NORMAL,NULL,(Uint8)filter,NULL,NULL,NULL);
+   game_probe_scene_draw(role,base,x,y,0,filter?3:MIRROR_NORMAL,mirrored);
+   return mirrored;
+  }
  }
  /* Existing ground201..209 and rotor210..217 remain unchanged. */
  int slot=base==169?303:base==207?304:base==245?305:base==273?306:base==275?307:base==277?308:base==279?309:base==281?310:base==283?311:base==153?269:base==155?270:base==157?271:base==49?265:base==51?266:base==89?267:base==127?268:base==267?243:base==269?244:base==271?245:base==81?231:base==83?232:base==119?233:base==121?234:(base>=229&&base<=243&&base%2==1)?210+(int)(base-229)/2:base==77?6:base==79?7:base==115?8:base==117?9:base==85?15:base==87?16:base==123?17:base==125?18:(base>=191&&base<=205&&base%2==1)?23+(int)(base-191)/2:-1;

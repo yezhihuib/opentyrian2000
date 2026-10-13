@@ -1,0 +1,41 @@
+{
+  "status": "PASS_POST_ACCEPTANCE_METADATA_CHECKS",
+  "manifest_sha256": "aebd2582950fa2c1d9b25ce4f0a1ec649f2dd6ff382432238624c9634e697d80",
+  "production_renderer_sha256": "7a39ffd4959c307c23707ae63c41030cd92ef757375b95f680445ff4f3e85420",
+  "changed_prior_files_since_tested_source": [
+    "assets/hd/manifest.json: family runtime_status only"
+  ],
+  "source_and_art_bytes_exact_tested_e976cb6": true,
+  "final_source_guards": "426 controlled rejections; source-only evidence",
+  "source_rebuild": "Fresh with all original-data reader pins",
+  "prior_files_checked": 5992,
+  "prior_asset_bytes_identical": 606990803,
+  "aggregate_HDA_entries": 3092,
+  "default_pack_counts": [
+    426,
+    430
+  ],
+  "startup_package_tests": 15,
+  "title_package_tests": 20,
+  "menu_package_tests": 6,
+  "menu_source": true,
+  "menu_synthetic_presentations": 381,
+  "Linux": "Successful incremental relink with final unchanged production source; complete initial clean build log is retained separately",
+  "Windows": "Exact XML source-list preservation only",
+  "no_additional_game_runs": true,
+  "file_pins": {
+    "aggregate.json": "dc330a3aa4c0b50658834b359d75f3a6799f0b72afd47e70226a47c8c450a7f6",
+    "linux.log.gz": "200b2e07abfb0b55c05d5ea92d41e2ef55ef87dad38e4e59ee2877dd9b09d6d1",
+    "menu-package.log": "fb4068f2f857a8deec5cc766cb15c9447afe9279bedab76e924d54fd6a93e6a9",
+    "menu-runtime.log": "dcc22c036f0fc39536656bdd1c7ea119b286926badf0c6c0935fd38f23d82ef6",
+    "menu-source.log": "d7a417ab3cb4be23487add2c474e812f30c3c24364dc9b066ed6c91b800b2573",
+    "preservation.json": "38ac9b8dd176bf9455315bdcdabc21e0cf15e36bcad65bdf2c267791f2b12295",
+    "preservation.log": "38ac9b8dd176bf9455315bdcdabc21e0cf15e36bcad65bdf2c267791f2b12295",
+    "recipe-rebuild-receipt.json": "579b6e46b7187912658326ee13d9a773dd6175f4a3063cbeabacc9c99e50147d",
+    "source-guards-receipt.json": "b9a4bbf5f9ce1090a6c6ca7f498ed41a0d84cfd28dd98cd9eee1dc0d9d67b583",
+    "source-guards.log": "b9a4bbf5f9ce1090a6c6ca7f498ed41a0d84cfd28dd98cd9eee1dc0d9d67b583",
+    "source-rebuild.log": "7490e69f5e7e612cc702780c7a9f2fcb1ca7b33d748728c146d70c9e2a8e0432",
+    "startup-package.log": "221937ffe4565f1dbe52514735c4bc51ac2d8e924fb81bf1a13de1655320b10c",
+    "title-package.log": "85e0698e9eb998e2cf5d7e7f0e098c1942d1a3d1bd793c73aa71cc3d4ee050c6"
+  }
+}

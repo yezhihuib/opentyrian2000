@@ -1,0 +1,72 @@
+{
+  "status": "PASS",
+  "unit_only_no_game_or_native_capture": true,
+  "parent": "e6fd18a8d53c31f90d15c0ac1bce9d0e927336ac",
+  "original_newsh2_sha256": "8773ebcae4be992ecfbb476c0797b0bef4d43faa4c99449890bfaa28c8d9cbcc",
+  "source_inventory_sha256": "5012962c54ab3fd0b22cc8a2534fddee272704fa73447e267ffeb4938f787c33",
+  "source_pins": {
+    "src/render_mirror.c": "7a39ffd4959c307c23707ae63c41030cd92ef757375b95f680445ff4f3e85420",
+    "src/sprite.c": "b912773976c4b745f355d471b4da6a4ea25907e7bf80eb7356c9a59ae361237c",
+    "prototype/test-type3-small-pixels.c": "1ae3e70e53053868f9d760b36d7f5995322d36af13e80b570f332d24ca84ddff",
+    "prototype/test-type3-small-pixels.py": "86aa98a1cf49728f55257bc14a51bb83a74a53c0fa2d56596d1f3dabebd0e84b"
+  },
+  "asset_sha256": {
+    "enemy-newsh2-171-8.hda": "ab151e5301768c75541fa93eccf3cb4b8e18d36949e01b88079e938f413fc919",
+    "enemy-newsh2-190-8.hda": "d2850e82a77fc9bf32bf29d383f05de4bf2f2ff12209356ed29a139ba2796d14",
+    "enemy-newsh2-209-8.hda": "e329ef037fd32c9a83bc9e92143897dc7e2c60745099597b7a4b830b821fdf55",
+    "enemy-newsh2-228-8.hda": "41745a0504911c41ad35d06621db0826f68f74238006dde4f6592be1df95a12e",
+    "enemy-newsh2-247-8.hda": "003cb884ee1d5e53086bde63d9854d9ef1d1f713fd5a90414153877c4029b90c",
+    "enemy-newsh2-266-8.hda": "f6381324f6f1f3e17088a066348d9234d994561938f0f50d8dd1c97b1545ae0d"
+  },
+  "extracted_production_functions_sha256": {
+    "palette_rgb": "3d8e2f2e1edebd62bce8ad34128bfb346f89a2ba35001abe20179e3dc1738aaa",
+    "blend_rgba": "df7ddcb9c6a742e4b227b7b12f4a134f8ebd08fe12a4a2a6e8e36c96b1c7b3fc",
+    "cloud_shadow_rgba": "3f3a363e6531f887c91de7d726239c870e783558eba214a312203b7b30d8a986",
+    "cloud_asset": "2be4be802906d698476a6aa4547a82990b79b5ed34962f22fab166465ce91e90",
+    "darken_rgba": "31194f5f89d033493c36e6a82fb290c0d539c6fb3fab8c5df43aace4dbb633d8",
+    "explosion_asset_slot": "00d117c7d38f192ac14a6f30067abfb722392bc3966dcd9b53f30c9406d24a8c",
+    "enemy_filter_rgba": "dc782d1e0458883a5b9802eb109cb9a4fac533c4d7a4c8522453f6faffd1bc61",
+    "explosion_asset_blend_rgba": "26fc53617c2a685d318e87150ebfe18a4eb6a9b498dbe6a759dee728a2f665ac",
+    "green_background_snapshot": "180e4758895c463a6a17c529c5710284681b57c5b114b9ffb95781a870b456da",
+    "green_background_peak": "0034111d043810c6dc8fbb1ff245a720335a31e1444bbc7ae90b0ef3f28cda0b",
+    "green_head_composite": "8f0f7bc2f4c051c6faed960d5c180d8299a53544a4a2328cf4ba06f7de818261",
+    "draw_asset_filtered": "7588232a6924a1cbf8df7a680a6c4e5b56fe512003cb6cae5625ab1dbfb37d31",
+    "render_mirror_pixel": "fd4588cae22a1837720a3941bab077a3c3384b313fa79a6576a29d04a34929bd",
+    "render_mirror_entity_end": "560f5f841a976e4f277caa17c5f978b56f1bd525e9f7d44db382b6ab7ac65889",
+    "read_asset": "ff8984aa1253ba4027001db3a1a5768dcc48967721e2005ac8893e42c5fd923b",
+    "scene_asset": "c3ce091d907f6695e7acbac25c579b9e04469fe1319a792fde51ac87adcf5503",
+    "linked31_family_ready": "61eef24d03b08b2bd9a7161c88e14bfa81f80c5256f2137356d402fdff26dbf5",
+    "newsh4_long7_family_ready": "8b87b12894f106699b6607224be7869c1f2684bc899569ffb6936e0d9d008a9c",
+    "newsh4_opposite7_family_ready": "03c3e437e28931d9a8ef9658cc631c08744a1ac3493eaff7786d9dd8148fe15e",
+    "type15_eightheading_family_ready": "fb691d960154039874bcb5dffb95c95f26c529eed53911860133f982b550c407",
+    "late_spike_family_ready": "ce18131dc6dad09679d1f41843a2fecfcd880fca50c315cc0001ec34dd9d3ef8",
+    "newsh4_entry6_family_ready": "11ea6ce93361e57cd461288c9d62a45f205e40442aeb5595754c96421328c441",
+    "type3_small_family_ready": "cbd33c11fb28654220f95f22cecbc34f3f73a8f8f32c5946afbde1ef0158d1d2",
+    "render_mirror_enemy_tile": "135c75146a730bebfa12dae118d1046c407050b329b61942624b747376d31636",
+    "blit_sprite2": "cdf86acdbc740d0e218aeb49c1a2eabe0557d4d6e9e015dc36727b8db2ab38b8",
+    "blit_sprite2_filter": "b4be2ea1a16bddadeac19891ac1c24a6258c4255b9c5ba3551d8fe08c1e4b7f8",
+    "production_crop_excerpt": "4a8dfc5cefcaee01174552885be275e680d091c7d08d5e19288699b04de1326c"
+  },
+  "sanitizers": [
+    "AddressSanitizer",
+    "UndefinedBehaviorSanitizer"
+  ],
+  "results": {
+    "preview": "PASS production pixel unit: 6864 cases (2328 HD, 4536 classic); 11279744 RGBA writes; 338408 original writes (126270 row-wrapped); 1179648 filter/alpha operator cases; 6883 whole-frame comparisons; 144 production crop cases; all64 subpixels and ownership exact",
+    "debug": "PASS production pixel unit: 6864 cases (2328 HD, 4536 classic); 11279744 RGBA writes; 338408 original writes (126270 row-wrapped); 1179648 filter/alpha operator cases; 6883 whole-frame comparisons; 144 production crop cases; all64 subpixels and ownership exact"
+  },
+  "coverage": {
+    "original_source_masks": "All six, 500 logical opaque cells, exact 64-subpixel binary alpha and transparent RGB technical matte",
+    "filter_operator": "All 256 filters x 256 source peaks x six alpha values x three nonmonotonic palettes; actual enemy_filter_rgba with independent integer oracle",
+    "actual_draw": "All six x 256 filters on authored RGBA; normal/filter original RLE and actual ownership hook",
+    "clipping": "Top/bottom partial visibility and fully-offscreen guards; physical x=0/308; exact source-extracted output crop x=24..287/y=0..183, with 144 crossing/outside-edge cases per pack",
+    "fallback": "Entire draw rejected on x<0 or x>308, original physical-row wrapped RLE writes take classic ownership",
+    "ownership": "Mixed pre-existing ownership 0/1/2, cloud provenance, green-layer markers, selected and RGB; transparent/neighbor cells preserved; exact all-64-subpixel checks",
+    "memory": "Padded indexed array keeps original before/after-surface pointer arithmetic inside allocation; all allocations have canaries; whole-frame RGB/index/selection/ownership byte comparisons after every transaction, plus full under-layer/canary comparisons at phase boundaries"
+  },
+  "limitations": [
+    "LeakSanitizer is disabled: the executor ptrace environment rejects leak inspection at exit; all harness allocations are explicitly freed",
+    "No SDL/game initialization, gameplay/state/event execution, native images, or visual acceptance",
+    "Unrelated material/font/local-blend branches are fail-if-entered stubs; relevant draw/filter/pixel/RLE functions are exact extracted production source; output crop is a verbatim loop excerpt with a unit-only wrapper"
+  ]
+}

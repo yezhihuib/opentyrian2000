@@ -1,0 +1,57 @@
+{
+  "schema": "formal-type3-small-six-v1",
+  "bank": "newsh2.shp",
+  "bank_id": 1,
+  "asset_namespace": 101,
+  "ids": [
+    171,
+    190,
+    209,
+    228,
+    247,
+    266
+  ],
+  "logical_size": [
+    12,
+    14
+  ],
+  "pixel_size": [
+    96,
+    112
+  ],
+  "density": 8,
+  "anchor": [
+    0,
+    0
+  ],
+  "draw_part": 0,
+  "source_xy": "enemy.ex+tempMapXOfs, enemy.ey",
+  "source_cycle": [
+    171,
+    171,
+    190,
+    190,
+    209,
+    209,
+    228,
+    228,
+    247,
+    247,
+    266,
+    266
+  ],
+  "animation_timing": "Increment before selection, only horizontally draw-eligible updates; also advances while ey<=-13 prevents drawing. First visible frame need not171.",
+  "alpha": "Six frame-specific exact RLE masks, three unique supports, nearest8x",
+  "reused_records": [
+    3,
+    16
+  ],
+  "actual_scope": "pending; no retained exposure through prior5956 logs",
+  "integration_requirement": "Finite small12x14 bank1 six-ID branch using existing filtered draw path. Do not add to24x28 allowlist or pad to false composite.",
+  "technical_matte_RGB": [
+    8,
+    6,
+    2
+  ],
+  "root_approved": "2026-10-12T21:56:58Z"
+}

@@ -12,7 +12,8 @@ import re
 import struct
 import subprocess
 
-BASE = 'fe5f5d7922105dccf67bfe2648ac366c3031bc66'
+# Published305c43a has the exact renderer hash recorded for lost localfe5f5d7.
+BASE = '305c43aae91f0a20cc4cd622fc0a99b1bb37a37c'
 SOURCE_SHA = 'ab8881b4a26e723650780b19d5aed4ebfe410ea450d4bf7b80840628d61fd89b'
 IDS = [81, 83, 85, 119, 121, 123]
 sha = lambda raw: hashlib.sha256(raw).hexdigest()
@@ -49,10 +50,28 @@ assert 'reload-fresh-process' in (repo / 'src/asset_debug.c').read_text() and 'a
 out.mkdir(parents=True)
 git = lambda *args: subprocess.check_output(['git', '-C', str(repo), *args])
 baseline = git('show', a.baseline + ':src/render_mirror.c').decode()
+assert sha(baseline.encode()) == '2d93ab3ed787acf6f31a0c96867e2057bd607971f1ac06a4545a3e98589ad69c', 'Unreviewed historical entry baseline'
 current = (repo / 'src/render_mirror.c').read_text()
+current_raw = current
 original = (repo / 'src/sprite.c').read_text()
 recorder_pins = {name: sha((repo / name).read_bytes()) for name in ['prototype/test-newsh4-entry6-binding.c', 'prototype/test-newsh4-entry6-binding.py']}
 manifest = json.loads((repo / 'assets/hd/manifest.json').read_text())
+# This historical composite-only recorder predates the finite small-tile route.
+# Project only exact0082cd5 renderer bytes and require exact publishede6fd18a
+# restoration. The current small route is exercised by its own unit/runtime gates.
+if 'type3_small_six_v1' in manifest:
+    assert sha(current.encode()) == '7a39ffd4959c307c23707ae63c41030cd92ef757375b95f680445ff4f3e85420', 'Unreviewed type3 renderer projection'
+    current = current.replace('static Asset assets[422];', 'static Asset assets[416];')
+    for start_marker, end_marker in [
+        ('/* Approved type3 six-member small bank1 family,', 'bool render_mirror_enemy_tile('),
+        (' /* Type3/type16 use one small tile at the original top-left, not a composite.',
+         ' /* Existing ground201..209 and rotor210..217 remain unchanged. */'),
+    ]:
+        assert current.count(start_marker) == current.count(end_marker) == 1
+        start = current.index(start_marker)
+        end = current.index(end_marker, start)
+        current = current[:start] + current[end:]
+    assert sha(current.encode()) == '54bac8607c45879e0674344525e9f2f6af0d873c1537fac87cb80ef1cef376eb', 'Type3 projection did not restore exact predecessor'
 pack = repo / 'assets/hd/packs' / manifest['default_preview_pack']
 debug_pack = repo / 'assets/hd/packs' / manifest['default_debug_pack']
 env = dict(os.environ, ASAN_OPTIONS='detect_leaks=0:halt_on_error=1', UBSAN_OPTIONS='halt_on_error=1:print_stacktrace=1')
@@ -212,13 +231,15 @@ for name in names:
             assert process.returncode == 0, label
             results.append(label)
 assert before_hashes == {name: sha((pack / name).read_bytes()) for name in all_files}, 'Original pack changed'
-assert (repo / 'src/render_mirror.c').read_text() == current, 'Renderer changed during recorder run'
+assert (repo / 'src/render_mirror.c').read_text() == current_raw, 'Renderer changed during recorder run'
 assert source_pins == {name: sha((repo / name).read_bytes()) for name in source_pins}, 'Gameplay source changed during recorder run'
 assert recorder_pins == {name: sha((repo / name).read_bytes()) for name in recorder_pins}, 'Recorder changed during run'
 report = {
     'status': 'passed', 'baseline': a.baseline,
     'recorder_source_sha256': recorder_pins,
     'renderer_source_sha256': {'baseline': sha(baseline.encode()), 'candidate': sha(current.encode())},
+    'actual_renderer_source_sha256': sha(current_raw.encode()),
+    'projection': 'Exact type3 append removed for this historical composite-only recorder; small route tested independently',
     'sanitizers': ['address', 'undefined'], 'leak_detection': False,
     'leak_detection_reason': 'LSan cannot run under this executor ptrace; recorder reset frees all allocations',
     'unchanged_prior_bindings': len(traces['baseline']), 'unchanged_debug_prior_bindings': len(debug_traces['baseline']), 'new_bindings': 6,

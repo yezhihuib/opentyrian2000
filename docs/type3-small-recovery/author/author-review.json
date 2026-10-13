@@ -1,0 +1,91 @@
+{
+  "status": "FRESH_POST_RECOVERY_AUTHOR_VISUAL_PASS",
+  "reviewed_at_utc": "2026-10-13T02:04:17Z",
+  "baseline": "b2a6e4a1e924aed71630f9f63c0ba4648e920d6d",
+  "candidate": "e976cb6a81aaa2eb99f5ffee14e58f9fc050dcb0",
+  "fresh_evidence_only": true,
+  "pins": {
+    "type3-small-recovery-native-20261013/pixel-verification.json": "0fdd40344b10ee62691a75572d48a5d4a9c42b6d88e0a264a2a6f4efc96a59bd",
+    "type3-small-recovery-native-20261013/state-verification.json": "6336638cae316ac351d2932c919bde0f4a984369a3875f3deaa3e105307877f1",
+    "type3-small-recovery-native-20261013/native4-pixel-verification.json": "461bbe883bc94429d58eccb88e4fd58c65c359ec6729a5ca1deabe1936608586",
+    "type3-small-recovery-native-20261013/fallback-pixel-verification.json": "269150ef27c1e267c83e8860c2ae2cb47e1159fe165966367a39181e5c3e2298",
+    "type3-small-recovery-native-20261013/gates-verification.json": "66283cf4017e0e4d93fd90506f39aa0c553dd2d9ebc0f6bd317f932047cd0eb9"
+  },
+  "capture_pins": {
+    "capture-hashes2x.json": "730bbae8c6608d95f35f2a5aa6e63f229045c5aa6aa6735a81805d934f8b167a",
+    "capture-hashes4x.json": "c2817f5573355ef10150069f861b59655c20adc5385555813680f1fec8e970b8"
+  },
+  "independent_hash_checks": {
+    "baseline_native2x": 32,
+    "candidate_native2x": 32,
+    "baseline_true4x": 3,
+    "candidate_true4x": 3,
+    "all_PNG_and_decoded_RGBA_exact": true
+  },
+  "visual_inspection": {
+    "native2x_ordered_ticks": [
+      6181,
+      6182,
+      6183,
+      6184,
+      6185,
+      6186,
+      6187,
+      6188,
+      6189,
+      6190,
+      6191,
+      6192,
+      6512,
+      6513,
+      6514,
+      6515,
+      6516,
+      6517,
+      6518,
+      6519,
+      6520,
+      6521,
+      6522,
+      6523,
+      6524,
+      6525,
+      6526,
+      6527,
+      6528,
+      6529,
+      6530,
+      6531
+    ],
+    "true4x_full_scenes": [
+      6181,
+      6182,
+      6183
+    ],
+    "native2x_full_scene": 6181,
+    "findings": [
+      "Coherent dark-ochre rigid form across all six held-twice width/highlight phases.",
+      "No visible seam, box, fringe, detached feature or unexpected anchor jump.",
+      "Original ground-hit and ice palette sequence preserves current sprite shape; original lethal removal/effects leave no target residue.",
+      "Clear restored target/effect footprint is distinguished from still-active sibling sprites.",
+      "No visible discrepancy from approved artwork appearance; no byte-comparison claim against vanished old QA."
+    ]
+  },
+  "fresh_runtime_receipt_facts": {
+    "state_rows_exact": 6532,
+    "census_rows_exact": 38400,
+    "first_absent_target_tick": 6518,
+    "last_visible_effect_tick": 6526,
+    "first_target_effect_clear_presentation_tick": 6527,
+    "first_empty_effect_pool_tick": 6528
+  },
+  "limits": [
+    "Private-survival and artificial original Pulse155 diagnostic requests; not natural combat.",
+    "Native2x includes a full canonical selected-slot0 cycle; other sprites can be clipped or obscured by INSERT COIN.",
+    "True4x includes three spots exposing all six IDs collectively, not a4x full-cycle or lifecycle.",
+    "No type16, later boss53 launch, ram or other-mode acceptance.",
+    "No old vanished runtime receipts reused as fresh evidence.",
+    "No new captures, artwork edits, renderer edits or publication performed by author."
+  ],
+  "result": "Bounded fresh visual acceptance; all requested author checks complete."
+}

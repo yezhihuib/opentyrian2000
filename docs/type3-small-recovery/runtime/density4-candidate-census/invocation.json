@@ -1,0 +1,37 @@
+{
+  "command": [
+    "/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013/fixture-v2/bin/candidate",
+    "--data=/workspace/scratch/f67dd347fa0a/recovery-dependencies-20261013/game-data/tyrian2000",
+    "--asset-debug=custom",
+    "--asset-debug-episode=1",
+    "--asset-debug-level=9",
+    "--asset-debug-tick=6181",
+    "--asset-debug-running",
+    "--asset-debug-explosion-log",
+    "--render-test=4",
+    "--render-assets=/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013/fixture-v2/packs/candidate",
+    "--render-scene-assets=all",
+    "--render-scene=enemy-hit",
+    "--render-ticks=6184",
+    "--render-no-capture",
+    "--no-sound",
+    "--no-joystick",
+    "--no-xmas"
+  ],
+  "private_environment": {
+    "XDG_CONFIG_HOME": "/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013/density4-candidate-census/home/.config",
+    "HOME": "/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013/density4-candidate-census/home",
+    "SDL_VIDEODRIVER": "dummy",
+    "SDL_AUDIODRIVER": "dummy",
+    "SDL_RENDER_DRIVER": "software",
+    "OT_LATE_TERRAIN_INVULNERABLE": "1",
+    "OT_LATE_CENSUS": "1",
+    "OT_TYPE3_LIFECYCLE": "1",
+    "OT_TYPE3_CAPTURE_MODE": "density4",
+    "OT_CAPTURE_RGBA_STREAM": "/workspace/scratch/f67dd347fa0a/type3-small-recovery-native-20261013/density4-candidate-census/native-rgba.fifo"
+  },
+  "runner_sha256": "a40b9d9d3e5b59d470a3889ad70c07d3ac7ead83cb26a5c7720f5aa3b4e3ab8d",
+  "fixture_provenance_sha256": "dba9a33039b0522383d09de937c4f035128c84411b3d891f2a0b676829e75056",
+  "config_sha256": "241b3a5c3aab323e4ea189086a1cbe65da6edcd2abde5e0063dfe627f087c688",
+  "scope": "Private survival; artificial original Pulse155 only; native SDL software output; no ram/type16/boss actual claim"
+}
