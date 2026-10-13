@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "game_runs": 0,
+  "baseline_commit": "641e4e7370c9f3542ba9d0daf1ebf2a1a988614e",
+  "source_files": {
+    "src/render_mirror.c": "4d3c83cd1728d674fe8f9fbbf491c08b468e69a2406c0e6a1dca877da1de04e7",
+    "src/render_mirror.h": "d1b3f26a21bd68765a72a05bc436f41fe7e704a4ede7a86bb3472a18bc65053b",
+    "src/tyrian2.c": "0766ec6f9cdbf555118d4d72689d0356627dfdb38ca71a04c792f4f2fc5bde36"
+  },
+  "build": "make -j4 after sourcing existing recovery-dependencies env.sh",
+  "initial_plain_environment": "SDL headers unavailable; no installation, resolved using pre-existing pinned dependency environment",
+  "build_log_sha256": "f5d39aa694da193694a1cbdd44885cf84684ed94ba27a87ca9225ff6a5a11f9f",
+  "disabled_renderer": {
+    "header_smoke": true,
+    "render_mirror_translation_unit": true,
+    "tyrian2_callsite_translation_unit": true,
+    "callsite_log_sha256": "f802b0e2e0fd870c6b0d33a479da84a4bc810fdbe53076a0917418fc53d07245"
+  },
+  "binary_sha256": "9d65bae2a962d88458a4e1717ab65829e2aeeb6e92af14316dd20ed8cc54d054",
+  "diff_check": "PASS",
+  "runtime_evidence": "PASS, see runtime-verification.json and technical-review.json; production/art/prototype unchanged from083bd54d269f982a9f2b863969f8a2246d263302",
+  "art_opacity_clarification_sha256": "b242a4d4464e2efa6430ba4e1e320c3d78afa6b2eddfbdcbaab54cf3ed4bc312",
+  "harness_files_sha256": {
+    "prototype/build-gem100-six-art.py": "fa4ff2716f14dd4f3bf1a548fc5892af108a81ec63cbab2467add05ca4e61856",
+    "prototype/test-gem100-mutations.py": "9978b26525d2ad9792b1a017ba747dffd394e5374ce2ed13c618d75707aca2e0",
+    "prototype/test-gem100-original.c": "7785bda98cbffba5ecc6af9abf88e7ef4030ab5f678760a7f3622b7911c599f8",
+    "prototype/test-gem100-original.h": "d1a3385e255ea0985937c430c60a8d9d80e55ca067867b24b3e649eb30ad5c84",
+    "prototype/test-gem100-original.py": "14b4d14065c088535f3ce91714c6d1b5582b649a6334a7eba4e4cd3c883fcec0",
+    "prototype/test-gem100-six.py": "fa7d4842967427a4ceb2329d94c91c08676c7eafea066de8d14032915aa5e121"
+  },
+  "prior_art_rebuilds": {
+    "preserved25-art-rebuild.json": "b2fb9d4f1c079ab231d2266f4e955d5b493e57f3fc3ffa2f11882f64299aa45f",
+    "preserved75-art-rebuild.json": "0680f89c8dc6b2ec8502dfc143031fb646ae4553f2010d24fac5e602c8eb6dce",
+    "preserved50-art-rebuild.json": "4cf84a37739a53c9bf973e712ec32a50493159815561cae0587825bfc46ddb28"
+  },
+  "source_unit_status": "PASS: optimized and ASan/UBSan; 14,660 scenarios and 101,658 assertions per build, original link0 normalization and ordinary-shot first-collision boundaries included",
+  "renderer_unit_result_sha256": "85e47f618a121b2e9ef9f721156f9c2ac14a2683466b89ef49cd28bbfd36a922",
+  "mutation_result_sha256": "3a1a3a4a93bdd5d30642d60e727ad561ed979bf594fdf4eca5e6834fe8c6a70f",
+  "full_original_source_unit_receipt": "original-unit-result.json",
+  "tested_source_commit": "083bd54d269f982a9f2b863969f8a2246d263302"
+}

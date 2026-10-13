@@ -1,0 +1,123 @@
+{
+  "schema": "gem100-finite-independent-checkpoint-v1",
+  "status": "PASS",
+  "reviewed_at_utc": "2026-10-13T15:07:15Z",
+  "baseline_commit": "641e4e7370c9f3542ba9d0daf1ebf2a1a988614e",
+  "candidate_source_commit": "083bd54d269f982a9f2b863969f8a2246d263302",
+  "review_operations": "Read-only inspection and independent in-memory verification. Reviewer ran no game, build or unit binary and edited no repository, fixture, source or existing evidence. This standalone receipt is the only reviewer-created artifact.",
+  "pins": {
+    "source_packet_sha256": "cfe0abf5e2440bb6d1db97d301bf1e1b8bdd8f8549c8ad8c5d6da3ed615c9797",
+    "art_inventory_sha256": "4489265f4556f12fecfd1745e271dcbdb2776c52d419971eb998cddc1a40df6d",
+    "plan_sha256": "a0a6fc140f587e52cc740c1c58102fca6020a054078d1ca1674f472d9246fac1",
+    "contract_sha256": "b6ae6bc2a2764406d6cb036c6370fd5936709fb0a47febee8b31099162909b9b",
+    "renderer_unit_result_sha256": "85e47f618a121b2e9ef9f721156f9c2ac14a2683466b89ef49cd28bbfd36a922",
+    "mutation_result_sha256": "3a1a3a4a93bdd5d30642d60e727ad561ed979bf594fdf4eca5e6834fe8c6a70f",
+    "original_unit_result_sha256": "12427738ff35458bd5a92bd722e1ed6290d2b7d532cb0c31382b5ec363f57fb8",
+    "baseline_source_pins_sha256": "db2c94018fbcdaf2647c51198cf076dd5cca9a859255d247b883ec84f100c155",
+    "candidate_source_pins_sha256": "2a99b637cf9e00a12c37e385a7f35019032bd4710ededa388dd91ed23b1e83b4",
+    "baseline_binary_sha256": "2c27118565fdc7a5dc427ff851938730994c35ee7c13ce074a85790bcdf86766",
+    "candidate_binary_sha256": "65f8e00ce312d306874bcd3788d817c74a843780f9ba6e72406bf10b33edf24c",
+    "private_inverse_sha256": "c6094802da38d2ddd056f4d9d24b0f5664a4b4b4a3edfa839306a1b0525e889f",
+    "runner_sha256": "50b8fe533981e938938e164743467b662c4a5397dd593de70a6a7177496aa941",
+    "frozen_schedule_sha256": "872b30d78956870476c6fafbd94477ea3a718c49b2896bc25713d289db55b943",
+    "runtime_verification_sha256": "15c77ce2ecadab780faf0d007a8d5e557b8d78bdcac869fb1d7986ebc8a89357",
+    "candidate2_frame_manifest_sha256": "4d35ac41ca32724e9bb25c0ca552f9707b6c494215471e80000486ff41466280",
+    "candidate4_frame_manifest_sha256": "a8b9d8dcd99eff34a1a9996469bc3b4f06138fa317ce14be3ec979e4afc39c3f"
+  },
+  "source_and_art": {
+    "status": "PASS",
+    "independent_checks": [
+      "All source packet code, original data and retained input pins and exact source excerpts",
+      "Six original compressed sprites decoded independently, matching native indexed, alpha, RGBA and PNG hashes",
+      "All three loaded 1701-record original enemy tables parsed; bodies32-36 record394-only, effect39 shared394/509",
+      "Six frozen PNG/HDA headers, full payloads, hashes, original-support bounds and identical body alpha",
+      "Three production files restore baseline exactly under narrow additive inverse; all other gameplay source preserved",
+      "Manifest inverse and every pre-existing pack payload byte-preserved; six new resources exact"
+    ],
+    "shared509": "Preserves episodes1-3 body95 nominal250/display100; episodes4-5 body57 nominal100. No509 body binding or reward correction; moving35 numerical169 excluded.",
+    "body_alpha_each": {
+      "source_support_samples": 5184,
+      "nonzero_samples": 4309,
+      "alpha255_samples": 166,
+      "fractional_samples": 4143,
+      "support_alpha_quartiles": [
+        0,
+        147.75,
+        252,
+        253,
+        255
+      ]
+    },
+    "popup_alpha": {
+      "source_support_samples": 5632,
+      "nonzero_samples": 5474,
+      "alpha255_samples": 319,
+      "fractional_samples": 5155,
+      "support_alpha_quartiles": [
+        0,
+        252,
+        254,
+        254,
+        255
+      ]
+    },
+    "alpha_wording": "Solid physical appearance with near-opaque interior samples, commonly252-254. Do not claim literal alpha255 throughout the interior. Frozen pixels were not changed."
+  },
+  "units": {
+    "status": "PASS",
+    "renderer": "Reviewed extracted-production four-family ASan/UBSan/RLE/indexed/pixel checks, all16 availability masks,80 resource rejections and15 killed mutations; exact tested source hashes independently matched.",
+    "original": "Corrected final r2:14660 scenarios and101658 assertions in each optimized and ASan/UBSan build. Exact source/harness/fixture/excerpt/log hashes independently verified.",
+    "resolved_findings": [
+      "Original unit caller now executes exact link0-to255 normalization.",
+      "Narrow original ordinary-shot ascending avail0 prefix/predicate now tests strict cycle0/1 boundaries, lower-slot dx12 precedence and lead31 exactdy15 exclusion."
+    ],
+    "scope": "Includes all16 held states, shared509 positive/moving169 negative, independent/mixed leases/fallback, full pools, allocation before release/RNG/copy, movement/reward/TTL/difficulty. Counted unit RNG and observation stubs are source units, not actual replay or cross-mode exposure."
+  },
+  "actual_runtime": {
+    "status": "PASS",
+    "runs": 3,
+    "logic_ticks_each": 2155,
+    "collection_tick": 2145,
+    "terminal_tick": 2154,
+    "input": "Original LEFT20-21 then neutral; one guarded original helper Pulse155 at2106; alive-only invulnerability floor2.",
+    "lethal_guard": "All100 slots enumerated using original predicate; only event313 carrier slot51 affected. Three geometric collision candidates; slot51 was actual first collision. Prior link82 removals observed1666,1966,2084.",
+    "lifecycle": "Original first-free top slot54 allocated before carrier51 release; constructor advances original RNG once; separate15 carrier and100 pickup credits.39 held body draws2107-2145; eight fixed169 draws2145-2152; selected body/popup clear2153/2154.",
+    "pairs": "All12 original raw streams byte-identical across baseline/candidate2/candidate4; control identical excluding wall_ms. Every retained gzip/raw hash, source/helper/binary pin and26 PNG/RGBA hashes independently rechecked.",
+    "baseline_images": 0,
+    "candidate2": {
+      "images": 25,
+      "dimensions": [
+        640,
+        400
+      ],
+      "ticks": [
+        2129,
+        2153
+      ]
+    },
+    "candidate4": {
+      "images": 1,
+      "dimensions": [
+        1280,
+        800
+      ],
+      "tick": 2146,
+      "scope": "fixed100 only"
+    },
+    "visibility": "All16 pre-C held frames retain81/81 final original indexed source matches in all three runs. Equal-colour overdraw is not distinguishable by this compact witness.",
+    "retained_run_bytes": 9652655,
+    "limits": "All three executions below2160ticks/900seconds; cumulative retained run evidence below20MiB. No retries, extra Pulse, later target search or expanded captures."
+  },
+  "native_visual_review": {
+    "status": "PASS",
+    "inspected": "All25 retained native2x frames2129-2153 and native4x frame2146, without resizing or generating new captures.",
+    "finding": "Compact faceted green diamond remains registered and readable through the16 held brightness states, including dark form32 and cycle boundary. No observed detached aura, trail, silhouette rotation or stale gem residue. Fixed blue100 is legible at native2x and4x, stays at collection coordinates, overlaps the original passing actor in later frames and is absent at2153. Original overlap is retained.",
+    "qualification": "Retained-frame visual review, not a continuous-motion video test. Actual4x evidence covers the popup only."
+  },
+  "remaining_qualifications": [
+    "Controlled artificial-survival replay, not natural manual play.",
+    "No baseline RGB images, actual4x gem-body coverage or actual shared509/cross-mode/episode exposure claim.",
+    "Final packaging, durable backup and platform-specific builds remain with their owners."
+  ],
+  "open_technical_blockers": []
+}

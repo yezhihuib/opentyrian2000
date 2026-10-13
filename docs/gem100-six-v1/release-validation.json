@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "tested_source_commit": "083bd54d269f982a9f2b863969f8a2246d263302",
+  "finalization_scope": "documentation only; no new game runs, source/art/test edits or publication",
+  "unchanged_trees": {
+    "src": "980af0a80b161f2e63d4ca84bc73f4bfcd7c1d11",
+    "assets": "a9d37df1320c9789b5b677f81a8d63ca9f41813b",
+    "prototype": "0e815364d45a9635b19b9a5d7665a973e1a83ad0"
+  },
+  "checks": {
+    "tested_production_art_prototype_bytes_preserved": true,
+    "frozen_original_source_plan_sha256_preserved": true,
+    "author_receipt_exact": true,
+    "independent_review_receipt_exact": true,
+    "no_private_paths_or_library_ids_in_current_public_docs": true
+  },
+  "proof_receipts": {
+    "technical-review.json": "b87e53040fec1fd6349fbb0214424ae415a3b5d9509c9a94e609d41315fdb2b0",
+    "author-receipt.json": "731bf86f2c5a3f5d9b9dfa7e58c0ca360d7d337cf1e4c5484ead8c5edf73fe9a",
+    "runtime-verification.json": "15c77ce2ecadab780faf0d007a8d5e557b8d78bdcac869fb1d7986ebc8a89357",
+    "frozen-schedule.json": "872b30d78956870476c6fafbd94477ea3a718c49b2896bc25713d289db55b943",
+    "paired-build-receipt.json": "031b8959d825b814d6593540d42f895b44a2b4f5b048227ec2ead24080d87d34",
+    "capture-index.json": "4fd8f38fd63c09da2f1329ed49fb5f154b5ab90b45ff3fe739466055e51c3a72",
+    "evidence-manifest.json": "ca40d9c8e0c2f405fbc68a34bbd9e572ed49252ec99bd862d4f78969b4924edf",
+    "evidence-archive-receipt.json": "727b1089823c62f28f3cce8de8bbb5e95641a469a89721f93460890abd1e66aa",
+    "RUNTIME-PROOF.md": "5a21c7586ace2e8b5674afaab31d0fa7f72586fbd397b9cd637d71849d4d0fc8"
+  },
+  "platform_builds": "Separate task; this checkpoint does not claim Windows build/runtime success.",
+  "runtime_archive_sha256": "a28521d1b45acdd3d0419eee258af7b0c8b27b71e7981d234140439cf4552fb0"
+}

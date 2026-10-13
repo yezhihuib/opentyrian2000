@@ -1,0 +1,85 @@
+{
+  "status": "PASS_BOUNDED_AUTHOR_VISUAL_REVIEW",
+  "family": "green100 six frozen images",
+  "frozen_inventory_sha256": "4489265f4556f12fecfd1745e271dcbdb2776c52d419971eb998cddc1a40df6d",
+  "opacity_clarification_sha256": "b242a4d4464e2efa6430ba4e1e320c3d78afa6b2eddfbdcbaab54cf3ed4bc312",
+  "capture_hashes_sha256": "9eb5b0be85630cea3c9d13d534be244f8f4282cec324694e0f71884e7173e48d",
+  "runtime_verification": {
+    "path": "gem100-runtime-evidence-20261013/runtime-verification.json",
+    "sha256": "15c77ce2ecadab780faf0d007a8d5e557b8d78bdcac869fb1d7986ebc8a89357",
+    "status": "PASS"
+  },
+  "reviewed": {
+    "native2_ticks": [
+      2129,
+      2130,
+      2131,
+      2132,
+      2133,
+      2134,
+      2135,
+      2136,
+      2137,
+      2138,
+      2139,
+      2140,
+      2141,
+      2142,
+      2143,
+      2144,
+      2145,
+      2146,
+      2147,
+      2148,
+      2149,
+      2150,
+      2151,
+      2152,
+      2153
+    ],
+    "native4_ticks": [
+      2146
+    ],
+    "independently_verified_png_and_decoded_rgba_hashes": 26,
+    "method": "Every chronological target-region context at native2 size, full2129/2146 native2 scenes and true native4 scene2146."
+  },
+  "findings": [
+    "All five held brightness forms keep stable facet structure, dimensions and registration. No unexpected cycle-boundary jump, matte box, aura or edge flicker is apparent in the selected16-body-frame sequence.",
+    "Dark green facets remain recognizable against the actual brown-rock background. The brighter center makes the small physical gem readable without introducing an energy aura.",
+    "Fixed blue100 is legible at both observed native scales. Original collection2145 may show the pre-collection body and popup together. Eight popup draws2145-2152 end cleanly at2153."
+  ],
+  "technical_scope": {
+    "paired_original_logic_ticks": 2155,
+    "state_rng_indexed_parity": "PASS per pinned technical receipt",
+    "pre_collection_original_index_matches": [
+      81,
+      81,
+      81,
+      81,
+      81,
+      81,
+      81,
+      81,
+      81,
+      81,
+      81,
+      81,
+      81,
+      81,
+      81,
+      81
+    ],
+    "index_limit": "Equal-colour overdraw cannot be distinguished by source-index matches; this is not a final whole-frame RGB oracle.",
+    "actual_baseline_rgb_captured": false
+  },
+  "limits": [
+    "Controlled original LEFT20-21, artificial original Pulse155 at2106 and private alive-floor2 survival fixture; ordinary original collection, not unassisted play.",
+    "25 consecutive native2 frames; native4 spot2146 is popup-only and does not prove native4 gem animation.",
+    "Nearby original purple actor intersects the visual neighborhood; no blanket unobstructed-HD-facet claim.",
+    "Shared509 fixed100 behavior remains unit-test scope only.",
+    "Brown rock tested; bright clouds and other backgrounds or difficulty/mode combinations are not visually covered."
+  ],
+  "art_changes": false,
+  "new_captures": false,
+  "next_scope": "Stop new art; parent prioritizes Windows test package."
+}

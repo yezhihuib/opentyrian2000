@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "identical_fixture_helpers": {
+    "gem100_fixture.h": "4098d3e1ba5973b234a775035c2af9e11f4b7fa0f63282d04d7be8108d6773e4",
+    "verify_runtime.py": "fd8b839d60d371cd3a4c969f4d757643fc246b2a9c1821fafedaf5e45dbcf50b",
+    "run.py": "50b8fe533981e938938e164743467b662c4a5397dd593de70a6a7177496aa941",
+    "gem100_fixture.c": "223b98886aba1f9c8e2275ee697ecf22f40439a67596a87ee54247646e399782",
+    "readback.inc": "74ac0805cb836d0227c397b024f3ba3b18d43e86f199e77e7b86781910fc44cb",
+    "prepare.py": "b1edd3bf03cc3c240b10789dc02ff5278967064787258fcc844ebc1f651539da"
+  },
+  "identical_inverse_manifest_sha256": "c6094802da38d2ddd056f4d9d24b0f5664a4b4b4a3edfa839306a1b0525e889f",
+  "baseline_source_pins_sha256": "db2c94018fbcdaf2647c51198cf076dd5cca9a859255d247b883ec84f100c155",
+  "candidate_source_pins_sha256": "2a99b637cf9e00a12c37e385a7f35019032bd4710ededa388dd91ed23b1e83b4",
+  "baseline_binary_sha256": "2c27118565fdc7a5dc427ff851938730994c35ee7c13ce074a85790bcdf86766",
+  "candidate_binary_sha256": "65f8e00ce312d306874bcd3788d817c74a843780f9ba6e72406bf10b33edf24c",
+  "frozen_schedule_sha256": "872b30d78956870476c6fafbd94477ea3a718c49b2896bc25713d289db55b943",
+  "runtime_verification_sha256": "15c77ce2ecadab780faf0d007a8d5e557b8d78bdcac869fb1d7986ebc8a89357",
+  "post_execution_repositories": {
+    "baseline": {
+      "root": "opentyrian-recovery-20261013-0122",
+      "HEAD": "641e4e7370c9f3542ba9d0daf1ebf2a1a988614e",
+      "clean": true
+    },
+    "candidate": {
+      "root": "gem100-candidate-20261013",
+      "HEAD": "083bd54d269f982a9f2b863969f8a2246d263302",
+      "clean": true
+    }
+  },
+  "actual_runs": 3,
+  "baseline_native_images": 0,
+  "candidate_native_images": 26
+}

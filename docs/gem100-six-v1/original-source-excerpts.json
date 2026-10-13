@@ -1,0 +1,343 @@
+{
+  "harness_files_sha256": {
+    "prototype/test-gem100-original.py": "14b4d14065c088535f3ce91714c6d1b5582b649a6334a7eba4e4cd3c883fcec0",
+    "prototype/test-gem100-original.c": "7785bda98cbffba5ecc6af9abf88e7ef4030ab5f678760a7f3622b7911c599f8",
+    "prototype/test-gem100-original.h": "d1a3385e255ea0985937c430c60a8d9d80e55ca067867b24b3e649eb30ad5c84"
+  },
+  "baseline_commit": "641e4e7370c9f3542ba9d0daf1ebf2a1a988614e",
+  "candidate_commit": "641e4e7370c9f3542ba9d0daf1ebf2a1a988614e",
+  "candidate_is_working_tree": true,
+  "fixture_sha256": "aaf261f12a563b4a35d4d69c42b920f727f1266d6b2a6ec4f882584f0cd4d95b",
+  "verification": {
+    "compact_fixture_sha256_pinned": true,
+    "tiny_record_and_event_bytes_redecoded": true,
+    "packet_rechecked": true,
+    "plan_rechecked": true
+  },
+  "plan_sha256": "a0a6fc140f587e52cc740c1c58102fca6020a054078d1ca1674f472d9246fac1",
+  "packet_sha256": "cfe0abf5e2440bb6d1db97d301bf1e1b8bdd8f8549c8ad8c5d6da3ed615c9797",
+  "files": {
+    "src/tyrian2.c": {
+      "baseline_sha256": "b59d5d9331940048d06539c5e9d6b7eb090039fe19142b330c634e0d50f67606",
+      "candidate_sha256": "0766ec6f9cdbf555118d4d72689d0356627dfdb38ca71a04c792f4f2fc5bde36"
+    },
+    "src/mainint.c": {
+      "baseline_sha256": "0b39b8af90f981bce50762de98eb2458282ed3031780235a8ade405945dcddf8",
+      "candidate_sha256": "0b39b8af90f981bce50762de98eb2458282ed3031780235a8ade405945dcddf8"
+    },
+    "src/varz.c": {
+      "baseline_sha256": "d4502557903eea9fc082b83385fee3448564124040ff27faa1a4af16c8e394c7",
+      "candidate_sha256": "d4502557903eea9fc082b83385fee3448564124040ff27faa1a4af16c8e394c7"
+    },
+    "src/varz.h": {
+      "baseline_sha256": "7c5b67fdb8f595d928432f0fb4d5b936c15bd7f881a00c24f7677e8e2f38dc56",
+      "candidate_sha256": "7c5b67fdb8f595d928432f0fb4d5b936c15bd7f881a00c24f7677e8e2f38dc56"
+    },
+    "src/player.h": {
+      "baseline_sha256": "f1c5d26624d1c2b86531e620908701a1a2bfe22a902f4f760672ae52f06446b6",
+      "candidate_sha256": "f1c5d26624d1c2b86531e620908701a1a2bfe22a902f4f760672ae52f06446b6"
+    },
+    "src/opentyr.h": {
+      "baseline_sha256": "53cf73134192dfd212e0bf773f9780f2b2cf3754ccd9058b3216195426b171d5",
+      "candidate_sha256": "53cf73134192dfd212e0bf773f9780f2b2cf3754ccd9058b3216195426b171d5"
+    },
+    "src/config.h": {
+      "baseline_sha256": "548000ba81517cabf829665ad09fa629a0a7cfd79d013c94ad301df4e8d30a02",
+      "candidate_sha256": "548000ba81517cabf829665ad09fa629a0a7cfd79d013c94ad301df4e8d30a02"
+    },
+    "src/episodes.h": {
+      "baseline_sha256": "e754c9f34372082084752cb2244c132b8ccad1a1e475d22366e5f1e1e2a59ef5",
+      "candidate_sha256": "e754c9f34372082084752cb2244c132b8ccad1a1e475d22366e5f1e1e2a59ef5"
+    },
+    "src/lvlmast.h": {
+      "baseline_sha256": "f33fbe72ec273bf4c72cb2c49bd4dbc4336b6bc6802e1b53d32ac58667026ed0",
+      "candidate_sha256": "f33fbe72ec273bf4c72cb2c49bd4dbc4336b6bc6802e1b53d32ac58667026ed0"
+    },
+    "src/shots.h": {
+      "baseline_sha256": "b6e009500719222b134f508e3db2bf3c365a9e1f54e576f8465f98ff6f364042",
+      "candidate_sha256": "b6e009500719222b134f508e3db2bf3c365a9e1f54e576f8465f98ff6f364042"
+    }
+  },
+  "excerpts": [
+    {
+      "file": "setup_explosion.inc",
+      "source": "src/varz.c",
+      "start_line": 876,
+      "end_line": 971,
+      "bytes": 1743,
+      "sha256": "4ac972db1ce2bdaf6f769eac9c5ef30fb809ba36b06f133ee32ff2e570db63c8",
+      "candidate_exactly_unchanged": true
+    },
+    {
+      "file": "new_enemy.inc",
+      "source": "src/tyrian2.c",
+      "start_line": 3998,
+      "end_line": 4011,
+      "bytes": 274,
+      "sha256": "0dc6541562d7f3168404026b7858c5094c0bc55c680cb33503c9a84e798e7ea3",
+      "candidate_exactly_unchanged": true
+    },
+    {
+      "file": "make_enemy.inc",
+      "source": "src/tyrian2.c",
+      "start_line": 4012,
+      "end_line": 4303,
+      "bytes": 6752,
+      "sha256": "4c1ce691523a6d2fc60b5b8570a4ede104cf59f7e47047b38328e642f600d366",
+      "candidate_exactly_unchanged": true
+    },
+    {
+      "file": "spawn_enemy.inc",
+      "source": "src/tyrian2.c",
+      "start_line": 4304,
+      "end_line": 4373,
+      "bytes": 1633,
+      "sha256": "c0cc13e49511c90e593ef23cc8674e3c083ab2da2db95267f0a64f0055accef5",
+      "candidate_exactly_unchanged": true
+    },
+    {
+      "file": "scoreitem.inc",
+      "source": "src/mainint.c",
+      "start_line": 5018,
+      "end_line": 5090,
+      "bytes": 2331,
+      "sha256": "b9d609a88e6804c79858e6e1de0152f701f6f4bc23db8529640a66d97f1b266f",
+      "candidate_exactly_unchanged": true
+    },
+    {
+      "file": "collision_envelope.inc",
+      "source": "src/mainint.c",
+      "start_line": 4789,
+      "end_line": 4798,
+      "bytes": 268,
+      "sha256": "47a273a028566e0dbd6a87fcdd0618e7370802a0ea813c1cd6e4fe57f36e38ac",
+      "candidate_exactly_unchanged": true
+    },
+    {
+      "file": "linked_death.inc",
+      "source": "src/tyrian2.c",
+      "start_line": 1670,
+      "end_line": 1765,
+      "bytes": 3125,
+      "sha256": "7980e012b4ed85c666d786405f3f6c23628bebdfa157033373bcaa347af91f82",
+      "candidate_exactly_unchanged": true
+    },
+    {
+      "file": "shot_limit.inc",
+      "source": "src/shots.h",
+      "start_line": 33,
+      "end_line": 33,
+      "bytes": 34,
+      "sha256": "49e112296d3f5e79e67198e35c7c98f4f30b2ec866f1f033e4a101969e73bc3c",
+      "candidate_exactly_unchanged": true
+    },
+    {
+      "file": "shot_collision_prefix.inc",
+      "source": "src/tyrian2.c",
+      "start_line": 1492,
+      "end_line": 1523,
+      "bytes": 1205,
+      "sha256": "f3c7b46edd85545e435caa943c755be6ab8924e30f26839510963efb375e8d7e",
+      "candidate_exactly_unchanged": true
+    },
+    {
+      "file": "link_normalization.inc",
+      "source": "src/tyrian2.c",
+      "start_line": 1554,
+      "end_line": 1558,
+      "bytes": 72,
+      "sha256": "147e08f9b8e7842a9a84d91d0c3f10d18bd424bf18a94cac1f2bf3a30fa3be72",
+      "candidate_exactly_unchanged": true
+    },
+    {
+      "file": "reward.inc",
+      "source": "src/tyrian2.c",
+      "start_line": 4188,
+      "end_line": 4230,
+      "bytes": 983,
+      "sha256": "67141af6ec511c56214340b7a22c2f0b02051d4b6a0d4c69a9560d637c9778c5",
+      "candidate_exactly_unchanged": true
+    },
+    {
+      "file": "event7.inc",
+      "source": "src/tyrian2.c",
+      "start_line": 4509,
+      "end_line": 4512,
+      "bytes": 70,
+      "sha256": "2e01677218a59bf368670966103de0944871205b901458ad3cfc1902a8cda26f",
+      "candidate_exactly_unchanged": true
+    },
+    {
+      "file": "event19.inc",
+      "source": "src/tyrian2.c",
+      "start_line": 4609,
+      "end_line": 4675,
+      "bytes": 1436,
+      "sha256": "14b514a5c87ae6e92e3fb4be0b5dec1184bc66c40edf6c26c276d8164acb1afe",
+      "candidate_exactly_unchanged": true
+    },
+    {
+      "file": "event33.inc",
+      "source": "src/tyrian2.c",
+      "start_line": 4852,
+      "end_line": 4880,
+      "bytes": 930,
+      "sha256": "657b74822b3ecb930bc2d198f94bcf86ff73d756a9aba52d8ab4b5c1828bbb46",
+      "candidate_exactly_unchanged": true
+    },
+    {
+      "file": "event45.inc",
+      "source": "src/tyrian2.c",
+      "start_line": 4959,
+      "end_line": 4978,
+      "bytes": 517,
+      "sha256": "8c955c5176689f35bac78f682a547e3712e96b6e1aa2ce2f509d80fa571881e6",
+      "candidate_exactly_unchanged": true
+    },
+    {
+      "file": "movement.inc",
+      "source": "src/tyrian2.c",
+      "start_line": 201,
+      "end_line": 352,
+      "bytes": 3484,
+      "sha256": "72ad436106a24ff6670e5621daddab34e4e1f20a23860c5869f52463c9354dc1",
+      "candidate_exactly_unchanged": true
+    },
+    {
+      "file": "enemy_type.inc",
+      "source": "src/varz.h",
+      "start_line": 54,
+      "end_line": 114,
+      "bytes": 1516,
+      "sha256": "466d8f006192bb8c517d72ae1f44600ee529bde26f2bf4b2d1f02625c4555013",
+      "candidate_exactly_unchanged": true
+    },
+    {
+      "file": "enemy_data_type.inc",
+      "source": "src/episodes.h",
+      "start_line": 117,
+      "end_line": 148,
+      "bytes": 802,
+      "sha256": "69c209191a761d8234a09d199a0e0662f53db372df8b998090ca779bdc2d12aa",
+      "candidate_exactly_unchanged": true
+    },
+    {
+      "file": "enemy_num.inc",
+      "source": "src/lvlmast.h",
+      "start_line": 41,
+      "end_line": 41,
+      "bytes": 25,
+      "sha256": "7f3ad774f62ece7ae19930b3448ecc3b15f8f8d62adfd2d45dc921a327a70b2c",
+      "candidate_exactly_unchanged": true
+    },
+    {
+      "file": "explosion_type.inc",
+      "source": "src/varz.h",
+      "start_line": 186,
+      "end_line": 193,
+      "bytes": 139,
+      "sha256": "f41acd6fe08a27db6f4b77a2d769ae9caf1d38fd15d2255a8ccf1043225773bb",
+      "candidate_exactly_unchanged": true
+    },
+    {
+      "file": "player_types.inc",
+      "source": "src/player.h",
+      "start_line": 37,
+      "end_line": 116,
+      "bytes": 1471,
+      "sha256": "f80d7d7ef406154109bd0f5986e7233a734db38fae95acb042a077dd1620bbc9",
+      "candidate_exactly_unchanged": true
+    },
+    {
+      "file": "event_type.inc",
+      "source": "src/varz.h",
+      "start_line": 127,
+      "end_line": 135,
+      "bytes": 180,
+      "sha256": "7425201609140e79a05405be9f76966cea14d4253e211315e3ba95b5480ec1db",
+      "candidate_exactly_unchanged": true
+    },
+    {
+      "file": "difficulty_type.inc",
+      "source": "src/config.h",
+      "start_line": 40,
+      "end_line": 53,
+      "bytes": 262,
+      "sha256": "8b461853c36da55c59cc74fa61793b874cc9aeae4ce05dd1feb31171b3912c0f",
+      "candidate_exactly_unchanged": true
+    },
+    {
+      "file": "super_specials.inc",
+      "source": "src/varz.c",
+      "start_line": 153,
+      "end_line": 153,
+      "bytes": 62,
+      "sha256": "b3e2fc46da0ba7f757455c9e9d4481371e6b1082097873e41c3ac8f5d1c18d46",
+      "candidate_exactly_unchanged": true
+    },
+    {
+      "file": "draw_original.inc",
+      "source": "src/tyrian2.c",
+      "bytes": 913,
+      "sha256": "5c1adbc0eb10b03f692f8d39ec134be15c232278ceff2b84060a2930677cc7e8",
+      "projection": "Baseline minus exact existing25/75/50 display hooks"
+    },
+    {
+      "file": "draw_candidate.inc",
+      "source": "src/tyrian2.c",
+      "bytes": 1864,
+      "sha256": "77c3f331aa317897b511070893c26d5599ac4800196829d2def0bb8114084ff3",
+      "projection": "Candidate including all four exact display-only hooks"
+    }
+  ],
+  "whole_tyrian2_inverse100_exact": true,
+  "all_other_selected_source_files_exact": true,
+  "candidate_effect_loop_original_projection_byte_exact": true,
+  "mode_events": [
+    {
+      "eventtime": 2100,
+      "type": 33,
+      "dat": 394,
+      "dat2": 0,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 182,
+      "index": 316,
+      "source_offset": 225680,
+      "source_bytes_hex": "3408218a010000000000b6",
+      "source_sha256": "0d8af4271ced481743a389b658fb8a87b55f16cf87ff601d2abc52eb725a1697",
+      "scalar_predicted_tick": 2100
+    },
+    {
+      "eventtime": 2130,
+      "type": 33,
+      "dat": 394,
+      "dat2": 0,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 143,
+      "index": 325,
+      "source_offset": 225779,
+      "source_bytes_hex": "5208218a0100000000008f",
+      "source_sha256": "0b37db2c8e350a0f1d50b2bda6b25ea6d0715d6035cf3eb25cb1a93345b13779",
+      "scalar_predicted_tick": 2130
+    },
+    {
+      "eventtime": 2330,
+      "type": 33,
+      "dat": 394,
+      "dat2": 0,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 163,
+      "index": 334,
+      "source_offset": 225878,
+      "source_bytes_hex": "1a09218a010000000000a3",
+      "source_sha256": "83e54078a0501593b4c8a144908d15534f0fa23529d2eab36535736d39a11870",
+      "scalar_predicted_tick": 2330
+    }
+  ]
+}

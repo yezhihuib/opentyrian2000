@@ -1,0 +1,662 @@
+{
+  "schema": "gem100-finite-source-plan-v1",
+  "baseline_commit": "641e4e7370c9f3542ba9d0daf1ebf2a1a988614e",
+  "source_packet": "selected100-source-packet.json (separately retained source audit)",
+  "source_packet_sha256": "cfe0abf5e2440bb6d1db97d301bf1e1b8bdd8f8549c8ad8c5d6da3ed615c9797",
+  "source_report_sha256": "43ab6c0b9963d3ff14c54edf67582795b436d0e320b26f2d500609b579f7346b",
+  "source_kind": "independently read/hash-verified source/data, no game execution",
+  "source_pins": {
+    "src/episodes.c": "640219b48d3081ee996ce66a66f61ad2fe185339fcfaf395808e02fcee0b29e0",
+    "src/lvlmast.h": "f33fbe72ec273bf4c72cb2c49bd4dbc4336b6bc6802e1b53d32ac58667026ed0",
+    "src/lvllib.c": "34467e09b9088b646ad7006480c691ebc65491f8bd72c1d3c65b2e4454e4fca5",
+    "src/tyrian2.c": "b59d5d9331940048d06539c5e9d6b7eb090039fe19142b330c634e0d50f67606",
+    "src/mainint.c": "0b39b8af90f981bce50762de98eb2458282ed3031780235a8ade405945dcddf8",
+    "src/varz.c": "d4502557903eea9fc082b83385fee3448564124040ff27faa1a4af16c8e394c7",
+    "src/sprite.c": "f55491df5ec34163e3c46da7607c132449fa4d299117a768ae91dd9cf92b5886",
+    "src/render_mirror.c": "e201df65f02a327e6ebae93a8ef46ed5f3be8fb22f9626eda510927c0652ace2",
+    "src/render_mirror.h": "70827e8d062733ec7c24756d6fc510da8f26503f79029cb52884b3c5ffa52a42",
+    "src/asset_debug.c": "8be5161623d0d34c960ae7d229a3b9ac1b0889fe54bec407e131f267346b7bf8",
+    "src/config.h": "548000ba81517cabf829665ad09fa629a0a7cfd79d013c94ad301df4e8d30a02",
+    "assets/hd/manifest.json": "bafb92916bd7649b41475ffd7ad18fe7afdf58bd18c8728a44dd23f10ef898ca"
+  },
+  "original_data_root": "original Tyrian2000 game data supplied separately",
+  "original_data_pins": {
+    "tyrian.hdt": "fde8506326e7bb0916b38c362e33bf8a8a5affa561206c021af7f65b4a17745b",
+    "tyrian1.lvl": "54cbb00b57b84aa992a70cfcb170cb1edeb59507873723630d60080ba8351352",
+    "tyrian2.lvl": "930e7c4a5452c6c79406d8f7126fdaace9994635d9f4bcdfb645d693a22575b6",
+    "tyrian3.lvl": "6a5b94a7d3e4f5a228bc0f702cfe035c8f9f03b20a3f02867d25e95b4249ce86",
+    "tyrian4.lvl": "6589b898094887925e7717c8663c4b8b5e4b76f3c89a7898ed9f4691c1f2cc16",
+    "tyrian5.lvl": "275b5aaf55caecee8dc95e26f7cf118a9ee265f095ce61945b9ece56a4523323",
+    "tyrian.shp": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+    "tyrianc.shp": "e980f02021395d39b86491acdc2ecd6dd47ea2a9f859fe3928f81b75e244fd7d",
+    "newsh6.shp": "49e3d08e122ea71d6a621d2de127da00ce8a26ff73a0fb40d0cdd7ca2909d075",
+    "palette.dat": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+  },
+  "resources": [
+    {
+      "filename": "gem100-bank11-32-8.hda",
+      "role": 118,
+      "key": 1180032,
+      "slot": 493,
+      "index": 32,
+      "header_u32": [
+        1180032,
+        8,
+        12,
+        14,
+        0,
+        0
+      ]
+    },
+    {
+      "filename": "gem100-bank11-33-8.hda",
+      "role": 118,
+      "key": 1180033,
+      "slot": 494,
+      "index": 33,
+      "header_u32": [
+        1180033,
+        8,
+        12,
+        14,
+        0,
+        0
+      ]
+    },
+    {
+      "filename": "gem100-bank11-34-8.hda",
+      "role": 118,
+      "key": 1180034,
+      "slot": 495,
+      "index": 34,
+      "header_u32": [
+        1180034,
+        8,
+        12,
+        14,
+        0,
+        0
+      ]
+    },
+    {
+      "filename": "gem100-bank11-35-8.hda",
+      "role": 118,
+      "key": 1180035,
+      "slot": 496,
+      "index": 35,
+      "header_u32": [
+        1180035,
+        8,
+        12,
+        14,
+        0,
+        0
+      ]
+    },
+    {
+      "filename": "gem100-bank11-36-8.hda",
+      "role": 118,
+      "key": 1180036,
+      "slot": 497,
+      "index": 36,
+      "header_u32": [
+        1180036,
+        8,
+        12,
+        14,
+        0,
+        0
+      ]
+    },
+    {
+      "filename": "gem100-value-newsh6-169-8.hda",
+      "role": 119,
+      "key": 1190169,
+      "slot": 498,
+      "index": 169,
+      "header_u32": [
+        1190169,
+        8,
+        12,
+        14,
+        0,
+        0
+      ]
+    }
+  ],
+  "hda": {
+    "magic": "HDR1",
+    "endianness": "little",
+    "density": 8,
+    "native_size": [
+      12,
+      14
+    ],
+    "anchor": [
+      0,
+      0
+    ],
+    "pixel_size": [
+      96,
+      112
+    ],
+    "payload_bytes": 43008,
+    "total_bytes": 43036,
+    "trailing_bytes": 0
+  },
+  "art_freeze": {
+    "root_approval": "Artist and parent reported root visual acceptance",
+    "path": "assets/hd/artwork/gem100-six-v1",
+    "inventory_sha256": "4489265f4556f12fecfd1745e271dcbdb2776c52d419971eb998cddc1a40df6d",
+    "outputs": [
+      {
+        "id": 32,
+        "key": 1180032,
+        "prefix": "gem100-bank11",
+        "PNG_SHA256": "0b0093c373e9867f0dc284422fdd081ca4ce2d10558c33824eeec679799f43c0",
+        "RGBA_SHA256": "735fcb6986bfcfbe1fe8147c355ad7cafef25683a408fd3c6faab3c4e21fa86c",
+        "HDA_SHA256": "fcb27e24bc04faaf84f77c02d7f313e1660846f8962d06a846aa533d14963155",
+        "RGBA_FNV1a64": "ed343349769eaf60",
+        "outside_source_support": 0,
+        "fractional_samples": 4143
+      },
+      {
+        "id": 33,
+        "key": 1180033,
+        "prefix": "gem100-bank11",
+        "PNG_SHA256": "98f93bc991a4a24ef9dcccd2956f98f038f35bff88569016753607609b60dce6",
+        "RGBA_SHA256": "1b37c3b7a74a4de268af1af7bbd0e45ce349b8e75f6323b7434f3dd73f213a47",
+        "HDA_SHA256": "329e1b195400e36bcc823ad2a14c741e5291aa9342ea241b84c7035a15e9b6eb",
+        "RGBA_FNV1a64": "b875aedd515d1eed",
+        "outside_source_support": 0,
+        "fractional_samples": 4143
+      },
+      {
+        "id": 34,
+        "key": 1180034,
+        "prefix": "gem100-bank11",
+        "PNG_SHA256": "3429c728c561f7e5d40c6415ed1ce5da6684c1e98fa156ffab2b3ad89fd675f7",
+        "RGBA_SHA256": "6619b7e7b311cd7cf603e8e68a29521f536f94ac5d80be041299af02ed37d657",
+        "HDA_SHA256": "58e0c512013b9261b36d3c352fc5aee8fa1a5ca209edfe647cb808d93420b2b9",
+        "RGBA_FNV1a64": "39d72c1f99c01ff5",
+        "outside_source_support": 0,
+        "fractional_samples": 4143
+      },
+      {
+        "id": 35,
+        "key": 1180035,
+        "prefix": "gem100-bank11",
+        "PNG_SHA256": "ef34798f4ad3e477140f2eaaf7b8bbf5f81a919894da696b582a24717eb1a7a6",
+        "RGBA_SHA256": "13789fad24492b204ee077518930fd0a84dc0eec63f3c6e88771759a0cade535",
+        "HDA_SHA256": "7e27455c0c8d9a66c20d8174d4400357d1c17d724470e04d806d37f5ad0be5b7",
+        "RGBA_FNV1a64": "74620d4bdbd8c517",
+        "outside_source_support": 0,
+        "fractional_samples": 4143
+      },
+      {
+        "id": 36,
+        "key": 1180036,
+        "prefix": "gem100-bank11",
+        "PNG_SHA256": "23052f744c50e50dc0c423a0712b102717227163cf54ed27135baefa69d4bd13",
+        "RGBA_SHA256": "fcfe809281a4efb3dbb05b9da781f736c4716b7243e19a8d26a8e8fbf03a8e70",
+        "HDA_SHA256": "975f88c7e95b769efa26607b19a1964334319283cd302208dbd2409f47da182f",
+        "RGBA_FNV1a64": "2cdddc095a32052b",
+        "outside_source_support": 0,
+        "fractional_samples": 4143
+      },
+      {
+        "id": 169,
+        "key": 1190169,
+        "prefix": "gem100-value-newsh6",
+        "PNG_SHA256": "5e55387e26276c9167f90dd6d94b3a0db9ff1a2b89984d983a23d8f9d215c80c",
+        "RGBA_SHA256": "0dec3889716427722f4f03c4cded50e87374bbd5404ae82b4bd434179a1a7c4a",
+        "HDA_SHA256": "4162e1021caa9801731f4c871e99b6152bf09541b5a560cbda9fb0a2ada9e5f7",
+        "RGBA_FNV1a64": "57749151cd61da91",
+        "outside_source_support": 0,
+        "fractional_samples": 5155
+      }
+    ],
+    "planner_verification": "all six HDA headers/lengths/EOF/full RGBA/FNV stamps and PNG bytes/pixels match frozen inventory; no rebuild execution and no independent visual acceptance claim"
+  },
+  "asset_capacity": {
+    "old": 493,
+    "new": 499
+  },
+  "packs": [
+    {
+      "name": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+      "manifest_count_before": 501,
+      "manifest_count_after": 507,
+      "physical_hda_before": 507,
+      "physical_hda_after": 513
+    },
+    {
+      "name": "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+      "manifest_count_before": 501,
+      "manifest_count_after": 507,
+      "physical_hda_before": 507,
+      "physical_hda_after": 513
+    }
+  ],
+  "preserve_families": {
+    "25": {
+      "roles": [
+        112,
+        113
+      ],
+      "slots": [
+        472,
+        478
+      ]
+    },
+    "75": {
+      "roles": [
+        114,
+        115
+      ],
+      "slots": [
+        479,
+        485
+      ]
+    },
+    "50": {
+      "roles": [
+        116,
+        117
+      ],
+      "slots": [
+        486,
+        492
+      ]
+    }
+  },
+  "body_record": 394,
+  "body_ids": [
+    32,
+    33,
+    34,
+    35,
+    36
+  ],
+  "sequence16": [
+    32,
+    32,
+    33,
+    33,
+    34,
+    34,
+    35,
+    35,
+    36,
+    36,
+    35,
+    35,
+    34,
+    34,
+    33,
+    33
+  ],
+  "fixed_role": {
+    "record_users": [
+      394,
+      509
+    ],
+    "effect_type": 39,
+    "stored": 168,
+    "draw": 169,
+    "ttl": [
+      1,
+      8
+    ],
+    "fixed": true,
+    "follow": false,
+    "delta_y": 0,
+    "shared509_episodes123_nominal": 250,
+    "shared509_episodes123_display": 100,
+    "moving35_draw169_excluded": true
+  },
+  "source_events": [
+    {
+      "eventtime": 2100,
+      "type": 33,
+      "dat": 394,
+      "dat2": 0,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 182,
+      "index": 316,
+      "source_offset": 225680,
+      "source_bytes_hex": "3408218a010000000000b6",
+      "source_sha256": "0d8af4271ced481743a389b658fb8a87b55f16cf87ff601d2abc52eb725a1697",
+      "scalar_predicted_tick": 2100
+    },
+    {
+      "eventtime": 2130,
+      "type": 33,
+      "dat": 394,
+      "dat2": 0,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 143,
+      "index": 325,
+      "source_offset": 225779,
+      "source_bytes_hex": "5208218a0100000000008f",
+      "source_sha256": "0b37db2c8e350a0f1d50b2bda6b25ea6d0715d6035cf3eb25cb1a93345b13779",
+      "scalar_predicted_tick": 2130
+    },
+    {
+      "eventtime": 2330,
+      "type": 33,
+      "dat": 394,
+      "dat2": 0,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 163,
+      "index": 334,
+      "source_offset": 225878,
+      "source_bytes_hex": "1a09218a010000000000a3",
+      "source_sha256": "83e54078a0501593b4c8a144908d15534f0fa23529d2eab36535736d39a11870",
+      "scalar_predicted_tick": 2330
+    }
+  ],
+  "earliest_spawn": {
+    "eventtime": 2100,
+    "type": 7,
+    "dat": 30,
+    "dat2": 92,
+    "dat3": 0,
+    "dat5": 0,
+    "dat6": 0,
+    "dat4": 182,
+    "index": 313,
+    "source_offset": 225647,
+    "source_bytes_hex": "3408071e005c00000000b6",
+    "source_sha256": "ba3c0bfc45b3b38798853dd2ed09b3f247dfe34dee513467a5a321c9be219a87",
+    "scalar_predicted_tick": 2100
+  },
+  "lethal_sweep_prior_candidates": [
+    {
+      "eventtime": 1557,
+      "type": 6,
+      "dat": 31,
+      "dat2": 90,
+      "dat3": 1,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 82,
+      "index": 216,
+      "source_offset": 224580,
+      "source_bytes_hex": "1506061f005a0001000052",
+      "source_sha256": "7c3d9db2a44212098037b5663a4f6b588ceec6310a8355619c18d79f878bb7e2",
+      "scalar_predicted_tick": 1557
+    },
+    {
+      "eventtime": 1857,
+      "type": 15,
+      "dat": 31,
+      "dat2": 90,
+      "dat3": 2,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 82,
+      "index": 262,
+      "source_offset": 225086,
+      "source_bytes_hex": "41070f1f005a0002000052",
+      "source_sha256": "877b63a64b44aadc782d3fa63b76615e175a142dc4ce9d519d44fc03469a338b",
+      "scalar_predicted_tick": 1857
+    },
+    {
+      "eventtime": 2030,
+      "type": 15,
+      "dat": 31,
+      "dat2": 170,
+      "dat3": 4,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 82,
+      "index": 302,
+      "source_offset": 225526,
+      "source_bytes_hex": "ee070f1f00aa0004000052",
+      "source_sha256": "a04e1bf0ce9a61fd2945d8013882a1e2dfa7892515be0da1f210fbb1855d792b",
+      "scalar_predicted_tick": 2030
+    },
+    {
+      "eventtime": 2100,
+      "type": 7,
+      "dat": 30,
+      "dat2": 92,
+      "dat3": 0,
+      "dat5": 0,
+      "dat6": 0,
+      "dat4": 182,
+      "index": 313,
+      "source_offset": 225647,
+      "source_bytes_hex": "3408071e005c00000000b6",
+      "source_sha256": "ba3c0bfc45b3b38798853dd2ed09b3f247dfe34dee513467a5a321c9be219a87",
+      "scalar_predicted_tick": 2100
+    }
+  ],
+  "lethal_sweep_guard": {
+    "available_condition": "enemyAvail[i] != 1",
+    "predicate": "(i == hit) || (link == 254) || ((link != 255) && ((link == enemy[i].linknum) || (link - 100 == enemy[i].linknum) || ((enemy[i].linknum > 40) && (enemy[i].linknum / 20 == link / 20) && (enemy[i].linknum <= link))))",
+    "selected_link": 182,
+    "same_group_possible_links": [
+      180,
+      181,
+      182
+    ],
+    "minus100_link": 82,
+    "required_actual_members": "only actual event313 carrier; any other live member stops before Pulse"
+  },
+  "first_collision_guard": "exact original ascending avail0 predicate; event313 carrier must be first; never erase overlapping later actors",
+  "difficulty_rewards": [
+    {
+      "difficulty": "-1/Wimp",
+      "unlinked_value": 75,
+      "linked_each": 37,
+      "fixed_label": 100
+    },
+    {
+      "difficulty": "Easy/Normal",
+      "unlinked_value": 100,
+      "linked_each": 50,
+      "fixed_label": 100
+    },
+    {
+      "difficulty": "Hard",
+      "unlinked_value": 112,
+      "linked_each": 56,
+      "fixed_label": 100
+    },
+    {
+      "difficulty": "Impossible",
+      "unlinked_value": 150,
+      "linked_each": 75,
+      "fixed_label": 100
+    },
+    {
+      "difficulty": "Insanity",
+      "unlinked_value": 200,
+      "linked_each": 100,
+      "fixed_label": 100
+    },
+    {
+      "difficulty": "Suicide",
+      "unlinked_value": 250,
+      "linked_each": 125,
+      "fixed_label": 100
+    },
+    {
+      "difficulty": "Maniacal/Zinglon",
+      "unlinked_value": 400,
+      "linked_each": 200,
+      "fixed_label": 100
+    },
+    {
+      "difficulty": "Nortaneous/10",
+      "unlinked_value": 800,
+      "linked_each": 400,
+      "fixed_label": 100
+    }
+  ],
+  "production_files_allowed": [
+    "src/render_mirror.c",
+    "src/render_mirror.h",
+    "src/tyrian2.c"
+  ],
+  "production_gate": "exact inverse-additive source restoration to baseline; no gameplay/data/build-membership change",
+  "runtime": {
+    "authorization": "Parent reported root approval of exact fixture on2026-10-13; individual launches remain gated by independent PASS and durable backup",
+    "run_count": 3,
+    "cases": [
+      "baseline-noimage",
+      "candidate-native2",
+      "candidate-native4"
+    ],
+    "episode": 1,
+    "physical_level": 9,
+    "seed": "0x5eed",
+    "difficulty": "Normal",
+    "mode": "ordinary story",
+    "render_ticks_hard_limit": 2160,
+    "last_legal_tick": 2159,
+    "wall_seconds_per_run": 900,
+    "retained_evidence_total_bytes": 20971520,
+    "minimum_free_bytes": 2147483648,
+    "input": {
+      "left_bit": 2,
+      "left_value": 4,
+      "left_ticks_inclusive": [
+        20,
+        21
+      ],
+      "otherwise": 0,
+      "demo_keys_wait": 1,
+      "right_input": false,
+      "original_input_physics_preserved": true
+    },
+    "private_survival": {
+      "approved": true,
+      "only_while_alive": true,
+      "invulnerable_ticks_floor": 2,
+      "phase": "immediately after original events",
+      "same_in_all_runs": true,
+      "revive_or_heal": false
+    },
+    "pulse": {
+      "count": 1,
+      "tick": 2106,
+      "weapon": 155,
+      "pending_damage": 0,
+      "selected_carrier_event": 313,
+      "pool": [
+        50,
+        74
+      ],
+      "guarded_expected_carrier": {
+        "record": 30,
+        "link": 182,
+        "ex": 26,
+        "ey": -7,
+        "mapoffset": 64,
+        "armor": 6,
+        "value": 15,
+        "drop": 394
+      },
+      "guarded_expected_player": {
+        "x": 93,
+        "y": 160,
+        "x_velocity": 0,
+        "y_velocity": 0
+      },
+      "predicted_shot": [
+        90,
+        -13
+      ],
+      "original_helper_retained": true,
+      "artificial_shot_only_overrides_disclosed": true
+    },
+    "prediction_not_observation": {
+      "first_body_tick": 2107,
+      "first_body": [
+        90,
+        -7
+      ],
+      "C": 2145,
+      "collection": [
+        90,
+        149
+      ],
+      "fixed_ticks": [
+        2145,
+        2152
+      ],
+      "clear_ticks": [
+        2153,
+        2154
+      ],
+      "terminal": 2154,
+      "capture2_ticks": [
+        2129,
+        2153
+      ],
+      "pre_C_16_ids": [
+        35,
+        35,
+        36,
+        36,
+        35,
+        35,
+        34,
+        34,
+        33,
+        33,
+        32,
+        32,
+        33,
+        33,
+        34,
+        34
+      ]
+    },
+    "actual_success_stop": "C+9 inclusive after eight fixed draws and two selected-effect-clear observations",
+    "captures": {
+      "baseline": 0,
+      "native2": {
+        "count": 25,
+        "window": "C-16..C+8 inclusive",
+        "size": [
+          640,
+          400
+        ]
+      },
+      "native4": {
+        "count": 1,
+        "tick": "C+1",
+        "size": [
+          1280,
+          800
+        ],
+        "coverage": "fixed100; no claim of actual4x body"
+      }
+    },
+    "stop_on_mismatch": true,
+    "automatic_retry": false,
+    "extra_pulse": false,
+    "retarget": false,
+    "later_search": false,
+    "coordinate_or_enemy_writes": false,
+    "no_large_pack_copies": true,
+    "deletion": false
+  },
+  "tests": "finite extension of existing cash renderer/original extractors and27-resource fixture, no new broad harness",
+  "game_runs_in_this_plan": 0,
+  "builds_in_this_plan": 0,
+  "unit_runs_in_this_plan": 0,
+  "fixture_edits_in_this_plan": 0,
+  "production_edits_in_this_plan": 0,
+  "source_contract_sha256": "b6ae6bc2a2764406d6cb036c6370fd5936709fb0a47febee8b31099162909b9b"
+}

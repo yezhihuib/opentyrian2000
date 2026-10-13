@@ -1,0 +1,64 @@
+{
+  "family": "green100 physical faceted gem brightness family and shared fixed blue100",
+  "logical_size": [
+    12,
+    14
+  ],
+  "anchor": [
+    0,
+    0
+  ],
+  "density": 8,
+  "body": {
+    "record": 394,
+    "source_bank": 11,
+    "runtime_bank": 21,
+    "ids": [
+      32,
+      33,
+      34,
+      35,
+      36
+    ],
+    "role": 118,
+    "prefix": "gem100-bank11",
+    "held_sequence": [
+      32,
+      32,
+      33,
+      33,
+      34,
+      34,
+      35,
+      35,
+      36,
+      36,
+      35,
+      35,
+      34,
+      34,
+      33,
+      33
+    ],
+    "identical_alpha_and_geometry": true,
+    "not_rotation": true
+  },
+  "value": {
+    "id": 169,
+    "source": "newsh6",
+    "role": 119,
+    "prefix": "gem100-value-newsh6",
+    "fixed_effect": 39,
+    "stored_sprite": 168,
+    "draws_max": 8,
+    "shared_records": [
+      394,
+      509
+    ],
+    "preserve_509_episode1_3_nominal250_display100": true,
+    "exclude_moving_effect35": true
+  },
+  "coverage": "Generated alpha limited to original support, restrained fractional inward rim. Opaque solid interiors, no aura. Identical body alpha in all five states.",
+  "runtime": "Original gameplay, animation gate/order, collection, reward scaling, fixed NORMAL/BLEND behavior and indexed fallbacks remain integrator-owned. No runtime evidence in this package.",
+  "approval": "Root native2x visual gate2026-10-13; dark-facet contrast and cycle-boundary twinkling require actual review."
+}
