@@ -1,0 +1,186 @@
+{
+  "status": "PASS_BOUNDED_COIN50_RUNTIME_AND_RELEASE_GATES",
+  "baseline_commit": "8fc7a3b2638ed765d7aadc0a345d2c23cd036bfa",
+  "tested_candidate_commit": "e3ef8460783841dd0b1ed00ad3fa1823a3b7b8d2",
+  "final_docs_only": true,
+  "production_art_prototype_changes_after_tested_freeze": false,
+  "production_source_sha256": {
+    "src/render_mirror.c": "e201df65f02a327e6ebae93a8ef46ed5f3be8fb22f9626eda510927c0652ace2",
+    "src/render_mirror.h": "70827e8d062733ec7c24756d6fc510da8f26503f79029cb52884b3c5ffa52a42",
+    "src/tyrian2.c": "b59d5d9331940048d06539c5e9d6b7eb090039fe19142b330c634e0d50f67606"
+  },
+  "art_inventory_sha256": "433d2e9e7748bd68fc7cfea808a1bfb0f9e9f03ff746022eb4f06f86b0dc2a67",
+  "default_pack_manifest_counts": {
+    "baseline": 494,
+    "candidate": 501,
+    "new_resources_per_pack": 7
+  },
+  "default_pack_physical_hda_counts": {
+    "baseline": 500,
+    "candidate": 507,
+    "six_separate_hud_bundles_preserved": true
+  },
+  "executions": 3,
+  "episode": 1,
+  "physical_level": 9,
+  "seed": "0x5eed",
+  "difficulty": "Normal",
+  "mode": "single-player story",
+  "input": "Controlled original RIGHT bit3 at20..34 inclusive, neutral otherwise; unchanged original key application and movement",
+  "fixture_qualifiers": [
+    "Identical explicitly authorized private survival floors invulnerable_ticks only while alive.",
+    "One artificial original Pulse155 helper request at987; no coordinate/velocity/enemy-field overrides, second shot, retry or extra execution."
+  ],
+  "observations": {
+    "carrier_slots": [
+      25,
+      26
+    ],
+    "pickup_slots": [
+      31,
+      25
+    ],
+    "original_allocation_before_own_release": true,
+    "second_pickup_reuses_first_released_carrier_slot": true,
+    "separate_carrier_rewards": [
+      25,
+      25
+    ],
+    "collection_tick": 1065,
+    "collection_cash": [
+      50,
+      100
+    ],
+    "collected_pickup_slot": 31,
+    "uncollected_sibling_slot": 25,
+    "nominal_popup": 50,
+    "linked_cash_source_unit_only": [
+      25,
+      25
+    ],
+    "popup_origin": [
+      179,
+      148
+    ],
+    "popup_slot": 0,
+    "popup_type": 37,
+    "popup_sprite": 203,
+    "popup_draw_id": 204,
+    "popup_draw_ticks": [
+      1065,
+      1066,
+      1067,
+      1068,
+      1069,
+      1070,
+      1071,
+      1072
+    ],
+    "popup_last_presented_tick": 1072,
+    "popup_first_clear_tick": 1073,
+    "popup_second_clear_tick": 1074,
+    "sibling_removal_tick": 1087,
+    "sibling_removal_evidence": "original trace only; after retained image window",
+    "terminal_tick": 1089,
+    "logic_ticks": 1090,
+    "other_drops": 0,
+    "other_collections": 0,
+    "selected_lifetime_render_calls": {
+      "collected_body": 78,
+      "sibling_body": 100,
+      "popup": 8,
+      "total": 186
+    },
+    "selected_calls": "all classic in baseline; all HD in both candidates"
+  },
+  "native_captures": {
+    "baseline": 0,
+    "native2": {
+      "count": 15,
+      "dimensions": [
+        640,
+        400
+      ],
+      "ticks": [
+        1059,
+        1060,
+        1061,
+        1062,
+        1063,
+        1064,
+        1065,
+        1066,
+        1067,
+        1068,
+        1069,
+        1070,
+        1071,
+        1072,
+        1073
+      ],
+      "collected_body_ids": [
+        31,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ]
+    },
+    "native4": {
+      "count": 1,
+      "dimensions": [
+        1280,
+        800
+      ],
+      "tick": 1066
+    },
+    "original_foreground_occlusion_and_collection_overlap_preserved": true,
+    "actual_baseline_RGB_comparison": false
+  },
+  "paired_evidence": {
+    "all_original_streams_equal": true,
+    "state_rng_indexed_rows_per_case": 1090,
+    "state_raw_sha256": "1f79f49fd9696ed7e8d8ac98401aba864bc9bfa61ae33cd5801d7127e768808b",
+    "control_equal_except_elapsed_wall_ms": true
+  },
+  "release_gates": {
+    "independent_technical": "PASS",
+    "author_temporal15_and_native4_spot": "PASS",
+    "single_frame1066_visual": "PASS"
+  },
+  "retained_runtime_archive": {
+    "file": "coin50-runtime-evidence-20261013.tar.gz",
+    "bytes": 8887842,
+    "sha256": "006a226092578aca5f497cf2416c26cf794475dfd4eff2579e23ab87c6eb54b2",
+    "members": 131,
+    "roundtrip_verified": true,
+    "logical_member_bytes": 9409403
+  },
+  "source_external_receipt_sha256": {
+    "technical": "dd124fae0257bc1c1537e927d2622ad25c29659a84f9f09a0566d3718faadaab",
+    "author": "5588c11b917198fe143374d58625387ca16cb39d0644be8a414ae07ad2527baa",
+    "runtime_verification": "1f5e7137d0e4aae3eea78079a7b82ad9e7b621f4ece24240fa0055cdd2500ec9",
+    "evidence_manifest": "86b12afe07fbcfef0cfb5b247d854e613868f768205ae3871ed43524c1fd49cf"
+  },
+  "local_receipt_sha256": {
+    "source-validation.json": "c6c1d6079872cc2c3f9c99f4431375e06bd87ff2ec6c19f1693f92dcdd82701e",
+    "runtime-verification.json": "1f5e7137d0e4aae3eea78079a7b82ad9e7b621f4ece24240fa0055cdd2500ec9",
+    "frozen-schedule.json": "325829773f8cdf69bc3eba2f3b418e231a523607f145838cc91c733ffd7cbb99",
+    "capture-index.json": "d8007ef2eba339462821ac6a4a988a1ee765682d8243de0b2fa0bf5cfeae68ba",
+    "full-lifetime-render-check.json": "095c1dfc4dffbdef5e1676b3054b48b913c61b2202350dbfd9df864ea6ee4474",
+    "technical-review.json": "39f716ba38b332c11dac123ca0eedfa9bffe4fac5f77f21dc05cb437b23dcde2",
+    "author-receipt.json": "e7578fff6c8905c85ae4a23ed62f97e735bf4d66f29418043913b6d25c32c803",
+    "evidence-manifest.json": "86b12afe07fbcfef0cfb5b247d854e613868f768205ae3871ed43524c1fd49cf",
+    "evidence-archive-receipt.json": "96b4786b22b171988c0da77fa05adaa2a7988f3eba259cb753523bc303fc32d6"
+  },
+  "limits": [
+    "Controlled Normal Episode1/physical level9 story fixture with private survival and one artificial original Pulse155; not unassisted/manual play.",
+    "No retained baseline RGB, no bright-cloud/alternate-background acceptance; original indexed/state/RNG parity is separate evidence.",
+    "Sibling removal1087 is trace-only after the retained image window.",
+    "15 consecutive native2x frames and one true native4x spot; no full4x rotation/lifecycle.",
+    "Other difficulty/modes/episodes, Christmas runtime, Windows/GPU/fullscreen and FPS/performance remain untested.",
+    "Original-source full-pool/difficulty/linked/moving204 units are not additional gameplay executions."
+  ]
+}

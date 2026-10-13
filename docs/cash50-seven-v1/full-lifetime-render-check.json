@@ -1,0 +1,47 @@
+{
+  "baseline": {
+    "render_rows": 186,
+    "counts": {
+      "sibling": 100,
+      "body": 78,
+      "popup": 8
+    },
+    "all_lifetime_selected_calls_mirrored": false,
+    "mirrored_values": [
+      "0"
+    ]
+  },
+  "candidate2": {
+    "render_rows": 186,
+    "counts": {
+      "sibling": 100,
+      "body": 78,
+      "popup": 8
+    },
+    "all_lifetime_selected_calls_mirrored": true,
+    "mirrored_values": [
+      "1"
+    ]
+  },
+  "candidate4": {
+    "render_rows": 186,
+    "counts": {
+      "sibling": 100,
+      "body": 78,
+      "popup": 8
+    },
+    "all_lifetime_selected_calls_mirrored": true,
+    "mirrored_values": [
+      "1"
+    ]
+  },
+  "native4_still": {
+    "path": "runs/candidate4/actual-1066-native4x.png",
+    "bytes": 1566207,
+    "sha256": "32496465f6647116dc313e1e8b908c92b3e27125cc1d2a4e81cf60c3a792b9b4"
+  },
+  "receipt_normalization": {
+    "original_sha256": "114b4724fa1f884435d182c937b60e4871dca5ff379db9ad01486293926e8d8f",
+    "change": "Native capture path is relative to retained runtime evidence root."
+  }
+}

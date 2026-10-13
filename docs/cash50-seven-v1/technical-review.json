@@ -1,0 +1,256 @@
+{
+  "status": "PASS_FINAL_BOUNDED_CHECKPOINT",
+  "candidate_commit": "e3ef8460783841dd0b1ed00ad3fa1823a3b7b8d2",
+  "baseline_commit": "8fc7a3b2638ed765d7aadc0a345d2c23cd036bfa",
+  "reviewer_executed_no_games_or_unit_reruns": true,
+  "case_count": 3,
+  "cases": {
+    "baseline": {
+      "summary_sha256": "f239a9700103b293398596c2ab58bec637dc55ef7620761da88219c005f79f6b",
+      "stream_receipts_sha256": "3f9b63a67c94d8946def0e6585fb23c7e21b9a0660f7199b14a212d4e42300f9",
+      "invocation_sha256": "847a5247e698a5ca786025a7b2a7b5c5d421562ffb3f4e7a2eb96a40d520f713",
+      "retained_streams_rehashed": 18,
+      "total_writers": 35,
+      "logic_rows": 1090,
+      "selected_render_rows": 186,
+      "selected_kinds": {
+        "sibling": 100,
+        "body": 78,
+        "popup": 8
+      },
+      "original_streams_byte_identical": true,
+      "indexed_state_sha256": "1f79f49fd9696ed7e8d8ac98401aba864bc9bfa61ae33cd5801d7127e768808b",
+      "native_images": 0
+    },
+    "candidate2": {
+      "summary_sha256": "e734f61ec6e00f477c9378be26cf88d00665d82dcdc4032e07d58b4b027c55af",
+      "stream_receipts_sha256": "592e334eed7d774293abdad1a2c140835d7bd4a6bb04bd7a4f25b789cfe927dd",
+      "invocation_sha256": "24ff75803f28a0e475f244b9ea3c217a84d4c776e89e0be332c5b45fbd7a7b1e",
+      "retained_streams_rehashed": 18,
+      "total_writers": 35,
+      "logic_rows": 1090,
+      "selected_render_rows": 186,
+      "selected_kinds": {
+        "sibling": 100,
+        "body": 78,
+        "popup": 8
+      },
+      "original_streams_byte_identical": true,
+      "indexed_state_sha256": "1f79f49fd9696ed7e8d8ac98401aba864bc9bfa61ae33cd5801d7127e768808b",
+      "native_images": 15
+    },
+    "candidate4": {
+      "summary_sha256": "c6df66cc0fa6df07833e010c3606dd55e0f9ba83e967877132d993615525b3ea",
+      "stream_receipts_sha256": "6fafd64dbcd2b86fc2dd32ae295127260eb246542fc7c688384442e9e88fc391",
+      "invocation_sha256": "4f085bf723443ef79d4383a24847cad16b3418312ddda3321fb35e918435dac3",
+      "retained_streams_rehashed": 18,
+      "total_writers": 35,
+      "logic_rows": 1090,
+      "selected_render_rows": 186,
+      "selected_kinds": {
+        "sibling": 100,
+        "body": 78,
+        "popup": 8
+      },
+      "original_streams_byte_identical": true,
+      "indexed_state_sha256": "1f79f49fd9696ed7e8d8ac98401aba864bc9bfa61ae33cd5801d7127e768808b",
+      "native_images": 1
+    }
+  },
+  "frozen_schedule_sha256": "325829773f8cdf69bc3eba2f3b418e231a523607f145838cc91c733ffd7cbb99",
+  "runtime_verification_sha256": "1f5e7137d0e4aae3eea78079a7b82ad9e7b621f4ece24240fa0055cdd2500ec9",
+  "collection_tick": 1065,
+  "sibling_last_draw_and_original_removal_tick": 1087,
+  "terminal_tick": 1089,
+  "popup_index": 204,
+  "popup_first_presented_tick": 1065,
+  "popup_last_presented_tick": 1072,
+  "popup_first_clear_tick": 1073,
+  "popup_second_clear_tick": 1074,
+  "carrier_slots": [
+    25,
+    26
+  ],
+  "pickup_slots": [
+    31,
+    25
+  ],
+  "original_allocation_before_own_release_with_second_reuse": true,
+  "separate_rewards": [
+    25,
+    25,
+    50
+  ],
+  "native_images": [
+    {
+      "case": "candidate2",
+      "tick": 1059,
+      "width": 640,
+      "height": 400,
+      "path": "runs/candidate2/actual-1059-native2x.png",
+      "PNG_sha256": "76d047051ec77e0cfe73acf757b7473648fd1d0659903f7697a36689debdc372",
+      "RGBA_sha256": "8139696bf823d5ea04d5024d1b3aad4cff4046e003b8b4508b6c453e5ea8a827"
+    },
+    {
+      "case": "candidate2",
+      "tick": 1060,
+      "width": 640,
+      "height": 400,
+      "path": "runs/candidate2/actual-1060-native2x.png",
+      "PNG_sha256": "ac1c275025e7156c4e00d045e11f1943712f8f6d7e9c1e78a9f9c58c24667a94",
+      "RGBA_sha256": "6e6e381137e8291ed8e1ba4bef6042b3d829ad6ca84acc494686ed63e719d3de"
+    },
+    {
+      "case": "candidate2",
+      "tick": 1061,
+      "width": 640,
+      "height": 400,
+      "path": "runs/candidate2/actual-1061-native2x.png",
+      "PNG_sha256": "7eb5983426843e2d801a4adb6cea8e528ad7d47e9768c95c52e0f926dd068efe",
+      "RGBA_sha256": "07c891bb991deb2775457f44c1081cd428a7cf335b7beb624b86ef4fe127626f"
+    },
+    {
+      "case": "candidate2",
+      "tick": 1062,
+      "width": 640,
+      "height": 400,
+      "path": "runs/candidate2/actual-1062-native2x.png",
+      "PNG_sha256": "3ca93f588f5729d25b058a0ae99ad9c834af8843cfa7a3b0bc562e7fc79cb78b",
+      "RGBA_sha256": "578e3b19c4c940fa26ffd689773f77c8a537e2d4d394073e3facec7e27203cb6"
+    },
+    {
+      "case": "candidate2",
+      "tick": 1063,
+      "width": 640,
+      "height": 400,
+      "path": "runs/candidate2/actual-1063-native2x.png",
+      "PNG_sha256": "b45a85b5e4c74434b4700fb7a574b14d1963604fe81da8475961aeea70c4b7d8",
+      "RGBA_sha256": "90bf881f1c5354d0d8e8d89c760ad2e5615762fddb312e3babec6e7bfb968ee9"
+    },
+    {
+      "case": "candidate2",
+      "tick": 1064,
+      "width": 640,
+      "height": 400,
+      "path": "runs/candidate2/actual-1064-native2x.png",
+      "PNG_sha256": "5e5ab00b1ae88072dc1f90e856782505b62b639fcc0bc1a140a95604f2f1dfe7",
+      "RGBA_sha256": "e2e93a7f346a4a551b3b55190300f559f7ea552bc7ce4aa7b3abb86a71f0b98f"
+    },
+    {
+      "case": "candidate2",
+      "tick": 1065,
+      "width": 640,
+      "height": 400,
+      "path": "runs/candidate2/actual-1065-native2x.png",
+      "PNG_sha256": "257c0d40b5daa3f00b30d8a527f4996b387e8c80550de20c3e7608d2c5862baf",
+      "RGBA_sha256": "ec5883aec9040613ad45802fa135f2a9ca589fefc8d52d25a28524eefdc1b166"
+    },
+    {
+      "case": "candidate2",
+      "tick": 1066,
+      "width": 640,
+      "height": 400,
+      "path": "runs/candidate2/actual-1066-native2x.png",
+      "PNG_sha256": "3a1a88920362ceaaf2c3e12daa65f82854e3154a7f6ce72038b17d7431b24b6f",
+      "RGBA_sha256": "355588faeae07c1d73fe757cf482cb28986a3bed769c86f71f900241492bf686"
+    },
+    {
+      "case": "candidate2",
+      "tick": 1067,
+      "width": 640,
+      "height": 400,
+      "path": "runs/candidate2/actual-1067-native2x.png",
+      "PNG_sha256": "b0fa62198e1decfb39035c5d1ad8bfdf2678f6d8609635c090066a8befab5b56",
+      "RGBA_sha256": "d66765c255488b3051ecb83783df348392fcdb8bd4fcb6a6626c84a5a7c44933"
+    },
+    {
+      "case": "candidate2",
+      "tick": 1068,
+      "width": 640,
+      "height": 400,
+      "path": "runs/candidate2/actual-1068-native2x.png",
+      "PNG_sha256": "157308b49b47300024f86f8fff2621beb47085879ed0c92a663b7daba434c6f9",
+      "RGBA_sha256": "b4abcb2d732f000110c63948d8b734cf1960cff4ccea0776a2fca35564681ddd"
+    },
+    {
+      "case": "candidate2",
+      "tick": 1069,
+      "width": 640,
+      "height": 400,
+      "path": "runs/candidate2/actual-1069-native2x.png",
+      "PNG_sha256": "67ae7f5786fd6a011888d180e70f279058066a71ee65d3011d7f52a76006d862",
+      "RGBA_sha256": "cb6ffdbc862c324b23afe760469b362db5b4ccd311144db54a9409e889919eb7"
+    },
+    {
+      "case": "candidate2",
+      "tick": 1070,
+      "width": 640,
+      "height": 400,
+      "path": "runs/candidate2/actual-1070-native2x.png",
+      "PNG_sha256": "40946725e4ffab56559999491eef0142ebf3de467afda41361752b5212f68a48",
+      "RGBA_sha256": "1c5484e12b0c5da44ad10a8ce9534b0048fe9380708bd6b7e3b5e251f8917bc9"
+    },
+    {
+      "case": "candidate2",
+      "tick": 1071,
+      "width": 640,
+      "height": 400,
+      "path": "runs/candidate2/actual-1071-native2x.png",
+      "PNG_sha256": "9786f4fedf16498e311024014cdc8295686329302cdb1e6a755a959074a28185",
+      "RGBA_sha256": "61f88f92dda882a5a57be791a97f5a062c4cb80e2c9b19999120a532ff73dd06"
+    },
+    {
+      "case": "candidate2",
+      "tick": 1072,
+      "width": 640,
+      "height": 400,
+      "path": "runs/candidate2/actual-1072-native2x.png",
+      "PNG_sha256": "8b60eff8a5baf49b22a560cafdf115342fd6194fd33b30a7955353e79332a7ed",
+      "RGBA_sha256": "489dbd0d5565c8a46485eefc07ae5e5bc58b0fab48fffe2c48e6562431143fa3"
+    },
+    {
+      "case": "candidate2",
+      "tick": 1073,
+      "width": 640,
+      "height": 400,
+      "path": "runs/candidate2/actual-1073-native2x.png",
+      "PNG_sha256": "dc78793d492831fc19c2f0290dd170f197ee77fd39ca3e2e6f2b0b3f74fb2be8",
+      "RGBA_sha256": "52d1e9805dcd024f2f5e26bd2428275b233ea55ebfca7bdb7ea78974c1028cc7"
+    },
+    {
+      "case": "candidate4",
+      "tick": 1066,
+      "width": 1280,
+      "height": 800,
+      "path": "runs/candidate4/actual-1066-native4x.png",
+      "PNG_sha256": "32496465f6647116dc313e1e8b908c92b3e27125cc1d2a4e81cf60c3a792b9b4",
+      "RGBA_sha256": "c4f753ed8549a354be0fea8c2f3b78cf83e6b109dd77863427dcc505c4938ee5"
+    }
+  ],
+  "visual_review": {
+    "all16_native_images_individually_inspected": true,
+    "all_six_rotation_phases_present_and_readable": true,
+    "physical_copper_body_and_cyan50_label": true,
+    "collection_tick_preserves_original_body_plus_popup_same_frame": true,
+    "original_sibling_and_player_occlusion_preserved": true,
+    "popup_visible_through1072_and_absent1073": true,
+    "no_visible_black_box_alpha_fringe_or_stale_popup": true,
+    "native_dimensions": [
+      "640x400",
+      "1280x800"
+    ],
+    "technical_visual_blocker": null
+  },
+  "limits": [
+    "Bounded Episode1 physical level9 Normal story fixture with original RIGHT20..34 input, one artificial original Pulse155 at987 and explicitly authorized private survival floor.",
+    "No retained baseline RGB; exact original indexed/state/RNG/control equality is proven, not RGB baseline equality.",
+    "No manual-play, other-runtime-mode/difficulty/episode, Windows or GPU acceptance claim.",
+    "Original-source unit RNG is a counted test stream; runtime evidence separately proves production RNG parity.",
+    "Author/root visual approval remains a separate decision."
+  ],
+  "remaining_game_executions": 0,
+  "receipt_normalization": {
+    "original_receipt_sha256": "dd124fae0257bc1c1537e927d2622ad25c29659a84f9f09a0566d3718faadaab",
+    "change": "Native image paths are relative to the retained runtime evidence root. All findings and hashes are unchanged."
+  }
+}

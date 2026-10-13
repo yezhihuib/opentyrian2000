@@ -1,0 +1,69 @@
+{
+  "status": "PASS_SOURCE_GATES",
+  "baseline_commit": "8fc7a3b2638ed765d7aadc0a345d2c23cd036bfa",
+  "production_files": [
+    "src/render_mirror.c",
+    "src/render_mirror.h",
+    "src/tyrian2.c"
+  ],
+  "production_source_sha256": {
+    "src/render_mirror.c": "e201df65f02a327e6ebae93a8ef46ed5f3be8fb22f9626eda510927c0652ace2",
+    "src/render_mirror.h": "70827e8d062733ec7c24756d6fc510da8f26503f79029cb52884b3c5ffa52a42",
+    "src/tyrian2.c": "b59d5d9331940048d06539c5e9d6b7eb090039fe19142b330c634e0d50f67606"
+  },
+  "inventory_sha256": "433d2e9e7748bd68fc7cfea808a1bfb0f9e9f03ff746022eb4f06f86b0dc2a67",
+  "build": {
+    "production": "PASS; make WITH_NETWORK=false",
+    "disabled_renderer_syntax": "PASS",
+    "warnings": "Five inherited misleading-indentation warnings in unchanged source statements; no build errors"
+  },
+  "checks": {
+    "exact_art_rebuild": true,
+    "preserved25_and75_art_rebuilds": true,
+    "full_additive_source_inverse": true,
+    "previous_manifest_projection_and_all_physical_pack_bytes": true,
+    "default_pack_manifest_count_before": 494,
+    "default_pack_manifest_count_after": 501,
+    "default_pack_physical_hda_before": 500,
+    "default_pack_physical_hda_after": 507,
+    "families": 3,
+    "selected_packs": 2,
+    "pixel_checks_per_family_per_pack": 1027584,
+    "indexed_transactions_per_family_per_pack": 96,
+    "resource_rejections": 93,
+    "mixed_family_validity_combinations": 8,
+    "ordered_mixed_body_value_combinations": 576,
+    "killed_mutations": 13,
+    "original_scenarios_per_build": 1513,
+    "original_assertions_per_build": 64454,
+    "original_slot_pair_free_capacity_cases": 900,
+    "original_builds": [
+      "optimized",
+      "ASan/UBSan"
+    ],
+    "game_runs_by_implementation": 0
+  },
+  "test_source_sha256": {
+    "prototype/build-cash50-seven-art.py": "f8b5cef2d4d775d945574ce6814800bf321efe8ef2465b703852b1fad3ac0f16",
+    "prototype/test-cash50-mutations.py": "db473f7eaafd93ecdd132b3a6aed1e529ad046fbb923367857de2694868cb9c1",
+    "prototype/test-cash50-original.c": "c5cc14b57640e4fdf207af8cdbc1076c2387987634e2bbc256018b1670d377ae",
+    "prototype/test-cash50-original.h": "a599a017d88fa2c3c54eeb65c0a139c8fa5de75c1bc93873667be80d3bb36363",
+    "prototype/test-cash50-original.py": "8d15b84f80d4c7bc9410467cc6dd04d35ad5a375fa29a77fd40e72464d2213c8",
+    "prototype/test-cash50-seven.py": "fa0ac3fd37889881fef231b43a2f09f4af70eb32b9eca2fe518e9575f6a5468d"
+  },
+  "receipts": {
+    "art-rebuild.json": "76dfae3779418b8069f1a9273274fc5cad1df66b6d4b8ffe5e6b7b93fae062cc",
+    "unit-result.json": "a3478a6eb397e2084bdfb8e41013d295468f07bee55a606125995ed600281cc9",
+    "mutation-result.json": "a9a15d8fadda001df65e71cb5c1502a2164b9d7cf807041cd98c31e007072c3e",
+    "original-data-fixture.json": "6f7d1dfb5ec72de5f4919ce77e7bda862c650e70813aae9247ae91b9e4deaa7d",
+    "original-unit-result.json": "08f67c544e555870e12db0ab2c99e5beccfdc54d581d13e46caeb083cbd78a3e",
+    "original-source-excerpts.json": "d78d24fe6bc576ce8e9be1677b1f44a182b7184bcd8b149de6e36f08ad2cd1b9"
+  },
+  "boundaries": [
+    "No actual-engine or author/runtime claim in this checkpoint.",
+    "Original-source tests execute the exact constructor with a deterministic counted RNG stream; they do not prove production RNG state.",
+    "The fixed25/50/75 labels are nominal; source tests preserve original difficulty scaling and integer linked split.",
+    "All pre-existing25/75 source/art/provenance/historical tests/documents remain unchanged.",
+    "Production and test input hashes pin this working-tree candidate; its final commit/archive identity is recorded outside the commit to avoid a self-reference."
+  ]
+}

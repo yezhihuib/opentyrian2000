@@ -1,0 +1,311 @@
+{
+  "schema": "cash50-source-checkpoint-v1",
+  "baseline_commit": "8fc7a3b2638ed765d7aadc0a345d2c23cd036bfa",
+  "source_only": true,
+  "game_runs": 0,
+  "source_packet_sha256": "e6c3b76f0928813a8d0f3267857a54ea5859a4fe4527f8fa205a1dab6a0ab47a",
+  "source_plan_sha256": "0e0d6a7f07b192e76a90897a406f34d74ea6ca568999ee2d04952476a3818952",
+  "source_contract_sha256": "7acb0e84f3159e05a508fda50d3a4da57a96a32523643946535735f0481886fe",
+  "asset_contract": {
+    "source": "assets/hd/artwork/cash50-seven-v1",
+    "inventory_sha256": "433d2e9e7748bd68fc7cfea808a1bfb0f9e9f03ff746022eb4f06f86b0dc2a67",
+    "roles": [
+      116,
+      117
+    ],
+    "density": 8,
+    "logical_size": [
+      12,
+      14
+    ],
+    "anchor": [
+      0,
+      0
+    ],
+    "body_ids": [
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "fixed_value_id": 204,
+    "fallback": "independent all-seven-or-classic; density8 only; startup-selected cache",
+    "scope": "global bank11 record392 small part0; original fixed newsh6 204 only",
+    "blend": "authored-alpha NORMAL; continuous hue/value-average BLEND; exact indexed shade preserved only in fallback",
+    "entries": [
+      {
+        "HDA_sha256": "a0c8bddf768f4092a2767284b9f2cfbd47807ad5aff9ce2319c332e822539a00",
+        "RGBA_FNV1a64": "7c4e0590d0f393cb",
+        "id": 26,
+        "key": 1160026,
+        "slot": 486
+      },
+      {
+        "HDA_sha256": "a09647cb64bb720eb633653da756a876dd6553b6fd142b4c5391644d6dce2413",
+        "RGBA_FNV1a64": "e6ef27afa8cd5246",
+        "id": 27,
+        "key": 1160027,
+        "slot": 487
+      },
+      {
+        "HDA_sha256": "a51c0bdf43fd921551510bf5780db4eaafcce205b8bc6def188ae6b2cb741564",
+        "RGBA_FNV1a64": "86a0b1489c3c8805",
+        "id": 28,
+        "key": 1160028,
+        "slot": 488
+      },
+      {
+        "HDA_sha256": "7827f6114f3294c00be8fb73bcd1e299707439b43f5d8bdf81d97918248ab004",
+        "RGBA_FNV1a64": "f60da1b7c4a748c6",
+        "id": 29,
+        "key": 1160029,
+        "slot": 489
+      },
+      {
+        "HDA_sha256": "c4ab9d21ca907f510f091203f6e2b4e8b7b53a704004c158ab8e01fc6013b51b",
+        "RGBA_FNV1a64": "497abec68554008a",
+        "id": 30,
+        "key": 1160030,
+        "slot": 490
+      },
+      {
+        "HDA_sha256": "9444a9d87d4b111c5a85e0c604349eb55a4e98105e526c8f4096b60be55c7b84",
+        "RGBA_FNV1a64": "e8421af53de17a52",
+        "id": 31,
+        "key": 1160031,
+        "slot": 491
+      },
+      {
+        "HDA_sha256": "df565dbe8eea208dbf405f9c405d5579b8274b28046de2691d95c33078cc7b1d",
+        "RGBA_FNV1a64": "5d4b2544af04d8a0",
+        "id": 204,
+        "key": 1170204,
+        "slot": 492
+      }
+    ]
+  },
+  "entries": [
+    {
+      "role": 116,
+      "name": "ASSET_CASH50_BODY",
+      "id": 26,
+      "key": 1160026,
+      "prefix": "coin50-bank11",
+      "file": "coin50-bank11-26-8.hda",
+      "cache_slot": 486,
+      "density": 8,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "rgba_size": [
+        96,
+        112
+      ],
+      "file_bytes": 43036,
+      "hda_sha256": "a0c8bddf768f4092a2767284b9f2cfbd47807ad5aff9ce2319c332e822539a00",
+      "rgba_sha256": "5c5dfe6ad585151bb519a876dce1d29b610a74e276436f3ee94666a3f042b4a7",
+      "png_sha256": "ee43546e4c0efafbcb80a44e03d9fb594bf371f942a2b9865f556568fe634549"
+    },
+    {
+      "role": 116,
+      "name": "ASSET_CASH50_BODY",
+      "id": 27,
+      "key": 1160027,
+      "prefix": "coin50-bank11",
+      "file": "coin50-bank11-27-8.hda",
+      "cache_slot": 487,
+      "density": 8,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "rgba_size": [
+        96,
+        112
+      ],
+      "file_bytes": 43036,
+      "hda_sha256": "a09647cb64bb720eb633653da756a876dd6553b6fd142b4c5391644d6dce2413",
+      "rgba_sha256": "2a5d25d152cd0cf3d3f414fa3eda3513f66ddd8441416ac2b73d49b8b698f03e",
+      "png_sha256": "8132509705bf74faf1f99dc8e43eb4acff09c6769dde9525f3b7f8151a9ed9af"
+    },
+    {
+      "role": 116,
+      "name": "ASSET_CASH50_BODY",
+      "id": 28,
+      "key": 1160028,
+      "prefix": "coin50-bank11",
+      "file": "coin50-bank11-28-8.hda",
+      "cache_slot": 488,
+      "density": 8,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "rgba_size": [
+        96,
+        112
+      ],
+      "file_bytes": 43036,
+      "hda_sha256": "a51c0bdf43fd921551510bf5780db4eaafcce205b8bc6def188ae6b2cb741564",
+      "rgba_sha256": "f440b20d90f16a39fbe7f3fca35945298e1505d59feb19967a5a8c60bb0b0a13",
+      "png_sha256": "c2c068c351e3bd72e85c9ed7993f47b07cb3b8cd5a77a6f0222f2a28800d8ddd"
+    },
+    {
+      "role": 116,
+      "name": "ASSET_CASH50_BODY",
+      "id": 29,
+      "key": 1160029,
+      "prefix": "coin50-bank11",
+      "file": "coin50-bank11-29-8.hda",
+      "cache_slot": 489,
+      "density": 8,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "rgba_size": [
+        96,
+        112
+      ],
+      "file_bytes": 43036,
+      "hda_sha256": "7827f6114f3294c00be8fb73bcd1e299707439b43f5d8bdf81d97918248ab004",
+      "rgba_sha256": "1197106904d8d52559d4c8cf215d819b8503350748b1fa8fd6b27158e922e1e4",
+      "png_sha256": "0528000e3937ab6641fa3972b91ad731c624099e00bed3eb13b452de92f3c889"
+    },
+    {
+      "role": 116,
+      "name": "ASSET_CASH50_BODY",
+      "id": 30,
+      "key": 1160030,
+      "prefix": "coin50-bank11",
+      "file": "coin50-bank11-30-8.hda",
+      "cache_slot": 490,
+      "density": 8,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "rgba_size": [
+        96,
+        112
+      ],
+      "file_bytes": 43036,
+      "hda_sha256": "c4ab9d21ca907f510f091203f6e2b4e8b7b53a704004c158ab8e01fc6013b51b",
+      "rgba_sha256": "368584e66596bcf761ef67671b78bb3d3100f6addfcc2773ed9d16b94c62a682",
+      "png_sha256": "0b080250b4b0cae36874bd6f9557c8c95b0c4797e60adead82e8c03cac3c9576"
+    },
+    {
+      "role": 116,
+      "name": "ASSET_CASH50_BODY",
+      "id": 31,
+      "key": 1160031,
+      "prefix": "coin50-bank11",
+      "file": "coin50-bank11-31-8.hda",
+      "cache_slot": 491,
+      "density": 8,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "rgba_size": [
+        96,
+        112
+      ],
+      "file_bytes": 43036,
+      "hda_sha256": "9444a9d87d4b111c5a85e0c604349eb55a4e98105e526c8f4096b60be55c7b84",
+      "rgba_sha256": "1ba7579be016cd4ba42e45d1198540f4e7dac21e653a26aa13f45e811064cdbf",
+      "png_sha256": "e99453cfabe2a3bf502b53e03ef27734773726cce78fc9456508347a947ab7e3"
+    },
+    {
+      "role": 117,
+      "name": "ASSET_CASH50_VALUE",
+      "id": 204,
+      "key": 1170204,
+      "prefix": "coin50-value-newsh6",
+      "file": "coin50-value-newsh6-204-8.hda",
+      "cache_slot": 492,
+      "density": 8,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "rgba_size": [
+        96,
+        112
+      ],
+      "file_bytes": 43036,
+      "hda_sha256": "df565dbe8eea208dbf405f9c405d5579b8274b28046de2691d95c33078cc7b1d",
+      "rgba_sha256": "5e196daca0018ba4af2a45d79b1d15aeaeb000577c03fac8cedddaec4e8505cb",
+      "png_sha256": "e583477e163ba3f326e5138739b888e9893251e0d43e84e1dedaba0fe53c047f"
+    }
+  ],
+  "source_pins": {
+    "src/episodes.c": "640219b48d3081ee996ce66a66f61ad2fe185339fcfaf395808e02fcee0b29e0",
+    "src/lvlmast.h": "f33fbe72ec273bf4c72cb2c49bd4dbc4336b6bc6802e1b53d32ac58667026ed0",
+    "src/tyrian2.c": "0250fe33d3e3b29c20271eeb617e08eb2bdc891c6aa53c1f52899f990aeb080c",
+    "src/mainint.c": "0b39b8af90f981bce50762de98eb2458282ed3031780235a8ade405945dcddf8",
+    "src/varz.c": "d4502557903eea9fc082b83385fee3448564124040ff27faa1a4af16c8e394c7",
+    "src/sprite.c": "f55491df5ec34163e3c46da7607c132449fa4d299117a768ae91dd9cf92b5886",
+    "src/asset_debug.c": "8be5161623d0d34c960ae7d229a3b9ac1b0889fe54bec407e131f267346b7bf8",
+    "src/render_mirror.c": "f411150ed27008865eed38bbca61447b4c23836d7b8a7c41bb5108fa9f00a301",
+    "src/render_mirror.h": "95df0d61114c210f1a6d86cc15411c1521aa24fb303c187bc98a89c4e4640ea9",
+    "src/game_probe.c": "16d14f4709a8b0633515cd1030315104f15c436fac5a202e4807054683017295",
+    "src/config.h": "548000ba81517cabf829665ad09fa629a0a7cfd79d013c94ad301df4e8d30a02",
+    "src/varz.h": "7c5b67fdb8f595d928432f0fb4d5b936c15bd7f881a00c24f7677e8e2f38dc56",
+    "assets/hd/manifest.json": "7d21957bb58d0da3768177dae0ca96dac7939bfe2717357a5560af42ff9ec28e",
+    "src/shots.c": "ec0f326f407849037af1a0218a1bfed1f3f2a720301a053afd3a7d25c7391405",
+    "src/player.c": "cda0f507f73e9024112a289e5d1951bd4246f4580c9c266ff538cc063e14eb3a",
+    "src/entity_draw.c": "7ed285315b48ba7b9f49c8a116f817a411eb5026568cf83b4d60ab2f856a0ba0",
+    "prototype/test-cash75-seven.py": "44cc17c3f7637ff6f8fe00faf7735329cf81327b4b8c37a1e4f427487529d66d",
+    "prototype/test-cash75-original.py": "c51aa8dd1c51941b44eb104dc53e2477a9618c810e3091e27b5a34231d730f32",
+    "prototype/test-cash75-original.c": "2297e11a115134fe122634097dcdc046eb44ef62812fc8622e00c22e1de2f306",
+    "prototype/test-cash75-original.h": "a70c2a5b07e0b0267fd0ae2cbbd967b728573e1397449c2f661bbc186e368285",
+    "prototype/test-cash25-seven.c": "ec351e72ceb52b36412f5a8671a6306b967490fdb86c7d8f44ce6921f0433904"
+  },
+  "data_pins": {
+    "tyrian.hdt": "fde8506326e7bb0916b38c362e33bf8a8a5affa561206c021af7f65b4a17745b",
+    "tyrian1.lvl": "54cbb00b57b84aa992a70cfcb170cb1edeb59507873723630d60080ba8351352",
+    "tyrian.shp": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+    "tyrianc.shp": "e980f02021395d39b86491acdc2ecd6dd47ea2a9f859fe3928f81b75e244fd7d",
+    "newsh6.shp": "49e3d08e122ea71d6a621d2de127da00ce8a26ff73a0fb40d0cdd7ca2909d075",
+    "palette.dat": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+  },
+  "candidate_source_sha256": {
+    "src/render_mirror.c": "e201df65f02a327e6ebae93a8ef46ed5f3be8fb22f9626eda510927c0652ace2",
+    "src/render_mirror.h": "70827e8d062733ec7c24756d6fc510da8f26503f79029cb52884b3c5ffa52a42",
+    "src/tyrian2.c": "b59d5d9331940048d06539c5e9d6b7eb090039fe19142b330c634e0d50f67606"
+  },
+  "runtime_status": "Completed by the separately owned bounded three-execution matrix; see runtime-receipt.json. This contract and source-validation.json remain source-only evidence.",
+  "tested_source_commit": "e3ef8460783841dd0b1ed00ad3fa1823a3b7b8d2"
+}

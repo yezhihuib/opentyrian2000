@@ -2008,6 +2008,8 @@ draw_player_shot_loop_end:
 				                                explosions[j].deltaY == 0 && explosions[j].sprite == 184 && explosions[j].ttl <= 8);
 				render_mirror_coin75_value_begin(explosions[j].fixedPosition && !explosions[j].followPlayer &&
 				                                explosions[j].deltaY == 0 && explosions[j].sprite == 222 && explosions[j].ttl <= 8);
+				render_mirror_coin50_value_begin(explosions[j].fixedPosition && !explosions[j].followPlayer &&
+				                                explosions[j].deltaY == 0 && explosions[j].sprite == 203 && explosions[j].ttl <= 8);
 				if (explosionTransparent)
 					draw_entity_sprite2(VGAScreen, explosions[j].x, explosions[j].y, explosionSpriteSheet, explosions[j].sprite + 1, ENTITY_BLEND, ENTITY_TILE);
 				else

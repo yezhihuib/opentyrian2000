@@ -1,0 +1,56 @@
+{
+  "status": "PASS_BOUNDED_AUTHOR_VISUAL_REVIEW",
+  "family": "cash50 seven frozen assets",
+  "frozen_inventory_sha256": "433d2e9e7748bd68fc7cfea808a1bfb0f9e9f03ff746022eb4f06f86b0dc2a67",
+  "capture_hashes_sha256": "d8007ef2eba339462821ac6a4a988a1ee765682d8243de0b2fa0bf5cfeae68ba",
+  "runtime_verification": {
+    "path": "runtime-verification.json",
+    "sha256": "1f5e7137d0e4aae3eea78079a7b82ad9e7b621f4ece24240fa0055cdd2500ec9",
+    "status": "PASS"
+  },
+  "reviewed": {
+    "native2_ticks": [
+      1059,
+      1060,
+      1061,
+      1062,
+      1063,
+      1064,
+      1065,
+      1066,
+      1067,
+      1068,
+      1069,
+      1070,
+      1071,
+      1072,
+      1073
+    ],
+    "native4_ticks": [
+      1066
+    ],
+    "independent_png_and_decoded_rgba_hash_checks": 16,
+    "method": "All 15 chronological target contexts at native size; full scene at1059,1065,1073 and true4x1066."
+  },
+  "findings": [
+    "Six rotation silhouettes and thickness phases remain coherent; copper face and narrow warm rim read as solid metal. No unexpected rim flashing, matte box, fringe or registration jump in the retained sequence.",
+    "Fixed cyan50 remains readable against actual brown stone; collection1065 legitimately overlaps the pre-collection coin draw. Popup persists through1072 and clears1073.",
+    "The original sibling remains visible and continues rotating; true4x1066 shows this sibling and popup cleanly."
+  ],
+  "technical_scope": "Original state/RNG/indexed/control parity is reported through1089 by the pinned runtime receipt. No actual baseline RGB was captured or compared.",
+  "limits": [
+    "Private survival with controlled original RIGHT20-34 and artificial original Pulse155 at987; no unassisted gameplay claim.",
+    "One Normal story-mode collection. Paired carriers yield two coins with separate25+25 rewards, then one50 collection.",
+    "Sibling removal1087 is trace-only beyond the selected image window.",
+    "15 consecutive native2 frames and one native4 spot; no full native4 rotation/lifecycle claim.",
+    "Bright-cloud contrast, alternate difficulty/modes and broader level exposure are not tested by these images."
+  ],
+  "art_changes": false,
+  "new_captures": false,
+  "capture_hashes_path": "capture-index.json",
+  "receipt_normalization": {
+    "original_receipt_sha256": "5588c11b917198fe143374d58625387ca16cb39d0644be8a414ae07ad2527baa",
+    "original_capture_hashes_sha256": "52377bdeca5aca73e84456be272b7196a6e146f4dbf958976b84526276a1e3f7",
+    "changes": "External capture paths are relative to the retained runtime evidence root in capture-index.json; local receipt references are updated. Findings and reviewed image/RGBA hashes are unchanged."
+  }
+}

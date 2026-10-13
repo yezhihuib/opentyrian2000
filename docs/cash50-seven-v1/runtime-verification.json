@@ -1,0 +1,119 @@
+{
+  "status": "PASS",
+  "execution_count": 3,
+  "collection_tick": 1065,
+  "sibling_removal_tick": 1087,
+  "terminal_tick": 1089,
+  "hard_ceiling_ticks": 1100,
+  "difficulty": "Normal",
+  "story_mode": true,
+  "private_survival": true,
+  "artificial_original_Pulse155": true,
+  "no_actual_baseline_RGB_claim": true,
+  "no_natural_manual_play_claim": true,
+  "cases": {
+    "baseline": {
+      "logic_ticks": 1090,
+      "state_raw_sha256": "1f79f49fd9696ed7e8d8ac98401aba864bc9bfa61ae33cd5801d7127e768808b",
+      "original_pairs_identical": true,
+      "control_identical_except_elapsed_wall_ms": true,
+      "native_images": 0,
+      "native_dimensions": null,
+      "all_selected_calls_mirrored": false,
+      "selected_body_ids": [
+        31,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "popup_draws": 8,
+      "carrier_slots": [
+        25,
+        26
+      ],
+      "pickup_slots": [
+        31,
+        25
+      ],
+      "second_coin_reuses_first_carrier_slot": true,
+      "other_drops": 0,
+      "other_collections": 0,
+      "retained_bytes": 170287,
+      "all_stream_raw_bytes": 10385756
+    },
+    "candidate2": {
+      "logic_ticks": 1090,
+      "state_raw_sha256": "1f79f49fd9696ed7e8d8ac98401aba864bc9bfa61ae33cd5801d7127e768808b",
+      "original_pairs_identical": true,
+      "control_identical_except_elapsed_wall_ms": true,
+      "native_images": 15,
+      "native_dimensions": [
+        640,
+        400
+      ],
+      "all_selected_calls_mirrored": true,
+      "selected_body_ids": [
+        31,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "popup_draws": 8,
+      "carrier_slots": [
+        25,
+        26
+      ],
+      "pickup_slots": [
+        31,
+        25
+      ],
+      "second_coin_reuses_first_carrier_slot": true,
+      "other_drops": 0,
+      "other_collections": 0,
+      "retained_bytes": 6948613,
+      "all_stream_raw_bytes": 10390509
+    },
+    "candidate4": {
+      "logic_ticks": 1090,
+      "state_raw_sha256": "1f79f49fd9696ed7e8d8ac98401aba864bc9bfa61ae33cd5801d7127e768808b",
+      "original_pairs_identical": true,
+      "control_identical_except_elapsed_wall_ms": true,
+      "native_images": 1,
+      "native_dimensions": [
+        1280,
+        800
+      ],
+      "all_selected_calls_mirrored": true,
+      "selected_body_ids": [
+        31,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "popup_draws": 8,
+      "carrier_slots": [
+        25,
+        26
+      ],
+      "pickup_slots": [
+        31,
+        25
+      ],
+      "second_coin_reuses_first_carrier_slot": true,
+      "other_drops": 0,
+      "other_collections": 0,
+      "retained_bytes": 1738151,
+      "all_stream_raw_bytes": 10390511
+    }
+  },
+  "cumulative_retained_bytes": 8857051
+}

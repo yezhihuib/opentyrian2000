@@ -1,0 +1,67 @@
+{
+  "gates": {
+    "ascending_two_carrier_original_traversal": "PASS",
+    "zero_one_multiple_initial_free_pool_slots": "PASS",
+    "full_pool_first_fail_second_reuses_released_carrier": "PASS",
+    "allocation_before_own_release_and_exact_coordinate_copy": "PASS",
+    "full_original_constructor_counted_rng_and_no_rng_on_failure": "PASS",
+    "normal50_linked25_plus25_separate_carrier25_each": "PASS",
+    "strict_original_collection_dx12_dy14_boundary": "PASS",
+    "full200_effect_pool_and_setup_y_bounds": "PASS",
+    "fixed204_eight_draws_and_moving48_final204_ineligible": "PASS",
+    "all_three_families_mixed_gate_isolation": "PASS",
+    "original_candidate_all200_explosion_bytes_and_draw_calls": "PASS",
+    "difficulty_scaling_threshold_cap_and_carrier_rewards": "PASS",
+    "exact_events139_149_150_and_mode_guard_controls": "PASS",
+    "later_link2_moves_leave_link0_coins_unchanged": "PASS",
+    "original_body_animation_draw_y_and_removal_order": "PASS",
+    "event135_136_original_spawn_coordinates_and_fields": "PASS",
+    "super_arcade30000_suppression_preserves25_50_75": "PASS"
+  },
+  "status": "PASS",
+  "evidence_kind": "byte-exact-original-source-unit",
+  "gameplay_runs": 0,
+  "production_edits": 0,
+  "baseline_commit": "8fc7a3b2638ed765d7aadc0a345d2c23cd036bfa",
+  "scenarios_per_build": 1513,
+  "assertions_per_build": 64454,
+  "builds": {
+    "optimized": {
+      "status": "PASS",
+      "scenarios": 1513,
+      "checks": 64454,
+      "evidence_kind": "source-unit-only",
+      "gameplay_runs": 0
+    },
+    "sanitized": {
+      "status": "PASS",
+      "scenarios": 1513,
+      "checks": 64454,
+      "evidence_kind": "source-unit-only",
+      "gameplay_runs": 0
+    }
+  },
+  "limitations": [
+    "Byte-exact extracted original source and pinned tiny records/events, not a full game, natural collection, original-input replay or runtime mode matrix.",
+    "The complete original JE_makeEnemy constructor, allocator, spawn function and linked-death traversal execute. mt_rand is a deterministic counted test stream, not the production RNG engine/state.",
+    "Carrier release is observed at its original immediately following large-explosion call, after its reward and release and before the next death-loop allocation. The large-explosion function is an observation stub; full loop statements are unmodified.",
+    "Collection envelope/predicate and scoreitem branch are exact excerpts; unrelated collision branches are omitted. Movement excerpt ends after background y addition; original enemy shooting logic is not executed.",
+    "Renderer, indexed-draw sink and eligibility functions are observation stubs; this proves draw-call/Explosion-state equality and call-site eligibility, not actual renderer pixels.",
+    "LeakSanitizer is disabled for executor compatibility; AddressSanitizer and UBSan remain enabled."
+  ],
+  "source_manifest": "original-source-excerpts.json",
+  "toolchain": "gcc (Debian 14.2.0-19) 14.2.0",
+  "reproduce": "python3 prototype/test-cash50-original.py --out /tmp/cash50-original-new",
+  "evidence_files_sha256": {
+    "receipt.json": "8e2a74e9cc702e78fb94beee1dfc89d017c4116cf9929c660dac315132e5adbd",
+    "source-manifest.json": "d78d24fe6bc576ce8e9be1677b1f44a182b7184bcd8b149de6e36f08ad2cd1b9",
+    "compile-optimized.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "compile-sanitized.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "result-optimized.log": "dad1115d2e72943cc59224caf1d85b1bb03fb67165d843d1147cd9fa8a760ab2",
+    "result-sanitized.log": "dad1115d2e72943cc59224caf1d85b1bb03fb67165d843d1147cd9fa8a760ab2"
+  },
+  "development_diagnostics": [
+    "An initial sanitizer run caught a null player.lives pointer in harness reset before the original event33 branch. Reset now provides a valid test lives field; both final builds pass. No production code was changed for this diagnostic."
+  ],
+  "source_provenance": "Existing finite75 extraction pattern reused in separate new files; no historical25/75 harness or production edits by this unit task."
+}
