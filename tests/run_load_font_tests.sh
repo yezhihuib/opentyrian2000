@@ -12,6 +12,6 @@ trap 'rm -f "$binary"' EXIT
 ${CC:-cc} -std=c99 -O1 -g -ffunction-sections -fdata-sections \
   -Wall -Wextra -Werror -Wno-misleading-indentation "${sanitize[@]}" \
   $(pkg-config --cflags sdl2) -Isrc tests/load_font_test.c \
-  src/settings_font.c src/selector_font.c src/selector_font_output.c src/helptext.c src/fonthand.c src/font.c src/sprite.c src/nortvars.c src/vga256d.c \
+  src/settings_font.c src/selector_font.c src/selector_font_output.c src/pregame_font.c src/helptext.c src/fonthand.c src/font.c src/sprite.c src/nortvars.c src/vga256d.c \
   -Wl,--gc-sections $(pkg-config --libs sdl2) -lm -o "$binary"
 "$binary" "$1" "$2"

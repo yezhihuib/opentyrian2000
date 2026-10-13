@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Finite current-source type4 loader/route/filter units; never launches a game.
 
-Production src must project byte-for-byte to 317bf551. The sole exception is
+Production src must project byte-for-byte to c9232d5. The sole exception is
 the exact approved eight C-v2 FNV pins and their adjacent contract comment.
 Only recording and material/telemetry boundaries are substituted. The actual
 current loader, family gates, bank routes and palette helper are extracted.
@@ -16,7 +16,7 @@ import struct
 import subprocess
 import type15_source_projection as projection
 
-BASE = '317bf551db59df9c4e3754d2072446c7313ab1f4'
+BASE = 'c9232d59778c8689d85f9e87e8fee260b4c3187a'
 IDS = [159, 161, 163, 165, 167]
 ORDER = [159,159,161,161,163,163,165,165,167,167,165,165,163,163,161,161,159,159,159,159]
 FAMILIES = ['cash25', 'cash75', 'cash50', 'gem100', 'linked31', 'newsh4_long7',
@@ -44,7 +44,7 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--repo', type=Path, default=Path(__file__).resolve().parents[1])
     p.add_argument('--out', type=Path, required=True)
-    p.add_argument('--baseline', default=BASE, help='Must resolve to the fixed current-source base 317bf551')
+    p.add_argument('--baseline', default=BASE, help='Must resolve to the fixed current-source base c9232d5')
     args = p.parse_args()
     repo, given = args.repo.resolve(), args.out.absolute()
     out = given.resolve()

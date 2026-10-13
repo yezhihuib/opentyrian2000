@@ -1,0 +1,32 @@
+{
+  "result": "PASS",
+  "baseline": "4c03d538fd5b2c03fdc6e983511f04c3695cc118",
+  "source_token_projections": 9,
+  "documentation_only_exceptions": [
+    "README.md",
+    "README.zh-CN.md"
+  ],
+  "changed_existing_files": [
+    "README.md",
+    "README.zh-CN.md",
+    "prototype/test-datacube-blend.py",
+    "prototype/test-manual-hd.py",
+    "src/load_font.c",
+    "src/menus.c",
+    "src/palette.c",
+    "src/params.c",
+    "src/picload.c",
+    "src/render_mirror.c",
+    "src/settings_font.c",
+    "src/sprite.c",
+    "src/video.c",
+    "tests/run_load_font_tests.sh",
+    "tests/run_settings_font_tests.sh",
+    "visualc/opentyrian.vcxproj"
+  ],
+  "unchanged_prior_files": 7312,
+  "unchanged_asset_bytes": 691873108,
+  "all_four_menu_input_state_draw_fade_tokens_preserved": true,
+  "windows": "project inventory verified; no Windows runtime",
+  "game_runs": false
+}

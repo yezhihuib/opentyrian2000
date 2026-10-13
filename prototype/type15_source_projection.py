@@ -3,7 +3,7 @@
 
 Only the exact, ordered eight approved FNV replacements and the exact adjacent
 comment replacement are accepted. Every other byte and every src path must
-match the immutable B baseline. This module also pins each lane's C artwork.
+match the immutable native-tested pregame baseline. This module also pins each lane's C artwork.
 """
 from pathlib import Path
 import hashlib
@@ -11,7 +11,7 @@ import re
 import struct
 import subprocess
 
-BASE = '317bf551db59df9c4e3754d2072446c7313ab1f4'
+BASE = 'c9232d59778c8689d85f9e87e8fee260b4c3187a'
 IDS = [39, 41, 43, 45, 91, 93, 129, 131]
 OLD = ['63fd993042755636','f6583f60603839a3','4cd47c32a4b23eaa','e9d34663cade254d',
        'baa804b312e1f561','0fcf5a0c3f773e03','047bb0296b21548b','6db63fa17b194c7e']

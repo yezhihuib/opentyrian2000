@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Exact current-source C-v2 route/loader/filter units; no game is launched.
 
-The immutable B source baseline is reversed by the finite C compatibility
+The immutable native-tested pregame source baseline is reversed by the finite C compatibility
 projection. Both trace lanes use their matching, pinned C artwork. Only draw,
 material and telemetry boundaries are substituted in the compiled recorder.
 """
@@ -26,7 +26,7 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--repo',type=Path,default=Path(__file__).resolve().parents[1])
     p.add_argument('--out',type=Path,required=True)
-    p.add_argument('--baseline',default=BASE,help='Must resolve to fixed current-source baseline 317bf551')
+    p.add_argument('--baseline',default=BASE,help='Must resolve to fixed current-source baseline c9232d5')
     args = p.parse_args()
     repo,given = args.repo.resolve(),args.out.absolute()
     out = given.resolve()

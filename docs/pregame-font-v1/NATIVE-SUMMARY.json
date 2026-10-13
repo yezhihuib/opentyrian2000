@@ -1,0 +1,394 @@
+{
+  "source_commit": "bf301cb37d0fe619f1ca7bf90c23f8e3580874e7",
+  "baseline_commit": "317bf551db59df9c4e3754d2072446c7313ab1f4",
+  "intended_cases": 7,
+  "total_starts": 8,
+  "total_captures": 40,
+  "total_checked_indexed_pixels": 2560000,
+  "total_checked_rgb_pixels": 22711640,
+  "runs": [
+    {
+      "run": "R1",
+      "elapsed_seconds": 16.18,
+      "captures": 10,
+      "actual_output": [
+        640,
+        400
+      ],
+      "original_indexed_exact": true,
+      "full_rgb_exact": true,
+      "natural_presentations": 250,
+      "idle_holds": [
+        {
+          "label": "C",
+          "first_frame": 288,
+          "last_frame": 329,
+          "seconds": 1.079626549006207,
+          "observed_frames": [
+            293,
+            296,
+            299,
+            302,
+            305,
+            309,
+            312,
+            315,
+            318,
+            321,
+            324,
+            329
+          ]
+        },
+        {
+          "label": "E",
+          "first_frame": 369,
+          "last_frame": 407,
+          "seconds": 1.0376519809942693,
+          "observed_frames": [
+            373,
+            377,
+            380,
+            383,
+            387,
+            390,
+            393,
+            397,
+            401,
+            403,
+            407
+          ]
+        }
+      ]
+    },
+    {
+      "run": "R2",
+      "elapsed_seconds": 16.234,
+      "captures": 10,
+      "actual_output": [
+        640,
+        400
+      ],
+      "original_indexed_exact": true,
+      "full_rgb_exact": true,
+      "natural_presentations": 251,
+      "idle_holds": [
+        {
+          "label": "C",
+          "first_frame": 289,
+          "last_frame": 328,
+          "seconds": 1.0703953379997984,
+          "observed_frames": [
+            296,
+            297,
+            300,
+            303,
+            306,
+            309,
+            314,
+            315,
+            319,
+            322,
+            325,
+            328
+          ]
+        },
+        {
+          "label": "E",
+          "first_frame": 369,
+          "last_frame": 406,
+          "seconds": 1.0219211539952084,
+          "observed_frames": [
+            373,
+            377,
+            380,
+            385,
+            386,
+            390,
+            393,
+            396,
+            400,
+            403,
+            406
+          ]
+        }
+      ]
+    },
+    {
+      "run": "R3",
+      "elapsed_seconds": 16.318,
+      "captures": 4,
+      "actual_output": [
+        1280,
+        800
+      ],
+      "original_indexed_exact": true,
+      "full_rgb_exact": true,
+      "natural_presentations": 245,
+      "idle_holds": [
+        {
+          "label": "C",
+          "first_frame": 288,
+          "last_frame": 328,
+          "seconds": 1.0764200479898136,
+          "observed_frames": [
+            293,
+            296,
+            299,
+            304,
+            306,
+            309,
+            312,
+            315,
+            318,
+            322,
+            325,
+            328
+          ]
+        },
+        {
+          "label": "E",
+          "first_frame": 368,
+          "last_frame": 406,
+          "seconds": 1.011260704995948,
+          "observed_frames": [
+            373,
+            376,
+            380,
+            383,
+            386,
+            390,
+            394,
+            396,
+            399,
+            402,
+            406
+          ]
+        }
+      ]
+    },
+    {
+      "run": "R4_retry",
+      "elapsed_seconds": 16.586,
+      "captures": 4,
+      "actual_output": [
+        1280,
+        800
+      ],
+      "original_indexed_exact": true,
+      "full_rgb_exact": true,
+      "natural_presentations": 241,
+      "idle_holds": [
+        {
+          "label": "C",
+          "first_frame": 284,
+          "last_frame": 324,
+          "seconds": 1.0765405790007208,
+          "observed_frames": [
+            290,
+            293,
+            297,
+            299,
+            302,
+            305,
+            308,
+            311,
+            315,
+            318,
+            321,
+            324
+          ]
+        },
+        {
+          "label": "E",
+          "first_frame": 365,
+          "last_frame": 402,
+          "seconds": 1.0017415339971194,
+          "observed_frames": [
+            370,
+            373,
+            376,
+            379,
+            384,
+            386,
+            389,
+            392,
+            395,
+            398,
+            402
+          ]
+        }
+      ]
+    },
+    {
+      "run": "R5",
+      "elapsed_seconds": 17.207,
+      "captures": 4,
+      "actual_output": [
+        1365,
+        767
+      ],
+      "original_indexed_exact": true,
+      "full_rgb_exact": true,
+      "natural_presentations": 251,
+      "idle_holds": [
+        {
+          "label": "C",
+          "first_frame": 288,
+          "last_frame": 330,
+          "seconds": 1.0711606529948767,
+          "observed_frames": [
+            294,
+            296,
+            299,
+            303,
+            306,
+            309,
+            312,
+            315,
+            318,
+            322,
+            325,
+            330
+          ]
+        },
+        {
+          "label": "E",
+          "first_frame": 368,
+          "last_frame": 408,
+          "seconds": 1.0909357469936367,
+          "observed_frames": [
+            373,
+            376,
+            379,
+            384,
+            386,
+            389,
+            392,
+            396,
+            399,
+            402,
+            405,
+            408
+          ]
+        }
+      ]
+    },
+    {
+      "run": "R6",
+      "elapsed_seconds": 17.832,
+      "captures": 4,
+      "actual_output": [
+        1365,
+        767
+      ],
+      "original_indexed_exact": true,
+      "full_rgb_exact": true,
+      "natural_presentations": 192,
+      "idle_holds": [
+        {
+          "label": "C",
+          "first_frame": 282,
+          "last_frame": 315,
+          "seconds": 1.0931293100002222,
+          "observed_frames": [
+            286,
+            289,
+            292,
+            295,
+            297,
+            300,
+            302,
+            305,
+            308,
+            310,
+            313,
+            315
+          ]
+        },
+        {
+          "label": "E",
+          "first_frame": 345,
+          "last_frame": 370,
+          "seconds": 1.0662502100021811,
+          "observed_frames": [
+            349,
+            351,
+            353,
+            356,
+            358,
+            360,
+            364,
+            366,
+            368,
+            370
+          ]
+        }
+      ]
+    },
+    {
+      "run": "R7",
+      "elapsed_seconds": 16.057,
+      "captures": 4,
+      "actual_output": [
+        640,
+        400
+      ],
+      "original_indexed_exact": true,
+      "full_rgb_exact": true,
+      "natural_presentations": 241,
+      "idle_holds": [
+        {
+          "label": "C",
+          "first_frame": 285,
+          "last_frame": 322,
+          "seconds": 1.0063144269952318,
+          "observed_frames": [
+            291,
+            292,
+            295,
+            299,
+            302,
+            305,
+            309,
+            312,
+            315,
+            319,
+            322
+          ]
+        },
+        {
+          "label": "E",
+          "first_frame": 358,
+          "last_frame": 399,
+          "seconds": 1.092067595993285,
+          "observed_frames": [
+            364,
+            367,
+            370,
+            373,
+            376,
+            381,
+            383,
+            386,
+            389,
+            392,
+            396,
+            399
+          ]
+        }
+      ]
+    }
+  ],
+  "failed_attempt": "R4",
+  "retained_failure": "runs/R4/result.json",
+  "preliminary_oracle_failure": "plans/rejected-separable-oracle-R6-C.json",
+  "collection_repair": "frozen/startup-palette-repair.diff",
+  "all_three_paired_source_state_palette_sequences_equal": true,
+  "all_pairs_zero_changes_outside_font_support": true,
+  "missing_tiny_fallback_exact": true,
+  "production_c_changed_since_source_freeze": false,
+  "independent_final_review": "PASS",
+  "independent_review_sha256": "68156f31c43d611c992e5b6363084f4de16468dbf0e7e25934c87d9493329855",
+  "independent_receipt_sha256": "112688571cd8317ba3cbe66f27af4459ac8078ff08be454ae204c54b416983b0",
+  "frozen_native_inventory_sha256": "ef49bca33bec566128db69fe63d7d1c464a141a653e222a1a4762924b54274a5"
+}

@@ -1,0 +1,406 @@
+{
+  "result": "PASS",
+  "qualified_published_parent": "a35747a9b25a0e7a296165e802e0777a3aaee511",
+  "qualified_parent_tree": "cc1f5da9feeea8d12407bd7e5a079981ef711d13",
+  "native_tested_source": "c9232d59778c8689d85f9e87e8fee260b4c3187a",
+  "source_and_test_sha256": {
+    "prototype/test-type15-binding.py": "cfdad28e15d184a085bce4d25430afe62ef42b09281a5bfccf31d9342333fb63",
+    "prototype/test-type15-preservation.py": "4ed040161071bc0df0db454a97fe5f630018d42668e5fbe938a4b841d7177f0f",
+    "prototype/test-type4-binding.py": "d4e8828c33d6d0ace17de8167889e58d022d156d38fbca181a534f2827c6cb9e",
+    "prototype/type15_source_projection.py": "f3c379475429729e3417a98889c3c50ce96739db1b2a4c1b279ecf4b9a4d9563",
+    "tests/pregame_font_projection.py": "250fa17449666487d2321dd1461c432f1bf54d602c807bda1fa8920355fb4c80",
+    "tests/pregame_font_source_projection.json": "349c3a45eed74155f30d1ceb1acf7d574935253a454da9add9088e44c697ef6a",
+    "tests/test_selector_font_integration.py": "2bbbf3388377b65d66dcffd79d51df60035b00a2d3edb1cf4cc7dee4a396844a",
+    "tests/test_pregame_coexistence.py": "0f8b32058644909681b1021c526dfaf039bae529fe0f820f1b741e62f4b67a76",
+    "README.md": "5f1f8cf4f004c60d3c8110f74875c3ee7ca1d11e987239da92d72dfe869cd923",
+    "README.zh-CN.md": "c96b81734777e3e354661562976fc20e53e4e4541c44544452821fd047aab385"
+  },
+  "coexistence": {
+    "result": "PASS",
+    "qualified_parent": "a35747a9b25a0e7a296165e802e0777a3aaee511",
+    "qualified_tree": "cc1f5da9feeea8d12407bd7e5a079981ef711d13",
+    "native_tested_source": "c9232d59778c8689d85f9e87e8fee260b4c3187a",
+    "production_files": 148,
+    "exact_production_difference": "Eight C FNV pins and their one adjacent comment only",
+    "production_mutation_rejections": 194,
+    "whole_parent_files": 7499,
+    "exact_reverse_projection_files": [
+      "README.md",
+      "README.zh-CN.md",
+      "prototype/test-type15-binding.py",
+      "prototype/test-type15-preservation.py",
+      "prototype/test-type4-binding.py",
+      "prototype/type15_source_projection.py",
+      "src/game_menu.c",
+      "src/palette.c",
+      "src/params.c",
+      "src/render_mirror.c",
+      "src/sprite.c",
+      "src/video.c",
+      "tests/run_load_font_tests.sh",
+      "tests/run_selector_font_tests.sh",
+      "tests/run_settings_font_tests.sh",
+      "tests/test_selector_font_integration.py",
+      "visualc/opentyrian.vcxproj"
+    ],
+    "exact_parent_asset_bytes": 703167400,
+    "approved_asset_mutation_rejections": 159,
+    "approved_asset_paths": [
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/IMPORT.json",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/README.txt",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/SHA256SUMS.json",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/contract.json",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/masks/authored-alpha-129-8.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/masks/authored-alpha-131-8.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/masks/authored-alpha-39-8.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/masks/authored-alpha-41-8.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/masks/authored-alpha-43-8.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/masks/authored-alpha-45-8.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/masks/authored-alpha-91-8.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/masks/authored-alpha-93-8.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/masks/original-alpha-129-24x28.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/masks/original-alpha-131-24x28.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/masks/original-alpha-39-24x28.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/masks/original-alpha-41-24x28.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/masks/original-alpha-43-24x28.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/masks/original-alpha-45-24x28.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/masks/original-alpha-91-24x28.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/masks/original-alpha-93-24x28.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/masks/support-additions-129.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/masks/support-additions-131.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/masks/support-additions-39.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/masks/support-additions-41.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/masks/support-additions-43.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/masks/support-additions-45.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/masks/support-additions-91.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/masks/support-additions-93.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/masks/support-removals-129.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/masks/support-removals-131.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/masks/support-removals-39.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/masks/support-removals-41.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/masks/support-removals-43.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/masks/support-removals-45.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/masks/support-removals-91.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/masks/support-removals-93.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/output/enemy-newsh2-129-8.hda",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/output/enemy-newsh2-129-8.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/output/enemy-newsh2-131-8.hda",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/output/enemy-newsh2-131-8.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/output/enemy-newsh2-39-8.hda",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/output/enemy-newsh2-39-8.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/output/enemy-newsh2-41-8.hda",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/output/enemy-newsh2-41-8.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/output/enemy-newsh2-43-8.hda",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/output/enemy-newsh2-43-8.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/output/enemy-newsh2-45-8.hda",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/output/enemy-newsh2-45-8.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/output/enemy-newsh2-91-8.hda",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/output/enemy-newsh2-91-8.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/output/enemy-newsh2-93-8.hda",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/output/enemy-newsh2-93-8.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/proof/native-nearest2x.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/proof/native-nearest4x.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/proof/offline-cloud-composite-nearest2x.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/proof/pilot-metrics.json",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/proof/relocated-rebuild-receipt.json",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/proof/source-only-rebuild-audit.json",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/proof/support-delta-contact.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/rebuild.py",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/requirements.txt",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/sources/NE-final-aperture-prompt.txt",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/sources/expansion-prompts.json",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/sources/generated-129.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/sources/generated-131.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/sources/generated-39.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/sources/generated-41.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/sources/generated-43.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/sources/generated-45.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/sources/generated-91.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/sources/generated-93.png",
+      "assets/hd/artwork/type15-eightheading-smooth-contour-v2/sources/precise-correction-prompts.json",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/IMPORT.json",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/README.txt",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/SHA256SUMS.json",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/contract.json",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/masks/authored-alpha-159-8.png",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/masks/authored-alpha-161-8.png",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/masks/authored-alpha-163-8.png",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/masks/authored-alpha-165-8.png",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/masks/authored-alpha-167-8.png",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/masks/original-alpha-159-24x28.png",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/masks/original-alpha-161-24x28.png",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/masks/original-alpha-163-24x28.png",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/masks/original-alpha-165-24x28.png",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/masks/original-alpha-167-24x28.png",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/masks/support-additions-159.png",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/masks/support-additions-161.png",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/masks/support-additions-163.png",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/masks/support-additions-165.png",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/masks/support-additions-167.png",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/masks/support-removals-159.png",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/masks/support-removals-161.png",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/masks/support-removals-163.png",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/masks/support-removals-165.png",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/masks/support-removals-167.png",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/output/enemy-newsh2-159-8.hda",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/output/enemy-newsh2-159-8.png",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/output/enemy-newsh2-161-8.hda",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/output/enemy-newsh2-161-8.png",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/output/enemy-newsh2-163-8.hda",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/output/enemy-newsh2-163-8.png",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/output/enemy-newsh2-165-8.hda",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/output/enemy-newsh2-165-8.png",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/output/enemy-newsh2-167-8.hda",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/output/enemy-newsh2-167-8.png",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/proof/native-nearest2x.png",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/proof/native-nearest4x.png",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/proof/relocated-rebuild-receipt.json",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/proof/source-only-rebuild-audit.json",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/rebuild.py",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/requirements.txt",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/sources/expansion-prompts.json",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/sources/generated-159.png",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/sources/generated-161.png",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/sources/generated-163.png",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/sources/generated-165.png",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/sources/generated-167.png",
+      "assets/hd/artwork/type4-fivepose-smooth-contour-v2/sources/initial-prompts.json",
+      "assets/hd/manifest.json",
+      "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-129-8.hda",
+      "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-131-8.hda",
+      "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-159-8.hda",
+      "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-161-8.hda",
+      "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-163-8.hda",
+      "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-165-8.hda",
+      "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-167-8.hda",
+      "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-39-8.hda",
+      "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-41-8.hda",
+      "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-43-8.hda",
+      "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-45-8.hda",
+      "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-91-8.hda",
+      "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-93-8.hda",
+      "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-129-8.hda",
+      "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-131-8.hda",
+      "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-159-8.hda",
+      "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-161-8.hda",
+      "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-163-8.hda",
+      "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-165-8.hda",
+      "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-167-8.hda",
+      "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-39-8.hda",
+      "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-41-8.hda",
+      "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-43-8.hda",
+      "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-45-8.hda",
+      "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-91-8.hda",
+      "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-93-8.hda",
+      "assets/hd/source/enemy-newsh2-129-8-0369d6e3fdbe.png",
+      "assets/hd/source/enemy-newsh2-131-8-7590d16a0c23.png",
+      "assets/hd/source/enemy-newsh2-159-8-516844423ddf.png",
+      "assets/hd/source/enemy-newsh2-161-8-f51ff7b9f800.png",
+      "assets/hd/source/enemy-newsh2-163-8-09f805d16d5c.png",
+      "assets/hd/source/enemy-newsh2-165-8-b3ce6d508115.png",
+      "assets/hd/source/enemy-newsh2-167-8-683855374489.png",
+      "assets/hd/source/enemy-newsh2-39-8-faa362385a6b.png",
+      "assets/hd/source/enemy-newsh2-41-8-8d2f73e32e39.png",
+      "assets/hd/source/enemy-newsh2-43-8-5874d9c67472.png",
+      "assets/hd/source/enemy-newsh2-45-8-3a20918ae6ff.png",
+      "assets/hd/source/enemy-newsh2-91-8-e2c3aaa833db.png",
+      "assets/hd/source/enemy-newsh2-93-8-c816a59f906b.png"
+    ],
+    "old_asset_reversion_rejections": 27,
+    "startup_resources": {
+      "assets/hd/packs/startup-title-settings-v1/settings-font-large-v1.hda": "7827555a736375ff45bd78dc2c05c5651e65d3b024527e8dba525d3beff721e5",
+      "assets/hd/packs/startup-title-settings-v1/settings-font-medium-v1.hda": "51852f5d54516de70a5729e991fb14104871b9ad58991f0352899ab4502bd484",
+      "assets/hd/packs/startup-title-settings-v1/settings-font-tiny-v1.hda": "888b635af0c123dc77fecf2f50a2e603f85a0fb6ad74a1c4215b29affc28a35c",
+      "assets/hd/packs/startup-title-settings-v1/startup-pic10-v1.hda": "a885d023f89b0e214a81df1d02dbf62d6e36645820c1a15e9a0ad74a2c5e2c79",
+      "assets/hd/packs/startup-title-settings-v1/startup-pic12-v1.hda": "bd358e8006a99467e08bc8bf257e6ead51fe5f216c63c57088612ef5039c7669",
+      "assets/hd/packs/startup-title-settings-v1/title-menu-font-v1.hda": "26e4f9eabed4f90bfe74896e04ee59e647e445ffd44a9feaf003c91444275a4d",
+      "assets/hd/packs/startup-title-settings-v1/title-pic4-v1.hda": "0149d26dd7c860f497089f27d5650dec7af21846ad92cc8269a66b5375592c31",
+      "assets/hd/packs/startup-title-settings-v1/title-planet146-v1.hda": "ff126712e87c052b2176365b228a8248d5ec7e04386e5d233614405e51537b05",
+      "assets/hd/packs/startup-title-settings-v1/title-planet151-v1.hda": "325c3602bce555f3b8023dd6b6167099d540fc828bf9e84c3bd21b85d0787357"
+    },
+    "no_source_or_asset_path_wildcards": true,
+    "new_game_runs": 0,
+    "windows": "Source inventory is checked separately; no Windows compilation/runtime claim from this script"
+  },
+  "source_projection": {
+    "result": "PASS",
+    "base": "a35747a9b25a0e7a296165e802e0777a3aaee511",
+    "exact_existing_file_projections": [
+      "README.md",
+      "README.zh-CN.md",
+      "prototype/test-type15-binding.py",
+      "prototype/test-type15-preservation.py",
+      "prototype/test-type4-binding.py",
+      "prototype/type15_source_projection.py",
+      "src/game_menu.c",
+      "src/palette.c",
+      "src/params.c",
+      "src/render_mirror.c",
+      "src/sprite.c",
+      "src/video.c",
+      "tests/run_load_font_tests.sh",
+      "tests/run_selector_font_tests.sh",
+      "tests/run_settings_font_tests.sh",
+      "tests/test_selector_font_integration.py",
+      "visualc/opentyrian.vcxproj"
+    ],
+    "unchanged_prior_files": 7482,
+    "unchanged_asset_bytes": 703167400,
+    "mutation_rejections": 51,
+    "production_delta": [
+      "src/game_menu.c",
+      "src/palette.c",
+      "src/params.c",
+      "src/pregame_font.c",
+      "src/pregame_font.h",
+      "src/render_mirror.c",
+      "src/sprite.c",
+      "src/video.c"
+    ],
+    "two_context_only": true,
+    "original_draw_input_state_save_sound_tokens_and_bytes_preserved": true,
+    "selector_output_and_existing_fonts_exact": true,
+    "windows": "source inventory only; no Windows build/runtime claim",
+    "game_runs": false
+  },
+  "forced_builds": {
+    "result": "PASS",
+    "force_option": "-B",
+    "build_source_checkpoint": "b163d21e2cd37000f9e9a303fd1c782017cf9561",
+    "builds": {
+      "no-network": {
+        "command": "make -B -j4 WITH_NETWORK=false",
+        "result": "PASS",
+        "all_C_objects_regenerated": 71,
+        "network_define_on_every_object": false,
+        "SDL_net_link": false,
+        "log_sha256": "d82b434f97394ef053f3dae36a0e07900efde28d6c8aeff3e0a523f709c78b4a",
+        "elf_sha256": "3205e7abcba2de6c66938bd4721f34641aecbc65cd3d47c7066fd66b823ecf49"
+      },
+      "default": {
+        "command": "make -B -j4",
+        "result": "PASS",
+        "all_C_objects_regenerated": 71,
+        "network_define_on_every_object": true,
+        "SDL_net_link": true,
+        "log_sha256": "06172de3d0b74f53f62b3dd2e492d52202a3ab2d8003d91c1098c19434c0ee0b",
+        "elf_sha256": "86919cbe3c474537234e74cf296fd58c06919251245c3ca262857b6ab9012bb7"
+      }
+    },
+    "initial_digest_typo": "After the successful no-network build, a receipt command named opentyrian instead of opentyrian2000. Corrected digest before default rebuild; no build failure or source change."
+  },
+  "logs": {
+    "pregame-integration-final.log": {
+      "sha256": "d793603aaf41e88442f9b768056eaacc30ac298273b9a247506069299ed95002",
+      "bytes": 1173
+    },
+    "coexistence-final.json": {
+      "sha256": "b7100c660d9a542eced7bc81d4f54d862c56b229ef2c46742f32b66bfe5de2df",
+      "bytes": 17580
+    },
+    "selector-integration-final.log": {
+      "sha256": "4b145bc3cd1a568c23fc52fe35a7e5aceb6796274c8d24fbda4af2370c242ba5",
+      "bytes": 871
+    },
+    "pregame-core-sanitized.log": {
+      "sha256": "8a2ccdc5565e8c4349f9bd462b32729b1d0e2acd0e0f653a537f5743aabe8568",
+      "bytes": 113
+    },
+    "output-sampler-sanitized.log": {
+      "sha256": "436896cab0c33c99cc316e7a02b7b9ac9aef5483c3ca64bb8c6be20f9dd43693",
+      "bytes": 50
+    },
+    "selector-core.log": {
+      "sha256": "28daa84a89dd6e4fb7ba129db65bfd9bea857ca4628654fefd964ccb21e7bf94",
+      "bytes": 126
+    },
+    "settings-core.log": {
+      "sha256": "5f9d7cb6355bdc11c3d0aaad19d2d19697f388c5aae0e93fe6bbb0a56a4ac972",
+      "bytes": 126
+    },
+    "load-core.log": {
+      "sha256": "ff1e08ce40b112af13accc92bc977e548b9b42c5219f87cae633fe4adb64970b",
+      "bytes": 273
+    },
+    "type4-binding/receipt.json": {
+      "sha256": "77e439c8c1b0ea395aa5a78b6c37f1ed0fddccb66fad56d1780b2e883d5fbaac",
+      "bytes": 175935
+    },
+    "type15-binding/receipt.json": {
+      "sha256": "cf50cf08bd48154195a6613432b2b9921aef2ef514c273110561e1ebe8935575",
+      "bytes": 332875
+    },
+    "type15-preservation.json": {
+      "sha256": "959edb4bb9514c105d7a405e7b0cfcb5b206214f97e7c72f80357fc64e7957ad",
+      "bytes": 3255
+    },
+    "type4-source-guards.log": {
+      "sha256": "9f671a1263950c61f8bcb28789a05c22639af621e97f3a781369db7c9fabea3f",
+      "bytes": 460
+    },
+    "type15-source-guards.log": {
+      "sha256": "588e5e0bbde813e72b598abefafc853a5f76d1fcf821de322c3c647211f804c6",
+      "bytes": 511
+    },
+    "manual/report.json": {
+      "sha256": "e42f18b7263ea5c22e6fb5b102e028734f053988e2c0d70f22f3ea653f42ef6b",
+      "bytes": 11799
+    },
+    "data/report.json": {
+      "sha256": "4c4f4e1ef3ea2f38adae3c1396f454186e3a210a935db097da68ebe54db6125b",
+      "bytes": 1482
+    },
+    "forced-build-receipt.json": {
+      "sha256": "9ad71b6276aec400f18514476ef54603900592b73210f298a1d9193e8570e8eb",
+      "bytes": 1103
+    },
+    "build-forced-no-network.log": {
+      "sha256": "d82b434f97394ef053f3dae36a0e07900efde28d6c8aeff3e0a523f709c78b4a",
+      "bytes": 36129
+    },
+    "build-forced-default.log": {
+      "sha256": "06172de3d0b74f53f62b3dd2e492d52202a3ab2d8003d91c1098c19434c0ee0b",
+      "bytes": 37205
+    },
+    "production-commutation.json": {
+      "sha256": "66330f787fab31d8554b8a0f0cbb22febb8552d3d21ada238566e72f046d41d6",
+      "bytes": 1706
+    },
+    "retained-native-inputs.json": {
+      "sha256": "5f5e7b1a4396a2d76f579129e8660c31c9a74da23ad3dde23a436fe45a8be0d8",
+      "bytes": 3807
+    },
+    "original-runtime-input-identities.json": {
+      "sha256": "937e04e805f82c0a8f44d12b84fecd096c0afa40d87585a9edcd0380ee07e07f",
+      "bytes": 60913
+    },
+    "pregame-integration-readme-refined.log": {
+      "sha256": "c28fc7fb828d9db6fd8dfa5737f55878250c4488f360ef0424175875efa8203a",
+      "bytes": 1213
+    },
+    "coexistence-readme-refined.json": {
+      "sha256": "e5c361c68a479e349006680cad9e4d8b7b7525d40d2d5be1e6fc56080f833b22",
+      "bytes": 17620
+    },
+    "selector-integration-readme-refined.log": {
+      "sha256": "4b145bc3cd1a568c23fc52fe35a7e5aceb6796274c8d24fbda4af2370c242ba5",
+      "bytes": 871
+    },
+    "type15-preservation-readme-receipt.json": {
+      "sha256": "959edb4bb9514c105d7a405e7b0cfcb5b206214f97e7c72f80357fc64e7957ad",
+      "bytes": 3255
+    },
+    "type15-preservation-readme-refined.json": {
+      "sha256": "959edb4bb9514c105d7a405e7b0cfcb5b206214f97e7c72f80357fc64e7957ad",
+      "bytes": 3255
+    }
+  },
+  "original_native_review_sha256": "68156f31c43d611c992e5b6363084f4de16468dbf0e7e25934c87d9493329855",
+  "new_game_runs": 0,
+  "Windows_compile_runtime": false,
+  "README_followon": "Two stale coverage sentences corrected, with exact parent reversals; 51 source mutation controls over 17 existing-file projections. No production change.",
+  "independent_review": {
+    "COEXISTENCE-INDEPENDENT-REVIEW.md": "557ea3b6c3469279df07e31595e59b828b9b4e6980c7435e1d44f0cf0a626a72",
+    "COEXISTENCE-README-ADDENDUM.md": "532f09b3d04702393f8fc5f9ba8ddf629c2032a1c338315398afeb48eb8f1783"
+  }
+}

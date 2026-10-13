@@ -17,6 +17,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 #include "game_menu.h"
+#include "pregame_font.h"
 
 #include "backgrnd.h"
 #include "config.h"
@@ -265,6 +266,7 @@ void JE_itemScreen(void)
 		{
 			memcpy(VGAScreen->pixels, VGAScreen2->pixels, VGAScreen->pitch * VGAScreen->h);
 		}
+		pregame_font_begin(curMenu,curSel[curMenu],menuChoices[curMenu], !twoPlayerMode && !onePlayerAction && !isNetworkGame && !superTyrian && superArcadeMode == SA_NONE && !constantPlay && !timedBattleMode,player[0].cash,cubeMax,VGAScreen,VGAScreen2);
 
 		if (curMenu == MENU_UPGRADES &&
 		    (curSel[curMenu] == 3 || curSel[curMenu] == 4))
@@ -323,11 +325,13 @@ void JE_itemScreen(void)
 		/* Data cube icons */
 		if (curMenu == MENU_FULL_GAME)
 		{
+			pregame_font_phase_begin(PREGAME_CUBES,0,0);
 			for (int i = 1; i <= cubeMax; i++)
 			{
 				blit_sprite_dark(VGAScreen, 190 + i * 18 + 2, 37 + 1, OPTION_SHAPES, 34, false);
 				blit_sprite(VGAScreen, 190 + i * 18, 37, OPTION_SHAPES, 34);  // data cube
 			}
+			pregame_font_phase_end();
 		}
 
 		/* load/save menu */
@@ -632,10 +636,14 @@ void JE_itemScreen(void)
 				char buf[20];
 
 				snprintf(buf, sizeof buf, "%lu", player[0].cash);
+				pregame_font_run_begin(PREGAME_CASH,0,VGAScreen,65,173,buf,TINY_FONT,1,6);
 				JE_textShade(VGAScreen, 65, 173, buf, 1, 6, DARKEN);
+				pregame_font_run_end();
 			}
+			pregame_font_phase_begin(PREGAME_BARS,player[0].armor,shields[player[0].items.shield].mpwr*2);
 			JE_barDrawShadow(VGAScreen, 42, 152, 3, 14, player[0].armor, 2, 13);
 			JE_barDrawShadow(VGAScreen, 104, 152, 2, 14, shields[player[0].items.shield].mpwr * 2, 2, 13);
+			pregame_font_phase_end();
 		}
 
 		/* Draw crap on the left side of the screen, i.e. two player scores, ship graphic, etc. */
@@ -673,7 +681,9 @@ void JE_itemScreen(void)
 			}
 			else
 			{
+				pregame_font_phase_begin(PREGAME_SHIP,0,0);
 				draw_ship_illustration();
+				pregame_font_phase_end();
 			}
 		}
 
@@ -786,6 +796,7 @@ void JE_itemScreen(void)
 		JE_drawScore();
 
 		JE_drawMainMenuHelpText();
+		pregame_font_frame_end();
 
 		if (newPal > 0) /* can't reindex this :( */
 		{
@@ -935,7 +946,9 @@ void JE_itemScreen(void)
 							newPal = 0;
 						}
 
+						pregame_font_cursor_begin();
 						JE_mouseStart();
+						pregame_font_cursor_done();
 
 						if (paletteChanged)
 						{
@@ -967,7 +980,9 @@ void JE_itemScreen(void)
 							newPal = 0;
 						}
 
+						pregame_font_cursor_begin();
 						JE_mouseStart();
+						pregame_font_cursor_done();
 
 						if (paletteChanged)
 						{
@@ -978,6 +993,7 @@ void JE_itemScreen(void)
 						JE_showVGA(); /* SYN: This is the where the screen updates for most menus */
 
 						JE_mouseReplace();
+						pregame_font_cursor_erased();
 
 						if (backFromHelp)
 						{
@@ -999,6 +1015,7 @@ void JE_itemScreen(void)
 				{
 					if (keysactive[SDL_SCANCODE_S] && (keysactive[SDL_SCANCODE_LALT] || keysactive[SDL_SCANCODE_RALT]))
 					{
+						pregame_font_end();
 						if (curMenu == MENU_DATA_CUBE_SUB ||
 						    curMenu == MENU_DATA_CUBES)
 						{
@@ -1013,6 +1030,7 @@ void JE_itemScreen(void)
 					}
 					if (keysactive[SDL_SCANCODE_L] && (keysactive[SDL_SCANCODE_LALT] || keysactive[SDL_SCANCODE_RALT]))
 					{
+						pregame_font_end();
 						if (curMenu == MENU_DATA_CUBE_SUB ||
 						    curMenu == MENU_DATA_CUBES)
 						{
@@ -1081,6 +1099,9 @@ void JE_itemScreen(void)
 			} while (!inputDetected);
 		}
 
+		/* Retain only the original outgoing F1 fade before relinquishing PIC1. */
+		if (!(newkey && lastkey_scan == SDL_SCANCODE_F1 && !isNetworkGame && mouseButton == 0))
+			pregame_font_end();
 		keyboardUsed = false;
 
 		/* The rest of this just grabs input events, handles them, then proceeds on. */
@@ -1316,6 +1337,7 @@ void JE_itemScreen(void)
 				if (!isNetworkGame)
 				{
 					fade_black(10);
+					pregame_font_end();
 					JE_helpSystem(2);
 
 					play_song(songBuy);
@@ -1612,6 +1634,7 @@ void JE_itemScreen(void)
 		}
 
 	} while (!(quit || gameLoaded || jumpSection));
+	pregame_font_end();
 
 #ifdef WITH_NETWORK
 	if (!quit && isNetworkGame)
@@ -1931,7 +1954,9 @@ void JE_drawMenuHeader(void)
 			strcpy(tempStr, menuInt[curMenu + 1][0]);
 			break;
 	}
+	pregame_font_run_begin(PREGAME_HEADING,0,VGAScreen,74+JE_fontCenter(tempStr,FONT_SHAPES),10,tempStr,FONT_SHAPES,15,-3);
 	JE_dString(VGAScreen, 74 + JE_fontCenter(tempStr, FONT_SHAPES), 10, tempStr, FONT_SHAPES);
+	pregame_font_run_end();
 }
 
 void JE_drawMenuChoices(void)
@@ -1984,7 +2009,9 @@ void JE_drawMenuChoices(void)
 		{
 			strcpy(str, menuInt[curMenu + 1][x-1]);
 		}
+		pregame_font_run_begin(PREGAME_ROW,x,VGAScreen,166,tempY,str,SMALL_FONT_SHAPES,15,-3);
 		JE_dString(VGAScreen, 166, tempY, str, SMALL_FONT_SHAPES);
+		pregame_font_run_end();
 		free(str);
 	}
 }
@@ -2375,7 +2402,9 @@ void JE_drawMainMenuHelpText(void)
 		memcpy(tempStr, mainMenuHelp[17 + curMenu - 3], sizeof(tempStr));
 	}
 	
+	pregame_font_run_begin(PREGAME_FOOTER,curSel[curMenu],VGAScreen,10,187,tempStr,TINY_FONT,14,1);
 	JE_textShade(VGAScreen, 10, 187, tempStr, 14, 1, DARKEN);
+	pregame_font_run_end();
 }
 
 JE_boolean JE_saveRequest(JE_byte slot, const char *savename)

@@ -1,0 +1,35 @@
+{
+  "result": "PASS",
+  "base": "317bf551db59df9c4e3754d2072446c7313ab1f4",
+  "exact_existing_file_projections": [
+    "src/game_menu.c",
+    "src/palette.c",
+    "src/params.c",
+    "src/render_mirror.c",
+    "src/sprite.c",
+    "src/video.c",
+    "tests/run_load_font_tests.sh",
+    "tests/run_selector_font_tests.sh",
+    "tests/run_settings_font_tests.sh",
+    "tests/test_selector_font_integration.py",
+    "visualc/opentyrian.vcxproj"
+  ],
+  "unchanged_prior_files": 7344,
+  "unchanged_asset_bytes": 691873108,
+  "mutation_rejections": 33,
+  "production_delta": [
+    "src/game_menu.c",
+    "src/palette.c",
+    "src/params.c",
+    "src/pregame_font.c",
+    "src/pregame_font.h",
+    "src/render_mirror.c",
+    "src/sprite.c",
+    "src/video.c"
+  ],
+  "two_context_only": true,
+  "original_draw_input_state_save_sound_tokens_and_bytes_preserved": true,
+  "selector_output_and_existing_fonts_exact": true,
+  "windows": "source inventory only; no Windows build/runtime claim",
+  "game_runs": false
+}

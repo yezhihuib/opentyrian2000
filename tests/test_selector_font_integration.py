@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """Finite selector observer additions project to the exact approved base tokens."""
 from pathlib import Path
-import argparse, hashlib, json, re, subprocess, xml.etree.ElementTree as ET
+import argparse, hashlib, json, re, subprocess, xml.etree.ElementTree as ET, runpy
 ROOT=Path(__file__).resolve().parents[1]
+PREGAME=runpy.run_path(str(ROOT/'tests/pregame_font_projection.py'))
+pregame_project=PREGAME['project_legacy']
 BASE='4c03d538fd5b2c03fdc6e983511f04c3695cc118'
 DOCUMENTATION_ONLY={'README.md','README.zh-CN.md'}
 CHANGED=DOCUMENTATION_ONLY|{'src/load_font.c','src/menus.c','src/palette.c','src/params.c','src/picload.c','src/render_mirror.c','src/settings_font.c','src/sprite.c','src/video.c','visualc/opentyrian.vcxproj','tests/run_settings_font_tests.sh','tests/run_load_font_tests.sh','prototype/test-manual-hd.py','prototype/test-datacube-blend.py'}
@@ -11,6 +13,7 @@ def tokens(s):
  p=r'"(?:\\.|[^"\\])*"|\'(?:\\.|[^\'\\])*\'|/\*[\s\S]*?\*/|//[^\n]*|\s+|[A-Za-z_]\w*|(?:0[xX][0-9a-fA-F]+|\d+)(?:[uUlLfF]*)|<<=?|>>=?|\+\+|--|->|&&|\|\||[+*/%&|^!=<>-]=|.'
  return [x for x in re.findall(p,s) if not x.isspace() and not x.startswith(('/*','//'))]
 def project(name,s):
+ s=pregame_project(name,s.encode()).decode()
  s=s.replace('\r\n','\n').replace('#include "selector_font.h"\n','')
  if name=='src/video.c':
   s='\n'.join(l for l in s.split('\n') if not l.strip().startswith(('if(selector_font_present(', 'if(selector_font_owns_display()')))
@@ -27,27 +30,30 @@ def project(name,s):
 def regression_projection():
  # Historical gameplay regressions admit only this bounded selector delta.
  # Prove every changed original source still projects to the approved base;
- # new selector modules are an explicit finite allowlist, and no assets change.
+ # new modules are finite; published B/C files have exact whole-file pins.
+ pregame_sources=PREGAME['verify']()
+ published=PREGAME['verify_published_delta']()
  selector_sources={name for name in CHANGED if name.startswith('src/')} | {
   'src/selector_font.c','src/selector_font.h','src/selector_font_output.c','src/selector_font_output.h'}
- assert set(git('diff',BASE,'--name-only','--','src','assets').decode().splitlines())==selector_sources
+ assert set(git('diff',BASE,'--name-only','--','src','assets').decode().splitlines())==selector_sources|pregame_sources|published
  for name in sorted(selector_sources):
   if name in CHANGED:
-   assert project(name,(ROOT/name).read_text())==tokens(git('show',BASE+':'+name).decode()),name
+   assert project(name,(ROOT/name).read_bytes().decode())==tokens(git('show',BASE+':'+name).decode()),name
  # Renderer helper comparisons are byte-exact after just these three hooks.
- mirror=(ROOT/'src/render_mirror.c').read_text()
+ mirror=pregame_project('src/render_mirror.c',(ROOT/'src/render_mirror.c').read_bytes()).decode()
  for hook in ('#include "selector_font.h"\n',' selector_font_pixel(surface,address,style);\n',' selector_font_rect(s,rect);\n'):
   assert mirror.count(hook)==1,hook
   mirror=mirror.replace(hook,'')
  assert mirror==git('show',BASE+':src/render_mirror.c').decode()
- return selector_sources,mirror
+ return selector_sources|pregame_sources|published,mirror
 
 def main():
+ PREGAME['verify_published_delta']()  # qualify actual files before idempotent legacy passes
  p=argparse.ArgumentParser();p.add_argument('--out',type=Path);a=p.parse_args();changed=[];unchanged=0;assets=0;proofs=0
  for line in git('ls-tree','-rz',BASE).split(b'\0'):
   if not line:continue
   meta,name=line.split(b'\t',1);name=name.decode();_,kind,blob=meta.decode().split();path=ROOT/name;assert path.is_file() and not path.is_symlink(),name
-  raw=path.read_bytes();current=hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest()
+  raw=pregame_project(name,path.read_bytes());current=hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest()
   if current==blob:
    unchanged+=1
    if name.startswith('assets/'):assets+=len(raw)
