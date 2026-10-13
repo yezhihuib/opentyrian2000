@@ -1,0 +1,40 @@
+{
+  "status": "PASS_SOURCE_ONLY",
+  "baseline_revision": "dc9e706192dea9e35f529544ca47d757d908c1d7",
+  "branch": "boss-whole-family-inward-v2",
+  "source_inventory_sha256": "d82f610c48592b712907c0532fb50853bb2fc1e51a93f2fa8dc5511666612374",
+  "production_change": "Only forty boss RGBA acceptance stamps and explanatory comment; no blend/sampler/ownership/gameplay/HUD change",
+  "all_RGB_exact_V1": true,
+  "inward_alpha_exact_editable_locked_masks": true,
+  "all21_union_interiors_preserved": true,
+  "historical_V1_artwork_and_receipts_unchanged": true,
+  "fresh_receipts": {
+    "source-build.json": "521f827d60726fa717dcae82ec9ab72618c339d7b193e7acb34b688a5146aef7",
+    "source-guards.json": "a992204391828d66c6dc6718bfcd8e4d351ad584ff11c8b0f98cfc0f5e8edc5a",
+    "preservation.json": "b75565a9ce213df2bb0ac7c39963a718b4809a013c1ea356692c3af013f6c252",
+    "binding.json": "a901223cebff9488177ab657b6f52e1005a93d078175afacbfd67e8fc1dfeef7",
+    "pixels.json": "eaf624d3d4f99785f530c662f230d457d2db80ff5a28985f5b8f2b3bb5690c25",
+    "lifecycle-unit.json": "18eb025a90895dc1e9c85a7c52a71715360997cec7857941bfc04c8fa00b22c1",
+    "aggregate-resources.json": "82500ad6c36f13131c99aaf88ce7ec45d1049a54007ce593575c1acc56d31d74"
+  },
+  "build": {
+    "command": "source recovery-dependencies-20261013/env.sh; make -j4",
+    "exit_status": 0,
+    "binary_sha256": "cdcb24943d6f9d6475ea3447e2aa584191725a0d78ea9486e25f18d04445f624",
+    "log_sha256": "2f63f3ed590044ede035580b104763ba2368375422439e85ab185f7255b74765",
+    "warnings": [
+      "src/asset_debug.c:161:2: warning: this \u2018if\u2019 clause does not guard... [-Wmisleading-indentation]",
+      "src/game_probe_fields.inc:12:3: warning: this \u2018if\u2019 clause does not guard... [-Wmisleading-indentation]",
+      "src/game_probe_fields.inc:13:3: warning: this \u2018if\u2019 clause does not guard... [-Wmisleading-indentation]",
+      "src/game_probe_fields.inc:14:3: warning: this \u2018if\u2019 clause does not guard... [-Wmisleading-indentation]",
+      "src/render_mirror.c:2346:2: warning: this \u2018if\u2019 clause does not guard... [-Wmisleading-indentation]"
+    ],
+    "warning_scope": "Existing misleading-indentation warnings in unchanged code; no errors"
+  },
+  "superseded_attempt": "Initial binding unit stopped at the old V1 opaque-alpha assertion. The unit now independently checks inward-only source support and observes zero/fractional/opaque coverage; full final binding-v2 gate passes. No production behavior was changed to satisfy the test.",
+  "game_runs": 0,
+  "captures": 0,
+  "committed": false,
+  "published": false,
+  "runtime_acceptance": "Not established; fresh actual-scene RGB/ownership, lifecycle protocol and visual gate remain separate."
+}

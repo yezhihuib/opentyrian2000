@@ -1,0 +1,116 @@
+{
+  "schema": "independent-boss-body-source-review-v1",
+  "reviewed_at_utc": "2026-10-13T02:51:20.545395+00:00",
+  "verdict": "PASS for bounded body implementation/source gate; separate fixture neutrality and durable checkpoint gates remain",
+  "baseline_commit": "5629b3dda05b2aa77af3c624841320d05c0f7130",
+  "baseline_tree": "38bb894192f1f763784df9e43c54543e161d51e3",
+  "reviewed_checkout": "/workspace/scratch/f67dd347fa0a/boss-whole-family-integration-20261013",
+  "source_sha256": {
+    "src/render_mirror.c": "917faf5d61d1d0407b97f1a4749facb60960aae0666bd6728fd623a67783028a",
+    "assets/hd/manifest.json": "944ca31259aca1499957af0946b5d5ebbb5b27c250fea2db8308d8f947417d45",
+    "prototype/build-boss-whole-family-art.py": "9a6fabc029fb3a717bd438c85cf05df84028a1c9d26211b3444b19ae0be2a379",
+    "prototype/build-newsh4-entry6-art.py": "1a23373942d0ee4a35136c1c78da84fb9f3ab7de5e85b977cc6ce43d7c9d285c",
+    "prototype/build-hd-assets.py": "ef59ab2e146f7413310cd02cb58a62da5662a89c2f1a031485f58085b3e91976",
+    "prototype/test-boss-whole-family-preservation.py": "12736b7bf0cdf1828fb36f152f40f94ab7e6cd6b3b3f7ff3f1ec2e490fcd0624",
+    "prototype/test-boss-whole-family-source-guards.py": "988967fd4ec88db807edf4568bf8098d9885a04e52d4e47d155231329b3054ec",
+    "prototype/test-boss-whole-family-binding.py": "1bf6b1e226ee8cc5a5a14c6e9dc39677301346980ba4d97ad5b5b87c69d0dbde",
+    "prototype/test-boss-whole-family-binding.c": "80070469714ccf790d3a3f2ee423319a8824dd9b8e1c06a3b4690a796e6bd8a3",
+    "prototype/test-boss-whole-family-pixels.py": "6f3f7ea19bed8578e23342f3be5b7e2fc006c17f32734bd0ffed91b966058b11",
+    "prototype/test-boss-whole-family-pixels.c": "2add1d0d3be6218ce50aa10be070f9e3633278fdcfa560f6386d5a9c835a17d4",
+    "prototype/test-boss-whole-family-lifecycle.py": "44c37da5b24956ed7cc173257ef08e34064aea17fc0336bc6d8bf8c1f909cba6",
+    "prototype/README-boss-whole-family.md": "e31c262f13b2dadb0869c35bb195988bcd19f9d6f9adcec33d449805ce468851"
+  },
+  "reviewed_document_sha256": {
+    "PLAN.md": "94813a34175996a331565f7c99ed275ece7af4544f90389b0cb6c170446360d6",
+    "REVIEW-ADDENDUM.md": "f86d8c1c854a57e81a16ff0a93232b063b6994ff956fd94dea4880781e30b7c6",
+    "clarification-receipt.json": "5d6266fe304af4d3daeb085c9dbbcbe6373d1b627404bbbcc0e25e1c48b40573",
+    "source-preservation.json": "636c4e945853e41e6e080451682d5bd4edb5e5574e9f6c7da216cb2e9587d4e0",
+    "source-validation.json": "68a79d22286243fb2017aafbbd74891d342914017336dff84aaa50d7b70df5e9",
+    "source-guards.json": "b817c22b4f91396b62d492803bd297cc7ade3c50e27228f94db4886c6d79ac8c",
+    "source-entry-coexistence.json": "9f661319771d19e640547472722c7491731ad8ad70ccf12f4b9eedd24f53e757",
+    "unit-tests.md": "93ce2cd10d2d4d1e6d87e57adbbf684301595630f29bf54ee28c1eaedd440402",
+    "unit-binding-receipt.json": "44e37d9e3eac61e405495520b40ce87727f5f9221788d06c820352cc59a02fb0",
+    "unit-pixels-receipt.json": "e62495c5c2afad231331574a997cfec23a47511acfa00d90b27a3e43518f6886",
+    "unit-lifecycle-receipt.json": "18eb025a90895dc1e9c85a7c52a71715360997cec7857941bfc04c8fa00b22c1",
+    "aggregate-source-validation.json": "82500ad6c36f13131c99aaf88ce7ec45d1049a54007ce593575c1acc56d31d74",
+    "source-toolchain.json": "e61345b20d04089aadc09d3561addce777058c3d7cf1db81323542da4ea46eeb"
+  },
+  "findings": [
+    "Exactly forty nonempty finite body slots422..461 are appended; bank2/role102, original records46..65, size1 and each exact record/base pairing scope the binding.",
+    "All forty exact-density8 HDA headers and full RGBA FNV stamps are preflighted before any first draw. Missing, malformed, changed or allocation-failed member disables the whole body family for the immutable selected-pack cache lifetime; unrelated families remain independent.",
+    "Empty238/278/282 remain unbound original noops. Record1 and entry470/473 raw-cell aliases do not gain boss bindings. Equal128/280 payloads retain separate logical IDs, headers and slots.",
+    "Per-quadrant geometry declines before subtraction/scaling for invalid layouts, row wrapping, unsupported coordinates and integer extremes. Original ordered indexed blits and filter/reset path are unmodified.",
+    "Full preservation rerun checks6163 prior files/modes,609016383 identical prior asset bytes, exact inverses of the four changed previous files, and byte-identical gameplay/state/RNG/event/shot/effect/bossbar/HUD source.",
+    "Entry validator exceptions86/124 are derived only after full on-disk boss validation. No flag-only/numeric shortcut or recursion. Raw aliases105/143, incomplete/corrupt imports, wrong record scope and renamed aliases reject.",
+    "Imported frozen art has exactly153 files, independently byte-identical to the original formal-boss-whole-family-v1 package. Original data reconstruction,43 PNG/HDA pairs, exact alpha, provenance and deterministic regeneration pass.",
+    "Extracted lifecycle branches use exact original source. Nine intact/wreck/absent threshold combinations, early pre-event5400 left42 exclusion, ram threshold bypass/removal, negative-dani selectors, center pause/wrap and byte-equal unavailable partial-spawn records pass. Fixture inputs and recorder-leaf limitations are explicit."
+  ],
+  "independent_reruns": {
+    "preservation": {
+      "status": "PASS",
+      "receipt": "/workspace/scratch/f67dd347fa0a/boss-source-independent-review-20261013/preservation.json",
+      "sha256": "636c4e945853e41e6e080451682d5bd4edb5e5574e9f6c7da216cb2e9587d4e0"
+    },
+    "original_data_art_reproduction": {
+      "status": "PASS",
+      "log": "/workspace/scratch/f67dd347fa0a/boss-source-independent-review-20261013/source.log",
+      "sha256": "68a79d22286243fb2017aafbbd74891d342914017336dff84aaa50d7b70df5e9"
+    },
+    "original_frozen_package_comparison": {
+      "status": "PASS",
+      "files": 153,
+      "receipt": "/workspace/scratch/f67dd347fa0a/boss-source-independent-review-20261013/frozen-original-exact.json",
+      "sha256": "5d5c0712b25ac83b91fc5d42fff26c932a6d350304174dd94512641816bad62d"
+    },
+    "entry_coexistence": {
+      "status": "PASS",
+      "negative_cases": 14,
+      "receipt": "/workspace/scratch/f67dd347fa0a/boss-source-independent-review-20261013/coexistence/receipt.json",
+      "sha256": "266a9a6370502fcb08658ad04161f3445a9e18ddc8ee038f45c1a6cab3f7fbca"
+    },
+    "complete_binding_suite": {
+      "status": "PASS",
+      "receipt": "/workspace/scratch/f67dd347fa0a/boss-source-independent-review-20261013/binding/receipt.json",
+      "sha256": "9024d77362ce88ede126848c8d88600a076288a9fef84207d2b0cbdf38935c18",
+      "resource_failure_cases": 520,
+      "disk_cache_mutation_cases": 160,
+      "allocation_failure_positions": 40,
+      "original_rle_cases": 350880
+    },
+    "current_lifecycle_unit": {
+      "status": "PASS",
+      "receipt": "/workspace/scratch/f67dd347fa0a/boss-source-independent-review-20261013/lifecycle-final/receipt.json",
+      "sha256": "18eb025a90895dc1e9c85a7c52a71715360997cec7857941bfc04c8fa00b22c1",
+      "harness_sha256": "48d17945408ffbdc9932971957c2763248ad10d65971b36df1e6e6316e923697",
+      "sanitizers": "ASan and UBSan; leak detection disabled"
+    },
+    "pixel_suite": {
+      "status": "Reviewed supplied passing receipt and actual harness; all source pins current; not independently rerun",
+      "receipt_sha256": "e62495c5c2afad231331574a997cfec23a47511acfa00d90b27a3e43518f6886"
+    },
+    "source_guard_full_suite": {
+      "status": "Reviewed supplied2284-case receipt and actual validator/harness; all input pins current; not independently rerun in full",
+      "receipt_sha256": "b817c22b4f91396b62d492803bd297cc7ade3c50e27228f94db4886c6d79ac8c"
+    }
+  },
+  "toolchain_note": "First independent lifecycle attempt lacked SDL pkg-config. Second lacked Debian multiarch include path. Final unchanged-script rerun passed using the existing recovered SDL development headers and CPATH; no installed-software change or production edit.",
+  "freeze_hygiene": [
+    {
+      "item": "source-toolchain.json README hash must be refreshed after documentation clarification",
+      "saved_sha256": "80773926942c2ce3cbe9c750a56909da7f6a375a30a03730768978cbc68ce220",
+      "current_sha256": "e31c262f13b2dadb0869c35bb195988bcd19f9d6f9adcec33d449805ce468851",
+      "code_blocker": false
+    }
+  ],
+  "limits": [
+    "No engine/game run, census, capture, native visual acceptance, combat or publication occurred in this review.",
+    "Lifecycle unit does not execute JE_makeEnemy, actual event scheduler, source weapon firing/launch allocation, shot decode/flight/collision targeting/filter setup, player death, bossbar drawing, or full repeated-effect tick loop. Large-admission routine is exact, but effect tick/provenance remains separate.",
+    "Pixel unit evidence is isolated extracted-source behavior with stated stubs and periodic whole-frame comparisons; it does not establish bossbar/HUD runtime appearance or whole-scene exposure.",
+    "Source preservation does not prove actual observer neutrality. No census launch clearance until independent fixture-neutrality review plus clean source checkpoint/durable bundle verification.",
+    "P/R trajectories, captures, weapon81 closure, boss launch-context closure, all-mode pickup closure, exhaustive combat and Windows runtime remain outside this verdict."
+  ],
+  "production_edits_by_reviewer": false,
+  "game_runs": 0,
+  "captures": 0,
+  "publication": false
+}

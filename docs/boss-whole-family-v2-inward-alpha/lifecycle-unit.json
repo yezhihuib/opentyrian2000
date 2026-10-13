@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "unit_kind": "Extracted original source blocks with synthetic source-record fixtures; no game run",
+  "threshold_combinations": 9,
+  "partial_spawn_guard": "All unavailable fixture records byte-equal before/after; constructor/event scheduler not executed",
+  "sanitizers": "ASan+UBSan; leak detection disabled for ptrace environment (fixture uses static storage)",
+  "source_fragments_sha256": {
+    "projectile": "b7a3ad074534ca6da372bdb5553f85134d92043481b1999441928e2008aa73e4",
+    "ram": "eaa6719359c30599460cb08d3f8f90e4bca643879b20e41a57cdace2a8634491",
+    "cycle": "cd42b7cc86cb79baac5e9be2e83bdf442523312d042a01c6eba001b91a5f25b4",
+    "large_explosion_creation": "54167b85b361b188e775373a5a2d8de1afafd94f9438add45b9bf5b474b61085"
+  },
+  "source_files_sha256": {
+    "tyrian2.c": "0a042621d599fdba15f89012c9bb1007327cd6f5df0e0a41865ea61c08856d02",
+    "mainint.c": "9dcc36f29e71bbd9999fd6097fa43148de65e4476967353cbd9b1e1013a52805",
+    "varz.c": "d4502557903eea9fc082b83385fee3448564124040ff27faa1a4af16c8e394c7"
+  },
+  "harness_sha256": "48d17945408ffbdc9932971957c2763248ad10d65971b36df1e6e6316e923697",
+  "game_runs": 0,
+  "captures": 0,
+  "limits": [
+    "JE_makeEnemy and original event scheduler not executed; normal-difficulty record initialization is explicit",
+    "JE_playerDamage/JE_setupExplosion leaves are recorders; no claim about player-death or full effect tick lifecycle",
+    "Shot decode/flight/collision targeting/filter setup are outside extracted branch; no artificial input authorization inferred",
+    "Center triggers are explicit fixture inputs; launch success/failure remains source review and later census"
+  ]
+}

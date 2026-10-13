@@ -1,0 +1,15 @@
+# Frozen whole-boss family, V1
+
+Root approved the complete21-state native2x pilot, intact/damage comparison and all-eight center states. Forty nonempty images plus three intentional empty images are represented by43 complete24x28 outputs. Each is density8/192x224, anchor6,7, bank2/newsh4, HDR1 key1020000+base. Original four ordered calls use offsets0,1,19,20. Initial20-part assembly120x112 remains independent actors, not one flattened runtime sprite.
+
+Rebuild: python3 rebuild.py /new/output/directory. The deterministic recipe reconstructs every approved PNG/RGBA/HDA from three generated raster masters and source-derived masks. Input hashes and output RGBA/HDA hashes are checked. Original raster RGB remains local reference-only and is excluded from this package. Metadata and binary masks provide provenance.
+
+The intact whole master is registered once, then partitioned at exact source positions. Damage uses the same registration with a source-derived changed-region mask, preserving surviving common structure. Center firing-light variants share the same body pixels outside8x rectangle[78,166,114,202], entirely inside the source animation-change envelope.128/280 are byte-identical.238/278/282 are truly empty, not replacement remnants.43 PNG/HDA files include these empties explicitly for audit; integration must preserve original no-op semantics.
+
+The center53 sequence1/3/5/7/39/41/43/45 is firing/launch-triggered, pauses at8 and restarts only under original conditions. Record1 reuses these eight bases elsewhere. Records52/54 jump directly from50/54 to202/206 after the original threshold; there is no visible reverse three-frame animation.
+
+Left link42 and right link141 claw groups translate independently and can be intact, wrecked or wholly absent. No rotation or artificial connecting geometry is introduced. Core threshold is asymmetric, with the right outer rail damaged differently. Twenty-one composed source states and four translated source-projected contexts were reviewed; their exact masks and common center structure pass proof/assembly-and-join-verification.json. These are artwork/source projections, never game captures.
+
+Preserve full lifecycle-contract.json: threshold toggles, side same-link aftermath, body-collision absent branches, main linked removal, original armor/difficulty and stale scoreitem quirk. Ground flag is a filter/explosion classification despite sky draw placement. Use original hit/ice palette transform on existing frames, not separately painted tint assets. Keep original RLE edge fallback and later layer/effect/UI ordering.
+
+Separate dependencies remain: accepted type3 launched sprites, weapon81 seven enemy-projectile bindings, existing orb/effect resources and bossbar. No new body artwork is needed for generic explosions or final removal. This package does not claim whole-boss runtime closure. Fresh intact/animation/threshold/side-wreck/absence/movement/launch/projectile and fallback gates remain integrator-owned. No code, captures or publication are included.

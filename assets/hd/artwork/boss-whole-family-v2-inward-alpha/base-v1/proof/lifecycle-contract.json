@@ -1,0 +1,112 @@
+{
+  "geometry": {
+    "whole_initial_size": [
+      120,
+      112
+    ],
+    "components": "20 independent24x28 source actors; five columns at24px and four rows at28px, no initial component overlap",
+    "anchor": [
+      6,
+      7
+    ],
+    "draw_parts": [
+      [
+        0,
+        -6,
+        -7
+      ],
+      [
+        1,
+        6,
+        -7
+      ],
+      [
+        19,
+        -6,
+        7
+      ],
+      [
+        20,
+        6,
+        7
+      ]
+    ],
+    "clipping": "x gate -29 < ex+mapX2Ofs <300. Top two cells drawn iff ey>-13; bottom cells iff -26<ey<182. Preserve linear-address RLE wrapping at physical left/right edges with classic fallback; do not silently substitute rectangular clipping.",
+    "layer": "Event15 uses sky pool slots0..24, mapX2Ofs, tempBackMove0. Draw ascending allocated slot then parts0,1,19,20. At this level skyEnemyOverAll=false; background3over=1 from event3500, so layer3 draws after sky, player shots and enemy shots; later effects/player/UI may occlude. enemyground=true is the explosion/filter classification, not terrain-layer membership.",
+    "shadow": "No separate shadow call in boss blit branch; do not invent shadow artwork."
+  },
+  "states": {
+    "intact": "27 unique initial/function animation bases:20 parts with center53 using8 instead of1. Center animation is firing/launch triggered, not heading selection.",
+    "central53": "animate2 starts cycle1/aniactive2. Successful projectile or launch trigger sets active1. Subsequent eligible draws advance2..8 and stop at8; another trigger wraps through1..8. A damage transition fixes base1, ani1, inactive, aniwhenfire0. Eight bases are1/3/5/7/39/41/43/45.",
+    "negative_dani52_54": "dani=-3,dgr=3,egraphic=[50 or54,0,202 or206]. Start visually intact atindex1 but edamaged=true, which disables all firing/launch. Main-core threshold toggles false and sets animin=3,ani=3,cycle2; next draw advances3 and remains on202/206. Neither zeroindex2 nor three-frame reverse animation is a visible state. Then weapon59 can fire from turret2.",
+    "damage_threshold": "For nonlethal hit when oldarmor-damage<=40 and toggle predicate permits: original link142 propagates to all positive-dlevel same-link core parts, link42 via enemyContinualDamage after event5400, and link141 through same /20 group and<= comparison. Existing main parts switch to damage bases; records61/65 with edgr0 are removed. It can affect already-dead side wrecks; preserve original availability and toggles.",
+    "side_death": "Direct lethal link42 or141 destroys its zero-dlevel outer bottom end (61 or65); same-link dlevel=-1 parts become enemyAvail2, edamagedtrue, static aftermath sprite. Left56/62 use empty238/278; left57 uses240. Right64 uses empty282; right59/60 use244/246. Side groups can be lost independently; same eight center animation states can coexist with intact/left/right/both side aftermath.",
+    "main_death": "Lethal link142 removes linked142, link42 by-100, and link141 by group comparison. Because side links differ from the hit link, the dlevel=-1 same-link aftermath exception does not apply. No dedicated final intact boss sprite exists; generic explosions remain.",
+    "finite_image_state_product": "Before core threshold, three visual conditions per side (intact, wreck, absent) times8 center frames give up to72 compositions using the same finite bases. Core threshold produces damaged main body with each side wreck-or-absent, four compositions. Contacts show8 center frames, all8 other side combinations,4 core-threshold compositions, and final removal (21 panels); no exhaustive frame-by-state Cartesian duplication is needed for artwork.",
+    "armor": "46..55,58,63 source254;56,57,59,60,62,64 source100;61/65 source0->avail2/armor255. Difficulty scaling remains source-controlled.",
+    "body_collision": "mainint.c:5062..5130 has a separate ship-body collision path for avail0 actors: nonlethal damage changes armor without threshold sprite transition; lethal hit clears linked actors outright, resets link0, and makes generic explosions, with no same-link dlevel=-1 wreck exception, drop or score award. Therefore left/right groups can be intact, projectile-wreck, or wholly absent. These combinations use the same40 nonempty image set; absent groups need no new art."
+  },
+  "drop_and_value": {
+    "default_drops": "All20 eenemydie0; boss53 value1 increments cubeMax on death directly, not a spawned cube sprite;48 awards250 scaled cash.",
+    "historical_link42_assignment": "Event45 at1627 assigns628 to old current link42 actors only. Boss spawns at5300+ reset enemydie from their records, so this old assignment is not a boss drop. No later relevant boss drop assignment.",
+    "armor0_scoreitem_quirk": "JE_makeEnemy does not clear recycled scoreitem on armor0/value0 parts61/65. Fresh usual state can befalse, but do not forcefalse or gate HD on it. If stale true, collection can remove part and request fixed explosiontype36->newsh6:185. This is a generic engine-state branch, not a boss pickup design."
+  },
+  "effects": {
+    "hit": "newsh6:146..152, ordinary hit type0",
+    "threshold": "Every affected esize1 calls JE_setupExplosionLarge(enemyground=true,explonum/2=9): ground four-quadrant effects types2..5 plus9 repeated small explosions.",
+    "lethal": "JE_setupExplosionLarge(true,18): ground four-quadrant burst, then explonum>10 reduces to8 and big=true. Each repeat makes air-large effect types7..10 with2 repeated small explosions.",
+    "newsh6_bases": "Ground154..165,173..184,192..203,211..222; air3..14,22..33,41..52,60..71; repeated small122..133; hit146..152. These existing generic effect resources are dependencies to preserve, not new boss body art.",
+    "blend": "Original explosionTransparent branch chooses existing normal/blend renderer; do not change operator or draw order."
+  },
+  "projectiles": {
+    "weapon59": "Records52/54 turret2 initially disabled by edamaged; becomes active after threshold, frequency10. Base112,2-frame112/113.",
+    "weapon127": "Record53 turret1, frequency60,5-shot pattern; each uses112/113.",
+    "weapon81": "Record53 turret3 frequency0 initially; first event6025 sets slot3 frequency5 through6075. Seven positions/7 simultaneous projectiles use bank8 bases77,58,182,163,1,183,164. Later source bursts at6275,6400,6900,7640,7830,8000; preserve exact event override.",
+    "launch_disable": "Same first event31 at6025 sets launchfreq0 via dat5=0 and wait1; later overrides also havedat5=0. Source90-tick launch cadence applies before6025 if actor active/uniced, pool available.",
+    "binding": "Only112/113 use current draw_enemy_shot_sprite2 hook; all other seven go through direct classic blit_sprite2. Existing player-role assets do not create enemy binding."
+  },
+  "launch": {
+    "record": 3,
+    "source_bank": "newsh2.shp",
+    "six_bases": [
+      171,
+      190,
+      209,
+      228,
+      247,
+      266
+    ],
+    "size": [
+      12,
+      14
+    ],
+    "anchor": [
+      0,
+      0
+    ],
+    "sequence": [
+      171,
+      171,
+      190,
+      190,
+      209,
+      209,
+      228,
+      228,
+      247,
+      247,
+      266,
+      266
+    ],
+    "pool": "Boss is JE_drawEnemy25, so launch allocates same sky pool0..24; 20boss parts leave at most5 free slots. Launch origin takes post-movement boss ex/ey; small type3 y=tempY+startyc(0)-7. launchspecial0 leaves link0. Placement/update within same ascending-slot loop depends on free-slot index.",
+    "own_lifecycle": "No damage frame/turret/ownlaunch/drop; generic small death; original homing xaccel92 and ymove must stay source-controlled.",
+    "reuse": "Same six source bases also used by record16 elsewhere; preserve record/type scope rather than rawtile alias. Current b2a6e4a lacks accepted local type3 resources/binding; restoration or separate six-frame completion is required."
+  },
+  "filters": {
+    "original": "blit_sprite2_filter writes filter | (source_index &15); occupancy is RLE command coverage, including opaque palette0 if any.",
+    "hit": "Ground-flagged linked actors receive the projectile-provided filter; reset after eligible draw.",
+    "ice": "Iced ground actor sets filter0x09 on later draw; freezes shots/launch, not a new body sprite.",
+    "hd": "Use existing enemy_filter_rgba brightness-ramp transform and original argument/timing; preserve original binary alpha at8x, no separately generated tints."
+  },
+  "ui": "Event79 at5400 activates bossbar link142; bar uses minimum active armor, primitive indexed bars at y7 under ordinary setup. It is not newsh4 artwork and needs independent UI acceptance if claiming full boss scene."
+}

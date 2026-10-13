@@ -1,0 +1,311 @@
+{
+  "schema": "boss-main-import-preservation-compact-v1",
+  "status": "PASS",
+  "created_utc": "2026-10-13T08:26:54.688540+00:00",
+  "historical_runtime_baseline": "5629b3dda05b2aa77af3c624841320d05c0f7130",
+  "current_main": "b80a81894ce9b708024f1a07ba3f0fcbd54708d2",
+  "tested_boss": "cd10a90be53c2e41eae3462a366d590a0207c59e",
+  "tested_boss_tree": "40056d7453252e0393c2348b29f5b7de8386a84f",
+  "imported_commits": [
+    "9867dbf280fe554ac655e7877460379ad38eb93b",
+    "5df347bc20483b486d1248d5aebacfe41ce235ad"
+  ],
+  "import_tree": "a47b5844ccb29475f1691215dcae303c9840479f",
+  "scope": {
+    "boss_paths_changed": 563,
+    "main_paths_changed_since_runtime_baseline": 199,
+    "overlap": [
+      "assets/hd/manifest.json",
+      "prototype/build-hd-assets.py",
+      "src/render_mirror.c"
+    ],
+    "current_main_tracked_files": 6338,
+    "import_tracked_files": 6897,
+    "current_main_files_identical": 6334,
+    "current_main_files_modified": [
+      "assets/hd/manifest.json",
+      "prototype/build-hd-assets.py",
+      "prototype/build-newsh4-entry6-art.py",
+      "src/render_mirror.c"
+    ],
+    "current_main_deleted_files": [],
+    "boss_asset_paths_exact_tested": 523,
+    "tracked_worktree_bytes_checked": 690482598
+  },
+  "all_current_main_files_except_four_exact_bytes_and_mode": true,
+  "all_nonoverlap_boss_paths_exact_tested_bytes_and_mode": true,
+  "no_new_game_run": true,
+  "compile": "Not run; parent owns final build. This receipt is source/tree-only.",
+  "runtime_evidence_context": {
+    "source": "Parent supplied prior completed V2 acceptance; not rerun here",
+    "attempts": 16,
+    "native_captures": 66,
+    "indexed_captures": 66,
+    "comparisons": 34,
+    "qualification": "39 direct-opaque members; base 246 composed-only. Do not call all 40 direct-opaque."
+  },
+  "renderer": {
+    "path": "src/render_mirror.c",
+    "historical_baseline_sha256": "7a39ffd4959c307c23707ae63c41030cd92ef757375b95f680445ff4f3e85420",
+    "tested_boss_sha256": "67a0ec74be3e83d3660b5e3c6df2ede6c180e341c5946ce5503640744e0e1016",
+    "current_main_sha256": "b966b9ffe776c47b89a03ff901947cdc735eefa42b8514272eb18eb5dfebab10",
+    "import_sha256": "1514387960080422866530e8e831629fb2622b98c5be1b5c06ca880b26c36c38",
+    "boss_added_lines": 76,
+    "boss_removed_lines": 1,
+    "boss_signed_delta_sha256": "2c62cc3a3564251cb244bd3b71e92fae3faaaeb1933cdfafc70f9fc903e2019b",
+    "boss_signed_delta_exact_tested": true,
+    "main_typography_added_lines": 7,
+    "main_typography_removed_lines": 0,
+    "main_typography_signed_delta_sha256": "8e62848afb9b7c39af1d449442618e644097a592abcbc0cb306d2de22a00a794",
+    "main_typography_signed_delta_exact": true,
+    "boss_slices": [
+      {
+        "label": "boss readiness and record selector",
+        "tested_line": 1675,
+        "import_line": 1682,
+        "lines": 60,
+        "sha256": "c48832bc3bb1137af856b1cccd0221e4376911486a931663becd1e60ff7ecc6b",
+        "exact": true
+      },
+      {
+        "label": "ordered boss draw binding",
+        "tested_line": 1821,
+        "import_line": 1828,
+        "lines": 15,
+        "sha256": "ba2a0bee2260fa1b385b62a7b5247e0c2d7f03b092df51c91ab7e3b74021f3db",
+        "exact": true
+      }
+    ],
+    "removing_only_boss_hunks_restores_full_current_main_bytes": true
+  },
+  "conflict_resolution": {
+    "assets/hd/manifest.json": "Kept exact current-main settings object plus exact tested V2 boss object and finite pack/source entries; removing boss entries restores current-main bytes/order/formatting.",
+    "prototype/build-hd-assets.py": "Exact settings and boss validation blocks, with both counter sets. Removing either addition restores the other branch byte-exactly.",
+    "src/render_mirror.c": "Git automatic non-overlapping merge; exact signed deltas in both directions."
+  },
+  "source_identity_qualification": "The import is NOT whole-src identical to the historical 5629 runtime baseline or cd10a90 tested boss tree. Current-main typography modified/added 18 src paths. Seventeen are retained byte-exact to main; render_mirror.c combines exact current-main seven-line typography delta with exact tested boss +76/-1 delta.",
+  "historical_typography_changed_src_paths": [
+    "src/helptext.c",
+    "src/load_font.c",
+    "src/load_font.h",
+    "src/mainint.c",
+    "src/opentyr.c",
+    "src/palette.c",
+    "src/params.c",
+    "src/picload.c",
+    "src/render_mirror.c",
+    "src/render_mirror.h",
+    "src/settings_font.c",
+    "src/settings_font.h",
+    "src/sprite.c",
+    "src/startup_logos.c",
+    "src/startup_logos.h",
+    "src/title_layers.c",
+    "src/title_layers.h",
+    "src/video.c"
+  ],
+  "gameplay_state_collision_rng_identical_across_all_four_revisions": [
+    "src/tyrian2.c",
+    "src/tyrian2.h",
+    "src/varz.c",
+    "src/varz.h",
+    "src/episodes.c",
+    "src/player.c",
+    "src/player.h",
+    "src/shots.c",
+    "src/shots.h",
+    "src/mtrand.c",
+    "src/mtrand.h",
+    "src/nortvars.c",
+    "src/nortvars.h",
+    "src/entity_draw.c"
+  ],
+  "hud_identical_across_all_four_revisions": [
+    "src/gameplay_hud.c",
+    "src/gameplay_hud.h",
+    "src/gameplay_hud_components.c",
+    "src/gameplay_hud_components.h",
+    "src/gameplay_hud_fixed_text.c",
+    "src/gameplay_hud_fixed_text.h",
+    "src/gameplay_hud_font.c",
+    "src/gameplay_hud_font.h",
+    "src/gameplay_hud_font_mirror.inc",
+    "src/gameplay_hud_indicators.c",
+    "src/gameplay_hud_indicators.h",
+    "src/gameplay_hud_meters.c",
+    "src/gameplay_hud_meters.h"
+  ],
+  "bossbar": {
+    "function": "draw_boss_bar",
+    "path": "src/tyrian2.c",
+    "sha256": "930114932a7b6e5daa69993667f479d96ce3215f937c3eab9b4f59b1da300e7c",
+    "start_line": 5410,
+    "whole_file_identical_across_all_four_revisions": true
+  },
+  "original_data": {
+    "scope": "Three tested boss source inputs checked against exact pinned SHA256. They remain external and were read only. No original data is copied into the import.",
+    "files": [
+      {
+        "path": "external-original-data/newsh4.shp",
+        "bytes": 27109,
+        "expected_tested_sha256": "ab8881b4a26e723650780b19d5aed4ebfe410ea450d4bf7b80840628d61fd89b",
+        "actual_sha256": "ab8881b4a26e723650780b19d5aed4ebfe410ea450d4bf7b80840628d61fd89b",
+        "match": true
+      },
+      {
+        "path": "external-original-data/tyrian.hdt",
+        "bytes": 295069,
+        "expected_tested_sha256": "fde8506326e7bb0916b38c362e33bf8a8a5affa561206c021af7f65b4a17745b",
+        "actual_sha256": "fde8506326e7bb0916b38c362e33bf8a8a5affa561206c021af7f65b4a17745b",
+        "match": true
+      },
+      {
+        "path": "external-original-data/tyrian1.lvl",
+        "bytes": 538856,
+        "expected_tested_sha256": "54cbb00b57b84aa992a70cfcb170cb1edeb59507873723630d60080ba8351352",
+        "actual_sha256": "54cbb00b57b84aa992a70cfcb170cb1edeb59507873723630d60080ba8351352",
+        "match": true
+      }
+    ]
+  },
+  "production_harness_exclusion": {
+    "new_src_files": [],
+    "changed_src_files": [
+      "src/render_mirror.c"
+    ],
+    "Makefile_unchanged": true,
+    "existing_game_probe_files_unchanged": true,
+    "boss_source_delta_exact_audited_source": true,
+    "private_runtime_fixture_or_probe_imported": false,
+    "qualification": "Existing baseline game_probe instrumentation remains unchanged. New source-unit harnesses live under prototype, not the production src wildcard. Historical docs are retained verbatim; no full runtime evidence was copied into this repo."
+  },
+  "gameplay_and_hud_sha256": {
+    "src/entity_draw.c": "f53e4b531023ad54d54f9755d427f5e028213d02a1b5bc6c042d27b4566c24ba",
+    "src/episodes.c": "640219b48d3081ee996ce66a66f61ad2fe185339fcfaf395808e02fcee0b29e0",
+    "src/gameplay_hud.c": "fecbb296db28a059743aae0bd314d93315d8e46e47786bb3d17ad6dc04a54b6a",
+    "src/gameplay_hud.h": "90be7715c069b1a382e5cb48b1007c1fbaeb284482694ffc5b22e98cb6817e60",
+    "src/gameplay_hud_components.c": "6f47d8079c889cb574d65198cb8734ea3187f010214d4fca78c69bdb66757ab6",
+    "src/gameplay_hud_components.h": "2af78b5c5368857cdb14018d29c5e3180000751dfac5cff064f739649ec1e42c",
+    "src/gameplay_hud_fixed_text.c": "3d637c23ca8d410a3e2720a024a4bd1a48a58c9ad92a1b742b5801dd23bfdc3a",
+    "src/gameplay_hud_fixed_text.h": "923ada7701b06a8f1dc6d9276e955f8ce3b17853e8d388f5e06eff314984582f",
+    "src/gameplay_hud_font.c": "02237476b400f8d7b78e5331000bff4d8cbb5d1f22108f907b388240c74f4221",
+    "src/gameplay_hud_font.h": "e960503ca8b7a87e2083fe2f96fb54f06d1a53a2b7d1258ed88a84df93e5a29f",
+    "src/gameplay_hud_font_mirror.inc": "e54f546cc60c679e1b2a2f55869e0f96c0c955a3bcdcf00103e5058a842bef1c",
+    "src/gameplay_hud_indicators.c": "05d125af540fdfc478141d10a6cb1cd3b06b3ba12c008a28c4941d8954ee1961",
+    "src/gameplay_hud_indicators.h": "e19fa83820ace574cdf12cb5a6f8081353edc63bfb7001fac6c14b460c272ff5",
+    "src/gameplay_hud_meters.c": "83fa59265a26e8af6c523dc6e7188fb66c07bcc3b6762f7a8ae07a57b32a69e6",
+    "src/gameplay_hud_meters.h": "c8e4fa4f2da223caddb08882a6b98f808ec22817457a2f745913fa0466eba911",
+    "src/mtrand.c": "9bb519b6b67d990184da25f1d373858760d2952a782c3e850e2f21c972c01f95",
+    "src/mtrand.h": "a116de45cc7fd429824e3ef729ace3d5af0ce50fa890a96cf3261ead74dcc4b3",
+    "src/nortvars.c": "c5e048d081ce402cdb84f2fd73040aea936f1910cd343a326178b1edac11f077",
+    "src/nortvars.h": "8ef1d0aba8a44d221ca0d700226da2f64b990f7b7b0c2140abba926a1437aa16",
+    "src/player.c": "cda0f507f73e9024112a289e5d1951bd4246f4580c9c266ff538cc063e14eb3a",
+    "src/player.h": "f1c5d26624d1c2b86531e620908701a1a2bfe22a902f4f760672ae52f06446b6",
+    "src/shots.c": "ec0f326f407849037af1a0218a1bfed1f3f2a720301a053afd3a7d25c7391405",
+    "src/shots.h": "b6e009500719222b134f508e3db2bf3c365a9e1f54e576f8465f98ff6f364042",
+    "src/tyrian2.c": "0a042621d599fdba15f89012c9bb1007327cd6f5df0e0a41865ea61c08856d02",
+    "src/tyrian2.h": "1341c4371128fda951031caef18ad6bd154beb9e187bd800a25ebb1ed1c4c32f",
+    "src/varz.c": "d4502557903eea9fc082b83385fee3448564124040ff27faa1a4af16c8e394c7",
+    "src/varz.h": "7c5b67fdb8f595d928432f0fb4d5b936c15bd7f881a00c24f7677e8e2f38dc56"
+  },
+  "exact_source_file_pins": {
+    "src/helptext.c": {
+      "sha256": "514112d21eb7c2d398886de891875021e128b56bad242cd4429e4a20008d5341",
+      "identical_current_main": true,
+      "identical_tested_boss": false
+    },
+    "src/load_font.c": {
+      "sha256": "7f13a50a2896001806198f963e5f9a74c5c44f37cf2e5e07843da5198251a54a",
+      "identical_current_main": true,
+      "identical_tested_boss": false
+    },
+    "src/load_font.h": {
+      "sha256": "4a79c8f4631fe02e91181535b088b1a9a0853c5d787c0f8e53bfc67efe13fe93",
+      "identical_current_main": true,
+      "identical_tested_boss": false
+    },
+    "src/mainint.c": {
+      "sha256": "0b39b8af90f981bce50762de98eb2458282ed3031780235a8ade405945dcddf8",
+      "identical_current_main": true,
+      "identical_tested_boss": false
+    },
+    "src/opentyr.c": {
+      "sha256": "e832723fdcbf743035dede701a1a392f671e2168af64e1220e0eadc97ba0a71e",
+      "identical_current_main": true,
+      "identical_tested_boss": false
+    },
+    "src/palette.c": {
+      "sha256": "22875c744f395a40ce98f016cd63d1a6b2d9b8bdea937825e397340db10bdd7f",
+      "identical_current_main": true,
+      "identical_tested_boss": false
+    },
+    "src/params.c": {
+      "sha256": "b5122da9e4ae7619ef9dd968864d899770699ea3b89436097ab8c7b181a88663",
+      "identical_current_main": true,
+      "identical_tested_boss": false
+    },
+    "src/picload.c": {
+      "sha256": "da627c27a99af47cc6bb25bd6a434de6de21efe3c927819cc7b6e86a6bd0b805",
+      "identical_current_main": true,
+      "identical_tested_boss": false
+    },
+    "src/render_mirror.c": {
+      "sha256": "1514387960080422866530e8e831629fb2622b98c5be1b5c06ca880b26c36c38",
+      "identical_current_main": false,
+      "identical_tested_boss": false
+    },
+    "src/render_mirror.h": {
+      "sha256": "5b0e97f7095f1eb60ec12e749b846c7d702127bd2373a98a4eb7d911b9d72e40",
+      "identical_current_main": true,
+      "identical_tested_boss": false
+    },
+    "src/settings_font.c": {
+      "sha256": "aeefbab87e4b50f48d2b40ab907db6ab5ae4260c8e1b8ecd621f4e15ba1b6980",
+      "identical_current_main": true,
+      "identical_tested_boss": false
+    },
+    "src/settings_font.h": {
+      "sha256": "13dd589922cbdad09b892a815073997d59f6f6bad95df9623247faf571ba109f",
+      "identical_current_main": true,
+      "identical_tested_boss": false
+    },
+    "src/sprite.c": {
+      "sha256": "f55491df5ec34163e3c46da7607c132449fa4d299117a768ae91dd9cf92b5886",
+      "identical_current_main": true,
+      "identical_tested_boss": false
+    },
+    "src/startup_logos.c": {
+      "sha256": "6db4730cef41cda023fe854b39070af6a0b531b82009ec6bdd4a2504a3750128",
+      "identical_current_main": true,
+      "identical_tested_boss": false
+    },
+    "src/startup_logos.h": {
+      "sha256": "5ddd20f33596b526c6e12a2c8d5fefcdc7dc293464b1432bd43b561f1f5e9a43",
+      "identical_current_main": true,
+      "identical_tested_boss": false
+    },
+    "src/title_layers.c": {
+      "sha256": "96baba45f796e808b30a5ae571c727735e282fe23396c9579b992ca5187a3ce5",
+      "identical_current_main": true,
+      "identical_tested_boss": false
+    },
+    "src/title_layers.h": {
+      "sha256": "96fcf5a15aa10928eb067e329d46be10effd685df19406a9d8c627fdf07328a7",
+      "identical_current_main": true,
+      "identical_tested_boss": false
+    },
+    "src/video.c": {
+      "sha256": "dd28a2f88916df7aa706efd4e6d6d3e6bb30abf1c5195791f72ae19ca1c6f5d5",
+      "identical_current_main": true,
+      "identical_tested_boss": false
+    }
+  },
+  "exhaustive_verification": {
+    "tracked_import_bytes_read": 690482598,
+    "tracked_import_modes_and_git_blobs_verified": true,
+    "all_6338_current_main_files_compared": true,
+    "all_523_imported_boss_asset_files_compared_to_tested_commit": true,
+    "all_production_source_files_compared": true,
+    "exhaustive_manifest_sha256": "56fef34dca08d1c1da7685e6976b7c3d340df462513065335f76d3edb5371220"
+  }
+}

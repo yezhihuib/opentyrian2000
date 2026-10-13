@@ -1,0 +1,55 @@
+{
+  "status": "PASS_SOURCE_AND_EXTRACTED_UNIT_GATES_NO_RUNTIME",
+  "baseline_commit": "5629b3dda05b2aa77af3c624841320d05c0f7130",
+  "body_members": 40,
+  "intentional_empty": 3,
+  "slots": [
+    422,
+    461
+  ],
+  "production_changed_files": [
+    "src/render_mirror.c"
+  ],
+  "production_renderer_sha256": "917faf5d61d1d0407b97f1a4749facb60960aae0666bd6728fd623a67783028a",
+  "source_preservation": "Exact inverse restores four touched baseline files; all prior asset bytes and all other production sources unchanged",
+  "fresh_checks": [
+    "Linux build with restored sysroot",
+    "Full HD aggregate (body40/empty3 plus all prior families and HUD)",
+    "Frozen153-file source import, original-data decode, deterministic generated-only52-input rebuild",
+    "2284 malformed/source rejections and14 entry validated-coexistence negatives",
+    "ASan/UBSan extracted binding tests and350880 original-RLE differential cases",
+    "84240 extracted production pixel transactions per selected pack",
+    "Nine side-state threshold combinations plus original extracted projectile/ram/cycle/large-admission branches, early continual-damage asymmetry and unavailable-slot guard"
+  ],
+  "clarifications": [
+    "Reached launch attempt can activate center before child allocation; earlier shot exhaustion can skip launch",
+    "128/280 equal RGBA/PNG but distinct HDA IDs",
+    "21 representative panels/post5400 composition scope does not exhaust early partial-spawn combat"
+  ],
+  "game_runs": 0,
+  "captures": 0,
+  "weapon81_body_patch_scope": "Seven enemy-shot bindings remain outside; classic originals preserved",
+  "runtime_gate": "Requires independent source/fixture review, clean durable source bundle, then exactly one no-input/no-fire0\u20137454 log-first census retaining6625+, no captures",
+  "lifecycle_limits": "Extracted branches use explicit normal-difficulty source-record fixtures and recorder leaves; no JE_makeEnemy/event scheduler, natural combat, shot-flight targeting, player-death or full repeated-effect loop claim",
+  "proof_files": {
+    "PLAN.md": "94813a34175996a331565f7c99ed275ece7af4544f90389b0cb6c170446360d6",
+    "REVIEW-ADDENDUM.md": "f86d8c1c854a57e81a16ff0a93232b063b6994ff956fd94dea4880781e30b7c6",
+    "aggregate-source-validation.json": "82500ad6c36f13131c99aaf88ce7ec45d1049a54007ce593575c1acc56d31d74",
+    "clarification-receipt.json": "5d6266fe304af4d3daeb085c9dbbcbe6373d1b627404bbbcc0e25e1c48b40573",
+    "independent-source-review.json": "4ca180be606a600962b6c77e2c42bb0410c30d9293153352d11eb3b40a6a4884",
+    "linux-build.log.gz": "b83251f02c08f3b5b7717736ff4f1b18edd900b7c946f34b8c8ec94d7ad7bfd9",
+    "source-entry-coexistence.json": "9f661319771d19e640547472722c7491731ad8ad70ccf12f4b9eedd24f53e757",
+    "source-guards.json": "b817c22b4f91396b62d492803bd297cc7ade3c50e27228f94db4886c6d79ac8c",
+    "source-preservation.json": "636c4e945853e41e6e080451682d5bd4edb5e5574e9f6c7da216cb2e9587d4e0",
+    "source-toolchain.json": "f1999f34daf860adebd4988e1ec547abff0a42301125fc297cbee5ad8f9f1ad8",
+    "source-validation.json": "68a79d22286243fb2017aafbbd74891d342914017336dff84aaa50d7b70df5e9",
+    "unit-binding-log.txt": "f6830ae697005f3d14cb587e97fd22f8cde73dcdd5dc3de989aa4ec62c941076",
+    "unit-binding-receipt.json": "44e37d9e3eac61e405495520b40ce87727f5f9221788d06c820352cc59a02fb0",
+    "unit-lifecycle-log.txt": "268a6ad89a173854c7e5f0f59f7a192101cab0c38b9a7fd479546d9320903217",
+    "unit-lifecycle-receipt.json": "18eb025a90895dc1e9c85a7c52a71715360997cec7857941bfc04c8fa00b22c1",
+    "unit-pixels-log.txt": "aab40398628285c6a86314ca30048d47538e7ac6ca02db9b336b917eb96c3d94",
+    "unit-pixels-receipt.json": "e62495c5c2afad231331574a997cfec23a47511acfa00d90b27a3e43518f6886",
+    "unit-tests.md": "93ce2cd10d2d4d1e6d87e57adbbf684301595630f29bf54ee28c1eaedd440402"
+  },
+  "independent_source_review": "PASS bounded source gate; separate fixture neutrality and durability remain"
+}

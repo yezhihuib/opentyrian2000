@@ -1,0 +1,121 @@
+{
+  "scope": "40 nonempty outputs plus3 intentionally empty source bases;20 independent parts120x112 initial assembly",
+  "geometry": {
+    "part_size": [
+      24,
+      28
+    ],
+    "anchor": [
+      6,
+      7
+    ],
+    "density": 8,
+    "assembly8x": [
+      960,
+      896
+    ],
+    "partition": "5columns by4rows,192x224 cells; exact per-base RLE masks",
+    "moving_groups": "Lower link42 and141 groups translate independently, no rotation or added connecting geometry"
+  },
+  "authorship_stages": [
+    "Generate one coherent intact whole-boss master from the entire original assembly and all state references. Review original/pilot native2x and4x before accepting material.",
+    "Use accepted intact master as shared geometry for a coordinated core-threshold/side-wreck master. Reuse unchanged whole-body pixels, keep asymmetric original damaged areas and exact masks.",
+    "Generate eight coordinated center light states from all eight originals and accepted central geometry; retain common structure outside original change envelope.",
+    "Partition exact components, reuse identical128/280, keep empty238/278/282 completely transparent. Assemble all intact/wreck/absent/threshold and translated-claw contexts from the finite outputs."
+  ],
+  "palette": "Muted aged brass/brown, gray steel, deep near-black recesses, restrained original red details; no gold glare, plastic sheen, invented joints or baked filter colors",
+  "center_deltas": [
+    {
+      "base": 1,
+      "source_RGB_delta_bbox_vs1": null,
+      "alpha_equal_to1": true
+    },
+    {
+      "base": 3,
+      "source_RGB_delta_bbox_vs1": [
+        10,
+        19,
+        15,
+        26
+      ],
+      "alpha_equal_to1": true
+    },
+    {
+      "base": 5,
+      "source_RGB_delta_bbox_vs1": [
+        9,
+        19,
+        16,
+        26
+      ],
+      "alpha_equal_to1": true
+    },
+    {
+      "base": 7,
+      "source_RGB_delta_bbox_vs1": [
+        8,
+        19,
+        17,
+        26
+      ],
+      "alpha_equal_to1": true
+    },
+    {
+      "base": 39,
+      "source_RGB_delta_bbox_vs1": [
+        8,
+        19,
+        18,
+        26
+      ],
+      "alpha_equal_to1": true
+    },
+    {
+      "base": 41,
+      "source_RGB_delta_bbox_vs1": [
+        7,
+        19,
+        19,
+        27
+      ],
+      "alpha_equal_to1": true
+    },
+    {
+      "base": 43,
+      "source_RGB_delta_bbox_vs1": [
+        7,
+        19,
+        19,
+        27
+      ],
+      "alpha_equal_to1": true
+    },
+    {
+      "base": 45,
+      "source_RGB_delta_bbox_vs1": [
+        7,
+        19,
+        19,
+        27
+      ],
+      "alpha_equal_to1": true
+    }
+  ],
+  "joins": [
+    "Lock stationary metal contours at grid interfaces across intact parts.",
+    "Keep claw group internal interfaces cohesive; outer group boundaries must stand alone when translated away.",
+    "Damage variants must retain intact surviving edges and reveal original transparent regions.",
+    "Center lighting variants must not alter outer24x28 support or adjacent joins."
+  ],
+  "limits": [
+    "Record1 reuses all8 center frames outside boss context.",
+    "Types52/54 have direct threshold202/206, not a reverse3frame animation.",
+    "Type3 launched sprites, weapon81 seven bank8projectiles and bossbar are separate dependencies, not invented body art.",
+    "No generation, new runtime capture or shared-code edits performed by this planning step."
+  ],
+  "pins": {
+    "source-contract.json": "c7a81e82119c98ae3a476c1c9201572bdaa57255ef06e0621d9b489446316b87",
+    "lifecycle-contract.json": "a46832d7295bf389e196fd3aa09c94733c69b0dffaf6fcb0675184d271765f2f",
+    "motion-projection.json": "518cb9f3fb32af649be62bb521f43632862d62029d10dfad89593186d34d5525"
+  }
+}

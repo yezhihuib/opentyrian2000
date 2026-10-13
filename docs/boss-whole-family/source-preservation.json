@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "baseline_commit": "5629b3dda05b2aa77af3c624841320d05c0f7130",
+  "baseline_tree": "38bb894192f1f763784df9e43c54543e161d51e3",
+  "previous_files_checked": 6163,
+  "previous_changed_files": [
+    "assets/hd/manifest.json",
+    "prototype/build-hd-assets.py",
+    "prototype/build-newsh4-entry6-art.py",
+    "src/render_mirror.c"
+  ],
+  "prior_file_modes_unchanged": true,
+  "prior_asset_bytes_identical": 609016383,
+  "renderer_sha256": "917faf5d61d1d0407b97f1a4749facb60960aae0666bd6728fd623a67783028a",
+  "renderer_restores_exact_published_baseline": true,
+  "manifest_restores_exact_published_baseline": true,
+  "entry_validator_restores_exact_published_baseline": true,
+  "aggregate_validator_restores_exact_published_baseline": true,
+  "gameplay_files_unchanged": {
+    "src/entity_draw.c": "f53e4b531023ad54d54f9755d427f5e028213d02a1b5bc6c042d27b4566c24ba",
+    "src/episodes.c": "640219b48d3081ee996ce66a66f61ad2fe185339fcfaf395808e02fcee0b29e0",
+    "src/mainint.c": "9dcc36f29e71bbd9999fd6097fa43148de65e4476967353cbd9b1e1013a52805",
+    "src/sprite.c": "b912773976c4b745f355d471b4da6a4ea25907e7bf80eb7356c9a59ae361237c",
+    "src/tyrian2.c": "0a042621d599fdba15f89012c9bb1007327cd6f5df0e0a41865ea61c08856d02",
+    "src/varz.c": "d4502557903eea9fc082b83385fee3448564124040ff27faa1a4af16c8e394c7"
+  },
+  "prior_families_orbs_effects_weapon81_and_bossbar_source_preserved": true,
+  "finite_body_source_validation": {
+    "status": "PASS",
+    "nonempty_members": 40,
+    "audit_only_empty_members": 3,
+    "frozen_files": 153,
+    "source_inventory_sha256": "93cd781517e02fe339eada2e3d05fd9d8ba7baaedf3302a68ab728f284c31672",
+    "exact_payloads_headers_masks_and_finite_bindings": true,
+    "game_runs": 0
+  },
+  "Windows": "XML preservation only; no compile/runtime claim",
+  "game_runs": 0,
+  "captures": 0,
+  "native_output": false
+}

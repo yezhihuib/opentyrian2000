@@ -1,0 +1,10 @@
+Successful bounded extracted-source pixel logs only. No game execution or captures.
+
+
+=== compile.log ===
+
+=== debug.log ===
+PASS production pixel unit: 84240 cases (48960 HD, 35280 classic); 284197824 RGBA writes; 5274945 original writes (612645 row-wrapped); 1179648 filter/alpha operator cases; 2047 whole-frame comparisons; 320 production crop cases; all64 subpixels and ownership exact within each transaction ROI,600 ordered overlap sequences
+
+=== preview.log ===
+PASS production pixel unit: 84240 cases (48960 HD, 35280 classic); 284197824 RGBA writes; 5274945 original writes (612645 row-wrapped); 1179648 filter/alpha operator cases; 2047 whole-frame comparisons; 320 production crop cases; all64 subpixels and ownership exact within each transaction ROI,600 ordered overlap sequences

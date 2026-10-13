@@ -1,0 +1,114 @@
+{
+  "schema": "formal-boss-whole-family-v1",
+  "bank": "newsh4.shp",
+  "bank_id": 2,
+  "asset_namespace": 102,
+  "logical_part_size": [
+    24,
+    28
+  ],
+  "density": 8,
+  "pixel_part_size": [
+    192,
+    224
+  ],
+  "anchor": [
+    6,
+    7
+  ],
+  "runtime_quadrants": [
+    0,
+    1,
+    19,
+    20
+  ],
+  "initial_assembly": [
+    120,
+    112
+  ],
+  "part_count": 20,
+  "bases": [
+    1,
+    3,
+    5,
+    7,
+    10,
+    12,
+    14,
+    16,
+    18,
+    39,
+    41,
+    43,
+    45,
+    48,
+    50,
+    54,
+    56,
+    86,
+    88,
+    90,
+    92,
+    94,
+    124,
+    126,
+    128,
+    130,
+    132,
+    162,
+    164,
+    168,
+    170,
+    200,
+    202,
+    206,
+    208,
+    238,
+    240,
+    242,
+    244,
+    246,
+    278,
+    280,
+    282
+  ],
+  "nonempty_count": 40,
+  "intentional_empty_bases": [
+    238,
+    278,
+    282
+  ],
+  "identical_pairs": [
+    [
+      128,
+      280
+    ]
+  ],
+  "center_cycle": [
+    1,
+    3,
+    5,
+    7,
+    39,
+    41,
+    43,
+    45
+  ],
+  "center_patch8x": [
+    78,
+    166,
+    114,
+    202
+  ],
+  "center_timing": "Original firing/launch triggered; not a free-running8frame loop.",
+  "core_threshold_direct_frames": {
+    "52": 202,
+    "54": 206
+  },
+  "independent_translation_links": [
+    42,
+    141
+  ],
+  "root_family_gate": "2026-10-13T01:48:46Z",
+  "art_only": "No runtime/publish claim; original RGB references excluded."
+}

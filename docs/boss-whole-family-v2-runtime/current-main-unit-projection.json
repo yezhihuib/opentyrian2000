@@ -1,0 +1,82 @@
+{
+  "status": "PASS_SOURCE_BOUND_INACTIVE_MENU_UNIT_ADAPTER",
+  "unit_only_no_game_or_capture": true,
+  "historical_checkpoint": "5629b3dda05b2aa77af3c624841320d05c0f7130",
+  "current_nonboss_baseline": "b80a81894ce9b708024f1a07ba3f0fcbd54708d2",
+  "tested_boss_source": "cd10a90be53c2e41eae3462a366d590a0207c59e",
+  "production_source_and_historical_tests_unchanged": true,
+  "source_pins": {
+    "src/render_mirror.c": "1514387960080422866530e8e831629fb2622b98c5be1b5c06ca880b26c36c38",
+    "src/sprite.c": "f55491df5ec34163e3c46da7607c132449fa4d299117a768ae91dd9cf92b5886",
+    "src/load_font.c": "7f13a50a2896001806198f963e5f9a74c5c44f37cf2e5e07843da5198251a54a",
+    "src/settings_font.c": "aeefbab87e4b50f48d2b40ab907db6ab5ae4260c8e1b8ecd621f4e15ba1b6980",
+    "prototype/test-boss-whole-family-binding.c": "9651f24b6fc8ecf7a6f53bc137dfe69ac747f0da3385ee54727c4a25335e4db5",
+    "prototype/test-boss-whole-family-binding.py": "9ecadf9042a1029626d41af6de5a4d710fef815a4e5e76d25e95c343ee2312ec",
+    "prototype/test-boss-whole-family-pixels.c": "ce207a782ea71b2744739c64f0034ae9b9065003fc0cd9ac99b64e1380df3e3e",
+    "prototype/test-boss-whole-family-pixels.py": "56cbbed93e18e5b45fdb8ab36f081789b4f3f0571e3072cef0b053b3eaf4973b"
+  },
+  "historical_to_current_baseline_helpers": {
+    "read_asset": "ff8984aa1253ba4027001db3a1a5768dcc48967721e2005ac8893e42c5fd923b",
+    "scene_asset": "c3ce091d907f6695e7acbac25c579b9e04469fe1319a792fde51ac87adcf5503",
+    "linked31_family_ready": "61eef24d03b08b2bd9a7161c88e14bfa81f80c5256f2137356d402fdff26dbf5",
+    "newsh4_long7_family_ready": "8b87b12894f106699b6607224be7869c1f2684bc899569ffb6936e0d9d008a9c",
+    "newsh4_opposite7_family_ready": "03c3e437e28931d9a8ef9658cc631c08744a1ac3493eaff7786d9dd8148fe15e",
+    "type15_eightheading_family_ready": "fb691d960154039874bcb5dffb95c95f26c529eed53911860133f982b550c407",
+    "late_spike_family_ready": "ce18131dc6dad09679d1f41843a2fecfcd880fca50c315cc0001ec34dd9d3ef8",
+    "newsh4_entry6_family_ready": "11ea6ce93361e57cd461288c9d62a45f205e40442aeb5595754c96421328c441",
+    "type3_small_family_ready": "cbd33c11fb28654220f95f22cecbc34f3f73a8f8f32c5946afbde1ef0158d1d2",
+    "render_mirror_enemy_tile": "135c75146a730bebfa12dae118d1046c407050b329b61942624b747376d31636",
+    "render_mirror_map_begin": "911e4864c5a7d827e7c67df5e85252f52d87546719aa5cefa1a34d220266aa24",
+    "cloud_terrain_slot": "310774522cd834d5620415dd024e33d4d4f89a8a2fb17eeb57981ac686d1334c",
+    "ground_terrain_slot": "f9e6c4e5eab475b448207a37455690d13327584fe8cd0b13ca49e888826883d3",
+    "plateau_terrain_slot": "8cb189c4346f8a1aa128ecd353c7084c2e7176a2c65f37954036d9e9c36cfbfc",
+    "underlay_terrain_slot": "e006805592995794f24e79c5847a91dfe7c3d82109df770fc6ee57b61a9692df",
+    "road_terrain_slot": "f02d69226be3c8441b6b5cae28d6a973416e090dd93f7633dddc3a63a3b135b2",
+    "terrain_holes_slot": "a7a0bcd57bab129dfe34e7c832d50968b38ea4d3334d6d3c4b8403967ac3232e",
+    "stone_foundation_slot": "1b197c9988a7334fc118ab210f481ef3a98b82bab62041b14e41d144aa4c0234",
+    "layer3_gray_slot": "8a0243f2a7ec23f40a6e4b1c60782837c5b9c17e43994779e82348b2a8c5c3e5",
+    "layer3_purple_slot": "2dfabb8fec33c865fa0ba4dd3e6127496f840638229028574239559297baf193",
+    "grass_sand_slot": "8218c0184627b9bdaa0bc6295667f2c45f572303253b604e27b402cb09c85931",
+    "forest_terrain_slot": "0a62f0f993949a9637ceeb94007877a75f5c343805ec2a53c8a53239b7cb2757",
+    "layer3_circuit_slot": "cc6e9c2765365d643e5d1904e5ee61c25d38dc2547b90d50254934f32a4ab955",
+    "layer3_mechanical_slot": "a2266753366667b3b87d78ba9213a0cbddd151db2d8a5937632fb32f357ae8e8",
+    "layer3_linked31_slot": "4db1898fbc3ad96c78612e7ab9be2c9b18996a4bec3f56e955b288e805c8a4ad",
+    "render_mirror_bind_terrain": "5653d11b4fa6536127a6a984471d743a5ed2843cb5ee6b78b21ec9d6485694f0",
+    "render_mirror_terrain_row": "466388137f9f871163bf925fd07e201baf4b3733701de5637a8e37c43c23519a"
+  },
+  "helper_count": 27,
+  "observer_function_pins": {
+    "check": "7f8d3af07dc87a7ce79e57695861beab06f53192e8c622b4205332bd7740563a",
+    "exact": "b94fcc923d164b210522fe24f0d0247bb003aaf2091956af3ea7f0bc02f2f1a6",
+    "load_font_arrow_sprite_begin": "e464ab3a71dee69ec7e3df0eb2b7bb0d15e741fe24179f4a02dc5962f61f4496",
+    "load_font_arrow_sprite_end": "7dc1c8753c4df1eb9ddfd0b680ede0b6ac18612545ce24660035ff7d1b8c964c",
+    "load_font_pixel": "00d8aa5d2e9cdfba26671d18ba2832f5999ab0a2bec6cfadd6971b8f8e3c254a",
+    "settings_font_pixel": "c219cf1d6f546984137695c76aa515a3cdeebe5a9e035ef588ca1861e331bf21"
+  },
+  "exact_projections": {
+    "blit_sprite2_original_rle": "cdf86acdbc740d0e218aeb49c1a2eabe0557d4d6e9e015dc36727b8db2ab38b8",
+    "blit_sprite2_filter_unchanged": "b4be2ea1a16bddadeac19891ac1c24a6258c4255b9c5ba3551d8fe08c1e4b7f8",
+    "render_mirror_pixel_tested_v2": "fd4588cae22a1837720a3941bab077a3c3384b313fa79a6576a29d04a34929bd"
+  },
+  "adapter_pins": {
+    "README-note.md": "47ee41479ebe07051f1d67cdf6c2d8afd1a28ac76e3e964d4503c52f0193ab4f",
+    "inactive-load-arrow.inc": "b2d99316e8479d765d7001918ac5c2852274850df0c2ecdf3bbbc33869ff1511",
+    "inactive-menu-pixel.inc": "9af713b09d709a366e8228a33da707a87f8b27a7bc727ce41542266f418ab34f",
+    "run-binding.py": "ba58cfc658ade24053b60227ac3955078ab54470230e7cd5228b4a87cd752b2c",
+    "run-pixels.py": "bf4e31ddb4ec0d89094fb8e640853c3ce0d14d9d5e97d46a96b04a6090379943",
+    "test-binding.c": "aea8fbd108ca24928721e34ea24918d36cf6f9bece8f7134dbf3ce9ea9bc910b",
+    "test-pixels.c": "be2d6b360c8aa15f8680860faf6320e34ac0a0502f2da5cc32e217ee6b24c931",
+    "verify-projection.py": "6d5080c26f3302ad7c57d20c80c1966e9988dbea91de69fa10f41971c6ec484f"
+  },
+  "permitted_adaptations": [
+    "binding BASE changed to current pre-boss main b80a818",
+    "external scripts resolve the same production repository explicitly and compile external harness copies",
+    "external C harness adds only inactive Load arrow observer definitions; pixel harness also adds inactive Settings/Load pixel observer definitions"
+  ],
+  "limitations": [
+    "Source-bound compatibility result, not a unit execution result",
+    "No active menu-lease behavior is modeled or claimed",
+    "Current production blitter/pixel bodies are extracted unchanged; projection is a separate proof only",
+    "Historical pixel BASE is receipt metadata, not a source comparison; current source hashes identify the actual rerun"
+  ]
+}

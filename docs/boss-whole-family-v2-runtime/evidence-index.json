@@ -1,0 +1,28 @@
+{
+  "status": "BOUNDED_V2_RUNTIME_EVIDENCE_ACCEPTED",
+  "tested_source_commit": "cd10a90be53c2e41eae3462a366d590a0207c59e",
+  "tested_source_tree": "40056d7453252e0393c2348b29f5b7de8386a84f",
+  "import_base": "b80a81894ce9b708024f1a07ba3f0fcbd54708d2",
+  "import_commit": "5df347bc20483b486d1248d5aebacfe41ce235ad",
+  "import_tree": "a47b5844ccb29475f1691215dcae303c9840479f",
+  "receipts": {
+    "final-technical-review.json": "446a459fa8fa6d1d1747934216cc0208c7ead95ddbe15a96668bf36647e66dc8",
+    "author-n2-n4-receipt.json": "048a217b3286685f2cd6e41ba3da6e7a70361926e9dd3c9b01ec54ad5691a7fe",
+    "author-p-receipt.json": "b666ce48a9ee4898ab3f9f5f823862b3dfba61849c4009f1091c886cca61f690",
+    "author-r-receipt.json": "c754e95725cdb7bada079824979d417760eb0570ec720c41e9018863ccf41ccd",
+    "import-preservation.json": "21b279d19841a7d93aa07d98b1291451b6580550475513d8fc4aaa3e551562bf"
+  },
+  "aggregate_sha256": "2d1e129a1ef56f46262bd18608a3cdd7701ed1c1ef717c54f26b5faeab955e66",
+  "physical_accounting_sha256": "80e531015ea2a2d80325ee1c89fbb0c02b77741faa841f54c32b2e78337e71cb",
+  "canonical_proof_sha256": {
+    "N2": "ac24a91788454423c224a3da866f7fe4e2d03441f52d7ed7f2f8cf419bf38e9e",
+    "N4": "fe78a2892978df072c32ca76a46bedc4478e1b36a0bdacd0658a5fda2c19532c",
+    "P": "accae2bda0374e4605d9f77636a657cd6c651a8d3f1ddc508cab578d38d7ac2a",
+    "R": "44d98d63dfbf4132d56509ecb34ae30335948351c8d1f1a85cb057007d2fe31e",
+    "missing280": "0a60b7ca82591ec55975913b76f5e9ac1bd64fce1e9efd763a8e8eb37ca35da5",
+    "corrupt240": "2c067e7a5174cb01a998df1505d6f11adf562c4b999eb04cbe68ab029fe8cda9",
+    "density4": "a31cdd1c3a3eda910cd6233b0d0d2614baf5e3d14e02de8c3baf2d6bc4ddd30f"
+  },
+  "frozen_checkpoint_docs_unchanged": true,
+  "raw_runtime_logs_included": false
+}

@@ -1,0 +1,127 @@
+{
+  "states": [
+    {
+      "state": "intact-center-cycle1-base1",
+      "exact_source_union_alpha": true,
+      "assembled_RGBA_sha256": "de4355f45e4aa84fe85c5492dd067f3acf55a6c67568757c722f9bbba2e5cdbf"
+    },
+    {
+      "state": "intact-center-cycle2-base3",
+      "exact_source_union_alpha": true,
+      "assembled_RGBA_sha256": "d7ff6b276ead7d3b02f725c49c78f138d9d36616c7118e43adde812fdcf0ed30"
+    },
+    {
+      "state": "intact-center-cycle3-base5",
+      "exact_source_union_alpha": true,
+      "assembled_RGBA_sha256": "69f08cc23e219a2a281c9504dcca56f8af1104d2ed33ce598e2b56e0e6c7415f"
+    },
+    {
+      "state": "intact-center-cycle4-base7",
+      "exact_source_union_alpha": true,
+      "assembled_RGBA_sha256": "fa5fbd0905ccbe255f7db0f755f41b72ecf638f6ac0e70e79da5068da8f7b464"
+    },
+    {
+      "state": "intact-center-cycle5-base39",
+      "exact_source_union_alpha": true,
+      "assembled_RGBA_sha256": "0e92af65da6a56e3af1844f2889111227a103fcf243f9729484d03553e962f40"
+    },
+    {
+      "state": "intact-center-cycle6-base41",
+      "exact_source_union_alpha": true,
+      "assembled_RGBA_sha256": "f181825881f71ad5df22f27bd709f1c7b12ede3aa178cb3a2db3a7890e3e69a8"
+    },
+    {
+      "state": "intact-center-cycle7-base43",
+      "exact_source_union_alpha": true,
+      "assembled_RGBA_sha256": "68d7b5031852fab5cd6c9e9252349f0d5745cc1d651bd8f34f92d80bb59db508"
+    },
+    {
+      "state": "intact-center-cycle8-base45",
+      "exact_source_union_alpha": true,
+      "assembled_RGBA_sha256": "6e5255aa9d5de370b646c025d234fa23fce85181423e0804e9cfefcd32940eb5"
+    },
+    {
+      "state": "left_wreck",
+      "exact_source_union_alpha": true,
+      "assembled_RGBA_sha256": "e514e0a4bcbc7251df57166e8b8915ff04f1b9789a7d4fbab3b2a80defa2c4ee"
+    },
+    {
+      "state": "right_wreck",
+      "exact_source_union_alpha": true,
+      "assembled_RGBA_sha256": "650c72114d7eeb78eeef152683321456b0955648ed20a078ba4551d06b343be9"
+    },
+    {
+      "state": "both_wreck",
+      "exact_source_union_alpha": true,
+      "assembled_RGBA_sha256": "56c4ae3939f059365b944ff4da74900ab107ce8bc567e3a0811cdda8c2c5df11"
+    },
+    {
+      "state": "left_removed",
+      "exact_source_union_alpha": true,
+      "assembled_RGBA_sha256": "a4c79916b57ea6e251868f951cc71cda11f0b0ceebe700bc32fb12fba2ad8f11"
+    },
+    {
+      "state": "right_removed",
+      "exact_source_union_alpha": true,
+      "assembled_RGBA_sha256": "393f63d747a4989e370eeb52ee8ac2c8c2240800df15bdac0308bf0db541dca5"
+    },
+    {
+      "state": "both_removed",
+      "exact_source_union_alpha": true,
+      "assembled_RGBA_sha256": "6a488995ffa6753e5fa2efde0b54e51b6eecd0ee0f369814fc6d6a30b3e4063d"
+    },
+    {
+      "state": "left_wreck_right_removed",
+      "exact_source_union_alpha": true,
+      "assembled_RGBA_sha256": "fbf4e175e53d1ba035d82327c5b2988055df22cc66534ec23484ae84561d2c0b"
+    },
+    {
+      "state": "left_removed_right_wreck",
+      "exact_source_union_alpha": true,
+      "assembled_RGBA_sha256": "8afe9e9ca8d568d237ac34676a79dd47aab6af15256127f157e88c483a95637f"
+    },
+    {
+      "state": "core_threshold",
+      "exact_source_union_alpha": true,
+      "assembled_RGBA_sha256": "3e3c3a58c54016bb0d283801ba95e6861c69d7a29b3594c2752300639e761bb5"
+    },
+    {
+      "state": "core_threshold_left_removed",
+      "exact_source_union_alpha": true,
+      "assembled_RGBA_sha256": "cb2e481431691fc1c1e50a31879b36547acfa687d9c54e376aac1ac8af5efb65"
+    },
+    {
+      "state": "core_threshold_right_removed",
+      "exact_source_union_alpha": true,
+      "assembled_RGBA_sha256": "48b6ab64aade2e37b39521933b300ee9d81364b88a008bce62a24c62a8ec95d9"
+    },
+    {
+      "state": "core_threshold_both_removed",
+      "exact_source_union_alpha": true,
+      "assembled_RGBA_sha256": "ecacde50172d9bd6de361ee7d16f11071295162efe8ddcf6d7030068f4f4b112"
+    },
+    {
+      "state": "all_removed",
+      "exact_source_union_alpha": true,
+      "assembled_RGBA_sha256": "7230ae669118c897fd108686aad52aa918899ef522d2d92e23f23fdb53e59ae8"
+    }
+  ],
+  "center_structure_exact_outside_patch": [
+    3,
+    5,
+    7,
+    39,
+    41,
+    43,
+    45
+  ],
+  "patch_box8x": [
+    78,
+    166,
+    114,
+    202
+  ],
+  "intact_part_edges": "Whole master partition shared; no independent part generation.",
+  "moving_claw_join_review": "Source-projected5435/6025/6050/6100 joins viewed; separate translation maintained, no extra bridges.",
+  "actual_runtime": false
+}

@@ -1,0 +1,55 @@
+{
+  "schema": "boss-family-external-clarifications-v1",
+  "baseline_commit": "5629b3dda05b2aa77af3c624841320d05c0f7130",
+  "baseline_tree": "38bb894192f1f763784df9e43c54543e161d51e3",
+  "frozen_art_inventory_sha256": "93cd781517e02fe339eada2e3d05fd9d8ba7baaedf3302a68ab728f284c31672",
+  "frozen_art_contract_sha256": "9a2d7391f1aabc65f954736978243a0456535b3013113739325b74acfa2b942b",
+  "frozen_art_readme_sha256": "f2747018d53ebcbed7665bd7ea2915f9fb33f8c3f6862942f204e8d68a49bc7d",
+  "source_contract_sha256": "c7a81e82119c98ae3a476c1c9201572bdaa57255ef06e0621d9b489446316b87",
+  "source_lifecycle_sha256": "a46832d7295bf389e196fd3aa09c94733c69b0dffaf6fcb0675184d271765f2f",
+  "corrections": [
+    {
+      "target": "lifecycle-contract.json states.central53, and packaged proof copy",
+      "old": "Successful projectile or launch trigger sets active1.",
+      "clarification": "Successful enemy-shot allocation can activate the cycle. A due launch attempt activates aniactive before checking launchtype and before JE_newEnemy allocation; pool exhaustion does not suppress that activation. Preserve source ordering, and distinguish launch attempt from successful child allocation in logs. Earlier enemy-shot allocation exhaustion may jump past the launch branch entirely; log actual launch-branch entry separately from a due counter.",
+      "evidence": "src/tyrian2.c JE_drawEnemy, enemy shot allocation and Enemy Launch Routine; aniactive assignment precedes JE_newEnemy and b>0."
+    },
+    {
+      "target": "formal-boss-whole-family-v1/README.md sentence 128/280 are byte-identical",
+      "clarification": "Their image RGBA payloads and PNG files are byte-identical. Their HDA files intentionally differ in the encoded source-ID header (1020128 versus1020280); headerless RGBA payloads are identical. Keep separate logical bindings and validated headers.",
+      "evidence": {
+        "rgba_equal": true,
+        "hda_equal": false,
+        "png_equal": true,
+        "hda128_id": 1020128,
+        "hda280_id": 1020280
+      }
+    },
+    {
+      "target": "finite-image composition discussion and21-panel contact coverage",
+      "clarification": "The representative intact/threshold composition descriptions assume a fully assembled encounter after event5400 enables enemyContinualDamage. Before tick6753, main threshold can propagate to142/141 without left42; damage during staged row spawns can coexist with subsequently constructed intact actors. These source-permitted mixed states need no additional art and remain within the40-frame allowlist, but21 panels or72 pre-threshold compositions are not an exhaustive early-combat state census.",
+      "evidence": "Source spawn ticks6653,6681,6709,6737; event40/eventtime5400 at tick6753; tyrian2.c threshold requires enemyContinualDamage for temp\u2212100 linked propagation."
+    }
+  ],
+  "read_only_validation": {
+    "all_package_input_hashes": true,
+    "all_43_png_rgba_hda_hashes": true,
+    "all_43_hdr1_headers": true,
+    "all_43_exact_source_masks_and_nearest8x_alpha": true,
+    "source_mask_encoding": "0/255 bytes; an initial checker wrongly normalized to0/1 and was corrected before successful verification. No assets changed.",
+    "unchanged_gameplay_files_from_b2a6e4a": [
+      "src/tyrian2.c",
+      "src/mainint.c",
+      "src/varz.c",
+      "src/entity_draw.c"
+    ]
+  },
+  "frozen_bytes_modified": false,
+  "game_runs": 0,
+  "published": false,
+  "independent_review": {
+    "status": "Conditional PASS, conversation-delivered by integrating parent",
+    "exact_parent_message": "Final independent plan review conditional PASS. Additional source nuance to log: distinguish actual launch-branch entry from a due counter; earlier exhausted enemy-shot allocation may jump past launch, while child-allocation failure after reaching launch still activates center. No-fire N0\u20137454 remains approved after source/fixture neutrality gates; detailed retention6625+, no captures/automatic extension. P/R exact phase/full shot fields and per-lane post-intervention fingerprints must be frozen later. Track explosion descendant identity through reused slots, not unrelated pool emptiness. Reviewer final message can be preserved as conversation-delivered receipt; no separate file was written.",
+    "no_independent_artifact_hash_claim": true
+  }
+}

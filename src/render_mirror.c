@@ -37,7 +37,7 @@ typedef struct {
 } Asset;
 enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
-static Asset assets[422];
+static Asset assets[462];
 static Asset talon_frames[13];
 typedef struct {
  bool valid;
@@ -1679,6 +1679,66 @@ static bool type3_small_family_ready(void)
  return type3_small_valid;
 }
 
+/* Approved whole-boss bank2 family: forty nonempty complete24x28 images.
+ * Empty aftermath bases238/278/282 stay original no-ops, never missing art.
+ * The V2 stamps pin inward-only authored alpha and byte-exact V1 RGB.
+ * Preflight all forty before any body replacement; failure stays local to this
+ * selected-pack Asset lifetime. No mixed-density or partial-family fallback. */
+static bool boss_whole_checked,boss_whole_valid;
+static bool boss_whole_family_ready(void)
+{
+ if(game_probe_density!=8||game_probe_missing||game_probe_invalid||!game_probe_assets||
+    !(game_probe_scene_assets&1))return false;
+ if(boss_whole_checked)return boss_whole_valid;
+ boss_whole_checked=true;boss_whole_valid=true;
+ static const unsigned int ids[40]={1,3,5,7,10,12,14,16,18,39,41,43,45,48,50,54,56,86,88,90,92,94,124,126,128,130,132,162,164,168,170,200,202,206,208,240,242,244,246,280};
+ static const uint64_t rgba_stamps[40]={UINT64_C(0x79d01a5867512fb7),UINT64_C(0x451ea77629c45e55),UINT64_C(0x74dcbe3f4e30da68),UINT64_C(0x7f796d2a95aedc49),UINT64_C(0xc7bea79e9d18e340),UINT64_C(0x3c44af08fe16b732),UINT64_C(0x94cf458d1232f3f6),UINT64_C(0xc19d47efd48d3faa),UINT64_C(0x318712cca2a454d3),UINT64_C(0xadf0fba4f703b1e8),UINT64_C(0x657f79c4e078c171),UINT64_C(0x4a8179a13feefaec),UINT64_C(0x1c8b5aae9167fd54),UINT64_C(0x9defb5b84aaafb50),UINT64_C(0x22f3a2dc3d3f22c6),UINT64_C(0x30de8d9f19b77745),UINT64_C(0xc9d44987407e7795),UINT64_C(0xf68095e34e94f11d),UINT64_C(0x966df86cc6ad9a4e),UINT64_C(0x54661ebe8181d394),UINT64_C(0xecb6106aa424eed9),UINT64_C(0x233840a2896f6aec),UINT64_C(0xee73d5b71b292076),UINT64_C(0xc7e3b17d9b721a67),UINT64_C(0x1b322f4cc4116f5f),UINT64_C(0x441025d8061eb1e1),UINT64_C(0xd828fffbc7efb661),UINT64_C(0xe11733af132999f8),UINT64_C(0x4600faa86b29a5a1),UINT64_C(0x46c6ce3f51e09c09),UINT64_C(0x636a1907c56f7cc4),UINT64_C(0x512ff03eed10ff0e),UINT64_C(0x860de7c816f3f638),UINT64_C(0x49b4a1fb8f930ef0),UINT64_C(0x0a7b91629f0ac91c),UINT64_C(0x0db71a0453fa65ed),UINT64_C(0x23c219a3afe96982),UINT64_C(0x2a4b2ec5dfc96562),UINT64_C(0xd9dafd092794900a),UINT64_C(0x1b322f4cc4116f5f)};
+ for(int i=0;i<40;i++) {
+  Asset *a=&assets[422+i];
+  a->initialized=true;a->bank=ASSET_NEWSH4;a->index=(int)ids[i];
+  a->w=24;a->h=28;a->anchor_x=6;a->anchor_y=7;
+  a->valid=read_asset(a,8);
+  if(a->valid) {
+   uint64_t stamp=UINT64_C(0xcbf29ce484222325);
+   for(size_t p=0;p<(size_t)24*28*8*8*4;p++){stamp^=a->rgba[p];stamp*=UINT64_C(0x100000001b3);}
+   if(stamp!=rgba_stamps[i])a->valid=false;
+  }
+  if(!a->valid)boss_whole_valid=false;
+ }
+ return boss_whole_valid;
+}
+
+/* Record1 shares center source tiles. Scope the new body by original record
+ * and its finite visible bases, not raw tile identity, scoreitem or damage.
+ * Independent movement, initial negative-dani and avail2 wrecks stay eligible. */
+static bool boss_whole_base_allowed(const G101EnemyContext *context,unsigned int base)
+{
+ if(!context||context->size!=1)return false;
+ switch(context->type) {
+  case 46:return base==10||base==162;
+  case 47:return base==12||base==164;
+  case 48:return base==14;
+  case 49:return base==16||base==168;
+  case 50:return base==18||base==170;
+  case 51:return base==48||base==200;
+  case 52:return base==50||base==202;
+  case 53:return base==1||base==3||base==5||base==7||base==39||base==41||base==43||base==45;
+  case 54:return base==54||base==206;
+  case 55:return base==56||base==208;
+  case 56:return base==86;
+  case 57:return base==88||base==240;
+  case 58:return base==90||base==242;
+  case 59:return base==92||base==244;
+  case 60:return base==94||base==246;
+  case 61:return base==124;
+  case 62:return base==126;
+  case 63:return base==128||base==280;
+  case 64:return base==130;
+  case 65:return base==132;
+  default:return false;
+ }
+}
+
 bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int base,int part,int filter,const G101EnemyContext *material_context)
 {
  if(!active||surface!=game_screen||reject_reason||!(game_probe_scene_assets&1))return false;
@@ -1764,6 +1824,21 @@ bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array ban
   for(int i=0;i<7;i++)if(base==newsh4_opposite7_ids[i]) {
    if(!newsh4_opposite7_family_ready())return false;
    slot=389+i;break;
+  }
+  /* Whole boss remains twenty original actors with four ordered calls each.
+   * The three empty aftermath bases deliberately fall through to classic. */
+  static const unsigned int boss_whole_ids[40]={1,3,5,7,10,12,14,16,18,39,41,43,45,48,50,54,56,86,88,90,92,94,124,126,128,130,132,162,164,168,170,200,202,206,208,240,242,244,246,280};
+  for(int i=0;i<40;i++)if(base==boss_whole_ids[i]) {
+   if(!boss_whole_base_allowed(material_context,base))return false;
+   /* Preserve original linear-address RLE physical-row wrapping. Partial
+    * vertical clips keep their original calls; unsupported geometry declines
+    * before any coordinate subtraction, scaling or resource access. */
+   if(!surface||surface->w!=320||surface->h!=200||surface->pitch!=320||
+      !surface->format||surface->format->BitsPerPixel!=8||
+      surface->format->BytesPerPixel!=1||x<0||x>308||y<-13||y>199)return false;
+   if(part!=0&&part!=1&&part!=19&&part!=20)return false;
+   if(!boss_whole_family_ready())return false;
+   slot=422+i;break;
   }
   /* Entry craft remains six independent source actors with ordered overlap.
    * Only these full composites are bound; raw cells and boss86/124 stay classic. */

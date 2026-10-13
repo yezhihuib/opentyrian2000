@@ -183,7 +183,43 @@ def verify_rejoin(source, logical, images, proof):
             and receipt['overlap_opaque_logical_cells'] == 133, 'frozen rejoin receipt mismatch')
 
 
+# BEGIN validated boss full-composite coexistence
+
+def validated_boss_full_composites(repo, manifest):
+    """Exclude only fully validated boss86/124 bindings from the entry raw census.
+
+    Their shared original entry quadrants remain empty. Numeric overlap alone,
+    a manifest flag or a partial boss import never authorizes an exception.
+    """
+    if 'boss_whole_family_v2_inward_alpha' not in manifest:
+        return set(), set(), set()
+    import importlib.util
+    spec = importlib.util.spec_from_file_location('boss_whole_art', repo / 'prototype/build-boss-whole-family-art.py')
+    boss = importlib.util.module_from_spec(spec)
+    old_bytecode = sys.dont_write_bytecode
+    try:
+        sys.dont_write_bytecode = True
+        spec.loader.exec_module(boss)
+    finally:
+        sys.dont_write_bytecode = old_bytecode
+    require(boss.exact_json(manifest, boss.load(repo / 'assets/hd/manifest.json')),
+            'boss compatibility requires the validated on-disk manifest')
+    boss.validate(repo)
+    hashes, packed, canonical = set(), set(), set()
+    for base in [86, 124]:
+        name = f'enemy-newsh4-{base}-8.hda'
+        for pack in boss.DEFAULTS:
+            entry = manifest['packs'][pack]['files'][name]
+            hashes.add(entry['sha256'])
+            packed.add(f'{pack}/{name}')
+            canonical.add(entry['source_png'])
+    return hashes, packed, canonical
+
+# END validated boss full-composite coexistence
+
+
 def validate_art_and_bindings(repo, source, manifest):
+    boss_hashes, boss_packed, boss_canonical = validated_boss_full_composites(repo, manifest)
     family = manifest['newsh4_entry6_v1']
     expected_family = {
         'schema': 'newsh4-entry-six-v1', 'source': SOURCE, 'source_manifest_sha256': FREEZE,
@@ -309,13 +345,15 @@ def validate_art_and_bindings(repo, source, manifest):
         match = re.fullmatch(r'enemy-newsh4-(\d+)-.*\.png', PurePosixPath(entry['path']).name)
         if (digest in expected_hashes or entry['sha256'] in png_hashes
                 or entry['RGBA_sha256'] in rgba_hashes or (match and int(match[1]) in TILES)):
-            indexed_family.add(digest)
+            if digest not in boss_hashes:
+                indexed_family.add(digest)
     require(indexed_family == expected_hashes, 'widened source PNG index')
     verify_rejoin(source, logical, images, proof)
     for pack_name, pack in manifest['packs'].items():
         require(pack['count'] == len(pack['files']), 'pack count mismatch')
         relevant = {name for name, entry in pack['files'].items()
-                    if family_name(name) or entry['header_u32'][0] in KEYS}
+                    if (family_name(name) or entry['header_u32'][0] in KEYS)
+                    and f'{pack_name}/{name}' not in boss_packed}
         require(relevant == (allowed if pack_name in defaults else set()),
                 'widened pack, alias, quadrant or density: ' + pack_name)
     pack_root = repo / 'assets/hd/packs'
@@ -330,7 +368,7 @@ def validate_art_and_bindings(repo, source, manifest):
         with path.open('rb') as handle:
             header = handle.read(8)
         key_matches = len(header) == 8 and header[:4] == b'HDR1' and struct.unpack('<I', header[4:])[0] in KEYS
-        if family_name(path.name) or key_matches:
+        if (family_name(path.name) or key_matches) and path.relative_to(pack_root).as_posix() not in boss_packed:
             actual.add(path.relative_to(pack_root).as_posix())
     require(actual == {f'{pack}/{name}' for pack in defaults for name in allowed},
             'widened on-disk pack inventory')
@@ -340,7 +378,7 @@ def validate_art_and_bindings(repo, source, manifest):
     for path in source_root.rglob('*'):
         require(not path.is_symlink(), 'canonical source symlink forbidden')
         match = re.fullmatch(r'enemy-newsh4-(\d+)-.*\.png', path.name)
-        if match and int(match[1]) in TILES:
+        if match and int(match[1]) in TILES and path.relative_to(repo).as_posix() not in boss_canonical:
             require(path.is_file(), 'canonical PNG must be regular file')
             actual_pngs.add(path.relative_to(repo).as_posix())
     require(actual_pngs == canonical_paths, 'widened canonical PNG inventory')
