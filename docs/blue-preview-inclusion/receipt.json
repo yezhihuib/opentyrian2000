@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "base_commit": "d01fb20e5eebe805ce2818166dc0d369795b55a6",
+  "changed_files": {
+    "assets/hd/manifest.json": "e0ae1f9266637060e85195a29c42a27c8b083629152579ade2f24d31749590d9",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-123-8.hda": "2c26ec570b3ed9be141f2ec48a7e20c63ff70a9048a24382206008aae8f96f7e",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-125-8.hda": "f64eb6d4ecc5cc87ebafdd79159ae731a2c5044b4c5b564e4c6a37b1a6eb0acf",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-85-8.hda": "97a37e0cca16821c94fb8e52ca8eeb6c73aa2baf5eeaa029254c95707617a2ac",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-87-8.hda": "c2352caf73e2a750397389c939a02e88bdb72f76aee21011efcee005e314abf0",
+    "prototype/build-hd-assets.py": "20847d7949366fdfd699f847f13e3afa6e8a6a2a4349d883ece7a26ca06562d1"
+  },
+  "unrelated_diffs": 0,
+  "production_patch_sha256": "88c27f7f1845fa15e44cbc08b8c97aa0bf9bcba021da749c51861bb4be4ae981",
+  "production_patch_bytes": 278285,
+  "engine_runs": 2,
+  "total_ticks": 1760,
+  "native_captures": 4,
+  "patch_forward_and_reverse_check": true,
+  "game_state_rng_indexed_sha256": "28c283c1dc9d4cfb2f565cd27f156520b572e22abc7294fd675698d0c9c12acc",
+  "original_blend_normalized_sha256": "8c358d6608052b6420cac1258f04b46dc3eaeca34e08d844b37d35c9971a5bbf",
+  "capture_ticks": [
+    872,
+    876
+  ],
+  "native_size": [
+    640,
+    400
+  ],
+  "capture_scope": "Top-edge ingress, native2x SDL software readback; not physical desktop or whole-body/full-level acceptance.",
+  "production_c_unchanged": true,
+  "portable_note_sha256": "1c5ae46732763fbe7d216f39a44fbb20db172f67aadef570fa8cb9bdf1b86199"
+}

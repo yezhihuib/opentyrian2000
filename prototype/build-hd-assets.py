@@ -6,6 +6,17 @@ repo=Path(__file__).resolve().parent.parent
 p=argparse.ArgumentParser();p.add_argument('--output',type=Path);a=p.parse_args()
 manifest=json.loads((repo/'assets/hd/manifest.json').read_text())
 sha=lambda b:hashlib.sha256(b).hexdigest()
+# Accepted blue-v4 resources belong in both current packs, not rollback packs.
+blue_v4_hashes = {
+ 'enemy-newsh2-85-8.hda': '97a37e0cca16821c94fb8e52ca8eeb6c73aa2baf5eeaa029254c95707617a2ac',
+ 'enemy-newsh2-87-8.hda': 'c2352caf73e2a750397389c939a02e88bdb72f76aee21011efcee005e314abf0',
+ 'enemy-newsh2-123-8.hda': '2c26ec570b3ed9be141f2ec48a7e20c63ff70a9048a24382206008aae8f96f7e',
+ 'enemy-newsh2-125-8.hda': 'f64eb6d4ecc5cc87ebafdd79159ae731a2c5044b4c5b564e4c6a37b1a6eb0acf',
+}
+for filename, expected in blue_v4_hashes.items():
+ entries = [manifest['packs'][manifest[key]]['files'][filename]
+            for key in ('default_preview_pack', 'default_debug_pack')]
+ assert entries[0] == entries[1] and entries[0]['sha256'] == expected
 if a.output:
  output=a.output.resolve()
  if output.exists():p.error('Choose a new output directory; existing resources are never overwritten')
