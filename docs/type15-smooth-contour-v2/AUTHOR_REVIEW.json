@@ -1,0 +1,539 @@
+{
+  "schema": "type15-frozen-art-actual-author-review-v1",
+  "reviewed_at_utc": "2026-10-13T19:52:00Z",
+  "decision": "PASS_BOUNDED_PRESENTED_VISUAL_REVIEW",
+  "subject": {
+    "family": "C/type15",
+    "namespace": 101,
+    "all_frozen_heading_ids": [
+      39,
+      41,
+      43,
+      45,
+      91,
+      93,
+      129,
+      131
+    ],
+    "presented_heading_ids": [
+      39,
+      41,
+      43,
+      45,
+      93,
+      129,
+      131
+    ],
+    "NW91_actual_presentation": "NOT_OBSERVED_SOURCE_AND_UNIT_ONLY",
+    "logical_canvas": [
+      24,
+      28
+    ],
+    "density": 8,
+    "anchor": [
+      6,
+      7
+    ],
+    "source_base": "f3bcc061d8a136e257e9c36d40629b4f948a1708",
+    "frozen_art_archive": {
+      "path": "roundcraft-tank-edge-pilot-20261013/type15-eightheading-smooth-contour-v2-generated-art.tar.gz",
+      "bytes": 4441246,
+      "sha256": "32309fd366340954e1e3bf3b0183c311ef0d612f41200b32b17814a909343a0a",
+      "library_file_id": "libfile_08ee3169a5d08191846e2e3682071514"
+    },
+    "frozen_contract_sha256": "b578056927784e5a49b91a669617c9622e9fc5480e49937fb364e8ff2c1d3e19",
+    "all16_imported_PNG_HDR1_files_match_frozen_art": true,
+    "art_file_pins": [
+      {
+        "relative_art_path": "output/enemy-newsh2-39-8.png",
+        "sha256": "1a9706c98ce9625370e0e06e9cd4afdfc2c377880d20646caf99b81b0a2103b6"
+      },
+      {
+        "relative_art_path": "output/enemy-newsh2-39-8.hda",
+        "sha256": "faa362385a6b7f67e7926df162d9b5df4df41aa492709562841e410fd77e2d6d"
+      },
+      {
+        "relative_art_path": "output/enemy-newsh2-41-8.png",
+        "sha256": "654d63279d28307f4bc6ec48f95c42633e58ee32ec5f12403349be62f3a61b58"
+      },
+      {
+        "relative_art_path": "output/enemy-newsh2-41-8.hda",
+        "sha256": "8d2f73e32e39be13e440ba8639f471ca1877dc476ac03b5ee60771741c2f515f"
+      },
+      {
+        "relative_art_path": "output/enemy-newsh2-43-8.png",
+        "sha256": "5eb06edb895431f007747ca8385a9bbe29cd568c2c745a02a85d2b3ca0fba8ae"
+      },
+      {
+        "relative_art_path": "output/enemy-newsh2-43-8.hda",
+        "sha256": "5874d9c67472bb9afa8e6be64480d33b0502ad4c035f8c985bb77ef7cfa00d66"
+      },
+      {
+        "relative_art_path": "output/enemy-newsh2-45-8.png",
+        "sha256": "827d70f332df47b5b637fa91b9cc757cbd326a7ee7bcaa061e116d55592b1f2c"
+      },
+      {
+        "relative_art_path": "output/enemy-newsh2-45-8.hda",
+        "sha256": "3a20918ae6fffb966c9fc857a04a9b75a5554c961e622f6f7851db2d871f8af5"
+      },
+      {
+        "relative_art_path": "output/enemy-newsh2-91-8.png",
+        "sha256": "cec3bf6abf3e17e9d0ea450855c4ea494511936f6cb47ff85692fc67a717f54b"
+      },
+      {
+        "relative_art_path": "output/enemy-newsh2-91-8.hda",
+        "sha256": "e2c3aaa833db864ae73b4cd611305043ddcefd89dda19d22a1b1d5d577b2c29f"
+      },
+      {
+        "relative_art_path": "output/enemy-newsh2-93-8.png",
+        "sha256": "d257c40c17b0d90ed314080afcf17d9b21881aa8d0dc88cfcfe22dc9c93b6aea"
+      },
+      {
+        "relative_art_path": "output/enemy-newsh2-93-8.hda",
+        "sha256": "c816a59f906bbf63af3707d7b183c7be8c39136613f60c0a9f8b4423d2622164"
+      },
+      {
+        "relative_art_path": "output/enemy-newsh2-129-8.png",
+        "sha256": "30b038078611fad06ad421700e4f25d6c9b09b9accc48afb14f57ed394e4152b"
+      },
+      {
+        "relative_art_path": "output/enemy-newsh2-129-8.hda",
+        "sha256": "0369d6e3fdbe602f8e5caa51fa3834a434a1abd28c267674d4b7aa98005e3e56"
+      },
+      {
+        "relative_art_path": "output/enemy-newsh2-131-8.png",
+        "sha256": "a69466bc91e960184b25e549237fefdd7ea05190839519a2405ebe5aa755dc0b"
+      },
+      {
+        "relative_art_path": "output/enemy-newsh2-131-8.hda",
+        "sha256": "7590d16a0c2378bca3d2ffb66c0279ede2c73ffcbc61383e83d582cdd03ad904"
+      }
+    ]
+  },
+  "review_method": {
+    "full_native2x": "Visually inspected all six baseline and all six candidate 640x400 captures at the six specified ticks.",
+    "paired_actor_views": "Visually inspected all 10 corresponding same-size 48x56 actor crop pairs. Gray bands in the contact explicitly represent areas outside the captured viewport. No source pixels were scaled in this native2x contact.",
+    "true4x": "Visually inspected actual native1280x800 tick4525; not an enlarged2x image.",
+    "missing91": "Visually inspected the existing final missing91 native2x tick4525 capture as a bounded fallback view.",
+    "aperture_detail": "A separate 6x nearest diagnostic enlargement of native2x pixels was inspected and is explicitly labeled NOT native4x.",
+    "reviewer_game_executions": 0,
+    "reviewer_new_captures": 0,
+    "reviewer_art_edits": 0
+  },
+  "visual_findings": [
+    {
+      "check": "Native shape, registration and arms/barrels",
+      "result": "PASS_WITH_EXPOSURE_LIMITS",
+      "observation": "Exposed parts across all seven presented headings retain stable placement against the matched baseline, coherent mechanical proportions, and consistent casing/arm/barrel alignment. No unexplained displacement or whole-vehicle shrink is visible. Top clipping prevents a full-length barrel judgment in the clipped views."
+    },
+    {
+      "check": "Metal rendering and fractional contours",
+      "result": "PASS",
+      "observation": "Smooth reconstructed edges and restrained metal surfaces remain readable against the road/stone scene. No visible quadrant seam, opaque black backing block, detached fringe, or arbitrary lighting reversal appears in the exposed regions."
+    },
+    {
+      "check": "C129 aperture",
+      "result": "PASS_AT_SMALL_NATIVE_DETAIL",
+      "observation": "The exposed C129 aperture region at4215 retains a tiny opening at native2x. Its fine shape is only a few displayed pixels; the diagnostic enlargement aids inspection without becoming a higher-density runtime claim."
+    },
+    {
+      "check": "C93 aperture",
+      "result": "OCCLUDED_VISUAL_QUALIFICATION",
+      "observation": "The body/aperture region at4525 is obscured by INSERT COIN and its shadow in native2x and true4x. Exposed barrel/arm contours are clean. The existing frozen aperture and exact final compositing are separately pinned by art and numeric receipts; the hidden opening is not claimed as exposed visual proof."
+    },
+    {
+      "check": "Text, shadow and clipping",
+      "result": "PASS_FOR_VISIBLE_COMPOSITION",
+      "observation": "The visible text/shadow and viewport clipping have no apparent detached sprite fringe or discontinuity. North/Northeast/East views have top clipping; Southeast is substantially covered by the text despite a full rectangle. Secondary South views have right clipping and later unchanged actors over their transparent margin."
+    },
+    {
+      "check": "NW91",
+      "result": "NO_ACTUAL_VISUAL_COVERAGE",
+      "observation": "NW91 was not presented in these captures. Its prior source-art approval and source/unit verification do not become an actual-rendering claim."
+    }
+  ],
+  "actual_actor_index": [
+    {
+      "tick": 4214,
+      "pool": 50,
+      "base": 41,
+      "x": 206,
+      "y": 21,
+      "clip": [
+        206,
+        21,
+        230,
+        49
+      ]
+    },
+    {
+      "tick": 4214,
+      "pool": 52,
+      "base": 41,
+      "x": 274,
+      "y": 21,
+      "clip": [
+        274,
+        21,
+        288,
+        49
+      ]
+    },
+    {
+      "tick": 4214,
+      "pool": 53,
+      "base": 39,
+      "x": 70,
+      "y": 21,
+      "clip": [
+        70,
+        21,
+        94,
+        49
+      ]
+    },
+    {
+      "tick": 4215,
+      "pool": 50,
+      "base": 41,
+      "x": 206,
+      "y": 22,
+      "clip": [
+        206,
+        22,
+        230,
+        50
+      ]
+    },
+    {
+      "tick": 4215,
+      "pool": 52,
+      "base": 41,
+      "x": 274,
+      "y": 22,
+      "clip": [
+        274,
+        22,
+        288,
+        50
+      ]
+    },
+    {
+      "tick": 4215,
+      "pool": 53,
+      "base": 129,
+      "x": 68,
+      "y": 22,
+      "clip": [
+        68,
+        22,
+        92,
+        50
+      ]
+    },
+    {
+      "tick": 4521,
+      "pool": 51,
+      "base": 45,
+      "x": 158,
+      "y": -2,
+      "clip": [
+        158,
+        0,
+        182,
+        26
+      ]
+    },
+    {
+      "tick": 4525,
+      "pool": 51,
+      "base": 93,
+      "x": 158,
+      "y": -4,
+      "clip": [
+        158,
+        0,
+        182,
+        24
+      ]
+    },
+    {
+      "tick": 4527,
+      "pool": 51,
+      "base": 43,
+      "x": 158,
+      "y": -2,
+      "clip": [
+        158,
+        0,
+        182,
+        26
+      ]
+    },
+    {
+      "tick": 4530,
+      "pool": 51,
+      "base": 131,
+      "x": 158,
+      "y": 1,
+      "clip": [
+        158,
+        1,
+        182,
+        29
+      ]
+    }
+  ],
+  "numeric_gate_reference": {
+    "independent_from_visual_decision": true,
+    "status_as_recorded": "PASS",
+    "receipt": {
+      "path": "RESULT-v2-all.json",
+      "bytes": 19103,
+      "sha256": "59e5f8bc7ffba2ba97c6fc031369f0cbb2980dbbb910126eafaa57094286cec5"
+    },
+    "verifier": {
+      "path": "verify_runtime_v2.py",
+      "bytes": 10106,
+      "sha256": "8f50d6b699ebaba1645ef3ef901b6a9651841147ca98bffb562d16ca2b37e17c"
+    },
+    "later_actor_replay": {
+      "path": "later_enemy_oracle.py",
+      "bytes": 4307,
+      "sha256": "f2ccb716eafdd391b62e06c25bf8971d9699fd9c1bf05c7ac6472ae352f09a4d"
+    },
+    "paired_complete_state_indexed_rng_ticks": 4531,
+    "exact_native_outside_C_rectangles": 1512128,
+    "changed_inside_pixels": 5493,
+    "candidate_exact_canvas_samples": 417792,
+    "candidate_fractional_samples": 94368,
+    "candidate_mismatches": 0,
+    "all_four_cases_final_full_clipped_rectangle_pixels_exact": 59264,
+    "zero_excluded_pixels": true,
+    "true4x_final_clipped_rectangle_pixels_exact": 9216,
+    "true4x_draw_and_internal8x_prefix_exact": true,
+    "missing91_source_calls": 40,
+    "missing91_HD_returns": "false for every observed C call under coherent-family fallback",
+    "missing91_neighbor_pixels_exact": 253696,
+    "proof_only_replay_completion": "Initial offline full-rectangle replay omitted three later original newsh2 actor273/277 quadrant calls over the secondary South actor transparent margin. The final verifier replays their original captured order, authored/original pixels and ownership before original INSERT COIN/shadow, without exclusions or new captures. This author receipt cites the resulting numeric gate; independent technical review remains separately owned."
+  },
+  "scope": {
+    "qualification": "Alive-only protected stationary/no-fire seed0x5eed Linux software diagnostic; NW91 source-only; no manual input, natural survival, full level, GPU or Windows claim.",
+    "private_control": "Matched alive-only invulnerability floor2 after original events; stationary player and no player firing.",
+    "existing_runs": 4,
+    "existing_native_captures": 14,
+    "not_established": [
+      "NW91 actual rendering",
+      "Fully exposed all-eight-heading runtime sequence",
+      "Exposed C93 aperture",
+      "Natural combat/survival/hit/ice/death",
+      "Manual-input play",
+      "GPU/fullscreen",
+      "Full level",
+      "Windows runtime"
+    ],
+    "approval_boundary": "Visual acceptance is limited to exposed portions in these pinned diagnostic captures. This is not publication, default-replacement, or expanded-runtime authorization."
+  },
+  "evidence_pins": [
+    {
+      "path": "PRE_RUN_SNAPSHOT.json",
+      "bytes": 31138,
+      "sha256": "9f01e9e6eee9e86b84494c9eb5446b27f28c4579cff8d105cb9c1968e2b306b6"
+    },
+    {
+      "path": "PRE_RUN_SUPPLEMENT_FINAL.json",
+      "bytes": 668,
+      "sha256": "e09f84ba29639404b29c59d9ddc5fe0345a73a6042861e3d647f54e1f459db09"
+    },
+    {
+      "path": "fixture/provenance.json",
+      "bytes": 347478,
+      "sha256": "ed97c32eb7d1fa8db14c701caa0632160b1b6c986378256e8d5e6aa565d628e7"
+    },
+    {
+      "path": "author-review/C-all10-actors-native2x-before-after.png",
+      "bytes": 60428,
+      "sha256": "20df475b7d6f0b9fd12ec970776d8f03bb0fc3ddc0889fadcb2305ef55209f00"
+    },
+    {
+      "path": "author-review/C-aperture-inspection-enlarged-native2x.png",
+      "bytes": 36299,
+      "sha256": "b9f75a0d159877e69bf91aadc56f61a8e9d0f26413946042eb709ff87a506a4f"
+    },
+    {
+      "path": "author-review/C-actor-index.json",
+      "bytes": 1464,
+      "sha256": "c63f77674dc2a4b80ccdd623686c2cbbf926c65cfcfca723d9fc2b11eaee9fa8"
+    },
+    {
+      "path": "runs/baseline/frame-hashes.json",
+      "bytes": 1725,
+      "sha256": "0e356af7292e1bd5c32e1b8734035535a0c529e20a1b9a6b4c8ed5dc7682bd5e"
+    },
+    {
+      "path": "runs/candidate/frame-hashes.json",
+      "bytes": 1725,
+      "sha256": "0727fd63153fa05c245fab8462ed6c7d8abc81e0b547649e39ab8c0c7f3d8efe"
+    },
+    {
+      "path": "runs/spot4/frame-hashes.json",
+      "bytes": 291,
+      "sha256": "da8807c853a4444dedc2df7eddab66756bfbf40cc1590fe26a0ed91d5fea94e2"
+    },
+    {
+      "path": "runs/missing/frame-hashes.json",
+      "bytes": 290,
+      "sha256": "7f63ea0cf3f5373e475047d881a3541290f0ff6b95a7d6748b7b93dcb970270f"
+    }
+  ],
+  "capture_pins": {
+    "baseline": [
+      {
+        "tick": 4214,
+        "path": "runs/baseline/actual-4214-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "91a7de814871d7f13b3a17d8ae9d33a2efa067245d1549ed2d1410bdcb1534f4",
+        "RGBA_sha256": "fffc5097891c9247b25441e7120e87c76185592aa2c4239463cff6c87e6d1d63"
+      },
+      {
+        "tick": 4215,
+        "path": "runs/baseline/actual-4215-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "03f79f141c3f42c132e8b6f3f4dab6f730122dcd460cf501eecc6f5afe0117b9",
+        "RGBA_sha256": "483c20addb01457720a9abdf20b076cfdc8cd3ec62bb18551dbe144b79dd5c18"
+      },
+      {
+        "tick": 4521,
+        "path": "runs/baseline/actual-4521-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "ef4c9299dad3147db44bfdb9cde6d97258587551ae36ae3c4913ddf903206af6",
+        "RGBA_sha256": "dcc2176df28352dd407fafc6af8580aba9e181f03b3939f5996706a10fb5388e"
+      },
+      {
+        "tick": 4525,
+        "path": "runs/baseline/actual-4525-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "dae1f2cd0ade6cf88d2ef8ad999be598f8da2adb8bfd3ccc690fe2fb953fb4a7",
+        "RGBA_sha256": "366bf48805307f6d639cf14590db29b07eef5e490cccf33d94dcaa4aeff06d6a"
+      },
+      {
+        "tick": 4527,
+        "path": "runs/baseline/actual-4527-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "d0c5deaf6bfc0cfe278f15475359a1a45d9d6ef095d45f224bcb56c8ceecc0da",
+        "RGBA_sha256": "bc3583b42409293af95b61a3f42d6aabf863728dbed274d549f337433bd25295"
+      },
+      {
+        "tick": 4530,
+        "path": "runs/baseline/actual-4530-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "35be2a6729191f18dafc763dbd766ca0516a357f9bce351e07c5aaf49330c0ca",
+        "RGBA_sha256": "6fb3351e7c4899ae64bb735ae5fa723a6c9f963e4760b8a4e45e9f21e1329464"
+      }
+    ],
+    "candidate": [
+      {
+        "tick": 4214,
+        "path": "runs/candidate/actual-4214-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "9f84416d68328fd106f9c9dd8000c93504fe251e6c8e5bd48d5dfd45b5d47a31",
+        "RGBA_sha256": "94bd30dcce02df324c77fe57a10e4885abb55e81a383d62ca222c38b63737b28"
+      },
+      {
+        "tick": 4215,
+        "path": "runs/candidate/actual-4215-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "6dfaa5114aab85540f2fdacd273a579c0eb04111470bfb6f552d2290a9d56006",
+        "RGBA_sha256": "1931fa090cb5c57a0bfcb5d358a072019aa19b3b6b06251047ba00df5b434720"
+      },
+      {
+        "tick": 4521,
+        "path": "runs/candidate/actual-4521-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "d5d36e73a48f56350d27ed65315c07aba3bb07e2931a3ce0b002e4d2026b3c3b",
+        "RGBA_sha256": "3901afe2c1fb7e14f7efbbbe0e9811dd9f3c11325360e0582e0cf096557ad8e6"
+      },
+      {
+        "tick": 4525,
+        "path": "runs/candidate/actual-4525-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "8d4c1243cf9aa81184dbcd1edba299c366ee5caaed4d01cd973bf6b7e56846bf",
+        "RGBA_sha256": "4367338eb151c107155b820ddb245238e15814d1b4c71e5a6268921de684c0f8"
+      },
+      {
+        "tick": 4527,
+        "path": "runs/candidate/actual-4527-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "1f4d1763d0538ed9dd3c3d9c0dc86eb7089416510a3c56a5ad75eaa4faf58f1c",
+        "RGBA_sha256": "08cd36458c8295a35a190e038ab1ca83ec171ed2d774dadb9a5b12edc0878a05"
+      },
+      {
+        "tick": 4530,
+        "path": "runs/candidate/actual-4530-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "35f2367f85843d0e7cb95b54917f681dd04fb1a67ab11f8386984d6fcffbbf8a",
+        "RGBA_sha256": "54bd33198fc74b9b8414facf0409d470085a018a81d06d793ba1ba0df7e21d32"
+      }
+    ],
+    "spot4": [
+      {
+        "tick": 4525,
+        "path": "runs/spot4/actual-4525-native4x.png",
+        "dimensions": [
+          1280,
+          800
+        ],
+        "PNG_sha256": "8bfde167c1d4831bbcabf28d6f57ab6fa2efe785a251c5d6f9baf8802e6b5c1d",
+        "RGBA_sha256": "2c4a28666b75c8ae66f6855e0bf7f8583a4435f201512aa191a5d27f01bd28ae"
+      }
+    ],
+    "missing": [
+      {
+        "tick": 4525,
+        "path": "runs/missing/actual-4525-native2x.png",
+        "dimensions": [
+          640,
+          400
+        ],
+        "PNG_sha256": "43d46617297a88db2469ad805cb8eb86465e6788fa6dd3e4c9cd44cefd28581a",
+        "RGBA_sha256": "06bb40bd2db5b20fccf751a851a6d87e0b834acdbfe7335d08fe3614851c509d"
+      }
+    ]
+  }
+}

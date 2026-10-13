@@ -1851,7 +1851,7 @@ static bool newsh4_opposite7_family_ready(void)
 
 /* Approved type15 eight-heading bank1 family, selected-pack and 8x only.
  * Preflight every member before the first replacement. The complete RGBA
- * integrity stamps also pin the exact original alpha support. Failure stays
+ * integrity stamps pin approved fractional contours and apertures. Failure stays
  * coherent for this Asset-cache lifetime; unrelated namespaces are untouched. */
 static bool type15_eightheading_checked,type15_eightheading_valid;
 static bool type15_eightheading_family_ready(void)
@@ -1861,7 +1861,7 @@ static bool type15_eightheading_family_ready(void)
  if(type15_eightheading_checked)return type15_eightheading_valid;
  type15_eightheading_checked=true;type15_eightheading_valid=true;
  static const unsigned int ids[8]={39,41,43,45,91,93,129,131};
- static const uint64_t rgba_stamps[8]={UINT64_C(0x63fd993042755636),UINT64_C(0xf6583f60603839a3),UINT64_C(0x4cd47c32a4b23eaa),UINT64_C(0xe9d34663cade254d),UINT64_C(0xbaa804b312e1f561),UINT64_C(0x0fcf5a0c3f773e03),UINT64_C(0x047bb0296b21548b),UINT64_C(0x6db63fa17b194c7e)};
+ static const uint64_t rgba_stamps[8]={UINT64_C(0xcc3d8be70ed2e620),UINT64_C(0x80d5e7bb507fe084),UINT64_C(0x3228caecc8f7abe8),UINT64_C(0x33f828b2c95baa5a),UINT64_C(0x452516abee3a1d95),UINT64_C(0xc8296a713b1af965),UINT64_C(0x1f937a94539eb9cb),UINT64_C(0xb01b2fcfaa46aaf0)};
  for(int i=0;i<8;i++) {
   Asset *a=&assets[396+i];
   a->initialized=true;a->bank=ASSET_NEWSH2;a->index=(int)ids[i];

@@ -154,9 +154,9 @@ OPPOSITE7_PNGS = {'76740ae794198be75ba5d91f66f833a11204a5af2ebe5aea5123d25e75abf
 
 # Exact type15 eight-heading append, independent of mutable manifest receipts.
 TYPE15 = {'schema': 'enemy-type15-eightheading-v1',
- 'source': 'assets/hd/artwork/type15-eightheading-v1',
- 'source_inventory_sha256': '17780d02fef4c08636d22651c1299e3641234d0b992f7283fe32e64d92ca67d9',
- 'import_sha256': 'ee659ea7365f457250ddb15fd11f95c0ddb6ca31f80f51156b98adf0f6b6e383',
+ 'source': 'assets/hd/artwork/type15-eightheading-smooth-contour-v2',
+ 'source_inventory_sha256': '9bc7fa0d06d4f6077ee48a993d2ac3f511b56e3cf22d95e9a83765a800cf10cc',
+ 'import_sha256': '93c0e208876a4ac9aed47256f370cfebf577123913cc43226cc311a24d5e1299',
  'bank_id': 1,
  'bank_role': 101,
  'enemy_type': 15,
@@ -168,84 +168,115 @@ TYPE15 = {'schema': 'enemy-type15-eightheading-v1',
  'runtime_components': [0, 1, 19, 20],
  'selector_order': [91, 45, 93, 39, 43, 129, 41, 131],
  'selector_headings': ['NW', 'N', 'NE', 'W', 'E', 'SW', 'S', 'SE'],
- 'selection': 'Original event-selected headings; animate0, no automatic rotation',
+ 'selection': 'Original event-selected headings; animate0, no automatic '
+              'rotation',
  'source_only_nonpresented_base': 91,
- 'original_alpha_exact': True,
- 'fallback': 'All eight approved members required before any replacement; 8x-only selected-pack '
-             'cached fallback is local to this family',
+ 'original_alpha_exact': False,
+ 'fallback': 'All eight approved members required before any replacement; '
+             '8x-only selected-pack cached fallback is local to this family',
  'entries': [{'id': 39,
               'bank_role': 101,
               'slot': 396,
               'anchor': [6, 7],
-              'rgba_fnv1a64': '63fd993042755636'},
+              'rgba_fnv1a64': 'cc3d8be70ed2e620'},
              {'id': 41,
               'bank_role': 101,
               'slot': 397,
               'anchor': [6, 7],
-              'rgba_fnv1a64': 'f6583f60603839a3'},
+              'rgba_fnv1a64': '80d5e7bb507fe084'},
              {'id': 43,
               'bank_role': 101,
               'slot': 398,
               'anchor': [6, 7],
-              'rgba_fnv1a64': '4cd47c32a4b23eaa'},
+              'rgba_fnv1a64': '3228caecc8f7abe8'},
              {'id': 45,
               'bank_role': 101,
               'slot': 399,
               'anchor': [6, 7],
-              'rgba_fnv1a64': 'e9d34663cade254d'},
+              'rgba_fnv1a64': '33f828b2c95baa5a'},
              {'id': 91,
               'bank_role': 101,
               'slot': 400,
               'anchor': [6, 7],
-              'rgba_fnv1a64': 'baa804b312e1f561'},
+              'rgba_fnv1a64': '452516abee3a1d95'},
              {'id': 93,
               'bank_role': 101,
               'slot': 401,
               'anchor': [6, 7],
-              'rgba_fnv1a64': '0fcf5a0c3f773e03'},
+              'rgba_fnv1a64': 'c8296a713b1af965'},
              {'id': 129,
               'bank_role': 101,
               'slot': 402,
               'anchor': [6, 7],
-              'rgba_fnv1a64': '047bb0296b21548b'},
+              'rgba_fnv1a64': '1f937a94539eb9cb'},
              {'id': 131,
               'bank_role': 101,
               'slot': 403,
               'anchor': [6, 7],
-              'rgba_fnv1a64': '6db63fa17b194c7e'}]}
-TYPE15_FILES = {'enemy-newsh2-39-8.hda': {'sha256': '05ef7518703365fb05f86ac746679c547a45f8a5b45070ccd0729ae56afdb789',
+              'rgba_fnv1a64': 'b01b2fcfaa46aaf0'}],
+ 'source_inventory': 'SHA256SUMS.json',
+ 'art_revision': 'smooth-contour-v2',
+ 'contour_contract': 'Exact approved fractional outer contours and genuine '
+                     'apertures inside original24x28 rectangles; original '
+                     'indexed alpha, collision, registration and source events '
+                     'unchanged.'}
+TYPE15_FILES = {'enemy-newsh2-39-8.hda': {'sha256': 'faa362385a6b7f67e7926df162d9b5df4df41aa492709562841e410fd77e2d6d',
                            'header_u32': [1010039, 8, 24, 28, 6, 7],
-                           'source_png': 'assets/hd/source/enemy-newsh2-39-8-05ef75187033.png',
-                           'source_png_sha256': 'ac206bb564bec2580d4c855e1f19d6bc345d6b61f0ad0d5a3b376785371f92fd'},
- 'enemy-newsh2-41-8.hda': {'sha256': 'd4163c85bdc7ee1939e9d660b740d6e2d55aa89782f3e3f5924e268023347858',
+                           'source_png': 'assets/hd/source/enemy-newsh2-39-8-faa362385a6b.png',
+                           'source_png_sha256': '1a9706c98ce9625370e0e06e9cd4afdfc2c377880d20646caf99b81b0a2103b6'},
+ 'enemy-newsh2-41-8.hda': {'sha256': '8d2f73e32e39be13e440ba8639f471ca1877dc476ac03b5ee60771741c2f515f',
                            'header_u32': [1010041, 8, 24, 28, 6, 7],
-                           'source_png': 'assets/hd/source/enemy-newsh2-41-8-d4163c85bdc7.png',
-                           'source_png_sha256': '86f4e17e7ea612354bb5269042823f903ecb6752caac327e51685788ef0c5253'},
- 'enemy-newsh2-43-8.hda': {'sha256': 'a9ddb87c4e992f35f979bd72b74224e222391143685698a328c6ac232a782024',
+                           'source_png': 'assets/hd/source/enemy-newsh2-41-8-8d2f73e32e39.png',
+                           'source_png_sha256': '654d63279d28307f4bc6ec48f95c42633e58ee32ec5f12403349be62f3a61b58'},
+ 'enemy-newsh2-43-8.hda': {'sha256': '5874d9c67472bb9afa8e6be64480d33b0502ad4c035f8c985bb77ef7cfa00d66',
                            'header_u32': [1010043, 8, 24, 28, 6, 7],
-                           'source_png': 'assets/hd/source/enemy-newsh2-43-8-a9ddb87c4e99.png',
-                           'source_png_sha256': '062b51b9bd0e69ecd120d2dc52ba76b8cf0aa46a644064c415ea07244dd0b3c2'},
- 'enemy-newsh2-45-8.hda': {'sha256': '7d1b67817748f18a872e0fd3e7d406fcc9368ff24cd4d21821b4a9738b2742ed',
+                           'source_png': 'assets/hd/source/enemy-newsh2-43-8-5874d9c67472.png',
+                           'source_png_sha256': '5eb06edb895431f007747ca8385a9bbe29cd568c2c745a02a85d2b3ca0fba8ae'},
+ 'enemy-newsh2-45-8.hda': {'sha256': '3a20918ae6fffb966c9fc857a04a9b75a5554c961e622f6f7851db2d871f8af5',
                            'header_u32': [1010045, 8, 24, 28, 6, 7],
-                           'source_png': 'assets/hd/source/enemy-newsh2-45-8-7d1b67817748.png',
-                           'source_png_sha256': 'e2ba6c708dfa1f65800b16200406bc305696c845d465cb3ca163d8ca28664c56'},
- 'enemy-newsh2-91-8.hda': {'sha256': 'b155c5acbd304177806891b3016b424b68cfaebfcb5d59e7859974a64cea4782',
+                           'source_png': 'assets/hd/source/enemy-newsh2-45-8-3a20918ae6ff.png',
+                           'source_png_sha256': '827d70f332df47b5b637fa91b9cc757cbd326a7ee7bcaa061e116d55592b1f2c'},
+ 'enemy-newsh2-91-8.hda': {'sha256': 'e2c3aaa833db864ae73b4cd611305043ddcefd89dda19d22a1b1d5d577b2c29f',
                            'header_u32': [1010091, 8, 24, 28, 6, 7],
-                           'source_png': 'assets/hd/source/enemy-newsh2-91-8-b155c5acbd30.png',
-                           'source_png_sha256': 'c33fa6d349db74237335c669f26e4a31dce8b9bfab74d64d62374e6744aff2aa'},
- 'enemy-newsh2-93-8.hda': {'sha256': 'b4dc068e25d0de509ae4dee737846ae379e3ca73a7a10561b8c5e274620547a0',
+                           'source_png': 'assets/hd/source/enemy-newsh2-91-8-e2c3aaa833db.png',
+                           'source_png_sha256': 'cec3bf6abf3e17e9d0ea450855c4ea494511936f6cb47ff85692fc67a717f54b'},
+ 'enemy-newsh2-93-8.hda': {'sha256': 'c816a59f906bbf63af3707d7b183c7be8c39136613f60c0a9f8b4423d2622164',
                            'header_u32': [1010093, 8, 24, 28, 6, 7],
-                           'source_png': 'assets/hd/source/enemy-newsh2-93-8-b4dc068e25d0.png',
-                           'source_png_sha256': 'a3b93abe0d4ec98de786c3bfc4a9b3ebc35ebc3a7d7c0011baf7f0787d001e01'},
- 'enemy-newsh2-129-8.hda': {'sha256': 'd8c12921aacc495d6185f8cb3675a7b6cee2203b44892196c77919152f530772',
+                           'source_png': 'assets/hd/source/enemy-newsh2-93-8-c816a59f906b.png',
+                           'source_png_sha256': 'd257c40c17b0d90ed314080afcf17d9b21881aa8d0dc88cfcfe22dc9c93b6aea'},
+ 'enemy-newsh2-129-8.hda': {'sha256': '0369d6e3fdbe602f8e5caa51fa3834a434a1abd28c267674d4b7aa98005e3e56',
                             'header_u32': [1010129, 8, 24, 28, 6, 7],
-                            'source_png': 'assets/hd/source/enemy-newsh2-129-8-d8c12921aacc.png',
-                            'source_png_sha256': 'e9c663f122d929d58c2a68d99e345a3b0491ade6d2a364862189a8135b6406b2'},
- 'enemy-newsh2-131-8.hda': {'sha256': '95b80dffe530d276e446bb3716afeb2799dd2fe9f5db4c0f2f867750a0dbdbb0',
+                            'source_png': 'assets/hd/source/enemy-newsh2-129-8-0369d6e3fdbe.png',
+                            'source_png_sha256': '30b038078611fad06ad421700e4f25d6c9b09b9accc48afb14f57ed394e4152b'},
+ 'enemy-newsh2-131-8.hda': {'sha256': '7590d16a0c2378bca3d2ffb66c0279ede2c73ffcbc61383e83d582cdd03ad904',
                             'header_u32': [1010131, 8, 24, 28, 6, 7],
-                            'source_png': 'assets/hd/source/enemy-newsh2-131-8-95b80dffe530.png',
-                            'source_png_sha256': '387117cae5b8e1f453c0d583875239f22bd950610b51aae4a8f017e06eb36ed0'}}
-TYPE15_PNGS = {'05ef7518703365fb05f86ac746679c547a45f8a5b45070ccd0729ae56afdb789': {'path': 'assets/hd/source/enemy-newsh2-39-8-05ef75187033.png',
+                            'source_png': 'assets/hd/source/enemy-newsh2-131-8-7590d16a0c23.png',
+                            'source_png_sha256': 'a69466bc91e960184b25e549237fefdd7ea05190839519a2405ebe5aa755dc0b'}}
+TYPE15_PNGS = {'faa362385a6b7f67e7926df162d9b5df4df41aa492709562841e410fd77e2d6d': {'path': 'assets/hd/source/enemy-newsh2-39-8-faa362385a6b.png',
+                                                                      'sha256': '1a9706c98ce9625370e0e06e9cd4afdfc2c377880d20646caf99b81b0a2103b6',
+                                                                      'RGBA_sha256': '63e9458a8a2f22037dbb78d5998827cab7bf0dc66125e47232f6877fdee8cddb'},
+ '8d2f73e32e39be13e440ba8639f471ca1877dc476ac03b5ee60771741c2f515f': {'path': 'assets/hd/source/enemy-newsh2-41-8-8d2f73e32e39.png',
+                                                                      'sha256': '654d63279d28307f4bc6ec48f95c42633e58ee32ec5f12403349be62f3a61b58',
+                                                                      'RGBA_sha256': 'c1b8ffb8458ea985c005bf2705b650836655a41e9d01ccfc217deecd4b5e9d1c'},
+ '5874d9c67472bb9afa8e6be64480d33b0502ad4c035f8c985bb77ef7cfa00d66': {'path': 'assets/hd/source/enemy-newsh2-43-8-5874d9c67472.png',
+                                                                      'sha256': '5eb06edb895431f007747ca8385a9bbe29cd568c2c745a02a85d2b3ca0fba8ae',
+                                                                      'RGBA_sha256': '929217d265e8e7b8bc89f49db20dd99a003aa3c0e4deff149788284a4c767606'},
+ '3a20918ae6fffb966c9fc857a04a9b75a5554c961e622f6f7851db2d871f8af5': {'path': 'assets/hd/source/enemy-newsh2-45-8-3a20918ae6ff.png',
+                                                                      'sha256': '827d70f332df47b5b637fa91b9cc757cbd326a7ee7bcaa061e116d55592b1f2c',
+                                                                      'RGBA_sha256': '50c2a1d850bf2a3a5c9fe78680828d10b7e3356ecdde570dbfac1a32eb8598d1'},
+ 'e2c3aaa833db864ae73b4cd611305043ddcefd89dda19d22a1b1d5d577b2c29f': {'path': 'assets/hd/source/enemy-newsh2-91-8-e2c3aaa833db.png',
+                                                                      'sha256': 'cec3bf6abf3e17e9d0ea450855c4ea494511936f6cb47ff85692fc67a717f54b',
+                                                                      'RGBA_sha256': 'a22c54c824774371977cdab300fb6b9a2fdd7928e1c5cee903db62e9363a0f9e'},
+ 'c816a59f906bbf63af3707d7b183c7be8c39136613f60c0a9f8b4423d2622164': {'path': 'assets/hd/source/enemy-newsh2-93-8-c816a59f906b.png',
+                                                                      'sha256': 'd257c40c17b0d90ed314080afcf17d9b21881aa8d0dc88cfcfe22dc9c93b6aea',
+                                                                      'RGBA_sha256': 'e0211943ebbb71735c3a1e6f8854fd2c1a97116d3a7c5a280ce6d58ec2fced58'},
+ '0369d6e3fdbe602f8e5caa51fa3834a434a1abd28c267674d4b7aa98005e3e56': {'path': 'assets/hd/source/enemy-newsh2-129-8-0369d6e3fdbe.png',
+                                                                      'sha256': '30b038078611fad06ad421700e4f25d6c9b09b9accc48afb14f57ed394e4152b',
+                                                                      'RGBA_sha256': 'fdc725fca3d9544d623d1f09641fd723a69e784ef74c2beb79b51fcfe0375074'},
+ '7590d16a0c2378bca3d2ffb66c0279ede2c73ffcbc61383e83d582cdd03ad904': {'path': 'assets/hd/source/enemy-newsh2-131-8-7590d16a0c23.png',
+                                                                      'sha256': 'a69466bc91e960184b25e549237fefdd7ea05190839519a2405ebe5aa755dc0b',
+                                                                      'RGBA_sha256': 'e70d53786f196218978c0b771b95f384628c5eb93c5e8c92f9b4d3c4122c6c21'}}
+TYPE15_HISTORICAL_PNGS = {'05ef7518703365fb05f86ac746679c547a45f8a5b45070ccd0729ae56afdb789': {'path': 'assets/hd/source/enemy-newsh2-39-8-05ef75187033.png',
                                                                       'sha256': 'ac206bb564bec2580d4c855e1f19d6bc345d6b61f0ad0d5a3b376785371f92fd',
                                                                       'RGBA_sha256': '7e3217226aa7251e6a579f8846b8746a133a6059eb296321d50971a313a65f6a'},
  'd4163c85bdc7ee1939e9d660b740d6e2d55aa89782f3e3f5924e268023347858': {'path': 'assets/hd/source/enemy-newsh2-41-8-d4163c85bdc7.png',
@@ -269,7 +300,6 @@ TYPE15_PNGS = {'05ef7518703365fb05f86ac746679c547a45f8a5b45070ccd0729ae56afdb789
  '95b80dffe530d276e446bb3716afeb2799dd2fe9f5db4c0f2f867750a0dbdbb0': {'path': 'assets/hd/source/enemy-newsh2-131-8-95b80dffe530.png',
                                                                       'sha256': '387117cae5b8e1f453c0d583875239f22bd950610b51aae4a8f017e06eb36ed0',
                                                                       'RGBA_sha256': '71d3b1b35cf73bbc719c349a15bbebc1dc3370593ca8cbe6d2935c36605f0f68'}}
-
 
 def sha(data):
     return hashlib.sha256(data).hexdigest()
@@ -295,15 +325,21 @@ def project_type15_family(test, manifest):
     family = manifest.pop('enemy_type15_eightheading_v1')
     test.assertEqual({k: v for k, v in family.items() if k != 'runtime_status'}, TYPE15)
     source = ROOT / TYPE15['source']
-    test.assertEqual(sha((source / 'inventory.json').read_bytes()), TYPE15['source_inventory_sha256'])
+    test.assertEqual(sha((source / 'SHA256SUMS.json').read_bytes()), TYPE15['source_inventory_sha256'])
     test.assertEqual(sha((source / 'IMPORT.json').read_bytes()), TYPE15['import_sha256'])
+    imported = json.loads((source / 'IMPORT.json').read_text())
+    test.assertEqual({e['path'] for e in imported['files']}, {str(q.relative_to(source)) for q in source.rglob('*') if q.is_file() and q.name != 'IMPORT.json'})
+    for e in imported['files']:
+        test.assertEqual(sha((source / e['path']).read_bytes()), e['sha256'])
+    for historical in TYPE15_HISTORICAL_PNGS.values():
+        test.assertEqual(sha((ROOT / historical['path']).read_bytes()), historical['sha256'])
     defaults = {manifest['default_preview_pack'], manifest['default_debug_pack']}
     test.assertEqual(len(defaults), 2)
     # No alias or duplicate source-index entry may hide beside the eight pins.
     stems = tuple(f'enemy-newsh2-{identity}-8-' for identity in TYPE15['ids'])
     test.assertEqual({stamp for stamp, item in manifest['source_pngs'].items()
-                      if Path(item['path']).name.startswith(stems)}, set(TYPE15_PNGS))
-    for stamp, expected in TYPE15_PNGS.items():
+                      if Path(item['path']).name.startswith(stems)}, set(TYPE15_PNGS) | set(TYPE15_HISTORICAL_PNGS))
+    for stamp, expected in {**TYPE15_HISTORICAL_PNGS, **TYPE15_PNGS}.items():
         test.assertIn(stamp, manifest['source_pngs'])
         test.assertEqual(manifest['source_pngs'].pop(stamp), expected)
     for filename, expected in TYPE15_FILES.items():
@@ -820,6 +856,25 @@ class TitlePackageTests(unittest.TestCase):
                     with self.assertRaises(AssertionError):
                         self.test_existing_manifest_fields_and_bytes_unchanged_from_baseline()
 
+    def _assert_type15_v2_projection(self):
+        # Exercise the complete C gate directly, before the independently
+        # failing historical settings-manifest check can short-circuit it.
+        current = json.loads(json.dumps(self.manifest))
+        project_type15_family(self, current)
+        prior = json.loads(subprocess.check_output(
+            ['git', 'show', 'f3bcc061d8a136e257e9c36d40629b4f948a1708:assets/hd/manifest.json'], cwd=ROOT))
+        prior.pop('enemy_type15_eightheading_v1')
+        for key in ('default_preview_pack', 'default_debug_pack'):
+            pack = prior['packs'][prior[key]]
+            for identity in TYPE15['ids']:
+                entry = pack['files'].pop(f'enemy-newsh2-{identity}-8.hda')
+                pack['count'] -= 1
+                prior['source_pngs'].pop(entry['sha256'], None)
+        self.assertEqual(current, prior)
+
+    def test_type15_v2_complete_guard_passes(self):
+        self._assert_type15_v2_projection()
+
     def test_type15_coexistence_guard_rejects_mutations(self):
         original = self.manifest
         self.assertIn('enemy_type15_eightheading_v1', original)
@@ -872,7 +927,7 @@ class TitlePackageTests(unittest.TestCase):
                 self.manifest = changed
                 try:
                     with self.assertRaises(AssertionError):
-                        self.test_existing_manifest_fields_and_bytes_unchanged_from_baseline()
+                        self._assert_type15_v2_projection()
                 finally:
                     self.manifest = original
 
@@ -881,7 +936,7 @@ class TitlePackageTests(unittest.TestCase):
         filename = 'enemy-newsh2-91-8.hda'
         targets = [ROOT / TYPE15_FILES[filename]['source_png'],
                    ROOT / 'assets/hd/packs' / self.manifest['default_preview_pack'] / filename,
-                   ROOT / TYPE15['source'] / 'inventory.json',
+                   ROOT / TYPE15['source'] / 'SHA256SUMS.json',
                    ROOT / TYPE15['source'] / 'IMPORT.json']
         read_bytes = Path.read_bytes
         for target in targets:
@@ -891,7 +946,7 @@ class TitlePackageTests(unittest.TestCase):
                     return raw[:-1] + bytes([raw[-1] ^ 1]) if path == target else raw
                 with mock.patch.object(Path, 'read_bytes', changed_bytes):
                     with self.assertRaises(AssertionError):
-                        self.test_existing_manifest_fields_and_bytes_unchanged_from_baseline()
+                        self._assert_type15_v2_projection()
 
     def test_existing_manifest_fields_and_bytes_unchanged_from_baseline(self):
         baseline = subprocess.check_output(['git', 'show', 'aba8650:assets/hd/manifest.json'], cwd=ROOT)

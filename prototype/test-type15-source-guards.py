@@ -12,23 +12,23 @@ for label,target in [('existing',out),('repository',repo),('repository-child',re
 assert not(repo/'type15-forbidden-output').exists()
 link=out/'link';link.symlink_to(out,target_is_directory=True);rejected('symlink-parent',link/'absent');assert not(out/'absent').exists()
 direct=out/'direct';direct.symlink_to(out/'absent',target_is_directory=True);rejected('symlink-output',direct)
-m=json.loads((repo/'assets/hd/manifest.json').read_text());src='assets/hd/artwork/type15-eightheading-v1';minimal=out/'pristine';(minimal/'prototype').mkdir(parents=True);shutil.copy2(script,minimal/'prototype/build-type15-art.py');shutil.copytree(repo/src,minimal/src);shutil.copy2(repo/'assets/hd/manifest.json',minimal/'assets/hd/manifest.json')
+m=json.loads((repo/'assets/hd/manifest.json').read_text());src='assets/hd/artwork/type15-eightheading-smooth-contour-v2';minimal=out/'pristine';(minimal/'prototype').mkdir(parents=True);shutil.copy2(script,minimal/'prototype/build-type15-art.py');shutil.copytree(repo/src,minimal/src);shutil.copytree(repo/'assets/hd/artwork/type15-eightheading-v1',minimal/'assets/hd/artwork/type15-eightheading-v1');shutil.copy2(repo/'assets/hd/manifest.json',minimal/'assets/hd/manifest.json')
 files=set()
 for i in [39,41,43,45,91,93,129,131]:
  name=f'enemy-newsh2-{i}-8.hda'
  for key in ['default_preview_pack','default_debug_pack']:
   e=m['packs'][m[key]]['files'][name];files.add(e['source_png']);files.add(str(Path('assets/hd/packs')/m[key]/name))
-for rel in files:(minimal/rel).parent.mkdir(parents=True,exist_ok=True);os.link(repo/rel,minimal/rel)
+for rel in files:(minimal/rel).parent.mkdir(parents=True,exist_ok=True);shutil.copy2(repo/rel,minimal/rel)
 r=subprocess.run([sys.executable,str(minimal/'prototype/build-type15-art.py'),'--output',str(out/'valid')],capture_output=True,text=True,timeout=90);r.check_returncode()
 # Mutate one isolated minimal tree in place and restore immediately: no duplicate packs.
-mutations={'master':src+'/sources/generated-eight-view.png','prompt':src+'/sources/prompt.txt','contract':src+'/contract.json','recipe':src+'/rebuild.py','inventory':src+'/inventory.json','proof':src+'/proof/type15-source-proof.json','import':src+'/IMPORT.json','mask91':src+'/masks/alpha-91.png','frozen-output':src+'/output/enemy-newsh2-91-8.hda','canonical-png':m['packs'][m['default_preview_pack']]['files']['enemy-newsh2-39-8.hda']['source_png'],'packed-hda':str(Path('assets/hd/packs')/m['default_preview_pack']/'enemy-newsh2-41-8.hda')}
+mutations={'master':src+'/sources/generated-39.png','prompt':src+'/sources/expansion-prompts.json','contract':src+'/contract.json','recipe':src+'/rebuild.py','inventory':src+'/SHA256SUMS.json','proof':'assets/hd/artwork/type15-eightheading-v1/proof/type15-source-proof.json','import':src+'/IMPORT.json','mask91':src+'/masks/authored-alpha-91-8.png','frozen-output':src+'/output/enemy-newsh2-91-8.hda','canonical-png':m['packs'][m['default_preview_pack']]['files']['enemy-newsh2-39-8.hda']['source_png'],'packed-hda':str(Path('assets/hd/packs')/m['default_preview_pack']/'enemy-newsh2-41-8.hda')}
 for label,rel in mutations.items():
  q=minimal/rel;raw=q.read_bytes();q.unlink();q.write_bytes(raw+b'\0');rejected(label,out/('bad-'+label),minimal/'prototype/build-type15-art.py');q.write_bytes(raw)
 for label in ['unlisted-source','source-symlink','widened4x']:
  if label=='unlisted-source':
   q=minimal/src/'reference.png';q.write_bytes(b'not-an-approved-input');rejected(label,out/('bad-'+label),minimal/'prototype/build-type15-art.py');q.unlink()
  elif label=='source-symlink':
-  q=minimal/src/'sources/generated-eight-view.png';raw=q.read_bytes();q.unlink();q.symlink_to(repo/src/'sources/generated-eight-view.png');rejected(label,out/('bad-'+label),minimal/'prototype/build-type15-art.py');q.unlink();q.write_bytes(raw)
+  q=minimal/src/'sources/generated-39.png';raw=q.read_bytes();q.unlink();q.symlink_to(repo/src/'sources/generated-39.png');rejected(label,out/('bad-'+label),minimal/'prototype/build-type15-art.py');q.unlink();q.write_bytes(raw)
  else:
   q=minimal/'assets/hd/manifest.json';raw=q.read_bytes();changed=json.loads(raw);pack=changed['packs'][changed['default_debug_pack']];pack['files']['enemy-newsh2-39-4.hda']=pack['files']['enemy-newsh2-39-8.hda'];pack['count']+=1;q.write_text(json.dumps(changed));rejected(label,out/('bad-'+label),minimal/'prototype/build-type15-art.py');q.write_bytes(raw)
 report={'status':'passed','valid_generated_only_reproduction':True,'rejected_cases':checks,'original_RGB_inputs':False,'game_runs':0};(out/'receipt.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))

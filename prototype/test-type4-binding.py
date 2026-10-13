@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Finite current-source type4 loader/route/filter units; never launches a game.
 
-Production src must be byte-identical to 317bf551, including render_mirror.c.
+Production src must project byte-for-byte to 317bf551. The sole exception is
+the exact approved eight C-v2 FNV pins and their adjacent contract comment.
 Only recording and material/telemetry boundaries are substituted. The actual
 current loader, family gates, bank routes and palette helper are extracted.
 """
@@ -13,6 +14,7 @@ import os
 import re
 import struct
 import subprocess
+import type15_source_projection as projection
 
 BASE = '317bf551db59df9c4e3754d2072446c7313ab1f4'
 IDS = [159, 161, 163, 165, 167]
@@ -51,18 +53,13 @@ def main():
         p.error('Use a fresh output directory outside the repository, without symlink components')
     git = lambda *a: subprocess.check_output(['git', '-C', str(repo), *a])
     assert git('rev-parse', args.baseline + '^{commit}').decode().strip() == BASE, 'Wrong baseline'
-    tracked = git('ls-tree', '-r', '--name-only', BASE, 'src').decode().splitlines()
-    assert tracked
-    source_pins = {}
-    for name in tracked:
-        path = repo / name
-        assert path.is_file() and not path.is_symlink(), 'Missing or nonregular source: ' + name
-        raw = path.read_bytes()
-        assert raw == git('show', BASE + ':' + name), 'Production source changed: ' + name
-        source_pins[name] = sha(raw)
-    actual = {str(q.relative_to(repo)) for q in (repo / 'src').rglob('*') if q.is_file() or q.is_symlink()}
-    assert actual == set(tracked), 'Added/removed source paths: ' + repr(actual ^ set(tracked))
-    recorder_names = ['prototype/test-type4-binding.py', 'prototype/test-type4-binding.c']
+    source_bytes, baseline_bytes, c_version = projection.audit_sources(repo)
+    tracked = sorted(source_bytes)
+    actual = set(tracked)
+    source_pins = {n: sha(raw) for n, raw in source_bytes.items()}
+    projection_rejections = projection.rejection_tests(baseline_bytes)
+    recorder_names = ['prototype/test-type4-binding.py', 'prototype/test-type4-binding.c',
+                      'prototype/type15_source_projection.py']
     recorder_pins = {n: sha((repo / n).read_bytes()) for n in recorder_names}
     current = (repo / 'src/render_mirror.c').read_text()
     baseline = git('show', BASE + ':src/render_mirror.c').decode()
@@ -80,6 +77,9 @@ def main():
     out.mkdir(parents=True)
     manifest = json.loads((repo / 'assets/hd/manifest.json').read_text())
     packs = {kind: repo / 'assets/hd/packs' / manifest['default_' + kind + '_pack'] for kind in ('preview','debug')}
+    c_art_pins = {kind: projection.validate_pack(pack, c_version) for kind, pack in packs.items()}
+    baseline_packs = {kind: projection.baseline_pack(repo, pack, out / ('baseline-' + kind + '-pack'))
+                      for kind, pack in packs.items()}
     pack_pins = {kind: {q.name: sha(q.read_bytes()) for q in sorted(pack.glob('*.hda'))} for kind, pack in packs.items()}
     for pack in packs.values():
         for sprite_id in IDS:
@@ -114,10 +114,17 @@ def main():
                    '-Wno-misleading-indentation', '-fsanitize=address,undefined', '-fno-omit-frame-pointer',
                    '-fno-pie', '-no-pie', '-I' + str(directory), str(repo / recorder_names[1]), '-o', str(directory / 'test')]
         run(command, label + '/compile.log')
-        traces[label] = {kind: run([str(directory / 'test'), str(pack), 'trace', '31'], label + '/' + kind + '-trace.log') for kind, pack in packs.items()}
+        lane_packs = baseline_packs if label == 'baseline' else packs
+        traces[label] = {kind: run([str(directory / 'test'), str(pack), 'trace', '31'], label + '/' + kind + '-trace.log') for kind, pack in lane_packs.items()}
+        for kind, trace in traces[label].items():
+            rows = {tuple(line.split()) for line in trace.splitlines()}
+            assert all(('enemy', '1', str(sprite_id), str(396+k)) in rows
+                       for k, sprite_id in enumerate(projection.IDS)), 'Incomplete C trace: ' + label + '/' + kind
         compiled_receipts.append({'label': label, 'functions_sha256': {n:sha(t.encode()) for n,t in helpers.items()},
                                   'declarations_sha256': sha(declarations.encode()), 'compile_command': command})
-    assert compiled_receipts[0]['functions_sha256'] == compiled_receipts[1]['functions_sha256']
+    projected_helpers = {name: sha(extract(projection.project_render(current.encode(), baseline.encode())[0].decode(), name).encode())
+                         for name in FUNCTIONS}
+    assert compiled_receipts[0]['functions_sha256'] == projected_helpers, 'Non-C production helper changed'
     assert traces['baseline'] == traces['candidate'], 'Namespace/route difference from source baseline'
     executable = str(out / 'candidate/test')
 
@@ -181,7 +188,11 @@ def main():
     assert actual == {str(q.relative_to(repo)) for q in (repo / 'src').rglob('*') if q.is_file() or q.is_symlink()}
     assert recorder_pins == {n:sha((repo / n).read_bytes()) for n in recorder_names}
     assert pack_pins == {kind:{q.name:sha(q.read_bytes()) for q in sorted(pack.glob('*.hda'))} for kind,pack in packs.items()}, 'Input pack changed during units'
-    report = {'status':'PASS', 'baseline':BASE, 'production_source_exact':True,
+    report = {'status':'PASS', 'baseline':BASE, 'production_source_exact_after_finite_C_projection':True,
+              'C_revision':c_version, 'C_projection_rejection_tests':projection_rejections,
+              'C_projection_allowed_differences':'exact eight ordered C-v2 FNV stamps plus exact adjacent contour-contract comment',
+              'C_art_sha256':c_art_pins,
+              'trace_lanes':'raw baseline source with pinned v1 C art; raw current source with matching pinned current C art',
               'production_source_files':len(tracked), 'source_sha256':source_pins,
               'recorder_sha256':recorder_pins, 'historical_order_proof_sha256':sha(proof_raw),
               'source_quadrants':quadrants, 'record4_order':ORDER,

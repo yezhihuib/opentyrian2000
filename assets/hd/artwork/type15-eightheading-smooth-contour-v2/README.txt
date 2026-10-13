@@ -1,0 +1,5 @@
+Frozen C/type15 eight-heading art, accepted at native2x/4x visual gate. No repository import or actual runtime approval.
+Use Python3 and pinned requirements.txt, then run: python rebuild.py --output /a/fresh/output/path/outside/source
+All rebuild inputs are generated PNG masters; no original RGB or original alpha is copied into output. Crop/resize/paste parameters are explicit in contract.json, source bboxes24x28/anchor6,7/density8 remain unchanged. Exact8-bit support delta masks document reconstructed outer contours; source indexed collision data is untouched.
+Two genuine internal openings correspond to source93(11,15) and129(11,9), with fractional size/location recorded in contract. Red markers only in NW,N,NE,W,E. Each heading follows its independent source projection with consistent screen-space light. No rotated/mirrored-frame derivation.
+Proof images are offline art comparisons/composites only, not actual runtime overlap evidence. NW91 was source-qualified but not previously sampled in the diagnostic runtime.
