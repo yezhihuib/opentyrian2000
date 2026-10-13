@@ -1,0 +1,188 @@
+{
+  "status": "PASS_EXISTING_STREAM_PROOFS",
+  "scope": "Complete existing blend-write streams consumed once; SHA256 retained for raw bytes and separately normalized original indexed columns. Does not reconstruct whole-frame RGB or retain raw blend rows. All other selected TSVs remain complete lossless gzip.",
+  "original_columns": [
+    "tick",
+    "known_sheet",
+    "index",
+    "origin_x",
+    "origin_y",
+    "x",
+    "y",
+    "before",
+    "source",
+    "after"
+  ],
+  "runs": [
+    {
+      "case": "baseline-p1-2x",
+      "raw_rows": 23940,
+      "raw_bytes": 974559,
+      "raw_sha256": "df28686867deec85995d6766eeb004167977dacaa4db5ab3eb50a5aa3245e089",
+      "original_normalized_sha256": "3768478eecdf6df824fb85aa0b655d258cd29d5b32613eb14ae19ed5f0db4b91",
+      "tick_count": 90,
+      "tick_range": [
+        0,
+        89
+      ],
+      "retained_raw_copy": false,
+      "proof_sha256": "077613a1160103d954be51d0d753009b2cd196bf5ea8c8f2bfe35ef454b38c95"
+    },
+    {
+      "case": "candidate-p1-2x",
+      "raw_rows": 23940,
+      "raw_bytes": 974559,
+      "raw_sha256": "df28686867deec85995d6766eeb004167977dacaa4db5ab3eb50a5aa3245e089",
+      "original_normalized_sha256": "3768478eecdf6df824fb85aa0b655d258cd29d5b32613eb14ae19ed5f0db4b91",
+      "tick_count": 90,
+      "tick_range": [
+        0,
+        89
+      ],
+      "retained_raw_copy": false,
+      "proof_sha256": "077613a1160103d954be51d0d753009b2cd196bf5ea8c8f2bfe35ef454b38c95"
+    },
+    {
+      "case": "baseline-p6-2x",
+      "raw_rows": 23940,
+      "raw_bytes": 974559,
+      "raw_sha256": "5ac1591cf2c852cec37b3f7451f1200ffd150e3e084d427ef69c5a6a82d4472c",
+      "original_normalized_sha256": "3c09e0a7911196956ad53aebe3f3d5877c6e782d7bcef3467cc285af13e1dc3f",
+      "tick_count": 90,
+      "tick_range": [
+        0,
+        89
+      ],
+      "retained_raw_copy": false,
+      "proof_sha256": "a7d05b570fdfff08a6f40a7b26909cd2634a5431329c1a187a4c2e1afbcc658a"
+    },
+    {
+      "case": "candidate-p6-2x",
+      "raw_rows": 23940,
+      "raw_bytes": 974559,
+      "raw_sha256": "5ac1591cf2c852cec37b3f7451f1200ffd150e3e084d427ef69c5a6a82d4472c",
+      "original_normalized_sha256": "3c09e0a7911196956ad53aebe3f3d5877c6e782d7bcef3467cc285af13e1dc3f",
+      "tick_count": 90,
+      "tick_range": [
+        0,
+        89
+      ],
+      "retained_raw_copy": false,
+      "proof_sha256": "a7d05b570fdfff08a6f40a7b26909cd2634a5431329c1a187a4c2e1afbcc658a"
+    },
+    {
+      "case": "baseline-p11-2x",
+      "raw_rows": 23940,
+      "raw_bytes": 974758,
+      "raw_sha256": "4d03a1ac1ffeec4ced6c0c34b77b155f6885436eb6fef084f646c2f500346c9e",
+      "original_normalized_sha256": "32df88c0847b957e00a91afb5898af44a4ac3c3e85c53cca03f5e5a46ed06a54",
+      "tick_count": 90,
+      "tick_range": [
+        0,
+        89
+      ],
+      "retained_raw_copy": false,
+      "proof_sha256": "e783f3378740f3dce4432196b241bd6927092a71a4c024f385fb8f36e215bf57"
+    },
+    {
+      "case": "candidate-p11-2x",
+      "raw_rows": 23940,
+      "raw_bytes": 974926,
+      "raw_sha256": "040d78cbc09d113a2052b80f8dc91253abd80a5de5a6b1e201e4b927c9815cd8",
+      "original_normalized_sha256": "32df88c0847b957e00a91afb5898af44a4ac3c3e85c53cca03f5e5a46ed06a54",
+      "tick_count": 90,
+      "tick_range": [
+        0,
+        89
+      ],
+      "retained_raw_copy": false,
+      "proof_sha256": "73d263acf5b0fb6179da0cf7c612b1d3cf55f3b793db6504e3a1304d3e90a3b4"
+    },
+    {
+      "case": "baseline-p11-4x",
+      "raw_rows": 23940,
+      "raw_bytes": 974758,
+      "raw_sha256": "4d03a1ac1ffeec4ced6c0c34b77b155f6885436eb6fef084f646c2f500346c9e",
+      "original_normalized_sha256": "32df88c0847b957e00a91afb5898af44a4ac3c3e85c53cca03f5e5a46ed06a54",
+      "tick_count": 90,
+      "tick_range": [
+        0,
+        89
+      ],
+      "retained_raw_copy": false,
+      "proof_sha256": "e783f3378740f3dce4432196b241bd6927092a71a4c024f385fb8f36e215bf57"
+    },
+    {
+      "case": "candidate-p11-4x",
+      "raw_rows": 23940,
+      "raw_bytes": 974926,
+      "raw_sha256": "040d78cbc09d113a2052b80f8dc91253abd80a5de5a6b1e201e4b927c9815cd8",
+      "original_normalized_sha256": "32df88c0847b957e00a91afb5898af44a4ac3c3e85c53cca03f5e5a46ed06a54",
+      "tick_count": 90,
+      "tick_range": [
+        0,
+        89
+      ],
+      "retained_raw_copy": false,
+      "proof_sha256": "73d263acf5b0fb6179da0cf7c612b1d3cf55f3b793db6504e3a1304d3e90a3b4"
+    },
+    {
+      "case": "candidate-missing-p6-2x",
+      "raw_rows": 23940,
+      "raw_bytes": 974559,
+      "raw_sha256": "5ac1591cf2c852cec37b3f7451f1200ffd150e3e084d427ef69c5a6a82d4472c",
+      "original_normalized_sha256": "3c09e0a7911196956ad53aebe3f3d5877c6e782d7bcef3467cc285af13e1dc3f",
+      "tick_count": 90,
+      "tick_range": [
+        0,
+        89
+      ],
+      "retained_raw_copy": false,
+      "proof_sha256": "a7d05b570fdfff08a6f40a7b26909cd2634a5431329c1a187a4c2e1afbcc658a"
+    },
+    {
+      "case": "candidate-missing-p11-2x",
+      "raw_rows": 23940,
+      "raw_bytes": 974758,
+      "raw_sha256": "4d03a1ac1ffeec4ced6c0c34b77b155f6885436eb6fef084f646c2f500346c9e",
+      "original_normalized_sha256": "32df88c0847b957e00a91afb5898af44a4ac3c3e85c53cca03f5e5a46ed06a54",
+      "tick_count": 90,
+      "tick_range": [
+        0,
+        89
+      ],
+      "retained_raw_copy": false,
+      "proof_sha256": "e783f3378740f3dce4432196b241bd6927092a71a4c024f385fb8f36e215bf57"
+    },
+    {
+      "case": "baseline-xmas-p11-2x",
+      "raw_rows": 23940,
+      "raw_bytes": 976812,
+      "raw_sha256": "580d84c457ed7d14458dd4c4dc35ef348361029636f62191bcf139baf697bb2f",
+      "original_normalized_sha256": "f33aaa9334e628537948569d639f03d333b43363b8b2bcaa1827a032c1c5e76f",
+      "tick_count": 90,
+      "tick_range": [
+        0,
+        89
+      ],
+      "retained_raw_copy": false,
+      "proof_sha256": "e83d365aa38bca6407ac855e923e63dd7111c85b41ae48411031572882af28b7"
+    },
+    {
+      "case": "candidate-xmas-p11-2x",
+      "raw_rows": 23940,
+      "raw_bytes": 976812,
+      "raw_sha256": "580d84c457ed7d14458dd4c4dc35ef348361029636f62191bcf139baf697bb2f",
+      "original_normalized_sha256": "f33aaa9334e628537948569d639f03d333b43363b8b2bcaa1827a032c1c5e76f",
+      "tick_count": 90,
+      "tick_range": [
+        0,
+        89
+      ],
+      "retained_raw_copy": false,
+      "proof_sha256": "e83d365aa38bca6407ac855e923e63dd7111c85b41ae48411031572882af28b7"
+    }
+  ],
+  "raw_rows_across_all_runs": 287280,
+  "captured_native_claim": "Compared RGB deltas are confined to actual target draw rectangles; fallback and Christmas compare exact full RGB. No independent full-frame RGB reconstruction claim."
+}

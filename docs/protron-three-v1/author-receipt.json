@@ -1,0 +1,54 @@
+{
+  "status": "PASS_BOUNDED_PROTRON_ACTUAL_AUTHOR_REVIEW",
+  "art_inventory_sha256": "e27e77c02c15beef4590a110acd0e2a31ff98e729b9ff672e0a38e3afb3f7c9e",
+  "candidate_visual_coverage": {
+    "native2x": {
+      "powers": [
+        1,
+        6,
+        11
+      ],
+      "ticks": [
+        40,
+        41,
+        42,
+        43,
+        44,
+        45
+      ],
+      "count": 18
+    },
+    "native4x": {
+      "power": 11,
+      "tick": 42,
+      "count": 1
+    }
+  },
+  "capture_hash_manifest": "capture-hashes.json",
+  "capture_hash_manifest_SHA256": "023cbcb38594988ea6fdd7f75eadaea75bbaadd4bb4ea06f5f2e1a2093b55075",
+  "proof_pins": {
+    "completion.json": "e686ffcb1b952f981565185d8baf946308f92a78c82b59bb38b868052f39a463",
+    "comparison.json": "becd44b1489a2ff4f0f424ebaeda690262662ed7a420e68cef4b14a0747850ae",
+    "streamed-blend-summary.json": "fe12b8756e4e39877fab86a9322ed642984ccd7a8919242989c70122da3e9425"
+  },
+  "visual_findings": [
+    "225 small cross-like head stays readable on dark terrain and visible over bright clouds; original small size is retained.",
+    "244 remains larger, with diffuse cyan-white core and asymmetric offset shoulder;226 is a separate smaller tilted light.",
+    "Across six consecutive frames per tested power, heads show no new matte box, hard shell, flicker, or abrupt scale change.",
+    "P11 true4x confirms soft head edges and distinct size/color hierarchy across cloud/terrain.",
+    "Coarse offset indexed shadows visibly match the original reference treatment and are intentionally unchanged; they are not HD head-alpha defects."
+  ],
+  "limits": [
+    "Six consecutive2x frames per P1/P6/P11 and one P11 4x spot only; no long-playback or all11-powers actual review claim.",
+    "Configured bounded legal-power fixture; source gameplay invariants are technical gates, not natural manual progression footage.",
+    "Normal data only; Christmas alternate244 and other unsupported paths remain classic.",
+    "Streamed blend summaries are not described as whole-frame RGB reconstruction.",
+    "Captured heads can overlap original text, clouds, other heads and shadows; no every-source-pixel-unoccluded claim."
+  ],
+  "reviewed_utc": "2026-10-13T11:00:45Z",
+  "existing_capture_manifest_crosscheck": true,
+  "technical_review_pins": {
+    "capture-pins.json": "b070976c70add59c1cc1b44af87492c4c3fa5940f393c6d087f709366df954ef",
+    "FINAL_REVIEW.json": "d242b844af46c3845191e4ba921cddc1ddca255caa830fe830a8b3921d64b429"
+  }
+}

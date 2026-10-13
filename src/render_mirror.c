@@ -25,6 +25,7 @@
 #include "mtrand.h"
 #include "video.h"
 #include "varz.h"
+#include "xmas.h"
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -37,7 +38,7 @@ typedef struct {
 } Asset;
 enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
-static Asset assets[469];
+static Asset assets[472];
 static Asset talon_frames[13];
 typedef struct {
  bool valid;
@@ -1180,6 +1181,11 @@ static Asset *get_asset(Sprite2_array bank,unsigned int index,int layout)
   static const unsigned int guided_ids[4]={19,171,20,21};
   for(int i=0;i<4;i++)if(index==guided_ids[i]){slot=326+i;role=8;break;}
  }
+ /* Normal Protron: three static player heads; alternate Christmas art stays original. */
+ if(!xmas&&bank.data==spriteSheet8.data&&layout==ENTITY_TILE) {
+  static const unsigned int protron_ids[3]={225,244,226};
+  for(int i=0;i<3;i++)if(index==protron_ids[i]){slot=469+i;role=8;break;}
+ }
  /* Regular Missile Launcher: three static physical player heads. */
  if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&index>=31&&index<=33) {slot=333+(int)index-31;role=8;}
  /* Charge Cannon static heads only; original bank9 launcher bodies stay separate. */
@@ -1445,6 +1451,8 @@ static bool draw_asset(int x,int y,Asset *a,int style,const SDL_Rect *part)
 bool render_mirror_entity(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int index,int style,int layout)
 {
  if(!active||surface!=game_screen||reject_reason)return false;
+ /* Protron shadows retain their original indexed silhouettes and origin. */
+ if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&(index==225||index==244||index==226)&&style==MIRROR_SHADOW)return false;
  /* Regular Missile Launcher shadows retain their original indexed silhouettes and origin. */
  if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&index>=31&&index<=33&&style==MIRROR_SHADOW)return false;
  /* Charge Cannon shadows retain their original indexed silhouettes and origin. */

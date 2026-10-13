@@ -1,0 +1,36 @@
+{
+  "status": "FROZEN_CANDIDATE_PENDING_RUNTIME",
+  "ids": [
+    225,
+    244,
+    226
+  ],
+  "role": 8,
+  "prefix": "bullet",
+  "bank": 8,
+  "density": 8,
+  "logical_size": [
+    12,
+    14
+  ],
+  "pixel_size": [
+    96,
+    112
+  ],
+  "anchor": [
+    0,
+    0
+  ],
+  "HDR1_keys": [
+    80225,
+    80244,
+    80226
+  ],
+  "scope": "Normal-data supported player TILE rendering only; preserve original indexed player shadow. Christmas !xmas guard mandatory; enemy/shop-direct-preview/Xmas prompt remain original.",
+  "coverage": "Generated straight alpha with source-bounded inward edge softening, zero outside original RLE support, no matte.",
+  "edge_recipe": "Generated alpha min clip((Gaussian(original_support,sigma2)-0.5)/0.35,0,1)*255, then zero outside source support. RGB generated-only.",
+  "identity": "Three separate static designs, no rotation/animation:225 tiny cross light,244 large offset lower-right luminous shoulder,226 small tilted light.",
+  "power_scope": "Front13 P1-11:225 P1-8;244 P6-11;226 additional P11. P11 original sequence244x5 then226x3. Preserve original source offsets/timing/gameplay.",
+  "root_V2_gate_utc": "2026-10-13T10:26:52Z",
+  "actual_pending": "Bounded legal gameplay power pattern, soft-alpha readability/ownership and fallback/isolation checks."
+}

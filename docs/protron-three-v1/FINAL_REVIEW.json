@@ -1,0 +1,279 @@
+{
+  "status": "PASS_BOUNDED_TECHNICAL_REVIEW",
+  "reviewed_at_utc": "2026-10-13T10:58:45.429640+00:00",
+  "baseline_commit": "e54ebee1884c3131153f806ab65ab12989639e10",
+  "candidate_renderer_sha256": "638326d487d331977a12c4f899bcc89453169832cfd6dafa2547926fcef6a6ee",
+  "source_scope": {
+    "renderer_changes": 4,
+    "production_files": 142,
+    "all_other_production_files_byte_identical": true,
+    "normal_only_bank8_TILE_ids": [
+      225,
+      244,
+      226
+    ],
+    "independent_slots": [
+      469,
+      470,
+      471
+    ],
+    "xmas_guard_before_cache": true,
+    "original_shadow_paths": true,
+    "original_shot_x_plus_1_registration": true,
+    "enemy_shop_and_christmas_prompt_routes_unchanged": true
+  },
+  "pins": {
+    "preparation_sha256": "235ad219affc1588759b9ce1e4c157f795c6eb44225e373baa291597b74efa6a",
+    "comparison_sha256": "becd44b1489a2ff4f0f424ebaeda690262662ed7a420e68cef4b14a0747850ae",
+    "completion_sha256": "e686ffcb1b952f981565185d8baf946308f92a78c82b59bb38b868052f39a463",
+    "unit_result_sha256": "04c61d990e6bc44b2d1b1600af0c894b3b0db59d8fde56e2beba25b87a0b3054",
+    "capture_pin_file": "capture-pins.json",
+    "capture_pin_file_sha256": "b070976c70add59c1cc1b44af87492c4c3fa5940f393c6d087f709366df954ef",
+    "unit_harness_sha256": {
+      "test-protron-binding.py": "bad9687a3cd73d68068c6bf1fa25b3295854317399c897248d50ecf5ce45bd08",
+      "test-protron-binding.c": "5e39335b7096ba5f32f7f5acfdb8619eac738ae070f4c747db11335627e67ba8"
+    }
+  },
+  "actual_scope": {
+    "recorded_attempts": 12,
+    "recorded_reruns": 0,
+    "logic_ticks_each": 90,
+    "logic_ticks_total": 1080,
+    "native_images": 42,
+    "INDEX8_images": 42,
+    "extra_images": 0,
+    "scenario": "E1 physical9; legal front13 loadout; P1/P6/P11; unchanged v1 input; full default world pack; density8; SDL software renderer",
+    "windows": {
+      "native2x_pairs": [
+        "P1 ticks40-45",
+        "P6 ticks40-45",
+        "P11 ticks40-45"
+      ],
+      "native4x_pair": "P11 tick42 only",
+      "candidate_missing_all": "P6 and P11 tick42, reusing complete baseline pack and captures",
+      "xmas_pair": "P11 tick42"
+    },
+    "cases": [
+      {
+        "case": "baseline-p1-2x",
+        "normal_calls_by_id": {
+          "225": 440
+        },
+        "indexed_shadow_calls": 440,
+        "hd_normal_calls": 0,
+        "collision_rows": 0,
+        "state_sha256": "79eb24e81a161490ad8a1ca406a9685c396c6b325da89f3445e4213b03472e40",
+        "native_delta_pixels": {}
+      },
+      {
+        "case": "candidate-p1-2x",
+        "normal_calls_by_id": {
+          "225": 440
+        },
+        "indexed_shadow_calls": 440,
+        "hd_normal_calls": 440,
+        "collision_rows": 0,
+        "state_sha256": "79eb24e81a161490ad8a1ca406a9685c396c6b325da89f3445e4213b03472e40",
+        "native_delta_pixels": {
+          "40": 208,
+          "41": 192,
+          "42": 288,
+          "43": 288,
+          "44": 288,
+          "45": 208
+        }
+      },
+      {
+        "case": "baseline-p6-2x",
+        "normal_calls_by_id": {
+          "225": 422,
+          "244": 342
+        },
+        "indexed_shadow_calls": 744,
+        "hd_normal_calls": 0,
+        "collision_rows": 0,
+        "state_sha256": "171f51ecf81c443abd64e2eef48855a0d897ea405b68d19ff7e1f8f64826ece5",
+        "native_delta_pixels": {}
+      },
+      {
+        "case": "candidate-p6-2x",
+        "normal_calls_by_id": {
+          "225": 422,
+          "244": 342
+        },
+        "indexed_shadow_calls": 744,
+        "hd_normal_calls": 764,
+        "collision_rows": 0,
+        "state_sha256": "171f51ecf81c443abd64e2eef48855a0d897ea405b68d19ff7e1f8f64826ece5",
+        "native_delta_pixels": {
+          "40": 1596,
+          "41": 2216,
+          "42": 1764,
+          "43": 1792,
+          "44": 1792,
+          "45": 1744
+        }
+      },
+      {
+        "case": "baseline-p11-2x",
+        "normal_calls_by_id": {
+          "244": 905,
+          "226": 513
+        },
+        "indexed_shadow_calls": 1366,
+        "hd_normal_calls": 0,
+        "collision_rows": 0,
+        "state_sha256": "1b836462a10cadcfc8c5db4740d4919115e0259acd5639ea570bd5ad3fada21c",
+        "native_delta_pixels": {}
+      },
+      {
+        "case": "candidate-p11-2x",
+        "normal_calls_by_id": {
+          "244": 905,
+          "226": 513
+        },
+        "indexed_shadow_calls": 1366,
+        "hd_normal_calls": 1418,
+        "collision_rows": 0,
+        "state_sha256": "1b836462a10cadcfc8c5db4740d4919115e0259acd5639ea570bd5ad3fada21c",
+        "native_delta_pixels": {
+          "40": 3028,
+          "41": 4444,
+          "42": 4708,
+          "43": 4772,
+          "44": 4752,
+          "45": 4320
+        }
+      },
+      {
+        "case": "baseline-p11-4x",
+        "normal_calls_by_id": {
+          "244": 905,
+          "226": 513
+        },
+        "indexed_shadow_calls": 1366,
+        "hd_normal_calls": 0,
+        "collision_rows": 0,
+        "state_sha256": "1b836462a10cadcfc8c5db4740d4919115e0259acd5639ea570bd5ad3fada21c",
+        "native_delta_pixels": {}
+      },
+      {
+        "case": "candidate-p11-4x",
+        "normal_calls_by_id": {
+          "244": 905,
+          "226": 513
+        },
+        "indexed_shadow_calls": 1366,
+        "hd_normal_calls": 1418,
+        "collision_rows": 0,
+        "state_sha256": "1b836462a10cadcfc8c5db4740d4919115e0259acd5639ea570bd5ad3fada21c",
+        "native_delta_pixels": {
+          "42": 18832
+        }
+      },
+      {
+        "case": "candidate-missing-p6-2x",
+        "normal_calls_by_id": {
+          "225": 422,
+          "244": 342
+        },
+        "indexed_shadow_calls": 744,
+        "hd_normal_calls": 0,
+        "collision_rows": 0,
+        "state_sha256": "171f51ecf81c443abd64e2eef48855a0d897ea405b68d19ff7e1f8f64826ece5",
+        "native_delta_pixels": {
+          "42": 0
+        }
+      },
+      {
+        "case": "candidate-missing-p11-2x",
+        "normal_calls_by_id": {
+          "244": 905,
+          "226": 513
+        },
+        "indexed_shadow_calls": 1366,
+        "hd_normal_calls": 0,
+        "collision_rows": 0,
+        "state_sha256": "1b836462a10cadcfc8c5db4740d4919115e0259acd5639ea570bd5ad3fada21c",
+        "native_delta_pixels": {
+          "42": 0
+        }
+      },
+      {
+        "case": "baseline-xmas-p11-2x",
+        "normal_calls_by_id": {
+          "244": 905,
+          "226": 513
+        },
+        "indexed_shadow_calls": 1366,
+        "hd_normal_calls": 0,
+        "collision_rows": 0,
+        "state_sha256": "c5f6714841913f17e6d4b04a6983de6e5da72eb8dabf513260fa882d5be0424e",
+        "native_delta_pixels": {}
+      },
+      {
+        "case": "candidate-xmas-p11-2x",
+        "normal_calls_by_id": {
+          "244": 905,
+          "226": 513
+        },
+        "indexed_shadow_calls": 1366,
+        "hd_normal_calls": 0,
+        "collision_rows": 0,
+        "state_sha256": "c5f6714841913f17e6d4b04a6983de6e5da72eb8dabf513260fa882d5be0424e",
+        "native_delta_pixels": {
+          "42": 0
+        }
+      }
+    ]
+  },
+  "verified": {
+    "original_90_tick_state_and_RNG": "Exact paired state TSVs, including original indexed surface hashes.",
+    "original_events": "Matched requests/results/emissions/draw identities, loadouts, projectiles, poses, firing, scene/material/control-related traces.",
+    "target_identity": "P1 225; P6 225+244; P11 244+226. Every normal target is HD only in supported normal candidate lanes.",
+    "shadows": "Every target shadow remains indexed in every recorded run. Original coarse silhouettes are preserved and outside head-art scope.",
+    "indexed_capture_equality": "Every paired retained INDEX8 BMP, including its palette, is byte-identical.",
+    "native_target_delta": "At retained matched native captures, nonzero candidate RGB differences are confined to actual target-head logical rectangles. This is not independent full-frame RGB reconstruction.",
+    "missing_all": "P6 and P11 retain zero new-head HD draws; native RGB and full90-tick RGB audit/state match reused baseline.",
+    "christmas": "P11 has zero new-head HD draws; native RGB and full90-tick RGB audit/state match Christmas baseline.",
+    "streamed_blend": "Existing helper passed; paired original indexed-column normalized hashes and per-tick row/hash digests match. Full raw blend rows are not retained.",
+    "post_run_integrity": "Pinned source, private engines, scripts, assets and data passed the unchanged fixture integrity checks.",
+    "unit_separation": "Unchanged extracted loader, wrapper, RLE and compositor establish exact alpha/order/clipping/pitch/ownership behavior in ASan/UBSan units; this is separate from actual native rectangle confinement.",
+    "original_controls": "All paired asset-debug-control records match after excluding wall_ms, the expected host elapsed-time measurement. No control/input changes.",
+    "blend_palette": "All paired blend-palette records match byte-for-byte."
+  },
+  "limitations": [
+    "Natural collisions were not observed: all twelve collision logs contain zero rows.",
+    "Actual gameplay covers representative P1/P6/P11 E1 only; other powers and E4/E5 are source closure, not runtime coverage.",
+    "Native4x is a single P11 spot; no continuous4x or long-window motion claim.",
+    "No independent full-frame RGB reconstruction, campaign acquisition, full-arsenal, platform/Windows or broad lifecycle acceptance.",
+    "Technical review does not substitute for the separate artwork/native-sequence visual review.",
+    "No original sprite payloads, decoded data, runtime images or raw traces are included in this receipt or its hash-only capture inventory."
+  ],
+  "pack_preservation": {
+    "existing_unchanged_files": 6974,
+    "existing_changed_files": [
+      "assets/hd/manifest.json",
+      "prototype/build-hd-assets.py",
+      "src/render_mirror.c"
+    ],
+    "only_current_default_additions_per_pack": [
+      "bullet-225-8.hda",
+      "bullet-244-8.hda",
+      "bullet-226-8.hda"
+    ],
+    "other_16_packs_byte_identical": true,
+    "total_HDA_entries": 3192,
+    "default_pack_counts": [
+      476,
+      480
+    ]
+  },
+  "reviewer_actions": {
+    "new_game_runs": 0,
+    "new_captures": 0,
+    "production_edits": 0,
+    "uploads": 0,
+    "existing_case_verification": "Re-ran read-only checks for all twelve existing cases; independently reconciled identity/state/blend/count/pins."
+  }
+}
