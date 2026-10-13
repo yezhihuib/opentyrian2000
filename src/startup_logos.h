@@ -5,6 +5,7 @@
 #include <stdbool.h>
 
 /* Optional display-only PIC10/PIC12 ownership. No gameplay activation. */
+bool startup_logos_owns_display(void);
 bool startup_logos_set_directory(const char *directory);
 bool startup_logos_configured(void);
 void startup_logos_begin(void);

@@ -958,6 +958,8 @@ class ManufacturerPackageTests(unittest.TestCase):
         # families. Validate their exact entries/bytes and complete default-pack
         # scope before comparing every remaining entry to the original pin.
         without_type15 = json.loads(json.dumps(self.manifest))
+        from settings_font_coexistence import project_settings_family
+        project_settings_family(self, without_type15)
         project_type3_small_family(self, without_type15)
         project_newsh4_entry6_family(self, without_type15)
         project_late_spike_family(self, without_type15)

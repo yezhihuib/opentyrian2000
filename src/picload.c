@@ -16,6 +16,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
+#include "settings_font.h"
 #include "picload.h"
 #include "render_mirror.h"
 #include "startup_logos.h"
@@ -34,6 +35,7 @@ void JE_loadPic(SDL_Surface *screen, JE_byte PCXnumber, JE_boolean storepal)
 {
 	startup_logos_reset();
 	title_layers_end();
+	settings_font_end();
 	render_mirror_hud_reset();
 	PCXnumber--;
 

@@ -3,6 +3,7 @@
  * Display-only ordered mirror. The engine always executes original 1x writes.
  * Unsupported effects or incomplete changed-pixel coverage reject the full frame.
  */
+#include "settings_font.h"
 #include "render_mirror.h"
 #include "gameplay_hud.h"
 #include "gameplay_hud_components.h"
@@ -125,6 +126,7 @@ static Uint8 *green_under_owner;
 static Uint32 initial_palette[256];
 static bool have_initial_palette;
 static bool active,suppress,ready;
+bool render_mirror_owns_display(void) { return active; }
 static bool suppress_green_smoke;
 static const char *reject_reason;
 static unsigned int draws,occlusions,mismatch;
@@ -1025,6 +1027,7 @@ void render_mirror_begin(void)
 
 void render_mirror_pixel(SDL_Surface *surface,Uint8 *address,Uint8 source,int style)
 {
+ settings_font_pixel(surface,address,style);
  if(!active||surface!=game_screen) return;
  intptr_t offset=(intptr_t)address-(intptr_t)surface->pixels;
  if(offset<0||offset>=(intptr_t)surface->pitch*surface->h) { render_mirror_unsupported("invalid-write-address");return; }
@@ -1078,6 +1081,7 @@ void render_mirror_pixel(SDL_Surface *surface,Uint8 *address,Uint8 source,int st
 
 void render_mirror_rect(SDL_Surface *s,const SDL_Rect *rect)
 {
+ settings_font_rect(s,rect);
  if(!active||s!=game_screen) return;
  int x0=rect?rect->x:0,y0=rect?rect->y:0;
  int x1=rect?rect->x+rect->w:s->w,y1=rect?rect->y+rect->h:s->h;

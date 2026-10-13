@@ -6,6 +6,7 @@
 #include "gameplay_hud_meters.h"
 enum { MIRROR_NORMAL, MIRROR_BLEND, MIRROR_SHADOW };
 #ifdef RENDER_MIRROR_DISABLED
+#define render_mirror_owns_display() false
 #define render_mirror_text_begin(...) ((void)0)
 #define render_mirror_text_end(...) ((void)0)
 #define render_mirror_text_glyph_begin(...) ((void)0)
@@ -50,6 +51,7 @@ enum { MIRROR_NORMAL, MIRROR_BLEND, MIRROR_SHADOW };
 #define render_mirror_reset_banking(...) ((void)0)
 #define render_mirror_player_pose(...) ((void)0)
 #else
+bool render_mirror_owns_display(void);
 void render_mirror_text_begin(SDL_Surface *,unsigned kind,int x,int y,const char *,unsigned hue,int value);
 void render_mirror_text_end(void);
 void render_mirror_text_glyph_begin(SDL_Surface *,int x,int y,unsigned table,unsigned id,bool black,unsigned hue,int value);

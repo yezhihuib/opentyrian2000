@@ -1,0 +1,118 @@
+{
+  "schema": "settings-actual-hash-pairs-v1",
+  "matrix": {
+    "candidate": "candidate",
+    "artifacts": {
+      "indexed-palette-stream.bin": {
+        "bytes": 7022592,
+        "sha256": "f25da5bd2186937b9d24cce1e6903a8aae727077092b008f6193d3c6064e2937",
+        "equal": true
+      },
+      "semantics.tsv": {
+        "bytes": 5849,
+        "sha256": "413ee99e0e9e0aae5f9be54d4f1ffa1a16dc2e02c78ab0d55906550c2f11f252",
+        "equal": true
+      },
+      "opentyrian.cfg": {
+        "equal": true,
+        "sha256": "387f27aab0c08f8704f287960a74a575ab1fa7412f8d22390b1bdf29f120fedb"
+      },
+      "tyrian.cfg": {
+        "equal": true,
+        "sha256": "9252a0b93b9c9b7764a6a8d6660239858f5941d0ac17efa5f0e4503ff5f3bef8"
+      }
+    },
+    "fallback_required": false,
+    "presentations": 108,
+    "enhanced": 97,
+    "classic": 11,
+    "result": "PASS"
+  },
+  "invalid_resources": [
+    {
+      "candidate": "missing_large",
+      "artifacts": {
+        "indexed-palette-stream.bin": {
+          "bytes": 1365504,
+          "sha256": "330d8829a4302029be1d6471ebbdbec59c1f1cfb61c029b7ed9bb7eccede57f4",
+          "equal": true
+        },
+        "semantics.tsv": {
+          "bytes": 1204,
+          "sha256": "ae4c543cf8f22f94556b8f3e90a7016c3d0393544319a526b0ff1491094e4b3a",
+          "equal": true
+        },
+        "opentyrian.cfg": {
+          "equal": true,
+          "sha256": "387f27aab0c08f8704f287960a74a575ab1fa7412f8d22390b1bdf29f120fedb"
+        },
+        "tyrian.cfg": {
+          "equal": true,
+          "sha256": "9252a0b93b9c9b7764a6a8d6660239858f5941d0ac17efa5f0e4503ff5f3bef8"
+        }
+      },
+      "fallback_required": true,
+      "presentations": 21,
+      "enhanced": 0,
+      "classic": 21,
+      "result": "PASS"
+    },
+    {
+      "candidate": "bad_medium_header",
+      "artifacts": {
+        "indexed-palette-stream.bin": {
+          "bytes": 1365504,
+          "sha256": "330d8829a4302029be1d6471ebbdbec59c1f1cfb61c029b7ed9bb7eccede57f4",
+          "equal": true
+        },
+        "semantics.tsv": {
+          "bytes": 1204,
+          "sha256": "ae4c543cf8f22f94556b8f3e90a7016c3d0393544319a526b0ff1491094e4b3a",
+          "equal": true
+        },
+        "opentyrian.cfg": {
+          "equal": true,
+          "sha256": "387f27aab0c08f8704f287960a74a575ab1fa7412f8d22390b1bdf29f120fedb"
+        },
+        "tyrian.cfg": {
+          "equal": true,
+          "sha256": "9252a0b93b9c9b7764a6a8d6660239858f5941d0ac17efa5f0e4503ff5f3bef8"
+        }
+      },
+      "fallback_required": true,
+      "presentations": 21,
+      "enhanced": 0,
+      "classic": 21,
+      "result": "PASS"
+    },
+    {
+      "candidate": "truncated_tiny",
+      "artifacts": {
+        "indexed-palette-stream.bin": {
+          "bytes": 1365504,
+          "sha256": "330d8829a4302029be1d6471ebbdbec59c1f1cfb61c029b7ed9bb7eccede57f4",
+          "equal": true
+        },
+        "semantics.tsv": {
+          "bytes": 1204,
+          "sha256": "ae4c543cf8f22f94556b8f3e90a7016c3d0393544319a526b0ff1491094e4b3a",
+          "equal": true
+        },
+        "opentyrian.cfg": {
+          "equal": true,
+          "sha256": "387f27aab0c08f8704f287960a74a575ab1fa7412f8d22390b1bdf29f120fedb"
+        },
+        "tyrian.cfg": {
+          "equal": true,
+          "sha256": "9252a0b93b9c9b7764a6a8d6660239858f5941d0ac17efa5f0e4503ff5f3bef8"
+        }
+      },
+      "fallback_required": true,
+      "presentations": 21,
+      "enhanced": 0,
+      "classic": 21,
+      "result": "PASS"
+    }
+  ],
+  "result": "PASS"
+}

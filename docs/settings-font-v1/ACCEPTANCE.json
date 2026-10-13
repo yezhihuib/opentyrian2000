@@ -1,0 +1,51 @@
+{
+  "schema": "settings-font-final-bounded-acceptance-v1",
+  "source_checkpoint": "504b3d4723d382548c698a77ce5dae318ffa146b",
+  "actual_baseline": "b2a6e4a1e924aed71630f9f63c0ba4648e920d6d",
+  "integrated_parent": "5629b3dda05b2aa77af3c624841320d05c0f7130",
+  "finished_source_independent_review": "PASS",
+  "finished_source_receipt_sha256": "10900ee71f4b6f251b9006d61c471b1a4ede3f4db945a689a9439cf078b86768",
+  "author_receipt_sha256": "0fd2fb5a6b64ee4933c715a7e8da5988bbdb9742cca98c40bd943235599c193b",
+  "core_successful_frame_calls": 359,
+  "core_frame_count_is_not_distinct_configuration_count": true,
+  "conservative_cpu_storage_bytes": 6394815,
+  "cpu_cap_bytes": 7340032,
+  "owned_heap_high_water_bytes": 5881856,
+  "per_frame_owned_allocations": 0,
+  "independent_additional_source_cases": {
+    "dense_canonical_frames": 84,
+    "complete_software_targets": 2,
+    "actual_cursor_cases": 24,
+    "inline_values": 25,
+    "volume_mute_cases": 62,
+    "SDL_fault_recovery_cases": 7,
+    "production_palette_fade_steps": 20
+  },
+  "actual_backend": "SDL dummy video/software renderer/dummy audio; original engine path with private observations and SDL event injection",
+  "actual_runs": 18,
+  "actual_settings_presentations_per_run": {
+    "smoke_pair": 21,
+    "matrix_pair": 108,
+    "matrix_hash_only_repeat_pair": 108,
+    "invalid_resource_reference_plus_three_cases": 21,
+    "lifecycle_pair": 145,
+    "active_foreign_load_pair": 28,
+    "nine_file_reference_valid_missing_corrupt_cases": 21
+  },
+  "matrix_stills_per_side": 10,
+  "outside_font_scope_pixel_changes": 0,
+  "original_PIC2": "classic, exact nearest unchanged outside original-or-authored font coverage",
+  "original_indexed_palette_input_RNG_waits_and_saved_configuration": "exact paired equality",
+  "source_art_production_after_merge": "140 production files exact to tested checkpoint except exact separately accepted type3 renderer append; all old asset bytes unchanged",
+  "source_checkpoint_library": "libfile_df49dd5e75c881918943b10e175c344c",
+  "runtime_checkpoint_library": "libfile_0997e01cfb308191811b06406f5a223c",
+  "publication": "parent handoff; no push performed by implementer",
+  "limits": [
+    "No physical GPU, physical display/fullscreen, Windows execution or physical joystick acceptance.",
+    "No load-screen typography changes.",
+    "Independent core oracle shares command/base data; actual raster oracle separately reconstructs literal original call sites.",
+    "Every-presentation framebuffer comparison uses FNV64; all retained stills additionally use full pixel-by-pixel equality.",
+    "Original waits execute; wall-time equality is not claimed.",
+    "Review-only original-derived stills/streams stay outside runtime distributions and Git."
+  ]
+}

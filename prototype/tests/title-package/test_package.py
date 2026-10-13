@@ -896,6 +896,8 @@ class TitlePackageTests(unittest.TestCase):
     def test_existing_manifest_fields_and_bytes_unchanged_from_baseline(self):
         baseline = subprocess.check_output(['git', 'show', 'aba8650:assets/hd/manifest.json'], cwd=ROOT)
         without_title = json.loads(json.dumps(self.manifest))
+        from settings_font_coexistence import project_settings_family
+        project_settings_family(self, without_title)
         project_type3_small_family(self, without_title)
         project_newsh4_entry6_family(self, without_title)
         project_late_spike_family(self, without_title)

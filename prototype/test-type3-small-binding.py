@@ -13,6 +13,8 @@ import shutil
 import struct
 import subprocess
 
+from settings_font_coexistence import project_settings_source,verify_settings_sources
+
 BASE = 'b2a6e4a1e924aed71630f9f63c0ba4648e920d6d'
 SOURCE_SHA = '8773ebcae4be992ecfbb476c0797b0bef4d43faa4c99449890bfaa28c8d9cbcc'
 IDS = [171, 190, 209, 228, 247, 266]
@@ -38,6 +40,7 @@ group.add_argument('--original-data', type=Path, help='Original newsh2.shp; exac
 group.add_argument('--data-dir', type=Path, help='Original data directory containing newsh2.shp')
 a = p.parse_args()
 repo = Path(__file__).resolve().parents[1]
+verify_settings_sources(repo)
 given = a.out.absolute()
 out = given.resolve()
 if out.exists() or any(q.is_symlink() for q in [given, *given.parents]) or out == repo or out in repo.parents or repo in out.parents:
@@ -64,7 +67,7 @@ for path in git('ls-tree', '-r', '--name-only', a.baseline, 'src').decode().spli
     if path == 'src/render_mirror.c':
         continue
     before, after = git('show', a.baseline + ':' + path), (repo / path).read_bytes()
-    assert before == after, 'Changed original source: ' + path
+    assert before == project_settings_source(path,after), 'Changed original source: ' + path
     source_pins[path] = sha(after)
 for label, source in [('baseline', baseline), ('candidate', current)]:
     d = out / label

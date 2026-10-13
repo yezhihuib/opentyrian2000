@@ -16,6 +16,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
+#include "settings_font.h"
 #include "params.h"
 #include "startup_logos.h"
 #include "title_layers.h"
@@ -133,6 +134,7 @@ void JE_paramCheck(int argc, char *argv[])
 				exit(EXIT_FAILURE);
 			}
 			title_layers_set_directory(option.arg);
+			settings_font_set_directory(option.arg);
 			break;
 
 		case 'n':

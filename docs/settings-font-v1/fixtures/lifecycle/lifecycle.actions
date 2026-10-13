@@ -1,0 +1,19 @@
+# Original controls; only three labeled fault actions and one fade-start interruption.
+1 0 0 0 key 81 0 -
+1 1 0 0 key 81 0 -
+1 2 0 0 key 40 0 -
+1 2 0 0 key 82 0 -
+1 1 0 0 key 82 0 -
+1 0 0 0 key 40 0 -
+2 0 0 0 key 81 0 -
+2 1 0 0 key 40 0 -
+2 1 2 1 recreate 0 0 -
+2 1 2 1 key 69 0 -
+2 1 2 1 foreign_clear 0 0 -
+2 1 2 1 foreign_load 0 0 -
+2 1 2 1 key 41 0 -
+2 1 0 0 key 41 0 -
+1 0 0 0 key 81 0 -
+1 1 0 0 key 81 0 -
+1 2 0 0 key 40 0 -
+1 2 0 0 key 41 0 -

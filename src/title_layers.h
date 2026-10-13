@@ -6,6 +6,7 @@
 
 enum TitleWriter { TITLE_WRITE_LOGO, TITLE_WRITE_FONT, TITLE_WRITE_SHADOW, TITLE_WRITE_CURSOR };
 enum TitleCheckpoint { TITLE_BACKGROUND, TITLE_MENU };
+bool title_layers_owns_display(void);
 void title_layers_set_directory(const char *directory);
 void title_layers_begin(SDL_Surface *source, const SDL_Color *target, bool animate);
 void title_layers_end(void);

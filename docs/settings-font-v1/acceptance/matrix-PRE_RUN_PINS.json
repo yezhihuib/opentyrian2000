@@ -1,0 +1,42 @@
+{
+  "source_commit": "504b3d4723d382548c698a77ce5dae318ffa146b",
+  "source_clean": true,
+  "files": [
+    {
+      "path": "settings-font-runtime-build-20261013/opentyrian2000",
+      "sha256": "2be0f8f7f1a2b856fbcb56e2d0cafaabbd8ec7133d00f87d882ae2ea410825f5"
+    },
+    {
+      "path": "settings-font-runtime-build-20261013/FIXTURE_MANIFEST.json",
+      "sha256": "d2295112054422a383350dba8cbe8d2dbb8afd35855a5867bc07713d5467017a"
+    },
+    {
+      "path": "settings-font-runtime-fixture-20261013/matrix2_to4.actions",
+      "sha256": "1e7888c925a33e6f499749ba5a2b3935ee48a578e66897ea72bffb3383395663"
+    },
+    {
+      "path": "settings-font-matrix-profiles-20261013/reference/config/opentyrian2000/opentyrian.cfg",
+      "sha256": "2932eb670d422295f3c03eced579d1587ae8d2dd5fa43c53fc7cbcddc799190d"
+    },
+    {
+      "path": "settings-font-matrix-profiles-20261013/candidate/assets/settings-font-tiny-v1.hda",
+      "sha256": "888b635af0c123dc77fecf2f50a2e603f85a0fb6ad74a1c4215b29affc28a35c"
+    },
+    {
+      "path": "settings-font-matrix-profiles-20261013/candidate/assets/settings-font-large-v1.hda",
+      "sha256": "7827555a736375ff45bd78dc2c05c5651e65d3b024527e8dba525d3beff721e5"
+    },
+    {
+      "path": "settings-font-matrix-profiles-20261013/candidate/assets/settings-font-medium-v1.hda",
+      "sha256": "51852f5d54516de70a5729e991fb14104871b9ad58991f0352899ab4502bd484"
+    },
+    {
+      "path": "settings-font-matrix-profiles-20261013/candidate/config/opentyrian2000/opentyrian.cfg",
+      "sha256": "2932eb670d422295f3c03eced579d1587ae8d2dd5fa43c53fc7cbcddc799190d"
+    }
+  ],
+  "original_data_pins": "../settings-font-smoke2-evidence-20261013/PRE_RUN_PINS.json",
+  "review": "PASS",
+  "smoke_visual": "root and author PASS",
+  "scope": "88actions,10stills per side"
+}

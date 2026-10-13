@@ -25,6 +25,8 @@ class Package(unittest.TestCase):
  def test_manifest_preservation(self):
   actual=json.loads((ROOT/'assets/hd/manifest.json').read_text())
   from type3_small_coexistence import project_type3_small_family
+  from settings_font_coexistence import project_settings_family
+  project_settings_family(self, actual)
   project_type3_small_family(self,actual)
   family=actual.pop('startup_title_menu_v1')
   before=json.loads(subprocess.check_output(['git','show','e6fd18a8d53c31f90d15c0ac1bce9d0e927336ac:assets/hd/manifest.json'],cwd=ROOT))

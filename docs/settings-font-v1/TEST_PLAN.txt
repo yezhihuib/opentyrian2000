@@ -1,0 +1,12 @@
+Source/core tests (no game or screenshot):
+- Original font/map/metric/encoded/eligibility/PIC2/palette pin acquisition.
+- All154stock states at2x/4x, including picker12and both volume endpoints.
+- Observer failures: substituted text, misplaced glyph, wrong operator/value,
+  missed/reordered/extra/same-index writer, modified source/map/palette/surface.
+- Resource failures: missing, truncated, extra, directory/FIFO, all header words,
+  role/padding/payload mutation, allocation failure. All must remain classic.
+- Cursor opaque same-index overlap and exact restore; repeated frame clears.
+-10inbound and10outbound fades, unknown fade, all lifecycle end/reacquire paths.
+- Canonical/reduced independent oracle, support mask invariance, no input/config
+  writer changes, per-frame allocation count and hard CPU allocation high-water.
+- ASan/UBSan, exact clean build; actual engine behavior remains later review.

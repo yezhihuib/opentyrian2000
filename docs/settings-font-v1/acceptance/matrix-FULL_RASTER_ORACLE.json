@@ -1,0 +1,95 @@
+{
+  "schema": "settings-matrix-actual-full-raster-oracle-v1",
+  "captures": [
+    {
+      "name": "setup_native2",
+      "changed_pixels": 5656,
+      "literal_indexed_mismatches": 0,
+      "owner": "settings",
+      "candidate_mismatched_pixels": 0,
+      "reference_mismatched_pixels": 0,
+      "outside_font_support_changes": 0
+    },
+    {
+      "name": "graphics_native2",
+      "changed_pixels": 8523,
+      "literal_indexed_mismatches": 0,
+      "owner": "settings",
+      "candidate_mismatched_pixels": 0,
+      "reference_mismatched_pixels": 0,
+      "outside_font_support_changes": 0
+    },
+    {
+      "name": "scaler_picker_native2",
+      "changed_pixels": 11971,
+      "literal_indexed_mismatches": 0,
+      "owner": "settings",
+      "candidate_mismatched_pixels": 0,
+      "reference_mismatched_pixels": 0,
+      "outside_font_support_changes": 0
+    },
+    {
+      "name": "graphics_scale2x_classic",
+      "changed_pixels": 0,
+      "literal_indexed_mismatches": 0,
+      "owner": "classic",
+      "outside_font_support_changes": 0,
+      "fallback_byte_exact": true
+    },
+    {
+      "name": "graphics_native4",
+      "changed_pixels": 28340,
+      "literal_indexed_mismatches": 0,
+      "owner": "settings",
+      "candidate_mismatched_pixels": 0,
+      "reference_mismatched_pixels": 0,
+      "outside_font_support_changes": 0
+    },
+    {
+      "name": "graphics_aspect_classic",
+      "changed_pixels": 0,
+      "literal_indexed_mismatches": 0,
+      "owner": "classic",
+      "outside_font_support_changes": 0,
+      "fallback_byte_exact": true
+    },
+    {
+      "name": "sound_native4",
+      "changed_pixels": 21398,
+      "literal_indexed_mismatches": 0,
+      "owner": "settings",
+      "candidate_mismatched_pixels": 0,
+      "reference_mismatched_pixels": 0,
+      "outside_font_support_changes": 0
+    },
+    {
+      "name": "sound_muted_native4",
+      "changed_pixels": 21398,
+      "literal_indexed_mismatches": 0,
+      "owner": "settings",
+      "candidate_mismatched_pixels": 0,
+      "reference_mismatched_pixels": 0,
+      "outside_font_support_changes": 0
+    },
+    {
+      "name": "sound_zero_native4",
+      "changed_pixels": 21398,
+      "literal_indexed_mismatches": 0,
+      "owner": "settings",
+      "candidate_mismatched_pixels": 0,
+      "reference_mismatched_pixels": 0,
+      "outside_font_support_changes": 0
+    },
+    {
+      "name": "cursor_heading_native4",
+      "changed_pixels": 20977,
+      "literal_indexed_mismatches": 0,
+      "owner": "settings",
+      "candidate_mismatched_pixels": 0,
+      "reference_mismatched_pixels": 0,
+      "outside_font_support_changes": 0
+    }
+  ],
+  "result": "PASS",
+  "scope": "Each retained actual still reconstructed from literal menu strings, original RLE/PIC2/palette7, bars/picker rectangles, original cursor tiles and immutable SFN1 planes; no private command/base data shared."
+}

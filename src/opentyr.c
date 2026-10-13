@@ -16,6 +16,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
+#include "settings_font.h"
 #include "opentyr.h"
 #include "game_probe.h"
 #include "asset_debug.h"
@@ -204,15 +205,19 @@ void setupMenu(void)
 		{
 			JE_loadPic(VGAScreen2, 2, false);
 			fill_rectangle_wh(VGAScreen2, 0, 192, 320, 8, 0);
+			settings_font_begin(VGAScreen, VGAScreen2);
 		}
 
 		// Restore background.
 		memcpy(VGAScreen->pixels, VGAScreen2->pixels, (size_t)VGAScreen->pitch * VGAScreen->h);
+		settings_font_frame_begin(currentMenu, selectedMenuItemIndexes[currentMenu], currentPicker == MENU_ITEM_NONE ? 0 : currentPicker - MENU_ITEM_DISPLAY + 1);
 
 		const Menu *menu = &menus[currentMenu];
 
 		// Draw header.
+		settings_font_run_begin(SETTINGS_HEADING, 0, VGAScreen, xCenter, yMenuHeader, menu->header, large_font, centered, 15, -3);
 		draw_font_hv_shadow(VGAScreen, xCenter, yMenuHeader, menu->header, large_font, centered, 15, -3, false, 2);
+		settings_font_run_end();
 
 		int yPicker = 0;
 		const int dyPickerItem = 15;
@@ -241,7 +246,9 @@ void setupMenu(void)
 
 			const char *const name = menuItem->name;
 
+			settings_font_run_begin(SETTINGS_LABEL, i, VGAScreen, xMenuItemName, y, name, normal_font, left_aligned, 15, -3 + (selected ? 2 : 0) + (disabled ? -4 : 0));
 			draw_font_hv_shadow(VGAScreen, xMenuItemName, y, name, normal_font, left_aligned, 15, -3 + (selected ? 2 : 0) + (disabled ? -4 : 0), false, 2);
+			settings_font_run_end();
 
 			switch (menuItem->id)
 			{
@@ -253,25 +260,35 @@ void setupMenu(void)
 					value = buffer;
 				}
 
+				settings_font_run_begin(SETTINGS_VALUE, i, VGAScreen, xMenuItemValue, y, value, normal_font, left_aligned, 15, -3 + (selected ? 2 : 0) + (disabled ? -4 : 0));
 				draw_font_hv_shadow(VGAScreen, xMenuItemValue, y, value, normal_font, left_aligned, 15, -3 + (selected ? 2 : 0) + (disabled ? -4 : 0), false, 2);
+				settings_font_run_end();
 				break;
 
 			case MENU_ITEM_SCALER:
+				settings_font_run_begin(SETTINGS_VALUE, i, VGAScreen, xMenuItemValue, y, scalers[scaler].name, normal_font, left_aligned, 15, -3 + (selected ? 2 : 0) + (disabled ? -4 : 0));
 				draw_font_hv_shadow(VGAScreen, xMenuItemValue, y, scalers[scaler].name, normal_font, left_aligned, 15, -3 + (selected ? 2 : 0) + (disabled ? -4 : 0), false, 2);
+				settings_font_run_end();
 				break;
 
 			case MENU_ITEM_SCALING_MODE:
+				settings_font_run_begin(SETTINGS_VALUE, i, VGAScreen, xMenuItemValue, y, scaling_mode_names[scaling_mode], normal_font, left_aligned, 15, -3 + (selected ? 2 : 0) + (disabled ? -4 : 0));
 				draw_font_hv_shadow(VGAScreen, xMenuItemValue, y, scaling_mode_names[scaling_mode], normal_font, left_aligned, 15, -3 + (selected ? 2 : 0) + (disabled ? -4 : 0), false, 2);
+				settings_font_run_end();
 				break;
 
 			case MENU_ITEM_MUSIC_VOLUME:
+				settings_font_bar_begin(i, music_disabled ? 170 : 174, (tyrMusicVolume + 4) / 8);
 				JE_barDrawShadow(VGAScreen, xMenuItemValue, y, 1, music_disabled ? 170 : 174, (tyrMusicVolume + 4) / 8, 2, 10);
 				JE_rectangle(VGAScreen, xMenuItemValue - 2, y - 2, xMenuItemValue + 96, y + 11, 242);
+				settings_font_primitive_end();
 				break;
 
 			case MENU_ITEM_SOUND_VOLUME:
+				settings_font_bar_begin(i, samples_disabled ? 170 : 174, (fxVolume + 4) / 8);
 				JE_barDrawShadow(VGAScreen, xMenuItemValue, y, 1, samples_disabled ? 170 : 174, (fxVolume + 4) / 8, 2, 10);
 				JE_rectangle(VGAScreen, xMenuItemValue - 2, y - 2, xMenuItemValue + 96, y + 11, 242);
+				settings_font_primitive_end();
 				break;
 
 			default:
@@ -280,7 +297,9 @@ void setupMenu(void)
 		}
 
 		// Draw status text.
+		settings_font_run_begin(SETTINGS_FOOTER, *selectedMenuItemIndex, VGAScreen, xMenuItemName, 190, menuItems[*selectedMenuItemIndex].description, small_font, left_aligned, 15, 4);
 		JE_textShade(VGAScreen, xMenuItemName, 190, menuItems[*selectedMenuItemIndex].description, 15, 4, PART_SHADE);
+		settings_font_run_end();
 
 		// Draw picker box and items.
 
@@ -292,10 +311,12 @@ void setupMenu(void)
 			const int hPicker = dyPickerItem * pickerItemsCount - dyPickerItemPadding;
 			yPicker = MIN(yPicker, 200 - 10 - (hPicker + 5 + 2));
 
+			settings_font_picker_begin(pickerItemsCount, pickerSelectedIndex, yPicker);
 			JE_rectangle(VGAScreen, xMenuItemValue - 5, yPicker- 3, xMenuItemValue + wMenuItemValue + 5 - 1, yPicker + hPicker + 3 - 1, 248);
 			JE_rectangle(VGAScreen, xMenuItemValue - 4, yPicker- 4, xMenuItemValue + wMenuItemValue + 4 - 1, yPicker + hPicker + 4 - 1, 250);
 			JE_rectangle(VGAScreen, xMenuItemValue - 3, yPicker- 5, xMenuItemValue + wMenuItemValue + 3 - 1, yPicker + hPicker + 5 - 1, 248);
 			fill_rectangle_wh(VGAScreen, xMenuItemValue - 2, yPicker - 2, wMenuItemValue + 2 + 2, hPicker + 2 + 2, 224);
+			settings_font_primitive_end();
 
 			for (size_t i = 0; i < pickerItemsCount; ++i)
 			{
@@ -305,9 +326,13 @@ void setupMenu(void)
 
 				const char *value = selectedMenuItem->getPickerItem(i, buffer, sizeof buffer);
 
+				settings_font_run_begin(SETTINGS_PICKER, i, VGAScreen, xMenuItemValue, y, value, normal_font, left_aligned, 15, -3 + (selected ? 2 : 0));
 				draw_font_hv_shadow(VGAScreen, xMenuItemValue, y, value, normal_font, left_aligned, 15, -3 + (selected ? 2 : 0), false, 2);
+				settings_font_run_end();
 			}
 		}
+
+		settings_font_frame_end();
 
 		if (restart)
 		{
@@ -320,9 +345,12 @@ void setupMenu(void)
 
 		service_SDL_events(true);
 
+		settings_font_cursor_begin();
 		JE_mouseStart();
+		settings_font_cursor_done();
 		JE_showVGA();
 		JE_mouseReplace();
+		settings_font_cursor_erased();
 
 		bool mouseMoved = false;
 		int oldFullscreenDisplay = fullscreen_display;
@@ -547,6 +575,7 @@ void setupMenu(void)
 
 					fade_black(10);
 
+					settings_font_end();
 					jukebox();
 
 					restart = true;
@@ -558,6 +587,7 @@ void setupMenu(void)
 
 					fade_black(10);
 
+					settings_font_end();
 					JE_destructGame();
 
 					restart = true;
@@ -612,6 +642,7 @@ void setupMenu(void)
 			{
 				fade_black(10);
 
+				settings_font_end();
 				return;
 			}
 		}
@@ -736,6 +767,7 @@ void setupMenu(void)
 				case MENU_ITEM_SCALING_MODE:
 				{
 					scaling_mode = pickerSelectedIndex;
+					settings_font_invalidate();
 					break;
 				}
 				default:

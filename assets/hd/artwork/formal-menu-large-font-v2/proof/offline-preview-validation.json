@@ -1,0 +1,72 @@
+{
+  "offline_only": true,
+  "source_only_context": "Original PIC2 palette7; approved medium V3 rows unchanged, original tiny rows. Representative settings/empty-save layouts; not actual saved-state capture. Sound is heading-only.",
+  "heading_source_metrics_exact": true,
+  "bank0_slots": 60,
+  "inked": 53,
+  "blank_ids": [
+    26,
+    27,
+    28,
+    29,
+    30,
+    32,
+    33
+  ],
+  "stroke": 2.85,
+  "original_distinctive_forms": "Arched M/N/m/n,double-cupW/w,asymmetricV/v,shared a/g/q body and open-left g/y tail",
+  "states": [
+    {
+      "state": "setup",
+      "heading": "Setup",
+      "width": 58,
+      "origin": [
+        131,
+        4
+      ],
+      "outside_heading_run_and_shadow": 0
+    },
+    {
+      "state": "graphics",
+      "heading": "Graphics",
+      "width": 89,
+      "origin": [
+        116,
+        4
+      ],
+      "outside_heading_run_and_shadow": 0
+    },
+    {
+      "state": "sound",
+      "heading": "Sound",
+      "width": 60,
+      "origin": [
+        130,
+        4
+      ],
+      "outside_heading_run_and_shadow": 0
+    },
+    {
+      "state": "load-one",
+      "heading": "One Player Saved Games",
+      "width": 244,
+      "origin": [
+        38,
+        5
+      ],
+      "outside_heading_run_and_shadow": 0
+    },
+    {
+      "state": "load-two",
+      "heading": "Two Player Saved Games",
+      "width": 249,
+      "origin": [
+        36,
+        5
+      ],
+      "outside_heading_run_and_shadow": 0
+    }
+  ],
+  "native2x_sampling": "Ordered text+shadow coverage area2x2 on exactly constant-per2x2 original PIC2 underlay; numeric BOX reduction equals font-only reduction here. No backdrop filtering change.",
+  "no_runtime_edit_or_capture": true
+}

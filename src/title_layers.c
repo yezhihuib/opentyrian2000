@@ -91,6 +91,7 @@ static struct {
  SDL_Texture *texture;
 } state;
 static const char *asset_directory;
+bool title_layers_owns_display(void) { return state.active; }
 static void tm_end(void);
 static bool tm_check(void);
 

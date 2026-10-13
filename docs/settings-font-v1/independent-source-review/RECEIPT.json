@@ -1,0 +1,50 @@
+{
+  "schema": "settings-font-independent-source-review-v1",
+  "result": "PASS_SOURCE_ONLY",
+  "reviewed_commit": "504b3d4723d382548c698a77ce5dae318ffa146b",
+  "baseline_commit": "b2a6e4a1e924aed71630f9f63c0ba4648e920d6d",
+  "core_sha256": "e56c3aa886b1a8440582729e656017e213b2ca56592d387f0ab7401dd186f875",
+  "design_sha256": "6c6e5d44ba038dbcd8b03b2eda141cc3e23e8b0e575a9d22e291c331b71d009f",
+  "repository_modified": false,
+  "normal": "PASS",
+  "asan_ubsan": "PASS",
+  "leak_sanitizer": "not used: known ptrace restriction; explicit own-allocation and SDL-texture ledgers balanced",
+  "targeted_tests": {
+    "dense_canonical_frames": 84,
+    "full_software_output_frames_2x_4x": 2,
+    "actual_mouse_start_replace_cases": 24,
+    "inline_graphics_value_cases": 25,
+    "intermediate_volume_mute_cases": 62,
+    "injected_sdl_failure_recovery_cases": 7,
+    "actual_palette_c_fade_steps": 20,
+    "live_palette_to_argb_checked_independently": true,
+    "tracked_live_textures_at_end": 0,
+    "owned_allocations_at_end_bytes": 0
+  },
+  "memory": {
+    "candidate_reported_formula_bytes": 6392664,
+    "own_heap_highwater_bytes": 5881856,
+    "independent_O1_bss_bytes": 508408,
+    "independent_O1_constants_relro_bytes": 1311,
+    "conservative_sum_own_function_stacks_bytes": 3240,
+    "independent_data_and_stack_accounting_bytes": 6394815,
+    "limit_bytes": 7340032,
+    "note": "Additional SDL texture/driver storage remains outside the enhancement CPU-data budget; no steady-frame own allocation."
+  },
+  "inspection": [
+    "complete integration diff preserves original indexed writers, inputs, config and timing statements",
+    "fixed SFN1 fields, payload/source/palette pins, padding and all-or-classic epoch fallback",
+    "bounded glyph/primitive/cursor observation and same-index erase",
+    "original whole-string shadow then face ordering and replay indices",
+    "canonical4x and final correlated2x reduction",
+    "renderer generation/owner/output eligibility and texture cleanup",
+    "load/clear/font-reset/exit/shutdown lifetime hooks"
+  ],
+  "limitations": [
+    "No actual game loop, screenshots, physical display or visual acceptance.",
+    "Production video.c hook order was statically inspected; no full engine transition test.",
+    "Independent RLE compositing oracle still consumes the validated production command schedule, source base and authored payload.",
+    "359 in candidate report counts successful frame calls, not359 distinct configurations.",
+    "Source-only acceptance does not authorize publication."
+  ]
+}

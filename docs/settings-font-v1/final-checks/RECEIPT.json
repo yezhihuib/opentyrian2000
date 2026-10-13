@@ -1,0 +1,33 @@
+{
+  "result": "PASS",
+  "production_settings_checkpoint": "504b3d4723d382548c698a77ce5dae318ffa146b",
+  "latest_main": "5629b3dda05b2aa77af3c624841320d05c0f7130",
+  "production_source_changes_since_actual_qa": "only exact existing type3 append in render_mirror.c",
+  "checks": [
+    "exact source/art/XML preservation",
+    "aggregate all resources including nine-file compatibility pack",
+    "settings normal and ASan/UBSan",
+    "title menu source/package and ASan/UBSan",
+    "title20 and manufacturer15 package guards",
+    "type3 source mutation guards",
+    "type3 192 binding cases plus18564 original RLE cases under sanitizers",
+    "compatibility actual valid/missing/corrupt SFN1 with title/manufacturer owners retained"
+  ],
+  "art_author_receipt_sha256": "0fd2fb5a6b64ee4933c715a7e8da5988bbdb9742cca98c40bd943235599c193b",
+  "runtime_library": "libfile_0997e01cfb308191811b06406f5a223c",
+  "files": {
+    "PRESERVATION.json": "c15ca4243b7e33f508e6d67252b74e0c8a5662e8bb78f0c3c82b3be46b8ef439",
+    "aggregate-final.log": "527fdcbaebb75b69bc99b18a6e9e7b2502e65bf48ea95493ca6936cff615c53f",
+    "linux-build.log.gz": "602d903d8df2cd2be4bba797acfb66b324c104d6b45e123cb5a8779e6d66c7cd",
+    "menu-package-final.log": "b939aff56a8f42b1a01609c8e311451aabb0986a42c2ac04b8a4d5882eae6155",
+    "menu-runtime.log": "dcc22c036f0fc39536656bdd1c7ea119b286926badf0c6c0935fd38f23d82ef6",
+    "menu-source-final.log": "d7a417ab3cb4be23487add2c474e812f30c3c24364dc9b066ed6c91b800b2573",
+    "settings-normal.log": "5f9d7cb6355bdc11c3d0aaad19d2d19697f388c5aae0e93fe6bbb0a56a4ac972",
+    "settings-sanitizer.log": "5f9d7cb6355bdc11c3d0aaad19d2d19697f388c5aae0e93fe6bbb0a56a4ac972",
+    "startup-package-final.log": "a6ff1d39c78cd14f9efb9ea7013b98c7e401397a88cbf41b4727ac4944b06230",
+    "title-package-final.log": "2c6001089055a7ffc04d6a971c9066d0061994c1e1570eaeab3aa048dd092a75",
+    "type3-binding-receipt.json": "bf3d470fb9899890ec13bd1d86c0f63ae2ba9225b36741ce7885f65fbe0d18b4",
+    "type3-source-guards-receipt.json": "93f726bb276815a7c34ab5f5676add7f5f7b5db9036a6f6ea210b820990fc45a",
+    "type3-source-guards.log": "93f726bb276815a7c34ab5f5676add7f5f7b5db9036a6f6ea210b820990fc45a"
+  }
+}

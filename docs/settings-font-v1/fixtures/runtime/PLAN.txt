@@ -1,0 +1,67 @@
+BOUNDED ACTUAL SETTINGS A/B FIXTURE (PREPARATION ONLY)
+Prepared against clean source checkpoint504b3d4723d382548c698a77ce5dae318ffa146b.
+No actual engine launch is authorized until the parent receives independent
+finished-source PASS. The checkpoint worktree and durable bundle stay unchanged.
+
+1. FIRST VISUAL GATE: smoke2
+Build a private copied source tree with fixture-only observations/SDL input.
+Run two fresh isolated profiles from the same fixed seed and same original
+configuration file: fullscreen=-1, scaler="2x", scaling_mode="Integer";
+all other settings use original defaults. Both processes retain normal startup,
+title entry, Setup entry/exit, fade calls and waits. Original SDL event handling
+consumes injected Down/Return to choose title Setup, then Escape to return and
+Escape to quit. Do not jump directly to setupMenu or assign menu variables.
+The reference resource directory is empty; candidate has only the three SFN1
+files. Other artwork therefore has identical classic behavior in both runs.
+Save exactly one640x400Setup still per side, from the ordinary post-fade frame.
+Record all20settings fade steps as compact byte/digest evidence, not images.
+Root and font author must inspect this actual pair before the larger matrix.
+
+2. FINITE NAVIGATION MATRIX: matrix2_to4
+One paired process path, <=128injected actions and<=256settings presentations.
+- Setup all selections, wrap and footer changes.
+- Graphics all3picker categories; selected/disabled rows; accept/cancel/wrap.
+- Scaler2x -> Scale2x classic ->2x ->4x via original picker controls.
+- Integer ->Fit8:5 classic ->Integer via original picker controls.
+- Display picker cancel; Alt+Return fullscreen/window while picker remains open.
+- Explicit resize fallback/reacquisition while a picker is open. This uses SDL
+  window resize plus an inert F12 key so original event handling redraws.
+- Sound both volume bars: left/right restoration, mute toggles, mouse-set0/255,
+  eight original Left presses restore255to191. No direct volume assignment.
+- Cursor over heading, labels, footer and right/bottom edge, then move/restore.
+- Done, Escape and right-click nested return routes; final Setup->title->quit.
+Save at most10named stills per side, only semantically distinct accepted/fallback
+states. Fade/trace data has no broad screenshot dump. Pure source tests already
+cover maximum12-item display picker and every stock item; actual display count
+must be logged, never fabricated as a real host display inventory.
+
+3. SEPARATE LIFECYCLE/FAULT APPENDIX (only after matrix is accepted)
+Explicit test-only renderer destruction/recreation reuses original deinit/init
+functions and unchanged scaler/config, while a picker is live. This is labeled
+fault injection, never claimed as an ordinary player input. Missing/corrupt SFN1
+profiles, interrupted fade, foreign picture load/clear, and Jukebox roundtrip
+remain individually bounded cases. Do not automatically launch this appendix.
+
+A/B OBSERVATION CONTRACT
+- Fixture writes only its private output/profile directories.
+- Both sides use the same executable and script. Resource availability differs.
+- Original game writers/input/config/RNG/waits remain authoritative. The only
+  deterministic initialization change is the explicitly logged fixed seed.
+- Record indexed64000bytes and live palette1024bytes for every settings present,
+  plus menu/picker/selection, input action, config values, RNG fingerprint,
+  presenter owner and live settings lease status/generation/command count.
+- Record fade parameters and setDelay/service_wait_delay call stream. Compare
+  byte-for-byte indexed/palette streams and semantic traces. Do not compare
+  host wall time; readback overhead is instrumentation and original waits run.
+- Capture the renderer before its original SDL_RenderPresent. Strict native
+  dimensions, owner status and accepted lease must be visible in the receipt;
+  a successful screenshot alone cannot count as enhanced acceptance.
+- User profile untouched: XDG_CONFIG_HOME is fresh/private per run. Original
+  save logic is allowed to write only there. Compare resulting config files.
+- Watchdogs:256settings frames,512total presentations,128actions and process
+  wall timeout. Any unexpected menu/picker state, absent enhanced owner on an
+  eligible stable frame, mismatched trace, overflow or timeout is failure.
+
+EXPECTED FOLLOW-UP
+First deliver the smoke2 pair and trace verdict. Stop for root/author review.
+Only then run the named matrix. No publication or main-branch edits are implied.

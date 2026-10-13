@@ -1,0 +1,70 @@
+Bounded settings typography acceptance, 2026-10-13 UTC
+
+PASS: source/sanitizer review, actual software-backend A/B controls/raster,
+retained-still author review, and exact merge preservation. Actual production
+candidate504b3d4 was tested against b2a6e4a. Latest-main5629b3d contributes only
+its independently accepted type3 renderer append to those production sources.
+
+Use --startup-assets=assets/hd/packs/startup-title-settings-v1. The new optional
+nine-file pack preserves all six published title/menu resources byte-for-byte
+and adds three SFN1 files. All prior packs/default selections are exact.
+Rebuild: python3 prototype/settings_font_bundle.py --output /absolute/new/path
+Frozen recovered largeV2 vectors/source are preserved unchanged under
+assets/hd/artwork/formal-menu-large-font-v2. MediumV3.1 and tiny remain in their
+original source directories. No original game pixels ship in these resources.
+
+Scope: Setup, Graphics, Sound and pickers at native nearest2x/4x. Original PIC2,
+indexed writers, strings, metrics, input/config, bars and cursor remain original.
+Strict whole-frame fallback handles unsupported geometry, source/order, scaler
+or resources. Tiny uses separately approved fixed-role7 coverage, replacing
+original edge roles3/4/5; it is not an exact old-glyph per-pixel shade match.
+
+Normal and ASan/UBSan core tests pass339687940 assertions and359 successful
+frame calls (not359 distinct states),120 resource-negative cases,4 owned
+allocation failures. Independent normal/sanitizer review adds84 dense canonical
+frames,2 complete software targets,24 actual cursor cases,25 inline values,
+62 volume/mute cases,7 SDL fault/recovery cases and20 production fade steps.
+Owned allocations and textures balance to zero. Conservative independent
+object/constants/stack/heap accounting6394815bytes is below7MiB7340032bytes;
+owned heap peak5881856bytes, no per-frame owned allocations. One nominal
+4096000byte SDL texture is additional; driver storage is implementation-dependent.
+LeakSanitizer is unavailable under executor ptrace; explicit owned ledgers apply.
+
+Actual evidence comprises18 bounded original-engine processes with fresh private
+profiles, fixed fixture seed and original title navigation into Setup. No direct
+menu-variable changes or skipped waits. The first21-presentation Setup pair was
+viewed and cleared before the88-input/108-presentation matrix. All10 matrix
+still pairs match a literal original-call-site raster oracle pixel-for-pixel,
+with zero changes outside original-or-authored font support. A hash-only repeat
+checks all108 complete frames including all fades:97 enhanced,11 correct
+fallbacks through filter/aspect/fullscreen/resize transitions. Original controls,
+indexed/palette bytes, ordered writes, RNG, waits and saved config match exactly.
+Final volumes191/unmuted, scaler2x/Integer/window equal the original values.
+
+Missing large, bad medium header and truncated tiny each retain21 fully classic
+settings presentations. The145-presentation appendix includes two original
+Jukebox roundtrips, explicitly private renderer recreation with a picker live,
+interrupted fade start and foreign clear/load:43 enhanced,102 correctly classic.
+A separate28-presentation case proves foreign PIC load revokes an ACTIVE lease.
+Every frame is paired and checked; these appendices generate no extra stills.
+The new compatibility pack has21-presentation valid/reference and missing-large/
+corrupt-medium checks. Valid SFN1 enhances all21; bad SFN1 keeps all21 classic
+while109 actual title and57 manufacturer presentations stay active per process.
+
+Visual acceptance: prior Setup2x plus seven matrix pairs covering Graphics2x/4x,
+scaler picker2x, Sound4x, mute, zero volume and cursor overlap. Author receipts
+are copied unchanged under acceptance/. Numeric lifecycle evidence is separately
+attributed, not claimed as continuous visual playback.
+
+Merge checks cover6163 prior files and609016383 unchanged prior asset bytes.
+All140 actual-tested production files are exact except the commuting type3
+append. Finite complete-file source projections preserve historical guards and
+reject39 arbitrary mutations. The C source/header XML inventory is complete;
+this is not a Windows compile/runtime claim. Final aggregate/package/type3/
+settings logs are under final-checks/. Private fixture hooks are not in src/.
+
+Limits: SDL dummy/software only; no physical GPU/display/fullscreen, physical
+joystick or Windows execution claim; no load-menu extension. Original waits run,
+wall-time equality is not asserted. Every-presentation full-frame comparisons use
+FNV64; retained stills additionally compare every pixel. Review-only original-
+derived captures/streams are privately backed up, not distributed with assets.

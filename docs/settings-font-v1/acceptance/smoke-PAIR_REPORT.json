@@ -1,0 +1,42 @@
+{
+  "schema": "settings-actual-pair-v1",
+  "indexed-palette-stream.bin": {
+    "equal": true,
+    "reference_bytes": 1365504,
+    "candidate_bytes": 1365504,
+    "reference_sha256": "330d8829a4302029be1d6471ebbdbec59c1f1cfb61c029b7ed9bb7eccede57f4",
+    "candidate_sha256": "330d8829a4302029be1d6471ebbdbec59c1f1cfb61c029b7ed9bb7eccede57f4"
+  },
+  "semantics.tsv": {
+    "equal": true,
+    "reference_bytes": 1204,
+    "candidate_bytes": 1204,
+    "reference_sha256": "ae4c543cf8f22f94556b8f3e90a7016c3d0393544319a526b0ff1491094e4b3a",
+    "candidate_sha256": "ae4c543cf8f22f94556b8f3e90a7016c3d0393544319a526b0ff1491094e4b3a"
+  },
+  "presentations": 21,
+  "captures": [
+    {
+      "name": "setup_native2",
+      "owner": "settings",
+      "width": 640,
+      "height": 400,
+      "byte_equal": false
+    }
+  ],
+  "saved_configuration": {
+    "opentyrian.cfg": {
+      "equal": true,
+      "bytes": 445,
+      "sha256": "387f27aab0c08f8704f287960a74a575ab1fa7412f8d22390b1bdf29f120fedb"
+    },
+    "tyrian.cfg": {
+      "equal": true,
+      "bytes": 28,
+      "sha256": "9252a0b93b9c9b7764a6a8d6660239858f5941d0ac17efa5f0e4503ff5f3bef8"
+    }
+  },
+  "result": "PASS",
+  "visual_review": "PENDING",
+  "wall_time_equality": "Not asserted; original wait call stream compared."
+}

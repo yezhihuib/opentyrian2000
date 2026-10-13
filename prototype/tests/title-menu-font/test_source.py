@@ -3,13 +3,17 @@
 from pathlib import Path
 import hashlib,re,struct,subprocess
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[2]
+import sys
+sys.path.insert(0,str(ROOT/'prototype'))
+from settings_font_coexistence import project_settings_source,verify_settings_sources
 BASE='e6fd18a8d53c31f90d15c0ac1bce9d0e927336ac'
 def original(path):return subprocess.check_output(['git','show',BASE+':'+path],cwd=ROOT)
 def main():
+    verify_settings_sources(ROOT)
     assert struct.calcsize('<4s15I8Q')==128
     paths=('src/font.c','src/fonthand.c','src/font.h','src/fonthand.h','src/sprite.c','src/render_mirror.c','src/gameplay_hud_font.c','src/gameplay_hud_font.h','src/gameplay_hud_font_mirror.inc','src/keyboard.c','src/joystick.c','src/nortsong.c','src/mouse.c','src/mainint.c','src/menus.c','src/opentyr.c','src/palette.c','src/video.c','src/picload.c','src/params.c','src/startup_logos.c','src/startup_logos.h')
     for path in paths:
-        actual=(ROOT/path).read_bytes()
+        actual=project_settings_source(path,(ROOT/path).read_bytes())
         if path=='src/render_mirror.c' and actual!=original(path):
             # Exact independently tested0082cd5 small-family append only. A
             # changed renderer cannot hide behind this historical title guard.

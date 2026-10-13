@@ -1,0 +1,28 @@
+DO NOT RUN until parent confirms independent finished-source PASS.
+First smoke only. Preparation/compilation has not launched any game.
+
+1. Source recovery-dependencies-20261013/env.sh.
+2. Use the prepared private fixture executable (or rebuild after any reviewed
+   source revision) and fresh profiles from prepare_profiles.py.
+3. Per side, set:
+   SF_FIXTURE_SCRIPT=<fixture>/smoke2.actions
+   SF_FIXTURE_OUTPUT=<profiles>/<side>/output
+   XDG_CONFIG_HOME=<profiles>/<side>/config
+   SDL_VIDEODRIVER=dummy
+   SDL_RENDER_DRIVER=software
+   SDL_AUDIODRIVER=dummy
+   Run under timeout120s: <fixture-build>/opentyrian2000 -x -s -j
+     --data=<original tyrian2000> --startup-assets=<profiles>/<side>/assets
+   Run from that side's private output folder. Do not reuse the user's profile.
+4. compare_pair.py reference/output candidate/output --out smoke-pair.json
+5. Read owner/lease receipt and view both setup_native2.bmp. Deliver this single
+   pair to root and author, then stop for their visual gate.
+
+Dummy/software is an actual original engine/render path, explicitly labeled.
+It does not establish GPU-driver or physical fullscreen behavior. If that backend
+cannot complete a required action, report it; do not manufacture evidence.
+
+After the first visual gate, create NEW private profiles and run the finite
+matrix2_to4.actions pair. It has88actions and10stills per side. It includes real
+SDL fullscreen/window and resize requests; if unsupported, identify the blocked
+case rather than silently skipping it. No lifecycle/fault appendix is automatic.

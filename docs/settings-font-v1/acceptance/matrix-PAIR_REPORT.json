@@ -1,0 +1,105 @@
+{
+  "schema": "settings-actual-pair-v1",
+  "indexed-palette-stream.bin": {
+    "equal": true,
+    "reference_bytes": 7022592,
+    "candidate_bytes": 7022592,
+    "reference_sha256": "f25da5bd2186937b9d24cce1e6903a8aae727077092b008f6193d3c6064e2937",
+    "candidate_sha256": "f25da5bd2186937b9d24cce1e6903a8aae727077092b008f6193d3c6064e2937"
+  },
+  "semantics.tsv": {
+    "equal": true,
+    "reference_bytes": 5849,
+    "candidate_bytes": 5849,
+    "reference_sha256": "413ee99e0e9e0aae5f9be54d4f1ffa1a16dc2e02c78ab0d55906550c2f11f252",
+    "candidate_sha256": "413ee99e0e9e0aae5f9be54d4f1ffa1a16dc2e02c78ab0d55906550c2f11f252"
+  },
+  "presentations": 108,
+  "captures": [
+    {
+      "name": "setup_native2",
+      "owner": "settings",
+      "width": 640,
+      "height": 400,
+      "byte_equal": false
+    },
+    {
+      "name": "graphics_native2",
+      "owner": "settings",
+      "width": 640,
+      "height": 400,
+      "byte_equal": false
+    },
+    {
+      "name": "scaler_picker_native2",
+      "owner": "settings",
+      "width": 640,
+      "height": 400,
+      "byte_equal": false
+    },
+    {
+      "name": "graphics_scale2x_classic",
+      "owner": "classic",
+      "width": 640,
+      "height": 400,
+      "byte_equal": true
+    },
+    {
+      "name": "graphics_native4",
+      "owner": "settings",
+      "width": 1280,
+      "height": 800,
+      "byte_equal": false
+    },
+    {
+      "name": "graphics_aspect_classic",
+      "owner": "classic",
+      "width": 1280,
+      "height": 800,
+      "byte_equal": true
+    },
+    {
+      "name": "sound_native4",
+      "owner": "settings",
+      "width": 1280,
+      "height": 800,
+      "byte_equal": false
+    },
+    {
+      "name": "sound_muted_native4",
+      "owner": "settings",
+      "width": 1280,
+      "height": 800,
+      "byte_equal": false
+    },
+    {
+      "name": "sound_zero_native4",
+      "owner": "settings",
+      "width": 1280,
+      "height": 800,
+      "byte_equal": false
+    },
+    {
+      "name": "cursor_heading_native4",
+      "owner": "settings",
+      "width": 1280,
+      "height": 800,
+      "byte_equal": false
+    }
+  ],
+  "saved_configuration": {
+    "opentyrian.cfg": {
+      "equal": true,
+      "bytes": 445,
+      "sha256": "387f27aab0c08f8704f287960a74a575ab1fa7412f8d22390b1bdf29f120fedb"
+    },
+    "tyrian.cfg": {
+      "equal": true,
+      "bytes": 28,
+      "sha256": "9252a0b93b9c9b7764a6a8d6660239858f5941d0ac17efa5f0e4503ff5f3bef8"
+    }
+  },
+  "result": "PASS",
+  "visual_review": "PENDING",
+  "wall_time_equality": "Not asserted; original wait call stream compared."
+}

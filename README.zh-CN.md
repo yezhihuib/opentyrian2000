@@ -117,3 +117,22 @@ Windows 构建或运行验收。
 原上游介绍、数据说明、键位、联网说明及项目链接均保留在
 [英文版的上游部分](README.md#upstream-readme-preserved)。
 [许可证 COPYING](COPYING)与原有署名保持不变。
+
+### 可选设置菜单字体
+
+九文件兼容包保留已发布的六个厂商、标题与主菜单资源，并增加设置菜单的大号、
+中号及小号字体：
+
+```sh
+./opentyrian2000 --data=/absolute/path/to/tyrian2000 \
+  --startup-assets=assets/hd/packs/startup-title-settings-v1
+```
+
+仅在精确原生最近邻 2×/4× 下增强 Setup、Graphics、Sound 及其选项列表。
+PIC2 背景、音量条、光标、索引文字、字宽、输入与保存设置仍保持原样。SFN1 文件
+缺失或不兼容时，整个设置菜单使用原版字体，有效标题资源仍可使用；滤镜和比例
+拉伸输出同样回退。已有资源包及默认选择不变。
+[协议与有限验收](docs/settings-font-v1/ACCEPTANCE.txt)包含 SDL dummy/software 下
+实际引擎的配对操作、渐变与生命周期检查，以及源码、消毒器和作者静态画面审阅。
+未声明实体 GPU/显示器或 Windows 运行验收。可用以下命令重建完全相同的九文件包：
+`python3 prototype/settings_font_bundle.py --output /absolute/new/directory`。

@@ -1,0 +1,13 @@
+# Large menu heading font, curved V2
+
+Generated-only, source-reproducible table0 heading artwork. The original table has60 slots,53 visible glyphs and7 intentionally blank punctuation slots. It has no digits or extended/diacritic glyphs. Preserve those absences and original whole-run classic behavior. This is independent from the frozen medium title font and tiny gameplay font.
+
+The root reviewed the native2× curved heading pilot; the author also inspected all53 glyphs and native4× forms. Original widths, heights, advances, lowercase top registration and descender depths remain unchanged. Large M/N have downward-open arch forms, W upward-open cups; V retains its asymmetric upright left edge. a/g/q share the same authored bowl, g/y the same open-left tail; p/q keep straight descenders. j dot aligns to the right stem. Colon retains its two source-positioned dot bands. Seven punctuation slots stay empty.
+
+Run `python3 rebuild.py --output /absolute/new/external/directory` using Python3 and Pillow12.3.0. Output must be new, outside the source and not its ancestor, and contain no symlink path components. The builder reads only contract.json and sources/menu-large-vectors.json, samples true cubic commands, and verifies each coverage/role/output hash. Original game data and canonical files are not build inputs. SVG is an editable true-cubic export with explicit clipping; numerical Pillow rasterization defines canonical pixels.
+
+The atlas is1216×384 at density4,16 columns of76×96 cells with4px inset. Two row-major planes store coverage and authored palette roles12–15; transparent/padding cells have both zero. No runtime header is supplied. Engineering must approve a separate finite wrapper/context lifecycle before activation.
+
+Setup/Graphics/Sound headers remain centered160,y4; saved-game headings centered160,y5. Preserve PIC2 palette7, hue15/value-3 and original destination-nibble-halving shadow(+2,+2), followed by the whole-string face. This is different from main-title colored diagonal outlines and load-row black cardinal outlines. The native2× preview integrates font/shadow coverage over an unchanged underlay: original PIC2 is constant within each2×2 canonical group, so no backdrop pixel changes from that reduction. General menu-context shadow/color/lifecycle behavior needs its own actual-engine proof.
+
+The preview is an offline source-layout reconstruction with representative settings and empty save rows. It is not a captured settings/load run. No original reference RGB, indices, palette arrays or encoded RLE is distributed; source identities, hashes and technical metrics are included. No global font replacement, new input behavior or runtime publication is claimed.

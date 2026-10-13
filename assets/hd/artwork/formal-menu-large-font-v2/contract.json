@@ -1,0 +1,94 @@
+{
+  "schema": "menu-large-heading-font-v2-source-freeze",
+  "scope": "Separate table0 heading source art; no runtime wrapper, no title-medium change and no global font replacement.",
+  "visual_gate": "Root approved curved native2x heading direction; author checked all53 visible forms/counters/descenders and7 blanks.",
+  "density": 4,
+  "atlas_size": [
+    1216,
+    384
+  ],
+  "cell_size": [
+    76,
+    96
+  ],
+  "inset": 4,
+  "slots": 60,
+  "inked_slots": 53,
+  "blank_slots": [
+    26,
+    27,
+    28,
+    29,
+    30,
+    32,
+    33
+  ],
+  "original_absences": "Digits and extended/diacritic slots are absent in original table0. Preserve whole-run classic behavior; do not invent glyphs.",
+  "registration": "Original top-left canvas, width/height/advance width+1, ascender blank rows and descender depths; no recenter/crop.",
+  "authored_style": {
+    "stroke": 2.85,
+    "body_role": 13,
+    "upper_0_6_role": 15,
+    "upper_next_0_675_role": 14,
+    "bottom_0_525_role": 12,
+    "family_forms": "M/N downward-open arches,W upward-open double cups,V asymmetric upright-left form,a/g/q shared bowl,p/q straightdescenders,g/y same open-left hook,j dot above rightstem,colon exact source dot bands."
+  },
+  "rendering_contract": {
+    "representative_palette": 7,
+    "hue": 15,
+    "value": -3,
+    "shadow": "Original destination palette-nibble-halving at+2,+2, then whole-string face; do not substitute fixed brown or black title outline.",
+    "color_operator": "Original clamped source-role plus signed caller value,tilde+4; palette is live, not baked RGB.",
+    "positions": "Setup/Graphics/Sound centered160,y4;One/TwoPlayerSavedGames centered160,y5.",
+    "sampling": "Canonical4x unchanged; native2x preview uses ordered font+shadow coverage integration. Original PIC2 underlay is constant in every2x2canonicalgroup, so numerical2xBOX changes only authored text coverage; no filtered backdrop. Actual generalized shadow replay is a future engineer-reviewed context gate.",
+    "unsupported": "Missing/extended/absent runs classic; no game-wide replacement."
+  },
+  "compatibility": {
+    "source_commit": "2efdc890217330e75a873252ca96b576495b23b9",
+    "source_files": {
+      "tyrian.shp": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+      "src/fonthand.c": "1d6c63d81e02538272a9225f70c26731c86a2048640a41e5857096cdeb03825e"
+    },
+    "fnv64": {
+      "font_ascii": "845b16939661b466",
+      "metrics_60x3u16": "b0a8226af36e025a",
+      "encoded_60x_header_RLE_no_count": "5c12ed2dea448227",
+      "eligible_0255": "5529cd3792b04378",
+      "palette7_RGB": "69f74bd2c5d2ad5b"
+    },
+    "serialization": "60 concatenated width,height,size unsignedLE16 + original RLE, no count/presence; metrics60(width,height,width+1)u16. Source hashes only, no encoded originals distributed."
+  },
+  "provenance": {
+    "method": "Source-specific true cubic geometry fitted from the reviewed medium curve vocabulary; large original forms preserved independently. Canonical raster uses Pillow12.3.0,32samplespercurve,32xlogicalsupersampling and4xBOX.",
+    "medium_geometry_source_sha256": "57b074e7da1479b9966d0a79a0ae0e2e0c9969c9e9e054f1cf20fa4fb95615c0",
+    "baseline_fonts_frozen": "No medium or gameplay tiny asset changed by this package.",
+    "original_RGB_indices_palette_RLE_included": false
+  },
+  "expected_outputs": {
+    "menu-large-coverage-4x.alpha.bin": {
+      "bytes": 466944,
+      "sha256": "378a4d7af95d996c6173c165c2ddad8d8bb4645d714b546a98e27c54ea7c4056",
+      "fnv64": "5cb03756753ba8b0"
+    },
+    "menu-large-coverage-4x.png": {
+      "bytes": 30031,
+      "sha256": "9b1e54b22454dbd517c6fbad00a4e851c288e08bf2ab0b277b67169503357397",
+      "fnv64": "f01f123925f51c05"
+    },
+    "menu-large-roles-4x.bin": {
+      "bytes": 466944,
+      "sha256": "016684edd0c26c909aeed45e95c9b73fc57247ab9fe7abc15496c44355cb8a90",
+      "fnv64": "3e3e723c7c286014"
+    },
+    "menu-large-roles-4x.png": {
+      "bytes": 7159,
+      "sha256": "b3fc4a8c25bda9486511a1c3f0570a9009b05d03497b6494e6097229a273e76a",
+      "fnv64": "962eaaeff9bbb6bc"
+    },
+    "menu-large-vector-atlas.svg": {
+      "bytes": 26138,
+      "sha256": "ec111efc2e2670ec53341b308ad27faa567e6e0045bc949e056908008315874d",
+      "fnv64": "bc6bc3b15bc7f680"
+    }
+  }
+}

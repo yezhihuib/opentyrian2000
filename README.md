@@ -192,3 +192,24 @@ project: https://github.com/KScl/opentyrian2000
 project: https://github.com/opentyrian/opentyrian
 irc:     ircs://irc.oftc.net/#opentyrian
 forums:  https://tyrian2k.proboards.com/board/5
+
+### Optional settings typography
+
+The nine-file compatibility pack keeps the six published manufacturer/title/menu
+resources and adds smooth large, medium and tiny settings lettering:
+
+```sh
+./opentyrian2000 --data=/absolute/path/to/tyrian2000 \
+  --startup-assets=assets/hd/packs/startup-title-settings-v1
+```
+
+Only Setup, Graphics, Sound and their pickers are enhanced, at exact native
+nearest 2×/4×. PIC2, bars, cursor, indexed text, metrics, input and saved settings
+remain original. Missing or incompatible SFN1 files keep the complete settings
+menu classic while valid title resources remain usable. Filtered/aspect output
+also falls back. Existing packs and default selections are unchanged.
+[Protocol and bounded acceptance](docs/settings-font-v1/ACCEPTANCE.txt) include
+paired actual-engine controls, fades and lifecycle checks on SDL dummy/software,
+plus source/sanitizer and retained-still author review. Physical GPU/display and
+Windows execution are not claimed. Reproduce the exact nine files with
+`python3 prototype/settings_font_bundle.py --output /absolute/new/directory`.

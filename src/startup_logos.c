@@ -57,6 +57,7 @@ static const struct {
 };
 static const char *asset_directory;
 static bool context;
+bool startup_logos_owns_display(void) { return context; }
 static unsigned int next_card, current_card;
 static int phase, expected_remaining;
 static Uint8 *card_rgba;

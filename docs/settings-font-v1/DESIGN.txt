@@ -1,0 +1,111 @@
+SETTINGS FONT SFN1 IMPLEMENTATION FREEZE (2026-10-13)
+Baseline b2a6e4a; isolated candidate, no active hooks until independent design review.
+
+RESOURCE CONTRACT
+Three optional files settings-font-large-v1.hda, settings-font-medium-v1.hda,
+settings-font-tiny-v1.hda. Each begins SFN1 and a 128-byte LE header.
+Offsets 4..60 are fifteen uint32 fields:
+version=1, bank, density=4, atlas_width, atlas_height, cell_width, cell_height,
+inset=4, slot_count, eligible_count, alpha_bytes, role_bytes, role_mode,
+role_min, role_max.
+Offsets64,72,80,88,96,104 are uint64 FNV1a pins:
+font_ascii, metrics, encoded-source, eligibility, palette7, payload.
+Offsets112 and120 are zero. Padding/unused cells and alpha-zero roles are zero.
+Large: bank0/1216x384/cell76x96/60slots/53eligible/466944alpha+466944roles/
+mode1/roles12..15. Medium: bank1/896x384/cell56x64/85slots/76eligible/
+344064alpha+344064roles/mode1/roles12..15. Tiny: bank2/512x320/cell32x40/
+127slots/86eligible/163840alpha/0roles/mode0/fixed7..7.
+Runtime compiled payload FNV pins are independent of headers. Exporter also
+pins frozen SHA256 plane identities. Original map, dimensions, pointers, RLE,
+palette7 and cleared PIC2 are independently checked, never supplied by asset.
+All three must validate in v1; absent family fails classic for entire epoch.
+This intentionally chooses the plan's stricter all-or-classic alternative.
+Files are opened nonblocking and fstat regular; exact sizes, short/extra reads,
+reserved fields, all geometry padding and source blank cells fail closed.
+No original source bytes, palettes or PIC2 are included in redistributables.
+
+SOURCE DESIGN
+A separate settings_font.c/.h owns no indexed writes, inputs, timing, config,
+or original font tables. Acquire only after setupMenu PIC2+bottom clear.
+Full original background memcpy is followed by frame_begin(menu,selected,picker).
+A bounded frame automaton admits exact English headings/rows/values/footer and
+picker strings, positions, font, shade, alignment, selection. setupMenu wraps
+original whole-string calls with run_begin/run_end, never drawing via wrappers.
+The run precomputes ordered glyph commands: every shadow, then every face.
+Glyph begin/end observers on the three actual font writers verify exact glyph
+identity/coordinates/operator and consume bounded per-glyph expected events.
+A single pixel observer in render_mirror_pixel observes actual indexed writes,
+including same-index writes. It verifies expected order and values from decoded
+original source coverage. Unknown stages poison the frame. Surface comparison
+before each run/primitive and at frame end/present catches unobserved mutation.
+
+Classic bars and picker boxes remain original. Explicit primitive brackets
+admit only their exact source call-site role/geometry. Actual rectangle writes
+are observed via render_mirror_rect; actual scalar writes via pixel observer.
+Same-index opaque writes clear owner and are recorded as bounded uniform
+rectangle commands (pixel commands coalesce into vertical/horizontal spans).
+Primitive completion verifies prescribed expected coverage/order, including
+whole-bar generated rectangles. Picker is limited to1..12 items.
+
+Owner mask is at original320x200 granularity. Each destination-darkening glyph
+requires its entire original metric box to contain no authored owner before
+it executes. Authored alpha coverage OR original source coverage marks ownership;
+opaque writes erase it even if the indexed byte did not change. Tiny pure-black
+shadow need not pass darkening ownership test. Overflow/geometry/order rejects
+whole enhanced frame, all original draws continue.
+
+Presentation rebuilds canonical1280x800 RGB from immutable cleared PIC2 and
+ordered glyph/opaque commands using live rgb_palette. A replay index plane
+tracks original coverage. For each darkening glyph, first use index-before-
+shadow H(i)=(i&240)|((i&15)/2) for authored alpha, then update replay once from
+original source coverage. Whole shadow pass precedes whole face pass. Face uses
+clamped original role+value (large/medium); tiny fixed-role7 at hue15/value4.
+Original glyph coverage is removed even where authored alpha is zero by keeping
+canonical pre-glyph underlay, rather than painting classic glyphs first.
+Classic-only primitives overwrite16canonical samples with live indexed color.
+4x outputs canonical.2x reduces each four correlated final canonical samples
+(sum+2)/4 only after ALL ordered contributions including cursor are complete.
+Outside original-or-authored font coverage output remains ordinary nearest.
+
+Cursor begin snapshots expected indexed screen and clears a cursor mask. All
+actual clipped unfiltered cursor writes are observed as last-layer opaque mask.
+Cursor restore requires byte-exact pre-cursor screen; clears mask without
+removing text commands. Brackets cover no-mouse and inactive cursor cases.
+
+Eligibility: selected nearest2x/4x only, matching exact destination640x400 or
+1280x800,32-bit supported texture format, no aspect transforms. Original scaler
+still runs. Settings presenter follows existing startup/title presenters and
+precedes gameplay; it cannot steal active title/startup presentation. Explicit
+end hooks at setup exit/jukebox/destruct, picture load, clear, font-table reset,
+shutdown. Release texture before renderer teardown. Texture/scaler/fullscreen/
+output-generation changes invalidate frame until next verified restore.
+Live fades resolve live RGB each presentation; expected palette validates
+original10-step palette7 in and black out state, including pre-cursor frames.
+
+STORAGE AND ACCEPTANCE
+Hard CPU ceiling7MiB includes static state, source masks, command list, resources,
+canonical canvas and alignment; allocate only during lease acquire, never frame.
+1024commands of<=16bytes; <=32runs with<=100chars; per-glyph events<=340*4bytes.
+One SDL streaming1280x800texture additional. Tests must report measured sizeof.
+First checkpoint is source/resource/sanitizer/lifecycle tests and source backup,
+then independent review, then separately authorized actual-game QA. No publication.
+Artist footer proof: settings-footer-role-proof-20261013/proof.json SHA256
+2b37a5cbf3a294269103b43f39fce27079a5831c6b8723a7e71c6c818a0dd7d6.
+
+REVIEW CLARIFICATIONS (2026-10-13)
+All numeric header fields are compared against compiled constants before any
+allocation or product/offset arithmetic. Sizes/offsets use constants, never
+values from the resource. Final output additionally requires renderer output
+size equal to640x400/1280x800, origin0, full viewport, logical-size0and render
+scale1; window logical dimensions must equal renderer pixels to exclude hidden
+high-DPI transforms. Clip rect is disabled. A monotonic generation counter is
+incremented by texture teardown, fullscreen/output reset and detected geometry
+mismatch. Pointer equality is only an additional guard, never its replacement.
+No game call-site activation occurs until the independent review clears it.
+Presenter-owner suppression is explicit: video passes the live startup/title/
+gameplay-owner query OR, even when a foreign owner's presenter returnsfalse.
+A foreign owner invalidates settings instead of relying on presenter call order.
+The1280x800SDLtexture uses an explicit source rectangle0,0,640,400after2x
+reduction, with640pixel upload pitch; native4x uses0,0,1280,800. SDL never
+reduces the canonical image. All127tiny geometry cells remain in the payload;
+onlyASCII IDs0..85 may enter admitted runs. Alpha-zero role bytes are zero.

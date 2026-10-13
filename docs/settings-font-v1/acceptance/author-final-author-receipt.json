@@ -1,0 +1,237 @@
+{
+  "schema": "settings-font-final-author-review-v1",
+  "status": "PASS within bounded scope",
+  "tested_candidate": "504b3d4723d382548c698a77ce5dae318ffa146b",
+  "baseline": "b2a6e4a1e924aed71630f9f63c0ba4648e920d6d",
+  "report": "PASS for the bounded actual settings typography trial on candidate 504b3d4723d382548c698a77ce5dae318ffa146b. Directly reviewed seven retained candidate/reference BMP pairs: Graphics and scaler picker at native2x; Graphics, Sound, muted Sound, zero-volume Sound and cursor-over-heading at native4x. The prior native2x Setup smoke pair also passed. Large heading curves, medium filled strokes and narrow tiny footers remain legible; normal gold, selected pale gold and disabled dark-red palette roles are distinct. Original spacing, picker alignment and shadow separation are coherent. The cursor correctly covers the heading, and paired volume-bar regions are pixel-exact. No artwork revision is needed. Separately read and hash-verified the engineering receipts for ten literal still reconstructions, all108 matrix presentations,145 lifecycle appendix presentations and28 active foreign-load presentations, plus missing/corrupt resource fallbacks. These numeric checks report original state/palette/write/config equivalence and exact full-frame/original-scope composition. This is retained-still visual review with separately attributed numerical lifecycle evidence; no continuous playback, physical-display/GPU, every-glyph or load-menu typography acceptance is claimed.",
+  "directly_reviewed_matrix_stills": [
+    {
+      "path": "settings-font-matrix-profiles-20261013/reference/output/graphics_native2.bmp",
+      "size": [
+        640,
+        400
+      ],
+      "sha256": "28055b2ce61004b94f7ba3151acd5faeb5c1651cced1c5d393afe92de1b5e56f",
+      "rgb_sha256": "8a3c70f2dbca3013613113e0494cecf3013fb50d5345ff4482af72a24dec1db9"
+    },
+    {
+      "path": "settings-font-matrix-profiles-20261013/candidate/output/graphics_native2.bmp",
+      "size": [
+        640,
+        400
+      ],
+      "sha256": "7b5cb51384d46c1406c23ce1c7dd6fb2d6bb0b7e9f9af07389a07d3eb59bb107",
+      "rgb_sha256": "88061561d4a2b086d8c00076d21fd1e5be8ea075a74747d8ec33e4f8fbb2db76"
+    },
+    {
+      "path": "settings-font-matrix-profiles-20261013/reference/output/scaler_picker_native2.bmp",
+      "size": [
+        640,
+        400
+      ],
+      "sha256": "7d338d953d6908ed146211d099ad0d97c1d0af5006b765484569d7fa0a02819d",
+      "rgb_sha256": "5ef0f3433be44194c063fddfa7ecca0d2663bf07b1f96567df8dd4afcf50601b"
+    },
+    {
+      "path": "settings-font-matrix-profiles-20261013/candidate/output/scaler_picker_native2.bmp",
+      "size": [
+        640,
+        400
+      ],
+      "sha256": "811b25284e99e8f3900e437a1ef91c166c21e33f454b652f2c26f1c30a216183",
+      "rgb_sha256": "e9c076062dae28bbe2a88fb9021a6c1afd6819a804139c74326db2b9fd2b2267"
+    },
+    {
+      "path": "settings-font-matrix-profiles-20261013/reference/output/graphics_native4.bmp",
+      "size": [
+        1280,
+        800
+      ],
+      "sha256": "d3989a30a5c4ff5a7c530477e1e4c178127423c63aea51b0343220d680585e77",
+      "rgb_sha256": "7733dc11dac9cef6f00717893e8283be8c6033b526cba7fc34ba90eff127dce0"
+    },
+    {
+      "path": "settings-font-matrix-profiles-20261013/candidate/output/graphics_native4.bmp",
+      "size": [
+        1280,
+        800
+      ],
+      "sha256": "688d46fb637746b7e0057a8de5ec45c375b60369cd985118714693515718c7b1",
+      "rgb_sha256": "68345f580029d4bf66adefac07cd00ed8a803551714bfed09d3cda36d2fe63c9"
+    },
+    {
+      "path": "settings-font-matrix-profiles-20261013/reference/output/sound_native4.bmp",
+      "size": [
+        1280,
+        800
+      ],
+      "sha256": "d0a5ddea47a40d7ffa921091299b9561cd86fe1f1ed7326fe226755f061cb975",
+      "rgb_sha256": "cd324a58f8d9e2672e3b9806d285c2d829d026a41df1fcdefb3ea7b61e3debff"
+    },
+    {
+      "path": "settings-font-matrix-profiles-20261013/candidate/output/sound_native4.bmp",
+      "size": [
+        1280,
+        800
+      ],
+      "sha256": "8a6b75949528465dc0726986a1ea53a39f03187546526b0f10abf709a0664b4d",
+      "rgb_sha256": "26942cc831c119e55571a290296b8a43a7c3e8bbc22b3d0d45e8981f76b4dfb6"
+    },
+    {
+      "path": "settings-font-matrix-profiles-20261013/reference/output/sound_muted_native4.bmp",
+      "size": [
+        1280,
+        800
+      ],
+      "sha256": "d68ae19b894b7173f05deca310922a637aee13e6e2d28f03a8b44c434bebd365",
+      "rgb_sha256": "3c7fe9f7785c5d117f6f23349df98720705101add2d8c63f8d193b3631fad795"
+    },
+    {
+      "path": "settings-font-matrix-profiles-20261013/candidate/output/sound_muted_native4.bmp",
+      "size": [
+        1280,
+        800
+      ],
+      "sha256": "ab14c83c74cf45b038b054a78d18043de6d23c054b276b8ae2964c5a8e8cecc7",
+      "rgb_sha256": "71e7339588e852038fbccfeb60ef1a96fd164cc186ff3890a2a74f8dd3c118c7"
+    },
+    {
+      "path": "settings-font-matrix-profiles-20261013/reference/output/sound_zero_native4.bmp",
+      "size": [
+        1280,
+        800
+      ],
+      "sha256": "2f09b7048547a597ca1381406ee7db530f9da001c65a70ddd13f2c38ec8eba51",
+      "rgb_sha256": "cea167816deacfd225a985ac344df3cd5b02279028c65dc0541a0cb2779a6877"
+    },
+    {
+      "path": "settings-font-matrix-profiles-20261013/candidate/output/sound_zero_native4.bmp",
+      "size": [
+        1280,
+        800
+      ],
+      "sha256": "bb0fdab3b04e3a443af60bd2348fc97a9b9267e6b7b5c3b08742eefa681ee30b",
+      "rgb_sha256": "34f4e7dfd0b47e0a5a976477db77be0fb639441ac92d6fbafcead164ae9f2eee"
+    },
+    {
+      "path": "settings-font-matrix-profiles-20261013/reference/output/cursor_heading_native4.bmp",
+      "size": [
+        1280,
+        800
+      ],
+      "sha256": "2f26730f51eeefef82aa63e48f367fb7925eddc6ed36400c864c15d91078828a",
+      "rgb_sha256": "2c809b363abf3e4b8da6826040cce152915c018561359f4c21ddda16a8fd03e0"
+    },
+    {
+      "path": "settings-font-matrix-profiles-20261013/candidate/output/cursor_heading_native4.bmp",
+      "size": [
+        1280,
+        800
+      ],
+      "sha256": "f1c1514ba9e8fd9e92e505a7cd2d926774a79c86e7a30ce30375e9409c2a68de",
+      "rgb_sha256": "42c90e7db49703117813fc869c2711b229016119bdcc5813f4f88c0d0c3f0fa1"
+    }
+  ],
+  "prior_setup_review": "setup-smoke2-author-receipt.json",
+  "additional_direct_pixel_checks": [
+    {
+      "capture": "sound_native4",
+      "native4x_half_open_box": [
+        712,
+        140,
+        1112,
+        280
+      ],
+      "paired_rgb_exact": true
+    },
+    {
+      "capture": "sound_muted_native4",
+      "native4x_half_open_box": [
+        712,
+        140,
+        1112,
+        280
+      ],
+      "paired_rgb_exact": true
+    },
+    {
+      "capture": "sound_zero_native4",
+      "native4x_half_open_box": [
+        712,
+        140,
+        1112,
+        280
+      ],
+      "paired_rgb_exact": true
+    },
+    {
+      "capture": "cursor_heading_native4",
+      "native4x_half_open_box": [
+        712,
+        140,
+        1112,
+        280
+      ],
+      "paired_rgb_exact": true
+    }
+  ],
+  "frozen_resources": [
+    {
+      "file": "settings-font-large-v1.hda",
+      "bytes": 934016,
+      "payload_fnv": "0501f2f573e8d9a5",
+      "sha256": "7827555a736375ff45bd78dc2c05c5651e65d3b024527e8dba525d3beff721e5"
+    },
+    {
+      "file": "settings-font-medium-v1.hda",
+      "bytes": 688256,
+      "payload_fnv": "08f9609583417c89",
+      "sha256": "51852f5d54516de70a5729e991fb14104871b9ad58991f0352899ab4502bd484"
+    },
+    {
+      "file": "settings-font-tiny-v1.hda",
+      "bytes": 163968,
+      "payload_fnv": "85cddeb8bd7ea09a",
+      "sha256": "888b635af0c123dc77fecf2f50a2e603f85a0fb6ad74a1c4215b29affc28a35c"
+    }
+  ],
+  "engineering_evidence_sha256": {
+    "settings-font-matrix-evidence-20261013/FULL_RASTER_ORACLE.json": "5dd8992581c914001bdd2d9226df69a7d37f6c6c1ec894c18f214a9708ae470a",
+    "settings-font-matrix-evidence-20261013/EVERY_PRESENTATION_ORACLE.json": "4fec46e0901bc2efa3c6b071e2496f667e6676950d22b38d60d584d6aeeec743",
+    "settings-font-matrix-evidence-20261013/HASH_PAIRS_AND_INVALID_RESOURCES.json": "6513ef2cba6bfc36393ee1e3bf07c6ba2da0f2f3d8b842337e49993399286394",
+    "settings-font-lifecycle-fixture-20261013/EVERY_PRESENTATION_ORACLE.json": "68b31caa90c9b6b99ef02ecbc60be51ec48313560926f73d9b48aff5ace1f16c",
+    "settings-font-lifecycle-fixture-20261013/FOREIGN_LOAD_PRESENTATION_ORACLE.json": "4d92f76308c75129fc8a0609892c9e9daf47777245508f8f54c85828812ff5a5",
+    "settings-font-matrix-evidence-20261013/PAIR_REPORT.json": "adeee4fed20875409ea1cb01e285af69d15bbcb161eb5cbfc26d91d66ef6a317",
+    "settings-font-lifecycle-fixture-20261013/PAIR_REPORT.json": "5464a5807cb96b879c93e51bfaa66c51fb14b33f7cf0d3d08cd2f1db77e89976",
+    "settings-font-lifecycle-fixture-20261013/FOREIGN_LOAD_PAIR_REPORT.json": "2301df1ebe5dbf09a115b08055929bde51ec09bca45243d3cf1ff146d1acc4d0",
+    "settings-font-author-review-20261013/setup-smoke2-author-receipt.json": "2f44a6c0884f959b6793745ce642a85b5bb90a61abb0c57fa200f59aa68753fd"
+  },
+  "numeric_scope": {
+    "literal_matrix_stills": 10,
+    "matrix_presentations": 108,
+    "matrix_enhanced": 97,
+    "matrix_classic": 11,
+    "lifecycle_presentations": 145,
+    "lifecycle_enhanced": 43,
+    "lifecycle_classic": 102,
+    "active_foreign_load_presentations": 28,
+    "foreign_load_enhanced": 14,
+    "foreign_load_classic": 14,
+    "invalid_resources": [
+      "missing_large",
+      "bad_medium_header",
+      "truncated_tiny"
+    ],
+    "per_invalid_resource_classic_presentations": 21
+  },
+  "limitations": [
+    "Direct visual review is limited to listed retained images, plus the previous Setup smoke pair.",
+    "No continuous animation, wall-clock timing, physical desktop or GPU review.",
+    "Lifecycle/fades/foreign takeover/renderer recreation/resource fallbacks are attributed to the pinned numerical engineering receipts, not uncaptured visual playback.",
+    "The PIC2 backdrop, volume bars and pointer remain original classic artwork; this receipt does not accept their redesign.",
+    "Settings only: load/save menu and other contexts are not typography-approved by this trial.",
+    "All127 tiny/extended characters and every large/medium glyph are not claimed actually displayed.",
+    "Any later merge must independently preserve these tested source/resource bytes.",
+    "No game run, new capture, artwork edit or publication was performed in this author review."
+  ]
+}

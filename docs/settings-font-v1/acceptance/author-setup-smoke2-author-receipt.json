@@ -1,0 +1,38 @@
+{
+  "schema": "settings-font-first-actual-author-review-v1",
+  "status": "PASS for first Setup native2x still only",
+  "direct_visual_scope": [
+    {
+      "role": "reference",
+      "path": "settings-font-smoke2-profiles-20261013/reference/output/setup_native2.bmp",
+      "size": [
+        640,
+        400
+      ],
+      "file_sha256": "267e12dafcc1d89abe6dfa24556f8fb720994808523e988711ce9a9b29e13bc4",
+      "rgb_sha256": "8abd2b97f9216e63ad0ce84bd8d91293d885940a9dc141b09fb11e6ecdcce03e"
+    },
+    {
+      "role": "candidate",
+      "path": "settings-font-smoke2-profiles-20261013/candidate/output/setup_native2.bmp",
+      "size": [
+        640,
+        400
+      ],
+      "file_sha256": "82de9cea8f269a237bac35aac230b2fe989ce4f324584c6b10a1862f10353dde",
+      "rgb_sha256": "7d0d026f1156cf43ed6728d1faceb5ffaeafe726b05a163209604b1e36079148"
+    }
+  ],
+  "findings": [
+    "Large Setup heading curves are clean and retain original gold identity and placement.",
+    "Medium rows retain readable filled strokes, original spacing and distinct selected Graphics brightness.",
+    "Tiny palette7 role7 footer remains readable at native2x.",
+    "Shadow separation and unchanged backdrop composition look coherent; no art defect found."
+  ],
+  "limits": [
+    "Only the two retained Setup BMPs were directly reviewed.",
+    "Reported21-presentation numeric equivalence is engineering evidence; not independently reverified in this visual-only pass.",
+    "No chronological fade playback, Graphics, Sound, picker, native4x, configuration or interaction visual acceptance is implied.",
+    "No new runtime, capture or art changes performed."
+  ]
+}

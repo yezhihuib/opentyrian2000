@@ -1,0 +1,97 @@
+{
+  "schema": "settings-nine-file-compatibility-actual-v1",
+  "result": "PASS",
+  "cases": [
+    {
+      "candidate": "candidate",
+      "artifacts": {
+        "indexed-palette-stream.bin": {
+          "bytes": 1365504,
+          "sha256": "330d8829a4302029be1d6471ebbdbec59c1f1cfb61c029b7ed9bb7eccede57f4",
+          "equal": true
+        },
+        "semantics.tsv": {
+          "bytes": 1331,
+          "sha256": "52b1aca73959c1fff4f61c77162a1c4dc01239fef1e6bb5c452786f3db9be670",
+          "equal": true
+        },
+        "opentyrian.cfg": {
+          "equal": true,
+          "sha256": "387f27aab0c08f8704f287960a74a575ab1fa7412f8d22390b1bdf29f120fedb"
+        },
+        "tyrian.cfg": {
+          "equal": true,
+          "sha256": "9252a0b93b9c9b7764a6a8d6660239858f5941d0ac17efa5f0e4503ff5f3bef8"
+        }
+      },
+      "fallback_required": false,
+      "presentations": 21,
+      "enhanced": 21,
+      "classic": 0,
+      "result": "PASS",
+      "title_presentations": 109,
+      "manufacturer_presentations": 57
+    },
+    {
+      "candidate": "missing_large",
+      "artifacts": {
+        "indexed-palette-stream.bin": {
+          "bytes": 1365504,
+          "sha256": "330d8829a4302029be1d6471ebbdbec59c1f1cfb61c029b7ed9bb7eccede57f4",
+          "equal": true
+        },
+        "semantics.tsv": {
+          "bytes": 1331,
+          "sha256": "52b1aca73959c1fff4f61c77162a1c4dc01239fef1e6bb5c452786f3db9be670",
+          "equal": true
+        },
+        "opentyrian.cfg": {
+          "equal": true,
+          "sha256": "387f27aab0c08f8704f287960a74a575ab1fa7412f8d22390b1bdf29f120fedb"
+        },
+        "tyrian.cfg": {
+          "equal": true,
+          "sha256": "9252a0b93b9c9b7764a6a8d6660239858f5941d0ac17efa5f0e4503ff5f3bef8"
+        }
+      },
+      "fallback_required": true,
+      "presentations": 21,
+      "enhanced": 0,
+      "classic": 21,
+      "result": "PASS",
+      "title_presentations": 109,
+      "manufacturer_presentations": 57
+    },
+    {
+      "candidate": "bad_medium",
+      "artifacts": {
+        "indexed-palette-stream.bin": {
+          "bytes": 1365504,
+          "sha256": "330d8829a4302029be1d6471ebbdbec59c1f1cfb61c029b7ed9bb7eccede57f4",
+          "equal": true
+        },
+        "semantics.tsv": {
+          "bytes": 1331,
+          "sha256": "52b1aca73959c1fff4f61c77162a1c4dc01239fef1e6bb5c452786f3db9be670",
+          "equal": true
+        },
+        "opentyrian.cfg": {
+          "equal": true,
+          "sha256": "387f27aab0c08f8704f287960a74a575ab1fa7412f8d22390b1bdf29f120fedb"
+        },
+        "tyrian.cfg": {
+          "equal": true,
+          "sha256": "9252a0b93b9c9b7764a6a8d6660239858f5941d0ac17efa5f0e4503ff5f3bef8"
+        }
+      },
+      "fallback_required": true,
+      "presentations": 21,
+      "enhanced": 0,
+      "classic": 21,
+      "result": "PASS",
+      "title_presentations": 109,
+      "manufacturer_presentations": 57
+    }
+  ],
+  "scope": "Same original one-Setup keyboard path; six exact published startup/title/menu resources in every profile; three SFN1 resources valid, large absent, or medium header corrupt. Every original state/palette/write/wait/config stream equal. Outside title/startup owner census is real presentation dispatch, not a resource-existence inference."
+}
