@@ -1,0 +1,15 @@
+diff --git a/src/render_mirror.c b/src/render_mirror.c
+index c6a87e7..b97e6d0 100644
+--- a/src/render_mirror.c
++++ b/src/render_mirror.c
+@@ -2140,6 +2140,10 @@ static bool enemy_tank_shell_family_ready(void)
+ bool render_mirror_enemy_shot(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int index)
+ {
+  render_mirror_shadow_end();
++ /* These nine enemy IDs use different Christmas originals. Decline before
++  * even a warm normal-art cache; byte-identical shell146/147 stay eligible. */
++ if(xmas&&bank.data==spriteSheet8.data&&
++    (enemy_energy_slot(index)>=0||index==112||index==113))return false;
+  if(index==146||index==147) {
+   if(!active||!surface||surface!=game_screen||surface!=VGAScreen||reject_reason||
+      !bank.data||bank.data!=spriteSheet8.data||

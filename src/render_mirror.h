@@ -5,6 +5,11 @@
 #include "ground101_material.h"
 #include "gameplay_hud_meters.h"
 enum { MIRROR_NORMAL, MIRROR_BLEND, MIRROR_SHADOW };
+/* The original indexed branch that actually ran, not the requested effect. */
+typedef enum {
+ MIRROR_OUTPUT_UNSUPPORTED, MIRROR_OUTPUT_ORDINARY,
+ MIRROR_OUTPUT_NORMAL15_NIGHT, MIRROR_OUTPUT_NORMAL15_LOW_DETAIL
+} MirrorOutputKind;
 #ifdef RENDER_MIRROR_DISABLED
 #define render_mirror_owns_display() false
 #define render_mirror_text_begin(...) ((void)0)
@@ -40,7 +45,7 @@ enum { MIRROR_NORMAL, MIRROR_BLEND, MIRROR_SHADOW };
 #define render_mirror_gem250_value_begin(...) ((void)0)
 #define render_mirror_entity(...) false
 #define render_mirror_entity_end(...) ((void)0)
-#define render_mirror_finish(...) ((void)0)
+#define render_mirror_finish(kind,lightx,lighty) ((void)(kind),(void)(lightx),(void)(lighty))
 #define render_mirror_present(...) false
 #define render_mirror_release_texture(...) ((void)0)
 #define render_mirror_brightness_pixel(...) ((void)0)
@@ -93,7 +98,7 @@ void render_mirror_gem100_value_begin(bool fixed);
 void render_mirror_gem250_value_begin(bool fixed);
 bool render_mirror_entity(SDL_Surface *, int x, int y, Sprite2_array, unsigned int index, int style, int layout);
 void render_mirror_entity_end(void);
-void render_mirror_finish(bool ordinary_crop);
+void render_mirror_finish(MirrorOutputKind kind,int lightx,int lighty);
 bool render_mirror_present(SDL_Renderer *, SDL_Surface *, const SDL_Rect *);
 void render_mirror_release_texture(void);
 void render_mirror_brightness_pixel(SDL_Surface *, Uint8 *address, int value);

@@ -84,6 +84,8 @@ void JE_starShowVGA(void)
 	Uint8 *s = NULL; /* screen pointer, 8-bit specific */
 
 	int x, y, lightx, lighty, lightdist;
+	MirrorOutputKind mirror_output = MIRROR_OUTPUT_UNSUPPORTED;
+	int mirror_lightx = 0, mirror_lighty = 0;
 
 	if (!playerEndLevel && !skipStarShowVGA)
 	{
@@ -113,6 +115,9 @@ void JE_starShowVGA(void)
 		{
 			lighty = 172 - player[0].y;
 			lightx = 281 - player[0].x;
+			mirror_output = MIRROR_OUTPUT_NORMAL15_NIGHT;
+			mirror_lightx = lightx;
+			mirror_lighty = lighty;
 
 			for (y = 184; y; y--)
 			{
@@ -146,6 +151,8 @@ void JE_starShowVGA(void)
 		}
 		else
 		{
+			if (starShowVGASpecialCode == 0) mirror_output = MIRROR_OUTPUT_ORDINARY;
+			else if (starShowVGASpecialCode == 2 && processorType < 2) mirror_output = MIRROR_OUTPUT_NORMAL15_LOW_DETAIL;
 			for (y = 0; y < 184; y++)
 			{
 				memmove(s, src, 264);
@@ -153,10 +160,10 @@ void JE_starShowVGA(void)
 				src += game_screen->pitch;
 			}
 		}
-		render_mirror_finish(starShowVGASpecialCode==0);
+		render_mirror_finish(mirror_output,mirror_lightx,mirror_lighty);
 		JE_showVGA();
 	}
-	else render_mirror_finish(false);
+	else render_mirror_finish(MIRROR_OUTPUT_UNSUPPORTED,0,0);
 
 	quitRequested = false;
 	skipStarShowVGA = false;

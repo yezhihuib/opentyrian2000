@@ -1,0 +1,185 @@
+{
+  "status": "PASS_COMBINED_SOURCE_UNIT_AND_BUILD_CHECKS",
+  "date": "2026-10-14",
+  "public_baseline_commit": "06a935e9b6995b4d11e96e6e6d8385325c85f1e5",
+  "baseline_tree": "2a60deb74b1a677e3d3cd6c5ea0c251e8ac54028",
+  "production_scope": "Exactly the approved three-file normal-data Hard15 night delta plus the independent four-line Christmas enemy-shot guard",
+  "source_test_sha256": {
+    "src/render_mirror.c": "8c44901a23942dc09bf3b4c3bff462ec70dee4547d2eb6e7bd22382f8f7e96a3",
+    "src/render_mirror.h": "ffff0a989ec27ec710426dba1ae0ebaf0d8c027aca77721c5813aae7b86cd6fe",
+    "src/tyrian2.c": "33ad04c16c53861a956608f91dd2edd0c25d1d63e4921f1266abdba5f054ba48",
+    "prototype/test-normal15-source.py": "ea67a6f6fd0edf70dbcbc969e33955fac220e8aa69d3a4a314a4ef0ab119659f",
+    "prototype/test-normal15-night.py": "cc2febcbcffb74fa80144ab8cd8226a7e215cc40d7ee27ce72b5f29db476bedc",
+    "prototype/test-normal15-night.c": "d453d7990e88afa7026afae295ae7916d143070e0b033a9badb07afc45a1883d",
+    "prototype/test-christmas-enemy-fallback.py": "83ae06dae80de463edb6c2acba158ad5ca4ef163f35158cfc1ef9e864376161d",
+    "prototype/test-christmas-enemy-fallback.c": "0a8120d7645d8c997bee7a5cad278d19facabaee6a5b7ad4c57ce03ac5e5426e"
+  },
+  "source_proof_sha256": "e2dd3abb985f558cd9dbdf22034500f18212816f6a60e3ba9905a9326889b6a1",
+  "production_diff_sha256": "669071c30807acd93d8a355551930cf311d4ee74d7e7aa419ab6089082430ce7",
+  "exact_source_inverse": {
+    "production_files_checked": 148,
+    "changed_files": [
+      "src/render_mirror.c",
+      "src/render_mirror.h",
+      "src/tyrian2.c"
+    ],
+    "christmas_guard_exact": true,
+    "combined_delta_inverse_exact": true,
+    "all_other_production_files_exact": true,
+    "renderer_complete_inverse_exact": true,
+    "tyrian2_complete_inverse_exact": true,
+    "header_complete_inverse_exact": true,
+    "original_indexed_loops_events_difficulty_player_updates_exact": true,
+    "ordinary_crop_excerpt_exact": true
+  },
+  "approved_night_only_sha256": {
+    "src/render_mirror.c": "7bcd99a433733794e3f384f3b485b60219a251adfad7bf1f7412f29abf5687e2",
+    "src/render_mirror.h": "ffff0a989ec27ec710426dba1ae0ebaf0d8c027aca77721c5813aae7b86cd6fe",
+    "src/tyrian2.c": "33ad04c16c53861a956608f91dd2edd0c25d1d63e4921f1266abdba5f054ba48"
+  },
+  "night_units": {
+    "optimized": {
+      "elapsed_seconds": 3.867738584000108,
+      "result": {
+        "status": "PASS",
+        "channel_triples": 16777216,
+        "index_cases": 439744,
+        "rgba_cases": 23040,
+        "composed_subpixels": 81920000,
+        "accepted_frames": 32,
+        "rejections": 50,
+        "hud_owned_cells": 13706,
+        "persistent_text_cells": 408,
+        "cash_local_cells": 278,
+        "actual_original_loop_pixels": 1152000,
+        "unchanged_index_owner0_subpixels": 2451447,
+        "unchanged_index_owner1_subpixels": 2451443,
+        "unchanged_index_owner2_subpixels": 2451302,
+        "nonlit_equal_index_owner1": 377728,
+        "nonlit_equal_index_rgb_changed": 283092,
+        "geometric_lit_owner1": 2073715,
+        "densities": [
+          4,
+          8
+        ],
+        "game_runs": 0
+      }
+    },
+    "sanitized": {
+      "elapsed_seconds": 7.88664897200033,
+      "result": {
+        "status": "PASS",
+        "channel_triples": 16777216,
+        "index_cases": 439744,
+        "rgba_cases": 23040,
+        "composed_subpixels": 81920000,
+        "accepted_frames": 32,
+        "rejections": 50,
+        "hud_owned_cells": 13706,
+        "persistent_text_cells": 408,
+        "cash_local_cells": 278,
+        "actual_original_loop_pixels": 1152000,
+        "unchanged_index_owner0_subpixels": 2451447,
+        "unchanged_index_owner1_subpixels": 2451443,
+        "unchanged_index_owner2_subpixels": 2451302,
+        "nonlit_equal_index_owner1": 377728,
+        "nonlit_equal_index_rgb_changed": 283092,
+        "geometric_lit_owner1": 2073715,
+        "densities": [
+          4,
+          8
+        ],
+        "game_runs": 0
+      }
+    }
+  },
+  "christmas_units": {
+    "baseline-optimized": {
+      "status": "PASS",
+      "baseline": 1,
+      "transactions": 1156,
+      "accepted": 828,
+      "fallback": 328,
+      "guard_checks": 2216,
+      "asset_open_attempts": 274,
+      "real_xmas_cold_changed_ids_admitted": 9,
+      "real_xmas_warm_changed_ids_admitted": 9
+    },
+    "candidate-optimized": {
+      "status": "PASS",
+      "baseline": 0,
+      "transactions": 1156,
+      "accepted": 702,
+      "fallback": 454,
+      "guard_checks": 2216,
+      "asset_open_attempts": 265,
+      "real_xmas_cold_changed_ids_admitted": 0,
+      "real_xmas_warm_changed_ids_admitted": 0
+    },
+    "candidate-sanitized": {
+      "status": "PASS",
+      "baseline": 0,
+      "transactions": 1156,
+      "accepted": 702,
+      "fallback": 454,
+      "guard_checks": 2216,
+      "asset_open_attempts": 265,
+      "real_xmas_cold_changed_ids_admitted": 0,
+      "real_xmas_warm_changed_ids_admitted": 0
+    }
+  },
+  "builds": {
+    "normal": {
+      "status": "PASS",
+      "command": "make -B -j2 VCS_IDREV=false",
+      "scope": "Forced rebuild and link of the normal full production target",
+      "warnings": 5,
+      "warning_scope": "Five misleading-indentation warnings in unchanged statements; no errors"
+    },
+    "disabled_caller": {
+      "status": "PASS",
+      "macro": "RENDER_MIRROR_DISABLED",
+      "source": "src/tyrian2.c",
+      "scope": "Compile only; no full disabled link"
+    }
+  },
+  "historical_reviews": {
+    "source_unit_receipt_sha256": "31496347e2c1834f98017d287ba93bf6faa23cc3454ca8e8bf5d02c4d4039948",
+    "unprotected_opening_receipt_sha256": "a7eb6ab4e2700db93e52f5232301b95ba7345969967a51c0b484c3219fe49faf",
+    "protected_actual_receipt_sha256": "fa86076f2de415a25fe9ae7cc7beff3620ac3163a642c12bd709bed60a649201",
+    "protected_visual_review_sha256": "d7042e1aedd955c371f863f8be95db0d984e2980fda4ba2b4ab8d957dcc14282",
+    "protected_numerical_review_sha256": "eff24303f4d5d0a843ff266b4a5a548a5f1acd035d1507dd8bb94d5a34400c1a",
+    "runtime_source_scope": "Frozen night-only candidate, not a combined night/Christmas gameplay run",
+    "christmas_isolated_receipts": "Unchanged historical JSON/diff; current combined counts reported separately"
+  },
+  "protected_runtime_summary": {
+    "status": "ACCEPT_BOUNDED_SELECTED_ACTUALS_WITH_LIMITS",
+    "ticks": 7429,
+    "sampled_original_index_oracles": 360,
+    "retained_gameplay_pairs": 5,
+    "independently_checked_index_cells": 242880,
+    "native_pixels_compared": 1280000,
+    "index_mismatches": 0,
+    "native_pixel_mismatches": 0,
+    "sampled_composition_state_rng_mismatches": 0,
+    "transit_sampled": false,
+    "selected_visual_windows": 5,
+    "whole_boss_records": 20,
+    "whole_boss_quadrants": 80,
+    "protection_applications": 7330,
+    "exit_code": 94,
+    "exit_meaning": "Reviewed blocked-entry cleanup after successful witness",
+    "boss_bar_region": "Geometrically lit in all retained samples; dark-region bar untested"
+  },
+  "integration_game_runs": 0,
+  "full_source_copies": 0,
+  "full_pack_copies": 0,
+  "publication": false,
+  "limits": [
+    "Night synthetic compositor units do not qualify every scene-asset loader or artistic contour.",
+    "Christmas uses extracted source with an observing HD compositor stub; no RGB acceptance.",
+    "ASan and UBSan enabled; LeakSanitizer disabled.",
+    "Protected runtime changes player draw/collision behavior and downstream trajectory; no natural survival, normal player-style, unchanged gameplay progression or full clear claim.",
+    "No combined gameplay run, whole historical aggregate rerun, all headings/projectile directions, paired baseline gameplay, native4x runtime, physical GPU/input/audio, performance or Windows acceptance."
+  ]
+}

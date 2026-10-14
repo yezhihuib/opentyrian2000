@@ -11,11 +11,13 @@ It builds on OpenTyrian2000 and OpenTyrian; the upstream README is preserved bel
 - Integrated work covers selected ships, enemies, weapons/effects, layered
   terrain, clouds and world materials. The finite single-player HUD includes
   its frame, weapon labels, shield bands, mode indicators and refined corner.
-- Manual gameplay HD is opt-in for local single-player Episode 1 / physical level 9
-  (the first TYRIAN level), with classic gameplay elsewhere. Controlled preview/asset-debug
-  entrypoints remain separate.
-  Manufacturer cards and layered title artwork have explicit startup opt-ins below. Ordinary
-  startup without those options retains classic rendering.
+- Manual gameplay HD is opt-in for local single-player Episode 1. Existing
+  physical-level-9 support is joined by the normal-data Hard+ first-level
+  variant, physical level 15, in ordinary Full Game. Other levels and excluded
+  modes retain their existing presentation. Controlled preview/asset-debug
+  entrypoints remain separate. Manufacturer cards and layered title artwork
+  have explicit startup opt-ins below; ordinary startup without those options
+  retains classic rendering.
 - Uncovered, missing or incompatible inputs use documented per-feature
   fallbacks. Pause/help/options retain classic presentation.
 - Acceptance covers documented, bounded Linux scenarios, including native
@@ -85,6 +87,20 @@ It builds on OpenTyrian2000 and OpenTyrian; the upstream README is preserved bel
   Christmas and other shared-use coverage remain separate source/unit checks. See
   [scope and receipts](docs/player-front-multi-eight-v1/README.md).
 
+- Normal-data Hard+ first-level night HD preserves the original indexed cone,
+  uses bounded palette-anchored residuals for nonlit authored detail and keeps
+  cash locally classic. Source/unit review and one unprotected 23-finish Hard
+  opening pass, with five actual 640×400 images and four independently checked
+  indexed/palette pairs. A separate protected mid-level/Boss diagnostic also
+  passed five selected windows through 7,429 ticks, with 360 sampled oracles.
+  This is bounded renderer acceptance, not natural Hard survival, a full clear
+  or Windows acceptance. See [scope and validation](docs/firstlevel15-night-v1/README.md).
+
+- Christmas enemy shots preserve their original sprites for nine IDs whose normal
+  replacements do not match Christmas data. Shells 146/147 stay eligible. This
+  independent fallback has source/unit coverage, separate from the normal-data
+  night extension. See [scope and historical receipts](docs/christmas-enemy-fallback-v1/README.md).
+
 ## Build and try
 
 Original Tyrian 2000 data is required separately and is not included here.
@@ -110,13 +126,20 @@ Start the ordinary menus and choose New Game / Episode 1 normally:
   --manual-hd-assets=/absolute/path/to/repo/assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test
 ```
 
-The flag selects only density-8 display assets, blend handling and the existing
+The flag selects density-8 display assets, blend handling and the existing
 13-pose Talon display. Native controls, random seed, health/damage/death, restart,
 saves and progression remain in charge. There is no automatic firing/movement,
-forced loadout or time limit. Only local single-player Episode 1 / physical level 9
-is eligible. Title demos, two-player/Galaga and every other level stay classic.
-Missing or incompatible art retains existing fallbacks. Pause/help/setup and
-outgoing level/menu transition fades can use classic presentation.
+forced loadout or time limit. Eligible gameplay is local single-player Episode 1:
+the existing physical-level-9 route, plus ordinary Full Game with normal data
+and original Hard+ selection on physical level 15. These are internal first-level
+variants, not menu level numbers. Title demos, two-player/Galaga and other levels
+retain classic presentation. Missing or incompatible art retains existing
+fallbacks. Pause/help/setup and outgoing level/menu transition fades can use
+classic presentation.
+
+The existing manual acceptance report describes the earlier physical-level-9
+checkpoint. [Hard+ night scope and validation](docs/firstlevel15-night-v1/README.md)
+record this additional route separately; Windows acceptance remains open.
 
 Do not combine this flag with any `--render-*` / `--asset-debug*` option, network,
 record, constant, death or loot mode (including legacy spellings). Those combinations
@@ -141,8 +164,8 @@ or diagnostic wrapper is involved. Original data and Windows dependencies stay e
 
 This is a bounded first-level manual mode, not full-campaign HD certification.
 Windows runtime/device acceptance must be reported separately from source/build checks.
-[Bounded acceptance and open checks](docs/MANUAL_HD_ACCEPTANCE.md) record the exact
-source/unit/build results and four headless synthetic-SDL engine runs.
+[Earlier bounded acceptance and open checks](docs/MANUAL_HD_ACCEPTANCE.md) record the
+physical-level-9 source/unit/build checkpoint and its four headless synthetic-SDL engine runs.
 The [preview launcher](prototype/start-actual-preview.ps1) and
 [asset-debug launcher](prototype/start-asset-debug.ps1) remain controlled replay tools;
 see [debug controls](docs/ASSET_DEBUG.md).

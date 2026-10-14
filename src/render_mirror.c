@@ -186,10 +186,19 @@ static bool vulcan_shadow_pixel(SDL_Surface *,int,int,Uint8,Uint8,int);
 
 /* PIC3 grants this scene lease independently of optional HUD resources. */
 static bool manual_hd_lease;
+static bool normal15_scope(void)
+{
+ return episodeNum==1&&lvlFileNum==15&&initialDifficulty>DIFFICULTY_NORMAL&&!xmas&&
+   !isNetworkGame&&!twoPlayerMode&&!galagaMode&&!play_demo&&!record_demo&&
+   !onePlayerAction&&!superTyrian&&superArcadeMode==SA_NONE&&!timedBattleMode&&
+   !bonusLevel&&!normalBonusLevelCurrent&&!bonusLevelCurrent;
+}
 static bool manual_hd_scope(void)
 {
- return manual_hd_enabled&&episodeNum==1&&lvlFileNum==9&&!isNetworkGame&&
-   !twoPlayerMode&&!galagaMode&&!play_demo&&!record_demo;
+ /* Keep the qualified level9 predicate unchanged. */
+ return (manual_hd_enabled&&episodeNum==1&&lvlFileNum==9&&!isNetworkGame&&
+   !twoPlayerMode&&!galagaMode&&!play_demo&&!record_demo)||
+   (manual_hd_enabled&&normal15_scope());
 }
 static bool mirror_enabled(void)
 {
@@ -2140,6 +2149,10 @@ static bool enemy_tank_shell_family_ready(void)
 bool render_mirror_enemy_shot(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int index)
 {
  render_mirror_shadow_end();
+ /* These nine enemy IDs use different Christmas originals. Decline before
+  * even a warm normal-art cache; byte-identical shell146/147 stay eligible. */
+ if(xmas&&bank.data==spriteSheet8.data&&
+    (enemy_energy_slot(index)>=0||index==112||index==113))return false;
  if(index==146||index==147) {
   if(!active||!surface||surface!=game_screen||surface!=VGAScreen||reject_reason||
      !bank.data||bank.data!=spriteSheet8.data||
@@ -2936,13 +2949,141 @@ void render_mirror_sprite2_blend_pixel(SDL_Surface *surface,Uint8 *address,Uint8
  game_probe_blend_write(known,index,origin_x,origin_y,x,y,before,source,*address,subpixels,local_blocks-old_blocks,rgba);
 }
 
-void render_mirror_finish(bool ordinary_crop)
+/* Palette5 identity in index order, R then G then B bytes; independent of
+ * optional HUF payloads. This restriction applies only to the new level15 path. */
+static bool normal15_palette(void)
+{
+ uint64_t hash=UINT64_C(14695981039346656037);
+ for(unsigned i=0;i<256;i++)for(int shift=16;shift>=0;shift-=8) {
+  hash^=(rgb_palette[i]>>shift)&255u;hash*=UINT64_C(1099511628211);
+ }
+ return hash==UINT64_C(0x5e80e83992be2927);
+}
+
+static bool normal15_disjoint(const SDL_Surface *a,const SDL_Surface *b)
+{
+ uintptr_t x=(uintptr_t)a->pixels,y=(uintptr_t)b->pixels;
+ return x<y?y-x>=(size_t)a->pitch*a->h:x-y>=(size_t)b->pitch*b->h;
+}
+
+static bool normal15_layout(void)
+{
+ int d=game_probe_density;
+ if((d!=4&&d!=8)||!hd_owner)return false;
+ SDL_Surface *surfaces[4]={game_screen,VGAScreenSeg,canvas,output};
+ for(unsigned i=0;i<4;i++) {
+  const SDL_Surface *s=surfaces[i];
+  if(!s||!s->pixels||!s->format)return false;
+  if(i<2) {
+   /* Both cone pointers advance by the original destination pitch. */
+   if(s->w!=320||s->h!=200||s->pitch!=320||s->format->BitsPerPixel!=8||
+      s->format->BytesPerPixel!=1||s->format->format!=SDL_PIXELFORMAT_INDEX8)return false;
+  } else if(s->w!=320*d||s->h!=200*d||s->pitch<320*d*4||s->pitch%4||
+    (uintptr_t)s->pixels%sizeof(Uint32)||s->format->format!=SDL_PIXELFORMAT_ARGB8888||
+    s->format->BitsPerPixel!=32||s->format->BytesPerPixel!=4)return false;
+ }
+ for(unsigned i=0;i<4;i++)for(unsigned j=0;j<i;j++)
+  if(!normal15_disjoint(surfaces[i],surfaces[j]))return false;
+ return true;
+}
+
+/* Exact descending-counter cone: -1 lit, 0..5 transition, 6 dark.
+ * Widen only display-helper arithmetic; original player/index loops stay exact. */
+static int normal15_branch(int u,int v,int lightx,int lighty)
+{
+ int64_t y=184-(int64_t)v,delta=(int64_t)lightx-(264-(int64_t)u);
+ if((int64_t)lighty>y)return 6;
+ if(delta<0)delta=-delta;
+ delta+=(int64_t)lighty-y;
+ return delta<0?-1:delta<=5?(int)delta:6;
+}
+
+static Uint8 normal15_index(Uint8 source,int u,int v,int lightx,int lighty)
+{
+ int branch=normal15_branch(u,v,lightx,lighty);
+ if(branch<0)return source;
+ unsigned value=source&15;
+ return (source&240)|(branch==6?value/4:(value+3*(5-branch))/4);
+}
+
+/* Every original nonlit value mapping has slope1/4. Attenuate authored
+ * residual around its exact destination-palette anchor, even at a ramp floor.
+ * Each side's slope is min(1/4, available target range/source range), so
+ * output is bounded and monotone without clipping; round residual half up. */
+static unsigned normal15_channel(unsigned h,unsigned b,unsigned a)
+{
+ if(h==b)return a;
+ if(h<b) {
+  unsigned residual=b-h;
+  return a-(4*a<b?(residual*a+b/2)/b:(residual+2)/4);
+ }
+ unsigned residual=h-b,range=255-b,headroom=255-a;
+ return a+(4*headroom<range?(residual*headroom+range/2)/range:(residual+2)/4);
+}
+
+static Uint32 normal15_rgba(Uint32 color,Uint8 before,Uint8 after,bool lit)
+{
+ if(lit)return color;
+ Uint32 from=palette_rgb(before),to=palette_rgb(after),result=0xff000000u;
+ for(int shift=0;shift<24;shift+=8)
+  result|=normal15_channel((color>>shift)&255,(from>>shift)&255,(to>>shift)&255)<<shift;
+ return result;
+}
+
+static bool normal15_indices_match(MirrorOutputKind kind,int lightx,int lighty)
+{
+ for(int y=0;y<184;y++)for(int x=0;x<264;x++) {
+  Uint8 before=((Uint8 *)game_screen->pixels)[y*game_screen->pitch+x+24];
+  Uint8 after=kind==MIRROR_OUTPUT_NORMAL15_NIGHT?normal15_index(before,x,y,lightx,lighty):before;
+  if(((Uint8 *)VGAScreenSeg->pixels)[y*VGAScreenSeg->pitch+x]!=after)return false;
+ }
+ return true;
+}
+
+/* Called only after all source/index/ownership checks pass. No partial commit,
+ * canvas mutation, extra alpha composition, or later Present-time relighting. */
+static void normal15_compose(MirrorOutputKind kind,int lightx,int lighty)
+{
+ int d=game_probe_density;
+ for(int y=0;y<184;y++)for(int x=0;x<264;x++) {
+  Uint8 before=((Uint8 *)game_screen->pixels)[y*game_screen->pitch+x+24];
+  Uint8 after=((Uint8 *)VGAScreenSeg->pixels)[y*VGAScreenSeg->pitch+x];
+  bool lit=kind!=MIRROR_OUTPUT_NORMAL15_NIGHT||normal15_branch(x,y,lightx,lighty)<0;
+  for(int sy=0;sy<d;sy++) {
+   const Uint32 *src=(Uint32 *)((Uint8 *)canvas->pixels+(y*d+sy)*canvas->pitch)+(x+24)*d;
+   const Uint8 *owner=hd_owner+(y*d+sy)*canvas->w+(x+24)*d;
+   Uint32 *dst=(Uint32 *)((Uint8 *)output->pixels+(y*d+sy)*output->pitch)+x*d;
+   for(int sx=0;sx<d;sx++)dst[sx]=owner[sx]==1?
+    normal15_rgba(src[sx],before,after,lit):palette_rgb(after);
+  }
+ }
+}
+
+void render_mirror_finish(MirrorOutputKind kind,int lightx,int lighty)
 {
  render_mirror_shadow_end();
  hud_check_mode();
  if(!active)return;
+ bool normal15=lvlFileNum==15||kind==MIRROR_OUTPUT_NORMAL15_NIGHT||kind==MIRROR_OUTPUT_NORMAL15_LOW_DETAIL;
+ if(normal15&&!normal15_layout()) {
+  /* A malformed destination cannot safely be upscaled. Decline presentation;
+   * the ordinary video path remains authoritative, with no HD cache retained. */
+  render_mirror_unsupported("normal15-output-layout");
+  active=ready=last_output_valid=last_output_scene_hd=have_fade_saved=false;fade_mode=0;
+  game_probe_frame(draws,occlusions,mismatch,reject_reason,all_rejections,local_entities,local_regions,local_blocks);
+  return;
+ }
  font_prepare_finish();
- if(!ordinary_crop) render_mirror_unsupported("special-output-composition");
+ bool supported=kind==MIRROR_OUTPUT_ORDINARY||kind==MIRROR_OUTPUT_NORMAL15_NIGHT||kind==MIRROR_OUTPUT_NORMAL15_LOW_DETAIL;
+ if(!supported) render_mirror_unsupported("special-output-composition");
+ if(normal15) {
+  if(!manual_hd_enabled||!manual_hd_lease||!normal15_scope()||terrain_file!='z')render_mirror_unsupported("normal15-output-scope");
+  if(!normal15_palette())render_mirror_unsupported("normal15-output-palette");
+  if(font_history)for(unsigned i=0;i<2;i++)
+   if(font_scenes[i].canvas_live||font_scenes[i].output_live||font_scene_owned(font_scenes+i,font_owner))
+    render_mirror_unsupported("normal15-scene-font");
+  if(supported&&!normal15_indices_match(kind,lightx,lighty))render_mirror_unsupported("normal15-output-indices");
+ }
  if(memcmp(initial_palette,rgb_palette,sizeof(initial_palette))!=0) render_mirror_unsupported("hd-palette-change");
  /* Negative test corrupts only the display coverage ledger, never game pixels. */
  if(game_probe_coverage_fault) expected[0]^=1;
@@ -2961,15 +3102,16 @@ void render_mirror_finish(bool ordinary_crop)
  if(restored_mismatches)render_mirror_unsupported("local-region-residue");
  game_probe_effects(brightness_blocks,restored_checks,restored_mismatches,expanded_regions,boundary_crossings);
  upscale(output,VGAScreenSeg);
- if(!reject_reason) {
+ if(!reject_reason&&normal15)normal15_compose(kind,lightx,lighty);
+ if(!reject_reason&&!normal15) {
   int d=game_probe_density;
   for(int y=0;y<184*d;y++) memcpy((Uint8 *)output->pixels+y*output->pitch,(Uint8 *)canvas->pixels+y*canvas->pitch+24*d*4,(size_t)264*d*4);
  }
- bool retained_hud=!reject_reason&&ordinary_crop&&hud_compose();
- bool retained_components=!reject_reason&&ordinary_crop&&components_compose();
- bool retained_indicators=!reject_reason&&ordinary_crop&&indicators_compose();
- bool retained_fixed_text=!reject_reason&&ordinary_crop&&fixed_text_compose();
- bool retained_font=font_finish(!reject_reason&&ordinary_crop);
+ bool retained_hud=!reject_reason&&supported&&hud_compose();
+ bool retained_components=!reject_reason&&supported&&components_compose();
+ bool retained_indicators=!reject_reason&&supported&&indicators_compose();
+ bool retained_fixed_text=!reject_reason&&supported&&fixed_text_compose();
+ bool retained_font=font_finish(!reject_reason&&supported);
  bool retained_scene_hd=memchr(hd_owner,1,(size_t)canvas->w*canvas->h)!=NULL||memchr(hd_owner,2,(size_t)canvas->w*canvas->h)!=NULL;
  bool retained_hd=retained_scene_hd||retained_hud||retained_components||retained_indicators||retained_fixed_text||retained_font;
  unsigned int classic_mismatches=0;
