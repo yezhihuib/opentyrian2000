@@ -29154,7 +29154,7 @@
       }
     },
     "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 544,
+      "count": 545,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -36227,11 +36227,24 @@
           "sha256": "cac289e69dcbf47aa2b121dcd4c5740ce1531a4295af9a752e51fde2bc738702",
           "source_png": "assets/hd/source/bullet-27-8-cac289e69dcb.png",
           "source_png_sha256": "163cee8cf78c21b02d29f0aa54f5e87d73a835911378ed09fbe42f0b6a64f111"
+        },
+        "option-marlo-bank9-152-8.hda": {
+          "header_u32": [
+            1260152,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "sha256": "aefe1218aaf7959b1623d877bf14ad5bb75b52a4520183e85d563d2ef3726fda",
+          "source_png": "assets/hd/source/option-marlo-bank9-152-8-aefe1218aaf7.png",
+          "source_png_sha256": "1aacfce0bb65db82619dccadc86ac4a46a76fb5114293415d6ee92232d91dfa2"
         }
       }
     },
     "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 544,
+      "count": 545,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -43304,6 +43317,19 @@
           "sha256": "cac289e69dcbf47aa2b121dcd4c5740ce1531a4295af9a752e51fde2bc738702",
           "source_png": "assets/hd/source/bullet-27-8-cac289e69dcb.png",
           "source_png_sha256": "163cee8cf78c21b02d29f0aa54f5e87d73a835911378ed09fbe42f0b6a64f111"
+        },
+        "option-marlo-bank9-152-8.hda": {
+          "header_u32": [
+            1260152,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "sha256": "aefe1218aaf7959b1623d877bf14ad5bb75b52a4520183e85d563d2ef3726fda",
+          "source_png": "assets/hd/source/option-marlo-bank9-152-8-aefe1218aaf7.png",
+          "source_png_sha256": "1aacfce0bb65db82619dccadc86ac4a46a76fb5114293415d6ee92232d91dfa2"
         }
       }
     }
@@ -46735,6 +46761,11 @@
       "path": "assets/hd/source/bullet-27-8-cac289e69dcb.png",
       "sha256": "163cee8cf78c21b02d29f0aa54f5e87d73a835911378ed09fbe42f0b6a64f111",
       "RGBA_sha256": "fccf21f3f9e1e145020052ec221131ea4c77b8f5aa9224df7665f55b890159bd"
+    },
+    "aefe1218aaf7959b1623d877bf14ad5bb75b52a4520183e85d563d2ef3726fda": {
+      "path": "assets/hd/source/option-marlo-bank9-152-8-aefe1218aaf7.png",
+      "sha256": "1aacfce0bb65db82619dccadc86ac4a46a76fb5114293415d6ee92232d91dfa2",
+      "RGBA_sha256": "04e486be93beea715091d05a9d6e293bf92d13ec03e3ed9da519bd98a6538c58"
     }
   },
   "no_original_game_data": true,
@@ -51969,6 +52000,32 @@
         "id": 27,
         "slot": 535,
         "HDA_sha256": "cac289e69dcbf47aa2b121dcd4c5740ce1531a4295af9a752e51fde2bc738702"
+      }
+    ]
+  },
+  "option_marlo152_one_v1": {
+    "source": "assets/hd/artwork/option-marlo152-one-v1",
+    "contract_sha256": "f011ddecc962cba60ff2139a17cb52a9aa8de3e131002a2cb6952b951675fa6f",
+    "role": 126,
+    "density": 8,
+    "logical_size": [
+      12,
+      14
+    ],
+    "anchor": [
+      0,
+      0
+    ],
+    "ids": [
+      152
+    ],
+    "scope": "normal option30 style4 charge0 bank9 TILE body only; indexed original, orbit/gameplay, Christmas empty fallback, other sidekicks, Talon, Mint, projectile67, HUD and shop preview unchanged",
+    "fallback": "decoded normal-source validation before every cold/warm dedicated body lookup, existing 8-to4 loader fallback",
+    "entries": [
+      {
+        "id": 152,
+        "slot": 536,
+        "HDA_sha256": "aefe1218aaf7959b1623d877bf14ad5bb75b52a4520183e85d563d2ef3726fda"
       }
     ]
   }

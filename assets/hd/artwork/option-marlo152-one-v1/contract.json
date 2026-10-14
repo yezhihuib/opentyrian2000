@@ -1,0 +1,89 @@
+{
+  "schema": "option-marlo152-one-generated-master-v1",
+  "id": 152,
+  "role": 126,
+  "slot": 536,
+  "density": 8,
+  "logical_size": [
+    12,
+    14
+  ],
+  "anchor": [
+    0,
+    0
+  ],
+  "reconstruction": {
+    "library": "Pillow",
+    "version": "12.3.0",
+    "crop": [
+      148,
+      132,
+      1130,
+      1114
+    ],
+    "resize": [
+      64,
+      64
+    ],
+    "paste": [
+      16,
+      16
+    ],
+    "filter": "LANCZOS",
+    "alpha": "generated RGBA preserved; fixed crop and standard resample only, no alpha threshold, recolor or repaint"
+  },
+  "source": "sources/generated-marlo152-v1.png",
+  "source_sha256": "1e163b41ce5c833b1d2462c251f31cf8c61b11b31e55367eb194cfc08d7c49cc",
+  "PNG_sha256": "1aacfce0bb65db82619dccadc86ac4a46a76fb5114293415d6ee92232d91dfa2",
+  "RGBA_sha256": "04e486be93beea715091d05a9d6e293bf92d13ec03e3ed9da519bd98a6538c58",
+  "HDA_sha256": "aefe1218aaf7959b1623d877bf14ad5bb75b52a4520183e85d563d2ef3726fda",
+  "header_u32": [
+    1260152,
+    8,
+    12,
+    14,
+    0,
+    0
+  ],
+  "original_registration": {
+    "full_tile": [
+      12,
+      14
+    ],
+    "support_bbox": [
+      2,
+      2,
+      10,
+      10
+    ],
+    "support_center": [
+      6,
+      6
+    ],
+    "normal_source_pixels": 52,
+    "semantic_sha256": "e9f874e18c44737b0ec76ab78ab98073b93fa0f7db7cadd56ace8bf5e43bfede",
+    "semantic_fnv1a64": "840f92ed11537363",
+    "Christmas": "empty source; original fallback"
+  },
+  "metrics": {
+    "alpha_bbox": [
+      16,
+      16,
+      80,
+      80
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "alpha_mass_native": 38.39718137254902,
+    "alpha_mass_ratio_vs_original52": 0.7384073340874812,
+    "fractional_alpha_pixels": 2935,
+    "alpha_centroid_physical": [
+      47.96821789793854,
+      48.73422943243511
+    ],
+    "bright_yellow_core_mass_native": 8.165625
+  },
+  "selection": "Fresh generated master, not the lost previous candidate; native2x offline visual accepted by parent. The 73.84% alpha-weighted area is an explicitly accepted soft-edge tradeoff. Actual-engine validation is still pending at this artwork freeze."
+}

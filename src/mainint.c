@@ -4698,6 +4698,11 @@ redo:
 
 				if (this_player->sidekick[i].style == 1 || this_player->sidekick[i].style == 2)
 					blit_sprite2x2(VGAScreen, x - 6, y, spriteSheet10, sprite);
+				else if (this_player->items.sidekick[i] == 30 && this_player->sidekick[i].style == 4 &&
+				         this_player->sidekick[i].charge == 0 && sprite == 152)
+					draw_sidekick_body_sprite2(VGAScreen, x, y, spriteSheet9, sprite,
+					                          this_player->items.sidekick[i],
+					                          this_player->sidekick[i].style, this_player->sidekick[i].charge);
 				else
 					blit_sprite2(VGAScreen, x, y, spriteSheet9, sprite);
 			}

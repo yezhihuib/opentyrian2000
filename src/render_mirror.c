@@ -39,10 +39,10 @@ typedef struct {
  int bank,index,w,h,anchor_x,anchor_y,density;
  Uint8 *rgba;
 } Asset;
-enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121, ASSET_ENEMY_TANK_SHELL=122, ASSET_REAR534_BODY=123, ASSET_DATA513_BODY=124, ASSET_PROTRON_SHADOW=125 };
+enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121, ASSET_ENEMY_TANK_SHELL=122, ASSET_REAR534_BODY=123, ASSET_DATA513_BODY=124, ASSET_PROTRON_SHADOW=125, ASSET_MARLO_BODY=126 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
 /* Slots 507..509 are rear534; slots 510..521 are Data513. */
-static Asset assets[536];
+static Asset assets[537];
 /* One draw-call lease from the original fixed explosion; never gameplay state. */
 static bool cash25_fixed_value;
 static bool cash75_fixed_value;
@@ -1226,7 +1226,7 @@ static bool decode_tile(Sprite2_array bank,unsigned int index,Uint8 *indices,Uin
 static bool read_asset(Asset *a,int wanted)
 {
  char name[1024];
- const char *prefix=a->bank==ASSET_PROTRON_SHADOW?"protron-shadow":a->bank==ASSET_REAR534_BODY?"rear534-bank11":a->bank==ASSET_DATA513_BODY?"data513-bank11":a->bank==ASSET_ENEMY_TANK_SHELL?"enemy-tank-shell":a->bank==ASSET_GEM250_BODY?"gem250-bank11":a->bank==ASSET_GEM250_VALUE?"gem250-value-newsh6":a->bank==ASSET_GEM100_BODY?"gem100-bank11":a->bank==ASSET_GEM100_VALUE?"gem100-value-newsh6":a->bank==ASSET_CASH50_BODY?"coin50-bank11":a->bank==ASSET_CASH50_VALUE?"coin50-value-newsh6":a->bank==ASSET_CASH75_BODY?"coin75-bank11":a->bank==ASSET_CASH75_VALUE?"coin75-value-newsh6":a->bank==ASSET_CASH25_BODY?"coin25-bank11":a->bank==ASSET_CASH25_VALUE?"coin25-value-newsh6":a->bank==9?"ship":a->bank==8?"bullet":a->bank==ASSET_ENEMY_ENERGY?"enemy-energy":a->bank==ASSET_NEWSH2?"enemy-newsh2":a->bank==ASSET_NEWSH4?"enemy-newsh4":a->bank==ASSET_NEWSHE?"enemy-newshe":a->bank==ASSET_TALON_BANK?"talon-bank":a->bank==ASSET_EXPLOSION?"explosion-newsh6":"terrain-shapesz";
+ const char *prefix=a->bank==ASSET_MARLO_BODY?"option-marlo-bank9":a->bank==ASSET_PROTRON_SHADOW?"protron-shadow":a->bank==ASSET_REAR534_BODY?"rear534-bank11":a->bank==ASSET_DATA513_BODY?"data513-bank11":a->bank==ASSET_ENEMY_TANK_SHELL?"enemy-tank-shell":a->bank==ASSET_GEM250_BODY?"gem250-bank11":a->bank==ASSET_GEM250_VALUE?"gem250-value-newsh6":a->bank==ASSET_GEM100_BODY?"gem100-bank11":a->bank==ASSET_GEM100_VALUE?"gem100-value-newsh6":a->bank==ASSET_CASH50_BODY?"coin50-bank11":a->bank==ASSET_CASH50_VALUE?"coin50-value-newsh6":a->bank==ASSET_CASH75_BODY?"coin75-bank11":a->bank==ASSET_CASH75_VALUE?"coin75-value-newsh6":a->bank==ASSET_CASH25_BODY?"coin25-bank11":a->bank==ASSET_CASH25_VALUE?"coin25-value-newsh6":a->bank==9?"ship":a->bank==8?"bullet":a->bank==ASSET_ENEMY_ENERGY?"enemy-energy":a->bank==ASSET_NEWSH2?"enemy-newsh2":a->bank==ASSET_NEWSH4?"enemy-newsh4":a->bank==ASSET_NEWSHE?"enemy-newshe":a->bank==ASSET_TALON_BANK?"talon-bank":a->bank==ASSET_EXPLOSION?"explosion-newsh6":"terrain-shapesz";
  if(!game_probe_assets||snprintf(name,sizeof(name),"%s/%s-%d-%d.hda",game_probe_assets,prefix,a->index,wanted)>=(int)sizeof(name)) return false;
  FILE *f=fopen(name,"rb");if(!f)return false;
  Uint8 h[28]={0};bool ok=fread(h,1,sizeof(h),f)==sizeof(h)&&memcmp(h,"HDR1",4)==0;
@@ -1492,6 +1492,33 @@ static bool mint27_source_matches(Sprite2_array bank)
  uint64_t stamp=UINT64_C(0xcbf29ce484222325);
  for(size_t i=0;i<sizeof(source);i++){stamp^=source[i];stamp*=UINT64_C(0x100000001b3);}
  return stamp==UINT64_C(0xd25ba01692cfa4b7);
+}
+
+/* Marlo30 is a separate role, never a Talon or generic bank9 binding.
+ * Re-decode before EVERY cache lookup, including same-address source reloads. */
+static bool marlo152_source_matches(Sprite2_array bank)
+{
+ if(xmas||!bank.data||bank.data!=spriteSheet9.data||bank.size!=spriteSheet9.size)return false;
+ Uint8 source[12*14*2]={0};
+ if(!decode_tile(bank,152,source,source+12*14,12,0,0))return false;
+ uint64_t stamp=UINT64_C(0xcbf29ce484222325);
+ for(size_t i=0;i<sizeof(source);i++){stamp^=source[i];stamp*=UINT64_C(0x100000001b3);}
+ return stamp==UINT64_C(0x840f92ed11537363);
+}
+
+static Asset *marlo152_asset(Sprite2_array bank,unsigned int index,
+                             unsigned int option,unsigned int sidekick_style,unsigned int charge)
+{
+ if(option!=30||sidekick_style!=4||charge!=0||index!=152||
+    !marlo152_source_matches(bank)||(game_probe_density!=4&&game_probe_density!=8)||game_probe_missing||
+    game_probe_invalid||game_probe_original_reference||!game_probe_assets)return NULL;
+ Asset *a=&assets[536];
+ if(a->initialized)return a->valid?a:NULL;
+ a->initialized=true;a->bank=ASSET_MARLO_BODY;a->index=152;
+ a->w=12;a->h=14;a->anchor_x=0;a->anchor_y=0;
+ a->valid=read_asset(a,game_probe_density);
+ if(!a->valid&&game_probe_density==8)a->valid=read_asset(a,4);
+ return a->valid?a:NULL;
 }
 
 static Asset *get_asset(Sprite2_array bank,unsigned int index,int layout)
@@ -2103,6 +2130,21 @@ bool render_mirror_entity(SDL_Surface *surface,int x,int y,Sprite2_array bank,un
   }
  }
  return a?draw_asset(x,y,a,style,NULL):false;
+}
+
+/* Only the existing Marlo30 normal body site can enter this finite route.
+ * Horizontal row wrapping stays classic; the original indexed call still runs
+ * once through the dedicated wrapper, including every rejected/empty source. */
+bool render_mirror_marlo_body(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int index,
+                              unsigned int option,unsigned int sidekick_style,unsigned int charge)
+{
+ render_mirror_shadow_end();
+ if(!active||!surface||surface!=game_screen||surface!=VGAScreen||reject_reason||
+    surface->w!=320||surface->h!=200||surface->pitch<320||!surface->format||
+    surface->format->BitsPerPixel!=8||surface->format->BytesPerPixel!=1||
+    x<0||x>308||y<-13||y>199)return false;
+ Asset *a=marlo152_asset(bank,index,option,sidekick_style,charge);
+ return a?draw_asset(x,y,a,MIRROR_NORMAL,NULL):false;
 }
 
 /* Seven original static directions, including shared enemy58 uses. This

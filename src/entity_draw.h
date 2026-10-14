@@ -19,4 +19,9 @@ void draw_entity_sprite2(SDL_Surface *target, int x, int y,
 /* Dedicated surviving enemy-shot normal tile; no player-shadow binding. */
 void draw_enemy_shot_sprite2(SDL_Surface *, int x, int y, Sprite2_array, unsigned int index);
 
+/* Dedicated normal TILE body boundary; gameplay state is only inspected. */
+void draw_sidekick_body_sprite2(SDL_Surface *,int x,int y,Sprite2_array,
+                               unsigned int index,unsigned int option,
+                               unsigned int sidekick_style,unsigned int charge);
+
 #endif
