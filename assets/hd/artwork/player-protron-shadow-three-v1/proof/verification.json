@@ -1,0 +1,71 @@
+{
+  "status": "PASS",
+  "rebuild_inputs": [
+    "contract.json",
+    "rebuild.mjs",
+    "source/render.mjs",
+    "source/shadow-225-8.svg",
+    "source/shadow-244-8.svg",
+    "source/shadow-226-8.svg"
+  ],
+  "game_asset_inputs": 0,
+  "approved_pilot_coverage_preserved_byte_exact": true,
+  "canonical_source_sprites_or_head_pixels_in_package": 0,
+  "checks": [
+    {
+      "file": "inventory.json",
+      "sha256": "66bdfa62d95199106445ea74ac0756b69de27276f3d57ea6efeef942238f8946",
+      "byte_identical": true
+    },
+    {
+      "file": "proof/geometry.json",
+      "sha256": "aeb4ad16b5e528c5ee0d88b0cee687a18a8c495b26ed9ace08444d0d08e0e075",
+      "byte_identical": true
+    },
+    {
+      "file": "output/protron-shadow-225-8.coverage.bin",
+      "sha256": "f72bcdba22d3ddb87828513310be9f48c4d5182d52457bcd6df93bba80d88e99",
+      "byte_identical": true
+    },
+    {
+      "file": "output/protron-shadow-225-8.hda",
+      "sha256": "02fa39f2adc3cf490c6ac5c5b313b9bc62a3fcbb03345520f0bc959d4674222d",
+      "byte_identical": true
+    },
+    {
+      "file": "output/protron-shadow-225-8.png",
+      "sha256": "095bc4b0a82981b05f0cbdc70d21794127c555391265ecf811684facf55194a4",
+      "byte_identical": true
+    },
+    {
+      "file": "output/protron-shadow-226-8.coverage.bin",
+      "sha256": "69cf86ea22d5d5af62df6b94e4ade750603955677ff556905ada9c2f8e167a1d",
+      "byte_identical": true
+    },
+    {
+      "file": "output/protron-shadow-226-8.hda",
+      "sha256": "096b16e0961b1e64808fb6b1507d5fc21ccf9d9056163bb8731b8556aa406c61",
+      "byte_identical": true
+    },
+    {
+      "file": "output/protron-shadow-226-8.png",
+      "sha256": "dd9490b0beafd8908be19a8f85a234cc664b9f771d859e293cbaee9d76eed16e",
+      "byte_identical": true
+    },
+    {
+      "file": "output/protron-shadow-244-8.coverage.bin",
+      "sha256": "a478e2e9b1b791e68ad62434458c50d8839459a2d94dd0c2b3281ded46b45d10",
+      "byte_identical": true
+    },
+    {
+      "file": "output/protron-shadow-244-8.hda",
+      "sha256": "91044e80bc3718e4ed6af2fd8b0c68482b9b78c7240606b0c506f77e735943ad",
+      "byte_identical": true
+    },
+    {
+      "file": "output/protron-shadow-244-8.png",
+      "sha256": "7e427040655d5d3b0db472b5cb706b9e547361c754ad03069ada5c17f35f611b",
+      "byte_identical": true
+    }
+  ]
+}

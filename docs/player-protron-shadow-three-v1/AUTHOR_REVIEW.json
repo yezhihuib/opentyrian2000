@@ -1,0 +1,49 @@
+{
+  "status": "PASS_WITH_STATED_SCOPE",
+  "review_kind": "Direct actual-native-frame appearance review, separate from numerical and source/unit acceptance.",
+  "review_finished_utc": "2026-10-14T11:19:50.372816+00:00",
+  "review_receipt_sha256": "5159a0f866943f2f495fd149f34cf28ef74f29ca96ff5dbaa60c5bdacfb378e0",
+  "renderer_sha256": "23a326dde6fa5f0ac6b6712e1ebc44024ae1e04f226f342a2c19ed93f4e115f6",
+  "independent_numerical_review_sha256": "d5c6defbf052715fc481c971106a02ff5784c95497f2e8d8906f564fd5f66287",
+  "capture_manifest_sha256": "0c0f0d81fc7d6f5de2b21665825058b320460a20b9c68f09289c3a608d6a5263",
+  "native_size": [
+    640,
+    400
+  ],
+  "native_frames_directly_viewed": 36,
+  "baseline_candidate_pairs": 18,
+  "powers": [
+    1,
+    6,
+    11
+  ],
+  "capture_ticks": [
+    40,
+    41,
+    42,
+    43,
+    44,
+    45
+  ],
+  "method": "Each actual full native BMP viewed at original resolution, baseline then candidate, in power/tick order. No scaled montage or synthetic image substituted for runtime frames.",
+  "all_native_file_pins_match_numerical_receipt": true,
+  "decoded_RGBA_hashes_independently_computed": 36,
+  "reviewer_engine_runs": 0,
+  "summary": "Visual review passes for all 18 native-2x baseline/candidate pairs at P1, P6 and P11. The three shadows retain distinct small-round, large-offset-round and oblique silhouettes with dark interiors and cleaner edges. Visible cloud/terrain contrast and head appearance remain consistent, with no visible halo, misplaced shadow or detached residue. This is limited to the retained SDL-dummy/original-v1-FIRE frames; partially clipped or covered contours, unobserved overlaps, 4x, Windows and manual gameplay are not validated. Exact numerical checks are reported separately.",
+  "findings": {
+    "225": "Small round silhouette, retained size and original visible head-to-shadow placement; clean dark edges in P1/P6.",
+    "244": "Large offset round silhouette with a broad dark interior; cleaner boundary in P6/P11.",
+    "226": "Distinct short oblique form in P11, clearest against the left cloud region at ticks 42–45.",
+    "head_appearance": "No visible cyan-white head-color regression. This does not imply numerical equality of translucent head pixels on a changed underlay.",
+    "background_appearance": "Visible cloud and rocky-terrain shadows retain different contrast; these are appearance observations, not trace-proven material provenance.",
+    "artifacts": "No new visible halo, displaced silhouette, detached residue or rectangular patch in the reviewed portions."
+  },
+  "limitations": [
+    "Exactly 18 paired native 2x stills at P1/P6/P11, ticks 40–45. No video or unseen-frame coverage.",
+    "Diagnostic Linux SDL dummy/software captures use the original stationary continuous-FIRE input. No native 4x, Windows, physical-display/GPU, manual-play or broader gameplay acceptance.",
+    "Clipping, foreground/head/shadow coverage and low-contrast terrain hide portions of contours. Full silhouettes and unobserved overlap variants are not visually certified.",
+    "Actual opaque-head-erasure observations are zero. Fractional-head dependencies and support/shared-core/state equality are separately attributed to RUNTIME.json.",
+    "Visible cloud/terrain contrast and no observed residue do not establish material provenance, exact same-pixel scene ordering or exact blend arithmetic.",
+    "Original game pixels/data, captures and private paths are excluded; this summary contains findings and hash identities only."
+  ]
+}

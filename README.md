@@ -62,6 +62,15 @@ It builds on OpenTyrian2000 and OpenTyrian; the upstream README is preserved bel
   installed together; simultaneous multi-family exposure, full-level and Windows
   acceptance remain untested. See [combined scope and receipts](docs/qualified-family-coexistence-v1/README.md).
 
+- Protron uses three independently authored shadow masks for normal player IDs
+  225/244/226, preserving the accepted head bytes and original indexed writes.
+  Interiors retain the existing full shadow strength; only the contour edge has
+  partial coverage. Fresh P1/P6/P11 baseline/candidate checks pass numerical and
+  bounded author review: six 90-tick Linux SDL dummy/software runs, 36 native 2×
+  images and 36 INDEX8 images. Original state/RNG/indexed comparisons are exact;
+  translucent head pixels may inherit the changed underlay. See
+  [scope and receipts](docs/player-protron-shadow-three-v1/README.md).
+
 - Normal front Multi (port 2) adds eight authored player heads. Bounded P2/P4/P7/P11
   native 2× baseline/candidate checks pass numerical and author review: eight
   90-tick runs, 48 native frames and 48 INDEX8 frames. All eight new IDs have visible
@@ -70,8 +79,9 @@ It builds on OpenTyrian2000 and OpenTyrian; the upstream README is preserved bel
   extension reuses the frozen eight heads' alpha: four new 90-tick P2/P4/P7/P11 runs
   provide 24 native 2× frame pairs against retained head-only references, with exact
   original state/RNG and INDEX8 comparisons. Numerical and author review pass within
-  this bounded scope. Existing 58/59, enemy and Protron operators stay unchanged, although
-  overlapping translucent pixels can inherit a changed underlay. All-power,
+  this bounded scope. That Multi follow-up left existing 58/59, enemy and Protron
+  operators unchanged, although overlapping translucent pixels can inherit a
+  changed underlay. All-power,
   Christmas and other shared-use coverage remain separate source/unit checks. See
   [scope and receipts](docs/player-front-multi-eight-v1/README.md).
 

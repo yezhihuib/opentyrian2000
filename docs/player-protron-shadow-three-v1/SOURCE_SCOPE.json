@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "baseline_commit": "595184092c589cf50f6f6a05d7def08eb4be9d52",
+  "baseline_tree": "67c3a9fc3cd65ff0818ab30bd8ce910c50d38363",
+  "production_files_checked": 148,
+  "changed_production_files": [
+    "src/render_mirror.c"
+  ],
+  "renderer_sha256": "23a326dde6fa5f0ac6b6712e1ebc44024ae1e04f226f342a2c19ed93f4e115f6",
+  "unchanged_functions": [
+    "get_asset",
+    "draw_asset",
+    "draw_asset_filtered",
+    "darken_rgba",
+    "blend_rgba",
+    "cloud_shadow_rgba",
+    "render_mirror_shadow_end",
+    "vulcan_shadow_pixel",
+    "render_mirror_pixel",
+    "render_mirror_enemy_shot",
+    "enemy_energy_family_ready"
+  ],
+  "old_manifest_HDR1_entries_preserved": 3316,
+  "old_source_png_records_preserved": 593,
+  "old_manifest_family_metadata_preserved": true,
+  "new_HDR1_entries": 6,
+  "new_canonical_pngs": 3,
+  "default_pack_counts": [
+    543,
+    543
+  ],
+  "full_pack_copies": 0,
+  "game_runs": 0,
+  "geometry": "Approved frozen standalone package unchanged; white RGB is pinned but unused, alpha only",
+  "note": "Git baseline bytes and manifest entries checked; full aggregate verifier intentionally not run from sparse checkout."
+}

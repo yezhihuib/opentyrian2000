@@ -39,10 +39,10 @@ typedef struct {
  int bank,index,w,h,anchor_x,anchor_y,density;
  Uint8 *rgba;
 } Asset;
-enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121, ASSET_ENEMY_TANK_SHELL=122, ASSET_REAR534_BODY=123, ASSET_DATA513_BODY=124 };
+enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121, ASSET_ENEMY_TANK_SHELL=122, ASSET_REAR534_BODY=123, ASSET_DATA513_BODY=124, ASSET_PROTRON_SHADOW=125 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
 /* Slots 507..509 are rear534; slots 510..521 are Data513. */
-static Asset assets[532];
+static Asset assets[535];
 /* One draw-call lease from the original fixed explosion; never gameplay state. */
 static bool cash25_fixed_value;
 static bool cash75_fixed_value;
@@ -138,14 +138,14 @@ static Uint8 *green_under_owner;
 static Uint32 initial_palette[256];
 static bool have_initial_palette;
 static bool active,suppress,ready;
-/* One existing normal-data bank8/TILE Vulcan or Multi shadow command leases
+/* One existing normal-data bank8/TILE Vulcan, Multi or Protron shadow command leases
  * this compositor, never a projectile or most-recent head. No Present replay. */
 typedef struct {
  bool live,entered;
  SDL_Surface *surface;
  const void *pixels,*canvas_pixels;
  SDL_PixelFormat *format;
- const Uint8 *bank_data;
+ const Uint8 *bank_data,*shadow_rgba;
  size_t bank_size;
  uint64_t tick;
  int pitch,canvas_pitch,x,y;
@@ -153,19 +153,23 @@ typedef struct {
  Uint8 before[12*14],coverage[12*14];
 } VulcanShadowCall;
 static VulcanShadowCall vulcan_shadow;
-/* Finite frozen player-role contours; slots match the unchanged head assets.
+/* Frozen player contours. Old ten use head alpha; the three Protron masks
+ * have separate resource slots and pins, leaving their translucent heads alone.
  * A source stamp covers colors and original RLE support, not the HDA contour. */
-static const struct {unsigned int index;int slot;uint64_t source,rgba;} vulcan_shadow_pins[10]={
- {67,522,UINT64_C(0x9f5342ea1a7217ae),UINT64_C(0xaea83e10c9169380)},
- {70,523,UINT64_C(0xfb4ea1a99e585804),UINT64_C(0x6c26e938d94472c2)},
- {121,524,UINT64_C(0xba0e9fed90289c7a),UINT64_C(0x769aa8931a65a717)},
- {122,525,UINT64_C(0x4f9d6fbe1da41b7c),UINT64_C(0x761a0ae775198a5a)},
- {163,526,UINT64_C(0xa34174ba65a5e3b2),UINT64_C(0xa99cb87d5291eb77)},
- {164,527,UINT64_C(0xd118e1292d0f1044),UINT64_C(0x6b0a01101b3bca0f)},
- {201,528,UINT64_C(0xfb2f8d2713f98f50),UINT64_C(0x8d51f656ce22bf04)},
- {202,529,UINT64_C(0xd92e815af85b74c6),UINT64_C(0x64cfd4d0e05f13a3)},
- {279,530,UINT64_C(0x1edad45847d64c25),UINT64_C(0xd4ada839dcc2ebb5)},
- {280,531,UINT64_C(0x0842bfe453e6cb1d),UINT64_C(0xca10e502fd370f78)}
+static const struct {unsigned int index;int slot;uint64_t source,rgba;int coverage_slot;uint64_t coverage_rgba;} vulcan_shadow_pins[13]={
+ {67,522,UINT64_C(0x9f5342ea1a7217ae),UINT64_C(0xaea83e10c9169380),0,0},
+ {70,523,UINT64_C(0xfb4ea1a99e585804),UINT64_C(0x6c26e938d94472c2),0,0},
+ {121,524,UINT64_C(0xba0e9fed90289c7a),UINT64_C(0x769aa8931a65a717),0,0},
+ {122,525,UINT64_C(0x4f9d6fbe1da41b7c),UINT64_C(0x761a0ae775198a5a),0,0},
+ {163,526,UINT64_C(0xa34174ba65a5e3b2),UINT64_C(0xa99cb87d5291eb77),0,0},
+ {164,527,UINT64_C(0xd118e1292d0f1044),UINT64_C(0x6b0a01101b3bca0f),0,0},
+ {201,528,UINT64_C(0xfb2f8d2713f98f50),UINT64_C(0x8d51f656ce22bf04),0,0},
+ {202,529,UINT64_C(0xd92e815af85b74c6),UINT64_C(0x64cfd4d0e05f13a3),0,0},
+ {279,530,UINT64_C(0x1edad45847d64c25),UINT64_C(0xd4ada839dcc2ebb5),0,0},
+ {280,531,UINT64_C(0x0842bfe453e6cb1d),UINT64_C(0xca10e502fd370f78),0,0},
+ {225,469,UINT64_C(0xcc2d73d8d3e08e9b),UINT64_C(0x4bcd62036411d684),532,UINT64_C(0x9115d94f761d41b6)},
+ {244,470,UINT64_C(0x536ebd180af638d6),UINT64_C(0xbcb8f83827c8b717),533,UINT64_C(0xa0f35ce4562bb3a9)},
+ {226,471,UINT64_C(0x6f6f9c2a049b7953),UINT64_C(0x436fda16719ce3fb),534,UINT64_C(0xb5ae06163e59f3f6)}
 };
 static int vulcan_shadow_member(unsigned int index)
 {
@@ -173,9 +177,10 @@ static int vulcan_shadow_member(unsigned int index)
   if(index==vulcan_shadow_pins[k].index)return (int)k;
  return -1;
 }
-/* Record only these ten loader results, including a resource-root epoch.
+/* Record only these finite loader results, including a resource-root epoch.
  * Frozen bytes are rechecked at every shadow, even after a warm head load. */
-static struct {const Uint8 *rgba;char path[1024];} vulcan_shadow_resource[10];
+static struct {const Uint8 *rgba;char path[1024];} vulcan_shadow_resource[13];
+static struct {const Uint8 *rgba;char path[1024];} vulcan_shadow_coverage_resource[3];
 static void vulcan_shadow_clear(void) {memset(&vulcan_shadow,0,sizeof(vulcan_shadow));}
 static bool vulcan_shadow_pixel(SDL_Surface *,int,int,Uint8,Uint8,int);
 
@@ -1212,7 +1217,7 @@ static bool decode_tile(Sprite2_array bank,unsigned int index,Uint8 *indices,Uin
 static bool read_asset(Asset *a,int wanted)
 {
  char name[1024];
- const char *prefix=a->bank==ASSET_REAR534_BODY?"rear534-bank11":a->bank==ASSET_DATA513_BODY?"data513-bank11":a->bank==ASSET_ENEMY_TANK_SHELL?"enemy-tank-shell":a->bank==ASSET_GEM250_BODY?"gem250-bank11":a->bank==ASSET_GEM250_VALUE?"gem250-value-newsh6":a->bank==ASSET_GEM100_BODY?"gem100-bank11":a->bank==ASSET_GEM100_VALUE?"gem100-value-newsh6":a->bank==ASSET_CASH50_BODY?"coin50-bank11":a->bank==ASSET_CASH50_VALUE?"coin50-value-newsh6":a->bank==ASSET_CASH75_BODY?"coin75-bank11":a->bank==ASSET_CASH75_VALUE?"coin75-value-newsh6":a->bank==ASSET_CASH25_BODY?"coin25-bank11":a->bank==ASSET_CASH25_VALUE?"coin25-value-newsh6":a->bank==9?"ship":a->bank==8?"bullet":a->bank==ASSET_ENEMY_ENERGY?"enemy-energy":a->bank==ASSET_NEWSH2?"enemy-newsh2":a->bank==ASSET_NEWSH4?"enemy-newsh4":a->bank==ASSET_NEWSHE?"enemy-newshe":a->bank==ASSET_TALON_BANK?"talon-bank":a->bank==ASSET_EXPLOSION?"explosion-newsh6":"terrain-shapesz";
+ const char *prefix=a->bank==ASSET_PROTRON_SHADOW?"protron-shadow":a->bank==ASSET_REAR534_BODY?"rear534-bank11":a->bank==ASSET_DATA513_BODY?"data513-bank11":a->bank==ASSET_ENEMY_TANK_SHELL?"enemy-tank-shell":a->bank==ASSET_GEM250_BODY?"gem250-bank11":a->bank==ASSET_GEM250_VALUE?"gem250-value-newsh6":a->bank==ASSET_GEM100_BODY?"gem100-bank11":a->bank==ASSET_GEM100_VALUE?"gem100-value-newsh6":a->bank==ASSET_CASH50_BODY?"coin50-bank11":a->bank==ASSET_CASH50_VALUE?"coin50-value-newsh6":a->bank==ASSET_CASH75_BODY?"coin75-bank11":a->bank==ASSET_CASH75_VALUE?"coin75-value-newsh6":a->bank==ASSET_CASH25_BODY?"coin25-bank11":a->bank==ASSET_CASH25_VALUE?"coin25-value-newsh6":a->bank==9?"ship":a->bank==8?"bullet":a->bank==ASSET_ENEMY_ENERGY?"enemy-energy":a->bank==ASSET_NEWSH2?"enemy-newsh2":a->bank==ASSET_NEWSH4?"enemy-newsh4":a->bank==ASSET_NEWSHE?"enemy-newshe":a->bank==ASSET_TALON_BANK?"talon-bank":a->bank==ASSET_EXPLOSION?"explosion-newsh6":"terrain-shapesz";
  if(!game_probe_assets||snprintf(name,sizeof(name),"%s/%s-%d-%d.hda",game_probe_assets,prefix,a->index,wanted)>=(int)sizeof(name)) return false;
  FILE *f=fopen(name,"rb");if(!f)return false;
  Uint8 h[28]={0};bool ok=fread(h,1,sizeof(h),f)==sizeof(h)&&memcmp(h,"HDR1",4)==0;
@@ -1231,6 +1236,10 @@ static bool read_asset(Asset *a,int wanted)
  if(a->bank==8&&k>=0) {
   vulcan_shadow_resource[k].rgba=pixels;
   memcpy(vulcan_shadow_resource[k].path,name,strlen(name)+1);
+ }
+ if(a->bank==ASSET_PROTRON_SHADOW&&k>=10&&k<13) {
+  vulcan_shadow_coverage_resource[k-10].rgba=pixels;
+  memcpy(vulcan_shadow_coverage_resource[k-10].path,name,strlen(name)+1);
  }
  return true;
 }
@@ -1818,6 +1827,33 @@ static uint64_t vulcan_shadow_stamp(const Uint8 *p,size_t length)
  return hash;
 }
 
+/* Coverage is independent of get_asset: no head-slot substitution, family gate
+ * or density4 fallback. Missing/invalid masks decline only this shadow. */
+static Asset *vulcan_shadow_coverage_asset(int k)
+{
+ if(!vulcan_shadow_pins[k].coverage_slot)return &assets[vulcan_shadow_pins[k].slot];
+ Asset *a=&assets[vulcan_shadow_pins[k].coverage_slot];
+ if(!a->initialized) {
+  a->initialized=true;a->bank=ASSET_PROTRON_SHADOW;a->index=(int)vulcan_shadow_pins[k].index;
+  a->w=12;a->h=14;a->anchor_x=0;a->anchor_y=0;
+  a->valid=read_asset(a,8);
+ }
+ return a;
+}
+
+static bool vulcan_shadow_coverage_valid(int k,const Asset *a)
+{
+ if(!vulcan_shadow_pins[k].coverage_slot)return a==&assets[vulcan_shadow_pins[k].slot];
+ char path[1024];
+ return k>=10&&k<13&&a==&assets[vulcan_shadow_pins[k].coverage_slot]&&
+  a->initialized&&a->valid&&a->bank==ASSET_PROTRON_SHADOW&&a->index==(int)vulcan_shadow_pins[k].index&&
+  a->w==12&&a->h==14&&a->density==8&&!a->anchor_x&&!a->anchor_y&&a->rgba&&
+  a->rgba==vulcan_shadow_coverage_resource[k-10].rgba&&
+  snprintf(path,sizeof(path),"%s/protron-shadow-%u-8.hda",game_probe_assets,vulcan_shadow_pins[k].index)<(int)sizeof(path)&&
+  !strcmp(path,vulcan_shadow_coverage_resource[k-10].path)&&
+  vulcan_shadow_stamp(a->rgba,12*14*8*8*4)==vulcan_shadow_pins[k].coverage_rgba;
+}
+
 static bool draw_vulcan_shadow(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int index)
 {
  int k=vulcan_shadow_member(index);
@@ -1840,12 +1876,14 @@ static bool draw_vulcan_shadow(SDL_Surface *surface,int x,int y,Sprite2_array ba
     snprintf(path,sizeof(path),"%s/bullet-%u-8.hda",game_probe_assets,index)>=(int)sizeof(path)||
     a->rgba!=vulcan_shadow_resource[k].rgba||strcmp(path,vulcan_shadow_resource[k].path)||
     vulcan_shadow_stamp(a->rgba,12*14*8*8*4)!=vulcan_shadow_pins[k].rgba)return false;
+ Asset *coverage=vulcan_shadow_coverage_asset(k);
+ if(!vulcan_shadow_coverage_valid(k,coverage))return false;
  if(region_count>=sizeof(regions)/sizeof(regions[0]))return false;
  VulcanShadowCall call={0};
  call.surface=surface;call.pixels=surface->pixels;call.format=surface->format;
  call.canvas_pixels=canvas->pixels;call.canvas_pitch=canvas->pitch;
  call.pitch=surface->pitch;call.bank_data=bank.data;call.bank_size=bank.size;
- call.tick=mirror_logic_tick;call.x=x;call.y=y;call.index=index;
+ call.tick=mirror_logic_tick;call.x=x;call.y=y;call.index=index;call.shadow_rgba=coverage->rgba;
  memcpy(call.coverage,source+12*14,sizeof(call.coverage));
  call.live=true;vulcan_shadow=call;
  return true;
@@ -1863,6 +1901,7 @@ void render_mirror_shadow_begin(SDL_Surface *surface,int x,int y,Sprite2_array b
  int k=vulcan_shadow_member(v->index);
  if(k<0) {vulcan_shadow_clear();return;}
  Asset *a=&assets[vulcan_shadow_pins[k].slot];
+ Asset *coverage=vulcan_shadow_pins[k].coverage_slot?&assets[vulcan_shadow_pins[k].coverage_slot]:a;
  if(v->entered||xmas||!active||reject_reason||surface!=v->surface||surface!=game_screen||surface!=VGAScreen||
     surface->pixels!=v->pixels||surface->format!=v->format||surface->pitch!=v->pitch||surface->w!=320||surface->h!=200||
     !surface->format||surface->format->BitsPerPixel!=8||surface->format->BytesPerPixel!=1||
@@ -1874,7 +1913,8 @@ void render_mirror_shadow_begin(SDL_Surface *surface,int x,int y,Sprite2_array b
     !a->valid||a->bank!=8||a->index!=(int)index||a->w!=12||a->h!=14||a->anchor_x||a->anchor_y||
     a->density!=8||!a->rgba||a->rgba!=vulcan_shadow_resource[k].rgba||
     snprintf(path,sizeof(path),"%s/bullet-%u-8.hda",game_probe_assets,index)>=(int)sizeof(path)||
-    strcmp(path,vulcan_shadow_resource[k].path)||vulcan_shadow_stamp(a->rgba,12*14*8*8*4)!=vulcan_shadow_pins[k].rgba) {
+    strcmp(path,vulcan_shadow_resource[k].path)||vulcan_shadow_stamp(a->rgba,12*14*8*8*4)!=vulcan_shadow_pins[k].rgba||
+    !vulcan_shadow_coverage_valid(k,coverage)||coverage->rgba!=v->shadow_rgba) {
   if(v->entered)render_mirror_unsupported("vulcan-shadow-command-mismatch");
   else vulcan_shadow_clear();
   return;
@@ -1895,7 +1935,7 @@ void render_mirror_shadow_begin(SDL_Surface *surface,int x,int y,Sprite2_array b
   * rounding. Cloud ratios/provenance remain cloud-specific; head RGB is unused. */
  for(int ay=0;ay<14*8;ay++)for(int ax=0;ax<12*8;ax++) {
   int dx=x*8+ax,dy=y*8+ay;if(dy<0||dy>=canvas->h)continue;
-  Uint8 alpha=a->rgba[4*(ay*12*8+ax)+3];if(!alpha)continue;
+  Uint8 alpha=v->shadow_rgba[4*(ay*12*8+ax)+3];if(!alpha)continue;
   int n=dy*canvas->w+dx;
   Uint32 *p=(Uint32 *)((Uint8 *)canvas->pixels+dy*canvas->pitch)+dx;
   Uint8 before=v->before[(ay/8)*12+ax/8],after=(Uint8)((before&0xf0)|((before&15)/2));
@@ -2020,8 +2060,6 @@ bool render_mirror_entity(SDL_Surface *surface,int x,int y,Sprite2_array bank,un
  /* Resolve the frozen contour from this shadow call, before its own head. */
  if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&vulcan_shadow_member(index)>=0&&style==MIRROR_SHADOW)
   return draw_vulcan_shadow(surface,x,y,bank,index);
- /* Protron shadows retain their original indexed silhouettes and origin. */
- if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&(index==225||index==244||index==226)&&style==MIRROR_SHADOW)return false;
  /* Regular Missile Launcher shadows retain their original indexed silhouettes and origin. */
  if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&index>=31&&index<=33&&style==MIRROR_SHADOW)return false;
  /* Charge Cannon shadows retain their original indexed silhouettes and origin. */

@@ -1,0 +1,236 @@
+{
+  "status": "PASS",
+  "review_kind": "Bounded actual-engine numerical comparison; visual acceptance is recorded separately.",
+  "date": "2026-10-14",
+  "renderer_sha256": "23a326dde6fa5f0ac6b6712e1ebc44024ae1e04f226f342a2c19ed93f4e115f6",
+  "baseline_tree": "67c3a9fc3cd65ff0818ab30bd8ce910c50d38363",
+  "runs": 6,
+  "fresh_baseline_runs": 3,
+  "fresh_candidate_runs": 3,
+  "ticks_per_run": 90,
+  "total_logic_ticks": 540,
+  "powers": [
+    1,
+    6,
+    11
+  ],
+  "capture_ticks": [
+    40,
+    41,
+    42,
+    43,
+    44,
+    45
+  ],
+  "native_size": [
+    640,
+    400
+  ],
+  "INDEX8_size": [
+    320,
+    200
+  ],
+  "native_images": 36,
+  "INDEX8_images": 36,
+  "native_pairs": 18,
+  "byte_identical_INDEX8_pairs": 18,
+  "historical_RGB_used_as_current_baseline": false,
+  "independent_review_receipt_sha256": "d5c6defbf052715fc481c971106a02ff5784c95497f2e8d8906f564fd5f66287",
+  "independent_review_engine_runs": 0,
+  "capture_pins_verified": 72,
+  "case_result_pins_verified": 6,
+  "post_run_immutable_integrity": "PASS",
+  "original_comparison": {
+    "state_RNG_projectile_request_emission_ordered_event_fields": "Exact within each fresh pair.",
+    "exact_decompressed_trace_tables_per_pair": 22,
+    "controls": "Exact except wall_ms.",
+    "streamed_blend": "Original columns, order, counts and whole/per-tick normalized digests exact; raw blend rows were not retained.",
+    "streamed_rows_per_run": 23940,
+    "INDEX8": "All 18 paired files, including palette, byte-identical."
+  },
+  "RGB_comparison": {
+    "method": "Independently recomputed full-native-frame differences, contained in sampled original source support UNION separate role-125 mask coverage with recorded Protron head ordering.",
+    "changed_pixel_observations": 3746,
+    "outside_union_or_ordered_dependency_differences": 0,
+    "uncontaminated_shared_full_coverage_samples": 36293,
+    "changed_uncontaminated_shared_full_coverage_samples": 0,
+    "new_full_coverage_available_samples": 809,
+    "new_full_coverage_changed_witnesses": 800,
+    "edge_changed_witnesses": 1694,
+    "interpretation": "Counts are pixel observations across capture windows; categories may overlap and must not be summed as disjoint pixels. Later translucent heads may legitimately inherit changed underlay while the head resources remain byte-identical."
+  },
+  "cases": [
+    {
+      "power": 1,
+      "status": "PASS",
+      "baseline_case": "baseline-p1-2x",
+      "candidate_case": "candidate-p1-2x",
+      "baseline_result_sha256": "2badc042b85765bcfabf3a150bc03afa0e546e7029ff122e1526c0357a7fa34e",
+      "candidate_result_sha256": "21fb7e696dddbe7cdf1cae402f1b8f6958d961e91c13eaa065176abac5264072",
+      "source_ids": [
+        225
+      ],
+      "original_shadow_commands": 440,
+      "eligible_candidate_shadow_commands": 440,
+      "guarded_original_shadow_commands": 0,
+      "changed_native_pixel_observations": 326,
+      "outside_union_or_ordered_dependency_differences": 0,
+      "uncontaminated_shared_core_samples": 1496,
+      "changed_shared_core_samples": 0,
+      "per_id_available": {
+        "225": {
+          "core": 1632,
+          "edge": 204,
+          "new_core": 136,
+          "new_only": 204,
+          "removed_old": 0,
+          "shared_core": 1496,
+          "unique": 1836
+        }
+      },
+      "per_id_changed_witnesses": {
+        "225": {
+          "core": 136,
+          "edge": 190,
+          "new_core": 136,
+          "new_only": 195,
+          "removed_old": 0,
+          "shared_core": 0,
+          "unique": 326
+        }
+      },
+      "fractional_head_dependency_pixel_observations": 0,
+      "opaque_head_erasure_pixel_observations": 0
+    },
+    {
+      "power": 6,
+      "status": "PASS",
+      "baseline_case": "baseline-p6-2x",
+      "candidate_case": "candidate-p6-2x",
+      "baseline_result_sha256": "e168de4ef4303ba604e4687643d1096dfdfac3fc193605e94d7d9d14e70ade29",
+      "candidate_result_sha256": "f41c4a5bca9752a3726df6c249145a429ecc3d35c31b5a1f77c0bbc0fb639737",
+      "source_ids": [
+        225,
+        244
+      ],
+      "original_shadow_commands": 744,
+      "eligible_candidate_shadow_commands": 724,
+      "guarded_original_shadow_commands": 20,
+      "changed_native_pixel_observations": 1074,
+      "outside_union_or_ordered_dependency_differences": 0,
+      "uncontaminated_shared_core_samples": 10458,
+      "changed_shared_core_samples": 0,
+      "per_id_available": {
+        "225": {
+          "core": 1175,
+          "edge": 147,
+          "new_core": 100,
+          "new_only": 147,
+          "removed_old": 0,
+          "shared_core": 1075,
+          "unique": 1322
+        },
+        "244": {
+          "core": 9536,
+          "edge": 434,
+          "new_core": 153,
+          "new_only": 305,
+          "removed_old": 284,
+          "shared_core": 9383,
+          "unique": 10254
+        }
+      },
+      "per_id_changed_witnesses": {
+        "225": {
+          "core": 99,
+          "edge": 142,
+          "new_core": 99,
+          "new_only": 144,
+          "removed_old": 0,
+          "shared_core": 0,
+          "unique": 241
+        },
+        "244": {
+          "core": 151,
+          "edge": 376,
+          "new_core": 151,
+          "new_only": 253,
+          "removed_old": 279,
+          "shared_core": 0,
+          "unique": 806
+        }
+      },
+      "fractional_head_dependency_pixel_observations": 468,
+      "opaque_head_erasure_pixel_observations": 0
+    },
+    {
+      "power": 11,
+      "status": "PASS",
+      "baseline_case": "baseline-p11-2x",
+      "candidate_case": "candidate-p11-2x",
+      "baseline_result_sha256": "1a9df51aff5bb15fe418e90f9e9a8a9707c4545dbbc90678a435c0685ba80e1a",
+      "candidate_result_sha256": "cbe5f25aa78cebee24e44a9e5c3bd9b5b1660a10c59f52cf9f9966f4d02d7364",
+      "source_ids": [
+        226,
+        244
+      ],
+      "original_shadow_commands": 1366,
+      "eligible_candidate_shadow_commands": 1346,
+      "guarded_original_shadow_commands": 20,
+      "changed_native_pixel_observations": 2346,
+      "outside_union_or_ordered_dependency_differences": 0,
+      "uncontaminated_shared_core_samples": 24339,
+      "changed_shared_core_samples": 0,
+      "per_id_available": {
+        "226": {
+          "core": 2607,
+          "edge": 209,
+          "new_core": 70,
+          "new_only": 70,
+          "removed_old": 208,
+          "shared_core": 2537,
+          "unique": 3024
+        },
+        "244": {
+          "core": 22152,
+          "edge": 1000,
+          "new_core": 350,
+          "new_only": 704,
+          "removed_old": 645,
+          "shared_core": 21802,
+          "unique": 23958
+        }
+      },
+      "per_id_changed_witnesses": {
+        "226": {
+          "core": 69,
+          "edge": 134,
+          "new_core": 69,
+          "new_only": 69,
+          "removed_old": 207,
+          "shared_core": 0,
+          "unique": 410
+        },
+        "244": {
+          "core": 345,
+          "edge": 852,
+          "new_core": 345,
+          "new_only": 582,
+          "removed_old": 636,
+          "shared_core": 0,
+          "unique": 1881
+        }
+      },
+      "fractional_head_dependency_pixel_observations": 3628,
+      "opaque_head_erasure_pixel_observations": 0
+    }
+  ],
+  "limitations": [
+    "Containment/order/shared-core proof is not an independent full-scene RGB arithmetic oracle. Exact operator/all-palette arithmetic remains focused unit evidence.",
+    "Fractional-head dependency overlap is observed in P6/P11; opaque-head erasure is not observed in these captures and is covered separately by units.",
+    "These traces do not establish terrain/cloud provenance or complete same-pixel scene ordering. Native visual observations are separate.",
+    "225 has no removed-old-support sample at native 2x; the category is unavailable rather than retargeted.",
+    "This fixed normal-data Linux SDL dummy/software diagnostic matrix does not cover native 4x gameplay, Christmas or missing-resource engine runs, every power/shared route, natural collision, manual play, full levels/campaign, Windows, physical display/GPU, fullscreen or performance.",
+    "Original pixels/data, decoded fixtures, capture files, runtime traces, test packs and private paths are excluded from this public summary."
+  ]
+}

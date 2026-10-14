@@ -1,5 +1,7 @@
 # Normal-data Protron three-head family
 
+Current addition (2026-10-14): the separate [three-mask shadow route](player-protron-shadow-three-v1/README.md) preserves these head resources and original indexed writes, with full-strength interiors and antialiased contour edges. Six fresh P1/P6/P11 baseline/candidate runs pass bounded native 2× numerical and author review. The head-family scope and acceptance below remain historical evidence; their unchanged coarse-shadow and head-rectangle-only statements describe that earlier checkpoint, not the new shadow compositor.
+
 ## Scope
 
 Front port13 Protron uses records322–332 for powers1–11. Its three static

@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "command": "make -j4 'VCS_IDREV=printf %s protron-shadow-local'",
+  "compiler": "cc (Debian 14.2.0-19) 14.2.0",
+  "SDL2": "2.32.4",
+  "SDL2_net": "2.2.0",
+  "isolated_restored_SDK": true,
+  "network_enabled": true,
+  "renderer_sha256": "23a326dde6fa5f0ac6b6712e1ebc44024ae1e04f226f342a2c19ed93f4e115f6",
+  "executable_sha256": "c24b356b18562847c8114268d7970f21b0a54a4f816d4d9366557e44b99b1203",
+  "build_log_sha256": [
+    "7c15bc8c8bacf469096fac81714462874e7f4af7d3bab2a8d7703b356c0add87",
+    "2a23c6f498dbe7a1e9ce1126098cf4e642bfc2a943fa9a118080c2932ef2bba6"
+  ],
+  "warnings": [
+    "this \u2018if\u2019 clause does not guard... [-Wmisleading-indentation]"
+  ],
+  "warning_source_line_unchanged_from_baseline": true,
+  "game_runs": 0,
+  "note": "Initial unconfigured attempt lacked SDL include paths. Sourcing the already-restored isolated SDK resolved it; full build and final changed-source rebuild both succeeded. No package installation or system setting change."
+}

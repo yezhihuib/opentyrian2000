@@ -1,0 +1,66 @@
+{
+  "status": "FROZEN_GEOMETRY_APPROVED_RUNTIME_PENDING",
+  "root_contour_gate_reported_utc": "2026-10-14T10:51:20Z",
+  "role": 125,
+  "bank": 8,
+  "source_ids": [
+    225,
+    244,
+    226
+  ],
+  "slots": [
+    532,
+    533,
+    534
+  ],
+  "HDR1_keys": [
+    1250225,
+    1250244,
+    1250226
+  ],
+  "prefix": "protron-shadow",
+  "density": 8,
+  "logical_size": [
+    12,
+    14
+  ],
+  "pixel_size": [
+    96,
+    112
+  ],
+  "anchor": [
+    0,
+    0
+  ],
+  "format": "HDR1 28-byte header: ASCII HDR1, uint32LE(key,density,width,height,anchorX,anchorY), followed by 96×112 straight RGBA bytes in row-major order",
+  "coverage": "Only alpha is shadow geometric coverage; 255 interior, fractional vector-boundary AA, 0 outside. RGB is SVG-rendered white mask data, never head color. Blend this coverage with the existing full shadow operation.",
+  "scope": "Normal player TILE shadows 225/244/226 only; existing head resources remain unchanged. The renderer applies its normal/Christmas/source/resource guards. No runtime proof in this artwork package.",
+  "geometry": "225 circle at (6,7), radius2; 244 circle at (5.5,6.5), radius5.5; 226 independent four-cubic oblique oval centered at(5.5,6.5) with bbox(3,4,8,9). All original semantic width/height/centroid/canvas/anchor retained. Shadow origin remains original caller (x+1,y+shadowYDist).",
+  "support_policy": "Smooth contours are constrained by semantic bboxes, not old pixel masks. Original-support UNION display-support handling remains a compositor requirement. No original support bitmap or game pixel data is packaged.",
+  "pins": [
+    {
+      "id": 225,
+      "slot": 532,
+      "key": 1250225,
+      "svg_sha256": "b8fd99df2997f167f761654bd789fba36b42c6b3997799b8b987c7b91e5a79b9",
+      "png_sha256": "095bc4b0a82981b05f0cbdc70d21794127c555391265ecf811684facf55194a4",
+      "coverage_sha256": "f72bcdba22d3ddb87828513310be9f48c4d5182d52457bcd6df93bba80d88e99"
+    },
+    {
+      "id": 244,
+      "slot": 533,
+      "key": 1250244,
+      "svg_sha256": "ca35e870fad7d9865e5933e78afee58dc21d1e1265b80245c7fbbc1219ce293a",
+      "png_sha256": "7e427040655d5d3b0db472b5cb706b9e547361c754ad03069ada5c17f35f611b",
+      "coverage_sha256": "a478e2e9b1b791e68ad62434458c50d8839459a2d94dd0c2b3281ded46b45d10"
+    },
+    {
+      "id": 226,
+      "slot": 534,
+      "key": 1250226,
+      "svg_sha256": "42ffd10a46de416465b7a1dfaa513276f2b8972bbc3ff378c1938f77775fb72b",
+      "png_sha256": "dd9490b0beafd8908be19a8f85a234cc664b9f771d859e293cbaee9d76eed16e",
+      "coverage_sha256": "69cf86ea22d5d5af62df6b94e4ade750603955677ff556905ada9c2f8e167a1d"
+    }
+  ]
+}

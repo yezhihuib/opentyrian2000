@@ -16,7 +16,7 @@ import struct
 import subprocess
 
 HERE = Path(__file__).resolve().parent
-BASE = 'aa346cd3c7be7fd850c3f4af6eb3c866eb615c88'
+BASE = '043b9536edb819877bb9b6a08a0780fc6e07a16d'
 RENDERER_SHA = 'cc54f1096e118c4a8388e6a9c4e0db4347cfc713621e94fa4b5566c8ed7fe0df'
 IDS = [67, 70, 121, 122, 163, 164, 201, 202, 279, 280]
 CONTROLS = [58, 59, 225, 244, 226]
@@ -90,7 +90,7 @@ def source_scope(candidate, baseline):
     assert SHA(sources['src/render_mirror.c']) == RENDERER_SHA, 'Renderer is not the reviewed source'
     for name in UNCHANGED:
         assert extract(renderer, name) == extract(originals['src/render_mirror.c'].decode(), name), name
-    return sources, {'baseline_commit': BASE, 'production_files_checked': len(names),
+    return sources, {'baseline_tree': BASE, 'production_files_checked': len(names),
                      'changed_production_files': ['src/render_mirror.c'],
                      'renderer_sha256': RENDERER_SHA, 'unchanged_functions': UNCHANGED,
                      'production_sha256': {n: SHA(data) for n, data in sources.items()}}
@@ -171,7 +171,7 @@ def production_extracts(sources):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--candidate', type=Path, default=HERE.parent)
-    parser.add_argument('--baseline', type=Path, help='Git repository containing the pinned parent commit; defaults to candidate')
+    parser.add_argument('--baseline', type=Path, help='Git repository containing the pinned baseline tree; defaults to candidate')
     parser.add_argument('--normal-data', type=Path, required=True, help='Explicit external original tyrian.shp')
     parser.add_argument('--xmas-data', type=Path, required=True, help='Explicit external original tyrianc.shp')
     parser.add_argument('--out', type=Path, required=True, help='Fresh output directory outside repositories')
