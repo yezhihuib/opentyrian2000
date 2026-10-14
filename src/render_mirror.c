@@ -41,8 +41,8 @@ typedef struct {
 } Asset;
 enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121, ASSET_ENEMY_TANK_SHELL=122, ASSET_REAR534_BODY=123, ASSET_DATA513_BODY=124 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
-/* Slots 507..521 are reserved for the separately staged rear and Data families. */
-static Asset assets[524];
+/* Slots 507..509 are rear534; slots 510..521 are Data513. */
+static Asset assets[532];
 /* One draw-call lease from the original fixed explosion; never gameplay state. */
 static bool cash25_fixed_value;
 static bool cash75_fixed_value;
@@ -1468,6 +1468,11 @@ static Asset *get_asset(Sprite2_array bank,unsigned int index,int layout)
   static const unsigned int vulcan_ids[2]={67,70};
   for(int i=0;i<2;i++)if(index==vulcan_ids[i]){slot=522+i;role=8;break;}
  }
+ /* Normal front Multi: eight static player heads; Christmas art stays original. */
+ if(!xmas&&bank.data==spriteSheet8.data&&layout==ENTITY_TILE) {
+  static const unsigned int multi_ids[8]={121,122,163,164,201,202,279,280};
+  for(int i=0;i<8;i++)if(index==multi_ids[i]){slot=524+i;role=8;break;}
+ }
  /* Regular Missile Launcher: three static physical player heads. */
  if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&index>=31&&index<=33) {slot=333+(int)index-31;role=8;}
  /* Charge Cannon static heads only; original bank9 launcher bodies stay separate. */
@@ -1997,6 +2002,9 @@ bool render_mirror_entity(SDL_Surface *surface,int x,int y,Sprite2_array bank,un
  /* Resolve the frozen contour from this shadow call, before its own head. */
  if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&(index==67||index==70)&&style==MIRROR_SHADOW)
   return draw_vulcan_shadow(surface,x,y,bank,index);
+ /* Front Multi shadows retain their original indexed silhouettes and origin. */
+ if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&style==MIRROR_SHADOW&&
+    (index==121||index==122||index==163||index==164||index==201||index==202||index==279||index==280))return false;
  /* Protron shadows retain their original indexed silhouettes and origin. */
  if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&(index==225||index==244||index==226)&&style==MIRROR_SHADOW)return false;
  /* Regular Missile Launcher shadows retain their original indexed silhouettes and origin. */

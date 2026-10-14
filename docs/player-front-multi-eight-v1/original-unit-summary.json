@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "baseline": "7df8368acb90a73b170b1238b3161eefddb7a8e1",
+  "game_runs": 0,
+  "source_sha256": {
+    "src/shots.c": "ec0f326f407849037af1a0218a1bfed1f3f2a720301a053afd3a7d25c7391405",
+    "src/shots.h": "b6e009500719222b134f508e3db2bf3c365a9e1f54e576f8465f98ff6f364042",
+    "src/mainint.c": "0b39b8af90f981bce50762de98eb2458282ed3031780235a8ade405945dcddf8",
+    "src/episodes.c": "640219b48d3081ee996ce66a66f61ad2fe185339fcfaf395808e02fcee0b29e0",
+    "src/episodes.h": "e754c9f34372082084752cb2244c132b8ccad1a1e475d22366e5f1e1e2a59ef5",
+    "src/lvlmast.h": "f33fbe72ec273bf4c72cb2c49bd4dbc4336b6bc6802e1b53d32ac58667026ed0",
+    "src/varz.c": "d4502557903eea9fc082b83385fee3448564124040ff27faa1a4af16c8e394c7"
+  },
+  "contract_sha256": "dc4bbc3ad75913f7701eb7e9e21546c84c28f53941880599e606cb6b7689a23c",
+  "results": {
+    "optimized": {
+      "status": "PASS",
+      "tables": 3,
+      "powers": 11,
+      "two_volley_calls": 66,
+      "two_volley_members": 240,
+      "drift_cases": 84,
+      "cadence_ticks": 1320,
+      "insufficient_power_cases": 33,
+      "capacity_cases": 120,
+      "shadow_gate_cases": 480,
+      "screen_boundary_cases": 1080,
+      "reuse_calls": 42,
+      "direction_cases": 735,
+      "movement_calls": 5235,
+      "requests": 3046,
+      "emissions": 9523,
+      "game_runs": 0
+    },
+    "sanitized": {
+      "status": "PASS",
+      "tables": 3,
+      "powers": 11,
+      "two_volley_calls": 66,
+      "two_volley_members": 240,
+      "drift_cases": 84,
+      "cadence_ticks": 1320,
+      "insufficient_power_cases": 33,
+      "capacity_cases": 120,
+      "shadow_gate_cases": 480,
+      "screen_boundary_cases": 1080,
+      "reuse_calls": 42,
+      "direction_cases": 735,
+      "movement_calls": 5235,
+      "requests": 3046,
+      "emissions": 9523,
+      "game_runs": 0
+    }
+  },
+  "limitations": [
+    "Isolated exact production shot functions and ordinary cadence; fixtures supply caller-owned state and read-only observers. No engine execution or live-game acceptance.",
+    "Original data, decoded records and unit outputs remain outside Git.",
+    "Shared option/charge/directional routes are source/unit closure, not completion of those larger weapons.",
+    "LeakSanitizer disabled; AddressSanitizer and UndefinedBehaviorSanitizer enabled."
+  ],
+  "harness_sha256": {
+    "test-front-multi-original.py": "bf4b2676a07d70e6d72dd78bbd0defbfb2cde5c799efd92641a12fe5979d44c8",
+    "test-front-multi-original.c": "b3d0c64325cb1b60977ac7b4f9596064ad1f50c4194cd2fd9031fd58fd3f637e"
+  },
+  "record_spans_verified": 81
+}

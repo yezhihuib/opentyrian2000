@@ -1,0 +1,19 @@
+// Semantic geometry, not raster tracing. No original image, pixel array, mask, or private data input.
+// Each streak is described by a rounded luminous leading cap and a taper along its travel axis.
+// Source inspection established exact horizontal reflection pairs and a four-native-pixel twin offset.
+const fs=require('fs'),path=require('path');
+const P=__dirname;fs.mkdirSync(path.join(P,'sources'),{recursive:true});
+// Single continuous elliptical heat field clipped only by the unchanged silhouette.
+// No inner contour or hard outline; all edge feathering is ordinary SVG antialiasing.
+const gradients=(axis,fan=false)=>{
+ const spec=fan?{cx:3.1,cy:3.5,dx:.60,dy:.80,L:10.1,W:3.35}:axis[0]===9?{cx:1.5,cy:1.65,dx:.70710678,dy:.70710678,L:8.4,W:1.78}:{cx:1.65,cy:1.9,dx:.4061385,dy:.9138115,L:6.8,W:1.72};
+ const {cx,cy,dx,dy,L,W}=spec;
+ return `<defs><radialGradient id="streak" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(${L*dx} ${L*dy} ${-W*dy} ${W*dx} ${cx} ${cy})"><stop offset="0" stop-color="#fffaa1"/><stop offset=".19" stop-color="#fff06b"/><stop offset=".38" stop-color="#ffd338"/><stop offset=".57" stop-color="#ff9e1c"/><stop offset=".75" stop-color="#ff680a"/><stop offset=".91" stop-color="#ef3904"/><stop offset="1" stop-color="#cd2102"/></radialGradient></defs>`;
+};
+const fans=`<path d="M3.15 0 C1.32 0 0 1.93 0 4.15 C0 6.18 1.19 7.97 3.35 9.43 C5.82 11.09 8.78 12.69 12 14 C11.44 11.81 9.79 9.37 8.96 7.53 C7.75 4.84 7.25 2.23 5.42 .83 C4.73 .3 3.95 0 3.15 0Z" fill="url(#streak)"/>`;
+const diagonal=`<path d="M1.4 0 C.48 0 0 .7 0 1.65 C0 3.32 1.31 4.64 3.06 6.05 C5.24 7.82 8.26 9.89 10.67 11 Q10.89 11 11 11 C9.85 8.25 7.65 5.72 5.55 3.48 C4.09 1.92 3.41 .02 1.4 0Z" fill="url(#streak)"/>`;
+const slender=`<path d="M1.62 0 C.67 0 0 .81 0 1.91 C0 3.4 .76 4.57 1.44 5.74 C2.59 7.73 4.17 10.02 5.63 11 L6 11 C5.6 8.39 4.8 5.95 4.23 3.97 C3.8 2.51 3.99 1.14 3.02 .33 C2.6 .03 2.1 0 1.62 0Z" fill="url(#streak)"/>`;
+const specs=[{id:121,kind:'fan',content:fans,axis:[10,13],fan:true,box:[0,0,12,14]},{id:122,kind:'fan',content:fans,axis:[10,13],fan:true,mirror:true,box:[0,0,12,14]}, {id:163,kind:'diagonal',content:diagonal,axis:[9,9],box:[0,0,11,11]},{id:164,kind:'diagonal',content:diagonal,axis:[9,9],mirror:true,box:[1,0,12,11]}, {id:201,kind:'slender',content:slender,axis:[5,9],box:[0,0,6,11]},{id:202,kind:'slender',content:slender,axis:[5,9],mirror:true,box:[6,0,12,11]}, {id:279,kind:'twin',content:slender+`<g transform="translate(4 0)">${slender}</g>`,axis:[5,9],box:[0,0,10,11]},{id:280,kind:'twin',content:slender+`<g transform="translate(4 0)">${slender}</g>`,axis:[5,9],mirror:true,box:[2,0,12,11]}];
+for(const s of specs){const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="96" height="112" viewBox="0 0 12 14">\n<!-- PILOT v3. Player role only. Normal bank8:${s.id}. ${s.kind} luminous projectile streak. Anchor 0,0. No glow, blur, raster mask, casing, or temporal trail. -->\n${gradients(s.axis,s.fan)}\n${s.mirror?'<g transform="translate(12 0) scale(-1 1)">':''}\n${s.content}\n${s.mirror?'</g>':''}\n</svg>\n`;fs.writeFileSync(path.join(P,'sources',`multi-${s.id}.svg`),svg);}
+fs.writeFileSync(path.join(P,'semantic-contract.json'),JSON.stringify({status:'pilot-not-frozen',role:'normal player bank8 TILE',logical_size:[12,14],anchor:[0,0],density:8,authoring:'Unchanged v2 cubic Bezier silhouette; single smooth elliptical yellow-orange-red heat field, no outlined or nested inner contours.',no_raster_geometry_inputs:true,source_reflection_verified:true,normal_only_family_guard_required:true,christmas_differing:[163,164,201,202,279,280],immutable_existing_ids:[58,59],not_in_scope:['enemy-only art163/164','shadows','bindings','runtime','shop preview','animation','publication'],specs:specs.map(({content,axis,fan,...s})=>s)},null,2)+'\n');
+console.log('Wrote eight independent standalone semantic SVG candidates.');

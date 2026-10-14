@@ -1,0 +1,151 @@
+{
+  "schema": "player-front-multi-eight-author-review-v1",
+  "status": "PASS_BOUNDED_ACTUAL_NATIVE2X_AUTHOR_REVIEW",
+  "reviewed_at_utc": "2026-10-14T09:48:00Z",
+  "art_inventory_sha256": "b14abd722c64358ab3d465ad213d64eb6c9ab39a57cefc4c907ddbd0818f1084",
+  "art_version": "Frozen v3, unchanged since approved offline gate",
+  "direct_review": {
+    "actual_images_directly_viewed": 48,
+    "candidate_images": 24,
+    "matching_baseline_images": 24,
+    "powers": [
+      2,
+      4,
+      7,
+      11
+    ],
+    "capture_ticks_inclusive": [
+      38,
+      43
+    ],
+    "native_dimensions": [
+      640,
+      400
+    ],
+    "native_display_scale": 2,
+    "retained_original_bmp_viewed": true,
+    "resizing_cropping_resampling_or_art_modification": false,
+    "new_captures_or_game_runs_by_author_reviewer": 0,
+    "backgrounds": [
+      "Bright clouds and cloud edges",
+      "Brown rocky terrain"
+    ],
+    "observations": [
+      "P2: slender201/202 retain opposite oblique orientations and registered placement; continuous bright yellow-to-red streaks stay readable over cloud and terrain.",
+      "P4: diagonal163/164 retain their broader diagonal form and original outward path; unchanged59 remains visually distinct in the same volley.",
+      "P7: fan121/122 remain visibly broader than the slender family, preserve left/right orientation and clear warm luminous appearance; unchanged58 stays registered between them.",
+      "P11: twin279/280 retain two distinct luminous cores and a readable central dark gap, including on bright cloud and alongside fan121/122 and unchanged59.",
+      "Across each ordered six-frame sequence, no visible new head-form/color flicker, gray casing, hard inner contour, orb halo, detached exhaust or added animation is apparent.",
+      "Original coarse gray indexed shadows remain visible, especially on bright clouds. They are intentionally preserved source shadows, not a new trail or new casing.",
+      "Some left-going heads are partially clipped or absent at the playfield edge in the original source and baseline. That same boundary behavior is retained; the six-frame evidence covers every required member across its window, not every member fully in every frame."
+    ]
+  },
+  "partial_source_crop": {
+    "p4_163_nonqualifying_ticks": [
+      41,
+      42
+    ],
+    "p7_121_nonqualifying_ticks": [
+      38,
+      42,
+      43
+    ],
+    "p11_121_nonqualifying_ticks": [
+      38,
+      42,
+      43
+    ],
+    "meaning": "Actual majority-support witnesses come from the other listed ticks. Partially cropped edge tails are not treated as full-head evidence."
+  },
+  "limits": [
+    "Four diagnostic starting loadouts with original input replay and original spawn protection only; not shop acquisition or upgrade acceptance.",
+    "Actual native2x only; no actual native4x, Windows, GPU, manual or performance verdict.",
+    "Six ordered frames per power; no long-tail motion, general flicker, unprotected survival or unseen collision coverage claim.",
+    "No live Christmas, linked, charge, option, other episode or every-power acceptance is implied.",
+    "This visual review does not substitute for the independent state, visibility, source, alpha-composition or runtime verifier.",
+    "Partial source-boundary cropping and unchanged coarse indexed shadows remain visible limitations."
+  ],
+  "frozen_art_checks": {
+    "all_eight_candidate_pack_hda_match_frozen_hashes": true,
+    "all_eight_frozen_png_and_hda_hashes_unchanged": true,
+    "unchanged_prior_heads": [
+      {
+        "id": 58,
+        "hda_sha256": "571feee3e3a572c6178fad80ca8fe3ca12e2cde21438464fa916b68cab1b43b0",
+        "baseline_candidate_byte_exact": true
+      },
+      {
+        "id": 59,
+        "hda_sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
+        "baseline_candidate_byte_exact": true
+      }
+    ]
+  },
+  "full_private_author_receipt_sha256": "8b178cb4923db253e7922a9d691b3b919e3f4bf1a2f2b7b5b6bc11d49287ccf7",
+  "native_capture_sha256": {
+    "candidate-p2-2x": {
+      "38": "3ef386c54adfbdc6b41973e06eece81e1a5dcf73ba53e07ab04f03a03843f2fc",
+      "39": "7569186912383a72a8bd81f59df7572024b6090a634a39c68a74010da36b2ae1",
+      "40": "6552bd97cd51e2bb3222d5a2b14034bba8f6d949d068157e0dd3cf0084878827",
+      "41": "1b6eb1803d9c292ea8b8f48f8cf16ae61bd9e12dab3329a6431a2557bf14cc2f",
+      "42": "b5eb3f9b1e5e9e64b92a14e4466c3a055bd472987bb97f9ad13ec48a40a9ff41",
+      "43": "1e184a8bef90b460a394d530c072d27ba1f63f4d9d81bb3f7ea7b548e6fd491d"
+    },
+    "baseline-p2-2x": {
+      "38": "0d0b5d57d26f7c1866ffff7ff744477b7504489b264c3bc4427644aa9fdb72ff",
+      "39": "4bf92a897cf20a311a1d367ec418f620cfb811f3c21b9afe9a4e0e81621b4275",
+      "40": "3669bd4d53e2708a49ae084a8c1c95aecbe6770242c8ef0a9f521932ee6f1011",
+      "41": "705aba8ba56ab9653d4e96323f4eadce9f5ca1f218e7a878b96e621b3b0d39e0",
+      "42": "1450086d799f3f3653eeed543589e42c33e61f85e2b0614de4a565b92266c4be",
+      "43": "e67eac31ed8f51f8afbdc2b654c77750380a08bd6ce63ece13560c586834d6f9"
+    },
+    "candidate-p4-2x": {
+      "38": "0d8ae5411a64f1a2b466bad5134398a220386127b68f1f08a74397c20da5b050",
+      "39": "f56779962be958970ab7d0f47b48a6698616caea85d6d6b7221c7779ef09ec4c",
+      "40": "95ad0826c27bf605b090ca52320f27f25905e6a376fc1664aecbbc9c71659f4f",
+      "41": "a47275ffdf617f682d815f23f83c5712bc8de2efd9e32431febf984e1c36092e",
+      "42": "e0980101c5eade07b735f54370e96259f3478d9023f39f3ef790ca76ff5f7546",
+      "43": "d182b79a581bcd8826cfaa59d6f0fb7383e49feb19d893b16f2c415a8271fc9a"
+    },
+    "baseline-p4-2x": {
+      "38": "a5b96f989282f7a693c5237b22d386d0464ea44c4fe4f4ce2e85a8ea645e7793",
+      "39": "87ca34c396c4cf81891dd35177f2ed68f4aa63517e2963d78c1472ead6c47929",
+      "40": "9979411c71f1faa561d49e4d4cec96ecb036a30be76eb6062c0605a25758501c",
+      "41": "1a02b51904f17854fa33c6ef57907c2b81cf3c086944b7379e94281e7e5dc248",
+      "42": "59936721e5d1ecc027222bd914ad4b25a4e1565778bb6c54b7473561e9925e75",
+      "43": "fd1a31ce9d6285dc9db045b9264e39a1f1e3b49f34334a61ca85366e4320702e"
+    },
+    "candidate-p7-2x": {
+      "38": "8bb5a6f5e9fe759704401b03c794c56eff0d978b53d7d4cdac162a73652f494a",
+      "39": "a04d8bd06fb51c5511d9c68947fb74376532e5075b4cb7b8d12dec8c0b9700f1",
+      "40": "883b21080dd79699b1263092741fe7982686b2517bf3a1d739c1fdf7a871b607",
+      "41": "f54ae4accef38c290ca2f71dcd6a2beadd70aa635592d867eb84f536ccf83826",
+      "42": "343415a065254906d04d104f2986899694f78cb2ca47de33753b4e77686bb7a8",
+      "43": "538b1706e146cd7b93ab7602e9b768215621b0985487f3caecdb81de1ddf1067"
+    },
+    "baseline-p7-2x": {
+      "38": "137f1b399535f94c3b32afdc35519d599f0b63a6d2435d7ac4c8670131cc1411",
+      "39": "a16e2ece14dbb25784cdb30f5ba4a08bd9339c76fdb3bd981ad80f985212b97b",
+      "40": "e29e3f094890b219a1b4a3388d7b33cce7464f6aa37e824f9c50c965490320a4",
+      "41": "287bf41b87116653806d800672a2eb18bac1eb6b98afd5c255f5a9a01c3fe87f",
+      "42": "2aab08115ae6b564f4b6805f0467ff908dd5eb324faeea987554a32a7508e077",
+      "43": "6c210bb12fd2d45a0ffafe867a14f4cddbcbd008ce33849ac152b1ac5a04a8a2"
+    },
+    "candidate-p11-2x": {
+      "38": "7bfc0a2f8db20dac1609c2a6fe4a48314f69ac948cbdf6c569bd9cd183f5dc16",
+      "39": "896d25bae0f4364cf0aa54b335ec5c5db02f1c688286f1f3f8d58b2cd1eefb9c",
+      "40": "38c79b7829930bd27242c4c5caff82f78a8e3cad59f3b4c4825570d41a292d88",
+      "41": "7dd53f61f4dcae7bff4239014a3a8da5923c52df9e88159250211bbb6960d354",
+      "42": "51bad4149cb46f746fbe18a512d5357d6f46566772e5d591a7bf62abfc98d6ab",
+      "43": "42d3081df30f19b77a1a077223f7c72291e894f9e26144e219e9a94c37237ee2"
+    },
+    "baseline-p11-2x": {
+      "38": "684d38645b27f78d09fdc6945435ed26e316ae0f1d2d2191ddf4da2dea8e04c9",
+      "39": "ed8cf6fa6120d23da3767a703a81a3e6dadae306b5165d1bf6f576084ed936d3",
+      "40": "41af1ac9dc7598ef98244d092d7906379ffbe746801528de739136ab86b3d577",
+      "41": "deef7549514882f1142df161debfe69e74da9678dfb338b45965925c68f4f3f5",
+      "42": "b039b6e19725dc29eb84c9c1e3e58e391e2c1bc386613453ecbbf971058d94e7",
+      "43": "922148f3efa50ae879c53d0e0e04b79b4345f75f7527aca03ce887901d88fa1f"
+    }
+  }
+}

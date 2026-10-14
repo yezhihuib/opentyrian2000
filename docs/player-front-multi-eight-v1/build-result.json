@@ -1,0 +1,15 @@
+{
+  "status": "PASS_BUILD_ONLY",
+  "game_runs": 0,
+  "command": "make -j2 WITH_NETWORK=false (SDL2 available through pkg-config)",
+  "binary_sha256": "c3ed8d1850137a9dad35ef35dab033cc94dbdd667ed3b66706a8cd74a2875b35",
+  "binary_bytes": 963288,
+  "warnings": [
+    "src/asset_debug.c:161:2: warning: this \u2018if\u2019 clause does not guard... [-Wmisleading-indentation]",
+    "src/game_probe_fields.inc:12:3: warning: this \u2018if\u2019 clause does not guard... [-Wmisleading-indentation]",
+    "src/game_probe_fields.inc:13:3: warning: this \u2018if\u2019 clause does not guard... [-Wmisleading-indentation]",
+    "src/game_probe_fields.inc:14:3: warning: this \u2018if\u2019 clause does not guard... [-Wmisleading-indentation]",
+    "src/render_mirror.c:3043:2: warning: this \u2018if\u2019 clause does not guard... [-Wmisleading-indentation]"
+  ],
+  "render_mirror_sha256": "534065b887bf37c3792bbe16db28cd49211c05b9d5791ab21ef49a5815387796"
+}

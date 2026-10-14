@@ -62,6 +62,15 @@ It builds on OpenTyrian2000 and OpenTyrian; the upstream README is preserved bel
   installed together; simultaneous multi-family exposure, full-level and Windows
   acceptance remain untested. See [combined scope and receipts](docs/qualified-family-coexistence-v1/README.md).
 
+- Normal front Multi (port 2) adds eight authored player heads. Bounded P2/P4/P7/P11
+  native 2× baseline/candidate checks pass numerical and author review: eight
+  90-tick runs, 48 native frames and 48 INDEX8 frames. All eight new IDs have visible
+  witnesses across the fixed
+  capture windows; some individual frames are cropped. Original coarse shadows,
+  existing 58/59 and enemy roles remain unchanged. All-power, Christmas and finite
+  shared-use coverage are separate source/unit checks. See
+  [scope and receipts](docs/player-front-multi-eight-v1/README.md).
+
 ## Build and try
 
 Original Tyrian 2000 data is required separately and is not included here.

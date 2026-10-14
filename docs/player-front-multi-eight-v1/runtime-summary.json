@@ -1,0 +1,420 @@
+{
+  "status": "PASS_BOUNDED_NUMERICAL_AND_AUTHOR_REVIEW",
+  "scope": "Normal front Multi port 2, powers 2/4/7/11, bounded Linux SDL dummy/software native 2x.",
+  "baseline_commit": "7df8368acb90a73b170b1238b3161eefddb7a8e1",
+  "production_renderer_sha256": "534065b887bf37c3792bbe16db28cd49211c05b9d5791ab21ef49a5815387796",
+  "frozen_art_inventory_sha256": "b14abd722c64358ab3d465ad213d64eb6c9ab39a57cefc4c907ddbd0818f1084",
+  "source_unit_receipts_sha256": {
+    "source-scope.json": "991428c261f609cdaf46ed0e29fab1a17be177b5db0f5fcc5521465014bd51bc",
+    "build-result.json": "d2e3fd2da6cb14700d50ddc4b03e5e0319b190809b06484f177e3775d4640557",
+    "original-unit-summary.json": "54b9fcf1a076a372728817a8d2ec688d7b6683e58bb9c55a592e34da237709f1",
+    "renderer-unit-summary.json": "a16c4004f488a295c4809219f1ad0ee6153893995c22bbe3446881183ecc89a4"
+  },
+  "attempts": 8,
+  "passed_attempts": 8,
+  "retries": 0,
+  "ticks_per_attempt": 90,
+  "total_ticks": 720,
+  "capture_ticks": [
+    38,
+    39,
+    40,
+    41,
+    42,
+    43
+  ],
+  "native_images": {
+    "count": 48,
+    "size": [
+      640,
+      400
+    ],
+    "format": "BMP",
+    "origin": "Actual unchanged SDL_RenderReadPixels output"
+  },
+  "indexed_images": {
+    "count": 48,
+    "size": [
+      320,
+      200
+    ],
+    "format": "palette-correct INDEX8 BMP"
+  },
+  "new_player_ids": [
+    121,
+    122,
+    163,
+    164,
+    201,
+    202,
+    279,
+    280
+  ],
+  "original_coarse_shadows": "Unchanged indexed contours and ordering; no new shadow art.",
+  "diagnostic_setup": {
+    "episode": 1,
+    "physical_level": 9,
+    "mode": "Normal story",
+    "seed": "0x5eed",
+    "front_port": 2,
+    "rear_port": 0,
+    "sidekicks": 0,
+    "setup": "One-time loadout followed by input-only original replay keys; no natural acquisition claim.",
+    "original_protection_range": [
+      100,
+      10
+    ],
+    "power_refill": false,
+    "extra_protection": false,
+    "collision_exclusion": false
+  },
+  "pairs": [
+    {
+      "power": 2,
+      "status": "PASS",
+      "cases": [
+        "baseline-p2-2x",
+        "candidate-p2-2x"
+      ],
+      "result_sha256": {
+        "baseline-p2-2x": "d1408aaa462c8a555b2aa64078ebc29b8c284b5b3aef7a54fdbc2472e3461874",
+        "candidate-p2-2x": "e1096ec3fe11a944f5fb039dfb7dfcd0d340be68d42e754fef3f6e1bc1079b51"
+      },
+      "original_state_sha256": "c39856d602b9dcba1c11b78e6bec384c7e7d25568f616ce594a7430c2f529885",
+      "all_member_ids": [
+        201,
+        202
+      ],
+      "requests_per_run": 22,
+      "complete_volleys_per_run": 19,
+      "emitted_members_per_run": 38,
+      "power_failure_ticks": [
+        1,
+        26,
+        27
+      ],
+      "new_head_draws_per_run": 622,
+      "new_head_indexed_shadows_per_run": 594,
+      "candidate_per_id_witness_ticks": {
+        "201": [
+          38,
+          39,
+          40,
+          41,
+          42,
+          43
+        ],
+        "202": [
+          38,
+          39,
+          40,
+          41,
+          42,
+          43
+        ]
+      },
+      "complete_visible_volley_ticks": [
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
+      "candidate_native_changed_pixels": {
+        "38": 1183,
+        "39": 1184,
+        "40": 1128,
+        "41": 1184,
+        "42": 1183,
+        "43": 1184
+      },
+      "new_id_qualifying_member_draws": {
+        "201": 24,
+        "202": 24
+      }
+    },
+    {
+      "power": 4,
+      "status": "PASS",
+      "cases": [
+        "baseline-p4-2x",
+        "candidate-p4-2x"
+      ],
+      "result_sha256": {
+        "baseline-p4-2x": "ee3f2f5a3c46e7e4f921602ec8081368bfc9ab8b4c9cd90b9ffec5e620b5e946",
+        "candidate-p4-2x": "5e7328378a027d82bcda2546617f4f4be415e21f375fdec9f711cac9286a6bc6"
+      },
+      "original_state_sha256": "3060da43f10815aa54dcd5f7bb16ca48b9f80f88e2b7046dfc77eea4e7aef29b",
+      "all_member_ids": [
+        59,
+        163,
+        164
+      ],
+      "requests_per_run": 17,
+      "complete_volleys_per_run": 16,
+      "emitted_members_per_run": 48,
+      "power_failure_ticks": [
+        1
+      ],
+      "new_head_draws_per_run": 585,
+      "new_head_indexed_shadows_per_run": 574,
+      "candidate_per_id_witness_ticks": {
+        "59": [
+          38,
+          39,
+          40,
+          41,
+          42,
+          43
+        ],
+        "163": [
+          38,
+          39,
+          40,
+          43
+        ],
+        "164": [
+          38,
+          39,
+          40,
+          41,
+          42,
+          43
+        ]
+      },
+      "complete_visible_volley_ticks": [
+        38,
+        39,
+        40,
+        43
+      ],
+      "candidate_native_changed_pixels": {
+        "38": 1204,
+        "39": 1140,
+        "40": 1108,
+        "41": 819,
+        "42": 760,
+        "43": 1140
+      },
+      "new_id_qualifying_member_draws": {
+        "163": 4,
+        "164": 28
+      }
+    },
+    {
+      "power": 7,
+      "status": "PASS",
+      "cases": [
+        "baseline-p7-2x",
+        "candidate-p7-2x"
+      ],
+      "result_sha256": {
+        "baseline-p7-2x": "c08fdc2e4cea1f17450c1b44bd109c347b1fbee74f50cb5e2dbaa2dd17715aae",
+        "candidate-p7-2x": "dbee8bb300c7f7ace4b3ee92aa98d1dddceacc6cf3069876e2a949dfa7f60203"
+      },
+      "original_state_sha256": "1e9d4bff32d3957f4c2ec6e27f201f9dac5876061e22a3dfd1de54bf1025e4f9",
+      "all_member_ids": [
+        58,
+        121,
+        122
+      ],
+      "requests_per_run": 14,
+      "complete_volleys_per_run": 13,
+      "emitted_members_per_run": 39,
+      "power_failure_ticks": [
+        1
+      ],
+      "new_head_draws_per_run": 477,
+      "new_head_indexed_shadows_per_run": 468,
+      "candidate_per_id_witness_ticks": {
+        "58": [
+          38,
+          39,
+          40,
+          41,
+          42,
+          43
+        ],
+        "121": [
+          39,
+          40,
+          41
+        ],
+        "122": [
+          38,
+          39,
+          40,
+          41,
+          42,
+          43
+        ]
+      },
+      "complete_visible_volley_ticks": [
+        39,
+        40,
+        41
+      ],
+      "candidate_native_changed_pixels": {
+        "38": 1456,
+        "39": 1914,
+        "40": 1914,
+        "41": 1914,
+        "42": 1706,
+        "43": 1513
+      },
+      "new_id_qualifying_member_draws": {
+        "121": 3,
+        "122": 23
+      }
+    },
+    {
+      "power": 11,
+      "status": "PASS",
+      "cases": [
+        "baseline-p11-2x",
+        "candidate-p11-2x"
+      ],
+      "result_sha256": {
+        "baseline-p11-2x": "a0771ae3edc831ae1bdd4a2a1cf94525d8ef74711b3bee72c2df6731f987bcc4",
+        "candidate-p11-2x": "86340755cefc8bcb8dd0a64d21b6bb688a1d84adc7c13b0d9b7229a66242f800"
+      },
+      "original_state_sha256": "5c58427b12d14e5a3519d8ba05673af8354602c934cb954c05e7526e36fce846",
+      "all_member_ids": [
+        59,
+        121,
+        122,
+        279,
+        280
+      ],
+      "requests_per_run": 14,
+      "complete_volleys_per_run": 13,
+      "emitted_members_per_run": 65,
+      "power_failure_ticks": [
+        1
+      ],
+      "new_head_draws_per_run": 923,
+      "new_head_indexed_shadows_per_run": 894,
+      "candidate_per_id_witness_ticks": {
+        "59": [
+          38,
+          39,
+          40,
+          41,
+          42,
+          43
+        ],
+        "121": [
+          39,
+          40,
+          41
+        ],
+        "122": [
+          38,
+          39,
+          40,
+          41,
+          42,
+          43
+        ],
+        "279": [
+          38,
+          39,
+          40,
+          41,
+          42,
+          43
+        ],
+        "280": [
+          38,
+          39,
+          40,
+          41,
+          42,
+          43
+        ]
+      },
+      "complete_visible_volley_ticks": [
+        39,
+        40,
+        41
+      ],
+      "candidate_native_changed_pixels": {
+        "38": 3096,
+        "39": 3560,
+        "40": 3666,
+        "41": 3666,
+        "42": 3406,
+        "43": 3141
+      },
+      "new_id_qualifying_member_draws": {
+        "121": 3,
+        "122": 23,
+        "279": 18,
+        "280": 17
+      }
+    }
+  ],
+  "checks": {
+    "original_90_tick_state_rng_and_compared_traces_equal": true,
+    "captured_index8_exact": true,
+    "normalized_original_blend_equal": true,
+    "non_target_draw_decisions_equal": true,
+    "native_rgb_changes_nonempty_only_in_eligible_new_head_rectangles": true,
+    "new_shadow_calls_unmirrored_and_original_order": true,
+    "original_shadow_contour_pixels_equal_outside_new_head_overlap": true,
+    "existing_58_59_pixels_equal_outside_new_head_overlap": true,
+    "all_eight_new_ids_have_actual_window_witnesses": true,
+    "at_least_one_visible_complete_single_call_volley_per_window": true,
+    "static_del255_velocity_independent_of_mouse_delta": true,
+    "cost_40_once_per_complete_volley": true,
+    "collision_events_observed": 0,
+    "hit_events_observed": 0
+  },
+  "visibility_contract": {
+    "scope": "Per-ID witnesses across fixed six-frame window, plus one qualifying member every frame.",
+    "original_support": "More than half of original nonzero mask samples.",
+    "authored_native_support": "More than half of frozen direct-8-to-2 core samples with source alpha >= 240; source-alpha RGB bounds and actual paired change required; opaque RGB exact.",
+    "fractional_composition": "Fully covered by separate renderer units; not inferred from paired runtime images.",
+    "prelaunch_correction": "An omitted 24-pixel viewport crop invalidated the earlier every-frame full-set projection. The per-ID six-frame window criterion was clarified before launch without changing inputs, ticks, physics or support thresholds.",
+    "partial_frames": [
+      "P4/163 does not qualify at tick 41 and is absent at 42.",
+      "P7 and P11/121 do not qualify at ticks 38 or 42 and are absent at 43."
+    ]
+  },
+  "unit_only_scope": [
+    "All 11 front powers in all three tables.",
+    "Normal/Christmas cold and warm cache, both default packs, role isolation and independent missing/invalid/8-to-4-to-indexed fallback.",
+    "Finite rear 10 mode 2/P4, Hyper Pulse 27/P9-11, NortShip Spreader 37/P1-7, options 20/22, charge 461 and linkMultiGr/linkMult2Gr reuse."
+  ],
+  "limitations": [
+    "No native 4x actual-game run.",
+    "No Christmas, every-power, other-episode, option, charge, linked or rear-family actual-game acceptance.",
+    "No natural purchase/acquisition, manual input, full-level, unprotected survival or collision coverage.",
+    "No Windows, physical GPU/fullscreen, performance or whole-arsenal acceptance.",
+    "Original data, decoded reference arrays, screenshots and runtime logs excluded from public files."
+  ],
+  "independent_review": {
+    "status": "PASS",
+    "full_private_review_sha256": "3667a26e55e41a5cc5b80d8c06ec0699f627f2d0749cdc6d27b2e454c3198a85",
+    "detailed_audit_sha256": "a347cc47c013d3029820357fd6004aabb4d3595d3550ed3c1d8294984eb26d5d",
+    "frozen_input_files_rechecked": 2032,
+    "pairwise_indexed_byte_equal_captures": 24,
+    "native_pixel_pairs_compared": 6144000,
+    "native_changed_pixels": 44169,
+    "native_changed_pixels_outside_target_head_rectangles": 0,
+    "original_shadow_native_pixel_comparisons": 41148,
+    "original_shadow_native_pixel_differences": 0,
+    "requests": 134,
+    "successful_volleys": 122,
+    "ordered_member_emissions": 380,
+    "draws_bound_to_strictly_earlier_emission": 12890,
+    "reviewer_engine_launches": 0
+  },
+  "author_review": {
+    "status": "PASS_BOUNDED_ACTUAL_NATIVE2X_AUTHOR_REVIEW",
+    "summary": "author-review-summary.json",
+    "summary_sha256": "78f528fc2593e6c016eda3710b1092141e9926fbf27ae18ac95ee9f9375501cf",
+    "full_private_receipt_sha256": "8b178cb4923db253e7922a9d691b3b919e3f4bf1a2f2b7b5b6bc11d49287ccf7"
+  }
+}
