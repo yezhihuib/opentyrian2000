@@ -1,0 +1,233 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "scope": "Pinned extracted-production units; no engine or visual acceptance is claimed by this receipt.",
+  "baseline_commit": "aa346cd3c7be7fd850c3f4af6eb3c866eb615c88",
+  "renderer_sha256": "cc54f1096e118c4a8388e6a9c4e0db4347cfc713621e94fa4b5566c8ed7fe0df",
+  "shadow_ids": [
+    67,
+    70,
+    121,
+    122,
+    163,
+    164,
+    201,
+    202,
+    279,
+    280
+  ],
+  "new_ids": [
+    121,
+    122,
+    163,
+    164,
+    201,
+    202,
+    279,
+    280
+  ],
+  "game_runs_by_unit_suites": 0,
+  "captures_by_unit_suites": 0,
+  "full_pack_copies": 0,
+  "sanitizers": [
+    "ASan",
+    "UBSan"
+  ],
+  "leak_sanitizer": false,
+  "harness_sha256": {
+    "prototype/test-front-multi-shadow-present.c": "f3f23a9d21793c432706b5b6ee5093e60fbb2e2f2bc13938a9c3198359d0353e",
+    "prototype/test-front-multi-shadow.c": "a093981081b0cbca61194c7b8837368960442d40473a4acfed7a15bed537cc28",
+    "prototype/test-front-multi-shadow.py": "f18f9c75385fac29ba8e0e7b4ee7985465b4d25f7a5047d72a34c87b988e324c"
+  },
+  "runs": {
+    "primary": {
+      "optimized": {
+        "preview": {
+          "status": "PASS",
+          "old_block_clear_samples": 7870,
+          "coverage_expansion_samples": 5178,
+          "control_cases": 18,
+          "transactions": 29418,
+          "accepted": 25632,
+          "fallback": 3786,
+          "guard_cases": 864,
+          "ordering_cases": 420,
+          "lifecycle_cases": 1102,
+          "local_restore_cases": 20,
+          "present_cases": 12,
+          "pixel_comparisons": 472891392,
+          "full_frame_checks": 35,
+          "exact_alpha_cases": 524288
+        },
+        "debug": {
+          "status": "PASS",
+          "old_block_clear_samples": 7870,
+          "coverage_expansion_samples": 5178,
+          "control_cases": 18,
+          "transactions": 29418,
+          "accepted": 25632,
+          "fallback": 3786,
+          "guard_cases": 864,
+          "ordering_cases": 420,
+          "lifecycle_cases": 1102,
+          "local_restore_cases": 20,
+          "present_cases": 12,
+          "pixel_comparisons": 472891392,
+          "full_frame_checks": 35,
+          "exact_alpha_cases": 524288
+        }
+      },
+      "sanitized": {
+        "preview": {
+          "status": "PASS",
+          "old_block_clear_samples": 7870,
+          "coverage_expansion_samples": 5178,
+          "control_cases": 18,
+          "transactions": 29418,
+          "accepted": 25632,
+          "fallback": 3786,
+          "guard_cases": 864,
+          "ordering_cases": 420,
+          "lifecycle_cases": 1102,
+          "local_restore_cases": 20,
+          "present_cases": 12,
+          "pixel_comparisons": 472891392,
+          "full_frame_checks": 35,
+          "exact_alpha_cases": 524288
+        },
+        "debug": {
+          "status": "PASS",
+          "old_block_clear_samples": 7870,
+          "coverage_expansion_samples": 5178,
+          "control_cases": 18,
+          "transactions": 29418,
+          "accepted": 25632,
+          "fallback": 3786,
+          "guard_cases": 864,
+          "ordering_cases": 420,
+          "lifecycle_cases": 1102,
+          "local_restore_cases": 20,
+          "present_cases": 12,
+          "pixel_comparisons": 472891392,
+          "full_frame_checks": 35,
+          "exact_alpha_cases": 524288
+        }
+      }
+    },
+    "presentation_and_role_controls": {
+      "optimized": {
+        "preview": {
+          "status": "PASS",
+          "old_block_clear_samples": 7870,
+          "coverage_expansion_samples": 5178,
+          "control_cases": 22,
+          "transactions": 124,
+          "accepted": 112,
+          "fallback": 12,
+          "guard_cases": 0,
+          "ordering_cases": 0,
+          "lifecycle_cases": 20,
+          "local_restore_cases": 0,
+          "present_cases": 120,
+          "pixel_comparisons": 2708480,
+          "full_frame_checks": 84,
+          "exact_alpha_cases": 0
+        },
+        "debug": {
+          "status": "PASS",
+          "old_block_clear_samples": 7870,
+          "coverage_expansion_samples": 5178,
+          "control_cases": 22,
+          "transactions": 124,
+          "accepted": 112,
+          "fallback": 12,
+          "guard_cases": 0,
+          "ordering_cases": 0,
+          "lifecycle_cases": 20,
+          "local_restore_cases": 0,
+          "present_cases": 120,
+          "pixel_comparisons": 2708480,
+          "full_frame_checks": 84,
+          "exact_alpha_cases": 0
+        }
+      },
+      "sanitized": {
+        "preview": {
+          "status": "PASS",
+          "old_block_clear_samples": 7870,
+          "coverage_expansion_samples": 5178,
+          "control_cases": 22,
+          "transactions": 124,
+          "accepted": 112,
+          "fallback": 12,
+          "guard_cases": 0,
+          "ordering_cases": 0,
+          "lifecycle_cases": 20,
+          "local_restore_cases": 0,
+          "present_cases": 120,
+          "pixel_comparisons": 2708480,
+          "full_frame_checks": 84,
+          "exact_alpha_cases": 0
+        },
+        "debug": {
+          "status": "PASS",
+          "old_block_clear_samples": 7870,
+          "coverage_expansion_samples": 5178,
+          "control_cases": 22,
+          "transactions": 124,
+          "accepted": 112,
+          "fallback": 12,
+          "guard_cases": 0,
+          "ordering_cases": 0,
+          "lifecycle_cases": 20,
+          "local_restore_cases": 0,
+          "present_cases": 120,
+          "pixel_comparisons": 2708480,
+          "full_frame_checks": 84,
+          "exact_alpha_cases": 0
+        }
+      }
+    }
+  },
+  "public_wrapper_validation": {
+    "status": "PASS_PREPARATION_EQUIVALENCE",
+    "c_harnesses_byte_exact_with_passed_suites": true,
+    "extracted_includes_byte_exact": true,
+    "bank_reference_rgba_fixtures_byte_exact": true,
+    "variant_files_byte_compared": 5600,
+    "syntax_checks": 2,
+    "additional_unit_executions": 0,
+    "additional_engine_runs": 0
+  },
+  "build": {
+    "status": "PASS",
+    "renderer_sha256": "cc54f1096e118c4a8388e6a9c4e0db4347cfc713621e94fa4b5566c8ed7fe0df",
+    "runtime_fixture_binary_sha256": "c1caa18000c35863d13eacba78960a7bdb3e5216d413cc6d4f0554098ea24358",
+    "compiler_errors": 0,
+    "preexisting_misleading_indentation_warnings": 5,
+    "warning_scope": "Unchanged lines in asset_debug.c, game_probe_fields.inc and render_mirror.c; no new shadow-extension diagnostic."
+  },
+  "semantics": [
+    "Frozen alpha is used directly after the unchanged full-strength target operation, with exact integer rounding.",
+    "Explicit !xmas and exact selected-tile source identity define normal mode. Identical selected121/122 semantics in a synthetic xmas=false alternate bank are accepted; actual xmas=true rejects all ten.",
+    "Original indexed writes, normal heads, player58/59, enemy role111 and Protron are unchanged."
+  ],
+  "limitations": [
+    "Extracted source tests stub unrelated HUD/font/material integration paths.",
+    "LeakSanitizer disabled for the ptrace test executor.",
+    "Engine/runtime and visual results are documented separately."
+  ],
+  "reproduction": {
+    "runner": "prototype/test-front-multi-shadow.py",
+    "required_external_inputs": [
+      "--normal-data: original tyrian.shp",
+      "--xmas-data: original tyrianc.shp",
+      "--out: fresh directory outside repository"
+    ],
+    "optional": [
+      "--candidate defaults to checkout",
+      "--baseline defaults to candidate and must contain pinned parent commit",
+      "--prepare-only prepares without compiling/executing tests"
+    ]
+  }
+}

@@ -41,8 +41,8 @@ It builds on OpenTyrian2000 and OpenTyrian; the upstream README is preserved bel
   indexed behavior remains exact. Numeric and author review pass within this scope.
   See [scope and receipts](docs/player-vulcan-two-v1/README.md).
   A [finite smooth-shadow follow-up](docs/player-vulcan-shadow-v1/README.md) also passes
-  two new 90-tick P1/P7 comparisons against retained captures. Only these two
-  normal player shadows change; guarded negative-x calls remain classic.
+  two new 90-tick P1/P7 comparisons against retained captures. That follow-up changes
+  only these two normal player shadows; guarded negative-x calls remain classic.
 
 - Rear-power pickup 534 has a three-phase HD body; the shared fixed-145 collection
   effect remains unchanged. Bounded original-input checks passed in three attempts
@@ -66,9 +66,13 @@ It builds on OpenTyrian2000 and OpenTyrian; the upstream README is preserved bel
   native 2× baseline/candidate checks pass numerical and author review: eight
   90-tick runs, 48 native frames and 48 INDEX8 frames. All eight new IDs have visible
   witnesses across the fixed
-  capture windows; some individual frames are cropped. Original coarse shadows,
-  existing 58/59 and enemy roles remain unchanged. All-power, Christmas and finite
-  shared-use coverage are separate source/unit checks. See
+  capture windows; some individual frames are cropped. A subsequent smooth-shadow
+  extension reuses the frozen eight heads' alpha: four new 90-tick P2/P4/P7/P11 runs
+  provide 24 native 2× frame pairs against retained head-only references, with exact
+  original state/RNG and INDEX8 comparisons. Numerical and author review pass within
+  this bounded scope. Existing 58/59, enemy and Protron operators stay unchanged, although
+  overlapping translucent pixels can inherit a changed underlay. All-power,
+  Christmas and other shared-use coverage remain separate source/unit checks. See
   [scope and receipts](docs/player-front-multi-eight-v1/README.md).
 
 ## Build and try

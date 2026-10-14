@@ -138,8 +138,8 @@ static Uint8 *green_under_owner;
 static Uint32 initial_palette[256];
 static bool have_initial_palette;
 static bool active,suppress,ready;
-/* This lease belongs to one existing bank8/TILE67 or70 shadow command, not a
- * projectile or most-recent head. No pixel is deferred/replayed at Present. */
+/* One existing normal-data bank8/TILE Vulcan or Multi shadow command leases
+ * this compositor, never a projectile or most-recent head. No Present replay. */
 typedef struct {
  bool live,entered;
  SDL_Surface *surface;
@@ -153,9 +153,29 @@ typedef struct {
  Uint8 before[12*14],coverage[12*14];
 } VulcanShadowCall;
 static VulcanShadowCall vulcan_shadow;
-/* Record only these two loader results, including a resource-root epoch.
+/* Finite frozen player-role contours; slots match the unchanged head assets.
+ * A source stamp covers colors and original RLE support, not the HDA contour. */
+static const struct {unsigned int index;int slot;uint64_t source,rgba;} vulcan_shadow_pins[10]={
+ {67,522,UINT64_C(0x9f5342ea1a7217ae),UINT64_C(0xaea83e10c9169380)},
+ {70,523,UINT64_C(0xfb4ea1a99e585804),UINT64_C(0x6c26e938d94472c2)},
+ {121,524,UINT64_C(0xba0e9fed90289c7a),UINT64_C(0x769aa8931a65a717)},
+ {122,525,UINT64_C(0x4f9d6fbe1da41b7c),UINT64_C(0x761a0ae775198a5a)},
+ {163,526,UINT64_C(0xa34174ba65a5e3b2),UINT64_C(0xa99cb87d5291eb77)},
+ {164,527,UINT64_C(0xd118e1292d0f1044),UINT64_C(0x6b0a01101b3bca0f)},
+ {201,528,UINT64_C(0xfb2f8d2713f98f50),UINT64_C(0x8d51f656ce22bf04)},
+ {202,529,UINT64_C(0xd92e815af85b74c6),UINT64_C(0x64cfd4d0e05f13a3)},
+ {279,530,UINT64_C(0x1edad45847d64c25),UINT64_C(0xd4ada839dcc2ebb5)},
+ {280,531,UINT64_C(0x0842bfe453e6cb1d),UINT64_C(0xca10e502fd370f78)}
+};
+static int vulcan_shadow_member(unsigned int index)
+{
+ for(unsigned int k=0;k<sizeof(vulcan_shadow_pins)/sizeof(*vulcan_shadow_pins);k++)
+  if(index==vulcan_shadow_pins[k].index)return (int)k;
+ return -1;
+}
+/* Record only these ten loader results, including a resource-root epoch.
  * Frozen bytes are rechecked at every shadow, even after a warm head load. */
-static struct {const Uint8 *rgba;char path[1024];} vulcan_shadow_resource[2];
+static struct {const Uint8 *rgba;char path[1024];} vulcan_shadow_resource[10];
 static void vulcan_shadow_clear(void) {memset(&vulcan_shadow,0,sizeof(vulcan_shadow));}
 static bool vulcan_shadow_pixel(SDL_Surface *,int,int,Uint8,Uint8,int);
 
@@ -1207,8 +1227,8 @@ static bool read_asset(Asset *a,int wanted)
  fclose(f);
  if(!ok) { free(pixels);return false; }
  a->density=wanted;a->rgba=pixels;
- if(a->bank==8&&(a->index==67||a->index==70)) {
-  int k=a->index==67?0:1;
+ int k=vulcan_shadow_member((unsigned int)a->index);
+ if(a->bank==8&&k>=0) {
   vulcan_shadow_resource[k].rgba=pixels;
   memcpy(vulcan_shadow_resource[k].path,name,strlen(name)+1);
  }
@@ -1800,6 +1820,7 @@ static uint64_t vulcan_shadow_stamp(const Uint8 *p,size_t length)
 
 static bool draw_vulcan_shadow(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int index)
 {
+ int k=vulcan_shadow_member(index);
  /* These checks precede get_asset, including every warm-cache acceptance.
   * Original RLE row advances use VGAScreen->pitch. Decline horizontal wrap;
   * matching padded pitch and ordinary top/bottom clipping remain supported. */
@@ -1807,21 +1828,18 @@ static bool draw_vulcan_shadow(SDL_Surface *surface,int x,int y,Sprite2_array ba
     !surface->pixels||surface->w!=320||surface->h!=200||surface->pitch<320||
     !surface->format||surface->format->BitsPerPixel!=8||surface->format->BytesPerPixel!=1||
     !bank.data||bank.data!=spriteSheet8.data||bank.size!=spriteSheet8.size||
-    (index!=67&&index!=70)||x<0||x>308||y<-13||y>199||
+    k<0||x<0||x>308||y<-13||y>199||
     game_probe_density!=8||game_probe_missing||game_probe_invalid||
     game_probe_original_reference||!game_probe_assets||!canvas||canvas->w!=2560||canvas->h!=1600)return false;
- int k=index==67?0:1;
  Uint8 source[12*14*2]={0};
- static const uint64_t source_stamps[2]={UINT64_C(0x9f5342ea1a7217ae),UINT64_C(0xfb4ea1a99e585804)};
- static const uint64_t rgba_stamps[2]={UINT64_C(0xaea83e10c9169380),UINT64_C(0x6c26e938d94472c2)};
  if(!decode_tile(bank,index,source,source+12*14,12,0,0)||
-    vulcan_shadow_stamp(source,sizeof(source))!=source_stamps[k])return false;
+    vulcan_shadow_stamp(source,sizeof(source))!=vulcan_shadow_pins[k].source)return false;
  Asset *a=get_asset(bank,index,ENTITY_TILE);
  char path[1024];
  if(!a||!a->rgba||a->bank!=8||a->index!=(int)index||a->w!=12||a->h!=14||a->density!=8||a->anchor_x||a->anchor_y||
     snprintf(path,sizeof(path),"%s/bullet-%u-8.hda",game_probe_assets,index)>=(int)sizeof(path)||
     a->rgba!=vulcan_shadow_resource[k].rgba||strcmp(path,vulcan_shadow_resource[k].path)||
-    vulcan_shadow_stamp(a->rgba,12*14*8*8*4)!=rgba_stamps[k])return false;
+    vulcan_shadow_stamp(a->rgba,12*14*8*8*4)!=vulcan_shadow_pins[k].rgba)return false;
  if(region_count>=sizeof(regions)/sizeof(regions[0]))return false;
  VulcanShadowCall call={0};
  call.surface=surface;call.pixels=surface->pixels;call.format=surface->format;
@@ -1842,10 +1860,9 @@ void render_mirror_shadow_begin(SDL_Surface *surface,int x,int y,Sprite2_array b
  if(!vulcan_shadow.live)return;
  VulcanShadowCall *v=&vulcan_shadow;
  Uint8 source[12*14*2]={0};char path[1024];
- int k=v->index==67?0:1;
- Asset *a=&assets[522+k];
- static const uint64_t source_stamps[2]={UINT64_C(0x9f5342ea1a7217ae),UINT64_C(0xfb4ea1a99e585804)};
- static const uint64_t rgba_stamps[2]={UINT64_C(0xaea83e10c9169380),UINT64_C(0x6c26e938d94472c2)};
+ int k=vulcan_shadow_member(v->index);
+ if(k<0) {vulcan_shadow_clear();return;}
+ Asset *a=&assets[vulcan_shadow_pins[k].slot];
  if(v->entered||xmas||!active||reject_reason||surface!=v->surface||surface!=game_screen||surface!=VGAScreen||
     surface->pixels!=v->pixels||surface->format!=v->format||surface->pitch!=v->pitch||surface->w!=320||surface->h!=200||
     !surface->format||surface->format->BitsPerPixel!=8||surface->format->BytesPerPixel!=1||
@@ -1853,10 +1870,11 @@ void render_mirror_shadow_begin(SDL_Surface *surface,int x,int y,Sprite2_array b
     bank.data!=v->bank_data||bank.size!=v->bank_size||bank.data!=spriteSheet8.data||bank.size!=spriteSheet8.size||
     x!=v->x||y!=v->y||index!=v->index||mirror_logic_tick!=v->tick||
     game_probe_density!=8||game_probe_missing||game_probe_invalid||game_probe_original_reference||!game_probe_assets||
-    !decode_tile(bank,index,source,source+12*14,12,0,0)||vulcan_shadow_stamp(source,sizeof(source))!=source_stamps[k]||
-    !a->valid||a->density!=8||!a->rgba||a->rgba!=vulcan_shadow_resource[k].rgba||
+    !decode_tile(bank,index,source,source+12*14,12,0,0)||vulcan_shadow_stamp(source,sizeof(source))!=vulcan_shadow_pins[k].source||
+    !a->valid||a->bank!=8||a->index!=(int)index||a->w!=12||a->h!=14||a->anchor_x||a->anchor_y||
+    a->density!=8||!a->rgba||a->rgba!=vulcan_shadow_resource[k].rgba||
     snprintf(path,sizeof(path),"%s/bullet-%u-8.hda",game_probe_assets,index)>=(int)sizeof(path)||
-    strcmp(path,vulcan_shadow_resource[k].path)||vulcan_shadow_stamp(a->rgba,12*14*8*8*4)!=rgba_stamps[k]) {
+    strcmp(path,vulcan_shadow_resource[k].path)||vulcan_shadow_stamp(a->rgba,12*14*8*8*4)!=vulcan_shadow_pins[k].rgba) {
   if(v->entered)render_mirror_unsupported("vulcan-shadow-command-mismatch");
   else vulcan_shadow_clear();
   return;
@@ -1871,8 +1889,8 @@ void render_mirror_shadow_begin(SDL_Surface *surface,int x,int y,Sprite2_array b
  font_before_effect((SDL_Rect){x,y,12,14});
  if(reject_reason||!v->live)return;
  regions[region_count++]=(HdRegion){{x,y,12,14},8,(int)index,MIRROR_SHADOW,true};
- /* Full frozen contour: the approved78/110 extra density8 samples are display
-  * only, bounded by this original12x14 rectangle. No indexed writes are added.
+ /* Full frozen contours, including their reviewed extra-support8x samples,
+  * stay inside the original12x14 rectangle. No indexed writes are added.
   * Coverage blends the existing full-strength operation, including its floor
   * rounding. Cloud ratios/provenance remain cloud-specific; head RGB is unused. */
  for(int ay=0;ay<14*8;ay++)for(int ax=0;ax<12*8;ax++) {
@@ -2000,11 +2018,8 @@ bool render_mirror_entity(SDL_Surface *surface,int x,int y,Sprite2_array bank,un
  }
  if(!active||surface!=game_screen||reject_reason)return false;
  /* Resolve the frozen contour from this shadow call, before its own head. */
- if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&(index==67||index==70)&&style==MIRROR_SHADOW)
+ if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&vulcan_shadow_member(index)>=0&&style==MIRROR_SHADOW)
   return draw_vulcan_shadow(surface,x,y,bank,index);
- /* Front Multi shadows retain their original indexed silhouettes and origin. */
- if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&style==MIRROR_SHADOW&&
-    (index==121||index==122||index==163||index==164||index==201||index==202||index==279||index==280))return false;
  /* Protron shadows retain their original indexed silhouettes and origin. */
  if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&(index==225||index==244||index==226)&&style==MIRROR_SHADOW)return false;
  /* Regular Missile Launcher shadows retain their original indexed silhouettes and origin. */

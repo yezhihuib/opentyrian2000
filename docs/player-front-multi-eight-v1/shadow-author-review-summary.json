@@ -1,0 +1,152 @@
+{
+  "status": "PASS",
+  "review_type": "Direct actual-native-frame author review; separate from numerical and source/unit acceptance.",
+  "scope": "Bounded visual PASS for all 24 native 640x400 shadow captures (P2/P4/P7/P11, ticks 38-43), each directly compared with its retained head-only reference. Eligible shadows are smoother and narrower at the original offset; slender, diagonal, fan and twin heads remain readable and distinct. The fixed-window acceptance retains clipping/fallback and occlusion limits, including legitimate P7/P11 composited head-pixel changes. These are controlled SDL dummy/software captures, not Windows or manual-play testing.",
+  "review_receipt_sha256": "cf7e0e04cfbf32ac49ae6783085ea09a00a9d9153f39e5a538f77f7664d5ea87",
+  "review_finished_utc": "2026-10-14T10:26:16.845597+00:00",
+  "renderer_sha256": "cc54f1096e118c4a8388e6a9c4e0db4347cfc713621e94fa4b5566c8ed7fe0df",
+  "independent_runtime_review_sha256": "361ce4d0b398a07bca2d5a8f2693090c28b64b957f49a5cd37ddaccae2805d71",
+  "frame_pins_receipt_sha256": "7d4314bf4338bf54a5a2c835011ae98af70230c3bbc35e9966179f94ef002d01",
+  "directly_viewed_candidate_frames": 24,
+  "directly_viewed_retained_reference_frames": 24,
+  "native_size": [
+    640,
+    400
+  ],
+  "capture_ticks": [
+    38,
+    39,
+    40,
+    41,
+    42,
+    43
+  ],
+  "method": "Each full frame was opened individually at original resolution and in frame order with its paired retained head-only reference. No resized sheet, synthetic composition or source-art preview was used as actual-runtime evidence.",
+  "reviewer_engine_runs": 0,
+  "reviewer_builds": 0,
+  "reviewer_art_or_code_changes": 0,
+  "verified_existing_input_file_hashes": 424,
+  "verified_native_file_hashes": 48,
+  "new_decoded_rgba_hashes_recorded": 48,
+  "decoded_hashes_matched_to_prior_receipt": false,
+  "pngs_generated": 0,
+  "cases": [
+    {
+      "power": 2,
+      "case": "shadow-p2-2x",
+      "result_sha256": "a380a57ba305cefa7d873d7afdfaac3d80894a51dca5f0597807c2216fe3404e",
+      "reference_result_sha256": "e1096ec3fe11a944f5fb039dfb7dfcd0d340be68d42e754fef3f6e1bc1079b51",
+      "direct_shadow_frames": [
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
+      "direct_reference_frames": [
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
+      "visual_status": "PASS",
+      "guarded_fallbacks_in_capture_window": 0,
+      "changed_head_support_pixels": 0
+    },
+    {
+      "power": 4,
+      "case": "shadow-p4-2x",
+      "result_sha256": "efe33a511a6d2d9ac0231608e97cbdd3dc2eed374e6792e5a6bd365ff798f7f5",
+      "reference_result_sha256": "5e7328378a027d82bcda2546617f4f4be415e21f375fdec9f711cac9286a6bc6",
+      "direct_shadow_frames": [
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
+      "direct_reference_frames": [
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
+      "visual_status": "PASS",
+      "guarded_fallbacks_in_capture_window": 10,
+      "changed_head_support_pixels": 0
+    },
+    {
+      "power": 7,
+      "case": "shadow-p7-2x",
+      "result_sha256": "95a75a89bd78396f0769587a5c333572a88fe7d6eb111d6371c575ce8c5122c5",
+      "reference_result_sha256": "dbee8bb300c7f7ace4b3ee92aa98d1dddceacc6cf3069876e2a949dfa7f60203",
+      "direct_shadow_frames": [
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
+      "direct_reference_frames": [
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
+      "visual_status": "PASS",
+      "guarded_fallbacks_in_capture_window": 9,
+      "changed_head_support_pixels": 32
+    },
+    {
+      "power": 11,
+      "case": "shadow-p11-2x",
+      "result_sha256": "0a105d02c841ded80e8cc866242ab17495d9238fab8d296d178584784e21ce3f",
+      "reference_result_sha256": "86340755cefc8bcb8dd0a64d21b6bb688a1d84adc7c13b0d9b7229a66242f800",
+      "direct_shadow_frames": [
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
+      "direct_reference_frames": [
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
+      "visual_status": "PASS",
+      "guarded_fallbacks_in_capture_window": 9,
+      "changed_head_support_pixels": 111
+    }
+  ],
+  "findings": {
+    "p2": "Narrow 201/202 silhouettes keep their original underside offset with smoother contours. Bright slender heads remain legible over clouds, cloud edges and dark ground.",
+    "p4": "163/164 diagonal shots remain distinct from the unchanged central shot. Admitted shadows are thin, smooth diagonals without a new blocky patch or visual head loss. Edge-clipped guarded calls remain classic.",
+    "p7": "121/122 fan heads remain broader than P2/P4. New shadow silhouettes follow their orientation at the original offset without overwhelming the bright core. The 32 head-support changes remain legitimate compositing effects.",
+    "p11": "279/280 twins remain distinguishable alongside the broader fan and original central shots, including the bounded dense near-ship volleys. The 111 head-support changes remain legitimate overlap effects."
+  },
+  "limits": [
+    "Direct visual scope is exactly 24 shadow BMPs and 24 corresponding retained head-only BMPs: P2, P4, P7, P11; ticks 38-43; native 640x400. Each full frame was opened individually at original resolution, in frame order, with its corresponding reference. No resized sheet, synthetic composition or source-art preview was used as actual-runtime visual evidence.",
+    "These are genuine captured SDL dummy/software renderer outputs with controlled diagnostic input. This is not a Windows run, physical-display inspection, manual gameplay, live power acquisition, or general playability certification.",
+    "Visual acceptance does not establish exact alpha composition or gameplay parity. Those remain separately supported by the pinned source/unit/numerical receipts. This reviewer did not rerun builds, units, runtime cases or capture windows.",
+    "Guarded horizontal/vertical fallback remains deliberate: six-frame windows contain P2=0, P4=10, P7=9, P11=9 guarded target shadow calls. Old contours at those guards are not claimed to be upgraded.",
+    "Not every member is fully visible in every frame: viewport cropping, later draws and normal overlap remain. Per-ID fractional/unique witnesses are window-level, not a promise of a changed visible pixel for every ID in every capture.",
+    "All eight head assets/alpha and normal-head draw decisions are unchanged according to the pinned source/runtime reports. Final composited head RGB is not globally identical: P7/P11 include 143 legitimate changed head-support pixels. Exact zero differences outside allowed support and exact zero opaque-head-erasure violations are separate numerical results.",
+    "Existing 58/59 and enemy-role operators are not changed by this route. Their final pixels may still be affected by permitted shadow underlay/overdraw at intersections; this sparse scene does not establish full enemy-role occlusion coverage.",
+    "Only the fixed four powers and this six-frame scene window are aesthetically accepted. No claim is made about other powers, levels, scales, later animation, platforms, dense enemy encounters or unseen collision/occlusion cases."
+  ],
+  "public_payload": "Sanitized hashes, counts and findings only; no original data, decoded reference arrays, capture pixels, screenshots, private paths or Library identifiers."
+}

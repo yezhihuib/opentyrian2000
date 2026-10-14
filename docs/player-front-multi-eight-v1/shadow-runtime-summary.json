@@ -1,0 +1,235 @@
+{
+  "status": "PASS",
+  "scope": "Four new candidate-only 90-tick Linux SDL dummy/software runs; paired with retained head-only references, not four new baseline runs.",
+  "renderer_sha256": "cc54f1096e118c4a8388e6a9c4e0db4347cfc713621e94fa4b5566c8ed7fe0df",
+  "head_only_renderer_sha256": "534065b887bf37c3792bbe16db28cd49211c05b9d5791ab21ef49a5815387796",
+  "runtime_binary_sha256": "c1caa18000c35863d13eacba78960a7bdb3e5216d413cc6d4f0554098ea24358",
+  "new_engine_runs": 4,
+  "ticks_per_run": 90,
+  "new_logic_ticks": 360,
+  "capture_ticks": [
+    38,
+    39,
+    40,
+    41,
+    42,
+    43
+  ],
+  "native_size": [
+    640,
+    400
+  ],
+  "indexed_size": [
+    320,
+    200
+  ],
+  "new_native_images": 24,
+  "new_indexed_images": 24,
+  "native_frame_pairs": 24,
+  "indexed_frame_pairs": 24,
+  "compared_native_pixel_pairs": 6144000,
+  "new_baseline_runs": 0,
+  "new_art_resources": 0,
+  "full_pack_copies": 0,
+  "independent_runtime_review": {
+    "status": "PASS",
+    "review_receipt_sha256": "361ce4d0b398a07bca2d5a8f2693090c28b64b957f49a5cd37ddaccae2805d71",
+    "reviewer_engine_runs": 0,
+    "original_trace_pairs_decompressed_byte_exact": 80,
+    "ordered_draw_commands_compared": 7165,
+    "historical_and_new_evidence_unchanged_during_review": true
+  },
+  "author_review": {
+    "status": "PASS",
+    "summary": "shadow-author-review-summary.json",
+    "review_receipt_sha256": "cf7e0e04cfbf32ac49ae6783085ea09a00a9d9153f39e5a538f77f7664d5ea87",
+    "acceptance": "Direct visual review remains separate from numerical/hash acceptance."
+  },
+  "comparison_contract": {
+    "footprint": "Original binary source support UNION nonzero sampled frozen RGBA alpha after the original viewport crop; original draw order and opaque-head erasure narrow the allowed differences.",
+    "outside_exact_support_differences": 0,
+    "opaque_head_erasure_differences": 0,
+    "original_state_rng_trace_and_indexed_checks": "Exact within each 90-tick retained-reference pair, with normalized original blend writes and all 24 INDEX8 files byte-identical.",
+    "command_difference": "Only eligible new Multi shadow commands change mirrored status from 0 to 1; remaining ordered draw-command fields stay exact.",
+    "changed_head_pixel_interpretation": "143 head-support pixels differ through legitimate ordered shadow overlap; head art and operators are unchanged. No global equality is claimed for translucent overlays on changed underlay.",
+    "fractional_composition_limit": "Runtime checks establish support/order and real per-ID fractional changes; complete fractional composition is established by focused extracted-source units, not screenshots alone.",
+    "per_id_witness_interpretation": "Positive exclusively attributable witnesses are counted across the fixed six-frame window, not required in every partial frame. Pixels influenced by multiple shadows need not be assigned to one ID, so per-ID unique counts do not sum to every changed pixel."
+  },
+  "totals": {
+    "changed_pixels": 9267,
+    "changed_head_pixels": 143,
+    "support_pixels": 45220,
+    "ordered_dependency_pixels": 45074,
+    "head_shadow_overlap_pixels": 498,
+    "opaque_head_erasure_differences": 0,
+    "outside_support_differences": 0
+  },
+  "cases": [
+    {
+      "case": "shadow-p2-2x",
+      "reference_case": "candidate-p2-2x",
+      "status": "PASS",
+      "result_sha256": "a380a57ba305cefa7d873d7afdfaac3d80894a51dca5f0597807c2216fe3404e",
+      "power": 2,
+      "ticks": 90,
+      "native_images": 6,
+      "indexed_images": 6,
+      "original_target_shadow_calls": 594,
+      "admitted_shadow_calls": 590,
+      "guarded_fallback_calls": 4,
+      "requests": 22,
+      "result_counts": {
+        "complete": 19,
+        "power": 3
+      },
+      "emissions": 38,
+      "original_draw_identity_exact": true,
+      "inherited_head_visibility_result_sha256": "e1096ec3fe11a944f5fb039dfb7dfcd0d340be68d42e754fef3f6e1bc1079b51",
+      "per_id_unique_changes": {
+        "201": 918,
+        "202": 701
+      },
+      "per_id_fractional_changes": {
+        "201": 318,
+        "202": 250
+      },
+      "native_pixel_totals": {
+        "changed_pixels": 1619,
+        "changed_head_pixels": 0,
+        "support_pixels": 7104,
+        "ordered_dependency_pixels": 7104,
+        "head_shadow_overlap_pixels": 0,
+        "opaque_head_erasure_differences": 0,
+        "outside_support_differences": 0
+      },
+      "guarded_fallback_calls_in_capture_window": 0
+    },
+    {
+      "case": "shadow-p4-2x",
+      "reference_case": "candidate-p4-2x",
+      "status": "PASS",
+      "result_sha256": "efe33a511a6d2d9ac0231608e97cbdd3dc2eed374e6792e5a6bd365ff798f7f5",
+      "power": 4,
+      "ticks": 90,
+      "native_images": 6,
+      "indexed_images": 6,
+      "original_target_shadow_calls": 574,
+      "admitted_shadow_calls": 510,
+      "guarded_fallback_calls": 64,
+      "requests": 17,
+      "result_counts": {
+        "complete": 16,
+        "power": 1
+      },
+      "emissions": 48,
+      "original_draw_identity_exact": true,
+      "inherited_head_visibility_result_sha256": "5e7328378a027d82bcda2546617f4f4be415e21f375fdec9f711cac9286a6bc6",
+      "per_id_unique_changes": {
+        "163": 201,
+        "164": 1149
+      },
+      "per_id_fractional_changes": {
+        "163": 88,
+        "164": 599
+      },
+      "native_pixel_totals": {
+        "changed_pixels": 1350,
+        "changed_head_pixels": 0,
+        "support_pixels": 6346,
+        "ordered_dependency_pixels": 6346,
+        "head_shadow_overlap_pixels": 0,
+        "opaque_head_erasure_differences": 0,
+        "outside_support_differences": 0
+      },
+      "guarded_fallback_calls_in_capture_window": 10
+    },
+    {
+      "case": "shadow-p7-2x",
+      "reference_case": "candidate-p7-2x",
+      "status": "PASS",
+      "result_sha256": "95a75a89bd78396f0769587a5c333572a88fe7d6eb111d6371c575ce8c5122c5",
+      "power": 7,
+      "ticks": 90,
+      "native_images": 6,
+      "indexed_images": 6,
+      "original_target_shadow_calls": 468,
+      "admitted_shadow_calls": 415,
+      "guarded_fallback_calls": 53,
+      "requests": 14,
+      "result_counts": {
+        "complete": 13,
+        "power": 1
+      },
+      "emissions": 39,
+      "original_draw_identity_exact": true,
+      "inherited_head_visibility_result_sha256": "dbee8bb300c7f7ace4b3ee92aa98d1dddceacc6cf3069876e2a949dfa7f60203",
+      "per_id_unique_changes": {
+        "121": 354,
+        "122": 1707
+      },
+      "per_id_fractional_changes": {
+        "121": 95,
+        "122": 484
+      },
+      "native_pixel_totals": {
+        "changed_pixels": 2061,
+        "changed_head_pixels": 32,
+        "support_pixels": 10682,
+        "ordered_dependency_pixels": 10653,
+        "head_shadow_overlap_pixels": 61,
+        "opaque_head_erasure_differences": 0,
+        "outside_support_differences": 0
+      },
+      "guarded_fallback_calls_in_capture_window": 9
+    },
+    {
+      "case": "shadow-p11-2x",
+      "reference_case": "candidate-p11-2x",
+      "status": "PASS",
+      "result_sha256": "0a105d02c841ded80e8cc866242ab17495d9238fab8d296d178584784e21ce3f",
+      "power": 11,
+      "ticks": 90,
+      "native_images": 6,
+      "indexed_images": 6,
+      "original_target_shadow_calls": 894,
+      "admitted_shadow_calls": 838,
+      "guarded_fallback_calls": 56,
+      "requests": 14,
+      "result_counts": {
+        "complete": 13,
+        "power": 1
+      },
+      "emissions": 65,
+      "original_draw_identity_exact": true,
+      "inherited_head_visibility_result_sha256": "86340755cefc8bcb8dd0a64d21b6bb688a1d84adc7c13b0d9b7229a66242f800",
+      "per_id_unique_changes": {
+        "121": 320,
+        "122": 1677,
+        "279": 1224,
+        "280": 935
+      },
+      "per_id_fractional_changes": {
+        "121": 89,
+        "122": 480,
+        "279": 477,
+        "280": 372
+      },
+      "native_pixel_totals": {
+        "changed_pixels": 4237,
+        "changed_head_pixels": 111,
+        "support_pixels": 21088,
+        "ordered_dependency_pixels": 20971,
+        "head_shadow_overlap_pixels": 437,
+        "opaque_head_erasure_differences": 0,
+        "outside_support_differences": 0
+      },
+      "guarded_fallback_calls_in_capture_window": 9
+    }
+  ],
+  "limits": [
+    "Actual runs cover normal front Multi P2/P4/P7/P11 only; other normal-player routes sharing these IDs are finite source/unit coverage, not captured family acceptance.",
+    "No native 4x gameplay, Christmas gameplay, every-power gameplay, full-level/campaign, manual acquisition, Windows, physical GPU/fullscreen or performance acceptance.",
+    "Collision/hit logs are empty; paired equality does not establish collision coverage.",
+    "Original data, decoded reference arrays, original pixel payloads, engine captures, private logs and absolute private paths are excluded."
+  ]
+}
