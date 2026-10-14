@@ -29154,7 +29154,7 @@
       }
     },
     "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 543,
+      "count": 544,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -36214,11 +36214,24 @@
           "sha256": "096b16e0961b1e64808fb6b1507d5fc21ccf9d9056163bb8731b8556aa406c61",
           "source_png": "assets/hd/source/protron-shadow-226-8-096b16e0961b.png",
           "source_png_sha256": "dd9490b0beafd8908be19a8f85a234cc664b9f771d859e293cbaee9d76eed16e"
+        },
+        "bullet-27-8.hda": {
+          "header_u32": [
+            80027,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "sha256": "cac289e69dcbf47aa2b121dcd4c5740ce1531a4295af9a752e51fde2bc738702",
+          "source_png": "assets/hd/source/bullet-27-8-cac289e69dcb.png",
+          "source_png_sha256": "163cee8cf78c21b02d29f0aa54f5e87d73a835911378ed09fbe42f0b6a64f111"
         }
       }
     },
     "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 543,
+      "count": 544,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -43278,6 +43291,19 @@
           "sha256": "096b16e0961b1e64808fb6b1507d5fc21ccf9d9056163bb8731b8556aa406c61",
           "source_png": "assets/hd/source/protron-shadow-226-8-096b16e0961b.png",
           "source_png_sha256": "dd9490b0beafd8908be19a8f85a234cc664b9f771d859e293cbaee9d76eed16e"
+        },
+        "bullet-27-8.hda": {
+          "header_u32": [
+            80027,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "sha256": "cac289e69dcbf47aa2b121dcd4c5740ce1531a4295af9a752e51fde2bc738702",
+          "source_png": "assets/hd/source/bullet-27-8-cac289e69dcb.png",
+          "source_png_sha256": "163cee8cf78c21b02d29f0aa54f5e87d73a835911378ed09fbe42f0b6a64f111"
         }
       }
     }
@@ -46704,6 +46730,11 @@
       "path": "assets/hd/source/protron-shadow-226-8-096b16e0961b.png",
       "sha256": "dd9490b0beafd8908be19a8f85a234cc664b9f771d859e293cbaee9d76eed16e",
       "RGBA_sha256": "3d21935253f2ea9d3133a13fe97b5fa0c5265eb11d862b524e8a7500e6201a86"
+    },
+    "cac289e69dcbf47aa2b121dcd4c5740ce1531a4295af9a752e51fde2bc738702": {
+      "path": "assets/hd/source/bullet-27-8-cac289e69dcb.png",
+      "sha256": "163cee8cf78c21b02d29f0aa54f5e87d73a835911378ed09fbe42f0b6a64f111",
+      "RGBA_sha256": "fccf21f3f9e1e145020052ec221131ea4c77b8f5aa9224df7665f55b890159bd"
     }
   },
   "no_original_game_data": true,
@@ -51912,6 +51943,32 @@
         "slot": 534,
         "HDA_sha256": "096b16e0961b1e64808fb6b1507d5fc21ccf9d9056163bb8731b8556aa406c61",
         "RGBA_FNV1a64": "b5ae06163e59f3f6"
+      }
+    ]
+  },
+  "player_mint27_one_v1": {
+    "source": "assets/hd/artwork/player-mint27-one-v1",
+    "contract_sha256": "2570fb91a847027f0923af1f76bbc6760a31277a6001a6354e627355ecfeed69",
+    "role": 8,
+    "density": 8,
+    "logical_size": [
+      12,
+      14
+    ],
+    "anchor": [
+      0,
+      0
+    ],
+    "ids": [
+      27
+    ],
+    "scope": "normal-data Mint-O-Ship option16 player TILE head only; original indexed shadow, Christmas, enemy, sidekick bodies and shop preview unchanged",
+    "fallback": "source-validated cold/warm lookup and existing independent player loader; existing 8-to4 fallback",
+    "entries": [
+      {
+        "id": 27,
+        "slot": 535,
+        "HDA_sha256": "cac289e69dcbf47aa2b121dcd4c5740ce1531a4295af9a752e51fde2bc738702"
       }
     ]
   }
