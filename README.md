@@ -170,6 +170,37 @@ The [preview launcher](prototype/start-actual-preview.ps1) and
 [asset-debug launcher](prototype/start-asset-debug.ps1) remain controlled replay tools;
 see [debug controls](docs/ASSET_DEBUG.md).
 
+### Optional external MP3 music
+
+Add `--music-dir` to replace selected songs with your own MP3 files:
+
+```sh
+./opentyrian2000 --data=/absolute/path/to/tyrian2000 \
+  --music-dir=/absolute/path/to/my-music
+```
+
+Use exact lowercase names `track01.mp3` through `track41.mp3`; for example,
+`track18.mp3` replaces **Tyrian, The Level**. Missing, rejected or over-limit files
+fall back to the original FM song independently. Without this option the original
+music path, including its first-song behavior, is unchanged. Original game data,
+including `music.mus`, is still required for timing, fades and fallback.
+
+The Windows manual launcher accepts an existing absolute directory, including
+paths with spaces or Chinese characters:
+
+```powershell
+& .\prototype\start-manual-hd.ps1 -DataDirectory 'C:\Games\Tyrian 2000' `
+  -MusicDirectory 'C:\Music\我的配乐'
+```
+
+MP3s are decoded before playback, downmixed to the existing mono output and
+resampled to the actual device rate. Original song-end/loop controls and volume
+fades remain authoritative; MP3 EOF wraps independently. Input is limited to
+32 MiB and 10 minutes, final PCM to 64 MiB, and tracked temporary allocations to
+256 MiB. This does not promise universally gapless MP3 loops. Keep user songs
+outside the repository and public packages. See the [full track list, controls,
+limits and verification boundaries](docs/EXTERNAL_MUSIC.md).
+
 ### Optional manufacturer cards
 
 A release/NDEBUG build can use the two reviewed manufacturer cards during its

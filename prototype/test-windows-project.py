@@ -25,6 +25,8 @@ for name in materials:
     assert repo/'src'/(name+'.h') in headers
 for name in ['ground101_bundle_index.h','plateau_cap_bundle_index.h','forest13_bundle_index.h']:
     assert repo/'src'/name in headers
+for name in ['external_music.h','third_party/dr_mp3.h']:
+    assert repo/'src'/name in headers
 assert 'visualc\\opentyrian.sln' in (repo/'prototype/build-game.ps1').read_text()
 assert 'opentyrian.vcxproj' in (repo/'visualc/opentyrian.sln').read_text()
 assert tree.find('.//m:LanguageStandard_C',ns).text=='stdc17'

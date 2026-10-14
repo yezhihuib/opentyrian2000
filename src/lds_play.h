@@ -30,6 +30,8 @@ bool lds_load(FILE *f, unsigned int music_offset, unsigned int music_size);
 void lds_free(void);
 void lds_rewind(void);
 void lds_fade(Uint8 speed);
+/* LDS uses zero as the full-volume sentinel. Read only; no FM changes. */
+unsigned int lds_get_master_volume_q8(void);
 
 /*unsigned int getorders() { return numposi; }
 unsigned int getorder() { return posplay; }

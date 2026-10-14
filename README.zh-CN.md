@@ -136,6 +136,34 @@ Windows 使用独立的[手动启动脚本](prototype/start-manual-hd.ps1)：
 及当时四次无实体窗口的合成 SDL 事件引擎运行。[有限预览入口](prototype/start-actual-preview.ps1)与
 [素材调试入口](prototype/start-asset-debug.ps1)仍为受控重播工具，详见[调试操作](docs/ASSET_DEBUG.md)。
 
+### 可选外部 MP3 音乐
+
+添加 `--music-dir`，即可用自己的 MP3 替换指定曲目：
+
+```sh
+./opentyrian2000 --data=/absolute/path/to/tyrian2000 \
+  --music-dir=/absolute/path/to/my-music
+```
+
+文件名须使用小写 `track01.mp3` 至 `track41.mp3`；例如 `track18.mp3` 对应
+**Tyrian, The Level**。文件缺失、被拒绝或超出限制时，该曲目单独回退到原版 FM。
+不加参数时，原版音乐路径及首次选曲行为保持不变。仍须提供完整原版数据，
+包括 `music.mus`，用于原有时间线、渐变与回退。
+
+Windows 手动启动脚本支持已有目录的绝对路径，也支持路径中的空格和中文：
+
+```powershell
+& .\prototype\start-manual-hd.ps1 -DataDirectory 'C:\Games\Tyrian 2000' `
+  -MusicDirectory 'C:\Music\我的配乐'
+```
+
+MP3 在播放前完整解码，立体声混合为现有的单声道输出，并转换到声卡实际采样率。
+原曲结束、循环标志和音量渐变仍由原版控制，MP3 文件末尾另行循环。
+每个输入文件最多 32 MiB、时长最多 10 分钟；最终 PCM 最多 64 MiB，受跟踪的
+临时分配总量最多 256 MiB。不保证所有 MP3 都能无缝循环。个人音乐须保留在
+仓库和公开包之外。完整曲目表、控制规则、限制与验收边界见
+[外部音乐说明](docs/EXTERNAL_MUSIC.md)。
+
 ### 可选厂商启动画面
 
 Release/NDEBUG 构建可在原有本地启动流程中使用两张已审阅的厂商画面：

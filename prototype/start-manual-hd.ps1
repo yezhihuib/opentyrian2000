@@ -5,7 +5,8 @@ param(
     [string]$AssetsDirectory,
     [string]$StartupAssetsDirectory,
     [string]$ProfileDirectory,
-    [ValidateSet('2x', '4x')][string]$InitialScale = '2x'
+    [ValidateSet('2x', '4x')][string]$InitialScale = '2x',
+    [string]$MusicDirectory
 )
 $ErrorActionPreference = 'Stop'
 $repoRoot = Split-Path -Parent $PSScriptRoot
@@ -29,6 +30,14 @@ if (-not (Test-Path -LiteralPath (Join-Path $DataDirectory 'tyrian1.lvl') -PathT
     throw 'The data directory must contain your separately obtained complete Tyrian 2000 data.'
 }
 if ($StartupAssetsDirectory) { $StartupAssetsDirectory = Resolve-ManualPath $StartupAssetsDirectory 'Container' }
+if ($PSBoundParameters.ContainsKey('MusicDirectory')) {
+    if ([string]::IsNullOrWhiteSpace($MusicDirectory)) { throw 'Specify a nonempty absolute -MusicDirectory.' }
+    # IsPathRooted alone accepts drive-relative C:music and root-relative \music.
+    if ($MusicDirectory -notmatch '^(?:[A-Za-z]:[\\/]|[\\/]{2}[^\\/]+[\\/][^\\/]+(?:[\\/]|$))') {
+        throw 'Use an absolute drive or UNC path for -MusicDirectory.'
+    }
+    $MusicDirectory = Resolve-ManualPath $MusicDirectory 'Container'
+}
 if (-not [IO.Path]::IsPathRooted($ProfileDirectory)) { throw 'Use an absolute dedicated -ProfileDirectory.' }
 New-Item -ItemType Directory -Path $ProfileDirectory -Force | Out-Null
 $ProfileDirectory = (Resolve-Path -LiteralPath $ProfileDirectory).ProviderPath
@@ -57,6 +66,7 @@ function Quote-ManualArgument([string]$Value) {
 }
 $arguments = @((Quote-ManualArgument "--data=$DataDirectory"), (Quote-ManualArgument "--manual-hd-assets=$AssetsDirectory"))
 if ($StartupAssetsDirectory) { $arguments += Quote-ManualArgument "--startup-assets=$StartupAssetsDirectory" }
+if ($MusicDirectory) { $arguments += Quote-ManualArgument "--music-dir=$MusicDirectory" }
 Write-Host "Profile: $ProfileDirectory"
 Write-Host 'Choose New Game and Episode 1 normally. HD is limited to its first level; other gameplay stays classic.'
 $game = Start-Process -FilePath $Executable -ArgumentList $arguments -WorkingDirectory $ProfileDirectory -Wait -PassThru

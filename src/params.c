@@ -28,6 +28,7 @@
 #include "file.h"
 #include "joystick.h"
 #include "loudness.h"
+#include "external_music.h"
 #include "network.h"
 #include "opentyr.h"
 #include "varz.h"
@@ -58,6 +59,7 @@ void JE_paramCheck(int argc, char *argv[])
 		
 		{ 't', 't', "data",              true },
 		{ 258, 0,   "startup-assets",    true },
+		{ 259, 0,   "music-dir",         true },
 		
 		{ 'n', 'n', "net",               true },
 		{ 256, 0,   "net-player-name",   true }, // TODO: no short codes because there should
@@ -100,6 +102,7 @@ void JE_paramCheck(int argc, char *argv[])
 			       "  -j, --no-joystick            Disable joystick/gamepad input\n"
 			       "  -x, --no-xmas                Disable Christmas mode\n\n"
 			       "  -t, --data=DIR               Set Tyrian data directory\n"
+			       "  --music-dir=DIR             Optional MP3 replacements: track01.mp3, track02.mp3, ...\n"
 			       "  --startup-assets=DIR        Optional HD manufacturer/title art (release, local startup only)\n"
 			       "  --manual-hd-assets=DIR      Display-only HD for local single-player Episode 1 / level 9\n"
 			       "                               Native menus and controls; classic outside this first level\n\n"
@@ -132,6 +135,14 @@ void JE_paramCheck(int argc, char *argv[])
 			custom_data_dir = option.arg;
 			break;
 			
+		case 259: // --music-dir
+			if (!external_music_set_directory(option.arg))
+			{
+				fprintf(stderr, "Music override requires a nonempty directory\n");
+				exit(EXIT_FAILURE);
+			}
+			break;
+
 		case 258: // --startup-assets
 			if (!startup_logos_set_directory(option.arg))
 			{

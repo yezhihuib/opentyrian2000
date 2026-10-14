@@ -119,6 +119,7 @@
     <ClCompile Include="..\src\destruct.c" />
     <ClCompile Include="..\src\editship.c" />
     <ClCompile Include="..\src\episodes.c" />
+    <ClCompile Include="..\src\external_music.c" />
     <ClCompile Include="..\src\file.c" />
     <ClCompile Include="..\src\font.c" />
     <ClCompile Include="..\src\fonthand.c" />
@@ -192,6 +193,7 @@
     <ClInclude Include="..\src\destruct.h" />
     <ClInclude Include="..\src\editship.h" />
     <ClInclude Include="..\src\episodes.h" />
+    <ClInclude Include="..\src\external_music.h" />
     <ClInclude Include="..\src\file.h" />
     <ClInclude Include="..\src\font.h" />
     <ClInclude Include="..\src\fonthand.h" />
@@ -252,6 +254,7 @@
     <ClInclude Include="..\src\gameplay_hud_font_mirror.inc" />
     <ClInclude Include="..\src\forest13_bundle_index.h" />
     <ClInclude Include="..\src\starlib.h" />
+    <ClInclude Include="..\src\third_party\dr_mp3.h" />
     <ClInclude Include="..\src\tyrian2.h" />
     <ClInclude Include="..\src\varz.h" />
     <ClInclude Include="..\src\vga256d.h" />

@@ -1,5 +1,51 @@
 # Windows handoff to dot
 
+## Optional external MP3 source/launcher support (2026-10-14)
+
+The source supports `--music-dir=DIR`, with the vendored single-header dr_mp3
+compiled through `src/external_music.c`. The Visual Studio project lists that
+source, its header and `src/third_party/dr_mp3.h`. No new decoder DLL, SDL_mixer,
+SDK path, linker dependency or DLL-copy rule is required. Existing SDL2 and
+optional SDL2_net setup remains unchanged. **This is not a Windows build,
+bundle, real-device listening or runtime acceptance claim.**
+
+After building this revision through the existing build entrypoint, opt in with
+an existing absolute directory:
+
+```powershell
+& .\prototype\build-game.ps1
+& .\prototype\start-manual-hd.ps1 -DataDirectory 'C:\Games\Tyrian 2000' `
+  -MusicDirectory 'C:\Music\我的配乐'
+```
+
+The launcher resolves `-MusicDirectory` before changing to the dedicated profile
+and quotes it through the existing Windows argument helper. Relative, empty and
+missing launcher directories are rejected. The direct EXE option instead accepts
+relative paths (relative to its launch working directory), and a nonempty
+unavailable directory gives per-song FM fallback. Omitting the option preserves
+the original audio path and its first-song behavior.
+
+Supply exact lowercase `track01.mp3` through `track41.mp3` names only as needed;
+`track18.mp3` is **Tyrian, The Level**. Keep MP3s and original data external to Git
+and public bundles. Complete original data, including `music.mus`, remains
+required. See [EXTERNAL_MUSIC.md](EXTERNAL_MUSIC.md) for all 41 titles, resource
+limits, timing, fade and loop behavior.
+
+The next authorized Windows checks should separately cover:
+
+- `python prototype/test-windows-project.py` for source inventory only, then
+  actual MSVC x64 Release and Debug builds.
+- No option; an empty directory; valid, missing and rejected replacement songs;
+  paths with spaces and Chinese characters; repeated launches and clean quit.
+- First-level/title/shop transitions, jukebox change/restart, one-shot endings,
+  music volume/mute/fade and the unchanged eight-channel SFX mixer.
+- Real output-device listening, balance and loop boundaries. Mono output remains
+  mono: stereo MP3s are downmixed and converted to the actual device sample rate.
+  PCM wrapping does not guarantee gapless MP3s; original LDS timing still controls
+  song-end/loop transitions and can cut short or outlast a replacement.
+
+No new Windows package or runtime run accompanies these source/launcher changes.
+
 ## Current material source-list repair (2026-10-12)
 
 The Visual Studio project now explicitly lists the five existing world-material

@@ -17,6 +17,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 #include "loudness.h"
+#include "external_music.h"
 
 #include "file.h"
 #include "lds_play.h"
@@ -38,6 +39,10 @@ unsigned int song_playing = 0;
 bool audio_disabled = false, music_disabled = false, samples_disabled = false;
 
 static SDL_AudioDeviceID audioDevice = 0;
+
+/* Shared with the callback only while holding the device lock. */
+static ExternalMusic externalMusic = { 0 };
+static bool overrideSongLoaded = false;
 
 static Uint8 musicVolume = 255;
 static Uint8 sampleVolume = 255;
@@ -157,7 +162,12 @@ static void audioCallback(void *userdata, Uint8 *stream, int size)
 
 			int count = MIN(samplesUntilLdsUpdate, remainingCount);
 
+			/* Advance the original OPL and its shared rand() state even when
+			 * PCM replaces the audible samples. */
 			opl_update(remaining, count);
+			if (externalMusic.samples != NULL)
+				external_music_render(&externalMusic, remaining, (size_t)count,
+				                      lds_get_master_volume_q8(), playing);
 
 			remaining += count;
 			remainingCount -= count;
@@ -172,7 +182,8 @@ static void audioCallback(void *userdata, Uint8 *stream, int size)
 	}
 
 	Sint32 musicVolumeFactor = volumeFactorTable[musicVolume];
-	musicVolumeFactor *= 2;  // OPL emulator is too quiet
+	if (externalMusic.samples == NULL)
+		musicVolumeFactor *= 2;  // OPL emulator is too quiet; PCM uses unity gain
 
 	if (samples_disabled && !music_disabled)
 	{
@@ -226,8 +237,6 @@ static void audioCallback(void *userdata, Uint8 *stream, int size)
 
 void deinit_audio(void)
 {
-	if (audio_disabled)
-		return;
 
 	if (audioDevice != 0)
 	{
@@ -236,6 +245,11 @@ void deinit_audio(void)
 		audioDevice = 0;
 	}
 
+	/* Device is closed, so no callback can retain this buffer. Also safe
+	 * after an initialization failure or repeated teardown. */
+	external_music_free(&externalMusic);
+	overrideSongLoaded = false;
+	music_stopped = true;
 	SDL_QuitSubSystem(SDL_INIT_AUDIO);
 
 	memset(channelSampleCount, 0, sizeof channelSampleCount);
@@ -277,17 +291,30 @@ void play_song(unsigned int song_num)  // FKA NortSong.playSong
 	if (audio_disabled)
 		return;
 
-	if (song_num != song_playing)
+	/* With no option, keep the classic initial song-zero behavior exactly. */
+	if (song_num != song_playing || (external_music_enabled() && !overrideSongLoaded))
 	{
+		ExternalMusic old;
 		SDL_LockAudioDevice(audioDevice);
-
 		music_stopped = true;
-
+		old = externalMusic;
+		memset(&externalMusic, 0, sizeof externalMusic);
 		SDL_UnlockAudioDevice(audioDevice);
 
+		/* SFX callbacks continue; no music code runs until activation below. */
+		external_music_free(&old);
 		load_song(song_num);
+		ExternalMusic prepared = { 0 };
+		if (external_music_enabled() && song_num < song_count)
+			prepared = external_music_prepare(song_num, audioSampleRate);
 
+		SDL_LockAudioDevice(audioDevice);
+		externalMusic = prepared;
 		song_playing = song_num;
+		overrideSongLoaded = true;
+		music_stopped = false;
+		SDL_UnlockAudioDevice(audioDevice);
+		return;
 	}
 
 	SDL_LockAudioDevice(audioDevice);
@@ -305,6 +332,7 @@ void restart_song(void)  // FKA Player.selectSong(1)
 	SDL_LockAudioDevice(audioDevice);
 
 	lds_rewind();
+	externalMusic.cursor = 0;
 
 	music_stopped = false;
 

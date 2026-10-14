@@ -230,6 +230,11 @@ void lds_rewind(void)
 	}
 }
 
+unsigned int lds_get_master_volume_q8(void)
+{
+	return allvolume == 0 ? 256 : allvolume;
+}
+
 void lds_fade(Uint8 speed)
 {
 	fadeonoff = speed;
