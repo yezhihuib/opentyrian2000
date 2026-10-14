@@ -1,0 +1,77 @@
+{
+  "status": "PASS_BOUNDED_LOCAL",
+  "old_head_checkpoint": "4e75dbda875922303fda92d514fe6d9755e40696",
+  "source_review_sha256": "168e753142447a37baa0d69f8d22ad36e459c1e286ad0ab1ea38734529d68183",
+  "fixture_review_sha256": "2121ca4968102a45071c6b627a53e29429922b994608bbe46dc3093d3d43e5d3",
+  "runtime_review_sha256": "96b2bf276a0e2f4979e5bf7a77e1b593753f23c5acb9e0f956df28506512d45b",
+  "new_engine_runs": 2,
+  "ticks_each": 90,
+  "capture_ticks": [
+    38,
+    39,
+    40,
+    41,
+    42,
+    43
+  ],
+  "new_native_frames": 12,
+  "new_indexed_frames": 12,
+  "old_new_image_files_verified": 48,
+  "original_state_rng_indexed_order_exact": true,
+  "outside_admitted_shadow_rectangle_rgba_changes": 0,
+  "cases": {
+    "candidate-p1-2x": {
+      "original_heads": 497,
+      "original_shadows": 465,
+      "admitted_HD_shadows": 460,
+      "negative_x_classic_fallback": 5,
+      "original_state_sha256": "9891e982ff1a103d4983e9dd84fcf3f945da0729f615b44d18814ebb15e64cab",
+      "requests": 39,
+      "emissions": 39,
+      "power_failure_ticks": [],
+      "actual_collision_rows": 0,
+      "native_changed_pixels_at_38_to_43": [
+        163,
+        139,
+        162,
+        92,
+        95,
+        69
+      ],
+      "outside_rectangle_changed_pixels": 0,
+      "visible_birth_drift_signs": [
+        -1,
+        0,
+        1
+      ]
+    },
+    "candidate-p7-2x": {
+      "original_heads": 334,
+      "original_shadows": 312,
+      "admitted_HD_shadows": 309,
+      "negative_x_classic_fallback": 3,
+      "original_state_sha256": "536ea7823d4818bebe5fa9c8a8835932b8794ac97b00f23056f3f8e0671d7f63",
+      "requests": 27,
+      "emissions": 26,
+      "power_failure_ticks": [
+        16
+      ],
+      "actual_collision_rows": 0,
+      "native_changed_pixels_at_38_to_43": [
+        172,
+        215,
+        174,
+        152,
+        127,
+        127
+      ],
+      "outside_rectangle_changed_pixels": 0,
+      "visible_birth_drift_signs": [
+        -1,
+        1
+      ]
+    }
+  },
+  "full_fractional_runtime_oracle": false,
+  "publication": false
+}

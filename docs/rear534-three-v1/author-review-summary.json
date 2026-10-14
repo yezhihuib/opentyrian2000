@@ -1,0 +1,71 @@
+{
+  "schema": "rear534-public-author-summary-v1",
+  "status": "PASS_BOUNDED_ACTUAL_NATIVE2_CYCLE_COLLECTION_AND_NATIVE4_BODY_SPOT",
+  "review_date_utc": "2026-10-14",
+  "original_receipt_sha256": "f9790fb18dc9906c47ab2c8351a7f8c93e8013aa953c32e88f309a662cd99424",
+  "scope": {
+    "native2_frames": 21,
+    "native2_body_ticks": [
+      249,
+      250,
+      251,
+      252,
+      253,
+      254,
+      255,
+      256,
+      257,
+      258,
+      259,
+      260
+    ],
+    "native2_collection_effect_clear_ticks": [
+      264,
+      265,
+      266,
+      267,
+      268,
+      269,
+      270,
+      271,
+      272
+    ],
+    "native4_body_ticks": [
+      255
+    ],
+    "native4_frames": 1,
+    "baseline_images": 0,
+    "observed_engine_cases": 3,
+    "reviewer_new_runs": 0,
+    "reviewer_new_art": false,
+    "reviewer_uploads": false
+  },
+  "visual_findings": {
+    "physical_metal_read": "PASS: fixed silver-gray rounded housing and panel divisions read as a physical pickup at actual native2x and native4x.",
+    "lamp_cycle": "PASS: exact three-draw held203/205/207/205 sequence; red/orange lamps and green indicator vary locally while housing stays fixed.",
+    "registration_and_quadrants": "PASS: continuous original downward motion; no phase-position jump, silhouette swap, four-quarter seam, black rectangle, new aura or visible matte.",
+    "foreground_overlap": "PASS within observed late-cycle and collection overlap with the player nose; retained overlap is not hidden or repaired. Original indexed visibility declines from315 to304 matching cells late in the cycle.",
+    "collection": "PASS: body remains visible on draw-before-collection tick264; disappears thereafter. Cash display15 to1015 and original Rear Weapon Power-Up text appear at264.",
+    "fixed145_and_clear": "PASS: small original warm fixed spot on264-270, then absent271-272; no visible stale body, restoration block or new popup artwork.",
+    "text_and_underlay": "PASS for inspected candidate frames: original rear-power text remains stable; terrain and player remain visible around the effect and cleared location.",
+    "native4": "PASS for one true1280x800 bright207 body frame255: crisp metal panels, localized colored lamps, clean perimeter and seamless quarters. No4x effect-lifetime claim."
+  },
+  "contrast_scope": {
+    "actual_observed": "Brown rocky terrain under pickup and fixed effect.",
+    "not_established": "Cloud-background contrast: cloud is beside the pickup, not behind it. Earlier swatch/terrain art composites do not expand actual runtime coverage."
+  },
+  "verified_native_png_and_rgba_pairs": 22,
+  "accepted_art_payloads_verified": 3,
+  "paired_original_components_each_candidate": 17,
+  "all_original_pairings_exact": true,
+  "reward_observed": "Default rear_id0/rear_power1 unchanged; pickup adds1000 cash at264, separate from15 carrier reward. This is the original cash fallback, not an equipped rear-weapon power increment.",
+  "support_qualification": "Equal-color overdraw ambiguity remains; source-support matching is not an authored-alpha visibility oracle. Actual frames were independently visually inspected.",
+  "limitations": [
+    "The baseline has no images: no original-versus-HD RGB before/after equality is claimed.",
+    "Unchanged fixed145 is supported by original draw-row/state/indexed parity and candidate visual inspection; no baseline effectRGB exists.",
+    "Native4x is a single body still, not a complete cycle or collection/effect lifetime review.",
+    "Bounded Linux SDL dummy/software original-input fixture; no Windows/GPU, manual-play, other-mode, full-level, FPS or general performance acceptance.",
+    "No new art, game launch, capture window, helper, run, retry, upload or implementation edit was performed for this review."
+  ],
+  "evidence_files_included": false
+}

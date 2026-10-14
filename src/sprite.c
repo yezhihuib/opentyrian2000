@@ -675,6 +675,7 @@ void blit_sprite2_blend(SDL_Surface *surface,  int x, int y, Sprite2_array sprit
 // does not clip on left or right edges of surface
 void blit_sprite2_darken(SDL_Surface *surface, int x, int y, Sprite2_array sprite2s, unsigned int index)
 {
+	render_mirror_shadow_begin(surface,x,y,sprite2s,index);
 	asset_debug_effect(surface,sprite2s,index,x,y);
 	assert(surface->format->BitsPerPixel == 8);
 	Uint8 *             pixels =    (Uint8 *)surface->pixels + (y * surface->pitch) + x;
@@ -699,7 +700,7 @@ void blit_sprite2_darken(SDL_Surface *surface, int x, int y, Sprite2_array sprit
 				++data;
 				
 				if (pixels >= pixels_ul)
-					return;
+					{ render_mirror_shadow_end(); return; }
 				if (pixels >= pixels_ll)
 					{ *pixels = ((*pixels & 0x0f) / 2) + (*pixels & 0xf0); render_mirror_pixel(surface,pixels,0,MIRROR_SHADOW); }
 				
@@ -707,6 +708,7 @@ void blit_sprite2_darken(SDL_Surface *surface, int x, int y, Sprite2_array sprit
 			}
 		}
 	}
+	render_mirror_shadow_end();
 }
 
 // does not clip on left or right edges of surface

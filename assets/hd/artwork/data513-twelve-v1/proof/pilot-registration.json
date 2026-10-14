@@ -1,0 +1,353 @@
+{
+  "status": "VECTOR_PILOT_NOT_FROZEN",
+  "method": "Authored semantic SVG corners, planar faces and thin physical rails; rasterized through sharp/librsvg",
+  "template_sha256": "3b4ba127a7ffee706d0b64f7a27dd039759480c3876d2de10008708639096cb7",
+  "logical_size": [
+    24,
+    28
+  ],
+  "anchor": [
+    6,
+    7
+  ],
+  "density": 8,
+  "authored_size": [
+    192,
+    224
+  ],
+  "semantic_corners": {
+    "top_back": [
+      10,
+      3
+    ],
+    "upper_right": [
+      22,
+      6
+    ],
+    "lower_right": [
+      22,
+      18
+    ],
+    "bottom_front": [
+      13.5,
+      25
+    ],
+    "lower_left": [
+      2,
+      22
+    ],
+    "upper_left": [
+      2,
+      10.5
+    ],
+    "face_junction": [
+      13.5,
+      14
+    ]
+  },
+  "no_source_raster_or_mask_input": true,
+  "no_raster_image_editing": true,
+  "all_phase_alpha_identical": true,
+  "eligible_draw_cycle": [
+    159,
+    161,
+    163,
+    161,
+    159,
+    197,
+    199,
+    201,
+    199,
+    197,
+    235,
+    237,
+    239,
+    237,
+    235,
+    273,
+    275,
+    277,
+    275,
+    273
+  ],
+  "nearest_sampling": "floor((target+.5)*8/scale)",
+  "proposed_role": 124,
+  "proposed_slots": [
+    510,
+    511,
+    512,
+    513,
+    514,
+    515,
+    516,
+    517,
+    518,
+    519,
+    520,
+    521
+  ],
+  "record": 513,
+  "record512_excluded": true,
+  "fixed266_unchanged": true,
+  "sharp_versions": {
+    "aom": "3.15.0",
+    "archive": "3.8.9",
+    "cairo": "1.18.4",
+    "cgif": "0.5.3",
+    "exif": "0.6.26",
+    "expat": "2.8.3",
+    "ffi": "3.8.0",
+    "fontconfig": "2.18.3",
+    "freetype": "2.14.3",
+    "fribidi": "1.0.16",
+    "glib": "2.89.4",
+    "harfbuzz": "14.3.1",
+    "heif": "1.23.2",
+    "highway": "1.4.0",
+    "imagequant": "2.4.1",
+    "lcms": "2.19.1",
+    "mozjpeg": "0826579",
+    "pango": "1.58.2",
+    "pixman": "0.46.4",
+    "png": "1.6.58",
+    "proxy-libintl": "0.5",
+    "rsvg": "2.62.91",
+    "tiff": "4.7.2",
+    "uhdr": "2.0.2",
+    "vips": "8.18.6",
+    "webp": "1.6.0",
+    "xml2": "2.15.3",
+    "zlib-ng": "2.3.3",
+    "sharp": "0.35.4"
+  },
+  "rows": [
+    {
+      "base": 159,
+      "group": "beige-silver",
+      "light_level": 0,
+      "colors": {
+        "FACE": "#776a5a",
+        "FACE_LIGHT": "#817261",
+        "FACE_DARK": "#51483d",
+        "TOP_LIGHT": "#655a4d",
+        "TOP_DARK": "#3f3830",
+        "SHADOW": "#26221d",
+        "RAIL": "#ccbc9a",
+        "RAIL_MID": "#8f846c",
+        "GLINT": "#d8cbb1"
+      },
+      "png_sha256": "96da720ef5e49f10ad8a13924f4b62dee25611ccc126ae857a9ba0674d719222",
+      "rgba_sha256": "9312c48bdfeec1d484033f9d70fdb3e47cdf95cfe189f5c0dbd714724c16ac39",
+      "alpha_sha256": "3e5106b504da090a8655bc5745add52ee34472c2d19ef54c09cdecc3b12f8bc1"
+    },
+    {
+      "base": 161,
+      "group": "beige-silver",
+      "light_level": 1,
+      "colors": {
+        "FACE": "#9d8c73",
+        "FACE_LIGHT": "#aa977c",
+        "FACE_DARK": "#6b5f4e",
+        "TOP_LIGHT": "#857762",
+        "TOP_DARK": "#534a3d",
+        "SHADOW": "#322d25",
+        "RAIL": "#eddec0",
+        "RAIL_MID": "#a69b86",
+        "GLINT": "#f1e6ce"
+      },
+      "png_sha256": "0933e1c124bd1545bebb24ec045b99a76aa7fa5a04797f1cd1570c65b55cb665",
+      "rgba_sha256": "36b3a50a6f978e75146b7537adf3e648f560fc1b122f3e1e6676f8140b070899",
+      "alpha_sha256": "3e5106b504da090a8655bc5745add52ee34472c2d19ef54c09cdecc3b12f8bc1"
+    },
+    {
+      "base": 163,
+      "group": "beige-silver",
+      "light_level": 2,
+      "colors": {
+        "FACE": "#c0ac8c",
+        "FACE_LIGHT": "#cfba97",
+        "FACE_DARK": "#83755f",
+        "TOP_LIGHT": "#a39277",
+        "TOP_DARK": "#665b4a",
+        "SHADOW": "#3d372d",
+        "RAIL": "#fff0d5",
+        "RAIL_MID": "#b3a895",
+        "GLINT": "#fff3df"
+      },
+      "png_sha256": "4ee44cdc4f125bbf2b960d0cc124d82050fa1337beeca991a6f70362b0783fb7",
+      "rgba_sha256": "4534eba15f22531c2bc369a4d3f1666c4ba0fa3dc1b7ff262d1b4eaee0dafd2d",
+      "alpha_sha256": "3e5106b504da090a8655bc5745add52ee34472c2d19ef54c09cdecc3b12f8bc1"
+    },
+    {
+      "base": 197,
+      "group": "gold",
+      "light_level": 0,
+      "colors": {
+        "FACE": "#756231",
+        "FACE_LIGHT": "#7e6a35",
+        "FACE_DARK": "#504321",
+        "TOP_LIGHT": "#63532a",
+        "TOP_DARK": "#3e341a",
+        "SHADOW": "#251f10",
+        "RAIL": "#e3bd42",
+        "RAIL_MID": "#9f842e",
+        "GLINT": "#e9cc6d"
+      },
+      "png_sha256": "3d39becbc9c907dc3a8143f6c7da5bb9b9dee7a4b09e7e36843f5adcc50f6bb5",
+      "rgba_sha256": "04321cfbc73b30ce9fc81f0dd668f414e928e9a95030a8033052dcdb5092aff1",
+      "alpha_sha256": "3e5106b504da090a8655bc5745add52ee34472c2d19ef54c09cdecc3b12f8bc1"
+    },
+    {
+      "base": 199,
+      "group": "gold",
+      "light_level": 1,
+      "colors": {
+        "FACE": "#9e843c",
+        "FACE_LIGHT": "#ab8f41",
+        "FACE_DARK": "#6b5a29",
+        "TOP_LIGHT": "#867033",
+        "TOP_DARK": "#544620",
+        "SHADOW": "#332a13",
+        "RAIL": "#ffde63",
+        "RAIL_MID": "#b39b45",
+        "GLINT": "#ffe687"
+      },
+      "png_sha256": "9fb4b0532fd0d3e17d2cf8a487471457282e86e8776ccfe70c4f10d03da17065",
+      "rgba_sha256": "cbea7fc19bd1d11384dab7f98d4045466ce5cecf537b97e7565f17b800c3aaaf",
+      "alpha_sha256": "3e5106b504da090a8655bc5745add52ee34472c2d19ef54c09cdecc3b12f8bc1"
+    },
+    {
+      "base": 201,
+      "group": "gold",
+      "light_level": 2,
+      "colors": {
+        "FACE": "#c6a847",
+        "FACE_LIGHT": "#d6b54d",
+        "FACE_DARK": "#877230",
+        "TOP_LIGHT": "#a88f3c",
+        "TOP_DARK": "#695926",
+        "SHADOW": "#3f3617",
+        "RAIL": "#fff2a0",
+        "RAIL_MID": "#b3a970",
+        "GLINT": "#fff5b6"
+      },
+      "png_sha256": "bc7f76398d7f638826806785ea61a6ce720d3809d79831e5bdff335560e25184",
+      "rgba_sha256": "5370f0552d39494fb4af2eb1e937f9dcd838866da32b1adf28def6a6f2889394",
+      "alpha_sha256": "3e5106b504da090a8655bc5745add52ee34472c2d19ef54c09cdecc3b12f8bc1"
+    },
+    {
+      "base": 235,
+      "group": "red-orange",
+      "light_level": 0,
+      "colors": {
+        "FACE": "#a5371c",
+        "FACE_LIGHT": "#b23b1e",
+        "FACE_DARK": "#702513",
+        "TOP_LIGHT": "#8c2f18",
+        "TOP_DARK": "#571d0f",
+        "SHADOW": "#351209",
+        "RAIL": "#ff9b18",
+        "RAIL_MID": "#b36d11",
+        "GLINT": "#ffb24d"
+      },
+      "png_sha256": "c6a18a2cdd523739a5f323315a4b52299b3ba8c61167446d503af560350663d6",
+      "rgba_sha256": "7b74b7fae9e5b8e6bc64444088df5180bb1eb9028c03fa406f4a3436431476a6",
+      "alpha_sha256": "3e5106b504da090a8655bc5745add52ee34472c2d19ef54c09cdecc3b12f8bc1"
+    },
+    {
+      "base": 237,
+      "group": "red-orange",
+      "light_level": 1,
+      "colors": {
+        "FACE": "#cf4f20",
+        "FACE_LIGHT": "#e05523",
+        "FACE_DARK": "#8d3616",
+        "TOP_LIGHT": "#b0431b",
+        "TOP_DARK": "#6e2a11",
+        "SHADOW": "#42190a",
+        "RAIL": "#ffc53a",
+        "RAIL_MID": "#b38a29",
+        "GLINT": "#ffd267"
+      },
+      "png_sha256": "859f09b62b01735ccf9533e03dbbbfa96f9a3c4b991e832711553cfdb6bca2df",
+      "rgba_sha256": "ed264130f0e5412c61ca963eb080a3e401b2013637921c55bc38b6d2c1ec3a72",
+      "alpha_sha256": "3e5106b504da090a8655bc5745add52ee34472c2d19ef54c09cdecc3b12f8bc1"
+    },
+    {
+      "base": 239,
+      "group": "red-orange",
+      "light_level": 2,
+      "colors": {
+        "FACE": "#f2762c",
+        "FACE_LIGHT": "#ff7f30",
+        "FACE_DARK": "#a5501e",
+        "TOP_LIGHT": "#ce6425",
+        "TOP_DARK": "#803f17",
+        "SHADOW": "#4d260e",
+        "RAIL": "#ffea68",
+        "RAIL_MID": "#b3a449",
+        "GLINT": "#ffef8b"
+      },
+      "png_sha256": "0f87da5a4a82920ab5bbb0000ddbc4798f002757131d2349cbc8317598d8ccad",
+      "rgba_sha256": "a7fa43c90d889e630b25319f5b1dc22e8e567414b674fe31061428ef0bf7b97a",
+      "alpha_sha256": "3e5106b504da090a8655bc5745add52ee34472c2d19ef54c09cdecc3b12f8bc1"
+    },
+    {
+      "base": 273,
+      "group": "green",
+      "light_level": 0,
+      "colors": {
+        "FACE": "#0b8b1b",
+        "FACE_LIGHT": "#0c961d",
+        "FACE_DARK": "#075f12",
+        "TOP_LIGHT": "#097617",
+        "TOP_DARK": "#064a0e",
+        "SHADOW": "#042c09",
+        "RAIL": "#38ed51",
+        "RAIL_MID": "#27a639",
+        "GLINT": "#66f179"
+      },
+      "png_sha256": "47077daefada5be805d593f79575d1c7fa8f000f6f2361bd4e69638f9f621005",
+      "rgba_sha256": "c72f64d2405d22155267597297b73659320760008b84902a0ca378b11dfa073a",
+      "alpha_sha256": "3e5106b504da090a8655bc5745add52ee34472c2d19ef54c09cdecc3b12f8bc1"
+    },
+    {
+      "base": 275,
+      "group": "green",
+      "light_level": 1,
+      "colors": {
+        "FACE": "#13ab2e",
+        "FACE_LIGHT": "#15b932",
+        "FACE_DARK": "#0d741f",
+        "TOP_LIGHT": "#109127",
+        "TOP_DARK": "#0a5b18",
+        "SHADOW": "#06370f",
+        "RAIL": "#66ff83",
+        "RAIL_MID": "#47b35c",
+        "GLINT": "#89ffa0"
+      },
+      "png_sha256": "977871392f409e157fe659713763a85344805a0c6112077b9b90027c7bac3829",
+      "rgba_sha256": "505491bfa432b173f24fab6b3ef65303f4e5406d5b6cd578839e73acb87268fc",
+      "alpha_sha256": "3e5106b504da090a8655bc5745add52ee34472c2d19ef54c09cdecc3b12f8bc1"
+    },
+    {
+      "base": 277,
+      "group": "green",
+      "light_level": 2,
+      "colors": {
+        "FACE": "#2bca49",
+        "FACE_LIGHT": "#2eda4f",
+        "FACE_DARK": "#1d8932",
+        "TOP_LIGHT": "#25ac3e",
+        "TOP_DARK": "#176b27",
+        "SHADOW": "#0e4117",
+        "RAIL": "#a0ffb6",
+        "RAIL_MID": "#70b37f",
+        "GLINT": "#b6ffc7"
+      },
+      "png_sha256": "57a98d16b3a655ef2df0ff93a055ff7a4a3147d04160aebd2fc268bcfaa2d646",
+      "rgba_sha256": "ca671504f0061352637f5694e1ca8150bada427abe9326062d71d6006e51e752",
+      "alpha_sha256": "3e5106b504da090a8655bc5745add52ee34472c2d19ef54c09cdecc3b12f8bc1"
+    }
+  ]
+}

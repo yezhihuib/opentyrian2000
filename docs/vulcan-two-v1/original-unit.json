@@ -1,0 +1,292 @@
+{
+  "status": "PASS",
+  "baseline": "ee2b90cfaf9f227ca394ecd01f2403e55dbf2ea0",
+  "game_runs": 0,
+  "source_sha256": {
+    "src/shots.c": "ec0f326f407849037af1a0218a1bfed1f3f2a720301a053afd3a7d25c7391405",
+    "src/shots.h": "b6e009500719222b134f508e3db2bf3c365a9e1f54e576f8465f98ff6f364042",
+    "src/mainint.c": "0b39b8af90f981bce50762de98eb2458282ed3031780235a8ade405945dcddf8",
+    "src/episodes.c": "640219b48d3081ee996ce66a66f61ad2fe185339fcfaf395808e02fcee0b29e0",
+    "src/episodes.h": "e754c9f34372082084752cb2244c132b8ccad1a1e475d22366e5f1e1e2a59ef5",
+    "src/lvlmast.h": "f33fbe72ec273bf4c72cb2c49bd4dbc4336b6bc6802e1b53d32ac58667026ed0"
+  },
+  "original_data_sha256": {
+    "tyrian.hdt": "fde8506326e7bb0916b38c362e33bf8a8a5affa561206c021af7f65b4a17745b",
+    "tyrian4.lvl": "6589b898094887925e7717c8663c4b8b5e4b76f3c89a7898ed9f4691c1f2cc16",
+    "tyrian5.lvl": "275b5aaf55caecee8dc95e26f7cf118a9ee265f095ce61945b9ece56a4523323"
+  },
+  "source_packet_sha256": "802a5611b97dbd63b27dd79eae728c9f19b07eea6ac6474dad237f8c09c55e60",
+  "extracted_sha256": {
+    "player_shot_create.inc": "9eafd3190920c16ca82bfbc7e0e2c623f987e766e601eb451b9e0bd599e74c2d",
+    "player_shot_move_and_draw.inc": "cf4244e3db815618e0163dcb602dfb7bc2f265dcd1ebce2c4b5b1c1db899cd12",
+    "weapon_type.inc": "afcab6245d3c6ca9acb527395b05c5b7946d9fff39b72918d6c72ec8adc4fdd9",
+    "port_type.inc": "cd5b9f6ae860cafcc8e305d8991f325ad636c0d4af9b391b294de808a62f8c6c",
+    "shot_type.inc": "d22b5430eb7d8ebca15414c4d2987b7cc9a02be63b0c8c4509343af1ae70773d",
+    "cadence.inc": "a3d44a7e17ea85e5629d7cb32deb81cc0612254e7ad250d27c9bf874c7cd5781",
+    "records.inc": "1ea1ff293f90ae20f922757ddb97ee5c888b9f85cad3e1be9f320be08ed91d47"
+  },
+  "record_spans": [
+    {
+      "table": "tyrian.hdt",
+      "record": 221,
+      "offset": 38868,
+      "bytes": 80,
+      "sha256": "0a371c5644ac11ac8e629ba20215e0bf0df4d08abc53ff94186446a8a16c8522"
+    },
+    {
+      "table": "tyrian.hdt",
+      "record": 222,
+      "offset": 38948,
+      "bytes": 80,
+      "sha256": "a16f51e1b0eaed477a299b2e9efc40d8b7a7c5e2f5803327d91db68fde9ccf3a"
+    },
+    {
+      "table": "tyrian.hdt",
+      "record": 223,
+      "offset": 39028,
+      "bytes": 80,
+      "sha256": "a34e15ff7da96d61aba28448b6b5e66f6e5a6760245c83450dd181aa4a079207"
+    },
+    {
+      "table": "tyrian.hdt",
+      "record": 224,
+      "offset": 39108,
+      "bytes": 80,
+      "sha256": "f65bf966e29814ca44d9ec7730dce365f7af1ea358f7cd26e41fc8f8f0293c1b"
+    },
+    {
+      "table": "tyrian.hdt",
+      "record": 225,
+      "offset": 39188,
+      "bytes": 80,
+      "sha256": "1da5c5b9d13cde995555c86640a820a35ce40f809df31b45bb17d988fa9d2106"
+    },
+    {
+      "table": "tyrian.hdt",
+      "record": 226,
+      "offset": 39268,
+      "bytes": 80,
+      "sha256": "1da5c5b9d13cde995555c86640a820a35ce40f809df31b45bb17d988fa9d2106"
+    },
+    {
+      "table": "tyrian.hdt",
+      "record": 227,
+      "offset": 39348,
+      "bytes": 80,
+      "sha256": "4914c1484a336561567146d572a9793cea679960d0925322188581e42201d351"
+    },
+    {
+      "table": "tyrian.hdt",
+      "record": 228,
+      "offset": 39428,
+      "bytes": 80,
+      "sha256": "378ccd5e2e222160ea6fefa70cb0b5cb774d636b589ff996afa7eed59e3275c2"
+    },
+    {
+      "table": "tyrian.hdt",
+      "record": 229,
+      "offset": 39508,
+      "bytes": 80,
+      "sha256": "b1402c87043ac1198853a9854eaba49de9e9c551f217a7d954abedfdb0211d6b"
+    },
+    {
+      "table": "tyrian.hdt",
+      "record": 230,
+      "offset": 39588,
+      "bytes": 80,
+      "sha256": "48ac6a8e4fabdb5f871fe433c7614346926e18f9ed97692f8e741bec8bdcab93"
+    },
+    {
+      "table": "tyrian.hdt",
+      "record": 231,
+      "offset": 39668,
+      "bytes": 80,
+      "sha256": "b4a655c1f108cccb07e30cf82cbca0c09b026b0adfc41bae4c717da85e8b010f"
+    },
+    {
+      "table": "tyrian4.lvl",
+      "record": 221,
+      "offset": 681102,
+      "bytes": 80,
+      "sha256": "807b3de27a775ba41d75299400185de958585578e227d2d0b9a9fc1fc79f142f"
+    },
+    {
+      "table": "tyrian4.lvl",
+      "record": 222,
+      "offset": 681182,
+      "bytes": 80,
+      "sha256": "395dbae59e1e56764e7dd5787df349b849dc0f9f0d77f381fcfa649f1b83498a"
+    },
+    {
+      "table": "tyrian4.lvl",
+      "record": 223,
+      "offset": 681262,
+      "bytes": 80,
+      "sha256": "44f70e885ce69fcac5e4906c40157de1476e5534f6076f399293da9399dd6ac1"
+    },
+    {
+      "table": "tyrian4.lvl",
+      "record": 224,
+      "offset": 681342,
+      "bytes": 80,
+      "sha256": "eee7a882806849c52feaa199f7e5ceef4a86f5b30d7b89fa52526a4082e7f1d3"
+    },
+    {
+      "table": "tyrian4.lvl",
+      "record": 225,
+      "offset": 681422,
+      "bytes": 80,
+      "sha256": "7406c40e56f8f3b8e524a63d217ccfece1e01d074945e105de8b24ea5f136e4f"
+    },
+    {
+      "table": "tyrian4.lvl",
+      "record": 226,
+      "offset": 681502,
+      "bytes": 80,
+      "sha256": "7406c40e56f8f3b8e524a63d217ccfece1e01d074945e105de8b24ea5f136e4f"
+    },
+    {
+      "table": "tyrian4.lvl",
+      "record": 227,
+      "offset": 681582,
+      "bytes": 80,
+      "sha256": "185ebfa0bc32e841d8a25e47e0e5955e0bd81a6113760b8c8867c6c23f470340"
+    },
+    {
+      "table": "tyrian4.lvl",
+      "record": 228,
+      "offset": 681662,
+      "bytes": 80,
+      "sha256": "e6c3952ef4aaa79e603da216a81dc89717212315bda827982cfbc67ef13b0926"
+    },
+    {
+      "table": "tyrian4.lvl",
+      "record": 229,
+      "offset": 681742,
+      "bytes": 80,
+      "sha256": "cf394e0e5b5d26984b6788f3cbd02ce5728144795334d55f19fa848d699f489d"
+    },
+    {
+      "table": "tyrian4.lvl",
+      "record": 230,
+      "offset": 681822,
+      "bytes": 80,
+      "sha256": "368a4dc4989a38e0f1af4ec052a262ef7d7c00cb5aa0036f5ccdea7f03990f32"
+    },
+    {
+      "table": "tyrian4.lvl",
+      "record": 231,
+      "offset": 681902,
+      "bytes": 80,
+      "sha256": "208de0829dae4de28080b672972cf024331adc1fc07d1fa85f2580f4d736475b"
+    },
+    {
+      "table": "tyrian5.lvl",
+      "record": 221,
+      "offset": 264936,
+      "bytes": 80,
+      "sha256": "93688727309bc6221dc3757cb4e3d21169f9aa84eb7f25c5c01851f1f7864a2f"
+    },
+    {
+      "table": "tyrian5.lvl",
+      "record": 222,
+      "offset": 265016,
+      "bytes": 80,
+      "sha256": "5efc96f33eefc63b1216940e6e28ff254549aa3badc1f2b3ae65d66a76fcdbae"
+    },
+    {
+      "table": "tyrian5.lvl",
+      "record": 223,
+      "offset": 265096,
+      "bytes": 80,
+      "sha256": "af545f74c96ab4720f898f07c8a3b0074291fe2c154faa8e2b5cca281ea336b1"
+    },
+    {
+      "table": "tyrian5.lvl",
+      "record": 224,
+      "offset": 265176,
+      "bytes": 80,
+      "sha256": "baa734ccffa95db3745ed6ec2afaadef9bc3b511dce83387397bdbe61e768227"
+    },
+    {
+      "table": "tyrian5.lvl",
+      "record": 225,
+      "offset": 265256,
+      "bytes": 80,
+      "sha256": "7406c40e56f8f3b8e524a63d217ccfece1e01d074945e105de8b24ea5f136e4f"
+    },
+    {
+      "table": "tyrian5.lvl",
+      "record": 226,
+      "offset": 265336,
+      "bytes": 80,
+      "sha256": "7406c40e56f8f3b8e524a63d217ccfece1e01d074945e105de8b24ea5f136e4f"
+    },
+    {
+      "table": "tyrian5.lvl",
+      "record": 227,
+      "offset": 265416,
+      "bytes": 80,
+      "sha256": "eafba4b12c30b2fb10d7c04b2efaa6e95996ae082cfc48b817b83ea53685d3f5"
+    },
+    {
+      "table": "tyrian5.lvl",
+      "record": 228,
+      "offset": 265496,
+      "bytes": 80,
+      "sha256": "0751690564b6b04c3501635c254078be4b3baedee1ec046dac9b0c58ef55c45d"
+    },
+    {
+      "table": "tyrian5.lvl",
+      "record": 229,
+      "offset": 265576,
+      "bytes": 80,
+      "sha256": "cf394e0e5b5d26984b6788f3cbd02ce5728144795334d55f19fa848d699f489d"
+    },
+    {
+      "table": "tyrian5.lvl",
+      "record": 230,
+      "offset": 265656,
+      "bytes": 80,
+      "sha256": "368a4dc4989a38e0f1af4ec052a262ef7d7c00cb5aa0036f5ccdea7f03990f32"
+    },
+    {
+      "table": "tyrian5.lvl",
+      "record": 231,
+      "offset": 265736,
+      "bytes": 80,
+      "sha256": "208de0829dae4de28080b672972cf024331adc1fc07d1fa85f2580f4d736475b"
+    }
+  ],
+  "results": {
+    "optimized": {
+      "status": "PASS",
+      "tables": 3,
+      "powers": 11,
+      "two_cycle_calls": 396,
+      "drift_cases": 14,
+      "movement_calls": 1238,
+      "cadence_ticks": 264,
+      "game_runs": 0
+    },
+    "sanitized": {
+      "status": "PASS",
+      "tables": 3,
+      "powers": 11,
+      "two_cycle_calls": 396,
+      "drift_cases": 14,
+      "movement_calls": 1238,
+      "cadence_ticks": 264,
+      "game_runs": 0
+    }
+  },
+  "limitations": [
+    "Exact production functions and main-weapon cadence block, isolated caller-owned fields and read-only draw/probe observers.",
+    "Power and shot pools reset by the unit to cover phases; no live-game power, encounter, acquisition or runtime claim.",
+    "All 11 powers in three table groups; runtime remains a separate four-case P1/P7 gate."
+  ],
+  "harness_sha256": {
+    "test-vulcan-original.py": "51b0b0c82e25bd7a22ce9699317bead5abc84437ebb99f592067aee0c8ed1199",
+    "test-vulcan-original.c": "dd61f84fb6741be049cb09b8f879515b58a026f6fc905895ea1dc86f30157559"
+  }
+}

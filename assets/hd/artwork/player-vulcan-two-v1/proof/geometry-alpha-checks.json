@@ -1,0 +1,152 @@
+{
+  "pass": true,
+  "scope": "Local alpha/geometry acceptance checks, not gameplay/runtime proof",
+  "exact_apparent_bbox_at_all_scales": true,
+  "single_one_bright_core_twin_two_bright_cores_at_all_scales": true,
+  "smooth_fractional_coverage_at_native2_4_8": true,
+  "zero_alpha_rgb_zero": true,
+  "rows": [
+    {
+      "id": 67,
+      "scales": {
+        "1": {
+          "bbox": [
+            4,
+            0,
+            7,
+            11
+          ],
+          "nonzero": 24,
+          "fractional_alpha": 1,
+          "transparent_rgb_nonzero": 0,
+          "bright_core_components_8connected": [
+            6
+          ],
+          "png_sha256": "77263b58dcb7ed3ff4fa828d84ed9628b69725d39cde3ebc478aeb3209359f47",
+          "rgba_sha256": "33f339b9092ac1f25b935ebf8fc9854908196a748f8c0503a346568b37877aa2"
+        },
+        "2": {
+          "bbox": [
+            8,
+            0,
+            14,
+            22
+          ],
+          "nonzero": 99,
+          "fractional_alpha": 9,
+          "transparent_rgb_nonzero": 0,
+          "bright_core_components_8connected": [
+            31
+          ],
+          "png_sha256": "61be51755dfbf21c910c2548818c9f7b475b190a2e399cf988cfacd4382bd78e",
+          "rgba_sha256": "19595468cc2e8454f6cdf31236d004c7d8a0bfc8fb26a5e1ea90952724daf14c"
+        },
+        "4": {
+          "bbox": [
+            16,
+            0,
+            28,
+            44
+          ],
+          "nonzero": 397,
+          "fractional_alpha": 51,
+          "transparent_rgb_nonzero": 0,
+          "bright_core_components_8connected": [
+            113
+          ],
+          "png_sha256": "01f7a6ccd8fdc36da5d7ed634cffcca35a74a93db24f2be8e60b3e6de47375d8",
+          "rgba_sha256": "212a704acdd877b5c2254edcf29afd20fda1c01cc528eee469ac9eab0569b137"
+        },
+        "8": {
+          "bbox": [
+            32,
+            0,
+            56,
+            88
+          ],
+          "nonzero": 1592,
+          "fractional_alpha": 206,
+          "transparent_rgb_nonzero": 0,
+          "bright_core_components_8connected": [
+            456
+          ],
+          "png_sha256": "eed5e50f445717a8b6663883f05f7c8809aff56436390e2697525dcecca2f953",
+          "rgba_sha256": "f1d661ec9ca7457a06373c90313f2c34e07e2419cdd9521b452b807452d258fa"
+        }
+      }
+    },
+    {
+      "id": 70,
+      "scales": {
+        "1": {
+          "bbox": [
+            3,
+            0,
+            8,
+            11
+          ],
+          "nonzero": 36,
+          "fractional_alpha": 2,
+          "transparent_rgb_nonzero": 0,
+          "bright_core_components_8connected": [
+            6,
+            5
+          ],
+          "png_sha256": "27195655e89b35440d55de1ea1dbdcd4dad1ecdcc10232c5a5ba70dd5bbeb7da",
+          "rgba_sha256": "5877de17130d9ba10f6dd4b71b43c958eeb6c2eb71977afa4026548169d3e2be"
+        },
+        "2": {
+          "bbox": [
+            6,
+            0,
+            16,
+            22
+          ],
+          "nonzero": 170,
+          "fractional_alpha": 24,
+          "transparent_rgb_nonzero": 0,
+          "bright_core_components_8connected": [
+            26,
+            24
+          ],
+          "png_sha256": "0051a7524cda430fc62025b0fed1f175667c9998fccb44bd4c45fe983e6793f9",
+          "rgba_sha256": "a70a0d536c43dbd4cadcac167b2fcfee8ac9a7e5606d7f2d048af1d94eb5248f"
+        },
+        "4": {
+          "bbox": [
+            12,
+            0,
+            32,
+            44
+          ],
+          "nonzero": 667,
+          "fractional_alpha": 100,
+          "transparent_rgb_nonzero": 0,
+          "bright_core_components_8connected": [
+            96,
+            89
+          ],
+          "png_sha256": "db2cf252a6df22d08f88b67b08823d7dd6ced5fc79fb896c9c5f9d2f216c07ec",
+          "rgba_sha256": "07e67ab2f748b582aaf399d1cae41bea5f42a66d326f9ae8138688c440dfd8cf"
+        },
+        "8": {
+          "bbox": [
+            24,
+            0,
+            64,
+            88
+          ],
+          "nonzero": 2674,
+          "fractional_alpha": 400,
+          "transparent_rgb_nonzero": 0,
+          "bright_core_components_8connected": [
+            373,
+            373
+          ],
+          "png_sha256": "df20672a356778dcffb44191e483b5ac812b9e2aa3acbfbd16e636fc91f73dfe",
+          "rgba_sha256": "739639ae6357ecc4ef447a4c64e6ce1954ba04831a3923f0939c2bd3a3cd5d36"
+        }
+      }
+    }
+  ]
+}

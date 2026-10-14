@@ -1,0 +1,152 @@
+{
+  "status": "PASS",
+  "source_only_relocated": true,
+  "inputs_available": [
+    "README.md",
+    "contract.json",
+    "proof/geometry-and-sampling.json",
+    "proof/pilot-held-cycle-native2x.png",
+    "proof/pilot-held-cycle-native4x.png",
+    "proof/pilot-registration.json",
+    "proof/pilot-twelve-native2x.png",
+    "proof/pilot-twelve-native4x.png",
+    "rebuild.cjs",
+    "sources/cube-template.svg",
+    "sources/phase-spec.json",
+    "sources/provenance.json",
+    "inventory.json"
+  ],
+  "original_data_or_rejected_images_available": false,
+  "outputs_checked": 25,
+  "all_outputs_byte_identical": true,
+  "runtime_or_game_processes": 0,
+  "command": "node rebuild.cjs NEW_OUTPUT_DIRECTORY",
+  "stdout": "PASS: twelve exact authored-vector Data513 PNG/HDR1 resources.",
+  "outputs": [
+    {
+      "file": "data513-bank11-159-8.hda",
+      "sha256": "952e3fadbc46edd98f7a0adbe9577eb4af1ddde124c2d8f77833321863f767d0",
+      "byte_identical": true
+    },
+    {
+      "file": "data513-bank11-159-8.png",
+      "sha256": "96da720ef5e49f10ad8a13924f4b62dee25611ccc126ae857a9ba0674d719222",
+      "byte_identical": true
+    },
+    {
+      "file": "data513-bank11-161-8.hda",
+      "sha256": "14ba270c153f8eb974227f96ef5d4decd1d877ef868d31b1e75b0c2337cb7506",
+      "byte_identical": true
+    },
+    {
+      "file": "data513-bank11-161-8.png",
+      "sha256": "0933e1c124bd1545bebb24ec045b99a76aa7fa5a04797f1cd1570c65b55cb665",
+      "byte_identical": true
+    },
+    {
+      "file": "data513-bank11-163-8.hda",
+      "sha256": "1a0219c93f81d13d8721c04ad3ee58357945fb542ea1d0c5fb1a68eb376cac36",
+      "byte_identical": true
+    },
+    {
+      "file": "data513-bank11-163-8.png",
+      "sha256": "4ee44cdc4f125bbf2b960d0cc124d82050fa1337beeca991a6f70362b0783fb7",
+      "byte_identical": true
+    },
+    {
+      "file": "data513-bank11-197-8.hda",
+      "sha256": "bcfd4f4727737a7754ed45778f4b4a38396635a369fc49c6ab68b4947b06f94d",
+      "byte_identical": true
+    },
+    {
+      "file": "data513-bank11-197-8.png",
+      "sha256": "3d39becbc9c907dc3a8143f6c7da5bb9b9dee7a4b09e7e36843f5adcc50f6bb5",
+      "byte_identical": true
+    },
+    {
+      "file": "data513-bank11-199-8.hda",
+      "sha256": "fd55c3709bd8edc182f62bad8d433d1f9efe55ad3b64b67b5d986495d3fba9c4",
+      "byte_identical": true
+    },
+    {
+      "file": "data513-bank11-199-8.png",
+      "sha256": "9fb4b0532fd0d3e17d2cf8a487471457282e86e8776ccfe70c4f10d03da17065",
+      "byte_identical": true
+    },
+    {
+      "file": "data513-bank11-201-8.hda",
+      "sha256": "db0c066f56b0e5ee4072a220d7136a0d6fc509635d80ce27aed96ca63c21d7df",
+      "byte_identical": true
+    },
+    {
+      "file": "data513-bank11-201-8.png",
+      "sha256": "bc7f76398d7f638826806785ea61a6ce720d3809d79831e5bdff335560e25184",
+      "byte_identical": true
+    },
+    {
+      "file": "data513-bank11-235-8.hda",
+      "sha256": "1bee7c548293262e86db83884fb49012ba8edb572322db6ded15bc1849278e3a",
+      "byte_identical": true
+    },
+    {
+      "file": "data513-bank11-235-8.png",
+      "sha256": "c6a18a2cdd523739a5f323315a4b52299b3ba8c61167446d503af560350663d6",
+      "byte_identical": true
+    },
+    {
+      "file": "data513-bank11-237-8.hda",
+      "sha256": "0dcc4c5bdf5ce4897f29bba8954ba638c478a7f046b513366b617a457a182790",
+      "byte_identical": true
+    },
+    {
+      "file": "data513-bank11-237-8.png",
+      "sha256": "859f09b62b01735ccf9533e03dbbbfa96f9a3c4b991e832711553cfdb6bca2df",
+      "byte_identical": true
+    },
+    {
+      "file": "data513-bank11-239-8.hda",
+      "sha256": "4a54bddc83c59264fe8be911b200419d4ca588c857ba709d640ec7a1a67880d9",
+      "byte_identical": true
+    },
+    {
+      "file": "data513-bank11-239-8.png",
+      "sha256": "0f87da5a4a82920ab5bbb0000ddbc4798f002757131d2349cbc8317598d8ccad",
+      "byte_identical": true
+    },
+    {
+      "file": "data513-bank11-273-8.hda",
+      "sha256": "6030972587c0c10cbc8faa8394cf10131338afd316ea3065adc338ce809642f5",
+      "byte_identical": true
+    },
+    {
+      "file": "data513-bank11-273-8.png",
+      "sha256": "47077daefada5be805d593f79575d1c7fa8f000f6f2361bd4e69638f9f621005",
+      "byte_identical": true
+    },
+    {
+      "file": "data513-bank11-275-8.hda",
+      "sha256": "80fd1564d678a1057d860704fa9ff9a6e6ec0e60bf49f5ebe9f2f22968d177bc",
+      "byte_identical": true
+    },
+    {
+      "file": "data513-bank11-275-8.png",
+      "sha256": "977871392f409e157fe659713763a85344805a0c6112077b9b90027c7bac3829",
+      "byte_identical": true
+    },
+    {
+      "file": "data513-bank11-277-8.hda",
+      "sha256": "e84a38b0215cea039d9b3e29de10cdf28881cc108773bfecba0199e4300bde93",
+      "byte_identical": true
+    },
+    {
+      "file": "data513-bank11-277-8.png",
+      "sha256": "57a98d16b3a655ef2df0ff93a055ff7a4a3147d04160aebd2fc268bcfaa2d646",
+      "byte_identical": true
+    },
+    {
+      "file": "rebuild-receipt.json",
+      "sha256": "f4e8f5366a76083258729597032230118f7240a1dc1adb6efa16ae23515505c5",
+      "byte_identical": true
+    }
+  ]
+}

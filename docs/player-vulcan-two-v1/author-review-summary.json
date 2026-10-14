@@ -1,0 +1,48 @@
+{
+  "schema": "player-vulcan-two-author-summary-v1",
+  "status": "PASS_BOUNDED_NATIVE2X_AUTHOR_REVIEW",
+  "tested_source_commit": "5bbf38eb9385d06fb617f1239fdf7f90f95304f8",
+  "art_inventory_sha256": "2099589202e779b0b41c7fed9f50bb71a5f99f84c8eabd79c580f3214ee2e460",
+  "original_author_receipt_sha256": "902331cd8dea5b7fe95c9fd30f30ee4c0f3c773a562ec7e3a0608125699f349a",
+  "reviewed_at_utc": "2026-10-14T06:06:00Z",
+  "art_freeze": "Two approved normal-only semantic SVG tracer heads; all frozen inputs, PNG and HDA bytes remain unchanged.",
+  "direct_native_review": {
+    "actual_images_directly_viewed": 24,
+    "candidate_images": 12,
+    "paired_baseline_images": 12,
+    "dimensions": [
+      640,
+      400
+    ],
+    "powers": [
+      1,
+      7
+    ],
+    "capture_ticks_inclusive": [
+      38,
+      43
+    ],
+    "resizing_or_art_modification": false,
+    "actual_backgrounds": [
+      "Bright clouds and cloud edges",
+      "Brown rocky terrain"
+    ],
+    "observations": [
+      "P1 single warm orange/yellow streaks stay narrow and readable over bright clouds, cloud edges and brown rocky terrain.",
+      "P7 twin heads preserve two separate luminous cores with a visible dark central valley; no merged luminous bar.",
+      "Both forms retain top registration and apparent longitudinal extent against the same-tick baseline.",
+      "The gray block-like offsets below heads are the intentionally preserved original indexed shadows. Their coarse shape is an unchanged source limitation, not smoke or a newly authored trail.",
+      "Ordered six-frame sequences show no visible head-form/color flicker, orb halo, added exhaust or detached new trail.",
+      "Left-going older shots and right-going new shots follow the baseline positional sequence. The associated paired logs and result witnesses support the drift-sign statement."
+    ]
+  },
+  "limits": [
+    "Two diagnostic starting loadouts with the original demo-key movement/fire route and original spawn protection only.",
+    "Original coarse gray indexed shadows remain unchanged and visibly coarse.",
+    "Six-frame ordered visual window; not long-tail motion or general flicker acceptance.",
+    "No native 4x, Christmas game, all-eleven-power live, shared-option/rear-charge live, natural acquisition/upgrade, unprotected survival or Windows/manual acceptance.",
+    "No complete fractional-alpha background oracle is inferred from paired captures.",
+    "Empty collision traces provide no runtime collision-coverage claim.",
+    "Original RGB/index grids and actual gameplay images are not included in this summary."
+  ]
+}

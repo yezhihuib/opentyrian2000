@@ -39,9 +39,10 @@ typedef struct {
  int bank,index,w,h,anchor_x,anchor_y,density;
  Uint8 *rgba;
 } Asset;
-enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121, ASSET_ENEMY_TANK_SHELL=122 };
+enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121, ASSET_ENEMY_TANK_SHELL=122, ASSET_REAR534_BODY=123, ASSET_DATA513_BODY=124 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
-static Asset assets[507];
+/* Slots 507..521 are reserved for the separately staged rear and Data families. */
+static Asset assets[524];
 /* One draw-call lease from the original fixed explosion; never gameplay state. */
 static bool cash25_fixed_value;
 static bool cash75_fixed_value;
@@ -137,6 +138,27 @@ static Uint8 *green_under_owner;
 static Uint32 initial_palette[256];
 static bool have_initial_palette;
 static bool active,suppress,ready;
+/* This lease belongs to one existing bank8/TILE67 or70 shadow command, not a
+ * projectile or most-recent head. No pixel is deferred/replayed at Present. */
+typedef struct {
+ bool live,entered;
+ SDL_Surface *surface;
+ const void *pixels,*canvas_pixels;
+ SDL_PixelFormat *format;
+ const Uint8 *bank_data;
+ size_t bank_size;
+ uint64_t tick;
+ int pitch,canvas_pitch,x,y;
+ unsigned int index;
+ Uint8 before[12*14],coverage[12*14];
+} VulcanShadowCall;
+static VulcanShadowCall vulcan_shadow;
+/* Record only these two loader results, including a resource-root epoch.
+ * Frozen bytes are rechecked at every shadow, even after a warm head load. */
+static struct {const Uint8 *rgba;char path[1024];} vulcan_shadow_resource[2];
+static void vulcan_shadow_clear(void) {memset(&vulcan_shadow,0,sizeof(vulcan_shadow));}
+static bool vulcan_shadow_pixel(SDL_Surface *,int,int,Uint8,Uint8,int);
+
 /* PIC3 grants this scene lease independently of optional HUD resources. */
 static bool manual_hd_lease;
 static bool manual_hd_scope(void)
@@ -278,6 +300,7 @@ static Uint32 brightness_rgba(Uint32 color,int value)
 
 void render_mirror_brightness_pixel(SDL_Surface *surface,Uint8 *address,int value)
 {
+ render_mirror_shadow_end();
  if(!active||surface!=game_screen)return;
  intptr_t off=(intptr_t)address-(intptr_t)surface->pixels;
  if(off<0||off>=(intptr_t)surface->pitch*surface->h) {render_mirror_unsupported("invalid-brightness-address");return;}
@@ -856,6 +879,7 @@ static void hud_frame_reset(void)
 
 void render_mirror_hud_reset(void)
 {
+ render_mirror_shadow_end();
  font_reset();fixed_text_reset();indicators_reset();components_reset();hud_frame_reset();
  if(manual_hd_enabled) {
   manual_hd_lease=false;active=false;ready=false;
@@ -1022,6 +1046,7 @@ static bool hud_compose(void)
 
 void render_mirror_begin(void)
 {
+ vulcan_shadow_clear();
  cash25_fixed_value=false;
  cash75_fixed_value=false;
  cash50_fixed_value=false;
@@ -1065,13 +1090,14 @@ void render_mirror_pixel(SDL_Surface *surface,Uint8 *address,Uint8 source,int st
  load_font_pixel(surface,address,style);
  selector_font_pixel(surface,address,style);
  pregame_font_pixel(surface,address,style);
- if(!active||surface!=game_screen) return;
+ if(!active||surface!=game_screen) {render_mirror_shadow_end();return;}
  intptr_t offset=(intptr_t)address-(intptr_t)surface->pixels;
  if(offset<0||offset>=(intptr_t)surface->pitch*surface->h) { render_mirror_unsupported("invalid-write-address");return; }
  int y=(int)(offset/surface->pitch),x=(int)(offset%surface->pitch);
- if(x>=320||y>=200) return;
+ if(x>=320||y>=200) {render_mirror_shadow_end();return;}
  Uint8 before=expected[y*320+x];expected[y*320+x]=*address;
- if(reject_reason) return;
+ if(reject_reason) {vulcan_shadow_clear();return;}
+ if(vulcan_shadow_pixel(surface,x,y,before,*address,style))return;
  if(font_pixel(x,y,*address,style))return;
  if(suppress) {
   /* The replacement's transparent pixels preserve the earlier RGB scene.
@@ -1134,6 +1160,7 @@ void render_mirror_rect(SDL_Surface *s,const SDL_Rect *rect)
 
 void render_mirror_unsupported(const char *reason)
 {
+ vulcan_shadow_clear();
  if(!active)return;
  if(!reject_reason) reject_reason=reason;
  if(!strstr(all_rejections,reason)) {
@@ -1165,7 +1192,7 @@ static bool decode_tile(Sprite2_array bank,unsigned int index,Uint8 *indices,Uin
 static bool read_asset(Asset *a,int wanted)
 {
  char name[1024];
- const char *prefix=a->bank==ASSET_ENEMY_TANK_SHELL?"enemy-tank-shell":a->bank==ASSET_GEM250_BODY?"gem250-bank11":a->bank==ASSET_GEM250_VALUE?"gem250-value-newsh6":a->bank==ASSET_GEM100_BODY?"gem100-bank11":a->bank==ASSET_GEM100_VALUE?"gem100-value-newsh6":a->bank==ASSET_CASH50_BODY?"coin50-bank11":a->bank==ASSET_CASH50_VALUE?"coin50-value-newsh6":a->bank==ASSET_CASH75_BODY?"coin75-bank11":a->bank==ASSET_CASH75_VALUE?"coin75-value-newsh6":a->bank==ASSET_CASH25_BODY?"coin25-bank11":a->bank==ASSET_CASH25_VALUE?"coin25-value-newsh6":a->bank==9?"ship":a->bank==8?"bullet":a->bank==ASSET_ENEMY_ENERGY?"enemy-energy":a->bank==ASSET_NEWSH2?"enemy-newsh2":a->bank==ASSET_NEWSH4?"enemy-newsh4":a->bank==ASSET_NEWSHE?"enemy-newshe":a->bank==ASSET_TALON_BANK?"talon-bank":a->bank==ASSET_EXPLOSION?"explosion-newsh6":"terrain-shapesz";
+ const char *prefix=a->bank==ASSET_REAR534_BODY?"rear534-bank11":a->bank==ASSET_DATA513_BODY?"data513-bank11":a->bank==ASSET_ENEMY_TANK_SHELL?"enemy-tank-shell":a->bank==ASSET_GEM250_BODY?"gem250-bank11":a->bank==ASSET_GEM250_VALUE?"gem250-value-newsh6":a->bank==ASSET_GEM100_BODY?"gem100-bank11":a->bank==ASSET_GEM100_VALUE?"gem100-value-newsh6":a->bank==ASSET_CASH50_BODY?"coin50-bank11":a->bank==ASSET_CASH50_VALUE?"coin50-value-newsh6":a->bank==ASSET_CASH75_BODY?"coin75-bank11":a->bank==ASSET_CASH75_VALUE?"coin75-value-newsh6":a->bank==ASSET_CASH25_BODY?"coin25-bank11":a->bank==ASSET_CASH25_VALUE?"coin25-value-newsh6":a->bank==9?"ship":a->bank==8?"bullet":a->bank==ASSET_ENEMY_ENERGY?"enemy-energy":a->bank==ASSET_NEWSH2?"enemy-newsh2":a->bank==ASSET_NEWSH4?"enemy-newsh4":a->bank==ASSET_NEWSHE?"enemy-newshe":a->bank==ASSET_TALON_BANK?"talon-bank":a->bank==ASSET_EXPLOSION?"explosion-newsh6":"terrain-shapesz";
  if(!game_probe_assets||snprintf(name,sizeof(name),"%s/%s-%d-%d.hda",game_probe_assets,prefix,a->index,wanted)>=(int)sizeof(name)) return false;
  FILE *f=fopen(name,"rb");if(!f)return false;
  Uint8 h[28]={0};bool ok=fread(h,1,sizeof(h),f)==sizeof(h)&&memcmp(h,"HDR1",4)==0;
@@ -1179,7 +1206,13 @@ static bool read_asset(Asset *a,int wanted)
  if(ok) ok=fread(pixels,1,size,f)==size&&fgetc(f)==EOF;
  fclose(f);
  if(!ok) { free(pixels);return false; }
- a->density=wanted;a->rgba=pixels;return true;
+ a->density=wanted;a->rgba=pixels;
+ if(a->bank==8&&(a->index==67||a->index==70)) {
+  int k=a->index==67?0:1;
+  vulcan_shadow_resource[k].rgba=pixels;
+  memcpy(vulcan_shadow_resource[k].path,name,strlen(name)+1);
+ }
+ return true;
 }
 
 /* Seven inseparable 8x resources, locked to the frozen generated inventory.
@@ -1308,6 +1341,65 @@ static bool gem250_family_ready(void)
  return gem250_valid;
 }
 
+/* Three frozen rear-power lamp phases; complete composites, never effect145.
+ * Independent all-three-or-classic cache for the selected Asset lifetime. */
+static bool rear534_checked,rear534_valid;
+static bool rear534_family_ready(void)
+{
+ if(game_probe_density!=8||game_probe_missing||game_probe_invalid||
+    game_probe_original_reference||!game_probe_assets)return false;
+ if(rear534_checked)return rear534_valid;
+ rear534_checked=true;rear534_valid=true;
+ static const unsigned int ids[3]={203,205,207};
+ static const uint64_t rgba_stamps[3]={UINT64_C(0xc4b4353293bb9164),UINT64_C(0xa3fbb51ae2bb17c0),UINT64_C(0x74873510f637aaf7)};
+ for(int i=0;i<3;i++) {
+  Asset *a=&assets[507+i];
+  a->initialized=true;a->bank=ASSET_REAR534_BODY;a->index=(int)ids[i];
+  a->w=24;a->h=28;a->anchor_x=6;a->anchor_y=7;
+  a->valid=read_asset(a,8);
+  if(a->valid) {
+   uint64_t stamp=UINT64_C(0xcbf29ce484222325);
+   for(size_t p=0;p<(size_t)24*28*8*8*4;p++){stamp^=a->rgba[p];stamp*=UINT64_C(0x100000001b3);}
+   if(stamp!=rgba_stamps[i])a->valid=false;
+  }
+  if(!a->valid)rear534_valid=false;
+ }
+ return rear534_valid;
+}
+
+static int data513_base_slot(unsigned int base)
+{
+ static const unsigned int ids[12]={159,161,163,197,199,201,235,237,239,273,275,277};
+ for(int i=0;i<12;i++)if(base==ids[i])return i;
+ return -1;
+}
+
+/* Twelve frozen Data cube light phases; complete composites, never fixed266.
+ * Independent all-twelve-or-classic cache for the selected Asset lifetime. */
+static bool data513_checked,data513_valid;
+static bool data513_family_ready(void)
+{
+ if(game_probe_density!=8||game_probe_missing||game_probe_invalid||
+    game_probe_original_reference||!game_probe_assets)return false;
+ if(data513_checked)return data513_valid;
+ data513_checked=true;data513_valid=true;
+ static const unsigned int ids[12]={159,161,163,197,199,201,235,237,239,273,275,277};
+ static const uint64_t rgba_stamps[12]={UINT64_C(0x9106c44a8ee1ae88),UINT64_C(0x21e19f1854a362d5),UINT64_C(0xc1d6d2e7b3ab9b80),UINT64_C(0xa15c347dc789aeb1),UINT64_C(0x2b22062b89c47f93),UINT64_C(0x1ea2e121eaa4234b),UINT64_C(0x7507197ebc0851c4),UINT64_C(0xaa83d45f6c0127e7),UINT64_C(0x20d7e33f683e46ca),UINT64_C(0x6915545956ce14ad),UINT64_C(0x6fad6ecfd9bf6039),UINT64_C(0xb082891608e286cb)};
+ for(int i=0;i<12;i++) {
+  Asset *a=&assets[510+i];
+  a->initialized=true;a->bank=ASSET_DATA513_BODY;a->index=(int)ids[i];
+  a->w=24;a->h=28;a->anchor_x=6;a->anchor_y=7;
+  a->valid=read_asset(a,8);
+  if(a->valid) {
+   uint64_t stamp=UINT64_C(0xcbf29ce484222325);
+   for(size_t p=0;p<(size_t)24*28*8*8*4;p++){stamp^=a->rgba[p];stamp*=UINT64_C(0x100000001b3);}
+   if(stamp!=rgba_stamps[i])a->valid=false;
+  }
+  if(!a->valid)data513_valid=false;
+ }
+ return data513_valid;
+}
+
 static bool cash25_surface_ready(SDL_Surface *surface,int x,int y)
 {
  return active&&surface&&surface==game_screen&&surface==VGAScreen&&!reject_reason&&
@@ -1370,6 +1462,11 @@ static Asset *get_asset(Sprite2_array bank,unsigned int index,int layout)
  if(!xmas&&bank.data==spriteSheet8.data&&layout==ENTITY_TILE) {
   static const unsigned int protron_ids[3]={225,244,226};
   for(int i=0;i<3;i++)if(index==protron_ids[i]){slot=469+i;role=8;break;}
+ }
+ /* Normal Vulcan: two static player tracer heads; Christmas art stays original. */
+ if(!xmas&&bank.data==spriteSheet8.data&&layout==ENTITY_TILE) {
+  static const unsigned int vulcan_ids[2]={67,70};
+  for(int i=0;i<2;i++)if(index==vulcan_ids[i]){slot=522+i;role=8;break;}
  }
  /* Regular Missile Launcher: three static physical player heads. */
  if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&index>=31&&index<=33) {slot=333+(int)index-31;role=8;}
@@ -1553,6 +1650,7 @@ static Uint32 green_head_composite(int dx,int dy,unsigned int first,Uint32 color
 
 static bool draw_asset_filtered(int x,int y,Asset *a,int style,const SDL_Rect *part,Uint8 filter,const G101Record *material,const PCapRecord *cap,const Forest13Record *forest)
 {
+ render_mirror_shadow_end();
  /* Original Talon invulnerability uses half-opacity, not a different sprite.
   * Preserve that effect over the ordered RGBA scene and keep the engine's
   * original indexed blend writes for gameplay/coverage. Other sources and
@@ -1686,8 +1784,174 @@ static bool gem250_pickup(SDL_Surface *surface,int x,int y,Sprite2_array bank,un
  return draw_asset_filtered(x,y,&assets[499+(int)base-14],MIRROR_NORMAL,NULL,(Uint8)filter,NULL,NULL,NULL);
 }
 
+/* No validation cache: bounded semantic source and frozen RGBA stamps catch
+ * source reload/address reuse and altered warm resources before admission. */
+static uint64_t vulcan_shadow_stamp(const Uint8 *p,size_t length)
+{
+ uint64_t hash=UINT64_C(0xcbf29ce484222325);
+ for(size_t i=0;i<length;i++){hash^=p[i];hash*=UINT64_C(0x100000001b3);}
+ return hash;
+}
+
+static bool draw_vulcan_shadow(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int index)
+{
+ /* These checks precede get_asset, including every warm-cache acceptance.
+  * Original RLE row advances use VGAScreen->pitch. Decline horizontal wrap;
+  * matching padded pitch and ordinary top/bottom clipping remain supported. */
+ if(xmas||!active||reject_reason||!surface||surface!=game_screen||surface!=VGAScreen||
+    !surface->pixels||surface->w!=320||surface->h!=200||surface->pitch<320||
+    !surface->format||surface->format->BitsPerPixel!=8||surface->format->BytesPerPixel!=1||
+    !bank.data||bank.data!=spriteSheet8.data||bank.size!=spriteSheet8.size||
+    (index!=67&&index!=70)||x<0||x>308||y<-13||y>199||
+    game_probe_density!=8||game_probe_missing||game_probe_invalid||
+    game_probe_original_reference||!game_probe_assets||!canvas||canvas->w!=2560||canvas->h!=1600)return false;
+ int k=index==67?0:1;
+ Uint8 source[12*14*2]={0};
+ static const uint64_t source_stamps[2]={UINT64_C(0x9f5342ea1a7217ae),UINT64_C(0xfb4ea1a99e585804)};
+ static const uint64_t rgba_stamps[2]={UINT64_C(0xaea83e10c9169380),UINT64_C(0x6c26e938d94472c2)};
+ if(!decode_tile(bank,index,source,source+12*14,12,0,0)||
+    vulcan_shadow_stamp(source,sizeof(source))!=source_stamps[k])return false;
+ Asset *a=get_asset(bank,index,ENTITY_TILE);
+ char path[1024];
+ if(!a||!a->rgba||a->bank!=8||a->index!=(int)index||a->w!=12||a->h!=14||a->density!=8||a->anchor_x||a->anchor_y||
+    snprintf(path,sizeof(path),"%s/bullet-%u-8.hda",game_probe_assets,index)>=(int)sizeof(path)||
+    a->rgba!=vulcan_shadow_resource[k].rgba||strcmp(path,vulcan_shadow_resource[k].path)||
+    vulcan_shadow_stamp(a->rgba,12*14*8*8*4)!=rgba_stamps[k])return false;
+ if(region_count>=sizeof(regions)/sizeof(regions[0]))return false;
+ VulcanShadowCall call={0};
+ call.surface=surface;call.pixels=surface->pixels;call.format=surface->format;
+ call.canvas_pixels=canvas->pixels;call.canvas_pitch=canvas->pitch;
+ call.pitch=surface->pitch;call.bank_data=bank.data;call.bank_size=bank.size;
+ call.tick=mirror_logic_tick;call.x=x;call.y=y;call.index=index;
+ memcpy(call.coverage,source+12*14,sizeof(call.coverage));
+ call.live=true;vulcan_shadow=call;
+ return true;
+}
+
+/* Only the actual matching original blitter may consume a preparation. Its
+ * identity/epochs and all pre-write bytes are checked before visual mutation.
+ * A direct/intervening mismatch cancels an unconsumed preparation; once output
+ * started, an unexpected nested command rejects the HD frame, never replays. */
+void render_mirror_shadow_begin(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int index)
+{
+ if(!vulcan_shadow.live)return;
+ VulcanShadowCall *v=&vulcan_shadow;
+ Uint8 source[12*14*2]={0};char path[1024];
+ int k=v->index==67?0:1;
+ Asset *a=&assets[522+k];
+ static const uint64_t source_stamps[2]={UINT64_C(0x9f5342ea1a7217ae),UINT64_C(0xfb4ea1a99e585804)};
+ static const uint64_t rgba_stamps[2]={UINT64_C(0xaea83e10c9169380),UINT64_C(0x6c26e938d94472c2)};
+ if(v->entered||xmas||!active||reject_reason||surface!=v->surface||surface!=game_screen||surface!=VGAScreen||
+    surface->pixels!=v->pixels||surface->format!=v->format||surface->pitch!=v->pitch||surface->w!=320||surface->h!=200||
+    !surface->format||surface->format->BitsPerPixel!=8||surface->format->BytesPerPixel!=1||
+    !canvas||canvas->pixels!=v->canvas_pixels||canvas->pitch!=v->canvas_pitch||canvas->w!=2560||canvas->h!=1600||
+    bank.data!=v->bank_data||bank.size!=v->bank_size||bank.data!=spriteSheet8.data||bank.size!=spriteSheet8.size||
+    x!=v->x||y!=v->y||index!=v->index||mirror_logic_tick!=v->tick||
+    game_probe_density!=8||game_probe_missing||game_probe_invalid||game_probe_original_reference||!game_probe_assets||
+    !decode_tile(bank,index,source,source+12*14,12,0,0)||vulcan_shadow_stamp(source,sizeof(source))!=source_stamps[k]||
+    !a->valid||a->density!=8||!a->rgba||a->rgba!=vulcan_shadow_resource[k].rgba||
+    snprintf(path,sizeof(path),"%s/bullet-%u-8.hda",game_probe_assets,index)>=(int)sizeof(path)||
+    strcmp(path,vulcan_shadow_resource[k].path)||vulcan_shadow_stamp(a->rgba,12*14*8*8*4)!=rgba_stamps[k]) {
+  if(v->entered)render_mirror_unsupported("vulcan-shadow-command-mismatch");
+  else vulcan_shadow_clear();
+  return;
+ }
+ if(region_count>=sizeof(regions)/sizeof(regions[0])) {vulcan_shadow_clear();return;}
+ for(int cy=0;cy<14;cy++)for(int cx=0;cx<12;cx++) {
+  int yy=y+cy,xx=x+cx;if(yy<0||yy>=200)continue;
+  Uint8 before=((Uint8 *)surface->pixels)[yy*surface->pitch+xx];
+  if(expected[yy*320+xx]!=before) {vulcan_shadow_clear();return;}
+  v->before[cy*12+cx]=before;
+ }
+ font_before_effect((SDL_Rect){x,y,12,14});
+ if(reject_reason||!v->live)return;
+ regions[region_count++]=(HdRegion){{x,y,12,14},8,(int)index,MIRROR_SHADOW,true};
+ /* Full frozen contour: the approved78/110 extra density8 samples are display
+  * only, bounded by this original12x14 rectangle. No indexed writes are added.
+  * Coverage blends the existing full-strength operation, including its floor
+  * rounding. Cloud ratios/provenance remain cloud-specific; head RGB is unused. */
+ for(int ay=0;ay<14*8;ay++)for(int ax=0;ax<12*8;ax++) {
+  int dx=x*8+ax,dy=y*8+ay;if(dy<0||dy>=canvas->h)continue;
+  Uint8 alpha=a->rgba[4*(ay*12*8+ax)+3];if(!alpha)continue;
+  int n=dy*canvas->w+dx;
+  Uint32 *p=(Uint32 *)((Uint8 *)canvas->pixels+dy*canvas->pitch)+dx;
+  Uint8 before=v->before[(ay/8)*12+ax/8],after=(Uint8)((before&0xf0)|((before&15)/2));
+  Uint32 dark=hd_owner[n]==1?(cloud_owner[n]?cloud_shadow_rgba(*p,before,after):darken_rgba(*p,255)):palette_rgb(after);
+  Uint8 rgba[4]={(dark>>16)&255,(dark>>8)&255,dark&255,alpha};
+  Uint32 next=blend_rgba(*p,rgba,alpha);
+  if(next!=*p) {hd_owner[n]=1;selected[(dy/8)*320+dx/8]=1;}
+  *p=next;green_first[n]=0;
+ }
+ v->entered=true;++draws;
+}
+
+void render_mirror_shadow_end(void)
+{
+ if(vulcan_shadow.live&&vulcan_shadow.entered) {
+  for(int cy=0;cy<14;cy++)for(int cx=0;cx<12;cx++)
+   if(vulcan_shadow.y+cy>=0&&vulcan_shadow.y+cy<200&&vulcan_shadow.coverage[cy*12+cx]) {
+    render_mirror_unsupported("incomplete-vulcan-shadow-command");return;
+   }
+ }
+ vulcan_shadow_clear();
+}
+
+/* Consume only original support writes from this exact command and epoch.
+ * Alpha-zero subpixels preserve their composed underlay, but an indexed change
+ * still needs honest divergence ownership. Cloud provenance is not invented
+ * or erased; any later unrelated write wins through its normal ordered path. */
+static bool vulcan_shadow_pixel(SDL_Surface *surface,int x,int y,Uint8 before,Uint8 after,int style)
+{
+ if(!vulcan_shadow.live)return false;
+ if(!vulcan_shadow.entered) {vulcan_shadow_clear();return false;}
+ VulcanShadowCall *v=&vulcan_shadow;
+ int cx=x-v->x,cy=y-v->y;
+ if(!v->entered||style!=MIRROR_SHADOW||xmas||!active||reject_reason||surface!=v->surface||surface!=game_screen||surface!=VGAScreen||
+    surface->pixels!=v->pixels||surface->format!=v->format||surface->pitch!=v->pitch||surface->w!=320||surface->h!=200||
+    !surface->format||surface->format->BitsPerPixel!=8||surface->format->BytesPerPixel!=1||
+    !canvas||canvas->pixels!=v->canvas_pixels||canvas->pitch!=v->canvas_pitch||canvas->w!=2560||canvas->h!=1600||
+    game_probe_density!=8||game_probe_missing||game_probe_invalid||game_probe_original_reference||
+    spriteSheet8.data!=v->bank_data||spriteSheet8.size!=v->bank_size||mirror_logic_tick!=v->tick||
+    cx<0||cx>=12||cy<0||cy>=14||!v->coverage[cy*12+cx]||before!=v->before[cy*12+cx]||
+    after!=(Uint8)((before&0xf0)|((before&15)/2))) {render_mirror_unsupported("vulcan-shadow-write-mismatch");return true;}
+ v->coverage[cy*12+cx]=0;
+ for(int sy=0;sy<8;sy++)for(int sx=0;sx<8;sx++) {
+  int n=(y*8+sy)*canvas->w+x*8+sx;
+  if(before!=after)hd_owner[n]=1;
+  green_first[n]=0;
+ }
+ if(before!=after)selected[y*320+x]=1;
+ return true;
+}
+
+/* Keep every original ordered quadrant and its physical-row-wrap guard. */
+static bool rear534_pickup(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int base,int part,int filter,const G101EnemyContext *context)
+{
+ if(!cash25_surface_ready(surface,x,y)||!bank.data||bank.data!=spriteSheet11.data||
+    (base!=203&&base!=205&&base!=207)||!context||context->type!=534||
+    context->size!=1||(part!=0&&part!=1&&part!=19&&part!=20)||
+    !rear534_family_ready())return false;
+ int px=part==1||part==20?12:0,py=part==19||part==20?14:0;
+ SDL_Rect quadrant={px,py,12,14};
+ return draw_asset_filtered(x-px,y-py,&assets[507+(int)(base-203)/2],MIRROR_NORMAL,&quadrant,(Uint8)filter,NULL,NULL,NULL);
+}
+
+/* Keep every original ordered quadrant and its physical-row-wrap guard. */
+static bool data513_pickup(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int base,int part,int filter,const G101EnemyContext *context)
+{
+ if(!cash25_surface_ready(surface,x,y)||!bank.data||bank.data!=spriteSheet11.data||
+    !context||context->type!=513||context->size!=1||
+    (part!=0&&part!=1&&part!=19&&part!=20))return false;
+ int slot=data513_base_slot(base);
+ if(slot<0||!data513_family_ready())return false;
+ int px=part==1||part==20?12:0,py=part==19||part==20?14:0;
+ SDL_Rect quadrant={px,py,12,14};
+ return draw_asset_filtered(x-px,y-py,&assets[510+slot],MIRROR_NORMAL,&quadrant,(Uint8)filter,NULL,NULL,NULL);
+}
+
 bool render_mirror_entity(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int index,int style,int layout)
 {
+ render_mirror_shadow_end();
  /* Consume the lease before every early return, including inactive/rejected draws. */
  bool fixed_value=cash25_fixed_value;cash25_fixed_value=false;
  bool fixed_value75=cash75_fixed_value;cash75_fixed_value=false;
@@ -1730,6 +1994,9 @@ bool render_mirror_entity(SDL_Surface *surface,int x,int y,Sprite2_array bank,un
   return mirrored;
  }
  if(!active||surface!=game_screen||reject_reason)return false;
+ /* Resolve the frozen contour from this shadow call, before its own head. */
+ if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&(index==67||index==70)&&style==MIRROR_SHADOW)
+  return draw_vulcan_shadow(surface,x,y,bank,index);
  /* Protron shadows retain their original indexed silhouettes and origin. */
  if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&(index==225||index==244||index==226)&&style==MIRROR_SHADOW)return false;
  /* Regular Missile Launcher shadows retain their original indexed silhouettes and origin. */
@@ -1811,6 +2078,7 @@ static bool enemy_tank_shell_family_ready(void)
 /* Enemy-only bindings: the indexed original still executes in the wrapper. */
 bool render_mirror_enemy_shot(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int index)
 {
+ render_mirror_shadow_end();
  if(index==146||index==147) {
   if(!active||!surface||surface!=game_screen||surface!=VGAScreen||reject_reason||
      !bank.data||bank.data!=spriteSheet8.data||
@@ -2111,6 +2379,16 @@ bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array ban
 {
  if(!active||surface!=game_screen||reject_reason||!(game_probe_scene_assets&1))return false;
  if(bank.data&&bank.data==spriteSheet11.data) {
+  if(base==203||base==205||base==207) {
+   bool mirrored=rear534_pickup(surface,x,y,bank,base,part,filter,material_context);
+   game_probe_scene_draw(ASSET_REAR534_BODY,base,x,y,part,filter?3:MIRROR_NORMAL,mirrored);
+   return mirrored;
+  }
+  if(data513_base_slot(base)>=0) {
+   bool mirrored=data513_pickup(surface,x,y,bank,base,part,filter,material_context);
+   game_probe_scene_draw(ASSET_DATA513_BODY,base,x,y,part,filter?3:MIRROR_NORMAL,mirrored);
+   return mirrored;
+  }
   if(base>=20&&base<=25) {
    bool mirrored=cash75_pickup(surface,x,y,bank,base,part,filter,material_context);
    game_probe_scene_draw(ASSET_CASH75_BODY,base,x,y,part,filter?3:MIRROR_NORMAL,mirrored);
@@ -2492,7 +2770,7 @@ void render_mirror_terrain_pixel(SDL_Surface *surface,Uint8 *address,Uint8 sourc
  render_mirror_pixel(surface,address,source,style);suppress=previous;suppress_cloud=previous_cloud;
 }
 
-void render_mirror_entity_end(void) { cash25_fixed_value=false;cash75_fixed_value=false;cash50_fixed_value=false;gem100_fixed_value=false;gem250_fixed_value=false;suppress=false;suppress_green_smoke=false;suppress_cloud=false; }
+void render_mirror_entity_end(void) { render_mirror_shadow_end();cash25_fixed_value=false;cash75_fixed_value=false;cash50_fixed_value=false;gem100_fixed_value=false;gem250_fixed_value=false;suppress=false;suppress_green_smoke=false;suppress_cloud=false; }
 
 /* Recognized original warm/contact explosions and nine shield-hit pieces.
  * Original hue overwrite + averaged ramp value is approximated continuously
@@ -2599,6 +2877,7 @@ void render_mirror_sprite2_blend_pixel(SDL_Surface *surface,Uint8 *address,Uint8
 
 void render_mirror_finish(bool ordinary_crop)
 {
+ render_mirror_shadow_end();
  hud_check_mode();
  if(!active)return;
  font_prepare_finish();
@@ -2660,6 +2939,7 @@ void render_mirror_finish(bool ordinary_crop)
  * schedule. Classic pixels use the original newly updated palette directly. */
 void render_mirror_fade_start(const SDL_Color *target,const SDL_Color *solid,unsigned int first,unsigned int last)
 {
+ render_mirror_shadow_end();
  if(manual_hd_enabled&&!mirror_enabled()) {render_mirror_hud_reset();return;}
  hud_check_mode();
  if(font_cached()&&!font_cached_indices_match())font_clear_cached(15);
@@ -2742,6 +3022,7 @@ void render_mirror_fade_step(int steps)
 
 bool render_mirror_present(SDL_Renderer *renderer,SDL_Surface *src,const SDL_Rect *dst)
 {
+ render_mirror_shadow_end();
  if(manual_hd_enabled&&!mirror_enabled()) {render_mirror_hud_reset();return false;}
  hud_check_mode();
  if(font_cached()&&(!font_cached_indices_match()||memcmp(font_output_palette,rgb_palette,sizeof(font_output_palette))))font_clear_cached(15);
@@ -2773,6 +3054,7 @@ bool render_mirror_present(SDL_Renderer *renderer,SDL_Surface *src,const SDL_Rec
 
 void render_mirror_release_texture(void)
 {
+ render_mirror_shadow_end();
  /* Renderer recreation keeps the gameplay lease, but discards pending HUD.
   * True video teardown separately revokes it before freeing indexed surfaces. */
  render_mirror_hud_suspend();

@@ -1,0 +1,79 @@
+{
+  "status": "FROZEN_NATIVE2X_VISUAL_APPROVED",
+  "generation": "One built-in imagegen master, three geometry-preserving lamp-intensity states",
+  "master_sha256": "5fab7303ca37538ed80444aa962f582fdf18bcfca85cf1c644492064bb7fe76d",
+  "logical_size": [
+    24,
+    28
+  ],
+  "density": 8,
+  "authored_size": [
+    192,
+    224
+  ],
+  "anchor": [
+    6,
+    7
+  ],
+  "source_extent_target": [
+    1,
+    7,
+    24,
+    24
+  ],
+  "generated_component_alpha_threshold": 32,
+  "generated_component_bbox": [
+    95,
+    159,
+    1359,
+    920
+  ],
+  "registration_crop_with_2_master_pixel_guard": [
+    93,
+    157,
+    1361,
+    922
+  ],
+  "crop_resampling": "RGBA Lanczos once to184x136, alpha-composite at8,56 in192x224 canvas; original support never clips output",
+  "phase_formula": "RGB_out=round(RGB_master*(1-(1-lamp_level)*weight)); weight=clip((max(R,G)-B-20)/60,0,1)*(max(R,G)>60)*(alpha>0)",
+  "neutral_housing_unchanged": true,
+  "all_phase_alpha_identical": true,
+  "all_phase_geometry_identical": true,
+  "transparent_rgb_zeroed": true,
+  "nearest_sampling": "source_x=floor((target_x+0.5)*8/target_scale); same for y. Same center-nearest coordinates as retained standalone SDL software verification. No direct master-to-preview Lanczos used.",
+  "rows": [
+    {
+      "base": 203,
+      "lamp_level": 0.3,
+      "file": "pilot-203-8.png",
+      "png_sha256": "58ddd74a450b3107aa73bd83ccd34eddb10c77ce95a6f77ece0c2d06dc75582d",
+      "rgba_sha256": "a22ff715502c125efe84354111c29b2924c9d6f4f00c1b7dadbcc0e9372f18d4",
+      "alpha_sha256": "f441d8282dcd90257bdfe11dce87a968245dd6328eea2ee7ce80fd425f786bce",
+      "rgb_changed_vs207_pixels_8x": 2081
+    },
+    {
+      "base": 205,
+      "lamp_level": 0.64,
+      "file": "pilot-205-8.png",
+      "png_sha256": "fcb04d7e40fbd88bec771d3bba8d744e80fd961546b5f7510aa2adfc6f2f14eb",
+      "rgba_sha256": "d6835b22f890057e12e07ad730efa03c020e0401a37c497a05c12b0126150d56",
+      "alpha_sha256": "f441d8282dcd90257bdfe11dce87a968245dd6328eea2ee7ce80fd425f786bce",
+      "rgb_changed_vs207_pixels_8x": 2073
+    },
+    {
+      "base": 207,
+      "lamp_level": 1.0,
+      "file": "pilot-207-8.png",
+      "png_sha256": "b6e8dd8dd8914934b1b01bc73d7716bb4cda81a94af6a12da85fc4c27d74f466",
+      "rgba_sha256": "5232c18e355c2cbfd12ea7d54c34dc9f1d189b83e1ef2cd80b4d15f4bfcfd889",
+      "alpha_sha256": "f441d8282dcd90257bdfe11dce87a968245dd6328eea2ee7ce80fd425f786bce",
+      "rgb_changed_vs207_pixels_8x": 0
+    }
+  ],
+  "role": 123,
+  "slots": [
+    507,
+    508,
+    509
+  ]
+}

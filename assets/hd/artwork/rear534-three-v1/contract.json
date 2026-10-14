@@ -1,0 +1,114 @@
+{
+  "family": "rear534 physical silver mechanical pickup, three fixed-geometry lamp phases",
+  "record": 534,
+  "source_bank": 11,
+  "runtime_shapebank": 21,
+  "bases": [
+    203,
+    205,
+    207
+  ],
+  "role": 123,
+  "role_name": "ASSET_REAR534_BODY",
+  "keys": [
+    1230203,
+    1230205,
+    1230207
+  ],
+  "slots": [
+    507,
+    508,
+    509
+  ],
+  "prefix": "rear534-bank11",
+  "logical_size": [
+    24,
+    28
+  ],
+  "anchor": [
+    6,
+    7
+  ],
+  "density": 8,
+  "rgba_dimensions": [
+    192,
+    224
+  ],
+  "source_bbox_xyxy_exclusive": [
+    1,
+    7,
+    24,
+    24
+  ],
+  "source_opaque_cells": 315,
+  "held_sequence": [
+    203,
+    203,
+    203,
+    205,
+    205,
+    205,
+    207,
+    207,
+    207,
+    205,
+    205,
+    205
+  ],
+  "identical_phase_alpha_and_geometry": true,
+  "neutral_housing_unchanged": true,
+  "not_rotation": true,
+  "header": {
+    "magic": "HDR1",
+    "six_little_endian_uint32": [
+      "key",
+      8,
+      24,
+      28,
+      6,
+      7
+    ],
+    "header_bytes": 28,
+    "rgba_bytes": 172032,
+    "exact_file_bytes": 172060,
+    "require_eof": true
+  },
+  "quarter_layout": {
+    "order": [
+      0,
+      1,
+      19,
+      20
+    ],
+    "rectangles": [
+      [
+        0,
+        0,
+        12,
+        14
+      ],
+      [
+        12,
+        0,
+        12,
+        14
+      ],
+      [
+        0,
+        14,
+        12,
+        14
+      ],
+      [
+        12,
+        14,
+        12,
+        14
+      ]
+    ]
+  },
+  "scope": "Exactly three rear534 body resources. Fixed145 collection effect remains unchanged. No Data513, gameplay, timing, reward or other-mode scope expansion.",
+  "coverage": "Smooth generated alpha registered to the original overall bbox, never clipped to the original staircase mask. Source-support deltas documented. No opaque matte, forced global shrink or outside halo.",
+  "runtime": "The integrator retains original four ordered filtered/cropped calls, exact record/pointer/base/size/part gating, indexed drawing and fallback, animation, allocations, RNG, physics, collection and original fixed145 effect. No runtime pass is claimed by this art package.",
+  "approval": "Root native2x visual PASS relayed by parent and exact unchanged three-resource freeze authorized on2026-10-14."
+}

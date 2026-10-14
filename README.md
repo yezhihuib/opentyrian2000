@@ -36,6 +36,32 @@ It builds on OpenTyrian2000 and OpenTyrian; the upstream README is preserved bel
   Five process starts include one retained failed fixture attempt and its corrected
   replacement. See [scope and receipts](docs/enemy-tank-shell-pair-v1/VALIDATION.md).
 
+- Normal player Vulcan heads 67/70 have bounded P1/P7 native 2× paired checks: four
+  90-tick runs, with all 11 powers covered separately by source units. Original
+  indexed behavior remains exact. Numeric and author review pass within this scope.
+  See [scope and receipts](docs/player-vulcan-two-v1/README.md).
+  A [finite smooth-shadow follow-up](docs/player-vulcan-shadow-v1/README.md) also passes
+  two new 90-tick P1/P7 comparisons against retained captures. Only these two
+  normal player shadows change; guarded negative-x calls remain classic.
+
+- Rear-power pickup 534 has a three-phase HD body; the shared fixed-145 collection
+  effect remains unchanged. Bounded original-input checks passed in three attempts
+  with 22 native 2×/4× images; the observed reward is the empty-rear cash fallback.
+  See [scope and receipts](docs/rear534-three-v1/README.md).
+
+- The Data cube (record 513) adds twelve authored body phases with whole-family
+  classic fallback. Bounded original-input lifecycle checks, native 2× frames
+  and four native 4× body spots pass numeric and author review. See
+  [Data cube scope and receipts](docs/data513-twelve-v1/README.md).
+
+- A combined-source coexistence checkpoint joins rear 534, Data 513 and Vulcan
+  heads 67/70 with smooth shadows, keeping their canonical artwork unchanged.
+  Four separate bounded Linux witnesses pass: 69 new native 2× images and 12
+  INDEX8 images exactly match the retained final family candidates, with exact
+  state/trace comparisons except wall-clock timing. This verifies the families
+  installed together; simultaneous multi-family exposure, full-level and Windows
+  acceptance remain untested. See [combined scope and receipts](docs/qualified-family-coexistence-v1/README.md).
+
 ## Build and try
 
 Original Tyrian 2000 data is required separately and is not included here.

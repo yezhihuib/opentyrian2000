@@ -1,0 +1,307 @@
+{
+  "schema": "qualified-family-coexistence-runtime-summary-v1",
+  "status": "PASS_BOUNDED_COMBINED_SOURCE_AND_RUNTIME_PARITY",
+  "tested_source_commit": "b7f93d2e7546e3d07853b6b533a5b0b8992e27d6",
+  "base_commit": "ee2b90cfaf9f227ca394ecd01f2403e55dbf2ea0",
+  "integrated_family_commits": {
+    "rear534": "ac1b6a37c412a8c95c2393d1df04e070f85d814f",
+    "data513": "8b3da9676a3fbae53fb7722b5835e8b50d522760",
+    "vulcan_heads": "4e75dbda875922303fda92d514fe6d9755e40696",
+    "vulcan_smooth_shadows": "d18d06d4407f6516ba4918f1802ae2b960842296"
+  },
+  "production_source_sha256": {
+    "src/render_mirror.c": "d7878b9bdbf4f6d23ecb478b0d491a516f708f3a94702f98ce095be30b2f1754",
+    "src/render_mirror.h": "b7739aa12002ea052ffd7590c10782b867d97e5b9cecce7854ae2478b7944b11",
+    "src/sprite.c": "7212d92e81aa85c91b0c71ab97fa4063b8c33f049e7f7d9186180d972aa99682"
+  },
+  "manifest_sha256": "78b8db0c18e0945f020ecb9e7ecef280538a2ed6c5721bbc3609d7c872f42b82",
+  "canonical_artwork_changed": false,
+  "source_and_resource_checks": {
+    "status": "PASS",
+    "exact_additive_union": true,
+    "renderer_capacity": 524,
+    "slots": {
+      "rear534": [
+        507,
+        508,
+        509
+      ],
+      "data513": [
+        510,
+        511,
+        512,
+        513,
+        514,
+        515,
+        516,
+        517,
+        518,
+        519,
+        520,
+        521
+      ],
+      "vulcan_heads": [
+        522,
+        523
+      ]
+    },
+    "manifest_entries_per_default_pack": 532,
+    "tracked_hda_per_default_pack": 538,
+    "new_unique_hda_files": 17,
+    "new_unique_hda_bytes": 2666972,
+    "source_review_sha256": "c7126f8bc8c6984df3f5d011df29bc3a6728ad91a2e955fafa763292f09e4af5",
+    "exact_union_review_sha256": "e304a3c628c9e7331824ee8ff6d9eefc34b4b84211542d340dfec8ea88b890eb",
+    "byte_inventory_sha256": "3f9e215d2bfd95118ca5f6d3f87da551e3b304fe340a7731a4cb16db7c01705d",
+    "build_status": "PASS",
+    "production_binary_sha256": "6031a9df439449399fd38ed4f8cc199287f8701407990845c64804e920679a04",
+    "unit_scope": "Combined extracted-source rear/Data checks, full unchanged shadow suite, unchanged original gameplay units, and 16 mixed loading/fallback cases with 3840 route calls. These are source proofs, separate from engine witnesses."
+  },
+  "runtime": {
+    "environment": "Linux, SDL dummy/software, bounded Episode 1 physical level 9 fixtures",
+    "engine_processes": 4,
+    "automatic_retries": 0,
+    "new_native2x_captures": 69,
+    "native_dimensions": [
+      640,
+      400
+    ],
+    "new_index8_captures": 12,
+    "total_actual_logic_ticks": 1248,
+    "witness_type": "Four separate witnesses with combined code and resources installed",
+    "native_comparison": "Every decoded RGB and RGBA pixel, including HUD; zero differences, masks or exceptions",
+    "indexed_comparison": "All 12 Vulcan INDEX8 file bytes, palettes and indices exact",
+    "state_and_trace_comparison": "State and retained raw streams exact; absent historical rear/Data raw admission streams bound by their frozen original SHA-256 and count receipts. Only control.wall_ms is excluded. Vulcan canonical blend-proof JSON also exact.",
+    "retained_final_reference_policy": "Each case compares against its retained final independent-family candidate; earlier pre-fix screenshots are not the oracle.",
+    "cases": [
+      {
+        "case": "rear534",
+        "status": "PASS",
+        "result_sha256": "c869020d9d74b0658dda10010bb24def4ba00032cb99c33727ac79dde268f0b7",
+        "reference": "Retained final rear 534 candidate",
+        "reference_receipt_sha256": {
+          "frame-hashes.json": "6e8ed042145a646bf7f0382e922582cc681f4d6cf185b722a6ab2d7e911dba56",
+          "invocation.json": "924ab2b47b6b6dff3f4d5d4aa331b0ba4a9b5e5b55c793c443f3232432f35aee",
+          "run-summary.json": "50af719656ad638103ee1b425f7931d21a617a391d704a499776410941fd13e4",
+          "stream-receipts.json": "f9bcc25ba66d6fd250aade398421c076f8b7730d8a502ee77c5ae5529bb8c48e"
+        },
+        "actual_logic_ticks": 273,
+        "command_tick_ceiling": 280,
+        "capture_ticks": [
+          249,
+          250,
+          251,
+          252,
+          253,
+          254,
+          255,
+          256,
+          257,
+          258,
+          259,
+          260,
+          264,
+          265,
+          266,
+          267,
+          268,
+          269,
+          270,
+          271,
+          272
+        ],
+        "native2x_captures": 21,
+        "index8_captures": 0,
+        "full_native_rgb_rgba_changed_pixels": 0,
+        "raw_streams_compared": 35,
+        "supplemental_canonical_blend_proof": false,
+        "state_raw_sha256": "4dde7405a3469465a01bb43a1daa75db5ed638cb50b2f39b39fc845ff8e63e84",
+        "unexpected_new_family_rows": 0
+      },
+      {
+        "case": "data513",
+        "status": "PASS",
+        "result_sha256": "5de03c02ad8544e8ddac6d701e71de9d2b18c8cefd419d8cc0ccb64d0da558e8",
+        "reference": "Retained final Data 513 candidate",
+        "reference_receipt_sha256": {
+          "frame-hashes.json": "5b76c1a2a647be3f4fab3aa4358344a12515e962649a0b7836d79eb1b1d0fcbe",
+          "invocation.json": "73942af7b3093e35a8e5f174848c4f56a29e3bdde7b0a6cb18ce838f0f25f04a",
+          "run-summary.json": "9b6693e192bb964bd07deb864076db6809a26b9d2258708d4fc42afbf6b813ad",
+          "stream-receipts.json": "5b155265ff819b9fef2ddd2a81d7e3a6218e9d143fe5132d821009ddcf83b812"
+        },
+        "actual_logic_ticks": 795,
+        "command_tick_ceiling": 800,
+        "capture_ticks": [
+          739,
+          740,
+          741,
+          742,
+          743,
+          744,
+          745,
+          746,
+          747,
+          748,
+          749,
+          750,
+          751,
+          752,
+          753,
+          754,
+          755,
+          756,
+          757,
+          758,
+          779,
+          780,
+          781,
+          782,
+          783,
+          784,
+          785,
+          786,
+          787,
+          788,
+          789,
+          790,
+          791,
+          792,
+          793,
+          794
+        ],
+        "native2x_captures": 36,
+        "index8_captures": 0,
+        "full_native_rgb_rgba_changed_pixels": 0,
+        "raw_streams_compared": 36,
+        "supplemental_canonical_blend_proof": false,
+        "state_raw_sha256": "43d56fef8bf8d050e4bac5fd0195b17d100d695fa950d93393213ee315fc88d4",
+        "unexpected_new_family_rows": 0
+      },
+      {
+        "case": "vulcan_p1",
+        "status": "PASS",
+        "result_sha256": "ff06f4ecfb29938eed3d75b2b8bae646f533ff06a5434f505ac97117485b7acb",
+        "reference": "Retained final smooth-shadow candidate, P1 at native 2x",
+        "reference_receipt_sha256": {
+          "invocation.json": "3e950c1ad3fe65053f53157fae79d27bcebe98ad5b232b257fbce02fafb073f1",
+          "result.json": "984dbd6c289d925a41a11029b0c00b4c78d2890a59e8176c084fb030e290a1c0"
+        },
+        "actual_logic_ticks": 90,
+        "command_tick_ceiling": 90,
+        "capture_ticks": [
+          38,
+          39,
+          40,
+          41,
+          42,
+          43
+        ],
+        "native2x_captures": 6,
+        "index8_captures": 6,
+        "full_native_rgb_rgba_changed_pixels": 0,
+        "raw_streams_compared": 33,
+        "supplemental_canonical_blend_proof": true,
+        "state_raw_sha256": "9891e982ff1a103d4983e9dd84fcf3f945da0729f615b44d18814ebb15e64cab",
+        "unexpected_new_family_rows": 0
+      },
+      {
+        "case": "vulcan_p7",
+        "status": "PASS",
+        "result_sha256": "7233c7e173ff57f9adc05769c7f8b8eb3c1a7ef5c626589ad021d11b356389aa",
+        "reference": "Retained final smooth-shadow candidate, P7 at native 2x",
+        "reference_receipt_sha256": {
+          "invocation.json": "ddf131cae7618d76319e314d0273358e3234ca94f11643498ac27dc4235ee402",
+          "result.json": "883f3f6db4d0cbcc77872c4d5850468ca04d9395e46a094bb9cbd7c6338e5350"
+        },
+        "actual_logic_ticks": 90,
+        "command_tick_ceiling": 90,
+        "capture_ticks": [
+          38,
+          39,
+          40,
+          41,
+          42,
+          43
+        ],
+        "native2x_captures": 6,
+        "index8_captures": 6,
+        "full_native_rgb_rgba_changed_pixels": 0,
+        "raw_streams_compared": 33,
+        "supplemental_canonical_blend_proof": true,
+        "state_raw_sha256": "536ea7823d4818bebe5fa9c8a8835932b8794ac97b00f23056f3f8e0671d7f63",
+        "unexpected_new_family_rows": 0
+      }
+    ]
+  },
+  "independent_numerical_review": {
+    "status": "PASS",
+    "reviewed_cases": [
+      "rear534",
+      "data513",
+      "vulcan_p1",
+      "vulcan_p7"
+    ],
+    "final_case_result_sha256": {
+      "rear534": "c869020d9d74b0658dda10010bb24def4ba00032cb99c33727ac79dde268f0b7",
+      "data513": "5de03c02ad8544e8ddac6d701e71de9d2b18c8cefd419d8cc0ccb64d0da558e8",
+      "vulcan_p1": "ff06f4ecfb29938eed3d75b2b8bae646f533ff06a5434f505ac97117485b7acb",
+      "vulcan_p7": "7233c7e173ff57f9adc05769c7f8b8eb3c1a7ef5c626589ad021d11b356389aa"
+    },
+    "preflight_review_sha256": "0ac510a1d465a297bf32d4b97b41f039ea718b45d4b05766cc709831029338d3",
+    "preparation_sha256": "0cc89af50301eb6aaf5d05daf799bb4693248c0d514b6c07a316aff37f438c51",
+    "scope": "Read-only independent verification of all four final cases and frozen input inventories; no reviewer engine launches. This records numerical verification and does not claim a new author visual acceptance.",
+    "final_review_sha256": "7ceae8af487285d0629b86975d9c68ee64af954fed73fb1005b309e49c9789ad"
+  },
+  "historical_evidence": {
+    "family_receipts_keep_original_scope": true,
+    "original_independent_checkpoints_unchanged": true,
+    "public_metadata_normalization": {
+      "purpose": "Portable public metadata export only. No source, artwork, test assertions, measurements or historical pass results changed.",
+      "path_placeholders": "Angle-bracket path labels replace machine-local directories; they are descriptive, not runnable commands.",
+      "art_inventory_sha256_unchanged": "2099589202e779b0b41c7fed9f50bb71a5f99f84c8eabd79c580f3214ee2e460",
+      "dependent_digest_policy": "Two adjacent receipt references are repinned to the portable binding-unit.json bytes; original hashes are retained below.",
+      "files": [
+        {
+          "path": "assets/hd/artwork/player-vulcan-two-v1/proof/relocated-rebuild-check.json",
+          "original_sha256": "2e747f805b37df23b711e6265394fc3f404268daab91740116cd48b0b3455704",
+          "public_sha256": "ea181fec091e4f3297b8efd2474f136e066ce2de4e59397a4b801ffcca947005",
+          "changed_fields": [
+            "run_cwd",
+            "source_only_directory"
+          ]
+        },
+        {
+          "path": "docs/vulcan-two-v1/binding-unit.json",
+          "original_sha256": "96f5d0d6ffce3e00ac288f2520d22c618a7d535a93670499a7014e46d6fabcbc",
+          "public_sha256": "8cd0de5dc9d77022d6edfd8cca78d418dddae25378f06b0643e56fe22d088ae4",
+          "changed_fields": [
+            "results.candidate.compile_command",
+            "results.baseline.compile_command"
+          ]
+        },
+        {
+          "path": "docs/vulcan-two-v1/SOURCE_CHECKPOINT.json",
+          "original_sha256": "868ead0e3d0fd3fc8e0c01a9439dd4cb863f4c0578830e46483c2afbbf52005b",
+          "public_sha256": "357927bdfe95d05a73013dca08497b875530f34bb45d87c03fa1c9fb7dd60394",
+          "changed_fields": [
+            "tests.binding-unit.json"
+          ]
+        },
+        {
+          "path": "docs/player-vulcan-two-v1/runtime-summary.json",
+          "original_sha256": "7c2a06dbe25a04f1d22b2e201427af19ee117ec61d4cbe35243c2b763f7e1b43",
+          "public_sha256": "ca910dbcc61c40b92dc692da8fc3e5d64237b92646d54adc2481825d85ed904f",
+          "changed_fields": [
+            "renderer_units.receipt_sha256"
+          ]
+        }
+      ]
+    }
+  },
+  "limits": [
+    "No simultaneous multi-family gameplay exposure or cross-family overlap oracle.",
+    "No full-level, full-campaign, manual-play, Windows, physical-window, GPU, fullscreen or performance acceptance.",
+    "No new native 4x combined run; earlier per-family 4x receipts retain their historical scope.",
+    "No new fractional-alpha runtime oracle; exact native parity transfers the retained final candidate evidence only.",
+    "This checkpoint describes a tested local source commit and makes no GitHub publication or deployment assertion."
+  ]
+}

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="224" viewBox="0 0 24 28">
+  <!-- Newly authored semantic physical cube. No raster image, source grid or traced pixel mask. -->
+  <defs>
+    <path id="hull" d="M 10,3 L 22,6 L 22,18 L 13.5,25 L 2,22 L 2,10.5 Z"/>
+    <clipPath id="body"><use href="#hull"/></clipPath>
+    <linearGradient id="top" x1="8" y1="3" x2="15" y2="14" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="{{TOP_LIGHT}}"/>
+      <stop offset=".4" stop-color="{{TOP_DARK}}"/>
+      <stop offset="1" stop-color="{{FACE}}"/>
+    </linearGradient>
+    <linearGradient id="left" x1="2" y1="11" x2="14" y2="24" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="{{FACE}}"/>
+      <stop offset=".55" stop-color="{{FACE_LIGHT}}"/>
+      <stop offset="1" stop-color="{{FACE_DARK}}"/>
+    </linearGradient>
+    <linearGradient id="right" x1="22" y1="7" x2="13" y2="24" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="{{FACE_LIGHT}}"/>
+      <stop offset=".5" stop-color="{{FACE_DARK}}"/>
+      <stop offset="1" stop-color="{{SHADOW}}"/>
+    </linearGradient>
+  </defs>
+  <g clip-path="url(#body)" stroke-linejoin="bevel" stroke-linecap="butt">
+    <use href="#hull" fill="{{FACE_DARK}}"/>
+    <path d="M 10,3 L 22,6 L 13.5,14 L 2,10.5 Z" fill="url(#top)"/>
+    <path d="M 2,10.5 L 13.5,14 L 13.5,25 L 2,22 Z" fill="url(#left)"/>
+    <path d="M 13.5,14 L 22,6 L 22,18 L 13.5,25 Z" fill="url(#right)"/>
+    <!-- Broad planar material variations; no engraving or unrelated mechanical detail. -->
+    <path d="M 9.1,4.5 L 10.8,3.8 L 12.2,13.3 L 10.2,12.7 Z" fill="{{SHADOW}}" opacity=".66"/>
+    <path d="M 3,12.2 L 6.6,13.2 L 3,17.7 Z" fill="{{SHADOW}}" opacity=".4"/>
+    <path d="M 3,20.7 L 9.3,20.7 L 12.7,24.1 Z" fill="{{TOP_LIGHT}}" opacity=".22"/>
+    <path d="M 14.2,17.1 L 20.9,16.5 L 14.2,23.4 Z" fill="{{SHADOW}}" opacity=".47"/>
+    <!-- Physical shadow seam under narrow bright rails, all clipped within body. -->
+    <path d="M 2,10.5 L 13.5,14 L 22,6 M 13.5,14 L 13.5,25" fill="none" stroke="{{SHADOW}}" stroke-width="1.35"/>
+    <path d="M 10,3 L 22,6 L 22,18 L 13.5,25 L 2,22 L 2,10.5 Z" fill="none" stroke="{{RAIL_MID}}" stroke-width="1.25"/>
+    <path d="M 10,3 L 2,10.5 L 13.5,14 L 22,6 M 13.5,14 L 13.5,25" fill="none" stroke="{{RAIL}}" stroke-width=".95"/>
+    <path d="M 2.25,10.6 L 2.25,21.7 M 21.75,6.3 L 21.75,17.8" fill="none" stroke="{{RAIL}}" stroke-width=".5" opacity=".82"/>
+    <path d="M 2.65,10.35 L 13.5,13.7" fill="none" stroke="{{GLINT}}" stroke-width=".26"/>
+    <path d="M 13.2,14.2 L 13.2,24.5" fill="none" stroke="{{GLINT}}" stroke-width=".23"/>
+  </g>
+</svg>

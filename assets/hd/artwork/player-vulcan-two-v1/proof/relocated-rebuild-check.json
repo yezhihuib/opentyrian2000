@@ -1,0 +1,42 @@
+{
+  "pass": true,
+  "relocated_source_only": true,
+  "run_cwd": "<external-working-directory>",
+  "source_only_directory": "<relocated-source-only-directory>",
+  "original_images_present": false,
+  "no_pilot_dependency": true,
+  "outputs": [
+    {
+      "id": 67,
+      "png_bytes_equal": true,
+      "hda_bytes_equal": true,
+      "hda_bytes": 43036,
+      "header": [
+        80067,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "PNG_SHA256": "eed5e50f445717a8b6663883f05f7c8809aff56436390e2697525dcecca2f953",
+      "HDA_SHA256": "96b975abbccf393464cf2444f72d63c8ad3f996d8cc5c153593ad16f476e30e0"
+    },
+    {
+      "id": 70,
+      "png_bytes_equal": true,
+      "hda_bytes_equal": true,
+      "hda_bytes": 43036,
+      "header": [
+        80070,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "PNG_SHA256": "df20672a356778dcffb44191e483b5ac812b9e2aa3acbfbd16e636fc91f73dfe",
+      "HDA_SHA256": "eebd525dab58f0fc6708f4f3c7b15a88e67270be877ff250e93c4bb2a2aeb8de"
+    }
+  ]
+}

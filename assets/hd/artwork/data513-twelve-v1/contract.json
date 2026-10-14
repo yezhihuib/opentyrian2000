@@ -1,0 +1,158 @@
+{
+  "schema": "data513-twelve-authored-vector-v1",
+  "family": "Data513 fixed oblique physical cube, twelve color/light phases",
+  "record": 513,
+  "source_bank": 11,
+  "runtime_shapebank": 21,
+  "actual_sheet_pointer": "spriteSheet11.data",
+  "bases": [
+    159,
+    161,
+    163,
+    197,
+    199,
+    201,
+    235,
+    237,
+    239,
+    273,
+    275,
+    277
+  ],
+  "role": 124,
+  "role_name": "ASSET_DATA513_BODY",
+  "keys": [
+    1240159,
+    1240161,
+    1240163,
+    1240197,
+    1240199,
+    1240201,
+    1240235,
+    1240237,
+    1240239,
+    1240273,
+    1240275,
+    1240277
+  ],
+  "slots": [
+    510,
+    511,
+    512,
+    513,
+    514,
+    515,
+    516,
+    517,
+    518,
+    519,
+    520,
+    521
+  ],
+  "prefix": "data513-bank11",
+  "logical_size": [
+    24,
+    28
+  ],
+  "anchor": [
+    6,
+    7
+  ],
+  "density": 8,
+  "rgba_dimensions": [
+    192,
+    224
+  ],
+  "source_bbox_xyxy_exclusive": [
+    2,
+    3,
+    22,
+    25
+  ],
+  "source_opaque_cells": 353,
+  "eligible_draw_cycle": [
+    159,
+    161,
+    163,
+    161,
+    159,
+    197,
+    199,
+    201,
+    199,
+    197,
+    235,
+    237,
+    239,
+    237,
+    235,
+    273,
+    275,
+    277,
+    275,
+    273
+  ],
+  "cycle_draws": 20,
+  "identical_phase_alpha_and_geometry": true,
+  "not_rotation": true,
+  "header": {
+    "magic": "HDR1",
+    "six_little_endian_uint32": [
+      "key",
+      8,
+      24,
+      28,
+      6,
+      7
+    ],
+    "header_bytes": 28,
+    "rgba_bytes": 172032,
+    "exact_file_bytes": 172060,
+    "total_twelve_hda_bytes": 2064720,
+    "require_eof": true
+  },
+  "quarter_layout": {
+    "order": [
+      0,
+      1,
+      19,
+      20
+    ],
+    "rectangles": [
+      [
+        0,
+        0,
+        12,
+        14
+      ],
+      [
+        12,
+        0,
+        12,
+        14
+      ],
+      [
+        0,
+        14,
+        12,
+        14
+      ],
+      [
+        12,
+        14,
+        12,
+        14
+      ]
+    ]
+  },
+  "record512_excluded": true,
+  "fixed266_unchanged": true,
+  "independent_all_twelve_or_classic": true,
+  "scope": "Exactly twelve Data513 body resources. No fixed266, gameplay, timing, reward, mode or unrelated family changes.",
+  "source_inputs_used_to_construct_pixels": false,
+  "semantic_vector_source": "sources/cube-template.svg",
+  "phase_parameters": "sources/phase-spec.json",
+  "approval": "Root native2x visual acceptance relayed by parent on2026-10-14T05:01:32Z; unchanged finite freeze authorized. Publication held.",
+  "plan_contract_sha256": "4b0d67fe74662efaece05442553ad9314190e3ed317463552518c5370c719a3e",
+  "runtime_claim": false
+}

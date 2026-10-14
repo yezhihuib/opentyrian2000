@@ -1,0 +1,14 @@
+{
+  "generation_tool": "built-in image_gen.imagegen",
+  "generation_date_utc": "2026-10-14",
+  "master": "sources/generated-master-207.png",
+  "prompt": "sources/master-prompt.txt",
+  "generation_calls": 1,
+  "master_role": "Newly generated physical metal-pod reconstruction, brightest207 light phase",
+  "source_originals_excluded": true,
+  "original_source_inspection": "All three complete original24x28 phases203/205/207 inspected before generation; source hashes retained without source pixels",
+  "transform": "One guarded generated-component crop, one RGBA Lanczos registration, localized deterministic generated-color lamp-level derivation0.30/0.64/1.00; geometry and neutral steel unchanged",
+  "alpha_policy": "Generated alpha preserved through registration. No original-mask rematting or opacity increase. Transparent RGB zeroed. Interior predominantly high fractional alpha; not all pixels255.",
+  "formal_rgb_origin": "Generated master only; no original RGB, palette, pixel-index rows, compressed source records, terrain or original reference contact",
+  "frozen_rgba_matches_approved_pilot": true
+}

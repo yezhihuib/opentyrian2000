@@ -1,0 +1,28 @@
+{
+  "status": "PASS_SOURCE_UNITS_ONLY",
+  "baseline": "ee2b90cfaf9f227ca394ecd01f2403e55dbf2ea0",
+  "production_delta": "Only renderer capacity, guarded finite67/70 role8 binding, original indexed-shadow preservation.",
+  "source_sha256": "92dafdcdb20294571ff74140c8d77dd874836f1bb953d7e5552d02ef44acc77e",
+  "manifest_sha256": "eaa69a41cdd6df4405616a3e593fe4529648b308ba69150ed8fb4d42bbd881b3",
+  "art_inventory_sha256": "2099589202e779b0b41c7fed9f50bb71a5f99f84c8eabd79c580f3214ee2e460",
+  "native2x_art_gate": "Root-approved exact frozen pilot bytes; not an in-engine review.",
+  "renderer_syntax": "PASS with retained SDL2/SDL2_net headers, C99 -Wall -Wextra -Werror -Wno-misleading-indentation -Wno-unused-parameter -DNDEBUG -DTARGET_UNIX -DWITH_NETWORK -fsyntax-only",
+  "tests": {
+    "binding-unit.json": "8cd0de5dc9d77022d6edfd8cca78d418dddae25378f06b0643e56fe22d088ae4",
+    "original-unit.json": "82bdbc8938abb0bcb424536c1753ab37a94643e60b9530a59e3c8f9398e1d9ae",
+    "asset-scope.json": "cfb56b9e4d6f79328f24690d01624ebe2d856e5eb6628b40e11f268944c442db",
+    "art-build.log": "af713e3223e33ab93293511750e9800ea7d5f87b8179bd9f8445a045336a6c37"
+  },
+  "retained_development_attempts": [
+    "Binding r1 compile failed for missing observer prototype; fixed before r2/final passed.",
+    "Original r1 compile failed because test x/y globals were signed; corrected to exact production JE_word before r2/final passed.",
+    "Initial syntax command lacked retained pkg-config environment; retained dependency command passed."
+  ],
+  "game_runs": 0,
+  "full_game_builds": 0,
+  "published": false,
+  "limits": [
+    "No runtime, physical Windows, natural shop/upgrade acquisition, whole-campaign or performance claim.",
+    "Source/unit fixtures and legal original data are external. No full pack or worktree copy."
+  ]
+}

@@ -1,0 +1,158 @@
+{
+  "schema": "data513-runtime-summary-v1",
+  "status": "PASS_BOUNDED_SOURCE_NUMERIC_AND_AUTHOR",
+  "tested_source_commit": "0a753fec186b4ba3452cff471366f7e089a78053",
+  "baseline_commit": "ee2b90cfaf9f227ca394ecd01f2403e55dbf2ea0",
+  "only_changed_production_source": "src/render_mirror.c",
+  "art_inventory_sha256": "c77080d8b66aa8b6426505d8a61e5c571cca5bc0ee20950b0aa15da46e06a642",
+  "source_units": {
+    "status": "PASS_SOURCE_UNIT_ONLY",
+    "scenarios_per_build": 137,
+    "checks_per_build": 2667,
+    "builds": [
+      "optimized",
+      "ASan/UBSan"
+    ],
+    "receipt_sha256": "f5ac9d1eed6d6ea8a99e98b0b69c3233dbdf53797d3f525573abcec9355a13a3",
+    "limits": "Extracted original-source units use a counted deterministic RNG stream and bounded observation sinks; this is not engine proof. LeakSanitizer disabled."
+  },
+  "renderer_units": {
+    "status": "PASS_SOURCE_UNIT_ONLY",
+    "family_members": 12,
+    "filters": 256,
+    "resource_rejection_cases": 170,
+    "source_inverse_exact": true,
+    "all_other_production_source_exact": true,
+    "receipt_sha256": "2c543dc8c6fa2bd99be3e11084aab99c3d3239a8129b72d7f6cef523cd6cfca2",
+    "independent_review_sha256": "b0d33e8b6a3a502a4152878bf25b85624d974b7f556468d0fe8f33d27d0484a6",
+    "limits": "Optimized RGB oracle checks every pixel; bounded sanitizer samples interiors for non-ramp filters while checking indexed parity. No engine fallback run. LeakSanitizer disabled."
+  },
+  "runtime_environment": "Linux, SDL dummy/software, Episode 1 physical level 9, Normal ordinary story, seed 0x5eed, no Christmas mode",
+  "original_inputs": {
+    "right_inclusive_ranges": [
+      [
+        20,
+        34
+      ],
+      [
+        380,
+        388
+      ]
+    ],
+    "fire_ticks": [
+      703,
+      707,
+      711
+    ],
+    "other_ticks": "neutral"
+  },
+  "no_shot_helper_or_added_protection": true,
+  "completed_cases": [
+    "baseline_no_image",
+    "candidate_native2",
+    "candidate_native4_bright_body_spots"
+  ],
+  "logic_ticks_per_case": 795,
+  "terminal_tick": 794,
+  "observed_lifecycle": {
+    "carrier_hit_ticks": [
+      713,
+      716,
+      718
+    ],
+    "drop_tick": 718,
+    "body_draws": 61,
+    "ordered_quadrant_calls": 244,
+    "collection_tick": 779,
+    "cubeMax": [
+      0,
+      1
+    ],
+    "pickup_cash_delta": 0,
+    "carrier_cash_delta": 20,
+    "lastCubeMax_and_cubeList_unchanged": true,
+    "fixed266_draws": 14,
+    "fixed266_draw_inclusive_range": [
+      779,
+      792
+    ],
+    "clear_ticks": [
+      793,
+      794
+    ]
+  },
+  "native2": {
+    "status": "PASS_NUMERIC_AND_NATIVE_IMAGE_INTEGRITY",
+    "actual_images": 36,
+    "dimensions": [
+      640,
+      400
+    ],
+    "capture_inclusive_ranges": [
+      [
+        739,
+        758
+      ],
+      [
+        779,
+        794
+      ]
+    ],
+    "exact_baseline_comparisons": 18,
+    "comparison_scope": "16 original streams including state/RNG hashes, hashes of both indexed surfaces and explicit cube state; control excluding wall time and fixed266 render rows",
+    "canonical_body_frames": 20,
+    "source_support_matches_per_frame": 353,
+    "source_support_cells_per_frame": 353,
+    "exposure_limit": "Final indexed matches do not distinguish equal-color overdraw; actual visual review is separate.",
+    "run_summary_sha256": "9b6693e192bb964bd07deb864076db6809a26b9d2258708d4fc42afbf6b813ad",
+    "independent_numeric_checks_sha256": "11b09154ae5303194acca662d4a7ff65a3e5c49e8adafff6315dfbd102e3c8c1",
+    "native_frame_hash_receipt_sha256": "5b76c1a2a647be3f4fab3aa4358344a12515e962649a0b7836d79eb1b1d0fcbe",
+    "independent_numeric_review_sha256": "e098e209cd51f493acb2c5a7d6cde23759507f7a4b628b2244d1c43733016f09",
+    "author_review_sha256": "332d236bac56655665132cf00be4b531845a013114f2e781aa2fa35d905ed476",
+    "author_review": "PASS_ALL_36_ACTUAL_FRAMES"
+  },
+  "baseline": {
+    "status": "PASS_BOUNDED_NO_IMAGE",
+    "native_images": 0,
+    "run_summary_sha256": "c578adee27690dc88c44024e84d8f0899b0614093909fa687a4291300f6434dd",
+    "independent_review_sha256": "afc7f78a8953b2d5ae03f07ba4b6cd46119c8daa7fd71ba7cc4b6b6a6815b239",
+    "rgb_comparison": "Unavailable by design; no baseline/candidate RGB or outside-body RGB equality claim."
+  },
+  "native4": {
+    "status": "PASS_BOUNDED_NUMERIC_AND_AUTHOR_BRIGHT_BODY_SPOTS",
+    "actual_images": 4,
+    "dimensions": [
+      1280,
+      800
+    ],
+    "capture_ticks": [
+      741,
+      746,
+      751,
+      756
+    ],
+    "exact_baseline_comparisons": 18,
+    "run_summary_sha256": "cf0098f3bbe117a641b7226c9a4609447c0307b5b3b330bd1d9bd0ae21b79656",
+    "independent_numeric_review_sha256": "a4f99eaa23fb8619f0d8ec891080c55ec3ba7091cb168b4ca12c6b64bed93161",
+    "native_frame_hash_receipt_sha256": "b4f092306e4647d692e1ca093542642a699855e5a42924c4d2246425e3b6b487",
+    "author_review_sha256": "87779f04f15a586d6d749982e90720966ddd402ae1ed91b221ed308d10841012",
+    "all_images_directly_viewed": true,
+    "scope": "Four bright body/color spots only. Full795-tick lifecycle is telemetry; no native4 full-cycle, collection, fixed266 lifetime or clear visual claim."
+  },
+  "author_review": "PASS_ALL_36_NATIVE2_FRAMES_AND_FOUR_NATIVE4_BODY_SPOTS",
+  "limits": [
+    "Deterministic original-input fixture; not manual-play or general natural-survival acceptance.",
+    "No baseline RGB or missing-resource engine run.",
+    "No later-carrier, whole-level, other-mode, all-episode, Windows, physical GPU/fullscreen or performance acceptance.",
+    "Original game data, reference RGB/index grids and private runtime logs/images are not public release contents."
+  ],
+  "engine_process_starts": 3,
+  "engine_process_starts_by_case": {
+    "baseline": 1,
+    "candidate2": 1,
+    "candidate4": 1
+  },
+  "failed_starts_or_retries": 0,
+  "retained_actual_images": 40,
+  "retained_runtime_evidence_bytes": 23116518
+}

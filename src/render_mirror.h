@@ -29,6 +29,8 @@ enum { MIRROR_NORMAL, MIRROR_BLEND, MIRROR_SHADOW };
 #define render_mirror_hud_meter_end(...) ((void)0)
 #define render_mirror_begin(...) ((void)0)
 #define render_mirror_pixel(...) ((void)0)
+#define render_mirror_shadow_begin(...) ((void)0)
+#define render_mirror_shadow_end(...) ((void)0)
 #define render_mirror_rect(...) ((void)0)
 #define render_mirror_unsupported(...) ((void)0)
 #define render_mirror_coin25_value_begin(...) ((void)0)
@@ -80,6 +82,8 @@ void render_mirror_hud_shield_drawn(SDL_Surface *surface,unsigned int shield,uns
 void render_mirror_begin(void);
 bool render_mirror_enemy_shot(SDL_Surface *, int x, int y, Sprite2_array, unsigned int index);
 void render_mirror_pixel(SDL_Surface *, Uint8 *address, Uint8 source, int style);
+void render_mirror_shadow_begin(SDL_Surface *,int x,int y,Sprite2_array,unsigned int index);
+void render_mirror_shadow_end(void);
 void render_mirror_rect(SDL_Surface *, const SDL_Rect *);
 void render_mirror_unsupported(const char *reason);
 void render_mirror_coin25_value_begin(bool fixed);

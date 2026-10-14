@@ -1,0 +1,236 @@
+{
+  "schema": "rear534-public-runtime-summary-v1",
+  "status": "PASS_BOUNDED_NUMERIC_AND_AUTHOR",
+  "baseline_commit": "ee2b90cfaf9f227ca394ecd01f2403e55dbf2ea0",
+  "tested_candidate_files_sha256": "f151d4525d4b86969976f08f009a117c0cc460bab3b46bc9925cf3de2ef5ba74",
+  "post_runtime_test_only_candidate_files_sha256": "417d33570e9c32c2743112e730abb624cae3c76f3861cc87d0bfe604ea39d895",
+  "tested_production_source_sha256": "f74ed0ad58193c225062dde5cb3aa2d9e3e51fece3545d63d3856ca775e7978c",
+  "tested_manifest_sha256": "34f9aaf09985d0a72aeb0fb136f494b202055cab43ec28d82264fe1fb9559ef9",
+  "art_inventory_sha256": "af10771e52645221b310f91cad8b47e12281daec924a96dedeb2fab44a876fbd",
+  "source_unit_receipt_sha256": "febcacfd6e582c8408d23c68a4f72f367d6d0ee66768768f43955c9241708630",
+  "evidence_receipts_sha256": {
+    "runtime_final": "c179b26a177d00e53df4a6a0403005c3dfb5d33bbbdea950d5f59bde23ddbe23",
+    "independent_final_review": "30832bde292131aa7381df9c368e193f0138f916b988f7ace839667a79a08555",
+    "author_review": "f9790fb18dc9906c47ab2c8351a7f8c93e8013aa953c32e88f309a662cd99424",
+    "frozen_schedule": "6f92935d533551c83f6a496e6f7c44d7441d2f6d2395a1f32b2bdeb63a864a14"
+  },
+  "runtime_evidence_archive": {
+    "sha256": "01e28d210bd767a65d7e09659aca79d97bd557e4962fa2cf2bba8e61b6622e3b",
+    "bytes": 9390489
+  },
+  "cases": {
+    "baseline": {
+      "status": "PASS",
+      "run_summary_sha256": "9e66e0f2b89eea1a671ca49611416510ad950c946e0ac67c8750f6a2fb64c38b",
+      "logic_ticks": 273,
+      "terminal_tick": 272,
+      "native_capture_ticks": [],
+      "native_dimensions": null,
+      "paired_original_items": {},
+      "body_draws": 52,
+      "body_quadrants": 208,
+      "fixed145_draws": 7,
+      "clear_observations": 2
+    },
+    "candidate2": {
+      "status": "PASS",
+      "run_summary_sha256": "50af719656ad638103ee1b425f7931d21a617a391d704a499776410941fd13e4",
+      "logic_ticks": 273,
+      "terminal_tick": 272,
+      "native_capture_ticks": [
+        249,
+        250,
+        251,
+        252,
+        253,
+        254,
+        255,
+        256,
+        257,
+        258,
+        259,
+        260,
+        264,
+        265,
+        266,
+        267,
+        268,
+        269,
+        270,
+        271,
+        272
+      ],
+      "native_dimensions": [
+        640,
+        400
+      ],
+      "paired_original_items": {
+        "state": true,
+        "collisions": true,
+        "presentation": true,
+        "rear534-facts": true,
+        "asset-debug-clock": true,
+        "player-shot-emissions": true,
+        "player-shot-requests": true,
+        "player-shot-results": true,
+        "fire-events": true,
+        "weapon-loadout": true,
+        "asset-debug-explosion-pools": true,
+        "enemy-projectiles": true,
+        "player-projectiles": true,
+        "poses": true,
+        "player-shot-draws": true,
+        "control_without_wall_time": true,
+        "fixed145_render_rows": true
+      },
+      "body_draws": 52,
+      "body_quadrants": 208,
+      "fixed145_draws": 7,
+      "clear_observations": 2
+    },
+    "candidate4": {
+      "status": "PASS",
+      "run_summary_sha256": "b4b7c1aba842866ba9baca17e752b8a5220dce1b6064b3cfe54c44377d4ca408",
+      "logic_ticks": 273,
+      "terminal_tick": 272,
+      "native_capture_ticks": [
+        255
+      ],
+      "native_dimensions": [
+        1280,
+        800
+      ],
+      "paired_original_items": {
+        "state": true,
+        "collisions": true,
+        "presentation": true,
+        "rear534-facts": true,
+        "asset-debug-clock": true,
+        "player-shot-emissions": true,
+        "player-shot-requests": true,
+        "player-shot-results": true,
+        "fire-events": true,
+        "weapon-loadout": true,
+        "asset-debug-explosion-pools": true,
+        "enemy-projectiles": true,
+        "player-projectiles": true,
+        "poses": true,
+        "player-shot-draws": true,
+        "control_without_wall_time": true,
+        "fixed145_render_rows": true
+      },
+      "body_draws": 52,
+      "body_quadrants": 208,
+      "fixed145_draws": 7,
+      "clear_observations": 2
+    }
+  },
+  "accounting": {
+    "process_attempts": 3,
+    "automatic_retries": 0,
+    "retained_images": 22,
+    "baseline_images": 0,
+    "retained_run_bytes": 9960974,
+    "run_evidence_plus_final_archive_bytes": 19351463,
+    "byte_ceiling": 20971520
+  },
+  "fixture": {
+    "platform": "Linux SDL dummy/software",
+    "mode": "Normal ordinary story",
+    "episode": 1,
+    "physical_level": 9,
+    "seed": "0x5eed",
+    "front_weapon": 1,
+    "front_power": 1,
+    "rear_weapon": 0,
+    "rear_power": 1,
+    "original_demo_keys": {
+      "RIGHT": [
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "FIRE": [
+        202,
+        206
+      ],
+      "otherwise": "neutral"
+    },
+    "helper_projectile": false,
+    "private_survival_or_health_protection": false,
+    "coordinate_or_velocity_correction": false,
+    "forced_allocation": false,
+    "enemy_health_edit": false,
+    "projectile_deletion": false
+  },
+  "observed_lifecycle": {
+    "carrier": 10,
+    "carrier_hit_ticks": [
+      208,
+      212
+    ],
+    "carrier_damage_each": 2,
+    "drop534_tick": 212,
+    "carrier_cash": 15,
+    "incidental_original_shot_hit": {
+      "enemy": 126,
+      "tick": 216,
+      "armor_before": 10,
+      "armor_after": 9,
+      "collateral_death_or_drop": false
+    },
+    "first_body_tick": 213,
+    "collection_tick": 264,
+    "rear_weapon_after": 0,
+    "rear_power_after": 1,
+    "reward": "original empty-rear 1000-cash fallback",
+    "cash_before_collection": 15,
+    "cash_after_collection": 1015,
+    "fixed145_ticks": [
+      264,
+      265,
+      266,
+      267,
+      268,
+      269,
+      270
+    ],
+    "clear_ticks": [
+      271,
+      272
+    ]
+  },
+  "indexed_support": {
+    "support": 315,
+    "matching249_to257": 315,
+    "matching258": 312,
+    "matching259": 309,
+    "matching260": 304,
+    "clipped": 0,
+    "limitation": "Equal-colour overdraw cannot prove hidden-layer provenance; real ship overlap retained."
+  },
+  "comparison_scope": "17 original items pair exactly for each candidate; includes state/RNG/indexed surfaces/collisions/input/shot/reward/lifecycle and fixed145 rows. Control comparison excludes only wall time. No baseline RGB imagery.",
+  "actual_contrast_scope": {
+    "actual_observed": "Brown rocky terrain under pickup and fixed effect.",
+    "not_established": "Cloud-background contrast: cloud is beside the pickup, not behind it. Earlier swatch/terrain art composites do not expand actual runtime coverage."
+  },
+  "test_driver_metadata_amendment": {
+    "receipt_sha256": "4c5d209a6a3bcf98272bdc9b7221eaea404b511899e2a912e2b6877569bbd372",
+    "driver_path": "prototype/test-rear534-three.py",
+    "before_sha256": "8778a03a0938dc4346138185297fcd057dce70c608fb364b895376fd43c287f2",
+    "after_sha256": "9e73826f834800409c97b1c94c5e6175465a502a148b7499e0239d9543283fb6",
+    "change": "Restrict tracked-diff allowlist to production src and manifest; release docs/art no longer cause rejection. Exact production source and manifest inverses, prior payload checks and extracted-unit logic remain unchanged.",
+    "validation": "Separate source-only tracked-release positive check and injected-new-source negative control; no additional full unit or engine run."
+  },
+  "limits": [
+    "No baseline-versus-candidate RGB comparison.",
+    "True native4 covers one bright body frame255 only, not effect lifetime.",
+    "Actual equipped-rear upgrades and missing-family fallback are source-unit-only.",
+    "Actual contrast is brown rocky terrain; cloud-background contrast and cloud overlap are untested.",
+    "No Windows/manual, physical-window/GPU/fullscreen, whole-level, other-mode, all-background or performance acceptance."
+  ],
+  "publication_scope": "Portable summary only; original game data, RGB/index grids, private fixture, raw streams and actual screenshots are excluded."
+}

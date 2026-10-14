@@ -1,0 +1,359 @@
+{
+  "renderer": {
+    "status": "PASS",
+    "baseline": "ee2b90cfaf9f227ca394ecd01f2403e55dbf2ea0",
+    "only_changed_production_file": "src/render_mirror.c",
+    "source_inverse_exact": true,
+    "all_other_src_exact": true,
+    "manifest_inverse_exact": true,
+    "prior_pack_resources_verified": 3266,
+    "source_sha256": "f74ed0ad58193c225062dde5cb3aa2d9e3e51fece3545d63d3856ca775e7978c",
+    "manifest_sha256": "34f9aaf09985d0a72aeb0fb136f494b202055cab43ec28d82264fe1fb9559ef9",
+    "game_runs": 0,
+    "art": {
+      "status": "PASS",
+      "inventory_sha256": "af10771e52645221b310f91cad8b47e12281daec924a96dedeb2fab44a876fbd",
+      "members": 3,
+      "default_bindings": 6,
+      "canonical_rgba_unchanged": true,
+      "exact_rebuild": true,
+      "entries": [
+        {
+          "id": 203,
+          "slot": 507,
+          "key": 1230203,
+          "HDA_sha256": "44ff12e64d0c01298c225ffdd86fe44b17e5ed3cda426b449f6f02e37048358f",
+          "RGBA_FNV1a64": "c4b4353293bb9164"
+        },
+        {
+          "id": 205,
+          "slot": 508,
+          "key": 1230205,
+          "HDA_sha256": "1ad1906a1a4a08f6554512556ed0c05e2a86eeadad09a79406bb8e9eba6c4c80",
+          "RGBA_FNV1a64": "a3fbb51ae2bb17c0"
+        },
+        {
+          "id": 207,
+          "slot": 509,
+          "key": 1230207,
+          "HDA_sha256": "466b758288ecabe03031c56ed0cbf3ae418d49083541686218e3c6786b12d1c4",
+          "RGBA_FNV1a64": "74873510f637aaf7"
+        }
+      ],
+      "game_runs": 0
+    },
+    "sanitizers": [
+      "ASan",
+      "UBSan"
+    ],
+    "renderer_results": {
+      "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test:render": {
+        "status": "PASS",
+        "checks": 590549312,
+        "pixel_checks": 149465088,
+        "indexed_transactions": 8064
+      },
+      "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test:xmas": {
+        "status": "PASS",
+        "checks": 590549312,
+        "pixel_checks": 149465088,
+        "indexed_transactions": 8064
+      },
+      "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test:render": {
+        "status": "PASS",
+        "checks": 590549312,
+        "pixel_checks": 149465088,
+        "indexed_transactions": 8064
+      },
+      "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test:xmas": {
+        "status": "PASS",
+        "checks": 590549312,
+        "pixel_checks": 149465088,
+        "indexed_transactions": 8064
+      }
+    },
+    "resource_rejections": [
+      [
+        "rear534-bank11-203-8.hda",
+        "missing"
+      ],
+      [
+        "rear534-bank11-203-8.hda",
+        "magic"
+      ],
+      [
+        "rear534-bank11-203-8.hda",
+        "short-header"
+      ],
+      [
+        "rear534-bank11-203-8.hda",
+        "truncated"
+      ],
+      [
+        "rear534-bank11-203-8.hda",
+        "trailing"
+      ],
+      [
+        "rear534-bank11-203-8.hda",
+        "rgb"
+      ],
+      [
+        "rear534-bank11-203-8.hda",
+        "alpha"
+      ],
+      [
+        "rear534-bank11-203-8.hda",
+        "role"
+      ],
+      [
+        "rear534-bank11-203-8.hda",
+        "id"
+      ],
+      [
+        "rear534-bank11-203-8.hda",
+        "density"
+      ],
+      [
+        "rear534-bank11-203-8.hda",
+        "width"
+      ],
+      [
+        "rear534-bank11-203-8.hda",
+        "height"
+      ],
+      [
+        "rear534-bank11-203-8.hda",
+        "anchor-x"
+      ],
+      [
+        "rear534-bank11-203-8.hda",
+        "anchor-y"
+      ],
+      [
+        "rear534-bank11-205-8.hda",
+        "missing"
+      ],
+      [
+        "rear534-bank11-205-8.hda",
+        "magic"
+      ],
+      [
+        "rear534-bank11-205-8.hda",
+        "short-header"
+      ],
+      [
+        "rear534-bank11-205-8.hda",
+        "truncated"
+      ],
+      [
+        "rear534-bank11-205-8.hda",
+        "trailing"
+      ],
+      [
+        "rear534-bank11-205-8.hda",
+        "rgb"
+      ],
+      [
+        "rear534-bank11-205-8.hda",
+        "alpha"
+      ],
+      [
+        "rear534-bank11-205-8.hda",
+        "role"
+      ],
+      [
+        "rear534-bank11-205-8.hda",
+        "id"
+      ],
+      [
+        "rear534-bank11-205-8.hda",
+        "density"
+      ],
+      [
+        "rear534-bank11-205-8.hda",
+        "width"
+      ],
+      [
+        "rear534-bank11-205-8.hda",
+        "height"
+      ],
+      [
+        "rear534-bank11-205-8.hda",
+        "anchor-x"
+      ],
+      [
+        "rear534-bank11-205-8.hda",
+        "anchor-y"
+      ],
+      [
+        "rear534-bank11-207-8.hda",
+        "missing"
+      ],
+      [
+        "rear534-bank11-207-8.hda",
+        "magic"
+      ],
+      [
+        "rear534-bank11-207-8.hda",
+        "short-header"
+      ],
+      [
+        "rear534-bank11-207-8.hda",
+        "truncated"
+      ],
+      [
+        "rear534-bank11-207-8.hda",
+        "trailing"
+      ],
+      [
+        "rear534-bank11-207-8.hda",
+        "rgb"
+      ],
+      [
+        "rear534-bank11-207-8.hda",
+        "alpha"
+      ],
+      [
+        "rear534-bank11-207-8.hda",
+        "role"
+      ],
+      [
+        "rear534-bank11-207-8.hda",
+        "id"
+      ],
+      [
+        "rear534-bank11-207-8.hda",
+        "density"
+      ],
+      [
+        "rear534-bank11-207-8.hda",
+        "width"
+      ],
+      [
+        "rear534-bank11-207-8.hda",
+        "height"
+      ],
+      [
+        "rear534-bank11-207-8.hda",
+        "anchor-x"
+      ],
+      [
+        "rear534-bank11-207-8.hda",
+        "anchor-y"
+      ],
+      [
+        "all",
+        "4x-only"
+      ],
+      [
+        "all",
+        "invalid8-valid4"
+      ]
+    ],
+    "function_sha256": {
+      "palette_rgb": "3d8e2f2e1edebd62bce8ad34128bfb346f89a2ba35001abe20179e3dc1738aaa",
+      "blend_rgba": "df7ddcb9c6a742e4b227b7b12f4a134f8ebd08fe12a4a2a6e8e36c96b1c7b3fc",
+      "cloud_asset": "2be4be802906d698476a6aa4547a82990b79b5ed34962f22fab166465ce91e90",
+      "darken_rgba": "31194f5f89d033493c36e6a82fb290c0d539c6fb3fab8c5df43aace4dbb633d8",
+      "decode_tile": "356e5c5d3cfbffadf047ce1fcfca196756b9f5bff0fdafe86d125540c3d78a48",
+      "read_asset": "86dce488b443fa78b79675af284751987d954ada30b7c05af40706dd7b8a4c19",
+      "cash25_family_ready": "3d95646d8921a780b0f50e096d60fc1e10bdeff9413559f87963d8da4d98132b",
+      "cash75_family_ready": "50f5987f72200d5785a896133402cdbf9a38c4972ec195f6efa1c01d4759049c",
+      "cash50_family_ready": "4b16923589c8ee1f9342b8032b9638180a759fb40deacde90115cf142b6d5aa0",
+      "gem100_family_ready": "07a2282c7d0cdd60aa5142f543a1c31fbd5c457c2e72f3a24237fd7a0312d2b0",
+      "gem250_family_ready": "aa6d968416cfd94f9dd6467a883da68cb69d83fc29cbefb696f982c90abab1e2",
+      "rear534_family_ready": "47b9975e10e29152c8d539c01a09e5048b096bf92ffb3c6162dd6011f034296f",
+      "cash25_surface_ready": "03346a8e8ff9137a6c9e6b2f854d4678fa697203795aeecc83c6b689adf770d6",
+      "explosion_asset_slot": "00d117c7d38f192ac14a6f30067abfb722392bc3966dcd9b53f30c9406d24a8c",
+      "get_asset": "b6ea533792e42b2f7c9f48415056882fc6e13e2f513133222a602c599751a7a9",
+      "talon_frame": "7f1ad4d861cfee14c9aede9f15298d4b18200c809aea9e115e9a711253f81a6e",
+      "enemy_filter_rgba": "dc782d1e0458883a5b9802eb109cb9a4fac533c4d7a4c8522453f6faffd1bc61",
+      "explosion_asset_blend_rgba": "26fc53617c2a685d318e87150ebfe18a4eb6a9b498dbe6a759dee728a2f665ac",
+      "green_background_snapshot": "180e4758895c463a6a17c529c5710284681b57c5b114b9ffb95781a870b456da",
+      "green_background_peak": "0034111d043810c6dc8fbb1ff245a720335a31e1444bbc7ae90b0ef3f28cda0b",
+      "green_head_composite": "8f0f7bc2f4c051c6faed960d5c180d8299a53544a4a2328cf4ba06f7de818261",
+      "draw_asset_filtered": "571cd8500c78b236969ef82f92b2ef60f7db4d0c89243c5d839d9edd617b8c25",
+      "draw_asset": "8a4aa2b5da7be247146e3e240afa8f81e80829b999cbcbd3b6553672362cb94c",
+      "cash25_pickup": "a79b2820313d937007e2fba0bcbf8ebca435dbf225ca8a40631b3d73827ff315",
+      "cash75_pickup": "c5996fe1f4d8a847a19494a1fd257b8db3a66f75c79b1a6fec090f2c9a619ca9",
+      "cash50_pickup": "1a3b0a16c2dac810c4352d79c2ece81f0a952836a624a871e6611ebab4eafe4a",
+      "gem100_pickup": "1a13dc1e7f2d982f7fcfb4aafd6434c6d080864e11f25987c823dd9c2e250d58",
+      "gem250_pickup": "8325ac94029098dfa2b8b2a47d0f478e5ab720f0cf3fcfa5959db9f0c54f8d11",
+      "rear534_pickup": "4f5a3f76ed769cd98860d06c1fbf040ef3d972446898dfd83b41b49e69674467",
+      "scene_asset": "c3ce091d907f6695e7acbac25c579b9e04469fe1319a792fde51ac87adcf5503",
+      "render_mirror_enemy_tile": "aae6fe6a59fe83eabd368460d721b26484776ee403551042d91c4bc54eff6ef7",
+      "enemy_energy_family_ready": "66cb5d444c70d347d0e8242a246578c099c8b7d07e109829a6eeb55402446e8d",
+      "enemy_tank_shell_family_ready": "1ecc95ab2c0b3b1a15b35a2437ab8cdc9bc3f360dc5839bb34f2f88344ab4444",
+      "render_mirror_entity_end": "59955cd623d83c9e0710f2e0b4c735736f13821f3e9fe73c7b7b599fbdd20d8d"
+    },
+    "harness_sha256": {
+      "test-rear534-three.py": "8778a03a0938dc4346138185297fcd057dce70c608fb364b895376fd43c287f2",
+      "test-rear534-three.c": "ff79185576588d80cefad9ff7a272284c7b731186ca59dd6d316fbcd212285e7"
+    },
+    "limitations": [
+      "Extracted production source units only; no game, runtime RGB or Windows/manual acceptance.",
+      "Original RLE and blit_enemy wrapper are exact; display pixel callbacks are isolated and compositor RGB is checked separately.",
+      "Unrelated material/font paths have no-op or fail-if-entered sinks.",
+      "LeakSanitizer disabled; ASan and UBSan active."
+    ]
+  },
+  "original": {
+    "status": "PASS",
+    "baseline": "ee2b90cfaf9f227ca394ecd01f2403e55dbf2ea0",
+    "gameplay_runs": 0,
+    "production_edits": 0,
+    "unit_only": true,
+    "runs": {
+      "optimized": {
+        "status": "PASS",
+        "scenarios": 166,
+        "checks": 1668,
+        "evidence_kind": "source-unit-only",
+        "gameplay_runs": 0
+      },
+      "sanitized": {
+        "status": "PASS",
+        "scenarios": 166,
+        "checks": 1668,
+        "evidence_kind": "source-unit-only",
+        "gameplay_runs": 0
+      }
+    },
+    "source_sha256": {
+      "src/tyrian2.c": "7899612928cfa1b0e87470807f887a434d78bb691b7d9033bcee876a46cd4ce4",
+      "src/mainint.c": "0b39b8af90f981bce50762de98eb2458282ed3031780235a8ade405945dcddf8",
+      "src/player.c": "cda0f507f73e9024112a289e5d1951bd4246f4580c9c266ff538cc063e14eb3a",
+      "src/varz.c": "d4502557903eea9fc082b83385fee3448564124040ff27faa1a4af16c8e394c7",
+      "src/varz.h": "7c5b67fdb8f595d928432f0fb4d5b936c15bd7f881a00c24f7677e8e2f38dc56",
+      "src/player.h": "f1c5d26624d1c2b86531e620908701a1a2bfe22a902f4f760672ae52f06446b6",
+      "src/opentyr.h": "53cf73134192dfd212e0bf773f9780f2b2cf3754ccd9058b3216195426b171d5",
+      "src/config.h": "548000ba81517cabf829665ad09fa629a0a7cfd79d013c94ad301df4e8d30a02",
+      "src/episodes.h": "e754c9f34372082084752cb2244c132b8ccad1a1e475d22366e5f1e1e2a59ef5",
+      "src/episodes.c": "640219b48d3081ee996ce66a66f61ad2fe185339fcfaf395808e02fcee0b29e0",
+      "src/lvlmast.h": "f33fbe72ec273bf4c72cb2c49bd4dbc4336b6bc6802e1b53d32ac58667026ed0",
+      "src/shots.h": "b6e009500719222b134f508e3db2bf3c365a9e1f54e576f8465f98ff6f364042"
+    },
+    "effect_loop_reference_projection": "remove only five exact existing cash/gem display hooks; selected fixed145 has none",
+    "original_data_sha256": {
+      "tyrian.hdt": "fde8506326e7bb0916b38c362e33bf8a8a5affa561206c021af7f65b4a17745b",
+      "tyrian1.lvl": "54cbb00b57b84aa992a70cfcb170cb1edeb59507873723630d60080ba8351352"
+    },
+    "scaffold_sha256": {
+      "prototype/test-gem100-original.c": "7785bda98cbffba5ecc6af9abf88e7ef4030ab5f678760a7f3622b7911c599f8",
+      "prototype/test-gem100-original.h": "d1a3385e255ea0985937c430c60a8d9d80e55ca067867b24b3e649eb30ad5c84"
+    },
+    "unit_source_sha256": {
+      "test-rear534-original.py": "1cb7c6acb8622012749ec36d0fd1d035bb56e935f16f739da4cf00ec5244ec43",
+      "test-rear534-original.c": "69579a5e650e0f83139eafbbe09f2c2874c536b2e2cda5cda729c97712a9b12c"
+    },
+    "limitations": [
+      "Exact extracted original-source unit, not engine/replay/natural runtime proof.",
+      "mt_rand uses a counted deterministic stream, not original RNG state.",
+      "Text/large explosion/renderer are observation sinks; original power-up, allocation, constructor, collection, event, movement and small-effect logic executes.",
+      "Movement extraction ends after original background-y addition; enemy shooting branches are not executed.",
+      "No actual rendered pixels, natural projectile dynamics, ancillary hit or source-predicted schedule is tested here.",
+      "LeakSanitizer disabled; ASan/UBSan enabled."
+    ]
+  },
+  "scope": "Finite extracted-source units only. No game launch or native visual acceptance."
+}

@@ -1,0 +1,274 @@
+{
+  "schema": "player-vulcan-two-runtime-summary-v1",
+  "status": "PASS_BOUNDED_SOURCE_NUMERIC_AND_AUTHOR",
+  "tested_source_commit": "5bbf38eb9385d06fb617f1239fdf7f90f95304f8",
+  "baseline_commit": "ee2b90cfaf9f227ca394ecd01f2403e55dbf2ea0",
+  "only_changed_production_source": "src/render_mirror.c",
+  "art_inventory_sha256": "2099589202e779b0b41c7fed9f50bb71a5f99f84c8eabd79c580f3214ee2e460",
+  "source_archive_sha256": "e0e503d8a94e847741c0abdec40535f210fa0b6c3a3bf0253b9d14080f3a88ca",
+  "source_review_sha256": "4c2ed7d16fdf735f0a2f080206e0fb6e23198760d4bfbaf871668bb268d7a233",
+  "source_units": {
+    "status": "PASS_SOURCE_UNIT_ONLY",
+    "table_groups": 3,
+    "powers_per_group": 11,
+    "two_cycle_creation_calls_per_build": 396,
+    "drift_cases_per_build": 14,
+    "movement_calls_per_build": 1238,
+    "cadence_ticks_per_build": 264,
+    "builds": [
+      "optimized",
+      "ASan/UBSan"
+    ],
+    "receipt_sha256": "82bdbc8938abb0bcb424536c1753ab37a94643e60b9530a59e3c8f9398e1d9ae"
+  },
+  "renderer_units": {
+    "status": "PASS_SOURCE_UNIT_ONLY",
+    "both_default_packs": true,
+    "candidate_and_pinned_baseline": true,
+    "sanitizers": [
+      "ASan",
+      "UBSan"
+    ],
+    "leak_detection": false,
+    "receipt_sha256": "8cd0de5dc9d77022d6edfd8cca78d418dddae25378f06b0643e56fe22d088ae4",
+    "coverage": "Finite normal/Christmas routing and warm caches; indexed shadows; independent fallback and malformed inputs; straight alpha, ordered overlaps, clipping, pitches and ownership."
+  },
+  "binding": {
+    "role": 8,
+    "bank": 8,
+    "head_ids": [
+      67,
+      70
+    ],
+    "cache_slots": [
+      522,
+      523
+    ],
+    "capacity": 524,
+    "unused_slot_range": [
+      507,
+      521
+    ],
+    "normal_only_guard_before_cache": true,
+    "original_indexed_shadows_preserved": true,
+    "each_default_pack_manifest_entries": 517,
+    "each_default_pack_effective_physical_hda": 523,
+    "each_default_pack_existing_unlisted_hda_preserved": 6
+  },
+  "runtime": {
+    "environment": "Linux SDL dummy/software; Episode 1 physical level 9; Normal ordinary story; seed 0x5eed; no Christmas mode",
+    "engine_runs": 4,
+    "logic_ticks_per_run": 90,
+    "tick_range_inclusive": [
+      0,
+      89
+    ],
+    "total_logic_ticks": 360,
+    "native_size": [
+      640,
+      400
+    ],
+    "indexed_size": [
+      320,
+      200
+    ],
+    "capture_ticks_inclusive": [
+      38,
+      43
+    ],
+    "native_frames_per_run": 6,
+    "indexed_frames_per_run": 6,
+    "native_frames_total": 24,
+    "indexed_frames_total": 24,
+    "input": "One-time diagnostic front port 7 P1/P7 loadout; input-only demo-key adapter enters original movement/fire routines. Not a shop transaction, natural acquisition or manual input.",
+    "original_spawn_protection_countdown": [
+      100,
+      10
+    ],
+    "added_protection_or_shot_helpers": false,
+    "original_shield_recharge_and_power_failures_preserved": true
+  },
+  "cases": [
+    {
+      "case": "baseline-p1-2x",
+      "status": "PASS",
+      "result_sha256": "6fa16665258af2085f2152b9a385b14ccdcf0f98a8e1544f8ae6c70a9aaa242a",
+      "original_state_sha256": "9891e982ff1a103d4983e9dd84fcf3f945da0729f615b44d18814ebb15e64cab",
+      "requests": 39,
+      "emissions": 39,
+      "complete_phase_cycles": 19,
+      "request_outcomes": {
+        "complete": 39
+      },
+      "head_draws": 497,
+      "indexed_shadow_draws": 465,
+      "remaining_phase_emissions": 1,
+      "power_failure_ticks": [],
+      "collision_events": 0,
+      "every_draw_birth_and_position_independently_verified": true
+    },
+    {
+      "case": "candidate-p1-2x",
+      "status": "PASS",
+      "result_sha256": "b6db41325dd9f89858aa8626ec630d7162aa42d593536a8078434f010202d4b1",
+      "original_state_sha256": "9891e982ff1a103d4983e9dd84fcf3f945da0729f615b44d18814ebb15e64cab",
+      "requests": 39,
+      "emissions": 39,
+      "complete_phase_cycles": 19,
+      "request_outcomes": {
+        "complete": 39
+      },
+      "head_draws": 497,
+      "indexed_shadow_draws": 465,
+      "native_changed_pixels_by_capture_tick": {
+        "38": 681,
+        "39": 653,
+        "40": 681,
+        "41": 448,
+        "42": 490,
+        "43": 336
+      },
+      "opaque_core_samples_by_capture_tick": {
+        "38": {
+          "matched": 548,
+          "tested": 548
+        },
+        "39": {
+          "matched": 524,
+          "tested": 524
+        },
+        "40": {
+          "matched": 548,
+          "tested": 548
+        },
+        "41": {
+          "matched": 360,
+          "tested": 360
+        },
+        "42": {
+          "matched": 400,
+          "tested": 400
+        },
+        "43": {
+          "matched": 270,
+          "tested": 270
+        }
+      },
+      "remaining_phase_emissions": 1,
+      "power_failure_ticks": [],
+      "collision_events": 0,
+      "every_draw_birth_and_position_independently_verified": true
+    },
+    {
+      "case": "baseline-p7-2x",
+      "status": "PASS",
+      "result_sha256": "9a8a003511d3ee6c9b2dfb829213fa87c46866e063933fee4cb349f2f34f5bf5",
+      "original_state_sha256": "536ea7823d4818bebe5fa9c8a8835932b8794ac97b00f23056f3f8e0671d7f63",
+      "requests": 27,
+      "emissions": 26,
+      "complete_phase_cycles": 6,
+      "request_outcomes": {
+        "complete": 26,
+        "power": 1
+      },
+      "head_draws": 334,
+      "indexed_shadow_draws": 312,
+      "remaining_phase_emissions": 2,
+      "power_failure_ticks": [
+        16
+      ],
+      "collision_events": 0,
+      "every_draw_birth_and_position_independently_verified": true
+    },
+    {
+      "case": "candidate-p7-2x",
+      "status": "PASS",
+      "result_sha256": "17217995a6c3094e9092a5654f428d69d80a1eebdbc680cf9ad8b47215bcf068",
+      "original_state_sha256": "536ea7823d4818bebe5fa9c8a8835932b8794ac97b00f23056f3f8e0671d7f63",
+      "requests": 27,
+      "emissions": 26,
+      "complete_phase_cycles": 6,
+      "request_outcomes": {
+        "complete": 26,
+        "power": 1
+      },
+      "head_draws": 334,
+      "indexed_shadow_draws": 312,
+      "native_changed_pixels_by_capture_tick": {
+        "38": 724,
+        "39": 773,
+        "40": 756,
+        "41": 660,
+        "42": 567,
+        "43": 567
+      },
+      "opaque_core_samples_by_capture_tick": {
+        "38": {
+          "matched": 559,
+          "tested": 559
+        },
+        "39": {
+          "matched": 600,
+          "tested": 600
+        },
+        "40": {
+          "matched": 584,
+          "tested": 584
+        },
+        "41": {
+          "matched": 513,
+          "tested": 513
+        },
+        "42": {
+          "matched": 438,
+          "tested": 438
+        },
+        "43": {
+          "matched": 438,
+          "tested": 438
+        }
+      },
+      "remaining_phase_emissions": 2,
+      "power_failure_ticks": [
+        16
+      ],
+      "collision_events": 0,
+      "every_draw_birth_and_position_independently_verified": true
+    }
+  ],
+  "pairwise_checks": {
+    "original_state_and_rng": "Exact throughout all 90 recorded ticks in each pair.",
+    "original_traces": "Shot requests/results/emissions/draws, collisions, poses, fire, scene, enemies, sidekicks, materials, clock, presentation and input facts match.",
+    "indexed_output": "Recorded original state/indexed hashes and normalized original blend stream match throughout; all six captured palette-correct INDEX8 BMP files match exactly per pair.",
+    "native_output": "Changed RGB is nonempty and confined to target-head rectangles. Non-target draw commands match. Every candidate capture contains exact fully opaque authored-core samples.",
+    "visible_player_drift": "Each candidate six-frame window includes visible heads linked to original earlier emissions with both negative and positive player drift.",
+    "alpha_limit": "No arbitrary fractional-alpha full-image runtime oracle is claimed. Full alpha/ordered-composition coverage is source/compositor-unit evidence.",
+    "collision_limit": "Collision streams match but contain zero observed collision events; no runtime collision-coverage claim."
+  },
+  "limitations": [
+    "Original coarse gray indexed shadows are preserved and remain a visual limitation.",
+    "Only P1/P7 representative live engine cases; all 11 powers and all three tables are source-unit coverage.",
+    "Configured starting loadout, not natural shop/upgrade acquisition or naturally earned P7.",
+    "No added protection; 90 ticks stay within original spawn protection and do not prove unprotected survival.",
+    "No native 4x, Christmas, other-episode, shared-option/rear-charge or full-arsenal game acceptance.",
+    "No long-tail, Windows/manual-play, physical GPU/fullscreen or performance acceptance.",
+    "Original data, reference RGB/index grids, gameplay images and private fixture logs are excluded.",
+    "The paired collision streams contain no observed collision events; equality is not collision coverage."
+  ],
+  "independent_runtime_review_sha256": "0eabe918241e75fb9dbc009aca88b88636d9676e6dea62f4a5fbca2b067a1fcc",
+  "author_review_sha256": "902331cd8dea5b7fe95c9fd30f30ee4c0f3c773a562ec7e3a0608125699f349a",
+  "independent_image_pins_sha256": "e8fc35af919bedde48d266e7bc00cbbe09640c79a70ac19c6562fd6451adea7b",
+  "independent_evidence_pins_sha256": "aac591b545001e98d4a6a4434a63da8f9b4a40e352bdb90d0acd3795ab811c1b",
+  "candidate_opaque_sample_totals": {
+    "candidate-p1-2x": {
+      "matched": 2650,
+      "examined": 2650,
+      "all_samples_match": true
+    },
+    "candidate-p7-2x": {
+      "matched": 3132,
+      "examined": 3132,
+      "all_samples_match": true
+    }
+  }
+}
