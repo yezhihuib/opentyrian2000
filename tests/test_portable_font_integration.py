@@ -7,6 +7,7 @@ The older Load and Settings historical failures are reported separately.
 from pathlib import Path
 import argparse,hashlib,json,subprocess
 import portable_font_projection as pf
+import red250_font_projection as co
 
 
 def git(*args):return subprocess.check_output(['git','-C',str(pf.ROOT),*args])
@@ -21,7 +22,7 @@ def same_blob(raw,expected):assert blob(raw)==expected
 
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--out',type=Path);args=parser.parse_args()
-    source_delta=pf.verify();records={}
+    source_delta=co.verify();records={}
     for row in git('ls-tree','-rz',pf.BASE).split(b'\0'):
         if not row:continue
         meta,name=row.split(b'\t',1);mode,kind,oid=meta.decode().split();name=name.decode()
@@ -34,12 +35,12 @@ def main():
         path=pf.ROOT/name
         assert path.is_file() and not path.is_symlink(),name
         assert ('100755' if path.stat().st_mode&0o111 else '100644')==mode,name
-        raw=path.read_bytes();projected=pf.project(name,raw)
+        raw=path.read_bytes();projected=co.project(name,raw)
         assert blob(projected)==oid,(name,'not exact immutable parent')
         count+=1
         if raw!=projected:changes.append(name)
-        if name.startswith('assets/'):asset_bytes+=len(raw)
-    assert set(changes)==set(pf.EDITS)
+        if name.startswith('assets/'):asset_bytes+=len(projected)
+    assert set(changes)==set(pf.EDITS)|set(co.RED_EDITS)
     # The native 2x/4x composition bodies remain literal byte copies. These
     # checks inspect actual current code, before applying the inverse layer.
     native=[]
@@ -59,7 +60,7 @@ def main():
     assert video==pf.original('src/video.c'),'video delta exceeds two reference-texture arguments'
     controls=[]
     for top in ('src','assets'):
-        expected={name for name in records if name.startswith(top+'/')}
+        expected={name for name in records if name.startswith(top+'/')} | (co.RED_ASSETS if top=='assets' else set())
         actual={str(p.relative_to(pf.ROOT)) for p in (pf.ROOT/top).rglob('*') if p.is_file() or p.is_symlink()}
         same_paths(actual,expected)
         reject(top+':unlisted-path',lambda:same_paths(actual|{top+'/unlisted-portability-control'},expected),controls)
@@ -67,7 +68,7 @@ def main():
     # Hash plus exact inverse hunks rejects reversion, unrelated bytes, edits
     # within every admitted hunk, truncation and a trailing undocumented byte.
     for name,pin in pf.EDITS.items():
-        raw=(pf.ROOT/name).read_bytes()
+        raw=co.outer(name,(pf.ROOT/name).read_bytes())
         for off in sorted({0,len(raw)//2,len(raw)-1}):
             bad=raw[:off]+bytes([raw[off]^1])+raw[off+1:]
             reject(name+':byte-'+str(off),lambda:pf.project(name,bad),controls)
@@ -93,8 +94,10 @@ def main():
             reject(name+':font-or-title-resource-byte',lambda:same_blob(pf.project(name,bad),oid),controls)
             assets.append(name)
     report={'result':'PASS','baseline':pf.BASE,'original_tracked_files_exact_after_reversal':count,
-      'exact_portable_source_delta':sorted(source_delta),'exact_changed_existing_files':sorted(changes),
-      'unchanged_asset_bytes':asset_bytes,'unchanged_source_and_asset_path_sets':True,
+      'exact_portable_source_delta':sorted(n for n in pf.EDITS if n.startswith('src/')),
+      'exact_combined_source_delta':sorted(source_delta),'exact_changed_existing_files':sorted(changes),
+      'original_asset_bytes_exact_after_reversal':asset_bytes,'source_and_asset_path_sets_exact_with_enumerated_red_assets':True,
+      'red_added_asset_paths':sorted(co.RED_ASSETS),'coexisting_red_existing_files':sorted(co.RED_EDITS),
       'negative_control_count':len(controls),'negative_controls':controls,'targeted_unchanged_resources':assets,
       'native_composition_bodies_byte_exact':native,'video_delta_exactly_two_call_arguments':True,
       'historical_pin_data_modified':False,'historical_settings_lane':'pre-existing stale src/opentyr.c pin; separate result',

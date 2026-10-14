@@ -39,14 +39,15 @@ typedef struct {
  int bank,index,w,h,anchor_x,anchor_y,density;
  Uint8 *rgba;
 } Asset;
-enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119 };
+enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
-static Asset assets[499];
+static Asset assets[505];
 /* One draw-call lease from the original fixed explosion; never gameplay state. */
 static bool cash25_fixed_value;
 static bool cash75_fixed_value;
 static bool cash50_fixed_value;
 static bool gem100_fixed_value;
+static bool gem250_fixed_value;
 static Asset talon_frames[13];
 typedef struct {
  bool valid;
@@ -1025,6 +1026,7 @@ void render_mirror_begin(void)
  cash75_fixed_value=false;
  cash50_fixed_value=false;
  gem100_fixed_value=false;
+ gem250_fixed_value=false;
  if(manual_hd_enabled&&!mirror_enabled()) {render_mirror_hud_reset();return;}
  hud_begin();
  /* JE_main level_loop calls begin exactly once per simulation tick. Neither
@@ -1163,7 +1165,7 @@ static bool decode_tile(Sprite2_array bank,unsigned int index,Uint8 *indices,Uin
 static bool read_asset(Asset *a,int wanted)
 {
  char name[1024];
- const char *prefix=a->bank==ASSET_GEM100_BODY?"gem100-bank11":a->bank==ASSET_GEM100_VALUE?"gem100-value-newsh6":a->bank==ASSET_CASH50_BODY?"coin50-bank11":a->bank==ASSET_CASH50_VALUE?"coin50-value-newsh6":a->bank==ASSET_CASH75_BODY?"coin75-bank11":a->bank==ASSET_CASH75_VALUE?"coin75-value-newsh6":a->bank==ASSET_CASH25_BODY?"coin25-bank11":a->bank==ASSET_CASH25_VALUE?"coin25-value-newsh6":a->bank==9?"ship":a->bank==8?"bullet":a->bank==ASSET_ENEMY_ENERGY?"enemy-energy":a->bank==ASSET_NEWSH2?"enemy-newsh2":a->bank==ASSET_NEWSH4?"enemy-newsh4":a->bank==ASSET_NEWSHE?"enemy-newshe":a->bank==ASSET_TALON_BANK?"talon-bank":a->bank==ASSET_EXPLOSION?"explosion-newsh6":"terrain-shapesz";
+ const char *prefix=a->bank==ASSET_GEM250_BODY?"gem250-bank11":a->bank==ASSET_GEM250_VALUE?"gem250-value-newsh6":a->bank==ASSET_GEM100_BODY?"gem100-bank11":a->bank==ASSET_GEM100_VALUE?"gem100-value-newsh6":a->bank==ASSET_CASH50_BODY?"coin50-bank11":a->bank==ASSET_CASH50_VALUE?"coin50-value-newsh6":a->bank==ASSET_CASH75_BODY?"coin75-bank11":a->bank==ASSET_CASH75_VALUE?"coin75-value-newsh6":a->bank==ASSET_CASH25_BODY?"coin25-bank11":a->bank==ASSET_CASH25_VALUE?"coin25-value-newsh6":a->bank==9?"ship":a->bank==8?"bullet":a->bank==ASSET_ENEMY_ENERGY?"enemy-energy":a->bank==ASSET_NEWSH2?"enemy-newsh2":a->bank==ASSET_NEWSH4?"enemy-newsh4":a->bank==ASSET_NEWSHE?"enemy-newshe":a->bank==ASSET_TALON_BANK?"talon-bank":a->bank==ASSET_EXPLOSION?"explosion-newsh6":"terrain-shapesz";
  if(!game_probe_assets||snprintf(name,sizeof(name),"%s/%s-%d-%d.hda",game_probe_assets,prefix,a->index,wanted)>=(int)sizeof(name)) return false;
  FILE *f=fopen(name,"rb");if(!f)return false;
  Uint8 h[28]={0};bool ok=fread(h,1,sizeof(h),f)==sizeof(h)&&memcmp(h,"HDR1",4)==0;
@@ -1281,6 +1283,31 @@ static bool gem100_family_ready(void)
  return gem100_valid;
 }
 
+/* Independent five-state red gem plus fixed250; never replaces moving188. */
+static bool gem250_checked,gem250_valid;
+static bool gem250_family_ready(void)
+{
+ if(game_probe_density!=8||game_probe_missing||game_probe_invalid||
+    game_probe_original_reference||!game_probe_assets)return false;
+ if(gem250_checked)return gem250_valid;
+ gem250_checked=true;gem250_valid=true;
+ static const unsigned int ids[6]={14,15,16,17,18,188};
+ static const uint64_t rgba_stamps[6]={UINT64_C(0x53aec4e78ff1d67d),UINT64_C(0xd464e3b9b8d9f606),UINT64_C(0xa10e488c46644504),UINT64_C(0x751869e7f1288b3a),UINT64_C(0x9a95b37e9a500e65),UINT64_C(0x9043dd670142a68f)};
+ for(int i=0;i<6;i++) {
+  Asset *a=&assets[499+i];
+  a->initialized=true;a->bank=i<5?ASSET_GEM250_BODY:ASSET_GEM250_VALUE;a->index=(int)ids[i];
+  a->w=12;a->h=14;a->anchor_x=0;a->anchor_y=0;
+  a->valid=read_asset(a,8);
+  if(a->valid) {
+   uint64_t stamp=UINT64_C(0xcbf29ce484222325);
+   for(size_t p=0;p<(size_t)12*14*8*8*4;p++){stamp^=a->rgba[p];stamp*=UINT64_C(0x100000001b3);}
+   if(stamp!=rgba_stamps[i])a->valid=false;
+  }
+  if(!a->valid)gem250_valid=false;
+ }
+ return gem250_valid;
+}
+
 static bool cash25_surface_ready(SDL_Surface *surface,int x,int y)
 {
  return active&&surface&&surface==game_screen&&surface==VGAScreen&&!reject_reason&&
@@ -1300,6 +1327,9 @@ void render_mirror_coin50_value_begin(bool fixed)
 
 void render_mirror_gem100_value_begin(bool fixed)
 {gem100_fixed_value=fixed;}
+
+void render_mirror_gem250_value_begin(bool fixed)
+{gem250_fixed_value=fixed;}
 
 /* Finite accepted newsh6 families only; each quadrant retains its original
  * one-based ID and 12x14 tile call. No shield, smoke or cash bind. */
@@ -1537,8 +1567,9 @@ static bool draw_asset_filtered(int x,int y,Asset *a,int style,const SDL_Rect *p
  bool coin75_value_blend=style==MIRROR_BLEND&&a->bank==ASSET_CASH75_VALUE&&a->index==223&&!game_probe_original_reference;
  bool coin50_value_blend=style==MIRROR_BLEND&&a->bank==ASSET_CASH50_VALUE&&a->index==204&&!game_probe_original_reference;
  bool gem100_value_blend=style==MIRROR_BLEND&&a->bank==ASSET_GEM100_VALUE&&a->index==169&&!game_probe_original_reference;
+ bool gem250_value_blend=style==MIRROR_BLEND&&a->bank==ASSET_GEM250_VALUE&&a->index==188&&!game_probe_original_reference;
  bool explosion_blend=style==MIRROR_BLEND&&a->bank==ASSET_EXPLOSION&&explosion_asset_slot((unsigned int)a->index)>=0&&!game_probe_original_reference;
- if(style==MIRROR_BLEND&&!talon_blend&&!explosion_blend&&!coin25_value_blend&&!coin75_value_blend&&!coin50_value_blend&&!gem100_value_blend) {
+ if(style==MIRROR_BLEND&&!talon_blend&&!explosion_blend&&!coin25_value_blend&&!coin75_value_blend&&!coin50_value_blend&&!gem100_value_blend&&!gem250_value_blend) {
   if(!game_probe_local_blend) {render_mirror_unsupported("hd-invulnerability-palette-blend");return false;}
   /* Preserve the original indexed invulnerability blend, including earlier
    * shadows of this asset. Its own RGBA version is not drawn this frame. */
@@ -1589,7 +1620,7 @@ static bool draw_asset_filtered(int x,int y,Asset *a,int style,const SDL_Rect *p
     Uint32 dark=palette_rgb((classic_index&0xf0)|((classic_index&15)/2));
     Uint8 rgba[4]={(dark>>16)&255,(dark>>8)&255,dark&255,255};*p=blend_rgba(*p,rgba,src[3]);
    }
-  } else if(explosion_blend||coin25_value_blend||coin75_value_blend||coin50_value_blend||gem100_value_blend) {
+  } else if(explosion_blend||coin25_value_blend||coin75_value_blend||coin50_value_blend||gem100_value_blend||gem250_value_blend) {
    Uint32 background=*p;
    if(green_blend&&destination_owner==0) {
     unsigned int peak=green_background_peak(&green_background,ax,ay,*p);
@@ -1646,6 +1677,15 @@ static bool gem100_pickup(SDL_Surface *surface,int x,int y,Sprite2_array bank,un
  return draw_asset_filtered(x,y,&assets[493+(int)base-32],MIRROR_NORMAL,NULL,(Uint8)filter,NULL,NULL,NULL);
 }
 
+/* Only record395's original global bank11 small tile can enter this family. */
+static bool gem250_pickup(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int base,int part,int filter,const G101EnemyContext *context)
+{
+ if(!cash25_surface_ready(surface,x,y)||!bank.data||bank.data!=spriteSheet11.data||
+    base<14||base>18||part!=0||!context||context->type!=395||
+    context->size!=0||!gem250_family_ready())return false;
+ return draw_asset_filtered(x,y,&assets[499+(int)base-14],MIRROR_NORMAL,NULL,(Uint8)filter,NULL,NULL,NULL);
+}
+
 bool render_mirror_entity(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int index,int style,int layout)
 {
  /* Consume the lease before every early return, including inactive/rejected draws. */
@@ -1653,6 +1693,7 @@ bool render_mirror_entity(SDL_Surface *surface,int x,int y,Sprite2_array bank,un
  bool fixed_value75=cash75_fixed_value;cash75_fixed_value=false;
  bool fixed_value50=cash50_fixed_value;cash50_fixed_value=false;
  bool fixed_value100=gem100_fixed_value;gem100_fixed_value=false;
+ bool fixed_value250=gem250_fixed_value;gem250_fixed_value=false;
  if(fixed_value&&bank.data&&bank.data==explosionSpriteSheet.data&&index==185&&
     layout==ENTITY_TILE&&(style==MIRROR_NORMAL||style==MIRROR_BLEND)) {
   bool mirrored=cash25_surface_ready(surface,x,y)&&cash25_family_ready()&&
@@ -1679,6 +1720,13 @@ bool render_mirror_entity(SDL_Surface *surface,int x,int y,Sprite2_array bank,un
   bool mirrored=cash25_surface_ready(surface,x,y)&&gem100_family_ready()&&
    draw_asset(x,y,&assets[498],style,NULL);
   game_probe_scene_draw(ASSET_GEM100_VALUE,index,x,y,0,style,mirrored);
+  return mirrored;
+ }
+ if(fixed_value250&&bank.data&&bank.data==explosionSpriteSheet.data&&index==188&&
+    layout==ENTITY_TILE&&(style==MIRROR_NORMAL||style==MIRROR_BLEND)) {
+  bool mirrored=cash25_surface_ready(surface,x,y)&&gem250_family_ready()&&
+   draw_asset(x,y,&assets[504],style,NULL);
+  game_probe_scene_draw(ASSET_GEM250_VALUE,index,x,y,0,style,mirrored);
   return mirrored;
  }
  if(!active||surface!=game_screen||reject_reason)return false;
@@ -2043,6 +2091,11 @@ bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array ban
    game_probe_scene_draw(ASSET_GEM100_BODY,base,x,y,part,filter?3:MIRROR_NORMAL,mirrored);
    return mirrored;
   }
+  if(base>=14&&base<=18) {
+   bool mirrored=gem250_pickup(surface,x,y,bank,base,part,filter,material_context);
+   game_probe_scene_draw(ASSET_GEM250_BODY,base,x,y,part,filter?3:MIRROR_NORMAL,mirrored);
+   return mirrored;
+  }
   bool mirrored=cash25_pickup(surface,x,y,bank,base,part,filter,material_context);
   if(base>=7&&base<=12)game_probe_scene_draw(ASSET_CASH25_BODY,base,x,y,part,filter?3:MIRROR_NORMAL,mirrored);
   return mirrored;
@@ -2404,7 +2457,7 @@ void render_mirror_terrain_pixel(SDL_Surface *surface,Uint8 *address,Uint8 sourc
  render_mirror_pixel(surface,address,source,style);suppress=previous;suppress_cloud=previous_cloud;
 }
 
-void render_mirror_entity_end(void) { cash25_fixed_value=false;cash75_fixed_value=false;cash50_fixed_value=false;gem100_fixed_value=false;suppress=false;suppress_green_smoke=false;suppress_cloud=false; }
+void render_mirror_entity_end(void) { cash25_fixed_value=false;cash75_fixed_value=false;cash50_fixed_value=false;gem100_fixed_value=false;gem250_fixed_value=false;suppress=false;suppress_green_smoke=false;suppress_cloud=false; }
 
 /* Recognized original warm/contact explosions and nine shield-hit pieces.
  * Original hue overwrite + averaged ramp value is approximated continuously

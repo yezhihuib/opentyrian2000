@@ -61,7 +61,7 @@ def audit_sources(repo):
         assert (repo/name).is_file() and not (repo/name).is_symlink(), 'Nonregular production source: '+name
     # First restore only the exact qualified portable-font output delta.
     import runpy
-    portable = runpy.run_path(str(repo/'tests/portable_font_projection.py'))
+    portable = runpy.run_path(str(repo/'tests/red250_font_projection.py'))
     portable['verify']()
     current = {name: portable['project'](name, (repo/name).read_bytes()) for name in tracked}
     return current, baseline, validate_sources(current, baseline)

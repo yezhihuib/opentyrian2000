@@ -35,6 +35,7 @@ enum { MIRROR_NORMAL, MIRROR_BLEND, MIRROR_SHADOW };
 #define render_mirror_coin75_value_begin(...) ((void)0)
 #define render_mirror_coin50_value_begin(...) ((void)0)
 #define render_mirror_gem100_value_begin(...) ((void)0)
+#define render_mirror_gem250_value_begin(...) ((void)0)
 #define render_mirror_entity(...) false
 #define render_mirror_entity_end(...) ((void)0)
 #define render_mirror_finish(...) ((void)0)
@@ -85,6 +86,7 @@ void render_mirror_coin25_value_begin(bool fixed);
 void render_mirror_coin75_value_begin(bool fixed);
 void render_mirror_coin50_value_begin(bool fixed);
 void render_mirror_gem100_value_begin(bool fixed);
+void render_mirror_gem250_value_begin(bool fixed);
 bool render_mirror_entity(SDL_Surface *, int x, int y, Sprite2_array, unsigned int index, int style, int layout);
 void render_mirror_entity_end(void);
 void render_mirror_finish(bool ordinary_crop);

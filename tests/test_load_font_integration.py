@@ -5,7 +5,7 @@ No game execution, profile/config access or original bitmap distribution.
 from pathlib import Path
 import argparse,hashlib,json,re,subprocess,xml.etree.ElementTree as ET,runpy
 ROOT=Path(__file__).resolve().parents[1]
-PORTABLE=runpy.run_path(str(ROOT/'tests/portable_font_projection.py'))
+PORTABLE=runpy.run_path(str(ROOT/'tests/red250_font_projection.py'))
 BASE='a4974da93ee75fb18c7ad5827ea42a6b02d1b74d'
 CHANGED={'src/helptext.c','src/mainint.c','src/palette.c','src/params.c','src/picload.c','src/render_mirror.c','src/settings_font.c','src/settings_font.h','src/sprite.c','src/video.c','tests/run_settings_font_tests.sh','visualc/opentyrian.vcxproj'}
 git=lambda *a:subprocess.check_output(['git','-C',str(ROOT),*a])

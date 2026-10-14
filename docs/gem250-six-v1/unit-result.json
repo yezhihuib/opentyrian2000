@@ -1,0 +1,460 @@
+{
+  "status": "PASS",
+  "game_runs": 0,
+  "sanitizers": [
+    "ASan",
+    "UBSan"
+  ],
+  "baseline_commit": "93008cc051b4b00c512dc9f8599849f6db1132e3",
+  "changed_production_files": [
+    "src/render_mirror.c",
+    "src/render_mirror.h",
+    "src/tyrian2.c"
+  ],
+  "full_additive_inverse": "all three production files byte-identical",
+  "unchanged_functions": [
+    "gem100_family_ready",
+    "gem100_pickup",
+    "render_mirror_gem100_value_begin",
+    "cash50_family_ready",
+    "cash50_pickup",
+    "render_mirror_coin50_value_begin",
+    "cash75_family_ready",
+    "cash75_pickup",
+    "render_mirror_coin75_value_begin",
+    "cash25_family_ready",
+    "cash25_surface_ready",
+    "cash25_pickup",
+    "render_mirror_coin25_value_begin",
+    "get_asset",
+    "explosion_asset_slot",
+    "render_mirror_enemy_shot",
+    "enemy_energy_family_ready",
+    "recognized_value_effect",
+    "recognized_contact_effect",
+    "render_mirror_sprite2_blend_pixel",
+    "explosion_asset_blend_rgba",
+    "render_mirror_pixel"
+  ],
+  "historical_25_75_50_100_test_files": "byte-identical; new harness explicitly adjusts only capacity/selected family and adds mixed assertions",
+  "manifest_projection": "identical to baseline; every previous pack payload hashed",
+  "immutable_inventory_sha256": "e0b29e08ce061510940701831c259155d2fafdb9a7f146885d1ae549c8a5fc09",
+  "renderer_results": {
+    "25/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": "{\"status\":\"PASS\",\"checks\":3520676,\"pixel_checks\":1027584}",
+    "25/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": "{\"status\":\"PASS\",\"checks\":3520676,\"pixel_checks\":1027584}",
+    "75/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": "{\"status\":\"PASS\",\"checks\":3520683,\"pixel_checks\":1027584}",
+    "75/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": "{\"status\":\"PASS\",\"checks\":3520683,\"pixel_checks\":1027584}",
+    "50/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": "{\"status\":\"PASS\",\"checks\":3520690,\"pixel_checks\":1027584}",
+    "50/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": "{\"status\":\"PASS\",\"checks\":3520690,\"pixel_checks\":1027584}",
+    "100/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": "{\"status\":\"PASS\",\"checks\":2936929,\"pixel_checks\":844032}",
+    "100/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": "{\"status\":\"PASS\",\"checks\":2936929,\"pixel_checks\":844032}",
+    "250/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": "{\"status\":\"PASS\",\"checks\":2936935,\"pixel_checks\":844032}",
+    "250-xmas/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": "{\"status\":\"PASS\",\"checks\":2936935,\"pixel_checks\":844032}",
+    "250/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": "{\"status\":\"PASS\",\"checks\":2936935,\"pixel_checks\":844032}",
+    "250-xmas/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": "{\"status\":\"PASS\",\"checks\":2936935,\"pixel_checks\":844032}"
+  },
+  "mixed_family_results": [
+    "PASS mixed families mask0 checks273",
+    "PASS mixed families mask1 checks273",
+    "PASS mixed families mask2 checks273",
+    "PASS mixed families mask3 checks273",
+    "PASS mixed families mask4 checks273",
+    "PASS mixed families mask5 checks273",
+    "PASS mixed families mask6 checks273",
+    "PASS mixed families mask7 checks273",
+    "PASS mixed families mask8 checks273",
+    "PASS mixed families mask9 checks273",
+    "PASS mixed families mask10 checks273",
+    "PASS mixed families mask11 checks273",
+    "PASS mixed families mask12 checks273",
+    "PASS mixed families mask13 checks273",
+    "PASS mixed families mask14 checks273",
+    "PASS mixed families mask15 checks273",
+    "PASS mixed families mask16 checks273",
+    "PASS mixed families mask17 checks273",
+    "PASS mixed families mask18 checks273",
+    "PASS mixed families mask19 checks273",
+    "PASS mixed families mask20 checks273",
+    "PASS mixed families mask21 checks273",
+    "PASS mixed families mask22 checks273",
+    "PASS mixed families mask23 checks273",
+    "PASS mixed families mask24 checks273",
+    "PASS mixed families mask25 checks273",
+    "PASS mixed families mask26 checks273",
+    "PASS mixed families mask27 checks273",
+    "PASS mixed families mask28 checks273",
+    "PASS mixed families mask29 checks273",
+    "PASS mixed families mask30 checks273",
+    "PASS mixed families mask31 checks62106713"
+  ],
+  "resource_rejections": [
+    [
+      "gem250-bank11-14-8.hda",
+      "missing"
+    ],
+    [
+      "gem250-bank11-14-8.hda",
+      "magic"
+    ],
+    [
+      "gem250-bank11-14-8.hda",
+      "short-header"
+    ],
+    [
+      "gem250-bank11-14-8.hda",
+      "truncated"
+    ],
+    [
+      "gem250-bank11-14-8.hda",
+      "trailing"
+    ],
+    [
+      "gem250-bank11-14-8.hda",
+      "rgba"
+    ],
+    [
+      "gem250-bank11-14-8.hda",
+      "alpha"
+    ],
+    [
+      "gem250-bank11-14-8.hda",
+      "key"
+    ],
+    [
+      "gem250-bank11-14-8.hda",
+      "density"
+    ],
+    [
+      "gem250-bank11-14-8.hda",
+      "width"
+    ],
+    [
+      "gem250-bank11-14-8.hda",
+      "height"
+    ],
+    [
+      "gem250-bank11-14-8.hda",
+      "anchor-x"
+    ],
+    [
+      "gem250-bank11-14-8.hda",
+      "anchor-y"
+    ],
+    [
+      "gem250-bank11-15-8.hda",
+      "missing"
+    ],
+    [
+      "gem250-bank11-15-8.hda",
+      "magic"
+    ],
+    [
+      "gem250-bank11-15-8.hda",
+      "short-header"
+    ],
+    [
+      "gem250-bank11-15-8.hda",
+      "truncated"
+    ],
+    [
+      "gem250-bank11-15-8.hda",
+      "trailing"
+    ],
+    [
+      "gem250-bank11-15-8.hda",
+      "rgba"
+    ],
+    [
+      "gem250-bank11-15-8.hda",
+      "alpha"
+    ],
+    [
+      "gem250-bank11-15-8.hda",
+      "key"
+    ],
+    [
+      "gem250-bank11-15-8.hda",
+      "density"
+    ],
+    [
+      "gem250-bank11-15-8.hda",
+      "width"
+    ],
+    [
+      "gem250-bank11-15-8.hda",
+      "height"
+    ],
+    [
+      "gem250-bank11-15-8.hda",
+      "anchor-x"
+    ],
+    [
+      "gem250-bank11-15-8.hda",
+      "anchor-y"
+    ],
+    [
+      "gem250-bank11-16-8.hda",
+      "missing"
+    ],
+    [
+      "gem250-bank11-16-8.hda",
+      "magic"
+    ],
+    [
+      "gem250-bank11-16-8.hda",
+      "short-header"
+    ],
+    [
+      "gem250-bank11-16-8.hda",
+      "truncated"
+    ],
+    [
+      "gem250-bank11-16-8.hda",
+      "trailing"
+    ],
+    [
+      "gem250-bank11-16-8.hda",
+      "rgba"
+    ],
+    [
+      "gem250-bank11-16-8.hda",
+      "alpha"
+    ],
+    [
+      "gem250-bank11-16-8.hda",
+      "key"
+    ],
+    [
+      "gem250-bank11-16-8.hda",
+      "density"
+    ],
+    [
+      "gem250-bank11-16-8.hda",
+      "width"
+    ],
+    [
+      "gem250-bank11-16-8.hda",
+      "height"
+    ],
+    [
+      "gem250-bank11-16-8.hda",
+      "anchor-x"
+    ],
+    [
+      "gem250-bank11-16-8.hda",
+      "anchor-y"
+    ],
+    [
+      "gem250-bank11-17-8.hda",
+      "missing"
+    ],
+    [
+      "gem250-bank11-17-8.hda",
+      "magic"
+    ],
+    [
+      "gem250-bank11-17-8.hda",
+      "short-header"
+    ],
+    [
+      "gem250-bank11-17-8.hda",
+      "truncated"
+    ],
+    [
+      "gem250-bank11-17-8.hda",
+      "trailing"
+    ],
+    [
+      "gem250-bank11-17-8.hda",
+      "rgba"
+    ],
+    [
+      "gem250-bank11-17-8.hda",
+      "alpha"
+    ],
+    [
+      "gem250-bank11-17-8.hda",
+      "key"
+    ],
+    [
+      "gem250-bank11-17-8.hda",
+      "density"
+    ],
+    [
+      "gem250-bank11-17-8.hda",
+      "width"
+    ],
+    [
+      "gem250-bank11-17-8.hda",
+      "height"
+    ],
+    [
+      "gem250-bank11-17-8.hda",
+      "anchor-x"
+    ],
+    [
+      "gem250-bank11-17-8.hda",
+      "anchor-y"
+    ],
+    [
+      "gem250-bank11-18-8.hda",
+      "missing"
+    ],
+    [
+      "gem250-bank11-18-8.hda",
+      "magic"
+    ],
+    [
+      "gem250-bank11-18-8.hda",
+      "short-header"
+    ],
+    [
+      "gem250-bank11-18-8.hda",
+      "truncated"
+    ],
+    [
+      "gem250-bank11-18-8.hda",
+      "trailing"
+    ],
+    [
+      "gem250-bank11-18-8.hda",
+      "rgba"
+    ],
+    [
+      "gem250-bank11-18-8.hda",
+      "alpha"
+    ],
+    [
+      "gem250-bank11-18-8.hda",
+      "key"
+    ],
+    [
+      "gem250-bank11-18-8.hda",
+      "density"
+    ],
+    [
+      "gem250-bank11-18-8.hda",
+      "width"
+    ],
+    [
+      "gem250-bank11-18-8.hda",
+      "height"
+    ],
+    [
+      "gem250-bank11-18-8.hda",
+      "anchor-x"
+    ],
+    [
+      "gem250-bank11-18-8.hda",
+      "anchor-y"
+    ],
+    [
+      "gem250-value-newsh6-188-8.hda",
+      "missing"
+    ],
+    [
+      "gem250-value-newsh6-188-8.hda",
+      "magic"
+    ],
+    [
+      "gem250-value-newsh6-188-8.hda",
+      "short-header"
+    ],
+    [
+      "gem250-value-newsh6-188-8.hda",
+      "truncated"
+    ],
+    [
+      "gem250-value-newsh6-188-8.hda",
+      "trailing"
+    ],
+    [
+      "gem250-value-newsh6-188-8.hda",
+      "rgba"
+    ],
+    [
+      "gem250-value-newsh6-188-8.hda",
+      "alpha"
+    ],
+    [
+      "gem250-value-newsh6-188-8.hda",
+      "key"
+    ],
+    [
+      "gem250-value-newsh6-188-8.hda",
+      "density"
+    ],
+    [
+      "gem250-value-newsh6-188-8.hda",
+      "width"
+    ],
+    [
+      "gem250-value-newsh6-188-8.hda",
+      "height"
+    ],
+    [
+      "gem250-value-newsh6-188-8.hda",
+      "anchor-x"
+    ],
+    [
+      "gem250-value-newsh6-188-8.hda",
+      "anchor-y"
+    ],
+    [
+      "all",
+      "4x-only"
+    ],
+    [
+      "all",
+      "invalid8-valid4"
+    ]
+  ],
+  "extracted_functions_sha256": {
+    "palette_rgb": "3d8e2f2e1edebd62bce8ad34128bfb346f89a2ba35001abe20179e3dc1738aaa",
+    "blend_rgba": "df7ddcb9c6a742e4b227b7b12f4a134f8ebd08fe12a4a2a6e8e36c96b1c7b3fc",
+    "cloud_asset": "2be4be802906d698476a6aa4547a82990b79b5ed34962f22fab166465ce91e90",
+    "darken_rgba": "31194f5f89d033493c36e6a82fb290c0d539c6fb3fab8c5df43aace4dbb633d8",
+    "decode_tile": "356e5c5d3cfbffadf047ce1fcfca196756b9f5bff0fdafe86d125540c3d78a48",
+    "read_asset": "0cae2975d6ae5ea341733a48aa2b9cdb6b2935645394f02f3cd9d285d40b7039",
+    "cash25_family_ready": "3d95646d8921a780b0f50e096d60fc1e10bdeff9413559f87963d8da4d98132b",
+    "cash75_family_ready": "50f5987f72200d5785a896133402cdbf9a38c4972ec195f6efa1c01d4759049c",
+    "cash50_family_ready": "4b16923589c8ee1f9342b8032b9638180a759fb40deacde90115cf142b6d5aa0",
+    "gem100_family_ready": "07a2282c7d0cdd60aa5142f543a1c31fbd5c457c2e72f3a24237fd7a0312d2b0",
+    "gem250_family_ready": "aa6d968416cfd94f9dd6467a883da68cb69d83fc29cbefb696f982c90abab1e2",
+    "cash25_surface_ready": "03346a8e8ff9137a6c9e6b2f854d4678fa697203795aeecc83c6b689adf770d6",
+    "render_mirror_coin25_value_begin": "7d654bc4e4ea8e10d1ac15c6e8eb189f19b59a2e79b64bf39592de9640dd797a",
+    "render_mirror_coin75_value_begin": "b3e26d869fc744aa13b510863af30cf2765ea39f6961a2650d145990afa0b7de",
+    "render_mirror_coin50_value_begin": "ebe7744b6827cbdd1a9c4adf346df85c4dba76b017f9e06d509d65ba18b9355e",
+    "render_mirror_gem100_value_begin": "848314167c9a303d3785227819270ba109f3002772dad2ea1c73cd4a08871a44",
+    "render_mirror_gem250_value_begin": "48d2197d30a80adaf9085d917ea4723f3e7f52e1123d966bb95a2a29a9973e92",
+    "explosion_asset_slot": "00d117c7d38f192ac14a6f30067abfb722392bc3966dcd9b53f30c9406d24a8c",
+    "get_asset": "b6ea533792e42b2f7c9f48415056882fc6e13e2f513133222a602c599751a7a9",
+    "talon_frame": "7f1ad4d861cfee14c9aede9f15298d4b18200c809aea9e115e9a711253f81a6e",
+    "enemy_filter_rgba": "dc782d1e0458883a5b9802eb109cb9a4fac533c4d7a4c8522453f6faffd1bc61",
+    "explosion_asset_blend_rgba": "26fc53617c2a685d318e87150ebfe18a4eb6a9b498dbe6a759dee728a2f665ac",
+    "green_background_snapshot": "180e4758895c463a6a17c529c5710284681b57c5b114b9ffb95781a870b456da",
+    "green_background_peak": "0034111d043810c6dc8fbb1ff245a720335a31e1444bbc7ae90b0ef3f28cda0b",
+    "green_head_composite": "8f0f7bc2f4c051c6faed960d5c180d8299a53544a4a2328cf4ba06f7de818261",
+    "draw_asset_filtered": "571cd8500c78b236969ef82f92b2ef60f7db4d0c89243c5d839d9edd617b8c25",
+    "draw_asset": "8a4aa2b5da7be247146e3e240afa8f81e80829b999cbcbd3b6553672362cb94c",
+    "cash25_pickup": "a79b2820313d937007e2fba0bcbf8ebca435dbf225ca8a40631b3d73827ff315",
+    "cash75_pickup": "c5996fe1f4d8a847a19494a1fd257b8db3a66f75c79b1a6fec090f2c9a619ca9",
+    "cash50_pickup": "1a3b0a16c2dac810c4352d79c2ece81f0a952836a624a871e6611ebab4eafe4a",
+    "gem100_pickup": "1a13dc1e7f2d982f7fcfb4aafd6434c6d080864e11f25987c823dd9c2e250d58",
+    "gem250_pickup": "8325ac94029098dfa2b8b2a47d0f478e5ab720f0cf3fcfa5959db9f0c54f8d11",
+    "render_mirror_entity": "972e0832725a0213099e165d0d0c493c3c3f2166e2d411fb6c3d07ade38dcb5e",
+    "enemy_energy_slot": "f553c53885de01a9506277327c272e761b1b31d62bbb753f70e3480288fccc8d",
+    "enemy_energy_family_ready": "66cb5d444c70d347d0e8242a246578c099c8b7d07e109829a6eeb55402446e8d",
+    "render_mirror_enemy_shot": "c7a4844c406599dd6b51f911d12f566ca945c63472c8d2bf8daa9f685b0144b0",
+    "render_mirror_entity_end": "59955cd623d83c9e0710f2e0b4c735736f13821f3e9fe73c7b7b599fbdd20d8d"
+  },
+  "source_sha256": {
+    "src/render_mirror.c": "0c62e1d21469d790ff8543c3cc29b4841267c361c7b085574dcf4baf300c894c",
+    "src/render_mirror.h": "9bf3f5f8fde8e4efc27809fd77e5ca6c1d7316b87ffebee4b3b4e9c8b62c22f0",
+    "src/tyrian2.c": "7714e14bac8c1be099caae2bca31dda65858fca012c64bec3210e4deac96ae2f"
+  },
+  "limitations": [
+    "No actual game/RGB evidence.",
+    "Per family/pair 84/96 indexed transactions use unchanged real blitters/wrapper; display pixel hooks isolated, RGBA tested separately."
+  ]
+}

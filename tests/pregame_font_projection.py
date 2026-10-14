@@ -4,7 +4,7 @@ from pathlib import Path
 import hashlib,json,subprocess,runpy
 from functools import lru_cache
 ROOT=Path(__file__).resolve().parents[1]
-PORTABLE=runpy.run_path(str(ROOT/'tests/portable_font_projection.py'))
+PORTABLE=runpy.run_path(str(ROOT/'tests/red250_font_projection.py'))
 BASE='a35747a9b25a0e7a296165e802e0777a3aaee511'
 LEGACY='317bf551db59df9c4e3754d2072446c7313ab1f4'
 NATIVE='c9232d59778c8689d85f9e87e8fee260b4c3187a'

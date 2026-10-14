@@ -1,0 +1,19 @@
+{
+  "generation_tool": "built-in image_gen.imagegen",
+  "date_utc": "2026-10-13",
+  "generated_masters": [
+    "sources/generated-gem.png",
+    "sources/generated-popup250.png"
+  ],
+  "prompts": [
+    "sources/gem-prompt.txt",
+    "sources/popup-prompt.txt"
+  ],
+  "body_generation": "Original body14 reference inspected together with every source form14\u201318 at native2x/4x before authoring. New generated physical red/orange gem master; not green100 recolor.",
+  "popup_generation": "Original fixed188 diagonal250 reference inspected at native2x/4x before authoring; new generated master preserves diagonal arrangement.",
+  "source_originals_excluded": true,
+  "frozen_rgba_matches_approved_pilot": true,
+  "transform": "One generated body master, fixed crop/scale/registration, deterministic monotone RGB phase transforms, shared identical alpha. Separate generated popup.",
+  "alpha_policy": "Generated alpha maintained; source support used solely as geometric cap; no solid matte added.",
+  "formal_rgb_origin": "Generated masters only; original RGB, palette, pixel-index rows and compressed source records are excluded."
+}

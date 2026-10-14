@@ -30,14 +30,14 @@ assert set(changed)==set(pf.EDITS)
 # Reject added/unlisted asset/source paths as well as changed existing bytes.
 for top in ['src','assets']:
  actual={str(q.relative_to(root))for q in (root/top).rglob('*')if q.is_file() or q.is_symlink()}
- allowed={n for n in files if n.startswith(top+'/')} | (pf.ADDED_SOURCE if top=='src'else set())
+ allowed={n for n in files if n.startswith(top+'/')} | (pf.ADDED_SOURCE if top=='src'else pf.PORTABLE['RED_ASSETS'])
  assert actual==allowed,(top,actual^allowed)
 # One single-byte mutation for every approved B/C asset is sufficient to show
 # that no accepted artistic delta became a blanket asset exception.
 asset_negatives=[];asset_reversions=[]
 for name in sorted(pf.published_delta()):
  if not name.startswith('assets/'):continue
- raw=(root/name).read_bytes();assert raw==git('show',pf.BASE+':'+name)
+ raw=pf.PORTABLE['outer'](name,(root/name).read_bytes());assert raw==git('show',pf.BASE+':'+name)
  bad=raw[:-1]+bytes([raw[-1]^1])
  try:pf.qualify_published_file(name,bad)
  except AssertionError:asset_negatives.append(name)

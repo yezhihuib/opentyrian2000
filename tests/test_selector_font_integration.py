@@ -35,7 +35,7 @@ def regression_projection():
  published=PREGAME['verify_published_delta']()
  selector_sources={name for name in CHANGED if name.startswith('src/')} | {
   'src/selector_font.c','src/selector_font.h','src/selector_font_output.c','src/selector_font_output.h'}
- assert set(git('diff',BASE,'--name-only','--','src','assets').decode().splitlines())==selector_sources|pregame_sources|published
+ assert set(git('diff',BASE,'--name-only','--','src','assets').decode().splitlines())==selector_sources|pregame_sources|published|PREGAME['PORTABLE']['RED_TRACKED']
  for name in sorted(selector_sources):
   if name in CHANGED:
    assert project(name,(ROOT/name).read_bytes().decode())==tokens(git('show',BASE+':'+name).decode()),name
@@ -45,7 +45,7 @@ def regression_projection():
   assert mirror.count(hook)==1,hook
   mirror=mirror.replace(hook,'')
  assert mirror==git('show',BASE+':src/render_mirror.c').decode()
- return selector_sources|pregame_sources|published,mirror
+ return selector_sources|pregame_sources|published|PREGAME['PORTABLE']['RED_TRACKED'],mirror
 
 def main():
  PREGAME['PORTABLE']['verify']()

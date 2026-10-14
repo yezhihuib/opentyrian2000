@@ -1,0 +1,996 @@
+{
+  "baseline": "4597e39c75b949d8f4e1f22bbc6117b432294132",
+  "font": "8d991306b3dcc18b92047ab08fa0f8a063d7d220",
+  "red": "5e40f2bec8e8ec56f6f3f368ecc41ae547924ccf",
+  "red_edits": {
+    "src/render_mirror.c": {
+      "parent": "4597e39c75b949d8f4e1f22bbc6117b432294132",
+      "before_sha256": "292fdc3e8b7dc69c466f6dde4b02c2dfda73443885642b230abe7a0be8bff0e8",
+      "after_sha256": "729847d178190d55536bf78527d8abc3811ef441226bb20414ce82b94cdc13a0",
+      "hunks": [
+        {
+          "before_lines": [
+            41,
+            42
+          ],
+          "after_lines": [
+            41,
+            42
+          ],
+          "before": "enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119 };\n",
+          "after": "enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121 };\n"
+        },
+        {
+          "before_lines": [
+            43,
+            44
+          ],
+          "after_lines": [
+            43,
+            44
+          ],
+          "before": "static Asset assets[499];\n",
+          "after": "static Asset assets[505];\n"
+        },
+        {
+          "before_lines": [
+            49,
+            49
+          ],
+          "after_lines": [
+            49,
+            50
+          ],
+          "before": "",
+          "after": "static bool gem250_fixed_value;\n"
+        },
+        {
+          "before_lines": [
+            1027,
+            1027
+          ],
+          "after_lines": [
+            1028,
+            1029
+          ],
+          "before": "",
+          "after": " gem250_fixed_value=false;\n"
+        },
+        {
+          "before_lines": [
+            1165,
+            1166
+          ],
+          "after_lines": [
+            1167,
+            1168
+          ],
+          "before": " const char *prefix=a->bank==ASSET_GEM100_BODY?\"gem100-bank11\":a->bank==ASSET_GEM100_VALUE?\"gem100-value-newsh6\":a->bank==ASSET_CASH50_BODY?\"coin50-bank11\":a->bank==ASSET_CASH50_VALUE?\"coin50-value-newsh6\":a->bank==ASSET_CASH75_BODY?\"coin75-bank11\":a->bank==ASSET_CASH75_VALUE?\"coin75-value-newsh6\":a->bank==ASSET_CASH25_BODY?\"coin25-bank11\":a->bank==ASSET_CASH25_VALUE?\"coin25-value-newsh6\":a->bank==9?\"ship\":a->bank==8?\"bullet\":a->bank==ASSET_ENEMY_ENERGY?\"enemy-energy\":a->bank==ASSET_NEWSH2?\"enemy-newsh2\":a->bank==ASSET_NEWSH4?\"enemy-newsh4\":a->bank==ASSET_NEWSHE?\"enemy-newshe\":a->bank==ASSET_TALON_BANK?\"talon-bank\":a->bank==ASSET_EXPLOSION?\"explosion-newsh6\":\"terrain-shapesz\";\n",
+          "after": " const char *prefix=a->bank==ASSET_GEM250_BODY?\"gem250-bank11\":a->bank==ASSET_GEM250_VALUE?\"gem250-value-newsh6\":a->bank==ASSET_GEM100_BODY?\"gem100-bank11\":a->bank==ASSET_GEM100_VALUE?\"gem100-value-newsh6\":a->bank==ASSET_CASH50_BODY?\"coin50-bank11\":a->bank==ASSET_CASH50_VALUE?\"coin50-value-newsh6\":a->bank==ASSET_CASH75_BODY?\"coin75-bank11\":a->bank==ASSET_CASH75_VALUE?\"coin75-value-newsh6\":a->bank==ASSET_CASH25_BODY?\"coin25-bank11\":a->bank==ASSET_CASH25_VALUE?\"coin25-value-newsh6\":a->bank==9?\"ship\":a->bank==8?\"bullet\":a->bank==ASSET_ENEMY_ENERGY?\"enemy-energy\":a->bank==ASSET_NEWSH2?\"enemy-newsh2\":a->bank==ASSET_NEWSH4?\"enemy-newsh4\":a->bank==ASSET_NEWSHE?\"enemy-newshe\":a->bank==ASSET_TALON_BANK?\"talon-bank\":a->bank==ASSET_EXPLOSION?\"explosion-newsh6\":\"terrain-shapesz\";\n"
+        },
+        {
+          "before_lines": [
+            1283,
+            1283
+          ],
+          "after_lines": [
+            1285,
+            1310
+          ],
+          "before": "",
+          "after": "/* Independent five-state red gem plus fixed250; never replaces moving188. */\nstatic bool gem250_checked,gem250_valid;\nstatic bool gem250_family_ready(void)\n{\n if(game_probe_density!=8||game_probe_missing||game_probe_invalid||\n    game_probe_original_reference||!game_probe_assets)return false;\n if(gem250_checked)return gem250_valid;\n gem250_checked=true;gem250_valid=true;\n static const unsigned int ids[6]={14,15,16,17,18,188};\n static const uint64_t rgba_stamps[6]={UINT64_C(0x53aec4e78ff1d67d),UINT64_C(0xd464e3b9b8d9f606),UINT64_C(0xa10e488c46644504),UINT64_C(0x751869e7f1288b3a),UINT64_C(0x9a95b37e9a500e65),UINT64_C(0x9043dd670142a68f)};\n for(int i=0;i<6;i++) {\n  Asset *a=&assets[499+i];\n  a->initialized=true;a->bank=i<5?ASSET_GEM250_BODY:ASSET_GEM250_VALUE;a->index=(int)ids[i];\n  a->w=12;a->h=14;a->anchor_x=0;a->anchor_y=0;\n  a->valid=read_asset(a,8);\n  if(a->valid) {\n   uint64_t stamp=UINT64_C(0xcbf29ce484222325);\n   for(size_t p=0;p<(size_t)12*14*8*8*4;p++){stamp^=a->rgba[p];stamp*=UINT64_C(0x100000001b3);}\n   if(stamp!=rgba_stamps[i])a->valid=false;\n  }\n  if(!a->valid)gem250_valid=false;\n }\n return gem250_valid;\n}\n\n"
+        },
+        {
+          "before_lines": [
+            1302,
+            1302
+          ],
+          "after_lines": [
+            1329,
+            1332
+          ],
+          "before": "",
+          "after": "\nvoid render_mirror_gem250_value_begin(bool fixed)\n{gem250_fixed_value=fixed;}\n"
+        },
+        {
+          "before_lines": [
+            1539,
+            1539
+          ],
+          "after_lines": [
+            1569,
+            1570
+          ],
+          "before": "",
+          "after": " bool gem250_value_blend=style==MIRROR_BLEND&&a->bank==ASSET_GEM250_VALUE&&a->index==188&&!game_probe_original_reference;\n"
+        },
+        {
+          "before_lines": [
+            1540,
+            1541
+          ],
+          "after_lines": [
+            1571,
+            1572
+          ],
+          "before": " if(style==MIRROR_BLEND&&!talon_blend&&!explosion_blend&&!coin25_value_blend&&!coin75_value_blend&&!coin50_value_blend&&!gem100_value_blend) {\n",
+          "after": " if(style==MIRROR_BLEND&&!talon_blend&&!explosion_blend&&!coin25_value_blend&&!coin75_value_blend&&!coin50_value_blend&&!gem100_value_blend&&!gem250_value_blend) {\n"
+        },
+        {
+          "before_lines": [
+            1591,
+            1592
+          ],
+          "after_lines": [
+            1622,
+            1623
+          ],
+          "before": "  } else if(explosion_blend||coin25_value_blend||coin75_value_blend||coin50_value_blend||gem100_value_blend) {\n",
+          "after": "  } else if(explosion_blend||coin25_value_blend||coin75_value_blend||coin50_value_blend||gem100_value_blend||gem250_value_blend) {\n"
+        },
+        {
+          "before_lines": [
+            1648,
+            1648
+          ],
+          "after_lines": [
+            1679,
+            1688
+          ],
+          "before": "",
+          "after": "/* Only record395's original global bank11 small tile can enter this family. */\nstatic bool gem250_pickup(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int base,int part,int filter,const G101EnemyContext *context)\n{\n if(!cash25_surface_ready(surface,x,y)||!bank.data||bank.data!=spriteSheet11.data||\n    base<14||base>18||part!=0||!context||context->type!=395||\n    context->size!=0||!gem250_family_ready())return false;\n return draw_asset_filtered(x,y,&assets[499+(int)base-14],MIRROR_NORMAL,NULL,(Uint8)filter,NULL,NULL,NULL);\n}\n\n"
+        },
+        {
+          "before_lines": [
+            1655,
+            1655
+          ],
+          "after_lines": [
+            1695,
+            1696
+          ],
+          "before": "",
+          "after": " bool fixed_value250=gem250_fixed_value;gem250_fixed_value=false;\n"
+        },
+        {
+          "before_lines": [
+            1681,
+            1681
+          ],
+          "after_lines": [
+            1722,
+            1729
+          ],
+          "before": "",
+          "after": "  return mirrored;\n }\n if(fixed_value250&&bank.data&&bank.data==explosionSpriteSheet.data&&index==188&&\n    layout==ENTITY_TILE&&(style==MIRROR_NORMAL||style==MIRROR_BLEND)) {\n  bool mirrored=cash25_surface_ready(surface,x,y)&&gem250_family_ready()&&\n   draw_asset(x,y,&assets[504],style,NULL);\n  game_probe_scene_draw(ASSET_GEM250_VALUE,index,x,y,0,style,mirrored);\n"
+        },
+        {
+          "before_lines": [
+            2045,
+            2045
+          ],
+          "after_lines": [
+            2093,
+            2098
+          ],
+          "before": "",
+          "after": "  if(base>=14&&base<=18) {\n   bool mirrored=gem250_pickup(surface,x,y,bank,base,part,filter,material_context);\n   game_probe_scene_draw(ASSET_GEM250_BODY,base,x,y,part,filter?3:MIRROR_NORMAL,mirrored);\n   return mirrored;\n  }\n"
+        },
+        {
+          "before_lines": [
+            2406,
+            2407
+          ],
+          "after_lines": [
+            2459,
+            2460
+          ],
+          "before": "void render_mirror_entity_end(void) { cash25_fixed_value=false;cash75_fixed_value=false;cash50_fixed_value=false;gem100_fixed_value=false;suppress=false;suppress_green_smoke=false;suppress_cloud=false; }\n",
+          "after": "void render_mirror_entity_end(void) { cash25_fixed_value=false;cash75_fixed_value=false;cash50_fixed_value=false;gem100_fixed_value=false;gem250_fixed_value=false;suppress=false;suppress_green_smoke=false;suppress_cloud=false; }\n"
+        }
+      ]
+    },
+    "src/render_mirror.h": {
+      "parent": "4597e39c75b949d8f4e1f22bbc6117b432294132",
+      "before_sha256": "d1b3f26a21bd68765a72a05bc436f41fe7e704a4ede7a86bb3472a18bc65053b",
+      "after_sha256": "9bf3f5f8fde8e4efc27809fd77e5ca6c1d7316b87ffebee4b3b4e9c8b62c22f0",
+      "hunks": [
+        {
+          "before_lines": [
+            37,
+            37
+          ],
+          "after_lines": [
+            37,
+            38
+          ],
+          "before": "",
+          "after": "#define render_mirror_gem250_value_begin(...) ((void)0)\n"
+        },
+        {
+          "before_lines": [
+            87,
+            87
+          ],
+          "after_lines": [
+            88,
+            89
+          ],
+          "before": "",
+          "after": "void render_mirror_gem250_value_begin(bool fixed);\n"
+        }
+      ]
+    },
+    "src/tyrian2.c": {
+      "parent": "4597e39c75b949d8f4e1f22bbc6117b432294132",
+      "before_sha256": "0766ec6f9cdbf555118d4d72689d0356627dfdb38ca71a04c792f4f2fc5bde36",
+      "after_sha256": "7714e14bac8c1be099caae2bca31dda65858fca012c64bec3210e4deac96ae2f",
+      "hunks": [
+        {
+          "before_lines": [
+            2014,
+            2014
+          ],
+          "after_lines": [
+            2014,
+            2016
+          ],
+          "before": "",
+          "after": "\t\t\t\trender_mirror_gem250_value_begin(explosions[j].fixedPosition && !explosions[j].followPlayer &&\n\t\t\t\t                                explosions[j].deltaY == 0 && explosions[j].sprite == 187 && explosions[j].ttl <= 8);\n"
+        }
+      ]
+    },
+    "assets/hd/manifest.json": {
+      "parent": "4597e39c75b949d8f4e1f22bbc6117b432294132",
+      "before_sha256": "3216109573d60d0aff80b68568e72c28942de06ca2007e58e775a4eaa1ee1f2f",
+      "after_sha256": "a340560e0212f654de09063229aef98ec8b34007e52a2e1fc9f9aa93ecaf6175",
+      "hunks": [
+        {
+          "before_lines": [
+            29156,
+            29157
+          ],
+          "after_lines": [
+            29156,
+            29157
+          ],
+          "before": "      \"count\": 507,\n",
+          "after": "      \"count\": 513,\n"
+        },
+        {
+          "before_lines": [
+            35748,
+            35748
+          ],
+          "after_lines": [
+            35748,
+            35826
+          ],
+          "before": "",
+          "after": "        },\n        \"gem250-bank11-14-8.hda\": {\n          \"header_u32\": [\n            1200014,\n            8,\n            12,\n            14,\n            0,\n            0\n          ],\n          \"sha256\": \"cf5bc08746b86763c853f1cc01b1d40314f4a05afb871ee17518d40f39f60d2b\",\n          \"source_png\": \"assets/hd/source/gem250-bank11-14-8-cf5bc08746b8.png\",\n          \"source_png_sha256\": \"2f1e5d16ff4a872a1472edb392c9f9f981c1661c7c307040808a59199f14de5c\"\n        },\n        \"gem250-bank11-15-8.hda\": {\n          \"header_u32\": [\n            1200015,\n            8,\n            12,\n            14,\n            0,\n            0\n          ],\n          \"sha256\": \"fd109402f59404a560ca5da78a84ca34f9cf815a275ec15a0c0fe291596b81aa\",\n          \"source_png\": \"assets/hd/source/gem250-bank11-15-8-fd109402f594.png\",\n          \"source_png_sha256\": \"9f5e8689ec56d15fcad111500931fe0ff37f1a012f1a9e2ec89351828f184fdd\"\n        },\n        \"gem250-bank11-16-8.hda\": {\n          \"header_u32\": [\n            1200016,\n            8,\n            12,\n            14,\n            0,\n            0\n          ],\n          \"sha256\": \"f763c0112a9c05a139c258451ddf622fd7f8c5bb4f6225b10d348940ac1efbb5\",\n          \"source_png\": \"assets/hd/source/gem250-bank11-16-8-f763c0112a9c.png\",\n          \"source_png_sha256\": \"c22b89f5ff51e97e5b5a3b7ff8c7406a4413a6b3c1701ccd81738805d6ea327c\"\n        },\n        \"gem250-bank11-17-8.hda\": {\n          \"header_u32\": [\n            1200017,\n            8,\n            12,\n            14,\n            0,\n            0\n          ],\n          \"sha256\": \"f35804e0a47cfad8f0f723cb81495db62345ba2e4c59dafaeb158f998be41f55\",\n          \"source_png\": \"assets/hd/source/gem250-bank11-17-8-f35804e0a47c.png\",\n          \"source_png_sha256\": \"0a1be8ae3d985db3f310d03652f4ea9ae6796106b8143d5031241acd9b0913a4\"\n        },\n        \"gem250-bank11-18-8.hda\": {\n          \"header_u32\": [\n            1200018,\n            8,\n            12,\n            14,\n            0,\n            0\n          ],\n          \"sha256\": \"0be85b8cefa64f0b4405e623ddd6a70e635c77fff3108afb906b949205befb4c\",\n          \"source_png\": \"assets/hd/source/gem250-bank11-18-8-0be85b8cefa6.png\",\n          \"source_png_sha256\": \"c0526d5835d8fb9bdcb50b323664c19d9d5d59e50eb80a2fa3f772ef68646998\"\n        },\n        \"gem250-value-newsh6-188-8.hda\": {\n          \"header_u32\": [\n            1210188,\n            8,\n            12,\n            14,\n            0,\n            0\n          ],\n          \"sha256\": \"612c4d9f43342c785d297d0a4741169e00febe7c00a64fb6b63783a2c0016790\",\n          \"source_png\": \"assets/hd/source/gem250-value-newsh6-188-8-612c4d9f4334.png\",\n          \"source_png_sha256\": \"40404347b2e79f3ab72458bfa4e436797fa66f5f0183b4c34d06e7b066f6ff00\"\n"
+        },
+        {
+          "before_lines": [
+            35752,
+            35753
+          ],
+          "after_lines": [
+            35830,
+            35831
+          ],
+          "before": "      \"count\": 507,\n",
+          "after": "      \"count\": 513,\n"
+        },
+        {
+          "before_lines": [
+            42344,
+            42344
+          ],
+          "after_lines": [
+            42422,
+            42500
+          ],
+          "before": "",
+          "after": "        },\n        \"gem250-bank11-14-8.hda\": {\n          \"header_u32\": [\n            1200014,\n            8,\n            12,\n            14,\n            0,\n            0\n          ],\n          \"sha256\": \"cf5bc08746b86763c853f1cc01b1d40314f4a05afb871ee17518d40f39f60d2b\",\n          \"source_png\": \"assets/hd/source/gem250-bank11-14-8-cf5bc08746b8.png\",\n          \"source_png_sha256\": \"2f1e5d16ff4a872a1472edb392c9f9f981c1661c7c307040808a59199f14de5c\"\n        },\n        \"gem250-bank11-15-8.hda\": {\n          \"header_u32\": [\n            1200015,\n            8,\n            12,\n            14,\n            0,\n            0\n          ],\n          \"sha256\": \"fd109402f59404a560ca5da78a84ca34f9cf815a275ec15a0c0fe291596b81aa\",\n          \"source_png\": \"assets/hd/source/gem250-bank11-15-8-fd109402f594.png\",\n          \"source_png_sha256\": \"9f5e8689ec56d15fcad111500931fe0ff37f1a012f1a9e2ec89351828f184fdd\"\n        },\n        \"gem250-bank11-16-8.hda\": {\n          \"header_u32\": [\n            1200016,\n            8,\n            12,\n            14,\n            0,\n            0\n          ],\n          \"sha256\": \"f763c0112a9c05a139c258451ddf622fd7f8c5bb4f6225b10d348940ac1efbb5\",\n          \"source_png\": \"assets/hd/source/gem250-bank11-16-8-f763c0112a9c.png\",\n          \"source_png_sha256\": \"c22b89f5ff51e97e5b5a3b7ff8c7406a4413a6b3c1701ccd81738805d6ea327c\"\n        },\n        \"gem250-bank11-17-8.hda\": {\n          \"header_u32\": [\n            1200017,\n            8,\n            12,\n            14,\n            0,\n            0\n          ],\n          \"sha256\": \"f35804e0a47cfad8f0f723cb81495db62345ba2e4c59dafaeb158f998be41f55\",\n          \"source_png\": \"assets/hd/source/gem250-bank11-17-8-f35804e0a47c.png\",\n          \"source_png_sha256\": \"0a1be8ae3d985db3f310d03652f4ea9ae6796106b8143d5031241acd9b0913a4\"\n        },\n        \"gem250-bank11-18-8.hda\": {\n          \"header_u32\": [\n            1200018,\n            8,\n            12,\n            14,\n            0,\n            0\n          ],\n          \"sha256\": \"0be85b8cefa64f0b4405e623ddd6a70e635c77fff3108afb906b949205befb4c\",\n          \"source_png\": \"assets/hd/source/gem250-bank11-18-8-0be85b8cefa6.png\",\n          \"source_png_sha256\": \"c0526d5835d8fb9bdcb50b323664c19d9d5d59e50eb80a2fa3f772ef68646998\"\n        },\n        \"gem250-value-newsh6-188-8.hda\": {\n          \"header_u32\": [\n            1210188,\n            8,\n            12,\n            14,\n            0,\n            0\n          ],\n          \"sha256\": \"612c4d9f43342c785d297d0a4741169e00febe7c00a64fb6b63783a2c0016790\",\n          \"source_png\": \"assets/hd/source/gem250-value-newsh6-188-8-612c4d9f4334.png\",\n          \"source_png_sha256\": \"40404347b2e79f3ab72458bfa4e436797fa66f5f0183b4c34d06e7b066f6ff00\"\n"
+        },
+        {
+          "before_lines": [
+            45590,
+            45590
+          ],
+          "after_lines": [
+            45746,
+            45776
+          ],
+          "before": "",
+          "after": "    },\n    \"cf5bc08746b86763c853f1cc01b1d40314f4a05afb871ee17518d40f39f60d2b\": {\n      \"path\": \"assets/hd/source/gem250-bank11-14-8-cf5bc08746b8.png\",\n      \"sha256\": \"2f1e5d16ff4a872a1472edb392c9f9f981c1661c7c307040808a59199f14de5c\",\n      \"RGBA_sha256\": \"ade1f36cabb65435f278009099bb179af6050c8211834b3e3cf2ed486b6111e4\"\n    },\n    \"fd109402f59404a560ca5da78a84ca34f9cf815a275ec15a0c0fe291596b81aa\": {\n      \"path\": \"assets/hd/source/gem250-bank11-15-8-fd109402f594.png\",\n      \"sha256\": \"9f5e8689ec56d15fcad111500931fe0ff37f1a012f1a9e2ec89351828f184fdd\",\n      \"RGBA_sha256\": \"84fe3d4c05a1f76220a5676f53461889cbef093cfa183325f81c4accdd38b7e3\"\n    },\n    \"f763c0112a9c05a139c258451ddf622fd7f8c5bb4f6225b10d348940ac1efbb5\": {\n      \"path\": \"assets/hd/source/gem250-bank11-16-8-f763c0112a9c.png\",\n      \"sha256\": \"c22b89f5ff51e97e5b5a3b7ff8c7406a4413a6b3c1701ccd81738805d6ea327c\",\n      \"RGBA_sha256\": \"4a068bc1a4f9d7386ace28aafd5a004b30d56c0ea02676624501f605940b4c92\"\n    },\n    \"f35804e0a47cfad8f0f723cb81495db62345ba2e4c59dafaeb158f998be41f55\": {\n      \"path\": \"assets/hd/source/gem250-bank11-17-8-f35804e0a47c.png\",\n      \"sha256\": \"0a1be8ae3d985db3f310d03652f4ea9ae6796106b8143d5031241acd9b0913a4\",\n      \"RGBA_sha256\": \"484b97e6942ab78aa47d999e9ad5b6b1555c7bd24af0f7e6d2841117a09c7b38\"\n    },\n    \"0be85b8cefa64f0b4405e623ddd6a70e635c77fff3108afb906b949205befb4c\": {\n      \"path\": \"assets/hd/source/gem250-bank11-18-8-0be85b8cefa6.png\",\n      \"sha256\": \"c0526d5835d8fb9bdcb50b323664c19d9d5d59e50eb80a2fa3f772ef68646998\",\n      \"RGBA_sha256\": \"81f75fb7b8207092287fd737cf3de8a3cb26e5270221b076086b18a7dcd11c10\"\n    },\n    \"612c4d9f43342c785d297d0a4741169e00febe7c00a64fb6b63783a2c0016790\": {\n      \"path\": \"assets/hd/source/gem250-value-newsh6-188-8-612c4d9f4334.png\",\n      \"sha256\": \"40404347b2e79f3ab72458bfa4e436797fa66f5f0183b4c34d06e7b066f6ff00\",\n      \"RGBA_sha256\": \"60224b51e4080145c48f063e6f0138e96f9e7ed367af9fd3e15f55dfaacdac7e\"\n"
+        },
+        {
+          "before_lines": [
+            50414,
+            50414
+          ],
+          "after_lines": [
+            50600,
+            50648
+          ],
+          "before": "",
+          "after": "  },\n  \"gem250_six_v1\": {\n    \"source\": \"assets/hd/artwork/gem250-six-v1\",\n    \"inventory_sha256\": \"e0b29e08ce061510940701831c259155d2fafdb9a7f146885d1ae549c8a5fc09\",\n    \"entries\": [\n      {\n        \"id\": 14,\n        \"slot\": 499,\n        \"key\": 1200014,\n        \"HDA_sha256\": \"cf5bc08746b86763c853f1cc01b1d40314f4a05afb871ee17518d40f39f60d2b\",\n        \"RGBA_FNV1a64\": \"53aec4e78ff1d67d\"\n      },\n      {\n        \"id\": 15,\n        \"slot\": 500,\n        \"key\": 1200015,\n        \"HDA_sha256\": \"fd109402f59404a560ca5da78a84ca34f9cf815a275ec15a0c0fe291596b81aa\",\n        \"RGBA_FNV1a64\": \"d464e3b9b8d9f606\"\n      },\n      {\n        \"id\": 16,\n        \"slot\": 501,\n        \"key\": 1200016,\n        \"HDA_sha256\": \"f763c0112a9c05a139c258451ddf622fd7f8c5bb4f6225b10d348940ac1efbb5\",\n        \"RGBA_FNV1a64\": \"a10e488c46644504\"\n      },\n      {\n        \"id\": 17,\n        \"slot\": 502,\n        \"key\": 1200017,\n        \"HDA_sha256\": \"f35804e0a47cfad8f0f723cb81495db62345ba2e4c59dafaeb158f998be41f55\",\n        \"RGBA_FNV1a64\": \"751869e7f1288b3a\"\n      },\n      {\n        \"id\": 18,\n        \"slot\": 503,\n        \"key\": 1200018,\n        \"HDA_sha256\": \"0be85b8cefa64f0b4405e623ddd6a70e635c77fff3108afb906b949205befb4c\",\n        \"RGBA_FNV1a64\": \"9a95b37e9a500e65\"\n      },\n      {\n        \"id\": 188,\n        \"slot\": 504,\n        \"key\": 1210188,\n        \"HDA_sha256\": \"612c4d9f43342c785d297d0a4741169e00febe7c00a64fb6b63783a2c0016790\",\n        \"RGBA_FNV1a64\": \"9043dd670142a68f\"\n      }\n    ]\n"
+        }
+      ]
+    }
+  },
+  "proof_edits": {
+    "tests/pregame_font_projection.py": {
+      "parent": "8d991306b3dcc18b92047ab08fa0f8a063d7d220",
+      "before_sha256": "0b923dfae61df35bcdd444136fba692a245c972d7059ae3f1f7a9f9de9e85f48",
+      "after_sha256": "cc9016d1af5fb1a61ebcf70e61a5b38c9c7aae1b2533ae158bd217468c9be1e4",
+      "hunks": [
+        {
+          "before_lines": [
+            6,
+            7
+          ],
+          "after_lines": [
+            6,
+            7
+          ],
+          "before": "PORTABLE=runpy.run_path(str(ROOT/'tests/portable_font_projection.py'))\n",
+          "after": "PORTABLE=runpy.run_path(str(ROOT/'tests/red250_font_projection.py'))\n"
+        }
+      ]
+    },
+    "prototype/type15_source_projection.py": {
+      "parent": "8d991306b3dcc18b92047ab08fa0f8a063d7d220",
+      "before_sha256": "96b4e7ae06deb4f0bdcb2f9a7a0e8f02fb54c10c750c1bd26abad91cc5b7612a",
+      "after_sha256": "698e8aa918baabdf9172bf4cd98c11e28e4d398c78cc335926e2ffbbb9702e5d",
+      "hunks": [
+        {
+          "before_lines": [
+            63,
+            64
+          ],
+          "after_lines": [
+            63,
+            64
+          ],
+          "before": "    portable = runpy.run_path(str(repo/'tests/portable_font_projection.py'))\n",
+          "after": "    portable = runpy.run_path(str(repo/'tests/red250_font_projection.py'))\n"
+        }
+      ]
+    },
+    "tests/test_pregame_coexistence.py": {
+      "parent": "8d991306b3dcc18b92047ab08fa0f8a063d7d220",
+      "before_sha256": "624441ee5bd26b5c1e36c77d54b0f5736123833baf1d23185e141f60d416ce31",
+      "after_sha256": "c01c4fb3291709fdd6c03bea899477b8451395134cd85795bc66a1f27a39857e",
+      "hunks": [
+        {
+          "before_lines": [
+            32,
+            33
+          ],
+          "after_lines": [
+            32,
+            33
+          ],
+          "before": " allowed={n for n in files if n.startswith(top+'/')} | (pf.ADDED_SOURCE if top=='src'else set())\n",
+          "after": " allowed={n for n in files if n.startswith(top+'/')} | (pf.ADDED_SOURCE if top=='src'else pf.PORTABLE['RED_ASSETS'])\n"
+        },
+        {
+          "before_lines": [
+            39,
+            40
+          ],
+          "after_lines": [
+            39,
+            40
+          ],
+          "before": " raw=(root/name).read_bytes();assert raw==git('show',pf.BASE+':'+name)\n",
+          "after": " raw=pf.PORTABLE['outer'](name,(root/name).read_bytes());assert raw==git('show',pf.BASE+':'+name)\n"
+        }
+      ]
+    },
+    "tests/test_selector_font_integration.py": {
+      "parent": "8d991306b3dcc18b92047ab08fa0f8a063d7d220",
+      "before_sha256": "3886cea916ac131edcb3bce5fbb2eabb92175ce3d89c9b1c978801044257a840",
+      "after_sha256": "0e8c1ba28542a788b4f89456aed990447774d3684b18286ffc3c1aa638f20eb8",
+      "hunks": [
+        {
+          "before_lines": [
+            37,
+            38
+          ],
+          "after_lines": [
+            37,
+            38
+          ],
+          "before": " assert set(git('diff',BASE,'--name-only','--','src','assets').decode().splitlines())==selector_sources|pregame_sources|published\n",
+          "after": " assert set(git('diff',BASE,'--name-only','--','src','assets').decode().splitlines())==selector_sources|pregame_sources|published|PREGAME['PORTABLE']['RED_TRACKED']\n"
+        },
+        {
+          "before_lines": [
+            47,
+            48
+          ],
+          "after_lines": [
+            47,
+            48
+          ],
+          "before": " return selector_sources|pregame_sources|published,mirror\n",
+          "after": " return selector_sources|pregame_sources|published|PREGAME['PORTABLE']['RED_TRACKED'],mirror\n"
+        }
+      ]
+    },
+    "tests/test_portable_font_integration.py": {
+      "parent": "8d991306b3dcc18b92047ab08fa0f8a063d7d220",
+      "before_sha256": "d18b52c668b70d70a238b0f1e380da02d9cf83f9abc53cf9accece99dea1617b",
+      "after_sha256": "d55042e4df70a78f19916e62c068edb602235490fb4fc0cadcf55d34fa577c6f",
+      "hunks": [
+        {
+          "before_lines": [
+            9,
+            9
+          ],
+          "after_lines": [
+            9,
+            10
+          ],
+          "before": "",
+          "after": "import red250_font_projection as co\n"
+        },
+        {
+          "before_lines": [
+            23,
+            24
+          ],
+          "after_lines": [
+            24,
+            25
+          ],
+          "before": "    source_delta=pf.verify();records={}\n",
+          "after": "    source_delta=co.verify();records={}\n"
+        },
+        {
+          "before_lines": [
+            36,
+            37
+          ],
+          "after_lines": [
+            37,
+            38
+          ],
+          "before": "        raw=path.read_bytes();projected=pf.project(name,raw)\n",
+          "after": "        raw=path.read_bytes();projected=co.project(name,raw)\n"
+        },
+        {
+          "before_lines": [
+            40,
+            42
+          ],
+          "after_lines": [
+            41,
+            43
+          ],
+          "before": "        if name.startswith('assets/'):asset_bytes+=len(raw)\n    assert set(changes)==set(pf.EDITS)\n",
+          "after": "        if name.startswith('assets/'):asset_bytes+=len(projected)\n    assert set(changes)==set(pf.EDITS)|set(co.RED_EDITS)\n"
+        },
+        {
+          "before_lines": [
+            61,
+            62
+          ],
+          "after_lines": [
+            62,
+            63
+          ],
+          "before": "        expected={name for name in records if name.startswith(top+'/')}\n",
+          "after": "        expected={name for name in records if name.startswith(top+'/')} | (co.RED_ASSETS if top=='assets' else set())\n"
+        },
+        {
+          "before_lines": [
+            69,
+            70
+          ],
+          "after_lines": [
+            70,
+            71
+          ],
+          "before": "        raw=(pf.ROOT/name).read_bytes()\n",
+          "after": "        raw=co.outer(name,(pf.ROOT/name).read_bytes())\n"
+        },
+        {
+          "before_lines": [
+            95,
+            97
+          ],
+          "after_lines": [
+            96,
+            100
+          ],
+          "before": "      'exact_portable_source_delta':sorted(source_delta),'exact_changed_existing_files':sorted(changes),\n      'unchanged_asset_bytes':asset_bytes,'unchanged_source_and_asset_path_sets':True,\n",
+          "after": "      'exact_portable_source_delta':sorted(n for n in pf.EDITS if n.startswith('src/')),\n      'exact_combined_source_delta':sorted(source_delta),'exact_changed_existing_files':sorted(changes),\n      'original_asset_bytes_exact_after_reversal':asset_bytes,'source_and_asset_path_sets_exact_with_enumerated_red_assets':True,\n      'red_added_asset_paths':sorted(co.RED_ASSETS),'coexisting_red_existing_files':sorted(co.RED_EDITS),\n"
+        }
+      ]
+    },
+    "prototype/test-gem250-six.py": {
+      "parent": "5e40f2bec8e8ec56f6f3f368ecc41ae547924ccf",
+      "before_sha256": "fd24deeef8d7235addfeb6c8b9615051e5a278d15512f1748f1d3b30a3310154",
+      "after_sha256": "660f8b706e05334c33819cec8ca28af81dbf01c6c4b53b2370d7343a86408658",
+      "hunks": [
+        {
+          "before_lines": [
+            10,
+            10
+          ],
+          "after_lines": [
+            10,
+            12
+          ],
+          "before": "",
+          "after": "import runpy\nCOEXIST=runpy.run_path(str(ROOT/'tests/red250_font_projection.py'))\n"
+        },
+        {
+          "before_lines": [
+            69,
+            69
+          ],
+          "after_lines": [
+            71,
+            72
+          ],
+          "before": "",
+          "after": " COEXIST['verify']()\n"
+        },
+        {
+          "before_lines": [
+            74,
+            75
+          ],
+          "after_lines": [
+            77,
+            78
+          ],
+          "before": " names=subprocess.check_output(['git','-C',str(ROOT),'ls-tree','-r','--name-only',PIN,'--','src'],text=True).splitlines();changed=[n for n in names if (ROOT/n).read_bytes()!=old(n)];assert set(changed)=={'src/render_mirror.c','src/render_mirror.h','src/tyrian2.c'}\n",
+          "after": " names=subprocess.check_output(['git','-C',str(ROOT),'ls-tree','-r','--name-only',PIN,'--','src'],text=True).splitlines();changed=[n for n in names if COEXIST['font_project'](n,(ROOT/n).read_bytes())!=old(n)];assert set(changed)=={'src/render_mirror.c','src/render_mirror.h','src/tyrian2.c'}\n"
+        }
+      ]
+    },
+    "tests/test_load_font_integration.py": {
+      "parent": "8d991306b3dcc18b92047ab08fa0f8a063d7d220",
+      "before_sha256": "35521dc8192679fb379dd9bc301ed0f02d374fca764bb6ce3bfebcdc195f6547",
+      "after_sha256": "c278c08a02de6c6f8000dc35f6bac681549eacfa0e5d982b33b19e771c07d024",
+      "hunks": [
+        {
+          "before_lines": [
+            7,
+            8
+          ],
+          "after_lines": [
+            7,
+            8
+          ],
+          "before": "PORTABLE=runpy.run_path(str(ROOT/'tests/portable_font_projection.py'))\n",
+          "after": "PORTABLE=runpy.run_path(str(ROOT/'tests/red250_font_projection.py'))\n"
+        }
+      ]
+    }
+  },
+  "added_assets": {
+    "assets/hd/artwork/gem250-six-v1/README.md": "43197daf825adb75100eeb6af58edeffc8b9b0a4a69c6944dcc29d9a1fda56d6",
+    "assets/hd/artwork/gem250-six-v1/contract.json": "e5b7211f91f01aabaffe20101e2495ece1ed17b8114c9ebe1f44d9951653e5e1",
+    "assets/hd/artwork/gem250-six-v1/inventory.json": "e0b29e08ce061510940701831c259155d2fafdb9a7f146885d1ae549c8a5fc09",
+    "assets/hd/artwork/gem250-six-v1/masks/mask-14.png": "a9ae4e1f52fcd22e11712b6ff48ebc9182d7a80242fd93673c794c7e0d0e16bb",
+    "assets/hd/artwork/gem250-six-v1/masks/mask-15.png": "a9ae4e1f52fcd22e11712b6ff48ebc9182d7a80242fd93673c794c7e0d0e16bb",
+    "assets/hd/artwork/gem250-six-v1/masks/mask-16.png": "a9ae4e1f52fcd22e11712b6ff48ebc9182d7a80242fd93673c794c7e0d0e16bb",
+    "assets/hd/artwork/gem250-six-v1/masks/mask-17.png": "a9ae4e1f52fcd22e11712b6ff48ebc9182d7a80242fd93673c794c7e0d0e16bb",
+    "assets/hd/artwork/gem250-six-v1/masks/mask-18.png": "a9ae4e1f52fcd22e11712b6ff48ebc9182d7a80242fd93673c794c7e0d0e16bb",
+    "assets/hd/artwork/gem250-six-v1/masks/mask-188.png": "c850a0b1a598a7e39b46fc1145502f33e3bd853d74f39164c3f497b28babe2b2",
+    "assets/hd/artwork/gem250-six-v1/output/gem250-bank11-14-8.hda": "cf5bc08746b86763c853f1cc01b1d40314f4a05afb871ee17518d40f39f60d2b",
+    "assets/hd/artwork/gem250-six-v1/output/gem250-bank11-14-8.png": "2f1e5d16ff4a872a1472edb392c9f9f981c1661c7c307040808a59199f14de5c",
+    "assets/hd/artwork/gem250-six-v1/output/gem250-bank11-15-8.hda": "fd109402f59404a560ca5da78a84ca34f9cf815a275ec15a0c0fe291596b81aa",
+    "assets/hd/artwork/gem250-six-v1/output/gem250-bank11-15-8.png": "9f5e8689ec56d15fcad111500931fe0ff37f1a012f1a9e2ec89351828f184fdd",
+    "assets/hd/artwork/gem250-six-v1/output/gem250-bank11-16-8.hda": "f763c0112a9c05a139c258451ddf622fd7f8c5bb4f6225b10d348940ac1efbb5",
+    "assets/hd/artwork/gem250-six-v1/output/gem250-bank11-16-8.png": "c22b89f5ff51e97e5b5a3b7ff8c7406a4413a6b3c1701ccd81738805d6ea327c",
+    "assets/hd/artwork/gem250-six-v1/output/gem250-bank11-17-8.hda": "f35804e0a47cfad8f0f723cb81495db62345ba2e4c59dafaeb158f998be41f55",
+    "assets/hd/artwork/gem250-six-v1/output/gem250-bank11-17-8.png": "0a1be8ae3d985db3f310d03652f4ea9ae6796106b8143d5031241acd9b0913a4",
+    "assets/hd/artwork/gem250-six-v1/output/gem250-bank11-18-8.hda": "0be85b8cefa64f0b4405e623ddd6a70e635c77fff3108afb906b949205befb4c",
+    "assets/hd/artwork/gem250-six-v1/output/gem250-bank11-18-8.png": "c0526d5835d8fb9bdcb50b323664c19d9d5d59e50eb80a2fa3f772ef68646998",
+    "assets/hd/artwork/gem250-six-v1/output/gem250-value-newsh6-188-8.hda": "612c4d9f43342c785d297d0a4741169e00febe7c00a64fb6b63783a2c0016790",
+    "assets/hd/artwork/gem250-six-v1/output/gem250-value-newsh6-188-8.png": "40404347b2e79f3ab72458bfa4e436797fa66f5f0183b4c34d06e7b066f6ff00",
+    "assets/hd/artwork/gem250-six-v1/output/rebuild-receipt.json": "6724752794da92b5ee73b607b2de3dd766b28bc0e6cad33e43c9cb070abc7141",
+    "assets/hd/artwork/gem250-six-v1/proof/geometry-and-source-hashes.json": "bf8c1b43da1d0fd08129ad2367b9d785d9f799979c8707240ecab5ead51e6687",
+    "assets/hd/artwork/gem250-six-v1/proof/held-sequence-native2x.png": "cdb4ce07925ad50595951b0f89e74cc76ef61165e2697950ae1b96135baf8810",
+    "assets/hd/artwork/gem250-six-v1/proof/held-sequence-native4x.png": "6816772e921a541a8b21d75d7d0837caedf1912a3f89188ce0f23727123b0186",
+    "assets/hd/artwork/gem250-six-v1/proof/registration.json": "ef02571fcb529d9ae365bbb4fcf7c7b397627593e3b28b45aa2e370b3cd21a7a",
+    "assets/hd/artwork/gem250-six-v1/rebuild.py": "0891fbc15fc1f6fb645d240a8e1cbf86db2d0b689de369d315332c7f67e94a71",
+    "assets/hd/artwork/gem250-six-v1/sources/gem-prompt.txt": "616a119f50731e9c30dd94130e073719c7a77dc956db92ac2c793084ef385160",
+    "assets/hd/artwork/gem250-six-v1/sources/generated-gem.png": "e8bed5f29e15367adc5798b261cac7606d510bc04011dabbf472cef56001c22b",
+    "assets/hd/artwork/gem250-six-v1/sources/generated-popup250.png": "e4dcc4aec1698861b30842100944fa5239d49c2ad0763205bd5a16b63f352d7b",
+    "assets/hd/artwork/gem250-six-v1/sources/popup-prompt.txt": "e440165eefd9e805e3fa6730134e37da17e8e23ceb402f97e907424d0f0307d5",
+    "assets/hd/artwork/gem250-six-v1/sources/provenance.json": "adf7ef5e2ecd51e4a3d856eedf03d450cbf9e10d8085a85243ed3dc660e9f46c",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/gem250-bank11-14-8.hda": "cf5bc08746b86763c853f1cc01b1d40314f4a05afb871ee17518d40f39f60d2b",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/gem250-bank11-15-8.hda": "fd109402f59404a560ca5da78a84ca34f9cf815a275ec15a0c0fe291596b81aa",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/gem250-bank11-16-8.hda": "f763c0112a9c05a139c258451ddf622fd7f8c5bb4f6225b10d348940ac1efbb5",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/gem250-bank11-17-8.hda": "f35804e0a47cfad8f0f723cb81495db62345ba2e4c59dafaeb158f998be41f55",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/gem250-bank11-18-8.hda": "0be85b8cefa64f0b4405e623ddd6a70e635c77fff3108afb906b949205befb4c",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/gem250-value-newsh6-188-8.hda": "612c4d9f43342c785d297d0a4741169e00febe7c00a64fb6b63783a2c0016790",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/gem250-bank11-14-8.hda": "cf5bc08746b86763c853f1cc01b1d40314f4a05afb871ee17518d40f39f60d2b",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/gem250-bank11-15-8.hda": "fd109402f59404a560ca5da78a84ca34f9cf815a275ec15a0c0fe291596b81aa",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/gem250-bank11-16-8.hda": "f763c0112a9c05a139c258451ddf622fd7f8c5bb4f6225b10d348940ac1efbb5",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/gem250-bank11-17-8.hda": "f35804e0a47cfad8f0f723cb81495db62345ba2e4c59dafaeb158f998be41f55",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/gem250-bank11-18-8.hda": "0be85b8cefa64f0b4405e623ddd6a70e635c77fff3108afb906b949205befb4c",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/gem250-value-newsh6-188-8.hda": "612c4d9f43342c785d297d0a4741169e00febe7c00a64fb6b63783a2c0016790",
+    "assets/hd/source/gem250-bank11-14-8-cf5bc08746b8.png": "2f1e5d16ff4a872a1472edb392c9f9f981c1661c7c307040808a59199f14de5c",
+    "assets/hd/source/gem250-bank11-15-8-fd109402f594.png": "9f5e8689ec56d15fcad111500931fe0ff37f1a012f1a9e2ec89351828f184fdd",
+    "assets/hd/source/gem250-bank11-16-8-f763c0112a9c.png": "c22b89f5ff51e97e5b5a3b7ff8c7406a4413a6b3c1701ccd81738805d6ea327c",
+    "assets/hd/source/gem250-bank11-17-8-f35804e0a47c.png": "0a1be8ae3d985db3f310d03652f4ea9ae6796106b8143d5031241acd9b0913a4",
+    "assets/hd/source/gem250-bank11-18-8-0be85b8cefa6.png": "c0526d5835d8fb9bdcb50b323664c19d9d5d59e50eb80a2fa3f772ef68646998",
+    "assets/hd/source/gem250-value-newsh6-188-8-612c4d9f4334.png": "40404347b2e79f3ab72458bfa4e436797fa66f5f0183b4c34d06e7b066f6ff00"
+  },
+  "added_proof_files": {
+    "tests/red250_font_projection.py": "d522de472d43a62649382e5d11c24278d54b1498a090672fa54818804e9b1ad7",
+    "tests/test_red250_font_coexistence.py": "f26cf9e0791677b33f8ca611d962dd22222003d71ba56fef72d96787f4327732"
+  },
+  "red_added_files": {
+    "assets/hd/artwork/gem250-six-v1/README.md": {
+      "sha256": "43197daf825adb75100eeb6af58edeffc8b9b0a4a69c6944dcc29d9a1fda56d6",
+      "blob": "1d92b4fbe177b58eb90d2b807500baa30eb7648a",
+      "mode": "100644"
+    },
+    "assets/hd/artwork/gem250-six-v1/contract.json": {
+      "sha256": "e5b7211f91f01aabaffe20101e2495ece1ed17b8114c9ebe1f44d9951653e5e1",
+      "blob": "bc3238ccb97f420d1b1affd9a20aeb6dab4a61d4",
+      "mode": "100644"
+    },
+    "assets/hd/artwork/gem250-six-v1/inventory.json": {
+      "sha256": "e0b29e08ce061510940701831c259155d2fafdb9a7f146885d1ae549c8a5fc09",
+      "blob": "914a22ddb94e2a2789701b32488e8b46a181b4bc",
+      "mode": "100644"
+    },
+    "assets/hd/artwork/gem250-six-v1/masks/mask-14.png": {
+      "sha256": "a9ae4e1f52fcd22e11712b6ff48ebc9182d7a80242fd93673c794c7e0d0e16bb",
+      "blob": "4163242d3e6a2cc5120930187f9409bec8604af3",
+      "mode": "100644"
+    },
+    "assets/hd/artwork/gem250-six-v1/masks/mask-15.png": {
+      "sha256": "a9ae4e1f52fcd22e11712b6ff48ebc9182d7a80242fd93673c794c7e0d0e16bb",
+      "blob": "4163242d3e6a2cc5120930187f9409bec8604af3",
+      "mode": "100644"
+    },
+    "assets/hd/artwork/gem250-six-v1/masks/mask-16.png": {
+      "sha256": "a9ae4e1f52fcd22e11712b6ff48ebc9182d7a80242fd93673c794c7e0d0e16bb",
+      "blob": "4163242d3e6a2cc5120930187f9409bec8604af3",
+      "mode": "100644"
+    },
+    "assets/hd/artwork/gem250-six-v1/masks/mask-17.png": {
+      "sha256": "a9ae4e1f52fcd22e11712b6ff48ebc9182d7a80242fd93673c794c7e0d0e16bb",
+      "blob": "4163242d3e6a2cc5120930187f9409bec8604af3",
+      "mode": "100644"
+    },
+    "assets/hd/artwork/gem250-six-v1/masks/mask-18.png": {
+      "sha256": "a9ae4e1f52fcd22e11712b6ff48ebc9182d7a80242fd93673c794c7e0d0e16bb",
+      "blob": "4163242d3e6a2cc5120930187f9409bec8604af3",
+      "mode": "100644"
+    },
+    "assets/hd/artwork/gem250-six-v1/masks/mask-188.png": {
+      "sha256": "c850a0b1a598a7e39b46fc1145502f33e3bd853d74f39164c3f497b28babe2b2",
+      "blob": "7d97468a2e32fc42713e322d2519f430764409a9",
+      "mode": "100644"
+    },
+    "assets/hd/artwork/gem250-six-v1/output/gem250-bank11-14-8.hda": {
+      "sha256": "cf5bc08746b86763c853f1cc01b1d40314f4a05afb871ee17518d40f39f60d2b",
+      "blob": "f049ad8d7837d09a57014ff267b0be7399eba350",
+      "mode": "100644"
+    },
+    "assets/hd/artwork/gem250-six-v1/output/gem250-bank11-14-8.png": {
+      "sha256": "2f1e5d16ff4a872a1472edb392c9f9f981c1661c7c307040808a59199f14de5c",
+      "blob": "d9064f8a8e1f426f1c85385311618df243f49d42",
+      "mode": "100644"
+    },
+    "assets/hd/artwork/gem250-six-v1/output/gem250-bank11-15-8.hda": {
+      "sha256": "fd109402f59404a560ca5da78a84ca34f9cf815a275ec15a0c0fe291596b81aa",
+      "blob": "037b9dd40a62b22ef89f394e4d598be7a90fd46c",
+      "mode": "100644"
+    },
+    "assets/hd/artwork/gem250-six-v1/output/gem250-bank11-15-8.png": {
+      "sha256": "9f5e8689ec56d15fcad111500931fe0ff37f1a012f1a9e2ec89351828f184fdd",
+      "blob": "884c466a20c8eb40fff743a8c2c13b907c51b185",
+      "mode": "100644"
+    },
+    "assets/hd/artwork/gem250-six-v1/output/gem250-bank11-16-8.hda": {
+      "sha256": "f763c0112a9c05a139c258451ddf622fd7f8c5bb4f6225b10d348940ac1efbb5",
+      "blob": "b24da9212eb39c697246624d2263a8e4afd26d3b",
+      "mode": "100644"
+    },
+    "assets/hd/artwork/gem250-six-v1/output/gem250-bank11-16-8.png": {
+      "sha256": "c22b89f5ff51e97e5b5a3b7ff8c7406a4413a6b3c1701ccd81738805d6ea327c",
+      "blob": "ce1f54bd2723af9c7d5d083878d5af9f58c3a07f",
+      "mode": "100644"
+    },
+    "assets/hd/artwork/gem250-six-v1/output/gem250-bank11-17-8.hda": {
+      "sha256": "f35804e0a47cfad8f0f723cb81495db62345ba2e4c59dafaeb158f998be41f55",
+      "blob": "69a90640d027b9472909b2badb07e4472ad5917b",
+      "mode": "100644"
+    },
+    "assets/hd/artwork/gem250-six-v1/output/gem250-bank11-17-8.png": {
+      "sha256": "0a1be8ae3d985db3f310d03652f4ea9ae6796106b8143d5031241acd9b0913a4",
+      "blob": "d219cc6ef44784594cbb488786366eeeae59953c",
+      "mode": "100644"
+    },
+    "assets/hd/artwork/gem250-six-v1/output/gem250-bank11-18-8.hda": {
+      "sha256": "0be85b8cefa64f0b4405e623ddd6a70e635c77fff3108afb906b949205befb4c",
+      "blob": "6d9a46dc45eefe6d5af23275a9bb534935ea959b",
+      "mode": "100644"
+    },
+    "assets/hd/artwork/gem250-six-v1/output/gem250-bank11-18-8.png": {
+      "sha256": "c0526d5835d8fb9bdcb50b323664c19d9d5d59e50eb80a2fa3f772ef68646998",
+      "blob": "ed574f3590aa53a8a8936cf4173a8ab6e9746c9e",
+      "mode": "100644"
+    },
+    "assets/hd/artwork/gem250-six-v1/output/gem250-value-newsh6-188-8.hda": {
+      "sha256": "612c4d9f43342c785d297d0a4741169e00febe7c00a64fb6b63783a2c0016790",
+      "blob": "cc03be9136583bf2536a991c00c5826e31f3fe03",
+      "mode": "100644"
+    },
+    "assets/hd/artwork/gem250-six-v1/output/gem250-value-newsh6-188-8.png": {
+      "sha256": "40404347b2e79f3ab72458bfa4e436797fa66f5f0183b4c34d06e7b066f6ff00",
+      "blob": "aea9177c9c2255aab44679d1304a251bc24a584f",
+      "mode": "100644"
+    },
+    "assets/hd/artwork/gem250-six-v1/output/rebuild-receipt.json": {
+      "sha256": "6724752794da92b5ee73b607b2de3dd766b28bc0e6cad33e43c9cb070abc7141",
+      "blob": "b311fe0ff2b9983866be146488601b7659340117",
+      "mode": "100644"
+    },
+    "assets/hd/artwork/gem250-six-v1/proof/geometry-and-source-hashes.json": {
+      "sha256": "bf8c1b43da1d0fd08129ad2367b9d785d9f799979c8707240ecab5ead51e6687",
+      "blob": "49d341c3418104390270912bbc2cb8c44609a8f7",
+      "mode": "100644"
+    },
+    "assets/hd/artwork/gem250-six-v1/proof/held-sequence-native2x.png": {
+      "sha256": "cdb4ce07925ad50595951b0f89e74cc76ef61165e2697950ae1b96135baf8810",
+      "blob": "a2f5050e29d839e51008b48ecdda87a2db5371a9",
+      "mode": "100644"
+    },
+    "assets/hd/artwork/gem250-six-v1/proof/held-sequence-native4x.png": {
+      "sha256": "6816772e921a541a8b21d75d7d0837caedf1912a3f89188ce0f23727123b0186",
+      "blob": "47616e10c9ec6309f2a357f2403201d27ccf835d",
+      "mode": "100644"
+    },
+    "assets/hd/artwork/gem250-six-v1/proof/registration.json": {
+      "sha256": "ef02571fcb529d9ae365bbb4fcf7c7b397627593e3b28b45aa2e370b3cd21a7a",
+      "blob": "81b27a076656f5f28f1c2642b5b5e15229b9f182",
+      "mode": "100644"
+    },
+    "assets/hd/artwork/gem250-six-v1/rebuild.py": {
+      "sha256": "0891fbc15fc1f6fb645d240a8e1cbf86db2d0b689de369d315332c7f67e94a71",
+      "blob": "34309cef6d2cd504f658409caf6bcd51f128c79f",
+      "mode": "100644"
+    },
+    "assets/hd/artwork/gem250-six-v1/sources/gem-prompt.txt": {
+      "sha256": "616a119f50731e9c30dd94130e073719c7a77dc956db92ac2c793084ef385160",
+      "blob": "7eb846f20a75131ddf2721fc604a084507f41264",
+      "mode": "100644"
+    },
+    "assets/hd/artwork/gem250-six-v1/sources/generated-gem.png": {
+      "sha256": "e8bed5f29e15367adc5798b261cac7606d510bc04011dabbf472cef56001c22b",
+      "blob": "36cbf39bbf3141fec9e84706c626f4e1c8d838a2",
+      "mode": "100644"
+    },
+    "assets/hd/artwork/gem250-six-v1/sources/generated-popup250.png": {
+      "sha256": "e4dcc4aec1698861b30842100944fa5239d49c2ad0763205bd5a16b63f352d7b",
+      "blob": "80aad590548e8643aed5a42abdd26c71f5ee8652",
+      "mode": "100644"
+    },
+    "assets/hd/artwork/gem250-six-v1/sources/popup-prompt.txt": {
+      "sha256": "e440165eefd9e805e3fa6730134e37da17e8e23ceb402f97e907424d0f0307d5",
+      "blob": "3486bf84e3b01f12c45eb49aef9bb6c4d7593831",
+      "mode": "100644"
+    },
+    "assets/hd/artwork/gem250-six-v1/sources/provenance.json": {
+      "sha256": "adf7ef5e2ecd51e4a3d856eedf03d450cbf9e10d8085a85243ed3dc660e9f46c",
+      "blob": "ee23825969c0021038c9ff3215d1b43773b7ef72",
+      "mode": "100644"
+    },
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/gem250-bank11-14-8.hda": {
+      "sha256": "cf5bc08746b86763c853f1cc01b1d40314f4a05afb871ee17518d40f39f60d2b",
+      "blob": "f049ad8d7837d09a57014ff267b0be7399eba350",
+      "mode": "100644"
+    },
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/gem250-bank11-15-8.hda": {
+      "sha256": "fd109402f59404a560ca5da78a84ca34f9cf815a275ec15a0c0fe291596b81aa",
+      "blob": "037b9dd40a62b22ef89f394e4d598be7a90fd46c",
+      "mode": "100644"
+    },
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/gem250-bank11-16-8.hda": {
+      "sha256": "f763c0112a9c05a139c258451ddf622fd7f8c5bb4f6225b10d348940ac1efbb5",
+      "blob": "b24da9212eb39c697246624d2263a8e4afd26d3b",
+      "mode": "100644"
+    },
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/gem250-bank11-17-8.hda": {
+      "sha256": "f35804e0a47cfad8f0f723cb81495db62345ba2e4c59dafaeb158f998be41f55",
+      "blob": "69a90640d027b9472909b2badb07e4472ad5917b",
+      "mode": "100644"
+    },
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/gem250-bank11-18-8.hda": {
+      "sha256": "0be85b8cefa64f0b4405e623ddd6a70e635c77fff3108afb906b949205befb4c",
+      "blob": "6d9a46dc45eefe6d5af23275a9bb534935ea959b",
+      "mode": "100644"
+    },
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/gem250-value-newsh6-188-8.hda": {
+      "sha256": "612c4d9f43342c785d297d0a4741169e00febe7c00a64fb6b63783a2c0016790",
+      "blob": "cc03be9136583bf2536a991c00c5826e31f3fe03",
+      "mode": "100644"
+    },
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/gem250-bank11-14-8.hda": {
+      "sha256": "cf5bc08746b86763c853f1cc01b1d40314f4a05afb871ee17518d40f39f60d2b",
+      "blob": "f049ad8d7837d09a57014ff267b0be7399eba350",
+      "mode": "100644"
+    },
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/gem250-bank11-15-8.hda": {
+      "sha256": "fd109402f59404a560ca5da78a84ca34f9cf815a275ec15a0c0fe291596b81aa",
+      "blob": "037b9dd40a62b22ef89f394e4d598be7a90fd46c",
+      "mode": "100644"
+    },
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/gem250-bank11-16-8.hda": {
+      "sha256": "f763c0112a9c05a139c258451ddf622fd7f8c5bb4f6225b10d348940ac1efbb5",
+      "blob": "b24da9212eb39c697246624d2263a8e4afd26d3b",
+      "mode": "100644"
+    },
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/gem250-bank11-17-8.hda": {
+      "sha256": "f35804e0a47cfad8f0f723cb81495db62345ba2e4c59dafaeb158f998be41f55",
+      "blob": "69a90640d027b9472909b2badb07e4472ad5917b",
+      "mode": "100644"
+    },
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/gem250-bank11-18-8.hda": {
+      "sha256": "0be85b8cefa64f0b4405e623ddd6a70e635c77fff3108afb906b949205befb4c",
+      "blob": "6d9a46dc45eefe6d5af23275a9bb534935ea959b",
+      "mode": "100644"
+    },
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/gem250-value-newsh6-188-8.hda": {
+      "sha256": "612c4d9f43342c785d297d0a4741169e00febe7c00a64fb6b63783a2c0016790",
+      "blob": "cc03be9136583bf2536a991c00c5826e31f3fe03",
+      "mode": "100644"
+    },
+    "assets/hd/source/gem250-bank11-14-8-cf5bc08746b8.png": {
+      "sha256": "2f1e5d16ff4a872a1472edb392c9f9f981c1661c7c307040808a59199f14de5c",
+      "blob": "d9064f8a8e1f426f1c85385311618df243f49d42",
+      "mode": "100644"
+    },
+    "assets/hd/source/gem250-bank11-15-8-fd109402f594.png": {
+      "sha256": "9f5e8689ec56d15fcad111500931fe0ff37f1a012f1a9e2ec89351828f184fdd",
+      "blob": "884c466a20c8eb40fff743a8c2c13b907c51b185",
+      "mode": "100644"
+    },
+    "assets/hd/source/gem250-bank11-16-8-f763c0112a9c.png": {
+      "sha256": "c22b89f5ff51e97e5b5a3b7ff8c7406a4413a6b3c1701ccd81738805d6ea327c",
+      "blob": "ce1f54bd2723af9c7d5d083878d5af9f58c3a07f",
+      "mode": "100644"
+    },
+    "assets/hd/source/gem250-bank11-17-8-f35804e0a47c.png": {
+      "sha256": "0a1be8ae3d985db3f310d03652f4ea9ae6796106b8143d5031241acd9b0913a4",
+      "blob": "d219cc6ef44784594cbb488786366eeeae59953c",
+      "mode": "100644"
+    },
+    "assets/hd/source/gem250-bank11-18-8-0be85b8cefa6.png": {
+      "sha256": "c0526d5835d8fb9bdcb50b323664c19d9d5d59e50eb80a2fa3f772ef68646998",
+      "blob": "ed574f3590aa53a8a8936cf4173a8ab6e9746c9e",
+      "mode": "100644"
+    },
+    "assets/hd/source/gem250-value-newsh6-188-8-612c4d9f4334.png": {
+      "sha256": "40404347b2e79f3ab72458bfa4e436797fa66f5f0183b4c34d06e7b066f6ff00",
+      "blob": "aea9177c9c2255aab44679d1304a251bc24a584f",
+      "mode": "100644"
+    },
+    "docs/gem250-six-v1/PLAN.md": {
+      "sha256": "60dfbfdb55976119fa40fa5f7fa6e743e856fb3fb9d7b42b6c4adeee06cf1882",
+      "blob": "c2d9600238ca5886285886c35e41a7540903646a",
+      "mode": "100644"
+    },
+    "docs/gem250-six-v1/README.md": {
+      "sha256": "91d59366874d197a4eb0e0cc006a8e889ae8f999f9965370f40044cd421fec28",
+      "blob": "ddd51625b0579b52bb5292701a4eb53a4a8d373c",
+      "mode": "100644"
+    },
+    "docs/gem250-six-v1/RESUME-4597e39.md": {
+      "sha256": "a5cebce1348a9f134a11b39937131782ae45e66da9d9d2f1e6c92c2ef916c631",
+      "blob": "79d77e2f4a0534bcb0505a8adef1be2cb2f7b33a",
+      "mode": "100644"
+    },
+    "docs/gem250-six-v1/RUNTIME-ACCEPTANCE.md": {
+      "sha256": "e549613313a39b23cde7b3ae8f705db10b5d5ce91424f268454f3a2aca2f9044",
+      "blob": "da6f2563ba130b1cbc9c0800960d4ccd163db75b",
+      "mode": "100644"
+    },
+    "docs/gem250-six-v1/actual-frame-author-review.json": {
+      "sha256": "71bca0fd497df7f500dbfbe17f18fceadc366ecbd3fa89094f1b3ed988138211",
+      "blob": "d6aba92d3ddf2cf26327ec46bff83cd345ce370d",
+      "mode": "100644"
+    },
+    "docs/gem250-six-v1/art-rebuild.json": {
+      "sha256": "fb8dcd03f9b10a8cd09e7c5e08a2b80fb2004409940ca3384e026df822aa4ea2",
+      "blob": "77750508e5d289a10524f922a21c61e6612b0143",
+      "mode": "100644"
+    },
+    "docs/gem250-six-v1/contract.json": {
+      "sha256": "4f96178978e0466c1c2d3ff7910d8b67f2f7df4c001566ec164037ee00fbd7d9",
+      "blob": "f299d4ec41e6ed97b8bf526091ca8839d7440f6c",
+      "mode": "100644"
+    },
+    "docs/gem250-six-v1/final-technical-review.json": {
+      "sha256": "86540a7ac2e9e26023da2458998af29b010e659ad4b6388af088d06708d6376f",
+      "blob": "f875955d4512da5a21e4540669284b78bdb5c672",
+      "mode": "100644"
+    },
+    "docs/gem250-six-v1/mutation-result.json": {
+      "sha256": "6dd3e89b0d03c9c65068a27f12a44f7d539a2b0063e549e9ebd18c81ebdb1b18",
+      "blob": "26b0875ec54281ed8c877461b8c9d8b3ae02886e",
+      "mode": "100644"
+    },
+    "docs/gem250-six-v1/original-data-fixture.json": {
+      "sha256": "d4336c2f3bcfc28388ce08d5be9b2a86468bac88a72f91efd57630ecbc9a4fb5",
+      "blob": "3473aed5d59dac6c17f86e8fc9ae18c60907e922",
+      "mode": "100644"
+    },
+    "docs/gem250-six-v1/original-source-excerpts.json": {
+      "sha256": "3b358c2ef38adf636f449688f966b38b769794bbc930e11446bca14f189eeb60",
+      "blob": "66e159f67304339613d195b758862cc1b06bfa10",
+      "mode": "100644"
+    },
+    "docs/gem250-six-v1/original-unit-result.json": {
+      "sha256": "dd42748e40afd3cdb496f5fea61f8f1c2fa66fbab3184c1dffffac177d2a761c",
+      "blob": "047b0df30edc95a75678dfa7ddff9014b84d7118",
+      "mode": "100644"
+    },
+    "docs/gem250-six-v1/runtime-acceptance.json": {
+      "sha256": "f3f9e7dcc9d458cc705540c049c016d17025de88e1beae25c2c0b934997de352",
+      "blob": "b187f9197c305b3eddde06dc03de4228f957b911",
+      "mode": "100644"
+    },
+    "docs/gem250-six-v1/runtime-verification.json": {
+      "sha256": "577a29ec0f402b23299ae898bcf0e290dec8d27f93b70e7647c9a1132cf6c391",
+      "blob": "508ef1cb890ad5711b0192aab2d5b0dd05029750",
+      "mode": "100644"
+    },
+    "docs/gem250-six-v1/source-validation.json": {
+      "sha256": "134f38a95f6d80dd6896e55b3ae5969f6a06314f748c171ab88feb0415bc1368",
+      "blob": "1358680a2ed8d142a9f8695f2b61cd9377fa93ae",
+      "mode": "100644"
+    },
+    "docs/gem250-six-v1/unit-result.json": {
+      "sha256": "0b83e616484e0ff233ace73d5beb8259dbe7f886698bf0e8a908fba3a8b9e02f",
+      "blob": "29ef200f4823d5cff8c54a8cfc02c10a4b82e16d",
+      "mode": "100644"
+    },
+    "docs/gem250-six-v1/windows-project.json": {
+      "sha256": "61eb031631ba119aec8d3c720c2c5aa62f256b042922ebcf6b2d929271edcc67",
+      "blob": "16ddfaab0f4cd82cd399b8df9bae0197c7fba287",
+      "mode": "100644"
+    },
+    "prototype/build-gem250-six-art.py": {
+      "sha256": "f839aba7b5f800f3cfca085726fdbad1bdf05a037c8da3e16adfd245131ddb25",
+      "blob": "abf74d723c271d901d7f8d975f367a6f77a83ab6",
+      "mode": "100644"
+    },
+    "prototype/test-gem250-mutations.py": {
+      "sha256": "3376e4fcca766b67550ffd950eb8c75b537a35cd6ca21e7830be5b355bc789c0",
+      "blob": "a5127f5917f8d9ccbac89f8a599e46d226364ec3",
+      "mode": "100644"
+    },
+    "prototype/test-gem250-original.c": {
+      "sha256": "ea50ad8aeb8ef6729f4847bef488277ff0cf5011c87ea960ec3ec804b67b8362",
+      "blob": "bfe01fa7f80fe1af6b9e99d6ea2cb08af9ef10b6",
+      "mode": "100644"
+    },
+    "prototype/test-gem250-original.py": {
+      "sha256": "d812a23a4a6e7db1c17a6d2d814133d4d88d97412e26208cfc47bc02e6fd0676",
+      "blob": "b43e0c43d3bc66a11c705b58a01acd58f3ae408b",
+      "mode": "100644"
+    },
+    "prototype/test-gem250-six.py": {
+      "sha256": "fd24deeef8d7235addfeb6c8b9615051e5a278d15512f1748f1d3b30a3310154",
+      "blob": "ee941c44331e28d7d230e8bfdb9ef605925cb566",
+      "mode": "100644"
+    }
+  }
+}

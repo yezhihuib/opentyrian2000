@@ -1,0 +1,123 @@
+{
+  "schema": "red250-r3-independent-final-technical-v1",
+  "status": "PASS",
+  "reviewed_utc": "2026-10-13T21:33:31.873933+00:00",
+  "scope": "Final bounded technical acceptance using unchanged original verifier and existing evidence only. Visual review is separate. No new game, build, framework, source, helper, runner, binary, or authorization change.",
+  "reviewer_engine_runs": 0,
+  "original_verifier_independent_execution": "PASS; saved runtime-verification.json reproduced byte-for-byte",
+  "sha256": {
+    "verify_runtime.py": "ed3b178fd5052b3d4cb8ba31fb07aba5a2e3ef6c203e6180a11e68e34fa5b529",
+    "runtime-verification.json": "577a29ec0f402b23299ae898bcf0e290dec8d27f93b70e7647c9a1132cf6c391",
+    "run.py": "163b16d8142c3b6766f2c6b00da9deed1f25782ef5a580ff2a966adf19555d4c",
+    "baseline-source-pins.json": "e4cc7a4baaa07ba8c99fec35dadeaa1e1e2b6b1fe7e53092a7619fd604adeb5c",
+    "candidate-source-pins.json": "903aacc42008b3e1a37554e2394dbb13b83eeab143b9c99f648b039f600e5303",
+    "bin/baseline": "a52c7d37fc0c8ce736f5ba4f1fc67eaeeb6d79c77c5f1d8c066382dc0e15f652",
+    "bin/candidate": "bae51dd7d39526599a8dcbb19f5f21cda379737b0b22919727b90eeb36e51048",
+    "frozen-schedule.json": "2076be01e4303f511ed96dc155cf7c5a8bf1ff9fe262ceeb3a2201786ee8c3e3",
+    "runs/baseline/run-summary.json": "8d6870abeccfe0d1e8d83ce15843e49d4095820289d42f3d275863c973bdcaf8",
+    "runs/candidate2/run-summary.json": "2126a3bba11793425a01b8dd6b8629524886b52dde848f82898b15a1f10c428c",
+    "runs/candidate4/run-summary.json": "58ca2ca035f0ec6a9504818028fb365ae34897ca98faa0bafde3a354a86e3a37",
+    "runs/candidate2/frame-hashes.json": "ff119a23ed0f36c238b950fa00db4b761535e79672682cb9c3c6a77f2a214a36",
+    "runs/candidate4/frame-hashes.json": "f8c615267f890fb636f0f83302ca6f81f9ce3069cdef799682d072461cc505b5",
+    "runs/candidate2/stream-receipts.json": "9362aa379795f9f3601d0d09d7bca590f0e47bbb7a4adaef3b7762dca856f946",
+    "runs/candidate4/stream-receipts.json": "e81ccf4e88f976efe9f6c95a210b876adbb644d4532d5a6a6260470b14ac21eb",
+    "launch-authorizations.json": "b9131b024db7aab31a739e458a15168c8e28a38c6eccb59c9ccba5bee8d3dec1"
+  },
+  "source_pin_counts_checked": {
+    "baseline": {
+      "production_source": 148,
+      "private_source": 150,
+      "helpers": 9
+    },
+    "candidate": {
+      "production_source": 148,
+      "private_source": 150,
+      "helpers": 9
+    }
+  },
+  "main_commit": "4597e39c75b949d8f4e1f22bbc6117b432294132",
+  "main_worktree_clean": true,
+  "candidate_commit": "39186dd945b8883ee6d21157644bda6b6c57770c",
+  "source_binary_helpers_and_preflight_inputs": "Exact reviewed pins remain valid; all retained gzip/raw stream receipt hashes independently match.",
+  "runtime": {
+    "simulation_runs": 3,
+    "total_engine_process_starts_including_old_zero_tick_parser": 4,
+    "old_parser_failure": {
+      "process_starts": 1,
+      "raw_semantic_stream_bytes": 0,
+      "preserved": true
+    },
+    "metadata_only_candidate2_KeyError": {
+      "separate_from_engine_attempts": true,
+      "process_starts": 0,
+      "provenance": "Parent report recorded in candidate2 launch gate; missing metadata was repaired before first candidate2 engine launch."
+    },
+    "collection_tick": 6460,
+    "terminal_tick": 6469,
+    "hard_tick_ceiling": 6480,
+    "baseline_images": 0,
+    "candidate2": {
+      "capture_ticks": [
+        6444,
+        6445,
+        6446,
+        6447,
+        6448,
+        6449,
+        6450,
+        6451,
+        6452,
+        6453,
+        6454,
+        6455,
+        6456,
+        6457,
+        6458,
+        6459,
+        6460,
+        6461,
+        6462,
+        6463,
+        6464,
+        6465,
+        6466,
+        6467,
+        6468
+      ],
+      "image_count": 25,
+      "native_dimensions": [
+        640,
+        400
+      ],
+      "original_and_control_parity": "PASS"
+    },
+    "candidate4": {
+      "capture_ticks": [
+        6461
+      ],
+      "image_count": 1,
+      "native_dimensions": [
+        1280,
+        800
+      ],
+      "original_and_control_parity": "PASS"
+    },
+    "capture_png_and_rgba_hashes": "All independently verified by unchanged original verifier.",
+    "all_selected_candidate_calls_mirrored": true
+  },
+  "budget": {
+    "cumulative_retained_bytes": 7918272,
+    "retained_limit_bytes": 20971520,
+    "remaining_retained_bytes": 13053248,
+    "free_disk_bytes": 4815552512,
+    "minimum_free_bytes": 4294967296,
+    "remaining_authorized_process_starts": 0
+  },
+  "limitations": [
+    "Private alive-only floor2 and artificial guarded original Pulse155 at6306; not natural manual play.",
+    "Baseline has no actual RGB screenshots; no RGB A/B claim.",
+    "Final indexed visibility is source-index matching with equal-colour-overdraw limitation.",
+    "Actual4x evidence is one popup still only; moving36/draw188 remains unit-scope only."
+  ],
+  "next": "No further game launches; use separate author/independent visual review for final visual acceptance and documentation."
+}

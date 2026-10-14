@@ -1,0 +1,48 @@
+{
+  "status": "PASS_SOURCE_UNIT_BUILD_ONLY",
+  "tested_commit": "c92dc940f2a1ae4d9c9a1ae383db496035b62f5d",
+  "baseline_commit": "93008cc051b4b00c512dc9f8599849f6db1132e3",
+  "game_runs": 0,
+  "source_sha256": {
+    "src/render_mirror.c": "0c62e1d21469d790ff8543c3cc29b4841267c361c7b085574dcf4baf300c894c",
+    "src/render_mirror.h": "9bf3f5f8fde8e4efc27809fd77e5ca6c1d7316b87ffebee4b3b4e9c8b62c22f0",
+    "src/tyrian2.c": "7714e14bac8c1be099caae2bca31dda65858fca012c64bec3210e4deac96ae2f",
+    "assets/hd/manifest.json": "a4c6dd8da222ee937661e21f11439ee9483230a84cec428141a9b0d48e331f4d"
+  },
+  "checks": {
+    "five_family_renderer_both_default_packs": "PASS",
+    "red250_normal_and_xmas": "PASS",
+    "normal_xmas_bank11_byte_identity": "PASS",
+    "malformed_resource_cases": 80,
+    "availability_masks": 32,
+    "mutations_killed": 17,
+    "original_scenarios_per_build": 14764,
+    "original_assertions_per_build": 124340,
+    "original_builds": [
+      "optimized",
+      "ASan+UBSan"
+    ],
+    "frozen_art_exact_rebuild": "PASS",
+    "full_three_production_file_inverse_to_baseline": "PASS",
+    "all_other_source_files_unchanged": "PASS",
+    "all_previous_pack_payloads_and_manifest_entries_unchanged": "PASS",
+    "linux_release": "PASS",
+    "linux_renderer_disabled": "PASS",
+    "windows_project_inventory": "PASS"
+  },
+  "binaries": {
+    "linux_release_sha256": "92796ff995aad598243176e29c8fbbcf09fd9cfc217658a53fc0847314bd6968",
+    "linux_renderer_disabled_sha256": "f604630c33a7a1399dcb9bc05ca7a69bd9f66529db9c54e21432f4f38913155a"
+  },
+  "build_logs": {
+    "linux-release-build-r2.log": "c7cb999c06dec60c1dbf536c1e5050f1c0b50f1bf7f3927b38d591c8c3a19486",
+    "linux-disabled-build.log": "44caef4d4be8c31ef6a5e6e90352b1487b68705a1793ee8cd4e9ed3ccc0297f5"
+  },
+  "limitations": [
+    "No game execution or runtime/visual acceptance by this implementation worker.",
+    "Windows project XML/source inventory only; no Windows compilation or runtime.",
+    "Release and disabled builds retain existing warnings. The first Release attempt omitted the recovered SDL multiarch include path and failed; the documented dependency env.sh corrected it.",
+    "Initial renderer-unit attempt stopped at additive source inverse due solely to three surplus blank lines; fixed before renderer execution. Final tests use the byte-exact inverse source.",
+    "Original semantic units reuse immutable historical100 scenarios as regressions; the additive red250 scenarios use SKY event15/carrier17 and +1 per-draw movement."
+  ]
+}

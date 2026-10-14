@@ -1,0 +1,59 @@
+{
+  "gates": {
+    "red250_held16_original_animation_and_movement": "PASS",
+    "red250_fixed40_moving36_exclusion": "PASS",
+    "red250_difficulty_linked_collection_and_full_effect_pool": "PASS",
+    "red250_sky_event15_allocation_before_release_copy_and_full_pool": "PASS",
+    "all16_held394_body_states_and_five_source_ids": "PASS",
+    "shared_fixed169_from394_and_all509_variants": "PASS",
+    "shared123_509_nominal250_display100_mismatch_preserved": "PASS",
+    "moving35_reaches169_but_all_cash_gates_false": "PASS",
+    "all_four_families_mixed_gate_isolation": "PASS",
+    "fixed169_eight_draws_and_clear_steps": "PASS",
+    "full200_effect_pool_and_setup_y_bounds": "PASS",
+    "top25_drop_pool_full_omission_and_reuse_after_release": "PASS",
+    "allocation_before_own_release_coordinate_copy_and_rng": "PASS",
+    "exact_linked_sweep_match_minus100_lower_equal20_and_zero_to255": "PASS",
+    "original_normal_shot_ascending_avail0_first_collision_and_strict_boundaries": "PASS",
+    "normal15_carrier_reward_separate_from100_gem": "PASS",
+    "difficulty_scaling_linked75_to37_plus37": "PASS",
+    "strict_original_collection_dx12_dy14_boundary": "PASS",
+    "all200_explosion_bytes_and_draw_calls_unchanged": "PASS",
+    "event313_320_331_original_top_spawn_and316_325_334_assignments": "PASS",
+    "original_body_draw_filter_clear_motion_and_removal_order": "PASS",
+    "event33_mode_guards_and_arcade30000_suppression": "PASS"
+  },
+  "status": "PASS",
+  "evidence_kind": "byte-exact-original-source-unit",
+  "gameplay_runs": 0,
+  "production_edits": 0,
+  "baseline_commit": "93008cc051b4b00c512dc9f8599849f6db1132e3",
+  "scenarios_per_build": 14764,
+  "assertions_per_build": 124340,
+  "builds": {
+    "optimized": {
+      "status": "PASS",
+      "scenarios": 14764,
+      "checks": 124340,
+      "evidence_kind": "source-unit-only",
+      "gameplay_runs": 0
+    },
+    "sanitized": {
+      "status": "PASS",
+      "scenarios": 14764,
+      "checks": 124340,
+      "evidence_kind": "source-unit-only",
+      "gameplay_runs": 0
+    }
+  },
+  "limitations": [
+    "Byte-exact extracted original source and pinned tiny records/events, not a game run, natural collection, replay, or runtime mode matrix.",
+    "Full original constructor, allocator, spawn function and lethal linked traversal execute; mt_rand is a deterministic counted stream, not the original RNG engine/state.",
+    "Large-explosion and renderer sinks only observe; effect state and draw arguments are compared, not actual renderer pixels.",
+    "Exact collection envelope/scoreitem branch, ordinary-shot ascending avail0 collision prefix/predicate and movement through background-y execute. The first-shot-match observer returns its first match; weapon movement, damage aftermath, piercing/special-shot behavior and enemy shooting branches are not simulated.",
+    "Earlier link82 actors are not assumed absent: exact caller link0-to255 normalization and lethal-sweep match/link-minus100/lower-equal20 eligibility are tested. First-collision tests cover lower-slot side actor at dx12 and lead31 at exact dy15 without asserting runtime actor presence.",
+    "LeakSanitizer is disabled for executor compatibility; AddressSanitizer and UBSan remain enabled."
+  ],
+  "source_manifest": "source-manifest.json",
+  "toolchain": "gcc (Debian 14.2.0-19) 14.2.0"
+}

@@ -1,0 +1,168 @@
+{
+  "status": "PASS_BOUNDED",
+  "production_tested_commit": "39186dd945b8883ee6d21157644bda6b6c57770c",
+  "baseline_commit": "4597e39c75b949d8f4e1f22bbc6117b432294132",
+  "production_sha256": {
+    "src/render_mirror.c": "729847d178190d55536bf78527d8abc3811ef441226bb20414ce82b94cdc13a0",
+    "src/render_mirror.h": "9bf3f5f8fde8e4efc27809fd77e5ca6c1d7316b87ffebee4b3b4e9c8b62c22f0",
+    "src/tyrian2.c": "7714e14bac8c1be099caae2bca31dda65858fca012c64bec3210e4deac96ae2f"
+  },
+  "manifest_sha256": "a340560e0212f654de09063229aef98ec8b34007e52a2e1fc9f9aa93ecaf6175",
+  "exact_current_source_inverse": true,
+  "preserved_current_Data_type4_type15_menu_selector": true,
+  "frozen_art_inventory_sha256": "e0b29e08ce061510940701831c259155d2fafdb9a7f146885d1ae549c8a5fc09",
+  "non_game_regressions": {
+    "all_five_families_both_default_packs": "PASS",
+    "readiness_masks": 32,
+    "resource_negative_cases": 80,
+    "mutations_killed": 17,
+    "original_scenarios_per_build": 14764,
+    "original_assertions_per_build": 124340,
+    "original_builds": [
+      "optimized",
+      "ASan+UBSan"
+    ],
+    "private_parser_cases": 76,
+    "Data_compositor_4x_8x": "PASS",
+    "settings_load_selector_pregame_normal_and_sanitized": "PASS",
+    "output_sampler": "PASS",
+    "linux_network_false_build_sha256": {
+      "release": "a2ab2151924a97120a7e736569f6547bb3f780ba28997903f8c5e1d8eeb73a33",
+      "disabled": "4ed025842a84713e344884bd5d443e2de3ea224cf0a01856e423f6c89aed0aeb"
+    },
+    "windows": "Source inventory only; no compile/runtime claim"
+  },
+  "runtime": {
+    "simulation_runs": 3,
+    "engine_process_starts": 4,
+    "prior_parser_failure_starts": 1,
+    "metadata_only_KeyError_starts": 0,
+    "C": 6460,
+    "terminal": 6469,
+    "logic_ticks_each": 6470,
+    "cash": [
+      0,
+      20,
+      270
+    ],
+    "carrier_slot": 0,
+    "pickup_slot": 3,
+    "popup_slot": 0,
+    "body_draws": 154,
+    "fixed188_draws": 8,
+    "candidate_HD_selected_draws": 162,
+    "cases": {
+      "baseline": {
+        "native_images": 0,
+        "native_dimensions": null,
+        "original_pairs_identical": true,
+        "selected_body_ids": [
+          18,
+          17,
+          17,
+          16,
+          16,
+          15,
+          15,
+          14,
+          14,
+          15,
+          15,
+          16,
+          16,
+          17,
+          17,
+          18
+        ]
+      },
+      "candidate2": {
+        "native_images": 25,
+        "native_dimensions": [
+          640,
+          400
+        ],
+        "original_pairs_identical": true,
+        "selected_body_ids": [
+          18,
+          17,
+          17,
+          16,
+          16,
+          15,
+          15,
+          14,
+          14,
+          15,
+          15,
+          16,
+          16,
+          17,
+          17,
+          18
+        ]
+      },
+      "candidate4": {
+        "native_images": 1,
+        "native_dimensions": [
+          1280,
+          800
+        ],
+        "original_pairs_identical": true,
+        "selected_body_ids": [
+          18,
+          17,
+          17,
+          16,
+          16,
+          15,
+          15,
+          14,
+          14,
+          15,
+          15,
+          16,
+          16,
+          17,
+          17,
+          18
+        ]
+      }
+    },
+    "wall_seconds": {
+      "baseline": 33.39605750599003,
+      "candidate2": 30.819323524992797,
+      "candidate4": 29.64368574200489
+    },
+    "cumulative_retained_run_bytes": 7918272,
+    "prior_retained_run_bytes": 75455,
+    "retained_cap_bytes": 20971520,
+    "minimum_free_disk_bytes": 4294967296,
+    "no_authorized_launches_remaining": true
+  },
+  "included_receipts": {
+    "runtime-verification.json": "577a29ec0f402b23299ae898bcf0e290dec8d27f93b70e7647c9a1132cf6c391",
+    "final-technical-review.json": "86540a7ac2e9e26023da2458998af29b010e659ad4b6388af088d06708d6376f",
+    "actual-frame-author-review.json": "71bca0fd497df7f500dbfbe17f18fceadc366ecbd3fa89094f1b3ed988138211"
+  },
+  "external_exact_pin_receipts_sha256": {
+    "source-rebase-validation.json": "9c740efbeed3ffa5dead60e940cf6e0fddc8907d5e586b22a46d19d8fa4a36d2",
+    "finite-regressions.json": "ec04ae80129b22586af9e30b84683e1234bc6f3d14070a7dff05689bd2d40a57",
+    "baseline-source-pins.json": "e4cc7a4baaa07ba8c99fec35dadeaa1e1e2b6b1fe7e53092a7619fd604adeb5c",
+    "candidate-source-pins.json": "903aacc42008b3e1a37554e2394dbb13b83eeab143b9c99f648b039f600e5303",
+    "frozen-schedule.json": "2076be01e4303f511ed96dc155cf7c5a8bf1ff9fe262ceeb3a2201786ee8c3e3",
+    "run.py": "163b16d8142c3b6766f2c6b00da9deed1f25782ef5a580ff2a966adf19555d4c",
+    "verify_runtime.py": "ed3b178fd5052b3d4cb8ba31fb07aba5a2e3ef6c203e6180a11e68e34fa5b529",
+    "candidate2-prelaunch-metadata-stop.json": "8ce6b7e6f78ee4422a87f97363bb48840497b1238005c643746fefe52a5238a4"
+  },
+  "limitations": [
+    "Subjects remain over dark textured-green terrain. Bright clouds elsewhere in the frame do not establish bright-background contrast.",
+    "Nearby ships/enemies and the6460 gem/popup overlap are visible, but this is not an arbitrary-occluder or worst-case overlap stress test.",
+    "Review is of chronological actual stills, not real-time viewing or a natural/manual-play run. Fixture uses scripted RIGHT20-30, artificial original Pulse155 at6306, and alive-only invulnerability floor2.",
+    "Normal, non-Christmas, episode1/physical9 fixture only. Source packet/static audits are separate evidence.",
+    "Original baseline is image-free. No RGB A/B claim. No4x held-gem-cycle, bright-backdrop, or cross-mode runtime claim.",
+    "Private live-only invulnerability floor2, scripted original RIGHT20\u201330 and artificial original Pulse155 helper at6306.",
+    "Source/unit difficulty and mode coverage is separate from the one Normal no-xmas replay.",
+    "Equal-colour overdraw cannot be distinguished by indexed support counts.",
+    "Historical PLAN and source-unit receipts remain frozen under their original baseline pins."
+  ]
+}

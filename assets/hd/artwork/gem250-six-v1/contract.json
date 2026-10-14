@@ -1,0 +1,113 @@
+{
+  "family": "red/orange250 physical faceted gem held brightness family and fixed diagonal blue250",
+  "logical_size": [
+    12,
+    14
+  ],
+  "anchor": [
+    0,
+    0
+  ],
+  "density": 8,
+  "rgba_dimensions": [
+    96,
+    112
+  ],
+  "body": {
+    "record": 395,
+    "source_bank": 11,
+    "runtime_bank": 21,
+    "ids": [
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "role": 120,
+    "role_name": "ASSET_GEM250_BODY",
+    "prefix": "gem250-bank11",
+    "keys": [
+      1200014,
+      1200015,
+      1200016,
+      1200017,
+      1200018
+    ],
+    "slots": [
+      499,
+      500,
+      501,
+      502,
+      503
+    ],
+    "held_sequence": [
+      14,
+      14,
+      15,
+      15,
+      16,
+      16,
+      17,
+      17,
+      18,
+      18,
+      17,
+      17,
+      16,
+      16,
+      15,
+      15
+    ],
+    "identical_alpha_and_geometry": true,
+    "not_rotation": true,
+    "source_support_pixels": 81,
+    "source_bbox_xyxy_exclusive": [
+      1,
+      2,
+      12,
+      13
+    ]
+  },
+  "value": {
+    "id": 188,
+    "source": "newsh6",
+    "role": 121,
+    "role_name": "ASSET_GEM250_VALUE",
+    "prefix": "gem250-value-newsh6",
+    "key": 1210188,
+    "slot": 504,
+    "fixed_effect": 40,
+    "stored_sprite": 187,
+    "draws_max": 8,
+    "record": 395,
+    "diagonal_staircase": "2 at upper left, 5 middle, 0 lower right",
+    "source_support_pixels": 89,
+    "source_bbox_xyxy_exclusive": [
+      0,
+      0,
+      11,
+      13
+    ],
+    "exclude_moving_effect36": true
+  },
+  "expected_total_capacity": 505,
+  "header": {
+    "magic": "HDR1",
+    "six_little_endian_uint32": [
+      "key",
+      8,
+      12,
+      14,
+      0,
+      0
+    ],
+    "header_bytes": 28,
+    "rgba_bytes": 43008,
+    "exact_file_bytes": 43036,
+    "require_eof": true
+  },
+  "coverage": "Generated alpha is preserved and capped by a restrained inward fractional rim, bounded by original support. No samples outside source support. Transparent pixels have zero RGB. Body interior is predominantly alpha252/253 and popup interior predominantly254, with some255 samples; do not characterize all interiors as fully opaque.",
+  "runtime": "Original gameplay, animation order/gates, collection, reward scaling, fixed NORMAL/BLEND behavior, context/pointer-qualified lookup, indexed fallbacks and moving-effect36 exclusion are integrator-owned. This package contains no runtime evidence.",
+  "approval": "Parent reported root native2x visual approval and authorized exact six-asset freeze on2026-10-13. Actual held-cycle and contrast review remain pending."
+}

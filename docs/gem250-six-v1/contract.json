@@ -1,0 +1,1096 @@
+{
+  "schema": "gem250-finite-source-plan-v1",
+  "baseline_commit": "93008cc051b4b00c512dc9f8599849f6db1132e3",
+  "source_packet": "/workspace/scratch/f67dd347fa0a/redgem250-source-audit-20261013/selected250-source-packet.json",
+  "source_packet_sha256": "cc481bfe8d57295263ab123bb08fd236c09ab8cf72cfb134dff15efbc5d879d1",
+  "source_report_sha256": "adf53a9f99695e09cce240bf8751c1f50d85d020e41c6bd1c9c5c12c1cfbfbd4",
+  "plan_sha256": "60dfbfdb55976119fa40fa5f7fa6e743e856fb3fb9d7b42b6c4adeee06cf1882",
+  "source_pins": {
+    "src/episodes.c": "640219b48d3081ee996ce66a66f61ad2fe185339fcfaf395808e02fcee0b29e0",
+    "src/lvlmast.h": "f33fbe72ec273bf4c72cb2c49bd4dbc4336b6bc6802e1b53d32ac58667026ed0",
+    "src/lvllib.c": "34467e09b9088b646ad7006480c691ebc65491f8bd72c1d3c65b2e4454e4fca5",
+    "src/tyrian2.c": "0766ec6f9cdbf555118d4d72689d0356627dfdb38ca71a04c792f4f2fc5bde36",
+    "src/mainint.c": "0b39b8af90f981bce50762de98eb2458282ed3031780235a8ade405945dcddf8",
+    "src/varz.c": "d4502557903eea9fc082b83385fee3448564124040ff27faa1a4af16c8e394c7",
+    "src/sprite.c": "f55491df5ec34163e3c46da7607c132449fa4d299117a768ae91dd9cf92b5886",
+    "src/render_mirror.c": "e19b2509887f7615caae6c71ac44d6f54a3871a13e8bfdab10bb8c8f39b888c4",
+    "src/render_mirror.h": "d1b3f26a21bd68765a72a05bc436f41fe7e704a4ede7a86bb3472a18bc65053b",
+    "src/asset_debug.c": "8be5161623d0d34c960ae7d229a3b9ac1b0889fe54bec407e131f267346b7bf8",
+    "src/shots.c": "ec0f326f407849037af1a0218a1bfed1f3f2a720301a053afd3a7d25c7391405",
+    "src/config.h": "548000ba81517cabf829665ad09fa629a0a7cfd79d013c94ad301df4e8d30a02",
+    "assets/hd/manifest.json": "d272726522c4338f31db49a56f68d6406d887374c2f309f09001dea775f3eea8"
+  },
+  "original_data_root": "/workspace/scratch/f67dd347fa0a/recovery-dependencies-20261013/game-data/tyrian2000",
+  "original_data_pins": {
+    "tyrian.hdt": "fde8506326e7bb0916b38c362e33bf8a8a5affa561206c021af7f65b4a17745b",
+    "tyrian1.lvl": "54cbb00b57b84aa992a70cfcb170cb1edeb59507873723630d60080ba8351352",
+    "tyrian2.lvl": "930e7c4a5452c6c79406d8f7126fdaace9994635d9f4bcdfb645d693a22575b6",
+    "tyrian3.lvl": "6a5b94a7d3e4f5a228bc0f702cfe035c8f9f03b20a3f02867d25e95b4249ce86",
+    "tyrian4.lvl": "6589b898094887925e7717c8663c4b8b5e4b76f3c89a7898ed9f4691c1f2cc16",
+    "tyrian5.lvl": "275b5aaf55caecee8dc95e26f7cf118a9ee265f095ce61945b9ece56a4523323",
+    "tyrian.shp": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+    "tyrianc.shp": "e980f02021395d39b86491acdc2ecd6dd47ea2a9f859fe3928f81b75e244fd7d",
+    "newsh6.shp": "49e3d08e122ea71d6a621d2de127da00ce8a26ff73a0fb40d0cdd7ca2909d075",
+    "palette.dat": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+  },
+  "resources": [
+    {
+      "filename": "gem250-bank11-14-8.hda",
+      "role": 120,
+      "key": 1200014,
+      "slot": 499,
+      "id": 14,
+      "header_u32": [
+        1200014,
+        8,
+        12,
+        14,
+        0,
+        0
+      ]
+    },
+    {
+      "filename": "gem250-bank11-15-8.hda",
+      "role": 120,
+      "key": 1200015,
+      "slot": 500,
+      "id": 15,
+      "header_u32": [
+        1200015,
+        8,
+        12,
+        14,
+        0,
+        0
+      ]
+    },
+    {
+      "filename": "gem250-bank11-16-8.hda",
+      "role": 120,
+      "key": 1200016,
+      "slot": 501,
+      "id": 16,
+      "header_u32": [
+        1200016,
+        8,
+        12,
+        14,
+        0,
+        0
+      ]
+    },
+    {
+      "filename": "gem250-bank11-17-8.hda",
+      "role": 120,
+      "key": 1200017,
+      "slot": 502,
+      "id": 17,
+      "header_u32": [
+        1200017,
+        8,
+        12,
+        14,
+        0,
+        0
+      ]
+    },
+    {
+      "filename": "gem250-bank11-18-8.hda",
+      "role": 120,
+      "key": 1200018,
+      "slot": 503,
+      "id": 18,
+      "header_u32": [
+        1200018,
+        8,
+        12,
+        14,
+        0,
+        0
+      ]
+    },
+    {
+      "filename": "gem250-value-newsh6-188-8.hda",
+      "role": 121,
+      "key": 1210188,
+      "slot": 504,
+      "id": 188,
+      "header_u32": [
+        1210188,
+        8,
+        12,
+        14,
+        0,
+        0
+      ]
+    }
+  ],
+  "hda": {
+    "magic": "HDR1",
+    "endianness": "little",
+    "density": 8,
+    "native_size": [
+      12,
+      14
+    ],
+    "anchor": [
+      0,
+      0
+    ],
+    "pixel_size": [
+      96,
+      112
+    ],
+    "payload_bytes": 43008,
+    "total_bytes": 43036,
+    "trailing_bytes": 0
+  },
+  "geometry_contract_sha256": "08c86e30168b340537b66098e1531f7fe6c1d1e3954d4f28449efaf2cc9a587a",
+  "resource_capacity": {
+    "before": 499,
+    "after": 505
+  },
+  "selected_packs": [
+    {
+      "name": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+      "manifest_before": 507,
+      "manifest_after": 513,
+      "physical_hda_before": 513,
+      "physical_hda_after": 519,
+      "all_old_manifest_resources_freshly_hash_and_header_verified": true
+    },
+    {
+      "name": "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+      "manifest_before": 507,
+      "manifest_after": 513,
+      "physical_hda_before": 513,
+      "physical_hda_after": 519,
+      "all_old_manifest_resources_freshly_hash_and_header_verified": true
+    }
+  ],
+  "all_manifest_packs_checked": 18,
+  "body_record": 395,
+  "body_ids": [
+    14,
+    15,
+    16,
+    17,
+    18
+  ],
+  "sequence16": [
+    14,
+    14,
+    15,
+    15,
+    16,
+    16,
+    17,
+    17,
+    18,
+    18,
+    17,
+    17,
+    16,
+    16,
+    15,
+    15
+  ],
+  "body_binding": "actual nonnull spriteSheet11 pointer, record395, size0,part0,14..18,unchanged cash25_surface_ready and filter/indexed route",
+  "fixed_binding": {
+    "effect": 40,
+    "stored": 187,
+    "draw": 188,
+    "ttl": [
+      1,
+      8
+    ],
+    "fixed": true,
+    "follow": false,
+    "deltaY": 0,
+    "pointer": "actual nonnull explosionSpriteSheet",
+    "layout": "TILE",
+    "styles": [
+      "NORMAL",
+      "BLEND"
+    ],
+    "original_record_users_all3_tables": [
+      395
+    ],
+    "moving36_draw188_excluded": true
+  },
+  "data_guards": {
+    "normal_xmas_bank11_identical": true,
+    "bank11_sha256": "a7278a4bc8712056c8b43ae0842d99f0d73fb52dd1c6fd40c682e20fd8faef62",
+    "record395_all3_tables_sha256": "a0eb59864145f79407313b06697f068f2da129a6c07805a612617adcd5066736",
+    "strict_pointer_record_layout_retained": true,
+    "unrelated_Protron_no_xmas_guard_unchanged": true
+  },
+  "difficulty_rewards": [
+    {
+      "difficulty": "-1/Wimp",
+      "unlinked_value": 187,
+      "linked_each": 93,
+      "fixed_label": 250
+    },
+    {
+      "difficulty": "Easy/Normal",
+      "unlinked_value": 250,
+      "linked_each": 125,
+      "fixed_label": 250
+    },
+    {
+      "difficulty": "Hard",
+      "unlinked_value": 281,
+      "linked_each": 140,
+      "fixed_label": 250
+    },
+    {
+      "difficulty": "Impossible",
+      "unlinked_value": 375,
+      "linked_each": 187,
+      "fixed_label": 250
+    },
+    {
+      "difficulty": "Insanity",
+      "unlinked_value": 500,
+      "linked_each": 250,
+      "fixed_label": 250
+    },
+    {
+      "difficulty": "Suicide",
+      "unlinked_value": 625,
+      "linked_each": 312,
+      "fixed_label": 250
+    },
+    {
+      "difficulty": "Maniacal/Zinglon",
+      "unlinked_value": 1000,
+      "linked_each": 500,
+      "fixed_label": 250
+    },
+    {
+      "difficulty": "Nortaneous/10",
+      "unlinked_value": 2000,
+      "linked_each": 1000,
+      "fixed_label": 250
+    }
+  ],
+  "carrier_difficulty_rewards": [
+    {
+      "difficulty": "-1/Wimp",
+      "value": 15
+    },
+    {
+      "difficulty": "Easy/Normal",
+      "value": 20
+    },
+    {
+      "difficulty": "Hard",
+      "value": 22
+    },
+    {
+      "difficulty": "Impossible",
+      "value": 30
+    },
+    {
+      "difficulty": "Insanity",
+      "value": 40
+    },
+    {
+      "difficulty": "Suicide",
+      "value": 50
+    },
+    {
+      "difficulty": "Maniacal/Zinglon",
+      "value": 80
+    },
+    {
+      "difficulty": "Nortaneous/10",
+      "value": 160
+    }
+  ],
+  "production_files_allowed": [
+    "src/render_mirror.c",
+    "src/render_mirror.h",
+    "src/tyrian2.c"
+  ],
+  "production_gate": "exact inverse-additive restoration to93008cc; no gameplay/data/build-membership change",
+  "runtime": {
+    "authorization": "Parent reports root exact finite schedule approval and separately explicit alive-only floor2 approval on2026-10-13; each launch still requires independent PASS, durable backup and parent launch grant",
+    "run_count_max": 3,
+    "cases": [
+      "baseline-noimage",
+      "candidate-native2",
+      "candidate-native4"
+    ],
+    "episode": 1,
+    "physical_level": 9,
+    "seed": "0x5eed",
+    "difficulty": "Normal",
+    "mode": "ordinary story",
+    "no_xmas": true,
+    "default_original_loadout": true,
+    "render_ticks_hard_limit": 6480,
+    "last_legal_tick": 6479,
+    "wall_seconds_per_run": 900,
+    "retained_evidence_total_bytes": 20971520,
+    "minimum_free_bytes": 2147483648,
+    "input": {
+      "right_bit": 3,
+      "right_value": 8,
+      "right_ticks_inclusive": [
+        20,
+        30
+      ],
+      "otherwise": 0,
+      "demo_keys_wait": 1,
+      "original_input_physics_preserved": true
+    },
+    "private_survival": {
+      "approval": "explicit root approval relayed by parent2026-10-13",
+      "only_while_alive": true,
+      "invulnerable_ticks_floor": 2,
+      "phase": "immediately after original events",
+      "same_all_cases": true,
+      "testfixture_only": true,
+      "heal": false,
+      "revive": false,
+      "coordinate_or_velocity_override": false
+    },
+    "pulse": {
+      "count": 1,
+      "tick": 6306,
+      "weapon": 155,
+      "pending_damage": 0,
+      "source_spawn_event": 789,
+      "source_assignment_event": 790,
+      "pool": [
+        0,
+        24
+      ],
+      "carrier": {
+        "record": 17,
+        "bank": 1,
+        "base": 267,
+        "size": 1,
+        "link": 10,
+        "ex": 130,
+        "ey": -7,
+        "mapoffset": 28,
+        "xc": 0,
+        "yc": 3,
+        "fixedmovey": 0,
+        "armor": 5,
+        "value": 20,
+        "drop": 395,
+        "tur": [
+          59,
+          0,
+          0
+        ],
+        "freq": [
+          0,
+          0,
+          0
+        ],
+        "original_static_and_other_fields": true
+      },
+      "player": {
+        "x": 162,
+        "y": 160,
+        "x_velocity": 0,
+        "y_velocity": 0
+      },
+      "original_helper": true,
+      "existing_artificial_shot_only_overrides_disclosed": true,
+      "shot": [
+        158,
+        -13
+      ],
+      "all_live_lethal_members": "only actual event789 carrier; no source absence assumption",
+      "first_original_collision": "event789 carrier only as first match; other actors never altered",
+      "vacancy": "original SKY0..24 vacancy before own carrier release"
+    },
+    "prediction_not_observation": {
+      "kind": "Source-only arithmetic, no gameplay/fixture execution; must be observed and guarded, never field-corrected.",
+      "right_input20_30": [
+        {
+          "tick": 0,
+          "demo_keys": 0,
+          "x": 100,
+          "x_velocity": 0,
+          "x_friction_ticks": 1
+        },
+        {
+          "tick": 1,
+          "demo_keys": 0,
+          "x": 100,
+          "x_velocity": 0,
+          "x_friction_ticks": 0
+        },
+        {
+          "tick": 2,
+          "demo_keys": 0,
+          "x": 100,
+          "x_velocity": 0,
+          "x_friction_ticks": 1
+        },
+        {
+          "tick": 3,
+          "demo_keys": 0,
+          "x": 100,
+          "x_velocity": 0,
+          "x_friction_ticks": 0
+        },
+        {
+          "tick": 4,
+          "demo_keys": 0,
+          "x": 100,
+          "x_velocity": 0,
+          "x_friction_ticks": 1
+        },
+        {
+          "tick": 5,
+          "demo_keys": 0,
+          "x": 100,
+          "x_velocity": 0,
+          "x_friction_ticks": 0
+        },
+        {
+          "tick": 6,
+          "demo_keys": 0,
+          "x": 100,
+          "x_velocity": 0,
+          "x_friction_ticks": 1
+        },
+        {
+          "tick": 7,
+          "demo_keys": 0,
+          "x": 100,
+          "x_velocity": 0,
+          "x_friction_ticks": 0
+        },
+        {
+          "tick": 8,
+          "demo_keys": 0,
+          "x": 100,
+          "x_velocity": 0,
+          "x_friction_ticks": 1
+        },
+        {
+          "tick": 9,
+          "demo_keys": 0,
+          "x": 100,
+          "x_velocity": 0,
+          "x_friction_ticks": 0
+        },
+        {
+          "tick": 10,
+          "demo_keys": 0,
+          "x": 100,
+          "x_velocity": 0,
+          "x_friction_ticks": 1
+        },
+        {
+          "tick": 11,
+          "demo_keys": 0,
+          "x": 100,
+          "x_velocity": 0,
+          "x_friction_ticks": 0
+        },
+        {
+          "tick": 12,
+          "demo_keys": 0,
+          "x": 100,
+          "x_velocity": 0,
+          "x_friction_ticks": 1
+        },
+        {
+          "tick": 13,
+          "demo_keys": 0,
+          "x": 100,
+          "x_velocity": 0,
+          "x_friction_ticks": 0
+        },
+        {
+          "tick": 14,
+          "demo_keys": 0,
+          "x": 100,
+          "x_velocity": 0,
+          "x_friction_ticks": 1
+        },
+        {
+          "tick": 15,
+          "demo_keys": 0,
+          "x": 100,
+          "x_velocity": 0,
+          "x_friction_ticks": 0
+        },
+        {
+          "tick": 16,
+          "demo_keys": 0,
+          "x": 100,
+          "x_velocity": 0,
+          "x_friction_ticks": 1
+        },
+        {
+          "tick": 17,
+          "demo_keys": 0,
+          "x": 100,
+          "x_velocity": 0,
+          "x_friction_ticks": 0
+        },
+        {
+          "tick": 18,
+          "demo_keys": 0,
+          "x": 100,
+          "x_velocity": 0,
+          "x_friction_ticks": 1
+        },
+        {
+          "tick": 19,
+          "demo_keys": 0,
+          "x": 100,
+          "x_velocity": 0,
+          "x_friction_ticks": 0
+        },
+        {
+          "tick": 20,
+          "demo_keys": 8,
+          "x": 102,
+          "x_velocity": 1,
+          "x_friction_ticks": 1
+        },
+        {
+          "tick": 21,
+          "demo_keys": 8,
+          "x": 105,
+          "x_velocity": 2,
+          "x_friction_ticks": 0
+        },
+        {
+          "tick": 22,
+          "demo_keys": 8,
+          "x": 108,
+          "x_velocity": 2,
+          "x_friction_ticks": 1
+        },
+        {
+          "tick": 23,
+          "demo_keys": 8,
+          "x": 112,
+          "x_velocity": 3,
+          "x_friction_ticks": 0
+        },
+        {
+          "tick": 24,
+          "demo_keys": 8,
+          "x": 116,
+          "x_velocity": 3,
+          "x_friction_ticks": 1
+        },
+        {
+          "tick": 25,
+          "demo_keys": 8,
+          "x": 121,
+          "x_velocity": 4,
+          "x_friction_ticks": 0
+        },
+        {
+          "tick": 26,
+          "demo_keys": 8,
+          "x": 126,
+          "x_velocity": 4,
+          "x_friction_ticks": 1
+        },
+        {
+          "tick": 27,
+          "demo_keys": 8,
+          "x": 131,
+          "x_velocity": 4,
+          "x_friction_ticks": 0
+        },
+        {
+          "tick": 28,
+          "demo_keys": 8,
+          "x": 136,
+          "x_velocity": 4,
+          "x_friction_ticks": 1
+        },
+        {
+          "tick": 29,
+          "demo_keys": 8,
+          "x": 141,
+          "x_velocity": 4,
+          "x_friction_ticks": 0
+        },
+        {
+          "tick": 30,
+          "demo_keys": 8,
+          "x": 146,
+          "x_velocity": 4,
+          "x_friction_ticks": 1
+        },
+        {
+          "tick": 31,
+          "demo_keys": 0,
+          "x": 150,
+          "x_velocity": 4,
+          "x_friction_ticks": 0
+        },
+        {
+          "tick": 32,
+          "demo_keys": 0,
+          "x": 153,
+          "x_velocity": 3,
+          "x_friction_ticks": 1
+        },
+        {
+          "tick": 33,
+          "demo_keys": 0,
+          "x": 156,
+          "x_velocity": 3,
+          "x_friction_ticks": 0
+        },
+        {
+          "tick": 34,
+          "demo_keys": 0,
+          "x": 158,
+          "x_velocity": 2,
+          "x_friction_ticks": 1
+        },
+        {
+          "tick": 35,
+          "demo_keys": 0,
+          "x": 160,
+          "x_velocity": 2,
+          "x_friction_ticks": 0
+        },
+        {
+          "tick": 36,
+          "demo_keys": 0,
+          "x": 161,
+          "x_velocity": 1,
+          "x_friction_ticks": 1
+        },
+        {
+          "tick": 37,
+          "demo_keys": 0,
+          "x": 162,
+          "x_velocity": 1,
+          "x_friction_ticks": 0
+        },
+        {
+          "tick": 38,
+          "demo_keys": 0,
+          "x": 162,
+          "x_velocity": 0,
+          "x_friction_ticks": 1
+        },
+        {
+          "tick": 39,
+          "demo_keys": 0,
+          "x": 162,
+          "x_velocity": 0,
+          "x_friction_ticks": 0
+        },
+        {
+          "tick": 40,
+          "demo_keys": 0,
+          "x": 162,
+          "x_velocity": 0,
+          "x_friction_ticks": 1
+        },
+        {
+          "tick": 41,
+          "demo_keys": 0,
+          "x": 162,
+          "x_velocity": 0,
+          "x_friction_ticks": 0
+        },
+        {
+          "tick": 42,
+          "demo_keys": 0,
+          "x": 162,
+          "x_velocity": 0,
+          "x_friction_ticks": 1
+        },
+        {
+          "tick": 43,
+          "demo_keys": 0,
+          "x": 162,
+          "x_velocity": 0,
+          "x_friction_ticks": 0
+        },
+        {
+          "tick": 44,
+          "demo_keys": 0,
+          "x": 162,
+          "x_velocity": 0,
+          "x_friction_ticks": 1
+        },
+        {
+          "tick": 45,
+          "demo_keys": 0,
+          "x": 162,
+          "x_velocity": 0,
+          "x_friction_ticks": 0
+        },
+        {
+          "tick": 46,
+          "demo_keys": 0,
+          "x": 162,
+          "x_velocity": 0,
+          "x_friction_ticks": 1
+        },
+        {
+          "tick": 47,
+          "demo_keys": 0,
+          "x": 162,
+          "x_velocity": 0,
+          "x_friction_ticks": 0
+        },
+        {
+          "tick": 48,
+          "demo_keys": 0,
+          "x": 162,
+          "x_velocity": 0,
+          "x_friction_ticks": 1
+        },
+        {
+          "tick": 49,
+          "demo_keys": 0,
+          "x": 162,
+          "x_velocity": 0,
+          "x_friction_ticks": 0
+        },
+        {
+          "tick": 50,
+          "demo_keys": 0,
+          "x": 162,
+          "x_velocity": 0,
+          "x_friction_ticks": 1
+        },
+        {
+          "tick": 51,
+          "demo_keys": 0,
+          "x": 162,
+          "x_velocity": 0,
+          "x_friction_ticks": 0
+        },
+        {
+          "tick": 52,
+          "demo_keys": 0,
+          "x": 162,
+          "x_velocity": 0,
+          "x_friction_ticks": 1
+        },
+        {
+          "tick": 53,
+          "demo_keys": 0,
+          "x": 162,
+          "x_velocity": 0,
+          "x_friction_ticks": 0
+        },
+        {
+          "tick": 54,
+          "demo_keys": 0,
+          "x": 162,
+          "x_velocity": 0,
+          "x_friction_ticks": 1
+        },
+        {
+          "tick": 55,
+          "demo_keys": 0,
+          "x": 162,
+          "x_velocity": 0,
+          "x_friction_ticks": 0
+        },
+        {
+          "tick": 56,
+          "demo_keys": 0,
+          "x": 162,
+          "x_velocity": 0,
+          "x_friction_ticks": 1
+        },
+        {
+          "tick": 57,
+          "demo_keys": 0,
+          "x": 162,
+          "x_velocity": 0,
+          "x_friction_ticks": 0
+        },
+        {
+          "tick": 58,
+          "demo_keys": 0,
+          "x": 162,
+          "x_velocity": 0,
+          "x_friction_ticks": 1
+        },
+        {
+          "tick": 59,
+          "demo_keys": 0,
+          "x": 162,
+          "x_velocity": 0,
+          "x_friction_ticks": 0
+        }
+      ],
+      "settled_player": [
+        162,
+        160
+      ],
+      "mapX": 1,
+      "parallax_offsets": {
+        "ground": 14,
+        "sky": 28,
+        "top": 42
+      },
+      "carrier_spawn": {
+        "event": 789,
+        "tick_predicted": 6300,
+        "record": 17,
+        "pool": [
+          0,
+          24
+        ],
+        "ex": 130,
+        "ey": -28,
+        "xc": 0,
+        "yc": 3,
+        "background_y": 0
+      },
+      "pulse": {
+        "tick_proposed": 6306,
+        "after_sky_draw_carrier": [
+          158,
+          -7
+        ],
+        "shot": [
+          158,
+          -13
+        ],
+        "damage": 5,
+        "earlier6305_shot_y": -16,
+        "minimum_shot_y": -15
+      },
+      "gem": {
+        "record": 395,
+        "birth_after_projectiles": [
+          130,
+          -7
+        ],
+        "initial_mapoffset": 0,
+        "first_draw_tick": 6307,
+        "first_draw": [
+          158,
+          -7
+        ],
+        "delta_y_per_draw": 1,
+        "C_predicted": 6460,
+        "C_draw": [
+          158,
+          146
+        ],
+        "C_postmovement_collection": [
+          158,
+          147
+        ],
+        "C_player": [
+          162,
+          160
+        ],
+        "body_draw_count_through_C": 154,
+        "pre_C_16": [
+          {
+            "tick": 6444,
+            "ordinal0": 137,
+            "phase1": 10,
+            "id": 18,
+            "draw_x": 158,
+            "draw_y": 130
+          },
+          {
+            "tick": 6445,
+            "ordinal0": 138,
+            "phase1": 11,
+            "id": 17,
+            "draw_x": 158,
+            "draw_y": 131
+          },
+          {
+            "tick": 6446,
+            "ordinal0": 139,
+            "phase1": 12,
+            "id": 17,
+            "draw_x": 158,
+            "draw_y": 132
+          },
+          {
+            "tick": 6447,
+            "ordinal0": 140,
+            "phase1": 13,
+            "id": 16,
+            "draw_x": 158,
+            "draw_y": 133
+          },
+          {
+            "tick": 6448,
+            "ordinal0": 141,
+            "phase1": 14,
+            "id": 16,
+            "draw_x": 158,
+            "draw_y": 134
+          },
+          {
+            "tick": 6449,
+            "ordinal0": 142,
+            "phase1": 15,
+            "id": 15,
+            "draw_x": 158,
+            "draw_y": 135
+          },
+          {
+            "tick": 6450,
+            "ordinal0": 143,
+            "phase1": 16,
+            "id": 15,
+            "draw_x": 158,
+            "draw_y": 136
+          },
+          {
+            "tick": 6451,
+            "ordinal0": 144,
+            "phase1": 1,
+            "id": 14,
+            "draw_x": 158,
+            "draw_y": 137
+          },
+          {
+            "tick": 6452,
+            "ordinal0": 145,
+            "phase1": 2,
+            "id": 14,
+            "draw_x": 158,
+            "draw_y": 138
+          },
+          {
+            "tick": 6453,
+            "ordinal0": 146,
+            "phase1": 3,
+            "id": 15,
+            "draw_x": 158,
+            "draw_y": 139
+          },
+          {
+            "tick": 6454,
+            "ordinal0": 147,
+            "phase1": 4,
+            "id": 15,
+            "draw_x": 158,
+            "draw_y": 140
+          },
+          {
+            "tick": 6455,
+            "ordinal0": 148,
+            "phase1": 5,
+            "id": 16,
+            "draw_x": 158,
+            "draw_y": 141
+          },
+          {
+            "tick": 6456,
+            "ordinal0": 149,
+            "phase1": 6,
+            "id": 16,
+            "draw_x": 158,
+            "draw_y": 142
+          },
+          {
+            "tick": 6457,
+            "ordinal0": 150,
+            "phase1": 7,
+            "id": 17,
+            "draw_x": 158,
+            "draw_y": 143
+          },
+          {
+            "tick": 6458,
+            "ordinal0": 151,
+            "phase1": 8,
+            "id": 17,
+            "draw_x": 158,
+            "draw_y": 144
+          },
+          {
+            "tick": 6459,
+            "ordinal0": 152,
+            "phase1": 9,
+            "id": 18,
+            "draw_x": 158,
+            "draw_y": 145
+          }
+        ],
+        "fixed_draws_predicted": [
+          6460,
+          6467
+        ],
+        "clear_ticks_predicted": [
+          6468,
+          6469
+        ]
+      }
+    },
+    "observed_success_stop": "actualC+9 inclusive after8 selected fixed draws and2 selected-popup-clear observations",
+    "visibility": {
+      "baseline_images": 0,
+      "pre_C_16_each_source_cell_match_min": 41,
+      "body_support": 81,
+      "clip": "original gameplay x24..287/y0..183; count clipped and nonmatching separately",
+      "late_background3over1_remains": true,
+      "popup_C_plus_1_source_match_min_normal": 45,
+      "popup_support": 89,
+      "blend_popup": "compare unchanged indexed blend operator against pre-draw background, not unblended source",
+      "equal_colour_overdraw_limitation": true,
+      "image_review_still_required": true
+    },
+    "captures": {
+      "baseline": 0,
+      "native2": {
+        "count": 25,
+        "window": "actualC-16..C+8 inclusive",
+        "size": [
+          640,
+          400
+        ]
+      },
+      "native4": {
+        "count": 1,
+        "tick": "actualC+1",
+        "size": [
+          1280,
+          800
+        ],
+        "coverage": "fixed250 only; not actual4x body"
+      }
+    },
+    "stop_on_any_mismatch": true,
+    "automatic_retry": false,
+    "extra_pulse": false,
+    "retarget": false,
+    "later_search": false,
+    "field_correction": false,
+    "window_extension": false,
+    "large_pack_copies": false,
+    "deletion": false
+  },
+  "lifecycle_identity_guard": "Track original selected carrier/pickup/popup birth and exact free/removal/expiry. Allow and log later unrelated slot reuse; do not require a freed enemy/effect slot stay empty. Events794/809/810 can reuse SKY slots after carrier free or C.",
+  "tests": "finite extension of unchanged gem100/cash renderer and original extractors;33-resource5-family fixture,32 independent readiness combinations; all16 held states,correct SKY17/event15 semantics,moving36/188 negative",
+  "counts": {
+    "game_runs": 0,
+    "builds": 0,
+    "unit_executions": 0,
+    "production_edits": 0,
+    "fixture_edits": 0,
+    "new_art": 0
+  }
+}
