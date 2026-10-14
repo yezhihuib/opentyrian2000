@@ -1,0 +1,175 @@
+{
+  "schema": "tank-shell-public-summary-v1",
+  "derived_from_sha256": "55955dd6cfdfa2b4fc498c1312d528dbbe766141bef43fd961819b15cc2c1176",
+  "scope": "Technical summary. Original pixel grids, game-data payloads and private artifact paths are not distributed.",
+  "tables": [
+    {
+      "table": "tyrian.hdt",
+      "matches": [
+        {
+          "weapon": 2,
+          "positions": [
+            {
+              "position": 1,
+              "sg": 146,
+              "player_frames": [
+                146
+              ],
+              "enemy_frames": [
+                146
+              ],
+              "weapani": 0,
+              "del_value": 255
+            }
+          ],
+          "enemy_records": [
+            {
+              "record": 15,
+              "slots": [
+                1
+              ],
+              "freq": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "record": 194,
+              "slots": [
+                1
+              ],
+              "freq": [
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "port_refs": [],
+          "special_refs": [],
+          "option_refs": []
+        },
+        {
+          "weapon": 3,
+          "positions": [
+            {
+              "position": 1,
+              "sg": 147,
+              "player_frames": [
+                147
+              ],
+              "enemy_frames": [
+                147
+              ],
+              "weapani": 0,
+              "del_value": 255
+            }
+          ],
+          "enemy_records": [
+            {
+              "record": 15,
+              "slots": [
+                2
+              ],
+              "freq": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "record": 194,
+              "slots": [
+                2
+              ],
+              "freq": [
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "port_refs": [],
+          "special_refs": [],
+          "option_refs": []
+        },
+        {
+          "weapon": 6,
+          "positions": [
+            {
+              "position": 1,
+              "sg": 146,
+              "player_frames": [
+                146
+              ],
+              "enemy_frames": [
+                146
+              ],
+              "weapani": 0,
+              "del_value": 255
+            }
+          ],
+          "enemy_records": [
+            {
+              "record": 195,
+              "slots": [
+                1
+              ],
+              "freq": [
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "port_refs": [],
+          "special_refs": [],
+          "option_refs": []
+        },
+        {
+          "weapon": 7,
+          "positions": [
+            {
+              "position": 1,
+              "sg": 147,
+              "player_frames": [
+                147
+              ],
+              "enemy_frames": [
+                147
+              ],
+              "weapani": 0,
+              "del_value": 255
+            }
+          ],
+          "enemy_records": [
+            {
+              "record": 195,
+              "slots": [
+                2
+              ],
+              "freq": [
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "port_refs": [],
+          "special_refs": [],
+          "option_refs": []
+        }
+      ]
+    },
+    {
+      "table": "tyrian4.lvl",
+      "matches": []
+    },
+    {
+      "table": "tyrian5.lvl",
+      "matches": []
+    }
+  ],
+  "qualification": "Generic player paths may accept these weapon IDs; enemy-only role122 preserves them. Static reference absence is not proof of universal player impossibility."
+}

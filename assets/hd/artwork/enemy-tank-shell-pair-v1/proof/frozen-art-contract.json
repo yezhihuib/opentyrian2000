@@ -1,0 +1,299 @@
+{
+  "schema": "tank-shell-public-summary-v1",
+  "derived_from_sha256": "58e6e3363fc850cf34e7ed42b0b58277eea9b5adb60e14e24639cc1f7b15ebc7",
+  "scope": "Technical summary. Original pixel grids, game-data payloads and private artifact paths are not distributed.",
+  "status": "Frozen canonical art; runtime acceptance is reported separately in docs/enemy-tank-shell-pair-v1.",
+  "artwork_origin": "Built-in image_gen only; technical crop/registration/resampling is deterministic. No procedural painting, nearest-upscaled source art, source alpha mask or matte used.",
+  "source_interpretation": "Restrained mauve/steel physical-looking slug is a visual interpretation, not asserted game lore.",
+  "assets": [
+    {
+      "source_bank": "spriteSheet8",
+      "source_id": 146,
+      "orientation": "down",
+      "file_format": "PNG RGBA8 straight alpha",
+      "dimensions_pixels": [
+        96,
+        112
+      ],
+      "native_canvas": [
+        12,
+        14
+      ],
+      "density": 8,
+      "native_anchor": [
+        0,
+        0
+      ],
+      "source_bbox_native": [
+        3,
+        2,
+        8,
+        13
+      ],
+      "source_covered_cells": 39,
+      "generated_master_sha256": "61dea6b499d466bf09a78478b5f9c25b84c1a31f1a4ae45057533c65a53d6e73",
+      "registration": {
+        "generated_component_alpha_threshold": 32,
+        "generated_component_bbox": [
+          383,
+          156,
+          778,
+          1198
+        ],
+        "registration_crop_including_guard": [
+          381,
+          154,
+          780,
+          1200
+        ],
+        "destination_bbox_native": [
+          3,
+          2,
+          8,
+          13
+        ]
+      },
+      "canonical_file": "source/enemy-tank-shell-146-down-8x.png",
+      "runtime_role": 122,
+      "runtime_key": 1220146,
+      "canonical8_measurements": {
+        "density": 8,
+        "file_sha256": "982074e6a7fda990d0951e55a17dc40c98f00f494a760eccf074037a5c0b81d6",
+        "alpha_weighted_area_native": 33.2155637254902,
+        "alpha_area_delta_native": -5.784436274509801,
+        "source_centroid_native": [
+          5.5,
+          7.858974358974359
+        ],
+        "art_centroid_native": [
+          5.502716168152921,
+          8.032959970705322
+        ],
+        "centroid_delta_native": [
+          0.0027161681529213055,
+          0.17398561173096372
+        ],
+        "thresholds": {
+          "1": {
+            "support_bbox_native": [
+              3.0,
+              2.0,
+              8.0,
+              13.0
+            ],
+            "support_native_equivalent": 37.703125,
+            "support_gained_native_equivalent": 2.125,
+            "support_lost_native_equivalent": 3.421875,
+            "iou": 0.8651215805471124,
+            "outside_12x14_canvas": 0
+          },
+          "8": {
+            "support_bbox_native": [
+              3.0,
+              2.0,
+              8.0,
+              13.0
+            ],
+            "support_native_equivalent": 35.1875,
+            "support_gained_native_equivalent": 1.03125,
+            "support_lost_native_equivalent": 4.84375,
+            "iou": 0.853239656518345,
+            "outside_12x14_canvas": 0
+          },
+          "32": {
+            "support_bbox_native": [
+              3.0,
+              2.0,
+              8.0,
+              13.0
+            ],
+            "support_native_equivalent": 34.703125,
+            "support_gained_native_equivalent": 0.875,
+            "support_lost_native_equivalent": 5.171875,
+            "iou": 0.8483542319749217,
+            "outside_12x14_canvas": 0
+          },
+          "128": {
+            "support_bbox_native": [
+              3.0,
+              2.0,
+              8.0,
+              13.0
+            ],
+            "support_native_equivalent": 33.53125,
+            "support_gained_native_equivalent": 0.546875,
+            "support_lost_native_equivalent": 6.015625,
+            "iou": 0.834057684709601,
+            "outside_12x14_canvas": 0
+          },
+          "240": {
+            "support_bbox_native": [
+              3.125,
+              2.125,
+              7.875,
+              12.875
+            ],
+            "support_native_equivalent": 31.859375,
+            "support_gained_native_equivalent": 0.296875,
+            "support_lost_native_equivalent": 7.4375,
+            "iou": 0.8031809145129225,
+            "outside_12x14_canvas": 0
+          }
+        }
+      }
+    },
+    {
+      "source_bank": "spriteSheet8",
+      "source_id": 147,
+      "orientation": "down-right",
+      "file_format": "PNG RGBA8 straight alpha",
+      "dimensions_pixels": [
+        96,
+        112
+      ],
+      "native_canvas": [
+        12,
+        14
+      ],
+      "density": 8,
+      "native_anchor": [
+        0,
+        0
+      ],
+      "source_bbox_native": [
+        3,
+        3,
+        12,
+        12
+      ],
+      "source_covered_cells": 39,
+      "generated_master_sha256": "ebf4333dd65f92617f6a20e14d05b658a8b668f5522c324145665991f370caae",
+      "registration": {
+        "generated_component_alpha_threshold": 32,
+        "generated_component_bbox": [
+          292,
+          288,
+          989,
+          963
+        ],
+        "registration_crop_including_guard": [
+          290,
+          286,
+          991,
+          965
+        ],
+        "destination_bbox_native": [
+          3,
+          3,
+          12,
+          12
+        ]
+      },
+      "canonical_file": "source/enemy-tank-shell-147-down-right-8x.png",
+      "runtime_role": 122,
+      "runtime_key": 1220147,
+      "canonical8_measurements": {
+        "density": 8,
+        "file_sha256": "cbe89099555875d73cec872745775f0109604736e1156e5c293306331d8e7562",
+        "alpha_weighted_area_native": 37.57064950980393,
+        "alpha_area_delta_native": -1.4293504901960716,
+        "source_centroid_native": [
+          7.5,
+          7.5
+        ],
+        "art_centroid_native": [
+          7.55174452787477,
+          7.568322567939812
+        ],
+        "centroid_delta_native": [
+          0.05174452787476991,
+          0.06832256793981184
+        ],
+        "thresholds": {
+          "1": {
+            "support_bbox_native": [
+              3.0,
+              3.0,
+              12.0,
+              12.0
+            ],
+            "support_native_equivalent": 42.140625,
+            "support_gained_native_equivalent": 4.71875,
+            "support_lost_native_equivalent": 1.578125,
+            "iou": 0.8559685489635454,
+            "outside_12x14_canvas": 0
+          },
+          "8": {
+            "support_bbox_native": [
+              3.0,
+              3.0,
+              12.0,
+              12.0
+            ],
+            "support_native_equivalent": 39.671875,
+            "support_gained_native_equivalent": 2.953125,
+            "support_lost_native_equivalent": 2.28125,
+            "iou": 0.8752327746741154,
+            "outside_12x14_canvas": 0
+          },
+          "32": {
+            "support_bbox_native": [
+              3.0,
+              3.0,
+              12.0,
+              12.0
+            ],
+            "support_native_equivalent": 39.125,
+            "support_gained_native_equivalent": 2.75,
+            "support_lost_native_equivalent": 2.625,
+            "iou": 0.8712574850299402,
+            "outside_12x14_canvas": 0
+          },
+          "128": {
+            "support_bbox_native": [
+              3.0,
+              3.0,
+              12.0,
+              12.0
+            ],
+            "support_native_equivalent": 37.84375,
+            "support_gained_native_equivalent": 2.234375,
+            "support_lost_native_equivalent": 3.390625,
+            "iou": 0.8635846911708981,
+            "outside_12x14_canvas": 0
+          },
+          "240": {
+            "support_bbox_native": [
+              3.125,
+              3.125,
+              11.875,
+              11.875
+            ],
+            "support_native_equivalent": 36.296875,
+            "support_gained_native_equivalent": 1.78125,
+            "support_lost_native_equivalent": 4.484375,
+            "iou": 0.846360153256705,
+            "outside_12x14_canvas": 0
+          }
+        }
+      }
+    }
+  ],
+  "integration_constraints": [
+    "Enemy-only resource role, separate source IDs146/147, never generic bank8/player or explosion indices.",
+    "Normal/Xmas images alias exactly; shared emitters15/194/195; original ID-fixed headings even if Repulsor changes velocity.",
+    "Exactly two static sprites. No ID145, extra animation, bloom, glow, exhaust or trail.",
+    "Preserve source12x14 canvas/anchor0,0, lifetime/motion/collision/RNG, draw order, global palette/filter behavior and fallback."
+  ],
+  "reproduction_scope": "The shipped canonical PNGs are the frozen starting inputs. The builder exactly reproduces HDR1 wrappers from them, without regeneration, resampling, rotation, recoloring, or clipping to original support. Historical generated-master reconstruction inputs and comparison panels are retained separately and are not shipped.",
+  "historical_pilot_qualification": "Earlier direct-master Lanczos2x/4x pilots are different from current renderer nearest sampling; their file hashes and lower-density measurements are intentionally not labeled runtime outputs.",
+  "historical_sampling_qualification": {
+    "source_file": "src/render_mirror.c",
+    "source_sha256_at_qualification": "292fdc3e8b7dc69c466f6dde4b02c2dfda73443885642b230abe7a0be8bff0e8",
+    "repo_commit_at_qualification": "4597e39c75b949d8f4e1f22bbc6117b432294132",
+    "alpha_blend": "(destination*(255-alpha)+source*alpha+127)/255 integer floor",
+    "presentation": "SDL_ScaleModeNearest; density8 to output2 samples2,6,10,...; to4 samples1,3,5,...",
+    "standalone_sdl_sample_test": "Passed. No game was run; previews do not claim runtime emission/visibility."
+  },
+  "current_integration": "Role122 and exact HDR1 wrappers are now integrated; see docs/enemy-tank-shell-pair-v1 for current runtime evidence. The historical standalone sampler and art pilots are not runtime claims."
+}

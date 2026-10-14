@@ -1,0 +1,134 @@
+{
+  "schema": "tank-shell-source-unit-summary-v1",
+  "status": "PASS_SOURCE_AND_UNITS",
+  "tested_source_commit": "3f793793b70fbddb1011a6fa65f52bd55c784cca",
+  "baseline": "916b7aa8a4a837c695d6cef4b1e9da133db27ef1",
+  "original_source_receipt_sha256": "54eff31120f31fb9aa342f781b9bcf6de83957b8f34452fb52ba920dc8704f6b",
+  "tested_production_sha256": {
+    "src/render_mirror.c": "b472d2e510e5c01c88fe1c368dcfea2bf24dac9575da7ad4c5575744228409cd",
+    "src/entity_draw.c": "f0f34ac7ba7bd3b26e8b0c24a560516b965cf111c8e6d6f3abe6c02a6e2d21ad",
+    "src/tyrian2.c": "7899612928cfa1b0e87470807f887a434d78bb691b7d9033bcee876a46cd4ce4"
+  },
+  "complete_source_inverse": true,
+  "manifest_additive_inverse": true,
+  "prior_pack_payloads_exact": true,
+  "historical_tested_inventory_sha256": "22cbb6caf83bbac4849c56014b8ba9ec2e4f90527f9864452380c86bcbcd7f79",
+  "public_derivative_inventory_sha256": "0f5b3c9530dba5c15fc1384a91c528db3da2ace6dd64f3b74f8672d5b9504f74",
+  "sanitizers": [
+    "ASan",
+    "UBSan"
+  ],
+  "results": {
+    "preview-normal": {
+      "status": "PASS",
+      "transactions": 807,
+      "accepted": 423,
+      "fallback": 384,
+      "player_cases": 240,
+      "guard_cases": 46,
+      "pixel_comparisons": 11383232,
+      "full_frame_checks": 60,
+      "exact_alpha_cases": 393216
+    },
+    "preview-xmas": {
+      "status": "PASS",
+      "transactions": 807,
+      "accepted": 423,
+      "fallback": 384,
+      "player_cases": 240,
+      "guard_cases": 46,
+      "pixel_comparisons": 11383232,
+      "full_frame_checks": 60,
+      "exact_alpha_cases": 393216
+    },
+    "debug-normal": {
+      "status": "PASS",
+      "transactions": 807,
+      "accepted": 423,
+      "fallback": 384,
+      "player_cases": 240,
+      "guard_cases": 46,
+      "pixel_comparisons": 11383232,
+      "full_frame_checks": 60,
+      "exact_alpha_cases": 393216
+    },
+    "debug-xmas": {
+      "status": "PASS",
+      "transactions": 807,
+      "accepted": 423,
+      "fallback": 384,
+      "player_cases": 240,
+      "guard_cases": 46,
+      "pixel_comparisons": 11383232,
+      "full_frame_checks": 60,
+      "exact_alpha_cases": 393216
+    }
+  },
+  "disabled": "PASS twelve disabled-build original blits",
+  "negative_resource_variants": [
+    "missing-146",
+    "magic-146",
+    "short-header-146",
+    "truncated-146",
+    "trailing-146",
+    "rgb-146",
+    "alpha-146",
+    "role-146",
+    "id-146",
+    "density-146",
+    "width-146",
+    "height-146",
+    "anchor-x-146",
+    "anchor-y-146",
+    "missing-147",
+    "magic-147",
+    "short-header-147",
+    "truncated-147",
+    "trailing-147",
+    "rgb-147",
+    "alpha-147",
+    "role-147",
+    "id-147",
+    "density-147",
+    "width-147",
+    "height-147",
+    "anchor-x-147",
+    "anchor-y-147",
+    "only4"
+  ],
+  "isolation": [
+    "seven-energy",
+    "orb112/113",
+    "player58 normal/shadow",
+    "generic player146/147 classic",
+    "newsh6 146/147 preserve distinct existing role106",
+    "red250 family ready"
+  ],
+  "cache": "sticky failures and successes; full fresh slot/flag reset cases",
+  "geometry": "x0/308, y-13/199 partial clips; row wraps/extreme coords decline",
+  "pixel_oracle": "full canonical RGBA, fractional alpha, later normal/shadow writes, exact original indexed RLE once per wrapper",
+  "limitations": [
+    "Extracted production proof; no game, actual presentation or native2/4 acceptance.",
+    "Unrelated font/material hooks use fail-if-entered or no-op stubs.",
+    "LeakSanitizer disabled; ASan/UBSan enabled."
+  ],
+  "publication_metadata_note": "Only proof/docs and their inventory pins change after the tested source. Generated art, runtime payloads, production source and unit algorithms must remain byte-identical; publication audit enforces this.",
+  "production_builds": {
+    "release": {
+      "status": "PASS",
+      "binary_sha256": "03a5e6a50e9c84a58bc48cefbe14377d269eb48649352a9f537bd2ec3347e4ff",
+      "binary_bytes": 954320,
+      "source_exact_candidate": true,
+      "log_sha256": "38a3b454755ad2d3fba41e5c6180a7b43d8fdace94f336d0ee3d01dac6ad2b6c",
+      "engine_launched": false
+    },
+    "disabled": {
+      "status": "PASS",
+      "binary_sha256": "5c81d2fea6aac003f35a615fa8d093b4d84ec96b5d4a99eec6e9679e246836a4",
+      "binary_bytes": 865792,
+      "source_exact_candidate": true,
+      "log_sha256": "ab5b73365db3471108a8a80d7e0a19e0f6b1e390df19b58748a95093a8757031",
+      "engine_launched": false
+    }
+  }
+}

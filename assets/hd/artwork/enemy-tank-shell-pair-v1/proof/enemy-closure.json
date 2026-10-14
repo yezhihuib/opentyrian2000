@@ -1,0 +1,192 @@
+{
+  "schema": "tank-shell-public-summary-v1",
+  "derived_from_sha256": "32d40b314e64f611054254c8cb92a243cb6f6975dd05bebeb8d63acd4c841e17",
+  "scope": "Technical summary. Original pixel grids, game-data payloads and private artifact paths are not distributed.",
+  "routes": [
+    {
+      "table": "tyrian.hdt",
+      "id": 146,
+      "enemy_record": 15,
+      "turret": 1,
+      "weapon": 2,
+      "position": 1,
+      "sg": 146,
+      "animax": 0,
+      "velocity": [
+        0,
+        4
+      ],
+      "acceleration": [
+        0,
+        0
+      ],
+      "aim": 0,
+      "tracking": [
+        0,
+        0
+      ],
+      "spawn_offset": [
+        0,
+        0
+      ],
+      "frequency": 0,
+      "trail": 255
+    },
+    {
+      "table": "tyrian.hdt",
+      "id": 146,
+      "enemy_record": 194,
+      "turret": 1,
+      "weapon": 2,
+      "position": 1,
+      "sg": 146,
+      "animax": 0,
+      "velocity": [
+        0,
+        4
+      ],
+      "acceleration": [
+        0,
+        0
+      ],
+      "aim": 0,
+      "tracking": [
+        0,
+        0
+      ],
+      "spawn_offset": [
+        0,
+        0
+      ],
+      "frequency": 0,
+      "trail": 255
+    },
+    {
+      "table": "tyrian.hdt",
+      "id": 147,
+      "enemy_record": 15,
+      "turret": 2,
+      "weapon": 3,
+      "position": 1,
+      "sg": 147,
+      "animax": 0,
+      "velocity": [
+        3,
+        3
+      ],
+      "acceleration": [
+        0,
+        0
+      ],
+      "aim": 0,
+      "tracking": [
+        0,
+        0
+      ],
+      "spawn_offset": [
+        0,
+        0
+      ],
+      "frequency": 0,
+      "trail": 255
+    },
+    {
+      "table": "tyrian.hdt",
+      "id": 147,
+      "enemy_record": 194,
+      "turret": 2,
+      "weapon": 3,
+      "position": 1,
+      "sg": 147,
+      "animax": 0,
+      "velocity": [
+        3,
+        3
+      ],
+      "acceleration": [
+        0,
+        0
+      ],
+      "aim": 0,
+      "tracking": [
+        0,
+        0
+      ],
+      "spawn_offset": [
+        0,
+        0
+      ],
+      "frequency": 0,
+      "trail": 255
+    },
+    {
+      "table": "tyrian.hdt",
+      "id": 146,
+      "enemy_record": 195,
+      "turret": 1,
+      "weapon": 6,
+      "position": 1,
+      "sg": 146,
+      "animax": 0,
+      "velocity": [
+        0,
+        8
+      ],
+      "acceleration": [
+        0,
+        0
+      ],
+      "aim": 0,
+      "tracking": [
+        0,
+        0
+      ],
+      "spawn_offset": [
+        0,
+        0
+      ],
+      "frequency": 0,
+      "trail": 255
+    },
+    {
+      "table": "tyrian.hdt",
+      "id": 147,
+      "enemy_record": 195,
+      "turret": 2,
+      "weapon": 7,
+      "position": 1,
+      "sg": 147,
+      "animax": 0,
+      "velocity": [
+        6,
+        6
+      ],
+      "acceleration": [
+        0,
+        0
+      ],
+      "aim": 0,
+      "tracking": [
+        0,
+        0
+      ],
+      "spawn_offset": [
+        0,
+        0
+      ],
+      "frequency": 0,
+      "trail": 255
+    }
+  ],
+  "runtime_covered_enemy_records": [
+    15
+  ],
+  "source_only_enemy_records": [
+    194,
+    195
+  ],
+  "source_only_weapons": [
+    6,
+    7
+  ]
+}

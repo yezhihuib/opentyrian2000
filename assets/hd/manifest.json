@@ -29154,7 +29154,7 @@
       }
     },
     "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 513,
+      "count": 515,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -35824,11 +35824,37 @@
           "sha256": "612c4d9f43342c785d297d0a4741169e00febe7c00a64fb6b63783a2c0016790",
           "source_png": "assets/hd/source/gem250-value-newsh6-188-8-612c4d9f4334.png",
           "source_png_sha256": "40404347b2e79f3ab72458bfa4e436797fa66f5f0183b4c34d06e7b066f6ff00"
+        },
+        "enemy-tank-shell-146-8.hda": {
+          "header_u32": [
+            1220146,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "sha256": "18cbd40ee58fb30f19c6447d9e144a682ff25f26080c9fd85238447c2071d196",
+          "source_png": "assets/hd/source/enemy-tank-shell-146-8-18cbd40ee58f.png",
+          "source_png_sha256": "982074e6a7fda990d0951e55a17dc40c98f00f494a760eccf074037a5c0b81d6"
+        },
+        "enemy-tank-shell-147-8.hda": {
+          "header_u32": [
+            1220147,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "sha256": "4bc2df967eff050ef7823eacd130b7c924fc2a72b60d6a7288460595866c90da",
+          "source_png": "assets/hd/source/enemy-tank-shell-147-8-4bc2df967eff.png",
+          "source_png_sha256": "cbe89099555875d73cec872745775f0109604736e1156e5c293306331d8e7562"
         }
       }
     },
     "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 513,
+      "count": 515,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -42498,6 +42524,32 @@
           "sha256": "612c4d9f43342c785d297d0a4741169e00febe7c00a64fb6b63783a2c0016790",
           "source_png": "assets/hd/source/gem250-value-newsh6-188-8-612c4d9f4334.png",
           "source_png_sha256": "40404347b2e79f3ab72458bfa4e436797fa66f5f0183b4c34d06e7b066f6ff00"
+        },
+        "enemy-tank-shell-146-8.hda": {
+          "header_u32": [
+            1220146,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "sha256": "18cbd40ee58fb30f19c6447d9e144a682ff25f26080c9fd85238447c2071d196",
+          "source_png": "assets/hd/source/enemy-tank-shell-146-8-18cbd40ee58f.png",
+          "source_png_sha256": "982074e6a7fda990d0951e55a17dc40c98f00f494a760eccf074037a5c0b81d6"
+        },
+        "enemy-tank-shell-147-8.hda": {
+          "header_u32": [
+            1220147,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "sha256": "4bc2df967eff050ef7823eacd130b7c924fc2a72b60d6a7288460595866c90da",
+          "source_png": "assets/hd/source/enemy-tank-shell-147-8-4bc2df967eff.png",
+          "source_png_sha256": "cbe89099555875d73cec872745775f0109604736e1156e5c293306331d8e7562"
         }
       }
     }
@@ -45774,6 +45826,16 @@
       "path": "assets/hd/source/gem250-value-newsh6-188-8-612c4d9f4334.png",
       "sha256": "40404347b2e79f3ab72458bfa4e436797fa66f5f0183b4c34d06e7b066f6ff00",
       "RGBA_sha256": "60224b51e4080145c48f063e6f0138e96f9e7ed367af9fd3e15f55dfaacdac7e"
+    },
+    "18cbd40ee58fb30f19c6447d9e144a682ff25f26080c9fd85238447c2071d196": {
+      "path": "assets/hd/source/enemy-tank-shell-146-8-18cbd40ee58f.png",
+      "sha256": "982074e6a7fda990d0951e55a17dc40c98f00f494a760eccf074037a5c0b81d6",
+      "RGBA_sha256": "5c9fea325db3100aea870bec675a401838125f44a9a17a08209e356186d6ce7f"
+    },
+    "4bc2df967eff050ef7823eacd130b7c924fc2a72b60d6a7288460595866c90da": {
+      "path": "assets/hd/source/enemy-tank-shell-147-8-4bc2df967eff.png",
+      "sha256": "cbe89099555875d73cec872745775f0109604736e1156e5c293306331d8e7562",
+      "RGBA_sha256": "2360cc85edcdaa601ec6e66b1ade4bd66d8fba6c6703f4f61b4e4af6ead80f14"
     }
   },
   "no_original_game_data": true,
@@ -50644,6 +50706,42 @@
         "key": 1210188,
         "HDA_sha256": "612c4d9f43342c785d297d0a4741169e00febe7c00a64fb6b63783a2c0016790",
         "RGBA_FNV1a64": "9043dd670142a68f"
+      }
+    ]
+  },
+  "enemy_tank_shell_pair_v1": {
+    "source": "assets/hd/artwork/enemy-tank-shell-pair-v1",
+    "inventory_sha256": "0f5b3c9530dba5c15fc1384a91c528db3da2ace6dd64f3b74f8672d5b9504f74",
+    "role": 122,
+    "density": 8,
+    "logical_size": [
+      12,
+      14
+    ],
+    "anchor": [
+      0,
+      0
+    ],
+    "ids": [
+      146,
+      147
+    ],
+    "scope": "enemy-only; shared records15/194/195 and weapons2/3/6/7; player and newsh6 paths unchanged",
+    "fallback": "all-two-or-classic; density8 only; startup-selected lifetime cache",
+    "entries": [
+      {
+        "id": 146,
+        "slot": 505,
+        "key": 1220146,
+        "HDA_sha256": "18cbd40ee58fb30f19c6447d9e144a682ff25f26080c9fd85238447c2071d196",
+        "RGBA_FNV1a64": "8a02233c02993d45"
+      },
+      {
+        "id": 147,
+        "slot": 506,
+        "key": 1220147,
+        "HDA_sha256": "4bc2df967eff050ef7823eacd130b7c924fc2a72b60d6a7288460595866c90da",
+        "RGBA_FNV1a64": "6786d727d8d42fbf"
       }
     ]
   }

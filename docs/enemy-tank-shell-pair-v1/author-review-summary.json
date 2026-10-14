@@ -1,0 +1,223 @@
+{
+  "schema": "tank-shell-author-summary-v1",
+  "status": "PASS_BOUNDED_ART_AND_ACTUAL_FRAME_REVIEW",
+  "reviewed_at_utc": "2026-10-14T02:28:00Z",
+  "original_receipt_sha256": "4ac5800caebeb1fe2e647b8b0b9be810291d860c8272f541d8a202bf4fae930d",
+  "art_findings": [
+    "Both frozen sprites and reviewed actuals read as restrained pale-mauve/steel physical slugs. Central specular shading stays within the body; no energy halo, bloom, trail or exhaust is visible.",
+    "146 retains the downward tapered body;147 retains a static down-right heading. Ordered pairs show no visible rotation, contour discontinuity or registration jump as147 leaves the turret.",
+    "Soft contour alpha looks clean at native2x and true native4x; no rectangular seam, hard canvas clipping, or detached edge fringe is apparent.",
+    "The initial147 overlap with the turret barrel is spatially consistent with the original pair, then the shell separates over dark metal toward gray stone.",
+    "Direct actual coverage includes146 on brown cliff faces and gray stone, and147 on dark metal and a metal/stone boundary. Dark-forest readability is supported by the approved art-only composite, not these selected actual shell positions.",
+    "Bright cloud is visible nearby at4214/4215, but the reviewed selected shells do not establish cloud overlap or foreground-cloud occlusion."
+  ],
+  "actual_images": [
+    {
+      "case": "baseline",
+      "tick": 4214,
+      "dimensions": [
+        640,
+        400
+      ],
+      "PNG_sha256": "dc45ef8276e5f2faa8a39bb6bd49e3df5300f320124d620a1d91faff02838476",
+      "RGBA_sha256": "08d1dd9eb4ef03081e83f81f6ff495452896d694f2e64e6e77d856d8f0dc035e",
+      "status": "ACCEPTED_AND_VISUALLY_REVIEWED"
+    },
+    {
+      "case": "baseline",
+      "tick": 4215,
+      "dimensions": [
+        640,
+        400
+      ],
+      "PNG_sha256": "7fdae5751770614e64525a81dc5580bc46f7d14be55dd4ffd2cb471b14bb37f5",
+      "RGBA_sha256": "5c369e64a341db379797901a46facdc44b24811c953857e7662b15ae26df6357",
+      "status": "ACCEPTED_AND_VISUALLY_REVIEWED"
+    },
+    {
+      "case": "baseline",
+      "tick": 4614,
+      "dimensions": [
+        640,
+        400
+      ],
+      "PNG_sha256": "870cd24ee6e81b4ae51e72819b2a9c9bc33a2085a25af47b5256e3b54cc4fcd2",
+      "RGBA_sha256": "c8fc5bb00f071869575af34e83c6856edb8f4be658e3a1d406d28fe2adcde40b",
+      "status": "ACCEPTED_AND_VISUALLY_REVIEWED"
+    },
+    {
+      "case": "baseline",
+      "tick": 4615,
+      "dimensions": [
+        640,
+        400
+      ],
+      "PNG_sha256": "36121c78884fdebe7fe7be29cbb8fc25a87f76b715353c5ffbeb0a7da3e93180",
+      "RGBA_sha256": "c92a38101a5a1d849a1a5075853143282094e87963e2120a7f07392a725d5143",
+      "status": "ACCEPTED_AND_VISUALLY_REVIEWED"
+    },
+    {
+      "case": "baseline",
+      "tick": 4616,
+      "dimensions": [
+        640,
+        400
+      ],
+      "PNG_sha256": "7a83c0dc172e0d73ef78590af1bfcffeb01421f3fb522d3e13a2414736912083",
+      "RGBA_sha256": "40cec9323628124eb92f16035bf81107dcba63ba5a6f56953e15eae77d862630",
+      "status": "ACCEPTED_AND_VISUALLY_REVIEWED"
+    },
+    {
+      "case": "baseline",
+      "tick": 4617,
+      "dimensions": [
+        640,
+        400
+      ],
+      "PNG_sha256": "960d15f267379a3ef24639be50be77520523812c45dce3d2516d0abd0f73e053",
+      "RGBA_sha256": "601152a33dbe9ef5241aea5da90fa7c7c3ce0bcf415ed6c01be595c29e8be3c9",
+      "status": "ACCEPTED_AND_VISUALLY_REVIEWED"
+    },
+    {
+      "case": "candidate",
+      "tick": 4214,
+      "dimensions": [
+        640,
+        400
+      ],
+      "PNG_sha256": "e37713ae6abea77495b7cfd6de7149ed7c495958c20add6f7fcca7f09616449c",
+      "RGBA_sha256": "a3d362fba8fc9d6f29a3e6d3fd7089d83ce492a1a636709a661a186835d588c9",
+      "status": "ACCEPTED_AND_VISUALLY_REVIEWED"
+    },
+    {
+      "case": "candidate",
+      "tick": 4215,
+      "dimensions": [
+        640,
+        400
+      ],
+      "PNG_sha256": "ce18bcb3994f215426bb0cfbbc5990ba0c39d02648fada6af1db8dddf836fb71",
+      "RGBA_sha256": "aeac5152d7fedf9b578bad890b41c10bea60fb5cbbbb8c16f4a75c791d8438f7",
+      "status": "ACCEPTED_AND_VISUALLY_REVIEWED"
+    },
+    {
+      "case": "candidate",
+      "tick": 4614,
+      "dimensions": [
+        640,
+        400
+      ],
+      "PNG_sha256": "88c53447fd6deef5773de434cb48462cc5f7cb812cef94c3f0185ca33024ea7d",
+      "RGBA_sha256": "b943cba0e49c39269b371d246d744680a5d2e428496abc742212380c57b678a3",
+      "status": "ACCEPTED_AND_VISUALLY_REVIEWED"
+    },
+    {
+      "case": "candidate",
+      "tick": 4615,
+      "dimensions": [
+        640,
+        400
+      ],
+      "PNG_sha256": "0f1b9591d30a1bed960652782c189fe81b242dd57a3a7562697b8b96fb50e9ba",
+      "RGBA_sha256": "3656986e74881db959b0c1156da3204e1723e12ca29f4feac3092cefd4c1a767",
+      "status": "ACCEPTED_AND_VISUALLY_REVIEWED"
+    },
+    {
+      "case": "candidate",
+      "tick": 4616,
+      "dimensions": [
+        640,
+        400
+      ],
+      "PNG_sha256": "510699f87f8df33b6a238b79ff031e2d64d9bae57266a75dbd78de9cee134a66",
+      "RGBA_sha256": "954b6f835b5941ee8f40be2d4e92620ba529b92b1b978fd4028c4ab0575ab570",
+      "status": "ACCEPTED_AND_VISUALLY_REVIEWED"
+    },
+    {
+      "case": "candidate",
+      "tick": 4617,
+      "dimensions": [
+        640,
+        400
+      ],
+      "PNG_sha256": "843303b8c45e265b15df3e26d8524575807823deab5bc401f20b043f9435600e",
+      "RGBA_sha256": "f347a3539bf29499371d8dac9aa6175210c5b1e1c2d9d6968b2d9ff27e9d60fc",
+      "status": "ACCEPTED_AND_VISUALLY_REVIEWED"
+    },
+    {
+      "case": "spot4",
+      "tick": 4214,
+      "dimensions": [
+        1280,
+        800
+      ],
+      "PNG_sha256": "344484a4b355f6843288ad4750e0f132b7552ca7d2b35879f36a75b37e5c0bad",
+      "RGBA_sha256": "157302d5352a3491d63f562ccd0f875c18571fcbbdc6dc90ac09deed1637b560",
+      "status": "ACCEPTED_AND_VISUALLY_REVIEWED"
+    },
+    {
+      "case": "spot4",
+      "tick": 4615,
+      "dimensions": [
+        1280,
+        800
+      ],
+      "PNG_sha256": "59b7c2ed7f3a359450ecc4acc7d4d10cb1df0fc7ec798ca35c6c8fbc85e50baf",
+      "RGBA_sha256": "3ae0693bcb1568afbc6f0f8f1df5d24d85adef397d002f6b843cfea3632a83b1",
+      "status": "ACCEPTED_AND_VISUALLY_REVIEWED"
+    },
+    {
+      "case": "missing",
+      "tick": 4214,
+      "dimensions": [
+        640,
+        400
+      ],
+      "PNG_sha256": "9f84416d68328fd106f9c9dd8000c93504fe251e6c8e5bd48d5dfd45b5d47a31",
+      "RGBA_sha256": "94bd30dcce02df324c77fe57a10e4885abb55e81a383d62ca222c38b63737b28",
+      "status": "FAILED_FALLBACK_RETAINED"
+    },
+    {
+      "case": "missing",
+      "tick": 4615,
+      "dimensions": [
+        640,
+        400
+      ],
+      "PNG_sha256": "577d8f890059ea36df7a114e1a98e3e225cd5f4c0337fe233e2a585ac9a53197",
+      "RGBA_sha256": "694786db26c835bfd99ccbf6ccfdb82d4dbb0c2cb815f7ae015ab7e931f6d01c",
+      "status": "FAILED_FALLBACK_RETAINED"
+    },
+    {
+      "case": "missing-policy-fixed",
+      "tick": 4214,
+      "dimensions": [
+        640,
+        400
+      ],
+      "PNG_sha256": "dc45ef8276e5f2faa8a39bb6bd49e3df5300f320124d620a1d91faff02838476",
+      "RGBA_sha256": "08d1dd9eb4ef03081e83f81f6ff495452896d694f2e64e6e77d856d8f0dc035e",
+      "status": "ACCEPTED_AND_VISUALLY_REVIEWED"
+    },
+    {
+      "case": "missing-policy-fixed",
+      "tick": 4615,
+      "dimensions": [
+        640,
+        400
+      ],
+      "PNG_sha256": "36121c78884fdebe7fe7be29cbb8fc25a87f76b715353c5ffbeb0a7da3e93180",
+      "RGBA_sha256": "c92a38101a5a1d849a1a5075853143282094e87963e2120a7f07392a725d5143",
+      "status": "ACCEPTED_AND_VISUALLY_REVIEWED"
+    }
+  ],
+  "fallback_status": "Corrected runs/missing-policy-fixed is accepted: both full native2x frames at4214/4615 equal baseline exactly, restoring both classic shell appearances without changed terrain. Original failed runs/missing frames remain retained; their treeline mismatch is not excused or pixel-excluded. The producer records a private29-byte forest13.policy regular-file materialization correcting symlink rejection; no production/art/binary change is claimed by that correction.",
+  "limits": [
+    "Private deterministic original-event spawn; stationary/no-fire with alive-only floor2. This is not natural manual survival.",
+    "Selected Normal/story Linux software-renderer frames only. No full-level, Windows, all modes, all emitters, all backgrounds or general overlap guarantee.",
+    "Authored alpha inside the12x14 rectangle may extend beyond the old binary source mask; that is not treated as an art defect.",
+    "The accepted fallback is the separately authorized corrected run; the first fallback remains failed. No broadened frame window or excluded pixels were used for this acceptance."
+  ],
+  "run_accounting": "Producer accounting: five original-engine process starts and18 retained actual frames, comprising16 accepted frames plus the2 preserved failed fallback frames. This reviewer ran no engine process and captured no new actual frame.",
+  "review_scope": "Visual review plus PNG/RGBA/dimension/hash checks; source/semantic equality is independently documented in the numeric receipt. The labeled enlarged2x crop sheet is not a true native4x capture."
+}

@@ -1,0 +1,127 @@
+{
+  "schema": "tank-shell-public-summary-v1",
+  "derived_from_sha256": "f7e1f0d08ca6c8459a522ac8e54d0d319f515b31cecc8a12271fe5532237ffba",
+  "scope": "Technical summary. Original pixel grids, game-data payloads and private artifact paths are not distributed.",
+  "xmas": {
+    "container": "tyrianc.shp",
+    "container_sha256": "e980f02021395d39b86491acdc2ecd6dd47ea2a9f859fe3928f81b75e244fd7d",
+    "bank_sha256": "26eb4fe91672bcef4bc88d7162d5f531144ad98eba64f5c0314e35fec85241e4",
+    "bank_offset": 350426,
+    "sprites": [
+      {
+        "id": 146,
+        "index_sha256": "7def538dd22e3a3f16cabfe80fafd8d56002cdbfa58c8f6cd0a173669b4b4379",
+        "mask_sha256": "56bc7956bb0b5d6908755181f7d15dbe7b2a6ebb3beaa3a99e11b6d000f85488",
+        "encoded_sha256": "9eb4dc7802b8c70562a17a55c6f8b89d76b1d52914db0bb4bba52eeef7a03365",
+        "encoded_offset": 16502,
+        "encoded_bytes": 63,
+        "exact_normal_index_and_mask": true
+      },
+      {
+        "id": 147,
+        "index_sha256": "5af7f519b5fec925d8654f861828e2b4a4aac5509e56c8a895d989a34720e970",
+        "mask_sha256": "ce2e9d11ec76e6a9e0029eb87be663361f476c9b481ddaeadc105191aee265ce",
+        "encoded_sha256": "d9093d7febd8f59d03fa2445d56fe1efa33dbaf65d93d16215876aa85403a9b3",
+        "encoded_offset": 16565,
+        "encoded_bytes": 60,
+        "exact_normal_index_and_mask": true
+      }
+    ],
+    "assessment": "Both exact sprites identical; Xmas load uses same palette5 gameplay selection, while snow prompt uses225/226 only."
+  },
+  "player_static": [
+    {
+      "table": "tyrian.hdt",
+      "option_charge_overlap": [],
+      "chain_target_overlap": [],
+      "hardcoded_weapon147_active_sprites": [
+        228
+      ]
+    },
+    {
+      "table": "tyrian4.lvl",
+      "option_charge_overlap": [],
+      "chain_target_overlap": [],
+      "hardcoded_weapon147_active_sprites": [
+        228
+      ]
+    },
+    {
+      "table": "tyrian5.lvl",
+      "option_charge_overlap": [],
+      "chain_target_overlap": [],
+      "hardcoded_weapon147_active_sprites": [
+        228
+      ]
+    }
+  ],
+  "player_limits": [
+    "No direct port/special/option/chain or charged-option reference to2/3/6/7, and none of the three linked directional sprite arrays includes146/147.",
+    "Do not claim universal player impossibility: player_shot_create accepts2/3; player2 charge uses chargeGunWeapons[rear-1]+chargeLevel with max5. Zero-base table entries can arithmetically reach2/3 for rear selections whose normal reachability was not proved. Enemy-only routing preserves this possibility.",
+    "Hardcoded mainint.c weapon147 is an unrelated weapon index, emitting sprite228."
+  ],
+  "enemy_modes": [
+    "Difficulty changes frequency but not source sprites. Galaga can suppress enemy fire. Two-player affects collision/targeting, but these weapons aim0.",
+    "Repulsor modifies enemyShot velocities but never146/147 sprite heading; preserve source orientation.",
+    "No normal enemy-shot shadow, filtered draw, alpha blend, runtime rotation or separate trail. shipblastfilter208 is not applied to these enemy shot pixels.",
+    "Keep existing palette/gamma/fade/global-filter and unsupported-mode fallback behavior."
+  ],
+  "historical_clock_receipts": [
+    {
+      "evidence_id": "historical-clock-1",
+      "sha256": "a3d0d44d40afc72583ae25ba1c9de25190faa891bda8cf96cc1704c148cbfaba",
+      "rows": [
+        {
+          "tick": "4176",
+          "start_ms": "120060.095581",
+          "step_ms": "28.750023",
+          "end_ms": "120088.845604",
+          "event_next": "576",
+          "curLoc": "2992"
+        },
+        {
+          "tick": "4614",
+          "start_ms": "132652.605606",
+          "step_ms": "28.750023",
+          "end_ms": "132681.355629",
+          "event_next": "616",
+          "curLoc": "3138"
+        }
+      ]
+    },
+    {
+      "evidence_id": "historical-clock-2",
+      "sha256": "e50d5e0842c80f1e6a801a20603046ac52373677f6b2e9785095f5761bf2105c",
+      "rows": [
+        {
+          "tick": "4176",
+          "start_ms": "120060.095581",
+          "step_ms": "28.750023",
+          "end_ms": "120088.845604",
+          "event_next": "576",
+          "curLoc": "2992"
+        },
+        {
+          "tick": "4614",
+          "start_ms": "132652.605606",
+          "step_ms": "28.750023",
+          "end_ms": "132681.355629",
+          "event_next": "616",
+          "curLoc": "3138"
+        }
+      ]
+    }
+  ],
+  "historical_tank_provenance": {
+    "sha256": "ed97c32eb7d1fa8db14c701caa0632160b1b6c986378256e8d5e6aa565d628e7",
+    "base": "f3bcc061d8a136e257e9c36d40629b4f948a1708"
+  },
+  "extra_source_hashes": {
+    "src/mainint.c": "0b39b8af90f981bce50762de98eb2458282ed3031780235a8ade405945dcddf8",
+    "src/varz.c": "d4502557903eea9fc082b83385fee3448564124040ff27faa1a4af16c8e394c7",
+    "src/opentyr.c": "4694e58ac5b6e69b0e6229d957ccad57c0cf01f19ba536fc348d9b80c3cbb8c0",
+    "src/lvlmast.h": "f33fbe72ec273bf4c72cb2c49bd4dbc4336b6bc6802e1b53d32ac58667026ed0",
+    "src/game_menu.c": "6cea9502930c3b013d71aff0d77881ecd28a4418f1bef28a735a9ff3a9d69c06"
+  },
+  "runtime_limit": "Only Normal/story, emitter15, weapons2/3 are runtime-covered by this release. Enemy194/195 and weapons6/7 remain source-level reuse evidence."
+}

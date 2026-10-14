@@ -39,9 +39,9 @@ typedef struct {
  int bank,index,w,h,anchor_x,anchor_y,density;
  Uint8 *rgba;
 } Asset;
-enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121 };
+enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121, ASSET_ENEMY_TANK_SHELL=122 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
-static Asset assets[505];
+static Asset assets[507];
 /* One draw-call lease from the original fixed explosion; never gameplay state. */
 static bool cash25_fixed_value;
 static bool cash75_fixed_value;
@@ -1165,7 +1165,7 @@ static bool decode_tile(Sprite2_array bank,unsigned int index,Uint8 *indices,Uin
 static bool read_asset(Asset *a,int wanted)
 {
  char name[1024];
- const char *prefix=a->bank==ASSET_GEM250_BODY?"gem250-bank11":a->bank==ASSET_GEM250_VALUE?"gem250-value-newsh6":a->bank==ASSET_GEM100_BODY?"gem100-bank11":a->bank==ASSET_GEM100_VALUE?"gem100-value-newsh6":a->bank==ASSET_CASH50_BODY?"coin50-bank11":a->bank==ASSET_CASH50_VALUE?"coin50-value-newsh6":a->bank==ASSET_CASH75_BODY?"coin75-bank11":a->bank==ASSET_CASH75_VALUE?"coin75-value-newsh6":a->bank==ASSET_CASH25_BODY?"coin25-bank11":a->bank==ASSET_CASH25_VALUE?"coin25-value-newsh6":a->bank==9?"ship":a->bank==8?"bullet":a->bank==ASSET_ENEMY_ENERGY?"enemy-energy":a->bank==ASSET_NEWSH2?"enemy-newsh2":a->bank==ASSET_NEWSH4?"enemy-newsh4":a->bank==ASSET_NEWSHE?"enemy-newshe":a->bank==ASSET_TALON_BANK?"talon-bank":a->bank==ASSET_EXPLOSION?"explosion-newsh6":"terrain-shapesz";
+ const char *prefix=a->bank==ASSET_ENEMY_TANK_SHELL?"enemy-tank-shell":a->bank==ASSET_GEM250_BODY?"gem250-bank11":a->bank==ASSET_GEM250_VALUE?"gem250-value-newsh6":a->bank==ASSET_GEM100_BODY?"gem100-bank11":a->bank==ASSET_GEM100_VALUE?"gem100-value-newsh6":a->bank==ASSET_CASH50_BODY?"coin50-bank11":a->bank==ASSET_CASH50_VALUE?"coin50-value-newsh6":a->bank==ASSET_CASH75_BODY?"coin75-bank11":a->bank==ASSET_CASH75_VALUE?"coin75-value-newsh6":a->bank==ASSET_CASH25_BODY?"coin25-bank11":a->bank==ASSET_CASH25_VALUE?"coin25-value-newsh6":a->bank==9?"ship":a->bank==8?"bullet":a->bank==ASSET_ENEMY_ENERGY?"enemy-energy":a->bank==ASSET_NEWSH2?"enemy-newsh2":a->bank==ASSET_NEWSH4?"enemy-newsh4":a->bank==ASSET_NEWSHE?"enemy-newshe":a->bank==ASSET_TALON_BANK?"talon-bank":a->bank==ASSET_EXPLOSION?"explosion-newsh6":"terrain-shapesz";
  if(!game_probe_assets||snprintf(name,sizeof(name),"%s/%s-%d-%d.hda",game_probe_assets,prefix,a->index,wanted)>=(int)sizeof(name)) return false;
  FILE *f=fopen(name,"rb");if(!f)return false;
  Uint8 h[28]={0};bool ok=fread(h,1,sizeof(h),f)==sizeof(h)&&memcmp(h,"HDR1",4)==0;
@@ -1783,9 +1783,44 @@ static bool enemy_energy_family_ready(void)
  return enemy_energy_valid;
 }
 
+/* Two frozen ID-fixed shell headings, shared by enemy records15/194/195.
+ * Startup-selected lifetime cache, independent of energy, orbs and players. */
+static bool enemy_tank_shell_checked,enemy_tank_shell_valid;
+static bool enemy_tank_shell_family_ready(void)
+{
+ if(game_probe_density!=8||game_probe_missing||game_probe_invalid||
+    game_probe_original_reference||!game_probe_assets)return false;
+ if(enemy_tank_shell_checked)return enemy_tank_shell_valid;
+ enemy_tank_shell_checked=true;enemy_tank_shell_valid=true;
+ static const uint64_t rgba_stamps[2]={UINT64_C(0x8a02233c02993d45),UINT64_C(0x6786d727d8d42fbf)};
+ for(int i=0;i<2;i++) {
+  Asset *a=&assets[505+i];
+  a->initialized=true;a->bank=ASSET_ENEMY_TANK_SHELL;a->index=146+i;
+  a->w=12;a->h=14;a->anchor_x=0;a->anchor_y=0;
+  a->valid=read_asset(a,8);
+  if(a->valid) {
+   uint64_t stamp=UINT64_C(0xcbf29ce484222325);
+   for(size_t p=0;p<(size_t)12*14*8*8*4;p++){stamp^=a->rgba[p];stamp*=UINT64_C(0x100000001b3);}
+   if(stamp!=rgba_stamps[i])a->valid=false;
+  }
+  if(!a->valid)enemy_tank_shell_valid=false;
+ }
+ return enemy_tank_shell_valid;
+}
+
 /* Enemy-only bindings: the indexed original still executes in the wrapper. */
 bool render_mirror_enemy_shot(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int index)
 {
+ if(index==146||index==147) {
+  if(!active||!surface||surface!=game_screen||surface!=VGAScreen||reject_reason||
+     !bank.data||bank.data!=spriteSheet8.data||
+     surface->w!=320||surface->h!=200||surface->pitch!=320||!surface->format||
+     surface->format->BitsPerPixel!=8||surface->format->BytesPerPixel!=1||
+     x<0||x>308||y<-13||y>199)return false;
+  /* Keep original top-left/clipping and source heading, even after Repulsor. */
+  if(!enemy_tank_shell_family_ready())return false;
+  return draw_asset(x,y,&assets[505+(int)index-146],MIRROR_NORMAL,NULL);
+ }
  int energy_slot=enemy_energy_slot(index);
  if(energy_slot>=0) {
   if(!active||!surface||surface!=game_screen||surface!=VGAScreen||reject_reason||

@@ -32,6 +32,10 @@ It builds on OpenTyrian2000 and OpenTyrian; the upstream README is preserved bel
   using the actual engine with SDL dummy/software; physical-window/GPU acceptance
   remains separate.
 
+- Enemy tank shells 146/147 pass bounded native 2×/4× checks with paired fallback.
+  Five process starts include one retained failed fixture attempt and its corrected
+  replacement. See [scope and receipts](docs/enemy-tank-shell-pair-v1/VALIDATION.md).
+
 ## Build and try
 
 Original Tyrian 2000 data is required separately and is not included here.

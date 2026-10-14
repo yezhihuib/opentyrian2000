@@ -1,0 +1,92 @@
+{
+  "schema": "tank-shell-public-summary-v1",
+  "derived_from_sha256": "ee8b79393291c79e557bfef7daf650c7bee9f63b833430c1d00459ce929b44e6",
+  "scope": "Technical summary. Original pixel grids, game-data payloads and private artifact paths are not distributed.",
+  "historical_source_commit": "4597e39c75b949d8f4e1f22bbc6117b432294132",
+  "bank": {
+    "name": "spriteSheet8",
+    "container": "tyrian.shp",
+    "chunk_zero_based": 7,
+    "offset": 350426,
+    "size": 32060,
+    "sha256": "9bba1e94d38df61f152412c226bfd6df235e42027c9143c5961d4a5add853a68"
+  },
+  "palette": {
+    "index": 5,
+    "sha256": "7b61340087527e9d7c5b6a4dc57e81c955c21bfd2a1f4a922842b7db857b72f4"
+  },
+  "sprites": [
+    {
+      "id": 146,
+      "dimensions": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "bbox": [
+        3,
+        2,
+        8,
+        13
+      ],
+      "opaque_pixels": 39,
+      "encoded_offset": 16281,
+      "encoded_bytes": 63,
+      "encoded_sha256": "9eb4dc7802b8c70562a17a55c6f8b89d76b1d52914db0bb4bba52eeef7a03365",
+      "index_sha256": "7def538dd22e3a3f16cabfe80fafd8d56002cdbfa58c8f6cd0a173669b4b4379",
+      "mask_sha256": "56bc7956bb0b5d6908755181f7d15dbe7b2a6ebb3beaa3a99e11b6d000f85488",
+      "rgba_sha256": "adef655d869fd632b052ce78662168a1b991809e82b37fa75bdbdb9a9d19633f"
+    },
+    {
+      "id": 147,
+      "dimensions": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "bbox": [
+        3,
+        3,
+        12,
+        12
+      ],
+      "opaque_pixels": 39,
+      "encoded_offset": 16344,
+      "encoded_bytes": 60,
+      "encoded_sha256": "d9093d7febd8f59d03fa2445d56fe1efa33dbaf65d93d16215876aa85403a9b3",
+      "index_sha256": "5af7f519b5fec925d8654f861828e2b4a4aac5509e56c8a895d989a34720e970",
+      "mask_sha256": "ce2e9d11ec76e6a9e0029eb87be663361f476c9b481ddaeadc105191aee265ce",
+      "rgba_sha256": "86d5510de236555f108af876c3a2cb9142762d3be4ef1097606fa29e53ea5786"
+    }
+  ],
+  "data_sha256": {
+    "tyrian.shp": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+    "palette.dat": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0",
+    "tyrian.hdt": "fde8506326e7bb0916b38c362e33bf8a8a5affa561206c021af7f65b4a17745b",
+    "tyrian1.lvl": "54cbb00b57b84aa992a70cfcb170cb1edeb59507873723630d60080ba8351352",
+    "tyrian4.lvl": "6589b898094887925e7717c8663c4b8b5e4b76f3c89a7898ed9f4691c1f2cc16",
+    "tyrian5.lvl": "275b5aaf55caecee8dc95e26f7cf118a9ee265f095ce61945b9ece56a4523323"
+  },
+  "source_sha256": {
+    "src/episodes.c": "640219b48d3081ee996ce66a66f61ad2fe185339fcfaf395808e02fcee0b29e0",
+    "src/tyrian2.c": "0766ec6f9cdbf555118d4d72689d0356627dfdb38ca71a04c792f4f2fc5bde36",
+    "src/shots.c": "ec0f326f407849037af1a0218a1bfed1f3f2a720301a053afd3a7d25c7391405",
+    "src/xmas.c": "81510a3554b71e4c1a587b557bbc2c153fcb7c9377b65db0f36f0a4e346cfb7d",
+    "src/sprite.c": "df38929c6bd27cd5f0d2f0a2f8af6633a607a11d2b06c5b4262949e1e8c6c550",
+    "src/entity_draw.c": "7ed285315b48ba7b9f49c8a116f817a411eb5026568cf83b4d60ab2f856a0ba0",
+    "src/render_mirror.c": "292fdc3e8b7dc69c466f6dde4b02c2dfda73443885642b230abe7a0be8bff0e8",
+    "src/picload.c": "ac388dffc013a6a73e4d7790f532628274f16b07b32a9966c3edc765c445ce6d",
+    "src/pcxmast.c": "41a5367659b8096b13727d3c087ea0e34341881c7270072bdf0782c25a248653",
+    "src/palette.c": "1ebdedc71054574f973260acb325ab9c2c2087671e946a08f5f9a9a717c55337",
+    "src/lvllib.c": "34467e09b9088b646ad7006480c691ebc65491f8bd72c1d3c65b2e4454e4fca5",
+    "assets/hd/manifest.json": "3216109573d60d0aff80b68568e72c28942de06ca2007e58e775a4eaa1ee1f2f"
+  },
+  "interpretation": "Two static ID-fixed designs:146 down,147 down-right;12x14, anchor0. Actor facing or velocity does not select or transform them.",
+  "reproduction": "The separate legal original data is required by prototype/test-enemy-tank-shell-pair.py. No original reference pixels are shipped here."
+}

@@ -1,0 +1,217 @@
+{
+  "status": "PASS",
+  "cases": {
+    "baseline": {
+      "checks": [
+        {
+          "tick": 4214,
+          "source": 146,
+          "slot": 4,
+          "generation": 8,
+          "exact_draw_internal_samples": 10752,
+          "exact_native_rectangle_pixels": 672,
+          "native_source_support": 156,
+          "surviving_visible_shell_samples": 156,
+          "later_changed_support_samples": 0
+        },
+        {
+          "tick": 4215,
+          "source": 146,
+          "slot": 4,
+          "generation": 8,
+          "exact_draw_internal_samples": 10752,
+          "exact_native_rectangle_pixels": 672,
+          "native_source_support": 156,
+          "surviving_visible_shell_samples": 156,
+          "later_changed_support_samples": 0
+        },
+        {
+          "tick": 4614,
+          "source": 147,
+          "slot": 0,
+          "generation": 51,
+          "exact_draw_internal_samples": 10752,
+          "exact_native_rectangle_pixels": 672,
+          "native_source_support": 156,
+          "surviving_visible_shell_samples": 156,
+          "later_changed_support_samples": 0
+        },
+        {
+          "tick": 4615,
+          "source": 147,
+          "slot": 0,
+          "generation": 51,
+          "exact_draw_internal_samples": 10752,
+          "exact_native_rectangle_pixels": 672,
+          "native_source_support": 156,
+          "surviving_visible_shell_samples": 156,
+          "later_changed_support_samples": 0
+        },
+        {
+          "tick": 4616,
+          "source": 147,
+          "slot": 0,
+          "generation": 51,
+          "exact_draw_internal_samples": 10752,
+          "exact_native_rectangle_pixels": 672,
+          "native_source_support": 156,
+          "surviving_visible_shell_samples": 156,
+          "later_changed_support_samples": 0
+        },
+        {
+          "tick": 4617,
+          "source": 147,
+          "slot": 0,
+          "generation": 51,
+          "exact_draw_internal_samples": 10752,
+          "exact_native_rectangle_pixels": 672,
+          "native_source_support": 156,
+          "surviving_visible_shell_samples": 156,
+          "later_changed_support_samples": 0
+        }
+      ],
+      "visible_native_samples": {
+        "146": 312,
+        "147": 624
+      }
+    },
+    "candidate": {
+      "checks": [
+        {
+          "tick": 4214,
+          "source": 146,
+          "slot": 4,
+          "generation": 8,
+          "exact_draw_internal_samples": 10752,
+          "exact_native_rectangle_pixels": 672,
+          "native_source_support": 150,
+          "surviving_visible_shell_samples": 146,
+          "later_changed_support_samples": 0
+        },
+        {
+          "tick": 4215,
+          "source": 146,
+          "slot": 4,
+          "generation": 8,
+          "exact_draw_internal_samples": 10752,
+          "exact_native_rectangle_pixels": 672,
+          "native_source_support": 150,
+          "surviving_visible_shell_samples": 144,
+          "later_changed_support_samples": 0
+        },
+        {
+          "tick": 4614,
+          "source": 147,
+          "slot": 0,
+          "generation": 51,
+          "exact_draw_internal_samples": 10752,
+          "exact_native_rectangle_pixels": 672,
+          "native_source_support": 174,
+          "surviving_visible_shell_samples": 172,
+          "later_changed_support_samples": 0
+        },
+        {
+          "tick": 4615,
+          "source": 147,
+          "slot": 0,
+          "generation": 51,
+          "exact_draw_internal_samples": 10752,
+          "exact_native_rectangle_pixels": 672,
+          "native_source_support": 174,
+          "surviving_visible_shell_samples": 165,
+          "later_changed_support_samples": 0
+        },
+        {
+          "tick": 4616,
+          "source": 147,
+          "slot": 0,
+          "generation": 51,
+          "exact_draw_internal_samples": 10752,
+          "exact_native_rectangle_pixels": 672,
+          "native_source_support": 174,
+          "surviving_visible_shell_samples": 168,
+          "later_changed_support_samples": 0
+        },
+        {
+          "tick": 4617,
+          "source": 147,
+          "slot": 0,
+          "generation": 51,
+          "exact_draw_internal_samples": 10752,
+          "exact_native_rectangle_pixels": 672,
+          "native_source_support": 174,
+          "surviving_visible_shell_samples": 170,
+          "later_changed_support_samples": 0
+        }
+      ],
+      "visible_native_samples": {
+        "146": 290,
+        "147": 675
+      }
+    },
+    "spot4": {
+      "checks": [
+        {
+          "tick": 4214,
+          "source": 146,
+          "slot": 4,
+          "generation": 8,
+          "exact_draw_internal_samples": 10752,
+          "exact_native_rectangle_pixels": 2688,
+          "native_source_support": 608,
+          "surviving_visible_shell_samples": 591,
+          "later_changed_support_samples": 0
+        },
+        {
+          "tick": 4615,
+          "source": 147,
+          "slot": 0,
+          "generation": 51,
+          "exact_draw_internal_samples": 10752,
+          "exact_native_rectangle_pixels": 2688,
+          "native_source_support": 682,
+          "surviving_visible_shell_samples": 655,
+          "later_changed_support_samples": 0
+        }
+      ],
+      "visible_native_samples": {
+        "146": 591,
+        "147": 655
+      }
+    },
+    "missing": {
+      "checks": [
+        {
+          "tick": 4214,
+          "source": 146,
+          "slot": 4,
+          "generation": 8,
+          "exact_draw_internal_samples": 10752,
+          "exact_native_rectangle_pixels": 672,
+          "native_source_support": 156,
+          "surviving_visible_shell_samples": 156,
+          "later_changed_support_samples": 0
+        },
+        {
+          "tick": 4615,
+          "source": 147,
+          "slot": 0,
+          "generation": 51,
+          "exact_draw_internal_samples": 10752,
+          "exact_native_rectangle_pixels": 672,
+          "native_source_support": 156,
+          "surviving_visible_shell_samples": 156,
+          "later_changed_support_samples": 0
+        }
+      ],
+      "visible_native_samples": {
+        "146": 156,
+        "147": 156
+      }
+    }
+  },
+  "scope": "Private stationary/no-fire seed0x5eed, alive-only protection, Normal/story Linux software renderer. No natural-survival or Windows claim.",
+  "candidate_outside_shell_rectangles_exact": true,
+  "missing147_both_classic_whole_frames_exact": true,
+  "native4_internal8x_exact": true
+}

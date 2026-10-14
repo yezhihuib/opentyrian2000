@@ -1,0 +1,77 @@
+{
+  "schema": "tank-shell-runtime-summary-v1",
+  "status": "PASS_BOUNDED_NUMERIC_AND_AUTHOR",
+  "tested_source_commit": "3f793793b70fbddb1011a6fa65f52bd55c784cca",
+  "baseline": "916b7aa8a4a837c695d6cef4b1e9da133db27ef1",
+  "original_numeric_receipt_sha256": "126bf8b30865526741e1a8d26dd869ba00b0f5a3b8c7b26362697b207dc4675a",
+  "fixture_freeze_sha256": "7fd72eb62e7314ab8d155e0658e30254f5be7f19381c874364fb31eb4077f6c2",
+  "frozen_schedule_sha256": "4200c759e2ed99dfae97eb63ece718d6330d4acf19a9f5fc89445d900a344c6e",
+  "V": 4614,
+  "terminal_tick": 4663,
+  "executed_logic_ticks": 4664,
+  "accepted_cases": [
+    "baseline",
+    "candidate",
+    "spot4",
+    "missing-policy-fixed"
+  ],
+  "engine_process_starts": 5,
+  "retained_native_pngs": 18,
+  "accepted_matrix_native_pngs": 16,
+  "failed_run_native_pngs": 2,
+  "native2_ticks": [
+    4214,
+    4215,
+    4614,
+    4615,
+    4616,
+    4617
+  ],
+  "spot_ticks": [
+    4214,
+    4615
+  ],
+  "selected_identities": {
+    "146": "4,8,4206,50,4,1,2",
+    "147": "0,51,4614,62,7,2,3"
+  },
+  "original_stream_hashes": {
+    "state": "226302642fe9fa795755f57c763366d2c3cf35053d4b0285693b7d6e540a3e73",
+    "collisions": "10fe6d42fc424ccfa87c4098673a488833569c720853eb422bf58bf3ff2e653e",
+    "presentation": "f78d342f9bdd21f063e88196862955a0d046435eeda46ccac6fe9e29ae799096",
+    "asset-debug-clock": "4582889fd5855487436d11aaa7154fab8bd1ebb462d9cb5855fa9b4c41efaab3",
+    "tank-shell-facts": "9a08bbe47d09225cf36285af72848beced074e78b2307c8150924eb304f1c508",
+    "enemy-projectiles": "f5acf62d0cb4c4d16be2bac97d4f5153766eca0d1756a00bde4c97dbfb293a2f",
+    "player-projectiles": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+    "fire-events": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+    "player-shot-emissions": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+    "player-shot-requests": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+    "player-shot-results": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+    "weapon-loadout": "4f88a84082ff5d7d4d1221929a9dc546efbb8dd143db882f6cf8772fbc1fecae",
+    "sidekick-loadout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "asset-debug-explosion-pools": "6b456fa7fb45c56d3fc9f6a203b8e106bdd011eba5981761a990a2107e86e76e"
+  },
+  "control_hash_excluding_wall_time": "5f693c514def7df4119f0d04f8f24c458fd7a6102fc68609f29d4e03a676510e",
+  "all_accepted_original_streams_equal": true,
+  "candidate_outside_shell_rectangles_exact": true,
+  "missing147_both_classic_whole_frames_exact": true,
+  "native4_internal8x_exact": true,
+  "failed_attempt": {
+    "case": "missing",
+    "status": "FAILED_WHOLE_FRAME",
+    "cause": "Private fixture symlinked forest13.policy; the unchanged regular-file guard rejected it, causing unrelated terrain fallback.",
+    "repair": "One explicitly authorized, independently reviewed replacement copied the same29-byte policy as a regular file. Production source, art and binary were unchanged.",
+    "policy_sha256": "9c40db8510a02a0ba46fb33d13b245143544e0b6bcbbc0031f0e7fca51714509",
+    "failed_evidence_preserved": true,
+    "numeric_guard_relaxed": false
+  },
+  "limits": [
+    "Protected private stationary/no-fire, seed0x5eed, Normal/story, Episode1 physical9, no-xmas, Linux software renderer.",
+    "Original event spawns and original removals; no natural survival or manual-input coverage.",
+    "Enemy194/195 and weapons6/7 are source-only.",
+    "No Windows, GPU/fullscreen, full-level, all-mode, performance or selected-shell/cloud-overlap claim."
+  ],
+  "author_review": "PASS_BOUNDED_ART_AND_ACTUAL_FRAME_REVIEW",
+  "publication_audit": "Required before publication; no publication is claimed by this evidence.",
+  "author_receipt_sha256": "4ac5800caebeb1fe2e647b8b0b9be810291d860c8272f541d8a202bf4fae930d"
+}
