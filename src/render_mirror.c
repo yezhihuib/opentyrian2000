@@ -232,7 +232,7 @@ static bool complete_turret_group(unsigned int n,SDL_Rect *group)
  *group=(SDL_Rect){q.rect.x-ox[part],q.rect.y-oy[part],48,56};
  for(int k=0;k<4;k++) {
   bool found=false;
-  for(unsigned int j=0;j<region_count;j++)if(regions[j].bank==ASSET_NEWSH2&&regions[j].style==MIRROR_NORMAL&&regions[j].index==ids[k]&&regions[j].rect.x==group->x+ox[k]&&regions[j].rect.y==group->y+oy[k])found=true;
+  for(unsigned int j=0;j<region_count;j++)if(regions[j].live&&regions[j].bank==ASSET_NEWSH2&&regions[j].style==MIRROR_NORMAL&&regions[j].index==ids[k]&&regions[j].rect.x==group->x+ox[k]&&regions[j].rect.y==group->y+oy[k])found=true;
   if(!found)return false;
  }
  return true;

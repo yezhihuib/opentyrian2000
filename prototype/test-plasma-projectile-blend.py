@@ -52,7 +52,13 @@ def source_units():
     old_sprite = git('show', BASE + ':src/sprite.c')
     functions = {name: extract(renderer, name) for name in UNCHANGED + ADDED}
     for name in UNCHANGED:
-        assert functions[name] == extract(old_renderer, name), name + ' changed outside compatibility path'
+        body = functions[name]
+        if name == 'complete_turret_group':
+            # Project only the independent live-sibling lifecycle fix for this
+            # historical scope guard. The unit executable uses the real body.
+            body = body.replace('if(regions[j].live&&regions[j].bank==ASSET_NEWSH2',
+                                'if(regions[j].bank==ASSET_NEWSH2', 1)
+        assert body == extract(old_renderer, name), name + ' changed outside compatibility path'
     parent_renderer = git('show', PARENT + ':src/render_mirror.c')
     assert functions[ADDED[1]] == extract(parent_renderer, ADDED[1]), 'Plasma pixel helper changed'
     old_begin = extract(parent_renderer, ADDED[0])
@@ -142,12 +148,16 @@ def main():
     parser.add_argument('--source-only', action='store_true')
     args = parser.parse_args()
     functions, candidate, baseline = source_units()
+    turret_projection = 'if(regions[j].live&&regions[j].bank==ASSET_NEWSH2' in functions['complete_turret_group']
     hashes = {name: SHA(body.encode()) for name, body in functions.items()}
     hashes.update(candidate_raw_blit=SHA(candidate.encode()), baseline_raw_blit=SHA(baseline.encode()))
     if args.source_only:
         print(json.dumps({'status': 'PASS', 'baseline': BASE, 'exact_raw_blit_inverse': True,
                           'admission_parent': PARENT, 'vertical_guard_only_inverse': True,
-                          'unchanged_production_helpers': UNCHANGED, 'source_sha256': hashes}, indent=2))
+                          'unchanged_production_helpers': [name for name in UNCHANGED if name != 'complete_turret_group'],
+                          'historical_scope_projected_helpers': ['complete_turret_group'],
+                          'independent_live_turret_sibling_predicate_projected': turret_projection,
+                          'source_sha256': hashes}, indent=2))
         return
     assert args.data and args.out, 'Supply --data and --out, or --source-only'
     out = args.out.resolve()
@@ -185,6 +195,7 @@ def main():
         print(kind + ': ' + result.strip(), flush=True)
     assert original_hashes == {name: SHA((args.data / name).read_bytes()) for name in original_hashes}, 'Original inputs changed'
     report = {'status': 'PASS', 'baseline': BASE, 'exact_raw_blit_inverse': True, 'production_functions_sha256': hashes,
+              'independent_live_turret_sibling_predicate_projected': turret_projection,
               'admission_parent': PARENT, 'vertical_guard_only_inverse': True, 'plasma_pixel_helper_unchanged': True,
               'vertical_clipping_coverage': {
                   'piece_heights': [24, 28, 23],

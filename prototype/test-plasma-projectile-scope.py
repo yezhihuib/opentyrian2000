@@ -48,14 +48,27 @@ def vertical_inverse(current,baseline):
  require(all(restored[p]==baseline[p]for p in baseline),'Vertical-step byte inverse failed')
  return restored
 
+def turret_lifecycle_projection(current):
+ # This independent one-predicate fix does not alter the Plasma contract.
+ # Keep the old whole-source inverses exact after reversing that predicate;
+ # its actual behavior has a separate production-extracted lifecycle test.
+ projected=dict(current);raw=projected['src/render_mirror.c']
+ live=b'if(regions[j].live&&regions[j].bank==ASSET_NEWSH2'
+ legacy=b'if(regions[j].bank==ASSET_NEWSH2'
+ require(raw.count(live)+raw.count(legacy)==1,'Ambiguous turret sibling predicate')
+ changed=live in raw
+ if changed:projected['src/render_mirror.c']=once(raw,live,legacy)
+ return projected,changed
+
 def main():
  parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--root',type=Path,default=ROOT);parser.add_argument('--out',type=Path,required=True);args=parser.parse_args();root=args.root.resolve();out=args.out.resolve()
  require(out!=ROOT and ROOT not in out.parents,'Report must stay outside checkout');require(not out.exists(),'Report must be new')
  names=git('ls-tree','-r','--name-only',BASE,'--','src').decode().splitlines();require(len(names)==153,'Baseline source inventory changed')
  current_names={str(p.relative_to(root))for p in(root/'src').rglob('*')if p.is_file()or p.is_symlink()};require(current_names==set(names),'Production source inventory changed')
  require(not any((root/p).is_symlink()for p in names),'Production symlink rejected')
- baseline={p:git('show',BASE+':'+p)for p in names};current={p:(root/p).read_bytes()for p in names};restored,block=inverse(current,baseline)
- vertical_baseline={p:git('show',VERTICAL_BASE+':'+p)for p in names};vertical_restored=vertical_inverse(current,vertical_baseline)
+ baseline={p:git('show',BASE+':'+p)for p in names};current={p:(root/p).read_bytes()for p in names}
+ projected,turret_projected=turret_lifecycle_projection(current);restored,block=inverse(projected,baseline)
+ vertical_baseline={p:git('show',VERTICAL_BASE+':'+p)for p in names};vertical_restored=vertical_inverse(projected,vertical_baseline)
  negative=[]
  for name,path,before,after in [
   ('gameplay mutation','src/shots.c',b'#include',b'/*changed*/\n#include'),
@@ -66,7 +79,7 @@ def main():
   ('removed per-piece clipping','src/render_mirror.c',b'x<0||x>320-(int)w||y<=-(int)h||y>=200',b'false'),
   ('HD copy owner admission','src/render_mirror.c',b'p[sx]=owner[sx]==1?explosion_blend_rgba',b'p[sx]=owner[sx]?explosion_blend_rgba')]:
   mutated=dict(current);require(before in mutated[path],'Bad negative fixture '+name);mutated[path]=mutated[path].replace(before,after,1)
-  try:inverse(mutated,baseline)
+  try:inverse(turret_lifecycle_projection(mutated)[0],baseline)
   except(AssertionError,ValueError):negative.append(name)
   else:raise AssertionError('Accepted forbidden mutation '+name)
  # Compare every tracked asset byte and mode to this batch's exact baseline.
@@ -77,6 +90,6 @@ def main():
  paths=sorted(pins);require(not any((root/p).is_symlink()for p in paths),'Asset symlink rejected')
  hashes=subprocess.check_output(['git','-C',str(root),'hash-object','--no-filters','--stdin-paths'],input=('\n'.join(paths)+'\n').encode()).decode().splitlines();require(len(hashes)==len(paths),'Incomplete asset hashes')
  for path,oid in zip(paths,hashes):require(oid==pins[path][1]and bool((root/path).stat().st_mode&0o100)==(pins[path][0]=='100755'),'Asset byte/mode changed: '+path)
- report={'status':'PASS','baseline_commit':BASE,'production_files_checked':len(names),'production_files_changed':sorted(ENVELOPE),'whole_source_byte_inverse':True,'vertical_step_baseline':VERTICAL_BASE,'vertical_step_production_files_changed':['src/render_mirror.c'],'vertical_step_all_153_sources_byte_inverse':True,'compatibility_block_sha256':SHA(block),'all_asset_files_byte_and_mode_identical':len(paths),'new_art_or_resource_files':0,'negative_scope_mutations_rejected':negative,'indexed_loop_gameplay_shots_shop_rng_unchanged_after_inverse':True,'source_sha256':{p:{'baseline':SHA(baseline[p]),'candidate':SHA(current[p]),'restored':SHA(restored[p])}for p in names},'engine_launches':0,'limitations':['Source inverse proves bounded code scope; runtime/pixel behavior requires separate tests.']}
+ report={'status':'PASS','baseline_commit':BASE,'production_files_checked':len(names),'production_files_changed':sorted(ENVELOPE),'whole_source_byte_inverse':True,'independent_live_turret_sibling_predicate_projected':turret_projected,'vertical_step_baseline':VERTICAL_BASE,'vertical_step_production_files_changed':['src/render_mirror.c'],'vertical_step_all_153_sources_byte_inverse':True,'compatibility_block_sha256':SHA(block),'all_asset_files_byte_and_mode_identical':len(paths),'new_art_or_resource_files':0,'negative_scope_mutations_rejected':negative,'indexed_loop_gameplay_shots_shop_rng_unchanged_after_inverse':True,'source_sha256':{p:{'baseline':SHA(baseline[p]),'candidate':SHA(current[p]),'restored':SHA(restored[p])}for p in names},'engine_launches':0,'limitations':['Source inverse proves bounded code scope; runtime/pixel behavior requires separate tests.','The independent live-sibling predicate is explicitly reversed before the historical Plasma source inverses.']}
  out.parent.mkdir(parents=True,exist_ok=True);out.write_text(json.dumps(report,indent=2)+'\n');print(f'PASS: {len(names)}-file exact combined and vertical-step source inverses, {len(paths)} unchanged assets, {len(negative)} rejected mutations; no game run')
 if __name__=='__main__':main()
