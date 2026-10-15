@@ -29,4 +29,9 @@ void draw_mint_body_sprite2(SDL_Surface *,int x,int y,Sprite2_array,
                            unsigned int index,unsigned int option,
                            unsigned int sidekick_style,unsigned int charge);
 
+/* Dedicated static FrontBlaster QUAD; the original four-tile draw always runs. */
+void draw_frontblaster_body_sprite2(SDL_Surface *,int x,int y,Sprite2_array,
+                                   unsigned int index,unsigned int option,
+                                   unsigned int sidekick_style,unsigned int charge);
+
 #endif

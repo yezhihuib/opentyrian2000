@@ -29154,7 +29154,7 @@
       }
     },
     "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 548,
+      "count": 549,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -36279,11 +36279,24 @@
           "sha256": "29da5df5d364527ea9eaa62b7bc1c457f40c5da3bab129e01d3f487ba11eeb27",
           "source_png": "assets/hd/source/option-mint-bank9-150-8-29da5df5d364.png",
           "source_png_sha256": "a1b4aae7f9e40624badca34086c0eaad3859857e28f71d9f9cc793b47b9ee494"
+        },
+        "option-frontblaster-bank10-83-8.hda": {
+          "header_u32": [
+            1280083,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "sha256": "553bad42474371738d7e0324c202af0ce8eaf667b5a27d8860de3e0e92f0c4df",
+          "source_png": "assets/hd/source/option-frontblaster-bank10-83-8-553bad424743.png",
+          "source_png_sha256": "708cfda003f547a15e1796170d7e48b6f976f72f68a5fba7e5b2c479eb7504a9"
         }
       }
     },
     "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 548,
+      "count": 549,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -43408,6 +43421,19 @@
           "sha256": "29da5df5d364527ea9eaa62b7bc1c457f40c5da3bab129e01d3f487ba11eeb27",
           "source_png": "assets/hd/source/option-mint-bank9-150-8-29da5df5d364.png",
           "source_png_sha256": "a1b4aae7f9e40624badca34086c0eaad3859857e28f71d9f9cc793b47b9ee494"
+        },
+        "option-frontblaster-bank10-83-8.hda": {
+          "header_u32": [
+            1280083,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "sha256": "553bad42474371738d7e0324c202af0ce8eaf667b5a27d8860de3e0e92f0c4df",
+          "source_png": "assets/hd/source/option-frontblaster-bank10-83-8-553bad424743.png",
+          "source_png_sha256": "708cfda003f547a15e1796170d7e48b6f976f72f68a5fba7e5b2c479eb7504a9"
         }
       }
     }
@@ -46859,6 +46885,11 @@
       "path": "assets/hd/source/option-mint-bank9-150-8-29da5df5d364.png",
       "sha256": "a1b4aae7f9e40624badca34086c0eaad3859857e28f71d9f9cc793b47b9ee494",
       "RGBA_sha256": "be311330416fd54f2b7883ac5ec01d830e80f71bea46cb2d4606dec61793aec5"
+    },
+    "553bad42474371738d7e0324c202af0ce8eaf667b5a27d8860de3e0e92f0c4df": {
+      "path": "assets/hd/source/option-frontblaster-bank10-83-8-553bad424743.png",
+      "sha256": "708cfda003f547a15e1796170d7e48b6f976f72f68a5fba7e5b2c479eb7504a9",
+      "RGBA_sha256": "511c1dcacd564826b2b74764ca526865b6114cabf434e4d11ce80dc49beff199"
     }
   },
   "no_original_game_data": true,
@@ -52157,6 +52188,32 @@
         "id": 150,
         "slot": 539,
         "HDA_sha256": "29da5df5d364527ea9eaa62b7bc1c457f40c5da3bab129e01d3f487ba11eeb27"
+      }
+    ]
+  },
+  "option_frontblaster_body_one_v1": {
+    "source": "assets/hd/artwork/option-frontblaster-body-one-v1",
+    "contract_sha256": "5314622c0bb0b4c5a9d4aaaeb7cab05bc9101098bf0c8ebf9c9dd93a9abc349c",
+    "role": 128,
+    "density": 8,
+    "logical_size": [
+      24,
+      28
+    ],
+    "anchor": [
+      0,
+      0
+    ],
+    "ids": [
+      83
+    ],
+    "scope": "Option20/style2/charge0/base83 static body only; original complete24x28 canvas, origin sidekick.x-6,y and four ordered indexed calls. Shared options22/26, shots, shadows and all gameplay unchanged.",
+    "fallback": "Exact current bank pointer+size and full QUAD indices+coverage before every cold/warm lookup; normal/Christmas same-source guard; existing independent8-to4 loader fallback.",
+    "entries": [
+      {
+        "id": 83,
+        "slot": 540,
+        "HDA_sha256": "553bad42474371738d7e0324c202af0ce8eaf667b5a27d8860de3e0e92f0c4df"
       }
     ]
   }

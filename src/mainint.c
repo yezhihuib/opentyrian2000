@@ -4696,7 +4696,12 @@ redo:
 				          y = this_player->sidekick[i].y;
 				const uint sprite = this_option->gr[this_player->sidekick[i].animation_frame] + this_player->sidekick[i].charge;
 
-				if (this_player->sidekick[i].style == 1 || this_player->sidekick[i].style == 2)
+				if (this_player->items.sidekick[i] == 20 && this_player->sidekick[i].style == 2 &&
+				    this_player->sidekick[i].charge == 0 && sprite == 83)
+					draw_frontblaster_body_sprite2(VGAScreen, x - 6, y, spriteSheet10, sprite,
+					                              this_player->items.sidekick[i],
+					                              this_player->sidekick[i].style, this_player->sidekick[i].charge);
+				else if (this_player->sidekick[i].style == 1 || this_player->sidekick[i].style == 2)
 					blit_sprite2x2(VGAScreen, x - 6, y, spriteSheet10, sprite);
 				else if (this_player->items.sidekick[i] == 30 && this_player->sidekick[i].style == 4 &&
 				         this_player->sidekick[i].charge == 0 && sprite == 152)

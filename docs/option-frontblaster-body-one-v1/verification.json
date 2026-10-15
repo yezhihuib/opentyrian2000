@@ -1,0 +1,326 @@
+{
+  "schema": "option-frontblaster-body-one-v1-bounded-verification",
+  "status": "PASS bounded units, source preservation and actual Normal/Hard parity; source publication separate",
+  "verified_date_utc": "2026-10-15",
+  "baseline_commit": "d755b79c890d140e294a683664259d6833a3ca6f",
+  "baseline_tree": "481455fc0deaf7cf93a7fdf3521b3d4e8618e9ad",
+  "resources": {
+    "option": 20,
+    "style": 2,
+    "charge": 0,
+    "bank": 10,
+    "role": 128,
+    "slot": 540,
+    "base": 83,
+    "quad_indices": [
+      83,
+      84,
+      102,
+      103
+    ],
+    "density": 8,
+    "logical_size": [
+      24,
+      28
+    ],
+    "anchor": [
+      0,
+      0
+    ],
+    "original_origin": "sidekick.x-6,sidekick.y",
+    "HDA_sha256": "553bad42474371738d7e0324c202af0ce8eaf667b5a27d8860de3e0e92f0c4df",
+    "RGBA_sha256": "511c1dcacd564826b2b74764ca526865b6114cabf434e4d11ce80dc49beff199",
+    "normal_and_Christmas": "Mandatory exact current-source indices+coverage guard for both; no new blanket Christmas rejection; existing scene eligibility unchanged"
+  },
+  "source_scope": {
+    "production_files_checked": 153,
+    "production_files_changed": [
+      "src/entity_draw.c",
+      "src/entity_draw.h",
+      "src/mainint.c",
+      "src/render_mirror.c",
+      "src/render_mirror.h"
+    ],
+    "finite_inverse_to_baseline_byte_exact": true,
+    "forbidden_mutations_rejected": [
+      "original blitter changed",
+      "unrelated mainint changed",
+      "pointer-only admission",
+      "unbounded slot capacity",
+      "extra original quad",
+      "broadened shared22 branch",
+      "blanket Christmas rejection",
+      "missing fourth quadrant",
+      "wrong source stamp",
+      "unsafe horizontal wrapping",
+      "wrong resource prefix",
+      "original Quad origin changed"
+    ],
+    "original_blitters_compositor_pixel_bridge_gameplay_rng_attachment_weapons_hud_shop_unchanged": true
+  },
+  "unit_checks": {
+    "optimized": {
+      "status": "PASS",
+      "head_cases": 863,
+      "source_identity_cases": 12,
+      "coverage_only_cases": 8,
+      "malformed_source_cases": 88,
+      "wrong_scope_cases": 734,
+      "resource_variants": 18,
+      "wrapper_calls": 170,
+      "pixel_cases": 170,
+      "dispatch_cases": 1155,
+      "indexed_bytes_compared": 10985600,
+      "rgba_bytes_compared": 2772992000,
+      "source_body_writes": 282,
+      "game_runs": 0
+    },
+    "ASan_UBSan": {
+      "status": "PASS",
+      "head_cases": 863,
+      "source_identity_cases": 12,
+      "coverage_only_cases": 8,
+      "malformed_source_cases": 88,
+      "wrong_scope_cases": 734,
+      "resource_variants": 18,
+      "wrapper_calls": 170,
+      "pixel_cases": 170,
+      "dispatch_cases": 1155,
+      "indexed_bytes_compared": 10985600,
+      "rgba_bytes_compared": 2772992000,
+      "source_body_writes": 282,
+      "game_runs": 0
+    },
+    "resource_variants": 18,
+    "scene_palette": "Synthetic grayscale in focused units; actual original palette and scene evidence separately below.",
+    "limits": [
+      "LeakSanitizer disabled for executor compatibility; AddressSanitizer and UndefinedBehaviorSanitizer remain enabled.",
+      "Malformed source is tested at HD guard only; classic raw RLE is deliberately not run on malformed source.",
+      "Horizontal wrapping coordinates reject HD and retain exact original physical-row indexed writes.",
+      "Finite no-game verification does not establish Windows, GPU, performance, full-level survival or actual-play aesthetics."
+    ]
+  },
+  "build": {
+    "translation_units": 72,
+    "linked": true,
+    "classic_disabled_units": [
+      "entity_draw.c",
+      "render_mirror.c"
+    ],
+    "Windows_project_XML_source_inventory": "PASS; no Windows compilation or runtime claim"
+  },
+  "runtime_method": {
+    "comparison": "Actual published-baseline source executable versus final candidate source executable",
+    "renderer": "Linux SDL dummy/software native2x640x400",
+    "original_time_NULL_seed_unchanged": true,
+    "all_four_natural_seed": 1792029077,
+    "all_four_exit_codes": 0,
+    "ticks_per_process": 320,
+    "only_inputs": "Original SDL menu key events; held Space main fire; brief LeftAlt down/up at110/111 and140/141",
+    "forced_equipment_cash_position_invulnerability_attachment_rng": false,
+    "private_observer_inverse_restores_all153_production_files_both_sources": true,
+    "actual_PNGs": 80,
+    "every_PNG_chunk_CRC_including_IEND_valid": true,
+    "recovered_or_repaired_screenshot_pixels": false
+  },
+  "cases": [
+    {
+      "difficulty": "normal",
+      "physical_level": 9,
+      "seed": "1792029077",
+      "ticks": 320,
+      "paired_original_state_indexed_palette_rng_parity": true,
+      "paired_original_draw_shot_pose_position_input_parity": true,
+      "actual_shop": {
+        "original_sorted_right_inventory": [
+          9,
+          20,
+          30,
+          0
+        ],
+        "None_initial_selection": 5,
+        "FrontBlaster_observed_selection": 3,
+        "Done_observed_selection": 6,
+        "cost": 8000,
+        "cash_before": 10000,
+        "cash_after_purchase": 2000,
+        "final_cash_after_natural_gameplay": "2065",
+        "left": 0,
+        "right": 20
+      },
+      "original_quad_calls": 320,
+      "original_indexed_tile_calls": 1280,
+      "original_body_writes": 90240,
+      "original_order": [
+        83,
+        84,
+        102,
+        103
+      ],
+      "original_top_left": "right_sidekick.x-6,right_sidekick.y",
+      "candidate_admitted_each_tick": true,
+      "baseline_admitted_each_tick": false,
+      "attachment": {
+        "attached_ticks_before_launch": 110,
+        "launch_tick": 110,
+        "return_request_tick": 140,
+        "reattach_tick": 170,
+        "final_linked": "1",
+        "y_range": [
+          40,
+          140
+        ],
+        "state_and_hash_fields": [
+          "optionAttachmentLinked",
+          "optionAttachmentMove",
+          "optionAttachmentReturn"
+        ]
+      },
+      "weapon727_requests": 54,
+      "weapon727_emissions": 108,
+      "weapon727_raw_ids": {
+        "121": 54,
+        "122": 54
+      },
+      "original121_122_draws": 3177,
+      "collision_events": 47,
+      "independently_recomputed_night_delta_range": null,
+      "lighting_original_support_census": [
+        {
+          "kind": "1",
+          "lit": "282",
+          "transition": "0",
+          "dark": "0",
+          "ticks": 320
+        }
+      ],
+      "noninvulnerable_overlap": {
+        "ticks": 160,
+        "original_intersection_pixels_each_attached_tick": 10
+      },
+      "native2x_gameplay_pairs": 17,
+      "visual_changes_outside_body_canvas": 0,
+      "changed_display_pixels_range": [
+        548,
+        1151
+      ]
+    },
+    {
+      "difficulty": "hard",
+      "physical_level": 15,
+      "seed": "1792029077",
+      "ticks": 320,
+      "paired_original_state_indexed_palette_rng_parity": true,
+      "paired_original_draw_shot_pose_position_input_parity": true,
+      "actual_shop": {
+        "original_sorted_right_inventory": [
+          9,
+          20,
+          30,
+          0
+        ],
+        "None_initial_selection": 5,
+        "FrontBlaster_observed_selection": 3,
+        "Done_observed_selection": 6,
+        "cost": 8000,
+        "cash_before": 10000,
+        "cash_after_purchase": 2000,
+        "final_cash_after_natural_gameplay": "2084",
+        "left": 0,
+        "right": 20
+      },
+      "original_quad_calls": 320,
+      "original_indexed_tile_calls": 1280,
+      "original_body_writes": 90240,
+      "original_order": [
+        83,
+        84,
+        102,
+        103
+      ],
+      "original_top_left": "right_sidekick.x-6,right_sidekick.y",
+      "candidate_admitted_each_tick": true,
+      "baseline_admitted_each_tick": false,
+      "attachment": {
+        "attached_ticks_before_launch": 110,
+        "launch_tick": 110,
+        "return_request_tick": 140,
+        "reattach_tick": 170,
+        "final_linked": "1",
+        "y_range": [
+          40,
+          140
+        ],
+        "state_and_hash_fields": [
+          "optionAttachmentLinked",
+          "optionAttachmentMove",
+          "optionAttachmentReturn"
+        ]
+      },
+      "weapon727_requests": 54,
+      "weapon727_emissions": 108,
+      "weapon727_raw_ids": {
+        "121": 54,
+        "122": 54
+      },
+      "original121_122_draws": 3064,
+      "collision_events": 51,
+      "independently_recomputed_night_delta_range": [
+        -128,
+        -4
+      ],
+      "lighting_original_support_census": [
+        {
+          "kind": "1",
+          "lit": "282",
+          "transition": "0",
+          "dark": "0",
+          "ticks": 1
+        },
+        {
+          "kind": "2",
+          "lit": "282",
+          "transition": "0",
+          "dark": "0",
+          "ticks": 319
+        }
+      ],
+      "noninvulnerable_overlap": {
+        "ticks": 160,
+        "original_intersection_pixels_each_attached_tick": 10
+      },
+      "native2x_gameplay_pairs": 17,
+      "visual_changes_outside_body_canvas": 0,
+      "changed_display_pixels_range": [
+        548,
+        1151
+      ]
+    }
+  ],
+  "pack_preservation": {
+    "both_default_manifests_before": 548,
+    "both_default_manifests_after": 549,
+    "both_default_physical_files_before": 559,
+    "both_default_physical_files_after": 560,
+    "physical_HDA_after": 555,
+    "all_prior_physical_files_byte_identical": true,
+    "six_unlisted_HDA_and_five_auxiliaries_preserved": true,
+    "rollback_packs_unchanged": true
+  },
+  "visual_review": {
+    "Normal_and_Hard_actual_launched_body_full_screens": "Root accepted",
+    "known_tradeoffs": [
+      "About90% original alpha-weighted area and0.31 logical-pixel higher centroid; root accepted; do not recolor/repaint/shift/threshold."
+    ],
+    "Normal_and_Hard_exact_native2x_attached_launched_returning_reattached_comparisons": "Root accepted"
+  },
+  "limits": [
+    "Legitimate right purchase only; left/dual remain source/unit cases.",
+    "320-tick first-level windows; no whole-level/campaign, Windows, GPU or performance qualification.",
+    "No Christmas actual-engine run; same-source Christmas support is covered separately by focused source units.",
+    "Lighting census covers original282 support cells and native2x visual samples. This natural FrontBlaster path stays wholly lit; no transition/dark body cells or separate all-authored-alpha subpixel shader proof are claimed.",
+    "NIGHT body transition/dark branches were not reached by this natural forward-body path.",
+    "Collision log count is reported without claiming exhaustive collision-domain qualification.",
+    "Original game files, extracted pixels, fixtures and actual runtime captures are excluded from the repository."
+  ]
+}

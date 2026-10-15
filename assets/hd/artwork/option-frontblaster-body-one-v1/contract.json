@@ -1,0 +1,73 @@
+{
+  "schema": "option-frontblaster-body-one-generated-master-v1",
+  "role": 128,
+  "density": 8,
+  "logical_size": [
+    24,
+    28
+  ],
+  "anchor": [
+    0,
+    0
+  ],
+  "reconstruction": {
+    "library": "Pillow",
+    "version": "12.3.0",
+    "resize": [
+      160,
+      152
+    ],
+    "paste": [
+      24,
+      24
+    ],
+    "filter": "LANCZOS",
+    "canvas": [
+      192,
+      224
+    ],
+    "alpha": "Frozen generated RGBA registration. Fixed crop/resample/paste only; no repaint, recolor, shift, threshold or original-source mask."
+  },
+  "source_guard": {
+    "bank": 10,
+    "layout": "QUAD",
+    "ids": [
+      83,
+      84,
+      102,
+      103
+    ],
+    "semantic_fnv1a64": "eb8e5d2261e22274",
+    "normal_and_Christmas": "Both selected sources require exact current indices and coverage before every cold/warm lookup; unchanged scene eligibility still applies."
+  },
+  "known_offline_reviewed_tradeoffs": [
+    "About90% original alpha-weighted area and0.31 logical-pixel higher centroid; root accepted; do not recolor/repaint/shift/threshold."
+  ],
+  "scope": "Option20/style2/charge0/base83 static body only; original complete24x28 canvas, origin sidekick.x-6,y and four ordered indexed calls. Shared options22/26, shots, shadows and all gameplay unchanged.",
+  "qualification": "Offline artwork accepted; actual-game qualification is reported separately.",
+  "entries": [
+    {
+      "id": 83,
+      "slot": 540,
+      "source": "sources/generated-frontblaster-body-v1.png",
+      "source_sha256": "50577873059102ef40dd991eafa4918297ec07598a8e5afb0efdcfb99fa1a5eb",
+      "crop": [
+        170,
+        124,
+        1117,
+        985
+      ],
+      "PNG_sha256": "708cfda003f547a15e1796170d7e48b6f976f72f68a5fba7e5b2c479eb7504a9",
+      "RGBA_sha256": "511c1dcacd564826b2b74764ca526865b6114cabf434e4d11ce80dc49beff199",
+      "HDA_sha256": "553bad42474371738d7e0324c202af0ce8eaf667b5a27d8860de3e0e92f0c4df",
+      "header_u32": [
+        1280083,
+        8,
+        24,
+        28,
+        0,
+        0
+      ]
+    }
+  ]
+}

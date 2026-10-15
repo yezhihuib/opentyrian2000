@@ -55,6 +55,7 @@ typedef enum {
 #define render_mirror_enemy_shot(...) false
 #define render_mirror_marlo_body(...) false
 #define render_mirror_mint_body(...) false
+#define render_mirror_frontblaster_body(...) false
 #define render_mirror_map_begin(...) ((void)0)
 #define render_mirror_bind_terrain(...) ((void)0)
 #define render_mirror_terrain_row(...) 0u
@@ -92,6 +93,8 @@ bool render_mirror_marlo_body(SDL_Surface *,int x,int y,Sprite2_array,unsigned i
                               unsigned int option,unsigned int sidekick_style,unsigned int charge);
 bool render_mirror_mint_body(SDL_Surface *,int x,int y,Sprite2_array,unsigned int index,
                             unsigned int option,unsigned int sidekick_style,unsigned int charge);
+bool render_mirror_frontblaster_body(SDL_Surface *,int x,int y,Sprite2_array,unsigned int index,
+                                    unsigned int option,unsigned int sidekick_style,unsigned int charge);
 void render_mirror_pixel(SDL_Surface *, Uint8 *address, Uint8 source, int style);
 void render_mirror_shadow_begin(SDL_Surface *,int x,int y,Sprite2_array,unsigned int index);
 void render_mirror_shadow_end(void);
