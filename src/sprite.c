@@ -186,6 +186,7 @@ void blit_sprite_blend(SDL_Surface *surface, int x, int y, unsigned int table, u
 		return;
 	}
 	
+	const bool plasma_blend = render_mirror_plasma_projectile_begin(surface, x, y, table, index);
 	const Sprite * const cur_sprite = sprite(table, index);
 	
 	const Uint8 *data = cur_sprite->data;
@@ -223,7 +224,7 @@ void blit_sprite_blend(SDL_Surface *surface, int x, int y, unsigned int table, u
 			if (pixels >= pixels_ul)
 				return;
 			if (pixels >= pixels_ll)
-				{ *pixels = (*data & 0xf0) | (((*pixels & 0x0f) + (*data & 0x0f)) / 2); render_mirror_pixel(surface,pixels,*data,MIRROR_BLEND); }
+				{ *pixels = (*data & 0xf0) | (((*pixels & 0x0f) + (*data & 0x0f)) / 2); render_mirror_plasma_projectile_pixel(surface,pixels,*data,plasma_blend); }
 			
 			pixels++;
 			x_offset++;

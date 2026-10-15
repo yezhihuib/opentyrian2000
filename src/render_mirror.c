@@ -3081,6 +3081,70 @@ static bool effect_ramp_monotone_to(unsigned int hue,int last)
 static bool effect_ramp_monotone(unsigned int hue)
 {return effect_ramp_monotone_to(hue,15);}
 
+/* Weapon88/1088 keeps three independent variable-sized raw sprite calls.
+ * This finite compatibility path uses ORIGINAL art, never an HDA resource.
+ * Re-decode current indices AND coverage before every draw, including repeated
+ * calls and same-address table reloads. Normal and Christmas originals agree.
+ * Reject an entire individual piece when its rectangle crosses an edge: the
+ * original raw blitter has linear row-wrap/address clipping, not normal XY clip.
+ * No cache or pointer identity can keep stale source admission alive. */
+bool render_mirror_plasma_projectile_begin(SDL_Surface *surface,int x,int y,unsigned int table,unsigned int index)
+{
+ if(!active||!surface||surface!=game_screen||surface!=VGAScreen||reject_reason||suppress||
+    !game_probe_known_blend||game_probe_original_reference||
+    (game_probe_density!=4&&game_probe_density!=8)||!canvas||!hd_owner||
+    surface->w!=320||surface->h!=200||surface->pitch<320||!surface->pixels||!surface->format||
+    surface->format->BitsPerPixel!=8||surface->format->BytesPerPixel!=1||
+    table!=OPTION_SHAPES||index<22||index>24||
+    sprite_table[table].count>SPRITES_PER_TABLE_MAX||index>=sprite_table[table].count)return false;
+ static const unsigned int widths[3]={62,65,62},heights[3]={24,28,23};
+ static const uint64_t pins[3]={UINT64_C(0x6d5e2fcad8f0a564),UINT64_C(0xe38948558d55665d),UINT64_C(0x2aae962a99b61745)};
+ unsigned int k=index-22,w=widths[k],h=heights[k];
+ const Sprite *source=&sprite_table[table].sprite[index];
+ if(source->width!=w||source->height!=h||x<0||x>320-(int)w||y<0||y>200-(int)h||
+    !effect_ramp_monotone(0x70))return false;
+ Uint8 decoded[65*28*2]={0};
+ if(!hud_sprite_decode(table,index,w,h,decoded,decoded+w*h))return false;
+ uint64_t stamp=UINT64_C(14695981039346656037);
+ for(size_t i=0;i<2u*w*h;i++){stamp^=decoded[i];stamp*=UINT64_C(1099511628211);}
+ return stamp==pins[k];
+}
+
+void render_mirror_plasma_projectile_pixel(SDL_Surface *surface,Uint8 *address,Uint8 source,bool compatible)
+{
+ if(!compatible||!active||surface!=game_screen||surface!=VGAScreen||reject_reason||suppress) {
+  render_mirror_pixel(surface,address,source,MIRROR_BLEND);return;
+ }
+ intptr_t off=(intptr_t)address-(intptr_t)surface->pixels;
+ if(off<0||off>=(intptr_t)surface->pitch*surface->h) {
+  render_mirror_pixel(surface,address,source,MIRROR_BLEND);return;
+ }
+ int y=(int)(off/surface->pitch),x=(int)(off%surface->pitch);
+ if(x>=320||y>=200)return;
+ Uint8 before=expected[y*320+x];
+ /* Retain the exact original hue-overwrite/truncated-nibble indexed result.
+  * A mismatch means this is no longer the audited original write. */
+ if((source&240)!=0x70||*address!=((source&240)|(((before&15)+(source&15))/2))) {
+  render_mirror_pixel(surface,address,source,MIRROR_BLEND);return;
+ }
+ font_before_effect((SDL_Rect){x,y,1,1});
+ expected[y*320+x]=*address;
+ if(selected[y*320+x]){++occlusions;selected[y*320+x]=0;}
+ int d=game_probe_density;
+ for(int sy=0;sy<d;sy++) {
+  Uint32 *p=(Uint32 *)((Uint8 *)canvas->pixels+(y*d+sy)*canvas->pitch)+x*d;
+  const Uint8 *owner=hd_owner+(y*d+sy)*canvas->w+x*d;
+  for(int sx=0;sx<d;sx++) {
+   int n=(y*d+sy)*canvas->w+x*d+sx;
+   green_first[n]=0;cloud_owner[n]=0;
+   /* Only genuine HD owners use the continuous HSV-value approximation above.
+    * Classic and indexed-copy owners retain the exact current palette color.
+    * Preserve owner1 so later independent pieces see this composed HD result. */
+   p[sx]=owner[sx]==1?explosion_blend_rgba(p[sx],source):palette_rgb(*address);
+  }
+ }
+}
+
 static bool recognized_value_effect(unsigned int index)
 {
  return index==166||index==185||index==204||index==223||index==169||index==188||index==207||index==226||
