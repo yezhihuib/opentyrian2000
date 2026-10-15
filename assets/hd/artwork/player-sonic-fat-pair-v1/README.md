@@ -1,0 +1,11 @@
+# Sonic Wave fat-short16/54 generated candidate
+
+Finite normal player bank8/TILE16/54 only. Logical12x14, anchor(0,0), density8,96x112 straight RGBA. The prior6/44/63/73/82 remain byte-preserved; the other14 Sonic identities stay original.
+
+This package retains the exact built-in imagegen revision2 master and exact prompt, tool provenance and observed timing bounds in contract.json. No exact model ID was supplied. Revision1 used the original sprite as a private geometry/green reference; rejected revision1 and original game pixels are not packaged. Reconstruction reads only the preserved generated master, never original rasters, indices, coverage or masks. The prompt alone is not claimed to reproduce the master.
+
+Fixed crop(71,258,1100,1113),1029x855, is resized proportionally to96x80 (ideal height79.7668 rounded once) using Pillow12.3.0 LANCZOS, then straight-pasted at(0,8) on96x112.54 is an exact horizontal mirror of the whole registered16 canvas. Both occupied bboxes(0,8)-(96,88) match source extent with anchor0. Imagegen changed the requested preserved canvas width by one pixel, from1161 to1160; no stretch or repaint corrects it. Only alpha1 scattered pixels outside the crop are omitted,0.02864percent of master alpha mass. No procedural recolor, threshold, source mask, external halo or shape warp is used.
+
+Parent and independent static review accept revision2 for a reversible bounded actual-engine trial: short-wide C geometry and soft green edges are readable at24x28 and48x56 on cloud/brown scenery. Revision1 was rejected for a continuous dark concave rim and dark tips with blade/solid-object appearance. Revision2 visibly removes that contour and preserves a full green energy body; its lighter-green inner highlight and higher brightness versus the original remain disclosed. Final runtime visual acceptance and technical results are separate in docs/player-sonic-fat-pair-v1 when available.
+
+Run python3 rebuild.py --output /absolute/new-directory. The standalone prototype/build-sonic-fat-pair-art.py checks exact master, generated PNG/RGBA/HDR1 bytes, canonical copies, both default bindings and whole-canvas mirror. Source-contract guards and original indexed shadows are verified separately. No full-family or full-level completion is asserted.

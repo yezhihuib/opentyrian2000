@@ -1,0 +1,4468 @@
+{
+  "schema": "sanitized-sonic16-54-R2-bounded-runtime-projection-v1",
+  "status": "PASS_BOUNDED_SONIC16_54_R2_PILOT",
+  "baseline_commit": "92e6ac65efc61e83d6563760c70b3bfe650de7a6",
+  "production_changes": "Display binding render_mirror.c and new16/54 art resources only. Original shot,movement,collision,RNG and gameplay sources unchanged.",
+  "pins": {
+    "renderer_sha256": "ea9fea07c77c30750b49aa6821d3b98cf271de4663a8ffaa7e6b9777ef988c3a",
+    "manifest_sha256": "783e842e7639d388e993478f971a627954a6d0adf522ee0e3798eb153cac7cfe",
+    "art_contract_sha256": "060156916b0f1d27a0828563b6b554e2dc3871fcab23ee9e30f4b58167acdb7c",
+    "generated_R2_master_sha256": "bd7d210c534931f6d42645cb20044463f6a337f54f34abdd90812c4c163eccda",
+    "HDA16_sha256": "61cded2fa237c07f9cc133a4adf47085697b7bf7a45fad912460d5f4fdfa8a83",
+    "HDA54_sha256": "feae41526356b6fbb3b4d34774c59e813b08a50f4c61ec733f5ca11e10fa69b6",
+    "production_binary_sha256": "92d7d25eefe8730c80ca0695aef8f2956935ab415d283227ae7c60d0c7c27b4c",
+    "production_ready_receipt_sha256": "7f95364b51321ff2085db73898357a53ce19770e7054853dcae9c513ed2660b8",
+    "private_source_audit_sha256": "88b360ecf163904a4de59985e0de8af11858f7865e1133efc11bff176085106c",
+    "reviewed_source_contract_sha256": "a3b891c3b11e33f46c38199befc01712a65bd006f1a3d8e0c1b6c2d7f62f42c3",
+    "private_prelaunch_plan_sha256": "373c3eff1bafb0cc7af8f23e9bd4a01f825228f33338b5685095420770f06293",
+    "private_before_pins_sha256": "15e35733da827670d55876aec5905b0583e77fe046858b1e9baae9fab7781f6a",
+    "private_after_pins_sha256": "15e35733da827670d55876aec5905b0583e77fe046858b1e9baae9fab7781f6a",
+    "private_complete_runtime_summary_sha256": "f87a0d6bf1644bc6930c61c2d07e9c099e9ce3edf87f086fe508a5fc99e2cd9a"
+  },
+  "counts": {
+    "matched_process_pairs": 8,
+    "actual_engine_processes": 16,
+    "original_engine_ticks_each_process": 64,
+    "total_original_engine_ticks": 1024,
+    "paired_tick_comparisons": 512,
+    "native_capture_pairs": 24,
+    "native_full_frame_captures": 48
+  },
+  "actual_native_dimensions": [
+    [
+      640,
+      400
+    ],
+    [
+      1280,
+      800
+    ]
+  ],
+  "native_dimensions_verified_by": [
+    "SDL window size",
+    "SDL renderer output size",
+    "SDL_RenderReadPixels RGBA buffer",
+    "PNG IHDR,decoded dimensions and all chunk CRCs"
+  ],
+  "controls": "Original Full Game menus to Episode1 physical9. Once-only diagnostic starting loadout front None,rear11 at row power/mode. Original generator2/energy0/shield5/max10/cash10000,x100/initialy180 with original clamp160. Ordinary Space,no movement. No shop-acquisition claim. Original time(NULL) retained; same-second baseline/candidate seeds match.",
+  "no_overrides": [
+    "No projectile injection",
+    "No forced position",
+    "No per-tick refill",
+    "No physics,RNG,fire-cadence or collision changes",
+    "No original blitter changes"
+  ],
+  "source_predictions": {
+    "successful_original_emission_ticks": [
+      3,
+      10,
+      19,
+      26,
+      33,
+      40,
+      47,
+      54,
+      61
+    ],
+    "original_shield_recharge_ticks": [
+      16,
+      48
+    ],
+    "all64_tick_energy_shield_repeat_predictions_exact": true,
+    "all_original_emitted_fields_exact": true,
+    "all_fixed_capture_source_head_positions_exact": true,
+    "capacity_upper_bound_without_retirement": 54,
+    "capacity_slots": 81,
+    "capacity_rejections": 0
+  },
+  "parity": {
+    "all64_tick_original_player_enemy_shot_particle_global_RNG_hashes_exact": true,
+    "all64_tick_trueINDEX8_game_display_palette_hashes_exact": true,
+    "fixed_capture_raw_trueINDEX8_game_display_SDL_and_RGB_palettes_exact": true,
+    "ordered_original_draws_requests_results_emissions_positions_collisions_blend_events_exact": true,
+    "normal_blend_shadow_original_indexed_write_counts_and_hashes_exact": true,
+    "original_draw_order_identical_except_new16_54_normal_HD_admission_flag": true,
+    "new16_54_HD_shadow_admissions": 0,
+    "RGB_differences_outside_current_normal16_54_12x14_headcanvases": 0,
+    "P4_63_and_P5_223_224_coexistence_domains_exact": true,
+    "existing6_44_73_82_negative_RGB_exact_at_both_sizes": true,
+    "old_pack_resources_byte_identical": true,
+    "new_HDA_resources_only": [
+      16,
+      54
+    ],
+    "prelaunch_postlaunch_and_final_rechecked_inputs_exact": true
+  },
+  "frozen_generated_core_criterion": {
+    "alpha_threshold": 250,
+    "max_alpha": 253,
+    "sampling": "Actual nearest-sampled frozen RGBA; changed output RGB within straight-alpha channel bounds for arbitrary0..255 underlay. Exactalpha255 matches counted separately and are zero.",
+    "interpretation": "Surviving authored-core visibility, not independent reconstruction of complete compositor."
+  },
+  "appearance": {
+    "parent_native_appearance_accepted": true,
+    "status": "Parent inspected complete actual1280 scene and accepts16/54 R2 appearance for this bounded pilot. ID16 actualbrown only; ID54 actualbrown and separate older-head actualcloud witness. Technical negative controls and independent review remain separate publication gates; no full-family,whole-level,campaign,Christmas,physicalGPU orWindows acceptance.",
+    "positive_underlay": "Clean emission40 paired16/54 witnesses are on actual lower brown/ochre terrain. Older emission33 ID54 at fixedtick42 is on actual white/blue cloud with complete source and frozen core survival. No actual-cloud16 witness is established.",
+    "clean_head_visibility": "Each of16 and54 emission40 at ages2/3/4 has all84 source cells and all frozen highalpha sampled core visible, fully inside playfield and separated from later Talon canvas.",
+    "actual_cloud54_witness": {
+      "tick": 42,
+      "original_draw_xy": [
+        220,
+        160
+      ],
+      "display_logical_xy": [
+        196,
+        160
+      ],
+      "emission_tick": 33,
+      "movement_age": 9,
+      "full_source_and_frozen_core_visible_at_both_native_sizes": true
+    },
+    "no_actual_cloud16_claim": true
+  },
+  "cases": [
+    {
+      "case": "p4-m1-native2x",
+      "role": "positive16/54 with unchanged63 coexistence control",
+      "power": 4,
+      "mode": 1,
+      "native_scale": 2,
+      "ticks": 64,
+      "actual_SDL_readback_dimensions": [
+        640,
+        400
+      ],
+      "raw_source_ids": [
+        16,
+        54,
+        63
+      ],
+      "successful_original_requests": [
+        3,
+        10,
+        19,
+        26,
+        33,
+        40,
+        47,
+        54,
+        61
+      ],
+      "shot_requests": 13,
+      "emissions": 27,
+      "original16_54_shadow_draws": 190,
+      "shadow16_54_HD_admission_count": 0,
+      "candidate_new16_54_normal_admissions": 190,
+      "positive_witness_ticks": [
+        42,
+        43,
+        44
+      ],
+      "control_pixel_identical": false,
+      "captures": [
+        {
+          "tick": 42,
+          "role": "New emission40 age2/3/4 clean fully-in-playfield paired16/54, separated from later Talon canvas",
+          "changed_native_RGB_pixels": 1026,
+          "RGB_diff_bbox": [
+            98,
+            322,
+            416,
+            342
+          ],
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "unchanged_coexistence_heads": [
+            {
+              "id": 63,
+              "original_draw_xy": [
+                101,
+                134
+              ],
+              "native_canvas_pixels_outside_selected_domain": 672,
+              "changed_pixels_outside_selected_domain": 0,
+              "render_admission_unchanged": true
+            },
+            {
+              "id": 63,
+              "original_draw_xy": [
+                101,
+                43
+              ],
+              "native_canvas_pixels_outside_selected_domain": 672,
+              "changed_pixels_outside_selected_domain": 0,
+              "render_admission_unchanged": true
+            }
+          ],
+          "native_image_hashes": {
+            "baseline": {
+              "sha256": "5cfa6b9bcd773aa4cbc728d0267a5f43ed8640d22d9c6b08ee7385e4311b1a77",
+              "rgba_sha256": "f5fcb33f70d3928cbadbbc1bc04a5573ae939360eab08e2c11a87ca8db776099",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "8d64c70f2f98f6cd89473559601bd993131ffaf060292920282ae96cd8918783",
+              "rgba_sha256": "ec9d0597598ee127ed65f31c653ff88dc5f0c9c95df55f939356af5394eacaab",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "original_INDEX8_palette_hashes": {
+            "game_INDEX8_sha256": "0fbe3e345bd4f0bfa17f91330c388b072c75d16ca1772e4c3c016c9134c1eff2",
+            "display_INDEX8_sha256": "78283681e22aab3c083a666ac0b49410ecca6b9bc56ad8fc3d865d6d31da8b33",
+            "game_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "display_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "rgb_RGB_palette_sha256": "ba249050344157b75e14a846649cc634b098ba448071ba44ecae8647aff01c7c"
+          },
+          "head_witness_counts": [
+            {
+              "id": 16,
+              "original_draw_xy": [
+                -18,
+                160
+              ],
+              "display_native_canvas": [
+                -84,
+                320,
+                -60,
+                348
+              ],
+              "source_opaque_exact_pixel_matches": 0,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 0,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0
+            },
+            {
+              "id": 16,
+              "original_draw_xy": [
+                73,
+                160
+              ],
+              "display_native_canvas": [
+                98,
+                320,
+                122,
+                348
+              ],
+              "source_opaque_exact_pixel_matches": 336,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 127,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0,
+              "clean_emission40_paired_head": true,
+              "original_emission_tick": 40,
+              "movement_age": 2,
+              "fully_source_visible": true,
+              "all_frozen_highalpha_core_visible": true,
+              "later_ship_canvas_disjoint": true
+            },
+            {
+              "id": 54,
+              "original_draw_xy": [
+                220,
+                160
+              ],
+              "display_native_canvas": [
+                392,
+                320,
+                416,
+                348
+              ],
+              "source_opaque_exact_pixel_matches": 336,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 127,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0,
+              "original_emission_tick": 33,
+              "movement_age": 9,
+              "actual_underlay_visually_inspected": "white/blue cloud",
+              "full_source_and_frozen_core_visible": true
+            },
+            {
+              "id": 54,
+              "original_draw_xy": [
+                129,
+                160
+              ],
+              "display_native_canvas": [
+                210,
+                320,
+                234,
+                348
+              ],
+              "source_opaque_exact_pixel_matches": 336,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 127,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0,
+              "clean_emission40_paired_head": true,
+              "original_emission_tick": 40,
+              "movement_age": 2,
+              "fully_source_visible": true,
+              "all_frozen_highalpha_core_visible": true,
+              "later_ship_canvas_disjoint": true
+            }
+          ]
+        },
+        {
+          "tick": 43,
+          "role": "New emission40 age2/3/4 clean fully-in-playfield paired16/54, separated from later Talon canvas",
+          "changed_native_RGB_pixels": 1026,
+          "RGB_diff_bbox": [
+            72,
+            322,
+            442,
+            342
+          ],
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "unchanged_coexistence_heads": [
+            {
+              "id": 63,
+              "original_draw_xy": [
+                101,
+                121
+              ],
+              "native_canvas_pixels_outside_selected_domain": 672,
+              "changed_pixels_outside_selected_domain": 0,
+              "render_admission_unchanged": true
+            },
+            {
+              "id": 63,
+              "original_draw_xy": [
+                101,
+                30
+              ],
+              "native_canvas_pixels_outside_selected_domain": 672,
+              "changed_pixels_outside_selected_domain": 0,
+              "render_admission_unchanged": true
+            }
+          ],
+          "native_image_hashes": {
+            "baseline": {
+              "sha256": "f5d150f38a8f36d3e336aed9da974078b3ceaefc57137c939e38003cfe4c43e4",
+              "rgba_sha256": "a588f592f2a1cdb89106d9b6003a0ce37abd3923011cca6875f5155f0cdd0ea5",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "d96cd910ef6c4385f127ce55919c05a41006d36dffd311a50624d48def903f50",
+              "rgba_sha256": "77ff58895b2b0c0cd82f59f04b51dd992b5aeddd5f5201c25f7bc0940cf39b68",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "original_INDEX8_palette_hashes": {
+            "game_INDEX8_sha256": "1c0f6838335e94549832935a6d33e55f8fd6c3e1d1a89cb93d5dfa91b65424aa",
+            "display_INDEX8_sha256": "79d9a9db5ae527b5284d92920ddaca678b571297feeddc7374b928761acc9a1c",
+            "game_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "display_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "rgb_RGB_palette_sha256": "ba249050344157b75e14a846649cc634b098ba448071ba44ecae8647aff01c7c"
+          },
+          "head_witness_counts": [
+            {
+              "id": 16,
+              "original_draw_xy": [
+                -31,
+                160
+              ],
+              "display_native_canvas": [
+                -110,
+                320,
+                -86,
+                348
+              ],
+              "source_opaque_exact_pixel_matches": 0,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 0,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0
+            },
+            {
+              "id": 16,
+              "original_draw_xy": [
+                60,
+                160
+              ],
+              "display_native_canvas": [
+                72,
+                320,
+                96,
+                348
+              ],
+              "source_opaque_exact_pixel_matches": 336,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 127,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0,
+              "clean_emission40_paired_head": true,
+              "original_emission_tick": 40,
+              "movement_age": 3,
+              "fully_source_visible": true,
+              "all_frozen_highalpha_core_visible": true,
+              "later_ship_canvas_disjoint": true
+            },
+            {
+              "id": 54,
+              "original_draw_xy": [
+                233,
+                160
+              ],
+              "display_native_canvas": [
+                418,
+                320,
+                442,
+                348
+              ],
+              "source_opaque_exact_pixel_matches": 336,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 127,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0
+            },
+            {
+              "id": 54,
+              "original_draw_xy": [
+                142,
+                160
+              ],
+              "display_native_canvas": [
+                236,
+                320,
+                260,
+                348
+              ],
+              "source_opaque_exact_pixel_matches": 336,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 127,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0,
+              "clean_emission40_paired_head": true,
+              "original_emission_tick": 40,
+              "movement_age": 3,
+              "fully_source_visible": true,
+              "all_frozen_highalpha_core_visible": true,
+              "later_ship_canvas_disjoint": true
+            }
+          ]
+        },
+        {
+          "tick": 44,
+          "role": "New emission40 age2/3/4 clean fully-in-playfield paired16/54, separated from later Talon canvas",
+          "changed_native_RGB_pixels": 1026,
+          "RGB_diff_bbox": [
+            46,
+            322,
+            468,
+            342
+          ],
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "unchanged_coexistence_heads": [
+            {
+              "id": 63,
+              "original_draw_xy": [
+                101,
+                108
+              ],
+              "native_canvas_pixels_outside_selected_domain": 672,
+              "changed_pixels_outside_selected_domain": 0,
+              "render_admission_unchanged": true
+            },
+            {
+              "id": 63,
+              "original_draw_xy": [
+                101,
+                17
+              ],
+              "native_canvas_pixels_outside_selected_domain": 672,
+              "changed_pixels_outside_selected_domain": 0,
+              "render_admission_unchanged": true
+            }
+          ],
+          "native_image_hashes": {
+            "baseline": {
+              "sha256": "ea89c45b7d65d593c51730468f39444ad205967734f87ba7122903bcaf25fa51",
+              "rgba_sha256": "5a8288558ec1d5e7d843fa31c05c9ce779d12a24d216cc5e9b00e0acc0094f19",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "d4ac01c17dfed4ddecb742a6214550fafda283ddf1221dbf65730aadeb21f4a6",
+              "rgba_sha256": "994cadad10feed7f9222c52e001e1cac864bba484bb022aeea5e28afb513fb5b",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "original_INDEX8_palette_hashes": {
+            "game_INDEX8_sha256": "46d25f332d6c94c006788167a4f2bfd1ad921867d7a7e9e804f513385881f530",
+            "display_INDEX8_sha256": "94515ba442d7ca59542e5865ea7ffe7d9e6aed44ff1fa66d054b897a1d48ec65",
+            "game_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "display_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "rgb_RGB_palette_sha256": "ba249050344157b75e14a846649cc634b098ba448071ba44ecae8647aff01c7c"
+          },
+          "head_witness_counts": [
+            {
+              "id": 16,
+              "original_draw_xy": [
+                47,
+                160
+              ],
+              "display_native_canvas": [
+                46,
+                320,
+                70,
+                348
+              ],
+              "source_opaque_exact_pixel_matches": 336,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 127,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0,
+              "clean_emission40_paired_head": true,
+              "original_emission_tick": 40,
+              "movement_age": 4,
+              "fully_source_visible": true,
+              "all_frozen_highalpha_core_visible": true,
+              "later_ship_canvas_disjoint": true
+            },
+            {
+              "id": 54,
+              "original_draw_xy": [
+                246,
+                160
+              ],
+              "display_native_canvas": [
+                444,
+                320,
+                468,
+                348
+              ],
+              "source_opaque_exact_pixel_matches": 336,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 127,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0
+            },
+            {
+              "id": 54,
+              "original_draw_xy": [
+                155,
+                160
+              ],
+              "display_native_canvas": [
+                262,
+                320,
+                286,
+                348
+              ],
+              "source_opaque_exact_pixel_matches": 336,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 127,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0,
+              "clean_emission40_paired_head": true,
+              "original_emission_tick": 40,
+              "movement_age": 4,
+              "fully_source_visible": true,
+              "all_frozen_highalpha_core_visible": true,
+              "later_ship_canvas_disjoint": true
+            }
+          ]
+        }
+      ],
+      "source_predicted_all_original_head_positions": [
+        {
+          "tick": 42,
+          "heads": [
+            {
+              "id": 16,
+              "ordinal": 1,
+              "emitted_tick": 33,
+              "age": 9,
+              "original_draw_xy": [
+                -18,
+                160
+              ]
+            },
+            {
+              "id": 54,
+              "ordinal": 2,
+              "emitted_tick": 33,
+              "age": 9,
+              "original_draw_xy": [
+                220,
+                160
+              ]
+            },
+            {
+              "id": 63,
+              "ordinal": 3,
+              "emitted_tick": 33,
+              "age": 9,
+              "original_draw_xy": [
+                101,
+                43
+              ]
+            },
+            {
+              "id": 16,
+              "ordinal": 1,
+              "emitted_tick": 40,
+              "age": 2,
+              "original_draw_xy": [
+                73,
+                160
+              ]
+            },
+            {
+              "id": 54,
+              "ordinal": 2,
+              "emitted_tick": 40,
+              "age": 2,
+              "original_draw_xy": [
+                129,
+                160
+              ]
+            },
+            {
+              "id": 63,
+              "ordinal": 3,
+              "emitted_tick": 40,
+              "age": 2,
+              "original_draw_xy": [
+                101,
+                134
+              ]
+            }
+          ]
+        },
+        {
+          "tick": 43,
+          "heads": [
+            {
+              "id": 16,
+              "ordinal": 1,
+              "emitted_tick": 33,
+              "age": 10,
+              "original_draw_xy": [
+                -31,
+                160
+              ]
+            },
+            {
+              "id": 54,
+              "ordinal": 2,
+              "emitted_tick": 33,
+              "age": 10,
+              "original_draw_xy": [
+                233,
+                160
+              ]
+            },
+            {
+              "id": 63,
+              "ordinal": 3,
+              "emitted_tick": 33,
+              "age": 10,
+              "original_draw_xy": [
+                101,
+                30
+              ]
+            },
+            {
+              "id": 16,
+              "ordinal": 1,
+              "emitted_tick": 40,
+              "age": 3,
+              "original_draw_xy": [
+                60,
+                160
+              ]
+            },
+            {
+              "id": 54,
+              "ordinal": 2,
+              "emitted_tick": 40,
+              "age": 3,
+              "original_draw_xy": [
+                142,
+                160
+              ]
+            },
+            {
+              "id": 63,
+              "ordinal": 3,
+              "emitted_tick": 40,
+              "age": 3,
+              "original_draw_xy": [
+                101,
+                121
+              ]
+            }
+          ]
+        },
+        {
+          "tick": 44,
+          "heads": [
+            {
+              "id": 54,
+              "ordinal": 2,
+              "emitted_tick": 33,
+              "age": 11,
+              "original_draw_xy": [
+                246,
+                160
+              ]
+            },
+            {
+              "id": 63,
+              "ordinal": 3,
+              "emitted_tick": 33,
+              "age": 11,
+              "original_draw_xy": [
+                101,
+                17
+              ]
+            },
+            {
+              "id": 16,
+              "ordinal": 1,
+              "emitted_tick": 40,
+              "age": 4,
+              "original_draw_xy": [
+                47,
+                160
+              ]
+            },
+            {
+              "id": 54,
+              "ordinal": 2,
+              "emitted_tick": 40,
+              "age": 4,
+              "original_draw_xy": [
+                155,
+                160
+              ]
+            },
+            {
+              "id": 63,
+              "ordinal": 3,
+              "emitted_tick": 40,
+              "age": 4,
+              "original_draw_xy": [
+                101,
+                108
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "p4-m1-native4x",
+      "role": "positive16/54 with unchanged63 coexistence control",
+      "power": 4,
+      "mode": 1,
+      "native_scale": 4,
+      "ticks": 64,
+      "actual_SDL_readback_dimensions": [
+        1280,
+        800
+      ],
+      "raw_source_ids": [
+        16,
+        54,
+        63
+      ],
+      "successful_original_requests": [
+        3,
+        10,
+        19,
+        26,
+        33,
+        40,
+        47,
+        54,
+        61
+      ],
+      "shot_requests": 13,
+      "emissions": 27,
+      "original16_54_shadow_draws": 190,
+      "shadow16_54_HD_admission_count": 0,
+      "candidate_new16_54_normal_admissions": 190,
+      "positive_witness_ticks": [
+        42,
+        43,
+        44
+      ],
+      "control_pixel_identical": false,
+      "captures": [
+        {
+          "tick": 42,
+          "role": "New emission40 age2/3/4 clean fully-in-playfield paired16/54, separated from later Talon canvas",
+          "changed_native_RGB_pixels": 4089,
+          "RGB_diff_bbox": [
+            196,
+            644,
+            832,
+            684
+          ],
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "unchanged_coexistence_heads": [
+            {
+              "id": 63,
+              "original_draw_xy": [
+                101,
+                134
+              ],
+              "native_canvas_pixels_outside_selected_domain": 2688,
+              "changed_pixels_outside_selected_domain": 0,
+              "render_admission_unchanged": true
+            },
+            {
+              "id": 63,
+              "original_draw_xy": [
+                101,
+                43
+              ],
+              "native_canvas_pixels_outside_selected_domain": 2688,
+              "changed_pixels_outside_selected_domain": 0,
+              "render_admission_unchanged": true
+            }
+          ],
+          "native_image_hashes": {
+            "baseline": {
+              "sha256": "3905f01b69d8bff3ff05fb5b1085c13882f4b97553943b8764e65922589e9df4",
+              "rgba_sha256": "f0804160ab96226b004e898c4017aceb3cb1d021f153dfb16112e2782e823a4e",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "1d7c3e3b76cb11ff4aa635fc996aab3591563915e26fef3dbd122b0fc34f90b3",
+              "rgba_sha256": "872b327dae0507b70232629fbc6ef68936dbc298aca38b3f3cb3447ca5a226ea",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "original_INDEX8_palette_hashes": {
+            "game_INDEX8_sha256": "0fbe3e345bd4f0bfa17f91330c388b072c75d16ca1772e4c3c016c9134c1eff2",
+            "display_INDEX8_sha256": "78283681e22aab3c083a666ac0b49410ecca6b9bc56ad8fc3d865d6d31da8b33",
+            "game_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "display_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "rgb_RGB_palette_sha256": "ba249050344157b75e14a846649cc634b098ba448071ba44ecae8647aff01c7c"
+          },
+          "head_witness_counts": [
+            {
+              "id": 16,
+              "original_draw_xy": [
+                -18,
+                160
+              ],
+              "display_native_canvas": [
+                -168,
+                640,
+                -120,
+                696
+              ],
+              "source_opaque_exact_pixel_matches": 0,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 0,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0
+            },
+            {
+              "id": 16,
+              "original_draw_xy": [
+                73,
+                160
+              ],
+              "display_native_canvas": [
+                196,
+                640,
+                244,
+                696
+              ],
+              "source_opaque_exact_pixel_matches": 1344,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 512,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0,
+              "clean_emission40_paired_head": true,
+              "original_emission_tick": 40,
+              "movement_age": 2,
+              "fully_source_visible": true,
+              "all_frozen_highalpha_core_visible": true,
+              "later_ship_canvas_disjoint": true
+            },
+            {
+              "id": 54,
+              "original_draw_xy": [
+                220,
+                160
+              ],
+              "display_native_canvas": [
+                784,
+                640,
+                832,
+                696
+              ],
+              "source_opaque_exact_pixel_matches": 1344,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 512,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0,
+              "original_emission_tick": 33,
+              "movement_age": 9,
+              "actual_underlay_visually_inspected": "white/blue cloud",
+              "full_source_and_frozen_core_visible": true
+            },
+            {
+              "id": 54,
+              "original_draw_xy": [
+                129,
+                160
+              ],
+              "display_native_canvas": [
+                420,
+                640,
+                468,
+                696
+              ],
+              "source_opaque_exact_pixel_matches": 1344,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 512,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0,
+              "clean_emission40_paired_head": true,
+              "original_emission_tick": 40,
+              "movement_age": 2,
+              "fully_source_visible": true,
+              "all_frozen_highalpha_core_visible": true,
+              "later_ship_canvas_disjoint": true
+            }
+          ]
+        },
+        {
+          "tick": 43,
+          "role": "New emission40 age2/3/4 clean fully-in-playfield paired16/54, separated from later Talon canvas",
+          "changed_native_RGB_pixels": 4089,
+          "RGB_diff_bbox": [
+            144,
+            644,
+            884,
+            684
+          ],
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "unchanged_coexistence_heads": [
+            {
+              "id": 63,
+              "original_draw_xy": [
+                101,
+                121
+              ],
+              "native_canvas_pixels_outside_selected_domain": 2688,
+              "changed_pixels_outside_selected_domain": 0,
+              "render_admission_unchanged": true
+            },
+            {
+              "id": 63,
+              "original_draw_xy": [
+                101,
+                30
+              ],
+              "native_canvas_pixels_outside_selected_domain": 2688,
+              "changed_pixels_outside_selected_domain": 0,
+              "render_admission_unchanged": true
+            }
+          ],
+          "native_image_hashes": {
+            "baseline": {
+              "sha256": "158a80562a96199e2dfc048716815a1f978588fd9997195f0c3f66abacee0790",
+              "rgba_sha256": "5eb4ae34fdaee386ceb350df917e045a902f91710b55274e2a7039982128d66c",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "b4deb2ff7d9ee85fbd5b42606d24a908068b68cd25b7fd60bf1abfe74efe99f1",
+              "rgba_sha256": "f6f6e14efc1e9302925f5ef780ad7c0387c75622066cec34566a86d608c4afad",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "original_INDEX8_palette_hashes": {
+            "game_INDEX8_sha256": "1c0f6838335e94549832935a6d33e55f8fd6c3e1d1a89cb93d5dfa91b65424aa",
+            "display_INDEX8_sha256": "79d9a9db5ae527b5284d92920ddaca678b571297feeddc7374b928761acc9a1c",
+            "game_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "display_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "rgb_RGB_palette_sha256": "ba249050344157b75e14a846649cc634b098ba448071ba44ecae8647aff01c7c"
+          },
+          "head_witness_counts": [
+            {
+              "id": 16,
+              "original_draw_xy": [
+                -31,
+                160
+              ],
+              "display_native_canvas": [
+                -220,
+                640,
+                -172,
+                696
+              ],
+              "source_opaque_exact_pixel_matches": 0,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 0,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0
+            },
+            {
+              "id": 16,
+              "original_draw_xy": [
+                60,
+                160
+              ],
+              "display_native_canvas": [
+                144,
+                640,
+                192,
+                696
+              ],
+              "source_opaque_exact_pixel_matches": 1344,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 512,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0,
+              "clean_emission40_paired_head": true,
+              "original_emission_tick": 40,
+              "movement_age": 3,
+              "fully_source_visible": true,
+              "all_frozen_highalpha_core_visible": true,
+              "later_ship_canvas_disjoint": true
+            },
+            {
+              "id": 54,
+              "original_draw_xy": [
+                233,
+                160
+              ],
+              "display_native_canvas": [
+                836,
+                640,
+                884,
+                696
+              ],
+              "source_opaque_exact_pixel_matches": 1344,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 512,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0
+            },
+            {
+              "id": 54,
+              "original_draw_xy": [
+                142,
+                160
+              ],
+              "display_native_canvas": [
+                472,
+                640,
+                520,
+                696
+              ],
+              "source_opaque_exact_pixel_matches": 1344,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 512,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0,
+              "clean_emission40_paired_head": true,
+              "original_emission_tick": 40,
+              "movement_age": 3,
+              "fully_source_visible": true,
+              "all_frozen_highalpha_core_visible": true,
+              "later_ship_canvas_disjoint": true
+            }
+          ]
+        },
+        {
+          "tick": 44,
+          "role": "New emission40 age2/3/4 clean fully-in-playfield paired16/54, separated from later Talon canvas",
+          "changed_native_RGB_pixels": 4091,
+          "RGB_diff_bbox": [
+            92,
+            644,
+            936,
+            684
+          ],
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "unchanged_coexistence_heads": [
+            {
+              "id": 63,
+              "original_draw_xy": [
+                101,
+                108
+              ],
+              "native_canvas_pixels_outside_selected_domain": 2688,
+              "changed_pixels_outside_selected_domain": 0,
+              "render_admission_unchanged": true
+            },
+            {
+              "id": 63,
+              "original_draw_xy": [
+                101,
+                17
+              ],
+              "native_canvas_pixels_outside_selected_domain": 2688,
+              "changed_pixels_outside_selected_domain": 0,
+              "render_admission_unchanged": true
+            }
+          ],
+          "native_image_hashes": {
+            "baseline": {
+              "sha256": "fab19a32c30e8c8f6b7c3e3b1267002133cbbf59eb349fb8c95cf753b9320125",
+              "rgba_sha256": "986da8621438ab073ce91828f861fca187a3c4b6fa4b4d6e1f6f22a4825fdfc0",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "718ed2d6618c8ce8e295d05a8d4ef09c44b0b5c1905a4df8f7ee9faaa6a9ad3b",
+              "rgba_sha256": "6d794137bc86b0abb88afef2ed235ed3ad6fd34b7c677c491450837e5066f1ec",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "original_INDEX8_palette_hashes": {
+            "game_INDEX8_sha256": "46d25f332d6c94c006788167a4f2bfd1ad921867d7a7e9e804f513385881f530",
+            "display_INDEX8_sha256": "94515ba442d7ca59542e5865ea7ffe7d9e6aed44ff1fa66d054b897a1d48ec65",
+            "game_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "display_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "rgb_RGB_palette_sha256": "ba249050344157b75e14a846649cc634b098ba448071ba44ecae8647aff01c7c"
+          },
+          "head_witness_counts": [
+            {
+              "id": 16,
+              "original_draw_xy": [
+                47,
+                160
+              ],
+              "display_native_canvas": [
+                92,
+                640,
+                140,
+                696
+              ],
+              "source_opaque_exact_pixel_matches": 1344,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 512,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0,
+              "clean_emission40_paired_head": true,
+              "original_emission_tick": 40,
+              "movement_age": 4,
+              "fully_source_visible": true,
+              "all_frozen_highalpha_core_visible": true,
+              "later_ship_canvas_disjoint": true
+            },
+            {
+              "id": 54,
+              "original_draw_xy": [
+                246,
+                160
+              ],
+              "display_native_canvas": [
+                888,
+                640,
+                936,
+                696
+              ],
+              "source_opaque_exact_pixel_matches": 1344,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 512,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0
+            },
+            {
+              "id": 54,
+              "original_draw_xy": [
+                155,
+                160
+              ],
+              "display_native_canvas": [
+                524,
+                640,
+                572,
+                696
+              ],
+              "source_opaque_exact_pixel_matches": 1344,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 512,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0,
+              "clean_emission40_paired_head": true,
+              "original_emission_tick": 40,
+              "movement_age": 4,
+              "fully_source_visible": true,
+              "all_frozen_highalpha_core_visible": true,
+              "later_ship_canvas_disjoint": true
+            }
+          ]
+        }
+      ],
+      "source_predicted_all_original_head_positions": [
+        {
+          "tick": 42,
+          "heads": [
+            {
+              "id": 16,
+              "ordinal": 1,
+              "emitted_tick": 33,
+              "age": 9,
+              "original_draw_xy": [
+                -18,
+                160
+              ]
+            },
+            {
+              "id": 54,
+              "ordinal": 2,
+              "emitted_tick": 33,
+              "age": 9,
+              "original_draw_xy": [
+                220,
+                160
+              ]
+            },
+            {
+              "id": 63,
+              "ordinal": 3,
+              "emitted_tick": 33,
+              "age": 9,
+              "original_draw_xy": [
+                101,
+                43
+              ]
+            },
+            {
+              "id": 16,
+              "ordinal": 1,
+              "emitted_tick": 40,
+              "age": 2,
+              "original_draw_xy": [
+                73,
+                160
+              ]
+            },
+            {
+              "id": 54,
+              "ordinal": 2,
+              "emitted_tick": 40,
+              "age": 2,
+              "original_draw_xy": [
+                129,
+                160
+              ]
+            },
+            {
+              "id": 63,
+              "ordinal": 3,
+              "emitted_tick": 40,
+              "age": 2,
+              "original_draw_xy": [
+                101,
+                134
+              ]
+            }
+          ]
+        },
+        {
+          "tick": 43,
+          "heads": [
+            {
+              "id": 16,
+              "ordinal": 1,
+              "emitted_tick": 33,
+              "age": 10,
+              "original_draw_xy": [
+                -31,
+                160
+              ]
+            },
+            {
+              "id": 54,
+              "ordinal": 2,
+              "emitted_tick": 33,
+              "age": 10,
+              "original_draw_xy": [
+                233,
+                160
+              ]
+            },
+            {
+              "id": 63,
+              "ordinal": 3,
+              "emitted_tick": 33,
+              "age": 10,
+              "original_draw_xy": [
+                101,
+                30
+              ]
+            },
+            {
+              "id": 16,
+              "ordinal": 1,
+              "emitted_tick": 40,
+              "age": 3,
+              "original_draw_xy": [
+                60,
+                160
+              ]
+            },
+            {
+              "id": 54,
+              "ordinal": 2,
+              "emitted_tick": 40,
+              "age": 3,
+              "original_draw_xy": [
+                142,
+                160
+              ]
+            },
+            {
+              "id": 63,
+              "ordinal": 3,
+              "emitted_tick": 40,
+              "age": 3,
+              "original_draw_xy": [
+                101,
+                121
+              ]
+            }
+          ]
+        },
+        {
+          "tick": 44,
+          "heads": [
+            {
+              "id": 54,
+              "ordinal": 2,
+              "emitted_tick": 33,
+              "age": 11,
+              "original_draw_xy": [
+                246,
+                160
+              ]
+            },
+            {
+              "id": 63,
+              "ordinal": 3,
+              "emitted_tick": 33,
+              "age": 11,
+              "original_draw_xy": [
+                101,
+                17
+              ]
+            },
+            {
+              "id": 16,
+              "ordinal": 1,
+              "emitted_tick": 40,
+              "age": 4,
+              "original_draw_xy": [
+                47,
+                160
+              ]
+            },
+            {
+              "id": 54,
+              "ordinal": 2,
+              "emitted_tick": 40,
+              "age": 4,
+              "original_draw_xy": [
+                155,
+                160
+              ]
+            },
+            {
+              "id": 63,
+              "ordinal": 3,
+              "emitted_tick": 40,
+              "age": 4,
+              "original_draw_xy": [
+                101,
+                108
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "p5-m1-native2x",
+      "role": "positive16/54 with unchanged223/224 coexistence control",
+      "power": 5,
+      "mode": 1,
+      "native_scale": 2,
+      "ticks": 64,
+      "actual_SDL_readback_dimensions": [
+        640,
+        400
+      ],
+      "raw_source_ids": [
+        16,
+        54,
+        223,
+        224
+      ],
+      "successful_original_requests": [
+        3,
+        10,
+        19,
+        26,
+        33,
+        40,
+        47,
+        54,
+        61
+      ],
+      "shot_requests": 13,
+      "emissions": 36,
+      "original16_54_shadow_draws": 190,
+      "shadow16_54_HD_admission_count": 0,
+      "candidate_new16_54_normal_admissions": 190,
+      "positive_witness_ticks": [
+        42,
+        43,
+        44
+      ],
+      "control_pixel_identical": false,
+      "captures": [
+        {
+          "tick": 42,
+          "role": "New emission40 age2/3/4 clean fully-in-playfield paired16/54, separated from later Talon canvas",
+          "changed_native_RGB_pixels": 1026,
+          "RGB_diff_bbox": [
+            98,
+            322,
+            416,
+            342
+          ],
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "unchanged_coexistence_heads": [
+            {
+              "id": 224,
+              "original_draw_xy": [
+                79,
+                43
+              ],
+              "native_canvas_pixels_outside_selected_domain": 672,
+              "changed_pixels_outside_selected_domain": 0,
+              "render_admission_unchanged": true
+            },
+            {
+              "id": 224,
+              "original_draw_xy": [
+                93,
+                134
+              ],
+              "native_canvas_pixels_outside_selected_domain": 672,
+              "changed_pixels_outside_selected_domain": 0,
+              "render_admission_unchanged": true
+            },
+            {
+              "id": 223,
+              "original_draw_xy": [
+                109,
+                134
+              ],
+              "native_canvas_pixels_outside_selected_domain": 672,
+              "changed_pixels_outside_selected_domain": 0,
+              "render_admission_unchanged": true
+            },
+            {
+              "id": 223,
+              "original_draw_xy": [
+                123,
+                43
+              ],
+              "native_canvas_pixels_outside_selected_domain": 672,
+              "changed_pixels_outside_selected_domain": 0,
+              "render_admission_unchanged": true
+            }
+          ],
+          "native_image_hashes": {
+            "baseline": {
+              "sha256": "56bb2716196a76bc6c7e5e286d80e83c2bdf798ab5c94cbc598da9b50b9cc7a4",
+              "rgba_sha256": "1e44936e40d885a8e47b3ea71a77c1352c68a9e4edca88888a428975cb5bc9d1",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "70f027a29bd7a7f898fe9082e5892d1e07517e6eb54793d9cb71d17b6f37fd92",
+              "rgba_sha256": "b701234a82ce28afa0535e44adcb50b76baf24f7fa152ccdfac9c523d1bcf20d",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "original_INDEX8_palette_hashes": {
+            "game_INDEX8_sha256": "e9c3f545203735fe060d121900f5d36633d01808b3fccb9610a0de15a5e7d995",
+            "display_INDEX8_sha256": "cf5c331dafb4efae55d8fcfc66854b990e7090d169b4e1e70253a6d873150b20",
+            "game_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "display_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "rgb_RGB_palette_sha256": "ba249050344157b75e14a846649cc634b098ba448071ba44ecae8647aff01c7c"
+          },
+          "head_witness_counts": [
+            {
+              "id": 16,
+              "original_draw_xy": [
+                -18,
+                160
+              ],
+              "display_native_canvas": [
+                -84,
+                320,
+                -60,
+                348
+              ],
+              "source_opaque_exact_pixel_matches": 0,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 0,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0
+            },
+            {
+              "id": 16,
+              "original_draw_xy": [
+                73,
+                160
+              ],
+              "display_native_canvas": [
+                98,
+                320,
+                122,
+                348
+              ],
+              "source_opaque_exact_pixel_matches": 336,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 127,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0,
+              "clean_emission40_paired_head": true,
+              "original_emission_tick": 40,
+              "movement_age": 2,
+              "fully_source_visible": true,
+              "all_frozen_highalpha_core_visible": true,
+              "later_ship_canvas_disjoint": true
+            },
+            {
+              "id": 54,
+              "original_draw_xy": [
+                220,
+                160
+              ],
+              "display_native_canvas": [
+                392,
+                320,
+                416,
+                348
+              ],
+              "source_opaque_exact_pixel_matches": 336,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 127,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0,
+              "original_emission_tick": 33,
+              "movement_age": 9,
+              "actual_underlay_visually_inspected": "white/blue cloud",
+              "full_source_and_frozen_core_visible": true
+            },
+            {
+              "id": 54,
+              "original_draw_xy": [
+                129,
+                160
+              ],
+              "display_native_canvas": [
+                210,
+                320,
+                234,
+                348
+              ],
+              "source_opaque_exact_pixel_matches": 336,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 127,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0,
+              "clean_emission40_paired_head": true,
+              "original_emission_tick": 40,
+              "movement_age": 2,
+              "fully_source_visible": true,
+              "all_frozen_highalpha_core_visible": true,
+              "later_ship_canvas_disjoint": true
+            }
+          ]
+        },
+        {
+          "tick": 43,
+          "role": "New emission40 age2/3/4 clean fully-in-playfield paired16/54, separated from later Talon canvas",
+          "changed_native_RGB_pixels": 1026,
+          "RGB_diff_bbox": [
+            72,
+            322,
+            442,
+            342
+          ],
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "unchanged_coexistence_heads": [
+            {
+              "id": 224,
+              "original_draw_xy": [
+                77,
+                30
+              ],
+              "native_canvas_pixels_outside_selected_domain": 672,
+              "changed_pixels_outside_selected_domain": 0,
+              "render_admission_unchanged": true
+            },
+            {
+              "id": 224,
+              "original_draw_xy": [
+                91,
+                121
+              ],
+              "native_canvas_pixels_outside_selected_domain": 672,
+              "changed_pixels_outside_selected_domain": 0,
+              "render_admission_unchanged": true
+            },
+            {
+              "id": 223,
+              "original_draw_xy": [
+                111,
+                121
+              ],
+              "native_canvas_pixels_outside_selected_domain": 672,
+              "changed_pixels_outside_selected_domain": 0,
+              "render_admission_unchanged": true
+            },
+            {
+              "id": 223,
+              "original_draw_xy": [
+                125,
+                30
+              ],
+              "native_canvas_pixels_outside_selected_domain": 672,
+              "changed_pixels_outside_selected_domain": 0,
+              "render_admission_unchanged": true
+            }
+          ],
+          "native_image_hashes": {
+            "baseline": {
+              "sha256": "af3a49779c2dc3492367a397f905da381310e744c571272726cde30fefc90a84",
+              "rgba_sha256": "7a1e8f7ef3ec8831647e2ac7e37fdb2db247f029bd2d7156a37564f539143df3",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "17eda06b50eb336a22d037dd8f8e14d3a35bf690d49dfefaf31767b679d8b418",
+              "rgba_sha256": "3e100c33f8207dffe4a139e0655f77eb601afaedab181cd0282df36b8ea2382c",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "original_INDEX8_palette_hashes": {
+            "game_INDEX8_sha256": "47f019e8fc541126c085da50eb324cc9d04ba5adb985a17a71828d0a7b1d1cdb",
+            "display_INDEX8_sha256": "3d9a91def37ab36d4df597c2739778385661d64d65f5f6386f1f76c5c1e2bcbe",
+            "game_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "display_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "rgb_RGB_palette_sha256": "ba249050344157b75e14a846649cc634b098ba448071ba44ecae8647aff01c7c"
+          },
+          "head_witness_counts": [
+            {
+              "id": 16,
+              "original_draw_xy": [
+                -31,
+                160
+              ],
+              "display_native_canvas": [
+                -110,
+                320,
+                -86,
+                348
+              ],
+              "source_opaque_exact_pixel_matches": 0,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 0,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0
+            },
+            {
+              "id": 16,
+              "original_draw_xy": [
+                60,
+                160
+              ],
+              "display_native_canvas": [
+                72,
+                320,
+                96,
+                348
+              ],
+              "source_opaque_exact_pixel_matches": 336,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 127,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0,
+              "clean_emission40_paired_head": true,
+              "original_emission_tick": 40,
+              "movement_age": 3,
+              "fully_source_visible": true,
+              "all_frozen_highalpha_core_visible": true,
+              "later_ship_canvas_disjoint": true
+            },
+            {
+              "id": 54,
+              "original_draw_xy": [
+                233,
+                160
+              ],
+              "display_native_canvas": [
+                418,
+                320,
+                442,
+                348
+              ],
+              "source_opaque_exact_pixel_matches": 336,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 127,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0
+            },
+            {
+              "id": 54,
+              "original_draw_xy": [
+                142,
+                160
+              ],
+              "display_native_canvas": [
+                236,
+                320,
+                260,
+                348
+              ],
+              "source_opaque_exact_pixel_matches": 336,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 127,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0,
+              "clean_emission40_paired_head": true,
+              "original_emission_tick": 40,
+              "movement_age": 3,
+              "fully_source_visible": true,
+              "all_frozen_highalpha_core_visible": true,
+              "later_ship_canvas_disjoint": true
+            }
+          ]
+        },
+        {
+          "tick": 44,
+          "role": "New emission40 age2/3/4 clean fully-in-playfield paired16/54, separated from later Talon canvas",
+          "changed_native_RGB_pixels": 1026,
+          "RGB_diff_bbox": [
+            46,
+            322,
+            468,
+            342
+          ],
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "unchanged_coexistence_heads": [
+            {
+              "id": 224,
+              "original_draw_xy": [
+                75,
+                17
+              ],
+              "native_canvas_pixels_outside_selected_domain": 672,
+              "changed_pixels_outside_selected_domain": 0,
+              "render_admission_unchanged": true
+            },
+            {
+              "id": 224,
+              "original_draw_xy": [
+                89,
+                108
+              ],
+              "native_canvas_pixels_outside_selected_domain": 672,
+              "changed_pixels_outside_selected_domain": 0,
+              "render_admission_unchanged": true
+            },
+            {
+              "id": 223,
+              "original_draw_xy": [
+                113,
+                108
+              ],
+              "native_canvas_pixels_outside_selected_domain": 672,
+              "changed_pixels_outside_selected_domain": 0,
+              "render_admission_unchanged": true
+            },
+            {
+              "id": 223,
+              "original_draw_xy": [
+                127,
+                17
+              ],
+              "native_canvas_pixels_outside_selected_domain": 672,
+              "changed_pixels_outside_selected_domain": 0,
+              "render_admission_unchanged": true
+            }
+          ],
+          "native_image_hashes": {
+            "baseline": {
+              "sha256": "6ab53bad9ef5c45e10e2a908e3e91a315006883da7208e0dec812c1e5253935b",
+              "rgba_sha256": "cbfb73b600366a1c9a081e91deb540729ed404a7ccadd3d494337b724012b6d0",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "d3d87bb352057ada3b8f8064c2722a4eaa46603493ed4bde3d1cdda763b917c2",
+              "rgba_sha256": "96075437995aa58bb9f83f55cc0d5cf6691dcdda6182a9a5a4c1af7b567dcc83",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "original_INDEX8_palette_hashes": {
+            "game_INDEX8_sha256": "59bbdb179fca047e68a134c8135fc897bf0939cf9cdc2faaa160e5169dbeed4f",
+            "display_INDEX8_sha256": "ed3e8a944c106e97796ecfc613528a76c134cb35b37bcf7239f1b9cd61181554",
+            "game_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "display_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "rgb_RGB_palette_sha256": "ba249050344157b75e14a846649cc634b098ba448071ba44ecae8647aff01c7c"
+          },
+          "head_witness_counts": [
+            {
+              "id": 16,
+              "original_draw_xy": [
+                47,
+                160
+              ],
+              "display_native_canvas": [
+                46,
+                320,
+                70,
+                348
+              ],
+              "source_opaque_exact_pixel_matches": 336,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 127,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0,
+              "clean_emission40_paired_head": true,
+              "original_emission_tick": 40,
+              "movement_age": 4,
+              "fully_source_visible": true,
+              "all_frozen_highalpha_core_visible": true,
+              "later_ship_canvas_disjoint": true
+            },
+            {
+              "id": 54,
+              "original_draw_xy": [
+                246,
+                160
+              ],
+              "display_native_canvas": [
+                444,
+                320,
+                468,
+                348
+              ],
+              "source_opaque_exact_pixel_matches": 336,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 127,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0
+            },
+            {
+              "id": 54,
+              "original_draw_xy": [
+                155,
+                160
+              ],
+              "display_native_canvas": [
+                262,
+                320,
+                286,
+                348
+              ],
+              "source_opaque_exact_pixel_matches": 336,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 127,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0,
+              "clean_emission40_paired_head": true,
+              "original_emission_tick": 40,
+              "movement_age": 4,
+              "fully_source_visible": true,
+              "all_frozen_highalpha_core_visible": true,
+              "later_ship_canvas_disjoint": true
+            }
+          ]
+        }
+      ],
+      "source_predicted_all_original_head_positions": [
+        {
+          "tick": 42,
+          "heads": [
+            {
+              "id": 16,
+              "ordinal": 1,
+              "emitted_tick": 33,
+              "age": 9,
+              "original_draw_xy": [
+                -18,
+                160
+              ]
+            },
+            {
+              "id": 54,
+              "ordinal": 2,
+              "emitted_tick": 33,
+              "age": 9,
+              "original_draw_xy": [
+                220,
+                160
+              ]
+            },
+            {
+              "id": 224,
+              "ordinal": 3,
+              "emitted_tick": 33,
+              "age": 9,
+              "original_draw_xy": [
+                79,
+                43
+              ]
+            },
+            {
+              "id": 223,
+              "ordinal": 4,
+              "emitted_tick": 33,
+              "age": 9,
+              "original_draw_xy": [
+                123,
+                43
+              ]
+            },
+            {
+              "id": 16,
+              "ordinal": 1,
+              "emitted_tick": 40,
+              "age": 2,
+              "original_draw_xy": [
+                73,
+                160
+              ]
+            },
+            {
+              "id": 54,
+              "ordinal": 2,
+              "emitted_tick": 40,
+              "age": 2,
+              "original_draw_xy": [
+                129,
+                160
+              ]
+            },
+            {
+              "id": 224,
+              "ordinal": 3,
+              "emitted_tick": 40,
+              "age": 2,
+              "original_draw_xy": [
+                93,
+                134
+              ]
+            },
+            {
+              "id": 223,
+              "ordinal": 4,
+              "emitted_tick": 40,
+              "age": 2,
+              "original_draw_xy": [
+                109,
+                134
+              ]
+            }
+          ]
+        },
+        {
+          "tick": 43,
+          "heads": [
+            {
+              "id": 16,
+              "ordinal": 1,
+              "emitted_tick": 33,
+              "age": 10,
+              "original_draw_xy": [
+                -31,
+                160
+              ]
+            },
+            {
+              "id": 54,
+              "ordinal": 2,
+              "emitted_tick": 33,
+              "age": 10,
+              "original_draw_xy": [
+                233,
+                160
+              ]
+            },
+            {
+              "id": 224,
+              "ordinal": 3,
+              "emitted_tick": 33,
+              "age": 10,
+              "original_draw_xy": [
+                77,
+                30
+              ]
+            },
+            {
+              "id": 223,
+              "ordinal": 4,
+              "emitted_tick": 33,
+              "age": 10,
+              "original_draw_xy": [
+                125,
+                30
+              ]
+            },
+            {
+              "id": 16,
+              "ordinal": 1,
+              "emitted_tick": 40,
+              "age": 3,
+              "original_draw_xy": [
+                60,
+                160
+              ]
+            },
+            {
+              "id": 54,
+              "ordinal": 2,
+              "emitted_tick": 40,
+              "age": 3,
+              "original_draw_xy": [
+                142,
+                160
+              ]
+            },
+            {
+              "id": 224,
+              "ordinal": 3,
+              "emitted_tick": 40,
+              "age": 3,
+              "original_draw_xy": [
+                91,
+                121
+              ]
+            },
+            {
+              "id": 223,
+              "ordinal": 4,
+              "emitted_tick": 40,
+              "age": 3,
+              "original_draw_xy": [
+                111,
+                121
+              ]
+            }
+          ]
+        },
+        {
+          "tick": 44,
+          "heads": [
+            {
+              "id": 54,
+              "ordinal": 2,
+              "emitted_tick": 33,
+              "age": 11,
+              "original_draw_xy": [
+                246,
+                160
+              ]
+            },
+            {
+              "id": 224,
+              "ordinal": 3,
+              "emitted_tick": 33,
+              "age": 11,
+              "original_draw_xy": [
+                75,
+                17
+              ]
+            },
+            {
+              "id": 223,
+              "ordinal": 4,
+              "emitted_tick": 33,
+              "age": 11,
+              "original_draw_xy": [
+                127,
+                17
+              ]
+            },
+            {
+              "id": 16,
+              "ordinal": 1,
+              "emitted_tick": 40,
+              "age": 4,
+              "original_draw_xy": [
+                47,
+                160
+              ]
+            },
+            {
+              "id": 54,
+              "ordinal": 2,
+              "emitted_tick": 40,
+              "age": 4,
+              "original_draw_xy": [
+                155,
+                160
+              ]
+            },
+            {
+              "id": 224,
+              "ordinal": 3,
+              "emitted_tick": 40,
+              "age": 4,
+              "original_draw_xy": [
+                89,
+                108
+              ]
+            },
+            {
+              "id": 223,
+              "ordinal": 4,
+              "emitted_tick": 40,
+              "age": 4,
+              "original_draw_xy": [
+                113,
+                108
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "p5-m1-native4x",
+      "role": "positive16/54 with unchanged223/224 coexistence control",
+      "power": 5,
+      "mode": 1,
+      "native_scale": 4,
+      "ticks": 64,
+      "actual_SDL_readback_dimensions": [
+        1280,
+        800
+      ],
+      "raw_source_ids": [
+        16,
+        54,
+        223,
+        224
+      ],
+      "successful_original_requests": [
+        3,
+        10,
+        19,
+        26,
+        33,
+        40,
+        47,
+        54,
+        61
+      ],
+      "shot_requests": 13,
+      "emissions": 36,
+      "original16_54_shadow_draws": 190,
+      "shadow16_54_HD_admission_count": 0,
+      "candidate_new16_54_normal_admissions": 190,
+      "positive_witness_ticks": [
+        42,
+        43,
+        44
+      ],
+      "control_pixel_identical": false,
+      "captures": [
+        {
+          "tick": 42,
+          "role": "New emission40 age2/3/4 clean fully-in-playfield paired16/54, separated from later Talon canvas",
+          "changed_native_RGB_pixels": 4089,
+          "RGB_diff_bbox": [
+            196,
+            644,
+            832,
+            684
+          ],
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "unchanged_coexistence_heads": [
+            {
+              "id": 224,
+              "original_draw_xy": [
+                79,
+                43
+              ],
+              "native_canvas_pixels_outside_selected_domain": 2688,
+              "changed_pixels_outside_selected_domain": 0,
+              "render_admission_unchanged": true
+            },
+            {
+              "id": 224,
+              "original_draw_xy": [
+                93,
+                134
+              ],
+              "native_canvas_pixels_outside_selected_domain": 2688,
+              "changed_pixels_outside_selected_domain": 0,
+              "render_admission_unchanged": true
+            },
+            {
+              "id": 223,
+              "original_draw_xy": [
+                109,
+                134
+              ],
+              "native_canvas_pixels_outside_selected_domain": 2688,
+              "changed_pixels_outside_selected_domain": 0,
+              "render_admission_unchanged": true
+            },
+            {
+              "id": 223,
+              "original_draw_xy": [
+                123,
+                43
+              ],
+              "native_canvas_pixels_outside_selected_domain": 2688,
+              "changed_pixels_outside_selected_domain": 0,
+              "render_admission_unchanged": true
+            }
+          ],
+          "native_image_hashes": {
+            "baseline": {
+              "sha256": "764bf2125ba7d31082b2948da02fe7bd828e4f3ad3aeab2e8481defc902df9ee",
+              "rgba_sha256": "f3f8059cc0242133e2d21b3ebcf10225d49dbd4ab2dd4bd78d469d8b0ac2a309",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "9257147a5757d5f5dd7ee9e8f05627087834ead19fe9906c67f306c9902a1a57",
+              "rgba_sha256": "e413693de4bde915e825d12a9ef4936fab2deb3e47c202720ba2011208cd71eb",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "original_INDEX8_palette_hashes": {
+            "game_INDEX8_sha256": "e9c3f545203735fe060d121900f5d36633d01808b3fccb9610a0de15a5e7d995",
+            "display_INDEX8_sha256": "cf5c331dafb4efae55d8fcfc66854b990e7090d169b4e1e70253a6d873150b20",
+            "game_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "display_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "rgb_RGB_palette_sha256": "ba249050344157b75e14a846649cc634b098ba448071ba44ecae8647aff01c7c"
+          },
+          "head_witness_counts": [
+            {
+              "id": 16,
+              "original_draw_xy": [
+                -18,
+                160
+              ],
+              "display_native_canvas": [
+                -168,
+                640,
+                -120,
+                696
+              ],
+              "source_opaque_exact_pixel_matches": 0,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 0,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0
+            },
+            {
+              "id": 16,
+              "original_draw_xy": [
+                73,
+                160
+              ],
+              "display_native_canvas": [
+                196,
+                640,
+                244,
+                696
+              ],
+              "source_opaque_exact_pixel_matches": 1344,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 512,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0,
+              "clean_emission40_paired_head": true,
+              "original_emission_tick": 40,
+              "movement_age": 2,
+              "fully_source_visible": true,
+              "all_frozen_highalpha_core_visible": true,
+              "later_ship_canvas_disjoint": true
+            },
+            {
+              "id": 54,
+              "original_draw_xy": [
+                220,
+                160
+              ],
+              "display_native_canvas": [
+                784,
+                640,
+                832,
+                696
+              ],
+              "source_opaque_exact_pixel_matches": 1344,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 512,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0,
+              "original_emission_tick": 33,
+              "movement_age": 9,
+              "actual_underlay_visually_inspected": "white/blue cloud",
+              "full_source_and_frozen_core_visible": true
+            },
+            {
+              "id": 54,
+              "original_draw_xy": [
+                129,
+                160
+              ],
+              "display_native_canvas": [
+                420,
+                640,
+                468,
+                696
+              ],
+              "source_opaque_exact_pixel_matches": 1344,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 512,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0,
+              "clean_emission40_paired_head": true,
+              "original_emission_tick": 40,
+              "movement_age": 2,
+              "fully_source_visible": true,
+              "all_frozen_highalpha_core_visible": true,
+              "later_ship_canvas_disjoint": true
+            }
+          ]
+        },
+        {
+          "tick": 43,
+          "role": "New emission40 age2/3/4 clean fully-in-playfield paired16/54, separated from later Talon canvas",
+          "changed_native_RGB_pixels": 4089,
+          "RGB_diff_bbox": [
+            144,
+            644,
+            884,
+            684
+          ],
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "unchanged_coexistence_heads": [
+            {
+              "id": 224,
+              "original_draw_xy": [
+                77,
+                30
+              ],
+              "native_canvas_pixels_outside_selected_domain": 2688,
+              "changed_pixels_outside_selected_domain": 0,
+              "render_admission_unchanged": true
+            },
+            {
+              "id": 224,
+              "original_draw_xy": [
+                91,
+                121
+              ],
+              "native_canvas_pixels_outside_selected_domain": 2688,
+              "changed_pixels_outside_selected_domain": 0,
+              "render_admission_unchanged": true
+            },
+            {
+              "id": 223,
+              "original_draw_xy": [
+                111,
+                121
+              ],
+              "native_canvas_pixels_outside_selected_domain": 2688,
+              "changed_pixels_outside_selected_domain": 0,
+              "render_admission_unchanged": true
+            },
+            {
+              "id": 223,
+              "original_draw_xy": [
+                125,
+                30
+              ],
+              "native_canvas_pixels_outside_selected_domain": 2688,
+              "changed_pixels_outside_selected_domain": 0,
+              "render_admission_unchanged": true
+            }
+          ],
+          "native_image_hashes": {
+            "baseline": {
+              "sha256": "d64d89f84fddac6d316e529b52960988073e1fde5319324128aeba0dd9874f33",
+              "rgba_sha256": "7cd49847ebfb0c3189620a57515b52ddf329993967eedb694a37da182489627e",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "88742616301e68b4578dc58afc92bcb05f72ecf78a2272d54d18c2d9cdd395d4",
+              "rgba_sha256": "cab350612cd9fceac1206723d2949b6117edf6c0b28e1090b93638e8f9cc3389",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "original_INDEX8_palette_hashes": {
+            "game_INDEX8_sha256": "47f019e8fc541126c085da50eb324cc9d04ba5adb985a17a71828d0a7b1d1cdb",
+            "display_INDEX8_sha256": "3d9a91def37ab36d4df597c2739778385661d64d65f5f6386f1f76c5c1e2bcbe",
+            "game_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "display_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "rgb_RGB_palette_sha256": "ba249050344157b75e14a846649cc634b098ba448071ba44ecae8647aff01c7c"
+          },
+          "head_witness_counts": [
+            {
+              "id": 16,
+              "original_draw_xy": [
+                -31,
+                160
+              ],
+              "display_native_canvas": [
+                -220,
+                640,
+                -172,
+                696
+              ],
+              "source_opaque_exact_pixel_matches": 0,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 0,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0
+            },
+            {
+              "id": 16,
+              "original_draw_xy": [
+                60,
+                160
+              ],
+              "display_native_canvas": [
+                144,
+                640,
+                192,
+                696
+              ],
+              "source_opaque_exact_pixel_matches": 1344,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 512,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0,
+              "clean_emission40_paired_head": true,
+              "original_emission_tick": 40,
+              "movement_age": 3,
+              "fully_source_visible": true,
+              "all_frozen_highalpha_core_visible": true,
+              "later_ship_canvas_disjoint": true
+            },
+            {
+              "id": 54,
+              "original_draw_xy": [
+                233,
+                160
+              ],
+              "display_native_canvas": [
+                836,
+                640,
+                884,
+                696
+              ],
+              "source_opaque_exact_pixel_matches": 1344,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 512,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0
+            },
+            {
+              "id": 54,
+              "original_draw_xy": [
+                142,
+                160
+              ],
+              "display_native_canvas": [
+                472,
+                640,
+                520,
+                696
+              ],
+              "source_opaque_exact_pixel_matches": 1344,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 512,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0,
+              "clean_emission40_paired_head": true,
+              "original_emission_tick": 40,
+              "movement_age": 3,
+              "fully_source_visible": true,
+              "all_frozen_highalpha_core_visible": true,
+              "later_ship_canvas_disjoint": true
+            }
+          ]
+        },
+        {
+          "tick": 44,
+          "role": "New emission40 age2/3/4 clean fully-in-playfield paired16/54, separated from later Talon canvas",
+          "changed_native_RGB_pixels": 4091,
+          "RGB_diff_bbox": [
+            92,
+            644,
+            936,
+            684
+          ],
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "unchanged_coexistence_heads": [
+            {
+              "id": 224,
+              "original_draw_xy": [
+                75,
+                17
+              ],
+              "native_canvas_pixels_outside_selected_domain": 2688,
+              "changed_pixels_outside_selected_domain": 0,
+              "render_admission_unchanged": true
+            },
+            {
+              "id": 224,
+              "original_draw_xy": [
+                89,
+                108
+              ],
+              "native_canvas_pixels_outside_selected_domain": 2688,
+              "changed_pixels_outside_selected_domain": 0,
+              "render_admission_unchanged": true
+            },
+            {
+              "id": 223,
+              "original_draw_xy": [
+                113,
+                108
+              ],
+              "native_canvas_pixels_outside_selected_domain": 2688,
+              "changed_pixels_outside_selected_domain": 0,
+              "render_admission_unchanged": true
+            },
+            {
+              "id": 223,
+              "original_draw_xy": [
+                127,
+                17
+              ],
+              "native_canvas_pixels_outside_selected_domain": 2688,
+              "changed_pixels_outside_selected_domain": 0,
+              "render_admission_unchanged": true
+            }
+          ],
+          "native_image_hashes": {
+            "baseline": {
+              "sha256": "1575b8ca2ca06dd0f4be7613d907f77d96a2f089b2c30e43f15bd0c5352fa978",
+              "rgba_sha256": "4dc642a05cb64f0b35d033afa711111c5e7e9f7d016945cf7a2a67ed270b613a",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "d0b3f15b3277ede131725b46a8f7d0dfa08fae8e5ac9a54233bdc2b48c2eee9c",
+              "rgba_sha256": "21db14a5953dd8cd462d49b2b69991f7da4ff5596399152edd70d8822061ca57",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "original_INDEX8_palette_hashes": {
+            "game_INDEX8_sha256": "59bbdb179fca047e68a134c8135fc897bf0939cf9cdc2faaa160e5169dbeed4f",
+            "display_INDEX8_sha256": "ed3e8a944c106e97796ecfc613528a76c134cb35b37bcf7239f1b9cd61181554",
+            "game_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "display_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "rgb_RGB_palette_sha256": "ba249050344157b75e14a846649cc634b098ba448071ba44ecae8647aff01c7c"
+          },
+          "head_witness_counts": [
+            {
+              "id": 16,
+              "original_draw_xy": [
+                47,
+                160
+              ],
+              "display_native_canvas": [
+                92,
+                640,
+                140,
+                696
+              ],
+              "source_opaque_exact_pixel_matches": 1344,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 512,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0,
+              "clean_emission40_paired_head": true,
+              "original_emission_tick": 40,
+              "movement_age": 4,
+              "fully_source_visible": true,
+              "all_frozen_highalpha_core_visible": true,
+              "later_ship_canvas_disjoint": true
+            },
+            {
+              "id": 54,
+              "original_draw_xy": [
+                246,
+                160
+              ],
+              "display_native_canvas": [
+                888,
+                640,
+                936,
+                696
+              ],
+              "source_opaque_exact_pixel_matches": 1344,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 512,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0
+            },
+            {
+              "id": 54,
+              "original_draw_xy": [
+                155,
+                160
+              ],
+              "display_native_canvas": [
+                524,
+                640,
+                572,
+                696
+              ],
+              "source_opaque_exact_pixel_matches": 1344,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 512,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0,
+              "clean_emission40_paired_head": true,
+              "original_emission_tick": 40,
+              "movement_age": 4,
+              "fully_source_visible": true,
+              "all_frozen_highalpha_core_visible": true,
+              "later_ship_canvas_disjoint": true
+            }
+          ]
+        }
+      ],
+      "source_predicted_all_original_head_positions": [
+        {
+          "tick": 42,
+          "heads": [
+            {
+              "id": 16,
+              "ordinal": 1,
+              "emitted_tick": 33,
+              "age": 9,
+              "original_draw_xy": [
+                -18,
+                160
+              ]
+            },
+            {
+              "id": 54,
+              "ordinal": 2,
+              "emitted_tick": 33,
+              "age": 9,
+              "original_draw_xy": [
+                220,
+                160
+              ]
+            },
+            {
+              "id": 224,
+              "ordinal": 3,
+              "emitted_tick": 33,
+              "age": 9,
+              "original_draw_xy": [
+                79,
+                43
+              ]
+            },
+            {
+              "id": 223,
+              "ordinal": 4,
+              "emitted_tick": 33,
+              "age": 9,
+              "original_draw_xy": [
+                123,
+                43
+              ]
+            },
+            {
+              "id": 16,
+              "ordinal": 1,
+              "emitted_tick": 40,
+              "age": 2,
+              "original_draw_xy": [
+                73,
+                160
+              ]
+            },
+            {
+              "id": 54,
+              "ordinal": 2,
+              "emitted_tick": 40,
+              "age": 2,
+              "original_draw_xy": [
+                129,
+                160
+              ]
+            },
+            {
+              "id": 224,
+              "ordinal": 3,
+              "emitted_tick": 40,
+              "age": 2,
+              "original_draw_xy": [
+                93,
+                134
+              ]
+            },
+            {
+              "id": 223,
+              "ordinal": 4,
+              "emitted_tick": 40,
+              "age": 2,
+              "original_draw_xy": [
+                109,
+                134
+              ]
+            }
+          ]
+        },
+        {
+          "tick": 43,
+          "heads": [
+            {
+              "id": 16,
+              "ordinal": 1,
+              "emitted_tick": 33,
+              "age": 10,
+              "original_draw_xy": [
+                -31,
+                160
+              ]
+            },
+            {
+              "id": 54,
+              "ordinal": 2,
+              "emitted_tick": 33,
+              "age": 10,
+              "original_draw_xy": [
+                233,
+                160
+              ]
+            },
+            {
+              "id": 224,
+              "ordinal": 3,
+              "emitted_tick": 33,
+              "age": 10,
+              "original_draw_xy": [
+                77,
+                30
+              ]
+            },
+            {
+              "id": 223,
+              "ordinal": 4,
+              "emitted_tick": 33,
+              "age": 10,
+              "original_draw_xy": [
+                125,
+                30
+              ]
+            },
+            {
+              "id": 16,
+              "ordinal": 1,
+              "emitted_tick": 40,
+              "age": 3,
+              "original_draw_xy": [
+                60,
+                160
+              ]
+            },
+            {
+              "id": 54,
+              "ordinal": 2,
+              "emitted_tick": 40,
+              "age": 3,
+              "original_draw_xy": [
+                142,
+                160
+              ]
+            },
+            {
+              "id": 224,
+              "ordinal": 3,
+              "emitted_tick": 40,
+              "age": 3,
+              "original_draw_xy": [
+                91,
+                121
+              ]
+            },
+            {
+              "id": 223,
+              "ordinal": 4,
+              "emitted_tick": 40,
+              "age": 3,
+              "original_draw_xy": [
+                111,
+                121
+              ]
+            }
+          ]
+        },
+        {
+          "tick": 44,
+          "heads": [
+            {
+              "id": 54,
+              "ordinal": 2,
+              "emitted_tick": 33,
+              "age": 11,
+              "original_draw_xy": [
+                246,
+                160
+              ]
+            },
+            {
+              "id": 224,
+              "ordinal": 3,
+              "emitted_tick": 33,
+              "age": 11,
+              "original_draw_xy": [
+                75,
+                17
+              ]
+            },
+            {
+              "id": 223,
+              "ordinal": 4,
+              "emitted_tick": 33,
+              "age": 11,
+              "original_draw_xy": [
+                127,
+                17
+              ]
+            },
+            {
+              "id": 16,
+              "ordinal": 1,
+              "emitted_tick": 40,
+              "age": 4,
+              "original_draw_xy": [
+                47,
+                160
+              ]
+            },
+            {
+              "id": 54,
+              "ordinal": 2,
+              "emitted_tick": 40,
+              "age": 4,
+              "original_draw_xy": [
+                155,
+                160
+              ]
+            },
+            {
+              "id": 224,
+              "ordinal": 3,
+              "emitted_tick": 40,
+              "age": 4,
+              "original_draw_xy": [
+                89,
+                108
+              ]
+            },
+            {
+              "id": 223,
+              "ordinal": 4,
+              "emitted_tick": 40,
+              "age": 4,
+              "original_draw_xy": [
+                113,
+                108
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "p1-m1-native2x",
+      "role": "unchanged6/44 negative control",
+      "power": 1,
+      "mode": 1,
+      "native_scale": 2,
+      "ticks": 64,
+      "actual_SDL_readback_dimensions": [
+        640,
+        400
+      ],
+      "raw_source_ids": [
+        6,
+        44
+      ],
+      "successful_original_requests": [
+        3,
+        10,
+        19,
+        26,
+        33,
+        40,
+        47,
+        54,
+        61
+      ],
+      "shot_requests": 13,
+      "emissions": 18,
+      "original16_54_shadow_draws": 0,
+      "shadow16_54_HD_admission_count": 0,
+      "candidate_new16_54_normal_admissions": 0,
+      "positive_witness_ticks": [],
+      "control_pixel_identical": true,
+      "captures": [
+        {
+          "tick": 40,
+          "role": "Preserved source-audit published6/44 negative windows",
+          "changed_native_RGB_pixels": 0,
+          "RGB_diff_bbox": null,
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "unchanged_coexistence_heads": [],
+          "native_image_hashes": {
+            "baseline": {
+              "sha256": "9dffffc0ae0c3ea5439a57c890a32a1924d712daf43878a00498b79a6170a37a",
+              "rgba_sha256": "662eff93fecf3d518f9b7bf7bd29d610ad3b3b279ad576c86eefe008c3eced7c",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "9dffffc0ae0c3ea5439a57c890a32a1924d712daf43878a00498b79a6170a37a",
+              "rgba_sha256": "662eff93fecf3d518f9b7bf7bd29d610ad3b3b279ad576c86eefe008c3eced7c",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "original_INDEX8_palette_hashes": {
+            "game_INDEX8_sha256": "d7d5842402896fb1b438d0b240b83686a6df9144cbac84e8ac1588e07aa86249",
+            "display_INDEX8_sha256": "cdb5cf10bc0feeaff25c5421b7b11834f5c6b26619882e094b1c715f52871f49",
+            "game_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "display_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "rgb_RGB_palette_sha256": "ba249050344157b75e14a846649cc634b098ba448071ba44ecae8647aff01c7c"
+          },
+          "head_witness_counts": []
+        },
+        {
+          "tick": 41,
+          "role": "Preserved source-audit published6/44 negative windows",
+          "changed_native_RGB_pixels": 0,
+          "RGB_diff_bbox": null,
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "unchanged_coexistence_heads": [],
+          "native_image_hashes": {
+            "baseline": {
+              "sha256": "360c815ef2bf6cb9d60df7e31de3de67a23e13a0f509c8e42ecc6bcb8b43f1b4",
+              "rgba_sha256": "b5b03654c02ecc2e4491146c1c4b6d92bcf4772485d908e6920793c6b53163f5",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "360c815ef2bf6cb9d60df7e31de3de67a23e13a0f509c8e42ecc6bcb8b43f1b4",
+              "rgba_sha256": "b5b03654c02ecc2e4491146c1c4b6d92bcf4772485d908e6920793c6b53163f5",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "original_INDEX8_palette_hashes": {
+            "game_INDEX8_sha256": "a1e5aa633db01b0ac416bf43fb981ad38da359809881db122ba7b5ec0ada0798",
+            "display_INDEX8_sha256": "5cfeda26c451debcf48478250243a2f3fc90d5441132f1431c71b049623c2dfd",
+            "game_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "display_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "rgb_RGB_palette_sha256": "ba249050344157b75e14a846649cc634b098ba448071ba44ecae8647aff01c7c"
+          },
+          "head_witness_counts": []
+        },
+        {
+          "tick": 42,
+          "role": "Preserved source-audit published6/44 negative windows",
+          "changed_native_RGB_pixels": 0,
+          "RGB_diff_bbox": null,
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "unchanged_coexistence_heads": [],
+          "native_image_hashes": {
+            "baseline": {
+              "sha256": "0209fa6029f0561dcbeb15613483e1deab5a48cca3e70b34fc3450a3e09d876b",
+              "rgba_sha256": "59c79bfd56051d051b143ddfa1eefad0b6f48636ade99d1aea397fbd04c6a416",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "0209fa6029f0561dcbeb15613483e1deab5a48cca3e70b34fc3450a3e09d876b",
+              "rgba_sha256": "59c79bfd56051d051b143ddfa1eefad0b6f48636ade99d1aea397fbd04c6a416",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "original_INDEX8_palette_hashes": {
+            "game_INDEX8_sha256": "871926303176fef6d886cd394460bdfc789628908d48e1b201a3acc221f667da",
+            "display_INDEX8_sha256": "84709ceccd3902b6e60ffa83c5669fe107680b7adf9531573b4026ab3db7fbb4",
+            "game_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "display_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "rgb_RGB_palette_sha256": "ba249050344157b75e14a846649cc634b098ba448071ba44ecae8647aff01c7c"
+          },
+          "head_witness_counts": []
+        }
+      ],
+      "source_predicted_all_original_head_positions": [
+        {
+          "tick": 40,
+          "heads": [
+            {
+              "id": 44,
+              "ordinal": 2,
+              "emitted_tick": 26,
+              "age": 14,
+              "original_draw_xy": [
+                285,
+                160
+              ]
+            },
+            {
+              "id": 6,
+              "ordinal": 1,
+              "emitted_tick": 33,
+              "age": 7,
+              "original_draw_xy": [
+                8,
+                160
+              ]
+            },
+            {
+              "id": 44,
+              "ordinal": 2,
+              "emitted_tick": 33,
+              "age": 7,
+              "original_draw_xy": [
+                194,
+                160
+              ]
+            }
+          ]
+        },
+        {
+          "tick": 41,
+          "heads": [
+            {
+              "id": 6,
+              "ordinal": 1,
+              "emitted_tick": 33,
+              "age": 8,
+              "original_draw_xy": [
+                -5,
+                160
+              ]
+            },
+            {
+              "id": 44,
+              "ordinal": 2,
+              "emitted_tick": 33,
+              "age": 8,
+              "original_draw_xy": [
+                207,
+                160
+              ]
+            },
+            {
+              "id": 6,
+              "ordinal": 1,
+              "emitted_tick": 40,
+              "age": 1,
+              "original_draw_xy": [
+                86,
+                160
+              ]
+            },
+            {
+              "id": 44,
+              "ordinal": 2,
+              "emitted_tick": 40,
+              "age": 1,
+              "original_draw_xy": [
+                116,
+                160
+              ]
+            }
+          ]
+        },
+        {
+          "tick": 42,
+          "heads": [
+            {
+              "id": 6,
+              "ordinal": 1,
+              "emitted_tick": 33,
+              "age": 9,
+              "original_draw_xy": [
+                -18,
+                160
+              ]
+            },
+            {
+              "id": 44,
+              "ordinal": 2,
+              "emitted_tick": 33,
+              "age": 9,
+              "original_draw_xy": [
+                220,
+                160
+              ]
+            },
+            {
+              "id": 6,
+              "ordinal": 1,
+              "emitted_tick": 40,
+              "age": 2,
+              "original_draw_xy": [
+                73,
+                160
+              ]
+            },
+            {
+              "id": 44,
+              "ordinal": 2,
+              "emitted_tick": 40,
+              "age": 2,
+              "original_draw_xy": [
+                129,
+                160
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "p1-m1-native4x",
+      "role": "unchanged6/44 negative control",
+      "power": 1,
+      "mode": 1,
+      "native_scale": 4,
+      "ticks": 64,
+      "actual_SDL_readback_dimensions": [
+        1280,
+        800
+      ],
+      "raw_source_ids": [
+        6,
+        44
+      ],
+      "successful_original_requests": [
+        3,
+        10,
+        19,
+        26,
+        33,
+        40,
+        47,
+        54,
+        61
+      ],
+      "shot_requests": 13,
+      "emissions": 18,
+      "original16_54_shadow_draws": 0,
+      "shadow16_54_HD_admission_count": 0,
+      "candidate_new16_54_normal_admissions": 0,
+      "positive_witness_ticks": [],
+      "control_pixel_identical": true,
+      "captures": [
+        {
+          "tick": 40,
+          "role": "Preserved source-audit published6/44 negative windows",
+          "changed_native_RGB_pixels": 0,
+          "RGB_diff_bbox": null,
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "unchanged_coexistence_heads": [],
+          "native_image_hashes": {
+            "baseline": {
+              "sha256": "588517da04189d4ed7255df21f5627816f8eeeddce5a677eb2e94066304cec60",
+              "rgba_sha256": "8d1d47439202bda466e2298e3de22acf61304afc49aadd88e3f8510aefab5db8",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "588517da04189d4ed7255df21f5627816f8eeeddce5a677eb2e94066304cec60",
+              "rgba_sha256": "8d1d47439202bda466e2298e3de22acf61304afc49aadd88e3f8510aefab5db8",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "original_INDEX8_palette_hashes": {
+            "game_INDEX8_sha256": "d7d5842402896fb1b438d0b240b83686a6df9144cbac84e8ac1588e07aa86249",
+            "display_INDEX8_sha256": "cdb5cf10bc0feeaff25c5421b7b11834f5c6b26619882e094b1c715f52871f49",
+            "game_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "display_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "rgb_RGB_palette_sha256": "ba249050344157b75e14a846649cc634b098ba448071ba44ecae8647aff01c7c"
+          },
+          "head_witness_counts": []
+        },
+        {
+          "tick": 41,
+          "role": "Preserved source-audit published6/44 negative windows",
+          "changed_native_RGB_pixels": 0,
+          "RGB_diff_bbox": null,
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "unchanged_coexistence_heads": [],
+          "native_image_hashes": {
+            "baseline": {
+              "sha256": "41ea0bc2a282f4c3d5415a6e8391e60360a4e94f178236f3a7a4547a2b66d524",
+              "rgba_sha256": "3918758b392aa9642a127c93b9012208939026921718d2d87c1a1cc31c9de260",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "41ea0bc2a282f4c3d5415a6e8391e60360a4e94f178236f3a7a4547a2b66d524",
+              "rgba_sha256": "3918758b392aa9642a127c93b9012208939026921718d2d87c1a1cc31c9de260",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "original_INDEX8_palette_hashes": {
+            "game_INDEX8_sha256": "a1e5aa633db01b0ac416bf43fb981ad38da359809881db122ba7b5ec0ada0798",
+            "display_INDEX8_sha256": "5cfeda26c451debcf48478250243a2f3fc90d5441132f1431c71b049623c2dfd",
+            "game_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "display_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "rgb_RGB_palette_sha256": "ba249050344157b75e14a846649cc634b098ba448071ba44ecae8647aff01c7c"
+          },
+          "head_witness_counts": []
+        },
+        {
+          "tick": 42,
+          "role": "Preserved source-audit published6/44 negative windows",
+          "changed_native_RGB_pixels": 0,
+          "RGB_diff_bbox": null,
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "unchanged_coexistence_heads": [],
+          "native_image_hashes": {
+            "baseline": {
+              "sha256": "4211166af1bea48dbbe3f35a66a67b4c8ebeba4f08ac056356b8ae15be63607d",
+              "rgba_sha256": "fe30f30fc6abd973056707f5ca2592e45db25cdf59380bedd00510ec04326040",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "4211166af1bea48dbbe3f35a66a67b4c8ebeba4f08ac056356b8ae15be63607d",
+              "rgba_sha256": "fe30f30fc6abd973056707f5ca2592e45db25cdf59380bedd00510ec04326040",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "original_INDEX8_palette_hashes": {
+            "game_INDEX8_sha256": "871926303176fef6d886cd394460bdfc789628908d48e1b201a3acc221f667da",
+            "display_INDEX8_sha256": "84709ceccd3902b6e60ffa83c5669fe107680b7adf9531573b4026ab3db7fbb4",
+            "game_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "display_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "rgb_RGB_palette_sha256": "ba249050344157b75e14a846649cc634b098ba448071ba44ecae8647aff01c7c"
+          },
+          "head_witness_counts": []
+        }
+      ],
+      "source_predicted_all_original_head_positions": [
+        {
+          "tick": 40,
+          "heads": [
+            {
+              "id": 44,
+              "ordinal": 2,
+              "emitted_tick": 26,
+              "age": 14,
+              "original_draw_xy": [
+                285,
+                160
+              ]
+            },
+            {
+              "id": 6,
+              "ordinal": 1,
+              "emitted_tick": 33,
+              "age": 7,
+              "original_draw_xy": [
+                8,
+                160
+              ]
+            },
+            {
+              "id": 44,
+              "ordinal": 2,
+              "emitted_tick": 33,
+              "age": 7,
+              "original_draw_xy": [
+                194,
+                160
+              ]
+            }
+          ]
+        },
+        {
+          "tick": 41,
+          "heads": [
+            {
+              "id": 6,
+              "ordinal": 1,
+              "emitted_tick": 33,
+              "age": 8,
+              "original_draw_xy": [
+                -5,
+                160
+              ]
+            },
+            {
+              "id": 44,
+              "ordinal": 2,
+              "emitted_tick": 33,
+              "age": 8,
+              "original_draw_xy": [
+                207,
+                160
+              ]
+            },
+            {
+              "id": 6,
+              "ordinal": 1,
+              "emitted_tick": 40,
+              "age": 1,
+              "original_draw_xy": [
+                86,
+                160
+              ]
+            },
+            {
+              "id": 44,
+              "ordinal": 2,
+              "emitted_tick": 40,
+              "age": 1,
+              "original_draw_xy": [
+                116,
+                160
+              ]
+            }
+          ]
+        },
+        {
+          "tick": 42,
+          "heads": [
+            {
+              "id": 6,
+              "ordinal": 1,
+              "emitted_tick": 33,
+              "age": 9,
+              "original_draw_xy": [
+                -18,
+                160
+              ]
+            },
+            {
+              "id": 44,
+              "ordinal": 2,
+              "emitted_tick": 33,
+              "age": 9,
+              "original_draw_xy": [
+                220,
+                160
+              ]
+            },
+            {
+              "id": 6,
+              "ordinal": 1,
+              "emitted_tick": 40,
+              "age": 2,
+              "original_draw_xy": [
+                73,
+                160
+              ]
+            },
+            {
+              "id": 44,
+              "ordinal": 2,
+              "emitted_tick": 40,
+              "age": 2,
+              "original_draw_xy": [
+                129,
+                160
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "p8-m1-native2x",
+      "role": "unchanged82/73 and105/106/124/125 negative control",
+      "power": 8,
+      "mode": 1,
+      "native_scale": 2,
+      "ticks": 64,
+      "actual_SDL_readback_dimensions": [
+        640,
+        400
+      ],
+      "raw_source_ids": [
+        73,
+        82,
+        105,
+        106,
+        124,
+        125
+      ],
+      "successful_original_requests": [
+        3,
+        10,
+        19,
+        26,
+        33,
+        40,
+        47,
+        54,
+        61
+      ],
+      "shot_requests": 13,
+      "emissions": 54,
+      "original16_54_shadow_draws": 0,
+      "shadow16_54_HD_admission_count": 0,
+      "candidate_new16_54_normal_admissions": 0,
+      "positive_witness_ticks": [],
+      "control_pixel_identical": true,
+      "captures": [
+        {
+          "tick": 34,
+          "role": "Preserved source-audit P8 windows expose existing82/73",
+          "changed_native_RGB_pixels": 0,
+          "RGB_diff_bbox": null,
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "unchanged_coexistence_heads": [],
+          "native_image_hashes": {
+            "baseline": {
+              "sha256": "a85780f93ab42cb975070d60b46701fd86ad08ae1f8f35a5da246e4eed531218",
+              "rgba_sha256": "104a9a327ddafe0bb3d296b33f91e442857ca31199bc0cf756702312f84747dc",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "a85780f93ab42cb975070d60b46701fd86ad08ae1f8f35a5da246e4eed531218",
+              "rgba_sha256": "104a9a327ddafe0bb3d296b33f91e442857ca31199bc0cf756702312f84747dc",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "original_INDEX8_palette_hashes": {
+            "game_INDEX8_sha256": "72ad94ebdfd46bf2a10039bd129fd0f6ff3d58c744144100da004d498a1ef71d",
+            "display_INDEX8_sha256": "65b85d119bbb2282d1697c712994cd566ea1e6cabe97777b3a49b358502c1297",
+            "game_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "display_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "rgb_RGB_palette_sha256": "ba249050344157b75e14a846649cc634b098ba448071ba44ecae8647aff01c7c"
+          },
+          "head_witness_counts": []
+        },
+        {
+          "tick": 41,
+          "role": "Preserved source-audit P8 windows expose existing82/73",
+          "changed_native_RGB_pixels": 0,
+          "RGB_diff_bbox": null,
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "unchanged_coexistence_heads": [],
+          "native_image_hashes": {
+            "baseline": {
+              "sha256": "adb6482f828b0ab83cf58ca14d2946fc7994474b20fe02e2aefa7d7bc7d46020",
+              "rgba_sha256": "e8c74da537f1feb42c0c57fb568944b632391d905244c471ee4026817691c267",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "adb6482f828b0ab83cf58ca14d2946fc7994474b20fe02e2aefa7d7bc7d46020",
+              "rgba_sha256": "e8c74da537f1feb42c0c57fb568944b632391d905244c471ee4026817691c267",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "original_INDEX8_palette_hashes": {
+            "game_INDEX8_sha256": "200938b7f496515ef7017a991df86280c309f424e4715bdfd7113206ea728f56",
+            "display_INDEX8_sha256": "6318e941c0aee98186fe118bb61179e5377f2a484d80593c55584440bfd340c4",
+            "game_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "display_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "rgb_RGB_palette_sha256": "ba249050344157b75e14a846649cc634b098ba448071ba44ecae8647aff01c7c"
+          },
+          "head_witness_counts": []
+        },
+        {
+          "tick": 48,
+          "role": "Preserved source-audit P8 windows expose existing82/73",
+          "changed_native_RGB_pixels": 0,
+          "RGB_diff_bbox": null,
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "unchanged_coexistence_heads": [],
+          "native_image_hashes": {
+            "baseline": {
+              "sha256": "23beb3190ddde68c69b55316ae3b520855d9f26d2aa5a9a25b5dbe198b8cfaa1",
+              "rgba_sha256": "cd9ee74d1b5b50d3e5cb6ae8204f73282d588cc2f7cbcfc2153cdd5ed71aab34",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "23beb3190ddde68c69b55316ae3b520855d9f26d2aa5a9a25b5dbe198b8cfaa1",
+              "rgba_sha256": "cd9ee74d1b5b50d3e5cb6ae8204f73282d588cc2f7cbcfc2153cdd5ed71aab34",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "original_INDEX8_palette_hashes": {
+            "game_INDEX8_sha256": "964bccca09ff62055b1faca5c2b465fffb8a246f44accc90acfe27d332628802",
+            "display_INDEX8_sha256": "d6472f33b797aa8da8420821fc82645184b641dcc0aea491e2d5436ed31c1c79",
+            "game_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "display_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "rgb_RGB_palette_sha256": "ba249050344157b75e14a846649cc634b098ba448071ba44ecae8647aff01c7c"
+          },
+          "head_witness_counts": []
+        }
+      ],
+      "source_predicted_all_original_head_positions": [
+        {
+          "tick": 34,
+          "heads": [
+            {
+              "id": 105,
+              "ordinal": 1,
+              "emitted_tick": 26,
+              "age": 8,
+              "original_draw_xy": [
+                -5,
+                153
+              ]
+            },
+            {
+              "id": 106,
+              "ordinal": 2,
+              "emitted_tick": 26,
+              "age": 8,
+              "original_draw_xy": [
+                207,
+                153
+              ]
+            },
+            {
+              "id": 124,
+              "ordinal": 3,
+              "emitted_tick": 26,
+              "age": 8,
+              "original_draw_xy": [
+                -5,
+                167
+              ]
+            },
+            {
+              "id": 125,
+              "ordinal": 4,
+              "emitted_tick": 26,
+              "age": 8,
+              "original_draw_xy": [
+                207,
+                167
+              ]
+            },
+            {
+              "id": 73,
+              "ordinal": 5,
+              "emitted_tick": 26,
+              "age": 8,
+              "original_draw_xy": [
+                101,
+                56
+              ]
+            },
+            {
+              "id": 105,
+              "ordinal": 1,
+              "emitted_tick": 33,
+              "age": 1,
+              "original_draw_xy": [
+                86,
+                153
+              ]
+            },
+            {
+              "id": 106,
+              "ordinal": 2,
+              "emitted_tick": 33,
+              "age": 1,
+              "original_draw_xy": [
+                116,
+                153
+              ]
+            },
+            {
+              "id": 124,
+              "ordinal": 3,
+              "emitted_tick": 33,
+              "age": 1,
+              "original_draw_xy": [
+                86,
+                167
+              ]
+            },
+            {
+              "id": 125,
+              "ordinal": 4,
+              "emitted_tick": 33,
+              "age": 1,
+              "original_draw_xy": [
+                116,
+                167
+              ]
+            },
+            {
+              "id": 73,
+              "ordinal": 5,
+              "emitted_tick": 33,
+              "age": 1,
+              "original_draw_xy": [
+                101,
+                147
+              ]
+            },
+            {
+              "id": 82,
+              "ordinal": 6,
+              "emitted_tick": 33,
+              "age": 1,
+              "original_draw_xy": [
+                101,
+                173
+              ]
+            }
+          ]
+        },
+        {
+          "tick": 41,
+          "heads": [
+            {
+              "id": 105,
+              "ordinal": 1,
+              "emitted_tick": 33,
+              "age": 8,
+              "original_draw_xy": [
+                -5,
+                153
+              ]
+            },
+            {
+              "id": 106,
+              "ordinal": 2,
+              "emitted_tick": 33,
+              "age": 8,
+              "original_draw_xy": [
+                207,
+                153
+              ]
+            },
+            {
+              "id": 124,
+              "ordinal": 3,
+              "emitted_tick": 33,
+              "age": 8,
+              "original_draw_xy": [
+                -5,
+                167
+              ]
+            },
+            {
+              "id": 125,
+              "ordinal": 4,
+              "emitted_tick": 33,
+              "age": 8,
+              "original_draw_xy": [
+                207,
+                167
+              ]
+            },
+            {
+              "id": 73,
+              "ordinal": 5,
+              "emitted_tick": 33,
+              "age": 8,
+              "original_draw_xy": [
+                101,
+                56
+              ]
+            },
+            {
+              "id": 105,
+              "ordinal": 1,
+              "emitted_tick": 40,
+              "age": 1,
+              "original_draw_xy": [
+                86,
+                153
+              ]
+            },
+            {
+              "id": 106,
+              "ordinal": 2,
+              "emitted_tick": 40,
+              "age": 1,
+              "original_draw_xy": [
+                116,
+                153
+              ]
+            },
+            {
+              "id": 124,
+              "ordinal": 3,
+              "emitted_tick": 40,
+              "age": 1,
+              "original_draw_xy": [
+                86,
+                167
+              ]
+            },
+            {
+              "id": 125,
+              "ordinal": 4,
+              "emitted_tick": 40,
+              "age": 1,
+              "original_draw_xy": [
+                116,
+                167
+              ]
+            },
+            {
+              "id": 73,
+              "ordinal": 5,
+              "emitted_tick": 40,
+              "age": 1,
+              "original_draw_xy": [
+                101,
+                147
+              ]
+            },
+            {
+              "id": 82,
+              "ordinal": 6,
+              "emitted_tick": 40,
+              "age": 1,
+              "original_draw_xy": [
+                101,
+                173
+              ]
+            }
+          ]
+        },
+        {
+          "tick": 48,
+          "heads": [
+            {
+              "id": 105,
+              "ordinal": 1,
+              "emitted_tick": 40,
+              "age": 8,
+              "original_draw_xy": [
+                -5,
+                153
+              ]
+            },
+            {
+              "id": 106,
+              "ordinal": 2,
+              "emitted_tick": 40,
+              "age": 8,
+              "original_draw_xy": [
+                207,
+                153
+              ]
+            },
+            {
+              "id": 124,
+              "ordinal": 3,
+              "emitted_tick": 40,
+              "age": 8,
+              "original_draw_xy": [
+                -5,
+                167
+              ]
+            },
+            {
+              "id": 125,
+              "ordinal": 4,
+              "emitted_tick": 40,
+              "age": 8,
+              "original_draw_xy": [
+                207,
+                167
+              ]
+            },
+            {
+              "id": 73,
+              "ordinal": 5,
+              "emitted_tick": 40,
+              "age": 8,
+              "original_draw_xy": [
+                101,
+                56
+              ]
+            },
+            {
+              "id": 105,
+              "ordinal": 1,
+              "emitted_tick": 47,
+              "age": 1,
+              "original_draw_xy": [
+                86,
+                153
+              ]
+            },
+            {
+              "id": 106,
+              "ordinal": 2,
+              "emitted_tick": 47,
+              "age": 1,
+              "original_draw_xy": [
+                116,
+                153
+              ]
+            },
+            {
+              "id": 124,
+              "ordinal": 3,
+              "emitted_tick": 47,
+              "age": 1,
+              "original_draw_xy": [
+                86,
+                167
+              ]
+            },
+            {
+              "id": 125,
+              "ordinal": 4,
+              "emitted_tick": 47,
+              "age": 1,
+              "original_draw_xy": [
+                116,
+                167
+              ]
+            },
+            {
+              "id": 73,
+              "ordinal": 5,
+              "emitted_tick": 47,
+              "age": 1,
+              "original_draw_xy": [
+                101,
+                147
+              ]
+            },
+            {
+              "id": 82,
+              "ordinal": 6,
+              "emitted_tick": 47,
+              "age": 1,
+              "original_draw_xy": [
+                101,
+                173
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "p8-m1-native4x",
+      "role": "unchanged82/73 and105/106/124/125 negative control",
+      "power": 8,
+      "mode": 1,
+      "native_scale": 4,
+      "ticks": 64,
+      "actual_SDL_readback_dimensions": [
+        1280,
+        800
+      ],
+      "raw_source_ids": [
+        73,
+        82,
+        105,
+        106,
+        124,
+        125
+      ],
+      "successful_original_requests": [
+        3,
+        10,
+        19,
+        26,
+        33,
+        40,
+        47,
+        54,
+        61
+      ],
+      "shot_requests": 13,
+      "emissions": 54,
+      "original16_54_shadow_draws": 0,
+      "shadow16_54_HD_admission_count": 0,
+      "candidate_new16_54_normal_admissions": 0,
+      "positive_witness_ticks": [],
+      "control_pixel_identical": true,
+      "captures": [
+        {
+          "tick": 34,
+          "role": "Preserved source-audit P8 windows expose existing82/73",
+          "changed_native_RGB_pixels": 0,
+          "RGB_diff_bbox": null,
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "unchanged_coexistence_heads": [],
+          "native_image_hashes": {
+            "baseline": {
+              "sha256": "908de55cb938bfaa5e3e0f1244ee4e76e13284ecb96fff175918040a28ed91db",
+              "rgba_sha256": "7fd24797a38e32100085e614ad04e57a5d0c098f911d34b16b2e706df8cee334",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "908de55cb938bfaa5e3e0f1244ee4e76e13284ecb96fff175918040a28ed91db",
+              "rgba_sha256": "7fd24797a38e32100085e614ad04e57a5d0c098f911d34b16b2e706df8cee334",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "original_INDEX8_palette_hashes": {
+            "game_INDEX8_sha256": "72ad94ebdfd46bf2a10039bd129fd0f6ff3d58c744144100da004d498a1ef71d",
+            "display_INDEX8_sha256": "65b85d119bbb2282d1697c712994cd566ea1e6cabe97777b3a49b358502c1297",
+            "game_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "display_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "rgb_RGB_palette_sha256": "ba249050344157b75e14a846649cc634b098ba448071ba44ecae8647aff01c7c"
+          },
+          "head_witness_counts": []
+        },
+        {
+          "tick": 41,
+          "role": "Preserved source-audit P8 windows expose existing82/73",
+          "changed_native_RGB_pixels": 0,
+          "RGB_diff_bbox": null,
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "unchanged_coexistence_heads": [],
+          "native_image_hashes": {
+            "baseline": {
+              "sha256": "49dc871f94d55eb073bba333c244af6505741a3c0955f521de9956dc22e7d9cb",
+              "rgba_sha256": "faeb34b80945a2ff9c40a816a803eaa62bc8b3f88d9c059967a6a77568a5fd30",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "49dc871f94d55eb073bba333c244af6505741a3c0955f521de9956dc22e7d9cb",
+              "rgba_sha256": "faeb34b80945a2ff9c40a816a803eaa62bc8b3f88d9c059967a6a77568a5fd30",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "original_INDEX8_palette_hashes": {
+            "game_INDEX8_sha256": "200938b7f496515ef7017a991df86280c309f424e4715bdfd7113206ea728f56",
+            "display_INDEX8_sha256": "6318e941c0aee98186fe118bb61179e5377f2a484d80593c55584440bfd340c4",
+            "game_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "display_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "rgb_RGB_palette_sha256": "ba249050344157b75e14a846649cc634b098ba448071ba44ecae8647aff01c7c"
+          },
+          "head_witness_counts": []
+        },
+        {
+          "tick": 48,
+          "role": "Preserved source-audit P8 windows expose existing82/73",
+          "changed_native_RGB_pixels": 0,
+          "RGB_diff_bbox": null,
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "unchanged_coexistence_heads": [],
+          "native_image_hashes": {
+            "baseline": {
+              "sha256": "d56b01bf514cdf413e77589aeb0f89856f3894a9f026a090dc40aac5bbce5e13",
+              "rgba_sha256": "508b2737f9d9c688dcf1d66ae2bab87aded6c8e620bfba3eb653d7771f622731",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "d56b01bf514cdf413e77589aeb0f89856f3894a9f026a090dc40aac5bbce5e13",
+              "rgba_sha256": "508b2737f9d9c688dcf1d66ae2bab87aded6c8e620bfba3eb653d7771f622731",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "original_INDEX8_palette_hashes": {
+            "game_INDEX8_sha256": "964bccca09ff62055b1faca5c2b465fffb8a246f44accc90acfe27d332628802",
+            "display_INDEX8_sha256": "d6472f33b797aa8da8420821fc82645184b641dcc0aea491e2d5436ed31c1c79",
+            "game_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "display_SDL_palette_sha256": "5f4ecdb7b71c3e403983fe405cddcdc2f2576b655fdb3e80d94a6f7c32e58bc2",
+            "rgb_RGB_palette_sha256": "ba249050344157b75e14a846649cc634b098ba448071ba44ecae8647aff01c7c"
+          },
+          "head_witness_counts": []
+        }
+      ],
+      "source_predicted_all_original_head_positions": [
+        {
+          "tick": 34,
+          "heads": [
+            {
+              "id": 105,
+              "ordinal": 1,
+              "emitted_tick": 26,
+              "age": 8,
+              "original_draw_xy": [
+                -5,
+                153
+              ]
+            },
+            {
+              "id": 106,
+              "ordinal": 2,
+              "emitted_tick": 26,
+              "age": 8,
+              "original_draw_xy": [
+                207,
+                153
+              ]
+            },
+            {
+              "id": 124,
+              "ordinal": 3,
+              "emitted_tick": 26,
+              "age": 8,
+              "original_draw_xy": [
+                -5,
+                167
+              ]
+            },
+            {
+              "id": 125,
+              "ordinal": 4,
+              "emitted_tick": 26,
+              "age": 8,
+              "original_draw_xy": [
+                207,
+                167
+              ]
+            },
+            {
+              "id": 73,
+              "ordinal": 5,
+              "emitted_tick": 26,
+              "age": 8,
+              "original_draw_xy": [
+                101,
+                56
+              ]
+            },
+            {
+              "id": 105,
+              "ordinal": 1,
+              "emitted_tick": 33,
+              "age": 1,
+              "original_draw_xy": [
+                86,
+                153
+              ]
+            },
+            {
+              "id": 106,
+              "ordinal": 2,
+              "emitted_tick": 33,
+              "age": 1,
+              "original_draw_xy": [
+                116,
+                153
+              ]
+            },
+            {
+              "id": 124,
+              "ordinal": 3,
+              "emitted_tick": 33,
+              "age": 1,
+              "original_draw_xy": [
+                86,
+                167
+              ]
+            },
+            {
+              "id": 125,
+              "ordinal": 4,
+              "emitted_tick": 33,
+              "age": 1,
+              "original_draw_xy": [
+                116,
+                167
+              ]
+            },
+            {
+              "id": 73,
+              "ordinal": 5,
+              "emitted_tick": 33,
+              "age": 1,
+              "original_draw_xy": [
+                101,
+                147
+              ]
+            },
+            {
+              "id": 82,
+              "ordinal": 6,
+              "emitted_tick": 33,
+              "age": 1,
+              "original_draw_xy": [
+                101,
+                173
+              ]
+            }
+          ]
+        },
+        {
+          "tick": 41,
+          "heads": [
+            {
+              "id": 105,
+              "ordinal": 1,
+              "emitted_tick": 33,
+              "age": 8,
+              "original_draw_xy": [
+                -5,
+                153
+              ]
+            },
+            {
+              "id": 106,
+              "ordinal": 2,
+              "emitted_tick": 33,
+              "age": 8,
+              "original_draw_xy": [
+                207,
+                153
+              ]
+            },
+            {
+              "id": 124,
+              "ordinal": 3,
+              "emitted_tick": 33,
+              "age": 8,
+              "original_draw_xy": [
+                -5,
+                167
+              ]
+            },
+            {
+              "id": 125,
+              "ordinal": 4,
+              "emitted_tick": 33,
+              "age": 8,
+              "original_draw_xy": [
+                207,
+                167
+              ]
+            },
+            {
+              "id": 73,
+              "ordinal": 5,
+              "emitted_tick": 33,
+              "age": 8,
+              "original_draw_xy": [
+                101,
+                56
+              ]
+            },
+            {
+              "id": 105,
+              "ordinal": 1,
+              "emitted_tick": 40,
+              "age": 1,
+              "original_draw_xy": [
+                86,
+                153
+              ]
+            },
+            {
+              "id": 106,
+              "ordinal": 2,
+              "emitted_tick": 40,
+              "age": 1,
+              "original_draw_xy": [
+                116,
+                153
+              ]
+            },
+            {
+              "id": 124,
+              "ordinal": 3,
+              "emitted_tick": 40,
+              "age": 1,
+              "original_draw_xy": [
+                86,
+                167
+              ]
+            },
+            {
+              "id": 125,
+              "ordinal": 4,
+              "emitted_tick": 40,
+              "age": 1,
+              "original_draw_xy": [
+                116,
+                167
+              ]
+            },
+            {
+              "id": 73,
+              "ordinal": 5,
+              "emitted_tick": 40,
+              "age": 1,
+              "original_draw_xy": [
+                101,
+                147
+              ]
+            },
+            {
+              "id": 82,
+              "ordinal": 6,
+              "emitted_tick": 40,
+              "age": 1,
+              "original_draw_xy": [
+                101,
+                173
+              ]
+            }
+          ]
+        },
+        {
+          "tick": 48,
+          "heads": [
+            {
+              "id": 105,
+              "ordinal": 1,
+              "emitted_tick": 40,
+              "age": 8,
+              "original_draw_xy": [
+                -5,
+                153
+              ]
+            },
+            {
+              "id": 106,
+              "ordinal": 2,
+              "emitted_tick": 40,
+              "age": 8,
+              "original_draw_xy": [
+                207,
+                153
+              ]
+            },
+            {
+              "id": 124,
+              "ordinal": 3,
+              "emitted_tick": 40,
+              "age": 8,
+              "original_draw_xy": [
+                -5,
+                167
+              ]
+            },
+            {
+              "id": 125,
+              "ordinal": 4,
+              "emitted_tick": 40,
+              "age": 8,
+              "original_draw_xy": [
+                207,
+                167
+              ]
+            },
+            {
+              "id": 73,
+              "ordinal": 5,
+              "emitted_tick": 40,
+              "age": 8,
+              "original_draw_xy": [
+                101,
+                56
+              ]
+            },
+            {
+              "id": 105,
+              "ordinal": 1,
+              "emitted_tick": 47,
+              "age": 1,
+              "original_draw_xy": [
+                86,
+                153
+              ]
+            },
+            {
+              "id": 106,
+              "ordinal": 2,
+              "emitted_tick": 47,
+              "age": 1,
+              "original_draw_xy": [
+                116,
+                153
+              ]
+            },
+            {
+              "id": 124,
+              "ordinal": 3,
+              "emitted_tick": 47,
+              "age": 1,
+              "original_draw_xy": [
+                86,
+                167
+              ]
+            },
+            {
+              "id": 125,
+              "ordinal": 4,
+              "emitted_tick": 47,
+              "age": 1,
+              "original_draw_xy": [
+                116,
+                167
+              ]
+            },
+            {
+              "id": 73,
+              "ordinal": 5,
+              "emitted_tick": 47,
+              "age": 1,
+              "original_draw_xy": [
+                101,
+                147
+              ]
+            },
+            {
+              "id": 82,
+              "ordinal": 6,
+              "emitted_tick": 47,
+              "age": 1,
+              "original_draw_xy": [
+                101,
+                173
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Stationary first64 original ticks in Linux SDL dummy/software, controlled diagnostic starting loadout. No natural acquisition, full21-family, linked direction, P6 runtime, Christmas-live, missing-live, Hard15night, whole-level/campaign, Windows, physical GPU/fullscreen or performance claim.",
+    "The three original tables share active patterns and placement but shipblastfilter differs208 versus192; runtime Episode1 hdt only.",
+    "Actual selected Christmas source differs from normal66 versus84 source cells; no liveChristmas claim.",
+    "Underlay at fixed positive capture windows must be inspected honestly; no cloud claim from offline composites.",
+    "Original source files, pixels, decoded fixtures, hooks, binaries and captures remain private.",
+    "No original source pixels,captured images,private absolute paths,observer hooks or binary contents are included in this projection."
+  ],
+  "sanitized_private_projection_sha256": "08471a8d71e608f926000ff6a0de6eb9b373f81bfb17c31cd8e6ff123a18a857",
+  "verified_environment": {
+    "compiler": "cc (Debian 14.2.0-19) 14.2.0",
+    "make": "GNU Make 4.4.1",
+    "linked_SDL_runtime_version": "2.32.4",
+    "official_private_SDL_headers_version": "2.26.5",
+    "actual_renderer": "dummy/software",
+    "actual_window_output_readback_PNG_sizes_verified": [
+      [
+        640,
+        400
+      ],
+      [
+        1280,
+        800
+      ]
+    ],
+    "production_candidate_binary_sha256": "92d7d25eefe8730c80ca0695aef8f2956935ab415d283227ae7c60d0c7c27b4c",
+    "no_claims": [
+      "warning-free build",
+      "GPU/Windows/fullscreen/performance",
+      "real shop acquisition",
+      "whole level/campaign/full21family",
+      "P6 runtime",
+      "liveChristmas",
+      "actual-cloud16"
+    ]
+  },
+  "private_environment_receipt_sha256": "4f93429575dc5830bcd4f6c93cc01f2a42ca4feaf8e6d3440f5663d00b7f671e"
+}

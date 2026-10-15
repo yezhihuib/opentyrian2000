@@ -29154,7 +29154,7 @@
       }
     },
     "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 559,
+      "count": 561,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -36422,11 +36422,37 @@
           "sha256": "89e1f385ca3c57e515dee96169fae3d5278ff51274d8a62756b1f7b3c09a229a",
           "source_png": "assets/hd/source/bullet-82-8-89e1f385ca3c.png",
           "source_png_sha256": "befbebe6e5b5f1b9e4b413de4ff5fac9282586ab17516e79342fa01a4bcb4aa6"
+        },
+        "bullet-16-8.hda": {
+          "header_u32": [
+            80016,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "sha256": "61cded2fa237c07f9cc133a4adf47085697b7bf7a45fad912460d5f4fdfa8a83",
+          "source_png": "assets/hd/source/bullet-16-8-61cded2fa237.png",
+          "source_png_sha256": "d289febb62b7a47f49330f7a31ce10aa8f2be07f4a0d1c563019da5e43dfb709"
+        },
+        "bullet-54-8.hda": {
+          "header_u32": [
+            80054,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "sha256": "feae41526356b6fbb3b4d34774c59e813b08a50f4c61ec733f5ca11e10fa69b6",
+          "source_png": "assets/hd/source/bullet-54-8-feae41526356.png",
+          "source_png_sha256": "f5eca6d467b86a97a5c320c29248fae19ab869db494f0d906b0ad6823bd84cd2"
         }
       }
     },
     "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 559,
+      "count": 561,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -43694,6 +43720,32 @@
           "sha256": "89e1f385ca3c57e515dee96169fae3d5278ff51274d8a62756b1f7b3c09a229a",
           "source_png": "assets/hd/source/bullet-82-8-89e1f385ca3c.png",
           "source_png_sha256": "befbebe6e5b5f1b9e4b413de4ff5fac9282586ab17516e79342fa01a4bcb4aa6"
+        },
+        "bullet-16-8.hda": {
+          "header_u32": [
+            80016,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "sha256": "61cded2fa237c07f9cc133a4adf47085697b7bf7a45fad912460d5f4fdfa8a83",
+          "source_png": "assets/hd/source/bullet-16-8-61cded2fa237.png",
+          "source_png_sha256": "d289febb62b7a47f49330f7a31ce10aa8f2be07f4a0d1c563019da5e43dfb709"
+        },
+        "bullet-54-8.hda": {
+          "header_u32": [
+            80054,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "sha256": "feae41526356b6fbb3b4d34774c59e813b08a50f4c61ec733f5ca11e10fa69b6",
+          "source_png": "assets/hd/source/bullet-54-8-feae41526356.png",
+          "source_png_sha256": "f5eca6d467b86a97a5c320c29248fae19ab869db494f0d906b0ad6823bd84cd2"
         }
       }
     }
@@ -47200,6 +47252,16 @@
       "path": "assets/hd/source/bullet-82-8-89e1f385ca3c.png",
       "sha256": "befbebe6e5b5f1b9e4b413de4ff5fac9282586ab17516e79342fa01a4bcb4aa6",
       "RGBA_sha256": "7b75bf0749fa94bce50c463dc16148e6886a1a572b97bf970fe1a19ecf6a1757"
+    },
+    "61cded2fa237c07f9cc133a4adf47085697b7bf7a45fad912460d5f4fdfa8a83": {
+      "path": "assets/hd/source/bullet-16-8-61cded2fa237.png",
+      "sha256": "d289febb62b7a47f49330f7a31ce10aa8f2be07f4a0d1c563019da5e43dfb709",
+      "RGBA_sha256": "d81952f1c3b4714c77914148248bf5a31b50d3fbfe20e7a885592d21f6564b7b"
+    },
+    "feae41526356b6fbb3b4d34774c59e813b08a50f4c61ec733f5ca11e10fa69b6": {
+      "path": "assets/hd/source/bullet-54-8-feae41526356.png",
+      "sha256": "f5eca6d467b86a97a5c320c29248fae19ab869db494f0d906b0ad6823bd84cd2",
+      "RGBA_sha256": "cf3b99cb608bac7a03ffc4fbc64dcb9500b2f607f3162d8067c451ce60de8b1e"
     }
   },
   "no_original_game_data": true,
@@ -52652,6 +52714,26 @@
         "id": 82,
         "slot": 550,
         "HDA_sha256": "89e1f385ca3c57e515dee96169fae3d5278ff51274d8a62756b1f7b3c09a229a"
+      }
+    ]
+  },
+  "player_sonic_fat_pair_v1": {
+    "source": "assets/hd/artwork/player-sonic-fat-pair-v1",
+    "contract_sha256": "060156916b0f1d27a0828563b6b554e2dc3871fcab23ee9e30f4b58167acdb7c",
+    "ids": [
+      16,
+      54
+    ],
+    "entries": [
+      {
+        "id": 16,
+        "slot": 551,
+        "HDA_sha256": "61cded2fa237c07f9cc133a4adf47085697b7bf7a45fad912460d5f4fdfa8a83"
+      },
+      {
+        "id": 54,
+        "slot": 552,
+        "HDA_sha256": "feae41526356b6fbb3b4d34774c59e813b08a50f4c61ec733f5ca11e10fa69b6"
       }
     ]
   }

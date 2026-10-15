@@ -1,0 +1,343 @@
+{
+  "status": "PASS_GENERATED_ART_BYTES_AND_DETERMINISTIC_REBUILD_STATIC_PHASE",
+  "scope": "normal player16/54 only; actual runtime acceptance recorded separately",
+  "master_sha256": "bd7d210c534931f6d42645cb20044463f6a337f54f34abdd90812c4c163eccda",
+  "contract_sha256": "060156916b0f1d27a0828563b6b554e2dc3871fcab23ee9e30f4b58167acdb7c",
+  "source_size_actual": [
+    1160,
+    1355
+  ],
+  "R1_source_size": [
+    1161,
+    1355
+  ],
+  "R2_master_width_delta_from_R1_pixels": -1,
+  "R2_generated_contour_not_claimed_pixel_identical_to_R1": true,
+  "reconstruction": {
+    "library": "Pillow",
+    "version": "12.3.0",
+    "crop": [
+      71,
+      258,
+      1100,
+      1113
+    ],
+    "resize": [
+      96,
+      80
+    ],
+    "resample": "LANCZOS",
+    "canvas": [
+      96,
+      112
+    ],
+    "paste": [
+      0,
+      8,
+      96,
+      88
+    ],
+    "paste_operation": "straight RGBA paste onto transparent canvas",
+    "height_rounding_only": true,
+    "proportional_scale_from_width": 0.09329446064139942,
+    "ideal_proportional_height": 79.76676384839651,
+    "mirror54": "exact horizontal mirror of full registered96x112 ID16 canvas",
+    "no_repaint_recolor_threshold_original_mask": true
+  },
+  "crop_loss": {
+    "outside_max_alpha": 1,
+    "outside_nonzero_pixels": 27223,
+    "outside_alpha_mass": 106.75686274509803,
+    "outside_fraction_total_alpha_mass": 0.0002863572065636232,
+    "alpha_ge2_retained_entirely": true
+  },
+  "generated_only": true,
+  "original_reference_or_mask_pixels_in_reconstruction": false,
+  "full_canvas_flipX_exact": true,
+  "diagnostics": {
+    "registered16": {
+      "size": [
+        96,
+        112
+      ],
+      "alpha_zero": 6305,
+      "alpha_fractional": 4447,
+      "alpha255": 0,
+      "max_alpha": 253,
+      "equivalent_alpha_area": 3254.1686274509802,
+      "bboxes_at_alpha": {
+        "1": [
+          0,
+          8,
+          96,
+          88
+        ],
+        "2": [
+          0,
+          8,
+          96,
+          88
+        ],
+        "8": [
+          0,
+          8,
+          96,
+          88
+        ],
+        "32": [
+          1,
+          9,
+          94,
+          87
+        ],
+        "64": [
+          1,
+          9,
+          92,
+          87
+        ],
+        "128": [
+          2,
+          11,
+          88,
+          86
+        ],
+        "192": [
+          2,
+          12,
+          84,
+          85
+        ],
+        "240": [
+          4,
+          13,
+          79,
+          84
+        ],
+        "250": [
+          5,
+          14,
+          76,
+          83
+        ],
+        "255": null
+      },
+      "alpha_weighted_rgb": [
+        42.405,
+        235.859,
+        91.364
+      ],
+      "border_alpha_max_LTRB": [
+        22,
+        0,
+        8,
+        0
+      ],
+      "edge_alpha1to127": {
+        "count": 1127,
+        "rgb_mean": [
+          15.753,
+          182.341,
+          56.667
+        ],
+        "green_dominant_fraction": 0.8695652173913043
+      },
+      "visible_ge32": {
+        "count": 3971,
+        "rgb_mean": [
+          38.95,
+          233.06,
+          88.413
+        ],
+        "green_dominant_fraction": 1.0
+      },
+      "core_ge192": {
+        "count": 2856,
+        "rgb_mean": [
+          45.499,
+          238.233,
+          93.959
+        ],
+        "green_dominant_fraction": 1.0
+      },
+      "pale_mint_alpha_ge128_Rge100_Bge120": {
+        "count": 125,
+        "rgb_mean": [
+          105.68,
+          246.96,
+          144.52
+        ],
+        "green_dominant_fraction": 1.0
+      },
+      "dark_nearopaque_RGBmaxlt64_alpha_ge192": {
+        "count": 0
+      }
+    },
+    "registered54": {
+      "size": [
+        96,
+        112
+      ],
+      "alpha_zero": 6305,
+      "alpha_fractional": 4447,
+      "alpha255": 0,
+      "max_alpha": 253,
+      "equivalent_alpha_area": 3254.1686274509802,
+      "bboxes_at_alpha": {
+        "1": [
+          0,
+          8,
+          96,
+          88
+        ],
+        "2": [
+          0,
+          8,
+          96,
+          88
+        ],
+        "8": [
+          0,
+          8,
+          96,
+          88
+        ],
+        "32": [
+          2,
+          9,
+          95,
+          87
+        ],
+        "64": [
+          4,
+          9,
+          95,
+          87
+        ],
+        "128": [
+          8,
+          11,
+          94,
+          86
+        ],
+        "192": [
+          12,
+          12,
+          94,
+          85
+        ],
+        "240": [
+          17,
+          13,
+          92,
+          84
+        ],
+        "250": [
+          20,
+          14,
+          91,
+          83
+        ],
+        "255": null
+      },
+      "alpha_weighted_rgb": [
+        42.405,
+        235.859,
+        91.364
+      ],
+      "border_alpha_max_LTRB": [
+        8,
+        0,
+        22,
+        0
+      ],
+      "edge_alpha1to127": {
+        "count": 1127,
+        "rgb_mean": [
+          15.753,
+          182.341,
+          56.667
+        ],
+        "green_dominant_fraction": 0.8695652173913043
+      },
+      "visible_ge32": {
+        "count": 3971,
+        "rgb_mean": [
+          38.95,
+          233.06,
+          88.413
+        ],
+        "green_dominant_fraction": 1.0
+      },
+      "core_ge192": {
+        "count": 2856,
+        "rgb_mean": [
+          45.499,
+          238.233,
+          93.959
+        ],
+        "green_dominant_fraction": 1.0
+      },
+      "pale_mint_alpha_ge128_Rge100_Bge120": {
+        "count": 125,
+        "rgb_mean": [
+          105.68,
+          246.96,
+          144.52
+        ],
+        "green_dominant_fraction": 1.0
+      },
+      "dark_nearopaque_RGBmaxlt64_alpha_ge192": {
+        "count": 0
+      }
+    }
+  },
+  "diagnostic_caution": "Absence of dark/opaque predicate hits is not a visual soft-edge test. Actual-size independent review rejected R1 despite such numerical results; R2 was separately viewed and accepted as static candidate.",
+  "c2pa_metadata": {
+    "chunk_bytes": 23654,
+    "assertions": "created action, claim, asset hash and signature; embedded vendor SVG icon",
+    "ingredient_or_original_raster_thumbnail_detected": false,
+    "private_absolute_paths_detected": false,
+    "exact_model_version_confirmed": false,
+    "earliest_watermarked_action_time_utc": "2026-10-15T12:17:20.683076962Z",
+    "created_action_time_utc": "2026-10-15T12:17:20.685598918Z",
+    "converted_action_time_utc": "2026-10-15T12:17:20.685602483Z",
+    "frozen_contract_timing_prose_clarification": "The preserved contract timing prose labels the earliest watermark timestamp as created. The exact c2pa.created action is separately recorded here; observed tool call start/finish bounds remain correct. No generated master, reconstruction or runtime input changed."
+  },
+  "static_visual_review": "R2 removes continuous concave dark rim/blade appearance; substantial green C at24x28/48x56 cloud/brown. Brighter than original with lighter-green inner arc disclosed. R1 remains rejected privately.",
+  "engine_captures_in_this_check": false,
+  "entries": [
+    {
+      "id": 16,
+      "slot": 551,
+      "header_u32": [
+        80016,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "PNG_sha256": "d289febb62b7a47f49330f7a31ce10aa8f2be07f4a0d1c563019da5e43dfb709",
+      "RGBA_sha256": "d81952f1c3b4714c77914148248bf5a31b50d3fbfe20e7a885592d21f6564b7b",
+      "HDA_sha256": "61cded2fa237c07f9cc133a4adf47085697b7bf7a45fad912460d5f4fdfa8a83",
+      "fractional_alpha_samples": 4447
+    },
+    {
+      "id": 54,
+      "slot": 552,
+      "header_u32": [
+        80054,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "PNG_sha256": "f5eca6d467b86a97a5c320c29248fae19ab869db494f0d906b0ad6823bd84cd2",
+      "RGBA_sha256": "cf3b99cb608bac7a03ffc4fbc64dcb9500b2f607f3162d8067c451ce60de8b1e",
+      "HDA_sha256": "feae41526356b6fbb3b4d34774c59e813b08a50f4c61ec733f5ca11e10fa69b6",
+      "fractional_alpha_samples": 4447
+    }
+  ]
+}

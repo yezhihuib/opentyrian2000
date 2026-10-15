@@ -1,0 +1,689 @@
+{
+  "status": "PASS_FROZEN_ISOLATED_OPTIMIZED_AND_ASAN_UBSAN_BASELINE_CANDIDATE",
+  "private_full_receipt_sha256": "1ec08b6d8e10b32f08bf26363eb67d11b5c8a537db6254517e362ac24555091e",
+  "baseline": "92e6ac65efc61e83d6563760c70b3bfe650de7a6",
+  "scope": {
+    "baseline": "92e6ac65efc61e83d6563760c70b3bfe650de7a6",
+    "exact_renderer_inverse": true,
+    "production_source_files_checked": 153,
+    "prior_sonic6_44_73_63_82_tests_unchanged": [
+      "prototype/test-sonic-shallow-pair-binding.c",
+      "prototype/test-sonic-shallow-pair-binding.py",
+      "prototype/test-sonic-shallow-pair-scope.py",
+      "prototype/test-sonic-shallow-pair-shots.c",
+      "prototype/test-sonic-six-pair-binding.c",
+      "prototype/test-sonic-six-pair-binding.py",
+      "prototype/test-sonic-six-pair-scope.py",
+      "prototype/test-sonic-six-pair-shots.c",
+      "prototype/test-sonic-upward-arch-binding.c",
+      "prototype/test-sonic-upward-arch-binding.py",
+      "prototype/test-sonic-upward-arch-scope.py",
+      "prototype/test-sonic-upward-arch-shots.c"
+    ],
+    "only_changed_production_file": "src/render_mirror.c",
+    "candidate_renderer_sha256": "ea9fea07c77c30750b49aa6821d3b98cf271de4663a8ffaa7e6b9777ef988c3a",
+    "gameplay_input_shots_blitters_rng_unchanged": true
+  },
+  "test_file_sha256": {
+    "test-sonic-fat-pair-binding.py": "73d52781e6211e307da4470f1169042600f85d3a68e25c37df7977051939b691",
+    "test-sonic-fat-pair-binding.c": "da263bad99ed95988aaece9dc54069bae7f14ebd84bcb681bbc441fa9b296bbb",
+    "test-sonic-fat-pair-shots.c": "15fa16c7e7b863a8e9f97ef8608f3692fd21f90bef5df2d563faeee6b009a9b8",
+    "test-sonic-fat-pair-scope.py": "a286a2b3e30835c35c3ff562f76f31d38f6f07dd359926633a789ac0019c0802"
+  },
+  "source_contract_sha256": "a3b891c3b11e33f46c38199befc01712a65bd006f1a3d8e0c1b6c2d7f62f42c3",
+  "art_contract_sha256": "060156916b0f1d27a0828563b6b554e2dc3871fcab23ee9e30f4b58167acdb7c",
+  "normal_guard_FNV1a_index_then_coverage": {
+    "16": "0x92a9608038427256",
+    "54": "0x3e1fc5eeeda214e0"
+  },
+  "normal_covered_cells": 84,
+  "actual_Christmas_covered_cells": 66,
+  "actual_christmas_selected_encoded_sources_equal_normal": false,
+  "actual_christmas_selected_decoded_sources_equal_normal": false,
+  "explicit_xmas_guard_tested_with_normal_selected_bytes": true,
+  "binding_runs": {
+    "baseline": {
+      "optimized": {
+        "status": "PASS",
+        "baseline": true,
+        "head_and_wrapper_cases": 15156,
+        "identity_cases": 142,
+        "finite_binding_cases": 28896,
+        "resource_variants": 118,
+        "cache_cases": 476,
+        "coexistence_cases": 116,
+        "shadow_cases": 4032,
+        "all_21_identity_wrappers": true,
+        "indexed_bytes_checked": 977049600,
+        "original_calls": 14964,
+        "game_runs": 0
+      },
+      "sanitized": {
+        "status": "PASS",
+        "baseline": true,
+        "head_and_wrapper_cases": 15156,
+        "identity_cases": 142,
+        "finite_binding_cases": 28896,
+        "resource_variants": 118,
+        "cache_cases": 476,
+        "coexistence_cases": 116,
+        "shadow_cases": 4032,
+        "all_21_identity_wrappers": true,
+        "indexed_bytes_checked": 977049600,
+        "original_calls": 14964,
+        "game_runs": 0
+      }
+    },
+    "candidate": {
+      "optimized": {
+        "status": "PASS",
+        "baseline": false,
+        "head_and_wrapper_cases": 15156,
+        "identity_cases": 142,
+        "finite_binding_cases": 28896,
+        "resource_variants": 118,
+        "cache_cases": 476,
+        "coexistence_cases": 116,
+        "shadow_cases": 4032,
+        "all_21_identity_wrappers": true,
+        "indexed_bytes_checked": 977049600,
+        "original_calls": 14964,
+        "game_runs": 0
+      },
+      "sanitized": {
+        "status": "PASS",
+        "baseline": false,
+        "head_and_wrapper_cases": 15156,
+        "identity_cases": 142,
+        "finite_binding_cases": 28896,
+        "resource_variants": 118,
+        "cache_cases": 476,
+        "coexistence_cases": 116,
+        "shadow_cases": 4032,
+        "all_21_identity_wrappers": true,
+        "indexed_bytes_checked": 977049600,
+        "original_calls": 14964,
+        "game_runs": 0
+      }
+    }
+  },
+  "resource_variant_count": 118,
+  "both_default_packs_loaded_independently": true,
+  "guard_mutants": {
+    "omit-explicit-xmas": {
+      "caught": true,
+      "returncode": -6,
+      "guard_sha256": "f0f9237498a5d059398d5b4c9404ca3aca317163ca11275d79ac20391a8d20d8"
+    },
+    "trust-warm-source": {
+      "caught": true,
+      "returncode": -6,
+      "guard_sha256": "052a5439b76372f41438444e82b8e282d0be426d895009e1a8eecfe5b06b95a4"
+    },
+    "indices-only": {
+      "caught": true,
+      "returncode": -6,
+      "guard_sha256": "6e73fe64d73f0dbaeb40fb5d846d22516ac734959afdbdf0b85c12d871fe088c"
+    },
+    "coverage-only": {
+      "caught": true,
+      "returncode": -6,
+      "guard_sha256": "c40248277958c2e57c57b9dabad5a34972ee2d6980aab9b6f443b17a72067dc7"
+    }
+  },
+  "shot_runs": {
+    "baseline": {
+      "optimized": {
+        "status": "PASS",
+        "ordinary_first_level_rows": 22,
+        "source_item_tables": 3,
+        "fat_pair_ids": [
+          16,
+          54
+        ],
+        "rng_calls": 0,
+        "create_cases": 81312,
+        "movement_ticks": 1431189,
+        "capacity_and_power_cases": 10575,
+        "volley_phase_cases": 519,
+        "emits": 418026,
+        "draws": 2147292,
+        "shadow_draws": 716103,
+        "original_shadow_then_head_order_verified": true,
+        "all_three_blast_normalized_state_order_hashes_equal": true,
+        "hdt_vs_episode_blast_difference_preserved": true,
+        "game_runs": 0,
+        "tables": [
+          {
+            "name": "tyrian.hdt",
+            "ordinary_first_level_rows": 22,
+            "selected_rows": [
+              279,
+              280,
+              281
+            ],
+            "shipblastfilter": 208,
+            "rng_calls": 0,
+            "create_cases": 27104,
+            "emits": 139342,
+            "drift_phase_cases": 21801,
+            "volley_phase_cases": 173,
+            "capacity_cases": 2493,
+            "power_cases": 1032,
+            "repeated_volley_cases": 22,
+            "boundary_and_lifetime_cases": 1712,
+            "movement_ticks": 477063,
+            "offscreen_movement_ticks": 535,
+            "draws": 715764,
+            "shadow_draws": 238701,
+            "fat_pair_emissions": [
+              4543,
+              4531
+            ],
+            "fat_pair_movement_ticks": [
+              15640,
+              15640
+            ],
+            "fat_pair_shadow_before_head_cases": [
+              7826,
+              7826
+            ],
+            "shot_state_order_fnv1a64": "43793a6592dd1a1e",
+            "blast_normalized_state_order_fnv1a64": "792ce1deec37d8ce"
+          },
+          {
+            "name": "tyrian4.lvl",
+            "ordinary_first_level_rows": 22,
+            "selected_rows": [
+              279,
+              280,
+              281
+            ],
+            "shipblastfilter": 192,
+            "rng_calls": 0,
+            "create_cases": 27104,
+            "emits": 139342,
+            "drift_phase_cases": 21801,
+            "volley_phase_cases": 173,
+            "capacity_cases": 2493,
+            "power_cases": 1032,
+            "repeated_volley_cases": 22,
+            "boundary_and_lifetime_cases": 1712,
+            "movement_ticks": 477063,
+            "offscreen_movement_ticks": 535,
+            "draws": 715764,
+            "shadow_draws": 238701,
+            "fat_pair_emissions": [
+              4543,
+              4531
+            ],
+            "fat_pair_movement_ticks": [
+              15640,
+              15640
+            ],
+            "fat_pair_shadow_before_head_cases": [
+              7826,
+              7826
+            ],
+            "shot_state_order_fnv1a64": "635b9ee8c020110e",
+            "blast_normalized_state_order_fnv1a64": "792ce1deec37d8ce"
+          },
+          {
+            "name": "tyrian5.lvl",
+            "ordinary_first_level_rows": 22,
+            "selected_rows": [
+              279,
+              280,
+              281
+            ],
+            "shipblastfilter": 192,
+            "rng_calls": 0,
+            "create_cases": 27104,
+            "emits": 139342,
+            "drift_phase_cases": 21801,
+            "volley_phase_cases": 173,
+            "capacity_cases": 2493,
+            "power_cases": 1032,
+            "repeated_volley_cases": 22,
+            "boundary_and_lifetime_cases": 1712,
+            "movement_ticks": 477063,
+            "offscreen_movement_ticks": 535,
+            "draws": 715764,
+            "shadow_draws": 238701,
+            "fat_pair_emissions": [
+              4543,
+              4531
+            ],
+            "fat_pair_movement_ticks": [
+              15640,
+              15640
+            ],
+            "fat_pair_shadow_before_head_cases": [
+              7826,
+              7826
+            ],
+            "shot_state_order_fnv1a64": "635b9ee8c020110e",
+            "blast_normalized_state_order_fnv1a64": "792ce1deec37d8ce"
+          }
+        ]
+      },
+      "sanitized": {
+        "status": "PASS",
+        "ordinary_first_level_rows": 22,
+        "source_item_tables": 3,
+        "fat_pair_ids": [
+          16,
+          54
+        ],
+        "rng_calls": 0,
+        "create_cases": 81312,
+        "movement_ticks": 1431189,
+        "capacity_and_power_cases": 10575,
+        "volley_phase_cases": 519,
+        "emits": 418026,
+        "draws": 2147292,
+        "shadow_draws": 716103,
+        "original_shadow_then_head_order_verified": true,
+        "all_three_blast_normalized_state_order_hashes_equal": true,
+        "hdt_vs_episode_blast_difference_preserved": true,
+        "game_runs": 0,
+        "tables": [
+          {
+            "name": "tyrian.hdt",
+            "ordinary_first_level_rows": 22,
+            "selected_rows": [
+              279,
+              280,
+              281
+            ],
+            "shipblastfilter": 208,
+            "rng_calls": 0,
+            "create_cases": 27104,
+            "emits": 139342,
+            "drift_phase_cases": 21801,
+            "volley_phase_cases": 173,
+            "capacity_cases": 2493,
+            "power_cases": 1032,
+            "repeated_volley_cases": 22,
+            "boundary_and_lifetime_cases": 1712,
+            "movement_ticks": 477063,
+            "offscreen_movement_ticks": 535,
+            "draws": 715764,
+            "shadow_draws": 238701,
+            "fat_pair_emissions": [
+              4543,
+              4531
+            ],
+            "fat_pair_movement_ticks": [
+              15640,
+              15640
+            ],
+            "fat_pair_shadow_before_head_cases": [
+              7826,
+              7826
+            ],
+            "shot_state_order_fnv1a64": "43793a6592dd1a1e",
+            "blast_normalized_state_order_fnv1a64": "792ce1deec37d8ce"
+          },
+          {
+            "name": "tyrian4.lvl",
+            "ordinary_first_level_rows": 22,
+            "selected_rows": [
+              279,
+              280,
+              281
+            ],
+            "shipblastfilter": 192,
+            "rng_calls": 0,
+            "create_cases": 27104,
+            "emits": 139342,
+            "drift_phase_cases": 21801,
+            "volley_phase_cases": 173,
+            "capacity_cases": 2493,
+            "power_cases": 1032,
+            "repeated_volley_cases": 22,
+            "boundary_and_lifetime_cases": 1712,
+            "movement_ticks": 477063,
+            "offscreen_movement_ticks": 535,
+            "draws": 715764,
+            "shadow_draws": 238701,
+            "fat_pair_emissions": [
+              4543,
+              4531
+            ],
+            "fat_pair_movement_ticks": [
+              15640,
+              15640
+            ],
+            "fat_pair_shadow_before_head_cases": [
+              7826,
+              7826
+            ],
+            "shot_state_order_fnv1a64": "635b9ee8c020110e",
+            "blast_normalized_state_order_fnv1a64": "792ce1deec37d8ce"
+          },
+          {
+            "name": "tyrian5.lvl",
+            "ordinary_first_level_rows": 22,
+            "selected_rows": [
+              279,
+              280,
+              281
+            ],
+            "shipblastfilter": 192,
+            "rng_calls": 0,
+            "create_cases": 27104,
+            "emits": 139342,
+            "drift_phase_cases": 21801,
+            "volley_phase_cases": 173,
+            "capacity_cases": 2493,
+            "power_cases": 1032,
+            "repeated_volley_cases": 22,
+            "boundary_and_lifetime_cases": 1712,
+            "movement_ticks": 477063,
+            "offscreen_movement_ticks": 535,
+            "draws": 715764,
+            "shadow_draws": 238701,
+            "fat_pair_emissions": [
+              4543,
+              4531
+            ],
+            "fat_pair_movement_ticks": [
+              15640,
+              15640
+            ],
+            "fat_pair_shadow_before_head_cases": [
+              7826,
+              7826
+            ],
+            "shot_state_order_fnv1a64": "635b9ee8c020110e",
+            "blast_normalized_state_order_fnv1a64": "792ce1deec37d8ce"
+          }
+        ]
+      }
+    },
+    "candidate": {
+      "optimized": {
+        "status": "PASS",
+        "ordinary_first_level_rows": 22,
+        "source_item_tables": 3,
+        "fat_pair_ids": [
+          16,
+          54
+        ],
+        "rng_calls": 0,
+        "create_cases": 81312,
+        "movement_ticks": 1431189,
+        "capacity_and_power_cases": 10575,
+        "volley_phase_cases": 519,
+        "emits": 418026,
+        "draws": 2147292,
+        "shadow_draws": 716103,
+        "original_shadow_then_head_order_verified": true,
+        "all_three_blast_normalized_state_order_hashes_equal": true,
+        "hdt_vs_episode_blast_difference_preserved": true,
+        "game_runs": 0,
+        "tables": [
+          {
+            "name": "tyrian.hdt",
+            "ordinary_first_level_rows": 22,
+            "selected_rows": [
+              279,
+              280,
+              281
+            ],
+            "shipblastfilter": 208,
+            "rng_calls": 0,
+            "create_cases": 27104,
+            "emits": 139342,
+            "drift_phase_cases": 21801,
+            "volley_phase_cases": 173,
+            "capacity_cases": 2493,
+            "power_cases": 1032,
+            "repeated_volley_cases": 22,
+            "boundary_and_lifetime_cases": 1712,
+            "movement_ticks": 477063,
+            "offscreen_movement_ticks": 535,
+            "draws": 715764,
+            "shadow_draws": 238701,
+            "fat_pair_emissions": [
+              4543,
+              4531
+            ],
+            "fat_pair_movement_ticks": [
+              15640,
+              15640
+            ],
+            "fat_pair_shadow_before_head_cases": [
+              7826,
+              7826
+            ],
+            "shot_state_order_fnv1a64": "43793a6592dd1a1e",
+            "blast_normalized_state_order_fnv1a64": "792ce1deec37d8ce"
+          },
+          {
+            "name": "tyrian4.lvl",
+            "ordinary_first_level_rows": 22,
+            "selected_rows": [
+              279,
+              280,
+              281
+            ],
+            "shipblastfilter": 192,
+            "rng_calls": 0,
+            "create_cases": 27104,
+            "emits": 139342,
+            "drift_phase_cases": 21801,
+            "volley_phase_cases": 173,
+            "capacity_cases": 2493,
+            "power_cases": 1032,
+            "repeated_volley_cases": 22,
+            "boundary_and_lifetime_cases": 1712,
+            "movement_ticks": 477063,
+            "offscreen_movement_ticks": 535,
+            "draws": 715764,
+            "shadow_draws": 238701,
+            "fat_pair_emissions": [
+              4543,
+              4531
+            ],
+            "fat_pair_movement_ticks": [
+              15640,
+              15640
+            ],
+            "fat_pair_shadow_before_head_cases": [
+              7826,
+              7826
+            ],
+            "shot_state_order_fnv1a64": "635b9ee8c020110e",
+            "blast_normalized_state_order_fnv1a64": "792ce1deec37d8ce"
+          },
+          {
+            "name": "tyrian5.lvl",
+            "ordinary_first_level_rows": 22,
+            "selected_rows": [
+              279,
+              280,
+              281
+            ],
+            "shipblastfilter": 192,
+            "rng_calls": 0,
+            "create_cases": 27104,
+            "emits": 139342,
+            "drift_phase_cases": 21801,
+            "volley_phase_cases": 173,
+            "capacity_cases": 2493,
+            "power_cases": 1032,
+            "repeated_volley_cases": 22,
+            "boundary_and_lifetime_cases": 1712,
+            "movement_ticks": 477063,
+            "offscreen_movement_ticks": 535,
+            "draws": 715764,
+            "shadow_draws": 238701,
+            "fat_pair_emissions": [
+              4543,
+              4531
+            ],
+            "fat_pair_movement_ticks": [
+              15640,
+              15640
+            ],
+            "fat_pair_shadow_before_head_cases": [
+              7826,
+              7826
+            ],
+            "shot_state_order_fnv1a64": "635b9ee8c020110e",
+            "blast_normalized_state_order_fnv1a64": "792ce1deec37d8ce"
+          }
+        ]
+      },
+      "sanitized": {
+        "status": "PASS",
+        "ordinary_first_level_rows": 22,
+        "source_item_tables": 3,
+        "fat_pair_ids": [
+          16,
+          54
+        ],
+        "rng_calls": 0,
+        "create_cases": 81312,
+        "movement_ticks": 1431189,
+        "capacity_and_power_cases": 10575,
+        "volley_phase_cases": 519,
+        "emits": 418026,
+        "draws": 2147292,
+        "shadow_draws": 716103,
+        "original_shadow_then_head_order_verified": true,
+        "all_three_blast_normalized_state_order_hashes_equal": true,
+        "hdt_vs_episode_blast_difference_preserved": true,
+        "game_runs": 0,
+        "tables": [
+          {
+            "name": "tyrian.hdt",
+            "ordinary_first_level_rows": 22,
+            "selected_rows": [
+              279,
+              280,
+              281
+            ],
+            "shipblastfilter": 208,
+            "rng_calls": 0,
+            "create_cases": 27104,
+            "emits": 139342,
+            "drift_phase_cases": 21801,
+            "volley_phase_cases": 173,
+            "capacity_cases": 2493,
+            "power_cases": 1032,
+            "repeated_volley_cases": 22,
+            "boundary_and_lifetime_cases": 1712,
+            "movement_ticks": 477063,
+            "offscreen_movement_ticks": 535,
+            "draws": 715764,
+            "shadow_draws": 238701,
+            "fat_pair_emissions": [
+              4543,
+              4531
+            ],
+            "fat_pair_movement_ticks": [
+              15640,
+              15640
+            ],
+            "fat_pair_shadow_before_head_cases": [
+              7826,
+              7826
+            ],
+            "shot_state_order_fnv1a64": "43793a6592dd1a1e",
+            "blast_normalized_state_order_fnv1a64": "792ce1deec37d8ce"
+          },
+          {
+            "name": "tyrian4.lvl",
+            "ordinary_first_level_rows": 22,
+            "selected_rows": [
+              279,
+              280,
+              281
+            ],
+            "shipblastfilter": 192,
+            "rng_calls": 0,
+            "create_cases": 27104,
+            "emits": 139342,
+            "drift_phase_cases": 21801,
+            "volley_phase_cases": 173,
+            "capacity_cases": 2493,
+            "power_cases": 1032,
+            "repeated_volley_cases": 22,
+            "boundary_and_lifetime_cases": 1712,
+            "movement_ticks": 477063,
+            "offscreen_movement_ticks": 535,
+            "draws": 715764,
+            "shadow_draws": 238701,
+            "fat_pair_emissions": [
+              4543,
+              4531
+            ],
+            "fat_pair_movement_ticks": [
+              15640,
+              15640
+            ],
+            "fat_pair_shadow_before_head_cases": [
+              7826,
+              7826
+            ],
+            "shot_state_order_fnv1a64": "635b9ee8c020110e",
+            "blast_normalized_state_order_fnv1a64": "792ce1deec37d8ce"
+          },
+          {
+            "name": "tyrian5.lvl",
+            "ordinary_first_level_rows": 22,
+            "selected_rows": [
+              279,
+              280,
+              281
+            ],
+            "shipblastfilter": 192,
+            "rng_calls": 0,
+            "create_cases": 27104,
+            "emits": 139342,
+            "drift_phase_cases": 21801,
+            "volley_phase_cases": 173,
+            "capacity_cases": 2493,
+            "power_cases": 1032,
+            "repeated_volley_cases": 22,
+            "boundary_and_lifetime_cases": 1712,
+            "movement_ticks": 477063,
+            "offscreen_movement_ticks": 535,
+            "draws": 715764,
+            "shadow_draws": 238701,
+            "fat_pair_emissions": [
+              4543,
+              4531
+            ],
+            "fat_pair_movement_ticks": [
+              15640,
+              15640
+            ],
+            "fat_pair_shadow_before_head_cases": [
+              7826,
+              7826
+            ],
+            "shot_state_order_fnv1a64": "635b9ee8c020110e",
+            "blast_normalized_state_order_fnv1a64": "792ce1deec37d8ce"
+          }
+        ]
+      }
+    }
+  },
+  "exact_baseline_candidate_shot_parity": true,
+  "normal_blend_shadow_indexed_wrappers": true,
+  "source_tables": "All22 first-level Sonic rows across tyrian.hdt/tyrian4.lvl/tyrian5.lvl, including P6 source/unit-only. Pattern/placement match across tables; original shipblastfilter208 versus192 remains distinct.",
+  "game_runs": 0,
+  "sanitizers": "AddressSanitizer and UndefinedBehaviorSanitizer enabled; LeakSanitizer disabled for executor compatibility.",
+  "limitations": [
+    "Focused extracted production source, loader, guard, wrapper and original RLE tests; RGBA head compositor is a metadata-checking stub.",
+    "Source guards validate selected decoded identity, not whole-bank provenance; no root-epoch guarantee is added.",
+    "Generic compositor integration, actual-play aesthetics, natural acquisition and full-engine runtime require separate acceptance.",
+    "LeakSanitizer disabled for executor compatibility; AddressSanitizer and UndefinedBehaviorSanitizer enabled.",
+    "Malformed original source is exercised at the HD guard only; original unchecked RLE is never executed against malformed data."
+  ],
+  "private_data_fixtures_commands_logs_or_pixel_arrays_published": false
+}
