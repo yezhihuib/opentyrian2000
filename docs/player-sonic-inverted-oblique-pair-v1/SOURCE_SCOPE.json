@@ -1,0 +1,94 @@
+{
+  "schema": "sonic-inverted-oblique-pair-source-scope-v1",
+  "status": "READ_ONLY_SOURCE_AUDIT_FINITE_CONTRACT",
+  "baseline": "db01d8762a2536aa89b49e6c683704ffcb58de4a",
+  "ids": [
+    242,
+    243
+  ],
+  "prior_unchanged_ids": [
+    6,
+    16,
+    44,
+    54,
+    63,
+    73,
+    82,
+    130,
+    131,
+    149,
+    150,
+    223,
+    224
+  ],
+  "remaining_original_ids": [
+    105,
+    106,
+    124,
+    125,
+    143,
+    144
+  ],
+  "bank": 8,
+  "layout": "TILE",
+  "role": 8,
+  "logical_size": [
+    12,
+    14
+  ],
+  "anchor": [
+    0,
+    0
+  ],
+  "source_covered_cells_each": 89,
+  "source_bbox_half_open": [
+    0,
+    0,
+    12,
+    14
+  ],
+  "source_empty_logical_edge_rows": 0,
+  "selected_fnv_index_then_coverage": {
+    "242": "0xc114b5f56dfe2a85",
+    "243": "0xc571f14777146519"
+  },
+  "source_relationships": {
+    "242": "exact full12x14 flipY223",
+    "243": "exact full12x14 flipY224; exact flipX242"
+  },
+  "actual_Christmas": "Selected242/243 and upstream223/224 normal/Christmas encoded fragments, decoded indices and coverage equal. Explicit xmas=true rejection is essential. Equal fragments with xmas=false necessarily pass; no whole-bank provenance claim.",
+  "ordinary_rows": [
+    {
+      "mode": 1,
+      "power": 9,
+      "record": 284,
+      "secondary_record": 1284,
+      "mixed_ids": [
+        73,
+        105,
+        106,
+        124,
+        125,
+        242,
+        243
+      ]
+    }
+  ],
+  "ordinary_offsets": "Phase6 ID243: bx\u22124/by0/sx\u22122/sy\u221213/del98; phase7 ID242: bx4/by0/sx2/sy\u221213/del98. Original resulting screen motion is downward. Preserve original table order.",
+  "fixed_source_scope": "All1638 records in each of three fixed tables checked:284/1284 phases6/7 are the only direct active occurrences. No arbitrary future dynamic-script attestation.",
+  "three_table_limit": "Active patterns agree across hdt and episodes4/5, but full80-byte records and inactive tails differ, including blastfilter208 versus192. No false full-record equality claim.",
+  "linked_sources": "Original linkSonicGr on ports11/28/33 places242 atbin1 and243 atbin15 after record446/1446 creation. These session contexts stay classic; original roundf/sinf/cosf boundaries remain unchanged.",
+  "new_only_pre_cache_exclusions": [
+    "twoPlayerMode",
+    "galagaMode",
+    "twoPlayerLinked",
+    "explicit Christmas",
+    "invalid current selected indices or coverage"
+  ],
+  "source_API_limit": "Generic fragment API has no per-shot owner/source-record token. Session flags exclude linked/2P/Galaga. Selected fragment identity is not whole-bank attestation.",
+  "shadow": "Original indexed shadows escape before HD lookup. No new HD shadows, displacement or order change.",
+  "only_changed_production_source": "src/render_mirror.c",
+  "gameplay_shots_rng_input_blitters_unchanged": true,
+  "no_original_pixels_published": true,
+  "not_whole_family_or_level": true
+}

@@ -1,0 +1,137 @@
+{
+  "schema": "generated-sonic-inverted-oblique-pair-v1",
+  "source": "sources/generated-sonic223-r2.png",
+  "source_sha256": "5038c0af5f2cef84dac3649ea65bdfe0df9334bf6fac5bface816a9ccd32774f",
+  "source_size": [
+    1161,
+    1355
+  ],
+  "generation": {
+    "tool": "tools.image_gen__imagegen",
+    "model_id": null,
+    "model_id_status": "Exact model ID not supplied or confirmed; embedded generic metadata is not an exact model ID.",
+    "started_utc_lower_bound": "2026-10-15T13:05:34Z",
+    "finished_utc_upper_bound": "2026-10-15T13:06:35Z",
+    "timing_precision": "Conservative observed clock bounds; original reviewed metadata ended13:06:32 and a preserved timing supplement expands upper bound to visible13:06:35.",
+    "transparent_background": true,
+    "reference_description": "Original game sprite223 privately supplied for independent oblique arch geometry and green identity. No original raster, decoded indices or mask is packaged or used by reconstruction. This is the previous R2, expressly selected by user after comparison with a separate later pilot.",
+    "prompt": "Use case: stylized-concept. Asset type: transparent HD2D green sonic-wave game sprite, viewed at only24x28 or48x56 pixels. Input image is the ORIGINAL geometry reference, not a pixel-stair texture to trace. Create a fresh smooth high-resolution version of this exact ASYMMETRIC OBLIQUE PEAKED ARCH, opening DOWNWARD. Canvas width:height12:14, occupied silhouette width:height12:14 with top-left anchor. Apex near x7 of12 at y0; broad left shoulder sweeps diagonally down-left and its taper reaches x0 near y11\u201312 of14. The right arm is steeper and longer, descending near x11 to y14. Preserve the unequal arms and off-center peak; do not make a symmetric U, short hairpin, or narrow triangular wire. Make a substantial FULL green energy BAND with a visibly broad luminous shoulder and thick readable arms like the reference at tiny game size, not just a thin bright line. Keep the longer downward-left taper. Smooth continuous saturated green shading, vivid GREEN center, softer deeper-green internal transitions. Actual partial transparency fading gently to zero across the outermost25percent of band thickness INSIDE the silhouette, including tapered tips. No continuous dark opaque outline or inner rim, no solid3D plastic/bevel/metal look, no white or pale-mint stripe, no cyan/yellow, no outside halo, no particles, no inherited block stairs, no extra objects, no text. Transparent PNG background. Preserve original placement, direction and12:14extent, with only smooth soft curves replacing the pixel steps."
+  },
+  "reconstruction": {
+    "library": "Pillow",
+    "version": "12.3.0",
+    "crop": [
+      0,
+      0,
+      1161,
+      1355
+    ],
+    "resize": [
+      96,
+      112
+    ],
+    "resample": "LANCZOS",
+    "canvas": [
+      96,
+      112
+    ],
+    "paste": [
+      0,
+      0
+    ],
+    "paste_operation": "Straight RGBA paste onto transparent canvas without a mask.",
+    "proportional_scale_from_width": 0.082687338501292,
+    "ideal_proportional_height": 112.04134366925065,
+    "height_rounding_only": true,
+    "derive224": "Exact flipX of ENTIRE registered96x112 ID223 upstream canvas.",
+    "crop_loss": {
+      "outside_nonzero_pixels": 0,
+      "outside_alpha_mass": 0
+    },
+    "no_repaint_recolor_threshold_original_mask_stretch": true,
+    "derive242": "Exact flipY of the ENTIRE registered96x112 ID223 upstream canvas.",
+    "derive243": "Exact flipY of the ENTIRE registered96x112 ID224 upstream canvas; equivalently exact flipX of derived242.",
+    "logical_anchor": [
+      0,
+      0
+    ],
+    "bottom_transparent_density_rows": 2,
+    "no_additional_crop_resize_translation_or_alpha_edit": true
+  },
+  "selection": {
+    "revision": "User-accepted223/224 R2 reused by exact whole-canvas flipY",
+    "scope": "Parent accepts this deterministic art basis for bounded runtime tests. Historical independent polished/folded-blade/plastic-gradient and slimness reservations are retained as the prior user-accepted aesthetic tradeoff; no new user art approval or unanimous review is claimed.",
+    "extent": "Original242/243 occupy logical bbox[0,0,12,14] with NO empty logical rows, each89 covered cells. Exact registered full-canvas flipY moves only the upstream two empty density rows to the bottom; no logical-row margin or translation is introduced.",
+    "alpha": "Master max253; LANCZOS reconstruction contains6 alpha255 samples and3588 fractional-alpha samples per registered frame. No alpha threshold or repaint; do not infer softness solely from numeric alpha.",
+    "style_tradeoff": "Lighter/slimmer polished-green impression compared with original remains a disclosed aesthetic tradeoff explicitly accepted by user. Prior black-outline absence did not resolve that earlier reservation.",
+    "previously_accepted_ids": [
+      6,
+      16,
+      44,
+      54,
+      63,
+      73,
+      82,
+      130,
+      131,
+      149,
+      150,
+      223,
+      224
+    ],
+    "remaining_original_ids": [
+      105,
+      106,
+      124,
+      125,
+      143,
+      144
+    ],
+    "not_full_family": true,
+    "new_image_generation_calls": 0
+  },
+  "entries": [
+    {
+      "id": 242,
+      "slot": 559,
+      "upstream_registered_id": 223,
+      "header_u32": [
+        80242,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "PNG_sha256": "25605dd4f4e1943dcb3ced425c5b647a32883b88362f1f762c80931eacd2ac91",
+      "RGBA_sha256": "46122c0e5f3291aab133b8b238565b1b9506110309d0c9bcaf0ba93c10bd9922",
+      "HDA_sha256": "d2631a01b35a5512aba49d8dc4e1fbde589bb5edab23b621719cf452c2eb3255",
+      "fractional_alpha_samples": 3588,
+      "alpha255_samples": 6
+    },
+    {
+      "id": 243,
+      "slot": 560,
+      "upstream_registered_id": 224,
+      "header_u32": [
+        80243,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "PNG_sha256": "2e1592b3775532d15358e48af8e26a3f15e5b0d95f70a73779863022c9381f48",
+      "RGBA_sha256": "b12b777b10ebd922065a67cc295ff90f385cf3404663ad7194234be49cf05bab",
+      "HDA_sha256": "9d4c936d4c0ed659574ff8b6fd43054b1cd04146b7921916e65a9d5434d40399",
+      "fractional_alpha_samples": 3588,
+      "alpha255_samples": 6
+    }
+  ],
+  "upstream_published_contract": {
+    "path": "assets/hd/artwork/player-sonic-oblique-pair-v1/contract.json",
+    "sha256": "629cf2abdb1f809081c6b41fb53763207e9597213c292f955325be635a416fe0",
+    "published_commit": "db01d8762a2536aa89b49e6c683704ffcb58de4a",
+    "reuse_authorized": "Exact original full-canvas source transform relationship permits deterministic reflection of the user-accepted223/224R2 registration. No new generation or artwork editing."
+  }
+}

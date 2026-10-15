@@ -1,0 +1,134 @@
+{
+  "schema": "sonic-inverted-oblique-pair-units-v1",
+  "status": "PASS_EXTRACTED_PRODUCTION_GUARD_SHOTS_AND_SENSITIVITY",
+  "baseline": "db01d8762a2536aa89b49e6c683704ffcb58de4a",
+  "source_contract_sha256": "a3b891c3b11e33f46c38199befc01712a65bd006f1a3d8e0c1b6c2d7f62f42c3",
+  "art_contract_sha256": "689bb3f873499b842063e99c2314aa5ec096b44e3214dca000a0dbbf11696774",
+  "result_sha256": "3186781e2c2f7aa0009c28c065df1d992652767e5d71176551370f2ddbd0abbe",
+  "test_file_sha256": {
+    "test-sonic-inverted-oblique-pair-binding.py": "d1ce18bdae804bd3a3eaf3ebc85793a207243367751e04ad1aaef9853f1e0dbb",
+    "test-sonic-inverted-oblique-pair-binding.c": "5b271410c886ebba8f63a7d4328e6c7a2e086fdc4293f1bbeb8c1fcb62075d37",
+    "test-sonic-inverted-oblique-pair-shots.c": "fd3ce44d42b631e38f15b8d8fd8daa368f1ed2fb216c48f41fe1159bfe6492cb",
+    "test-sonic-inverted-oblique-pair-scope.py": "13e80d67f640d8a231d4d8c3b52b56b37ebbacf732417e805cd1baadc1523c44"
+  },
+  "build_matrix": "Baseline and candidate, binding and original shots, each optimized and ASan+UBSan:8 builds pass. Exact four-way original-shot output parity.",
+  "finite_binding_cases_per_build": 28896,
+  "resource_variants": 118,
+  "mode_density_cold_warm_states": 64,
+  "all_three_flags_eight_combinations_before_cache": true,
+  "source_rejections": 168,
+  "candidate_poison_cache_rejections": 318,
+  "old_thirteen_cached_metadata_pointer_RGBA_preservation_checks": 208,
+  "all_twenty_one_normal_blend_shadow_wrappers": true,
+  "both_default_packs_loaded_independently": true,
+  "exact_whole_canvas_generated_flipY_and_flipX": true,
+  "actual_Christmas_selected_fragments_equal_normal_explicit_flag_rejection_tested": true,
+  "remaining_six_unselected_ids_remain_classic": true,
+  "original_shot_units": {
+    "all22rows_bothcopies_three_tables": true,
+    "selected_primary_records": [
+      284
+    ],
+    "selected_secondary_records": [
+      1284
+    ],
+    "previous_oblique_regression_records": [
+      278,
+      280,
+      281,
+      282,
+      1278,
+      1280,
+      1281,
+      1282
+    ],
+    "creates": 164982,
+    "movement_ticks": 2871666,
+    "linked_direction_cases": 2322,
+    "linked_ports": [
+      11,
+      28,
+      33
+    ],
+    "linked_creation_record_copies": [
+      446,
+      1446
+    ],
+    "all17bins_and16_nextafterf_adjacent_float32_transitions": true,
+    "complete_record_table_differences_preserved": true,
+    "exact_baseline_candidate_parity": true,
+    "rng_calls": 0
+  },
+  "mutant_sensitivity": {
+    "omit-twoPlayerMode": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6
+    },
+    "omit-galagaMode": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6
+    },
+    "omit-twoPlayerLinked": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6
+    },
+    "omit-explicit-xmas": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6
+    },
+    "trust-warm-source": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6
+    },
+    "indices-only": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6
+    },
+    "coverage-only": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6
+    },
+    "omit-early-indexed-shadow": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6
+    },
+    "read-cache-before-mode-gates": {
+      "status": "EXPECTED_ASAN_USE_AFTER_POISON",
+      "returncode": 1
+    },
+    "omit-density4-fallback": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6
+    },
+    "accept-malformed-magic": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6
+    },
+    "accept-extra-payload": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6
+    },
+    "clip-away-first-physical-row": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6
+    },
+    "shift-indexed-origin": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6
+    }
+  },
+  "preserved_harness_history": "Initial full pass retained. One documentation-only original-shot regression label corrected, then complete final optimized/sanitized/mutant rerun passed; production renderer unchanged.",
+  "limitations": [
+    "Focused extracted production source, loader, guard, wrapper and original RLE tests; RGBA head compositor is a metadata-checking stub.",
+    "Source guards validate selected decoded identity, not whole-bank provenance; no root-epoch guarantee is added.",
+    "Generic compositor integration, actual-play aesthetics, natural acquisition and full-engine runtime require separate acceptance.",
+    "LeakSanitizer disabled for executor compatibility; AddressSanitizer and UndefinedBehaviorSanitizer enabled.",
+    "Malformed original source is exercised at the HD guard only; original unchecked RLE is never executed against malformed data."
+  ],
+  "actual_engine_acceptance_separate": true,
+  "original_data_or_private_fixture_in_publication": false,
+  "indexed_bytes_checked_per_binding_build": {
+    "baseline": 1067673600,
+    "candidate": 1067289600
+  }
+}

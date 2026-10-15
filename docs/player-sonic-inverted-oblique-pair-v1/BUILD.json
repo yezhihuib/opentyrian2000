@@ -1,0 +1,50 @@
+{
+  "schema": "sonic-inverted-oblique-pair-build-v1",
+  "status": "PASS_PRODUCTION_AND_AGGREGATE_WITH_FIVE_INHERITED_WARNINGS",
+  "aggregate": {
+    "packs": 18,
+    "listed_HDA_entries": 3374,
+    "exact_source_PNGs": 581,
+    "default_pack_counts": [
+      569,
+      569
+    ],
+    "all_runtime_RGBA_and_header_bytes_exact": true,
+    "aggregate_log_sha256": "7fe18a86147c89657d620171e3ec8d9230bfc0958bba557d634c2f5b411d1754"
+  },
+  "native_required": [
+    [
+      640,
+      400
+    ],
+    [
+      1280,
+      800
+    ]
+  ],
+  "Windows_runtime": "Not tested; no distribution bundle requested.",
+  "binary_or_private_toolchain_published": false,
+  "production_binary_sha256": "4c846edad52de6bdc8e4afda4b690fc1b101bb1f088be04d42daa023434d23d6",
+  "production_source_unhooked": true,
+  "production_src_files_byte_exact": 153,
+  "SDL_headers": "2.26.5",
+  "SDL_runtime": "2.32.4",
+  "compiler": "cc (Debian 14.2.0-19) 14.2.0",
+  "production_configuration": {
+    "WITH_NETWORK": false,
+    "SDL_pkgconfig": "Existing private local toolchain, not packaged."
+  },
+  "warnings": [
+    "src/asset_debug.c:161:2: warning: this \u2018if\u2019 clause does not guard... [-Wmisleading-indentation]",
+    "src/game_probe_fields.inc:12:3: warning: this \u2018if\u2019 clause does not guard... [-Wmisleading-indentation]",
+    "src/game_probe_fields.inc:13:3: warning: this \u2018if\u2019 clause does not guard... [-Wmisleading-indentation]",
+    "src/game_probe_fields.inc:14:3: warning: this \u2018if\u2019 clause does not guard... [-Wmisleading-indentation]",
+    "src/render_mirror.c:3821:2: warning: this \u2018if\u2019 clause does not guard... [-Wmisleading-indentation]"
+  ],
+  "private_fixture_extra_LDLIBS": "-lz for PNG observer only; no production source edit.",
+  "actual_engine_acceptance_separate": true,
+  "build_receipt_sha256": "96fe3682b62f66668c09aba6cbfb5970151904fab96e414486d6956b9d87476d",
+  "initial_private_fixture_builds_passed": 4,
+  "corrected_linked_fixture_builds_passed": 2,
+  "fixture_revision_note": "Linked private ordinary-input projection corrected once and its two private binaries rebuilt; production source and production binary unchanged. Final corrected fixture hashes are in RUNTIME.json."
+}
