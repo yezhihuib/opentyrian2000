@@ -1,0 +1,90 @@
+{
+  "schema": "sonic-inverted-corner-pair-source-scope-v1",
+  "status": "PASS_READ_ONLY_SOURCE_AND_FINITE_CONTRACT_PROOF",
+  "baseline": "c147c060c2d221c63a96d586c705c4a793de26f8",
+  "candidate_ids": [
+    149,
+    150
+  ],
+  "previously_accepted_unchanged_ids": [
+    6,
+    16,
+    44,
+    54,
+    63,
+    73,
+    82,
+    130,
+    131
+  ],
+  "remaining_original_ids": [
+    105,
+    106,
+    124,
+    125,
+    143,
+    144,
+    223,
+    224,
+    242,
+    243
+  ],
+  "bank": 8,
+  "layout": "TILE",
+  "role": 8,
+  "logical_size": [
+    12,
+    14
+  ],
+  "anchor": [
+    0,
+    0
+  ],
+  "selected_occupied_cells_each": 69,
+  "selected_bbox_half_open": [
+    0,
+    2,
+    12,
+    14
+  ],
+  "selected_top_logical_rows_empty": 2,
+  "upstream_source_bbox_half_open": [
+    0,
+    0,
+    12,
+    12
+  ],
+  "selected_fnv_index_then_coverage": {
+    "149": "0x5fd2500d1c31f756",
+    "150": "0x24befa80f34416fc"
+  },
+  "source_transforms": {
+    "149": "Exact whole12x14 flipY130 in indices and coverage.",
+    "150": "Exact whole12x14 flipY131, equivalently rotate180130.",
+    "150_from149": "Exact whole12x14 flipX."
+  },
+  "actual_Christmas": "Selected149/150 and associated130/131 normal/Christmas encoded bytes, decoded indices and coverage are exactly equal. Explicit xmas=true rejection is essential. Equal fragments supplied with xmas=false necessarily pass; no whole-bank provenance claim.",
+  "decoder_scope": "Fresh all608 normal/Christmas tile decoding checked against literal original pitch320 pointer oracle;304tile transform/alias scans and all21 private source fixtures verified. No original decoded arrays published.",
+  "ordinary_selected_rows": "Only rear11 mode1 P11 record286 and equal within-table secondary1286 across three original source tables. Mixed130/131/105/106/124/125 coexist. Fixed other-port/special/sidekick/active attack-chain references were not found; arbitrary dynamic scripts are not certified.",
+  "table_differences": "All22 active Sonic patterns agree across three tables. Full records and inactive tails differ, including shipblastfilter208(hdt) versus192(episode4/5); full raw equality not claimed.",
+  "linked_shared_sources": "Original linked direction override for ports11/28/33, record446/1446.149 is bin10 with immediate neighboring224/bin9 and283/bin11;150 is bin6 with immediate neighboring284/bin5 and223/bin7. Original roundf/sinf/cosf selection, motion and float boundaries unchanged. No artwork rotation by velocity.",
+  "new_only_display_guards": {
+    "before_any_cache_access": [
+      "twoPlayerMode",
+      "galagaMode",
+      "twoPlayerLinked",
+      "explicit Christmas flag",
+      "current selected source indices and coverage"
+    ],
+    "existing_outer_scope": "Ordinary manual renderer already excludes2P/Galaga; diagnostic bypass and stale-linked flags require independently tested local checks. Prior9 behavior remains unchanged, including existing130/131 guards.",
+    "generic_API_limit": "No per-shot origin/owner token is supplied. These are current finite selected-fragment contracts, not universal ownership or whole-bank provenance.",
+    "shadow": "New149/150 indexed-shadow escape precedes asset lookup; original silhouettes, origins and order remain."
+  },
+  "only_changed_production_source": "render_mirror.c",
+  "gameplay_input_shots_blitters_rng_unchanged": true,
+  "runtime_acceptance_separate": true,
+  "no_original_pixels_or_files_published": true,
+  "not_whole_family_or_level": true,
+  "source_audit_sha256": "ff1aa0ea484392e56a969ba4172a55cce72910dd6c912b99df3cb2d036a68c1e",
+  "source_preparation_receipt_sha256": "fc5b9344e1c8504e5d05d030f48228b3ac0e35ce3fe55cec1dbeac29a4a8cd36"
+}

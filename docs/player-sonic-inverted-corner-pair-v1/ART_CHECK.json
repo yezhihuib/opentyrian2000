@@ -1,0 +1,182 @@
+{
+  "schema": "sonic-inverted-corner-pair-art-check-v1",
+  "status": "PASS_EXACT_GENERATED_CANVAS_REFLECTION_WITH_RETAINED_STYLE_RESERVATION",
+  "ids": [
+    149,
+    150
+  ],
+  "contract_sha256": "780b0cd0ad1566a3d094b54af162cd5aa2db11245125dbfc5130544cbf363acd",
+  "master_sha256": "0a12b0caebacdbf639c57a4859a2621117b4c61413210777381156718ff4d593",
+  "upstream_published_contract": {
+    "path": "assets/hd/artwork/player-sonic-corner-pair-v1/contract.json",
+    "sha256": "afb4e35a8c092e5defcc73274dbf070a3ec7051176197669332263f97c697dad",
+    "published_commit": "c147c060c2d221c63a96d586c705c4a793de26f8",
+    "reuse_authorized": "Exact original full-canvas source transform relationship permits deterministic reflection of the already generated130/131 registration. No new generation or art editing."
+  },
+  "source_size": [
+    1161,
+    1355
+  ],
+  "new_image_generation_calls": 0,
+  "generation_provenance": {
+    "tool": "image_gen.imagegen",
+    "model_id": null,
+    "model_id_status": "Not supplied by tool; generic gpt-image metadata is not an exact model ID.",
+    "started_utc_lower_bound": "2026-10-15T13:12:39Z",
+    "finished_utc_upper_bound": "2026-10-15T13:13:49Z",
+    "timing_precision": "Observed clock bounds around the built-in call. Embedded C2PA created2026-10-15T13:13:40.389172609Z; earlier watermark timestamp is not creation time.",
+    "transparent_background": true,
+    "reference_description": "Original game sprite130 used privately as geometry and green-identity reference. Original raster, index arrays and masks are not packaged or read by reconstruction. Independent new bent-corner master; no transformed prior HD crescent.",
+    "prompt": "Use case: stylized-concept. Asset type: transparent HD2D green sonic-wave game sprite. The attached image is the original geometry reference. Create an independent smooth high-resolution redraw of this exact bent diagonal arc, not a mirrored or resized tall crescent. It is a single asymmetrical curved corner opening toward the UPPER RIGHT: a long taper begins near logical (4,0), runs down the left side into a broad rounded lower-left bend near (1,9), then a substantial lower band sweeps right and rises to the shorter right tip near (12,7). Match the reference's full, short, bent band and unequal endpoints, rather than a thin C wire or a sharp L. Keep the occupied width:height approximately12:12 in the TOP12 rows of a12:14 transparent canvas; the bottom2 rows remain entirely empty. Preserve top-left anchor, original orientation, tips and empty opening; smooth the stair steps without turning those pixel corners into designed geometry. At24x28 and48x56 game size it must read as a full saturated GREEN energy arc with softly fading tips. Material is FLAT luminous translucent energy, with broad even green illumination across the band and gentle green-only color variation; no narrow central light ridge, no dark flank shading, no rounded tube, no polished blade, no bevel, no solid plastic or3D directional lighting. Use vivid green #18db3c through #2cff69, deeper GREEN only in subtle internal transitions, with no white, pale mint, cyan or yellow highlight. Both inner and outer edges must smoothly fade through genuine partial alpha to zero INSIDE the existing silhouette, with no continuous dark-green or black inner outline. Keep a substantial visible center without making it an opaque solid. No outside halo, particles, stars, border, text, background or extra objects. Transparent PNG background."
+  },
+  "reconstruction": {
+    "library": "Pillow",
+    "version": "12.3.0",
+    "crop": [
+      0,
+      0,
+      1161,
+      1252
+    ],
+    "resize": [
+      89,
+      96
+    ],
+    "resample": "LANCZOS",
+    "canvas": [
+      96,
+      112
+    ],
+    "paste": [
+      0,
+      0,
+      89,
+      96
+    ],
+    "paste_operation": "Straight RGBA paste onto transparent canvas.",
+    "width_rounding_only": true,
+    "proportional_scale_from_height": 0.07667731629392971,
+    "ideal_proportional_width": 89.0223642172524,
+    "mirror131": "Exact horizontal mirror of full registered96x112 ID130 canvas.",
+    "no_repaint_recolor_threshold_original_mask": true,
+    "derive149": "Exact vertical reflection of the entire registered96x112 ID130 canvas, including all transparent margins.",
+    "derive150": "Exact vertical reflection of the entire registered ID131 canvas; equivalently exact horizontal reflection of registered ID149.",
+    "top_transparent_density_rows": 16,
+    "logical_anchor": [
+      0,
+      0
+    ],
+    "no_additional_crop_resize_translation_or_alpha_edit": true
+  },
+  "independent_review_verdict": "PASS_STATIC_TRANSFORM_WITH_RETAINED_STYLE_RESERVATION",
+  "registered_and_native_diagnostics": [
+    {
+      "id": 149,
+      "registered": {
+        "alpha_bbox_gt0": [
+          0,
+          16,
+          89,
+          112
+        ],
+        "alpha_zero": 7918,
+        "alpha_partial": 2834,
+        "alpha_255": 0,
+        "alpha_max": 252,
+        "green_dominant_at_alpha_ge32": true
+      },
+      "native_samples": {
+        "2": {
+          "size": [
+            24,
+            28
+          ],
+          "alpha_bbox_gt0": [
+            0,
+            4,
+            22,
+            27
+          ],
+          "alpha_partial": 174,
+          "alpha_max": 252,
+          "green_dominant_at_alpha_ge32": true
+        },
+        "4": {
+          "size": [
+            48,
+            56
+          ],
+          "alpha_bbox_gt0": [
+            0,
+            8,
+            44,
+            56
+          ],
+          "alpha_partial": 700,
+          "alpha_max": 252,
+          "green_dominant_at_alpha_ge32": true
+        }
+      }
+    },
+    {
+      "id": 150,
+      "registered": {
+        "alpha_bbox_gt0": [
+          7,
+          16,
+          96,
+          112
+        ],
+        "alpha_zero": 7918,
+        "alpha_partial": 2834,
+        "alpha_255": 0,
+        "alpha_max": 252,
+        "green_dominant_at_alpha_ge32": true
+      },
+      "native_samples": {
+        "2": {
+          "size": [
+            24,
+            28
+          ],
+          "alpha_bbox_gt0": [
+            2,
+            4,
+            24,
+            28
+          ],
+          "alpha_partial": 174,
+          "alpha_max": 252,
+          "green_dominant_at_alpha_ge32": true
+        },
+        "4": {
+          "size": [
+            48,
+            56
+          ],
+          "alpha_bbox_gt0": [
+            3,
+            8,
+            48,
+            56
+          ],
+          "alpha_partial": 713,
+          "alpha_max": 252,
+          "green_dominant_at_alpha_ge32": true
+        }
+      }
+    }
+  ],
+  "top16_density_rows_empty": true,
+  "full_canvas_transform": {
+    "149": "flipY registered130",
+    "150": "flipY registered131; equivalently flipX registered149"
+  },
+  "occupied_width_difference_percent_inherited": 7.291666666666667,
+  "style_reservation": "Inherited slim polished/tubular-gradient objection remains recorded. No new reflection defect; parent accepts consistent light-green presentation. No unanimous aesthetic acceptance claimed.",
+  "static_evidence": "24x28/48x56 offline composites on frozen cloud/brown scenery; original references and comparison boards remain private. Not new actual-engine captures.",
+  "original_pixels_or_masks_used_as_output": false,
+  "reconstruction_reads_original_game_data": false,
+  "original_references_packaged": false,
+  "runtime_review_separate": true
+}

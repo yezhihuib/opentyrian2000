@@ -1,0 +1,689 @@
+{
+  "schema": "sonic-inverted-corner-pair-units-v1",
+  "status": "PASS_EXTRACTED_PRODUCTION_BINDING_SHOTS_AND_GUARD_SENSITIVITY",
+  "baseline": "c147c060c2d221c63a96d586c705c4a793de26f8",
+  "source_contract_sha256": "a3b891c3b11e33f46c38199befc01712a65bd006f1a3d8e0c1b6c2d7f62f42c3",
+  "art_contract_sha256": "780b0cd0ad1566a3d094b54af162cd5aa2db11245125dbfc5130544cbf363acd",
+  "test_file_sha256": {
+    "test-sonic-inverted-corner-pair-binding.py": "266adb07349153dc17ab03d085c81429b98abe41e5b46b90873afd749737d394",
+    "test-sonic-inverted-corner-pair-binding.c": "fe6879393c80c46999a453c255633d33656d55986a29de40d3c85568a1688783",
+    "test-sonic-inverted-corner-pair-shots.c": "f55367c5df6489afa8d227db1f1016619dac82a4edc7966d4f460f8d921c9f56",
+    "test-sonic-inverted-corner-pair-scope.py": "11ecf5b0bfebc8507ed2abacb20b6c4f1256b74537a72bf5dc6f3873c8f734c7"
+  },
+  "isolated_private_result_sha256": "0f6980eedc2bf6265c41f0ffe261d8989d657fc2abef82cae8de3992ddcdf261",
+  "build_count": {
+    "binding": 4,
+    "original_shots": 4
+  },
+  "binding_results": {
+    "baseline": {
+      "optimized": {
+        "status": "PASS",
+        "baseline": true,
+        "head_and_wrapper_cases": 15784,
+        "identity_cases": 142,
+        "finite_binding_cases": 28896,
+        "resource_variants": 118,
+        "cache_cases": 476,
+        "coexistence_cases": 292,
+        "shadow_cases": 4040,
+        "all_21_identity_wrappers": true,
+        "indexed_bytes_checked": 1067673600,
+        "original_calls": 16380,
+        "mode_states": 64,
+        "poisoned_cache_rejections": 0,
+        "source_rejections": 120,
+        "prior_nine_checks": 144,
+        "prior_nine_cached_byte_checks": 144,
+        "game_runs": 0
+      },
+      "sanitized": {
+        "status": "PASS",
+        "baseline": true,
+        "head_and_wrapper_cases": 15784,
+        "identity_cases": 142,
+        "finite_binding_cases": 28896,
+        "resource_variants": 118,
+        "cache_cases": 476,
+        "coexistence_cases": 292,
+        "shadow_cases": 4040,
+        "all_21_identity_wrappers": true,
+        "indexed_bytes_checked": 1067673600,
+        "original_calls": 16380,
+        "mode_states": 64,
+        "poisoned_cache_rejections": 280,
+        "source_rejections": 120,
+        "prior_nine_checks": 144,
+        "prior_nine_cached_byte_checks": 144,
+        "game_runs": 0
+      }
+    },
+    "candidate": {
+      "optimized": {
+        "status": "PASS",
+        "baseline": false,
+        "head_and_wrapper_cases": 15784,
+        "identity_cases": 142,
+        "finite_binding_cases": 28896,
+        "resource_variants": 118,
+        "cache_cases": 476,
+        "coexistence_cases": 292,
+        "shadow_cases": 4040,
+        "all_21_identity_wrappers": true,
+        "indexed_bytes_checked": 1067289600,
+        "original_calls": 16374,
+        "mode_states": 64,
+        "poisoned_cache_rejections": 0,
+        "source_rejections": 120,
+        "prior_nine_checks": 144,
+        "prior_nine_cached_byte_checks": 144,
+        "game_runs": 0
+      },
+      "sanitized": {
+        "status": "PASS",
+        "baseline": false,
+        "head_and_wrapper_cases": 15784,
+        "identity_cases": 142,
+        "finite_binding_cases": 28896,
+        "resource_variants": 118,
+        "cache_cases": 476,
+        "coexistence_cases": 292,
+        "shadow_cases": 4040,
+        "all_21_identity_wrappers": true,
+        "indexed_bytes_checked": 1067289600,
+        "original_calls": 16374,
+        "mode_states": 64,
+        "poisoned_cache_rejections": 270,
+        "source_rejections": 120,
+        "prior_nine_checks": 144,
+        "prior_nine_cached_byte_checks": 144,
+        "game_runs": 0
+      }
+    }
+  },
+  "guard_mutants": {
+    "omit-twoPlayerMode": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6,
+      "changed_extracted_functions_sha256": "244d1a90b08c421871827534cf583369678c11a742b6c9826a30545faa6b26d6"
+    },
+    "omit-galagaMode": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6,
+      "changed_extracted_functions_sha256": "d1856a77b0af56f828aac9e461a9c1234fd868a4a0569aead1c409800da525ae"
+    },
+    "omit-twoPlayerLinked": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6,
+      "changed_extracted_functions_sha256": "e76de1b329ce0a7a4b0ca7cfca0ff5c60e84bc2d2c786defda920c21511c95c9"
+    },
+    "omit-explicit-xmas": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6,
+      "changed_extracted_functions_sha256": "578133f22a517eff5a861e35edae6ef9bc4c5e85425e4259be1b2a37e30d994a"
+    },
+    "trust-warm-source": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6,
+      "changed_extracted_functions_sha256": "861d05dd849139d96fedc961038cddfb2ec8729ab3300803dd49bd5aade17d79"
+    },
+    "indices-only": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6,
+      "changed_extracted_functions_sha256": "a7f8816c4f8f0bb32d9b2906b62b1102e60497216123b39b9472dcd630244ae2"
+    },
+    "coverage-only": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6,
+      "changed_extracted_functions_sha256": "38acf2eeeef5a6a9387f299946a551a78b4a35df5744fd4584c7ad42ed2909b4"
+    },
+    "omit-early-indexed-shadow": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6,
+      "changed_extracted_functions_sha256": "df5d77089f0370e7331a73dc33dd4cf2c3fe8ee612f702e22c69e96e7e8b225f"
+    },
+    "read-cache-before-mode-gates": {
+      "status": "EXPECTED_ASAN_USE_AFTER_POISON",
+      "returncode": 1,
+      "changed_extracted_functions_sha256": "0c4151aa8dfd328c6afb0f9b75da76c070e2d8cab623042385d396d9f3662ceb"
+    }
+  },
+  "original_shot_runs": {
+    "baseline": {
+      "optimized": {
+        "status": "PASS",
+        "ordinary_first_level_rows": 22,
+        "source_item_tables": 3,
+        "inverted_corner_pair_ids": [
+          149,
+          150
+        ],
+        "rng_calls": 0,
+        "create_cases": 81312,
+        "movement_ticks": 1431189,
+        "capacity_and_power_cases": 10575,
+        "volley_phase_cases": 519,
+        "emits": 418026,
+        "draws": 2147292,
+        "shadow_draws": 716103,
+        "original_shadow_then_head_order_verified": true,
+        "all_three_blast_normalized_state_order_hashes_equal": true,
+        "hdt_vs_episode_blast_difference_preserved": true,
+        "game_runs": 0,
+        "tables": [
+          {
+            "name": "tyrian.hdt",
+            "ordinary_first_level_rows": 22,
+            "selected_rows": [
+              286
+            ],
+            "shipblastfilter": 208,
+            "rng_calls": 0,
+            "create_cases": 27104,
+            "emits": 139342,
+            "drift_phase_cases": 21801,
+            "volley_phase_cases": 173,
+            "capacity_cases": 2493,
+            "power_cases": 1032,
+            "repeated_volley_cases": 22,
+            "boundary_and_lifetime_cases": 1712,
+            "movement_ticks": 477063,
+            "offscreen_movement_ticks": 535,
+            "draws": 715764,
+            "shadow_draws": 238701,
+            "inverted_corner_pair_emissions": [
+              1811,
+              1808
+            ],
+            "inverted_corner_pair_movement_ticks": [
+              6107,
+              6107
+            ],
+            "inverted_corner_pair_shadow_before_head_cases": [
+              3055,
+              3055
+            ],
+            "shot_state_order_fnv1a64": "43793a6592dd1a1e",
+            "blast_normalized_state_order_fnv1a64": "792ce1deec37d8ce"
+          },
+          {
+            "name": "tyrian4.lvl",
+            "ordinary_first_level_rows": 22,
+            "selected_rows": [
+              286
+            ],
+            "shipblastfilter": 192,
+            "rng_calls": 0,
+            "create_cases": 27104,
+            "emits": 139342,
+            "drift_phase_cases": 21801,
+            "volley_phase_cases": 173,
+            "capacity_cases": 2493,
+            "power_cases": 1032,
+            "repeated_volley_cases": 22,
+            "boundary_and_lifetime_cases": 1712,
+            "movement_ticks": 477063,
+            "offscreen_movement_ticks": 535,
+            "draws": 715764,
+            "shadow_draws": 238701,
+            "inverted_corner_pair_emissions": [
+              1811,
+              1808
+            ],
+            "inverted_corner_pair_movement_ticks": [
+              6107,
+              6107
+            ],
+            "inverted_corner_pair_shadow_before_head_cases": [
+              3055,
+              3055
+            ],
+            "shot_state_order_fnv1a64": "635b9ee8c020110e",
+            "blast_normalized_state_order_fnv1a64": "792ce1deec37d8ce"
+          },
+          {
+            "name": "tyrian5.lvl",
+            "ordinary_first_level_rows": 22,
+            "selected_rows": [
+              286
+            ],
+            "shipblastfilter": 192,
+            "rng_calls": 0,
+            "create_cases": 27104,
+            "emits": 139342,
+            "drift_phase_cases": 21801,
+            "volley_phase_cases": 173,
+            "capacity_cases": 2493,
+            "power_cases": 1032,
+            "repeated_volley_cases": 22,
+            "boundary_and_lifetime_cases": 1712,
+            "movement_ticks": 477063,
+            "offscreen_movement_ticks": 535,
+            "draws": 715764,
+            "shadow_draws": 238701,
+            "inverted_corner_pair_emissions": [
+              1811,
+              1808
+            ],
+            "inverted_corner_pair_movement_ticks": [
+              6107,
+              6107
+            ],
+            "inverted_corner_pair_shadow_before_head_cases": [
+              3055,
+              3055
+            ],
+            "shot_state_order_fnv1a64": "635b9ee8c020110e",
+            "blast_normalized_state_order_fnv1a64": "792ce1deec37d8ce"
+          }
+        ]
+      },
+      "sanitized": {
+        "status": "PASS",
+        "ordinary_first_level_rows": 22,
+        "source_item_tables": 3,
+        "inverted_corner_pair_ids": [
+          149,
+          150
+        ],
+        "rng_calls": 0,
+        "create_cases": 81312,
+        "movement_ticks": 1431189,
+        "capacity_and_power_cases": 10575,
+        "volley_phase_cases": 519,
+        "emits": 418026,
+        "draws": 2147292,
+        "shadow_draws": 716103,
+        "original_shadow_then_head_order_verified": true,
+        "all_three_blast_normalized_state_order_hashes_equal": true,
+        "hdt_vs_episode_blast_difference_preserved": true,
+        "game_runs": 0,
+        "tables": [
+          {
+            "name": "tyrian.hdt",
+            "ordinary_first_level_rows": 22,
+            "selected_rows": [
+              286
+            ],
+            "shipblastfilter": 208,
+            "rng_calls": 0,
+            "create_cases": 27104,
+            "emits": 139342,
+            "drift_phase_cases": 21801,
+            "volley_phase_cases": 173,
+            "capacity_cases": 2493,
+            "power_cases": 1032,
+            "repeated_volley_cases": 22,
+            "boundary_and_lifetime_cases": 1712,
+            "movement_ticks": 477063,
+            "offscreen_movement_ticks": 535,
+            "draws": 715764,
+            "shadow_draws": 238701,
+            "inverted_corner_pair_emissions": [
+              1811,
+              1808
+            ],
+            "inverted_corner_pair_movement_ticks": [
+              6107,
+              6107
+            ],
+            "inverted_corner_pair_shadow_before_head_cases": [
+              3055,
+              3055
+            ],
+            "shot_state_order_fnv1a64": "43793a6592dd1a1e",
+            "blast_normalized_state_order_fnv1a64": "792ce1deec37d8ce"
+          },
+          {
+            "name": "tyrian4.lvl",
+            "ordinary_first_level_rows": 22,
+            "selected_rows": [
+              286
+            ],
+            "shipblastfilter": 192,
+            "rng_calls": 0,
+            "create_cases": 27104,
+            "emits": 139342,
+            "drift_phase_cases": 21801,
+            "volley_phase_cases": 173,
+            "capacity_cases": 2493,
+            "power_cases": 1032,
+            "repeated_volley_cases": 22,
+            "boundary_and_lifetime_cases": 1712,
+            "movement_ticks": 477063,
+            "offscreen_movement_ticks": 535,
+            "draws": 715764,
+            "shadow_draws": 238701,
+            "inverted_corner_pair_emissions": [
+              1811,
+              1808
+            ],
+            "inverted_corner_pair_movement_ticks": [
+              6107,
+              6107
+            ],
+            "inverted_corner_pair_shadow_before_head_cases": [
+              3055,
+              3055
+            ],
+            "shot_state_order_fnv1a64": "635b9ee8c020110e",
+            "blast_normalized_state_order_fnv1a64": "792ce1deec37d8ce"
+          },
+          {
+            "name": "tyrian5.lvl",
+            "ordinary_first_level_rows": 22,
+            "selected_rows": [
+              286
+            ],
+            "shipblastfilter": 192,
+            "rng_calls": 0,
+            "create_cases": 27104,
+            "emits": 139342,
+            "drift_phase_cases": 21801,
+            "volley_phase_cases": 173,
+            "capacity_cases": 2493,
+            "power_cases": 1032,
+            "repeated_volley_cases": 22,
+            "boundary_and_lifetime_cases": 1712,
+            "movement_ticks": 477063,
+            "offscreen_movement_ticks": 535,
+            "draws": 715764,
+            "shadow_draws": 238701,
+            "inverted_corner_pair_emissions": [
+              1811,
+              1808
+            ],
+            "inverted_corner_pair_movement_ticks": [
+              6107,
+              6107
+            ],
+            "inverted_corner_pair_shadow_before_head_cases": [
+              3055,
+              3055
+            ],
+            "shot_state_order_fnv1a64": "635b9ee8c020110e",
+            "blast_normalized_state_order_fnv1a64": "792ce1deec37d8ce"
+          }
+        ]
+      }
+    },
+    "candidate": {
+      "optimized": {
+        "status": "PASS",
+        "ordinary_first_level_rows": 22,
+        "source_item_tables": 3,
+        "inverted_corner_pair_ids": [
+          149,
+          150
+        ],
+        "rng_calls": 0,
+        "create_cases": 81312,
+        "movement_ticks": 1431189,
+        "capacity_and_power_cases": 10575,
+        "volley_phase_cases": 519,
+        "emits": 418026,
+        "draws": 2147292,
+        "shadow_draws": 716103,
+        "original_shadow_then_head_order_verified": true,
+        "all_three_blast_normalized_state_order_hashes_equal": true,
+        "hdt_vs_episode_blast_difference_preserved": true,
+        "game_runs": 0,
+        "tables": [
+          {
+            "name": "tyrian.hdt",
+            "ordinary_first_level_rows": 22,
+            "selected_rows": [
+              286
+            ],
+            "shipblastfilter": 208,
+            "rng_calls": 0,
+            "create_cases": 27104,
+            "emits": 139342,
+            "drift_phase_cases": 21801,
+            "volley_phase_cases": 173,
+            "capacity_cases": 2493,
+            "power_cases": 1032,
+            "repeated_volley_cases": 22,
+            "boundary_and_lifetime_cases": 1712,
+            "movement_ticks": 477063,
+            "offscreen_movement_ticks": 535,
+            "draws": 715764,
+            "shadow_draws": 238701,
+            "inverted_corner_pair_emissions": [
+              1811,
+              1808
+            ],
+            "inverted_corner_pair_movement_ticks": [
+              6107,
+              6107
+            ],
+            "inverted_corner_pair_shadow_before_head_cases": [
+              3055,
+              3055
+            ],
+            "shot_state_order_fnv1a64": "43793a6592dd1a1e",
+            "blast_normalized_state_order_fnv1a64": "792ce1deec37d8ce"
+          },
+          {
+            "name": "tyrian4.lvl",
+            "ordinary_first_level_rows": 22,
+            "selected_rows": [
+              286
+            ],
+            "shipblastfilter": 192,
+            "rng_calls": 0,
+            "create_cases": 27104,
+            "emits": 139342,
+            "drift_phase_cases": 21801,
+            "volley_phase_cases": 173,
+            "capacity_cases": 2493,
+            "power_cases": 1032,
+            "repeated_volley_cases": 22,
+            "boundary_and_lifetime_cases": 1712,
+            "movement_ticks": 477063,
+            "offscreen_movement_ticks": 535,
+            "draws": 715764,
+            "shadow_draws": 238701,
+            "inverted_corner_pair_emissions": [
+              1811,
+              1808
+            ],
+            "inverted_corner_pair_movement_ticks": [
+              6107,
+              6107
+            ],
+            "inverted_corner_pair_shadow_before_head_cases": [
+              3055,
+              3055
+            ],
+            "shot_state_order_fnv1a64": "635b9ee8c020110e",
+            "blast_normalized_state_order_fnv1a64": "792ce1deec37d8ce"
+          },
+          {
+            "name": "tyrian5.lvl",
+            "ordinary_first_level_rows": 22,
+            "selected_rows": [
+              286
+            ],
+            "shipblastfilter": 192,
+            "rng_calls": 0,
+            "create_cases": 27104,
+            "emits": 139342,
+            "drift_phase_cases": 21801,
+            "volley_phase_cases": 173,
+            "capacity_cases": 2493,
+            "power_cases": 1032,
+            "repeated_volley_cases": 22,
+            "boundary_and_lifetime_cases": 1712,
+            "movement_ticks": 477063,
+            "offscreen_movement_ticks": 535,
+            "draws": 715764,
+            "shadow_draws": 238701,
+            "inverted_corner_pair_emissions": [
+              1811,
+              1808
+            ],
+            "inverted_corner_pair_movement_ticks": [
+              6107,
+              6107
+            ],
+            "inverted_corner_pair_shadow_before_head_cases": [
+              3055,
+              3055
+            ],
+            "shot_state_order_fnv1a64": "635b9ee8c020110e",
+            "blast_normalized_state_order_fnv1a64": "792ce1deec37d8ce"
+          }
+        ]
+      },
+      "sanitized": {
+        "status": "PASS",
+        "ordinary_first_level_rows": 22,
+        "source_item_tables": 3,
+        "inverted_corner_pair_ids": [
+          149,
+          150
+        ],
+        "rng_calls": 0,
+        "create_cases": 81312,
+        "movement_ticks": 1431189,
+        "capacity_and_power_cases": 10575,
+        "volley_phase_cases": 519,
+        "emits": 418026,
+        "draws": 2147292,
+        "shadow_draws": 716103,
+        "original_shadow_then_head_order_verified": true,
+        "all_three_blast_normalized_state_order_hashes_equal": true,
+        "hdt_vs_episode_blast_difference_preserved": true,
+        "game_runs": 0,
+        "tables": [
+          {
+            "name": "tyrian.hdt",
+            "ordinary_first_level_rows": 22,
+            "selected_rows": [
+              286
+            ],
+            "shipblastfilter": 208,
+            "rng_calls": 0,
+            "create_cases": 27104,
+            "emits": 139342,
+            "drift_phase_cases": 21801,
+            "volley_phase_cases": 173,
+            "capacity_cases": 2493,
+            "power_cases": 1032,
+            "repeated_volley_cases": 22,
+            "boundary_and_lifetime_cases": 1712,
+            "movement_ticks": 477063,
+            "offscreen_movement_ticks": 535,
+            "draws": 715764,
+            "shadow_draws": 238701,
+            "inverted_corner_pair_emissions": [
+              1811,
+              1808
+            ],
+            "inverted_corner_pair_movement_ticks": [
+              6107,
+              6107
+            ],
+            "inverted_corner_pair_shadow_before_head_cases": [
+              3055,
+              3055
+            ],
+            "shot_state_order_fnv1a64": "43793a6592dd1a1e",
+            "blast_normalized_state_order_fnv1a64": "792ce1deec37d8ce"
+          },
+          {
+            "name": "tyrian4.lvl",
+            "ordinary_first_level_rows": 22,
+            "selected_rows": [
+              286
+            ],
+            "shipblastfilter": 192,
+            "rng_calls": 0,
+            "create_cases": 27104,
+            "emits": 139342,
+            "drift_phase_cases": 21801,
+            "volley_phase_cases": 173,
+            "capacity_cases": 2493,
+            "power_cases": 1032,
+            "repeated_volley_cases": 22,
+            "boundary_and_lifetime_cases": 1712,
+            "movement_ticks": 477063,
+            "offscreen_movement_ticks": 535,
+            "draws": 715764,
+            "shadow_draws": 238701,
+            "inverted_corner_pair_emissions": [
+              1811,
+              1808
+            ],
+            "inverted_corner_pair_movement_ticks": [
+              6107,
+              6107
+            ],
+            "inverted_corner_pair_shadow_before_head_cases": [
+              3055,
+              3055
+            ],
+            "shot_state_order_fnv1a64": "635b9ee8c020110e",
+            "blast_normalized_state_order_fnv1a64": "792ce1deec37d8ce"
+          },
+          {
+            "name": "tyrian5.lvl",
+            "ordinary_first_level_rows": 22,
+            "selected_rows": [
+              286
+            ],
+            "shipblastfilter": 192,
+            "rng_calls": 0,
+            "create_cases": 27104,
+            "emits": 139342,
+            "drift_phase_cases": 21801,
+            "volley_phase_cases": 173,
+            "capacity_cases": 2493,
+            "power_cases": 1032,
+            "repeated_volley_cases": 22,
+            "boundary_and_lifetime_cases": 1712,
+            "movement_ticks": 477063,
+            "offscreen_movement_ticks": 535,
+            "draws": 715764,
+            "shadow_draws": 238701,
+            "inverted_corner_pair_emissions": [
+              1811,
+              1808
+            ],
+            "inverted_corner_pair_movement_ticks": [
+              6107,
+              6107
+            ],
+            "inverted_corner_pair_shadow_before_head_cases": [
+              3055,
+              3055
+            ],
+            "shot_state_order_fnv1a64": "635b9ee8c020110e",
+            "blast_normalized_state_order_fnv1a64": "792ce1deec37d8ce"
+          }
+        ]
+      }
+    }
+  },
+  "resource_variant_count": 118,
+  "both_default_packs_loaded_independently": true,
+  "all21_private_source_fixture_bytes_verified": true,
+  "full_canvas_source_flip_y_verified_both_banks": true,
+  "full_canvas_HDA_flip_y_verified": true,
+  "actual_christmas_selected_equal_normal": true,
+  "explicit_xmas_true_reject_equal_bytes": true,
+  "new_threeflag_cold_warm_bothdensities_all8combinations": true,
+  "prior_nine_policy_and_cached_metadata_pointer_RGBA_unchanged": true,
+  "all20_historical_Sonic_tests_unchanged": true,
+  "held223_224_and_other10remain_original": true,
+  "source_ownership_limit": "Current selected decoded identity, not whole-bank or per-shot provenance. Ordinary linked-session runtime and active-diagnostic local3flag isolated proof are distinct.",
+  "game_runs": 0,
+  "limitations": [
+    "Focused extracted production source, loader, guard, wrapper and original RLE tests; RGBA head compositor is a metadata-checking stub.",
+    "Source guards validate selected decoded identity, not whole-bank provenance; no root-epoch guarantee is added.",
+    "Generic compositor integration, actual-play aesthetics, natural acquisition and full-engine runtime require separate acceptance.",
+    "LeakSanitizer disabled for executor compatibility; AddressSanitizer and UndefinedBehaviorSanitizer enabled.",
+    "Malformed original source is exercised at the HD guard only; original unchecked RLE is never executed against malformed data."
+  ]
+}

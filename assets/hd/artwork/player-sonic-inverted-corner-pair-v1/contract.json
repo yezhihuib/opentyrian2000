@@ -1,0 +1,132 @@
+{
+  "schema": "generated-sonic-inverted-corner-pair-v1",
+  "source": "sources/generated-sonic130-r1.png",
+  "source_sha256": "0a12b0caebacdbf639c57a4859a2621117b4c61413210777381156718ff4d593",
+  "source_size": [
+    1161,
+    1355
+  ],
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "model_id": null,
+    "model_id_status": "Not supplied by tool; generic gpt-image metadata is not an exact model ID.",
+    "started_utc_lower_bound": "2026-10-15T13:12:39Z",
+    "finished_utc_upper_bound": "2026-10-15T13:13:49Z",
+    "timing_precision": "Observed clock bounds around the built-in call. Embedded C2PA created2026-10-15T13:13:40.389172609Z; earlier watermark timestamp is not creation time.",
+    "transparent_background": true,
+    "reference_description": "Original game sprite130 used privately as geometry and green-identity reference. Original raster, index arrays and masks are not packaged or read by reconstruction. Independent new bent-corner master; no transformed prior HD crescent.",
+    "prompt": "Use case: stylized-concept. Asset type: transparent HD2D green sonic-wave game sprite. The attached image is the original geometry reference. Create an independent smooth high-resolution redraw of this exact bent diagonal arc, not a mirrored or resized tall crescent. It is a single asymmetrical curved corner opening toward the UPPER RIGHT: a long taper begins near logical (4,0), runs down the left side into a broad rounded lower-left bend near (1,9), then a substantial lower band sweeps right and rises to the shorter right tip near (12,7). Match the reference's full, short, bent band and unequal endpoints, rather than a thin C wire or a sharp L. Keep the occupied width:height approximately12:12 in the TOP12 rows of a12:14 transparent canvas; the bottom2 rows remain entirely empty. Preserve top-left anchor, original orientation, tips and empty opening; smooth the stair steps without turning those pixel corners into designed geometry. At24x28 and48x56 game size it must read as a full saturated GREEN energy arc with softly fading tips. Material is FLAT luminous translucent energy, with broad even green illumination across the band and gentle green-only color variation; no narrow central light ridge, no dark flank shading, no rounded tube, no polished blade, no bevel, no solid plastic or3D directional lighting. Use vivid green #18db3c through #2cff69, deeper GREEN only in subtle internal transitions, with no white, pale mint, cyan or yellow highlight. Both inner and outer edges must smoothly fade through genuine partial alpha to zero INSIDE the existing silhouette, with no continuous dark-green or black inner outline. Keep a substantial visible center without making it an opaque solid. No outside halo, particles, stars, border, text, background or extra objects. Transparent PNG background."
+  },
+  "upstream_published_contract": {
+    "path": "assets/hd/artwork/player-sonic-corner-pair-v1/contract.json",
+    "sha256": "afb4e35a8c092e5defcc73274dbf070a3ec7051176197669332263f97c697dad",
+    "published_commit": "c147c060c2d221c63a96d586c705c4a793de26f8",
+    "reuse_authorized": "Exact original full-canvas source transform relationship permits deterministic reflection of the already generated130/131 registration. No new generation or art editing."
+  },
+  "reconstruction": {
+    "library": "Pillow",
+    "version": "12.3.0",
+    "crop": [
+      0,
+      0,
+      1161,
+      1252
+    ],
+    "resize": [
+      89,
+      96
+    ],
+    "resample": "LANCZOS",
+    "canvas": [
+      96,
+      112
+    ],
+    "paste": [
+      0,
+      0,
+      89,
+      96
+    ],
+    "paste_operation": "Straight RGBA paste onto transparent canvas.",
+    "width_rounding_only": true,
+    "proportional_scale_from_height": 0.07667731629392971,
+    "ideal_proportional_width": 89.0223642172524,
+    "mirror131": "Exact horizontal mirror of full registered96x112 ID130 canvas.",
+    "no_repaint_recolor_threshold_original_mask": true,
+    "derive149": "Exact vertical reflection of the entire registered96x112 ID130 canvas, including all transparent margins.",
+    "derive150": "Exact vertical reflection of the entire registered ID131 canvas; equivalently exact horizontal reflection of registered ID149.",
+    "top_transparent_density_rows": 16,
+    "logical_anchor": [
+      0,
+      0
+    ],
+    "no_additional_crop_resize_translation_or_alpha_edit": true
+  },
+  "selection": {
+    "revision": "Published130 R1 reused by exact whole-canvas flipY",
+    "scope": "Parent statically accepts mirrored149/150, with the inherited independent slim polished/tubular-gradient style objection retained. Static technical review, runtime acceptance and final publication review are separate.",
+    "extent": "Original149/150 occupy logical bbox[0,2,12,14] on12x14 anchor0. Registered art preserves16 fully transparent top density rows;7.29percent narrower occupied width inherited from approved130/131, with mirrored horizontal alignment. No recentering, stretch or shape warp.",
+    "alpha": "Master max253, fitted max252;2834fractional alpha samples, no alpha255. Crop drops only scattered alpha1 specks,0.003464263percent of total master alpha mass. No procedural alpha edits.",
+    "style_tradeoff": "Brighter and lighter than original shaded green. Parent chooses continuity with previously accepted light-green energy presentation; independent visual agreement is not claimed. No exact source luminance, area or palette-byte equality.",
+    "not_full_family": true,
+    "previously_accepted_ids": [
+      6,
+      16,
+      44,
+      54,
+      63,
+      73,
+      82,
+      130,
+      131
+    ],
+    "remaining_original_ids": [
+      105,
+      106,
+      124,
+      125,
+      143,
+      144,
+      223,
+      224,
+      242,
+      243
+    ]
+  },
+  "entries": [
+    {
+      "id": 149,
+      "slot": 555,
+      "upstream_registered_id": 130,
+      "header_u32": [
+        80149,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "PNG_sha256": "10e4cead4418db9f6a0384e66e01fa8c5751d15b48a62b5cbd04e4e1583c6566",
+      "RGBA_sha256": "e03621ff79f4fe084d07b9e6d318116c34aaba00fdb31f956b0f3c7e66b146ee",
+      "HDA_sha256": "c1656bd85324bca1e24be63b7367354e98633d0122d3e4a18c2a6329e49a48dd",
+      "fractional_alpha_samples": 2834
+    },
+    {
+      "id": 150,
+      "slot": 556,
+      "upstream_registered_id": 131,
+      "header_u32": [
+        80150,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "PNG_sha256": "b5f133605e40806b4b346ea4e4a8ae9dcbffef60e852288a4e4de29c41c0337e",
+      "RGBA_sha256": "64ed932c10e63c89e83de2c62d893443fdf7f805af3d3a7d13447d21c15d7760",
+      "HDA_sha256": "5fdd41f996aafd7355032f533bf7595ef91dedd069698be1c60e89c85403f559",
+      "fractional_alpha_samples": 2834
+    }
+  ]
+}
