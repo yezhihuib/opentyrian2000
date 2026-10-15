@@ -1,0 +1,120 @@
+{
+  "schema": "generated-sonic-oblique-pair-v1",
+  "source": "sources/generated-sonic223-r2.png",
+  "source_sha256": "5038c0af5f2cef84dac3649ea65bdfe0df9334bf6fac5bface816a9ccd32774f",
+  "source_size": [
+    1161,
+    1355
+  ],
+  "generation": {
+    "tool": "tools.image_gen__imagegen",
+    "model_id": null,
+    "model_id_status": "Exact model ID not supplied or confirmed; embedded generic metadata is not an exact model ID.",
+    "started_utc_lower_bound": "2026-10-15T13:05:34Z",
+    "finished_utc_upper_bound": "2026-10-15T13:06:35Z",
+    "timing_precision": "Conservative observed clock bounds; original reviewed metadata ended13:06:32 and a preserved timing supplement expands upper bound to visible13:06:35.",
+    "transparent_background": true,
+    "reference_description": "Original game sprite223 privately supplied for independent oblique arch geometry and green identity. No original raster, decoded indices or mask is packaged or used by reconstruction. This is the previous R2, expressly selected by user after comparison with a separate later pilot.",
+    "prompt": "Use case: stylized-concept. Asset type: transparent HD2D green sonic-wave game sprite, viewed at only24x28 or48x56 pixels. Input image is the ORIGINAL geometry reference, not a pixel-stair texture to trace. Create a fresh smooth high-resolution version of this exact ASYMMETRIC OBLIQUE PEAKED ARCH, opening DOWNWARD. Canvas width:height12:14, occupied silhouette width:height12:14 with top-left anchor. Apex near x7 of12 at y0; broad left shoulder sweeps diagonally down-left and its taper reaches x0 near y11\u201312 of14. The right arm is steeper and longer, descending near x11 to y14. Preserve the unequal arms and off-center peak; do not make a symmetric U, short hairpin, or narrow triangular wire. Make a substantial FULL green energy BAND with a visibly broad luminous shoulder and thick readable arms like the reference at tiny game size, not just a thin bright line. Keep the longer downward-left taper. Smooth continuous saturated green shading, vivid GREEN center, softer deeper-green internal transitions. Actual partial transparency fading gently to zero across the outermost25percent of band thickness INSIDE the silhouette, including tapered tips. No continuous dark opaque outline or inner rim, no solid3D plastic/bevel/metal look, no white or pale-mint stripe, no cyan/yellow, no outside halo, no particles, no inherited block stairs, no extra objects, no text. Transparent PNG background. Preserve original placement, direction and12:14extent, with only smooth soft curves replacing the pixel steps."
+  },
+  "reconstruction": {
+    "library": "Pillow",
+    "version": "12.3.0",
+    "crop": [
+      0,
+      0,
+      1161,
+      1355
+    ],
+    "resize": [
+      96,
+      112
+    ],
+    "resample": "LANCZOS",
+    "canvas": [
+      96,
+      112
+    ],
+    "paste": [
+      0,
+      0
+    ],
+    "paste_operation": "Straight RGBA paste onto transparent canvas without a mask.",
+    "proportional_scale_from_width": 0.082687338501292,
+    "ideal_proportional_height": 112.04134366925065,
+    "height_rounding_only": true,
+    "derive224": "Exact flipX of ENTIRE registered96x112 ID223 canvas.",
+    "crop_loss": {
+      "outside_nonzero_pixels": 0,
+      "outside_alpha_mass": 0
+    },
+    "no_repaint_recolor_threshold_original_mask_stretch": true
+  },
+  "selection": {
+    "revision": 2,
+    "scope": "User explicitly accepts the previous R2 (middle comparison column). Prior historical independent polished/folded-blade/plastic gradient reservation remains documented; no claim of unanimous art approval. Actual engine and finite technical review gates remain separate.",
+    "extent": "Full source1161x1355 proportionally fitted96x112; ideal height112.04134 rounded once. Anchor0,0, complete12x14 canvas and exact full-canvas horizontal reflection.",
+    "alpha": "Master max253; LANCZOS reconstruction contains6 alpha255 samples and3588 fractional-alpha samples per registered frame. No alpha threshold or repaint; do not infer softness solely from numeric alpha.",
+    "style_tradeoff": "Lighter/slimmer polished-green impression compared with original remains a disclosed aesthetic tradeoff explicitly accepted by user. Prior black-outline absence did not resolve that earlier reservation.",
+    "previously_accepted_ids": [
+      6,
+      16,
+      44,
+      54,
+      63,
+      73,
+      82,
+      130,
+      131,
+      149,
+      150
+    ],
+    "remaining_original_ids": [
+      105,
+      106,
+      124,
+      125,
+      143,
+      144,
+      242,
+      243
+    ],
+    "not_full_family": true
+  },
+  "entries": [
+    {
+      "id": 223,
+      "slot": 557,
+      "header_u32": [
+        80223,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "PNG_sha256": "a98e48895c6f15a4cb7fba2323237e20fd02c4f902f2ed072474d9e5744f6284",
+      "RGBA_sha256": "336805f01a304136d082c32a6a4e62f687fa69ae3fbdaa413c6c858b3b818524",
+      "HDA_sha256": "99d2b2c5b880cf3d5758089eeb5884146266257542d1b45fa0b8343ef8c354a1",
+      "fractional_alpha_samples": 3588,
+      "alpha255_samples": 6
+    },
+    {
+      "id": 224,
+      "slot": 558,
+      "header_u32": [
+        80224,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "PNG_sha256": "a92435351ec59a370faa17c71df4e5d1bbe5c22f7554476d77a4dc0e0b571ff9",
+      "RGBA_sha256": "b008cd2e6b00f5a7595e667bc7ba5278b087a81740a5e813d43fc132ac15170c",
+      "HDA_sha256": "8f8156a75b8525742d0ae3693ebc00fd621adb1e8b0a3d27e08c9a7803ba5b6b",
+      "fractional_alpha_samples": 3588,
+      "alpha255_samples": 6
+    }
+  ]
+}

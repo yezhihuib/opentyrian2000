@@ -29154,7 +29154,7 @@
       }
     },
     "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 565,
+      "count": 567,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -36500,11 +36500,37 @@
           "sha256": "5fdd41f996aafd7355032f533bf7595ef91dedd069698be1c60e89c85403f559",
           "source_png": "assets/hd/source/bullet-150-8-5fdd41f996aa.png",
           "source_png_sha256": "b5f133605e40806b4b346ea4e4a8ae9dcbffef60e852288a4e4de29c41c0337e"
+        },
+        "bullet-223-8.hda": {
+          "header_u32": [
+            80223,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "sha256": "99d2b2c5b880cf3d5758089eeb5884146266257542d1b45fa0b8343ef8c354a1",
+          "source_png": "assets/hd/source/bullet-223-8-99d2b2c5b880.png",
+          "source_png_sha256": "a98e48895c6f15a4cb7fba2323237e20fd02c4f902f2ed072474d9e5744f6284"
+        },
+        "bullet-224-8.hda": {
+          "header_u32": [
+            80224,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "sha256": "8f8156a75b8525742d0ae3693ebc00fd621adb1e8b0a3d27e08c9a7803ba5b6b",
+          "source_png": "assets/hd/source/bullet-224-8-8f8156a75b85.png",
+          "source_png_sha256": "a92435351ec59a370faa17c71df4e5d1bbe5c22f7554476d77a4dc0e0b571ff9"
         }
       }
     },
     "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 565,
+      "count": 567,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -43850,6 +43876,32 @@
           "sha256": "5fdd41f996aafd7355032f533bf7595ef91dedd069698be1c60e89c85403f559",
           "source_png": "assets/hd/source/bullet-150-8-5fdd41f996aa.png",
           "source_png_sha256": "b5f133605e40806b4b346ea4e4a8ae9dcbffef60e852288a4e4de29c41c0337e"
+        },
+        "bullet-223-8.hda": {
+          "header_u32": [
+            80223,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "sha256": "99d2b2c5b880cf3d5758089eeb5884146266257542d1b45fa0b8343ef8c354a1",
+          "source_png": "assets/hd/source/bullet-223-8-99d2b2c5b880.png",
+          "source_png_sha256": "a98e48895c6f15a4cb7fba2323237e20fd02c4f902f2ed072474d9e5744f6284"
+        },
+        "bullet-224-8.hda": {
+          "header_u32": [
+            80224,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "sha256": "8f8156a75b8525742d0ae3693ebc00fd621adb1e8b0a3d27e08c9a7803ba5b6b",
+          "source_png": "assets/hd/source/bullet-224-8-8f8156a75b85.png",
+          "source_png_sha256": "a92435351ec59a370faa17c71df4e5d1bbe5c22f7554476d77a4dc0e0b571ff9"
         }
       }
     }
@@ -47386,6 +47438,16 @@
       "path": "assets/hd/source/bullet-150-8-5fdd41f996aa.png",
       "sha256": "b5f133605e40806b4b346ea4e4a8ae9dcbffef60e852288a4e4de29c41c0337e",
       "RGBA_sha256": "64ed932c10e63c89e83de2c62d893443fdf7f805af3d3a7d13447d21c15d7760"
+    },
+    "99d2b2c5b880cf3d5758089eeb5884146266257542d1b45fa0b8343ef8c354a1": {
+      "path": "assets/hd/source/bullet-223-8-99d2b2c5b880.png",
+      "sha256": "a98e48895c6f15a4cb7fba2323237e20fd02c4f902f2ed072474d9e5744f6284",
+      "RGBA_sha256": "336805f01a304136d082c32a6a4e62f687fa69ae3fbdaa413c6c858b3b818524"
+    },
+    "8f8156a75b8525742d0ae3693ebc00fd621adb1e8b0a3d27e08c9a7803ba5b6b": {
+      "path": "assets/hd/source/bullet-224-8-8f8156a75b85.png",
+      "sha256": "a92435351ec59a370faa17c71df4e5d1bbe5c22f7554476d77a4dc0e0b571ff9",
+      "RGBA_sha256": "b008cd2e6b00f5a7595e667bc7ba5278b087a81740a5e813d43fc132ac15170c"
     }
   },
   "no_original_game_data": true,
@@ -52900,6 +52962,27 @@
         "id": 150,
         "slot": 556,
         "HDA_sha256": "5fdd41f996aafd7355032f533bf7595ef91dedd069698be1c60e89c85403f559"
+      }
+    ]
+  },
+  "player_sonic_oblique_pair_v1": {
+    "source": "assets/hd/artwork/player-sonic-oblique-pair-v1",
+    "contract_sha256": "629cf2abdb1f809081c6b41fb53763207e9597213c292f955325be635a416fe0",
+    "ids": [
+      223,
+      224
+    ],
+    "scope": "Finite normal single-player bank8/TILE223/224; new-only twoPlayerMode/galagaMode/twoPlayerLinked pre-cache rejection. Prior11 unchanged; remaining8 original. Not full Sonic family.",
+    "entries": [
+      {
+        "id": 223,
+        "slot": 557,
+        "HDA_sha256": "99d2b2c5b880cf3d5758089eeb5884146266257542d1b45fa0b8343ef8c354a1"
+      },
+      {
+        "id": 224,
+        "slot": 558,
+        "HDA_sha256": "8f8156a75b8525742d0ae3693ebc00fd621adb1e8b0a3d27e08c9a7803ba5b6b"
       }
     ]
   }

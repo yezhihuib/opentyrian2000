@@ -1,0 +1,133 @@
+{
+  "schema": "sonic-oblique-pair-units-v1",
+  "status": "PASS_EXTRACTED_PRODUCTION_GUARD_SHOTS_AND_SENSITIVITY",
+  "baseline": "f842068626a0ec8660dd08096e18999f2c0e77e9",
+  "source_contract_sha256": "a3b891c3b11e33f46c38199befc01712a65bd006f1a3d8e0c1b6c2d7f62f42c3",
+  "art_contract_sha256": "629cf2abdb1f809081c6b41fb53763207e9597213c292f955325be635a416fe0",
+  "result_sha256": "fa64c40c6b1cb55378db29d373ee96ea4db36348555799b56db3e76862c8dfc7",
+  "test_file_sha256": {
+    "test-sonic-oblique-pair-binding.py": "582fe73239cfd92ed4d274a88104bb83d3146a1103ed18f28f0e1e8d11d447f7",
+    "test-sonic-oblique-pair-binding.c": "43b102ef8fd22b8a89ff2daf99b5465148197def665cf63e25a6dd6397f5918f",
+    "test-sonic-oblique-pair-shots.c": "d3ec8680f0c87898a06861e6feb8fbd0373e7b9765dbb3212bea1a6ce52841a7",
+    "test-sonic-oblique-pair-scope.py": "b6144a83bc471cc8c58ea769a8b3e8ac677db801d8775260159049960216abb7"
+  },
+  "build_matrix": "Baseline and candidate, binding and original shots, each optimized and ASan+UBSan:8 builds pass. Exact four-way original-shot output parity.",
+  "finite_binding_cases_per_build": 28896,
+  "resource_variants": 118,
+  "mode_density_cold_warm_states": 64,
+  "all_three_flags_eight_combinations_before_cache": true,
+  "source_rejections": 168,
+  "candidate_poison_cache_rejections": 318,
+  "old_eleven_cached_metadata_pointer_RGBA_preservation_checks": 176,
+  "all_twenty_one_normal_blend_shadow_wrappers": true,
+  "both_default_packs_loaded_independently": true,
+  "exact_whole_canvas_generated_flipX": true,
+  "actual_Christmas_selected_fragments_equal_normal_explicit_flag_rejection_tested": true,
+  "associated242_243_and_other_unselected_classic": true,
+  "original_shot_units": {
+    "all22rows_bothcopies_three_tables": true,
+    "selected_primary_records": [
+      278,
+      280,
+      281,
+      282
+    ],
+    "selected_secondary_records": [
+      1278,
+      1280,
+      1281,
+      1282
+    ],
+    "associated_records_source_only": [
+      284,
+      1284
+    ],
+    "creates": 164982,
+    "movement_ticks": 2871666,
+    "linked_direction_cases": 2322,
+    "linked_ports": [
+      11,
+      28,
+      33
+    ],
+    "linked_creation_record_copies": [
+      446,
+      1446
+    ],
+    "all17bins_and16_nextafterf_adjacent_float32_transitions": true,
+    "complete_record_table_differences_preserved": true,
+    "exact_baseline_candidate_parity": true
+  },
+  "mutant_sensitivity": {
+    "omit-twoPlayerMode": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6
+    },
+    "omit-galagaMode": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6
+    },
+    "omit-twoPlayerLinked": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6
+    },
+    "omit-explicit-xmas": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6
+    },
+    "trust-warm-source": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6
+    },
+    "indices-only": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6
+    },
+    "coverage-only": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6
+    },
+    "omit-early-indexed-shadow": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6
+    },
+    "read-cache-before-mode-gates": {
+      "status": "EXPECTED_ASAN_USE_AFTER_POISON",
+      "returncode": 1
+    },
+    "omit-density4-fallback": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6
+    },
+    "accept-malformed-magic": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6
+    },
+    "accept-extra-payload": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6
+    },
+    "clip-away-first-physical-row": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6
+    },
+    "shift-indexed-origin": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6
+    }
+  },
+  "preserved_harness_history": "First preliminary run stopped at a new resource/clipping mutant extractor whitespace assertion after9 mutants; corrected only harness, then clean final run passes all14. Production renderer unchanged.",
+  "limitations": [
+    "Focused extracted production source, loader, guard, wrapper and original RLE tests; RGBA head compositor is a metadata-checking stub.",
+    "Source guards validate selected decoded identity, not whole-bank provenance; no root-epoch guarantee is added.",
+    "Generic compositor integration, actual-play aesthetics, natural acquisition and full-engine runtime require separate acceptance.",
+    "LeakSanitizer disabled for executor compatibility; AddressSanitizer and UndefinedBehaviorSanitizer enabled.",
+    "Malformed original source is exercised at the HD guard only; original unchecked RLE is never executed against malformed data."
+  ],
+  "actual_engine_acceptance_separate": true,
+  "original_data_or_private_fixture_in_publication": false,
+  "indexed_bytes_checked_per_binding_build": {
+    "baseline": 1067673600,
+    "candidate": 1067289600
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "schema": "sonic-oblique-pair-source-scope-v1",
+  "status": "READ_ONLY_SOURCE_AUDIT_FINITE_CONTRACT",
+  "baseline": "f842068626a0ec8660dd08096e18999f2c0e77e9",
+  "ids": [
+    223,
+    224
+  ],
+  "prior_unchanged_ids": [
+    6,
+    16,
+    44,
+    54,
+    63,
+    73,
+    82,
+    130,
+    131,
+    149,
+    150
+  ],
+  "remaining_original_ids": [
+    105,
+    106,
+    124,
+    125,
+    143,
+    144,
+    242,
+    243
+  ],
+  "bank": 8,
+  "layout": "TILE",
+  "role": 8,
+  "logical_size": [
+    12,
+    14
+  ],
+  "anchor": [
+    0,
+    0
+  ],
+  "source_covered_cells_each": 89,
+  "source_bbox_half_open": [
+    0,
+    0,
+    12,
+    14
+  ],
+  "selected_fnv_index_then_coverage": {
+    "223": "0x5a22bdd5533d1d0d",
+    "224": "0x904489b42f2a3cd1"
+  },
+  "source_relationships": {
+    "224": "exact full12x14 flipX223",
+    "242": "exact full12x14 flipY223; source/unit only, no new binding",
+    "243": "exact full12x14 rotate180223; source/unit only, no new binding"
+  },
+  "source_geometry_audit": "All608 normal/Christmas tile decodes agree with literal original pitch320 pointer oracle. Full304-tile transform scans and selected21 fixtures independently checked. No decoded arrays published.",
+  "actual_Christmas": "Selected223/224 and associated242/243 normal/Christmas encoded bytes, decoded indices and coverage are equal. Explicit xmas=true rejection is essential. Equal fragments with xmas=false necessarily pass; no whole-bank provenance claim.",
+  "ordinary_rows": [
+    {
+      "mode": 1,
+      "power": 3,
+      "record": 278,
+      "mixed_ids": [
+        6,
+        44,
+        223,
+        224
+      ]
+    },
+    {
+      "mode": 1,
+      "power": 5,
+      "record": 280,
+      "mixed_ids": [
+        16,
+        54,
+        223,
+        224
+      ]
+    },
+    {
+      "mode": 1,
+      "power": 6,
+      "record": 281,
+      "mixed_ids": [
+        16,
+        54,
+        223,
+        224
+      ]
+    },
+    {
+      "mode": 1,
+      "power": 7,
+      "record": 282,
+      "mixed_ids": [
+        105,
+        106,
+        124,
+        125,
+        223,
+        224
+      ]
+    }
+  ],
+  "ordinary_offsets": "224 bx\u22124/by0/sx\u22122/sy13/del98;223 bx4/by0/sx2/sy13/del98. Preserve original table order.",
+  "fixed_source_scope": "These four rear11 records and exact within-table +1000 copies are the only direct uses in each fixed table. No other fixed port/special/sidekick/active chain references found. Arbitrary future dynamic scripts are not certified.",
+  "three_table_limit": "Active patterns agree across hdt and episodes4/5, but full80-byte records and inactive tails differ, including blastfilter208 versus192. No false full-record equality claim.",
+  "linked_sources": "Existing linkSonicGr on ports11/28/33 substitutes223 atbin7 and224 atbin9 after record446/1446 creation. Associated242/243 at1/15 remain unbound. Preserve original roundf/sinf/cosf and boundaries; no art rotation by velocity.",
+  "new_only_pre_cache_exclusions": [
+    "twoPlayerMode",
+    "galagaMode",
+    "twoPlayerLinked",
+    "explicit Christmas",
+    "invalid current selected indices or coverage"
+  ],
+  "source_API_limit": "Current generic fragment contract has no per-shot owner/source-record token. Session flags exclude linked/2P/Galaga. It is not whole-bank attestation.",
+  "shadow": "Original indexed shadows escape before HD lookup. No new HD shadows, displacement or order change.",
+  "only_changed_production_source": "src/render_mirror.c",
+  "gameplay_shots_rng_input_blitters_unchanged": true,
+  "no_original_pixels_published": true,
+  "not_whole_family_or_level": true
+}

@@ -1,0 +1,463 @@
+{
+  "schema": "sonic-oblique-pair-art-check-v1",
+  "status": "EXACT_PREVIOUS_R2_USER_SELECTED_NATIVE_ENGINE_REVIEW_SEPARATE",
+  "ids": [
+    223,
+    224
+  ],
+  "contract_sha256": "629cf2abdb1f809081c6b41fb53763207e9597213c292f955325be635a416fe0",
+  "master_sha256": "5038c0af5f2cef84dac3649ea65bdfe0df9334bf6fac5bface816a9ccd32774f",
+  "new_image_generation_calls_for_integration": 0,
+  "generation_provenance": {
+    "tool": "tools.image_gen__imagegen",
+    "model_id": null,
+    "model_id_status": "Exact model ID not supplied or confirmed; embedded generic metadata is not an exact model ID.",
+    "started_utc_lower_bound": "2026-10-15T13:05:34Z",
+    "finished_utc_upper_bound": "2026-10-15T13:06:35Z",
+    "timing_precision": "Conservative observed clock bounds; original reviewed metadata ended13:06:32 and a preserved timing supplement expands upper bound to visible13:06:35.",
+    "transparent_background": true,
+    "reference_description": "Original game sprite223 privately supplied for independent oblique arch geometry and green identity. No original raster, decoded indices or mask is packaged or used by reconstruction. This is the previous R2, expressly selected by user after comparison with a separate later pilot.",
+    "prompt": "Use case: stylized-concept. Asset type: transparent HD2D green sonic-wave game sprite, viewed at only24x28 or48x56 pixels. Input image is the ORIGINAL geometry reference, not a pixel-stair texture to trace. Create a fresh smooth high-resolution version of this exact ASYMMETRIC OBLIQUE PEAKED ARCH, opening DOWNWARD. Canvas width:height12:14, occupied silhouette width:height12:14 with top-left anchor. Apex near x7 of12 at y0; broad left shoulder sweeps diagonally down-left and its taper reaches x0 near y11\u201312 of14. The right arm is steeper and longer, descending near x11 to y14. Preserve the unequal arms and off-center peak; do not make a symmetric U, short hairpin, or narrow triangular wire. Make a substantial FULL green energy BAND with a visibly broad luminous shoulder and thick readable arms like the reference at tiny game size, not just a thin bright line. Keep the longer downward-left taper. Smooth continuous saturated green shading, vivid GREEN center, softer deeper-green internal transitions. Actual partial transparency fading gently to zero across the outermost25percent of band thickness INSIDE the silhouette, including tapered tips. No continuous dark opaque outline or inner rim, no solid3D plastic/bevel/metal look, no white or pale-mint stripe, no cyan/yellow, no outside halo, no particles, no inherited block stairs, no extra objects, no text. Transparent PNG background. Preserve original placement, direction and12:14extent, with only smooth soft curves replacing the pixel steps."
+  },
+  "reconstruction": {
+    "library": "Pillow",
+    "version": "12.3.0",
+    "crop": [
+      0,
+      0,
+      1161,
+      1355
+    ],
+    "resize": [
+      96,
+      112
+    ],
+    "resample": "LANCZOS",
+    "canvas": [
+      96,
+      112
+    ],
+    "paste": [
+      0,
+      0
+    ],
+    "paste_operation": "Straight RGBA paste onto transparent canvas without a mask.",
+    "proportional_scale_from_width": 0.082687338501292,
+    "ideal_proportional_height": 112.04134366925065,
+    "height_rounding_only": true,
+    "derive224": "Exact flipX of ENTIRE registered96x112 ID223 canvas.",
+    "crop_loss": {
+      "outside_nonzero_pixels": 0,
+      "outside_alpha_mass": 0
+    },
+    "no_repaint_recolor_threshold_original_mask_stretch": true
+  },
+  "output_entries": [
+    {
+      "id": 223,
+      "slot": 557,
+      "header_u32": [
+        80223,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "PNG_sha256": "a98e48895c6f15a4cb7fba2323237e20fd02c4f902f2ed072474d9e5744f6284",
+      "RGBA_sha256": "336805f01a304136d082c32a6a4e62f687fa69ae3fbdaa413c6c858b3b818524",
+      "HDA_sha256": "99d2b2c5b880cf3d5758089eeb5884146266257542d1b45fa0b8343ef8c354a1",
+      "fractional_alpha_samples": 3588,
+      "alpha255_samples": 6
+    },
+    {
+      "id": 224,
+      "slot": 558,
+      "header_u32": [
+        80224,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "PNG_sha256": "a92435351ec59a370faa17c71df4e5d1bbe5c22f7554476d77a4dc0e0b571ff9",
+      "RGBA_sha256": "b008cd2e6b00f5a7595e667bc7ba5278b087a81740a5e813d43fc132ac15170c",
+      "HDA_sha256": "8f8156a75b8525742d0ae3693ebc00fd621adb1e8b0a3d27e08c9a7803ba5b6b",
+      "fractional_alpha_samples": 3588,
+      "alpha255_samples": 6
+    }
+  ],
+  "previous_static_independent_verdict": "HOLD_R2_FOR_NO_PLASTIC_STYLE_GATE_GEOMETRY_REPAIRED",
+  "current_user_decision": "User expressly accepts previous R2 middle column after comparison. This resolves the aesthetic hold for223/224 only; the later pilot is not used.",
+  "historical_reservation": "Polished/folded-blade/plastic gradient impression remains recorded, rather than misdescribed as a black hard outline or unanimous reviewer acceptance.",
+  "diagnostics": {
+    "master": {
+      "size": [
+        1161,
+        1355
+      ],
+      "alpha_zero": 1030422,
+      "alpha_fractional": 542733,
+      "alpha255": 0,
+      "max_alpha": 253,
+      "equivalent_alpha_area": 312639.7294117647,
+      "bboxes_at_alpha": {
+        "1": [
+          0,
+          9,
+          1160,
+          1355
+        ],
+        "2": [
+          10,
+          25,
+          1152,
+          1355
+        ],
+        "8": [
+          13,
+          29,
+          1150,
+          1345
+        ],
+        "32": [
+          21,
+          39,
+          1146,
+          1330
+        ],
+        "64": [
+          27,
+          49,
+          1143,
+          1317
+        ],
+        "128": [
+          40,
+          64,
+          1137,
+          1289
+        ],
+        "192": [
+          50,
+          80,
+          1131,
+          1259
+        ],
+        "240": [
+          69,
+          95,
+          1124,
+          1222
+        ],
+        "250": [
+          102,
+          100,
+          1111,
+          1159
+        ],
+        "255": null
+      },
+      "alpha_weighted_rgb": [
+        16.677,
+        186.646,
+        42.953
+      ],
+      "border_alpha_max_LTRB": [
+        1,
+        0,
+        0,
+        2
+      ],
+      "edge_alpha1to127": {
+        "count": 227678,
+        "rgb_mean": [
+          1.369,
+          84.838,
+          13.9
+        ],
+        "green_dominant_fraction": 0.6501111218475215
+      },
+      "visible_ge32": {
+        "count": 404986,
+        "rgb_mean": [
+          13.817,
+          176.551,
+          39.19
+        ],
+        "green_dominant_fraction": 1.0
+      },
+      "core_ge192": {
+        "count": 257642,
+        "rgb_mean": [
+          19.7,
+          197.344,
+          46.878
+        ],
+        "green_dominant_fraction": 1.0
+      },
+      "pale_mint_alpha_ge128_Rge100_Bge120": {
+        "count": 4613,
+        "rgb_mean": [
+          107.685,
+          249.95,
+          131.591
+        ],
+        "green_dominant_fraction": 1.0
+      },
+      "dark_nearopaque_RGBmaxlt64_alpha_ge192": {
+        "count": 0
+      }
+    },
+    "registered223": {
+      "size": [
+        96,
+        112
+      ],
+      "alpha_zero": 7158,
+      "alpha_fractional": 3588,
+      "alpha255": 6,
+      "max_alpha": 255,
+      "equivalent_alpha_area": 2136.8392156862747,
+      "bboxes_at_alpha": {
+        "1": [
+          0,
+          2,
+          96,
+          112
+        ],
+        "2": [
+          1,
+          2,
+          96,
+          112
+        ],
+        "8": [
+          1,
+          2,
+          95,
+          111
+        ],
+        "32": [
+          2,
+          3,
+          95,
+          110
+        ],
+        "64": [
+          2,
+          4,
+          95,
+          108
+        ],
+        "128": [
+          3,
+          5,
+          94,
+          106
+        ],
+        "192": [
+          4,
+          7,
+          93,
+          102
+        ],
+        "240": [
+          6,
+          8,
+          93,
+          100
+        ],
+        "250": [
+          8,
+          8,
+          93,
+          100
+        ],
+        "255": [
+          88,
+          75,
+          92,
+          95
+        ]
+      },
+      "alpha_weighted_rgb": [
+        16.504,
+        186.154,
+        42.521
+      ],
+      "border_alpha_max_LTRB": [
+        1,
+        0,
+        3,
+        3
+      ],
+      "edge_alpha1to127": {
+        "count": 1446,
+        "rgb_mean": [
+          1.452,
+          92.946,
+          14.895
+        ],
+        "green_dominant_fraction": 0.719225449515906
+      },
+      "visible_ge32": {
+        "count": 2767,
+        "rgb_mean": [
+          13.655,
+          176.121,
+          38.851
+        ],
+        "green_dominant_fraction": 1.0
+      },
+      "core_ge192": {
+        "count": 1758,
+        "rgb_mean": [
+          19.546,
+          196.832,
+          46.392
+        ],
+        "green_dominant_fraction": 1.0
+      },
+      "pale_mint_alpha_ge128_Rge100_Bge120": {
+        "count": 31,
+        "rgb_mean": [
+          106.677,
+          248.774,
+          130.419
+        ],
+        "green_dominant_fraction": 1.0
+      },
+      "dark_nearopaque_RGBmaxlt64_alpha_ge192": {
+        "count": 0
+      }
+    },
+    "registered224": {
+      "size": [
+        96,
+        112
+      ],
+      "alpha_zero": 7158,
+      "alpha_fractional": 3588,
+      "alpha255": 6,
+      "max_alpha": 255,
+      "equivalent_alpha_area": 2136.8392156862747,
+      "bboxes_at_alpha": {
+        "1": [
+          0,
+          2,
+          96,
+          112
+        ],
+        "2": [
+          0,
+          2,
+          95,
+          112
+        ],
+        "8": [
+          1,
+          2,
+          95,
+          111
+        ],
+        "32": [
+          1,
+          3,
+          94,
+          110
+        ],
+        "64": [
+          1,
+          4,
+          94,
+          108
+        ],
+        "128": [
+          2,
+          5,
+          93,
+          106
+        ],
+        "192": [
+          3,
+          7,
+          92,
+          102
+        ],
+        "240": [
+          3,
+          8,
+          90,
+          100
+        ],
+        "250": [
+          3,
+          8,
+          88,
+          100
+        ],
+        "255": [
+          4,
+          75,
+          8,
+          95
+        ]
+      },
+      "alpha_weighted_rgb": [
+        16.504,
+        186.154,
+        42.521
+      ],
+      "border_alpha_max_LTRB": [
+        3,
+        0,
+        1,
+        3
+      ],
+      "edge_alpha1to127": {
+        "count": 1446,
+        "rgb_mean": [
+          1.452,
+          92.946,
+          14.895
+        ],
+        "green_dominant_fraction": 0.719225449515906
+      },
+      "visible_ge32": {
+        "count": 2767,
+        "rgb_mean": [
+          13.655,
+          176.121,
+          38.851
+        ],
+        "green_dominant_fraction": 1.0
+      },
+      "core_ge192": {
+        "count": 1758,
+        "rgb_mean": [
+          19.546,
+          196.832,
+          46.392
+        ],
+        "green_dominant_fraction": 1.0
+      },
+      "pale_mint_alpha_ge128_Rge100_Bge120": {
+        "count": 31,
+        "rgb_mean": [
+          106.677,
+          248.774,
+          130.419
+        ],
+        "green_dominant_fraction": 1.0
+      },
+      "dark_nearopaque_RGBmaxlt64_alpha_ge192": {
+        "count": 0
+      }
+    }
+  },
+  "static_reference_pixels_or_masks_packaged": false,
+  "reconstruction_reads_original_data": false,
+  "runtime_separate": true
+}

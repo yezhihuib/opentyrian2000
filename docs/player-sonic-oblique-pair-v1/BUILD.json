@@ -1,0 +1,60 @@
+{
+  "schema": "sonic-oblique-pair-build-v1",
+  "status": "PASS_PRODUCTION_AND_AGGREGATE_WITH_FIVE_INHERITED_WARNINGS",
+  "production_binary_sha256": "fc771c7a5030cc8abdfb8f9f277967a4ed336c7470f4c791a3ffaf272a3876da",
+  "production_source_unhooked": true,
+  "SDL_headers": "2.26.5",
+  "SDL_runtime": "2.32.4",
+  "compiler": "cc (Debian 14.2.0-19) 14.2.0",
+  "production_configuration": {
+    "WITH_NETWORK": false,
+    "SDL_pkgconfig": "Existing private local toolchain, not packaged."
+  },
+  "warnings": [
+    "src/asset_debug.c:161:2: warning: this \u2018if\u2019 clause does not guard... [-Wmisleading-indentation]",
+    "src/game_probe_fields.inc:12:3: warning: this \u2018if\u2019 clause does not guard... [-Wmisleading-indentation]",
+    "src/game_probe_fields.inc:13:3: warning: this \u2018if\u2019 clause does not guard... [-Wmisleading-indentation]",
+    "src/game_probe_fields.inc:14:3: warning: this \u2018if\u2019 clause does not guard... [-Wmisleading-indentation]",
+    "src/render_mirror.c:3788:2: warning: this \u2018if\u2019 clause does not guard... [-Wmisleading-indentation]"
+  ],
+  "failed_preparation_build_attempts": [
+    {
+      "target": "production",
+      "cause": "default SDL pkgconfig missing"
+    },
+    {
+      "target": "baseline fixture",
+      "cause": "default SDL pkgconfig missing"
+    },
+    {
+      "target": "baseline fixture",
+      "cause": "PNG observer requires -lz linker flag"
+    }
+  ],
+  "engine_launched_during_failed_preparation": false,
+  "private_fixture_extra_LDLIBS": "-lz for PNG observer only; no production source edit.",
+  "aggregate": {
+    "packs": 18,
+    "listed_HDA_entries": 3370,
+    "exact_source_PNGs": 579,
+    "default_pack_counts": [
+      567,
+      567
+    ],
+    "all_runtime_RGBA_and_header_bytes_exact": true,
+    "aggregate_log_sha256": "cbf546817626e4331fd0b78fd3c2c7a4892a3e31b5ef79af1317e2c57a839a27"
+  },
+  "actual_native_sizes_required": [
+    [
+      640,
+      400
+    ],
+    [
+      1280,
+      800
+    ]
+  ],
+  "runtime_acceptance_separate": true,
+  "binary_or_private_toolchain_published": false,
+  "Windows_GPU_physical_window_performance": "Not tested; no Windows distribution bundle requested."
+}

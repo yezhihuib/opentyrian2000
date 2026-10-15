@@ -42,7 +42,7 @@ typedef struct {
 enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121, ASSET_ENEMY_TANK_SHELL=122, ASSET_REAR534_BODY=123, ASSET_DATA513_BODY=124, ASSET_PROTRON_SHADOW=125, ASSET_MARLO_BODY=126, ASSET_MINT_BODY=127, ASSET_FRONTBLASTER_BODY=128, ASSET_PLASMA_BODY=129 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
 /* Slots 507..509 are rear534; slots 510..521 are Data513. */
-static Asset assets[557];
+static Asset assets[559];
 /* One draw-call lease from the original fixed explosion; never gameplay state. */
 static bool cash25_fixed_value;
 static bool cash75_fixed_value;
@@ -1482,6 +1482,29 @@ static int explosion_asset_slot(unsigned int index)
  return -1;
 }
 
+/* Sonic Wave oblique pair223/224: two normal single-player heads only.
+ * Validate current selected indices AND coverage before EVERY cold/warm lookup. */
+static int sonic_oblique_pair_member(unsigned int index)
+{
+ return index==223?0:index==224?1:-1;
+}
+
+static bool sonic_oblique_pair_source_matches(Sprite2_array bank,unsigned int index)
+{
+ if(xmas||!bank.data||bank.data!=spriteSheet8.data||bank.size!=spriteSheet8.size)return false;
+ uint64_t wanted;
+ switch(index) {
+  case 223:wanted=UINT64_C(0x5a22bdd5533d1d0d);break;
+  case 224:wanted=UINT64_C(0x904489b42f2a3cd1);break;
+  default:return false;
+ }
+ Uint8 source[12*14*2]={0};
+ if(!decode_tile(bank,index,source,source+12*14,12,0,0))return false;
+ uint64_t stamp=UINT64_C(0xcbf29ce484222325);
+ for(size_t i=0;i<sizeof(source);i++){stamp^=source[i];stamp*=UINT64_C(0x100000001b3);}
+ return stamp==wanted;
+}
+
 /* Sonic Wave inverted corner pair149/150: two normal single-player heads only.
  * Validate current selected indices AND coverage before EVERY cold/warm lookup. */
 static int sonic_inverted_corner_pair_member(unsigned int index)
@@ -1780,6 +1803,14 @@ static Asset *get_asset(Sprite2_array bank,unsigned int index,int layout)
  if(!xmas&&bank.data==spriteSheet8.data&&layout==ENTITY_TILE) {
   static const unsigned int multi_ids[8]={121,122,163,164,201,202,279,280};
   for(int i=0;i<8;i++)if(index==multi_ids[i]){slot=524+i;role=8;break;}
+ }
+ /* Sonic Wave oblique pair223/224 only; all multiplayer/link contexts stay classic.
+  * Keep these local mode/source gates before every cold or warm cache access. */
+ if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&sonic_oblique_pair_member(index)>=0) {
+  if(twoPlayerMode||galagaMode||twoPlayerLinked||
+     (game_probe_density!=4&&game_probe_density!=8)||game_probe_missing||game_probe_invalid||
+     game_probe_original_reference||!game_probe_assets||!sonic_oblique_pair_source_matches(bank,index))return NULL;
+  slot=557+sonic_oblique_pair_member(index);role=8;
  }
  /* Sonic Wave inverted corner pair149/150 only; all multiplayer/link contexts stay classic.
   * Keep these local mode/source gates before every cold or warm cache access. */
@@ -2384,6 +2415,8 @@ bool render_mirror_entity(SDL_Surface *surface,int x,int y,Sprite2_array bank,un
  /* Resolve the frozen contour from this shadow call, before its own head. */
  if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&vulcan_shadow_member(index)>=0&&style==MIRROR_SHADOW)
   return draw_vulcan_shadow(surface,x,y,bank,index);
+ /* Sonic Wave oblique pair223/224 retain original indexed shadow silhouettes, origin and order. */
+ if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&sonic_oblique_pair_member(index)>=0&&style==MIRROR_SHADOW)return false;
  /* Sonic Wave inverted corner pair149/150 retain original indexed shadow silhouettes, origin and order. */
  if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&sonic_inverted_corner_pair_member(index)>=0&&style==MIRROR_SHADOW)return false;
  /* Sonic Wave corner pair130/131 retain original indexed shadow silhouettes, origin and order. */
