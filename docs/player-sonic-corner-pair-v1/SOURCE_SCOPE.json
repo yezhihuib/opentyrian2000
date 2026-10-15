@@ -1,0 +1,84 @@
+{
+  "status": "PASS_READ_ONLY_SOURCE_SCOPE_PREPARATION",
+  "baseline": "f31e74a5c0c69d857a310b9dfd9c4c094f09e075",
+  "candidate_ids": [
+    130,
+    131
+  ],
+  "previously_accepted_unchanged_ids": [
+    6,
+    44,
+    73,
+    63,
+    82,
+    16,
+    54
+  ],
+  "associated_original_only_ids": [
+    149,
+    150
+  ],
+  "other_original_id_count": 12,
+  "role": 8,
+  "bank": 8,
+  "layout": "TILE",
+  "logical_size": [
+    12,
+    14
+  ],
+  "anchor": [
+    0,
+    0
+  ],
+  "normal_selected_source_occupied_cells_each": 69,
+  "normal_selected_bbox_half_open": [
+    0,
+    0,
+    12,
+    12
+  ],
+  "associated_source_bbox_half_open": [
+    0,
+    2,
+    12,
+    14
+  ],
+  "selected_fnv_index_then_coverage": {
+    "130": "0x0f527e20ee1119ba",
+    "131": "0x184b6e120d7c65d0"
+  },
+  "source_semantic_transforms": {
+    "131": "Exact whole12x14 canvas horizontal reflection of130.",
+    "149": "Exact whole12x14 canvas vertical reflection of130; not bound.",
+    "150": "Exact whole12x14 canvas180degree rotation of130; not bound."
+  },
+  "actual_Christmas": "All four selected/associated normal and Christmas encoded bytes, decoded indices and coverage are equal. Explicit xmas=true rejection is essential. Equal fragments supplied with xmas=false are necessarily indistinguishable; no whole-bank provenance attestation is claimed.",
+  "decoder_scope": "Fresh independent normal/Christmas608tile check against literal original pitch320 pointer oracle,304tile alias scans, all21 existing source fixtures reverified. No decoded arrays are published.",
+  "ordinary_source_membership": "Selected identities occur in rear11 mode1 P10/P11 records285/286 and secondary1285/1286 across three original tables. Associated149/150 are P11 only. This factual membership is not a runtime visibility claim.",
+  "full_record_difference": "All22active patterns agree across three tables, but full records differ, including selected shipblastfilter208 in hdt versus192 in episode4/5. Full raw equality is not claimed.",
+  "shared_linked_sources": "Original linked direction override for ports11/28/33 and record446 remains classic.131 is bin2, neighboring242/303;130 is bin14, neighboring302/243. Direction mechanics and tables are untouched.",
+  "new_display_scope": {
+    "reject_before_any_cache_access": [
+      "twoPlayerMode",
+      "galagaMode",
+      "twoPlayerLinked"
+    ],
+    "existing_outer_scope": "Normal manual renderer already excludes two-player/Galaga; diagnostic game_probe_enabled can bypass the outer gate. New local checks also independently reject stale linked flags.",
+    "generic_API_limit": "Entity calls carry only surface, position, bank,identity,style,layout; no shot-origin or owner token. This is supported pinned single-player source matching, not universal per-shot ownership attestation.",
+    "source_guards": "Explicit xmas flag plus exact current selected decoded indices AND coverage before every cold/warm lookup.",
+    "shadow": "Original indexed shadow path returns before new-head asset lookup; no redesign."
+  },
+  "original_sources_unchanged": [
+    "shots.c",
+    "mainint.c",
+    "tyrian2.c",
+    "episodes.c",
+    "player.c",
+    "mtrand.c",
+    "entity_draw.c",
+    "sprite.c"
+  ],
+  "no_original_pixels_or_data_files_published": true,
+  "not_whole_family_or_level": true,
+  "runtime_visibility_evidence": "Source membership alone is not visibility. Separate actual bounded P10/P11 native640/1280 results reconstruct full source/core after later original classic/ship shadow operations; no unobscured or actual-cloud claim."
+}

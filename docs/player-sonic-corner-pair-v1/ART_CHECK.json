@@ -1,0 +1,296 @@
+{
+  "status": "PASS_GENERATED_ONLY_IMPORT_INTEGRITY_STYLE_DISAGREEMENT_RETAINED",
+  "schema": "sonic-corner-pair-art-check-v1",
+  "ids": [
+    130,
+    131
+  ],
+  "master_sha256": "0a12b0caebacdbf639c57a4859a2621117b4c61413210777381156718ff4d593",
+  "contract_sha256": "afb4e35a8c092e5defcc73274dbf070a3ec7051176197669332263f97c697dad",
+  "source_size": [
+    1161,
+    1355
+  ],
+  "generation_tool": "image_gen.imagegen",
+  "exact_model_id_supplied": false,
+  "original_reference_pixels_packaged": false,
+  "reconstruction_reads_original_game_data": false,
+  "original_RGBA_or_mask_used_as_output_pixels": false,
+  "reconstruction": {
+    "library": "Pillow",
+    "version": "12.3.0",
+    "crop": [
+      0,
+      0,
+      1161,
+      1252
+    ],
+    "resize": [
+      89,
+      96
+    ],
+    "resample": "LANCZOS",
+    "canvas": [
+      96,
+      112
+    ],
+    "paste": [
+      0,
+      0,
+      89,
+      96
+    ],
+    "paste_operation": "Straight RGBA paste onto transparent canvas.",
+    "width_rounding_only": true,
+    "proportional_scale_from_height": 0.07667731629392971,
+    "ideal_proportional_width": 89.0223642172524,
+    "mirror131": "Exact horizontal mirror of full registered96x112 ID130 canvas.",
+    "no_repaint_recolor_threshold_original_mask": true
+  },
+  "crop_loss": {
+    "outside_max_alpha": 1,
+    "outside_nonzero_pixels": 2290,
+    "outside_alpha_mass": 8.980392156862745,
+    "outside_fraction_total_alpha_mass": 3.464262748687358e-05,
+    "alpha_ge2_retained_entirely": true
+  },
+  "registered_generated_alpha": {
+    "ID130": {
+      "size": [
+        96,
+        112
+      ],
+      "alpha_zero": 7918,
+      "alpha_fractional": 2834,
+      "alpha255": 0,
+      "max_alpha": 252,
+      "equivalent_alpha_area": 1523.5843137254901,
+      "bboxes_at_alpha": {
+        "1": [
+          0,
+          0,
+          89,
+          96
+        ],
+        "2": [
+          0,
+          0,
+          89,
+          96
+        ],
+        "8": [
+          1,
+          2,
+          88,
+          95
+        ],
+        "32": [
+          2,
+          5,
+          86,
+          94
+        ],
+        "64": [
+          2,
+          7,
+          85,
+          94
+        ],
+        "128": [
+          4,
+          13,
+          84,
+          93
+        ],
+        "192": [
+          5,
+          19,
+          80,
+          92
+        ],
+        "240": [
+          6,
+          26,
+          73,
+          91
+        ],
+        "250": [
+          7,
+          32,
+          69,
+          91
+        ],
+        "255": null
+      },
+      "alpha_weighted_rgb": [
+        22.565,
+        231.579,
+        64.962
+      ],
+      "border_alpha_max_LTRB": [
+        7,
+        4,
+        0,
+        0
+      ],
+      "edge_alpha1to127": {
+        "count": 1305,
+        "rgb_mean": [
+          2.962,
+          190.522,
+          37.184
+        ],
+        "green_dominant_fraction": 0.9578544061302682
+      },
+      "visible_ge32": {
+        "count": 2230,
+        "rgb_mean": [
+          17.612,
+          226.0,
+          59.402
+        ],
+        "green_dominant_fraction": 1.0
+      },
+      "core_ge192": {
+        "count": 1138,
+        "rgb_mean": [
+          29.209,
+          239.183,
+          72.291
+        ],
+        "green_dominant_fraction": 1.0
+      },
+      "pale_mint_alpha_ge128_Rge100_Bge120": {
+        "count": 0
+      },
+      "dark_nearopaque_RGBmaxlt64_alpha_ge192": {
+        "count": 0
+      }
+    },
+    "ID131": {
+      "size": [
+        96,
+        112
+      ],
+      "alpha_zero": 7918,
+      "alpha_fractional": 2834,
+      "alpha255": 0,
+      "max_alpha": 252,
+      "equivalent_alpha_area": 1523.5843137254901,
+      "bboxes_at_alpha": {
+        "1": [
+          7,
+          0,
+          96,
+          96
+        ],
+        "2": [
+          7,
+          0,
+          96,
+          96
+        ],
+        "8": [
+          8,
+          2,
+          95,
+          95
+        ],
+        "32": [
+          10,
+          5,
+          94,
+          94
+        ],
+        "64": [
+          11,
+          7,
+          94,
+          94
+        ],
+        "128": [
+          12,
+          13,
+          92,
+          93
+        ],
+        "192": [
+          16,
+          19,
+          91,
+          92
+        ],
+        "240": [
+          23,
+          26,
+          90,
+          91
+        ],
+        "250": [
+          27,
+          32,
+          89,
+          91
+        ],
+        "255": null
+      },
+      "alpha_weighted_rgb": [
+        22.565,
+        231.579,
+        64.962
+      ],
+      "border_alpha_max_LTRB": [
+        0,
+        4,
+        7,
+        0
+      ],
+      "edge_alpha1to127": {
+        "count": 1305,
+        "rgb_mean": [
+          2.962,
+          190.522,
+          37.184
+        ],
+        "green_dominant_fraction": 0.9578544061302682
+      },
+      "visible_ge32": {
+        "count": 2230,
+        "rgb_mean": [
+          17.612,
+          226.0,
+          59.402
+        ],
+        "green_dominant_fraction": 1.0
+      },
+      "core_ge192": {
+        "count": 1138,
+        "rgb_mean": [
+          29.209,
+          239.183,
+          72.291
+        ],
+        "green_dominant_fraction": 1.0
+      },
+      "pale_mint_alpha_ge128_Rge100_Bge120": {
+        "count": 0
+      },
+      "dark_nearopaque_RGBmaxlt64_alpha_ge192": {
+        "count": 0
+      }
+    }
+  },
+  "whole_canvas_flipX_exact": true,
+  "bottom16density_rows_all_zero_alpha": true,
+  "occupied_width_difference_percent": 7.291666666666667,
+  "native_static_evidence": "Original/source and generated only24x28/48x56 offline composites over frozen cloud and brown scenery; these are not engine captures. Private references and comparison boards are not published.",
+  "independent_visual_verdict": "HOLD_STYLE: slim ribbon and continuous brighter ridge beside darker inner shading give a polished/tubular-bevel impression. Geometry, saturated green, soft actual alpha and exact mirror pass. No dark-nearopaque-pixel predicate is used to erase this visual concern.",
+  "parent_static_decision": "Accept the light-green bent corner for a reversible actual-engine candidate, retaining independent style disagreement. No further static regeneration this round.",
+  "runtime_and_publication_separate": true,
+  "embedded_C2PA_created": "2026-10-15T13:13:40.389172609Z",
+  "observed_tool_call_bounds_utc": [
+    "2026-10-15T13:12:39Z",
+    "2026-10-15T13:13:49Z"
+  ],
+  "no_prompt_reproduction_claim": true
+}

@@ -1,0 +1,2421 @@
+{
+  "schema": "sanitized-sonic130-131-R1-actual-runtime-projection-v1",
+  "technical_status": "PASS_BOUNDED_RUNTIME_EQUIVALENCE_AND_ORDERED_VISIBILITY",
+  "appearance_status": "Separate parent actual640/1280 visual review; reversible R1 candidate acceptance preserves independent style HOLD. Runtime does not settle polished/tubular/slimness disagreement.",
+  "baseline_commit": "f31e74a5c0c69d857a310b9dfd9c4c094f09e075",
+  "candidate_renderer_sha256": "8aef71113cc0b7277adc75336dc821259962ca88ab6414e1fcc052d99300f9cf",
+  "candidate_production_binary_sha256": "71f2b38dcbc1cb7057ddea1caebf471d9f7942ca8577a034aa25ebc2b1bc8258",
+  "art_contract_sha256": "afb4e35a8c092e5defcc73274dbf070a3ec7051176197669332263f97c697dad",
+  "hda_sha256": {
+    "130": "319a6bdc5c38bc94ee5f8a54d47cb941f0bfe8b3a333a9b9a2470ac9b3a4ba2b",
+    "131": "ab91d40f77092f0d817a84a85079763e64a3dfc1c2f7c455f96c2eb5b4eb6782"
+  },
+  "generated_alpha_max": 252,
+  "generated_alpha255_samples": 0,
+  "selected_ids": [
+    130,
+    131
+  ],
+  "associated_classic_only_ids": [
+    149,
+    150
+  ],
+  "prior_preserved_HD_ids": [
+    6,
+    16,
+    44,
+    54,
+    63,
+    73,
+    82
+  ],
+  "production_scope": "Renderer only. All original gameplay, movement, shot, RNG and indexed blitter production bytes unchanged. Prior default-pack files byte-preserved; only130/131 resources added.",
+  "single_player": {
+    "paired_cases": 8,
+    "processes": 16,
+    "original_ticks_each": 64,
+    "total_engine_ticks": 1024,
+    "paired_tick_comparisons": 512,
+    "native_captures": 48,
+    "actual_native_dimensions": [
+      [
+        640,
+        400
+      ],
+      [
+        1280,
+        800
+      ]
+    ],
+    "rows": [
+      {
+        "power": 10,
+        "mode": 1,
+        "positive": true,
+        "capture_ticks": [
+          34,
+          41,
+          48
+        ]
+      },
+      {
+        "power": 11,
+        "mode": 1,
+        "positive": true,
+        "capture_ticks": [
+          34,
+          41,
+          48
+        ]
+      },
+      {
+        "power": 1,
+        "mode": 1,
+        "positive": false,
+        "capture_ticks": [
+          40,
+          41,
+          42
+        ]
+      },
+      {
+        "power": 8,
+        "mode": 1,
+        "positive": false,
+        "capture_ticks": [
+          34,
+          41,
+          48
+        ]
+      }
+    ],
+    "only_starting_change": "One diagnostic before-tick0 front0/rear11 with selected power/mode; original menus, initial energy/generator/shield/cash/position/invulnerability and ordinary Space input remain original. Not natural purchase or pickup acquisition.",
+    "all_original_state_RNG_INDEX8_palettes_indexed_write_counts_hashes_and_ordered_trace_exact_every_tick": true,
+    "only_new_normal130_131_mirror_admissions_differ": true,
+    "new_HD_shadows": 0,
+    "outside_selected_normal_canvas_union_RGB_changes": 0,
+    "P1_and_P8_entire_captured_native_RGBA_identical": true,
+    "P10_unchanged_coexistence": [
+      73,
+      105,
+      106,
+      124,
+      125
+    ],
+    "P11_classic_coexistence": [
+      105,
+      106,
+      124,
+      125,
+      149,
+      150
+    ],
+    "original_time_NULL_seed_preserved_and_pairs_matched": true,
+    "positive_ordered_visibility": [
+      {
+        "power": 10,
+        "mode": 1,
+        "native_scale": 2,
+        "tick": 34,
+        "emission_tick": 33,
+        "age": 1,
+        "changed_RGB_pixels": 557,
+        "outside_selected_canvas_union_RGB_changes": 0,
+        "heads": [
+          {
+            "id": 130,
+            "draw_xy": [
+              83,
+              169
+            ],
+            "native_canvas": [
+              118,
+              338,
+              142,
+              366
+            ],
+            "source69_native_samples": 276,
+            "source_raw_direct_palette_matches": 229,
+            "source_ordered_shadow_reconstructed_matches": 276,
+            "source_unshadowed_samples": 221,
+            "core_alpha250_expected_samples": 19,
+            "core_raw_direct_bounds_matches": 18,
+            "core_ordered_shadow_bounds_matches": 19,
+            "core_alpha255_expected_samples": 0,
+            "genuine_partial_alpha_changed_survivors": 163,
+            "later_classic_shadows": [],
+            "later_ship_shadow": {
+              "bank": 9,
+              "id": 233,
+              "draw_xy": [
+                84,
+                163
+              ],
+              "baseline_formula": "blend original source palette RGB with its shade-halved palette RGB by frozen ship alpha",
+              "candidate_formula": "darken_rgba on existing HD color, round(channel*(510-alpha)/510)",
+              "full_source_and_full_core_verified_with_shadow_modulation": true
+            },
+            "entire_source_and_core_verified_after_original_ordered_modulation": true
+          },
+          {
+            "id": 131,
+            "draw_xy": [
+              119,
+              169
+            ],
+            "native_canvas": [
+              190,
+              338,
+              214,
+              366
+            ],
+            "source69_native_samples": 276,
+            "source_raw_direct_palette_matches": 276,
+            "source_ordered_shadow_reconstructed_matches": 276,
+            "source_unshadowed_samples": 276,
+            "core_alpha250_expected_samples": 21,
+            "core_raw_direct_bounds_matches": 21,
+            "core_ordered_shadow_bounds_matches": 21,
+            "core_alpha255_expected_samples": 0,
+            "genuine_partial_alpha_changed_survivors": 155,
+            "later_classic_shadows": [],
+            "later_ship_shadow": {
+              "bank": 9,
+              "id": 233,
+              "draw_xy": [
+                84,
+                163
+              ],
+              "baseline_formula": "blend original source palette RGB with its shade-halved palette RGB by frozen ship alpha",
+              "candidate_formula": "darken_rgba on existing HD color, round(channel*(510-alpha)/510)",
+              "full_source_and_full_core_verified_with_shadow_modulation": true
+            },
+            "entire_source_and_core_verified_after_original_ordered_modulation": true
+          }
+        ]
+      },
+      {
+        "power": 10,
+        "mode": 1,
+        "native_scale": 2,
+        "tick": 41,
+        "emission_tick": 40,
+        "age": 1,
+        "changed_RGB_pixels": 557,
+        "outside_selected_canvas_union_RGB_changes": 0,
+        "heads": [
+          {
+            "id": 130,
+            "draw_xy": [
+              83,
+              169
+            ],
+            "native_canvas": [
+              118,
+              338,
+              142,
+              366
+            ],
+            "source69_native_samples": 276,
+            "source_raw_direct_palette_matches": 229,
+            "source_ordered_shadow_reconstructed_matches": 276,
+            "source_unshadowed_samples": 221,
+            "core_alpha250_expected_samples": 19,
+            "core_raw_direct_bounds_matches": 18,
+            "core_ordered_shadow_bounds_matches": 19,
+            "core_alpha255_expected_samples": 0,
+            "genuine_partial_alpha_changed_survivors": 163,
+            "later_classic_shadows": [],
+            "later_ship_shadow": {
+              "bank": 9,
+              "id": 233,
+              "draw_xy": [
+                84,
+                163
+              ],
+              "baseline_formula": "blend original source palette RGB with its shade-halved palette RGB by frozen ship alpha",
+              "candidate_formula": "darken_rgba on existing HD color, round(channel*(510-alpha)/510)",
+              "full_source_and_full_core_verified_with_shadow_modulation": true
+            },
+            "entire_source_and_core_verified_after_original_ordered_modulation": true
+          },
+          {
+            "id": 131,
+            "draw_xy": [
+              119,
+              169
+            ],
+            "native_canvas": [
+              190,
+              338,
+              214,
+              366
+            ],
+            "source69_native_samples": 276,
+            "source_raw_direct_palette_matches": 276,
+            "source_ordered_shadow_reconstructed_matches": 276,
+            "source_unshadowed_samples": 276,
+            "core_alpha250_expected_samples": 21,
+            "core_raw_direct_bounds_matches": 21,
+            "core_ordered_shadow_bounds_matches": 21,
+            "core_alpha255_expected_samples": 0,
+            "genuine_partial_alpha_changed_survivors": 155,
+            "later_classic_shadows": [],
+            "later_ship_shadow": {
+              "bank": 9,
+              "id": 233,
+              "draw_xy": [
+                84,
+                163
+              ],
+              "baseline_formula": "blend original source palette RGB with its shade-halved palette RGB by frozen ship alpha",
+              "candidate_formula": "darken_rgba on existing HD color, round(channel*(510-alpha)/510)",
+              "full_source_and_full_core_verified_with_shadow_modulation": true
+            },
+            "entire_source_and_core_verified_after_original_ordered_modulation": true
+          }
+        ]
+      },
+      {
+        "power": 10,
+        "mode": 1,
+        "native_scale": 2,
+        "tick": 48,
+        "emission_tick": 47,
+        "age": 1,
+        "changed_RGB_pixels": 557,
+        "outside_selected_canvas_union_RGB_changes": 0,
+        "heads": [
+          {
+            "id": 130,
+            "draw_xy": [
+              83,
+              169
+            ],
+            "native_canvas": [
+              118,
+              338,
+              142,
+              366
+            ],
+            "source69_native_samples": 276,
+            "source_raw_direct_palette_matches": 229,
+            "source_ordered_shadow_reconstructed_matches": 276,
+            "source_unshadowed_samples": 221,
+            "core_alpha250_expected_samples": 19,
+            "core_raw_direct_bounds_matches": 18,
+            "core_ordered_shadow_bounds_matches": 19,
+            "core_alpha255_expected_samples": 0,
+            "genuine_partial_alpha_changed_survivors": 163,
+            "later_classic_shadows": [],
+            "later_ship_shadow": {
+              "bank": 9,
+              "id": 233,
+              "draw_xy": [
+                84,
+                163
+              ],
+              "baseline_formula": "blend original source palette RGB with its shade-halved palette RGB by frozen ship alpha",
+              "candidate_formula": "darken_rgba on existing HD color, round(channel*(510-alpha)/510)",
+              "full_source_and_full_core_verified_with_shadow_modulation": true
+            },
+            "entire_source_and_core_verified_after_original_ordered_modulation": true
+          },
+          {
+            "id": 131,
+            "draw_xy": [
+              119,
+              169
+            ],
+            "native_canvas": [
+              190,
+              338,
+              214,
+              366
+            ],
+            "source69_native_samples": 276,
+            "source_raw_direct_palette_matches": 276,
+            "source_ordered_shadow_reconstructed_matches": 276,
+            "source_unshadowed_samples": 276,
+            "core_alpha250_expected_samples": 21,
+            "core_raw_direct_bounds_matches": 21,
+            "core_ordered_shadow_bounds_matches": 21,
+            "core_alpha255_expected_samples": 0,
+            "genuine_partial_alpha_changed_survivors": 155,
+            "later_classic_shadows": [],
+            "later_ship_shadow": {
+              "bank": 9,
+              "id": 233,
+              "draw_xy": [
+                84,
+                163
+              ],
+              "baseline_formula": "blend original source palette RGB with its shade-halved palette RGB by frozen ship alpha",
+              "candidate_formula": "darken_rgba on existing HD color, round(channel*(510-alpha)/510)",
+              "full_source_and_full_core_verified_with_shadow_modulation": true
+            },
+            "entire_source_and_core_verified_after_original_ordered_modulation": true
+          }
+        ]
+      },
+      {
+        "power": 10,
+        "mode": 1,
+        "native_scale": 4,
+        "tick": 34,
+        "emission_tick": 33,
+        "age": 1,
+        "changed_RGB_pixels": 2238,
+        "outside_selected_canvas_union_RGB_changes": 0,
+        "heads": [
+          {
+            "id": 130,
+            "draw_xy": [
+              83,
+              169
+            ],
+            "native_canvas": [
+              236,
+              676,
+              284,
+              732
+            ],
+            "source69_native_samples": 1104,
+            "source_raw_direct_palette_matches": 916,
+            "source_ordered_shadow_reconstructed_matches": 1104,
+            "source_unshadowed_samples": 884,
+            "core_alpha250_expected_samples": 87,
+            "core_raw_direct_bounds_matches": 83,
+            "core_ordered_shadow_bounds_matches": 87,
+            "core_alpha255_expected_samples": 0,
+            "genuine_partial_alpha_changed_survivors": 618,
+            "later_classic_shadows": [],
+            "later_ship_shadow": {
+              "bank": 9,
+              "id": 233,
+              "draw_xy": [
+                84,
+                163
+              ],
+              "baseline_formula": "blend original source palette RGB with its shade-halved palette RGB by frozen ship alpha",
+              "candidate_formula": "darken_rgba on existing HD color, round(channel*(510-alpha)/510)",
+              "full_source_and_full_core_verified_with_shadow_modulation": true
+            },
+            "entire_source_and_core_verified_after_original_ordered_modulation": true
+          },
+          {
+            "id": 131,
+            "draw_xy": [
+              119,
+              169
+            ],
+            "native_canvas": [
+              380,
+              676,
+              428,
+              732
+            ],
+            "source69_native_samples": 1104,
+            "source_raw_direct_palette_matches": 1104,
+            "source_ordered_shadow_reconstructed_matches": 1104,
+            "source_unshadowed_samples": 1104,
+            "core_alpha250_expected_samples": 86,
+            "core_raw_direct_bounds_matches": 86,
+            "core_ordered_shadow_bounds_matches": 86,
+            "core_alpha255_expected_samples": 0,
+            "genuine_partial_alpha_changed_survivors": 615,
+            "later_classic_shadows": [],
+            "later_ship_shadow": {
+              "bank": 9,
+              "id": 233,
+              "draw_xy": [
+                84,
+                163
+              ],
+              "baseline_formula": "blend original source palette RGB with its shade-halved palette RGB by frozen ship alpha",
+              "candidate_formula": "darken_rgba on existing HD color, round(channel*(510-alpha)/510)",
+              "full_source_and_full_core_verified_with_shadow_modulation": true
+            },
+            "entire_source_and_core_verified_after_original_ordered_modulation": true
+          }
+        ]
+      },
+      {
+        "power": 10,
+        "mode": 1,
+        "native_scale": 4,
+        "tick": 41,
+        "emission_tick": 40,
+        "age": 1,
+        "changed_RGB_pixels": 2238,
+        "outside_selected_canvas_union_RGB_changes": 0,
+        "heads": [
+          {
+            "id": 130,
+            "draw_xy": [
+              83,
+              169
+            ],
+            "native_canvas": [
+              236,
+              676,
+              284,
+              732
+            ],
+            "source69_native_samples": 1104,
+            "source_raw_direct_palette_matches": 916,
+            "source_ordered_shadow_reconstructed_matches": 1104,
+            "source_unshadowed_samples": 884,
+            "core_alpha250_expected_samples": 87,
+            "core_raw_direct_bounds_matches": 83,
+            "core_ordered_shadow_bounds_matches": 87,
+            "core_alpha255_expected_samples": 0,
+            "genuine_partial_alpha_changed_survivors": 618,
+            "later_classic_shadows": [],
+            "later_ship_shadow": {
+              "bank": 9,
+              "id": 233,
+              "draw_xy": [
+                84,
+                163
+              ],
+              "baseline_formula": "blend original source palette RGB with its shade-halved palette RGB by frozen ship alpha",
+              "candidate_formula": "darken_rgba on existing HD color, round(channel*(510-alpha)/510)",
+              "full_source_and_full_core_verified_with_shadow_modulation": true
+            },
+            "entire_source_and_core_verified_after_original_ordered_modulation": true
+          },
+          {
+            "id": 131,
+            "draw_xy": [
+              119,
+              169
+            ],
+            "native_canvas": [
+              380,
+              676,
+              428,
+              732
+            ],
+            "source69_native_samples": 1104,
+            "source_raw_direct_palette_matches": 1104,
+            "source_ordered_shadow_reconstructed_matches": 1104,
+            "source_unshadowed_samples": 1104,
+            "core_alpha250_expected_samples": 86,
+            "core_raw_direct_bounds_matches": 86,
+            "core_ordered_shadow_bounds_matches": 86,
+            "core_alpha255_expected_samples": 0,
+            "genuine_partial_alpha_changed_survivors": 615,
+            "later_classic_shadows": [],
+            "later_ship_shadow": {
+              "bank": 9,
+              "id": 233,
+              "draw_xy": [
+                84,
+                163
+              ],
+              "baseline_formula": "blend original source palette RGB with its shade-halved palette RGB by frozen ship alpha",
+              "candidate_formula": "darken_rgba on existing HD color, round(channel*(510-alpha)/510)",
+              "full_source_and_full_core_verified_with_shadow_modulation": true
+            },
+            "entire_source_and_core_verified_after_original_ordered_modulation": true
+          }
+        ]
+      },
+      {
+        "power": 10,
+        "mode": 1,
+        "native_scale": 4,
+        "tick": 48,
+        "emission_tick": 47,
+        "age": 1,
+        "changed_RGB_pixels": 2238,
+        "outside_selected_canvas_union_RGB_changes": 0,
+        "heads": [
+          {
+            "id": 130,
+            "draw_xy": [
+              83,
+              169
+            ],
+            "native_canvas": [
+              236,
+              676,
+              284,
+              732
+            ],
+            "source69_native_samples": 1104,
+            "source_raw_direct_palette_matches": 916,
+            "source_ordered_shadow_reconstructed_matches": 1104,
+            "source_unshadowed_samples": 884,
+            "core_alpha250_expected_samples": 87,
+            "core_raw_direct_bounds_matches": 83,
+            "core_ordered_shadow_bounds_matches": 87,
+            "core_alpha255_expected_samples": 0,
+            "genuine_partial_alpha_changed_survivors": 618,
+            "later_classic_shadows": [],
+            "later_ship_shadow": {
+              "bank": 9,
+              "id": 233,
+              "draw_xy": [
+                84,
+                163
+              ],
+              "baseline_formula": "blend original source palette RGB with its shade-halved palette RGB by frozen ship alpha",
+              "candidate_formula": "darken_rgba on existing HD color, round(channel*(510-alpha)/510)",
+              "full_source_and_full_core_verified_with_shadow_modulation": true
+            },
+            "entire_source_and_core_verified_after_original_ordered_modulation": true
+          },
+          {
+            "id": 131,
+            "draw_xy": [
+              119,
+              169
+            ],
+            "native_canvas": [
+              380,
+              676,
+              428,
+              732
+            ],
+            "source69_native_samples": 1104,
+            "source_raw_direct_palette_matches": 1104,
+            "source_ordered_shadow_reconstructed_matches": 1104,
+            "source_unshadowed_samples": 1104,
+            "core_alpha250_expected_samples": 86,
+            "core_raw_direct_bounds_matches": 86,
+            "core_ordered_shadow_bounds_matches": 86,
+            "core_alpha255_expected_samples": 0,
+            "genuine_partial_alpha_changed_survivors": 615,
+            "later_classic_shadows": [],
+            "later_ship_shadow": {
+              "bank": 9,
+              "id": 233,
+              "draw_xy": [
+                84,
+                163
+              ],
+              "baseline_formula": "blend original source palette RGB with its shade-halved palette RGB by frozen ship alpha",
+              "candidate_formula": "darken_rgba on existing HD color, round(channel*(510-alpha)/510)",
+              "full_source_and_full_core_verified_with_shadow_modulation": true
+            },
+            "entire_source_and_core_verified_after_original_ordered_modulation": true
+          }
+        ]
+      },
+      {
+        "power": 11,
+        "mode": 1,
+        "native_scale": 2,
+        "tick": 34,
+        "emission_tick": 33,
+        "age": 1,
+        "changed_RGB_pixels": 557,
+        "outside_selected_canvas_union_RGB_changes": 0,
+        "heads": [
+          {
+            "id": 130,
+            "draw_xy": [
+              83,
+              169
+            ],
+            "native_canvas": [
+              118,
+              338,
+              142,
+              366
+            ],
+            "source69_native_samples": 276,
+            "source_raw_direct_palette_matches": 197,
+            "source_ordered_shadow_reconstructed_matches": 276,
+            "source_unshadowed_samples": 189,
+            "core_alpha250_expected_samples": 19,
+            "core_raw_direct_bounds_matches": 18,
+            "core_ordered_shadow_bounds_matches": 19,
+            "core_alpha255_expected_samples": 0,
+            "genuine_partial_alpha_changed_survivors": 163,
+            "later_classic_shadows": [
+              {
+                "id": 149,
+                "draw_xy": [
+                  83,
+                  161
+                ],
+                "native_overlap_pixels": 72,
+                "source_covered_overlap_pixels": 40,
+                "core_overlap_pixels": 0
+              }
+            ],
+            "later_ship_shadow": {
+              "bank": 9,
+              "id": 233,
+              "draw_xy": [
+                84,
+                163
+              ],
+              "baseline_formula": "blend original source palette RGB with its shade-halved palette RGB by frozen ship alpha",
+              "candidate_formula": "darken_rgba on existing HD color, round(channel*(510-alpha)/510)",
+              "full_source_and_full_core_verified_with_shadow_modulation": true
+            },
+            "entire_source_and_core_verified_after_original_ordered_modulation": true
+          },
+          {
+            "id": 131,
+            "draw_xy": [
+              119,
+              169
+            ],
+            "native_canvas": [
+              190,
+              338,
+              214,
+              366
+            ],
+            "source69_native_samples": 276,
+            "source_raw_direct_palette_matches": 244,
+            "source_ordered_shadow_reconstructed_matches": 276,
+            "source_unshadowed_samples": 244,
+            "core_alpha250_expected_samples": 21,
+            "core_raw_direct_bounds_matches": 21,
+            "core_ordered_shadow_bounds_matches": 21,
+            "core_alpha255_expected_samples": 0,
+            "genuine_partial_alpha_changed_survivors": 155,
+            "later_classic_shadows": [
+              {
+                "id": 150,
+                "draw_xy": [
+                  119,
+                  161
+                ],
+                "native_overlap_pixels": 72,
+                "source_covered_overlap_pixels": 40,
+                "core_overlap_pixels": 0
+              }
+            ],
+            "later_ship_shadow": {
+              "bank": 9,
+              "id": 233,
+              "draw_xy": [
+                84,
+                163
+              ],
+              "baseline_formula": "blend original source palette RGB with its shade-halved palette RGB by frozen ship alpha",
+              "candidate_formula": "darken_rgba on existing HD color, round(channel*(510-alpha)/510)",
+              "full_source_and_full_core_verified_with_shadow_modulation": true
+            },
+            "entire_source_and_core_verified_after_original_ordered_modulation": true
+          }
+        ]
+      },
+      {
+        "power": 11,
+        "mode": 1,
+        "native_scale": 2,
+        "tick": 41,
+        "emission_tick": 40,
+        "age": 1,
+        "changed_RGB_pixels": 557,
+        "outside_selected_canvas_union_RGB_changes": 0,
+        "heads": [
+          {
+            "id": 130,
+            "draw_xy": [
+              83,
+              169
+            ],
+            "native_canvas": [
+              118,
+              338,
+              142,
+              366
+            ],
+            "source69_native_samples": 276,
+            "source_raw_direct_palette_matches": 197,
+            "source_ordered_shadow_reconstructed_matches": 276,
+            "source_unshadowed_samples": 189,
+            "core_alpha250_expected_samples": 19,
+            "core_raw_direct_bounds_matches": 18,
+            "core_ordered_shadow_bounds_matches": 19,
+            "core_alpha255_expected_samples": 0,
+            "genuine_partial_alpha_changed_survivors": 163,
+            "later_classic_shadows": [
+              {
+                "id": 149,
+                "draw_xy": [
+                  83,
+                  161
+                ],
+                "native_overlap_pixels": 72,
+                "source_covered_overlap_pixels": 40,
+                "core_overlap_pixels": 0
+              }
+            ],
+            "later_ship_shadow": {
+              "bank": 9,
+              "id": 233,
+              "draw_xy": [
+                84,
+                163
+              ],
+              "baseline_formula": "blend original source palette RGB with its shade-halved palette RGB by frozen ship alpha",
+              "candidate_formula": "darken_rgba on existing HD color, round(channel*(510-alpha)/510)",
+              "full_source_and_full_core_verified_with_shadow_modulation": true
+            },
+            "entire_source_and_core_verified_after_original_ordered_modulation": true
+          },
+          {
+            "id": 131,
+            "draw_xy": [
+              119,
+              169
+            ],
+            "native_canvas": [
+              190,
+              338,
+              214,
+              366
+            ],
+            "source69_native_samples": 276,
+            "source_raw_direct_palette_matches": 244,
+            "source_ordered_shadow_reconstructed_matches": 276,
+            "source_unshadowed_samples": 244,
+            "core_alpha250_expected_samples": 21,
+            "core_raw_direct_bounds_matches": 21,
+            "core_ordered_shadow_bounds_matches": 21,
+            "core_alpha255_expected_samples": 0,
+            "genuine_partial_alpha_changed_survivors": 155,
+            "later_classic_shadows": [
+              {
+                "id": 150,
+                "draw_xy": [
+                  119,
+                  161
+                ],
+                "native_overlap_pixels": 72,
+                "source_covered_overlap_pixels": 40,
+                "core_overlap_pixels": 0
+              }
+            ],
+            "later_ship_shadow": {
+              "bank": 9,
+              "id": 233,
+              "draw_xy": [
+                84,
+                163
+              ],
+              "baseline_formula": "blend original source palette RGB with its shade-halved palette RGB by frozen ship alpha",
+              "candidate_formula": "darken_rgba on existing HD color, round(channel*(510-alpha)/510)",
+              "full_source_and_full_core_verified_with_shadow_modulation": true
+            },
+            "entire_source_and_core_verified_after_original_ordered_modulation": true
+          }
+        ]
+      },
+      {
+        "power": 11,
+        "mode": 1,
+        "native_scale": 2,
+        "tick": 48,
+        "emission_tick": 47,
+        "age": 1,
+        "changed_RGB_pixels": 557,
+        "outside_selected_canvas_union_RGB_changes": 0,
+        "heads": [
+          {
+            "id": 130,
+            "draw_xy": [
+              83,
+              169
+            ],
+            "native_canvas": [
+              118,
+              338,
+              142,
+              366
+            ],
+            "source69_native_samples": 276,
+            "source_raw_direct_palette_matches": 197,
+            "source_ordered_shadow_reconstructed_matches": 276,
+            "source_unshadowed_samples": 189,
+            "core_alpha250_expected_samples": 19,
+            "core_raw_direct_bounds_matches": 18,
+            "core_ordered_shadow_bounds_matches": 19,
+            "core_alpha255_expected_samples": 0,
+            "genuine_partial_alpha_changed_survivors": 163,
+            "later_classic_shadows": [
+              {
+                "id": 149,
+                "draw_xy": [
+                  83,
+                  161
+                ],
+                "native_overlap_pixels": 72,
+                "source_covered_overlap_pixels": 40,
+                "core_overlap_pixels": 0
+              }
+            ],
+            "later_ship_shadow": {
+              "bank": 9,
+              "id": 233,
+              "draw_xy": [
+                84,
+                163
+              ],
+              "baseline_formula": "blend original source palette RGB with its shade-halved palette RGB by frozen ship alpha",
+              "candidate_formula": "darken_rgba on existing HD color, round(channel*(510-alpha)/510)",
+              "full_source_and_full_core_verified_with_shadow_modulation": true
+            },
+            "entire_source_and_core_verified_after_original_ordered_modulation": true
+          },
+          {
+            "id": 131,
+            "draw_xy": [
+              119,
+              169
+            ],
+            "native_canvas": [
+              190,
+              338,
+              214,
+              366
+            ],
+            "source69_native_samples": 276,
+            "source_raw_direct_palette_matches": 244,
+            "source_ordered_shadow_reconstructed_matches": 276,
+            "source_unshadowed_samples": 244,
+            "core_alpha250_expected_samples": 21,
+            "core_raw_direct_bounds_matches": 21,
+            "core_ordered_shadow_bounds_matches": 21,
+            "core_alpha255_expected_samples": 0,
+            "genuine_partial_alpha_changed_survivors": 155,
+            "later_classic_shadows": [
+              {
+                "id": 150,
+                "draw_xy": [
+                  119,
+                  161
+                ],
+                "native_overlap_pixels": 72,
+                "source_covered_overlap_pixels": 40,
+                "core_overlap_pixels": 0
+              }
+            ],
+            "later_ship_shadow": {
+              "bank": 9,
+              "id": 233,
+              "draw_xy": [
+                84,
+                163
+              ],
+              "baseline_formula": "blend original source palette RGB with its shade-halved palette RGB by frozen ship alpha",
+              "candidate_formula": "darken_rgba on existing HD color, round(channel*(510-alpha)/510)",
+              "full_source_and_full_core_verified_with_shadow_modulation": true
+            },
+            "entire_source_and_core_verified_after_original_ordered_modulation": true
+          }
+        ]
+      },
+      {
+        "power": 11,
+        "mode": 1,
+        "native_scale": 4,
+        "tick": 34,
+        "emission_tick": 33,
+        "age": 1,
+        "changed_RGB_pixels": 2238,
+        "outside_selected_canvas_union_RGB_changes": 0,
+        "heads": [
+          {
+            "id": 130,
+            "draw_xy": [
+              83,
+              169
+            ],
+            "native_canvas": [
+              236,
+              676,
+              284,
+              732
+            ],
+            "source69_native_samples": 1104,
+            "source_raw_direct_palette_matches": 788,
+            "source_ordered_shadow_reconstructed_matches": 1104,
+            "source_unshadowed_samples": 756,
+            "core_alpha250_expected_samples": 87,
+            "core_raw_direct_bounds_matches": 83,
+            "core_ordered_shadow_bounds_matches": 87,
+            "core_alpha255_expected_samples": 0,
+            "genuine_partial_alpha_changed_survivors": 618,
+            "later_classic_shadows": [
+              {
+                "id": 149,
+                "draw_xy": [
+                  83,
+                  161
+                ],
+                "native_overlap_pixels": 288,
+                "source_covered_overlap_pixels": 160,
+                "core_overlap_pixels": 0
+              }
+            ],
+            "later_ship_shadow": {
+              "bank": 9,
+              "id": 233,
+              "draw_xy": [
+                84,
+                163
+              ],
+              "baseline_formula": "blend original source palette RGB with its shade-halved palette RGB by frozen ship alpha",
+              "candidate_formula": "darken_rgba on existing HD color, round(channel*(510-alpha)/510)",
+              "full_source_and_full_core_verified_with_shadow_modulation": true
+            },
+            "entire_source_and_core_verified_after_original_ordered_modulation": true
+          },
+          {
+            "id": 131,
+            "draw_xy": [
+              119,
+              169
+            ],
+            "native_canvas": [
+              380,
+              676,
+              428,
+              732
+            ],
+            "source69_native_samples": 1104,
+            "source_raw_direct_palette_matches": 976,
+            "source_ordered_shadow_reconstructed_matches": 1104,
+            "source_unshadowed_samples": 976,
+            "core_alpha250_expected_samples": 86,
+            "core_raw_direct_bounds_matches": 85,
+            "core_ordered_shadow_bounds_matches": 86,
+            "core_alpha255_expected_samples": 0,
+            "genuine_partial_alpha_changed_survivors": 615,
+            "later_classic_shadows": [
+              {
+                "id": 150,
+                "draw_xy": [
+                  119,
+                  161
+                ],
+                "native_overlap_pixels": 288,
+                "source_covered_overlap_pixels": 160,
+                "core_overlap_pixels": 1
+              }
+            ],
+            "later_ship_shadow": {
+              "bank": 9,
+              "id": 233,
+              "draw_xy": [
+                84,
+                163
+              ],
+              "baseline_formula": "blend original source palette RGB with its shade-halved palette RGB by frozen ship alpha",
+              "candidate_formula": "darken_rgba on existing HD color, round(channel*(510-alpha)/510)",
+              "full_source_and_full_core_verified_with_shadow_modulation": true
+            },
+            "entire_source_and_core_verified_after_original_ordered_modulation": true
+          }
+        ]
+      },
+      {
+        "power": 11,
+        "mode": 1,
+        "native_scale": 4,
+        "tick": 41,
+        "emission_tick": 40,
+        "age": 1,
+        "changed_RGB_pixels": 2238,
+        "outside_selected_canvas_union_RGB_changes": 0,
+        "heads": [
+          {
+            "id": 130,
+            "draw_xy": [
+              83,
+              169
+            ],
+            "native_canvas": [
+              236,
+              676,
+              284,
+              732
+            ],
+            "source69_native_samples": 1104,
+            "source_raw_direct_palette_matches": 788,
+            "source_ordered_shadow_reconstructed_matches": 1104,
+            "source_unshadowed_samples": 756,
+            "core_alpha250_expected_samples": 87,
+            "core_raw_direct_bounds_matches": 83,
+            "core_ordered_shadow_bounds_matches": 87,
+            "core_alpha255_expected_samples": 0,
+            "genuine_partial_alpha_changed_survivors": 618,
+            "later_classic_shadows": [
+              {
+                "id": 149,
+                "draw_xy": [
+                  83,
+                  161
+                ],
+                "native_overlap_pixels": 288,
+                "source_covered_overlap_pixels": 160,
+                "core_overlap_pixels": 0
+              }
+            ],
+            "later_ship_shadow": {
+              "bank": 9,
+              "id": 233,
+              "draw_xy": [
+                84,
+                163
+              ],
+              "baseline_formula": "blend original source palette RGB with its shade-halved palette RGB by frozen ship alpha",
+              "candidate_formula": "darken_rgba on existing HD color, round(channel*(510-alpha)/510)",
+              "full_source_and_full_core_verified_with_shadow_modulation": true
+            },
+            "entire_source_and_core_verified_after_original_ordered_modulation": true
+          },
+          {
+            "id": 131,
+            "draw_xy": [
+              119,
+              169
+            ],
+            "native_canvas": [
+              380,
+              676,
+              428,
+              732
+            ],
+            "source69_native_samples": 1104,
+            "source_raw_direct_palette_matches": 976,
+            "source_ordered_shadow_reconstructed_matches": 1104,
+            "source_unshadowed_samples": 976,
+            "core_alpha250_expected_samples": 86,
+            "core_raw_direct_bounds_matches": 85,
+            "core_ordered_shadow_bounds_matches": 86,
+            "core_alpha255_expected_samples": 0,
+            "genuine_partial_alpha_changed_survivors": 615,
+            "later_classic_shadows": [
+              {
+                "id": 150,
+                "draw_xy": [
+                  119,
+                  161
+                ],
+                "native_overlap_pixels": 288,
+                "source_covered_overlap_pixels": 160,
+                "core_overlap_pixels": 1
+              }
+            ],
+            "later_ship_shadow": {
+              "bank": 9,
+              "id": 233,
+              "draw_xy": [
+                84,
+                163
+              ],
+              "baseline_formula": "blend original source palette RGB with its shade-halved palette RGB by frozen ship alpha",
+              "candidate_formula": "darken_rgba on existing HD color, round(channel*(510-alpha)/510)",
+              "full_source_and_full_core_verified_with_shadow_modulation": true
+            },
+            "entire_source_and_core_verified_after_original_ordered_modulation": true
+          }
+        ]
+      },
+      {
+        "power": 11,
+        "mode": 1,
+        "native_scale": 4,
+        "tick": 48,
+        "emission_tick": 47,
+        "age": 1,
+        "changed_RGB_pixels": 2238,
+        "outside_selected_canvas_union_RGB_changes": 0,
+        "heads": [
+          {
+            "id": 130,
+            "draw_xy": [
+              83,
+              169
+            ],
+            "native_canvas": [
+              236,
+              676,
+              284,
+              732
+            ],
+            "source69_native_samples": 1104,
+            "source_raw_direct_palette_matches": 788,
+            "source_ordered_shadow_reconstructed_matches": 1104,
+            "source_unshadowed_samples": 756,
+            "core_alpha250_expected_samples": 87,
+            "core_raw_direct_bounds_matches": 83,
+            "core_ordered_shadow_bounds_matches": 87,
+            "core_alpha255_expected_samples": 0,
+            "genuine_partial_alpha_changed_survivors": 618,
+            "later_classic_shadows": [
+              {
+                "id": 149,
+                "draw_xy": [
+                  83,
+                  161
+                ],
+                "native_overlap_pixels": 288,
+                "source_covered_overlap_pixels": 160,
+                "core_overlap_pixels": 0
+              }
+            ],
+            "later_ship_shadow": {
+              "bank": 9,
+              "id": 233,
+              "draw_xy": [
+                84,
+                163
+              ],
+              "baseline_formula": "blend original source palette RGB with its shade-halved palette RGB by frozen ship alpha",
+              "candidate_formula": "darken_rgba on existing HD color, round(channel*(510-alpha)/510)",
+              "full_source_and_full_core_verified_with_shadow_modulation": true
+            },
+            "entire_source_and_core_verified_after_original_ordered_modulation": true
+          },
+          {
+            "id": 131,
+            "draw_xy": [
+              119,
+              169
+            ],
+            "native_canvas": [
+              380,
+              676,
+              428,
+              732
+            ],
+            "source69_native_samples": 1104,
+            "source_raw_direct_palette_matches": 976,
+            "source_ordered_shadow_reconstructed_matches": 1104,
+            "source_unshadowed_samples": 976,
+            "core_alpha250_expected_samples": 86,
+            "core_raw_direct_bounds_matches": 85,
+            "core_ordered_shadow_bounds_matches": 86,
+            "core_alpha255_expected_samples": 0,
+            "genuine_partial_alpha_changed_survivors": 615,
+            "later_classic_shadows": [
+              {
+                "id": 150,
+                "draw_xy": [
+                  119,
+                  161
+                ],
+                "native_overlap_pixels": 288,
+                "source_covered_overlap_pixels": 160,
+                "core_overlap_pixels": 1
+              }
+            ],
+            "later_ship_shadow": {
+              "bank": 9,
+              "id": 233,
+              "draw_xy": [
+                84,
+                163
+              ],
+              "baseline_formula": "blend original source palette RGB with its shade-halved palette RGB by frozen ship alpha",
+              "candidate_formula": "darken_rgba on existing HD color, round(channel*(510-alpha)/510)",
+              "full_source_and_full_core_verified_with_shadow_modulation": true
+            },
+            "entire_source_and_core_verified_after_original_ordered_modulation": true
+          }
+        ]
+      }
+    ],
+    "underlay": "Actual fixed-window selected native context is brown/ochre rocky terrain; no actual cloud acceptance. No separate pre-head underlay capture or per-pixel background reconstruction claim.",
+    "clipping_preserved": "Original age2/tick42 selected support clips at184, age3/tick43 below visible output, age4/tick44 retires. No single-player trajectory manipulation or clean-window search."
+  },
+  "linked": {
+    "baseline_only_discovery": {
+      "processes": 1,
+      "original_ticks": 98,
+      "native_captures": 6,
+      "native_dimensions": [
+        640,
+        400
+      ],
+      "status": "PASS_EXACT_PREDECLARED_FIXED_SCRIPT"
+    },
+    "paired": {
+      "cases": 2,
+      "processes": 4,
+      "original_ticks_each": 98,
+      "total_engine_ticks": 392,
+      "paired_tick_comparisons": 196,
+      "native_captures": 24
+    },
+    "ordinary_route": "Original2PArcade/Episode1/Normal menus; original controller-row4 swap. Only P2rear15->11 once at start. Left input approaches original P1; original proximity links at19. Ordinary queued SDL mouse-up20..25 moves P1 to(100,76) and original P2 follows to(99,84), required for downward linked corners to survive. Original fire and turret rotation36..97; fixed stop98, hard512. No direct mode/link/angle/position/shot/RNG writes. No natural acquisition claim.",
+    "required_actual_bins": [
+      1,
+      2,
+      3,
+      13,
+      14,
+      15
+    ],
+    "required_actual_ids": [
+      242,
+      131,
+      303,
+      302,
+      130,
+      243
+    ],
+    "all_HD_admissions": 0,
+    "proof_boundary": "Actual ordinary manual-HD2P session gate remained unchanged and rejects the session. Runtime proves original reachability/draw/state/RNG/INDEX8/RGB parity under that gate. It does not independently exercise the new per-ID three-flag guard; parent active-diagnostic optimized/sanitized units cover cold/warm/recovery and cache safety separately.",
+    "actual_cases": [
+      {
+        "native_scale": 2,
+        "dimensions": [
+          640,
+          400
+        ],
+        "paired_tick_comparisons": 98,
+        "all_original_parity_exact": true,
+        "all_HD_admissions": 0,
+        "actual_post_direction_cases": [
+          {
+            "tick": 36,
+            "slot": 3,
+            "port": 11,
+            "direction_float_bits": "403c430e",
+            "bin": 7,
+            "id": 223,
+            "velocity": [
+              2,
+              -12
+            ],
+            "spawn_xy": [
+              104,
+              64
+            ]
+          },
+          {
+            "tick": 39,
+            "slot": 5,
+            "port": 11,
+            "direction_float_bits": "4015dca7",
+            "bin": 6,
+            "id": 150,
+            "velocity": [
+              9,
+              -8
+            ],
+            "spawn_xy": [
+              114,
+              70
+            ]
+          },
+          {
+            "tick": 42,
+            "slot": 6,
+            "port": 11,
+            "direction_float_bits": "3fdeec80",
+            "bin": 4,
+            "id": 47,
+            "velocity": [
+              12,
+              -2
+            ],
+            "spawn_xy": [
+              120,
+              81
+            ]
+          },
+          {
+            "tick": 45,
+            "slot": 3,
+            "port": 11,
+            "direction_float_bits": "3faf7641",
+            "bin": 3,
+            "id": 303,
+            "velocity": [
+              12,
+              2
+            ],
+            "spawn_xy": [
+              120,
+              88
+            ]
+          },
+          {
+            "tick": 48,
+            "slot": 7,
+            "port": 11,
+            "direction_float_bits": "3f95dca7",
+            "bin": 3,
+            "id": 303,
+            "velocity": [
+              11,
+              5
+            ],
+            "spawn_xy": [
+              118,
+              92
+            ]
+          },
+          {
+            "tick": 51,
+            "slot": 4,
+            "port": 11,
+            "direction_float_bits": "3f95dca7",
+            "bin": 3,
+            "id": 303,
+            "velocity": [
+              11,
+              5
+            ],
+            "spawn_xy": [
+              118,
+              92
+            ]
+          },
+          {
+            "tick": 54,
+            "slot": 5,
+            "port": 11,
+            "direction_float_bits": "3f4552e8",
+            "bin": 2,
+            "id": 131,
+            "velocity": [
+              8,
+              9
+            ],
+            "spawn_xy": [
+              114,
+              98
+            ]
+          },
+          {
+            "tick": 57,
+            "slot": 6,
+            "port": 11,
+            "direction_float_bits": "3f4552e8",
+            "bin": 2,
+            "id": 131,
+            "velocity": [
+              8,
+              9
+            ],
+            "spawn_xy": [
+              114,
+              98
+            ]
+          },
+          {
+            "tick": 60,
+            "slot": 3,
+            "port": 11,
+            "direction_float_bits": "3f4552e8",
+            "bin": 2,
+            "id": 131,
+            "velocity": [
+              8,
+              9
+            ],
+            "spawn_xy": [
+              114,
+              98
+            ]
+          },
+          {
+            "tick": 63,
+            "slot": 8,
+            "port": 11,
+            "direction_float_bits": "3ebdd904",
+            "bin": 1,
+            "id": 242,
+            "velocity": [
+              4,
+              11
+            ],
+            "spawn_xy": [
+              107,
+              103
+            ]
+          },
+          {
+            "tick": 66,
+            "slot": 7,
+            "port": 11,
+            "direction_float_bits": "3ebdd904",
+            "bin": 1,
+            "id": 242,
+            "velocity": [
+              4,
+              11
+            ],
+            "spawn_xy": [
+              107,
+              103
+            ]
+          },
+          {
+            "tick": 69,
+            "slot": 4,
+            "port": 11,
+            "direction_float_bits": "3e2ee53b",
+            "bin": 0,
+            "id": 85,
+            "velocity": [
+              2,
+              12
+            ],
+            "spawn_xy": [
+              103,
+              104
+            ]
+          },
+          {
+            "tick": 72,
+            "slot": 3,
+            "port": 11,
+            "direction_float_bits": "40c2a974",
+            "bin": 15,
+            "id": 243,
+            "velocity": [
+              -2,
+              12
+            ],
+            "spawn_xy": [
+              96,
+              104
+            ]
+          },
+          {
+            "tick": 75,
+            "slot": 6,
+            "port": 11,
+            "direction_float_bits": "40bc430e",
+            "bin": 15,
+            "id": 243,
+            "velocity": [
+              -5,
+              11
+            ],
+            "spawn_xy": [
+              92,
+              102
+            ]
+          },
+          {
+            "tick": 78,
+            "slot": 4,
+            "port": 11,
+            "direction_float_bits": "40bc430e",
+            "bin": 15,
+            "id": 243,
+            "velocity": [
+              -5,
+              11
+            ],
+            "spawn_xy": [
+              92,
+              102
+            ]
+          },
+          {
+            "tick": 81,
+            "slot": 3,
+            "port": 11,
+            "direction_float_bits": "40af7642",
+            "bin": 14,
+            "id": 130,
+            "velocity": [
+              -9,
+              8
+            ],
+            "spawn_xy": [
+              86,
+              98
+            ]
+          },
+          {
+            "tick": 84,
+            "slot": 5,
+            "port": 11,
+            "direction_float_bits": "40af7642",
+            "bin": 14,
+            "id": 130,
+            "velocity": [
+              -9,
+              8
+            ],
+            "spawn_xy": [
+              86,
+              98
+            ]
+          },
+          {
+            "tick": 87,
+            "slot": 4,
+            "port": 11,
+            "direction_float_bits": "40af7642",
+            "bin": 14,
+            "id": 130,
+            "velocity": [
+              -9,
+              8
+            ],
+            "spawn_xy": [
+              86,
+              98
+            ]
+          },
+          {
+            "tick": 90,
+            "slot": 6,
+            "port": 11,
+            "direction_float_bits": "40a2a976",
+            "bin": 13,
+            "id": 302,
+            "velocity": [
+              -11,
+              4
+            ],
+            "spawn_xy": [
+              81,
+              91
+            ]
+          },
+          {
+            "tick": 93,
+            "slot": 3,
+            "port": 11,
+            "direction_float_bits": "40a2a976",
+            "bin": 13,
+            "id": 302,
+            "velocity": [
+              -11,
+              4
+            ],
+            "spawn_xy": [
+              81,
+              91
+            ]
+          },
+          {
+            "tick": 96,
+            "slot": 5,
+            "port": 11,
+            "direction_float_bits": "40a2a976",
+            "bin": 13,
+            "id": 302,
+            "velocity": [
+              -11,
+              4
+            ],
+            "spawn_xy": [
+              81,
+              91
+            ]
+          }
+        ],
+        "normal_shadow_counts": {
+          "131": {
+            "normal": 30,
+            "shadow": 27,
+            "negative_y_unsigned_shadow_suppression": 0
+          },
+          "130": {
+            "normal": 32,
+            "shadow": 30,
+            "negative_y_unsigned_shadow_suppression": 0
+          },
+          "242": {
+            "normal": 14,
+            "shadow": 12,
+            "negative_y_unsigned_shadow_suppression": 0
+          },
+          "303": {
+            "normal": 44,
+            "shadow": 44,
+            "negative_y_unsigned_shadow_suppression": 0
+          },
+          "302": {
+            "normal": 12,
+            "shadow": 12,
+            "negative_y_unsigned_shadow_suppression": 0
+          },
+          "243": {
+            "normal": 23,
+            "shadow": 20,
+            "negative_y_unsigned_shadow_suppression": 0
+          }
+        },
+        "literal_Uint32_shadow_condition_verified_for_all455_observed_bank8_heads": true,
+        "negative_y_underflow_witnessed": false,
+        "missing_shadow_observations_are_literal_original_conditions_not_HD_rejection": true,
+        "fixed_captures": [
+          {
+            "tick": 51,
+            "designated_id": 303,
+            "full_native_RGBA_baseline_candidate_equal": true,
+            "full_original_source_witness_exists": true,
+            "source_witnesses": [
+              {
+                "id": 303,
+                "draw_xy": [
+                  193,
+                  100
+                ],
+                "source_covered_cells": 86,
+                "original_INDEX8_source_cells_surviving": 86,
+                "native_RGB_source_palette_matches": 344
+              },
+              {
+                "id": 303,
+                "draw_xy": [
+                  152,
+                  107
+                ],
+                "source_covered_cells": 86,
+                "original_INDEX8_source_cells_surviving": 86,
+                "native_RGB_source_palette_matches": 344
+              }
+            ]
+          },
+          {
+            "tick": 59,
+            "designated_id": 131,
+            "full_native_RGBA_baseline_candidate_equal": true,
+            "full_original_source_witness_exists": true,
+            "source_witnesses": [
+              {
+                "id": 131,
+                "draw_xy": [
+                  155,
+                  143
+                ],
+                "source_covered_cells": 69,
+                "original_INDEX8_source_cells_surviving": 69,
+                "native_RGB_source_palette_matches": 276
+              },
+              {
+                "id": 131,
+                "draw_xy": [
+                  131,
+                  116
+                ],
+                "source_covered_cells": 69,
+                "original_INDEX8_source_cells_surviving": 69,
+                "native_RGB_source_palette_matches": 276
+              }
+            ]
+          },
+          {
+            "tick": 67,
+            "designated_id": 242,
+            "full_native_RGBA_baseline_candidate_equal": true,
+            "full_original_source_witness_exists": true,
+            "source_witnesses": [
+              {
+                "id": 242,
+                "draw_xy": [
+                  112,
+                  114
+                ],
+                "source_covered_cells": 89,
+                "original_INDEX8_source_cells_surviving": 89,
+                "native_RGB_source_palette_matches": 356
+              },
+              {
+                "id": 242,
+                "draw_xy": [
+                  124,
+                  147
+                ],
+                "source_covered_cells": 89,
+                "original_INDEX8_source_cells_surviving": 89,
+                "native_RGB_source_palette_matches": 356
+              }
+            ]
+          },
+          {
+            "tick": 78,
+            "designated_id": 243,
+            "full_native_RGBA_baseline_candidate_equal": true,
+            "full_original_source_witness_exists": true,
+            "source_witnesses": [
+              {
+                "id": 243,
+                "draw_xy": [
+                  85,
+                  176
+                ],
+                "source_covered_cells": 89,
+                "original_INDEX8_source_cells_surviving": 89,
+                "native_RGB_source_palette_matches": 148
+              },
+              {
+                "id": 243,
+                "draw_xy": [
+                  78,
+                  135
+                ],
+                "source_covered_cells": 89,
+                "original_INDEX8_source_cells_surviving": 89,
+                "native_RGB_source_palette_matches": 356
+              }
+            ]
+          },
+          {
+            "tick": 85,
+            "designated_id": 130,
+            "full_native_RGBA_baseline_candidate_equal": true,
+            "full_original_source_witness_exists": true,
+            "source_witnesses": [
+              {
+                "id": 130,
+                "draw_xy": [
+                  51,
+                  130
+                ],
+                "source_covered_cells": 69,
+                "original_INDEX8_source_cells_surviving": 69,
+                "native_RGB_source_palette_matches": 276
+              },
+              {
+                "id": 130,
+                "draw_xy": [
+                  78,
+                  106
+                ],
+                "source_covered_cells": 69,
+                "original_INDEX8_source_cells_surviving": 61,
+                "native_RGB_source_palette_matches": 244
+              }
+            ]
+          },
+          {
+            "tick": 94,
+            "designated_id": 302,
+            "full_native_RGBA_baseline_candidate_equal": true,
+            "full_original_source_witness_exists": true,
+            "source_witnesses": [
+              {
+                "id": 302,
+                "draw_xy": [
+                  71,
+                  95
+                ],
+                "source_covered_cells": 86,
+                "original_INDEX8_source_cells_surviving": 20,
+                "native_RGB_source_palette_matches": 80
+              },
+              {
+                "id": 302,
+                "draw_xy": [
+                  38,
+                  107
+                ],
+                "source_covered_cells": 86,
+                "original_INDEX8_source_cells_surviving": 86,
+                "native_RGB_source_palette_matches": 344
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "native_scale": 4,
+        "dimensions": [
+          1280,
+          800
+        ],
+        "paired_tick_comparisons": 98,
+        "all_original_parity_exact": true,
+        "all_HD_admissions": 0,
+        "actual_post_direction_cases": [
+          {
+            "tick": 36,
+            "slot": 3,
+            "port": 11,
+            "direction_float_bits": "403c430e",
+            "bin": 7,
+            "id": 223,
+            "velocity": [
+              2,
+              -12
+            ],
+            "spawn_xy": [
+              104,
+              64
+            ]
+          },
+          {
+            "tick": 39,
+            "slot": 5,
+            "port": 11,
+            "direction_float_bits": "4015dca7",
+            "bin": 6,
+            "id": 150,
+            "velocity": [
+              9,
+              -8
+            ],
+            "spawn_xy": [
+              114,
+              70
+            ]
+          },
+          {
+            "tick": 42,
+            "slot": 6,
+            "port": 11,
+            "direction_float_bits": "3fdeec80",
+            "bin": 4,
+            "id": 47,
+            "velocity": [
+              12,
+              -2
+            ],
+            "spawn_xy": [
+              120,
+              81
+            ]
+          },
+          {
+            "tick": 45,
+            "slot": 3,
+            "port": 11,
+            "direction_float_bits": "3faf7641",
+            "bin": 3,
+            "id": 303,
+            "velocity": [
+              12,
+              2
+            ],
+            "spawn_xy": [
+              120,
+              88
+            ]
+          },
+          {
+            "tick": 48,
+            "slot": 7,
+            "port": 11,
+            "direction_float_bits": "3f95dca7",
+            "bin": 3,
+            "id": 303,
+            "velocity": [
+              11,
+              5
+            ],
+            "spawn_xy": [
+              118,
+              92
+            ]
+          },
+          {
+            "tick": 51,
+            "slot": 4,
+            "port": 11,
+            "direction_float_bits": "3f95dca7",
+            "bin": 3,
+            "id": 303,
+            "velocity": [
+              11,
+              5
+            ],
+            "spawn_xy": [
+              118,
+              92
+            ]
+          },
+          {
+            "tick": 54,
+            "slot": 5,
+            "port": 11,
+            "direction_float_bits": "3f4552e8",
+            "bin": 2,
+            "id": 131,
+            "velocity": [
+              8,
+              9
+            ],
+            "spawn_xy": [
+              114,
+              98
+            ]
+          },
+          {
+            "tick": 57,
+            "slot": 6,
+            "port": 11,
+            "direction_float_bits": "3f4552e8",
+            "bin": 2,
+            "id": 131,
+            "velocity": [
+              8,
+              9
+            ],
+            "spawn_xy": [
+              114,
+              98
+            ]
+          },
+          {
+            "tick": 60,
+            "slot": 3,
+            "port": 11,
+            "direction_float_bits": "3f4552e8",
+            "bin": 2,
+            "id": 131,
+            "velocity": [
+              8,
+              9
+            ],
+            "spawn_xy": [
+              114,
+              98
+            ]
+          },
+          {
+            "tick": 63,
+            "slot": 8,
+            "port": 11,
+            "direction_float_bits": "3ebdd904",
+            "bin": 1,
+            "id": 242,
+            "velocity": [
+              4,
+              11
+            ],
+            "spawn_xy": [
+              107,
+              103
+            ]
+          },
+          {
+            "tick": 66,
+            "slot": 7,
+            "port": 11,
+            "direction_float_bits": "3ebdd904",
+            "bin": 1,
+            "id": 242,
+            "velocity": [
+              4,
+              11
+            ],
+            "spawn_xy": [
+              107,
+              103
+            ]
+          },
+          {
+            "tick": 69,
+            "slot": 4,
+            "port": 11,
+            "direction_float_bits": "3e2ee53b",
+            "bin": 0,
+            "id": 85,
+            "velocity": [
+              2,
+              12
+            ],
+            "spawn_xy": [
+              103,
+              104
+            ]
+          },
+          {
+            "tick": 72,
+            "slot": 3,
+            "port": 11,
+            "direction_float_bits": "40c2a974",
+            "bin": 15,
+            "id": 243,
+            "velocity": [
+              -2,
+              12
+            ],
+            "spawn_xy": [
+              96,
+              104
+            ]
+          },
+          {
+            "tick": 75,
+            "slot": 6,
+            "port": 11,
+            "direction_float_bits": "40bc430e",
+            "bin": 15,
+            "id": 243,
+            "velocity": [
+              -5,
+              11
+            ],
+            "spawn_xy": [
+              92,
+              102
+            ]
+          },
+          {
+            "tick": 78,
+            "slot": 4,
+            "port": 11,
+            "direction_float_bits": "40bc430e",
+            "bin": 15,
+            "id": 243,
+            "velocity": [
+              -5,
+              11
+            ],
+            "spawn_xy": [
+              92,
+              102
+            ]
+          },
+          {
+            "tick": 81,
+            "slot": 3,
+            "port": 11,
+            "direction_float_bits": "40af7642",
+            "bin": 14,
+            "id": 130,
+            "velocity": [
+              -9,
+              8
+            ],
+            "spawn_xy": [
+              86,
+              98
+            ]
+          },
+          {
+            "tick": 84,
+            "slot": 5,
+            "port": 11,
+            "direction_float_bits": "40af7642",
+            "bin": 14,
+            "id": 130,
+            "velocity": [
+              -9,
+              8
+            ],
+            "spawn_xy": [
+              86,
+              98
+            ]
+          },
+          {
+            "tick": 87,
+            "slot": 4,
+            "port": 11,
+            "direction_float_bits": "40af7642",
+            "bin": 14,
+            "id": 130,
+            "velocity": [
+              -9,
+              8
+            ],
+            "spawn_xy": [
+              86,
+              98
+            ]
+          },
+          {
+            "tick": 90,
+            "slot": 6,
+            "port": 11,
+            "direction_float_bits": "40a2a976",
+            "bin": 13,
+            "id": 302,
+            "velocity": [
+              -11,
+              4
+            ],
+            "spawn_xy": [
+              81,
+              91
+            ]
+          },
+          {
+            "tick": 93,
+            "slot": 3,
+            "port": 11,
+            "direction_float_bits": "40a2a976",
+            "bin": 13,
+            "id": 302,
+            "velocity": [
+              -11,
+              4
+            ],
+            "spawn_xy": [
+              81,
+              91
+            ]
+          },
+          {
+            "tick": 96,
+            "slot": 5,
+            "port": 11,
+            "direction_float_bits": "40a2a976",
+            "bin": 13,
+            "id": 302,
+            "velocity": [
+              -11,
+              4
+            ],
+            "spawn_xy": [
+              81,
+              91
+            ]
+          }
+        ],
+        "normal_shadow_counts": {
+          "131": {
+            "normal": 30,
+            "shadow": 27,
+            "negative_y_unsigned_shadow_suppression": 0
+          },
+          "130": {
+            "normal": 32,
+            "shadow": 30,
+            "negative_y_unsigned_shadow_suppression": 0
+          },
+          "242": {
+            "normal": 14,
+            "shadow": 12,
+            "negative_y_unsigned_shadow_suppression": 0
+          },
+          "303": {
+            "normal": 44,
+            "shadow": 44,
+            "negative_y_unsigned_shadow_suppression": 0
+          },
+          "302": {
+            "normal": 12,
+            "shadow": 12,
+            "negative_y_unsigned_shadow_suppression": 0
+          },
+          "243": {
+            "normal": 23,
+            "shadow": 20,
+            "negative_y_unsigned_shadow_suppression": 0
+          }
+        },
+        "literal_Uint32_shadow_condition_verified_for_all455_observed_bank8_heads": true,
+        "negative_y_underflow_witnessed": false,
+        "missing_shadow_observations_are_literal_original_conditions_not_HD_rejection": true,
+        "fixed_captures": [
+          {
+            "tick": 51,
+            "designated_id": 303,
+            "full_native_RGBA_baseline_candidate_equal": true,
+            "full_original_source_witness_exists": true,
+            "source_witnesses": [
+              {
+                "id": 303,
+                "draw_xy": [
+                  193,
+                  100
+                ],
+                "source_covered_cells": 86,
+                "original_INDEX8_source_cells_surviving": 86,
+                "native_RGB_source_palette_matches": 1376
+              },
+              {
+                "id": 303,
+                "draw_xy": [
+                  152,
+                  107
+                ],
+                "source_covered_cells": 86,
+                "original_INDEX8_source_cells_surviving": 86,
+                "native_RGB_source_palette_matches": 1376
+              }
+            ]
+          },
+          {
+            "tick": 59,
+            "designated_id": 131,
+            "full_native_RGBA_baseline_candidate_equal": true,
+            "full_original_source_witness_exists": true,
+            "source_witnesses": [
+              {
+                "id": 131,
+                "draw_xy": [
+                  155,
+                  143
+                ],
+                "source_covered_cells": 69,
+                "original_INDEX8_source_cells_surviving": 69,
+                "native_RGB_source_palette_matches": 1104
+              },
+              {
+                "id": 131,
+                "draw_xy": [
+                  131,
+                  116
+                ],
+                "source_covered_cells": 69,
+                "original_INDEX8_source_cells_surviving": 69,
+                "native_RGB_source_palette_matches": 1104
+              }
+            ]
+          },
+          {
+            "tick": 67,
+            "designated_id": 242,
+            "full_native_RGBA_baseline_candidate_equal": true,
+            "full_original_source_witness_exists": true,
+            "source_witnesses": [
+              {
+                "id": 242,
+                "draw_xy": [
+                  112,
+                  114
+                ],
+                "source_covered_cells": 89,
+                "original_INDEX8_source_cells_surviving": 89,
+                "native_RGB_source_palette_matches": 1424
+              },
+              {
+                "id": 242,
+                "draw_xy": [
+                  124,
+                  147
+                ],
+                "source_covered_cells": 89,
+                "original_INDEX8_source_cells_surviving": 89,
+                "native_RGB_source_palette_matches": 1424
+              }
+            ]
+          },
+          {
+            "tick": 78,
+            "designated_id": 243,
+            "full_native_RGBA_baseline_candidate_equal": true,
+            "full_original_source_witness_exists": true,
+            "source_witnesses": [
+              {
+                "id": 243,
+                "draw_xy": [
+                  85,
+                  176
+                ],
+                "source_covered_cells": 89,
+                "original_INDEX8_source_cells_surviving": 89,
+                "native_RGB_source_palette_matches": 592
+              },
+              {
+                "id": 243,
+                "draw_xy": [
+                  78,
+                  135
+                ],
+                "source_covered_cells": 89,
+                "original_INDEX8_source_cells_surviving": 89,
+                "native_RGB_source_palette_matches": 1424
+              }
+            ]
+          },
+          {
+            "tick": 85,
+            "designated_id": 130,
+            "full_native_RGBA_baseline_candidate_equal": true,
+            "full_original_source_witness_exists": true,
+            "source_witnesses": [
+              {
+                "id": 130,
+                "draw_xy": [
+                  51,
+                  130
+                ],
+                "source_covered_cells": 69,
+                "original_INDEX8_source_cells_surviving": 69,
+                "native_RGB_source_palette_matches": 1104
+              },
+              {
+                "id": 130,
+                "draw_xy": [
+                  78,
+                  106
+                ],
+                "source_covered_cells": 69,
+                "original_INDEX8_source_cells_surviving": 61,
+                "native_RGB_source_palette_matches": 976
+              }
+            ]
+          },
+          {
+            "tick": 94,
+            "designated_id": 302,
+            "full_native_RGBA_baseline_candidate_equal": true,
+            "full_original_source_witness_exists": true,
+            "source_witnesses": [
+              {
+                "id": 302,
+                "draw_xy": [
+                  71,
+                  95
+                ],
+                "source_covered_cells": 86,
+                "original_INDEX8_source_cells_surviving": 20,
+                "native_RGB_source_palette_matches": 320
+              },
+              {
+                "id": 302,
+                "draw_xy": [
+                  38,
+                  107
+                ],
+                "source_covered_cells": 86,
+                "original_INDEX8_source_cells_surviving": 86,
+                "native_RGB_source_palette_matches": 1376
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "combined_actual_counts": {
+    "processes": 21,
+    "engine_ticks": 1514,
+    "paired_tick_comparisons": 708,
+    "native_engine_captures": 78,
+    "capture_breakdown": {
+      "single_player": 48,
+      "linked_paired": 24,
+      "linked_baseline_discovery": 6
+    }
+  },
+  "verification": {
+    "single_player_run_pre_post_pins_exact": true,
+    "linked_discovery_run_pre_post_pins_exact": true,
+    "linked_paired_run_pre_post_pins_exact": true,
+    "all_private_observer_inverse_patches_restore_production_source_bytes_with_fuzz0": true,
+    "original_pinned_verifier_retained_unmodified": true,
+    "postrun_verifier_sha256": "968c134307f9cb7886955fb108c14298f4ec191307edd05cb566dac6e5e2f841",
+    "linked_postrun_verifier_sha256": "9b0a68551edc189ac07aed46bb09c482c038fb398c837a9179e1b013e0883e10",
+    "metadata_finalizer_sha256": "9a4222a865f9c88617dcbc761eab93efb2a2916548465d5de784d292287bc5d4"
+  },
+  "limits": [
+    "Linux SDL dummy/software only; actual SDL window/output/ReadPixels/PNG dimensions verified, not physicalGPU/fullscreen or performance.",
+    "Single-player stationary original64ticks and linked fixed ordinary moving98ticks in Episode1 physical9 only. No other table/level/Christmas-live/missing-live/full-campaign acceptance.",
+    "IDs149/150 remain classic. Generic selected-source identity does not attest shot owner/whole-bank provenance; no linkedHD acceptance.",
+    "Original later P10ship233HDshadow and P11classic149/150shadows plus233shipshadow are preserved; rawdirect sample counts differ from complete ordered reconstructed source/core counts.",
+    "Appearance/style decision and publication remain separate. No original pixels, private paths, capture links or pixel arrays are included."
+  ],
+  "verified_environment": {
+    "platform": "Linux x86_64",
+    "video_driver": "SDL dummy",
+    "renderer": "SDL software",
+    "SDL_compile_headers": "2.26.5",
+    "SDL_runtime": "2.32.4",
+    "production_binary_sha256": "71f2b38dcbc1cb7057ddea1caebf471d9f7942ca8577a034aa25ebc2b1bc8258",
+    "physical_GPU_fullscreen_Windows_performance_validation": false
+  },
+  "sanitized_projection_sha256": "3f6d63f85f1e572fee2efb67f0000fc4ff30fdc9254de94672ee93294ccc1306",
+  "publication_privacy": "Generated assets, bounded code and verification documentation only. No original pixels, original files, decoded fixture arrays, private screenshots/observer source, credentials or raw pixel buffers packaged."
+}

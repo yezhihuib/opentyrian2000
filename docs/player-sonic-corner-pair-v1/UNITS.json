@@ -1,0 +1,1998 @@
+{
+  "status": "PASS_EXTRACTED_PRODUCTION_BINDING_SHOTS_AND_GUARD_SENSITIVITY",
+  "schema": "sonic-corner-pair-units-v1",
+  "baseline": "f31e74a5c0c69d857a310b9dfd9c4c094f09e075",
+  "source_contract_sha256": "a3b891c3b11e33f46c38199befc01712a65bd006f1a3d8e0c1b6c2d7f62f42c3",
+  "art_contract_sha256": "afb4e35a8c092e5defcc73274dbf070a3ec7051176197669332263f97c697dad",
+  "test_file_sha256": {
+    "test-sonic-corner-pair-binding.py": "e7f87f4390d32a828170a4402ed2f89bb8f11944b8196899fd3e47f7e51adf64",
+    "test-sonic-corner-pair-binding.c": "c0e515147fb217422abc815a1cb21c3b0cca256a3d20848e50c75349d4d277b9",
+    "test-sonic-corner-pair-shots.c": "b192c55516f2439638c27134d6b24369b0bcc7b36b2aff37da79a94809b5a006",
+    "test-sonic-corner-pair-scope.py": "9b320cb95441b6ae77b6e73b76b40257f92f5396476d5fb5dc32cf7218bc9306"
+  },
+  "build_count": {
+    "binding": 4,
+    "original_shots": 4
+  },
+  "binding_results": {
+    "baseline": {
+      "optimized": {
+        "status": "PASS",
+        "baseline": true,
+        "head_and_wrapper_cases": 15784,
+        "identity_cases": 142,
+        "finite_binding_cases": 28896,
+        "resource_variants": 118,
+        "cache_cases": 476,
+        "coexistence_cases": 244,
+        "shadow_cases": 4040,
+        "all_21_identity_wrappers": true,
+        "indexed_bytes_checked": 1067673600,
+        "original_calls": 16380,
+        "mode_states": 64,
+        "poisoned_cache_rejections": 0,
+        "source_rejections": 120,
+        "prior_seven_checks": 112,
+        "prior_seven_cached_byte_checks": 112,
+        "game_runs": 0
+      },
+      "sanitized": {
+        "status": "PASS",
+        "baseline": true,
+        "head_and_wrapper_cases": 15784,
+        "identity_cases": 142,
+        "finite_binding_cases": 28896,
+        "resource_variants": 118,
+        "cache_cases": 476,
+        "coexistence_cases": 244,
+        "shadow_cases": 4040,
+        "all_21_identity_wrappers": true,
+        "indexed_bytes_checked": 1067673600,
+        "original_calls": 16380,
+        "mode_states": 64,
+        "poisoned_cache_rejections": 280,
+        "source_rejections": 120,
+        "prior_seven_checks": 112,
+        "prior_seven_cached_byte_checks": 112,
+        "game_runs": 0
+      }
+    },
+    "candidate": {
+      "optimized": {
+        "status": "PASS",
+        "baseline": false,
+        "head_and_wrapper_cases": 15784,
+        "identity_cases": 142,
+        "finite_binding_cases": 28896,
+        "resource_variants": 118,
+        "cache_cases": 476,
+        "coexistence_cases": 244,
+        "shadow_cases": 4040,
+        "all_21_identity_wrappers": true,
+        "indexed_bytes_checked": 1067289600,
+        "original_calls": 16374,
+        "mode_states": 64,
+        "poisoned_cache_rejections": 0,
+        "source_rejections": 120,
+        "prior_seven_checks": 112,
+        "prior_seven_cached_byte_checks": 112,
+        "game_runs": 0
+      },
+      "sanitized": {
+        "status": "PASS",
+        "baseline": false,
+        "head_and_wrapper_cases": 15784,
+        "identity_cases": 142,
+        "finite_binding_cases": 28896,
+        "resource_variants": 118,
+        "cache_cases": 476,
+        "coexistence_cases": 244,
+        "shadow_cases": 4040,
+        "all_21_identity_wrappers": true,
+        "indexed_bytes_checked": 1067289600,
+        "original_calls": 16374,
+        "mode_states": 64,
+        "poisoned_cache_rejections": 270,
+        "source_rejections": 120,
+        "prior_seven_checks": 112,
+        "prior_seven_cached_byte_checks": 112,
+        "game_runs": 0
+      }
+    }
+  },
+  "mutant_results": {
+    "omit-twoPlayerMode": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6,
+      "changed_extracted_functions_sha256": "83b34cc1337cf67a7a939b17846eeb248aafdee6a19ba2501e6d18f831835e7e"
+    },
+    "omit-galagaMode": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6,
+      "changed_extracted_functions_sha256": "444127ee4e92640dca5762a2ea3ca5d93866e1e6644eda9e194629c02fc6620d"
+    },
+    "omit-twoPlayerLinked": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6,
+      "changed_extracted_functions_sha256": "5df503f45652236d8d4a96d74390cb5336915a2e908d97bd718edfb5f761d20e"
+    },
+    "omit-explicit-xmas": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6,
+      "changed_extracted_functions_sha256": "dcd1d7efacc9fb3ba40aeb6db845d79205db83f7fe8ae2dfe4d07e17b27e6bcc"
+    },
+    "trust-warm-source": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6,
+      "changed_extracted_functions_sha256": "37a379eafb147a7992ad95d946a49be966c2c0c3b41756cf10cec0df713bf9d9"
+    },
+    "indices-only": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6,
+      "changed_extracted_functions_sha256": "c4a01e47c51389542bb1a1e9c647e5a774517e2cd2c6dee7f998f16d0b538273"
+    },
+    "coverage-only": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6,
+      "changed_extracted_functions_sha256": "5fc22b14d8456ac8bbf9ab516ea6c9cae9478c4439d737163dc2fdb24e86b12d"
+    },
+    "omit-early-indexed-shadow": {
+      "status": "EXPECTED_TEST_REJECTION",
+      "returncode": -6,
+      "changed_extracted_functions_sha256": "3356d871fc4d0b1c9e70d2dcf9539f29d543e68c4d7582ec430ce2de70a1fa69"
+    },
+    "read-cache-before-mode-gates": {
+      "status": "EXPECTED_ASAN_USE_AFTER_POISON",
+      "returncode": 1,
+      "changed_extracted_functions_sha256": "ccfea351d8fddd1f0b1d44140e2c311b5fd5335699f93c0c54a7a3036dbf97ae"
+    }
+  },
+  "new_guard_matrix": "Both130/131 x densities4/8 x cold/warm x all8 combinations of twoPlayerMode,galagaMode,twoPlayerLinked, restore acceptance with cache byte-preservation/noI/O on every reject. ASan poison guards before cache access.",
+  "actual_Christmas": "Actual selected encoded/decoded Christmas fragments equal normal; xmas=false equal fragments pass and xmas=true is rejected independently before cache.",
+  "source_guard_cases": "Current selected indices and coverage independently mutated, truncated and restored; unrelated source and remaining12original identities do not gain bindings.",
+  "source_ownership_scope": "Selected decoded identity, not whole-bank or per-shot-origin provenance. Original linked source remains classic; active-diagnostic unit proof is distinct from actual manual2P session-gate evidence.",
+  "original_shot_runs": {
+    "baseline": {
+      "optimized": {
+        "status": "PASS",
+        "ordinary_first_level_rows": 22,
+        "source_item_tables": 3,
+        "corner_pair_ids": [
+          130,
+          131
+        ],
+        "rng_calls": 0,
+        "create_cases": 81312,
+        "movement_ticks": 1431189,
+        "capacity_and_power_cases": 10575,
+        "volley_phase_cases": 519,
+        "emits": 418026,
+        "draws": 2147292,
+        "shadow_draws": 716103,
+        "original_shadow_then_head_order_verified": true,
+        "all_three_blast_normalized_state_order_hashes_equal": true,
+        "hdt_vs_episode_blast_difference_preserved": true,
+        "game_runs": 0,
+        "tables": [
+          {
+            "name": "tyrian.hdt",
+            "ordinary_first_level_rows": 22,
+            "selected_rows": [
+              285,
+              286
+            ],
+            "shipblastfilter": 208,
+            "rng_calls": 0,
+            "create_cases": 27104,
+            "emits": 139342,
+            "drift_phase_cases": 21801,
+            "volley_phase_cases": 173,
+            "capacity_cases": 2493,
+            "power_cases": 1032,
+            "repeated_volley_cases": 22,
+            "boundary_and_lifetime_cases": 1712,
+            "movement_ticks": 477063,
+            "offscreen_movement_ticks": 535,
+            "draws": 715764,
+            "shadow_draws": 238701,
+            "corner_pair_emissions": [
+              3414,
+              3408
+            ],
+            "corner_pair_movement_ticks": [
+              11534,
+              11534
+            ],
+            "corner_pair_shadow_before_head_cases": [
+              5768,
+              5768
+            ],
+            "shot_state_order_fnv1a64": "43793a6592dd1a1e",
+            "blast_normalized_state_order_fnv1a64": "792ce1deec37d8ce"
+          },
+          {
+            "name": "tyrian4.lvl",
+            "ordinary_first_level_rows": 22,
+            "selected_rows": [
+              285,
+              286
+            ],
+            "shipblastfilter": 192,
+            "rng_calls": 0,
+            "create_cases": 27104,
+            "emits": 139342,
+            "drift_phase_cases": 21801,
+            "volley_phase_cases": 173,
+            "capacity_cases": 2493,
+            "power_cases": 1032,
+            "repeated_volley_cases": 22,
+            "boundary_and_lifetime_cases": 1712,
+            "movement_ticks": 477063,
+            "offscreen_movement_ticks": 535,
+            "draws": 715764,
+            "shadow_draws": 238701,
+            "corner_pair_emissions": [
+              3414,
+              3408
+            ],
+            "corner_pair_movement_ticks": [
+              11534,
+              11534
+            ],
+            "corner_pair_shadow_before_head_cases": [
+              5768,
+              5768
+            ],
+            "shot_state_order_fnv1a64": "635b9ee8c020110e",
+            "blast_normalized_state_order_fnv1a64": "792ce1deec37d8ce"
+          },
+          {
+            "name": "tyrian5.lvl",
+            "ordinary_first_level_rows": 22,
+            "selected_rows": [
+              285,
+              286
+            ],
+            "shipblastfilter": 192,
+            "rng_calls": 0,
+            "create_cases": 27104,
+            "emits": 139342,
+            "drift_phase_cases": 21801,
+            "volley_phase_cases": 173,
+            "capacity_cases": 2493,
+            "power_cases": 1032,
+            "repeated_volley_cases": 22,
+            "boundary_and_lifetime_cases": 1712,
+            "movement_ticks": 477063,
+            "offscreen_movement_ticks": 535,
+            "draws": 715764,
+            "shadow_draws": 238701,
+            "corner_pair_emissions": [
+              3414,
+              3408
+            ],
+            "corner_pair_movement_ticks": [
+              11534,
+              11534
+            ],
+            "corner_pair_shadow_before_head_cases": [
+              5768,
+              5768
+            ],
+            "shot_state_order_fnv1a64": "635b9ee8c020110e",
+            "blast_normalized_state_order_fnv1a64": "792ce1deec37d8ce"
+          }
+        ]
+      },
+      "sanitized": {
+        "status": "PASS",
+        "ordinary_first_level_rows": 22,
+        "source_item_tables": 3,
+        "corner_pair_ids": [
+          130,
+          131
+        ],
+        "rng_calls": 0,
+        "create_cases": 81312,
+        "movement_ticks": 1431189,
+        "capacity_and_power_cases": 10575,
+        "volley_phase_cases": 519,
+        "emits": 418026,
+        "draws": 2147292,
+        "shadow_draws": 716103,
+        "original_shadow_then_head_order_verified": true,
+        "all_three_blast_normalized_state_order_hashes_equal": true,
+        "hdt_vs_episode_blast_difference_preserved": true,
+        "game_runs": 0,
+        "tables": [
+          {
+            "name": "tyrian.hdt",
+            "ordinary_first_level_rows": 22,
+            "selected_rows": [
+              285,
+              286
+            ],
+            "shipblastfilter": 208,
+            "rng_calls": 0,
+            "create_cases": 27104,
+            "emits": 139342,
+            "drift_phase_cases": 21801,
+            "volley_phase_cases": 173,
+            "capacity_cases": 2493,
+            "power_cases": 1032,
+            "repeated_volley_cases": 22,
+            "boundary_and_lifetime_cases": 1712,
+            "movement_ticks": 477063,
+            "offscreen_movement_ticks": 535,
+            "draws": 715764,
+            "shadow_draws": 238701,
+            "corner_pair_emissions": [
+              3414,
+              3408
+            ],
+            "corner_pair_movement_ticks": [
+              11534,
+              11534
+            ],
+            "corner_pair_shadow_before_head_cases": [
+              5768,
+              5768
+            ],
+            "shot_state_order_fnv1a64": "43793a6592dd1a1e",
+            "blast_normalized_state_order_fnv1a64": "792ce1deec37d8ce"
+          },
+          {
+            "name": "tyrian4.lvl",
+            "ordinary_first_level_rows": 22,
+            "selected_rows": [
+              285,
+              286
+            ],
+            "shipblastfilter": 192,
+            "rng_calls": 0,
+            "create_cases": 27104,
+            "emits": 139342,
+            "drift_phase_cases": 21801,
+            "volley_phase_cases": 173,
+            "capacity_cases": 2493,
+            "power_cases": 1032,
+            "repeated_volley_cases": 22,
+            "boundary_and_lifetime_cases": 1712,
+            "movement_ticks": 477063,
+            "offscreen_movement_ticks": 535,
+            "draws": 715764,
+            "shadow_draws": 238701,
+            "corner_pair_emissions": [
+              3414,
+              3408
+            ],
+            "corner_pair_movement_ticks": [
+              11534,
+              11534
+            ],
+            "corner_pair_shadow_before_head_cases": [
+              5768,
+              5768
+            ],
+            "shot_state_order_fnv1a64": "635b9ee8c020110e",
+            "blast_normalized_state_order_fnv1a64": "792ce1deec37d8ce"
+          },
+          {
+            "name": "tyrian5.lvl",
+            "ordinary_first_level_rows": 22,
+            "selected_rows": [
+              285,
+              286
+            ],
+            "shipblastfilter": 192,
+            "rng_calls": 0,
+            "create_cases": 27104,
+            "emits": 139342,
+            "drift_phase_cases": 21801,
+            "volley_phase_cases": 173,
+            "capacity_cases": 2493,
+            "power_cases": 1032,
+            "repeated_volley_cases": 22,
+            "boundary_and_lifetime_cases": 1712,
+            "movement_ticks": 477063,
+            "offscreen_movement_ticks": 535,
+            "draws": 715764,
+            "shadow_draws": 238701,
+            "corner_pair_emissions": [
+              3414,
+              3408
+            ],
+            "corner_pair_movement_ticks": [
+              11534,
+              11534
+            ],
+            "corner_pair_shadow_before_head_cases": [
+              5768,
+              5768
+            ],
+            "shot_state_order_fnv1a64": "635b9ee8c020110e",
+            "blast_normalized_state_order_fnv1a64": "792ce1deec37d8ce"
+          }
+        ]
+      }
+    },
+    "candidate": {
+      "optimized": {
+        "status": "PASS",
+        "ordinary_first_level_rows": 22,
+        "source_item_tables": 3,
+        "corner_pair_ids": [
+          130,
+          131
+        ],
+        "rng_calls": 0,
+        "create_cases": 81312,
+        "movement_ticks": 1431189,
+        "capacity_and_power_cases": 10575,
+        "volley_phase_cases": 519,
+        "emits": 418026,
+        "draws": 2147292,
+        "shadow_draws": 716103,
+        "original_shadow_then_head_order_verified": true,
+        "all_three_blast_normalized_state_order_hashes_equal": true,
+        "hdt_vs_episode_blast_difference_preserved": true,
+        "game_runs": 0,
+        "tables": [
+          {
+            "name": "tyrian.hdt",
+            "ordinary_first_level_rows": 22,
+            "selected_rows": [
+              285,
+              286
+            ],
+            "shipblastfilter": 208,
+            "rng_calls": 0,
+            "create_cases": 27104,
+            "emits": 139342,
+            "drift_phase_cases": 21801,
+            "volley_phase_cases": 173,
+            "capacity_cases": 2493,
+            "power_cases": 1032,
+            "repeated_volley_cases": 22,
+            "boundary_and_lifetime_cases": 1712,
+            "movement_ticks": 477063,
+            "offscreen_movement_ticks": 535,
+            "draws": 715764,
+            "shadow_draws": 238701,
+            "corner_pair_emissions": [
+              3414,
+              3408
+            ],
+            "corner_pair_movement_ticks": [
+              11534,
+              11534
+            ],
+            "corner_pair_shadow_before_head_cases": [
+              5768,
+              5768
+            ],
+            "shot_state_order_fnv1a64": "43793a6592dd1a1e",
+            "blast_normalized_state_order_fnv1a64": "792ce1deec37d8ce"
+          },
+          {
+            "name": "tyrian4.lvl",
+            "ordinary_first_level_rows": 22,
+            "selected_rows": [
+              285,
+              286
+            ],
+            "shipblastfilter": 192,
+            "rng_calls": 0,
+            "create_cases": 27104,
+            "emits": 139342,
+            "drift_phase_cases": 21801,
+            "volley_phase_cases": 173,
+            "capacity_cases": 2493,
+            "power_cases": 1032,
+            "repeated_volley_cases": 22,
+            "boundary_and_lifetime_cases": 1712,
+            "movement_ticks": 477063,
+            "offscreen_movement_ticks": 535,
+            "draws": 715764,
+            "shadow_draws": 238701,
+            "corner_pair_emissions": [
+              3414,
+              3408
+            ],
+            "corner_pair_movement_ticks": [
+              11534,
+              11534
+            ],
+            "corner_pair_shadow_before_head_cases": [
+              5768,
+              5768
+            ],
+            "shot_state_order_fnv1a64": "635b9ee8c020110e",
+            "blast_normalized_state_order_fnv1a64": "792ce1deec37d8ce"
+          },
+          {
+            "name": "tyrian5.lvl",
+            "ordinary_first_level_rows": 22,
+            "selected_rows": [
+              285,
+              286
+            ],
+            "shipblastfilter": 192,
+            "rng_calls": 0,
+            "create_cases": 27104,
+            "emits": 139342,
+            "drift_phase_cases": 21801,
+            "volley_phase_cases": 173,
+            "capacity_cases": 2493,
+            "power_cases": 1032,
+            "repeated_volley_cases": 22,
+            "boundary_and_lifetime_cases": 1712,
+            "movement_ticks": 477063,
+            "offscreen_movement_ticks": 535,
+            "draws": 715764,
+            "shadow_draws": 238701,
+            "corner_pair_emissions": [
+              3414,
+              3408
+            ],
+            "corner_pair_movement_ticks": [
+              11534,
+              11534
+            ],
+            "corner_pair_shadow_before_head_cases": [
+              5768,
+              5768
+            ],
+            "shot_state_order_fnv1a64": "635b9ee8c020110e",
+            "blast_normalized_state_order_fnv1a64": "792ce1deec37d8ce"
+          }
+        ]
+      },
+      "sanitized": {
+        "status": "PASS",
+        "ordinary_first_level_rows": 22,
+        "source_item_tables": 3,
+        "corner_pair_ids": [
+          130,
+          131
+        ],
+        "rng_calls": 0,
+        "create_cases": 81312,
+        "movement_ticks": 1431189,
+        "capacity_and_power_cases": 10575,
+        "volley_phase_cases": 519,
+        "emits": 418026,
+        "draws": 2147292,
+        "shadow_draws": 716103,
+        "original_shadow_then_head_order_verified": true,
+        "all_three_blast_normalized_state_order_hashes_equal": true,
+        "hdt_vs_episode_blast_difference_preserved": true,
+        "game_runs": 0,
+        "tables": [
+          {
+            "name": "tyrian.hdt",
+            "ordinary_first_level_rows": 22,
+            "selected_rows": [
+              285,
+              286
+            ],
+            "shipblastfilter": 208,
+            "rng_calls": 0,
+            "create_cases": 27104,
+            "emits": 139342,
+            "drift_phase_cases": 21801,
+            "volley_phase_cases": 173,
+            "capacity_cases": 2493,
+            "power_cases": 1032,
+            "repeated_volley_cases": 22,
+            "boundary_and_lifetime_cases": 1712,
+            "movement_ticks": 477063,
+            "offscreen_movement_ticks": 535,
+            "draws": 715764,
+            "shadow_draws": 238701,
+            "corner_pair_emissions": [
+              3414,
+              3408
+            ],
+            "corner_pair_movement_ticks": [
+              11534,
+              11534
+            ],
+            "corner_pair_shadow_before_head_cases": [
+              5768,
+              5768
+            ],
+            "shot_state_order_fnv1a64": "43793a6592dd1a1e",
+            "blast_normalized_state_order_fnv1a64": "792ce1deec37d8ce"
+          },
+          {
+            "name": "tyrian4.lvl",
+            "ordinary_first_level_rows": 22,
+            "selected_rows": [
+              285,
+              286
+            ],
+            "shipblastfilter": 192,
+            "rng_calls": 0,
+            "create_cases": 27104,
+            "emits": 139342,
+            "drift_phase_cases": 21801,
+            "volley_phase_cases": 173,
+            "capacity_cases": 2493,
+            "power_cases": 1032,
+            "repeated_volley_cases": 22,
+            "boundary_and_lifetime_cases": 1712,
+            "movement_ticks": 477063,
+            "offscreen_movement_ticks": 535,
+            "draws": 715764,
+            "shadow_draws": 238701,
+            "corner_pair_emissions": [
+              3414,
+              3408
+            ],
+            "corner_pair_movement_ticks": [
+              11534,
+              11534
+            ],
+            "corner_pair_shadow_before_head_cases": [
+              5768,
+              5768
+            ],
+            "shot_state_order_fnv1a64": "635b9ee8c020110e",
+            "blast_normalized_state_order_fnv1a64": "792ce1deec37d8ce"
+          },
+          {
+            "name": "tyrian5.lvl",
+            "ordinary_first_level_rows": 22,
+            "selected_rows": [
+              285,
+              286
+            ],
+            "shipblastfilter": 192,
+            "rng_calls": 0,
+            "create_cases": 27104,
+            "emits": 139342,
+            "drift_phase_cases": 21801,
+            "volley_phase_cases": 173,
+            "capacity_cases": 2493,
+            "power_cases": 1032,
+            "repeated_volley_cases": 22,
+            "boundary_and_lifetime_cases": 1712,
+            "movement_ticks": 477063,
+            "offscreen_movement_ticks": 535,
+            "draws": 715764,
+            "shadow_draws": 238701,
+            "corner_pair_emissions": [
+              3414,
+              3408
+            ],
+            "corner_pair_movement_ticks": [
+              11534,
+              11534
+            ],
+            "corner_pair_shadow_before_head_cases": [
+              5768,
+              5768
+            ],
+            "shot_state_order_fnv1a64": "635b9ee8c020110e",
+            "blast_normalized_state_order_fnv1a64": "792ce1deec37d8ce"
+          }
+        ]
+      }
+    }
+  },
+  "exact_baseline_candidate_shot_parity": true,
+  "normal_blend_shadow_indexed_wrappers": true,
+  "resource_variants": [
+    [
+      "valid",
+      1,
+      1,
+      8,
+      8,
+      0,
+      0,
+      4,
+      4
+    ],
+    [
+      "both",
+      1,
+      1,
+      8,
+      8,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "missing",
+      0,
+      0,
+      4,
+      4,
+      0,
+      0,
+      4,
+      4
+    ],
+    [
+      "only4",
+      1,
+      1,
+      4,
+      4,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "missing-130",
+      0,
+      1,
+      4,
+      8,
+      0,
+      0,
+      4,
+      4
+    ],
+    [
+      "only4-130",
+      1,
+      1,
+      4,
+      8,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "magic-8-130",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "magic-8-valid4-130",
+      1,
+      1,
+      4,
+      8,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "magic-4-130",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "magic-8-and4-130",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "magicvalid8-bad4-130",
+      1,
+      1,
+      8,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "role-8-130",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "role-8-valid4-130",
+      1,
+      1,
+      4,
+      8,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "role-4-130",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "role-8-and4-130",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "rolevalid8-bad4-130",
+      1,
+      1,
+      8,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "identity-8-130",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "identity-8-valid4-130",
+      1,
+      1,
+      4,
+      8,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "identity-4-130",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "identity-8-and4-130",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "identityvalid8-bad4-130",
+      1,
+      1,
+      8,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "density-8-130",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "density-8-valid4-130",
+      1,
+      1,
+      4,
+      8,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "density-4-130",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "density-8-and4-130",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "densityvalid8-bad4-130",
+      1,
+      1,
+      8,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "width-8-130",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "width-8-valid4-130",
+      1,
+      1,
+      4,
+      8,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "width-4-130",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "width-8-and4-130",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "widthvalid8-bad4-130",
+      1,
+      1,
+      8,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "height-8-130",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "height-8-valid4-130",
+      1,
+      1,
+      4,
+      8,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "height-4-130",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "height-8-and4-130",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "heightvalid8-bad4-130",
+      1,
+      1,
+      8,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "anchor-x-8-130",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "anchor-x-8-valid4-130",
+      1,
+      1,
+      4,
+      8,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "anchor-x-4-130",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "anchor-x-8-and4-130",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "anchor-xvalid8-bad4-130",
+      1,
+      1,
+      8,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "anchor-y-8-130",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "anchor-y-8-valid4-130",
+      1,
+      1,
+      4,
+      8,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "anchor-y-4-130",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "anchor-y-8-and4-130",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "anchor-yvalid8-bad4-130",
+      1,
+      1,
+      8,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "short-header-8-130",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "short-header-8-valid4-130",
+      1,
+      1,
+      4,
+      8,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "short-header-4-130",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "short-header-8-and4-130",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "short-headervalid8-bad4-130",
+      1,
+      1,
+      8,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "truncated-8-130",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "truncated-8-valid4-130",
+      1,
+      1,
+      4,
+      8,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "truncated-4-130",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "truncated-8-and4-130",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "truncatedvalid8-bad4-130",
+      1,
+      1,
+      8,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "extra-8-130",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "extra-8-valid4-130",
+      1,
+      1,
+      4,
+      8,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "extra-4-130",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "extra-8-and4-130",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "extravalid8-bad4-130",
+      1,
+      1,
+      8,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "missing-131",
+      1,
+      0,
+      8,
+      4,
+      0,
+      0,
+      4,
+      4
+    ],
+    [
+      "only4-131",
+      1,
+      1,
+      8,
+      4,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "magic-8-131",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "magic-8-valid4-131",
+      1,
+      1,
+      8,
+      4,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "magic-4-131",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "magic-8-and4-131",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "magicvalid8-bad4-131",
+      1,
+      1,
+      8,
+      8,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "role-8-131",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "role-8-valid4-131",
+      1,
+      1,
+      8,
+      4,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "role-4-131",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "role-8-and4-131",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "rolevalid8-bad4-131",
+      1,
+      1,
+      8,
+      8,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "identity-8-131",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "identity-8-valid4-131",
+      1,
+      1,
+      8,
+      4,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "identity-4-131",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "identity-8-and4-131",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "identityvalid8-bad4-131",
+      1,
+      1,
+      8,
+      8,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "density-8-131",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "density-8-valid4-131",
+      1,
+      1,
+      8,
+      4,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "density-4-131",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "density-8-and4-131",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "densityvalid8-bad4-131",
+      1,
+      1,
+      8,
+      8,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "width-8-131",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "width-8-valid4-131",
+      1,
+      1,
+      8,
+      4,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "width-4-131",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "width-8-and4-131",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "widthvalid8-bad4-131",
+      1,
+      1,
+      8,
+      8,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "height-8-131",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "height-8-valid4-131",
+      1,
+      1,
+      8,
+      4,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "height-4-131",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "height-8-and4-131",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "heightvalid8-bad4-131",
+      1,
+      1,
+      8,
+      8,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "anchor-x-8-131",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "anchor-x-8-valid4-131",
+      1,
+      1,
+      8,
+      4,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "anchor-x-4-131",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "anchor-x-8-and4-131",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "anchor-xvalid8-bad4-131",
+      1,
+      1,
+      8,
+      8,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "anchor-y-8-131",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "anchor-y-8-valid4-131",
+      1,
+      1,
+      8,
+      4,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "anchor-y-4-131",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "anchor-y-8-and4-131",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "anchor-yvalid8-bad4-131",
+      1,
+      1,
+      8,
+      8,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "short-header-8-131",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "short-header-8-valid4-131",
+      1,
+      1,
+      8,
+      4,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "short-header-4-131",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "short-header-8-and4-131",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "short-headervalid8-bad4-131",
+      1,
+      1,
+      8,
+      8,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "truncated-8-131",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "truncated-8-valid4-131",
+      1,
+      1,
+      8,
+      4,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "truncated-4-131",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "truncated-8-and4-131",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "truncatedvalid8-bad4-131",
+      1,
+      1,
+      8,
+      8,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "extra-8-131",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "extra-8-valid4-131",
+      1,
+      1,
+      8,
+      4,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "extra-4-131",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "extra-8-and4-131",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "extravalid8-bad4-131",
+      1,
+      1,
+      8,
+      8,
+      1,
+      0,
+      4,
+      4
+    ]
+  ],
+  "both_default_packs_loaded_independently": true,
+  "old_seven_preserved": true,
+  "all16_historical_sonic_test_files_unchanged": true,
+  "other_original_ids": 12,
+  "game_runs": 0,
+  "limitations": [
+    "Focused extracted production source, loader, guard, wrapper and original RLE tests; RGBA head compositor is a metadata-checking stub.",
+    "Source guards validate selected decoded identity, not whole-bank provenance; no root-epoch guarantee is added.",
+    "Generic compositor integration, actual-play aesthetics, natural acquisition and full-engine runtime require separate acceptance.",
+    "LeakSanitizer disabled for executor compatibility; AddressSanitizer and UndefinedBehaviorSanitizer enabled.",
+    "Malformed original source is exercised at the HD guard only; original unchecked RLE is never executed against malformed data."
+  ]
+}
