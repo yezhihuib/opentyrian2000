@@ -1,0 +1,88 @@
+{
+  "schema": "generated-sonic-six-pair-v1",
+  "source": "sources/generated-sonic6-r5.png",
+  "source_sha256": "f494b9ce6021329b20dcc3e47f39061fb6f39bc86aec963a2e104523141b97ff",
+  "source_size": [
+    1160,
+    1356
+  ],
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "model_id": null,
+    "model_id_status": "not supplied by tool",
+    "started_at": "2026-10-15T06:59:54Z",
+    "finished_at": "2026-10-15T07:01:11Z",
+    "transparent_background": true,
+    "reference_description": "Generated revision4 energy crescent; rejected predecessor/reference retained privately, not included as a production artifact.",
+    "reference_generated_sha256": "e87dc80e3281dd887c5e6dbf59eaf42b637ca0f4a709ed6a0d4b3f8ba17cef01",
+    "prompt": "Modify this game energy crescent to remove its solid green bean/plastic look. Keep EXACT same crescent silhouette, extent, position, shape and green hue, but change opacity and illumination: remove all dark opaque green rim. Across the outermost25percent of ribbon thickness, smoothly fade alpha to zero INSIDE the current bounds, with bright green translucent edges, not black or dark-green outline. Leave center luminous vivid green, no white/yellow/cyan. Flat luminous energy ribbon, not a lit3D solid object: no bevel, no shaded cylindrical volume, no specular highlight. It must merge softly with light cyan clouds as well as dark brown ground when composited, without a dark contour. No external halo beyond current silhouette. Use actual partial transparency, not painted black fading. Transparent PNG background, no text or extra objects. Keep original dimensions."
+  },
+  "reconstruction": {
+    "library": "Pillow",
+    "version": "12.3.0",
+    "crop": [
+      256,
+      44,
+      880,
+      1292
+    ],
+    "resize": [
+      56,
+      112
+    ],
+    "resample": "LANCZOS",
+    "canvas": [
+      96,
+      112
+    ],
+    "paste": [
+      20,
+      0
+    ],
+    "paste_operation": "straight RGBA paste onto transparent canvas",
+    "mirror44": "exact horizontal flip of full registered96x112 ID6 canvas",
+    "no_repaint_recolor_threshold_original_mask": true
+  },
+  "selection": {
+    "revision": 5,
+    "scope": "Offline native2x/4x cloud/brown composite pilot selection for6/44 only; engine appearance requires separate review.",
+    "extent": "Same fixed proportional registration as revision4, modestly narrower than original. No anisotropic stretch or footprint expansion.",
+    "alpha": "Bright translucent edge with interior alpha fade; no opaque dark-green rim. No procedural repaint/recolor/threshold.",
+    "not_full_family": true,
+    "remaining_original_id_count": 19
+  },
+  "entries": [
+    {
+      "id": 6,
+      "slot": 546,
+      "header_u32": [
+        80006,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "PNG_sha256": "f6a1680628ff9dc1566439b019defd89dfaef76f216638c0d30c1e955b013d04",
+      "RGBA_sha256": "7c7ce4505fe8186f1004008718ba46876b9f29701048f9fafb537bf3d9025945",
+      "HDA_sha256": "ecc014d43e863b9e68e1da95782ba6595650342a71285561f9319e89b8684e57",
+      "fractional_alpha_samples": 3113
+    },
+    {
+      "id": 44,
+      "slot": 547,
+      "header_u32": [
+        80044,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "PNG_sha256": "a961b6e6c46fde2019e70e3137aeff6f226af8249aef9881db93aa2230e2755f",
+      "RGBA_sha256": "649b3f95218508b9dbcc4eb5d1a082a222228ec20c1dee31294444a9b7a114f0",
+      "HDA_sha256": "a3dfb56dbec6479ce725e388b15e34963ea9e960c3deeeba335261393fa9a167",
+      "fractional_alpha_samples": 3113
+    }
+  ]
+}

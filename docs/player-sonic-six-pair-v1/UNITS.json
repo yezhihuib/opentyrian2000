@@ -1,0 +1,783 @@
+{
+  "status": "PASS",
+  "scope": {
+    "baseline": "0ecfef98756fd6e37999d79eb13d5c740d988a7b",
+    "exact_renderer_inverse": true,
+    "production_source_files_checked": 153,
+    "only_changed_production_file": "src/render_mirror.c",
+    "candidate_renderer_sha256": "ce839aa180a89a2ff297073a76c1ea2b144064751e6a8c5a971d1a41dc679479",
+    "gameplay_input_shots_blitters_rng_unchanged": true
+  },
+  "art_sha256": {
+    "6": "ecc014d43e863b9e68e1da95782ba6595650342a71285561f9319e89b8684e57",
+    "44": "a3dfb56dbec6479ce725e388b15e34963ea9e960c3deeeba335261393fa9a167"
+  },
+  "default_packs": {
+    "preview": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+    "debug": "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test"
+  },
+  "data_sha256": {
+    "tyrian.shp": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+    "tyrianc.shp": "e980f02021395d39b86491acdc2ecd6dd47ea2a9f859fe3928f81b75e244fd7d"
+  },
+  "source_rows": {
+    "normal_first_level_rows": [
+      {
+        "mode": 1,
+        "power": 1,
+        "record": 276,
+        "ids": [
+          6,
+          44
+        ]
+      },
+      {
+        "mode": 1,
+        "power": 2,
+        "record": 277,
+        "ids": [
+          6,
+          44,
+          63
+        ]
+      },
+      {
+        "mode": 1,
+        "power": 3,
+        "record": 278,
+        "ids": [
+          6,
+          44,
+          223,
+          224
+        ]
+      },
+      {
+        "mode": 1,
+        "power": 4,
+        "record": 279,
+        "ids": [
+          16,
+          54,
+          63
+        ]
+      },
+      {
+        "mode": 1,
+        "power": 5,
+        "record": 280,
+        "ids": [
+          16,
+          54,
+          223,
+          224
+        ]
+      },
+      {
+        "mode": 1,
+        "power": 6,
+        "record": 281,
+        "ids": [
+          16,
+          54,
+          223,
+          224
+        ]
+      },
+      {
+        "mode": 1,
+        "power": 7,
+        "record": 282,
+        "ids": [
+          105,
+          106,
+          124,
+          125,
+          223,
+          224
+        ]
+      },
+      {
+        "mode": 1,
+        "power": 8,
+        "record": 283,
+        "ids": [
+          73,
+          82,
+          105,
+          106,
+          124,
+          125
+        ]
+      },
+      {
+        "mode": 1,
+        "power": 9,
+        "record": 284,
+        "ids": [
+          73,
+          105,
+          106,
+          124,
+          125,
+          242,
+          243
+        ]
+      },
+      {
+        "mode": 1,
+        "power": 10,
+        "record": 285,
+        "ids": [
+          73,
+          105,
+          106,
+          124,
+          125,
+          130,
+          131
+        ]
+      },
+      {
+        "mode": 1,
+        "power": 11,
+        "record": 286,
+        "ids": [
+          105,
+          106,
+          124,
+          125,
+          130,
+          131,
+          149,
+          150
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 1,
+        "record": 287,
+        "ids": [
+          73
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 2,
+        "record": 288,
+        "ids": [
+          63,
+          73
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 3,
+        "record": 289,
+        "ids": [
+          63
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 4,
+        "record": 290,
+        "ids": [
+          63
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 5,
+        "record": 291,
+        "ids": [
+          63,
+          73
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 6,
+        "record": 292,
+        "ids": [
+          63,
+          143,
+          144
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 7,
+        "record": 293,
+        "ids": [
+          73,
+          143,
+          144
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 8,
+        "record": 294,
+        "ids": [
+          63,
+          143,
+          144
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 9,
+        "record": 295,
+        "ids": [
+          63,
+          73,
+          143,
+          144
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 10,
+        "record": 296,
+        "ids": [
+          143,
+          144
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 11,
+        "record": 297,
+        "ids": [
+          143,
+          144
+        ]
+      }
+    ],
+    "pilot_reuse_rows": [
+      {
+        "mode": 1,
+        "power": 1,
+        "record": 276,
+        "ids": [
+          6,
+          44
+        ]
+      },
+      {
+        "mode": 1,
+        "power": 2,
+        "record": 277,
+        "ids": [
+          6,
+          44,
+          63
+        ]
+      },
+      {
+        "mode": 1,
+        "power": 3,
+        "record": 278,
+        "ids": [
+          6,
+          44,
+          223,
+          224
+        ]
+      }
+    ],
+    "mode2_and_mode1_powers4_to11_exclude_pilot": true,
+    "original_port11_mapping_cost950_power50_verified": true,
+    "shot_function_sha256": {
+      "player_shot_create": "106e3e5dc4305d556d368dfc2e052399766f44ea063a9a7b407877349164a320",
+      "player_shot_move_and_draw": "cbb509d45c570a3766a523e768915c8b7874824d6c816160e5f8776e286ebad8"
+    }
+  },
+  "shot_runs": {
+    "optimized": {
+      "status": "PASS",
+      "ordinary_first_level_rows": 22,
+      "create_cases": 7436,
+      "movement_ticks": 72332,
+      "capacity_and_power_cases": 18,
+      "volley_phase_cases": 129,
+      "emits": 36896,
+      "draws": 108498,
+      "shadow_draws": 36166,
+      "game_runs": 0
+    },
+    "sanitized": {
+      "status": "PASS",
+      "ordinary_first_level_rows": 22,
+      "create_cases": 7436,
+      "movement_ticks": 72332,
+      "capacity_and_power_cases": 18,
+      "volley_phase_cases": 129,
+      "emits": 36896,
+      "draws": 108498,
+      "shadow_draws": 36166,
+      "game_runs": 0
+    }
+  },
+  "actual_christmas_selected_decoded_sources_equal_normal": true,
+  "resource_variants": [
+    [
+      "valid",
+      1,
+      1,
+      8,
+      8
+    ],
+    [
+      "missing",
+      0,
+      0,
+      8,
+      8
+    ],
+    [
+      "only4",
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "invalid8-valid4",
+      1,
+      1,
+      4,
+      8
+    ],
+    [
+      "missing-6",
+      0,
+      1,
+      8,
+      8
+    ],
+    [
+      "only4-6",
+      1,
+      1,
+      4,
+      8
+    ],
+    [
+      "magic-6",
+      0,
+      1,
+      8,
+      8
+    ],
+    [
+      "magic-8-valid4-6",
+      1,
+      1,
+      4,
+      8
+    ],
+    [
+      "role-6",
+      0,
+      1,
+      8,
+      8
+    ],
+    [
+      "role-8-valid4-6",
+      1,
+      1,
+      4,
+      8
+    ],
+    [
+      "identity-6",
+      0,
+      1,
+      8,
+      8
+    ],
+    [
+      "identity-8-valid4-6",
+      1,
+      1,
+      4,
+      8
+    ],
+    [
+      "density-6",
+      0,
+      1,
+      8,
+      8
+    ],
+    [
+      "density-8-valid4-6",
+      1,
+      1,
+      4,
+      8
+    ],
+    [
+      "width-6",
+      0,
+      1,
+      8,
+      8
+    ],
+    [
+      "width-8-valid4-6",
+      1,
+      1,
+      4,
+      8
+    ],
+    [
+      "height-6",
+      0,
+      1,
+      8,
+      8
+    ],
+    [
+      "height-8-valid4-6",
+      1,
+      1,
+      4,
+      8
+    ],
+    [
+      "anchor-x-6",
+      0,
+      1,
+      8,
+      8
+    ],
+    [
+      "anchor-x-8-valid4-6",
+      1,
+      1,
+      4,
+      8
+    ],
+    [
+      "anchor-y-6",
+      0,
+      1,
+      8,
+      8
+    ],
+    [
+      "anchor-y-8-valid4-6",
+      1,
+      1,
+      4,
+      8
+    ],
+    [
+      "short-header-6",
+      0,
+      1,
+      8,
+      8
+    ],
+    [
+      "short-header-8-valid4-6",
+      1,
+      1,
+      4,
+      8
+    ],
+    [
+      "truncated-6",
+      0,
+      1,
+      8,
+      8
+    ],
+    [
+      "truncated-8-valid4-6",
+      1,
+      1,
+      4,
+      8
+    ],
+    [
+      "extra-6",
+      0,
+      1,
+      8,
+      8
+    ],
+    [
+      "extra-8-valid4-6",
+      1,
+      1,
+      4,
+      8
+    ],
+    [
+      "missing-44",
+      1,
+      0,
+      8,
+      8
+    ],
+    [
+      "only4-44",
+      1,
+      1,
+      8,
+      4
+    ],
+    [
+      "magic-44",
+      1,
+      0,
+      8,
+      8
+    ],
+    [
+      "magic-8-valid4-44",
+      1,
+      1,
+      8,
+      4
+    ],
+    [
+      "role-44",
+      1,
+      0,
+      8,
+      8
+    ],
+    [
+      "role-8-valid4-44",
+      1,
+      1,
+      8,
+      4
+    ],
+    [
+      "identity-44",
+      1,
+      0,
+      8,
+      8
+    ],
+    [
+      "identity-8-valid4-44",
+      1,
+      1,
+      8,
+      4
+    ],
+    [
+      "density-44",
+      1,
+      0,
+      8,
+      8
+    ],
+    [
+      "density-8-valid4-44",
+      1,
+      1,
+      8,
+      4
+    ],
+    [
+      "width-44",
+      1,
+      0,
+      8,
+      8
+    ],
+    [
+      "width-8-valid4-44",
+      1,
+      1,
+      8,
+      4
+    ],
+    [
+      "height-44",
+      1,
+      0,
+      8,
+      8
+    ],
+    [
+      "height-8-valid4-44",
+      1,
+      1,
+      8,
+      4
+    ],
+    [
+      "anchor-x-44",
+      1,
+      0,
+      8,
+      8
+    ],
+    [
+      "anchor-x-8-valid4-44",
+      1,
+      1,
+      8,
+      4
+    ],
+    [
+      "anchor-y-44",
+      1,
+      0,
+      8,
+      8
+    ],
+    [
+      "anchor-y-8-valid4-44",
+      1,
+      1,
+      8,
+      4
+    ],
+    [
+      "short-header-44",
+      1,
+      0,
+      8,
+      8
+    ],
+    [
+      "short-header-8-valid4-44",
+      1,
+      1,
+      8,
+      4
+    ],
+    [
+      "truncated-44",
+      1,
+      0,
+      8,
+      8
+    ],
+    [
+      "truncated-8-valid4-44",
+      1,
+      1,
+      8,
+      4
+    ],
+    [
+      "extra-44",
+      1,
+      0,
+      8,
+      8
+    ],
+    [
+      "extra-8-valid4-44",
+      1,
+      1,
+      8,
+      4
+    ]
+  ],
+  "builds": {
+    "baseline": {
+      "function_sha256": {
+        "decode_tile": "356e5c5d3cfbffadf047ce1fcfca196756b9f5bff0fdafe86d125540c3d78a48",
+        "read_asset": "5b03319024d7b3f1bd037cd1883a5b2f55321cf444814ec505985200bfe03279",
+        "explosion_asset_slot": "00d117c7d38f192ac14a6f30067abfb722392bc3966dcd9b53f30c9406d24a8c",
+        "mint27_source_matches": "f2481a7985c483fa4d1a605a4e93453bdbc664442869c63bffdf8828d0101111",
+        "get_asset": "8f429a7674e027a98797cabe084dcd55ca7fb1d005507672a747d0c64828b712",
+        "render_mirror_entity": "167bdf3df970fa0ca01bb8e5768bf6f8eff263cda3edb44fb76c9ea4626394f7",
+        "blit_sprite2": "0352e129afff4158402db4614a5dadd8f9e76901b250f6156e486b2e10f89266",
+        "blit_sprite2_darken": "c95a303e399808ccbc5ffb54ae99fc954af46a3d42144caaafc5ff55a964636a",
+        "draw_entity_sprite2": "394bca839b5814595b006b279b526b6cebf8e83119143bf64b90a80d7e5da0d3"
+      },
+      "runs": {
+        "optimized": {
+          "status": "PASS",
+          "baseline": true,
+          "head_and_wrapper_cases": 1728,
+          "identity_cases": 136,
+          "finite_binding_cases": 28896,
+          "resource_variants": 52,
+          "cache_cases": 104,
+          "shadow_cases": 384,
+          "indexed_bytes_checked": 78540800,
+          "original_calls": 1208,
+          "game_runs": 0
+        },
+        "sanitized": {
+          "status": "PASS",
+          "baseline": true,
+          "head_and_wrapper_cases": 1728,
+          "identity_cases": 136,
+          "finite_binding_cases": 28896,
+          "resource_variants": 52,
+          "cache_cases": 104,
+          "shadow_cases": 384,
+          "indexed_bytes_checked": 78540800,
+          "original_calls": 1208,
+          "game_runs": 0
+        }
+      }
+    },
+    "candidate": {
+      "function_sha256": {
+        "decode_tile": "356e5c5d3cfbffadf047ce1fcfca196756b9f5bff0fdafe86d125540c3d78a48",
+        "read_asset": "5b03319024d7b3f1bd037cd1883a5b2f55321cf444814ec505985200bfe03279",
+        "explosion_asset_slot": "00d117c7d38f192ac14a6f30067abfb722392bc3966dcd9b53f30c9406d24a8c",
+        "mint27_source_matches": "f2481a7985c483fa4d1a605a4e93453bdbc664442869c63bffdf8828d0101111",
+        "get_asset": "c7419e0d884b1e2e873bf1f9419f8d6bd964cc97bf4411cfba8fa0bab2d2be24",
+        "render_mirror_entity": "8902c2e435795d82c293804ee1c34c10369a108227772b999880684802fae11b",
+        "sonic_six_pair_member": "bedbd91fba3c16bf569431d9cda9a533a773ef6aed89acc1d96f7ea0f6ac53d9",
+        "sonic_six_pair_source_matches": "d0b080b2e8fcecf915d8d4e7ada20ab9cc1b587ed76674dd738a33e0732e8ba8",
+        "blit_sprite2": "0352e129afff4158402db4614a5dadd8f9e76901b250f6156e486b2e10f89266",
+        "blit_sprite2_darken": "c95a303e399808ccbc5ffb54ae99fc954af46a3d42144caaafc5ff55a964636a",
+        "draw_entity_sprite2": "394bca839b5814595b006b279b526b6cebf8e83119143bf64b90a80d7e5da0d3"
+      },
+      "runs": {
+        "optimized": {
+          "status": "PASS",
+          "baseline": false,
+          "head_and_wrapper_cases": 1728,
+          "identity_cases": 136,
+          "finite_binding_cases": 28896,
+          "resource_variants": 52,
+          "cache_cases": 104,
+          "shadow_cases": 384,
+          "indexed_bytes_checked": 78540800,
+          "original_calls": 1208,
+          "game_runs": 0
+        },
+        "sanitized": {
+          "status": "PASS",
+          "baseline": false,
+          "head_and_wrapper_cases": 1728,
+          "identity_cases": 136,
+          "finite_binding_cases": 28896,
+          "resource_variants": 52,
+          "cache_cases": 104,
+          "shadow_cases": 384,
+          "indexed_bytes_checked": 78540800,
+          "original_calls": 1208,
+          "game_runs": 0
+        }
+      }
+    }
+  },
+  "game_runs": 0,
+  "limitations": [
+    "Focused extracted production source, loader, guard, wrapper and original RLE tests; RGBA head compositor is a metadata-checking stub.",
+    "Generic compositor integration, actual-play aesthetics, natural acquisition and full-engine runtime require separate acceptance.",
+    "LeakSanitizer disabled for executor compatibility; AddressSanitizer and UndefinedBehaviorSanitizer enabled.",
+    "Malformed original source is exercised at the HD guard only; original unchecked RLE is never executed against malformed data."
+  ]
+}

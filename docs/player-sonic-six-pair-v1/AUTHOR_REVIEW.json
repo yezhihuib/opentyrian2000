@@ -1,0 +1,60 @@
+{
+  "schema": "sonic-six-pair-r5-author-review-v1",
+  "status": "PASS_BOUNDED_PILOT_REVIEW",
+  "art_revision": 5,
+  "family_ids": [
+    6,
+    44
+  ],
+  "not_full_sonic_family": true,
+  "remaining_original_family_members": 19,
+  "candidate_renderer_sha256": "ce839aa180a89a2ff297073a76c1ea2b144064751e6a8c5a971d1a41dc679479",
+  "art_contract_sha256": "74d27134ae813eac219b2c5a4bf126b9c3bf7c5d395a8927589bb27205913e30",
+  "master_sha256": "f494b9ce6021329b20dcc3e47f39061fb6f39bc86aec963a2e104523141b97ff",
+  "parent_visual_review": {
+    "scope": [
+      "Actual native4x source/R4/R5 cloud44 comparison, tick41",
+      "Full actual native640 P1mode1 candidate frame"
+    ],
+    "findings": [
+      "R5 removes dark solid rim",
+      "Readable green energy on cloud",
+      "Modest width difference acceptable"
+    ]
+  },
+  "author_visual_review": {
+    "scope": [
+      "Actual full native640 and native1280 P1mode1 frames",
+      "Unscaled native2x/4x brown ID6 and cloud ID44 paired crops for P1/P2/P3mode1, ticks41/42"
+    ],
+    "findings": [
+      "Soft translucent contour survives actual native presentation",
+      "No R4-like dark solid contour observed",
+      "Orientation, exact full-canvas mirror and registered footprint preserved"
+    ],
+    "selection_tradeoff": "Selected crescent is modestly narrower than the original source; no anisotropic stretching or alpha-area forcing"
+  },
+  "art_vs_renderer_diagnosis": {
+    "R4": "Private actual-pre/source/post instrumentation verified exact straight-alpha blend at all10752 density8 texels and all actual native presentation samples; authored near-opaque dark-green rim caused rejected appearance",
+    "R5": "Generated master changed authored RGB and alpha; production renderer and runtime fixture binaries are unchanged from R4; no procedural alpha repaint/recolor/threshold"
+  },
+  "controlled_loadout_limitation": "Original menus lead to first destination, then a one-time diagnostic starting rear loadout is selected. Original firing, movement, cadence, energy, shields, placement, shadows and RNG remain authoritative. This is appearance/equivalence evidence, not actual shop purchase, natural acquisition or survival proof.",
+  "independent_review": {
+    "source_and_manifest_inverse": "PASS",
+    "generated_master_and_deterministic_art": "PASS",
+    "all_six_optimized_sanitized_unit_builds": "PASS",
+    "aggregate_HDA_entries": 3348,
+    "aggregate_exact_source_PNGs": 568,
+    "other19_and_previous_cloud_fix_preserved": true
+  },
+  "publication": "HELD_FOR_SEPARATE_PARENT_ACTION",
+  "private_original_references_and_captures_included": false,
+  "not_claimed": [
+    "Full21-ID family completion",
+    "Natural shop acquisition",
+    "Whole level/campaign",
+    "Christmas or missing-resource live gameplay",
+    "Hard15 NIGHT",
+    "Physical GPU/fullscreen, Windows or performance acceptance"
+  ]
+}

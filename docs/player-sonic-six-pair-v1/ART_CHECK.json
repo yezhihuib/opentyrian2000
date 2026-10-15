@@ -1,0 +1,70 @@
+{
+  "status": "PASS_R5_RESOURCE_INTEGRITY_BOUNDED_NATIVE_REVIEW",
+  "kind": "generated-only art and canonical resource verification",
+  "game_runs": 0,
+  "family_ids": [
+    6,
+    44
+  ],
+  "not_full_sonic_family": true,
+  "remaining_original_family_members": 19,
+  "contract_sha256": "74d27134ae813eac219b2c5a4bf126b9c3bf7c5d395a8927589bb27205913e30",
+  "master_sha256": "f494b9ce6021329b20dcc3e47f39061fb6f39bc86aec963a2e104523141b97ff",
+  "entries": [
+    {
+      "id": 6,
+      "slot": 546,
+      "header_u32": [
+        80006,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "PNG_sha256": "f6a1680628ff9dc1566439b019defd89dfaef76f216638c0d30c1e955b013d04",
+      "RGBA_sha256": "7c7ce4505fe8186f1004008718ba46876b9f29701048f9fafb537bf3d9025945",
+      "HDA_sha256": "ecc014d43e863b9e68e1da95782ba6595650342a71285561f9319e89b8684e57",
+      "fractional_alpha_samples": 3113
+    },
+    {
+      "id": 44,
+      "slot": 547,
+      "header_u32": [
+        80044,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "PNG_sha256": "a961b6e6c46fde2019e70e3137aeff6f226af8249aef9881db93aa2230e2755f",
+      "RGBA_sha256": "649b3f95218508b9dbcc4eb5d1a082a222228ec20c1dee31294444a9b7a114f0",
+      "HDA_sha256": "a3dfb56dbec6479ce725e388b15e34963ea9e960c3deeeba335261393fa9a167",
+      "fractional_alpha_samples": 3113
+    }
+  ],
+  "default_listed_count_before": 554,
+  "default_listed_count_after": 556,
+  "default_physical_hda_before": 560,
+  "default_physical_hda_after": 562,
+  "unlisted_hda_retained_per_default": 6,
+  "rebuild_result": "Exact4 files:2 PNG,2 HDR1 with matching fullRGBA; registered44 exact horizontal mirror6",
+  "aggregate_assets": "PASS; full repository resources including previous families and newSonic verifier",
+  "original_data_or_pixels_in_public_artifacts": false,
+  "native_runtime_acceptance": "separate",
+  "aggregate_results": {
+    "verified_HDA_entries": 3348,
+    "verified_exact_source_pngs": 568,
+    "verified_pack_count": 18,
+    "verified_player_sonic_six_pair_members": 2,
+    "all_runtime_RGBA_and_header_bytes_exact": true
+  },
+  "native_art_review": {
+    "status": "BOUNDED_PARENT_ACTUAL_NATIVE_ACCEPTANCE",
+    "previous_revision": "R4 rejected for opaque dark rim; retained privately, not current artwork",
+    "parent_review": "Actual native4x cloud44 comparison at tick41 and full native640 P1mode1 frame; no dark solid rim, readable green, modest width difference accepted",
+    "additional_author_review": "P1/P2/P3mode1 unscaled6/44 cloud/brown crops at native2x/4x, ticks41/42",
+    "publication": "HELD_FOR_SEPARATE_PARENT_ACTION"
+  }
+}

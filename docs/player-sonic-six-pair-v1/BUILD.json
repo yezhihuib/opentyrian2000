@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "kind": "Linux production engine build, not runtime acceptance",
+  "game_runs": 0,
+  "parent": "0ecfef98756fd6e37999d79eb13d5c740d988a7b",
+  "command": "PKG_CONFIG_PATH=<local SDL SDK>/lib/pkgconfig make -j4 WITH_NETWORK=false LDLIBS=-lz",
+  "initial_attempt": {
+    "status": "BLOCKED_DEPENDENCY_DISCOVERY",
+    "reason": "Default pkg-config search lacked SDL2 headers; retry used existing reviewed local SDL SDK."
+  },
+  "compiler_warnings": [
+    {
+      "file": "src/asset_debug.c",
+      "line": 161,
+      "kind": "misleading-indentation",
+      "baseline_unchanged": true
+    },
+    {
+      "file": "src/game_probe_fields.inc",
+      "lines": [
+        12,
+        13,
+        14
+      ],
+      "kind": "misleading-indentation",
+      "baseline_unchanged": true
+    },
+    {
+      "file": "src/render_mirror.c",
+      "candidate_line": 3607,
+      "kind": "misleading-indentation",
+      "baseline_unchanged": true
+    }
+  ],
+  "renderer_sha256": "ce839aa180a89a2ff297073a76c1ea2b144064751e6a8c5a971d1a41dc679479",
+  "limits": [
+    "Network-disabled Linux build; networking behavior not tested.",
+    "Native engine output and physical GPU/Windows acceptance separate."
+  ]
+}

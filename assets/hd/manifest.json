@@ -29154,7 +29154,7 @@
       }
     },
     "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 554,
+      "count": 556,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -36357,11 +36357,37 @@
           "sha256": "c9368682b053458b0f6e438375c6b76c311a5ac9ec2665004dc3d9ee771cc072",
           "source_png": "assets/hd/source/option-plasma-bank9-300-8-c9368682b053.png",
           "source_png_sha256": "92faa0b7693c3934174f2678ecd6fb2d05843f88c45a7676dd17ab945f197642"
+        },
+        "bullet-6-8.hda": {
+          "header_u32": [
+            80006,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "sha256": "ecc014d43e863b9e68e1da95782ba6595650342a71285561f9319e89b8684e57",
+          "source_png": "assets/hd/source/bullet-6-8-ecc014d43e86.png",
+          "source_png_sha256": "f6a1680628ff9dc1566439b019defd89dfaef76f216638c0d30c1e955b013d04"
+        },
+        "bullet-44-8.hda": {
+          "header_u32": [
+            80044,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "sha256": "a3dfb56dbec6479ce725e388b15e34963ea9e960c3deeeba335261393fa9a167",
+          "source_png": "assets/hd/source/bullet-44-8-a3dfb56dbec6.png",
+          "source_png_sha256": "a961b6e6c46fde2019e70e3137aeff6f226af8249aef9881db93aa2230e2755f"
         }
       }
     },
     "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 554,
+      "count": 556,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -43564,6 +43590,32 @@
           "sha256": "c9368682b053458b0f6e438375c6b76c311a5ac9ec2665004dc3d9ee771cc072",
           "source_png": "assets/hd/source/option-plasma-bank9-300-8-c9368682b053.png",
           "source_png_sha256": "92faa0b7693c3934174f2678ecd6fb2d05843f88c45a7676dd17ab945f197642"
+        },
+        "bullet-6-8.hda": {
+          "header_u32": [
+            80006,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "sha256": "ecc014d43e863b9e68e1da95782ba6595650342a71285561f9319e89b8684e57",
+          "source_png": "assets/hd/source/bullet-6-8-ecc014d43e86.png",
+          "source_png_sha256": "f6a1680628ff9dc1566439b019defd89dfaef76f216638c0d30c1e955b013d04"
+        },
+        "bullet-44-8.hda": {
+          "header_u32": [
+            80044,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "sha256": "a3dfb56dbec6479ce725e388b15e34963ea9e960c3deeeba335261393fa9a167",
+          "source_png": "assets/hd/source/bullet-44-8-a3dfb56dbec6.png",
+          "source_png_sha256": "a961b6e6c46fde2019e70e3137aeff6f226af8249aef9881db93aa2230e2755f"
         }
       }
     }
@@ -47045,6 +47097,16 @@
       "path": "assets/hd/source/option-plasma-bank9-300-8-c9368682b053.png",
       "sha256": "92faa0b7693c3934174f2678ecd6fb2d05843f88c45a7676dd17ab945f197642",
       "RGBA_sha256": "63e651da2800924432546e0263e6e229cb13ee52dc636a8e7033e5156c8f48ce"
+    },
+    "ecc014d43e863b9e68e1da95782ba6595650342a71285561f9319e89b8684e57": {
+      "path": "assets/hd/source/bullet-6-8-ecc014d43e86.png",
+      "sha256": "f6a1680628ff9dc1566439b019defd89dfaef76f216638c0d30c1e955b013d04",
+      "RGBA_sha256": "7c7ce4505fe8186f1004008718ba46876b9f29701048f9fafb537bf3d9025945"
+    },
+    "a3dfb56dbec6479ce725e388b15e34963ea9e960c3deeeba335261393fa9a167": {
+      "path": "assets/hd/source/bullet-44-8-a3dfb56dbec6.png",
+      "sha256": "a961b6e6c46fde2019e70e3137aeff6f226af8249aef9881db93aa2230e2755f",
+      "RGBA_sha256": "649b3f95218508b9dbcc4eb5d1a082a222228ec20c1dee31294444a9b7a114f0"
     }
   },
   "no_original_game_data": true,
@@ -52419,6 +52481,38 @@
         "id": 300,
         "slot": 545,
         "HDA_sha256": "c9368682b053458b0f6e438375c6b76c311a5ac9ec2665004dc3d9ee771cc072"
+      }
+    ]
+  },
+  "player_sonic_six_pair_v1": {
+    "source": "assets/hd/artwork/player-sonic-six-pair-v1",
+    "contract_sha256": "74d27134ae813eac219b2c5a4bf126b9c3bf7c5d395a8927589bb27205913e30",
+    "role": 8,
+    "density": 8,
+    "logical_size": [
+      12,
+      14
+    ],
+    "anchor": [
+      0,
+      0
+    ],
+    "ids": [
+      6,
+      44
+    ],
+    "scope": "Normal player Sonic Wave6/44 pilot only, including ordinary rear11 mode1 powers1\u20133 shared source identities. Other19 family IDs remain original; not whole-family completion. Original shots, shadows, placement, state and RNG unchanged.",
+    "fallback": "Explicit Christmas/original-reference/invalid/missing diagnostic rejection and exact current selected indices+coverage before each cold/warm lookup; independent8-to4-to-indexed fallback.",
+    "entries": [
+      {
+        "id": 6,
+        "slot": 546,
+        "HDA_sha256": "ecc014d43e863b9e68e1da95782ba6595650342a71285561f9319e89b8684e57"
+      },
+      {
+        "id": 44,
+        "slot": 547,
+        "HDA_sha256": "a3dfb56dbec6479ce725e388b15e34963ea9e960c3deeeba335261393fa9a167"
       }
     ]
   }
