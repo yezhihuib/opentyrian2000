@@ -62,6 +62,8 @@ typedef enum {
 #define render_mirror_terrain_row(...) 0u
 #define render_mirror_ground101_layer1(...) ((void)0)
 #define render_mirror_terrain_pixel(...) ((void)0)
+#define render_mirror_cloud_blend_row(...) 0u
+#define render_mirror_cloud_blend_pixel(surface,address,source,compatible,replaced) ((void)(compatible),(void)(replaced))
 #define render_mirror_sprite2_blend_pixel(...) ((void)0)
 #define render_mirror_plasma_projectile_begin(...) false
 #define render_mirror_plasma_projectile_pixel(surface,address,source,compatible) ((void)(compatible))
@@ -124,6 +126,8 @@ void render_mirror_map_begin(char shape_file);
 void render_mirror_bind_terrain(unsigned int layer, unsigned int id, const Uint8 *data);
 unsigned int render_mirror_terrain_row(SDL_Surface *, int x, int y, Uint8 **map, int style);
 void render_mirror_terrain_pixel(SDL_Surface *, Uint8 *, Uint8 source, int style, bool replaced);
+unsigned int render_mirror_cloud_blend_row(SDL_Surface *,int x,int y,Uint8 **map);
+void render_mirror_cloud_blend_pixel(SDL_Surface *,Uint8 *,Uint8 source,bool compatible,bool replaced);
 void render_mirror_sprite2_blend_pixel(SDL_Surface *, Uint8 *, Uint8 source, Sprite2_array, unsigned int index, int origin_x, int origin_y);
 /* Exact original OPTION_SHAPES22..24 only; independent admission per raw call. */
 bool render_mirror_plasma_projectile_begin(SDL_Surface *,int x,int y,unsigned int table,unsigned int index);

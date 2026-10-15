@@ -1,0 +1,653 @@
+{
+  "schema": "original-cloud-blend-validation-v1",
+  "base_commit": "16810f07ce6ffe58df04f07d97287b5329450d9b",
+  "production_paths": [
+    "src/backgrnd.c",
+    "src/render_mirror.c",
+    "src/render_mirror.h"
+  ],
+  "production_sha256": {
+    "src/backgrnd.c": "2f8200dd23321ea9c4a64f4a15e8ce213045d590b1df3afa17ab8f609e301259",
+    "src/render_mirror.c": "48d0ae44736febe90b6f5031037e376adfd284926dbfef54e608ae0f148bccb8",
+    "src/render_mirror.h": "2364a277079e48b7765d4f279e1d505435693e1957cdcb291dbe34c782d4407d"
+  },
+  "assets_unchanged": 6722,
+  "asset_manifest_map_sha256": "c3b9c10b5edf102c745168f2d7533f01723157b8fdbffc10d403cba42b30712a",
+  "source_inverse_exact": true,
+  "unit_result_sha256": "77978431fcdd4cbdadf2f2e8a187ebc952f6cc104b23b79551b7bd95dd0ec19b",
+  "units": {
+    "optimized": {
+      "status": "PASS",
+      "checks": 73554050,
+      "draws": 2878,
+      "baseline_raw_calls": 2878,
+      "admissions": 3106,
+      "pixel_callbacks": 9252348,
+      "fallback_callbacks": 1230657,
+      "binding_cases": 3505,
+      "mutations": 117,
+      "guard_cases": 228,
+      "palette_formula_cases": 86016,
+      "clip_draws": 2456,
+      "shadow_pixel_writes": 2337984,
+      "composition_draws": 264,
+      "pixel_guard_cases": 25,
+      "covered_ramp_zero_callbacks": 34421,
+      "transparent_cells": 4404586,
+      "local_restores": 419,
+      "indexed_bytes_compared": 1380264192,
+      "rgba_bytes_compared": 26222592000
+    },
+    "sanitized": {
+      "status": "PASS",
+      "checks": 73554050,
+      "draws": 2878,
+      "baseline_raw_calls": 2878,
+      "admissions": 3106,
+      "pixel_callbacks": 9252348,
+      "fallback_callbacks": 1230657,
+      "binding_cases": 3505,
+      "mutations": 117,
+      "guard_cases": 228,
+      "palette_formula_cases": 86016,
+      "clip_draws": 2456,
+      "shadow_pixel_writes": 2337984,
+      "composition_draws": 264,
+      "pixel_guard_cases": 25,
+      "covered_ramp_zero_callbacks": 34421,
+      "transparent_cells": 4404586,
+      "local_restores": 419,
+      "indexed_bytes_compared": 1380264192,
+      "rgba_bytes_compared": 26222592000
+    }
+  },
+  "runtime": {
+    "schema": "private-cloud-blend-runtime-v1",
+    "pairs": {
+      "wild640": {
+        "ticks": 523,
+        "exact_original_logs": [
+          "state.tsv",
+          "collisions.tsv",
+          "presentation.tsv",
+          "enemy-projectiles.tsv",
+          "poses.tsv",
+          "fire-events.tsv",
+          "player-projectiles.tsv",
+          "player-shot-requests.tsv",
+          "player-shot-emissions.tsv",
+          "player-shot-results.tsv",
+          "player-shot-draws.tsv",
+          "draw-commands.tsv",
+          "scene-draw-commands.tsv",
+          "scene-enemies.tsv",
+          "scene-hits.tsv",
+          "blend-palette.tsv"
+        ],
+        "frames_zero_rejection_and_coverage": true,
+        "observations": {
+          "baseline": {
+            "writes": 12982130,
+            "admitted": 0,
+            "owner0": 829229952,
+            "owner1": 1626368,
+            "owner2": 0,
+            "changed_hd": 1626368,
+            "changed_classic": 829229952,
+            "changed_owner": 1626368,
+            "formula_errors": 0,
+            "ledger_errors": 0
+          },
+          "candidate": {
+            "writes": 12982130,
+            "admitted": 12982130,
+            "owner0": 22810304,
+            "owner1": 808046016,
+            "owner2": 0,
+            "changed_hd": 808046016,
+            "changed_classic": 22810304,
+            "changed_owner": 0,
+            "formula_errors": 0,
+            "ledger_errors": 0
+          }
+        },
+        "baseline_restore_rows": 25412,
+        "candidate_restore_rows": 0,
+        "native_frame_pairs": [
+          {
+            "tick": 132,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 69094,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 133,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 68378,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 134,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 68052,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 135,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 67532,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 136,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 67305,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 137,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 66606,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 138,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 66191,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 139,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 65617,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 140,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 65365,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 141,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 64503,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 142,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 64116,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 143,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 63654,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 144,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 65172,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 145,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 64874,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 146,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 64924,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 147,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 64713,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 148,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 75740,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 149,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 75263,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 150,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 75161,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 151,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 74915,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 152,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 75126,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 153,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 74806,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 154,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 74864,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 155,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 74473,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 156,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 74599,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 157,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 70237,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 158,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 70394,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 159,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 70130,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 160,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 63525,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 161,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 63296,
+            "outside_baseline_restored_regions": 0
+          }
+        ],
+        "HUD_bottom_exact": true
+      },
+      "wild1280": {
+        "ticks": 210,
+        "exact_original_logs": [
+          "state.tsv",
+          "collisions.tsv",
+          "presentation.tsv",
+          "enemy-projectiles.tsv",
+          "poses.tsv",
+          "fire-events.tsv",
+          "player-projectiles.tsv",
+          "player-shot-requests.tsv",
+          "player-shot-emissions.tsv",
+          "player-shot-results.tsv",
+          "player-shot-draws.tsv",
+          "draw-commands.tsv",
+          "scene-draw-commands.tsv",
+          "scene-enemies.tsv",
+          "scene-hits.tsv",
+          "blend-palette.tsv"
+        ],
+        "frames_zero_rejection_and_coverage": true,
+        "observations": {
+          "baseline": {
+            "writes": 3718014,
+            "admitted": 0,
+            "owner0": 237447232,
+            "owner1": 505664,
+            "owner2": 0,
+            "changed_hd": 505664,
+            "changed_classic": 237447232,
+            "changed_owner": 505664,
+            "formula_errors": 0,
+            "ledger_errors": 0
+          },
+          "candidate": {
+            "writes": 3718014,
+            "admitted": 3718014,
+            "owner0": 6366080,
+            "owner1": 231586816,
+            "owner2": 0,
+            "changed_hd": 231586816,
+            "changed_classic": 6366080,
+            "changed_owner": 0,
+            "formula_errors": 0,
+            "ledger_errors": 0
+          }
+        },
+        "baseline_restore_rows": 7901,
+        "candidate_restore_rows": 0,
+        "native_frame_pairs": [
+          {
+            "tick": 0,
+            "w": 1280,
+            "h": 800,
+            "changed_pixels": 199244,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 90,
+            "w": 1280,
+            "h": 800,
+            "changed_pixels": 311627,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 144,
+            "w": 1280,
+            "h": 800,
+            "changed_pixels": 260899,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 145,
+            "w": 1280,
+            "h": 800,
+            "changed_pixels": 259550,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 200,
+            "w": 1280,
+            "h": 800,
+            "changed_pixels": 294705,
+            "outside_baseline_restored_regions": 0
+          }
+        ],
+        "HUD_bottom_exact": true
+      },
+      "normal640": {
+        "ticks": 210,
+        "exact_original_logs": [
+          "state.tsv",
+          "collisions.tsv",
+          "presentation.tsv",
+          "enemy-projectiles.tsv",
+          "poses.tsv",
+          "fire-events.tsv",
+          "player-projectiles.tsv",
+          "player-shot-requests.tsv",
+          "player-shot-emissions.tsv",
+          "player-shot-results.tsv",
+          "player-shot-draws.tsv",
+          "draw-commands.tsv",
+          "scene-draw-commands.tsv",
+          "scene-enemies.tsv",
+          "scene-hits.tsv",
+          "blend-palette.tsv"
+        ],
+        "frames_zero_rejection_and_coverage": true,
+        "observations": {
+          "baseline": {
+            "writes": 0,
+            "admitted": 0,
+            "owner0": 0,
+            "owner1": 0,
+            "owner2": 0,
+            "changed_hd": 0,
+            "changed_classic": 0,
+            "changed_owner": 0,
+            "formula_errors": 0,
+            "ledger_errors": 0
+          },
+          "candidate": {
+            "writes": 0,
+            "admitted": 0,
+            "owner0": 0,
+            "owner1": 0,
+            "owner2": 0,
+            "changed_hd": 0,
+            "changed_classic": 0,
+            "changed_owner": 0,
+            "formula_errors": 0,
+            "ledger_errors": 0
+          }
+        },
+        "baseline_restore_rows": 0,
+        "candidate_restore_rows": 0,
+        "native_frame_pairs": [
+          {
+            "tick": 0,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 0,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 90,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 0,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 144,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 0,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 145,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 0,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 200,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 0,
+            "outside_baseline_restored_regions": 0
+          }
+        ],
+        "HUD_bottom_exact": true
+      },
+      "wild640-repeat": {
+        "ticks": 210,
+        "exact_original_logs": [
+          "state.tsv",
+          "collisions.tsv",
+          "presentation.tsv",
+          "enemy-projectiles.tsv",
+          "poses.tsv",
+          "fire-events.tsv",
+          "player-projectiles.tsv",
+          "player-shot-requests.tsv",
+          "player-shot-emissions.tsv",
+          "player-shot-results.tsv",
+          "player-shot-draws.tsv",
+          "draw-commands.tsv",
+          "scene-draw-commands.tsv",
+          "scene-enemies.tsv",
+          "scene-hits.tsv",
+          "blend-palette.tsv"
+        ],
+        "frames_zero_rejection_and_coverage": true,
+        "observations": {
+          "baseline": {
+            "writes": 3718014,
+            "admitted": 0,
+            "owner0": 237447232,
+            "owner1": 505664,
+            "owner2": 0,
+            "changed_hd": 505664,
+            "changed_classic": 237447232,
+            "changed_owner": 505664,
+            "formula_errors": 0,
+            "ledger_errors": 0
+          },
+          "candidate": {
+            "writes": 3718014,
+            "admitted": 3718014,
+            "owner0": 6366080,
+            "owner1": 231586816,
+            "owner2": 0,
+            "changed_hd": 231586816,
+            "changed_classic": 6366080,
+            "changed_owner": 0,
+            "formula_errors": 0,
+            "ledger_errors": 0
+          }
+        },
+        "baseline_restore_rows": 7901,
+        "candidate_restore_rows": 0,
+        "native_frame_pairs": [
+          {
+            "tick": 0,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 49808,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 90,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 77848,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 144,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 65172,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 145,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 64874,
+            "outside_baseline_restored_regions": 0
+          },
+          {
+            "tick": 200,
+            "w": 640,
+            "h": 400,
+            "changed_pixels": 73595,
+            "outside_baseline_restored_regions": 0
+          }
+        ],
+        "HUD_bottom_exact": true
+      }
+    },
+    "native_capture_total": 90,
+    "pins_unchanged": true,
+    "normal_control_all_210_rgba_hashes_exact": true,
+    "wild_cross_verified_native_size_210_logical_RGBA_hashes_exact": true,
+    "runtime_SDL_version": [
+      2,
+      32,
+      4
+    ],
+    "retained_misconfigured_attempt": "paired-v1/wild1280-* requested invalid Scale4x and actually produced640x400. Retained only as wild640-repeat; not4x evidence.",
+    "status": "PASS",
+    "accepted_three_pair_native_capture_count": 80,
+    "retained_repeat_native_capture_count": 10,
+    "actual_size_assertions": {
+      "wild640": [
+        640,
+        400
+      ],
+      "wild1280": [
+        1280,
+        800
+      ],
+      "normal640": [
+        640,
+        400
+      ],
+      "wild640-repeat": [
+        640,
+        400
+      ]
+    },
+    "accepted_six_process_state_rows": 1886,
+    "all_eight_process_state_rows": 2306
+  },
+  "headers_SDL_version": [
+    2,
+    26,
+    5
+  ],
+  "actual_SDL_runtime_version": [
+    2,
+    32,
+    4
+  ],
+  "production_builds": {
+    "optimized_strict_72_units_each": true,
+    "classic_disabled_full_inherited_warnings": true,
+    "disabled_backgrnd_scoped_inherited_unused_variable_suppressed": true
+  },
+  "full_Plasma_regression": {
+    "optimized": true,
+    "ASan_UBSan": true,
+    "assertions_each": 64367833
+  },
+  "historical_cloud_shadow_runner": "Compile failure from baseline-aged helper signature/collaborator drift; not a test pass",
+  "publication": "Not published; parent review required",
+  "checkpoint_revision": 2,
+  "supersedes": "First checkpoint dimension claims; source unchanged. Retained first-size attempt was actually640x400."
+}

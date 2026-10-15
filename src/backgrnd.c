@@ -116,6 +116,7 @@ void blit_background_row_blend(SDL_Surface *surface, int x, int y, Uint8 **map)
 	assert(surface->format->BitsPerPixel == 8);
 	asset_debug_terrain_row(x,y,map);
 	unsigned int hd_tiles=render_mirror_terrain_row(surface,x,y,map,MIRROR_BLEND);
+	unsigned int compatible_clouds=render_mirror_cloud_blend_row(surface,x,y,map);
 	
 	Uint8 *pixels = (Uint8 *)surface->pixels + (y * surface->pitch) + x,
 	      *pixels_ll = (Uint8 *)surface->pixels,  // lower limit
@@ -148,7 +149,7 @@ void blit_background_row_blend(SDL_Surface *surface, int x, int y, Uint8 **map)
 				if (pixels >= pixels_ul)
 					return;
 				if (pixels >= pixels_ll && *data != 0)
-					{ *pixels = (*data & 0xf0) | (((*pixels & 0x0f) + (*data & 0x0f)) / 2); render_mirror_terrain_pixel(surface,pixels,*data,MIRROR_BLEND,(hd_tiles&(1u<<tile))!=0); }
+					{ *pixels = (*data & 0xf0) | (((*pixels & 0x0f) + (*data & 0x0f)) / 2); render_mirror_cloud_blend_pixel(surface,pixels,*data,(compatible_clouds&(1u<<tile))!=0,(hd_tiles&(1u<<tile))!=0); }
 				
 				pixels++;
 				data++;

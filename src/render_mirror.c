@@ -3081,6 +3081,71 @@ static bool effect_ramp_monotone_to(unsigned int hue,int last)
 static bool effect_ramp_monotone(unsigned int hue)
 {return effect_ramp_monotone_to(hue,15);}
 
+/* Wild layer2 clouds use ORIGINAL indices, including covered ramp-zero pixels.
+ * The original hue overwrite/value average is not a 50% RGB alpha overlay.
+ * Recheck every current tile byte: pointer identity never admits a changed or
+ * same-address reloaded source. Normal authored clouds remain independent. */
+unsigned int render_mirror_cloud_blend_row(SDL_Surface *surface,int x,int y,Uint8 **map)
+{
+ if(!active||!surface||surface!=game_screen||surface!=VGAScreen||reject_reason||suppress||
+    !game_probe_known_blend||game_probe_original_reference||!(game_probe_scene_assets&2)||
+    (game_probe_density!=4&&game_probe_density!=8)||!canvas||!hd_owner||!cloud_owner||
+    terrain_file!='z'||!map||surface->w!=320||surface->h!=200||surface->pitch<320||
+    !surface->pixels||!surface->format||surface->format->BitsPerPixel!=8||
+    surface->format->BytesPerPixel!=1||x<0||x>320-12*24||y<=-28||y>=200)return 0;
+ static const uint64_t pins[15]={
+  UINT64_C(0x1e1978471660308e),UINT64_C(0xf827022613316057),UINT64_C(0xa8cbc7adae4db91f),
+  UINT64_C(0x1c86f35edb926029),UINT64_C(0x27ec422415762368),UINT64_C(0x5bd2c58855182732),
+  UINT64_C(0xe2b1309cbd1fcece),UINT64_C(0x3ab26c5cda44cde1),UINT64_C(0xf35212a11fb5188b),
+  UINT64_C(0xb4e6e16ac2e7de2d),UINT64_C(0xfae994aab7685046),UINT64_C(0x3b671118097700be),
+  UINT64_C(0xff82eada994a23ad),UINT64_C(0xa8af8a7b2806f91a),UINT64_C(0x8567e7d4a59c3882)};
+ unsigned int compatible=0;
+ for(int tile=0;tile<12;tile++) {
+  unsigned int id=0;
+  for(unsigned int k=0;k<terrain_source_count;k++)if(map[tile]&&map[tile]==terrain_sources[k].data){id=terrain_sources[k].id;break;}
+  int slot=cloud_terrain_slot(id);if(slot<0)continue;
+  uint64_t stamp=UINT64_C(14695981039346656037);unsigned int hues=0;
+  for(int i=0;i<24*28;i++){Uint8 value=map[tile][i];stamp^=value;stamp*=UINT64_C(1099511628211);if(value)hues|=1u<<(value>>4);}
+  if(stamp!=pins[slot-186])continue;
+  bool monotone=true;
+  for(unsigned int hue=0;hue<16;hue++)if((hues&(1u<<hue))&&!effect_ramp_monotone(hue*16))monotone=false;
+  if(monotone)compatible|=1u<<tile;
+ }
+ return compatible;
+}
+
+void render_mirror_cloud_blend_pixel(SDL_Surface *surface,Uint8 *address,Uint8 source,bool compatible,bool replaced)
+{
+ if(!compatible||replaced||!active||surface!=game_screen||surface!=VGAScreen||reject_reason||suppress) {
+  render_mirror_terrain_pixel(surface,address,source,MIRROR_BLEND,replaced);return;
+ }
+ intptr_t off=(intptr_t)address-(intptr_t)surface->pixels;
+ if(off<0||off>=(intptr_t)surface->pitch*surface->h) {
+  render_mirror_terrain_pixel(surface,address,source,MIRROR_BLEND,replaced);return;
+ }
+ int y=(int)(off/surface->pitch),x=(int)(off%surface->pitch);
+ if(x>=320||y>=200)return;
+ Uint8 before=expected[y*320+x];
+ if(!source||((source&240)!=0x30&&(source&240)!=0x60&&(source&240)!=0x80)||
+    *address!=((source&240)|(((before&15)+(source&15))/2))) {
+  render_mirror_terrain_pixel(surface,address,source,MIRROR_BLEND,replaced);return;
+ }
+ font_before_effect((SDL_Rect){x,y,1,1});expected[y*320+x]=*address;
+ if(selected[y*320+x]){++occlusions;selected[y*320+x]=0;}
+ int d=game_probe_density;
+ for(int sy=0;sy<d;sy++) {
+  Uint32 *p=(Uint32 *)((Uint8 *)canvas->pixels+(y*d+sy)*canvas->pitch)+x*d;
+  const Uint8 *owner=hd_owner+(y*d+sy)*canvas->w+x*d;
+  for(int sx=0;sx<d;sx++) {
+   int n=(y*d+sy)*canvas->w+x*d+sx;green_first[n]=0;
+   /* Preserve exact classic/copy colors and owner1 subpixel detail. The new
+    * cloud-colored HD result uses the existing cloud palette-floor shadow. */
+   cloud_owner[n]=owner[sx]==1?1:0;
+   p[sx]=owner[sx]==1?explosion_blend_rgba(p[sx],source):palette_rgb(*address);
+  }
+ }
+}
+
 /* Weapon88/1088 keeps three independent variable-sized raw sprite calls.
  * This finite compatibility path uses ORIGINAL art, never an HDA resource.
  * Re-decode current indices AND coverage before every draw, including repeated
