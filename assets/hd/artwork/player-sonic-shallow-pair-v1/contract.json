@@ -1,0 +1,98 @@
+{
+  "schema": "generated-sonic-shallow-pair-v1",
+  "source": "sources/generated-sonic63-r2.png",
+  "source_sha256": "8947901ad9a2c2706ed222146e3136dde82b08c7454b89abe3f5c46d304939b9",
+  "source_size": [
+    1161,
+    1355
+  ],
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "model_id": null,
+    "model_id_status": "not supplied by tool",
+    "requested_after_clock_read_utc": "2026-10-15T11:37:00Z",
+    "finished_observed_at_utc": "2026-10-15T11:38:05Z",
+    "timing_precision": "Clock read immediately before invocation; completion clock read after tool return",
+    "transparent_background": true,
+    "reference_description": "Generated revision1 shallow arch as edit target plus original game ID63 geometry/green-body reference. Original pixels and rejected revisions remain private, are not packaged and are never read by reconstruction.",
+    "reference_generated_sha256": "88b5765203e3fba1bc24df24259d65b4077f6677d4677163a4f70c8fd6eb43b8",
+    "prompt": "Revise image1's GREEN ENERGY BODY only to match image2's fuller original shallow-wave visual weight. Image1 is the previous generated shallow arch; image2 is the exact original geometry/green-body reference. Keep a wide SHALLOW upward arch open downward, occupied width:height12:8, placed x0..12/y4..12 on12:14 transparent canvas. Do not turn into tall73, move the arch, change its direction or add an external halo. At actual24x28, image1 is too thin and pale mint; make the upper curved green band approximately1.7times thicker by filling INWARD toward its inner concave edge, retaining the current outer extent and rounded blunt tapering side ends. This must read as a substantial green sonic wave, not a skinny bright line. Increase interior alpha through the fuller body, then fade actual alpha smoothly over the outermost25percent of band thickness INSIDE the contour. Saturate the core GREEN, using #24f359 and #2cff69: reduce red/blue from image1 significantly; no pale mint stripe, white/yellow/cyan highlight. Soft darker-green translucency toward edges is fine, but NO dark opaque rim, black fading, hard outline, plastic bevel, cylindrical lighting or3D shine. Smooth flat luminous energy shading with no square highlight or texture. Keep true partial transparency and a clean transparent background. No particles, outside glow, new trails, stars, text or border. Preserve original shallow geometry and canvas registration; one sprite only."
+  },
+  "reconstruction": {
+    "library": "Pillow",
+    "version": "12.3.0",
+    "crop": [
+      97,
+      411,
+      1064,
+      1093
+    ],
+    "resize": [
+      91,
+      64
+    ],
+    "resample": "LANCZOS",
+    "canvas": [
+      96,
+      112
+    ],
+    "paste": [
+      2,
+      32,
+      93,
+      96
+    ],
+    "paste_operation": "straight RGBA paste onto transparent canvas",
+    "width_rounding_only": true,
+    "mirror82": "exact vertical flip of full registered96x112 ID63 canvas",
+    "no_repaint_recolor_threshold_original_mask": true
+  },
+  "selection": {
+    "revision": 2,
+    "scope": "Parent allows reversible actual-engine candidate trial. Independent static review accepts identity/registration/readability/soft edges but retains brighter/lighter body-weight objection; no independent visual-weight pass is claimed.",
+    "extent": "Proportional91x64 within original occupied96x64;5.21percent narrower.63 bbox(2,32)-(93,96),82(2,16)-(93,80),anchor0; no anisotropic stretch.",
+    "alpha": "True partial transparency, no dark opaque rim or procedural alpha changes. Fixed crop omits only alpha1 specks totaling0.0017percent of master alpha mass.",
+    "style_tradeoff": "Brighter/lighter and less full than original shaded green body. R3 darker-green regeneration rejected for incompatible aspect, not stretched.",
+    "not_full_family": true,
+    "previously_accepted_ids": [
+      6,
+      44,
+      73
+    ],
+    "remaining_original_id_count": 16
+  },
+  "entries": [
+    {
+      "id": 63,
+      "slot": 549,
+      "header_u32": [
+        80063,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "PNG_sha256": "33b7b81f723f0a38b5a9eb8143597c1ba9659ed83ccc9466b8070cb530f44724",
+      "RGBA_sha256": "2bcc86cd574bcf43a5abeaf55eab8777369b91df3defcf542f627348cfc93dee",
+      "HDA_sha256": "957cf368862b4264f2a66a72ecd7013e8ccc9901a2185d7d62d5ef4fcc004a71",
+      "fractional_alpha_samples": 2660
+    },
+    {
+      "id": 82,
+      "slot": 550,
+      "header_u32": [
+        80082,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "PNG_sha256": "befbebe6e5b5f1b9e4b413de4ff5fac9282586ab17516e79342fa01a4bcb4aa6",
+      "RGBA_sha256": "7b75bf0749fa94bce50c463dc16148e6886a1a572b97bf970fe1a19ecf6a1757",
+      "HDA_sha256": "89e1f385ca3c57e515dee96169fae3d5278ff51274d8a62756b1f7b3c09a229a",
+      "fractional_alpha_samples": 2660
+    }
+  ]
+}

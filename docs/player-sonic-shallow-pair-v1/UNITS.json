@@ -1,0 +1,1971 @@
+{
+  "status": "PASS",
+  "test_file_sha256": {
+    "test-sonic-shallow-pair-binding.py": "4eb360d5aaa2dbb4a566662d9e9ae17c59231cc0e7ff70d406897b58aad6f299",
+    "test-sonic-shallow-pair-binding.c": "7433fc5cb2e61064f154bf51887857f1aa07316e5d05f98d9c2e6e1939011aba",
+    "test-sonic-shallow-pair-shots.c": "52cbaebbab006e70475a07f0c54076b5b23f47d80f0dd438b8e3517f33c549f8"
+  },
+  "source_contract_sha256": "a3b891c3b11e33f46c38199befc01712a65bd006f1a3d8e0c1b6c2d7f62f42c3",
+  "art_contract_sha256": "e9cf81af935d2c17eff74656ceedf5158737a64bac531ebeaabbb622b4ad369a",
+  "previous_6_44_73_art_sha256": {
+    "6": "ecc014d43e863b9e68e1da95782ba6595650342a71285561f9319e89b8684e57",
+    "44": "a3dfb56dbec6479ce725e388b15e34963ea9e960c3deeeba335261393fa9a167",
+    "73": "14d03f2b06a5ffd73bc3f9b2a7ab9731a11c359e881573c6459faaed5892a5fc"
+  },
+  "scope": {
+    "baseline": "2f08b596d7c40fdf45915798d7ec8eef2723d7f3",
+    "exact_renderer_inverse": true,
+    "production_source_files_checked": 153,
+    "prior_sonic6_44_73_tests_unchanged": [
+      "prototype/test-sonic-six-pair-binding.c",
+      "prototype/test-sonic-six-pair-binding.py",
+      "prototype/test-sonic-six-pair-scope.py",
+      "prototype/test-sonic-six-pair-shots.c",
+      "prototype/test-sonic-upward-arch-binding.c",
+      "prototype/test-sonic-upward-arch-binding.py",
+      "prototype/test-sonic-upward-arch-scope.py",
+      "prototype/test-sonic-upward-arch-shots.c"
+    ],
+    "only_changed_production_file": "src/render_mirror.c",
+    "candidate_renderer_sha256": "e6e0c8aad0c9022f70ec6794ef8208aeb8f9ad3e3a2eaa67ce8b93e787a617e9",
+    "gameplay_input_shots_blitters_rng_unchanged": true
+  },
+  "art_sha256": {
+    "63": "957cf368862b4264f2a66a72ecd7013e8ccc9901a2185d7d62d5ef4fcc004a71",
+    "82": "89e1f385ca3c57e515dee96169fae3d5278ff51274d8a62756b1f7b3c09a229a"
+  },
+  "default_packs": {
+    "preview": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+    "debug": "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test"
+  },
+  "data_sha256": {
+    "tyrian.shp": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+    "tyrianc.shp": "e980f02021395d39b86491acdc2ecd6dd47ea2a9f859fe3928f81b75e244fd7d"
+  },
+  "selected_pair_source_facts": {
+    "normal": {
+      "63": {
+        "bank_bytes": 32060,
+        "encoded_offset": 7032,
+        "encoded_bytes": 87,
+        "encoded_sha256": "8e13e3f4f118e945ea7bbef6b8118e2995b70555928c817e46fbe4b565dd10d4",
+        "decoded_indices_sha256": "564ad3189d14d189a3ac664bf195294414a9900decd9072cf3c4607e2eed4447",
+        "decoded_coverage_sha256": "b9697fa7ae4a2367cac5e9366541e7ed1d06be3d2f28f5a3ed9026570c7cb3c9",
+        "decoded_index_then_coverage_sha256": "3547371063b26dd2c28901fc09b5423129d601bebd183645b38512d6eb1deff7",
+        "fnv1a64": "0xa79a9f93c7439a27",
+        "occupied_cells": 64
+      },
+      "82": {
+        "bank_bytes": 32060,
+        "encoded_offset": 9063,
+        "encoded_bytes": 85,
+        "encoded_sha256": "2ab2f78d244695e76dab688af7fad9bd9f7a0ae3b63588f94cdf0563dda53d1c",
+        "decoded_indices_sha256": "a536b9fad79a48ea74d19478cfb0b5484a079e3e36f7f5d258ac19dde15f043b",
+        "decoded_coverage_sha256": "d41b961fd4f4fa90b787896fbcbdb5810f83dc3fc9c672b6c23e8859d333c062",
+        "decoded_index_then_coverage_sha256": "6aad62f1ead1e72175f1d80ffccac619b3a8079369bad2eef289f22aae67b280",
+        "fnv1a64": "0x4f84a37be2ca17d7",
+        "occupied_cells": 64
+      }
+    },
+    "christmas": {
+      "63": {
+        "bank_bytes": 32404,
+        "encoded_offset": 7290,
+        "encoded_bytes": 87,
+        "encoded_sha256": "8e13e3f4f118e945ea7bbef6b8118e2995b70555928c817e46fbe4b565dd10d4",
+        "decoded_indices_sha256": "564ad3189d14d189a3ac664bf195294414a9900decd9072cf3c4607e2eed4447",
+        "decoded_coverage_sha256": "b9697fa7ae4a2367cac5e9366541e7ed1d06be3d2f28f5a3ed9026570c7cb3c9",
+        "decoded_index_then_coverage_sha256": "3547371063b26dd2c28901fc09b5423129d601bebd183645b38512d6eb1deff7",
+        "fnv1a64": "0xa79a9f93c7439a27",
+        "occupied_cells": 64
+      },
+      "82": {
+        "bank_bytes": 32404,
+        "encoded_offset": 9290,
+        "encoded_bytes": 85,
+        "encoded_sha256": "2ab2f78d244695e76dab688af7fad9bd9f7a0ae3b63588f94cdf0563dda53d1c",
+        "decoded_indices_sha256": "a536b9fad79a48ea74d19478cfb0b5484a079e3e36f7f5d258ac19dde15f043b",
+        "decoded_coverage_sha256": "d41b961fd4f4fa90b787896fbcbdb5810f83dc3fc9c672b6c23e8859d333c062",
+        "decoded_index_then_coverage_sha256": "6aad62f1ead1e72175f1d80ffccac619b3a8079369bad2eef289f22aae67b280",
+        "fnv1a64": "0x4f84a37be2ca17d7",
+        "occupied_cells": 64
+      }
+    }
+  },
+  "source_rows": {
+    "normal_first_level_rows": [
+      {
+        "mode": 1,
+        "power": 1,
+        "record": 276,
+        "ids": [
+          6,
+          44
+        ]
+      },
+      {
+        "mode": 1,
+        "power": 2,
+        "record": 277,
+        "ids": [
+          6,
+          44,
+          63
+        ]
+      },
+      {
+        "mode": 1,
+        "power": 3,
+        "record": 278,
+        "ids": [
+          6,
+          44,
+          223,
+          224
+        ]
+      },
+      {
+        "mode": 1,
+        "power": 4,
+        "record": 279,
+        "ids": [
+          16,
+          54,
+          63
+        ]
+      },
+      {
+        "mode": 1,
+        "power": 5,
+        "record": 280,
+        "ids": [
+          16,
+          54,
+          223,
+          224
+        ]
+      },
+      {
+        "mode": 1,
+        "power": 6,
+        "record": 281,
+        "ids": [
+          16,
+          54,
+          223,
+          224
+        ]
+      },
+      {
+        "mode": 1,
+        "power": 7,
+        "record": 282,
+        "ids": [
+          105,
+          106,
+          124,
+          125,
+          223,
+          224
+        ]
+      },
+      {
+        "mode": 1,
+        "power": 8,
+        "record": 283,
+        "ids": [
+          73,
+          82,
+          105,
+          106,
+          124,
+          125
+        ]
+      },
+      {
+        "mode": 1,
+        "power": 9,
+        "record": 284,
+        "ids": [
+          73,
+          105,
+          106,
+          124,
+          125,
+          242,
+          243
+        ]
+      },
+      {
+        "mode": 1,
+        "power": 10,
+        "record": 285,
+        "ids": [
+          73,
+          105,
+          106,
+          124,
+          125,
+          130,
+          131
+        ]
+      },
+      {
+        "mode": 1,
+        "power": 11,
+        "record": 286,
+        "ids": [
+          105,
+          106,
+          124,
+          125,
+          130,
+          131,
+          149,
+          150
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 1,
+        "record": 287,
+        "ids": [
+          73
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 2,
+        "record": 288,
+        "ids": [
+          63,
+          73
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 3,
+        "record": 289,
+        "ids": [
+          63
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 4,
+        "record": 290,
+        "ids": [
+          63
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 5,
+        "record": 291,
+        "ids": [
+          63,
+          73
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 6,
+        "record": 292,
+        "ids": [
+          63,
+          143,
+          144
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 7,
+        "record": 293,
+        "ids": [
+          73,
+          143,
+          144
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 8,
+        "record": 294,
+        "ids": [
+          63,
+          143,
+          144
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 9,
+        "record": 295,
+        "ids": [
+          63,
+          73,
+          143,
+          144
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 10,
+        "record": 296,
+        "ids": [
+          143,
+          144
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 11,
+        "record": 297,
+        "ids": [
+          143,
+          144
+        ]
+      }
+    ],
+    "pilot_reuse_rows": [
+      {
+        "mode": 1,
+        "power": 2,
+        "record": 277,
+        "ids": [
+          6,
+          44,
+          63
+        ]
+      },
+      {
+        "mode": 1,
+        "power": 4,
+        "record": 279,
+        "ids": [
+          16,
+          54,
+          63
+        ]
+      },
+      {
+        "mode": 1,
+        "power": 8,
+        "record": 283,
+        "ids": [
+          73,
+          82,
+          105,
+          106,
+          124,
+          125
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 2,
+        "record": 288,
+        "ids": [
+          63,
+          73
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 3,
+        "record": 289,
+        "ids": [
+          63
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 4,
+        "record": 290,
+        "ids": [
+          63
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 5,
+        "record": 291,
+        "ids": [
+          63,
+          73
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 6,
+        "record": 292,
+        "ids": [
+          63,
+          143,
+          144
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 8,
+        "record": 294,
+        "ids": [
+          63,
+          143,
+          144
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 9,
+        "record": 295,
+        "ids": [
+          63,
+          73,
+          143,
+          144
+        ]
+      }
+    ],
+    "all_22_rows_verified": true,
+    "all_other_12_rows_exclude_selected_pair": true,
+    "family_ids": [
+      6,
+      16,
+      44,
+      54,
+      63,
+      73,
+      82,
+      105,
+      106,
+      124,
+      125,
+      130,
+      131,
+      143,
+      144,
+      149,
+      150,
+      223,
+      224,
+      242,
+      243
+    ],
+    "other_16_ids_unchanged": [
+      16,
+      54,
+      105,
+      106,
+      124,
+      125,
+      130,
+      131,
+      143,
+      144,
+      149,
+      150,
+      223,
+      224,
+      242,
+      243
+    ],
+    "exact_original_shot_functions_and_no_rng_calls": true,
+    "original_port11_mapping_cost950_power50_verified": true,
+    "shot_function_sha256": {
+      "player_shot_create": "106e3e5dc4305d556d368dfc2e052399766f44ea063a9a7b407877349164a320",
+      "player_shot_move_and_draw": "cbb509d45c570a3766a523e768915c8b7874824d6c816160e5f8776e286ebad8"
+    }
+  },
+  "shot_runs": {
+    "optimized": {
+      "status": "PASS",
+      "ordinary_first_level_rows": 22,
+      "rng_calls": 0,
+      "shallow_pair_ids": [
+        63,
+        82
+      ],
+      "shallow_pair_emissions": [
+        3887,
+        169
+      ],
+      "shallow_pair_movement_ticks": [
+        15548,
+        676
+      ],
+      "shallow_pair_shadow_before_head_cases": [
+        7774,
+        338
+      ],
+      "original_shadow_then_head_order_verified": true,
+      "create_cases": 7436,
+      "movement_ticks": 72332,
+      "capacity_and_power_cases": 434,
+      "volley_phase_cases": 129,
+      "emits": 38105,
+      "draws": 108498,
+      "shadow_draws": 36166,
+      "game_runs": 0
+    },
+    "sanitized": {
+      "status": "PASS",
+      "ordinary_first_level_rows": 22,
+      "rng_calls": 0,
+      "shallow_pair_ids": [
+        63,
+        82
+      ],
+      "shallow_pair_emissions": [
+        3887,
+        169
+      ],
+      "shallow_pair_movement_ticks": [
+        15548,
+        676
+      ],
+      "shallow_pair_shadow_before_head_cases": [
+        7774,
+        338
+      ],
+      "original_shadow_then_head_order_verified": true,
+      "create_cases": 7436,
+      "movement_ticks": 72332,
+      "capacity_and_power_cases": 434,
+      "volley_phase_cases": 129,
+      "emits": 38105,
+      "draws": 108498,
+      "shadow_draws": 36166,
+      "game_runs": 0
+    }
+  },
+  "actual_christmas_selected_encoded_sources_equal_normal": true,
+  "explicit_xmas_guard_required_even_for_identical_selected_bytes": true,
+  "actual_christmas_selected_decoded_sources_equal_normal": true,
+  "resource_variants": [
+    [
+      "valid",
+      1,
+      1,
+      8,
+      8,
+      0,
+      0,
+      4,
+      4
+    ],
+    [
+      "both",
+      1,
+      1,
+      8,
+      8,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "missing",
+      0,
+      0,
+      4,
+      4,
+      0,
+      0,
+      4,
+      4
+    ],
+    [
+      "only4",
+      1,
+      1,
+      4,
+      4,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "missing-63",
+      0,
+      1,
+      4,
+      8,
+      0,
+      0,
+      4,
+      4
+    ],
+    [
+      "only4-63",
+      1,
+      1,
+      4,
+      8,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "magic-8-63",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "magic-8-valid4-63",
+      1,
+      1,
+      4,
+      8,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "magic-4-63",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "magic-8-and4-63",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "magicvalid8-bad4-63",
+      1,
+      1,
+      8,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "role-8-63",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "role-8-valid4-63",
+      1,
+      1,
+      4,
+      8,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "role-4-63",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "role-8-and4-63",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "rolevalid8-bad4-63",
+      1,
+      1,
+      8,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "identity-8-63",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "identity-8-valid4-63",
+      1,
+      1,
+      4,
+      8,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "identity-4-63",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "identity-8-and4-63",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "identityvalid8-bad4-63",
+      1,
+      1,
+      8,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "density-8-63",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "density-8-valid4-63",
+      1,
+      1,
+      4,
+      8,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "density-4-63",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "density-8-and4-63",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "densityvalid8-bad4-63",
+      1,
+      1,
+      8,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "width-8-63",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "width-8-valid4-63",
+      1,
+      1,
+      4,
+      8,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "width-4-63",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "width-8-and4-63",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "widthvalid8-bad4-63",
+      1,
+      1,
+      8,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "height-8-63",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "height-8-valid4-63",
+      1,
+      1,
+      4,
+      8,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "height-4-63",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "height-8-and4-63",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "heightvalid8-bad4-63",
+      1,
+      1,
+      8,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "anchor-x-8-63",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "anchor-x-8-valid4-63",
+      1,
+      1,
+      4,
+      8,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "anchor-x-4-63",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "anchor-x-8-and4-63",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "anchor-xvalid8-bad4-63",
+      1,
+      1,
+      8,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "anchor-y-8-63",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "anchor-y-8-valid4-63",
+      1,
+      1,
+      4,
+      8,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "anchor-y-4-63",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "anchor-y-8-and4-63",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "anchor-yvalid8-bad4-63",
+      1,
+      1,
+      8,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "short-header-8-63",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "short-header-8-valid4-63",
+      1,
+      1,
+      4,
+      8,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "short-header-4-63",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "short-header-8-and4-63",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "short-headervalid8-bad4-63",
+      1,
+      1,
+      8,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "truncated-8-63",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "truncated-8-valid4-63",
+      1,
+      1,
+      4,
+      8,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "truncated-4-63",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "truncated-8-and4-63",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "truncatedvalid8-bad4-63",
+      1,
+      1,
+      8,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "extra-8-63",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "extra-8-valid4-63",
+      1,
+      1,
+      4,
+      8,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "extra-4-63",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "extra-8-and4-63",
+      0,
+      1,
+      4,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "extravalid8-bad4-63",
+      1,
+      1,
+      8,
+      8,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "missing-82",
+      1,
+      0,
+      8,
+      4,
+      0,
+      0,
+      4,
+      4
+    ],
+    [
+      "only4-82",
+      1,
+      1,
+      8,
+      4,
+      0,
+      1,
+      4,
+      4
+    ],
+    [
+      "magic-8-82",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "magic-8-valid4-82",
+      1,
+      1,
+      8,
+      4,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "magic-4-82",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "magic-8-and4-82",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "magicvalid8-bad4-82",
+      1,
+      1,
+      8,
+      8,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "role-8-82",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "role-8-valid4-82",
+      1,
+      1,
+      8,
+      4,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "role-4-82",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "role-8-and4-82",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "rolevalid8-bad4-82",
+      1,
+      1,
+      8,
+      8,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "identity-8-82",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "identity-8-valid4-82",
+      1,
+      1,
+      8,
+      4,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "identity-4-82",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "identity-8-and4-82",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "identityvalid8-bad4-82",
+      1,
+      1,
+      8,
+      8,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "density-8-82",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "density-8-valid4-82",
+      1,
+      1,
+      8,
+      4,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "density-4-82",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "density-8-and4-82",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "densityvalid8-bad4-82",
+      1,
+      1,
+      8,
+      8,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "width-8-82",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "width-8-valid4-82",
+      1,
+      1,
+      8,
+      4,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "width-4-82",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "width-8-and4-82",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "widthvalid8-bad4-82",
+      1,
+      1,
+      8,
+      8,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "height-8-82",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "height-8-valid4-82",
+      1,
+      1,
+      8,
+      4,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "height-4-82",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "height-8-and4-82",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "heightvalid8-bad4-82",
+      1,
+      1,
+      8,
+      8,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "anchor-x-8-82",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "anchor-x-8-valid4-82",
+      1,
+      1,
+      8,
+      4,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "anchor-x-4-82",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "anchor-x-8-and4-82",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "anchor-xvalid8-bad4-82",
+      1,
+      1,
+      8,
+      8,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "anchor-y-8-82",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "anchor-y-8-valid4-82",
+      1,
+      1,
+      8,
+      4,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "anchor-y-4-82",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "anchor-y-8-and4-82",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "anchor-yvalid8-bad4-82",
+      1,
+      1,
+      8,
+      8,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "short-header-8-82",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "short-header-8-valid4-82",
+      1,
+      1,
+      8,
+      4,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "short-header-4-82",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "short-header-8-and4-82",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "short-headervalid8-bad4-82",
+      1,
+      1,
+      8,
+      8,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "truncated-8-82",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "truncated-8-valid4-82",
+      1,
+      1,
+      8,
+      4,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "truncated-4-82",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "truncated-8-and4-82",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "truncatedvalid8-bad4-82",
+      1,
+      1,
+      8,
+      8,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "extra-8-82",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "extra-8-valid4-82",
+      1,
+      1,
+      8,
+      4,
+      1,
+      1,
+      4,
+      4
+    ],
+    [
+      "extra-4-82",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "extra-8-and4-82",
+      1,
+      0,
+      8,
+      4,
+      1,
+      0,
+      4,
+      4
+    ],
+    [
+      "extravalid8-bad4-82",
+      1,
+      1,
+      8,
+      8,
+      1,
+      0,
+      4,
+      4
+    ]
+  ],
+  "builds": {
+    "baseline": {
+      "function_sha256": {
+        "decode_tile": "356e5c5d3cfbffadf047ce1fcfca196756b9f5bff0fdafe86d125540c3d78a48",
+        "read_asset": "5b03319024d7b3f1bd037cd1883a5b2f55321cf444814ec505985200bfe03279",
+        "explosion_asset_slot": "00d117c7d38f192ac14a6f30067abfb722392bc3966dcd9b53f30c9406d24a8c",
+        "mint27_source_matches": "f2481a7985c483fa4d1a605a4e93453bdbc664442869c63bffdf8828d0101111",
+        "get_asset": "f01437ab8dec0a657db425c5cfb493133efd25924a03812c6309f68e82347cf3",
+        "render_mirror_entity": "472b51afe2a8f9b6fb3029c44988093bb39e0129e102798961aa120d2bb319aa",
+        "sonic_six_pair_member": "bedbd91fba3c16bf569431d9cda9a533a773ef6aed89acc1d96f7ea0f6ac53d9",
+        "sonic_six_pair_source_matches": "d0b080b2e8fcecf915d8d4e7ada20ab9cc1b587ed76674dd738a33e0732e8ba8",
+        "sonic_upward_arch_source_matches": "fcdcb24f7edfec559a9cb6ab7be2a7b3dbf9942f8369a285098b8184b9d373cb",
+        "blit_sprite2": "0352e129afff4158402db4614a5dadd8f9e76901b250f6156e486b2e10f89266",
+        "blit_sprite2_darken": "c95a303e399808ccbc5ffb54ae99fc954af46a3d42144caaafc5ff55a964636a",
+        "draw_entity_sprite2": "394bca839b5814595b006b279b526b6cebf8e83119143bf64b90a80d7e5da0d3"
+      },
+      "runs": {
+        "optimized": {
+          "status": "PASS",
+          "baseline": true,
+          "head_and_wrapper_cases": 10136,
+          "identity_cases": 142,
+          "finite_binding_cases": 28896,
+          "resource_variants": 118,
+          "cache_cases": 472,
+          "coexistence_cases": 100,
+          "shadow_cases": 4032,
+          "all_21_identity_wrappers": true,
+          "indexed_bytes_checked": 649830400,
+          "original_calls": 9952,
+          "game_runs": 0
+        },
+        "sanitized": {
+          "status": "PASS",
+          "baseline": true,
+          "head_and_wrapper_cases": 10136,
+          "identity_cases": 142,
+          "finite_binding_cases": 28896,
+          "resource_variants": 118,
+          "cache_cases": 472,
+          "coexistence_cases": 100,
+          "shadow_cases": 4032,
+          "all_21_identity_wrappers": true,
+          "indexed_bytes_checked": 649830400,
+          "original_calls": 9952,
+          "game_runs": 0
+        }
+      }
+    },
+    "candidate": {
+      "function_sha256": {
+        "decode_tile": "356e5c5d3cfbffadf047ce1fcfca196756b9f5bff0fdafe86d125540c3d78a48",
+        "read_asset": "5b03319024d7b3f1bd037cd1883a5b2f55321cf444814ec505985200bfe03279",
+        "explosion_asset_slot": "00d117c7d38f192ac14a6f30067abfb722392bc3966dcd9b53f30c9406d24a8c",
+        "mint27_source_matches": "f2481a7985c483fa4d1a605a4e93453bdbc664442869c63bffdf8828d0101111",
+        "get_asset": "4a9fa2daab61f16be49d2b42d2cae06d18bd352f2e8663ec6a6ffb60641139b0",
+        "render_mirror_entity": "0b4840cefb1ebdbbba196dd900d78b00596c2beddb4d65502681f476b7ba7adb",
+        "sonic_six_pair_member": "bedbd91fba3c16bf569431d9cda9a533a773ef6aed89acc1d96f7ea0f6ac53d9",
+        "sonic_six_pair_source_matches": "d0b080b2e8fcecf915d8d4e7ada20ab9cc1b587ed76674dd738a33e0732e8ba8",
+        "sonic_upward_arch_source_matches": "fcdcb24f7edfec559a9cb6ab7be2a7b3dbf9942f8369a285098b8184b9d373cb",
+        "sonic_shallow_pair_member": "f241d0a7a46f1f84dc055038fc2407b60335c4a74bfa98304b77961cc8bba37b",
+        "sonic_shallow_pair_source_matches": "c603eecbfa834e8dafe1e69239266232cb29ace14df3238eb5cc63f4ec85cfd4",
+        "blit_sprite2": "0352e129afff4158402db4614a5dadd8f9e76901b250f6156e486b2e10f89266",
+        "blit_sprite2_darken": "c95a303e399808ccbc5ffb54ae99fc954af46a3d42144caaafc5ff55a964636a",
+        "draw_entity_sprite2": "394bca839b5814595b006b279b526b6cebf8e83119143bf64b90a80d7e5da0d3"
+      },
+      "runs": {
+        "optimized": {
+          "status": "PASS",
+          "baseline": false,
+          "head_and_wrapper_cases": 10136,
+          "identity_cases": 142,
+          "finite_binding_cases": 28896,
+          "resource_variants": 118,
+          "cache_cases": 472,
+          "coexistence_cases": 100,
+          "shadow_cases": 4032,
+          "all_21_identity_wrappers": true,
+          "indexed_bytes_checked": 649830400,
+          "original_calls": 9952,
+          "game_runs": 0
+        },
+        "sanitized": {
+          "status": "PASS",
+          "baseline": false,
+          "head_and_wrapper_cases": 10136,
+          "identity_cases": 142,
+          "finite_binding_cases": 28896,
+          "resource_variants": 118,
+          "cache_cases": 472,
+          "coexistence_cases": 100,
+          "shadow_cases": 4032,
+          "all_21_identity_wrappers": true,
+          "indexed_bytes_checked": 649830400,
+          "original_calls": 9952,
+          "game_runs": 0
+        }
+      }
+    }
+  },
+  "game_runs": 0,
+  "limitations": [
+    "Focused extracted production source, loader, guard, wrapper and original RLE tests; RGBA head compositor is a metadata-checking stub.",
+    "Source guards validate selected decoded identity, not whole-bank provenance; no root-epoch guarantee is added.",
+    "Generic compositor integration, actual-play aesthetics, natural acquisition and full-engine runtime require separate acceptance.",
+    "LeakSanitizer disabled for executor compatibility; AddressSanitizer and UndefinedBehaviorSanitizer enabled.",
+    "Malformed original source is exercised at the HD guard only; original unchecked RLE is never executed against malformed data."
+  ],
+  "private_complete_result_sha256": "3a9d1f64b2c99a81ccf9fa8fb1dc76a67a7ee9cf53c7bdadf929d17515f30016",
+  "portable_command": "python3 prototype/test-sonic-shallow-pair-binding.py --data LEGAL_ORIGINAL_DATA --contract REVIEWED_PRIVATE_SOURCE_CONTRACT --out NEW_EXTERNAL_DIRECTORY",
+  "command_returncodes": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "command_path_details_omitted": true,
+  "public_reproduction_requires_external_lawful_originals_and_reviewed_fixture": true
+}

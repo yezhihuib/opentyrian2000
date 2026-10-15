@@ -1,0 +1,325 @@
+{
+  "status": "PASS_EXACT_GENERATED_ART_TECHNICAL_CHECKS_ONLY",
+  "command": "python3 prototype/build-sonic-shallow-pair-art.py",
+  "art_contract_sha256": "e9cf81af935d2c17eff74656ceedf5158737a64bac531ebeaabbb622b4ad369a",
+  "master_sha256": "8947901ad9a2c2706ed222146e3136dde82b08c7454b89abe3f5c46d304939b9",
+  "entries": [
+    {
+      "id": 63,
+      "slot": 549,
+      "header_u32": [
+        80063,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "PNG_sha256": "33b7b81f723f0a38b5a9eb8143597c1ba9659ed83ccc9466b8070cb530f44724",
+      "RGBA_sha256": "2bcc86cd574bcf43a5abeaf55eab8777369b91df3defcf542f627348cfc93dee",
+      "HDA_sha256": "957cf368862b4264f2a66a72ecd7013e8ccc9901a2185d7d62d5ef4fcc004a71",
+      "fractional_alpha_samples": 2660
+    },
+    {
+      "id": 82,
+      "slot": 550,
+      "header_u32": [
+        80082,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "PNG_sha256": "befbebe6e5b5f1b9e4b413de4ff5fac9282586ab17516e79342fa01a4bcb4aa6",
+      "RGBA_sha256": "7b75bf0749fa94bce50c463dc16148e6886a1a572b97bf970fe1a19ecf6a1757",
+      "HDA_sha256": "89e1f385ca3c57e515dee96169fae3d5278ff51274d8a62756b1f7b3c09a229a",
+      "fractional_alpha_samples": 2660
+    }
+  ],
+  "registration": {
+    "library": "Pillow",
+    "version": "12.3.0",
+    "crop": [
+      97,
+      411,
+      1064,
+      1093
+    ],
+    "resize": [
+      91,
+      64
+    ],
+    "resample": "LANCZOS",
+    "canvas": [
+      96,
+      112
+    ],
+    "paste": [
+      2,
+      32,
+      93,
+      96
+    ],
+    "paste_operation": "straight RGBA paste onto transparent canvas",
+    "width_rounding_only": true,
+    "mirror82": "exact vertical flip of full registered96x112 ID63 canvas",
+    "no_repaint_recolor_threshold_original_mask": true
+  },
+  "crop_loss": {
+    "outside_max_alpha": 1,
+    "outside_nonzero_pixels": 1044,
+    "outside_alpha_mass": 4.094117647058823,
+    "outside_fraction_total_alpha_mass": 1.712258978842531e-05,
+    "alpha_ge2_retained_entirely": true
+  },
+  "generated_only": true,
+  "original_reference_or_mask_pixels_in_reconstruction": false,
+  "full_canvas_flipY_exact": true,
+  "diagnostics": {
+    "registered63": {
+      "size": [
+        96,
+        112
+      ],
+      "alpha_zero": 8041,
+      "alpha_fractional": 2660,
+      "alpha255": 51,
+      "max_alpha": 255,
+      "equivalent_alpha_area": 2116.321568627451,
+      "bboxes_at_alpha": {
+        "1": [
+          2,
+          32,
+          93,
+          96
+        ],
+        "2": [
+          2,
+          32,
+          93,
+          96
+        ],
+        "8": [
+          2,
+          32,
+          93,
+          96
+        ],
+        "32": [
+          2,
+          32,
+          93,
+          96
+        ],
+        "64": [
+          2,
+          33,
+          93,
+          96
+        ],
+        "128": [
+          2,
+          34,
+          93,
+          95
+        ],
+        "192": [
+          3,
+          35,
+          92,
+          95
+        ],
+        "240": [
+          3,
+          36,
+          92,
+          95
+        ],
+        "250": [
+          3,
+          37,
+          92,
+          95
+        ],
+        "255": [
+          3,
+          77,
+          92,
+          95
+        ]
+      },
+      "alpha_weighted_rgb": [
+        48.046,
+        247.433,
+        113.14
+      ],
+      "border_alpha_max_LTRB": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "edge_alpha1to127": {
+        "count": 529,
+        "rgb_mean": [
+          14.767,
+          225.357,
+          76.473
+        ],
+        "green_dominant_fraction": 0.9168241965973535
+      },
+      "visible_ge32": {
+        "count": 2409,
+        "rgb_mean": [
+          45.555,
+          246.551,
+          111.364
+        ],
+        "green_dominant_fraction": 1.0
+      },
+      "core_ge192": {
+        "count": 1957,
+        "rgb_mean": [
+          50.107,
+          248.185,
+          114.602
+        ],
+        "green_dominant_fraction": 1.0
+      },
+      "pale_mint_alpha_ge128_Rge100_Bge120": {
+        "count": 0
+      },
+      "dark_nearopaque_RGBmaxlt64_alpha_ge192": {
+        "count": 0
+      }
+    },
+    "registered82": {
+      "size": [
+        96,
+        112
+      ],
+      "alpha_zero": 8041,
+      "alpha_fractional": 2660,
+      "alpha255": 51,
+      "max_alpha": 255,
+      "equivalent_alpha_area": 2116.321568627451,
+      "bboxes_at_alpha": {
+        "1": [
+          2,
+          16,
+          93,
+          80
+        ],
+        "2": [
+          2,
+          16,
+          93,
+          80
+        ],
+        "8": [
+          2,
+          16,
+          93,
+          80
+        ],
+        "32": [
+          2,
+          16,
+          93,
+          80
+        ],
+        "64": [
+          2,
+          16,
+          93,
+          79
+        ],
+        "128": [
+          2,
+          17,
+          93,
+          78
+        ],
+        "192": [
+          3,
+          17,
+          92,
+          77
+        ],
+        "240": [
+          3,
+          17,
+          92,
+          76
+        ],
+        "250": [
+          3,
+          17,
+          92,
+          75
+        ],
+        "255": [
+          3,
+          17,
+          92,
+          35
+        ]
+      },
+      "alpha_weighted_rgb": [
+        48.046,
+        247.433,
+        113.14
+      ],
+      "border_alpha_max_LTRB": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "edge_alpha1to127": {
+        "count": 529,
+        "rgb_mean": [
+          14.767,
+          225.357,
+          76.473
+        ],
+        "green_dominant_fraction": 0.9168241965973535
+      },
+      "visible_ge32": {
+        "count": 2409,
+        "rgb_mean": [
+          45.555,
+          246.551,
+          111.364
+        ],
+        "green_dominant_fraction": 1.0
+      },
+      "core_ge192": {
+        "count": 1957,
+        "rgb_mean": [
+          50.107,
+          248.185,
+          114.602
+        ],
+        "green_dominant_fraction": 1.0
+      },
+      "pale_mint_alpha_ge128_Rge100_Bge120": {
+        "count": 0
+      },
+      "dark_nearopaque_RGBmaxlt64_alpha_ge192": {
+        "count": 0
+      }
+    }
+  },
+  "c2pa_metadata": {
+    "chunk_bytes": 23654,
+    "creation_time_utc": "2026-10-15T11:37:58.265163510Z",
+    "png_or_jpeg_reference_thumbnails_detected": false,
+    "private_absolute_paths_detected": false,
+    "exact_model_version_confirmed": false
+  },
+  "visual_review": "Independent static identity/registration/readability/softedge passes; brighter/lighter body-weight reservation remains. Parent permits bounded reversible actual-engine candidate trial only. No runtime or final appearance approval inferred.",
+  "game_runs": 0,
+  "publication_claimed": false
+}

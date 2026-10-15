@@ -42,7 +42,7 @@ typedef struct {
 enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121, ASSET_ENEMY_TANK_SHELL=122, ASSET_REAR534_BODY=123, ASSET_DATA513_BODY=124, ASSET_PROTRON_SHADOW=125, ASSET_MARLO_BODY=126, ASSET_MINT_BODY=127, ASSET_FRONTBLASTER_BODY=128, ASSET_PLASMA_BODY=129 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
 /* Slots 507..509 are rear534; slots 510..521 are Data513. */
-static Asset assets[549];
+static Asset assets[551];
 /* One draw-call lease from the original fixed explosion; never gameplay state. */
 static bool cash25_fixed_value;
 static bool cash75_fixed_value;
@@ -1482,6 +1482,29 @@ static int explosion_asset_slot(unsigned int index)
  return -1;
 }
 
+/* Sonic Wave shallow pair63/82: two normal player heads; other identities stay independent.
+ * Validate current selected indices AND coverage before EVERY cold/warm lookup. */
+static int sonic_shallow_pair_member(unsigned int index)
+{
+ return index==63?0:index==82?1:-1;
+}
+
+static bool sonic_shallow_pair_source_matches(Sprite2_array bank,unsigned int index)
+{
+ if(xmas||!bank.data||bank.data!=spriteSheet8.data||bank.size!=spriteSheet8.size)return false;
+ uint64_t wanted;
+ switch(index) {
+  case 63:wanted=UINT64_C(0xa79a9f93c7439a27);break;
+  case 82:wanted=UINT64_C(0x4f84a37be2ca17d7);break;
+  default:return false;
+ }
+ Uint8 source[12*14*2]={0};
+ if(!decode_tile(bank,index,source,source+12*14,12,0,0))return false;
+ uint64_t stamp=UINT64_C(0xcbf29ce484222325);
+ for(size_t i=0;i<sizeof(source);i++){stamp^=source[i];stamp*=UINT64_C(0x100000001b3);}
+ return stamp==wanted;
+}
+
 /* Sonic Wave ID73: one normal upward arch; other identities stay independent.
  * Validate current selected indices AND coverage before EVERY cold/warm lookup. */
 static bool sonic_upward_arch_source_matches(Sprite2_array bank)
@@ -1688,6 +1711,12 @@ static Asset *get_asset(Sprite2_array bank,unsigned int index,int layout)
  if(!xmas&&bank.data==spriteSheet8.data&&layout==ENTITY_TILE) {
   static const unsigned int multi_ids[8]={121,122,163,164,201,202,279,280};
   for(int i=0;i<8;i++)if(index==multi_ids[i]){slot=524+i;role=8;break;}
+ }
+ /* Sonic Wave shallow pair63/82 only; original/Christmas/diagnostic fallbacks stay classic. */
+ if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&sonic_shallow_pair_member(index)>=0) {
+  if((game_probe_density!=4&&game_probe_density!=8)||game_probe_missing||game_probe_invalid||
+     game_probe_original_reference||!game_probe_assets||!sonic_shallow_pair_source_matches(bank,index))return NULL;
+  slot=549+sonic_shallow_pair_member(index);role=8;
  }
  /* Sonic Wave ID73 only; original/Christmas/diagnostic fallbacks stay classic. */
  if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&index==73) {
@@ -2264,6 +2293,8 @@ bool render_mirror_entity(SDL_Surface *surface,int x,int y,Sprite2_array bank,un
  /* Resolve the frozen contour from this shadow call, before its own head. */
  if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&vulcan_shadow_member(index)>=0&&style==MIRROR_SHADOW)
   return draw_vulcan_shadow(surface,x,y,bank,index);
+ /* Sonic Wave shallow pair63/82 retain original indexed shadow silhouettes, origin and order. */
+ if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&sonic_shallow_pair_member(index)>=0&&style==MIRROR_SHADOW)return false;
  /* Sonic Wave ID73 retains its original indexed shadow silhouette, origin and order. */
  if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&index==73&&style==MIRROR_SHADOW)return false;
  /* Sonic Wave6/44 retain original indexed shadow silhouettes, origin and order. */
