@@ -5,6 +5,7 @@ from PIL import Image
 import argparse, hashlib, json, subprocess, sys, tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
+# Finite candidate snapshot: d755b79c890d140e294a683664259d6833a3ca6f; later families use their own checks.
 BASE = '8b71966b59315b7ee67163e160925e0d60a0ae39'
 ART = 'assets/hd/artwork/option-mint-body-three-v1'
 CONTRACT = 'b8a51b0d2d240b633a1cd1c3d136040583b1091797c287dbde4be25ab54aca49'
@@ -25,6 +26,10 @@ def main():
     old = json.loads(git('show', BASE + ':assets/hd/manifest.json'))
     defaults = {m['default_preview_pack'], m['default_debug_pack']}
     assert defaults == {old['default_preview_pack'], old['default_debug_pack']}
+    assert all((ROOT / p).is_dir() and not (ROOT / p).is_symlink()
+               for p in ('assets', 'assets/hd', 'assets/hd/packs'))
+    assert all(not f.is_symlink() and (f.is_dir() or f.is_file())
+               for f in (ROOT / 'assets/hd/packs').rglob('*'))
     added = {}
     for e in c['entries']:
         name = f"option-mint-bank9-{e['id']}-8.hda"
@@ -58,9 +63,22 @@ def main():
         current = {str(x.relative_to(ROOT)) for x in (ROOT / prefix).iterdir() if x.is_file()}
         assert len(prior) == 556 and current == prior | {prefix + n for n in added}
         assert len(current) == 559 and sum(x.endswith('.hda') for x in current) == 554
-    # Every pre-existing pack file, including six unlisted HDA and five auxiliaries,
-    # is checked by Git's byte comparison rather than by a manifest-only count.
-    assert not git('diff', BASE, '--name-only', '--', 'assets/hd/packs').strip()
+    # Check the finite family snapshot regardless of staging/commit state.
+    # Include every old pack file, even unlisted HDA, auxiliaries and rollback packs.
+    prior_blobs = {}
+    for line in git('ls-tree', '-r', BASE, '--', 'assets/hd/packs').decode().splitlines():
+        metadata, path = line.split('\t', 1)
+        mode, kind, blob = metadata.split()
+        assert mode == '100644' and kind == 'blob'
+        prior_blobs[path] = blob
+    expected_additions = {'assets/hd/packs/' + pack + '/' + name for pack in defaults for name in added}
+    actual = {str(f.relative_to(ROOT)) for f in (ROOT / 'assets/hd/packs').rglob('*') if f.is_file() or f.is_symlink()}
+    assert actual == set(prior_blobs) | expected_additions
+    for path, blob in prior_blobs.items():
+        f = ROOT / path
+        assert f.is_file() and not (f.stat().st_mode & 0o100)
+        raw = f.read_bytes()
+        assert hashlib.sha1(b'blob ' + str(len(raw)).encode() + b'\0' + raw).hexdigest() == blob
     changed = dict(m)
     changed.pop('option_mint_body_three_v1')
     changed['packs'] = old['packs']
