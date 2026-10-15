@@ -1,0 +1,279 @@
+{
+  "schema": "option-mint-body-three-v1-bounded-verification",
+  "status": "PASS; actual Normal/Hard gameplay visual review accepted; not yet published",
+  "verified_date_utc": "2026-10-15",
+  "baseline_commit": "8b71966b59315b7ee67163e160925e0d60a0ae39",
+  "baseline_tree": "967e74f99f07e31d3e5d631744de9d20756303dd",
+  "resources": {
+    "option": 16,
+    "style": 3,
+    "charge": 0,
+    "bank": 9,
+    "role": 127,
+    "slots": [
+      537,
+      538,
+      539
+    ],
+    "ids": [
+      112,
+      131,
+      150
+    ],
+    "density": 8,
+    "logical_size": [
+      12,
+      14
+    ],
+    "anchor": [
+      0,
+      0
+    ],
+    "HDA_sha256": {
+      "112": "ddbfe03b540bc10c46570ef4ac1fadfcbb66dc9a2dc8f9386146a1b8c4fd1c2b",
+      "131": "75c2301bb9ae5b7dd96195b3e04993a4c7dd436ef61d5449d013898bafcac4b6",
+      "150": "29da5df5d364527ea9eaa62b7bc1c457f40c5da3bab129e01d3f487ba11eeb27"
+    },
+    "animation": [
+      112,
+      112,
+      112,
+      112,
+      131,
+      131,
+      131,
+      131,
+      150,
+      150,
+      150,
+      150,
+      131,
+      131,
+      131,
+      131
+    ],
+    "original_pre_draw_increment": true
+  },
+  "source_scope": {
+    "production_files_checked": 153,
+    "production_files_changed": [
+      "src/entity_draw.c",
+      "src/entity_draw.h",
+      "src/mainint.c",
+      "src/render_mirror.c",
+      "src/render_mirror.h"
+    ],
+    "finite_inverse_to_baseline_byte_exact": true,
+    "unchanged_original_blitters_compositor_pixel_bridge_rng_gameplay_hud_shop": true
+  },
+  "unit_checks": {
+    "optimized": "PASS",
+    "AddressSanitizer_UndefinedBehaviorSanitizer": "PASS",
+    "guard_checks": 1431,
+    "resource_frame_variants": 54,
+    "wrapper_calls": 311,
+    "full_indexed_and_RGBA_output_comparisons": 305,
+    "dispatch_cases": 777,
+    "normal_full_tile_original_writes": 94,
+    "covers": [
+      "cold/warm current normal-source semantic identity",
+      "Christmas before and after normal cache, source reload into reused address",
+      "index mutations and valid coverage-only mutations, equivalent semantic RLE",
+      "wrong option/style/charge/index/bank/layout/surface",
+      "missing, wrong header, truncated and extra resource bytes",
+      "independent8-to4 density fallback for all three resources",
+      "edge clipping, original row-wrap fallback, duplicates and cross-phase overlap",
+      "unchanged original sixteen-phase sequence and exact-once original blit",
+      "unchanged Marlo, Talon and Mint/Vulcan projectile routes"
+    ]
+  },
+  "build": {
+    "translation_units": 72,
+    "linked": true,
+    "executed": false,
+    "classic_disabled_units": [
+      "entity_draw.c",
+      "render_mirror.c"
+    ],
+    "version_header_unchanged": true
+  },
+  "runtime_method": {
+    "comparison": "Actual published-baseline source executable versus final candidate source executable",
+    "original_seed_time_NULL_unchanged": true,
+    "all_four_processes_same_natural_seed": 1792027036,
+    "all_four_exit_codes": 0,
+    "frames_per_process": 160,
+    "only_inputs": "Original SDL menu key events and held ordinary main-fire Space during play",
+    "forced_equipment_cash_position_invulnerability_rng": false,
+    "private_observer_inverse_restores_all153_source_files": true,
+    "separate_missing_art_fallback_control": "Also passed; not counted as cross-source baseline parity"
+  },
+  "cases": [
+    {
+      "difficulty": "normal",
+      "physical_level": 9,
+      "seed": "1792027036",
+      "ticks": 160,
+      "paired_original_state_indexed_palette_rng_parity": true,
+      "paired_original_draw_shot_pose_position_parity": true,
+      "actual_shop": {
+        "original_sorted_left_inventory": [
+          9,
+          16,
+          30,
+          0
+        ],
+        "None_initial_selection": 5,
+        "Mint_observed_selection": 3,
+        "Done_observed_selection": 6,
+        "cost": 5000,
+        "cash_before": 10000,
+        "cash_after": 5000,
+        "left": 16,
+        "right": 0
+      },
+      "original_body_calls": 160,
+      "original_body_writes": 15040,
+      "phase_admissions": {
+        "112": 40,
+        "131": 80,
+        "150": 40
+      },
+      "candidate_admitted_each_tick": true,
+      "baseline_admitted_each_tick": false,
+      "weapon452_requests": 32,
+      "weapon452_emissions": 32,
+      "collision_events": 0,
+      "lighting_original_support_census": [
+        {
+          "kind": "1",
+          "lit": "94",
+          "transition": "0",
+          "dark": "0",
+          "ticks": 160
+        }
+      ],
+      "noninvulnerable_overlap": {
+        "first_tick": 100,
+        "last_tick": 159,
+        "original_support_intersection_pixels_each_tick": 14,
+        "stationary_player": [
+          100,
+          160
+        ],
+        "stationary_body": [
+          90,
+          162
+        ]
+      },
+      "native2x_gameplay_pairs": 8,
+      "visual_changes_outside_body_bbox": 0,
+      "actual_original_body_display_bbox": [
+        136,
+        324,
+        156,
+        350
+      ]
+    },
+    {
+      "difficulty": "hard",
+      "physical_level": 15,
+      "seed": "1792027036",
+      "ticks": 160,
+      "paired_original_state_indexed_palette_rng_parity": true,
+      "paired_original_draw_shot_pose_position_parity": true,
+      "actual_shop": {
+        "original_sorted_left_inventory": [
+          9,
+          16,
+          30,
+          0
+        ],
+        "None_initial_selection": 5,
+        "Mint_observed_selection": 3,
+        "Done_observed_selection": 6,
+        "cost": 5000,
+        "cash_before": 10000,
+        "cash_after": 5000,
+        "left": 16,
+        "right": 0
+      },
+      "original_body_calls": 160,
+      "original_body_writes": 15040,
+      "phase_admissions": {
+        "112": 40,
+        "131": 80,
+        "150": 40
+      },
+      "candidate_admitted_each_tick": true,
+      "baseline_admitted_each_tick": false,
+      "weapon452_requests": 32,
+      "weapon452_emissions": 32,
+      "collision_events": 0,
+      "lighting_original_support_census": [
+        {
+          "kind": "1",
+          "lit": "94",
+          "transition": "0",
+          "dark": "0",
+          "ticks": 1
+        },
+        {
+          "kind": "2",
+          "lit": "2",
+          "transition": "39",
+          "dark": "53",
+          "ticks": 159
+        }
+      ],
+      "noninvulnerable_overlap": {
+        "first_tick": 100,
+        "last_tick": 159,
+        "original_support_intersection_pixels_each_tick": 14,
+        "stationary_player": [
+          100,
+          160
+        ],
+        "stationary_body": [
+          90,
+          162
+        ]
+      },
+      "native2x_gameplay_pairs": 8,
+      "visual_changes_outside_body_bbox": 0,
+      "actual_original_body_display_bbox": [
+        136,
+        324,
+        156,
+        350
+      ]
+    }
+  ],
+  "pack_preservation": {
+    "both_default_manifests_before": 545,
+    "both_default_manifests_after": 548,
+    "both_default_physical_files_before": 556,
+    "both_default_physical_files_after": 559,
+    "physical_HDA_after": 554,
+    "all_prior_files_byte_identical": true,
+    "six_unlisted_HDA_and_five_auxiliaries_preserved": true,
+    "rollback_packs_unchanged": true
+  },
+  "visual_review": {
+    "native2x_all_three_phases_Normal_and_Hard": "accepted",
+    "actual_unscaled_stationary_noninvulnerable_overlap": "accepted",
+    "known_tradeoffs": [
+      "Frozen dark core dimmer than original112",
+      "Independent generated shells have slight nonzero contour/highlight drift; no algorithmic correction applied"
+    ]
+  },
+  "limits": [
+    "Only actual left Mint purchase; right/dual remain unit-only cases.",
+    "No contact collisions observed; no contact-collision coverage claim.",
+    "Only160-tick first-level windows; no whole-level or campaign survival claim.",
+    "Hard sampled mixed lit/transition/dark support; no fully-dark-body coverage.",
+    "NIGHT census covers original94 support cells and actual native2x visual frames; no separate all-authored-alpha subpixel shader proof.",
+    "No Windows/GPU/performance qualification.",
+    "Private original game data and runtime captures are excluded from repository changes."
+  ]
+}

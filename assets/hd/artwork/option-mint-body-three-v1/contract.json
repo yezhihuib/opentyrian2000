@@ -1,0 +1,185 @@
+{
+  "schema": "option-mint-body-three-generated-master-v1",
+  "role": 127,
+  "density": 8,
+  "logical_size": [
+    12,
+    14
+  ],
+  "anchor": [
+    0,
+    0
+  ],
+  "reconstruction": {
+    "library": "Pillow",
+    "version": "12.3.0",
+    "resize": [
+      80,
+      104
+    ],
+    "paste": [
+      16,
+      0
+    ],
+    "filter": "LANCZOS",
+    "canvas": [
+      96,
+      112
+    ],
+    "alpha": "Original generated RGBA; fixed crop/resample/paste only, no repaint, recolor, threshold, source-mask compositing or fabricated frames."
+  },
+  "animation": {
+    "ani": 16,
+    "phase": "Original pre-draw increment, without reset or interpolation",
+    "loop": [
+      112,
+      112,
+      112,
+      112,
+      131,
+      131,
+      131,
+      131,
+      150,
+      150,
+      150,
+      150,
+      131,
+      131,
+      131,
+      131
+    ]
+  },
+  "normal_source": {
+    "logical_size": [
+      12,
+      14
+    ],
+    "written_pixels": 94,
+    "semantic_fnv1a64": {
+      "112": "adcb30ca719db2e6",
+      "131": "adf9398495b924ef",
+      "150": "d692d598a54a058f"
+    },
+    "Christmas": "All three source resources empty; original invisible indexed fallback"
+  },
+  "known_offline_reviewed_tradeoffs": [
+    "Dark core phase has measured same-region luminance83.23 versus original112 core146.22. Retain this fact; do not brighten by algorithm.",
+    "Independent generated outer shells are not pixel-identical: native2x alpha128 IoU>=0.994778, mid/bright contour identical, dark versus others2 edge pixels differ across alpha128.",
+    "Top-left highlight centroid varies up to2.39 physical pixels at density8, about0.30 logical pixels; no material global shell drift found in inspected preview."
+  ],
+  "qualification": "Offline artwork accepted for real-game validation; runtime qualification pending.",
+  "entries": [
+    {
+      "id": 112,
+      "phase": "dark",
+      "slot": 537,
+      "source": "sources/generated-mint-body-dark-v1.png",
+      "source_sha256": "36595b32e859f4247b9b3ea87159e615520bd8a4e8183a9cf6382b233aa6ebdd",
+      "crop": [
+        225,
+        286,
+        873,
+        1134
+      ],
+      "PNG_sha256": "a394edb89cf7c4dd1b0793a667683a86de210d677334eff9079d1122b26690b6",
+      "RGBA_sha256": "411f4a20e0971455e5eb018f1252b9a9f2f3f83fcee74fa85f7177e6a511ef7c",
+      "HDA_sha256": "ddbfe03b540bc10c46570ef4ac1fadfcbb66dc9a2dc8f9386146a1b8c4fd1c2b",
+      "header_u32": [
+        1270112,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "metrics": {
+        "alpha_weighted_area_logical": 94.51047794117648,
+        "core_source_six_pixel_region_luma": 83.23247343749999,
+        "outer_mean_luma": 135.01441862197393,
+        "top_left_highlight_centroid": [
+          39.643695958523985,
+          25.075919031298387
+        ],
+        "alpha_centroid": [
+          56.033096561163006,
+          50.92676238693837
+        ]
+      }
+    },
+    {
+      "id": 131,
+      "phase": "mid",
+      "slot": 538,
+      "source": "sources/generated-mint-body-mid-v1.png",
+      "source_sha256": "8545f071badc6a401fc4622ab93f3e268eeeee21570fd4d84db6dbacbd536f0d",
+      "crop": [
+        225,
+        285,
+        875,
+        1139
+      ],
+      "PNG_sha256": "592f5a9b8ffbe7d9da64a1687542d48dee0404889b35ea12ea19ded5d75eafca",
+      "RGBA_sha256": "a3adb10d2fce189e0d8900173bc111f93e5d832c29f635ffe8614187b2dbf637",
+      "HDA_sha256": "75c2301bb9ae5b7dd96195b3e04993a4c7dd436ef61d5449d013898bafcac4b6",
+      "header_u32": [
+        1270131,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "metrics": {
+        "alpha_weighted_area_logical": 93.96194852941177,
+        "core_source_six_pixel_region_luma": 148.14206822916665,
+        "outer_mean_luma": 135.21698197489224,
+        "top_left_highlight_centroid": [
+          40.199276903445345,
+          25.883011818083254
+        ],
+        "alpha_centroid": [
+          56.00523228857112,
+          50.761250545335734
+        ]
+      }
+    },
+    {
+      "id": 150,
+      "phase": "bright",
+      "slot": 539,
+      "source": "sources/generated-mint-body-bright-v1.png",
+      "source_sha256": "4842d621234add2bae5c61fc1b3a7b3565044aeedf76dd5960d14f362a8ef9ca",
+      "crop": [
+        227,
+        288,
+        873,
+        1134
+      ],
+      "PNG_sha256": "a1b4aae7f9e40624badca34086c0eaad3859857e28f71d9f9cc793b47b9ee494",
+      "RGBA_sha256": "be311330416fd54f2b7883ac5ec01d830e80f71bea46cb2d4606dec61793aec5",
+      "HDA_sha256": "29da5df5d364527ea9eaa62b7bc1c457f40c5da3bab129e01d3f487ba11eeb27",
+      "header_u32": [
+        1270150,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "metrics": {
+        "alpha_weighted_area_logical": 94.28192401960784,
+        "core_source_six_pixel_region_luma": 188.48050208333333,
+        "outer_mean_luma": 136.60358024276377,
+        "top_left_highlight_centroid": [
+          40.94270872499159,
+          27.059377040745648
+        ],
+        "alpha_centroid": [
+          56.00325181112914,
+          50.866008938824876
+        ]
+      }
+    }
+  ]
+}

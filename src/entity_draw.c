@@ -64,3 +64,13 @@ void draw_sidekick_body_sprite2(SDL_Surface *target,int x,int y,Sprite2_array ba
  blit_sprite2(target,x,y,bank,index);
  render_mirror_entity_end();
 }
+
+/* Mint16 keeps its original phase, placement and single indexed draw. */
+void draw_mint_body_sprite2(SDL_Surface *target,int x,int y,Sprite2_array bank,
+                           unsigned int index,unsigned int option,
+                           unsigned int sidekick_style,unsigned int charge)
+{
+ (void)render_mirror_mint_body(target,x,y,bank,index,option,sidekick_style,charge);
+ blit_sprite2(target,x,y,bank,index);
+ render_mirror_entity_end();
+}
