@@ -1,0 +1,1001 @@
+{
+  "status": "PASS",
+  "test_file_sha256": {
+    "test-sonic-upward-arch-binding.py": "209cf94b9cc1772fd9e9fd79fe7d03e9bf6ccd995811fc269d29bfd3820c90cd",
+    "test-sonic-upward-arch-binding.c": "cac4dfbdc55b1f17628f5859f4e0e571401a565938d7735c83790c76e091b876",
+    "test-sonic-upward-arch-shots.c": "fc6d36183fcee370cef3d91a006362df8cbfc5195f4c0d3618d8ba970fb097c1"
+  },
+  "source_contract_sha256": "a3b891c3b11e33f46c38199befc01712a65bd006f1a3d8e0c1b6c2d7f62f42c3",
+  "art_contract_sha256": "bed9dd9dd4b8f9e7f388fada2932d9d9bd039fdefbe2997b81596007108e3b8e",
+  "previous_6_44_art_sha256": {
+    "6": "ecc014d43e863b9e68e1da95782ba6595650342a71285561f9319e89b8684e57",
+    "44": "a3dfb56dbec6479ce725e388b15e34963ea9e960c3deeeba335261393fa9a167"
+  },
+  "scope": {
+    "baseline": "1f5ab7398a6e0ed369644b50ffdf16bacdb7202d",
+    "exact_renderer_inverse": true,
+    "production_source_files_checked": 153,
+    "prior_sonic6_44_tests_unchanged": [
+      "prototype/test-sonic-six-pair-binding.c",
+      "prototype/test-sonic-six-pair-binding.py",
+      "prototype/test-sonic-six-pair-scope.py",
+      "prototype/test-sonic-six-pair-shots.c"
+    ],
+    "only_changed_production_file": "src/render_mirror.c",
+    "candidate_renderer_sha256": "3175867b5415d7b8590da2752a687781423f9de251de4fa2058d91325a8858fd",
+    "gameplay_input_shots_blitters_rng_unchanged": true
+  },
+  "art_sha256": {
+    "73": "14d03f2b06a5ffd73bc3f9b2a7ab9731a11c359e881573c6459faaed5892a5fc"
+  },
+  "default_packs": {
+    "preview": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+    "debug": "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test"
+  },
+  "data_sha256": {
+    "tyrian.shp": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+    "tyrianc.shp": "e980f02021395d39b86491acdc2ecd6dd47ea2a9f859fe3928f81b75e244fd7d"
+  },
+  "id73_source_facts": {
+    "normal": {
+      "bank_bytes": 32060,
+      "encoded_offset": 8005,
+      "encoded_bytes": 120,
+      "encoded_sha256": "540d013f655cfb8e0b1153a980e5013e40a40121e04785baccc214a6dc3a630e",
+      "decoded_indices_sha256": "e3387096ff867830122b0af22d7ca85b3684e8eccd1b5a58e069d0ff69adbb8b",
+      "decoded_coverage_sha256": "8f73bc9b22dc12a75ee8c271095adbd04b4b945212d5d528e9e3c76af8906fca",
+      "decoded_index_then_coverage_sha256": "457068316526ab5fe73db65a2faa382a03ddd934dcc7458f91fc5faef9d0f93c",
+      "fnv1a64": "0x898413e19195c1be",
+      "occupied_cells": 88
+    },
+    "christmas": {
+      "bank_bytes": 32404,
+      "encoded_offset": 8313,
+      "encoded_bytes": 90,
+      "encoded_sha256": "33ac6fd55f8e7248c1d6ba0400f369c9986ddf5c68d1c25eff94e12c437c2f39",
+      "decoded_indices_sha256": "fe109efa60eff3d994c7a385cd642d20fa51fefad21cecc413aba9ca482a2a27",
+      "decoded_coverage_sha256": "2a0015435177c792bccc0fc90b0c368142a168634a5c7cd77a31d5969a975440",
+      "decoded_index_then_coverage_sha256": "ba91d1f15b7ebdd4126c1bd16b7c9af233226fe92e0b1af966618e2bca0149ed",
+      "fnv1a64": "0x65261a1e407d7a98",
+      "occupied_cells": 66
+    }
+  },
+  "source_rows": {
+    "normal_first_level_rows": [
+      {
+        "mode": 1,
+        "power": 1,
+        "record": 276,
+        "ids": [
+          6,
+          44
+        ]
+      },
+      {
+        "mode": 1,
+        "power": 2,
+        "record": 277,
+        "ids": [
+          6,
+          44,
+          63
+        ]
+      },
+      {
+        "mode": 1,
+        "power": 3,
+        "record": 278,
+        "ids": [
+          6,
+          44,
+          223,
+          224
+        ]
+      },
+      {
+        "mode": 1,
+        "power": 4,
+        "record": 279,
+        "ids": [
+          16,
+          54,
+          63
+        ]
+      },
+      {
+        "mode": 1,
+        "power": 5,
+        "record": 280,
+        "ids": [
+          16,
+          54,
+          223,
+          224
+        ]
+      },
+      {
+        "mode": 1,
+        "power": 6,
+        "record": 281,
+        "ids": [
+          16,
+          54,
+          223,
+          224
+        ]
+      },
+      {
+        "mode": 1,
+        "power": 7,
+        "record": 282,
+        "ids": [
+          105,
+          106,
+          124,
+          125,
+          223,
+          224
+        ]
+      },
+      {
+        "mode": 1,
+        "power": 8,
+        "record": 283,
+        "ids": [
+          73,
+          82,
+          105,
+          106,
+          124,
+          125
+        ]
+      },
+      {
+        "mode": 1,
+        "power": 9,
+        "record": 284,
+        "ids": [
+          73,
+          105,
+          106,
+          124,
+          125,
+          242,
+          243
+        ]
+      },
+      {
+        "mode": 1,
+        "power": 10,
+        "record": 285,
+        "ids": [
+          73,
+          105,
+          106,
+          124,
+          125,
+          130,
+          131
+        ]
+      },
+      {
+        "mode": 1,
+        "power": 11,
+        "record": 286,
+        "ids": [
+          105,
+          106,
+          124,
+          125,
+          130,
+          131,
+          149,
+          150
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 1,
+        "record": 287,
+        "ids": [
+          73
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 2,
+        "record": 288,
+        "ids": [
+          63,
+          73
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 3,
+        "record": 289,
+        "ids": [
+          63
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 4,
+        "record": 290,
+        "ids": [
+          63
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 5,
+        "record": 291,
+        "ids": [
+          63,
+          73
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 6,
+        "record": 292,
+        "ids": [
+          63,
+          143,
+          144
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 7,
+        "record": 293,
+        "ids": [
+          73,
+          143,
+          144
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 8,
+        "record": 294,
+        "ids": [
+          63,
+          143,
+          144
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 9,
+        "record": 295,
+        "ids": [
+          63,
+          73,
+          143,
+          144
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 10,
+        "record": 296,
+        "ids": [
+          143,
+          144
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 11,
+        "record": 297,
+        "ids": [
+          143,
+          144
+        ]
+      }
+    ],
+    "pilot_reuse_rows": [
+      {
+        "mode": 1,
+        "power": 8,
+        "record": 283,
+        "ids": [
+          73,
+          82,
+          105,
+          106,
+          124,
+          125
+        ]
+      },
+      {
+        "mode": 1,
+        "power": 9,
+        "record": 284,
+        "ids": [
+          73,
+          105,
+          106,
+          124,
+          125,
+          242,
+          243
+        ]
+      },
+      {
+        "mode": 1,
+        "power": 10,
+        "record": 285,
+        "ids": [
+          73,
+          105,
+          106,
+          124,
+          125,
+          130,
+          131
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 1,
+        "record": 287,
+        "ids": [
+          73
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 2,
+        "record": 288,
+        "ids": [
+          63,
+          73
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 5,
+        "record": 291,
+        "ids": [
+          63,
+          73
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 7,
+        "record": 293,
+        "ids": [
+          73,
+          143,
+          144
+        ]
+      },
+      {
+        "mode": 2,
+        "power": 9,
+        "record": 295,
+        "ids": [
+          63,
+          73,
+          143,
+          144
+        ]
+      }
+    ],
+    "all_22_rows_verified": true,
+    "all_other_14_rows_exclude_id73": true,
+    "family_ids": [
+      6,
+      16,
+      44,
+      54,
+      63,
+      73,
+      82,
+      105,
+      106,
+      124,
+      125,
+      130,
+      131,
+      143,
+      144,
+      149,
+      150,
+      223,
+      224,
+      242,
+      243
+    ],
+    "other_18_ids_unchanged": [
+      16,
+      54,
+      63,
+      82,
+      105,
+      106,
+      124,
+      125,
+      130,
+      131,
+      143,
+      144,
+      149,
+      150,
+      223,
+      224,
+      242,
+      243
+    ],
+    "exact_original_shot_functions_and_no_rng_calls": true,
+    "original_port11_mapping_cost950_power50_verified": true,
+    "shot_function_sha256": {
+      "player_shot_create": "106e3e5dc4305d556d368dfc2e052399766f44ea063a9a7b407877349164a320",
+      "player_shot_move_and_draw": "cbb509d45c570a3766a523e768915c8b7874824d6c816160e5f8776e286ebad8"
+    }
+  },
+  "shot_runs": {
+    "optimized": {
+      "status": "PASS",
+      "ordinary_first_level_rows": 22,
+      "rng_calls": 0,
+      "original_shadow_then_head_order_verified": true,
+      "create_cases": 7436,
+      "movement_ticks": 72332,
+      "capacity_and_power_cases": 173,
+      "volley_phase_cases": 129,
+      "emits": 37326,
+      "draws": 108498,
+      "shadow_draws": 36166,
+      "game_runs": 0
+    },
+    "sanitized": {
+      "status": "PASS",
+      "ordinary_first_level_rows": 22,
+      "rng_calls": 0,
+      "original_shadow_then_head_order_verified": true,
+      "create_cases": 7436,
+      "movement_ticks": 72332,
+      "capacity_and_power_cases": 173,
+      "volley_phase_cases": 129,
+      "emits": 37326,
+      "draws": 108498,
+      "shadow_draws": 36166,
+      "game_runs": 0
+    }
+  },
+  "actual_christmas_selected_decoded_sources_equal_normal": false,
+  "resource_variants": [
+    [
+      "valid",
+      1,
+      8,
+      0,
+      4
+    ],
+    [
+      "both",
+      1,
+      8,
+      1,
+      4
+    ],
+    [
+      "missing",
+      0,
+      4,
+      0,
+      4
+    ],
+    [
+      "only4",
+      1,
+      4,
+      1,
+      4
+    ],
+    [
+      "magic-8",
+      0,
+      4,
+      0,
+      4
+    ],
+    [
+      "magic-8-valid4",
+      1,
+      4,
+      1,
+      4
+    ],
+    [
+      "magic-4",
+      0,
+      4,
+      0,
+      4
+    ],
+    [
+      "magic-8-and4",
+      0,
+      4,
+      0,
+      4
+    ],
+    [
+      "valid8-magic-4",
+      1,
+      8,
+      0,
+      4
+    ],
+    [
+      "role-8",
+      0,
+      4,
+      0,
+      4
+    ],
+    [
+      "role-8-valid4",
+      1,
+      4,
+      1,
+      4
+    ],
+    [
+      "role-4",
+      0,
+      4,
+      0,
+      4
+    ],
+    [
+      "role-8-and4",
+      0,
+      4,
+      0,
+      4
+    ],
+    [
+      "valid8-role-4",
+      1,
+      8,
+      0,
+      4
+    ],
+    [
+      "identity-8",
+      0,
+      4,
+      0,
+      4
+    ],
+    [
+      "identity-8-valid4",
+      1,
+      4,
+      1,
+      4
+    ],
+    [
+      "identity-4",
+      0,
+      4,
+      0,
+      4
+    ],
+    [
+      "identity-8-and4",
+      0,
+      4,
+      0,
+      4
+    ],
+    [
+      "valid8-identity-4",
+      1,
+      8,
+      0,
+      4
+    ],
+    [
+      "density-8",
+      0,
+      4,
+      0,
+      4
+    ],
+    [
+      "density-8-valid4",
+      1,
+      4,
+      1,
+      4
+    ],
+    [
+      "density-4",
+      0,
+      4,
+      0,
+      4
+    ],
+    [
+      "density-8-and4",
+      0,
+      4,
+      0,
+      4
+    ],
+    [
+      "valid8-density-4",
+      1,
+      8,
+      0,
+      4
+    ],
+    [
+      "width-8",
+      0,
+      4,
+      0,
+      4
+    ],
+    [
+      "width-8-valid4",
+      1,
+      4,
+      1,
+      4
+    ],
+    [
+      "width-4",
+      0,
+      4,
+      0,
+      4
+    ],
+    [
+      "width-8-and4",
+      0,
+      4,
+      0,
+      4
+    ],
+    [
+      "valid8-width-4",
+      1,
+      8,
+      0,
+      4
+    ],
+    [
+      "height-8",
+      0,
+      4,
+      0,
+      4
+    ],
+    [
+      "height-8-valid4",
+      1,
+      4,
+      1,
+      4
+    ],
+    [
+      "height-4",
+      0,
+      4,
+      0,
+      4
+    ],
+    [
+      "height-8-and4",
+      0,
+      4,
+      0,
+      4
+    ],
+    [
+      "valid8-height-4",
+      1,
+      8,
+      0,
+      4
+    ],
+    [
+      "anchor-x-8",
+      0,
+      4,
+      0,
+      4
+    ],
+    [
+      "anchor-x-8-valid4",
+      1,
+      4,
+      1,
+      4
+    ],
+    [
+      "anchor-x-4",
+      0,
+      4,
+      0,
+      4
+    ],
+    [
+      "anchor-x-8-and4",
+      0,
+      4,
+      0,
+      4
+    ],
+    [
+      "valid8-anchor-x-4",
+      1,
+      8,
+      0,
+      4
+    ],
+    [
+      "anchor-y-8",
+      0,
+      4,
+      0,
+      4
+    ],
+    [
+      "anchor-y-8-valid4",
+      1,
+      4,
+      1,
+      4
+    ],
+    [
+      "anchor-y-4",
+      0,
+      4,
+      0,
+      4
+    ],
+    [
+      "anchor-y-8-and4",
+      0,
+      4,
+      0,
+      4
+    ],
+    [
+      "valid8-anchor-y-4",
+      1,
+      8,
+      0,
+      4
+    ],
+    [
+      "short-header-8",
+      0,
+      4,
+      0,
+      4
+    ],
+    [
+      "short-header-8-valid4",
+      1,
+      4,
+      1,
+      4
+    ],
+    [
+      "short-header-4",
+      0,
+      4,
+      0,
+      4
+    ],
+    [
+      "short-header-8-and4",
+      0,
+      4,
+      0,
+      4
+    ],
+    [
+      "valid8-short-header-4",
+      1,
+      8,
+      0,
+      4
+    ],
+    [
+      "truncated-8",
+      0,
+      4,
+      0,
+      4
+    ],
+    [
+      "truncated-8-valid4",
+      1,
+      4,
+      1,
+      4
+    ],
+    [
+      "truncated-4",
+      0,
+      4,
+      0,
+      4
+    ],
+    [
+      "truncated-8-and4",
+      0,
+      4,
+      0,
+      4
+    ],
+    [
+      "valid8-truncated-4",
+      1,
+      8,
+      0,
+      4
+    ],
+    [
+      "extra-8",
+      0,
+      4,
+      0,
+      4
+    ],
+    [
+      "extra-8-valid4",
+      1,
+      4,
+      1,
+      4
+    ],
+    [
+      "extra-4",
+      0,
+      4,
+      0,
+      4
+    ],
+    [
+      "extra-8-and4",
+      0,
+      4,
+      0,
+      4
+    ],
+    [
+      "valid8-extra-4",
+      1,
+      8,
+      0,
+      4
+    ]
+  ],
+  "builds": {
+    "baseline": {
+      "function_sha256": {
+        "decode_tile": "356e5c5d3cfbffadf047ce1fcfca196756b9f5bff0fdafe86d125540c3d78a48",
+        "read_asset": "5b03319024d7b3f1bd037cd1883a5b2f55321cf444814ec505985200bfe03279",
+        "explosion_asset_slot": "00d117c7d38f192ac14a6f30067abfb722392bc3966dcd9b53f30c9406d24a8c",
+        "mint27_source_matches": "f2481a7985c483fa4d1a605a4e93453bdbc664442869c63bffdf8828d0101111",
+        "get_asset": "c7419e0d884b1e2e873bf1f9419f8d6bd964cc97bf4411cfba8fa0bab2d2be24",
+        "render_mirror_entity": "8902c2e435795d82c293804ee1c34c10369a108227772b999880684802fae11b",
+        "sonic_six_pair_member": "bedbd91fba3c16bf569431d9cda9a533a773ef6aed89acc1d96f7ea0f6ac53d9",
+        "sonic_six_pair_source_matches": "d0b080b2e8fcecf915d8d4e7ada20ab9cc1b587ed76674dd738a33e0732e8ba8",
+        "blit_sprite2": "0352e129afff4158402db4614a5dadd8f9e76901b250f6156e486b2e10f89266",
+        "blit_sprite2_darken": "c95a303e399808ccbc5ffb54ae99fc954af46a3d42144caaafc5ff55a964636a",
+        "draw_entity_sprite2": "394bca839b5814595b006b279b526b6cebf8e83119143bf64b90a80d7e5da0d3"
+      },
+      "runs": {
+        "optimized": {
+          "status": "PASS",
+          "baseline": true,
+          "head_and_wrapper_cases": 1133,
+          "identity_cases": 69,
+          "finite_binding_cases": 28896,
+          "resource_variants": 59,
+          "cache_cases": 118,
+          "coexistence_cases": 48,
+          "shadow_cases": 192,
+          "indexed_bytes_checked": 55398400,
+          "original_calls": 856,
+          "game_runs": 0
+        },
+        "sanitized": {
+          "status": "PASS",
+          "baseline": true,
+          "head_and_wrapper_cases": 1133,
+          "identity_cases": 69,
+          "finite_binding_cases": 28896,
+          "resource_variants": 59,
+          "cache_cases": 118,
+          "coexistence_cases": 48,
+          "shadow_cases": 192,
+          "indexed_bytes_checked": 55398400,
+          "original_calls": 856,
+          "game_runs": 0
+        }
+      }
+    },
+    "candidate": {
+      "function_sha256": {
+        "decode_tile": "356e5c5d3cfbffadf047ce1fcfca196756b9f5bff0fdafe86d125540c3d78a48",
+        "read_asset": "5b03319024d7b3f1bd037cd1883a5b2f55321cf444814ec505985200bfe03279",
+        "explosion_asset_slot": "00d117c7d38f192ac14a6f30067abfb722392bc3966dcd9b53f30c9406d24a8c",
+        "mint27_source_matches": "f2481a7985c483fa4d1a605a4e93453bdbc664442869c63bffdf8828d0101111",
+        "get_asset": "f01437ab8dec0a657db425c5cfb493133efd25924a03812c6309f68e82347cf3",
+        "render_mirror_entity": "472b51afe2a8f9b6fb3029c44988093bb39e0129e102798961aa120d2bb319aa",
+        "sonic_six_pair_member": "bedbd91fba3c16bf569431d9cda9a533a773ef6aed89acc1d96f7ea0f6ac53d9",
+        "sonic_six_pair_source_matches": "d0b080b2e8fcecf915d8d4e7ada20ab9cc1b587ed76674dd738a33e0732e8ba8",
+        "sonic_upward_arch_source_matches": "fcdcb24f7edfec559a9cb6ab7be2a7b3dbf9942f8369a285098b8184b9d373cb",
+        "blit_sprite2": "0352e129afff4158402db4614a5dadd8f9e76901b250f6156e486b2e10f89266",
+        "blit_sprite2_darken": "c95a303e399808ccbc5ffb54ae99fc954af46a3d42144caaafc5ff55a964636a",
+        "draw_entity_sprite2": "394bca839b5814595b006b279b526b6cebf8e83119143bf64b90a80d7e5da0d3"
+      },
+      "runs": {
+        "optimized": {
+          "status": "PASS",
+          "baseline": false,
+          "head_and_wrapper_cases": 1133,
+          "identity_cases": 69,
+          "finite_binding_cases": 28896,
+          "resource_variants": 59,
+          "cache_cases": 118,
+          "coexistence_cases": 48,
+          "shadow_cases": 192,
+          "indexed_bytes_checked": 55398400,
+          "original_calls": 856,
+          "game_runs": 0
+        },
+        "sanitized": {
+          "status": "PASS",
+          "baseline": false,
+          "head_and_wrapper_cases": 1133,
+          "identity_cases": 69,
+          "finite_binding_cases": 28896,
+          "resource_variants": 59,
+          "cache_cases": 118,
+          "coexistence_cases": 48,
+          "shadow_cases": 192,
+          "indexed_bytes_checked": 55398400,
+          "original_calls": 856,
+          "game_runs": 0
+        }
+      }
+    }
+  },
+  "game_runs": 0,
+  "limitations": [
+    "Focused extracted production source, loader, guard, wrapper and original RLE tests; RGBA head compositor is a metadata-checking stub.",
+    "Generic compositor integration, actual-play aesthetics, natural acquisition and full-engine runtime require separate acceptance.",
+    "LeakSanitizer disabled for executor compatibility; AddressSanitizer and UndefinedBehaviorSanitizer enabled.",
+    "Malformed original source is exercised at the HD guard only; original unchecked RLE is never executed against malformed data."
+  ],
+  "private_complete_result_sha256": "4c31907366794fdfc66a2e4ff8af388cbc4dbd5dce0188fa5316481e453aed2b",
+  "private_command_logs_retained": true,
+  "compile_and_run_commands_checked": 12,
+  "all_compile_and_run_returncodes_zero": true,
+  "public_reproduction_command": "python3 prototype/test-sonic-upward-arch-binding.py --data LEGAL_ORIGINAL_DATA --contract REVIEWED_PRIVATE_SOURCE_CONTRACT --out NEW_EXTERNAL_DIRECTORY",
+  "sanitizer_flags": [
+    "-fsanitize=address,undefined",
+    "-fno-omit-frame-pointer",
+    "-fno-pie",
+    "-no-pie"
+  ],
+  "sanitizer_environment": {
+    "ASAN_OPTIONS": "detect_leaks=0:halt_on_error=1",
+    "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+  }
+}

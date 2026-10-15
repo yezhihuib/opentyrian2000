@@ -1,0 +1,1691 @@
+{
+  "status": "PASS_BOUNDED_SONIC73_R2_PILOT",
+  "baseline_commit": "1f5ab7398a6e0ed369644b50ffdf16bacdb7202d",
+  "candidate_renderer_sha256": "3175867b5415d7b8590da2752a687781423f9de251de4fa2058d91325a8858fd",
+  "art_contract_sha256": "bed9dd9dd4b8f9e7f388fada2932d9d9bd039fdefbe2997b81596007108e3b8e",
+  "hda73_sha256": "14d03f2b06a5ffd73bc3f9b2a7ab9731a11c359e881573c6459faaed5892a5fc",
+  "actual_engine_processes": 16,
+  "paired_cases": 8,
+  "source_production_changes": "render_mirror.c only; original gameplay/shot/move/RNG functions unchanged",
+  "diagnostic_loadout_not_purchase": true,
+  "frozen_generated_core_criterion": "Actual nearest-sampled frozen RGBA alpha>=250 and output changed RGB inside exact straight-alpha channel bounds for arbitrary0..255 underlay; exact255 matches separately. This demonstrates surviving authored core visibility, not an independent reconstruction of all compositor arithmetic.",
+  "original_time_NULL_seed_preserved": true,
+  "native_full_frame_capture_count": 48,
+  "RGB_scope": "Current normal bank8 TILE73 head12x14 canvases only; original shadow drawing/order/writes exact; P1mode1 published6/44 negative control pixel-identical",
+  "prelaunch_projection": "Mode2 original73 vy0,ay\u22121 gives160\u2212n(n+1)/2. P8mode1 original73 vy\u221213,ay0 gives160\u221213n. Same original successful ticks3,10,19,26,33,40,47,54,61; source-projected actual73 positions at fixed40/41/42 exactly verified. Initialy180 clamps160 by original firsttick.",
+  "limits": [
+    "Diagnostic starting loadout, no real shop acquisition evidence",
+    "First stationary64tick window only",
+    "No whole-level/campaign, other Sonic identities beyond unchanged controls, Christmas-live, missing-resource-live, Hard15NIGHT, Windows/GPU/fullscreen or performance qualification"
+  ],
+  "schema": "sonic-upward-arch-r2-bounded-runtime-v1",
+  "family_ids": [
+    73
+  ],
+  "previously_accepted_ids_preserved": [
+    6,
+    44
+  ],
+  "remaining_original_family_members": 18,
+  "total_engine_logic_ticks": 1024,
+  "paired_tick_comparisons": 512,
+  "native_capture_pairs": 24,
+  "fixed_capture_ticks": [
+    40,
+    41,
+    42
+  ],
+  "runtime_environment": {
+    "python": "3.12.14",
+    "kernel": "Linux-6.18.44-x86_64-with-glibc2.41",
+    "compiler": "cc (Debian 14.2.0-19) 14.2.0",
+    "SDL_runtime": [
+      2,
+      32,
+      4
+    ],
+    "SDL_revision": "SDL-release-2.32.4-0-g2359383fc (Debian 2.32.4+dfsg-1)",
+    "backend": "dummy/software",
+    "headers_sdk": "SDL headers2.26.5; installed runtime2.32.4",
+    "actual_native_readback_dimensions": [
+      [
+        640,
+        400
+      ],
+      [
+        1280,
+        800
+      ]
+    ]
+  },
+  "pins": {
+    "schema": "private-sonic73-R2-final-pin-receipt-v1",
+    "status": "PASS_BOUNDED_SONIC73_R2_PILOT",
+    "actual_engine_processes": 16,
+    "paired_cases": 8,
+    "paired_tick_comparisons": 512,
+    "original_engine_logic_ticks": 1024,
+    "actual_native_originals": 48,
+    "capture_pair_count": 24,
+    "pre_post_pins_exact": true,
+    "prelaunch_sha256": "b1bc3e36b8da050f279b56f8bedf4dc7ac8103621afc50f6d528f9f2946320f4",
+    "postlaunch_sha256": "b1bc3e36b8da050f279b56f8bedf4dc7ac8103621afc50f6d528f9f2946320f4",
+    "binaries": {
+      "baseline": "f46e09cf1abecff8c58136521b6def5a29d1a485ff7dbcdc955b39d4efc09ff5",
+      "candidate": "c80b22402b74ea2826c795e1ff13161a7a0819137a380c8dbbc6ea7dc887ff79"
+    },
+    "renderer_sha256": "3175867b5415d7b8590da2752a687781423f9de251de4fa2058d91325a8858fd",
+    "hda73_sha256": "14d03f2b06a5ffd73bc3f9b2a7ab9731a11c359e881573c6459faaed5892a5fc",
+    "contract_sha256": "bed9dd9dd4b8f9e7f388fada2932d9d9bd039fdefbe2997b81596007108e3b8e",
+    "source_production_changed_files": [
+      "render_mirror.c"
+    ],
+    "new_pack_files": [
+      "bullet-73-8.hda"
+    ],
+    "all_baseline_pack_files_preserved_exact": true,
+    "zero73HDshadow_admissions": true,
+    "negative6_44_control_pixel_identical": true,
+    "source_position_preprojections_exact": true,
+    "original_time_NULL_seed_same_in_each_pair": true,
+    "original_source_frozen_RGBA_positive_witnesses_fixed41_42": true,
+    "runtime_summary_sha256": "05ab2f539aa634fdc0d4bf52a09f2fac4d555280ad9a86ccdd07bef0a1a321aa",
+    "plan_sha256": "e14dc8a52114f5fdd178ab02aa234b023f829d376c4bbcef438a52fcf2fe89d6",
+    "snapshot_sha256": "1b0e5010ff63989bfa4737ad2fd185bfbb80e85bb6e1a64bfc49cb53f18cc3cc",
+    "parent_acceptance_sha256": "7009d71b19a5d7c9741259c3b485309713025a25594aff8b42bfd1a66faee40c",
+    "private_harness_sha256": {
+      "write_plan.py": "5578fcceb87715759a4ce3b1fde23d24ac7a421487e90425d9b5eddf72b2e008",
+      "run_paired.py": "16827b7aa75b6ce4e0a1dc81ad6f1fdff5dfa36117c6eeaea3289f2c358d719a",
+      "export_review.py": "f59abb7c6b2c920978ed76c741bd9bab840e7a62923d0f1c71cc9d6c0b41a100",
+      "verify_runtime.py": "8003f89924250c36fbf5d59ea4aaa124769642b24f3fb3d5d6c5ce8dd4d7b8fd",
+      "prepare_fixture.py": "915f5e7c0d69f9b8119f1024bdaf8e059909ad0b34b613c250e950c858cf3e1d"
+    },
+    "runtime_fixture_c_sha256": "da23019c1d5c7072b42fc89c0849664662c9a5c66abdec829f9a58aec35a60f8",
+    "runtime_fixture_h_sha256": "cec0e641dc06ded7a9b8af1aa2fbb3044c7be2c3687d8112762cb421171c4963",
+    "environment_art_receipt_sha256": "1fb869d86f358e01c8b99b7e5cd29718f72a9ba6e11796cf917b990d2ef83e4b",
+    "publication_performed": false
+  },
+  "private_complete_runtime_summary_sha256": "05ab2f539aa634fdc0d4bf52a09f2fac4d555280ad9a86ccdd07bef0a1a321aa",
+  "private_complete_pin_receipt_sha256": "758e521196135438d16de2c108c3add330fc5b736aeed534240ba5ad0567a138",
+  "original_references_data_and_capture_pixels_distributed": false,
+  "cases": [
+    {
+      "case": "p1-m2-native2x",
+      "role": "single73 positive",
+      "power": 1,
+      "mode": 2,
+      "native_scale": 2,
+      "ticks": 64,
+      "original_state_RNG_INDEX8_palette_exact_every_tick": true,
+      "original_order_requests_emissions_positions_collisions_blend_trace_exact": true,
+      "original_indexed_write_hashes_counts_exact_normal_blend_shadow": true,
+      "shadow73_HD_admission_count": 0,
+      "candidate73_new_normal_admissions": 135,
+      "actual_SDL_readback_dimensions": [
+        640,
+        400
+      ],
+      "renderer": "SDL dummy/software",
+      "raw_INDEX8_surface_format": 318769153,
+      "shot_requests": 13,
+      "successful_original_requests": [
+        3,
+        10,
+        19,
+        26,
+        33,
+        40,
+        47,
+        54,
+        61
+      ],
+      "emissions": 9,
+      "raw_source_ids": [
+        73
+      ],
+      "planned40_42_window_unchanged": true,
+      "source_projected73_capture_positions_exact": true,
+      "positive73_witness_ticks": [
+        41,
+        42
+      ],
+      "control_pixel_identical": false,
+      "capture_results": [
+        {
+          "tick": 40,
+          "changed_native_RGB_pixels": 714,
+          "RGB_diff_bbox": [
+            156,
+            112,
+            176,
+            292
+          ],
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "original_native_frame_receipts": {
+            "baseline": {
+              "sha256": "57ab8bba6e8f9114c49d25365e601823614a45a276e65a0ac40d29bdee8e4f93",
+              "rgba_sha256": "1cb7fd7e7da2c4a65df423cbb1a558181769df081479cb86e8c31151cd5e347a",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "430acc73f7dd5631fc89eae30ed4018c7227a6987234e05230726770e1e5132a",
+              "rgba_sha256": "07ad326378f17e2bcb17fb6883dfd9c58494d8b310e8aaf50f07c0fe7eb7c417",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "positive_ID73_witnesses": [
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                55
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 352,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 117,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 5
+            },
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                132
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 352,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 117,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 5
+            }
+          ]
+        },
+        {
+          "tick": 41,
+          "changed_native_RGB_pixels": 1072,
+          "RGB_diff_bbox": [
+            156,
+            82,
+            176,
+            346
+          ],
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "original_native_frame_receipts": {
+            "baseline": {
+              "sha256": "311e49b889f0a66f54da30de053453e56fec01c526fdc6bfefb1bcaaa312167e",
+              "rgba_sha256": "c05e17e569d38e85486e252eb829b01bfe466357b4de61f261b7c49e3f490400",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "14361cfaec5c688d61b5264fdb23b75d49070baca6b292c63b4e76c157143f8c",
+              "rgba_sha256": "46922cfbf24be97c86817ccc52653af232b2b58e84ccfff0d1c4e8f32bb8104f",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "positive_ID73_witnesses": [
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                40
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 352,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 117,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 5
+            },
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                124
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 352,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 117,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 5
+            },
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                159
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 64,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 18,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0
+            }
+          ]
+        },
+        {
+          "tick": 42,
+          "changed_native_RGB_pixels": 1071,
+          "RGB_diff_bbox": [
+            156,
+            50,
+            176,
+            342
+          ],
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "original_native_frame_receipts": {
+            "baseline": {
+              "sha256": "39c7b68bbe15f5034a88aa7b98db929bad6f51829f86db572e583a8d655dcf0d",
+              "rgba_sha256": "6b7e1b7c004e718c338a46eba3e12aa60eef3b90395396550f7ac5a41b16d962",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "d14f5e1cda19271c0a25a4a5637e1c6ac8af096f302307a6d0f55ac279da7362",
+              "rgba_sha256": "82c0be3917b10a705b8425c8126be226e830d5dea8ddd347b179cd6a29e3b8a8",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "positive_ID73_witnesses": [
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                24
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 352,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 117,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 5
+            },
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                115
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 352,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 117,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 5
+            },
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                157
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 123,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 56,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "p1-m2-native4x",
+      "role": "single73 positive",
+      "power": 1,
+      "mode": 2,
+      "native_scale": 4,
+      "ticks": 64,
+      "original_state_RNG_INDEX8_palette_exact_every_tick": true,
+      "original_order_requests_emissions_positions_collisions_blend_trace_exact": true,
+      "original_indexed_write_hashes_counts_exact_normal_blend_shadow": true,
+      "shadow73_HD_admission_count": 0,
+      "candidate73_new_normal_admissions": 135,
+      "actual_SDL_readback_dimensions": [
+        1280,
+        800
+      ],
+      "renderer": "SDL dummy/software",
+      "raw_INDEX8_surface_format": 318769153,
+      "shot_requests": 13,
+      "successful_original_requests": [
+        3,
+        10,
+        19,
+        26,
+        33,
+        40,
+        47,
+        54,
+        61
+      ],
+      "emissions": 9,
+      "raw_source_ids": [
+        73
+      ],
+      "planned40_42_window_unchanged": true,
+      "source_projected73_capture_positions_exact": true,
+      "positive73_witness_ticks": [
+        41,
+        42
+      ],
+      "control_pixel_identical": false,
+      "capture_results": [
+        {
+          "tick": 40,
+          "changed_native_RGB_pixels": 2868,
+          "RGB_diff_bbox": [
+            312,
+            224,
+            352,
+            584
+          ],
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "original_native_frame_receipts": {
+            "baseline": {
+              "sha256": "2e4213e232705b69ddfa4644af81c21fba6a06bfe6929cc353faf90a348357d7",
+              "rgba_sha256": "dff17d9dfc30e9f097e8e5a9cf2388be333f4cfa9abc372036f2d26ae276d8d9",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "1fb06fa0e6b2dc33620045825f8a8af507368271aa352a92132150479d50c97f",
+              "rgba_sha256": "8d252e39c10295f1e690d66c26bff5fe74b4463fe6f398a38f0c38a448f77f4c",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "positive_ID73_witnesses": [
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                55
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 1408,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 455,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 17
+            },
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                132
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 1408,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 455,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 17
+            }
+          ]
+        },
+        {
+          "tick": 41,
+          "changed_native_RGB_pixels": 4302,
+          "RGB_diff_bbox": [
+            312,
+            164,
+            352,
+            692
+          ],
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "original_native_frame_receipts": {
+            "baseline": {
+              "sha256": "35c63b11bce445232fe20877b94c122c9bcdddba5c416c654594cf51ca4bd68c",
+              "rgba_sha256": "8082aa918a8fbc25e113fba87a6cdb44f1227cf0d644c3a786e026dc20de9b5c",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "26d09c02c4c2b86f43dfe3b44528aff4d7499a5d7aeef1c83f735053ae17835b",
+              "rgba_sha256": "a15f1eff71e2e0d02a469739f80bfa7dbccc08a966db4758ce482e2411ff46e1",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "positive_ID73_witnesses": [
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                40
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 1408,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 455,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 17
+            },
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                124
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 1408,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 455,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 17
+            },
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                159
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 262,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 72,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0
+            }
+          ]
+        },
+        {
+          "tick": 42,
+          "changed_native_RGB_pixels": 4303,
+          "RGB_diff_bbox": [
+            312,
+            100,
+            352,
+            684
+          ],
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "original_native_frame_receipts": {
+            "baseline": {
+              "sha256": "ae0a8a3ab8c38ec3a91022d1a33ba2ac613280b068699634cc8bc2d092a87af2",
+              "rgba_sha256": "09be701ef7cf9a37a00d57fb3ac80eda8d5f4f7da24b417702e61b22ccddff21",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "11853929dc0b919789f91606aae31b9a9dcb909930f64f61b9e459a12fb0da28",
+              "rgba_sha256": "2bfa7378d8d1ce5ea2b1d4f1ad3a7261efb16b95ffb3fe527639f3f16d0087e9",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "positive_ID73_witnesses": [
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                24
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 1408,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 455,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 17
+            },
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                115
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 1408,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 455,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 17
+            },
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                157
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 493,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 228,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "p2-m2-native2x",
+      "role": "mixed63+73 positive",
+      "power": 2,
+      "mode": 2,
+      "native_scale": 2,
+      "ticks": 64,
+      "original_state_RNG_INDEX8_palette_exact_every_tick": true,
+      "original_order_requests_emissions_positions_collisions_blend_trace_exact": true,
+      "original_indexed_write_hashes_counts_exact_normal_blend_shadow": true,
+      "shadow73_HD_admission_count": 0,
+      "candidate73_new_normal_admissions": 135,
+      "actual_SDL_readback_dimensions": [
+        640,
+        400
+      ],
+      "renderer": "SDL dummy/software",
+      "raw_INDEX8_surface_format": 318769153,
+      "shot_requests": 13,
+      "successful_original_requests": [
+        3,
+        10,
+        19,
+        26,
+        33,
+        40,
+        47,
+        54,
+        61
+      ],
+      "emissions": 27,
+      "raw_source_ids": [
+        63,
+        73
+      ],
+      "planned40_42_window_unchanged": true,
+      "source_projected73_capture_positions_exact": true,
+      "positive73_witness_ticks": [
+        41,
+        42
+      ],
+      "control_pixel_identical": false,
+      "capture_results": [
+        {
+          "tick": 40,
+          "changed_native_RGB_pixels": 714,
+          "RGB_diff_bbox": [
+            156,
+            112,
+            176,
+            292
+          ],
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "original_native_frame_receipts": {
+            "baseline": {
+              "sha256": "498a412eb077da0eef1edc074a8d99cfca96fa311c02dba2ab399c19204dc450",
+              "rgba_sha256": "967848bf75d42753dd0eb6772973dab4ba87facc5c82c476aadae3d6ebd7c5cd",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "611ca04fec4c0517e3a052c62ea5bdfbed7a2956036c2d6df431fac3aa974117",
+              "rgba_sha256": "f17c3b785054d772210924318019b8c1830fbbcfc6a01858eb72ab28aca0a18f",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "positive_ID73_witnesses": [
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                55
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 352,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 117,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 5
+            },
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                132
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 352,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 117,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 5
+            }
+          ]
+        },
+        {
+          "tick": 41,
+          "changed_native_RGB_pixels": 903,
+          "RGB_diff_bbox": [
+            156,
+            82,
+            176,
+            346
+          ],
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "original_native_frame_receipts": {
+            "baseline": {
+              "sha256": "be87acfc87ed95b9c9e53fb53b710d66e35d7323a53fbde3633e4e4b64cac5fa",
+              "rgba_sha256": "279ef17db9b01d85e34db274cf8b19b09a22f0540492019f75e4f776bb169420",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "44df12ad7857928bf070bac9c6d911d548199b2e33fbef84a05f24354c6bc75d",
+              "rgba_sha256": "5730b4610e7bfd541531f60add0cde6e1276adca3ac0b36d3114eac9ec108310",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "positive_ID73_witnesses": [
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                40
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 352,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 117,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 5
+            },
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                124
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 352,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 117,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 5
+            },
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                159
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 33,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 8,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0
+            }
+          ]
+        },
+        {
+          "tick": 42,
+          "changed_native_RGB_pixels": 935,
+          "RGB_diff_bbox": [
+            156,
+            50,
+            176,
+            342
+          ],
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "original_native_frame_receipts": {
+            "baseline": {
+              "sha256": "aa56ed222585b89075e5ff27bacfa7e399461c47e2f9aff680209c859c936806",
+              "rgba_sha256": "07ee994e25448f1e15fe779acecdbaf11f253e52421215d37c47a7b7861ada0a",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "705e09327d96788d4cd95ddef8d0c129c033d2d144fe435414393243f93271fe",
+              "rgba_sha256": "c7a0ca60cbf85f01de861d606248ab69d46cb098b4c05714eec670123d887dff",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "positive_ID73_witnesses": [
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                24
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 352,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 117,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 5
+            },
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                115
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 352,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 117,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 5
+            },
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                157
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 66,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 31,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "p2-m2-native4x",
+      "role": "mixed63+73 positive",
+      "power": 2,
+      "mode": 2,
+      "native_scale": 4,
+      "ticks": 64,
+      "original_state_RNG_INDEX8_palette_exact_every_tick": true,
+      "original_order_requests_emissions_positions_collisions_blend_trace_exact": true,
+      "original_indexed_write_hashes_counts_exact_normal_blend_shadow": true,
+      "shadow73_HD_admission_count": 0,
+      "candidate73_new_normal_admissions": 135,
+      "actual_SDL_readback_dimensions": [
+        1280,
+        800
+      ],
+      "renderer": "SDL dummy/software",
+      "raw_INDEX8_surface_format": 318769153,
+      "shot_requests": 13,
+      "successful_original_requests": [
+        3,
+        10,
+        19,
+        26,
+        33,
+        40,
+        47,
+        54,
+        61
+      ],
+      "emissions": 27,
+      "raw_source_ids": [
+        63,
+        73
+      ],
+      "planned40_42_window_unchanged": true,
+      "source_projected73_capture_positions_exact": true,
+      "positive73_witness_ticks": [
+        41,
+        42
+      ],
+      "control_pixel_identical": false,
+      "capture_results": [
+        {
+          "tick": 40,
+          "changed_native_RGB_pixels": 2868,
+          "RGB_diff_bbox": [
+            312,
+            224,
+            352,
+            584
+          ],
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "original_native_frame_receipts": {
+            "baseline": {
+              "sha256": "17c1428cab7b2b98d07a6febb048093b48be188ec0478530d71e3b16873042fd",
+              "rgba_sha256": "fd372d90c8a51d00ffae89e361c883185fb60fdd2f040c8613568b69b3ad35df",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "1eec2b5bc6deabf5ab81305d723579c8c2b2073e19098ae65ce028cc49489d6a",
+              "rgba_sha256": "5e08a593504130a7fccb4df6731cc1cf02db2d985ce84aa1e2062ca3575475f3",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "positive_ID73_witnesses": [
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                55
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 1408,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 455,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 17
+            },
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                132
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 1408,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 455,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 17
+            }
+          ]
+        },
+        {
+          "tick": 41,
+          "changed_native_RGB_pixels": 3620,
+          "RGB_diff_bbox": [
+            312,
+            164,
+            352,
+            692
+          ],
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "original_native_frame_receipts": {
+            "baseline": {
+              "sha256": "82892690e3caad7a7e2635233c7ae1d0a5ea54cd1dd915e31a72e8da85dca11c",
+              "rgba_sha256": "1f0feff7a08509bc77596fdd0edd7e4e60d04471040f8068b84a7eb5208d4f28",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "150802a1930bff43942c0df7104cde9c89d62fef731f742a50ce873c76e7c6b4",
+              "rgba_sha256": "36e94fdbaad0ee3f9bc7ac4cc75e3c59bc2b42f9ce689b6acd1092dfbc22193b",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "positive_ID73_witnesses": [
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                40
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 1408,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 455,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 17
+            },
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                124
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 1408,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 455,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 17
+            },
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                159
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 135,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 27,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0
+            }
+          ]
+        },
+        {
+          "tick": 42,
+          "changed_native_RGB_pixels": 3759,
+          "RGB_diff_bbox": [
+            312,
+            100,
+            352,
+            684
+          ],
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "original_native_frame_receipts": {
+            "baseline": {
+              "sha256": "e251fc19a0821e5327218e91b440df550b285384a715886b44baf110eb7384aa",
+              "rgba_sha256": "a306a21b294322166519bda18238df93ef93c1999e65f4b47ce0447046f51f42",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "7d2579cd7840e19726230d47cce066384841aff71b5c409229cb1ef5255c5bb6",
+              "rgba_sha256": "13b3715fb0dcca94e587199475c4850c34a4ce63d46b48456a7b875a9f45a408",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "positive_ID73_witnesses": [
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                24
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 1408,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 455,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 17
+            },
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                115
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 1408,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 455,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 17
+            },
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                157
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 262,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 120,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "p8-m1-native2x",
+      "role": "six-ID mixed positive",
+      "power": 8,
+      "mode": 1,
+      "native_scale": 2,
+      "ticks": 64,
+      "original_state_RNG_INDEX8_palette_exact_every_tick": true,
+      "original_order_requests_emissions_positions_collisions_blend_trace_exact": true,
+      "original_indexed_write_hashes_counts_exact_normal_blend_shadow": true,
+      "shadow73_HD_admission_count": 0,
+      "candidate73_new_normal_admissions": 102,
+      "actual_SDL_readback_dimensions": [
+        640,
+        400
+      ],
+      "renderer": "SDL dummy/software",
+      "raw_INDEX8_surface_format": 318769153,
+      "shot_requests": 13,
+      "successful_original_requests": [
+        3,
+        10,
+        19,
+        26,
+        33,
+        40,
+        47,
+        54,
+        61
+      ],
+      "emissions": 54,
+      "raw_source_ids": [
+        73,
+        82,
+        105,
+        106,
+        124,
+        125
+      ],
+      "planned40_42_window_unchanged": true,
+      "source_projected73_capture_positions_exact": true,
+      "positive73_witness_ticks": [
+        41,
+        42
+      ],
+      "control_pixel_identical": false,
+      "capture_results": [
+        {
+          "tick": 40,
+          "changed_native_RGB_pixels": 357,
+          "RGB_diff_bbox": [
+            156,
+            140,
+            176,
+            166
+          ],
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "original_native_frame_receipts": {
+            "baseline": {
+              "sha256": "3df7cdb91f5f2c5fc372bf1ab7701026215053b2df6d54f41b4c26c13f26adb8",
+              "rgba_sha256": "6485fb5d4a24662d4261a8ee241e5bae7847aaecfe3e7fed9523cf9fbf39e294",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "b21c680b17f1a13267882467235bbf8f7524a688f41bae6ebebb84229ba3f2b1",
+              "rgba_sha256": "e2ace72a31c2502a42573bc6ad011310aebf8eacf8f29c82b9d03102f28b6a02",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "positive_ID73_witnesses": [
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                69
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 352,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 117,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 5
+            }
+          ]
+        },
+        {
+          "tick": 41,
+          "changed_native_RGB_pixels": 714,
+          "RGB_diff_bbox": [
+            156,
+            114,
+            176,
+            322
+          ],
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "original_native_frame_receipts": {
+            "baseline": {
+              "sha256": "d462bcd4dc87c45472d6aa938040ec1dc87d6007c23be009f032743264c4958b",
+              "rgba_sha256": "ad22ef9bc634564481d9987ec671c7a991aec354b74eeafe1fdd94b326d44a28",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "98395921df6f49681b9983219a02dd5a291bc8e5c644555b504f927e61eb6b52",
+              "rgba_sha256": "c7e7252797c32ec369dfeaf1332dc765b1706901966e1ebeb1b5b360971dccea",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "positive_ID73_witnesses": [
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                147
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 348,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 117,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 5
+            },
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                56
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 352,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 117,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 5
+            }
+          ]
+        },
+        {
+          "tick": 42,
+          "changed_native_RGB_pixels": 715,
+          "RGB_diff_bbox": [
+            156,
+            88,
+            176,
+            296
+          ],
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "original_native_frame_receipts": {
+            "baseline": {
+              "sha256": "389062db5028adf86e26af61860a0c05fd5777c1104c0eb08df8c5529bae9b5a",
+              "rgba_sha256": "875555174af82e06d4228c551fc874e1d7f2f5b5762c4ee1fb9e6710c43eeb1d",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "480fb41667d10033546108f0663d80f060efc605f2b2626802d0508af0a2fa2d",
+              "rgba_sha256": "33d635c22e310306ec26ef5c9dc2206d8fe3afcffff323ae39e2ccad15a43bb6",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "positive_ID73_witnesses": [
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                134
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 352,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 117,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 5
+            },
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                43
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 352,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 117,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "p8-m1-native4x",
+      "role": "six-ID mixed positive",
+      "power": 8,
+      "mode": 1,
+      "native_scale": 4,
+      "ticks": 64,
+      "original_state_RNG_INDEX8_palette_exact_every_tick": true,
+      "original_order_requests_emissions_positions_collisions_blend_trace_exact": true,
+      "original_indexed_write_hashes_counts_exact_normal_blend_shadow": true,
+      "shadow73_HD_admission_count": 0,
+      "candidate73_new_normal_admissions": 102,
+      "actual_SDL_readback_dimensions": [
+        1280,
+        800
+      ],
+      "renderer": "SDL dummy/software",
+      "raw_INDEX8_surface_format": 318769153,
+      "shot_requests": 13,
+      "successful_original_requests": [
+        3,
+        10,
+        19,
+        26,
+        33,
+        40,
+        47,
+        54,
+        61
+      ],
+      "emissions": 54,
+      "raw_source_ids": [
+        73,
+        82,
+        105,
+        106,
+        124,
+        125
+      ],
+      "planned40_42_window_unchanged": true,
+      "source_projected73_capture_positions_exact": true,
+      "positive73_witness_ticks": [
+        41,
+        42
+      ],
+      "control_pixel_identical": false,
+      "capture_results": [
+        {
+          "tick": 40,
+          "changed_native_RGB_pixels": 1434,
+          "RGB_diff_bbox": [
+            312,
+            280,
+            352,
+            332
+          ],
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "original_native_frame_receipts": {
+            "baseline": {
+              "sha256": "ce2010fe2c2a644d92348f3178d53f946b3187d80e223e38718513fffe92f62c",
+              "rgba_sha256": "6977fe51bb94775c14254f0f0f53a187ad70435ea7c39a0797647acccba6b3f7",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "785e02c9decf9094085c7713111b00e686e25f25b52602d25afd4927bcb9678f",
+              "rgba_sha256": "3566b69e193cfe6565d449ddbb8216230d0dcd27846133e874e61bdee8b6960f",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "positive_ID73_witnesses": [
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                69
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 1408,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 455,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 17
+            }
+          ]
+        },
+        {
+          "tick": 41,
+          "changed_native_RGB_pixels": 2869,
+          "RGB_diff_bbox": [
+            312,
+            228,
+            352,
+            644
+          ],
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "original_native_frame_receipts": {
+            "baseline": {
+              "sha256": "46646ebdfb46cf20633bb044ff731df83f2f5d2163972764a127bf8897bed073",
+              "rgba_sha256": "8a1be77256f1ecdb684dd38802f36ac2cad965e3f205c88c2b8605fac1a0aab7",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "b198a8b00bbc59fe07cc86470d302844e536e17a6d58de16471c6465811ec2f0",
+              "rgba_sha256": "3fda5012825ac939dc003e2f895ee449538d5a256bf094a8b9fd369a304b321c",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "positive_ID73_witnesses": [
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                147
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 1392,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 455,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 17
+            },
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                56
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 1408,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 455,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 17
+            }
+          ]
+        },
+        {
+          "tick": 42,
+          "changed_native_RGB_pixels": 2870,
+          "RGB_diff_bbox": [
+            312,
+            176,
+            352,
+            592
+          ],
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "original_native_frame_receipts": {
+            "baseline": {
+              "sha256": "9e50128f713b10e307f927f7847b49ecd743a00a7197f98cda0f9d4fcd7268c6",
+              "rgba_sha256": "5ac05fef296b1f6273a8c791ab664bec3856a08124df8a4be657ca7a9c805598",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "1a5d90e7b3ddaada443001118f8bd8be8a9329ac765d5408766a864ab041278e",
+              "rgba_sha256": "4eb1424d63ebc97abb2d29f9bef316084e29ab0a0f1856e3d8e85cb95085cf95",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "positive_ID73_witnesses": [
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                134
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 1408,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 455,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 17
+            },
+            {
+              "id": 73,
+              "original_draw_xy": [
+                101,
+                43
+              ],
+              "canvas_visible": true,
+              "source_opaque_exact_pixel_matches": 1408,
+              "frozen_generated_highalpha_core_changed_pixel_matches": 455,
+              "frozen_generated_alpha255_exact_changed_pixel_matches": 17
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "p1-m1-native2x",
+      "role": "published6/44 unchanged negative",
+      "power": 1,
+      "mode": 1,
+      "native_scale": 2,
+      "ticks": 64,
+      "original_state_RNG_INDEX8_palette_exact_every_tick": true,
+      "original_order_requests_emissions_positions_collisions_blend_trace_exact": true,
+      "original_indexed_write_hashes_counts_exact_normal_blend_shadow": true,
+      "shadow73_HD_admission_count": 0,
+      "candidate73_new_normal_admissions": 0,
+      "actual_SDL_readback_dimensions": [
+        640,
+        400
+      ],
+      "renderer": "SDL dummy/software",
+      "raw_INDEX8_surface_format": 318769153,
+      "shot_requests": 13,
+      "successful_original_requests": [
+        3,
+        10,
+        19,
+        26,
+        33,
+        40,
+        47,
+        54,
+        61
+      ],
+      "emissions": 18,
+      "raw_source_ids": [
+        6,
+        44
+      ],
+      "planned40_42_window_unchanged": true,
+      "source_projected73_capture_positions_exact": true,
+      "positive73_witness_ticks": [],
+      "control_pixel_identical": true,
+      "capture_results": [
+        {
+          "tick": 40,
+          "changed_native_RGB_pixels": 0,
+          "RGB_diff_bbox": null,
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "original_native_frame_receipts": {
+            "baseline": {
+              "sha256": "9dffffc0ae0c3ea5439a57c890a32a1924d712daf43878a00498b79a6170a37a",
+              "rgba_sha256": "662eff93fecf3d518f9b7bf7bd29d610ad3b3b279ad576c86eefe008c3eced7c",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "9dffffc0ae0c3ea5439a57c890a32a1924d712daf43878a00498b79a6170a37a",
+              "rgba_sha256": "662eff93fecf3d518f9b7bf7bd29d610ad3b3b279ad576c86eefe008c3eced7c",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "positive_ID73_witnesses": []
+        },
+        {
+          "tick": 41,
+          "changed_native_RGB_pixels": 0,
+          "RGB_diff_bbox": null,
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "original_native_frame_receipts": {
+            "baseline": {
+              "sha256": "360c815ef2bf6cb9d60df7e31de3de67a23e13a0f509c8e42ecc6bcb8b43f1b4",
+              "rgba_sha256": "b5b03654c02ecc2e4491146c1c4b6d92bcf4772485d908e6920793c6b53163f5",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "360c815ef2bf6cb9d60df7e31de3de67a23e13a0f509c8e42ecc6bcb8b43f1b4",
+              "rgba_sha256": "b5b03654c02ecc2e4491146c1c4b6d92bcf4772485d908e6920793c6b53163f5",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "positive_ID73_witnesses": []
+        },
+        {
+          "tick": 42,
+          "changed_native_RGB_pixels": 0,
+          "RGB_diff_bbox": null,
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "original_native_frame_receipts": {
+            "baseline": {
+              "sha256": "0209fa6029f0561dcbeb15613483e1deab5a48cca3e70b34fc3450a3e09d876b",
+              "rgba_sha256": "59c79bfd56051d051b143ddfa1eefad0b6f48636ade99d1aea397fbd04c6a416",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "0209fa6029f0561dcbeb15613483e1deab5a48cca3e70b34fc3450a3e09d876b",
+              "rgba_sha256": "59c79bfd56051d051b143ddfa1eefad0b6f48636ade99d1aea397fbd04c6a416",
+              "dimensions": [
+                640,
+                400
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "positive_ID73_witnesses": []
+        }
+      ]
+    },
+    {
+      "case": "p1-m1-native4x",
+      "role": "published6/44 unchanged negative",
+      "power": 1,
+      "mode": 1,
+      "native_scale": 4,
+      "ticks": 64,
+      "original_state_RNG_INDEX8_palette_exact_every_tick": true,
+      "original_order_requests_emissions_positions_collisions_blend_trace_exact": true,
+      "original_indexed_write_hashes_counts_exact_normal_blend_shadow": true,
+      "shadow73_HD_admission_count": 0,
+      "candidate73_new_normal_admissions": 0,
+      "actual_SDL_readback_dimensions": [
+        1280,
+        800
+      ],
+      "renderer": "SDL dummy/software",
+      "raw_INDEX8_surface_format": 318769153,
+      "shot_requests": 13,
+      "successful_original_requests": [
+        3,
+        10,
+        19,
+        26,
+        33,
+        40,
+        47,
+        54,
+        61
+      ],
+      "emissions": 18,
+      "raw_source_ids": [
+        6,
+        44
+      ],
+      "planned40_42_window_unchanged": true,
+      "source_projected73_capture_positions_exact": true,
+      "positive73_witness_ticks": [],
+      "control_pixel_identical": true,
+      "capture_results": [
+        {
+          "tick": 40,
+          "changed_native_RGB_pixels": 0,
+          "RGB_diff_bbox": null,
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "original_native_frame_receipts": {
+            "baseline": {
+              "sha256": "588517da04189d4ed7255df21f5627816f8eeeddce5a677eb2e94066304cec60",
+              "rgba_sha256": "8d1d47439202bda466e2298e3de22acf61304afc49aadd88e3f8510aefab5db8",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "588517da04189d4ed7255df21f5627816f8eeeddce5a677eb2e94066304cec60",
+              "rgba_sha256": "8d1d47439202bda466e2298e3de22acf61304afc49aadd88e3f8510aefab5db8",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "positive_ID73_witnesses": []
+        },
+        {
+          "tick": 41,
+          "changed_native_RGB_pixels": 0,
+          "RGB_diff_bbox": null,
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "original_native_frame_receipts": {
+            "baseline": {
+              "sha256": "41ea0bc2a282f4c3d5415a6e8391e60360a4e94f178236f3a7a4547a2b66d524",
+              "rgba_sha256": "3918758b392aa9642a127c93b9012208939026921718d2d87c1a1cc31c9de260",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "41ea0bc2a282f4c3d5415a6e8391e60360a4e94f178236f3a7a4547a2b66d524",
+              "rgba_sha256": "3918758b392aa9642a127c93b9012208939026921718d2d87c1a1cc31c9de260",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "positive_ID73_witnesses": []
+        },
+        {
+          "tick": 42,
+          "changed_native_RGB_pixels": 0,
+          "RGB_diff_bbox": null,
+          "outside_authorized_normal_head_canvas_pixels": 0,
+          "original_native_frame_receipts": {
+            "baseline": {
+              "sha256": "4211166af1bea48dbbe3f35a66a67b4c8ebeba4f08ac056356b8ae15be63607d",
+              "rgba_sha256": "fe30f30fc6abd973056707f5ca2592e45db25cdf59380bedd00510ec04326040",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            },
+            "candidate": {
+              "sha256": "4211166af1bea48dbbe3f35a66a67b4c8ebeba4f08ac056356b8ae15be63607d",
+              "rgba_sha256": "fe30f30fc6abd973056707f5ca2592e45db25cdf59380bedd00510ec04326040",
+              "dimensions": [
+                1280,
+                800
+              ],
+              "all_png_crc_valid": true
+            }
+          },
+          "positive_ID73_witnesses": []
+        }
+      ]
+    }
+  ]
+}

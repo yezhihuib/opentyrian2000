@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "baseline": "1f5ab7398a6e0ed369644b50ffdf16bacdb7202d",
+  "candidate_renderer_sha256": "3175867b5415d7b8590da2752a687781423f9de251de4fa2058d91325a8858fd",
+  "command": "make -j4 WITH_NETWORK=false LDLIBS=-lz with existing SDL pkg-config SDK",
+  "SDK_headers": "SDL2.26.5",
+  "linked_runtime": "SDL2.32.4 system runtime, shared by baseline and candidate fixtures",
+  "production_executable_distributed": false,
+  "platform": "Linux x86_64",
+  "warnings": [
+    {
+      "file": "src/asset_debug.c",
+      "line": 161,
+      "kind": "misleading indentation, inherited"
+    },
+    {
+      "file": "src/game_probe_fields.inc",
+      "lines": [
+        12,
+        13,
+        14
+      ],
+      "kind": "misleading indentation, inherited"
+    },
+    {
+      "file": "src/render_mirror.c",
+      "line": 3627,
+      "kind": "misleading indentation in unchanged body, inherited"
+    }
+  ],
+  "warning_free_claimed": false
+}

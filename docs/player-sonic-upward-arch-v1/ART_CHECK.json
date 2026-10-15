@@ -1,0 +1,49 @@
+{
+  "status": "PASS_RESOURCE_INTEGRITY_BOUNDED_NATIVE_REVIEW",
+  "kind": "generated-only artwork and canonical resources, no game run",
+  "family_ids": [
+    73
+  ],
+  "previously_accepted_ids_preserved": [
+    6,
+    44
+  ],
+  "remaining_original_family_members": 18,
+  "not_full_sonic_family": true,
+  "contract_sha256": "bed9dd9dd4b8f9e7f388fada2932d9d9bd039fdefbe2997b81596007108e3b8e",
+  "master_sha256": "9e1ccf79c9cdfe03374528ad91b383e335cd56bf480dae4c5313dad76d258051",
+  "entries": [
+    {
+      "id": 73,
+      "slot": 548,
+      "header_u32": [
+        80073,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "PNG_sha256": "10919f3d429a2c5a7b8efd0c3e9cbf6a25420ffcbc21b156be248ebc49c5514a",
+      "RGBA_sha256": "f9267e38e84666efe0f3719edf43f91ada1ac5374e6d5205c55fa4f3b42b84e1",
+      "HDA_sha256": "14d03f2b06a5ffd73bc3f9b2a7ab9731a11c359e881573c6459faaed5892a5fc",
+      "fractional_alpha_samples": 3379
+    }
+  ],
+  "default_listed_before": 556,
+  "default_listed_after": 557,
+  "default_physical_before": 562,
+  "default_physical_after": 563,
+  "unlisted_HDA_preserved_per_default": 6,
+  "aggregate": {
+    "HDA_entries": 3350,
+    "exact_source_PNGs": 569,
+    "pack_count": 18,
+    "all_runtime_RGBA_and_header_bytes_exact": true
+  },
+  "original_pixels_or_private_captures_included": false,
+  "native_visual_review": "PARENT_ACCEPTED_P1MODE2_ACTUAL_CLOUD_BROWN_1280_AND_FULL640",
+  "game_runs": 0,
+  "publication": "NOT_CLAIMED_BY_THIS_EVIDENCE",
+  "independent_final_review": "PASS"
+}

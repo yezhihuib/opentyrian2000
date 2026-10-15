@@ -1,0 +1,76 @@
+{
+  "schema": "generated-sonic-upward-arch-v1",
+  "source": "sources/generated-sonic73-r2.png",
+  "source_sha256": "9e1ccf79c9cdfe03374528ad91b383e335cd56bf480dae4c5313dad76d258051",
+  "source_size": [
+    1161,
+    1355
+  ],
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "model_id": null,
+    "model_id_status": "not supplied by tool",
+    "started_at": "2026-10-15T07:20:09Z",
+    "finished_at": "2026-10-15T07:21:29Z",
+    "transparent_background": true,
+    "reference_description": "Generated revision1 upward arch plus original game ID73 sprite reference. Rejected generated predecessor and original game pixels remain private and are not production artifacts.",
+    "reference_generated_sha256": "8e0e72074832255a5d0f9f44661bc42bd0b9fa939ce66ae326b681d65a1606da",
+    "prompt": "Revise first green arch to match SECOND reference's wider and thicker wave shape at small game size. Occupied silhouette width:height10:13, rounded wide inverted-U open downward. Make band in upper arch roughly twice as thick/luminous as first image; preserve long tapered lowerlegs. It must be a broad sonic wave, not a skinny hairpin. Brightest color vivid saturated GREEN #2cff69, remove pale mint/white stripe by reducing red and blue substantially. Increase interior alpha so wave clearly visible at24x28, while outer25percent thickness fades smoothly to transparent INSIDE original contour. No dark opaque outline, no3Dbevel, no outsidehalo/particles. Maintain12:14canvas with originalreference occupancyx1..10/y1..13, transparentbackground. Smooth curved highres energy2Dsprite with continuous green gradients; avoid reproducing pixelstairgeometry."
+  },
+  "reconstruction": {
+    "library": "Pillow",
+    "version": "12.3.0",
+    "crop": [
+      130,
+      42,
+      1020,
+      1314
+    ],
+    "resize": [
+      73,
+      104
+    ],
+    "resample": "LANCZOS",
+    "canvas": [
+      96,
+      112
+    ],
+    "paste": [
+      11,
+      8
+    ],
+    "paste_operation": "straight RGBA paste onto transparent canvas",
+    "width_rounding_only": true,
+    "no_repaint_recolor_threshold_original_mask": true
+  },
+  "selection": {
+    "revision": 2,
+    "scope": "Offline native2x/4x cloud/brown selection for ID73 only; actual engine appearance requires separate review.",
+    "extent": "Proportional73x104 registration inside original occupied80x104 box;8.75percent narrower, no anisotropic stretch or footprint expansion.",
+    "alpha": "Saturated green arch with actual partial transparency and inward soft contour; no dark opaque rim. No procedural alpha edits.",
+    "not_full_family": true,
+    "previously_accepted_ids": [
+      6,
+      44
+    ],
+    "remaining_original_id_count": 18
+  },
+  "entries": [
+    {
+      "id": 73,
+      "slot": 548,
+      "header_u32": [
+        80073,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "PNG_sha256": "10919f3d429a2c5a7b8efd0c3e9cbf6a25420ffcbc21b156be248ebc49c5514a",
+      "RGBA_sha256": "f9267e38e84666efe0f3719edf43f91ada1ac5374e6d5205c55fa4f3b42b84e1",
+      "HDA_sha256": "14d03f2b06a5ffd73bc3f9b2a7ab9731a11c359e881573c6459faaed5892a5fc",
+      "fractional_alpha_samples": 3379
+    }
+  ]
+}

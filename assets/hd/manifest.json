@@ -29154,7 +29154,7 @@
       }
     },
     "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 556,
+      "count": 557,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -36383,11 +36383,24 @@
           "sha256": "a3dfb56dbec6479ce725e388b15e34963ea9e960c3deeeba335261393fa9a167",
           "source_png": "assets/hd/source/bullet-44-8-a3dfb56dbec6.png",
           "source_png_sha256": "a961b6e6c46fde2019e70e3137aeff6f226af8249aef9881db93aa2230e2755f"
+        },
+        "bullet-73-8.hda": {
+          "header_u32": [
+            80073,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "sha256": "14d03f2b06a5ffd73bc3f9b2a7ab9731a11c359e881573c6459faaed5892a5fc",
+          "source_png": "assets/hd/source/bullet-73-8-14d03f2b06a5.png",
+          "source_png_sha256": "10919f3d429a2c5a7b8efd0c3e9cbf6a25420ffcbc21b156be248ebc49c5514a"
         }
       }
     },
     "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 556,
+      "count": 557,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -43616,6 +43629,19 @@
           "sha256": "a3dfb56dbec6479ce725e388b15e34963ea9e960c3deeeba335261393fa9a167",
           "source_png": "assets/hd/source/bullet-44-8-a3dfb56dbec6.png",
           "source_png_sha256": "a961b6e6c46fde2019e70e3137aeff6f226af8249aef9881db93aa2230e2755f"
+        },
+        "bullet-73-8.hda": {
+          "header_u32": [
+            80073,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "sha256": "14d03f2b06a5ffd73bc3f9b2a7ab9731a11c359e881573c6459faaed5892a5fc",
+          "source_png": "assets/hd/source/bullet-73-8-14d03f2b06a5.png",
+          "source_png_sha256": "10919f3d429a2c5a7b8efd0c3e9cbf6a25420ffcbc21b156be248ebc49c5514a"
         }
       }
     }
@@ -47107,6 +47133,11 @@
       "path": "assets/hd/source/bullet-44-8-a3dfb56dbec6.png",
       "sha256": "a961b6e6c46fde2019e70e3137aeff6f226af8249aef9881db93aa2230e2755f",
       "RGBA_sha256": "649b3f95218508b9dbcc4eb5d1a082a222228ec20c1dee31294444a9b7a114f0"
+    },
+    "14d03f2b06a5ffd73bc3f9b2a7ab9731a11c359e881573c6459faaed5892a5fc": {
+      "path": "assets/hd/source/bullet-73-8-14d03f2b06a5.png",
+      "sha256": "10919f3d429a2c5a7b8efd0c3e9cbf6a25420ffcbc21b156be248ebc49c5514a",
+      "RGBA_sha256": "f9267e38e84666efe0f3719edf43f91ada1ac5374e6d5205c55fa4f3b42b84e1"
     }
   },
   "no_original_game_data": true,
@@ -52513,6 +52544,32 @@
         "id": 44,
         "slot": 547,
         "HDA_sha256": "a3dfb56dbec6479ce725e388b15e34963ea9e960c3deeeba335261393fa9a167"
+      }
+    ]
+  },
+  "player_sonic_upward_arch_v1": {
+    "source": "assets/hd/artwork/player-sonic-upward-arch-v1",
+    "contract_sha256": "bed9dd9dd4b8f9e7f388fada2932d9d9bd039fdefbe2997b81596007108e3b8e",
+    "role": 8,
+    "density": 8,
+    "logical_size": [
+      12,
+      14
+    ],
+    "anchor": [
+      0,
+      0
+    ],
+    "ids": [
+      73
+    ],
+    "scope": "Normal player Sonic Wave ID73 upward arch only. Prior6/44 are unchanged; other18 family IDs remain original. Original shots, shadows, placement, state and RNG unchanged.",
+    "fallback": "Explicit Christmas/original-reference/invalid/missing diagnostics decline; exact selected current indices+coverage before cold/warm lookup; independent8-to4-to-indexed fallback.",
+    "entries": [
+      {
+        "id": 73,
+        "slot": 548,
+        "HDA_sha256": "14d03f2b06a5ffd73bc3f9b2a7ab9731a11c359e881573c6459faaed5892a5fc"
       }
     ]
   }
