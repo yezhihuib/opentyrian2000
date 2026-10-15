@@ -1,0 +1,655 @@
+{
+  "schema": "option-plasma-body-five-v1-bounded-verification",
+  "status": "PASS bounded units, source/art preservation and actual Normal/Hard parity; native2x visuals accepted",
+  "verified_date_utc": "2026-10-15",
+  "baseline_commit": "b1a8927fb9e892f87452813010cd206e069cc413",
+  "baseline_tree": "a31d6b78214e592e4d4a8615762854ff692d19a0",
+  "resources": {
+    "option": 9,
+    "style": 0,
+    "charge": 0,
+    "bank": 9,
+    "role": 129,
+    "slots": [
+      541,
+      542,
+      543,
+      544,
+      545
+    ],
+    "frame_ids": [
+      224,
+      243,
+      262,
+      281,
+      300
+    ],
+    "density": 8,
+    "logical_size": [
+      12,
+      14
+    ],
+    "anchor": [
+      0,
+      0
+    ],
+    "original_origin": "sidekick.x,sidekick.y",
+    "original_animation": "initialized enabled at phase0; original increment-before-draw first phase1; twenty phases, four per source frame",
+    "contract_sha256": "6afc9ddb8a96d66c532347adddf09b147de5efc6586e546dff5b9cc4f6d7e446",
+    "frame_hashes": [
+      {
+        "id": 224,
+        "source_sha256": "d6cb1b83ce1d42413dfb4d0fa6019274982652359ddb6a577b27740e85a497f0",
+        "PNG_sha256": "fb2e1044ccd95a6d182eb03ce1403bdbcbb70ecc87397b242ba77d5b0bd312a6",
+        "RGBA_sha256": "df4e7034edfd3fe4c8dbe12e6c40d05a4045664aed0d2518e1568604288359e7",
+        "HDA_sha256": "8df044e0cb436f2ff5c41ba4a5b938c9878a3def4bc08f1b877ed055a089dd1f"
+      },
+      {
+        "id": 243,
+        "source_sha256": "762db2bd10cd2cd16a5c5fa1a7e92b57721ba35debfe17940381bbce3de4798b",
+        "PNG_sha256": "714aadc071612f8db42b6ad37b4a11e7873043ce7ad272f45195004a7ed33f99",
+        "RGBA_sha256": "61853fc82975109319052335c307b9717ddbe039d504193324fa4f7a4f8298ac",
+        "HDA_sha256": "c8222727f733bb8718435c4fd052b68de06e1ee30c9b080cedeefdfb13b13d34"
+      },
+      {
+        "id": 262,
+        "source_sha256": "79b9eed3079bbfa2ba110d6d6ca5721f8d14cbcd3b8424fc83ed33951a9eae34",
+        "PNG_sha256": "3da27ac67be12eae21aced17e6de6a0389ea25e47684c5f93c96a2391f159695",
+        "RGBA_sha256": "2dd1e4fa46495f7e0ae3db148e8658b7f1958057e27310c020851ba853a2ab1a",
+        "HDA_sha256": "c57c21c2457d0bfd3154b8debae24f0631893c766539f31c306d460db5adc164"
+      },
+      {
+        "id": 281,
+        "source_sha256": "a783e563f5e03aaa9b3db5a5aafc6b4358c1d3b0fe260c6fa1aebd75a79af855",
+        "PNG_sha256": "64518bc68c7a6e325a60471f8652c4c8abd3ee79c8d0050c5703bcc2d310634e",
+        "RGBA_sha256": "840ad1b39a4bf0e966f17ccb403f9849c97baabff89a070121e7522f787a4dd8",
+        "HDA_sha256": "224b908731e05b932480eecdc0877755b00b7dca6968e9c4cb311c37f0cf0ec4"
+      },
+      {
+        "id": 300,
+        "source_sha256": "8c3801ae199abe69e21e6b6fb8cc12a85bd2aacd42971d67af2897205399e107",
+        "PNG_sha256": "92faa0b7693c3934174f2678ecd6fb2d05843f88c45a7676dd17ab945f197642",
+        "RGBA_sha256": "63e651da2800924432546e0263e6e229cb13ee52dc636a8e7033e5156c8f48ce",
+        "HDA_sha256": "c9368682b053458b0f6e438375c6b76c311a5ac9ec2665004dc3d9ee771cc072"
+      }
+    ],
+    "current_source_guard": "Before every cold/warm lookup require current spriteSheet9 pointer and size, bounded decode of complete zeroed168 indices+168 coverage bytes, exact semantic identity. Same-source normal/Christmas allowed subject to unchanged scene eligibility."
+  },
+  "source_scope": {
+    "production_files_checked": 153,
+    "production_files_changed": [
+      "src/entity_draw.c",
+      "src/entity_draw.h",
+      "src/mainint.c",
+      "src/render_mirror.c",
+      "src/render_mirror.h"
+    ],
+    "whole_source_byte_inverse": true,
+    "gameplay_state_rng_timing_limited_ammo_placement_shots_hud_shops_preserved": true,
+    "plasma_three_piece_variable_size_blend_unchanged": true,
+    "negative_scope_mutations_rejected": [
+      "projectile blend mutation",
+      "unrelated gameplay mutation",
+      "pointer-only admission",
+      "expanded slot capacity",
+      "duplicate original blit",
+      "broadened frame admission",
+      "Christmas blanket reject"
+    ]
+  },
+  "unit_checks": {
+    "synthetic_test_only_resources": {
+      "optimized": {
+        "status": "PASS",
+        "head_cases": 4028,
+        "source_identity_cases": 30,
+        "resource_variants": 100,
+        "wrapper_calls": 523,
+        "pixel_cases": 513,
+        "dispatch_cases": 3855,
+        "regression_cases": 31,
+        "verified_animation_phases": 1440,
+        "indexed_bytes_compared": 33080000,
+        "rgba_bytes_compared": 8785920000,
+        "source_body_writes": 97,
+        "game_runs": 0
+      },
+      "sanitized": {
+        "status": "PASS",
+        "head_cases": 4028,
+        "source_identity_cases": 30,
+        "resource_variants": 100,
+        "wrapper_calls": 523,
+        "pixel_cases": 513,
+        "dispatch_cases": 3855,
+        "regression_cases": 31,
+        "verified_animation_phases": 1440,
+        "indexed_bytes_compared": 33080000,
+        "rgba_bytes_compared": 8785920000,
+        "source_body_writes": 97,
+        "game_runs": 0
+      }
+    },
+    "accepted_production_art": {
+      "optimized": {
+        "status": "PASS",
+        "head_cases": 4028,
+        "source_identity_cases": 30,
+        "resource_variants": 100,
+        "wrapper_calls": 523,
+        "pixel_cases": 513,
+        "dispatch_cases": 3855,
+        "regression_cases": 31,
+        "verified_animation_phases": 1440,
+        "indexed_bytes_compared": 33080000,
+        "rgba_bytes_compared": 8785920000,
+        "source_body_writes": 97,
+        "game_runs": 0
+      },
+      "sanitized": {
+        "status": "PASS",
+        "head_cases": 4028,
+        "source_identity_cases": 30,
+        "resource_variants": 100,
+        "wrapper_calls": 523,
+        "pixel_cases": 513,
+        "dispatch_cases": 3855,
+        "regression_cases": 31,
+        "verified_animation_phases": 1440,
+        "indexed_bytes_compared": 33080000,
+        "rgba_bytes_compared": 8785920000,
+        "source_body_writes": 97,
+        "game_runs": 0
+      }
+    },
+    "finite_resource_variants_per_run": 100,
+    "normal_christmas_decoded_equal": true,
+    "limits": [
+      "LeakSanitizer disabled for executor compatibility; AddressSanitizer and UndefinedBehaviorSanitizer remain enabled.",
+      "Malformed source is tested at HD guard only; classic raw RLE is deliberately not run on malformed source.",
+      "Horizontal wrapping coordinates reject HD and retain exact original physical-row indexed writes.",
+      "Finite no-game verification does not establish Windows, GPU, performance, full-level survival or actual-play aesthetics."
+    ]
+  },
+  "build": {
+    "translation_units": 72,
+    "linked": true,
+    "classic_disabled_units": [
+      "entity_draw.c",
+      "render_mirror.c"
+    ],
+    "version_header_unchanged": true
+  },
+  "packs": {
+    "default_packs": 2,
+    "listed_before": 549,
+    "listed_after": 554,
+    "physical_before": 560,
+    "physical_after": 565,
+    "HDA_before": 555,
+    "HDA_after": 560,
+    "old_unlisted_HDA_preserved": 6,
+    "auxiliaries_preserved": 5,
+    "all3378_old_pack_files_byte_identical": true,
+    "other16_packs_unchanged": true,
+    "only_additions": "five matching HDA per default pack; five canonical generated PNGs; five frozen generated masters and exact reconstructed outputs",
+    "verifier_staged_and_committed_safe": "baseline path/blob SHA1 plus exact old+allowlisted-new inventory; tested with private staged index"
+  },
+  "runtime_method": {
+    "comparison": "Published baseline source executable versus exact backed-up final candidate source executable",
+    "processes": 4,
+    "ticks_each": 320,
+    "all_exit_codes": 0,
+    "reruns": 0,
+    "renderer": "Linux SDL dummy/software native2x640x400",
+    "all_four_natural_time_NULL_seed": 1792031804,
+    "no_time_rng_gameplay_state_override": true,
+    "inputs": "Original menu SDL events; Space main fire from tick0; LeftAlt down100/108/116/124/132/140 with up+1; empty seventh down148/up149. Original input mapping calls this the right secondary button.",
+    "private_observer_reverse_restores_all153_production_sources": true,
+    "pins_unchanged_before_after": true,
+    "screenshots": {
+      "actual_untouched_PNGs": 92,
+      "native_size": [
+        640,
+        400
+      ],
+      "all_chunk_CRCs_including_IEND_valid": true,
+      "actual_gameplay_pairs": 40,
+      "all_differences_inside_original12x14_canvas": true,
+      "shop_pairs": 6,
+      "all_shop_pairs_identical": true,
+      "pixel_repair_or_recovered_screenshot_pixels": false
+    }
+  },
+  "cases": [
+    {
+      "difficulty": "normal",
+      "physical_level": 9,
+      "seed": "1792031804",
+      "ticks": 320,
+      "paired_original_state_rng_indexed_palette_and_all_events_equal": true,
+      "sole_event_difference": "candidate plasma-admission; screenshot capture fingerprints excluded from gameplay logs",
+      "actual_shop": {
+        "sorted_inventory": [
+          9,
+          20,
+          30,
+          0
+        ],
+        "selection": 2,
+        "done": 6,
+        "cost": 9500,
+        "cash_before": 10000,
+        "cash_after": 500,
+        "left": 0,
+        "right": 9,
+        "final_cash": "585"
+      },
+      "body": {
+        "single_bank9_12x14_draws": 320,
+        "original_writes_per_frame": 97,
+        "total_original_writes": 31040,
+        "ids": [
+          224,
+          243,
+          262,
+          281,
+          300
+        ],
+        "animation_starts_enabled": true,
+        "initial_phase": 0,
+        "first_draw_phase": 1,
+        "mapping": "phase//4 => 224/243/262/281/300; twenty-phase loop",
+        "anchor": [
+          0,
+          0
+        ],
+        "top_left": "sidekick.x,sidekick.y = current mouseX+16,mouseY"
+      },
+      "ammo": {
+        "initial": 6,
+        "max": 6,
+        "refill_max": 396,
+        "final_ammo": "0",
+        "remaining_refill_ticks": "95",
+        "requested_pulse_ticks": [
+          100,
+          108,
+          116,
+          124,
+          132,
+          140
+        ],
+        "empty_seventh_tick": 148,
+        "refill_event_qualified": false
+      },
+      "weapon88": {
+        "requests": 6,
+        "results": [
+          [
+            "complete",
+            "3",
+            "7"
+          ],
+          [
+            "complete",
+            "3",
+            "10"
+          ],
+          [
+            "complete",
+            "3",
+            "12"
+          ],
+          [
+            "complete",
+            "3",
+            "8"
+          ],
+          [
+            "complete",
+            "3",
+            "10"
+          ],
+          [
+            "complete",
+            "3",
+            "12"
+          ]
+        ],
+        "successful_three_piece_calls": 6,
+        "emissions": 18,
+        "raw_ids": {
+          "60023": 6,
+          "60024": 6,
+          "60025": 6
+        },
+        "raw_blend_draws": 312,
+        "dimensions": {
+          "60023": [
+            "22",
+            "62",
+            "24"
+          ],
+          "60024": [
+            "23",
+            "65",
+            "28"
+          ],
+          "60025": [
+            "24",
+            "62",
+            "23"
+          ]
+        },
+        "radii": [
+          [
+            31,
+            12
+          ],
+          [
+            32,
+            14
+          ],
+          [
+            31,
+            11
+          ]
+        ]
+      },
+      "collisions": {
+        "player-shot": 27,
+        "player-damage": 6
+      },
+      "natural_noninvulnerable_overlap_ticks": [
+        195,
+        196,
+        197,
+        198,
+        199,
+        200,
+        222,
+        223,
+        224,
+        225,
+        226,
+        227,
+        228,
+        229,
+        239,
+        240,
+        241,
+        242,
+        243,
+        244,
+        245,
+        253,
+        254,
+        255,
+        256,
+        257,
+        258,
+        259
+      ],
+      "lighting_support_census": [
+        {
+          "kind": "1",
+          "lit": "97",
+          "transition": "0",
+          "dark": "0",
+          "ticks": 320
+        }
+      ],
+      "night_delta_range": null,
+      "screenshots": {
+        "pairs": 20,
+        "all_differences_inside_complete_original_body_canvas": true,
+        "changed_pixel_range": [
+          88,
+          406
+        ],
+        "shop_pairs_identical": true
+      }
+    },
+    {
+      "difficulty": "hard",
+      "physical_level": 15,
+      "seed": "1792031804",
+      "ticks": 320,
+      "paired_original_state_rng_indexed_palette_and_all_events_equal": true,
+      "sole_event_difference": "candidate plasma-admission; screenshot capture fingerprints excluded from gameplay logs",
+      "actual_shop": {
+        "sorted_inventory": [
+          9,
+          20,
+          30,
+          0
+        ],
+        "selection": 2,
+        "done": 6,
+        "cost": 9500,
+        "cash_before": 10000,
+        "cash_after": 500,
+        "left": 0,
+        "right": 9,
+        "final_cash": "588"
+      },
+      "body": {
+        "single_bank9_12x14_draws": 320,
+        "original_writes_per_frame": 97,
+        "total_original_writes": 31040,
+        "ids": [
+          224,
+          243,
+          262,
+          281,
+          300
+        ],
+        "animation_starts_enabled": true,
+        "initial_phase": 0,
+        "first_draw_phase": 1,
+        "mapping": "phase//4 => 224/243/262/281/300; twenty-phase loop",
+        "anchor": [
+          0,
+          0
+        ],
+        "top_left": "sidekick.x,sidekick.y = current mouseX+16,mouseY"
+      },
+      "ammo": {
+        "initial": 6,
+        "max": 6,
+        "refill_max": 396,
+        "final_ammo": "0",
+        "remaining_refill_ticks": "95",
+        "requested_pulse_ticks": [
+          100,
+          108,
+          116,
+          124,
+          132,
+          140
+        ],
+        "empty_seventh_tick": 148,
+        "refill_event_qualified": false
+      },
+      "weapon88": {
+        "requests": 6,
+        "results": [
+          [
+            "complete",
+            "3",
+            "7"
+          ],
+          [
+            "complete",
+            "3",
+            "10"
+          ],
+          [
+            "complete",
+            "3",
+            "12"
+          ],
+          [
+            "complete",
+            "3",
+            "8"
+          ],
+          [
+            "complete",
+            "3",
+            "10"
+          ],
+          [
+            "complete",
+            "3",
+            "12"
+          ]
+        ],
+        "successful_three_piece_calls": 6,
+        "emissions": 18,
+        "raw_ids": {
+          "60023": 6,
+          "60024": 6,
+          "60025": 6
+        },
+        "raw_blend_draws": 312,
+        "dimensions": {
+          "60023": [
+            "22",
+            "62",
+            "24"
+          ],
+          "60024": [
+            "23",
+            "65",
+            "28"
+          ],
+          "60025": [
+            "24",
+            "62",
+            "23"
+          ]
+        },
+        "radii": [
+          [
+            31,
+            12
+          ],
+          [
+            32,
+            14
+          ],
+          [
+            31,
+            11
+          ]
+        ]
+      },
+      "collisions": {
+        "player-shot": 30,
+        "player-damage": 6
+      },
+      "natural_noninvulnerable_overlap_ticks": [
+        195,
+        196,
+        197,
+        198,
+        199,
+        200,
+        222,
+        223,
+        224,
+        225,
+        226,
+        227,
+        228,
+        229,
+        239,
+        240,
+        241,
+        242,
+        243,
+        244,
+        245,
+        253,
+        254,
+        255,
+        256,
+        257,
+        258,
+        259
+      ],
+      "lighting_support_census": [
+        {
+          "kind": "1",
+          "lit": "97",
+          "transition": "0",
+          "dark": "0",
+          "ticks": 1
+        },
+        {
+          "kind": "2",
+          "lit": "0",
+          "transition": "23",
+          "dark": "74",
+          "ticks": 286
+        },
+        {
+          "kind": "2",
+          "lit": "0",
+          "transition": "31",
+          "dark": "66",
+          "ticks": 1
+        },
+        {
+          "kind": "2",
+          "lit": "0",
+          "transition": "17",
+          "dark": "80",
+          "ticks": 29
+        },
+        {
+          "kind": "2",
+          "lit": "0",
+          "transition": "12",
+          "dark": "85",
+          "ticks": 3
+        }
+      ],
+      "night_delta_range": [
+        0,
+        19
+      ],
+      "screenshots": {
+        "pairs": 20,
+        "all_differences_inside_complete_original_body_canvas": true,
+        "changed_pixel_range": [
+          88,
+          398
+        ],
+        "shop_pairs_identical": true
+      }
+    }
+  ],
+  "visual_review": {
+    "native2x_body_comparisons_Normal_and_Hard": true,
+    "candidate_full_screens_Normal_and_Hard": true,
+    "accepted": true,
+    "qualification": "Finite actual first-level trial; no conspicuous geometric frame jump seen. Known generated silver T/pedestal micro-luminance drift and darker late cap retained, not described as pixel-static.",
+    "known_art_tradeoffs": [
+      "Independent generated silver T and pedestal RGB drift is retained. Mean native2x channel delta reaches8.37(T)/7.07(base), p95 about21.7/20 from224 to300; subtle metal shimmer requires actual-loop review. The original metal is pixel-fixed.",
+      "Native2x thresholded alpha IoU0.9918\u20131, at most3 silhouette pixels differ, and alpha centroid variation is below0.02 logical pixels. No conspicuous geometric jump was seen offline.",
+      "The generated top cap becomes darker from262 onward: late/early luminance ratio about0.35 versus original0.70. Generated262 also lacks the original mild lower-band/neck pre-brightening.",
+      "The same fixed crop clips306/289 alpha>128 master pixels in281/300 at two top/bottom edge rows, less than0.04 logical-pixel equivalent area each. No per-frame crop adjustment or pixel repair was applied."
+    ]
+  },
+  "limits": [
+    "Actual right-side first-shop purchase only; no actual left/dual purchase claim.",
+    "Six initial ammo and seventh empty attempt qualified; no later actual refill event in this320-tick window.",
+    "Normal source body97support cells fully lit; Hard one ordinary tick fully lit,319NIGHT ticks transition/dark only. No fully lit NIGHT body-cell claim or all-authored-alpha subpixel claim.",
+    "Natural noninvulnerable occupied body/Talon overlap logged on28ticks/case, maximum26cells; none of the fixed screenshot ticks coincides, so no visual overlap screenshot claim.",
+    "No actual Christmas gameplay, whole-level/campaign, Windows build/runtime, physical GPU or performance qualification.",
+    "Original data, extracted source images, runtime fixtures/logs/screens/binaries remain private external verification inputs."
+  ]
+}

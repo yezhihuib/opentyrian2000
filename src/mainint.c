@@ -4713,6 +4713,12 @@ redo:
 					draw_mint_body_sprite2(VGAScreen, x, y, spriteSheet9, sprite,
 					                      this_player->items.sidekick[i],
 					                      this_player->sidekick[i].style, this_player->sidekick[i].charge);
+				else if (this_player->items.sidekick[i] == 9 && this_player->sidekick[i].style == 0 &&
+				         this_player->sidekick[i].charge == 0 &&
+				         (sprite == 224 || sprite == 243 || sprite == 262 || sprite == 281 || sprite == 300))
+					draw_plasma_body_sprite2(VGAScreen, x, y, spriteSheet9, sprite,
+					                        this_player->items.sidekick[i],
+					                        this_player->sidekick[i].style, this_player->sidekick[i].charge);
 				else
 					blit_sprite2(VGAScreen, x, y, spriteSheet9, sprite);
 			}

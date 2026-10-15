@@ -1,0 +1,181 @@
+{
+  "schema": "option-plasma-body-five-generated-masters-v1",
+  "role": 129,
+  "density": 8,
+  "logical_size": [
+    12,
+    14
+  ],
+  "anchor": [
+    0,
+    0
+  ],
+  "reconstruction": {
+    "library": "Pillow",
+    "version": "12.3.0",
+    "crop": [
+      84,
+      74,
+      1124,
+      1226
+    ],
+    "resize": [
+      88,
+      104
+    ],
+    "paste": [
+      0,
+      0
+    ],
+    "filter": "LANCZOS",
+    "canvas": [
+      96,
+      112
+    ],
+    "alpha": "Frozen independently generated RGBA imports. One identical fixed crop/resample/paste; no per-frame registration, repaint, recolor, shell compositing, threshold or original-source mask."
+  },
+  "source_guard": {
+    "bank": 9,
+    "layout": "TILE",
+    "ids": [
+      224,
+      243,
+      262,
+      281,
+      300
+    ],
+    "semantic_fnv1a64": {
+      "224": "609fb9a7543c01b5",
+      "243": "6cfe284862651109",
+      "262": "64e44cd8035dee9a",
+      "281": "4460b75956a791ca",
+      "300": "0527c45d2bd85087"
+    },
+    "normal_and_Christmas": "Both selected sources require exact current indices and coverage before every cold/warm lookup; unchanged scene eligibility still applies."
+  },
+  "known_offline_reviewed_tradeoffs": [
+    "Independent generated silver T and pedestal RGB drift is retained. Mean native2x channel delta reaches8.37(T)/7.07(base), p95 about21.7/20 from224 to300; subtle metal shimmer requires actual-loop review. The original metal is pixel-fixed.",
+    "Native2x thresholded alpha IoU0.9918\u20131, at most3 silhouette pixels differ, and alpha centroid variation is below0.02 logical pixels. No conspicuous geometric jump was seen offline.",
+    "The generated top cap becomes darker from262 onward: late/early luminance ratio about0.35 versus original0.70. Generated262 also lacks the original mild lower-band/neck pre-brightening.",
+    "The same fixed crop clips306/289 alpha>128 master pixels in281/300 at two top/bottom edge rows, less than0.04 logical-pixel equivalent area each. No per-frame crop adjustment or pixel repair was applied."
+  ],
+  "scope": "Option9/style0/charge0 bank9 five-frame body only; original12x14 canvas/zero anchor, sidekick.x,y placement and single indexed draw. Original20-phase increment-before-draw animation, six limited ammo, weapon88 three simultaneous variable-size blend pieces, shadows, timing, RNG and gameplay unchanged.",
+  "qualification": "Accepted as offline trial candidate; actual-engine visual qualification is reported separately.",
+  "entries": [
+    {
+      "id": 224,
+      "slot": 541,
+      "source": "sources/generated-plasma-body-224-v1.png",
+      "source_sha256": "d6cb1b83ce1d42413dfb4d0fa6019274982652359ddb6a577b27740e85a497f0",
+      "crop": [
+        84,
+        74,
+        1124,
+        1226
+      ],
+      "PNG_sha256": "fb2e1044ccd95a6d182eb03ce1403bdbcbb70ecc87397b242ba77d5b0bd312a6",
+      "RGBA_sha256": "df4e7034edfd3fe4c8dbe12e6c40d05a4045664aed0d2518e1568604288359e7",
+      "HDA_sha256": "8df044e0cb436f2ff5c41ba4a5b938c9878a3def4bc08f1b877ed055a089dd1f",
+      "header_u32": [
+        1290224,
+        8,
+        12,
+        14,
+        0,
+        0
+      ]
+    },
+    {
+      "id": 243,
+      "slot": 542,
+      "source": "sources/generated-plasma-body-243-v1.png",
+      "source_sha256": "762db2bd10cd2cd16a5c5fa1a7e92b57721ba35debfe17940381bbce3de4798b",
+      "crop": [
+        84,
+        74,
+        1124,
+        1226
+      ],
+      "PNG_sha256": "714aadc071612f8db42b6ad37b4a11e7873043ce7ad272f45195004a7ed33f99",
+      "RGBA_sha256": "61853fc82975109319052335c307b9717ddbe039d504193324fa4f7a4f8298ac",
+      "HDA_sha256": "c8222727f733bb8718435c4fd052b68de06e1ee30c9b080cedeefdfb13b13d34",
+      "header_u32": [
+        1290243,
+        8,
+        12,
+        14,
+        0,
+        0
+      ]
+    },
+    {
+      "id": 262,
+      "slot": 543,
+      "source": "sources/generated-plasma-body-262-v1.png",
+      "source_sha256": "79b9eed3079bbfa2ba110d6d6ca5721f8d14cbcd3b8424fc83ed33951a9eae34",
+      "crop": [
+        84,
+        74,
+        1124,
+        1226
+      ],
+      "PNG_sha256": "3da27ac67be12eae21aced17e6de6a0389ea25e47684c5f93c96a2391f159695",
+      "RGBA_sha256": "2dd1e4fa46495f7e0ae3db148e8658b7f1958057e27310c020851ba853a2ab1a",
+      "HDA_sha256": "c57c21c2457d0bfd3154b8debae24f0631893c766539f31c306d460db5adc164",
+      "header_u32": [
+        1290262,
+        8,
+        12,
+        14,
+        0,
+        0
+      ]
+    },
+    {
+      "id": 281,
+      "slot": 544,
+      "source": "sources/generated-plasma-body-281-v1.png",
+      "source_sha256": "a783e563f5e03aaa9b3db5a5aafc6b4358c1d3b0fe260c6fa1aebd75a79af855",
+      "crop": [
+        84,
+        74,
+        1124,
+        1226
+      ],
+      "PNG_sha256": "64518bc68c7a6e325a60471f8652c4c8abd3ee79c8d0050c5703bcc2d310634e",
+      "RGBA_sha256": "840ad1b39a4bf0e966f17ccb403f9849c97baabff89a070121e7522f787a4dd8",
+      "HDA_sha256": "224b908731e05b932480eecdc0877755b00b7dca6968e9c4cb311c37f0cf0ec4",
+      "header_u32": [
+        1290281,
+        8,
+        12,
+        14,
+        0,
+        0
+      ]
+    },
+    {
+      "id": 300,
+      "slot": 545,
+      "source": "sources/generated-plasma-body-300-v1.png",
+      "source_sha256": "8c3801ae199abe69e21e6b6fb8cc12a85bd2aacd42971d67af2897205399e107",
+      "crop": [
+        84,
+        74,
+        1124,
+        1226
+      ],
+      "PNG_sha256": "92faa0b7693c3934174f2678ecd6fb2d05843f88c45a7676dd17ab945f197642",
+      "RGBA_sha256": "63e651da2800924432546e0263e6e229cb13ee52dc636a8e7033e5156c8f48ce",
+      "HDA_sha256": "c9368682b053458b0f6e438375c6b76c311a5ac9ec2665004dc3d9ee771cc072",
+      "header_u32": [
+        1290300,
+        8,
+        12,
+        14,
+        0,
+        0
+      ]
+    }
+  ]
+}

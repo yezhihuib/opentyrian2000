@@ -34,4 +34,9 @@ void draw_frontblaster_body_sprite2(SDL_Surface *,int x,int y,Sprite2_array,
                                    unsigned int index,unsigned int option,
                                    unsigned int sidekick_style,unsigned int charge);
 
+/* Dedicated five-frame normal Plasma body; original indexed call always runs. */
+void draw_plasma_body_sprite2(SDL_Surface *,int x,int y,Sprite2_array,
+                             unsigned int index,unsigned int option,
+                             unsigned int sidekick_style,unsigned int charge);
+
 #endif

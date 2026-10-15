@@ -84,3 +84,13 @@ void draw_frontblaster_body_sprite2(SDL_Surface *target,int x,int y,Sprite2_arra
  blit_sprite2x2(target,x,y,bank,index);
  render_mirror_entity_end();
 }
+
+/* Plasma9 keeps its original twenty-phase animation and single indexed draw. */
+void draw_plasma_body_sprite2(SDL_Surface *target,int x,int y,Sprite2_array bank,
+                             unsigned int index,unsigned int option,
+                             unsigned int sidekick_style,unsigned int charge)
+{
+ (void)render_mirror_plasma_body(target,x,y,bank,index,option,sidekick_style,charge);
+ blit_sprite2(target,x,y,bank,index);
+ render_mirror_entity_end();
+}
