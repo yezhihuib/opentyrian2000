@@ -1,5 +1,9 @@
 # Bounded validation
 
+This records the original 17d6d000 in-bounds batch. Its vertical-edge limitation
+is superseded by the [bounded vertical follow-up](../option-plasma-projectile-vertical-v1/README.md);
+the historical results below are unchanged.
+
 Baseline: d98556a7798d79980c785b5a25ba67566697bdb0. Results below cover this
 finite batch and do not imply broader runtime qualification.
 

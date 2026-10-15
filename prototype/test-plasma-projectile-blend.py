@@ -16,6 +16,7 @@ import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = 'd98556a7798d79980c785b5a25ba67566697bdb0'
+PARENT = '17d6d000fe4bf76bc7774f0f636576c63d855515'
 DATA_PINS = {
     'tyrian.shp': '80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0',
     'tyrianc.shp': 'e980f02021395d39b86491acdc2ecd6dd47ea2a9f859fe3928f81b75e244fd7d',
@@ -52,6 +53,13 @@ def source_units():
     functions = {name: extract(renderer, name) for name in UNCHANGED + ADDED}
     for name in UNCHANGED:
         assert functions[name] == extract(old_renderer, name), name + ' changed outside compatibility path'
+    parent_renderer = git('show', PARENT + ':src/render_mirror.c')
+    assert functions[ADDED[1]] == extract(parent_renderer, ADDED[1]), 'Plasma pixel helper changed'
+    old_begin = extract(parent_renderer, ADDED[0])
+    old_y_guard = 'y<0||y>200-(int)h'
+    new_y_guard = 'y<=-(int)h||y>=200'
+    assert old_begin.count(old_y_guard) == functions[ADDED[0]].count(new_y_guard) == 1
+    assert functions[ADDED[0]].replace(new_y_guard, old_y_guard) == old_begin, 'Admission changed beyond vertical guard'
     candidate = extract(sprite, 'blit_sprite_blend')
     baseline = extract(old_sprite, 'blit_sprite_blend')
     admission = '\tconst bool plasma_blend = render_mirror_plasma_projectile_begin(surface, x, y, table, index);\n'
@@ -138,6 +146,7 @@ def main():
     hashes.update(candidate_raw_blit=SHA(candidate.encode()), baseline_raw_blit=SHA(baseline.encode()))
     if args.source_only:
         print(json.dumps({'status': 'PASS', 'baseline': BASE, 'exact_raw_blit_inverse': True,
+                          'admission_parent': PARENT, 'vertical_guard_only_inverse': True,
                           'unchanged_production_helpers': UNCHANGED, 'source_sha256': hashes}, indent=2))
         return
     assert args.data and args.out, 'Supply --data and --out, or --source-only'
@@ -162,7 +171,7 @@ def main():
         extracted[name] = extracted[name].replace(name + '(', 'production_' + name + '(', 1)
     (out / 'functions.inc').write_text('\n'.join(body[:body.index('{')].strip() + ';' for body in extracted.values()) + '\n' + ''.join(extracted.values()))
     (out / 'candidate-blit.inc').write_text(candidate.replace('void blit_sprite_blend(', 'void production_blit_sprite_blend(', 1))
-    (out / 'baseline-blit.inc').write_text(baseline.replace('void blit_sprite_blend(', 'void baseline_blit_sprite_blend(', 1))
+    (out / 'baseline-blit.inc').write_text(baseline.replace('void blit_sprite_blend(', 'void production_baseline_blit_sprite_blend(', 1))
     sprite_types = 'typedef struct\n' + (ROOT / 'src/sprite.h').read_text().split('typedef struct\n', 1)[1].split('extern Sprite_array', 1)[0]
     (out / 'sprite-types.inc').write_text(sprite_types)
     runs = {}
@@ -176,6 +185,15 @@ def main():
         print(kind + ': ' + result.strip(), flush=True)
     assert original_hashes == {name: SHA((args.data / name).read_bytes()) for name in original_hashes}, 'Original inputs changed'
     report = {'status': 'PASS', 'baseline': BASE, 'exact_raw_blit_inverse': True, 'production_functions_sha256': hashes,
+              'admission_parent': PARENT, 'vertical_guard_only_inverse': True, 'plasma_pixel_helper_unchanged': True,
+              'vertical_clipping_coverage': {
+                  'piece_heights': [24, 28, 23],
+                  'visible_heights_per_edge': ['1..23', '1..27', '1..22'],
+                  'original_palette_matrix': 'Every partial visible height at both edges, both data sets, densities4/8, pitches320/328, and owners0/1/2/mixed.',
+                  'additional_palette_matrix': 'Every partial visible height at both edges under palettes1..6 and mixed owners, normal data, density4 and pitch328. Nonmonotone palettes start with fresh owners for every draw.',
+                  'sequences': 'All six piece permutations, repeated overlapping draws alternating both vertical edges, both data sets and densities, pure/mixed owners, and monotone/nonmonotone palettes.',
+                  'offscreen': 'Full-buffer oracle checks for safe padded wholly-offscreen draws; INT_MIN/INT_MAX and wider extremes are admission-only to avoid legacy raw-loop signed overflow.',
+              },
               'originals': sources, 'normal_christmas_decoded_and_raw_equal': True, 'original_data_unchanged': True,
               'palette_sha256': original_hashes['palette.dat'], 'runs': runs, 'game_runs': 0, 'resource_files_loaded': 0,
               'resource_scope': 'These three original-art pieces have no HDA/new-art resource path. No HDA lookup or resource mutation is applicable. Owner0 and owner2 plus mixed-owner cases represent classic/indexed-copy or absent/rejected-HD underlays.',
@@ -187,6 +205,7 @@ def main():
               'limitations': ['Finite extracted units do not establish actual gameplay, Windows/GPU behavior, performance, or visual aesthetics.',
                               'Malformed RLE mutations run admission/decode only; the intentionally unsafe original raw blitter is never run on malformed input.',
                               'HD scene colors/ownership are synthetic test-only; no authored resources are loaded or modified.',
+                              'Extreme integer coordinates are admission-only; the original raw loop is executed only where its padded pointer arithmetic stays within the test allocation.',
                               'LeakSanitizer disabled for executor compatibility; AddressSanitizer and UndefinedBehaviorSanitizer are enabled.']}
     (out / 'result.json').write_text(json.dumps(report, indent=2) + '\n')
 

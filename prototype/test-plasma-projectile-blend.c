@@ -2,6 +2,7 @@
 #include <assert.h>
 #include <stdbool.h>
 #include <stdint.h>
+#include <limits.h>
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -39,8 +40,12 @@ static SDL_Surface screen={320,200,320,NULL,&format},hd,*game_screen=&screen,*VG
 static Uint32 rgb_palette[256],game_palette[256];
 static Uint8 expected[64000],selected[64000],restored_mask[64000],*hd_owner,*cloud_owner,*green_under_owner;
 static Uint16 *green_first;
-static unsigned checks,admission_calls,decode_calls,raw_calls,pixel_calls,fallback_calls,font_effects,shadow_ends;
+static unsigned checks,admission_calls,decode_calls,raw_calls,baseline_raw_calls,pixel_calls,fallback_calls,font_effects,shadow_ends;
 static unsigned guard_cases,mutation_cases,draw_cases,clip_cases,composition_cases,palette_cases,pixel_guard_cases;
+static unsigned vertical_cases,vertical_palette_cases,edge_composition_cases,offscreen_cases,extreme_guard_cases,horizontal_wrap_cases;
+static unsigned admitted_zero_write_cases;
+static unsigned hidden_value_mutations,hidden_coverage_mutations;
+static bool vertical_seen[2][3][28];
 static size_t indexed_bytes,rgba_bytes;
 #define CHECK(test) do { ++checks; if(!(test)) { fprintf(stderr,"FAIL line %d: %s\n",__LINE__,#test); exit(1); } } while(0)
 
@@ -89,6 +94,8 @@ static void baseline_pixel(SDL_Surface *s,Uint8 *p,Uint8 v,int style)
 #define render_mirror_pixel baseline_pixel
 #include "baseline-blit.inc"
 #undef render_mirror_pixel
+static void baseline_blit_sprite_blend(SDL_Surface *s,int x,int y,unsigned t,unsigned i)
+{ ++baseline_raw_calls;production_baseline_blit_sprite_blend(s,x,y,t,i); }
 
 enum { MAX_CELLS=65*28, PAD=32768, STORAGE=328*200+2*PAD };
 static Uint8 screen_store[STORAGE],baseline_store[STORAGE],oracle_store[STORAGE];
@@ -216,12 +223,13 @@ static void draw(unsigned k,int x,int y,bool compatible)
 {
  const Original *o=reference_override?reference_override:&originals[0][k];const Sprite *s=sprite(OPTION_SHAPES,22+k);
  unsigned old_raw=raw_calls,old_begin=admission_calls,old_decode=decode_calls,old_pixels=pixel_calls,old_fallback=fallback_calls;
+ unsigned old_baseline=baseline_raw_calls;
  unsigned old_regions=local_regions,old_blocks=local_blocks;
  uint64_t source_before=hash_bytes(s->data,s->size);candidate_count=baseline_count=0;
  baseline_screen.pitch=screen.pitch;
  baseline_blit_sprite_blend(&baseline_screen,x,y,OPTION_SHAPES,22+k);
  blit_sprite_blend(&screen,x,y,OPTION_SHAPES,22+k);
- CHECK(raw_calls==old_raw+1&&admission_calls==old_begin+1&&admitted==compatible);
+ CHECK(raw_calls==old_raw+1&&baseline_raw_calls==old_baseline+1&&admission_calls==old_begin+1&&admitted==compatible);
  if(compatible)CHECK(decode_calls==old_decode+1);
  CHECK(hash_bytes(s->data,s->size)==source_before);
  unsigned n=0;bool restored=false;
@@ -235,11 +243,13 @@ static void draw(unsigned k,int x,int y,bool compatible)
   CHECK(candidate_writes[n].offset==off&&baseline_writes[n].offset==off);
   CHECK(candidate_writes[n].source==src&&baseline_writes[n].source==src);
   CHECK(candidate_writes[n].value==value&&baseline_writes[n].value==value);n++;
-  if(!compatible&&owner_pattern!=0&&!restored){oracle_restore();restored=true;}
+  /* Pitch padding is an indexed write but never reaches the RGB fallback. */
+  if(!compatible&&owner_pattern!=0&&!restored&&off%screen.pitch<320){oracle_restore();restored=true;}
   oracle_pixel(off,src,value,compatible);
  }
  done:
  CHECK(candidate_count==n&&baseline_count==n&&pixel_calls==old_pixels+n);
+ if(compatible&&!n)admitted_zero_write_cases++;
  CHECK(fallback_calls==old_fallback+(compatible?0:n));
  CHECK(!memcmp(screen_store,oracle_store,sizeof(screen_store))&&!memcmp(screen_store,baseline_store,sizeof(screen_store)));
  CHECK(!memcmp(hd.pixels,wanted_rgba,hd_pixels*4));
@@ -323,21 +333,29 @@ static void check_valid_mutated_draws(void)
  /* Mutated but valid art keeps exact baseline writes, invoking generic fallback.
   * Malformed streams below are deliberately restricted to admission checks. */
  set_density(4);set_palette(0);screen.pitch=320;
- for(unsigned mode=0;mode<2;mode++)for(unsigned k=0;k<3;k++)for(unsigned warm=0;warm<2;warm++) {
-  select_original(mode);reset_scene(3);if(warm)draw(k,100,70,true);
-  Original changed=originals[mode][k];unsigned cells=changed.s.width*changed.s.height,cell=0;
-  while(!changed.mask[cell])cell++;
+ for(unsigned mode=0;mode<2;mode++)for(unsigned k=0;k<3;k++)for(unsigned warm=0;warm<2;warm++)for(unsigned geometry=0;geometry<3;geometry++) {
+  int y=geometry==0?70:geometry==1?-1:199;
+  select_original(mode);reset_scene(3);if(warm)draw(k,100,y,true);
+  Original changed=originals[mode][k];unsigned cells=changed.s.width*changed.s.height;
+  unsigned hidden_start=geometry==2?cells-changed.s.width:0;
+  unsigned hidden_end=geometry==1?changed.s.width:cells,cell=hidden_start;
+  while(cell<hidden_end&&!changed.mask[cell])cell++;
+  CHECK(cell<hidden_end);
+  if(geometry) {CHECK(y+(int)(cell/changed.s.width)<0||y+(int)(cell/changed.s.width)>=200);hidden_value_mutations++;}
   changed.indices[cell]^=1;
   Sprite *current=sprite(OPTION_SHAPES,22+k);
   current->size=(Uint16)encode(current->data,current->width,current->height,changed.indices,changed.mask);
-  reference_override=&changed;unsigned calls=decode_calls;draw(k,100,70,false);CHECK(decode_calls==calls+1);mutation_cases++;
-  select_original(mode);reset_scene(2);changed=originals[mode][k];cell=0;while(changed.mask[cell])cell++;
-  CHECK(!changed.indices[cell]&&cell<cells);changed.mask[cell]=255;
+  reference_override=&changed;unsigned calls=decode_calls;draw(k,100,y,false);CHECK(decode_calls==calls+1);mutation_cases++;
+  select_original(mode);reset_scene(2);changed=originals[mode][k];cell=hidden_start;
+  while(cell<hidden_end&&changed.mask[cell])cell++;
+  CHECK(cell<hidden_end&&!changed.indices[cell]);
+  if(geometry) {CHECK(y+(int)(cell/changed.s.width)<0||y+(int)(cell/changed.s.width)>=200);hidden_coverage_mutations++;}
+  changed.mask[cell]=255;
   current=sprite(OPTION_SHAPES,22+k);current->size=(Uint16)encode(current->data,current->width,current->height,changed.indices,changed.mask);
-  reference_override=&changed;calls=decode_calls;draw(k,100,70,false);CHECK(decode_calls==calls+1);mutation_cases++;
+  reference_override=&changed;calls=decode_calls;draw(k,100,y,false);CHECK(decode_calls==calls+1);mutation_cases++;
   reference_override=NULL;select_original(mode);reset_scene(1);
   current=sprite(OPTION_SHAPES,22+k);current->size=(Uint16)encode(current->data,current->width,current->height,changed.indices,originals[mode][k].mask);
-  draw(k,100,70,true);mutation_cases++;
+  draw(k,100,y,true);mutation_cases++;
  }
  select_original(0);
 }
@@ -393,11 +411,74 @@ static void check_clip_and_ownership(void)
     {-1,70},{321-(int)w,70},{100,-1},{100,201-(int)h},
     {-((int)w),70},{320,70},{100,-((int)h)},{100,200},{-1,-1},{320,199}};
    for(unsigned j=0;j<COUNTOF(xy);j++) {
-    reset_scene(j<4?3:0);draw(k,xy[j][0],xy[j][1],j<4);clip_cases++;
+    bool compatible=j<4||j==6||j==7;
+    reset_scene(compatible?3:0);draw(k,xy[j][0],xy[j][1],compatible);clip_cases++;
    }
   }
   screen.pitch=320;
  }
+}
+static void check_all_vertical_heights(void)
+{
+ /* Full actual-palette matrix. An admitted draw preserves ownership, allowing
+  * every height to start with the same owner classes while deliberately
+  * composing with the preceding draw. Each edge has an independent scene. */
+ for(unsigned mode=0;mode<2;mode++)for(int d=4;d<=8;d+=4)for(int pitch=320;pitch<=328;pitch+=8)
+ for(unsigned owner=0;owner<4;owner++)for(unsigned k=0;k<3;k++)for(unsigned edge=0;edge<2;edge++) {
+  select_original(mode);set_density(d);set_palette(0);screen.pitch=pitch;reset_scene(owner);
+  int h=originals[mode][k].s.height,w=originals[mode][k].s.width;
+  for(int visible=1;visible<h;visible++) {
+   int y=edge?200-visible:visible-h;
+   /* Exercise both exact horizontal limits as vertical clipping deepens. */
+   int x=visible%2?0:320-w;
+   draw(k,x,y,true);vertical_cases++;clip_cases++;vertical_seen[edge][k][visible]=true;
+  }
+ }
+ /* Cover every height against all alternate monotone and nonmonotone ramps.
+  * Rejection must still inspect current source/ramp for a clipped-away mutation.
+  * Rejected draws get fresh mixed owners to exercise real local restoration. */
+ select_original(0);set_density(4);screen.pitch=328;
+ for(unsigned variant=1;variant<7;variant++)for(unsigned k=0;k<3;k++)for(unsigned edge=0;edge<2;edge++) {
+  set_palette(variant);reset_scene(3);int h=originals[0][k].s.height;
+  for(int visible=1;visible<h;visible++) {
+   if(variant>=4)reset_scene(3);
+   draw(k,100,edge?200-visible:visible-h,variant<4);vertical_palette_cases++;clip_cases++;
+  }
+ }
+ for(unsigned edge=0;edge<2;edge++)for(unsigned k=0;k<3;k++)
+ for(unsigned visible=1;visible<originals[0][k].s.height;visible++)CHECK(vertical_seen[edge][k][visible]);
+ screen.pitch=320;set_palette(0);
+}
+static void check_offscreen_and_horizontal_wrap(void)
+{
+ for(unsigned mode=0;mode<2;mode++)for(int d=4;d<=8;d+=4)for(int pitch=320;pitch<=328;pitch+=8) {
+  select_original(mode);set_density(d);set_palette(0);screen.pitch=pitch;
+  for(unsigned k=0;k<3;k++) {
+   int h=originals[mode][k].s.height,w=originals[mode][k].s.width;
+   const int far_y[]={-90,-h-1,-h,200,201,280};
+   for(unsigned j=0;j<COUNTOF(far_y);j++) {
+    reset_scene(3);unsigned old=decode_calls;draw(k,100,far_y[j],false);
+    CHECK(decode_calls==old&&candidate_count==0&&baseline_count==0);offscreen_cases++;clip_cases++;
+   }
+   /* Admission must reject extreme coordinates before arithmetic/decode.
+    * Do not invoke the intentionally unchanged raw loop on integer extremes. */
+   const int extreme_xy[][2]={{100,INT_MIN},{100,INT_MAX},{100,-1000000},{100,1000000},
+    {INT_MIN,-1},{INT_MAX,-1},{INT_MIN,199},{INT_MAX,199}};
+   for(unsigned j=0;j<COUNTOF(extreme_xy);j++) {
+    unsigned old=decode_calls;CHECK(!begin(k,extreme_xy[j][0],extreme_xy[j][1]));
+    CHECK(decode_calls==old);extreme_guard_cases++;
+   }
+   /* Retain legacy linear wrapping even when top/bottom clipping coincides.
+    * Mixed owners also cover first writes landing in nonvisible pitch padding. */
+   const int xy[][2]={{-1,-1},{321-w,-1},{-1,199},{321-w,199},
+    {-w,-1},{320,-1},{-w,199},{320,199},{-1,-h},{320,200}};
+   for(unsigned j=0;j<COUNTOF(xy);j++) {
+    reset_scene(3);unsigned old=decode_calls;draw(k,xy[j][0],xy[j][1],false);
+    CHECK(decode_calls==old);horizontal_wrap_cases++;clip_cases++;
+   }
+  }
+ }
+ screen.pitch=320;
 }
 static void check_compositions(void)
 {
@@ -414,6 +495,29 @@ static void check_compositions(void)
    }
   }
  }
+}
+static void check_vertical_edge_compositions(void)
+{
+ static const unsigned order[6][3]={{0,1,2},{0,2,1},{1,0,2},{1,2,0},{2,0,1},{2,1,0}};
+ /* Factor the matrix so every mode/density, every owner class, and every
+  * palette runs every piece ordering and both top/bottom traversal orders. */
+ for(unsigned scenario=0;scenario<13;scenario++) {
+  unsigned mode=scenario<4?scenario/2:0;
+  int d=scenario<4&&scenario%2?8:4;
+  unsigned owner=scenario>=4&&scenario<7?scenario-4:3;
+  unsigned variant=scenario>=7?scenario-6:0;
+  select_original(mode);set_density(d);set_palette(variant);
+  for(unsigned permutation=0;permutation<6;permutation++)for(unsigned first_edge=0;first_edge<2;first_edge++) {
+   screen.pitch=first_edge?328:320;reset_scene(owner);
+   for(unsigned repeat=0;repeat<2;repeat++)for(unsigned piece=0;piece<3;piece++)for(unsigned step=0;step<2;step++) {
+    unsigned k=order[permutation][piece],edge=(first_edge+step)%2;
+    int h=originals[mode][k].s.height;
+    int y=edge?200-h+1+(int)k:-1-(int)k;
+    draw(k,40+(int)k*5,y,variant<4);edge_composition_cases++;composition_cases++;
+   }
+  }
+ }
+ screen.pitch=320;set_palette(0);
 }
 
 static void check_independent_piece_admission(void)
@@ -489,9 +593,13 @@ int main(int argc,char **argv)
  green_first=malloc(cap*2);wanted_green=malloc(cap*2);green_under_owner=malloc(cap);wanted_selected=malloc(64000);
  CHECK(hd.pixels&&wanted_rgba&&owners&&cloud_owner&&wanted_cloud&&green_first&&wanted_green&&green_under_owner&&wanted_selected);
  check_identity();check_context_guards();hd_owner=owners;check_valid_mutated_draws();
- check_palettes();check_clip_and_ownership();check_compositions();check_independent_piece_admission();check_pixel_guards();
- printf("{\"status\":\"PASS\",\"checks\":%u,\"draws\":%u,\"raw_original_calls\":%u,\"admissions\":%u,\"decodes\":%u,\"pixel_callbacks\":%u,\"fallback_callbacks\":%u,\"identity_mutations\":%u,\"guard_cases\":%u,\"clip_cases\":%u,\"composition_draws\":%u,\"palette_formula_cases\":%u,\"pixel_guard_cases\":%u,\"indexed_bytes_compared\":%zu,\"rgba_bytes_compared\":%zu}\n",
-  checks,draw_cases,raw_calls,admission_calls,decode_calls,pixel_calls,fallback_calls,mutation_cases,guard_cases,clip_cases,composition_cases,palette_cases,pixel_guard_cases,indexed_bytes,rgba_bytes);
+ check_palettes();check_clip_and_ownership();check_all_vertical_heights();check_offscreen_and_horizontal_wrap();
+ check_compositions();check_vertical_edge_compositions();check_independent_piece_admission();check_pixel_guards();
+ CHECK(raw_calls==baseline_raw_calls&&raw_calls==draw_cases);
+ CHECK(vertical_cases==4608&&vertical_palette_cases==864&&offscreen_cases==144&&extreme_guard_cases==192);
+ CHECK(horizontal_wrap_cases==240&&edge_composition_cases==1872&&hidden_value_mutations==24&&hidden_coverage_mutations==24);
+ printf("{\"status\":\"PASS\",\"checks\":%u,\"draws\":%u,\"raw_original_calls\":%u,\"baseline_raw_calls\":%u,\"admissions\":%u,\"decodes\":%u,\"pixel_callbacks\":%u,\"fallback_callbacks\":%u,\"identity_mutations\":%u,\"guard_cases\":%u,\"clip_cases\":%u,\"all_height_vertical_draws\":%u,\"all_height_palette_draws\":%u,\"offscreen_draws\":%u,\"extreme_admission_guards\":%u,\"horizontal_wrap_draws\":%u,\"edge_composition_draws\":%u,\"hidden_value_mutations\":%u,\"hidden_coverage_mutations\":%u,\"admitted_zero_write_draws\":%u,\"composition_draws\":%u,\"palette_formula_cases\":%u,\"pixel_guard_cases\":%u,\"indexed_bytes_compared\":%zu,\"rgba_bytes_compared\":%zu}\n",
+  checks,draw_cases,raw_calls,baseline_raw_calls,admission_calls,decode_calls,pixel_calls,fallback_calls,mutation_cases,guard_cases,clip_cases,vertical_cases,vertical_palette_cases,offscreen_cases,extreme_guard_cases,horizontal_wrap_cases,edge_composition_cases,hidden_value_mutations,hidden_coverage_mutations,admitted_zero_write_cases,composition_cases,palette_cases,pixel_guard_cases,indexed_bytes,rgba_bytes);
  for(unsigned mode=0;mode<2;mode++)for(unsigned k=0;k<3;k++)free(originals[mode][k].s.data);
  free(hd.pixels);free(wanted_rgba);free(owners);free(cloud_owner);free(wanted_cloud);free(green_first);free(wanted_green);free(green_under_owner);free(wanted_selected);
  return 0;

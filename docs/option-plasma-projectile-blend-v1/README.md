@@ -1,5 +1,9 @@
 # Original-art Plasma projectile blend compatibility
 
+This records the original 17d6d000 in-bounds batch. Its vertical-edge limitation
+is superseded by the [bounded vertical follow-up](../option-plasma-projectile-vertical-v1/README.md);
+the historical results below are unchanged.
+
 This finite display-only change prevents the three original Plasma Storm pieces
 from restoring classic pixels over an already rendered HD background. It adds no
 replacement artwork, HDA resources, asset roles, source dimensions or game rules.

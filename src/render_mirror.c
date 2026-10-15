@@ -3085,8 +3085,9 @@ static bool effect_ramp_monotone(unsigned int hue)
  * This finite compatibility path uses ORIGINAL art, never an HDA resource.
  * Re-decode current indices AND coverage before every draw, including repeated
  * calls and same-address table reloads. Normal and Christmas originals agree.
- * Reject an entire individual piece when its rectangle crosses an edge: the
- * original raw blitter has linear row-wrap/address clipping, not normal XY clip.
+ * Keep horizontal row-wrap and wholly offscreen calls on the old fallback.
+ * A vertically partial piece has no row-wrap when x is in bounds: the original
+ * raw loop clips each actual write by address before this display callback.
  * No cache or pointer identity can keep stale source admission alive. */
 bool render_mirror_plasma_projectile_begin(SDL_Surface *surface,int x,int y,unsigned int table,unsigned int index)
 {
@@ -3101,7 +3102,7 @@ bool render_mirror_plasma_projectile_begin(SDL_Surface *surface,int x,int y,unsi
  static const uint64_t pins[3]={UINT64_C(0x6d5e2fcad8f0a564),UINT64_C(0xe38948558d55665d),UINT64_C(0x2aae962a99b61745)};
  unsigned int k=index-22,w=widths[k],h=heights[k];
  const Sprite *source=&sprite_table[table].sprite[index];
- if(source->width!=w||source->height!=h||x<0||x>320-(int)w||y<0||y>200-(int)h||
+ if(source->width!=w||source->height!=h||x<0||x>320-(int)w||y<=-(int)h||y>=200||
     !effect_ramp_monotone(0x70))return false;
  Uint8 decoded[65*28*2]={0};
  if(!hud_sprite_decode(table,index,w,h,decoded,decoded+w*h))return false;
