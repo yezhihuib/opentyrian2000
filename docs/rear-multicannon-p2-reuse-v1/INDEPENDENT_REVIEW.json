@@ -1,0 +1,127 @@
+{
+  "schema": "rear-multicannon-p2-independent-review-v1",
+  "status": "PASS_INDEPENDENT_SOURCE_RUNTIME_REVIEW",
+  "baseline_published_commit": "311de82e7557b9df172a1cb19d94115609512a81",
+  "baseline_tree": "6ff14b62ed5ff916354cd2c9821174012c6258cd",
+  "qualified_source_ledger_sha256": "6aecb72445abd964987998ce19f536fc09f03078f006200cc08ed48dd9bdef53",
+  "qualified_asset_ledger_sha256": "46e07b6ea3339038b47289bd4099f5db595f410c45130dbc3989e59201361ac0",
+  "qualified_freeze_version": 2,
+  "public_runtime_sha256": "6696096e78c510a7d02bdf7910296e84275be7ffb0a16532270184fb3c2b7336",
+  "public_art_reuse_sha256": "2474c840e23afce6c456e0f8ed5790ed2df1740078a68c62680d5dca2537c85e",
+  "scope": "Only actual main-gameplay player-one rear port10 P1 records254/265 and P2 records255/266, episode-one Normal9/Hard15, exact normal bank8 source and unchanged accepted six R2 heads. P1 remains one emission; P2 owns at most two distinct allocations in one actual invocation.",
+  "source_review": {
+    "baseline_tracked_files": 8483,
+    "existing_files_modified": 15,
+    "existing_files_unchanged": 8468,
+    "source_files_modified": [
+      "src/rear_multi_p1.c",
+      "src/rear_multi_p1.h",
+      "src/rear_multi_p1_mirror.inc",
+      "src/rear_multi_p1_pins.h",
+      "src/render_mirror.h",
+      "src/shots.c"
+    ],
+    "gameplay_observer_inverse_exact": true,
+    "renderer_declaration_inverse_exact": true,
+    "original_156_source_inverse_exact": true,
+    "generic_compositor_filter_shadow_and_gameplay_structures_byte_exact": true,
+    "adapter_unchanged_outside_exact_table_and_invocation_plumbing": true,
+    "final_source_files_matched_to_runtime_and_tests": 160,
+    "art_and_catalog_files_matched_to_freeze": 6988,
+    "test_files_matched_to_freeze": 39
+  },
+  "art_review": {
+    "existing_nonmanifest_assets_byte_exact": 6987,
+    "manifest_exact_after_reversing_three_documentation_fields": true,
+    "no_new_or_changed_art_resource_bytes": true,
+    "all_six_source_heads_independently_redecoded_and_pinned": true,
+    "all_twelve_exact_density_RGBA_PNG_pairs_verified": true,
+    "all_twenty_four_default_pack_HDR1_wrappers_verified": true,
+    "diagonal_quartet_exact_RGBA_transforms": true,
+    "original_inputs_not_embedded": true,
+    "full_80_byte_record_pins": {
+      "254": "2de0fd3d91a6b30f",
+      "265": "a46442c430279c89",
+      "255": "f92503c1cf7f8a67",
+      "266": "16186b7836a64d47"
+    }
+  },
+  "independent_tests": [
+    {
+      "suite": "finite core ownership",
+      "checks": 48267,
+      "plain": "PASS",
+      "ASan_UBSan": "PASS",
+      "coverage": "All ordinary slots and exact tuples; cyclic phase starts/wrap and partial-capacity continuation; one/two-emission limits; wrong tick/token/ordinal/tuple; invalid first/second; distinct-slot requirement; nested/unwrapped calls; old-birth retention versus promotion; irreversible observed mismatch; generation/token reset and wrap."
+    },
+    {
+      "suite": "actual adapter decoder loader wrapper",
+      "checks": 41651,
+      "malformed_resource_variants": 192,
+      "plain": "PASS",
+      "ASan_UBSan": "PASS",
+      "coverage": "Both powers and densities; every full-record byte; source indices/coverage/pointer/size; immutable shot fields; view/pitch/alignment/nonalias/coordinate limits; excluded modes; cache identity/payload/root/density/session lifetime; malformed resources, FIFO/directory/device; exact original INDEX8 and wrapper fallback."
+    },
+    {
+      "suite": "authentic private inputs with production pins",
+      "checks": 33230,
+      "plain": "PASS",
+      "ASan_UBSan": "PASS",
+      "pin_overrides": false,
+      "coverage": "Actual normal bank, four full records and all twelve authored resources; unchanged extracted player_shot_create across every canonical phase, zero/one/two/three free slots including79/80, power/bounds failures and subsequent unwrapped invocations."
+    },
+    {
+      "suite": "actual production compositor with synthetic two-head overlap",
+      "cases": 48,
+      "overlapping_support_samples": 25716,
+      "checks": 1301,
+      "plain": "PASS",
+      "ASan_UBSan": "PASS",
+      "synthetic_positions_explicit": true,
+      "coverage": "Two valid P2 births, unchanged extracted normal compositor and integer alpha code, both exact densities and both draw orders; independent full-canvas/ownership oracle and unchanged INDEX8. Unrelated inactive compositor branches reject if reached."
+    }
+  ],
+  "closed_before_final_freeze": [
+    "Rejected first source/raw/shot/invalid-slot observation now cancels the remainder instead of leaving a second permit.",
+    "A repeated allocated slot at ordinal2 now clears that reused birth and rejects; valid first births in other slots survive later failure.",
+    "Pair preview crops cover both complete heads, including the wider age-two witness; actual native captures were unchanged."
+  ],
+  "independent_runtime_review": {
+    "pairs": 18,
+    "fresh_processes": 36,
+    "logic_ticks": 4560,
+    "regular_manual_HD_density8_pairs": 16,
+    "private_presentation_only_density4_pairs": 2,
+    "original_parity_files_per_pair": 20,
+    "full_native_captures_independently_recomputed": 120,
+    "preview_crops_byte_exact_without_resampling": 96,
+    "all_six_final_native_head_sheets_visually_reviewed": true,
+    "both_genuine_P2_emission_ordinals_joined_to_original_births": true,
+    "main_head_admissions_per_pair": 529,
+    "P1_existing_HD_and_pixels_exact": true,
+    "P3_native_negative_exact": true,
+    "shared_consumers_excluded_by_source_and_synthetic_adapter": true,
+    "missing_corrupt_optional_resources_native_exact": true,
+    "mode_return_and_stop_fire_clear": true,
+    "actual_repeated_skipped_Present_parity_and_RNG_exact": true,
+    "exact_Hard_original_index_and_channel_transfer": true,
+    "native_changes_confined_to_admitted_original_or_authored_support": true,
+    "all_pre_post_source_asset_test_pins_exact": true,
+    "natural_same_pair_overlap_not_assumed": true,
+    "synthetic_overlap_separately_qualified": true
+  },
+  "privacy": {
+    "new_public_original_game_payloads": 0,
+    "new_public_decoded_original_arrays": 0,
+    "new_public_private_captures": 0,
+    "new_public_private_observer_helpers_or_executables": 0,
+    "new_public_credentials_or_private_workspace_paths": 0
+  },
+  "limitations": [
+    "Actual runtime evidence is bounded to first-level 120/180-tick Linux SDL dummy/software runs, not full-level, Windows or physical-display qualification.",
+    "Sixteen pairs use unchanged manual-HD density8 startup; two density4 pairs use reversible private presentation-only startup instrumentation. Public startup is unchanged.",
+    "Artificial overlap proves the unchanged normal compositor on synthetic positions. Natural pair separation and overlap are reported from actual runtime rather than inferred.",
+    "LeakSanitizer is disabled under the environment ptrace restriction; AddressSanitizer and UndefinedBehaviorSanitizer ran.",
+    "Final archive/tree/privacy/rollback and durable-storage review is a separate subsequent gate. This receipt does not assert remote publication."
+  ]
+}

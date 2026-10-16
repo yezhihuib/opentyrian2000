@@ -76,10 +76,13 @@ static uint64_t rear_p1_record_stamp(const JE_WeaponType *w)
 }
 static bool rear_p1_table(unsigned record)
 {
- static const uint64_t pins[2]=REAR_P1_RECORD_PINS;
- return (record==254||record==265)&&weaponPort[10].opnum==2&&
-  weaponPort[10].op[0][0]==254&&weaponPort[10].op[1][0]==265&&weaponPort[10].poweruse==40&&
-  rear_p1_record_stamp(&weapons[record])==pins[record==265];
+ static const uint64_t pins[4]=REAR_P1_RECORD_PINS;
+ unsigned k;
+ switch(record){case 254:k=0;break;case 265:k=1;break;case 255:k=2;break;case 266:k=3;break;default:return false;}
+ return weaponPort[10].opnum==2&&
+  weaponPort[10].op[0][0]==254&&weaponPort[10].op[1][0]==265&&
+  weaponPort[10].op[0][1]==255&&weaponPort[10].op[1][1]==266&&weaponPort[10].poweruse==40&&
+  rear_p1_record_stamp(&weapons[record])==pins[k];
 }
 static bool rear_p1_source(Sprite2_array bank,unsigned raw)
 {
@@ -102,11 +105,14 @@ void render_mirror_rear_p1_call_begin(unsigned port,unsigned bay,unsigned power_
   active&&rear_p1_scope(),rear_p1_table(record));
 }
 void render_mirror_rear_p1_call_end(void){rear_p1_call_end(&rear_p1_state);}
-void render_mirror_rear_p1_emit(unsigned slot,unsigned port,unsigned bay,unsigned record,
+uint64_t render_mirror_rear_p1_create_begin(unsigned port,unsigned bay,unsigned record,unsigned pnum)
+{return rear_p1_create_begin(&rear_p1_state,mirror_logic_tick,port,bay,record,pnum);}
+void render_mirror_rear_p1_create_end(uint64_t call){rear_p1_create_end(&rear_p1_state,call);}
+void render_mirror_rear_p1_emit(uint64_t call,unsigned ordinal,unsigned slot,unsigned port,unsigned bay,unsigned record,
  unsigned pnum,unsigned phase,unsigned raw)
 {
  RearP1Shot shot={0};if(slot<REAR_P1_SLOTS)shot=rear_p1_shot(slot);
- rear_p1_emit(&rear_p1_state,mirror_logic_tick,slot,port,bay,record,pnum,phase,raw,&shot,
+ rear_p1_emit(&rear_p1_state,mirror_logic_tick,call,ordinal,slot,port,bay,record,pnum,phase,raw,&shot,
   active&&rear_p1_scope(),rear_p1_table(record),rear_p1_source(spriteSheet8,raw));
 }
 /* A valid-format alias must never turn optional RGBA output into INDEX8 writes.

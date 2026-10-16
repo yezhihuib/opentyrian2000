@@ -27,6 +27,12 @@ m2=re.search(r'typedef struct\s*\{\s*char\s+name\[31\];.*?\} JE_WeaponPortType\[
 shots=(root/'src/shots.h').read_text();m3=re.search(r'typedef struct\s*\{.*?\} PlayerShotDataType;',shots,re.S);assert m3
 (out/'types.inc').write_text(asset+'\n'+m[0]+'\n'+m2[0]+'\n'+m3[0]+'\n')
 (out/'functions.inc').write_text(extract(s,'decode_tile'))
+create=extract((root/'src/shots.c').read_text(),'player_shot_create')
+(out/'create.inc').write_text(create)
+# Independent old gameplay path: strip only observer lines, keeping every
+# original statement/return and the other pre-existing renderer/probe hooks.
+baseline='\n'.join(line for line in create.split('\n') if 'rear_p1_' not in line)
+(out/'create_baseline.inc').write_text(baseline.replace('player_shot_create(', 'baseline_shot_create(', 1))
 (out/'wrapper.inc').write_text(extract((root/'src/entity_draw.c').read_text(),'draw_player_shot_sprite2'))
 ids=[39,1,281,282,301,300]
 bank=bytearray(602);pins=[]
@@ -36,10 +42,11 @@ for k,i in enumerate(ids):
  bank+=b'\x0f';pins.append(fnv(v+bytes([255])*168))
 (out/'bank.bin').write_bytes(bank)
 records=[];recordpins=[]
-for k in range(2):
+for k in range(4):
  # All unused tails are deliberately nonzero, with signed and 16-bit edges.
- vals=[0x1234+k,4-k,1,0,2+2*k,5,6,0]
- a=[1,1,1,1,25,0,198,255];dele=[255]*8;sx=[-10,10,-9,9,-128,127,-1,0];sy=[0,0,2,-2,-128,127,-1,0];bx=[0,-2,2,0,-128,127,-1,0];by=[0,0,0,0,-128,127,-1,0];sg=[39,1,281,282,301,300,0x1234,0xff80]
+ mode=k%2
+ vals=[0x1234+k,[4,3,6,4][k],1+k//2,0,2+2*mode,5,6,0]
+ a=[1,1,1,1,25+k,0,198,255];dele=[255]*8;sx=([-10,10,0,0] if mode==0 else [-9,9,9,-9])+[-128,127,-1,0];sy=([0,0,0,0] if mode==0 else [2,2,-2,-2])+[-128,127,-1,0];bx=[0,-2,2,0,-128,127,-1,0];by=[0,0,0,0,-128,127,-1,0];sg=([39,1,0,0] if mode==0 else [281,282,301,300])+[301,300,0x1234,0xff80]
  r=struct.pack('<HBBHBBBB8B8B8b8b8b8b8HbbBBBB',*vals,*a,*dele,*sx,*sy,*bx,*by,*sg,0,0,0,25,255,208);assert len(r)==80
  records.append(r);recordpins.append(fnv(r))
 (out/'records.bin').write_bytes(b''.join(records))
@@ -83,6 +90,6 @@ for mode in ['plain','sanitize']:
  exe=out/('adapter-'+mode);cmd=['cc','-std=c99','-Wall','-Wextra','-Werror','-pedantic','-O1','-g','-I'+str(root/'src'),'-I'+str(out),str(harness),str(root/'src/rear_multi_p1.c'),'-o',str(exe)]
  if mode=='sanitize':cmd+=['-fsanitize=address,undefined','-fno-omit-frame-pointer']
  subprocess.run(cmd,check=True)
- r=subprocess.run([str(exe),str(out)],env={**os.environ,'ASAN_OPTIONS':'detect_leaks=0'},text=True,capture_output=True,timeout=60);print(mode,r.stdout,end='');(out/(mode+'.log')).write_text(r.stdout+r.stderr);r.check_returncode()
+ r=subprocess.run([str(exe),str(out)],env={**os.environ,'ASAN_OPTIONS':'detect_leaks=0:halt_on_error=1','UBSAN_OPTIONS':'halt_on_error=1'},text=True,capture_output=True,timeout=60);print(mode,r.stdout,end='');print(r.stderr,end='',file=sys.stderr);(out/(mode+'.log')).write_text(r.stdout+r.stderr);r.check_returncode()
 
 if temporary is not None:temporary.cleanup()

@@ -18,9 +18,16 @@ assert 'ASSET_REAR_MULTI_P1' not in generic
 assert 'rear_p1_' not in m[m.index('static bool normal15_indices_match'):m.index('void render_mirror_finish(')]
 s=(root/'src/shots.c').read_text()
 assert s.count('render_mirror_rear_p1_emit(')==1
+assert s.count('render_mirror_rear_p1_create_begin(')==1
+assert s.count('render_mirror_rear_p1_create_end(')==4
+create=s.split('JE_integer player_shot_create(',1)[1]
+assert create.count('return ')==4
+assert 'render_mirror_rear_p1_emit(rear_p1_call, multi_i, shot_id,' in create
+assert create.index('render_mirror_rear_p1_create_begin(')<create.index('// Bounds check')
+assert create.index('shotRepeat[bay_i] = weapon->shotrepeat;')<create.index('render_mirror_rear_p1_emit(')<create.index('game_probe_shot_emit(')
 assert s.count('draw_player_shot_sprite2(')==1
 wrapper=(root/'src/entity_draw.c').read_text().split('void draw_player_shot_sprite2(',1)[1].split('/* The indexed original',1)[0]
 assert wrapper.count('blit_sprite2(')==1
 assert wrapper.count('game_probe_draw(')==1
 assert wrapper.index('game_probe_draw(')<wrapper.index('blit_sprite2(')<wrapper.index('render_mirror_entity_end();')
-print(f'Rear P1 inverse: all {len(pins["files"])} baseline source files byte-exact after removing listed observer hooks; generic role and Hard filter unchanged')
+print(f'Rear P1/P2 inverse: all {len(pins["files"])} baseline source files byte-exact after removing listed observer hooks; generic role and Hard filter unchanged')

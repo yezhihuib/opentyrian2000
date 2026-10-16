@@ -6,6 +6,16 @@
 #include "rear_multi_p1.h"
 static unsigned checks;
 #define CHECK(x) do { ++checks; if(!(x)){fprintf(stderr,"FAIL line %d: %s\n",__LINE__,#x);exit(1);} } while(0)
+/* These P1 regression helpers model caller grant followed by actual entry.
+ * The P2 ownership fixture exercises the new API directly without wrappers. */
+static void p1_begin(RearP1State *s,uint64_t tick,unsigned port,unsigned bay,unsigned power,
+ unsigned mode,unsigned player,unsigned record,bool scope,bool table)
+{
+ rear_p1_call_begin(s,tick,port,bay,power,mode,player,record,scope,table);
+ (void)rear_p1_create_begin(s,tick,port,bay,record,player);
+}
+#define rear_p1_call_begin p1_begin
+#define rear_p1_emit(s,t,...) rear_p1_emit(s,t,(s)->call,1,__VA_ARGS__)
 static const unsigned ids[]={39,1,281,282,301,300};
 static const int xm[]={-10,10,-9,9,9,-9},ym[]={0,0,-2,-2,2,2};
 static RearP1Shot shot(unsigned k){return (RearP1Shot){ids[k],0,1,1,255,0,0,0,208,xm[k],ym[k],0,0};}

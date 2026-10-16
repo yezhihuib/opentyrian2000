@@ -2,6 +2,9 @@
 
 Baseline: `22661ddfca21c6a81e3ec2af0670c24ea4ceed92`.
 
+This is the historical P1 qualification record. The later bounded P2 reuse
+candidate has its own [integration record](../rear-multicannon-p2-reuse-v1/VALIDATION.md).
+
 Integration status: **PASS: bounded source, artwork and native runtime qualification**. The immutable artwork
 package records its earlier R2 art-stage decision; this document records the
 integration decision and its limits.

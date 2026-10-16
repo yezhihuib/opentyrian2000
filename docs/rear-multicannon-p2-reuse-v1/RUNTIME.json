@@ -1,0 +1,2657 @@
+{
+  "schema": "rear-multicannon-p2-bounded-runtime-v1",
+  "status": "PASS",
+  "baseline_published_commit": "311de82e7557b9df172a1cb19d94115609512a81",
+  "baseline_tree": "6ff14b62ed5ff916354cd2c9821174012c6258cd",
+  "candidate_source_manifest_sha256": "a145bc0a2e25e023e16c056539114d071e2ef4e71edb06cf45cc3f24d24c8eb9",
+  "unchanged_art_resource_manifest_sha256": "201ce895ef903d22ec1947f764b4dc79a0f940caffcf2e455bfb45f6c20bb651",
+  "platform": {
+    "os": "Linux",
+    "SDL_video_driver": "dummy",
+    "SDL_renderer": "software",
+    "native_dimensions": [
+      [
+        640,
+        400
+      ],
+      [
+        1280,
+        800
+      ]
+    ],
+    "render_densities": [
+      4,
+      8
+    ]
+  },
+  "seed": "Each original process uses its own unmodified time(NULL); paired original seeds observed equal. No seed interposition or discarded mismatched launches.",
+  "gameplay_state_overrides": [],
+  "unmodified_manual_HD_startup_pairs": 16,
+  "private_presentation_only_density4_diagnostic_pairs": 2,
+  "qualification_pairs": 18,
+  "qualification_processes": 36,
+  "qualification_logic_ticks": 4560,
+  "paired_game_samples": 374,
+  "actual_native_game_captures": 748,
+  "actual_native_shop_captures": 108,
+  "all_runtime_launches_exit_zero": true,
+  "fresh_final_observations": true,
+  "observation_reuse": false,
+  "additional_prequalification_control": "One fresh baseline-only120-tick natural P3 menu acquisition control; not counted as candidate qualification.",
+  "original_parity_categories": [
+    "keyboard input",
+    "player/enemy/shot/particle/global state",
+    "RNG every tick",
+    "INDEX8 game and final display buffers",
+    "RGB and SDL palettes",
+    "shop acquisition and loadout",
+    "shot requests/results/emissions/allocation",
+    "shot movement and animation",
+    "collision and fire events",
+    "original head/shadow blitter before/after hashes and order",
+    "original scene and draw order; only intended P2 head HD-admission bit differs"
+  ],
+  "occlusion_clipping_witness": {
+    "pass": true,
+    "scope": "Immediate admitted-head fractional points compared with final ordered canvas; actual viewport clipping; ship overlap bounded by original standard24x28 command; head-head authored alpha-support overlap measured rather than inferred. Exact original and final composition verified separately.",
+    "cases": [
+      {
+        "case": "normal-art-native2x-candidate",
+        "sampled_frames": [
+          {
+            "tick": 8,
+            "fractional_points": 1153,
+            "later_ordered_writes": 1153,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 12,
+            "fractional_points": 1153,
+            "later_ordered_writes": 964,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 16,
+            "fractional_points": 1735,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 20,
+            "fractional_points": 2888,
+            "later_ordered_writes": 54,
+            "later_writes_inside_original_ship_command_bounds": 52,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 24,
+            "fractional_points": 1735,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 28,
+            "fractional_points": 2888,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 59,
+            "fractional_points": 2317,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 60,
+            "fractional_points": 1735,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 64,
+            "fractional_points": 2971,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 68,
+            "fractional_points": 3054,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 72,
+            "fractional_points": 4290,
+            "later_ordered_writes": 32,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 340,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 76,
+            "fractional_points": 3090,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 1236,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 80,
+            "fractional_points": 3538,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 448,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 84,
+            "fractional_points": 3090,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 1236,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 88,
+            "fractional_points": 3708,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 618,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 92,
+            "fractional_points": 2472,
+            "later_ordered_writes": 32,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 340,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 100,
+            "fractional_points": 3538,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 448,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 119,
+            "fractional_points": 3708,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 618,
+            "authored_head_head_support_overlap_pixels": 0
+          }
+        ],
+        "total_later_ordered_writes": 2235,
+        "total_below_playfield_points": 5284,
+        "total_later_writes_within_original_ship_bounds": 52,
+        "total_head_head_overlap_pixels": 0
+      },
+      {
+        "case": "normal-art-native4x-candidate",
+        "sampled_frames": [
+          {
+            "tick": 8,
+            "fractional_points": 1153,
+            "later_ordered_writes": 1153,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 12,
+            "fractional_points": 1153,
+            "later_ordered_writes": 964,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 16,
+            "fractional_points": 1735,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 20,
+            "fractional_points": 2888,
+            "later_ordered_writes": 54,
+            "later_writes_inside_original_ship_command_bounds": 52,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 24,
+            "fractional_points": 1735,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 28,
+            "fractional_points": 2888,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 59,
+            "fractional_points": 2317,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 60,
+            "fractional_points": 1735,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 64,
+            "fractional_points": 2971,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 68,
+            "fractional_points": 3054,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 72,
+            "fractional_points": 4290,
+            "later_ordered_writes": 32,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 340,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 76,
+            "fractional_points": 3090,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 1236,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 80,
+            "fractional_points": 3538,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 448,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 84,
+            "fractional_points": 3090,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 1236,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 88,
+            "fractional_points": 3708,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 618,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 92,
+            "fractional_points": 2472,
+            "later_ordered_writes": 32,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 340,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 100,
+            "fractional_points": 3538,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 448,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 119,
+            "fractional_points": 3708,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 618,
+            "authored_head_head_support_overlap_pixels": 0
+          }
+        ],
+        "total_later_ordered_writes": 2235,
+        "total_below_playfield_points": 5284,
+        "total_later_writes_within_original_ship_bounds": 52,
+        "total_head_head_overlap_pixels": 0
+      },
+      {
+        "case": "hard-art-native2x-candidate",
+        "sampled_frames": [
+          {
+            "tick": 8,
+            "fractional_points": 1153,
+            "later_ordered_writes": 1153,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 12,
+            "fractional_points": 1153,
+            "later_ordered_writes": 964,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 16,
+            "fractional_points": 1735,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 20,
+            "fractional_points": 2888,
+            "later_ordered_writes": 54,
+            "later_writes_inside_original_ship_command_bounds": 52,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 24,
+            "fractional_points": 1735,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 28,
+            "fractional_points": 2888,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 59,
+            "fractional_points": 2317,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 60,
+            "fractional_points": 1735,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 64,
+            "fractional_points": 2971,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 68,
+            "fractional_points": 3054,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 72,
+            "fractional_points": 4290,
+            "later_ordered_writes": 37,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 340,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 76,
+            "fractional_points": 3090,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 1236,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 80,
+            "fractional_points": 3538,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 448,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 84,
+            "fractional_points": 3090,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 1236,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 88,
+            "fractional_points": 3708,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 618,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 92,
+            "fractional_points": 2472,
+            "later_ordered_writes": 37,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 340,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 100,
+            "fractional_points": 3538,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 448,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 119,
+            "fractional_points": 3708,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 618,
+            "authored_head_head_support_overlap_pixels": 0
+          }
+        ],
+        "total_later_ordered_writes": 2245,
+        "total_below_playfield_points": 5284,
+        "total_later_writes_within_original_ship_bounds": 52,
+        "total_head_head_overlap_pixels": 0
+      },
+      {
+        "case": "hard-art-native4x-candidate",
+        "sampled_frames": [
+          {
+            "tick": 8,
+            "fractional_points": 1153,
+            "later_ordered_writes": 1153,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 12,
+            "fractional_points": 1153,
+            "later_ordered_writes": 964,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 16,
+            "fractional_points": 1735,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 20,
+            "fractional_points": 2888,
+            "later_ordered_writes": 54,
+            "later_writes_inside_original_ship_command_bounds": 52,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 24,
+            "fractional_points": 1735,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 28,
+            "fractional_points": 2888,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 59,
+            "fractional_points": 2317,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 60,
+            "fractional_points": 1735,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 64,
+            "fractional_points": 2971,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 68,
+            "fractional_points": 3054,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 72,
+            "fractional_points": 4290,
+            "later_ordered_writes": 37,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 340,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 76,
+            "fractional_points": 3090,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 1236,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 80,
+            "fractional_points": 3538,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 448,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 84,
+            "fractional_points": 3090,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 1236,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 88,
+            "fractional_points": 3708,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 618,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 92,
+            "fractional_points": 2472,
+            "later_ordered_writes": 37,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 340,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 100,
+            "fractional_points": 3538,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 448,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 119,
+            "fractional_points": 3708,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_below_playfield": 618,
+            "authored_head_head_support_overlap_pixels": 0
+          }
+        ],
+        "total_later_ordered_writes": 2245,
+        "total_below_playfield_points": 5284,
+        "total_later_writes_within_original_ship_bounds": 52,
+        "total_head_head_overlap_pixels": 0
+      }
+    ]
+  },
+  "near_emission_final_native_witness": {
+    "pass": true,
+    "cases": [
+      {
+        "case": "normal-art-native2x",
+        "native_scale": 2,
+        "scope": "Crops are actual native pixels without resizing. Birth positions are not draw positions: original shot movement precedes first render. All three cyclic pair groups have per-head native changes plus surviving fractional samples.",
+        "witnesses": [
+          {
+            "call": 14,
+            "record": 255,
+            "birth_tick": 19,
+            "capture_tick": 20,
+            "ticks_after_birth": 1,
+            "both_heads_visible_in_final_native_output": true,
+            "authored_head_head_overlap_pixels": 0,
+            "heads": [
+              {
+                "emission_number": 1,
+                "id": 39,
+                "slot": 8,
+                "actual_draw_origin": [
+                  91,
+                  160
+                ],
+                "final_native_changed_pixels_in_authored_support": 124,
+                "fractional_samples_surviving_to_native": 37,
+                "fractional_points_later_overwritten_inside_original_ship_bounds": 52
+              },
+              {
+                "emission_number": 2,
+                "id": 1,
+                "slot": 9,
+                "actual_draw_origin": [
+                  111,
+                  160
+                ],
+                "final_native_changed_pixels_in_authored_support": 130,
+                "fractional_samples_surviving_to_native": 40,
+                "fractional_points_later_overwritten_inside_original_ship_bounds": 0
+              }
+            ],
+            "native_crop": [
+              110,
+              288,
+              262,
+              396
+            ]
+          },
+          {
+            "call": 35,
+            "record": 266,
+            "birth_tick": 71,
+            "capture_tick": 72,
+            "ticks_after_birth": 1,
+            "both_heads_visible_in_final_native_output": true,
+            "authored_head_head_overlap_pixels": 0,
+            "heads": [
+              {
+                "emission_number": 1,
+                "id": 281,
+                "slot": 4,
+                "actual_draw_origin": [
+                  90,
+                  158
+                ],
+                "final_native_changed_pixels_in_authored_support": 115,
+                "fractional_samples_surviving_to_native": 41,
+                "fractional_points_later_overwritten_inside_original_ship_bounds": 0
+              },
+              {
+                "emission_number": 2,
+                "id": 282,
+                "slot": 11,
+                "actual_draw_origin": [
+                  112,
+                  158
+                ],
+                "final_native_changed_pixels_in_authored_support": 119,
+                "fractional_samples_surviving_to_native": 41,
+                "fractional_points_later_overwritten_inside_original_ship_bounds": 0
+              }
+            ],
+            "native_crop": [
+              108,
+              284,
+              260,
+              392
+            ]
+          },
+          {
+            "call": 32,
+            "record": 266,
+            "birth_tick": 66,
+            "capture_tick": 68,
+            "ticks_after_birth": 2,
+            "both_heads_visible_in_final_native_output": true,
+            "authored_head_head_overlap_pixels": 0,
+            "heads": [
+              {
+                "emission_number": 1,
+                "id": 301,
+                "slot": 3,
+                "actual_draw_origin": [
+                  121,
+                  164
+                ],
+                "final_native_changed_pixels_in_authored_support": 118,
+                "fractional_samples_surviving_to_native": 40,
+                "fractional_points_later_overwritten_inside_original_ship_bounds": 0
+              },
+              {
+                "emission_number": 2,
+                "id": 300,
+                "slot": 10,
+                "actual_draw_origin": [
+                  81,
+                  164
+                ],
+                "final_native_changed_pixels_in_authored_support": 117,
+                "fractional_samples_surviving_to_native": 37,
+                "fractional_points_later_overwritten_inside_original_ship_bounds": 0
+              }
+            ],
+            "native_crop": [
+              90,
+              296,
+              242,
+              404
+            ]
+          }
+        ]
+      },
+      {
+        "case": "normal-art-native4x",
+        "native_scale": 4,
+        "scope": "Crops are actual native pixels without resizing. Birth positions are not draw positions: original shot movement precedes first render. All three cyclic pair groups have per-head native changes plus surviving fractional samples.",
+        "witnesses": [
+          {
+            "call": 14,
+            "record": 255,
+            "birth_tick": 19,
+            "capture_tick": 20,
+            "ticks_after_birth": 1,
+            "both_heads_visible_in_final_native_output": true,
+            "authored_head_head_overlap_pixels": 0,
+            "heads": [
+              {
+                "emission_number": 1,
+                "id": 39,
+                "slot": 8,
+                "actual_draw_origin": [
+                  91,
+                  160
+                ],
+                "final_native_changed_pixels_in_authored_support": 488,
+                "fractional_samples_surviving_to_native": 125,
+                "fractional_points_later_overwritten_inside_original_ship_bounds": 52
+              },
+              {
+                "emission_number": 2,
+                "id": 1,
+                "slot": 9,
+                "actual_draw_origin": [
+                  111,
+                  160
+                ],
+                "final_native_changed_pixels_in_authored_support": 521,
+                "fractional_samples_surviving_to_native": 149,
+                "fractional_points_later_overwritten_inside_original_ship_bounds": 0
+              }
+            ],
+            "native_crop": [
+              220,
+              576,
+              524,
+              792
+            ]
+          },
+          {
+            "call": 35,
+            "record": 266,
+            "birth_tick": 71,
+            "capture_tick": 72,
+            "ticks_after_birth": 1,
+            "both_heads_visible_in_final_native_output": true,
+            "authored_head_head_overlap_pixels": 0,
+            "heads": [
+              {
+                "emission_number": 1,
+                "id": 281,
+                "slot": 4,
+                "actual_draw_origin": [
+                  90,
+                  158
+                ],
+                "final_native_changed_pixels_in_authored_support": 468,
+                "fractional_samples_surviving_to_native": 151,
+                "fractional_points_later_overwritten_inside_original_ship_bounds": 0
+              },
+              {
+                "emission_number": 2,
+                "id": 282,
+                "slot": 11,
+                "actual_draw_origin": [
+                  112,
+                  158
+                ],
+                "final_native_changed_pixels_in_authored_support": 467,
+                "fractional_samples_surviving_to_native": 150,
+                "fractional_points_later_overwritten_inside_original_ship_bounds": 0
+              }
+            ],
+            "native_crop": [
+              216,
+              568,
+              520,
+              784
+            ]
+          },
+          {
+            "call": 32,
+            "record": 266,
+            "birth_tick": 66,
+            "capture_tick": 68,
+            "ticks_after_birth": 2,
+            "both_heads_visible_in_final_native_output": true,
+            "authored_head_head_overlap_pixels": 0,
+            "heads": [
+              {
+                "emission_number": 1,
+                "id": 301,
+                "slot": 3,
+                "actual_draw_origin": [
+                  121,
+                  164
+                ],
+                "final_native_changed_pixels_in_authored_support": 468,
+                "fractional_samples_surviving_to_native": 160,
+                "fractional_points_later_overwritten_inside_original_ship_bounds": 0
+              },
+              {
+                "emission_number": 2,
+                "id": 300,
+                "slot": 10,
+                "actual_draw_origin": [
+                  81,
+                  164
+                ],
+                "final_native_changed_pixels_in_authored_support": 469,
+                "fractional_samples_surviving_to_native": 157,
+                "fractional_points_later_overwritten_inside_original_ship_bounds": 0
+              }
+            ],
+            "native_crop": [
+              180,
+              592,
+              484,
+              808
+            ]
+          }
+        ]
+      },
+      {
+        "case": "hard-art-native2x",
+        "native_scale": 2,
+        "scope": "Crops are actual native pixels without resizing. Birth positions are not draw positions: original shot movement precedes first render. All three cyclic pair groups have per-head native changes plus surviving fractional samples.",
+        "witnesses": [
+          {
+            "call": 14,
+            "record": 255,
+            "birth_tick": 19,
+            "capture_tick": 20,
+            "ticks_after_birth": 1,
+            "both_heads_visible_in_final_native_output": true,
+            "authored_head_head_overlap_pixels": 0,
+            "heads": [
+              {
+                "emission_number": 1,
+                "id": 39,
+                "slot": 8,
+                "actual_draw_origin": [
+                  91,
+                  160
+                ],
+                "final_native_changed_pixels_in_authored_support": 123,
+                "fractional_samples_surviving_to_native": 37,
+                "fractional_points_later_overwritten_inside_original_ship_bounds": 52
+              },
+              {
+                "emission_number": 2,
+                "id": 1,
+                "slot": 9,
+                "actual_draw_origin": [
+                  111,
+                  160
+                ],
+                "final_native_changed_pixels_in_authored_support": 130,
+                "fractional_samples_surviving_to_native": 40,
+                "fractional_points_later_overwritten_inside_original_ship_bounds": 0
+              }
+            ],
+            "native_crop": [
+              110,
+              288,
+              262,
+              396
+            ]
+          },
+          {
+            "call": 35,
+            "record": 266,
+            "birth_tick": 71,
+            "capture_tick": 72,
+            "ticks_after_birth": 1,
+            "both_heads_visible_in_final_native_output": true,
+            "authored_head_head_overlap_pixels": 0,
+            "heads": [
+              {
+                "emission_number": 1,
+                "id": 281,
+                "slot": 4,
+                "actual_draw_origin": [
+                  90,
+                  158
+                ],
+                "final_native_changed_pixels_in_authored_support": 115,
+                "fractional_samples_surviving_to_native": 41,
+                "fractional_points_later_overwritten_inside_original_ship_bounds": 0
+              },
+              {
+                "emission_number": 2,
+                "id": 282,
+                "slot": 11,
+                "actual_draw_origin": [
+                  112,
+                  158
+                ],
+                "final_native_changed_pixels_in_authored_support": 119,
+                "fractional_samples_surviving_to_native": 41,
+                "fractional_points_later_overwritten_inside_original_ship_bounds": 0
+              }
+            ],
+            "native_crop": [
+              108,
+              284,
+              260,
+              392
+            ]
+          },
+          {
+            "call": 32,
+            "record": 266,
+            "birth_tick": 66,
+            "capture_tick": 68,
+            "ticks_after_birth": 2,
+            "both_heads_visible_in_final_native_output": true,
+            "authored_head_head_overlap_pixels": 0,
+            "heads": [
+              {
+                "emission_number": 1,
+                "id": 301,
+                "slot": 3,
+                "actual_draw_origin": [
+                  121,
+                  164
+                ],
+                "final_native_changed_pixels_in_authored_support": 117,
+                "fractional_samples_surviving_to_native": 40,
+                "fractional_points_later_overwritten_inside_original_ship_bounds": 0
+              },
+              {
+                "emission_number": 2,
+                "id": 300,
+                "slot": 10,
+                "actual_draw_origin": [
+                  81,
+                  164
+                ],
+                "final_native_changed_pixels_in_authored_support": 117,
+                "fractional_samples_surviving_to_native": 37,
+                "fractional_points_later_overwritten_inside_original_ship_bounds": 0
+              }
+            ],
+            "native_crop": [
+              90,
+              296,
+              242,
+              404
+            ]
+          }
+        ]
+      },
+      {
+        "case": "hard-art-native4x",
+        "native_scale": 4,
+        "scope": "Crops are actual native pixels without resizing. Birth positions are not draw positions: original shot movement precedes first render. All three cyclic pair groups have per-head native changes plus surviving fractional samples.",
+        "witnesses": [
+          {
+            "call": 14,
+            "record": 255,
+            "birth_tick": 19,
+            "capture_tick": 20,
+            "ticks_after_birth": 1,
+            "both_heads_visible_in_final_native_output": true,
+            "authored_head_head_overlap_pixels": 0,
+            "heads": [
+              {
+                "emission_number": 1,
+                "id": 39,
+                "slot": 8,
+                "actual_draw_origin": [
+                  91,
+                  160
+                ],
+                "final_native_changed_pixels_in_authored_support": 488,
+                "fractional_samples_surviving_to_native": 125,
+                "fractional_points_later_overwritten_inside_original_ship_bounds": 52
+              },
+              {
+                "emission_number": 2,
+                "id": 1,
+                "slot": 9,
+                "actual_draw_origin": [
+                  111,
+                  160
+                ],
+                "final_native_changed_pixels_in_authored_support": 520,
+                "fractional_samples_surviving_to_native": 149,
+                "fractional_points_later_overwritten_inside_original_ship_bounds": 0
+              }
+            ],
+            "native_crop": [
+              220,
+              576,
+              524,
+              792
+            ]
+          },
+          {
+            "call": 35,
+            "record": 266,
+            "birth_tick": 71,
+            "capture_tick": 72,
+            "ticks_after_birth": 1,
+            "both_heads_visible_in_final_native_output": true,
+            "authored_head_head_overlap_pixels": 0,
+            "heads": [
+              {
+                "emission_number": 1,
+                "id": 281,
+                "slot": 4,
+                "actual_draw_origin": [
+                  90,
+                  158
+                ],
+                "final_native_changed_pixels_in_authored_support": 468,
+                "fractional_samples_surviving_to_native": 151,
+                "fractional_points_later_overwritten_inside_original_ship_bounds": 0
+              },
+              {
+                "emission_number": 2,
+                "id": 282,
+                "slot": 11,
+                "actual_draw_origin": [
+                  112,
+                  158
+                ],
+                "final_native_changed_pixels_in_authored_support": 467,
+                "fractional_samples_surviving_to_native": 150,
+                "fractional_points_later_overwritten_inside_original_ship_bounds": 0
+              }
+            ],
+            "native_crop": [
+              216,
+              568,
+              520,
+              784
+            ]
+          },
+          {
+            "call": 32,
+            "record": 266,
+            "birth_tick": 66,
+            "capture_tick": 68,
+            "ticks_after_birth": 2,
+            "both_heads_visible_in_final_native_output": true,
+            "authored_head_head_overlap_pixels": 0,
+            "heads": [
+              {
+                "emission_number": 1,
+                "id": 301,
+                "slot": 3,
+                "actual_draw_origin": [
+                  121,
+                  164
+                ],
+                "final_native_changed_pixels_in_authored_support": 468,
+                "fractional_samples_surviving_to_native": 160,
+                "fractional_points_later_overwritten_inside_original_ship_bounds": 0
+              },
+              {
+                "emission_number": 2,
+                "id": 300,
+                "slot": 10,
+                "actual_draw_origin": [
+                  81,
+                  164
+                ],
+                "final_native_changed_pixels_in_authored_support": 469,
+                "fractional_samples_surviving_to_native": 157,
+                "fractional_points_later_overwritten_inside_original_ship_bounds": 0
+              }
+            ],
+            "native_crop": [
+              180,
+              592,
+              484,
+              808
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "final_binding_freeze": {
+    "pass": true,
+    "freeze_version": 2,
+    "all_actual_file_hashes_match": true,
+    "source_manifest_sha256": "6aecb72445abd964987998ce19f536fc09f03078f006200cc08ed48dd9bdef53",
+    "asset_manifest_sha256": "46e07b6ea3339038b47289bd4099f5db595f410c45130dbc3989e59201361ac0",
+    "freeze_receipt_sha256": "625cfa1de2ae383ac4e90f7deb26cac708105e6d7565a8ec534b8ae9917ab150"
+  },
+  "superseded_preliminary_pairs_excluded_from_qualification": 4,
+  "storage": "After each completed batch, byte-compared identical immutable observations are hard-linked; every observation path/hash and actual process receipt remains. No capture is reused as a fresh run.",
+  "native_checks": [
+    "Actual SDL renderer Present readback",
+    "Every uploaded/native output delta confined to new admitted original/authored head support",
+    "Original ordinary and Hard night composition independently reconstructed pixel-for-pixel over full gameplay viewport",
+    "Fractional alpha checked against ordered underlay at every admitted head draw",
+    "Both emission numbers actually HD; each admission joined to exact original P2 birth/slot",
+    "Fractional edge samples survive actual native2x/4x output",
+    "Natural P1 HD regression and shared-ID P3 negatives pixel-exact",
+    "Shop output exact; post-fire clearing exact"
+  ],
+  "resource_negative_scope": "Only12 reused role131 resources removed or header-corrupted; all unrelated published pack bytes exact.",
+  "cases": [
+    {
+      "case": "normal-art-native2x",
+      "difficulty": "normal",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 2,
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_P2_HD_head_draws": 529,
+      "game_captures_per_process": 20,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 18,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "fractional_edge_samples_surviving_to_native": 2498,
+      "rear_emissions": 40,
+      "rear_emission_ids": {
+        "39": 8,
+        "1": 8,
+        "281": 6,
+        "282": 6,
+        "301": 6,
+        "300": 6
+      },
+      "cash_after_natural_shop_purchase": 8500,
+      "natural_time_seed": "1792163178",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "1e23f0fd45809b4f5a5d2454afed6ac21c89353b76e514189304080ce6409d52",
+          "observer_source_manifest_sha256": "9db788b7476a9b11745349e305d32118e95204f255607be1018640c86efee6e5",
+          "launch_record_sha256": "14489a3c34f087dc1d566737e47917dac74e383dfcbb4242579faa92803f71a8",
+          "process_receipt_sha256": "95edb63073f73e5ecc3e1423a643aafc4a226c4d1c0c0cc44d9508507ba70ab6"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "f278a68c867cf72457498d9777473062b493fbd8a46d92b61540148b7eaa29c2",
+          "observer_source_manifest_sha256": "fd6fcc4b7d303e58033ffa2f07733fa96b090019309a92d2b927dcda03227317",
+          "launch_record_sha256": "b70e7e3fb786d0d9740751086158907b22ad980595654444e9a7ca0556c7c95e",
+          "process_receipt_sha256": "875ab432c252117d749c583d3dd3526635acd3d7b4d8a82a44e3ec2242dd4ddd"
+        }
+      ],
+      "all_admitted_head_alpha_compositing_exact": true,
+      "fractional_alpha_samples_composited_exact": 315634,
+      "fractional_alpha_intermediate_results": 315350,
+      "two_head_emission_coverage": {
+        "natural_rear_power_failures_without_emission": 5,
+        "rear_emissions_reusing_older_slots": 32,
+        "rear_emissions_reusing_front_slots": 12,
+        "emitting_calls": 20,
+        "two_emissions_per_successful_call_exact": true,
+        "fully_observed_pairs_both_HD": 20,
+        "observed_normal_head_draws_by_emission_number": {
+          "1": 216,
+          "2": 313
+        },
+        "normal_head_draws_by_record": {
+          "255": 232,
+          "266": 297
+        },
+        "all_eligible_rear_head_draws_HD": true,
+        "every_new_HD_admission_matches_exact_rear_P2_birth": true
+      }
+    },
+    {
+      "case": "normal-art-native4x",
+      "difficulty": "normal",
+      "native_scale": 4,
+      "render_density": 8,
+      "rear_power": 2,
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_P2_HD_head_draws": 529,
+      "game_captures_per_process": 20,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 18,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "fractional_edge_samples_surviving_to_native": 9354,
+      "rear_emissions": 40,
+      "rear_emission_ids": {
+        "39": 8,
+        "1": 8,
+        "281": 6,
+        "282": 6,
+        "301": 6,
+        "300": 6
+      },
+      "cash_after_natural_shop_purchase": 8500,
+      "natural_time_seed": "1792163216",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "1e23f0fd45809b4f5a5d2454afed6ac21c89353b76e514189304080ce6409d52",
+          "observer_source_manifest_sha256": "9db788b7476a9b11745349e305d32118e95204f255607be1018640c86efee6e5",
+          "launch_record_sha256": "393ff010c506d1b366ef1ed12a3e60ed99b9d4f494665bf9af17ad0ca276e8bc",
+          "process_receipt_sha256": "853876d253628bc6caba6321df2656549584c99b5e46dfc8e516712dd6c05dec"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "f278a68c867cf72457498d9777473062b493fbd8a46d92b61540148b7eaa29c2",
+          "observer_source_manifest_sha256": "fd6fcc4b7d303e58033ffa2f07733fa96b090019309a92d2b927dcda03227317",
+          "launch_record_sha256": "d671ec22cd96e88fe1652c89d7b138ff8f6c57f17321579672c6da4efb200d1e",
+          "process_receipt_sha256": "b2b01f0789f2b526d3d7a0877238f222652f0fb739a6bd7bdf78205d45aa9ad7"
+        }
+      ],
+      "all_admitted_head_alpha_compositing_exact": true,
+      "fractional_alpha_samples_composited_exact": 315634,
+      "fractional_alpha_intermediate_results": 315350,
+      "two_head_emission_coverage": {
+        "natural_rear_power_failures_without_emission": 5,
+        "rear_emissions_reusing_older_slots": 32,
+        "rear_emissions_reusing_front_slots": 12,
+        "emitting_calls": 20,
+        "two_emissions_per_successful_call_exact": true,
+        "fully_observed_pairs_both_HD": 20,
+        "observed_normal_head_draws_by_emission_number": {
+          "1": 216,
+          "2": 313
+        },
+        "normal_head_draws_by_record": {
+          "255": 232,
+          "266": 297
+        },
+        "all_eligible_rear_head_draws_HD": true,
+        "every_new_HD_admission_matches_exact_rear_P2_birth": true
+      }
+    },
+    {
+      "case": "hard-art-native2x",
+      "difficulty": "hard",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 2,
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_P2_HD_head_draws": 529,
+      "game_captures_per_process": 20,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 18,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "fractional_edge_samples_surviving_to_native": 2498,
+      "rear_emissions": 40,
+      "rear_emission_ids": {
+        "39": 8,
+        "1": 8,
+        "281": 6,
+        "282": 6,
+        "301": 6,
+        "300": 6
+      },
+      "cash_after_natural_shop_purchase": 8500,
+      "natural_time_seed": "1792163216",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "1e23f0fd45809b4f5a5d2454afed6ac21c89353b76e514189304080ce6409d52",
+          "observer_source_manifest_sha256": "9db788b7476a9b11745349e305d32118e95204f255607be1018640c86efee6e5",
+          "launch_record_sha256": "f72ccce310a9dd69a06f6fb82f0f3150083bf107d03978ebe7d32ae7ccc9852c",
+          "process_receipt_sha256": "6e11be46dbb747bb3d28e2cf10f846ca1b5e4f3b0e347e0be21acad87cb06483"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "f278a68c867cf72457498d9777473062b493fbd8a46d92b61540148b7eaa29c2",
+          "observer_source_manifest_sha256": "fd6fcc4b7d303e58033ffa2f07733fa96b090019309a92d2b927dcda03227317",
+          "launch_record_sha256": "a2122033d13f8853ce5c3def32125c9f84df5872b96a2f919d290ead6ba397ba",
+          "process_receipt_sha256": "3e9b63082e43f2069434b19e8fc19b28cbdd9ccc9aa727634aa9976402f01740"
+        }
+      ],
+      "all_admitted_head_alpha_compositing_exact": true,
+      "fractional_alpha_samples_composited_exact": 315634,
+      "fractional_alpha_intermediate_results": 315350,
+      "two_head_emission_coverage": {
+        "natural_rear_power_failures_without_emission": 5,
+        "rear_emissions_reusing_older_slots": 32,
+        "rear_emissions_reusing_front_slots": 12,
+        "emitting_calls": 20,
+        "two_emissions_per_successful_call_exact": true,
+        "fully_observed_pairs_both_HD": 20,
+        "observed_normal_head_draws_by_emission_number": {
+          "1": 216,
+          "2": 313
+        },
+        "normal_head_draws_by_record": {
+          "255": 232,
+          "266": 297
+        },
+        "all_eligible_rear_head_draws_HD": true,
+        "every_new_HD_admission_matches_exact_rear_P2_birth": true
+      }
+    },
+    {
+      "case": "hard-art-native4x",
+      "difficulty": "hard",
+      "native_scale": 4,
+      "render_density": 8,
+      "rear_power": 2,
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_P2_HD_head_draws": 529,
+      "game_captures_per_process": 20,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 18,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "fractional_edge_samples_surviving_to_native": 9352,
+      "rear_emissions": 40,
+      "rear_emission_ids": {
+        "39": 8,
+        "1": 8,
+        "281": 6,
+        "282": 6,
+        "301": 6,
+        "300": 6
+      },
+      "cash_after_natural_shop_purchase": 8500,
+      "natural_time_seed": "1792163255",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "1e23f0fd45809b4f5a5d2454afed6ac21c89353b76e514189304080ce6409d52",
+          "observer_source_manifest_sha256": "9db788b7476a9b11745349e305d32118e95204f255607be1018640c86efee6e5",
+          "launch_record_sha256": "7ee8dd7e165f389178d9bf6e0dc4f85208d777327a347e915233c6ecdb251565",
+          "process_receipt_sha256": "ceb6eec75fe73ea530512b89fac8b5a85f93fd75a9b5b1f2531ab4fe7f627220"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "f278a68c867cf72457498d9777473062b493fbd8a46d92b61540148b7eaa29c2",
+          "observer_source_manifest_sha256": "fd6fcc4b7d303e58033ffa2f07733fa96b090019309a92d2b927dcda03227317",
+          "launch_record_sha256": "f7ea27f3b22df95c9c62d45e32ec2c84ff84d3b0ec0685483d89d69a7ee2288d",
+          "process_receipt_sha256": "4842afc4e77c1da6c417061a9d19af5dcdfea16fccb870edb6b612bb8c56621b"
+        }
+      ],
+      "all_admitted_head_alpha_compositing_exact": true,
+      "fractional_alpha_samples_composited_exact": 315634,
+      "fractional_alpha_intermediate_results": 315350,
+      "two_head_emission_coverage": {
+        "natural_rear_power_failures_without_emission": 5,
+        "rear_emissions_reusing_older_slots": 32,
+        "rear_emissions_reusing_front_slots": 12,
+        "emitting_calls": 20,
+        "two_emissions_per_successful_call_exact": true,
+        "fully_observed_pairs_both_HD": 20,
+        "observed_normal_head_draws_by_emission_number": {
+          "1": 216,
+          "2": 313
+        },
+        "normal_head_draws_by_record": {
+          "255": 232,
+          "266": 297
+        },
+        "all_eligible_rear_head_draws_HD": true,
+        "every_new_HD_admission_matches_exact_rear_P2_birth": true
+      }
+    },
+    {
+      "case": "normal-missing-native2x",
+      "difficulty": "normal",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 2,
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_P2_HD_head_draws": 0,
+      "game_captures_per_process": 20,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 0,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "fractional_edge_samples_surviving_to_native": 0,
+      "rear_emissions": 40,
+      "rear_emission_ids": {
+        "39": 8,
+        "1": 8,
+        "281": 6,
+        "282": 6,
+        "301": 6,
+        "300": 6
+      },
+      "cash_after_natural_shop_purchase": 8500,
+      "natural_time_seed": "1792163310",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "1e23f0fd45809b4f5a5d2454afed6ac21c89353b76e514189304080ce6409d52",
+          "observer_source_manifest_sha256": "9db788b7476a9b11745349e305d32118e95204f255607be1018640c86efee6e5",
+          "launch_record_sha256": "fe88b4f28b82e69f7c41b9be228a13783cb7631391eda5b0679b18726ef16952",
+          "process_receipt_sha256": "492c67924c9ab8f1949cce0e4a6830f6a6c88bbcdf239df2b4e1a1f8982e0883"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "f278a68c867cf72457498d9777473062b493fbd8a46d92b61540148b7eaa29c2",
+          "observer_source_manifest_sha256": "fd6fcc4b7d303e58033ffa2f07733fa96b090019309a92d2b927dcda03227317",
+          "launch_record_sha256": "5cd632d3c9193b3545c90c754b89b15ea3c0ff69fc5eefbdbcb6739be000c3f7",
+          "process_receipt_sha256": "bc00e8486af48c2f02bba71c246d392649403f5a831a06b01842877758a00e87"
+        }
+      ],
+      "baseline_pixel_exact_all_samples": true
+    },
+    {
+      "case": "normal-corrupt-native2x",
+      "difficulty": "normal",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 2,
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_P2_HD_head_draws": 0,
+      "game_captures_per_process": 20,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 0,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "fractional_edge_samples_surviving_to_native": 0,
+      "rear_emissions": 40,
+      "rear_emission_ids": {
+        "39": 8,
+        "1": 8,
+        "281": 6,
+        "282": 6,
+        "301": 6,
+        "300": 6
+      },
+      "cash_after_natural_shop_purchase": 8500,
+      "natural_time_seed": "1792163310",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "1e23f0fd45809b4f5a5d2454afed6ac21c89353b76e514189304080ce6409d52",
+          "observer_source_manifest_sha256": "9db788b7476a9b11745349e305d32118e95204f255607be1018640c86efee6e5",
+          "launch_record_sha256": "3fcdbd91263b4dcc55456cfe223ef1a64d1dc1484453e8b19da1073121edbe5a",
+          "process_receipt_sha256": "b810d255fa21ae6c205e9ee54329bd3277f485d5e91a6d95a21df61ac66d90e2"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "f278a68c867cf72457498d9777473062b493fbd8a46d92b61540148b7eaa29c2",
+          "observer_source_manifest_sha256": "fd6fcc4b7d303e58033ffa2f07733fa96b090019309a92d2b927dcda03227317",
+          "launch_record_sha256": "fdc1fa4e178498efa6126cda919d899e680d22bd2ba34314b5fc21d98bf42d78",
+          "process_receipt_sha256": "53b8fb3c507b86d80617fac32b91ce49770b11ef659079897b4742cd80777f71"
+        }
+      ],
+      "baseline_pixel_exact_all_samples": true
+    },
+    {
+      "case": "hard-missing-native2x",
+      "difficulty": "hard",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 2,
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_P2_HD_head_draws": 0,
+      "game_captures_per_process": 20,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 0,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "fractional_edge_samples_surviving_to_native": 0,
+      "rear_emissions": 40,
+      "rear_emission_ids": {
+        "39": 8,
+        "1": 8,
+        "281": 6,
+        "282": 6,
+        "301": 6,
+        "300": 6
+      },
+      "cash_after_natural_shop_purchase": 8500,
+      "natural_time_seed": "1792163347",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "1e23f0fd45809b4f5a5d2454afed6ac21c89353b76e514189304080ce6409d52",
+          "observer_source_manifest_sha256": "9db788b7476a9b11745349e305d32118e95204f255607be1018640c86efee6e5",
+          "launch_record_sha256": "16ccfe58d69ef769aa0ad9288d2bada904d003a7e0c830ba42d3201ea1da01b3",
+          "process_receipt_sha256": "ea06f997fb6746b484534cd3bd7ce50b8604d56f2ba3e360a8bc5e21e40c1140"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "f278a68c867cf72457498d9777473062b493fbd8a46d92b61540148b7eaa29c2",
+          "observer_source_manifest_sha256": "fd6fcc4b7d303e58033ffa2f07733fa96b090019309a92d2b927dcda03227317",
+          "launch_record_sha256": "ca1e1900b659e73245d8f354c2b4f2ffac5a1219fed5a9da963ba1f7b0802cf3",
+          "process_receipt_sha256": "a58f87aec6e6904d453a66f453fabc068292fdf1a5354ef2af67fb53789855fc"
+        }
+      ],
+      "baseline_pixel_exact_all_samples": true
+    },
+    {
+      "case": "hard-corrupt-native2x",
+      "difficulty": "hard",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 2,
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_P2_HD_head_draws": 0,
+      "game_captures_per_process": 20,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 0,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "fractional_edge_samples_surviving_to_native": 0,
+      "rear_emissions": 40,
+      "rear_emission_ids": {
+        "39": 8,
+        "1": 8,
+        "281": 6,
+        "282": 6,
+        "301": 6,
+        "300": 6
+      },
+      "cash_after_natural_shop_purchase": 8500,
+      "natural_time_seed": "1792163347",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "1e23f0fd45809b4f5a5d2454afed6ac21c89353b76e514189304080ce6409d52",
+          "observer_source_manifest_sha256": "9db788b7476a9b11745349e305d32118e95204f255607be1018640c86efee6e5",
+          "launch_record_sha256": "3b46e1bc192d1d1a4347c7a366c67cd7de3e393940d3c0ad150f70f27b7db179",
+          "process_receipt_sha256": "9dccd7bf957af2da0ca2cbd6dc8a881111e14559ca4778b9c67448643c00d974"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "f278a68c867cf72457498d9777473062b493fbd8a46d92b61540148b7eaa29c2",
+          "observer_source_manifest_sha256": "fd6fcc4b7d303e58033ffa2f07733fa96b090019309a92d2b927dcda03227317",
+          "launch_record_sha256": "45f4d3505f72385820042a6bc5951b5b111eff1ad1bc64a5a3852649eebb27e2",
+          "process_receipt_sha256": "722a3690dd1533b3d8a5b75e46190eeac8c235a356979d9e6273bb42fbf66cb4"
+        }
+      ],
+      "baseline_pixel_exact_all_samples": true
+    },
+    {
+      "case": "normal-p1-native2x",
+      "difficulty": "normal",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 1,
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_P2_HD_head_draws": 0,
+      "game_captures_per_process": 20,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 0,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "fractional_edge_samples_surviving_to_native": 1476,
+      "rear_emissions": 24,
+      "rear_emission_ids": {
+        "39": 6,
+        "1": 6,
+        "281": 3,
+        "282": 3,
+        "301": 3,
+        "300": 3
+      },
+      "cash_after_natural_shop_purchase": 9250,
+      "natural_time_seed": "1792163397",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "1e23f0fd45809b4f5a5d2454afed6ac21c89353b76e514189304080ce6409d52",
+          "observer_source_manifest_sha256": "9db788b7476a9b11745349e305d32118e95204f255607be1018640c86efee6e5",
+          "launch_record_sha256": "57f12cdadee8d07c454dd9f153f5491140090c888a662724da71b4255d2c4b41",
+          "process_receipt_sha256": "a45e3439839b75d1886146d38859e038ed7104458fdcd4ce4f1cc538f1f51af6"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "f278a68c867cf72457498d9777473062b493fbd8a46d92b61540148b7eaa29c2",
+          "observer_source_manifest_sha256": "fd6fcc4b7d303e58033ffa2f07733fa96b090019309a92d2b927dcda03227317",
+          "launch_record_sha256": "a90ce00f2ed5e23861b8892bc4af7900b3f75e3165940bfb626e34ab1e6e1d2c",
+          "process_receipt_sha256": "06b2145a47b9ea087d0da0b75e46cbc78c143f2df02a3866a48702764c886157"
+        }
+      ],
+      "baseline_pixel_exact_all_samples": true,
+      "P1_HD_admission_and_alpha_trace_exact": true
+    },
+    {
+      "case": "normal-p3-native2x",
+      "difficulty": "normal",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 3,
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_P2_HD_head_draws": 0,
+      "game_captures_per_process": 20,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 0,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "fractional_edge_samples_surviving_to_native": 0,
+      "rear_emissions": 48,
+      "rear_emission_ids": {
+        "40": 8,
+        "2": 8,
+        "281": 8,
+        "282": 8,
+        "301": 8,
+        "300": 8
+      },
+      "cash_after_natural_shop_purchase": 6250,
+      "natural_time_seed": "1792163397",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "1e23f0fd45809b4f5a5d2454afed6ac21c89353b76e514189304080ce6409d52",
+          "observer_source_manifest_sha256": "9db788b7476a9b11745349e305d32118e95204f255607be1018640c86efee6e5",
+          "launch_record_sha256": "1cd1c97a0337d3932149a544b3650f9e0f9e0d8fc8bf30b5fcd170ac1fd91492",
+          "process_receipt_sha256": "47569da17f972422b075c0fa20972408aa2f393f491c91899cd10c6a5c5d0cdf"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "f278a68c867cf72457498d9777473062b493fbd8a46d92b61540148b7eaa29c2",
+          "observer_source_manifest_sha256": "fd6fcc4b7d303e58033ffa2f07733fa96b090019309a92d2b927dcda03227317",
+          "launch_record_sha256": "b0bbd7b1a01be0d2edbb74ed4329300d3f2615f6eacc72f727fe88b5288e0264",
+          "process_receipt_sha256": "a4593131177f1fd11b9ae6275d8ad911d1ff17ca410609488249183a21829584"
+        }
+      ],
+      "baseline_pixel_exact_all_samples": true
+    },
+    {
+      "case": "hard-p1-native2x",
+      "difficulty": "hard",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 1,
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_P2_HD_head_draws": 0,
+      "game_captures_per_process": 20,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 0,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "fractional_edge_samples_surviving_to_native": 1476,
+      "rear_emissions": 24,
+      "rear_emission_ids": {
+        "39": 6,
+        "1": 6,
+        "281": 3,
+        "282": 3,
+        "301": 3,
+        "300": 3
+      },
+      "cash_after_natural_shop_purchase": 9250,
+      "natural_time_seed": "1792163432",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "1e23f0fd45809b4f5a5d2454afed6ac21c89353b76e514189304080ce6409d52",
+          "observer_source_manifest_sha256": "9db788b7476a9b11745349e305d32118e95204f255607be1018640c86efee6e5",
+          "launch_record_sha256": "0d5e7143e8267d8798c7587107ce83312fd6d80d94ddd67235fe1e534a04aaa3",
+          "process_receipt_sha256": "e7d758c7f6044211741d793246c479df4713e8e03d11907b649ae4b2b4529437"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "f278a68c867cf72457498d9777473062b493fbd8a46d92b61540148b7eaa29c2",
+          "observer_source_manifest_sha256": "fd6fcc4b7d303e58033ffa2f07733fa96b090019309a92d2b927dcda03227317",
+          "launch_record_sha256": "1be26521fd4b1046d28786e0d6e4aaf676f38f4bbc915332813c966739fe1839",
+          "process_receipt_sha256": "d0422533458b35168b91a6be1b7a669e1c6705a48c08e9cf5dfdfa886271ca81"
+        }
+      ],
+      "baseline_pixel_exact_all_samples": true,
+      "P1_HD_admission_and_alpha_trace_exact": true
+    },
+    {
+      "case": "hard-p3-native2x",
+      "difficulty": "hard",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 3,
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_P2_HD_head_draws": 0,
+      "game_captures_per_process": 20,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 0,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "fractional_edge_samples_surviving_to_native": 0,
+      "rear_emissions": 48,
+      "rear_emission_ids": {
+        "40": 8,
+        "2": 8,
+        "281": 8,
+        "282": 8,
+        "301": 8,
+        "300": 8
+      },
+      "cash_after_natural_shop_purchase": 6250,
+      "natural_time_seed": "1792163432",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "1e23f0fd45809b4f5a5d2454afed6ac21c89353b76e514189304080ce6409d52",
+          "observer_source_manifest_sha256": "9db788b7476a9b11745349e305d32118e95204f255607be1018640c86efee6e5",
+          "launch_record_sha256": "c0bc87dd848d66a9e8c658a9eb5abe7b992d46dda28485bcf905bceecde161c5",
+          "process_receipt_sha256": "4125691c97bf909734ed7ef02f83bd7c59277e7695b916ad971bead686962442"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "f278a68c867cf72457498d9777473062b493fbd8a46d92b61540148b7eaa29c2",
+          "observer_source_manifest_sha256": "fd6fcc4b7d303e58033ffa2f07733fa96b090019309a92d2b927dcda03227317",
+          "launch_record_sha256": "5113f3449ad530cbddb701cc2e5c0b89d0b4a1eec7c40689e53a2b52031bd467",
+          "process_receipt_sha256": "88437829c5d9462319bf032b1d6541ee5b23c6c1af1055b787b078c333937025"
+        }
+      ],
+      "baseline_pixel_exact_all_samples": true
+    },
+    {
+      "case": "normal-transition-native2x",
+      "difficulty": "normal",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 2,
+      "ticks_per_process": 180,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_P2_HD_head_draws": 547,
+      "game_captures_per_process": 27,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 23,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "fractional_edge_samples_surviving_to_native": 3064,
+      "rear_emissions": 38,
+      "rear_emission_ids": {
+        "39": 11,
+        "1": 11,
+        "281": 4,
+        "282": 4,
+        "301": 4,
+        "300": 4
+      },
+      "cash_after_natural_shop_purchase": 8500,
+      "natural_time_seed": "1792163483",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "1e23f0fd45809b4f5a5d2454afed6ac21c89353b76e514189304080ce6409d52",
+          "observer_source_manifest_sha256": "9db788b7476a9b11745349e305d32118e95204f255607be1018640c86efee6e5",
+          "launch_record_sha256": "92a7facbe6b6c8695b4a426dae98aac1d5036aa99ba842e3c4f66a793bd34d5c",
+          "process_receipt_sha256": "986b71b1a020bf9bbb68d56348193bdcf8bf1d5bd809fe3d94cab0a5abd06dcc"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "f278a68c867cf72457498d9777473062b493fbd8a46d92b61540148b7eaa29c2",
+          "observer_source_manifest_sha256": "fd6fcc4b7d303e58033ffa2f07733fa96b090019309a92d2b927dcda03227317",
+          "launch_record_sha256": "c57ad8677e07ef0989c1027b4e93c88455be8726f6a456cd837fd498238f4b0b",
+          "process_receipt_sha256": "30805c7ae0ee0d465e3562452eca3813460d9a61643b81a29e9048b5e3f6c7a4"
+        }
+      ],
+      "mode_switch_input_ticks": [
+        60,
+        100
+      ],
+      "space_release_tick": 120,
+      "empty_support_native_exact_ticks": [
+        150,
+        179
+      ],
+      "old_mode_1_heads_admitted_after_switch_60": 22,
+      "old_mode_2_heads_admitted_after_switch_100": 43,
+      "all_admitted_head_alpha_compositing_exact": true,
+      "fractional_alpha_samples_composited_exact": 323296,
+      "fractional_alpha_intermediate_results": 322820,
+      "two_head_emission_coverage": {
+        "natural_rear_power_failures_without_emission": 5,
+        "rear_emissions_reusing_older_slots": 30,
+        "rear_emissions_reusing_front_slots": 13,
+        "emitting_calls": 19,
+        "two_emissions_per_successful_call_exact": true,
+        "fully_observed_pairs_both_HD": 19,
+        "observed_normal_head_draws_by_emission_number": {
+          "1": 214,
+          "2": 333
+        },
+        "normal_head_draws_by_record": {
+          "255": 319,
+          "266": 228
+        },
+        "all_eligible_rear_head_draws_HD": true,
+        "every_new_HD_admission_matches_exact_rear_P2_birth": true
+      }
+    },
+    {
+      "case": "hard-transition-native2x",
+      "difficulty": "hard",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 2,
+      "ticks_per_process": 180,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_P2_HD_head_draws": 547,
+      "game_captures_per_process": 27,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 23,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "fractional_edge_samples_surviving_to_native": 3064,
+      "rear_emissions": 38,
+      "rear_emission_ids": {
+        "39": 11,
+        "1": 11,
+        "281": 4,
+        "282": 4,
+        "301": 4,
+        "300": 4
+      },
+      "cash_after_natural_shop_purchase": 8500,
+      "natural_time_seed": "1792163483",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "1e23f0fd45809b4f5a5d2454afed6ac21c89353b76e514189304080ce6409d52",
+          "observer_source_manifest_sha256": "9db788b7476a9b11745349e305d32118e95204f255607be1018640c86efee6e5",
+          "launch_record_sha256": "107d44e5ab07ddf1b57e0acef91c50b936146f22d68f12c6d143d88feea5d314",
+          "process_receipt_sha256": "b8cc37653f712a65f37cbe814eb7e02161609e67de0379757429b5bdfb205e19"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "f278a68c867cf72457498d9777473062b493fbd8a46d92b61540148b7eaa29c2",
+          "observer_source_manifest_sha256": "fd6fcc4b7d303e58033ffa2f07733fa96b090019309a92d2b927dcda03227317",
+          "launch_record_sha256": "c8d700401efa11471a1afab6eb3b2f84879c818849ead94412e153feab1650f0",
+          "process_receipt_sha256": "78b8c4f00055298aa6c9b2162a7d0f6a3c633233ced3c2e6b6cdb8e708283146"
+        }
+      ],
+      "mode_switch_input_ticks": [
+        60,
+        100
+      ],
+      "space_release_tick": 120,
+      "empty_support_native_exact_ticks": [
+        150,
+        179
+      ],
+      "old_mode_1_heads_admitted_after_switch_60": 22,
+      "old_mode_2_heads_admitted_after_switch_100": 43,
+      "all_admitted_head_alpha_compositing_exact": true,
+      "fractional_alpha_samples_composited_exact": 323296,
+      "fractional_alpha_intermediate_results": 322820,
+      "two_head_emission_coverage": {
+        "natural_rear_power_failures_without_emission": 5,
+        "rear_emissions_reusing_older_slots": 30,
+        "rear_emissions_reusing_front_slots": 13,
+        "emitting_calls": 19,
+        "two_emissions_per_successful_call_exact": true,
+        "fully_observed_pairs_both_HD": 19,
+        "observed_normal_head_draws_by_emission_number": {
+          "1": 214,
+          "2": 333
+        },
+        "normal_head_draws_by_record": {
+          "255": 319,
+          "266": 228
+        },
+        "all_eligible_rear_head_draws_HD": true,
+        "every_new_HD_admission_matches_exact_rear_P2_birth": true
+      }
+    },
+    {
+      "case": "normal-present-control-native2x",
+      "difficulty": "normal",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 2,
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_P2_HD_head_draws": 529,
+      "game_captures_per_process": 20,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 18,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "fractional_edge_samples_surviving_to_native": 2498,
+      "rear_emissions": 40,
+      "rear_emission_ids": {
+        "39": 8,
+        "1": 8,
+        "281": 6,
+        "282": 6,
+        "301": 6,
+        "300": 6
+      },
+      "cash_after_natural_shop_purchase": 8500,
+      "natural_time_seed": "1792163546",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "82df89d87e5a64f26db7569cc08142c3d9fd2370046567a668c9aff68d2958c2",
+          "observer_source_manifest_sha256": "4108d4051609792d360b0f1ea747d380fb97987230f1a64cbf8a217b2cf01d48",
+          "launch_record_sha256": "c7ca0f7779df1484e036e7d8a9d282ea973acfe92c9fc324c61751cc7f13790b",
+          "process_receipt_sha256": "5d6377ec2c8312776d84a7da8947a436e5842d8c9d4d9a46d5c74b4725abd683"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "e58256048381e2002cb4fcd27602800c898e5d9a146383b734295d542d4c52ee",
+          "observer_source_manifest_sha256": "b4ca0949646e70c82f3875c62782760398cb107231a8d32b1b01035af64d37a9",
+          "launch_record_sha256": "bfaf6ac74afe192cb4b0c7d74a881a7e680b3f97a0248577b0c43667251f9996",
+          "process_receipt_sha256": "b1e4e3007e273a12646c014e735ce062840754528670e2fd8a06a1431b770231"
+        }
+      ],
+      "display_only_repeat_present_ticks": [
+        0,
+        20,
+        60,
+        68,
+        72,
+        76,
+        80,
+        84,
+        88,
+        119
+      ],
+      "display_only_skip_present_ticks": [
+        30,
+        31,
+        32
+      ],
+      "presentation_rng_unchanged": true,
+      "all_admitted_head_alpha_compositing_exact": true,
+      "fractional_alpha_samples_composited_exact": 315634,
+      "fractional_alpha_intermediate_results": 315350,
+      "two_head_emission_coverage": {
+        "natural_rear_power_failures_without_emission": 5,
+        "rear_emissions_reusing_older_slots": 32,
+        "rear_emissions_reusing_front_slots": 12,
+        "emitting_calls": 20,
+        "two_emissions_per_successful_call_exact": true,
+        "fully_observed_pairs_both_HD": 20,
+        "observed_normal_head_draws_by_emission_number": {
+          "1": 216,
+          "2": 313
+        },
+        "normal_head_draws_by_record": {
+          "255": 232,
+          "266": 297
+        },
+        "all_eligible_rear_head_draws_HD": true,
+        "every_new_HD_admission_matches_exact_rear_P2_birth": true
+      }
+    },
+    {
+      "case": "hard-present-control-native2x",
+      "difficulty": "hard",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 2,
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_P2_HD_head_draws": 529,
+      "game_captures_per_process": 20,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 18,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "fractional_edge_samples_surviving_to_native": 2498,
+      "rear_emissions": 40,
+      "rear_emission_ids": {
+        "39": 8,
+        "1": 8,
+        "281": 6,
+        "282": 6,
+        "301": 6,
+        "300": 6
+      },
+      "cash_after_natural_shop_purchase": 8500,
+      "natural_time_seed": "1792163546",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "82df89d87e5a64f26db7569cc08142c3d9fd2370046567a668c9aff68d2958c2",
+          "observer_source_manifest_sha256": "4108d4051609792d360b0f1ea747d380fb97987230f1a64cbf8a217b2cf01d48",
+          "launch_record_sha256": "09a2569d9ba1e227c7316fb7a770b7b6d54c850c132bbbeff5861da335315d8b",
+          "process_receipt_sha256": "da623a16607d8e1910272300bbab5ad637812c3e3a1f2ecae8f21561971bf34a"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "e58256048381e2002cb4fcd27602800c898e5d9a146383b734295d542d4c52ee",
+          "observer_source_manifest_sha256": "b4ca0949646e70c82f3875c62782760398cb107231a8d32b1b01035af64d37a9",
+          "launch_record_sha256": "3ee7dfa48c5273b0c76df8c4b055767229fb6535501beeab44fcd975f8ec5882",
+          "process_receipt_sha256": "3ac03bbb9892466c3aa27f3a46216e261549af6094e1828feaeeafea9870c7f3"
+        }
+      ],
+      "display_only_repeat_present_ticks": [
+        0,
+        20,
+        60,
+        68,
+        72,
+        76,
+        80,
+        84,
+        88,
+        119
+      ],
+      "display_only_skip_present_ticks": [
+        30,
+        31,
+        32
+      ],
+      "presentation_rng_unchanged": true,
+      "all_admitted_head_alpha_compositing_exact": true,
+      "fractional_alpha_samples_composited_exact": 315634,
+      "fractional_alpha_intermediate_results": 315350,
+      "two_head_emission_coverage": {
+        "natural_rear_power_failures_without_emission": 5,
+        "rear_emissions_reusing_older_slots": 32,
+        "rear_emissions_reusing_front_slots": 12,
+        "emitting_calls": 20,
+        "two_emissions_per_successful_call_exact": true,
+        "fully_observed_pairs_both_HD": 20,
+        "observed_normal_head_draws_by_emission_number": {
+          "1": 216,
+          "2": 313
+        },
+        "normal_head_draws_by_record": {
+          "255": 232,
+          "266": 297
+        },
+        "all_eligible_rear_head_draws_HD": true,
+        "every_new_HD_admission_matches_exact_rear_P2_birth": true
+      }
+    },
+    {
+      "case": "normal-art-density4-native2x",
+      "difficulty": "normal",
+      "native_scale": 2,
+      "render_density": 4,
+      "rear_power": 2,
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_P2_HD_head_draws": 529,
+      "game_captures_per_process": 20,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 18,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "fractional_edge_samples_surviving_to_native": 2960,
+      "rear_emissions": 40,
+      "rear_emission_ids": {
+        "39": 8,
+        "1": 8,
+        "281": 6,
+        "282": 6,
+        "301": 6,
+        "300": 6
+      },
+      "cash_after_natural_shop_purchase": 8500,
+      "natural_time_seed": "1792163599",
+      "startup_mode": "private presentation-only diagnostic density4 selection",
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "f82b89f1bab58ddb02e874f5bd382cc2ba46b53be2865de3fc71e795dfa20f60",
+          "observer_source_manifest_sha256": "d2d2cd8a12fc860e4067d9283e7e8e7d402b2faf52ea58519eb5c05523636bee",
+          "launch_record_sha256": "9233bca7ebccab3dc4054f41be28dd66fed5c256f538b81d5f181e005249e9ec",
+          "process_receipt_sha256": "45a104781ff2704fb71f79ee9b20f7f2f6abff96b56e01de937bdba5a2f1f900"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "15f1483f068a51234240f06dcf5d565dbc2ba27732b2b94bdcf63220165c2286",
+          "observer_source_manifest_sha256": "d934e189bcec9eadfeaeb605400df88fa0e99631c55e3c85034b829111f0e23d",
+          "launch_record_sha256": "9020f62306fb0037785d4b7bfa49abbc447c003986e566750e620a415348376d",
+          "process_receipt_sha256": "53b3ff699432839ef78589e678829f4c14e14b48a5704c59e9a3a1312fef55ca"
+        }
+      ],
+      "all_admitted_head_alpha_compositing_exact": true,
+      "fractional_alpha_samples_composited_exact": 101368,
+      "fractional_alpha_intermediate_results": 101347,
+      "two_head_emission_coverage": {
+        "natural_rear_power_failures_without_emission": 5,
+        "rear_emissions_reusing_older_slots": 32,
+        "rear_emissions_reusing_front_slots": 12,
+        "emitting_calls": 20,
+        "two_emissions_per_successful_call_exact": true,
+        "fully_observed_pairs_both_HD": 20,
+        "observed_normal_head_draws_by_emission_number": {
+          "1": 216,
+          "2": 313
+        },
+        "normal_head_draws_by_record": {
+          "255": 232,
+          "266": 297
+        },
+        "all_eligible_rear_head_draws_HD": true,
+        "every_new_HD_admission_matches_exact_rear_P2_birth": true
+      }
+    },
+    {
+      "case": "hard-art-density4-native2x",
+      "difficulty": "hard",
+      "native_scale": 2,
+      "render_density": 4,
+      "rear_power": 2,
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_P2_HD_head_draws": 529,
+      "game_captures_per_process": 20,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 18,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "fractional_edge_samples_surviving_to_native": 2960,
+      "rear_emissions": 40,
+      "rear_emission_ids": {
+        "39": 8,
+        "1": 8,
+        "281": 6,
+        "282": 6,
+        "301": 6,
+        "300": 6
+      },
+      "cash_after_natural_shop_purchase": 8500,
+      "natural_time_seed": "1792163599",
+      "startup_mode": "private presentation-only diagnostic density4 selection",
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "f82b89f1bab58ddb02e874f5bd382cc2ba46b53be2865de3fc71e795dfa20f60",
+          "observer_source_manifest_sha256": "d2d2cd8a12fc860e4067d9283e7e8e7d402b2faf52ea58519eb5c05523636bee",
+          "launch_record_sha256": "4996eca13e8c80c64d087a41688218189131b0ae232eb16e0744543faf7ccf5d",
+          "process_receipt_sha256": "46557832fa9c3d3c0806ac94c5c2f4d20000d9ec0a14829cf8d8c41d21b63f78"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "15f1483f068a51234240f06dcf5d565dbc2ba27732b2b94bdcf63220165c2286",
+          "observer_source_manifest_sha256": "d934e189bcec9eadfeaeb605400df88fa0e99631c55e3c85034b829111f0e23d",
+          "launch_record_sha256": "a3ac838a95bc16bb15aab23175dd2f80f835c190d48058afab1294289b533cbf",
+          "process_receipt_sha256": "d6973768dabea5530347ad2d6e7af4e212ad82e6915b7733c4fea1f348905da3"
+        }
+      ],
+      "all_admitted_head_alpha_compositing_exact": true,
+      "fractional_alpha_samples_composited_exact": 101368,
+      "fractional_alpha_intermediate_results": 101347,
+      "two_head_emission_coverage": {
+        "natural_rear_power_failures_without_emission": 5,
+        "rear_emissions_reusing_older_slots": 32,
+        "rear_emissions_reusing_front_slots": 12,
+        "emitting_calls": 20,
+        "two_emissions_per_successful_call_exact": true,
+        "fully_observed_pairs_both_HD": 20,
+        "observed_normal_head_draws_by_emission_number": {
+          "1": 216,
+          "2": 313
+        },
+        "normal_head_draws_by_record": {
+          "255": 232,
+          "266": 297
+        },
+        "all_eligible_rear_head_draws_HD": true,
+        "every_new_HD_admission_matches_exact_rear_P2_birth": true
+      }
+    }
+  ],
+  "builds": [
+    {
+      "variant": "baseline",
+      "kind": "normal",
+      "binary_sha256": "a0ccc2993b22ec244bfc5c4cd121256b16908ebb99675d4f7affc635d099f16f",
+      "warnings": 0,
+      "translation_units": 74,
+      "production_source_manifest_sha256": "5b61eb9e8f5b20941e3a969cbd0eb9273c169863d275935cbd9b7021bbd9b052"
+    },
+    {
+      "variant": "baseline",
+      "kind": "disabled-strict",
+      "binary_sha256": "f197f418b37c906caf05c1bc10b4bd8217594e7d8ff6e2f5142254f897ad5beb",
+      "warnings": 0,
+      "translation_units": 74,
+      "production_source_manifest_sha256": "5b61eb9e8f5b20941e3a969cbd0eb9273c169863d275935cbd9b7021bbd9b052"
+    },
+    {
+      "variant": "baseline",
+      "kind": "fixture",
+      "binary_sha256": "1e23f0fd45809b4f5a5d2454afed6ac21c89353b76e514189304080ce6409d52",
+      "warnings": 0,
+      "translation_units": 74,
+      "production_source_manifest_sha256": "5b61eb9e8f5b20941e3a969cbd0eb9273c169863d275935cbd9b7021bbd9b052"
+    },
+    {
+      "variant": "baseline",
+      "kind": "present-fixture",
+      "binary_sha256": "82df89d87e5a64f26db7569cc08142c3d9fd2370046567a668c9aff68d2958c2",
+      "warnings": 0,
+      "translation_units": 74,
+      "production_source_manifest_sha256": "5b61eb9e8f5b20941e3a969cbd0eb9273c169863d275935cbd9b7021bbd9b052"
+    },
+    {
+      "variant": "baseline",
+      "kind": "density4-fixture",
+      "binary_sha256": "f82b89f1bab58ddb02e874f5bd382cc2ba46b53be2865de3fc71e795dfa20f60",
+      "warnings": 0,
+      "translation_units": 74,
+      "production_source_manifest_sha256": "5b61eb9e8f5b20941e3a969cbd0eb9273c169863d275935cbd9b7021bbd9b052"
+    },
+    {
+      "variant": "candidate",
+      "kind": "normal",
+      "binary_sha256": "5cf64a2b598401cfced01f9945e681dd6c619329f3c20773d79df6847c8375d1",
+      "warnings": 0,
+      "translation_units": 74,
+      "production_source_manifest_sha256": "a145bc0a2e25e023e16c056539114d071e2ef4e71edb06cf45cc3f24d24c8eb9"
+    },
+    {
+      "variant": "candidate",
+      "kind": "disabled-strict",
+      "binary_sha256": "21caef03e4eb7005afdafb1915d4278d78c5ed2084483c4b92d2b84c1a8d5dca",
+      "warnings": 0,
+      "translation_units": 74,
+      "production_source_manifest_sha256": "a145bc0a2e25e023e16c056539114d071e2ef4e71edb06cf45cc3f24d24c8eb9"
+    },
+    {
+      "variant": "candidate",
+      "kind": "fixture",
+      "binary_sha256": "f278a68c867cf72457498d9777473062b493fbd8a46d92b61540148b7eaa29c2",
+      "warnings": 0,
+      "translation_units": 74,
+      "production_source_manifest_sha256": "a145bc0a2e25e023e16c056539114d071e2ef4e71edb06cf45cc3f24d24c8eb9"
+    },
+    {
+      "variant": "candidate",
+      "kind": "present-fixture",
+      "binary_sha256": "e58256048381e2002cb4fcd27602800c898e5d9a146383b734295d542d4c52ee",
+      "warnings": 0,
+      "translation_units": 74,
+      "production_source_manifest_sha256": "a145bc0a2e25e023e16c056539114d071e2ef4e71edb06cf45cc3f24d24c8eb9"
+    },
+    {
+      "variant": "candidate",
+      "kind": "density4-fixture",
+      "binary_sha256": "15f1483f068a51234240f06dcf5d565dbc2ba27732b2b94bdcf63220165c2286",
+      "warnings": 0,
+      "translation_units": 74,
+      "production_source_manifest_sha256": "a145bc0a2e25e023e16c056539114d071e2ef4e71edb06cf45cc3f24d24c8eb9"
+    }
+  ],
+  "build_warning_policy": {
+    "normal_allowlist": [
+      "misleading-indentation",
+      "format-truncation",
+      "missing-field-initializers"
+    ],
+    "disabled_additional_baseline_only_allowlist": [
+      "unused-variable",
+      "unused-parameter"
+    ],
+    "baseline_disabled_diagnostic_warnings": 15,
+    "candidate_disabled_diagnostic_warnings": 15,
+    "new_disabled_warnings": 0
+  },
+  "observer_inverse": {
+    "copies": 6,
+    "zero_fuzz_reverse_patch": true,
+    "all_original_source_bytes_restored": true,
+    "records": [
+      {
+        "variant": "baseline",
+        "original_source_files": 160,
+        "observer_source_files": 164,
+        "modified_source_files": 8,
+        "added_private_helpers": [
+          "src/fixture.inc",
+          "src/runtime_fixture.h",
+          "src/runtime_rear.h",
+          "src/runtime_rear.inc"
+        ],
+        "zero_fuzz_reverse_patch": true,
+        "all_original_bytes_restored": true,
+        "patch_sha256": "d91615560a2168b88d342ef4f314fbe9110bfc7de9d17097766d12e563dcd2e0",
+        "observer_binary_sha256": "1e23f0fd45809b4f5a5d2454afed6ac21c89353b76e514189304080ce6409d52"
+      },
+      {
+        "variant": "baseline",
+        "original_source_files": 160,
+        "observer_source_files": 164,
+        "modified_source_files": 8,
+        "added_private_helpers": [
+          "src/fixture.inc",
+          "src/runtime_fixture.h",
+          "src/runtime_rear.h",
+          "src/runtime_rear.inc"
+        ],
+        "zero_fuzz_reverse_patch": true,
+        "all_original_bytes_restored": true,
+        "patch_sha256": "60ea08ae34473bc19e3bdda4f8f97171ffca6dbd0ef5c00d40980d32b5b9e711",
+        "observer_binary_sha256": "82df89d87e5a64f26db7569cc08142c3d9fd2370046567a668c9aff68d2958c2"
+      },
+      {
+        "variant": "baseline",
+        "original_source_files": 160,
+        "observer_source_files": 164,
+        "modified_source_files": 8,
+        "added_private_helpers": [
+          "src/fixture.inc",
+          "src/runtime_fixture.h",
+          "src/runtime_rear.h",
+          "src/runtime_rear.inc"
+        ],
+        "zero_fuzz_reverse_patch": true,
+        "all_original_bytes_restored": true,
+        "patch_sha256": "f624e7211bf3dd08f71c747dce25b7fd001d795a01ef7ec9ba5c45b49ceae627",
+        "observer_binary_sha256": "f82b89f1bab58ddb02e874f5bd382cc2ba46b53be2865de3fc71e795dfa20f60"
+      },
+      {
+        "variant": "candidate",
+        "original_source_files": 160,
+        "observer_source_files": 164,
+        "modified_source_files": 8,
+        "added_private_helpers": [
+          "src/fixture.inc",
+          "src/runtime_fixture.h",
+          "src/runtime_rear.h",
+          "src/runtime_rear.inc"
+        ],
+        "zero_fuzz_reverse_patch": true,
+        "all_original_bytes_restored": true,
+        "patch_sha256": "d91615560a2168b88d342ef4f314fbe9110bfc7de9d17097766d12e563dcd2e0",
+        "observer_binary_sha256": "f278a68c867cf72457498d9777473062b493fbd8a46d92b61540148b7eaa29c2"
+      },
+      {
+        "variant": "candidate",
+        "original_source_files": 160,
+        "observer_source_files": 164,
+        "modified_source_files": 8,
+        "added_private_helpers": [
+          "src/fixture.inc",
+          "src/runtime_fixture.h",
+          "src/runtime_rear.h",
+          "src/runtime_rear.inc"
+        ],
+        "zero_fuzz_reverse_patch": true,
+        "all_original_bytes_restored": true,
+        "patch_sha256": "60ea08ae34473bc19e3bdda4f8f97171ffca6dbd0ef5c00d40980d32b5b9e711",
+        "observer_binary_sha256": "e58256048381e2002cb4fcd27602800c898e5d9a146383b734295d542d4c52ee"
+      },
+      {
+        "variant": "candidate",
+        "original_source_files": 160,
+        "observer_source_files": 164,
+        "modified_source_files": 8,
+        "added_private_helpers": [
+          "src/fixture.inc",
+          "src/runtime_fixture.h",
+          "src/runtime_rear.h",
+          "src/runtime_rear.inc"
+        ],
+        "zero_fuzz_reverse_patch": true,
+        "all_original_bytes_restored": true,
+        "patch_sha256": "f624e7211bf3dd08f71c747dce25b7fd001d795a01ef7ec9ba5c45b49ceae627",
+        "observer_binary_sha256": "15f1483f068a51234240f06dcf5d565dbc2ba27732b2b94bdcf63220165c2286"
+      }
+    ]
+  },
+  "hash_ledger": {
+    "independent_original_support_review_sha256": "76b22e957435e53b78aa5d11dff406ed62d4411cff0fb628fe9237b1ddd79835",
+    "post_matrix_source_art_verification_sha256": "130b31adc5193f5d8da8317f97bb35c27e9591d6a4f3985096942fa5cb58b6ef",
+    "source_freeze_sha256": "f419be6b1ee4929c069e2d45bf92da42756bee1f63ec6952f301f94b931865a8",
+    "pack_freeze_sha256": "e50164556e8805fd5cf87fc68c77e2bd6e358b8b7d10f209e10777da467d8577",
+    "per_batch_pins_sha256": {
+      "main": "6a3bf71546708cb0d108ad394c5c56758479b1ce98a60a90a0479c807f2c84b9",
+      "negative": "6a3bf71546708cb0d108ad394c5c56758479b1ce98a60a90a0479c807f2c84b9",
+      "power": "6a3bf71546708cb0d108ad394c5c56758479b1ce98a60a90a0479c807f2c84b9",
+      "transition": "6a3bf71546708cb0d108ad394c5c56758479b1ce98a60a90a0479c807f2c84b9",
+      "present": "6fd135bb92eaa1e2289ea6c75a9ff5ec6a4e4ef66e007ff410af86543bbde5cd",
+      "density4": "65dcf2126977cbbcc20ee6bd4770502c884b8118b88b40414dc5be48a00e64dd"
+    },
+    "source_binary_dependency_original_data_pack_hashes_recorded": true,
+    "all_pre_post_pins_exact": true
+  },
+  "limitations": [
+    "Bounded120/180-tick first-level Linux dummy/software evidence; not full-level, Windows or physical-display qualification.",
+    "16 pairs retain unmodified manual-HD startup selecting density8. Two additional actual-renderer pairs select density4 using reversible private presentation-only startup instrumentation; public startup unchanged.",
+    "Synthetic adapter review separately covers power transitions/failures, slot reuse, invocation abuse, shared consumers, and artificially overlapping heads.",
+    "Natural head-head overlap is reported as measured in occlusion witness; no unsupported natural-overlap claim.",
+    "No process hot-reload claimed.",
+    "Original game data, screenshots, private hooks and binaries excluded from this receipt."
+  ]
+}

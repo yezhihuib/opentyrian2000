@@ -192,11 +192,11 @@
     "src/render_mirror.h": [
       [
         "#define render_mirror_map_begin(...) ((void)0)",
-        "#define render_mirror_map_begin(...) ((void)0)\n#define render_mirror_rear_p1_reset(...) ((void)0)\n#define render_mirror_rear_p1_call_begin(...) ((void)0)\n#define render_mirror_rear_p1_call_end(...) ((void)0)\n#define render_mirror_rear_p1_emit(...) ((void)0)\n#define render_mirror_rear_p1_head(...) false"
+        "#define render_mirror_map_begin(...) ((void)0)\n#define render_mirror_rear_p1_reset(...) ((void)0)\n#define render_mirror_rear_p1_call_begin(...) ((void)0)\n#define render_mirror_rear_p1_call_end(...) ((void)0)\n#define render_mirror_rear_p1_create_begin(...) UINT64_C(0)\n#define render_mirror_rear_p1_create_end(call) ((void)(call))\n#define render_mirror_rear_p1_emit(...) ((void)0)\n#define render_mirror_rear_p1_head(...) false"
       ],
       [
         "void render_mirror_map_begin(char shape_file);",
-        "void render_mirror_map_begin(char shape_file);\nvoid render_mirror_rear_p1_reset(void);\nvoid render_mirror_rear_p1_call_begin(unsigned port,unsigned bay,unsigned power_index,unsigned mode_index,unsigned pnum,unsigned record);\nvoid render_mirror_rear_p1_call_end(void);\nvoid render_mirror_rear_p1_emit(unsigned slot,unsigned port,unsigned bay,unsigned record,unsigned pnum,unsigned phase,unsigned raw);\nbool render_mirror_rear_p1_head(SDL_Surface *,int x,int y,Sprite2_array,unsigned index,unsigned slot,unsigned raw);"
+        "void render_mirror_map_begin(char shape_file);\nvoid render_mirror_rear_p1_reset(void);\nvoid render_mirror_rear_p1_call_begin(unsigned port,unsigned bay,unsigned power_index,unsigned mode_index,unsigned pnum,unsigned record);\nvoid render_mirror_rear_p1_call_end(void);\nuint64_t render_mirror_rear_p1_create_begin(unsigned port,unsigned bay,unsigned record,unsigned pnum);\nvoid render_mirror_rear_p1_create_end(uint64_t call);\nvoid render_mirror_rear_p1_emit(uint64_t call,unsigned ordinal,unsigned slot,unsigned port,unsigned bay,unsigned record,unsigned pnum,unsigned phase,unsigned raw);\nbool render_mirror_rear_p1_head(SDL_Surface *,int x,int y,Sprite2_array,unsigned index,unsigned slot,unsigned raw);"
       ]
     ],
     "src/mainint.c": [
@@ -212,7 +212,27 @@
       ],
       [
         "\t\trender_mirror_plasma_art_emit(shot_id, wpNum, bay_i, playerNum, shot->shotGr);",
-        "\t\trender_mirror_plasma_art_emit(shot_id, wpNum, bay_i, playerNum, shot->shotGr);\r\n\t\trender_mirror_rear_p1_emit(shot_id, portNum, bay_i, wpNum, playerNum, shotMultiPos[bay_i], shot->shotGr);"
+        "\t\trender_mirror_plasma_art_emit(shot_id, wpNum, bay_i, playerNum, shot->shotGr);\r\n\t\trender_mirror_rear_p1_emit(rear_p1_call, multi_i, shot_id, portNum, bay_i, wpNum, playerNum, shotMultiPos[bay_i], shot->shotGr);"
+      ],
+      [
+        "\tunsigned int probe_call = game_probe_shot_begin(portNum, bay_i, wpNum, playerNum, PX, PY);",
+        "\tunsigned int probe_call = game_probe_shot_begin(portNum, bay_i, wpNum, playerNum, PX, PY);\r\n\tuint64_t rear_p1_call = render_mirror_rear_p1_create_begin(portNum, bay_i, wpNum, playerNum);"
+      ],
+      [
+        "\t\tgame_probe_shot_result(probe_call, \"bounds\", 0, MAX_PWEAPON);\r\n\t\treturn MAX_PWEAPON;",
+        "\t\tgame_probe_shot_result(probe_call, \"bounds\", 0, MAX_PWEAPON);\r\n\t\trender_mirror_rear_p1_create_end(rear_p1_call);\r\n\t\treturn MAX_PWEAPON;"
+      ],
+      [
+        "\t\tgame_probe_shot_result(probe_call, \"power\", 0, MAX_PWEAPON);\r\n\t\treturn MAX_PWEAPON;",
+        "\t\tgame_probe_shot_result(probe_call, \"power\", 0, MAX_PWEAPON);\r\n\t\trender_mirror_rear_p1_create_end(rear_p1_call);\r\n\t\treturn MAX_PWEAPON;"
+      ],
+      [
+        "\t\t\tgame_probe_shot_result(probe_call, \"capacity\", multi_i - 1, MAX_PWEAPON);\r\n\t\t\treturn MAX_PWEAPON;",
+        "\t\t\tgame_probe_shot_result(probe_call, \"capacity\", multi_i - 1, MAX_PWEAPON);\r\n\t\t\trender_mirror_rear_p1_create_end(rear_p1_call);\r\n\t\t\treturn MAX_PWEAPON;"
+      ],
+      [
+        "\tgame_probe_shot_result(probe_call, \"complete\", weapon->multi, shot_id);\r\n\treturn shot_id;",
+        "\tgame_probe_shot_result(probe_call, \"complete\", weapon->multi, shot_id);\r\n\trender_mirror_rear_p1_create_end(rear_p1_call);\r\n\treturn shot_id;"
       ]
     ],
     "src/entity_draw.h": [

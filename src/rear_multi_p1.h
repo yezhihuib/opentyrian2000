@@ -13,9 +13,9 @@ typedef struct {
 typedef struct {bool qualified;unsigned record,mode,phase,raw;uint64_t generation;} RearP1Birth;
 typedef struct {
  RearP1Birth birth[REAR_P1_SLOTS];
- uint64_t generation,tick;
- bool lease;
- unsigned record,mode;
+ uint64_t generation,tick,call_serial,call;
+ bool pending,lease;
+ unsigned record,mode,budget,remaining,next_ordinal,next_phase,first_slot;
 } RearP1State;
 uint64_t rear_p1_stamp(const void *,size_t);
 int rear_p1_member(unsigned raw);
@@ -23,7 +23,10 @@ void rear_p1_reset(RearP1State *);
 void rear_p1_call_end(RearP1State *);
 void rear_p1_call_begin(RearP1State *,uint64_t tick,unsigned port,unsigned bay,
  unsigned power_index,unsigned mode_index,unsigned player,unsigned record,bool scope,bool table);
-void rear_p1_emit(RearP1State *,uint64_t tick,unsigned slot,unsigned port,unsigned bay,
+uint64_t rear_p1_create_begin(RearP1State *,uint64_t tick,unsigned port,unsigned bay,
+ unsigned record,unsigned player);
+void rear_p1_create_end(RearP1State *,uint64_t call);
+void rear_p1_emit(RearP1State *,uint64_t tick,uint64_t call,unsigned ordinal,unsigned slot,unsigned port,unsigned bay,
  unsigned record,unsigned player,unsigned phase,unsigned raw,const RearP1Shot *,bool scope,bool table,bool source);
 bool rear_p1_current(RearP1State *,unsigned slot,unsigned index,unsigned raw,
  const RearP1Shot *,bool scope,bool table,bool source);
