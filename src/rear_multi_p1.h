@@ -5,7 +5,7 @@
 #include <stddef.h>
 #include <stdint.h>
 /* Renderer-owned identities only. Never embedded in a gameplay shot. */
-enum { REAR_P1_SLOTS=80, REAR_P1_HEADS=9, REAR_P1_CELLS=168, REAR_P1_MAX_BUDGET=5 };
+enum { REAR_P1_SLOTS=80, REAR_P1_HEADS=11, REAR_P1_OBSERVED=13, REAR_P1_CELLS=168, REAR_P1_MAX_BUDGET=5 };
 typedef struct {
  unsigned gr,ani,ani_max,player,trail,aim,chain,complicated,filter;
  int xm,ym,xc,yc;
@@ -19,7 +19,9 @@ typedef struct {
  unsigned used_slots[REAR_P1_MAX_BUDGET];
 } RearP1State;
 uint64_t rear_p1_stamp(const void *,size_t);
+/* Drawable resources and validated observations are deliberately distinct. */
 int rear_p1_member(unsigned raw);
+int rear_p1_observed(unsigned raw);
 void rear_p1_reset(RearP1State *);
 void rear_p1_call_end(RearP1State *);
 void rear_p1_call_begin(RearP1State *,uint64_t tick,unsigned port,unsigned bay,

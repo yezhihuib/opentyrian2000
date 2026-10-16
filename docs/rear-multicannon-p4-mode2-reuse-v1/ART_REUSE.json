@@ -1,0 +1,327 @@
+{
+  "schema": "rear-multicannon-p4-mode2-art-reuse-v1",
+  "status": "PASS_EXACT_ACCEPTED_ART_REFLECTION",
+  "scope": "Exact record268 reuses unchanged77 and existing generic163/164. Only dedicated182/183 density8 resources are added.",
+  "qualification_note": "Art geometry and generated-byte proof only. Fresh actual-runtime/native behavior is separately recorded in RUNTIME.json.",
+  "accepted_source_family": "Published front Multi-Cannon v3 continuous heat-shaded diagonals163/164",
+  "logical_canvas": [
+    12,
+    14
+  ],
+  "anchor": [
+    0,
+    0
+  ],
+  "transform": "Whole-canvas vertical reflection: target(x,y)=accepted(x,112-1-y) at density8. No translation, crop, resampling, redraw, blur, normalization or new generation.",
+  "original_relation": "Privately decoded original182=flipY(163),183=flipY(164), including index/coverage arrays. Original data and masks are verification-only and are not bundled or used for generation.",
+  "density_policy": {
+    "182": [
+      8
+    ],
+    "183": [
+      8
+    ],
+    "77_unchanged": [
+      4,
+      8
+    ],
+    "163_164_generic_unchanged": [
+      8
+    ],
+    "at_private_density4": "182/183 and generic163/164 remain classic;77 may use its unchanged density4 head. No upward density fallback."
+  },
+  "native_sampling_note": "Transform full-density RGBA first; sample floor((display_coordinate+0.5)*source_density/display_scale). Reflection can select a different native subpixel phase. Full-density alpha and premultiplied RGB totals are exact; native brightness is not normalized. Offline samples are illustrative, not actual gameplay evidence.",
+  "metrics": [
+    {
+      "source_id": 182,
+      "accepted_source_id": 163,
+      "density": 8,
+      "full_density": {
+        "nonzero_alpha_samples": 2805,
+        "fractional_alpha_samples": 327,
+        "alpha_sum": 673666,
+        "premultiplied_RGB_numerators": [
+          157516130,
+          68290623,
+          15154739
+        ],
+        "luma_numerator_2126_7152_722": 834235549634,
+        "alpha_bounds_exclusive": [
+          0,
+          24,
+          88,
+          112
+        ]
+      },
+      "original_covered_cells": 43,
+      "logical_cells_touched_by_HD_alpha": 60,
+      "newly_touched_logical_cells": 17,
+      "original_cells_not_touched": 0,
+      "full_density_RGBA_row_reflection_exact": true,
+      "original_RGBA_row_reflection_exact_verification_only": true,
+      "no_clipped_RGBA_samples": true,
+      "all_alpha_RGB_energy_totals_equal_accepted_source": true,
+      "native_samples": [
+        {
+          "display_scale": 1,
+          "display_size": [
+            12,
+            14
+          ],
+          "target": {
+            "nonzero_alpha_samples": 45,
+            "fractional_alpha_samples": 5,
+            "alpha_sum": 10924,
+            "premultiplied_RGB_numerators": [
+              2551293,
+              1106811,
+              247928
+            ],
+            "luma_numerator_2126_7152_722": 13518965206,
+            "alpha_bounds_exclusive": [
+              0,
+              3,
+              11,
+              14
+            ]
+          },
+          "alpha_ratio_to_source_native_sample": 1.0131700983120016,
+          "luma_ratio_to_source_native_sample": 1.0112357766543085
+        },
+        {
+          "display_scale": 2,
+          "display_size": [
+            24,
+            28
+          ],
+          "target": {
+            "nonzero_alpha_samples": 176,
+            "fractional_alpha_samples": 19,
+            "alpha_sum": 42264,
+            "premultiplied_RGB_numerators": [
+              9899384,
+              4310240,
+              960842
+            ],
+            "luma_numerator_2126_7152_722": 52566654788,
+            "alpha_bounds_exclusive": [
+              0,
+              6,
+              22,
+              28
+            ]
+          },
+          "alpha_ratio_to_source_native_sample": 0.9979928687808449,
+          "luma_ratio_to_source_native_sample": 1.0042490968260336
+        },
+        {
+          "display_scale": 4,
+          "display_size": [
+            48,
+            56
+          ],
+          "target": {
+            "nonzero_alpha_samples": 700,
+            "fractional_alpha_samples": 81,
+            "alpha_sum": 168233,
+            "premultiplied_RGB_numerators": [
+              39336081,
+              17055251,
+              3784991
+            ],
+            "luma_numerator_2126_7152_722": 208340426860,
+            "alpha_bounds_exclusive": [
+              0,
+              12,
+              44,
+              56
+            ]
+          },
+          "alpha_ratio_to_source_native_sample": 0.9992872119890943,
+          "luma_ratio_to_source_native_sample": 0.9997157080282983
+        }
+      ]
+    },
+    {
+      "source_id": 183,
+      "accepted_source_id": 164,
+      "density": 8,
+      "full_density": {
+        "nonzero_alpha_samples": 2807,
+        "fractional_alpha_samples": 326,
+        "alpha_sum": 674119,
+        "premultiplied_RGB_numerators": [
+          157607360,
+          68301562,
+          15153168
+        ],
+        "luma_numerator_2126_7152_722": 834506606080,
+        "alpha_bounds_exclusive": [
+          8,
+          24,
+          96,
+          112
+        ]
+      },
+      "original_covered_cells": 43,
+      "logical_cells_touched_by_HD_alpha": 60,
+      "newly_touched_logical_cells": 17,
+      "original_cells_not_touched": 0,
+      "full_density_RGBA_row_reflection_exact": true,
+      "original_RGBA_row_reflection_exact_verification_only": true,
+      "no_clipped_RGBA_samples": true,
+      "all_alpha_RGB_energy_totals_equal_accepted_source": true,
+      "native_samples": [
+        {
+          "display_scale": 1,
+          "display_size": [
+            12,
+            14
+          ],
+          "target": {
+            "nonzero_alpha_samples": 46,
+            "fractional_alpha_samples": 7,
+            "alpha_sum": 10790,
+            "premultiplied_RGB_numerators": [
+              2528902,
+              1106724,
+              248885
+            ],
+            "luma_numerator_2126_7152_722": 13471430670,
+            "alpha_bounds_exclusive": [
+              1,
+              3,
+              12,
+              14
+            ]
+          },
+          "alpha_ratio_to_source_native_sample": 1.0146699266503667,
+          "luma_ratio_to_source_native_sample": 1.0066979494287094
+        },
+        {
+          "display_scale": 2,
+          "display_size": [
+            24,
+            28
+          ],
+          "target": {
+            "nonzero_alpha_samples": 178,
+            "fractional_alpha_samples": 23,
+            "alpha_sum": 42578,
+            "premultiplied_RGB_numerators": [
+              9956238,
+              4305265,
+              949741
+            ],
+            "luma_numerator_2126_7152_722": 52643930270,
+            "alpha_bounds_exclusive": [
+              2,
+              6,
+              24,
+              28
+            ]
+          },
+          "alpha_ratio_to_source_native_sample": 1.0045771989429975,
+          "luma_ratio_to_source_native_sample": 1.001699573038741
+        },
+        {
+          "display_scale": 4,
+          "display_size": [
+            48,
+            56
+          ],
+          "target": {
+            "nonzero_alpha_samples": 701,
+            "fractional_alpha_samples": 83,
+            "alpha_sum": 168719,
+            "premultiplied_RGB_numerators": [
+              39455559,
+              17112266,
+              3794880
+            ],
+            "luma_numerator_2126_7152_722": 209009348226,
+            "alpha_bounds_exclusive": [
+              4,
+              12,
+              48,
+              56
+            ]
+          },
+          "alpha_ratio_to_source_native_sample": 1.0008007877378635,
+          "luma_ratio_to_source_native_sample": 1.0019098353530214
+        }
+      ]
+    }
+  ],
+  "package": "assets/hd/artwork/player-rear-multicannon-p4-mode2-down-diagonals-v1",
+  "resources": [
+    {
+      "accepted_source_id": 163,
+      "source_id": 182,
+      "key": 1310182,
+      "density": 8,
+      "source_png_repo_path": "assets/hd/artwork/player-front-multi-eight-v1/output/bullet-163-8.png",
+      "source_png_sha256": "e17751a9ce3660041189b1ecd9ed7f76113448ea2ce24648bf7e2aff40d49b58",
+      "source_rgba_sha256": "184a7ade0710c916b6723ec7fb3c4151f1ae8790c82a3d77ee53a112be7fd86b",
+      "png_sha256": "85fe7b765089b72f23f1eaaf0449be40f1687fdbb77445fa2c4cb1a26fa7bd65",
+      "rgba_sha256": "94ee0b55b1642e1781e72ccf1d0f1570670821fca66e3bcf97a692f06f3bda1c",
+      "rgba_fnv1a64": "0x888f7807cb7fb1b7",
+      "hda_sha256": "b8d65e2ebae36ffef0ab7aa849fa5086134db521590ee6753ff379f525d9ebb9",
+      "role": 131,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "filename": "rear-multicannon-p1-bank8-182-8.hda",
+      "png": "output/rear-multi-p4-182-8.png",
+      "rgba": "output/rear-multi-p4-182-8.rgba",
+      "hda_bytes": 43036,
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-182-8.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-182-8.hda"
+      ],
+      "catalog_source_png": "assets/hd/source/rear-multicannon-p1-bank8-182-8-b8d65e2ebae3.png"
+    },
+    {
+      "accepted_source_id": 164,
+      "source_id": 183,
+      "key": 1310183,
+      "density": 8,
+      "source_png_repo_path": "assets/hd/artwork/player-front-multi-eight-v1/output/bullet-164-8.png",
+      "source_png_sha256": "bcbdc63d519471ffaf8eed1bfe2e46969aa8c10537b9430afa925232575ab3cf",
+      "source_rgba_sha256": "e7665586368a904b40698a8980c6aa6d2b5af544ce41eb5ea91c532f296151c5",
+      "png_sha256": "40c0b2f889e29b8916b2e36f89dce9060a27ba70595f040f519b169a910f252c",
+      "rgba_sha256": "c195101ad4685602590f93270b8fc9e14b6b2ab92ed5fc69fd90119298b1cbce",
+      "rgba_fnv1a64": "0x79d684e2a12caa1f",
+      "hda_sha256": "f420cffc0378b55e957699461fc98727ef26519ea13ac86cb7b7816383e7c873",
+      "role": 131,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "filename": "rear-multicannon-p1-bank8-183-8.hda",
+      "png": "output/rear-multi-p4-183-8.png",
+      "rgba": "output/rear-multi-p4-183-8.rgba",
+      "hda_bytes": 43036,
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-183-8.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-183-8.hda"
+      ],
+      "catalog_source_png": "assets/hd/source/rear-multicannon-p1-bank8-183-8-f420cffc0378.png"
+    }
+  ],
+  "limits": [
+    "Accepted smooth alpha differs from the original binary mask within the original bounds. No binary-mask equality claim.",
+    "Existing generic163/164 drawing and shadows remain on their original paths. No dedicated163/164 rear-role resource exists.",
+    "Only normal heads of182/183/77 gain new record268 ownership; their original shadow behavior is unchanged.",
+    "Previously reviewed no-generation art is reused without edits; native runtime qualification must independently establish clipping, night transfer and pass-through order."
+  ]
+}

@@ -34,9 +34,10 @@ create=extract((root/'src/shots.c').read_text(),'player_shot_create')
 baseline='\n'.join(line for line in create.split('\n') if 'rear_p1_' not in line)
 (out/'create_baseline.inc').write_text(baseline.replace('player_shot_create(', 'baseline_shot_create(', 1))
 (out/'wrapper.inc').write_text(extract((root/'src/entity_draw.c').read_text(),'draw_player_shot_sprite2'))
-ids=[39,1,281,282,301,300,40,2,77]
+ids=[39,1,281,282,301,300,40,2,77,182,183]
+observed=ids+[163,164]
 bank=bytearray(602);pins=[]
-for k,i in enumerate(ids):
+for k,i in enumerate(observed):
  struct.pack_into('<H',bank,2*(i-1),len(bank));v=bytes((k*23+y*12+x)%256 for y in range(14) for x in range(12))
  for y in range(14):bank+=bytes([0xc0])+v[y*12:(y+1)*12]+b'\x00'
  bank+=b'\x0f';pins.append(fnv(v+bytes([255])*168))
@@ -56,6 +57,13 @@ r=struct.pack('<HBBHBBBB8B8B8b8b8b8b8HbbBBBB',0x1240,6,5,0,5,5,6,0,
  *[0,0,0,0,0,-128,127,-1],*[281,282,301,300,77,0x1234,0xff80,301],0,0,0,25,255,208)
 assert len(r)==80
 records.append(r);recordpins.append(fnv(r))
+# Mode2 includes two canonical observed-only heads. Nonzero tails remain synthetic.
+r=struct.pack('<HBBHBBBB8B8B8b8b8b8b8HbbBBBB',0x1241,6,5,0,5,5,6,0,
+ *([1]*5+[198,25,255]),*([255]*8),*[-6,6,6,-6,0,-128,127,-1],
+ *[6,6,-6,-6,-10,-128,127,-1],*[-4,4,4,-4,0,-128,127,-1],
+ *[0,0,0,0,0,-128,127,-1],*[163,164,183,182,77,0x1234,0xff80,301],0,0,0,25,255,208)
+assert len(r)==80
+records.append(r);recordpins.append(fnv(r))
 (out/'records.bin').write_bytes(b''.join(records))
 resources=out/'full';resources.mkdir();rgba_pins=[]
 for k,i in enumerate(ids):
@@ -63,7 +71,7 @@ for k,i in enumerate(ids):
  for d in (4,8):
   rgba=bytes(c for j in range(168*d*d) for c in ((j+k*17)%256,(j*7+k)%256,(j*11)%256,[0,64,128,255][j%4]))
   h=struct.pack('<4s4I2i',b'HDR1',1310000+i,d,12,14,0,0);raw=h+rgba
-  (resources/f'rear-multicannon-p1-bank8-{i}-{d}.hda').write_bytes(raw);row.append(fnv(rgba))
+  (resources/f'rear-multicannon-p1-bank8-{i}-{d}.hda').write_bytes(raw);row.append(0 if i in (182,183) and d==4 else fnv(rgba))
  rgba_pins.append(row)
 header=lambda name,x:'#define '+name+' {'+','.join('UINT64_C(0x%016x)'%a for a in x)+'}\n'
 (out/'fixture_pins.h').write_text('#define REAR_P1_BANK_SIZE '+str(len(bank))+'\n'+header('REAR_P1_SOURCE_PINS',pins)+header('REAR_P1_RECORD_PINS',recordpins)+'#define REAR_P1_RGBA_PINS {'+','.join('{'+','.join('UINT64_C(0x%016x)'%a for a in row)+'}' for row in rgba_pins)+'}\n')

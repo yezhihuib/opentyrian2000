@@ -121,7 +121,7 @@ assert family['entries'] == [{'id': 77, 'density': a['density'], 'HDA_sha256': a
                              for a in binding['resources']]
 runtime = (root / 'src/rear_multi_p1_pins.h').read_text().split('#define REAR_P1_RGBA_PINS ', 1)[1].split('\n', 1)[0]
 values = [int(x, 16) for x in re.findall(r'UINT64_C\(0x([0-9a-f]+)\)', runtime)]
-assert len(values) == 18 and values[16:] == stamps
+assert len(values) >= 18 and values[16:18] == stamps
 with tempfile.TemporaryDirectory(prefix='rear-p4-mode1-art-') as temporary:
     relocated = Path(temporary)
     local_art = relocated / art.name

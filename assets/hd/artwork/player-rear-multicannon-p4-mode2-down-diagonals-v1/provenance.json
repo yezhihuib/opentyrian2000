@@ -1,0 +1,34 @@
+{
+  "schema": "rear-multicannon-p4-mode2-down-diagonals-provenance-v1",
+  "published_input_baseline": {
+    "commit": "3b398429ffa4f3e9250d1bd02cc22dab16fc28ad",
+    "tree": "136ea6b0e3418a60b4634974939130ea6969a38f"
+  },
+  "accepted_source_family": "assets/hd/artwork/player-front-multi-eight-v1/output",
+  "accepted_inputs": [
+    {
+      "path": "assets/hd/artwork/player-front-multi-eight-v1/output/bullet-163-8.png",
+      "png_sha256": "e17751a9ce3660041189b1ecd9ed7f76113448ea2ce24648bf7e2aff40d49b58",
+      "decoded_rgba_sha256": "184a7ade0710c916b6723ec7fb3c4151f1ae8790c82a3d77ee53a112be7fd86b"
+    },
+    {
+      "path": "assets/hd/artwork/player-front-multi-eight-v1/output/bullet-164-8.png",
+      "png_sha256": "bcbdc63d519471ffaf8eed1bfe2e46969aa8c10537b9430afa925232575ab3cf",
+      "decoded_rgba_sha256": "e7665586368a904b40698a8980c6aa6d2b5af544ce41eb5ea91c532f296151c5"
+    }
+  ],
+  "reviewed_generated_only_export": {
+    "sha256": "244ba2c777b396b2b3bfbba1fd6543821719cc7872767755f85854f2e8fde2c9",
+    "selected_outputs": [
+      "output/rear-multi-p4-182-8.png",
+      "output/rear-multi-p4-183-8.png",
+      "output/rear-multi-p4-182-8.rgba",
+      "output/rear-multi-p4-183-8.rgba"
+    ],
+    "independent_review_result": "PASS, offline art only; integration and runtime are separately qualified"
+  },
+  "operation": "whole-canvas vertical flip of accepted163 to182 and164 to183; no translation, generation, resampling, color/alpha edits or normalization",
+  "original_game_pixels_masks_palettes_or_captures_bundled": false,
+  "old_non_manifest_assets": 7048,
+  "old_assets_path_sha256_inventory_digest": "0fb686ecaa7d78d35579c37431d569e262079bc74cae1644276747083e6a945f"
+}

@@ -29,15 +29,22 @@ static Uint8 *hd_owner,*cloud_owner,*green_under_owner;static Uint16 *green_firs
 static unsigned drawn,blits,ends,generics,probes,checks;static bool last_mirrored;
 #define CHECK(x) do { ++checks; if(!(x)){fprintf(stderr,"FAIL line%d: %s\n",__LINE__,#x);exit(1);} } while(0)
 static bool draw_asset(int x,int y,Asset*a,int style,const SDL_Rect*part){CHECK(x>=0&&x<=308&&y>=-13&&y<200&&a&&a->valid&&style==0&&!part);drawn++;suppress=true;return true;}
+/* Count real role-file open attempts, including unsuccessful lookups. */
+#include <fcntl.h>
+#include <unistd.h>
+static unsigned role_opens;
+static int observed_open(const char *name,int flags){role_opens++;return open(name,flags);}
+#define open observed_open
 #include "rear_multi_p1_mirror.inc"
-static void game_probe_draw(int bank,unsigned index,int x,int y,int style,int layout,bool mirrored){CHECK(bank==8&&rear_p1_member(index)>=0&&x>=0&&y>=-13&&style==0&&layout==0);probes++;last_mirrored=mirrored;}
-static void blit_sprite2(SDL_Surface*s,int x,int y,Sprite2_array b,unsigned i){CHECK(s&&b.data&&rear_p1_member(i)>=0&&x>=0&&y>=-13);blits++;}
+#undef open
+static void game_probe_draw(int bank,unsigned index,int x,int y,int style,int layout,bool mirrored){CHECK(bank==8&&rear_p1_observed(index)>=0&&x>=0&&y>=-13&&style==0&&layout==0);probes++;last_mirrored=mirrored;}
+static void blit_sprite2(SDL_Surface*s,int x,int y,Sprite2_array b,unsigned i){CHECK(s&&b.data&&rear_p1_observed(i)>=0&&x>=0&&y>=-13);blits++;}
 static void render_mirror_entity_end(void){ends++;suppress=false;}
 static void draw_entity_sprite2(SDL_Surface*s,int x,int y,Sprite2_array b,unsigned i,int style,int layout){CHECK(style==0&&layout==0);generics++;game_probe_draw(8,i,x,y,style,layout,false);blit_sprite2(s,x,y,b,i);render_mirror_entity_end();}
 #include "wrapper.inc"
 #include "variants.inc"
-static const unsigned ids[]={39,1,281,282,301,300,40,2,77};static const int dx[]={-10,10,-9,9,9,-9,-10,10,0},dy[]={0,0,-2,-2,2,2,0,0,10};
-static Uint8 bankdata[4096],originalbank[4096],recordbytes[560],pixels[64000],ownerbyte;static size_t banksize;
+static const unsigned ids[]={39,1,281,282,301,300,40,2,77,182,183,163,164};static const int dx[]={-10,10,-9,9,9,-9,-10,10,0,-6,6,-6,6},dy[]={0,0,-2,-2,2,2,0,0,10,6,6,-6,-6};
+static Uint8 bankdata[4096],originalbank[4096],recordbytes[640],pixels[64000],ownerbyte;static size_t banksize;
 static Uint32 canvasstorage[320*200*8*8];
 #define canvaspixel canvasstorage[0]
 static Uint16 ownerword;static Uint32 ownerlong;static SDL_PixelFormat fmt={1,8,1},cfmt={2,32,4};static SDL_Surface surface={pixels,&fmt,320,200,320},csurface={&canvaspixel,&cfmt,1280,800,5120};
@@ -45,8 +52,8 @@ static char full[4096],work[2048],path[4096];
 static unsigned byte(const Uint8**p){return *(*p)++;}static unsigned word(const Uint8**p){unsigned a=byte(p);return a|(byte(p)<<8);}
 static void parse_record(JE_WeaponType*w,const Uint8*b){const Uint8*p=b;w->drain=word(&p);w->shotrepeat=byte(&p);w->multi=byte(&p);w->weapani=word(&p);w->max=byte(&p);w->tx=byte(&p);w->ty=byte(&p);w->aim=byte(&p);for(unsigned i=0;i<8;i++)w->attack[i]=byte(&p);for(unsigned i=0;i<8;i++)w->del[i]=byte(&p);for(unsigned i=0;i<8;i++)w->sx[i]=(int8_t)byte(&p);for(unsigned i=0;i<8;i++)w->sy[i]=(int8_t)byte(&p);for(unsigned i=0;i<8;i++)w->bx[i]=(int8_t)byte(&p);for(unsigned i=0;i<8;i++)w->by[i]=(int8_t)byte(&p);for(unsigned i=0;i<8;i++)w->sg[i]=word(&p);w->acceleration=(int8_t)byte(&p);w->accelerationx=(int8_t)byte(&p);w->circlesize=byte(&p);w->sound=byte(&p);w->trail=byte(&p);w->shipblastfilter=byte(&p);CHECK(p==b+80);}
 static void defaults(int d,const char*root){
- rear_p1_shutdown();memcpy(bankdata,originalbank,banksize);spriteSheet8=(Sprite2_array){banksize,bankdata};parse_record(&weapons[254],recordbytes);parse_record(&weapons[265],recordbytes+80);parse_record(&weapons[255],recordbytes+160);parse_record(&weapons[266],recordbytes+240);parse_record(&weapons[267],recordbytes+320);parse_record(&weapons[256],recordbytes+400);parse_record(&weapons[257],recordbytes+480);
- memset(weaponPort,0,sizeof weaponPort);weaponPort[10].opnum=2;weaponPort[10].op[0][0]=254;weaponPort[10].op[1][0]=265;weaponPort[10].op[0][1]=255;weaponPort[10].op[1][1]=266;weaponPort[10].op[1][2]=267;weaponPort[10].op[0][2]=256;weaponPort[10].op[0][3]=257;weaponPort[10].poweruse=40;
+ rear_p1_shutdown();memcpy(bankdata,originalbank,banksize);spriteSheet8=(Sprite2_array){banksize,bankdata};parse_record(&weapons[254],recordbytes);parse_record(&weapons[265],recordbytes+80);parse_record(&weapons[255],recordbytes+160);parse_record(&weapons[266],recordbytes+240);parse_record(&weapons[267],recordbytes+320);parse_record(&weapons[256],recordbytes+400);parse_record(&weapons[257],recordbytes+480);parse_record(&weapons[268],recordbytes+560);
+ memset(weaponPort,0,sizeof weaponPort);weaponPort[10].opnum=2;weaponPort[10].op[0][0]=254;weaponPort[10].op[1][0]=265;weaponPort[10].op[0][1]=255;weaponPort[10].op[1][1]=266;weaponPort[10].op[1][2]=267;weaponPort[10].op[0][2]=256;weaponPort[10].op[0][3]=257;weaponPort[10].op[1][3]=268;weaponPort[10].poweruse=40;
  memset(playerShotData,0,sizeof playerShotData);episodeNum=1;lvlFileNum=9;initialDifficulty=DIFFICULTY_NORMAL;xmas=isNetworkGame=twoPlayerMode=twoPlayerLinked=galagaMode=play_demo=record_demo=onePlayerAction=superTyrian=superArcadeMode=timedBattleMode=bonusLevel=normalBonusLevelCurrent=bonusLevelCurrent=0;
  active=true;suppress=false;reject_reason=NULL;game_probe_missing=game_probe_invalid=game_probe_original_reference=false;game_probe_scene_assets=1;game_probe_density=d;game_probe_assets=root;
  fmt=(SDL_PixelFormat){1,8,1};cfmt=(SDL_PixelFormat){2,32,4};surface=(SDL_Surface){pixels,&fmt,320,200,320};csurface=(SDL_Surface){&canvaspixel,&cfmt,320*d,200*d,320*d*4};game_screen=VGAScreen=&surface;canvas=&csurface;
@@ -78,11 +85,11 @@ static void adapter_begin(unsigned port,unsigned bay,unsigned power,unsigned mod
 {render_mirror_rear_p1_call_begin(port,bay,power,mode,player,record);test_call=render_mirror_rear_p1_create_begin(port,bay,record,player);}
 #define render_mirror_rear_p1_call_begin(...) adapter_begin(__VA_ARGS__)
 #define render_mirror_rear_p1_emit(...) render_mirror_rear_p1_emit(test_call,1,__VA_ARGS__)
-static unsigned member_mode(unsigned k){return test_power==3?0:k>=2&&k<6;}
-static unsigned member_phase(unsigned k){return k==8?5:k>=6?k-5:k<2?k+1:k-1;}
-static unsigned member_record(unsigned k){return test_power==3?257:k>=6?256:(k<2?254:265)+test_power;}
-static unsigned member_record_offset(unsigned k){return test_power==3?480:k>=6?400:test_power==2?320:(k<2?0:80)+test_power*160;}
-static void emit(unsigned k,unsigned slot){unsigned r=member_record(k);make_shot(k,slot);render_mirror_rear_p1_call_begin(10,1,test_power,member_mode(k),1,r);render_mirror_rear_p1_emit(slot,10,1,r,1,member_phase(k),ids[k]);render_mirror_rear_p1_create_end(test_call);render_mirror_rear_p1_call_end();}
+static unsigned member_mode(unsigned k){return test_power==4?1:test_power==3?0:k>=2&&k<6;}
+static unsigned member_phase(unsigned k){return k==11?1:k==12?2:k==10?3:k==9?4:k==8?5:k>=6?k-5:k<2?k+1:k-1;}
+static unsigned member_record(unsigned k){return test_power==4?268:test_power==3?257:k>=6?256:(k<2?254:265)+test_power;}
+static unsigned member_record_offset(unsigned k){return test_power==4?560:test_power==3?480:k>=6?400:test_power==2?320:(k<2?0:80)+test_power*160;}
+static void emit(unsigned k,unsigned slot){unsigned r=member_record(k);make_shot(k,slot);render_mirror_rear_p1_call_begin(10,1,test_power==4?3:test_power,member_mode(k),1,r);render_mirror_rear_p1_emit(slot,10,1,r,1,member_phase(k),ids[k]);render_mirror_rear_p1_create_end(test_call);render_mirror_rear_p1_call_end();}
 static bool head(unsigned k,unsigned slot){return render_mirror_rear_p1_head(&surface,playerShotData[slot].shotX+1,playerShotData[slot].shotY,spriteSheet8,ids[k],slot,ids[k]);}
 static bool checked_head(unsigned k,unsigned slot){unsigned n=drawn;PlayerShotDataType q=playerShotData[slot];Uint8 before[64000];memcpy(before,pixels,sizeof before);bool got=head(k,slot);CHECK(drawn==n+(unsigned)got);CHECK(!memcmp(&q,&playerShotData[slot],sizeof q));CHECK(!memcmp(before,pixels,sizeof before));render_mirror_entity_end();return got;}
 static void bad_restore(unsigned k,unsigned slot){CHECK(!checked_head(k,slot));CHECK(!rear_p1_state.birth[slot].qualified);}
@@ -97,7 +104,7 @@ static void compare_create(unsigned port,unsigned record,unsigned power_index,un
  GameState initial,observed,baseline;save_game(&initial);
  if(grant){
   (render_mirror_rear_p1_call_begin)(port,1,power_index,mode,1,record);
-  bool tuple=(power_index<3&&mode<2&&record==(mode?265:254)+power_index)||(power_index==3&&mode==0&&record==257);
+  bool tuple=(power_index<3&&mode<2&&record==(mode?265:254)+power_index)||(power_index==3&&mode<2&&record==(mode?268:257));
   CHECK(rear_p1_state.pending==(active&&rear_p1_scope()&&rear_p1_table(record)&&port==10&&tuple));
  }
  JE_integer a=player_shot_create(port,1,100,100,100,100,record,1);save_game(&observed);
@@ -442,11 +449,12 @@ static void test_views(unsigned k){
  int ys[]={-13,0,199,-14,200,INT_MIN,INT_MAX};for(unsigned i=0;i<7;i++){emit(k,0);playerShotData[0].shotY=ys[i]>-32768&&ys[i]<32767?ys[i]:100;CHECK(render_mirror_rear_p1_head(&surface,101,ys[i],spriteSheet8,ids[k],0,ids[k])==(i<3));render_mirror_entity_end();}
  emit(k,0);CHECK(!render_mirror_rear_p1_head(NULL,101,100,spriteSheet8,ids[k],0,ids[k]));CHECK(!render_mirror_rear_p1_head(&surface,102,100,spriteSheet8,ids[k],0,ids[k]));CHECK(!render_mirror_rear_p1_head(&surface,101,101,spriteSheet8,ids[k],0,ids[k]));CHECK(checked_head(k,0));
 }
+#include "rear_multi_p4_mode2_adapter.inc"
 int main(int argc,char**argv){
- CHECK(argc==2);snprintf(work,sizeof work,"%s",argv[1]);snprintf(full,sizeof full,"%s/full",work);snprintf(path,sizeof path,"%s/bank.bin",work);FILE*f=fopen(path,"rb");CHECK(f);banksize=fread(originalbank,1,sizeof originalbank,f);CHECK(banksize>602&&banksize<sizeof originalbank);fclose(f);snprintf(path,sizeof path,"%s/records.bin",work);f=fopen(path,"rb");CHECK(f);CHECK(fread(recordbytes,1,560,f)==560);fclose(f);
- test_actual_allocations();test_rejected_allocations();test_p3_actual_allocations();test_p3_adapter_protocol();test_p3_mode1_actual_allocations();test_p3_mode1_adapter_protocol();test_p4_mode1_actual_allocations();test_p4_mode1_adapter_protocol();
- for(test_power=0;test_power<4;test_power++)for(int d=4;d<=8;d+=4)for(unsigned k=test_power>=2?2:0;k<(test_power==3?9u:test_power==2?8u:6u);k++){
-  if(test_power==3&&(k==6||k==7))continue;
+ CHECK(argc==2);snprintf(work,sizeof work,"%s",argv[1]);snprintf(full,sizeof full,"%s/full",work);snprintf(path,sizeof path,"%s/bank.bin",work);FILE*f=fopen(path,"rb");CHECK(f);banksize=fread(originalbank,1,sizeof originalbank,f);CHECK(banksize>602&&banksize<sizeof originalbank);fclose(f);snprintf(path,sizeof path,"%s/records.bin",work);f=fopen(path,"rb");CHECK(f);CHECK(fread(recordbytes,1,640,f)==640);fclose(f);
+ test_actual_allocations();test_rejected_allocations();test_p3_actual_allocations();test_p3_adapter_protocol();test_p3_mode1_actual_allocations();test_p3_mode1_adapter_protocol();test_p4_mode1_actual_allocations();test_p4_mode1_adapter_protocol();test_p4_mode2_actual_allocations();test_p4_mode2_adapter_protocol();test_p4_mode2_resources();
+ for(test_power=0;test_power<5;test_power++)for(int d=4;d<=8;d+=4)for(unsigned k=test_power==4?8:test_power>=2?2:0;k<(test_power==4?11u:test_power==3?9u:test_power==2?8u:6u);k++){
+  if((test_power==3&&(k==6||k==7))||(test_power==4&&d==4&&k>=9))continue;
   defaults(d,full);CHECK(rear_p1_table(254)&&rear_p1_table(265)&&rear_p1_table(255)&&rear_p1_table(266)&&rear_p1_table(267)&&rear_p1_table(256)&&rear_p1_table(257));CHECK(rear_p1_source(spriteSheet8,ids[k]));emit(k,0);CHECK(checked_head(k,0));CHECK(checked_head(k,0));
   /* Exact current immutable shot; mode/power selection belongs to birth. */
   unsigned record=member_record(k);render_mirror_rear_p1_call_begin(10,1,(test_power==0?1:0),member_mode(k),1,record);make_shot(k,1);render_mirror_rear_p1_emit(1,10,1,record,1,member_phase(k),ids[k]);render_mirror_rear_p1_call_end();CHECK(!checked_head(k,1));CHECK(checked_head(k,0));
@@ -455,7 +463,7 @@ int main(int argc,char**argv){
   test_views(k);
   /* Every canonical record byte mutation, including invisible unused tail. */
   for(unsigned bytei=0;bytei<80;bytei++){emit(k,0);Uint8 modified[80];memcpy(modified,recordbytes+member_record_offset(k),80);modified[bytei]^=1;parse_record(&weapons[record],modified);bad_restore(k,0);parse_record(&weapons[record],recordbytes+member_record_offset(k));CHECK(!checked_head(k,0));}
-  for(unsigned which=0;which<(test_power>=2?7u:6u);which++){emit(k,0);if(which==0)weaponPort[10].opnum++;if(which==1)weaponPort[10].op[0][0]++;if(which==2)weaponPort[10].op[1][0]++;if(which==3)weaponPort[10].poweruse++;if(which==4)weaponPort[10].op[0][1]++;if(which==5)weaponPort[10].op[1][1]++;if(which==6)weaponPort[10].op[member_mode(k)][test_power]++;bad_restore(k,0);weaponPort[10].opnum=2;weaponPort[10].op[0][0]=254;weaponPort[10].op[1][0]=265;weaponPort[10].op[0][1]=255;weaponPort[10].op[1][1]=266;weaponPort[10].op[1][2]=267;weaponPort[10].op[0][2]=256;weaponPort[10].op[0][3]=257;weaponPort[10].poweruse=40;CHECK(!checked_head(k,0));}
+  for(unsigned which=0;which<(test_power>=2?7u:6u);which++){emit(k,0);if(which==0)weaponPort[10].opnum++;if(which==1)weaponPort[10].op[0][0]++;if(which==2)weaponPort[10].op[1][0]++;if(which==3)weaponPort[10].poweruse++;if(which==4)weaponPort[10].op[0][1]++;if(which==5)weaponPort[10].op[1][1]++;if(which==6)weaponPort[10].op[member_mode(k)][test_power==4?3:test_power]++;bad_restore(k,0);weaponPort[10].opnum=2;weaponPort[10].op[0][0]=254;weaponPort[10].op[1][0]=265;weaponPort[10].op[0][1]=255;weaponPort[10].op[1][1]=266;weaponPort[10].op[1][2]=267;weaponPort[10].op[0][2]=256;weaponPort[10].op[0][3]=257;weaponPort[10].op[1][3]=268;weaponPort[10].poweruse=40;CHECK(!checked_head(k,0));}
   unsigned off=bankdata[2*(ids[k]-1)]|((unsigned)bankdata[2*(ids[k]-1)+1]<<8);
   emit(k,0);bankdata[off+1]^=1;bad_restore(k,0);bankdata[off+1]^=1;CHECK(!checked_head(k,0));emit(k,0);CHECK(checked_head(k,0));
   emit(k,0);spriteSheet8.size--;CHECK(!rear_p1_source((Sprite2_array){banksize,bankdata},ids[k]));spriteSheet8.size++;CHECK(checked_head(k,0));
@@ -486,7 +494,7 @@ int main(int argc,char**argv){
  defaults(4,full);lvlFileNum=15;initialDifficulty=DIFFICULTY_HARD;emit(scope_member,0);CHECK(checked_head(scope_member,0));initialDifficulty=DIFFICULTY_NORMAL;bad_restore(scope_member,0);initialDifficulty=DIFFICULTY_HARD;CHECK(!checked_head(scope_member,0));
  defaults(4,full);episodeNum=4;emit(scope_member,0);CHECK(!checked_head(scope_member,0));episodeNum=1;CHECK(!checked_head(scope_member,0));
  }
- for(test_power=1;test_power<4;test_power++)for(unsigned i=0;i<sizeof variants/sizeof *variants;i++){if((test_power==3&&(variants[i].member<2||variants[i].member==6||variants[i].member==7))||(test_power==2&&(variants[i].member<2||variants[i].member==8))||(test_power<2&&variants[i].member>=6))continue;snprintf(path,sizeof path,"%s/%s",work,variants[i].name);defaults(variants[i].density,path);emit(variants[i].member,0);CHECK(!checked_head(variants[i].member,0));CHECK(!checked_head(variants[i].member,0));}
+ for(test_power=1;test_power<5;test_power++)for(unsigned i=0;i<sizeof variants/sizeof *variants;i++){if((test_power==4&&variants[i].member<8)||(test_power==3&&(variants[i].member<2||variants[i].member==6||variants[i].member==7||variants[i].member>=9))||(test_power==2&&(variants[i].member<2||variants[i].member>=8))||(test_power<2&&variants[i].member>=6))continue;snprintf(path,sizeof path,"%s/%s",work,variants[i].name);defaults(variants[i].density,path);emit(variants[i].member,0);CHECK(!checked_head(variants[i].member,0));CHECK(!checked_head(variants[i].member,0));}
  test_power=1;
  /* Coverage-only mutation: source index0 was covered, then becomes transparent.
   * Every decoded palette index stays identical, but coverage pin must reject. */

@@ -1,5 +1,7 @@
 # Rear Multi-Cannon P4 mode 1: five-head accepted-art reuse
 
+> Subsequent coverage: [P4 mode 2 record 268](../rear-multicannon-p4-mode2-reuse-v1/VALIDATION.md) completes the public-density normal heads with bounded pass-through. The partial-P4 descriptions below record this historical mode 1 introduction.
+
 Baseline: `c812f88befb2f5bde9f105852657c914b4aab18f`.
 
 Status: **PASS: bounded five-head reuse with fresh independent native-runtime qualification.**

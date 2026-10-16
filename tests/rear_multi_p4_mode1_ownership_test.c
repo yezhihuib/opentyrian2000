@@ -155,7 +155,7 @@ static void isolation(RearP1State *s)
 static bool admitted(unsigned power,unsigned mode,unsigned record)
 {
  return (power<2&&mode<2&&record==(mode?265:254)+power)||
-  (power==2&&mode<2&&record==(mode?267:256))||(power==3&&mode==0&&record==257);
+  (power==2&&mode<2&&record==(mode?267:256))||(power==3&&mode<2&&record==(mode?268:257));
 }
 static void admission(RearP1State *s)
 {
@@ -175,8 +175,8 @@ static void admission(RearP1State *s)
   rear_p1_call_begin(s,7,ports[p],bays[b],3,0,players[u],257,scope!=0,table!=0);CHECK(s->pending==yes);
   rear_p1_call_end(s);clear(s);
  }
- CHECK(REAR_P1_HEADS==9&&REAR_P1_MAX_BUDGET==5);
- const unsigned members[]={39,1,281,282,301,300,40,2,77};
+ CHECK(REAR_P1_HEADS==11&&REAR_P1_MAX_BUDGET==5);
+ const unsigned members[]={39,1,281,282,301,300,40,2,77,182,183};
  for(unsigned k=0;k<sizeof members/sizeof *members;k++)CHECK(rear_p1_member(members[k])==(int)k);
  for(unsigned raw=0;raw<8000;raw++) {
   bool yes=false;for(unsigned k=0;k<sizeof members/sizeof *members;k++)yes|=raw==members[k];
@@ -246,7 +246,7 @@ static void coexistence(RearP1State *s)
   for(unsigned n=1;n<=5;n++)CHECK(current(s,70+n,n));
   for(unsigned k=0;k<count;k++)CHECK(rear_p1_current(s,k,births[k].gr,births[k].gr,&births[k],true,true,true));
  }
- /* Recycle only one new slot under excluded record268; no other birth changes. */
+ /* Recycle only one new slot under a mismatched record268 observation; no other birth changes. */
  rear_p1_call_begin(s,7,10,1,3,1,1,268,true,true);c=rear_p1_create_begin(s,7,10,1,268,1);
  emit(s,c,1,75,5);CHECK(!current(s,75,5));for(unsigned n=1;n<=4;n++)CHECK(current(s,70+n,n));
  for(unsigned k=0;k<count;k++)CHECK(rear_p1_current(s,k,births[k].gr,births[k].gr,&births[k],true,true,true));

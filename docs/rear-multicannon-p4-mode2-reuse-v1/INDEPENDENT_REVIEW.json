@@ -1,0 +1,318 @@
+{
+  "schema": "rear-multicannon-p4-mode2-independent-review-v1",
+  "status": "PASS_BOUNDED_FROZEN_SOURCE_ART_TEST_AND_FRESH_RUNTIME",
+  "reviewed_at_utc": "2026-10-16T18:37:37.843013+00:00",
+  "scope": "Player1 rear Multi-Cannon10 power4 mode2 exact record268, episode1 Normal9/Hard15 only. Five observations163/164/183/182/77;163/164 remain generic pass-throughs; only182/183 add dedicated resources at density8. Existing77 density4/8 is reused unchanged.",
+  "baseline_commit": "3b398429ffa4f3e9250d1bd02cc22dab16fc28ad",
+  "baseline_tree": "136ea6b0e3418a60b4634974939130ea6969a38f",
+  "unified_freeze_sha256": "a69a9e71c5c169ba9da634c7924adf6bf00378491543c667d1d88194d865cc19",
+  "freeze_counts": {
+    "source": 160,
+    "asset": 7066,
+    "test": 47,
+    "makefile": 1
+  },
+  "source": {
+    "only_changed_source_files": [
+      "src/rear_multi_p1.c",
+      "src/rear_multi_p1.h",
+      "src/rear_multi_p1_mirror.inc",
+      "src/rear_multi_p1_pins.h"
+    ],
+    "changed_source_sha256": {
+      "src/rear_multi_p1.c": "648f8818cbfb7254e78f27ffccc5c64deaf412c3f02776385f354fd35479d357",
+      "src/rear_multi_p1.h": "91a8abda41bed0308e99eb30ff2cd3afe12c0e0025b0f693ae5b91734d1c0ce5",
+      "src/rear_multi_p1_mirror.inc": "00bada8a75e8bc03652c0fc33f631e672ec3b735b688dfce82432be84f789fc3",
+      "src/rear_multi_p1_pins.h": "80ec21877864966c859df184e1bd39d0ed7eee6f5ea1a6fbaea66210d2589aaf"
+    },
+    "original_source_inverse_files_byte_exact": 156,
+    "all_old_record_source_RGBA_pins_preserved": true,
+    "gameplay_RNG_INDEX8_palette_allocation_collision_order_generic_normal_shadow_mapping_and_compositor_unchanged": true,
+    "record268_period_and_budget": 5,
+    "observed_id_count": 13,
+    "drawable_id_count": 11,
+    "used_slot_capacity": 5,
+    "protocol_review": [
+      "Exact tuple and full80-byte record268/source pins, without making older records depend on the new table cell",
+      "All five observations consume original ordinal, remaining budget, cyclic phase and slot uniqueness; pass-through clears recycled birth and preserves the remaining lease without minting any rear-role birth or resource lookup",
+      "Five cyclic starts, prior capacities0..4/new0..5, both pass-throughs and77 at every ordinal, every duplicate position and sixth observations",
+      "Malformed pass-through source/live shot, wrong token/tick/tuple, nested/unwrapped/stale calls, reset/frame/generation loss and one-way revocation",
+      "Birth-owned mode/record preserved across equipment changes; all earlier P1-P3/P4mode1 births remain qualified independently",
+      "Density4 rejects182/183 before cache or file access; unavailable valid artwork retains ownership and does not revoke other heads"
+    ]
+  },
+  "art": {
+    "approved_generated_export_sha256": "244ba2c777b396b2b3bfbba1fd6543821719cc7872767755f85854f2e8fde2c9",
+    "new_ids": [
+      182,
+      183
+    ],
+    "densities": [
+      8
+    ],
+    "role": 131,
+    "keys": [
+      1310182,
+      1310183
+    ],
+    "logical_size": [
+      12,
+      14
+    ],
+    "anchor": [
+      0,
+      0
+    ],
+    "approved_png_rgba_bytes_exact": true,
+    "independent_whole_canvas_flipY_rows_equal": true,
+    "all_RGBA_samples_and_alpha_premultiplied_RGB_energy_exact": true,
+    "old_nonmanifest_asset_files_byte_exact": 7048,
+    "additive_catalog_inverse_to_baseline_exact": true,
+    "standalone_relocated_rebuild_from_only_two_accepted_PNGs_exact": true,
+    "corrupt_input_rejected_before_output": true,
+    "each_original_covered_cells": 43,
+    "each_authored_touched_logical_cells": 60,
+    "each_added_cells": 17,
+    "each_missing_original_cells": 0,
+    "six_offline_native_sample_metrics_recomputed": true,
+    "native_subpixel_phase_difference_preserved_without_brightness_normalization": true,
+    "ART_REUSE_sha256": "46bd66fdbaad773ff3345f8fb06a7ed2b5c0c6849ebe4e6a6616a631f0c51c8e"
+  },
+  "tests": {
+    "public_core_suites_plain_and_ASan_UBSan": 7,
+    "mode2_core_assertions_each": 105461,
+    "actual_public_adapter_assertions_each": 471760,
+    "malformed_resource_variants": 352,
+    "independent_authentic_assertions_each": 354500,
+    "production_pins_overridden": false,
+    "actual_allocator_vs_observer_stripped_original_state_byte_equal": true,
+    "authentic_source_tables": 3,
+    "physical_records_per_table": 1638,
+    "maximum_weapon_record_ID": 1818,
+    "all80_record_bytes_mutated_and_rejected": true,
+    "inbounds_shared_alternate_episode4_episode5_and_Christmas_negatives": true,
+    "all_focused_old_new_asset_tests_and_original_source_inverse_pass": true,
+    "LeakSanitizer_qualified": false
+  },
+  "builds": {
+    "current_strict_builds_verified": 10,
+    "translation_units_each": 74,
+    "enabled_diagnostic_warnings": 0,
+    "unchanged_disabled_diagnostic_warnings": 15,
+    "independent_zero_fuzz_and_zero_offset_observer_inverses": 6,
+    "all160_unhooked_source_files_restored_per_inverse": true,
+    "final_executed_fixture_binary_hashes_verified": true
+  },
+  "fresh_runtime": {
+    "pairs": 24,
+    "processes": 48,
+    "logic_ticks": 6000,
+    "original_byte_exact_parity_streams_per_pair": 20,
+    "candidate_native_game_frames_independently_recomputed": 368,
+    "baseline_and_candidate_native_game_images": 736,
+    "pairwise_byte_exact_shop_images": 144,
+    "cases_by_batch": {
+      "main": {
+        "pairs": 4,
+        "candidate_native_frames": 100,
+        "logic_ticks_both_variants": 960
+      },
+      "negative": {
+        "pairs": 8,
+        "candidate_native_frames": 64,
+        "logic_ticks_both_variants": 1920
+      },
+      "power": {
+        "pairs": 6,
+        "candidate_native_frames": 48,
+        "logic_ticks_both_variants": 1440
+      },
+      "transition": {
+        "pairs": 2,
+        "candidate_native_frames": 60,
+        "logic_ticks_both_variants": 720
+      },
+      "present": {
+        "pairs": 2,
+        "candidate_native_frames": 46,
+        "logic_ticks_both_variants": 480
+      },
+      "density4": {
+        "pairs": 2,
+        "candidate_native_frames": 50,
+        "logic_ticks_both_variants": 480
+      }
+    },
+    "ordinary_original_shop": {
+      "cash_before": 10000,
+      "cost": 8250,
+      "cash_after": 1750,
+      "rear_port": 10,
+      "power": 4,
+      "sidekicks": 0
+    },
+    "main_source_density": 8,
+    "main_actual_native_sizes": [
+      [
+        640,
+        400
+      ],
+      [
+        1280,
+        800
+      ]
+    ],
+    "main_sampled_frames_per_process": 25,
+    "main_each_new_mode2_head_draws": 265,
+    "main_each_new_draws_by_id": {
+      "183": 113,
+      "182": 84,
+      "77": 68
+    },
+    "every_new_admission_matches_latest_exact_record268_slot_birth": true,
+    "all_observed_alpha_class_counts_after_canvas_clipping_and_new_compositor_invocations_independently_joined": true,
+    "first60_mode1_original_streams_draw_routes_and_all_sampled_native_frames_exact": true,
+    "generic163_164_normal_shadow_draw_records_and_resource_bytes_unchanged": true,
+    "all24_fully_exposed_brown_cloud_witnesses_and48_native_plate_tiles_verified": true,
+    "brown_cloud_support_classification_independently_recomputed_from_actual_scene_commands": true,
+    "original_Hard_attenuation_and_native_sampling_recomputed_exactly": true,
+    "all_changes_confined_to_changed_original_plus_authored_support_footprints": true,
+    "whole_main_ID_filtered_occlusion_scope": "The following whole-main counts include unchanged record257 ID77 as well as new record268182/183/77.",
+    "new_record268_only_occlusion": [
+      {
+        "case": "normal-art-native2x",
+        "later_ordered_fractional_writes": 2775,
+        "fractional_points_outside_playfield": 5071,
+        "later_writes_within_original_ship_bounds": 1201
+      },
+      {
+        "case": "normal-art-native4x",
+        "later_ordered_fractional_writes": 2775,
+        "fractional_points_outside_playfield": 5071,
+        "later_writes_within_original_ship_bounds": 1201
+      },
+      {
+        "case": "hard-art-native2x",
+        "later_ordered_fractional_writes": 2776,
+        "fractional_points_outside_playfield": 5071,
+        "later_writes_within_original_ship_bounds": 1201
+      },
+      {
+        "case": "hard-art-native4x",
+        "later_ordered_fractional_writes": 2776,
+        "fractional_points_outside_playfield": 5071,
+        "later_writes_within_original_ship_bounds": 1201
+      }
+    ],
+    "each_main_later_ordered_fractional_writes": 3940,
+    "each_main_fractional_points_outside_playfield": 6419,
+    "each_main_later_writes_within_original_ship_command_bounds": 1933,
+    "natural_owned_head_head_authored_support_overlap_pixels": 0,
+    "fallback_each_missing182_new_draws": 181,
+    "fallback_each_corrupt183_new_draws": 152,
+    "fallback_each_both_new_missing_draws": 68,
+    "allthree_target_missing_new_draws": 0,
+    "allthree_target_missing_prior_mode1_77_removed_draws": 66,
+    "allthree_missing_caveat": "This diagnostic deliberately removes existing77 too, so66 mode1 draws fall back before/around the switch. New record268 stays classic and sampled output from72 onward is baseline-exact.",
+    "P1_P2_P3_Normal_Hard_both_modes_regression_streams_and_native_images_exact": true,
+    "transitions": [
+      {
+        "case": "normal-transition-native2x",
+        "unchanged_mode1_retained_after_mode2_switch_at_tick64": [
+          "281",
+          "282",
+          "301",
+          "300",
+          "281",
+          "300"
+        ],
+        "new_owned_mode2_retained_after_mode1_switch_at_tick104": [
+          "183",
+          "182",
+          "183",
+          "77"
+        ],
+        "generic_mode2_pass_through_retained_after_switch_back_tick104": [
+          "163",
+          "164",
+          "164"
+        ],
+        "natural_down77_mode2_retained_count": 1,
+        "clear179_no_new_admission_and_baseline_native_exact": true
+      },
+      {
+        "case": "hard-transition-native2x",
+        "unchanged_mode1_retained_after_mode2_switch_at_tick64": [
+          "281",
+          "282",
+          "301",
+          "300",
+          "281",
+          "300"
+        ],
+        "new_owned_mode2_retained_after_mode1_switch_at_tick104": [
+          "183",
+          "182",
+          "183",
+          "77"
+        ],
+        "generic_mode2_pass_through_retained_after_switch_back_tick104": [
+          "163",
+          "164",
+          "164"
+        ],
+        "natural_down77_mode2_retained_count": 1,
+        "clear179_no_new_admission_and_baseline_native_exact": true
+      }
+    ],
+    "Present": {
+      "calls_per_process": 123,
+      "deliberately_skipped_ticks": [
+        30,
+        31,
+        32,
+        78,
+        79,
+        80
+      ],
+      "native_frames_per_process": 23,
+      "absent_native_capture_ticks": [
+        32,
+        80
+      ],
+      "no_RNG_change": true,
+      "repeat_count_actual": 9
+    },
+    "private_density4_pairs": 2,
+    "density4_newly_HD_IDs": [
+      77
+    ],
+    "density4_new_draws_each": 68,
+    "density4_generic163_164_and182_183_remain_classic_no_upward_fallback": true
+  },
+  "controlled_compositor": {
+    "synthetic_not_natural_gameplay": true,
+    "cases": 120,
+    "checks_each_plain_and_ASan_UBSan": 3726,
+    "actual_unchanged_compositor_and_authentic_binder_used": true,
+    "density8_all_three_owned_head_pairs_both_orders_and_clipping": true,
+    "density4_existing77_only": true,
+    "overlap_samples": 88940,
+    "clipped_samples": 34804,
+    "independent_straight_alpha_and_owner_buffer_equality": true,
+    "original_INDEX8_untouched": true,
+    "Hard_overlap_qualified": false
+  },
+  "limits": [
+    "Bounded first-level Normal/Hard player1 rear-P4mode2 coverage; no new generic consumers, front/linked/charged/enemy ownership or later powers/episodes are introduced.",
+    "Natural capacity exhaustion and natural authored head-head overlap were not observed. Capacity is covered by authentic/synthetic allocator tests; overlap by separately labeled actual-compositor tests.",
+    "Ship occlusion is conservatively associated with original24x28 command bounds, not an exact per-pixel ship-ownership mask.",
+    "Production manual-HD startup remains density8. Density4 is a private diagnostic with classic182/183 and generic163/164; no new public density setting or fallback.",
+    "Cache is immutable after its cold attempt for a renderer session; no disk hot reload is added.",
+    "Linux SDL dummy/software qualification does not establish Windows, physical GPU, full campaign, performance, natural Hard overlap or LeakSanitizer coverage.",
+    "Original data, decoded arrays, private observation source and gameplay captures are excluded from the public deliverable."
+  ],
+  "findings": [],
+  "publication_gate": "Final archive privacy/cross-pins, durable roundtrip, non-force expected-parent publication, complete remote bytes/tree/parent, rollback and CI snapshot are verified separately after packaging. This integration review does not claim publication.",
+  "remote_writes_by_reviewer": false
+}

@@ -29154,7 +29154,7 @@
       }
     },
     "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 595,
+      "count": 597,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -36890,11 +36890,37 @@
           ],
           "source_png": "assets/hd/source/rear-multicannon-p1-bank8-77-8-54c1fb786e17.png",
           "source_png_sha256": "8d397c99b1f3f96a2e4cb98dac7988c6477102a6b3ef3110fa2e4ac5ca15b55d"
+        },
+        "rear-multicannon-p1-bank8-182-8.hda": {
+          "sha256": "b8d65e2ebae36ffef0ab7aa849fa5086134db521590ee6753ff379f525d9ebb9",
+          "header_u32": [
+            1310182,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/rear-multicannon-p1-bank8-182-8-b8d65e2ebae3.png",
+          "source_png_sha256": "85fe7b765089b72f23f1eaaf0449be40f1687fdbb77445fa2c4cb1a26fa7bd65"
+        },
+        "rear-multicannon-p1-bank8-183-8.hda": {
+          "sha256": "f420cffc0378b55e957699461fc98727ef26519ea13ac86cb7b7816383e7c873",
+          "header_u32": [
+            1310183,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/rear-multicannon-p1-bank8-183-8-f420cffc0378.png",
+          "source_png_sha256": "40c0b2f889e29b8916b2e36f89dce9060a27ba70595f040f519b169a910f252c"
         }
       }
     },
     "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 595,
+      "count": 597,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -44630,6 +44656,32 @@
           ],
           "source_png": "assets/hd/source/rear-multicannon-p1-bank8-77-8-54c1fb786e17.png",
           "source_png_sha256": "8d397c99b1f3f96a2e4cb98dac7988c6477102a6b3ef3110fa2e4ac5ca15b55d"
+        },
+        "rear-multicannon-p1-bank8-182-8.hda": {
+          "sha256": "b8d65e2ebae36ffef0ab7aa849fa5086134db521590ee6753ff379f525d9ebb9",
+          "header_u32": [
+            1310182,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/rear-multicannon-p1-bank8-182-8-b8d65e2ebae3.png",
+          "source_png_sha256": "85fe7b765089b72f23f1eaaf0449be40f1687fdbb77445fa2c4cb1a26fa7bd65"
+        },
+        "rear-multicannon-p1-bank8-183-8.hda": {
+          "sha256": "f420cffc0378b55e957699461fc98727ef26519ea13ac86cb7b7816383e7c873",
+          "header_u32": [
+            1310183,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/rear-multicannon-p1-bank8-183-8-f420cffc0378.png",
+          "source_png_sha256": "40c0b2f889e29b8916b2e36f89dce9060a27ba70595f040f519b169a910f252c"
         }
       }
     }
@@ -48316,6 +48368,16 @@
       "path": "assets/hd/source/rear-multicannon-p1-bank8-77-8-54c1fb786e17.png",
       "sha256": "8d397c99b1f3f96a2e4cb98dac7988c6477102a6b3ef3110fa2e4ac5ca15b55d",
       "RGBA_sha256": "73fe11a2f4926504850b406552c9a720919306a15a7313b2c5eff09c8df15362"
+    },
+    "b8d65e2ebae36ffef0ab7aa849fa5086134db521590ee6753ff379f525d9ebb9": {
+      "path": "assets/hd/source/rear-multicannon-p1-bank8-182-8-b8d65e2ebae3.png",
+      "sha256": "85fe7b765089b72f23f1eaaf0449be40f1687fdbb77445fa2c4cb1a26fa7bd65",
+      "RGBA_sha256": "94ee0b55b1642e1781e72ccf1d0f1570670821fca66e3bcf97a692f06f3bda1c"
+    },
+    "f420cffc0378b55e957699461fc98727ef26519ea13ac86cb7b7816383e7c873": {
+      "path": "assets/hd/source/rear-multicannon-p1-bank8-183-8-f420cffc0378.png",
+      "sha256": "40c0b2f889e29b8916b2e36f89dce9060a27ba70595f040f519b169a910f252c",
+      "RGBA_sha256": "c195101ad4685602590f93270b8fc9e14b6b2ab92ed5fc69fd90119298b1cbce"
     }
   },
   "no_original_game_data": true,
@@ -54236,6 +54298,49 @@
         "id": 77,
         "density": 8,
         "HDA_sha256": "54c1fb786e1724bad5f47326fab8ce6fce325e2197a8861675682a8912bd8678"
+      }
+    ]
+  },
+  "player_rear_multicannon_p4_mode2_down_diagonals_v1": {
+    "source": "assets/hd/artwork/player-rear-multicannon-p4-mode2-down-diagonals-v1",
+    "binding_sha256": "8ec232b6c7fe1aec16f95d70d8b508d1e5754b1fdbf174cbf92c4982446ca64f",
+    "art_file_manifest_sha256": "e98e7dfc43554109116e3bf2a5c8acc25c6a14828c5c0f53a46e997f0672b400",
+    "provenance_sha256": "84016f7bef5347ed999142260855ce39fc17fc1d5c556b5d5fd5f56cf57729ef",
+    "reviewed_export_sha256": "244ba2c777b396b2b3bfbba1fd6543821719cc7872767755f85854f2e8fde2c9",
+    "role": 131,
+    "ids": [
+      182,
+      183
+    ],
+    "densities": [
+      8
+    ],
+    "logical_size": [
+      12,
+      14
+    ],
+    "anchor": [
+      0,
+      0
+    ],
+    "scope": "Actual main gameplay player1 rear10 power4 mode2, exact record268 and five call-owned emissions, first-level Normal9/Hard15 only. New dedicated resources182/183 are density8-only;77 reuses unchanged published role131 density4/8 art. Existing generic163/164 resources, normal/shadow paths and density policy remain unchanged.",
+    "fallback": "New182/183 exact startup-selected density8 only; density4 remains indexed. No density4 creation, upward fallback or resampling. Existing generic163/164 and77 policies remain unchanged.",
+    "historical_down77_scope": "The older down77 descriptor and binding record the historical mode1 package introduction. Current record268 mode2 reuse is qualified here and keeps all77 bytes unchanged.",
+    "reused_resources": {
+      "77": "player_rear_multicannon_p4_mode1_down77_v1, unchanged role131 density4/8 resources",
+      "163/164": "Unchanged generic bullet163/164 density8 resources and normal/shadow behavior; no dedicated replacements or density4 resources"
+    },
+    "current_integration": "docs/rear-multicannon-p4-mode2-reuse-v1/VALIDATION.md",
+    "entries": [
+      {
+        "id": 182,
+        "density": 8,
+        "HDA_sha256": "b8d65e2ebae36ffef0ab7aa849fa5086134db521590ee6753ff379f525d9ebb9"
+      },
+      {
+        "id": 183,
+        "density": 8,
+        "HDA_sha256": "f420cffc0378b55e957699461fc98727ef26519ea13ac86cb7b7816383e7c873"
       }
     ]
   }

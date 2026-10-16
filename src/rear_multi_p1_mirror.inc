@@ -76,20 +76,20 @@ static uint64_t rear_p1_record_stamp(const JE_WeaponType *w)
 }
 static bool rear_p1_table(unsigned record)
 {
- static const uint64_t pins[7]=REAR_P1_RECORD_PINS;
+ static const uint64_t pins[8]=REAR_P1_RECORD_PINS;
  unsigned k;
- switch(record){case 254:k=0;break;case 265:k=1;break;case 255:k=2;break;case 266:k=3;break;case 267:k=4;break;case 256:k=5;break;case 257:k=6;break;default:return false;}
+ switch(record){case 254:k=0;break;case 265:k=1;break;case 255:k=2;break;case 266:k=3;break;case 267:k=4;break;case 256:k=5;break;case 257:k=6;break;case 268:k=7;break;default:return false;}
  return weaponPort[10].opnum==2&&
   weaponPort[10].op[0][0]==254&&weaponPort[10].op[1][0]==265&&
   weaponPort[10].op[0][1]==255&&weaponPort[10].op[1][1]==266&&weaponPort[10].poweruse==40&&
   (record!=267||weaponPort[10].op[1][2]==267)&&(record!=256||weaponPort[10].op[0][2]==256)&&
-  (record!=257||weaponPort[10].op[0][3]==257)&&
+  (record!=257||weaponPort[10].op[0][3]==257)&&(record!=268||weaponPort[10].op[1][3]==268)&&
   rear_p1_record_stamp(&weapons[record])==pins[k];
 }
 static bool rear_p1_source(Sprite2_array bank,unsigned raw)
 {
- static const uint64_t pins[REAR_P1_HEADS]=REAR_P1_SOURCE_PINS;
- int k=rear_p1_member(raw);Uint8 decoded[REAR_P1_CELLS*2]={0};
+ static const uint64_t pins[REAR_P1_OBSERVED]=REAR_P1_SOURCE_PINS;
+ int k=rear_p1_observed(raw);Uint8 decoded[REAR_P1_CELLS*2]={0};
  return k>=0&&bank.data&&spriteSheet8.data&&bank.data==spriteSheet8.data&&bank.size==spriteSheet8.size&&bank.size==REAR_P1_BANK_SIZE&&
   decode_tile(bank,raw,decoded,decoded+REAR_P1_CELLS,12,0,0)&&
   rear_p1_stamp(decoded,sizeof(decoded))==pins[k];
@@ -147,6 +147,7 @@ static bool rear_p1_load(Asset *a,int d)
 {
  char path[1200];Uint8 h[28],extra;REAR_STAT st;
  if((d!=4&&d!=8)||!a||a->bank!=ASSET_REAR_MULTI_P1||rear_p1_member((unsigned)a->index)<0||
+  ((a->index==182||a->index==183)&&d!=8)||
   a->w!=12||a->h!=14||a->anchor_x||a->anchor_y)return false;
  int n=snprintf(path,sizeof(path),"%s/rear-multicannon-p1-bank8-%d-%d.hda",rear_p1_resources.root,a->index,d);
  if(n<0||(size_t)n>=sizeof(path))return false;
@@ -170,7 +171,9 @@ static Asset *rear_p1_asset(unsigned raw)
 {
  static const uint64_t pins[REAR_P1_HEADS][2]=REAR_P1_RGBA_PINS;
  int k=rear_p1_member(raw),d=game_probe_density;
- if(k<0||(d!=4&&d!=8)||game_probe_missing||game_probe_invalid||game_probe_original_reference||
+ /* No d4 resource, resampling or upward-density fallback for 182/183.
+  * Reject before touching either cache slot or opening any role file. */
+ if(k<0||((raw==182||raw==183)&&d!=8)||(d!=4&&d!=8)||game_probe_missing||game_probe_invalid||game_probe_original_reference||
   !(game_probe_scene_assets&1)||!game_probe_assets||!rear_p1_resources.valid||
   rear_p1_resources.density!=d||strcmp(game_probe_assets,rear_p1_resources.root))return NULL;
  unsigned di=d==8;Asset *a=&rear_p1_resources.cache[k][di].asset;
