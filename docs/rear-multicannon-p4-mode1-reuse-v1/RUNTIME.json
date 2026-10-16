@@ -1,0 +1,4767 @@
+{
+  "schema": "rear-multicannon-p4-mode1-bounded-runtime-v1",
+  "status": "PASS",
+  "baseline_published_commit": "c812f88befb2f5bde9f105852657c914b4aab18f",
+  "baseline_tree": "f72996406374089e9f9546ecd421eee56cbdc5e9",
+  "qualification_pairs": 22,
+  "actual_game_processes": 44,
+  "qualification_logic_ticks": 5520,
+  "actual_native_game_captures": 656,
+  "actual_native_shop_captures": 132,
+  "new_scope": {
+    "rear_port": 10,
+    "rear_power": 4,
+    "mode": 1,
+    "record": 257,
+    "raw_order": [
+      281,
+      282,
+      301,
+      300,
+      77
+    ],
+    "period": 5,
+    "budget": 5,
+    "role": 131,
+    "densities": [
+      4,
+      8
+    ],
+    "native_scales": [
+      2,
+      4
+    ],
+    "difficulty": [
+      "Normal",
+      "Hard"
+    ]
+  },
+  "state_or_seed_overrides": [],
+  "ordinary_input_schedule": {
+    "fire_held_until": 120,
+    "mode_switch_ticks": [
+      60
+    ],
+    "transition_switch_back_tick": 100,
+    "P4_up_ticks": [
+      0,
+      11
+    ],
+    "P4_right_ticks": [
+      12,
+      35
+    ],
+    "P4_left_ticks": [
+      36,
+      47
+    ],
+    "lower_power_movement": "unchanged stationary original fixture"
+  },
+  "all_original_parity_categories": [
+    "state.tsv",
+    "inputs.tsv",
+    "palette-state.tsv",
+    "actual-game-index8.bin",
+    "actual-display-index8.bin",
+    "actual-rgb-palettes.bin",
+    "actual-loadout.tsv",
+    "player-shot-requests.tsv",
+    "player-shot-results.tsv",
+    "player-shot-emissions.tsv",
+    "player-shot-draws.tsv",
+    "collisions.tsv",
+    "poses.tsv",
+    "fire-events.tsv",
+    "player-projectiles.tsv",
+    "scene-draw-commands.tsv",
+    "original-blitter-order.tsv",
+    "original-finish-order.tsv",
+    "original-seed.tsv",
+    "menu-inputs.tsv"
+  ],
+  "original_menu_purchase": {
+    "P4_cost": 8250,
+    "P4_cash_after": 1750
+  },
+  "prior_P1_P2_P3_both_modes_unchanged": true,
+  "record268_generic163_164_normal_shadow_and_classic182_183_77_unchanged": true,
+  "shared_consumer_negative_scope": {
+    "actual_runtime": "Natural record268 with generic163/164 and classic182/183/77; lower-power original modes unchanged.",
+    "controlled_tests": "All five cyclic starts, partial capacity and other shared consumers are separately owned and reviewed by production unit/adapter tests, not claimed as natural acquisitions here."
+  },
+  "old_art_payloads_unchanged": true,
+  "new_art": "Only downward77 d4/d8, exact approved rigid reuse of accepted rightward1; unchanged R2 shallow quartet. No new generation.",
+  "fallback_scope": {
+    "77_only_missing_or_corrupt": "77 remains classic; all four existing eligible obliques remain HD.",
+    "all_five_missing": "All five dedicated target resources unavailable; complete native output and draw traces match baseline."
+  },
+  "occlusion_clipping_witness": {
+    "pass": true,
+    "scope": "Immediate admitted-head fractional points compared with final ordered canvas; actual viewport clipping; ship overlap bounded by original standard24x28 command; head-head authored alpha-support overlap measured rather than inferred. Exact original and final composition verified separately.",
+    "cases": [
+      {
+        "case": "normal-art-native2x-candidate",
+        "sampled_frames": [
+          {
+            "tick": 8,
+            "fractional_points": 3054,
+            "later_ordered_writes": 2472,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 582,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 12,
+            "fractional_points": 2472,
+            "later_ordered_writes": 2472,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 16,
+            "fractional_points": 4290,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 20,
+            "fractional_points": 7344,
+            "later_ordered_writes": 858,
+            "later_writes_inside_original_ship_command_bounds": 618,
+            "points_clipped_outside_playfield": 1200,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 24,
+            "fractional_points": 5526,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 1039,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 28,
+            "fractional_points": 7344,
+            "later_ordered_writes": 8,
+            "later_writes_inside_original_ship_command_bounds": 8,
+            "points_clipped_outside_playfield": 582,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 32,
+            "fractional_points": 6762,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 2294,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 36,
+            "fractional_points": 6762,
+            "later_ordered_writes": 108,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 1236,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 40,
+            "fractional_points": 4290,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 48,
+            "fractional_points": 7344,
+            "later_ordered_writes": 698,
+            "later_writes_inside_original_ship_command_bounds": 506,
+            "points_clipped_outside_playfield": 486,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 56,
+            "fractional_points": 7344,
+            "later_ordered_writes": 324,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 582,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 59,
+            "fractional_points": 6762,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 728,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 60,
+            "fractional_points": 6762,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 1420,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 62,
+            "fractional_points": 5526,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 1328,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 64,
+            "fractional_points": 3708,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 842,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 66,
+            "fractional_points": 2472,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 70,
+            "fractional_points": 1236,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 1172,
+            "authored_head_head_support_overlap_pixels": 0
+          }
+        ],
+        "total_later_ordered_writes": 6940,
+        "total_outside_playfield_points": 13491,
+        "total_later_writes_within_original_ship_bounds": 1132,
+        "total_head_head_overlap_pixels": 0
+      },
+      {
+        "case": "normal-art-native4x-candidate",
+        "sampled_frames": [
+          {
+            "tick": 8,
+            "fractional_points": 3054,
+            "later_ordered_writes": 2472,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 582,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 12,
+            "fractional_points": 2472,
+            "later_ordered_writes": 2472,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 16,
+            "fractional_points": 4290,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 20,
+            "fractional_points": 7344,
+            "later_ordered_writes": 858,
+            "later_writes_inside_original_ship_command_bounds": 618,
+            "points_clipped_outside_playfield": 1200,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 24,
+            "fractional_points": 5526,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 1039,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 28,
+            "fractional_points": 7344,
+            "later_ordered_writes": 8,
+            "later_writes_inside_original_ship_command_bounds": 8,
+            "points_clipped_outside_playfield": 582,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 32,
+            "fractional_points": 6762,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 2294,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 36,
+            "fractional_points": 6762,
+            "later_ordered_writes": 108,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 1236,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 40,
+            "fractional_points": 4290,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 48,
+            "fractional_points": 7344,
+            "later_ordered_writes": 698,
+            "later_writes_inside_original_ship_command_bounds": 506,
+            "points_clipped_outside_playfield": 486,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 56,
+            "fractional_points": 7344,
+            "later_ordered_writes": 324,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 582,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 59,
+            "fractional_points": 6762,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 728,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 60,
+            "fractional_points": 6762,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 1420,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 62,
+            "fractional_points": 5526,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 1328,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 64,
+            "fractional_points": 3708,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 842,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 66,
+            "fractional_points": 2472,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 70,
+            "fractional_points": 1236,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 1172,
+            "authored_head_head_support_overlap_pixels": 0
+          }
+        ],
+        "total_later_ordered_writes": 6940,
+        "total_outside_playfield_points": 13491,
+        "total_later_writes_within_original_ship_bounds": 1132,
+        "total_head_head_overlap_pixels": 0
+      },
+      {
+        "case": "hard-art-native2x-candidate",
+        "sampled_frames": [
+          {
+            "tick": 8,
+            "fractional_points": 3054,
+            "later_ordered_writes": 2472,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 582,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 12,
+            "fractional_points": 2472,
+            "later_ordered_writes": 2472,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 16,
+            "fractional_points": 4290,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 20,
+            "fractional_points": 7344,
+            "later_ordered_writes": 858,
+            "later_writes_inside_original_ship_command_bounds": 618,
+            "points_clipped_outside_playfield": 1200,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 24,
+            "fractional_points": 5526,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 1039,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 28,
+            "fractional_points": 7344,
+            "later_ordered_writes": 8,
+            "later_writes_inside_original_ship_command_bounds": 8,
+            "points_clipped_outside_playfield": 582,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 32,
+            "fractional_points": 6762,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 2294,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 36,
+            "fractional_points": 6762,
+            "later_ordered_writes": 108,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 1236,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 40,
+            "fractional_points": 4290,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 48,
+            "fractional_points": 7344,
+            "later_ordered_writes": 698,
+            "later_writes_inside_original_ship_command_bounds": 506,
+            "points_clipped_outside_playfield": 486,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 56,
+            "fractional_points": 7344,
+            "later_ordered_writes": 324,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 582,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 59,
+            "fractional_points": 6762,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 728,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 60,
+            "fractional_points": 6762,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 1420,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 62,
+            "fractional_points": 5526,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 1328,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 64,
+            "fractional_points": 3708,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 842,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 66,
+            "fractional_points": 2472,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 70,
+            "fractional_points": 1236,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 1172,
+            "authored_head_head_support_overlap_pixels": 0
+          }
+        ],
+        "total_later_ordered_writes": 6940,
+        "total_outside_playfield_points": 13491,
+        "total_later_writes_within_original_ship_bounds": 1132,
+        "total_head_head_overlap_pixels": 0
+      },
+      {
+        "case": "hard-art-native4x-candidate",
+        "sampled_frames": [
+          {
+            "tick": 8,
+            "fractional_points": 3054,
+            "later_ordered_writes": 2472,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 582,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 12,
+            "fractional_points": 2472,
+            "later_ordered_writes": 2472,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 16,
+            "fractional_points": 4290,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 20,
+            "fractional_points": 7344,
+            "later_ordered_writes": 858,
+            "later_writes_inside_original_ship_command_bounds": 618,
+            "points_clipped_outside_playfield": 1200,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 24,
+            "fractional_points": 5526,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 1039,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 28,
+            "fractional_points": 7344,
+            "later_ordered_writes": 8,
+            "later_writes_inside_original_ship_command_bounds": 8,
+            "points_clipped_outside_playfield": 582,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 32,
+            "fractional_points": 6762,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 2294,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 36,
+            "fractional_points": 6762,
+            "later_ordered_writes": 108,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 1236,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 40,
+            "fractional_points": 4290,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 48,
+            "fractional_points": 7344,
+            "later_ordered_writes": 698,
+            "later_writes_inside_original_ship_command_bounds": 506,
+            "points_clipped_outside_playfield": 486,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 56,
+            "fractional_points": 7344,
+            "later_ordered_writes": 324,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 582,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 59,
+            "fractional_points": 6762,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 728,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 60,
+            "fractional_points": 6762,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 1420,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 62,
+            "fractional_points": 5526,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 1328,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 64,
+            "fractional_points": 3708,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 842,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 66,
+            "fractional_points": 2472,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 70,
+            "fractional_points": 1236,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 1172,
+            "authored_head_head_support_overlap_pixels": 0
+          }
+        ],
+        "total_later_ordered_writes": 6940,
+        "total_outside_playfield_points": 13491,
+        "total_later_writes_within_original_ship_bounds": 1132,
+        "total_head_head_overlap_pixels": 0
+      }
+    ]
+  },
+  "brown_cloud_full_exposure_native_witness": {
+    "pass": true,
+    "scope": "Each of five heads has a fully exposed actual-native brown and cloud witness. Every nontransparent authored sample is independently observed immediately after exact alpha composition and survives all later original-order writes, wholly inside the playfield. Cloud support is derived from actual scene commands and unchanged cloud assets. Final Normal/Hard composition and native sampling are checked separately. Crops and full frames are private only.",
+    "cases": [
+      {
+        "case": "normal-art-native2x",
+        "native_scale": 2,
+        "witnesses": [
+          {
+            "tick": 16,
+            "id": 281,
+            "origin": [
+              65,
+              98
+            ],
+            "authored_support_pixels": 1872,
+            "observed_immediate_support_points": 1872,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 115,
+            "surviving_native_fractional_samples": 41,
+            "changed_native_pixels_on_cloud": 0,
+            "changed_native_pixels_on_brown": 115,
+            "changed_native_support_pixels": 115,
+            "observed_cloud_tiles": [],
+            "background": "brown",
+            "native_crop": [
+              54,
+              170,
+              134,
+              250
+            ]
+          },
+          {
+            "tick": 20,
+            "id": 281,
+            "origin": [
+              29,
+              90
+            ],
+            "authored_support_pixels": 1872,
+            "observed_immediate_support_points": 1872,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 115,
+            "surviving_native_fractional_samples": 41,
+            "changed_native_pixels_on_cloud": 115,
+            "changed_native_pixels_on_brown": 0,
+            "changed_native_support_pixels": 115,
+            "observed_cloud_tiles": [
+              {
+                "id": 62,
+                "x": 10,
+                "y": 68
+              },
+              {
+                "id": 55,
+                "x": 34,
+                "y": 68
+              },
+              {
+                "id": 52,
+                "x": 10,
+                "y": 96
+              },
+              {
+                "id": 65,
+                "x": 34,
+                "y": 96
+              }
+            ],
+            "background": "cloud",
+            "native_crop": [
+              -18,
+              154,
+              62,
+              234
+            ]
+          },
+          {
+            "tick": 16,
+            "id": 282,
+            "origin": [
+              141,
+              98
+            ],
+            "authored_support_pixels": 1872,
+            "observed_immediate_support_points": 1872,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 119,
+            "surviving_native_fractional_samples": 41,
+            "changed_native_pixels_on_cloud": 0,
+            "changed_native_pixels_on_brown": 119,
+            "changed_native_support_pixels": 119,
+            "observed_cloud_tiles": [],
+            "background": "brown",
+            "native_crop": [
+              206,
+              170,
+              286,
+              250
+            ]
+          },
+          {
+            "tick": 16,
+            "id": 282,
+            "origin": [
+              211,
+              120
+            ],
+            "authored_support_pixels": 1872,
+            "observed_immediate_support_points": 1872,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 119,
+            "surviving_native_fractional_samples": 41,
+            "changed_native_pixels_on_cloud": 119,
+            "changed_native_pixels_on_brown": 0,
+            "changed_native_support_pixels": 119,
+            "observed_cloud_tiles": [
+              {
+                "id": 64,
+                "x": 206,
+                "y": 116
+              }
+            ],
+            "background": "cloud",
+            "native_crop": [
+              346,
+              214,
+              426,
+              294
+            ]
+          },
+          {
+            "tick": 16,
+            "id": 301,
+            "origin": [
+              211,
+              168
+            ],
+            "authored_support_pixels": 1872,
+            "observed_immediate_support_points": 1872,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 118,
+            "surviving_native_fractional_samples": 40,
+            "changed_native_pixels_on_cloud": 0,
+            "changed_native_pixels_on_brown": 118,
+            "changed_native_support_pixels": 118,
+            "observed_cloud_tiles": [],
+            "background": "brown",
+            "native_crop": [
+              346,
+              310,
+              426,
+              390
+            ]
+          },
+          {
+            "tick": 20,
+            "id": 301,
+            "origin": [
+              177,
+              122
+            ],
+            "authored_support_pixels": 1872,
+            "observed_immediate_support_points": 1872,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 118,
+            "surviving_native_fractional_samples": 40,
+            "changed_native_pixels_on_cloud": 118,
+            "changed_native_pixels_on_brown": 0,
+            "changed_native_support_pixels": 118,
+            "observed_cloud_tiles": [
+              {
+                "id": 43,
+                "x": 154,
+                "y": 96
+              },
+              {
+                "id": 41,
+                "x": 178,
+                "y": 96
+              },
+              {
+                "id": 63,
+                "x": 154,
+                "y": 124
+              },
+              {
+                "id": 64,
+                "x": 178,
+                "y": 124
+              }
+            ],
+            "background": "cloud",
+            "native_crop": [
+              278,
+              218,
+              358,
+              298
+            ]
+          },
+          {
+            "tick": 16,
+            "id": 300,
+            "origin": [
+              65,
+              114
+            ],
+            "authored_support_pixels": 1872,
+            "observed_immediate_support_points": 1872,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 117,
+            "surviving_native_fractional_samples": 37,
+            "changed_native_pixels_on_cloud": 0,
+            "changed_native_pixels_on_brown": 117,
+            "changed_native_support_pixels": 117,
+            "observed_cloud_tiles": [],
+            "background": "brown",
+            "native_crop": [
+              54,
+              202,
+              134,
+              282
+            ]
+          },
+          {
+            "tick": 59,
+            "id": 300,
+            "origin": [
+              32,
+              129
+            ],
+            "authored_support_pixels": 1872,
+            "observed_immediate_support_points": 1872,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 117,
+            "surviving_native_fractional_samples": 37,
+            "changed_native_pixels_on_cloud": 117,
+            "changed_native_pixels_on_brown": 0,
+            "changed_native_support_pixels": 117,
+            "observed_cloud_tiles": [
+              {
+                "id": 52,
+                "x": 28,
+                "y": 118
+              }
+            ],
+            "background": "cloud",
+            "native_crop": [
+              -12,
+              232,
+              68,
+              312
+            ]
+          },
+          {
+            "tick": 16,
+            "id": 77,
+            "origin": [
+              103,
+              146
+            ],
+            "authored_support_pixels": 2074,
+            "observed_immediate_support_points": 2074,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 130,
+            "surviving_native_fractional_samples": 40,
+            "changed_native_pixels_on_cloud": 0,
+            "changed_native_pixels_on_brown": 130,
+            "changed_native_support_pixels": 130,
+            "observed_cloud_tiles": [],
+            "background": "brown",
+            "native_crop": [
+              130,
+              266,
+              210,
+              346
+            ]
+          },
+          {
+            "tick": 32,
+            "id": 77,
+            "origin": [
+              167,
+              151
+            ],
+            "authored_support_pixels": 2074,
+            "observed_immediate_support_points": 2074,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 130,
+            "surviving_native_fractional_samples": 40,
+            "changed_native_pixels_on_cloud": 130,
+            "changed_native_pixels_on_brown": 0,
+            "changed_native_support_pixels": 130,
+            "observed_cloud_tiles": [
+              {
+                "id": 64,
+                "x": 165,
+                "y": 148
+              }
+            ],
+            "background": "cloud",
+            "native_crop": [
+              258,
+              276,
+              338,
+              356
+            ]
+          }
+        ],
+        "observed_original_output_kinds": [
+          1
+        ]
+      },
+      {
+        "case": "normal-art-native4x",
+        "native_scale": 4,
+        "witnesses": [
+          {
+            "tick": 16,
+            "id": 281,
+            "origin": [
+              65,
+              98
+            ],
+            "authored_support_pixels": 1872,
+            "observed_immediate_support_points": 1872,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 468,
+            "surviving_native_fractional_samples": 151,
+            "changed_native_pixels_on_cloud": 0,
+            "changed_native_pixels_on_brown": 468,
+            "changed_native_support_pixels": 468,
+            "observed_cloud_tiles": [],
+            "background": "brown",
+            "native_crop": [
+              108,
+              340,
+              268,
+              500
+            ]
+          },
+          {
+            "tick": 20,
+            "id": 281,
+            "origin": [
+              29,
+              90
+            ],
+            "authored_support_pixels": 1872,
+            "observed_immediate_support_points": 1872,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 468,
+            "surviving_native_fractional_samples": 151,
+            "changed_native_pixels_on_cloud": 468,
+            "changed_native_pixels_on_brown": 0,
+            "changed_native_support_pixels": 468,
+            "observed_cloud_tiles": [
+              {
+                "id": 62,
+                "x": 10,
+                "y": 68
+              },
+              {
+                "id": 55,
+                "x": 34,
+                "y": 68
+              },
+              {
+                "id": 52,
+                "x": 10,
+                "y": 96
+              },
+              {
+                "id": 65,
+                "x": 34,
+                "y": 96
+              }
+            ],
+            "background": "cloud",
+            "native_crop": [
+              -36,
+              308,
+              124,
+              468
+            ]
+          },
+          {
+            "tick": 16,
+            "id": 282,
+            "origin": [
+              141,
+              98
+            ],
+            "authored_support_pixels": 1872,
+            "observed_immediate_support_points": 1872,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 467,
+            "surviving_native_fractional_samples": 150,
+            "changed_native_pixels_on_cloud": 0,
+            "changed_native_pixels_on_brown": 467,
+            "changed_native_support_pixels": 467,
+            "observed_cloud_tiles": [],
+            "background": "brown",
+            "native_crop": [
+              412,
+              340,
+              572,
+              500
+            ]
+          },
+          {
+            "tick": 16,
+            "id": 282,
+            "origin": [
+              211,
+              120
+            ],
+            "authored_support_pixels": 1872,
+            "observed_immediate_support_points": 1872,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 467,
+            "surviving_native_fractional_samples": 150,
+            "changed_native_pixels_on_cloud": 467,
+            "changed_native_pixels_on_brown": 0,
+            "changed_native_support_pixels": 467,
+            "observed_cloud_tiles": [
+              {
+                "id": 64,
+                "x": 206,
+                "y": 116
+              }
+            ],
+            "background": "cloud",
+            "native_crop": [
+              692,
+              428,
+              852,
+              588
+            ]
+          },
+          {
+            "tick": 16,
+            "id": 301,
+            "origin": [
+              211,
+              168
+            ],
+            "authored_support_pixels": 1872,
+            "observed_immediate_support_points": 1872,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 468,
+            "surviving_native_fractional_samples": 160,
+            "changed_native_pixels_on_cloud": 0,
+            "changed_native_pixels_on_brown": 468,
+            "changed_native_support_pixels": 468,
+            "observed_cloud_tiles": [],
+            "background": "brown",
+            "native_crop": [
+              692,
+              620,
+              852,
+              780
+            ]
+          },
+          {
+            "tick": 20,
+            "id": 301,
+            "origin": [
+              177,
+              122
+            ],
+            "authored_support_pixels": 1872,
+            "observed_immediate_support_points": 1872,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 468,
+            "surviving_native_fractional_samples": 160,
+            "changed_native_pixels_on_cloud": 468,
+            "changed_native_pixels_on_brown": 0,
+            "changed_native_support_pixels": 468,
+            "observed_cloud_tiles": [
+              {
+                "id": 43,
+                "x": 154,
+                "y": 96
+              },
+              {
+                "id": 41,
+                "x": 178,
+                "y": 96
+              },
+              {
+                "id": 63,
+                "x": 154,
+                "y": 124
+              },
+              {
+                "id": 64,
+                "x": 178,
+                "y": 124
+              }
+            ],
+            "background": "cloud",
+            "native_crop": [
+              556,
+              436,
+              716,
+              596
+            ]
+          },
+          {
+            "tick": 16,
+            "id": 300,
+            "origin": [
+              65,
+              114
+            ],
+            "authored_support_pixels": 1872,
+            "observed_immediate_support_points": 1872,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 469,
+            "surviving_native_fractional_samples": 157,
+            "changed_native_pixels_on_cloud": 0,
+            "changed_native_pixels_on_brown": 469,
+            "changed_native_support_pixels": 469,
+            "observed_cloud_tiles": [],
+            "background": "brown",
+            "native_crop": [
+              108,
+              404,
+              268,
+              564
+            ]
+          },
+          {
+            "tick": 59,
+            "id": 300,
+            "origin": [
+              32,
+              129
+            ],
+            "authored_support_pixels": 1872,
+            "observed_immediate_support_points": 1872,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 469,
+            "surviving_native_fractional_samples": 157,
+            "changed_native_pixels_on_cloud": 469,
+            "changed_native_pixels_on_brown": 0,
+            "changed_native_support_pixels": 469,
+            "observed_cloud_tiles": [
+              {
+                "id": 52,
+                "x": 28,
+                "y": 118
+              }
+            ],
+            "background": "cloud",
+            "native_crop": [
+              -24,
+              464,
+              136,
+              624
+            ]
+          },
+          {
+            "tick": 16,
+            "id": 77,
+            "origin": [
+              103,
+              146
+            ],
+            "authored_support_pixels": 2074,
+            "observed_immediate_support_points": 2074,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 519,
+            "surviving_native_fractional_samples": 148,
+            "changed_native_pixels_on_cloud": 0,
+            "changed_native_pixels_on_brown": 519,
+            "changed_native_support_pixels": 519,
+            "observed_cloud_tiles": [],
+            "background": "brown",
+            "native_crop": [
+              260,
+              532,
+              420,
+              692
+            ]
+          },
+          {
+            "tick": 32,
+            "id": 77,
+            "origin": [
+              167,
+              151
+            ],
+            "authored_support_pixels": 2074,
+            "observed_immediate_support_points": 2074,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 519,
+            "surviving_native_fractional_samples": 148,
+            "changed_native_pixels_on_cloud": 519,
+            "changed_native_pixels_on_brown": 0,
+            "changed_native_support_pixels": 519,
+            "observed_cloud_tiles": [
+              {
+                "id": 64,
+                "x": 165,
+                "y": 148
+              }
+            ],
+            "background": "cloud",
+            "native_crop": [
+              516,
+              552,
+              676,
+              712
+            ]
+          }
+        ],
+        "observed_original_output_kinds": [
+          1
+        ]
+      },
+      {
+        "case": "hard-art-native2x",
+        "native_scale": 2,
+        "witnesses": [
+          {
+            "tick": 16,
+            "id": 281,
+            "origin": [
+              65,
+              98
+            ],
+            "authored_support_pixels": 1872,
+            "observed_immediate_support_points": 1872,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 115,
+            "surviving_native_fractional_samples": 41,
+            "changed_native_pixels_on_cloud": 0,
+            "changed_native_pixels_on_brown": 115,
+            "changed_native_support_pixels": 115,
+            "observed_cloud_tiles": [],
+            "background": "brown",
+            "native_crop": [
+              54,
+              170,
+              134,
+              250
+            ]
+          },
+          {
+            "tick": 20,
+            "id": 281,
+            "origin": [
+              29,
+              90
+            ],
+            "authored_support_pixels": 1872,
+            "observed_immediate_support_points": 1872,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 115,
+            "surviving_native_fractional_samples": 41,
+            "changed_native_pixels_on_cloud": 115,
+            "changed_native_pixels_on_brown": 0,
+            "changed_native_support_pixels": 115,
+            "observed_cloud_tiles": [
+              {
+                "id": 62,
+                "x": 10,
+                "y": 68
+              },
+              {
+                "id": 55,
+                "x": 34,
+                "y": 68
+              },
+              {
+                "id": 52,
+                "x": 10,
+                "y": 96
+              },
+              {
+                "id": 65,
+                "x": 34,
+                "y": 96
+              }
+            ],
+            "background": "cloud",
+            "native_crop": [
+              -18,
+              154,
+              62,
+              234
+            ]
+          },
+          {
+            "tick": 16,
+            "id": 282,
+            "origin": [
+              141,
+              98
+            ],
+            "authored_support_pixels": 1872,
+            "observed_immediate_support_points": 1872,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 119,
+            "surviving_native_fractional_samples": 41,
+            "changed_native_pixels_on_cloud": 0,
+            "changed_native_pixels_on_brown": 119,
+            "changed_native_support_pixels": 119,
+            "observed_cloud_tiles": [],
+            "background": "brown",
+            "native_crop": [
+              206,
+              170,
+              286,
+              250
+            ]
+          },
+          {
+            "tick": 16,
+            "id": 282,
+            "origin": [
+              211,
+              120
+            ],
+            "authored_support_pixels": 1872,
+            "observed_immediate_support_points": 1872,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 119,
+            "surviving_native_fractional_samples": 41,
+            "changed_native_pixels_on_cloud": 119,
+            "changed_native_pixels_on_brown": 0,
+            "changed_native_support_pixels": 119,
+            "observed_cloud_tiles": [
+              {
+                "id": 64,
+                "x": 206,
+                "y": 116
+              }
+            ],
+            "background": "cloud",
+            "native_crop": [
+              346,
+              214,
+              426,
+              294
+            ]
+          },
+          {
+            "tick": 32,
+            "id": 301,
+            "origin": [
+              251,
+              118
+            ],
+            "authored_support_pixels": 1872,
+            "observed_immediate_support_points": 1872,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 118,
+            "surviving_native_fractional_samples": 40,
+            "changed_native_pixels_on_cloud": 0,
+            "changed_native_pixels_on_brown": 118,
+            "changed_native_support_pixels": 118,
+            "observed_cloud_tiles": [
+              {
+                "id": 45,
+                "x": 237,
+                "y": 92
+              },
+              {
+                "id": 55,
+                "x": 237,
+                "y": 120
+              }
+            ],
+            "background": "brown",
+            "native_crop": [
+              426,
+              210,
+              506,
+              290
+            ]
+          },
+          {
+            "tick": 24,
+            "id": 301,
+            "origin": [
+              213,
+              130
+            ],
+            "authored_support_pixels": 1872,
+            "observed_immediate_support_points": 1872,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 118,
+            "surviving_native_fractional_samples": 40,
+            "changed_native_pixels_on_cloud": 118,
+            "changed_native_pixels_on_brown": 0,
+            "changed_native_support_pixels": 118,
+            "observed_cloud_tiles": [
+              {
+                "id": 61,
+                "x": 198,
+                "y": 104
+              },
+              {
+                "id": 61,
+                "x": 222,
+                "y": 104
+              },
+              {
+                "id": 64,
+                "x": 198,
+                "y": 132
+              },
+              {
+                "id": 64,
+                "x": 222,
+                "y": 132
+              }
+            ],
+            "background": "cloud",
+            "native_crop": [
+              350,
+              234,
+              430,
+              314
+            ]
+          },
+          {
+            "tick": 16,
+            "id": 300,
+            "origin": [
+              65,
+              114
+            ],
+            "authored_support_pixels": 1872,
+            "observed_immediate_support_points": 1872,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 117,
+            "surviving_native_fractional_samples": 37,
+            "changed_native_pixels_on_cloud": 0,
+            "changed_native_pixels_on_brown": 117,
+            "changed_native_support_pixels": 117,
+            "observed_cloud_tiles": [],
+            "background": "brown",
+            "native_crop": [
+              54,
+              202,
+              134,
+              282
+            ]
+          },
+          {
+            "tick": 59,
+            "id": 300,
+            "origin": [
+              32,
+              129
+            ],
+            "authored_support_pixels": 1872,
+            "observed_immediate_support_points": 1872,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 117,
+            "surviving_native_fractional_samples": 37,
+            "changed_native_pixels_on_cloud": 117,
+            "changed_native_pixels_on_brown": 0,
+            "changed_native_support_pixels": 117,
+            "observed_cloud_tiles": [
+              {
+                "id": 52,
+                "x": 28,
+                "y": 118
+              }
+            ],
+            "background": "cloud",
+            "native_crop": [
+              -12,
+              232,
+              68,
+              312
+            ]
+          },
+          {
+            "tick": 16,
+            "id": 77,
+            "origin": [
+              103,
+              146
+            ],
+            "authored_support_pixels": 2074,
+            "observed_immediate_support_points": 2074,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 130,
+            "surviving_native_fractional_samples": 40,
+            "changed_native_pixels_on_cloud": 0,
+            "changed_native_pixels_on_brown": 130,
+            "changed_native_support_pixels": 130,
+            "observed_cloud_tiles": [],
+            "background": "brown",
+            "native_crop": [
+              130,
+              266,
+              210,
+              346
+            ]
+          },
+          {
+            "tick": 32,
+            "id": 77,
+            "origin": [
+              167,
+              151
+            ],
+            "authored_support_pixels": 2074,
+            "observed_immediate_support_points": 2074,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 130,
+            "surviving_native_fractional_samples": 40,
+            "changed_native_pixels_on_cloud": 130,
+            "changed_native_pixels_on_brown": 0,
+            "changed_native_support_pixels": 130,
+            "observed_cloud_tiles": [
+              {
+                "id": 64,
+                "x": 165,
+                "y": 148
+              }
+            ],
+            "background": "cloud",
+            "native_crop": [
+              258,
+              276,
+              338,
+              356
+            ]
+          }
+        ],
+        "observed_original_output_kinds": [
+          1,
+          2
+        ]
+      },
+      {
+        "case": "hard-art-native4x",
+        "native_scale": 4,
+        "witnesses": [
+          {
+            "tick": 48,
+            "id": 281,
+            "origin": [
+              161,
+              89
+            ],
+            "authored_support_pixels": 1872,
+            "observed_immediate_support_points": 1872,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 468,
+            "surviving_native_fractional_samples": 151,
+            "changed_native_pixels_on_cloud": 0,
+            "changed_native_pixels_on_brown": 468,
+            "changed_native_support_pixels": 468,
+            "observed_cloud_tiles": [],
+            "background": "brown",
+            "native_crop": [
+              492,
+              304,
+              652,
+              464
+            ]
+          },
+          {
+            "tick": 60,
+            "id": 281,
+            "origin": [
+              53,
+              65
+            ],
+            "authored_support_pixels": 1872,
+            "observed_immediate_support_points": 1872,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 468,
+            "surviving_native_fractional_samples": 151,
+            "changed_native_pixels_on_cloud": 467,
+            "changed_native_pixels_on_brown": 0,
+            "changed_native_support_pixels": 467,
+            "observed_cloud_tiles": [
+              {
+                "id": 61,
+                "x": 52,
+                "y": 64
+              }
+            ],
+            "background": "cloud",
+            "native_crop": [
+              60,
+              208,
+              220,
+              368
+            ]
+          },
+          {
+            "tick": 24,
+            "id": 282,
+            "origin": [
+              179,
+              82
+            ],
+            "authored_support_pixels": 1872,
+            "observed_immediate_support_points": 1872,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 467,
+            "surviving_native_fractional_samples": 150,
+            "changed_native_pixels_on_cloud": 0,
+            "changed_native_pixels_on_brown": 467,
+            "changed_native_support_pixels": 467,
+            "observed_cloud_tiles": [
+              {
+                "id": 43,
+                "x": 174,
+                "y": 76
+              }
+            ],
+            "background": "brown",
+            "native_crop": [
+              564,
+              276,
+              724,
+              436
+            ]
+          },
+          {
+            "tick": 16,
+            "id": 282,
+            "origin": [
+              211,
+              120
+            ],
+            "authored_support_pixels": 1872,
+            "observed_immediate_support_points": 1872,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 467,
+            "surviving_native_fractional_samples": 150,
+            "changed_native_pixels_on_cloud": 467,
+            "changed_native_pixels_on_brown": 0,
+            "changed_native_support_pixels": 467,
+            "observed_cloud_tiles": [
+              {
+                "id": 64,
+                "x": 206,
+                "y": 116
+              }
+            ],
+            "background": "cloud",
+            "native_crop": [
+              692,
+              428,
+              852,
+              588
+            ]
+          },
+          {
+            "tick": 16,
+            "id": 301,
+            "origin": [
+              211,
+              168
+            ],
+            "authored_support_pixels": 1872,
+            "observed_immediate_support_points": 1872,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 468,
+            "surviving_native_fractional_samples": 160,
+            "changed_native_pixels_on_cloud": 0,
+            "changed_native_pixels_on_brown": 468,
+            "changed_native_support_pixels": 468,
+            "observed_cloud_tiles": [],
+            "background": "brown",
+            "native_crop": [
+              692,
+              620,
+              852,
+              780
+            ]
+          },
+          {
+            "tick": 20,
+            "id": 301,
+            "origin": [
+              177,
+              122
+            ],
+            "authored_support_pixels": 1872,
+            "observed_immediate_support_points": 1872,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 468,
+            "surviving_native_fractional_samples": 160,
+            "changed_native_pixels_on_cloud": 468,
+            "changed_native_pixels_on_brown": 0,
+            "changed_native_support_pixels": 468,
+            "observed_cloud_tiles": [
+              {
+                "id": 43,
+                "x": 154,
+                "y": 96
+              },
+              {
+                "id": 41,
+                "x": 178,
+                "y": 96
+              },
+              {
+                "id": 63,
+                "x": 154,
+                "y": 124
+              },
+              {
+                "id": 64,
+                "x": 178,
+                "y": 124
+              }
+            ],
+            "background": "cloud",
+            "native_crop": [
+              556,
+              436,
+              716,
+              596
+            ]
+          },
+          {
+            "tick": 20,
+            "id": 300,
+            "origin": [
+              121,
+              94
+            ],
+            "authored_support_pixels": 1872,
+            "observed_immediate_support_points": 1872,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 469,
+            "surviving_native_fractional_samples": 157,
+            "changed_native_pixels_on_cloud": 0,
+            "changed_native_pixels_on_brown": 469,
+            "changed_native_support_pixels": 469,
+            "observed_cloud_tiles": [],
+            "background": "brown",
+            "native_crop": [
+              332,
+              324,
+              492,
+              484
+            ]
+          },
+          {
+            "tick": 59,
+            "id": 300,
+            "origin": [
+              32,
+              129
+            ],
+            "authored_support_pixels": 1872,
+            "observed_immediate_support_points": 1872,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 469,
+            "surviving_native_fractional_samples": 157,
+            "changed_native_pixels_on_cloud": 469,
+            "changed_native_pixels_on_brown": 0,
+            "changed_native_support_pixels": 469,
+            "observed_cloud_tiles": [
+              {
+                "id": 52,
+                "x": 28,
+                "y": 118
+              }
+            ],
+            "background": "cloud",
+            "native_crop": [
+              -24,
+              464,
+              136,
+              624
+            ]
+          },
+          {
+            "tick": 24,
+            "id": 77,
+            "origin": [
+              132,
+              142
+            ],
+            "authored_support_pixels": 2074,
+            "observed_immediate_support_points": 2074,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 519,
+            "surviving_native_fractional_samples": 148,
+            "changed_native_pixels_on_cloud": 0,
+            "changed_native_pixels_on_brown": 519,
+            "changed_native_support_pixels": 519,
+            "observed_cloud_tiles": [],
+            "background": "brown",
+            "native_crop": [
+              376,
+              516,
+              536,
+              676
+            ]
+          },
+          {
+            "tick": 36,
+            "id": 77,
+            "origin": [
+              202,
+              121
+            ],
+            "authored_support_pixels": 2074,
+            "observed_immediate_support_points": 2074,
+            "fully_inside_playfield": true,
+            "all_authored_support_survives_later_draws": true,
+            "surviving_native_authored_samples": 519,
+            "surviving_native_fractional_samples": 148,
+            "changed_native_pixels_on_cloud": 519,
+            "changed_native_pixels_on_brown": 0,
+            "changed_native_support_pixels": 519,
+            "observed_cloud_tiles": [
+              {
+                "id": 44,
+                "x": 185,
+                "y": 100
+              },
+              {
+                "id": 44,
+                "x": 209,
+                "y": 100
+              },
+              {
+                "id": 61,
+                "x": 185,
+                "y": 128
+              },
+              {
+                "id": 61,
+                "x": 209,
+                "y": 128
+              }
+            ],
+            "background": "cloud",
+            "native_crop": [
+              656,
+              432,
+              816,
+              592
+            ]
+          }
+        ],
+        "observed_original_output_kinds": [
+          1,
+          2
+        ]
+      }
+    ]
+  },
+  "transition_native_witness": {
+    "pass": true,
+    "scope": "Fresh actual native frames and exact original birth/draw linkage. Clearing means new target output is gone; unrelated original gameplay may remain. The tick64 record257 list includes all six retained draws per difficulty; four interior-origin examples are labeled separately. Draw admission is not a claim that every authored pixel is visible.",
+    "cases": [
+      {
+        "case": "normal-transition-native2x",
+        "inputs_switch_mode_at": [
+          60,
+          100
+        ],
+        "fire_stops_at": 120,
+        "record257_births_retained_after_switch_to_mode2_t64": [
+          {
+            "tick": "64",
+            "slot": "0",
+            "player": "1",
+            "raw_index": "281",
+            "bank": "8",
+            "index": "281",
+            "x": "68",
+            "y": "71",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_call": "27",
+            "birth_tick": "54",
+            "emission_number": "1",
+            "record": "257"
+          },
+          {
+            "tick": "64",
+            "slot": "2",
+            "player": "1",
+            "raw_index": "282",
+            "bank": "8",
+            "index": "282",
+            "x": "252",
+            "y": "71",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_call": "27",
+            "birth_tick": "54",
+            "emission_number": "2",
+            "record": "257"
+          },
+          {
+            "tick": "64",
+            "slot": "4",
+            "player": "1",
+            "raw_index": "301",
+            "bank": "8",
+            "index": "301",
+            "x": "252",
+            "y": "111",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_call": "27",
+            "birth_tick": "54",
+            "emission_number": "3",
+            "record": "257"
+          },
+          {
+            "tick": "64",
+            "slot": "5",
+            "player": "1",
+            "raw_index": "300",
+            "bank": "8",
+            "index": "300",
+            "x": "68",
+            "y": "111",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_call": "27",
+            "birth_tick": "54",
+            "emission_number": "4",
+            "record": "257"
+          },
+          {
+            "tick": "64",
+            "slot": "9",
+            "player": "1",
+            "raw_index": "281",
+            "bank": "8",
+            "index": "281",
+            "x": "17",
+            "y": "57",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_call": "25",
+            "birth_tick": "47",
+            "emission_number": "1",
+            "record": "257"
+          },
+          {
+            "tick": "64",
+            "slot": "15",
+            "player": "1",
+            "raw_index": "300",
+            "bank": "8",
+            "index": "300",
+            "x": "17",
+            "y": "125",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_call": "25",
+            "birth_tick": "47",
+            "emission_number": "4",
+            "record": "257"
+          }
+        ],
+        "unchanged_record268_births_retained_after_switch_back_t104": [
+          {
+            "tick": "104",
+            "slot": "6",
+            "player": "1",
+            "raw_index": "163",
+            "bank": "8",
+            "index": "163",
+            "x": "108",
+            "y": "43",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_tick": "96",
+            "birth_call": "44",
+            "record": 268
+          },
+          {
+            "tick": "104",
+            "slot": "7",
+            "player": "1",
+            "raw_index": "163",
+            "bank": "8",
+            "index": "163",
+            "x": "66",
+            "y": "1",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_tick": "89",
+            "birth_call": "41",
+            "record": 268
+          },
+          {
+            "tick": "104",
+            "slot": "9",
+            "player": "1",
+            "raw_index": "164",
+            "bank": "8",
+            "index": "164",
+            "x": "212",
+            "y": "43",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_tick": "96",
+            "birth_call": "44",
+            "record": 268
+          },
+          {
+            "tick": "104",
+            "slot": "10",
+            "player": "1",
+            "raw_index": "183",
+            "bank": "8",
+            "index": "183",
+            "x": "212",
+            "y": "139",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_tick": "96",
+            "birth_call": "44",
+            "record": 268
+          },
+          {
+            "tick": "104",
+            "slot": "11",
+            "player": "1",
+            "raw_index": "164",
+            "bank": "8",
+            "index": "164",
+            "x": "254",
+            "y": "1",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_tick": "89",
+            "birth_call": "41",
+            "record": 268
+          },
+          {
+            "tick": "104",
+            "slot": "12",
+            "player": "1",
+            "raw_index": "182",
+            "bank": "8",
+            "index": "182",
+            "x": "108",
+            "y": "139",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_tick": "96",
+            "birth_call": "44",
+            "record": 268
+          },
+          {
+            "tick": "104",
+            "slot": "13",
+            "player": "1",
+            "raw_index": "183",
+            "bank": "8",
+            "index": "183",
+            "x": "254",
+            "y": "181",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_tick": "89",
+            "birth_call": "41",
+            "record": 268
+          },
+          {
+            "tick": "104",
+            "slot": "14",
+            "player": "1",
+            "raw_index": "182",
+            "bank": "8",
+            "index": "182",
+            "x": "66",
+            "y": "181",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_tick": "89",
+            "birth_call": "41",
+            "record": 268
+          },
+          {
+            "tick": "104",
+            "slot": "15",
+            "player": "1",
+            "raw_index": "77",
+            "bank": "8",
+            "index": "77",
+            "x": "160",
+            "y": "171",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_tick": "96",
+            "birth_call": "44",
+            "record": 268
+          }
+        ],
+        "natural_mode1_retained_ids_at_t64": [
+          281,
+          282,
+          300,
+          301
+        ],
+        "natural77_retained_at_t64": 0,
+        "natural_mode2_retained_ids_at_t104": [
+          77,
+          163,
+          164,
+          182,
+          183
+        ],
+        "clear179_native_exact_to_baseline": true,
+        "clear179_new_target_admissions": 0,
+        "record257_retained_draw_count_at_t64": 6,
+        "record257_selected_interior_origin_examples_at_t64": {
+          "count": 4,
+          "draw_slots": [
+            0,
+            2,
+            4,
+            5
+          ],
+          "selection": "Draw origins x=24..276. These are selected interior-frame examples, not the complete retained draw set.",
+          "additional_retained_draws": "The two older 281/300 draws born at tick47 have origin x=17; both are included in the complete six-entry retained list."
+        }
+      },
+      {
+        "case": "hard-transition-native2x",
+        "inputs_switch_mode_at": [
+          60,
+          100
+        ],
+        "fire_stops_at": 120,
+        "record257_births_retained_after_switch_to_mode2_t64": [
+          {
+            "tick": "64",
+            "slot": "0",
+            "player": "1",
+            "raw_index": "281",
+            "bank": "8",
+            "index": "281",
+            "x": "68",
+            "y": "71",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_call": "27",
+            "birth_tick": "54",
+            "emission_number": "1",
+            "record": "257"
+          },
+          {
+            "tick": "64",
+            "slot": "2",
+            "player": "1",
+            "raw_index": "282",
+            "bank": "8",
+            "index": "282",
+            "x": "252",
+            "y": "71",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_call": "27",
+            "birth_tick": "54",
+            "emission_number": "2",
+            "record": "257"
+          },
+          {
+            "tick": "64",
+            "slot": "4",
+            "player": "1",
+            "raw_index": "301",
+            "bank": "8",
+            "index": "301",
+            "x": "252",
+            "y": "111",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_call": "27",
+            "birth_tick": "54",
+            "emission_number": "3",
+            "record": "257"
+          },
+          {
+            "tick": "64",
+            "slot": "5",
+            "player": "1",
+            "raw_index": "300",
+            "bank": "8",
+            "index": "300",
+            "x": "68",
+            "y": "111",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_call": "27",
+            "birth_tick": "54",
+            "emission_number": "4",
+            "record": "257"
+          },
+          {
+            "tick": "64",
+            "slot": "9",
+            "player": "1",
+            "raw_index": "281",
+            "bank": "8",
+            "index": "281",
+            "x": "17",
+            "y": "57",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_call": "25",
+            "birth_tick": "47",
+            "emission_number": "1",
+            "record": "257"
+          },
+          {
+            "tick": "64",
+            "slot": "15",
+            "player": "1",
+            "raw_index": "300",
+            "bank": "8",
+            "index": "300",
+            "x": "17",
+            "y": "125",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_call": "25",
+            "birth_tick": "47",
+            "emission_number": "4",
+            "record": "257"
+          }
+        ],
+        "unchanged_record268_births_retained_after_switch_back_t104": [
+          {
+            "tick": "104",
+            "slot": "6",
+            "player": "1",
+            "raw_index": "163",
+            "bank": "8",
+            "index": "163",
+            "x": "108",
+            "y": "43",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_tick": "96",
+            "birth_call": "44",
+            "record": 268
+          },
+          {
+            "tick": "104",
+            "slot": "7",
+            "player": "1",
+            "raw_index": "163",
+            "bank": "8",
+            "index": "163",
+            "x": "66",
+            "y": "1",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_tick": "89",
+            "birth_call": "41",
+            "record": 268
+          },
+          {
+            "tick": "104",
+            "slot": "9",
+            "player": "1",
+            "raw_index": "164",
+            "bank": "8",
+            "index": "164",
+            "x": "212",
+            "y": "43",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_tick": "96",
+            "birth_call": "44",
+            "record": 268
+          },
+          {
+            "tick": "104",
+            "slot": "10",
+            "player": "1",
+            "raw_index": "183",
+            "bank": "8",
+            "index": "183",
+            "x": "212",
+            "y": "139",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_tick": "96",
+            "birth_call": "44",
+            "record": 268
+          },
+          {
+            "tick": "104",
+            "slot": "11",
+            "player": "1",
+            "raw_index": "164",
+            "bank": "8",
+            "index": "164",
+            "x": "254",
+            "y": "1",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_tick": "89",
+            "birth_call": "41",
+            "record": 268
+          },
+          {
+            "tick": "104",
+            "slot": "12",
+            "player": "1",
+            "raw_index": "182",
+            "bank": "8",
+            "index": "182",
+            "x": "108",
+            "y": "139",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_tick": "96",
+            "birth_call": "44",
+            "record": 268
+          },
+          {
+            "tick": "104",
+            "slot": "13",
+            "player": "1",
+            "raw_index": "183",
+            "bank": "8",
+            "index": "183",
+            "x": "254",
+            "y": "181",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_tick": "89",
+            "birth_call": "41",
+            "record": 268
+          },
+          {
+            "tick": "104",
+            "slot": "14",
+            "player": "1",
+            "raw_index": "182",
+            "bank": "8",
+            "index": "182",
+            "x": "66",
+            "y": "181",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_tick": "89",
+            "birth_call": "41",
+            "record": 268
+          },
+          {
+            "tick": "104",
+            "slot": "15",
+            "player": "1",
+            "raw_index": "77",
+            "bank": "8",
+            "index": "77",
+            "x": "160",
+            "y": "171",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_tick": "96",
+            "birth_call": "44",
+            "record": 268
+          }
+        ],
+        "natural_mode1_retained_ids_at_t64": [
+          281,
+          282,
+          300,
+          301
+        ],
+        "natural77_retained_at_t64": 0,
+        "natural_mode2_retained_ids_at_t104": [
+          77,
+          163,
+          164,
+          182,
+          183
+        ],
+        "clear179_native_exact_to_baseline": true,
+        "clear179_new_target_admissions": 0,
+        "record257_retained_draw_count_at_t64": 6,
+        "record257_selected_interior_origin_examples_at_t64": {
+          "count": 4,
+          "draw_slots": [
+            0,
+            2,
+            4,
+            5
+          ],
+          "selection": "Draw origins x=24..276. These are selected interior-frame examples, not the complete retained draw set.",
+          "additional_retained_draws": "The two older 281/300 draws born at tick47 have origin x=17; both are included in the complete six-entry retained list."
+        }
+      }
+    ]
+  },
+  "cases": [
+    {
+      "case": "normal-art-native2x",
+      "difficulty": "normal",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 4,
+      "variant": "art",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 562,
+      "game_captures_per_process": 22,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 17,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 4433,
+      "rear_emissions": 80,
+      "rear_emission_ids": {
+        "281": 8,
+        "282": 8,
+        "301": 8,
+        "300": 8,
+        "77": 16,
+        "163": 8,
+        "164": 8,
+        "183": 8,
+        "182": 8
+      },
+      "cash_after_natural_shop_purchase": 1750,
+      "natural_time_seed": "1792172355",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": false,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "5706961df5e9495c7400ad05b6b6c836c61b758cde43953d73f1ecf8ead1dd71",
+          "observer_source_manifest_sha256": "876a63f5613775bd0f01b027792afad36d011745d4c29f313c0a0857cf8fc8a7",
+          "launch_record_sha256": "e4dfcce802a31a2f2044af638ad63d82cda34d9ee4bb606d203ab894e3cc246d",
+          "process_receipt_sha256": "f2cf02eb10298a4b5a5ae82ed70cabcb8ff356cda6aa5c038dc611b3489998d8"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "cdf1a0c7683abe1a604a6941a51eb5aa518a951488033161a2ecedc58e058054",
+          "observer_source_manifest_sha256": "84bd9f688c1ea9483ab7eb3e465b9b8e112aeecf5cd1c27d890d005e64b93be8",
+          "launch_record_sha256": "573e91e2dadc19f1c154aadb9a2d8fed24849540da16cbd296226ea8efee37d9",
+          "process_receipt_sha256": "047f474404f2a686faf51664a9886561e6db25824d8738afc565a105fcf8765b"
+        }
+      ],
+      "five_head_emission_coverage": {
+        "case": "normal-art-native2x",
+        "natural_rear_outcomes": {
+          "power": 8,
+          "complete": 16
+        },
+        "natural_rear_power_failures_without_emission": 8,
+        "rear_emissions_reusing_older_slots": 64,
+        "rear_emissions_reusing_front_slots": 10,
+        "mode1_emitting_calls": 8,
+        "five_emissions_per_successful_mode1_call_exact": true,
+        "fully_observed_volleys_all_available_heads_HD": 8,
+        "observed_normal_head_draws_by_emission_number": {
+          "1": 133,
+          "2": 115,
+          "3": 115,
+          "4": 133,
+          "5": 66
+        },
+        "observed_normal_head_draws_by_id": {
+          "281": 133,
+          "282": 115,
+          "301": 115,
+          "300": 133,
+          "77": 66
+        },
+        "unchanged_record268_draws_by_id": {
+          "163": 119,
+          "164": 119,
+          "183": 113,
+          "182": 113,
+          "77": 68
+        },
+        "unchanged_generic163_164_shadow_draws": {
+          "163": 113,
+          "164": 113
+        },
+        "generic163_164_density_policy": "existing density8 normal/shadow HD unchanged",
+        "missing_or_corrupt77_classic_draws": 0,
+        "all_eligible_mode1_available_head_draws_HD": true,
+        "every_new_HD_admission_matches_exact_rear_P4_mode1_birth": true
+      },
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 344940,
+      "new_target_fractional_intermediate_results": 344557
+    },
+    {
+      "case": "normal-art-native4x",
+      "difficulty": "normal",
+      "native_scale": 4,
+      "render_density": 8,
+      "rear_power": 4,
+      "variant": "art",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 562,
+      "game_captures_per_process": 22,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 17,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 17158,
+      "rear_emissions": 80,
+      "rear_emission_ids": {
+        "281": 8,
+        "282": 8,
+        "301": 8,
+        "300": 8,
+        "77": 16,
+        "163": 8,
+        "164": 8,
+        "183": 8,
+        "182": 8
+      },
+      "cash_after_natural_shop_purchase": 1750,
+      "natural_time_seed": "1792172396",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": false,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "5706961df5e9495c7400ad05b6b6c836c61b758cde43953d73f1ecf8ead1dd71",
+          "observer_source_manifest_sha256": "876a63f5613775bd0f01b027792afad36d011745d4c29f313c0a0857cf8fc8a7",
+          "launch_record_sha256": "e559926777d15d2a7c09b0b3464216bb7f09a02607fe02890fc2fed2ec8265cb",
+          "process_receipt_sha256": "ac2c008a9e5c7b6ba4a586991fd72f272b789e237ef6ce674545bf601f06e2b9"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "cdf1a0c7683abe1a604a6941a51eb5aa518a951488033161a2ecedc58e058054",
+          "observer_source_manifest_sha256": "84bd9f688c1ea9483ab7eb3e465b9b8e112aeecf5cd1c27d890d005e64b93be8",
+          "launch_record_sha256": "bce869bf06e4285a6332528a31efabd572e8bd81ec1170f5707787a21da4cf4d",
+          "process_receipt_sha256": "d758ce79b8313ac235cefa869c720e4a7e35aeafbb7f91f6ed18cbc6b7506014"
+        }
+      ],
+      "five_head_emission_coverage": {
+        "case": "normal-art-native4x",
+        "natural_rear_outcomes": {
+          "power": 8,
+          "complete": 16
+        },
+        "natural_rear_power_failures_without_emission": 8,
+        "rear_emissions_reusing_older_slots": 64,
+        "rear_emissions_reusing_front_slots": 10,
+        "mode1_emitting_calls": 8,
+        "five_emissions_per_successful_mode1_call_exact": true,
+        "fully_observed_volleys_all_available_heads_HD": 8,
+        "observed_normal_head_draws_by_emission_number": {
+          "1": 133,
+          "2": 115,
+          "3": 115,
+          "4": 133,
+          "5": 66
+        },
+        "observed_normal_head_draws_by_id": {
+          "281": 133,
+          "282": 115,
+          "301": 115,
+          "300": 133,
+          "77": 66
+        },
+        "unchanged_record268_draws_by_id": {
+          "163": 119,
+          "164": 119,
+          "183": 113,
+          "182": 113,
+          "77": 68
+        },
+        "unchanged_generic163_164_shadow_draws": {
+          "163": 113,
+          "164": 113
+        },
+        "generic163_164_density_policy": "existing density8 normal/shadow HD unchanged",
+        "missing_or_corrupt77_classic_draws": 0,
+        "all_eligible_mode1_available_head_draws_HD": true,
+        "every_new_HD_admission_matches_exact_rear_P4_mode1_birth": true
+      },
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 344940,
+      "new_target_fractional_intermediate_results": 344557
+    },
+    {
+      "case": "hard-art-native2x",
+      "difficulty": "hard",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 4,
+      "variant": "art",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 562,
+      "game_captures_per_process": 22,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 17,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 4433,
+      "rear_emissions": 80,
+      "rear_emission_ids": {
+        "281": 8,
+        "282": 8,
+        "301": 8,
+        "300": 8,
+        "77": 16,
+        "163": 8,
+        "164": 8,
+        "183": 8,
+        "182": 8
+      },
+      "cash_after_natural_shop_purchase": 1750,
+      "natural_time_seed": "1792172432",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": false,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "5706961df5e9495c7400ad05b6b6c836c61b758cde43953d73f1ecf8ead1dd71",
+          "observer_source_manifest_sha256": "876a63f5613775bd0f01b027792afad36d011745d4c29f313c0a0857cf8fc8a7",
+          "launch_record_sha256": "5e54285fb9fb482dec1873ca284304a3956ad65ddaeaf41f78c0404261515047",
+          "process_receipt_sha256": "377141cf651b93487c39b3a97a678d89804465067aab4f9a059a1e8180e6fcf0"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "cdf1a0c7683abe1a604a6941a51eb5aa518a951488033161a2ecedc58e058054",
+          "observer_source_manifest_sha256": "84bd9f688c1ea9483ab7eb3e465b9b8e112aeecf5cd1c27d890d005e64b93be8",
+          "launch_record_sha256": "c52f148a8ac6c45b0ea83cf2e1078fc987b3c5286bb26428aa026bec2fed32b2",
+          "process_receipt_sha256": "58ed4f9d161180c4e85dced3ce9b028d015ea2c84843ff3df7efa6080382d995"
+        }
+      ],
+      "five_head_emission_coverage": {
+        "case": "hard-art-native2x",
+        "natural_rear_outcomes": {
+          "power": 8,
+          "complete": 16
+        },
+        "natural_rear_power_failures_without_emission": 8,
+        "rear_emissions_reusing_older_slots": 64,
+        "rear_emissions_reusing_front_slots": 10,
+        "mode1_emitting_calls": 8,
+        "five_emissions_per_successful_mode1_call_exact": true,
+        "fully_observed_volleys_all_available_heads_HD": 8,
+        "observed_normal_head_draws_by_emission_number": {
+          "1": 133,
+          "2": 115,
+          "3": 115,
+          "4": 133,
+          "5": 66
+        },
+        "observed_normal_head_draws_by_id": {
+          "281": 133,
+          "282": 115,
+          "301": 115,
+          "300": 133,
+          "77": 66
+        },
+        "unchanged_record268_draws_by_id": {
+          "163": 119,
+          "164": 119,
+          "183": 113,
+          "182": 113,
+          "77": 68
+        },
+        "unchanged_generic163_164_shadow_draws": {
+          "163": 113,
+          "164": 113
+        },
+        "generic163_164_density_policy": "existing density8 normal/shadow HD unchanged",
+        "missing_or_corrupt77_classic_draws": 0,
+        "all_eligible_mode1_available_head_draws_HD": true,
+        "every_new_HD_admission_matches_exact_rear_P4_mode1_birth": true
+      },
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 344940,
+      "new_target_fractional_intermediate_results": 344557
+    },
+    {
+      "case": "hard-art-native4x",
+      "difficulty": "hard",
+      "native_scale": 4,
+      "render_density": 8,
+      "rear_power": 4,
+      "variant": "art",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 562,
+      "game_captures_per_process": 22,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 17,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 17158,
+      "rear_emissions": 80,
+      "rear_emission_ids": {
+        "281": 8,
+        "282": 8,
+        "301": 8,
+        "300": 8,
+        "77": 16,
+        "163": 8,
+        "164": 8,
+        "183": 8,
+        "182": 8
+      },
+      "cash_after_natural_shop_purchase": 1750,
+      "natural_time_seed": "1792172469",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": false,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "5706961df5e9495c7400ad05b6b6c836c61b758cde43953d73f1ecf8ead1dd71",
+          "observer_source_manifest_sha256": "876a63f5613775bd0f01b027792afad36d011745d4c29f313c0a0857cf8fc8a7",
+          "launch_record_sha256": "eb6588b4afac41ab2e46d73dee38d030b0007b718241674eeef888f29c230681",
+          "process_receipt_sha256": "f2302d6875d6dc50e995b3b8a655acada20212e9292031a993818ec7ed00f000"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "cdf1a0c7683abe1a604a6941a51eb5aa518a951488033161a2ecedc58e058054",
+          "observer_source_manifest_sha256": "84bd9f688c1ea9483ab7eb3e465b9b8e112aeecf5cd1c27d890d005e64b93be8",
+          "launch_record_sha256": "2b0f45e885d90d1717e62ab1edfd3796a71a6272148f645cd3204c24709d293a",
+          "process_receipt_sha256": "787ca1e869dab41846823bdc1a8c2bd686005a54d8878a24e8f5239609625998"
+        }
+      ],
+      "five_head_emission_coverage": {
+        "case": "hard-art-native4x",
+        "natural_rear_outcomes": {
+          "power": 8,
+          "complete": 16
+        },
+        "natural_rear_power_failures_without_emission": 8,
+        "rear_emissions_reusing_older_slots": 64,
+        "rear_emissions_reusing_front_slots": 10,
+        "mode1_emitting_calls": 8,
+        "five_emissions_per_successful_mode1_call_exact": true,
+        "fully_observed_volleys_all_available_heads_HD": 8,
+        "observed_normal_head_draws_by_emission_number": {
+          "1": 133,
+          "2": 115,
+          "3": 115,
+          "4": 133,
+          "5": 66
+        },
+        "observed_normal_head_draws_by_id": {
+          "281": 133,
+          "282": 115,
+          "301": 115,
+          "300": 133,
+          "77": 66
+        },
+        "unchanged_record268_draws_by_id": {
+          "163": 119,
+          "164": 119,
+          "183": 113,
+          "182": 113,
+          "77": 68
+        },
+        "unchanged_generic163_164_shadow_draws": {
+          "163": 113,
+          "164": 113
+        },
+        "generic163_164_density_policy": "existing density8 normal/shadow HD unchanged",
+        "missing_or_corrupt77_classic_draws": 0,
+        "all_eligible_mode1_available_head_draws_HD": true,
+        "every_new_HD_admission_matches_exact_rear_P4_mode1_birth": true
+      },
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 344940,
+      "new_target_fractional_intermediate_results": 344557
+    },
+    {
+      "case": "normal-missing-native2x",
+      "difficulty": "normal",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 4,
+      "variant": "missing",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 496,
+      "game_captures_per_process": 8,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 4,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 991,
+      "rear_emissions": 80,
+      "rear_emission_ids": {
+        "281": 8,
+        "282": 8,
+        "301": 8,
+        "300": 8,
+        "77": 16,
+        "163": 8,
+        "164": 8,
+        "183": 8,
+        "182": 8
+      },
+      "cash_after_natural_shop_purchase": 1750,
+      "natural_time_seed": "1792172526",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": false,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "5706961df5e9495c7400ad05b6b6c836c61b758cde43953d73f1ecf8ead1dd71",
+          "observer_source_manifest_sha256": "876a63f5613775bd0f01b027792afad36d011745d4c29f313c0a0857cf8fc8a7",
+          "launch_record_sha256": "e99e64f322ceff899ab3c96d89191c6cf57bbb4894df369b58c21db328562874",
+          "process_receipt_sha256": "f8e6628fd53686405ae1da548e33a1295ecdd3dd793800a3fc4e03431b3781e8"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "cdf1a0c7683abe1a604a6941a51eb5aa518a951488033161a2ecedc58e058054",
+          "observer_source_manifest_sha256": "84bd9f688c1ea9483ab7eb3e465b9b8e112aeecf5cd1c27d890d005e64b93be8",
+          "launch_record_sha256": "b197ce6f9ca95b3dd6efb2a4fe604db64f15cf522d8393eb1861421a7dce1c1c",
+          "process_receipt_sha256": "5c15f07838cb29b96d2f056db3db5fa80193cb716e6fc2a6cb9bb8e279e45fab"
+        }
+      ],
+      "five_head_emission_coverage": {
+        "case": "normal-missing-native2x",
+        "natural_rear_outcomes": {
+          "power": 8,
+          "complete": 16
+        },
+        "natural_rear_power_failures_without_emission": 8,
+        "rear_emissions_reusing_older_slots": 64,
+        "rear_emissions_reusing_front_slots": 10,
+        "mode1_emitting_calls": 8,
+        "five_emissions_per_successful_mode1_call_exact": true,
+        "fully_observed_volleys_all_available_heads_HD": 8,
+        "observed_normal_head_draws_by_emission_number": {
+          "1": 133,
+          "2": 115,
+          "3": 115,
+          "4": 133
+        },
+        "observed_normal_head_draws_by_id": {
+          "281": 133,
+          "282": 115,
+          "301": 115,
+          "300": 133
+        },
+        "unchanged_record268_draws_by_id": {
+          "163": 119,
+          "164": 119,
+          "183": 113,
+          "182": 113,
+          "77": 68
+        },
+        "unchanged_generic163_164_shadow_draws": {
+          "163": 113,
+          "164": 113
+        },
+        "generic163_164_density_policy": "existing density8 normal/shadow HD unchanged",
+        "missing_or_corrupt77_classic_draws": 66,
+        "all_eligible_mode1_available_head_draws_HD": true,
+        "every_new_HD_admission_matches_exact_rear_P4_mode1_birth": true
+      },
+      "only77_falls_back_while_existing_quartet_remains_HD": true,
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 306528,
+      "new_target_fractional_intermediate_results": 306197
+    },
+    {
+      "case": "normal-corrupt-native2x",
+      "difficulty": "normal",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 4,
+      "variant": "corrupt",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 496,
+      "game_captures_per_process": 8,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 4,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 991,
+      "rear_emissions": 80,
+      "rear_emission_ids": {
+        "281": 8,
+        "282": 8,
+        "301": 8,
+        "300": 8,
+        "77": 16,
+        "163": 8,
+        "164": 8,
+        "183": 8,
+        "182": 8
+      },
+      "cash_after_natural_shop_purchase": 1750,
+      "natural_time_seed": "1792172560",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": false,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "5706961df5e9495c7400ad05b6b6c836c61b758cde43953d73f1ecf8ead1dd71",
+          "observer_source_manifest_sha256": "876a63f5613775bd0f01b027792afad36d011745d4c29f313c0a0857cf8fc8a7",
+          "launch_record_sha256": "dfc4f48c33beb35ed7b6f2c6af57c2338f1dcf8750eff67818922073ea397e20",
+          "process_receipt_sha256": "8b89d6f4bf90c5683c22dfe09e75ccaaa41d0c11e75bc477d01ebc030d46049c"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "cdf1a0c7683abe1a604a6941a51eb5aa518a951488033161a2ecedc58e058054",
+          "observer_source_manifest_sha256": "84bd9f688c1ea9483ab7eb3e465b9b8e112aeecf5cd1c27d890d005e64b93be8",
+          "launch_record_sha256": "e0dfbfed49eda84aa3c95dced399fe570bc13bcdfe89ffbf39003a358377af15",
+          "process_receipt_sha256": "f2df8ce23fe08c4cf87f26ab5453bb4986e4ac44f50aa7f9e7372ba2ea2f68dc"
+        }
+      ],
+      "five_head_emission_coverage": {
+        "case": "normal-corrupt-native2x",
+        "natural_rear_outcomes": {
+          "power": 8,
+          "complete": 16
+        },
+        "natural_rear_power_failures_without_emission": 8,
+        "rear_emissions_reusing_older_slots": 64,
+        "rear_emissions_reusing_front_slots": 10,
+        "mode1_emitting_calls": 8,
+        "five_emissions_per_successful_mode1_call_exact": true,
+        "fully_observed_volleys_all_available_heads_HD": 8,
+        "observed_normal_head_draws_by_emission_number": {
+          "1": 133,
+          "2": 115,
+          "3": 115,
+          "4": 133
+        },
+        "observed_normal_head_draws_by_id": {
+          "281": 133,
+          "282": 115,
+          "301": 115,
+          "300": 133
+        },
+        "unchanged_record268_draws_by_id": {
+          "163": 119,
+          "164": 119,
+          "183": 113,
+          "182": 113,
+          "77": 68
+        },
+        "unchanged_generic163_164_shadow_draws": {
+          "163": 113,
+          "164": 113
+        },
+        "generic163_164_density_policy": "existing density8 normal/shadow HD unchanged",
+        "missing_or_corrupt77_classic_draws": 66,
+        "all_eligible_mode1_available_head_draws_HD": true,
+        "every_new_HD_admission_matches_exact_rear_P4_mode1_birth": true
+      },
+      "only77_falls_back_while_existing_quartet_remains_HD": true,
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 306528,
+      "new_target_fractional_intermediate_results": 306197
+    },
+    {
+      "case": "normal-allmissing-native2x",
+      "difficulty": "normal",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 4,
+      "variant": "allmissing",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 0,
+      "game_captures_per_process": 8,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 0,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 0,
+      "rear_emissions": 80,
+      "rear_emission_ids": {
+        "281": 8,
+        "282": 8,
+        "301": 8,
+        "300": 8,
+        "77": 16,
+        "163": 8,
+        "164": 8,
+        "183": 8,
+        "182": 8
+      },
+      "cash_after_natural_shop_purchase": 1750,
+      "natural_time_seed": "1792172593",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": true,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "5706961df5e9495c7400ad05b6b6c836c61b758cde43953d73f1ecf8ead1dd71",
+          "observer_source_manifest_sha256": "876a63f5613775bd0f01b027792afad36d011745d4c29f313c0a0857cf8fc8a7",
+          "launch_record_sha256": "1dedba82b4f0205e2f913ba8008f7f156016482a464affcb2292aef222b28ec7",
+          "process_receipt_sha256": "a214072079fa79f57ffc453b1ed492569cf269b9b895c9bd5bf0972567fab4aa"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "cdf1a0c7683abe1a604a6941a51eb5aa518a951488033161a2ecedc58e058054",
+          "observer_source_manifest_sha256": "84bd9f688c1ea9483ab7eb3e465b9b8e112aeecf5cd1c27d890d005e64b93be8",
+          "launch_record_sha256": "6d76328bebf4fa9104c24c9cf40bf4c560c1ed802afda9d755f0429bceb6b4c0",
+          "process_receipt_sha256": "9af2b29f38bbe864bcf6af8c4fb868388d85b111912fd3b5d4d3e5ff32b00770"
+        }
+      ],
+      "complete_five_resource_fallback_exact": true,
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 0,
+      "new_target_fractional_intermediate_results": 0
+    },
+    {
+      "case": "hard-missing-native2x",
+      "difficulty": "hard",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 4,
+      "variant": "missing",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 496,
+      "game_captures_per_process": 8,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 4,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 991,
+      "rear_emissions": 80,
+      "rear_emission_ids": {
+        "281": 8,
+        "282": 8,
+        "301": 8,
+        "300": 8,
+        "77": 16,
+        "163": 8,
+        "164": 8,
+        "183": 8,
+        "182": 8
+      },
+      "cash_after_natural_shop_purchase": 1750,
+      "natural_time_seed": "1792172627",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": false,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "5706961df5e9495c7400ad05b6b6c836c61b758cde43953d73f1ecf8ead1dd71",
+          "observer_source_manifest_sha256": "876a63f5613775bd0f01b027792afad36d011745d4c29f313c0a0857cf8fc8a7",
+          "launch_record_sha256": "ad910cd32dc28392d8b4bd854c0f6e8a7e8cde542656dc4c74783c8cdc7fb746",
+          "process_receipt_sha256": "07e92757a73cbff49967d4c96e7a962ecfe0691877f5ae53dbbcba2188e81363"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "cdf1a0c7683abe1a604a6941a51eb5aa518a951488033161a2ecedc58e058054",
+          "observer_source_manifest_sha256": "84bd9f688c1ea9483ab7eb3e465b9b8e112aeecf5cd1c27d890d005e64b93be8",
+          "launch_record_sha256": "61f5204593bd089eb45c2c74daf4e20a956308e3ba4b4345331de813c6719f2a",
+          "process_receipt_sha256": "0f63470ddd9b114ba54249a3fa4e82e74800e0c71a3c9ed8f289629d98361b82"
+        }
+      ],
+      "five_head_emission_coverage": {
+        "case": "hard-missing-native2x",
+        "natural_rear_outcomes": {
+          "power": 8,
+          "complete": 16
+        },
+        "natural_rear_power_failures_without_emission": 8,
+        "rear_emissions_reusing_older_slots": 64,
+        "rear_emissions_reusing_front_slots": 10,
+        "mode1_emitting_calls": 8,
+        "five_emissions_per_successful_mode1_call_exact": true,
+        "fully_observed_volleys_all_available_heads_HD": 8,
+        "observed_normal_head_draws_by_emission_number": {
+          "1": 133,
+          "2": 115,
+          "3": 115,
+          "4": 133
+        },
+        "observed_normal_head_draws_by_id": {
+          "281": 133,
+          "282": 115,
+          "301": 115,
+          "300": 133
+        },
+        "unchanged_record268_draws_by_id": {
+          "163": 119,
+          "164": 119,
+          "183": 113,
+          "182": 113,
+          "77": 68
+        },
+        "unchanged_generic163_164_shadow_draws": {
+          "163": 113,
+          "164": 113
+        },
+        "generic163_164_density_policy": "existing density8 normal/shadow HD unchanged",
+        "missing_or_corrupt77_classic_draws": 66,
+        "all_eligible_mode1_available_head_draws_HD": true,
+        "every_new_HD_admission_matches_exact_rear_P4_mode1_birth": true
+      },
+      "only77_falls_back_while_existing_quartet_remains_HD": true,
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 306528,
+      "new_target_fractional_intermediate_results": 306197
+    },
+    {
+      "case": "hard-corrupt-native2x",
+      "difficulty": "hard",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 4,
+      "variant": "corrupt",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 496,
+      "game_captures_per_process": 8,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 4,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 991,
+      "rear_emissions": 80,
+      "rear_emission_ids": {
+        "281": 8,
+        "282": 8,
+        "301": 8,
+        "300": 8,
+        "77": 16,
+        "163": 8,
+        "164": 8,
+        "183": 8,
+        "182": 8
+      },
+      "cash_after_natural_shop_purchase": 1750,
+      "natural_time_seed": "1792172660",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": false,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "5706961df5e9495c7400ad05b6b6c836c61b758cde43953d73f1ecf8ead1dd71",
+          "observer_source_manifest_sha256": "876a63f5613775bd0f01b027792afad36d011745d4c29f313c0a0857cf8fc8a7",
+          "launch_record_sha256": "45e26e93c6a8ad30b596e3c951d8304a2da2e996f7349a90eb4fafca9dd55841",
+          "process_receipt_sha256": "ed2a79d74ec6702c19ce91b9dddc8e85c2929b4b8934efb3734bfb9228023e8c"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "cdf1a0c7683abe1a604a6941a51eb5aa518a951488033161a2ecedc58e058054",
+          "observer_source_manifest_sha256": "84bd9f688c1ea9483ab7eb3e465b9b8e112aeecf5cd1c27d890d005e64b93be8",
+          "launch_record_sha256": "f341c7f2cf13b5b86b9b1e8a8e1730c4526f56887fcaf34240b66847b9a51d98",
+          "process_receipt_sha256": "0d31eb85b9433db2c5052ba58bba47d799ccc5c00809e823a58e16d8fc06faae"
+        }
+      ],
+      "five_head_emission_coverage": {
+        "case": "hard-corrupt-native2x",
+        "natural_rear_outcomes": {
+          "power": 8,
+          "complete": 16
+        },
+        "natural_rear_power_failures_without_emission": 8,
+        "rear_emissions_reusing_older_slots": 64,
+        "rear_emissions_reusing_front_slots": 10,
+        "mode1_emitting_calls": 8,
+        "five_emissions_per_successful_mode1_call_exact": true,
+        "fully_observed_volleys_all_available_heads_HD": 8,
+        "observed_normal_head_draws_by_emission_number": {
+          "1": 133,
+          "2": 115,
+          "3": 115,
+          "4": 133
+        },
+        "observed_normal_head_draws_by_id": {
+          "281": 133,
+          "282": 115,
+          "301": 115,
+          "300": 133
+        },
+        "unchanged_record268_draws_by_id": {
+          "163": 119,
+          "164": 119,
+          "183": 113,
+          "182": 113,
+          "77": 68
+        },
+        "unchanged_generic163_164_shadow_draws": {
+          "163": 113,
+          "164": 113
+        },
+        "generic163_164_density_policy": "existing density8 normal/shadow HD unchanged",
+        "missing_or_corrupt77_classic_draws": 66,
+        "all_eligible_mode1_available_head_draws_HD": true,
+        "every_new_HD_admission_matches_exact_rear_P4_mode1_birth": true
+      },
+      "only77_falls_back_while_existing_quartet_remains_HD": true,
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 306528,
+      "new_target_fractional_intermediate_results": 306197
+    },
+    {
+      "case": "hard-allmissing-native2x",
+      "difficulty": "hard",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 4,
+      "variant": "allmissing",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 0,
+      "game_captures_per_process": 8,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 0,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 0,
+      "rear_emissions": 80,
+      "rear_emission_ids": {
+        "281": 8,
+        "282": 8,
+        "301": 8,
+        "300": 8,
+        "77": 16,
+        "163": 8,
+        "164": 8,
+        "183": 8,
+        "182": 8
+      },
+      "cash_after_natural_shop_purchase": 1750,
+      "natural_time_seed": "1792172693",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": true,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "5706961df5e9495c7400ad05b6b6c836c61b758cde43953d73f1ecf8ead1dd71",
+          "observer_source_manifest_sha256": "876a63f5613775bd0f01b027792afad36d011745d4c29f313c0a0857cf8fc8a7",
+          "launch_record_sha256": "058b2b30416e60eab9d0978ee1db9944f0502d393f0ba40cf78d7f15b6724b4f",
+          "process_receipt_sha256": "04760497c77baa7ae6aca6252673c495120be5d3db8a97fed6caf9a8bfaffdab"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "cdf1a0c7683abe1a604a6941a51eb5aa518a951488033161a2ecedc58e058054",
+          "observer_source_manifest_sha256": "84bd9f688c1ea9483ab7eb3e465b9b8e112aeecf5cd1c27d890d005e64b93be8",
+          "launch_record_sha256": "cfd96620c8ff545acf637574a1f7615fa525e62664ec842a2d6c98c6f87dbc89",
+          "process_receipt_sha256": "ff16cb562d90e57362aeee64bf802a004c3d9a45c40e53d2b0b9c9e84be60101"
+        }
+      ],
+      "complete_five_resource_fallback_exact": true,
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 0,
+      "new_target_fractional_intermediate_results": 0
+    },
+    {
+      "case": "normal-p1-native2x",
+      "difficulty": "normal",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 1,
+      "variant": "art",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 0,
+      "game_captures_per_process": 8,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 0,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 0,
+      "rear_emissions": 24,
+      "rear_emission_ids": {
+        "39": 6,
+        "1": 6,
+        "281": 3,
+        "282": 3,
+        "301": 3,
+        "300": 3
+      },
+      "cash_after_natural_shop_purchase": 9250,
+      "natural_time_seed": "1792172729",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": true,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "5706961df5e9495c7400ad05b6b6c836c61b758cde43953d73f1ecf8ead1dd71",
+          "observer_source_manifest_sha256": "876a63f5613775bd0f01b027792afad36d011745d4c29f313c0a0857cf8fc8a7",
+          "launch_record_sha256": "7dff96769b0bf105faebde9faaf509210051478994eb1ba08a17bc9bdb539562",
+          "process_receipt_sha256": "8ea200b786fb93c1f6e5a63b155592bd61e2e1e692fbf22c698b8f07badbc43e"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "cdf1a0c7683abe1a604a6941a51eb5aa518a951488033161a2ecedc58e058054",
+          "observer_source_manifest_sha256": "84bd9f688c1ea9483ab7eb3e465b9b8e112aeecf5cd1c27d890d005e64b93be8",
+          "launch_record_sha256": "da6ef1e27696040e9bd4d438cdbc2388f56fe494c5ebb57c7252158f1c3e3216",
+          "process_receipt_sha256": "5927c69a1302ad1f067fcadc8f31c611f740cf45477ada001dbcff33a749583c"
+        }
+      ],
+      "prior_P1_P2_P3_both_modes_HD_draw_trace_exact": true,
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 0,
+      "new_target_fractional_intermediate_results": 0
+    },
+    {
+      "case": "normal-p2-native2x",
+      "difficulty": "normal",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 2,
+      "variant": "art",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 0,
+      "game_captures_per_process": 8,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 0,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 0,
+      "rear_emissions": 40,
+      "rear_emission_ids": {
+        "39": 8,
+        "1": 8,
+        "281": 6,
+        "282": 6,
+        "301": 6,
+        "300": 6
+      },
+      "cash_after_natural_shop_purchase": 8500,
+      "natural_time_seed": "1792172760",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": true,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "5706961df5e9495c7400ad05b6b6c836c61b758cde43953d73f1ecf8ead1dd71",
+          "observer_source_manifest_sha256": "876a63f5613775bd0f01b027792afad36d011745d4c29f313c0a0857cf8fc8a7",
+          "launch_record_sha256": "d66e1d9c6f98334b74faaa4cb505e07322d0418179fd06c46ad1f2d96964db9b",
+          "process_receipt_sha256": "262715f613d2ba50e618822b6c87d60b6e3ab43182e1052f3f09e5457b079700"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "cdf1a0c7683abe1a604a6941a51eb5aa518a951488033161a2ecedc58e058054",
+          "observer_source_manifest_sha256": "84bd9f688c1ea9483ab7eb3e465b9b8e112aeecf5cd1c27d890d005e64b93be8",
+          "launch_record_sha256": "9347e832771ee5871b355011eb4f06988f79dd94a379e545e88ed4af4a165bf6",
+          "process_receipt_sha256": "fdc51b27a34dc7efc46dabfe1c833f3a10968f2fccceaffce3d70b2992157872"
+        }
+      ],
+      "prior_P1_P2_P3_both_modes_HD_draw_trace_exact": true,
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 0,
+      "new_target_fractional_intermediate_results": 0
+    },
+    {
+      "case": "normal-p3-native2x",
+      "difficulty": "normal",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 3,
+      "variant": "art",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 0,
+      "game_captures_per_process": 8,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 0,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 0,
+      "rear_emissions": 48,
+      "rear_emission_ids": {
+        "40": 8,
+        "2": 8,
+        "281": 8,
+        "282": 8,
+        "301": 8,
+        "300": 8
+      },
+      "cash_after_natural_shop_purchase": 6250,
+      "natural_time_seed": "1792172790",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": true,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "5706961df5e9495c7400ad05b6b6c836c61b758cde43953d73f1ecf8ead1dd71",
+          "observer_source_manifest_sha256": "876a63f5613775bd0f01b027792afad36d011745d4c29f313c0a0857cf8fc8a7",
+          "launch_record_sha256": "a133c0402b0a9eb48233f0c5a6676d43682120ec736cd4ba328f93a585cb289a",
+          "process_receipt_sha256": "b14e1d3048b66ea365544d3f184cf33bbedc436d3777583fd41972f80628c8d8"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "cdf1a0c7683abe1a604a6941a51eb5aa518a951488033161a2ecedc58e058054",
+          "observer_source_manifest_sha256": "84bd9f688c1ea9483ab7eb3e465b9b8e112aeecf5cd1c27d890d005e64b93be8",
+          "launch_record_sha256": "71aaa79e962374ad4ff5fe82fbe47ed02141eeb853fd9422dda697db0829e467",
+          "process_receipt_sha256": "797ce0385be757ec729d187b0ed2c2f48193cb26bde9c0982e799fa96c311743"
+        }
+      ],
+      "prior_P1_P2_P3_both_modes_HD_draw_trace_exact": true,
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 0,
+      "new_target_fractional_intermediate_results": 0
+    },
+    {
+      "case": "hard-p1-native2x",
+      "difficulty": "hard",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 1,
+      "variant": "art",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 0,
+      "game_captures_per_process": 8,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 0,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 0,
+      "rear_emissions": 24,
+      "rear_emission_ids": {
+        "39": 6,
+        "1": 6,
+        "281": 3,
+        "282": 3,
+        "301": 3,
+        "300": 3
+      },
+      "cash_after_natural_shop_purchase": 9250,
+      "natural_time_seed": "1792172820",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": true,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "5706961df5e9495c7400ad05b6b6c836c61b758cde43953d73f1ecf8ead1dd71",
+          "observer_source_manifest_sha256": "876a63f5613775bd0f01b027792afad36d011745d4c29f313c0a0857cf8fc8a7",
+          "launch_record_sha256": "211a821c18a9fb8356362f1e8f7a248bcf0e27f8188178b1adc2ccae7f05c072",
+          "process_receipt_sha256": "948198f517b480b5140ee1b24508664f0a4b71c8a0cdd46966568a9a3ee1d9e6"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "cdf1a0c7683abe1a604a6941a51eb5aa518a951488033161a2ecedc58e058054",
+          "observer_source_manifest_sha256": "84bd9f688c1ea9483ab7eb3e465b9b8e112aeecf5cd1c27d890d005e64b93be8",
+          "launch_record_sha256": "f9ff12811145ab9c93a8af1f2b3fd18588ebdbb59fa1fd885f3fb307567ee969",
+          "process_receipt_sha256": "d974b611d10fc56195cf465ac08a7c8435e6ab01b4f3a53290e9d82aeb9a7e64"
+        }
+      ],
+      "prior_P1_P2_P3_both_modes_HD_draw_trace_exact": true,
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 0,
+      "new_target_fractional_intermediate_results": 0
+    },
+    {
+      "case": "hard-p2-native2x",
+      "difficulty": "hard",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 2,
+      "variant": "art",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 0,
+      "game_captures_per_process": 8,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 0,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 0,
+      "rear_emissions": 40,
+      "rear_emission_ids": {
+        "39": 8,
+        "1": 8,
+        "281": 6,
+        "282": 6,
+        "301": 6,
+        "300": 6
+      },
+      "cash_after_natural_shop_purchase": 8500,
+      "natural_time_seed": "1792172852",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": true,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "5706961df5e9495c7400ad05b6b6c836c61b758cde43953d73f1ecf8ead1dd71",
+          "observer_source_manifest_sha256": "876a63f5613775bd0f01b027792afad36d011745d4c29f313c0a0857cf8fc8a7",
+          "launch_record_sha256": "08acb1460bec09fce054e98be3ab5ae51c78f7c9c8893c750c3a54aaa75083ce",
+          "process_receipt_sha256": "16f667b26c942efbe4fee7e399f912a527aa992aad274110cac5a4d26a1840a2"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "cdf1a0c7683abe1a604a6941a51eb5aa518a951488033161a2ecedc58e058054",
+          "observer_source_manifest_sha256": "84bd9f688c1ea9483ab7eb3e465b9b8e112aeecf5cd1c27d890d005e64b93be8",
+          "launch_record_sha256": "a51e9bac3abf4f0203ef1d476ca38a68fec8533f8622e11748e9b2054a870d3f",
+          "process_receipt_sha256": "39a7d28b9a7ffe2e7615f0958b50519b8e4f8e40a13ead9a0d28961eae303469"
+        }
+      ],
+      "prior_P1_P2_P3_both_modes_HD_draw_trace_exact": true,
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 0,
+      "new_target_fractional_intermediate_results": 0
+    },
+    {
+      "case": "hard-p3-native2x",
+      "difficulty": "hard",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 3,
+      "variant": "art",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 0,
+      "game_captures_per_process": 8,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 0,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 0,
+      "rear_emissions": 48,
+      "rear_emission_ids": {
+        "40": 8,
+        "2": 8,
+        "281": 8,
+        "282": 8,
+        "301": 8,
+        "300": 8
+      },
+      "cash_after_natural_shop_purchase": 6250,
+      "natural_time_seed": "1792172884",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": true,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "5706961df5e9495c7400ad05b6b6c836c61b758cde43953d73f1ecf8ead1dd71",
+          "observer_source_manifest_sha256": "876a63f5613775bd0f01b027792afad36d011745d4c29f313c0a0857cf8fc8a7",
+          "launch_record_sha256": "8b77ab53e9e155eb1adeb4812a7daddd042baa2463fa08f57069c4c9a5bfbde1",
+          "process_receipt_sha256": "5065364295977d20801b158f9cc8e4dd33a5ae55980892fcfb9046502bc7c88d"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "cdf1a0c7683abe1a604a6941a51eb5aa518a951488033161a2ecedc58e058054",
+          "observer_source_manifest_sha256": "84bd9f688c1ea9483ab7eb3e465b9b8e112aeecf5cd1c27d890d005e64b93be8",
+          "launch_record_sha256": "7ec13454abfcb49433b95c244ce5bd1da802da8eaadaebbffebe0c1cf8ca3038",
+          "process_receipt_sha256": "2644d89d73f10583d832efcdf67c20c54f270a90e618b924e8dec38a869d9c2d"
+        }
+      ],
+      "prior_P1_P2_P3_both_modes_HD_draw_trace_exact": true,
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 0,
+      "new_target_fractional_intermediate_results": 0
+    },
+    {
+      "case": "normal-transition-native2x",
+      "difficulty": "normal",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 4,
+      "variant": "art",
+      "ticks_per_process": 180,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 701,
+      "game_captures_per_process": 29,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 21,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 5281,
+      "rear_emissions": 80,
+      "rear_emission_ids": {
+        "281": 10,
+        "282": 10,
+        "301": 10,
+        "300": 10,
+        "77": 16,
+        "163": 6,
+        "164": 6,
+        "183": 6,
+        "182": 6
+      },
+      "cash_after_natural_shop_purchase": 1750,
+      "natural_time_seed": "1792172917",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": false,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "5706961df5e9495c7400ad05b6b6c836c61b758cde43953d73f1ecf8ead1dd71",
+          "observer_source_manifest_sha256": "876a63f5613775bd0f01b027792afad36d011745d4c29f313c0a0857cf8fc8a7",
+          "launch_record_sha256": "b2f23e95844d4ea95ba2ce7823906ffc60da2209afa0e099229c72387229db39",
+          "process_receipt_sha256": "c45c6a7ea51aaa805cecea360551052656d6f0e67674b69ab6d473954e7dfdd9"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "cdf1a0c7683abe1a604a6941a51eb5aa518a951488033161a2ecedc58e058054",
+          "observer_source_manifest_sha256": "84bd9f688c1ea9483ab7eb3e465b9b8e112aeecf5cd1c27d890d005e64b93be8",
+          "launch_record_sha256": "dc019ad818ffd721fde3d706e5efc3a3e48a33e4e08c43191cb3ed9629672527",
+          "process_receipt_sha256": "29f7216cae10874dcd13daa85efcc3181908aa70b29f7511dbd43e9a9e089dba"
+        }
+      ],
+      "five_head_emission_coverage": {
+        "case": "normal-transition-native2x",
+        "natural_rear_outcomes": {
+          "power": 8,
+          "complete": 16
+        },
+        "natural_rear_power_failures_without_emission": 8,
+        "rear_emissions_reusing_older_slots": 64,
+        "rear_emissions_reusing_front_slots": 10,
+        "mode1_emitting_calls": 10,
+        "five_emissions_per_successful_mode1_call_exact": true,
+        "fully_observed_volleys_all_available_heads_HD": 10,
+        "observed_normal_head_draws_by_emission_number": {
+          "1": 164,
+          "2": 143,
+          "3": 143,
+          "4": 167,
+          "5": 84
+        },
+        "observed_normal_head_draws_by_id": {
+          "281": 164,
+          "282": 143,
+          "301": 143,
+          "300": 167,
+          "77": 84
+        },
+        "unchanged_record268_draws_by_id": {
+          "163": 102,
+          "164": 102,
+          "183": 96,
+          "182": 96,
+          "77": 54
+        },
+        "unchanged_generic163_164_shadow_draws": {
+          "163": 96,
+          "164": 96
+        },
+        "generic163_164_density_policy": "existing density8 normal/shadow HD unchanged",
+        "missing_or_corrupt77_classic_draws": 0,
+        "all_eligible_mode1_available_head_draws_HD": true,
+        "every_new_HD_admission_matches_exact_rear_P4_mode1_birth": true
+      },
+      "mode_inputs": [
+        60,
+        100
+      ],
+      "fire_stops_at_tick": 120,
+      "final_clear_pixel_exact_tick": 179,
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 430194,
+      "new_target_fractional_intermediate_results": 429619
+    },
+    {
+      "case": "hard-transition-native2x",
+      "difficulty": "hard",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 4,
+      "variant": "art",
+      "ticks_per_process": 180,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 701,
+      "game_captures_per_process": 29,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 21,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 5281,
+      "rear_emissions": 80,
+      "rear_emission_ids": {
+        "281": 10,
+        "282": 10,
+        "301": 10,
+        "300": 10,
+        "77": 16,
+        "163": 6,
+        "164": 6,
+        "183": 6,
+        "182": 6
+      },
+      "cash_after_natural_shop_purchase": 1750,
+      "natural_time_seed": "1792172962",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": false,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "5706961df5e9495c7400ad05b6b6c836c61b758cde43953d73f1ecf8ead1dd71",
+          "observer_source_manifest_sha256": "876a63f5613775bd0f01b027792afad36d011745d4c29f313c0a0857cf8fc8a7",
+          "launch_record_sha256": "2aa687aff7c094a130edb07863ccf67495f4384f0e957d9de08f01b03fb260dd",
+          "process_receipt_sha256": "8afe5e6a7ff4c7b23a325a81c32d634ebed31f2079d4f8bd50d71a5cf8e0117d"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "cdf1a0c7683abe1a604a6941a51eb5aa518a951488033161a2ecedc58e058054",
+          "observer_source_manifest_sha256": "84bd9f688c1ea9483ab7eb3e465b9b8e112aeecf5cd1c27d890d005e64b93be8",
+          "launch_record_sha256": "04552b4527435174cbbb0bfac7736d6fdaf24493e08ef108cbd50d0fa7c74eb2",
+          "process_receipt_sha256": "fe7d8b3c48f791a7e614d4d426526dec2ccd9fb268b38de53c11c53c8ec15014"
+        }
+      ],
+      "five_head_emission_coverage": {
+        "case": "hard-transition-native2x",
+        "natural_rear_outcomes": {
+          "power": 8,
+          "complete": 16
+        },
+        "natural_rear_power_failures_without_emission": 8,
+        "rear_emissions_reusing_older_slots": 64,
+        "rear_emissions_reusing_front_slots": 10,
+        "mode1_emitting_calls": 10,
+        "five_emissions_per_successful_mode1_call_exact": true,
+        "fully_observed_volleys_all_available_heads_HD": 10,
+        "observed_normal_head_draws_by_emission_number": {
+          "1": 164,
+          "2": 143,
+          "3": 143,
+          "4": 167,
+          "5": 84
+        },
+        "observed_normal_head_draws_by_id": {
+          "281": 164,
+          "282": 143,
+          "301": 143,
+          "300": 167,
+          "77": 84
+        },
+        "unchanged_record268_draws_by_id": {
+          "163": 102,
+          "164": 102,
+          "183": 96,
+          "182": 96,
+          "77": 54
+        },
+        "unchanged_generic163_164_shadow_draws": {
+          "163": 96,
+          "164": 96
+        },
+        "generic163_164_density_policy": "existing density8 normal/shadow HD unchanged",
+        "missing_or_corrupt77_classic_draws": 0,
+        "all_eligible_mode1_available_head_draws_HD": true,
+        "every_new_HD_admission_matches_exact_rear_P4_mode1_birth": true
+      },
+      "mode_inputs": [
+        60,
+        100
+      ],
+      "fire_stops_at_tick": 120,
+      "final_clear_pixel_exact_tick": 179,
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 430194,
+      "new_target_fractional_intermediate_results": 429619
+    },
+    {
+      "case": "normal-present-control-native2x",
+      "difficulty": "normal",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 4,
+      "variant": "art",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 562,
+      "game_captures_per_process": 21,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 16,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 4140,
+      "rear_emissions": 80,
+      "rear_emission_ids": {
+        "281": 8,
+        "282": 8,
+        "301": 8,
+        "300": 8,
+        "77": 16,
+        "163": 8,
+        "164": 8,
+        "183": 8,
+        "182": 8
+      },
+      "cash_after_natural_shop_purchase": 1750,
+      "natural_time_seed": "1792173011",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": false,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "ee50036a8858e2f5648281d9a885ae1c57e24b83247b2594a22bdb7c1a58c579",
+          "observer_source_manifest_sha256": "954b2135c4318f9a9a15710594744504a188e66944f020819904653a0ff87b3c",
+          "launch_record_sha256": "100be073aaf57c950f1c4f3cd2a4a8aac8a5f4ff8e00bfd36c1f2599591f1bb2",
+          "process_receipt_sha256": "9b3d0d3b2f3766cc0d8388965747a8d1a89400343819dd89bfacb126f71b8808"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "4052dbf0f3726eab83cfa45346c01fa1a2547cf1cafa81eb2956a3bace1b1a81",
+          "observer_source_manifest_sha256": "3287962197941b46c5dd4ab7408b6bb850a721777ffa363c31696044be6f44bc",
+          "launch_record_sha256": "e1692d34e99e700130b4e14e274ce26f5bf756669279b9a8250c5f189fa09be9",
+          "process_receipt_sha256": "7fd2c0add59e63916870f4ca7f6b95739266a25fd3d46ef79fc044e21947d96d"
+        }
+      ],
+      "five_head_emission_coverage": {
+        "case": "normal-present-control-native2x",
+        "natural_rear_outcomes": {
+          "power": 8,
+          "complete": 16
+        },
+        "natural_rear_power_failures_without_emission": 8,
+        "rear_emissions_reusing_older_slots": 64,
+        "rear_emissions_reusing_front_slots": 10,
+        "mode1_emitting_calls": 8,
+        "five_emissions_per_successful_mode1_call_exact": true,
+        "fully_observed_volleys_all_available_heads_HD": 8,
+        "observed_normal_head_draws_by_emission_number": {
+          "1": 133,
+          "2": 115,
+          "3": 115,
+          "4": 133,
+          "5": 66
+        },
+        "observed_normal_head_draws_by_id": {
+          "281": 133,
+          "282": 115,
+          "301": 115,
+          "300": 133,
+          "77": 66
+        },
+        "unchanged_record268_draws_by_id": {
+          "163": 119,
+          "164": 119,
+          "183": 113,
+          "182": 113,
+          "77": 68
+        },
+        "unchanged_generic163_164_shadow_draws": {
+          "163": 113,
+          "164": 113
+        },
+        "generic163_164_density_policy": "existing density8 normal/shadow HD unchanged",
+        "missing_or_corrupt77_classic_draws": 0,
+        "all_eligible_mode1_available_head_draws_HD": true,
+        "every_new_HD_admission_matches_exact_rear_P4_mode1_birth": true
+      },
+      "present_repeated_ticks": [
+        0,
+        20,
+        60,
+        68,
+        72,
+        76,
+        80,
+        84,
+        88,
+        119
+      ],
+      "present_skipped_ticks": [
+        30,
+        31,
+        32
+      ],
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 344940,
+      "new_target_fractional_intermediate_results": 344557
+    },
+    {
+      "case": "hard-present-control-native2x",
+      "difficulty": "hard",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 4,
+      "variant": "art",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 562,
+      "game_captures_per_process": 21,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 16,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 4140,
+      "rear_emissions": 80,
+      "rear_emission_ids": {
+        "281": 8,
+        "282": 8,
+        "301": 8,
+        "300": 8,
+        "77": 16,
+        "163": 8,
+        "164": 8,
+        "183": 8,
+        "182": 8
+      },
+      "cash_after_natural_shop_purchase": 1750,
+      "natural_time_seed": "1792173145",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": false,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "ee50036a8858e2f5648281d9a885ae1c57e24b83247b2594a22bdb7c1a58c579",
+          "observer_source_manifest_sha256": "954b2135c4318f9a9a15710594744504a188e66944f020819904653a0ff87b3c",
+          "launch_record_sha256": "d7e75872010c6de86c76f503aea19670ea62f6ef7736f8ed0cb5da1176a7a5ea",
+          "process_receipt_sha256": "3543f4378c0806967ee2ebc7c801756f1c76a370ecc48cffa6d78702bcecdb82"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "4052dbf0f3726eab83cfa45346c01fa1a2547cf1cafa81eb2956a3bace1b1a81",
+          "observer_source_manifest_sha256": "3287962197941b46c5dd4ab7408b6bb850a721777ffa363c31696044be6f44bc",
+          "launch_record_sha256": "4170828220d839e84b9a66694cbf78caf1fc24d75367e21359c2666cdf545c46",
+          "process_receipt_sha256": "a2292050515f772554f52eb4452e9e2f2608f6ebf598fca2c12501ca7133abc4"
+        }
+      ],
+      "five_head_emission_coverage": {
+        "case": "hard-present-control-native2x",
+        "natural_rear_outcomes": {
+          "power": 8,
+          "complete": 16
+        },
+        "natural_rear_power_failures_without_emission": 8,
+        "rear_emissions_reusing_older_slots": 64,
+        "rear_emissions_reusing_front_slots": 10,
+        "mode1_emitting_calls": 8,
+        "five_emissions_per_successful_mode1_call_exact": true,
+        "fully_observed_volleys_all_available_heads_HD": 8,
+        "observed_normal_head_draws_by_emission_number": {
+          "1": 133,
+          "2": 115,
+          "3": 115,
+          "4": 133,
+          "5": 66
+        },
+        "observed_normal_head_draws_by_id": {
+          "281": 133,
+          "282": 115,
+          "301": 115,
+          "300": 133,
+          "77": 66
+        },
+        "unchanged_record268_draws_by_id": {
+          "163": 119,
+          "164": 119,
+          "183": 113,
+          "182": 113,
+          "77": 68
+        },
+        "unchanged_generic163_164_shadow_draws": {
+          "163": 113,
+          "164": 113
+        },
+        "generic163_164_density_policy": "existing density8 normal/shadow HD unchanged",
+        "missing_or_corrupt77_classic_draws": 0,
+        "all_eligible_mode1_available_head_draws_HD": true,
+        "every_new_HD_admission_matches_exact_rear_P4_mode1_birth": true
+      },
+      "present_repeated_ticks": [
+        0,
+        20,
+        60,
+        68,
+        72,
+        76,
+        80,
+        84,
+        88,
+        119
+      ],
+      "present_skipped_ticks": [
+        30,
+        31,
+        32
+      ],
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 344940,
+      "new_target_fractional_intermediate_results": 344557
+    },
+    {
+      "case": "normal-art-density4-native2x",
+      "difficulty": "normal",
+      "native_scale": 2,
+      "render_density": 4,
+      "rear_power": 4,
+      "variant": "art",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 562,
+      "game_captures_per_process": 22,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 17,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 5078,
+      "rear_emissions": 80,
+      "rear_emission_ids": {
+        "281": 8,
+        "282": 8,
+        "301": 8,
+        "300": 8,
+        "77": 16,
+        "163": 8,
+        "164": 8,
+        "183": 8,
+        "182": 8
+      },
+      "cash_after_natural_shop_purchase": 1750,
+      "natural_time_seed": "1792173184",
+      "startup_mode": "private presentation-only diagnostic density4 selection",
+      "baseline_pixel_exact_all_samples": false,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "e63d9051c1b9f811608d0b1abf276c0b0ffe5614a7325891bf4f0b04f0dc7932",
+          "observer_source_manifest_sha256": "3eb21b9b4c46041e450ce9cf23fd433924a635a9a70e8d19402bed297a44d205",
+          "launch_record_sha256": "5437f3c5591618c48d0ec23346f2af27998c5c7cb7c773f8a83dff05eaf6bb19",
+          "process_receipt_sha256": "d68b63edf450f7a3183c3a42bb456b6b20c006e8f83a583c4c82b898a6bd620d"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "695ec74796f15b1e26e821e21989cafbafeb264e1cfe13ad804af2204143417e",
+          "observer_source_manifest_sha256": "bcc0aab1cb47efcc6713f1b8d4ec6d8cf27cae8786a574d9b526fbba53308c59",
+          "launch_record_sha256": "69d106fcdcf55b9cd3731df876524694c926500d79b41e0a0c2224fae97206a0",
+          "process_receipt_sha256": "a4559723e3a3da0a0d38170f5d55dca3295c7537c83e6a97fc390aca43c4f60f"
+        }
+      ],
+      "five_head_emission_coverage": {
+        "case": "normal-art-density4-native2x",
+        "natural_rear_outcomes": {
+          "power": 8,
+          "complete": 16
+        },
+        "natural_rear_power_failures_without_emission": 8,
+        "rear_emissions_reusing_older_slots": 64,
+        "rear_emissions_reusing_front_slots": 10,
+        "mode1_emitting_calls": 8,
+        "five_emissions_per_successful_mode1_call_exact": true,
+        "fully_observed_volleys_all_available_heads_HD": 8,
+        "observed_normal_head_draws_by_emission_number": {
+          "1": 133,
+          "2": 115,
+          "3": 115,
+          "4": 133,
+          "5": 66
+        },
+        "observed_normal_head_draws_by_id": {
+          "281": 133,
+          "282": 115,
+          "301": 115,
+          "300": 133,
+          "77": 66
+        },
+        "unchanged_record268_draws_by_id": {
+          "163": 119,
+          "164": 119,
+          "183": 113,
+          "182": 113,
+          "77": 68
+        },
+        "unchanged_generic163_164_shadow_draws": {
+          "163": 0,
+          "164": 0
+        },
+        "generic163_164_density_policy": "existing density8 only; density4 has exact classic fallback",
+        "missing_or_corrupt77_classic_draws": 0,
+        "all_eligible_mode1_available_head_draws_HD": true,
+        "every_new_HD_admission_matches_exact_rear_P4_mode1_birth": true
+      },
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 111344,
+      "new_target_fractional_intermediate_results": 111327
+    },
+    {
+      "case": "hard-art-density4-native2x",
+      "difficulty": "hard",
+      "native_scale": 2,
+      "render_density": 4,
+      "rear_power": 4,
+      "variant": "art",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 562,
+      "game_captures_per_process": 22,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 17,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 5078,
+      "rear_emissions": 80,
+      "rear_emission_ids": {
+        "281": 8,
+        "282": 8,
+        "301": 8,
+        "300": 8,
+        "77": 16,
+        "163": 8,
+        "164": 8,
+        "183": 8,
+        "182": 8
+      },
+      "cash_after_natural_shop_purchase": 1750,
+      "natural_time_seed": "1792173200",
+      "startup_mode": "private presentation-only diagnostic density4 selection",
+      "baseline_pixel_exact_all_samples": false,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "e63d9051c1b9f811608d0b1abf276c0b0ffe5614a7325891bf4f0b04f0dc7932",
+          "observer_source_manifest_sha256": "3eb21b9b4c46041e450ce9cf23fd433924a635a9a70e8d19402bed297a44d205",
+          "launch_record_sha256": "5b68f088e71ee73e0475b0db124881364939fc91c76b00935f407a1275b9696d",
+          "process_receipt_sha256": "61cbf08ea00367e9c3077917fd74dc2834576599dc790c72e40c72add865790c"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "695ec74796f15b1e26e821e21989cafbafeb264e1cfe13ad804af2204143417e",
+          "observer_source_manifest_sha256": "bcc0aab1cb47efcc6713f1b8d4ec6d8cf27cae8786a574d9b526fbba53308c59",
+          "launch_record_sha256": "e0ac376e65042f93d53c4debb23b81f08aa4d1a57216377d1f257cf8bc73af8b",
+          "process_receipt_sha256": "b00328f00ea47bbe034f50f8bc5df4a358f2a8d1f03d158ac2acea911381205c"
+        }
+      ],
+      "five_head_emission_coverage": {
+        "case": "hard-art-density4-native2x",
+        "natural_rear_outcomes": {
+          "power": 8,
+          "complete": 16
+        },
+        "natural_rear_power_failures_without_emission": 8,
+        "rear_emissions_reusing_older_slots": 64,
+        "rear_emissions_reusing_front_slots": 10,
+        "mode1_emitting_calls": 8,
+        "five_emissions_per_successful_mode1_call_exact": true,
+        "fully_observed_volleys_all_available_heads_HD": 8,
+        "observed_normal_head_draws_by_emission_number": {
+          "1": 133,
+          "2": 115,
+          "3": 115,
+          "4": 133,
+          "5": 66
+        },
+        "observed_normal_head_draws_by_id": {
+          "281": 133,
+          "282": 115,
+          "301": 115,
+          "300": 133,
+          "77": 66
+        },
+        "unchanged_record268_draws_by_id": {
+          "163": 119,
+          "164": 119,
+          "183": 113,
+          "182": 113,
+          "77": 68
+        },
+        "unchanged_generic163_164_shadow_draws": {
+          "163": 0,
+          "164": 0
+        },
+        "generic163_164_density_policy": "existing density8 only; density4 has exact classic fallback",
+        "missing_or_corrupt77_classic_draws": 0,
+        "all_eligible_mode1_available_head_draws_HD": true,
+        "every_new_HD_admission_matches_exact_rear_P4_mode1_birth": true
+      },
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 111344,
+      "new_target_fractional_intermediate_results": 111327
+    }
+  ],
+  "builds": [
+    {
+      "variant": "baseline",
+      "kind": "normal",
+      "binary_sha256": "df1cb32c7483d0a68c5bac3b7547045c8d3c533ae8925388a7fc4b981e66a34f",
+      "warnings": 0,
+      "translation_units": 74,
+      "production_source_manifest_sha256": "1552978f1d596cf35b057805c13782f9fb7aac79ee9690ea00ce07a9c1aa2b3d"
+    },
+    {
+      "variant": "baseline",
+      "kind": "disabled-strict",
+      "binary_sha256": "c0b7022ab14d8a322dacf8768130194e71c6da11879958bb0ddf5e4029aa7aa3",
+      "warnings": 0,
+      "translation_units": 74,
+      "production_source_manifest_sha256": "1552978f1d596cf35b057805c13782f9fb7aac79ee9690ea00ce07a9c1aa2b3d"
+    },
+    {
+      "variant": "baseline",
+      "kind": "fixture",
+      "binary_sha256": "5706961df5e9495c7400ad05b6b6c836c61b758cde43953d73f1ecf8ead1dd71",
+      "warnings": 0,
+      "translation_units": 74,
+      "production_source_manifest_sha256": "1552978f1d596cf35b057805c13782f9fb7aac79ee9690ea00ce07a9c1aa2b3d"
+    },
+    {
+      "variant": "baseline",
+      "kind": "present-fixture",
+      "binary_sha256": "ee50036a8858e2f5648281d9a885ae1c57e24b83247b2594a22bdb7c1a58c579",
+      "warnings": 0,
+      "translation_units": 74,
+      "production_source_manifest_sha256": "1552978f1d596cf35b057805c13782f9fb7aac79ee9690ea00ce07a9c1aa2b3d"
+    },
+    {
+      "variant": "baseline",
+      "kind": "density4-fixture",
+      "binary_sha256": "e63d9051c1b9f811608d0b1abf276c0b0ffe5614a7325891bf4f0b04f0dc7932",
+      "warnings": 0,
+      "translation_units": 74,
+      "production_source_manifest_sha256": "1552978f1d596cf35b057805c13782f9fb7aac79ee9690ea00ce07a9c1aa2b3d"
+    },
+    {
+      "variant": "candidate",
+      "kind": "normal",
+      "binary_sha256": "a4352e7098365b0c9adca434e721e4f3b9618decae908b956f8436a65d3f2c68",
+      "warnings": 0,
+      "translation_units": 74,
+      "production_source_manifest_sha256": "49313c578235ae7c8ef62b82a3e04afb95ce5b527a09850d9ca2edcbd5190928"
+    },
+    {
+      "variant": "candidate",
+      "kind": "disabled-strict",
+      "binary_sha256": "760064f527f31ad8ca3a25be4840e5f23f082a08b60f4888c0f15217d87e7cbf",
+      "warnings": 0,
+      "translation_units": 74,
+      "production_source_manifest_sha256": "49313c578235ae7c8ef62b82a3e04afb95ce5b527a09850d9ca2edcbd5190928"
+    },
+    {
+      "variant": "candidate",
+      "kind": "fixture",
+      "binary_sha256": "cdf1a0c7683abe1a604a6941a51eb5aa518a951488033161a2ecedc58e058054",
+      "warnings": 0,
+      "translation_units": 74,
+      "production_source_manifest_sha256": "49313c578235ae7c8ef62b82a3e04afb95ce5b527a09850d9ca2edcbd5190928"
+    },
+    {
+      "variant": "candidate",
+      "kind": "present-fixture",
+      "binary_sha256": "4052dbf0f3726eab83cfa45346c01fa1a2547cf1cafa81eb2956a3bace1b1a81",
+      "warnings": 0,
+      "translation_units": 74,
+      "production_source_manifest_sha256": "49313c578235ae7c8ef62b82a3e04afb95ce5b527a09850d9ca2edcbd5190928"
+    },
+    {
+      "variant": "candidate",
+      "kind": "density4-fixture",
+      "binary_sha256": "695ec74796f15b1e26e821e21989cafbafeb264e1cfe13ad804af2204143417e",
+      "warnings": 0,
+      "translation_units": 74,
+      "production_source_manifest_sha256": "49313c578235ae7c8ef62b82a3e04afb95ce5b527a09850d9ca2edcbd5190928"
+    }
+  ],
+  "disabled_warning_parity": {
+    "pass": true,
+    "baseline_warnings": 15,
+    "candidate_warnings": 15,
+    "no_new_warnings_after_line_number_normalization": true,
+    "warnings": [
+      "src/backgrnd.c:LINE:COL: warning: unused variable \u2018hd_tiles\u2019 [-Wunused-variable]",
+      "src/entity_draw.c:LINE:COL: warning: unused parameter \u2018charge\u2019 [-Wunused-parameter]",
+      "src/entity_draw.c:LINE:COL: warning: unused parameter \u2018charge\u2019 [-Wunused-parameter]",
+      "src/entity_draw.c:LINE:COL: warning: unused parameter \u2018charge\u2019 [-Wunused-parameter]",
+      "src/entity_draw.c:LINE:COL: warning: unused parameter \u2018charge\u2019 [-Wunused-parameter]",
+      "src/entity_draw.c:LINE:COL: warning: unused parameter \u2018option\u2019 [-Wunused-parameter]",
+      "src/entity_draw.c:LINE:COL: warning: unused parameter \u2018option\u2019 [-Wunused-parameter]",
+      "src/entity_draw.c:LINE:COL: warning: unused parameter \u2018option\u2019 [-Wunused-parameter]",
+      "src/entity_draw.c:LINE:COL: warning: unused parameter \u2018option\u2019 [-Wunused-parameter]",
+      "src/entity_draw.c:LINE:COL: warning: unused parameter \u2018sidekick_style\u2019 [-Wunused-parameter]",
+      "src/entity_draw.c:LINE:COL: warning: unused parameter \u2018sidekick_style\u2019 [-Wunused-parameter]",
+      "src/entity_draw.c:LINE:COL: warning: unused parameter \u2018sidekick_style\u2019 [-Wunused-parameter]",
+      "src/entity_draw.c:LINE:COL: warning: unused parameter \u2018sidekick_style\u2019 [-Wunused-parameter]",
+      "src/vga256d.c:LINE:COL: warning: unused variable \u2018r\u2019 [-Wunused-variable]",
+      "src/vga256d.c:LINE:COL: warning: unused variable \u2018r\u2019 [-Wunused-variable]"
+    ]
+  },
+  "build_warning_policy": {
+    "normal_existing_allowlist": [
+      "misleading-indentation",
+      "format-truncation",
+      "missing-field-initializers"
+    ],
+    "disabled_additional_baseline_only_allowlist": [
+      "unused-variable",
+      "unused-parameter"
+    ],
+    "new_disabled_diagnostic_warnings": 0
+  },
+  "present_validation_expectation_correction": {
+    "scope": "Post-run validator expectation only; neither game execution, binaries, inputs, source/art/test freeze nor observations changed. No launch was discarded or repeated.",
+    "cause": "Expanded P4 capture schedule contains tick32, but the existing repeated/skipped Present diagnostic intentionally suppresses presentation at30,31,32.",
+    "observed_game_captures_per_process": 21,
+    "excluded_capture_tick": 32,
+    "original_validator_sha256": "db140ef6cf301aff042c7daf540ddc92cfdd0845502e5e19384c7be9ad044117",
+    "corrected_validator_sha256": "1e21f816a2e4389234f51ed6b109b0766826743ce510cebe967f7850ff1c0085",
+    "initial_pre_post_pins_exact": true,
+    "initial_game_process_exits": [
+      0,
+      0
+    ],
+    "initial_original_parity_and_admission_passed_before_validation_stop": true,
+    "continuation_pins_recorded_separately": true,
+    "normal_original_process_receipt_sha256": {
+      "baseline": "9b3d0d3b2f3766cc0d8388965747a8d1a89400343819dd89bfacb126f71b8808",
+      "candidate": "7fd2c0add59e63916870f4ca7f6b95739266a25fd3d46ef79fc044e21947d96d"
+    },
+    "normal_original_launch_record_sha256": {
+      "baseline": "100be073aaf57c950f1c4f3cd2a4a8aac8a5f4ff8e00bfd36c1f2599591f1bb2",
+      "candidate": "e1692d34e99e700130b4e14e274ce26f5bf756669279b9a8250c5f189fa09be9"
+    },
+    "normal_original_observation_ledger_sha256": {
+      "baseline": "0214e5e115252b7a93b391ab7ede0a007ab77313ed464863b9ca88319fffe4f7",
+      "candidate": "2f70f29a8a43cb478bdd44788c6f0b4fe3736f06e6813e37e84bb2b9ec1478eb"
+    },
+    "tick32_scope": "Internal logical canvas/owner/head observations exist; no uploaded output or actual native frame exists at intentionally skipped tick32. The receipt counts21 actual native frames per Present process."
+  },
+  "observer_inverses": [
+    {
+      "variant": "baseline",
+      "original_source_files": 160,
+      "observer_source_files": 164,
+      "modified_source_files": 8,
+      "zero_fuzz_reverse_patch": true,
+      "all_original_bytes_restored": true,
+      "patch_sha256": "00374fba0b49b14fb8f4fd2eab99d6c3d63d6115faab536f814f4aed93228ecf",
+      "observer_binary_sha256": "5706961df5e9495c7400ad05b6b6c836c61b758cde43953d73f1ecf8ead1dd71",
+      "added_private_helper_count": 4
+    },
+    {
+      "variant": "baseline",
+      "original_source_files": 160,
+      "observer_source_files": 164,
+      "modified_source_files": 8,
+      "zero_fuzz_reverse_patch": true,
+      "all_original_bytes_restored": true,
+      "patch_sha256": "767ff30ec6a132d2e28086c793ee7b106ffa7e82702a995749d34c8ef0b56924",
+      "observer_binary_sha256": "ee50036a8858e2f5648281d9a885ae1c57e24b83247b2594a22bdb7c1a58c579",
+      "added_private_helper_count": 4
+    },
+    {
+      "variant": "baseline",
+      "original_source_files": 160,
+      "observer_source_files": 164,
+      "modified_source_files": 8,
+      "zero_fuzz_reverse_patch": true,
+      "all_original_bytes_restored": true,
+      "patch_sha256": "f424cd8e65051765229bbdcbc0dd26da28e02d69bad28fe7c7afb9c35de532d4",
+      "observer_binary_sha256": "e63d9051c1b9f811608d0b1abf276c0b0ffe5614a7325891bf4f0b04f0dc7932",
+      "added_private_helper_count": 4
+    },
+    {
+      "variant": "candidate",
+      "original_source_files": 160,
+      "observer_source_files": 164,
+      "modified_source_files": 8,
+      "zero_fuzz_reverse_patch": true,
+      "all_original_bytes_restored": true,
+      "patch_sha256": "00374fba0b49b14fb8f4fd2eab99d6c3d63d6115faab536f814f4aed93228ecf",
+      "observer_binary_sha256": "cdf1a0c7683abe1a604a6941a51eb5aa518a951488033161a2ecedc58e058054",
+      "added_private_helper_count": 4
+    },
+    {
+      "variant": "candidate",
+      "original_source_files": 160,
+      "observer_source_files": 164,
+      "modified_source_files": 8,
+      "zero_fuzz_reverse_patch": true,
+      "all_original_bytes_restored": true,
+      "patch_sha256": "767ff30ec6a132d2e28086c793ee7b106ffa7e82702a995749d34c8ef0b56924",
+      "observer_binary_sha256": "4052dbf0f3726eab83cfa45346c01fa1a2547cf1cafa81eb2956a3bace1b1a81",
+      "added_private_helper_count": 4
+    },
+    {
+      "variant": "candidate",
+      "original_source_files": 160,
+      "observer_source_files": 164,
+      "modified_source_files": 8,
+      "zero_fuzz_reverse_patch": true,
+      "all_original_bytes_restored": true,
+      "patch_sha256": "f424cd8e65051765229bbdcbc0dd26da28e02d69bad28fe7c7afb9c35de532d4",
+      "observer_binary_sha256": "695ec74796f15b1e26e821e21989cafbafeb264e1cfe13ad804af2204143417e",
+      "added_private_helper_count": 4
+    }
+  ],
+  "frozen_repository_ledgers": {
+    "source": "6b0cea2d9921ba616d1c18e83beb8489429c1613ccb5e4b6d4d58a8a5f6d6063",
+    "asset": "3b55b36263fb135b3fab02157b627aa69f7b3747013135b50e0718b557b6a6e3",
+    "test": "ca06e4d0d5a36895a701a95dc95d26369ffb942976fb390d5a4b960a7d22dcb9"
+  },
+  "frozen_repository_counts": {
+    "source": 160,
+    "asset": 7049,
+    "test": 44
+  },
+  "all_source_asset_test_files_reverified_after_matrix": true,
+  "hash_definitions": {
+    "algorithm": "SHA-256",
+    "file_hashes": "Exact file bytes, no normalization.",
+    "ledger_serialization": "UTF-8 json.dumps(path_to_sha256,sort_keys=True,separators=(\",\",\":\")); no newline.",
+    "runtime_source_key_root": "src/ directory; keys omit src/. Adding src/ yields the unified source ledger."
+  },
+  "hash_ledger": {
+    "source_freeze_sha256": "5c59a5533e822da2bf0079854654ee04efc477c011b592c573739dd7cb2cab5b",
+    "pack_freeze_sha256": "4d93aa95cdf9d4224b5b708ffbb941761986d6df3a8bc84bad036f556494987f",
+    "post_matrix_source_art_verification_sha256": "6b8cd06ed2e247ed4956d63bf5f8c61c045bfdb444acc161c556603bf261d71e",
+    "new_resource_manifest_sha256": "70e69688dd3ad243368f9d0dcbb90064f4bbfaefed85a1f6f37de9d6b4290c4b",
+    "new_resource_sha256": {
+      "rear-multicannon-p1-bank8-77-4.hda": "bf3629986d6d977a4032c8dbb58ddcf89d476c606efe0b6e6f198b998340bc4a",
+      "rear-multicannon-p1-bank8-77-8.hda": "54c1fb786e1724bad5f47326fab8ce6fce325e2197a8861675682a8912bd8678"
+    },
+    "per_batch_pins_sha256": {
+      "main": "fbdd8e1903a72dd1afc4e861ac2590fdc8825c48f873a37f21a8a08c8eedee70",
+      "negative": "fbdd8e1903a72dd1afc4e861ac2590fdc8825c48f873a37f21a8a08c8eedee70",
+      "power": "fbdd8e1903a72dd1afc4e861ac2590fdc8825c48f873a37f21a8a08c8eedee70",
+      "transition": "fbdd8e1903a72dd1afc4e861ac2590fdc8825c48f873a37f21a8a08c8eedee70",
+      "present": "dc9ad7f6b097e62e00b4d56eaa14cf46f5a33d9f59a83e8b89f929a6199bfb3c",
+      "density4": "8591122881dfe9e1db7c37fe91084c116851a880861ae0f1cdcd761ead160130"
+    },
+    "present_continuation_prelaunch_pins_sha256": "03381a43c31aed2628db9d13bde294f7bed3b586a50e809d4a16122a41d1e3bb",
+    "present_continuation_pre_post_exact": true,
+    "all_pre_post_pins_exact": true
+  },
+  "storage": "Fresh completed immutable observations byte-compared before hard-linking identical content. Every launch, path, receipt and byte preserved; older observations never substituted as new runs.",
+  "limitations": [
+    "Bounded120/180-tick first-level Linux SDL dummy/software testing; not full-level, Windows, GPU or physical-display qualification.",
+    "20 pairs use unmodified public manual-HD density8 startup;2 reversible private presentation-only diagnostic pairs select density4.",
+    "Natural input schedule is deterministic; seed is unmodified time(NULL), observed equal across independently launched paired processes. No seed/time interposition or discarded mismatched launches.",
+    "Natural partial-capacity or all-cyclic-start coverage is not claimed; detailed actual outcomes are reported per case. Controlled guard/budget/capacity/ordinal tests are separate.",
+    "Natural switch-retention witness covers obliques; no natural mode1 downward77 remains at the chosen post-switch tick64. Controlled lifetime coverage is separate.",
+    "No hot-reload or performance claim.",
+    "Two baseline-only preparation checks are excluded from all qualification counts.",
+    "Original data, captures, private hooks and binaries are excluded from this sanitized receipt."
+  ]
+}

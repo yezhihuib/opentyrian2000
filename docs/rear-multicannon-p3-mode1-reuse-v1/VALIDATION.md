@@ -1,5 +1,7 @@
 # Rear Multi-Cannon P3 mode 1: accepted two-lobe component reuse
 
+> Subsequent coverage: [P4 mode 1 record 257](../rear-multicannon-p4-mode1-reuse-v1/VALIDATION.md) now has five-head qualification. The P4 exclusions below describe this historical P3 baseline. P4 mode 2 remains unchanged.
+
 Baseline: `8c996513ef83a53cd0384046a32e5701307a3d11`.
 
 Status: **PASS: bounded source, exact component reuse and independent native-runtime qualification.**

@@ -14,7 +14,7 @@ static RearP1Shot shot(unsigned p){unsigned k=p-1;return (RearP1Shot){ids[k],0,1
 static uint64_t begin(RearP1State*s){rear_p1_call_begin(s,7,10,1,2,1,1,267,true,true);CHECK(s->pending&&s->budget==4);uint64_t c=rear_p1_create_begin(s,7,10,1,267,1);CHECK(s->lease&&s->remaining==4&&s->next_ordinal==1&&!s->used_count);return c;}
 static void emit(RearP1State*s,uint64_t c,unsigned n,unsigned slot,unsigned p){RearP1Shot q=shot(p);rear_p1_emit(s,7,c,n,slot,10,1,267,1,p,ids[p-1],&q,true,true,true);}
 static bool current(RearP1State*s,unsigned slot,unsigned p){RearP1Shot q=shot(p);return rear_p1_current(s,slot,ids[p-1],ids[p-1],&q,true,true,true);}
-static void clear(const RearP1State*s){CHECK(!s->pending&&!s->lease&&!s->call&&!s->remaining&&!s->budget&&!s->next_ordinal&&!s->next_phase&&!s->used_count);for(unsigned i=0;i<4;i++)CHECK(!s->used_slots[i]);}
+static void clear(const RearP1State*s){CHECK(!s->pending&&!s->lease&&!s->call&&!s->remaining&&!s->budget&&!s->next_ordinal&&!s->next_phase&&!s->used_count);for(unsigned i=0;i<REAR_P1_MAX_BUDGET;i++)CHECK(!s->used_slots[i]);}
 int main(void){RearP1State s={0};
  /* All cyclic starts, partial prior calls, capacity0..4 and all four positions. */
  for(unsigned start=1;start<=4;start++)for(unsigned prior=0;prior<4;prior++)for(unsigned cap=0;cap<=4;cap++){
@@ -71,8 +71,8 @@ int main(void){RearP1State s={0};
  const unsigned records[]={254,255,256,257,265,266,267,268,50,445,501,686,687,688,690,275,1256,1267,1275,0,UINT_MAX};
  for(unsigned power=0;power<12;power++)for(unsigned mode=0;mode<3;mode++)for(unsigned r=0;r<sizeof records/sizeof *records;r++){
   unsigned record=records[r];rear_p1_call_begin(&s,7,10,1,power,mode,1,record,true,true);
-  bool yes=(power<2&&mode<2&&record==(mode?265:254)+power)||(power==2&&mode<2&&record==(mode?267:256));CHECK(s.pending==yes);
-  if(yes)CHECK(s.budget==(power==2?(mode?4:2):power+1));
+  bool yes=(power<2&&mode<2&&record==(mode?265:254)+power)||(power==2&&mode<2&&record==(mode?267:256))||(power==3&&mode==0&&record==257);CHECK(s.pending==yes);
+  if(yes)CHECK(s.budget==(power==3?5:power==2?(mode?4:2):power+1));
  }
  for(unsigned bad=0;bad<5;bad++){rear_p1_call_begin(&s,7,bad==0?37:10,bad==1?0:1,2,1,bad==2?2:1,267,bad!=3,bad!=4);CHECK(!s.pending);}
  /* Existing birth retention under P1/P2/P3 selections and reset revocation. */

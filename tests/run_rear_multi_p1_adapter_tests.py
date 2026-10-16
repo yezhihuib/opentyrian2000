@@ -34,7 +34,7 @@ create=extract((root/'src/shots.c').read_text(),'player_shot_create')
 baseline='\n'.join(line for line in create.split('\n') if 'rear_p1_' not in line)
 (out/'create_baseline.inc').write_text(baseline.replace('player_shot_create(', 'baseline_shot_create(', 1))
 (out/'wrapper.inc').write_text(extract((root/'src/entity_draw.c').read_text(),'draw_player_shot_sprite2'))
-ids=[39,1,281,282,301,300,40,2]
+ids=[39,1,281,282,301,300,40,2,77]
 bank=bytearray(602);pins=[]
 for k,i in enumerate(ids):
  struct.pack_into('<H',bank,2*(i-1),len(bank));v=bytes((k*23+y*12+x)%256 for y in range(14) for x in range(12))
@@ -49,6 +49,13 @@ for k in range(6):
  a=[1,1,1,1,25+k,0,198,255];dele=[255]*8;sx=([-10,10,0,0] if mode==0 else [-9,9,9,-9])+[-128,127,-1,0];sy=([0,0,0,0] if mode==0 else [2,2,-2,-2])+[-128,127,-1,0];bx=[0,-2,2,0,-128,127,-1,0];by=[0,0,0,0,-128,127,-1,0];sg=([40,2,0,0] if k==5 else [39,1,0,0] if mode==0 else [281,282,301,300])+[301,300,0x1234,0xff80]
  r=struct.pack('<HBBHBBBB8B8B8b8b8b8b8HbbBBBB',*vals,*a,*dele,*sx,*sy,*bx,*by,*sg,0,0,0,25,255,208);assert len(r)==80
  records.append(r);recordpins.append(fnv(r))
+# New record257 is synthetic too; append without changing any old fixture.
+r=struct.pack('<HBBHBBBB8B8B8b8b8b8b8HbbBBBB',0x1240,6,5,0,5,5,6,0,
+ *([1]*5+[198,25,255]),*([255]*8),*[-9,9,9,-9,0,-128,127,-1],
+ *[2,2,-2,-2,-10,-128,127,-1],*[-2,2,2,-2,0,-128,127,-1],
+ *[0,0,0,0,0,-128,127,-1],*[281,282,301,300,77,0x1234,0xff80,301],0,0,0,25,255,208)
+assert len(r)==80
+records.append(r);recordpins.append(fnv(r))
 (out/'records.bin').write_bytes(b''.join(records))
 resources=out/'full';resources.mkdir();rgba_pins=[]
 for k,i in enumerate(ids):

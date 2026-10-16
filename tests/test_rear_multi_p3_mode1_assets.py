@@ -88,7 +88,7 @@ assert seen=={(sid,d) for sid in [2,40] for d in [4,8]}
 assert entry['entries']==[{'id':a['source_id'],'density':a['density'],'HDA_sha256':a['hda_sha256']} for a in binding['resources']]
 pins=(root/'src/rear_multi_p1_pins.h').read_text().split('#define REAR_P1_RGBA_PINS ',1)[1].split('\n',1)[0]
 pin_values=[int(x,16) for x in re.findall(r'UINT64_C\(0x([0-9a-f]+)\)',pins)]
-assert len(pin_values)==16 and pin_values[12:]==[stamps[sid,d] for sid in [40,2] for d in [4,8]]
+assert len(pin_values)>=16 and pin_values[12:16]==[stamps[sid,d] for sid in [40,2] for d in [4,8]]
 for pack in default_packs:
     assert catalog['packs'][pack]['count']==len(catalog['packs'][pack]['files'])
 with tempfile.TemporaryDirectory(prefix='rear-p3-mode1-art-') as t:

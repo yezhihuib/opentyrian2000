@@ -2,8 +2,8 @@
  * Finite renderer provenance. The inputs are observations, never game writers. */
 #include "rear_multi_p1.h"
 #include <string.h>
-static const unsigned ids[REAR_P1_HEADS]={39,1,281,282,301,300,40,2};
-static const int velocity[REAR_P1_HEADS][2]={{-10,0},{10,0},{-9,-2},{9,-2},{9,2},{-9,2},{-10,0},{10,0}};
+static const unsigned ids[REAR_P1_HEADS]={39,1,281,282,301,300,40,2,77};
+static const int velocity[REAR_P1_HEADS][2]={{-10,0},{10,0},{-9,-2},{9,-2},{9,2},{-9,2},{-10,0},{10,0},{0,10}};
 uint64_t rear_p1_stamp(const void *data,size_t size)
 {
  const uint8_t *p=data;uint64_t h=UINT64_C(14695981039346656037);
@@ -23,10 +23,11 @@ void rear_p1_call_begin(RearP1State *s,uint64_t tick,unsigned port,unsigned bay,
  s->pending=scope&&table&&port==10&&bay==1&&player==1&&
   ((power_index==0&&((mode_index==0&&record==254)||(mode_index==1&&record==265)))||
    (power_index==1&&((mode_index==0&&record==255)||(mode_index==1&&record==266)))||
-   (power_index==2&&((mode_index==0&&record==256)||(mode_index==1&&record==267))));
+   (power_index==2&&((mode_index==0&&record==256)||(mode_index==1&&record==267)))||
+   (power_index==3&&mode_index==0&&record==257));
  s->tick=tick;s->record=record;s->mode=mode_index+1;
- /* P3 emits TWO mode1 heads or FOUR mode2 heads, never power_index+1. */
- if(s->pending)s->budget=record==256?2:record==267?4:power_index+1;
+ /* Exact record budgets: P3 mode1=2, mode2=4; P4 mode1=5. */
+ if(s->pending)s->budget=record==257?5:record==256?2:record==267?4:power_index+1;
 }
 uint64_t rear_p1_create_begin(RearP1State *s,uint64_t tick,unsigned port,unsigned bay,
  unsigned record,unsigned player)
@@ -53,6 +54,7 @@ static bool phase_ok(unsigned record,unsigned phase,unsigned raw)
 {
  if(record==254||record==255)return phase>=1&&phase<=2&&raw==ids[phase-1];
  if(record==256)return phase>=1&&phase<=2&&raw==ids[phase+5];
+ if(record==257)return phase>=1&&phase<=5&&raw==ids[phase==5?8:phase+1];
  return (record==265||record==266||record==267)&&phase>=1&&phase<=4&&raw==ids[phase+1];
 }
 void rear_p1_emit(RearP1State *s,uint64_t tick,uint64_t call,unsigned ordinal,unsigned slot,unsigned port,unsigned bay,
@@ -64,7 +66,7 @@ void rear_p1_emit(RearP1State *s,uint64_t tick,uint64_t call,unsigned ordinal,un
  bool lease=s->lease&&s->remaining>0;
  if(s->remaining)--s->remaining;
  if(slot<REAR_P1_SLOTS)memset(&s->birth[slot],0,sizeof(s->birth[slot]));
- unsigned period=s->mode==1?2:4;
+ unsigned period=s->record==257?5:s->mode==1?2:4;
  bool reused=false;
  for(unsigned i=0;i<s->used_count&&i<REAR_P1_MAX_BUDGET;i++)reused|=s->used_slots[i]==slot;
  if(!lease||s->call!=call||s->tick!=tick||ordinal!=s->next_ordinal||
@@ -88,7 +90,7 @@ bool rear_p1_current(RearP1State *s,unsigned slot,unsigned index,unsigned raw,
  RearP1Birth *b=&s->birth[slot];
  if(!b->qualified)return false;
  if(b->generation!=s->generation||!scope||!table||!source||b->raw!=raw||index!=raw||
-  !phase_ok(b->record,b->phase,raw)||b->mode!=((b->record==254||b->record==255||b->record==256)?1u:2u)||!shot_ok(shot,raw)) {
+  !phase_ok(b->record,b->phase,raw)||b->mode!=((b->record==254||b->record==255||b->record==256||b->record==257)?1u:2u)||!shot_ok(shot,raw)) {
   b->qualified=false;return false;
  }
  return true;

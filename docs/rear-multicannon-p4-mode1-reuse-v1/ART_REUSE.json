@@ -1,0 +1,210 @@
+{
+  "schema": "rear-multicannon-p4-mode1-art-reuse-v1",
+  "status": "PASS_OFFLINE_ART_REUSE_AND_DETERMINISTIC_REBUILD",
+  "scope": "Only downward77 for emission-qualified rear10 power4 mode1 record257; four oblique heads reuse unchanged accepted R2 resources. P4 mode2 and all other consumers remain unchanged.",
+  "qualification_note": "This document covers art and resource provenance. Fresh gameplay and ownership qualification are reported separately in RUNTIME.json and INDEPENDENT_REVIEW.json.",
+  "accepted_source_family": "player-rear-multicannon-p1-six-v1 R2",
+  "accepted_source_id": 1,
+  "new_resource_id": 77,
+  "source_and_target_canvas": [
+    12,
+    14
+  ],
+  "source_and_target_anchor": [
+    0,
+    0
+  ],
+  "transform": {
+    "rotation": "90 degrees clockwise",
+    "rotated_canvas": [
+      14,
+      12
+    ],
+    "translation_logical_xy": [
+      -2,
+      2
+    ],
+    "output_canvas": [
+      12,
+      14
+    ],
+    "target_coordinate_from_source_at_density_d": [
+      "x_target=12*d-1-y_source",
+      "y_target=x_source+2*d"
+    ],
+    "resampling": false,
+    "nonzero_RGBA_clipping": 0,
+    "alpha_bounds_logical_exclusive": [
+      4,
+      3,
+      8,
+      14
+    ]
+  },
+  "density_policy": {
+    "densities": [
+      4,
+      8
+    ],
+    "each_uses_its_own_accepted_source_density": true,
+    "density_fallback": false,
+    "runtime_resampling": false,
+    "native_display_scales_are_separate": [
+      1,
+      2,
+      4
+    ]
+  },
+  "original_relation": {
+    "all168_index_cells_and_all168_coverage_cells_exact": true,
+    "source_77_indices_then_coverage_sha256": "85d2ac9742d4c47694ee4712f72aefaa9d60d2ec8d113a0354306994ea4a32e5",
+    "original_source_used_for_verification_only": true,
+    "original_data_or_masks_bundled": false,
+    "HD_binary_coverage_equals_original_mask": false,
+    "note": "Inherited accepted smooth alpha touches four additional logical cells and leaves one original covered cell untouched, within the exact original bounds. No original binary mask is used to author the transform."
+  },
+  "independent_offline_review": {
+    "verdict": "PASS",
+    "review_document_sha256": "2fde7266f9f4883008f0de67a39010c45395d85d8611c25b1341b7ecee44a750",
+    "frozen_reviewed_export_sha256": "244ba2c777b396b2b3bfbba1fd6543821719cc7872767755f85854f2e8fde2c9",
+    "only77_from_reviewed_export_in_this_package": true,
+    "covered_clipping": 0,
+    "new_generation_or_drawing_or_blur_or_normalization": false,
+    "native_offline_77_tile_verifications": 27,
+    "native_review_underlays": [
+      "dark solid",
+      "brown solid",
+      "cloud solid"
+    ],
+    "actual_gameplay_in_art_review": false,
+    "exact_RGBA_alpha_histogram_supported_pixel_multiset_and_premultiplied_brightness": true
+  },
+  "native_sampling_note": "Transform full-density RGBA first, then point-sample at presentation pixel centers. Rotating an already sampled native image can choose a different subpixel phase. No brightness normalization is applied. Full-density premultiplied brightness remains exact.",
+  "native_77_metrics": [
+    {
+      "density": 4,
+      "original_covered_cells": 37,
+      "logical_cells_touched_by_HD_alpha": 40,
+      "newly_touched_logical_cells": 4,
+      "original_cells_not_touched": 1,
+      "display_samples": [
+        {
+          "scale": 1,
+          "alpha_ratio_to_untransformed_native_source": 0.9874771719279938,
+          "luma_ratio_to_untransformed_native_source": 0.9994030992025804
+        },
+        {
+          "scale": 2,
+          "alpha_ratio_to_untransformed_native_source": 0.9957904742506025,
+          "luma_ratio_to_untransformed_native_source": 1.0008488871214194
+        },
+        {
+          "scale": 4,
+          "alpha_ratio_to_untransformed_native_source": 1.0,
+          "luma_ratio_to_untransformed_native_source": 1.0
+        }
+      ]
+    },
+    {
+      "density": 8,
+      "original_covered_cells": 37,
+      "logical_cells_touched_by_HD_alpha": 40,
+      "newly_touched_logical_cells": 4,
+      "original_cells_not_touched": 1,
+      "display_samples": [
+        {
+          "scale": 1,
+          "alpha_ratio_to_untransformed_native_source": 0.9856575745934179,
+          "luma_ratio_to_untransformed_native_source": 0.9947488829686737
+        },
+        {
+          "scale": 2,
+          "alpha_ratio_to_untransformed_native_source": 0.9954986264190911,
+          "luma_ratio_to_untransformed_native_source": 1.0001674490618677
+        },
+        {
+          "scale": 4,
+          "alpha_ratio_to_untransformed_native_source": 0.9994221637872558,
+          "luma_ratio_to_untransformed_native_source": 0.9999326992779709
+        }
+      ]
+    }
+  ],
+  "package": {
+    "path": "assets/hd/artwork/player-rear-multicannon-p4-mode1-down77-v1",
+    "file_manifest_sha256": "6d96968ddac5a8e068046193f7f3e470bef687498f61a186860cac88130ecc80",
+    "builder_sha256": "7ab6363b238cc9a4bf63bd2598640143fdb47c20c0a3c185d0f84bc6ec3cdf7c",
+    "inputs_sha256": "0f9725f6f9554a7a3eb2b6a47d4d30f75db272a48516c84d45e7f7ac8c5ed801",
+    "binding_sha256": "ad6a39ccae05bb394e9374be2405df06aa38eb1c140697c4c4c94fb4b842aa49",
+    "transform_contract_sha256": "5359b7bef86051248a76aca5c316ad0c0b3693b31075a0c5ce2ec189300f38c6",
+    "rebuild_uses_only_published_accepted_R2_art": true,
+    "relocated_generated_art_and_HDA_rebuild_byte_exact": true
+  },
+  "resources": [
+    {
+      "accepted_source_id": 1,
+      "source_id": 77,
+      "key": 1310077,
+      "density": 4,
+      "source_png_sha256": "501b8f5790dcc96ac82f65d827a2d10ca53d4414fca9b78739ae0720b44fb2bd",
+      "source_rgba_sha256": "5b5db7122400f1ea988e25596b4deecc8e540bb850d31cd936131e2d951d48e8",
+      "png_sha256": "611c9ef986c93eeb2bbd90ea51ef55d9f97986c24c9c89714eeee7875d399084",
+      "rgba_sha256": "346271300e8e6f9739a88882dad83ddc01c067bcd6e1c1f89176783f345dffc6",
+      "rgba_fnv1a64": "0x218c1be6c8a3476c",
+      "hda_sha256": "bf3629986d6d977a4032c8dbb58ddcf89d476c606efe0b6e6f198b998340bc4a",
+      "role": 131,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "filename": "rear-multicannon-p1-bank8-77-4.hda",
+      "png": "output/rear-multi-p4-77-4.png",
+      "rgba": "output/rear-multi-p4-77-4.rgba",
+      "hda_bytes": 10780,
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-77-4.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-77-4.hda"
+      ],
+      "catalog_source_png": "assets/hd/source/rear-multicannon-p1-bank8-77-4-bf3629986d6d.png"
+    },
+    {
+      "accepted_source_id": 1,
+      "source_id": 77,
+      "key": 1310077,
+      "density": 8,
+      "source_png_sha256": "c7547ef49f5bca733dbe0f0e8a913e47acc8a7e200db4553a4cb324e42ab0ddc",
+      "source_rgba_sha256": "402738376529a5a59441ebceefb5d427fe23ba298674e93c2e94d05e732437c5",
+      "png_sha256": "8d397c99b1f3f96a2e4cb98dac7988c6477102a6b3ef3110fa2e4ac5ca15b55d",
+      "rgba_sha256": "73fe11a2f4926504850b406552c9a720919306a15a7313b2c5eff09c8df15362",
+      "rgba_fnv1a64": "0x5f99f26278e7afb6",
+      "hda_sha256": "54c1fb786e1724bad5f47326fab8ce6fce325e2197a8861675682a8912bd8678",
+      "role": 131,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "filename": "rear-multicannon-p1-bank8-77-8.hda",
+      "png": "output/rear-multi-p4-77-8.png",
+      "rgba": "output/rear-multi-p4-77-8.rgba",
+      "hda_bytes": 43036,
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-77-8.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-77-8.hda"
+      ],
+      "catalog_source_png": "assets/hd/source/rear-multicannon-p1-bank8-77-8-54c1fb786e17.png"
+    }
+  ],
+  "limits": [
+    "PNG bytes verified with the recorded Python/Pillow renderer; no universal cross-codec PNG reproducibility claim.",
+    "Offline solid underlays are illustrative; actual lighting, cloud overlap, clipping, order and fallback need the separate fresh runtime qualification.",
+    "Original shadow path and existing generic mode2 rendering are outside this art transformation and remain unchanged."
+  ]
+}

@@ -29154,7 +29154,7 @@
       }
     },
     "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 593,
+      "count": 595,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -36864,11 +36864,37 @@
           ],
           "source_png": "assets/hd/source/rear-multicannon-p1-bank8-40-8-170a261a0de8.png",
           "source_png_sha256": "c2ab24824895c6aa195cb7aa5a2738b35bdee46d475167184b51b6ae3e3ab103"
+        },
+        "rear-multicannon-p1-bank8-77-4.hda": {
+          "sha256": "bf3629986d6d977a4032c8dbb58ddcf89d476c606efe0b6e6f198b998340bc4a",
+          "header_u32": [
+            1310077,
+            4,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/rear-multicannon-p1-bank8-77-4-bf3629986d6d.png",
+          "source_png_sha256": "611c9ef986c93eeb2bbd90ea51ef55d9f97986c24c9c89714eeee7875d399084"
+        },
+        "rear-multicannon-p1-bank8-77-8.hda": {
+          "sha256": "54c1fb786e1724bad5f47326fab8ce6fce325e2197a8861675682a8912bd8678",
+          "header_u32": [
+            1310077,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/rear-multicannon-p1-bank8-77-8-54c1fb786e17.png",
+          "source_png_sha256": "8d397c99b1f3f96a2e4cb98dac7988c6477102a6b3ef3110fa2e4ac5ca15b55d"
         }
       }
     },
     "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 593,
+      "count": 595,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -44578,6 +44604,32 @@
           ],
           "source_png": "assets/hd/source/rear-multicannon-p1-bank8-40-8-170a261a0de8.png",
           "source_png_sha256": "c2ab24824895c6aa195cb7aa5a2738b35bdee46d475167184b51b6ae3e3ab103"
+        },
+        "rear-multicannon-p1-bank8-77-4.hda": {
+          "sha256": "bf3629986d6d977a4032c8dbb58ddcf89d476c606efe0b6e6f198b998340bc4a",
+          "header_u32": [
+            1310077,
+            4,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/rear-multicannon-p1-bank8-77-4-bf3629986d6d.png",
+          "source_png_sha256": "611c9ef986c93eeb2bbd90ea51ef55d9f97986c24c9c89714eeee7875d399084"
+        },
+        "rear-multicannon-p1-bank8-77-8.hda": {
+          "sha256": "54c1fb786e1724bad5f47326fab8ce6fce325e2197a8861675682a8912bd8678",
+          "header_u32": [
+            1310077,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/rear-multicannon-p1-bank8-77-8-54c1fb786e17.png",
+          "source_png_sha256": "8d397c99b1f3f96a2e4cb98dac7988c6477102a6b3ef3110fa2e4ac5ca15b55d"
         }
       }
     }
@@ -48254,6 +48306,16 @@
       "path": "assets/hd/source/rear-multicannon-p1-bank8-40-8-170a261a0de8.png",
       "sha256": "c2ab24824895c6aa195cb7aa5a2738b35bdee46d475167184b51b6ae3e3ab103",
       "RGBA_sha256": "48e3f1d30dd8fa23ddda7067a17b72dc24926310a2c617248fa3db2c4ce9e874"
+    },
+    "bf3629986d6d977a4032c8dbb58ddcf89d476c606efe0b6e6f198b998340bc4a": {
+      "path": "assets/hd/source/rear-multicannon-p1-bank8-77-4-bf3629986d6d.png",
+      "sha256": "611c9ef986c93eeb2bbd90ea51ef55d9f97986c24c9c89714eeee7875d399084",
+      "RGBA_sha256": "346271300e8e6f9739a88882dad83ddc01c067bcd6e1c1f89176783f345dffc6"
+    },
+    "54c1fb786e1724bad5f47326fab8ce6fce325e2197a8861675682a8912bd8678": {
+      "path": "assets/hd/source/rear-multicannon-p1-bank8-77-8-54c1fb786e17.png",
+      "sha256": "8d397c99b1f3f96a2e4cb98dac7988c6477102a6b3ef3110fa2e4ac5ca15b55d",
+      "RGBA_sha256": "73fe11a2f4926504850b406552c9a720919306a15a7313b2c5eff09c8df15362"
     }
   },
   "no_original_game_data": true,
@@ -54026,7 +54088,7 @@
       0,
       0
     ],
-    "scope": "Actual main gameplay player1 rear10 power1 records254/265, power2 records255/266, or power3 mode2 record267; exact mode and call-owned one/two/four emissions. P3 mode1 uses separately pinned two-lobe resources2/40. Normal9/Hard15 only.",
+    "scope": "Actual main gameplay player1 rear10 power1 records254/265, power2 records255/266, power3 mode2 record267, or power4 mode1 record257; exact mode and call-owned one/two/four/five emissions. P4 mode1 reuses quartet281/282/301/300 and separately pinned downward77; P3 mode1 uses separately pinned two-lobe resources2/40. First-level Normal9/Hard15 only.",
     "fallback": "Independent exact-density cache per emission-qualified head; missing or invalid resource retains indexed rendering. No 8-to-4 fallback.",
     "entries": [
       {
@@ -54090,7 +54152,7 @@
         "HDA_sha256": "f02792c2bc19a06477673449fca17988cb119ed48acc6d48554e208c348f5221"
       }
     ],
-    "current_integration": "docs/rear-multicannon-p3-mode1-reuse-v1/VALIDATION.md",
+    "current_integration": "docs/rear-multicannon-p4-mode1-reuse-v1/VALIDATION.md",
     "original_binding_scope": "Frozen P1-stage art/resource binding; current finite runtime admission is documented by current_integration."
   },
   "player_rear_multicannon_p3_mode1_two_v1": {
@@ -54137,6 +54199,43 @@
         "id": 40,
         "density": 8,
         "HDA_sha256": "170a261a0de8e20241a836c791f04eef96a0e005e814a6e5f66d32924ae2f89a"
+      }
+    ]
+  },
+  "player_rear_multicannon_p4_mode1_down77_v1": {
+    "source": "assets/hd/artwork/player-rear-multicannon-p4-mode1-down77-v1",
+    "binding_sha256": "ad6a39ccae05bb394e9374be2405df06aa38eb1c140697c4c4c94fb4b842aa49",
+    "art_file_manifest_sha256": "6d96968ddac5a8e068046193f7f3e470bef687498f61a186860cac88130ecc80",
+    "reviewed_export_sha256": "244ba2c777b396b2b3bfbba1fd6543821719cc7872767755f85854f2e8fde2c9",
+    "role": 131,
+    "ids": [
+      77
+    ],
+    "densities": [
+      4,
+      8
+    ],
+    "logical_size": [
+      12,
+      14
+    ],
+    "anchor": [
+      0,
+      0
+    ],
+    "scope": "Actual main gameplay player1 rear10 power4 mode1, exact record257 and five call-owned emissions, first-level Normal9/Hard15 only. New resource77 only; quartet281/282/301/300 reuses unchanged accepted R2 resources. Mode2 record268 remains unchanged.",
+    "fallback": "Independent exact-density cache per emission-qualified head; missing or invalid resource retains indexed rendering. No 8-to-4 fallback.",
+    "current_integration": "docs/rear-multicannon-p4-mode1-reuse-v1/VALIDATION.md",
+    "entries": [
+      {
+        "id": 77,
+        "density": 4,
+        "HDA_sha256": "bf3629986d6d977a4032c8dbb58ddcf89d476c606efe0b6e6f198b998340bc4a"
+      },
+      {
+        "id": 77,
+        "density": 8,
+        "HDA_sha256": "54c1fb786e1724bad5f47326fab8ce6fce325e2197a8861675682a8912bd8678"
       }
     ]
   }
