@@ -29,6 +29,11 @@ shots=(root/'src/shots.h').read_text();m3=re.search(r'typedef struct\s*\{.*?\} P
 (out/'functions.inc').write_text(extract(s,'decode_tile'))
 create=extract((root/'src/shots.c').read_text(),'player_shot_create')
 (out/'create.inc').write_text(create)
+shots_source=(root/'src/shots.c').read_text()
+arrays=shots_source[shots_source.index('static const JE_word linkMultiGr'):shots_source.index('void player_shot_set_direction')]
+linked=(root/'src/varz.c').read_text();route=re.search(r'const JE_word linkGunWeapons\[38\].*?=\s*\{.*?\};',linked,re.S)[0]
+(out/'direction.inc').write_text(arrays+route+'\n'+extract(shots_source,'player_shot_set_direction'))
+
 # Independent old gameplay path: strip only observer lines, keeping every
 # original statement/return and the other pre-existing renderer/probe hooks.
 baseline='\n'.join(line for line in create.split('\n') if 'rear_p1_' not in line)
@@ -79,6 +84,14 @@ r=struct.pack('<HBBHBBBB8B8B8b8b8b8b8HbbBBBB',0x1243,6,2,0,2,5,6,0,
  *[0,0,0,0,0,-128,127,-1],*[41,3,183,182,77,0x1234,0xff80,301],0,0,0,25,255,208)
 assert len(r)==80
 records.append(r);recordpins.append(fnv(r))
+# P6 mode1 synthetic record: three successful allocations and a three-phase cycle.
+# Distinct unused tails prevent accidental reuse of the preceding record fixture.
+r=struct.pack('<HBBHBBBB8B8B8b8b8b8b8HbbBBBB',0x1244,6,3,0,3,5,6,0,
+ *([3,3,1,71,197,24,254,18]),*([255]*8),*[-10,10,0,0,0,-128,127,-1],
+ *[0,0,-10,0,0,-128,127,-1],*[0,0,0,-4,0,-128,127,-1],
+ *[0,0,0,0,0,-128,127,-1],*[41,3,77,182,183,0x1234,0xff80,301],0,0,0,25,255,208)
+assert len(r)==80
+records.append(r);recordpins.append(fnv(r))
 (out/'records.bin').write_bytes(b''.join(records))
 resources=out/'full';resources.mkdir();rgba_pins=[]
 for k,i in enumerate(ids):
@@ -117,7 +130,7 @@ for p in resources.glob('*.hda'):(reload/p.name).write_bytes(p.read_bytes())
 (out/'fixture_receipt.json').write_text(json.dumps({'generated_only':True,'original_inputs':False,'source_pins':pins,'record_pins':recordpins,'rgba_pins':rgba_pins,'variants':len(variants),'production_sha256':{str(p.relative_to(root)):sha(p.read_bytes()) for p in [root/'src/rear_multi_p1.c',root/'src/rear_multi_p1.h',root/'src/rear_multi_p1_mirror.inc',root/'src/render_mirror.c',root/'src/entity_draw.c']},'extracted_sha256':{p.name:sha(p.read_bytes()) for p in out.glob('*.inc')}},indent=2)+'\n')
 harness=Path(__file__).with_name('rear_multi_p1_adapter_test.c')
 for mode in ['plain','sanitize']:
- exe=out/('adapter-'+mode);cmd=['cc','-std=c99','-Wall','-Wextra','-Werror','-pedantic','-O1','-g','-I'+str(root/'src'),'-I'+str(out),str(harness),str(root/'src/rear_multi_p1.c'),'-o',str(exe)]
+ exe=out/('adapter-'+mode);cmd=['cc','-std=c99','-Wall','-Wextra','-Werror','-pedantic','-O1','-g','-I'+str(root/'src'),'-I'+str(out),str(harness),str(root/'src/rear_multi_p1.c'),'-o',str(exe),'-lm']
  if mode=='sanitize':cmd+=['-fsanitize=address,undefined','-fno-omit-frame-pointer']
  subprocess.run(cmd,check=True)
  r=subprocess.run([str(exe),str(out)],env={**os.environ,'ASAN_OPTIONS':'detect_leaks=0:halt_on_error=1','UBSAN_OPTIONS':'halt_on_error=1'},text=True,capture_output=True,timeout=60);print(mode,r.stdout,end='');print(r.stderr,end='',file=sys.stderr);(out/(mode+'.log')).write_text(r.stdout+r.stderr);r.check_returncode()

@@ -1,0 +1,248 @@
+{
+  "schema": "rear-multicannon-p6-mode1-art-reuse-v3",
+  "document_status": "FINAL_BOUNDED_VALIDATION_PUBLICATION_SEPARATE",
+  "art_reuse_status": "PASS_UNCHANGED_ACCEPTED_ART_WITH_EXISTING_TRIPLE_TAIL_CLIPPING",
+  "baseline_commit": "3db93021a3e7cc9dcc2332aeb2a8b97bca70c688",
+  "baseline_tree": "c90252406c0745c83b87d564a84d898f31e2b52b",
+  "candidate_scope": {
+    "player": 1,
+    "bay": 1,
+    "port": 10,
+    "power_index": 5,
+    "mode_index": 0,
+    "record": 259,
+    "record_fnv1a64": "f3c7e8dc12351dc8",
+    "record80_sha256": "744d6ecf94d5b0a58e87e1ec261148cd62f73377f4cf3b1e066b9352146716f4",
+    "budget": 3,
+    "period": 3,
+    "ordered_phases": [
+      41,
+      3,
+      77
+    ],
+    "record_pin_semantics": {
+      "production_guard": "FNV-1a-64 over the complete 80-byte record",
+      "SHA256": "Independent audit identity only; not a production runtime record check"
+    }
+  },
+  "new_art_generation": false,
+  "new_resources": 0,
+  "changed_asset_or_catalog_files": 0,
+  "unchanged_asset_and_catalog_files": 7123,
+  "frozen_asset_ledger_sha256": "4d90c32020f791c5c81c2fd290f229d48a548a8fb33ec1d426d3fb0febf00974",
+  "existing_resource_variants_reused": [
+    {
+      "raw_id": 41,
+      "role": 131,
+      "authored_density": 4,
+      "logical_canvas": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "occupied_logical_bounds": [
+        0,
+        1,
+        12,
+        13
+      ],
+      "PNG_sha256": "b09a9bb38ab53b357be8caadca6807586255368d56ee2677abd509b5895df68b",
+      "RGBA_sha256": "c832a1267614335d4807a48ad06c44708677ebd4cf69516652066aebe36ef575",
+      "HDR1_sha256": "5479580cd938935eb369446c279153f8408638f157dc553896e30530806cb148",
+      "identical_default_pack_copies": 2,
+      "changed_for_P6": false
+    },
+    {
+      "raw_id": 41,
+      "role": 131,
+      "authored_density": 8,
+      "logical_canvas": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "occupied_logical_bounds": [
+        0,
+        1,
+        12,
+        13
+      ],
+      "PNG_sha256": "f142ac3eb4ddf0b54a7b70ef86d50daeda5fbd2a80f81403286f5add38e2bd79",
+      "RGBA_sha256": "47040ee657bfc71fcd46e23348521d20c83e87a9177788164becde85c3295a55",
+      "HDR1_sha256": "75c3a8221c7b05762a5d7b68f54ea1a4d0e35efe393943a84a74e54e26ecf1bb",
+      "identical_default_pack_copies": 2,
+      "changed_for_P6": false
+    },
+    {
+      "raw_id": 3,
+      "role": 131,
+      "authored_density": 4,
+      "logical_canvas": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "occupied_logical_bounds": [
+        0,
+        1,
+        12,
+        13
+      ],
+      "PNG_sha256": "bb8382993564208f9aac6610728f35c17751e26106e11a632b5c57f388a8faed",
+      "RGBA_sha256": "78c48990ef6ca08052b034c80d0b08f6f6f49d254e4b71c8a55dc7f3fa798cd8",
+      "HDR1_sha256": "a722bc55201148ede54e402892b8696392b7756ffd70999d06ba0b08430164d4",
+      "identical_default_pack_copies": 2,
+      "changed_for_P6": false
+    },
+    {
+      "raw_id": 3,
+      "role": 131,
+      "authored_density": 8,
+      "logical_canvas": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "occupied_logical_bounds": [
+        0,
+        1,
+        12,
+        13
+      ],
+      "PNG_sha256": "d7b1a8bada8ea5534e388e79a736dea586cc6e7f28ec28994f002bbefc321745",
+      "RGBA_sha256": "083e3bf03b124601a3273718f4b12f0b3003b4574400647e0f858fd49d43d160",
+      "HDR1_sha256": "f5c5162e2a4971b1ca05aa8ebaba029a50708f0f860e8a39a0558c79c59ac06c",
+      "identical_default_pack_copies": 2,
+      "changed_for_P6": false
+    },
+    {
+      "raw_id": 77,
+      "role": 131,
+      "authored_density": 4,
+      "logical_canvas": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "occupied_logical_bounds": [
+        4,
+        3,
+        8,
+        14
+      ],
+      "PNG_sha256": "611c9ef986c93eeb2bbd90ea51ef55d9f97986c24c9c89714eeee7875d399084",
+      "RGBA_sha256": "346271300e8e6f9739a88882dad83ddc01c067bcd6e1c1f89176783f345dffc6",
+      "HDR1_sha256": "bf3629986d6d977a4032c8dbb58ddcf89d476c606efe0b6e6f198b998340bc4a",
+      "identical_default_pack_copies": 2,
+      "changed_for_P6": false
+    },
+    {
+      "raw_id": 77,
+      "role": 131,
+      "authored_density": 8,
+      "logical_canvas": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "occupied_logical_bounds": [
+        4,
+        3,
+        8,
+        14
+      ],
+      "PNG_sha256": "8d397c99b1f3f96a2e4cb98dac7988c6477102a6b3ef3110fa2e4ac5ca15b55d",
+      "RGBA_sha256": "73fe11a2f4926504850b406552c9a720919306a15a7313b2c5eff09c8df15362",
+      "HDR1_sha256": "54c1fb786e1724bad5f47326fab8ce6fce325e2197a8861675682a8912bd8678",
+      "identical_default_pack_copies": 2,
+      "changed_for_P6": false
+    }
+  ],
+  "preservation": {
+    "all_accepted_artwork_and_catalog_bytes_unchanged": true,
+    "drawable_index_unchanged": true,
+    "observed_index_unchanged": true,
+    "source_and_RGBA_pin_prefixes_unchanged": true,
+    "maximum_budget_unchanged": 5,
+    "existing_182_183_density8_only": true,
+    "P6_mode2_record270_remains_classic": true,
+    "generic_163_164_observation_only_in_this_rear_adapter": true,
+    "preexisting_generic_163_164_HD_head_and_shadow_routes_unchanged": true
+  },
+  "accepted_limits": [
+    "Triples 41/3 reuse the previously accepted fixed 12-by-14 canvas, anchor 0,0 and real outer-tail clipping without modification.",
+    "Mild flat outer tail tips may remain visible at native 4x, especially over clouds. No seamless taper or whole-lobe alpha/energy preservation is asserted.",
+    "Occupied bounds describe accepted smooth authored alpha, not identity to the original indexed coverage mask.",
+    "Unchanged artwork alone does not qualify admission of original record 259.",
+    "Same-volley geometry calculations and synthetic forced overlap are separate from natural runtime visibility and occlusion.",
+    "No ordinary P6 acquisition, full-campaign, Windows, physical-display/GPU or LeakSanitizer qualification is established."
+  ],
+  "controlled_forced_overlap": {
+    "status": "PASS_SYNTHETIC_PRODUCTION_COMPOSITOR_ONLY",
+    "cases_per_build": 216,
+    "overlap_samples_per_build": 289004,
+    "clipped_samples_per_build": 104178,
+    "checks_per_build": 7350,
+    "builds": [
+      "plain",
+      "ASan+UBSan"
+    ],
+    "natural_runtime_witness": false
+  },
+  "runtime_qualification": "PASS_ALL30_FRESH_DIAGNOSTIC_PAIRS",
+  "final_independent_integration_review": "PASS_BOUNDED_SOURCE_CONTROLS_RUNTIME_AND_RETAINED_OBSERVATIONS",
+  "publication_status": "NOT_PUBLISHED_BY_THIS_DOCUMENTATION_STEP",
+  "excluded_material": [
+    "original game data",
+    "original-derived masks",
+    "full raw records",
+    "private observation code",
+    "private captures",
+    "executables"
+  ],
+  "runtime_receipt_sha256": "cbe67393a6aee57c05f8b489fa1ba894ec3d7fcc6926b592e5473219ac65c0e8",
+  "runtime_scope": {
+    "pairs": 30,
+    "game_processes": 60,
+    "logic_ticks": 7680,
+    "native_game_captures": 856,
+    "shop_captures": 180,
+    "independently_reconstructed_candidate_native_frames": 428,
+    "independently_verified_new_head_draws": 4968,
+    "ordinary_P6_acquisition_established": false
+  },
+  "independent_review_sha256": "e24fc76e1f90775677650d127a3b5b145b14289301659e1d7c05d0e3fdebcd23",
+  "retained_observation_integrity": {
+    "global_objects": 658647,
+    "global_manifests": 65,
+    "global_original_files": 6087,
+    "global_original_encoded_or_raw_bytes": 10947434810,
+    "global_decoded_bytes": 34948340850,
+    "global_totals_include_five_file_storage_pilot": true,
+    "game_only_files": 6082,
+    "game_only_original_encoded_or_raw_bytes": 10933846760,
+    "game_only_decoded_bytes": 34902772696,
+    "exact_original_encoded_and_decoded_reconstruction": true,
+    "fail_closed_on_original_size_or_SHA256_mismatch": true,
+    "recorded_codec_environment": "CPython 3.12.14; zlib build/runtime 1.3.2",
+    "arbitrary_future_codec_byte_identity_claimed": false
+  }
+}

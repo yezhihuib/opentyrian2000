@@ -230,10 +230,10 @@ static bool admitted(unsigned power,unsigned mode,unsigned record)
 {
  return (power<2&&mode<2&&record==(mode?265:254)+power)||
   (power==2&&mode<2&&record==(mode?267:256))||(power==3&&mode<2&&record==(mode?268:257))||
-  (power==4&&mode<2&&record==(mode?269:258));
+  (power==4&&mode<2&&record==(mode?269:258))||(power==5&&mode==0&&record==259);
 }
 static unsigned budget(unsigned power,unsigned mode)
-{return power==4?(mode?4:2):power==3?5:power==2?(mode?4:2):power+1;}
+{return power==5?3:power==4?(mode?4:2):power==3?5:power==2?(mode?4:2):power+1;}
 static void admission(RearP1State *s)
 {
  const unsigned records[]={0,1,50,77,163,164,182,183,253,254,255,256,257,258,259,264,265,266,267,268,269,270,275,277,278,281,300,445,501,686,687,688,690,1257,1269,UINT_MAX};
@@ -399,6 +399,7 @@ static void excluded_shared_sources(RearP1State *s)
  for(unsigned r=0;r<sizeof records/sizeof *records;r++)
  for(unsigned power=0;power<sizeof powers/sizeof *powers;power++)
  for(unsigned mode=0;mode<3;mode++)for(unsigned p=1;p<=2;p++) {
+  if(records[r]==259&&powers[power]==5&&mode==0)continue; /* Exact P6 route has its own test. */
   rear_p1_reset(s);uint64_t c=begin(s);emit(s,c,1,0,p);emit(s,c,2,79,phase(p,2));rear_p1_create_end(s,c);
   rear_p1_call_begin(s,7,10,1,powers[power],mode,1,records[r],true,true);CHECK(!s->pending&&!s->budget);
   c=rear_p1_create_begin(s,7,10,1,records[r],1);CHECK(!s->lease);

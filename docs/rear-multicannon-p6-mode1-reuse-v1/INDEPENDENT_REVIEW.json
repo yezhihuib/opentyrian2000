@@ -1,0 +1,189 @@
+{
+  "schema": "rear-multicannon-p6-mode1-independent-review-v1",
+  "status": "PASS_BOUNDED_SOURCE_CONTROLS_AND_FRESH_RUNTIME",
+  "baseline_published_commit": "3db93021a3e7cc9dcc2332aeb2a8b97bca70c688",
+  "baseline_tree": "c90252406c0745c83b87d564a84d898f31e2b52b",
+  "source_art_test_freeze_sha256": "671b5595b6e56c7f4178e5f88a79b135f93e96ec77f0fc010a55652f02ba17b0",
+  "independence": "Fresh source inspection, independently authored controls and observation reconstruction for this change. Earlier accepted methodology was reused, not earlier results.",
+  "bounded_route": {
+    "player": 1,
+    "bay": 1,
+    "port": 10,
+    "power": 6,
+    "power_index": 5,
+    "mode": 1,
+    "mode_index": 0,
+    "record": 259,
+    "successful_emission_order": [
+      41,
+      3,
+      77
+    ],
+    "budget": 3,
+    "period": 3,
+    "complete_record_bytes": 80,
+    "record_sha256": "744d6ecf94d5b0a58e87e1ec261148cd62f73377f4cf3b1e066b9352146716f4"
+  },
+  "source_review": {
+    "production_files_changed": 3,
+    "other_source_files_unchanged": 157,
+    "frozen_source_files": 160,
+    "frozen_test_files": 55,
+    "asset_files_including_catalog_unchanged": 7123,
+    "Makefile_unchanged": true,
+    "production_sha256": {
+      "src/rear_multi_p1.c": "db4229ab922a66159a587ca1b8cb85353ffd8dca40d744a949447ca4e0aa0758",
+      "src/rear_multi_p1_mirror.inc": "0b3e2b3b8da6cfd6157ee6c96b7874d279d1551114983448139dc887b549b527",
+      "src/rear_multi_p1_pins.h": "36a7416e9c4baf7c00bc88305e441e7526c77fb5af73d93deec5405a1a2555aa"
+    },
+    "unchanged_boundaries": [
+      "Existing accepted artwork, resource IDs, catalogs, indexes and anchors",
+      "Player gameplay, allocation, collision, RNG and original draw ordering",
+      "Sealed birth identity and allocation lifecycle",
+      "Generic shared consumers and existing rear P1-P5 routes",
+      "Dedicated rear P6 mode2 record270 remains classic"
+    ],
+    "reviewed_new_conditions": [
+      "Explicit period3 only for exact record259 route",
+      "Full80-byte record and table pin",
+      "Cyclic and partial capacity continuation",
+      "All-slot duplicate rejection and fourth-allocation rejection",
+      "Retained classification follows sealed birth, not current selection"
+    ],
+    "linked_consumer_negative": "Authentic linked Rear Mega Pulse record451, ports22/38, directions and two-player/wrong-port/wrong-record routes explicitly rejected. Existing route gates already excluded this consumer; this review makes no production-defect claim for the earlier inventory omission."
+  },
+  "independent_controls": {
+    "builds": [
+      "plain",
+      "AddressSanitizer and UndefinedBehaviorSanitizer"
+    ],
+    "checks_per_build": {
+      "sealed_birth_identity": 8785152,
+      "period3_boundary": 88095,
+      "authentic_original_data_adapter": 400374,
+      "forced_compositor": 7350,
+      "RGB_channel_controls": 1026
+    },
+    "cyclic_partial_capacity_cases_per_build": 3840,
+    "all_slot_duplicate_cases_per_build": 1440,
+    "authentic_tables": 3,
+    "physical_records_per_table": 1638,
+    "complete_record_bit_mutations": 640,
+    "forced_compositor_cases_per_build": 216,
+    "forced_overlap_samples_per_build": 289004,
+    "forced_clipped_samples_per_build": 104178,
+    "RGB_shift4_mutant_cases_rejected_per_build": 512,
+    "forced_cases_are_controls_not_natural_gameplay": true,
+    "sanitizer_limit": "RGB-channel standalone controls use ASan/UBSan with leak detection disabled after an unsupported LeakSanitizer environment failure. No leak-check claim."
+  },
+  "art_review": {
+    "new_art_generated": false,
+    "accepted_ids_reused_byte_exact": [
+      41,
+      3,
+      77
+    ],
+    "logical_canvas": [
+      12,
+      14
+    ],
+    "anchor": [
+      0,
+      0
+    ],
+    "movement_precedes_first_draw": true,
+    "same_volley_equal_age_support": "Calculated accepted supports are disjoint at equal movement ages1 through255 for densities4/8 and native2x/4x; birth age0 is not rendered. This does not establish cross-volley, world or shadow nonoverlap.",
+    "retained_art_limit": "Previously accepted41/3 triple-lobe tail clipping and short/blunt native4x cloud-background edges remain. Head77 retains its accepted single plume. No seamless taper or original covered-mask/brightness equality claim."
+  },
+  "fresh_runtime": {
+    "pairs": 30,
+    "processes": 60,
+    "logic_ticks": 7680,
+    "batch_pairs": {
+      "main": 4,
+      "transition": 4,
+      "fallback": 8,
+      "prior_powers": 10,
+      "Present": 2,
+      "density4": 2
+    },
+    "complete_native_frames_independently_reconstructed": 428,
+    "native_game_captures_across_both_processes": 856,
+    "newly_admitted_head_draws": 4968,
+    "exact_original_parity_streams_per_pair": 20,
+    "same_second_original_time_seed_preserved": true,
+    "startup_player_bytes_checked_before_after_and_between_processes": 784,
+    "startup_RNG_bytes_checked_before_after_and_between_processes": 5016,
+    "MT_state_independently_reconstructed_from_recorded_seed": true,
+    "pre_SDL_storage_wait": "Candidate waits after original natural MT seeding and before SDL/game initialization; baseline exits, validates and archives before release. No menu or game iteration runs during the wait.",
+    "diagnostic_setup": "P6 is reached only by one pre-tick rear-power byte4 to6 after a genuine affordable P4 purchase. Other783 player bytes and all5016 RNG bytes remain exact. Prior-P5 regression separately uses4 to5.",
+    "ordinary_P6_purchase_claim": false,
+    "source_derived_P6_total_cost": 27000,
+    "fresh_funds": 10000,
+    "opening_shortfall": 17000,
+    "genuine_P4_cost": 8250,
+    "funds_after_P4_purchase": 1750,
+    "main_normal_hard_native_scales": [
+      2,
+      4
+    ],
+    "exact_live_RGBA_identity_verified": true,
+    "exposed_main_head_background_witnesses": 24,
+    "brown_cloud_tiles_independently_identified": 48,
+    "pure_record270_full_native_and_uploaded_output_equality_samples": 94,
+    "pure_record270_samples_by_batch": {
+      "main": 32,
+      "transition": 16,
+      "negative": 16,
+      "present": 14,
+      "density4": 16
+    },
+    "transition": "Retained record259 ownership after switch at60; eight traced retained record270 draws at104 after switch back at100, one wholly offscreen. At179 no player-shot draw or active projectile remains and full native output is baseline-equal.",
+    "fallback_draws_per_difficulty": {
+      "missing3": 188,
+      "corrupt41": 170,
+      "missing77": 226,
+      "all_missing": 0
+    },
+    "all_missing_full_native_baseline_equal": true,
+    "P1_P5_regression": "All ten Normal/Hard cases have zero new admissions and baseline-equal draw commands and native outputs. P1-P4 use ordinary purchases; P5 is the disclosed diagnostic. Generic163/164 P4 heads and shadows remain exact.",
+    "Present": "Two cases each execute123 Present calls with declared skips and repeats. Per-call RNG is unchanged; ownership and allocation streams equal regular scheduling. No independent native capture of the second repeated call.",
+    "density4": "Both Normal/Hard cases independently reconstruct56 complete native frames. Corrected RGB-byte model independently reconstructs all112 full-density playfields; all outer UI pixels are baseline-equal, covering every pixel of the112 uploaded1280x800 outputs.",
+    "observed_occlusion": "New-head support overlaps were zero in the four main cases. Per case,8785 later ordered fractional writes and12513 outside-playfield fractional points were observed;1697 later writes fall within conservative original ship bounds, which are not exact ownership proof."
+  },
+  "acquisition_and_postprocessing_provenance": {
+    "first_two_Normal_pairs_helper_freeze_sha256": "434ff1281d0f833ae84495c3b95cd95b28c3d1904f8284ff77331db715944663",
+    "remaining28_pairs_helper_freeze_sha256": "e6fb3fc2135317f556d98a063d31536a8298cf86fa2371dede890ed42c864ab0",
+    "six_observer_binaries_and_source_art_freeze_unchanged_between_storage_epochs": true,
+    "preliminary_and_interrupted_attempts_excluded_from30_pairs": true,
+    "storage_failure": "An append-offset defect in evidence storage was caught before publishing a manifest or replacing raw observations. Every earlier committed object and observation was restored exactly. The incomplete Hard pair remains excluded; both game processes were freshly relaunched for its qualifying retry. The original pack prefix and known unindexed span remain preserved.",
+    "density4_oracle_correction": "A density-adapted checker incorrectly changed the green RGB bit offset8 to4. Unchanged production uses0/8/16. Independent production-extracted controls reject shift4; both difficulties were reprocessed against the corrected separate oracle without rerunning games. Original failed checker, partial reports and acquisition pins remain preserved. This is an evidence-checker correction, not a demonstrated production rendering defect.",
+    "separate_density4_postprocessing_freeze_sha256": "2e326cc6a0820dc38bcb4c8a85dd88fa470a4d830e963c035b14d702e68ef5de",
+    "corrected_density4_checker_sha256": "a0eddd64af682631934c556d59ba8cca0fb1ee78924d6bf5f97e80d6debf591f"
+  },
+  "evidence_integrity": {
+    "status": "PASS independent all-object and all-manifest restoration",
+    "qualifying_process_manifests": 60,
+    "retained_manifests_including_nonqualifying_and_pilot": 65,
+    "original_files_reconstructed": 6087,
+    "original_file_bytes_reconstructed": 10947434810,
+    "decoded_file_bytes_reconstructed": 34948340850,
+    "objects_independently_decoded": 658647,
+    "logical_object_ledger_sha256": "71753365da6f7910f69a31a21b1f26b41592384c22bb016e080ebdf1a16c823f",
+    "physical_store_sha256": {
+      "observation-chunks.sqlite3": "77ff133bf789dfa4fa19f72cac8efa63fed59a518eb883fc66c40403355c332b",
+      "observation-chunks.pack": "78abfe78875c87d161b8e5eb1aef6e3585e3b5e9818fd76bcb11d469076f172a"
+    },
+    "all_index_ranges_nonoverlapping_with_only_preserved_known_failed_span": true,
+    "store_unchanged_during_independent_review": true
+  },
+  "limits": [
+    "Bounded first-level Linux SDL dummy/software runtime only; no full campaign, Windows, GPU or physical-display certification.",
+    "No ordinary P6 acquisition or natural progression claim.",
+    "All logic ticks observed; native evidence is limited to the listed sampled ticks.",
+    "Natural complete volleys, insufficient power and slot reuse are observed. Natural partial-capacity exhaustion, every cyclic start, in-game power changes and shared-consumer routes are covered only where explicitly controlled, not claimed as natural runtime witnesses.",
+    "No universal head/world/shadow nonoverlap inference.",
+    "This review qualifies the frozen source, controls and runtime. Final committed-tree overlay archive, persistence roundtrip and publication are separate integrity gates."
+  ],
+  "public_payload": "Factual review and hashes only. No original game data, capture payloads, raw records, executable code, private paths or instrumentation payloads."
+}

@@ -1,0 +1,203 @@
+{
+  "schema": "rear-multicannon-p6-mode1-source-test-ready-v1",
+  "baseline_commit": "3db93021a3e7cc9dcc2332aeb2a8b97bca70c688",
+  "baseline_tree": "c90252406c0745c83b87d564a84d898f31e2b52b",
+  "scope": {
+    "port": 10,
+    "bay": 1,
+    "player": 1,
+    "power_index": 5,
+    "mode_index": 0,
+    "record": 259,
+    "record_fnv1a64": "f3c7e8dc12351dc8",
+    "record80_sha256": "744d6ecf94d5b0a58e87e1ec261148cd62f73377f4cf3b1e066b9352146716f4",
+    "budget": 3,
+    "period": 3,
+    "ordered_phases": [
+      41,
+      3,
+      77
+    ],
+    "live_velocities": [
+      [
+        -10,
+        0
+      ],
+      [
+        10,
+        0
+      ],
+      [
+        0,
+        10
+      ]
+    ],
+    "drawable_ids": [
+      39,
+      1,
+      281,
+      282,
+      301,
+      300,
+      40,
+      2,
+      77,
+      182,
+      183,
+      277,
+      278,
+      41,
+      3
+    ],
+    "observed_ids": [
+      39,
+      1,
+      281,
+      282,
+      301,
+      300,
+      40,
+      2,
+      77,
+      182,
+      183,
+      163,
+      164,
+      277,
+      278,
+      41,
+      3
+    ],
+    "observed_only_ids": [
+      163,
+      164
+    ],
+    "reused_density": [
+      4,
+      8
+    ],
+    "MAX_BUDGET": 5,
+    "HEADS": 15,
+    "OBSERVED": 17,
+    "new_resources": 0,
+    "conditional_new_table_cell": "record!=259 || op[0][5]==259; prior births have no new cell dependency",
+    "excluded_P6_mode2_record": 270
+  },
+  "pin_prefixes": {
+    "SOURCE": {
+      "old_values": 17,
+      "candidate_values": 17,
+      "exact_original_prefix": true,
+      "new_values": []
+    },
+    "RECORD": {
+      "old_values": 10,
+      "candidate_values": 11,
+      "exact_original_prefix": true,
+      "new_values": [
+        "f3c7e8dc12351dc8"
+      ]
+    },
+    "RGBA": {
+      "old_values": 30,
+      "candidate_values": 30,
+      "exact_original_prefix": true,
+      "new_values": []
+    }
+  },
+  "identity_and_allocator_invariants": "Original birth_identity seal remains record,mode,phase,raw,generation,physical slot; every allocation consumes budget and clears recycled slot before validation; all-prior-slot uniqueness and allocationOrdinal preserved. Integrity is non-cryptographic. Original allocator untouched.",
+  "qualification": {
+    "core_suites": 10,
+    "core_plain_and_sanitized_executions": 20,
+    "new_p6_core_checks_per_build": 1039162,
+    "private_compiled_core_mutants_detected": 33,
+    "synthetic_actual_allocator_adapter_checks_per_build": 793072,
+    "synthetic_malformed_resource_variants": 480,
+    "private_original_data_actual_allocator_checks_per_pack_and_build": 804170,
+    "original_data_default_packs": 2,
+    "original_data_plain_and_sanitized_runs": 4,
+    "actual_original_negative_records": 79,
+    "ordinary_source_negative_routes": 22,
+    "all_existing_rear_asset_suites": "PASS",
+    "strict_enabled_disabled_builds": "PASS established warning profile",
+    "git_diff_check": "PASS"
+  },
+  "source_preservation": {
+    "P6_patch_changed": 3,
+    "P6_patch_baseline_exact": 157,
+    "published_source_total": 160,
+    "inherited_original_source_inverse": 156,
+    "distinction": "The inherited source inverse removes preexisting renderer hooks from156 baseline files. This P6 patch changes3 rear module files and preserves157 of160 published source files byte-for-byte, including rear_multi_p1.h.",
+    "rear_multi_p1_h_byte_exact": true,
+    "no_original_gameplay_rng_indexed_palette_shadow_or_order_change": true
+  },
+  "linked_mega_pulse_qualification": {
+    "inventory_completeness_addition_only": true,
+    "existing_guard_defect_claimed": false,
+    "original_record": 451,
+    "selected_weapon_ids": [
+      22,
+      38
+    ],
+    "actual_linkGunWeapons_used": true,
+    "actual_linkMult2Gr_and_player_shot_set_direction_used": true,
+    "direction_array_indices": [
+      5,
+      11
+    ],
+    "observed_raw_ids": [
+      278,
+      277
+    ],
+    "densities": [
+      4,
+      8
+    ],
+    "contexts": [
+      "actual linked creator port0, rear bay1, player2, unwrapped; both two-player flags set",
+      "selected port22 or38, rear bay1, player1, attempted P6mode1 grant; scope otherwise ordinary",
+      "port10, rear bay1, player1, attempted P6mode1 grant with wrong record451; scope otherwise ordinary"
+    ],
+    "cases_per_pack_per_build": 24,
+    "authentic_case_executions_total": 96,
+    "all_rejected_without_rear_lookup": true,
+    "recycled_slot_zero_birth_cleared": true,
+    "actual_allocator_and_direction_game_state_differential_equal": true
+  },
+  "sanitizers": "ASan+UBSan halt_on_error=1, detect_leaks=0. LeakSanitizer is not qualified.",
+  "builds": {
+    "production": {
+      "binary_sha256": "b22f89c5a981d6434f3d55d9c85e6a16be6de3cb4b6136a6db6f4e28ac3121bd",
+      "log_sha256": "b650e6eed5c6e0c37a13f79d0213de39fd787271fc4cd03acd145090f3bfb737",
+      "translation_units": 74,
+      "strict_flags": "-pedantic -Wall -Wextra -Werror -Wno-misleading-indentation -Wno-format-truncation -Wno-missing-field-initializers -O2",
+      "warning_profile": "Established baseline warning suppressions, not unsuppressed all-warning qualification.",
+      "game_executable_run_in_controlled_stage": false
+    },
+    "disabled": {
+      "binary_sha256": "88495913fe5321f4bebd06c50ef798acb3ea01f2634398b0d40402743c76f7bb",
+      "log_sha256": "8a20712cab8125b61a6baabf2167687554fa3ae603a0776644b5372fbbaf9c85",
+      "translation_units": 74,
+      "strict_flags": "-pedantic -Wall -Wextra -Werror -Wno-misleading-indentation -Wno-format-truncation -Wno-missing-field-initializers -O2 -Wno-unused-variable -Wno-unused-parameter -Wno-unused-but-set-variable; RENDER_MIRROR_DISABLED",
+      "warning_profile": "Established baseline warning suppressions, not unsuppressed all-warning qualification.",
+      "game_executable_run_in_controlled_stage": false
+    }
+  },
+  "accepted_art_limits": [
+    "Every accepted art/catalog byte unchanged.",
+    "Existing41/3 fixed12x14 anchor0 tail clipping remains accepted; no claim of whole-lobe energy preservation.",
+    "Existing182/183 remain d8-only; generic163/164 remain observation-only."
+  ],
+  "status": "PASS_SOURCE_AND_CONTROLLED_TESTS_READY",
+  "source_test_ready_sha256": "e54c5fa2237785275aa88f04bc85bcb200da9f8189c5d26e5286442e300d8922",
+  "runtime_qualification": "Fresh candidate native runtime and final independent integration review pending at checkpoint.",
+  "controlled_scope_limits": [
+    "Original allocator/loader/decoder/wrapper/direction are exercised in controlled synthetic and private-original-data harnesses; native compositor visibility is separate.",
+    "Only the named relevant suites are claimed executed; other unchanged public test files are inventoried, not rerun.",
+    "Ordinary P6 acquisition is unestablished; no full-campaign, Windows, physical-display/GPU or LeakSanitizer qualification."
+  ],
+  "exploratory_results": [
+    "Initial stale P2 higher-power exclusion rejected newly supported exact259. Only that power5/mode0 expectation was corrected; final all10 suites pass, production unchanged.",
+    "Earlier passing adapter and authentic runs were superseded by final shared-cache/table-locality and reload coverage. Final counts above are the complete controlled runs."
+  ]
+}
