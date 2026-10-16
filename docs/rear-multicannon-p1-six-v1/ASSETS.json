@@ -1,0 +1,188 @@
+{
+  "schema": "rear-multicannon-p1-assets-validation-v1",
+  "status": "PASS",
+  "baseline_commit": "22661ddfca21c6a81e3ec2af0670c24ea4ceed92",
+  "binding_sha256": "369ae362f6d8be80b79b56a764973da6bdc3295ccdf3bfa5d00feba66dcda296",
+  "inventory_sha256": "85316c9fe27166fa5541d977e55d93fd7436bd9dcf62e68d0334e48fb2cc8a40",
+  "source_freeze_manifest_sha256": "fa488fe2285d154c1f360759ef88e401a66ed078a2804cc0e15e87ea817f825f",
+  "art_resource_freeze_manifest_sha256": "927a74c5d8ec7601aab259298ef0f44ae9e292e76130d2d97ae8a83e85a972b8",
+  "counts": {
+    "heads": 6,
+    "densities": 2,
+    "canonical_pngs": 12,
+    "default_pack_wrappers": 24,
+    "svg_authoring_masters": 3,
+    "standalone_svg_files": 6
+  },
+  "exact_vector_rebuild": true,
+  "prior_published_art_source_png_and_runtime_resource_files_unchanged": true,
+  "prior_manifest_entries_preserved": true,
+  "rollback_packs_unchanged": true,
+  "fractional_alpha_preserved": true,
+  "whole_canvas_diagonal_rgba_transforms_exact": true,
+  "inward_softness_logical_pixels": 0.3,
+  "all_new_source_canvases": [
+    12,
+    14
+  ],
+  "all_new_anchors": [
+    0,
+    0
+  ],
+  "no_original_game_or_capture_inputs_to_rebuild": true,
+  "aggregate_rebuild": {
+    "verified_rear_multicannon_p1_art_resources": 12,
+    "verified_storm_heading_sidecars": 2,
+    "verified_storm_heading_source_files": 20,
+    "verified_option_plasma_projectile_art_resources": 6,
+    "verified_player_sonic_joined_wave_pair_members": 2,
+    "verified_player_sonic_inverted_oblique_pair_members": 2,
+    "verified_player_sonic_oblique_pair_members": 2,
+    "verified_player_sonic_inverted_corner_pair_members": 2,
+    "verified_player_sonic_corner_pair_members": 2,
+    "verified_player_sonic_fat_pair_members": 2,
+    "verified_player_sonic_shallow_pair_members": 2,
+    "verified_player_sonic_upward_arch_members": 1,
+    "verified_player_sonic_six_pair_members": 2,
+    "verified_player_protron_shadow_members": 3,
+    "verified_player_protron_members": 3,
+    "verified_enemy_energy_seven_members": 7,
+    "verified_boss_whole_family_members": 40,
+    "verified_boss_intentional_empty_members": 3,
+    "verified_settings_compatibility_resources": 9,
+    "verified_type3_small_six_members": 6,
+    "verified_title_menu_resources": 6,
+    "verified_title_menu_source_files": 17,
+    "verified_newsh4_entry6_members": 6,
+    "verified_late_spike_family_members": 6,
+    "verified_type15_eightheading_members": 8,
+    "verified_newsh4_opposite7_family_members": 7,
+    "verified_newsh4_long7_family_members": 7,
+    "verified_startup_title_resources": 3,
+    "verified_startup_title_source_files": 19,
+    "verified_startup_title_manufacturer_compatibility_copies": 2,
+    "verified_linked31_family_members": 8,
+    "verified_type4_composites": 5,
+    "verified_startup_manufacturer_resources": 2,
+    "verified_startup_manufacturer_source_files": 22,
+    "verified_hud_meter_sidecars": 2,
+    "verified_hud_meter_source_files": 13,
+    "verified_pack_count": 18,
+    "verified_HDA_entries": 3414,
+    "verified_exact_source_pngs": 601,
+    "verified_material_sidecars": 4,
+    "verified_cap_sidecars": 2,
+    "verified_forest_sidecars_and_policies": 4,
+    "verified_gameplay_hud_sidecars": 2,
+    "verified_hud_source_pngs": 1,
+    "verified_hud_font_sidecars": 2,
+    "verified_hud_font_source_files": 19,
+    "verified_hud_fixed_text_sidecars": 2,
+    "verified_hud_fixed_text_source_pngs": 12,
+    "verified_hud_extension_sidecars": 4,
+    "verified_hud_extension_source_pngs": 21,
+    "default_pack_counts": [
+      589,
+      589
+    ],
+    "all_runtime_RGBA_and_header_bytes_exact": true
+  },
+  "resources": [
+    {
+      "id": 1,
+      "density": 4,
+      "key": 1310001,
+      "hda_sha256": "4f4495c9106e2a6452c1d9f877254641282c6a950913991496b6424b56b27a35",
+      "rgba_sha256": "5b5db7122400f1ea988e25596b4deecc8e540bb850d31cd936131e2d951d48e8",
+      "rgba_fnv1a64": "0xcdbad24a07cc4bcc"
+    },
+    {
+      "id": 39,
+      "density": 4,
+      "key": 1310039,
+      "hda_sha256": "873efa6361184041fd2ad7a86e3912bac2e3150fbad0e261cbac53182d0e915c",
+      "rgba_sha256": "2fad980f6a45679df0b1baf368857b2b9ec70779ec41942fdb2ace813261e91d",
+      "rgba_fnv1a64": "0xd69e2fd8ed1cdb9a"
+    },
+    {
+      "id": 281,
+      "density": 4,
+      "key": 1310281,
+      "hda_sha256": "90354843e961dbf07b45e9decef72964a4344b7fe3dce8ee831b0293f04b0255",
+      "rgba_sha256": "a31935a0bd297367138df393805d8ed2bfa856cebd09d9c3bea0a83dde89e1ad",
+      "rgba_fnv1a64": "0xbde3dec5a72e74ea"
+    },
+    {
+      "id": 282,
+      "density": 4,
+      "key": 1310282,
+      "hda_sha256": "8bf6b3e757411f7d9a605fabed8428be124dcf2c80bcbde6fec5144ab5d876bc",
+      "rgba_sha256": "344a4066d9f0f2316073f3d176b0956514b7af7b5c2888462ae61710af608ff3",
+      "rgba_fnv1a64": "0x9e771e4007d4d19a"
+    },
+    {
+      "id": 300,
+      "density": 4,
+      "key": 1310300,
+      "hda_sha256": "22de9b76a9f7bbedb8bcb793e5a9a5eefb93e4f784794468a8b16c9ca389d8b8",
+      "rgba_sha256": "7bb9490c9e4d678931f3702e155c73f707c4e806ef29b9d03cd38317a7cf9e7a",
+      "rgba_fnv1a64": "0x07ea794dc7b7047e"
+    },
+    {
+      "id": 301,
+      "density": 4,
+      "key": 1310301,
+      "hda_sha256": "8aaebcb9be8e25a510ef55a66a3d0a8c4ac7d87682af2958d21a70ea41b3183d",
+      "rgba_sha256": "3a024a599f5adbb840dd60e10a5381842ed88fc1ea5b697da1e845ef6d56a865",
+      "rgba_fnv1a64": "0x70952d574e97bd4e"
+    },
+    {
+      "id": 1,
+      "density": 8,
+      "key": 1310001,
+      "hda_sha256": "82179001aea129f3bdaf74693accd150ea45362973c798ef54a95258d507fda8",
+      "rgba_sha256": "402738376529a5a59441ebceefb5d427fe23ba298674e93c2e94d05e732437c5",
+      "rgba_fnv1a64": "0x9865a7591564a632"
+    },
+    {
+      "id": 39,
+      "density": 8,
+      "key": 1310039,
+      "hda_sha256": "54b7934272fe1838185157f66ec38362398e34442add648fb716e286d2c63ba5",
+      "rgba_sha256": "88ff4e6f61145c05ed0a7d1ebcec38f06c7aaed4ae86100cc5065cc16d5f8374",
+      "rgba_fnv1a64": "0xbc5d0f4e9ce3a2f5"
+    },
+    {
+      "id": 281,
+      "density": 8,
+      "key": 1310281,
+      "hda_sha256": "c4a4ba5b3c831751e286754d719e132bf1a254d09e22cdf2ad340a67ee0a6979",
+      "rgba_sha256": "f4dd85ab37ec9b703a552fbde77f84839294cffb669eea161883c200338569ea",
+      "rgba_fnv1a64": "0xfbe5d66e31b926c3"
+    },
+    {
+      "id": 282,
+      "density": 8,
+      "key": 1310282,
+      "hda_sha256": "09529e00b47cd8f3245e69f65f9593c4a75e11e3bf4992fe9b02bed9e1cbd5af",
+      "rgba_sha256": "12b31ccd1cb7dd23408bdfe34a8bad8571d150f60b90b07182c38a19a4f1f0a0",
+      "rgba_fnv1a64": "0x849cbdc14cf48e3f"
+    },
+    {
+      "id": 300,
+      "density": 8,
+      "key": 1310300,
+      "hda_sha256": "366d7ad58dc5f6693dd947f7084340ed4eeffc9071797f6b535b2a6a379a94ae",
+      "rgba_sha256": "fe12d44888d91278bb40ab6a1964b74f170b69aa36ccade54b7880cb3bf862bc",
+      "rgba_fnv1a64": "0x152002ea2a7ec6e7"
+    },
+    {
+      "id": 301,
+      "density": 8,
+      "key": 1310301,
+      "hda_sha256": "f02792c2bc19a06477673449fca17988cb119ed48acc6d48554e208c348f5221",
+      "rgba_sha256": "15d37d0f390ad90a2462fe7541f3b21d16e50bd298a726d1179039da41fecf8d",
+      "rgba_fnv1a64": "0xc4bee58c37788fcb"
+    }
+  ]
+}

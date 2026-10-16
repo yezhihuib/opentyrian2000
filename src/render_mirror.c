@@ -8,6 +8,7 @@
 #include "selector_font.h"
 #include "pregame_font.h"
 #include "render_mirror.h"
+#include "rear_multi_p1.h"
 #include "gameplay_hud.h"
 #include "gameplay_hud_components.h"
 #include "gameplay_hud_meters.h"
@@ -41,11 +42,13 @@ typedef struct {
  int bank,index,w,h,anchor_x,anchor_y,density;
  Uint8 *rgba;
 } Asset;
-enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121, ASSET_ENEMY_TANK_SHELL=122, ASSET_REAR534_BODY=123, ASSET_DATA513_BODY=124, ASSET_PROTRON_SHADOW=125, ASSET_MARLO_BODY=126, ASSET_MINT_BODY=127, ASSET_FRONTBLASTER_BODY=128, ASSET_PLASMA_BODY=129, ASSET_PLASMA_PROJECTILE=130 };
+enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121, ASSET_ENEMY_TANK_SHELL=122, ASSET_REAR534_BODY=123, ASSET_DATA513_BODY=124, ASSET_PROTRON_SHADOW=125, ASSET_MARLO_BODY=126, ASSET_MINT_BODY=127, ASSET_FRONTBLASTER_BODY=128, ASSET_PLASMA_BODY=129, ASSET_PLASMA_PROJECTILE=130, ASSET_REAR_MULTI_P1=131 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
 /* Slots 507..509 are rear534; slots 510..521 are Data513. */
 static Asset assets[563];
 static void plasma_art_reset(void);
+static void rear_p1_frame(void);
+static void rear_p1_shutdown(void);
 /* One draw-call lease from the original fixed explosion; never gameplay state. */
 static bool cash25_fixed_value;
 static bool cash75_fixed_value;
@@ -931,7 +934,7 @@ void render_mirror_hud_reset(void)
 
 void render_mirror_hud_shutdown(void)
 {
- render_mirror_hud_reset();gameplay_hud_shutdown();hud_components_shutdown();hud_meters_shutdown();hud_indicators_shutdown();hud_fixed_text_shutdown();font_shutdown();hud_storm_shutdown();
+ render_mirror_hud_reset();gameplay_hud_shutdown();hud_components_shutdown();hud_meters_shutdown();hud_indicators_shutdown();hud_fixed_text_shutdown();font_shutdown();hud_storm_shutdown();rear_p1_shutdown();
 }
 
 /* Validate the original bytecode as well as declared dimensions: malformed RLE
@@ -1090,6 +1093,7 @@ static bool hud_compose(void)
 
 void render_mirror_begin(void)
 {
+ rear_p1_frame();
  vulcan_shadow_clear();
  cash25_fixed_value=false;
  cash75_fixed_value=false;
@@ -2202,6 +2206,8 @@ static bool draw_asset_filtered(int x,int y,Asset *a,int style,const SDL_Rect *p
 static bool draw_asset(int x,int y,Asset *a,int style,const SDL_Rect *part)
 {return draw_asset_filtered(x,y,a,style,part,0,NULL,NULL,NULL);}
 
+#include "rear_multi_p1_mirror.inc"
+
 /* Only record391's original global bank11 small tile can enter this family. */
 static bool cash25_pickup(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int base,int part,int filter,const G101EnemyContext *context)
 {
@@ -3117,7 +3123,7 @@ bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array ban
 }
 
 void render_mirror_map_begin(char shape_file)
-{plasma_art_reset();ground101_frame_reset();terrain_file=shape_file=='Z'?'z':shape_file;terrain_source_count=0;forest_registry_ok=true;render_mirror_reset_banking();}
+{render_mirror_rear_p1_reset();plasma_art_reset();ground101_frame_reset();terrain_file=shape_file=='Z'?'z':shape_file;terrain_source_count=0;forest_registry_ok=true;render_mirror_reset_banking();}
 /* Only shapesZ layer2 cloud IDs; no renderer/filter or game-state changes. */
 static int cloud_terrain_slot(unsigned int id)
 {

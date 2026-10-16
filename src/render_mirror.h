@@ -61,6 +61,11 @@ typedef enum {
 #define render_mirror_frontblaster_body(...) false
 #define render_mirror_plasma_body(...) false
 #define render_mirror_map_begin(...) ((void)0)
+#define render_mirror_rear_p1_reset(...) ((void)0)
+#define render_mirror_rear_p1_call_begin(...) ((void)0)
+#define render_mirror_rear_p1_call_end(...) ((void)0)
+#define render_mirror_rear_p1_emit(...) ((void)0)
+#define render_mirror_rear_p1_head(...) false
 #define render_mirror_bind_terrain(...) ((void)0)
 #define render_mirror_terrain_row(...) 0u
 #define render_mirror_ground101_layer1(...) ((void)0)
@@ -132,6 +137,11 @@ void render_mirror_fade_step(int steps);
 bool render_mirror_enemy_tile(SDL_Surface *, int x, int y, Sprite2_array, unsigned int base, int part, int filter, const G101EnemyContext *);
 void render_mirror_ground101_layer1(SDL_Surface *, const void *first_cell, int x, int y);
 void render_mirror_map_begin(char shape_file);
+void render_mirror_rear_p1_reset(void);
+void render_mirror_rear_p1_call_begin(unsigned port,unsigned bay,unsigned power_index,unsigned mode_index,unsigned pnum,unsigned record);
+void render_mirror_rear_p1_call_end(void);
+void render_mirror_rear_p1_emit(unsigned slot,unsigned port,unsigned bay,unsigned record,unsigned pnum,unsigned phase,unsigned raw);
+bool render_mirror_rear_p1_head(SDL_Surface *,int x,int y,Sprite2_array,unsigned index,unsigned slot,unsigned raw);
 void render_mirror_bind_terrain(unsigned int layer, unsigned int id, const Uint8 *data);
 unsigned int render_mirror_terrain_row(SDL_Surface *, int x, int y, Uint8 **map, int style);
 void render_mirror_terrain_pixel(SDL_Surface *, Uint8 *, Uint8 source, int style, bool replaced);

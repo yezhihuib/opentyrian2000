@@ -1,0 +1,88 @@
+#!/usr/bin/env python3
+"""Actual adapter/loader/decoder/wrapper, strict C99 and ASan/UBSan.
+Every fixture byte is synthetic. No SDL installation or game data is needed.
+An optional output directory preserves the complete fixture/test receipt.
+"""
+from pathlib import Path
+import sys,re,struct,json,hashlib,subprocess,os,tempfile
+root=Path(__file__).resolve().parents[1]
+temporary=tempfile.TemporaryDirectory(prefix="rear-p1-adapter-") if len(sys.argv)==1 else None
+out=Path(sys.argv[1]).resolve() if temporary is None else Path(temporary.name)/"fixture"
+out.mkdir(parents=True,exist_ok=False)
+sha=lambda b:hashlib.sha256(b).hexdigest()
+def fnv(b):
+ h=14695981039346656037
+ for c in b:h=((h^c)*1099511628211)&((1<<64)-1)
+ return h
+
+def extract(s,name):
+ m=re.search(r'^[A-Za-z_][^\n;{}]*\b'+name+r'\([^;{}]*\)\s*\{',s,re.M);assert m,name
+ a=m.start();b=s.index('{',a)+1;depth=1
+ while depth:depth+=(s[b]=='{')-(s[b]=='}');b+=1
+ return s[a:b]+'\n'
+s=(root/'src/render_mirror.c').read_text()
+asset=s[s.index('typedef struct {\n bool initialized,valid;'):s.index('/* Roads220')]
+episodes=(root/'src/episodes.h').read_text();m=re.search(r'typedef struct\s*\{.*?\} JE_WeaponType;',episodes,re.S);assert m
+m2=re.search(r'typedef struct\s*\{\s*char\s+name\[31\];.*?\} JE_WeaponPortType\[PORT_NUM \+ 1\];',episodes,re.S);assert m2
+shots=(root/'src/shots.h').read_text();m3=re.search(r'typedef struct\s*\{.*?\} PlayerShotDataType;',shots,re.S);assert m3
+(out/'types.inc').write_text(asset+'\n'+m[0]+'\n'+m2[0]+'\n'+m3[0]+'\n')
+(out/'functions.inc').write_text(extract(s,'decode_tile'))
+(out/'wrapper.inc').write_text(extract((root/'src/entity_draw.c').read_text(),'draw_player_shot_sprite2'))
+ids=[39,1,281,282,301,300]
+bank=bytearray(602);pins=[]
+for k,i in enumerate(ids):
+ struct.pack_into('<H',bank,2*(i-1),len(bank));v=bytes((k*23+y*12+x)%256 for y in range(14) for x in range(12))
+ for y in range(14):bank+=bytes([0xc0])+v[y*12:(y+1)*12]+b'\x00'
+ bank+=b'\x0f';pins.append(fnv(v+bytes([255])*168))
+(out/'bank.bin').write_bytes(bank)
+records=[];recordpins=[]
+for k in range(2):
+ # All unused tails are deliberately nonzero, with signed and 16-bit edges.
+ vals=[0x1234+k,4-k,1,0,2+2*k,5,6,0]
+ a=[1,1,1,1,25,0,198,255];dele=[255]*8;sx=[-10,10,-9,9,-128,127,-1,0];sy=[0,0,2,-2,-128,127,-1,0];bx=[0,-2,2,0,-128,127,-1,0];by=[0,0,0,0,-128,127,-1,0];sg=[39,1,281,282,301,300,0x1234,0xff80]
+ r=struct.pack('<HBBHBBBB8B8B8b8b8b8b8HbbBBBB',*vals,*a,*dele,*sx,*sy,*bx,*by,*sg,0,0,0,25,255,208);assert len(r)==80
+ records.append(r);recordpins.append(fnv(r))
+(out/'records.bin').write_bytes(b''.join(records))
+resources=out/'full';resources.mkdir();rgba_pins=[]
+for k,i in enumerate(ids):
+ row=[]
+ for d in (4,8):
+  rgba=bytes(c for j in range(168*d*d) for c in ((j+k*17)%256,(j*7+k)%256,(j*11)%256,[0,64,128,255][j%4]))
+  h=struct.pack('<4s4I2i',b'HDR1',1310000+i,d,12,14,0,0);raw=h+rgba
+  (resources/f'rear-multicannon-p1-bank8-{i}-{d}.hda').write_bytes(raw);row.append(fnv(rgba))
+ rgba_pins.append(row)
+header=lambda name,x:'#define '+name+' {'+','.join('UINT64_C(0x%016x)'%a for a in x)+'}\n'
+(out/'fixture_pins.h').write_text('#define REAR_P1_BANK_SIZE '+str(len(bank))+'\n'+header('REAR_P1_SOURCE_PINS',pins)+header('REAR_P1_RECORD_PINS',recordpins)+'#define REAR_P1_RGBA_PINS {'+','.join('{'+','.join('UINT64_C(0x%016x)'%a for a in row)+'}' for row in rgba_pins)+'}\n')
+# Each malformed family is a standalone directory; all other heads remain valid.
+variants=[]
+for d in (4,8):
+ for k,i in enumerate(ids):
+  source=resources/f'rear-multicannon-p1-bank8-{i}-{d}.hda';raw=source.read_bytes()
+  for kind in ['missing','empty','magic','key','density','w','h','ax','ay','short','trunc','extra','payload','fifo','directory','device']:
+   name=f'{i}-{d}-{kind}';p=out/name;p.mkdir();b=bytearray(raw)
+   if kind=='empty':b=bytearray()
+   if kind=='magic':b[0]^=1
+   if kind in ['key','density','w','h','ax','ay']:b[{'key':4,'density':8,'w':12,'h':16,'ax':20,'ay':24}[kind]]^=1
+   if kind=='short':b=b[:27]
+   if kind=='trunc':b=b[:-1]
+   if kind=='extra':b+=b'\x00'
+   if kind=='payload':b[-1]^=1
+   if kind=='fifo':os.mkfifo(p/source.name)
+   elif kind=='directory':(p/source.name).mkdir()
+   elif kind=='device':(p/source.name).symlink_to('/dev/null')
+   elif kind!='missing':(p/source.name).write_bytes(b)
+   otherd=8 if d==4 else 4
+   (p/f'rear-multicannon-p1-bank8-{i}-{otherd}.hda').write_bytes((resources/f'rear-multicannon-p1-bank8-{i}-{otherd}.hda').read_bytes())
+   variants.append((name,k,d))
+reload=out/'reload';reload.mkdir()
+for p in resources.glob('*.hda'):(reload/p.name).write_bytes(p.read_bytes())
+(out/'variants.inc').write_text('static const struct {const char*name;unsigned member;int density;} variants[]={'+','.join('{"%s",%d,%d}'%v for v in variants)+'};\n')
+(out/'fixture_receipt.json').write_text(json.dumps({'generated_only':True,'original_inputs':False,'source_pins':pins,'record_pins':recordpins,'rgba_pins':rgba_pins,'variants':len(variants),'production_sha256':{str(p.relative_to(root)):sha(p.read_bytes()) for p in [root/'src/rear_multi_p1.c',root/'src/rear_multi_p1.h',root/'src/rear_multi_p1_mirror.inc',root/'src/render_mirror.c',root/'src/entity_draw.c']},'extracted_sha256':{p.name:sha(p.read_bytes()) for p in out.glob('*.inc')}},indent=2)+'\n')
+harness=Path(__file__).with_name('rear_multi_p1_adapter_test.c')
+for mode in ['plain','sanitize']:
+ exe=out/('adapter-'+mode);cmd=['cc','-std=c99','-Wall','-Wextra','-Werror','-pedantic','-O1','-g','-I'+str(root/'src'),'-I'+str(out),str(harness),str(root/'src/rear_multi_p1.c'),'-o',str(exe)]
+ if mode=='sanitize':cmd+=['-fsanitize=address,undefined','-fno-omit-frame-pointer']
+ subprocess.run(cmd,check=True)
+ r=subprocess.run([str(exe),str(out)],env={**os.environ,'ASAN_OPTIONS':'detect_leaks=0'},text=True,capture_output=True,timeout=60);print(mode,r.stdout,end='');(out/(mode+'.log')).write_text(r.stdout+r.stderr);r.check_returncode()
+
+if temporary is not None:temporary.cleanup()

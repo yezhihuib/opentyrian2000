@@ -1,0 +1,30 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
+#ifndef REAR_MULTI_P1_H
+#define REAR_MULTI_P1_H
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+/* Renderer-owned identities only. Never embedded in a gameplay shot. */
+enum { REAR_P1_SLOTS=80, REAR_P1_HEADS=6, REAR_P1_CELLS=168 };
+typedef struct {
+ unsigned gr,ani,ani_max,player,trail,aim,chain,complicated,filter;
+ int xm,ym,xc,yc;
+} RearP1Shot;
+typedef struct {bool qualified;unsigned record,mode,phase,raw;uint64_t generation;} RearP1Birth;
+typedef struct {
+ RearP1Birth birth[REAR_P1_SLOTS];
+ uint64_t generation,tick;
+ bool lease;
+ unsigned record,mode;
+} RearP1State;
+uint64_t rear_p1_stamp(const void *,size_t);
+int rear_p1_member(unsigned raw);
+void rear_p1_reset(RearP1State *);
+void rear_p1_call_end(RearP1State *);
+void rear_p1_call_begin(RearP1State *,uint64_t tick,unsigned port,unsigned bay,
+ unsigned power_index,unsigned mode_index,unsigned player,unsigned record,bool scope,bool table);
+void rear_p1_emit(RearP1State *,uint64_t tick,unsigned slot,unsigned port,unsigned bay,
+ unsigned record,unsigned player,unsigned phase,unsigned raw,const RearP1Shot *,bool scope,bool table,bool source);
+bool rear_p1_current(RearP1State *,unsigned slot,unsigned index,unsigned raw,
+ const RearP1Shot *,bool scope,bool table,bool source);
+#endif

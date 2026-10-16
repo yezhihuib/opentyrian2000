@@ -1,0 +1,153 @@
+{
+  "schema": "rear-multicannon-p1-independent-review-v1",
+  "status": "PASS_BOUNDED_FINAL_SOURCE",
+  "baseline_commit": "22661ddfca21c6a81e3ec2af0670c24ea4ceed92",
+  "scope": {
+    "weapon_port": 10,
+    "rear_power": 1,
+    "player": 1,
+    "records": [
+      254,
+      265
+    ],
+    "source_bank": 8,
+    "ids": [
+      1,
+      39,
+      281,
+      282,
+      300,
+      301
+    ],
+    "role": 131,
+    "keys": [
+      1310001,
+      1310039,
+      1310281,
+      1310282,
+      1310300,
+      1310301
+    ],
+    "levels": {
+      "Normal": 9,
+      "Hard": 15
+    },
+    "emission_specific": true,
+    "original_shadows_preserved": true
+  },
+  "pins": {
+    "source_manifest_sha256": "fa488fe2285d154c1f360759ef88e401a66ed078a2804cc0e15e87ea817f825f",
+    "art_manifest_sha256": "927a74c5d8ec7601aab259298ef0f44ae9e292e76130d2d97ae8a83e85a972b8",
+    "binding_sha256": "369ae362f6d8be80b79b56a764973da6bdc3295ccdf3bfa5d00feba66dcda296",
+    "art_inventory_sha256": "85316c9fe27166fa5541d977e55d93fd7436bd9dcf62e68d0334e48fb2cc8a40",
+    "runtime_receipt": "RUNTIME.json",
+    "runtime_receipt_sha256": "27e5f1f89d7d30e03a19b1c8ceaff5a0753c84e1b2e3a304e6fa78021918aa0c",
+    "reviewed_hook_and_adapter_files_sha256": {
+      "src/rear_multi_p1.c": "73e7df86bc35cd5d3d5ee8e7f8c7f9f1518d5e13e5a915b7b3a6a841af01f51e",
+      "src/rear_multi_p1.h": "4e06ac7154fe61d6ed007ba50e3cbbbe94402904fa029676aa227e7d2c4e8b12",
+      "src/rear_multi_p1_mirror.inc": "b460f7aa08263655279c5afa45e7aa0582abf23f7182b982acc991945686c0b6",
+      "src/rear_multi_p1_pins.h": "bc9f27d21c290dad6ec1420ddf4ece3f35167f9a1bf3478891f38a51511f6fc0",
+      "src/entity_draw.c": "472058529da86361c9a49d9592cae9eceefc42bb76678a5fd61af8c4d6f19d37",
+      "src/entity_draw.h": "279f678f15d5bef7c067c77648ae43386a46bf8ddfd5ed0b047e360b8fd5b981",
+      "src/game_menu.c": "2cc1407fff33f1f5a15610456fac1d3271cf3bdec9c3c67569a049d70ee11e73",
+      "src/mainint.c": "7555d124b7b7d6a0c6690424da0948fc54724611cea1cf6b6c6e9b20740a1f13",
+      "src/render_mirror.c": "6e7c2c21f0a477c5ec685ba85bc41d52b2172c328ecb2ed8b9182c02fee8c952",
+      "src/render_mirror.h": "172d671cbe8e690ebe047b9a599a836b51376274682d290088a1692907f0d842",
+      "src/shots.c": "f07e7a4f42f3980f9818f9f6322912f5fd165780dc19dce421bdb6192e7b40a1",
+      "src/tyrian2.c": "4dca95509cf86a6cae34446969308a9f22fd3a333603250689ee4afff9227e60"
+    }
+  },
+  "independent_checks": {
+    "core_provenance_assertions_per_build": 4452,
+    "synthetic_actual_adapter_assertions_per_build": 21733,
+    "repository_adapter_assertions_per_build": 21313,
+    "malformed_resource_variants": 192,
+    "authentic_source_table_art_adapter_assertions_per_build": 15197,
+    "build_modes": [
+      "strict C99",
+      "AddressSanitizer + UndefinedBehaviorSanitizer"
+    ],
+    "source_inverse_files": 156,
+    "published_payload_changes": 0,
+    "vector_rebuild_byte_exact": true,
+    "generated_svg_sources": 6,
+    "exact_density_payloads": 12,
+    "default_pack_wrappers": 24,
+    "default_pack_counts": [
+      589,
+      589
+    ],
+    "rollback_packs_unchanged": true
+  },
+  "guards_verified": [
+    "actual main-weapon one-call lease; shop tuple alone cannot admit",
+    "slot reuse, reserved slots, immutable identity and one-way observed source revocation",
+    "birth P1 survives later power selection; old P2 cannot be promoted",
+    "all 80 serialized record bytes, including unused tails and signed values",
+    "current canonical bank pointer/size, indices and coverage before cold or warm access",
+    "alignment of typed compositor buffers, non-overlap of INDEX8 and RGBA surfaces, address-range overflow",
+    "layout, pitch, coordinate, mode/context and current view rejection",
+    "exact startup root/density, cache metadata/pointer/content pins and no density fallback",
+    "missing, malformed, truncated, extra-byte, wrong-identity and wrong-payload files",
+    "Linux FIFO, directory and device targets rejected promptly by the new route only",
+    "warm disk replacement ignored; failed cold resources retry only after renderer-session restart",
+    "all six source IDs under nonqualifying power/port/record/player/bay contexts"
+  ],
+  "runtime": {
+    "fresh_pairs": 16,
+    "fresh_processes": 32,
+    "total_logic_ticks": 4080,
+    "unmodified_manual_startup_pairs": 14,
+    "private_renderer_only_density4_startup_diagnostic_pairs": 2,
+    "native_output_scales": [
+      2,
+      4
+    ],
+    "runtime_render_densities": [
+      4,
+      8
+    ],
+    "independently_compared_original_state_trace_files_per_pair": 20,
+    "independently_recomputed_full_native_scene_frames": 42,
+    "native_preview_crops_checked_byte_exact": 72,
+    "all_four_main_pairs_all_six_heads_admitted": true,
+    "both_density4_diagnostic_pairs_all_six_heads_admitted": true,
+    "full_original_night_filter_oracle_passed": true,
+    "fractional_alpha_intermediate_results_for_all_six_heads": true,
+    "outside_admitted_footprint_changes": 0,
+    "shop_native_frames_unchanged": true,
+    "missing_and_corrupt_native_fallback_exact": true,
+    "natural_P2_same_ID_control": {
+      "emissions_per_case": 40,
+      "all_six_IDs": true,
+      "HD_admissions": 0,
+      "native_baseline_exact": true
+    },
+    "mode_return_and_stop_fire_clearing_passed": true,
+    "repeat_and_skip_actual_Present_passed": true,
+    "Present_rng_unchanged": true,
+    "seed_or_gameplay_state_overrides": false
+  },
+  "visual": {
+    "disposition": "PASS",
+    "basis": "Fresh actual Normal and Hard native2x/native4x readbacks at density8, plus native2x density4 diagnostics, from the final source freeze.",
+    "finding": "R2 retains readable warm cores and inward-softened contours without a new dark rim or enlarged halo. Existing Hard darkening, ship occlusion and viewport/HUD clipping remain intact.",
+    "R2_RGB_and_nonzero_support_unchanged_from_R1": true,
+    "R2_integrated_alpha_ratio_range": [
+      0.9255466820500802,
+      0.9488747310609225
+    ],
+    "diagonal_RGBA_transforms_exact": true
+  },
+  "limits": [
+    "Bounded first-level Normal/Hard rear10 P1 pilot only; other powers, shop, linked/two-player, network, Galaga, Christmas, demos, special modes and alternate source layouts are excluded.",
+    "Natural runtime uses the SDL software renderer; no hardware-driver or Windows runtime claim.",
+    "The 14 ordinary manual-HD pairs use density8. Two additional actual Normal/Hard native2x density4 diagnostics change only renderer startup density in reversible private observer copies; production source and gameplay are unchanged.",
+    "Mid-flight P1-to-P2/P2-to-P1 provenance is exercised synthetically; the native P2 control is acquired through original menu input.",
+    "LeakSanitizer is unavailable under the test environment ptrace setup; ASan and UBSan pass with leak detection disabled.",
+    "Observed source mutation revokes a birth. Mutation restored before any observer executes and arbitrary process-memory corruption are outside the finite guard contract.",
+    "Synthetic gate tests observe draw admission and original wrapper counts; final pixel composition is established separately by real SDL runtime readback.",
+    "No original game-data arrays, original art, native captures, private paths or private fixture payloads are included in this review artifact.",
+    "This review covers the pinned candidate. The complete publication archive requires a separate final inventory/privacy check."
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "rear-multicannon-p1-semantic-art",
+  "version": "1.0.0-preview.1",
+  "private": true,
+  "description": "Generated-only six-head rear Multi P1 SVG/PNG/RGBA pilot; no original data dependencies",
+  "engines": { "node": "24.19.0" },
+  "dependencies": { "sharp": "0.35.5" },
+  "scripts": { "author": "node author-geometry.cjs", "rebuild": "node rebuild.cjs", "verify": "node verify.cjs" }
+}

@@ -37,6 +37,24 @@ void draw_entity_sprite2(SDL_Surface *target, int x, int y,
 	render_mirror_entity_end();
 }
 
+/* A failed optional head retains the exact generic fallback. On success the
+ * probe and one indexed blit remain in their original order. Shadows never enter. */
+void draw_player_shot_sprite2(SDL_Surface *target,int x,int y,Sprite2_array bank,
+ unsigned index,unsigned slot,unsigned raw)
+{
+#ifndef RENDER_MIRROR_DISABLED
+ if(render_mirror_rear_p1_head(target,x,y,bank,index,slot,raw)) {
+  game_probe_draw(8,index,x,y,ENTITY_NORMAL,ENTITY_TILE,true);
+  blit_sprite2(target,x,y,bank,index);
+  render_mirror_entity_end();
+  return;
+ }
+#else
+ (void)slot;(void)raw;
+#endif
+ draw_entity_sprite2(target,x,y,bank,index,ENTITY_NORMAL,ENTITY_TILE);
+}
+
 /* The indexed original always executes once, even after successful HD output. */
 void draw_enemy_shot_sprite2(SDL_Surface *target,int x,int y,Sprite2_array bank,unsigned int index)
 {

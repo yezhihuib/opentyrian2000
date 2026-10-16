@@ -18,6 +18,7 @@
  */
 #include "game_menu.h"
 #include "pregame_font.h"
+#include "render_mirror.h"
 
 #include "backgrnd.h"
 #include "config.h"
@@ -2299,6 +2300,7 @@ void JE_initWeaponView(void)
 	lastPower = 500;
 
 	memset(shotAvail, 0, sizeof(shotAvail));
+	render_mirror_rear_p1_reset();
 
 	memset(shotRepeat, 1, sizeof(shotRepeat));
 	memset(shotMultiPos, 0, sizeof(shotMultiPos));

@@ -313,7 +313,7 @@ bool player_shot_move_and_draw(
 					draw_entity_sprite2(VGAScreen, *out_shotx+1, *out_shoty + shadowYDist, spriteSheet8, sprite_frame, ENTITY_SHADOW, ENTITY_TILE);
 				}
 				game_probe_shot_draw(shot_id, raw_frame, 8, sprite_frame, *out_shotx+1, *out_shoty, ENTITY_NORMAL, 12, 14);
-				draw_entity_sprite2(VGAScreen, *out_shotx+1, *out_shoty, spriteSheet8, sprite_frame, ENTITY_NORMAL, ENTITY_TILE);
+				draw_player_shot_sprite2(VGAScreen, *out_shotx+1, *out_shoty, spriteSheet8, sprite_frame, shot_id, raw_frame);
 			}
 		}
 	}
@@ -530,6 +530,7 @@ JE_integer player_shot_create(JE_word portNum, uint bay_i, JE_word PX, JE_word P
 
 		shotRepeat[bay_i] = weapon->shotrepeat;
 		render_mirror_plasma_art_emit(shot_id, wpNum, bay_i, playerNum, shot->shotGr);
+		render_mirror_rear_p1_emit(shot_id, portNum, bay_i, wpNum, playerNum, shotMultiPos[bay_i], shot->shotGr);
 		game_probe_shot_emit(probe_call, multi_i, shotMultiPos[bay_i], shot_id);
 	}
 

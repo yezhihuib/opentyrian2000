@@ -1062,6 +1062,7 @@ start_level_first:
 	/*Initialize Shots*/
 	memset(playerShotData,   0, sizeof(playerShotData));
 	memset(shotAvail,        0, sizeof(shotAvail));
+	render_mirror_rear_p1_reset();
 	memset(shotMultiPos,     0, sizeof(shotMultiPos));
 	memset(shotRepeat,       1, sizeof(shotRepeat));
 

@@ -1,0 +1,13 @@
+#!/usr/bin/env python3
+"""Synthetic-only strict C99 core verification, both plain and ASan/UBSan."""
+from pathlib import Path
+import os,subprocess,tempfile
+root=Path(__file__).resolve().parents[1]
+with tempfile.TemporaryDirectory(prefix='rear-p1-core-') as directory:
+    for test in ['rear_multi_p1_test.c','rear_multi_p1_provenance_test.c']:
+        for sanitizer in ['', 'address,undefined']:
+            exe=Path(directory)/('san' if sanitizer else 'plain')
+            cmd=['cc','-std=c99','-pedantic','-Wall','-Wextra','-Werror','-O1','-g','-I'+str(root/'src'),str(root/'tests'/test),str(root/'src/rear_multi_p1.c'),'-o',str(exe)]
+            if sanitizer:cmd+=['-fsanitize='+sanitizer,'-fno-omit-frame-pointer']
+            subprocess.run(cmd,check=True)
+            subprocess.run([str(exe)],check=True,env={**os.environ,'ASAN_OPTIONS':os.environ.get('ASAN_OPTIONS','detect_leaks=0')})
