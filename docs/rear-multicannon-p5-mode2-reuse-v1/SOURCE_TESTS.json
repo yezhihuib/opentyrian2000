@@ -1,0 +1,235 @@
+{
+  "schema": "rear-multicannon-p5-mode2-source-tests-v1",
+  "status": "PASS_FOCUSED_SOURCE_TESTS_ONLY",
+  "baseline_commit": "1dc8fe136bab12f45e8107bbe6a9a5fa9ffdafaf",
+  "baseline_tree": "3803418ae6423c323c203ea9f07f076d392314d2",
+  "source_receipt_sha256": "2e1f17c448d02da82b7209d2944f3b4c0de0f8725178b0723f7fee265cc843f4",
+  "unified_freeze_sha256": "3c1cdb607218a4d80568a9a85f5f13442f6b36aa3a598982dfa9b388559bcfdf",
+  "freeze_counts": {
+    "sources": 160,
+    "assets": 7094,
+    "public_tests": 50
+  },
+  "frozen_ledgers": {
+    "makefile_sha256": "e6a43faa818e83c150866793121534819d86d953d5a73e9922906299ad4ed747",
+    "source_ledger_sha256": "3a91e64d8a8c8d4a606a0f614d284827378c912c1f24d5f7e6b88a0899c13cc4",
+    "asset_ledger_sha256": "12aff4cbfa69092c80c534aba84f9b1a41a810a942d8fb254b341b871139a5e5",
+    "test_ledger_sha256": "0d08d9f3a2040f82d8b84b887e281967576afe66a83ad18b5540b7879cd03237"
+  },
+  "changed_sources": {
+    "src/rear_multi_p1.c": "bd2824ffd09614b18962ca72ab9b6cf8272674fc8ed59d9ca415009cbe0d63bc",
+    "src/rear_multi_p1.h": "8a76a9315934c6e7474596a233f2910552eadd6a7d3a9323839e1702ce4d29dd",
+    "src/rear_multi_p1_mirror.inc": "9ff45fe0531c23534640b52807314773a5604e4f2db6b7a3a3de46184605c87d",
+    "src/rear_multi_p1_pins.h": "36d61c21b0250cb85d8db303a0b6192e48b196658a1c01b81064e47f037dd663"
+  },
+  "unchanged_other_sources": 156,
+  "pin_prefixes": {
+    "SOURCE": {
+      "old_prefix_values": 13,
+      "candidate_values": 15,
+      "exact_prefix": true
+    },
+    "RECORD": {
+      "old_prefix_values": 8,
+      "candidate_values": 9,
+      "exact_prefix": true
+    },
+    "RGBA": {
+      "old_prefix_values": 22,
+      "candidate_values": 26,
+      "exact_prefix": true
+    }
+  },
+  "identity_seal": {
+    "bytes": 640,
+    "fields": [
+      "record",
+      "mode",
+      "phase",
+      "raw",
+      "generation",
+      "slot"
+    ],
+    "lifecycle": [
+      "store only at valid drawable birth",
+      "clear target on every actual in-bounds allocation before validation",
+      "clear all on generation reset",
+      "clear revoked birth only",
+      "no clearing on ordinary call/frame end"
+    ],
+    "not_cryptographic_memory_security": true
+  },
+  "qualification_counts_each_plain_and_sanitized": {
+    "p1_core": "PASS (assert-based, no reported numeric count)",
+    "p1_provenance": 4452,
+    "p2_core": "PASS (assert-based, no reported numeric count)",
+    "p3_mode2_core": 8450,
+    "p3_mode1_core": 2569,
+    "p4_mode1_core": 66020,
+    "p4_mode2_core": 105507,
+    "p5_mode2_core": 111657,
+    "synthetic_actual_allocator_adapter": 615149,
+    "synthetic_malformed_resource_variants": 416,
+    "private_original_data_actual_allocator_adapter": 623376
+  },
+  "gates": {
+    "core_plain_sanitized": "PASS",
+    "adapter_plain_sanitized": "PASS",
+    "actual_source_plain_sanitized": "PASS",
+    "strict_enabled_build": "PASS-established-warning-profile",
+    "strict_disabled_build": "PASS-established-warning-profile",
+    "all_old_and_new_rear_assets": "PASS",
+    "inverse156": "PASS",
+    "unchanged_non_rear_sources156": "PASS",
+    "git_diff_check": "PASS",
+    "all_old_pin_prefixes": "PASS",
+    "shared_phase_retagging_four_cases": "PASS-original-unsealed-model-admits/current-sealed-core-rejects"
+  },
+  "authentic_qualification": {
+    "pins_overridden": false,
+    "WEAP_NUM": 1818,
+    "negative_records": [
+      50,
+      51,
+      52,
+      77,
+      79,
+      80,
+      81,
+      90,
+      130,
+      169,
+      170,
+      171,
+      258,
+      259,
+      260,
+      261,
+      262,
+      263,
+      264,
+      270,
+      271,
+      272,
+      273,
+      274,
+      275,
+      445,
+      501,
+      502,
+      504,
+      505,
+      679,
+      681,
+      684,
+      685,
+      686,
+      687,
+      688,
+      690,
+      1050,
+      1051,
+      1052,
+      1077,
+      1079,
+      1080,
+      1081,
+      1090,
+      1130,
+      1169,
+      1170,
+      1171,
+      1256,
+      1257,
+      1258,
+      1259,
+      1260,
+      1261,
+      1262,
+      1263,
+      1264,
+      1265,
+      1266,
+      1267,
+      1268,
+      1269,
+      1270,
+      1271,
+      1272,
+      1273,
+      1274,
+      1275,
+      1679,
+      1681,
+      1684,
+      1685,
+      1686,
+      1687,
+      1688,
+      1690
+    ],
+    "negative_record_count": 78,
+    "negative_original_records_tested_in_each_bay": [
+      0,
+      1,
+      2
+    ],
+    "real_byte_identical_alternate_record1269_rejected": true,
+    "record269_80byte_mutations": true,
+    "alternative_episode_records": [
+      [
+        4,
+        256
+      ],
+      [
+        4,
+        267
+      ],
+      [
+        4,
+        257
+      ],
+      [
+        4,
+        268
+      ],
+      [
+        4,
+        269
+      ],
+      [
+        5,
+        256
+      ],
+      [
+        5,
+        267
+      ],
+      [
+        5,
+        257
+      ],
+      [
+        5,
+        268
+      ],
+      [
+        5,
+        269
+      ]
+    ],
+    "christmas_source_rejected": true,
+    "mode2_269_four_original_observations_four_drawable_births": true,
+    "pass_through_163_164_no_rear_lookup": true,
+    "new_twins_d4_d8_and_existing_diagonals_d8_only": true,
+    "qualification_scope": "controlled original-data adapter; not ordinary P5 acquisition or native gameplay"
+  },
+  "exploratory_results_retained": [
+    "Pre-seal old P4 test exposed shared-phase record retagging; four isolated substitutions admitted before seal and rejected afterward.",
+    "Initial adapter PASS preceded the identity seal and is not final evidence.",
+    "Initial authentic adapter PASS counted596244 checks; the final623376 adds genuine route/bay negatives.",
+    "A private edit script corrected its missing output/ path before any resource pins were written."
+  ],
+  "sanitizers": "ASan+UBSan halt_on_error=1, detect_leaks=0. LeakSanitizer is not qualified.",
+  "native_runtime": "Separately qualified diagnostic fixture; no ordinary P5 acquisition claim."
+}

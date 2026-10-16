@@ -1,0 +1,148 @@
+{
+  "schema": "rear-multicannon-p5-mode2-twins-composite-v1",
+  "scope": "Normal-bank player1 rear10 power5 mode2, exact record269 only. New twin resources277/278 at density4/8; existing183/182 remain byte-exact density8-only. Diagnostic runtime qualification is recorded separately; no ordinary P5 purchase or actual-game PASS is claimed. P5 mode1 remains classic; Christmas artwork is excluded.",
+  "runtime_qualification": "DIAGNOSTIC_QUALIFICATION_RECORDED_SEPARATELY",
+  "reviewed_export_sha256": "cd83131544d3d7163327e089bac6fa6fbd51535da800b4115fe58361b238a2dc",
+  "selected_order": "lower_over_upper",
+  "logical_size": [
+    12,
+    14
+  ],
+  "anchor": [
+    0,
+    0
+  ],
+  "layer_order_back_to_front_logical_xy": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      4
+    ]
+  ],
+  "operation": "Exact rational Porter-Duff source-over, encoded RGB space; half-up quantize straight RGB and alpha independently once.",
+  "alpha_formula": "N=255*Af+Ab*(255-Af); Aout=round_half_up(N/255)",
+  "RGB_formula": "Cout=round_half_up((Cf*Af*255+Cb*Ab*(255-Af))/N)",
+  "constraints": {
+    "new_generation": false,
+    "resampling": false,
+    "filtering": false,
+    "blur": false,
+    "recoloring": false,
+    "normalization": false,
+    "original_game_inputs": false,
+    "comparison_order_resource": false
+  },
+  "resources": [
+    {
+      "accepted_source_id": 281,
+      "source_id": 277,
+      "key": 1310277,
+      "density": 4,
+      "source_png_repo_path": "assets/hd/artwork/player-rear-multicannon-p1-six-v1/output/rear-multi-281-4.png",
+      "source_png_sha256": "82d2d3617af7930d54312c69995ca61b2a050a6bd6b63543128bd61ad95622b3",
+      "source_rgba_repo_path": "assets/hd/artwork/player-rear-multicannon-p1-six-v1/output/rear-multi-281-4.rgba",
+      "source_rgba_sha256": "a31935a0bd297367138df393805d8ed2bfa856cebd09d9c3bea0a83dde89e1ad",
+      "png_sha256": "96d2afe30ca79ad058e205e0783de8c9b6d50c2204c1f26734f82584271c4cec",
+      "rgba_sha256": "45ba353dbc163224e0b183e142f7a4c8ac1f71a36274dfb5524fed51443480ed",
+      "rgba_fnv1a64": "0xf03f8f745a244970",
+      "hda_sha256": "2117c701f4dbc007155c6376a6af3cd8dc17b5372adacb4d540ab3438e23146f",
+      "checks": {
+        "overlap_sample_count": 5,
+        "nonoverlap_supported_samples_preserved_exact": 984,
+        "clipped_nonzero_RGBA_samples": 0,
+        "output_support_equals_union": true,
+        "alpha_sum": 205342,
+        "alpha_delta_vs_two_copies": -22,
+        "premultiplied_RGB_delta_vs_two_copies": [
+          -4492,
+          -831,
+          45
+        ]
+      }
+    },
+    {
+      "accepted_source_id": 281,
+      "source_id": 277,
+      "key": 1310277,
+      "density": 8,
+      "source_png_repo_path": "assets/hd/artwork/player-rear-multicannon-p1-six-v1/output/rear-multi-281-8.png",
+      "source_png_sha256": "511b8b0e8b2f9f6d38698c4315ef18e31c694db4e5ab3bcde52ba22a5206c761",
+      "source_rgba_repo_path": "assets/hd/artwork/player-rear-multicannon-p1-six-v1/output/rear-multi-281-8.rgba",
+      "source_rgba_sha256": "f4dd85ab37ec9b703a552fbde77f84839294cffb669eea161883c200338569ea",
+      "png_sha256": "72721e9e06c9c6d268766f95d9ac65e28482a080fe9abef2ced08c8dced0463b",
+      "rgba_sha256": "75b03b20070976edcb7ad330aec1f8754ae47eef70c88f7307efacb92608fdf6",
+      "rgba_fnv1a64": "0x3df2a878cda365e6",
+      "hda_sha256": "8a226ac49239196257380a40bb5b8019b4df58b1e373d0959743e52eb093e756",
+      "checks": {
+        "overlap_sample_count": 5,
+        "nonoverlap_supported_samples_preserved_exact": 3734,
+        "clipped_nonzero_RGBA_samples": 0,
+        "output_support_equals_union": true,
+        "alpha_sum": 837512,
+        "alpha_delta_vs_two_copies": -12,
+        "premultiplied_RGB_delta_vs_two_copies": [
+          -2480,
+          -462,
+          22
+        ]
+      }
+    },
+    {
+      "accepted_source_id": 282,
+      "source_id": 278,
+      "key": 1310278,
+      "density": 4,
+      "source_png_repo_path": "assets/hd/artwork/player-rear-multicannon-p1-six-v1/output/rear-multi-282-4.png",
+      "source_png_sha256": "d00d177a50391351619d9d993715c7f55d67c7aae26e9b15da23289f538553c4",
+      "source_rgba_repo_path": "assets/hd/artwork/player-rear-multicannon-p1-six-v1/output/rear-multi-282-4.rgba",
+      "source_rgba_sha256": "344a4066d9f0f2316073f3d176b0956514b7af7b5c2888462ae61710af608ff3",
+      "png_sha256": "3e65188e0c8fc823e60fa7e05809d672a87c481dda45dc0e58e33314f7e7725c",
+      "rgba_sha256": "e111cb772f63599ee7588fd9bfd743b14c0dd27d04ea9be0fd90dd700ebc05c8",
+      "rgba_fnv1a64": "0x3fae8a76be180e70",
+      "hda_sha256": "70752a39adebdd43468383f9c7775e8962569986ecf7237d539005679f4b6a84",
+      "checks": {
+        "overlap_sample_count": 5,
+        "nonoverlap_supported_samples_preserved_exact": 984,
+        "clipped_nonzero_RGBA_samples": 0,
+        "output_support_equals_union": true,
+        "alpha_sum": 205342,
+        "alpha_delta_vs_two_copies": -22,
+        "premultiplied_RGB_delta_vs_two_copies": [
+          -4492,
+          -831,
+          45
+        ]
+      }
+    },
+    {
+      "accepted_source_id": 282,
+      "source_id": 278,
+      "key": 1310278,
+      "density": 8,
+      "source_png_repo_path": "assets/hd/artwork/player-rear-multicannon-p1-six-v1/output/rear-multi-282-8.png",
+      "source_png_sha256": "f315002d3f205aa610f5664a351eea863e89c7889d4c1f23ec6de697019779d2",
+      "source_rgba_repo_path": "assets/hd/artwork/player-rear-multicannon-p1-six-v1/output/rear-multi-282-8.rgba",
+      "source_rgba_sha256": "12b31ccd1cb7dd23408bdfe34a8bad8571d150f60b90b07182c38a19a4f1f0a0",
+      "png_sha256": "e6a45a6bb6c877cae3ab8873e441575b3d64ce2feacf788c8950ee1111cfe41b",
+      "rgba_sha256": "d9c8d8468785ac51d3d5d47c0a8069640225a01bf331501eaa004272746e0757",
+      "rgba_fnv1a64": "0xb953b3abd4a3fcde",
+      "hda_sha256": "0f039fb1520344a503a9cd1dbafa1aeab2e065f796f5dc6831e919e3cee365d4",
+      "checks": {
+        "overlap_sample_count": 5,
+        "nonoverlap_supported_samples_preserved_exact": 3734,
+        "clipped_nonzero_RGBA_samples": 0,
+        "output_support_equals_union": true,
+        "alpha_sum": 837512,
+        "alpha_delta_vs_two_copies": -12,
+        "premultiplied_RGB_delta_vs_two_copies": [
+          -2480,
+          -462,
+          22
+        ]
+      }
+    }
+  ]
+}

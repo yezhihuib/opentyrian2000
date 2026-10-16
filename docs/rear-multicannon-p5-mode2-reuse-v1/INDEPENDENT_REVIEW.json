@@ -1,0 +1,299 @@
+{
+  "schema": "rear-multicannon-p5-mode2-independent-integration-review-v1",
+  "status": "PASS_WITH_STATED_LIMITS",
+  "decision": "Bounded source, reviewed component integration, focused tests and diagnostic runtime pass independent review. Final candidate archive/privacy review is a separate gate.",
+  "baseline_commit": "1dc8fe136bab12f45e8107bbe6a9a5fa9ffdafaf",
+  "baseline_tree": "3803418ae6423c323c203ea9f07f076d392314d2",
+  "unified_freeze_sha256": "3c1cdb607218a4d80568a9a85f5f13442f6b36aa3a598982dfa9b388559bcfdf",
+  "frozen_counts": {
+    "source": 160,
+    "assets": 7094,
+    "public_tests": 50,
+    "makefile": 1
+  },
+  "scope": {
+    "rear_port": 10,
+    "power_index": 4,
+    "mode_index": 1,
+    "record": 269,
+    "budget": 4,
+    "period": 4,
+    "phases": [
+      277,
+      278,
+      183,
+      182
+    ],
+    "new_resource_ids": [
+      277,
+      278
+    ],
+    "new_resource_densities": [
+      4,
+      8
+    ],
+    "unchanged_reused_ids": [
+      183,
+      182
+    ],
+    "unchanged_reused_densities": [
+      8
+    ],
+    "physical_levels": {
+      "Normal": 9,
+      "Hard": 15
+    },
+    "P5_mode1": "classic; new triple-lobe replacement deferred"
+  },
+  "source_review": {
+    "only_changed_source_files": [
+      "src/rear_multi_p1.c",
+      "src/rear_multi_p1.h",
+      "src/rear_multi_p1_mirror.inc",
+      "src/rear_multi_p1_pins.h"
+    ],
+    "other156_source_files_byteexact": true,
+    "old_pin_prefixes_byteexact": true,
+    "only_conditional_new_port_mapping": "op[1][4] == 269",
+    "full80_byte_record_pin_and_source_identity_checked": true,
+    "explicit_drawable_membership_preserves_observed_only163_164": true,
+    "source_specific_four_allocation_budget_not_power_plus_one": true,
+    "original_gameplay_compositor_rng_and_generic_draw_mapping_unchanged": true,
+    "birth_identity_seal": {
+      "renderer_owned_bytes": 640,
+      "fields": [
+        "record",
+        "mode",
+        "phase",
+        "raw",
+        "generation",
+        "slot"
+      ],
+      "padding_excluded": true,
+      "allocation_clears_slot": true,
+      "reset_clears_all": true,
+      "ordinary_frame_and_mode_power_changes_retain_birth": true,
+      "identity_failure_revokes_only_that_birth": true,
+      "shared_phase268_269_retagging_rejected": true,
+      "boundary": "Detects tested individual identity/copy errors; not a cryptographic memory-corruption boundary"
+    }
+  },
+  "art_review": {
+    "approved_offline_review_sha256": "6e9ce7d3b620d30e8f6af57d65cae5662aa1a2312d81e1e6560ce18cae14e53a",
+    "selected_order": "lower-over-upper",
+    "component_ids": [
+      281,
+      282
+    ],
+    "offsets": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        4
+      ]
+    ],
+    "logical_canvas": [
+      12,
+      14
+    ],
+    "anchor": [
+      0,
+      0
+    ],
+    "independent_rational_source_over_exact_to_approved_png_rgba_and_hdr1": true,
+    "overlap_samples_each_twin_each_density": 5,
+    "no_component_clipping": true,
+    "old_nonmanifest_asset_files_byteexact": 7065,
+    "additive_catalog_inverse_restores_exact_baseline": true,
+    "new_asset_files": 28,
+    "isolated_builder_reproduced_output_files": 13,
+    "corrupt_input_rejected_before_output": true,
+    "inventory": {
+      "catalog_pack_entries": 3438,
+      "source_mappings": 654,
+      "default_pack_entries_each": 601,
+      "pack_referenced_source_png_paths": 613,
+      "physical_source_png_files": 720
+    }
+  },
+  "fresh_independent_tests": {
+    "public_core_suites": "All P1-P5 suites pass in plain and ASan/UBSan builds.",
+    "P5_core_checks_per_build": 111657,
+    "public_actual_adapter_checks_per_build": 615149,
+    "malformed_resource_variants": 416,
+    "additional_original_data_adapter_checks_per_build": 314675,
+    "original_data_adapter_scope": "Three physical tables, 1638 rows each; unoverridden production pins; actual allocator versus observer-stripped original; cyclic/partial capacity; every record-byte mutation; alternate identities; exact resource asymmetry and birth retagging.",
+    "additional_identity_seal_checks_per_build": 7530132,
+    "identity_seal_valid_record_phase_births": 30,
+    "identity_seal_slots": 80,
+    "identity_seal_scope": "Every individual bit of identity fields, seal and generation; copied birth plus seal to another slot; retained selection; recycling/reset; both 268-to-269 and 269-to-268 shared-phase retags.",
+    "controlled_compositor": {
+      "cases_per_build": 240,
+      "checks_per_build": 7686,
+      "overlap_samples_per_build": 210222,
+      "clipped_samples_per_build": 99328,
+      "both_orders_all_P5_owned_head_pairs": true,
+      "uses_unmodified_production_compositor": true,
+      "natural_runtime_witness": false
+    },
+    "additional_test_modes": [
+      "plain",
+      "ASan/UBSan"
+    ],
+    "implementer_original_data_suite_reviewed_separately": {
+      "checks_per_build": 623376,
+      "excluded_real_record_identities": 78,
+      "attribution": "Implementer execution reviewed; distinct from the independent 314675-check suite."
+    },
+    "source_inverse_and_all_rear_asset_suites": "PASS"
+  },
+  "build_and_observer_review": {
+    "strict_builds": 10,
+    "translation_units_each": 74,
+    "strict_build_warnings": 0,
+    "existing_unsuppressed_disabled_diagnostics": 15,
+    "disabled_diagnostic_profile_unchanged": true,
+    "independently_reversed_observer_projections": 6,
+    "source_files_restored_each": 160,
+    "zero_fuzz_and_offset": true,
+    "same_observer_projection_baseline_candidate": true,
+    "original_time_seed_observed_not_forced": true,
+    "candidate_native_launches_follow_unified_freeze": true
+  },
+  "runtime_review": {
+    "runtime_receipt_sha256": "52c2c1976161af515fabcc6b69022a6b9536c970926f3ed713fb2941b6a9ce49",
+    "qualifying_pairs": 26,
+    "qualifying_processes": 52,
+    "qualifying_ticks": 6480,
+    "qualifying_native_game_captures": 768,
+    "qualifying_native_shop_captures": 156,
+    "separate_baseline_preparation": {
+      "processes": 2,
+      "ticks": 240,
+      "native_game_captures": 50,
+      "native_shop_captures": 6
+    },
+    "all_processes": 54,
+    "all_ticks": 6720,
+    "all_native_game_captures": 818,
+    "all_native_shop_captures": 162,
+    "all_process_exit_codes": 0,
+    "all54_launch_and_process_receipts_reconciled": true,
+    "completed_observation_files_independently_rehashed": 6946,
+    "final_helpers_independently_rehashed": 36,
+    "matrix_pairs": {
+      "Normal_Hard_main_native2x_4x": 4,
+      "missing_corrupt_both_missing_all_missing": 8,
+      "genuine_ordinary_P1_P4_both_modes": 8,
+      "transition_retention_clear": 2,
+      "repeat_skip_Present": 2,
+      "private_density4": 2
+    },
+    "original_streams_pairwise_byteexact": 20,
+    "independently_reconstructed_candidate_native_frames": 384,
+    "changed_pixels_outside_admitted_original_authored_support": 0,
+    "main_new_record269_head_admissions_each_case": 409,
+    "live_payload_identity_fractional_alpha_native_sampling_and_original_Hard_transfer_exact": true,
+    "fully_exposed_brown_cloud_witnesses": 32,
+    "exact_native_comparison_tiles": 64,
+    "native_brown_cloud_plates_directly_visually_reviewed": 4,
+    "visual_result": "Twin separation and accepted component appearance remain clear; no joining seam or added halo; inherited Hard darkening preserved.",
+    "all_missing_and_all_ordinary_P1_P4_native_outputs_baseline_exact": true,
+    "density4_only_new277_278_owned": true,
+    "main_clipped_fractional_points_each": 11069,
+    "main_later_writes_within_original_ship_bounds_each": 726,
+    "ship_bound_measurement_is_not_pixel_ownership_proof": true,
+    "natural_new_head_head_support_overlap_pixels": 0,
+    "natural_partial_capacity_claimed": false,
+    "transition_mode1_retained_ids_at64": [
+      3,
+      41
+    ],
+    "transition_owned_mode2_retained_ids_at104": [
+      182,
+      183,
+      278
+    ],
+    "natural277_retention_at104_claimed": false,
+    "clear179_no_new_admissions_and_native_baseline_exact": true,
+    "Present_calls_each_control_process": 123,
+    "skipped_ticks": [
+      30,
+      31,
+      32,
+      78,
+      79,
+      80
+    ],
+    "double_Present_ticks": [
+      0,
+      20,
+      60,
+      68,
+      72,
+      76,
+      84,
+      88,
+      119
+    ],
+    "Present_rng_unchanged": true,
+    "second_repeated_Present_call_independently_captured": false,
+    "all_source_art_test_and_makefile_freezes_reverified_after_matrix": true
+  },
+  "diagnostic_attribution": {
+    "ordinary_fresh_start_P5_purchase_established": false,
+    "fresh_wallet": 10000,
+    "P5_total_cost": 15750,
+    "ordinary_P4_purchase_cost": 8250,
+    "post_purchase_setup_cash": 1750,
+    "private_P5_preset": "One rear-power byte changes 4 to 5 before the first logic tick, identically in each baseline/candidate process.",
+    "player_array_bytes": 784,
+    "changed_player_bytes": 1,
+    "all_other_player_bytes_exact": true,
+    "reversal_in_copy_restores_all784": true,
+    "canonical_rng_bytes_unchanged": 5016,
+    "setup_cash_unchanged": true,
+    "later_ordinary_pickups_allowed": true,
+    "production_funds_seed_rng_and_loadout_unchanged": true,
+    "two_preparation_validator_failures": "Inherited P4-only movement expectations were corrected; unchanged successful baseline observations were revalidated without new game launches.",
+    "pre_export_cache_mismatch": "Ignored generated Python test cache recorded separately; public 50-test freeze unchanged.",
+    "qualifying_process_failures_or_retries": 0
+  },
+  "documentation_review": {
+    "ART_REUSE_SOURCE_TESTS_RUNTIME_VALIDATION_reconciled": true,
+    "runtime_public_copy_byteexact": true
+  },
+  "limitations": [
+    "Partial P5 mode2 scope only; no full-family, later-level, full-campaign or ordinary P5 progression qualification.",
+    "P5 native cases use the explicitly declared private diagnostic preset; P1-P4 regression purchases are genuine ordinary menu purchases.",
+    "Normal level9 and Hard level15, bounded 120/180-tick Linux SDL software/dummy runs at native2x/4x; no Windows, physical GPU/display, performance or LeakSanitizer certification.",
+    "No naturally witnessed new-head/head overlap or partial capacity. Forced overlap and all cyclic partial-capacity checks are controlled tests.",
+    "Natural transition frame104 establishes retained278/183/182 only. Controlled tests cover every qualified identity.",
+    "No resource disk hot-reload claim; missing/invalid exact density falls back; unchanged183/182 resources remain density8 only.",
+    "Final candidate archive integrity/privacy and publication authorization remain separate gates."
+  ],
+  "evidence_sha256": {
+    "source": "363e8a7e6d712e22499b7a9a6e2c82aa79ecbbdb16015751868d45df37e5b392",
+    "assets": "8955ca1a2ae60b69881914bed349d62acecba1dadda516da402f90f299afb36c",
+    "freeze": "c4247745da538074513b0f115a981f7519efc8254a099631fbb85a2347cd091a",
+    "public_core_log": "d497d0de11d946459d9ff6ddcf07bd6dffdc6f23bedd6b9b8b771c51d4a6fdb1",
+    "public_adapter_log": "1ee68a2c8afa67a9c43ffe97c7c4ab843e4f184c4caee2a1eb3504ea363d5ebc",
+    "original_data_adapter_log": "ff54c99f482436191a73bda8201095efd24397dbeb941ac8c41782ee337e6dec",
+    "identity_plain_log": "2fa70f03d08163028061a13deccc20ca1ee1937554d7f96bf5fa38651529b2d4",
+    "identity_sanitized_log": "2fa70f03d08163028061a13deccc20ca1ee1937554d7f96bf5fa38651529b2d4",
+    "controlled_compositor_log": "60dcec2e02f7bab05a3875168dcc502dd67fb37f1ef5dabea683ec1588854059",
+    "build_inverse": "9b8c2b1e3f27829cec3e50c58472c4ee3ef39ee62e39fca98665ac3be0c471ca",
+    "runtime_main": "83d523414b2cabdd2842ca022db7b7ef54c8ca39d71d9918d60611f325c48aa1",
+    "runtime_negative": "9819cc4d3026b47191adadd16d5f09058ad73dc39492f8a0fbb07b9d644dfa50",
+    "runtime_other": "646cc0e1959dbc1996686968b91d0bed3ea030545626c222667174a6b9a80da2",
+    "runtime_density4": "cb31811ba7c56f2c2e32ed82bcb69ecc6408f5808b9c170fb1fe82ab53889722",
+    "visibility": "24744e8937dbef527b872105f35fcd09bcf0d354b8f30cc5294c9e9aca669c00",
+    "ordered_occlusion": "3c5bfed8cb2c412f3ed46b0390df14229ee157b3a4e1b712418d692ca7e667e8",
+    "transition": "fb3aba123639bb8de2ba9a212ab8728089e4475a71a10e4a6d410c7f8c1c185f",
+    "runtime_census_and_checkpoint_review": "68c90a16ef820bc9b4b9a268c21196be44f43c9a17c3a3af3ce472579e622a31"
+  },
+  "publication_authorized": false
+}

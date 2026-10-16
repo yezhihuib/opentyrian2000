@@ -1,0 +1,129 @@
+{
+  "status": "PASS_REVIEWED_COMPONENT_ART_ONLY",
+  "schema": "rear-multicannon-p5-mode2-art-summary-v1",
+  "baseline_commit": "1dc8fe136bab12f45e8107bbe6a9a5fa9ffdafaf",
+  "baseline_tree": "3803418ae6423c323c203ea9f07f076d392314d2",
+  "art_stage_review": {
+    "status": "PASS_BOUNDED_COMPONENT_ART_AND_GENERATED_ONLY_EXPORT",
+    "sha256": "6e9ce7d3b620d30e8f6af57d65cae5662aa1a2312d81e1e6560ce18cae14e53a",
+    "scope": "Independent offline artwork and generated-only export only; implementation and runtime are separate qualification gates."
+  },
+  "selected_order": "lower_over_upper, explicit HD assembly decision; original disjoint components cannot reveal historical order",
+  "composition": "Exact source-over in existing encoded RGB, with independent single half-up quantization of output straight RGB and alpha. No redraw, resampling, normalization or recoloring in assembly.",
+  "normal_bank_component_relations": [
+    {
+      "target": 277,
+      "source": 281,
+      "translations": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          4
+        ]
+      ]
+    },
+    {
+      "target": 278,
+      "source": 282,
+      "translations": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          4
+        ]
+      ]
+    }
+  ],
+  "logical_canvas": [
+    12,
+    14
+  ],
+  "anchor": [
+    0,
+    0
+  ],
+  "densities": [
+    4,
+    8
+  ],
+  "original_components_disjoint": true,
+  "original_internal_order_observable": false,
+  "original_occupied_cells_each_target": 66,
+  "accepted_union_touched_logical_cells": 77,
+  "inherited_antialias_extra_logical_cells": 11,
+  "original_cells_missing": 0,
+  "occupied_component_clipping": 0,
+  "support_beyond_translated_accepted_union": 0,
+  "metrics_by_density": {
+    "4": {
+      "overlap_samples": 5,
+      "unchanged_nonoverlap_supported_samples": 984,
+      "alpha_sum": 205342,
+      "alpha_sum_loss": 22,
+      "alpha_loss_percent": 0.010712686,
+      "premultiplied_code_numerator_delta": [
+        -4492,
+        -831,
+        45
+      ],
+      "encoded_weighted_luma_loss_percent": 0.004642397
+    },
+    "8": {
+      "overlap_samples": 5,
+      "unchanged_nonoverlap_supported_samples": 3734,
+      "alpha_sum": 837512,
+      "alpha_sum_loss": 12,
+      "alpha_loss_percent": 0.001432795,
+      "premultiplied_code_numerator_delta": [
+        -2480,
+        -462,
+        22
+      ],
+      "encoded_weighted_luma_loss_percent": 0.000633787
+    }
+  },
+  "code_metric_note": "Encoded-code arithmetic, not physical light energy. Tiny positive blue residues come from final 8-bit quantization. No compensation or normalization.",
+  "native_order_comparison": "Both orders identical at native1x. Tested displayed maximum is one channel code; d8 at native2x is identical. Exact flattened-versus-sequential integer-blend equality is not claimed.",
+  "visual_review": {
+    "actual_private_plates_viewed": [
+      "native1x",
+      "native2x",
+      "native4x",
+      "density8_geometry_diagnostic"
+    ],
+    "private_tile_independent_all_bytes_verified": 90,
+    "two_lobe_separation": "clear",
+    "joining_seam_observed": false,
+    "added_halo_beyond_accepted_support_observed": false,
+    "directional_heads_and_tapered_red_tails_preserved": true,
+    "accepted_R2_styling_preserved": true,
+    "exact_original_brightness_or_pixels_claimed": false,
+    "native_plates_are_gameplay": false,
+    "palette": "original palette0 offline reference, not live-level evidence",
+    "backgrounds": [
+      "representative brown solid",
+      "representative cloud solid",
+      "transparency checkerboard"
+    ]
+  },
+  "generated_only_export": {
+    "sha256": "cd83131544d3d7163327e089bac6fa6fbd51535da800b4115fe58361b238a2dc",
+    "bytes": 122454,
+    "members": 32
+  },
+  "production_package": "assets/hd/artwork/player-rear-multicannon-p5-mode2-twins-v1",
+  "full_generated_arithmetic": "assets/hd/artwork/player-rear-multicannon-p5-mode2-twins-v1/overlap-analysis.json",
+  "limitations": [
+    "Art/reuse review only; no implementation, CI, parity, publication or P5 gameplay acceptance.",
+    "Original palette0 plates are offline reference illustrations on representative backgrounds, not a live palette or gameplay scene.",
+    "Exact translated accepted support preserved; accepted R2 antialias support already differs from original indexed-cell coverage.",
+    "Order invariance applies to alpha only; overlap RGB differs and native surviving differences must be disclosed.",
+    "Mode1 triple-lobe 3/41 remains deferred; existing 182/183 d8 only remain unchanged."
+  ]
+}

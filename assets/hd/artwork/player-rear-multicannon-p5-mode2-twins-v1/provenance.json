@@ -1,0 +1,69 @@
+{
+  "schema": "rear-multicannon-p5-mode2-twins-provenance-v1",
+  "published_input_baseline": {
+    "commit": "1dc8fe136bab12f45e8107bbe6a9a5fa9ffdafaf",
+    "tree": "3803418ae6423c323c203ea9f07f076d392314d2"
+  },
+  "accepted_source_family": "assets/hd/artwork/player-rear-multicannon-p1-six-v1/output",
+  "accepted_inputs": [
+    {
+      "source_png_repo_path": "assets/hd/artwork/player-rear-multicannon-p1-six-v1/output/rear-multi-281-4.png",
+      "source_png_sha256": "82d2d3617af7930d54312c69995ca61b2a050a6bd6b63543128bd61ad95622b3",
+      "source_rgba_repo_path": "assets/hd/artwork/player-rear-multicannon-p1-six-v1/output/rear-multi-281-4.rgba",
+      "source_rgba_sha256": "a31935a0bd297367138df393805d8ed2bfa856cebd09d9c3bea0a83dde89e1ad"
+    },
+    {
+      "source_png_repo_path": "assets/hd/artwork/player-rear-multicannon-p1-six-v1/output/rear-multi-281-8.png",
+      "source_png_sha256": "511b8b0e8b2f9f6d38698c4315ef18e31c694db4e5ab3bcde52ba22a5206c761",
+      "source_rgba_repo_path": "assets/hd/artwork/player-rear-multicannon-p1-six-v1/output/rear-multi-281-8.rgba",
+      "source_rgba_sha256": "f4dd85ab37ec9b703a552fbde77f84839294cffb669eea161883c200338569ea"
+    },
+    {
+      "source_png_repo_path": "assets/hd/artwork/player-rear-multicannon-p1-six-v1/output/rear-multi-282-4.png",
+      "source_png_sha256": "d00d177a50391351619d9d993715c7f55d67c7aae26e9b15da23289f538553c4",
+      "source_rgba_repo_path": "assets/hd/artwork/player-rear-multicannon-p1-six-v1/output/rear-multi-282-4.rgba",
+      "source_rgba_sha256": "344a4066d9f0f2316073f3d176b0956514b7af7b5c2888462ae61710af608ff3"
+    },
+    {
+      "source_png_repo_path": "assets/hd/artwork/player-rear-multicannon-p1-six-v1/output/rear-multi-282-8.png",
+      "source_png_sha256": "f315002d3f205aa610f5664a351eea863e89c7889d4c1f23ec6de697019779d2",
+      "source_rgba_repo_path": "assets/hd/artwork/player-rear-multicannon-p1-six-v1/output/rear-multi-282-8.rgba",
+      "source_rgba_sha256": "12b31ccd1cb7dd23408bdfe34a8bad8571d150f60b90b07182c38a19a4f1f0a0"
+    }
+  ],
+  "reviewed_generated_only_export": {
+    "sha256": "cd83131544d3d7163327e089bac6fa6fbd51535da800b4115fe58361b238a2dc",
+    "selection_manifest_sha256": "2d24d6e573547bf940b4dbc3752ae7bdefe0a0e1e8a472525838a6177a8ea6a1",
+    "arithmetic_manifest_sha256": "254f0854f8bfd45884ed8dbb607bec3fd65b2ae1f623f3baf266cf10bd1721b1",
+    "independent_art_review_sha256": "6e9ce7d3b620d30e8f6af57d65cae5662aa1a2312d81e1e6560ce18cae14e53a",
+    "independent_art_result": "PASS, offline art only",
+    "selected_order": "lower_over_upper",
+    "selected_outputs": [
+      "output/rear-multi-277-4-lower_over_upper.png",
+      "output/rear-multi-277-8-lower_over_upper.png",
+      "output/rear-multi-278-4-lower_over_upper.png",
+      "output/rear-multi-278-8-lower_over_upper.png",
+      "output/rear-multi-277-4-lower_over_upper.rgba",
+      "output/rear-multi-277-8-lower_over_upper.rgba",
+      "output/rear-multi-278-4-lower_over_upper.rgba",
+      "output/rear-multi-278-8-lower_over_upper.rgba"
+    ]
+  },
+  "operation": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      4
+    ]
+  ],
+  "composition": "Exact Porter-Duff source-over on existing 8-bit straight RGBA; independent half-up quantization of exact alpha and straight RGB once. Existing encoded RGB space; no linear-light conversion.",
+  "runtime_qualification": "DIAGNOSTIC_QUALIFICATION_RECORDED_SEPARATELY",
+  "ordinary_P5_purchase_or_actual_game_PASS_claimed": false,
+  "original_game_pixels_masks_palettes_or_captures_bundled": false,
+  "old_non_manifest_assets": 7065,
+  "old_assets_path_sha256_inventory_digest": "77d5921e2a0fa6aa1dc8af331c28a049521ea0d5ebabc0436d4ee0c4b6f6a499",
+  "baseline_catalog_sha256": "f1ceac8430b7419a62d62d957081bf630339150c6efd80615cdfae7eea4013b9"
+}

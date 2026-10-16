@@ -2,8 +2,11 @@
  * Finite renderer provenance. The inputs are observations, never game writers. */
 #include "rear_multi_p1.h"
 #include <string.h>
-static const unsigned ids[REAR_P1_OBSERVED]={39,1,281,282,301,300,40,2,77,182,183,163,164};
-static const int velocity[REAR_P1_OBSERVED][2]={{-10,0},{10,0},{-9,-2},{9,-2},{9,2},{-9,2},{-10,0},{10,0},{0,10},{-6,6},{6,6},{-6,-6},{6,-6}};
+/* Separate index spaces preserve every existing resource/cache and source pin.
+ * Observed-only 163/164 must never become drawable through prefix growth. */
+static const unsigned drawable_ids[REAR_P1_HEADS]={39,1,281,282,301,300,40,2,77,182,183,277,278};
+static const unsigned ids[REAR_P1_OBSERVED]={39,1,281,282,301,300,40,2,77,182,183,163,164,277,278};
+static const int velocity[REAR_P1_OBSERVED][2]={{-10,0},{10,0},{-9,-2},{9,-2},{9,2},{-9,2},{-10,0},{10,0},{0,10},{-6,6},{6,6},{-6,-6},{6,-6},{-9,-2},{9,-2}};
 uint64_t rear_p1_stamp(const void *data,size_t size)
 {
  const uint8_t *p=data;uint64_t h=UINT64_C(14695981039346656037);
@@ -11,7 +14,7 @@ uint64_t rear_p1_stamp(const void *data,size_t size)
  return h;
 }
 int rear_p1_member(unsigned raw)
-{for(unsigned i=0;i<REAR_P1_HEADS;i++)if(ids[i]==raw)return (int)i;return -1;}
+{for(unsigned i=0;i<REAR_P1_HEADS;i++)if(drawable_ids[i]==raw)return (int)i;return -1;}
 int rear_p1_observed(unsigned raw)
 {for(unsigned i=0;i<REAR_P1_OBSERVED;i++)if(ids[i]==raw)return (int)i;return -1;}
 void rear_p1_reset(RearP1State *s)
@@ -26,10 +29,11 @@ void rear_p1_call_begin(RearP1State *s,uint64_t tick,unsigned port,unsigned bay,
   ((power_index==0&&((mode_index==0&&record==254)||(mode_index==1&&record==265)))||
    (power_index==1&&((mode_index==0&&record==255)||(mode_index==1&&record==266)))||
    (power_index==2&&((mode_index==0&&record==256)||(mode_index==1&&record==267)))||
-   (power_index==3&&((mode_index==0&&record==257)||(mode_index==1&&record==268))));
+   (power_index==3&&((mode_index==0&&record==257)||(mode_index==1&&record==268)))||
+   (power_index==4&&mode_index==1&&record==269));
  s->tick=tick;s->record=record;s->mode=mode_index+1;
- /* Exact record budgets: P3 mode1=2, mode2=4; both P4 modes=5. */
- if(s->pending)s->budget=(record==257||record==268)?5:record==256?2:record==267?4:power_index+1;
+ /* Exact record budgets: P3 mode1=2, mode2=4; both P4 modes=5; P5 mode2=4. */
+ if(s->pending)s->budget=(record==257||record==268)?5:record==256?2:(record==267||record==269)?4:power_index+1;
 }
 uint64_t rear_p1_create_begin(RearP1State *s,uint64_t tick,unsigned port,unsigned bay,
  unsigned record,unsigned player)
@@ -56,12 +60,25 @@ static bool phase_ok(unsigned record,unsigned phase,unsigned raw)
 {
  if(record==254||record==255)return phase>=1&&phase<=2&&raw==ids[phase-1];
  if(record==256)return phase>=1&&phase<=2&&raw==ids[phase+5];
+ if(record==269) {
+  static const unsigned observed[4]={277,278,183,182};
+  return phase>=1&&phase<=4&&raw==observed[phase-1];
+ }
  if(record==268) {
   static const unsigned observed[5]={163,164,183,182,77};
   return phase>=1&&phase<=5&&raw==observed[phase-1];
  }
  if(record==257)return phase>=1&&phase<=5&&raw==ids[phase==5?8:phase+1];
  return (record==265||record==266||record==267)&&phase>=1&&phase<=4&&raw==ids[phase+1];
+}
+/* Same-mode records can share canonical phases (268/269: 183/182).
+ * Retain the original admitted identity rather than reclassifying a birth.
+ * Fixed-width values exclude structure padding; this is an integrity check,
+ * not a cryptographic boundary against coordinated memory corruption. */
+static uint64_t birth_stamp(const RearP1Birth *b,unsigned slot)
+{
+ const uint64_t fields[]={b->record,b->mode,b->phase,b->raw,b->generation,slot};
+ return rear_p1_stamp(fields,sizeof(fields));
 }
 void rear_p1_emit(RearP1State *s,uint64_t tick,uint64_t call,unsigned ordinal,unsigned slot,unsigned port,unsigned bay,
  unsigned record,unsigned player,unsigned phase,unsigned raw,const RearP1Shot *shot,bool scope,bool table,bool source)
@@ -71,7 +88,7 @@ void rear_p1_emit(RearP1State *s,uint64_t tick,uint64_t call,unsigned ordinal,un
   * a prior partial-capacity call advances the original phase only once. */
  bool lease=s->lease&&s->remaining>0;
  if(s->remaining)--s->remaining;
- if(slot<REAR_P1_SLOTS)memset(&s->birth[slot],0,sizeof(s->birth[slot]));
+ if(slot<REAR_P1_SLOTS){memset(&s->birth[slot],0,sizeof(s->birth[slot]));s->birth_identity[slot]=0;}
  unsigned period=(s->record==257||s->record==268)?5:s->mode==1?2:4;
  bool reused=false;
  for(unsigned i=0;i<s->used_count&&i<REAR_P1_MAX_BUDGET;i++)reused|=s->used_slots[i]==slot;
@@ -91,6 +108,7 @@ void rear_p1_emit(RearP1State *s,uint64_t tick,uint64_t call,unsigned ordinal,un
   * Their generic normal/head/shadow paths remain the original paths. */
  if(rear_p1_member(raw)<0)return;
  s->birth[slot]=(RearP1Birth){true,record,s->mode,phase,raw,s->generation};
+ s->birth_identity[slot]=birth_stamp(&s->birth[slot],slot);
 }
 bool rear_p1_current(RearP1State *s,unsigned slot,unsigned index,unsigned raw,
  const RearP1Shot *shot,bool scope,bool table,bool source)
@@ -98,9 +116,9 @@ bool rear_p1_current(RearP1State *s,unsigned slot,unsigned index,unsigned raw,
  if(slot>=REAR_P1_SLOTS)return false;
  RearP1Birth *b=&s->birth[slot];
  if(!b->qualified)return false;
- if(rear_p1_member(raw)<0||b->generation!=s->generation||!scope||!table||!source||b->raw!=raw||index!=raw||
+ if(s->birth_identity[slot]!=birth_stamp(b,slot)||rear_p1_member(raw)<0||b->generation!=s->generation||!scope||!table||!source||b->raw!=raw||index!=raw||
   !phase_ok(b->record,b->phase,raw)||b->mode!=((b->record==254||b->record==255||b->record==256||b->record==257)?1u:2u)||!shot_ok(shot,raw)) {
-  b->qualified=false;return false;
+  b->qualified=false;s->birth_identity[slot]=0;return false;
  }
  return true;
 }

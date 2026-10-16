@@ -34,8 +34,8 @@ create=extract((root/'src/shots.c').read_text(),'player_shot_create')
 baseline='\n'.join(line for line in create.split('\n') if 'rear_p1_' not in line)
 (out/'create_baseline.inc').write_text(baseline.replace('player_shot_create(', 'baseline_shot_create(', 1))
 (out/'wrapper.inc').write_text(extract((root/'src/entity_draw.c').read_text(),'draw_player_shot_sprite2'))
-ids=[39,1,281,282,301,300,40,2,77,182,183]
-observed=ids+[163,164]
+ids=[39,1,281,282,301,300,40,2,77,182,183,277,278]
+observed=ids[:11]+[163,164]+ids[11:]
 bank=bytearray(602);pins=[]
 for k,i in enumerate(observed):
  struct.pack_into('<H',bank,2*(i-1),len(bank));v=bytes((k*23+y*12+x)%256 for y in range(14) for x in range(12))
@@ -62,6 +62,13 @@ r=struct.pack('<HBBHBBBB8B8B8b8b8b8b8HbbBBBB',0x1241,6,5,0,5,5,6,0,
  *([1]*5+[198,25,255]),*([255]*8),*[-6,6,6,-6,0,-128,127,-1],
  *[6,6,-6,-6,-10,-128,127,-1],*[-4,4,4,-4,0,-128,127,-1],
  *[0,0,0,0,0,-128,127,-1],*[163,164,183,182,77,0x1234,0xff80,301],0,0,0,25,255,208)
+assert len(r)==80
+records.append(r);recordpins.append(fnv(r))
+# P5 mode2 is independently synthetic; exact invocation budget is four, not five.
+r=struct.pack('<HBBHBBBB8B8B8b8b8b8b8HbbBBBB',0x1242,6,4,0,4,5,6,0,
+ *([2,2,1,1,198,25,255,19]),*([255]*8),*[-9,9,6,-6,0,-128,127,-1],
+ *[2,2,-6,-6,0,-128,127,-1],*[-2,2,4,-4,0,-128,127,-1],
+ *[0,0,0,0,0,-128,127,-1],*[277,278,183,182,77,0x1234,0xff80,301],0,0,0,25,255,208)
 assert len(r)==80
 records.append(r);recordpins.append(fnv(r))
 (out/'records.bin').write_bytes(b''.join(records))
@@ -95,7 +102,7 @@ for d in (4,8):
    elif kind!='missing':(p/source.name).write_bytes(b)
    otherd=8 if d==4 else 4
    (p/f'rear-multicannon-p1-bank8-{i}-{otherd}.hda').write_bytes((resources/f'rear-multicannon-p1-bank8-{i}-{otherd}.hda').read_bytes())
-   variants.append((name,k,d))
+   variants.append((name,observed.index(i),d))
 reload=out/'reload';reload.mkdir()
 for p in resources.glob('*.hda'):(reload/p.name).write_bytes(p.read_bytes())
 (out/'variants.inc').write_text('static const struct {const char*name;unsigned member;int density;} variants[]={'+','.join('{"%s",%d,%d}'%v for v in variants)+'};\n')

@@ -4,7 +4,7 @@ from pathlib import Path
 import os,subprocess,tempfile
 root=Path(__file__).resolve().parents[1]
 with tempfile.TemporaryDirectory(prefix='rear-p1-core-') as directory:
-    for test in ['rear_multi_p1_test.c','rear_multi_p1_provenance_test.c','rear_multi_p2_ownership_test.c','rear_multi_p3_mode2_ownership_test.c','rear_multi_p3_mode1_ownership_test.c','rear_multi_p4_mode1_ownership_test.c','rear_multi_p4_mode2_ownership_test.c']:
+    for test in ['rear_multi_p1_test.c','rear_multi_p1_provenance_test.c','rear_multi_p2_ownership_test.c','rear_multi_p3_mode2_ownership_test.c','rear_multi_p3_mode1_ownership_test.c','rear_multi_p4_mode1_ownership_test.c','rear_multi_p4_mode2_ownership_test.c','rear_multi_p5_mode2_ownership_test.c']:
         for sanitizer in ['', 'address,undefined']:
             exe=Path(directory)/('san' if sanitizer else 'plain')
             cmd=['cc','-std=c99','-pedantic','-Wall','-Wextra','-Werror','-O1','-g','-I'+str(root/'src'),str(root/'tests'/test),str(root/'src/rear_multi_p1.c'),'-o',str(exe)]

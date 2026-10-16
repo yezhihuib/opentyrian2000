@@ -153,8 +153,35 @@ for pack in packs:
         assert struct.unpack('<4s6I', hda[:28]) == (b'HDR1', key, density, 12, 14, 0, 0)
         assert catalog['packs'][pack]['files'][name]['sha256'] == pin
 
-# Pure-addition inverse: no historical binding/scope prose was rewritten.
+# Later P5 twins are an explicitly bounded additive family. Remove only those
+# verified additions before retaining this historical P4 inverse and inventory.
+later_paths = set()
 inverse = copy.deepcopy(catalog)
+later_name = 'player_rear_multicannon_p5_mode2_twins_v1'
+if later_name in inverse:
+    later = inverse.pop(later_name)
+    assert later['ids'] == [277, 278] and later['densities'] == [4, 8] and later['role'] == 131
+    assert later['reviewed_export_sha256'] == 'cd83131544d3d7163327e089bac6fa6fbd51535da800b4115fe58361b238a2dc'
+    later_art = root / later['source']
+    later_binding = json.loads((later_art / 'binding.json').read_text())
+    later_manifest = json.loads((later_art / 'file-manifest.json').read_text())
+    assert sha((later_art / 'binding.json').read_bytes()) == later['binding_sha256']
+    assert sha((later_art / 'file-manifest.json').read_bytes()) == later['art_file_manifest_sha256']
+    assert [(a['source_id'], a['density']) for a in later_binding['resources']] == [(277, 4), (277, 8), (278, 4), (278, 8)]
+    for name, pin in later_manifest['files'].items():
+        assert sha((later_art / name).read_bytes()) == pin
+        later_paths.add(str(later_art.relative_to(root) / name))
+    later_paths.add(str(later_art.relative_to(root) / 'file-manifest.json'))
+    for a in later_binding['resources']:
+        assert inverse['source_pngs'].pop(a['hda_sha256']) == {'path': a['catalog_source_png'], 'sha256': a['png_sha256'], 'RGBA_sha256': a['rgba_sha256']}
+        later_paths.add(a['catalog_source_png'])
+        for pack in packs:
+            row = inverse['packs'][pack]['files'].pop(a['filename'])
+            assert row['sha256'] == a['hda_sha256'] and row['header_u32'] == [1310000 + a['source_id'], a['density'], 12, 14, 0, 0]
+            inverse['packs'][pack]['count'] -= 1
+            later_paths.add(str(Path('assets/hd/packs') / pack / a['filename']))
+    assert sha((json.dumps(inverse, indent=2) + '\n').encode()) == 'f1ceac8430b7419a62d62d957081bf630339150c6efd80615cdfae7eea4013b9'
+# Pure-addition P4 inverse: no historical binding/scope prose was rewritten.
 inverse.pop(family_name)
 for a in binding['resources']:
     inverse['source_pngs'].pop(a['hda_sha256'])
@@ -164,7 +191,7 @@ for a in binding['resources']:
 assert sha((json.dumps(inverse, indent=2) + '\n').encode()) == 'a0acd4f9bbf2f258cfd2b4168d0bd7cfba224848b012ffddf0c0d747de0239f9'
 old_assets = {str(p.relative_to(root)): sha(p.read_bytes())
               for p in (root / 'assets').rglob('*') if p.is_file()
-              and str(p.relative_to(root)) not in new_paths | {'assets/hd/manifest.json'}}
+              and str(p.relative_to(root)) not in new_paths | later_paths | {'assets/hd/manifest.json'}}
 assert len(old_assets) == provenance['old_non_manifest_assets'] == 7048
 old_inventory_hash = sha(''.join(p + '\0' + h + '\n' for p, h in sorted(old_assets.items())).encode())
 assert old_inventory_hash == provenance['old_assets_path_sha256_inventory_digest'] == '0fb686ecaa7d78d35579c37431d569e262079bc74cae1644276747083e6a945f'
