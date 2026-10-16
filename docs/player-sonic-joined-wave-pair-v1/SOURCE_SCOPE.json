@@ -1,0 +1,99 @@
+{
+  "schema": "sonic-joined-wave-pair-source-scope-v1",
+  "status": "FINITE_CURRENT_SOURCE_BINDING_AND_ORIGINAL_TABLE_CONTRACT",
+  "baseline": "cb06b76ba45bb78afa4b50338472c6b160d9f358",
+  "ids": [
+    143,
+    144
+  ],
+  "prior_unchanged_ids": [
+    6,
+    16,
+    44,
+    54,
+    63,
+    73,
+    82,
+    130,
+    131,
+    149,
+    150,
+    223,
+    224,
+    242,
+    243
+  ],
+  "remaining_original_ids": [
+    105,
+    106,
+    124,
+    125
+  ],
+  "bank": 8,
+  "layout": "TILE",
+  "role": 8,
+  "logical_size": [
+    12,
+    14
+  ],
+  "anchor": [
+    0,
+    0
+  ],
+  "whole_size": [
+    24,
+    14
+  ],
+  "original_split_x": 12,
+  "source_cells": {
+    "143": 87,
+    "144": 98
+  },
+  "source_bbox_half_open": {
+    "143": [
+      1,
+      0,
+      12,
+      13
+    ],
+    "144": [
+      0,
+      0,
+      12,
+      13
+    ],
+    "joined": [
+      1,
+      0,
+      24,
+      13
+    ]
+  },
+  "source_empty_bottom_logical_rows": 1,
+  "selected_fnv_index_then_coverage": {
+    "143": "0x9d732d4562f86474",
+    "144": "0xa9ede9c9164a8044"
+  },
+  "source_relationships": "Asymmetric independent halves; no normal or Christmas exact identity/flipX/flipY/rotate180 alias beyond self in the fixed304-tile banks, including coverage-only checks.",
+  "Christmas": "Actual selected Christmas encoded fragments, indices and coverage differ from normal. Explicit xmas rejection plus current selected data+coverage validation are required.",
+  "ordinary_rear": "Rear port11 mode2 powers6..11, records292..297 and+1000 copies. P5 is selected-negative. P6..9 central pair at bx-6/+6; P10 three complete pairs; P11 four complete pairs. All selected pair partners remain12px apart and have equal-age movement.",
+  "shared_front": "Front port41 Sonic Impulse powers1,2,3,5,6,7,8,9,10,11; P4 is bank12-only negative. Includes alternating phases, simultaneous branches, vertical14px stacking, fast/horizontal/accelerated routes, and P11 mixed bank12. Generic TILE API cannot distinguish these single-player uses from rear11.",
+  "linked_and_charge": "Directional linkSonicGr has no143/144 identity. P2 charge467 contains active143/144 and can fire linked when chargeLevel>0; all two-player/linked/Galaga session contexts remain classic. Charge465 and468 have active73 only.",
+  "dormant_record": "118/1118 contains143/144 but is dormant in scanned fixed player-port, sidekick/charge, special, chain and enemy-turret routes. No arbitrary future dynamic-script reachability guarantee.",
+  "three_table_bounds": "All fixed hdt/ep4/ep5 active patterns and+1000 counterparts checked. Full records, inactive tails and blastfilters retain original differences; no false full-record equality claim. Front41 and charge468 keep208 across tables; rear and charge465/467 use208 in hdt and192 in ep4/5.",
+  "pair_invariants": "Original equal-age pair motion preserves separation12 and deltaY0. Original phase, free-slot allocation, independent collision/expiry/clipping/removal and inter-wave overlap stay authoritative; no batching or repairing half-pairs.",
+  "new_only_pre_cache_exclusions": [
+    "twoPlayerMode",
+    "galagaMode",
+    "twoPlayerLinked",
+    "explicit Christmas",
+    "invalid current selected indices or coverage",
+    "unsupported density or diagnostic flags"
+  ],
+  "source_API_limit": "Generic fragment API has no per-shot owner/source-record token. Session guards bound identity scope; selected hashes do not attest entire bank provenance.",
+  "shadow": "Original indexed shadows escape before HD lookup. No new HD shadow or displacement.",
+  "only_changed_production_source": "src/render_mirror.c",
+  "gameplay_shots_rng_input_blitters_unchanged": true,
+  "original_pixels_not_published": true,
+  "not_full_family_or_level": true
+}

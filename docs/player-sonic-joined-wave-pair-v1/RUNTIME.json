@@ -1,0 +1,633 @@
+{
+  "schema": "sanitized-sonic143-144-r3-runtime-v1",
+  "status": "PASS_BOUNDED_TECHNICAL_RUNTIME",
+  "baseline_commit": "cb06b76ba45bb78afa4b50338472c6b160d9f358",
+  "renderer_sha256": "5403694f20869de3c38cf254d19c52fe527073b925d361d38fc0afbb2f24c3f1",
+  "art_contract_sha256": "0a62bb9c579986902ed09eb72ae588f2d33102d079834232899996d68224091e",
+  "generated_hda_sha256": {
+    "143": "e42dca34ef07e0e853237d826871ccad3b44777c10871aac40931d06234e4eb8",
+    "144": "45b9ede5a7ccb7d34051517b28db3e534acd38607fbb88e2735e796d00cb6673"
+  },
+  "production_build": {
+    "source_exact_candidate": true,
+    "binary_sha256": "46b3473d550ee879fd34cd26f6e34f5cb1c248dce0a5d972cab82ef0d7d3a621",
+    "warnings_inherited": 5
+  },
+  "totals": {
+    "main_pairs": 59,
+    "exact_observer_pairs": 2,
+    "total_pairs": 61,
+    "total_processes": 122,
+    "total_original_engine_ticks": 4272,
+    "total_native_fullframe_captures": 414,
+    "main_positive_pairs": 33,
+    "main_full_RGBA_negative_pairs": 26,
+    "new_selected_normal_HD_draws": 5058,
+    "new_selected_shadow_HD_draws": 0
+  },
+  "source_route_coverage": {
+    "rear11_mode2_powers": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "front41_mode1_powers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "front41_power4_bank12_negative": true,
+    "front41_power11_mixed_bank12_unchanged": true,
+    "original_two_player_ordinary_charge467_and_linked_charge467_negatives_both_sizes": true,
+    "prior15_full_RGBA_regression_ids": [
+      6,
+      16,
+      44,
+      54,
+      63,
+      73,
+      82,
+      130,
+      131,
+      149,
+      150,
+      223,
+      224,
+      242,
+      243
+    ]
+  },
+  "preservation": {
+    "original_logic_state_RNG_INDEX8_palette_exact_within_every_pair": true,
+    "shot_requests_phase_allocations_motion_collisions_and_draw_order_exact": true,
+    "normal_blend_shadow_source_writes_and_combined_order_exact": true,
+    "whole_frame_RGBA_exact_outside_selected_support": true,
+    "manual_native_sizes": [
+      [
+        640,
+        400
+      ],
+      [
+        1280,
+        800
+      ]
+    ],
+    "internal_density": 8,
+    "renderer": "SDL dummy/software",
+    "candidate_source_unmodified_by_private_instrumentation": true,
+    "all_private_source_hooks_exact_inverse_verified": true,
+    "pinned_source_asset_data_binary_dependency_inputs_unchanged": true
+  },
+  "geometry_and_witnesses": {
+    "main_whole_joined_observations": 180,
+    "main_checks": "Original source survival after fade, centered native sampling, exact split/whole identity, and high/partial-alpha feasible RGB bounds with conservative ordered survivor masks. Bounds are not claimed as exact known-underlay blend equality.",
+    "partial_only_rows": [
+      "port11-P8-M2-native2x",
+      "port11-P8-M2-native4x",
+      "port11-P9-M2-native2x",
+      "port11-P9-M2-native4x"
+    ],
+    "partial_only_explanation": "Later classic/published companion draw canvases intersect these heads. The conservative mask excludes those whole rectangles; both143 and144 have visible source/core survivors. Full source exposure is not claimed.",
+    "actual_clipped_observations": 60,
+    "actual_edge_observation_counts": {
+      "top": 60,
+      "left": 4
+    },
+    "right_and_bottom_actual_clipping": false,
+    "exact_observer_full_joined_witnesses": 12,
+    "exact_observer_head_composites": 60,
+    "exact_observer_fractional_alpha_native_survivors": 28340,
+    "exact_observer_fractional_alpha_native_seam_survivors": 654,
+    "exact_observer_checks": "Actual recorded before/after density8 canvas proves integer alpha over known underlay; frozen whole master equals ordered halves; surviving pixels match existing brightness transform and final native full-frame output.",
+    "exact_SDL_final_sampling": {
+      "640x400": "density8 output at x/y offset2, stride4",
+      "1280x800": "density8 output at x/y offset1, stride2"
+    },
+    "original_geometry": "Independent12x14 halves; exact12px separation; logical24x14 whole; zero anchors; one blank final logical row.",
+    "supplement_cross_run": "Original clock seeds/RNG differ. All other recorded state, events except seed, ordered writes/draws and decoded nativeRGBA were compared and equal for these bounded runs."
+  },
+  "negative_controls": [
+    "missing143/144 resources",
+    "malformed143/144 resources",
+    "no manual assets",
+    "modified current original source identities",
+    "original-menu2P ordinary rear and charge467",
+    "original-input linked charge467"
+  ],
+  "limitations": [
+    "Controlled pre-tick0 loadout, not natural acquisition.",
+    "No live Galaga runtime; all eight mode-flag combinations and actual Christmas source guards are covered by separate extracted-production units.",
+    "--xmas fell back to normal because original Christmas voice data is absent; it is not actual Christmas runtime acceptance.",
+    "Actual clips cover top and left only; no actual right/bottom witness. All-boundary synthetic units are separate.",
+    "No direct linked-direction143/144 route exists; linked witness is independent charge467.",
+    "No physical GPU, fullscreen, Windows, performance, full-level/campaign or Hard15 NIGHT acceptance."
+  ],
+  "verifier_history": [
+    "Retained initial early-window source-witness failure: original fade-in was not yet modeled. Corrected against original ramp/HD brightness without changing windows.",
+    "Retained alpha255 seam assumption in initial verifier: accepted R3 has fractional alpha only. Replaced by truthful bounded survivors and exact known-underlay observer proof.",
+    "Retained overly strict full-canvas visibility failures for rearP8/P9. Added conservative ordered survivor masks and explicitly partial exposure labels.",
+    "Investigated and confirmed final centered SDL lattice; direct density4 integer source sampling is a distinct stage."
+  ],
+  "cases": [
+    [
+      "port11-P5-M2-native2x",
+      0,
+      true,
+      0,
+      false,
+      0
+    ],
+    [
+      "port11-P5-M2-native4x",
+      0,
+      true,
+      0,
+      false,
+      0
+    ],
+    [
+      "port11-P6-M2-native2x",
+      68,
+      false,
+      2,
+      false,
+      0
+    ],
+    [
+      "port11-P6-M2-native4x",
+      68,
+      false,
+      2,
+      false,
+      0
+    ],
+    [
+      "port11-P7-M2-native2x",
+      68,
+      false,
+      2,
+      false,
+      0
+    ],
+    [
+      "port11-P7-M2-native4x",
+      68,
+      false,
+      2,
+      false,
+      0
+    ],
+    [
+      "port11-P8-M2-native2x",
+      68,
+      false,
+      0,
+      true,
+      0
+    ],
+    [
+      "port11-P8-M2-native4x",
+      68,
+      false,
+      0,
+      true,
+      0
+    ],
+    [
+      "port11-P9-M2-native2x",
+      68,
+      false,
+      0,
+      true,
+      0
+    ],
+    [
+      "port11-P9-M2-native4x",
+      68,
+      false,
+      0,
+      true,
+      0
+    ],
+    [
+      "port11-P10-M2-native2x",
+      216,
+      false,
+      6,
+      false,
+      0
+    ],
+    [
+      "port11-P10-M2-native4x",
+      216,
+      false,
+      6,
+      false,
+      0
+    ],
+    [
+      "port11-P11-M2-native2x",
+      288,
+      false,
+      10,
+      false,
+      0
+    ],
+    [
+      "port11-P11-M2-native4x",
+      288,
+      false,
+      10,
+      false,
+      0
+    ],
+    [
+      "port41-P1-M1-native2x",
+      56,
+      false,
+      3,
+      false,
+      2
+    ],
+    [
+      "port41-P1-M1-native4x",
+      56,
+      false,
+      3,
+      false,
+      2
+    ],
+    [
+      "port41-P2-M1-native2x",
+      64,
+      false,
+      3,
+      false,
+      2
+    ],
+    [
+      "port41-P2-M1-native4x",
+      64,
+      false,
+      3,
+      false,
+      2
+    ],
+    [
+      "port41-P3-M1-native2x",
+      112,
+      false,
+      6,
+      false,
+      4
+    ],
+    [
+      "port41-P3-M1-native4x",
+      112,
+      false,
+      6,
+      false,
+      4
+    ],
+    [
+      "port41-P4-M1-native2x",
+      0,
+      true,
+      0,
+      false,
+      0
+    ],
+    [
+      "port41-P4-M1-native4x",
+      0,
+      true,
+      0,
+      false,
+      0
+    ],
+    [
+      "port41-P5-M1-native2x",
+      112,
+      false,
+      7,
+      false,
+      2
+    ],
+    [
+      "port41-P5-M1-native4x",
+      112,
+      false,
+      7,
+      false,
+      2
+    ],
+    [
+      "port41-P6-M1-native2x",
+      128,
+      false,
+      6,
+      false,
+      3
+    ],
+    [
+      "port41-P6-M1-native4x",
+      128,
+      false,
+      6,
+      false,
+      3
+    ],
+    [
+      "port41-P7-M1-native2x",
+      168,
+      false,
+      9,
+      false,
+      5
+    ],
+    [
+      "port41-P7-M1-native4x",
+      168,
+      false,
+      9,
+      false,
+      5
+    ],
+    [
+      "port41-P8-M1-native2x",
+      224,
+      false,
+      12,
+      false,
+      6
+    ],
+    [
+      "port41-P8-M1-native4x",
+      224,
+      false,
+      12,
+      false,
+      6
+    ],
+    [
+      "port41-P9-M1-native2x",
+      224,
+      false,
+      10,
+      false,
+      6
+    ],
+    [
+      "port41-P9-M1-native4x",
+      224,
+      false,
+      10,
+      false,
+      6
+    ],
+    [
+      "port41-P10-M1-native2x",
+      325,
+      false,
+      9,
+      false,
+      0
+    ],
+    [
+      "port41-P10-M1-native4x",
+      325,
+      false,
+      9,
+      false,
+      0
+    ],
+    [
+      "port41-P11-M1-native2x",
+      232,
+      false,
+      2,
+      false,
+      0
+    ],
+    [
+      "port41-P11-M1-native4x",
+      232,
+      false,
+      2,
+      false,
+      0
+    ],
+    [
+      "prior15-p1-m1-native2x",
+      0,
+      true,
+      0,
+      false,
+      0
+    ],
+    [
+      "prior15-p1-m1-native4x",
+      0,
+      true,
+      0,
+      false,
+      0
+    ],
+    [
+      "prior15-p3-m1-native2x",
+      0,
+      true,
+      0,
+      false,
+      0
+    ],
+    [
+      "prior15-p3-m1-native4x",
+      0,
+      true,
+      0,
+      false,
+      0
+    ],
+    [
+      "prior15-p4-m1-native2x",
+      0,
+      true,
+      0,
+      false,
+      0
+    ],
+    [
+      "prior15-p4-m1-native4x",
+      0,
+      true,
+      0,
+      false,
+      0
+    ],
+    [
+      "prior15-p8-m1-native2x",
+      0,
+      true,
+      0,
+      false,
+      0
+    ],
+    [
+      "prior15-p8-m1-native4x",
+      0,
+      true,
+      0,
+      false,
+      0
+    ],
+    [
+      "prior15-p9-m1-native2x",
+      0,
+      true,
+      0,
+      false,
+      0
+    ],
+    [
+      "prior15-p9-m1-native4x",
+      0,
+      true,
+      0,
+      false,
+      0
+    ],
+    [
+      "prior15-p11-m1-native2x",
+      0,
+      true,
+      0,
+      false,
+      0
+    ],
+    [
+      "prior15-p11-m1-native4x",
+      0,
+      true,
+      0,
+      false,
+      0
+    ],
+    [
+      "p10-m2-missing-native2x",
+      0,
+      true,
+      0,
+      false,
+      0
+    ],
+    [
+      "p10-m2-invalid-native2x",
+      0,
+      true,
+      0,
+      false,
+      0
+    ],
+    [
+      "p10-m2-no-assets-native2x",
+      0,
+      true,
+      0,
+      false,
+      0
+    ],
+    [
+      "p10-m2-mutated-native2x",
+      0,
+      true,
+      0,
+      false,
+      0
+    ],
+    [
+      "p10-m2-xmas-native2x",
+      216,
+      false,
+      6,
+      false,
+      0
+    ],
+    [
+      "2p-ordinary-native2x",
+      0,
+      true,
+      0,
+      false,
+      0
+    ],
+    [
+      "2p-ordinary-native4x",
+      0,
+      true,
+      0,
+      false,
+      0
+    ],
+    [
+      "2p-charge-native2x",
+      0,
+      true,
+      0,
+      false,
+      0
+    ],
+    [
+      "2p-charge-native4x",
+      0,
+      true,
+      0,
+      false,
+      0
+    ],
+    [
+      "2p-linked-charge-native2x",
+      0,
+      true,
+      0,
+      false,
+      0
+    ],
+    [
+      "2p-linked-charge-native4x",
+      0,
+      true,
+      0,
+      false,
+      0
+    ]
+  ],
+  "private_receipt_digests": {
+    "main_runtime": "4f780ea173a25b1d036406e3ff926ecf6b596cfa7e087d012a8d5acb4bf042fe",
+    "exact_observer": "e26ba6ec7206778869e5f3e52150e1625a79f27aed77b07b926e757975900226",
+    "main_frozen_plan": "68481e15b3e6a033738f0eaf7c5da12acdb8ec22a81bf58678583ea24d8b6cc5",
+    "exact_observer_plan": "d5c2aa9ab34b09c18b956f48ad70f02adb036ac176de91582d5639cefaae5bb5",
+    "main_input_pins": "7f929eff40f3848505f597d13906706bc2878aef69e9e8f731b6ffbdae794915",
+    "exact_observer_input_pins": "3a44c15ee97c9af5a0bd765db9c3aeffbeb417635d033bb9cc05adaa12fa2be4"
+  },
+  "case_checks_columns": [
+    "case",
+    "new_normal_draws",
+    "full_RGBA_unchanged",
+    "whole_joined_witnesses",
+    "partial_only",
+    "clipped_observations"
+  ]
+}

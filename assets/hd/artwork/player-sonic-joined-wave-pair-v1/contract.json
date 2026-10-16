@@ -1,0 +1,175 @@
+{
+  "schema": "generated-sonic-joined-wave-pair-r3-v1",
+  "source": "sources/generated-sonic143-144-r3.png",
+  "source_sha256": "5454cd7a2f136ca253ade0803c21f84f9cf56ef3c6cd5afa54cf1a01c9c7275f",
+  "source_size": [
+    1642,
+    958
+  ],
+  "generation": {
+    "tool": "tools.image_gen__imagegen",
+    "model_id": null,
+    "model_id_status": "Exact model ID not supplied or confirmed.",
+    "call_started_utc": "2026-10-16T00:06:57.961Z",
+    "call_finished_observed_utc": "2026-10-16T00:07:37.667Z",
+    "transparent_background": true,
+    "prompt": "Use case: stylized-concept.\nAsset: ONE transparent high-resolution green sonic-energy wave game sprite, designed to remain readable at 48x28 and 96x56 pixels.\nReference image 1 is the sole authority for silhouette, proportions, orientation, green palette and placement. Independently redraw its COMPLETE wide upward-convex arch, opening downward, with exactly SEVEN irregular downward energy ribs including the two outer tips. Do not mirror halves. Preserve the modest central crest and the original unequal spaces and rib lengths. On the logical 24x14 canvas, occupied bounds are x1..24, y0..13; leave one blank logical left column and one blank bottom row. Seven lower tip landmarks are approximately (1,12), (4,12), (8,11), (12,10), (16,11), (20,12), (23,12). These are shape landmarks, not pixel stairs to trace. The complete wave crosses x12 continuously; no middle gap, stripe, fade or separate panels.\nReference image 2 supplies ONLY the soft luminous-green rendering treatment. Do not copy its narrow arch shape or stretch its artwork.\nRender a substantial flowing ENERGY wave: a vivid bright-green luminous core follows the broad upper arch, spreading softly through the body and fading into the seven unequal translucent downward ribs. Vary green illumination naturally across the whole wave. The rib tips should gently dissolve inside their contours, with smooth partial alpha, rather than looking solid or sharply cut. Preserve the reference's full body thickness and spacing; do not turn the ribs into regular triangular comb teeth. The light is emitted energy with no lit object surface, no bright raised ridge down each rib, no dark flank shading around individual ribs, and no nearly uniform solid-color membrane.\nPalette stays original saturated green: brightest green RGB44,255,105, with deeper greens approaching RGB0,125,0 in translucent regions. No white, pale mint, cyan or yellow stripe. No black outline, bevel, plastic shine, outside halo, particles, trails or expanded footprint. Smooth the low-resolution stairs into natural curves without adding or removing ribs. Preserve the original asymmetry, occupied 23:13 ratio and whole-wave continuity. Genuine transparent PNG background. No text, borders or extra objects.",
+    "reference_description": "Original joined143/144 sprite supplied privately for whole-wave geometry and green identity; previously generated user-accepted223 R2 supplied solely for green treatment. No original raster, decoded indices or mask is packaged or used by reconstruction."
+  },
+  "reconstruction": {
+    "library": "Pillow",
+    "version": "12.3.0",
+    "crop": [
+      35,
+      27,
+      1615,
+      926
+    ],
+    "resize": [
+      183,
+      104
+    ],
+    "resample": "LANCZOS",
+    "canvas": [
+      192,
+      112
+    ],
+    "paste": [
+      8,
+      0
+    ],
+    "paste_operation": "Straight RGBA paste onto transparent canvas without a mask.",
+    "proportional_scale_from_height": 0.11568409343715239,
+    "ideal_proportional_width": 182.78086763070078,
+    "integer_width_rounding_only": true,
+    "split_x": 96,
+    "logical_anchor": [
+      0,
+      0
+    ],
+    "bottom_transparent_density_rows": 8,
+    "crop_loss": {
+      "fixed_crop": [
+        35,
+        27,
+        1615,
+        926
+      ],
+      "outside_max_alpha": 1,
+      "outside_nonzero_pixels": 1076,
+      "outside_equivalent_alpha_area": 4.219607843137255,
+      "fraction_total_alpha_mass": 8.207207520828688e-06,
+      "all_alpha_ge2_retained": true
+    },
+    "no_repaint_recolor_threshold_original_mask_stretch_or_warp": true,
+    "asymmetric_halves_not_mirrors": true
+  },
+  "selection": {
+    "revision": "User-accepted whole-wave143/144 R3",
+    "scope": "User accepted the rightmost R3 candidate in native2x/4x offline comparison. Acceptance resolves the historical aesthetic HOLD for this R3; runtime and technical verification remain separate.",
+    "style_tradeoff": "Glossy raised-green ridge, more regular rib spacing and earlier inward tip-opacity fade remain disclosed. Seven ribs and exact whole-wave split are retained; independent aesthetic unanimity is not claimed.",
+    "extent": "24x14 whole canvas split at logical12 into12x14 anchor0 tiles. The original one empty logical bottom row is retained; whole registered left blank column is retained. No recentering of individual halves.",
+    "previously_accepted_ids": [
+      6,
+      16,
+      44,
+      54,
+      63,
+      73,
+      82,
+      130,
+      131,
+      149,
+      150,
+      223,
+      224,
+      242,
+      243
+    ],
+    "remaining_original_ids": [
+      105,
+      106,
+      124,
+      125
+    ],
+    "not_full_family": true,
+    "new_image_generation_calls_during_integration": 0
+  },
+  "whole_output": {
+    "path": "output/whole-wave-8.png",
+    "PNG_sha256": "617770fdc1e457fbbbbb0bb805b3e146eeed87ec4ae98a736744122de8810ee3",
+    "RGBA_sha256": "718d5ac9cedfdd5eb2d386472e555aa56fa446fff9087b390c09d62a8852c70c"
+  },
+  "native_nearest_split_tests": [
+    {
+      "native_scale": 2,
+      "integer_upper_left_whole_vs_halves_byte_exact": true,
+      "Pillow_center_whole_vs_halves_byte_exact": true,
+      "size": [
+        48,
+        28
+      ],
+      "integer_RGBA_SHA256": "54e57be6f524f13412fd7a660c8c3918625430bf02e942cfaec473661edc910e",
+      "Pillow_center_RGBA_SHA256": "97922d79fe44bc5339d45e56207a655b0711d792872b3d525d5abd4588fe1cba"
+    },
+    {
+      "native_scale": 4,
+      "integer_upper_left_whole_vs_halves_byte_exact": true,
+      "Pillow_center_whole_vs_halves_byte_exact": true,
+      "size": [
+        96,
+        56
+      ],
+      "integer_RGBA_SHA256": "3ff1c858770ba906ec7ff0db74c857e40287623e586092ceb1f9b7ccf22c651a",
+      "Pillow_center_RGBA_SHA256": "2dec36f2832dd4164f0cb0c37c5d131c31e3df7fb90873fd2e93f144da9f1d3c"
+    }
+  ],
+  "entries": [
+    {
+      "id": 143,
+      "slot": 561,
+      "split_box": [
+        0,
+        0,
+        96,
+        112
+      ],
+      "header_u32": [
+        80143,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "PNG_sha256": "6dc875f60a9bcbd81e022c3f8c3dd27359917a3fe63f1bbe8644a4c0470625b4",
+      "RGBA_sha256": "e235dd8844c895d8cea4d7914e90d9b3a6e718a41cd112ea844982de1860680b",
+      "HDA_sha256": "e42dca34ef07e0e853237d826871ccad3b44777c10871aac40931d06234e4eb8",
+      "fractional_alpha_samples": 4427,
+      "alpha255_samples": 0
+    },
+    {
+      "id": 144,
+      "slot": 562,
+      "split_box": [
+        96,
+        0,
+        192,
+        112
+      ],
+      "header_u32": [
+        80144,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "PNG_sha256": "8e43fd7c2e2d316dca0dcf7e8b5bd2cf1e8bf60d533e509afcb86baf4b966c46",
+      "RGBA_sha256": "2910e4b2c4c316e8dc29e9a374270b1935751939ad9849e6b99616cfad12a255",
+      "HDA_sha256": "45b9ede5a7ccb7d34051517b28db3e534acd38607fbb88e2735e796d00cb6673",
+      "fractional_alpha_samples": 4940,
+      "alpha255_samples": 0
+    }
+  ]
+}

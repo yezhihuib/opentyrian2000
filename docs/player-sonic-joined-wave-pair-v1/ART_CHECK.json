@@ -1,0 +1,455 @@
+{
+  "schema": "sonic-joined-wave-pair-art-check-v1",
+  "status": "PASS_GENERATED_ONLY_EXACT_ACCEPTED_R3_REGISTRATION_RUNTIME_SEPARATE",
+  "ids": [
+    143,
+    144
+  ],
+  "contract_sha256": "0a62bb9c579986902ed09eb72ae588f2d33102d079834232899996d68224091e",
+  "master_sha256": "5454cd7a2f136ca253ade0803c21f84f9cf56ef3c6cd5afa54cf1a01c9c7275f",
+  "new_generation_during_integration": 0,
+  "generation_provenance": {
+    "tool": "tools.image_gen__imagegen",
+    "model_id": null,
+    "model_id_status": "Exact model ID not supplied or confirmed.",
+    "call_started_utc": "2026-10-16T00:06:57.961Z",
+    "call_finished_observed_utc": "2026-10-16T00:07:37.667Z",
+    "transparent_background": true,
+    "prompt": "Use case: stylized-concept.\nAsset: ONE transparent high-resolution green sonic-energy wave game sprite, designed to remain readable at 48x28 and 96x56 pixels.\nReference image 1 is the sole authority for silhouette, proportions, orientation, green palette and placement. Independently redraw its COMPLETE wide upward-convex arch, opening downward, with exactly SEVEN irregular downward energy ribs including the two outer tips. Do not mirror halves. Preserve the modest central crest and the original unequal spaces and rib lengths. On the logical 24x14 canvas, occupied bounds are x1..24, y0..13; leave one blank logical left column and one blank bottom row. Seven lower tip landmarks are approximately (1,12), (4,12), (8,11), (12,10), (16,11), (20,12), (23,12). These are shape landmarks, not pixel stairs to trace. The complete wave crosses x12 continuously; no middle gap, stripe, fade or separate panels.\nReference image 2 supplies ONLY the soft luminous-green rendering treatment. Do not copy its narrow arch shape or stretch its artwork.\nRender a substantial flowing ENERGY wave: a vivid bright-green luminous core follows the broad upper arch, spreading softly through the body and fading into the seven unequal translucent downward ribs. Vary green illumination naturally across the whole wave. The rib tips should gently dissolve inside their contours, with smooth partial alpha, rather than looking solid or sharply cut. Preserve the reference's full body thickness and spacing; do not turn the ribs into regular triangular comb teeth. The light is emitted energy with no lit object surface, no bright raised ridge down each rib, no dark flank shading around individual ribs, and no nearly uniform solid-color membrane.\nPalette stays original saturated green: brightest green RGB44,255,105, with deeper greens approaching RGB0,125,0 in translucent regions. No white, pale mint, cyan or yellow stripe. No black outline, bevel, plastic shine, outside halo, particles, trails or expanded footprint. Smooth the low-resolution stairs into natural curves without adding or removing ribs. Preserve the original asymmetry, occupied 23:13 ratio and whole-wave continuity. Genuine transparent PNG background. No text, borders or extra objects.",
+    "reference_description": "Original joined143/144 sprite supplied privately for whole-wave geometry and green identity; previously generated user-accepted223 R2 supplied solely for green treatment. No original raster, decoded indices or mask is packaged or used by reconstruction."
+  },
+  "reconstruction": {
+    "library": "Pillow",
+    "version": "12.3.0",
+    "crop": [
+      35,
+      27,
+      1615,
+      926
+    ],
+    "resize": [
+      183,
+      104
+    ],
+    "resample": "LANCZOS",
+    "canvas": [
+      192,
+      112
+    ],
+    "paste": [
+      8,
+      0
+    ],
+    "paste_operation": "Straight RGBA paste onto transparent canvas without a mask.",
+    "proportional_scale_from_height": 0.11568409343715239,
+    "ideal_proportional_width": 182.78086763070078,
+    "integer_width_rounding_only": true,
+    "split_x": 96,
+    "logical_anchor": [
+      0,
+      0
+    ],
+    "bottom_transparent_density_rows": 8,
+    "crop_loss": {
+      "fixed_crop": [
+        35,
+        27,
+        1615,
+        926
+      ],
+      "outside_max_alpha": 1,
+      "outside_nonzero_pixels": 1076,
+      "outside_equivalent_alpha_area": 4.219607843137255,
+      "fraction_total_alpha_mass": 8.207207520828688e-06,
+      "all_alpha_ge2_retained": true
+    },
+    "no_repaint_recolor_threshold_original_mask_stretch_or_warp": true,
+    "asymmetric_halves_not_mirrors": true
+  },
+  "output_entries": [
+    {
+      "id": 143,
+      "slot": 561,
+      "split_box": [
+        0,
+        0,
+        96,
+        112
+      ],
+      "header_u32": [
+        80143,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "PNG_sha256": "6dc875f60a9bcbd81e022c3f8c3dd27359917a3fe63f1bbe8644a4c0470625b4",
+      "RGBA_sha256": "e235dd8844c895d8cea4d7914e90d9b3a6e718a41cd112ea844982de1860680b",
+      "HDA_sha256": "e42dca34ef07e0e853237d826871ccad3b44777c10871aac40931d06234e4eb8",
+      "fractional_alpha_samples": 4427,
+      "alpha255_samples": 0
+    },
+    {
+      "id": 144,
+      "slot": 562,
+      "split_box": [
+        96,
+        0,
+        192,
+        112
+      ],
+      "header_u32": [
+        80144,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "PNG_sha256": "8e43fd7c2e2d316dca0dcf7e8b5bd2cf1e8bf60d533e509afcb86baf4b966c46",
+      "RGBA_sha256": "2910e4b2c4c316e8dc29e9a374270b1935751939ad9849e6b99616cfad12a255",
+      "HDA_sha256": "45b9ede5a7ccb7d34051517b28db3e534acd38607fbb88e2735e796d00cb6673",
+      "fractional_alpha_samples": 4940,
+      "alpha255_samples": 0
+    }
+  ],
+  "whole_output": {
+    "path": "output/whole-wave-8.png",
+    "PNG_sha256": "617770fdc1e457fbbbbb0bb805b3e146eeed87ec4ae98a736744122de8810ee3",
+    "RGBA_sha256": "718d5ac9cedfdd5eb2d386472e555aa56fa446fff9087b390c09d62a8852c70c"
+  },
+  "source_geometry": "Two independent asymmetric12x14 tiles form one24x14 wave at anchor0. Exact original split at x12; both have one blank bottom logical row. Do not mirror or recenter halves.",
+  "fitted_geometry": "183x104 proportional fit pasted at(8,0) onto192x112 whole canvas, exact split at96. Bottom8 density rows empty. Left8 density columns empty.",
+  "native_nearest_split_tests": [
+    {
+      "native_scale": 2,
+      "integer_upper_left_whole_vs_halves_byte_exact": true,
+      "Pillow_center_whole_vs_halves_byte_exact": true,
+      "size": [
+        48,
+        28
+      ],
+      "integer_RGBA_SHA256": "54e57be6f524f13412fd7a660c8c3918625430bf02e942cfaec473661edc910e",
+      "Pillow_center_RGBA_SHA256": "97922d79fe44bc5339d45e56207a655b0711d792872b3d525d5abd4588fe1cba"
+    },
+    {
+      "native_scale": 4,
+      "integer_upper_left_whole_vs_halves_byte_exact": true,
+      "Pillow_center_whole_vs_halves_byte_exact": true,
+      "size": [
+        96,
+        56
+      ],
+      "integer_RGBA_SHA256": "3ff1c858770ba906ec7ff0db74c857e40287623e586092ceb1f9b7ccf22c651a",
+      "Pillow_center_RGBA_SHA256": "2dec36f2832dd4164f0cb0c37c5d131c31e3df7fb90873fd2e93f144da9f1d3c"
+    }
+  ],
+  "generated_alpha_statistics": {
+    "master": {
+      "size": [
+        1642,
+        958
+      ],
+      "alpha0": 879491,
+      "alpha_fractional": 693545,
+      "alpha255": 0,
+      "max_alpha": 253,
+      "equivalent_alpha_area": 514134.41568627453,
+      "bbox_at_alpha": {
+        "1": [
+          0,
+          6,
+          1641,
+          958
+        ],
+        "2": [
+          35,
+          27,
+          1615,
+          926
+        ],
+        "8": [
+          36,
+          30,
+          1613,
+          913
+        ],
+        "32": [
+          39,
+          34,
+          1610,
+          895
+        ],
+        "64": [
+          44,
+          38,
+          1606,
+          861
+        ],
+        "128": [
+          55,
+          47,
+          1595,
+          806
+        ],
+        "192": [
+          63,
+          54,
+          1585,
+          775
+        ],
+        "240": [
+          83,
+          64,
+          1573,
+          727
+        ],
+        "250": [
+          98,
+          68,
+          1560,
+          694
+        ],
+        "255": null
+      },
+      "alpha_weighted_rgb": [
+        19.938,
+        197.62,
+        55.292
+      ],
+      "nearopaque_dark_RGBmax_lt64_count": 0,
+      "nearopaque_green_dominant_fraction": 1.0
+    },
+    "whole": {
+      "size": [
+        192,
+        112
+      ],
+      "alpha0": 12137,
+      "alpha_fractional": 9367,
+      "alpha255": 0,
+      "max_alpha": 253,
+      "equivalent_alpha_area": 6891.807843137255,
+      "bbox_at_alpha": {
+        "1": [
+          8,
+          0,
+          191,
+          104
+        ],
+        "2": [
+          8,
+          0,
+          191,
+          104
+        ],
+        "8": [
+          8,
+          0,
+          191,
+          102
+        ],
+        "32": [
+          9,
+          1,
+          190,
+          100
+        ],
+        "64": [
+          9,
+          1,
+          190,
+          96
+        ],
+        "128": [
+          10,
+          2,
+          189,
+          90
+        ],
+        "192": [
+          11,
+          3,
+          188,
+          86
+        ],
+        "240": [
+          13,
+          4,
+          186,
+          81
+        ],
+        "250": [
+          15,
+          5,
+          184,
+          77
+        ],
+        "255": null
+      },
+      "alpha_weighted_rgb": [
+        19.765,
+        197.014,
+        54.713
+      ],
+      "nearopaque_dark_RGBmax_lt64_count": 0,
+      "nearopaque_green_dominant_fraction": 1.0
+    },
+    "id143": {
+      "size": [
+        96,
+        112
+      ],
+      "alpha0": 6325,
+      "alpha_fractional": 4427,
+      "alpha255": 0,
+      "max_alpha": 253,
+      "equivalent_alpha_area": 3209.7568627450983,
+      "bbox_at_alpha": {
+        "1": [
+          8,
+          0,
+          96,
+          100
+        ],
+        "2": [
+          8,
+          0,
+          96,
+          100
+        ],
+        "8": [
+          8,
+          0,
+          96,
+          98
+        ],
+        "32": [
+          9,
+          1,
+          96,
+          96
+        ],
+        "64": [
+          9,
+          2,
+          96,
+          92
+        ],
+        "128": [
+          10,
+          2,
+          96,
+          87
+        ],
+        "192": [
+          11,
+          4,
+          96,
+          83
+        ],
+        "240": [
+          13,
+          5,
+          96,
+          76
+        ],
+        "250": [
+          15,
+          5,
+          96,
+          72
+        ],
+        "255": null
+      },
+      "alpha_weighted_rgb": [
+        18.584,
+        195.772,
+        53.367
+      ],
+      "nearopaque_dark_RGBmax_lt64_count": 0,
+      "nearopaque_green_dominant_fraction": 1.0
+    },
+    "id144": {
+      "size": [
+        96,
+        112
+      ],
+      "alpha0": 5812,
+      "alpha_fractional": 4940,
+      "alpha255": 0,
+      "max_alpha": 253,
+      "equivalent_alpha_area": 3682.050980392157,
+      "bbox_at_alpha": {
+        "1": [
+          0,
+          0,
+          95,
+          104
+        ],
+        "2": [
+          0,
+          0,
+          95,
+          104
+        ],
+        "8": [
+          0,
+          0,
+          95,
+          102
+        ],
+        "32": [
+          0,
+          1,
+          94,
+          100
+        ],
+        "64": [
+          0,
+          1,
+          94,
+          96
+        ],
+        "128": [
+          0,
+          2,
+          93,
+          90
+        ],
+        "192": [
+          0,
+          3,
+          92,
+          86
+        ],
+        "240": [
+          0,
+          4,
+          90,
+          81
+        ],
+        "250": [
+          0,
+          5,
+          88,
+          77
+        ],
+        "255": null
+      },
+      "alpha_weighted_rgb": [
+        20.795,
+        198.097,
+        55.887
+      ],
+      "nearopaque_dark_RGBmax_lt64_count": 0,
+      "nearopaque_green_dominant_fraction": 1.0
+    }
+  },
+  "user_decision": "The user accepted the rightmost R3 in the native2x/4x offline comparison. This resolves the aesthetic HOLD for this exact R3; it does not certify runtime behavior.",
+  "preserved_tradeoffs": "Glossy raised-green ridge, more regular rib spacing and earlier inward tip-opacity fade remain disclosed. Seven ribs and exact whole-wave split are retained; independent aesthetic unanimity is not claimed.",
+  "offline_limit": "Offline composites are not engine screenshots; actual-game seam, clipping, overlap and order are verified separately.",
+  "original_rasters_masks_or_decoded_arrays_packaged": false,
+  "reconstruction_reads_original_data": false
+}

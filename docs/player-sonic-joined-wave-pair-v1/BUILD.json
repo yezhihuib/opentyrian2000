@@ -1,0 +1,51 @@
+{
+  "schema": "sonic-joined-wave-pair-build-v1",
+  "status": "PASS_UNHOOKED_PRODUCTION_AND_AGGREGATE_WITH_FIVE_INHERITED_WARNINGS",
+  "aggregate": {
+    "packs": 18,
+    "listed_HDA_entries": 3378,
+    "exact_source_PNGs": 583,
+    "default_pack_counts": [
+      571,
+      571
+    ],
+    "all_runtime_RGBA_and_header_bytes_exact": true,
+    "aggregate_log_sha256": "6b7a2383fcf96afc0b5fcfd3b5963ab41ae3f33fe65a65fdd400e7117e56809c"
+  },
+  "native_required": [
+    [
+      640,
+      400
+    ],
+    [
+      1280,
+      800
+    ]
+  ],
+  "Windows_runtime": "Not tested; no distribution bundle requested.",
+  "binary_or_private_toolchain_published": false,
+  "production_binary_sha256": "46b3473d550ee879fd34cd26f6e34f5cb1c248dce0a5d972cab82ef0d7d3a621",
+  "production_source_unhooked": true,
+  "production_src_files_byte_exact": 153,
+  "compiler": "cc (Debian 14.2.0-19) 14.2.0",
+  "production_configuration": {
+    "WITH_NETWORK": false,
+    "version_string": "cb06b76-private diagnostic build",
+    "SDL_pkgconfig": "Existing private local toolchain, not packaged."
+  },
+  "warnings": [
+    "src/asset_debug.c:161:2: warning: this \u2018if\u2019 clause does not guard... [-Wmisleading-indentation]",
+    "src/game_probe_fields.inc:12:3: warning: this \u2018if\u2019 clause does not guard... [-Wmisleading-indentation]",
+    "src/game_probe_fields.inc:13:3: warning: this \u2018if\u2019 clause does not guard... [-Wmisleading-indentation]",
+    "src/game_probe_fields.inc:14:3: warning: this \u2018if\u2019 clause does not guard... [-Wmisleading-indentation]",
+    "src/render_mirror.c:3854:2: warning: this \u2018if\u2019 clause does not guard... [-Wmisleading-indentation]"
+  ],
+  "build_receipt_sha256": "70cc4719765e9ee51bb4f81978bf20f5e32c98f9b5ed0ea9ce666722039c75e9",
+  "initial_private_fixture_builds_passed": 4,
+  "private_fixture_extra_LDLIBS": "-lz for PNG observer only; no production source edit.",
+  "actual_engine_acceptance_separate": true,
+  "supplemental_private_observer_builds_passed": 2,
+  "supplemental_observer_source_scope": "Only private observer/readback instrumentation, inverse-checked against first frozen fixtures; production code unchanged.",
+  "supplemental_runtime_receipt_sha256": "6485d9def1edb49fd798f2ef9be61113c7a4129dbbb82d0832da282115474a2e",
+  "supplemental_observer_build_reuse": "Two baseline/candidate observer binaries are each reused at both native sizes, for four supplemental processes."
+}

@@ -1,0 +1,339 @@
+{
+  "schema": "sonic-joined-wave-pair-units-v1",
+  "status": "PASS_OPTIMIZED_ASAN_UBSAN_AND_NINE_SENSITIVITY_MUTANTS",
+  "baseline": "cb06b76ba45bb78afa4b50338472c6b160d9f358",
+  "ids": [
+    143,
+    144
+  ],
+  "unit_result_sha256": "66e188b688690c5a56f6d2d0c60d6f72d2a08b809037ff591d87e2f37ee7b64e",
+  "test_file_sha256": {
+    "test-sonic-joined-wave-pair-binding.py": "705b8a8cb95b18ccf5209cbc4b9e67adaba3821a7a328ccfa457846f93729068",
+    "test-sonic-joined-wave-pair-binding.c": "6d1774062b9cdc557933ab9161a9e35d5f51dabd0e93c00f715503e5fcb931a7",
+    "test-sonic-joined-wave-pair-shots.c": "35cf1c57ff03ff054180e47afc59455aec9983366b601bb550f2398006d1d928",
+    "test-sonic-joined-wave-pair-scope.py": "6f455e7e76c50a3da9356dca128f03e87cd1be3650497321cd2917dfe7eb4aa8"
+  },
+  "art_contract_sha256": "0a62bb9c579986902ed09eb72ae588f2d33102d079834232899996d68224091e",
+  "scope": {
+    "baseline": "cb06b76ba45bb78afa4b50338472c6b160d9f358",
+    "exact_renderer_inverse": true,
+    "production_source_files_checked": 153,
+    "prior_thirtytwo_sonic_tests_unchanged": [
+      "prototype/test-sonic-six-pair-binding.py",
+      "prototype/test-sonic-six-pair-binding.c",
+      "prototype/test-sonic-six-pair-shots.c",
+      "prototype/test-sonic-six-pair-scope.py",
+      "prototype/test-sonic-upward-arch-binding.py",
+      "prototype/test-sonic-upward-arch-binding.c",
+      "prototype/test-sonic-upward-arch-shots.c",
+      "prototype/test-sonic-upward-arch-scope.py",
+      "prototype/test-sonic-shallow-pair-binding.py",
+      "prototype/test-sonic-shallow-pair-binding.c",
+      "prototype/test-sonic-shallow-pair-shots.c",
+      "prototype/test-sonic-shallow-pair-scope.py",
+      "prototype/test-sonic-fat-pair-binding.py",
+      "prototype/test-sonic-fat-pair-binding.c",
+      "prototype/test-sonic-fat-pair-shots.c",
+      "prototype/test-sonic-fat-pair-scope.py",
+      "prototype/test-sonic-corner-pair-binding.py",
+      "prototype/test-sonic-corner-pair-binding.c",
+      "prototype/test-sonic-corner-pair-shots.c",
+      "prototype/test-sonic-corner-pair-scope.py",
+      "prototype/test-sonic-inverted-corner-pair-binding.py",
+      "prototype/test-sonic-inverted-corner-pair-binding.c",
+      "prototype/test-sonic-inverted-corner-pair-shots.c",
+      "prototype/test-sonic-inverted-corner-pair-scope.py",
+      "prototype/test-sonic-oblique-pair-binding.py",
+      "prototype/test-sonic-oblique-pair-binding.c",
+      "prototype/test-sonic-oblique-pair-shots.c",
+      "prototype/test-sonic-oblique-pair-scope.py",
+      "prototype/test-sonic-inverted-oblique-pair-binding.py",
+      "prototype/test-sonic-inverted-oblique-pair-binding.c",
+      "prototype/test-sonic-inverted-oblique-pair-shots.c",
+      "prototype/test-sonic-inverted-oblique-pair-scope.py"
+    ],
+    "only_changed_production_file": "src/render_mirror.c",
+    "candidate_renderer_sha256": "5403694f20869de3c38cf254d19c52fe527073b925d361d38fc0afbb2f24c3f1",
+    "gameplay_input_shots_blitters_rng_unchanged": true
+  },
+  "binding_runs": {
+    "baseline": {
+      "optimized": {
+        "status": "PASS",
+        "baseline": true,
+        "head_and_wrapper_cases": 15856,
+        "identity_cases": 142,
+        "finite_binding_cases": 28896,
+        "resource_variants": 118,
+        "cache_cases": 476,
+        "coexistence_cases": 436,
+        "shadow_cases": 4040,
+        "all_21_identity_wrappers": true,
+        "indexed_bytes_checked": 1064601600,
+        "original_calls": 16332,
+        "mode_states": 64,
+        "poisoned_cache_rejections": 0,
+        "source_rejections": 160,
+        "prior_fifteen_checks": 240,
+        "prior_fifteen_cached_byte_checks": 240,
+        "game_runs": 0
+      },
+      "sanitized": {
+        "status": "PASS",
+        "baseline": true,
+        "head_and_wrapper_cases": 15856,
+        "identity_cases": 142,
+        "finite_binding_cases": 28896,
+        "resource_variants": 118,
+        "cache_cases": 476,
+        "coexistence_cases": 436,
+        "shadow_cases": 4040,
+        "all_21_identity_wrappers": true,
+        "indexed_bytes_checked": 1064601600,
+        "original_calls": 16332,
+        "mode_states": 64,
+        "poisoned_cache_rejections": 328,
+        "source_rejections": 160,
+        "prior_fifteen_checks": 240,
+        "prior_fifteen_cached_byte_checks": 240,
+        "game_runs": 0
+      }
+    },
+    "candidate": {
+      "optimized": {
+        "status": "PASS",
+        "baseline": false,
+        "head_and_wrapper_cases": 15856,
+        "identity_cases": 142,
+        "finite_binding_cases": 28896,
+        "resource_variants": 118,
+        "cache_cases": 476,
+        "coexistence_cases": 436,
+        "shadow_cases": 4040,
+        "all_21_identity_wrappers": true,
+        "indexed_bytes_checked": 1064217600,
+        "original_calls": 16326,
+        "mode_states": 64,
+        "poisoned_cache_rejections": 0,
+        "source_rejections": 160,
+        "prior_fifteen_checks": 240,
+        "prior_fifteen_cached_byte_checks": 240,
+        "game_runs": 0
+      },
+      "sanitized": {
+        "status": "PASS",
+        "baseline": false,
+        "head_and_wrapper_cases": 15856,
+        "identity_cases": 142,
+        "finite_binding_cases": 28896,
+        "resource_variants": 118,
+        "cache_cases": 476,
+        "coexistence_cases": 436,
+        "shadow_cases": 4040,
+        "all_21_identity_wrappers": true,
+        "indexed_bytes_checked": 1064217600,
+        "original_calls": 16326,
+        "mode_states": 64,
+        "poisoned_cache_rejections": 318,
+        "source_rejections": 160,
+        "prior_fifteen_checks": 240,
+        "prior_fifteen_cached_byte_checks": 240,
+        "game_runs": 0
+      }
+    }
+  },
+  "both_default_packs_loaded_independently": true,
+  "mode_scope": "All8 twoPlayerMode/galagaMode/twoPlayerLinked states, both densities, cold/warm/recovery;64states/build.",
+  "poisoned_cache": "Sanitized candidate rejects318 poisoned-cache states before dereference.",
+  "resource_variants": 118,
+  "source_oracle": "All608 normal/Christmas tiles equal literal original physical-pointer oracle; all21 private source fixtures checked. Original bytes remain private.",
+  "source_geometry": {
+    "logical_half_size": [
+      12,
+      14
+    ],
+    "logical_whole_size": [
+      24,
+      14
+    ],
+    "split_x": 12,
+    "source_offsets": [
+      -6,
+      6
+    ],
+    "bottom_empty_rows": 1,
+    "mirror_alias": false,
+    "both_seam_cells_occupied_rows": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  "actual_christmas_selected_differs": true,
+  "prior_fifteen_cache_and_art_unchanged": true,
+  "remaining_classic": [
+    105,
+    106,
+    124,
+    125
+  ],
+  "source_rows": {
+    "tables": [
+      {
+        "file": "tyrian.hdt",
+        "file_sha256": "fde8506326e7bb0916b38c362e33bf8a8a5affa561206c021af7f65b4a17745b",
+        "item_table_offset": 21174,
+        "all22_rear_rows_verified": true,
+        "all11_front_rows_verified": true,
+        "charge465_467_468_verified": true,
+        "all36_primary_plus1000_byte_equal": true,
+        "charge_caller_port16_poweruse": 10,
+        "dormant118_1118_unchanged_source_only": true
+      },
+      {
+        "file": "tyrian4.lvl",
+        "file_sha256": "6589b898094887925e7717c8663c4b8b5e4b76f3c89a7898ed9f4691c1f2cc16",
+        "item_table_offset": 663408,
+        "all22_rear_rows_verified": true,
+        "all11_front_rows_verified": true,
+        "charge465_467_468_verified": true,
+        "all36_primary_plus1000_byte_equal": true,
+        "charge_caller_port16_poweruse": 10,
+        "dormant118_1118_unchanged_source_only": true
+      },
+      {
+        "file": "tyrian5.lvl",
+        "file_sha256": "275b5aaf55caecee8dc95e26f7cf118a9ee265f095ce61945b9ece56a4523323",
+        "item_table_offset": 247242,
+        "all22_rear_rows_verified": true,
+        "all11_front_rows_verified": true,
+        "charge465_467_468_verified": true,
+        "all36_primary_plus1000_byte_equal": true,
+        "charge_caller_port16_poweruse": 10,
+        "dormant118_1118_unchanged_source_only": true
+      }
+    ],
+    "all216_full_authentic_runtime_records_verified": true,
+    "all22_rear_and11_front_and3_charge_rows_each_plus1000": true,
+    "full_records_equal_across_tables": false,
+    "active_patterns_equal_across_tables": true,
+    "all_selected_pairs_equal_motion_and12px_seam": true,
+    "family_ids": [
+      6,
+      16,
+      44,
+      54,
+      63,
+      73,
+      82,
+      105,
+      106,
+      124,
+      125,
+      130,
+      131,
+      143,
+      144,
+      149,
+      150,
+      223,
+      224,
+      242,
+      243
+    ],
+    "other4_ids_unchanged": [
+      105,
+      106,
+      124,
+      125
+    ],
+    "exact_original_shot_functions_and_no_rng_calls": true,
+    "no_selected_linked_direction_witness": true,
+    "dormant118_1118_source_only_not_called": true,
+    "shot_function_sha256": {
+      "player_shot_create": "106e3e5dc4305d556d368dfc2e052399766f44ea063a9a7b407877349164a320",
+      "player_shot_move_and_draw": "cbb509d45c570a3766a523e768915c8b7874824d6c816160e5f8776e286ebad8"
+    }
+  },
+  "shot_runs_four_way_exact": true,
+  "shot_run_types": [
+    "baseline optimized",
+    "baseline ASan/UBSan",
+    "candidate optimized",
+    "candidate ASan/UBSan"
+  ],
+  "shot_aggregate_per_run": {
+    "create_cases": 271200,
+    "emits": 1401690,
+    "movement_ticks": 4835544,
+    "equal_age_12px_seam_checks": 1433316,
+    "independent_removal_cases": 96,
+    "original_logical_canvas_overlap_cases": 1602,
+    "bank12_draws": 311400,
+    "slot80_duration_only_ticks": 124608,
+    "boundary_cases": 16800
+  },
+  "rng_calls_in_extracted_shots": 0,
+  "shot_seam": "Equal-age selected partners preserve12px separation and deltaY0; original partial-allocation orphans, phase order and independent removal remain unchanged.",
+  "overlap_limit": "Unit overlap counts are logical canvases, not occupied-pixel visual proof. Actual native runtime checked separately.",
+  "guard_mutants_rejected": [
+    "omit-twoPlayerMode",
+    "omit-galagaMode",
+    "omit-twoPlayerLinked",
+    "omit-explicit-xmas",
+    "trust-warm-source",
+    "indices-only",
+    "coverage-only",
+    "omit-early-indexed-shadow",
+    "read-cache-before-mode-gates"
+  ],
+  "guard_mutants_results": {
+    "omit-twoPlayerMode": {
+      "returncode": -6
+    },
+    "omit-galagaMode": {
+      "returncode": -6
+    },
+    "omit-twoPlayerLinked": {
+      "returncode": -6
+    },
+    "omit-explicit-xmas": {
+      "returncode": -6
+    },
+    "trust-warm-source": {
+      "returncode": -6
+    },
+    "indices-only": {
+      "returncode": -6
+    },
+    "coverage-only": {
+      "returncode": -6
+    },
+    "omit-early-indexed-shadow": {
+      "returncode": -6
+    },
+    "read-cache-before-mode-gates": {
+      "returncode": 1
+    }
+  },
+  "game_runs": 0,
+  "limitations": [
+    "Focused extracted production source, loader, guard, wrapper and original RLE tests; RGBA head compositor is a metadata-checking stub.",
+    "Source guards validate selected decoded identity, not whole-bank provenance; no root-epoch guarantee is added.",
+    "Generic compositor integration, actual-play aesthetics, natural acquisition and full-engine runtime require separate acceptance.",
+    "LeakSanitizer disabled for executor compatibility; AddressSanitizer and UndefinedBehaviorSanitizer enabled.",
+    "Malformed original source is exercised at the HD guard only; original unchecked RLE is never executed against malformed data."
+  ],
+  "portability": {
+    "generated_art_rebuild": "Self-contained generated-only package; no original data required.",
+    "binding_and_shot_tests": "Require private original resource data,21 private source fixtures, pinned source-audit facts and baseline Git history. These inputs are intentionally not published.",
+    "audit_reuse": "Historical private audit generator is absolute-path-dependent; its gameplay source was verified unchanged against this baseline.",
+    "platform": "Linux linker wrapping with optimized, AddressSanitizer and UndefinedBehaviorSanitizer builds; LeakSanitizer disabled for executor compatibility."
+  }
+}
