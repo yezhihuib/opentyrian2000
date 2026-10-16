@@ -64,6 +64,6 @@ int main(void){RearP1State s={0};rear_p1_reset(&s);
   c=begin(&s,1,mode);rear_p1_create_end(&s,c);inner=rear_p1_create_begin(&s,7,10,1,r,1);emit(&s,inner,1,0,mode,phase);assert(!current(&s,0,mode,phase));
   rear_p1_call_begin(&s,7,10,1,1,mode,1,r,true,true);rear_p1_call_end(&s);inner=rear_p1_create_begin(&s,7,10,1,r,1);emit(&s,inner,1,0,mode,phase);assert(!current(&s,0,mode,phase));
   c=begin(&s,1,mode);rear_p1_reset(&s);inner=begin(&s,1,mode);assert(c!=inner);emit(&s,c,1,0,mode,phase);assert(!current(&s,0,mode,phase));
-  for(unsigned power=2;power<11;power++){rear_p1_call_begin(&s,7,10,1,power,mode,1,r+power-1,true,true);assert(!s.pending);inner=rear_p1_create_begin(&s,7,10,1,r+power-1,1);emit(&s,inner,1,0,mode,phase);assert(!current(&s,0,mode,phase));}
+  for(unsigned power=2;power<11;power++){if(mode==1&&power==2)continue;rear_p1_call_begin(&s,7,10,1,power,mode,1,r+power-1,true,true);assert(!s.pending);inner=rear_p1_create_begin(&s,7,10,1,r+power-1,1);emit(&s,inner,1,0,mode,phase);assert(!current(&s,0,mode,phase));}
  }
- puts("Rear P1/P2 ownership: finite ordinal budget, cyclic partial continuation, rejection consumption, token isolation and P3 exclusion passed");return 0;}
+ puts("Rear P1/P2 ownership: finite ordinal budget, cyclic partial continuation, rejection consumption, token isolation and higher-power exclusions passed");return 0;}

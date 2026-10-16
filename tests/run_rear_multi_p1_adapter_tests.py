@@ -42,10 +42,10 @@ for k,i in enumerate(ids):
  bank+=b'\x0f';pins.append(fnv(v+bytes([255])*168))
 (out/'bank.bin').write_bytes(bank)
 records=[];recordpins=[]
-for k in range(4):
+for k in range(5):
  # All unused tails are deliberately nonzero, with signed and 16-bit edges.
- mode=k%2
- vals=[0x1234+k,[4,3,6,4][k],1+k//2,0,2+2*mode,5,6,0]
+ mode=k%2 if k<4 else 1
+ vals=[0x1234+k,[4,3,6,4,6][k],[1,1,2,2,4][k],0,2+2*mode,5,6,0]
  a=[1,1,1,1,25+k,0,198,255];dele=[255]*8;sx=([-10,10,0,0] if mode==0 else [-9,9,9,-9])+[-128,127,-1,0];sy=([0,0,0,0] if mode==0 else [2,2,-2,-2])+[-128,127,-1,0];bx=[0,-2,2,0,-128,127,-1,0];by=[0,0,0,0,-128,127,-1,0];sg=([39,1,0,0] if mode==0 else [281,282,301,300])+[301,300,0x1234,0xff80]
  r=struct.pack('<HBBHBBBB8B8B8b8b8b8b8HbbBBBB',*vals,*a,*dele,*sx,*sy,*bx,*by,*sg,0,0,0,25,255,208);assert len(r)==80
  records.append(r);recordpins.append(fnv(r))

@@ -1,0 +1,155 @@
+{
+  "schema": "rear-multicannon-p3-mode2-unchanged-art-reuse-v1",
+  "status": "PASS_UNCHANGED_ACCEPTED_R2_ART_AND_RESOURCES",
+  "baseline": "76689b78e75727af767b8083d5282214135d7d6c",
+  "art_package": "assets/hd/artwork/player-rear-multicannon-p1-six-v1",
+  "binding_sha256": "369ae362f6d8be80b79b56a764973da6bdc3295ccdf3bfa5d00feba66dcda296",
+  "inventory_sha256": "85316c9fe27166fa5541d977e55d93fd7436bd9dcf62e68d0334e48fb2cc8a40",
+  "existing_assets_files_unchanged": 6987,
+  "only_asset_catalog_change": "Existing family scope and current integration pointer only; reversing those two metadata strings reconstructs the exact baseline catalog bytes.",
+  "new_art_or_resource_files": 0,
+  "changed_art_or_resource_bytes": 0,
+  "svg_masters": 6,
+  "png_rgba_density_variants": 12,
+  "default_pack_hda_copies": 24,
+  "default_pack_counts": {
+    "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": 589,
+    "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": 589
+  },
+  "role": 131,
+  "source_ids": [
+    1,
+    39,
+    281,
+    282,
+    300,
+    301
+  ],
+  "densities": [
+    4,
+    8
+  ],
+  "logical_size": [
+    12,
+    14
+  ],
+  "anchor": [
+    0,
+    0
+  ],
+  "density_policy": "Exact selected density; no cross-density fallback. Public startup selects8; density4 remains a separately labeled diagnostic route.",
+  "canonical_diagonal_transforms": "Exact whole-canvas horizontal/vertical RGBA permutations; existing R2 proofs unchanged.",
+  "art_stage_binding": "Original binding.json remains immutable and describes original P1 commission. This integration changes source admission, not resource identity or payloads.",
+  "resources": [
+    {
+      "source_id": 1,
+      "density": 4,
+      "resource_key": 1310001,
+      "rgba_sha256": "5b5db7122400f1ea988e25596b4deecc8e540bb850d31cd936131e2d951d48e8",
+      "hda_sha256": "4f4495c9106e2a6452c1d9f877254641282c6a950913991496b6424b56b27a35"
+    },
+    {
+      "source_id": 39,
+      "density": 4,
+      "resource_key": 1310039,
+      "rgba_sha256": "2fad980f6a45679df0b1baf368857b2b9ec70779ec41942fdb2ace813261e91d",
+      "hda_sha256": "873efa6361184041fd2ad7a86e3912bac2e3150fbad0e261cbac53182d0e915c"
+    },
+    {
+      "source_id": 281,
+      "density": 4,
+      "resource_key": 1310281,
+      "rgba_sha256": "a31935a0bd297367138df393805d8ed2bfa856cebd09d9c3bea0a83dde89e1ad",
+      "hda_sha256": "90354843e961dbf07b45e9decef72964a4344b7fe3dce8ee831b0293f04b0255"
+    },
+    {
+      "source_id": 282,
+      "density": 4,
+      "resource_key": 1310282,
+      "rgba_sha256": "344a4066d9f0f2316073f3d176b0956514b7af7b5c2888462ae61710af608ff3",
+      "hda_sha256": "8bf6b3e757411f7d9a605fabed8428be124dcf2c80bcbde6fec5144ab5d876bc"
+    },
+    {
+      "source_id": 300,
+      "density": 4,
+      "resource_key": 1310300,
+      "rgba_sha256": "7bb9490c9e4d678931f3702e155c73f707c4e806ef29b9d03cd38317a7cf9e7a",
+      "hda_sha256": "22de9b76a9f7bbedb8bcb793e5a9a5eefb93e4f784794468a8b16c9ca389d8b8"
+    },
+    {
+      "source_id": 301,
+      "density": 4,
+      "resource_key": 1310301,
+      "rgba_sha256": "3a024a599f5adbb840dd60e10a5381842ed88fc1ea5b697da1e845ef6d56a865",
+      "hda_sha256": "8aaebcb9be8e25a510ef55a66a3d0a8c4ac7d87682af2958d21a70ea41b3183d"
+    },
+    {
+      "source_id": 1,
+      "density": 8,
+      "resource_key": 1310001,
+      "rgba_sha256": "402738376529a5a59441ebceefb5d427fe23ba298674e93c2e94d05e732437c5",
+      "hda_sha256": "82179001aea129f3bdaf74693accd150ea45362973c798ef54a95258d507fda8"
+    },
+    {
+      "source_id": 39,
+      "density": 8,
+      "resource_key": 1310039,
+      "rgba_sha256": "88ff4e6f61145c05ed0a7d1ebcec38f06c7aaed4ae86100cc5065cc16d5f8374",
+      "hda_sha256": "54b7934272fe1838185157f66ec38362398e34442add648fb716e286d2c63ba5"
+    },
+    {
+      "source_id": 281,
+      "density": 8,
+      "resource_key": 1310281,
+      "rgba_sha256": "f4dd85ab37ec9b703a552fbde77f84839294cffb669eea161883c200338569ea",
+      "hda_sha256": "c4a4ba5b3c831751e286754d719e132bf1a254d09e22cdf2ad340a67ee0a6979"
+    },
+    {
+      "source_id": 282,
+      "density": 8,
+      "resource_key": 1310282,
+      "rgba_sha256": "12b31ccd1cb7dd23408bdfe34a8bad8571d150f60b90b07182c38a19a4f1f0a0",
+      "hda_sha256": "09529e00b47cd8f3245e69f65f9593c4a75e11e3bf4992fe9b02bed9e1cbd5af"
+    },
+    {
+      "source_id": 300,
+      "density": 8,
+      "resource_key": 1310300,
+      "rgba_sha256": "fe12d44888d91278bb40ab6a1964b74f170b69aa36ccade54b7880cb3bf862bc",
+      "hda_sha256": "366d7ad58dc5f6693dd947f7084340ed4eeffc9071797f6b535b2a6a379a94ae"
+    },
+    {
+      "source_id": 301,
+      "density": 8,
+      "resource_key": 1310301,
+      "rgba_sha256": "15d37d0f390ad90a2462fe7541f3b21d16e50bd298a726d1179039da41fecf8d",
+      "hda_sha256": "f02792c2bc19a06477673449fca17988cb119ed48acc6d48554e208c348f5221"
+    }
+  ],
+  "aggregate_verifier": {
+    "verified_pack_count": 18,
+    "verified_HDA_entries": 3414,
+    "verified_exact_source_pngs": 601,
+    "default_pack_counts": [
+      589,
+      589
+    ],
+    "all_runtime_RGBA_and_header_bytes_exact": true,
+    "output_files_created": false,
+    "report_sha256": "1ce38fea821d0e25b89dedd985faa5d9a34438cda4e882c0b57a3ef68be49ade",
+    "freshly_verified_against_this_candidate": true
+  },
+  "newly_qualified_source_ids": [
+    281,
+    282,
+    300,
+    301
+  ],
+  "new_source_record": 267,
+  "new_power_mode": [
+    3,
+    2
+  ],
+  "remaining_classic": "P3 mode1 record256 and source IDs2/40.",
+  "excluded_new_rear_role_scope": "P4 and all other previously excluded consumers; unrelated established HD rendering is preserved."
+}

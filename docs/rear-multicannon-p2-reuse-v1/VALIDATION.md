@@ -2,6 +2,8 @@
 
 Baseline: `311de82e7557b9df172a1cb19d94115609512a81`.
 
+Later bounded P3 mode2-only reuse is documented in [its separate qualification](../rear-multicannon-p3-mode2-reuse-v1/VALIDATION.md). This historical P2 record remains unchanged below.
+
 Status: **PASS: bounded source, unchanged-art reuse and native runtime qualification**.
 
 ## Scope
