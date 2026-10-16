@@ -1,0 +1,125 @@
+{
+  "schema": "rear-p5-mode1-independent-component-review-v1",
+  "status": "PASS_WITH_EXPLICITLY_ACCEPTED_TAIL_CLIPPING_DEVIATION",
+  "technical_status": "PASS",
+  "unresolved_technical_defect": false,
+  "reviewed_baseline_commit": "4eeaf3a9fef3cb0f9ce1ac83ecc06cfb0194e3b4",
+  "reviewed_tree": "575fdf66659881c99c4204791df02f85b8e291c2",
+  "frozen_preview_sha256": "c63af79b4df5ad2c503c89222872c98a7565eb32dca91105469a6792382f02f7",
+  "technical_checks": {
+    "independent_inverse_coordinate_RGBA_match": true,
+    "independent_original_INDEX8_and_coverage_match": true,
+    "original_clipped_cells_each_target": 2,
+    "original_occupied_overlap": 0,
+    "HD_authored_overlap": 0,
+    "PNG_matches_RGBA": true,
+    "all_frozen_preview_and_output_hashes_match": true,
+    "deterministic_rebuild_matches": true,
+    "SDL_offscreen_nearest_native_1_2_4_all_RGBA_match": true,
+    "source_files_untouched": true,
+    "production_checkout_clean": true,
+    "ordinary_P5_acquisition_established": false,
+    "actual_gameplay_tested": false
+  },
+  "candidate_metrics": [
+    {
+      "target": 3,
+      "density": 4,
+      "RGBA_sha256": "78c48990ef6ca08052b034c80d0b08f6f6f49d254e4b71c8a55dc7f3fa798cd8",
+      "PNG_sha256": "bb8382993564208f9aac6610728f35c17751e26106e11a632b5c57f388a8faed",
+      "clipped_supported_samples": 26,
+      "clipped_alpha_sum": 2646,
+      "clipped_alpha_percent": 0.7504530796654443,
+      "clipped_luma_percent": 0.3990721210173711,
+      "max_clipped_alpha": 231,
+      "clipped_fully_opaque_samples": 0,
+      "retained_logical_bounds": [
+        0.0,
+        1.0,
+        12.0,
+        13.0
+      ],
+      "HD_touched_original_empty_logical_cells": 10,
+      "original_cells_not_touched_by_HD": 3
+    },
+    {
+      "target": 3,
+      "density": 8,
+      "RGBA_sha256": "083e3bf03b124601a3273718f4b12f0b3003b4574400647e0f858fd49d43d160",
+      "PNG_sha256": "d7b1a8bada8ea5534e388e79a736dea586cc6e7f28ec28994f002bbefc321745",
+      "clipped_supported_samples": 82,
+      "clipped_alpha_sum": 11628,
+      "clipped_alpha_percent": 0.8122533744349747,
+      "clipped_luma_percent": 0.4363252276677913,
+      "max_clipped_alpha": 255,
+      "clipped_fully_opaque_samples": 2,
+      "retained_logical_bounds": [
+        0.0,
+        1.0,
+        12.0,
+        13.0
+      ],
+      "HD_touched_original_empty_logical_cells": 10,
+      "original_cells_not_touched_by_HD": 3
+    },
+    {
+      "target": 41,
+      "density": 4,
+      "RGBA_sha256": "c832a1267614335d4807a48ad06c44708677ebd4cf69516652066aebe36ef575",
+      "PNG_sha256": "b09a9bb38ab53b357be8caadca6807586255368d56ee2677abd509b5895df68b",
+      "clipped_supported_samples": 20,
+      "clipped_alpha_sum": 1926,
+      "clipped_alpha_percent": 0.5808430366691094,
+      "clipped_luma_percent": 0.2872892006536403,
+      "max_clipped_alpha": 215,
+      "clipped_fully_opaque_samples": 0,
+      "retained_logical_bounds": [
+        0.0,
+        1.0,
+        12.0,
+        13.0
+      ],
+      "HD_touched_original_empty_logical_cells": 9,
+      "original_cells_not_touched_by_HD": 6
+    },
+    {
+      "target": 41,
+      "density": 8,
+      "RGBA_sha256": "47040ee657bfc71fcd46e23348521d20c83e87a9177788164becde85c3295a55",
+      "PNG_sha256": "f142ac3eb4ddf0b54a7b70ef86d50daeda5fbd2a80f81403286f5add38e2bd79",
+      "clipped_supported_samples": 64,
+      "clipped_alpha_sum": 8390,
+      "clipped_alpha_percent": 0.6223500054891419,
+      "clipped_luma_percent": 0.31202781618542785,
+      "max_clipped_alpha": 250,
+      "clipped_fully_opaque_samples": 0,
+      "retained_logical_bounds": [
+        0.0,
+        1.0,
+        12.0,
+        13.0
+      ],
+      "HD_touched_original_empty_logical_cells": 9,
+      "original_cells_not_touched_by_HD": 6
+    }
+  ],
+  "native_loss_limits": {
+    "largest_alpha_percent": 0.9645608978359792,
+    "largest_luma_percent": 0.5247730189331473,
+    "note": "Native displayed-sample loss differs from authored-density loss and is not zero."
+  },
+  "new_image_generation": false,
+  "accepted_visual_deviation": "Mild flat outer tail tips at native4x, particularly on cloud backgrounds, were explicitly accepted. Native2x tips are unobtrusive; bright heads and triple separation remain clear. This acceptance does not establish seamless taper or brightness preservation.",
+  "limits": [
+    "PASS is only for the frozen four component candidates and bounded preview/review. No production or publication action performed.",
+    "Keep original logical12x14 canvas, anchor0,0, whole-canvas flips before exact integer translations, and these output hashes. Expanded union is diagnostic only.",
+    "All retained nonzero RGBA samples are exact accepted-R2 samples. No compositing-order choice, added support, blending between lobes, recoloring, normalization, redraw, or generation is used.",
+    "No authored overlaps, including before crop. Neither whole-lobe multiset nor total alpha/RGB/luma preservation holds because clipping is real.",
+    "Exact footprint means fixed canvas, anchor and occupied bounds[0,1,12,13], not identity to the original indexed coverage mask. Accepted smooth R2 supports already differ from original pixel-cell coverage.",
+    "Weighted luma loss is a gamma-coded RGB proxy using2126/7152/722 coefficients, not a linear-light photometric brightness claim.",
+    "No actual game runtime or gameplay acceptance occurred. Later Normal/Hard runtime must be labeled diagnostic; ordinary P5 acquisition remains unestablished.",
+    "Original pixels, original-reference plates, original decoding code and private game data stay private. Only generated components and sanitized reports may be considered for later export."
+  ],
+  "stage": "Independent offline artwork review. Native-game qualification is separately documented in RUNTIME.json.",
+  "source_review_sha256": "172811696de7c704be3bb34e71dfd96293bde5d0d40aa6e66606697cf55ac39a"
+}

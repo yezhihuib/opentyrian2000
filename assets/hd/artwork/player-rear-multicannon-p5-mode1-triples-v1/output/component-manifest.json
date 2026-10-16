@@ -1,0 +1,5515 @@
+{
+  "schema": "rear-multi-p5-mode1-accepted-component-preview-v1",
+  "status": "OFFLINE_PREVIEW_ONLY_NOT_ART_ACCEPTANCE_OR_RUNTIME_QUALIFICATION",
+  "baseline": "4eeaf3a9fef3cb0f9ce1ac83ecc06cfb0194e3b4",
+  "tree": "575fdf66659881c99c4204791df02f85b8e291c2",
+  "operation": "Whole 12x14 canvas flipY before integer logical translation, exact union clipped to original 12x14 canvas. Alpha supports are disjoint, so all source-over/max/overwrite orders on retained supports are identical. No additive or brightness adjustment.",
+  "new_generation": false,
+  "source_or_production_modified": false,
+  "runtime_launched": false,
+  "HDA_or_manifest_integration": false,
+  "uploaded_or_published": false,
+  "nearest_sampling": "floor((2*display_coordinate+1)*source_density/(2*display_scale))",
+  "runtime_blend": "floor((background*(255-alpha)+color*alpha+127)/255)",
+  "clipping_warning": "This preview deliberately loses translated tail samples beyond the fixed original canvas. Whole-lobe multiset/energy preservation does not hold. Review native clipping before any integration.",
+  "inputs": [
+    {
+      "source_id": 1,
+      "density": 4,
+      "rgba": "accepted/rear-multi-1-4.rgba",
+      "rgba_sha256": "5b5db7122400f1ea988e25596b4deecc8e540bb850d31cd936131e2d951d48e8",
+      "png": "accepted/rear-multi-1-4.png",
+      "png_sha256": "501b8f5790dcc96ac82f65d827a2d10ca53d4414fca9b78739ae0720b44fb2bd"
+    },
+    {
+      "source_id": 1,
+      "density": 8,
+      "rgba": "accepted/rear-multi-1-8.rgba",
+      "rgba_sha256": "402738376529a5a59441ebceefb5d427fe23ba298674e93c2e94d05e732437c5",
+      "png": "accepted/rear-multi-1-8.png",
+      "png_sha256": "c7547ef49f5bca733dbe0f0e8a913e47acc8a7e200db4553a4cb324e42ab0ddc"
+    },
+    {
+      "source_id": 39,
+      "density": 4,
+      "rgba": "accepted/rear-multi-39-4.rgba",
+      "rgba_sha256": "2fad980f6a45679df0b1baf368857b2b9ec70779ec41942fdb2ace813261e91d",
+      "png": "accepted/rear-multi-39-4.png",
+      "png_sha256": "736bacd2ea86c5412f948ed0a402346f93a7b3339fc112f2a13bc84d938b2a57"
+    },
+    {
+      "source_id": 39,
+      "density": 8,
+      "rgba": "accepted/rear-multi-39-8.rgba",
+      "rgba_sha256": "88ff4e6f61145c05ed0a7d1ebcec38f06c7aaed4ae86100cc5065cc16d5f8374",
+      "png": "accepted/rear-multi-39-8.png",
+      "png_sha256": "8887cdf07fac4091b24ad58a488b77396dffbfef2f94464e5ab8fd2e7af0d861"
+    }
+  ],
+  "results": [
+    {
+      "target": 3,
+      "density": 4,
+      "parts": [
+        [
+          1,
+          true,
+          -2,
+          -5
+        ],
+        [
+          1,
+          true,
+          0,
+          -1
+        ],
+        [
+          1,
+          false,
+          -2,
+          5
+        ]
+      ],
+      "canvas": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "original_density_preserved": true,
+      "rgba_sha256": "78c48990ef6ca08052b034c80d0b08f6f6f49d254e4b71c8a55dc7f3fa798cd8",
+      "png_sha256": "bb8382993564208f9aac6610728f35c17751e26106e11a632b5c57f388a8faed",
+      "rgba": "rear-multi-3-4-exact-clipped-union.rgba",
+      "png": "rear-multi-3-4-exact-clipped-union.png",
+      "stats": {
+        "full_unbounded": {
+          "supported_samples": 1617,
+          "maximum_alpha": 255,
+          "RGB_range": [
+            [
+              202,
+              255
+            ],
+            [
+              0,
+              248
+            ],
+            [
+              0,
+              150
+            ]
+          ],
+          "alpha_sum": 352587,
+          "premultiplied_RGB_C_times_A": [
+            87442926,
+            48914328,
+            12005937
+          ],
+          "weighted_luma_C_times_A_2126_7152_722": 544407221046,
+          "bounds_exclusive": [
+            -4,
+            4,
+            48,
+            52
+          ]
+        },
+        "retained": {
+          "supported_samples": 1591,
+          "maximum_alpha": 255,
+          "RGB_range": [
+            [
+              202,
+              255
+            ],
+            [
+              0,
+              248
+            ],
+            [
+              0,
+              150
+            ]
+          ],
+          "alpha_sum": 349941,
+          "premultiplied_RGB_C_times_A": [
+            86845614,
+            48788956,
+            11997583
+          ],
+          "weighted_luma_C_times_A_2126_7152_722": 542234643602,
+          "bounds_exclusive": [
+            0,
+            4,
+            48,
+            52
+          ]
+        },
+        "clipped": {
+          "supported_samples": 26,
+          "maximum_alpha": 231,
+          "RGB_range": [
+            [
+              204,
+              255
+            ],
+            [
+              0,
+              55
+            ],
+            [
+              0,
+              5
+            ]
+          ],
+          "alpha_sum": 2646,
+          "premultiplied_RGB_C_times_A": [
+            597312,
+            125372,
+            8354
+          ],
+          "weighted_luma_C_times_A_2126_7152_722": 2172577444,
+          "bounds_exclusive": [
+            -4,
+            7,
+            0,
+            49
+          ]
+        },
+        "clipped_alpha_fraction": 0.007504530796654443,
+        "clipped_luma_fraction": 0.003990721210173711
+      },
+      "per_part_clipping": [
+        {
+          "full_unbounded": {
+            "supported_samples": 539,
+            "maximum_alpha": 255,
+            "RGB_range": [
+              [
+                202,
+                255
+              ],
+              [
+                0,
+                248
+              ],
+              [
+                0,
+                150
+              ]
+            ],
+            "alpha_sum": 117529,
+            "premultiplied_RGB_C_times_A": [
+              29147642,
+              16304776,
+              4001979
+            ],
+            "weighted_luma_C_times_A_2126_7152_722": 181469073682,
+            "bounds_exclusive": [
+              -4,
+              4,
+              40,
+              20
+            ]
+          },
+          "retained": {
+            "supported_samples": 526,
+            "maximum_alpha": 255,
+            "RGB_range": [
+              [
+                202,
+                255
+              ],
+              [
+                0,
+                248
+              ],
+              [
+                0,
+                150
+              ]
+            ],
+            "alpha_sum": 116206,
+            "premultiplied_RGB_C_times_A": [
+              28848986,
+              16242090,
+              3997802
+            ],
+            "weighted_luma_C_times_A_2126_7152_722": 180382784960,
+            "bounds_exclusive": [
+              0,
+              4,
+              40,
+              20
+            ]
+          },
+          "clipped": {
+            "supported_samples": 13,
+            "maximum_alpha": 231,
+            "RGB_range": [
+              [
+                204,
+                255
+              ],
+              [
+                0,
+                55
+              ],
+              [
+                0,
+                5
+              ]
+            ],
+            "alpha_sum": 1323,
+            "premultiplied_RGB_C_times_A": [
+              298656,
+              62686,
+              4177
+            ],
+            "weighted_luma_C_times_A_2126_7152_722": 1086288722,
+            "bounds_exclusive": [
+              -4,
+              7,
+              0,
+              12
+            ]
+          },
+          "clipped_alpha_fraction": 0.011256796194981664,
+          "clipped_luma_fraction": 0.005986081815260566
+        },
+        {
+          "full_unbounded": {
+            "supported_samples": 539,
+            "maximum_alpha": 255,
+            "RGB_range": [
+              [
+                202,
+                255
+              ],
+              [
+                0,
+                248
+              ],
+              [
+                0,
+                150
+              ]
+            ],
+            "alpha_sum": 117529,
+            "premultiplied_RGB_C_times_A": [
+              29147642,
+              16304776,
+              4001979
+            ],
+            "weighted_luma_C_times_A_2126_7152_722": 181469073682,
+            "bounds_exclusive": [
+              4,
+              20,
+              48,
+              36
+            ]
+          },
+          "retained": {
+            "supported_samples": 539,
+            "maximum_alpha": 255,
+            "RGB_range": [
+              [
+                202,
+                255
+              ],
+              [
+                0,
+                248
+              ],
+              [
+                0,
+                150
+              ]
+            ],
+            "alpha_sum": 117529,
+            "premultiplied_RGB_C_times_A": [
+              29147642,
+              16304776,
+              4001979
+            ],
+            "weighted_luma_C_times_A_2126_7152_722": 181469073682,
+            "bounds_exclusive": [
+              4,
+              20,
+              48,
+              36
+            ]
+          },
+          "clipped": {
+            "supported_samples": 0,
+            "maximum_alpha": 0,
+            "RGB_range": null,
+            "alpha_sum": 0,
+            "premultiplied_RGB_C_times_A": [
+              0,
+              0,
+              0
+            ],
+            "weighted_luma_C_times_A_2126_7152_722": 0,
+            "bounds_exclusive": null
+          },
+          "clipped_alpha_fraction": 0.0,
+          "clipped_luma_fraction": 0.0
+        },
+        {
+          "full_unbounded": {
+            "supported_samples": 539,
+            "maximum_alpha": 255,
+            "RGB_range": [
+              [
+                202,
+                255
+              ],
+              [
+                0,
+                248
+              ],
+              [
+                0,
+                150
+              ]
+            ],
+            "alpha_sum": 117529,
+            "premultiplied_RGB_C_times_A": [
+              29147642,
+              16304776,
+              4001979
+            ],
+            "weighted_luma_C_times_A_2126_7152_722": 181469073682,
+            "bounds_exclusive": [
+              -4,
+              36,
+              40,
+              52
+            ]
+          },
+          "retained": {
+            "supported_samples": 526,
+            "maximum_alpha": 255,
+            "RGB_range": [
+              [
+                202,
+                255
+              ],
+              [
+                0,
+                248
+              ],
+              [
+                0,
+                150
+              ]
+            ],
+            "alpha_sum": 116206,
+            "premultiplied_RGB_C_times_A": [
+              28848986,
+              16242090,
+              3997802
+            ],
+            "weighted_luma_C_times_A_2126_7152_722": 180382784960,
+            "bounds_exclusive": [
+              0,
+              36,
+              40,
+              52
+            ]
+          },
+          "clipped": {
+            "supported_samples": 13,
+            "maximum_alpha": 231,
+            "RGB_range": [
+              [
+                204,
+                255
+              ],
+              [
+                0,
+                55
+              ],
+              [
+                0,
+                5
+              ]
+            ],
+            "alpha_sum": 1323,
+            "premultiplied_RGB_C_times_A": [
+              298656,
+              62686,
+              4177
+            ],
+            "weighted_luma_C_times_A_2126_7152_722": 1086288722,
+            "bounds_exclusive": [
+              -4,
+              44,
+              0,
+              49
+            ]
+          },
+          "clipped_alpha_fraction": 0.011256796194981664,
+          "clipped_luma_fraction": 0.005986081815260566
+        }
+      ],
+      "overlap_authored_samples": 0,
+      "all_six_orders_byte_identical": true,
+      "retained_RGBA_exact_from_single_component": true,
+      "added_support_beyond_transformed_union": 0,
+      "clipped_samples_xy_RGBA": [
+        [
+          -4,
+          8,
+          204,
+          32,
+          2,
+          73
+        ],
+        [
+          -4,
+          47,
+          204,
+          32,
+          2,
+          73
+        ],
+        [
+          -3,
+          7,
+          255,
+          0,
+          0,
+          1
+        ],
+        [
+          -3,
+          8,
+          215,
+          39,
+          3,
+          158
+        ],
+        [
+          -3,
+          9,
+          214,
+          40,
+          2,
+          60
+        ],
+        [
+          -3,
+          46,
+          214,
+          40,
+          2,
+          60
+        ],
+        [
+          -3,
+          47,
+          215,
+          39,
+          3,
+          158
+        ],
+        [
+          -3,
+          48,
+          255,
+          0,
+          0,
+          1
+        ],
+        [
+          -2,
+          7,
+          221,
+          40,
+          0,
+          24
+        ],
+        [
+          -2,
+          8,
+          226,
+          48,
+          3,
+          182
+        ],
+        [
+          -2,
+          9,
+          224,
+          46,
+          3,
+          164
+        ],
+        [
+          -2,
+          10,
+          216,
+          38,
+          5,
+          30
+        ],
+        [
+          -2,
+          45,
+          216,
+          38,
+          5,
+          30
+        ],
+        [
+          -2,
+          46,
+          224,
+          46,
+          3,
+          164
+        ],
+        [
+          -2,
+          47,
+          226,
+          48,
+          3,
+          182
+        ],
+        [
+          -2,
+          48,
+          221,
+          40,
+          0,
+          24
+        ],
+        [
+          -1,
+          7,
+          228,
+          50,
+          2,
+          55
+        ],
+        [
+          -1,
+          8,
+          236,
+          55,
+          4,
+          201
+        ],
+        [
+          -1,
+          9,
+          236,
+          55,
+          4,
+          231
+        ],
+        [
+          -1,
+          10,
+          227,
+          48,
+          3,
+          137
+        ],
+        [
+          -1,
+          11,
+          208,
+          46,
+          0,
+          7
+        ],
+        [
+          -1,
+          44,
+          208,
+          46,
+          0,
+          7
+        ],
+        [
+          -1,
+          45,
+          227,
+          48,
+          3,
+          137
+        ],
+        [
+          -1,
+          46,
+          236,
+          55,
+          4,
+          231
+        ],
+        [
+          -1,
+          47,
+          236,
+          55,
+          4,
+          201
+        ],
+        [
+          -1,
+          48,
+          228,
+          50,
+          2,
+          55
+        ]
+      ],
+      "native": [
+        {
+          "scale": 1,
+          "stats": {
+            "full_unbounded": {
+              "supported_samples": 103,
+              "maximum_alpha": 255,
+              "RGB_range": [
+                [
+                  205,
+                  255
+                ],
+                [
+                  0,
+                  241
+                ],
+                [
+                  0,
+                  114
+                ]
+              ],
+              "alpha_sum": 22806,
+              "premultiplied_RGB_C_times_A": [
+                5647512,
+                3134834,
+                753593
+              ],
+              "weighted_luma_C_times_A_2126_7152_722": 34971037426,
+              "bounds_exclusive": [
+                -1,
+                1,
+                12,
+                13
+              ]
+            },
+            "retained": {
+              "supported_samples": 101,
+              "maximum_alpha": 255,
+              "RGB_range": [
+                [
+                  205,
+                  255
+                ],
+                [
+                  0,
+                  241
+                ],
+                [
+                  0,
+                  114
+                ]
+              ],
+              "alpha_sum": 22612,
+              "premultiplied_RGB_C_times_A": [
+                5604296,
+                3126150,
+                752951
+              ],
+              "weighted_luma_C_times_A_2126_7152_722": 34816588718,
+              "bounds_exclusive": [
+                0,
+                1,
+                12,
+                13
+              ]
+            },
+            "clipped": {
+              "supported_samples": 2,
+              "maximum_alpha": 164,
+              "RGB_range": [
+                [
+                  216,
+                  224
+                ],
+                [
+                  38,
+                  46
+                ],
+                [
+                  3,
+                  5
+                ]
+              ],
+              "alpha_sum": 194,
+              "premultiplied_RGB_C_times_A": [
+                43216,
+                8684,
+                642
+              ],
+              "weighted_luma_C_times_A_2126_7152_722": 154448708,
+              "bounds_exclusive": [
+                -1,
+                2,
+                0,
+                12
+              ]
+            },
+            "clipped_alpha_fraction": 0.008506533368411822,
+            "clipped_luma_fraction": 0.004416474870864759
+          },
+          "clipped_samples_xy_RGBA": [
+            [
+              -1,
+              2,
+              216,
+              38,
+              5,
+              30
+            ],
+            [
+              -1,
+              11,
+              224,
+              46,
+              3,
+              164
+            ]
+          ],
+          "retained_rgba_sha256": "5fe9ca13c534bc6226565ee3dd672fdf4940646e41388ee42aca1012a27a33e7",
+          "clipped_blend_effect_by_background": {
+            "brown": {
+              "changed_pixels": 2,
+              "maximum_absolute_channel_change": 77
+            },
+            "cloud": {
+              "changed_pixels": 2,
+              "maximum_absolute_channel_change": 131
+            }
+          }
+        },
+        {
+          "scale": 2,
+          "stats": {
+            "full_unbounded": {
+              "supported_samples": 407,
+              "maximum_alpha": 255,
+              "RGB_range": [
+                [
+                  204,
+                  255
+                ],
+                [
+                  0,
+                  248
+                ],
+                [
+                  0,
+                  149
+                ]
+              ],
+              "alpha_sum": 88123,
+              "premultiplied_RGB_C_times_A": [
+                21867535,
+                12243673,
+                3011078
+              ],
+              "weighted_luma_C_times_A_2126_7152_722": 136231127022,
+              "bounds_exclusive": [
+                -2,
+                2,
+                24,
+                26
+              ]
+            },
+            "retained": {
+              "supported_samples": 399,
+              "maximum_alpha": 255,
+              "RGB_range": [
+                [
+                  204,
+                  255
+                ],
+                [
+                  0,
+                  248
+                ],
+                [
+                  0,
+                  149
+                ]
+              ],
+              "alpha_sum": 87273,
+              "premultiplied_RGB_C_times_A": [
+                21673423,
+                12201703,
+                3008235
+              ],
+              "weighted_luma_C_times_A_2126_7152_722": 135516222824,
+              "bounds_exclusive": [
+                0,
+                2,
+                24,
+                26
+              ]
+            },
+            "clipped": {
+              "supported_samples": 8,
+              "maximum_alpha": 231,
+              "RGB_range": [
+                [
+                  208,
+                  255
+                ],
+                [
+                  0,
+                  55
+                ],
+                [
+                  0,
+                  4
+                ]
+              ],
+              "alpha_sum": 850,
+              "premultiplied_RGB_C_times_A": [
+                194112,
+                41970,
+                2843
+              ],
+              "weighted_luma_C_times_A_2126_7152_722": 714904198,
+              "bounds_exclusive": [
+                -2,
+                3,
+                0,
+                24
+              ]
+            },
+            "clipped_alpha_fraction": 0.009645608978359792,
+            "clipped_luma_fraction": 0.005247730189331473
+          },
+          "clipped_samples_xy_RGBA": [
+            [
+              -2,
+              3,
+              255,
+              0,
+              0,
+              1
+            ],
+            [
+              -2,
+              4,
+              214,
+              40,
+              2,
+              60
+            ],
+            [
+              -2,
+              23,
+              215,
+              39,
+              3,
+              158
+            ],
+            [
+              -1,
+              3,
+              228,
+              50,
+              2,
+              55
+            ],
+            [
+              -1,
+              4,
+              236,
+              55,
+              4,
+              231
+            ],
+            [
+              -1,
+              5,
+              208,
+              46,
+              0,
+              7
+            ],
+            [
+              -1,
+              22,
+              227,
+              48,
+              3,
+              137
+            ],
+            [
+              -1,
+              23,
+              236,
+              55,
+              4,
+              201
+            ]
+          ],
+          "retained_rgba_sha256": "66cae3643d929b2a4319626af751573ae243888ae62158a45d87cdb15b66c15e",
+          "clipped_blend_effect_by_background": {
+            "brown": {
+              "changed_pixels": 8,
+              "maximum_absolute_channel_change": 120
+            },
+            "cloud": {
+              "changed_pixels": 8,
+              "maximum_absolute_channel_change": 183
+            }
+          }
+        },
+        {
+          "scale": 4,
+          "stats": {
+            "full_unbounded": {
+              "supported_samples": 1617,
+              "maximum_alpha": 255,
+              "RGB_range": [
+                [
+                  202,
+                  255
+                ],
+                [
+                  0,
+                  248
+                ],
+                [
+                  0,
+                  150
+                ]
+              ],
+              "alpha_sum": 352587,
+              "premultiplied_RGB_C_times_A": [
+                87442926,
+                48914328,
+                12005937
+              ],
+              "weighted_luma_C_times_A_2126_7152_722": 544407221046,
+              "bounds_exclusive": [
+                -4,
+                4,
+                48,
+                52
+              ]
+            },
+            "retained": {
+              "supported_samples": 1591,
+              "maximum_alpha": 255,
+              "RGB_range": [
+                [
+                  202,
+                  255
+                ],
+                [
+                  0,
+                  248
+                ],
+                [
+                  0,
+                  150
+                ]
+              ],
+              "alpha_sum": 349941,
+              "premultiplied_RGB_C_times_A": [
+                86845614,
+                48788956,
+                11997583
+              ],
+              "weighted_luma_C_times_A_2126_7152_722": 542234643602,
+              "bounds_exclusive": [
+                0,
+                4,
+                48,
+                52
+              ]
+            },
+            "clipped": {
+              "supported_samples": 26,
+              "maximum_alpha": 231,
+              "RGB_range": [
+                [
+                  204,
+                  255
+                ],
+                [
+                  0,
+                  55
+                ],
+                [
+                  0,
+                  5
+                ]
+              ],
+              "alpha_sum": 2646,
+              "premultiplied_RGB_C_times_A": [
+                597312,
+                125372,
+                8354
+              ],
+              "weighted_luma_C_times_A_2126_7152_722": 2172577444,
+              "bounds_exclusive": [
+                -4,
+                7,
+                0,
+                49
+              ]
+            },
+            "clipped_alpha_fraction": 0.007504530796654443,
+            "clipped_luma_fraction": 0.003990721210173711
+          },
+          "clipped_samples_xy_RGBA": [
+            [
+              -4,
+              8,
+              204,
+              32,
+              2,
+              73
+            ],
+            [
+              -4,
+              47,
+              204,
+              32,
+              2,
+              73
+            ],
+            [
+              -3,
+              7,
+              255,
+              0,
+              0,
+              1
+            ],
+            [
+              -3,
+              8,
+              215,
+              39,
+              3,
+              158
+            ],
+            [
+              -3,
+              9,
+              214,
+              40,
+              2,
+              60
+            ],
+            [
+              -3,
+              46,
+              214,
+              40,
+              2,
+              60
+            ],
+            [
+              -3,
+              47,
+              215,
+              39,
+              3,
+              158
+            ],
+            [
+              -3,
+              48,
+              255,
+              0,
+              0,
+              1
+            ],
+            [
+              -2,
+              7,
+              221,
+              40,
+              0,
+              24
+            ],
+            [
+              -2,
+              8,
+              226,
+              48,
+              3,
+              182
+            ],
+            [
+              -2,
+              9,
+              224,
+              46,
+              3,
+              164
+            ],
+            [
+              -2,
+              10,
+              216,
+              38,
+              5,
+              30
+            ],
+            [
+              -2,
+              45,
+              216,
+              38,
+              5,
+              30
+            ],
+            [
+              -2,
+              46,
+              224,
+              46,
+              3,
+              164
+            ],
+            [
+              -2,
+              47,
+              226,
+              48,
+              3,
+              182
+            ],
+            [
+              -2,
+              48,
+              221,
+              40,
+              0,
+              24
+            ],
+            [
+              -1,
+              7,
+              228,
+              50,
+              2,
+              55
+            ],
+            [
+              -1,
+              8,
+              236,
+              55,
+              4,
+              201
+            ],
+            [
+              -1,
+              9,
+              236,
+              55,
+              4,
+              231
+            ],
+            [
+              -1,
+              10,
+              227,
+              48,
+              3,
+              137
+            ],
+            [
+              -1,
+              11,
+              208,
+              46,
+              0,
+              7
+            ],
+            [
+              -1,
+              44,
+              208,
+              46,
+              0,
+              7
+            ],
+            [
+              -1,
+              45,
+              227,
+              48,
+              3,
+              137
+            ],
+            [
+              -1,
+              46,
+              236,
+              55,
+              4,
+              231
+            ],
+            [
+              -1,
+              47,
+              236,
+              55,
+              4,
+              201
+            ],
+            [
+              -1,
+              48,
+              228,
+              50,
+              2,
+              55
+            ]
+          ],
+          "retained_rgba_sha256": "78c48990ef6ca08052b034c80d0b08f6f6f49d254e4b71c8a55dc7f3fa798cd8",
+          "clipped_blend_effect_by_background": {
+            "brown": {
+              "changed_pixels": 26,
+              "maximum_absolute_channel_change": 120
+            },
+            "cloud": {
+              "changed_pixels": 26,
+              "maximum_absolute_channel_change": 183
+            }
+          }
+        }
+      ]
+    },
+    {
+      "target": 3,
+      "density": 8,
+      "parts": [
+        [
+          1,
+          true,
+          -2,
+          -5
+        ],
+        [
+          1,
+          true,
+          0,
+          -1
+        ],
+        [
+          1,
+          false,
+          -2,
+          5
+        ]
+      ],
+      "canvas": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "original_density_preserved": true,
+      "rgba_sha256": "083e3bf03b124601a3273718f4b12f0b3003b4574400647e0f858fd49d43d160",
+      "png_sha256": "d7b1a8bada8ea5534e388e79a736dea586cc6e7f28ec28994f002bbefc321745",
+      "rgba": "rear-multi-3-8-exact-clipped-union.rgba",
+      "png": "rear-multi-3-8-exact-clipped-union.png",
+      "stats": {
+        "full_unbounded": {
+          "supported_samples": 6222,
+          "maximum_alpha": 255,
+          "RGB_range": [
+            [
+              191,
+              255
+            ],
+            [
+              0,
+              250
+            ],
+            [
+              0,
+              159
+            ]
+          ],
+          "alpha_sum": 1431573,
+          "premultiplied_RGB_C_times_A": [
+            354852726,
+            197486136,
+            48336786
+          ],
+          "weighted_luma_C_times_A_2126_7152_722": 2201736899640,
+          "bounds_exclusive": [
+            -8,
+            8,
+            96,
+            104
+          ]
+        },
+        "retained": {
+          "supported_samples": 6140,
+          "maximum_alpha": 255,
+          "RGB_range": [
+            [
+              191,
+              255
+            ],
+            [
+              0,
+              250
+            ],
+            [
+              0,
+              159
+            ]
+          ],
+          "alpha_sum": 1419945,
+          "premultiplied_RGB_C_times_A": [
+            352221936,
+            196928638,
+            48300154
+          ],
+          "weighted_luma_C_times_A_2126_7152_722": 2192130166100,
+          "bounds_exclusive": [
+            0,
+            8,
+            96,
+            104
+          ]
+        },
+        "clipped": {
+          "supported_samples": 82,
+          "maximum_alpha": 255,
+          "RGB_range": [
+            [
+              204,
+              255
+            ],
+            [
+              0,
+              57
+            ],
+            [
+              0,
+              5
+            ]
+          ],
+          "alpha_sum": 11628,
+          "premultiplied_RGB_C_times_A": [
+            2630790,
+            557498,
+            36632
+          ],
+          "weighted_luma_C_times_A_2126_7152_722": 9606733540,
+          "bounds_exclusive": [
+            -8,
+            15,
+            0,
+            97
+          ]
+        },
+        "clipped_alpha_fraction": 0.008122533744349746,
+        "clipped_luma_fraction": 0.004363252276677913
+      },
+      "per_part_clipping": [
+        {
+          "full_unbounded": {
+            "supported_samples": 2074,
+            "maximum_alpha": 255,
+            "RGB_range": [
+              [
+                191,
+                255
+              ],
+              [
+                0,
+                250
+              ],
+              [
+                0,
+                159
+              ]
+            ],
+            "alpha_sum": 477191,
+            "premultiplied_RGB_C_times_A": [
+              118284242,
+              65828712,
+              16112262
+            ],
+            "weighted_luma_C_times_A_2126_7152_722": 733912299880,
+            "bounds_exclusive": [
+              -8,
+              8,
+              80,
+              40
+            ]
+          },
+          "retained": {
+            "supported_samples": 2033,
+            "maximum_alpha": 255,
+            "RGB_range": [
+              [
+                191,
+                255
+              ],
+              [
+                0,
+                250
+              ],
+              [
+                0,
+                159
+              ]
+            ],
+            "alpha_sum": 471377,
+            "premultiplied_RGB_C_times_A": [
+              116968847,
+              65549963,
+              16093946
+            ],
+            "weighted_luma_C_times_A_2126_7152_722": 729108933110,
+            "bounds_exclusive": [
+              0,
+              8,
+              80,
+              40
+            ]
+          },
+          "clipped": {
+            "supported_samples": 41,
+            "maximum_alpha": 255,
+            "RGB_range": [
+              [
+                204,
+                255
+              ],
+              [
+                0,
+                57
+              ],
+              [
+                0,
+                5
+              ]
+            ],
+            "alpha_sum": 5814,
+            "premultiplied_RGB_C_times_A": [
+              1315395,
+              278749,
+              18316
+            ],
+            "weighted_luma_C_times_A_2126_7152_722": 4803366770,
+            "bounds_exclusive": [
+              -8,
+              15,
+              0,
+              23
+            ]
+          },
+          "clipped_alpha_fraction": 0.01218380061652462,
+          "clipped_luma_fraction": 0.0065448784150168695
+        },
+        {
+          "full_unbounded": {
+            "supported_samples": 2074,
+            "maximum_alpha": 255,
+            "RGB_range": [
+              [
+                191,
+                255
+              ],
+              [
+                0,
+                250
+              ],
+              [
+                0,
+                159
+              ]
+            ],
+            "alpha_sum": 477191,
+            "premultiplied_RGB_C_times_A": [
+              118284242,
+              65828712,
+              16112262
+            ],
+            "weighted_luma_C_times_A_2126_7152_722": 733912299880,
+            "bounds_exclusive": [
+              8,
+              40,
+              96,
+              72
+            ]
+          },
+          "retained": {
+            "supported_samples": 2074,
+            "maximum_alpha": 255,
+            "RGB_range": [
+              [
+                191,
+                255
+              ],
+              [
+                0,
+                250
+              ],
+              [
+                0,
+                159
+              ]
+            ],
+            "alpha_sum": 477191,
+            "premultiplied_RGB_C_times_A": [
+              118284242,
+              65828712,
+              16112262
+            ],
+            "weighted_luma_C_times_A_2126_7152_722": 733912299880,
+            "bounds_exclusive": [
+              8,
+              40,
+              96,
+              72
+            ]
+          },
+          "clipped": {
+            "supported_samples": 0,
+            "maximum_alpha": 0,
+            "RGB_range": null,
+            "alpha_sum": 0,
+            "premultiplied_RGB_C_times_A": [
+              0,
+              0,
+              0
+            ],
+            "weighted_luma_C_times_A_2126_7152_722": 0,
+            "bounds_exclusive": null
+          },
+          "clipped_alpha_fraction": 0.0,
+          "clipped_luma_fraction": 0.0
+        },
+        {
+          "full_unbounded": {
+            "supported_samples": 2074,
+            "maximum_alpha": 255,
+            "RGB_range": [
+              [
+                191,
+                255
+              ],
+              [
+                0,
+                250
+              ],
+              [
+                0,
+                159
+              ]
+            ],
+            "alpha_sum": 477191,
+            "premultiplied_RGB_C_times_A": [
+              118284242,
+              65828712,
+              16112262
+            ],
+            "weighted_luma_C_times_A_2126_7152_722": 733912299880,
+            "bounds_exclusive": [
+              -8,
+              72,
+              80,
+              104
+            ]
+          },
+          "retained": {
+            "supported_samples": 2033,
+            "maximum_alpha": 255,
+            "RGB_range": [
+              [
+                191,
+                255
+              ],
+              [
+                0,
+                250
+              ],
+              [
+                0,
+                159
+              ]
+            ],
+            "alpha_sum": 471377,
+            "premultiplied_RGB_C_times_A": [
+              116968847,
+              65549963,
+              16093946
+            ],
+            "weighted_luma_C_times_A_2126_7152_722": 729108933110,
+            "bounds_exclusive": [
+              0,
+              72,
+              80,
+              104
+            ]
+          },
+          "clipped": {
+            "supported_samples": 41,
+            "maximum_alpha": 255,
+            "RGB_range": [
+              [
+                204,
+                255
+              ],
+              [
+                0,
+                57
+              ],
+              [
+                0,
+                5
+              ]
+            ],
+            "alpha_sum": 5814,
+            "premultiplied_RGB_C_times_A": [
+              1315395,
+              278749,
+              18316
+            ],
+            "weighted_luma_C_times_A_2126_7152_722": 4803366770,
+            "bounds_exclusive": [
+              -8,
+              89,
+              0,
+              97
+            ]
+          },
+          "clipped_alpha_fraction": 0.01218380061652462,
+          "clipped_luma_fraction": 0.0065448784150168695
+        }
+      ],
+      "overlap_authored_samples": 0,
+      "all_six_orders_byte_identical": true,
+      "retained_RGBA_exact_from_single_component": true,
+      "added_support_beyond_transformed_union": 0,
+      "clipped_samples_xy_RGBA": [
+        [
+          -8,
+          16,
+          204,
+          32,
+          2,
+          60
+        ],
+        [
+          -8,
+          17,
+          209,
+          36,
+          0,
+          18
+        ],
+        [
+          -8,
+          94,
+          209,
+          36,
+          0,
+          18
+        ],
+        [
+          -8,
+          95,
+          204,
+          32,
+          2,
+          60
+        ],
+        [
+          -7,
+          16,
+          206,
+          34,
+          1,
+          104
+        ],
+        [
+          -7,
+          17,
+          208,
+          34,
+          2,
+          124
+        ],
+        [
+          -7,
+          18,
+          204,
+          51,
+          0,
+          3
+        ],
+        [
+          -7,
+          93,
+          204,
+          51,
+          0,
+          3
+        ],
+        [
+          -7,
+          94,
+          208,
+          34,
+          2,
+          124
+        ],
+        [
+          -7,
+          95,
+          206,
+          34,
+          1,
+          104
+        ],
+        [
+          -6,
+          16,
+          211,
+          37,
+          2,
+          133
+        ],
+        [
+          -6,
+          17,
+          213,
+          39,
+          2,
+          175
+        ],
+        [
+          -6,
+          18,
+          212,
+          37,
+          1,
+          91
+        ],
+        [
+          -6,
+          93,
+          212,
+          37,
+          1,
+          91
+        ],
+        [
+          -6,
+          94,
+          213,
+          39,
+          2,
+          175
+        ],
+        [
+          -6,
+          95,
+          211,
+          37,
+          2,
+          133
+        ],
+        [
+          -5,
+          15,
+          223,
+          31,
+          0,
+          5
+        ],
+        [
+          -5,
+          16,
+          217,
+          41,
+          3,
+          160
+        ],
+        [
+          -5,
+          17,
+          218,
+          42,
+          3,
+          204
+        ],
+        [
+          -5,
+          18,
+          218,
+          42,
+          3,
+          168
+        ],
+        [
+          -5,
+          19,
+          216,
+          39,
+          3,
+          54
+        ],
+        [
+          -5,
+          92,
+          216,
+          39,
+          3,
+          54
+        ],
+        [
+          -5,
+          93,
+          218,
+          42,
+          3,
+          168
+        ],
+        [
+          -5,
+          94,
+          218,
+          42,
+          3,
+          204
+        ],
+        [
+          -5,
+          95,
+          217,
+          41,
+          3,
+          160
+        ],
+        [
+          -5,
+          96,
+          223,
+          31,
+          0,
+          5
+        ],
+        [
+          -4,
+          15,
+          220,
+          44,
+          4,
+          33
+        ],
+        [
+          -4,
+          16,
+          222,
+          45,
+          3,
+          171
+        ],
+        [
+          -4,
+          17,
+          224,
+          46,
+          3,
+          223
+        ],
+        [
+          -4,
+          18,
+          223,
+          46,
+          3,
+          199
+        ],
+        [
+          -4,
+          19,
+          221,
+          44,
+          3,
+          155
+        ],
+        [
+          -4,
+          20,
+          213,
+          41,
+          0,
+          20
+        ],
+        [
+          -4,
+          91,
+          213,
+          41,
+          0,
+          20
+        ],
+        [
+          -4,
+          92,
+          221,
+          44,
+          3,
+          155
+        ],
+        [
+          -4,
+          93,
+          223,
+          46,
+          3,
+          199
+        ],
+        [
+          -4,
+          94,
+          224,
+          46,
+          3,
+          223
+        ],
+        [
+          -4,
+          95,
+          222,
+          45,
+          3,
+          171
+        ],
+        [
+          -4,
+          96,
+          220,
+          44,
+          4,
+          33
+        ],
+        [
+          -3,
+          15,
+          221,
+          45,
+          2,
+          63
+        ],
+        [
+          -3,
+          16,
+          227,
+          49,
+          3,
+          178
+        ],
+        [
+          -3,
+          17,
+          229,
+          50,
+          3,
+          233
+        ],
+        [
+          -3,
+          18,
+          229,
+          50,
+          3,
+          232
+        ],
+        [
+          -3,
+          19,
+          226,
+          48,
+          3,
+          187
+        ],
+        [
+          -3,
+          20,
+          221,
+          45,
+          2,
+          122
+        ],
+        [
+          -3,
+          21,
+          255,
+          0,
+          0,
+          1
+        ],
+        [
+          -3,
+          90,
+          255,
+          0,
+          0,
+          1
+        ],
+        [
+          -3,
+          91,
+          221,
+          45,
+          2,
+          122
+        ],
+        [
+          -3,
+          92,
+          226,
+          48,
+          3,
+          187
+        ],
+        [
+          -3,
+          93,
+          229,
+          50,
+          3,
+          232
+        ],
+        [
+          -3,
+          94,
+          229,
+          50,
+          3,
+          233
+        ],
+        [
+          -3,
+          95,
+          227,
+          49,
+          3,
+          178
+        ],
+        [
+          -3,
+          96,
+          221,
+          45,
+          2,
+          63
+        ],
+        [
+          -2,
+          15,
+          227,
+          48,
+          3,
+          93
+        ],
+        [
+          -2,
+          16,
+          232,
+          52,
+          4,
+          188
+        ],
+        [
+          -2,
+          17,
+          234,
+          53,
+          4,
+          242
+        ],
+        [
+          -2,
+          18,
+          234,
+          53,
+          4,
+          253
+        ],
+        [
+          -2,
+          19,
+          232,
+          52,
+          4,
+          220
+        ],
+        [
+          -2,
+          20,
+          228,
+          49,
+          3,
+          175
+        ],
+        [
+          -2,
+          21,
+          222,
+          45,
+          2,
+          64
+        ],
+        [
+          -2,
+          90,
+          222,
+          45,
+          2,
+          64
+        ],
+        [
+          -2,
+          91,
+          228,
+          49,
+          3,
+          175
+        ],
+        [
+          -2,
+          92,
+          232,
+          52,
+          4,
+          220
+        ],
+        [
+          -2,
+          93,
+          234,
+          53,
+          4,
+          253
+        ],
+        [
+          -2,
+          94,
+          234,
+          53,
+          4,
+          242
+        ],
+        [
+          -2,
+          95,
+          232,
+          52,
+          4,
+          188
+        ],
+        [
+          -2,
+          96,
+          227,
+          48,
+          3,
+          93
+        ],
+        [
+          -1,
+          15,
+          232,
+          53,
+          3,
+          123
+        ],
+        [
+          -1,
+          16,
+          237,
+          56,
+          4,
+          199
+        ],
+        [
+          -1,
+          17,
+          239,
+          57,
+          4,
+          249
+        ],
+        [
+          -1,
+          18,
+          239,
+          57,
+          4,
+          255
+        ],
+        [
+          -1,
+          19,
+          237,
+          56,
+          4,
+          246
+        ],
+        [
+          -1,
+          20,
+          233,
+          53,
+          4,
+          205
+        ],
+        [
+          -1,
+          21,
+          227,
+          48,
+          3,
+          158
+        ],
+        [
+          -1,
+          22,
+          221,
+          45,
+          5,
+          28
+        ],
+        [
+          -1,
+          89,
+          221,
+          45,
+          5,
+          28
+        ],
+        [
+          -1,
+          90,
+          227,
+          48,
+          3,
+          158
+        ],
+        [
+          -1,
+          91,
+          233,
+          53,
+          4,
+          205
+        ],
+        [
+          -1,
+          92,
+          237,
+          56,
+          4,
+          246
+        ],
+        [
+          -1,
+          93,
+          239,
+          57,
+          4,
+          255
+        ],
+        [
+          -1,
+          94,
+          239,
+          57,
+          4,
+          249
+        ],
+        [
+          -1,
+          95,
+          237,
+          56,
+          4,
+          199
+        ],
+        [
+          -1,
+          96,
+          232,
+          53,
+          3,
+          123
+        ]
+      ],
+      "native": [
+        {
+          "scale": 1,
+          "stats": {
+            "full_unbounded": {
+              "supported_samples": 99,
+              "maximum_alpha": 255,
+              "RGB_range": [
+                [
+                  204,
+                  255
+                ],
+                [
+                  32,
+                  239
+                ],
+                [
+                  0,
+                  105
+                ]
+              ],
+              "alpha_sum": 23203,
+              "premultiplied_RGB_C_times_A": [
+                5745004,
+                3156680,
+                751522
+              ],
+              "weighted_luma_C_times_A_2126_7152_722": 35333052748,
+              "bounds_exclusive": [
+                -1,
+                1,
+                12,
+                13
+              ]
+            },
+            "retained": {
+              "supported_samples": 97,
+              "maximum_alpha": 255,
+              "RGB_range": [
+                [
+                  204,
+                  255
+                ],
+                [
+                  32,
+                  239
+                ],
+                [
+                  0,
+                  105
+                ]
+              ],
+              "alpha_sum": 23028,
+              "premultiplied_RGB_C_times_A": [
+                5706489,
+                3149040,
+                751057
+              ],
+              "weighted_luma_C_times_A_2126_7152_722": 35196192848,
+              "bounds_exclusive": [
+                0,
+                1,
+                12,
+                13
+              ]
+            },
+            "clipped": {
+              "supported_samples": 2,
+              "maximum_alpha": 155,
+              "RGB_range": [
+                [
+                  213,
+                  221
+                ],
+                [
+                  41,
+                  44
+                ],
+                [
+                  0,
+                  3
+                ]
+              ],
+              "alpha_sum": 175,
+              "premultiplied_RGB_C_times_A": [
+                38515,
+                7640,
+                465
+              ],
+              "weighted_luma_C_times_A_2126_7152_722": 136859900,
+              "bounds_exclusive": [
+                -1,
+                2,
+                0,
+                12
+              ]
+            },
+            "clipped_alpha_fraction": 0.007542128173081067,
+            "clipped_luma_fraction": 0.003873424155453051
+          },
+          "clipped_samples_xy_RGBA": [
+            [
+              -1,
+              2,
+              213,
+              41,
+              0,
+              20
+            ],
+            [
+              -1,
+              11,
+              221,
+              44,
+              3,
+              155
+            ]
+          ],
+          "retained_rgba_sha256": "a2e37a02d9dfbfe99d2d6b0413757c809e64235b2220802329a300e3ae26b60b",
+          "clipped_blend_effect_by_background": {
+            "brown": {
+              "changed_pixels": 2,
+              "maximum_absolute_channel_change": 71
+            },
+            "cloud": {
+              "changed_pixels": 2,
+              "maximum_absolute_channel_change": 123
+            }
+          }
+        },
+        {
+          "scale": 2,
+          "stats": {
+            "full_unbounded": {
+              "supported_samples": 390,
+              "maximum_alpha": 255,
+              "RGB_range": [
+                [
+                  196,
+                  255
+                ],
+                [
+                  31,
+                  246
+                ],
+                [
+                  0,
+                  141
+                ]
+              ],
+              "alpha_sum": 90367,
+              "premultiplied_RGB_C_times_A": [
+                22380562,
+                12425888,
+                3031335
+              ],
+              "weighted_luma_C_times_A_2126_7152_722": 138639649658,
+              "bounds_exclusive": [
+                -2,
+                2,
+                24,
+                26
+              ]
+            },
+            "retained": {
+              "supported_samples": 385,
+              "maximum_alpha": 255,
+              "RGB_range": [
+                [
+                  196,
+                  255
+                ],
+                [
+                  31,
+                  246
+                ],
+                [
+                  0,
+                  141
+                ]
+              ],
+              "alpha_sum": 89542,
+              "premultiplied_RGB_C_times_A": [
+                22193957,
+                12386581,
+                3028786
+              ],
+              "weighted_luma_C_times_A_2126_7152_722": 137959963386,
+              "bounds_exclusive": [
+                0,
+                2,
+                24,
+                26
+              ]
+            },
+            "clipped": {
+              "supported_samples": 5,
+              "maximum_alpha": 253,
+              "RGB_range": [
+                [
+                  212,
+                  234
+                ],
+                [
+                  37,
+                  53
+                ],
+                [
+                  1,
+                  4
+                ]
+              ],
+              "alpha_sum": 825,
+              "premultiplied_RGB_C_times_A": [
+                186605,
+                39307,
+                2549
+              ],
+              "weighted_luma_C_times_A_2126_7152_722": 679686272,
+              "bounds_exclusive": [
+                -2,
+                4,
+                0,
+                24
+              ]
+            },
+            "clipped_alpha_fraction": 0.009129438843825733,
+            "clipped_luma_fraction": 0.004902538874533139
+          },
+          "clipped_samples_xy_RGBA": [
+            [
+              -2,
+              4,
+              212,
+              37,
+              1,
+              91
+            ],
+            [
+              -2,
+              23,
+              213,
+              39,
+              2,
+              175
+            ],
+            [
+              -1,
+              4,
+              234,
+              53,
+              4,
+              253
+            ],
+            [
+              -1,
+              22,
+              222,
+              45,
+              2,
+              64
+            ],
+            [
+              -1,
+              23,
+              234,
+              53,
+              4,
+              242
+            ]
+          ],
+          "retained_rgba_sha256": "076763abd54183153d67143b59e584e2db7553801295c120c5a8b8f6dadcabb8",
+          "clipped_blend_effect_by_background": {
+            "brown": {
+              "changed_pixels": 5,
+              "maximum_absolute_channel_change": 129
+            },
+            "cloud": {
+              "changed_pixels": 5,
+              "maximum_absolute_channel_change": 200
+            }
+          }
+        },
+        {
+          "scale": 4,
+          "stats": {
+            "full_unbounded": {
+              "supported_samples": 1559,
+              "maximum_alpha": 255,
+              "RGB_range": [
+                [
+                  191,
+                  255
+                ],
+                [
+                  0,
+                  250
+                ],
+                [
+                  0,
+                  159
+                ]
+              ],
+              "alpha_sum": 358095,
+              "premultiplied_RGB_C_times_A": [
+                88768340,
+                49428384,
+                12107810
+              ],
+              "weighted_luma_C_times_A_2126_7152_722": 550975132028,
+              "bounds_exclusive": [
+                -4,
+                4,
+                48,
+                52
+              ]
+            },
+            "retained": {
+              "supported_samples": 1536,
+              "maximum_alpha": 255,
+              "RGB_range": [
+                [
+                  191,
+                  255
+                ],
+                [
+                  0,
+                  250
+                ],
+                [
+                  0,
+                  159
+                ]
+              ],
+              "alpha_sum": 354794,
+              "premultiplied_RGB_C_times_A": [
+                88017348,
+                49266885,
+                12097241
+              ],
+              "weighted_luma_C_times_A_2126_7152_722": 548215851370,
+              "bounds_exclusive": [
+                0,
+                4,
+                48,
+                52
+              ]
+            },
+            "clipped": {
+              "supported_samples": 23,
+              "maximum_alpha": 255,
+              "RGB_range": [
+                [
+                  204,
+                  255
+                ],
+                [
+                  0,
+                  57
+                ],
+                [
+                  0,
+                  5
+                ]
+              ],
+              "alpha_sum": 3301,
+              "premultiplied_RGB_C_times_A": [
+                750992,
+                161499,
+                10569
+              ],
+              "weighted_luma_C_times_A_2126_7152_722": 2759280658,
+              "bounds_exclusive": [
+                -4,
+                7,
+                0,
+                48
+              ]
+            },
+            "clipped_alpha_fraction": 0.009218224214244824,
+            "clipped_luma_fraction": 0.005007994912299919
+          },
+          "clipped_samples_xy_RGBA": [
+            [
+              -4,
+              8,
+              208,
+              34,
+              2,
+              124
+            ],
+            [
+              -4,
+              46,
+              204,
+              51,
+              0,
+              3
+            ],
+            [
+              -4,
+              47,
+              206,
+              34,
+              1,
+              104
+            ],
+            [
+              -3,
+              7,
+              223,
+              31,
+              0,
+              5
+            ],
+            [
+              -3,
+              8,
+              218,
+              42,
+              3,
+              204
+            ],
+            [
+              -3,
+              9,
+              216,
+              39,
+              3,
+              54
+            ],
+            [
+              -3,
+              46,
+              218,
+              42,
+              3,
+              168
+            ],
+            [
+              -3,
+              47,
+              217,
+              41,
+              3,
+              160
+            ],
+            [
+              -2,
+              7,
+              221,
+              45,
+              2,
+              63
+            ],
+            [
+              -2,
+              8,
+              229,
+              50,
+              3,
+              233
+            ],
+            [
+              -2,
+              9,
+              226,
+              48,
+              3,
+              187
+            ],
+            [
+              -2,
+              10,
+              255,
+              0,
+              0,
+              1
+            ],
+            [
+              -2,
+              45,
+              221,
+              45,
+              2,
+              122
+            ],
+            [
+              -2,
+              46,
+              229,
+              50,
+              3,
+              232
+            ],
+            [
+              -2,
+              47,
+              227,
+              49,
+              3,
+              178
+            ],
+            [
+              -1,
+              7,
+              232,
+              53,
+              3,
+              123
+            ],
+            [
+              -1,
+              8,
+              239,
+              57,
+              4,
+              249
+            ],
+            [
+              -1,
+              9,
+              237,
+              56,
+              4,
+              246
+            ],
+            [
+              -1,
+              10,
+              227,
+              48,
+              3,
+              158
+            ],
+            [
+              -1,
+              44,
+              221,
+              45,
+              5,
+              28
+            ],
+            [
+              -1,
+              45,
+              233,
+              53,
+              4,
+              205
+            ],
+            [
+              -1,
+              46,
+              239,
+              57,
+              4,
+              255
+            ],
+            [
+              -1,
+              47,
+              237,
+              56,
+              4,
+              199
+            ]
+          ],
+          "retained_rgba_sha256": "dbddbadf35a12fbf7575c8f9bd1c047fe96952234cc92654111b1b0d747f8c3e",
+          "clipped_blend_effect_by_background": {
+            "brown": {
+              "changed_pixels": 23,
+              "maximum_absolute_channel_change": 135
+            },
+            "cloud": {
+              "changed_pixels": 23,
+              "maximum_absolute_channel_change": 202
+            }
+          }
+        }
+      ]
+    },
+    {
+      "target": 41,
+      "density": 4,
+      "parts": [
+        [
+          39,
+          false,
+          2,
+          -3
+        ],
+        [
+          39,
+          false,
+          0,
+          1
+        ],
+        [
+          39,
+          true,
+          2,
+          3
+        ]
+      ],
+      "canvas": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "original_density_preserved": true,
+      "rgba_sha256": "c832a1267614335d4807a48ad06c44708677ebd4cf69516652066aebe36ef575",
+      "png_sha256": "b09a9bb38ab53b357be8caadca6807586255368d56ee2677abd509b5895df68b",
+      "rgba": "rear-multi-41-4-exact-clipped-union.rgba",
+      "png": "rear-multi-41-4-exact-clipped-union.png",
+      "stats": {
+        "full_unbounded": {
+          "supported_samples": 1536,
+          "maximum_alpha": 255,
+          "RGB_range": [
+            [
+              191,
+              255
+            ],
+            [
+              0,
+              249
+            ],
+            [
+              0,
+              153
+            ]
+          ],
+          "alpha_sum": 331587,
+          "premultiplied_RGB_C_times_A": [
+            82639131,
+            47290065,
+            11701032
+          ],
+          "weighted_luma_C_times_A_2126_7152_722": 522357482490,
+          "bounds_exclusive": [
+            0,
+            4,
+            52,
+            52
+          ]
+        },
+        "retained": {
+          "supported_samples": 1516,
+          "maximum_alpha": 255,
+          "RGB_range": [
+            [
+              191,
+              255
+            ],
+            [
+              0,
+              249
+            ],
+            [
+              0,
+              153
+            ]
+          ],
+          "alpha_sum": 329661,
+          "premultiplied_RGB_C_times_A": [
+            82216913,
+            47206197,
+            11696576
+          ],
+          "weighted_luma_C_times_A_2126_7152_722": 520856805854,
+          "bounds_exclusive": [
+            0,
+            4,
+            48,
+            52
+          ]
+        },
+        "clipped": {
+          "supported_samples": 20,
+          "maximum_alpha": 215,
+          "RGB_range": [
+            [
+              204,
+              229
+            ],
+            [
+              34,
+              50
+            ],
+            [
+              0,
+              3
+            ]
+          ],
+          "alpha_sum": 1926,
+          "premultiplied_RGB_C_times_A": [
+            422218,
+            83868,
+            4456
+          ],
+          "weighted_luma_C_times_A_2126_7152_722": 1500676636,
+          "bounds_exclusive": [
+            48,
+            8,
+            52,
+            48
+          ]
+        },
+        "clipped_alpha_fraction": 0.005808430366691095,
+        "clipped_luma_fraction": 0.0028728920065364026
+      },
+      "per_part_clipping": [
+        {
+          "full_unbounded": {
+            "supported_samples": 512,
+            "maximum_alpha": 255,
+            "RGB_range": [
+              [
+                191,
+                255
+              ],
+              [
+                0,
+                249
+              ],
+              [
+                0,
+                153
+              ]
+            ],
+            "alpha_sum": 110529,
+            "premultiplied_RGB_C_times_A": [
+              27546377,
+              15763355,
+              3900344
+            ],
+            "weighted_luma_C_times_A_2126_7152_722": 174119160830,
+            "bounds_exclusive": [
+              8,
+              4,
+              52,
+              20
+            ]
+          },
+          "retained": {
+            "supported_samples": 502,
+            "maximum_alpha": 255,
+            "RGB_range": [
+              [
+                191,
+                255
+              ],
+              [
+                0,
+                249
+              ],
+              [
+                0,
+                153
+              ]
+            ],
+            "alpha_sum": 109566,
+            "premultiplied_RGB_C_times_A": [
+              27335268,
+              15721421,
+              3898116
+            ],
+            "weighted_luma_C_times_A_2126_7152_722": 173368822512,
+            "bounds_exclusive": [
+              8,
+              4,
+              48,
+              20
+            ]
+          },
+          "clipped": {
+            "supported_samples": 10,
+            "maximum_alpha": 215,
+            "RGB_range": [
+              [
+                204,
+                229
+              ],
+              [
+                34,
+                50
+              ],
+              [
+                0,
+                3
+              ]
+            ],
+            "alpha_sum": 963,
+            "premultiplied_RGB_C_times_A": [
+              211109,
+              41934,
+              2228
+            ],
+            "weighted_luma_C_times_A_2126_7152_722": 750338318,
+            "bounds_exclusive": [
+              48,
+              8,
+              52,
+              11
+            ]
+          },
+          "clipped_alpha_fraction": 0.008712645550036643,
+          "clipped_luma_fraction": 0.004309338009804604
+        },
+        {
+          "full_unbounded": {
+            "supported_samples": 512,
+            "maximum_alpha": 255,
+            "RGB_range": [
+              [
+                191,
+                255
+              ],
+              [
+                0,
+                249
+              ],
+              [
+                0,
+                153
+              ]
+            ],
+            "alpha_sum": 110529,
+            "premultiplied_RGB_C_times_A": [
+              27546377,
+              15763355,
+              3900344
+            ],
+            "weighted_luma_C_times_A_2126_7152_722": 174119160830,
+            "bounds_exclusive": [
+              0,
+              20,
+              44,
+              36
+            ]
+          },
+          "retained": {
+            "supported_samples": 512,
+            "maximum_alpha": 255,
+            "RGB_range": [
+              [
+                191,
+                255
+              ],
+              [
+                0,
+                249
+              ],
+              [
+                0,
+                153
+              ]
+            ],
+            "alpha_sum": 110529,
+            "premultiplied_RGB_C_times_A": [
+              27546377,
+              15763355,
+              3900344
+            ],
+            "weighted_luma_C_times_A_2126_7152_722": 174119160830,
+            "bounds_exclusive": [
+              0,
+              20,
+              44,
+              36
+            ]
+          },
+          "clipped": {
+            "supported_samples": 0,
+            "maximum_alpha": 0,
+            "RGB_range": null,
+            "alpha_sum": 0,
+            "premultiplied_RGB_C_times_A": [
+              0,
+              0,
+              0
+            ],
+            "weighted_luma_C_times_A_2126_7152_722": 0,
+            "bounds_exclusive": null
+          },
+          "clipped_alpha_fraction": 0.0,
+          "clipped_luma_fraction": 0.0
+        },
+        {
+          "full_unbounded": {
+            "supported_samples": 512,
+            "maximum_alpha": 255,
+            "RGB_range": [
+              [
+                191,
+                255
+              ],
+              [
+                0,
+                249
+              ],
+              [
+                0,
+                153
+              ]
+            ],
+            "alpha_sum": 110529,
+            "premultiplied_RGB_C_times_A": [
+              27546377,
+              15763355,
+              3900344
+            ],
+            "weighted_luma_C_times_A_2126_7152_722": 174119160830,
+            "bounds_exclusive": [
+              8,
+              36,
+              52,
+              52
+            ]
+          },
+          "retained": {
+            "supported_samples": 502,
+            "maximum_alpha": 255,
+            "RGB_range": [
+              [
+                191,
+                255
+              ],
+              [
+                0,
+                249
+              ],
+              [
+                0,
+                153
+              ]
+            ],
+            "alpha_sum": 109566,
+            "premultiplied_RGB_C_times_A": [
+              27335268,
+              15721421,
+              3898116
+            ],
+            "weighted_luma_C_times_A_2126_7152_722": 173368822512,
+            "bounds_exclusive": [
+              8,
+              36,
+              48,
+              52
+            ]
+          },
+          "clipped": {
+            "supported_samples": 10,
+            "maximum_alpha": 215,
+            "RGB_range": [
+              [
+                204,
+                229
+              ],
+              [
+                34,
+                50
+              ],
+              [
+                0,
+                3
+              ]
+            ],
+            "alpha_sum": 963,
+            "premultiplied_RGB_C_times_A": [
+              211109,
+              41934,
+              2228
+            ],
+            "weighted_luma_C_times_A_2126_7152_722": 750338318,
+            "bounds_exclusive": [
+              48,
+              45,
+              52,
+              48
+            ]
+          },
+          "clipped_alpha_fraction": 0.008712645550036643,
+          "clipped_luma_fraction": 0.004309338009804604
+        }
+      ],
+      "overlap_authored_samples": 0,
+      "all_six_orders_byte_identical": true,
+      "retained_RGBA_exact_from_single_component": true,
+      "added_support_beyond_transformed_union": 0,
+      "clipped_samples_xy_RGBA": [
+        [
+          48,
+          8,
+          229,
+          50,
+          2,
+          135
+        ],
+        [
+          48,
+          9,
+          229,
+          50,
+          3,
+          215
+        ],
+        [
+          48,
+          10,
+          220,
+          44,
+          3,
+          91
+        ],
+        [
+          48,
+          45,
+          220,
+          44,
+          3,
+          91
+        ],
+        [
+          48,
+          46,
+          229,
+          50,
+          3,
+          215
+        ],
+        [
+          48,
+          47,
+          229,
+          50,
+          2,
+          135
+        ],
+        [
+          49,
+          8,
+          219,
+          44,
+          3,
+          96
+        ],
+        [
+          49,
+          9,
+          217,
+          42,
+          3,
+          173
+        ],
+        [
+          49,
+          10,
+          207,
+          39,
+          0,
+          21
+        ],
+        [
+          49,
+          45,
+          207,
+          39,
+          0,
+          21
+        ],
+        [
+          49,
+          46,
+          217,
+          42,
+          3,
+          173
+        ],
+        [
+          49,
+          47,
+          219,
+          44,
+          3,
+          96
+        ],
+        [
+          50,
+          8,
+          210,
+          36,
+          2,
+          59
+        ],
+        [
+          50,
+          9,
+          207,
+          35,
+          1,
+          115
+        ],
+        [
+          50,
+          46,
+          207,
+          35,
+          1,
+          115
+        ],
+        [
+          50,
+          47,
+          210,
+          36,
+          2,
+          59
+        ],
+        [
+          51,
+          8,
+          204,
+          34,
+          0,
+          20
+        ],
+        [
+          51,
+          9,
+          204,
+          34,
+          0,
+          38
+        ],
+        [
+          51,
+          46,
+          204,
+          34,
+          0,
+          38
+        ],
+        [
+          51,
+          47,
+          204,
+          34,
+          0,
+          20
+        ]
+      ],
+      "native": [
+        {
+          "scale": 1,
+          "stats": {
+            "full_unbounded": {
+              "supported_samples": 97,
+              "maximum_alpha": 255,
+              "RGB_range": [
+                [
+                  205,
+                  255
+                ],
+                [
+                  32,
+                  242
+                ],
+                [
+                  0,
+                  116
+                ]
+              ],
+              "alpha_sum": 21361,
+              "premultiplied_RGB_C_times_A": [
+                5308502,
+                2985915,
+                720013
+              ],
+              "weighted_luma_C_times_A_2126_7152_722": 33160988718,
+              "bounds_exclusive": [
+                0,
+                1,
+                13,
+                13
+              ]
+            },
+            "retained": {
+              "supported_samples": 96,
+              "maximum_alpha": 255,
+              "RGB_range": [
+                [
+                  205,
+                  255
+                ],
+                [
+                  32,
+                  242
+                ],
+                [
+                  0,
+                  116
+                ]
+              ],
+              "alpha_sum": 21246,
+              "premultiplied_RGB_C_times_A": [
+                5284697,
+                2981890,
+                719898
+              ],
+              "weighted_luma_C_times_A_2126_7152_722": 33081509458,
+              "bounds_exclusive": [
+                0,
+                1,
+                12,
+                13
+              ]
+            },
+            "clipped": {
+              "supported_samples": 1,
+              "maximum_alpha": 115,
+              "RGB_range": [
+                [
+                  207,
+                  207
+                ],
+                [
+                  35,
+                  35
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              "alpha_sum": 115,
+              "premultiplied_RGB_C_times_A": [
+                23805,
+                4025,
+                115
+              ],
+              "weighted_luma_C_times_A_2126_7152_722": 79479260,
+              "bounds_exclusive": [
+                12,
+                11,
+                13,
+                12
+              ]
+            },
+            "clipped_alpha_fraction": 0.005383643087870418,
+            "clipped_luma_fraction": 0.0023967699116539953
+          },
+          "clipped_samples_xy_RGBA": [
+            [
+              12,
+              11,
+              207,
+              35,
+              1,
+              115
+            ]
+          ],
+          "retained_rgba_sha256": "b61dfd0f418ceadd8bf9c0c78fdd24c47762573e420a6a946aeb9fa4d0022d69",
+          "clipped_blend_effect_by_background": {
+            "brown": {
+              "changed_pixels": 1,
+              "maximum_absolute_channel_change": 46
+            },
+            "cloud": {
+              "changed_pixels": 1,
+              "maximum_absolute_channel_change": 92
+            }
+          }
+        },
+        {
+          "scale": 2,
+          "stats": {
+            "full_unbounded": {
+              "supported_samples": 382,
+              "maximum_alpha": 255,
+              "RGB_range": [
+                [
+                  191,
+                  255
+                ],
+                [
+                  0,
+                  249
+                ],
+                [
+                  0,
+                  153
+                ]
+              ],
+              "alpha_sum": 82862,
+              "premultiplied_RGB_C_times_A": [
+                20661129,
+                11816434,
+                2925583
+              ],
+              "weighted_luma_C_times_A_2126_7152_722": 130548967148,
+              "bounds_exclusive": [
+                0,
+                2,
+                26,
+                26
+              ]
+            },
+            "retained": {
+              "supported_samples": 377,
+              "maximum_alpha": 255,
+              "RGB_range": [
+                [
+                  191,
+                  255
+                ],
+                [
+                  0,
+                  249
+                ],
+                [
+                  0,
+                  153
+                ]
+              ],
+              "alpha_sum": 82514,
+              "premultiplied_RGB_C_times_A": [
+                20586385,
+                11802153,
+                2924776
+              ],
+              "weighted_luma_C_times_A_2126_7152_722": 130287341038,
+              "bounds_exclusive": [
+                0,
+                2,
+                24,
+                26
+              ]
+            },
+            "clipped": {
+              "supported_samples": 5,
+              "maximum_alpha": 173,
+              "RGB_range": [
+                [
+                  204,
+                  219
+                ],
+                [
+                  34,
+                  44
+                ],
+                [
+                  0,
+                  3
+                ]
+              ],
+              "alpha_sum": 348,
+              "premultiplied_RGB_C_times_A": [
+                74744,
+                14281,
+                807
+              ],
+              "weighted_luma_C_times_A_2126_7152_722": 261626110,
+              "bounds_exclusive": [
+                24,
+                4,
+                26,
+                24
+              ]
+            },
+            "clipped_alpha_fraction": 0.00419975380753542,
+            "clipped_luma_fraction": 0.0020040458053061515
+          },
+          "clipped_samples_xy_RGBA": [
+            [
+              24,
+              4,
+              217,
+              42,
+              3,
+              173
+            ],
+            [
+              24,
+              22,
+              207,
+              39,
+              0,
+              21
+            ],
+            [
+              24,
+              23,
+              219,
+              44,
+              3,
+              96
+            ],
+            [
+              25,
+              4,
+              204,
+              34,
+              0,
+              38
+            ],
+            [
+              25,
+              23,
+              204,
+              34,
+              0,
+              20
+            ]
+          ],
+          "retained_rgba_sha256": "4759c9b648fa86919e528022d544eed772e8360eadf1f347a8fb7b54c971458b",
+          "clipped_blend_effect_by_background": {
+            "brown": {
+              "changed_pixels": 5,
+              "maximum_absolute_channel_change": 77
+            },
+            "cloud": {
+              "changed_pixels": 5,
+              "maximum_absolute_channel_change": 138
+            }
+          }
+        },
+        {
+          "scale": 4,
+          "stats": {
+            "full_unbounded": {
+              "supported_samples": 1536,
+              "maximum_alpha": 255,
+              "RGB_range": [
+                [
+                  191,
+                  255
+                ],
+                [
+                  0,
+                  249
+                ],
+                [
+                  0,
+                  153
+                ]
+              ],
+              "alpha_sum": 331587,
+              "premultiplied_RGB_C_times_A": [
+                82639131,
+                47290065,
+                11701032
+              ],
+              "weighted_luma_C_times_A_2126_7152_722": 522357482490,
+              "bounds_exclusive": [
+                0,
+                4,
+                52,
+                52
+              ]
+            },
+            "retained": {
+              "supported_samples": 1516,
+              "maximum_alpha": 255,
+              "RGB_range": [
+                [
+                  191,
+                  255
+                ],
+                [
+                  0,
+                  249
+                ],
+                [
+                  0,
+                  153
+                ]
+              ],
+              "alpha_sum": 329661,
+              "premultiplied_RGB_C_times_A": [
+                82216913,
+                47206197,
+                11696576
+              ],
+              "weighted_luma_C_times_A_2126_7152_722": 520856805854,
+              "bounds_exclusive": [
+                0,
+                4,
+                48,
+                52
+              ]
+            },
+            "clipped": {
+              "supported_samples": 20,
+              "maximum_alpha": 215,
+              "RGB_range": [
+                [
+                  204,
+                  229
+                ],
+                [
+                  34,
+                  50
+                ],
+                [
+                  0,
+                  3
+                ]
+              ],
+              "alpha_sum": 1926,
+              "premultiplied_RGB_C_times_A": [
+                422218,
+                83868,
+                4456
+              ],
+              "weighted_luma_C_times_A_2126_7152_722": 1500676636,
+              "bounds_exclusive": [
+                48,
+                8,
+                52,
+                48
+              ]
+            },
+            "clipped_alpha_fraction": 0.005808430366691095,
+            "clipped_luma_fraction": 0.0028728920065364026
+          },
+          "clipped_samples_xy_RGBA": [
+            [
+              48,
+              8,
+              229,
+              50,
+              2,
+              135
+            ],
+            [
+              48,
+              9,
+              229,
+              50,
+              3,
+              215
+            ],
+            [
+              48,
+              10,
+              220,
+              44,
+              3,
+              91
+            ],
+            [
+              48,
+              45,
+              220,
+              44,
+              3,
+              91
+            ],
+            [
+              48,
+              46,
+              229,
+              50,
+              3,
+              215
+            ],
+            [
+              48,
+              47,
+              229,
+              50,
+              2,
+              135
+            ],
+            [
+              49,
+              8,
+              219,
+              44,
+              3,
+              96
+            ],
+            [
+              49,
+              9,
+              217,
+              42,
+              3,
+              173
+            ],
+            [
+              49,
+              10,
+              207,
+              39,
+              0,
+              21
+            ],
+            [
+              49,
+              45,
+              207,
+              39,
+              0,
+              21
+            ],
+            [
+              49,
+              46,
+              217,
+              42,
+              3,
+              173
+            ],
+            [
+              49,
+              47,
+              219,
+              44,
+              3,
+              96
+            ],
+            [
+              50,
+              8,
+              210,
+              36,
+              2,
+              59
+            ],
+            [
+              50,
+              9,
+              207,
+              35,
+              1,
+              115
+            ],
+            [
+              50,
+              46,
+              207,
+              35,
+              1,
+              115
+            ],
+            [
+              50,
+              47,
+              210,
+              36,
+              2,
+              59
+            ],
+            [
+              51,
+              8,
+              204,
+              34,
+              0,
+              20
+            ],
+            [
+              51,
+              9,
+              204,
+              34,
+              0,
+              38
+            ],
+            [
+              51,
+              46,
+              204,
+              34,
+              0,
+              38
+            ],
+            [
+              51,
+              47,
+              204,
+              34,
+              0,
+              20
+            ]
+          ],
+          "retained_rgba_sha256": "c832a1267614335d4807a48ad06c44708677ebd4cf69516652066aebe36ef575",
+          "clipped_blend_effect_by_background": {
+            "brown": {
+              "changed_pixels": 20,
+              "maximum_absolute_channel_change": 105
+            },
+            "cloud": {
+              "changed_pixels": 20,
+              "maximum_absolute_channel_change": 171
+            }
+          }
+        }
+      ]
+    },
+    {
+      "target": 41,
+      "density": 8,
+      "parts": [
+        [
+          39,
+          false,
+          2,
+          -3
+        ],
+        [
+          39,
+          false,
+          0,
+          1
+        ],
+        [
+          39,
+          true,
+          2,
+          3
+        ]
+      ],
+      "canvas": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "original_density_preserved": true,
+      "rgba_sha256": "47040ee657bfc71fcd46e23348521d20c83e87a9177788164becde85c3295a55",
+      "png_sha256": "f142ac3eb4ddf0b54a7b70ef86d50daeda5fbd2a80f81403286f5add38e2bd79",
+      "rgba": "rear-multi-41-8-exact-clipped-union.rgba",
+      "png": "rear-multi-41-8-exact-clipped-union.png",
+      "stats": {
+        "full_unbounded": {
+          "supported_samples": 5889,
+          "maximum_alpha": 255,
+          "RGB_range": [
+            [
+              170,
+              255
+            ],
+            [
+              0,
+              249
+            ],
+            [
+              0,
+              158
+            ]
+          ],
+          "alpha_sum": 1348116,
+          "premultiplied_RGB_C_times_A": [
+            335836521,
+            191056380,
+            47095860
+          ],
+          "weighted_luma_C_times_A_2126_7152_722": 2114426884326,
+          "bounds_exclusive": [
+            0,
+            8,
+            104,
+            104
+          ]
+        },
+        "retained": {
+          "supported_samples": 5825,
+          "maximum_alpha": 255,
+          "RGB_range": [
+            [
+              170,
+              255
+            ],
+            [
+              0,
+              249
+            ],
+            [
+              0,
+              158
+            ]
+          ],
+          "alpha_sum": 1339726,
+          "premultiplied_RGB_C_times_A": [
+            333984893,
+            190686604,
+            47073144
+          ],
+          "weighted_luma_C_times_A_2126_7152_722": 2107829284294,
+          "bounds_exclusive": [
+            0,
+            8,
+            96,
+            104
+          ]
+        },
+        "clipped": {
+          "supported_samples": 64,
+          "maximum_alpha": 250,
+          "RGB_range": [
+            [
+              205,
+              233
+            ],
+            [
+              31,
+              53
+            ],
+            [
+              0,
+              4
+            ]
+          ],
+          "alpha_sum": 8390,
+          "premultiplied_RGB_C_times_A": [
+            1851628,
+            369776,
+            22716
+          ],
+          "weighted_luma_C_times_A_2126_7152_722": 6597600032,
+          "bounds_exclusive": [
+            96,
+            16,
+            104,
+            96
+          ]
+        },
+        "clipped_alpha_fraction": 0.0062235000548914185,
+        "clipped_luma_fraction": 0.0031202781618542784
+      },
+      "per_part_clipping": [
+        {
+          "full_unbounded": {
+            "supported_samples": 1963,
+            "maximum_alpha": 255,
+            "RGB_range": [
+              [
+                170,
+                255
+              ],
+              [
+                0,
+                249
+              ],
+              [
+                0,
+                158
+              ]
+            ],
+            "alpha_sum": 449372,
+            "premultiplied_RGB_C_times_A": [
+              111945507,
+              63685460,
+              15698620
+            ],
+            "weighted_luma_C_times_A_2126_7152_722": 704808961442,
+            "bounds_exclusive": [
+              16,
+              8,
+              104,
+              40
+            ]
+          },
+          "retained": {
+            "supported_samples": 1931,
+            "maximum_alpha": 255,
+            "RGB_range": [
+              [
+                170,
+                255
+              ],
+              [
+                0,
+                249
+              ],
+              [
+                0,
+                158
+              ]
+            ],
+            "alpha_sum": 445177,
+            "premultiplied_RGB_C_times_A": [
+              111019693,
+              63500572,
+              15687262
+            ],
+            "weighted_luma_C_times_A_2126_7152_722": 701510161426,
+            "bounds_exclusive": [
+              16,
+              8,
+              96,
+              40
+            ]
+          },
+          "clipped": {
+            "supported_samples": 32,
+            "maximum_alpha": 250,
+            "RGB_range": [
+              [
+                205,
+                233
+              ],
+              [
+                31,
+                53
+              ],
+              [
+                0,
+                4
+              ]
+            ],
+            "alpha_sum": 4195,
+            "premultiplied_RGB_C_times_A": [
+              925814,
+              184888,
+              11358
+            ],
+            "weighted_luma_C_times_A_2126_7152_722": 3298800016,
+            "bounds_exclusive": [
+              96,
+              16,
+              104,
+              22
+            ]
+          },
+          "clipped_alpha_fraction": 0.009335250082337128,
+          "clipped_luma_fraction": 0.0046804172427814175
+        },
+        {
+          "full_unbounded": {
+            "supported_samples": 1963,
+            "maximum_alpha": 255,
+            "RGB_range": [
+              [
+                170,
+                255
+              ],
+              [
+                0,
+                249
+              ],
+              [
+                0,
+                158
+              ]
+            ],
+            "alpha_sum": 449372,
+            "premultiplied_RGB_C_times_A": [
+              111945507,
+              63685460,
+              15698620
+            ],
+            "weighted_luma_C_times_A_2126_7152_722": 704808961442,
+            "bounds_exclusive": [
+              0,
+              40,
+              88,
+              72
+            ]
+          },
+          "retained": {
+            "supported_samples": 1963,
+            "maximum_alpha": 255,
+            "RGB_range": [
+              [
+                170,
+                255
+              ],
+              [
+                0,
+                249
+              ],
+              [
+                0,
+                158
+              ]
+            ],
+            "alpha_sum": 449372,
+            "premultiplied_RGB_C_times_A": [
+              111945507,
+              63685460,
+              15698620
+            ],
+            "weighted_luma_C_times_A_2126_7152_722": 704808961442,
+            "bounds_exclusive": [
+              0,
+              40,
+              88,
+              72
+            ]
+          },
+          "clipped": {
+            "supported_samples": 0,
+            "maximum_alpha": 0,
+            "RGB_range": null,
+            "alpha_sum": 0,
+            "premultiplied_RGB_C_times_A": [
+              0,
+              0,
+              0
+            ],
+            "weighted_luma_C_times_A_2126_7152_722": 0,
+            "bounds_exclusive": null
+          },
+          "clipped_alpha_fraction": 0.0,
+          "clipped_luma_fraction": 0.0
+        },
+        {
+          "full_unbounded": {
+            "supported_samples": 1963,
+            "maximum_alpha": 255,
+            "RGB_range": [
+              [
+                170,
+                255
+              ],
+              [
+                0,
+                249
+              ],
+              [
+                0,
+                158
+              ]
+            ],
+            "alpha_sum": 449372,
+            "premultiplied_RGB_C_times_A": [
+              111945507,
+              63685460,
+              15698620
+            ],
+            "weighted_luma_C_times_A_2126_7152_722": 704808961442,
+            "bounds_exclusive": [
+              16,
+              72,
+              104,
+              104
+            ]
+          },
+          "retained": {
+            "supported_samples": 1931,
+            "maximum_alpha": 255,
+            "RGB_range": [
+              [
+                170,
+                255
+              ],
+              [
+                0,
+                249
+              ],
+              [
+                0,
+                158
+              ]
+            ],
+            "alpha_sum": 445177,
+            "premultiplied_RGB_C_times_A": [
+              111019693,
+              63500572,
+              15687262
+            ],
+            "weighted_luma_C_times_A_2126_7152_722": 701510161426,
+            "bounds_exclusive": [
+              16,
+              72,
+              96,
+              104
+            ]
+          },
+          "clipped": {
+            "supported_samples": 32,
+            "maximum_alpha": 250,
+            "RGB_range": [
+              [
+                205,
+                233
+              ],
+              [
+                31,
+                53
+              ],
+              [
+                0,
+                4
+              ]
+            ],
+            "alpha_sum": 4195,
+            "premultiplied_RGB_C_times_A": [
+              925814,
+              184888,
+              11358
+            ],
+            "weighted_luma_C_times_A_2126_7152_722": 3298800016,
+            "bounds_exclusive": [
+              96,
+              90,
+              104,
+              96
+            ]
+          },
+          "clipped_alpha_fraction": 0.009335250082337128,
+          "clipped_luma_fraction": 0.0046804172427814175
+        }
+      ],
+      "overlap_authored_samples": 0,
+      "all_six_orders_byte_identical": true,
+      "retained_RGBA_exact_from_single_component": true,
+      "added_support_beyond_transformed_union": 0,
+      "clipped_samples_xy_RGBA": [
+        [
+          96,
+          16,
+          231,
+          51,
+          3,
+          140
+        ],
+        [
+          96,
+          17,
+          233,
+          53,
+          4,
+          204
+        ],
+        [
+          96,
+          18,
+          233,
+          53,
+          4,
+          250
+        ],
+        [
+          96,
+          19,
+          230,
+          51,
+          3,
+          226
+        ],
+        [
+          96,
+          20,
+          226,
+          48,
+          3,
+          178
+        ],
+        [
+          96,
+          21,
+          220,
+          43,
+          2,
+          70
+        ],
+        [
+          96,
+          90,
+          220,
+          43,
+          2,
+          70
+        ],
+        [
+          96,
+          91,
+          226,
+          48,
+          3,
+          178
+        ],
+        [
+          96,
+          92,
+          230,
+          51,
+          3,
+          226
+        ],
+        [
+          96,
+          93,
+          233,
+          53,
+          4,
+          250
+        ],
+        [
+          96,
+          94,
+          233,
+          53,
+          4,
+          204
+        ],
+        [
+          96,
+          95,
+          231,
+          51,
+          3,
+          140
+        ],
+        [
+          97,
+          16,
+          226,
+          48,
+          3,
+          102
+        ],
+        [
+          97,
+          17,
+          228,
+          49,
+          3,
+          189
+        ],
+        [
+          97,
+          18,
+          228,
+          49,
+          3,
+          241
+        ],
+        [
+          97,
+          19,
+          225,
+          47,
+          3,
+          203
+        ],
+        [
+          97,
+          20,
+          220,
+          44,
+          3,
+          151
+        ],
+        [
+          97,
+          21,
+          208,
+          46,
+          0,
+          7
+        ],
+        [
+          97,
+          90,
+          208,
+          46,
+          0,
+          7
+        ],
+        [
+          97,
+          91,
+          220,
+          44,
+          3,
+          151
+        ],
+        [
+          97,
+          92,
+          225,
+          47,
+          3,
+          203
+        ],
+        [
+          97,
+          93,
+          228,
+          49,
+          3,
+          241
+        ],
+        [
+          97,
+          94,
+          228,
+          49,
+          3,
+          189
+        ],
+        [
+          97,
+          95,
+          226,
+          48,
+          3,
+          102
+        ],
+        [
+          98,
+          16,
+          222,
+          45,
+          2,
+          64
+        ],
+        [
+          98,
+          17,
+          223,
+          46,
+          3,
+          177
+        ],
+        [
+          98,
+          18,
+          222,
+          45,
+          3,
+          226
+        ],
+        [
+          98,
+          19,
+          219,
+          43,
+          3,
+          179
+        ],
+        [
+          98,
+          20,
+          214,
+          40,
+          3,
+          82
+        ],
+        [
+          98,
+          91,
+          214,
+          40,
+          3,
+          82
+        ],
+        [
+          98,
+          92,
+          219,
+          43,
+          3,
+          179
+        ],
+        [
+          98,
+          93,
+          222,
+          45,
+          3,
+          226
+        ],
+        [
+          98,
+          94,
+          223,
+          46,
+          3,
+          177
+        ],
+        [
+          98,
+          95,
+          222,
+          45,
+          2,
+          64
+        ],
+        [
+          99,
+          16,
+          215,
+          39,
+          0,
+          20
+        ],
+        [
+          99,
+          17,
+          218,
+          42,
+          3,
+          165
+        ],
+        [
+          99,
+          18,
+          217,
+          41,
+          3,
+          204
+        ],
+        [
+          99,
+          19,
+          214,
+          38,
+          3,
+          159
+        ],
+        [
+          99,
+          20,
+          210,
+          33,
+          0,
+          15
+        ],
+        [
+          99,
+          91,
+          210,
+          33,
+          0,
+          15
+        ],
+        [
+          99,
+          92,
+          214,
+          38,
+          3,
+          159
+        ],
+        [
+          99,
+          93,
+          217,
+          41,
+          3,
+          204
+        ],
+        [
+          99,
+          94,
+          218,
+          42,
+          3,
+          165
+        ],
+        [
+          99,
+          95,
+          215,
+          39,
+          0,
+          20
+        ],
+        [
+          100,
+          17,
+          213,
+          38,
+          2,
+          140
+        ],
+        [
+          100,
+          18,
+          212,
+          38,
+          2,
+          184
+        ],
+        [
+          100,
+          19,
+          209,
+          36,
+          1,
+          102
+        ],
+        [
+          100,
+          92,
+          209,
+          36,
+          1,
+          102
+        ],
+        [
+          100,
+          93,
+          212,
+          38,
+          2,
+          184
+        ],
+        [
+          100,
+          94,
+          213,
+          38,
+          2,
+          140
+        ],
+        [
+          101,
+          17,
+          206,
+          35,
+          1,
+          100
+        ],
+        [
+          101,
+          18,
+          205,
+          34,
+          2,
+          165
+        ],
+        [
+          101,
+          19,
+          205,
+          31,
+          0,
+          26
+        ],
+        [
+          101,
+          92,
+          205,
+          31,
+          0,
+          26
+        ],
+        [
+          101,
+          93,
+          205,
+          34,
+          2,
+          165
+        ],
+        [
+          101,
+          94,
+          206,
+          35,
+          1,
+          100
+        ],
+        [
+          102,
+          17,
+          206,
+          32,
+          2,
+          59
+        ],
+        [
+          102,
+          18,
+          205,
+          33,
+          1,
+          110
+        ],
+        [
+          102,
+          93,
+          205,
+          33,
+          1,
+          110
+        ],
+        [
+          102,
+          94,
+          206,
+          32,
+          2,
+          59
+        ],
+        [
+          103,
+          17,
+          205,
+          32,
+          0,
+          20
+        ],
+        [
+          103,
+          18,
+          206,
+          35,
+          0,
+          37
+        ],
+        [
+          103,
+          93,
+          206,
+          35,
+          0,
+          37
+        ],
+        [
+          103,
+          94,
+          205,
+          32,
+          0,
+          20
+        ]
+      ],
+      "native": [
+        {
+          "scale": 1,
+          "stats": {
+            "full_unbounded": {
+              "supported_samples": 92,
+              "maximum_alpha": 255,
+              "RGB_range": [
+                [
+                  205,
+                  255
+                ],
+                [
+                  33,
+                  240
+                ],
+                [
+                  0,
+                  109
+                ]
+              ],
+              "alpha_sum": 21613,
+              "premultiplied_RGB_C_times_A": [
+                5379697,
+                3013695,
+                723650
+              ],
+              "weighted_luma_C_times_A_2126_7152_722": 33513657762,
+              "bounds_exclusive": [
+                0,
+                1,
+                13,
+                13
+              ]
+            },
+            "retained": {
+              "supported_samples": 91,
+              "maximum_alpha": 255,
+              "RGB_range": [
+                [
+                  205,
+                  255
+                ],
+                [
+                  33,
+                  240
+                ],
+                [
+                  0,
+                  109
+                ]
+              ],
+              "alpha_sum": 21511,
+              "premultiplied_RGB_C_times_A": [
+                5358379,
+                3010023,
+                723548
+              ],
+              "weighted_luma_C_times_A_2126_7152_722": 33441999906,
+              "bounds_exclusive": [
+                0,
+                1,
+                12,
+                13
+              ]
+            },
+            "clipped": {
+              "supported_samples": 1,
+              "maximum_alpha": 102,
+              "RGB_range": [
+                [
+                  209,
+                  209
+                ],
+                [
+                  36,
+                  36
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              "alpha_sum": 102,
+              "premultiplied_RGB_C_times_A": [
+                21318,
+                3672,
+                102
+              ],
+              "weighted_luma_C_times_A_2126_7152_722": 71657856,
+              "bounds_exclusive": [
+                12,
+                11,
+                13,
+                12
+              ]
+            },
+            "clipped_alpha_fraction": 0.004719381853514088,
+            "clipped_luma_fraction": 0.002138168758208494
+          },
+          "clipped_samples_xy_RGBA": [
+            [
+              12,
+              11,
+              209,
+              36,
+              1,
+              102
+            ]
+          ],
+          "retained_rgba_sha256": "3122225d868dff5473679da20629a7e67d67a04fc8ed31ace6c42baed766c2ef",
+          "clipped_blend_effect_by_background": {
+            "brown": {
+              "changed_pixels": 1,
+              "maximum_absolute_channel_change": 42
+            },
+            "cloud": {
+              "changed_pixels": 1,
+              "maximum_absolute_channel_change": 82
+            }
+          }
+        },
+        {
+          "scale": 2,
+          "stats": {
+            "full_unbounded": {
+              "supported_samples": 373,
+              "maximum_alpha": 255,
+              "RGB_range": [
+                [
+                  170,
+                  255
+                ],
+                [
+                  0,
+                  247
+                ],
+                [
+                  0,
+                  145
+                ]
+              ],
+              "alpha_sum": 84965,
+              "premultiplied_RGB_C_times_A": [
+                21144687,
+                11988042,
+                2945745
+              ],
+              "weighted_luma_C_times_A_2126_7152_722": 132818908836,
+              "bounds_exclusive": [
+                0,
+                2,
+                26,
+                26
+              ]
+            },
+            "retained": {
+              "supported_samples": 369,
+              "maximum_alpha": 255,
+              "RGB_range": [
+                [
+                  170,
+                  255
+                ],
+                [
+                  0,
+                  247
+                ],
+                [
+                  0,
+                  145
+                ]
+              ],
+              "alpha_sum": 84393,
+              "premultiplied_RGB_C_times_A": [
+                21020340,
+                11964212,
+                2944308
+              ],
+              "weighted_luma_C_times_A_2126_7152_722": 132383077440,
+              "bounds_exclusive": [
+                0,
+                2,
+                24,
+                26
+              ]
+            },
+            "clipped": {
+              "supported_samples": 4,
+              "maximum_alpha": 226,
+              "RGB_range": [
+                [
+                  205,
+                  223
+                ],
+                [
+                  32,
+                  46
+                ],
+                [
+                  1,
+                  3
+                ]
+              ],
+              "alpha_sum": 572,
+              "premultiplied_RGB_C_times_A": [
+                124347,
+                23830,
+                1437
+              ],
+              "weighted_luma_C_times_A_2126_7152_722": 435831396,
+              "bounds_exclusive": [
+                24,
+                4,
+                26,
+                24
+              ]
+            },
+            "clipped_alpha_fraction": 0.0067321838404048725,
+            "clipped_luma_fraction": 0.0032813956974917548
+          },
+          "clipped_samples_xy_RGBA": [
+            [
+              24,
+              4,
+              222,
+              45,
+              3,
+              226
+            ],
+            [
+              24,
+              23,
+              223,
+              46,
+              3,
+              177
+            ],
+            [
+              25,
+              4,
+              205,
+              33,
+              1,
+              110
+            ],
+            [
+              25,
+              23,
+              206,
+              32,
+              2,
+              59
+            ]
+          ],
+          "retained_rgba_sha256": "526eb8320cd2985e159dab80a7c18b30e8cd9c713ec49c6b7c1fe8e1f75c9057",
+          "clipped_blend_effect_by_background": {
+            "brown": {
+              "changed_pixels": 4,
+              "maximum_absolute_channel_change": 105
+            },
+            "cloud": {
+              "changed_pixels": 4,
+              "maximum_absolute_channel_change": 180
+            }
+          }
+        },
+        {
+          "scale": 4,
+          "stats": {
+            "full_unbounded": {
+              "supported_samples": 1467,
+              "maximum_alpha": 255,
+              "RGB_range": [
+                [
+                  204,
+                  255
+                ],
+                [
+                  0,
+                  249
+                ],
+                [
+                  0,
+                  158
+                ]
+              ],
+              "alpha_sum": 336655,
+              "premultiplied_RGB_C_times_A": [
+                83871785,
+                47696876,
+                11751586
+              ],
+              "weighted_luma_C_times_A_2126_7152_722": 527924117154,
+              "bounds_exclusive": [
+                0,
+                4,
+                52,
+                52
+              ]
+            },
+            "retained": {
+              "supported_samples": 1451,
+              "maximum_alpha": 255,
+              "RGB_range": [
+                [
+                  204,
+                  255
+                ],
+                [
+                  0,
+                  249
+                ],
+                [
+                  0,
+                  158
+                ]
+              ],
+              "alpha_sum": 334851,
+              "premultiplied_RGB_C_times_A": [
+                83477151,
+                47619941,
+                11746914
+              ],
+              "weighted_luma_C_times_A_2126_7152_722": 526531512966,
+              "bounds_exclusive": [
+                0,
+                4,
+                48,
+                52
+              ]
+            },
+            "clipped": {
+              "supported_samples": 16,
+              "maximum_alpha": 241,
+              "RGB_range": [
+                [
+                  205,
+                  228
+                ],
+                [
+                  31,
+                  49
+                ],
+                [
+                  0,
+                  3
+                ]
+              ],
+              "alpha_sum": 1804,
+              "premultiplied_RGB_C_times_A": [
+                394634,
+                76935,
+                4672
+              ],
+              "weighted_luma_C_times_A_2126_7152_722": 1392604188,
+              "bounds_exclusive": [
+                48,
+                8,
+                52,
+                48
+              ]
+            },
+            "clipped_alpha_fraction": 0.005358601535696781,
+            "clipped_luma_fraction": 0.002637887042379171
+          },
+          "clipped_samples_xy_RGBA": [
+            [
+              48,
+              8,
+              228,
+              49,
+              3,
+              189
+            ],
+            [
+              48,
+              9,
+              225,
+              47,
+              3,
+              203
+            ],
+            [
+              48,
+              10,
+              208,
+              46,
+              0,
+              7
+            ],
+            [
+              48,
+              45,
+              220,
+              44,
+              3,
+              151
+            ],
+            [
+              48,
+              46,
+              228,
+              49,
+              3,
+              241
+            ],
+            [
+              48,
+              47,
+              226,
+              48,
+              3,
+              102
+            ],
+            [
+              49,
+              8,
+              218,
+              42,
+              3,
+              165
+            ],
+            [
+              49,
+              9,
+              214,
+              38,
+              3,
+              159
+            ],
+            [
+              49,
+              45,
+              210,
+              33,
+              0,
+              15
+            ],
+            [
+              49,
+              46,
+              217,
+              41,
+              3,
+              204
+            ],
+            [
+              49,
+              47,
+              215,
+              39,
+              0,
+              20
+            ],
+            [
+              50,
+              8,
+              206,
+              35,
+              1,
+              100
+            ],
+            [
+              50,
+              9,
+              205,
+              31,
+              0,
+              26
+            ],
+            [
+              50,
+              46,
+              205,
+              34,
+              2,
+              165
+            ],
+            [
+              51,
+              8,
+              205,
+              32,
+              0,
+              20
+            ],
+            [
+              51,
+              46,
+              206,
+              35,
+              0,
+              37
+            ]
+          ],
+          "retained_rgba_sha256": "f473c340b83b1fdbdfffeed4ad02d817fe68af8577b429746ecc624fd75a6b1f",
+          "clipped_blend_effect_by_background": {
+            "brown": {
+              "changed_pixels": 16,
+              "maximum_absolute_channel_change": 117
+            },
+            "cloud": {
+              "changed_pixels": 16,
+              "maximum_absolute_channel_change": 192
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

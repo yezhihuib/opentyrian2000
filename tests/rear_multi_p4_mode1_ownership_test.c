@@ -155,7 +155,7 @@ static void isolation(RearP1State *s)
 static bool admitted(unsigned power,unsigned mode,unsigned record)
 {
  return (power<2&&mode<2&&record==(mode?265:254)+power)||
-  (power==2&&mode<2&&record==(mode?267:256))||(power==3&&mode<2&&record==(mode?268:257))||(power==4&&mode==1&&record==269);
+  (power==2&&mode<2&&record==(mode?267:256))||(power==3&&mode<2&&record==(mode?268:257))||(power==4&&mode<2&&record==(mode?269:258));
 }
 static void admission(RearP1State *s)
 {
@@ -165,7 +165,7 @@ static void admission(RearP1State *s)
  for(unsigned p=0;p<sizeof powers/sizeof *powers;p++)for(unsigned m=0;m<sizeof modes/sizeof *modes;m++)for(unsigned r=0;r<sizeof records/sizeof *records;r++) {
   unsigned power=powers[p],mode=modes[m],record=records[r];bool yes=admitted(power,mode,record);
   rear_p1_call_begin(s,7,10,1,power,mode,1,record,true,true);CHECK(s->pending==yes);
-  CHECK(s->budget==(yes?(power==4?4:power==3?5:power==2?(mode?4:2):power+1):0));
+  CHECK(s->budget==(yes?(power==4?(mode?4:2):power==3?5:power==2?(mode?4:2):power+1):0));
   uint64_t c=rear_p1_create_begin(s,7,10,1,record,1);CHECK(s->lease==yes);
   if(!yes) {emit(s,c,1,0,5);CHECK(!current(s,0,5));clear(s);}else rear_p1_create_end(s,c);
  }
@@ -175,8 +175,8 @@ static void admission(RearP1State *s)
   rear_p1_call_begin(s,7,ports[p],bays[b],3,0,players[u],257,scope!=0,table!=0);CHECK(s->pending==yes);
   rear_p1_call_end(s);clear(s);
  }
- CHECK(REAR_P1_HEADS==13&&REAR_P1_MAX_BUDGET==5);
- const unsigned members[]={39,1,281,282,301,300,40,2,77,182,183,277,278};
+ CHECK(REAR_P1_HEADS==15&&REAR_P1_MAX_BUDGET==5);
+ const unsigned members[]={39,1,281,282,301,300,40,2,77,182,183,277,278,41,3};
  for(unsigned k=0;k<sizeof members/sizeof *members;k++)CHECK(rear_p1_member(members[k])==(int)k);
  for(unsigned raw=0;raw<8000;raw++) {
   bool yes=false;for(unsigned k=0;k<sizeof members/sizeof *members;k++)yes|=raw==members[k];

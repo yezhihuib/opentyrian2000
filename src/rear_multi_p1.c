@@ -4,9 +4,9 @@
 #include <string.h>
 /* Separate index spaces preserve every existing resource/cache and source pin.
  * Observed-only 163/164 must never become drawable through prefix growth. */
-static const unsigned drawable_ids[REAR_P1_HEADS]={39,1,281,282,301,300,40,2,77,182,183,277,278};
-static const unsigned ids[REAR_P1_OBSERVED]={39,1,281,282,301,300,40,2,77,182,183,163,164,277,278};
-static const int velocity[REAR_P1_OBSERVED][2]={{-10,0},{10,0},{-9,-2},{9,-2},{9,2},{-9,2},{-10,0},{10,0},{0,10},{-6,6},{6,6},{-6,-6},{6,-6},{-9,-2},{9,-2}};
+static const unsigned drawable_ids[REAR_P1_HEADS]={39,1,281,282,301,300,40,2,77,182,183,277,278,41,3};
+static const unsigned ids[REAR_P1_OBSERVED]={39,1,281,282,301,300,40,2,77,182,183,163,164,277,278,41,3};
+static const int velocity[REAR_P1_OBSERVED][2]={{-10,0},{10,0},{-9,-2},{9,-2},{9,2},{-9,2},{-10,0},{10,0},{0,10},{-6,6},{6,6},{-6,-6},{6,-6},{-9,-2},{9,-2},{-10,0},{10,0}};
 uint64_t rear_p1_stamp(const void *data,size_t size)
 {
  const uint8_t *p=data;uint64_t h=UINT64_C(14695981039346656037);
@@ -30,10 +30,10 @@ void rear_p1_call_begin(RearP1State *s,uint64_t tick,unsigned port,unsigned bay,
    (power_index==1&&((mode_index==0&&record==255)||(mode_index==1&&record==266)))||
    (power_index==2&&((mode_index==0&&record==256)||(mode_index==1&&record==267)))||
    (power_index==3&&((mode_index==0&&record==257)||(mode_index==1&&record==268)))||
-   (power_index==4&&mode_index==1&&record==269));
+   (power_index==4&&((mode_index==0&&record==258)||(mode_index==1&&record==269))));
  s->tick=tick;s->record=record;s->mode=mode_index+1;
- /* Exact record budgets: P3 mode1=2, mode2=4; both P4 modes=5; P5 mode2=4. */
- if(s->pending)s->budget=(record==257||record==268)?5:record==256?2:(record==267||record==269)?4:power_index+1;
+ /* Exact record budgets: P3 mode1=2, mode2=4; both P4 modes=5; P5 modes1/2=2/4. */
+ if(s->pending)s->budget=(record==257||record==268)?5:(record==256||record==258)?2:(record==267||record==269)?4:power_index+1;
 }
 uint64_t rear_p1_create_begin(RearP1State *s,uint64_t tick,unsigned port,unsigned bay,
  unsigned record,unsigned player)
@@ -60,6 +60,7 @@ static bool phase_ok(unsigned record,unsigned phase,unsigned raw)
 {
  if(record==254||record==255)return phase>=1&&phase<=2&&raw==ids[phase-1];
  if(record==256)return phase>=1&&phase<=2&&raw==ids[phase+5];
+ if(record==258)return phase>=1&&phase<=2&&raw==(phase==1?41u:3u);
  if(record==269) {
   static const unsigned observed[4]={277,278,183,182};
   return phase>=1&&phase<=4&&raw==observed[phase-1];
@@ -117,7 +118,7 @@ bool rear_p1_current(RearP1State *s,unsigned slot,unsigned index,unsigned raw,
  RearP1Birth *b=&s->birth[slot];
  if(!b->qualified)return false;
  if(s->birth_identity[slot]!=birth_stamp(b,slot)||rear_p1_member(raw)<0||b->generation!=s->generation||!scope||!table||!source||b->raw!=raw||index!=raw||
-  !phase_ok(b->record,b->phase,raw)||b->mode!=((b->record==254||b->record==255||b->record==256||b->record==257)?1u:2u)||!shot_ok(shot,raw)) {
+  !phase_ok(b->record,b->phase,raw)||b->mode!=((b->record==254||b->record==255||b->record==256||b->record==257||b->record==258)?1u:2u)||!shot_ok(shot,raw)) {
   b->qualified=false;s->birth_identity[slot]=0;return false;
  }
  return true;

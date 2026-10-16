@@ -1,0 +1,275 @@
+{
+  "schema": "rear-multicannon-p5-mode1-triples-binding-v1",
+  "role": 131,
+  "prefix": "rear-multicannon-p1-bank8",
+  "key_formula": "role*10000+source_id",
+  "scope": "Normal-bank player1 rear10 power5 mode1, exact record258 only. New triple resources3/41 at density4/8; no raw-ID permission for later powers or aliases. Measured fixed-canvas tail clipping explicitly accepted. Diagnostic runtime qualification is separate; ordinary P5 acquisition remains unestablished. Christmas artwork is excluded.",
+  "logical_size": [
+    12,
+    14
+  ],
+  "anchor": [
+    0,
+    0
+  ],
+  "occupied_logical_bounds": [
+    0,
+    1,
+    12,
+    13
+  ],
+  "components": {
+    "3": [
+      [
+        1,
+        true,
+        -2,
+        -5
+      ],
+      [
+        1,
+        true,
+        0,
+        -1
+      ],
+      [
+        1,
+        false,
+        -2,
+        5
+      ]
+    ],
+    "41": [
+      [
+        39,
+        false,
+        2,
+        -3
+      ],
+      [
+        39,
+        false,
+        0,
+        1
+      ],
+      [
+        39,
+        true,
+        2,
+        3
+      ]
+    ]
+  },
+  "composition": "Whole-canvas flipY first, integer translation, fixed-canvas clipped exact RGBA union. Supports disjoint before and after clipping; all six orders identical.",
+  "art_acceptance": "PASS_WITH_EXPLICITLY_ACCEPTED_TAIL_CLIPPING_DEVIATION",
+  "independent_art_review_sha256": "172811696de7c704be3bb34e71dfd96293bde5d0d40aa6e66606697cf55ac39a",
+  "runtime_qualification": "DIAGNOSTIC_QUALIFICATION_REQUIRED_SEPARATELY",
+  "density_policy": "Exact startup-selected density4/8 only. Missing or invalid resource retains indexed rendering; no upward fallback or resampling.",
+  "reload_policy": "Immutable resource cache after one cold attempt per renderer session; no disk hot-reload. Source and call ownership require separate runtime qualification.",
+  "resources": [
+    {
+      "source_id": 3,
+      "accepted_source_id": 1,
+      "density": 4,
+      "key": 1310003,
+      "png_sha256": "bb8382993564208f9aac6610728f35c17751e26106e11a632b5c57f388a8faed",
+      "rgba_sha256": "78c48990ef6ca08052b034c80d0b08f6f6f49d254e4b71c8a55dc7f3fa798cd8",
+      "hda_sha256": "a722bc55201148ede54e402892b8696392b7756ffd70999d06ba0b08430164d4",
+      "rgba_fnv1a64": "0xb46a6834350f7c50",
+      "role": 131,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "parts": [
+        [
+          1,
+          true,
+          -2,
+          -5
+        ],
+        [
+          1,
+          true,
+          0,
+          -1
+        ],
+        [
+          1,
+          false,
+          -2,
+          5
+        ]
+      ],
+      "filename": "rear-multicannon-p1-bank8-3-4.hda",
+      "png": "output/rear-multi-3-4-exact-clipped-union.png",
+      "rgba": "output/rear-multi-3-4-exact-clipped-union.rgba",
+      "hda_bytes": 10780,
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-3-4.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-3-4.hda"
+      ],
+      "catalog_source_png": "assets/hd/source/rear-multicannon-p1-bank8-3-4-a722bc552011.png"
+    },
+    {
+      "source_id": 3,
+      "accepted_source_id": 1,
+      "density": 8,
+      "key": 1310003,
+      "png_sha256": "d7b1a8bada8ea5534e388e79a736dea586cc6e7f28ec28994f002bbefc321745",
+      "rgba_sha256": "083e3bf03b124601a3273718f4b12f0b3003b4574400647e0f858fd49d43d160",
+      "hda_sha256": "f5c5162e2a4971b1ca05aa8ebaba029a50708f0f860e8a39a0558c79c59ac06c",
+      "rgba_fnv1a64": "0x78180b46cf51908e",
+      "role": 131,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "parts": [
+        [
+          1,
+          true,
+          -2,
+          -5
+        ],
+        [
+          1,
+          true,
+          0,
+          -1
+        ],
+        [
+          1,
+          false,
+          -2,
+          5
+        ]
+      ],
+      "filename": "rear-multicannon-p1-bank8-3-8.hda",
+      "png": "output/rear-multi-3-8-exact-clipped-union.png",
+      "rgba": "output/rear-multi-3-8-exact-clipped-union.rgba",
+      "hda_bytes": 43036,
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-3-8.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-3-8.hda"
+      ],
+      "catalog_source_png": "assets/hd/source/rear-multicannon-p1-bank8-3-8-f5c5162e2a49.png"
+    },
+    {
+      "source_id": 41,
+      "accepted_source_id": 39,
+      "density": 4,
+      "key": 1310041,
+      "png_sha256": "b09a9bb38ab53b357be8caadca6807586255368d56ee2677abd509b5895df68b",
+      "rgba_sha256": "c832a1267614335d4807a48ad06c44708677ebd4cf69516652066aebe36ef575",
+      "hda_sha256": "5479580cd938935eb369446c279153f8408638f157dc553896e30530806cb148",
+      "rgba_fnv1a64": "0x5dfd9280619f61ea",
+      "role": 131,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "parts": [
+        [
+          39,
+          false,
+          2,
+          -3
+        ],
+        [
+          39,
+          false,
+          0,
+          1
+        ],
+        [
+          39,
+          true,
+          2,
+          3
+        ]
+      ],
+      "filename": "rear-multicannon-p1-bank8-41-4.hda",
+      "png": "output/rear-multi-41-4-exact-clipped-union.png",
+      "rgba": "output/rear-multi-41-4-exact-clipped-union.rgba",
+      "hda_bytes": 10780,
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-41-4.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-41-4.hda"
+      ],
+      "catalog_source_png": "assets/hd/source/rear-multicannon-p1-bank8-41-4-5479580cd938.png"
+    },
+    {
+      "source_id": 41,
+      "accepted_source_id": 39,
+      "density": 8,
+      "key": 1310041,
+      "png_sha256": "f142ac3eb4ddf0b54a7b70ef86d50daeda5fbd2a80f81403286f5add38e2bd79",
+      "rgba_sha256": "47040ee657bfc71fcd46e23348521d20c83e87a9177788164becde85c3295a55",
+      "hda_sha256": "75c3a8221c7b05762a5d7b68f54ea1a4d0e35efe393943a84a74e54e26ecf1bb",
+      "rgba_fnv1a64": "0x8b30be3de1092cad",
+      "role": 131,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "parts": [
+        [
+          39,
+          false,
+          2,
+          -3
+        ],
+        [
+          39,
+          false,
+          0,
+          1
+        ],
+        [
+          39,
+          true,
+          2,
+          3
+        ]
+      ],
+      "filename": "rear-multicannon-p1-bank8-41-8.hda",
+      "png": "output/rear-multi-41-8-exact-clipped-union.png",
+      "rgba": "output/rear-multi-41-8-exact-clipped-union.rgba",
+      "hda_bytes": 43036,
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-41-8.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-41-8.hda"
+      ],
+      "catalog_source_png": "assets/hd/source/rear-multicannon-p1-bank8-41-8-75c3a8221c7b.png"
+    }
+  ],
+  "inputs": "inputs.json",
+  "inputs_sha256": "fd60d512a593c4a61f3f5f10503ba4d2751408d5b292469146fd1e3cf6c2b082",
+  "builder": "build.py",
+  "builder_sha256": "612cca9ee6350be5e22874fe90bbc84bc1199effbc78319a5d1c47eef5c5550d",
+  "frozen_builder": "build_components.py",
+  "frozen_builder_sha256": "0c70902e5327892d8f4c00bc6cd9b2f3df844df339caef5554941d04210e964e",
+  "frozen_inputs": "frozen-inputs.json",
+  "frozen_inputs_sha256": "77011ca8a6341f1d655b74385e8ca86d91b35bb84d9cd18333a951280a958487",
+  "frozen_component_manifest": "output/component-manifest.json",
+  "frozen_component_manifest_sha256": "3f058e0cd432a9041298b095ac0911efa46a0a9cf8e06dba6ed67f82cb647fb1",
+  "reviewed_cache_free_art_checkpoint_sha256": "37bedd05e3fb6a79aaddc26a314b845e331d85f67d4b9e57314e1807f2a477ee",
+  "sanitized_art_review_sha256": "695e29364d8b8b934d430505c8b03cae2a5a8e924c39b0d8946448e2404f15a8"
+}

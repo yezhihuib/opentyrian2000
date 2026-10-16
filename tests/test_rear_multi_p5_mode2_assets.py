@@ -176,13 +176,52 @@ for row, pin, transformed, case in zip(binding['resources'], pins['resources'], 
             assert row['filename'] not in value['files']
             assert not (ROOT / 'assets/hd/packs' / pack / row['filename']).exists()
 assert family['entries'] == [{'id': row['source_id'], 'density': row['density'], 'HDA_sha256': row['hda_sha256']} for row in binding['resources']]
-assert len(catalog['source_pngs']) == 654 and sum(p['count'] for p in catalog['packs'].values()) == 3438
-assert all(catalog['packs'][p]['count'] == 601 for p in packs)
-assert len({r['path'] for r in catalog['source_pngs'].values()}) == 654
-assert len({r['sha256'] for r in catalog['source_pngs'].values()}) == 650
-physical_sources = list((ROOT / 'assets/hd/source').glob('*.png'))
+inverse = copy.deepcopy(catalog)
+later_paths = set()
+# The later P5 mode1 triples are a separately verified, exact additive family.
+# Strip only its bounded 29 new paths before preserving the historical hashes.
+triple_name = 'player_rear_multicannon_p5_mode1_triples_v1'
+if triple_name in inverse:
+    triple = inverse.pop(triple_name)
+    assert triple['source'] == 'assets/hd/artwork/player-rear-multicannon-p5-mode1-triples-v1'
+    assert triple['ids'] == [3, 41] and triple['densities'] == [4, 8] and triple['role'] == 131
+    assert triple['reviewed_component_manifest_sha256'] == '3f058e0cd432a9041298b095ac0911efa46a0a9cf8e06dba6ed67f82cb647fb1'
+    triple_art = ROOT / triple['source']
+    triple_binding = json.loads((triple_art / 'binding.json').read_text())
+    triple_manifest = json.loads((triple_art / 'file-manifest.json').read_text())
+    assert SHA((triple_art / 'binding.json').read_bytes()) == triple['binding_sha256']
+    assert SHA((triple_art / 'file-manifest.json').read_bytes()) == triple['art_file_manifest_sha256']
+    triple_expected = {'build.py', 'build_components.py', 'README.md', 'inputs.json', 'frozen-inputs.json',
+                       'binding.json', 'provenance.json', 'output/component-manifest.json'}
+    triple_expected |= {f'output/rear-multi-{i}-{d}-exact-clipped-union.{ext}'
+                        for i in [3, 41] for d in [4, 8] for ext in ['png', 'rgba']}
+    assert set(triple_manifest['files']) == triple_expected
+    assert {str(p.relative_to(triple_art)) for p in triple_art.rglob('*') if p.is_file()} == triple_expected | {'file-manifest.json'}
+    for name, pin in triple_manifest['files'].items():
+        assert SHA((triple_art / name).read_bytes()) == pin
+        later_paths.add(str(triple_art.relative_to(ROOT) / name))
+    later_paths.add(str(triple_art.relative_to(ROOT) / 'file-manifest.json'))
+    assert [(r['source_id'], r['density']) for r in triple_binding['resources']] == [(3, 4), (3, 8), (41, 4), (41, 8)]
+    for row in triple_binding['resources']:
+        i, d = row['source_id'], row['density']
+        assert row['filename'] == f'rear-multicannon-p1-bank8-{i}-{d}.hda'
+        assert row['catalog_source_png'] == f"assets/hd/source/rear-multicannon-p1-bank8-{i}-{d}-{row['hda_sha256'][:12]}.png"
+        assert inverse['source_pngs'].pop(row['hda_sha256']) == {'path': row['catalog_source_png'], 'sha256': row['png_sha256'], 'RGBA_sha256': row['rgba_sha256']}
+        later_paths.add(row['catalog_source_png'])
+        for pack in packs:
+            entry = inverse['packs'][pack]['files'].pop(row['filename'])
+            assert entry['sha256'] == row['hda_sha256'] and entry['header_u32'] == [1310000 + i, d, 12, 14, 0, 0]
+            inverse['packs'][pack]['count'] -= 1
+            later_paths.add(str(Path('assets/hd/packs') / pack / row['filename']))
+    assert len(later_paths) == 29
+    assert SHA((json.dumps(inverse, indent=2) + '\n').encode()) == '71e3e7a1a0afdfac7232573ed20be0111d891d33360b7884d1c8bd088731000a'
+assert len(inverse['source_pngs']) == 654 and sum(p['count'] for p in inverse['packs'].values()) == 3438
+assert all(inverse['packs'][p]['count'] == 601 for p in packs)
+assert len({r['path'] for r in inverse['source_pngs'].values()}) == 654
+assert len({r['sha256'] for r in inverse['source_pngs'].values()}) == 650
+physical_sources = [p for p in (ROOT / 'assets/hd/source').glob('*.png') if str(p.relative_to(ROOT)) not in later_paths]
 assert len(physical_sources) == 720 and len({SHA(p.read_bytes()) for p in physical_sources}) == 714
-pack_sources = {r['source_png'] for p in catalog['packs'].values() for r in p['files'].values()}
+pack_sources = {r['source_png'] for p in inverse['packs'].values() for r in p['files'].values()}
 assert len(pack_sources) == 613 and len({SHA((ROOT / p).read_bytes()) for p in pack_sources}) == 609
 assert len(new_paths) == 28
 
@@ -195,7 +234,6 @@ for pack in packs:
         assert not (ROOT / 'assets/hd/packs' / pack / f'rear-multicannon-p1-bank8-{i}-4.hda').exists()
 
 # Pure-addition inverse preserves every previous field, including historical prose.
-inverse = copy.deepcopy(catalog)
 inverse.pop(FAMILY)
 for row in binding['resources']:
     inverse['source_pngs'].pop(row['hda_sha256'])
@@ -204,7 +242,7 @@ for row in binding['resources']:
         inverse['packs'][pack]['count'] -= 1
 assert SHA((json.dumps(inverse, indent=2) + '\n').encode()) == provenance['baseline_catalog_sha256'] == BASE_CATALOG
 old_assets = {str(p.relative_to(ROOT)): SHA(p.read_bytes()) for p in (ROOT / 'assets').rglob('*')
-              if p.is_file() and str(p.relative_to(ROOT)) not in new_paths | {'assets/hd/manifest.json'}}
+              if p.is_file() and str(p.relative_to(ROOT)) not in new_paths | later_paths | {'assets/hd/manifest.json'}}
 assert len(old_assets) == provenance['old_non_manifest_assets'] == 7065
 assert SHA(''.join(p + '\0' + h + '\n' for p, h in sorted(old_assets.items())).encode()) == provenance['old_assets_path_sha256_inventory_digest'] == BASE_ASSETS
 
@@ -247,4 +285,4 @@ with tempfile.TemporaryDirectory(prefix='rear-p5-twins-') as temporary:
                                  '--hda-output', str(bad_hda)], capture_output=True, text=True, cwd=relocated)
         assert failed.returncode != 0 and 'must be separate' in failed.stderr
         assert not bad_out.exists() and not bad_hda.exists()
-print('Rear P5 mode2 assets PASS: four selected twins; independent rational pixel equality; eight HDR1 copies; 7065 old assets exact; additive catalog inverse; 3438 entries/654 source mappings/720 source files/601 default packs; isolated relocated rebuild and corrupt-input rejection. Diagnostic runtime remains separately qualified.')
+print('Rear P5 mode2 assets PASS: four selected twins; independent rational pixel equality; eight HDR1 copies; 7065 old assets exact; additive catalog inverse; historical3438 entries/654 source mappings/720 source files/601 default packs preserved after exact later-family projection; isolated relocated rebuild and corrupt-input rejection. Diagnostic runtime remains separately qualified.')

@@ -1,0 +1,149 @@
+{
+  "schema": "rear-multicannon-p5-mode1-source-test-ready-v1",
+  "status": "PASS_SOURCE_AND_CONTROLLED_TESTS_READY",
+  "baseline": "4eeaf3a9fef3cb0f9ce1ac83ecc06cfb0194e3b4",
+  "baseline_tree": "575fdf66659881c99c4204791df02f85b8e291c2",
+  "scope": {
+    "port": 10,
+    "bay": 1,
+    "player": 1,
+    "power_index": 4,
+    "mode_index": 0,
+    "record": 258,
+    "record_fnv1a64": "0a9404f2915a23c9",
+    "record80_sha256": "4460665051ef5925a1a34942e4a28a195ea279a20018c223c8a61f5cf3376d4b",
+    "budget": 2,
+    "period": 2,
+    "ordered_phases": [
+      41,
+      3
+    ],
+    "live_velocities": [
+      [
+        -10,
+        0
+      ],
+      [
+        10,
+        0
+      ]
+    ],
+    "drawable_ids": [
+      39,
+      1,
+      281,
+      282,
+      301,
+      300,
+      40,
+      2,
+      77,
+      182,
+      183,
+      277,
+      278,
+      41,
+      3
+    ],
+    "observed_ids": [
+      39,
+      1,
+      281,
+      282,
+      301,
+      300,
+      40,
+      2,
+      77,
+      182,
+      183,
+      163,
+      164,
+      277,
+      278,
+      41,
+      3
+    ],
+    "generic_pass_through_ids": [
+      163,
+      164
+    ],
+    "new_density": [
+      4,
+      8
+    ],
+    "max_budget": 5,
+    "conditional_new_table_cell": "op[0][4]==258; no old birth dependency"
+  },
+  "pin_prefixes": {
+    "SOURCE": {
+      "old_prefix_values": 15,
+      "candidate_values": 17,
+      "exact_prefix": true
+    },
+    "RECORD": {
+      "old_prefix_values": 9,
+      "candidate_values": 10,
+      "exact_prefix": true
+    },
+    "RGBA": {
+      "old_prefix_values": 26,
+      "candidate_values": 30,
+      "exact_prefix": true
+    }
+  },
+  "identity_seal": "Existing birth_identity unchanged: record, mode, phase, raw, generation and physical slot; all token/tick/ordinal/cyclic/uniqueness/recycling invariants preserved. Non-cryptographic integrity only.",
+  "builds": {
+    "production": {
+      "binary_sha256": "ab7c46a34ebe849cccee2fd6b8c7623d94302b6e528c11084e7cdda568c4f87e",
+      "log_sha256": "08b569e4c1aa0bd8418574b497ff9cba5e6a905d04e48aa08e57124fe3e38f81",
+      "translation_units": 74,
+      "executed": false,
+      "strict_flags": "-pedantic -Wall -Wextra -Werror -Wno-misleading-indentation -Wno-format-truncation -Wno-missing-field-initializers -O2",
+      "warning_profile": "established baseline warning suppressions, not unsuppressed all-warning qualification"
+    },
+    "disabled": {
+      "binary_sha256": "f26b1c80b85a45ad15006fd45d6013c116878c7f164b081a49f873948d85b862",
+      "log_sha256": "40531b9d5cfddc67925fb45d2dd6cde4bbda8ad479ad3819e91f494a27b8b5d4",
+      "translation_units": 74,
+      "executed": false,
+      "strict_flags": "-pedantic -Wall -Wextra -Werror -Wno-misleading-indentation -Wno-format-truncation -Wno-missing-field-initializers -O2 -Wno-unused-variable -Wno-unused-parameter -Wno-unused-but-set-variable; RENDER_MIRROR_DISABLED",
+      "warning_profile": "established baseline warning suppressions, not unsuppressed all-warning qualification"
+    }
+  },
+  "qualification_counts_each_plain_and_sanitized": {
+    "core_suites": 9,
+    "p1_provenance": 4452,
+    "p3_mode2_core": 8450,
+    "p3_mode1_core": 2569,
+    "p4_mode1_core": 66015,
+    "p4_mode2_core": 105561,
+    "p5_mode2_core": 111653,
+    "p5_mode1_core": 534347,
+    "private_compiled_core_mutants_rejected": 14,
+    "synthetic_actual_allocator_adapter": 675357,
+    "synthetic_malformed_resource_variants": 480,
+    "private_original_data_actual_allocator_adapter_per_default_pack": 684129,
+    "original_data_default_pack_count": 2
+  },
+  "sanitizers": "ASan+UBSan halt_on_error=1, detect_leaks=0. LeakSanitizer is not qualified.",
+  "gates": {
+    "core_plain_sanitized": "PASS",
+    "adapter_plain_sanitized": "PASS",
+    "actual_source_both_default_packs_plain_sanitized": "PASS",
+    "strict_enabled_build": "PASS-established-warning-profile",
+    "strict_disabled_build": "PASS-established-warning-profile",
+    "all_old_and_new_rear_assets": "PASS",
+    "inverse156": "PASS",
+    "unchanged_non_rear_sources156": "PASS",
+    "git_diff_check": "PASS",
+    "all_old_pin_prefixes": "PASS",
+    "original_data_and_old_assets_unchanged": "PASS"
+  },
+  "accepted_art_limits": [
+    "Independent review PASS with explicitly accepted real tail clipping on fixed12x14 anchor0 canvas.",
+    "Do not claim whole-lobe brightness preservation or exact original coverage mask."
+  ],
+  "source_test_ready_sha256": "1a14255c28039f83dd4920bdd65eb80a4e9be3c3ae389272e9b694e781aa4a90",
+  "runtime_qualification": "Controlled source/art tests only. Native-game results and diagnostic limitations are documented separately in RUNTIME.json."
+}

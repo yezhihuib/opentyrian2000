@@ -34,7 +34,7 @@ create=extract((root/'src/shots.c').read_text(),'player_shot_create')
 baseline='\n'.join(line for line in create.split('\n') if 'rear_p1_' not in line)
 (out/'create_baseline.inc').write_text(baseline.replace('player_shot_create(', 'baseline_shot_create(', 1))
 (out/'wrapper.inc').write_text(extract((root/'src/entity_draw.c').read_text(),'draw_player_shot_sprite2'))
-ids=[39,1,281,282,301,300,40,2,77,182,183,277,278]
+ids=[39,1,281,282,301,300,40,2,77,182,183,277,278,41,3]
 observed=ids[:11]+[163,164]+ids[11:]
 bank=bytearray(602);pins=[]
 for k,i in enumerate(observed):
@@ -69,6 +69,14 @@ r=struct.pack('<HBBHBBBB8B8B8b8b8b8b8HbbBBBB',0x1242,6,4,0,4,5,6,0,
  *([2,2,1,1,198,25,255,19]),*([255]*8),*[-9,9,6,-6,0,-128,127,-1],
  *[2,2,-6,-6,0,-128,127,-1],*[-2,2,4,-4,0,-128,127,-1],
  *[0,0,0,0,0,-128,127,-1],*[277,278,183,182,77,0x1234,0xff80,301],0,0,0,25,255,208)
+assert len(r)==80
+records.append(r);recordpins.append(fnv(r))
+# P5 mode1 remains synthetic, including intentionally different unused tails.
+# Its two-allocation budget is independent of its selected power index4.
+r=struct.pack('<HBBHBBBB8B8B8b8b8b8b8HbbBBBB',0x1243,6,2,0,2,5,6,0,
+ *([3,3,29,71,198,25,255,19]),*([255]*8),*[-10,10,0,0,0,-128,127,-1],
+ *[0,0,0,0,0,-128,127,-1],*[0,0,4,-4,0,-128,127,-1],
+ *[0,0,0,0,0,-128,127,-1],*[41,3,183,182,77,0x1234,0xff80,301],0,0,0,25,255,208)
 assert len(r)==80
 records.append(r);recordpins.append(fnv(r))
 (out/'records.bin').write_bytes(b''.join(records))

@@ -1,0 +1,135 @@
+{
+  "schema": "rear-multicannon-p5-mode1-triples-inputs-v1",
+  "scope": "Normal-bank player1 rear10 power5 mode1, exact record258 only. New triple resources3/41 at density4/8; no raw-ID permission for later powers or aliases. Measured fixed-canvas tail clipping explicitly accepted. Diagnostic runtime qualification is separate; ordinary P5 acquisition remains unestablished. Christmas artwork is excluded.",
+  "components": {
+    "3": [
+      [
+        1,
+        true,
+        -2,
+        -5
+      ],
+      [
+        1,
+        true,
+        0,
+        -1
+      ],
+      [
+        1,
+        false,
+        -2,
+        5
+      ]
+    ],
+    "41": [
+      [
+        39,
+        false,
+        2,
+        -3
+      ],
+      [
+        39,
+        false,
+        0,
+        1
+      ],
+      [
+        39,
+        true,
+        2,
+        3
+      ]
+    ]
+  },
+  "accepted_inputs": [
+    {
+      "source_id": 1,
+      "density": 4,
+      "png_sha256": "501b8f5790dcc96ac82f65d827a2d10ca53d4414fca9b78739ae0720b44fb2bd",
+      "rgba_sha256": "5b5db7122400f1ea988e25596b4deecc8e540bb850d31cd936131e2d951d48e8",
+      "png_repo_path": "assets/hd/artwork/player-rear-multicannon-p1-six-v1/output/rear-multi-1-4.png",
+      "rgba_repo_path": "assets/hd/artwork/player-rear-multicannon-p1-six-v1/output/rear-multi-1-4.rgba"
+    },
+    {
+      "source_id": 1,
+      "density": 8,
+      "png_sha256": "c7547ef49f5bca733dbe0f0e8a913e47acc8a7e200db4553a4cb324e42ab0ddc",
+      "rgba_sha256": "402738376529a5a59441ebceefb5d427fe23ba298674e93c2e94d05e732437c5",
+      "png_repo_path": "assets/hd/artwork/player-rear-multicannon-p1-six-v1/output/rear-multi-1-8.png",
+      "rgba_repo_path": "assets/hd/artwork/player-rear-multicannon-p1-six-v1/output/rear-multi-1-8.rgba"
+    },
+    {
+      "source_id": 39,
+      "density": 4,
+      "png_sha256": "736bacd2ea86c5412f948ed0a402346f93a7b3339fc112f2a13bc84d938b2a57",
+      "rgba_sha256": "2fad980f6a45679df0b1baf368857b2b9ec70779ec41942fdb2ace813261e91d",
+      "png_repo_path": "assets/hd/artwork/player-rear-multicannon-p1-six-v1/output/rear-multi-39-4.png",
+      "rgba_repo_path": "assets/hd/artwork/player-rear-multicannon-p1-six-v1/output/rear-multi-39-4.rgba"
+    },
+    {
+      "source_id": 39,
+      "density": 8,
+      "png_sha256": "8887cdf07fac4091b24ad58a488b77396dffbfef2f94464e5ab8fd2e7af0d861",
+      "rgba_sha256": "88ff4e6f61145c05ed0a7d1ebcec38f06c7aaed4ae86100cc5065cc16d5f8374",
+      "png_repo_path": "assets/hd/artwork/player-rear-multicannon-p1-six-v1/output/rear-multi-39-8.png",
+      "rgba_repo_path": "assets/hd/artwork/player-rear-multicannon-p1-six-v1/output/rear-multi-39-8.rgba"
+    }
+  ],
+  "frozen_builder_sha256": "0c70902e5327892d8f4c00bc6cd9b2f3df844df339caef5554941d04210e964e",
+  "frozen_inputs_sha256": "77011ca8a6341f1d655b74385e8ca86d91b35bb84d9cd18333a951280a958487",
+  "frozen_outputs_sha256": {
+    "rear-multi-3-8-exact-clipped-union.rgba": "083e3bf03b124601a3273718f4b12f0b3003b4574400647e0f858fd49d43d160",
+    "rear-multi-41-4-exact-clipped-union.png": "b09a9bb38ab53b357be8caadca6807586255368d56ee2677abd509b5895df68b",
+    "rear-multi-41-8-exact-clipped-union.png": "f142ac3eb4ddf0b54a7b70ef86d50daeda5fbd2a80f81403286f5add38e2bd79",
+    "rear-multi-3-4-exact-clipped-union.png": "bb8382993564208f9aac6610728f35c17751e26106e11a632b5c57f388a8faed",
+    "component-manifest.json": "3f058e0cd432a9041298b095ac0911efa46a0a9cf8e06dba6ed67f82cb647fb1",
+    "rear-multi-41-4-exact-clipped-union.rgba": "c832a1267614335d4807a48ad06c44708677ebd4cf69516652066aebe36ef575",
+    "rear-multi-41-8-exact-clipped-union.rgba": "47040ee657bfc71fcd46e23348521d20c83e87a9177788164becde85c3295a55",
+    "rear-multi-3-4-exact-clipped-union.rgba": "78c48990ef6ca08052b034c80d0b08f6f6f49d254e4b71c8a55dc7f3fa798cd8",
+    "rear-multi-3-8-exact-clipped-union.png": "d7b1a8bada8ea5534e388e79a736dea586cc6e7f28ec28994f002bbefc321745"
+  },
+  "resources": [
+    {
+      "source_id": 3,
+      "accepted_source_id": 1,
+      "density": 4,
+      "key": 1310003,
+      "png_sha256": "bb8382993564208f9aac6610728f35c17751e26106e11a632b5c57f388a8faed",
+      "rgba_sha256": "78c48990ef6ca08052b034c80d0b08f6f6f49d254e4b71c8a55dc7f3fa798cd8",
+      "hda_sha256": "a722bc55201148ede54e402892b8696392b7756ffd70999d06ba0b08430164d4",
+      "rgba_fnv1a64": "0xb46a6834350f7c50"
+    },
+    {
+      "source_id": 3,
+      "accepted_source_id": 1,
+      "density": 8,
+      "key": 1310003,
+      "png_sha256": "d7b1a8bada8ea5534e388e79a736dea586cc6e7f28ec28994f002bbefc321745",
+      "rgba_sha256": "083e3bf03b124601a3273718f4b12f0b3003b4574400647e0f858fd49d43d160",
+      "hda_sha256": "f5c5162e2a4971b1ca05aa8ebaba029a50708f0f860e8a39a0558c79c59ac06c",
+      "rgba_fnv1a64": "0x78180b46cf51908e"
+    },
+    {
+      "source_id": 41,
+      "accepted_source_id": 39,
+      "density": 4,
+      "key": 1310041,
+      "png_sha256": "b09a9bb38ab53b357be8caadca6807586255368d56ee2677abd509b5895df68b",
+      "rgba_sha256": "c832a1267614335d4807a48ad06c44708677ebd4cf69516652066aebe36ef575",
+      "hda_sha256": "5479580cd938935eb369446c279153f8408638f157dc553896e30530806cb148",
+      "rgba_fnv1a64": "0x5dfd9280619f61ea"
+    },
+    {
+      "source_id": 41,
+      "accepted_source_id": 39,
+      "density": 8,
+      "key": 1310041,
+      "png_sha256": "f142ac3eb4ddf0b54a7b70ef86d50daeda5fbd2a80f81403286f5add38e2bd79",
+      "rgba_sha256": "47040ee657bfc71fcd46e23348521d20c83e87a9177788164becde85c3295a55",
+      "hda_sha256": "75c3a8221c7b05762a5d7b68f54ea1a4d0e35efe393943a84a74e54e26ecf1bb",
+      "rgba_fnv1a64": "0x8b30be3de1092cad"
+    }
+  ]
+}

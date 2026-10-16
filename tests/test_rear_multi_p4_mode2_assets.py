@@ -157,6 +157,43 @@ for pack in packs:
 # verified additions before retaining this historical P4 inverse and inventory.
 later_paths = set()
 inverse = copy.deepcopy(catalog)
+# The later P5 mode1 triples are a separately verified, exact additive family.
+# Strip only its bounded 29 new paths before preserving the historical hashes.
+triple_name = 'player_rear_multicannon_p5_mode1_triples_v1'
+if triple_name in inverse:
+    triple = inverse.pop(triple_name)
+    assert triple['source'] == 'assets/hd/artwork/player-rear-multicannon-p5-mode1-triples-v1'
+    assert triple['ids'] == [3, 41] and triple['densities'] == [4, 8] and triple['role'] == 131
+    assert triple['reviewed_component_manifest_sha256'] == '3f058e0cd432a9041298b095ac0911efa46a0a9cf8e06dba6ed67f82cb647fb1'
+    triple_art = root / triple['source']
+    triple_binding = json.loads((triple_art / 'binding.json').read_text())
+    triple_manifest = json.loads((triple_art / 'file-manifest.json').read_text())
+    assert sha((triple_art / 'binding.json').read_bytes()) == triple['binding_sha256']
+    assert sha((triple_art / 'file-manifest.json').read_bytes()) == triple['art_file_manifest_sha256']
+    triple_expected = {'build.py', 'build_components.py', 'README.md', 'inputs.json', 'frozen-inputs.json',
+                       'binding.json', 'provenance.json', 'output/component-manifest.json'}
+    triple_expected |= {f'output/rear-multi-{i}-{d}-exact-clipped-union.{ext}'
+                        for i in [3, 41] for d in [4, 8] for ext in ['png', 'rgba']}
+    assert set(triple_manifest['files']) == triple_expected
+    assert {str(p.relative_to(triple_art)) for p in triple_art.rglob('*') if p.is_file()} == triple_expected | {'file-manifest.json'}
+    for name, pin in triple_manifest['files'].items():
+        assert sha((triple_art / name).read_bytes()) == pin
+        later_paths.add(str(triple_art.relative_to(root) / name))
+    later_paths.add(str(triple_art.relative_to(root) / 'file-manifest.json'))
+    assert [(r['source_id'], r['density']) for r in triple_binding['resources']] == [(3, 4), (3, 8), (41, 4), (41, 8)]
+    for row in triple_binding['resources']:
+        i, d = row['source_id'], row['density']
+        assert row['filename'] == f'rear-multicannon-p1-bank8-{i}-{d}.hda'
+        assert row['catalog_source_png'] == f"assets/hd/source/rear-multicannon-p1-bank8-{i}-{d}-{row['hda_sha256'][:12]}.png"
+        assert inverse['source_pngs'].pop(row['hda_sha256']) == {'path': row['catalog_source_png'], 'sha256': row['png_sha256'], 'RGBA_sha256': row['rgba_sha256']}
+        later_paths.add(row['catalog_source_png'])
+        for pack in packs:
+            entry = inverse['packs'][pack]['files'].pop(row['filename'])
+            assert entry['sha256'] == row['hda_sha256'] and entry['header_u32'] == [1310000 + i, d, 12, 14, 0, 0]
+            inverse['packs'][pack]['count'] -= 1
+            later_paths.add(str(Path('assets/hd/packs') / pack / row['filename']))
+    assert len(later_paths) == 29
+    assert sha((json.dumps(inverse, indent=2) + '\n').encode()) == '71e3e7a1a0afdfac7232573ed20be0111d891d33360b7884d1c8bd088731000a'
 later_name = 'player_rear_multicannon_p5_mode2_twins_v1'
 if later_name in inverse:
     later = inverse.pop(later_name)

@@ -6,7 +6,7 @@ static bool test_member(unsigned power,unsigned k)
  if(power==2)return k>=2&&k<8;
  if(power==3)return (k>=2&&k<6)||k==8;
  if(power==4)return k>=8&&k<=10;
- return power==5&&(k==9||k==10||k==13||k==14);
+ return (power==5&&(k==9||k==10||k==13||k==14))||(power==6&&(k==15||k==16));
 }
 static unsigned p5m2_member(unsigned p)
 {static const unsigned members[4]={13,14,10,9};return members[p-1];}

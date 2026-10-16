@@ -1,0 +1,246 @@
+{
+  "schema": "rear-multicannon-p5-mode1-independent-integration-review-v2",
+  "status": "PASS_WITH_EXPLICITLY_ACCEPTED_TAIL_CLIPPING_DEVIATION",
+  "scope": "Independent frozen source, authored art, cache and asset binding, controlled tests, actual bounded diagnostic runtime and sanitized runtime checkpoint review. Final distributable archive and remote publication are separate gates.",
+  "baseline_published_commit": "4eeaf3a9fef3cb0f9ce1ac83ecc06cfb0194e3b4",
+  "baseline_tree": "575fdf66659881c99c4204791df02f85b8e291c2",
+  "unified_freeze_sha256": "27013627cb14aa5faea982f61afba671541947e687e372a605873908954dcf54",
+  "exact_owner": {
+    "record": 258,
+    "port": 10,
+    "bay": 1,
+    "player": 1,
+    "power_index": 4,
+    "mode_index": 0,
+    "phases": [
+      41,
+      3
+    ],
+    "budget": 2,
+    "period": 2
+  },
+  "source_scope": {
+    "changed_source_files": [
+      "src/rear_multi_p1.c",
+      "src/rear_multi_p1.h",
+      "src/rear_multi_p1_mirror.inc",
+      "src/rear_multi_p1_pins.h"
+    ],
+    "other_source_files_byte_exact": 156,
+    "old_record_pins_indices_generation_seal_and_lifecycle_preserved": true,
+    "original_simulation_allocator_timing_rng_collision_draw_order_and_compositor_unchanged": true,
+    "new_table_permission_requires_exact_port_mode_power_and_full_80_byte_record258_pin": true,
+    "phase41_then3_finite_two_grant_budget_period2": true,
+    "later_P6_P9_and_other_shared_ID_owners_remain_unsupported": true,
+    "prior_P1_P4_and_P5_mode2_preserved": true,
+    "generic163_164_normal_shadow_routes_preserved": true
+  },
+  "assets": {
+    "old_nonmanifest_asset_files_byte_exact": 7093,
+    "new_asset_files": 29,
+    "manifest_addition_inverse_recovers_exact_baseline_bytes": true,
+    "frozen_art_RGBA_and_HDR1_payloads_exact_at_both_densities_and_both_default_packs": true,
+    "role": 131,
+    "resource_keys": [
+      1310003,
+      1310041
+    ],
+    "densities": [
+      4,
+      8
+    ],
+    "relocated_standard_library_builder_reproduces_all9_outputs_and4_unique_HDA": true,
+    "corrupt_late_input_fails_before_output": true,
+    "fixed_canvas": [
+      12,
+      14
+    ],
+    "anchor": [
+      0,
+      0
+    ],
+    "draw_bounds": [
+      0,
+      1,
+      12,
+      13
+    ],
+    "fixed_footprint_does_not_claim_original_covered_mask_identity": true,
+    "art_checkpoint_sha256": "37bedd05e3fb6a79aaddc26a314b845e331d85f67d4b9e57314e1807f2a477ee"
+  },
+  "controlled_checks": {
+    "fresh_plain_and_ASan_UBSan_runs": true,
+    "core_suites": 9,
+    "new_P5_mode1_core_checks_each": 534347,
+    "actual_public_adapter_checks_each": 675357,
+    "malformed_resource_variants": 480,
+    "independent_original_table_adapter_checks_each": 230020,
+    "original_tables": 3,
+    "records_per_original_table": 1638,
+    "table_checks_use_authentic_original_data_without_pin_override": true,
+    "finite_budget_cyclic_start_partial_capacity_stale_slot_reset_recycle_and_fail_closed_cases": true,
+    "birth_seal_checks_each": 8032140,
+    "valid_birth_identities": 32,
+    "slots": 80,
+    "each_bit_of_record_mode_phase_raw_generation_seal_and_global_generation_rejected": true,
+    "cross_slot_copied_birth_and_seal_and_cross_mode_retagging_rejected": true,
+    "retained_birth_identity_survives_selection_change_and_is_cleared_on_reuse_reset": true,
+    "actual_unchanged_production_compositor": {
+      "cases_each": 96,
+      "checks_each": 3174,
+      "overlap_samples_each": 198252,
+      "clipped_samples_each": 61212,
+      "d4_d8_both_orders_all_new_head_pairs": true,
+      "unmodified_production_compositor": true,
+      "controlled_not_natural_runtime": true
+    }
+  },
+  "builds": {
+    "strict_builds": 10,
+    "translation_units_each": 74,
+    "strict_build_warning_count": 0,
+    "enabled_unsuppressed_diagnostic_warnings": 0,
+    "disabled_unsuppressed_diagnostic_warnings_unchanged": 15,
+    "independent_zero_fuzz_offset_observer_inverse_checks": 6,
+    "all160_source_files_restored_exact": true,
+    "baseline_candidate_observer_patches_identical": true
+  },
+  "runtime": {
+    "pairs": 26,
+    "qualification_processes": 52,
+    "qualification_logic_ticks": 6720,
+    "qualification_native_game_captures": 928,
+    "qualification_native_shop_captures": 156,
+    "separate_baseline_preparation_processes": 2,
+    "all54_game_process_exit_codes": 0,
+    "all20_original_parity_streams_exact_each_pair": true,
+    "independent_candidate_native_reconstructions": 464,
+    "cases": {
+      "main": 4,
+      "resource_failure": 6,
+      "ordinary_P1_P4": 8,
+      "transition": 4,
+      "Present_controls": 2,
+      "exact_density4": 2
+    },
+    "P5_setup": "Genuine ordinary P4 purchase costs8250 from10000. Before tick0, explicit private one-byte rear-power4-to5 diagnostic is applied equally to both programs; remaining783 of784 total player bytes and5016 RNG bytes are unchanged. No cash, seed or gameplay RNG change.",
+    "ordinary_P5_purchase": false,
+    "P5_cost15750_exceeds_fresh10000": true,
+    "additional_admissions_only_owned_record258_phases41_3": true,
+    "main_new_draws_each": 226,
+    "main_phase_draw_counts": {
+      "41": 122,
+      "3": 104
+    },
+    "resource_failure_counts_each_difficulty": {
+      "missing3_only41": 122,
+      "corrupt41_only3": 104,
+      "both_missing": 0
+    },
+    "lower_power_purchases_genuine_no_preset_no_new_admissions_all_native_pixels_exact": true,
+    "original_Normal_Hard_transfer_independently_reconstructed_from_original_observations": true,
+    "candidate_changes_confined_to_exact_admitted_original_and_authored_support": true,
+    "all_sampled_native_pixels_match_actual_uploaded_canvas_sampling": true,
+    "all_live_new_admission_RGBA_header_density_alpha_classes_and_birth_slot_join_exact": true,
+    "both_direction_mode_switch_retained_births_and_clear_tick179_verified": true,
+    "pure_prior_mode2_samples_in_all8_main_transition_cases_baseline_exact": true,
+    "old277_278_183_182_observed_on_prior_HD_paths": true,
+    "Present_owner_allocation_birth_streams_match_regular_main_and_RNG_unchanged": true,
+    "Present_calls_each": 123,
+    "Present_skipped_ticks": [
+      30,
+      31,
+      32,
+      78,
+      79,
+      80
+    ],
+    "second_repeated_Present_call_separate_native_capture": false,
+    "density4_new3_41_exact_old183_182_remain_classic_due_density8_only_assets": true
+  },
+  "actual_native_visual_review": {
+    "Normal_Hard_native2x_and4x_brown_cloud_plates_directly_inspected": true,
+    "full_cloud_frames_for_both_new_heads_inspected": true,
+    "all32_comparison_tiles_match_unscaled_original_native_captures": true,
+    "all16_fully_exposed_authored_head_background_witnesses_verified": true,
+    "bright_heads_intact_components_separate": true,
+    "accepted_deviation": "Real clipped outer triple-lobe tail tips remain. Native4x ID3 outer left tails show short flat edges, especially on cloud; ID41 is milder. This is the explicitly accepted aesthetic deviation; original HOLD and finding are retained in the art evidence.",
+    "maximum_authored_alpha_mass_loss_percent": 0.8123,
+    "maximum_sampled_native_alpha_mass_loss_percent": 0.9646,
+    "no_component_overlap_in_composed_art": true,
+    "no_brightness_or_seamless_taper_preservation_claim": true,
+    "new_owned_fractional_points_each_main_case": {
+      "later_ordered_writes": 7297,
+      "outside_playfield_clipping": 10093,
+      "later_writes_in_original_ship_command_bounds": 965
+    },
+    "ship_bounds_are_conservative_association_not_exact_pixel_ownership": true,
+    "natural_new_head_head_support_overlap_observed": 0
+  },
+  "final_integrity": {
+    "all160_source_7123_asset_53_test_files_and_Makefile_rehashed_exact": true,
+    "all_public_source_asset_test_trees_cache_free": true,
+    "all80_original_data_files_rehashed_exact_to_initial_source": true,
+    "all3075_pinned_pack_files_and42_runtime_dependency_files_rehashed": true,
+    "all6_qualified_binaries_and_observer_source_trees_rehashed_exact": true,
+    "all6_batch_pre_post_pins_match_current_files": true,
+    "all_completed_observation_files_rehashed": 8450,
+    "unique_inode_bytes_rehashed": 3158654632,
+    "all42_helper_files_rehashed": true,
+    "all54_process_and_launch_receipts_reconciled": true,
+    "qualifying_observations_remain_raw_or_byte_identical_hardlinks": true,
+    "baseline_only_preparation_archived_BMP_entries_independently_decompressed_and_rehashed": 22
+  },
+  "retained_failure_and_correction": {
+    "native_game_process_failures": 0,
+    "native_game_reruns": 0,
+    "derived_preview_checker_failures": 1,
+    "cause": "Early transition preview ran before the Normal4x derived birth-identity file existed.",
+    "resolution": "Correct dependency order and reuse unchanged original observations; no source, observer, capture or freeze change.",
+    "failure_log_sha256": "a2aa8876aff697d3c7a53a2b3a146984fcb6c2495c118a71f0d5a7603f029e7b",
+    "successful_correction_log_sha256": "6f5cb582270f57fd9b84cfc4b1190ed437e74c42afde9eefdfb3127a20f3b34d"
+  },
+  "sanitized_runtime_checkpoint": {
+    "sha256": "df315b2a73991c89a76d363bbac8febbcd57abffc0d6a4e2933dacf88254fb9e",
+    "bytes": 62060,
+    "members": 3,
+    "all_member_bytes_safe_paths_regular_modes_and_privacy_independently_verified": true,
+    "original_data_native_captures_observer_code_binaries_arrays_and_private_paths_excluded": true
+  },
+  "limitations": [
+    "Explicit private P5 diagnostic is not ordinary P5 acquisition or natural progression.",
+    "Bounded120/180-tick first-level Linux SDL dummy/software native2x/4x evidence does not certify a full level, GPU or physical display.",
+    "No natural partial-capacity, all-cyclic-start, in-game power-change or new-head/head-overlap claim. Controlled exhaustive and forced-overlap tests are separate.",
+    "Present readback is once per scheduled presented tick; skipped ticks and second repeated calls lack independent native captures.",
+    "Accepted clipped outer tail tips remain. Fixed footprint means canvas, anchor and bounds, not original covered-mask equality or seamless taper.",
+    "Final distributable archive, its durable round-trip and exact remote publication verification are separate subsequent gates."
+  ],
+  "evidence_sha256": {
+    "source-review.json": "21ac7e9d984cec3b48f73bbc6e4199d46ae4945600b6f50c726ec5d2f4d46dff",
+    "assets-review.json": "fbd9edd5870db2f0927f9d6ce5ee48175c5aac21bdad2408ddb627f67e81ddc5",
+    "source-assets-controlled-review.json": "8b36681f7575e6a24ac8c9447238efaf996cb021984ea59623318349ac02c132",
+    "builds-observer-review.json": "571c9eb62684c51c6ab501896589b1aa69336de265007c862a2daa57c825e558",
+    "post-runtime-freeze-review.json": "925e0d3092a04863c503780dd6de875ddb9e960a7ea112ef1d08995908e26ae7",
+    "runtime-independent-main.json": "f5acb9e3d26cbdc51f4c0110aaeccf9c8a06ed897d69486887dde08e052d6b6b",
+    "runtime-independent-negative-power.json": "a2bbbb49572bb1620804cd747cbf2e6ce4aee863244981290a534c84eb539a42",
+    "runtime-independent-present-density4.json": "ecbda657b52c99360eaf689a17b7fd2514e69e98babff4cc0eb16582cadc21c6",
+    "runtime-independent-transition.json": "5d272000dc813d04a7af575fc8ee260a1106d87fa059a5dc0b4ab4895b8322b9",
+    "visibility-review.json": "9ca809bb5c964c5ebd2cf11cccacb368a0e30eb995717394c05b1e16de63b9c2",
+    "owned-occlusion-review.json": "5d2a3b4558a7a1658927be922e2375b556acceb4e08de352445b21c040dcca8f",
+    "present-generic-review.json": "c786499e4931f3a748b8e4baaca1acbb81590bcadd15dcd28220d25e82e02204",
+    "transition-review.json": "976a7a005ed0fd6dc32680d27bf88c692d9abd7bda1360d27c75bc73852f4c9d",
+    "mode2-regression-main.json": "f7806c5e3071b63af9e1e4fbd526878833d1d8ba20ea0777cc8c24f2b9d2cb13",
+    "mode2-regression-transition.json": "0efbdd0bee479288cad5ca869b428674b1d66632287608b8523645bf40ecf444",
+    "runtime-archive-review.json": "7335245ba4464d21377017e907d3a615253c246f5cd4f1bf3676aedb2093e145",
+    "art-archive-review.json": "6087e57e2179e2dfe1bf611e4e80582e95f8184e952136c4a8fc8c48b1f725c2",
+    "art-library-roundtrip-review.json": "a8037c73ca8002a2f434cd5920133161b80023c59c3141738b20314eafb7fe52",
+    "source-archive-review-v2.json": "5c553a2db5e0ee392bb273f8bd152ca07b30b54e80ea6675403766ff1155b946",
+    "source-library-roundtrip-review.json": "fc158e6f360702ed561ce53780a574a7ea5246a2d53bbad1b9503c5a3fe6d0aa",
+    "main-checkpoint-review-v2.json": "68890347e75dc513658f3de15b71d719c80e4f344f87120821f450f4590e8640",
+    "main-library-roundtrip-review.json": "d29aac9a319541d246c195a2eb5c1e1d55b8df4cd3b7cf8edbea9323b9793a72"
+  },
+  "runtime_json_sha256": "53982760e0a3a8881e04dfa0c97630037e5f769049cf2e325849abbf96b239ac",
+  "completed_observation_ledger_sha256": "d80494eeaf9aa3d17b6f4201af028aad795894e1227534be7afe1e87a2826c7b",
+  "final_helper_ledger_sha256": "54329c6f3018d3a008bace3e29bfdde017fa6a2ea40a16891d8a5522b2e8109b",
+  "revision_note": "Corrects the player-state byte-count wording: one changed byte out of784 total means783 other bytes unchanged. No evidence or qualification change."
+}
