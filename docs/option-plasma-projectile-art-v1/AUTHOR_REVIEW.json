@@ -1,0 +1,182 @@
+{
+  "status": "PASS_FRESH_BOUNDED_AUTHOR_REVIEW",
+  "baseline": "18a54527795971a4aa8492f86a0fc4996a51961d",
+  "historical_captures_used": false,
+  "source_sha256": {
+    "src/render_mirror.c": "c1388537de5136cadbe49ec647d287074769b602348e3e3073058c665c775113",
+    "src/render_mirror.h": "9059baf258530cacb38c52594b4cf13357b0cf19f4060b50f6a826207a38f5ae",
+    "src/shots.c": "258fac3b53a6bf5c4b5d101bee6ec60a30f2f2e6967048d2a70228c5adffca2f"
+  },
+  "art_master_sha256": "de7d4bd38f70e4f19405c5349535f790729b469f1c4e7df9df1afaec186dccb4",
+  "native_views": 10,
+  "candidate_views": 8,
+  "baseline_views": 2,
+  "screenshots_resampled_for_review": false,
+  "views": [
+    {
+      "case": "normal-art-native2x-candidate",
+      "tick": 103,
+      "native_size": [
+        640,
+        400
+      ],
+      "observation": "Three-piece effect appears continuous across cloud/brown underlays, with warm red-orange contour and luminous center; no obvious horizontal join seam. STORM dynamic label remains inherited pixelated text."
+    },
+    {
+      "case": "normal-art-native2x-candidate",
+      "tick": 101,
+      "native_size": [
+        640,
+        400
+      ],
+      "observation": "Bottom-clipped effect remains bounded by gameplay region; no apparent horizontal piece seam."
+    },
+    {
+      "case": "normal-art-native2x-candidate",
+      "tick": 149,
+      "native_size": [
+        640,
+        400
+      ],
+      "observation": "Multiple independent emissions and top clipping remain coherent. Cloud/brown changes follow the underlay, not piece boundaries."
+    },
+    {
+      "case": "normal-art-native2x-candidate",
+      "tick": 190,
+      "native_size": [
+        640,
+        400
+      ],
+      "observation": "Plasma has cleared; no apparent residual mask, halo or seam."
+    },
+    {
+      "case": "hard-art-native4x-candidate",
+      "tick": 103,
+      "native_size": [
+        1280,
+        800
+      ],
+      "observation": "Continuous warm plasma over cloud/brown underlay; diagonal light-cone boundary is inherited Hard composition."
+    },
+    {
+      "case": "hard-art-native4x-candidate",
+      "tick": 160,
+      "native_size": [
+        1280,
+        800
+      ],
+      "observation": "Last outgoing piece clips cleanly at the top; underlying playfield remains intact."
+    },
+    {
+      "case": "normal-art-native4x-candidate",
+      "tick": 111,
+      "native_size": [
+        1280,
+        800
+      ],
+      "observation": "Two simultaneous whole emissions retain coherent joins and fractional soft fringe."
+    },
+    {
+      "case": "hard-art-native4x-baseline",
+      "tick": 103,
+      "native_size": [
+        1280,
+        800
+      ],
+      "observation": "Baseline confirms the same Hard diagonal light boundary and draw order."
+    },
+    {
+      "case": "normal-art-native2x-baseline",
+      "tick": 103,
+      "native_size": [
+        640,
+        400
+      ],
+      "observation": "Baseline comparison confirms original envelope and underlay response; candidate has more detailed organic contour."
+    },
+    {
+      "case": "hard-art-native2x-candidate",
+      "tick": 149,
+      "native_size": [
+        640,
+        400
+      ],
+      "observation": "Hard2x ordered emissions and top clipping remain coherent; inherited light cone matches the baseline behavior."
+    }
+  ],
+  "exact_clear_frame_comparisons": [
+    {
+      "case": "normal-art-native2x",
+      "tick": 190,
+      "RGBA_exact": true
+    },
+    {
+      "case": "normal-art-native2x",
+      "tick": 220,
+      "RGBA_exact": true
+    },
+    {
+      "case": "normal-art-native2x",
+      "tick": 319,
+      "RGBA_exact": true
+    },
+    {
+      "case": "normal-art-native4x",
+      "tick": 190,
+      "RGBA_exact": true
+    },
+    {
+      "case": "normal-art-native4x",
+      "tick": 220,
+      "RGBA_exact": true
+    },
+    {
+      "case": "normal-art-native4x",
+      "tick": 319,
+      "RGBA_exact": true
+    },
+    {
+      "case": "hard-art-native2x",
+      "tick": 190,
+      "RGBA_exact": true
+    },
+    {
+      "case": "hard-art-native2x",
+      "tick": 220,
+      "RGBA_exact": true
+    },
+    {
+      "case": "hard-art-native2x",
+      "tick": 319,
+      "RGBA_exact": true
+    },
+    {
+      "case": "hard-art-native4x",
+      "tick": 190,
+      "RGBA_exact": true
+    },
+    {
+      "case": "hard-art-native4x",
+      "tick": 220,
+      "RGBA_exact": true
+    },
+    {
+      "case": "hard-art-native4x",
+      "tick": 319,
+      "RGBA_exact": true
+    }
+  ],
+  "visual_findings": [
+    "No obvious horizontal join seam in inspected native views.",
+    "Whole-master organic contour is continuous across cloud and brown underlays; red/orange over dark terrain and luminous core over clouds are expected value-average behavior.",
+    "Top and bottom clipping, ordered repeated emissions and disappearance are clean in the inspected cases.",
+    "Hard diagonal light boundary is inherited composition, not an artwork-piece seam.",
+    "Dynamic STORM text remains an inherited separate HUD gap."
+  ],
+  "bounds": [
+    "Visual sampling is not whole-level or full-campaign qualification.",
+    "Numerical original-state, blend, ownership, missing/corrupt fallback and native-sampling checks are recorded separately in RUNTIME.json.",
+    "Final independent review must bind the complete frozen package before publication."
+  ],
+  "private_captures_published": false
+}

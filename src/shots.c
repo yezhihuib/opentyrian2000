@@ -21,6 +21,7 @@
 #include "player.h"
 #include "sprite.h"
 #include "entity_draw.h"
+#include "render_mirror.h"
 #include "game_probe.h"
 #include "video.h"
 #include "varz.h"
@@ -280,7 +281,9 @@ bool player_shot_move_and_draw(
 		{
 			game_probe_shot_draw(shot_id, raw_frame, 5, sprite_frame - 60001, *out_shotx+1, *out_shoty, ENTITY_BLEND,
 			                     sprite(OPTION_SHAPES, sprite_frame - 60001)->width, sprite(OPTION_SHAPES, sprite_frame - 60001)->height);
+			render_mirror_plasma_art_prepare(VGAScreen, *out_shotx+1, *out_shoty, shot_id, OPTION_SHAPES, sprite_frame - 60001);
 			blit_sprite_blend(VGAScreen, *out_shotx+1, *out_shoty, OPTION_SHAPES, sprite_frame - 60001);
+			render_mirror_plasma_art_end(VGAScreen);
 
 			*out_special_radiusw = sprite(OPTION_SHAPES, sprite_frame - 60001)->width / 2;
 			*out_special_radiush = sprite(OPTION_SHAPES, sprite_frame - 60001)->height / 2;
@@ -526,6 +529,7 @@ JE_integer player_shot_create(JE_word portNum, uint bay_i, JE_word PX, JE_word P
 		}
 
 		shotRepeat[bay_i] = weapon->shotrepeat;
+		render_mirror_plasma_art_emit(shot_id, wpNum, bay_i, playerNum, shot->shotGr);
 		game_probe_shot_emit(probe_call, multi_i, shotMultiPos[bay_i], shot_id);
 	}
 

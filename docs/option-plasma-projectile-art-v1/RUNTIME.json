@@ -1,0 +1,549 @@
+{
+  "schema": "plasma-storm-art-runtime-recovery-v1",
+  "status": "PASS_FRESH_BOUNDED",
+  "qualification_date_utc": "2026-10-16",
+  "baseline_commit": "18a54527795971a4aa8492f86a0fc4996a51961d",
+  "qualified_matrix": {
+    "main_pairs": 4,
+    "negative_pairs": 6,
+    "total_pairs": 10,
+    "qualified_processes": 20,
+    "ticks_per_process": 320,
+    "qualified_logic_ticks": 6400,
+    "process_exit_codes": [
+      0
+    ],
+    "native_gameplay_captures": 400,
+    "native_shop_captures": 60,
+    "total_native_captures": 460,
+    "lossless_PNG_copies": 460,
+    "all_PNG_chunk_CRCs_through_IEND_and_BMP_RGBA_identity_verified": true
+  },
+  "actual_scenario": {
+    "entry": "Original title and menu flow: New Game, Full Game, episode 1, Normal or Hard, first shop. Only keyboard input is injected.",
+    "physical_levels": {
+      "Normal": 9,
+      "Hard": 15
+    },
+    "purchase": {
+      "slot": "RIGHT",
+      "option": 9,
+      "weapon": 88,
+      "cost": 9500,
+      "cash_before": 10000,
+      "cash_after": 500,
+      "left_option": 0,
+      "right_option": 9
+    },
+    "Space_held_from_tick": 0,
+    "one_tick_LeftAlt": [
+      100,
+      108,
+      116,
+      124,
+      132,
+      140,
+      148
+    ],
+    "six_nonempty_requests": [
+      100,
+      108,
+      116,
+      124,
+      132,
+      140
+    ],
+    "empty_attempt_tick": 148,
+    "emissions_per_process": 18,
+    "raw_draws_per_process": 312,
+    "per_piece_draws": {
+      "22": 90,
+      "23": 102,
+      "24": 120
+    },
+    "raw_writes_per_process": 391968,
+    "clipping_draws_per_process": {
+      "fully_inside": 276,
+      "top": 30,
+      "bottom": 6
+    },
+    "seed": "Each process evaluates original time(NULL) once at the original seed location. Paired processes launch in the same real second and observed seeds are checked equal. No game seed, time, RNG, cash, equipment, position or state override.",
+    "game_probe_enabled": false
+  },
+  "every_tick_original_parity": {
+    "ticks_per_pair": 320,
+    "full_physical_game_INDEX8_bytes_per_tick": 64000,
+    "full_physical_display_INDEX8_bytes_per_tick": 64000,
+    "full_RGB_palette_bytes_per_tick": 1024,
+    "state": "Existing explicit-field player, enemy, shot, particle and global hashes; RNG fingerprints; input; original collision, emission, draw-order, pose, request and result traces.",
+    "all_equal": true,
+    "original_raw_write_order_and_values_checked": 7839360
+  },
+  "authored_runtime_oracle": {
+    "method": "Independent original-sprite decoder and frozen authored PNG pixels; snapshot after retained-font stripping and before staging. Independently project authored RGB onto the current warm palette, blend using the actual pre-draw underlay, apply authored alpha, and verify complete RGBA/ownership/cloud/green provenance plus expected and physical INDEX8 after each commit. Checks include unchanged pixels outside each authored rectangle.",
+    "snapshot_space": [
+      2560,
+      1600
+    ],
+    "density": 8,
+    "accepted_commits": 1668,
+    "totals": {
+      "canvas_subpixels": 6832128000,
+      "rectangle": 158946816,
+      "alpha": 115843560,
+      "new_alpha": 613608,
+      "zero_covered_owner0": 15468,
+      "zero_covered_owner1": 13552788,
+      "zero_covered_owner2": 0,
+      "errors": 0
+    },
+    "original_covered_alpha_zero_rule": "Retain underlay RGB and promote to owner 1 with cleared cloud/green provenance; alpha-zero cells outside the original mask preserve all underlay provenance.",
+    "owner2_observed": false,
+    "private_before_after_snapshot_pairs": 72,
+    "snapshot_ticks": [
+      101,
+      103,
+      111,
+      149,
+      160
+    ],
+    "errors": 0
+  },
+  "legacy_runtime_oracle": {
+    "original_callbacks": 7839360,
+    "checked_subpixels": 501719040,
+    "owner0_subpixels": 88380,
+    "owner2_subpixels": 0,
+    "errors": 0
+  },
+  "final_display_sampling": {
+    "gameplay_capture_ticks": [
+      0,
+      3,
+      7,
+      11,
+      15,
+      19,
+      99,
+      100,
+      101,
+      103,
+      107,
+      111,
+      115,
+      140,
+      148,
+      149,
+      160,
+      190,
+      220,
+      319
+    ],
+    "scene_oracle_frames": 400,
+    "scene_subpixels": 1243545600,
+    "scene_oracle": "Independent Normal copy and Hard original descending-counter lighting transform over every 264 by 184 gameplay cell and all 64 density-8 subpixels at each selected tick.",
+    "native_oracle_frames": 400,
+    "native_RGBA_pixels": 163840000,
+    "native2x": {
+      "actual_SDL_output": [
+        640,
+        400
+      ],
+      "density8_sampling_stride": 4,
+      "center_offset": 2
+    },
+    "native4x": {
+      "actual_SDL_output": [
+        1280,
+        800
+      ],
+      "density8_sampling_stride": 2,
+      "center_offset": 1
+    },
+    "method": "Read actual final SDL software-renderer pixels before Present; compare all native pixels to the fully composed density-8 final output. Independently replay that comparison from saved output and native BMP/PNG bytes.",
+    "errors": 0,
+    "not_every_tick_final_RGBA": true
+  },
+  "fallback": "Optional art falls back per resource. Missing all six files or corrupting all six file magics restores baseline compatibility at all captured frames. Missing only density-8 middle piece 23 retains 102 original middle draws while 210 outer draws remain authored. Original traces stay exact in every negative case.",
+  "cases": [
+    {
+      "case": "normal-art-native2x",
+      "difficulty": "normal",
+      "physical_level": 9,
+      "native_scale": 2,
+      "processes": 2,
+      "logic_ticks_each": 320,
+      "all_original_trace_parity": true,
+      "candidate_authored_commits": 312,
+      "candidate_authored_piece_counts": {
+        "22": 90,
+        "23": 102,
+        "24": 120
+      },
+      "candidate_compatibility_only_piece_counts": {},
+      "all_23_captured_RGBA_images_restore_baseline": false,
+      "authored_oracle": {
+        "canvas_subpixels": 1277952000,
+        "rectangle": 30368256,
+        "alpha": 22800546,
+        "new_alpha": 122754,
+        "zero_covered_owner0": 2578,
+        "zero_covered_owner1": 2405582,
+        "zero_covered_owner2": 0,
+        "errors": 0
+      },
+      "clear_capture_RGBA_equal_baseline": true,
+      "errors": 0
+    },
+    {
+      "case": "normal-art-native4x",
+      "difficulty": "normal",
+      "physical_level": 9,
+      "native_scale": 4,
+      "processes": 2,
+      "logic_ticks_each": 320,
+      "all_original_trace_parity": true,
+      "candidate_authored_commits": 312,
+      "candidate_authored_piece_counts": {
+        "22": 90,
+        "23": 102,
+        "24": 120
+      },
+      "candidate_compatibility_only_piece_counts": {},
+      "all_23_captured_RGBA_images_restore_baseline": false,
+      "authored_oracle": {
+        "canvas_subpixels": 1277952000,
+        "rectangle": 30368256,
+        "alpha": 22800546,
+        "new_alpha": 122754,
+        "zero_covered_owner0": 2578,
+        "zero_covered_owner1": 2405582,
+        "zero_covered_owner2": 0,
+        "errors": 0
+      },
+      "clear_capture_RGBA_equal_baseline": true,
+      "errors": 0
+    },
+    {
+      "case": "hard-art-native2x",
+      "difficulty": "hard",
+      "physical_level": 15,
+      "native_scale": 2,
+      "processes": 2,
+      "logic_ticks_each": 320,
+      "all_original_trace_parity": true,
+      "candidate_authored_commits": 312,
+      "candidate_authored_piece_counts": {
+        "22": 90,
+        "23": 102,
+        "24": 120
+      },
+      "candidate_compatibility_only_piece_counts": {},
+      "all_23_captured_RGBA_images_restore_baseline": false,
+      "authored_oracle": {
+        "canvas_subpixels": 1277952000,
+        "rectangle": 30368256,
+        "alpha": 22800546,
+        "new_alpha": 122754,
+        "zero_covered_owner0": 2578,
+        "zero_covered_owner1": 2405582,
+        "zero_covered_owner2": 0,
+        "errors": 0
+      },
+      "clear_capture_RGBA_equal_baseline": true,
+      "errors": 0
+    },
+    {
+      "case": "hard-art-native4x",
+      "difficulty": "hard",
+      "physical_level": 15,
+      "native_scale": 4,
+      "processes": 2,
+      "logic_ticks_each": 320,
+      "all_original_trace_parity": true,
+      "candidate_authored_commits": 312,
+      "candidate_authored_piece_counts": {
+        "22": 90,
+        "23": 102,
+        "24": 120
+      },
+      "candidate_compatibility_only_piece_counts": {},
+      "all_23_captured_RGBA_images_restore_baseline": false,
+      "authored_oracle": {
+        "canvas_subpixels": 1277952000,
+        "rectangle": 30368256,
+        "alpha": 22800546,
+        "new_alpha": 122754,
+        "zero_covered_owner0": 2578,
+        "zero_covered_owner1": 2405582,
+        "zero_covered_owner2": 0,
+        "errors": 0
+      },
+      "clear_capture_RGBA_equal_baseline": true,
+      "errors": 0
+    },
+    {
+      "case": "normal-missing-native2x",
+      "difficulty": "normal",
+      "physical_level": 9,
+      "native_scale": 2,
+      "processes": 2,
+      "logic_ticks_each": 320,
+      "all_original_trace_parity": true,
+      "candidate_authored_commits": 0,
+      "candidate_authored_piece_counts": {},
+      "candidate_compatibility_only_piece_counts": {
+        "22": 90,
+        "23": 102,
+        "24": 120
+      },
+      "all_23_captured_RGBA_images_restore_baseline": true,
+      "authored_oracle": {
+        "canvas_subpixels": 0,
+        "rectangle": 0,
+        "alpha": 0,
+        "new_alpha": 0,
+        "zero_covered_owner0": 0,
+        "zero_covered_owner1": 0,
+        "zero_covered_owner2": 0,
+        "errors": 0
+      },
+      "clear_capture_RGBA_equal_baseline": true,
+      "errors": 0
+    },
+    {
+      "case": "normal-corrupt-native2x",
+      "difficulty": "normal",
+      "physical_level": 9,
+      "native_scale": 2,
+      "processes": 2,
+      "logic_ticks_each": 320,
+      "all_original_trace_parity": true,
+      "candidate_authored_commits": 0,
+      "candidate_authored_piece_counts": {},
+      "candidate_compatibility_only_piece_counts": {
+        "22": 90,
+        "23": 102,
+        "24": 120
+      },
+      "all_23_captured_RGBA_images_restore_baseline": true,
+      "authored_oracle": {
+        "canvas_subpixels": 0,
+        "rectangle": 0,
+        "alpha": 0,
+        "new_alpha": 0,
+        "zero_covered_owner0": 0,
+        "zero_covered_owner1": 0,
+        "zero_covered_owner2": 0,
+        "errors": 0
+      },
+      "clear_capture_RGBA_equal_baseline": true,
+      "errors": 0
+    },
+    {
+      "case": "normal-missing-middle-native2x",
+      "difficulty": "normal",
+      "physical_level": 9,
+      "native_scale": 2,
+      "processes": 2,
+      "logic_ticks_each": 320,
+      "all_original_trace_parity": true,
+      "candidate_authored_commits": 210,
+      "candidate_authored_piece_counts": {
+        "22": 90,
+        "24": 120
+      },
+      "candidate_compatibility_only_piece_counts": {
+        "23": 102
+      },
+      "all_23_captured_RGBA_images_restore_baseline": false,
+      "authored_oracle": {
+        "canvas_subpixels": 860160000,
+        "rectangle": 18736896,
+        "alpha": 12320688,
+        "new_alpha": 61296,
+        "zero_covered_owner0": 2578,
+        "zero_covered_owner1": 1965230,
+        "zero_covered_owner2": 0,
+        "errors": 0
+      },
+      "clear_capture_RGBA_equal_baseline": true,
+      "errors": 0
+    },
+    {
+      "case": "hard-missing-native2x",
+      "difficulty": "hard",
+      "physical_level": 15,
+      "native_scale": 2,
+      "processes": 2,
+      "logic_ticks_each": 320,
+      "all_original_trace_parity": true,
+      "candidate_authored_commits": 0,
+      "candidate_authored_piece_counts": {},
+      "candidate_compatibility_only_piece_counts": {
+        "22": 90,
+        "23": 102,
+        "24": 120
+      },
+      "all_23_captured_RGBA_images_restore_baseline": true,
+      "authored_oracle": {
+        "canvas_subpixels": 0,
+        "rectangle": 0,
+        "alpha": 0,
+        "new_alpha": 0,
+        "zero_covered_owner0": 0,
+        "zero_covered_owner1": 0,
+        "zero_covered_owner2": 0,
+        "errors": 0
+      },
+      "clear_capture_RGBA_equal_baseline": true,
+      "errors": 0
+    },
+    {
+      "case": "hard-corrupt-native2x",
+      "difficulty": "hard",
+      "physical_level": 15,
+      "native_scale": 2,
+      "processes": 2,
+      "logic_ticks_each": 320,
+      "all_original_trace_parity": true,
+      "candidate_authored_commits": 0,
+      "candidate_authored_piece_counts": {},
+      "candidate_compatibility_only_piece_counts": {
+        "22": 90,
+        "23": 102,
+        "24": 120
+      },
+      "all_23_captured_RGBA_images_restore_baseline": true,
+      "authored_oracle": {
+        "canvas_subpixels": 0,
+        "rectangle": 0,
+        "alpha": 0,
+        "new_alpha": 0,
+        "zero_covered_owner0": 0,
+        "zero_covered_owner1": 0,
+        "zero_covered_owner2": 0,
+        "errors": 0
+      },
+      "clear_capture_RGBA_equal_baseline": true,
+      "errors": 0
+    },
+    {
+      "case": "hard-missing-middle-native2x",
+      "difficulty": "hard",
+      "physical_level": 15,
+      "native_scale": 2,
+      "processes": 2,
+      "logic_ticks_each": 320,
+      "all_original_trace_parity": true,
+      "candidate_authored_commits": 210,
+      "candidate_authored_piece_counts": {
+        "22": 90,
+        "24": 120
+      },
+      "candidate_compatibility_only_piece_counts": {
+        "23": 102
+      },
+      "all_23_captured_RGBA_images_restore_baseline": false,
+      "authored_oracle": {
+        "canvas_subpixels": 860160000,
+        "rectangle": 18736896,
+        "alpha": 12320688,
+        "new_alpha": 61296,
+        "zero_covered_owner0": 2578,
+        "zero_covered_owner1": 1965230,
+        "zero_covered_owner2": 0,
+        "errors": 0
+      },
+      "clear_capture_RGBA_equal_baseline": true,
+      "errors": 0
+    }
+  ],
+  "visual_review": {
+    "main_cases": 4,
+    "native_scales": [
+      2,
+      4
+    ],
+    "difficulties": [
+      "Normal",
+      "Hard"
+    ],
+    "inspected_ticks": [
+      101,
+      103,
+      111,
+      149,
+      160,
+      190,
+      220,
+      319
+    ],
+    "result": "No new three-piece seam, rectangular edge or stale Storm residue observed. Deep-brown and cloud brightness follow the underlay; Hard diagonal illumination boundary is inherited. Clear frames exactly match paired baseline. Existing STORM HUD lettering is outside this art pilot."
+  },
+  "compression_receipts": [
+    {
+      "difficulty": "normal",
+      "logs": 10,
+      "log_kind": "original_raw_pixel_callbacks",
+      "uncompressed_bytes": 10973475,
+      "gzip_bytes": 2281030,
+      "uncompressed_sha256": "71102f832494a37642664db13eef7f727a88cb9a4bf10022fbf6d81cc447140f",
+      "gzip_sha256": "85eb53fa1d3a404aa3641f3d72cf4e7f65068f0351427457e2ed7cdd2f31dcba",
+      "gzip_crc_and_full_decode_verified": true
+    },
+    {
+      "difficulty": "hard",
+      "logs": 10,
+      "log_kind": "original_raw_pixel_callbacks",
+      "uncompressed_bytes": 10973340,
+      "gzip_bytes": 2280934,
+      "uncompressed_sha256": "0beed3a5d7da912ab746ac67396a1f15070a9c85ce27a46b865b75b2867aa850",
+      "gzip_sha256": "2479e6cb9af9ebbcb9c7f7bfc37bc55253b118a6fbc52aa02a3682744e03b0ec",
+      "gzip_crc_and_full_decode_verified": true
+    }
+  ],
+  "excluded_preparation_attempts": {
+    "menu_fixture_engine_smokes": 3,
+    "menu_fixture_notes": "One initial Normal smoke exposed a state-mutating cash-read helper in the private fixture. That helper was removed; final Normal 2x and Hard 4x smokes precede the qualified matrix. All three are preparation only.",
+    "integrated_observer_v1_processes": 2,
+    "integrated_observer_v1_exit_codes": [
+      91,
+      91
+    ],
+    "integrated_observer_v1_failure": {
+      "tick": 141,
+      "draw": 235,
+      "cause": "Private expected-color oracle assembled palette RGB24 without the opaque 0xff alpha byte. Baseline and candidate failed the same legacy check. Production outputs and source were not changed.",
+      "correction": "Two private expected-color expressions now assemble opaque ARGB32: legacy classic/copy expectation and Hard fallback expectation. The v1 source, logs and failed pair are retained; all 20 qualified processes use corrected observer v2.",
+      "production_defect": false
+    }
+  },
+  "receipt_pins": {
+    "private_combined_analysis_sha256": "f78bb4ca396a12aeab280478591b3688f065bf42df7349d2e8811bf31d916a92",
+    "main_run_results_sha256": "b6c57ddbac299b81d22784478c83fa7bafc33d63cc9eb1667a36fb4a9c39387c",
+    "negative_run_results_sha256": "dad578b71cec6125aae45e7b479b0a9ca110e18bf312a6a4370447998242ef21",
+    "observer_v2_binary_sha256": {
+      "baseline": "1ef3c49a4733705e44df8b95bd760171030dc48d1a89b46f38dac4e6db18a7be",
+      "candidate": "a27b9958523b1ffa2f5b4118da90044b0725d8a8a292109de2c47a00482cebf7"
+    },
+    "observer_v2_inverse_sha256": "0df06faf6a6b67dfe5940e1c3e71c83c11838c8ddff048946983eeb16185aa83",
+    "data_manifest_canonical_sha256": "caa96ffee614dc8d95a76b03bee02615d3fd22e1dc387762de22d7a0076556e3",
+    "data_files": 80,
+    "pack_manifests_canonical_sha256": {
+      "baseline": "5d1cf246f8c697e62137fb3ba11b7710dabc4da6ecf7dce1fae3039f65e07694",
+      "candidate": "ec9089930e68a974f1e1c71d4967a5ae9c39629d4439342d2760d9fb39a5194a",
+      "candidate-missing": "5d1cf246f8c697e62137fb3ba11b7710dabc4da6ecf7dce1fae3039f65e07694",
+      "candidate-corrupt": "774c05f7f507f09bbc1ddc7f4d86f2c90f3b7077f388020d04279e7d249f1095",
+      "candidate-missing-middle": "95c6842cdb1716f4eb424e58b29319937f4b5f09dab61706e1f51ae4a87b8a5e"
+    }
+  },
+  "qualification_limits": [
+    "Only the current three-piece normal-data RIGHT9 weapon88 pilot and these 320-tick first-level scenarios are qualified.",
+    "Every-tick original INDEX8, palette and explicit state/RNG/input traces are compared; final full RGBA and Hard composition are checked at 20 gameplay capture ticks per process, not all 320.",
+    "Both actual native 2x and 4x runs use density 8. Density 4, owner 2, unsupported modes, synthetic stale-state and font/fade rejection cases remain unit-test coverage only.",
+    "Actual negative runs are native 2x only; missing-middle behavior is mixed per-piece fallback rather than whole-family replacement.",
+    "No whole level or campaign, later refill, LEFT/dual option, Christmas 1088, physical GPU, Windows, performance or general gameplay qualification is claimed.",
+    "The original data, runtime captures, source arrays and reversible observer hooks remain private. Historical results lost before recovery do not qualify this new candidate."
+  ]
+}

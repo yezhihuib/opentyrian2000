@@ -1,0 +1,218 @@
+{
+  "schema": "plasma-storm-art-build-recovery-v1",
+  "status": "PASS_FRESH_BOUNDED",
+  "qualification_date_utc": "2026-10-16",
+  "baseline_commit": "18a54527795971a4aa8492f86a0fc4996a51961d",
+  "fresh_recovery": {
+    "historical_runtime_evidence_reused": false,
+    "production_source_reconstructed_and_freshly_built": true,
+    "authored_assets_recovered_byte_exact": true
+  },
+  "toolchain": {
+    "compiler": "gcc (Debian 14.2.0-19) 14.2.0",
+    "make": "GNU Make 4.4.1",
+    "python": "3.12.14",
+    "SDL2": "2.32.4",
+    "SDL2_net": "2.2.0",
+    "linker_addition": "-lz"
+  },
+  "source": {
+    "production_files_each": 153,
+    "changed_candidate_files_sha256": {
+      "render_mirror.c": "c1388537de5136cadbe49ec647d287074769b602348e3e3073058c665c775113",
+      "render_mirror.h": "9059baf258530cacb38c52594b4cf13357b0cf19f4060b50f6a826207a38f5ae",
+      "shots.c": "258fac3b53a6bf5c4b5d101bee6ec60a30f2f2e6967048d2a70228c5adffca2f"
+    },
+    "sprite_c_unchanged_sha256": "c4d0949c24c316fd11f5b280f35ae748b997d18247f977aa730f6a943b34da81",
+    "source_manifest_canonical_sha256": {
+      "baseline": "0e6cb736957cb8b6f65191576e6772dffc93cafc931400dc5aaee7b85368d957",
+      "candidate": "2f3693d4df13ef214c2d24f4648fb3a498b0b9aef8d6a4c3baa070d753f8a56a"
+    },
+    "Makefile_unchanged_sha256": "e6a43faa818e83c150866793121534819d86d953d5a73e9922906299ad4ed747"
+  },
+  "clean_unhooked_builds": [
+    {
+      "variant": "baseline",
+      "source_files": 153,
+      "translation_units": 72,
+      "clean_unhooked_source_exact": true,
+      "clean_production_binary_sha256": "69674417436144635bf6ed71723a3ac8a1da9946a667ed9f3b858204cf038807",
+      "build_log_sha256": "3ae407467af9742ae965ae6edf87a4c7badea9f248b8e0e0c7e90609e2e99c6f",
+      "warnings": 0,
+      "flags": "-pedantic -Wall -Wextra -Werror -Wno-misleading-indentation -Wno-format-truncation -Wno-missing-field-initializers -O2"
+    },
+    {
+      "variant": "candidate",
+      "source_files": 153,
+      "translation_units": 72,
+      "clean_unhooked_source_exact": true,
+      "clean_production_binary_sha256": "cda8c720ce8a35e7174dee8b68cad647d833b39eed43b8c9e582a73fd8b8985e",
+      "build_log_sha256": "1b3a67e879c2d62c4be4f7c932408995117ac1a024e37cf30396ebe9a3a4683c",
+      "warnings": 0,
+      "flags": "-pedantic -Wall -Wextra -Werror -Wno-misleading-indentation -Wno-format-truncation -Wno-missing-field-initializers -O2"
+    }
+  ],
+  "private_observer_v2": {
+    "inverse": [
+      {
+        "variant": "baseline",
+        "original_source_files": 153,
+        "observer_source_files": 158,
+        "modified_source_files": 8,
+        "added_private_helpers": [
+          "src/fixture.inc",
+          "src/runtime_fixture.h",
+          "src/runtime_oracle_data.h",
+          "src/runtime_storm.h",
+          "src/runtime_storm_observer.inc"
+        ],
+        "zero_fuzz_reverse_patch": true,
+        "all_original_bytes_restored": true,
+        "patch_sha256": "0db164a0c1509dca0a221285cbdf52b9d76e5a81dbac561ae43d911f02a7505f",
+        "observer_binary_sha256": "1ef3c49a4733705e44df8b95bd760171030dc48d1a89b46f38dac4e6db18a7be"
+      },
+      {
+        "variant": "candidate",
+        "original_source_files": 153,
+        "observer_source_files": 158,
+        "modified_source_files": 8,
+        "added_private_helpers": [
+          "src/fixture.inc",
+          "src/runtime_fixture.h",
+          "src/runtime_oracle_data.h",
+          "src/runtime_storm.h",
+          "src/runtime_storm_observer.inc"
+        ],
+        "zero_fuzz_reverse_patch": true,
+        "all_original_bytes_restored": true,
+        "patch_sha256": "6a3dbf7d251f0ff5cfc14acc28a0877a88068f1d4ecc9f34375a0ce3588b3262",
+        "observer_binary_sha256": "a27b9958523b1ffa2f5b4118da90044b0725d8a8a292109de2c47a00482cebf7"
+      }
+    ],
+    "observer_source_manifest_canonical_sha256": {
+      "baseline": "0292a2a28cb23b178c482c693a321217ab3f1062d9c1dc3ce676ec053f61b40d",
+      "candidate": "89e3176702bca72133fb0d9e782bca9fa1c788d1ed7ebc1b363829bf1d2e1852"
+    },
+    "helpers_sha256": {
+      "run_runtime.py": "f6c57b60d56a26ff1aee9c147cfcd7e2cc0a94e8b454de0a9407bbba9006a3ed",
+      "apply_renderer_observer.py": "2449d30c2a25f39b3d00cd8f7b818899ae109cde183d75e42b39f2ae81797125",
+      "runtime_storm.h": "8a8307235c19399e317fc4e2a130ce427cffaa3e7ee7036f0915d284e7c61b70",
+      "runtime_storm_observer.inc": "a69e1240212ececdafa501bad6573c43f460c42cdfa01e66f5f815e4e3aac0e0",
+      "runtime_oracle_data.h": "61e1c377d4e40b04dadaa9ae8ac69cea3e9ab6d6ec6e02940136260edf8546f7",
+      "make_oracle_data.py": "0d874ab36f0ace407a6b39fa2b56f5691bb97cf4ce695f2e7e534943a3731bae"
+    },
+    "menu_helpers_sha256": {
+      "apply_fixture.py": "e938af8a75f2282e41e71242265bd8c6d806fabf255ac55aa5f34aaa31825c98",
+      "fixture.inc": "518fdf0c92b291951ec3283fbd573baddd86b5d88fa2677725704268cb654d05",
+      "runtime_fixture.h": "a03f9788a90653712285d046cca838cb1bbff21691136ac23827a452b31c8b03",
+      "validate_run.py": "8a8fab91cb01748186064aa37b6fa4aef6389d03ce8208cf5dab3f091400f0db"
+    },
+    "analysis_sha256": {
+      "verify_runtime.py": "d601adfe069405465cc4bf69b24562bdd818fbf7341d8dfab1b9b858849567e8",
+      "verify_final_inverse.py": "8731888bb6c96f682606264ea5cb339fb08f53ca850097519070fd128de2a400",
+      "verify_and_build_production.py": "c46ff42bef036d858e2ddb0b78b65529d91bb0d2a91a6c9c19c762b7e5a2133d"
+    },
+    "final_inverse_receipt_sha256": "0df06faf6a6b67dfe5940e1c3e71c83c11838c8ddff048946983eeb16185aa83",
+    "instrumentation_in_production_build": false,
+    "observed_rng_unchanged_across_capture": true
+  },
+  "runtime_dependencies": {
+    "shared_libraries_per_binary": 43,
+    "same_for_both_variants": true,
+    "library_basename_manifest_canonical_sha256": "7822aff148e74f6facc3872994185b013c5f3eab6e8a9d64cb67eec5cfaea19d",
+    "SDL2_runtime_sha256": "ee3ccdd9b5fead3ea6b55622df02b962ef7f0afd6dc193139e5b9c088f56a43f",
+    "downloaded_packages": [
+      {
+        "filename": "libsdl2-dev_2.32.4+dfsg-1_amd64.deb",
+        "url": "https://deb.debian.org/debian/pool/main/libs/libsdl2/libsdl2-dev_2.32.4+dfsg-1_amd64.deb",
+        "sha256": "277dc6373473df2079ed44ac8661575b97b39fa263bfa424b0324c1501d21413",
+        "official_sha256_match": true
+      },
+      {
+        "filename": "libsdl2-net-dev_2.2.0+dfsg-3_amd64.deb",
+        "url": "https://deb.debian.org/debian/pool/main/libs/libsdl2-net/libsdl2-net-dev_2.2.0+dfsg-3_amd64.deb",
+        "sha256": "ae47f0ae46667c3921e1cf9e01bdcb2edd064fb417fad913b825c392450d059d",
+        "official_sha256_match": true
+      },
+      {
+        "filename": "libsdl2-net-2.0-0_2.2.0+dfsg-3_amd64.deb",
+        "url": "https://deb.debian.org/debian/pool/main/libs/libsdl2-net/libsdl2-net-2.0-0_2.2.0+dfsg-3_amd64.deb",
+        "sha256": "45edc86334417d9d740a536cb5fd33950c5f9170574f70e13148fe9bdfe0dfe2",
+        "official_sha256_match": true
+      }
+    ],
+    "extraction": "Private dpkg-deb extraction; no package maintainer scripts or system installation."
+  },
+  "original_data": {
+    "source_url": "https://www.camanis.net/tyrian/tyrian2000.zip",
+    "archive_sha256": "348bc76e73514e452279b8730cf217daf0f70a282f07b6b94af653d87e921667",
+    "resource_files_before_and_after_each_batch": 80,
+    "resource_manifest_canonical_sha256": "caa96ffee614dc8d95a76b03bee02615d3fd22e1dc387762de22d7a0076556e3",
+    "archive_executable_or_ancillary_files_not_extracted": 19,
+    "baseline_known_data_pins_matched": 9,
+    "baseline_known_data_sha256": {
+      "tyrian.hdt": "fde8506326e7bb0916b38c362e33bf8a8a5affa561206c021af7f65b4a17745b",
+      "tyrian1.lvl": "54cbb00b57b84aa992a70cfcb170cb1edeb59507873723630d60080ba8351352",
+      "tyrian.shp": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+      "tyrianc.shp": "e980f02021395d39b86491acdc2ecd6dd47ea2a9f859fe3928f81b75e244fd7d",
+      "newsh6.shp": "49e3d08e122ea71d6a621d2de127da00ce8a26ff73a0fb40d0cdd7ca2909d075",
+      "palette.dat": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0",
+      "tyrian4.lvl": "6589b898094887925e7717c8663c4b8b5e4b76f3c89a7898ed9f4691c1f2cc16",
+      "tyrian5.lvl": "275b5aaf55caecee8dc95e26f7cf118a9ee265f095ce61945b9ece56a4523323",
+      "newsh4.shp": "ab8881b4a26e723650780b19d5aed4ebfe410ea450d4bf7b80840628d61fd89b"
+    },
+    "historical_68_file_count": "The lost historical manifest is unavailable. This fresh qualification uses the independently restored and pinned 80-file resource set; no assertion of identity to that historical file selection."
+  },
+  "pack": {
+    "selected_pack_name": "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+    "all_baseline_pack_bytes_unchanged": true,
+    "candidate_added_files_sha256": {
+      "option-plasma-projectile-22-4.hda": "1f0942326b44ec51b83fec0caf75d9c20f515ee2eda56d64fac21c268f868a41",
+      "option-plasma-projectile-22-8.hda": "9b40d0539f929026bb3fe3377fba9c75828ef24b52c5e316bb232f853ff8b773",
+      "option-plasma-projectile-23-4.hda": "ccd34da86c4829e9bd883353c653e1c2032b32e24c49ea151ab91c7c4c4570f9",
+      "option-plasma-projectile-23-8.hda": "14fa1ffdbeee1d407c75a2b0f0642ce65581b1824c7d7eecf00d668144d33d05",
+      "option-plasma-projectile-24-4.hda": "584e37003902ed57ccf661dd28c6d3041462d49cd591e63a9aab7d6c44895cca",
+      "option-plasma-projectile-24-8.hda": "95e6ec5635e2a7a1c87124374fa1c69ae1bd743e84f13345d554c762af3abba1"
+    },
+    "variants": {
+      "baseline": {
+        "physical_files": 582,
+        "physical_hda_files": 577,
+        "manifest_canonical_sha256": "5d1cf246f8c697e62137fb3ba11b7710dabc4da6ecf7dce1fae3039f65e07694"
+      },
+      "candidate": {
+        "physical_files": 588,
+        "physical_hda_files": 583,
+        "manifest_canonical_sha256": "ec9089930e68a974f1e1c71d4967a5ae9c39629d4439342d2760d9fb39a5194a"
+      },
+      "candidate-missing": {
+        "physical_files": 582,
+        "physical_hda_files": 577,
+        "manifest_canonical_sha256": "5d1cf246f8c697e62137fb3ba11b7710dabc4da6ecf7dce1fae3039f65e07694"
+      },
+      "candidate-corrupt": {
+        "physical_files": 588,
+        "physical_hda_files": 583,
+        "manifest_canonical_sha256": "774c05f7f507f09bbc1ddc7f4d86f2c90f3b7077f388020d04279e7d249f1095"
+      },
+      "candidate-missing-middle": {
+        "physical_files": 587,
+        "physical_hda_files": 582,
+        "manifest_canonical_sha256": "95c6842cdb1716f4eb424e58b29319937f4b5f09dab61706e1f51ae4a87b8a5e"
+      }
+    }
+  },
+  "pin_checks": {
+    "all_production_observer_binary_dependency_pack_data_and_helper_pins_identical_before_after_both_batches_and_final_check": true,
+    "main_prelaunch_receipt_sha256": "2582f2b4282ebf8ea2f7be0c1ba08e98f74f3d23a8d47fc9abdb484b6ca4b440",
+    "main_postlaunch_receipt_sha256": "2582f2b4282ebf8ea2f7be0c1ba08e98f74f3d23a8d47fc9abdb484b6ca4b440",
+    "negative_prelaunch_receipt_sha256": "2582f2b4282ebf8ea2f7be0c1ba08e98f74f3d23a8d47fc9abdb484b6ca4b440",
+    "negative_postlaunch_receipt_sha256": "2582f2b4282ebf8ea2f7be0c1ba08e98f74f3d23a8d47fc9abdb484b6ca4b440"
+  },
+  "hash_manifest_encoding": "Canonical manifest hashes use UTF-8 JSON with sorted keys, ASCII escapes, separators comma and colon, and no trailing newline.",
+  "limits": [
+    "Clean unhooked production binaries are compiled and pinned; the actual menu runtime matrix uses explicitly reversible instrumented copies of those same source bytes.",
+    "No private hooks, original game data, snapshots or executable binaries are part of this receipt.",
+    "Synthetic unit and sanitizer coverage is recorded separately; this build receipt does not turn it into actual gameplay coverage."
+  ]
+}

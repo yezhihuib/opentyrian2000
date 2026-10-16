@@ -1,0 +1,95 @@
+{
+  "status": "PASS",
+  "baseline": "18a54527795971a4aa8492f86a0fc4996a51961d",
+  "source_sha256": {
+    "block": "6670fee5df6d85574139792affc5823ff5858c7eb1e229b2dd3bc8fddb2fdc12",
+    "reader": "d83f122c04e4200935e37d166d6e9d7f271fae486df2c5ffe00bb1a6b3e61346",
+    "original_blit": "e405d7503271ff5b37ab0463ea6bf46cefd7230062e65b4dbb6b70b72275950f",
+    "hud_sprite_decode": "251074478158482e46ce00787a27e66945b8f8e23f71eeb1e19dfa7287c3952c",
+    "explosion_blend_rgba": "269072dbcc0db9e8902599110b82029d6b90a2b8e0e1f2397ab19b37a675db12",
+    "effect_ramp_monotone_to": "093aae284de6aad6f4924a22fcd7ac17d3f7808e7163363fe08e6e600b2766b6",
+    "effect_ramp_monotone": "57dd110070548b473974b573626b3d83926a5106ce77192eb2d9128cb8efe83e",
+    "palette_rgb": "3d8e2f2e1edebd62bce8ad34128bfb346f89a2ba35001abe20179e3dc1738aaa",
+    "cloud_shadow_rgba": "3f3a363e6531f887c91de7d726239c870e783558eba214a312203b7b30d8a986",
+    "darken_rgba": "31194f5f89d033493c36e6a82fb290c0d539c6fb3fab8c5df43aace4dbb633d8",
+    "complete_turret_group": "e3a24c4cfdd4c077a6c50039b0d0f6b14b19dad58987f4479c705d3821db0707",
+    "restore_classic_rect": "2672f1fbc38373aee4a429a283790cf328ef4923aca40d402e83f6294ebb14cf",
+    "render_mirror_pixel": "57d00e2ee17c465ce17c5e26340f267fe76bb5a1c936add73675cbadd63fb6ad",
+    "render_mirror_unsupported": "14f5552b0b1ba01a190403944da13e645e9a71c470ca665563a2ffc609b42b91",
+    "render_mirror_plasma_projectile_begin": "279980e48fc623a0ab02905cc2d8465cec1bcf53d9d2b7cd320291429ef6b3c9",
+    "render_mirror_plasma_projectile_pixel": "9a4b4ef9bd5158fa8869382868b1f306c7de79d1985f4f30ff290cbfb14677ba"
+  },
+  "test_sha256": {
+    "prototype/test-plasma-storm-art.py": "da137f052635f6f864b4b7c795f2f216b42f753c761796b54fe6b7a157d79987",
+    "prototype/test-plasma-storm-art.c": "db0bfbefd3be7cf25e1f383dbadd7fd709eaa372593d713f2994f68c486103db",
+    "prototype/test-plasma-projectile-blend.c": "d445875e0082bd4a9fbd82e988db8921e8f6ca3d3b1b3c30798742adc792a8af",
+    "prototype/test-plasma-projectile-blend.py": "a0aa4da11dec60396a89aeb5a19dd98f3febb4d16837bf5e69d5e46e00a62156"
+  },
+  "isolated_stubs": [
+    "Font interception and unrelated fixed-effect collaborators are stubs inherited from the unchanged compatibility harness. Retained-font production integration is covered by a separate independent supplement."
+  ],
+  "resources": [
+    {
+      "name": "option-plasma-projectile-22-4.hda",
+      "sha256": "1f0942326b44ec51b83fec0caf75d9c20f515ee2eda56d64fac21c268f868a41"
+    },
+    {
+      "name": "option-plasma-projectile-22-8.hda",
+      "sha256": "9b40d0539f929026bb3fe3377fba9c75828ef24b52c5e316bb232f853ff8b773"
+    },
+    {
+      "name": "option-plasma-projectile-23-4.hda",
+      "sha256": "ccd34da86c4829e9bd883353c653e1c2032b32e24c49ea151ab91c7c4c4570f9"
+    },
+    {
+      "name": "option-plasma-projectile-23-8.hda",
+      "sha256": "14fa1ffdbeee1d407c75a2b0f0642ce65581b1824c7d7eecf00d668144d33d05"
+    },
+    {
+      "name": "option-plasma-projectile-24-4.hda",
+      "sha256": "584e37003902ed57ccf661dd28c6d3041462d49cd591e63a9aab7d6c44895cca"
+    },
+    {
+      "name": "option-plasma-projectile-24-8.hda",
+      "sha256": "95e6ec5635e2a7a1c87124374fa1c69ae1bd743e84f13345d554c762af3abba1"
+    }
+  ],
+  "inputs": {
+    "tyrian.shp": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+    "tyrianc.shp": "e980f02021395d39b86491acdc2ecd6dd47ea2a9f859fe3928f81b75e244fd7d",
+    "palette.dat": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+  },
+  "runs": {
+    "optimized": {
+      "status": "PASS",
+      "assertions": 81870383,
+      "draws": 4721,
+      "authored_draws": 4642,
+      "all_height_draws": 2850,
+      "ordered_repeated_draws": 1728,
+      "guard_cases": 80,
+      "missing_corrupt_resources": 30,
+      "poisoned_projection_caches": 18,
+      "exhaustive_projection_samples": 648,
+      "added_contour_subpixels": 732405,
+      "suppressed_original_subpixels": 13386577,
+      "hard_output_subpixels": 62177280
+    },
+    "sanitized": {
+      "status": "PASS",
+      "assertions": 81870383,
+      "draws": 4721,
+      "authored_draws": 4642,
+      "all_height_draws": 2850,
+      "ordered_repeated_draws": 1728,
+      "guard_cases": 80,
+      "missing_corrupt_resources": 30,
+      "poisoned_projection_caches": 18,
+      "exhaustive_projection_samples": 648,
+      "added_contour_subpixels": 732405,
+      "suppressed_original_subpixels": 13386577,
+      "hard_output_subpixels": 62177280
+    }
+  },
+  "engine_launches": 0
+}

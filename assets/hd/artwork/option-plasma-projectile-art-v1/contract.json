@@ -1,0 +1,212 @@
+{
+  "schema": "plasma-storm9-one-master-art-pilot-v1",
+  "status": "Art-stage PASS; provisionally accepted as the basis for isolated actual-runtime tests. Integration qualification is recorded separately.",
+  "master": {
+    "path": "sources/generated-plasma-storm9-r1.png",
+    "sha256": "de7d4bd38f70e4f19405c5349535f790729b469f1c4e7df9df1afaec186dccb4",
+    "size": [
+      1167,
+      1347
+    ],
+    "tool": "image_gen.imagegen",
+    "calls": 1,
+    "exact_model_id": "not supplied",
+    "transparent_background": true,
+    "prompt": "Use case: style-transfer. Asset type: one transparent HD video-game plasma blast sprite master, to be fitted to a 65-by-75 logical-pixel footprint. Input image 1 is the original complete assembled effect and is the composition and palette reference; remake this exact effect as finely painted smooth HD raster energy. Preserve its upright rounded-oval envelope, slight irregular asymmetry, flat orthographic 2D game-effect presentation, proportion 65 wide by 75 tall, and very luminous irregular creamy near-white center surrounded by yellow-white turbulent filaments and orange-to-red wispy fringes. Keep the central light expansive but give it subtly varied gaseous energy so it does not read as a flat solid white block. The effect is a brief volume of incandescent energy, NOT a material object, sun, orb, hard ball, sphere, rock, bubble or ring. Keep softly feathered translucent energy edges, fine curling luminous streaks and non-geometric texture, readable after downsampling to 130x150. No deep shadows, no opaque dark ring, no glass specular highlight or physical rim, no perspective, no green/blue/purple, no spaceship, no background. Preserve the silhouette's balanced width at the middle and narrower top/bottom, no long flame tail. One whole effect only, centered and fully contained with modest transparent padding; not a sprite sheet, no separated parts or animation variants, no panel lines, labels, text, grid, watermark or checkerboard. Render on a truly transparent RGBA background with real soft alpha, including all outer wisps. The result will later be split into three horizontally adjacent-in-time bands, so make one continuous coherent master without horizontal seams."
+  },
+  "recipe": {
+    "read_inputs": "generated master only; no original raster, mask, palette, screenshot or private data",
+    "crop": "none",
+    "resize_to": [
+      520,
+      600
+    ],
+    "resample": "Pillow LANCZOS, RGBA premultiplied resize",
+    "aspect_rounding_percent": 0.03427592116538314,
+    "split_rects_density8": [
+      [
+        0,
+        0,
+        496,
+        192
+      ],
+      [
+        0,
+        192,
+        520,
+        416
+      ],
+      [
+        0,
+        416,
+        496,
+        600
+      ]
+    ],
+    "density4": "Resize each density8 part separately by 1/2 using LANCZOS",
+    "anchors": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "original_offsets": [
+      [
+        -32,
+        -24
+      ],
+      [
+        -32,
+        0
+      ],
+      [
+        -32,
+        28
+      ]
+    ],
+    "assembled_logical_size": [
+      65,
+      75
+    ],
+    "simultaneous_pieces_not_animation": true,
+    "piece_union_discards": {
+      "count": 28,
+      "maximum_alpha": 1,
+      "alpha_mass_percent": 5.37505481596081e-05
+    },
+    "no_repaint_recolor_alpha_synthesis_source_mask": true
+  },
+  "pieces": [
+    {
+      "index": 22,
+      "encoded_original": 60023,
+      "density": 8,
+      "logical_size": [
+        62,
+        24
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "pixel_size": [
+        496,
+        192
+      ],
+      "png_sha256": "9100a35b7e3688ad27c202103505c3add3a64d4147efce52cf1e0eedaa9a56c8",
+      "rgba_sha256": "5b38c1c3e8b7af3902e95264478f1a1b66ca31903514580cb80229efda07173f"
+    },
+    {
+      "index": 22,
+      "encoded_original": 60023,
+      "density": 4,
+      "logical_size": [
+        62,
+        24
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "pixel_size": [
+        248,
+        96
+      ],
+      "png_sha256": "2373de153a324de4f031dbd9d57b9e79fdcb90dd319dd48570429c114caa1221",
+      "rgba_sha256": "d7cc704155a8c0cb871853db1e5c4fc758dbc55294a75052e630b29c40c2823d"
+    },
+    {
+      "index": 23,
+      "encoded_original": 60024,
+      "density": 8,
+      "logical_size": [
+        65,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "pixel_size": [
+        520,
+        224
+      ],
+      "png_sha256": "d2c6d396de1a8fa9042b9e860ae186ace0eed9dcab8718aa3a2acb3012590351",
+      "rgba_sha256": "abb1aca8ecb628183d1f67e5cbe31b110dfda544b54c301550987c50a5550083"
+    },
+    {
+      "index": 23,
+      "encoded_original": 60024,
+      "density": 4,
+      "logical_size": [
+        65,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "pixel_size": [
+        260,
+        112
+      ],
+      "png_sha256": "0e59411ef91c9d58391b8d5bcf9ff675458012379b3271cb0b07e396175f4c2b",
+      "rgba_sha256": "14a5419833f623d8c85a0f7581a69d8b3ff15556501a00178d6f8499d3539754"
+    },
+    {
+      "index": 24,
+      "encoded_original": 60025,
+      "density": 8,
+      "logical_size": [
+        62,
+        23
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "pixel_size": [
+        496,
+        184
+      ],
+      "png_sha256": "dab0c3a49362bf818b11fd122130d8ce1fb91d10c6ede56f67f5d06713376ee6",
+      "rgba_sha256": "20cf94f1b77109f1b1a5e0cf5731a0c8d37b3dd4289b3e9648b0e9b0aa894a3b"
+    },
+    {
+      "index": 24,
+      "encoded_original": 60025,
+      "density": 4,
+      "logical_size": [
+        62,
+        23
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "pixel_size": [
+        248,
+        92
+      ],
+      "png_sha256": "8b9b1767aa35ed2180389dd396ecd17353737ae9218992405709cb0997d48851",
+      "rgba_sha256": "c5da807e0fcf4603b1d4fae95553cb14e24bd204de0e1f6a7da51a749bc9738f"
+    }
+  ],
+  "review": {
+    "art": "PASS",
+    "cautions": [
+      "Direct 2x core is near-white saturated; fringe is redder/finer than original.",
+      "No visible horizontal split seam at2x/4x, although independent resampling is not byte-equal to whole downsampling."
+    ],
+    "runtime": "Not run with this generated art. Blend/owner/clip/fallback/gameplay proof required separately.",
+    "private_source_inputs_packaged": false
+  }
+}

@@ -18,6 +18,7 @@
 #include "episodes.h"
 #include "fonthand.h"
 #include "player.h"
+#include "shots.h"
 #include "plateau_cap_material.h"
 #include "forest13_material.h"
 #include "game_probe.h"
@@ -39,10 +40,11 @@ typedef struct {
  int bank,index,w,h,anchor_x,anchor_y,density;
  Uint8 *rgba;
 } Asset;
-enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121, ASSET_ENEMY_TANK_SHELL=122, ASSET_REAR534_BODY=123, ASSET_DATA513_BODY=124, ASSET_PROTRON_SHADOW=125, ASSET_MARLO_BODY=126, ASSET_MINT_BODY=127, ASSET_FRONTBLASTER_BODY=128, ASSET_PLASMA_BODY=129 };
+enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121, ASSET_ENEMY_TANK_SHELL=122, ASSET_REAR534_BODY=123, ASSET_DATA513_BODY=124, ASSET_PROTRON_SHADOW=125, ASSET_MARLO_BODY=126, ASSET_MINT_BODY=127, ASSET_FRONTBLASTER_BODY=128, ASSET_PLASMA_BODY=129, ASSET_PLASMA_PROJECTILE=130 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
 /* Slots 507..509 are rear534; slots 510..521 are Data513. */
 static Asset assets[563];
+static void plasma_art_reset(void);
 /* One draw-call lease from the original fixed explosion; never gameplay state. */
 static bool cash25_fixed_value;
 static bool cash75_fixed_value;
@@ -1226,7 +1228,7 @@ static bool decode_tile(Sprite2_array bank,unsigned int index,Uint8 *indices,Uin
 static bool read_asset(Asset *a,int wanted)
 {
  char name[1024];
- const char *prefix=a->bank==ASSET_PLASMA_BODY?"option-plasma-bank9":a->bank==ASSET_FRONTBLASTER_BODY?"option-frontblaster-bank10":a->bank==ASSET_MINT_BODY?"option-mint-bank9":a->bank==ASSET_MARLO_BODY?"option-marlo-bank9":a->bank==ASSET_PROTRON_SHADOW?"protron-shadow":a->bank==ASSET_REAR534_BODY?"rear534-bank11":a->bank==ASSET_DATA513_BODY?"data513-bank11":a->bank==ASSET_ENEMY_TANK_SHELL?"enemy-tank-shell":a->bank==ASSET_GEM250_BODY?"gem250-bank11":a->bank==ASSET_GEM250_VALUE?"gem250-value-newsh6":a->bank==ASSET_GEM100_BODY?"gem100-bank11":a->bank==ASSET_GEM100_VALUE?"gem100-value-newsh6":a->bank==ASSET_CASH50_BODY?"coin50-bank11":a->bank==ASSET_CASH50_VALUE?"coin50-value-newsh6":a->bank==ASSET_CASH75_BODY?"coin75-bank11":a->bank==ASSET_CASH75_VALUE?"coin75-value-newsh6":a->bank==ASSET_CASH25_BODY?"coin25-bank11":a->bank==ASSET_CASH25_VALUE?"coin25-value-newsh6":a->bank==9?"ship":a->bank==8?"bullet":a->bank==ASSET_ENEMY_ENERGY?"enemy-energy":a->bank==ASSET_NEWSH2?"enemy-newsh2":a->bank==ASSET_NEWSH4?"enemy-newsh4":a->bank==ASSET_NEWSHE?"enemy-newshe":a->bank==ASSET_TALON_BANK?"talon-bank":a->bank==ASSET_EXPLOSION?"explosion-newsh6":"terrain-shapesz";
+ const char *prefix=a->bank==ASSET_PLASMA_PROJECTILE?"option-plasma-projectile":a->bank==ASSET_PLASMA_BODY?"option-plasma-bank9":a->bank==ASSET_FRONTBLASTER_BODY?"option-frontblaster-bank10":a->bank==ASSET_MINT_BODY?"option-mint-bank9":a->bank==ASSET_MARLO_BODY?"option-marlo-bank9":a->bank==ASSET_PROTRON_SHADOW?"protron-shadow":a->bank==ASSET_REAR534_BODY?"rear534-bank11":a->bank==ASSET_DATA513_BODY?"data513-bank11":a->bank==ASSET_ENEMY_TANK_SHELL?"enemy-tank-shell":a->bank==ASSET_GEM250_BODY?"gem250-bank11":a->bank==ASSET_GEM250_VALUE?"gem250-value-newsh6":a->bank==ASSET_GEM100_BODY?"gem100-bank11":a->bank==ASSET_GEM100_VALUE?"gem100-value-newsh6":a->bank==ASSET_CASH50_BODY?"coin50-bank11":a->bank==ASSET_CASH50_VALUE?"coin50-value-newsh6":a->bank==ASSET_CASH75_BODY?"coin75-bank11":a->bank==ASSET_CASH75_VALUE?"coin75-value-newsh6":a->bank==ASSET_CASH25_BODY?"coin25-bank11":a->bank==ASSET_CASH25_VALUE?"coin25-value-newsh6":a->bank==9?"ship":a->bank==8?"bullet":a->bank==ASSET_ENEMY_ENERGY?"enemy-energy":a->bank==ASSET_NEWSH2?"enemy-newsh2":a->bank==ASSET_NEWSH4?"enemy-newsh4":a->bank==ASSET_NEWSHE?"enemy-newshe":a->bank==ASSET_TALON_BANK?"talon-bank":a->bank==ASSET_EXPLOSION?"explosion-newsh6":"terrain-shapesz";
  if(!game_probe_assets||snprintf(name,sizeof(name),"%s/%s-%d-%d.hda",game_probe_assets,prefix,a->index,wanted)>=(int)sizeof(name)) return false;
  FILE *f=fopen(name,"rb");if(!f)return false;
  Uint8 h[28]={0};bool ok=fread(h,1,sizeof(h),f)==sizeof(h)&&memcmp(h,"HDR1",4)==0;
@@ -3105,7 +3107,7 @@ bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array ban
 }
 
 void render_mirror_map_begin(char shape_file)
-{ground101_frame_reset();terrain_file=shape_file=='Z'?'z':shape_file;terrain_source_count=0;forest_registry_ok=true;render_mirror_reset_banking();}
+{plasma_art_reset();ground101_frame_reset();terrain_file=shape_file=='Z'?'z':shape_file;terrain_source_count=0;forest_registry_ok=true;render_mirror_reset_banking();}
 /* Only shapesZ layer2 cloud IDs; no renderer/filter or game-state changes. */
 static int cloud_terrain_slot(unsigned int id)
 {
@@ -3486,6 +3488,183 @@ void render_mirror_plasma_projectile_pixel(SDL_Surface *surface,Uint8 *address,U
     * Preserve owner1 so later independent pieces see this composed HD result. */
    p[sx]=owner[sx]==1?explosion_blend_rgba(p[sx],source):palette_rgb(*address);
   }
+ }
+}
+
+/* Three authored Storm pieces are leased by actual emission identity, separately
+ * from the unchanged original-art compatibility path above. No gameplay fields,
+ * raw calls, source dimensions, collision radii or indexed writes are replaced. */
+enum { PLASMA_ART_CELLS=65*28, PLASMA_ART_PIXELS=65*28*8*8 };
+static struct { bool qualified; unsigned frame; } plasma_art_emissions[MAX_PWEAPON];
+static struct {
+ bool valid; int density; Uint32 palette[16]; uint64_t stamp;
+ Uint16 value[PLASMA_ART_PIXELS];
+} plasma_art_projection[3];
+static struct {
+ bool live; SDL_Surface *surface,*target; void *pixels,*target_pixels;
+ SDL_PixelFormat *format,*target_format;Uint8 *owners,*clouds;Uint16 *greens;
+ int pitch,target_pitch,density,x,y,w,h; uint64_t tick;
+ Uint32 palette[16],rgba[PLASMA_ART_PIXELS];
+ Uint8 after[PLASMA_ART_CELLS],touched[PLASMA_ART_CELLS],owner[PLASMA_ART_PIXELS],cloud[PLASMA_ART_PIXELS];
+ Uint16 green[PLASMA_ART_PIXELS];
+} plasma_art_call;
+
+static bool plasma_art_scope(void)
+{
+ return episodeNum==1&&((lvlFileNum==9&&initialDifficulty==DIFFICULTY_NORMAL)||
+   (lvlFileNum==15&&initialDifficulty==DIFFICULTY_HARD))&&!xmas&&!isNetworkGame&&
+   !twoPlayerMode&&!twoPlayerLinked&&!galagaMode&&!play_demo&&!record_demo&&
+   !onePlayerAction&&!superTyrian&&superArcadeMode==SA_NONE&&!timedBattleMode&&
+   !bonusLevel&&!normalBonusLevelCurrent&&!bonusLevelCurrent&&
+   player[0].items.sidekick[LEFT_SIDEKICK]==0&&player[0].items.sidekick[RIGHT_SIDEKICK]==9&&
+   player[0].sidekick[RIGHT_SIDEKICK].style==0&&player[0].sidekick[RIGHT_SIDEKICK].charge==0;
+}
+static void plasma_art_reset(void)
+{ memset(plasma_art_emissions,0,sizeof(plasma_art_emissions));plasma_art_call.live=false; }
+void render_mirror_plasma_art_emit(unsigned slot,unsigned weapon,unsigned bay,unsigned pnum,unsigned frame)
+{
+ if(slot>=MAX_PWEAPON)return;
+ plasma_art_emissions[slot].qualified=weapon==88&&bay==SHOT_RIGHT_SIDEKICK&&pnum==1&&
+   frame>=60023&&frame<=60025&&plasma_art_scope();
+ plasma_art_emissions[slot].frame=frame;
+}
+static uint64_t plasma_art_stamp(const void *data,size_t size)
+{
+ const Uint8 *bytes=data;uint64_t stamp=UINT64_C(14695981039346656037);
+ for(size_t i=0;i<size;i++){stamp^=bytes[i];stamp*=UINT64_C(1099511628211);}
+ return stamp;
+}
+/* Project RGB onto each CURRENT warm-ramp segment in 1/256 value units.
+ * Compare squared RGB distances without floating point or overflow. Equal
+ * distances use the lowest ramp position, including constant-color segments. */
+static Uint16 plasma_art_source_value(const Uint8 *rgba)
+{
+ uint64_t best=UINT64_MAX;unsigned value=0;
+ for(unsigned segment=0;segment<15;segment++) {
+  int dot=0,length=0,delta[3],offset[3];
+  for(unsigned c=0;c<3;c++) {
+   unsigned shift=(2-c)*8;
+   int a=(rgb_palette[0x70+segment]>>shift)&255,b=(rgb_palette[0x71+segment]>>shift)&255;
+   delta[c]=b-a;offset[c]=(int)rgba[c]-a;dot+=offset[c]*delta[c];length+=delta[c]*delta[c];
+  }
+  unsigned t=!length||dot<=0?0:dot>=length?256:(unsigned)(dot*256+(length-1)/2)/(unsigned)length;
+  uint64_t distance=0;
+  for(unsigned c=0;c<3;c++) {int residual=offset[c]*256-delta[c]*(int)t;distance+=(int64_t)residual*residual;}
+  unsigned position=segment*256+t;
+  if(distance<best||(distance==best&&position<value)){best=distance;value=position;}
+ }
+ return (Uint16)value;
+}
+static Uint32 plasma_art_blend(Uint32 under,Uint8 owner,Uint8 before,Uint16 source,Uint8 alpha)
+{
+ unsigned peak=MAX((under>>16)&255,MAX((under>>8)&255,under&255));
+ unsigned value=((owner==1?(peak*15*256+127)/255:(before&15)*256)+source)/2;
+ unsigned lo=value/256,hi=MIN(15,lo+1),fraction=value%256;Uint32 result=0xff000000u;
+ for(int shift=0;shift<24;shift+=8) {
+  unsigned a=(rgb_palette[0x70+lo]>>shift)&255,b=(rgb_palette[0x70+hi]>>shift)&255;
+  unsigned blended=(a*(256-fraction)+b*fraction+128)/256,previous=(under>>shift)&255;
+  result|=((blended*alpha+previous*(255-alpha)+127)/255)<<shift;
+ }
+ return result;
+}
+static bool plasma_art_asset(Asset *a,unsigned index)
+{
+ static const unsigned widths[3]={62,65,62},heights[3]={24,28,23};
+ static const uint64_t pins[3][2]={
+  {UINT64_C(0x12a2955008494fed),UINT64_C(0x4d5a9f3b5f003c01)},
+  {UINT64_C(0x9bd4dfcda912736a),UINT64_C(0x5217e5306678067b)},
+  {UINT64_C(0x4b1682fb4a565e4a),UINT64_C(0x32d73141dd44ee25)}};
+ unsigned k=index-22;int d=game_probe_density;
+ if(k>=3||(d!=4&&d!=8)||game_probe_missing||game_probe_invalid||
+    game_probe_original_reference||!game_probe_assets||!(game_probe_scene_assets&1))return false;
+ memset(a,0,sizeof(*a));a->bank=ASSET_PLASMA_PROJECTILE;a->index=(int)index;a->w=(int)widths[k];a->h=(int)heights[k];
+ /* Reopen every draw. Missing, corrupt or changed files cannot survive a warm
+  * cache or a resource-root change. Do not silently mix density variants. */
+ if(!read_asset(a,d))return false;
+ size_t count=(size_t)a->w*a->h*d*d;
+ if(plasma_art_stamp(a->rgba,count*4)!=pins[k][d==8]){free(a->rgba);a->rgba=NULL;return false;}
+ if(!plasma_art_projection[k].valid||plasma_art_projection[k].density!=d||
+    memcmp(plasma_art_projection[k].palette,rgb_palette+0x70,sizeof(plasma_art_projection[k].palette))||
+    plasma_art_stamp(plasma_art_projection[k].value,count*sizeof(Uint16))!=plasma_art_projection[k].stamp) {
+  for(size_t i=0;i<count;i++)plasma_art_projection[k].value[i]=a->rgba[4*i+3]?plasma_art_source_value(a->rgba+4*i):0;
+  memcpy(plasma_art_projection[k].palette,rgb_palette+0x70,sizeof(plasma_art_projection[k].palette));
+  plasma_art_projection[k].density=d;plasma_art_projection[k].valid=true;
+  plasma_art_projection[k].stamp=plasma_art_stamp(plasma_art_projection[k].value,count*sizeof(Uint16));
+ }
+ return true;
+}
+void render_mirror_plasma_art_prepare(SDL_Surface *surface,int x,int y,unsigned slot,unsigned table,unsigned index)
+{
+ plasma_art_call.live=false;
+ /* Original full-source admission precedes all optional-resource/cache work. */
+ if(!render_mirror_plasma_projectile_begin(surface,x,y,table,index)||slot>=MAX_PWEAPON||
+    !plasma_art_scope()||!plasma_art_emissions[slot].qualified||
+    plasma_art_emissions[slot].frame!=60001+index||
+    playerShotData[slot].playerNumber!=1||playerShotData[slot].shotGr!=60001+index||
+    !cloud_owner||!green_first||!canvas->pixels||canvas->w!=320*game_probe_density||
+    canvas->h!=200*game_probe_density||canvas->pitch<canvas->w*4)return;
+ Asset art;if(!plasma_art_asset(&art,index))return;
+ Uint8 decoded[PLASMA_ART_CELLS*2]={0};unsigned cells=(unsigned)(art.w*art.h);
+ if(!hud_sprite_decode(table,index,(unsigned)art.w,(unsigned)art.h,decoded,decoded+cells)){free(art.rgba);return;}
+ for(int ly=MAX(0,-y);ly<art.h&&y+ly<200;ly++)for(int lx=0;lx<art.w;lx++)
+  if(expected[(y+ly)*320+x+lx]!=((Uint8 *)surface->pixels)[(y+ly)*surface->pitch+x+lx]){free(art.rgba);return;}
+ /* A successful effect strips intersecting retained text BEFORE taking its
+  * underlay, just like existing authored draw_asset. Failed resources never do. */
+ font_before_effect((SDL_Rect){x,y,art.w,art.h});
+ if(reject_reason){free(art.rgba);return;}
+ int d=game_probe_density;
+ plasma_art_call.surface=surface;plasma_art_call.target=canvas;
+ plasma_art_call.pixels=surface->pixels;plasma_art_call.target_pixels=canvas->pixels;
+ plasma_art_call.format=surface->format;plasma_art_call.target_format=canvas->format;
+ plasma_art_call.owners=hd_owner;plasma_art_call.clouds=cloud_owner;plasma_art_call.greens=green_first;
+ plasma_art_call.pitch=surface->pitch;plasma_art_call.target_pitch=canvas->pitch;
+ plasma_art_call.density=d;plasma_art_call.tick=mirror_logic_tick;
+ plasma_art_call.x=x;plasma_art_call.y=y;plasma_art_call.w=art.w;plasma_art_call.h=art.h;
+ memcpy(plasma_art_call.palette,rgb_palette+0x70,sizeof(plasma_art_call.palette));
+ for(int ly=MAX(0,-y);ly<art.h&&y+ly<200;ly++)for(int lx=0;lx<art.w;lx++) {
+  unsigned cell=(unsigned)(ly*art.w+lx);Uint8 before=((Uint8 *)surface->pixels)[(y+ly)*surface->pitch+x+lx];
+  bool covered=decoded[cells+cell]!=0;plasma_art_call.touched[cell]=covered;
+  plasma_art_call.after[cell]=covered?(Uint8)(0x70|(((before&15)+(decoded[cell]&15))/2)):before;
+  for(int sy=0;sy<d;sy++)for(int sx=0;sx<d;sx++) {
+   int tx=(x+lx)*d+sx,ty=(y+ly)*d+sy;size_t n=(size_t)ty*canvas->w+tx;
+   size_t at=(size_t)(ly*d+sy)*art.w*d+lx*d+sx;Uint8 alpha=art.rgba[at*4+3];
+   Uint32 under=((Uint32 *)((Uint8 *)canvas->pixels+ty*canvas->pitch))[tx];
+   plasma_art_call.rgba[at]=alpha?plasma_art_blend(under,hd_owner[n],before,plasma_art_projection[index-22].value[at],alpha):under;
+   /* Even zero-alpha authored suppression owns ORIGINAL covered cells. Keeping
+    * classic/copy ownership there would resurrect the old mask in Hard/fades. */
+   bool owns=alpha||covered;plasma_art_call.touched[cell]|=owns;
+   plasma_art_call.owner[at]=owns?1:hd_owner[n];
+   plasma_art_call.cloud[at]=owns?0:cloud_owner[n];
+   plasma_art_call.green[at]=owns?0:green_first[n];
+  }
+ }
+ free(art.rgba);plasma_art_call.live=true;
+}
+void render_mirror_plasma_art_end(SDL_Surface *surface)
+{
+ if(!plasma_art_call.live)return;plasma_art_call.live=false;
+ if(!active||reject_reason||suppress||surface!=game_screen||surface!=VGAScreen||
+    surface!=plasma_art_call.surface||surface->pixels!=plasma_art_call.pixels||
+    surface->pitch!=plasma_art_call.pitch||canvas!=plasma_art_call.target||
+    canvas->pixels!=plasma_art_call.target_pixels||canvas->pitch!=plasma_art_call.target_pitch||
+    surface->format!=plasma_art_call.format||canvas->format!=plasma_art_call.target_format||
+    hd_owner!=plasma_art_call.owners||cloud_owner!=plasma_art_call.clouds||green_first!=plasma_art_call.greens||
+    surface->w!=320||surface->h!=200||canvas->w!=320*plasma_art_call.density||canvas->h!=200*plasma_art_call.density||
+    game_probe_density!=plasma_art_call.density||mirror_logic_tick!=plasma_art_call.tick||
+    memcmp(plasma_art_call.palette,rgb_palette+0x70,sizeof(plasma_art_call.palette)))return;
+ int x=plasma_art_call.x,y=plasma_art_call.y,w=plasma_art_call.w,h=plasma_art_call.h,d=game_probe_density;
+ /* All original writes must have completed exactly before any authored commit. */
+ for(int ly=MAX(0,-y);ly<h&&y+ly<200;ly++)for(int lx=0;lx<w;lx++) {
+  Uint8 after=plasma_art_call.after[ly*w+lx];
+  if(expected[(y+ly)*320+x+lx]!=after||((Uint8 *)surface->pixels)[(y+ly)*surface->pitch+x+lx]!=after)return;
+ }
+ for(int ly=MAX(0,-y);ly<h&&y+ly<200;ly++)for(int lx=0;lx<w;lx++) {
+  for(int sy=0;sy<d;sy++)for(int sx=0;sx<d;sx++) {
+   int tx=(x+lx)*d+sx,ty=(y+ly)*d+sy;size_t n=(size_t)ty*canvas->w+tx,at=(size_t)(ly*d+sy)*w*d+lx*d+sx;
+   ((Uint32 *)((Uint8 *)canvas->pixels+ty*canvas->pitch))[tx]=plasma_art_call.rgba[at];
+   hd_owner[n]=plasma_art_call.owner[at];cloud_owner[n]=plasma_art_call.cloud[at];green_first[n]=plasma_art_call.green[at];
+  }
+  if(plasma_art_call.touched[ly*w+lx]&&selected[(y+ly)*320+x+lx]){++occlusions;selected[(y+ly)*320+x+lx]=0;}
  }
 }
 

@@ -1,0 +1,97 @@
+{
+  "status": "PASS_FRESH_SOURCE_SCOPE_AND_EXTRACTION",
+  "baseline": "18a54527795971a4aa8492f86a0fc4996a51961d",
+  "production_files_checked": 153,
+  "changed_production_files": [
+    "src/render_mirror.c",
+    "src/render_mirror.h",
+    "src/shots.c"
+  ],
+  "exact_baseline_inverse": true,
+  "sprite_blitter_and_compatibility_functions_unchanged": true,
+  "shots_c_changes": "One include plus three presentation-only calls: emission-slot identity, prepare before original raw blit, and commit after it. Original indexed blit/callback loop remains exact.",
+  "inherited_CRLF_preserved": true,
+  "whitespace_check": "PASS with core.whitespace=cr-at-eol; no unrelated newline normalization.",
+  "preexisting_assets_and_historical_evidence_retained": 6850,
+  "source_file_pins": {
+    "src/render_mirror.c": {
+      "baseline": "5403694f20869de3c38cf254d19c52fe527073b925d361d38fc0afbb2f24c3f1",
+      "current": "c1388537de5136cadbe49ec647d287074769b602348e3e3073058c665c775113",
+      "inverse": "5403694f20869de3c38cf254d19c52fe527073b925d361d38fc0afbb2f24c3f1"
+    },
+    "src/render_mirror.h": {
+      "baseline": "2364a277079e48b7765d4f279e1d505435693e1957cdcb291dbe34c782d4407d",
+      "current": "9059baf258530cacb38c52594b4cf13357b0cf19f4060b50f6a826207a38f5ae",
+      "inverse": "2364a277079e48b7765d4f279e1d505435693e1957cdcb291dbe34c782d4407d"
+    },
+    "src/shots.c": {
+      "baseline": "ec0f326f407849037af1a0218a1bfed1f3f2a720301a053afd3a7d25c7391405",
+      "current": "258fac3b53a6bf5c4b5d101bee6ec60a30f2f2e6967048d2a70228c5adffca2f",
+      "inverse": "ec0f326f407849037af1a0218a1bfed1f3f2a720301a053afd3a7d25c7391405"
+    },
+    "src/sprite.c": {
+      "baseline": "c4d0949c24c316fd11f5b280f35ae748b997d18247f977aa730f6a943b34da81",
+      "current": "c4d0949c24c316fd11f5b280f35ae748b997d18247f977aa730f6a943b34da81",
+      "inverse": "c4d0949c24c316fd11f5b280f35ae748b997d18247f977aa730f6a943b34da81"
+    }
+  },
+  "extracted_function_pins": {
+    "block": "6670fee5df6d85574139792affc5823ff5858c7eb1e229b2dd3bc8fddb2fdc12",
+    "reader": "d83f122c04e4200935e37d166d6e9d7f271fae486df2c5ffe00bb1a6b3e61346",
+    "original_blit": "e405d7503271ff5b37ab0463ea6bf46cefd7230062e65b4dbb6b70b72275950f",
+    "hud_sprite_decode": "251074478158482e46ce00787a27e66945b8f8e23f71eeb1e19dfa7287c3952c",
+    "explosion_blend_rgba": "269072dbcc0db9e8902599110b82029d6b90a2b8e0e1f2397ab19b37a675db12",
+    "effect_ramp_monotone_to": "093aae284de6aad6f4924a22fcd7ac17d3f7808e7163363fe08e6e600b2766b6",
+    "effect_ramp_monotone": "57dd110070548b473974b573626b3d83926a5106ce77192eb2d9128cb8efe83e",
+    "palette_rgb": "3d8e2f2e1edebd62bce8ad34128bfb346f89a2ba35001abe20179e3dc1738aaa",
+    "cloud_shadow_rgba": "3f3a363e6531f887c91de7d726239c870e783558eba214a312203b7b30d8a986",
+    "darken_rgba": "31194f5f89d033493c36e6a82fb290c0d539c6fb3fab8c5df43aace4dbb633d8",
+    "complete_turret_group": "e3a24c4cfdd4c077a6c50039b0d0f6b14b19dad58987f4479c705d3821db0707",
+    "restore_classic_rect": "2672f1fbc38373aee4a429a283790cf328ef4923aca40d402e83f6294ebb14cf",
+    "render_mirror_pixel": "57d00e2ee17c465ce17c5e26340f267fe76bb5a1c936add73675cbadd63fb6ad",
+    "render_mirror_unsupported": "14f5552b0b1ba01a190403944da13e645e9a71c470ca665563a2ffc609b42b91",
+    "render_mirror_plasma_projectile_begin": "279980e48fc623a0ab02905cc2d8465cec1bcf53d9d2b7cd320291429ef6b3c9",
+    "render_mirror_plasma_projectile_pixel": "9a4b4ef9bd5158fa8869382868b1f306c7de79d1985f4f30ff290cbfb14677ba"
+  },
+  "negative_exact_scope_mutations_rejected": [
+    "source guard broadened",
+    "wrong emission weapon",
+    "stale projection accepted",
+    "wrong ownership",
+    "generic alpha blend",
+    "collision size changed",
+    "indexed write changed",
+    "unrelated cloud policy",
+    "unrelated file"
+  ],
+  "mutation_limit": "These nine mutations test the exact source/inverse boundary. They are not behavioral execution mutation tests. Behavioral rejection cases are documented separately in UNITS.json.",
+  "translation_units": {
+    "status": "PASS",
+    "fresh_recovery_run": true,
+    "strict_flags": [
+      "-std=gnu99",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-Wno-misleading-indentation"
+    ],
+    "enabled": [
+      "render_mirror.c",
+      "shots.c"
+    ],
+    "RENDER_MIRROR_DISABLED": [
+      "render_mirror.c",
+      "shots.c",
+      "sprite.c"
+    ],
+    "SDL2": "2.32.4",
+    "full_game_build": "Recorded separately in BUILD.json."
+  },
+  "test_script_pins": {
+    "prototype/test-plasma-storm-art.c": "db0bfbefd3be7cf25e1f383dbadd7fd709eaa372593d713f2994f68c486103db",
+    "prototype/test-plasma-storm-art.py": "da137f052635f6f864b4b7c795f2f216b42f753c761796b54fe6b7a157d79987",
+    "prototype/test-plasma-storm-art-scope.py": "8dba9ae7583af32196a35d58e1c3f09b0f2054cf7f4abb670dedcb51632239db"
+  },
+  "scope": "Source boundary and isolated compilation only; no visual or full-runtime claim."
+}

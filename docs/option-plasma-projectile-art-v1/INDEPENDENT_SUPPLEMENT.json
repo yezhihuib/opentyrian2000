@@ -1,0 +1,66 @@
+{
+  "schema": "plasma-storm-recovery-independent-supplement-v1",
+  "status": "PASS_FRESH_BOUNDED_SUPPLEMENTS",
+  "historical_results_used_as_acceptance": false,
+  "baseline_commit": "18a54527795971a4aa8492f86a0fc4996a51961d",
+  "renderer_sha256": "c1388537de5136cadbe49ec647d287074769b602348e3e3073058c665c775113",
+  "retained_font": {
+    "exact_production_functions": {
+      "font_scene_source": "5cbee660aa658851b2633878c738965ddd898b30ce6bd164f010f9bfacda34cf",
+      "font_intersects": "51762320b8fec78a26c159f16467d0d4f9ab32a491dbf9e87b38ca661bbc9575",
+      "font_strip_scene": "66f9a428d49f0de6165ec3ea748cdc0729784381681766164a8e5d97b35312ab",
+      "font_before_effect": "a14d06325e9c2aa4d5a046d746ca7c4cf1e28d21812932ec9651048767d4dccb"
+    },
+    "builds": [
+      "optimized",
+      "AddressSanitizer+UndefinedBehaviorSanitizer"
+    ],
+    "checks_each_build": 288168,
+    "successful_stage_font_cases": 48,
+    "failed_preflight_or_font_lease_cases": 4,
+    "additional_stale_end_cases": 12,
+    "coverage": "Both densities4/8, owners0/1/2/mixed, all three pieces, interior and transparent-corner font intersections, pitches320/328, saved RGBA/owner/cloud/green-underlay provenance, preflight failures and malformed font lease."
+  },
+  "fade": {
+    "exact_production_function": "render_mirror_fade_step",
+    "extracted_sha256": "d4e3e00d917e2daa21f52e94b47ed049697ecf8a9b5ddd01fafb418b10a44cf8",
+    "builds": [
+      "optimized",
+      "AddressSanitizer+UndefinedBehaviorSanitizer"
+    ],
+    "checks_each_build": 114652,
+    "full_output_steps_each_build": 72,
+    "full_RGBA_subpixels_each_build": 184320000,
+    "coverage": "Following authored stage: black, white and saved-color restoration; three sequential steps; both densities4/8 and owners0/1/2/mixed. Independently computed integer channel oracle, changed-palette classic handling, unchanged indexed game/display buffers."
+  },
+  "independent_math": {
+    "projection_samples": 8000,
+    "ramp_positions_enumerated_per_sample": 3841,
+    "ramps": 8,
+    "actual_original_palette_included": true,
+    "independent_blend_cases": 80000,
+    "function_sha256": {
+      "plasma_art_source_value": "fde0dbe92582c32c25f3c478386e9d6e2fe450d55f9ba5ec690220bb6a21e9ce",
+      "plasma_art_blend": "4eb312f2b4c003bc7ec4373dcf61ba7741b36fa92d92f43c6a4eb4456963b3f8"
+    }
+  },
+  "limitations": [
+    "Isolated extracted-production tests, not actual retained-font/fade gameplay runs.",
+    "Retained-font production strip/source/intersection functions are real; font pixel interception and unrelated fixed-effect collaborators remain inherited stubs.",
+    "Fade isolates unrelated HUD/cache families; font_fade_underlay and other unrelated HUD underlay collaborators are inactive stubs.",
+    "Synthetic fixtures supplement rather than replace original-menu runtime qualification.",
+    "LeakSanitizer disabled; AddressSanitizer and UndefinedBehaviorSanitizer enabled.",
+    "No original arrays, screenshots, binaries or private absolute paths are contained in this summary."
+  ],
+  "evidence_sha256": {
+    "font-supplement.json": "eac7482ad75cbf8100c35c23a7c936583205cf9888a5c1f50ccde3fd7016ca04",
+    "fade-supplement.json": "616704a0c459ae2331eb6a1f34edc4fb9299e174f5a367c136aacf653a2d4386",
+    "math-actual-audit.json": "e8320108f387ee387c144a8d58accf16d0d9cada00e790f4a15f4fbf9c86bf02",
+    "font_cases.inc": "8142217d899fa2348f2b469ad0ed94571eabb759026141a5a7f7d6bec2d7b3da",
+    "fade_cases.inc": "a5ea3bc0225d9edf55974509a8d6f67e0e23a6c46e57b1049080ba155c2c10e7",
+    "font-units/optimized.log": "d774e43a9802c3310c9d5dff2600d3fd89441c746c3574c5111bcca6ec2e496c",
+    "font-units/sanitized.log": "d774e43a9802c3310c9d5dff2600d3fd89441c746c3574c5111bcca6ec2e496c",
+    "font-units/fade-optimized.log": "70ab227d9bef18611e9f31ba62810e03cc32d0f27a723195cab69541c77647fe",
+    "font-units/fade-sanitized.log": "70ab227d9bef18611e9f31ba62810e03cc32d0f27a723195cab69541c77647fe"
+  }
+}

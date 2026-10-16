@@ -65,6 +65,9 @@ typedef enum {
 #define render_mirror_cloud_blend_row(...) 0u
 #define render_mirror_cloud_blend_pixel(surface,address,source,compatible,replaced) ((void)(compatible),(void)(replaced))
 #define render_mirror_sprite2_blend_pixel(...) ((void)0)
+#define render_mirror_plasma_art_emit(...) ((void)0)
+#define render_mirror_plasma_art_prepare(...) ((void)0)
+#define render_mirror_plasma_art_end(...) ((void)0)
 #define render_mirror_plasma_projectile_begin(...) false
 #define render_mirror_plasma_projectile_pixel(surface,address,source,compatible) ((void)(compatible))
 #define render_mirror_set_talon_banking(...) ((void)0)
@@ -130,6 +133,9 @@ unsigned int render_mirror_cloud_blend_row(SDL_Surface *,int x,int y,Uint8 **map
 void render_mirror_cloud_blend_pixel(SDL_Surface *,Uint8 *,Uint8 source,bool compatible,bool replaced);
 void render_mirror_sprite2_blend_pixel(SDL_Surface *, Uint8 *, Uint8 source, Sprite2_array, unsigned int index, int origin_x, int origin_y);
 /* Exact original OPTION_SHAPES22..24 only; independent admission per raw call. */
+void render_mirror_plasma_art_emit(unsigned slot,unsigned weapon,unsigned bay,unsigned pnum,unsigned frame);
+void render_mirror_plasma_art_prepare(SDL_Surface *,int x,int y,unsigned slot,unsigned table,unsigned index);
+void render_mirror_plasma_art_end(SDL_Surface *);
 bool render_mirror_plasma_projectile_begin(SDL_Surface *,int x,int y,unsigned int table,unsigned int index);
 void render_mirror_plasma_projectile_pixel(SDL_Surface *,Uint8 *,Uint8 source,bool compatible);
 void render_mirror_set_talon_banking(bool enabled);

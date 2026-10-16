@@ -1,0 +1,260 @@
+{
+  "schema": "option-plasma-projectile-art-binding-v1",
+  "baseline": "18a54527795971a4aa8492f86a0fc4996a51961d",
+  "role": 130,
+  "indices": [
+    22,
+    23,
+    24
+  ],
+  "densities": [
+    4,
+    8
+  ],
+  "art_contract_sha256": "1bb4ed9bb6757050928d7c48b50c64bbe9fd0cc117c8991e4968918fea526f9d",
+  "source_guard": {
+    "table": "OPTION_SHAPES",
+    "zero_based_table": 5,
+    "indices": [
+      22,
+      23,
+      24
+    ],
+    "encoded_original": [
+      60023,
+      60024,
+      60025
+    ],
+    "current_indices_then_coverage_fnv1a64": [
+      "6d5e2fcad8f0a564",
+      "e38948558d55665d",
+      "2aae962a99b61745"
+    ],
+    "original_offsets": [
+      [
+        -32,
+        -24
+      ],
+      [
+        -32,
+        0
+      ],
+      [
+        -32,
+        28
+      ]
+    ],
+    "original_collision_radii": [
+      [
+        31,
+        12
+      ],
+      [
+        32,
+        14
+      ],
+      [
+        31,
+        11
+      ]
+    ],
+    "original_raw_x_offset": 1,
+    "simultaneous_independent_pieces": true,
+    "no_original_raster_arrays_packaged": true
+  },
+  "scope": "Generated presentation only; original engine placement, motion, collision, independent allocation and original indexed blend writes stay authoritative. Runtime qualification and exact new admission contract are documented separately.",
+  "entries": [
+    {
+      "index": 22,
+      "density": 4,
+      "resource_id": 1300022,
+      "logical_size": [
+        62,
+        24
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "output_png": "output/option-table5-22-4.png",
+      "output_hda": "output/option-table5-22-4.hda",
+      "resource_name": "option-plasma-projectile-22-4.hda",
+      "header_u32": [
+        1300022,
+        4,
+        62,
+        24,
+        0,
+        0
+      ],
+      "PNG_sha256": "2373de153a324de4f031dbd9d57b9e79fdcb90dd319dd48570429c114caa1221",
+      "RGBA_sha256": "d7cc704155a8c0cb871853db1e5c4fc758dbc55294a75052e630b29c40c2823d",
+      "RGBA_fnv1a64": "12a2955008494fed",
+      "HDA_sha256": "1f0942326b44ec51b83fec0caf75d9c20f515ee2eda56d64fac21c268f868a41",
+      "HDA_bytes": 95260,
+      "source_png": "assets/hd/source/option-plasma-projectile-22-4-1f0942326b44.png",
+      "alpha_nonzero_samples": 16069,
+      "alpha_fractional_samples": 16063
+    },
+    {
+      "index": 22,
+      "density": 8,
+      "resource_id": 1300022,
+      "logical_size": [
+        62,
+        24
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "output_png": "output/option-table5-22-8.png",
+      "output_hda": "output/option-table5-22-8.hda",
+      "resource_name": "option-plasma-projectile-22-8.hda",
+      "header_u32": [
+        1300022,
+        8,
+        62,
+        24,
+        0,
+        0
+      ],
+      "PNG_sha256": "9100a35b7e3688ad27c202103505c3add3a64d4147efce52cf1e0eedaa9a56c8",
+      "RGBA_sha256": "5b38c1c3e8b7af3902e95264478f1a1b66ca31903514580cb80229efda07173f",
+      "RGBA_fnv1a64": "4d5a9f3b5f003c01",
+      "HDA_sha256": "9b40d0539f929026bb3fe3377fba9c75828ef24b52c5e316bb232f853ff8b773",
+      "HDA_bytes": 380956,
+      "source_png": "assets/hd/source/option-plasma-projectile-22-8-9b40d0539f92.png",
+      "alpha_nonzero_samples": 64361,
+      "alpha_fractional_samples": 64361
+    },
+    {
+      "index": 23,
+      "density": 4,
+      "resource_id": 1300023,
+      "logical_size": [
+        65,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "output_png": "output/option-table5-23-4.png",
+      "output_hda": "output/option-table5-23-4.hda",
+      "resource_name": "option-plasma-projectile-23-4.hda",
+      "header_u32": [
+        1300023,
+        4,
+        65,
+        28,
+        0,
+        0
+      ],
+      "PNG_sha256": "0e59411ef91c9d58391b8d5bcf9ff675458012379b3271cb0b07e396175f4c2b",
+      "RGBA_sha256": "14a5419833f623d8c85a0f7581a69d8b3ff15556501a00178d6f8499d3539754",
+      "RGBA_fnv1a64": "9bd4dfcda912736a",
+      "HDA_sha256": "ccd34da86c4829e9bd883353c653e1c2032b32e24c49ea151ab91c7c4c4570f9",
+      "HDA_bytes": 116508,
+      "source_png": "assets/hd/source/option-plasma-projectile-23-4-ccd34da86c48.png",
+      "alpha_nonzero_samples": 26227,
+      "alpha_fractional_samples": 26225
+    },
+    {
+      "index": 23,
+      "density": 8,
+      "resource_id": 1300023,
+      "logical_size": [
+        65,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "output_png": "output/option-table5-23-8.png",
+      "output_hda": "output/option-table5-23-8.hda",
+      "resource_name": "option-plasma-projectile-23-8.hda",
+      "header_u32": [
+        1300023,
+        8,
+        65,
+        28,
+        0,
+        0
+      ],
+      "PNG_sha256": "d2c6d396de1a8fa9042b9e860ae186ace0eed9dcab8718aa3a2acb3012590351",
+      "RGBA_sha256": "abb1aca8ecb628183d1f67e5cbe31b110dfda544b54c301550987c50a5550083",
+      "RGBA_fnv1a64": "5217e5306678067b",
+      "HDA_sha256": "14fa1ffdbeee1d407c75a2b0f0642ce65581b1824c7d7eecf00d668144d33d05",
+      "HDA_bytes": 465948,
+      "source_png": "assets/hd/source/option-plasma-projectile-23-8-14fa1ffdbeee.png",
+      "alpha_nonzero_samples": 104944,
+      "alpha_fractional_samples": 104944
+    },
+    {
+      "index": 24,
+      "density": 4,
+      "resource_id": 1300024,
+      "logical_size": [
+        62,
+        23
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "output_png": "output/option-table5-24-4.png",
+      "output_hda": "output/option-table5-24-4.hda",
+      "resource_name": "option-plasma-projectile-24-4.hda",
+      "header_u32": [
+        1300024,
+        4,
+        62,
+        23,
+        0,
+        0
+      ],
+      "PNG_sha256": "8b9b1767aa35ed2180389dd396ecd17353737ae9218992405709cb0997d48851",
+      "RGBA_sha256": "c5da807e0fcf4603b1d4fae95553cb14e24bd204de0e1f6a7da51a749bc9738f",
+      "RGBA_fnv1a64": "4b1682fb4a565e4a",
+      "HDA_sha256": "584e37003902ed57ccf661dd28c6d3041462d49cd591e63a9aab7d6c44895cca",
+      "HDA_bytes": 91292,
+      "source_png": "assets/hd/source/option-plasma-projectile-24-4-584e37003902.png",
+      "alpha_nonzero_samples": 14610,
+      "alpha_fractional_samples": 14609
+    },
+    {
+      "index": 24,
+      "density": 8,
+      "resource_id": 1300024,
+      "logical_size": [
+        62,
+        23
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "output_png": "output/option-table5-24-8.png",
+      "output_hda": "output/option-table5-24-8.hda",
+      "resource_name": "option-plasma-projectile-24-8.hda",
+      "header_u32": [
+        1300024,
+        8,
+        62,
+        23,
+        0,
+        0
+      ],
+      "PNG_sha256": "dab0c3a49362bf818b11fd122130d8ce1fb91d10c6ede56f67f5d06713376ee6",
+      "RGBA_sha256": "20cf94f1b77109f1b1a5e0cf5731a0c8d37b3dd4289b3e9648b0e9b0aa894a3b",
+      "RGBA_fnv1a64": "32d73141dd44ee25",
+      "HDA_sha256": "95e6ec5635e2a7a1c87124374fa1c69ae1bd743e84f13345d554c762af3abba1",
+      "HDA_bytes": 365084,
+      "source_png": "assets/hd/source/option-plasma-projectile-24-8-95e6ec5635e2.png",
+      "alpha_nonzero_samples": 58481,
+      "alpha_fractional_samples": 58481
+    }
+  ]
+}
