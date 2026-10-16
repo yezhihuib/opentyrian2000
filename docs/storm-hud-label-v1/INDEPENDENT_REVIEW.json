@@ -1,0 +1,90 @@
+{
+  "schema": "storm-heading-independent-review-v1",
+  "status": "PASS_BOUNDED_IMPLEMENTATION_ART_RUNTIME",
+  "baseline_commit": "50449c21e74063223d9f77028398498351cdfe8b",
+  "reviewed_runtime_commit": "b3e4a3200680dad6c82a7e2b0260d3d3777e6a5e",
+  "reviewed_runtime_tree": "0644da21e33d55fb5b3a7a1ac4a46c5f99409aa4",
+  "logical_heading_half_open": [
+    284,
+    82,
+    309,
+    87
+  ],
+  "original_indexed_writes_changed": false,
+  "source_inverse_existing_files": 153,
+  "checks": {
+    "independently_authored_blackbox_regressions": 9,
+    "independently_authored_exact_mode_exclusions": 14,
+    "strict_c99_module_and_adapter": true,
+    "asan_ubsan_module_and_adapter": true,
+    "lsan": false,
+    "source_inverse_baseline_hashes_independently_verified": true,
+    "private_original_identity_pins_independently_decoded": true,
+    "authored_geometry_rebuild_all_files_exact": true,
+    "packed_payload_equals_authored_planes": true,
+    "original_manifest_projection_exact": true,
+    "runtime_trace_index8_and_seed_files_per_pair": 21,
+    "runtime_pairs": 10,
+    "runtime_processes": 20,
+    "total_logic_ticks": 6880,
+    "paired_gameplay_native_captures": 212,
+    "paired_shop_native_captures": 30,
+    "actual_native_captures_in_both_versions": 484,
+    "native_rgb_outside_heading_deltas": 0,
+    "positive_native_heading_palette_projection_exact": true,
+    "missing_and_corrupt_full_native_rgb_match_baseline": true,
+    "actual_native_visual_inspection": "PASS",
+    "sanitized_build_runtime_receipts_match_independent_evidence": true,
+    "render_mirror_disabled_syntax_only": true
+  },
+  "real_original_ammo_events": {
+    "depletion_tick": 140,
+    "empty_attempt_tick": 148,
+    "first_refill_tick": 415,
+    "difficulties": [
+      "Normal",
+      "Hard"
+    ]
+  },
+  "resource_sha256": "5a22cda50022edfc948b94dcfd40f658e9b4da41034b867d1a0b8238dc49a75f",
+  "native_pixel_changes_per_active_capture": {
+    "native2x": 281,
+    "native4x": 1097
+  },
+  "limits": [
+    "Only normal-data episode1 local single-player LEFT0/RIGHT9, Normalphysical9 orHardphysical15.",
+    "Actual native2x/4x runtime both internally density8; density4 is separate synthetic display/module coverage.",
+    "Final RGB checks are at captured frames; original indexed/state/RNG/draw traces cover every observed logic tick.",
+    "Malformed history, source mutations, modal/release/reset and unsupported-mode negatives are synthetic/source tests, not full native menu scenarios.",
+    "Suspend/release requires a genuine new original redraw; generation reset needs authenticated PIC3 recapture.",
+    "Resource cache is captured at gameplay start; disk changes apply on next capture, with no hot-reload claim.",
+    "No whole-level/campaign/all-options/Windows/performance certification.",
+    "Original game assets, raw traces and native images are excluded from this public receipt."
+  ],
+  "publication_boundary": "This receipt covers reviewed implementation/art/runtime bytes. Final packaging/docs and frozen archive are independently checked separately before publication.",
+  "disabled_renderer_check": {
+    "translation_units": [
+      "src/render_mirror.c",
+      "src/varz.c",
+      "src/sprite.c",
+      "src/gameplay_hud_storm.c"
+    ],
+    "flags": [
+      "-std=c99",
+      "-pedantic",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-Wno-misleading-indentation",
+      "-Wno-format-truncation",
+      "-Wno-missing-field-initializers",
+      "-DRENDER_MIRROR_DISABLED",
+      "-DTARGET_UNIX",
+      "-DWITH_NETWORK",
+      "-DNDEBUG",
+      "-fsyntax-only"
+    ],
+    "outcome": "PASS, no diagnostics",
+    "limits": "Syntax-only compile compatibility, not a disabled-renderer executable gameplay run."
+  }
+}

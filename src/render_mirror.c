@@ -14,6 +14,7 @@
 #include "gameplay_hud_indicators.h"
 #include "gameplay_hud_fixed_text.h"
 #include "gameplay_hud_font.h"
+#include "gameplay_hud_storm.h"
 #include "config.h"
 #include "episodes.h"
 #include "fonthand.h"
@@ -904,6 +905,9 @@ static void hud_clear_cached(void)
  hud_output_generation=hud_saved_generation=0;
 }
 
+/* Independent heading observer and texture-only compositor. */
+#include "gameplay_hud_storm_mirror.inc"
+
 static void hud_frame_reset(void)
 {
  hud_clear_cached();
@@ -916,6 +920,7 @@ static void hud_frame_reset(void)
 void render_mirror_hud_reset(void)
 {
  render_mirror_shadow_end();
+ hud_storm_reset();
  font_reset();fixed_text_reset();indicators_reset();components_reset();hud_frame_reset();
  if(manual_hd_enabled) {
   manual_hd_lease=false;active=false;ready=false;
@@ -926,7 +931,7 @@ void render_mirror_hud_reset(void)
 
 void render_mirror_hud_shutdown(void)
 {
- render_mirror_hud_reset();gameplay_hud_shutdown();hud_components_shutdown();hud_meters_shutdown();hud_indicators_shutdown();hud_fixed_text_shutdown();font_shutdown();
+ render_mirror_hud_reset();gameplay_hud_shutdown();hud_components_shutdown();hud_meters_shutdown();hud_indicators_shutdown();hud_fixed_text_shutdown();font_shutdown();hud_storm_shutdown();
 }
 
 /* Validate the original bytecode as well as declared dimensions: malformed RLE
@@ -1029,10 +1034,12 @@ void render_mirror_hud_start(SDL_Surface *decoded_pic3)
   else gameplay_hud_forget_source();
  }
  components_start(decoded_pic3);indicators_start(decoded_pic3);fixed_text_start(decoded_pic3);font_start(decoded_pic3);
+ storm_start(decoded_pic3);
 }
 
 void render_mirror_hud_suspend(void)
 {
+ hud_storm_suspend();
  hud_check_mode();
  font_suspend();fixed_text_clear_cached();if(fixed_text_gameplay)fixed_text_suspended=true;
  indicators_clear_cached(3);if(indicator_gameplay)indicator_suspended=true;
@@ -1054,6 +1061,7 @@ static void hud_begin(void)
  memset(hud_saved_owner,0,sizeof(hud_saved_owner));
  hud_output_generation=hud_saved_generation=0;
  components_begin();indicators_begin();fixed_text_begin();font_begin();
+ storm_resume();
 }
 
 static bool hud_compose(void)
@@ -1122,6 +1130,7 @@ void render_mirror_begin(void)
 
 void render_mirror_pixel(SDL_Surface *surface,Uint8 *address,Uint8 source,int style)
 {
+ storm_pixel(surface,address);
  settings_font_pixel(surface,address,style);
  load_font_pixel(surface,address,style);
  selector_font_pixel(surface,address,style);
@@ -1180,6 +1189,7 @@ void render_mirror_pixel(SDL_Surface *surface,Uint8 *address,Uint8 source,int st
 
 void render_mirror_rect(SDL_Surface *s,const SDL_Rect *rect)
 {
+ storm_rect(s,rect);
  settings_font_rect(s,rect);
  load_font_rect(s,rect);
  selector_font_rect(s,rect);
@@ -4014,6 +4024,7 @@ void render_mirror_fade_step(int steps)
  if(hud_output_generation)memcpy(hud_output_palette,rgb_palette,sizeof(hud_output_palette));
  if(component_output_generation)memcpy(component_output_palette,rgb_palette,sizeof(component_output_palette));
  if(fixed_text_output_generation)memcpy(fixed_text_output_palette,rgb_palette,sizeof(fixed_text_output_palette));
+ hud_storm_fade_palette(rgb_palette);
  ready=true;game_probe_fade_sample(output,steps,hd_pixels,fade_mode);
  if(steps==1)fade_mode=0;
 }
@@ -4038,6 +4049,7 @@ bool render_mirror_present(SDL_Renderer *renderer,SDL_Surface *src,const SDL_Rec
  void *pixels=NULL;int pitch=0;
  if(SDL_LockTexture(texture,NULL,&pixels,&pitch)!=0)return false;
  for(int y=0;y<output->h;y++) memcpy((Uint8 *)pixels+y*pitch,(Uint8 *)output->pixels+y*output->pitch,(size_t)output->w*4);
+ storm_present(pixels,pitch);
  SDL_UnlockTexture(texture);
  uint64_t rng_before=mt_state_fingerprint();
  for(int i=0;i<(game_probe_repeat?2:1);i++) {

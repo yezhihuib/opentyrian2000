@@ -1,0 +1,141 @@
+{
+  "status": "PASS_FINITE_HSI1_AGGREGATE_PACKAGING",
+  "source_files": 20,
+  "default_packs": 2,
+  "resource": {
+    "bytes": 20096,
+    "sha256": "5a22cda50022edfc948b94dcfd40f658e9b4da41034b867d1a0b8238dc49a75f"
+  },
+  "all_prior_manifest_fields_exact": true,
+  "negative_cases": [
+    {
+      "case": "schema",
+      "rejected": true
+    },
+    {
+      "case": "source_path",
+      "rejected": true
+    },
+    {
+      "case": "filename",
+      "rejected": true
+    },
+    {
+      "case": "ownership",
+      "rejected": true
+    },
+    {
+      "case": "source_hash",
+      "rejected": true
+    },
+    {
+      "case": "missing_plane",
+      "rejected": true
+    },
+    {
+      "case": "coverage_payload",
+      "rejected": true
+    },
+    {
+      "case": "resource_header",
+      "rejected": true
+    },
+    {
+      "case": "resource_receipt",
+      "rejected": true
+    },
+    {
+      "case": "bundle_receipt",
+      "rejected": true
+    },
+    {
+      "case": "extra_source",
+      "rejected": true
+    },
+    {
+      "case": "symlink_source",
+      "rejected": true
+    },
+    {
+      "case": "original_icon_size",
+      "rejected": true
+    },
+    {
+      "case": "densities",
+      "rejected": true
+    }
+  ],
+  "source_art_pack_bytes_unchanged_since_runtime_pin": true,
+  "final_helper_valid_resource_unchanged": true,
+  "rebuild": {
+    "status": "PASS_EXACT_ALL_PACK_REBUILD",
+    "rebuilt_pack_files": 3436,
+    "all_rebuilt_files_equal_repository": true,
+    "all_previous_assets_except_manifest_byte_mode_exact": 6879,
+    "new_default_hsi1_sidecars": 2
+  },
+  "aggregate": {
+    "verified_storm_heading_sidecars": 2,
+    "verified_storm_heading_source_files": 20,
+    "verified_option_plasma_projectile_art_resources": 6,
+    "verified_player_sonic_joined_wave_pair_members": 2,
+    "verified_player_sonic_inverted_oblique_pair_members": 2,
+    "verified_player_sonic_oblique_pair_members": 2,
+    "verified_player_sonic_inverted_corner_pair_members": 2,
+    "verified_player_sonic_corner_pair_members": 2,
+    "verified_player_sonic_fat_pair_members": 2,
+    "verified_player_sonic_shallow_pair_members": 2,
+    "verified_player_sonic_upward_arch_members": 1,
+    "verified_player_sonic_six_pair_members": 2,
+    "verified_player_protron_shadow_members": 3,
+    "verified_player_protron_members": 3,
+    "verified_enemy_energy_seven_members": 7,
+    "verified_boss_whole_family_members": 40,
+    "verified_boss_intentional_empty_members": 3,
+    "verified_settings_compatibility_resources": 9,
+    "verified_type3_small_six_members": 6,
+    "verified_title_menu_resources": 6,
+    "verified_title_menu_source_files": 17,
+    "verified_newsh4_entry6_members": 6,
+    "verified_late_spike_family_members": 6,
+    "verified_type15_eightheading_members": 8,
+    "verified_newsh4_opposite7_family_members": 7,
+    "verified_newsh4_long7_family_members": 7,
+    "verified_startup_title_resources": 3,
+    "verified_startup_title_source_files": 19,
+    "verified_startup_title_manufacturer_compatibility_copies": 2,
+    "verified_linked31_family_members": 8,
+    "verified_type4_composites": 5,
+    "verified_startup_manufacturer_resources": 2,
+    "verified_startup_manufacturer_source_files": 22,
+    "verified_hud_meter_sidecars": 2,
+    "verified_hud_meter_source_files": 13,
+    "verified_pack_count": 18,
+    "verified_HDA_entries": 3390,
+    "verified_exact_source_pngs": 589,
+    "verified_material_sidecars": 4,
+    "verified_cap_sidecars": 2,
+    "verified_forest_sidecars_and_policies": 4,
+    "verified_gameplay_hud_sidecars": 2,
+    "verified_hud_source_pngs": 1,
+    "verified_hud_font_sidecars": 2,
+    "verified_hud_font_source_files": 19,
+    "verified_hud_fixed_text_sidecars": 2,
+    "verified_hud_fixed_text_source_pngs": 12,
+    "verified_hud_extension_sidecars": 4,
+    "verified_hud_extension_source_pngs": 21,
+    "default_pack_counts": [
+      577,
+      577
+    ],
+    "all_runtime_RGBA_and_header_bytes_exact": true
+  },
+  "verification_commands": [
+    "python3 prototype/build-hd-assets.py",
+    "python3 prototype/build-hd-assets.py --output NEW_DIRECTORY"
+  ],
+  "recipe_sha256": {
+    "prototype/gameplay_hud_storm_bundle.py": "167e16acd067423513e4adb7f5559871717146ad8f858a98d67ca6f4ede7092a",
+    "prototype/build-hd-assets.py": "e8cf0996588b062f9b758cc511385d454204a4d5b52240f530c8d0fe49f54d86"
+  }
+}

@@ -53385,5 +53385,124 @@
         "HDA_sha256": "95e6ec5635e2a7a1c87124374fa1c69ae1bd743e84f13345d554c762af3abba1"
       }
     ]
+  },
+  "gameplay_hud_storm_label_v1": {
+    "schema": "finite-pic3-hsi1-storm-heading125-v1",
+    "source": "assets/hd/artwork/gameplay-hud-storm-label-v1",
+    "filename": "gameplay-hud-storm-label-v1.hda",
+    "ownership_half_open": [
+      284,
+      82,
+      309,
+      87
+    ],
+    "original_icon_size": [
+      25,
+      13
+    ],
+    "densities": [
+      4,
+      8
+    ],
+    "source_files": {
+      "README.md": {
+        "bytes": 3060,
+        "sha256": "c2f91c9247a1fd9b5f84d1ad8e4910ba748b757139f0488048f6f5137cd8a4b0"
+      },
+      "build_assets.py": {
+        "bytes": 8747,
+        "sha256": "2ae58d7cfbfa77934eae2fb406730151571bbe36a6f2ed8fca0e562e86726b3e"
+      },
+      "generated/contract.json": {
+        "bytes": 4989,
+        "sha256": "7319e1bbdab86a36f4de676c6689dec075b12f2fdfb702429f3b9bf55e14dd90"
+      },
+      "generated/gameplay-hud-storm-label-v1.hda": {
+        "bytes": 20096,
+        "sha256": "5a22cda50022edfc948b94dcfd40f658e9b4da41034b867d1a0b8238dc49a75f"
+      },
+      "generated/resource.json": {
+        "bytes": 404,
+        "sha256": "94d1cc3fe0e0210b83843985e2d063b612beb8924445f8a43e05eac5ac7f2747"
+      },
+      "generated/storm-heading-4x-coverage.bin": {
+        "bytes": 2000,
+        "sha256": "d5a5a125b233acd9da049cf8433cdc8ce1f3d5158fd30d9da3c2d32d9cc2fe22"
+      },
+      "generated/storm-heading-4x-coverage.png": {
+        "bytes": 540,
+        "sha256": "6661ce71f918d68df3c4fe652d47cf846c37ce79b7ea3a4fb43cd21aa3518954"
+      },
+      "generated/storm-heading-4x-geometry.png": {
+        "bytes": 758,
+        "sha256": "75a19459d8a185a475c34b3ada99e65ac9058d6b26244c429f06222f68d4fa3f"
+      },
+      "generated/storm-heading-4x-index.bin": {
+        "bytes": 2000,
+        "sha256": "51d8faffda5f76bb0b4063ebf34eab1db140c094343d6c3d9c1c35085037e498"
+      },
+      "generated/storm-heading-4x-index.png": {
+        "bytes": 307,
+        "sha256": "69dffe8b6e33b725d183aa038b4c47d48c493c6675040c96fb77c8b7a3f00511"
+      },
+      "generated/storm-heading-8x-coverage.bin": {
+        "bytes": 8000,
+        "sha256": "50b5e28b29f86fe19ef599ba0d5fc0a6dfd9473a2ec6665c4d17244bca06d37d"
+      },
+      "generated/storm-heading-8x-coverage.png": {
+        "bytes": 807,
+        "sha256": "7964e108bf738de0884e1652b46df28bedcc2e1248cad4a1677283832977a381"
+      },
+      "generated/storm-heading-8x-geometry.png": {
+        "bytes": 1087,
+        "sha256": "8d6dba5c241c48181e920cc06b10cb43b1f90afc3f8d4ec37825d1313b7c3e4a"
+      },
+      "generated/storm-heading-8x-index.bin": {
+        "bytes": 8000,
+        "sha256": "c3a78b82c073ef481bcd1e201649caf714f3bd858d55b23c1f61afc99199ba43"
+      },
+      "generated/storm-heading-8x-index.png": {
+        "bytes": 511,
+        "sha256": "394b44a62054757ccfd3e84dd779536dd9f80291ee63fb97ce54855f0f76045d"
+      },
+      "generated/storm-heading.svg": {
+        "bytes": 1125,
+        "sha256": "45b1bf44f24b9a8d9e34fe9a2f42cff6b34237f04075303ebbe409e0fd2750a7"
+      },
+      "geometry.json": {
+        "bytes": 2772,
+        "sha256": "1e6f94f61f84426e0b7d7d92b3cf1e46b211308bac51402e9f1c22d9f87dec50"
+      },
+      "pack_resource.py": {
+        "bytes": 1255,
+        "sha256": "34c18071f543d6a6ac7d3797cb427aae29808ecfbf673c76f7341e8c0f42bdb2"
+      },
+      "provenance.json": {
+        "bytes": 1685,
+        "sha256": "4b34b01202a4c401171b58ba9d08a59b489fc579ba479a8e667a655bb8ba4ca4"
+      },
+      "requirements.txt": {
+        "bytes": 88,
+        "sha256": "5ab10e724918bfb6005e56fbe08cb00275b9a435c423d2a0764c0d4ef0ffaf38"
+      }
+    },
+    "bundle": {
+      "bytes": 20096,
+      "sha256": "5a22cda50022edfc948b94dcfd40f658e9b4da41034b867d1a0b8238dc49a75f"
+    },
+    "packs": {
+      "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
+        "gameplay-hud-storm-label-v1.hda": {
+          "bytes": 20096,
+          "sha256": "5a22cda50022edfc948b94dcfd40f658e9b4da41034b867d1a0b8238dc49a75f"
+        }
+      },
+      "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
+        "gameplay-hud-storm-label-v1.hda": {
+          "bytes": 20096,
+          "sha256": "5a22cda50022edfc948b94dcfd40f658e9b4da41034b867d1a0b8238dc49a75f"
+        }
+      }
+    }
   }
 }

@@ -25,6 +25,9 @@ typedef enum {
 #define render_mirror_text_message_erased(...) ((void)0)
 #define render_mirror_hud_shutdown(...) ((void)0)
 #define render_mirror_hud_reset(...) ((void)0)
+#define render_mirror_hud_storm_begin(...) ((void)0)
+#define render_mirror_hud_storm_end(...) ((void)0)
+#define render_mirror_hud_storm_source_reset(...) ((void)0)
 #define render_mirror_hud_start(...) ((void)0)
 #define render_mirror_hud_suspend(...) ((void)0)
 #define render_mirror_hud_shield_wiped(...) ((void)0)
@@ -88,6 +91,9 @@ void render_mirror_text_message_erase_begin(void);
 void render_mirror_text_message_erased(bool help_prompt);
 void render_mirror_hud_shutdown(void);
 void render_mirror_hud_reset(void);
+void render_mirror_hud_storm_begin(SDL_Surface *,unsigned slot,unsigned option,unsigned icon,int x,int y);
+void render_mirror_hud_storm_end(SDL_Surface *,unsigned slot);
+void render_mirror_hud_storm_source_reset(unsigned table);
 void render_mirror_hud_start(SDL_Surface *decoded_pic3);
 void render_mirror_hud_suspend(void);
 void render_mirror_hud_mode_drawn(SDL_Surface *surface,unsigned int mode);

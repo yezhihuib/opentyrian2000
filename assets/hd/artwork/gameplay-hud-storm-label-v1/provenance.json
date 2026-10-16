@@ -1,0 +1,35 @@
+{
+  "schema": "storm-heading-authoring-provenance-v1",
+  "method": "Deterministic geometric stroked-path authoring; no image generation, tracing, scaling, or copying decoded game bitmap masks.",
+  "derived_from_authored_repo_vectors": true,
+  "font_or_library_dependency": false,
+  "vector_sources": [
+    {
+      "path": "assets/hd/artwork/gameplay-hud-fixed-text-v1/selected-glyph-paths.json",
+      "sha256": "89652889cfb81221e0c318aeaaa822b10aca3a4cc335288f9f6df8c45a5c3836"
+    },
+    {
+      "path": "assets/hd/artwork/gameplay-hud-labels-shield-v1/build_assets.py",
+      "sha256": "3beb526762bea05f2cd088e8a9cefd72070940f8929443a19a1ae35beb876459"
+    }
+  ],
+  "adaptation": "S,O,R,M geometric paths follow established authored fixed-label vocabulary; T follows existing FRONT label; M widened to its original five-unit slot. All coverage is recomputed analytically from segment distance at 32 samples per logical axis.",
+  "original_reference_use": "Read-only visual comparison and dimension/palette-role audit. No decoded source arrays or palette RGB arrays are in this package.",
+  "scope": "Only STORM heading, local25x5. Original lower8rows and ammo retained by integrator.",
+  "source_asset_identity_metadata": {
+    "bank": 5,
+    "index_zero_based": 37,
+    "original_size": [
+      25,
+      13
+    ],
+    "label_bounds": [
+      0,
+      0,
+      25,
+      5
+    ]
+  },
+  "distribution_scope": "Only this public-artwork directory is eligible for later review/publication. Sibling private previews, source comparisons, and raw runtime data are excluded.",
+  "license": "Authored code/vectors are contributed under the surrounding repository GNU GPL version2 terms."
+}

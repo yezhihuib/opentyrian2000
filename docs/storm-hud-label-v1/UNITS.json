@@ -1,0 +1,72 @@
+{
+  "schema": "storm-heading-unit-source-review-v1",
+  "status": "PASS",
+  "runtime_source_commit": "b3e4a3200680dad6c82a7e2b0260d3d3777e6a5e",
+  "commands": [
+    "python3 tests/run_gameplay_hud_storm_tests.py",
+    "python3 tests/test_storm_source_inverse.py"
+  ],
+  "strict_standalone_flags": [
+    "-std=c99",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-pedantic",
+    "-O1",
+    "-g"
+  ],
+  "build_variants": [
+    "plain",
+    "address+undefined sanitizers"
+  ],
+  "leak_sanitizer": false,
+  "internal_densities": [
+    4,
+    8
+  ],
+  "original_source_inverse_files": 153,
+  "original_source_inverse_exact": true,
+  "production_full_build_authority": "BUILD.json, including explicit inherited-warning exemptions",
+  "excluded_preparatory_integration_build": "A local build without -Wno-misleading-indentation failed on unchanged baseline lines. Its shell continued; neither that failure nor an incremental link is evidence of a clean strict build. Later clean unhooked baseline/candidate full builds are the qualification authority.",
+  "independent_black_box": {
+    "source_sha256": "44c4abe15bd013f0857b22b001e1a1ebd7c5077dc45fa247e202445bc2eeedb2",
+    "tests": {
+      "valid_complete_transaction": true,
+      "same_value_write_revoked": true,
+      "observed_format_change_callback_restore_revoked": true,
+      "observed_wrong_tuple_left_begin_revoked": true,
+      "stale_fade_grant_cleared_at_resume": true,
+      "bad_output_then_restore_revoked": true,
+      "suspend_then_resume_requires_redraw": true,
+      "retained_rgb_unchanged": true,
+      "label_only_changes": true
+    },
+    "all_pass": true,
+    "limits": "Independent synthetic black-box module test, no original game data, no native gameplay claim."
+  },
+  "independent_actual_adapter_scope": {
+    "status": "PASS",
+    "supported_modes": [
+      "Normal physical9",
+      "Hard physical15"
+    ],
+    "negative_mode_flags": 14,
+    "negative_tuple_fields": 7,
+    "source": "actual frozen gameplay_hud_storm_mirror.inc",
+    "checks": [
+      "strict C99",
+      "ASan+UBSan"
+    ],
+    "no_original_data": true
+  },
+  "log_sha256": {
+    "author_units": "4dc97dc91b9d14cb373e696baadc4039319b67d9064ef5c3cdeaf813f0a7eb1a",
+    "author_inverse": "e87395afbb74169c6d2e16493bee20ec007a99db9d08ec1efe2f3d07902aa4bf",
+    "independent_units": "4dc97dc91b9d14cb373e696baadc4039319b67d9064ef5c3cdeaf813f0a7eb1a"
+  },
+  "limits": [
+    "Synthetic fixtures contain no original game payload.",
+    "Source mutations, stale draws, cache poison, disk-cache lifetime, malformed resources and modal/fade histories are unit/adapter checks, not new native menu scenarios.",
+    "All4initial independently discovered lease bugs were fixed before frozen-source qualification."
+  ]
+}

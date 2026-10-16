@@ -94,6 +94,7 @@ void load_sprites(unsigned int table, FILE *f)
 
 void free_sprites(unsigned int table)
 {
+	render_mirror_hud_storm_source_reset(table);
 	title_layers_sprite_table_reset(table);
 	settings_font_table_reset(table);
 	load_font_table_reset(table);

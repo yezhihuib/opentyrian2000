@@ -1,0 +1,53 @@
+{
+  "schema": "storm-heading-author-native-review-v1",
+  "status": "PASS_BOUNDED",
+  "actual_native_images_inspected": 7,
+  "views": [
+    {
+      "case": "normal-art-native2x-candidate",
+      "file": "native-game-0103.bmp",
+      "sha256": "9a21c6625a43b51faf81379f4b26ac6b308aaff4545404c0a279e960b3f9cada"
+    },
+    {
+      "case": "hard-art-native4x-candidate",
+      "file": "native-game-0103.bmp",
+      "sha256": "0f366c5dfeea007a57eb2730450557a621b2e5ed7b04f14e865e934f4d650a64"
+    },
+    {
+      "case": "normal-art-native2x-candidate",
+      "file": "native-game-0190.bmp",
+      "sha256": "4fb18a5ea1be660ed4f9f9125fed574db8fc56dfccab28584059071d2253c055"
+    },
+    {
+      "case": "normal-art-native4x-candidate",
+      "file": "native-game-0103.bmp",
+      "sha256": "287e75f20d14dcc41815cb0367a63c619794a4f3416a5cfdfe2e41743e9a9144"
+    },
+    {
+      "case": "normal-art-native4x-baseline",
+      "file": "native-game-0103.bmp",
+      "sha256": "87323ce22a9fec0ce9b48aa70bc82697e62fd74906a85b537ad94cbc247b0407"
+    },
+    {
+      "case": "hard-refill-native2x-candidate",
+      "file": "native-game-0415.bmp",
+      "sha256": "8629c4018dc0cdd53286a6325f0c1c264a109248b6cf419bac3088a10072a417"
+    },
+    {
+      "case": "normal-refill-native2x-candidate",
+      "file": "native-game-0415.bmp",
+      "sha256": "44ebd190696484fa23efdbefc3aac1a4580d77f4b83d36fe8d233ee5176ba5d3"
+    }
+  ],
+  "findings": [
+    "Continuous green STORM strokes are legible and consistent with neighboring HUD labels at native2x and4x.",
+    "No clipping, residual block lettering or halo observed.",
+    "Lower diagram and ammo gauge remain original; both observed real-refill415screens keep heading stable.",
+    "Normal190clears Plasma while retaining the equipped heading."
+  ],
+  "limits": [
+    "Offline artwork previews are not runtime proof.",
+    "Only these7fullnativeimages were visually inspected by this reviewer; numerical runtime checks cover additional sampled frames.",
+    "Gameplay captures remain private and are not included."
+  ]
+}
