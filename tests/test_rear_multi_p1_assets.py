@@ -32,5 +32,5 @@ for a in binding['resources']:
         assert struct.unpack('<4s6I',b[:28])==(b'HDR1',1310000+sid,d,12,14,0,0) and b[28:]==raw
 assert len(seen)==12
 pins=(root/'src/rear_multi_p1_pins.h').read_text().split('#define REAR_P1_RGBA_PINS ',1)[1].split('\n',1)[0]
-assert [int(x,16) for x in re.findall(r'UINT64_C\(0x([0-9a-f]+)\)',pins)]==[stamps[sid,d] for sid in [39,1,281,282,301,300] for d in [4,8]]
+assert [int(x,16) for x in re.findall(r'UINT64_C\(0x([0-9a-f]+)\)',pins)][:12]==[stamps[sid,d] for sid in [39,1,281,282,301,300] for d in [4,8]]
 print('Rear P1 R2: 6 pinned SVG masters,12 exact PNG/RGBA variants,24 byte-exact default-pack HDR1 files; fractional alpha and runtime pins verified')

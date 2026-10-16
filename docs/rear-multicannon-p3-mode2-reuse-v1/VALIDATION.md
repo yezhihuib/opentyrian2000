@@ -1,5 +1,9 @@
 # Rear Multi-Cannon P3 mode2: bounded reuse of the four diagonal R2 heads
 
+This is the historical mode2-only qualification. The later bounded mode1
+two-lobe integration is documented in
+[`../rear-multicannon-p3-mode1-reuse-v1/VALIDATION.md`](../rear-multicannon-p3-mode1-reuse-v1/VALIDATION.md).
+
 Baseline: `76689b78e75727af767b8083d5282214135d7d6c`.
 
 Status: **PASS: bounded source, unchanged-art reuse and independent native-runtime qualification**.

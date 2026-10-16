@@ -57,7 +57,7 @@ int main(void){
   for(unsigned field=0;field<5;field++){birth(&s,0,k);switch(field){case 0:s.birth[0].generation++;break;case 1:s.birth[0].record=445;break;case 2:s.birth[0].phase=0;break;case 3:s.birth[0].raw++;break;case 4:s.birth[0].mode+=2;break;}CHECK(!now(&s,0,k));CHECK(!s.birth[0].qualified);}
   birth(&s,0,k);rear_p1_reset(&s);CHECK(!now(&s,0,k));CHECK(!s.lease);CHECK(!memcmp(&q,&copy,sizeof q));
  }
- for(unsigned i=0;i<1000;i++){bool allowed=false;for(unsigned k=0;k<6;k++)allowed|=ids[k]==i;CHECK((rear_p1_member(i)>=0)==allowed);}
+ for(unsigned i=0;i<1000;i++){bool allowed=i==40||i==2;for(unsigned k=0;k<6;k++)allowed|=ids[k]==i;CHECK((rear_p1_member(i)>=0)==allowed);}
  for(unsigned slot=80;slot<84;slot++){RearP1State old=s;RearP1Shot q=shot(0);rear_p1_emit(&s,7,slot,10,1,254,1,1,39,&q,true,true,true);CHECK(!rear_p1_current(&s,slot,39,39,&q,true,true,true));CHECK(!memcmp(s.birth,old.birth,sizeof s.birth));}
  {RearP1Shot q=shot(0);CHECK(!rear_p1_current(&s,UINT_MAX,39,39,&q,true,true,true));rear_p1_emit(&s,7,UINT_MAX,10,1,254,1,1,39,&q,true,true,true);}
  s.generation=UINT64_MAX;s.lease=true;rear_p1_reset(&s);CHECK(s.generation==1);CHECK(!s.lease);

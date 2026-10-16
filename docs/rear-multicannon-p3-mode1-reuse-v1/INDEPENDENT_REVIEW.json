@@ -1,0 +1,347 @@
+{
+  "schema": "rear-multicannon-p3-mode1-independent-review-v1",
+  "status": "PASS",
+  "scope": "Bounded normal-data Episode1 local single-player, physical Normal9/Hard15, actual main rear port10/bay1/player1/power_index2/mode_index0/record256. No generic source-ID permission.",
+  "expected_published_baseline": "8c996513ef83a53cd0384046a32e5701307a3d11",
+  "baseline_tree": "f17193939bc71d99f80f66af55186a9427d51ec1",
+  "frozen_source_art_tests": {
+    "sha256": "1865b302fecfe242f513a0347c1eaf9aeb30d427d02a3e9ccb7009f77560a0c6",
+    "source_files": 160,
+    "asset_files": 7033,
+    "test_files": 42,
+    "Makefile_included": true,
+    "all7236_frozen_files_match": true
+  },
+  "new_contract": {
+    "record": 256,
+    "complete_record_bytes": 80,
+    "record_fnv1a64": "336df95c79ab07a6",
+    "maximum_call_emissions": 2,
+    "phase_to_raw_id": [
+      40,
+      2
+    ],
+    "velocity": [
+      [
+        -10,
+        0
+      ],
+      [
+        10,
+        0
+      ]
+    ],
+    "logical_size": [
+      12,
+      14
+    ],
+    "anchor": [
+      0,
+      0
+    ],
+    "role": 131,
+    "resource_keys": [
+      1310040,
+      1310002
+    ],
+    "exact_densities": [
+      4,
+      8
+    ]
+  },
+  "source_review": {
+    "changed_source_files": [
+      "src/rear_multi_p1.c",
+      "src/rear_multi_p1.h",
+      "src/rear_multi_p1_mirror.inc",
+      "src/rear_multi_p1_pins.h"
+    ],
+    "original_156_source_inverse_exact": true,
+    "actual_allocator_call_sites_gameplay_and_original_draw_plumbing_unchanged": true,
+    "compositor_filter_shadow_and_palette_code_unchanged": true,
+    "existing_P1_P2_and_P3_mode2_behavior_retained": true,
+    "exact_table_source_live_shot_and_birth_checks": true,
+    "partial_capacity_any_cyclic_start": true,
+    "per_call_budget_ordinal_and_all_prior_slot_uniqueness": true,
+    "stale_nested_unwrapped_and_reused_slot_rejection": true,
+    "failure_consumes_remainder_and_retains_earlier_distinct_births": true,
+    "invalid_current_source_record_or_shot_irrevocably_revokes": true,
+    "resource_and_view_failure_does_not_create_a_birth": true,
+    "warm_resource_identity_payload_and_startup_root_density_checks": true,
+    "no_generic_2_40_grant": true,
+    "excluded_original_consumers": [
+      275,
+      1256,
+      1275
+    ],
+    "P4_higher_powers_shared_calls_other_episodes_and_Christmas_excluded": true
+  },
+  "art_and_packaging": {
+    "approved_component_manifest_sha256": "c1ece694062816a0296d1d45969cd1666b9d4864b704f766c4be1e3cd72de5bd",
+    "approved29_file_export_exact": true,
+    "new_art_generation": false,
+    "accepted_R2_sources": [
+      39,
+      1
+    ],
+    "existing_non_manifest_asset_files_byte_unchanged": 6987,
+    "new_generated_asset_files": 45,
+    "new_HDA_copies": 8,
+    "new_catalog_PNG_copies": 4,
+    "default_pack_count_each": 593,
+    "manifest_inverse_exact_except_intended_new_rows_and_two_scope_strings": true,
+    "new_resources_absent_from_nondefault_and_rollback_packs": true,
+    "both_lobes_exact_accepted_component_bytes": true,
+    "occupied_component_clipping": 0,
+    "component_alpha_overlap": 0,
+    "central_gap_logical_y_half_open": [
+      6,
+      8
+    ],
+    "full_density_per_lobe_alpha_and_RGB_alpha_sums_unchanged": true,
+    "fractional_alpha_preserved": true,
+    "qualification": "Inherited R2 curved alpha support differs from original pixel masks within the same bounds. Exact full-density brightness preservation is relative to accepted R2 art. Reflected nearest-sampling phase can cause small native brightness differences; no normalization is applied."
+  },
+  "test_runs": {
+    "independent_core_checks_per_plain_and_ASan_UBSan_run": 283597,
+    "independent_adapter_checks_per_run": 63325,
+    "independent_malformed_resource_variants": 256,
+    "independent_authentic_original_source_table_art_allocator_checks_per_run": 84716,
+    "public_adapter_checks_per_run": 100900,
+    "public_new_mode1_ownership_checks_per_run": 2374,
+    "public_retained_mode2_ownership_checks_per_run": 7745,
+    "public_core_adapter_asset_and_original_inverse_suites_pass": true,
+    "production_pin_override_in_authentic_tests": false,
+    "genuine_275_1256_1275_alternate_episode_and_Christmas_inputs_tested": true
+  },
+  "builds": {
+    "strict_enabled_builds": 8,
+    "strict_disabled_builds": 2,
+    "translation_units_each": 74,
+    "strict_warning_count": 0,
+    "unchanged_disabled_diagnostic_warning_count": 15,
+    "fresh_observer_variants_independently_reversed_with_zero_fuzz": 6,
+    "restored_source_files_each": 160
+  },
+  "actual_runtime": {
+    "fresh_pairs": 20,
+    "fresh_processes": 40,
+    "logic_ticks": 5040,
+    "native_candidate_frames_independently_recomputed": 224,
+    "native_game_capture_files_both_sides": 448,
+    "original_parity_streams_per_pair": 20,
+    "all_original_state_RNG_INDEX8_palette_input_collision_emission_and_draw_order_exact": true,
+    "ordinary_original_menu_purchase_with_scripted_key_input": true,
+    "original_time_NULL_seed_unmodified_and_no_discarded_mismatch_runs": true,
+    "main_density8_Normal_Hard_native2x_4x": true,
+    "density4_Normal_Hard_native2x": true,
+    "missing_and_corrupt_resource_negative_pairs": 4,
+    "P1_P2_P4_regression_pairs": 6,
+    "mode_switch_stop_fire_clear_pairs": 2,
+    "skip_repeat_presentation_pairs": 2,
+    "final_clear_exact_baseline": true,
+    "old_P3_mode2_quartet_retained": true,
+    "every_new_admission_linked_to_exact_record256_birth_and_one_of_two_ordinals": true,
+    "only_new_mirrored_decisions_raw2_40_normal_layout": true,
+    "native_frame_sampling_and_Hard_palette_anchored_transfer_recomputed": true,
+    "no_native_difference_outside_union_of_admitted_original_and_authored_support": true,
+    "all_pre_post_source_binary_dependency_pack_data_freezes_exact": true,
+    "cases": [
+      {
+        "batch": "main",
+        "case": "normal-art-native2x",
+        "ticks_per_process": 120,
+        "new_admitted_draws": 232,
+        "captured_game_frames_per_process": 13,
+        "baseline_exact_game_frames": 4
+      },
+      {
+        "batch": "main",
+        "case": "normal-art-native4x",
+        "ticks_per_process": 120,
+        "new_admitted_draws": 232,
+        "captured_game_frames_per_process": 13,
+        "baseline_exact_game_frames": 4
+      },
+      {
+        "batch": "main",
+        "case": "hard-art-native2x",
+        "ticks_per_process": 120,
+        "new_admitted_draws": 232,
+        "captured_game_frames_per_process": 13,
+        "baseline_exact_game_frames": 4
+      },
+      {
+        "batch": "main",
+        "case": "hard-art-native4x",
+        "ticks_per_process": 120,
+        "new_admitted_draws": 232,
+        "captured_game_frames_per_process": 13,
+        "baseline_exact_game_frames": 4
+      },
+      {
+        "batch": "negative",
+        "case": "normal-missing-native2x",
+        "ticks_per_process": 120,
+        "new_admitted_draws": 0,
+        "captured_game_frames_per_process": 8,
+        "baseline_exact_game_frames": 8
+      },
+      {
+        "batch": "negative",
+        "case": "normal-corrupt-native2x",
+        "ticks_per_process": 120,
+        "new_admitted_draws": 0,
+        "captured_game_frames_per_process": 8,
+        "baseline_exact_game_frames": 8
+      },
+      {
+        "batch": "negative",
+        "case": "hard-missing-native2x",
+        "ticks_per_process": 120,
+        "new_admitted_draws": 0,
+        "captured_game_frames_per_process": 8,
+        "baseline_exact_game_frames": 8
+      },
+      {
+        "batch": "negative",
+        "case": "hard-corrupt-native2x",
+        "ticks_per_process": 120,
+        "new_admitted_draws": 0,
+        "captured_game_frames_per_process": 8,
+        "baseline_exact_game_frames": 8
+      },
+      {
+        "batch": "power",
+        "case": "normal-p1-native2x",
+        "ticks_per_process": 120,
+        "new_admitted_draws": 0,
+        "captured_game_frames_per_process": 8,
+        "baseline_exact_game_frames": 8
+      },
+      {
+        "batch": "power",
+        "case": "normal-p2-native2x",
+        "ticks_per_process": 120,
+        "new_admitted_draws": 0,
+        "captured_game_frames_per_process": 8,
+        "baseline_exact_game_frames": 8
+      },
+      {
+        "batch": "power",
+        "case": "normal-p4-native2x",
+        "ticks_per_process": 120,
+        "new_admitted_draws": 0,
+        "captured_game_frames_per_process": 8,
+        "baseline_exact_game_frames": 8
+      },
+      {
+        "batch": "power",
+        "case": "hard-p1-native2x",
+        "ticks_per_process": 120,
+        "new_admitted_draws": 0,
+        "captured_game_frames_per_process": 8,
+        "baseline_exact_game_frames": 8
+      },
+      {
+        "batch": "power",
+        "case": "hard-p2-native2x",
+        "ticks_per_process": 120,
+        "new_admitted_draws": 0,
+        "captured_game_frames_per_process": 8,
+        "baseline_exact_game_frames": 8
+      },
+      {
+        "batch": "power",
+        "case": "hard-p4-native2x",
+        "ticks_per_process": 120,
+        "new_admitted_draws": 0,
+        "captured_game_frames_per_process": 8,
+        "baseline_exact_game_frames": 8
+      },
+      {
+        "batch": "transition",
+        "case": "normal-transition-native2x",
+        "ticks_per_process": 180,
+        "new_admitted_draws": 290,
+        "captured_game_frames_per_process": 20,
+        "baseline_exact_game_frames": 7
+      },
+      {
+        "batch": "transition",
+        "case": "hard-transition-native2x",
+        "ticks_per_process": 180,
+        "new_admitted_draws": 290,
+        "captured_game_frames_per_process": 20,
+        "baseline_exact_game_frames": 7
+      },
+      {
+        "batch": "present",
+        "case": "normal-present-control-native2x",
+        "ticks_per_process": 120,
+        "new_admitted_draws": 232,
+        "captured_game_frames_per_process": 13,
+        "baseline_exact_game_frames": 4
+      },
+      {
+        "batch": "present",
+        "case": "hard-present-control-native2x",
+        "ticks_per_process": 120,
+        "new_admitted_draws": 232,
+        "captured_game_frames_per_process": 13,
+        "baseline_exact_game_frames": 4
+      },
+      {
+        "batch": "density4",
+        "case": "normal-art-density4-native2x",
+        "ticks_per_process": 120,
+        "new_admitted_draws": 232,
+        "captured_game_frames_per_process": 13,
+        "baseline_exact_game_frames": 4
+      },
+      {
+        "batch": "density4",
+        "case": "hard-art-density4-native2x",
+        "ticks_per_process": 120,
+        "new_admitted_draws": 232,
+        "captured_game_frames_per_process": 13,
+        "baseline_exact_game_frames": 4
+      }
+    ]
+  },
+  "actual_visual_review": {
+    "status": "PASS",
+    "both_new_sprites_and_each_of_four_lobes_visible": true,
+    "brown_and_cloud_native_witnesses": true,
+    "two_logical_row_gap_unchanged": true,
+    "native_fractional_edge_samples_survive": true,
+    "full_native_2x_4x_Normal_and_Hard_inspected": true,
+    "density4_native2x_and_final_clear_inspected": true,
+    "actual_viewport_clipping_and_later_ordered_writes_observed": true,
+    "natural_new_head_to_head_alpha_overlap_observed": false,
+    "brightness_and_night_treatment": "Accepted component brightness retained; existing Hard attenuation and original shadow/order remain visible. No brightening, halo addition, sharpening or native normalization.",
+    "native_witnesses_are_crops_without_resizing": true
+  },
+  "separate_synthetic_overlap": {
+    "status": "PASS",
+    "uses_extracted_unchanged_production_compositor": true,
+    "normal_composition_only": true,
+    "authentic_approved_payloads": true,
+    "both_orders_both_cyclic_starts_d4_d8": true,
+    "cases": 48,
+    "overlap_samples": 43346,
+    "clipped_samples": 20098,
+    "checks_per_plain_and_ASan_UBSan_run": 1398,
+    "exact_scalar_RGBA_and_owner_oracle": true,
+    "INDEX8_unchanged": true,
+    "not_claimed_as_natural_runtime_or_Hard_overlap": true
+  },
+  "offline_boundary": "The earlier 1x/2x/4x design plates and isolated night model are artwork references only. They do not substitute for actual runtime ownership, compositing, acquisition or Hard proof.",
+  "remaining_limits": [
+    "Linux SDL dummy/software only; Windows, physical GPU/fullscreen and device acceptance remain open.",
+    "Bounded opening/menu/switch/clear scenarios only; not a full-level clear, natural survival or whole-game certification.",
+    "No actual native1x gameplay qualification; earlier1x plates remain offline.",
+    "Natural new-head overlap was not observed; ordered overlap and top/bottom clipping are separately labeled synthetic compositor checks."
+  ],
+  "privacy": "No original game bytes, decoded original sprites/masks/palettes, native captures, private paths, private profiles or dependencies are included in this public review."
+}

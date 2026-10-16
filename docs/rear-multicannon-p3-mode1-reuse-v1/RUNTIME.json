@@ -1,0 +1,3638 @@
+{
+  "schema": "rear-multicannon-p3-mode1-bounded-runtime-v1",
+  "status": "PASS",
+  "baseline_published_commit": "8c996513ef83a53cd0384046a32e5701307a3d11",
+  "baseline_tree": "f17193939bc71d99f80f66af55186a9427d51ec1",
+  "qualification_pairs": 20,
+  "actual_game_processes": 40,
+  "qualification_logic_ticks": 5040,
+  "actual_native_game_captures": 448,
+  "actual_native_shop_captures": 120,
+  "new_scope": {
+    "rear_port": 10,
+    "rear_power": 3,
+    "mode": 1,
+    "record": 256,
+    "raw_order": [
+      40,
+      2
+    ],
+    "budget": 2,
+    "role": 131,
+    "densities": [
+      4,
+      8
+    ],
+    "native_scales": [
+      2,
+      4
+    ],
+    "difficulty": [
+      "Normal",
+      "Hard"
+    ]
+  },
+  "state_or_seed_overrides": [],
+  "all_original_parity_categories": [
+    "state.tsv",
+    "inputs.tsv",
+    "palette-state.tsv",
+    "actual-game-index8.bin",
+    "actual-display-index8.bin",
+    "actual-rgb-palettes.bin",
+    "actual-loadout.tsv",
+    "player-shot-requests.tsv",
+    "player-shot-results.tsv",
+    "player-shot-emissions.tsv",
+    "player-shot-draws.tsv",
+    "collisions.tsv",
+    "poses.tsv",
+    "fire-events.tsv",
+    "player-projectiles.tsv",
+    "scene-draw-commands.tsv",
+    "original-blitter-order.tsv",
+    "original-finish-order.tsv",
+    "original-seed.tsv",
+    "menu-inputs.tsv"
+  ],
+  "original_menu_purchase": {
+    "P3_cost": 3750,
+    "P3_cash_after": 6250,
+    "P4_cost": 8250,
+    "P4_cash_after": 1750
+  },
+  "prior_P1_P2_P3_mode2_unchanged": true,
+  "shared_consumer_negative_scope": {
+    "actual_runtime": "Natural P4 records257/268 with shared obliques; all P4 sampled output exact.",
+    "synthetic_tests": "Frozen ownership and adapter tests explicitly exclude record275 and aliases1256/1275; these are not natural runtime acquisitions."
+  },
+  "old_art_payloads_unchanged": true,
+  "new_art": "Exact approved deterministic two-lobe component composites; four new resources in each supported pack. No fresh generation.",
+  "missing_corrupt_scope": "Only role131 IDs2/40 at densities4/8 removed or header-corrupted.",
+  "two_lobe_native_witness": {
+    "pass": true,
+    "cases": [
+      {
+        "case": "normal-art-native2x",
+        "render_density": 8,
+        "native_scale": 2,
+        "scope": "Actual SDL renderer Present pixels, crops only; no resizing, synthesis or color transformation. Each of two raw sprites independently contains two nonoverlapping lobes and an unchanged logical y[6,8) central gap.",
+        "asset_contract": [
+          {
+            "id": 40,
+            "density": 8,
+            "logical_bounds": [
+              12,
+              14
+            ],
+            "anchor": [
+              0,
+              0
+            ],
+            "original_central_gap_y": [
+              6,
+              8
+            ],
+            "gap_alpha_nonzero_pixels": 0,
+            "overlapping_lobe_support_pixels": 0,
+            "exact_approved_component_composition": true
+          },
+          {
+            "id": 2,
+            "density": 8,
+            "logical_bounds": [
+              12,
+              14
+            ],
+            "anchor": [
+              0,
+              0
+            ],
+            "original_central_gap_y": [
+              6,
+              8
+            ],
+            "gap_alpha_nonzero_pixels": 0,
+            "overlapping_lobe_support_pixels": 0,
+            "exact_approved_component_composition": true
+          }
+        ],
+        "witness": {
+          "call": 14,
+          "record": 256,
+          "birth_tick": 19,
+          "capture_tick": 20,
+          "ticks_after_birth": 1,
+          "both_composites_and_both_lobes_each_visible": true,
+          "central_gap_unchanged_from_baseline": true,
+          "heads": [
+            {
+              "id": 40,
+              "emission_number": 1,
+              "slot": 8,
+              "actual_draw_origin": [
+                91,
+                160
+              ],
+              "logical_bounds": [
+                12,
+                14
+              ],
+              "unchanged_central_gap_native_pixels": 96,
+              "lobes": [
+                {
+                  "lobe": 1,
+                  "final_native_changed_pixels_in_authored_support": 125,
+                  "fractional_samples_surviving_to_native": 40
+                },
+                {
+                  "lobe": 2,
+                  "final_native_changed_pixels_in_authored_support": 124,
+                  "fractional_samples_surviving_to_native": 28
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "emission_number": 2,
+              "slot": 9,
+              "actual_draw_origin": [
+                111,
+                160
+              ],
+              "logical_bounds": [
+                12,
+                14
+              ],
+              "unchanged_central_gap_native_pixels": 96,
+              "lobes": [
+                {
+                  "lobe": 1,
+                  "final_native_changed_pixels_in_authored_support": 130,
+                  "fractional_samples_surviving_to_native": 40
+                },
+                {
+                  "lobe": 2,
+                  "final_native_changed_pixels_in_authored_support": 130,
+                  "fractional_samples_surviving_to_native": 39
+                }
+              ]
+            }
+          ],
+          "native_crop": [
+            118,
+            304,
+            214,
+            364
+          ]
+        },
+        "preview": "native-previews/normal-art-native2x-near-emission-two-lobes.png"
+      },
+      {
+        "case": "normal-art-native4x",
+        "render_density": 8,
+        "native_scale": 4,
+        "scope": "Actual SDL renderer Present pixels, crops only; no resizing, synthesis or color transformation. Each of two raw sprites independently contains two nonoverlapping lobes and an unchanged logical y[6,8) central gap.",
+        "asset_contract": [
+          {
+            "id": 40,
+            "density": 8,
+            "logical_bounds": [
+              12,
+              14
+            ],
+            "anchor": [
+              0,
+              0
+            ],
+            "original_central_gap_y": [
+              6,
+              8
+            ],
+            "gap_alpha_nonzero_pixels": 0,
+            "overlapping_lobe_support_pixels": 0,
+            "exact_approved_component_composition": true
+          },
+          {
+            "id": 2,
+            "density": 8,
+            "logical_bounds": [
+              12,
+              14
+            ],
+            "anchor": [
+              0,
+              0
+            ],
+            "original_central_gap_y": [
+              6,
+              8
+            ],
+            "gap_alpha_nonzero_pixels": 0,
+            "overlapping_lobe_support_pixels": 0,
+            "exact_approved_component_composition": true
+          }
+        ],
+        "witness": {
+          "call": 14,
+          "record": 256,
+          "birth_tick": 19,
+          "capture_tick": 20,
+          "ticks_after_birth": 1,
+          "both_composites_and_both_lobes_each_visible": true,
+          "central_gap_unchanged_from_baseline": true,
+          "heads": [
+            {
+              "id": 40,
+              "emission_number": 1,
+              "slot": 8,
+              "actual_draw_origin": [
+                91,
+                160
+              ],
+              "logical_bounds": [
+                12,
+                14
+              ],
+              "unchanged_central_gap_native_pixels": 384,
+              "lobes": [
+                {
+                  "lobe": 1,
+                  "final_native_changed_pixels_in_authored_support": 491,
+                  "fractional_samples_surviving_to_native": 137
+                },
+                {
+                  "lobe": 2,
+                  "final_native_changed_pixels_in_authored_support": 488,
+                  "fractional_samples_surviving_to_native": 93
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "emission_number": 2,
+              "slot": 9,
+              "actual_draw_origin": [
+                111,
+                160
+              ],
+              "logical_bounds": [
+                12,
+                14
+              ],
+              "unchanged_central_gap_native_pixels": 384,
+              "lobes": [
+                {
+                  "lobe": 1,
+                  "final_native_changed_pixels_in_authored_support": 521,
+                  "fractional_samples_surviving_to_native": 149
+                },
+                {
+                  "lobe": 2,
+                  "final_native_changed_pixels_in_authored_support": 519,
+                  "fractional_samples_surviving_to_native": 143
+                }
+              ]
+            }
+          ],
+          "native_crop": [
+            236,
+            608,
+            428,
+            728
+          ]
+        },
+        "preview": "native-previews/normal-art-native4x-near-emission-two-lobes.png"
+      },
+      {
+        "case": "hard-art-native2x",
+        "render_density": 8,
+        "native_scale": 2,
+        "scope": "Actual SDL renderer Present pixels, crops only; no resizing, synthesis or color transformation. Each of two raw sprites independently contains two nonoverlapping lobes and an unchanged logical y[6,8) central gap.",
+        "asset_contract": [
+          {
+            "id": 40,
+            "density": 8,
+            "logical_bounds": [
+              12,
+              14
+            ],
+            "anchor": [
+              0,
+              0
+            ],
+            "original_central_gap_y": [
+              6,
+              8
+            ],
+            "gap_alpha_nonzero_pixels": 0,
+            "overlapping_lobe_support_pixels": 0,
+            "exact_approved_component_composition": true
+          },
+          {
+            "id": 2,
+            "density": 8,
+            "logical_bounds": [
+              12,
+              14
+            ],
+            "anchor": [
+              0,
+              0
+            ],
+            "original_central_gap_y": [
+              6,
+              8
+            ],
+            "gap_alpha_nonzero_pixels": 0,
+            "overlapping_lobe_support_pixels": 0,
+            "exact_approved_component_composition": true
+          }
+        ],
+        "witness": {
+          "call": 14,
+          "record": 256,
+          "birth_tick": 19,
+          "capture_tick": 20,
+          "ticks_after_birth": 1,
+          "both_composites_and_both_lobes_each_visible": true,
+          "central_gap_unchanged_from_baseline": true,
+          "heads": [
+            {
+              "id": 40,
+              "emission_number": 1,
+              "slot": 8,
+              "actual_draw_origin": [
+                91,
+                160
+              ],
+              "logical_bounds": [
+                12,
+                14
+              ],
+              "unchanged_central_gap_native_pixels": 96,
+              "lobes": [
+                {
+                  "lobe": 1,
+                  "final_native_changed_pixels_in_authored_support": 125,
+                  "fractional_samples_surviving_to_native": 40
+                },
+                {
+                  "lobe": 2,
+                  "final_native_changed_pixels_in_authored_support": 123,
+                  "fractional_samples_surviving_to_native": 28
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "emission_number": 2,
+              "slot": 9,
+              "actual_draw_origin": [
+                111,
+                160
+              ],
+              "logical_bounds": [
+                12,
+                14
+              ],
+              "unchanged_central_gap_native_pixels": 96,
+              "lobes": [
+                {
+                  "lobe": 1,
+                  "final_native_changed_pixels_in_authored_support": 130,
+                  "fractional_samples_surviving_to_native": 40
+                },
+                {
+                  "lobe": 2,
+                  "final_native_changed_pixels_in_authored_support": 130,
+                  "fractional_samples_surviving_to_native": 39
+                }
+              ]
+            }
+          ],
+          "native_crop": [
+            118,
+            304,
+            214,
+            364
+          ]
+        },
+        "preview": "native-previews/hard-art-native2x-near-emission-two-lobes.png"
+      },
+      {
+        "case": "hard-art-native4x",
+        "render_density": 8,
+        "native_scale": 4,
+        "scope": "Actual SDL renderer Present pixels, crops only; no resizing, synthesis or color transformation. Each of two raw sprites independently contains two nonoverlapping lobes and an unchanged logical y[6,8) central gap.",
+        "asset_contract": [
+          {
+            "id": 40,
+            "density": 8,
+            "logical_bounds": [
+              12,
+              14
+            ],
+            "anchor": [
+              0,
+              0
+            ],
+            "original_central_gap_y": [
+              6,
+              8
+            ],
+            "gap_alpha_nonzero_pixels": 0,
+            "overlapping_lobe_support_pixels": 0,
+            "exact_approved_component_composition": true
+          },
+          {
+            "id": 2,
+            "density": 8,
+            "logical_bounds": [
+              12,
+              14
+            ],
+            "anchor": [
+              0,
+              0
+            ],
+            "original_central_gap_y": [
+              6,
+              8
+            ],
+            "gap_alpha_nonzero_pixels": 0,
+            "overlapping_lobe_support_pixels": 0,
+            "exact_approved_component_composition": true
+          }
+        ],
+        "witness": {
+          "call": 14,
+          "record": 256,
+          "birth_tick": 19,
+          "capture_tick": 20,
+          "ticks_after_birth": 1,
+          "both_composites_and_both_lobes_each_visible": true,
+          "central_gap_unchanged_from_baseline": true,
+          "heads": [
+            {
+              "id": 40,
+              "emission_number": 1,
+              "slot": 8,
+              "actual_draw_origin": [
+                91,
+                160
+              ],
+              "logical_bounds": [
+                12,
+                14
+              ],
+              "unchanged_central_gap_native_pixels": 384,
+              "lobes": [
+                {
+                  "lobe": 1,
+                  "final_native_changed_pixels_in_authored_support": 490,
+                  "fractional_samples_surviving_to_native": 137
+                },
+                {
+                  "lobe": 2,
+                  "final_native_changed_pixels_in_authored_support": 488,
+                  "fractional_samples_surviving_to_native": 93
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "emission_number": 2,
+              "slot": 9,
+              "actual_draw_origin": [
+                111,
+                160
+              ],
+              "logical_bounds": [
+                12,
+                14
+              ],
+              "unchanged_central_gap_native_pixels": 384,
+              "lobes": [
+                {
+                  "lobe": 1,
+                  "final_native_changed_pixels_in_authored_support": 520,
+                  "fractional_samples_surviving_to_native": 149
+                },
+                {
+                  "lobe": 2,
+                  "final_native_changed_pixels_in_authored_support": 518,
+                  "fractional_samples_surviving_to_native": 143
+                }
+              ]
+            }
+          ],
+          "native_crop": [
+            236,
+            608,
+            428,
+            728
+          ]
+        },
+        "preview": "native-previews/hard-art-native4x-near-emission-two-lobes.png"
+      },
+      {
+        "case": "normal-art-density4-native2x",
+        "render_density": 4,
+        "native_scale": 2,
+        "scope": "Actual SDL renderer Present pixels, crops only; no resizing, synthesis or color transformation. Each of two raw sprites independently contains two nonoverlapping lobes and an unchanged logical y[6,8) central gap.",
+        "asset_contract": [
+          {
+            "id": 40,
+            "density": 4,
+            "logical_bounds": [
+              12,
+              14
+            ],
+            "anchor": [
+              0,
+              0
+            ],
+            "original_central_gap_y": [
+              6,
+              8
+            ],
+            "gap_alpha_nonzero_pixels": 0,
+            "overlapping_lobe_support_pixels": 0,
+            "exact_approved_component_composition": true
+          },
+          {
+            "id": 2,
+            "density": 4,
+            "logical_bounds": [
+              12,
+              14
+            ],
+            "anchor": [
+              0,
+              0
+            ],
+            "original_central_gap_y": [
+              6,
+              8
+            ],
+            "gap_alpha_nonzero_pixels": 0,
+            "overlapping_lobe_support_pixels": 0,
+            "exact_approved_component_composition": true
+          }
+        ],
+        "witness": {
+          "call": 16,
+          "record": 256,
+          "birth_tick": 26,
+          "capture_tick": 28,
+          "ticks_after_birth": 2,
+          "both_composites_and_both_lobes_each_visible": true,
+          "central_gap_unchanged_from_baseline": true,
+          "heads": [
+            {
+              "id": 40,
+              "emission_number": 1,
+              "slot": 2,
+              "actual_draw_origin": [
+                81,
+                160
+              ],
+              "logical_bounds": [
+                12,
+                14
+              ],
+              "unchanged_central_gap_native_pixels": 96,
+              "lobes": [
+                {
+                  "lobe": 1,
+                  "final_native_changed_pixels_in_authored_support": 130,
+                  "fractional_samples_surviving_to_native": 48
+                },
+                {
+                  "lobe": 2,
+                  "final_native_changed_pixels_in_authored_support": 126,
+                  "fractional_samples_surviving_to_native": 44
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "emission_number": 2,
+              "slot": 3,
+              "actual_draw_origin": [
+                121,
+                160
+              ],
+              "logical_bounds": [
+                12,
+                14
+              ],
+              "unchanged_central_gap_native_pixels": 96,
+              "lobes": [
+                {
+                  "lobe": 1,
+                  "final_native_changed_pixels_in_authored_support": 135,
+                  "fractional_samples_surviving_to_native": 45
+                },
+                {
+                  "lobe": 2,
+                  "final_native_changed_pixels_in_authored_support": 136,
+                  "fractional_samples_surviving_to_native": 49
+                }
+              ]
+            }
+          ],
+          "native_crop": [
+            98,
+            304,
+            234,
+            364
+          ]
+        },
+        "preview": "native-previews/normal-art-density4-native2x-near-emission-two-lobes.png"
+      },
+      {
+        "case": "hard-art-density4-native2x",
+        "render_density": 4,
+        "native_scale": 2,
+        "scope": "Actual SDL renderer Present pixels, crops only; no resizing, synthesis or color transformation. Each of two raw sprites independently contains two nonoverlapping lobes and an unchanged logical y[6,8) central gap.",
+        "asset_contract": [
+          {
+            "id": 40,
+            "density": 4,
+            "logical_bounds": [
+              12,
+              14
+            ],
+            "anchor": [
+              0,
+              0
+            ],
+            "original_central_gap_y": [
+              6,
+              8
+            ],
+            "gap_alpha_nonzero_pixels": 0,
+            "overlapping_lobe_support_pixels": 0,
+            "exact_approved_component_composition": true
+          },
+          {
+            "id": 2,
+            "density": 4,
+            "logical_bounds": [
+              12,
+              14
+            ],
+            "anchor": [
+              0,
+              0
+            ],
+            "original_central_gap_y": [
+              6,
+              8
+            ],
+            "gap_alpha_nonzero_pixels": 0,
+            "overlapping_lobe_support_pixels": 0,
+            "exact_approved_component_composition": true
+          }
+        ],
+        "witness": {
+          "call": 16,
+          "record": 256,
+          "birth_tick": 26,
+          "capture_tick": 28,
+          "ticks_after_birth": 2,
+          "both_composites_and_both_lobes_each_visible": true,
+          "central_gap_unchanged_from_baseline": true,
+          "heads": [
+            {
+              "id": 40,
+              "emission_number": 1,
+              "slot": 2,
+              "actual_draw_origin": [
+                81,
+                160
+              ],
+              "logical_bounds": [
+                12,
+                14
+              ],
+              "unchanged_central_gap_native_pixels": 96,
+              "lobes": [
+                {
+                  "lobe": 1,
+                  "final_native_changed_pixels_in_authored_support": 130,
+                  "fractional_samples_surviving_to_native": 48
+                },
+                {
+                  "lobe": 2,
+                  "final_native_changed_pixels_in_authored_support": 126,
+                  "fractional_samples_surviving_to_native": 44
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "emission_number": 2,
+              "slot": 3,
+              "actual_draw_origin": [
+                121,
+                160
+              ],
+              "logical_bounds": [
+                12,
+                14
+              ],
+              "unchanged_central_gap_native_pixels": 96,
+              "lobes": [
+                {
+                  "lobe": 1,
+                  "final_native_changed_pixels_in_authored_support": 135,
+                  "fractional_samples_surviving_to_native": 45
+                },
+                {
+                  "lobe": 2,
+                  "final_native_changed_pixels_in_authored_support": 135,
+                  "fractional_samples_surviving_to_native": 49
+                }
+              ]
+            }
+          ],
+          "native_crop": [
+            98,
+            304,
+            234,
+            364
+          ]
+        },
+        "preview": "native-previews/hard-art-density4-native2x-near-emission-two-lobes.png"
+      }
+    ]
+  },
+  "occlusion_clipping_witness": {
+    "pass": true,
+    "scope": "Immediate admitted-head fractional points compared with final ordered canvas; actual viewport clipping; ship overlap bounded by original standard24x28 command; head-head authored alpha-support overlap measured rather than inferred. Exact original and final composition verified separately.",
+    "cases": [
+      {
+        "case": "normal-art-native2x-candidate",
+        "sampled_frames": [
+          {
+            "tick": 8,
+            "fractional_points": 2306,
+            "later_ordered_writes": 2306,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 12,
+            "fractional_points": 2306,
+            "later_ordered_writes": 1928,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 378,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 16,
+            "fractional_points": 3470,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 20,
+            "fractional_points": 5776,
+            "later_ordered_writes": 222,
+            "later_writes_inside_original_ship_command_bounds": 190,
+            "points_clipped_outside_playfield": 378,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 28,
+            "fractional_points": 5776,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 1142,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 59,
+            "fractional_points": 4634,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 1164,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 60,
+            "fractional_points": 3470,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 64,
+            "fractional_points": 3470,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 1142,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 72,
+            "fractional_points": 1164,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 576,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 88,
+            "fractional_points": 0,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 119,
+            "fractional_points": 0,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          }
+        ],
+        "total_later_ordered_writes": 4456,
+        "total_outside_playfield_points": 4780,
+        "total_later_writes_within_original_ship_bounds": 190,
+        "total_head_head_overlap_pixels": 0
+      },
+      {
+        "case": "normal-art-native4x-candidate",
+        "sampled_frames": [
+          {
+            "tick": 8,
+            "fractional_points": 2306,
+            "later_ordered_writes": 2306,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 12,
+            "fractional_points": 2306,
+            "later_ordered_writes": 1928,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 378,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 16,
+            "fractional_points": 3470,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 20,
+            "fractional_points": 5776,
+            "later_ordered_writes": 222,
+            "later_writes_inside_original_ship_command_bounds": 190,
+            "points_clipped_outside_playfield": 378,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 28,
+            "fractional_points": 5776,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 1142,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 59,
+            "fractional_points": 4634,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 1164,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 60,
+            "fractional_points": 3470,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 64,
+            "fractional_points": 3470,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 1142,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 72,
+            "fractional_points": 1164,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 576,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 88,
+            "fractional_points": 0,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 119,
+            "fractional_points": 0,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          }
+        ],
+        "total_later_ordered_writes": 4456,
+        "total_outside_playfield_points": 4780,
+        "total_later_writes_within_original_ship_bounds": 190,
+        "total_head_head_overlap_pixels": 0
+      },
+      {
+        "case": "hard-art-native2x-candidate",
+        "sampled_frames": [
+          {
+            "tick": 8,
+            "fractional_points": 2306,
+            "later_ordered_writes": 2306,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 12,
+            "fractional_points": 2306,
+            "later_ordered_writes": 1928,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 378,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 16,
+            "fractional_points": 3470,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 20,
+            "fractional_points": 5776,
+            "later_ordered_writes": 222,
+            "later_writes_inside_original_ship_command_bounds": 190,
+            "points_clipped_outside_playfield": 378,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 28,
+            "fractional_points": 5776,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 1142,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 59,
+            "fractional_points": 4634,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 1164,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 60,
+            "fractional_points": 3470,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 64,
+            "fractional_points": 3470,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 1142,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 72,
+            "fractional_points": 1164,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 576,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 88,
+            "fractional_points": 0,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 119,
+            "fractional_points": 0,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          }
+        ],
+        "total_later_ordered_writes": 4456,
+        "total_outside_playfield_points": 4780,
+        "total_later_writes_within_original_ship_bounds": 190,
+        "total_head_head_overlap_pixels": 0
+      },
+      {
+        "case": "hard-art-native4x-candidate",
+        "sampled_frames": [
+          {
+            "tick": 8,
+            "fractional_points": 2306,
+            "later_ordered_writes": 2306,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 12,
+            "fractional_points": 2306,
+            "later_ordered_writes": 1928,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 378,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 16,
+            "fractional_points": 3470,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 20,
+            "fractional_points": 5776,
+            "later_ordered_writes": 222,
+            "later_writes_inside_original_ship_command_bounds": 190,
+            "points_clipped_outside_playfield": 378,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 28,
+            "fractional_points": 5776,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 1142,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 59,
+            "fractional_points": 4634,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 1164,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 60,
+            "fractional_points": 3470,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 64,
+            "fractional_points": 3470,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 1142,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 72,
+            "fractional_points": 1164,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 576,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 88,
+            "fractional_points": 0,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          },
+          {
+            "tick": 119,
+            "fractional_points": 0,
+            "later_ordered_writes": 0,
+            "later_writes_inside_original_ship_command_bounds": 0,
+            "points_clipped_outside_playfield": 0,
+            "authored_head_head_support_overlap_pixels": 0
+          }
+        ],
+        "total_later_ordered_writes": 4456,
+        "total_outside_playfield_points": 4780,
+        "total_later_writes_within_original_ship_bounds": 190,
+        "total_head_head_overlap_pixels": 0
+      }
+    ]
+  },
+  "brown_cloud_native_witness": {
+    "pass": true,
+    "scope": "Actual scene cloud commands plus exact shipped cloud alpha support intersected with authored head support and baseline/candidate native deltas. Each composite has positive visible changes in each lobe on both brown and cloud support. Exact night/ordinary compositor verified separately.",
+    "cases": [
+      {
+        "case": "normal-art-native2x",
+        "native_scale": 2,
+        "observed_original_output_kinds": [
+          1
+        ],
+        "witnesses": [
+          {
+            "background": "brown",
+            "id": 40,
+            "tick": 20,
+            "actual_draw_origin": [
+              91,
+              160
+            ],
+            "changed_native_pixels_per_lobe_on_background_support": [
+              125,
+              124
+            ],
+            "central_gap_unchanged": true,
+            "observed_cloud_commands": [],
+            "native_crop": [
+              118,
+              306,
+              174,
+              362
+            ]
+          },
+          {
+            "background": "brown",
+            "id": 2,
+            "tick": 20,
+            "actual_draw_origin": [
+              111,
+              160
+            ],
+            "changed_native_pixels_per_lobe_on_background_support": [
+              130,
+              130
+            ],
+            "central_gap_unchanged": true,
+            "observed_cloud_commands": [],
+            "native_crop": [
+              158,
+              306,
+              214,
+              362
+            ]
+          },
+          {
+            "background": "cloud",
+            "id": 40,
+            "tick": 59,
+            "actual_draw_origin": [
+              51,
+              160
+            ],
+            "changed_native_pixels_per_lobe_on_background_support": [
+              118,
+              112
+            ],
+            "central_gap_unchanged": true,
+            "observed_cloud_commands": [
+              {
+                "cloud_id": 55,
+                "origin": [
+                  41,
+                  146
+                ]
+              }
+            ],
+            "native_crop": [
+              38,
+              306,
+              94,
+              362
+            ]
+          },
+          {
+            "background": "cloud",
+            "id": 2,
+            "tick": 59,
+            "actual_draw_origin": [
+              221,
+              160
+            ],
+            "changed_native_pixels_per_lobe_on_background_support": [
+              130,
+              130
+            ],
+            "central_gap_unchanged": true,
+            "observed_cloud_commands": [
+              {
+                "cloud_id": 44,
+                "origin": [
+                  209,
+                  146
+                ]
+              }
+            ],
+            "native_crop": [
+              378,
+              306,
+              434,
+              362
+            ]
+          }
+        ],
+        "preview": "native-previews/normal-art-native2x-brown-cloud-native.png"
+      },
+      {
+        "case": "normal-art-native4x",
+        "native_scale": 4,
+        "observed_original_output_kinds": [
+          1
+        ],
+        "witnesses": [
+          {
+            "background": "brown",
+            "id": 40,
+            "tick": 20,
+            "actual_draw_origin": [
+              91,
+              160
+            ],
+            "changed_native_pixels_per_lobe_on_background_support": [
+              491,
+              488
+            ],
+            "central_gap_unchanged": true,
+            "observed_cloud_commands": [],
+            "native_crop": [
+              236,
+              612,
+              348,
+              724
+            ]
+          },
+          {
+            "background": "brown",
+            "id": 2,
+            "tick": 20,
+            "actual_draw_origin": [
+              111,
+              160
+            ],
+            "changed_native_pixels_per_lobe_on_background_support": [
+              521,
+              519
+            ],
+            "central_gap_unchanged": true,
+            "observed_cloud_commands": [],
+            "native_crop": [
+              316,
+              612,
+              428,
+              724
+            ]
+          },
+          {
+            "background": "cloud",
+            "id": 40,
+            "tick": 59,
+            "actual_draw_origin": [
+              51,
+              160
+            ],
+            "changed_native_pixels_per_lobe_on_background_support": [
+              459,
+              445
+            ],
+            "central_gap_unchanged": true,
+            "observed_cloud_commands": [
+              {
+                "cloud_id": 55,
+                "origin": [
+                  41,
+                  146
+                ]
+              }
+            ],
+            "native_crop": [
+              76,
+              612,
+              188,
+              724
+            ]
+          },
+          {
+            "background": "cloud",
+            "id": 2,
+            "tick": 59,
+            "actual_draw_origin": [
+              221,
+              160
+            ],
+            "changed_native_pixels_per_lobe_on_background_support": [
+              521,
+              519
+            ],
+            "central_gap_unchanged": true,
+            "observed_cloud_commands": [
+              {
+                "cloud_id": 44,
+                "origin": [
+                  209,
+                  146
+                ]
+              }
+            ],
+            "native_crop": [
+              756,
+              612,
+              868,
+              724
+            ]
+          }
+        ],
+        "preview": "native-previews/normal-art-native4x-brown-cloud-native.png"
+      },
+      {
+        "case": "hard-art-native2x",
+        "native_scale": 2,
+        "observed_original_output_kinds": [
+          2
+        ],
+        "witnesses": [
+          {
+            "background": "brown",
+            "id": 40,
+            "tick": 20,
+            "actual_draw_origin": [
+              91,
+              160
+            ],
+            "changed_native_pixels_per_lobe_on_background_support": [
+              125,
+              123
+            ],
+            "central_gap_unchanged": true,
+            "observed_cloud_commands": [],
+            "native_crop": [
+              118,
+              306,
+              174,
+              362
+            ]
+          },
+          {
+            "background": "brown",
+            "id": 2,
+            "tick": 20,
+            "actual_draw_origin": [
+              111,
+              160
+            ],
+            "changed_native_pixels_per_lobe_on_background_support": [
+              130,
+              130
+            ],
+            "central_gap_unchanged": true,
+            "observed_cloud_commands": [],
+            "native_crop": [
+              158,
+              306,
+              214,
+              362
+            ]
+          },
+          {
+            "background": "cloud",
+            "id": 40,
+            "tick": 59,
+            "actual_draw_origin": [
+              51,
+              160
+            ],
+            "changed_native_pixels_per_lobe_on_background_support": [
+              118,
+              112
+            ],
+            "central_gap_unchanged": true,
+            "observed_cloud_commands": [
+              {
+                "cloud_id": 55,
+                "origin": [
+                  41,
+                  146
+                ]
+              }
+            ],
+            "native_crop": [
+              38,
+              306,
+              94,
+              362
+            ]
+          },
+          {
+            "background": "cloud",
+            "id": 2,
+            "tick": 59,
+            "actual_draw_origin": [
+              221,
+              160
+            ],
+            "changed_native_pixels_per_lobe_on_background_support": [
+              130,
+              130
+            ],
+            "central_gap_unchanged": true,
+            "observed_cloud_commands": [
+              {
+                "cloud_id": 44,
+                "origin": [
+                  209,
+                  146
+                ]
+              }
+            ],
+            "native_crop": [
+              378,
+              306,
+              434,
+              362
+            ]
+          }
+        ],
+        "preview": "native-previews/hard-art-native2x-brown-cloud-native.png"
+      },
+      {
+        "case": "hard-art-native4x",
+        "native_scale": 4,
+        "observed_original_output_kinds": [
+          2
+        ],
+        "witnesses": [
+          {
+            "background": "brown",
+            "id": 40,
+            "tick": 20,
+            "actual_draw_origin": [
+              91,
+              160
+            ],
+            "changed_native_pixels_per_lobe_on_background_support": [
+              490,
+              488
+            ],
+            "central_gap_unchanged": true,
+            "observed_cloud_commands": [],
+            "native_crop": [
+              236,
+              612,
+              348,
+              724
+            ]
+          },
+          {
+            "background": "brown",
+            "id": 2,
+            "tick": 20,
+            "actual_draw_origin": [
+              111,
+              160
+            ],
+            "changed_native_pixels_per_lobe_on_background_support": [
+              520,
+              518
+            ],
+            "central_gap_unchanged": true,
+            "observed_cloud_commands": [],
+            "native_crop": [
+              316,
+              612,
+              428,
+              724
+            ]
+          },
+          {
+            "background": "cloud",
+            "id": 40,
+            "tick": 59,
+            "actual_draw_origin": [
+              51,
+              160
+            ],
+            "changed_native_pixels_per_lobe_on_background_support": [
+              459,
+              445
+            ],
+            "central_gap_unchanged": true,
+            "observed_cloud_commands": [
+              {
+                "cloud_id": 55,
+                "origin": [
+                  41,
+                  146
+                ]
+              }
+            ],
+            "native_crop": [
+              76,
+              612,
+              188,
+              724
+            ]
+          },
+          {
+            "background": "cloud",
+            "id": 2,
+            "tick": 59,
+            "actual_draw_origin": [
+              221,
+              160
+            ],
+            "changed_native_pixels_per_lobe_on_background_support": [
+              521,
+              518
+            ],
+            "central_gap_unchanged": true,
+            "observed_cloud_commands": [
+              {
+                "cloud_id": 44,
+                "origin": [
+                  209,
+                  146
+                ]
+              }
+            ],
+            "native_crop": [
+              756,
+              612,
+              868,
+              724
+            ]
+          }
+        ],
+        "preview": "native-previews/hard-art-native4x-brown-cloud-native.png"
+      }
+    ]
+  },
+  "transition_native_witness": {
+    "pass": true,
+    "scope": "Fresh actual native frames and exact original birth/draw linkage. Clearing means new target output is gone; unrelated original gameplay may remain.",
+    "cases": [
+      {
+        "case": "normal-transition-native2x",
+        "inputs_switch_mode_at": [
+          60,
+          100
+        ],
+        "fire_stops_at": 120,
+        "record256_births_retained_after_switch_to_mode2_t64": [
+          {
+            "tick": "64",
+            "slot": "6",
+            "player": "1",
+            "raw_index": "2",
+            "bank": "8",
+            "index": "2",
+            "x": "271",
+            "y": "160",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_call": "25",
+            "birth_tick": "47",
+            "emission_number": "2",
+            "record": "256"
+          },
+          {
+            "tick": "64",
+            "slot": "7",
+            "player": "1",
+            "raw_index": "2",
+            "bank": "8",
+            "index": "2",
+            "x": "201",
+            "y": "160",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_call": "27",
+            "birth_tick": "54",
+            "emission_number": "2",
+            "record": "256"
+          }
+        ],
+        "approved_record267_births_retained_after_switch_back_t104": [
+          {
+            "tick": "104",
+            "slot": "6",
+            "player": "1",
+            "raw_index": "282",
+            "bank": "8",
+            "index": "282",
+            "x": "238",
+            "y": "130",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_tick": "89",
+            "birth_call": "41",
+            "record": 267
+          },
+          {
+            "tick": "104",
+            "slot": "11",
+            "player": "1",
+            "raw_index": "301",
+            "bank": "8",
+            "index": "301",
+            "x": "238",
+            "y": "190",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_tick": "89",
+            "birth_call": "41",
+            "record": 267
+          },
+          {
+            "tick": "104",
+            "slot": "13",
+            "player": "1",
+            "raw_index": "281",
+            "bank": "8",
+            "index": "281",
+            "x": "27",
+            "y": "144",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_tick": "96",
+            "birth_call": "44",
+            "record": 267
+          },
+          {
+            "tick": "104",
+            "slot": "14",
+            "player": "1",
+            "raw_index": "282",
+            "bank": "8",
+            "index": "282",
+            "x": "175",
+            "y": "144",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_tick": "96",
+            "birth_call": "44",
+            "record": 267
+          },
+          {
+            "tick": "104",
+            "slot": "15",
+            "player": "1",
+            "raw_index": "301",
+            "bank": "8",
+            "index": "301",
+            "x": "175",
+            "y": "176",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_tick": "96",
+            "birth_call": "44",
+            "record": 267
+          },
+          {
+            "tick": "104",
+            "slot": "16",
+            "player": "1",
+            "raw_index": "300",
+            "bank": "8",
+            "index": "300",
+            "x": "27",
+            "y": "176",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_tick": "96",
+            "birth_call": "44",
+            "record": 267
+          }
+        ],
+        "clear179_native_exact_to_baseline": true,
+        "clear179_new_target_admissions": 0,
+        "native_frames": {
+          "64": {
+            "path": "native-previews/normal-transition-native2x-candidate-t064.png",
+            "sha256": "073625bc914246c36c43965af40653e2f46daf95e3b74700330d3068657c17bf"
+          },
+          "101": {
+            "path": "native-previews/normal-transition-native2x-candidate-t101.png",
+            "sha256": "01860dfb3f38a53eabda04de087c12af7fe63332c1ff4a04917b3baa7ae08cd3"
+          },
+          "104": {
+            "path": "native-previews/normal-transition-native2x-candidate-t104.png",
+            "sha256": "d7227edd09b6a1512372031479945a49f6ac7e308b60e2c75ad73d371c50a3d7"
+          },
+          "108": {
+            "path": "native-previews/normal-transition-native2x-candidate-t108.png",
+            "sha256": "beae78e83fdcfbec770708173358676e5fbe9b019709eae7ca3044e1a2a91d27"
+          },
+          "120": {
+            "path": "native-previews/normal-transition-native2x-candidate-t120.png",
+            "sha256": "9304eca137e2fbf52f26f56898d8f1bdcfaea741f0e21184f13fc80f33b85d83"
+          },
+          "130": {
+            "path": "native-previews/normal-transition-native2x-candidate-t130.png",
+            "sha256": "3767479525a1adce36e62793e8a3d4e97c6089f475c2eaf38976ec0c85193a49"
+          },
+          "150": {
+            "path": "native-previews/normal-transition-native2x-candidate-t150.png",
+            "sha256": "5d6b2cd0e3fb347bbe99b3e74e51a990e2f5e87c0c4a074b72669485eaf0b03f"
+          },
+          "179": {
+            "path": "native-previews/normal-transition-native2x-candidate-t179.png",
+            "sha256": "21caf48c0c9acc592d5d9609119c8b64d1ba1fa0b829d8510e0c87be2cdcb02d"
+          }
+        }
+      },
+      {
+        "case": "hard-transition-native2x",
+        "inputs_switch_mode_at": [
+          60,
+          100
+        ],
+        "fire_stops_at": 120,
+        "record256_births_retained_after_switch_to_mode2_t64": [
+          {
+            "tick": "64",
+            "slot": "6",
+            "player": "1",
+            "raw_index": "2",
+            "bank": "8",
+            "index": "2",
+            "x": "271",
+            "y": "160",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_call": "25",
+            "birth_tick": "47",
+            "emission_number": "2",
+            "record": "256"
+          },
+          {
+            "tick": "64",
+            "slot": "7",
+            "player": "1",
+            "raw_index": "2",
+            "bank": "8",
+            "index": "2",
+            "x": "201",
+            "y": "160",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_call": "27",
+            "birth_tick": "54",
+            "emission_number": "2",
+            "record": "256"
+          }
+        ],
+        "approved_record267_births_retained_after_switch_back_t104": [
+          {
+            "tick": "104",
+            "slot": "6",
+            "player": "1",
+            "raw_index": "282",
+            "bank": "8",
+            "index": "282",
+            "x": "238",
+            "y": "130",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_tick": "89",
+            "birth_call": "41",
+            "record": 267
+          },
+          {
+            "tick": "104",
+            "slot": "11",
+            "player": "1",
+            "raw_index": "301",
+            "bank": "8",
+            "index": "301",
+            "x": "238",
+            "y": "190",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_tick": "89",
+            "birth_call": "41",
+            "record": 267
+          },
+          {
+            "tick": "104",
+            "slot": "13",
+            "player": "1",
+            "raw_index": "281",
+            "bank": "8",
+            "index": "281",
+            "x": "27",
+            "y": "144",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_tick": "96",
+            "birth_call": "44",
+            "record": 267
+          },
+          {
+            "tick": "104",
+            "slot": "14",
+            "player": "1",
+            "raw_index": "282",
+            "bank": "8",
+            "index": "282",
+            "x": "175",
+            "y": "144",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_tick": "96",
+            "birth_call": "44",
+            "record": 267
+          },
+          {
+            "tick": "104",
+            "slot": "15",
+            "player": "1",
+            "raw_index": "301",
+            "bank": "8",
+            "index": "301",
+            "x": "175",
+            "y": "176",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_tick": "96",
+            "birth_call": "44",
+            "record": 267
+          },
+          {
+            "tick": "104",
+            "slot": "16",
+            "player": "1",
+            "raw_index": "300",
+            "bank": "8",
+            "index": "300",
+            "x": "27",
+            "y": "176",
+            "style": "0",
+            "width": "12",
+            "height": "14",
+            "birth_tick": "96",
+            "birth_call": "44",
+            "record": 267
+          }
+        ],
+        "clear179_native_exact_to_baseline": true,
+        "clear179_new_target_admissions": 0,
+        "native_frames": {
+          "64": {
+            "path": "native-previews/hard-transition-native2x-candidate-t064.png",
+            "sha256": "a8849ed4e1a9f404feb671929567060fc85153664ce9d553b4329f7dac7709f0"
+          },
+          "101": {
+            "path": "native-previews/hard-transition-native2x-candidate-t101.png",
+            "sha256": "d5ca08953bddea6a7e44b54520b66bfe351e1c80764fe71bfe29d009bc753ea6"
+          },
+          "104": {
+            "path": "native-previews/hard-transition-native2x-candidate-t104.png",
+            "sha256": "f9e738cb03110feee8d9e4e88fa69ac1f4614ba9004b5ff1569275e1048b54a1"
+          },
+          "108": {
+            "path": "native-previews/hard-transition-native2x-candidate-t108.png",
+            "sha256": "f45d970ac7d9f09e789dfce3ebcd07e32f98e6b082af5b683a0edbc52c07f515"
+          },
+          "120": {
+            "path": "native-previews/hard-transition-native2x-candidate-t120.png",
+            "sha256": "07a5197a220b87efd1062a104978ba4e19cd188c346b0bd8327ad9bb7a6a79fa"
+          },
+          "130": {
+            "path": "native-previews/hard-transition-native2x-candidate-t130.png",
+            "sha256": "a866f721a55ebee5316e1dc3128fa76395082aaa6e2734204e1af660081edc70"
+          },
+          "150": {
+            "path": "native-previews/hard-transition-native2x-candidate-t150.png",
+            "sha256": "25b9a9dc111ab277e6bc2deceef5266fdaf436ece5043a6d3b3c0afda5ad0e49"
+          },
+          "179": {
+            "path": "native-previews/hard-transition-native2x-candidate-t179.png",
+            "sha256": "f2a615300280d2e43bf0e83baa60dcd24e30fd24b2166aaae6c9e38081e7c3ea"
+          }
+        }
+      }
+    ]
+  },
+  "cases": [
+    {
+      "case": "normal-art-native2x",
+      "difficulty": "normal",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 3,
+      "variant": "art",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 232,
+      "game_captures_per_process": 13,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 9,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 1608,
+      "rear_emissions": 48,
+      "rear_emission_ids": {
+        "40": 8,
+        "2": 8,
+        "281": 8,
+        "282": 8,
+        "301": 8,
+        "300": 8
+      },
+      "cash_after_natural_shop_purchase": 6250,
+      "natural_time_seed": "1792169028",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": false,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "ea5b51426edc45799c5f644f757ead64daeebf8dd0fa09ef7c560fc8c439bec1",
+          "observer_source_manifest_sha256": "a175c70abccca3dcdf4a4ae9d67e826d87ec1679a2666bbab766778eef9f7291",
+          "launch_record_sha256": "b9d8e14c24ca56379d3e126f5ac9ddd59cfabe724a9c5e375b9197f042a3df83",
+          "process_receipt_sha256": "9ab03f4cb9b029ae7fe1ee3a6e8ad9326c5b1c08a5b716299e17e8538a007168"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "a31c635872b4d32915571d069b5745f18935a78a9b5b8926cedf3de33fa1bc8d",
+          "observer_source_manifest_sha256": "9873a570f36d56b363eb66d4c84a48dc6c0f6d83ddba1cb556d0db56e8d37504",
+          "launch_record_sha256": "8af9096ea9f84bca22171114be33d567d00687bab184360137aff93e803e808d",
+          "process_receipt_sha256": "d596aa1325adea570103b06be9c368744887bc6e5a89aa54cf6333b959acbab4"
+        }
+      ],
+      "two_composite_emission_coverage": {
+        "case": "normal-art-native2x",
+        "natural_rear_power_failures_without_emission": 8,
+        "rear_emissions_reusing_older_slots": 36,
+        "rear_emissions_reusing_front_slots": 11,
+        "mode1_emitting_calls": 8,
+        "two_emissions_per_successful_mode1_call_exact": true,
+        "fully_observed_volleys_both_composites_HD": 8,
+        "observed_normal_head_draws_by_emission_number": {
+          "1": 80,
+          "2": 152
+        },
+        "observed_normal_head_draws_by_id": {
+          "40": 80,
+          "2": 152
+        },
+        "unchanged_approved_mode2_draws": 446,
+        "all_eligible_mode1_head_draws_HD": true,
+        "every_new_HD_admission_matches_exact_rear_P3_mode1_birth": true
+      },
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 268288,
+      "new_target_fractional_intermediate_results": 268050
+    },
+    {
+      "case": "normal-art-native4x",
+      "difficulty": "normal",
+      "native_scale": 4,
+      "render_density": 8,
+      "rear_power": 3,
+      "variant": "art",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 232,
+      "game_captures_per_process": 13,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 9,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 5847,
+      "rear_emissions": 48,
+      "rear_emission_ids": {
+        "40": 8,
+        "2": 8,
+        "281": 8,
+        "282": 8,
+        "301": 8,
+        "300": 8
+      },
+      "cash_after_natural_shop_purchase": 6250,
+      "natural_time_seed": "1792169060",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": false,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "ea5b51426edc45799c5f644f757ead64daeebf8dd0fa09ef7c560fc8c439bec1",
+          "observer_source_manifest_sha256": "a175c70abccca3dcdf4a4ae9d67e826d87ec1679a2666bbab766778eef9f7291",
+          "launch_record_sha256": "3ae392723c4413ffc7bc46a8c5a0ffee4fa4eb5000f9fe010888afaf6fcd6ade",
+          "process_receipt_sha256": "762435a77e8147082a77cf6276abc2c6b242edacae1b0f91a058135358183374"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "a31c635872b4d32915571d069b5745f18935a78a9b5b8926cedf3de33fa1bc8d",
+          "observer_source_manifest_sha256": "9873a570f36d56b363eb66d4c84a48dc6c0f6d83ddba1cb556d0db56e8d37504",
+          "launch_record_sha256": "e8baa5b0bfef2a2034d50737fcef3e63dee30cdaf9bf0c6fe2946406997a8d2a",
+          "process_receipt_sha256": "1cef887a3052e0891b1646875467487f67397447806bf146aadf7f2aec27298c"
+        }
+      ],
+      "two_composite_emission_coverage": {
+        "case": "normal-art-native4x",
+        "natural_rear_power_failures_without_emission": 8,
+        "rear_emissions_reusing_older_slots": 36,
+        "rear_emissions_reusing_front_slots": 11,
+        "mode1_emitting_calls": 8,
+        "two_emissions_per_successful_mode1_call_exact": true,
+        "fully_observed_volleys_both_composites_HD": 8,
+        "observed_normal_head_draws_by_emission_number": {
+          "1": 80,
+          "2": 152
+        },
+        "observed_normal_head_draws_by_id": {
+          "40": 80,
+          "2": 152
+        },
+        "unchanged_approved_mode2_draws": 446,
+        "all_eligible_mode1_head_draws_HD": true,
+        "every_new_HD_admission_matches_exact_rear_P3_mode1_birth": true
+      },
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 268288,
+      "new_target_fractional_intermediate_results": 268050
+    },
+    {
+      "case": "hard-art-native2x",
+      "difficulty": "hard",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 3,
+      "variant": "art",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 232,
+      "game_captures_per_process": 13,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 9,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 1608,
+      "rear_emissions": 48,
+      "rear_emission_ids": {
+        "40": 8,
+        "2": 8,
+        "281": 8,
+        "282": 8,
+        "301": 8,
+        "300": 8
+      },
+      "cash_after_natural_shop_purchase": 6250,
+      "natural_time_seed": "1792169092",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": false,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "ea5b51426edc45799c5f644f757ead64daeebf8dd0fa09ef7c560fc8c439bec1",
+          "observer_source_manifest_sha256": "a175c70abccca3dcdf4a4ae9d67e826d87ec1679a2666bbab766778eef9f7291",
+          "launch_record_sha256": "ac8a6b7533af69e1d9af47cd9279efb1a349162f028489b638ec010d5c9bd70b",
+          "process_receipt_sha256": "635ba183c09c80cc39adce3865c62eda5a68f00e800175b29bd861e4c94ec3e3"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "a31c635872b4d32915571d069b5745f18935a78a9b5b8926cedf3de33fa1bc8d",
+          "observer_source_manifest_sha256": "9873a570f36d56b363eb66d4c84a48dc6c0f6d83ddba1cb556d0db56e8d37504",
+          "launch_record_sha256": "a3828cb46a5388cef7b19fe80e71c86e47fd49e9cedb084af0bc511ac3dda129",
+          "process_receipt_sha256": "b705e463795cacb2b2ccb2f91093249851d16c5be1463ecbb19e753e787f0bfe"
+        }
+      ],
+      "two_composite_emission_coverage": {
+        "case": "hard-art-native2x",
+        "natural_rear_power_failures_without_emission": 8,
+        "rear_emissions_reusing_older_slots": 36,
+        "rear_emissions_reusing_front_slots": 11,
+        "mode1_emitting_calls": 8,
+        "two_emissions_per_successful_mode1_call_exact": true,
+        "fully_observed_volleys_both_composites_HD": 8,
+        "observed_normal_head_draws_by_emission_number": {
+          "1": 80,
+          "2": 152
+        },
+        "observed_normal_head_draws_by_id": {
+          "40": 80,
+          "2": 152
+        },
+        "unchanged_approved_mode2_draws": 446,
+        "all_eligible_mode1_head_draws_HD": true,
+        "every_new_HD_admission_matches_exact_rear_P3_mode1_birth": true
+      },
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 268288,
+      "new_target_fractional_intermediate_results": 268050
+    },
+    {
+      "case": "hard-art-native4x",
+      "difficulty": "hard",
+      "native_scale": 4,
+      "render_density": 8,
+      "rear_power": 3,
+      "variant": "art",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 232,
+      "game_captures_per_process": 13,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 9,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 5847,
+      "rear_emissions": 48,
+      "rear_emission_ids": {
+        "40": 8,
+        "2": 8,
+        "281": 8,
+        "282": 8,
+        "301": 8,
+        "300": 8
+      },
+      "cash_after_natural_shop_purchase": 6250,
+      "natural_time_seed": "1792169125",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": false,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "ea5b51426edc45799c5f644f757ead64daeebf8dd0fa09ef7c560fc8c439bec1",
+          "observer_source_manifest_sha256": "a175c70abccca3dcdf4a4ae9d67e826d87ec1679a2666bbab766778eef9f7291",
+          "launch_record_sha256": "2aa2517621747c8430ad8762186ce1b6bf237f9dd8a44d2d949bce9f0f3da5c5",
+          "process_receipt_sha256": "1a18a116a7df14439d5b3f131088ba18611b0fc29dc3214dcf63a8ca00916d91"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "a31c635872b4d32915571d069b5745f18935a78a9b5b8926cedf3de33fa1bc8d",
+          "observer_source_manifest_sha256": "9873a570f36d56b363eb66d4c84a48dc6c0f6d83ddba1cb556d0db56e8d37504",
+          "launch_record_sha256": "70d83aa3718424d2eb40f3bbc7c8a3c8b90771a86e2c1e508eb67c2764caeae0",
+          "process_receipt_sha256": "0841f3b4531d234fb15de278f75b5f61195fe426b51ee9d1d25553025ffef62f"
+        }
+      ],
+      "two_composite_emission_coverage": {
+        "case": "hard-art-native4x",
+        "natural_rear_power_failures_without_emission": 8,
+        "rear_emissions_reusing_older_slots": 36,
+        "rear_emissions_reusing_front_slots": 11,
+        "mode1_emitting_calls": 8,
+        "two_emissions_per_successful_mode1_call_exact": true,
+        "fully_observed_volleys_both_composites_HD": 8,
+        "observed_normal_head_draws_by_emission_number": {
+          "1": 80,
+          "2": 152
+        },
+        "observed_normal_head_draws_by_id": {
+          "40": 80,
+          "2": 152
+        },
+        "unchanged_approved_mode2_draws": 446,
+        "all_eligible_mode1_head_draws_HD": true,
+        "every_new_HD_admission_matches_exact_rear_P3_mode1_birth": true
+      },
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 268288,
+      "new_target_fractional_intermediate_results": 268050
+    },
+    {
+      "case": "normal-missing-native2x",
+      "difficulty": "normal",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 3,
+      "variant": "missing",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 0,
+      "game_captures_per_process": 8,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 0,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 0,
+      "rear_emissions": 48,
+      "rear_emission_ids": {
+        "40": 8,
+        "2": 8,
+        "281": 8,
+        "282": 8,
+        "301": 8,
+        "300": 8
+      },
+      "cash_after_natural_shop_purchase": 6250,
+      "natural_time_seed": "1792169197",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": true,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "ea5b51426edc45799c5f644f757ead64daeebf8dd0fa09ef7c560fc8c439bec1",
+          "observer_source_manifest_sha256": "a175c70abccca3dcdf4a4ae9d67e826d87ec1679a2666bbab766778eef9f7291",
+          "launch_record_sha256": "02446879ed6bcf1f603c5d6fb75ab4948c61fa908c6cf0f92a2d78592755fdc6",
+          "process_receipt_sha256": "405b86166cd35cbfe422ac36818ca819df43747139831dcdb6992c719b565f19"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "a31c635872b4d32915571d069b5745f18935a78a9b5b8926cedf3de33fa1bc8d",
+          "observer_source_manifest_sha256": "9873a570f36d56b363eb66d4c84a48dc6c0f6d83ddba1cb556d0db56e8d37504",
+          "launch_record_sha256": "429ae1ccd64899a6ad5ae3f8318cf4f9f0fea08a0cad0c46120cb944c6c6efe0",
+          "process_receipt_sha256": "6f6563a55ac9b803bf83a402c1a470e6ed534a0c8832eefc631445da850eaaca"
+        }
+      ],
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 0,
+      "new_target_fractional_intermediate_results": 0
+    },
+    {
+      "case": "normal-corrupt-native2x",
+      "difficulty": "normal",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 3,
+      "variant": "corrupt",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 0,
+      "game_captures_per_process": 8,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 0,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 0,
+      "rear_emissions": 48,
+      "rear_emission_ids": {
+        "40": 8,
+        "2": 8,
+        "281": 8,
+        "282": 8,
+        "301": 8,
+        "300": 8
+      },
+      "cash_after_natural_shop_purchase": 6250,
+      "natural_time_seed": "1792169228",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": true,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "ea5b51426edc45799c5f644f757ead64daeebf8dd0fa09ef7c560fc8c439bec1",
+          "observer_source_manifest_sha256": "a175c70abccca3dcdf4a4ae9d67e826d87ec1679a2666bbab766778eef9f7291",
+          "launch_record_sha256": "bc9f80156d647274eff8f924dee859c4213a12286efc0220c19fe2e11176167e",
+          "process_receipt_sha256": "27f3a9efc840749ba00684d2492f30020a4be14e1ec6877d1c220edbff9888b3"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "a31c635872b4d32915571d069b5745f18935a78a9b5b8926cedf3de33fa1bc8d",
+          "observer_source_manifest_sha256": "9873a570f36d56b363eb66d4c84a48dc6c0f6d83ddba1cb556d0db56e8d37504",
+          "launch_record_sha256": "c6acc31a2547a45bbd03b8f12328e6a5e1f45f0c8df4cc4cf6abe26973b6186f",
+          "process_receipt_sha256": "fc521210fa6f56dcdeb07d4ef70b7939e0c8f1ab8c8d10bcb5d6a1746e934939"
+        }
+      ],
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 0,
+      "new_target_fractional_intermediate_results": 0
+    },
+    {
+      "case": "hard-missing-native2x",
+      "difficulty": "hard",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 3,
+      "variant": "missing",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 0,
+      "game_captures_per_process": 8,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 0,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 0,
+      "rear_emissions": 48,
+      "rear_emission_ids": {
+        "40": 8,
+        "2": 8,
+        "281": 8,
+        "282": 8,
+        "301": 8,
+        "300": 8
+      },
+      "cash_after_natural_shop_purchase": 6250,
+      "natural_time_seed": "1792169259",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": true,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "ea5b51426edc45799c5f644f757ead64daeebf8dd0fa09ef7c560fc8c439bec1",
+          "observer_source_manifest_sha256": "a175c70abccca3dcdf4a4ae9d67e826d87ec1679a2666bbab766778eef9f7291",
+          "launch_record_sha256": "db193f0a9e381a01441b8556356fee21d5840e721f3d74cb5a3018b4f6f31975",
+          "process_receipt_sha256": "ffdf55fa8d7d1073934b885a49b784244728ccd8477efe89cbf5913227e0bdd0"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "a31c635872b4d32915571d069b5745f18935a78a9b5b8926cedf3de33fa1bc8d",
+          "observer_source_manifest_sha256": "9873a570f36d56b363eb66d4c84a48dc6c0f6d83ddba1cb556d0db56e8d37504",
+          "launch_record_sha256": "51fa6e910f0709e2a3d644bd802f6f1a37c1d07c3be6ec69d62246d5fbfee66a",
+          "process_receipt_sha256": "2b8b56729ec58e9c9e73cbae8787776c3a90b5d16017a6d3536bda3db653de8f"
+        }
+      ],
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 0,
+      "new_target_fractional_intermediate_results": 0
+    },
+    {
+      "case": "hard-corrupt-native2x",
+      "difficulty": "hard",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 3,
+      "variant": "corrupt",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 0,
+      "game_captures_per_process": 8,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 0,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 0,
+      "rear_emissions": 48,
+      "rear_emission_ids": {
+        "40": 8,
+        "2": 8,
+        "281": 8,
+        "282": 8,
+        "301": 8,
+        "300": 8
+      },
+      "cash_after_natural_shop_purchase": 6250,
+      "natural_time_seed": "1792169290",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": true,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "ea5b51426edc45799c5f644f757ead64daeebf8dd0fa09ef7c560fc8c439bec1",
+          "observer_source_manifest_sha256": "a175c70abccca3dcdf4a4ae9d67e826d87ec1679a2666bbab766778eef9f7291",
+          "launch_record_sha256": "8a9fbd039e60455b1ce6b0d9fa6606c57011c9501e64d232030a5fe640f6cd87",
+          "process_receipt_sha256": "96495f15dd2e02798832a6ebd1740ee299a5e130d6c336661f8946c499d7f7fc"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "a31c635872b4d32915571d069b5745f18935a78a9b5b8926cedf3de33fa1bc8d",
+          "observer_source_manifest_sha256": "9873a570f36d56b363eb66d4c84a48dc6c0f6d83ddba1cb556d0db56e8d37504",
+          "launch_record_sha256": "2c4b88d97a4340747917ac1592a70622dec91e98c42fd769f18dcbfb6aa1f1d2",
+          "process_receipt_sha256": "4fe30fa2f0cfc6ec01b4e18d61d34135bde65f7855c854b8adf100d8ddfaf959"
+        }
+      ],
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 0,
+      "new_target_fractional_intermediate_results": 0
+    },
+    {
+      "case": "normal-p1-native2x",
+      "difficulty": "normal",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 1,
+      "variant": "art",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 0,
+      "game_captures_per_process": 8,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 0,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 0,
+      "rear_emissions": 24,
+      "rear_emission_ids": {
+        "39": 6,
+        "1": 6,
+        "281": 3,
+        "282": 3,
+        "301": 3,
+        "300": 3
+      },
+      "cash_after_natural_shop_purchase": 9250,
+      "natural_time_seed": "1792169324",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": true,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "ea5b51426edc45799c5f644f757ead64daeebf8dd0fa09ef7c560fc8c439bec1",
+          "observer_source_manifest_sha256": "a175c70abccca3dcdf4a4ae9d67e826d87ec1679a2666bbab766778eef9f7291",
+          "launch_record_sha256": "a524de062b5ffc2bf0044b1608ece744c3b74deac77e2ff79498e3ff1bcfe31e",
+          "process_receipt_sha256": "46bb9b588c933eb5ca4cc33238aed28aa23265edd0fe9853f111867549b64031"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "a31c635872b4d32915571d069b5745f18935a78a9b5b8926cedf3de33fa1bc8d",
+          "observer_source_manifest_sha256": "9873a570f36d56b363eb66d4c84a48dc6c0f6d83ddba1cb556d0db56e8d37504",
+          "launch_record_sha256": "74b6061d494525dc76fe638c2ac9b6a8d5d99d2376637c0555c9f2076ff952a9",
+          "process_receipt_sha256": "8c595c5b39e9b1311395ac30760f8f8fd1bd2402f43be0b2443a33b259afaebf"
+        }
+      ],
+      "prior_P1_P2_HD_draw_trace_exact": true,
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 0,
+      "new_target_fractional_intermediate_results": 0
+    },
+    {
+      "case": "normal-p2-native2x",
+      "difficulty": "normal",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 2,
+      "variant": "art",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 0,
+      "game_captures_per_process": 8,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 0,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 0,
+      "rear_emissions": 40,
+      "rear_emission_ids": {
+        "39": 8,
+        "1": 8,
+        "281": 6,
+        "282": 6,
+        "301": 6,
+        "300": 6
+      },
+      "cash_after_natural_shop_purchase": 8500,
+      "natural_time_seed": "1792169357",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": true,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "ea5b51426edc45799c5f644f757ead64daeebf8dd0fa09ef7c560fc8c439bec1",
+          "observer_source_manifest_sha256": "a175c70abccca3dcdf4a4ae9d67e826d87ec1679a2666bbab766778eef9f7291",
+          "launch_record_sha256": "c90bfcf43e7a640dc7f5ccc14035bcfb6933bc6116e3f5ef0cf162d4bc5b8aa6",
+          "process_receipt_sha256": "c6aef4cbb876912cddd84f183450f7083f0b4697bc0891d7a5d628c11ef06115"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "a31c635872b4d32915571d069b5745f18935a78a9b5b8926cedf3de33fa1bc8d",
+          "observer_source_manifest_sha256": "9873a570f36d56b363eb66d4c84a48dc6c0f6d83ddba1cb556d0db56e8d37504",
+          "launch_record_sha256": "d3387ac1c4f73261a0676b84e46af4c587e08d413891d08bd89f5bf59bc69d0e",
+          "process_receipt_sha256": "ec62531f6156097f8d0929c3ab51ddfd7cad02d90e682dbf33ce04a37956e2b1"
+        }
+      ],
+      "prior_P1_P2_HD_draw_trace_exact": true,
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 0,
+      "new_target_fractional_intermediate_results": 0
+    },
+    {
+      "case": "normal-p4-native2x",
+      "difficulty": "normal",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 4,
+      "variant": "art",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 0,
+      "game_captures_per_process": 8,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 0,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 0,
+      "rear_emissions": 80,
+      "rear_emission_ids": {
+        "281": 8,
+        "282": 8,
+        "301": 8,
+        "300": 8,
+        "77": 16,
+        "163": 8,
+        "164": 8,
+        "183": 8,
+        "182": 8
+      },
+      "cash_after_natural_shop_purchase": 1750,
+      "natural_time_seed": "1792169387",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": true,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "ea5b51426edc45799c5f644f757ead64daeebf8dd0fa09ef7c560fc8c439bec1",
+          "observer_source_manifest_sha256": "a175c70abccca3dcdf4a4ae9d67e826d87ec1679a2666bbab766778eef9f7291",
+          "launch_record_sha256": "805463e8d1be3f742c180b2304937bc0ead4976b6d0e795c16f5d787199407b0",
+          "process_receipt_sha256": "523a9aee2d2b55d3b4bf66101f0ae0c386366a07d812d7e0cc38c6b2034d17a5"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "a31c635872b4d32915571d069b5745f18935a78a9b5b8926cedf3de33fa1bc8d",
+          "observer_source_manifest_sha256": "9873a570f36d56b363eb66d4c84a48dc6c0f6d83ddba1cb556d0db56e8d37504",
+          "launch_record_sha256": "d47cd20fbe883a506ab28141bd51c4be59a004d0e28490e12593bf3590d5f950",
+          "process_receipt_sha256": "ce38895ddfde15df9a9d514a41ca43b0ae06898e704133a392246ae35b3c6e1f"
+        }
+      ],
+      "P4_shared_oblique_consumers_exact": true,
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 0,
+      "new_target_fractional_intermediate_results": 0
+    },
+    {
+      "case": "hard-p1-native2x",
+      "difficulty": "hard",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 1,
+      "variant": "art",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 0,
+      "game_captures_per_process": 8,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 0,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 0,
+      "rear_emissions": 24,
+      "rear_emission_ids": {
+        "39": 6,
+        "1": 6,
+        "281": 3,
+        "282": 3,
+        "301": 3,
+        "300": 3
+      },
+      "cash_after_natural_shop_purchase": 9250,
+      "natural_time_seed": "1792169417",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": true,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "ea5b51426edc45799c5f644f757ead64daeebf8dd0fa09ef7c560fc8c439bec1",
+          "observer_source_manifest_sha256": "a175c70abccca3dcdf4a4ae9d67e826d87ec1679a2666bbab766778eef9f7291",
+          "launch_record_sha256": "f41bb6f38bddc2a513fa59e1b65fd263aa5b9d016e657c2c14d26390ad587e13",
+          "process_receipt_sha256": "dc8e628cdd3420e715aa596841a332fcbd0554de49976a7cc9376cc61a206a76"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "a31c635872b4d32915571d069b5745f18935a78a9b5b8926cedf3de33fa1bc8d",
+          "observer_source_manifest_sha256": "9873a570f36d56b363eb66d4c84a48dc6c0f6d83ddba1cb556d0db56e8d37504",
+          "launch_record_sha256": "706552b6b50f1272b357f5159175762470d3ec29633e1979ba645bfba2d3f7fa",
+          "process_receipt_sha256": "74dd02eeeed64649a9472edcd8666b22b3d2e829cc06e1f3142289091452c96c"
+        }
+      ],
+      "prior_P1_P2_HD_draw_trace_exact": true,
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 0,
+      "new_target_fractional_intermediate_results": 0
+    },
+    {
+      "case": "hard-p2-native2x",
+      "difficulty": "hard",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 2,
+      "variant": "art",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 0,
+      "game_captures_per_process": 8,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 0,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 0,
+      "rear_emissions": 40,
+      "rear_emission_ids": {
+        "39": 8,
+        "1": 8,
+        "281": 6,
+        "282": 6,
+        "301": 6,
+        "300": 6
+      },
+      "cash_after_natural_shop_purchase": 8500,
+      "natural_time_seed": "1792169448",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": true,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "ea5b51426edc45799c5f644f757ead64daeebf8dd0fa09ef7c560fc8c439bec1",
+          "observer_source_manifest_sha256": "a175c70abccca3dcdf4a4ae9d67e826d87ec1679a2666bbab766778eef9f7291",
+          "launch_record_sha256": "ad883235c692a8a28c0f5ed89aa6fbd477ecc1315ff2aa481fcc1709c94236f0",
+          "process_receipt_sha256": "f60a186f1fbf2321c86d5dfee15511e3e39ef8844806947bf3df3101b6287add"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "a31c635872b4d32915571d069b5745f18935a78a9b5b8926cedf3de33fa1bc8d",
+          "observer_source_manifest_sha256": "9873a570f36d56b363eb66d4c84a48dc6c0f6d83ddba1cb556d0db56e8d37504",
+          "launch_record_sha256": "81ddb6fd2b570cf2e62a89e5220c377181142f2785ee6f6c299c48b12306925e",
+          "process_receipt_sha256": "b1f24837ac074bbca365b30d3ea8a114c248bd2deed0f80828c6764c86b603ff"
+        }
+      ],
+      "prior_P1_P2_HD_draw_trace_exact": true,
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 0,
+      "new_target_fractional_intermediate_results": 0
+    },
+    {
+      "case": "hard-p4-native2x",
+      "difficulty": "hard",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 4,
+      "variant": "art",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 0,
+      "game_captures_per_process": 8,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 0,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 0,
+      "rear_emissions": 80,
+      "rear_emission_ids": {
+        "281": 8,
+        "282": 8,
+        "301": 8,
+        "300": 8,
+        "77": 16,
+        "163": 8,
+        "164": 8,
+        "183": 8,
+        "182": 8
+      },
+      "cash_after_natural_shop_purchase": 1750,
+      "natural_time_seed": "1792169480",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": true,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "ea5b51426edc45799c5f644f757ead64daeebf8dd0fa09ef7c560fc8c439bec1",
+          "observer_source_manifest_sha256": "a175c70abccca3dcdf4a4ae9d67e826d87ec1679a2666bbab766778eef9f7291",
+          "launch_record_sha256": "160923275024e26f756d6bc59b403a26ccd7c896fb3e98c6a496d0937c8052fb",
+          "process_receipt_sha256": "c583a304cb53c8b0679f565cc3a41affbaf67ca18a640fffbe6fa93fec467f4b"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "a31c635872b4d32915571d069b5745f18935a78a9b5b8926cedf3de33fa1bc8d",
+          "observer_source_manifest_sha256": "9873a570f36d56b363eb66d4c84a48dc6c0f6d83ddba1cb556d0db56e8d37504",
+          "launch_record_sha256": "0f749c7e9121128aeb21684e80adbea128287015f540eef5924ae027e61ae3f8",
+          "process_receipt_sha256": "91b3cea326a26a5011b700b6f925119865bce5900c4ae8112521cdfc85aa9359"
+        }
+      ],
+      "P4_shared_oblique_consumers_exact": true,
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 0,
+      "new_target_fractional_intermediate_results": 0
+    },
+    {
+      "case": "normal-transition-native2x",
+      "difficulty": "normal",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 3,
+      "variant": "art",
+      "ticks_per_process": 180,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 290,
+      "game_captures_per_process": 20,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 13,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 2321,
+      "rear_emissions": 44,
+      "rear_emission_ids": {
+        "40": 10,
+        "2": 10,
+        "281": 6,
+        "282": 6,
+        "301": 6,
+        "300": 6
+      },
+      "cash_after_natural_shop_purchase": 6250,
+      "natural_time_seed": "1792169515",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": false,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "ea5b51426edc45799c5f644f757ead64daeebf8dd0fa09ef7c560fc8c439bec1",
+          "observer_source_manifest_sha256": "a175c70abccca3dcdf4a4ae9d67e826d87ec1679a2666bbab766778eef9f7291",
+          "launch_record_sha256": "788ce1f9311d823917e4885c05c5b1f861ac317fb1cf44e1b1818ec9142fc026",
+          "process_receipt_sha256": "e39532a2d6729acb6fd4f3af70cc2ee6975e7157f6f98f6ef6b3d9eb5b93700a"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "a31c635872b4d32915571d069b5745f18935a78a9b5b8926cedf3de33fa1bc8d",
+          "observer_source_manifest_sha256": "9873a570f36d56b363eb66d4c84a48dc6c0f6d83ddba1cb556d0db56e8d37504",
+          "launch_record_sha256": "64e0f3d490bb65306e00ad6a0597de6d6dc20297b8e6d7d3522cecf2a10f0343",
+          "process_receipt_sha256": "aa3c9a464fbef86369e56f907a0f51697529055ef2741da6f88bd21bbc9abee6"
+        }
+      ],
+      "two_composite_emission_coverage": {
+        "case": "normal-transition-native2x",
+        "natural_rear_power_failures_without_emission": 8,
+        "rear_emissions_reusing_older_slots": 32,
+        "rear_emissions_reusing_front_slots": 11,
+        "mode1_emitting_calls": 10,
+        "two_emissions_per_successful_mode1_call_exact": true,
+        "fully_observed_volleys_both_composites_HD": 10,
+        "observed_normal_head_draws_by_emission_number": {
+          "1": 100,
+          "2": 190
+        },
+        "observed_normal_head_draws_by_id": {
+          "40": 100,
+          "2": 190
+        },
+        "unchanged_approved_mode2_draws": 378,
+        "all_eligible_mode1_head_draws_HD": true,
+        "every_new_HD_admission_matches_exact_rear_P3_mode1_birth": true
+      },
+      "mode_inputs": [
+        60,
+        100
+      ],
+      "fire_stops_at_tick": 120,
+      "final_clear_pixel_exact_tick": 179,
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 335360,
+      "new_target_fractional_intermediate_results": 334831
+    },
+    {
+      "case": "hard-transition-native2x",
+      "difficulty": "hard",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 3,
+      "variant": "art",
+      "ticks_per_process": 180,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 290,
+      "game_captures_per_process": 20,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 13,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 2321,
+      "rear_emissions": 44,
+      "rear_emission_ids": {
+        "40": 10,
+        "2": 10,
+        "281": 6,
+        "282": 6,
+        "301": 6,
+        "300": 6
+      },
+      "cash_after_natural_shop_purchase": 6250,
+      "natural_time_seed": "1792169557",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": false,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "ea5b51426edc45799c5f644f757ead64daeebf8dd0fa09ef7c560fc8c439bec1",
+          "observer_source_manifest_sha256": "a175c70abccca3dcdf4a4ae9d67e826d87ec1679a2666bbab766778eef9f7291",
+          "launch_record_sha256": "35ca5820a8654988cdd4dc2cce76785a0540c297768f082f1dfb400b1a984e5c",
+          "process_receipt_sha256": "fa1cb9a5b46ac2eee141c12a1eba85f48dca6efd0028ee9a435a09421c7382f0"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "a31c635872b4d32915571d069b5745f18935a78a9b5b8926cedf3de33fa1bc8d",
+          "observer_source_manifest_sha256": "9873a570f36d56b363eb66d4c84a48dc6c0f6d83ddba1cb556d0db56e8d37504",
+          "launch_record_sha256": "8c74213174d16369c071c0fbb9eb2e13e472f880efca5d21cc503c7239b4a499",
+          "process_receipt_sha256": "5c399e221d5e012c766582500334e02fe73c8b7a52190c70e752c966f1e4ec50"
+        }
+      ],
+      "two_composite_emission_coverage": {
+        "case": "hard-transition-native2x",
+        "natural_rear_power_failures_without_emission": 8,
+        "rear_emissions_reusing_older_slots": 32,
+        "rear_emissions_reusing_front_slots": 11,
+        "mode1_emitting_calls": 10,
+        "two_emissions_per_successful_mode1_call_exact": true,
+        "fully_observed_volleys_both_composites_HD": 10,
+        "observed_normal_head_draws_by_emission_number": {
+          "1": 100,
+          "2": 190
+        },
+        "observed_normal_head_draws_by_id": {
+          "40": 100,
+          "2": 190
+        },
+        "unchanged_approved_mode2_draws": 378,
+        "all_eligible_mode1_head_draws_HD": true,
+        "every_new_HD_admission_matches_exact_rear_P3_mode1_birth": true
+      },
+      "mode_inputs": [
+        60,
+        100
+      ],
+      "fire_stops_at_tick": 120,
+      "final_clear_pixel_exact_tick": 179,
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 335360,
+      "new_target_fractional_intermediate_results": 334831
+    },
+    {
+      "case": "normal-present-control-native2x",
+      "difficulty": "normal",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 3,
+      "variant": "art",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 232,
+      "game_captures_per_process": 13,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 9,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 1608,
+      "rear_emissions": 48,
+      "rear_emission_ids": {
+        "40": 8,
+        "2": 8,
+        "281": 8,
+        "282": 8,
+        "301": 8,
+        "300": 8
+      },
+      "cash_after_natural_shop_purchase": 6250,
+      "natural_time_seed": "1792169602",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": false,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "d3e32461d31ddc2abf3c2d88b56824c95e6a64cae20839991a2fb84b64970291",
+          "observer_source_manifest_sha256": "81bca190e046e757d9668549ac0e0f16e452b44a640858d4cea22dc343f27687",
+          "launch_record_sha256": "70364353d1a04460c4310f711d75d4bcac5b98fa3ecb15e9a86d33932b9d50a9",
+          "process_receipt_sha256": "16e825ae19a440b856ac1d711b642d4356639f4fd8d0f2f084a6c71b819febc0"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "ad1047551cabee5c6c3d259a9b6f3729a9c61c8b2c8de65fb248f94c1782cba8",
+          "observer_source_manifest_sha256": "6b2f88652681f9e41c16538116096079a168e9654322f9366e580ddcc10c9fee",
+          "launch_record_sha256": "19625ccb549331df3ca0e012c1dea56eb8c9e60598d57104a0d50a257faad271",
+          "process_receipt_sha256": "9587d029f3b9cab502c8a379e153bc80f7c5f1e31c82ea1b9d9a6d0ab8909ed8"
+        }
+      ],
+      "two_composite_emission_coverage": {
+        "case": "normal-present-control-native2x",
+        "natural_rear_power_failures_without_emission": 8,
+        "rear_emissions_reusing_older_slots": 36,
+        "rear_emissions_reusing_front_slots": 11,
+        "mode1_emitting_calls": 8,
+        "two_emissions_per_successful_mode1_call_exact": true,
+        "fully_observed_volleys_both_composites_HD": 8,
+        "observed_normal_head_draws_by_emission_number": {
+          "1": 80,
+          "2": 152
+        },
+        "observed_normal_head_draws_by_id": {
+          "40": 80,
+          "2": 152
+        },
+        "unchanged_approved_mode2_draws": 446,
+        "all_eligible_mode1_head_draws_HD": true,
+        "every_new_HD_admission_matches_exact_rear_P3_mode1_birth": true
+      },
+      "present_repeated_ticks": [
+        0,
+        20,
+        60,
+        68,
+        72,
+        76,
+        80,
+        84,
+        88,
+        119
+      ],
+      "present_skipped_ticks": [
+        30,
+        31,
+        32
+      ],
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 268288,
+      "new_target_fractional_intermediate_results": 268050
+    },
+    {
+      "case": "hard-present-control-native2x",
+      "difficulty": "hard",
+      "native_scale": 2,
+      "render_density": 8,
+      "rear_power": 3,
+      "variant": "art",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 232,
+      "game_captures_per_process": 13,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 9,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 1608,
+      "rear_emissions": 48,
+      "rear_emission_ids": {
+        "40": 8,
+        "2": 8,
+        "281": 8,
+        "282": 8,
+        "301": 8,
+        "300": 8
+      },
+      "cash_after_natural_shop_purchase": 6250,
+      "natural_time_seed": "1792169635",
+      "startup_mode": "unmodified manual-HD density8 startup",
+      "baseline_pixel_exact_all_samples": false,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "d3e32461d31ddc2abf3c2d88b56824c95e6a64cae20839991a2fb84b64970291",
+          "observer_source_manifest_sha256": "81bca190e046e757d9668549ac0e0f16e452b44a640858d4cea22dc343f27687",
+          "launch_record_sha256": "9996a010433a410ff9bf4c88521c6e8a27fa75d0a745dae3369656880f31ccf5",
+          "process_receipt_sha256": "cdeafd99d37328aa52e72cfb9f7b598aef113d9dca38947b0203d0448d2fc3ff"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "ad1047551cabee5c6c3d259a9b6f3729a9c61c8b2c8de65fb248f94c1782cba8",
+          "observer_source_manifest_sha256": "6b2f88652681f9e41c16538116096079a168e9654322f9366e580ddcc10c9fee",
+          "launch_record_sha256": "e962362e5d1274968d8483164dbfe5e7ce0eb987c18a04fa80138cd0dbde93d7",
+          "process_receipt_sha256": "4286ce90364d7db3a1fe170bf71e2f05b54d0beaf4565387f29577d7a43ef1ed"
+        }
+      ],
+      "two_composite_emission_coverage": {
+        "case": "hard-present-control-native2x",
+        "natural_rear_power_failures_without_emission": 8,
+        "rear_emissions_reusing_older_slots": 36,
+        "rear_emissions_reusing_front_slots": 11,
+        "mode1_emitting_calls": 8,
+        "two_emissions_per_successful_mode1_call_exact": true,
+        "fully_observed_volleys_both_composites_HD": 8,
+        "observed_normal_head_draws_by_emission_number": {
+          "1": 80,
+          "2": 152
+        },
+        "observed_normal_head_draws_by_id": {
+          "40": 80,
+          "2": 152
+        },
+        "unchanged_approved_mode2_draws": 446,
+        "all_eligible_mode1_head_draws_HD": true,
+        "every_new_HD_admission_matches_exact_rear_P3_mode1_birth": true
+      },
+      "present_repeated_ticks": [
+        0,
+        20,
+        60,
+        68,
+        72,
+        76,
+        80,
+        84,
+        88,
+        119
+      ],
+      "present_skipped_ticks": [
+        30,
+        31,
+        32
+      ],
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 268288,
+      "new_target_fractional_intermediate_results": 268050
+    },
+    {
+      "case": "normal-art-density4-native2x",
+      "difficulty": "normal",
+      "native_scale": 2,
+      "render_density": 4,
+      "rear_power": 3,
+      "variant": "art",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 232,
+      "game_captures_per_process": 13,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 9,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 1703,
+      "rear_emissions": 48,
+      "rear_emission_ids": {
+        "40": 8,
+        "2": 8,
+        "281": 8,
+        "282": 8,
+        "301": 8,
+        "300": 8
+      },
+      "cash_after_natural_shop_purchase": 6250,
+      "natural_time_seed": "1792169671",
+      "startup_mode": "private presentation-only diagnostic density4 selection",
+      "baseline_pixel_exact_all_samples": false,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "8b1c5d696e1fc92818a59c31f8029b2d29d9d5865880a0c235029bee49751b70",
+          "observer_source_manifest_sha256": "ae4fac2317eb71c06c83219a5c8d39934177ea5f6d26f7740c7e9bee5ba9377c",
+          "launch_record_sha256": "6a086b0cfa29f56170a6599515527e2bc5a2258494337d5e48753a303773ce42",
+          "process_receipt_sha256": "21e95309e260c61a50015618ae19d7785d2bcee3f4a177bddd9299d7597ab983"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "7cc6bf177929f91bfd406e6cf77d3922242b566f2b73b0a62016963e1e96c8b7",
+          "observer_source_manifest_sha256": "d7d0efab775a1962ba3dd5b3e182d8765bcb1645331665162aa080206184b961",
+          "launch_record_sha256": "715560cd6347a6812867504aa780e09af0915d78a8a626e86450931db49e2b01",
+          "process_receipt_sha256": "cb40714c33df29a057076b25e9b20fb0d613fac3e760fd812712d3e51d9ac6ff"
+        }
+      ],
+      "two_composite_emission_coverage": {
+        "case": "normal-art-density4-native2x",
+        "natural_rear_power_failures_without_emission": 8,
+        "rear_emissions_reusing_older_slots": 36,
+        "rear_emissions_reusing_front_slots": 11,
+        "mode1_emitting_calls": 8,
+        "two_emissions_per_successful_mode1_call_exact": true,
+        "fully_observed_volleys_both_composites_HD": 8,
+        "observed_normal_head_draws_by_emission_number": {
+          "1": 80,
+          "2": 152
+        },
+        "observed_normal_head_draws_by_id": {
+          "40": 80,
+          "2": 152
+        },
+        "unchanged_approved_mode2_draws": 446,
+        "all_eligible_mode1_head_draws_HD": true,
+        "every_new_HD_admission_matches_exact_rear_P3_mode1_birth": true
+      },
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 85216,
+      "new_target_fractional_intermediate_results": 85196
+    },
+    {
+      "case": "hard-art-density4-native2x",
+      "difficulty": "hard",
+      "native_scale": 2,
+      "render_density": 4,
+      "rear_power": 3,
+      "variant": "art",
+      "ticks_per_process": 120,
+      "paired_processes": 2,
+      "process_exits": [
+        0,
+        0
+      ],
+      "original_trace_parity": true,
+      "original_draw_order_exact": true,
+      "new_mode1_HD_head_draws": 232,
+      "game_captures_per_process": 13,
+      "shop_captures_per_process": 3,
+      "shop_native_exact": true,
+      "native_changed_frames": 9,
+      "outside_admitted_original_or_authored_support_pixels": 0,
+      "final_composition_exact": true,
+      "native_sampling_exact": true,
+      "new_head_fractional_samples_surviving_to_native": 1703,
+      "rear_emissions": 48,
+      "rear_emission_ids": {
+        "40": 8,
+        "2": 8,
+        "281": 8,
+        "282": 8,
+        "301": 8,
+        "300": 8
+      },
+      "cash_after_natural_shop_purchase": 6250,
+      "natural_time_seed": "1792169687",
+      "startup_mode": "private presentation-only diagnostic density4 selection",
+      "baseline_pixel_exact_all_samples": false,
+      "actual_final_processes": [
+        {
+          "variant": "baseline",
+          "binary_sha256": "8b1c5d696e1fc92818a59c31f8029b2d29d9d5865880a0c235029bee49751b70",
+          "observer_source_manifest_sha256": "ae4fac2317eb71c06c83219a5c8d39934177ea5f6d26f7740c7e9bee5ba9377c",
+          "launch_record_sha256": "9887855f3c365c1ef832d8336a465dacc44ef82c1605a35b2bcf4b2e1ab6b488",
+          "process_receipt_sha256": "0b34ee4ed73832cb6ae169227000a773f48f0214fbd479a6f72637dc1a9b2ffc"
+        },
+        {
+          "variant": "candidate",
+          "binary_sha256": "7cc6bf177929f91bfd406e6cf77d3922242b566f2b73b0a62016963e1e96c8b7",
+          "observer_source_manifest_sha256": "d7d0efab775a1962ba3dd5b3e182d8765bcb1645331665162aa080206184b961",
+          "launch_record_sha256": "c5c428ed79d7c06813d35ef1c06c0a895791c4ac2db1a666b9f40e650ef4d176",
+          "process_receipt_sha256": "3498c320ba11eac182fe33ee6434756a220184f0ced18df1d503e2636eaf8ad3"
+        }
+      ],
+      "two_composite_emission_coverage": {
+        "case": "hard-art-density4-native2x",
+        "natural_rear_power_failures_without_emission": 8,
+        "rear_emissions_reusing_older_slots": 36,
+        "rear_emissions_reusing_front_slots": 11,
+        "mode1_emitting_calls": 8,
+        "two_emissions_per_successful_mode1_call_exact": true,
+        "fully_observed_volleys_both_composites_HD": 8,
+        "observed_normal_head_draws_by_emission_number": {
+          "1": 80,
+          "2": 152
+        },
+        "observed_normal_head_draws_by_id": {
+          "40": 80,
+          "2": 152
+        },
+        "unchanged_approved_mode2_draws": 446,
+        "all_eligible_mode1_head_draws_HD": true,
+        "every_new_HD_admission_matches_exact_rear_P3_mode1_birth": true
+      },
+      "all_new_target_head_alpha_compositing_exact": true,
+      "new_target_fractional_samples_composited_exact": 85216,
+      "new_target_fractional_intermediate_results": 85196
+    }
+  ],
+  "builds": [
+    {
+      "variant": "baseline",
+      "kind": "normal",
+      "binary_sha256": "cbd3c4aea09368bbbd2543ad7243bae1e0003cd0b1a4d853c63844754ef647ff",
+      "warnings": 0,
+      "translation_units": 74,
+      "production_source_manifest_sha256": "0cd8beed38cb4afd47811550e90b184e95b26b7951070cc7f5c109e2c36d2442"
+    },
+    {
+      "variant": "baseline",
+      "kind": "disabled-strict",
+      "binary_sha256": "4ec36a43a985d393ebc1ee8f0bf390343cbfd1215c67baff9615e40a155228fb",
+      "warnings": 0,
+      "translation_units": 74,
+      "production_source_manifest_sha256": "0cd8beed38cb4afd47811550e90b184e95b26b7951070cc7f5c109e2c36d2442"
+    },
+    {
+      "variant": "baseline",
+      "kind": "fixture",
+      "binary_sha256": "ea5b51426edc45799c5f644f757ead64daeebf8dd0fa09ef7c560fc8c439bec1",
+      "warnings": 0,
+      "translation_units": 74,
+      "production_source_manifest_sha256": "0cd8beed38cb4afd47811550e90b184e95b26b7951070cc7f5c109e2c36d2442"
+    },
+    {
+      "variant": "baseline",
+      "kind": "present-fixture",
+      "binary_sha256": "d3e32461d31ddc2abf3c2d88b56824c95e6a64cae20839991a2fb84b64970291",
+      "warnings": 0,
+      "translation_units": 74,
+      "production_source_manifest_sha256": "0cd8beed38cb4afd47811550e90b184e95b26b7951070cc7f5c109e2c36d2442"
+    },
+    {
+      "variant": "baseline",
+      "kind": "density4-fixture",
+      "binary_sha256": "8b1c5d696e1fc92818a59c31f8029b2d29d9d5865880a0c235029bee49751b70",
+      "warnings": 0,
+      "translation_units": 74,
+      "production_source_manifest_sha256": "0cd8beed38cb4afd47811550e90b184e95b26b7951070cc7f5c109e2c36d2442"
+    },
+    {
+      "variant": "candidate",
+      "kind": "normal",
+      "binary_sha256": "ba74838a17ef71191ae948add23a655cfb8585ce1f04018918977e9061d31136",
+      "warnings": 0,
+      "translation_units": 74,
+      "production_source_manifest_sha256": "1552978f1d596cf35b057805c13782f9fb7aac79ee9690ea00ce07a9c1aa2b3d"
+    },
+    {
+      "variant": "candidate",
+      "kind": "disabled-strict",
+      "binary_sha256": "1d4846a5c1876c7c69a30f1ae8cdd446fdea92980498157969466d982fbe94ce",
+      "warnings": 0,
+      "translation_units": 74,
+      "production_source_manifest_sha256": "1552978f1d596cf35b057805c13782f9fb7aac79ee9690ea00ce07a9c1aa2b3d"
+    },
+    {
+      "variant": "candidate",
+      "kind": "fixture",
+      "binary_sha256": "a31c635872b4d32915571d069b5745f18935a78a9b5b8926cedf3de33fa1bc8d",
+      "warnings": 0,
+      "translation_units": 74,
+      "production_source_manifest_sha256": "1552978f1d596cf35b057805c13782f9fb7aac79ee9690ea00ce07a9c1aa2b3d"
+    },
+    {
+      "variant": "candidate",
+      "kind": "present-fixture",
+      "binary_sha256": "ad1047551cabee5c6c3d259a9b6f3729a9c61c8b2c8de65fb248f94c1782cba8",
+      "warnings": 0,
+      "translation_units": 74,
+      "production_source_manifest_sha256": "1552978f1d596cf35b057805c13782f9fb7aac79ee9690ea00ce07a9c1aa2b3d"
+    },
+    {
+      "variant": "candidate",
+      "kind": "density4-fixture",
+      "binary_sha256": "7cc6bf177929f91bfd406e6cf77d3922242b566f2b73b0a62016963e1e96c8b7",
+      "warnings": 0,
+      "translation_units": 74,
+      "production_source_manifest_sha256": "1552978f1d596cf35b057805c13782f9fb7aac79ee9690ea00ce07a9c1aa2b3d"
+    }
+  ],
+  "disabled_warning_parity": {
+    "pass": true,
+    "baseline_warnings": 15,
+    "candidate_warnings": 15,
+    "no_new_warnings_after_line_number_normalization": true,
+    "warnings": [
+      "src/backgrnd.c:LINE:COL: warning: unused variable \u2018hd_tiles\u2019 [-Wunused-variable]",
+      "src/entity_draw.c:LINE:COL: warning: unused parameter \u2018charge\u2019 [-Wunused-parameter]",
+      "src/entity_draw.c:LINE:COL: warning: unused parameter \u2018charge\u2019 [-Wunused-parameter]",
+      "src/entity_draw.c:LINE:COL: warning: unused parameter \u2018charge\u2019 [-Wunused-parameter]",
+      "src/entity_draw.c:LINE:COL: warning: unused parameter \u2018charge\u2019 [-Wunused-parameter]",
+      "src/entity_draw.c:LINE:COL: warning: unused parameter \u2018option\u2019 [-Wunused-parameter]",
+      "src/entity_draw.c:LINE:COL: warning: unused parameter \u2018option\u2019 [-Wunused-parameter]",
+      "src/entity_draw.c:LINE:COL: warning: unused parameter \u2018option\u2019 [-Wunused-parameter]",
+      "src/entity_draw.c:LINE:COL: warning: unused parameter \u2018option\u2019 [-Wunused-parameter]",
+      "src/entity_draw.c:LINE:COL: warning: unused parameter \u2018sidekick_style\u2019 [-Wunused-parameter]",
+      "src/entity_draw.c:LINE:COL: warning: unused parameter \u2018sidekick_style\u2019 [-Wunused-parameter]",
+      "src/entity_draw.c:LINE:COL: warning: unused parameter \u2018sidekick_style\u2019 [-Wunused-parameter]",
+      "src/entity_draw.c:LINE:COL: warning: unused parameter \u2018sidekick_style\u2019 [-Wunused-parameter]",
+      "src/vga256d.c:LINE:COL: warning: unused variable \u2018r\u2019 [-Wunused-variable]",
+      "src/vga256d.c:LINE:COL: warning: unused variable \u2018r\u2019 [-Wunused-variable]"
+    ]
+  },
+  "build_warning_policy": {
+    "normal_existing_allowlist": [
+      "misleading-indentation",
+      "format-truncation",
+      "missing-field-initializers"
+    ],
+    "disabled_additional_baseline_only_allowlist": [
+      "unused-variable",
+      "unused-parameter"
+    ],
+    "new_disabled_diagnostic_warnings": 0
+  },
+  "observer_inverses": [
+    {
+      "variant": "baseline",
+      "original_source_files": 160,
+      "observer_source_files": 164,
+      "modified_source_files": 8,
+      "added_private_helpers": [
+        "src/fixture.inc",
+        "src/runtime_fixture.h",
+        "src/runtime_rear.h",
+        "src/runtime_rear.inc"
+      ],
+      "zero_fuzz_reverse_patch": true,
+      "all_original_bytes_restored": true,
+      "patch_sha256": "6f4f1275bcf53088e96dbc8ab7e321f5b6f43f11eb636b168f2268e10d45849a",
+      "observer_binary_sha256": "ea5b51426edc45799c5f644f757ead64daeebf8dd0fa09ef7c560fc8c439bec1"
+    },
+    {
+      "variant": "baseline",
+      "original_source_files": 160,
+      "observer_source_files": 164,
+      "modified_source_files": 8,
+      "added_private_helpers": [
+        "src/fixture.inc",
+        "src/runtime_fixture.h",
+        "src/runtime_rear.h",
+        "src/runtime_rear.inc"
+      ],
+      "zero_fuzz_reverse_patch": true,
+      "all_original_bytes_restored": true,
+      "patch_sha256": "67378c492497f2d4352bcbfe65066d1343f42e9622bda308bc8f43f63dd87f43",
+      "observer_binary_sha256": "d3e32461d31ddc2abf3c2d88b56824c95e6a64cae20839991a2fb84b64970291"
+    },
+    {
+      "variant": "baseline",
+      "original_source_files": 160,
+      "observer_source_files": 164,
+      "modified_source_files": 8,
+      "added_private_helpers": [
+        "src/fixture.inc",
+        "src/runtime_fixture.h",
+        "src/runtime_rear.h",
+        "src/runtime_rear.inc"
+      ],
+      "zero_fuzz_reverse_patch": true,
+      "all_original_bytes_restored": true,
+      "patch_sha256": "1dffc25cd009de6aefec88328fc4238c0d1c8489f233a117a9e567d5a10129e2",
+      "observer_binary_sha256": "8b1c5d696e1fc92818a59c31f8029b2d29d9d5865880a0c235029bee49751b70"
+    },
+    {
+      "variant": "candidate",
+      "original_source_files": 160,
+      "observer_source_files": 164,
+      "modified_source_files": 8,
+      "added_private_helpers": [
+        "src/fixture.inc",
+        "src/runtime_fixture.h",
+        "src/runtime_rear.h",
+        "src/runtime_rear.inc"
+      ],
+      "zero_fuzz_reverse_patch": true,
+      "all_original_bytes_restored": true,
+      "patch_sha256": "6f4f1275bcf53088e96dbc8ab7e321f5b6f43f11eb636b168f2268e10d45849a",
+      "observer_binary_sha256": "a31c635872b4d32915571d069b5745f18935a78a9b5b8926cedf3de33fa1bc8d"
+    },
+    {
+      "variant": "candidate",
+      "original_source_files": 160,
+      "observer_source_files": 164,
+      "modified_source_files": 8,
+      "added_private_helpers": [
+        "src/fixture.inc",
+        "src/runtime_fixture.h",
+        "src/runtime_rear.h",
+        "src/runtime_rear.inc"
+      ],
+      "zero_fuzz_reverse_patch": true,
+      "all_original_bytes_restored": true,
+      "patch_sha256": "67378c492497f2d4352bcbfe65066d1343f42e9622bda308bc8f43f63dd87f43",
+      "observer_binary_sha256": "ad1047551cabee5c6c3d259a9b6f3729a9c61c8b2c8de65fb248f94c1782cba8"
+    },
+    {
+      "variant": "candidate",
+      "original_source_files": 160,
+      "observer_source_files": 164,
+      "modified_source_files": 8,
+      "added_private_helpers": [
+        "src/fixture.inc",
+        "src/runtime_fixture.h",
+        "src/runtime_rear.h",
+        "src/runtime_rear.inc"
+      ],
+      "zero_fuzz_reverse_patch": true,
+      "all_original_bytes_restored": true,
+      "patch_sha256": "1dffc25cd009de6aefec88328fc4238c0d1c8489f233a117a9e567d5a10129e2",
+      "observer_binary_sha256": "7cc6bf177929f91bfd406e6cf77d3922242b566f2b73b0a62016963e1e96c8b7"
+    }
+  ],
+  "frozen_repository_ledgers": {
+    "source": "27683d02b4d21ca1e85e58b9c0f345fb01caccede327b6886b25ca903bf162a7",
+    "asset": "ddc0dce76dc7424e8e066c76dbea8bd7c6316f8cfedd71c199deb0563670ce83",
+    "test": "ed288ac6611b3b431d384760e46425e321ae8efb7fc8e8ad89bb750743a37a58"
+  },
+  "frozen_repository_counts": {
+    "source": 160,
+    "asset": 7033,
+    "test": 42
+  },
+  "all_source_asset_test_files_reverified_after_matrix": true,
+  "hash_definitions": {
+    "algorithm": "SHA-256",
+    "file_hashes": "Exact file bytes, no normalization.",
+    "ledger_serialization": "UTF-8 json.dumps(path_to_sha256,sort_keys=True,separators=(\",\",\":\")); no newline.",
+    "runtime_source_key_root": "src/ directory; keys omit src/. Adding src/ yields the unified source_sha256 ledger.",
+    "runtime_resource_key_root": "Bare filename in selected packed-blue-four pack; exactly four newly added role131 composite resources."
+  },
+  "hash_ledger": {
+    "source_freeze_sha256": "dc0005f9a2e0860173c4071bc38f07f9a1418a700b25ab3b41dd5dfa1196b6de",
+    "pack_freeze_sha256": "560005a98d9480667c4c0c4374440b3660f4a9002e36df76e2aba6ff5333c4ac",
+    "post_matrix_source_art_verification_sha256": "9a874c26ab9185501b0fa77fa43c2cb55a208c69cf13c9ededec717b42d06789",
+    "new_resource_manifest_sha256": "4827d9cc5fe93c654f80f9cab34b7ae2e1cb52f3f9e5e1049103005b693e2c0e",
+    "new_resource_sha256": {
+      "rear-multicannon-p1-bank8-2-4.hda": "72495a45451815125c4f85899758189c55ee2d110c90986c9c09700eb865387a",
+      "rear-multicannon-p1-bank8-2-8.hda": "4f618dcb3670c67bb60b35a5e7b92c64d33923ff3a9d0c5dee1434734e79af37",
+      "rear-multicannon-p1-bank8-40-4.hda": "0a5506d00eb19858f48078f872b66cc8f981214b652cec4f2b4889e668cd8604",
+      "rear-multicannon-p1-bank8-40-8.hda": "170a261a0de8e20241a836c791f04eef96a0e005e814a6e5f66d32924ae2f89a"
+    },
+    "per_batch_pins_sha256": {
+      "main": "12a34ad1b509f36c4c542e5762e65acb59522ba8a14efea02c20f999d73dd9b6",
+      "negative": "12a34ad1b509f36c4c542e5762e65acb59522ba8a14efea02c20f999d73dd9b6",
+      "power": "12a34ad1b509f36c4c542e5762e65acb59522ba8a14efea02c20f999d73dd9b6",
+      "transition": "12a34ad1b509f36c4c542e5762e65acb59522ba8a14efea02c20f999d73dd9b6",
+      "present": "580df1367bcfa13970faf1a318e38b39583fbbb3faaf05eb533a3d5a9934357f",
+      "density4": "7c1f06414697674a6acf56dde77b06c141de1a0d200eeddc3892d2b034eece93"
+    },
+    "all_pre_post_pins_exact": true
+  },
+  "storage": "Fresh completed immutable observations byte-compared before hard-linking identical content. Every launch, path, receipt and byte preserved; older observations never substituted as new runs.",
+  "limitations": [
+    "Bounded120/180-tick first-level Linux SDL dummy/software testing; not full-level, Windows, GPU or physical-display qualification.",
+    "18 pairs use unmodified public manual-HD density8 startup;2 reversible private presentation-only diagnostic pairs select density4.",
+    "Natural input schedule is deterministic; seed is unmodified time(NULL), observed equal across independently launched paired processes. No seed/time interposition or retry of mismatched launches.",
+    "Synthetic guard/budget/capacity/ordinal abuse belongs to separately reviewed tests.",
+    "No hot-reload or performance claim.",
+    "Original data, captures, private hooks and binaries are excluded from this sanitized receipt."
+  ]
+}

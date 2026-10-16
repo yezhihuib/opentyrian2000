@@ -2,8 +2,8 @@
  * Finite renderer provenance. The inputs are observations, never game writers. */
 #include "rear_multi_p1.h"
 #include <string.h>
-static const unsigned ids[REAR_P1_HEADS]={39,1,281,282,301,300};
-static const int velocity[REAR_P1_HEADS][2]={{-10,0},{10,0},{-9,-2},{9,-2},{9,2},{-9,2}};
+static const unsigned ids[REAR_P1_HEADS]={39,1,281,282,301,300,40,2};
+static const int velocity[REAR_P1_HEADS][2]={{-10,0},{10,0},{-9,-2},{9,-2},{9,2},{-9,2},{-10,0},{10,0}};
 uint64_t rear_p1_stamp(const void *data,size_t size)
 {
  const uint8_t *p=data;uint64_t h=UINT64_C(14695981039346656037);
@@ -23,10 +23,10 @@ void rear_p1_call_begin(RearP1State *s,uint64_t tick,unsigned port,unsigned bay,
  s->pending=scope&&table&&port==10&&bay==1&&player==1&&
   ((power_index==0&&((mode_index==0&&record==254)||(mode_index==1&&record==265)))||
    (power_index==1&&((mode_index==0&&record==255)||(mode_index==1&&record==266)))||
-   (power_index==2&&mode_index==1&&record==267));
+   (power_index==2&&((mode_index==0&&record==256)||(mode_index==1&&record==267))));
  s->tick=tick;s->record=record;s->mode=mode_index+1;
- /* The P3 mode2 record emits FOUR heads, not power_index+1. */
- if(s->pending)s->budget=record==267?4:power_index+1;
+ /* P3 emits TWO mode1 heads or FOUR mode2 heads, never power_index+1. */
+ if(s->pending)s->budget=record==256?2:record==267?4:power_index+1;
 }
 uint64_t rear_p1_create_begin(RearP1State *s,uint64_t tick,unsigned port,unsigned bay,
  unsigned record,unsigned player)
@@ -52,6 +52,7 @@ static bool shot_ok(const RearP1Shot *s,unsigned raw)
 static bool phase_ok(unsigned record,unsigned phase,unsigned raw)
 {
  if(record==254||record==255)return phase>=1&&phase<=2&&raw==ids[phase-1];
+ if(record==256)return phase>=1&&phase<=2&&raw==ids[phase+5];
  return (record==265||record==266||record==267)&&phase>=1&&phase<=4&&raw==ids[phase+1];
 }
 void rear_p1_emit(RearP1State *s,uint64_t tick,uint64_t call,unsigned ordinal,unsigned slot,unsigned port,unsigned bay,
@@ -87,7 +88,7 @@ bool rear_p1_current(RearP1State *s,unsigned slot,unsigned index,unsigned raw,
  RearP1Birth *b=&s->birth[slot];
  if(!b->qualified)return false;
  if(b->generation!=s->generation||!scope||!table||!source||b->raw!=raw||index!=raw||
-  !phase_ok(b->record,b->phase,raw)||b->mode!=((b->record==254||b->record==255)?1u:2u)||!shot_ok(shot,raw)) {
+  !phase_ok(b->record,b->phase,raw)||b->mode!=((b->record==254||b->record==255||b->record==256)?1u:2u)||!shot_ok(shot,raw)) {
   b->qualified=false;return false;
  }
  return true;

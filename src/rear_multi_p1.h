@@ -5,7 +5,7 @@
 #include <stddef.h>
 #include <stdint.h>
 /* Renderer-owned identities only. Never embedded in a gameplay shot. */
-enum { REAR_P1_SLOTS=80, REAR_P1_HEADS=6, REAR_P1_CELLS=168, REAR_P1_MAX_BUDGET=4 };
+enum { REAR_P1_SLOTS=80, REAR_P1_HEADS=8, REAR_P1_CELLS=168, REAR_P1_MAX_BUDGET=4 };
 typedef struct {
  unsigned gr,ani,ani_max,player,trail,aim,chain,complicated,filter;
  int xm,ym,xc,yc;

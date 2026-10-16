@@ -1,0 +1,259 @@
+{
+  "schema": "rear-multicannon-p3-mode1-exact-component-reuse-v1",
+  "status": "PASS_EXACT_ACCEPTED_COMPONENT_REUSE_AND_PACKAGING",
+  "baseline": "8c996513ef83a53cd0384046a32e5701307a3d11",
+  "art_package": "assets/hd/artwork/player-rear-multicannon-p3-mode1-two-v1",
+  "binding_sha256": "ae44adf476264b071b1549ccedcfc634e7fdd41d09f5034196ccbc5b3f6541c2",
+  "approved_component_manifest_sha256": "c1ece694062816a0296d1d45969cd1666b9d4864b704f766c4be1e3cd72de5bd",
+  "new_generation": false,
+  "existing_asset_files_verified": 6988,
+  "existing_art_or_resource_bytes_changed": 0,
+  "only_preexisting_asset_change": "Catalog metadata only; four new resource entries per default pack, four generated source PNG entries, new finite family and updated integration pointers.",
+  "logical_size": [
+    12,
+    14
+  ],
+  "anchor": [
+    0,
+    0
+  ],
+  "source_ids": [
+    2,
+    40
+  ],
+  "role": 131,
+  "new_source_record": 256,
+  "new_power_mode": [
+    3,
+    1
+  ],
+  "original_source_record_fnv1a64": "336df95c79ab07a6",
+  "source_index_coverage_fnv1a64": {
+    "2": "f0583eb1740dee8d",
+    "40": "c358ef0c1ae44355"
+  },
+  "density_policy": "Exact selected density4 or8 with no cross-density fallback. Public startup selects8; density4 remains a separately labeled private diagnostic route.",
+  "transforms": {
+    "2": [
+      {
+        "component": 1,
+        "whole_canvas_flip_y": false,
+        "translate": [
+          0,
+          -2
+        ]
+      },
+      {
+        "component": 1,
+        "whole_canvas_flip_y": true,
+        "translate": [
+          0,
+          2
+        ]
+      }
+    ],
+    "40": [
+      {
+        "component": 39,
+        "whole_canvas_flip_y": true,
+        "translate": [
+          0,
+          -4
+        ]
+      },
+      {
+        "component": 39,
+        "whole_canvas_flip_y": false,
+        "translate": [
+          0,
+          4
+        ]
+      }
+    ]
+  },
+  "empty_central_rows_half_open": [
+    6,
+    8
+  ],
+  "occupied_clipping": 0,
+  "lobe_support_overlap": 0,
+  "full_density_brightness": "Each lobe preserves exact accepted component alpha, RGB and alpha-weighted RGB sums. Composite sum is twice its single component. This does not claim equality to original palette-art brightness.",
+  "native_sampling_limit": "Whole-canvas reflection and nearest downsampling have different sampling phases. Small native lobe brightness differences are preserved, never normalized.",
+  "inherited_shape_limit": "Accepted HD curves differ from original INDEX8 coverage within the same logical bounds; no new halo or extent.",
+  "original_decomposition": "Fresh private verification confirms all168 INDEX8 and coverage cells per target; original pixels are not distributed.",
+  "preview_limit": "Offline brown/cloud/Hard isolated-head comparisons establish art review only, not actual runtime ownership, covered-zero-alpha pixels, draw order or shadows.",
+  "default_pack_counts": {
+    "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": 593,
+    "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": 593
+  },
+  "resources": [
+    {
+      "source_id": 2,
+      "density": 4,
+      "key": 1310002,
+      "filename": "rear-multicannon-p1-bank8-2-4.hda",
+      "role": 131,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "rgba": "components/output/rear-multi-2-4.rgba",
+      "rgba_sha256": "81afa542ccdb62b95e543d6609d29dc407a28cf5527f73c0f9dcee68845f1b11",
+      "rgba_fnv1a64": "0xec9c021ef9b7011d",
+      "png": "components/output/rear-multi-2-4.png",
+      "png_sha256": "fa40c06f129fc23bdcd1f1b33272070085db4a397cf76d1a8017cb00c75aa3aa",
+      "hda_bytes": 10780,
+      "hda_sha256": "72495a45451815125c4f85899758189c55ee2d110c90986c9c09700eb865387a",
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-2-4.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-2-4.hda"
+      ],
+      "catalog_source_png": "assets/hd/source/rear-multicannon-p1-bank8-2-4-72495a454518.png"
+    },
+    {
+      "source_id": 40,
+      "density": 4,
+      "key": 1310040,
+      "filename": "rear-multicannon-p1-bank8-40-4.hda",
+      "role": 131,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "rgba": "components/output/rear-multi-40-4.rgba",
+      "rgba_sha256": "13a2653e9542063430647c1d87f22981c5fb1b9176d6cfe77e8ca7e7f62e67fa",
+      "rgba_fnv1a64": "0xe282898d9cb39ce5",
+      "png": "components/output/rear-multi-40-4.png",
+      "png_sha256": "77a878e3461ff3a0d574eb009607f5f2fcf2705f25cf55289e0942df459a78fe",
+      "hda_bytes": 10780,
+      "hda_sha256": "0a5506d00eb19858f48078f872b66cc8f981214b652cec4f2b4889e668cd8604",
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-40-4.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-40-4.hda"
+      ],
+      "catalog_source_png": "assets/hd/source/rear-multicannon-p1-bank8-40-4-0a5506d00eb1.png"
+    },
+    {
+      "source_id": 2,
+      "density": 8,
+      "key": 1310002,
+      "filename": "rear-multicannon-p1-bank8-2-8.hda",
+      "role": 131,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "rgba": "components/output/rear-multi-2-8.rgba",
+      "rgba_sha256": "09f964752d2665ecfccc79d674fec6df602375a3a5f558d4efc7dc9c0feea6f4",
+      "rgba_fnv1a64": "0x313c0fe52e7fa8e1",
+      "png": "components/output/rear-multi-2-8.png",
+      "png_sha256": "7d725fc5deb48d215dfaf53b91e2792eb18d53c642c7fb50b6a2e3bd6b45a861",
+      "hda_bytes": 43036,
+      "hda_sha256": "4f618dcb3670c67bb60b35a5e7b92c64d33923ff3a9d0c5dee1434734e79af37",
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-2-8.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-2-8.hda"
+      ],
+      "catalog_source_png": "assets/hd/source/rear-multicannon-p1-bank8-2-8-4f618dcb3670.png"
+    },
+    {
+      "source_id": 40,
+      "density": 8,
+      "key": 1310040,
+      "filename": "rear-multicannon-p1-bank8-40-8.hda",
+      "role": 131,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "rgba": "components/output/rear-multi-40-8.rgba",
+      "rgba_sha256": "48e3f1d30dd8fa23ddda7067a17b72dc24926310a2c617248fa3db2c4ce9e874",
+      "rgba_fnv1a64": "0x27e07fd8d6be79d5",
+      "png": "components/output/rear-multi-40-8.png",
+      "png_sha256": "c2ab24824895c6aa195cb7aa5a2738b35bdee46d475167184b51b6ae3e3ab103",
+      "hda_bytes": 43036,
+      "hda_sha256": "170a261a0de8e20241a836c791f04eef96a0e005e814a6e5f66d32924ae2f89a",
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-40-8.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-40-8.hda"
+      ],
+      "catalog_source_png": "assets/hd/source/rear-multicannon-p1-bank8-40-8-170a261a0de8.png"
+    }
+  ],
+  "excluded_new_scope": "Other powers, record275, alternate physical records1256/1275, shared consumers and all existing mode/network/player/level/source exclusions.",
+  "catalog_inverse_byte_exact": true,
+  "aggregate_verifier": {
+    "verified_rear_multicannon_p1_art_resources": 12,
+    "verified_storm_heading_sidecars": 2,
+    "verified_storm_heading_source_files": 20,
+    "verified_option_plasma_projectile_art_resources": 6,
+    "verified_player_sonic_joined_wave_pair_members": 2,
+    "verified_player_sonic_inverted_oblique_pair_members": 2,
+    "verified_player_sonic_oblique_pair_members": 2,
+    "verified_player_sonic_inverted_corner_pair_members": 2,
+    "verified_player_sonic_corner_pair_members": 2,
+    "verified_player_sonic_fat_pair_members": 2,
+    "verified_player_sonic_shallow_pair_members": 2,
+    "verified_player_sonic_upward_arch_members": 1,
+    "verified_player_sonic_six_pair_members": 2,
+    "verified_player_protron_shadow_members": 3,
+    "verified_player_protron_members": 3,
+    "verified_enemy_energy_seven_members": 7,
+    "verified_boss_whole_family_members": 40,
+    "verified_boss_intentional_empty_members": 3,
+    "verified_settings_compatibility_resources": 9,
+    "verified_type3_small_six_members": 6,
+    "verified_title_menu_resources": 6,
+    "verified_title_menu_source_files": 17,
+    "verified_newsh4_entry6_members": 6,
+    "verified_late_spike_family_members": 6,
+    "verified_type15_eightheading_members": 8,
+    "verified_newsh4_opposite7_family_members": 7,
+    "verified_newsh4_long7_family_members": 7,
+    "verified_startup_title_resources": 3,
+    "verified_startup_title_source_files": 19,
+    "verified_startup_title_manufacturer_compatibility_copies": 2,
+    "verified_linked31_family_members": 8,
+    "verified_type4_composites": 5,
+    "verified_startup_manufacturer_resources": 2,
+    "verified_startup_manufacturer_source_files": 22,
+    "verified_hud_meter_sidecars": 2,
+    "verified_hud_meter_source_files": 13,
+    "verified_pack_count": 18,
+    "verified_HDA_entries": 3422,
+    "verified_exact_source_pngs": 605,
+    "verified_material_sidecars": 4,
+    "verified_cap_sidecars": 2,
+    "verified_forest_sidecars_and_policies": 4,
+    "verified_gameplay_hud_sidecars": 2,
+    "verified_hud_source_pngs": 1,
+    "verified_hud_font_sidecars": 2,
+    "verified_hud_font_source_files": 19,
+    "verified_hud_fixed_text_sidecars": 2,
+    "verified_hud_fixed_text_source_pngs": 12,
+    "verified_hud_extension_sidecars": 4,
+    "verified_hud_extension_source_pngs": 21,
+    "default_pack_counts": [
+      593,
+      593
+    ],
+    "rebuild_output": null,
+    "all_runtime_RGBA_and_header_bytes_exact": true
+  }
+}
