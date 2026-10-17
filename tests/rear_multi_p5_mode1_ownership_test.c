@@ -230,10 +230,10 @@ static bool admitted(unsigned power,unsigned mode,unsigned record)
 {
  return (power<2&&mode<2&&record==(mode?265:254)+power)||
   (power==2&&mode<2&&record==(mode?267:256))||(power==3&&mode<2&&record==(mode?268:257))||
-  (power==4&&mode<2&&record==(mode?269:258))||(power==5&&mode<2&&record==(mode?270:259))||(power==6&&mode<2&&record==(mode?271:260));
+  (power==4&&mode<2&&record==(mode?269:258))||(power==5&&mode<2&&record==(mode?270:259))||(power==6&&mode<2&&record==(mode?271:260))||(power==7&&mode==0&&record==261);
 }
 static unsigned budget(unsigned power,unsigned mode)
-{return power==6?(mode?5:4):power==5?(mode?5:3):power==4?(mode?4:2):power==3?5:power==2?(mode?4:2):power+1;}
+{return power==7?6:power==6?(mode?5:4):power==5?(mode?5:3):power==4?(mode?4:2):power==3?5:power==2?(mode?4:2):power+1;}
 static void admission(RearP1State *s)
 {
  const unsigned records[]={0,1,50,77,163,164,182,183,253,254,255,256,257,258,259,264,265,266,267,268,269,270,275,277,278,281,300,445,501,686,687,688,690,1257,1269,UINT_MAX};
@@ -253,7 +253,7 @@ static void admission(RearP1State *s)
   rear_p1_call_begin(s,7,ports[p],bays[b],4,0,players[u],258,scope!=0,table!=0);CHECK(s->pending==yes);
   rear_p1_call_end(s);clear(s);
  }
- CHECK(REAR_P1_HEADS==19&&REAR_P1_OBSERVED==21&&REAR_P1_MAX_BUDGET==5);
+ CHECK(REAR_P1_HEADS==19&&REAR_P1_OBSERVED==21&&REAR_P1_MAX_BUDGET==6);
  const unsigned members[]={39,1,281,282,301,300,40,2,77,182,183,277,278,41,3,296,297,294,295};
  const unsigned observations[]={39,1,281,282,301,300,40,2,77,182,183,163,164,277,278,41,3,296,297,294,295};
  /* Append-only role maps are intentionally different after the original 11. */
@@ -399,6 +399,7 @@ static void excluded_shared_sources(RearP1State *s)
  for(unsigned r=0;r<sizeof records/sizeof *records;r++)
  for(unsigned power=0;power<sizeof powers/sizeof *powers;power++)
  for(unsigned mode=0;mode<3;mode++)for(unsigned p=1;p<=2;p++) {
+  if(powers[power]==7&&records[r]==261&&mode==0)continue; /* Exact P8 mode1 route has its own tests. */
   if(powers[power]==6&&records[r]==(mode?271u:260u))continue; /* Exact P7 route has its own tests. */
   if(powers[power]==5&&((records[r]==259&&mode==0)||(records[r]==270&&mode==1)))continue; /* Exact P6 routes have their own tests. */
   rear_p1_reset(s);uint64_t c=begin(s);emit(s,c,1,0,p);emit(s,c,2,79,phase(p,2));rear_p1_create_end(s,c);

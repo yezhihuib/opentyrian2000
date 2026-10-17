@@ -114,6 +114,13 @@ r=struct.pack('<HBBHBBBB8B8B8b8b8b8b8HbbBBBB',0x1247,6,5,0,5,5,6,0,
  *[0,0,0,0,0,-128,127,-1],*[277,278,295,294,77,0x2513,0xfc50,300],0,0,0,25,255,208)
 assert len(r)==80
 records.append(r);recordpins.append(fnv(r))
+# P8 mode1 synthetic six-shot record. Distinct full80-byte identity and tails.
+r=struct.pack('<HBBHBBBB8B8B8b8b8b8b8HbbBBBB',0x1248,6,6,0,6,5,6,0,
+ *([2,2,2,2,1,1,250,14]),*([255]*8),*[-9,9,9,-9,-10,10,127,-1],
+ *[2,2,-2,-2,0,0,127,-1],*[-2,2,2,-2,0,0,127,-1],
+ *[0,0,0,0,0,0,127,-1],*[277,278,297,296,39,1,0xfb40,301],0,0,0,25,255,208)
+assert len(r)==80
+records.append(r);recordpins.append(fnv(r))
 (out/'records.bin').write_bytes(b''.join(records))
 resources=out/'full';resources.mkdir();rgba_pins=[]
 for k,i in enumerate(ids):
@@ -164,6 +171,17 @@ for d in (4,8):
    raw=bytearray(source.read_bytes())
    if source.name==f'rear-multicannon-p1-bank8-295-{d}.hda' and mask&2:raw[-1]^=1
    (dest/source.name).write_bytes(raw)
+# Every P8 reused head independently missing or corrupt, with all other files exact.
+for d in (4,8):
+ for phase,i in enumerate([277,278,297,296,39,1],1):
+  for kind in (0,1):
+   dest=out/f'p8m1-isolation-{d}-{phase}-{kind}';dest.mkdir()
+   for source in resources.glob('*.hda'):
+    selected=source.name==f'rear-multicannon-p1-bank8-{i}-{d}.hda'
+    if selected and kind==0:continue
+    raw=bytearray(source.read_bytes())
+    if selected:raw[-1]^=1
+    (dest/source.name).write_bytes(raw)
 reload=out/'reload';reload.mkdir()
 for p in resources.glob('*.hda'):(reload/p.name).write_bytes(p.read_bytes())
 (out/'variants.inc').write_text('static const struct {const char*name;unsigned member;int density;} variants[]={'+','.join('{"%s",%d,%d}'%v for v in variants)+'};\n')
@@ -173,6 +191,6 @@ for mode in ['plain','sanitize']:
  exe=out/('adapter-'+mode);cmd=['cc','-std=c99','-Wall','-Wextra','-Werror','-pedantic','-O1','-g','-I'+str(root/'src'),'-I'+str(out),str(harness),str(root/'src/rear_multi_p1.c'),'-o',str(exe),'-lm']
  if mode=='sanitize':cmd+=['-fsanitize=address,undefined','-fno-omit-frame-pointer']
  subprocess.run(cmd,check=True)
- r=subprocess.run([str(exe),str(out)],env={**os.environ,'ASAN_OPTIONS':'detect_leaks=0:halt_on_error=1','UBSAN_OPTIONS':'halt_on_error=1'},text=True,capture_output=True,timeout=60);print(mode,r.stdout,end='');print(r.stderr,end='',file=sys.stderr);(out/(mode+'.log')).write_text(r.stdout+r.stderr);r.check_returncode()
+ r=subprocess.run([str(exe),str(out)],env={**os.environ,'ASAN_OPTIONS':'detect_leaks=0:halt_on_error=1','UBSAN_OPTIONS':'halt_on_error=1'},text=True,capture_output=True,timeout=180);print(mode,r.stdout,end='');print(r.stderr,end='',file=sys.stderr);(out/(mode+'.log')).write_text(r.stdout+r.stderr);r.check_returncode()
 
 if temporary is not None:temporary.cleanup()
