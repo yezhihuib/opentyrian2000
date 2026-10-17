@@ -1,0 +1,135 @@
+{
+  "pass": true,
+  "schema": "rear-multicannon-p7-mode2-relocated-source-rebuild-v1",
+  "inputs_copied_only": [
+    "author-geometry.cjs",
+    "build.cjs",
+    "pins.json",
+    "semantic-contract.json",
+    "sources/rear-multi-294.svg",
+    "sources/rear-multi-295.svg"
+  ],
+  "accepted_reference_art_absent": true,
+  "original_data_absent": true,
+  "game_repository_absent": true,
+  "preview_inputs_absent": true,
+  "authoring_exact_reproduction": true,
+  "tampered_source_rejected_before_output_creation": true,
+  "stdout": "PASS: four exact direct-vector density-specific RGBA/PNG/HDR1 resources.",
+  "files": [
+    {
+      "file": "rear-multi-p7-294-4.rgba",
+      "bytes": 10752,
+      "sha256": "42c6f3610a278c66a0090a1c4aa004ae8787743886ba0196843f94f8814fe2d5",
+      "matches_frozen": true
+    },
+    {
+      "file": "rear-multi-p7-294-4.png",
+      "bytes": 1719,
+      "sha256": "a754cf589003cddd5aaabfc398e7fbf12438d0e9eadbd9df733f06a9f73348d0",
+      "matches_frozen": true
+    },
+    {
+      "file": "rear-multi-p7-294-4.hda",
+      "bytes": 10780,
+      "sha256": "06c6667918c84d0f1307d603e80c6302cfa6e6edfd179f12349046d22fa8173c",
+      "matches_frozen": true
+    },
+    {
+      "file": "rear-multi-p7-295-4.rgba",
+      "bytes": 10752,
+      "sha256": "d01518043d39bc0650bd6ca10d3879f80d3b46027ccd2e2e55b2e2ca2aa117e3",
+      "matches_frozen": true
+    },
+    {
+      "file": "rear-multi-p7-295-4.png",
+      "bytes": 1705,
+      "sha256": "ea3b8db552eb5eee6e18aa34a55637dbece437a3cf740dc10a4774a91ba6b74a",
+      "matches_frozen": true
+    },
+    {
+      "file": "rear-multi-p7-295-4.hda",
+      "bytes": 10780,
+      "sha256": "f0f2006c3002ee433046852343c173738c2cc193668d1489c2ba7353c1046626",
+      "matches_frozen": true
+    },
+    {
+      "file": "rear-multi-p7-294-8.rgba",
+      "bytes": 43008,
+      "sha256": "84a2158c54290b0372fc8438ec37932415c861d9f4e82b95241d81dffd265b29",
+      "matches_frozen": true
+    },
+    {
+      "file": "rear-multi-p7-294-8.png",
+      "bytes": 4434,
+      "sha256": "d0a8b9184afadc6dfbd36cbf21f4054045dd641c556d31c3320a1cd4cc8f5657",
+      "matches_frozen": true
+    },
+    {
+      "file": "rear-multi-p7-294-8.hda",
+      "bytes": 43036,
+      "sha256": "63952d861348b481375637f4de8b5968e00ee98e4c87f7f9485c75fa941adca8",
+      "matches_frozen": true
+    },
+    {
+      "file": "rear-multi-p7-295-8.rgba",
+      "bytes": 43008,
+      "sha256": "cb0538152adaeb2aecaa441ecf42459c66cd3b74bfaa99f314043a6f80de56a7",
+      "matches_frozen": true
+    },
+    {
+      "file": "rear-multi-p7-295-8.png",
+      "bytes": 4436,
+      "sha256": "62591001aac9d2e6401417f718195906afd216612b0002a2ec09c736f2444308",
+      "matches_frozen": true
+    },
+    {
+      "file": "rear-multi-p7-295-8.hda",
+      "bytes": 43036,
+      "sha256": "6a269c6f8de7668429c249ac3895cad6db3ee732d558140ebed9b15ea01dce64",
+      "matches_frozen": true
+    }
+  ],
+  "standalone_svg_comparison": [
+    {
+      "id": 294,
+      "density": 4,
+      "direct_svg_rgba_sha256": "42c6f3610a278c66a0090a1c4aa004ae8787743886ba0196843f94f8814fe2d5",
+      "canonical_rgba_sha256": "42c6f3610a278c66a0090a1c4aa004ae8787743886ba0196843f94f8814fe2d5",
+      "direct_svg_different_bytes": 0,
+      "direct_svg_max_channel_delta": 0,
+      "direct_svg_max_alpha_delta": 0,
+      "direct_svg_max_composited_channel_delta_on_synthetic_brown": 0
+    },
+    {
+      "id": 295,
+      "density": 4,
+      "direct_svg_rgba_sha256": "baeb25d542b57b38aeb7a4bbab326c58bbeac46ee10f95772b868fe7feb2cab5",
+      "canonical_rgba_sha256": "d01518043d39bc0650bd6ca10d3879f80d3b46027ccd2e2e55b2e2ca2aa117e3",
+      "direct_svg_different_bytes": 551,
+      "direct_svg_max_channel_delta": 63,
+      "direct_svg_max_alpha_delta": 17,
+      "direct_svg_max_composited_channel_delta_on_synthetic_brown": 7
+    },
+    {
+      "id": 294,
+      "density": 8,
+      "direct_svg_rgba_sha256": "84a2158c54290b0372fc8438ec37932415c861d9f4e82b95241d81dffd265b29",
+      "canonical_rgba_sha256": "84a2158c54290b0372fc8438ec37932415c861d9f4e82b95241d81dffd265b29",
+      "direct_svg_different_bytes": 0,
+      "direct_svg_max_channel_delta": 0,
+      "direct_svg_max_alpha_delta": 0,
+      "direct_svg_max_composited_channel_delta_on_synthetic_brown": 0
+    },
+    {
+      "id": 295,
+      "density": 8,
+      "direct_svg_rgba_sha256": "057f86425b5360e778641266e4e8dbec8d17d26b628e4cce8efed861af777c64",
+      "canonical_rgba_sha256": "cb0538152adaeb2aecaa441ecf42459c66cd3b74bfaa99f314043a6f80de56a7",
+      "direct_svg_different_bytes": 1190,
+      "direct_svg_max_channel_delta": 255,
+      "direct_svg_max_alpha_delta": 17,
+      "direct_svg_max_composited_channel_delta_on_synthetic_brown": 8
+    }
+  ]
+}

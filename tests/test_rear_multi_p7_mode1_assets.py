@@ -7,11 +7,12 @@ from PIL import Image
 from rear_multi_p7_asset_projection import project_p7,FAMILY,PACKAGE,BASE
 ROOT=Path(__file__).resolve().parents[1];ART=ROOT/PACKAGE
 SHA=lambda b:hashlib.sha256(b).hexdigest()
-catalog=json.loads((ROOT/'assets/hd/manifest.json').read_text());baseline,newpaths=project_p7(ROOT,catalog)
+from rear_multi_p7_mode2_asset_projection import project_p7_mode2
+catalog=json.loads((ROOT/'assets/hd/manifest.json').read_text());catalog,newerpaths=project_p7_mode2(ROOT,catalog);baseline,newpaths=project_p7(ROOT,catalog)
 assert len(newpaths)==28
 binding=json.loads((ART/'binding.json').read_text());inputs=json.loads((ART/'inputs.json').read_text());outputs=json.loads((ART/'outputs.json').read_text())
 assert binding['phase_sequence']==[277,278,297,296] and binding['logical_size']==[12,14] and binding['anchor']==[0,0]
-old={str(p.relative_to(ROOT)):SHA(p.read_bytes())for p in(ROOT/'assets').rglob('*')if p.is_file()and str(p.relative_to(ROOT))not in newpaths|{'assets/hd/manifest.json'}}
+old={str(p.relative_to(ROOT)):SHA(p.read_bytes())for p in(ROOT/'assets').rglob('*')if p.is_file()and str(p.relative_to(ROOT))not in newpaths|newerpaths|{'assets/hd/manifest.json'}}
 assert len(old)==7122
 assert SHA(''.join(n+'\0'+h+'\n'for n,h in sorted(old.items())).encode())=='3393a599abb256ae14366dc095b11cca003a924db60f7384f0cf80d9635e97c9'
 source=ROOT/inputs['source_family_repo_path'];pins=[]
@@ -27,7 +28,7 @@ for inp,row in zip(inputs['resources'],binding['resources']):
  assert f'0x{fnv:016x}'==row['rgba_fnv1a64']==outputs[f'{i}-{d}']['rgba_fnv1a64'];pins.append(fnv)
  assert sum(a>0 for a in raw[3::4])=={4:989,8:3739}[d]
 macro=(ROOT/'src/rear_multi_p1_pins.h').read_text().split('#define REAR_P1_RGBA_PINS ',1)[1].split('\n',1)[0]
-assert [int(s,16)for s in re.findall(r'UINT64_C\(0x([0-9a-f]+)\)',macro)][-4:]==pins
+assert [int(s,16)for s in re.findall(r'UINT64_C\(0x([0-9a-f]+)\)',macro)][-8:-4]==pins
 for p in ART.rglob('*'):
  if p.is_file()and p.suffix in['.json','.py','.md']:
   assert not re.search(r'/workspace/|/home/agent/|sediment://|libfile_|file_000000|ghp_|github_pat_',p.read_text()),p

@@ -97,7 +97,10 @@ def over(back, front):
 
 catalog = json.loads((ROOT / 'assets/hd/manifest.json').read_text())
 from rear_multi_p7_asset_projection import project_p7
+from rear_multi_p7_mode2_asset_projection import project_p7_mode2
+catalog, p7_mode2_paths = project_p7_mode2(ROOT, catalog)
 catalog, p7_paths = project_p7(ROOT, catalog)
+p7_paths |= p7_mode2_paths
 family = catalog[FAMILY]
 packs = {catalog['default_preview_pack'], catalog['default_debug_pack']}
 assert family['source'] == str(ART.relative_to(ROOT))

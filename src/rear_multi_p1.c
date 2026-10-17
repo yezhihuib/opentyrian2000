@@ -4,9 +4,9 @@
 #include <string.h>
 /* Separate index spaces preserve every existing resource/cache and source pin.
  * Observed-only 163/164 must never become drawable through prefix growth. */
-static const unsigned drawable_ids[REAR_P1_HEADS]={39,1,281,282,301,300,40,2,77,182,183,277,278,41,3,296,297};
-static const unsigned ids[REAR_P1_OBSERVED]={39,1,281,282,301,300,40,2,77,182,183,163,164,277,278,41,3,296,297};
-static const int velocity[REAR_P1_OBSERVED][2]={{-10,0},{10,0},{-9,-2},{9,-2},{9,2},{-9,2},{-10,0},{10,0},{0,10},{-6,6},{6,6},{-6,-6},{6,-6},{-9,-2},{9,-2},{-10,0},{10,0},{-9,2},{9,2}};
+static const unsigned drawable_ids[REAR_P1_HEADS]={39,1,281,282,301,300,40,2,77,182,183,277,278,41,3,296,297,294,295};
+static const unsigned ids[REAR_P1_OBSERVED]={39,1,281,282,301,300,40,2,77,182,183,163,164,277,278,41,3,296,297,294,295};
+static const int velocity[REAR_P1_OBSERVED][2]={{-10,0},{10,0},{-9,-2},{9,-2},{9,2},{-9,2},{-10,0},{10,0},{0,10},{-6,6},{6,6},{-6,-6},{6,-6},{-9,-2},{9,-2},{-10,0},{10,0},{-9,2},{9,2},{-6,6},{6,6}};
 uint64_t rear_p1_stamp(const void *data,size_t size)
 {
  const uint8_t *p=data;uint64_t h=UINT64_C(14695981039346656037);
@@ -32,10 +32,10 @@ void rear_p1_call_begin(RearP1State *s,uint64_t tick,unsigned port,unsigned bay,
    (power_index==3&&((mode_index==0&&record==257)||(mode_index==1&&record==268)))||
    (power_index==4&&((mode_index==0&&record==258)||(mode_index==1&&record==269)))||
    (power_index==5&&((mode_index==0&&record==259)||(mode_index==1&&record==270)))||
-   (power_index==6&&mode_index==0&&record==260));
+   (power_index==6&&((mode_index==0&&record==260)||(mode_index==1&&record==271))));
  s->tick=tick;s->record=record;s->mode=mode_index+1;
- /* Exact record budgets: P3=2/4, P4=5/5, P5=2/4; P6=3/5; P7 mode1=4. */
- if(s->pending)s->budget=record==260?4:record==259?3:(record==257||record==268||record==270)?5:(record==256||record==258)?2:(record==267||record==269)?4:power_index+1;
+ /* Exact record budgets: P3=2/4, P4=5/5, P5=2/4; P6=3/5; P7=4/5. */
+ if(s->pending)s->budget=record==260?4:record==259?3:(record==257||record==268||record==270||record==271)?5:(record==256||record==258)?2:(record==267||record==269)?4:power_index+1;
 }
 uint64_t rear_p1_create_begin(RearP1State *s,uint64_t tick,unsigned port,unsigned bay,
  unsigned record,unsigned player)
@@ -71,6 +71,10 @@ static bool phase_ok(unsigned record,unsigned phase,unsigned raw)
   static const unsigned observed[4]={277,278,297,296};
   return phase>=1&&phase<=4&&raw==observed[phase-1];
  }
+ if(record==271) {
+  static const unsigned observed[5]={277,278,295,294,77};
+  return phase>=1&&phase<=5&&raw==observed[phase-1];
+ }
  if(record==270) {
   static const unsigned observed[5]={277,278,183,182,77};
   return phase>=1&&phase<=5&&raw==observed[phase-1];
@@ -104,7 +108,7 @@ void rear_p1_emit(RearP1State *s,uint64_t tick,uint64_t call,unsigned ordinal,un
  bool lease=s->lease&&s->remaining>0;
  if(s->remaining)--s->remaining;
  if(slot<REAR_P1_SLOTS){memset(&s->birth[slot],0,sizeof(s->birth[slot]));s->birth_identity[slot]=0;}
- unsigned period=s->record==260?4:s->record==259?3:(s->record==257||s->record==268||s->record==270)?5:s->mode==1?2:4;
+ unsigned period=s->record==260?4:s->record==259?3:(s->record==257||s->record==268||s->record==270||s->record==271)?5:s->mode==1?2:4;
  bool reused=false;
  for(unsigned i=0;i<s->used_count&&i<REAR_P1_MAX_BUDGET;i++)reused|=s->used_slots[i]==slot;
  if(!lease||s->call!=call||s->tick!=tick||ordinal!=s->next_ordinal||

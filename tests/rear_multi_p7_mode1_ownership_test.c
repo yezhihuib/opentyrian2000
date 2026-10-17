@@ -39,7 +39,8 @@ static const Route routes[]={
  {268,3,1,5,5,{163,164,183,182,77},{-6,6,6,-6,0},{-6,-6,6,6,10}},
  {258,4,0,2,2,{41,3},{-10,10},{0,0}},{269,4,1,4,4,{277,278,183,182},{-9,9,6,-6},{-2,-2,6,6}},
  {259,5,0,3,3,{41,3,77},{-10,10,0},{0,0,10}},{270,5,1,5,5,{277,278,183,182,77},{-9,9,6,-6,0},{-2,-2,6,6,10}},
- {260,6,0,4,4,{277,278,297,296},{-9,9,9,-9},{-2,-2,2,2}}
+ {260,6,0,4,4,{277,278,297,296},{-9,9,9,-9},{-2,-2,2,2}},
+ {271,6,1,5,5,{277,278,295,294,77},{-9,9,6,-6,0},{-2,-2,6,6,10}}
 };
 static unsigned route_budget(unsigned power,unsigned mode,unsigned record)
 {for(unsigned i=0;i<sizeof routes/sizeof *routes;i++)if(routes[i].power==power&&routes[i].mode==mode&&routes[i].record==record)return routes[i].budget;return 0;}
@@ -54,10 +55,10 @@ static void admission(RearP1State *s)
  for(unsigned p=0;p<sizeof ports/sizeof *ports;p++)for(unsigned b=0;b<4;b++)for(unsigned u=0;u<4;u++)for(unsigned sc=0;sc<2;sc++)for(unsigned t=0;t<2;t++) {
   bool yes=ports[p]==10&&bays[b]==1&&players[u]==1&&sc&&t;rear_p1_call_begin(s,7,ports[p],bays[b],6,0,players[u],260,sc!=0,t!=0);CHECK(s->pending==yes);rear_p1_call_end(s);clear(s);
  }
- const unsigned members[]={39,1,281,282,301,300,40,2,77,182,183,277,278,41,3,296,297};
- const unsigned observed[]={39,1,281,282,301,300,40,2,77,182,183,163,164,277,278,41,3,296,297};
- CHECK(REAR_P1_HEADS==17&&REAR_P1_OBSERVED==19&&REAR_P1_MAX_BUDGET==5&&REAR_P1_SLOTS==80);
- for(unsigned raw=0;raw<8000;raw++){int m=-1,o=-1;for(unsigned i=0;i<17;i++)if(members[i]==raw)m=(int)i;for(unsigned i=0;i<19;i++)if(observed[i]==raw)o=(int)i;CHECK(rear_p1_member(raw)==m&&rear_p1_observed(raw)==o);}
+ const unsigned members[]={39,1,281,282,301,300,40,2,77,182,183,277,278,41,3,296,297,294,295};
+ const unsigned observed[]={39,1,281,282,301,300,40,2,77,182,183,163,164,277,278,41,3,296,297,294,295};
+ CHECK(REAR_P1_HEADS==19&&REAR_P1_OBSERVED==21&&REAR_P1_MAX_BUDGET==5&&REAR_P1_SLOTS==80);
+ for(unsigned raw=0;raw<8000;raw++){int m=-1,o=-1;for(unsigned i=0;i<19;i++)if(members[i]==raw)m=(int)i;for(unsigned i=0;i<21;i++)if(observed[i]==raw)o=(int)i;CHECK(rear_p1_member(raw)==m&&rear_p1_observed(raw)==o);}
  CHECK(rear_p1_member(UINT_MAX)<0&&rear_p1_observed(UINT_MAX)<0);
 }
 static void capacities(RearP1State *s)
@@ -129,7 +130,7 @@ static void coexistence(RearP1State *s)
   rear_p1_call_begin(s,7,10,1,r->power,r->mode,1,r->record,true,true);uint64_t c=rear_p1_create_begin(s,7,10,1,r->record,1);
   rear_p1_emit(s,7,c,1,count,10,1,r->record,1,p,q.gr,&q,true,true,true);rear_p1_create_end(s,c);shots[count]=q;records[count]=r->record;modes[count]=r->mode+1;phases[count]=p;count++;
  }
- CHECK(count==46);
+ CHECK(count==51);
  for(unsigned pi=0;pi<12;pi++)for(unsigned mode=0;mode<3;mode++) {
   rear_p1_call_begin(s,8,10,1,pi,mode,1,(mode?265:254)+pi,true,true);rear_p1_call_end(s);
   for(unsigned i=0;i<count;i++){RearP1Shot *q=&shots[i];bool expected=q->gr!=163&&q->gr!=164;CHECK(rear_p1_current(s,i,q->gr,q->gr,q,true,true,true)==expected);if(expected)CHECK(s->birth[i].record==records[i]&&s->birth[i].mode==modes[i]&&s->birth[i].phase==phases[i]);}
@@ -140,4 +141,4 @@ static void coexistence(RearP1State *s)
  rear_p1_reset(s);for(unsigned i=0;i<80;i++)empty(s,i);
 }
 int main(void)
-{RearP1State s={0};admission(&s);capacities(&s);rejection(&s);leases(&s);integrity(&s);coexistence(&s);printf("Rear P7 mode1 ownership PASS: %u checks; exact260 budget4/period4,100 cyclic capacity designs,80x80 slot reuse,leases,seals,13 routes/46 phases,1260/271 exclusions\n",checks);return 0;}
+{RearP1State s={0};admission(&s);capacities(&s);rejection(&s);leases(&s);integrity(&s);coexistence(&s);printf("Rear P7 mode1 ownership PASS: %u checks; exact260 budget4/period4,100 cyclic capacity designs,80x80 slot reuse,leases,seals,14 routes/51 phases,1260 and wrong-mode271 exclusions\n",checks);return 0;}

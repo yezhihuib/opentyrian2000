@@ -61,7 +61,10 @@ for obj in [pins, binding, contract]:
             for a in obj['resources']] == [(163, 182, 8, 1310182), (164, 183, 8, 1310183)]
 catalog = json.loads((root / 'assets/hd/manifest.json').read_text())
 from rear_multi_p7_asset_projection import project_p7
+from rear_multi_p7_mode2_asset_projection import project_p7_mode2
+catalog, p7_mode2_paths = project_p7_mode2(root, catalog)
 catalog, p7_paths = project_p7(root, catalog)
+p7_paths |= p7_mode2_paths
 family_name = 'player_rear_multicannon_p4_mode2_down_diagonals_v1'
 family = catalog[family_name]
 assert family['source'] == str(art.relative_to(root))

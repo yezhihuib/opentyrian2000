@@ -1,0 +1,53 @@
+{
+  "schema": "rear-multicannon-p7-mode2-candidate-provenance-v1",
+  "status": "HISTORICAL_OFFLINE_ART_ACCEPTED_SUBSEQUENT_RUNTIME_SEPARATE",
+  "reference_commit": "a54277a30811f5beb49afca3140b723ebeb0be47",
+  "reference_checkout_was_read_only": true,
+  "style_lineage": {
+    "assets/hd/artwork/player-front-multi-eight-v1/author-geometry.cjs": "dd1795b3a521ab9cc723e08962fa06de4e8342635d3586d418aeb20ffd56cb12",
+    "assets/hd/artwork/player-front-multi-eight-v1/sources/multi-163.svg": "22d512d8609e833bb6995fbcfeb6766bcd6bcac204a6212674de684d4a20f2f4",
+    "assets/hd/artwork/player-front-multi-eight-v1/sources/multi-164.svg": "a0000afa54f8e2505b2c96b5a90143726c60052b4b6ad5af2e8fbaea4fea985b"
+  },
+  "style_inheritance": "Exact accepted seven yellow/orange/red heat-field color stops and continuous elliptical-gradient/cubic-cap-taper vocabulary. New semantic9x10 primitive and two-member perpendicular(+3,+3) arrangement. No accepted whole-sprite transform is claimed for294.",
+  "semantic_reference_only": "Down-left/down-right twin topology, 12x14 logical dimensions, anchor0,0, and down-diagonal travel directions. No original image, mask, palette, pixel array, capture or private audit is a builder input or included package file.",
+  "canonical_rendering": "Direct independent SVG renders of294 at d4 and d8;295 is exact full-canvas RGBA flipX of294 at each density. Standalone295 SVG variance is measured separately.",
+  "synthetic_previews_only": true,
+  "production_files_changed": false,
+  "runtime_integration": false,
+  "published": false,
+  "checks": [
+    "RGBA/PNG/HDR1 exact equivalence and EOF",
+    "exact canonical full-canvas horizontal reflection",
+    "zero RGB for alpha0",
+    "exact source regeneration",
+    "pinned relocated source-only rebuild",
+    "tamper rejection before output creation",
+    "two alpha128 native twin components",
+    "source-derived synthetic night-transfer numeric bounds and monotonicity"
+  ],
+  "limitations": [
+    "Original coverage and energy equality are not claimed.",
+    "Synthetic native previews are not actual runtime output or original indexed support qualification.",
+    "Runtime coverage, ownership, pair overlap, foreground occlusion, shadows, temporal old-art flashes, actual Normal/Hard, and performance require separate work."
+  ],
+  "stage": "Historical generated-only art construction and offline review. Production integration and bounded game evidence are reported separately.",
+  "accepted_generated_reference_rasters_used_only_for_offline_review": [
+    {
+      "id": 182,
+      "density": 8,
+      "png_sha256": "85fe7b765089b72f23f1eaaf0449be40f1687fdbb77445fa2c4cb1a26fa7bd65",
+      "rgba_sha256": "94ee0b55b1642e1781e72ccf1d0f1570670821fca66e3bcf97a692f06f3bda1c",
+      "source_repo_path": "assets/hd/artwork/player-rear-multicannon-p4-mode2-down-diagonals-v1/output/rear-multi-p4-182-8.png"
+    },
+    {
+      "id": 183,
+      "density": 8,
+      "png_sha256": "40c0b2f889e29b8916b2e36f89dce9060a27ba70595f040f519b169a910f252c",
+      "rgba_sha256": "c195101ad4685602590f93270b8fc9e14b6b2ab92ed5fc69fd90119298b1cbce",
+      "source_repo_path": "assets/hd/artwork/player-rear-multicannon-p4-mode2-down-diagonals-v1/output/rear-multi-p4-183-8.png"
+    }
+  ],
+  "offline_source_bundle_manifest_sha256": "39b263f91f4691f927854877cc90f8a970cdcab08a64cc4b77c09d4105f7bd9e",
+  "public_package": "Compact generated source/output core; synthetic previews and copied accepted references are not included.",
+  "runtime_qualification": "See docs/REAR_MULTI_P7_MODE2_VALIDATION.md. Historical offline checks alone do not establish runtime acceptance."
+}

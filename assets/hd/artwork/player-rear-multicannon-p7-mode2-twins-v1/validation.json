@@ -1,0 +1,108 @@
+{
+  "schema": "rear-multicannon-p7-mode2-candidate-validation-v1",
+  "pass": true,
+  "status": "OFFLINE_ONLY",
+  "original_data_read": false,
+  "pixel_equivalence_RGBA_PNG_HDR1": true,
+  "exact_horizontal_reflection": true,
+  "native_twin_test": "Exactly two eight-connected alpha>=128 components at each density and native scale. Lower-alpha antialias edge connectivity is not equated with visible silhouette.",
+  "outputs": [
+    {
+      "id": 294,
+      "density": 4,
+      "exact_RGBA_PNG_HDR1": true,
+      "native": [
+        {
+          "scale": 2,
+          "native_rgba_sha256": "42db923152e5f29765ae702d5cbb8a21977cfc8cfc9fcb224c1356e514111e85",
+          "eight_connected_alpha128_components": [
+            124,
+            124
+          ]
+        },
+        {
+          "scale": 4,
+          "native_rgba_sha256": "42c6f3610a278c66a0090a1c4aa004ae8787743886ba0196843f94f8814fe2d5",
+          "eight_connected_alpha128_components": [
+            498,
+            498
+          ]
+        }
+      ]
+    },
+    {
+      "id": 295,
+      "density": 4,
+      "exact_RGBA_PNG_HDR1": true,
+      "native": [
+        {
+          "scale": 2,
+          "native_rgba_sha256": "73b8e2f5bdb852aed49a4840c4eec5597fefef459250077d74bd1fa8f7f54b41",
+          "eight_connected_alpha128_components": [
+            126,
+            126
+          ]
+        },
+        {
+          "scale": 4,
+          "native_rgba_sha256": "d01518043d39bc0650bd6ca10d3879f80d3b46027ccd2e2e55b2e2ca2aa117e3",
+          "eight_connected_alpha128_components": [
+            498,
+            498
+          ]
+        }
+      ]
+    },
+    {
+      "id": 294,
+      "density": 8,
+      "exact_RGBA_PNG_HDR1": true,
+      "native": [
+        {
+          "scale": 2,
+          "native_rgba_sha256": "3db9da1099d713395f7e261df4d139b2a23de0ab98f21d560a2ff5aa2550eed8",
+          "eight_connected_alpha128_components": [
+            125,
+            125
+          ]
+        },
+        {
+          "scale": 4,
+          "native_rgba_sha256": "fba05793ad8843568d3b100cf3a46ae4fb13a8dc15b823e6ef3189e0930d0a25",
+          "eight_connected_alpha128_components": [
+            496,
+            496
+          ]
+        }
+      ]
+    },
+    {
+      "id": 295,
+      "density": 8,
+      "exact_RGBA_PNG_HDR1": true,
+      "native": [
+        {
+          "scale": 2,
+          "native_rgba_sha256": "9bdfc0a35256684c4a451eca3fcb219dc2f3d1826da1a84b432d53f8233edcb8",
+          "eight_connected_alpha128_components": [
+            124,
+            124
+          ]
+        },
+        {
+          "scale": 4,
+          "native_rgba_sha256": "f657c15aabb1f2cf52cb58c11374ba4ec281140499d537c49c85b2d9df71c718",
+          "eight_connected_alpha128_components": [
+            499,
+            499
+          ]
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Not actual game output.",
+    "No runtime ownership, support, occlusion, original-shadow or temporal acceptance claim.",
+    "No exact original-area or energy equality claim."
+  ]
+}
