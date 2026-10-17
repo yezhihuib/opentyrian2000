@@ -30,7 +30,7 @@ static void empty(const RearP1State *s,unsigned slot)
 {RearP1Birth b={0};CHECK(!memcmp(&b,&s->birth[slot],sizeof b)&&!s->birth_identity[slot]);}
 static void mutate(RearP1Shot *q,unsigned f)
 {switch(f){case 0:q->gr++;break;case 1:q->ani++;break;case 2:q->ani_max++;break;case 3:q->player++;break;case 4:q->trail--;break;case 5:q->aim++;break;case 6:q->chain++;break;case 7:q->complicated++;break;case 8:q->filter++;break;case 9:q->xm++;break;case 10:q->ym++;break;case 11:q->xc++;break;case 12:q->yc++;break;}}
-typedef struct {unsigned record,power,mode,budget,period,raw[6];int dx[6],dy[6];} Route;
+typedef struct {unsigned record,power,mode,budget,period,raw[7];int dx[7],dy[7];} Route;
 static const Route routes[]={
  {254,0,0,1,2,{39,1},{-10,10},{0,0}},{265,0,1,1,4,{281,282,301,300},{-9,9,9,-9},{-2,-2,2,2}},
  {255,1,0,2,2,{39,1},{-10,10},{0,0}},{266,1,1,2,4,{281,282,301,300},{-9,9,9,-9},{-2,-2,2,2}},
@@ -41,7 +41,8 @@ static const Route routes[]={
  {259,5,0,3,3,{41,3,77},{-10,10,0},{0,0,10}},{270,5,1,5,5,{277,278,183,182,77},{-9,9,6,-6,0},{-2,-2,6,6,10}},
  {260,6,0,4,4,{277,278,297,296},{-9,9,9,-9},{-2,-2,2,2}},
  {271,6,1,5,5,{277,278,295,294,77},{-9,9,6,-6,0},{-2,-2,6,6,10}},
- {261,7,0,6,6,{277,278,297,296,39,1},{-9,9,9,-9,-10,10},{-2,-2,2,2,0,0}}
+ {261,7,0,6,6,{277,278,297,296,39,1},{-9,9,9,-9,-10,10},{-2,-2,2,2,0,0}},
+ {272,7,1,7,7,{277,278,295,294,77,39,1},{-9,9,6,-6,0,-10,10},{-2,-2,6,6,10,0,0}}
 };
 static unsigned route_budget(unsigned power,unsigned mode,unsigned record)
 {for(unsigned i=0;i<sizeof routes/sizeof *routes;i++)if(routes[i].power==power&&routes[i].mode==mode&&routes[i].record==record)return routes[i].budget;return 0;}
@@ -58,7 +59,7 @@ static void admission(RearP1State *s)
  }
  const unsigned members[]={39,1,281,282,301,300,40,2,77,182,183,277,278,41,3,296,297,294,295};
  const unsigned observed[]={39,1,281,282,301,300,40,2,77,182,183,163,164,277,278,41,3,296,297,294,295};
- CHECK(REAR_P1_HEADS==19&&REAR_P1_OBSERVED==21&&REAR_P1_MAX_BUDGET==6&&REAR_P1_SLOTS==80);
+ CHECK(REAR_P1_HEADS==19&&REAR_P1_OBSERVED==21&&REAR_P1_MAX_BUDGET==7&&REAR_P1_SLOTS==80);
  for(unsigned raw=0;raw<8000;raw++){int m=-1,o=-1;for(unsigned i=0;i<19;i++)if(members[i]==raw)m=(int)i;for(unsigned i=0;i<21;i++)if(observed[i]==raw)o=(int)i;CHECK(rear_p1_member(raw)==m&&rear_p1_observed(raw)==o);}
  CHECK(rear_p1_member(UINT_MAX)<0&&rear_p1_observed(UINT_MAX)<0);
 }
@@ -131,7 +132,7 @@ static void coexistence(RearP1State *s)
   rear_p1_call_begin(s,7,10,1,r->power,r->mode,1,r->record,true,true);uint64_t c=rear_p1_create_begin(s,7,10,1,r->record,1);
   rear_p1_emit(s,7,c,1,count,10,1,r->record,1,p,q.gr,&q,true,true,true);rear_p1_create_end(s,c);shots[count]=q;records[count]=r->record;modes[count]=r->mode+1;phases[count]=p;count++;
  }
- CHECK(count==57);
+ CHECK(count==64);
  for(unsigned pi=0;pi<12;pi++)for(unsigned mode=0;mode<3;mode++) {
   rear_p1_call_begin(s,8,10,1,pi,mode,1,(mode?265:254)+pi,true,true);rear_p1_call_end(s);
   for(unsigned i=0;i<count;i++){RearP1Shot *q=&shots[i];bool expected=q->gr!=163&&q->gr!=164;CHECK(rear_p1_current(s,i,q->gr,q->gr,q,true,true,true)==expected);if(expected)CHECK(s->birth[i].record==records[i]&&s->birth[i].mode==modes[i]&&s->birth[i].phase==phases[i]);}
@@ -142,4 +143,4 @@ static void coexistence(RearP1State *s)
  rear_p1_reset(s);for(unsigned i=0;i<80;i++)empty(s,i);
 }
 int main(void)
-{RearP1State s={0};admission(&s);capacities(&s);rejection(&s);leases(&s);integrity(&s);coexistence(&s);printf("Rear P7 mode1 ownership PASS: %u checks; exact260 budget4/period4,100 cyclic capacity designs,80x80 slot reuse,leases,seals,15 routes/57 phases,1260 and wrong-mode271 exclusions\n",checks);return 0;}
+{RearP1State s={0};admission(&s);capacities(&s);rejection(&s);leases(&s);integrity(&s);coexistence(&s);printf("Rear P7 mode1 ownership PASS: %u checks; exact260 budget4/period4,100 cyclic capacity designs,80x80 slot reuse,leases,seals,16 routes/64 phases,1260 and wrong-mode271 exclusions\n",checks);return 0;}
