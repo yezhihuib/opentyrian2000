@@ -272,10 +272,10 @@ static bool admitted(unsigned power,unsigned mode,unsigned record)
 {
  return (power<2&&mode<2&&record==(mode?265:254)+power)||
   (power==2&&mode<2&&record==(mode?267:256))||(power==3&&mode<2&&record==(mode?268:257))||
-  (power==4&&mode<2&&record==(mode?269:258))||(power==5&&mode<2&&record==(mode?270:259))||(power==6&&mode<2&&record==(mode?271:260))||(power==7&&mode<2&&record==(mode?272:261))||(power==8&&mode==0&&record==262);
+  (power==4&&mode<2&&record==(mode?269:258))||(power==5&&mode<2&&record==(mode?270:259))||(power==6&&mode<2&&record==(mode?271:260))||(power==7&&mode<2&&record==(mode?272:261))||(power==8&&mode<2&&record==(mode?273:262));
 }
 static unsigned budget(unsigned power,unsigned mode)
-{return power==8?6:power==7?(mode?7:6):power==6?(mode?5:4):power==5?(mode?5:3):power==4?(mode?4:2):power==3?5:power==2?(mode?4:2):power+1;}
+{return power==8?(mode?7:6):power==7?(mode?7:6):power==6?(mode?5:4):power==5?(mode?5:3):power==4?(mode?4:2):power==3?5:power==2?(mode?4:2):power+1;}
 static void admission(RearP1State *s)
 {
  const unsigned records[]={0,1,50,77,163,164,182,183,253,254,255,256,257,258,259,260,261,262,263,264,
@@ -297,9 +297,9 @@ static void admission(RearP1State *s)
   rear_p1_call_begin(s,7,ports[p],bays[b],5,0,players[u],259,scope!=0,table!=0);CHECK(s->pending==yes);
   rear_p1_call_end(s);clear(s);
  }
- CHECK(REAR_P1_HEADS==19&&REAR_P1_OBSERVED==21&&REAR_P1_MAX_BUDGET==7);
- const unsigned members[]={39,1,281,282,301,300,40,2,77,182,183,277,278,41,3,296,297,294,295};
- const unsigned observations[]={39,1,281,282,301,300,40,2,77,182,183,163,164,277,278,41,3,296,297,294,295};
+ CHECK(REAR_P1_HEADS==21&&REAR_P1_OBSERVED==23&&REAR_P1_MAX_BUDGET==7);
+ const unsigned members[]={39,1,281,282,301,300,40,2,77,182,183,277,278,41,3,296,297,294,295,298,299};
+ const unsigned observations[]={39,1,281,282,301,300,40,2,77,182,183,163,164,277,278,41,3,296,297,294,295,298,299};
  for(unsigned k=0;k<sizeof members/sizeof *members;k++)CHECK(rear_p1_member(members[k])==(int)k);
  for(unsigned k=0;k<sizeof observations/sizeof *observations;k++)CHECK(rear_p1_observed(observations[k])==(int)k);
  for(unsigned raw=0;raw<8000;raw++) {
@@ -483,7 +483,7 @@ static void excluded_sources(RearP1State *s)
  for(unsigned r=0;r<sizeof records/sizeof *records;r++)for(unsigned power=0;power<sizeof powers/sizeof *powers;power++)
  for(unsigned mode=0;mode<3;mode++)for(unsigned port=0;port<sizeof ports/sizeof *ports;port++)
  for(unsigned p=1;p<=PERIOD;p++) {
-  if(records[r]==262&&powers[power]==8&&mode==0&&ports[port]==10)continue; /* Exact P9 mode1 has independent coverage. */
+  if(records[r]==(mode?273u:262u)&&powers[power]==8&&mode<2&&ports[port]==10)continue; /* Exact P9 mode1 has independent coverage. */
   if(records[r]==(mode?272u:261u)&&powers[power]==7&&mode<2&&ports[port]==10)continue; /* Exact P8 mode1 route has its own tests. */
   if(records[r]==(mode?271u:260u)&&powers[power]==6&&ports[port]==10)continue; /* Exact P7 route has its own tests. */
   if(records[r]==270&&powers[power]==5&&mode==1&&ports[port]==10)continue; /* Exact mode2 route has its own test. */

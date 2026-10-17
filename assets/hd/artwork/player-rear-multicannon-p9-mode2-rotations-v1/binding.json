@@ -1,0 +1,149 @@
+{
+  "schema": "rear-multicannon-p9-mode2-rotations-binding-v1",
+  "role": 131,
+  "logical_size": [
+    12,
+    14
+  ],
+  "anchor": [
+    0,
+    0
+  ],
+  "scope": "Ordinary player1 rear10/bay1 power index8 mode index1 exact normal physical record273 only, first-level Normal9/Hard15. Physical alias1273, later powers, alternate banks and generic/shared/linked/shadow consumers excluded.",
+  "phase_sequence": [
+    277,
+    278,
+    295,
+    294,
+    77,
+    298,
+    299
+  ],
+  "density_policy": "Exact startup-selected4/8 only; missing/invalid stays indexed, no cross-density fallback.",
+  "reviewed_build_receipt_sha256": "34cc9eb9117a7311d77804f0a3617ee877033b7abb7dfa06022bc2211d1de6ba",
+  "coordinate_mapping": {
+    "298": [
+      "y",
+      "14*d-1-x"
+    ],
+    "299": [
+      "12*d-1-y",
+      "14*d-1-x"
+    ]
+  },
+  "runtime_qualification": "See docs/REAR_MULTI_P9_MODE2_VALIDATION.md; historical generated-only art checks alone do not establish gameplay qualification.",
+  "resources": [
+    {
+      "source_id": 298,
+      "accepted_source_id": 277,
+      "key": 1310298,
+      "density": 4,
+      "role": 131,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "png": "output/rear-multi-p9-298-4.png",
+      "rgba": "output/rear-multi-p9-298-4.rgba",
+      "package_hda": "output/rear-multi-p9-298-4.hda",
+      "filename": "rear-multicannon-p1-bank8-298-4.hda",
+      "png_sha256": "f280f4f5a34ad0df5304629ed3e752baa2b31a7a76c36056917089828bd80c5d",
+      "rgba_sha256": "68371e142abd88d8961e6e74c2570ececcb6941b8e3f3b5eb079852c742ff3e6",
+      "rgba_fnv1a64": "0x061487c852b091c4",
+      "hda_sha256": "d19f0c076e391c6b691a18b6357347fed9eb4107e0509857589da62b9015d26e",
+      "pack_paths": [
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-298-4.hda",
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-298-4.hda"
+      ],
+      "catalog_source_png": "assets/hd/source/rear-multicannon-p1-bank8-298-4-d19f0c076e39.png"
+    },
+    {
+      "source_id": 298,
+      "accepted_source_id": 277,
+      "key": 1310298,
+      "density": 8,
+      "role": 131,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "png": "output/rear-multi-p9-298-8.png",
+      "rgba": "output/rear-multi-p9-298-8.rgba",
+      "package_hda": "output/rear-multi-p9-298-8.hda",
+      "filename": "rear-multicannon-p1-bank8-298-8.hda",
+      "png_sha256": "49b27a424ff1240032c4c1321029fb96341ce552316dad7a0a0811983d29fb0b",
+      "rgba_sha256": "05c698812953ab0c654eb3a42c6d137894c1f65ddd9a0386182ecb70c7776440",
+      "rgba_fnv1a64": "0xfe0fee22f015d496",
+      "hda_sha256": "8681d82d73102bf9553025d1b875e12d95003f309cc7fa68dac13905dc1bf696",
+      "pack_paths": [
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-298-8.hda",
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-298-8.hda"
+      ],
+      "catalog_source_png": "assets/hd/source/rear-multicannon-p1-bank8-298-8-8681d82d7310.png"
+    },
+    {
+      "source_id": 299,
+      "accepted_source_id": 277,
+      "key": 1310299,
+      "density": 4,
+      "role": 131,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "png": "output/rear-multi-p9-299-4.png",
+      "rgba": "output/rear-multi-p9-299-4.rgba",
+      "package_hda": "output/rear-multi-p9-299-4.hda",
+      "filename": "rear-multicannon-p1-bank8-299-4.hda",
+      "png_sha256": "aada918ad735c7a8e7e1d6f076191560b436801a1167e201b2543a30c656187f",
+      "rgba_sha256": "a7d20ba1245be896c8829d5828d274d953ab18dd38f40c67be1837885ac95604",
+      "rgba_fnv1a64": "0xf997db7d88b22d04",
+      "hda_sha256": "041a484a64ba3b8eed40a8e271268c7d1635650ffa0ae6ab7c3850af7f750f48",
+      "pack_paths": [
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-299-4.hda",
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-299-4.hda"
+      ],
+      "catalog_source_png": "assets/hd/source/rear-multicannon-p1-bank8-299-4-041a484a64ba.png"
+    },
+    {
+      "source_id": 299,
+      "accepted_source_id": 277,
+      "key": 1310299,
+      "density": 8,
+      "role": 131,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "png": "output/rear-multi-p9-299-8.png",
+      "rgba": "output/rear-multi-p9-299-8.rgba",
+      "package_hda": "output/rear-multi-p9-299-8.hda",
+      "filename": "rear-multicannon-p1-bank8-299-8.hda",
+      "png_sha256": "17d6741128448df90dc1e1524a1690078b3d4d2978865fd189e0dc6f0f52ad56",
+      "rgba_sha256": "1099a76516544a68807f9975090aacc90ee75fc472eca6a40f2bb925d106422f",
+      "rgba_fnv1a64": "0xc832a79db1a7d312",
+      "hda_sha256": "9d75458e6ddecbcbd7a7de6f2235ebf67a7a031987521d63d6ec79015ad8a053",
+      "pack_paths": [
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-299-8.hda",
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-299-8.hda"
+      ],
+      "catalog_source_png": "assets/hd/source/rear-multicannon-p1-bank8-299-8-9d75458e6dde.png"
+    }
+  ]
+}

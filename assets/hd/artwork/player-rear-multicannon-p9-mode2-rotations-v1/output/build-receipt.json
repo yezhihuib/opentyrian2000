@@ -1,0 +1,276 @@
+{
+  "schema": "rear-multicannon-p9-mode2-rigid-art-v1",
+  "status": "OFFLINE_CANDIDATE_NOT_INTEGRATED",
+  "logical_size": [
+    12,
+    14
+  ],
+  "anchor": [
+    0,
+    0
+  ],
+  "densities": [
+    4,
+    8
+  ],
+  "source_lineage": "Accepted P5 mode2 generated277/278 exact rational lower-over-upper assembly of accepted generated281/282 vector masters; preserved RGBA as full-density coordinate permutation.",
+  "mapping": {
+    "298": [
+      "y",
+      "14*d-1-x"
+    ],
+    "299": [
+      "12*d-1-y",
+      "14*d-1-x"
+    ]
+  },
+  "all_supported_RGBA_samples_preserved": true,
+  "alpha_RGB_energy_preserved_exactly": true,
+  "298_299_full_canvas_exact_horizontal_mirrors": true,
+  "no_original_game_data_required": true,
+  "no_original_data_or_captures_in_artifact": true,
+  "no_resampling_filtering_normalization_recoloring": true,
+  "outputs": [
+    {
+      "id": 298,
+      "role": 131,
+      "key": 1310298,
+      "density": 4,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "source_id": 277,
+      "rgba": "rear-multi-p9-298-4.rgba",
+      "rgba_sha256": "68371e142abd88d8961e6e74c2570ececcb6941b8e3f3b5eb079852c742ff3e6",
+      "rgba_fnv1a64": "061487c852b091c4",
+      "png": "rear-multi-p9-298-4.png",
+      "png_sha256": "f280f4f5a34ad0df5304629ed3e752baa2b31a7a76c36056917089828bd80c5d",
+      "hda": "rear-multi-p9-298-4.hda",
+      "hda_sha256": "d19f0c076e391c6b691a18b6357347fed9eb4107e0509857589da62b9015d26e",
+      "mapped_source_samples": 2304,
+      "clipped_transparent_black_samples": 384,
+      "clipped_nonzero_RGBA_samples": 0,
+      "source_stats": {
+        "alpha_bounds_exclusive": [
+          0,
+          0,
+          44,
+          40
+        ],
+        "alpha_sum": 205342,
+        "alpha_nonzero_samples": 989,
+        "fractional_alpha_samples": 395,
+        "premultiplied_RGB_numerators": [
+          51503694,
+          30478965,
+          7669373
+        ],
+        "transparent_black_canonical": true
+      },
+      "output_stats": {
+        "alpha_bounds_exclusive": [
+          0,
+          12,
+          40,
+          56
+        ],
+        "alpha_sum": 205342,
+        "alpha_nonzero_samples": 989,
+        "fractional_alpha_samples": 395,
+        "premultiplied_RGB_numerators": [
+          51503694,
+          30478965,
+          7669373
+        ],
+        "transparent_black_canonical": true
+      }
+    },
+    {
+      "id": 299,
+      "role": 131,
+      "key": 1310299,
+      "density": 4,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "source_id": 277,
+      "rgba": "rear-multi-p9-299-4.rgba",
+      "rgba_sha256": "a7d20ba1245be896c8829d5828d274d953ab18dd38f40c67be1837885ac95604",
+      "rgba_fnv1a64": "f997db7d88b22d04",
+      "png": "rear-multi-p9-299-4.png",
+      "png_sha256": "aada918ad735c7a8e7e1d6f076191560b436801a1167e201b2543a30c656187f",
+      "hda": "rear-multi-p9-299-4.hda",
+      "hda_sha256": "041a484a64ba3b8eed40a8e271268c7d1635650ffa0ae6ab7c3850af7f750f48",
+      "mapped_source_samples": 2304,
+      "clipped_transparent_black_samples": 384,
+      "clipped_nonzero_RGBA_samples": 0,
+      "source_stats": {
+        "alpha_bounds_exclusive": [
+          0,
+          0,
+          44,
+          40
+        ],
+        "alpha_sum": 205342,
+        "alpha_nonzero_samples": 989,
+        "fractional_alpha_samples": 395,
+        "premultiplied_RGB_numerators": [
+          51503694,
+          30478965,
+          7669373
+        ],
+        "transparent_black_canonical": true
+      },
+      "output_stats": {
+        "alpha_bounds_exclusive": [
+          8,
+          12,
+          48,
+          56
+        ],
+        "alpha_sum": 205342,
+        "alpha_nonzero_samples": 989,
+        "fractional_alpha_samples": 395,
+        "premultiplied_RGB_numerators": [
+          51503694,
+          30478965,
+          7669373
+        ],
+        "transparent_black_canonical": true
+      }
+    },
+    {
+      "id": 298,
+      "role": 131,
+      "key": 1310298,
+      "density": 8,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "source_id": 277,
+      "rgba": "rear-multi-p9-298-8.rgba",
+      "rgba_sha256": "05c698812953ab0c654eb3a42c6d137894c1f65ddd9a0386182ecb70c7776440",
+      "rgba_fnv1a64": "fe0fee22f015d496",
+      "png": "rear-multi-p9-298-8.png",
+      "png_sha256": "49b27a424ff1240032c4c1321029fb96341ce552316dad7a0a0811983d29fb0b",
+      "hda": "rear-multi-p9-298-8.hda",
+      "hda_sha256": "8681d82d73102bf9553025d1b875e12d95003f309cc7fa68dac13905dc1bf696",
+      "mapped_source_samples": 9216,
+      "clipped_transparent_black_samples": 1536,
+      "clipped_nonzero_RGBA_samples": 0,
+      "source_stats": {
+        "alpha_bounds_exclusive": [
+          0,
+          0,
+          88,
+          80
+        ],
+        "alpha_sum": 837512,
+        "alpha_nonzero_samples": 3739,
+        "fractional_alpha_samples": 1231,
+        "premultiplied_RGB_numerators": [
+          209981802,
+          123324094,
+          30883550
+        ],
+        "transparent_black_canonical": true
+      },
+      "output_stats": {
+        "alpha_bounds_exclusive": [
+          0,
+          24,
+          80,
+          112
+        ],
+        "alpha_sum": 837512,
+        "alpha_nonzero_samples": 3739,
+        "fractional_alpha_samples": 1231,
+        "premultiplied_RGB_numerators": [
+          209981802,
+          123324094,
+          30883550
+        ],
+        "transparent_black_canonical": true
+      }
+    },
+    {
+      "id": 299,
+      "role": 131,
+      "key": 1310299,
+      "density": 8,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "source_id": 277,
+      "rgba": "rear-multi-p9-299-8.rgba",
+      "rgba_sha256": "1099a76516544a68807f9975090aacc90ee75fc472eca6a40f2bb925d106422f",
+      "rgba_fnv1a64": "c832a79db1a7d312",
+      "png": "rear-multi-p9-299-8.png",
+      "png_sha256": "17d6741128448df90dc1e1524a1690078b3d4d2978865fd189e0dc6f0f52ad56",
+      "hda": "rear-multi-p9-299-8.hda",
+      "hda_sha256": "9d75458e6ddecbcbd7a7de6f2235ebf67a7a031987521d63d6ec79015ad8a053",
+      "mapped_source_samples": 9216,
+      "clipped_transparent_black_samples": 1536,
+      "clipped_nonzero_RGBA_samples": 0,
+      "source_stats": {
+        "alpha_bounds_exclusive": [
+          0,
+          0,
+          88,
+          80
+        ],
+        "alpha_sum": 837512,
+        "alpha_nonzero_samples": 3739,
+        "fractional_alpha_samples": 1231,
+        "premultiplied_RGB_numerators": [
+          209981802,
+          123324094,
+          30883550
+        ],
+        "transparent_black_canonical": true
+      },
+      "output_stats": {
+        "alpha_bounds_exclusive": [
+          16,
+          24,
+          96,
+          112
+        ],
+        "alpha_sum": 837512,
+        "alpha_nonzero_samples": 3739,
+        "fractional_alpha_samples": 1231,
+        "premultiplied_RGB_numerators": [
+          209981802,
+          123324094,
+          30883550
+        ],
+        "transparent_black_canonical": true
+      }
+    }
+  ],
+  "limitations": [
+    "Offline transform proof and previews only. No ownership/compositor/gameplay/runtime acceptance.",
+    "Native sampling is performed on the transformed full-density resource. Transform after native sampling is not equivalent because of phase differences.",
+    "No new artistic geometry: exact rotation/canvas placement is justified by separately verified authentic original source indices and coverage."
+  ]
+}

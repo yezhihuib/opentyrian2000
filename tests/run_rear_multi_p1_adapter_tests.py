@@ -39,7 +39,7 @@ linked=(root/'src/varz.c').read_text();route=re.search(r'const JE_word linkGunWe
 baseline='\n'.join(line for line in create.split('\n') if 'rear_p1_' not in line)
 (out/'create_baseline.inc').write_text(baseline.replace('player_shot_create(', 'baseline_shot_create(', 1))
 (out/'wrapper.inc').write_text(extract((root/'src/entity_draw.c').read_text(),'draw_player_shot_sprite2'))
-ids=[39,1,281,282,301,300,40,2,77,182,183,277,278,41,3,296,297,294,295]
+ids=[39,1,281,282,301,300,40,2,77,182,183,277,278,41,3,296,297,294,295,298,299]
 observed=ids[:11]+[163,164]+ids[11:]
 bank=bytearray(602);pins=[]
 for k,i in enumerate(observed):
@@ -135,6 +135,13 @@ r=struct.pack('<HBBHBBBB8B8B8b8b8b8b8HbbBBBB',0x124a,6,6,0,6,5,6,0,
  *[0,0,0,0,0,0,126,-2],*[277,278,297,296,41,3,0xfa20,302],0,0,0,25,255,208)
 assert len(r)==80
 records.append(r);recordpins.append(fnv(r))
+# P9 mode2 seven-shot fixture; deliberately unique unused full80 tail.
+r=struct.pack('<HBBHBBBB8B8B8b8b8b8b8HbbBBBB',0x124b,6,7,0,7,5,6,0,
+ *([2,2,2,2,1,2,2,11]),*([255]*8),*[-9,9,6,-6,0,-2,2,-3],
+ *[2,2,-6,-6,-10,-9,-9,-3],*[-2,2,4,-4,0,-4,4,-3],
+ *[0,0,0,0,0,0,0,-3],*[277,278,295,294,77,298,299,0xfb21],0,0,0,25,255,208)
+assert len(r)==80
+records.append(r);recordpins.append(fnv(r))
 (out/'records.bin').write_bytes(b''.join(records))
 resources=out/'full';resources.mkdir();rgba_pins=[]
 for k,i in enumerate(ids):
@@ -212,6 +219,17 @@ for d in (4,8):
  for phase,i in enumerate([277,278,297,296,41,3],1):
   for kind in (0,1):
    dest=out/f'p9m1-isolation-{d}-{phase}-{kind}';dest.mkdir()
+   for source in resources.glob('*.hda'):
+    selected=source.name==f'rear-multicannon-p1-bank8-{i}-{d}.hda'
+    if selected and kind==0:continue
+    raw=bytearray(source.read_bytes())
+    if selected:raw[-1]^=1
+    (dest/source.name).write_bytes(raw)
+# Every P9 mode2 resource independently missing/corrupt, including new tails.
+for d in (4,8):
+ for phase,i in enumerate([277,278,295,294,77,298,299],1):
+  for kind in (0,1):
+   dest=out/f'p9m2-isolation-{d}-{phase}-{kind}';dest.mkdir()
    for source in resources.glob('*.hda'):
     selected=source.name==f'rear-multicannon-p1-bank8-{i}-{d}.hda'
     if selected and kind==0:continue

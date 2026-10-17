@@ -98,7 +98,10 @@ def over(back, front):
 catalog = json.loads((ROOT / 'assets/hd/manifest.json').read_text())
 from rear_multi_p7_asset_projection import project_p7
 from rear_multi_p7_mode2_asset_projection import project_p7_mode2
+from rear_multi_p9_mode2_asset_projection import project_p9_mode2
+catalog, p9_mode2_paths = project_p9_mode2(ROOT, catalog)
 catalog, p7_mode2_paths = project_p7_mode2(ROOT, catalog)
+p7_mode2_paths |= p9_mode2_paths
 catalog, p7_paths = project_p7(ROOT, catalog)
 p7_paths |= p7_mode2_paths
 family = catalog[FAMILY]

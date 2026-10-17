@@ -62,7 +62,10 @@ for obj in [pins, binding, contract]:
 catalog = json.loads((root / 'assets/hd/manifest.json').read_text())
 from rear_multi_p7_asset_projection import project_p7
 from rear_multi_p7_mode2_asset_projection import project_p7_mode2
+from rear_multi_p9_mode2_asset_projection import project_p9_mode2
+catalog, p9_mode2_paths = project_p9_mode2(root, catalog)
 catalog, p7_mode2_paths = project_p7_mode2(root, catalog)
+p7_mode2_paths |= p9_mode2_paths
 catalog, p7_paths = project_p7(root, catalog)
 p7_paths |= p7_mode2_paths
 family_name = 'player_rear_multicannon_p4_mode2_down_diagonals_v1'

@@ -6,9 +6,10 @@ from PIL import Image
 from rear_multi_p7_mode2_asset_projection import project_p7_mode2,PACKAGE
 ROOT=Path(__file__).resolve().parents[1];ART=ROOT/PACKAGE
 sha=lambda b:hashlib.sha256(b).hexdigest()
-catalog=json.loads((ROOT/'assets/hd/manifest.json').read_text());baseline,newpaths=project_p7_mode2(ROOT,catalog)
+from rear_multi_p9_mode2_asset_projection import project_p9_mode2
+catalog=json.loads((ROOT/'assets/hd/manifest.json').read_text());catalog,newerpaths=project_p9_mode2(ROOT,catalog);baseline,newpaths=project_p7_mode2(ROOT,catalog)
 assert len(newpaths)==37
-old={str(p.relative_to(ROOT)):sha(p.read_bytes())for p in(ROOT/'assets').rglob('*')if p.is_file()and str(p.relative_to(ROOT))not in newpaths|{'assets/hd/manifest.json'}}
+old={str(p.relative_to(ROOT)):sha(p.read_bytes())for p in(ROOT/'assets').rglob('*')if p.is_file()and str(p.relative_to(ROOT))not in newpaths|newerpaths|{'assets/hd/manifest.json'}}
 assert len(old)==7150
 assert sha(''.join(n+'\0'+h+'\n'for n,h in sorted(old.items())).encode())=='815f9d31db1504784db46475a8ef8267b398a3b6f2c6cfb107a050ad942e7ebf'
 binding=json.loads((ART/'binding.json').read_text());pins=json.loads((ART/'pins.json').read_text())
@@ -45,7 +46,7 @@ for d in[4,8]:
  a,b=payloads[294,d],payloads[295,d];w,h=12*d,14*d
  assert all(a[4*(y*w+x):4*(y*w+x+1)]==b[4*(y*w+w-1-x):4*(y*w+w-x)]for y in range(h)for x in range(w))
 macro=(ROOT/'src/rear_multi_p1_pins.h').read_text().split('#define REAR_P1_RGBA_PINS ',1)[1].split('\n',1)[0]
-assert[int(s,16)for s in re.findall(r'UINT64_C\(0x([0-9a-f]+)\)',macro)][-4:]==fnvs
+assert[int(s,16)for s in re.findall(r'UINT64_C\(0x([0-9a-f]+)\)',macro)][34:38]==fnvs
 for p in ART.rglob('*'):
  if p.is_file()and p.suffix in['.json','.cjs','.md','.svg']:
   assert not re.search(r'/workspace/|/home/agent/|sediment://|libfile_|file_000000|ghp_|github_pat_',p.read_text()),p
