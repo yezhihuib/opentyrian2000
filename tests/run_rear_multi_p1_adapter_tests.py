@@ -128,6 +128,13 @@ r=struct.pack('<HBBHBBBB8B8B8b8b8b8b8HbbBBBB',0x1249,6,7,0,7,5,6,0,
  *[0,0,0,0,0,0,0,-1],*[277,278,295,294,77,39,1,0xfa30],0,0,0,25,255,208)
 assert len(r)==80
 records.append(r);recordpins.append(fnv(r))
+# P9 mode1 synthetic six-shot record: deliberately unique unused full80 tails.
+r=struct.pack('<HBBHBBBB8B8B8b8b8b8b8HbbBBBB',0x124a,6,6,0,6,5,6,0,
+ *([2,2,2,2,1,1,249,12]),*([255]*8),*[-9,9,9,-9,-10,10,126,-2],
+ *[2,2,-2,-2,0,0,126,-2],*[-2,2,2,-2,0,0,126,-2],
+ *[0,0,0,0,0,0,126,-2],*[277,278,297,296,41,3,0xfa20,302],0,0,0,25,255,208)
+assert len(r)==80
+records.append(r);recordpins.append(fnv(r))
 (out/'records.bin').write_bytes(b''.join(records))
 resources=out/'full';resources.mkdir();rgba_pins=[]
 for k,i in enumerate(ids):
@@ -194,6 +201,17 @@ for d in (4,8):
  for phase,i in enumerate([277,278,295,294,77,39,1],1):
   for kind in (0,1):
    dest=out/f'p8m2-isolation-{d}-{phase}-{kind}';dest.mkdir()
+   for source in resources.glob('*.hda'):
+    selected=source.name==f'rear-multicannon-p1-bank8-{i}-{d}.hda'
+    if selected and kind==0:continue
+    raw=bytearray(source.read_bytes())
+    if selected:raw[-1]^=1
+    (dest/source.name).write_bytes(raw)
+# Every P9 reused head independently missing or corrupt at the selected density.
+for d in (4,8):
+ for phase,i in enumerate([277,278,297,296,41,3],1):
+  for kind in (0,1):
+   dest=out/f'p9m1-isolation-{d}-{phase}-{kind}';dest.mkdir()
    for source in resources.glob('*.hda'):
     selected=source.name==f'rear-multicannon-p1-bank8-{i}-{d}.hda'
     if selected and kind==0:continue

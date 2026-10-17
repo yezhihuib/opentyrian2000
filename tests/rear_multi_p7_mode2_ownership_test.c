@@ -42,7 +42,8 @@ static const Route routes[]={
  {260,6,0,4,4,{277,278,297,296},{-9,9,9,-9},{-2,-2,2,2}},
  {271,6,1,5,5,{277,278,295,294,77},{-9,9,6,-6,0},{-2,-2,6,6,10}},
  {261,7,0,6,6,{277,278,297,296,39,1},{-9,9,9,-9,-10,10},{-2,-2,2,2,0,0}},
- {272,7,1,7,7,{277,278,295,294,77,39,1},{-9,9,6,-6,0,-10,10},{-2,-2,6,6,10,0,0}}
+ {272,7,1,7,7,{277,278,295,294,77,39,1},{-9,9,6,-6,0,-10,10},{-2,-2,6,6,10,0,0}},
+ {262,8,0,6,6,{277,278,297,296,41,3},{-9,9,9,-9,-10,10},{-2,-2,2,2,0,0}}
 };
 static unsigned route_budget(unsigned power,unsigned mode,unsigned record)
 {for(unsigned i=0;i<sizeof routes/sizeof *routes;i++)if(routes[i].power==power&&routes[i].mode==mode&&routes[i].record==record)return routes[i].budget;return 0;}
@@ -150,7 +151,7 @@ static void coexistence(RearP1State *s)
   rear_p1_call_begin(s,7,10,1,r->power,r->mode,1,r->record,true,true);uint64_t c=rear_p1_create_begin(s,7,10,1,r->record,1);
   rear_p1_emit(s,7,c,1,count,10,1,r->record,1,p,q.gr,&q,true,true,true);rear_p1_create_end(s,c);shots[count]=q;records[count]=r->record;modes[count]=r->mode+1;phases[count]=p;count++;
  }
- CHECK(count==64);
+ CHECK(count==70);
  for(unsigned pi=0;pi<12;pi++)for(unsigned mode=0;mode<3;mode++) {
   rear_p1_call_begin(s,8,10,1,pi,mode,1,(mode?265:254)+pi,true,true);rear_p1_call_end(s);
   for(unsigned i=0;i<count;i++){RearP1Shot *q=&shots[i];bool expected=q->gr!=163&&q->gr!=164;CHECK(rear_p1_current(s,i,q->gr,q->gr,q,true,true,true)==expected);if(expected)CHECK(s->birth[i].record==records[i]&&s->birth[i].mode==modes[i]&&s->birth[i].phase==phases[i]);}
@@ -161,4 +162,4 @@ static void coexistence(RearP1State *s)
  rear_p1_reset(s);for(unsigned i=0;i<80;i++)empty(s,i);
 }
 int main(void)
-{RearP1State s={0};admission(&s);capacities(&s);rejection(&s);leases(&s);integrity(&s);shared_seals(&s);coexistence(&s);printf("Rear P7 mode2 ownership PASS: %u checks; exact271 budget5/period5,180 cyclic capacity designs,80x80 slot reuse,leases,seals,16 routes/64 phases,1271 and wrong-mode260 exclusions\n",checks);return 0;}
+{RearP1State s={0};admission(&s);capacities(&s);rejection(&s);leases(&s);integrity(&s);shared_seals(&s);coexistence(&s);printf("Rear P7 mode2 ownership PASS: %u checks; exact271 budget5/period5,180 cyclic capacity designs,80x80 slot reuse,leases,seals,17 routes/70 phases,1271 and wrong-mode260 exclusions\n",checks);return 0;}
