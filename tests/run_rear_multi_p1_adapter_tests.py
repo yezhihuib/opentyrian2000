@@ -92,6 +92,14 @@ r=struct.pack('<HBBHBBBB8B8B8b8b8b8b8HbbBBBB',0x1244,6,3,0,3,5,6,0,
  *[0,0,0,0,0,-128,127,-1],*[41,3,77,182,183,0x1234,0xff80,301],0,0,0,25,255,208)
 assert len(r)==80
 records.append(r);recordpins.append(fnv(r))
+# P6 mode2 is independently synthetic: five allocations and five phases.
+# Distinct unused tails prevent accidental aliases to P4/P5 fixtures.
+r=struct.pack('<HBBHBBBB8B8B8b8b8b8b8HbbBBBB',0x1245,6,5,0,5,5,6,0,
+ *([2,2,1,1,1,23,253,17]),*([255]*8),*[-9,9,6,-6,0,-128,127,-1],
+ *[2,2,-6,-6,-10,-128,127,-1],*[-2,2,4,-4,0,-128,127,-1],
+ *[0,0,0,0,0,-128,127,-1],*[277,278,183,182,77,0x4321,0xfe70,300],0,0,0,25,255,208)
+assert len(r)==80
+records.append(r);recordpins.append(fnv(r))
 (out/'records.bin').write_bytes(b''.join(records))
 resources=out/'full';resources.mkdir();rgba_pins=[]
 for k,i in enumerate(ids):

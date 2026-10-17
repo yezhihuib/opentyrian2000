@@ -31,10 +31,10 @@ void rear_p1_call_begin(RearP1State *s,uint64_t tick,unsigned port,unsigned bay,
    (power_index==2&&((mode_index==0&&record==256)||(mode_index==1&&record==267)))||
    (power_index==3&&((mode_index==0&&record==257)||(mode_index==1&&record==268)))||
    (power_index==4&&((mode_index==0&&record==258)||(mode_index==1&&record==269)))||
-   (power_index==5&&mode_index==0&&record==259));
+   (power_index==5&&((mode_index==0&&record==259)||(mode_index==1&&record==270))));
  s->tick=tick;s->record=record;s->mode=mode_index+1;
- /* Exact record budgets: P3=2/4, P4=5/5, P5=2/4; P6 mode1=3. */
- if(s->pending)s->budget=record==259?3:(record==257||record==268)?5:(record==256||record==258)?2:(record==267||record==269)?4:power_index+1;
+ /* Exact record budgets: P3=2/4, P4=5/5, P5=2/4; P6=3/5. */
+ if(s->pending)s->budget=record==259?3:(record==257||record==268||record==270)?5:(record==256||record==258)?2:(record==267||record==269)?4:power_index+1;
 }
 uint64_t rear_p1_create_begin(RearP1State *s,uint64_t tick,unsigned port,unsigned bay,
  unsigned record,unsigned player)
@@ -66,6 +66,10 @@ static bool phase_ok(unsigned record,unsigned phase,unsigned raw)
   static const unsigned observed[3]={41,3,77};
   return phase>=1&&phase<=3&&raw==observed[phase-1];
  }
+ if(record==270) {
+  static const unsigned observed[5]={277,278,183,182,77};
+  return phase>=1&&phase<=5&&raw==observed[phase-1];
+ }
  if(record==269) {
   static const unsigned observed[4]={277,278,183,182};
   return phase>=1&&phase<=4&&raw==observed[phase-1];
@@ -95,7 +99,7 @@ void rear_p1_emit(RearP1State *s,uint64_t tick,uint64_t call,unsigned ordinal,un
  bool lease=s->lease&&s->remaining>0;
  if(s->remaining)--s->remaining;
  if(slot<REAR_P1_SLOTS){memset(&s->birth[slot],0,sizeof(s->birth[slot]));s->birth_identity[slot]=0;}
- unsigned period=s->record==259?3:(s->record==257||s->record==268)?5:s->mode==1?2:4;
+ unsigned period=s->record==259?3:(s->record==257||s->record==268||s->record==270)?5:s->mode==1?2:4;
  bool reused=false;
  for(unsigned i=0;i<s->used_count&&i<REAR_P1_MAX_BUDGET;i++)reused|=s->used_slots[i]==slot;
  if(!lease||s->call!=call||s->tick!=tick||ordinal!=s->next_ordinal||

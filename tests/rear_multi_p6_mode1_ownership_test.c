@@ -272,10 +272,10 @@ static bool admitted(unsigned power,unsigned mode,unsigned record)
 {
  return (power<2&&mode<2&&record==(mode?265:254)+power)||
   (power==2&&mode<2&&record==(mode?267:256))||(power==3&&mode<2&&record==(mode?268:257))||
-  (power==4&&mode<2&&record==(mode?269:258))||(power==5&&mode==0&&record==259);
+  (power==4&&mode<2&&record==(mode?269:258))||(power==5&&mode<2&&record==(mode?270:259));
 }
 static unsigned budget(unsigned power,unsigned mode)
-{return power==5?3:power==4?(mode?4:2):power==3?5:power==2?(mode?4:2):power+1;}
+{return power==5?(mode?5:3):power==4?(mode?4:2):power==3?5:power==2?(mode?4:2):power+1;}
 static void admission(RearP1State *s)
 {
  const unsigned records[]={0,1,50,77,163,164,182,183,253,254,255,256,257,258,259,260,261,262,263,264,
@@ -476,13 +476,14 @@ static void source_budgets(RearP1State *s)
 }
 static void excluded_sources(RearP1State *s)
 {
- /* P6 mode2, P7+, and linked ports22/38 record451 cannot borrow the raw
+ /* Wrong-context P6 mode2, P7+, and linked ports22/38 record451 cannot borrow the raw
   * 41/3/77 membership of an admitted P6 birth. Recycling remains destructive. */
  const unsigned records[]={260,261,262,263,264,270,271,272,273,274,275,451,41,3,77,1259,0,UINT_MAX};
  const unsigned powers[]={0,1,2,3,4,5,6,7,8,9,10,11,UINT_MAX},ports[]={10,22,38};
  for(unsigned r=0;r<sizeof records/sizeof *records;r++)for(unsigned power=0;power<sizeof powers/sizeof *powers;power++)
  for(unsigned mode=0;mode<3;mode++)for(unsigned port=0;port<sizeof ports/sizeof *ports;port++)
  for(unsigned p=1;p<=PERIOD;p++) {
+  if(records[r]==270&&powers[power]==5&&mode==1&&ports[port]==10)continue; /* Exact mode2 route has its own test. */
   rear_p1_reset(s);uint64_t c=begin(s);emit(s,c,1,0,p);emit(s,c,2,79,phase(p,2));rear_p1_create_end(s,c);
   rear_p1_call_begin(s,7,ports[port],1,powers[power],mode,1,records[r],true,true);CHECK(!s->pending&&!s->budget);
   c=rear_p1_create_begin(s,7,ports[port],1,records[r],1);CHECK(!s->lease);
@@ -535,6 +536,6 @@ int main(void)
  RearP1State state={0};cyclic_capacities(&state);rejected_allocations(&state);canonical_mismatches(&state);
  every_slot_pair(&state);isolation(&state);admission(&state);one_way_revocation(&state);original_identity_seal(&state);
  source_budgets(&state);excluded_sources(&state);coexistence(&state);
- printf("Rear P6 mode1 ownership PASS: %u checks; three cyclic starts, prior0..3/new0..3 capacities, every80x80 slot pair, exact259 admission/budget3, retained258/259 seals, P6mode2/P7+/linked451 exclusions, unchanged maps and all eleven source tuples\n",checks);
+ printf("Rear P6 mode1 ownership PASS: %u checks; three cyclic starts, prior0..3/new0..3 capacities, every80x80 slot pair, exact259 admission/budget3, retained258/259 seals, wrong-context P6mode2/P7+/linked451 exclusions, unchanged maps and all eleven source tuples\n",checks);
  return 0;
 }
