@@ -1,0 +1,21 @@
+{
+  "schema": "rear-multicannon-p7-mode1-reflections-provenance-v1",
+  "status": "OFFLINE_ART_REVIEW_ACCEPTED_RUNTIME_UNQUALIFIED",
+  "published_baseline_commit": "a4d01b3184ff94ecd99a9fdb03e6ee6647998e67",
+  "published_baseline_tree": "35efc54f0637b2d5177f1fc3fb881c8ad43cb467",
+  "accepted_source_package": "player-rear-multicannon-p5-mode2-twins-v1",
+  "accepted_source_family_repo_path": "assets/hd/artwork/player-rear-multicannon-p5-mode2-twins-v1/output",
+  "accepted_input_files": "The eight pinned composited PNG/RGBA files in inputs.json; no original game pixels, masks, palettes, captures or component files.",
+  "method": "Exact bijective RGBA sample permutation (x,y)->(x,H-1-y); canonical PNG encoding and pinned HDR1 metadata.",
+  "art_proposal_checks": "Every sample, channel sum, alpha sum and premultiplied total preserved at both densities. Full-canvas inverse reflection recovers accepted bytes exactly.",
+  "relocation_checks": "Two clean relocated builds, using default sibling and explicit source routes, reproduce all 13 generated art/receipt/HDR1 files byte-for-byte. Seven failure cases reject before fresh outputs are created.",
+  "native_review_scope": "Static density4/8 direct center-nearest native2x/4x comparisons on declared synthetic brown/cloud backgrounds. Source-derived night transfer formula illustrated with synthetic anchors only. No actual SDL/gameplay qualification.",
+  "acceptance": "Offline visual review accepted the exact pinned 296/297 reflections at both densities and native sample scales. Subsequent runtime qualification is documented separately.",
+  "original_game_data_used_as_builder_input": false,
+  "historical_capture_reads": false,
+  "new_AI_art_generation": false,
+  "production_source_or_catalog_edits": false,
+  "game_launches": false,
+  "uploads_or_publication": false,
+  "stage": "Historical offline art generation and visual review; subsequent production binding and runtime evidence are separate."
+}

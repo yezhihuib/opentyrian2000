@@ -182,9 +182,9 @@ static void canonical_mismatches(RearP1State *s)
 {
  /* Raw/live fields agree: exact phase provenance must independently reject
   * all other known heads, including existing drawable and generic roles. */
- const unsigned rawids[]={39,1,281,282,301,300,40,2,77,182,183,163,164,277,278,41,3};
- const int vx[]={-10,10,-9,9,9,-9,-10,10,0,-6,6,-6,6,-9,9,-10,10};
- const int vy[]={0,0,-2,-2,2,2,0,0,10,6,6,-6,-6,-2,-2,0,0};
+ const unsigned rawids[]={39,1,281,282,301,300,40,2,77,182,183,163,164,277,278,41,3,296,297};
+ const int vx[]={-10,10,-9,9,9,-9,-10,10,0,-6,6,-6,6,-9,9,-10,10,-9,9};
+ const int vy[]={0,0,-2,-2,2,2,0,0,10,6,6,-6,-6,-2,-2,0,0,2,2};
  for(unsigned start=1;start<=PERIOD;start++)for(unsigned bad=1;bad<=BUDGET;bad++)
  for(unsigned k=0;k<sizeof rawids/sizeof *rawids;k++) {
   unsigned p=phase(start,bad);if(rawids[k]==ids[p-1])continue;
@@ -281,10 +281,10 @@ static bool admitted(unsigned power,unsigned mode,unsigned record)
 {
  return (power<2&&mode<2&&record==(mode?265:254)+power)||
   (power==2&&mode<2&&record==(mode?267:256))||(power==3&&mode<2&&record==(mode?268:257))||
-  (power==4&&mode<2&&record==(mode?269:258))||(power==5&&mode<2&&record==(mode?270:259));
+  (power==4&&mode<2&&record==(mode?269:258))||(power==5&&mode<2&&record==(mode?270:259))||(power==6&&mode==0&&record==260);
 }
 static unsigned budget(unsigned power,unsigned mode)
-{return power==5?(mode?5:3):power==4?(mode?4:2):power==3?5:power==2?(mode?4:2):power+1;}
+{return power==6?4:power==5?(mode?5:3):power==4?(mode?4:2):power==3?5:power==2?(mode?4:2):power+1;}
 static void admission(RearP1State *s)
 {
  const unsigned records[]={0,1,50,77,163,164,182,183,253,254,255,256,257,258,259,260,261,262,263,264,
@@ -306,9 +306,9 @@ static void admission(RearP1State *s)
   rear_p1_call_begin(s,7,ports[p],bays[b],5,1,players[u],270,scope!=0,table!=0);CHECK(s->pending==yes);
   rear_p1_call_end(s);clear(s);
  }
- CHECK(REAR_P1_HEADS==15&&REAR_P1_OBSERVED==17&&REAR_P1_MAX_BUDGET==5);
- const unsigned members[]={39,1,281,282,301,300,40,2,77,182,183,277,278,41,3};
- const unsigned observations[]={39,1,281,282,301,300,40,2,77,182,183,163,164,277,278,41,3};
+ CHECK(REAR_P1_HEADS==17&&REAR_P1_OBSERVED==19&&REAR_P1_MAX_BUDGET==5);
+ const unsigned members[]={39,1,281,282,301,300,40,2,77,182,183,277,278,41,3,296,297};
+ const unsigned observations[]={39,1,281,282,301,300,40,2,77,182,183,163,164,277,278,41,3,296,297};
  for(unsigned k=0;k<sizeof members/sizeof *members;k++)CHECK(rear_p1_member(members[k])==(int)k);
  for(unsigned k=0;k<sizeof observations/sizeof *observations;k++)CHECK(rear_p1_observed(observations[k])==(int)k);
  for(unsigned raw=0;raw<8000;raw++) {

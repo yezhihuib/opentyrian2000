@@ -39,7 +39,7 @@ linked=(root/'src/varz.c').read_text();route=re.search(r'const JE_word linkGunWe
 baseline='\n'.join(line for line in create.split('\n') if 'rear_p1_' not in line)
 (out/'create_baseline.inc').write_text(baseline.replace('player_shot_create(', 'baseline_shot_create(', 1))
 (out/'wrapper.inc').write_text(extract((root/'src/entity_draw.c').read_text(),'draw_player_shot_sprite2'))
-ids=[39,1,281,282,301,300,40,2,77,182,183,277,278,41,3]
+ids=[39,1,281,282,301,300,40,2,77,182,183,277,278,41,3,296,297]
 observed=ids[:11]+[163,164]+ids[11:]
 bank=bytearray(602);pins=[]
 for k,i in enumerate(observed):
@@ -100,6 +100,13 @@ r=struct.pack('<HBBHBBBB8B8B8b8b8b8b8HbbBBBB',0x1245,6,5,0,5,5,6,0,
  *[0,0,0,0,0,-128,127,-1],*[277,278,183,182,77,0x4321,0xfe70,300],0,0,0,25,255,208)
 assert len(r)==80
 records.append(r);recordpins.append(fnv(r))
+# P7 mode1 has four reflected twin phases; all fixture bytes remain synthetic.
+r=struct.pack('<HBBHBBBB8B8B8b8b8b8b8HbbBBBB',0x1246,6,4,0,4,5,6,0,
+ *([2,2,2,2,197,22,252,16]),*([255]*8),*[-9,9,9,-9,0,-128,127,-1],
+ *[2,2,-2,-2,0,-128,127,-1],*[-2,2,2,-2,0,-128,127,-1],
+ *[0,0,0,0,0,-128,127,-1],*[277,278,297,296,77,0x3412,0xfd60,301],0,0,0,25,255,208)
+assert len(r)==80
+records.append(r);recordpins.append(fnv(r))
 (out/'records.bin').write_bytes(b''.join(records))
 resources=out/'full';resources.mkdir();rgba_pins=[]
 for k,i in enumerate(ids):
@@ -132,6 +139,15 @@ for d in (4,8):
    otherd=8 if d==4 else 4
    (p/f'rear-multicannon-p1-bank8-{i}-{otherd}.hda').write_bytes((resources/f'rear-multicannon-p1-bank8-{i}-{otherd}.hda').read_bytes())
    variants.append((name,observed.index(i),d))
+# Isolation negatives keep every other exact resource present.
+for d in (4,8):
+ for mask in (1,2,3):
+  dest=out/f'p7-isolation-{d}-{mask}';dest.mkdir()
+  for source in resources.glob('*.hda'):
+   if source.name==f'rear-multicannon-p1-bank8-296-{d}.hda' and mask&1:continue
+   raw=bytearray(source.read_bytes())
+   if source.name==f'rear-multicannon-p1-bank8-297-{d}.hda' and mask&2:raw[-1]^=1
+   (dest/source.name).write_bytes(raw)
 reload=out/'reload';reload.mkdir()
 for p in resources.glob('*.hda'):(reload/p.name).write_bytes(p.read_bytes())
 (out/'variants.inc').write_text('static const struct {const char*name;unsigned member;int density;} variants[]={'+','.join('{"%s",%d,%d}'%v for v in variants)+'};\n')

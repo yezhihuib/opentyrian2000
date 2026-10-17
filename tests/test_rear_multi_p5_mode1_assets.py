@@ -122,6 +122,8 @@ for row, old in zip(pins['accepted_inputs'], frozen['inputs']):
     assert all(p[3] or p == (0, 0, 0, 0) for p in accepted[i, d])
 
 catalog = json.loads((ROOT / 'assets/hd/manifest.json').read_text())
+from rear_multi_p7_asset_projection import project_p7
+catalog, p7_paths = project_p7(ROOT, catalog)
 family = catalog[FAMILY]
 packs = {catalog['default_preview_pack'], catalog['default_debug_pack']}
 assert family['source'] == str(ART.relative_to(ROOT))
@@ -232,7 +234,7 @@ assert len(catalog['source_pngs']) == 658 and sum(p['count'] for p in catalog['p
 assert all(catalog['packs'][p]['count'] == 605 for p in packs)
 assert len({r['path'] for r in catalog['source_pngs'].values()}) == 658
 assert len({r['sha256'] for r in catalog['source_pngs'].values()}) == 654
-physical_sources = list((ROOT / 'assets/hd/source').glob('*.png'))
+physical_sources = [p for p in (ROOT / 'assets/hd/source').glob('*.png') if str(p.relative_to(ROOT)) not in p7_paths]
 assert len(physical_sources) == 724 and len({SHA(p.read_bytes()) for p in physical_sources}) == 718
 pack_sources = {r['source_png'] for p in catalog['packs'].values() for r in p['files'].values()}
 assert len(pack_sources) == 617 and len({SHA((ROOT / p).read_bytes()) for p in pack_sources}) == 613
@@ -244,7 +246,7 @@ for row in binding['resources']:
         inverse['packs'][pack]['files'].pop(row['filename']); inverse['packs'][pack]['count'] -= 1
 assert SHA((json.dumps(inverse, indent=2) + '\n').encode()) == provenance['baseline_catalog_sha256'] == BASE_CATALOG
 old_assets = {str(p.relative_to(ROOT)): SHA(p.read_bytes()) for p in (ROOT / 'assets').rglob('*')
-              if p.is_file() and str(p.relative_to(ROOT)) not in new_paths | {'assets/hd/manifest.json'}}
+              if p.is_file() and str(p.relative_to(ROOT)) not in new_paths | p7_paths | {'assets/hd/manifest.json'}}
 assert len(old_assets) == provenance['old_non_manifest_assets'] == 7093
 assert SHA(''.join(p + '\0' + h + '\n' for p, h in sorted(old_assets.items())).encode()) == provenance['old_assets_path_sha256_inventory_digest'] == BASE_ASSETS
 

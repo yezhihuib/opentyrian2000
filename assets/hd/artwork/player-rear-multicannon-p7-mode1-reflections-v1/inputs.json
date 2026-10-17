@@ -1,0 +1,54 @@
+{
+  "schema": "rear-multicannon-p7-mode1-reflection-inputs-v1",
+  "published_baseline": "a4d01b3184ff94ecd99a9fdb03e6ee6647998e67",
+  "published_tree": "35efc54f0637b2d5177f1fc3fb881c8ad43cb467",
+  "accepted_package": "player-rear-multicannon-p5-mode2-twins-v1",
+  "source_family_repo_path": "assets/hd/artwork/player-rear-multicannon-p5-mode2-twins-v1/output",
+  "logical_size": [
+    12,
+    14
+  ],
+  "anchor": [
+    0,
+    0
+  ],
+  "operation": "whole-canvas vertical reflection of the already-composited accepted lower_over_upper twin",
+  "resources": [
+    {
+      "accepted_id": 277,
+      "target_id": 296,
+      "density": 4,
+      "png_name": "rear-multi-277-4-lower_over_upper.png",
+      "png_sha256": "96d2afe30ca79ad058e205e0783de8c9b6d50c2204c1f26734f82584271c4cec",
+      "rgba_name": "rear-multi-277-4-lower_over_upper.rgba",
+      "rgba_sha256": "45ba353dbc163224e0b183e142f7a4c8ac1f71a36274dfb5524fed51443480ed"
+    },
+    {
+      "accepted_id": 277,
+      "target_id": 296,
+      "density": 8,
+      "png_name": "rear-multi-277-8-lower_over_upper.png",
+      "png_sha256": "72721e9e06c9c6d268766f95d9ac65e28482a080fe9abef2ced08c8dced0463b",
+      "rgba_name": "rear-multi-277-8-lower_over_upper.rgba",
+      "rgba_sha256": "75b03b20070976edcb7ad330aec1f8754ae47eef70c88f7307efacb92608fdf6"
+    },
+    {
+      "accepted_id": 278,
+      "target_id": 297,
+      "density": 4,
+      "png_name": "rear-multi-278-4-lower_over_upper.png",
+      "png_sha256": "3e65188e0c8fc823e60fa7e05809d672a87c481dda45dc0e58e33314f7e7725c",
+      "rgba_name": "rear-multi-278-4-lower_over_upper.rgba",
+      "rgba_sha256": "e111cb772f63599ee7588fd9bfd743b14c0dd27d04ea9be0fd90dd700ebc05c8"
+    },
+    {
+      "accepted_id": 278,
+      "target_id": 297,
+      "density": 8,
+      "png_name": "rear-multi-278-8-lower_over_upper.png",
+      "png_sha256": "e6a45a6bb6c877cae3ab8873e441575b3d64ce2feacf788c8950ee1111cfe41b",
+      "rgba_name": "rear-multi-278-8-lower_over_upper.rgba",
+      "rgba_sha256": "d9c8d8468785ac51d3d5d47c0a8069640225a01bf331501eaa004272746e0757"
+    }
+  ]
+}

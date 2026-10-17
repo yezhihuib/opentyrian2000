@@ -60,6 +60,8 @@ for obj in [pins, binding, contract]:
     assert [(a['accepted_source_id'], a['source_id'], a['density'], a['key'])
             for a in obj['resources']] == [(163, 182, 8, 1310182), (164, 183, 8, 1310183)]
 catalog = json.loads((root / 'assets/hd/manifest.json').read_text())
+from rear_multi_p7_asset_projection import project_p7
+catalog, p7_paths = project_p7(root, catalog)
 family_name = 'player_rear_multicannon_p4_mode2_down_diagonals_v1'
 family = catalog[family_name]
 assert family['source'] == str(art.relative_to(root))
@@ -155,7 +157,7 @@ for pack in packs:
 
 # Later P5 twins are an explicitly bounded additive family. Remove only those
 # verified additions before retaining this historical P4 inverse and inventory.
-later_paths = set()
+later_paths = set(p7_paths)
 inverse = copy.deepcopy(catalog)
 # The later P5 mode1 triples are a separately verified, exact additive family.
 # Strip only its bounded 29 new paths before preserving the historical hashes.
@@ -192,7 +194,7 @@ if triple_name in inverse:
             assert entry['sha256'] == row['hda_sha256'] and entry['header_u32'] == [1310000 + i, d, 12, 14, 0, 0]
             inverse['packs'][pack]['count'] -= 1
             later_paths.add(str(Path('assets/hd/packs') / pack / row['filename']))
-    assert len(later_paths) == 29
+    assert len(later_paths) == 29 + len(p7_paths)
     assert sha((json.dumps(inverse, indent=2) + '\n').encode()) == '71e3e7a1a0afdfac7232573ed20be0111d891d33360b7884d1c8bd088731000a'
 later_name = 'player_rear_multicannon_p5_mode2_twins_v1'
 if later_name in inverse:

@@ -96,6 +96,8 @@ def over(back, front):
 
 
 catalog = json.loads((ROOT / 'assets/hd/manifest.json').read_text())
+from rear_multi_p7_asset_projection import project_p7
+catalog, p7_paths = project_p7(ROOT, catalog)
 family = catalog[FAMILY]
 packs = {catalog['default_preview_pack'], catalog['default_debug_pack']}
 assert family['source'] == str(ART.relative_to(ROOT))
@@ -177,7 +179,7 @@ for row, pin, transformed, case in zip(binding['resources'], pins['resources'], 
             assert not (ROOT / 'assets/hd/packs' / pack / row['filename']).exists()
 assert family['entries'] == [{'id': row['source_id'], 'density': row['density'], 'HDA_sha256': row['hda_sha256']} for row in binding['resources']]
 inverse = copy.deepcopy(catalog)
-later_paths = set()
+later_paths = set(p7_paths)
 # The later P5 mode1 triples are a separately verified, exact additive family.
 # Strip only its bounded 29 new paths before preserving the historical hashes.
 triple_name = 'player_rear_multicannon_p5_mode1_triples_v1'
@@ -213,7 +215,7 @@ if triple_name in inverse:
             assert entry['sha256'] == row['hda_sha256'] and entry['header_u32'] == [1310000 + i, d, 12, 14, 0, 0]
             inverse['packs'][pack]['count'] -= 1
             later_paths.add(str(Path('assets/hd/packs') / pack / row['filename']))
-    assert len(later_paths) == 29
+    assert len(later_paths) == 29 + len(p7_paths)
     assert SHA((json.dumps(inverse, indent=2) + '\n').encode()) == '71e3e7a1a0afdfac7232573ed20be0111d891d33360b7884d1c8bd088731000a'
 assert len(inverse['source_pngs']) == 654 and sum(p['count'] for p in inverse['packs'].values()) == 3438
 assert all(inverse['packs'][p]['count'] == 601 for p in packs)
