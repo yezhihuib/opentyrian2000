@@ -154,7 +154,7 @@ static void isolation(RearP1State *s)
 }
 static bool admitted(unsigned power,unsigned mode,unsigned record)
 {
- return (power<2&&mode<2&&record==(mode?265:254)+power)||
+ return (power==10&&mode==1&&record==275)||(power<2&&mode<2&&record==(mode?265:254)+power)||
   (power==2&&mode<2&&record==(mode?267:256))||(power==3&&mode<2&&record==(mode?268:257))||(power==4&&mode<2&&record==(mode?269:258));
 }
 static void admission(RearP1State *s)
@@ -165,7 +165,7 @@ static void admission(RearP1State *s)
  for(unsigned p=0;p<sizeof powers/sizeof *powers;p++)for(unsigned m=0;m<sizeof modes/sizeof *modes;m++)for(unsigned r=0;r<sizeof records/sizeof *records;r++) {
   unsigned power=powers[p],mode=modes[m],record=records[r];bool yes=admitted(power,mode,record);
   rear_p1_call_begin(s,7,10,1,power,mode,1,record,true,true);CHECK(s->pending==yes);
-  CHECK(s->budget==(yes?(power==4?(mode?4:2):power==3?5:power==2?(mode?4:2):power+1):0));
+  CHECK(s->budget==(yes?(power==10?8:power==4?(mode?4:2):power==3?5:power==2?(mode?4:2):power+1):0));
   uint64_t c=rear_p1_create_begin(s,7,10,1,record,1);CHECK(s->lease==yes);
   if(!yes) {emit(s,c,1,0,5);CHECK(!current(s,0,5));clear(s);}else rear_p1_create_end(s,c);
  }

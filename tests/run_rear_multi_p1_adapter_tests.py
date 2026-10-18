@@ -158,6 +158,13 @@ r=struct.pack('<HBBHBBBB8B8B8b8b8b8b8HbbBBBB',0x124d,6,8,0,8,5,6,0,
  *([0]*8),*[277,278,295,294,298,299,39,1],0,0,0,25,255,208)
 assert len(r)==80 and r not in records
 records.append(r);recordpins.append(fnv(r))
+# P11 SECOND is synthetic, with a distinct drain/coordinates/sound identity.
+r=struct.pack('<HBBHBBBB8B8B8b8b8b8b8HbbBBBB',0x124e,6,8,0,8,5,6,0,
+ *([2]*8),*([255]*8),*[-9,9,6,-6,-2,2,-10,10],
+ *[2,2,-6,-6,-9,-9,0,0],*[-2,2,4,-4,-4,4,0,0],
+ *([0]*8),*[277,278,295,294,298,299,40,2],0,0,0,25,255,208)
+assert len(r)==80 and r not in records
+records.append(r);recordpins.append(fnv(r))
 (out/'records.bin').write_bytes(b''.join(records))
 resources=out/'full';resources.mkdir();rgba_pins=[]
 for k,i in enumerate(ids):
@@ -269,6 +276,17 @@ for d in (4,8):
  for phase,i in enumerate([277,278,295,294,298,299,39,1],1):
   for kind in (0,1):
    dest=out/f'p10m2-isolation-{d}-{phase}-{kind}';dest.mkdir()
+   for source in resources.glob('*.hda'):
+    selected=source.name==f'rear-multicannon-p1-bank8-{i}-{d}.hda'
+    if selected and kind==0:continue
+    raw=bytearray(source.read_bytes())
+    if selected:raw[-1]^=1
+    (dest/source.name).write_bytes(raw)
+# Each exact P11 SECOND phase fails independently at its selected density.
+for d in (4,8):
+ for phase,i in enumerate([277,278,295,294,298,299,40,2],1):
+  for kind in (0,1):
+   dest=out/f'p11m2-isolation-{d}-{phase}-{kind}';dest.mkdir()
    for source in resources.glob('*.hda'):
     selected=source.name==f'rear-multicannon-p1-bank8-{i}-{d}.hda'
     if selected and kind==0:continue
