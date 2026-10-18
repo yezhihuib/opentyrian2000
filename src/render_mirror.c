@@ -147,7 +147,9 @@ static bool active,suppress,ready;
 /* One existing normal-data bank8/TILE Vulcan, Multi or Protron shadow command leases
  * this compositor, never a projectile or most-recent head. No Present replay. */
 typedef struct {
- bool live,entered;
+ bool live,entered,rear;
+ unsigned int slot;
+ uint64_t birth_identity,generation;
  SDL_Surface *surface;
  const void *pixels,*canvas_pixels;
  SDL_PixelFormat *format;
@@ -2207,6 +2209,7 @@ static bool draw_asset(int x,int y,Asset *a,int style,const SDL_Rect *part)
 {return draw_asset_filtered(x,y,a,style,part,0,NULL,NULL,NULL);}
 
 #include "rear_multi_p1_mirror.inc"
+#include "rear_multi_p11_shadow.inc"
 
 /* Only record391's original global bank11 small tile can enter this family. */
 static bool cash25_pickup(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int base,int part,int filter,const G101EnemyContext *context)
@@ -2333,10 +2336,10 @@ void render_mirror_shadow_begin(SDL_Surface *surface,int x,int y,Sprite2_array b
  if(!vulcan_shadow.live)return;
  VulcanShadowCall *v=&vulcan_shadow;
  Uint8 source[12*14*2]={0};char path[1024];
- int k=vulcan_shadow_member(v->index);
- if(k<0) {vulcan_shadow_clear();return;}
- Asset *a=&assets[vulcan_shadow_pins[k].slot];
- Asset *coverage=vulcan_shadow_pins[k].coverage_slot?&assets[vulcan_shadow_pins[k].coverage_slot]:a;
+ int k=v->rear?-1:vulcan_shadow_member(v->index);
+ if(!v->rear&&k<0) {vulcan_shadow_clear();return;}
+ Asset *a=v->rear?rear_p11_shadow_current(v,surface,x,y,bank,index):&assets[vulcan_shadow_pins[k].slot];
+ Asset *coverage=v->rear?a:(vulcan_shadow_pins[k].coverage_slot?&assets[vulcan_shadow_pins[k].coverage_slot]:a);
  if(v->entered||xmas||!active||reject_reason||surface!=v->surface||surface!=game_screen||surface!=VGAScreen||
     surface->pixels!=v->pixels||surface->format!=v->format||surface->pitch!=v->pitch||surface->w!=320||surface->h!=200||
     !surface->format||surface->format->BitsPerPixel!=8||surface->format->BytesPerPixel!=1||
@@ -2344,12 +2347,14 @@ void render_mirror_shadow_begin(SDL_Surface *surface,int x,int y,Sprite2_array b
     bank.data!=v->bank_data||bank.size!=v->bank_size||bank.data!=spriteSheet8.data||bank.size!=spriteSheet8.size||
     x!=v->x||y!=v->y||index!=v->index||mirror_logic_tick!=v->tick||
     game_probe_density!=8||game_probe_missing||game_probe_invalid||game_probe_original_reference||!game_probe_assets||
-    !decode_tile(bank,index,source,source+12*14,12,0,0)||vulcan_shadow_stamp(source,sizeof(source))!=vulcan_shadow_pins[k].source||
-    !a->valid||a->bank!=8||a->index!=(int)index||a->w!=12||a->h!=14||a->anchor_x||a->anchor_y||
-    a->density!=8||!a->rgba||a->rgba!=vulcan_shadow_resource[k].rgba||
-    snprintf(path,sizeof(path),"%s/bullet-%u-8.hda",game_probe_assets,index)>=(int)sizeof(path)||
-    strcmp(path,vulcan_shadow_resource[k].path)||vulcan_shadow_stamp(a->rgba,12*14*8*8*4)!=vulcan_shadow_pins[k].rgba||
-    !vulcan_shadow_coverage_valid(k,coverage)||coverage->rgba!=v->shadow_rgba) {
+    !decode_tile(bank,index,source,source+12*14,12,0,0)||
+    (v->rear?(!a||a->rgba!=v->shadow_rgba||memcmp(source+12*14,v->coverage,sizeof(v->coverage))):
+     (vulcan_shadow_stamp(source,sizeof(source))!=vulcan_shadow_pins[k].source||
+      !a->valid||a->bank!=8||a->index!=(int)index||a->w!=12||a->h!=14||a->anchor_x||a->anchor_y||
+      a->density!=8||!a->rgba||a->rgba!=vulcan_shadow_resource[k].rgba||
+      snprintf(path,sizeof(path),"%s/bullet-%u-8.hda",game_probe_assets,index)>=(int)sizeof(path)||
+      strcmp(path,vulcan_shadow_resource[k].path)||vulcan_shadow_stamp(a->rgba,12*14*8*8*4)!=vulcan_shadow_pins[k].rgba||
+      !vulcan_shadow_coverage_valid(k,coverage)||coverage->rgba!=v->shadow_rgba))) {
   if(v->entered)render_mirror_unsupported("vulcan-shadow-command-mismatch");
   else vulcan_shadow_clear();
   return;
@@ -2363,7 +2368,7 @@ void render_mirror_shadow_begin(SDL_Surface *surface,int x,int y,Sprite2_array b
  }
  font_before_effect((SDL_Rect){x,y,12,14});
  if(reject_reason||!v->live)return;
- regions[region_count++]=(HdRegion){{x,y,12,14},8,(int)index,MIRROR_SHADOW,true};
+ regions[region_count++]=(HdRegion){{x,y,12,14},v->rear?ASSET_REAR_MULTI_P1:8,(int)index,MIRROR_SHADOW,true};
  /* Full frozen contours, including their reviewed extra-support8x samples,
   * stay inside the original12x14 rectangle. No indexed writes are added.
   * Coverage blends the existing full-strength operation, including its floor
@@ -2410,6 +2415,7 @@ static bool vulcan_shadow_pixel(SDL_Surface *surface,int x,int y,Uint8 before,Ui
     !canvas||canvas->pixels!=v->canvas_pixels||canvas->pitch!=v->canvas_pitch||canvas->w!=2560||canvas->h!=1600||
     game_probe_density!=8||game_probe_missing||game_probe_invalid||game_probe_original_reference||
     spriteSheet8.data!=v->bank_data||spriteSheet8.size!=v->bank_size||mirror_logic_tick!=v->tick||
+    (v->rear&&!rear_p11_shadow_birth(v))||
     cx<0||cx>=12||cy<0||cy>=14||!v->coverage[cy*12+cx]||before!=v->before[cy*12+cx]||
     after!=(Uint8)((before&0xf0)|((before&15)/2))) {render_mirror_unsupported("vulcan-shadow-write-mismatch");return true;}
  v->coverage[cy*12+cx]=0;

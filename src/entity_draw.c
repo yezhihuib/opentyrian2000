@@ -55,6 +55,24 @@ void draw_player_shot_sprite2(SDL_Surface *target,int x,int y,Sprite2_array bank
  draw_entity_sprite2(target,x,y,bank,index,ENTITY_NORMAL,ENTITY_TILE);
 }
 
+/* The dedicated rear shadow leases only the immediately following original
+ * darken call. Every declined context keeps the exact generic shadow path. */
+void draw_player_shot_shadow_sprite2(SDL_Surface *target,int x,int y,Sprite2_array bank,
+ unsigned index,unsigned slot,unsigned raw)
+{
+#ifndef RENDER_MIRROR_DISABLED
+ if(render_mirror_rear_p11_shadow(target,x,y,bank,index,slot,raw)) {
+  game_probe_draw(8,index,x,y,ENTITY_SHADOW,ENTITY_TILE,true);
+  blit_sprite2_darken(target,x,y,bank,index);
+  render_mirror_entity_end();
+  return;
+ }
+#else
+ (void)slot;(void)raw;
+#endif
+ draw_entity_sprite2(target,x,y,bank,index,ENTITY_SHADOW,ENTITY_TILE);
+}
+
 /* The indexed original always executes once, even after successful HD output. */
 void draw_enemy_shot_sprite2(SDL_Surface *target,int x,int y,Sprite2_array bank,unsigned int index)
 {

@@ -310,7 +310,7 @@ bool player_shot_move_and_draw(
 				if (background2 && *out_shoty + shadowYDist < 190 && tmp_shotXM < 100)
 				{
 					game_probe_shot_draw(shot_id, raw_frame, 8, sprite_frame, *out_shotx+1, *out_shoty + shadowYDist, ENTITY_SHADOW, 12, 14);
-					draw_entity_sprite2(VGAScreen, *out_shotx+1, *out_shoty + shadowYDist, spriteSheet8, sprite_frame, ENTITY_SHADOW, ENTITY_TILE);
+					draw_player_shot_shadow_sprite2(VGAScreen, *out_shotx+1, *out_shoty + shadowYDist, spriteSheet8, sprite_frame, shot_id, raw_frame);
 				}
 				game_probe_shot_draw(shot_id, raw_frame, 8, sprite_frame, *out_shotx+1, *out_shoty, ENTITY_NORMAL, 12, 14);
 				draw_player_shot_sprite2(VGAScreen, *out_shotx+1, *out_shoty, spriteSheet8, sprite_frame, shot_id, raw_frame);

@@ -18,6 +18,7 @@ void draw_entity_sprite2(SDL_Surface *target, int x, int y,
 
 /* Dedicated provenance-gated bank8 normal head; fallback keeps existing roles. */
 void draw_player_shot_sprite2(SDL_Surface *,int x,int y,Sprite2_array,unsigned index,unsigned slot,unsigned raw);
+void draw_player_shot_shadow_sprite2(SDL_Surface *,int x,int y,Sprite2_array,unsigned index,unsigned slot,unsigned raw);
 
 /* Dedicated surviving enemy-shot normal tile; no player-shadow binding. */
 void draw_enemy_shot_sprite2(SDL_Surface *, int x, int y, Sprite2_array, unsigned int index);
