@@ -1,13 +1,13 @@
 /* SPDX-License-Identifier: GPL-2.0-or-later
- * Record260/261/262/263/264/271/272/273/274/275 shadow pilots. Reuse each frozen head alpha, never its RGB.
+ * Record254/255/256/257/258/259/260/261/262/263/264/265/266/267/268/269/270/271/272/273/274/275 shadow pilots. Reuse each frozen head alpha, never its RGB.
  * No global bank8 binding; every command retains its admitted birth identity. */
 static bool rear_p11_shadow_birth(const VulcanShadowCall *v)
 {
  if(!v->rear||v->slot>=REAR_P1_SLOTS||v->generation!=rear_p1_state.generation||
     v->birth_identity!=rear_p1_state.birth_identity[v->slot])return false;
  const RearP1Birth *b=&rear_p1_state.birth[v->slot];
- return b->qualified&&(((b->record==260||b->record==261||b->record==262||b->record==263||b->record==264)&&b->mode==1)||
-   ((b->record==271||b->record==272||b->record==273||b->record==274||b->record==275)&&b->mode==2))&&b->raw==v->index&&
+ return b->qualified&&(((b->record==254||b->record==255||b->record==256||b->record==257||b->record==258||b->record==259||b->record==260||b->record==261||b->record==262||b->record==263||b->record==264)&&b->mode==1)||
+   ((b->record==265||b->record==266||b->record==267||b->record==268||b->record==269||b->record==270||b->record==271||b->record==272||b->record==273||b->record==274||b->record==275)&&b->mode==2))&&b->raw==v->index&&
   b->generation==v->generation;
 }
 
@@ -31,9 +31,9 @@ bool render_mirror_rear_p11_shadow(SDL_Surface *surface,int x,int y,Sprite2_arra
 {
  render_mirror_shadow_end();
  if(slot>=REAR_P1_SLOTS||index!=raw||
-    (rear_p1_state.birth[slot].record!=260&&rear_p1_state.birth[slot].record!=261&&rear_p1_state.birth[slot].record!=262&&
+    (rear_p1_state.birth[slot].record!=254&&rear_p1_state.birth[slot].record!=255&&rear_p1_state.birth[slot].record!=256&&rear_p1_state.birth[slot].record!=257&&rear_p1_state.birth[slot].record!=258&&rear_p1_state.birth[slot].record!=259&&rear_p1_state.birth[slot].record!=260&&rear_p1_state.birth[slot].record!=261&&rear_p1_state.birth[slot].record!=262&&
      rear_p1_state.birth[slot].record!=263&&
-     rear_p1_state.birth[slot].record!=264&&rear_p1_state.birth[slot].record!=271&&
+     rear_p1_state.birth[slot].record!=264&&rear_p1_state.birth[slot].record!=265&&rear_p1_state.birth[slot].record!=266&&rear_p1_state.birth[slot].record!=267&&rear_p1_state.birth[slot].record!=268&&rear_p1_state.birth[slot].record!=269&&rear_p1_state.birth[slot].record!=270&&rear_p1_state.birth[slot].record!=271&&
      rear_p1_state.birth[slot].record!=272&&
      rear_p1_state.birth[slot].record!=273&&
      rear_p1_state.birth[slot].record!=274&&rear_p1_state.birth[slot].record!=275))return false;

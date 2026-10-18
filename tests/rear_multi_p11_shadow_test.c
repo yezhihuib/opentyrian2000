@@ -1,5 +1,5 @@
 /* SPDX-License-Identifier: GPL-2.0-or-later
- * Actual record260/261/262/263/264/271/272/273/274/275 shadow preparation/epoch guards with synthetic fixtures.
+ * Actual record254/255/256/257/258/259/260/261/262/263/264/265/266/267/268/269/270/271/272/273/274/275 shadow preparation/epoch guards with synthetic fixtures.
  * This observer test makes no SDL/compositor or gameplay-runtime claim. */
 #define main previous_adapter_main
 #include "rear_multi_p1_adapter_test.c"
@@ -22,7 +22,19 @@ static const ShadowRole roles[]={
  {261,11,7,0,1120,6,{13,14,18,17,0,1}},
  {272,12,7,1,1200,7,{13,14,20,19,8,0,1}},
  {260,9,6,0,960,4,{13,14,18,17}},
- {271,10,6,1,1040,5,{13,14,20,19,8}}
+ {271,10,6,1,1040,5,{13,14,20,19,8}},
+ {259,7,5,0,800,3,{15,16,8}},
+ {270,8,5,1,880,5,{13,14,10,9,8}},
+ {258,6,4,0,720,2,{15,16}},
+ {269,5,4,1,640,4,{13,14,10,9}},
+ {257,3,3,0,480,5,{2,3,4,5,8}},
+ {268,4,3,1,560,3,{10,9,8}},
+ {256,2,2,0,400,2,{6,7}},
+ {267,2,2,1,320,4,{2,3,4,5}},
+ {254,0,0,0,0,2,{0,1}},
+ {265,0,0,1,80,4,{2,3,4,5}},
+ {255,1,1,0,160,2,{0,1}},
+ {266,1,1,1,240,4,{2,3,4,5}}
 };
 static bool shadow(const ShadowRole*r,unsigned p,unsigned slot){unsigned raw=ids[r->member[p]];return render_mirror_rear_p11_shadow(&surface,playerShotData[slot].shotX+1,playerShotData[slot].shotY+10,spriteSheet8,raw,slot,raw);}
 static void prepare(const ShadowRole*r,unsigned p,unsigned slot,int d){defaults(d,full);region_count=0;background2=true;render_mirror_shadow_end();test_power=r->power;emit(r->member[p],slot);CHECK(rear_p1_state.birth[slot].qualified);}
@@ -33,7 +45,7 @@ static void test_phases(void){
   for(unsigned p=0;p<r->count;p++)for(unsigned slot=0;slot<80;slot++)for(int d=4;d<=8;d+=4){
    prepare(r,p,slot,d);PlayerShotDataType q=playerShotData[slot];Uint8 before[64000];memcpy(before,pixels,sizeof before);uint64_t seal=rear_p1_state.birth_identity[slot];CHECK(shadow(r,p,slot)==(d==8));check_no_write(&q,before,slot);CHECK(!suppress&&seal==rear_p1_state.birth_identity[slot]);
    if(d==8){CHECK(vulcan_shadow.live&&!vulcan_shadow.entered&&vulcan_shadow.rear&&vulcan_shadow.slot==slot&&vulcan_shadow.index==ids[r->member[p]]&&vulcan_shadow.birth_identity==seal);CHECK(rear_p11_shadow_birth(&vulcan_shadow));CHECK(rear_p11_shadow_current(&vulcan_shadow,&surface,101,110,spriteSheet8,ids[r->member[p]]));}
-   render_mirror_shadow_end();CHECK(checked_head(r->member[p],slot));
+   render_mirror_shadow_end();CHECK(checked_head(r->member[p],slot)==(d==8||(r->member[p]!=9&&r->member[p]!=10)));
   }
  }
 }
@@ -151,14 +163,121 @@ static void test_negatives(void){
   }
  }
 }
-static void test_preservation(void){
- /* Shared raws keep their original sealed route; twelve earlier routes stay
-  * outside this finite shadow role, without losing their accepted heads. */
- static const unsigned old[]={254,265,255,266,267,256,257,268,269,258,259,270};
- for(unsigned i=0;i<sizeof old/sizeof *old;i++)for(unsigned p=0;p<weapons[old[i]].max;p++){
-  defaults(8,full);unsigned record=old[i],raw=weapons[record].sg[p],k=(unsigned)rear_p1_observed(raw);CHECK(k<27);make_shot(k,0);unsigned mode=record>=265,power0=mode?record-265:record-254;
-  (render_mirror_rear_p1_call_begin)(10,1,power0,mode,1,record);uint64_t c=render_mirror_rear_p1_create_begin(10,1,record,1);(render_mirror_rear_p1_emit)(c,1,0,10,1,record,1,p+1,raw);render_mirror_rear_p1_create_end(c);uint64_t seal=rear_p1_state.birth_identity[0];CHECK(!render_mirror_rear_p11_shadow(&surface,101,110,spriteSheet8,raw,0,raw));CHECK(seal==rear_p1_state.birth_identity[0]);if(rear_p1_member(raw)>=0)CHECK(checked_head(k,0));
+static void test_observed_pass_throughs(void){
+ /* SECOND268 phases1/2 consume the five-observation call without a rear
+  * birth or alpha. The existing generic head/shadow paths retain these raws.
+  * Exercise every cyclic start and slot without inventing a dedicated asset. */
+ static const unsigned member[]={11,12,10,9,8};
+ for(unsigned start=0;start<5;start++)for(unsigned first=0;first<80;first++){
+  defaults(8,full);region_count=0;background2=true;render_mirror_shadow_end();
+  (render_mirror_rear_p1_call_begin)(10,1,3,1,1,268);uint64_t c=render_mirror_rear_p1_create_begin(10,1,268,1);
+  for(unsigned n=0;n<5;n++){
+   unsigned p=(start+n)%5,k=member[p],slot=(first+n)%80;make_shot(k,slot);
+   (render_mirror_rear_p1_emit)(c,n+1,slot,10,1,268,1,p+1,ids[k]);
+   CHECK(rear_p1_state.remaining==4-n&&rear_p1_state.used_count==n+1&&rear_p1_state.next_ordinal==n+2&&rear_p1_state.next_phase==(p+1)%5+1&&rear_p1_state.lease==(n<4));
+   CHECK(rear_p1_state.birth[slot].qualified==(p>=2));
+   PlayerShotDataType q=playerShotData[slot];Uint8 before[64000];memcpy(before,pixels,sizeof before);uint64_t seal=rear_p1_state.birth_identity[slot];
+   CHECK(render_mirror_rear_p11_shadow(&surface,101,110,spriteSheet8,ids[k],slot,ids[k])==(p>=2));check_no_write(&q,before,slot);CHECK(seal==rear_p1_state.birth_identity[slot]);
+   if(p<2){CHECK(!seal&&!vulcan_shadow.live&&rear_p1_member(ids[k])<0&&!rear_p1_asset(ids[k]));CHECK(!checked_head(k,slot));}
+   render_mirror_shadow_end();
+  }
+  render_mirror_rear_p1_create_end(c);render_mirror_rear_p1_call_end();CHECK(!rear_p1_state.lease&&!rear_p1_state.pending);
  }
+}
+static void test_p2_cyclic_observations(void){
+ /* P2 emits exactly two allocations per call. SECOND266 still cycles over
+  * four phases, including 4->1, and continues the cycle across calls.
+  * Exercise genuine ordinal/phase sequences, never independent four-shot calls. */
+ for(unsigned role=sizeof roles/sizeof *roles-2;role<sizeof roles/sizeof *roles;role++){
+  const ShadowRole*r=roles+role;
+  for(unsigned start=0;start<r->count;start++)for(unsigned first=0;first<80;first++)for(int d=4;d<=8;d+=4){
+   defaults(d,full);region_count=0;background2=true;render_mirror_shadow_end();
+   for(unsigned invocation=0;invocation<2;invocation++){
+    (render_mirror_rear_p1_call_begin)(10,1,1,r->mode_index,1,r->record);CHECK(rear_p1_state.pending&&rear_p1_state.budget==2);
+    uint64_t c=render_mirror_rear_p1_create_begin(10,1,r->record,1);CHECK(rear_p1_state.lease&&rear_p1_state.remaining==2&&!rear_p1_state.used_count&&rear_p1_state.next_ordinal==1&&!rear_p1_state.next_phase);
+    uint64_t seals[2];
+    for(unsigned n=0;n<2;n++){
+     unsigned p=(start+2*invocation+n)%r->count,k=r->member[p],slot=(first+2*invocation+n)%80;make_shot(k,slot);
+     (render_mirror_rear_p1_emit)(c,n+1,slot,10,1,r->record,1,p+1,ids[k]);
+     CHECK(rear_p1_state.remaining==1-n&&rear_p1_state.used_count==n+1&&rear_p1_state.next_ordinal==n+2&&rear_p1_state.next_phase==(p+1)%r->count+1&&rear_p1_state.lease==(n==0));
+     CHECK(rear_p1_state.birth[slot].qualified&&rear_p1_state.birth[slot].record==r->record&&rear_p1_state.birth[slot].mode==r->mode_index+1&&rear_p1_state.birth[slot].phase==p+1);
+     seals[n]=rear_p1_state.birth_identity[slot];CHECK(seals[n]);
+     PlayerShotDataType q=playerShotData[slot];Uint8 before[64000];memcpy(before,pixels,sizeof before);CHECK(shadow(r,p,slot)==(d==8));check_no_write(&q,before,slot);CHECK(seals[n]==rear_p1_state.birth_identity[slot]);render_mirror_shadow_end();CHECK(checked_head(k,slot));
+    }
+    /* A third observation cannot enlarge the two-allocation lease. */
+    unsigned p=(start+2*invocation+2)%r->count,k=r->member[p],slot=(first+2*invocation+2)%80;make_shot(k,slot);
+    (render_mirror_rear_p1_emit)(c,3,slot,10,1,r->record,1,p+1,ids[k]);CHECK(!rear_p1_state.lease&&!rear_p1_state.remaining&&!rear_p1_state.birth[slot].qualified&&!rear_p1_state.birth_identity[slot]);CHECK(!shadow(r,p,slot)&&!vulcan_shadow.live);CHECK(!checked_head(k,slot));
+    for(unsigned n=0;n<2;n++){p=(start+2*invocation+n)%r->count;slot=(first+2*invocation+n)%80;CHECK(seals[n]==rear_p1_state.birth_identity[slot]);CHECK(shadow(r,p,slot)==(d==8));render_mirror_shadow_end();}
+    render_mirror_rear_p1_create_end(c);render_mirror_rear_p1_call_end();CHECK(!rear_p1_state.lease&&!rear_p1_state.pending);
+   }
+  }
+ }
+}
+static void test_p2_actual_allocations(void){
+ /* The actual unmodified allocator and its observer-stripped baseline must
+  * agree for partial/full capacity and every original cyclic start. */
+ for(unsigned mode=0;mode<2;mode++){
+  const ShadowRole*r=roles+sizeof roles/sizeof *roles-2+mode;
+  for(unsigned start=0;start<=r->count;start++)for(unsigned free_slots=0;free_slots<4;free_slots++)for(int d=4;d<=8;d+=4){
+   defaults(d,full);region_count=0;background2=true;render_mirror_shadow_end();allocation_defaults(free_slots,start);compare_create(10,r->record,1,mode,true);
+   unsigned phase=start,n=free_slots<2?free_slots:2;
+   for(unsigned slot=0;slot<n;slot++){
+    phase=phase==r->count?1:phase+1;CHECK(rear_p1_state.birth[slot].qualified&&rear_p1_state.birth[slot].phase==phase&&rear_p1_state.birth[slot].record==r->record);CHECK(shadow(r,phase-1,slot)==(d==8));render_mirror_shadow_end();CHECK(checked_head(r->member[phase-1],slot));
+   }
+   for(unsigned slot=n;slot<80;slot++)CHECK(!rear_p1_state.birth[slot].qualified);
+  }
+ }
+}
+static void test_p1_cyclic_observations(void){
+ /* P1 grants one native allocation per independent call. Accumulate a full
+  * period over two/four calls; never enlarge either lease to its period. */
+ for(unsigned role=sizeof roles/sizeof *roles-4;role<sizeof roles/sizeof *roles-2;role++){
+  const ShadowRole*r=roles+role;
+  for(unsigned start=0;start<r->count;start++)for(unsigned first=0;first<80;first++)for(int d=4;d<=8;d+=4){
+   defaults(d,full);region_count=0;background2=true;render_mirror_shadow_end();CHECK(weapons[r->record].multi==1&&weapons[r->record].max==r->count);
+   uint64_t seals[4]={0},previous_call=0;
+   for(unsigned invocation=0;invocation<r->count;invocation++){
+    (render_mirror_rear_p1_call_begin)(10,1,0,r->mode_index,1,r->record);CHECK(rear_p1_state.pending&&rear_p1_state.budget==1);
+    uint64_t c=render_mirror_rear_p1_create_begin(10,1,r->record,1);CHECK(c&&c!=previous_call);previous_call=c;CHECK(rear_p1_state.lease&&rear_p1_state.remaining==1&&!rear_p1_state.used_count&&rear_p1_state.next_ordinal==1&&!rear_p1_state.next_phase);
+    unsigned p=(start+invocation)%r->count,k=r->member[p],slot=(first+invocation)%80;make_shot(k,slot);
+    (render_mirror_rear_p1_emit)(c,1,slot,10,1,r->record,1,p+1,ids[k]);
+    CHECK(!rear_p1_state.remaining&&rear_p1_state.used_count==1&&rear_p1_state.next_ordinal==2&&rear_p1_state.next_phase==(p+1)%r->count+1&&!rear_p1_state.lease);
+    CHECK(rear_p1_state.birth[slot].qualified&&rear_p1_state.birth[slot].record==r->record&&rear_p1_state.birth[slot].mode==r->mode_index+1&&rear_p1_state.birth[slot].phase==p+1);
+    seals[invocation]=rear_p1_state.birth_identity[slot];CHECK(seals[invocation]);
+    PlayerShotDataType q=playerShotData[slot];Uint8 before[64000];memcpy(before,pixels,sizeof before);CHECK(shadow(r,p,slot)==(d==8));check_no_write(&q,before,slot);CHECK(seals[invocation]==rear_p1_state.birth_identity[slot]);render_mirror_shadow_end();CHECK(checked_head(k,slot));
+    /* A second observation cannot enlarge the single-allocation lease. */
+    p=(start+invocation+1)%r->count;k=r->member[p];slot=(first+r->count+invocation)%80;make_shot(k,slot);
+    (render_mirror_rear_p1_emit)(c,2,slot,10,1,r->record,1,p+1,ids[k]);CHECK(!rear_p1_state.lease&&!rear_p1_state.remaining&&!rear_p1_state.birth[slot].qualified&&!rear_p1_state.birth_identity[slot]);CHECK(!shadow(r,p,slot)&&!vulcan_shadow.live);CHECK(!checked_head(k,slot));
+    for(unsigned n=0;n<=invocation;n++){p=(start+n)%r->count;slot=(first+n)%80;CHECK(seals[n]==rear_p1_state.birth_identity[slot]);CHECK(shadow(r,p,slot)==(d==8));render_mirror_shadow_end();}
+    render_mirror_rear_p1_create_end(c);render_mirror_rear_p1_call_end();CHECK(!rear_p1_state.lease&&!rear_p1_state.pending);mirror_logic_tick++;
+   }
+  }
+ }
+}
+static void test_p1_actual_allocations(void){
+ /* Actual untouched allocator/baseline pairs cover every native cursor,
+  * capacity0/1/2/3 and full cyclic continuation on independent calls. */
+ for(unsigned mode=0;mode<2;mode++){
+  const ShadowRole*r=roles+sizeof roles/sizeof *roles-4+mode;
+  for(unsigned start=0;start<=r->count;start++)for(unsigned free_slots=0;free_slots<4;free_slots++)for(int d=4;d<=8;d+=4){
+   defaults(d,full);region_count=0;background2=true;render_mirror_shadow_end();allocation_defaults(free_slots,start);CHECK(weapons[r->record].multi==1&&weapons[r->record].max==r->count);
+   unsigned phase=start,phases[5]={0};
+   for(unsigned invocation=0;invocation<=r->count;invocation++){
+    if(invocation){memset(shotAvail,1,sizeof shotAvail);shotAvail[invocation]=0;mirror_logic_tick++;}
+    compare_create(10,r->record,0,mode,true);
+    if(invocation||free_slots){phase=phase==r->count?1:phase+1;phases[invocation]=phase;}
+    CHECK(shotMultiPos[1]==phase);
+    for(unsigned slot=0;slot<80;slot++){
+     bool born=slot<5&&phases[slot];CHECK(rear_p1_state.birth[slot].qualified==born);
+     if(born){unsigned p=phases[slot]-1;CHECK(rear_p1_state.birth[slot].phase==p+1&&rear_p1_state.birth[slot].record==r->record);CHECK(shadow(r,p,slot)==(d==8));render_mirror_shadow_end();CHECK(checked_head(r->member[p],slot));}
+    }
+   }
+  }
+ }
+}
+static void test_preservation(void){
+ /* Every shared raw retains its original sealed physical record and mode.
+  * P1 now receives the same full admission/negative guards as the old20. */
  for(unsigned role=0;role<sizeof roles/sizeof *roles;role++){
   const ShadowRole*r=roles+role;
   for(unsigned p=0;p<r->count;p++){
@@ -167,17 +286,20 @@ static void test_preservation(void){
    /* Final drawn counter0 and a current equipment switch retain the old birth. */
    prepare(r,p,0,8);shotAvail[0]=0;(render_mirror_rear_p1_call_begin)(10,1,r->power_index,roles[role^1].mode_index,1,roles[role^1].record);render_mirror_rear_p1_call_end();CHECK(shadow(r,p,0));VulcanShadowCall v=vulcan_shadow;rear_p1_reset(&rear_p1_state);CHECK(!rear_p11_shadow_birth(&v)&&!rear_p11_shadow_current(&v,&surface,101,110,spriteSheet8,ids[r->member[p]]));
    prepare(r,p,0,8);CHECK(shadow(r,p,0));v=vulcan_shadow;v.rear=false;CHECK(!rear_p11_shadow_birth(&v));v=vulcan_shadow;v.slot=80;CHECK(!rear_p11_shadow_birth(&v));
-   /* Every other supported physical role retains an independent sealed identity. */
+   /* Physical record pins remain independent. The original P1/P2 selector
+    * gates are shared prerequisites, even for retained higher-power births. */
    for(unsigned other=0;other<sizeof roles/sizeof *roles;other++)if(other!=role){
     prepare(r,p,0,8);rear_p1_state.birth[0].record=roles[other].record;CHECK(!shadow(r,p,0));
-    prepare(r,p,0,8);weapons[roles[other].record].attack[7]^=1;weaponPort[10].op[roles[other].mode_index][roles[other].power_index]++;CHECK(shadow(r,p,0));
+    if(roles[other].power_index<=1){prepare(r,p,0,8);weapons[roles[other].record].attack[7]^=1;CHECK(shadow(r,p,0));}
+    prepare(r,p,0,8);weapons[roles[other].record].attack[7]^=1;weaponPort[10].op[roles[other].mode_index][roles[other].power_index]++;CHECK(shadow(r,p,0)==(roles[other].power_index>1));
    }
-   /* Mutating the opposite-mode table must not revoke this independent role. */
-   prepare(r,p,0,8);weapons[roles[role^1].record].attack[7]^=1;weaponPort[10].op[roles[role^1].mode_index][r->power_index]++;CHECK(shadow(r,p,0));
+   /* Opposite-mode records stay independent; mutating either original P1/P2
+    * selector must still fail the shared table admission for those births. */
+   prepare(r,p,0,8);weapons[roles[role^1].record].attack[7]^=1;weaponPort[10].op[roles[role^1].mode_index][r->power_index]++;CHECK(shadow(r,p,0)==(r->power_index>1));
   }
  }
 }
 int main(int argc,char**argv){
  CHECK(argc==2);snprintf(work,sizeof work,"%s",argv[1]);snprintf(full,sizeof full,"%s/full",work);snprintf(path,sizeof path,"%s/bank.bin",work);FILE*f=fopen(path,"rb");CHECK(f);banksize=fread(originalbank,1,sizeof originalbank,f);CHECK(banksize>602&&banksize<sizeof originalbank);fclose(f);snprintf(path,sizeof path,"%s/records.bin",work);f=fopen(path,"rb");CHECK(f&&fread(recordbytes,1,sizeof recordbytes,f)==sizeof recordbytes);fclose(f);
- test_phases();test_negatives();test_preservation();rear_p1_shutdown();printf("Record260/261/262/263/264/271/272/273/274/275 shadow preparation PASS: %u checks; all6+8+6+8+6+7+6+7+4+5 phases/all80slots, d4/Hard fallback,96 negative families/full80 bytes/16 malformed resources,12 earlier routes, aliases, retained births and reset epochs; synthetic only\n",checks);return 0;
+ test_phases();test_negatives();test_observed_pass_throughs();test_p2_cyclic_observations();test_p2_actual_allocations();test_p1_cyclic_observations();test_p1_actual_allocations();test_preservation();rear_p1_shutdown();printf("Record254/255/256/257/258/259/260/261/262/263/264/265/266/267/268/269/270/271/272/273/274/275 shadow preparation PASS: %u checks; all103 phases/all80slots, d4/Hard fallback,96 negative families/full80 bytes/16 malformed resources,all22 roles,P1 exact1-allocation independent cyclic calls/actual allocator baseline,P2 exact2-allocation cyclic observations/actual allocator baseline,268 observed-only cyclic pass-throughs, aliases, retained births and reset epochs; synthetic only\n",checks);return 0;
 }
