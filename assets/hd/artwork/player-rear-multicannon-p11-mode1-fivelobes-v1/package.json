@@ -1,0 +1,15 @@
+{
+  "name": "rear-multicannon-p11-mode1-fivelobes-a2",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Exact approved generated-only five-lobe SVG and role131 resources",
+  "engines": {
+    "node": "24.19.0"
+  },
+  "dependencies": {
+    "sharp": "0.35.5"
+  },
+  "scripts": {
+    "verify": "python3 verify.py"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "schema": "rear-multi-p11-mode1-catalog-projection-v1",
+  "baseline_commit": "aa6525857f45bc5d434142060da9bb02788f72ce",
+  "baseline_manifest_sha256": "e06249df66b9138e1c54615bc86296494282dec232ae078a453b3c343f37f966",
+  "baseline_canonical_manifest_sha256": "f8128a3633ed3bd66e5d0cf12269cea8a13dfa88d69f07d8e4b0f0ebfaf5a552",
+  "family_key": "player_rear_multicannon_p11_mode1_fivelobes_v1",
+  "default_packs": [
+    "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+    "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test"
+  ],
+  "added_resources_per_default_pack": 4,
+  "new_source_pngs": 4,
+  "old_pack_count": 621,
+  "new_pack_count": 625,
+  "operation": "Add four exact resources to each existing default pack,four global source mappings,and this new family only. Inverse must recover baseline manifest byte-exact. Private runtime common pack is separately633 old files plus4 new; it is not the catalog count."
+}

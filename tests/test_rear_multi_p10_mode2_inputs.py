@@ -17,8 +17,8 @@ def pins(name):
     line=re.search(r'^#define '+name+r' (.*)$',header,re.M)[1]
     return [int(x,0) for x in re.findall(r'UINT64_C\((0x[0-9a-f]+|0)\)',line)]
 
-records=[254,265,255,266,267,256,257,268,269,258,259,270,260,271,261,272,262,273,263,274,275]
-ids=[39,1,281,282,301,300,40,2,77,182,183,163,164,277,278,41,3,296,297,294,295,298,299,203,222]
+records=[254,265,255,266,267,256,257,268,269,258,259,270,260,271,261,272,262,273,263,274,275,264]
+ids=[39,1,281,282,301,300,40,2,77,182,183,163,164,277,278,41,3,296,297,294,295,298,299,203,222,43,5]
 hdt=(data/'tyrian.hdt').read_bytes();start=struct.unpack_from('<i',hdt)[0]+14
 for record,pin in zip(records,pins('REAR_P1_RECORD_PINS'),strict=True):
     payload=hdt[start+record*80:start+(record+1)*80]
@@ -58,4 +58,4 @@ def decode(raw):
     raise AssertionError('unterminated source tile')
 
 for raw,pin in zip(ids,pins('REAR_P1_SOURCE_PINS'),strict=True):assert fnv(decode(raw))==pin,raw
-print('P10 authentic-input PASS:21 full80 record pins,25 decoded source pins; exact274 tuple, eight phases, original coordinates/velocities/damage, and byte-identical1274 alias verified. No gameplay or art-acceptance claim.')
+print('P10 authentic-input PASS:22 full80 record pins,27 decoded source pins; exact274 tuple, eight phases, original coordinates/velocities/damage, and byte-identical1274 alias verified. No gameplay or art-acceptance claim.')

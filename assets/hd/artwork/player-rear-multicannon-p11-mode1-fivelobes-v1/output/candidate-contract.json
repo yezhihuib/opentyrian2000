@@ -1,0 +1,537 @@
+{
+  "schema": "p11-first-five-lobe-review-only-art-v1",
+  "status": "REVIEW_ONLY_NOT_FROZEN_NOT_PACKAGED_NOT_RUNTIME_ACCEPTED",
+  "raw_ids": [
+    43,
+    5
+  ],
+  "canvas": [
+    12,
+    14
+  ],
+  "anchor": [
+    0,
+    0
+  ],
+  "densities": [
+    4,
+    8
+  ],
+  "authoring": "NEW smooth cubic-Bezier semantic geometry. Original occupied-cell stairs are not used as SVG geometry. Three independently authored lobes (outer,shoulder,central) plus exact vertical counterparts create five visually readable heads. raw5 is exact full-canvas horizontal reflection ofraw43.",
+  "source_rasters_required": false,
+  "no_native_1x_intermediate": true,
+  "no_resampling_between_densities": true,
+  "style_lineage": "Accepted rear/front Multi heat-field stop colors and32-step inward-only coverage mask technique; no accepted shape or raster reused.",
+  "shading": {
+    "stops": [
+      [
+        "0",
+        "#fffaa1"
+      ],
+      [
+        ".19",
+        "#fff06b"
+      ],
+      [
+        ".38",
+        "#ffd338"
+      ],
+      [
+        ".57",
+        "#ff9e1c"
+      ],
+      [
+        ".75",
+        "#ff680a"
+      ],
+      [
+        ".91",
+        "#ef3904"
+      ],
+      [
+        "1",
+        "#cd2102"
+      ]
+    ],
+    "soft_inner_width": 0.3,
+    "boundary_factor": 0.62,
+    "external_halo": false,
+    "dark_outline": false,
+    "color_blur": false
+  },
+  "variants": {
+    "A2": {
+      "label": "Open five-head fan, fuller central heat",
+      "intent": "Same smooth open silhouette asA; wider center heat field retains a fifth yellow core at native1x from both densities.",
+      "specs": [
+        {
+          "name": "outer",
+          "path": "M4.65 1 C3.66 1 3 1.57 3 2.36 C3 3.12 3.66 3.5 4.7 3.5 C7.05 3.5 9.67 3.02 12 2.45 C9.48 1.7 6.89 1 4.65 1Z",
+          "heat": {
+            "cx": 4.45,
+            "cy": 2.38,
+            "L": 7.2,
+            "W": 1.15
+          }
+        },
+        {
+          "name": "shoulder",
+          "path": "M2.65 3.5 C1.66 3.5 1 3.94 1 4.57 C1 5.3 1.69 5.75 2.72 5.75 C5.62 5.75 8.85 5.1 12 4.62 C8.86 4.07 5.61 3.5 2.65 3.5Z",
+          "heat": {
+            "cx": 2.45,
+            "cy": 4.55,
+            "L": 9.3,
+            "W": 1.01
+          }
+        },
+        {
+          "name": "central",
+          "path": "M1.7 5.75 C.66 5.75 0 6.25 0 7 C0 7.76 .68 8.25 1.73 8.25 C4.59 8.25 7.95 7.67 11.05 7 C7.88 6.35 4.59 5.75 1.7 5.75Z",
+          "heat": {
+            "cx": 1.45,
+            "cy": 6.98,
+            "L": 9.2,
+            "W": 1.3
+          }
+        }
+      ]
+    }
+  },
+  "outputs": [
+    {
+      "variant": "A2",
+      "id": 43,
+      "density": 4,
+      "canvas": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "rgba_bytes": 10752,
+      "rgba_file": "A2/rear-multi-43-4.rgba",
+      "PNG_file": "A2/rear-multi-43-4.png",
+      "rgba_sha256": "12841f6d5426de3634430634c78b931040a894cf471172e014ae96715b9fd85f",
+      "supported_samples": 1455,
+      "supported_logical_area": 90.9375,
+      "fractional_alpha_samples": 762,
+      "alpha_sum": 288390,
+      "alpha_weighted_logical_area": 70.68382352941177,
+      "bounds_exclusive": [
+        0,
+        4,
+        48,
+        52
+      ],
+      "support_components8": [
+        {
+          "samples": 1455,
+          "centroid": [
+            22.80996563573883,
+            28.001030927835053
+          ]
+        }
+      ],
+      "bright_cores_threshold": "alpha>=160,R>=250,G>=220,B>=60",
+      "bright_components8": [
+        {
+          "samples": 39,
+          "centroid": [
+            19.192307692307693,
+            9.5
+          ],
+          "centroid_logical": [
+            4.798076923076923,
+            2.375
+          ]
+        },
+        {
+          "samples": 36,
+          "centroid": [
+            12.5,
+            18.166666666666668
+          ],
+          "centroid_logical": [
+            3.125,
+            4.541666666666667
+          ]
+        },
+        {
+          "samples": 51,
+          "centroid": [
+            7.990196078431373,
+            27.91176470588235
+          ],
+          "centroid_logical": [
+            1.9975490196078431,
+            6.977941176470588
+          ]
+        },
+        {
+          "samples": 36,
+          "centroid": [
+            12.5,
+            37.833333333333336
+          ],
+          "centroid_logical": [
+            3.125,
+            9.458333333333334
+          ]
+        },
+        {
+          "samples": 39,
+          "centroid": [
+            19.192307692307693,
+            46.5
+          ],
+          "centroid_logical": [
+            4.798076923076923,
+            11.625
+          ]
+        }
+      ],
+      "black_supported_samples": 0,
+      "transparent_nonzero_RGB_samples": 0,
+      "support_added_by_softening": 0,
+      "support_removed_by_softening": 0,
+      "RGB_changed_by_softening": 0,
+      "standalone_svg_vs_canonical_payload": {
+        "different_bytes": 0,
+        "max_RGBA_delta": 0,
+        "max_alpha_delta": 0,
+        "support_disagreement_samples": 0,
+        "max_blend_delta_three_backgrounds": 0,
+        "explanation": "raw5 payload is exact whole-canvas byte reflection of raw43; direct transformed SVG is independently rasterized and differences disclosed, not used as payload."
+      }
+    },
+    {
+      "variant": "A2",
+      "id": 5,
+      "density": 4,
+      "canvas": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "rgba_bytes": 10752,
+      "rgba_file": "A2/rear-multi-5-4.rgba",
+      "PNG_file": "A2/rear-multi-5-4.png",
+      "rgba_sha256": "f0d3dbb1189bfc399699640d634052967667ec4d1f3d92c907af3b6886faf720",
+      "supported_samples": 1455,
+      "supported_logical_area": 90.9375,
+      "fractional_alpha_samples": 762,
+      "alpha_sum": 288390,
+      "alpha_weighted_logical_area": 70.68382352941177,
+      "bounds_exclusive": [
+        0,
+        4,
+        48,
+        52
+      ],
+      "support_components8": [
+        {
+          "samples": 1455,
+          "centroid": [
+            25.19003436426117,
+            28.001030927835053
+          ]
+        }
+      ],
+      "bright_cores_threshold": "alpha>=160,R>=250,G>=220,B>=60",
+      "bright_components8": [
+        {
+          "samples": 39,
+          "centroid": [
+            28.807692307692307,
+            9.5
+          ],
+          "centroid_logical": [
+            7.201923076923077,
+            2.375
+          ]
+        },
+        {
+          "samples": 36,
+          "centroid": [
+            35.5,
+            18.166666666666668
+          ],
+          "centroid_logical": [
+            8.875,
+            4.541666666666667
+          ]
+        },
+        {
+          "samples": 51,
+          "centroid": [
+            40.009803921568626,
+            27.91176470588235
+          ],
+          "centroid_logical": [
+            10.002450980392156,
+            6.977941176470588
+          ]
+        },
+        {
+          "samples": 36,
+          "centroid": [
+            35.5,
+            37.833333333333336
+          ],
+          "centroid_logical": [
+            8.875,
+            9.458333333333334
+          ]
+        },
+        {
+          "samples": 39,
+          "centroid": [
+            28.807692307692307,
+            46.5
+          ],
+          "centroid_logical": [
+            7.201923076923077,
+            11.625
+          ]
+        }
+      ],
+      "black_supported_samples": 0,
+      "transparent_nonzero_RGB_samples": 0,
+      "support_added_by_softening": 0,
+      "support_removed_by_softening": 0,
+      "RGB_changed_by_softening": 0,
+      "standalone_svg_vs_canonical_payload": {
+        "different_bytes": 401,
+        "max_RGBA_delta": 255,
+        "max_alpha_delta": 11,
+        "support_disagreement_samples": 2,
+        "max_blend_delta_three_backgrounds": 10,
+        "explanation": "raw5 payload is exact whole-canvas byte reflection of raw43; direct transformed SVG is independently rasterized and differences disclosed, not used as payload."
+      }
+    },
+    {
+      "variant": "A2",
+      "id": 43,
+      "density": 8,
+      "canvas": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "rgba_bytes": 43008,
+      "rgba_file": "A2/rear-multi-43-8.rgba",
+      "PNG_file": "A2/rear-multi-43-8.png",
+      "rgba_sha256": "885c3e1fdaa19e6fb77d84fb32bb67fc1bc1ac67c9c37684c8e21846eb5ee34f",
+      "supported_samples": 5493,
+      "supported_logical_area": 85.828125,
+      "fractional_alpha_samples": 2443,
+      "alpha_sum": 1182425,
+      "alpha_weighted_logical_area": 72.45251225490196,
+      "bounds_exclusive": [
+        0,
+        8,
+        96,
+        104
+      ],
+      "support_components8": [
+        {
+          "samples": 5493,
+          "centroid": [
+            44.84225377753504,
+            55.996267977425816
+          ]
+        }
+      ],
+      "bright_cores_threshold": "alpha>=160,R>=250,G>=220,B>=60",
+      "bright_components8": [
+        {
+          "samples": 152,
+          "centroid": [
+            38.0921052631579,
+            19.032894736842106
+          ],
+          "centroid_logical": [
+            4.761513157894737,
+            2.3791118421052633
+          ]
+        },
+        {
+          "samples": 153,
+          "centroid": [
+            24.545751633986928,
+            36.47385620915033
+          ],
+          "centroid_logical": [
+            3.068218954248366,
+            4.559232026143791
+          ]
+        },
+        {
+          "samples": 191,
+          "centroid": [
+            16.32198952879581,
+            55.824607329842934
+          ],
+          "centroid_logical": [
+            2.0402486910994764,
+            6.978075916230367
+          ]
+        },
+        {
+          "samples": 153,
+          "centroid": [
+            24.545751633986928,
+            75.52614379084967
+          ],
+          "centroid_logical": [
+            3.068218954248366,
+            9.44076797385621
+          ]
+        },
+        {
+          "samples": 152,
+          "centroid": [
+            38.0921052631579,
+            92.96710526315789
+          ],
+          "centroid_logical": [
+            4.761513157894737,
+            11.620888157894736
+          ]
+        }
+      ],
+      "black_supported_samples": 0,
+      "transparent_nonzero_RGB_samples": 0,
+      "support_added_by_softening": 0,
+      "support_removed_by_softening": 0,
+      "RGB_changed_by_softening": 0,
+      "standalone_svg_vs_canonical_payload": {
+        "different_bytes": 0,
+        "max_RGBA_delta": 0,
+        "max_alpha_delta": 0,
+        "support_disagreement_samples": 0,
+        "max_blend_delta_three_backgrounds": 0,
+        "explanation": "raw5 payload is exact whole-canvas byte reflection of raw43; direct transformed SVG is independently rasterized and differences disclosed, not used as payload."
+      }
+    },
+    {
+      "variant": "A2",
+      "id": 5,
+      "density": 8,
+      "canvas": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "rgba_bytes": 43008,
+      "rgba_file": "A2/rear-multi-5-8.rgba",
+      "PNG_file": "A2/rear-multi-5-8.png",
+      "rgba_sha256": "9d45728c323f6f9b5bb6cf8c619219f48104aeec1ff7ac503854f180ed01df5e",
+      "supported_samples": 5493,
+      "supported_logical_area": 85.828125,
+      "fractional_alpha_samples": 2443,
+      "alpha_sum": 1182425,
+      "alpha_weighted_logical_area": 72.45251225490196,
+      "bounds_exclusive": [
+        0,
+        8,
+        96,
+        104
+      ],
+      "support_components8": [
+        {
+          "samples": 5493,
+          "centroid": [
+            51.15774622246496,
+            55.996267977425816
+          ]
+        }
+      ],
+      "bright_cores_threshold": "alpha>=160,R>=250,G>=220,B>=60",
+      "bright_components8": [
+        {
+          "samples": 152,
+          "centroid": [
+            57.9078947368421,
+            19.032894736842106
+          ],
+          "centroid_logical": [
+            7.238486842105263,
+            2.3791118421052633
+          ]
+        },
+        {
+          "samples": 153,
+          "centroid": [
+            71.45424836601308,
+            36.47385620915033
+          ],
+          "centroid_logical": [
+            8.931781045751634,
+            4.559232026143791
+          ]
+        },
+        {
+          "samples": 191,
+          "centroid": [
+            79.67801047120419,
+            55.824607329842934
+          ],
+          "centroid_logical": [
+            9.959751308900524,
+            6.978075916230367
+          ]
+        },
+        {
+          "samples": 153,
+          "centroid": [
+            71.45424836601308,
+            75.52614379084967
+          ],
+          "centroid_logical": [
+            8.931781045751634,
+            9.44076797385621
+          ]
+        },
+        {
+          "samples": 152,
+          "centroid": [
+            57.9078947368421,
+            92.96710526315789
+          ],
+          "centroid_logical": [
+            7.238486842105263,
+            11.620888157894736
+          ]
+        }
+      ],
+      "black_supported_samples": 0,
+      "transparent_nonzero_RGB_samples": 0,
+      "support_added_by_softening": 0,
+      "support_removed_by_softening": 0,
+      "RGB_changed_by_softening": 0,
+      "standalone_svg_vs_canonical_payload": {
+        "different_bytes": 1291,
+        "max_RGBA_delta": 255,
+        "max_alpha_delta": 12,
+        "support_disagreement_samples": 6,
+        "max_blend_delta_three_backgrounds": 11,
+        "explanation": "raw5 payload is exact whole-canvas byte reflection of raw43; direct transformed SVG is independently rasterized and differences disclosed, not used as payload."
+      }
+    }
+  ],
+  "publication": false,
+  "repository_edits": false,
+  "role_or_payload_pins_frozen": false
+}

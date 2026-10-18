@@ -1,0 +1,148 @@
+{
+  "schema": "rear-multicannon-p11-mode1-fivelobes-binding-v1",
+  "role": 131,
+  "logical_size": [
+    12,
+    14
+  ],
+  "anchor": [
+    0,
+    0
+  ],
+  "scope": "Ordinary player1 rear Multi-Cannon port10 bay1 power index10 mode index0, authenticated normal physical264 only, first-level Normal9/Hard15. Physical1264 alias, other records/powers/banks, generic/shared/linked/shadow consumers excluded. Existing opposite-mode275 admission is independent and unchanged.",
+  "phase_sequence": [
+    277,
+    278,
+    297,
+    296,
+    43,
+    5
+  ],
+  "budget": 6,
+  "period": 6,
+  "shotrepeat": 6,
+  "new_source_ids": [
+    43,
+    5
+  ],
+  "density_policy": "Exact startup-selected4/8 only; missing/invalid stays indexed independently, no resampling or cross-density fallback.",
+  "reviewed_candidate_contract_sha256": "9000e13ba498c92f797823c5f62193054a5e4a9b6ea050d695702f155a10b94f",
+  "art_status": "FROZEN_EXACT_A2_AFTER_RENEWED_NATIVE_SIZE_VISUAL_APPROVAL",
+  "runtime_qualification": "Separate bounded compositor and gameplay acceptance required.",
+  "canonical_transform": "raw5 RGBA is exact full12x14-canvas byteflipX(raw43); independent standalone transformedSVG differences are disclosed in the preserved candidate contract.",
+  "construction": "New semantic cubic five-lobe redraw. Color/coverage technique follows accepted Multi family; no accepted geometry or original raster reused.",
+  "resources": [
+    {
+      "source_id": 43,
+      "key": 1310043,
+      "density": 4,
+      "role": 131,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "png": "output/A2/rear-multi-43-4.png",
+      "rgba": "output/A2/rear-multi-43-4.rgba",
+      "package_hda": "output/A2/rear-multi-43-4.hda",
+      "filename": "rear-multicannon-p1-bank8-43-4.hda",
+      "png_sha256": "003bb36141804fcb852714bed9c110eb150d1986e29168e692afaac9e94d4cab",
+      "rgba_sha256": "12841f6d5426de3634430634c78b931040a894cf471172e014ae96715b9fd85f",
+      "rgba_fnv1a64": "0xee810e2190d8d938",
+      "hda_sha256": "78f68d2be758fdb169e5db8d52fd393e34a3c377deb5bf5aadf501c106f88f6f",
+      "hda_fnv1a64": "0xd3f0bc769316977c",
+      "pack_paths": [
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-43-4.hda",
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-43-4.hda"
+      ],
+      "catalog_source_png": "assets/hd/source/rear-multicannon-p1-bank8-43-4-78f68d2be758.png"
+    },
+    {
+      "source_id": 43,
+      "key": 1310043,
+      "density": 8,
+      "role": 131,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "png": "output/A2/rear-multi-43-8.png",
+      "rgba": "output/A2/rear-multi-43-8.rgba",
+      "package_hda": "output/A2/rear-multi-43-8.hda",
+      "filename": "rear-multicannon-p1-bank8-43-8.hda",
+      "png_sha256": "35ec8f2e72bafec3a6de8d103b845ad48371c7962f6c9eb9c1bd7c11aad0baf0",
+      "rgba_sha256": "885c3e1fdaa19e6fb77d84fb32bb67fc1bc1ac67c9c37684c8e21846eb5ee34f",
+      "rgba_fnv1a64": "0xe208230d3c48d0f7",
+      "hda_sha256": "4f49cd5e9265535f5d00002016c6211ef7c351a3fbdcdba4cf98ac538265b6e5",
+      "hda_fnv1a64": "0x9b5f8ac4c1aa5cc7",
+      "pack_paths": [
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-43-8.hda",
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-43-8.hda"
+      ],
+      "catalog_source_png": "assets/hd/source/rear-multicannon-p1-bank8-43-8-4f49cd5e9265.png"
+    },
+    {
+      "source_id": 5,
+      "key": 1310005,
+      "density": 4,
+      "role": 131,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "png": "output/A2/rear-multi-5-4.png",
+      "rgba": "output/A2/rear-multi-5-4.rgba",
+      "package_hda": "output/A2/rear-multi-5-4.hda",
+      "filename": "rear-multicannon-p1-bank8-5-4.hda",
+      "png_sha256": "de4790bedb60f7c824e859aa799d769153c4a1c37c2f45ba064bf9bb413e5b8f",
+      "rgba_sha256": "f0d3dbb1189bfc399699640d634052967667ec4d1f3d92c907af3b6886faf720",
+      "rgba_fnv1a64": "0x16a1fd75aa93ab00",
+      "hda_sha256": "182596636156764f5f92720f164eb8fbe1acc5eda52a785e5897c42de9d813d0",
+      "hda_fnv1a64": "0x00dadad1fc5f5c62",
+      "pack_paths": [
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-5-4.hda",
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-5-4.hda"
+      ],
+      "catalog_source_png": "assets/hd/source/rear-multicannon-p1-bank8-5-4-182596636156.png"
+    },
+    {
+      "source_id": 5,
+      "key": 1310005,
+      "density": 8,
+      "role": 131,
+      "logical_size": [
+        12,
+        14
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "png": "output/A2/rear-multi-5-8.png",
+      "rgba": "output/A2/rear-multi-5-8.rgba",
+      "package_hda": "output/A2/rear-multi-5-8.hda",
+      "filename": "rear-multicannon-p1-bank8-5-8.hda",
+      "png_sha256": "1846255e2115759c348f4d87abb14ae3044a537037c3efe0a1810e27c0770be0",
+      "rgba_sha256": "9d45728c323f6f9b5bb6cf8c619219f48104aeec1ff7ac503854f180ed01df5e",
+      "rgba_fnv1a64": "0xf475bf2a22b295b3",
+      "hda_sha256": "5f23c38d1e1110e0a6aa1cef5b0fe73cc6f7ee2a2547c2ffdcd925a1c7578cd0",
+      "hda_fnv1a64": "0x474035d7066c7835",
+      "pack_paths": [
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-5-8.hda",
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-5-8.hda"
+      ],
+      "catalog_source_png": "assets/hd/source/rear-multicannon-p1-bank8-5-8-5f23c38d1e11.png"
+    }
+  ]
+}

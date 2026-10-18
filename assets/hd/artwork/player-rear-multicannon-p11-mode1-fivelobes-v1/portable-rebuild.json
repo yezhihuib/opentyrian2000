@@ -1,0 +1,66 @@
+{
+  "schema": "rear-multi-p11-mode1-a2-portable-rebuild-v1",
+  "result": "PASS",
+  "generated_only": true,
+  "original_inputs_or_captures": false,
+  "frozen_outputs_exact": 11,
+  "reviewed_generator_sha256": "0e0f9b717006ec0996e374743b1de0a7a83eb5427d61209c0d54b6b5584d5a94",
+  "reviewed_candidate_contract_sha256": "9000e13ba498c92f797823c5f62193054a5e4a9b6ea050d695702f155a10b94f",
+  "hda_outputs": [
+    {
+      "file": "A2/rear-multi-43-4.hda",
+      "sha256": "78f68d2be758fdb169e5db8d52fd393e34a3c377deb5bf5aadf501c106f88f6f",
+      "bytes": 10780
+    },
+    {
+      "file": "A2/rear-multi-43-8.hda",
+      "sha256": "4f49cd5e9265535f5d00002016c6211ef7c351a3fbdcdba4cf98ac538265b6e5",
+      "bytes": 43036
+    },
+    {
+      "file": "A2/rear-multi-5-4.hda",
+      "sha256": "182596636156764f5f92720f164eb8fbe1acc5eda52a785e5897c42de9d813d0",
+      "bytes": 10780
+    },
+    {
+      "file": "A2/rear-multi-5-8.hda",
+      "sha256": "5f23c38d1e1110e0a6aa1cef5b0fe73cc6f7ee2a2547c2ffdcd925a1c7578cd0",
+      "bytes": 43036
+    }
+  ],
+  "versions": {
+    "node": "v24.19.0",
+    "sharp": {
+      "aom": "3.15.1",
+      "archive": "3.8.9",
+      "cairo": "1.18.6",
+      "cgif": "0.5.4",
+      "exif": "0.6.26",
+      "expat": "2.8.5",
+      "ffi": "3.8.0",
+      "fontconfig": "2.18.3",
+      "freetype": "2.14.3",
+      "fribidi": "1.0.17",
+      "glib": "2.90.0",
+      "harfbuzz": "14.5.0",
+      "heif": "1.23.5",
+      "highway": "1.4.0",
+      "imagequant": "2.4.1",
+      "lcms": "2.19.1",
+      "mozjpeg": "0826579",
+      "pango": "1.58.2",
+      "pixman": "0.46.4",
+      "png": "1.6.58",
+      "proxy-libintl": "0.5",
+      "rsvg": "2.63.2",
+      "tiff": "4.7.2",
+      "uhdr": "2.0.2",
+      "vips": "8.18.7",
+      "webp": "1.6.0",
+      "xml2": "2.15.4",
+      "zlib-ng": "2.3.3",
+      "sharp": "0.35.5"
+    }
+  },
+  "relocation": "Rebuilt from a separate complete package directory to a fresh separate output directory; no repository, original input or parent-directory file needed."
+}
