@@ -2,6 +2,7 @@
  * P5 acquisition or gameplay witness. The allocator itself is actual source. */
 static bool test_member(unsigned power,unsigned k)
 {
+ if(power==15)return k==13||k==14||k==18||k==17||k==23||k==24;
  if(power==14)return k==13||k==14||k==20||k==19||k==8||k==21||k==22;
  if(power==13)return k==13||k==14||k==17||k==18||k==15||k==16;
  if(power==12)return k==13||k==14||k==19||k==20||k==8||k==0||k==1;

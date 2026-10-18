@@ -1,0 +1,16 @@
+{
+  "schema": "rear-multi-p10-mode1-catalog-projection-v1",
+  "baseline_commit": "82c0d3ec0e0750cab217b9d8dc94696a6def0daa",
+  "baseline_manifest_sha256": "565303b7f5b4f2cf726214a61e2f95148f4ed0ba816a81939ad6bc4c2b62d4d3",
+  "baseline_canonical_manifest_sha256": "bee1a268f636bfe72714b4e35e6710c38f1ab03d3ab04622e7d82d9ea19eaba7",
+  "family_key": "player_rear_multicannon_p10_mode1_fourlobes_v1",
+  "default_packs": [
+    "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+    "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test"
+  ],
+  "added_resources_per_default_pack": 4,
+  "new_source_pngs": 4,
+  "old_pack_count": 617,
+  "new_pack_count": 621,
+  "operation": "Only add four exact resources to each existing default pack,four global source mappings,and one family descriptor. Removing those additions must recover the baseline manifest byte-exact under its original indent2 format."
+}

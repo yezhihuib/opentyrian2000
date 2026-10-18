@@ -39,7 +39,7 @@ linked=(root/'src/varz.c').read_text();route=re.search(r'const JE_word linkGunWe
 baseline='\n'.join(line for line in create.split('\n') if 'rear_p1_' not in line)
 (out/'create_baseline.inc').write_text(baseline.replace('player_shot_create(', 'baseline_shot_create(', 1))
 (out/'wrapper.inc').write_text(extract((root/'src/entity_draw.c').read_text(),'draw_player_shot_sprite2'))
-ids=[39,1,281,282,301,300,40,2,77,182,183,277,278,41,3,296,297,294,295,298,299]
+ids=[39,1,281,282,301,300,40,2,77,182,183,277,278,41,3,296,297,294,295,298,299,203,222]
 observed=ids[:11]+[163,164]+ids[11:]
 bank=bytearray(602);pins=[]
 for k,i in enumerate(observed):
@@ -142,6 +142,14 @@ r=struct.pack('<HBBHBBBB8B8B8b8b8b8b8HbbBBBB',0x124b,6,7,0,7,5,6,0,
  *[0,0,0,0,0,0,0,-3],*[277,278,295,294,77,298,299,0xfb21],0,0,0,25,255,208)
 assert len(r)==80
 records.append(r);recordpins.append(fnv(r))
+# P10 mode1: synthetic full80 with its own nonzero inactive tails.
+# No original copyrighted record bytes are embedded in this public fixture.
+r=struct.pack('<HBBHBBBB8B8B8b8b8b8b8HbbBBBB',0x124c,6,6,0,6,5,6,0,
+ *([2,2,2,2,4,4,247,10]),*([255]*8),*[-9,9,9,-9,-10,10,125,-4],
+ *[2,2,-2,-2,0,0,125,-4],*[-2,2,2,-2,0,0,125,-4],
+ *[0,0,0,0,0,0,125,-4],*[277,278,297,296,203,222,0xfc22,303],0,0,0,25,255,208)
+assert len(r)==80
+records.append(r);recordpins.append(fnv(r))
 (out/'records.bin').write_bytes(b''.join(records))
 resources=out/'full';resources.mkdir();rgba_pins=[]
 for k,i in enumerate(ids):
@@ -152,7 +160,8 @@ for k,i in enumerate(ids):
   (resources/f'rear-multicannon-p1-bank8-{i}-{d}.hda').write_bytes(raw);row.append(0 if i in (182,183) and d==4 else fnv(rgba))
  rgba_pins.append(row)
 header=lambda name,x:'#define '+name+' {'+','.join('UINT64_C(0x%016x)'%a for a in x)+'}\n'
-(out/'fixture_pins.h').write_text('#define REAR_P1_BANK_SIZE '+str(len(bank))+'\n'+header('REAR_P1_SOURCE_PINS',pins)+header('REAR_P1_RECORD_PINS',recordpins)+'#define REAR_P1_RGBA_PINS {'+','.join('{'+','.join('UINT64_C(0x%016x)'%a for a in row)+'}' for row in rgba_pins)+'}\n')
+rgba_header=lambda rows:'#define REAR_P1_RGBA_PINS {'+','.join('{'+','.join('UINT64_C(0x%016x)'%a for a in row)+'}' for row in rows)+'}\n'
+(out/'fixture_pins.h').write_text('#define REAR_P1_BANK_SIZE '+str(len(bank))+'\n'+header('REAR_P1_SOURCE_PINS',pins)+header('REAR_P1_RECORD_PINS',recordpins)+'#ifdef REAR_P1_TEST_PENDING_ART\n'+rgba_header(rgba_pins[:-2]+[[0,0],[0,0]])+'#else\n'+rgba_header(rgba_pins)+'#endif\n')
 # Each malformed family is a standalone directory; all other heads remain valid.
 variants=[]
 for d in (4,8):
@@ -236,14 +245,26 @@ for d in (4,8):
     raw=bytearray(source.read_bytes())
     if selected:raw[-1]^=1
     (dest/source.name).write_bytes(raw)
+# Every P10 selected head independently missing or corrupt at the selected density.
+for d in (4,8):
+ for phase,i in enumerate([277,278,297,296,203,222],1):
+  for kind in (0,1):
+   dest=out/f'p10m1-isolation-{d}-{phase}-{kind}';dest.mkdir()
+   for source in resources.glob('*.hda'):
+    selected=source.name==f'rear-multicannon-p1-bank8-{i}-{d}.hda'
+    if selected and kind==0:continue
+    raw=bytearray(source.read_bytes())
+    if selected:raw[-1]^=1
+    (dest/source.name).write_bytes(raw)
 reload=out/'reload';reload.mkdir()
 for p in resources.glob('*.hda'):(reload/p.name).write_bytes(p.read_bytes())
 (out/'variants.inc').write_text('static const struct {const char*name;unsigned member;int density;} variants[]={'+','.join('{"%s",%d,%d}'%v for v in variants)+'};\n')
 (out/'fixture_receipt.json').write_text(json.dumps({'generated_only':True,'original_inputs':False,'source_pins':pins,'record_pins':recordpins,'rgba_pins':rgba_pins,'variants':len(variants),'production_sha256':{str(p.relative_to(root)):sha(p.read_bytes()) for p in [root/'src/rear_multi_p1.c',root/'src/rear_multi_p1.h',root/'src/rear_multi_p1_mirror.inc',root/'src/render_mirror.c',root/'src/entity_draw.c']},'extracted_sha256':{p.name:sha(p.read_bytes()) for p in out.glob('*.inc')}},indent=2)+'\n')
 harness=Path(__file__).with_name('rear_multi_p1_adapter_test.c')
-for mode in ['plain','sanitize']:
+for mode in ['plain','sanitize','pending-plain','pending-sanitize']:
  exe=out/('adapter-'+mode);cmd=['cc','-std=c99','-Wall','-Wextra','-Werror','-pedantic','-O1','-g','-I'+str(root/'src'),'-I'+str(out),str(harness),str(root/'src/rear_multi_p1.c'),'-o',str(exe),'-lm']
- if mode=='sanitize':cmd+=['-fsanitize=address,undefined','-fno-omit-frame-pointer']
+ if mode.startswith('pending-'):cmd+=['-DREAR_P1_TEST_PENDING_ART']
+ if mode.endswith('sanitize'):cmd+=['-fsanitize=address,undefined','-fno-omit-frame-pointer']
  subprocess.run(cmd,check=True)
  r=subprocess.run([str(exe),str(out)],env={**os.environ,'ASAN_OPTIONS':'detect_leaks=0:halt_on_error=1','UBSAN_OPTIONS':'halt_on_error=1'},text=True,capture_output=True,timeout=180);print(mode,r.stdout,end='');print(r.stderr,end='',file=sys.stderr);(out/(mode+'.log')).write_text(r.stdout+r.stderr);r.check_returncode()
 

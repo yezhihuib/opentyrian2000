@@ -1,0 +1,91 @@
+{
+  "schema": "rear-multi-p10-mode1-relocated-rebuild-v1",
+  "result": "PASS",
+  "evidence_class": "NEW generated-only check",
+  "working_directory_outside_package": true,
+  "package_relocated": true,
+  "original_inputs_or_captures_used": false,
+  "files_compared_byte_exact": [
+    {
+      "filename": "candidate-contract.json",
+      "sha256": "07e98e2c6af206d72ec19d6a62614b9d14c0966f0ed9b510993c75f26cca767c",
+      "bytes": 8665
+    },
+    {
+      "filename": "rear-multi-203-4.hda",
+      "sha256": "48bfc7fa7ea3c1025ba7b230d617ebc33b36dc5a30b0b9c696087eb4c2e01776",
+      "bytes": 10780
+    },
+    {
+      "filename": "rear-multi-203-4.png",
+      "sha256": "ba4d0730a7114f898f408cc58b3c2344822407bc61f7efef3fc89240a57304f0",
+      "bytes": 3110
+    },
+    {
+      "filename": "rear-multi-203-4.rgba",
+      "sha256": "a4fd9f5a611ec83a7ddec97ed672363c1f732c2aaf167d8013f3b6366c23ac07",
+      "bytes": 10752
+    },
+    {
+      "filename": "rear-multi-203-8.hda",
+      "sha256": "7dfb3c86688e3ec693eaf9193e60797ca46981bbd90cdfc1b626d8f2ec302959",
+      "bytes": 43036
+    },
+    {
+      "filename": "rear-multi-203-8.png",
+      "sha256": "9755e8122ecfe855db53e47d042543b5c12d5e428c3259bccec3eba7a3cc8504",
+      "bytes": 9012
+    },
+    {
+      "filename": "rear-multi-203-8.rgba",
+      "sha256": "5204aa4d56d39e3fc963e8dbeafac2160a041dfedce848aa64efea562bb7cddc",
+      "bytes": 43008
+    },
+    {
+      "filename": "rear-multi-203.svg",
+      "sha256": "a28bc94d1e0de5aef6cba45955b351397b4178c16fc4c81f4e643561afdbc43c",
+      "bytes": 14908
+    },
+    {
+      "filename": "rear-multi-222-4.hda",
+      "sha256": "9f7529933ee2bd6ce99ab4e457072f5eb5874ce3fc260f7d987dfefcf8f41ba1",
+      "bytes": 10780
+    },
+    {
+      "filename": "rear-multi-222-4.png",
+      "sha256": "2725e53f13992d4d13c48e41d49b0856ca8b1db05ee5fe62f9c4dde0f4daa7b6",
+      "bytes": 3122
+    },
+    {
+      "filename": "rear-multi-222-4.rgba",
+      "sha256": "8efb472f5b2d2caa21cfba1dfed09e3d55b531d0013bf0e43eba086528dfde2f",
+      "bytes": 10752
+    },
+    {
+      "filename": "rear-multi-222-8.hda",
+      "sha256": "fc7b46f45c757446c6f34eb6879b12afa0b589a6a6db63eb5e5c4c4065772cb0",
+      "bytes": 43036
+    },
+    {
+      "filename": "rear-multi-222-8.png",
+      "sha256": "c7db44414b8c42699d2e8fe4e16218491083c0ddc7751744f7130e945f19ec18",
+      "bytes": 9046
+    },
+    {
+      "filename": "rear-multi-222-8.rgba",
+      "sha256": "55ac245902845a6c948ca2c7f2496b43a1fb264701ffcdce16a11244c419b3d8",
+      "bytes": 43008
+    },
+    {
+      "filename": "rear-multi-222.svg",
+      "sha256": "031663817a3fe31d1c9f36a0f5d6e50c04402a0f39d2f3c403a8bbc9b9489fe3",
+      "bytes": 14955
+    },
+    {
+      "filename": "rebuild-receipt.json",
+      "sha256": "1ee5ecea36439aaeec5625a772e9349d8797115d05bf112b8dc9b0ec7fae3d14",
+      "bytes": 1620
+    }
+  ],
+  "reviewed_candidate_contract_sha256": "07e98e2c6af206d72ec19d6a62614b9d14c0966f0ed9b510993c75f26cca767c"
+}

@@ -230,10 +230,10 @@ static bool admitted(unsigned power,unsigned mode,unsigned record)
 {
  return (power<2&&mode<2&&record==(mode?265:254)+power)||
   (power==2&&mode<2&&record==(mode?267:256))||(power==3&&mode<2&&record==(mode?268:257))||
-  (power==4&&mode<2&&record==(mode?269:258))||(power==5&&mode<2&&record==(mode?270:259))||(power==6&&mode<2&&record==(mode?271:260))||(power==7&&mode<2&&record==(mode?272:261))||(power==8&&mode<2&&record==(mode?273:262));
+  (power==4&&mode<2&&record==(mode?269:258))||(power==5&&mode<2&&record==(mode?270:259))||(power==6&&mode<2&&record==(mode?271:260))||(power==7&&mode<2&&record==(mode?272:261))||(power==8&&mode<2&&record==(mode?273:262))||(power==9&&mode==0&&record==263);
 }
 static unsigned budget(unsigned power,unsigned mode)
-{return power==8?(mode?7:6):power==7?(mode?7:6):power==6?(mode?5:4):power==5?(mode?5:3):power==4?(mode?4:2):power==3?5:power==2?(mode?4:2):power+1;}
+{return power==9?6:power==8?(mode?7:6):power==7?(mode?7:6):power==6?(mode?5:4):power==5?(mode?5:3):power==4?(mode?4:2):power==3?5:power==2?(mode?4:2):power+1;}
 static void admission(RearP1State *s)
 {
  const unsigned records[]={0,1,50,77,163,164,182,183,253,254,255,256,257,258,259,264,265,266,267,268,269,270,275,277,278,281,300,445,501,686,687,688,690,1257,1269,UINT_MAX};
@@ -253,9 +253,9 @@ static void admission(RearP1State *s)
   rear_p1_call_begin(s,7,ports[p],bays[b],4,1,players[u],269,scope!=0,table!=0);CHECK(s->pending==yes);
   rear_p1_call_end(s);clear(s);
  }
- CHECK(REAR_P1_HEADS==21&&REAR_P1_OBSERVED==23&&REAR_P1_MAX_BUDGET==7);
- const unsigned members[]={39,1,281,282,301,300,40,2,77,182,183,277,278,41,3,296,297,294,295,298,299};
- const unsigned observations[]={39,1,281,282,301,300,40,2,77,182,183,163,164,277,278,41,3,296,297,294,295,298,299};
+ CHECK(REAR_P1_HEADS==23&&REAR_P1_OBSERVED==25&&REAR_P1_MAX_BUDGET==7);
+ const unsigned members[]={39,1,281,282,301,300,40,2,77,182,183,277,278,41,3,296,297,294,295,298,299,203,222};
+ const unsigned observations[]={39,1,281,282,301,300,40,2,77,182,183,163,164,277,278,41,3,296,297,294,295,298,299,203,222};
  /* Append-only role maps are intentionally different after the original 11. */
  for(unsigned k=0;k<sizeof members/sizeof *members;k++)CHECK(rear_p1_member(members[k])==(int)k);
  for(unsigned k=0;k<sizeof observations/sizeof *observations;k++)CHECK(rear_p1_observed(observations[k])==(int)k);

@@ -175,8 +175,8 @@ static void admission(RearP1State *s)
   rear_p1_call_begin(s,7,ports[p],bays[b],3,0,players[u],257,scope!=0,table!=0);CHECK(s->pending==yes);
   rear_p1_call_end(s);clear(s);
  }
- CHECK(REAR_P1_HEADS==21&&REAR_P1_MAX_BUDGET==7);
- const unsigned members[]={39,1,281,282,301,300,40,2,77,182,183,277,278,41,3,296,297,294,295,298,299};
+ CHECK(REAR_P1_HEADS==23&&REAR_P1_MAX_BUDGET==7);
+ const unsigned members[]={39,1,281,282,301,300,40,2,77,182,183,277,278,41,3,296,297,294,295,298,299,203,222};
  for(unsigned k=0;k<sizeof members/sizeof *members;k++)CHECK(rear_p1_member(members[k])==(int)k);
  for(unsigned raw=0;raw<8000;raw++) {
   bool yes=false;for(unsigned k=0;k<sizeof members/sizeof *members;k++)yes|=raw==members[k];
