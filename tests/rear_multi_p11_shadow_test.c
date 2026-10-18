@@ -1,5 +1,5 @@
 /* SPDX-License-Identifier: GPL-2.0-or-later
- * Actual record263/264/274/275 shadow preparation/epoch guards with synthetic fixtures.
+ * Actual record260/261/262/263/264/271/272/273/274/275 shadow preparation/epoch guards with synthetic fixtures.
  * This observer test makes no SDL/compositor or gameplay-runtime claim. */
 #define main previous_adapter_main
 #include "rear_multi_p1_adapter_test.c"
@@ -16,7 +16,13 @@ static const ShadowRole roles[]={
  {264,18,10,0,1680,6,{13,14,18,17,25,26}},
  {275,17,10,1,1600,8,{13,14,20,19,21,22,6,7}},
  {263,15,9,0,1440,6,{13,14,18,17,23,24}},
- {274,16,9,1,1520,8,{13,14,20,19,21,22,0,1}}
+ {274,16,9,1,1520,8,{13,14,20,19,21,22,0,1}},
+ {262,13,8,0,1280,6,{13,14,18,17,15,16}},
+ {273,14,8,1,1360,7,{13,14,20,19,8,21,22}},
+ {261,11,7,0,1120,6,{13,14,18,17,0,1}},
+ {272,12,7,1,1200,7,{13,14,20,19,8,0,1}},
+ {260,9,6,0,960,4,{13,14,18,17}},
+ {271,10,6,1,1040,5,{13,14,20,19,8}}
 };
 static bool shadow(const ShadowRole*r,unsigned p,unsigned slot){unsigned raw=ids[r->member[p]];return render_mirror_rear_p11_shadow(&surface,playerShotData[slot].shotX+1,playerShotData[slot].shotY+10,spriteSheet8,raw,slot,raw);}
 static void prepare(const ShadowRole*r,unsigned p,unsigned slot,int d){defaults(d,full);region_count=0;background2=true;render_mirror_shadow_end();test_power=r->power;emit(r->member[p],slot);CHECK(rear_p1_state.birth[slot].qualified);}
@@ -146,9 +152,9 @@ static void test_negatives(void){
  }
 }
 static void test_preservation(void){
- /* Shared raws keep their original sealed route; eighteen earlier routes stay
+ /* Shared raws keep their original sealed route; twelve earlier routes stay
   * outside this finite shadow role, without losing their accepted heads. */
- static const unsigned old[]={254,265,255,266,267,256,257,268,269,258,259,270,260,271,261,272,262,273};
+ static const unsigned old[]={254,265,255,266,267,256,257,268,269,258,259,270};
  for(unsigned i=0;i<sizeof old/sizeof *old;i++)for(unsigned p=0;p<weapons[old[i]].max;p++){
   defaults(8,full);unsigned record=old[i],raw=weapons[record].sg[p],k=(unsigned)rear_p1_observed(raw);CHECK(k<27);make_shot(k,0);unsigned mode=record>=265,power0=mode?record-265:record-254;
   (render_mirror_rear_p1_call_begin)(10,1,power0,mode,1,record);uint64_t c=render_mirror_rear_p1_create_begin(10,1,record,1);(render_mirror_rear_p1_emit)(c,1,0,10,1,record,1,p+1,raw);render_mirror_rear_p1_create_end(c);uint64_t seal=rear_p1_state.birth_identity[0];CHECK(!render_mirror_rear_p11_shadow(&surface,101,110,spriteSheet8,raw,0,raw));CHECK(seal==rear_p1_state.birth_identity[0]);if(rear_p1_member(raw)>=0)CHECK(checked_head(k,0));
@@ -173,5 +179,5 @@ static void test_preservation(void){
 }
 int main(int argc,char**argv){
  CHECK(argc==2);snprintf(work,sizeof work,"%s",argv[1]);snprintf(full,sizeof full,"%s/full",work);snprintf(path,sizeof path,"%s/bank.bin",work);FILE*f=fopen(path,"rb");CHECK(f);banksize=fread(originalbank,1,sizeof originalbank,f);CHECK(banksize>602&&banksize<sizeof originalbank);fclose(f);snprintf(path,sizeof path,"%s/records.bin",work);f=fopen(path,"rb");CHECK(f&&fread(recordbytes,1,sizeof recordbytes,f)==sizeof recordbytes);fclose(f);
- test_phases();test_negatives();test_preservation();rear_p1_shutdown();printf("Record263/264/274/275 shadow preparation PASS: %u checks; all6+8+6+8 phases/all80slots, d4/Hard fallback,96 negative families/full80 bytes/16 malformed resources,18 earlier routes, aliases, retained births and reset epochs; synthetic only\n",checks);return 0;
+ test_phases();test_negatives();test_preservation();rear_p1_shutdown();printf("Record260/261/262/263/264/271/272/273/274/275 shadow preparation PASS: %u checks; all6+8+6+8+6+7+6+7+4+5 phases/all80slots, d4/Hard fallback,96 negative families/full80 bytes/16 malformed resources,12 earlier routes, aliases, retained births and reset epochs; synthetic only\n",checks);return 0;
 }
