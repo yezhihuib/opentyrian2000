@@ -150,6 +150,14 @@ r=struct.pack('<HBBHBBBB8B8B8b8b8b8b8HbbBBBB',0x124c,6,6,0,6,5,6,0,
  *[0,0,0,0,0,0,125,-4],*[277,278,297,296,203,222,0xfc22,303],0,0,0,25,255,208)
 assert len(r)==80
 records.append(r);recordpins.append(fnv(r))
+# P10 mode2 eight-shot fixture, independent of all original payload bytes.
+# All eight active entries deliberately differ from prior record identities.
+r=struct.pack('<HBBHBBBB8B8B8b8b8b8b8HbbBBBB',0x124d,6,8,0,8,5,6,0,
+ *[2,2,2,2,2,2,1,1],*([255]*8),*[-9,9,6,-6,-2,2,-10,10],
+ *[2,2,-6,-6,-9,-9,0,0],*[-2,2,4,-4,-4,4,0,0],
+ *([0]*8),*[277,278,295,294,298,299,39,1],0,0,0,25,255,208)
+assert len(r)==80 and r not in records
+records.append(r);recordpins.append(fnv(r))
 (out/'records.bin').write_bytes(b''.join(records))
 resources=out/'full';resources.mkdir();rgba_pins=[]
 for k,i in enumerate(ids):
@@ -250,6 +258,17 @@ for d in (4,8):
  for phase,i in enumerate([277,278,297,296,203,222],1):
   for kind in (0,1):
    dest=out/f'p10m1-isolation-{d}-{phase}-{kind}';dest.mkdir()
+   for source in resources.glob('*.hda'):
+    selected=source.name==f'rear-multicannon-p1-bank8-{i}-{d}.hda'
+    if selected and kind==0:continue
+    raw=bytearray(source.read_bytes())
+    if selected:raw[-1]^=1
+    (dest/source.name).write_bytes(raw)
+# Each exact P10 mode2 resource fails independently at the selected density.
+for d in (4,8):
+ for phase,i in enumerate([277,278,295,294,298,299,39,1],1):
+  for kind in (0,1):
+   dest=out/f'p10m2-isolation-{d}-{phase}-{kind}';dest.mkdir()
    for source in resources.glob('*.hda'):
     selected=source.name==f'rear-multicannon-p1-bank8-{i}-{d}.hda'
     if selected and kind==0:continue

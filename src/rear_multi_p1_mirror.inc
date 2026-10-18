@@ -76,9 +76,9 @@ static uint64_t rear_p1_record_stamp(const JE_WeaponType *w)
 }
 static bool rear_p1_table(unsigned record)
 {
- static const uint64_t pins[19]=REAR_P1_RECORD_PINS;
+ static const uint64_t pins[20]=REAR_P1_RECORD_PINS;
  unsigned k;
- switch(record){case 254:k=0;break;case 265:k=1;break;case 255:k=2;break;case 266:k=3;break;case 267:k=4;break;case 256:k=5;break;case 257:k=6;break;case 268:k=7;break;case 269:k=8;break;case 258:k=9;break;case 259:k=10;break;case 270:k=11;break;case 260:k=12;break;case 271:k=13;break;case 261:k=14;break;case 272:k=15;break;case 262:k=16;break;case 273:k=17;break;case 263:k=18;break;default:return false;}
+ switch(record){case 254:k=0;break;case 265:k=1;break;case 255:k=2;break;case 266:k=3;break;case 267:k=4;break;case 256:k=5;break;case 257:k=6;break;case 268:k=7;break;case 269:k=8;break;case 258:k=9;break;case 259:k=10;break;case 270:k=11;break;case 260:k=12;break;case 271:k=13;break;case 261:k=14;break;case 272:k=15;break;case 262:k=16;break;case 273:k=17;break;case 263:k=18;break;case 274:k=19;break;default:return false;}
  return weaponPort[10].opnum==2&&
   weaponPort[10].op[0][0]==254&&weaponPort[10].op[1][0]==265&&
   weaponPort[10].op[0][1]==255&&weaponPort[10].op[1][1]==266&&weaponPort[10].poweruse==40&&
@@ -89,7 +89,7 @@ static bool rear_p1_table(unsigned record)
   (record!=260||weaponPort[10].op[0][6]==260)&&(record!=271||weaponPort[10].op[1][6]==271)&&
   (record!=261||weaponPort[10].op[0][7]==261)&&(record!=272||weaponPort[10].op[1][7]==272)&&
   (record!=262||weaponPort[10].op[0][8]==262)&&(record!=273||weaponPort[10].op[1][8]==273)&&
-  (record!=263||weaponPort[10].op[0][9]==263)&&
+  (record!=263||weaponPort[10].op[0][9]==263)&&(record!=274||weaponPort[10].op[1][9]==274)&&
   rear_p1_record_stamp(&weapons[record])==pins[k];
 }
 static bool rear_p1_source(Sprite2_array bank,unsigned raw)

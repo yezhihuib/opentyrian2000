@@ -194,7 +194,7 @@ static void test_p6_mode2_resources(void)
   defaults(8,full);test_power=8;unsigned k=p6m2_member(p),copy=(slot+1)%80;emit(k,slot);CHECK(checked_head(k,slot));
   make_shot(k,copy);rear_p1_state.birth[copy]=rear_p1_state.birth[slot];rear_p1_state.birth_identity[copy]=rear_p1_state.birth_identity[slot];bad_restore(k,copy);CHECK(checked_head(k,slot));
  }
- CHECK(REAR_P1_HEADS==23&&REAR_P1_OBSERVED==25&&REAR_P1_MAX_BUDGET==7&&rear_p1_member(163)<0&&rear_p1_member(164)<0);
+ CHECK(REAR_P1_HEADS==23&&REAR_P1_OBSERVED==25&&REAR_P1_MAX_BUDGET==8&&rear_p1_member(163)<0&&rear_p1_member(164)<0);
  test_power=1;
 }
 static void p6m2_linked_case(unsigned weapon,unsigned dir,unsigned route)

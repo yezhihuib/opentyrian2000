@@ -47,7 +47,7 @@ static const Route routes[]={
  {273,8,1,7,7,{277,278,295,294,77,298,299},{-9,9,6,-6,0,-2,2},{-2,-2,6,6,10,9,9}} ,{263,9,0,6,6,{277,278,297,296,203,222},{-9,9,9,-9,-10,10},{-2,-2,2,2,0,0}}
 };
 static unsigned route_budget(unsigned power,unsigned mode,unsigned record)
-{if(power==9&&mode==0&&record==263)return 6;for(unsigned i=0;i<sizeof routes/sizeof *routes;i++)if(routes[i].power==power&&routes[i].mode==mode&&routes[i].record==record)return routes[i].budget;return 0;}
+{if(power==9&&mode==1&&record==274)return 8;if(power==9&&mode==0&&record==263)return 6;for(unsigned i=0;i<sizeof routes/sizeof *routes;i++)if(routes[i].power==power&&routes[i].mode==mode&&routes[i].record==record)return routes[i].budget;return 0;}
 static void admission(RearP1State *s)
 {
  const unsigned powers[]={0,1,2,3,4,5,6,7,8,9,10,11,UINT_MAX},modes[]={0,1,2,3,UINT_MAX};
@@ -61,7 +61,7 @@ static void admission(RearP1State *s)
  }
  const unsigned members[]={39,1,281,282,301,300,40,2,77,182,183,277,278,41,3,296,297,294,295,298,299,203,222};
  const unsigned observed[]={39,1,281,282,301,300,40,2,77,182,183,163,164,277,278,41,3,296,297,294,295,298,299,203,222};
- CHECK(REAR_P1_HEADS==23&&REAR_P1_OBSERVED==25&&REAR_P1_MAX_BUDGET==7&&REAR_P1_SLOTS==80);
+ CHECK(REAR_P1_HEADS==23&&REAR_P1_OBSERVED==25&&REAR_P1_MAX_BUDGET==8&&REAR_P1_SLOTS==80);
  for(unsigned raw=0;raw<8000;raw++){int m=-1,o=-1;for(unsigned i=0;i<23;i++)if(members[i]==raw)m=(int)i;for(unsigned i=0;i<25;i++)if(observed[i]==raw)o=(int)i;CHECK(rear_p1_member(raw)==m&&rear_p1_observed(raw)==o);}
  CHECK(rear_p1_member(UINT_MAX)<0&&rear_p1_observed(UINT_MAX)<0&&rear_p1_member(298)==19&&rear_p1_member(299)==20&&rear_p1_observed(298)==21&&rear_p1_observed(299)==22);
 }

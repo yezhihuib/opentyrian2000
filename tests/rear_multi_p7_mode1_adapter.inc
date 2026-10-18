@@ -194,7 +194,7 @@ static void test_p7_mode1_resources(void)
   defaults(d,full);lvlFileNum=15;initialDifficulty=DIFFICULTY_HARD;emit(k,0);CHECK(checked_head(k,0));initialDifficulty=DIFFICULTY_NORMAL;bad_restore(k,0);initialDifficulty=DIFFICULTY_HARD;CHECK(!checked_head(k,0));
   defaults(d,full);episodeNum=4;emit(k,0);CHECK(!checked_head(k,0));episodeNum=1;CHECK(!checked_head(k,0));
  }
- CHECK(REAR_P1_HEADS==23&&REAR_P1_OBSERVED==25&&REAR_P1_MAX_BUDGET==7&&rear_p1_member(163)<0&&rear_p1_member(164)<0);
+ CHECK(REAR_P1_HEADS==23&&REAR_P1_OBSERVED==25&&REAR_P1_MAX_BUDGET==8&&rear_p1_member(163)<0&&rear_p1_member(164)<0);
  test_power=1;
 }
 /* Root contains valid 277/278 and independently missing296/corrupt297 files.

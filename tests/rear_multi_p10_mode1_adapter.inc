@@ -211,7 +211,7 @@ static void test_p10_mode1_resources(void)
   defaults(d,full);lvlFileNum=15;initialDifficulty=DIFFICULTY_HARD;emit(k,0);CHECK(checked_head(k,0));initialDifficulty=DIFFICULTY_NORMAL;bad_restore(k,0);initialDifficulty=DIFFICULTY_HARD;CHECK(!checked_head(k,0));
   defaults(d,full);episodeNum=4;emit(k,0);CHECK(!checked_head(k,0));episodeNum=1;CHECK(!checked_head(k,0));
  }
- CHECK(REAR_P1_HEADS==23&&REAR_P1_OBSERVED==25&&REAR_P1_MAX_BUDGET==7&&rear_p1_member(163)<0&&rear_p1_member(164)<0&&rear_p1_member(298)==19&&rear_p1_member(299)==20&&rear_p1_observed(298)==21&&rear_p1_observed(299)==22);
+ CHECK(REAR_P1_HEADS==23&&REAR_P1_OBSERVED==25&&REAR_P1_MAX_BUDGET==8&&rear_p1_member(163)<0&&rear_p1_member(164)<0&&rear_p1_member(298)==19&&rear_p1_member(299)==20&&rear_p1_observed(298)==21&&rear_p1_observed(299)==22);
  test_power=1;
 }
 /* Each reused resource is independently unavailable; no density substitution. */
@@ -276,7 +276,7 @@ static void test_p10_mode1_pending_art(void)
     CHECK(!last_mirrored&&generics==before+1&&role_opens==opens&&!suppress);
    }
   }
-  for(unsigned power=0;power<15;power++)for(unsigned k=0;k<REAR_P1_OBSERVED;k++)if(test_member(power,k)) {
+  for(unsigned power=0;power<17;power++)for(unsigned k=0;k<REAR_P1_OBSERVED;k++)if(power!=15&&test_member(power,k)) {
    test_power=power;emit(k,30+k);CHECK(checked_head(k,30+k)==!((k==9||k==10)&&d==4));
   }
  }
