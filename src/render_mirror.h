@@ -46,6 +46,8 @@ typedef enum {
 #define render_mirror_coin50_value_begin(...) ((void)0)
 #define render_mirror_gem100_value_begin(...) ((void)0)
 #define render_mirror_gem250_value_begin(...) ((void)0)
+#define render_mirror_data_value_begin(...) ((void)0)
+#define render_mirror_fixed_pickup_flash_begin(...) ((void)0)
 #define render_mirror_entity(...) false
 #define render_mirror_entity_end(...) ((void)0)
 #define render_mirror_finish(kind,lightx,lighty) ((void)(kind),(void)(lightx),(void)(lighty))
@@ -129,6 +131,8 @@ void render_mirror_coin75_value_begin(bool fixed);
 void render_mirror_coin50_value_begin(bool fixed);
 void render_mirror_gem100_value_begin(bool fixed);
 void render_mirror_gem250_value_begin(bool fixed);
+void render_mirror_data_value_begin(bool fixed,bool following,int delta_y,unsigned sprite,unsigned ttl);
+void render_mirror_fixed_pickup_flash_begin(bool fixed,bool following,int delta_y,unsigned sprite,unsigned ttl);
 bool render_mirror_entity(SDL_Surface *, int x, int y, Sprite2_array, unsigned int index, int style, int layout);
 void render_mirror_entity_end(void);
 void render_mirror_finish(MirrorOutputKind kind,int lightx,int lighty);

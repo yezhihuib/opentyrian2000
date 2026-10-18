@@ -8,6 +8,9 @@
 #include "selector_font.h"
 #include "pregame_font.h"
 #include "render_mirror.h"
+#include "data_pickup_glyph.h"
+#include "fixed_pickup_flash.h"
+#include "secret_exit_orb.h"
 #include "rear_multi_p1.h"
 #include "gameplay_hud.h"
 #include "gameplay_hud_components.h"
@@ -32,6 +35,7 @@
 #include "video.h"
 #include "varz.h"
 #include "xmas.h"
+#include <limits.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -42,7 +46,7 @@ typedef struct {
  int bank,index,w,h,anchor_x,anchor_y,density;
  Uint8 *rgba;
 } Asset;
-enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121, ASSET_ENEMY_TANK_SHELL=122, ASSET_REAR534_BODY=123, ASSET_DATA513_BODY=124, ASSET_PROTRON_SHADOW=125, ASSET_MARLO_BODY=126, ASSET_MINT_BODY=127, ASSET_FRONTBLASTER_BODY=128, ASSET_PLASMA_BODY=129, ASSET_PLASMA_PROJECTILE=130, ASSET_REAR_MULTI_P1=131 };
+enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121, ASSET_ENEMY_TANK_SHELL=122, ASSET_REAR534_BODY=123, ASSET_DATA513_BODY=124, ASSET_PROTRON_SHADOW=125, ASSET_MARLO_BODY=126, ASSET_MINT_BODY=127, ASSET_FRONTBLASTER_BODY=128, ASSET_PLASMA_BODY=129, ASSET_PLASMA_PROJECTILE=130, ASSET_REAR_MULTI_P1=131, ASSET_DATA_VALUE=132, ASSET_FIXED_PICKUP_FLASH=133, ASSET_SECRET_EXIT_ORB=134 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
 /* Slots 507..509 are rear534; slots 510..521 are Data513. */
 static Asset assets[563];
@@ -55,6 +59,8 @@ static bool cash75_fixed_value;
 static bool cash50_fixed_value;
 static bool gem100_fixed_value;
 static bool gem250_fixed_value;
+static bool data_fixed_value;
+static bool fixed_pickup_flash;
 static Asset talon_frames[13];
 typedef struct {
  bool valid;
@@ -1102,6 +1108,8 @@ void render_mirror_begin(void)
  cash50_fixed_value=false;
  gem100_fixed_value=false;
  gem250_fixed_value=false;
+ data_fixed_value=false;
+ fixed_pickup_flash=false;
  if(manual_hd_enabled&&!mirror_enabled()) {render_mirror_hud_reset();return;}
  hud_begin();
  /* JE_main level_loop calls begin exactly once per simulation tick. Neither
@@ -1478,6 +1486,72 @@ void render_mirror_gem100_value_begin(bool fixed)
 
 void render_mirror_gem250_value_begin(bool fixed)
 {gem250_fixed_value=fixed;}
+
+void render_mirror_data_value_begin(bool fixed,bool following,int delta_y,unsigned sprite,unsigned ttl)
+{data_fixed_value=data_pickup_glyph_eligible(fixed,following,delta_y,sprite,ttl);}
+
+/* Recheck the selected source on every call, including warm cache hits. The
+ * pin contains decoded indices then coverage, never redistributed game art. */
+static bool data_value_source_matches(Sprite2_array bank)
+{
+ if(xmas||!bank.data||bank.data!=explosionSpriteSheet.data||bank.size!=explosionSpriteSheet.size)return false;
+ Uint8 source[12*14*2]={0};
+ if(!decode_tile(bank,266,source,source+12*14,12,0,0))return false;
+ uint64_t stamp=UINT64_C(0xcbf29ce484222325);
+ for(size_t i=0;i<sizeof(source);i++){stamp^=source[i];stamp*=UINT64_C(0x100000001b3);}
+ return stamp==UINT64_C(0xd958f72b804b9ee8);
+}
+
+static bool draw_asset(int x,int y,Asset *a,int style,const SDL_Rect *part);
+
+static bool data_value_draw(SDL_Surface *surface,int x,int y,Sprite2_array bank,int style,int layout)
+{
+ if(!mirror_enabled()||!cash25_surface_ready(surface,x,y)||game_probe_density!=8||
+    game_probe_missing||game_probe_invalid||game_probe_original_reference||!game_probe_assets||
+    layout!=ENTITY_TILE||(style!=MIRROR_NORMAL&&style!=MIRROR_BLEND)||!data_value_source_matches(bank))return false;
+ Asset label={true,true,ASSET_DATA_VALUE,266,12,14,0,0,8,data_pickup_glyph_rgba(rgb_palette)};
+ return draw_asset(x,y,&label,style,NULL);
+}
+
+void render_mirror_fixed_pickup_flash_begin(bool fixed,bool following,int delta_y,unsigned sprite,unsigned ttl)
+{fixed_pickup_flash=fixed_pickup_flash_eligible(fixed,following,delta_y,sprite,ttl);}
+
+/* Keep this single fixed flash distinct from the moving 146--152 family. */
+static bool fixed_pickup_flash_source_matches(Sprite2_array bank)
+{
+ if(xmas||!bank.data||bank.data!=explosionSpriteSheet.data||bank.size!=explosionSpriteSheet.size)return false;
+ Uint8 source[12*14*2]={0};
+ if(!decode_tile(bank,145,source,source+12*14,12,0,0))return false;
+ uint64_t stamp=UINT64_C(0xcbf29ce484222325);
+ for(size_t i=0;i<sizeof(source);i++){stamp^=source[i];stamp*=UINT64_C(0x100000001b3);}
+ return stamp==UINT64_C(0x7560c3259e9e9462);
+}
+
+static bool fixed_pickup_flash_surface_ready(SDL_Surface *surface,int x,int y)
+{
+ if(!cash25_surface_ready(surface,x,y)||!surface->pixels||
+    surface->format->format!=SDL_PIXELFORMAT_INDEX8||!canvas||!canvas->pixels||!canvas->format||
+    canvas->format->format!=SDL_PIXELFORMAT_ARGB8888||canvas->format->BitsPerPixel!=32||
+    canvas->format->BytesPerPixel!=4||canvas->w!=2560||canvas->h!=1600||
+    canvas->pitch<2560*4||canvas->pitch%4||canvas->pitch>INT_MAX/canvas->h||
+    !hd_owner||!cloud_owner||!green_first||!green_under||!green_under_owner||
+    (uintptr_t)canvas->pixels%sizeof(Uint32)||(uintptr_t)green_first%sizeof(Uint16)||
+    (uintptr_t)green_under%sizeof(Uint32))return false;
+ /* The optional true-color destination must never alias original INDEX8. */
+ uintptr_t sp=(uintptr_t)surface->pixels,cp=(uintptr_t)canvas->pixels;
+ size_t sn=(size_t)surface->pitch*surface->h,cn=(size_t)canvas->pitch*canvas->h;
+ if(sn>UINTPTR_MAX-sp||cn>UINTPTR_MAX-cp)return false;
+ return sp+sn<=cp||cp+cn<=sp;
+}
+
+static bool fixed_pickup_flash_draw(SDL_Surface *surface,int x,int y,Sprite2_array bank,int style,int layout)
+{
+ if(!mirror_enabled()||!fixed_pickup_flash_surface_ready(surface,x,y)||game_probe_density!=8||
+    game_probe_missing||game_probe_invalid||game_probe_original_reference||!game_probe_assets||
+    layout!=ENTITY_TILE||(style!=MIRROR_NORMAL&&style!=MIRROR_BLEND)||!fixed_pickup_flash_source_matches(bank))return false;
+ Asset ember={true,true,ASSET_FIXED_PICKUP_FLASH,145,12,14,0,0,8,fixed_pickup_flash_rgba(rgb_palette)};
+ return draw_asset(x,y,&ember,style,NULL);
+}
 
 /* Finite accepted newsh6 families only; each quadrant retains its original
  * one-based ID and 12x14 tile call. No shield, smoke or cash bind. */
@@ -2135,8 +2209,10 @@ static bool draw_asset_filtered(int x,int y,Asset *a,int style,const SDL_Rect *p
  bool coin50_value_blend=style==MIRROR_BLEND&&a->bank==ASSET_CASH50_VALUE&&a->index==204&&!game_probe_original_reference;
  bool gem100_value_blend=style==MIRROR_BLEND&&a->bank==ASSET_GEM100_VALUE&&a->index==169&&!game_probe_original_reference;
  bool gem250_value_blend=style==MIRROR_BLEND&&a->bank==ASSET_GEM250_VALUE&&a->index==188&&!game_probe_original_reference;
+ bool data_value_blend=style==MIRROR_BLEND&&a->bank==ASSET_DATA_VALUE&&a->index==266&&!game_probe_original_reference;
+ bool pickup_flash_blend=style==MIRROR_BLEND&&a->bank==ASSET_FIXED_PICKUP_FLASH&&a->index==145&&!game_probe_original_reference;
  bool explosion_blend=style==MIRROR_BLEND&&a->bank==ASSET_EXPLOSION&&explosion_asset_slot((unsigned int)a->index)>=0&&!game_probe_original_reference;
- if(style==MIRROR_BLEND&&!talon_blend&&!explosion_blend&&!coin25_value_blend&&!coin75_value_blend&&!coin50_value_blend&&!gem100_value_blend&&!gem250_value_blend) {
+ if(style==MIRROR_BLEND&&!talon_blend&&!explosion_blend&&!coin25_value_blend&&!coin75_value_blend&&!coin50_value_blend&&!gem100_value_blend&&!gem250_value_blend&&!data_value_blend&&!pickup_flash_blend) {
   if(!game_probe_local_blend) {render_mirror_unsupported("hd-invulnerability-palette-blend");return false;}
   /* Preserve the original indexed invulnerability blend, including earlier
    * shadows of this asset. Its own RGBA version is not drawn this frame. */
@@ -2187,7 +2263,7 @@ static bool draw_asset_filtered(int x,int y,Asset *a,int style,const SDL_Rect *p
     Uint32 dark=palette_rgb((classic_index&0xf0)|((classic_index&15)/2));
     Uint8 rgba[4]={(dark>>16)&255,(dark>>8)&255,dark&255,255};*p=blend_rgba(*p,rgba,src[3]);
    }
-  } else if(explosion_blend||coin25_value_blend||coin75_value_blend||coin50_value_blend||gem100_value_blend||gem250_value_blend) {
+  } else if(explosion_blend||coin25_value_blend||coin75_value_blend||coin50_value_blend||gem100_value_blend||gem250_value_blend||data_value_blend||pickup_flash_blend) {
    Uint32 background=*p;
    if(green_blend&&destination_owner==0) {
     unsigned int peak=green_background_peak(&green_background,ax,ay,*p);
@@ -2453,6 +2529,38 @@ static bool data513_pickup(SDL_Surface *surface,int x,int y,Sprite2_array bank,u
  return draw_asset_filtered(x-px,y-py,&assets[510+slot],MIRROR_NORMAL,&quadrant,(Uint8)filter,NULL,NULL,NULL);
 }
 
+/* Exact original newshp source, including warm same-address mutations.
+ * A whole-sheet fingerprint avoids accepting altered RLE/unused quadrant data.
+ * This is the locally verified 46204-byte source, never a general bank20 bind. */
+static bool secret_exit_orb_source_matches(Sprite2_array bank)
+{
+ if(xmas||!bank.data||bank.size!=46204)return false;
+ bool selected_source=false;
+ for(int i=0;i<4;i++)if(bank.data==enemySpriteSheets[i].data&&
+    bank.size==enemySpriteSheets[i].size&&enemySpriteSheetIds[i]==20)selected_source=true;
+ if(!selected_source)return false;
+ uint64_t stamp=UINT64_C(0xcbf29ce484222325);
+ for(size_t i=0;i<bank.size;i++){stamp^=bank.data[i];stamp*=UINT64_C(0x100000001b3);}
+ return stamp==UINT64_C(0xe2413e3aeab4d908);
+}
+
+/* A collectible-only scope. Other objects sharing these frames remain classic.
+ * The engine still owns the pulse and all four ordered original INDEX8 writes. */
+static bool secret_exit_orb_pickup(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int base,int part,int filter,const G101EnemyContext *context)
+{
+ if(!mirror_enabled()||!fixed_pickup_flash_surface_ready(surface,x,y)||
+    game_probe_density!=8||game_probe_missing||game_probe_invalid||
+    game_probe_original_reference||!game_probe_assets||!context||
+    (context->type!=823&&context->type!=843)||context->size!=1||
+    context->availability!=2||!context->score_item||context->damaged||
+    secret_exit_orb_phase(base)<0||(part!=0&&part!=1&&part!=19&&part!=20)||
+    filter<0||filter>255||!secret_exit_orb_source_matches(bank))return false;
+ int px=part==1||part==20?12:0,py=part==19||part==20?14:0;
+ SDL_Rect quadrant={px,py,12,14};
+ Asset orb={true,true,ASSET_SECRET_EXIT_ORB,(int)base,24,28,0,0,8,secret_exit_orb_rgba(base,rgb_palette)};
+ return draw_asset_filtered(x-px,y-py,&orb,MIRROR_NORMAL,&quadrant,(Uint8)filter,NULL,NULL,NULL);
+}
+
 bool render_mirror_entity(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int index,int style,int layout)
 {
  render_mirror_shadow_end();
@@ -2462,6 +2570,18 @@ bool render_mirror_entity(SDL_Surface *surface,int x,int y,Sprite2_array bank,un
  bool fixed_value50=cash50_fixed_value;cash50_fixed_value=false;
  bool fixed_value100=gem100_fixed_value;gem100_fixed_value=false;
  bool fixed_value250=gem250_fixed_value;gem250_fixed_value=false;
+ bool fixed_data=data_fixed_value;data_fixed_value=false;
+ bool fixed_flash=fixed_pickup_flash;fixed_pickup_flash=false;
+ if(fixed_flash&&index==145) {
+  bool mirrored=fixed_pickup_flash_draw(surface,x,y,bank,style,layout);
+  game_probe_scene_draw(ASSET_FIXED_PICKUP_FLASH,index,x,y,0,style,mirrored);
+  return mirrored;
+ }
+ if(fixed_data&&index==266) {
+  bool mirrored=data_value_draw(surface,x,y,bank,style,layout);
+  game_probe_scene_draw(ASSET_DATA_VALUE,index,x,y,0,style,mirrored);
+  return mirrored;
+ }
  if(fixed_value&&bank.data&&bank.data==explosionSpriteSheet.data&&index==185&&
     layout==ENTITY_TILE&&(style==MIRROR_NORMAL||style==MIRROR_BLEND)) {
   bool mirrored=cash25_surface_ready(surface,x,y)&&cash25_family_ready()&&
@@ -2962,6 +3082,11 @@ static bool boss_whole_base_allowed(const G101EnemyContext *context,unsigned int
 bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int base,int part,int filter,const G101EnemyContext *material_context)
 {
  if(!active||surface!=game_screen||reject_reason||!(game_probe_scene_assets&1))return false;
+ if(material_context&&(material_context->type==823||material_context->type==843)) {
+  bool mirrored=secret_exit_orb_pickup(surface,x,y,bank,base,part,filter,material_context);
+  game_probe_scene_draw(ASSET_SECRET_EXIT_ORB,base,x,y,part,filter?3:MIRROR_NORMAL,mirrored);
+  return mirrored;
+ }
  if(bank.data&&bank.data==spriteSheet11.data) {
   if(base==203||base==205||base==207) {
    bool mirrored=rear534_pickup(surface,x,y,bank,base,part,filter,material_context);
@@ -3354,7 +3479,7 @@ void render_mirror_terrain_pixel(SDL_Surface *surface,Uint8 *address,Uint8 sourc
  render_mirror_pixel(surface,address,source,style);suppress=previous;suppress_cloud=previous_cloud;
 }
 
-void render_mirror_entity_end(void) { render_mirror_shadow_end();cash25_fixed_value=false;cash75_fixed_value=false;cash50_fixed_value=false;gem100_fixed_value=false;gem250_fixed_value=false;suppress=false;suppress_green_smoke=false;suppress_cloud=false; }
+void render_mirror_entity_end(void) { render_mirror_shadow_end();cash25_fixed_value=false;cash75_fixed_value=false;cash50_fixed_value=false;gem100_fixed_value=false;gem250_fixed_value=false;data_fixed_value=false;fixed_pickup_flash=false;suppress=false;suppress_green_smoke=false;suppress_cloud=false; }
 
 /* Recognized original warm/contact explosions and nine shield-hit pieces.
  * Original hue overwrite + averaged ramp value is approximated continuously
