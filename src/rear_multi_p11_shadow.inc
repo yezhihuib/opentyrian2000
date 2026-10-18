@@ -1,12 +1,13 @@
 /* SPDX-License-Identifier: GPL-2.0-or-later
- * Record264/275 shadow pilots. Reuse each frozen head alpha, never its RGB.
+ * Record263/264/274/275 shadow pilots. Reuse each frozen head alpha, never its RGB.
  * No global bank8 binding; every command retains its admitted birth identity. */
 static bool rear_p11_shadow_birth(const VulcanShadowCall *v)
 {
  if(!v->rear||v->slot>=REAR_P1_SLOTS||v->generation!=rear_p1_state.generation||
     v->birth_identity!=rear_p1_state.birth_identity[v->slot])return false;
  const RearP1Birth *b=&rear_p1_state.birth[v->slot];
- return b->qualified&&((b->record==264&&b->mode==1)||(b->record==275&&b->mode==2))&&b->raw==v->index&&
+ return b->qualified&&(((b->record==263||b->record==264)&&b->mode==1)||
+   ((b->record==274||b->record==275)&&b->mode==2))&&b->raw==v->index&&
   b->generation==v->generation;
 }
 
@@ -30,7 +31,8 @@ bool render_mirror_rear_p11_shadow(SDL_Surface *surface,int x,int y,Sprite2_arra
 {
  render_mirror_shadow_end();
  if(slot>=REAR_P1_SLOTS||index!=raw||
-    (rear_p1_state.birth[slot].record!=264&&rear_p1_state.birth[slot].record!=275))return false;
+    (rear_p1_state.birth[slot].record!=263&&rear_p1_state.birth[slot].record!=264&&
+     rear_p1_state.birth[slot].record!=274&&rear_p1_state.birth[slot].record!=275))return false;
  VulcanShadowCall call={0};
  call.rear=true;call.slot=slot;call.index=index;
  call.generation=rear_p1_state.generation;call.birth_identity=rear_p1_state.birth_identity[slot];
