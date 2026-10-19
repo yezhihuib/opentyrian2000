@@ -48,13 +48,28 @@ typedef struct {
  int bank,index,w,h,anchor_x,anchor_y,density;
  Uint8 *rgba;
 } Asset;
-enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121, ASSET_ENEMY_TANK_SHELL=122, ASSET_REAR534_BODY=123, ASSET_DATA513_BODY=124, ASSET_PROTRON_SHADOW=125, ASSET_MARLO_BODY=126, ASSET_MINT_BODY=127, ASSET_FRONTBLASTER_BODY=128, ASSET_PLASMA_BODY=129, ASSET_PLASMA_PROJECTILE=130, ASSET_REAR_MULTI_P1=131, ASSET_DATA_VALUE=132, ASSET_FIXED_PICKUP_FLASH=133, ASSET_SECRET_EXIT_ORB=134 };
+enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121, ASSET_ENEMY_TANK_SHELL=122, ASSET_REAR534_BODY=123, ASSET_DATA513_BODY=124, ASSET_PROTRON_SHADOW=125, ASSET_MARLO_BODY=126, ASSET_MINT_BODY=127, ASSET_FRONTBLASTER_BODY=128, ASSET_PLASMA_BODY=129, ASSET_PLASMA_PROJECTILE=130, ASSET_REAR_MULTI_P1=131, ASSET_DATA_VALUE=132, ASSET_FIXED_PICKUP_FLASH=133, ASSET_SECRET_EXIT_ORB=134, ASSET_ASTEROID1=108 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
 /* Slots 507..509 are rear534; slots 510..521 are Data513. */
-static Asset assets[563];
+static Asset assets[567];
 static void plasma_art_reset(void);
 static void rear_p1_frame(void);
 static void rear_p1_shutdown(void);
+static void asteroid1_shutdown(void);
+static void asteroid4_shutdown(void);
+static void asteroid_common4_shutdown(void);
+static void asteroid_random5_shutdown(void);
+static void asteroid_random43_shutdown(void);
+static void asteroid_random85_shutdown(void);
+static void asteroid_random123_shutdown(void);
+static void asteroid_random95_shutdown(void);
+static void asteroid_random114_shutdown(void);
+static void asteroid_random133_shutdown(void);
+static void asteroid_random152_shutdown(void);
+static void goldwing_shutdown(void);
+static void asteroid_random286_shutdown(void);
+static void fork284_shutdown(void);
+static void capsule545_shutdown(void);
 /* One draw-call lease from the original fixed explosion; never gameplay state. */
 static bool cash25_fixed_value;
 static bool cash75_fixed_value;
@@ -152,7 +167,7 @@ static Uint8 *green_under_owner;
 static Uint32 initial_palette[256];
 static bool have_initial_palette;
 static bool active,suppress,ready;
-/* One existing normal-data bank8/TILE Vulcan, Multi or Protron shadow command leases
+/* One existing normal-data bank8/TILE Vulcan, Multi, Protron, Sonic, Mint, Missile, Charge or green command leases
  * this compositor, never a projectile or most-recent head. No Present replay. */
 typedef struct {
  bool live,entered,rear;
@@ -172,7 +187,7 @@ static VulcanShadowCall vulcan_shadow;
 /* Frozen player contours. Old ten use head alpha; the three Protron masks
  * have separate resource slots and pins, leaving their translucent heads alone.
  * A source stamp covers colors and original RLE support, not the HDA contour. */
-static const struct {unsigned int index;int slot;uint64_t source,rgba;int coverage_slot;uint64_t coverage_rgba;} vulcan_shadow_pins[13]={
+static const struct {unsigned int index;int slot;uint64_t source,rgba;int coverage_slot;uint64_t coverage_rgba;} vulcan_shadow_pins[45]={
  {67,522,UINT64_C(0x9f5342ea1a7217ae),UINT64_C(0xaea83e10c9169380),0,0},
  {70,523,UINT64_C(0xfb4ea1a99e585804),UINT64_C(0x6c26e938d94472c2),0,0},
  {121,524,UINT64_C(0xba0e9fed90289c7a),UINT64_C(0x769aa8931a65a717),0,0},
@@ -185,7 +200,42 @@ static const struct {unsigned int index;int slot;uint64_t source,rgba;int covera
  {280,531,UINT64_C(0x0842bfe453e6cb1d),UINT64_C(0xca10e502fd370f78),0,0},
  {225,469,UINT64_C(0xcc2d73d8d3e08e9b),UINT64_C(0x4bcd62036411d684),532,UINT64_C(0x9115d94f761d41b6)},
  {244,470,UINT64_C(0x536ebd180af638d6),UINT64_C(0xbcb8f83827c8b717),533,UINT64_C(0xa0f35ce4562bb3a9)},
- {226,471,UINT64_C(0x6f6f9c2a049b7953),UINT64_C(0x436fda16719ce3fb),534,UINT64_C(0xb5ae06163e59f3f6)}
+ {226,471,UINT64_C(0x6f6f9c2a049b7953),UINT64_C(0x436fda16719ce3fb),534,UINT64_C(0xb5ae06163e59f3f6)},
+ /* Four frozen Sonic quadrant heads supply alpha only, at the original origin. */
+ {105,563,UINT64_C(0x66cdc314034152a6),UINT64_C(0x067527a0bbe065b5),0,0},
+ {106,564,UINT64_C(0xee609a977010a3e0),UINT64_C(0x65843c471236e44d),0,0},
+ {124,565,UINT64_C(0x836f9ec6407ea3aa),UINT64_C(0x5c9b2e36bccd2600),0,0},
+ {125,566,UINT64_C(0xbad7de0256394e9c),UINT64_C(0x77d4a54100ab76c8),0,0},
+ /* Remaining seventeen Sonic heads and shared player/sidekick Mint27 alpha. */
+ {6,546,UINT64_C(0x3dcaa5f888996bce),UINT64_C(0xae046f94e09ccd3b),0,0},
+ {44,547,UINT64_C(0x825f39ac9ec84b84),UINT64_C(0x1c67a154f2f39893),0,0},
+ {73,548,UINT64_C(0x898413e19195c1be),UINT64_C(0x8a74e8acd1362144),0,0},
+ {63,549,UINT64_C(0xa79a9f93c7439a27),UINT64_C(0x8d8b870aa1224e54),0,0},
+ {82,550,UINT64_C(0x4f84a37be2ca17d7),UINT64_C(0x4e2d079e0dfa5e80),0,0},
+ {16,551,UINT64_C(0x92a9608038427256),UINT64_C(0x87f924779ed224e9),0,0},
+ {54,552,UINT64_C(0x3e1fc5eeeda214e0),UINT64_C(0x6f424c42e9cf13f1),0,0},
+ {130,553,UINT64_C(0x0f527e20ee1119ba),UINT64_C(0x849cfdb8342e4614),0,0},
+ {131,554,UINT64_C(0x184b6e120d7c65d0),UINT64_C(0xae1db059a985d4d8),0,0},
+ {149,555,UINT64_C(0x5fd2500d1c31f756),UINT64_C(0x032f1516fddf74b0),0,0},
+ {150,556,UINT64_C(0x24befa80f34416fc),UINT64_C(0x746afddcb179e284),0,0},
+ {223,557,UINT64_C(0x5a22bdd5533d1d0d),UINT64_C(0x66f621263659c742),0,0},
+ {224,558,UINT64_C(0x904489b42f2a3cd1),UINT64_C(0xb8512cf2e3efc79e),0,0},
+ {242,559,UINT64_C(0xc114b5f56dfe2a85),UINT64_C(0x171c50999a8dcfa2),0,0},
+ {243,560,UINT64_C(0xc571f14777146519),UINT64_C(0x2e13f3347c8f6f1e),0,0},
+ {143,561,UINT64_C(0x9d732d4562f86474),UINT64_C(0x278a51603a580f3a),0,0},
+ {144,562,UINT64_C(0xa9ede9c9164a8044),UINT64_C(0x6ba1a5c42991552e),0,0},
+ {27,535,UINT64_C(0xd25ba01692cfa4b7),UINT64_C(0xe75bfc31a0616e75),0,0},
+ /* Existing physical Missile heads, Charge heads and green energy alpha only. */
+ {31,333,UINT64_C(0xf63d654f4b2f50f5),UINT64_C(0x7db65bd3d0e1d1df),0,0},
+ {32,334,UINT64_C(0xc261e2eb4d71452b),UINT64_C(0xdb04017352ef16ca),0,0},
+ {33,335,UINT64_C(0xd47ab80283718879),UINT64_C(0xcf349119e8c136ab),0,0},
+ {252,330,UINT64_C(0x294a9d4afd93d8a4),UINT64_C(0x685a3572f08e508a),0,0},
+ {253,331,UINT64_C(0xbcdf97bf4b75c746),UINT64_C(0xa4efdc2b3a6f26ed),0,0},
+ {254,332,UINT64_C(0xf471322126d86fdd),UINT64_C(0xffdbece0353e10fe),0,0},
+ {214,182,UINT64_C(0x17da292b54af394c),UINT64_C(0xa1bc11025ec02c94),0,0},
+ {215,183,UINT64_C(0x46b4c47c5e741b0f),UINT64_C(0x71db2412311dc9af),0,0},
+ {216,184,UINT64_C(0xcb04c4fc86a8cbb7),UINT64_C(0x62a2f5619503960f),0,0},
+ {217,185,UINT64_C(0xfab1a11e30972f37),UINT64_C(0x4c366cbc9efc7cef),0,0}
 };
 static int vulcan_shadow_member(unsigned int index)
 {
@@ -195,13 +245,23 @@ static int vulcan_shadow_member(unsigned int index)
 }
 /* Record only these finite loader results, including a resource-root epoch.
  * Frozen bytes are rechecked at every shadow, even after a warm head load. */
-static struct {const Uint8 *rgba;char path[1024];} vulcan_shadow_resource[13];
+static struct {const Uint8 *rgba;char path[1024];} vulcan_shadow_resource[45];
 static struct {const Uint8 *rgba;char path[1024];} vulcan_shadow_coverage_resource[3];
 static void vulcan_shadow_clear(void) {memset(&vulcan_shadow,0,sizeof(vulcan_shadow));}
 static bool vulcan_shadow_pixel(SDL_Surface *,int,int,Uint8,Uint8,int);
 
 /* PIC3 grants this scene lease independently of optional HUD resources. */
-static bool manual_hd_lease;
+static bool manual_hd_lease,asteroid_hd_lease;
+/* Independent finite normal-data campaign section5, never physical2. */
+static bool asteroid1_level_scope(void)
+{
+ return episodeNum==1&&lvlFileNum==1&&!xmas&&!isNetworkGame&&!twoPlayerMode&&
+  !galagaMode&&!twoPlayerLinked&&!record_demo&&!onePlayerAction&&!superTyrian&&
+  superArcadeMode==SA_NONE&&!timedBattleMode&&!bonusLevel&&
+  !normalBonusLevelCurrent&&!bonusLevelCurrent;
+}
+static bool asteroid1_scope(void)
+{return asteroid_hd_enabled&&asteroid1_level_scope()&&!game_probe_enabled&&!play_demo;}
 static bool normal15_scope(void)
 {
  return episodeNum==1&&lvlFileNum==15&&initialDifficulty>DIFFICULTY_NORMAL&&!xmas&&
@@ -218,7 +278,8 @@ static bool manual_hd_scope(void)
 }
 static bool mirror_enabled(void)
 {
- return game_probe_enabled||(manual_hd_lease&&manual_hd_scope());
+ return game_probe_enabled||(manual_hd_lease&&manual_hd_scope())||
+  (asteroid_hd_lease&&asteroid1_scope());
 }
 bool render_mirror_owns_display(void) { return active; }
 static bool suppress_green_smoke;
@@ -935,8 +996,8 @@ void render_mirror_hud_reset(void)
  render_mirror_shadow_end();
  hud_storm_reset();
  font_reset();fixed_text_reset();indicators_reset();components_reset();hud_frame_reset();
- if(manual_hd_enabled) {
-  manual_hd_lease=false;active=false;ready=false;
+ if(manual_hd_enabled||asteroid_hd_enabled) {
+  manual_hd_lease=asteroid_hd_lease=false;active=false;ready=false;
   last_output_valid=false;last_output_scene_hd=false;have_fade_saved=false;fade_mode=0;
   have_initial_palette=false;render_mirror_reset_banking();
  }
@@ -944,7 +1005,7 @@ void render_mirror_hud_reset(void)
 
 void render_mirror_hud_shutdown(void)
 {
- render_mirror_hud_reset();gameplay_hud_shutdown();hud_components_shutdown();hud_meters_shutdown();hud_indicators_shutdown();hud_fixed_text_shutdown();font_shutdown();hud_storm_shutdown();rear_p1_shutdown();
+ render_mirror_hud_reset();gameplay_hud_shutdown();hud_components_shutdown();hud_meters_shutdown();hud_indicators_shutdown();hud_fixed_text_shutdown();font_shutdown();hud_storm_shutdown();rear_p1_shutdown();asteroid1_shutdown();asteroid4_shutdown();asteroid_common4_shutdown();asteroid_random5_shutdown();asteroid_random43_shutdown();asteroid_random85_shutdown();asteroid_random123_shutdown();asteroid_random95_shutdown();asteroid_random114_shutdown();asteroid_random133_shutdown();asteroid_random152_shutdown();goldwing_shutdown();asteroid_random286_shutdown();fork284_shutdown();capsule545_shutdown();
 }
 
 /* Validate the original bytecode as well as declared dimensions: malformed RLE
@@ -1036,6 +1097,9 @@ void render_mirror_hud_start(SDL_Surface *decoded_pic3)
  if(!decoded_pic3||decoded_pic3!=VGAScreenSeg||!decoded_pic3->pixels||decoded_pic3->w!=320||decoded_pic3->h!=200||decoded_pic3->pitch<320||
     !decoded_pic3->format||decoded_pic3->format->BitsPerPixel!=8||decoded_pic3->format->BytesPerPixel!=1)return;
  manual_hd_lease=manual_hd_scope();
+ asteroid_hd_lease=asteroid1_scope();
+ /* No HUD/font/material resource is admitted by the asteroid-only lease. */
+ if(asteroid_hd_enabled)return;
  if(twoPlayerMode||galagaMode||!mirror_enabled()||game_probe_missing||game_probe_invalid||
     game_probe_original_reference||(game_probe_density!=4&&game_probe_density!=8))return;
  if(gameplay_hud_load(game_probe_assets)&&gameplay_hud_capture(decoded_pic3->pixels,decoded_pic3->pitch)) {
@@ -1112,7 +1176,7 @@ void render_mirror_begin(void)
  gem250_fixed_value=false;
  data_fixed_value=false;
  fixed_pickup_flash=false;
- if(manual_hd_enabled&&!mirror_enabled()) {render_mirror_hud_reset();return;}
+ if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()) {render_mirror_hud_reset();return;}
  hud_begin();
  /* JE_main level_loop calls begin exactly once per simulation tick. Neither
   * individual sprites, shadows nor repeated Present calls advance this clock. */
@@ -1257,6 +1321,7 @@ static bool decode_tile(Sprite2_array bank,unsigned int index,Uint8 *indices,Uin
 
 static bool read_asset(Asset *a,int wanted)
 {
+ if(asteroid_hd_enabled&&a->bank!=ASSET_ASTEROID1)return false;
  char name[1024];
  const char *prefix=a->bank==ASSET_PLASMA_PROJECTILE?"option-plasma-projectile":a->bank==ASSET_PLASMA_BODY?"option-plasma-bank9":a->bank==ASSET_FRONTBLASTER_BODY?"option-frontblaster-bank10":a->bank==ASSET_MINT_BODY?"option-mint-bank9":a->bank==ASSET_MARLO_BODY?"option-marlo-bank9":a->bank==ASSET_PROTRON_SHADOW?"protron-shadow":a->bank==ASSET_REAR534_BODY?"rear534-bank11":a->bank==ASSET_DATA513_BODY?"data513-bank11":a->bank==ASSET_ENEMY_TANK_SHELL?"enemy-tank-shell":a->bank==ASSET_GEM250_BODY?"gem250-bank11":a->bank==ASSET_GEM250_VALUE?"gem250-value-newsh6":a->bank==ASSET_GEM100_BODY?"gem100-bank11":a->bank==ASSET_GEM100_VALUE?"gem100-value-newsh6":a->bank==ASSET_CASH50_BODY?"coin50-bank11":a->bank==ASSET_CASH50_VALUE?"coin50-value-newsh6":a->bank==ASSET_CASH75_BODY?"coin75-bank11":a->bank==ASSET_CASH75_VALUE?"coin75-value-newsh6":a->bank==ASSET_CASH25_BODY?"coin25-bank11":a->bank==ASSET_CASH25_VALUE?"coin25-value-newsh6":a->bank==9?"ship":a->bank==8?"bullet":a->bank==ASSET_ENEMY_ENERGY?"enemy-energy":a->bank==ASSET_NEWSH2?"enemy-newsh2":a->bank==ASSET_NEWSH4?"enemy-newsh4":a->bank==ASSET_NEWSHE?"enemy-newshe":a->bank==ASSET_TALON_BANK?"talon-bank":a->bank==ASSET_EXPLOSION?"explosion-newsh6":"terrain-shapesz";
  if(!game_probe_assets||snprintf(name,sizeof(name),"%s/%s-%d-%d.hda",game_probe_assets,prefix,a->index,wanted)>=(int)sizeof(name)) return false;
@@ -1578,6 +1643,32 @@ static int explosion_asset_slot(unsigned int index)
  for(int k=0;k<22;k++)if(index==shield_ids[k])return 153+k;
  if(index>=78&&index<=84)return 175+(int)index-78;
  return -1;
+}
+
+/* Sonic Wave rear quadrants105/106/124/125: four simultaneous green energy
+ * pieces, not animation or joined143/144 halves. Validate current selected
+ * indices AND coverage before EVERY cold/warm lookup, including source reloads. */
+static int sonic_quadrant_member(unsigned int index)
+{
+ return index==105?0:index==106?1:index==124?2:index==125?3:-1;
+}
+
+static bool sonic_quadrant_source_matches(Sprite2_array bank,unsigned int index)
+{
+ if(xmas||!bank.data||bank.data!=spriteSheet8.data||bank.size!=spriteSheet8.size)return false;
+ uint64_t wanted;
+ switch(index) {
+  case 105:wanted=UINT64_C(0x66cdc314034152a6);break;
+  case 106:wanted=UINT64_C(0xee609a977010a3e0);break;
+  case 124:wanted=UINT64_C(0x836f9ec6407ea3aa);break;
+  case 125:wanted=UINT64_C(0xbad7de0256394e9c);break;
+  default:return false;
+ }
+ Uint8 source[12*14*2]={0};
+ if(!decode_tile(bank,index,source,source+12*14,12,0,0))return false;
+ uint64_t stamp=UINT64_C(0xcbf29ce484222325);
+ for(size_t i=0;i<sizeof(source);i++){stamp^=source[i];stamp*=UINT64_C(0x100000001b3);}
+ return stamp==wanted;
 }
 
 /* Sonic Wave inverted oblique pair242/243: two normal single-player heads only.
@@ -1948,6 +2039,14 @@ static Asset *get_asset(Sprite2_array bank,unsigned int index,int layout)
   static const unsigned int multi_ids[8]={121,122,163,164,201,202,279,280};
   for(int i=0;i<8;i++)if(index==multi_ids[i]){slot=524+i;role=8;break;}
  }
+ /* Four normal Sonic Wave rear quadrants only; all multiplayer/link contexts stay classic.
+  * Keep local mode/source gates before every cold or warm cache access. */
+ if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&sonic_quadrant_member(index)>=0) {
+  if(twoPlayerMode||galagaMode||twoPlayerLinked||
+     (game_probe_density!=4&&game_probe_density!=8)||game_probe_missing||game_probe_invalid||
+     game_probe_original_reference||!game_probe_assets||!sonic_quadrant_source_matches(bank,index))return NULL;
+  slot=563+sonic_quadrant_member(index);role=8;
+ }
  /* Sonic Wave inverted oblique pair242/243 only; all multiplayer/link contexts stay classic.
   * Keep these local mode/source gates before every cold or warm cache access. */
  if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&sonic_inverted_oblique_pair_member(index)>=0) {
@@ -2079,7 +2178,7 @@ static bool talon_frames_ready(void)
 
 void render_mirror_player_pose(unsigned int pnum,Sprite2_array bank,int base,int index,unsigned int invulnerable)
 {
- if(manual_hd_enabled&&!mirror_enabled())return;
+ if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled())return;
  if(pnum<1||pnum>2)return;
  TalonBank *s=&talon_banks[pnum-1];
  bool supported=bank.data==spriteSheet9.data&&base==233&&index>=229&&index<=237&&index%2==1;
@@ -2199,6 +2298,7 @@ static Uint32 green_head_composite(int dx,int dy,unsigned int first,Uint32 color
 
 static bool draw_asset_filtered(int x,int y,Asset *a,int style,const SDL_Rect *part,Uint8 filter,const G101Record *material,const PCapRecord *cap,const Forest13Record *forest)
 {
+ if(asteroid_hd_enabled&&a->bank!=ASSET_ASTEROID1)return false;
  render_mirror_shadow_end();
  /* Original Talon invulnerability uses half-opacity, not a different sprite.
   * Preserve that effect over the ordered RGBA scene and keep the engine's
@@ -2376,6 +2476,7 @@ static bool vulcan_shadow_coverage_valid(int k,const Asset *a)
 
 static bool draw_vulcan_shadow(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int index)
 {
+ if(asteroid_hd_enabled)return false;
  int k=vulcan_shadow_member(index);
  /* These checks precede get_asset, including every warm-cache acceptance.
   * Original RLE row advances use VGAScreen->pitch. Decline horizontal wrap;
@@ -2384,7 +2485,8 @@ static bool draw_vulcan_shadow(SDL_Surface *surface,int x,int y,Sprite2_array ba
     !surface->pixels||surface->w!=320||surface->h!=200||surface->pitch<320||
     !surface->format||surface->format->BitsPerPixel!=8||surface->format->BytesPerPixel!=1||
     !bank.data||bank.data!=spriteSheet8.data||bank.size!=spriteSheet8.size||
-    k<0||x<0||x>308||y<-13||y>199||
+    k<0||(k>=13&&(twoPlayerMode||galagaMode||twoPlayerLinked))||
+    x<0||x>308||y<-13||y>199||
     game_probe_density!=8||game_probe_missing||game_probe_invalid||
     game_probe_original_reference||!game_probe_assets||!canvas||canvas->w!=2560||canvas->h!=1600)return false;
  Uint8 source[12*14*2]={0};
@@ -2422,7 +2524,8 @@ void render_mirror_shadow_begin(SDL_Surface *surface,int x,int y,Sprite2_array b
  if(!v->rear&&k<0) {vulcan_shadow_clear();return;}
  Asset *a=v->rear?rear_p11_shadow_current(v,surface,x,y,bank,index):&assets[vulcan_shadow_pins[k].slot];
  Asset *coverage=v->rear?a:(vulcan_shadow_pins[k].coverage_slot?&assets[vulcan_shadow_pins[k].coverage_slot]:a);
- if(v->entered||xmas||!active||reject_reason||surface!=v->surface||surface!=game_screen||surface!=VGAScreen||
+ if(v->entered||xmas||!active||reject_reason||
+    (k>=13&&(twoPlayerMode||galagaMode||twoPlayerLinked))||surface!=v->surface||surface!=game_screen||surface!=VGAScreen||
     surface->pixels!=v->pixels||surface->format!=v->format||surface->pitch!=v->pitch||surface->w!=320||surface->h!=200||
     !surface->format||surface->format->BitsPerPixel!=8||surface->format->BytesPerPixel!=1||
     !canvas||canvas->pixels!=v->canvas_pixels||canvas->pitch!=v->canvas_pitch||canvas->w!=2560||canvas->h!=1600||
@@ -2498,6 +2601,7 @@ static bool vulcan_shadow_pixel(SDL_Surface *surface,int x,int y,Uint8 before,Ui
     game_probe_density!=8||game_probe_missing||game_probe_invalid||game_probe_original_reference||
     spriteSheet8.data!=v->bank_data||spriteSheet8.size!=v->bank_size||mirror_logic_tick!=v->tick||
     (v->rear&&!rear_p11_shadow_birth(v))||
+    (vulcan_shadow_member(v->index)>=13&&(twoPlayerMode||galagaMode||twoPlayerLinked))||
     cx<0||cx>=12||cy<0||cy>=14||!v->coverage[cy*12+cx]||before!=v->before[cy*12+cx]||
     after!=(Uint8)((before&0xf0)|((before&15)/2))) {render_mirror_unsupported("vulcan-shadow-write-mismatch");return true;}
  v->coverage[cy*12+cx]=0;
@@ -2624,34 +2728,16 @@ bool render_mirror_entity(SDL_Surface *surface,int x,int y,Sprite2_array bank,un
   return mirrored;
  }
  if(!active||surface!=game_screen||reject_reason)return false;
+ /* The quartet reuses only its frozen alpha; original indexed writes still run. */
+ if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&sonic_quadrant_member(index)>=0&&style==MIRROR_SHADOW)return draw_vulcan_shadow(surface,x,y,bank,index);
  /* Resolve the frozen contour from this shadow call, before its own head. */
  if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&vulcan_shadow_member(index)>=0&&style==MIRROR_SHADOW)
   return draw_vulcan_shadow(surface,x,y,bank,index);
- /* Sonic Wave inverted oblique pair242/243 retain original indexed shadow silhouettes, origin and order. */
- if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&sonic_inverted_oblique_pair_member(index)>=0&&style==MIRROR_SHADOW)return false;
- /* Sonic Wave oblique pair223/224 retain original indexed shadow silhouettes, origin and order. */
- if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&sonic_oblique_pair_member(index)>=0&&style==MIRROR_SHADOW)return false;
- /* Sonic Wave joined wave pair143/144 retain original indexed shadow silhouettes, origin and order. */
- if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&sonic_joined_wave_pair_member(index)>=0&&style==MIRROR_SHADOW)return false;
- /* Sonic Wave inverted corner pair149/150 retain original indexed shadow silhouettes, origin and order. */
- if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&sonic_inverted_corner_pair_member(index)>=0&&style==MIRROR_SHADOW)return false;
- /* Sonic Wave corner pair130/131 retain original indexed shadow silhouettes, origin and order. */
- if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&sonic_corner_pair_member(index)>=0&&style==MIRROR_SHADOW)return false;
- /* Sonic Wave fat pair16/54 retain original indexed shadow silhouettes, origin and order. */
- if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&sonic_fat_pair_member(index)>=0&&style==MIRROR_SHADOW)return false;
- /* Sonic Wave shallow pair63/82 retain original indexed shadow silhouettes, origin and order. */
- if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&sonic_shallow_pair_member(index)>=0&&style==MIRROR_SHADOW)return false;
- /* Sonic Wave ID73 retains its original indexed shadow silhouette, origin and order. */
- if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&index==73&&style==MIRROR_SHADOW)return false;
- /* Sonic Wave6/44 retain original indexed shadow silhouettes, origin and order. */
- if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&sonic_six_pair_member(index)>=0&&style==MIRROR_SHADOW)return false;
- /* Mint-O-Ship retains its original indexed shadow silhouette and origin. */
- if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&index==27&&style==MIRROR_SHADOW)return false;
- /* Regular Missile Launcher shadows retain their original indexed silhouettes and origin. */
+ /* Unsupported Regular Missile shadows keep the original indexed fallback. */
  if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&index>=31&&index<=33&&style==MIRROR_SHADOW)return false;
- /* Charge Cannon shadows retain their original indexed silhouettes and origin. */
+ /* Unsupported Charge Cannon shadows keep the original indexed fallback. */
  if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&index>=252&&index<=254&&style==MIRROR_SHADOW)return false;
- /* Keep the green214..217 shadows on their original indexed path and origin. */
+ /* Unsupported green214..217 shadows keep the original indexed fallback. */
  if(bank.data==spriteSheet8.data&&index>=214&&index<=217&&style==MIRROR_SHADOW)return false;
  Asset *a=get_asset(bank,index,layout);
  if(a&&a->bank==9&&banking_draw_player) {
@@ -3085,8 +3171,56 @@ static bool boss_whole_base_allowed(const G101EnemyContext *context,unsigned int
  }
 }
 
+#include "asteroid1_ten_mirror.inc"
+#include "asteroid1_four_mirror.inc"
+#include "asteroid1_common4_mirror.inc"
+#include "asteroid1_random5_mirror.inc"
+#include "asteroid1_random43_mirror.inc"
+#include "asteroid1_random85_mirror.inc"
+#include "asteroid1_random123_mirror.inc"
+#include "asteroid1_random95_mirror.inc"
+#include "asteroid1_random114_mirror.inc"
+#include "asteroid1_random133_mirror.inc"
+#include "asteroid1_random152_mirror.inc"
+#include "asteroid1_goldwing_mirror.inc"
+#include "asteroid1_random286_mirror.inc"
+#include "asteroid1_fork284_mirror.inc"
+#include "asteroid1_capsule545_mirror.inc"
+
 bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int base,int part,int filter,const G101EnemyContext *material_context)
 {
+ /* This mode never falls through to pickups, old bank roles or raw IDs. */
+ if(asteroid_hd_enabled) {
+  if(material_context&&material_context->type==545)
+   return capsule545_draw(surface,x,y,bank,base,part,filter,material_context);
+  if(material_context&&material_context->type==284)
+   return fork284_draw(surface,x,y,bank,base,part,filter,material_context);
+  if(material_context&&material_context->type==286)
+   return asteroid_random286_draw(surface,x,y,bank,base,part,filter,material_context);
+  if(material_context&&material_context->type>=319&&material_context->type<=320)
+   return asteroid_random114_draw(surface,x,y,bank,base,part,filter,material_context);
+  if(material_context&&material_context->type>=321&&material_context->type<=322)
+   return asteroid_random133_draw(surface,x,y,bank,base,part,filter,material_context);
+  if(material_context&&material_context->type>=323&&material_context->type<=324)
+   return asteroid_random152_draw(surface,x,y,bank,base,part,filter,material_context);
+  if(material_context&&material_context->type>=266&&material_context->type<=268)
+   return asteroid_random123_draw(surface,x,y,bank,base,part,filter,material_context);
+  if(material_context&&material_context->type>=317&&material_context->type<=318)
+   return asteroid_random95_draw(surface,x,y,bank,base,part,filter,material_context);
+  if(material_context&&material_context->type>=260&&material_context->type<=262)
+   return asteroid_random43_draw(surface,x,y,bank,base,part,filter,material_context);
+  if(material_context&&material_context->type>=263&&material_context->type<=265)
+   return asteroid_random85_draw(surface,x,y,bank,base,part,filter,material_context);
+  if(material_context&&material_context->type>=135&&material_context->type<=137)
+   return asteroid_random5_draw(surface,x,y,bank,base,part,filter,material_context);
+  if(material_context&&material_context->type>=138&&material_context->type<=141)
+   return asteroid_common4_draw(surface,x,y,bank,base,part,filter,material_context);
+  if(material_context&&material_context->type==282)
+   return goldwing_draw(surface,x,y,bank,base,part,filter,material_context);
+  if(material_context&&material_context->type>=440&&material_context->type<=443)
+   return asteroid4_draw(surface,x,y,bank,base,part,filter,material_context);
+  return asteroid1_draw(surface,x,y,bank,base,part,filter,material_context);
+ }
  if(!active||surface!=game_screen||reject_reason||!(game_probe_scene_assets&1))return false;
  if(material_context&&(material_context->type==823||material_context->type==843)) {
   bool mirrored=secret_exit_orb_pickup(surface,x,y,bank,base,part,filter,material_context);
@@ -3391,7 +3525,8 @@ static const uint8_t *plateau_cap_selected_source(unsigned index,unsigned slot,v
 void render_mirror_ground101_layer1(SDL_Surface *surface,const void *first,int x,int y)
 {
  ground101_frame_reset();
- if(manual_hd_enabled&&!mirror_enabled())return;
+ if(asteroid_hd_enabled)return;
+ if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled())return;
  /* Declaration is independent of lower/context validation and its early exits. */
  forest13_policy_check(game_probe_assets);
  if(!active||surface!=game_screen||reject_reason||terrain_file!='z'||game_probe_density!=8||
@@ -3520,6 +3655,7 @@ static bool effect_ramp_monotone(unsigned int hue)
  * same-address reloaded source. Normal authored clouds remain independent. */
 unsigned int render_mirror_cloud_blend_row(SDL_Surface *surface,int x,int y,Uint8 **map)
 {
+ if(asteroid_hd_enabled)return 0;
  if(!active||!surface||surface!=game_screen||surface!=VGAScreen||reject_reason||suppress||
     !game_probe_known_blend||game_probe_original_reference||!(game_probe_scene_assets&2)||
     (game_probe_density!=4&&game_probe_density!=8)||!canvas||!hd_owner||!cloud_owner||
@@ -3589,6 +3725,7 @@ void render_mirror_cloud_blend_pixel(SDL_Surface *surface,Uint8 *address,Uint8 s
  * No cache or pointer identity can keep stale source admission alive. */
 bool render_mirror_plasma_projectile_begin(SDL_Surface *surface,int x,int y,unsigned int table,unsigned int index)
 {
+ if(asteroid_hd_enabled)return false;
  if(!active||!surface||surface!=game_screen||surface!=VGAScreen||reject_reason||suppress||
     !game_probe_known_blend||game_probe_original_reference||
     (game_probe_density!=4&&game_probe_density!=8)||!canvas||!hd_owner||
@@ -3863,6 +4000,7 @@ static bool have_supported_talon(void)
 
 void render_mirror_sprite2_blend_pixel(SDL_Surface *surface,Uint8 *address,Uint8 source,Sprite2_array bank,unsigned int index,int origin_x,int origin_y)
 {
+ if(asteroid_hd_enabled) {render_mirror_pixel(surface,address,source,MIRROR_BLEND);return;}
  if(!active||surface!=game_screen)return;
  intptr_t off=(intptr_t)address-(intptr_t)surface->pixels;
  if(off<0||off>=(intptr_t)surface->pitch*surface->h) {render_mirror_pixel(surface,address,source,MIRROR_BLEND);return;}
@@ -4010,6 +4148,7 @@ static void normal15_compose(MirrorOutputKind kind,int lightx,int lighty)
 void render_mirror_finish(MirrorOutputKind kind,int lightx,int lighty)
 {
  render_mirror_shadow_end();
+ if(asteroid_hd_enabled&&!mirror_enabled()) {render_mirror_hud_reset();return;}
  hud_check_mode();
  if(!active)return;
  bool normal15=lvlFileNum==15||kind==MIRROR_OUTPUT_NORMAL15_NIGHT||kind==MIRROR_OUTPUT_NORMAL15_LOW_DETAIL;
@@ -4091,7 +4230,7 @@ void render_mirror_finish(MirrorOutputKind kind,int lightx,int lighty)
 void render_mirror_fade_start(const SDL_Color *target,const SDL_Color *solid,unsigned int first,unsigned int last)
 {
  render_mirror_shadow_end();
- if(manual_hd_enabled&&!mirror_enabled()) {render_mirror_hud_reset();return;}
+ if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()) {render_mirror_hud_reset();return;}
  hud_check_mode();
  if(font_cached()&&!font_cached_indices_match())font_clear_cached(15);
  bool cached=last_output_valid;last_output_valid=false;fade_mode=0;ready=false;
@@ -4122,7 +4261,7 @@ void render_mirror_fade_start(const SDL_Color *target,const SDL_Color *solid,uns
 
 void render_mirror_fade_step(int steps)
 {
- if(manual_hd_enabled&&!mirror_enabled()) {render_mirror_hud_reset();return;}
+ if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()) {render_mirror_hud_reset();return;}
  hud_check_mode();
  if(!fade_mode||steps<=0)return;
  if(font_cached()&&!font_cached_indices_match()){font_clear_cached(15);return;}
@@ -4175,7 +4314,7 @@ void render_mirror_fade_step(int steps)
 bool render_mirror_present(SDL_Renderer *renderer,SDL_Surface *src,const SDL_Rect *dst)
 {
  render_mirror_shadow_end();
- if(manual_hd_enabled&&!mirror_enabled()) {render_mirror_hud_reset();return false;}
+ if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()) {render_mirror_hud_reset();return false;}
  hud_check_mode();
  if(font_cached()&&(!font_cached_indices_match()||memcmp(font_output_palette,rgb_palette,sizeof(font_output_palette))))font_clear_cached(15);
  if(fixed_text_output_generation&&(!fixed_text_cached_indices_match()||memcmp(fixed_text_output_palette,rgb_palette,sizeof(fixed_text_output_palette))!=0))fixed_text_clear_cached();

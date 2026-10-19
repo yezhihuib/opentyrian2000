@@ -1,0 +1,253 @@
+{
+  "schema": "asteroid1-ten-bounded-validation-v1",
+  "baseline_commit": "7d628fd3c7f8ce46e5e9d11f8e1e4a79db62a670",
+  "scope": "One ten-piece static asteroid family, separate physical1 normal-data opt-in. Not level completion, natural campaign progression, Windows, GPU/fullscreen or performance acceptance.",
+  "optimized_and_asan_ubsan": {
+    "runs": [
+      {
+        "mode": "optimized",
+        "positive": 1,
+        "negative": 31,
+        "binary_sha256": "3bb47cedb39be499c76f66d5f7a61e7797b2856ea0d04c63bec9cf2c6d81896f"
+      },
+      {
+        "mode": "asan-ubsan",
+        "positive": 1,
+        "negative": 31,
+        "binary_sha256": "38db58429de55758f41251c8754cadf2160fe941ba1d55466abe177a32e273dd"
+      }
+    ],
+    "source_sha256": "eda305918bb78f534c1d5d9e450b0219fc59afe6f1c46b45692e7a02e847a7d3",
+    "peak_child_rss_bytes": 145690624,
+    "leak_sanitizer": false,
+    "leak_sanitizer_note": "Unavailable under this executor ptrace; address/undefined checks remain enabled.",
+    "scope": "Extracted production loader/scope/source/geometry; actual game acceptance is separate."
+  },
+  "six_mutants_detected": true,
+  "cli_cases_passed": 15,
+  "runtime_analysis": {
+    "opening-final-2x": {
+      "ticks": 120,
+      "traces_exact": {
+        "state.tsv": true,
+        "collisions.tsv": true,
+        "enemy-projectiles.tsv": true,
+        "scene-enemies.tsv": true,
+        "scene-hits.tsv": true,
+        "player-projectiles.tsv": true,
+        "player-shot-emissions.tsv": true,
+        "presentation.tsv": true
+      },
+      "classic_pngs_exact": {
+        "classic-0080.png": true,
+        "classic-0040.png": true,
+        "classic-0100.png": true,
+        "classic-0060.png": true,
+        "classic-0020.png": true
+      },
+      "native_visible_equal": {
+        "visible-0020.png": false,
+        "visible-0100.png": false,
+        "visible-0040.png": false,
+        "visible-0080.png": false,
+        "visible-0060.png": false
+      },
+      "admitted_asteroid_commands": 2585,
+      "indices": [
+        13,
+        15,
+        31,
+        34,
+        49,
+        51,
+        53,
+        88,
+        89,
+        91
+      ],
+      "nonasteroid_admitted": 0,
+      "rejected_frames": 0
+    },
+    "opening-final-4x": {
+      "ticks": 90,
+      "traces_exact": {
+        "state.tsv": true,
+        "collisions.tsv": true,
+        "enemy-projectiles.tsv": true,
+        "scene-enemies.tsv": true,
+        "scene-hits.tsv": true,
+        "player-projectiles.tsv": true,
+        "player-shot-emissions.tsv": true,
+        "presentation.tsv": true
+      },
+      "classic_pngs_exact": {
+        "classic-0060.png": true
+      },
+      "native_visible_equal": {
+        "visible-0060.png": false
+      },
+      "admitted_asteroid_commands": 1802,
+      "indices": [
+        13,
+        15,
+        31,
+        34,
+        49,
+        51,
+        53,
+        88,
+        89,
+        91
+      ],
+      "nonasteroid_admitted": 0,
+      "rejected_frames": 0
+    },
+    "missing31-final": {
+      "ticks": 90,
+      "traces_exact": {
+        "state.tsv": true,
+        "collisions.tsv": true,
+        "enemy-projectiles.tsv": true,
+        "scene-enemies.tsv": true,
+        "scene-hits.tsv": true,
+        "player-projectiles.tsv": true,
+        "player-shot-emissions.tsv": true,
+        "presentation.tsv": true
+      },
+      "classic_pngs_exact": {
+        "classic-0060.png": true
+      },
+      "native_visible_equal": {
+        "visible-0060.png": true
+      },
+      "admitted_asteroid_commands": 0,
+      "indices": [],
+      "nonasteroid_admitted": 0,
+      "rejected_frames": 0
+    }
+  },
+  "flag_off_regression": {
+    "scope": "Asteroid flag off. Original physical9 TYRIAN, accepted629-HDR1 external pack.90ticks native640x400, shared capture-only probe selection.",
+    "traces_exact": {
+      "state.tsv": true,
+      "collisions.tsv": true,
+      "enemy-projectiles.tsv": true,
+      "scene-enemies.tsv": true,
+      "scene-hits.tsv": true,
+      "player-projectiles.tsv": true,
+      "player-shot-emissions.tsv": true,
+      "presentation.tsv": true,
+      "frames.tsv": true,
+      "scene-draw-commands.tsv": true
+    },
+    "png_exact": {
+      "visible-0060.png": true,
+      "classic-0060.png": true,
+      "display-0060.png": true
+    }
+  },
+  "art_verification": {
+    "files": [
+      {
+        "name": "enemy-newshd-15-8.hda",
+        "source_support_exact_subset": true,
+        "partial_alpha": 30,
+        "coverage_pixels": 34
+      },
+      {
+        "name": "enemy-newshd-91-8.hda",
+        "source_support_exact_subset": true,
+        "partial_alpha": 29003,
+        "coverage_pixels": 29022
+      },
+      {
+        "name": "enemy-newshd-88-8.hda",
+        "source_support_exact_subset": true,
+        "partial_alpha": 9234,
+        "coverage_pixels": 9234
+      },
+      {
+        "name": "enemy-newshd-53-8.hda",
+        "source_support_exact_subset": true,
+        "partial_alpha": 25132,
+        "coverage_pixels": 25219
+      },
+      {
+        "name": "enemy-newshd-31-8.hda",
+        "source_support_exact_subset": true,
+        "partial_alpha": 4705,
+        "coverage_pixels": 4711
+      },
+      {
+        "name": "enemy-newshd-49-8.hda",
+        "source_support_exact_subset": true,
+        "partial_alpha": 31578,
+        "coverage_pixels": 31594
+      },
+      {
+        "name": "enemy-newshd-89-8.hda",
+        "source_support_exact_subset": true,
+        "partial_alpha": 29323,
+        "coverage_pixels": 29326
+      },
+      {
+        "name": "enemy-newshd-13-8.hda",
+        "source_support_exact_subset": true,
+        "partial_alpha": 31789,
+        "coverage_pixels": 31820
+      },
+      {
+        "name": "enemy-newshd-34-8.hda",
+        "source_support_exact_subset": true,
+        "partial_alpha": 3422,
+        "coverage_pixels": 3481
+      },
+      {
+        "name": "enemy-newshd-51-8.hda",
+        "source_support_exact_subset": true,
+        "partial_alpha": 43008,
+        "coverage_pixels": 43008
+      }
+    ],
+    "previous_manifest_exact": true,
+    "ten_rebuilds_byte_exact": true
+  },
+  "source_sha256": {
+    "src/asteroid1_ten_mirror.inc": "eda305918bb78f534c1d5d9e450b0219fc59afe6f1c46b45692e7a02e847a7d3",
+    "src/render_mirror.c": "b0de6b6500c82de3b98e564f188a90f3711d1b79fea9ed03dea2f691031f0880",
+    "src/game_probe.c": "dd81bd0e8c26df04b598271c85854535fc3e4c23429aa95128e8abd5df43dbba",
+    "src/game_probe.h": "5c98722a8c1db49f763f42505e16e2412087e9deb583365e595599fef5be075c",
+    "src/opentyr.c": "cff352819098045e382c827e8e59661f9fb42e8b26fe113458d78bef4a2e46f7",
+    "src/params.c": "81cbb992aa2a7a925b48a4c23e689961e0cc636e85634c394269d9c0aabd4fbb",
+    "tests/test_asteroid1_ten_assets.py": "70bc1b1589b339562b8774ce8bf1b46678ce5f58fdabe9515d51286ceadaf9b5",
+    "prototype/build-asteroid1-ten-art.py": "2204e7f4694d595bec8b45e2ae3ed77cd2bce1a67c11ccec0565a6d9480e4c24"
+  },
+  "limits": {
+    "runtime_peak_rss_bytes": 147255296,
+    "batch_png_bytes": 20580762,
+    "disk_free_bytes": 5548642304,
+    "reserve_bytes": 5000000000,
+    "unexpected_bmp": false
+  },
+  "review": "Parent accepted source contact and actual native2x. Independent source+native4x review found no blocker.",
+  "tip_coverage_precision": {
+    "original_assembly_opaque_logical_pixels": 3466,
+    "original_tip_opaque_logical_pixels": 18,
+    "original_tip_fraction_of_whole_support": 0.0051933064050779,
+    "original_assembly_bbox_logical": [
+      8,
+      18,
+      77,
+      93
+    ],
+    "candidate_assembly_bbox_in_logical_units": [
+      8.0,
+      18.0,
+      77.0,
+      93.0
+    ],
+    "candidate_tip_nonzero_8x_subpixels": 34,
+    "candidate_tip_alpha_mass_in_logical_pixel_equivalents": 0.18584558823529412,
+    "note": "Ten component-role command witnesses are not ten independently legible sprites. The tiny record446 tip is an inward-smoothed contour remnant of the approved whole structure."
+  }
+}

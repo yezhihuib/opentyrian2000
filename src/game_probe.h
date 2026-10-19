@@ -7,6 +7,8 @@
 extern bool game_probe_enabled;
 /* Display-only opt-in; never enables replay, diagnostics or scripted input. */
 extern bool manual_hd_enabled;
+/* Independent physical1 five-family asteroid opt-in; no broad manual lease. */
+extern bool asteroid_hd_enabled;
 extern int game_probe_density;
 extern bool game_probe_missing, game_probe_repeat, game_probe_invalid;
 extern bool game_probe_coverage_fault;

@@ -1,0 +1,12 @@
+Built-in imagegen; transparent_background=true.
+Reference1: original-next-candidate-record138-contact.png (external decoded original).
+Reference2: assets/hd/artwork/asteroid1-four-v1/imagegen-master.png (style only).
+
+Exact prompt:
+Use case: stylized-concept. Asset type: one production 2D shooter asteroid sprite master on genuine transparent background. Reference 1 is a source contact sheet: reconstruct ONLY the large continuous grey rock on its left. Reference 2 is the accepted rendering language for a different rock, used only for material and painting quality. Draw exactly ONE continuous asteroid, no contact sheet, no labels, no tiles, no frames. Preserve reference 1's asymmetric source silhouette and overall width:height 48:56, upright orientation, broad lobes and recognizable major crater placement. Shape: upper-center short raised knob, upper-left rounded lobe, extended mid-left point, large bulging darker mid-right flank, lower-left slope narrowing to a low bottom tip. Main bright-rimmed shallow crater slightly left of center, another broad bright crater below center-left, smaller craters in the top knob and upper-left lobe, dark rugged channels toward right side. Neutral cool grey matte stone, no color tint. Light from upper left, broad pale planes and dark charcoal recessed stone; hand-painted high resolution but clean substantial readable forms at 96x112px actual game display. Keep craters integrated into a continuous natural rock, no rectangular slab pattern, no tile seam and no quadrant line. Smooth authored detail, curved stone edges, rounded crater rims, fine restrained mineral grain. Do not reproduce magnified pixel blocks or stair-step geometry from source. No space scene, glow, ground shadow, text or border. Center the object with transparent padding, complete silhouette fully visible.
+
+Selected output is imagegen-master.png. The exporter aligns its alpha bounding box
+to original source support, applies one global inward-only contour coverage pass,
+then slices the original24x28 actor rectangles. Internal component split edges
+are never independently feathered. Original gameplay and indexed blits remain
+authoritative. No original game art or data is shipped.

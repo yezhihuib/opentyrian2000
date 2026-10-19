@@ -170,6 +170,30 @@ The [preview launcher](prototype/start-actual-preview.ps1) and
 [asset-debug launcher](prototype/start-asset-debug.ps1) remain controlled replay tools;
 see [debug controls](docs/ASSET_DEBUG.md).
 
+### Separate ASTEROID1 asteroid opt-in
+
+A separate `--asteroid-hd-assets=assets/hd/packs/asteroid1-ten-v1` option replaces
+the coherent ten-piece and two four-piece grey rock families, eight static random
+rocks shared by records135–137,260–262,263–265,266–268,317–324, and record282’s fixed
+gold shell and three-state jewel pulse, plus record286’s continuous four-state
+rock-jewel pulse, record284’s static fork craft and record545’s static silver-grey
+capsule with a red lower tip on normal-data Episode 1 physical level 1
+(ASTEROID1, campaign section 5). Other artwork stays classic.
+Use ordinary campaign progression; this flag does not select or play a level.
+It cannot be combined with the existing manual HD or diagnostic flags. Physical
+level 2 and excluded modes remain classic. See [ten-piece scope](docs/asteroid1-ten-v1/README.md),
+[four-piece scope](docs/asteroid1-four-v1/README.md),
+[frequent four-piece scope](docs/asteroid1-common4-v1/README.md),
+[first static random-rock scope](docs/asteroid1-random5-v1/README.md),
+[two static random-rock scopes](docs/asteroid1-random43-85-v1/README.md),
+[large and small static random-rock scopes](docs/asteroid1-random123-95-v1/README.md),
+[three small static random-rock scopes](docs/asteroid1-random114-133-152-v1/README.md),
+[continuous random-rock jewel pulse](docs/asteroid1-random286-v1/README.md),
+[scheduled fork craft](docs/asteroid1-fork284-v1/README.md),
+[scheduled capsule enemy](docs/asteroid1-capsule545-v1/README.md), and
+[gold-wing identity and bounded validation](docs/asteroid1-goldwing-v1/README.md).
+These are fifteen bounded second-stage families, not a completed second stage or Windows acceptance.
+
 ### Optional external MP3 music
 
 Add `--music-dir` to replace selected songs with your own MP3 files:

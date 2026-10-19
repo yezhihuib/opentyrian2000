@@ -1,0 +1,25 @@
+Built-in imagegen, precise-object-edit, genuine transparent background.
+
+Input 1: exact original four-piece source assembly (48x56), decoded from
+external newshd.shp. Input 2: established asteroid1-ten-v1 imagegen master,
+used only as the matching matte-stone style reference.
+
+Reconstruct input 1 as one seamless hand-painted grey cratered stone asteroid.
+Preserve its narrow vertical asymmetric silhouette and proportions: slight
+diagonal upper pointed crown leaning right, broad left upper bulge, narrower
+middle waist, lower-left angular foot and rounded bottom. Preserve the major
+lobe and crater arrangement: broad pale left shoulder, cratered upper-right
+crest, small central angular crater rim, lower-left shallow bright crater and
+dark lower-right stone. Source shape and layout take precedence over the
+unrelated shape in the style reference. Rebuild continuous curves rather than
+enlarged blocky pixel steps. Flat orthographic game-sprite artwork, continuous
+upper-left lighting, natural fissures, softly lit broad crater rims and dark
+recesses. Broad-value structure must read at actual 2x game scale; fine texture
+is secondary. One centered asteroid, transparent empty margins, no component
+seams. No ground, cast shadow, glow, stars, extra rocks, text, borders, plastic,
+polished metal, spherical redesign or busy debris. Keep the silhouette in frame.
+
+Selected output is imagegen-master.png. build-asteroid1-four-art.py aligns its
+alpha bounding box to the original source assembly, applies one global inward-
+only contour coverage pass, then slices the exact original four actor positions.
+No per-piece interior feathering or gameplay/source-data edits are performed.

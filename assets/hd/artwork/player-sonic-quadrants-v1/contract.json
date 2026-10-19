@@ -1,0 +1,232 @@
+{
+  "schema": "generated-sonic-quadrants-v1",
+  "masters": [
+    {
+      "id": 105,
+      "prompt": "Use case: stylized-concept. Independently redraw this ONE original green energy game sprite as smooth high-resolution luminous energy on actual transparent background. The reference is the sole authority for silhouette and placement; replace lowresolution stair steps by smooth curves. Keep its exact broad chunky silhouette: a SQUARE occupied12:12 canvas with a crescent-like curved LEFT outer edge sweeping from the UPPER-RIGHT tip to the LOWER-LEFT corner; a serrated RIGHT edge has exactlyFOUR rightmost tips at y0%,27%,64%,100%. Tips point horizontally right and all reach the rightmost edge. Keep the lower edge approximately HORIZONTAL from the lower-left corner to the fourth LOWER-RIGHT tip, just like the reference. Both bottom corners sit at the SAME vertical level. This broad wave fills about TWO THIRDS of its square bounding box. Keep all the substantial green body; no thin wire, extra hanging leg, open bottom arch or deep hollow near the bottom. Curved inward valleys between the four tips cut only from the right edge. Smooth vivid saturated-green internal energy with brightcore aroundRGB44,255,105, deepergreenRGB0,125,0 and soft semitransparent fade INSIDE its outer boundaries. No white, mint, cyan or yellow. No outside halo, no particles, no blackoutline, no 3Dplastic, no bevel, no metal, no physicalweapon, no extra objects or text. The entire broad SQUARE sprite is centered with a small uniform transparent margin on a SQUARE canvas. Genuine transparentPNG, precise4tips and broadfullbody read at24x24pixels.",
+      "resize": [
+        96,
+        96
+      ],
+      "paste": [
+        0,
+        16
+      ],
+      "source": "sources/generated-sonic105-r3.png",
+      "source_sha256": "0d37aff99746c10277a1f23ad3e66f3d5afa158c93cb76902d0d147af9d4acdd",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "crop": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "crop_loss_alpha_mass": 0,
+      "logical_anchor": [
+        0,
+        0
+      ],
+      "ideal_proportional_height": 96.0,
+      "integer_rounding_only": true,
+      "generation_started_utc_lower_bound": "2026-10-19T14:57:57Z",
+      "generation_finished_utc_upper_bound": "2026-10-19T14:59:30Z"
+    },
+    {
+      "id": 124,
+      "prompt": "Use case: stylized-concept. Independently redraw the exact silhouette of this ONE original green game sprite as smooth highresolution translucent luminous energy. The reference image is the sole authority for shape, orientation and placement. Preserve its UPPER-LEFT to LOWER-RIGHT crescent sweep: the broad flat UPPER cap starts at TOP-LEFT and extends horizontally about75%ofwidth. Convex curved LEFT outside edge then sweeps downward and RIGHT to the LOWER-RIGHT endpoint. This is a broad LEFT crescent opening to the RIGHT, with exactlyTHREE horizontal rightmost prongs at y27%,64%,100%; do not turn it upside-down. The LOWER-LEFT part of the bounding box is transparent because the entire curve moves toward the right as it descends. Keep original12:11occupied proportions, slightly wider than tall, and a short LOWER-RIGHT hook. Broad energy body fills about TWO THIRDS of its12:11bounds. No extra long tail, no flat bottom shelf across the full width, no narrow wire, no symmetric arch. The silhouette of original124 should remain immediately recognizable at24x22pixels. Replace only the pixelstairs with smooth natural curves. Saturated GREEN brightcore nearRGB44,255,105 follows broad curved spine fromTOP-LEFT toLOWER-RIGHT, softly diffusing into deep-greenRGB0,125,0 energyedges. Partial-alpha transparency feathers inside silhouette boundaries and tips. No white/mint/cyan/yellowstripe, outsideglowhalo, particles, outline, bevel, plastic, metal, physicalweapon, text or extraobjects. Entire12:11sprite centered with small even transparentmargin. Genuine transparent PNG.",
+      "resize": [
+        96,
+        88
+      ],
+      "paste": [
+        0,
+        0
+      ],
+      "source": "sources/generated-sonic124-r3.png",
+      "source_sha256": "017d557a616b83fa59fdb124adcb2f8f0d04a7b94e982b107b127974b08c5996",
+      "source_size": [
+        1310,
+        1201
+      ],
+      "crop": [
+        0,
+        0,
+        1310,
+        1201
+      ],
+      "crop_loss_alpha_mass": 0,
+      "logical_anchor": [
+        0,
+        0
+      ],
+      "ideal_proportional_height": 88.01221374045801,
+      "integer_rounding_only": true,
+      "generation_started_utc_lower_bound": "2026-10-19T15:01:45Z",
+      "generation_finished_utc_upper_bound": "2026-10-19T15:02:59Z"
+    }
+  ],
+  "catalog_without_quartet_normalized_sha256": "9a14d6233922715583e2b4353c7a4d9845f1635f26cc65eaee88a29ca6987d72",
+  "generation": {
+    "tool": "tools.image_gen__imagegen",
+    "exact_model_id": null,
+    "model_id_status": "Exact model ID not supplied or confirmed.",
+    "transparent_background": true,
+    "reference_description": "Private decoded original 105 and 124 supplied solely for geometry, saturated-green identity and source-relative margins. No original raster, mask or indices are bundled or read by reconstruction. Two independently generated masters; exact horizontal mirrors create 106 and 125.",
+    "drafts_per_master": 3,
+    "style_scope": "Substantial green energy, bright core, softer partial-alpha boundaries; no physical projectile redesign.",
+    "timing_precision": "Conservative observed UTC bounds, not exact API duration."
+  },
+  "reconstruction": {
+    "library": "Pillow",
+    "version": "12.3.0",
+    "canvas": [
+      96,
+      112
+    ],
+    "resample": "LANCZOS",
+    "paste_operation": "Straight RGBA paste without mask; original alpha preserved.",
+    "no_paint_recolor_threshold_original_mask_stretch_or_warp": true,
+    "mirror_operation": "Exact full-canvas horizontal mirror, independently for 105\u2192106 and 124\u2192125.",
+    "source_relative_margins": "105/106 retain two transparent logical top rows; 124/125 retain three transparent logical bottom rows.",
+    "masters_are_not_vertical_mirrors": true
+  },
+  "entries": [
+    {
+      "id": 105,
+      "slot": 563,
+      "header_u32": [
+        80105,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "HDA_sha256": "d12fde24b67f6b57ede3483e07a155b95cd5f538cf9f96c64e0d80fc2e0eba78",
+      "PNG_sha256": "1abe73161291968a4f466d6a85d6c63b716ef1f91eed7b0172b15822ab73bddb",
+      "RGBA_sha256": "bcf9aa6ed6ffb7bd20d152b7314d02179449e90f2c9e16358c4ca2b4d1b71513",
+      "fractional_alpha_samples": 5417,
+      "alpha255_samples": 311,
+      "alpha_bbox": [
+        0,
+        17,
+        96,
+        111
+      ]
+    },
+    {
+      "id": 106,
+      "slot": 564,
+      "header_u32": [
+        80106,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "HDA_sha256": "1a47b5701ecbdef673251cd1de7b975e42291cef29ab9a0bfd10f1c48facb2ba",
+      "PNG_sha256": "67304ce80a59f3f044394c251be1c6dc6aad802f86862c0d62468ce33f769571",
+      "RGBA_sha256": "61eb1260e73c03a3298775217a526a901686252fd5c9d02a124a9928748ad584",
+      "fractional_alpha_samples": 5417,
+      "alpha255_samples": 311,
+      "alpha_bbox": [
+        0,
+        17,
+        96,
+        111
+      ]
+    },
+    {
+      "id": 124,
+      "slot": 565,
+      "header_u32": [
+        80124,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "HDA_sha256": "b37e9664609365b53a250c0a711b6ae863ab55299904794051091b206aeef158",
+      "PNG_sha256": "941ac2453c2fb7b0e7713dbd674d18458e5dff2b4840aa0c76deac456ef0f4a3",
+      "RGBA_sha256": "24d620f41909e669da111707ea96ba0a554f0590506a737ce79c2e49e27a71fa",
+      "fractional_alpha_samples": 4116,
+      "alpha255_samples": 53,
+      "alpha_bbox": [
+        1,
+        0,
+        95,
+        86
+      ]
+    },
+    {
+      "id": 125,
+      "slot": 566,
+      "header_u32": [
+        80125,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "HDA_sha256": "11ffdf82296ed985ec9534ba19a555eb22594c14e5fc92414531a47e36383752",
+      "PNG_sha256": "7d19bd8bc5f74b7256be2ce5b0cee31431205d811403f332b7b357d008cd8d8e",
+      "RGBA_sha256": "8bf5a163edd19d99fe7a8dceb148798b98e5a0a24aa269670c185cb9ef96a1fc",
+      "fractional_alpha_samples": 4116,
+      "alpha255_samples": 53,
+      "alpha_bbox": [
+        1,
+        0,
+        95,
+        86
+      ]
+    }
+  ],
+  "selection": {
+    "revision": "Independent generated 105 R3 and 124 R3; native-size and controlled actual-game review passed",
+    "previous_accepted_sonic_ids": [
+      6,
+      44,
+      73,
+      63,
+      82,
+      16,
+      54,
+      130,
+      131,
+      149,
+      150,
+      223,
+      224,
+      242,
+      243,
+      143,
+      144
+    ],
+    "ordinary_rear_port": 11,
+    "ordinary_rear_mode": 1,
+    "ordinary_rear_powers": [
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "original_weapon_records": [
+      282,
+      283,
+      284,
+      285,
+      286
+    ],
+    "simultaneous_quadrants_not_animation_or_joined_halves": true,
+    "prior17_and_ordinary_shadows_unchanged": true,
+    "scope": "Finite normal single-player bank 8 ENTITY_TILE 105/106/124/125 only; multiplayer, linked, Galaga, Christmas and mismatched source stay classic. Controlled high-power replay is not natural purchased-loadout verification.",
+    "validation": "Native 24\u00d728 and 48\u00d756 geometry/energy review and actual 640\u00d7400 software-presenter P7/P11 review passed. Prior 17 resources and original shadow fallback preserved."
+  }
+}

@@ -136,6 +136,16 @@ Windows 使用独立的[手动启动脚本](prototype/start-manual-hd.ps1)：
 及当时四次无实体窗口的合成 SDL 事件引擎运行。[有限预览入口](prototype/start-actual-preview.ps1)与
 [素材调试入口](prototype/start-asset-debug.ps1)仍为受控重播工具，详见[调试操作](docs/ASSET_DEBUG.md)。
 
+### 独立的 ASTEROID1 小行星开关
+
+`--asteroid-hd-assets=assets/hd/packs/asteroid1-ten-v1` 仅替换普通数据版第一章
+物理关卡 1（ASTEROID1，战役段落 5）的十五组有限素材：十块拼接灰色陨石、两组四块拼接陨石、
+记录 135–137、260–262、263–265、266–268、317–324 各自共享的八种静态陨石，以及记录 282 的金色外壳与三态宝石脉冲，以及记录 286 的固定岩体与四态连续宝石脉冲，以及记录 284 的静态叉形金属飞行器，以及记录 545 的银灰色红底尖静态胶囊敌机。其余画面保持原版。
+仍通过普通菜单和战役流程进入，不会自动选关或代玩。它不能与已有手动高清开关、
+渲染诊断开关同时使用；物理关卡 2 和排除模式仍保持原版。
+见[十块拼接范围](docs/asteroid1-ten-v1/README.md)和[新增两组静态随机陨石与有限验收](docs/asteroid1-random43-85-v1/README.md)。另见[大、小静态随机陨石与有限验收](docs/asteroid1-random123-95-v1/README.md)。另见[三种小型静态随机陨石与有限验收](docs/asteroid1-random114-133-152-v1/README.md)。另见[连续随机陨石宝石脉冲与有限验收](docs/asteroid1-random286-v1/README.md)。另见[定时叉形金属飞行器与有限验收](docs/asteroid1-fork284-v1/README.md)。另见[定时胶囊敌机与有限验收](docs/asteroid1-capsule545-v1/README.md)。这些只是十五组有限的第二关素材，
+不代表第二关全部完成或通过 Windows 实机验收。
+
 ### 可选外部 MP3 音乐
 
 添加 `--music-dir`，即可用自己的 MP3 替换指定曲目：

@@ -1,0 +1,20 @@
+Built-in imagegen, precise-object-edit, transparent background.
+
+Inputs: the original source-space ten-piece assembly and a contact of all ten
+static original component sprites, decoded from the user's original data.
+
+Reconstruct the one grey cratered asteroid as seamless hand-painted 2D artwork,
+keeping its framing, position, asymmetrical silhouette, proportions, major
+crater locations, left sloping shoulder, high narrow peak, right bulge and lower
+irregular lobes. Preserve muted charcoal and neutral grey-green rough stone,
+broad light-facing crater rims and dark recesses. Rebuild continuous curves and
+natural fracture lines rather than tracing enlarged square pixel steps. Flat
+orthographic game-sprite artwork with matte stone and restrained directional
+lighting, readable at tiny game size. No seams at component boundaries. Genuine
+transparent space. No cast shadow, ground, glow, stars, extra asteroids, text,
+shiny 3D/plastic/metal look or spherical redesign.
+
+Selected built-in output was persisted as imagegen-master.png. The reproducible
+packing script performs deterministic bbox alignment, a global inward-only
+source-support contour pass, and original-coordinate actor splits. No per-piece
+interior feathering is used.

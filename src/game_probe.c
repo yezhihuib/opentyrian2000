@@ -20,6 +20,7 @@
 
 bool game_probe_enabled;
 bool manual_hd_enabled;
+bool asteroid_hd_enabled;
 int game_probe_density = 1;
 bool game_probe_missing, game_probe_repeat, game_probe_invalid;
 bool game_probe_coverage_fault;
@@ -208,10 +209,14 @@ static void preview_loadout(void)
 void game_probe_parse(int *argc, char **argv)
 {
  /* Inspect the untouched arguments: asset_debug_parse consumes its options. */
- bool manual_requested=false,diagnostic_requested=false;
+ bool manual_requested=false,asteroid_requested=false,diagnostic_requested=false;
  for(int i=1;i<*argc;i++) {
   if(strncmp(argv[i],"--manual-hd-assets=",19)==0)manual_requested=true;
+  if(strncmp(argv[i],"--asteroid-hd-assets=",21)==0)asteroid_requested=true;
   if(strncmp(argv[i],"--render-",9)==0||strncmp(argv[i],"--asset-debug",13)==0)diagnostic_requested=true;
+ }
+ if(asteroid_requested&&(manual_requested||diagnostic_requested)) {
+  fprintf(stderr,"Asteroid HD assets cannot be combined with manual, render or asset-debug options\n");exit(2);
  }
  if(manual_requested&&diagnostic_requested) {
   fprintf(stderr,"Manual HD assets cannot be combined with render or asset-debug options\n");exit(2);
@@ -225,6 +230,10 @@ void game_probe_parse(int *argc, char **argv)
    if(!argv[i][19]) {fprintf(stderr,"Manual HD assets require a nonempty directory\n");exit(2);}
    manual_hd_enabled=true;game_probe_assets=argv[i]+19;
    game_probe_density=8;game_probe_local_blend=true;game_probe_known_blend=true;game_probe_scene_assets=3;
+  } else if(strncmp(argv[i],"--asteroid-hd-assets=",21)==0) {
+   if(!argv[i][21]) {fprintf(stderr,"Asteroid HD assets require a nonempty directory\n");exit(2);}
+   asteroid_hd_enabled=true;game_probe_assets=argv[i]+21;
+   game_probe_density=8;game_probe_local_blend=true;game_probe_known_blend=false;game_probe_scene_assets=1;
   } else if(strncmp(argv[i],"--render-test=",14)==0) {
    const char *mode=argv[i]+14; game_probe_enabled=true;
    if(strcmp(mode,"classic")==0) game_probe_density=1;

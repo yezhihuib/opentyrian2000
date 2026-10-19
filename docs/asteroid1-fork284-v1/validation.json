@@ -1,0 +1,943 @@
+{
+  "baseline_commit": "7ae16de5893e654ca13d72d566a5bb7f7c2c763b",
+  "scope": "One source-bound static scheduled fork284 craft under separate normal-data Episode1 physical1 ASTEROID1 opt-in. Other second-stage content remains outside scope.",
+  "optional_images": 34,
+  "optional_source_records": 41,
+  "optional_families": 14,
+  "default_counts": [
+    629,
+    629
+  ],
+  "original_source": {
+    "record284": {
+      "record_fnv": "0x09e7101d27e463b8",
+      "ani": 1,
+      "tur": [
+        0,
+        0,
+        0
+      ],
+      "freq": [
+        0,
+        0,
+        0
+      ],
+      "movement": [
+        0,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "start": [
+        130,
+        -13,
+        125,
+        0
+      ],
+      "armor": 6,
+      "size": 1,
+      "sequence": [
+        121,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "explosion": 6,
+      "animate": 0,
+      "bank": 8,
+      "rev": [
+        0,
+        0
+      ],
+      "dgr": 0,
+      "dlevel": 0,
+      "dani": 0,
+      "launchfreq": 0,
+      "launchtype": 0,
+      "value": 25,
+      "drop": 0
+    },
+    "sharing_records": {
+      "284": {
+        "record_fnv": "0x09e7101d27e463b8",
+        "ani": 1,
+        "tur": [
+          0,
+          0,
+          0
+        ],
+        "freq": [
+          0,
+          0,
+          0
+        ],
+        "movement": [
+          0,
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        "start": [
+          130,
+          -13,
+          125,
+          0
+        ],
+        "armor": 6,
+        "size": 1,
+        "sequence": [
+          121,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "explosion": 6,
+        "animate": 0,
+        "bank": 8,
+        "rev": [
+          0,
+          0
+        ],
+        "dgr": 0,
+        "dlevel": 0,
+        "dani": 0,
+        "launchfreq": 0,
+        "launchtype": 0,
+        "value": 25,
+        "drop": 0
+      }
+    },
+    "source_bank_fnv": "0x913975450e0fc00d",
+    "opaque": 270,
+    "bbox": [
+      3,
+      0,
+      19,
+      26
+    ],
+    "tiles": [
+      121,
+      122,
+      140,
+      141
+    ],
+    "palette_entries": {
+      "1": [
+        12,
+        12,
+        12
+      ],
+      "2": [
+        24,
+        24,
+        24
+      ],
+      "3": [
+        40,
+        40,
+        40
+      ],
+      "4": [
+        52,
+        52,
+        52
+      ],
+      "5": [
+        69,
+        69,
+        69
+      ],
+      "6": [
+        81,
+        81,
+        81
+      ],
+      "7": [
+        93,
+        93,
+        93
+      ],
+      "8": [
+        105,
+        109,
+        105
+      ],
+      "9": [
+        121,
+        121,
+        121
+      ],
+      "10": [
+        142,
+        142,
+        142
+      ],
+      "11": [
+        162,
+        166,
+        162
+      ],
+      "12": [
+        186,
+        186,
+        186
+      ],
+      "116": [
+        134,
+        4,
+        0
+      ],
+      "118": [
+        186,
+        12,
+        0
+      ],
+      "119": [
+        211,
+        20,
+        0
+      ],
+      "121": [
+        231,
+        97,
+        12
+      ]
+    }
+  },
+  "art": {
+    "enemy-newshd-121-8": {
+      "record": 284,
+      "base": 121,
+      "size": 1,
+      "logical_size": [
+        24,
+        28
+      ],
+      "rgba_fnv64": "0x56eb78103f545e7e",
+      "sha256": "65609c1c9d7cc981faecc914ada8e1100c550047733967ba7ae4b3635fdd1dad"
+    }
+  },
+  "unit": {
+    "record": 284,
+    "base": 121,
+    "logical_size": [
+      24,
+      28
+    ],
+    "density": 8,
+    "cold_source_record_byte_mutations": 77,
+    "warm_source_record_byte_mutations": 77,
+    "boundary_pool_slots": [
+      25,
+      49,
+      75,
+      99
+    ],
+    "ordered_quadrants": 16,
+    "fixture_count": 16,
+    "accepted_links": {
+      "25-49": [
+        0
+      ],
+      "75-99": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ]
+    },
+    "drop512": "Only link1 in pool75-99",
+    "movement": "Unrestricted; event-driven values and field-range extremes tested",
+    "compiler_peak_rss_bytes": 190300160,
+    "runtime_peak_rss_bytes": 9383936,
+    "compiler_address_space_limit_bytes": 1073741824,
+    "runtime_rss_limit_bytes": 536870912,
+    "output_limit_bytes": 8388608,
+    "output_bytes": 2590903,
+    "runs": [
+      {
+        "mode": "optimized",
+        "positive": 2,
+        "negative": 16,
+        "binary_sha256": "651e44bd086aa9de759d5c30c0996272e7310f3178ac36aa278731df941c5f19"
+      },
+      {
+        "mode": "asan-ubsan",
+        "positive": 2,
+        "negative": 16,
+        "binary_sha256": "91be2df570d8c7417abb38a5ff76aa846a7908a1c01e7290949fece0c27e7a07"
+      }
+    ],
+    "source_sha256": "4f01f641de50f900c7c5c41baff6eaa100a1c742b918aa607eeaa87a2d5f2479",
+    "leak_sanitizer": false,
+    "scope": "Extracted production functions and full live struct. Separate actual-engine pixel pairs required."
+  },
+  "source_snapshot": {
+    "runs": [
+      {
+        "mode": "optimized",
+        "result": "source snapshot guards passed: 671 checks across 14 families, 41 record dependencies, cold/warm corruption, role/size/pointer/reload/address reuse and renderer epochs",
+        "binary_sha256": "74036c8abfc8d9573bd3ec2b48d2e41df14b97c09fb3ec97bfd54dcf1b0df34e"
+      },
+      {
+        "mode": "asan-ubsan",
+        "result": "source snapshot guards passed: 671 checks across 14 families, 41 record dependencies, cold/warm corruption, role/size/pointer/reload/address reuse and renderer epochs",
+        "binary_sha256": "292931b9e87e2fdc61c90b80c1f43bd6838e5ea2f480b5b8395e3fedd1d4cdd4"
+      }
+    ],
+    "helper_sha256": "b6b9d48eb57fb5029d25a20ab4bac5e56ca77f9a28cc31d4d8513e0fc9d93f9a",
+    "peak_child_rss_bytes": 40689664,
+    "leak_sanitizer": false,
+    "scope": "Extracted current production helper, source predicates and shutdown. Record-stamp stub checks dependency queries; complete family suites validate real records and drawing separately."
+  },
+  "prior_random286_regression": {
+    "record": 286,
+    "source_record_byte_mutations": 77,
+    "warm_record_mutations": 2,
+    "animation_slots": 12,
+    "ordered_quadrants": 48,
+    "fixture_count": 22,
+    "runtime_peak_rss_bytes": 9150464,
+    "compiler_peak_rss_bytes": 118345728,
+    "runtime_memory_limit_bytes": 536870912,
+    "compiler_address_space_limit_bytes": 1073741824,
+    "runs": [
+      {
+        "mode": "optimized",
+        "positive": 2,
+        "negative": 22,
+        "binary_sha256": "abc62ab644093cde57b0f0631801c2ceac9a372bca14eed5a83f4f62a8a02a71"
+      }
+    ],
+    "source_sha256": "af22344195ea5146522f0d3287aac369ba6d77521c3eafb3cd919dea59e7415e",
+    "peak_child_rss_bytes": 118345728,
+    "leak_sanitizer": false,
+    "scope": "Extracted production source, exact full actor struct, 12-slot/48-quadrant geometry, live phase/base identity and coherent loader. Separate actual-engine pairs required."
+  },
+  "catalog": {
+    "verified_pack_count": 2,
+    "verified_HDA_entries": 1258,
+    "verified_optional_pack_count": 1,
+    "verified_optional_HDA_entries": 34,
+    "verified_exact_source_pngs": 629,
+    "verified_optional_source_pngs": 34,
+    "default_pack_counts": [
+      629,
+      629
+    ],
+    "optional_pack_counts": {
+      "asteroid1-ten-v1": 34
+    },
+    "optional_catalog_sha256": "b656af765d6a364abec94469edfc0d3f640467d6aa1c16e6b75871adc4141c87",
+    "catalog_only": true,
+    "artwork_rebuilt": false
+  },
+  "catalog_regression": {
+    "status": "PASS",
+    "current_default_catalog_counts": [
+      629,
+      629
+    ],
+    "real_optional_HDR1_and_source_PNG_pairs_verified": 34,
+    "optional_catalog_sha256": "b656af765d6a364abec94469edfc0d3f640467d6aa1c16e6b75871adc4141c87",
+    "synthetic_default_only_entries_verified": 2,
+    "missing_and_corrupt_default_optional_cases_rejected": true,
+    "existing_resources_unchanged": true,
+    "scope": "Finite catalog integration; complete historical default payload acceptance is separate."
+  },
+  "production_build": {
+    "binary_sha256": "0dc35d1418667f7b763c7ab218312ad9f6b86ed037f511b50f17bb38ba2a38ab",
+    "render_object_sha256": "69e20711f192897bb4bf681c87045d14d2038f8b3601f1881e5ec14520a9d0d9",
+    "peak_child_rss_bytes": 207974400,
+    "compiler_as_limit_bytes": 1073741824,
+    "compile_warnings": 0
+  },
+  "prior33_assets_and_metadata_unchanged": true,
+  "default_catalogs_unchanged": true,
+  "runtime": {
+    "status": "PASS",
+    "scope": "ASSISTED late original-event window; not a natural campaign or whole-level run.",
+    "episode": 1,
+    "physical_level": 1,
+    "level": "ASTEROID1",
+    "difficulty": "Normal",
+    "seed": 1,
+    "stationary_no_firing": true,
+    "initial_unassisted_stationary_run": {
+      "end_tick": 167,
+      "end_curLoc": 336,
+      "reason": "Player death ended the diagnostic before the first record284 spawn."
+    },
+    "assisted_selector": {
+      "start_event_ordinal": 153,
+      "start_curLoc": 3130,
+      "prefix_ordinals_omitted_except_setup": [
+        1,
+        152
+      ],
+      "original_setup_event_ordinals_replayed": [
+        1,
+        2,
+        3,
+        4,
+        21
+      ],
+      "original_eventRec_fnv_before_after": "0x01d73c470a9401b1",
+      "rng_fingerprint_before_after_selector": "0x8005e0d4ef40f5b1",
+      "source_event_bytes_unchanged": true,
+      "no_actor_injection_or_revival": true
+    },
+    "observed_scope": {
+      "curLoc": [
+        3130,
+        3420
+      ],
+      "scheduled_fork_instances": 22,
+      "unique_pool_slots": [
+        25,
+        26,
+        27,
+        28,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86
+      ],
+      "representative_full_body_witnesses": [
+        {
+          "tick": 9,
+          "slot": 75,
+          "link": 2,
+          "logical_origin": [
+            55,
+            1
+          ],
+          "quadrants": [
+            0,
+            1,
+            19,
+            20
+          ]
+        },
+        {
+          "tick": 112,
+          "slot": 25,
+          "link": 0,
+          "logical_origin": [
+            182,
+            0
+          ],
+          "quadrants": [
+            0,
+            1,
+            19,
+            20
+          ]
+        }
+      ],
+      "later_event33_drop512_runtime_witnessed": false,
+      "later_event33_drop512_source_and_unit_checked": true,
+      "scheduled_instance_event_counts": {
+        "event10": 18,
+        "event6": 4
+      },
+      "source_record_total_scheduled_instances": 42
+    },
+    "paired_runtime": {
+      "assisted3130-2x": {
+        "ticks": 145,
+        "native_scale": "2x",
+        "all14_original_traces_exact": true,
+        "original_trace_sha256": {
+          "state.tsv": "0adb87c638311fe57edde8c697ec64321a9d1580d7db6c40f6e4e64b43db1c91",
+          "collisions.tsv": "2b241aba160cf166784e777d26f9b7aa77c08fb7d89529ff4966ae2928df7d70",
+          "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+          "scene-enemies.tsv": "f6663d9331b28fb6a6a5b7b5b29be61d118b1ffc1f54d5bcda1fa92dd1b7997c",
+          "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+          "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+          "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+          "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+          "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+          "poses.tsv": "a5357c02d8e336af5ea3ae0ceb2de8c40e653bc04c321f85bbd804c8e452e6d0",
+          "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+          "presentation.tsv": "e82eda5e7456df55b0b0983df7926651c1b4ead161340be9971ebca09880ddf1",
+          "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+          "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+        },
+        "extra_traces_exact": {
+          "fork-actors.tsv": true,
+          "original-events.tsv": true,
+          "original-event-clock.tsv": true,
+          "assisted-seek.tsv": true
+        },
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "accepted_fork_quadrants": 3724,
+        "accepted_prior_commands": 378,
+        "complete_four_quadrant_actor_frames": 785,
+        "accepted_quadrants": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": false,
+        "pngs": {
+          "visible-0120.png": {
+            "dimensions": [
+              640,
+              400
+            ],
+            "bytes": 22792,
+            "byte_equal": false,
+            "pixel_equal": false,
+            "difference_bbox": [
+              82,
+              0,
+              434,
+              132
+            ]
+          },
+          "visible-0030.png": {
+            "dimensions": [
+              640,
+              400
+            ],
+            "bytes": 23972,
+            "byte_equal": false,
+            "pixel_equal": false,
+            "difference_bbox": [
+              0,
+              0,
+              444,
+              222
+            ]
+          }
+        },
+        "peak_rss_bytes": 79654912,
+        "exits": {
+          "baseline": 0,
+          "candidate": 0
+        },
+        "binaries_sha256": {
+          "baseline": "74392f044ef910495c5884d8b08e2798719d63efb243d8ffe56e57a0d9dbfb82",
+          "candidate": "768ac53077647d489c887b0a97be960c5c50dc51414f01ddd7ee13107e633a8d"
+        }
+      },
+      "assisted3130-4x": {
+        "ticks": 145,
+        "native_scale": "4x",
+        "all14_original_traces_exact": true,
+        "original_trace_sha256": {
+          "state.tsv": "0adb87c638311fe57edde8c697ec64321a9d1580d7db6c40f6e4e64b43db1c91",
+          "collisions.tsv": "2b241aba160cf166784e777d26f9b7aa77c08fb7d89529ff4966ae2928df7d70",
+          "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+          "scene-enemies.tsv": "f6663d9331b28fb6a6a5b7b5b29be61d118b1ffc1f54d5bcda1fa92dd1b7997c",
+          "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+          "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+          "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+          "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+          "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+          "poses.tsv": "a5357c02d8e336af5ea3ae0ceb2de8c40e653bc04c321f85bbd804c8e452e6d0",
+          "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+          "presentation.tsv": "e82eda5e7456df55b0b0983df7926651c1b4ead161340be9971ebca09880ddf1",
+          "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+          "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+        },
+        "extra_traces_exact": {
+          "fork-actors.tsv": true,
+          "original-events.tsv": true,
+          "original-event-clock.tsv": true,
+          "assisted-seek.tsv": true
+        },
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "accepted_fork_quadrants": 3724,
+        "accepted_prior_commands": 378,
+        "complete_four_quadrant_actor_frames": 785,
+        "accepted_quadrants": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": false,
+        "pngs": {
+          "visible-0120.png": {
+            "dimensions": [
+              1280,
+              800
+            ],
+            "bytes": 60203,
+            "byte_equal": false,
+            "pixel_equal": false,
+            "difference_bbox": [
+              164,
+              0,
+              868,
+              264
+            ]
+          },
+          "visible-0030.png": {
+            "dimensions": [
+              1280,
+              800
+            ],
+            "bytes": 64836,
+            "byte_equal": false,
+            "pixel_equal": false,
+            "difference_bbox": [
+              0,
+              0,
+              888,
+              444
+            ]
+          }
+        },
+        "peak_rss_bytes": 95137792,
+        "exits": {
+          "baseline": 0,
+          "candidate": 0
+        },
+        "binaries_sha256": {
+          "baseline": "74392f044ef910495c5884d8b08e2798719d63efb243d8ffe56e57a0d9dbfb82",
+          "candidate": "768ac53077647d489c887b0a97be960c5c50dc51414f01ddd7ee13107e633a8d"
+        }
+      },
+      "assisted3130-missing121": {
+        "ticks": 145,
+        "native_scale": "2x",
+        "all14_original_traces_exact": true,
+        "original_trace_sha256": {
+          "state.tsv": "0adb87c638311fe57edde8c697ec64321a9d1580d7db6c40f6e4e64b43db1c91",
+          "collisions.tsv": "2b241aba160cf166784e777d26f9b7aa77c08fb7d89529ff4966ae2928df7d70",
+          "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+          "scene-enemies.tsv": "f6663d9331b28fb6a6a5b7b5b29be61d118b1ffc1f54d5bcda1fa92dd1b7997c",
+          "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+          "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+          "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+          "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+          "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+          "poses.tsv": "a5357c02d8e336af5ea3ae0ceb2de8c40e653bc04c321f85bbd804c8e452e6d0",
+          "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+          "presentation.tsv": "e82eda5e7456df55b0b0983df7926651c1b4ead161340be9971ebca09880ddf1",
+          "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+          "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+        },
+        "extra_traces_exact": {
+          "fork-actors.tsv": true,
+          "original-events.tsv": true,
+          "original-event-clock.tsv": true,
+          "assisted-seek.tsv": true
+        },
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "accepted_fork_quadrants": 0,
+        "accepted_prior_commands": 378,
+        "complete_four_quadrant_actor_frames": 0,
+        "accepted_quadrants": [],
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": true,
+        "pngs": {
+          "visible-0120.png": {
+            "dimensions": [
+              640,
+              400
+            ],
+            "bytes": 17702,
+            "byte_equal": true,
+            "pixel_equal": true,
+            "difference_bbox": null
+          },
+          "visible-0030.png": {
+            "dimensions": [
+              640,
+              400
+            ],
+            "bytes": 12948,
+            "byte_equal": true,
+            "pixel_equal": true,
+            "difference_bbox": null
+          }
+        },
+        "peak_rss_bytes": 81006592,
+        "exits": {
+          "baseline": 0,
+          "candidate": 0
+        },
+        "binaries_sha256": {
+          "baseline": "74392f044ef910495c5884d8b08e2798719d63efb243d8ffe56e57a0d9dbfb82",
+          "candidate": "768ac53077647d489c887b0a97be960c5c50dc51414f01ddd7ee13107e633a8d"
+        }
+      },
+      "assisted3130-corrupt121": {
+        "ticks": 145,
+        "native_scale": "2x",
+        "all14_original_traces_exact": true,
+        "original_trace_sha256": {
+          "state.tsv": "0adb87c638311fe57edde8c697ec64321a9d1580d7db6c40f6e4e64b43db1c91",
+          "collisions.tsv": "2b241aba160cf166784e777d26f9b7aa77c08fb7d89529ff4966ae2928df7d70",
+          "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+          "scene-enemies.tsv": "f6663d9331b28fb6a6a5b7b5b29be61d118b1ffc1f54d5bcda1fa92dd1b7997c",
+          "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+          "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+          "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+          "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+          "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+          "poses.tsv": "a5357c02d8e336af5ea3ae0ceb2de8c40e653bc04c321f85bbd804c8e452e6d0",
+          "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+          "presentation.tsv": "e82eda5e7456df55b0b0983df7926651c1b4ead161340be9971ebca09880ddf1",
+          "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+          "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+        },
+        "extra_traces_exact": {
+          "fork-actors.tsv": true,
+          "original-events.tsv": true,
+          "original-event-clock.tsv": true,
+          "assisted-seek.tsv": true
+        },
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "accepted_fork_quadrants": 0,
+        "accepted_prior_commands": 378,
+        "complete_four_quadrant_actor_frames": 0,
+        "accepted_quadrants": [],
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": true,
+        "pngs": {
+          "visible-0120.png": {
+            "dimensions": [
+              640,
+              400
+            ],
+            "bytes": 17702,
+            "byte_equal": true,
+            "pixel_equal": true,
+            "difference_bbox": null
+          },
+          "visible-0030.png": {
+            "dimensions": [
+              640,
+              400
+            ],
+            "bytes": 12948,
+            "byte_equal": true,
+            "pixel_equal": true,
+            "difference_bbox": null
+          }
+        },
+        "peak_rss_bytes": 80146432,
+        "exits": {
+          "baseline": 0,
+          "candidate": 0
+        },
+        "binaries_sha256": {
+          "baseline": "74392f044ef910495c5884d8b08e2798719d63efb243d8ffe56e57a0d9dbfb82",
+          "candidate": "768ac53077647d489c887b0a97be960c5c50dc51414f01ddd7ee13107e633a8d"
+        }
+      },
+      "assisted3130-flag-off-physical1": {
+        "ticks": 145,
+        "native_scale": "2x",
+        "all14_original_traces_exact": true,
+        "original_trace_sha256": {
+          "state.tsv": "0adb87c638311fe57edde8c697ec64321a9d1580d7db6c40f6e4e64b43db1c91",
+          "collisions.tsv": "2b241aba160cf166784e777d26f9b7aa77c08fb7d89529ff4966ae2928df7d70",
+          "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+          "scene-enemies.tsv": "f6663d9331b28fb6a6a5b7b5b29be61d118b1ffc1f54d5bcda1fa92dd1b7997c",
+          "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+          "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+          "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+          "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+          "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+          "poses.tsv": "a5357c02d8e336af5ea3ae0ceb2de8c40e653bc04c321f85bbd804c8e452e6d0",
+          "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+          "presentation.tsv": "e82eda5e7456df55b0b0983df7926651c1b4ead161340be9971ebca09880ddf1",
+          "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+          "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+        },
+        "extra_traces_exact": {
+          "fork-actors.tsv": true,
+          "original-events.tsv": true,
+          "original-event-clock.tsv": true,
+          "assisted-seek.tsv": true
+        },
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "accepted_fork_quadrants": 0,
+        "accepted_prior_commands": 0,
+        "complete_four_quadrant_actor_frames": 0,
+        "accepted_quadrants": [],
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": true,
+        "pngs": {
+          "visible-0120.png": {
+            "dimensions": [
+              640,
+              400
+            ],
+            "bytes": 12751,
+            "byte_equal": true,
+            "pixel_equal": true,
+            "difference_bbox": null
+          },
+          "visible-0030.png": {
+            "dimensions": [
+              640,
+              400
+            ],
+            "bytes": 12948,
+            "byte_equal": true,
+            "pixel_equal": true,
+            "difference_bbox": null
+          }
+        },
+        "peak_rss_bytes": 80195584,
+        "exits": {
+          "baseline": 0,
+          "candidate": 0
+        },
+        "binaries_sha256": {
+          "baseline": "d8dac9bc2ffd33478760cc28d4f0f24b2810f1326d73dea041b2f009388100d8",
+          "candidate": "8bce13ce0abdf55e47282ec14aceea55cebd21050b7c75bbe9d33180ec01cf3e"
+        }
+      }
+    },
+    "production_object_exact_to_tested_candidate": true,
+    "production_object_sha256": "69e20711f192897bb4bf681c87045d14d2038f8b3601f1881e5ec14520a9d0d9",
+    "runtime_limit_bytes": 536870912,
+    "compiler_limit_bytes": 1073741824,
+    "peak_rss_bytes": 95137792,
+    "native_screenshots_parent_reviewed": "Native2x source footprint and actual ticks30/120 approved; native4x inspected separately",
+    "no_BMP_generated": true,
+    "original_HUD_preserved": true,
+    "limitations": [
+      "Assisted prefix omission; no natural campaign or full-level acceptance",
+      "Only curLoc3130\u20133420 runtime-witnessed, not all42 scheduled instances",
+      "Later event33/drop512 is source/unit evidence only",
+      "Headless SDL software renderer; no Windows, fullscreen/GPU, performance or LeakSanitizer acceptance"
+    ],
+    "all14_traces_cross_scale_exact": true
+  },
+  "limitations": [
+    "No natural campaign or full-level acceptance",
+    "No Windows, fullscreen/GPU, performance or LeakSanitizer acceptance",
+    "No external publication or Windows package"
+  ],
+  "alpha_support": {
+    "logical_source_opaque_cells": 270,
+    "final_alpha_inside_original_coverage": true,
+    "antialiased_subpixels": 13201,
+    "image_size": [
+      192,
+      224
+    ]
+  },
+  "independent_code_review": {
+    "status": "PASS",
+    "base_commit": "7ae16de5893e654ca13d72d566a5bb7f7c2c763b",
+    "reviewed_source_sha256": {
+      "src/asteroid1_fork284_mirror.inc": "4f01f641de50f900c7c5c41baff6eaa100a1c742b918aa607eeaa87a2d5f2479",
+      "src/render_mirror.c": "b8ad49dfcebbc30af29e91c101005edd81d1b77a8ff7fd26a2b853042042c063",
+      "prototype/build-asteroid1-fork284-art.py": "cc815b6cc82eaae613024afcf75d4fbb7dd7494bac21b923b47d30d9c6f01f7a",
+      "prototype/hd_pack_catalog.py": "84520a5f1eccfecac09285cdea89e374d61b999e2e5aa1845e838d1d86537ace",
+      "assets/hd/manifest.json": "df05165558d69269e0fdba022f90318436608fdef1e6c3e021310335584a192a",
+      "tests/test_asteroid1_source_snapshot.py": "c7eb8d2ba80df3c0db6996cb1290c0390caf90aac39ebb4bba882b20d890218c",
+      "tests/test_hd_pack_catalog.py": "b4c71967adbc0b018f0c2869d6426a7fba3641d7fdac8ac03e25ba752f474c2b",
+      "tests/test_asteroid1_fork284_assets.py": "c4c577ab5bdac8353651ffff9f59a59365e39faf5c2cceabd3026ee42a70742b"
+    },
+    "checks": [
+      "Read-only review of new type284 dispatch, lifecycle, source binding, static four-part geometry, actor pools/links/drop guard, and motion admission found no blocker or required fix.",
+      "Verified all prior 33 optional image rows, 13 family rows and 40 source records are unchanged; exactly base121 and family fork284 were added.",
+      "Verified both default catalogs are unchanged and remain 629 entries each; optional catalog digest validates.",
+      "Independently reran the converter in a temporary directory against the explicitly supplied original newshd.shp and current imagegen master. Generated PNG and HDR1 bytes exactly match manifest fingerprints and shipped files.",
+      "Reviewed the new family test coverage: 77 cold and 77 warm record-byte mutations, both pool boundaries, four ordered quadrants, unrestricted motion extremes, link1/drop512, actor/display guards, 16 loader negatives and own-family isolation."
+    ],
+    "converter_reproduction": {
+      "png_sha256": "94b9551dd895821434cea8cd4e731726bca8e9f2f384c1cc8fcd506921a266af",
+      "hdr1_sha256": "65609c1c9d7cc981faecc914ada8e1100c550047733967ba7ae4b3635fdd1dad",
+      "rgba_fnv64": "0x56eb78103f545e7e",
+      "hdr1_bytes": 172060,
+      "logical_size": [
+        24,
+        28
+      ],
+      "density": 8,
+      "exact_generated_and_shipped_bytes_equal": true
+    },
+    "bounds": [
+      "No independent duplicate of the parent-reported successful optimized/ASan/UBSan harness or strict production build was run.",
+      "The family unit test stubs draw_asset_filtered; actual-engine pixel drawing, clipping and visual acceptance remain explicitly pending.",
+      "No code edits, broad repository scan, prohibited projection input access, private session access or external upload occurred."
+    ],
+    "blockers": [],
+    "required_fixes": []
+  },
+  "parent_visual_review": "Source/packed actual2x footprint and actual-engine native2x ticks30/120 approved before localcommit"
+}

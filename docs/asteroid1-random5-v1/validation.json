@@ -1,0 +1,752 @@
+{
+  "schema": "asteroid1-random5-bounded-validation-v1",
+  "baseline_commit": "9a18c7188388606ecd8187f6f901e2362f397ddc",
+  "source": {
+    "records": [
+      135,
+      136,
+      137
+    ],
+    "related_original_records": [
+      135,
+      136,
+      137
+    ],
+    "base": 5,
+    "tiles": [
+      5,
+      6,
+      24,
+      25
+    ],
+    "size": [
+      24,
+      28
+    ],
+    "opaque_pixels": 355,
+    "support_bbox": [
+      2,
+      1,
+      24,
+      21
+    ],
+    "source_stamps": {
+      "135": "0x50100b90790211f7",
+      "136": "0x75cc21d83286ca9e",
+      "137": "0x753b6b0ba408f18d"
+    },
+    "source_bank_fnv": "0x913975450e0fc00d",
+    "original_index_support_sha256": "16378856fa8730d5958bfaa4248751a0a5b906430e0e682a05b4d49b10ac888d"
+  },
+  "art": {
+    "enemy-newshd-5-8": {
+      "records": [
+        135,
+        136,
+        137
+      ],
+      "base": 5,
+      "size": 1,
+      "logical_size": [
+        24,
+        28
+      ],
+      "source_tiles": [
+        5,
+        6,
+        24,
+        25
+      ],
+      "rgba_fnv64": "0xce032380cc003d88",
+      "sha256": "bc4fe34b0ce8f43351b37a7c7af9c57ac100e13697aa03fe48458112be16c322"
+    }
+  },
+  "unit_suites": {
+    "random5": {
+      "runs": [
+        {
+          "mode": "optimized",
+          "positive": 1,
+          "negative": 13,
+          "binary_sha256": "c12748774d9248525749900923991c0a47e2b7a51a927b561a314b350c1cc96e"
+        },
+        {
+          "mode": "asan-ubsan",
+          "positive": 1,
+          "negative": 13,
+          "binary_sha256": "cca8fd9b48fe7370b8b5a5f0a4d8497305a1bc157e4ead27530814630e8f86c0"
+        }
+      ],
+      "source_sha256": "335c5b5eebe7591927383d0d08dd4477fd0ffddbf7dd940a354e13c7dc5ccc43",
+      "peak_child_rss_bytes": 146112512,
+      "leak_sanitizer": false,
+      "scope": "Extracted production full-three-record source guard, one coherent resource, twelve ordered quadrant calls, clipping/mode/format/filter/warm corruption checks. Actual-engine random-spawn pairs are separate."
+    },
+    "common4": {
+      "runs": [
+        {
+          "mode": "optimized",
+          "positive": 1,
+          "negative": 19,
+          "binary_sha256": "8dc67eae249c24e57ae405d00b24dccf2fca1fad40407a7bf937bf11d739bbc7"
+        },
+        {
+          "mode": "asan-ubsan",
+          "positive": 1,
+          "negative": 19,
+          "binary_sha256": "1e1d2469dd026778a70cb6ceeb0ec1681e35c27614c214380ea5f0723669d693"
+        }
+      ],
+      "source_sha256": "4867cd333e7a222d1e86f735cf61e3b498a8ca5f3f3c8bf565d20af61a34e8da",
+      "peak_child_rss_bytes": 145887232,
+      "leak_sanitizer": false,
+      "scope": "Extracted production four-family scope/source/loader/16-quadrant geometry. Actual engine pairs are separate."
+    },
+    "ten": {
+      "runs": [
+        {
+          "mode": "optimized",
+          "positive": 1,
+          "negative": 31,
+          "binary_sha256": "ad3a38faedc2ea3e0afd3fc87b5647d258903fc756166b10d8fe084d1a498771"
+        },
+        {
+          "mode": "asan-ubsan",
+          "positive": 1,
+          "negative": 31,
+          "binary_sha256": "686d407b628ae450d29553d28f245d167708ed8fd71f10d36534e27715b2e50d"
+        }
+      ],
+      "source_sha256": "eda305918bb78f534c1d5d9e450b0219fc59afe6f1c46b45692e7a02e847a7d3",
+      "peak_child_rss_bytes": 145661952,
+      "leak_sanitizer": false,
+      "leak_sanitizer_note": "Unavailable under this executor ptrace; address/undefined checks remain enabled.",
+      "scope": "Extracted production loader/scope/source/geometry; actual game acceptance is separate."
+    },
+    "four": {
+      "runs": [
+        {
+          "mode": "optimized",
+          "positive": 1,
+          "negative": 19,
+          "binary_sha256": "7f6103ad4a8e2593436cd3b7199faf61d1d901a50db8f3d1a562b4bd4342c558"
+        },
+        {
+          "mode": "asan-ubsan",
+          "positive": 1,
+          "negative": 19,
+          "binary_sha256": "acfe404d1a3322f9d4e40b8db8ddf83742fa5f8a4f1dae2abcc62fc94eb38a61"
+        }
+      ],
+      "source_sha256": "cb1e28cca841dbcf7116aa14de4e45233fb51d81925cf44e49229f2d471ac187",
+      "peak_child_rss_bytes": 146006016,
+      "leak_sanitizer": false,
+      "scope": "Extracted production four-family scope/source/loader/16-quadrant geometry. Actual engine pairs are separate."
+    },
+    "goldwing": {
+      "runs": [
+        {
+          "mode": "optimized",
+          "positive": 1,
+          "negative": 17,
+          "binary_sha256": "ffe053533f305a47b9b1723940aa0643d80e5ed3f898d24367fca3896ccfcf29"
+        },
+        {
+          "mode": "asan-ubsan",
+          "positive": 1,
+          "negative": 17,
+          "binary_sha256": "196b32c3ed87c853648fe033ac06427bbc48f5cd59842ed61a148f8d96cc045e"
+        }
+      ],
+      "source_sha256": "904d0eccbd2126e84e1da64f8f2ac881d19e58a393312c061ee9f99bf335c6aa",
+      "peak_child_rss_bytes": 160321536,
+      "leak_sanitizer": false,
+      "scope": "Extracted production source, exact full actor struct, six-slot24-quadrant geometry, live phase/base identity and coherent loader. Separate actual-engine pairs required."
+    }
+  },
+  "actual_engine": {
+    "random5-first-2x": {
+      "requested_ticks": 300,
+      "observed_ticks": 168,
+      "seed": "0x5eed",
+      "trace_exact": {
+        "state.tsv": true,
+        "collisions.tsv": true,
+        "enemy-projectiles.tsv": true,
+        "scene-enemies.tsv": true,
+        "scene-hits.tsv": true,
+        "player-projectiles.tsv": true,
+        "player-shot-emissions.tsv": true,
+        "player-shot-requests.tsv": true,
+        "player-shot-results.tsv": true,
+        "poses.tsv": true,
+        "fire-events.tsv": true,
+        "presentation.tsv": true,
+        "weapon-loadout.tsv": true,
+        "fade-steps.tsv": true
+      },
+      "png_exact": {
+        "display-0080.png": true,
+        "classic-0080.png": true,
+        "visible-0080.png": true
+      },
+      "new_commands": 0,
+      "new_record_types": [],
+      "new_bases": [],
+      "prior_commands": 8936,
+      "prior_bases": [
+        1,
+        3,
+        7,
+        9,
+        13,
+        15,
+        31,
+        34,
+        39,
+        41,
+        45,
+        47,
+        49,
+        51,
+        53,
+        79,
+        81,
+        83,
+        88,
+        89,
+        91
+      ],
+      "admitted_roles": [
+        108
+      ],
+      "coverage_mismatch": 0,
+      "rejected_frames": 0,
+      "peak_rss_bytes": 106500096,
+      "native_visible_png_sizes": [
+        [
+          640,
+          400
+        ]
+      ],
+      "limitation": "Requested300ticks ended after168 observations following unprotected death; no new random5 spawn, so not a new-family runtime witness."
+    },
+    "random5-native4x": {
+      "requested_ticks": 300,
+      "observed_ticks": 168,
+      "seed": "0x5eed",
+      "trace_exact": {
+        "state.tsv": true,
+        "collisions.tsv": true,
+        "enemy-projectiles.tsv": true,
+        "scene-enemies.tsv": true,
+        "scene-hits.tsv": true,
+        "player-projectiles.tsv": true,
+        "player-shot-emissions.tsv": true,
+        "player-shot-requests.tsv": true,
+        "player-shot-results.tsv": true,
+        "poses.tsv": true,
+        "fire-events.tsv": true,
+        "presentation.tsv": true,
+        "weapon-loadout.tsv": true,
+        "fade-steps.tsv": true
+      },
+      "png_exact": {},
+      "new_commands": 0,
+      "new_record_types": [],
+      "new_bases": [],
+      "prior_commands": 8936,
+      "prior_bases": [
+        1,
+        3,
+        7,
+        9,
+        13,
+        15,
+        31,
+        34,
+        39,
+        41,
+        45,
+        47,
+        49,
+        51,
+        53,
+        79,
+        81,
+        83,
+        88,
+        89,
+        91
+      ],
+      "admitted_roles": [
+        108
+      ],
+      "coverage_mismatch": 0,
+      "rejected_frames": 0,
+      "peak_rss_bytes": 86642688,
+      "native_visible_png_sizes": [],
+      "limitation": "Requested300ticks ended after168 observations following unprotected death; no new random5 spawn, so not a new-family runtime witness."
+    },
+    "random5-seed4-2x": {
+      "requested_ticks": 120,
+      "observed_ticks": 120,
+      "seed": "4",
+      "trace_exact": {
+        "state.tsv": true,
+        "collisions.tsv": true,
+        "enemy-projectiles.tsv": true,
+        "scene-enemies.tsv": true,
+        "scene-hits.tsv": true,
+        "player-projectiles.tsv": true,
+        "player-shot-emissions.tsv": true,
+        "player-shot-requests.tsv": true,
+        "player-shot-results.tsv": true,
+        "poses.tsv": true,
+        "fire-events.tsv": true,
+        "presentation.tsv": true,
+        "weapon-loadout.tsv": true,
+        "fade-steps.tsv": true
+      },
+      "png_exact": {
+        "display-0040.png": false,
+        "visible-0040.png": false,
+        "display-0090.png": false,
+        "classic-0090.png": true,
+        "visible-0090.png": false,
+        "classic-0040.png": true,
+        "visible-0060.png": false,
+        "classic-0060.png": true,
+        "display-0060.png": false
+      },
+      "new_commands": 352,
+      "new_record_types": [
+        135
+      ],
+      "new_bases": [
+        5
+      ],
+      "prior_commands": 6115,
+      "prior_bases": [
+        1,
+        3,
+        7,
+        9,
+        13,
+        15,
+        31,
+        34,
+        39,
+        41,
+        45,
+        47,
+        49,
+        51,
+        53,
+        79,
+        81,
+        83,
+        88,
+        89,
+        91
+      ],
+      "admitted_roles": [
+        108
+      ],
+      "coverage_mismatch": 0,
+      "rejected_frames": 0,
+      "peak_rss_bytes": 106643456,
+      "native_visible_png_sizes": [
+        [
+          640,
+          400
+        ]
+      ]
+    },
+    "random5-seed4-4x": {
+      "requested_ticks": 120,
+      "observed_ticks": 120,
+      "seed": "4",
+      "trace_exact": {
+        "state.tsv": true,
+        "collisions.tsv": true,
+        "enemy-projectiles.tsv": true,
+        "scene-enemies.tsv": true,
+        "scene-hits.tsv": true,
+        "player-projectiles.tsv": true,
+        "player-shot-emissions.tsv": true,
+        "player-shot-requests.tsv": true,
+        "player-shot-results.tsv": true,
+        "poses.tsv": true,
+        "fire-events.tsv": true,
+        "presentation.tsv": true,
+        "weapon-loadout.tsv": true,
+        "fade-steps.tsv": true
+      },
+      "png_exact": {
+        "visible-0060.png": false,
+        "classic-0060.png": true,
+        "display-0060.png": false
+      },
+      "new_commands": 352,
+      "new_record_types": [
+        135
+      ],
+      "new_bases": [
+        5
+      ],
+      "prior_commands": 6115,
+      "prior_bases": [
+        1,
+        3,
+        7,
+        9,
+        13,
+        15,
+        31,
+        34,
+        39,
+        41,
+        45,
+        47,
+        49,
+        51,
+        53,
+        79,
+        81,
+        83,
+        88,
+        89,
+        91
+      ],
+      "admitted_roles": [
+        108
+      ],
+      "coverage_mismatch": 0,
+      "rejected_frames": 0,
+      "peak_rss_bytes": 112590848,
+      "native_visible_png_sizes": [
+        [
+          1280,
+          800
+        ]
+      ]
+    },
+    "random5-seed4-missing5": {
+      "requested_ticks": 120,
+      "observed_ticks": 120,
+      "seed": "4",
+      "trace_exact": {
+        "state.tsv": true,
+        "collisions.tsv": true,
+        "enemy-projectiles.tsv": true,
+        "scene-enemies.tsv": true,
+        "scene-hits.tsv": true,
+        "player-projectiles.tsv": true,
+        "player-shot-emissions.tsv": true,
+        "player-shot-requests.tsv": true,
+        "player-shot-results.tsv": true,
+        "poses.tsv": true,
+        "fire-events.tsv": true,
+        "presentation.tsv": true,
+        "weapon-loadout.tsv": true,
+        "fade-steps.tsv": true
+      },
+      "png_exact": {
+        "visible-0060.png": true,
+        "classic-0060.png": true,
+        "display-0060.png": true
+      },
+      "new_commands": 0,
+      "new_record_types": [
+        135
+      ],
+      "new_bases": [],
+      "prior_commands": 6115,
+      "prior_bases": [
+        1,
+        3,
+        7,
+        9,
+        13,
+        15,
+        31,
+        34,
+        39,
+        41,
+        45,
+        47,
+        49,
+        51,
+        53,
+        79,
+        81,
+        83,
+        88,
+        89,
+        91
+      ],
+      "admitted_roles": [
+        108
+      ],
+      "coverage_mismatch": 0,
+      "rejected_frames": 0,
+      "peak_rss_bytes": 106364928,
+      "native_visible_png_sizes": [
+        [
+          640,
+          400
+        ]
+      ]
+    },
+    "random5-flag-off-physical9": {
+      "requested_ticks": 60,
+      "observed_ticks": 60,
+      "seed": "0x5eed",
+      "trace_exact": {
+        "state.tsv": true,
+        "collisions.tsv": true,
+        "enemy-projectiles.tsv": true,
+        "scene-enemies.tsv": true,
+        "scene-hits.tsv": true,
+        "player-projectiles.tsv": true,
+        "player-shot-emissions.tsv": true,
+        "player-shot-requests.tsv": true,
+        "player-shot-results.tsv": true,
+        "poses.tsv": true,
+        "fire-events.tsv": true,
+        "presentation.tsv": true,
+        "weapon-loadout.tsv": true,
+        "fade-steps.tsv": true
+      },
+      "png_exact": {
+        "visible-0020.png": true,
+        "display-0020.png": true,
+        "classic-0020.png": true
+      },
+      "new_commands": 0,
+      "new_record_types": [],
+      "new_bases": [],
+      "prior_commands": 0,
+      "prior_bases": [],
+      "admitted_roles": [],
+      "coverage_mismatch": 0,
+      "rejected_frames": 0,
+      "peak_rss_bytes": 102359040,
+      "native_visible_png_sizes": [
+        [
+          640,
+          400
+        ]
+      ]
+    }
+  },
+  "seed_selection": [
+    {
+      "seed": 1,
+      "exit": 0,
+      "elapsed": 10.666,
+      "newtypes": [],
+      "first_new": null,
+      "lasttick": "119"
+    },
+    {
+      "seed": 2,
+      "exit": 0,
+      "elapsed": 9.071,
+      "newtypes": [],
+      "first_new": null,
+      "lasttick": "119"
+    },
+    {
+      "seed": 3,
+      "exit": 0,
+      "elapsed": 9.045,
+      "newtypes": [],
+      "first_new": null,
+      "lasttick": "119"
+    },
+    {
+      "seed": 4,
+      "exit": 0,
+      "elapsed": 10.214,
+      "newtypes": [
+        135
+      ],
+      "first_new": {
+        "tick": "31",
+        "slot": "1",
+        "type": "135",
+        "avail": "0",
+        "x": "206",
+        "y": "-11",
+        "armor": "3",
+        "cycle": "1",
+        "base": "5",
+        "filter": "0",
+        "damaged": "0",
+        "link": "0"
+      },
+      "lasttick": "119"
+    }
+  ],
+  "runtime_build": {
+    "baseline_commit": "9a18c7188388606ecd8187f6f901e2362f397ddc",
+    "qa_scope": "External original-event physical1 ASTEROID1 selection/export-only probe. Adds random135\u2013137 and prior actor logging only. No random table, seed, actor or event injection. Original events, gameplay, seed and input untouched.",
+    "qa_probe_sha256": "2f49905a6b46fdcb5b5702cb05176b9e29c3d513cc6a0e9f84f501cfc6a8fb8e",
+    "baseline_render_mirror_sha256": "1b4437d1bb6ab9907fe430bfee6e4604c227539fce467f1791c73c659f80f320",
+    "binaries": {
+      "baseline": "c4be7d4f45ba74d402830ba8ad3084270bf41b057906fa3b039ad1ba83cf4916",
+      "candidate": "25246948622762fac5fbc2f922eedbf163978099a47151ce51b7f6dd084def66",
+      "flag-off-baseline": "3ddb4f19577332a742d4acae05dd4a203e0bcd3539f5941623adb342478ce1db",
+      "flag-off-candidate": "24af94e8efb76e1dde0da9966e11497582bc9c24d9f030506c2fd3509dcceb5d"
+    },
+    "peak_child_rss_bytes": 193818624,
+    "compiler_as_limit_bytes": 1073741824
+  },
+  "production_build": {
+    "binary_sha256": "28c9d8adb076ea46c5ceda82aa1892a71e448068d75dbe7fd184d100e35a374c",
+    "peak_child_rss_bytes": 193875968,
+    "compiler_as_limit_bytes": 1073741824
+  },
+  "preservation": {
+    "prior_21_hda_4_includes_and_manifest_unchanged": {
+      "assets/hd/packs/asteroid1-ten-v1/enemy-newshd-15-8.hda": "01a7a75264a4575072390e9ae2a96aeaab2b2e865ef1087b934fbbf2a994ec33",
+      "assets/hd/packs/asteroid1-ten-v1/enemy-newshd-91-8.hda": "b8ebad6ec7146342d833ed409ef7f9dce09e7aecd9c6e20edbb5ed93fd95870d",
+      "assets/hd/packs/asteroid1-ten-v1/enemy-newshd-41-8.hda": "7608f5317b3196fc1ade7e0875d4c33078925c8daad8b9d7c6fa6bd471fc1b10",
+      "assets/hd/packs/asteroid1-ten-v1/enemy-newshd-39-8.hda": "70222e9f86a655e15318caeda8fbb44070d0bb9daa67d586efc04fe3bf4d81b7",
+      "assets/hd/packs/asteroid1-ten-v1/enemy-newshd-9-8.hda": "1f40fc59af8e535d9ddf703ac432e0d02f67c994302871a37870a5b2a42e084e",
+      "assets/hd/packs/asteroid1-ten-v1/enemy-newshd-1-8.hda": "c59e7286da4f08915d710b8c9ef2edf7af69b4ca3f7171c47ab3b7d02cc1f9af",
+      "assets/hd/packs/asteroid1-ten-v1/enemy-newshd-88-8.hda": "2fa2b3c0e53ff635beae67be4a01542ea170b7c41004d6be14159e9259128598",
+      "assets/hd/packs/asteroid1-ten-v1/enemy-newshd-45-8.hda": "434d156af662e23b0a03b78574fef28ff7a972cce8b61a2f70f114cb13b518a7",
+      "assets/hd/packs/asteroid1-ten-v1/enemy-newshd-53-8.hda": "e719f0d6c5067de6f9f52644122f337def77dfe56011f58ed4bbf607ee50b38c",
+      "assets/hd/packs/asteroid1-ten-v1/enemy-newshd-83-8.hda": "3f103041cc41eaa52d53b8f06d53056204a7f76ed38d56eca63064b4d354c901",
+      "assets/hd/packs/asteroid1-ten-v1/enemy-newshd-31-8.hda": "ed2717939279681e494da1c64bae97437b7d762d2fcfb4488ba555e035150535",
+      "assets/hd/packs/asteroid1-ten-v1/enemy-newshd-7-8.hda": "e7dfe3c87afc50df46504ccd4dcbd7d37456093c56f5926341906646c4701f83",
+      "assets/hd/packs/asteroid1-ten-v1/enemy-newshd-49-8.hda": "6a955c8ee1c9beed292ff56f9c98cb1aeac33675f345c82d6978bcb780c2de05",
+      "assets/hd/packs/asteroid1-ten-v1/enemy-newshd-89-8.hda": "322ec042756f610033fd3b6b509a21804781c145d7b8e9fd07cbf5e673080779",
+      "assets/hd/packs/asteroid1-ten-v1/enemy-newshd-13-8.hda": "4e50f5e538cc0271e902d2dbe23d4bec0bf8754e996bdf2a4ae20d983628bf32",
+      "assets/hd/packs/asteroid1-ten-v1/enemy-newshd-81-8.hda": "a657626679cbe322680394f4489443efed4532548ead118f4794699b9ec1cb56",
+      "assets/hd/packs/asteroid1-ten-v1/enemy-newshd-34-8.hda": "de0e9d141d8b2bb657a3fa9a49cac3881b87d055fabde43c74784fb469b48a4f",
+      "assets/hd/packs/asteroid1-ten-v1/enemy-newshd-3-8.hda": "19160e7f2ce32a441b93e8d38d78b8fc718a8ca1d6ec5e5d9629479562bdd041",
+      "assets/hd/packs/asteroid1-ten-v1/enemy-newshd-47-8.hda": "24d8ecf14fe83f8670004b0e5f0f7486ce6e9e5dda3dcdf4f3514d4dee5c2bc9",
+      "assets/hd/packs/asteroid1-ten-v1/enemy-newshd-79-8.hda": "58ec2fbe2fb605cef591dda33e373283dd35974e9e160cff0c4f3509c1dba298",
+      "assets/hd/packs/asteroid1-ten-v1/enemy-newshd-51-8.hda": "a20ceeec15221ec94dd79064c3dd28471d1036d8a1cafa59dde7f504f98c63aa",
+      "src/asteroid1_ten_mirror.inc": "eda305918bb78f534c1d5d9e450b0219fc59afe6f1c46b45692e7a02e847a7d3",
+      "src/asteroid1_four_mirror.inc": "cb1e28cca841dbcf7116aa14de4e45233fb51d81925cf44e49229f2d471ac187",
+      "src/asteroid1_common4_mirror.inc": "4867cd333e7a222d1e86f735cf61e3b498a8ca5f3f3c8bf565d20af61a34e8da",
+      "src/asteroid1_goldwing_mirror.inc": "904d0eccbd2126e84e1da64f8f2ac881d19e58a393312c061ee9f99bf335c6aa",
+      "assets/hd/manifest.json": "05633cc33290e62ca1effc772e2b688977cf3a66bef9e6cb4277bf6f693688cd"
+    },
+    "global_registry_count": 629,
+    "total_optin_images": 22,
+    "source_opaque_cells": 355,
+    "hd_nonzero_logical_cells": 325,
+    "alpha_outside_original": 0,
+    "fractional_alpha_pixels": 18412,
+    "alpha_solid_coverage_fraction": 0.7699418323667495,
+    "new_hda_sha256": "bc4fe34b0ce8f43351b37a7c7af9c57ac100e13697aa03fe48458112be16c322",
+    "rgba_fnv64": "0xce032380cc003d88",
+    "resources": {
+      "combined_new_png_bytes": 14437619,
+      "combined_new_bytes": 41061676,
+      "free_bytes": 5333340160,
+      "runtime_limit_bytes": 536870912,
+      "compiler_limit_bytes": 1073741824,
+      "transient_combined_png_bytes_before_lossless_recompression": 17543470,
+      "transient_png_over_cap_disclosed": true
+    }
+  },
+  "independent_review": {
+    "verdict": "No substantive defects found within the reviewed scope.",
+    "baseline": "9a18c7188388606ecd8187f6f901e2362f397ddc",
+    "scope": [
+      "src/asteroid1_random5_mirror.inc: exact full-bank and all-three full-record source guards; static type135..137/base5/size1 gates; one private shared image; surface/mode/clipping/filter gates; immutable cache lifetime; cold fallback and same-frame integrity rejection; shutdown.",
+      "src/render_mirror.c: bounded baseline diff, asteroid scope, private dispatcher routing, existing read_asset/draw_asset_filtered asteroid namespace guards and quadrant geometry.",
+      "tests/test_asteroid1_random5_assets.py and named ten-family harness/helper: loader fixtures, source/context/cache checks, and twelve ordered quadrant-call assertions reviewed statically.",
+      "prototype/build-asteroid1-random5-art.py and named decode/FNV helpers: globally aligned 24x28 image and inward-only original-source support.",
+      "Explicit new HDA and PNG; external original newshd.shp and only records135..137 from tyrian.hdt."
+    ],
+    "independent_checks": {
+      "bank_fnv64": "0x913975450e0fc00d",
+      "record_fnv64": [
+        "0x50100b90790211f7",
+        "0x75cc21d83286ca9e",
+        "0x753b6b0ba408f18d"
+      ],
+      "y_speed": [
+        1,
+        2,
+        3
+      ],
+      "armor": [
+        3,
+        3,
+        3
+      ],
+      "size": [
+        1,
+        1,
+        1
+      ],
+      "base": [
+        5,
+        5,
+        5
+      ],
+      "source_tiles": [
+        5,
+        6,
+        24,
+        25
+      ],
+      "shared_hda_header": [
+        "HDR1",
+        1080005,
+        8,
+        24,
+        28,
+        0,
+        0
+      ],
+      "payload_fnv64": "0xce032380cc003d88",
+      "hda_sha256": "bc4fe34b0ce8f43351b37a7c7af9c57ac100e13697aa03fe48458112be16c322",
+      "png_equals_hda_rgba": true,
+      "nonzero_alpha_outside_original_support": 0,
+      "packer_rebuild_matches_hda_byte_for_byte": true,
+      "original_namespace_code_path_preserved": "New private dispatcher branch applies only under asteroid_hd_enabled and types135..137; all existing branches and global resource arrays are unchanged by the reviewed render_mirror.c diff."
+    },
+    "limitations": [
+      "No full game build or actual-engine run performed by this independent reviewer; those checks are owned by the parent task.",
+      "Existing unit-run receipts were not treated as independently executed tests; this review statically inspected their bounded harness.",
+      "No old-asset/global-manifest content sweep was performed. Preservation assessment is limited to code-path isolation, the named baseline diff, and the explicit new resource.",
+      "Visual approval was reported by the parent and was not repeated; verified support and artifact reproduction only.",
+      "Forbidden projection/session paths were neither opened nor hashed; no broad traversal or hash scan was performed."
+    ]
+  },
+  "parent_visual_review": {
+    "source_contact_actual2x": "accepted",
+    "native640x400_tick60": "accepted; lower contour not overthin"
+  },
+  "limitations": [
+    "Fixed-seed selection/export-only diagnostics, not natural campaign progression or a level clear.",
+    "Actual-engine new-family witness is record135 only;136/137 have exact source/geometry unit coverage.",
+    "Initial seed0x5eed died after168 observations without a newfamily spawn; seeds1\u20133 no spawn in120 selectionticks.",
+    "No Windows, GPU, fullscreen or performance acceptance.",
+    "LeakSanitizer unavailable; ASan/UBSan enabled.",
+    "PNG bytes temporarily exceeded16MiB before lossless recompression; final combined PNG bytes14437619.",
+    "No GitHub push or Windows package."
+  ],
+  "files_sha256": {
+    "README.md": "c0884a470c09a3bec9a3698cb35f5ccdf5de25d85177529925c67c1eb1fb4fec",
+    "src/render_mirror.c": "a6d0af01b47d1020ed6db01bbf6d193692a4a0eda1d1d1898aac00e874dfc9f6",
+    "src/asteroid1_random5_mirror.inc": "335c5b5eebe7591927383d0d08dd4477fd0ffddbf7dd940a354e13c7dc5ccc43",
+    "tests/test_asteroid1_random5_assets.py": "c361c02d65c3811882381529247c214980524e65f7c3456bb169d692dc1ff8b8",
+    "prototype/build-asteroid1-random5-art.py": "01ec0db6dba052739cabb51c292d85265535fd8b2fac9830146806e99ba82c3a",
+    "docs/asteroid1-random5-v1/README.md": "c22de5bf41830da7014581599698a62b68f2a9d62d77e6a22640e47f3bb1cc87",
+    "assets/hd/packs/asteroid1-ten-v1/enemy-newshd-5-8.hda": "bc4fe34b0ce8f43351b37a7c7af9c57ac100e13697aa03fe48458112be16c322",
+    "assets/hd/artwork/asteroid1-random5-v1/enemy-newshd-5-8.png": "351ee6cd6bb3d06d85c49e1fe9d5216960064b351c56589fef98160aa9877c11",
+    "assets/hd/artwork/asteroid1-random5-v1/PROMPT.txt": "677c939b38efbd2dd70e399ae755c786ca75377af5bc101d5704975d2f25767c",
+    "assets/hd/artwork/asteroid1-random5-v1/imagegen-master.png": "9f3ace21c221940e2be2c07f237004970bf38a82655eb18abfcd8c6389182190"
+  }
+}

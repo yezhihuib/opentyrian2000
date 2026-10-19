@@ -1,0 +1,740 @@
+{
+  "schema": "asteroid1-random123-95-finite-validation-v1",
+  "default_counts": [
+    629,
+    629
+  ],
+  "optional_images": 26,
+  "optional_records": 33,
+  "independent_families": 9,
+  "source_identities": {
+    "123": {
+      "base": 123,
+      "records": [
+        266,
+        267,
+        268
+      ],
+      "size": 1,
+      "logical_size": [
+        24,
+        28
+      ],
+      "tiles": [
+        123,
+        124,
+        142,
+        143
+      ],
+      "opaque_pixels": 433,
+      "support_bbox": [
+        1,
+        2,
+        24,
+        25
+      ],
+      "source_stamps": {
+        "266": "0x6efc118fb7c760fd",
+        "267": "0x78e11fff7ba15c3a",
+        "268": "0x38f1401451996cc3"
+      },
+      "source_bank_fnv": "0x913975450e0fc00d",
+      "original_index_support_sha256": "0f71f2fb4165d5963ea1e1b3d1ec8556d727ecddc577214d529e95d24b2943c7"
+    },
+    "95": {
+      "base": 95,
+      "records": [
+        317,
+        318
+      ],
+      "size": 0,
+      "logical_size": [
+        12,
+        14
+      ],
+      "tiles": [
+        95
+      ],
+      "opaque_pixels": 145,
+      "support_bbox": [
+        0,
+        0,
+        12,
+        14
+      ],
+      "source_stamps": {
+        "317": "0x77b90388a71496a7",
+        "318": "0x82e36d9b60719ab1"
+      },
+      "source_bank_fnv": "0x913975450e0fc00d",
+      "original_index_support_sha256": "c5ab09f5295b9944343be3955877cebf8e1a33c009ff1dee5a2ab30172e1d359"
+    }
+  },
+  "art": {
+    "123": {
+      "original_opaque_cells": 433,
+      "hd_nonzero_logical_cells": 402,
+      "alpha_outside_original": 0,
+      "fractional_alpha_pixels": 23028,
+      "hda_sha256": "9b715a874a8d8d12ff6849f5946787647072bfc0e6c2ca102e753fed48ca4fac"
+    },
+    "95": {
+      "original_opaque_cells": 145,
+      "hd_nonzero_logical_cells": 136,
+      "alpha_outside_original": 0,
+      "fractional_alpha_pixels": 7593,
+      "hda_sha256": "3d099619cd2f520caaa3b0bb54457780bbc86cb74f1affd76d14794e8f9bf6d7"
+    }
+  },
+  "unit": {
+    "123": {
+      "original_records": [
+        266,
+        267,
+        268
+      ],
+      "base": 123,
+      "runs": [
+        {
+          "mode": "optimized",
+          "positive": 2,
+          "negative": 16,
+          "binary_sha256": "b6aa2c5640c4fe7ff73b6e6f530b2a9e1c9f12a09ead1fca8aaf7d603c2bc2f0"
+        },
+        {
+          "mode": "asan-ubsan",
+          "positive": 2,
+          "negative": 16,
+          "binary_sha256": "b5ae7ccd18eb0377a1369a7dc8a0d4f6c61ec39521c2ae7b10c9d70e9e2eb81d"
+        }
+      ],
+      "source_sha256": "7f555ca000c047db2b7bbc6aead046be87028ce93beba26f77c89c2f4ab13695",
+      "original_records_sha256": "67e98f2080a4c75f8984e7744ffab01771eb99a3f78be5157d00794a70acde90",
+      "record_byte_mutations": 231,
+      "warm_sibling_mutations": 6,
+      "ordered_draws": 12,
+      "ordered_quadrants": 12,
+      "fixture_kinds": [
+        "missing",
+        "payload",
+        "magic",
+        "role",
+        "foreign-base",
+        "density",
+        "width",
+        "height",
+        "anchor-x",
+        "anchor-y",
+        "header-short",
+        "short",
+        "extra",
+        "fifo",
+        "directory",
+        "broken-symlink"
+      ],
+      "runtime_peak_rss_bytes": 8740864,
+      "compiler_peak_rss_bytes": 173244416,
+      "leak_sanitizer": false
+    },
+    "95": {
+      "original_records": [
+        317,
+        318
+      ],
+      "base": 95,
+      "runs": [
+        {
+          "mode": "optimized",
+          "positive": 2,
+          "negative": 16,
+          "binary_sha256": "1d8899a2916ef29153e866e86c0d885baffeaaf430785caf199efbdbaee39c6d"
+        },
+        {
+          "mode": "asan-ubsan",
+          "positive": 2,
+          "negative": 16,
+          "binary_sha256": "c761a4e3cac85ce69a6610061662a5f08fdd3ff8233cc2dbd8564a820238efdc"
+        }
+      ],
+      "source_sha256": "276f5549a7182459ba9d6c92e581d6d9c8c44087b0fc17afc7b23b313536886b",
+      "original_records_sha256": "12a02aac1339fc3b89137c05ae040e9c51c1b1a53109d9cad796bb292d767930",
+      "record_byte_mutations": 154,
+      "warm_sibling_mutations": 4,
+      "ordered_draws": 2,
+      "ordered_quadrants": 0,
+      "fixture_kinds": [
+        "missing",
+        "payload",
+        "magic",
+        "role",
+        "foreign-base",
+        "density",
+        "width",
+        "height",
+        "anchor-x",
+        "anchor-y",
+        "header-short",
+        "short",
+        "extra",
+        "fifo",
+        "directory",
+        "broken-symlink"
+      ],
+      "runtime_peak_rss_bytes": 8069120,
+      "compiler_peak_rss_bytes": 180031488,
+      "leak_sanitizer": false
+    }
+  },
+  "snapshot_test": {
+    "runs": [
+      {
+        "mode": "optimized",
+        "result": "source snapshot guards passed: 438 checks across 9 families, 33 record dependencies, cold/warm corruption, role/size/pointer/reload/address reuse and renderer epochs",
+        "binary_sha256": "66dd7ebf1b66c67b67f5ae0a60c0e7052eb9c3dc51180b8265ab68c175db1ee6"
+      },
+      {
+        "mode": "asan-ubsan",
+        "result": "source snapshot guards passed: 438 checks across 9 families, 33 record dependencies, cold/warm corruption, role/size/pointer/reload/address reuse and renderer epochs",
+        "binary_sha256": "6a735417eea4795d8f3190760f6786e2826a98808a1d8281948abb7316db6a31"
+      }
+    ],
+    "helper_sha256": "b6b9d48eb57fb5029d25a20ab4bac5e56ca77f9a28cc31d4d8513e0fc9d93f9a",
+    "peak_child_rss_bytes": 36716544,
+    "leak_sanitizer": false,
+    "scope": "Extracted current production helper, source predicates and shutdown. Record-stamp stub checks dependency queries; complete family suites validate real records and drawing separately."
+  },
+  "catalog": {
+    "verified_pack_count": 2,
+    "verified_HDA_entries": 1258,
+    "verified_optional_pack_count": 1,
+    "verified_optional_HDA_entries": 26,
+    "verified_exact_source_pngs": 629,
+    "verified_optional_source_pngs": 26,
+    "default_pack_counts": [
+      629,
+      629
+    ],
+    "optional_pack_counts": {
+      "asteroid1-ten-v1": 26
+    },
+    "optional_catalog_sha256": "29c0b1f67096db4905cbd23b9153e8ad62067b3e5b1507f7d8e0fe3af4f8f63b",
+    "catalog_only": true,
+    "artwork_rebuilt": false
+  },
+  "production_build": {
+    "binary_sha256": "0518ccb15f0231d0ee1650352d8a0735627aa1e59b5712890362c4570cadf09a",
+    "peak_child_rss_bytes": 200331264,
+    "compiler_as_limit_bytes": 1073741824
+  },
+  "runtime": {
+    "random123-95-seed3-2x": {
+      "effective_selection": {
+        "episode": 1,
+        "physical_level": 1,
+        "level": "ASTEROID1",
+        "asteroid_hd_enabled": true,
+        "diagnostic_seed": "0x3",
+        "native_scale": "2x",
+        "stdout_selection_line": "Controlled scene v1: external ASTEROID1 episode=1 physical1 ship=1; resolved loadout in weapon-loadout.tsv; seed=0x3 ticks=180",
+        "weapon_loadout": {
+          "episode": "1",
+          "level": "1",
+          "selected": "0",
+          "front_port": "1",
+          "front_power": "1",
+          "front_shot": "155",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "53e5ada52cce2ee0",
+          "rng": "0972d9b2de66fcb3"
+        }
+      },
+      "observed_ticks": 168,
+      "trace_exact": {
+        "state.tsv": true,
+        "collisions.tsv": true,
+        "enemy-projectiles.tsv": true,
+        "scene-enemies.tsv": true,
+        "scene-hits.tsv": true,
+        "player-projectiles.tsv": true,
+        "player-shot-emissions.tsv": true,
+        "player-shot-requests.tsv": true,
+        "player-shot-results.tsv": true,
+        "poses.tsv": true,
+        "fire-events.tsv": true,
+        "presentation.tsv": true,
+        "weapon-loadout.tsv": true,
+        "fade-steps.tsv": true
+      },
+      "png_exact": {
+        "visible-0100.png": false,
+        "classic-0100.png": true,
+        "visible-0060.png": false,
+        "classic-0060.png": true,
+        "display-0100.png": false,
+        "display-0060.png": false
+      },
+      "coverage_mismatch": 0,
+      "rejected_frames": 0,
+      "new_commands": 234,
+      "new_bases": [
+        95,
+        123
+      ],
+      "actual_new_record_types": [
+        268,
+        317
+      ],
+      "prior_commands": 8936,
+      "prior_bases": [
+        1,
+        3,
+        7,
+        9,
+        13,
+        15,
+        31,
+        34,
+        39,
+        41,
+        45,
+        47,
+        49,
+        51,
+        53,
+        79,
+        81,
+        83,
+        88,
+        89,
+        91
+      ],
+      "prior_draw_commands_exact": true,
+      "peak_rss_bytes": 107810816
+    },
+    "random123-95-seed3-4x": {
+      "effective_selection": {
+        "episode": 1,
+        "physical_level": 1,
+        "level": "ASTEROID1",
+        "asteroid_hd_enabled": true,
+        "diagnostic_seed": "0x3",
+        "native_scale": "4x",
+        "stdout_selection_line": "Controlled scene v1: external ASTEROID1 episode=1 physical1 ship=1; resolved loadout in weapon-loadout.tsv; seed=0x3 ticks=180",
+        "weapon_loadout": {
+          "episode": "1",
+          "level": "1",
+          "selected": "0",
+          "front_port": "1",
+          "front_power": "1",
+          "front_shot": "155",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "53e5ada52cce2ee0",
+          "rng": "0972d9b2de66fcb3"
+        }
+      },
+      "observed_ticks": 168,
+      "trace_exact": {
+        "state.tsv": true,
+        "collisions.tsv": true,
+        "enemy-projectiles.tsv": true,
+        "scene-enemies.tsv": true,
+        "scene-hits.tsv": true,
+        "player-projectiles.tsv": true,
+        "player-shot-emissions.tsv": true,
+        "player-shot-requests.tsv": true,
+        "player-shot-results.tsv": true,
+        "poses.tsv": true,
+        "fire-events.tsv": true,
+        "presentation.tsv": true,
+        "weapon-loadout.tsv": true,
+        "fade-steps.tsv": true
+      },
+      "png_exact": {},
+      "coverage_mismatch": 0,
+      "rejected_frames": 0,
+      "new_commands": 234,
+      "new_bases": [
+        95,
+        123
+      ],
+      "actual_new_record_types": [
+        268,
+        317
+      ],
+      "prior_commands": 8936,
+      "prior_bases": [
+        1,
+        3,
+        7,
+        9,
+        13,
+        15,
+        31,
+        34,
+        39,
+        41,
+        45,
+        47,
+        49,
+        51,
+        53,
+        79,
+        81,
+        83,
+        88,
+        89,
+        91
+      ],
+      "prior_draw_commands_exact": true,
+      "peak_rss_bytes": 86814720
+    },
+    "random123-95-seed3-missing123": {
+      "effective_selection": {
+        "episode": 1,
+        "physical_level": 1,
+        "level": "ASTEROID1",
+        "asteroid_hd_enabled": true,
+        "diagnostic_seed": "0x3",
+        "native_scale": "2x",
+        "stdout_selection_line": "Controlled scene v1: external ASTEROID1 episode=1 physical1 ship=1; resolved loadout in weapon-loadout.tsv; seed=0x3 ticks=120",
+        "weapon_loadout": {
+          "episode": "1",
+          "level": "1",
+          "selected": "0",
+          "front_port": "1",
+          "front_power": "1",
+          "front_shot": "155",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "53e5ada52cce2ee0",
+          "rng": "0972d9b2de66fcb3"
+        }
+      },
+      "observed_ticks": 120,
+      "trace_exact": {
+        "state.tsv": true,
+        "collisions.tsv": true,
+        "enemy-projectiles.tsv": true,
+        "scene-enemies.tsv": true,
+        "scene-hits.tsv": true,
+        "player-projectiles.tsv": true,
+        "player-shot-emissions.tsv": true,
+        "player-shot-requests.tsv": true,
+        "player-shot-results.tsv": true,
+        "poses.tsv": true,
+        "fire-events.tsv": true,
+        "presentation.tsv": true,
+        "weapon-loadout.tsv": true,
+        "fade-steps.tsv": true
+      },
+      "png_exact": {},
+      "coverage_mismatch": 0,
+      "rejected_frames": 0,
+      "new_commands": 70,
+      "new_bases": [
+        95
+      ],
+      "actual_new_record_types": [
+        268,
+        317
+      ],
+      "prior_commands": 6115,
+      "prior_bases": [
+        1,
+        3,
+        7,
+        9,
+        13,
+        15,
+        31,
+        34,
+        39,
+        41,
+        45,
+        47,
+        49,
+        51,
+        53,
+        79,
+        81,
+        83,
+        88,
+        89,
+        91
+      ],
+      "prior_draw_commands_exact": true,
+      "peak_rss_bytes": 80560128
+    },
+    "random123-95-seed3-missing95": {
+      "effective_selection": {
+        "episode": 1,
+        "physical_level": 1,
+        "level": "ASTEROID1",
+        "asteroid_hd_enabled": true,
+        "diagnostic_seed": "0x3",
+        "native_scale": "2x",
+        "stdout_selection_line": "Controlled scene v1: external ASTEROID1 episode=1 physical1 ship=1; resolved loadout in weapon-loadout.tsv; seed=0x3 ticks=120",
+        "weapon_loadout": {
+          "episode": "1",
+          "level": "1",
+          "selected": "0",
+          "front_port": "1",
+          "front_power": "1",
+          "front_shot": "155",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "53e5ada52cce2ee0",
+          "rng": "0972d9b2de66fcb3"
+        }
+      },
+      "observed_ticks": 120,
+      "trace_exact": {
+        "state.tsv": true,
+        "collisions.tsv": true,
+        "enemy-projectiles.tsv": true,
+        "scene-enemies.tsv": true,
+        "scene-hits.tsv": true,
+        "player-projectiles.tsv": true,
+        "player-shot-emissions.tsv": true,
+        "player-shot-requests.tsv": true,
+        "player-shot-results.tsv": true,
+        "poses.tsv": true,
+        "fire-events.tsv": true,
+        "presentation.tsv": true,
+        "weapon-loadout.tsv": true,
+        "fade-steps.tsv": true
+      },
+      "png_exact": {},
+      "coverage_mismatch": 0,
+      "rejected_frames": 0,
+      "new_commands": 132,
+      "new_bases": [
+        123
+      ],
+      "actual_new_record_types": [
+        268,
+        317
+      ],
+      "prior_commands": 6115,
+      "prior_bases": [
+        1,
+        3,
+        7,
+        9,
+        13,
+        15,
+        31,
+        34,
+        39,
+        41,
+        45,
+        47,
+        49,
+        51,
+        53,
+        79,
+        81,
+        83,
+        88,
+        89,
+        91
+      ],
+      "prior_draw_commands_exact": true,
+      "peak_rss_bytes": 80658432
+    },
+    "random123-95-seed3-missingboth-final": {
+      "effective_selection": {
+        "episode": 1,
+        "physical_level": 1,
+        "level": "ASTEROID1",
+        "asteroid_hd_enabled": true,
+        "diagnostic_seed": "0x3",
+        "native_scale": "2x",
+        "stdout_selection_line": "Controlled scene v1: external ASTEROID1 episode=1 physical1 ship=1; resolved loadout in weapon-loadout.tsv; seed=0x3 ticks=120",
+        "weapon_loadout": {
+          "episode": "1",
+          "level": "1",
+          "selected": "0",
+          "front_port": "1",
+          "front_power": "1",
+          "front_shot": "155",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "53e5ada52cce2ee0",
+          "rng": "0972d9b2de66fcb3"
+        }
+      },
+      "observed_ticks": 120,
+      "trace_exact": {
+        "state.tsv": true,
+        "collisions.tsv": true,
+        "enemy-projectiles.tsv": true,
+        "scene-enemies.tsv": true,
+        "scene-hits.tsv": true,
+        "player-projectiles.tsv": true,
+        "player-shot-emissions.tsv": true,
+        "player-shot-requests.tsv": true,
+        "player-shot-results.tsv": true,
+        "poses.tsv": true,
+        "fire-events.tsv": true,
+        "presentation.tsv": true,
+        "weapon-loadout.tsv": true,
+        "fade-steps.tsv": true
+      },
+      "png_exact": {},
+      "coverage_mismatch": 0,
+      "rejected_frames": 0,
+      "new_commands": 0,
+      "new_bases": [],
+      "actual_new_record_types": [
+        268,
+        317
+      ],
+      "prior_commands": 6115,
+      "prior_bases": [
+        1,
+        3,
+        7,
+        9,
+        13,
+        15,
+        31,
+        34,
+        39,
+        41,
+        45,
+        47,
+        49,
+        51,
+        53,
+        79,
+        81,
+        83,
+        88,
+        89,
+        91
+      ],
+      "prior_draw_commands_exact": true,
+      "peak_rss_bytes": 80510976
+    },
+    "flag-off-physical9": {
+      "effective_selection": {
+        "episode": 1,
+        "physical_level": 9,
+        "level": "TYRIAN",
+        "asteroid_hd_enabled": false,
+        "diagnostic_seed": "0x5eed",
+        "native_scale": "2x",
+        "stdout_selection_line": "Controlled scene v1: default episode=1 TYRIAN lvlFileNum=9 ship=1; resolved loadout in weapon-loadout.tsv; seed=0x5eed ticks=60",
+        "weapon_loadout": {
+          "episode": "1",
+          "level": "9",
+          "selected": "0",
+          "front_port": "1",
+          "front_power": "1",
+          "front_shot": "155",
+          "rear_port": "0",
+          "rear_power": "1",
+          "rear_mode": "1",
+          "rear_shot": "0",
+          "players_hash": "53e5ada52cce2ee0",
+          "rng": "9cd8c7cc726da1e5"
+        }
+      },
+      "observed_ticks": 60,
+      "trace_exact": {
+        "state.tsv": true,
+        "collisions.tsv": true,
+        "enemy-projectiles.tsv": true,
+        "scene-enemies.tsv": true,
+        "scene-hits.tsv": true,
+        "player-projectiles.tsv": true,
+        "player-shot-emissions.tsv": true,
+        "player-shot-requests.tsv": true,
+        "player-shot-results.tsv": true,
+        "poses.tsv": true,
+        "fire-events.tsv": true,
+        "presentation.tsv": true,
+        "weapon-loadout.tsv": true,
+        "fade-steps.tsv": true
+      },
+      "png_exact": {},
+      "coverage_mismatch": 0,
+      "rejected_frames": 0,
+      "new_commands": 0,
+      "new_bases": [],
+      "actual_new_record_types": [],
+      "prior_commands": 0,
+      "prior_bases": [],
+      "prior_draw_commands_exact": true,
+      "peak_rss_bytes": 77414400
+    }
+  },
+  "native75": {
+    "exit": 0,
+    "peak_rss_bytes": 81924096,
+    "effective_scene": {
+      "episode": 1,
+      "physical_level": 1,
+      "level": "ASTEROID1",
+      "diagnostic_seed": "0x3",
+      "native_scale": "2x",
+      "stdout_selection_line": "Controlled scene v1: external ASTEROID1 episode=1 physical1 ship=1; resolved loadout in weapon-loadout.tsv; seed=0x3 ticks=120"
+    },
+    "capture_method": {
+      "source_sha256": "01f93b783b59af96f1de44fd435681947fb53a73eece8ded103e7cc39d03ec7c",
+      "shim_sha256": "c10a25718a7521260fe8a71ff40d0573bb6a5acace2f9f330edd45db01b62ef6",
+      "unused_export": "8x display canvas suppressed to a zero-byte regular file; classic and actual640x400 SDL_RenderPresent readback retained"
+    },
+    "classic_png_exact": true,
+    "gameplay_trace_prefix_exact": {
+      "state.tsv": true,
+      "collisions.tsv": true,
+      "enemy-projectiles.tsv": true,
+      "scene-enemies.tsv": true,
+      "scene-hits.tsv": true,
+      "player-projectiles.tsv": true,
+      "player-shot-emissions.tsv": true,
+      "player-shot-requests.tsv": true,
+      "player-shot-results.tsv": true,
+      "poses.tsv": true,
+      "fire-events.tsv": true,
+      "presentation.tsv": true,
+      "weapon-loadout.tsv": true,
+      "fade-steps.tsv": true
+    },
+    "visual_limit": "base123 naturally partly occluded by unchanged right HUD;95 fully visible"
+  },
+  "prior_24_hda_unchanged": true,
+  "all_nonoptional_manifest_unchanged": true,
+  "parent_source_and_native2x_art_review": "accepted",
+  "parent_actual_engine_native2x_review": "accepted; original HUD clipping of123 retained",
+  "independent_art_rebuild": "both PNG/HDR1 pairs byte-identical",
+  "independent_final_review": "PASS; no blocking findings",
+  "resources": {
+    "new_output_bytes": 38278465,
+    "git_growth_bytes": 3611298,
+    "new_png_bytes": 12014912,
+    "free_bytes": 5223444480,
+    "measurement_phase": "Conservative pre-commit file sizes plus staged Git-object growth; post-commit verification recorded separately"
+  },
+  "limitations": [
+    "Actual engine records268 and317 only;266,267,318 unit-covered.",
+    "No native4x screenshot capture.",
+    "No natural campaign, full-level, Windows or performance acceptance.",
+    "LeakSanitizer disabled.",
+    "Failed /dev/null capture experiments excluded."
+  ]
+}

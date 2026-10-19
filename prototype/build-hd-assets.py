@@ -1,9 +1,10 @@
 """Verify accepted repository HD resources, or rebuild exact packs in a new directory."""
 from pathlib import Path
-import argparse,json,hashlib,struct
+import argparse,json,hashlib,struct,sys
 from PIL import Image
 repo=Path(__file__).resolve().parent.parent
-p=argparse.ArgumentParser();p.add_argument('--output',type=Path);a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('--output',type=Path);p.add_argument('--asset-root',action='append',type=Path,default=[],help='Existing repository-layout fallback for explicit catalog entries');p.add_argument('--catalog-only',action='store_true',help='Verify only explicit default/optional catalog PNG and HDR1 bytes; never rebuild artwork');a=p.parse_args()
+if a.catalog_only and a.output:p.error('--catalog-only cannot be combined with --output')
 manifest=json.loads((repo/'assets/hd/manifest.json').read_text())
 sha=lambda b:hashlib.sha256(b).hexdigest()
 # Accepted blue-v4 resources belong in both current packs, not rollback packs.
@@ -21,21 +22,13 @@ if a.output:
  output=a.output.resolve()
  if output.exists():p.error('Choose a new output directory; existing resources are never overwritten')
  output.mkdir(parents=True)
-payloads={};checked=0
-# Only installed current packs are verified here. Archived recipes live in
-# manifest.retired_packs and rebuild_retired_hd_pack.py reproduces them on demand.
-assert set(manifest['packs'])=={manifest['default_preview_pack'],manifest['default_debug_pack']}
-for pack,items in manifest['packs'].items():
- assert len(items['files'])==items['count']
- if a.output:(output/pack).mkdir()
- for filename,item in items['files'].items():
-  source=repo/item['source_png'];assert sha(source.read_bytes())==item['source_png_sha256']
-  if str(source) not in payloads:
-   im=Image.open(source);h=item['header_u32'];assert im.mode=='RGBA' and im.size==(h[1]*h[2],h[1]*h[3]);payloads[str(source)]=im.tobytes()
-  raw=b'HDR1'+struct.pack('<6I',*item['header_u32'])+payloads[str(source)]
-  assert sha(raw)==item['sha256'] and (repo/'assets/hd/packs'/pack/filename).read_bytes()==raw
-  if a.output:(output/pack/filename).write_bytes(raw)
-  checked+=1
+# Default packs keep their historical namespace; isolated opt-ins are separate.
+from hd_pack_catalog import verify_pack_catalog
+catalog_result=verify_pack_catalog(manifest,repo,output=output if a.output else None,asset_roots=a.asset_root)
+checked=catalog_result['verified_HDA_entries']
+if a.catalog_only:
+ print(json.dumps(dict(catalog_result,catalog_only=True,artwork_rebuilt=False),indent=2))
+ sys.exit(0)
 material_count=0
 if manifest.get('material_bundles'):
  from world_material_bundle import build_bundle
@@ -296,6 +289,11 @@ if manifest.get('player_sonic_joined_wave_pair_v1'):
  import subprocess
  subprocess.run([sys.executable,str(repo/'prototype/build-sonic-joined-wave-pair-art.py')],check=True,capture_output=True,text=True)
  sonic_joined_wave_pair_count=2
+sonic_quadrant_count=0
+if manifest.get('player_sonic_quadrants_v1'):
+ import subprocess,sys
+ subprocess.run([sys.executable,str(repo/'prototype/build-sonic-quadrant-art.py')],check=True,capture_output=True,text=True)
+ sonic_quadrant_count=4
 plasma_projectile_art_count=0
 if manifest.get('option_plasma_projectile_art_v1'):
  import subprocess,sys
@@ -306,4 +304,4 @@ if manifest.get('player_rear_multicannon_p1_six_v1'):
  import subprocess,sys
  subprocess.run([sys.executable,str(repo/'prototype/build-rear-multicannon-p1-art.py')],check=True,capture_output=True,text=True)
  rear_multicannon_p1_count=12
-print(json.dumps({'verified_rear_multicannon_p1_art_resources':rear_multicannon_p1_count,'verified_storm_heading_sidecars':storm_label_count,'verified_storm_heading_source_files':20 if storm_label_count else 0,'verified_option_plasma_projectile_art_resources':plasma_projectile_art_count,'verified_player_sonic_joined_wave_pair_members':sonic_joined_wave_pair_count,'verified_player_sonic_inverted_oblique_pair_members':sonic_inverted_oblique_pair_count,'verified_player_sonic_oblique_pair_members':sonic_oblique_pair_count,'verified_player_sonic_inverted_corner_pair_members':sonic_inverted_corner_pair_count,'verified_player_sonic_corner_pair_members':sonic_corner_pair_count,'verified_player_sonic_fat_pair_members':sonic_fat_pair_count,'verified_player_sonic_shallow_pair_members':sonic_shallow_pair_count,'verified_player_sonic_upward_arch_members':sonic_upward_arch_count,'verified_player_sonic_six_pair_members':sonic_six_pair_count,'verified_player_protron_shadow_members':protron_shadow_count,'verified_player_protron_members':protron_count,'verified_enemy_energy_seven_members':enemy_energy_count,'verified_boss_whole_family_members':boss_whole_count,'verified_boss_intentional_empty_members':3 if boss_whole_count else 0,'verified_settings_compatibility_resources':settings_count,'verified_type3_small_six_members':type3_small_count,'verified_title_menu_resources':title_menu_count,'verified_title_menu_source_files':title_menu_source_count,'verified_newsh4_entry6_members':newsh4_entry6_count,'verified_late_spike_family_members':late_spike_count,'verified_type15_eightheading_members':type15_count,'verified_newsh4_opposite7_family_members':newsh4_opposite7_count,'verified_newsh4_long7_family_members':newsh4_long7_count,'verified_startup_title_resources':title_count,'verified_startup_title_source_files':title_source_count,'verified_startup_title_manufacturer_compatibility_copies':title_compatibility_count,'verified_linked31_family_members':linked31_count,'verified_type4_composites':type4_count,'verified_startup_manufacturer_resources':manufacturer_count,'verified_startup_manufacturer_source_files':manufacturer_source_count,'verified_hud_meter_sidecars':meter_count,'verified_hud_meter_source_files':13 if meter_count else 0,'verified_pack_count':len(manifest['packs']),'verified_HDA_entries':checked,'verified_exact_source_pngs':len(payloads),'verified_material_sidecars':material_count,'verified_cap_sidecars':cap_count,'verified_forest_sidecars_and_policies':forest_count,'verified_gameplay_hud_sidecars':hud_count,'verified_hud_source_pngs':int(bool(hud_count)), 'verified_hud_font_sidecars':font_count,'verified_hud_font_source_files':19 if font_count else 0, 'verified_hud_fixed_text_sidecars':fixed_text_count,'verified_hud_fixed_text_source_pngs':12 if fixed_text_count else 0, 'verified_hud_extension_sidecars':extension_count, 'verified_hud_extension_source_pngs':21 if extension_count else 0,'default_pack_counts':[manifest['packs'][manifest[k]]['count'] for k in ['default_preview_pack','default_debug_pack']],'rebuild_output':str(output) if a.output else None,'all_runtime_RGBA_and_header_bytes_exact':True},indent=2))
+print(json.dumps({'verified_player_sonic_quadrant_members':sonic_quadrant_count,'verified_rear_multicannon_p1_art_resources':rear_multicannon_p1_count,'verified_storm_heading_sidecars':storm_label_count,'verified_storm_heading_source_files':20 if storm_label_count else 0,'verified_option_plasma_projectile_art_resources':plasma_projectile_art_count,'verified_player_sonic_joined_wave_pair_members':sonic_joined_wave_pair_count,'verified_player_sonic_inverted_oblique_pair_members':sonic_inverted_oblique_pair_count,'verified_player_sonic_oblique_pair_members':sonic_oblique_pair_count,'verified_player_sonic_inverted_corner_pair_members':sonic_inverted_corner_pair_count,'verified_player_sonic_corner_pair_members':sonic_corner_pair_count,'verified_player_sonic_fat_pair_members':sonic_fat_pair_count,'verified_player_sonic_shallow_pair_members':sonic_shallow_pair_count,'verified_player_sonic_upward_arch_members':sonic_upward_arch_count,'verified_player_sonic_six_pair_members':sonic_six_pair_count,'verified_player_protron_shadow_members':protron_shadow_count,'verified_player_protron_members':protron_count,'verified_enemy_energy_seven_members':enemy_energy_count,'verified_boss_whole_family_members':boss_whole_count,'verified_boss_intentional_empty_members':3 if boss_whole_count else 0,'verified_settings_compatibility_resources':settings_count,'verified_type3_small_six_members':type3_small_count,'verified_title_menu_resources':title_menu_count,'verified_title_menu_source_files':title_menu_source_count,'verified_newsh4_entry6_members':newsh4_entry6_count,'verified_late_spike_family_members':late_spike_count,'verified_type15_eightheading_members':type15_count,'verified_newsh4_opposite7_family_members':newsh4_opposite7_count,'verified_newsh4_long7_family_members':newsh4_long7_count,'verified_startup_title_resources':title_count,'verified_startup_title_source_files':title_source_count,'verified_startup_title_manufacturer_compatibility_copies':title_compatibility_count,'verified_linked31_family_members':linked31_count,'verified_type4_composites':type4_count,'verified_startup_manufacturer_resources':manufacturer_count,'verified_startup_manufacturer_source_files':manufacturer_source_count,'verified_hud_meter_sidecars':meter_count,'verified_hud_meter_source_files':13 if meter_count else 0,'verified_pack_count':len(manifest['packs']),'verified_HDA_entries':checked,'verified_exact_source_pngs':catalog_result['verified_exact_source_pngs'],'verified_optional_pack_count':catalog_result['verified_optional_pack_count'],'verified_optional_HDA_entries':catalog_result['verified_optional_HDA_entries'],'verified_optional_source_pngs':catalog_result['verified_optional_source_pngs'],'optional_pack_counts':catalog_result['optional_pack_counts'],'optional_catalog_sha256':catalog_result['optional_catalog_sha256'],'verified_material_sidecars':material_count,'verified_cap_sidecars':cap_count,'verified_forest_sidecars_and_policies':forest_count,'verified_gameplay_hud_sidecars':hud_count,'verified_hud_source_pngs':int(bool(hud_count)), 'verified_hud_font_sidecars':font_count,'verified_hud_font_source_files':19 if font_count else 0, 'verified_hud_fixed_text_sidecars':fixed_text_count,'verified_hud_fixed_text_source_pngs':12 if fixed_text_count else 0, 'verified_hud_extension_sidecars':extension_count, 'verified_hud_extension_source_pngs':21 if extension_count else 0,'default_pack_counts':[manifest['packs'][manifest[k]]['count'] for k in ['default_preview_pack','default_debug_pack']],'rebuild_output':str(output) if a.output else None,'all_runtime_RGBA_and_header_bytes_exact':True},indent=2))

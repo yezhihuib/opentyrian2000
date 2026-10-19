@@ -1,0 +1,244 @@
+{
+  "status": "Validated; independent source/runtime/art review PASS",
+  "baseline_commit": "a1ccff035180f1fdce1240f8d8aaab19d013f17e",
+  "scope": "One exact record282 fixed-gold-shell/fire-triggered12-pixel jewel pulse family on normal-data Episode1 physical1. Separate strict asteroid opt-in. No rotation; original six positions79,81,83,81,81,79 and original shot occlusion remain authoritative.",
+  "source_sha256": "904d0eccbd2126e84e1da64f8f2ac881d19e58a393312c061ee9f99bf335c6aa",
+  "runtime": {
+    "final-goldwing-2x": {
+      "observed_ticks": 120,
+      "new_pose_commands": 390,
+      "new_bases": [
+        79,
+        81,
+        83
+      ],
+      "prior_family_commands": 4181,
+      "prior_commands_exact": true,
+      "coverage_mismatch": 0,
+      "rejected_frames": 0,
+      "max_rss_bytes": 105918464,
+      "sampled_cpu_seconds": {
+        "baseline": 12.77,
+        "candidate": 17.65
+      },
+      "binary_sha256": {
+        "baseline": "81079162b29fea00bbcbfacb49a76db3f07bad222729279f25d59b7ac48ae3f1",
+        "candidate": "91d523fb0a3bf97e79a9c9ec2382125e7e70ff7f4cd9db58d843e5456c51e003"
+      },
+      "all14_traces_exact": true,
+      "classic_captures_exact": true,
+      "all_captures_exact": false,
+      "native_output_sizes": [
+        [
+          640,
+          400
+        ]
+      ]
+    },
+    "final-missing81-fallback": {
+      "observed_ticks": 120,
+      "new_pose_commands": 0,
+      "new_bases": [],
+      "prior_family_commands": 4181,
+      "prior_commands_exact": true,
+      "coverage_mismatch": 0,
+      "rejected_frames": 0,
+      "max_rss_bytes": 104091648,
+      "sampled_cpu_seconds": {
+        "baseline": 12.55,
+        "candidate": 12.39
+      },
+      "binary_sha256": {
+        "baseline": "81079162b29fea00bbcbfacb49a76db3f07bad222729279f25d59b7ac48ae3f1",
+        "candidate": "91d523fb0a3bf97e79a9c9ec2382125e7e70ff7f4cd9db58d843e5456c51e003"
+      },
+      "all14_traces_exact": true,
+      "classic_captures_exact": true,
+      "all_captures_exact": true,
+      "native_output_sizes": [
+        [
+          640,
+          400
+        ]
+      ]
+    },
+    "final-invalid81-fallback": {
+      "observed_ticks": 120,
+      "new_pose_commands": 0,
+      "new_bases": [],
+      "prior_family_commands": 4181,
+      "prior_commands_exact": true,
+      "coverage_mismatch": 0,
+      "rejected_frames": 0,
+      "max_rss_bytes": 104120320,
+      "sampled_cpu_seconds": {
+        "baseline": 9.69,
+        "candidate": 8.91
+      },
+      "binary_sha256": {
+        "baseline": "81079162b29fea00bbcbfacb49a76db3f07bad222729279f25d59b7ac48ae3f1",
+        "candidate": "91d523fb0a3bf97e79a9c9ec2382125e7e70ff7f4cd9db58d843e5456c51e003"
+      },
+      "all14_traces_exact": true,
+      "classic_captures_exact": true,
+      "all_captures_exact": true,
+      "native_output_sizes": [
+        [
+          640,
+          400
+        ]
+      ]
+    },
+    "final-flag-off-physical9": {
+      "observed_ticks": 120,
+      "new_pose_commands": 0,
+      "new_bases": [],
+      "prior_family_commands": 0,
+      "prior_commands_exact": true,
+      "coverage_mismatch": 0,
+      "rejected_frames": 0,
+      "max_rss_bytes": 102326272,
+      "sampled_cpu_seconds": {
+        "baseline": 12.53,
+        "candidate": 13.27
+      },
+      "binary_sha256": {
+        "baseline": "346f2a15106a59e84bc850413146aed1765d3a43af5f3bcf4a71247835eef73e",
+        "candidate": "d88e248ce2c7fe7a6778c6bf12d963c17b608aa3f49875f87b44af4ec4f28113"
+      },
+      "all14_traces_exact": true,
+      "classic_captures_exact": true,
+      "all_captures_exact": true,
+      "native_output_sizes": [
+        [
+          640,
+          400
+        ]
+      ]
+    }
+  },
+  "source_harness": {
+    "runs": [
+      {
+        "mode": "optimized",
+        "positive": 1,
+        "negative": 17,
+        "binary_sha256": "917d5e3c6a4cf3d4968876fff46976a3744f3b829b2f21143ccdfebc70b91983"
+      },
+      {
+        "mode": "asan-ubsan",
+        "positive": 1,
+        "negative": 17,
+        "binary_sha256": "48582736817493a3193b64a116dae590396bdca1baceb5306757bd4559e270e3"
+      }
+    ],
+    "source_sha256": "904d0eccbd2126e84e1da64f8f2ac881d19e58a393312c061ee9f99bf335c6aa",
+    "peak_child_rss_bytes": 160530432,
+    "leak_sanitizer": false,
+    "scope": "Extracted production source, exact full actor struct, six-slot24-quadrant geometry, live phase/base identity and coherent loader. Separate actual-engine pairs required."
+  },
+  "prior_regression": {
+    "prior-ten-regression": {
+      "runs": [
+        {
+          "mode": "optimized",
+          "positive": 1,
+          "negative": 31,
+          "binary_sha256": "d70df57920edfaf5d88028452fcf9f41ff08c636cba59c109ab9c5a6ed4dc941"
+        }
+      ],
+      "source_sha256": "eda305918bb78f534c1d5d9e450b0219fc59afe6f1c46b45692e7a02e847a7d3",
+      "peak_child_rss_bytes": 106635264,
+      "leak_sanitizer": false,
+      "leak_sanitizer_note": "Unavailable under this executor ptrace; address/undefined checks remain enabled.",
+      "scope": "Extracted production loader/scope/source/geometry; actual game acceptance is separate."
+    },
+    "prior-four-regression": {
+      "runs": [
+        {
+          "mode": "optimized",
+          "positive": 1,
+          "negative": 19,
+          "binary_sha256": "1009627b608e13c890c2b948c7b75fbe1f27883444f4101fc1d7b6506ae41ca1"
+        }
+      ],
+      "source_sha256": "cb1e28cca841dbcf7116aa14de4e45233fb51d81925cf44e49229f2d471ac187",
+      "peak_child_rss_bytes": 106778624,
+      "leak_sanitizer": false,
+      "scope": "Extracted production four-family scope/source/loader/16-quadrant geometry. Actual engine pairs are separate."
+    }
+  },
+  "art": {
+    "hda": [
+      {
+        "base": 79,
+        "rgba_fnv64": "0xf619d245a72b703a",
+        "hda_sha256": "58ec2fbe2fb605cef591dda33e373283dd35974e9e160cff0c4f3509c1dba298"
+      },
+      {
+        "base": 81,
+        "rgba_fnv64": "0xa88b0d99fdf38be4",
+        "hda_sha256": "a657626679cbe322680394f4489443efed4532548ead118f4794699b9ec1cb56"
+      },
+      {
+        "base": 83,
+        "rgba_fnv64": "0x1cfd7f39ed3fe704",
+        "hda_sha256": "3f103041cc41eaa52d53b8f06d53056204a7f76ed38d56eca63064b4d354c901"
+      }
+    ],
+    "identical_alpha_all_poses": true,
+    "identical_exterior_all_poses": true,
+    "source_contained_alpha": true,
+    "changed_hd_pixels": 768,
+    "source_pulse_pixels": 12,
+    "supported_logical_blocks": 456,
+    "original_logical_blocks": 458,
+    "free_bytes": 5432111104
+  },
+  "prior35_files_all_unchanged": true,
+  "global_manual_registry": {
+    "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
+      "count": 629,
+      "files": 629
+    },
+    "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
+      "count": 629,
+      "files": 629
+    }
+  },
+  "manifest_sha256": "05633cc33290e62ca1effc772e2b688977cf3a66bef9e6cb4277bf6f693688cd",
+  "production_build": {
+    "binary_sha256": "88ddffbd84696aaf8cd1e5d7a6897644a125a3aa3809f94d3a7718ffc7e6a8ae",
+    "peak_child_rss_bytes": 190812160,
+    "compiler_as_limit_bytes": 1073741824
+  },
+  "parent_visual_review": "Approved authored actual2x contact and native640x400 frame35; red projectile overlay preserved.",
+  "limitations": [
+    "Finite fixed-seed original-event probes; no natural campaign progression or level-clear claim.",
+    "SDL dummy/software renderer output, not a physical-desktop/GPU/fullscreen or Windows test.",
+    "Source-harness tests and actual-engine acceptance are separate. LeakSanitizer disabled under executor; ASan/UBSan enabled.",
+    "Final2x pair measured sampledCPU12.77s baseline vs17.65s candidate; this probe adds overhead and is not production-FPS acceptance.",
+    "Pre-final4x diagnostic used the earlier conservative armor<=3 guard; final-source acceptance is the2x pair.",
+    "No GitHub push or Windows package."
+  ],
+  "budget": {
+    "png_bytes": 23611068,
+    "png_cap_bytes": 25165824,
+    "new_output_cap_bytes": 104857600,
+    "free_bytes": 5430280192,
+    "reserve_bytes": 5000000000,
+    "runtime_as_limit_bytes": 536870912,
+    "compiler_as_limit_bytes": 1073741824
+  },
+  "independent_review": {
+    "result": "PASS",
+    "reviewed_source_sha256": "904d0eccbd2126e84e1da64f8f2ac881d19e58a393312c061ee9f99bf335c6aa",
+    "findings": "Full source/live-actor identity, coherent three-pose integrity, source-contained alpha and final2x/fallback/flag-off evidence independently checked. Armor bound corrected during review; no remaining blocker.",
+    "preserved_calls": {
+      "prior_mirrored_rock_quadrants": 4181,
+      "original_unmirrored_projectile_calls": 104
+    },
+    "review_scope": "Read-only explicit allowlist; no private projection read."
+  },
+  "receipt_provenance": "Bounded local validation captures are summarized by the portable receipts in this file; runtime captures are not publication inputs."
+}

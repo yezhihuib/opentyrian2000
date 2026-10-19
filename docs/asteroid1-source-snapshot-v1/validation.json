@@ -1,0 +1,167 @@
+{
+  "base_commit": "1029bc4328933e67f6bfd7c2141367917b44e25f",
+  "change": "One renderer-owned 42012-byte private source reference; copied and FNV-pinned once per renderer epoch, exact current-byte memcmp on every eligible family source check.",
+  "guards": "Loaded bank ID, pointer, size, spriteSheet8 exclusion, record stamps, scopes, leases, RGBA preflight and frame rejection preserved. No art, events, gameplay, RNG, classic renderer, or registry edits.",
+  "source_suite": {
+    "runs": [
+      {
+        "mode": "optimized",
+        "result": "source snapshot guards passed: 247 checks across 5 families, 22 record dependencies, cold/warm corruption, role/size/pointer/reload/address reuse and renderer epochs",
+        "binary_sha256": "cb043b9250334d2fa454102f05a490094980904c7062bece3950861b6c11e7d9"
+      },
+      {
+        "mode": "asan-ubsan",
+        "result": "source snapshot guards passed: 247 checks across 5 families, 22 record dependencies, cold/warm corruption, role/size/pointer/reload/address reuse and renderer epochs",
+        "binary_sha256": "4b363fe3b87c22c153b6c098c80f8d3facc7b2cb867b66f3d8e1d8c01f0e6094"
+      }
+    ],
+    "helper_sha256": "b6b9d48eb57fb5029d25a20ab4bac5e56ca77f9a28cc31d4d8513e0fc9d93f9a",
+    "peak_child_rss_bytes": 32731136,
+    "leak_sanitizer": false,
+    "scope": "Extracted current production helper, source predicates and shutdown. Record-stamp stub checks dependency queries; complete family suites validate real records and drawing separately."
+  },
+  "family_suites": {
+    "ten": {
+      "runs": [
+        {
+          "mode": "optimized",
+          "positive": 1,
+          "negative": 31,
+          "binary_sha256": "88caeea41027f81dffb5dd537167d1c05786cd210bb50da12c3254045a4cda74"
+        },
+        {
+          "mode": "asan-ubsan",
+          "positive": 1,
+          "negative": 31,
+          "binary_sha256": "9437ceb4c353680d93d0539665c962c16166c4f127d181d7872e9272adc22732"
+        }
+      ],
+      "source_sha256": "59405811f96b992e52a40f32a8b1f88222a237be2f23f18a47101cb0c551b61e",
+      "peak_child_rss_bytes": 145956864,
+      "leak_sanitizer": false,
+      "leak_sanitizer_note": "Unavailable under this executor ptrace; address/undefined checks remain enabled.",
+      "scope": "Extracted production loader/scope/source/geometry; actual game acceptance is separate."
+    },
+    "four": {
+      "runs": [
+        {
+          "mode": "optimized",
+          "positive": 1,
+          "negative": 19,
+          "binary_sha256": "6b12a17ecb10494fbaac2a4823903ae770ca3412dbbbbae630a75e44bdea8564"
+        },
+        {
+          "mode": "asan-ubsan",
+          "positive": 1,
+          "negative": 19,
+          "binary_sha256": "a236157dd1c7726e92d5570e56479cfe88cf562bd1db9392b3ce4c34c771a127"
+        }
+      ],
+      "source_sha256": "3045ab6db880062f5cf46a54349a9c09b98b82d55b27b83c112e9fca26e4fc75",
+      "peak_child_rss_bytes": 146051072,
+      "leak_sanitizer": false,
+      "scope": "Extracted production four-family scope/source/loader/16-quadrant geometry. Actual engine pairs are separate."
+    },
+    "common4": {
+      "runs": [
+        {
+          "mode": "optimized",
+          "positive": 1,
+          "negative": 19,
+          "binary_sha256": "b8e428d53e3fd398ae9d04842be63aae7aa314c7d7fe24936b3eaf700c304163"
+        },
+        {
+          "mode": "asan-ubsan",
+          "positive": 1,
+          "negative": 19,
+          "binary_sha256": "5e81f4b5b47e08232eaba8fb610c6a8f7b07e14fbb837721d1dc01cfe4bfdbc0"
+        }
+      ],
+      "source_sha256": "b1bfca51933419e00461ca762527fa880ec191d42fee50a679cb005f23ef66e5",
+      "peak_child_rss_bytes": 146563072,
+      "leak_sanitizer": false,
+      "scope": "Extracted production four-family scope/source/loader/16-quadrant geometry. Actual engine pairs are separate."
+    },
+    "random5": {
+      "runs": [
+        {
+          "mode": "optimized",
+          "positive": 1,
+          "negative": 13,
+          "binary_sha256": "dae06696db42d7708ad704a655812c6822903661f41504f67a18df0230d0908e"
+        },
+        {
+          "mode": "asan-ubsan",
+          "positive": 1,
+          "negative": 13,
+          "binary_sha256": "13dd5fb4e6bb1b699616c9ac78e20489ac0fb60ad10316c4d6f521e1a7726df5"
+        }
+      ],
+      "source_sha256": "de0de609881a08bb53e32b3b2b4d190871284d28e25b5dcef6b265b657441aa9",
+      "peak_child_rss_bytes": 146255872,
+      "leak_sanitizer": false,
+      "scope": "Extracted production full-three-record source guard, one coherent resource, twelve ordered quadrant calls, clipping/mode/format/filter/warm corruption checks. Actual-engine random-spawn pairs are separate."
+    },
+    "goldwing": {
+      "runs": [
+        {
+          "mode": "optimized",
+          "positive": 1,
+          "negative": 17,
+          "binary_sha256": "2f5f3a6cd35e0f37cb4697724dd93a42a46c9c076c689a5e78e0aa120ce9baf4"
+        },
+        {
+          "mode": "asan-ubsan",
+          "positive": 1,
+          "negative": 17,
+          "binary_sha256": "0a6d3a2b6e61733130b8e4d7cce9c8bf7fa5123d60cd793e028c904d9e172823"
+        }
+      ],
+      "source_sha256": "bc6dd4571870cf0fcb836f0c76e4b272a15bd68d768f7f568dc94ee89f32e727",
+      "peak_child_rss_bytes": 160735232,
+      "leak_sanitizer": false,
+      "scope": "Extracted production source, exact full actor struct, six-slot24-quadrant geometry, live phase/base identity and coherent loader. Separate actual-engine pairs required."
+    }
+  },
+  "engine_pairs": [
+    {
+      "seed": 24301,
+      "baseline_source_seconds": 0.490635967,
+      "snapshot_source_seconds": 0.01461747,
+      "draw_calls": 6115,
+      "record_hash_calls": 38800,
+      "rgba_preflight_hash_calls": 2014,
+      "state": "AUDIT_STATE players=23c50e68c613629e enemies=a5978d9a77f32450 shots=7d3a0081a35dcfcf rng=0e90d8bd67822364 pixels=67b6b94be22b0d07",
+      "rgba": "AUDIT_RGBA tick=119 hash=275687f076b59a23 mismatches=0",
+      "baseline_cpu_seconds": 6.830519,
+      "snapshot_cpu_seconds": 7.315925999999999,
+      "rgba_state_rng_index8_equal": true
+    },
+    {
+      "seed": 4,
+      "baseline_source_seconds": 0.66902041,
+      "snapshot_source_seconds": 0.0106329,
+      "draw_calls": 6467,
+      "record_hash_calls": 39856,
+      "rgba_preflight_hash_calls": 2104,
+      "state": "AUDIT_STATE players=23c50e68c613629e enemies=d0e0338e49964a9c shots=7d3a0081a35dcfcf rng=b1de4eb00967588e pixels=3e717b66b9ab7366",
+      "rgba": "AUDIT_RGBA tick=119 hash=101840bebc82ee17 mismatches=0",
+      "baseline_cpu_seconds": 8.572352,
+      "snapshot_cpu_seconds": 5.510123000000001,
+      "rgba_state_rng_index8_equal": true
+    }
+  ],
+  "engine_scope": "120 original-event Episode1 Normal physical1 ASTEROID1 logic ticks; stationary no-fire enemy-hit scene; seeds 0x5eed and 4; SDL dummy software renderer; density8 RGBA; 2x configured display. Quiet QA and a single final output checksum. No images.",
+  "performance_caveat": "Source-check CPU savings are established. Host timing varies; the seed0x5eed candidate whole-process run was slower. No stable whole-game percentage, FPS, natural campaign progression, GPU, or Windows acceptance claim.",
+  "independent_review": "No blocking source findings in private snapshot pinning, immutability, per-call checks, lifetime/reset, frame behavior or test extraction. Source-only review; separate engine evidence above.",
+  "resources": {
+    "runtime_address_space_limit_bytes": 536870912,
+    "compiler_address_space_limit_bytes": 1073741824,
+    "largest_engine_peak_rss_bytes": 80424960,
+    "reported_compiler_peak_rss_bytes": 195231744,
+    "output_limit_bytes": 30000000,
+    "images_created": 0,
+    "leak_sanitizer": false,
+    "asan_note": "ASan/UBSan active; leak sanitizer disabled as in existing family suites. ASan shadow mapping precludes the normal 512MiB virtual address cap; observed suite compiler/runtime peak below161MB."
+  }
+}

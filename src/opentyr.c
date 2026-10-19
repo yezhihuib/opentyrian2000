@@ -805,9 +805,9 @@ int main(int argc, char *argv[])
 
 	game_probe_parse(&argc, argv);
 	JE_paramCheck(argc, argv);
-	if (manual_hd_enabled && (isNetworkGame || record_demo || constantPlay || constantDie || richMode))
+	if ((manual_hd_enabled || asteroid_hd_enabled) && (isNetworkGame || record_demo || constantPlay || constantDie || richMode))
 	{
-		fprintf(stderr, "Manual HD assets cannot be combined with network, record, constant, death or loot modes\n");
+		fprintf(stderr, "%s HD assets cannot be combined with network, record, constant, death or loot modes\n", asteroid_hd_enabled ? "Asteroid" : "Manual");
 		SDL_Quit();
 		return 2;
 	}

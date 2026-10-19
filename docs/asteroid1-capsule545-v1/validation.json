@@ -1,0 +1,2519 @@
+{
+  "baseline_commit": "1fc750dd6172f8307b64a532ae8922808202e707",
+  "scope": "One source-bound static scheduled capsule545 enemy under separate normal-data Episode1 physical1 ASTEROID1 opt-in. Other second-stage content remains outside scope.",
+  "optional_images": 35,
+  "optional_source_records": 42,
+  "optional_families": 15,
+  "default_counts": [
+    629,
+    629
+  ],
+  "original_source": {
+    "source_record": 545,
+    "record_fields": {
+      "ani": 1,
+      "tur": [
+        0,
+        0,
+        0
+      ],
+      "freq": [
+        0,
+        0,
+        0
+      ],
+      "xmove": 0,
+      "ymove": 0,
+      "xaccel": 0,
+      "yaccel": 0,
+      "xcaccel": 0,
+      "ycaccel": 0,
+      "startx": 0,
+      "starty": 0,
+      "startxc": 0,
+      "startyc": 0,
+      "armor": 5,
+      "size": 1,
+      "graphics": [
+        77,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "explosiontype": 5,
+      "animate": 0,
+      "bank": 8,
+      "xrev": 0,
+      "yrev": 0,
+      "damage_graphic": 0,
+      "damage_level": 0,
+      "damage_animation": 0,
+      "launch_freq": 0,
+      "launch_type": 0,
+      "value": 10,
+      "drop": 0
+    },
+    "source_tiles": [
+      77,
+      78,
+      96,
+      97
+    ],
+    "footprint": [
+      24,
+      28
+    ],
+    "opaque_pixels": 255,
+    "opaque_bbox_xywh": [
+      6,
+      3,
+      13,
+      25
+    ],
+    "reference_palette": "palette.dat palette0; runtime palette not certified",
+    "scheduled_events": [
+      {
+        "ordinal": 236,
+        "loc": 4080,
+        "kind": 10,
+        "d1": 545,
+        "d2": 186,
+        "d3": 0,
+        "d4": 6,
+        "d5": 0,
+        "d6": 0
+      },
+      {
+        "ordinal": 237,
+        "loc": 4080,
+        "kind": 10,
+        "d1": 545,
+        "d2": 186,
+        "d3": 0,
+        "d4": 7,
+        "d5": -28,
+        "d6": 0
+      },
+      {
+        "ordinal": 238,
+        "loc": 4080,
+        "kind": 10,
+        "d1": 545,
+        "d2": 186,
+        "d3": 0,
+        "d4": 8,
+        "d5": -56,
+        "d6": 0
+      },
+      {
+        "ordinal": 239,
+        "loc": 4080,
+        "kind": 10,
+        "d1": 545,
+        "d2": 186,
+        "d3": 0,
+        "d4": 9,
+        "d5": -84,
+        "d6": 0
+      },
+      {
+        "ordinal": 337,
+        "loc": 5600,
+        "kind": 10,
+        "d1": 545,
+        "d2": 114,
+        "d3": 0,
+        "d4": 1,
+        "d5": 0,
+        "d6": 0
+      },
+      {
+        "ordinal": 340,
+        "loc": 5620,
+        "kind": 10,
+        "d1": 545,
+        "d2": 114,
+        "d3": 0,
+        "d4": 2,
+        "d5": 0,
+        "d6": 0
+      },
+      {
+        "ordinal": 343,
+        "loc": 5640,
+        "kind": 10,
+        "d1": 545,
+        "d2": 114,
+        "d3": 0,
+        "d4": 3,
+        "d5": 0,
+        "d6": 0
+      },
+      {
+        "ordinal": 346,
+        "loc": 5660,
+        "kind": 10,
+        "d1": 545,
+        "d2": 114,
+        "d3": 0,
+        "d4": 4,
+        "d5": 0,
+        "d6": 0
+      },
+      {
+        "ordinal": 356,
+        "loc": 5680,
+        "kind": 10,
+        "d1": 545,
+        "d2": 114,
+        "d3": 0,
+        "d4": 5,
+        "d5": 0,
+        "d6": 0
+      },
+      {
+        "ordinal": 388,
+        "loc": 6712,
+        "kind": 10,
+        "d1": 545,
+        "d2": 90,
+        "d3": 0,
+        "d4": 1,
+        "d5": 0,
+        "d6": 0
+      },
+      {
+        "ordinal": 393,
+        "loc": 7160,
+        "kind": 10,
+        "d1": 545,
+        "d2": 114,
+        "d3": 0,
+        "d4": 1,
+        "d5": 0,
+        "d6": 0
+      },
+      {
+        "ordinal": 394,
+        "loc": 7160,
+        "kind": 10,
+        "d1": 545,
+        "d2": 138,
+        "d3": 0,
+        "d4": 2,
+        "d5": 0,
+        "d6": 0
+      },
+      {
+        "ordinal": 395,
+        "loc": 7160,
+        "kind": 10,
+        "d1": 545,
+        "d2": 162,
+        "d3": 0,
+        "d4": 3,
+        "d5": 0,
+        "d6": 0
+      }
+    ],
+    "record_fnv": "0x61d596d8bffd5774",
+    "source_bank_fnv": "0x913975450e0fc00d",
+    "bbox_coordinate_convention": "opaque_bbox_xywh is x,y,width,height; exclusive xyxy is [6,3,19,28]"
+  },
+  "art": {
+    "enemy-newshd-77-8": {
+      "record": 545,
+      "base": 77,
+      "size": 1,
+      "logical_size": [
+        24,
+        28
+      ],
+      "rgba_fnv64": "0x16455d50d28008e8",
+      "sha256": "52616dad83368574da424e3e180dc8b291a649ed1a8dab0106eca2167214e81c"
+    }
+  },
+  "unit": {
+    "record": 545,
+    "base": 77,
+    "logical_size": [
+      24,
+      28
+    ],
+    "density": 8,
+    "cold_source_record_byte_mutations": 77,
+    "warm_source_record_byte_mutations": 77,
+    "boundary_pool_slots": [
+      75,
+      99
+    ],
+    "ordered_quadrants": 8,
+    "fixture_count": 16,
+    "accepted_links": {
+      "75-99": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    "allowed_drop": 0,
+    "movement": "Unrestricted; event19 zero/down/left/right, event20/27 and field-range extremes tested",
+    "positive_armor_values": 255,
+    "source_occupied_cells": 255,
+    "source_occupied_bbox": [
+      6,
+      3,
+      13,
+      25
+    ],
+    "hd_occupied_cells": 255,
+    "clipping_origins": 6,
+    "clipping_filters": [
+      0,
+      17,
+      255
+    ],
+    "independent_peer_families": 14,
+    "sticky_whole_frame": true,
+    "compiler_peak_rss_bytes": 247672832,
+    "runtime_peak_rss_bytes": 20336640,
+    "compiler_address_space_limit_bytes": 1073741824,
+    "runtime_rss_limit_bytes": 536870912,
+    "output_limit_bytes": 8388608,
+    "output_bytes": 3188495,
+    "runs": [
+      {
+        "mode": "optimized",
+        "positive": 2,
+        "peer_independence": 1,
+        "negative": 16,
+        "binary_sha256": "642857208bc9678b5f8a6cb9b0dd6ba7a233d900a731585a806cfeb726496441"
+      },
+      {
+        "mode": "asan-ubsan",
+        "positive": 2,
+        "peer_independence": 1,
+        "negative": 16,
+        "binary_sha256": "3c18b24dd7e634a9753ef060e20b24f132f8fe932e044e3d159084ce16ef9722"
+      }
+    ],
+    "source_sha256": "857a7c9c6c08523e3c2730b8fe7ac519c976f6ad1c000f47decaeb3b0e73d484",
+    "leak_sanitizer": false,
+    "scope": "Extracted production functions and full live struct. Separate actual-engine pixel pairs required."
+  },
+  "source_snapshot": {
+    "runs": [
+      {
+        "mode": "optimized",
+        "result": "source snapshot guards passed: 717 checks across 15 families, 42 record dependencies, cold/warm corruption, role/size/pointer/reload/address reuse and renderer epochs",
+        "binary_sha256": "04d89d9695914ec0713255c6b4cb5c35e8bc067afee035fc9777af095ee90610"
+      },
+      {
+        "mode": "asan-ubsan",
+        "result": "source snapshot guards passed: 717 checks across 15 families, 42 record dependencies, cold/warm corruption, role/size/pointer/reload/address reuse and renderer epochs",
+        "binary_sha256": "41ef1dc57786157e7e441fb0d76051dd39327cd4e8e68193aa863c2fd852fdca"
+      }
+    ],
+    "helper_sha256": "b6b9d48eb57fb5029d25a20ab4bac5e56ca77f9a28cc31d4d8513e0fc9d93f9a",
+    "peak_child_rss_bytes": 41455616,
+    "leak_sanitizer": false,
+    "scope": "Extracted current production helper, source predicates and shutdown. Record-stamp stub checks dependency queries; complete family suites validate real records and drawing separately."
+  },
+  "prior_fork284_regression": {
+    "record": 284,
+    "base": 121,
+    "logical_size": [
+      24,
+      28
+    ],
+    "density": 8,
+    "cold_source_record_byte_mutations": 77,
+    "warm_source_record_byte_mutations": 77,
+    "boundary_pool_slots": [
+      25,
+      49,
+      75,
+      99
+    ],
+    "ordered_quadrants": 16,
+    "fixture_count": 16,
+    "accepted_links": {
+      "25-49": [
+        0
+      ],
+      "75-99": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ]
+    },
+    "drop512": "Only link1 in pool75-99",
+    "movement": "Unrestricted; event-driven values and field-range extremes tested",
+    "compiler_peak_rss_bytes": 124456960,
+    "runtime_peak_rss_bytes": 9351168,
+    "compiler_address_space_limit_bytes": 1073741824,
+    "runtime_rss_limit_bytes": 536870912,
+    "output_limit_bytes": 8388608,
+    "output_bytes": 1988071,
+    "runs": [
+      {
+        "mode": "optimized",
+        "positive": 2,
+        "negative": 16,
+        "binary_sha256": "279356f8fd00105e3190911b124bb7c4e8e4af3215701dfe8c6ade6030e5b98e"
+      }
+    ],
+    "source_sha256": "4f01f641de50f900c7c5c41baff6eaa100a1c742b918aa607eeaa87a2d5f2479",
+    "leak_sanitizer": false,
+    "scope": "Extracted production functions and full live struct. Separate actual-engine pixel pairs required."
+  },
+  "catalog": {
+    "verified_pack_count": 2,
+    "verified_HDA_entries": 1258,
+    "verified_optional_pack_count": 1,
+    "verified_optional_HDA_entries": 35,
+    "verified_exact_source_pngs": 629,
+    "verified_optional_source_pngs": 35,
+    "default_pack_counts": [
+      629,
+      629
+    ],
+    "optional_pack_counts": {
+      "asteroid1-ten-v1": 35
+    },
+    "optional_catalog_sha256": "6a86d6582a6b6531aaf67e75d14d6a32886a496d7525899a059e6e76db05c118",
+    "catalog_only": true,
+    "artwork_rebuilt": false
+  },
+  "catalog_regression": {
+    "status": "PASS",
+    "current_default_catalog_counts": [
+      629,
+      629
+    ],
+    "real_optional_HDR1_and_source_PNG_pairs_verified": 35,
+    "optional_catalog_sha256": "6a86d6582a6b6531aaf67e75d14d6a32886a496d7525899a059e6e76db05c118",
+    "synthetic_default_only_entries_verified": 2,
+    "missing_and_corrupt_default_optional_cases_rejected": true,
+    "existing_resources_unchanged": true,
+    "scope": "Finite catalog integration; complete historical default payload acceptance is separate."
+  },
+  "production_build": {
+    "binary_sha256": "981c3e86a489e38bef86b50bf16828dca84d7b066aa757a7a43b871a60353933",
+    "render_object_sha256": "9ebfdbd09c1651fc02d065d365dd24a687810041556f04f2c9f6feccb2d84a71",
+    "peak_child_rss_bytes": 209960960,
+    "compiler_as_limit_bytes": 1073741824,
+    "compile_warnings": 0
+  },
+  "independent_review": {
+    "status": "PASS within finite reviewed scope",
+    "reviewer": "independent code and deterministic-art review",
+    "code_findings": [],
+    "inspected": [
+      "source audit recommendation and metadata",
+      "capsule545 production family including source/actor/load/preflight/draw/shutdown",
+      "render_mirror integration and original tyrian2 context/draw/actor initialization",
+      "new converter and shared decode helper",
+      "manifest/catalog/default preservation",
+      "new unit suite and 15-family source snapshot suite",
+      "new art and original source contact pixels"
+    ],
+    "source_binding": {
+      "loaded_role": "bank8 in any original loaded slot; excludes spriteSheet8",
+      "current_bytes": "42012-byte immutable private snapshot compared every draw",
+      "record545_serialized_bytes": 77,
+      "record_fnv64": "0x61d596d8bffd5774",
+      "base": 77,
+      "quadrants": [
+        0,
+        1,
+        19,
+        20
+      ],
+      "live_guards": [
+        "type and record pointer",
+        "pool75-99 and links1-9",
+        "available actor and positive current armor",
+        "size1 plus full20 static sequence",
+        "drop0 and zero source turret/launch/damage roles",
+        "bank/filter/draw-origin consistency",
+        "motion unrestricted with independent_motion consistency"
+      ],
+      "family_integrity": "Independent exact HDR1 preflight, sticky failure until shutdown, current-source failure after accepted quadrant rejects whole frame"
+    },
+    "manifest": {
+      "default_packs_exactly_preserved": true,
+      "default_counts": [
+        629,
+        629
+      ],
+      "previous_34_optional_rows_and_14_families_exactly_preserved": true,
+      "new_image_count": 35,
+      "family_count": 15,
+      "record_count": 42
+    },
+    "art": {
+      "original_cells": 255,
+      "bbox_xywh": [
+        6,
+        3,
+        13,
+        25
+      ],
+      "bbox_xyxy": [
+        6,
+        3,
+        19,
+        28
+      ],
+      "last_source_occupied_row": 27,
+      "hd_occupied_cells": 255,
+      "hd_alpha_outside_source_support": false,
+      "alpha_levels": 183,
+      "zero_alpha_rgb_zeroed": true,
+      "rgba_fnv64": "0x16455d50d28008e8",
+      "hda_sha256": "52616dad83368574da424e3e180dc8b291a649ed1a8dab0106eca2167214e81c",
+      "png_sha256": "becb9d8405e3fe3ab46e335bdabdc5692aaa4c2414090d14072e6dad1a7de27e",
+      "visual_check": "One upright grey/silver capsule, dark neck, red solid lower tip; smooth inward contour."
+    },
+    "independent_rebuild": {
+      "command": [
+        "python",
+        "prototype/build-asteroid1-capsule545-art.py",
+        "--data",
+        "ORIGINAL",
+        "--out",
+        "OUTPUT"
+      ],
+      "stdout": "Packed one source-bound static capsule enemy",
+      "png_exact": true,
+      "hda_exact": true,
+      "address_space_limit_bytes": 536870912,
+      "file_size_limit_bytes": 8388608,
+      "cpu_limit_seconds": 30
+    },
+    "reviewed_existing_test_receipts": {
+      "new_unit_modes": [
+        "optimized",
+        "asan-ubsan"
+      ],
+      "new_unit_each_mode": {
+        "positive": 2,
+        "peer_independence": 1,
+        "negative": 16
+      },
+      "cold_and_warm_record_mutations_each": 77,
+      "source_snapshot_checks": 717,
+      "source_snapshot_families": 15,
+      "source_snapshot_dependencies": 42,
+      "prior_fork284_regression": "optimized 2 positive plus16 negative",
+      "catalog": "1258 default plus35 optional entries",
+      "production_compile_warnings": 0
+    },
+    "limits": [
+      "Unit drawing is a call-recorder stub; actual-engine baseline/candidate pixel and trace pairs must be reviewed separately.",
+      "No claim of natural full-run observation or all13 natural encounters from this code review.",
+      "Existing test receipts inspected; unit/engine suites were not rerun by this reviewer.",
+      "No prohibited private projection/session history read; no broad content/hash scan; no upload/push/Windows build."
+    ]
+  },
+  "prior34_assets_and_metadata_unchanged": true,
+  "default_catalogs_unchanged": true,
+  "runtime": {
+    "status": "PASS",
+    "scope": "ASSISTED original-event diagnostic windows, not natural campaign or whole-level acceptance.",
+    "episode": 1,
+    "physical_level": 1,
+    "level": "ASTEROID1",
+    "difficulty": "Normal",
+    "seed": 1,
+    "stationary_no_firing": true,
+    "no_actor_injection_or_revival": true,
+    "original_event_dispatch_and_actor_initialization_preserved": true,
+    "enabled_pair_count": 8,
+    "fallback_pair_count": 3,
+    "paired_runtime": {
+      "assisted4080-2x": {
+        "observed_ticks": 70,
+        "start_curLoc": 4080,
+        "end_curLoc": 4220,
+        "accepted_new_commands": 404,
+        "accepted_prior_commands": 70,
+        "accepted_pools": [
+          3
+        ],
+        "accepted_quadrants": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "full_body_witnesses": 86,
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": false,
+        "pngs": {
+          "visible-0020.png": {
+            "dimensions": [
+              640,
+              400
+            ],
+            "bytes": 23947,
+            "byte_equal": false,
+            "pixel_equal": false,
+            "difference_bbox": [
+              340,
+              88,
+              366,
+              306
+            ],
+            "changed_logical_cells": 1020,
+            "changed_cells_outside_original_support": 0,
+            "original_output_translation_x": -24,
+            "native_capture_unresized": true
+          }
+        },
+        "motion_transitions": {
+          "6": [
+            {
+              "tick": 1,
+              "vx": 0,
+              "vy": 6,
+              "mirrored": true
+            }
+          ],
+          "7": [
+            {
+              "tick": 4,
+              "vx": 0,
+              "vy": 6,
+              "mirrored": false
+            }
+          ],
+          "8": [
+            {
+              "tick": 8,
+              "vx": 0,
+              "vy": 6,
+              "mirrored": true
+            }
+          ],
+          "9": [
+            {
+              "tick": 11,
+              "vx": 0,
+              "vy": 6,
+              "mirrored": false
+            }
+          ]
+        },
+        "all14_original_traces_exact": true,
+        "extra_traces_exact": {
+          "capsule-actors.tsv": true,
+          "original-events.tsv": true,
+          "original-event-clock.tsv": true,
+          "assisted-seek.tsv": true,
+          "selector-eventrec-bytes.tsv": true
+        },
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "all14_original_trace_sha256": {
+          "state.tsv": "5a370052414875a285d75632534fac6f9e56c41d5d05ad098c5d7e0be69f6549",
+          "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+          "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+          "scene-enemies.tsv": "6986f392b9c0a2b7f26d8409f1d716accf858024fe34c74efd5c68bc65096a93",
+          "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+          "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+          "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+          "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+          "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+          "poses.tsv": "c6c4ea208cacee173e2821eab7ec97620e1083d44f05bd9953737e2cb66810be",
+          "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+          "presentation.tsv": "7fc3a5b56b3f969bb743e3cf726ddb4dd01dd70283ddba87a315f00a7000ca12",
+          "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+          "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+        },
+        "native_scale": "2x",
+        "peak_sampled_rss_bytes": 80175104,
+        "exit_codes": {
+          "baseline": 0,
+          "candidate": 0
+        },
+        "binary_sha256": {
+          "baseline": "d8f51e49219d403c57f1dee79b2ba809d67b1ccf30e9f081429fe97b6b95f44a",
+          "candidate": "806d074871e95883aec5efea9066536df1ebe871d087c3eb12ce612c6c2fbcf8"
+        }
+      },
+      "assisted5600-2x": {
+        "observed_ticks": 70,
+        "start_curLoc": 5600,
+        "end_curLoc": 5740,
+        "accepted_new_commands": 732,
+        "accepted_prior_commands": 0,
+        "accepted_pools": [
+          3
+        ],
+        "accepted_quadrants": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "full_body_witnesses": 161,
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": false,
+        "pngs": {
+          "visible-0050.png": {
+            "dimensions": [
+              640,
+              400
+            ],
+            "bytes": 24481,
+            "byte_equal": false,
+            "pixel_equal": false,
+            "difference_bbox": [
+              196,
+              36,
+              222,
+              368
+            ],
+            "changed_logical_cells": 943,
+            "changed_cells_outside_original_support": 0,
+            "original_output_translation_x": -24,
+            "native_capture_unresized": true
+          }
+        },
+        "motion_transitions": {
+          "1": [
+            {
+              "tick": 1,
+              "vx": 0,
+              "vy": 3,
+              "mirrored": false
+            }
+          ],
+          "2": [
+            {
+              "tick": 11,
+              "vx": 0,
+              "vy": 3,
+              "mirrored": false
+            }
+          ],
+          "3": [
+            {
+              "tick": 21,
+              "vx": 0,
+              "vy": 3,
+              "mirrored": false
+            }
+          ],
+          "4": [
+            {
+              "tick": 31,
+              "vx": 0,
+              "vy": 3,
+              "mirrored": false
+            }
+          ],
+          "5": [
+            {
+              "tick": 41,
+              "vx": 0,
+              "vy": 3,
+              "mirrored": false
+            }
+          ]
+        },
+        "all14_original_traces_exact": true,
+        "extra_traces_exact": {
+          "capsule-actors.tsv": true,
+          "original-events.tsv": true,
+          "original-event-clock.tsv": true,
+          "assisted-seek.tsv": true,
+          "selector-eventrec-bytes.tsv": true
+        },
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "all14_original_trace_sha256": {
+          "state.tsv": "480a5782805fddce897fa45646496795c673e4a60195809e841091a7530631d7",
+          "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+          "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+          "scene-enemies.tsv": "fd87e86bb9c7193fa8f29a6bd756d9096a8d0fc3b9cf4d09a73058da549e0418",
+          "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+          "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+          "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+          "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+          "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+          "poses.tsv": "c6c4ea208cacee173e2821eab7ec97620e1083d44f05bd9953737e2cb66810be",
+          "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+          "presentation.tsv": "c08ee423acf14d87f76c14ec807a218f9baafeb5f3ea441f55313f4abd82bbe0",
+          "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+          "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+        },
+        "native_scale": "2x",
+        "peak_sampled_rss_bytes": 78798848,
+        "exit_codes": {
+          "baseline": 0,
+          "candidate": 0
+        },
+        "binary_sha256": {
+          "baseline": "d8f51e49219d403c57f1dee79b2ba809d67b1ccf30e9f081429fe97b6b95f44a",
+          "candidate": "806d074871e95883aec5efea9066536df1ebe871d087c3eb12ce612c6c2fbcf8"
+        }
+      },
+      "assisted6712-2x": {
+        "observed_ticks": 70,
+        "start_curLoc": 6712,
+        "end_curLoc": 6852,
+        "accepted_new_commands": 186,
+        "accepted_prior_commands": 54,
+        "accepted_pools": [
+          3
+        ],
+        "accepted_quadrants": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "full_body_witnesses": 35,
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": false,
+        "pngs": {
+          "visible-0035.png": {
+            "dimensions": [
+              640,
+              400
+            ],
+            "bytes": 15052,
+            "byte_equal": false,
+            "pixel_equal": false,
+            "difference_bbox": [
+              4,
+              178,
+              30,
+              228
+            ],
+            "changed_logical_cells": 255,
+            "changed_cells_outside_original_support": 0,
+            "original_output_translation_x": -24,
+            "native_capture_unresized": true
+          }
+        },
+        "motion_transitions": {
+          "1": [
+            {
+              "tick": 2,
+              "vx": -4,
+              "vy": 0,
+              "mirrored": false
+            },
+            {
+              "tick": 18,
+              "vx": 0,
+              "vy": 3,
+              "mirrored": true
+            }
+          ]
+        },
+        "all14_original_traces_exact": true,
+        "extra_traces_exact": {
+          "capsule-actors.tsv": true,
+          "original-events.tsv": true,
+          "original-event-clock.tsv": true,
+          "assisted-seek.tsv": true,
+          "selector-eventrec-bytes.tsv": true
+        },
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "all14_original_trace_sha256": {
+          "state.tsv": "bd3246bc23ca5663e8d2d5e12855df59162e5929f3d7ed1772eed2177de4c746",
+          "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+          "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+          "scene-enemies.tsv": "b0fed2ff6cbba92a8fa0f7a74e5dbe72ddd19c91ad00e0e72de7ff21e24619f2",
+          "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+          "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+          "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+          "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+          "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+          "poses.tsv": "c6c4ea208cacee173e2821eab7ec97620e1083d44f05bd9953737e2cb66810be",
+          "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+          "presentation.tsv": "97e7b5327b2bee2e430b396ef10223404f7a7517e94eae7d7251b7f3b909b466",
+          "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+          "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+        },
+        "native_scale": "2x",
+        "peak_sampled_rss_bytes": 80130048,
+        "exit_codes": {
+          "baseline": 0,
+          "candidate": 0
+        },
+        "binary_sha256": {
+          "baseline": "d8f51e49219d403c57f1dee79b2ba809d67b1ccf30e9f081429fe97b6b95f44a",
+          "candidate": "806d074871e95883aec5efea9066536df1ebe871d087c3eb12ce612c6c2fbcf8"
+        }
+      },
+      "assisted7160-2x": {
+        "observed_ticks": 90,
+        "start_curLoc": 7160,
+        "end_curLoc": 7320,
+        "accepted_new_commands": 736,
+        "accepted_prior_commands": 158,
+        "accepted_pools": [
+          3
+        ],
+        "accepted_quadrants": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "full_body_witnesses": 148,
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": false,
+        "pngs": {
+          "visible-0030.png": {
+            "dimensions": [
+              640,
+              400
+            ],
+            "bytes": 18382,
+            "byte_equal": false,
+            "pixel_equal": false,
+            "difference_bbox": [
+              52,
+              56,
+              118,
+              148
+            ],
+            "changed_logical_cells": 726,
+            "changed_cells_outside_original_support": 0,
+            "original_output_translation_x": -24,
+            "native_capture_unresized": true
+          },
+          "visible-0060.png": {
+            "dimensions": [
+              640,
+              400
+            ],
+            "bytes": 27715,
+            "byte_equal": false,
+            "pixel_equal": false,
+            "difference_bbox": [
+              196,
+              248,
+              222,
+              368
+            ],
+            "changed_logical_cells": 686,
+            "changed_cells_outside_original_support": 0,
+            "original_output_translation_x": -24,
+            "native_capture_unresized": true
+          }
+        },
+        "motion_transitions": {
+          "1": [
+            {
+              "tick": 2,
+              "vx": -4,
+              "vy": 0,
+              "mirrored": false
+            },
+            {
+              "tick": 18,
+              "vx": 0,
+              "vy": 3,
+              "mirrored": true
+            },
+            {
+              "tick": 25,
+              "vx": 4,
+              "vy": 0,
+              "mirrored": true
+            },
+            {
+              "tick": 43,
+              "vx": 0,
+              "vy": 3,
+              "mirrored": true
+            }
+          ],
+          "2": [
+            {
+              "tick": 2,
+              "vx": -4,
+              "vy": 0,
+              "mirrored": false
+            },
+            {
+              "tick": 24,
+              "vx": 0,
+              "vy": 3,
+              "mirrored": true
+            },
+            {
+              "tick": 31,
+              "vx": 4,
+              "vy": 0,
+              "mirrored": true
+            },
+            {
+              "tick": 49,
+              "vx": 0,
+              "vy": 3,
+              "mirrored": true
+            }
+          ],
+          "3": [
+            {
+              "tick": 2,
+              "vx": -4,
+              "vy": 0,
+              "mirrored": false
+            },
+            {
+              "tick": 30,
+              "vx": 0,
+              "vy": 3,
+              "mirrored": true
+            },
+            {
+              "tick": 37,
+              "vx": 4,
+              "vy": 0,
+              "mirrored": true
+            },
+            {
+              "tick": 55,
+              "vx": 0,
+              "vy": 3,
+              "mirrored": true
+            }
+          ]
+        },
+        "all14_original_traces_exact": true,
+        "extra_traces_exact": {
+          "capsule-actors.tsv": true,
+          "original-events.tsv": true,
+          "original-event-clock.tsv": true,
+          "assisted-seek.tsv": true,
+          "selector-eventrec-bytes.tsv": true
+        },
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "all14_original_trace_sha256": {
+          "state.tsv": "63eb3e4ffe5f5c9716baa6e19377daa63a9ce7271c716f3402a0841fbba2a685",
+          "collisions.tsv": "86660fe4f4befe88a41f72008875ffa119a46ccb079dec8dc8b078cfb097ee8e",
+          "enemy-projectiles.tsv": "24e4bef9474ca7590fc570e8f4aa9baca38f3cb0f62d8acff61896b3fbeb0617",
+          "scene-enemies.tsv": "ce925b39db915435f3fdcc5f890752fc4d49da01bbcc36cf24e42a1d4a0ac956",
+          "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+          "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+          "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+          "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+          "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+          "poses.tsv": "f4c97d0a2ae23234222d4640494dda76440773c7a29523afe71e239c9b731055",
+          "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+          "presentation.tsv": "3c989f4c6f24eee8700257a7e65d7b29219516a17e064f9ecaf982c594c5be6d",
+          "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+          "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+        },
+        "native_scale": "2x",
+        "peak_sampled_rss_bytes": 79032320,
+        "exit_codes": {
+          "baseline": 0,
+          "candidate": 0
+        },
+        "binary_sha256": {
+          "baseline": "d8f51e49219d403c57f1dee79b2ba809d67b1ccf30e9f081429fe97b6b95f44a",
+          "candidate": "806d074871e95883aec5efea9066536df1ebe871d087c3eb12ce612c6c2fbcf8"
+        }
+      },
+      "assisted4080-4x": {
+        "observed_ticks": 70,
+        "start_curLoc": 4080,
+        "end_curLoc": 4220,
+        "accepted_new_commands": 404,
+        "accepted_prior_commands": 70,
+        "accepted_pools": [
+          3
+        ],
+        "accepted_quadrants": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "full_body_witnesses": 86,
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": false,
+        "pngs": {
+          "visible-0020.png": {
+            "dimensions": [
+              1280,
+              800
+            ],
+            "bytes": 67009,
+            "byte_equal": false,
+            "pixel_equal": false,
+            "difference_bbox": [
+              680,
+              176,
+              732,
+              612
+            ],
+            "changed_logical_cells": 1020,
+            "changed_cells_outside_original_support": 0,
+            "original_output_translation_x": -24,
+            "native_capture_unresized": true
+          }
+        },
+        "motion_transitions": {
+          "6": [
+            {
+              "tick": 1,
+              "vx": 0,
+              "vy": 6,
+              "mirrored": true
+            }
+          ],
+          "7": [
+            {
+              "tick": 4,
+              "vx": 0,
+              "vy": 6,
+              "mirrored": false
+            }
+          ],
+          "8": [
+            {
+              "tick": 8,
+              "vx": 0,
+              "vy": 6,
+              "mirrored": true
+            }
+          ],
+          "9": [
+            {
+              "tick": 11,
+              "vx": 0,
+              "vy": 6,
+              "mirrored": false
+            }
+          ]
+        },
+        "all14_original_traces_exact": true,
+        "extra_traces_exact": {
+          "capsule-actors.tsv": true,
+          "original-events.tsv": true,
+          "original-event-clock.tsv": true,
+          "assisted-seek.tsv": true,
+          "selector-eventrec-bytes.tsv": true
+        },
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "all14_original_trace_sha256": {
+          "state.tsv": "5a370052414875a285d75632534fac6f9e56c41d5d05ad098c5d7e0be69f6549",
+          "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+          "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+          "scene-enemies.tsv": "6986f392b9c0a2b7f26d8409f1d716accf858024fe34c74efd5c68bc65096a93",
+          "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+          "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+          "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+          "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+          "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+          "poses.tsv": "c6c4ea208cacee173e2821eab7ec97620e1083d44f05bd9953737e2cb66810be",
+          "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+          "presentation.tsv": "7fc3a5b56b3f969bb743e3cf726ddb4dd01dd70283ddba87a315f00a7000ca12",
+          "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+          "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+        },
+        "native_scale": "4x",
+        "peak_sampled_rss_bytes": 94248960,
+        "exit_codes": {
+          "baseline": 0,
+          "candidate": 0
+        },
+        "binary_sha256": {
+          "baseline": "d8f51e49219d403c57f1dee79b2ba809d67b1ccf30e9f081429fe97b6b95f44a",
+          "candidate": "806d074871e95883aec5efea9066536df1ebe871d087c3eb12ce612c6c2fbcf8"
+        }
+      },
+      "assisted5600-4x": {
+        "observed_ticks": 70,
+        "start_curLoc": 5600,
+        "end_curLoc": 5740,
+        "accepted_new_commands": 732,
+        "accepted_prior_commands": 0,
+        "accepted_pools": [
+          3
+        ],
+        "accepted_quadrants": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "full_body_witnesses": 161,
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": false,
+        "pngs": {
+          "visible-0050.png": {
+            "dimensions": [
+              1280,
+              800
+            ],
+            "bytes": 65703,
+            "byte_equal": false,
+            "pixel_equal": false,
+            "difference_bbox": [
+              392,
+              72,
+              444,
+              736
+            ],
+            "changed_logical_cells": 943,
+            "changed_cells_outside_original_support": 0,
+            "original_output_translation_x": -24,
+            "native_capture_unresized": true
+          }
+        },
+        "motion_transitions": {
+          "1": [
+            {
+              "tick": 1,
+              "vx": 0,
+              "vy": 3,
+              "mirrored": false
+            }
+          ],
+          "2": [
+            {
+              "tick": 11,
+              "vx": 0,
+              "vy": 3,
+              "mirrored": false
+            }
+          ],
+          "3": [
+            {
+              "tick": 21,
+              "vx": 0,
+              "vy": 3,
+              "mirrored": false
+            }
+          ],
+          "4": [
+            {
+              "tick": 31,
+              "vx": 0,
+              "vy": 3,
+              "mirrored": false
+            }
+          ],
+          "5": [
+            {
+              "tick": 41,
+              "vx": 0,
+              "vy": 3,
+              "mirrored": false
+            }
+          ]
+        },
+        "all14_original_traces_exact": true,
+        "extra_traces_exact": {
+          "capsule-actors.tsv": true,
+          "original-events.tsv": true,
+          "original-event-clock.tsv": true,
+          "assisted-seek.tsv": true,
+          "selector-eventrec-bytes.tsv": true
+        },
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "all14_original_trace_sha256": {
+          "state.tsv": "480a5782805fddce897fa45646496795c673e4a60195809e841091a7530631d7",
+          "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+          "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+          "scene-enemies.tsv": "fd87e86bb9c7193fa8f29a6bd756d9096a8d0fc3b9cf4d09a73058da549e0418",
+          "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+          "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+          "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+          "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+          "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+          "poses.tsv": "c6c4ea208cacee173e2821eab7ec97620e1083d44f05bd9953737e2cb66810be",
+          "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+          "presentation.tsv": "c08ee423acf14d87f76c14ec807a218f9baafeb5f3ea441f55313f4abd82bbe0",
+          "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+          "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+        },
+        "native_scale": "4x",
+        "peak_sampled_rss_bytes": 92184576,
+        "exit_codes": {
+          "baseline": 0,
+          "candidate": 0
+        },
+        "binary_sha256": {
+          "baseline": "d8f51e49219d403c57f1dee79b2ba809d67b1ccf30e9f081429fe97b6b95f44a",
+          "candidate": "806d074871e95883aec5efea9066536df1ebe871d087c3eb12ce612c6c2fbcf8"
+        }
+      },
+      "assisted6712-4x": {
+        "observed_ticks": 70,
+        "start_curLoc": 6712,
+        "end_curLoc": 6852,
+        "accepted_new_commands": 186,
+        "accepted_prior_commands": 54,
+        "accepted_pools": [
+          3
+        ],
+        "accepted_quadrants": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "full_body_witnesses": 35,
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": false,
+        "pngs": {
+          "visible-0035.png": {
+            "dimensions": [
+              1280,
+              800
+            ],
+            "bytes": 32257,
+            "byte_equal": false,
+            "pixel_equal": false,
+            "difference_bbox": [
+              8,
+              356,
+              60,
+              456
+            ],
+            "changed_logical_cells": 255,
+            "changed_cells_outside_original_support": 0,
+            "original_output_translation_x": -24,
+            "native_capture_unresized": true
+          }
+        },
+        "motion_transitions": {
+          "1": [
+            {
+              "tick": 2,
+              "vx": -4,
+              "vy": 0,
+              "mirrored": false
+            },
+            {
+              "tick": 18,
+              "vx": 0,
+              "vy": 3,
+              "mirrored": true
+            }
+          ]
+        },
+        "all14_original_traces_exact": true,
+        "extra_traces_exact": {
+          "capsule-actors.tsv": true,
+          "original-events.tsv": true,
+          "original-event-clock.tsv": true,
+          "assisted-seek.tsv": true,
+          "selector-eventrec-bytes.tsv": true
+        },
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "all14_original_trace_sha256": {
+          "state.tsv": "bd3246bc23ca5663e8d2d5e12855df59162e5929f3d7ed1772eed2177de4c746",
+          "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+          "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+          "scene-enemies.tsv": "b0fed2ff6cbba92a8fa0f7a74e5dbe72ddd19c91ad00e0e72de7ff21e24619f2",
+          "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+          "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+          "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+          "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+          "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+          "poses.tsv": "c6c4ea208cacee173e2821eab7ec97620e1083d44f05bd9953737e2cb66810be",
+          "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+          "presentation.tsv": "97e7b5327b2bee2e430b396ef10223404f7a7517e94eae7d7251b7f3b909b466",
+          "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+          "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+        },
+        "native_scale": "4x",
+        "peak_sampled_rss_bytes": 88055808,
+        "exit_codes": {
+          "baseline": 0,
+          "candidate": 0
+        },
+        "binary_sha256": {
+          "baseline": "d8f51e49219d403c57f1dee79b2ba809d67b1ccf30e9f081429fe97b6b95f44a",
+          "candidate": "806d074871e95883aec5efea9066536df1ebe871d087c3eb12ce612c6c2fbcf8"
+        }
+      },
+      "assisted7160-4x": {
+        "observed_ticks": 90,
+        "start_curLoc": 7160,
+        "end_curLoc": 7320,
+        "accepted_new_commands": 736,
+        "accepted_prior_commands": 158,
+        "accepted_pools": [
+          3
+        ],
+        "accepted_quadrants": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "full_body_witnesses": 148,
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": false,
+        "pngs": {
+          "visible-0030.png": {
+            "dimensions": [
+              1280,
+              800
+            ],
+            "bytes": 52426,
+            "byte_equal": false,
+            "pixel_equal": false,
+            "difference_bbox": [
+              104,
+              112,
+              236,
+              296
+            ],
+            "changed_logical_cells": 726,
+            "changed_cells_outside_original_support": 0,
+            "original_output_translation_x": -24,
+            "native_capture_unresized": true
+          },
+          "visible-0060.png": {
+            "dimensions": [
+              1280,
+              800
+            ],
+            "bytes": 73501,
+            "byte_equal": false,
+            "pixel_equal": false,
+            "difference_bbox": [
+              392,
+              496,
+              444,
+              736
+            ],
+            "changed_logical_cells": 686,
+            "changed_cells_outside_original_support": 0,
+            "original_output_translation_x": -24,
+            "native_capture_unresized": true
+          }
+        },
+        "motion_transitions": {
+          "1": [
+            {
+              "tick": 2,
+              "vx": -4,
+              "vy": 0,
+              "mirrored": false
+            },
+            {
+              "tick": 18,
+              "vx": 0,
+              "vy": 3,
+              "mirrored": true
+            },
+            {
+              "tick": 25,
+              "vx": 4,
+              "vy": 0,
+              "mirrored": true
+            },
+            {
+              "tick": 43,
+              "vx": 0,
+              "vy": 3,
+              "mirrored": true
+            }
+          ],
+          "2": [
+            {
+              "tick": 2,
+              "vx": -4,
+              "vy": 0,
+              "mirrored": false
+            },
+            {
+              "tick": 24,
+              "vx": 0,
+              "vy": 3,
+              "mirrored": true
+            },
+            {
+              "tick": 31,
+              "vx": 4,
+              "vy": 0,
+              "mirrored": true
+            },
+            {
+              "tick": 49,
+              "vx": 0,
+              "vy": 3,
+              "mirrored": true
+            }
+          ],
+          "3": [
+            {
+              "tick": 2,
+              "vx": -4,
+              "vy": 0,
+              "mirrored": false
+            },
+            {
+              "tick": 30,
+              "vx": 0,
+              "vy": 3,
+              "mirrored": true
+            },
+            {
+              "tick": 37,
+              "vx": 4,
+              "vy": 0,
+              "mirrored": true
+            },
+            {
+              "tick": 55,
+              "vx": 0,
+              "vy": 3,
+              "mirrored": true
+            }
+          ]
+        },
+        "all14_original_traces_exact": true,
+        "extra_traces_exact": {
+          "capsule-actors.tsv": true,
+          "original-events.tsv": true,
+          "original-event-clock.tsv": true,
+          "assisted-seek.tsv": true,
+          "selector-eventrec-bytes.tsv": true
+        },
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "all14_original_trace_sha256": {
+          "state.tsv": "63eb3e4ffe5f5c9716baa6e19377daa63a9ce7271c716f3402a0841fbba2a685",
+          "collisions.tsv": "86660fe4f4befe88a41f72008875ffa119a46ccb079dec8dc8b078cfb097ee8e",
+          "enemy-projectiles.tsv": "24e4bef9474ca7590fc570e8f4aa9baca38f3cb0f62d8acff61896b3fbeb0617",
+          "scene-enemies.tsv": "ce925b39db915435f3fdcc5f890752fc4d49da01bbcc36cf24e42a1d4a0ac956",
+          "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+          "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+          "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+          "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+          "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+          "poses.tsv": "f4c97d0a2ae23234222d4640494dda76440773c7a29523afe71e239c9b731055",
+          "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+          "presentation.tsv": "3c989f4c6f24eee8700257a7e65d7b29219516a17e064f9ecaf982c594c5be6d",
+          "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+          "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+        },
+        "native_scale": "4x",
+        "peak_sampled_rss_bytes": 94261248,
+        "exit_codes": {
+          "baseline": 0,
+          "candidate": 0
+        },
+        "binary_sha256": {
+          "baseline": "d8f51e49219d403c57f1dee79b2ba809d67b1ccf30e9f081429fe97b6b95f44a",
+          "candidate": "806d074871e95883aec5efea9066536df1ebe871d087c3eb12ce612c6c2fbcf8"
+        }
+      },
+      "assisted4080-missing77": {
+        "observed_ticks": 70,
+        "start_curLoc": 4080,
+        "end_curLoc": 4220,
+        "accepted_new_commands": 0,
+        "accepted_prior_commands": 70,
+        "accepted_pools": [],
+        "accepted_quadrants": [],
+        "full_body_witnesses": 0,
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": true,
+        "pngs": {
+          "visible-0020.png": {
+            "dimensions": [
+              640,
+              400
+            ],
+            "bytes": 12619,
+            "byte_equal": true,
+            "pixel_equal": true,
+            "difference_bbox": null
+          }
+        },
+        "motion_transitions": {
+          "6": [
+            {
+              "tick": 1,
+              "vx": 0,
+              "vy": 6,
+              "mirrored": false
+            }
+          ],
+          "7": [
+            {
+              "tick": 4,
+              "vx": 0,
+              "vy": 6,
+              "mirrored": false
+            }
+          ],
+          "8": [
+            {
+              "tick": 8,
+              "vx": 0,
+              "vy": 6,
+              "mirrored": false
+            }
+          ],
+          "9": [
+            {
+              "tick": 11,
+              "vx": 0,
+              "vy": 6,
+              "mirrored": false
+            }
+          ]
+        },
+        "all14_original_traces_exact": true,
+        "extra_traces_exact": {
+          "capsule-actors.tsv": true,
+          "original-events.tsv": true,
+          "original-event-clock.tsv": true,
+          "assisted-seek.tsv": true,
+          "selector-eventrec-bytes.tsv": true
+        },
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "all14_original_trace_sha256": {
+          "state.tsv": "5a370052414875a285d75632534fac6f9e56c41d5d05ad098c5d7e0be69f6549",
+          "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+          "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+          "scene-enemies.tsv": "6986f392b9c0a2b7f26d8409f1d716accf858024fe34c74efd5c68bc65096a93",
+          "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+          "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+          "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+          "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+          "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+          "poses.tsv": "c6c4ea208cacee173e2821eab7ec97620e1083d44f05bd9953737e2cb66810be",
+          "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+          "presentation.tsv": "7fc3a5b56b3f969bb743e3cf726ddb4dd01dd70283ddba87a315f00a7000ca12",
+          "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+          "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+        },
+        "native_scale": "2x",
+        "peak_sampled_rss_bytes": 80203776,
+        "exit_codes": {
+          "baseline": 0,
+          "candidate": 0
+        },
+        "binary_sha256": {
+          "baseline": "d8f51e49219d403c57f1dee79b2ba809d67b1ccf30e9f081429fe97b6b95f44a",
+          "candidate": "806d074871e95883aec5efea9066536df1ebe871d087c3eb12ce612c6c2fbcf8"
+        }
+      },
+      "assisted4080-corrupt77": {
+        "observed_ticks": 70,
+        "start_curLoc": 4080,
+        "end_curLoc": 4220,
+        "accepted_new_commands": 0,
+        "accepted_prior_commands": 70,
+        "accepted_pools": [],
+        "accepted_quadrants": [],
+        "full_body_witnesses": 0,
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": true,
+        "pngs": {
+          "visible-0020.png": {
+            "dimensions": [
+              640,
+              400
+            ],
+            "bytes": 12619,
+            "byte_equal": true,
+            "pixel_equal": true,
+            "difference_bbox": null
+          }
+        },
+        "motion_transitions": {
+          "6": [
+            {
+              "tick": 1,
+              "vx": 0,
+              "vy": 6,
+              "mirrored": false
+            }
+          ],
+          "7": [
+            {
+              "tick": 4,
+              "vx": 0,
+              "vy": 6,
+              "mirrored": false
+            }
+          ],
+          "8": [
+            {
+              "tick": 8,
+              "vx": 0,
+              "vy": 6,
+              "mirrored": false
+            }
+          ],
+          "9": [
+            {
+              "tick": 11,
+              "vx": 0,
+              "vy": 6,
+              "mirrored": false
+            }
+          ]
+        },
+        "all14_original_traces_exact": true,
+        "extra_traces_exact": {
+          "capsule-actors.tsv": true,
+          "original-events.tsv": true,
+          "original-event-clock.tsv": true,
+          "assisted-seek.tsv": true,
+          "selector-eventrec-bytes.tsv": true
+        },
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "all14_original_trace_sha256": {
+          "state.tsv": "5a370052414875a285d75632534fac6f9e56c41d5d05ad098c5d7e0be69f6549",
+          "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+          "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+          "scene-enemies.tsv": "6986f392b9c0a2b7f26d8409f1d716accf858024fe34c74efd5c68bc65096a93",
+          "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+          "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+          "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+          "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+          "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+          "poses.tsv": "c6c4ea208cacee173e2821eab7ec97620e1083d44f05bd9953737e2cb66810be",
+          "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+          "presentation.tsv": "7fc3a5b56b3f969bb743e3cf726ddb4dd01dd70283ddba87a315f00a7000ca12",
+          "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+          "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+        },
+        "native_scale": "2x",
+        "peak_sampled_rss_bytes": 78663680,
+        "exit_codes": {
+          "baseline": 0,
+          "candidate": 0
+        },
+        "binary_sha256": {
+          "baseline": "d8f51e49219d403c57f1dee79b2ba809d67b1ccf30e9f081429fe97b6b95f44a",
+          "candidate": "806d074871e95883aec5efea9066536df1ebe871d087c3eb12ce612c6c2fbcf8"
+        }
+      },
+      "assisted4080-flag-off-physical1": {
+        "observed_ticks": 70,
+        "start_curLoc": 4080,
+        "end_curLoc": 4220,
+        "accepted_new_commands": 0,
+        "accepted_prior_commands": 0,
+        "accepted_pools": [],
+        "accepted_quadrants": [],
+        "full_body_witnesses": 0,
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": true,
+        "pngs": {
+          "visible-0020.png": {
+            "dimensions": [
+              640,
+              400
+            ],
+            "bytes": 12619,
+            "byte_equal": true,
+            "pixel_equal": true,
+            "difference_bbox": null
+          }
+        },
+        "motion_transitions": {
+          "6": [
+            {
+              "tick": 1,
+              "vx": 0,
+              "vy": 6,
+              "mirrored": false
+            }
+          ],
+          "7": [
+            {
+              "tick": 4,
+              "vx": 0,
+              "vy": 6,
+              "mirrored": false
+            }
+          ],
+          "8": [
+            {
+              "tick": 8,
+              "vx": 0,
+              "vy": 6,
+              "mirrored": false
+            }
+          ],
+          "9": [
+            {
+              "tick": 11,
+              "vx": 0,
+              "vy": 6,
+              "mirrored": false
+            }
+          ]
+        },
+        "all14_original_traces_exact": true,
+        "extra_traces_exact": {
+          "capsule-actors.tsv": true,
+          "original-events.tsv": true,
+          "original-event-clock.tsv": true,
+          "assisted-seek.tsv": true,
+          "selector-eventrec-bytes.tsv": true
+        },
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "all14_original_trace_sha256": {
+          "state.tsv": "5a370052414875a285d75632534fac6f9e56c41d5d05ad098c5d7e0be69f6549",
+          "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+          "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+          "scene-enemies.tsv": "6986f392b9c0a2b7f26d8409f1d716accf858024fe34c74efd5c68bc65096a93",
+          "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+          "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+          "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+          "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+          "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+          "poses.tsv": "c6c4ea208cacee173e2821eab7ec97620e1083d44f05bd9953737e2cb66810be",
+          "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+          "presentation.tsv": "7fc3a5b56b3f969bb743e3cf726ddb4dd01dd70283ddba87a315f00a7000ca12",
+          "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+          "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+        },
+        "native_scale": "2x",
+        "peak_sampled_rss_bytes": 78565376,
+        "exit_codes": {
+          "baseline": 0,
+          "candidate": 0
+        },
+        "binary_sha256": {
+          "baseline": "ec49df79358bc64b99ff0ccd1aa2c313cd7e09175c132f5e66b65af9c35a9e87",
+          "candidate": "614a6e55efad596bd02831feda5c66557b7be7da71c48a7ebb0fc8829c16a193"
+        }
+      }
+    },
+    "cross_native_scale": {
+      "4080": {
+        "all14_original_traces_byte_exact": true,
+        "original_actor_and_call_traces_exact": true,
+        "event_tables_clocks_and_selector_receipts_exact": true
+      },
+      "5600": {
+        "all14_original_traces_byte_exact": true,
+        "original_actor_and_call_traces_exact": true,
+        "event_tables_clocks_and_selector_receipts_exact": true
+      },
+      "6712": {
+        "all14_original_traces_byte_exact": true,
+        "original_actor_and_call_traces_exact": true,
+        "event_tables_clocks_and_selector_receipts_exact": true
+      },
+      "7160": {
+        "all14_original_traces_byte_exact": true,
+        "original_actor_and_call_traces_exact": true,
+        "event_tables_clocks_and_selector_receipts_exact": true
+      }
+    },
+    "source_scheduled_instances": 13,
+    "source_instance_ordinals": [
+      236,
+      237,
+      238,
+      239,
+      337,
+      340,
+      343,
+      346,
+      356,
+      388,
+      393,
+      394,
+      395
+    ],
+    "source_instances": [
+      {
+        "window_start": 4080,
+        "original_event_ordinal": 236,
+        "pool_slot": 75,
+        "link": 6,
+        "first_original_call_tick": 1,
+        "first_origin": [
+          188,
+          -27
+        ]
+      },
+      {
+        "window_start": 4080,
+        "original_event_ordinal": 237,
+        "pool_slot": 76,
+        "link": 7,
+        "first_original_call_tick": 4,
+        "first_origin": [
+          188,
+          -31
+        ]
+      },
+      {
+        "window_start": 4080,
+        "original_event_ordinal": 238,
+        "pool_slot": 77,
+        "link": 8,
+        "first_original_call_tick": 8,
+        "first_origin": [
+          188,
+          -27
+        ]
+      },
+      {
+        "window_start": 4080,
+        "original_event_ordinal": 239,
+        "pool_slot": 78,
+        "link": 9,
+        "first_original_call_tick": 11,
+        "first_origin": [
+          188,
+          -31
+        ]
+      },
+      {
+        "window_start": 5600,
+        "original_event_ordinal": 337,
+        "pool_slot": 75,
+        "link": 1,
+        "first_original_call_tick": 1,
+        "first_origin": [
+          116,
+          -30
+        ]
+      },
+      {
+        "window_start": 5600,
+        "original_event_ordinal": 340,
+        "pool_slot": 76,
+        "link": 2,
+        "first_original_call_tick": 11,
+        "first_origin": [
+          116,
+          -30
+        ]
+      },
+      {
+        "window_start": 5600,
+        "original_event_ordinal": 343,
+        "pool_slot": 77,
+        "link": 3,
+        "first_original_call_tick": 21,
+        "first_origin": [
+          116,
+          -30
+        ]
+      },
+      {
+        "window_start": 5600,
+        "original_event_ordinal": 346,
+        "pool_slot": 78,
+        "link": 4,
+        "first_original_call_tick": 31,
+        "first_origin": [
+          116,
+          -30
+        ]
+      },
+      {
+        "window_start": 5600,
+        "original_event_ordinal": 356,
+        "pool_slot": 79,
+        "link": 5,
+        "first_original_call_tick": 41,
+        "first_origin": [
+          116,
+          -30
+        ]
+      },
+      {
+        "window_start": 6712,
+        "original_event_ordinal": 388,
+        "pool_slot": 75,
+        "link": 1,
+        "first_original_call_tick": 2,
+        "first_origin": [
+          84,
+          -31
+        ]
+      },
+      {
+        "window_start": 7160,
+        "original_event_ordinal": 393,
+        "pool_slot": 75,
+        "link": 1,
+        "first_original_call_tick": 2,
+        "first_origin": [
+          108,
+          -31
+        ]
+      },
+      {
+        "window_start": 7160,
+        "original_event_ordinal": 394,
+        "pool_slot": 76,
+        "link": 2,
+        "first_original_call_tick": 2,
+        "first_origin": [
+          132,
+          -31
+        ]
+      },
+      {
+        "window_start": 7160,
+        "original_event_ordinal": 395,
+        "pool_slot": 77,
+        "link": 3,
+        "first_original_call_tick": 2,
+        "first_origin": [
+          156,
+          -31
+        ]
+      }
+    ],
+    "assisted_selectors": {
+      "4080": {
+        "start_event_ordinal": 236,
+        "prefix_events_omitted_except_setup": [
+          1,
+          235
+        ],
+        "original_setup_event_ordinals_replayed": [
+          1,
+          2,
+          3,
+          4,
+          21
+        ],
+        "original_serialized_eventrec_fnv": "01d73c470a9401b1",
+        "raw_active_eventrec_bytes": 5772,
+        "raw_eventrec_fnv_before_after": "b839e2440d1b5eff",
+        "direct_memory_byte_comparison_equal": true,
+        "selector_rng_before_after": "8005e0d4ef40f5b1"
+      },
+      "5600": {
+        "start_event_ordinal": 337,
+        "prefix_events_omitted_except_setup": [
+          1,
+          336
+        ],
+        "original_setup_event_ordinals_replayed": [
+          1,
+          2,
+          3,
+          4,
+          21
+        ],
+        "original_serialized_eventrec_fnv": "01d73c470a9401b1",
+        "raw_active_eventrec_bytes": 5772,
+        "raw_eventrec_fnv_before_after": "b839e2440d1b5eff",
+        "direct_memory_byte_comparison_equal": true,
+        "selector_rng_before_after": "8005e0d4ef40f5b1"
+      },
+      "6712": {
+        "start_event_ordinal": 388,
+        "prefix_events_omitted_except_setup": [
+          1,
+          387
+        ],
+        "original_setup_event_ordinals_replayed": [
+          1,
+          2,
+          3,
+          4,
+          21,
+          364,
+          365,
+          367
+        ],
+        "original_serialized_eventrec_fnv": "01d73c470a9401b1",
+        "raw_active_eventrec_bytes": 5772,
+        "raw_eventrec_fnv_before_after": "b839e2440d1b5eff",
+        "direct_memory_byte_comparison_equal": true,
+        "selector_rng_before_after": "8005e0d4ef40f5b1"
+      },
+      "7160": {
+        "start_event_ordinal": 393,
+        "prefix_events_omitted_except_setup": [
+          1,
+          392
+        ],
+        "original_setup_event_ordinals_replayed": [
+          1,
+          2,
+          3,
+          4,
+          21,
+          364,
+          365,
+          367
+        ],
+        "original_serialized_eventrec_fnv": "01d73c470a9401b1",
+        "raw_active_eventrec_bytes": 5772,
+        "raw_eventrec_fnv_before_after": "b839e2440d1b5eff",
+        "direct_memory_byte_comparison_equal": true,
+        "selector_rng_before_after": "8005e0d4ef40f5b1"
+      }
+    },
+    "original_7160_regime_events": [
+      {
+        "ordinal": "396",
+        "curLoc": "7160",
+        "type": "19",
+        "data": "-4",
+        "data2": "0",
+        "data3": "0",
+        "data4": "2",
+        "data5": "0",
+        "data6": "0"
+      },
+      {
+        "ordinal": "397",
+        "curLoc": "7160",
+        "type": "19",
+        "data": "-4",
+        "data2": "0",
+        "data3": "0",
+        "data4": "1",
+        "data5": "0",
+        "data6": "0"
+      },
+      {
+        "ordinal": "398",
+        "curLoc": "7160",
+        "type": "19",
+        "data": "-4",
+        "data2": "0",
+        "data3": "0",
+        "data4": "3",
+        "data5": "0",
+        "data6": "0"
+      },
+      {
+        "ordinal": "399",
+        "curLoc": "7196",
+        "type": "19",
+        "data": "0",
+        "data2": "3",
+        "data3": "0",
+        "data4": "1",
+        "data5": "0",
+        "data6": "0"
+      },
+      {
+        "ordinal": "400",
+        "curLoc": "7208",
+        "type": "19",
+        "data": "0",
+        "data2": "3",
+        "data3": "0",
+        "data4": "2",
+        "data5": "0",
+        "data6": "0"
+      },
+      {
+        "ordinal": "401",
+        "curLoc": "7210",
+        "type": "19",
+        "data": "4",
+        "data2": "0",
+        "data3": "0",
+        "data4": "1",
+        "data5": "0",
+        "data6": "0"
+      },
+      {
+        "ordinal": "403",
+        "curLoc": "7220",
+        "type": "19",
+        "data": "0",
+        "data2": "3",
+        "data3": "0",
+        "data4": "3",
+        "data5": "0",
+        "data6": "0"
+      },
+      {
+        "ordinal": "404",
+        "curLoc": "7222",
+        "type": "19",
+        "data": "4",
+        "data2": "0",
+        "data3": "0",
+        "data4": "2",
+        "data5": "0",
+        "data6": "0"
+      },
+      {
+        "ordinal": "405",
+        "curLoc": "7234",
+        "type": "19",
+        "data": "4",
+        "data2": "0",
+        "data3": "0",
+        "data4": "3",
+        "data5": "0",
+        "data6": "0"
+      },
+      {
+        "ordinal": "409",
+        "curLoc": "7246",
+        "type": "19",
+        "data": "0",
+        "data2": "3",
+        "data3": "0",
+        "data4": "1",
+        "data5": "0",
+        "data6": "0"
+      },
+      {
+        "ordinal": "410",
+        "curLoc": "7258",
+        "type": "19",
+        "data": "0",
+        "data2": "3",
+        "data3": "0",
+        "data4": "2",
+        "data5": "0",
+        "data6": "0"
+      },
+      {
+        "ordinal": "411",
+        "curLoc": "7270",
+        "type": "19",
+        "data": "0",
+        "data2": "3",
+        "data3": "0",
+        "data4": "3",
+        "data5": "0",
+        "data6": "0"
+      }
+    ],
+    "production_render_object_exact_to_tested_candidate": true,
+    "production_render_object_sha256": "9ebfdbd09c1651fc02d065d365dd24a687810041556f04f2c9f6feccb2d84a71",
+    "baseline_commit": "1fc750dd6172f8307b64a532ae8922808202e707",
+    "baseline_render_source_sha256": "b8ad49dfcebbc30af29e91c101005edd81d1b77a8ff7fd26a2b853042042c063",
+    "candidate_render_source_sha256": "9a71f361aad240214dba783203ea4d7f8aacc62071f03fb9120aeb2ef2854a52",
+    "runtime_address_space_limit_bytes": 536870912,
+    "compiler_address_space_limit_bytes": 1073741824,
+    "runtime_file_size_limit_bytes": 8388608,
+    "runtime_cpu_limit_seconds": 120,
+    "runtime_wall_limit_seconds": 180,
+    "free_disk_minimum_bytes": 5000000000,
+    "peak_sampled_runtime_rss_bytes": 94261248,
+    "no_BMP_generated": true,
+    "native_captures_unresized": true,
+    "native_capture_dimensions": {
+      "2x": [
+        640,
+        400
+      ],
+      "4x": [
+        1280,
+        800
+      ]
+    },
+    "candidate_native4x_visual_review": "All four source windows inspected; upright silver-grey body and red tip remain clear.",
+    "parent_native2x_review": "Parent explicitly approved first4080 tick20 only. Implementation owner visually inspected later7160 ticks30/60; no explicit parent approval for those later captures is recorded.",
+    "all_native_capture_difference_cells_within_original_occupied_support": true,
+    "limits": [
+      "Assisted prefix omission with only original setup replayed; no natural campaign or whole-level clear.",
+      "Headless SDL software renderer; no Windows, fullscreen/GPU, performance or LeakSanitizer acceptance.",
+      "Fallback runtime covers first4080 column only; later direction regimes are covered by enabled-art actual-engine pairs."
+    ],
+    "budget_snapshot": {
+      "output_bytes": 21227728,
+      "png_bytes": 1176664,
+      "free_bytes": 16018382848
+    }
+  },
+  "runtime_trace_sha256": {
+    "status": "PASS",
+    "trace_files": [
+      "state.tsv",
+      "collisions.tsv",
+      "enemy-projectiles.tsv",
+      "scene-enemies.tsv",
+      "scene-hits.tsv",
+      "player-projectiles.tsv",
+      "player-shot-emissions.tsv",
+      "player-shot-requests.tsv",
+      "player-shot-results.tsv",
+      "poses.tsv",
+      "fire-events.tsv",
+      "presentation.tsv",
+      "weapon-loadout.tsv",
+      "fade-steps.tsv"
+    ],
+    "paired_runs": {
+      "assisted4080-2x": {
+        "state.tsv": "5a370052414875a285d75632534fac6f9e56c41d5d05ad098c5d7e0be69f6549",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "scene-enemies.tsv": "6986f392b9c0a2b7f26d8409f1d716accf858024fe34c74efd5c68bc65096a93",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+        "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+        "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+        "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+        "poses.tsv": "c6c4ea208cacee173e2821eab7ec97620e1083d44f05bd9953737e2cb66810be",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "presentation.tsv": "7fc3a5b56b3f969bb743e3cf726ddb4dd01dd70283ddba87a315f00a7000ca12",
+        "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+      },
+      "assisted5600-2x": {
+        "state.tsv": "480a5782805fddce897fa45646496795c673e4a60195809e841091a7530631d7",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "scene-enemies.tsv": "fd87e86bb9c7193fa8f29a6bd756d9096a8d0fc3b9cf4d09a73058da549e0418",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+        "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+        "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+        "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+        "poses.tsv": "c6c4ea208cacee173e2821eab7ec97620e1083d44f05bd9953737e2cb66810be",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "presentation.tsv": "c08ee423acf14d87f76c14ec807a218f9baafeb5f3ea441f55313f4abd82bbe0",
+        "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+      },
+      "assisted6712-2x": {
+        "state.tsv": "bd3246bc23ca5663e8d2d5e12855df59162e5929f3d7ed1772eed2177de4c746",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "scene-enemies.tsv": "b0fed2ff6cbba92a8fa0f7a74e5dbe72ddd19c91ad00e0e72de7ff21e24619f2",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+        "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+        "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+        "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+        "poses.tsv": "c6c4ea208cacee173e2821eab7ec97620e1083d44f05bd9953737e2cb66810be",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "presentation.tsv": "97e7b5327b2bee2e430b396ef10223404f7a7517e94eae7d7251b7f3b909b466",
+        "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+      },
+      "assisted7160-2x": {
+        "state.tsv": "63eb3e4ffe5f5c9716baa6e19377daa63a9ce7271c716f3402a0841fbba2a685",
+        "collisions.tsv": "86660fe4f4befe88a41f72008875ffa119a46ccb079dec8dc8b078cfb097ee8e",
+        "enemy-projectiles.tsv": "24e4bef9474ca7590fc570e8f4aa9baca38f3cb0f62d8acff61896b3fbeb0617",
+        "scene-enemies.tsv": "ce925b39db915435f3fdcc5f890752fc4d49da01bbcc36cf24e42a1d4a0ac956",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+        "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+        "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+        "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+        "poses.tsv": "f4c97d0a2ae23234222d4640494dda76440773c7a29523afe71e239c9b731055",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "presentation.tsv": "3c989f4c6f24eee8700257a7e65d7b29219516a17e064f9ecaf982c594c5be6d",
+        "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+      },
+      "assisted4080-4x": {
+        "state.tsv": "5a370052414875a285d75632534fac6f9e56c41d5d05ad098c5d7e0be69f6549",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "scene-enemies.tsv": "6986f392b9c0a2b7f26d8409f1d716accf858024fe34c74efd5c68bc65096a93",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+        "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+        "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+        "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+        "poses.tsv": "c6c4ea208cacee173e2821eab7ec97620e1083d44f05bd9953737e2cb66810be",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "presentation.tsv": "7fc3a5b56b3f969bb743e3cf726ddb4dd01dd70283ddba87a315f00a7000ca12",
+        "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+      },
+      "assisted5600-4x": {
+        "state.tsv": "480a5782805fddce897fa45646496795c673e4a60195809e841091a7530631d7",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "scene-enemies.tsv": "fd87e86bb9c7193fa8f29a6bd756d9096a8d0fc3b9cf4d09a73058da549e0418",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+        "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+        "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+        "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+        "poses.tsv": "c6c4ea208cacee173e2821eab7ec97620e1083d44f05bd9953737e2cb66810be",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "presentation.tsv": "c08ee423acf14d87f76c14ec807a218f9baafeb5f3ea441f55313f4abd82bbe0",
+        "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+      },
+      "assisted6712-4x": {
+        "state.tsv": "bd3246bc23ca5663e8d2d5e12855df59162e5929f3d7ed1772eed2177de4c746",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "scene-enemies.tsv": "b0fed2ff6cbba92a8fa0f7a74e5dbe72ddd19c91ad00e0e72de7ff21e24619f2",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+        "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+        "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+        "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+        "poses.tsv": "c6c4ea208cacee173e2821eab7ec97620e1083d44f05bd9953737e2cb66810be",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "presentation.tsv": "97e7b5327b2bee2e430b396ef10223404f7a7517e94eae7d7251b7f3b909b466",
+        "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+      },
+      "assisted7160-4x": {
+        "state.tsv": "63eb3e4ffe5f5c9716baa6e19377daa63a9ce7271c716f3402a0841fbba2a685",
+        "collisions.tsv": "86660fe4f4befe88a41f72008875ffa119a46ccb079dec8dc8b078cfb097ee8e",
+        "enemy-projectiles.tsv": "24e4bef9474ca7590fc570e8f4aa9baca38f3cb0f62d8acff61896b3fbeb0617",
+        "scene-enemies.tsv": "ce925b39db915435f3fdcc5f890752fc4d49da01bbcc36cf24e42a1d4a0ac956",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+        "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+        "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+        "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+        "poses.tsv": "f4c97d0a2ae23234222d4640494dda76440773c7a29523afe71e239c9b731055",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "presentation.tsv": "3c989f4c6f24eee8700257a7e65d7b29219516a17e064f9ecaf982c594c5be6d",
+        "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+      },
+      "assisted4080-missing77": {
+        "state.tsv": "5a370052414875a285d75632534fac6f9e56c41d5d05ad098c5d7e0be69f6549",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "scene-enemies.tsv": "6986f392b9c0a2b7f26d8409f1d716accf858024fe34c74efd5c68bc65096a93",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+        "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+        "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+        "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+        "poses.tsv": "c6c4ea208cacee173e2821eab7ec97620e1083d44f05bd9953737e2cb66810be",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "presentation.tsv": "7fc3a5b56b3f969bb743e3cf726ddb4dd01dd70283ddba87a315f00a7000ca12",
+        "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+      },
+      "assisted4080-corrupt77": {
+        "state.tsv": "5a370052414875a285d75632534fac6f9e56c41d5d05ad098c5d7e0be69f6549",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "scene-enemies.tsv": "6986f392b9c0a2b7f26d8409f1d716accf858024fe34c74efd5c68bc65096a93",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+        "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+        "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+        "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+        "poses.tsv": "c6c4ea208cacee173e2821eab7ec97620e1083d44f05bd9953737e2cb66810be",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "presentation.tsv": "7fc3a5b56b3f969bb743e3cf726ddb4dd01dd70283ddba87a315f00a7000ca12",
+        "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+      },
+      "assisted4080-flag-off-physical1": {
+        "state.tsv": "5a370052414875a285d75632534fac6f9e56c41d5d05ad098c5d7e0be69f6549",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "scene-enemies.tsv": "6986f392b9c0a2b7f26d8409f1d716accf858024fe34c74efd5c68bc65096a93",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+        "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+        "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+        "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+        "poses.tsv": "c6c4ea208cacee173e2821eab7ec97620e1083d44f05bd9953737e2cb66810be",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "presentation.tsv": "7fc3a5b56b3f969bb743e3cf726ddb4dd01dd70283ddba87a315f00a7000ca12",
+        "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+      }
+    },
+    "baseline_candidate_hashes_identical": true,
+    "cross_native_scale": {
+      "4080": {
+        "all14_original_traces_byte_exact": true,
+        "original_actor_and_call_traces_exact": true,
+        "event_tables_clocks_and_selector_receipts_exact": true
+      },
+      "5600": {
+        "all14_original_traces_byte_exact": true,
+        "original_actor_and_call_traces_exact": true,
+        "event_tables_clocks_and_selector_receipts_exact": true
+      },
+      "6712": {
+        "all14_original_traces_byte_exact": true,
+        "original_actor_and_call_traces_exact": true,
+        "event_tables_clocks_and_selector_receipts_exact": true
+      },
+      "7160": {
+        "all14_original_traces_byte_exact": true,
+        "original_actor_and_call_traces_exact": true,
+        "event_tables_clocks_and_selector_receipts_exact": true
+      }
+    },
+    "fallback_all14_traces_equal_enabled_first_window": true
+  },
+  "visual_review": "Native source/candidate2x/4x and actual-engine native2x4080 parent-approved before commit; later7160 native2x ticks30/60 inspected separately. Contacts retain unresized captures and have no clipping."
+}

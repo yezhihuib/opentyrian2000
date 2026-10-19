@@ -1,0 +1,1264 @@
+{
+  "baseline_commit": "efcf3afcefa8b11b20bb3362b3fa757b70704810",
+  "scope": "One continuous random-rock pulse, exact record286, under separate normal-data Episode1 physical1 ASTEROID1 opt-in. Original random table artwork identities completed; other second-stage content remains outside scope.",
+  "optional_images": 33,
+  "optional_source_records": 40,
+  "optional_families": 13,
+  "default_counts": [
+    629,
+    629
+  ],
+  "original_source": {
+    "record": 286,
+    "record_fnv": "0x82df76a688e7627d",
+    "source_bank_fnv": "0x913975450e0fc00d",
+    "ani": 12,
+    "animate": 1,
+    "size": 1,
+    "bank": 8,
+    "xmove": 0,
+    "ymove": 2,
+    "xaccel": 93,
+    "yaccel": 0,
+    "original_base_armor": 8,
+    "value": 50,
+    "startx": 130,
+    "starty": -13,
+    "startxc": 125,
+    "startyc": 0,
+    "sequence": [
+      229,
+      231,
+      231,
+      233,
+      233,
+      235,
+      235,
+      233,
+      233,
+      231,
+      231,
+      229,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "no_turret_launch_drop_or_damaged_image": true,
+    "sharing_records": [
+      286
+    ],
+    "source_opaque_cells": 433,
+    "source_bbox": [
+      1,
+      2,
+      24,
+      25
+    ],
+    "pulse_cells": 65,
+    "pulse_bbox": [
+      6,
+      9,
+      18,
+      21
+    ],
+    "source_alpha_and_exterior_identical": true,
+    "random_weight": "1/21"
+  },
+  "art": {
+    "enemy-newshd-229-8": {
+      "record": 286,
+      "base": 229,
+      "size": 1,
+      "logical_size": [
+        24,
+        28
+      ],
+      "rgba_fnv64": "0x761c3213c9ad07f2",
+      "sha256": "c8182428567a09114a560f8730a797157a3ee3202083658db0e33476b7e2cb27",
+      "changed_pixels": 0
+    },
+    "enemy-newshd-231-8": {
+      "record": 286,
+      "base": 231,
+      "size": 1,
+      "logical_size": [
+        24,
+        28
+      ],
+      "rgba_fnv64": "0x60b9f0a180d4ab10",
+      "sha256": "361b5631f7d20d142d25eb3e15780d468b6dcd542cd3ec4fee246087e6a276c1",
+      "changed_pixels": 948
+    },
+    "enemy-newshd-233-8": {
+      "record": 286,
+      "base": 233,
+      "size": 1,
+      "logical_size": [
+        24,
+        28
+      ],
+      "rgba_fnv64": "0xd3b475dc36500142",
+      "sha256": "fbd56b67b4d8df177228b88b878be5c58aa2fcc9af4bd488f8588371aec1f1c4",
+      "changed_pixels": 3418
+    },
+    "enemy-newshd-235-8": {
+      "record": 286,
+      "base": 235,
+      "size": 1,
+      "logical_size": [
+        24,
+        28
+      ],
+      "rgba_fnv64": "0x8ca41d957f35627c",
+      "sha256": "b26c696a3f640f50a6b4625fe7fdaf8c1c60fb9f53ef3d0d9e6a40099ad2c7ba",
+      "changed_pixels": 3912
+    }
+  },
+  "unit": {
+    "record": 286,
+    "source_record_byte_mutations": 77,
+    "warm_record_mutations": 2,
+    "animation_slots": 12,
+    "ordered_quadrants": 48,
+    "fixture_count": 22,
+    "runtime_peak_rss_bytes": 8675328,
+    "compiler_peak_rss_bytes": 181383168,
+    "runtime_memory_limit_bytes": 536870912,
+    "compiler_address_space_limit_bytes": 1073741824,
+    "runs": [
+      {
+        "mode": "optimized",
+        "positive": 2,
+        "negative": 22,
+        "binary_sha256": "f1de393cb5a6889bcf7e56aeb4ef884cec19d5b09669df1bb641f812139bb8cb"
+      },
+      {
+        "mode": "asan-ubsan",
+        "positive": 2,
+        "negative": 22,
+        "binary_sha256": "1d7b9241ea3144cb41ab8c1ca99155c6db9334eb8dbd9690465bb28cfb20bb9f"
+      }
+    ],
+    "source_sha256": "af22344195ea5146522f0d3287aac369ba6d77521c3eafb3cd919dea59e7415e",
+    "peak_child_rss_bytes": 181383168,
+    "leak_sanitizer": false,
+    "scope": "Extracted production source, exact full actor struct, 12-slot/48-quadrant geometry, live phase/base identity and coherent loader. Separate actual-engine pairs required."
+  },
+  "source_snapshot": {
+    "runs": [
+      {
+        "mode": "optimized",
+        "result": "source snapshot guards passed: 625 checks across 13 families, 40 record dependencies, cold/warm corruption, role/size/pointer/reload/address reuse and renderer epochs",
+        "binary_sha256": "960e8f57c937321f0f0a885725fe0b165852b4520b86c538ace6af4e4827ac9f"
+      },
+      {
+        "mode": "asan-ubsan",
+        "result": "source snapshot guards passed: 625 checks across 13 families, 40 record dependencies, cold/warm corruption, role/size/pointer/reload/address reuse and renderer epochs",
+        "binary_sha256": "9fb6d61cd1085f853543dcfe73e4853d180c0d72a236252d8cb0bec453acd8aa"
+      }
+    ],
+    "helper_sha256": "b6b9d48eb57fb5029d25a20ab4bac5e56ca77f9a28cc31d4d8513e0fc9d93f9a",
+    "peak_child_rss_bytes": 40214528,
+    "leak_sanitizer": false,
+    "scope": "Extracted current production helper, source predicates and shutdown. Record-stamp stub checks dependency queries; complete family suites validate real records and drawing separately."
+  },
+  "goldwing_regression": {
+    "runs": [
+      {
+        "mode": "optimized",
+        "positive": 1,
+        "negative": 17,
+        "binary_sha256": "fc71b60e5fe4e4bcf40bdacfaf3f80b00b59d841a82d1785235f31ffe1a6a99b"
+      }
+    ],
+    "source_sha256": "bc6dd4571870cf0fcb836f0c76e4b272a15bd68d768f7f568dc94ee89f32e727",
+    "peak_child_rss_bytes": 111947776,
+    "leak_sanitizer": false,
+    "scope": "Extracted production source, exact full actor struct, six-slot24-quadrant geometry, live phase/base identity and coherent loader. Separate actual-engine pairs required."
+  },
+  "catalog": {
+    "verified_pack_count": 2,
+    "verified_HDA_entries": 1258,
+    "verified_optional_pack_count": 1,
+    "verified_optional_HDA_entries": 33,
+    "verified_exact_source_pngs": 629,
+    "verified_optional_source_pngs": 33,
+    "default_pack_counts": [
+      629,
+      629
+    ],
+    "optional_pack_counts": {
+      "asteroid1-ten-v1": 33
+    },
+    "optional_catalog_sha256": "3853a903a6a8badad9748e66500a9c821e0c644e575cd97371e25c583d897482",
+    "catalog_only": true,
+    "artwork_rebuilt": false
+  },
+  "catalog_regression": {
+    "status": "PASS",
+    "current_default_catalog_counts": [
+      629,
+      629
+    ],
+    "real_optional_HDR1_and_source_PNG_pairs_verified": 33,
+    "optional_catalog_sha256": "3853a903a6a8badad9748e66500a9c821e0c644e575cd97371e25c583d897482",
+    "synthetic_default_only_entries_verified": 2,
+    "missing_and_corrupt_default_optional_cases_rejected": true,
+    "existing_resources_unchanged": true,
+    "scope": "Finite catalog integration; complete historical default payload acceptance is separate."
+  },
+  "production_build": {
+    "binary_sha256": "9c4c891666f15362fb66d19e1f1b965a746416ed7df7791c61bf65574ce235ac",
+    "peak_child_rss_bytes": 206036992,
+    "compiler_as_limit_bytes": 1073741824
+  },
+  "runtime": {
+    "status": "pass",
+    "baseline_commit": "efcf3afcefa8b11b20bb3362b3fa757b70704810",
+    "source_record286_stamp": "82df76a688e7627d",
+    "candidate_render_include_sha256": "af22344195ea5146522f0d3287aac369ba6d77521c3eafb3cd919dea59e7415e",
+    "candidate_render_object_sha256": "d08e17bb50c0d89861889340479be9bc8760c7c5ef8383065f11c1224d550dac",
+    "final_production_recompile_object_exact_to_tested_candidate": true,
+    "compile_warnings": 0,
+    "original_record_sequence": [
+      229,
+      231,
+      231,
+      233,
+      233,
+      235,
+      235,
+      233,
+      233,
+      231,
+      231,
+      229
+    ],
+    "initial_no_capture_scan": {
+      "seed": 1,
+      "ticks": 150,
+      "first_spawn_tick": 74,
+      "pool_slot": 1,
+      "accepted_record286_quadrants": 298,
+      "all_observed_pulse_calls_accepted": true,
+      "full_body_windows": [
+        [
+          86,
+          97
+        ],
+        [
+          98,
+          109
+        ],
+        [
+          110,
+          121
+        ],
+        [
+          122,
+          133
+        ],
+        [
+          134,
+          145
+        ]
+      ]
+    },
+    "paired_runtime": {
+      "pulse-seed1-native2x": {
+        "effective_scene": {
+          "episode": 1,
+          "physical_level": 1,
+          "level": "ASTEROID1",
+          "difficulty": "Normal",
+          "diagnostic_seed": 1,
+          "asteroid_hd_enabled": true,
+          "stationary_no_firing": true,
+          "original_random_spawner": true,
+          "original_events": true
+        },
+        "ticks": 140,
+        "scale": "2x",
+        "all_14_original_traces_exact": true,
+        "original_trace_sha256": {
+          "state.tsv": "2c89e261eb91aed946f8d6ec7431f7f30704b21b93e496f546502501889882b1",
+          "collisions.tsv": "3a5e207fcf072e2fd03c15da932e152ebf5cdcde46d284e2fa21de65a1c6cb13",
+          "enemy-projectiles.tsv": "71275125a9d103ca852cebdb6f540a7fabfef2859c73df0918a9e9d88dfdaceb",
+          "scene-enemies.tsv": "ba9e3581aa2ec6d5cfc51be231e255efb6cd5b16d6a40cd8ac22d1b57120ac7f",
+          "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+          "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+          "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+          "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+          "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+          "poses.tsv": "b529f975d9071d399129dcae874165084bae68d13a6808218391e090c545a0a6",
+          "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+          "presentation.tsv": "3f413b12b8beb5314760022845a9426473f09abe09eba031cef400e89c33cff8",
+          "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+          "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+        },
+        "pulse_actor_trace_exact": true,
+        "original_INDEX8_game_and_output_hashes_exact": true,
+        "prior_draw_command_subsequence_exact": true,
+        "accepted_record286_quadrants": 258,
+        "accepted_record286_bases": [
+          229,
+          231,
+          233,
+          235
+        ],
+        "accepted_prior_commands": 7537,
+        "frames_exact": false,
+        "frames_equality_expected": false,
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "live_record286_full_body_windows": [
+          {
+            "slot": 1,
+            "ticks": [
+              86,
+              97
+            ]
+          },
+          {
+            "slot": 1,
+            "ticks": [
+              98,
+              109
+            ]
+          },
+          {
+            "slot": 1,
+            "ticks": [
+              110,
+              121
+            ]
+          },
+          {
+            "slot": 1,
+            "ticks": [
+              122,
+              133
+            ]
+          }
+        ],
+        "peak_rss_bytes": 82685952,
+        "exits": {
+          "baseline": 0,
+          "candidate": 0
+        },
+        "binary_sha256": {
+          "baseline": "707f80dc4126ebcc18d735095da5ba27c97ec31d6f75994ade974014955c2523",
+          "candidate": "15df917ff8268b71911a66c1b3d6b6417396702b5c31fba40e5c21e42bbc9d72"
+        },
+        "no_capture": false
+      },
+      "pulse-seed1-4x": {
+        "effective_scene": {
+          "episode": 1,
+          "physical_level": 1,
+          "level": "ASTEROID1",
+          "difficulty": "Normal",
+          "diagnostic_seed": 1,
+          "asteroid_hd_enabled": true,
+          "stationary_no_firing": true,
+          "original_random_spawner": true,
+          "original_events": true
+        },
+        "ticks": 110,
+        "scale": "4x",
+        "all_14_original_traces_exact": true,
+        "original_trace_sha256": {
+          "state.tsv": "eea6b490bd0a68eee7a66776ba9d468dd6239d973ca771b3390961d00d2679f4",
+          "collisions.tsv": "3a5e207fcf072e2fd03c15da932e152ebf5cdcde46d284e2fa21de65a1c6cb13",
+          "enemy-projectiles.tsv": "6bb93b9b60f9873a4d404db9034bc78f37765e00267103645499c3aa4d5c7b0a",
+          "scene-enemies.tsv": "8a75a518c448d8b422735cf7302b560b3df280972f1bb9c58c1f056bd6055b21",
+          "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+          "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+          "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+          "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+          "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+          "poses.tsv": "b529f975d9071d399129dcae874165084bae68d13a6808218391e090c545a0a6",
+          "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+          "presentation.tsv": "c8e9baeeef584ab34764ffac800969343371fb1e86bfd4d6c636312471ebaad7",
+          "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+          "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+        },
+        "pulse_actor_trace_exact": true,
+        "original_INDEX8_game_and_output_hashes_exact": true,
+        "prior_draw_command_subsequence_exact": true,
+        "accepted_record286_quadrants": 138,
+        "accepted_record286_bases": [
+          229,
+          231,
+          233,
+          235
+        ],
+        "accepted_prior_commands": 5464,
+        "frames_exact": false,
+        "frames_equality_expected": false,
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "live_record286_full_body_windows": [
+          {
+            "slot": 1,
+            "ticks": [
+              86,
+              97
+            ]
+          },
+          {
+            "slot": 1,
+            "ticks": [
+              98,
+              109
+            ]
+          }
+        ],
+        "peak_rss_bytes": 87453696,
+        "exits": {
+          "baseline": 0,
+          "candidate": 0
+        },
+        "binary_sha256": {
+          "baseline": "707f80dc4126ebcc18d735095da5ba27c97ec31d6f75994ade974014955c2523",
+          "candidate": "15df917ff8268b71911a66c1b3d6b6417396702b5c31fba40e5c21e42bbc9d72"
+        },
+        "no_capture": true
+      },
+      "pulse-seed1-missing231": {
+        "effective_scene": {
+          "episode": 1,
+          "physical_level": 1,
+          "level": "ASTEROID1",
+          "difficulty": "Normal",
+          "diagnostic_seed": 1,
+          "asteroid_hd_enabled": true,
+          "stationary_no_firing": true,
+          "original_random_spawner": true,
+          "original_events": true
+        },
+        "ticks": 110,
+        "scale": "2x",
+        "all_14_original_traces_exact": true,
+        "original_trace_sha256": {
+          "state.tsv": "eea6b490bd0a68eee7a66776ba9d468dd6239d973ca771b3390961d00d2679f4",
+          "collisions.tsv": "3a5e207fcf072e2fd03c15da932e152ebf5cdcde46d284e2fa21de65a1c6cb13",
+          "enemy-projectiles.tsv": "6bb93b9b60f9873a4d404db9034bc78f37765e00267103645499c3aa4d5c7b0a",
+          "scene-enemies.tsv": "8a75a518c448d8b422735cf7302b560b3df280972f1bb9c58c1f056bd6055b21",
+          "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+          "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+          "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+          "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+          "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+          "poses.tsv": "b529f975d9071d399129dcae874165084bae68d13a6808218391e090c545a0a6",
+          "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+          "presentation.tsv": "c8e9baeeef584ab34764ffac800969343371fb1e86bfd4d6c636312471ebaad7",
+          "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+          "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+        },
+        "pulse_actor_trace_exact": true,
+        "original_INDEX8_game_and_output_hashes_exact": true,
+        "prior_draw_command_subsequence_exact": true,
+        "accepted_record286_quadrants": 0,
+        "accepted_record286_bases": [],
+        "accepted_prior_commands": 5464,
+        "frames_exact": true,
+        "frames_equality_expected": true,
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "live_record286_full_body_windows": [
+          {
+            "slot": 1,
+            "ticks": [
+              86,
+              97
+            ]
+          },
+          {
+            "slot": 1,
+            "ticks": [
+              98,
+              109
+            ]
+          }
+        ],
+        "peak_rss_bytes": 81043456,
+        "exits": {
+          "baseline": 0,
+          "candidate": 0
+        },
+        "binary_sha256": {
+          "baseline": "707f80dc4126ebcc18d735095da5ba27c97ec31d6f75994ade974014955c2523",
+          "candidate": "15df917ff8268b71911a66c1b3d6b6417396702b5c31fba40e5c21e42bbc9d72"
+        },
+        "no_capture": true,
+        "family_outcome": "All four record286 states classic, prior families remain HD; middle dependency missing231 or one payload byte corrupted233."
+      },
+      "pulse-seed1-corrupt233": {
+        "effective_scene": {
+          "episode": 1,
+          "physical_level": 1,
+          "level": "ASTEROID1",
+          "difficulty": "Normal",
+          "diagnostic_seed": 1,
+          "asteroid_hd_enabled": true,
+          "stationary_no_firing": true,
+          "original_random_spawner": true,
+          "original_events": true
+        },
+        "ticks": 110,
+        "scale": "2x",
+        "all_14_original_traces_exact": true,
+        "original_trace_sha256": {
+          "state.tsv": "eea6b490bd0a68eee7a66776ba9d468dd6239d973ca771b3390961d00d2679f4",
+          "collisions.tsv": "3a5e207fcf072e2fd03c15da932e152ebf5cdcde46d284e2fa21de65a1c6cb13",
+          "enemy-projectiles.tsv": "6bb93b9b60f9873a4d404db9034bc78f37765e00267103645499c3aa4d5c7b0a",
+          "scene-enemies.tsv": "8a75a518c448d8b422735cf7302b560b3df280972f1bb9c58c1f056bd6055b21",
+          "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+          "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+          "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+          "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+          "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+          "poses.tsv": "b529f975d9071d399129dcae874165084bae68d13a6808218391e090c545a0a6",
+          "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+          "presentation.tsv": "c8e9baeeef584ab34764ffac800969343371fb1e86bfd4d6c636312471ebaad7",
+          "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+          "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+        },
+        "pulse_actor_trace_exact": true,
+        "original_INDEX8_game_and_output_hashes_exact": true,
+        "prior_draw_command_subsequence_exact": true,
+        "accepted_record286_quadrants": 0,
+        "accepted_record286_bases": [],
+        "accepted_prior_commands": 5464,
+        "frames_exact": true,
+        "frames_equality_expected": true,
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "live_record286_full_body_windows": [
+          {
+            "slot": 1,
+            "ticks": [
+              86,
+              97
+            ]
+          },
+          {
+            "slot": 1,
+            "ticks": [
+              98,
+              109
+            ]
+          }
+        ],
+        "peak_rss_bytes": 81092608,
+        "exits": {
+          "baseline": 0,
+          "candidate": 0
+        },
+        "binary_sha256": {
+          "baseline": "707f80dc4126ebcc18d735095da5ba27c97ec31d6f75994ade974014955c2523",
+          "candidate": "15df917ff8268b71911a66c1b3d6b6417396702b5c31fba40e5c21e42bbc9d72"
+        },
+        "no_capture": true,
+        "family_outcome": "All four record286 states classic, prior families remain HD; middle dependency missing231 or one payload byte corrupted233."
+      },
+      "pulse-seed1-flag-off-physical1": {
+        "effective_scene": {
+          "episode": 1,
+          "physical_level": 1,
+          "level": "ASTEROID1",
+          "difficulty": "Normal",
+          "diagnostic_seed": 1,
+          "asteroid_hd_enabled": false,
+          "stationary_no_firing": true,
+          "original_random_spawner": true,
+          "original_events": true
+        },
+        "ticks": 110,
+        "scale": "2x",
+        "all_14_original_traces_exact": true,
+        "original_trace_sha256": {
+          "state.tsv": "eea6b490bd0a68eee7a66776ba9d468dd6239d973ca771b3390961d00d2679f4",
+          "collisions.tsv": "3a5e207fcf072e2fd03c15da932e152ebf5cdcde46d284e2fa21de65a1c6cb13",
+          "enemy-projectiles.tsv": "6bb93b9b60f9873a4d404db9034bc78f37765e00267103645499c3aa4d5c7b0a",
+          "scene-enemies.tsv": "8a75a518c448d8b422735cf7302b560b3df280972f1bb9c58c1f056bd6055b21",
+          "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+          "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+          "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+          "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+          "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+          "poses.tsv": "b529f975d9071d399129dcae874165084bae68d13a6808218391e090c545a0a6",
+          "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+          "presentation.tsv": "c8e9baeeef584ab34764ffac800969343371fb1e86bfd4d6c636312471ebaad7",
+          "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+          "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+        },
+        "pulse_actor_trace_exact": true,
+        "original_INDEX8_game_and_output_hashes_exact": true,
+        "prior_draw_command_subsequence_exact": true,
+        "accepted_record286_quadrants": 0,
+        "accepted_record286_bases": [],
+        "accepted_prior_commands": 0,
+        "frames_exact": true,
+        "frames_equality_expected": true,
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "live_record286_full_body_windows": [
+          {
+            "slot": 1,
+            "ticks": [
+              86,
+              97
+            ]
+          },
+          {
+            "slot": 1,
+            "ticks": [
+              98,
+              109
+            ]
+          }
+        ],
+        "peak_rss_bytes": 77266944,
+        "exits": {
+          "baseline": 0,
+          "candidate": 0
+        },
+        "binary_sha256": {
+          "baseline": "820ada5df8a14feb27c7469ba77626314d9d1da8036ba026140787334664daf5",
+          "candidate": "ecf5da7fb62bf41de0e1ebf1623bb172f2b074df3cd77877108532c0d3ff20b3"
+        },
+        "no_capture": true,
+        "family_outcome": "Physical1 flagoff: no HD commands in any family; actual record286 still naturally spawns and cycles fully."
+      }
+    },
+    "physical1_flagoff_original_gameplay_traces_equal_to_enabled": {
+      "state.tsv": true,
+      "collisions.tsv": true,
+      "enemy-projectiles.tsv": true,
+      "scene-enemies.tsv": true,
+      "scene-hits.tsv": true,
+      "player-projectiles.tsv": true,
+      "player-shot-emissions.tsv": true,
+      "player-shot-requests.tsv": true,
+      "player-shot-results.tsv": true,
+      "poses.tsv": true,
+      "fire-events.tsv": true,
+      "presentation.tsv": true,
+      "weapon-loadout.tsv": true,
+      "fade-steps.tsv": true
+    },
+    "complete_live_12step_48quadrant_witness": {
+      "pair": "pulse-seed1-native2x",
+      "ticks": [
+        122,
+        133
+      ],
+      "actor_record": 286,
+      "pool_slot": 1,
+      "coordinate_mapping": "Draw occurs before original movement. For each same-tick end actor row: draw origin=(end_x-vx+mapoffset-6,end_y-vy-7); quadrant offsets are(0,0),(12,0),(0,14),(12,14). Presentation copies game_screen x+24 to output x, so outputx=drawx-24.",
+      "steps": [
+        {
+          "tick": 122,
+          "slot": 1,
+          "cycle": 1,
+          "base": 229,
+          "end_tick_x": 92,
+          "end_tick_y": 86,
+          "vx": 0,
+          "vy": 2,
+          "mapoffset": 41,
+          "ordered_original_calls": [
+            {
+              "part": 0,
+              "x": 127,
+              "y": 77
+            },
+            {
+              "part": 1,
+              "x": 139,
+              "y": 77
+            },
+            {
+              "part": 19,
+              "x": 127,
+              "y": 91
+            },
+            {
+              "part": 20,
+              "x": 139,
+              "y": 91
+            }
+          ]
+        },
+        {
+          "tick": 123,
+          "slot": 1,
+          "cycle": 2,
+          "base": 231,
+          "end_tick_x": 91,
+          "end_tick_y": 88,
+          "vx": -1,
+          "vy": 2,
+          "mapoffset": 41,
+          "ordered_original_calls": [
+            {
+              "part": 0,
+              "x": 127,
+              "y": 79
+            },
+            {
+              "part": 1,
+              "x": 139,
+              "y": 79
+            },
+            {
+              "part": 19,
+              "x": 127,
+              "y": 93
+            },
+            {
+              "part": 20,
+              "x": 139,
+              "y": 93
+            }
+          ]
+        },
+        {
+          "tick": 124,
+          "slot": 1,
+          "cycle": 3,
+          "base": 231,
+          "end_tick_x": 89,
+          "end_tick_y": 90,
+          "vx": -2,
+          "vy": 2,
+          "mapoffset": 41,
+          "ordered_original_calls": [
+            {
+              "part": 0,
+              "x": 126,
+              "y": 81
+            },
+            {
+              "part": 1,
+              "x": 138,
+              "y": 81
+            },
+            {
+              "part": 19,
+              "x": 126,
+              "y": 95
+            },
+            {
+              "part": 20,
+              "x": 138,
+              "y": 95
+            }
+          ]
+        },
+        {
+          "tick": 125,
+          "slot": 1,
+          "cycle": 4,
+          "base": 233,
+          "end_tick_x": 86,
+          "end_tick_y": 92,
+          "vx": -3,
+          "vy": 2,
+          "mapoffset": 41,
+          "ordered_original_calls": [
+            {
+              "part": 0,
+              "x": 124,
+              "y": 83
+            },
+            {
+              "part": 1,
+              "x": 136,
+              "y": 83
+            },
+            {
+              "part": 19,
+              "x": 124,
+              "y": 97
+            },
+            {
+              "part": 20,
+              "x": 136,
+              "y": 97
+            }
+          ]
+        },
+        {
+          "tick": 126,
+          "slot": 1,
+          "cycle": 5,
+          "base": 233,
+          "end_tick_x": 83,
+          "end_tick_y": 94,
+          "vx": -3,
+          "vy": 2,
+          "mapoffset": 41,
+          "ordered_original_calls": [
+            {
+              "part": 0,
+              "x": 121,
+              "y": 85
+            },
+            {
+              "part": 1,
+              "x": 133,
+              "y": 85
+            },
+            {
+              "part": 19,
+              "x": 121,
+              "y": 99
+            },
+            {
+              "part": 20,
+              "x": 133,
+              "y": 99
+            }
+          ]
+        },
+        {
+          "tick": 127,
+          "slot": 1,
+          "cycle": 6,
+          "base": 235,
+          "end_tick_x": 79,
+          "end_tick_y": 96,
+          "vx": -4,
+          "vy": 2,
+          "mapoffset": 41,
+          "ordered_original_calls": [
+            {
+              "part": 0,
+              "x": 118,
+              "y": 87
+            },
+            {
+              "part": 1,
+              "x": 130,
+              "y": 87
+            },
+            {
+              "part": 19,
+              "x": 118,
+              "y": 101
+            },
+            {
+              "part": 20,
+              "x": 130,
+              "y": 101
+            }
+          ]
+        },
+        {
+          "tick": 128,
+          "slot": 1,
+          "cycle": 7,
+          "base": 235,
+          "end_tick_x": 75,
+          "end_tick_y": 98,
+          "vx": -4,
+          "vy": 2,
+          "mapoffset": 41,
+          "ordered_original_calls": [
+            {
+              "part": 0,
+              "x": 114,
+              "y": 89
+            },
+            {
+              "part": 1,
+              "x": 126,
+              "y": 89
+            },
+            {
+              "part": 19,
+              "x": 114,
+              "y": 103
+            },
+            {
+              "part": 20,
+              "x": 126,
+              "y": 103
+            }
+          ]
+        },
+        {
+          "tick": 129,
+          "slot": 1,
+          "cycle": 8,
+          "base": 233,
+          "end_tick_x": 71,
+          "end_tick_y": 100,
+          "vx": -4,
+          "vy": 2,
+          "mapoffset": 41,
+          "ordered_original_calls": [
+            {
+              "part": 0,
+              "x": 110,
+              "y": 91
+            },
+            {
+              "part": 1,
+              "x": 122,
+              "y": 91
+            },
+            {
+              "part": 19,
+              "x": 110,
+              "y": 105
+            },
+            {
+              "part": 20,
+              "x": 122,
+              "y": 105
+            }
+          ]
+        },
+        {
+          "tick": 130,
+          "slot": 1,
+          "cycle": 9,
+          "base": 233,
+          "end_tick_x": 68,
+          "end_tick_y": 102,
+          "vx": -3,
+          "vy": 2,
+          "mapoffset": 41,
+          "ordered_original_calls": [
+            {
+              "part": 0,
+              "x": 106,
+              "y": 93
+            },
+            {
+              "part": 1,
+              "x": 118,
+              "y": 93
+            },
+            {
+              "part": 19,
+              "x": 106,
+              "y": 107
+            },
+            {
+              "part": 20,
+              "x": 118,
+              "y": 107
+            }
+          ]
+        },
+        {
+          "tick": 131,
+          "slot": 1,
+          "cycle": 10,
+          "base": 231,
+          "end_tick_x": 66,
+          "end_tick_y": 104,
+          "vx": -2,
+          "vy": 2,
+          "mapoffset": 41,
+          "ordered_original_calls": [
+            {
+              "part": 0,
+              "x": 103,
+              "y": 95
+            },
+            {
+              "part": 1,
+              "x": 115,
+              "y": 95
+            },
+            {
+              "part": 19,
+              "x": 103,
+              "y": 109
+            },
+            {
+              "part": 20,
+              "x": 115,
+              "y": 109
+            }
+          ]
+        },
+        {
+          "tick": 132,
+          "slot": 1,
+          "cycle": 11,
+          "base": 231,
+          "end_tick_x": 64,
+          "end_tick_y": 106,
+          "vx": -2,
+          "vy": 2,
+          "mapoffset": 41,
+          "ordered_original_calls": [
+            {
+              "part": 0,
+              "x": 101,
+              "y": 97
+            },
+            {
+              "part": 1,
+              "x": 113,
+              "y": 97
+            },
+            {
+              "part": 19,
+              "x": 101,
+              "y": 111
+            },
+            {
+              "part": 20,
+              "x": 113,
+              "y": 111
+            }
+          ]
+        },
+        {
+          "tick": 133,
+          "slot": 1,
+          "cycle": 12,
+          "base": 229,
+          "end_tick_x": 63,
+          "end_tick_y": 108,
+          "vx": -1,
+          "vy": 2,
+          "mapoffset": 41,
+          "ordered_original_calls": [
+            {
+              "part": 0,
+              "x": 99,
+              "y": 99
+            },
+            {
+              "part": 1,
+              "x": 111,
+              "y": 99
+            },
+            {
+              "part": 19,
+              "x": 99,
+              "y": 113
+            },
+            {
+              "part": 20,
+              "x": 111,
+              "y": 113
+            }
+          ]
+        }
+      ]
+    },
+    "png_capture": {
+      "method": "Capture-only SDL interposer reads actual SDL_RenderPresent renderer using SDL_RenderReadPixels, then writes native RGB PNG directly. No BMP is opened/encoded. No full screenshots or crop resizing.",
+      "native_scale": "2x",
+      "renderer_output_dimensions": [
+        640,
+        400
+      ],
+      "crop_rect_native": [
+        180,
+        146,
+        84,
+        92
+      ],
+      "crop_dimensions": [
+        84,
+        92
+      ],
+      "selected_captures": [
+        {
+          "tick": 122,
+          "base": 229,
+          "full_body_native_bounds": [
+            206,
+            154,
+            48,
+            56
+          ],
+          "files": {
+            "baseline": {
+              "path": "pulse-seed1-native2x-baseline/visible-0122.png",
+              "sha256": "6c2d0b2ed1815f250896acdd02efc1c4546f5c1a293cd553b6664013e1c66654"
+            },
+            "candidate": {
+              "path": "pulse-seed1-native2x-candidate/visible-0122.png",
+              "sha256": "6e4291ac8b2a087ce8229df7a90b65f492a5548779a409b6b197371bb30a0e93"
+            }
+          }
+        },
+        {
+          "tick": 123,
+          "base": 231,
+          "full_body_native_bounds": [
+            206,
+            158,
+            48,
+            56
+          ],
+          "files": {
+            "baseline": {
+              "path": "pulse-seed1-native2x-baseline/visible-0123.png",
+              "sha256": "29d4da814c7b1799172a6a86f4502308b2e25bc0cf4796a7fdaf00e7d6aa31f4"
+            },
+            "candidate": {
+              "path": "pulse-seed1-native2x-candidate/visible-0123.png",
+              "sha256": "eaa05fd0dabc7a78e7f35d038f4309ae92eca64df218b4aacd8499ca76da431f"
+            }
+          }
+        },
+        {
+          "tick": 125,
+          "base": 233,
+          "full_body_native_bounds": [
+            200,
+            166,
+            48,
+            56
+          ],
+          "files": {
+            "baseline": {
+              "path": "pulse-seed1-native2x-baseline/visible-0125.png",
+              "sha256": "76051d1fba53dcd744c9d0d52b84a08ffc5b94a302d6e934adb6c842d88224fe"
+            },
+            "candidate": {
+              "path": "pulse-seed1-native2x-candidate/visible-0125.png",
+              "sha256": "4ca27d15145730375573643fd7e88e0a0824c237fa1f43eb24b9eec1b0b569ca"
+            }
+          }
+        },
+        {
+          "tick": 127,
+          "base": 235,
+          "full_body_native_bounds": [
+            188,
+            174,
+            48,
+            56
+          ],
+          "files": {
+            "baseline": {
+              "path": "pulse-seed1-native2x-baseline/visible-0127.png",
+              "sha256": "de89218d0b8946b3c4c834864c03556f55cb3782f653b78f4747bce777e2c496"
+            },
+            "candidate": {
+              "path": "pulse-seed1-native2x-candidate/visible-0127.png",
+              "sha256": "5942c138c972bbc0dc8f7523f471e168d3571ff67cbe26b7346627d1b5b8ebbe"
+            }
+          }
+        }
+      ],
+      "contact": {
+        "path": "pulse-native2x-contact.png",
+        "sha256": "bbfcd64c66b2d93367e7ce26ca31ac40eeea0ecf8d32fc03a39a1a85b30586bd",
+        "crop_images_resized": false,
+        "annotation_placement": "Outside native crop pixels only",
+        "layout": "Original above; candidate below; columns229/231/233/235."
+      },
+      "exclusions": [
+        "Earlier pulse-seed1-2x ticks86/87/89/91 crops used an incorrect presentation-x origin and clip the target. They are excluded from visual acceptance. Their gameplay trace comparison still passed.",
+        "The4x pair and dependency/flagoff pairs intentionally capture no PNG.",
+        "No natural campaign, whole-level, Windows or performance acceptance is claimed."
+      ]
+    },
+    "resource_budget": {
+      "output_bytes": 27526984,
+      "extra_named_bytes": 8969053,
+      "total_new_bytes": 36616337,
+      "git_growth_bytes": 120300,
+      "png_bytes": 5130064,
+      "free_bytes": 5139947520
+    }
+  },
+  "independent_review": {
+    "status": "PASS",
+    "findings": [],
+    "head": "efcf3afcefa8b11b20bb3362b3fa757b70704810",
+    "production_source_sha256": "af22344195ea5146522f0d3287aac369ba6d77521c3eafb3cd919dea59e7415e",
+    "scope": "Independent read-only source, catalog, original identity, exact generator rebuild, and pixel-invariant review. Separate actual-engine paired proof is required.",
+    "checks": {
+      "exact_record": 286,
+      "record_fnv": "0x82df76a688e7627d",
+      "bank_fnv": "0x913975450e0fc00d",
+      "physical_level": 1,
+      "animation_slots": 12,
+      "steering_xaccel": 93,
+      "four_state_preflight": "atomic and sticky until shutdown",
+      "rebuild_hda_byte_identical": 4,
+      "rebuild_png_byte_identical": 4,
+      "prior_hda_and_png_pairs_head_unchanged": 29,
+      "default_catalog_head_unchanged": true,
+      "prior_family_metadata_head_unchanged": true,
+      "source_opaque_cells": 433,
+      "source_pulse_cells": 65,
+      "common_alpha": true,
+      "outside_pulse_rgba_identical": true,
+      "no_alpha_outside_source_support": true,
+      "phase_changed_pixels": [
+        0,
+        948,
+        3418,
+        3912
+      ],
+      "original_graphic_sequence": [
+        229,
+        231,
+        231,
+        233,
+        233,
+        235,
+        235,
+        233,
+        233,
+        231,
+        231,
+        229,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "limitations": [
+      "Did not rerun actual-engine paired proofs; parent is running those separately.",
+      "Reviewed existing optimized and ASan/UBSan receipts against current production source hashes; did not duplicate extracted-source test execution."
+    ]
+  },
+  "parent_source_native2x_art_review": "accepted",
+  "parent_actual_engine_native2x_four_state_review": "accepted",
+  "prior29_HDA_and_PNG_pairs_unchanged": true,
+  "all_default_metadata_unchanged": true,
+  "resources": {
+    "output_bytes": 27559757,
+    "extra_named_bytes": 9009879,
+    "total_new_bytes": 39770044,
+    "git_growth_bytes": 3200408,
+    "png_bytes": 5130064,
+    "free_bytes": 5136732160,
+    "measurement_phase": "Staged final-source accounting before local commit; final post-commit receipt remains external."
+  },
+  "limitations": [
+    "Finite diagnostic seed1 selection with stationary no-fire input; not natural campaign, full-level, Windows, fullscreen/GPU or performance acceptance.",
+    "Native2x captures only; native4x is trace-tested without PNG. Earlier mispositioned2x crops are excluded from visual acceptance.",
+    "LeakSanitizer disabled. Original resources and runtime captures remain external to the repository.",
+    "This checkpoint adds one family only. It does not broaden any other record, level or global manual-HD mapping."
+  ],
+  "independent_review_report_sha256": "7398f7311a69a0ed3db3a23fd21084dd64ec6be9b51232ac90a1978c80165b90"
+}

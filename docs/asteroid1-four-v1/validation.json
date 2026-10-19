@@ -1,0 +1,298 @@
+{
+  "schema": "asteroid1-four-bounded-validation-v1",
+  "accepted_ten_baseline_commit": "08573e32f84724db23ea4c204cfd0cc8298ca28f",
+  "classic_runtime_baseline_commit": "7d628fd3c7f8ce46e5e9d11f8e1e4a79db62a670",
+  "baseline_distinction": "Native2x/4x pairs compare against classic rendering for gameplay/indexed parity. Missing45 pair compares native output against the accepted ten-family object with the same QA logger. Flagoff physical9 uses the accepted populated firstlevel pack.",
+  "scope": "One optional four-actor static event12 rock in the existing separate physical1 normal-data asteroid opt-in. Not secondstage completion, natural campaign progression, Windows, GPU/fullscreen or performance acceptance.",
+  "optimized_and_asan_ubsan": {
+    "runs": [
+      {
+        "mode": "optimized",
+        "positive": 1,
+        "negative": 19,
+        "binary_sha256": "67dd81513c7607be3d637d7f03bca827226e5aeaf246fcf26edeaea17a31cd29"
+      },
+      {
+        "mode": "asan-ubsan",
+        "positive": 1,
+        "negative": 19,
+        "binary_sha256": "88608afe8b1458848641b04e48ebfe221049002917b5ed77966d9e9292006f96"
+      }
+    ],
+    "source_sha256": "cb1e28cca841dbcf7116aa14de4e45233fb51d81925cf44e49229f2d471ac187",
+    "peak_child_rss_bytes": 145858560,
+    "leak_sanitizer": false,
+    "scope": "Extracted production four-family scope/source/loader/16-quadrant geometry. Actual engine pairs are separate."
+  },
+  "ten_compatibility_harness": {
+    "runs": [
+      {
+        "mode": "optimized",
+        "positive": 1,
+        "negative": 31,
+        "binary_sha256": "adea4c8e76e0b4287aa8f551f10e91635cace7603b989d8c390b107c34f6deb7"
+      },
+      {
+        "mode": "asan-ubsan",
+        "positive": 1,
+        "negative": 31,
+        "binary_sha256": "3c1a644cbd5634a07e682d64b0e63e108a76bc29f2441e4180af5451b3639009"
+      }
+    ],
+    "source_sha256": "eda305918bb78f534c1d5d9e450b0219fc59afe6f1c46b45692e7a02e847a7d3",
+    "peak_child_rss_bytes": 145657856,
+    "leak_sanitizer": false,
+    "leak_sanitizer_note": "Unavailable under this executor ptrace; address/undefined checks remain enabled.",
+    "scope": "Extracted production loader/scope/source/geometry; actual game acceptance is separate."
+  },
+  "runtime_analysis": {
+    "final-rock4-2x": {
+      "observed_ticks": 120,
+      "frame_rows": 120,
+      "trace_exact": {
+        "state.tsv": true,
+        "collisions.tsv": true,
+        "enemy-projectiles.tsv": true,
+        "scene-enemies.tsv": true,
+        "scene-hits.tsv": true,
+        "player-projectiles.tsv": true,
+        "player-shot-emissions.tsv": true,
+        "player-shot-requests.tsv": true,
+        "player-shot-results.tsv": true,
+        "poses.tsv": true,
+        "fire-events.tsv": true,
+        "presentation.tsv": true,
+        "weapon-loadout.tsv": true,
+        "fade-steps.tsv": true
+      },
+      "png_exact": {
+        "visible-0100.png": false,
+        "classic-0100.png": true,
+        "visible-0060.png": false,
+        "classic-0060.png": true,
+        "display-0100.png": false,
+        "display-0060.png": false
+      },
+      "new_four_commands": 1596,
+      "new_four_bases": [
+        7,
+        9,
+        45,
+        47
+      ],
+      "prior_ten_commands": 2585,
+      "admitted_roles": [
+        108
+      ],
+      "coverage_mismatch": 0,
+      "rejected_frames": 0,
+      "max_rss_bytes": 106364928
+    },
+    "final-rock4-4x": {
+      "observed_ticks": 120,
+      "frame_rows": 120,
+      "trace_exact": {
+        "state.tsv": true,
+        "collisions.tsv": true,
+        "enemy-projectiles.tsv": true,
+        "scene-enemies.tsv": true,
+        "scene-hits.tsv": true,
+        "player-projectiles.tsv": true,
+        "player-shot-emissions.tsv": true,
+        "player-shot-requests.tsv": true,
+        "player-shot-results.tsv": true,
+        "poses.tsv": true,
+        "fire-events.tsv": true,
+        "presentation.tsv": true,
+        "weapon-loadout.tsv": true,
+        "fade-steps.tsv": true
+      },
+      "png_exact": {
+        "visible-0100.png": false,
+        "classic-0100.png": true,
+        "display-0100.png": false
+      },
+      "new_four_commands": 1596,
+      "new_four_bases": [
+        7,
+        9,
+        45,
+        47
+      ],
+      "prior_ten_commands": 2585,
+      "admitted_roles": [
+        108
+      ],
+      "coverage_mismatch": 0,
+      "rejected_frames": 0,
+      "max_rss_bytes": 110510080
+    },
+    "missing45-fallback": {
+      "observed_ticks": 120,
+      "frame_rows": 120,
+      "trace_exact": {
+        "state.tsv": true,
+        "collisions.tsv": true,
+        "enemy-projectiles.tsv": true,
+        "scene-enemies.tsv": true,
+        "scene-hits.tsv": true,
+        "player-projectiles.tsv": true,
+        "player-shot-emissions.tsv": true,
+        "player-shot-requests.tsv": true,
+        "player-shot-results.tsv": true,
+        "poses.tsv": true,
+        "fire-events.tsv": true,
+        "presentation.tsv": true,
+        "weapon-loadout.tsv": true,
+        "fade-steps.tsv": true
+      },
+      "png_exact": {
+        "visible-0100.png": true,
+        "classic-0100.png": true,
+        "display-0100.png": true
+      },
+      "new_four_commands": 0,
+      "new_four_bases": [],
+      "prior_ten_commands": 2585,
+      "admitted_roles": [
+        108
+      ],
+      "coverage_mismatch": 0,
+      "rejected_frames": 0,
+      "max_rss_bytes": 104169472
+    },
+    "flag-off-final-physical9": {
+      "observed_ticks": 90,
+      "frame_rows": 90,
+      "trace_exact": {
+        "state.tsv": true,
+        "collisions.tsv": true,
+        "enemy-projectiles.tsv": true,
+        "scene-enemies.tsv": true,
+        "scene-hits.tsv": true,
+        "player-projectiles.tsv": true,
+        "player-shot-emissions.tsv": true,
+        "player-shot-requests.tsv": true,
+        "player-shot-results.tsv": true,
+        "poses.tsv": true,
+        "fire-events.tsv": true,
+        "presentation.tsv": true,
+        "weapon-loadout.tsv": true,
+        "fade-steps.tsv": true
+      },
+      "png_exact": {
+        "visible-0060.png": true,
+        "classic-0060.png": true,
+        "display-0060.png": true
+      },
+      "new_four_commands": 0,
+      "new_four_bases": [],
+      "prior_ten_commands": 0,
+      "admitted_roles": [
+        201
+      ],
+      "coverage_mismatch": 0,
+      "rejected_frames": 0,
+      "max_rss_bytes": 146923520
+    }
+  },
+  "art_verification": {
+    "members": {
+      "enemy-newshd-45-8": {
+        "sha256": "434d156af662e23b0a03b78574fef28ff7a972cce8b61a2f70f114cb13b518a7",
+        "size_bytes": 172060,
+        "rgba_pixels_exact": true,
+        "rebuild_exact": true
+      },
+      "enemy-newshd-47-8": {
+        "sha256": "24d8ecf14fe83f8670004b0e5f0f7486ce6e9e5dda3dcdf4f3514d4dee5c2bc9",
+        "size_bytes": 172060,
+        "rgba_pixels_exact": true,
+        "rebuild_exact": true
+      },
+      "enemy-newshd-7-8": {
+        "sha256": "e7dfe3c87afc50df46504ccd4dcbd7d37456093c56f5926341906646c4701f83",
+        "size_bytes": 172060,
+        "rgba_pixels_exact": true,
+        "rebuild_exact": true
+      },
+      "enemy-newshd-9-8": {
+        "sha256": "1f40fc59af8e535d9ddf703ac432e0d02f67c994302871a37870a5b2a42e084e",
+        "size_bytes": 172060,
+        "rgba_pixels_exact": true,
+        "rebuild_exact": true
+      }
+    },
+    "all_nonzero_subpixels_inside_original_support": true,
+    "nonzero_subpixels": 81140,
+    "global_manifest_unchanged_sha256": "05633cc33290e62ca1effc772e2b688977cf3a66bef9e6cb4277bf6f693688cd",
+    "prior_ten_files_exact": true
+  },
+  "preserved_ten_sha256": {
+    "src/asteroid1_ten_mirror.inc": "eda305918bb78f534c1d5d9e450b0219fc59afe6f1c46b45692e7a02e847a7d3",
+    "assets/hd/artwork/asteroid1-ten-v1/imagegen-master.png": "10ea8785d714657dc393b2f6466202fa6018b46a4bb42653fc9822f1022d9dd5",
+    "assets/hd/artwork/asteroid1-ten-v1/PROMPT.txt": "df77385248ad6524eb2b4be955189248625d3183a37b0df1511bc31e9810bc47",
+    "assets/hd/artwork/asteroid1-ten-v1/enemy-newshd-31-8.png": "421431b928c1614b5a3356f50a6dba8d49fb0f1756bd90932adf50261237fa1a",
+    "assets/hd/packs/asteroid1-ten-v1/enemy-newshd-31-8.hda": "ed2717939279681e494da1c64bae97437b7d762d2fcfb4488ba555e035150535",
+    "assets/hd/artwork/asteroid1-ten-v1/enemy-newshd-13-8.png": "048b54c2d2e091d2cb221380f2293c48e818ff82114a378cf71004bd32bc5ea8",
+    "assets/hd/packs/asteroid1-ten-v1/enemy-newshd-13-8.hda": "4e50f5e538cc0271e902d2dbe23d4bec0bf8754e996bdf2a4ae20d983628bf32",
+    "assets/hd/artwork/asteroid1-ten-v1/enemy-newshd-15-8.png": "07148d9a8aa68fa8dea4cf8177d9315b9380f5840e3c2afc12c58d73e2305403",
+    "assets/hd/packs/asteroid1-ten-v1/enemy-newshd-15-8.hda": "01a7a75264a4575072390e9ae2a96aeaab2b2e865ef1087b934fbbf2a994ec33",
+    "assets/hd/artwork/asteroid1-ten-v1/enemy-newshd-34-8.png": "93c54ac02adb84415266bc97f36300391e2f8c313f8e03b181d70f8a2adaa08f",
+    "assets/hd/packs/asteroid1-ten-v1/enemy-newshd-34-8.hda": "de0e9d141d8b2bb657a3fa9a49cac3881b87d055fabde43c74784fb469b48a4f",
+    "assets/hd/artwork/asteroid1-ten-v1/enemy-newshd-49-8.png": "0051684a2e6e51bb0417c176d66e0a88bed0f3bb41c131bd5ad41645f5feeae6",
+    "assets/hd/packs/asteroid1-ten-v1/enemy-newshd-49-8.hda": "6a955c8ee1c9beed292ff56f9c98cb1aeac33675f345c82d6978bcb780c2de05",
+    "assets/hd/artwork/asteroid1-ten-v1/enemy-newshd-51-8.png": "77f549044e1d054e2cc1bd5fbf6ce6e50affd5e849842f48a164fbcd1291b14f",
+    "assets/hd/packs/asteroid1-ten-v1/enemy-newshd-51-8.hda": "a20ceeec15221ec94dd79064c3dd28471d1036d8a1cafa59dde7f504f98c63aa",
+    "assets/hd/artwork/asteroid1-ten-v1/enemy-newshd-53-8.png": "bac5385f3cd1109d382f374e5e4fc498e8663909c94fc38c25fb0178095a8fe9",
+    "assets/hd/packs/asteroid1-ten-v1/enemy-newshd-53-8.hda": "e719f0d6c5067de6f9f52644122f337def77dfe56011f58ed4bbf607ee50b38c",
+    "assets/hd/artwork/asteroid1-ten-v1/enemy-newshd-88-8.png": "6355eed67309e8ad2d503a8fc41865b472f46f476d2f11d42e837d77b6aef0ec",
+    "assets/hd/packs/asteroid1-ten-v1/enemy-newshd-88-8.hda": "2fa2b3c0e53ff635beae67be4a01542ea170b7c41004d6be14159e9259128598",
+    "assets/hd/artwork/asteroid1-ten-v1/enemy-newshd-89-8.png": "ed67d30bde547fb230e07f963d7d7f4fa9d38ea3ee9ea93add1247cc558641a2",
+    "assets/hd/packs/asteroid1-ten-v1/enemy-newshd-89-8.hda": "322ec042756f610033fd3b6b509a21804781c145d7b8e9fd07cbf5e673080779",
+    "assets/hd/artwork/asteroid1-ten-v1/enemy-newshd-91-8.png": "a4a6911a4fa8461adc8b580f7501c53424131713b0aafcf6fbc1204471ad4efd",
+    "assets/hd/packs/asteroid1-ten-v1/enemy-newshd-91-8.hda": "b8ebad6ec7146342d833ed409ef7f9dce09e7aecd9c6e20edbb5ed93fd95870d"
+  },
+  "linux_make_werror": {
+    "passed": true,
+    "network": false,
+    "note": "Reused recovered SDL SDK; networkdisabled because SDL2_net headers are unavailable, unchanged from accepted prior batch."
+  },
+  "leak_sanitizer": {
+    "ran": false,
+    "reason": "Unavailable under this executor ptrace environment; address and undefinedbehavior checks passed."
+  },
+  "artwork_mode": "Built-in imagegen; one coherent master, global inward-only source-support contour, then original-position slicing.",
+  "visual_review": {
+    "parent_sizecontact_2x_accepted": true,
+    "parent_native_2x_tick100_accepted": true,
+    "independent_native_2x_and_4x_inspected": true
+  },
+  "resource_bounds": {
+    "minimum_disk_reserve_bytes": 5000000000,
+    "observed_remaining_disk_bytes": 5478731776,
+    "all_new_output_limit_bytes": 157286400,
+    "observed_all_new_output_bytes": 57693030,
+    "png_limit_bytes": 33554432,
+    "observed_all_new_png_bytes": 19061985,
+    "no_bmp_output": true,
+    "runtime_address_space_limit_bytes": 536870912,
+    "compiler_address_space_limit_bytes": 1073741824,
+    "timing_is_not_a_benchmark": true
+  },
+  "excluded_diagnostics": {
+    "unit-v1": "Excluded: positional size initializer was invalid; superseded by hardened unit-final.",
+    "unit-v2": "Corrected initializers and passed; superseded by unit-final with explicit valid-context and loader assertions.",
+    "physical1-rock4-2x": "Exploratory requested180ticks naturally ended at playerdeath after168observed frames; final pairs are120ticks.",
+    "flag-off-physical9": "Excluded: wrong absent pack path. Final populated acceptedfirstlevelpack run is flag-off-final-physical9.",
+    "missing45-fixture-preparation": "Cross-filesystem hardlink attempt failed before any file was created; bounded13-file ordinary copies were installed before the fallback pair started."
+  },
+  "no_github_push": true,
+  "no_windows_package": true,
+  "independent_review": {
+    "verdict": "PASS",
+    "scope": "Read-only independent source, artwork, finalsourceharness and native2x/4x/fallback/flagoff receipt review.",
+    "blockers_remaining": [],
+    "initial_test_initializer_issue_corrected_and_hardened": true
+  }
+}
