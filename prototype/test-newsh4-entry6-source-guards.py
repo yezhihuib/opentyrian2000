@@ -15,6 +15,8 @@ import struct
 import subprocess
 import sys
 
+from nondefault_pack_fixture import NONDEFAULT_PACK, add_nondefault_pack_fixture
+
 SOURCE = 'assets/hd/artwork/newsh4-entry6-v1'
 SCRIPT = 'prototype/build-newsh4-entry6-art.py'
 IDS = [81, 83, 85, 119, 121, 123]
@@ -210,7 +212,7 @@ def main():
         family = changed['newsh4_entry6_v1']
         if label.startswith('widened') or label == 'alias-header':
             if label == 'widened-other-pack':
-                other = next(name for name in changed['packs'] if name not in defaults)
+                other = add_nondefault_pack_fixture(changed)
                 pack = changed['packs'][other]
             filename = {'widened4x': 'enemy-newsh4-81-4.hda',
                         'widened-quadrant': 'enemy-newsh4-82-8.hda',
@@ -280,7 +282,7 @@ def main():
             rejected(label, out / ('bad-' + label), reason, wrapper)
         finally:
             manifest_path.write_bytes(raw_manifest)
-    other = next(name for name in manifest['packs'] if name not in defaults)
+    other = NONDEFAULT_PACK
     extras = [
         ('unindexed-disk4x', f'assets/hd/packs/{defaults[1]}/enemy-newsh4-81-4.hda', 'widened on-disk pack inventory'),
         ('unindexed-other-pack', f'assets/hd/packs/{other}/enemy-newsh4-81-8.hda', 'widened on-disk pack inventory'),

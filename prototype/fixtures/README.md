@@ -1,10 +1,32 @@
 # Archived finite effects fixtures
 
-These source overrides are exact snapshots of already tested private binaries, not production code. prepare-effects.py only copies the existing source/build files and applies hashed snapshots; it does not build or run. This newly exported preparation command was not executed after the stop request. The source snapshots and their hashes were checked while packaging.
+These source overrides are exact snapshots of already tested private binaries, not production code. By default, prepare-effects.py copies the existing source/build files and applies hashed snapshots. Optional --assets-output also reconstructs the required historical resource pack; neither mode compiles or runs a test binary. At the original export, the newly exported preparation command had not been executed after the then-current stop request. The source snapshots and their hashes were checked while packaging.
 
 White/green call original loaded weapons at a fixed tick; they do not overwrite per-shot TTL, motion, collision or RNG. Shield is a read-only observer of original natural bursts. Match the documented family pack and environment. Their original Windows runs and complete reports remain in existing Library evidence. Original game data, SDL SDKs, DLLs/EXEs and screenshots are intentionally excluded from Git.
 
 Windows preparation: `python prototype/fixtures/prepare-effects.py --family green-trail --output ../green-fixture` (choose a new sibling directory so the existing project-deps remains reachable). Build with `../green-fixture/prototype/build-game.ps1`. On Linux, use the copied Makefile and installed SDL dependencies. See docs/WINDOWS_HANDOFF.md for the exact green run arguments and remaining WIP scope.
+
+## Rebuild retired archived resource packs
+
+The `test_resource_pack` names in `effects/*/manifest.json` are frozen historical inputs. Their old installed directories have been retired. Their recipes remain under `retired_packs` in `assets/hd/manifest.json`, with canonical PNGs, original HDR1 headers and expected hashes retained. Do not substitute a current head-v1 or green-v2 pack: changed artwork would change these archived regression tests.
+
+Prepare sources and reconstruct their exact historical pack in two separate new external directories:
+
+```text
+python prototype/fixtures/prepare-effects.py --family green-trail --output ../green-fixture --assets-output ABS_NEW_EXTERNAL_DIRECTORY
+```
+
+`--assets-output` must be absolute and outside the checkout, and must not overlap the source output. Preparation verifies source compatibility and frozen override hashes before reconstruction. It does not compile a binary, start a game, or install either output. Point the archived binary's normal resource-pack argument at the external pack directory; provide original legal game data separately.
+
+A compatible historical production source base is also required. Preparation deliberately rejects any unreviewed drift from `same_other_production_src_sha256`; current production sources may have evolved beyond that archived base. Reconstructing retired assets does not relax these source pins. The standalone asset command below works independently of that source-compatibility gate.
+
+To reconstruct assets without preparing sources, use the exact `test_resource_pack` value for the chosen family:
+
+```text
+python prototype/rebuild_retired_hd_pack.py packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v1-test --output ABS_NEW_EXTERNAL_DIRECTORY
+```
+
+The same command works with the white-smoke-v1 and shield-v1 manifests' pack names. Without `--assets-output`, source preparation prints the required historical pack name and standalone rebuild command. Existing source snapshots, source hashes, archived binary hashes and original validation limits remain unchanged. The tests in `test-prepare-effects.py` cover this optional reconstruction handoff and rejected output paths as well as source and override negative controls.
 
 ## Current green integration review
 

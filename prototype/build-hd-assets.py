@@ -22,6 +22,9 @@ if a.output:
  if output.exists():p.error('Choose a new output directory; existing resources are never overwritten')
  output.mkdir(parents=True)
 payloads={};checked=0
+# Only installed current packs are verified here. Archived recipes live in
+# manifest.retired_packs and rebuild_retired_hd_pack.py reproduces them on demand.
+assert set(manifest['packs'])=={manifest['default_preview_pack'],manifest['default_debug_pack']}
 for pack,items in manifest['packs'].items():
  assert len(items['files'])==items['count']
  if a.output:(output/pack).mkdir()
@@ -144,14 +147,14 @@ if manifest.get('gameplay_hud_meters_v2'):
   assert path.is_file() and not path.is_symlink() and path.read_bytes()==raw
   if a.output:(output/pack/METER_FILE).write_bytes(raw)
   meter_count+=1
+# Source helpers verify their exact subset against the complete current startup pack.
+# Emit that pack only once, from the full settings builder below.
 manufacturer_count=0
 manufacturer_source_count=0
 if manifest.get('startup_manufacturer_v1'):
  from startup_manufacturer_bundle import build_bundles as build_manufacturers, PACK as MANUFACTURER_PACK, SOURCE_FILES as MANUFACTURER_SOURCES
  bundles=build_manufacturers(repo)
- if a.output:(output/MANUFACTURER_PACK).mkdir()
  for name,(raw,receipt) in bundles.items():
-  if a.output:(output/MANUFACTURER_PACK/name).write_bytes(raw)
   manufacturer_count+=1
  manufacturer_source_count=len(MANUFACTURER_SOURCES)
 title_count=0
@@ -160,9 +163,7 @@ title_compatibility_count=0
 if manifest.get('startup_title_v1'):
  from title_layer_bundle import build_bundles as build_titles, PACK as TITLE_PACK, SOURCE_FILES as TITLE_SOURCES, TITLE_FILES
  bundles=build_titles(repo)
- if a.output:(output/TITLE_PACK).mkdir()
  for name,(raw,receipt) in bundles.items():
-  if a.output:(output/TITLE_PACK/name).write_bytes(raw)
   if name in TITLE_FILES:title_count+=1
   else:title_compatibility_count+=1
  title_source_count=len(TITLE_SOURCES)
@@ -171,9 +172,6 @@ title_menu_source_count=0
 if manifest.get('startup_title_menu_v1'):
  from title_menu_font_bundle import build_bundles as build_title_menu, PACK as TITLE_MENU_PACK, SOURCE_FILES as TITLE_MENU_SOURCES
  bundles=build_title_menu(repo)
- if a.output:(output/TITLE_MENU_PACK).mkdir()
- for name,(raw,receipt) in bundles.items():
-  if a.output:(output/TITLE_MENU_PACK/name).write_bytes(raw)
  title_menu_count=len(bundles)
  title_menu_source_count=len(TITLE_MENU_SOURCES)
 type4_count=0

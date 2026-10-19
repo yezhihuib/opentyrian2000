@@ -1,5 +1,12 @@
 # Title-only medium typography trial
 
+Historical checkpoint: the commands, subset directories and file counts below
+record the original bounded acceptance. Those subset runtime directories have
+since been retired. For current use, select
+`--startup-assets=assets/hd/packs/startup-title-settings-v1`, which also enables
+the complete supported startup/UI family. See [retired pack recovery and
+rebuilds](RETIRED_HD_PACKS.md) to reproduce the historical subsets.
+
 This optional display-only observer replaces the seven main-title menu rows with
 approved V3.1 vector geometry (1.90 logical stroke). It is deliberately separate from
 gameplay HUF1, large bank0 headings, setup/pickers, and tiny bank2 load rows. Existing

@@ -1,3 +1,13 @@
+<#
+.SYNOPSIS
+Launch the controlled HD asset debugger with the current default resource pack.
+.DESCRIPTION
+The eight historical stage switches BeforeGreenHead, BeforeGreenV2,
+BeforeGreenTrail, BeforeShield, BeforeWhiteSmoke, BeforeLargeGround,
+BeforeImpact and BeforeLargeAir are retained only to report retirement.
+Omit them to use the current head-v1 pack. See docs/RETIRED_HD_PACKS.md
+for historical checkpoint recovery and external, on-demand rebuilds.
+#>
 param(
     [ValidateSet('blue','type10','turret','custom')][string]$Preset = 'blue',
     [ValidateRange(1,5)][int]$Episode = 1,
@@ -30,6 +40,13 @@ param(
     [string]$Assets
 )
 $ErrorActionPreference = 'Stop'
+# Fail before checking dependencies, creating runs, or launching a process.
+$retiredSelectors = @('BeforeGreenHead', 'BeforeGreenV2', 'BeforeGreenTrail', 'BeforeShield', 'BeforeWhiteSmoke', 'BeforeLargeGround', 'BeforeImpact', 'BeforeLargeAir')
+foreach ($retiredSelector in $retiredSelectors) {
+    if ($PSBoundParameters[$retiredSelector]) {
+        throw "Historical -$retiredSelector is retired. Omit this switch to use the current packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test pack. See docs/RETIRED_HD_PACKS.md for Git recovery or an external historical rebuild."
+    }
+}
 function Get-DebugSha256([string]$Path) {
     $debugHasher = [Security.Cryptography.SHA256]::Create()
     $debugStream = [IO.File]::OpenRead($Path)
@@ -44,14 +61,6 @@ $debugTaskRoot = Split-Path -Parent $debugRepoRoot
 $debugExe = Join-Path $debugRepoRoot 'opentyrian-x64-Release.exe'
 $debugData = Join-Path $debugTaskRoot 'runtime-data\tyrian2000'
 $debugAssets = Join-Path $debugRepoRoot 'assets\hd\packs\packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test'
-if ($BeforeGreenHead) { $debugAssets = Join-Path $debugRepoRoot 'assets\hd\packs\packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-test' }
-if ($BeforeGreenV2) { $debugAssets = Join-Path $debugRepoRoot 'assets\hd\packs\packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v1-test' }
-if ($BeforeGreenTrail) { $debugAssets = Join-Path $debugRepoRoot 'assets\hd\packs\packed-blue-four-foundation-type10-death-effects-white-smoke-shield-v1-test' }
-if ($BeforeShield) { $debugAssets = Join-Path $debugRepoRoot 'assets\hd\packs\packed-blue-four-foundation-type10-death-effects-white-smoke-v1-test' }
-if ($BeforeWhiteSmoke) { $debugAssets = Join-Path $debugRepoRoot 'assets\hd\packs\packed-blue-four-foundation-type10-death-effects-v1-test' }
-if ($BeforeLargeGround) { $debugAssets = Join-Path $debugRepoRoot 'assets\hd\packs\packed-blue-four-foundation-type10-explosion-v2-large-air-v1-impact-v1-test' }
-if ($BeforeImpact) { $debugAssets = Join-Path $debugRepoRoot 'assets\hd\packs\packed-blue-four-foundation-type10-explosion-v2-large-air-v1-test' }
-if ($BeforeLargeAir) { $debugAssets = Join-Path $debugRepoRoot 'assets\hd\packs\packed-blue-four-foundation-type10-explosion-v2-test' }
 if ($BeforeSmallExplosion) { $debugAssets = Join-Path $debugTaskRoot 'runtime-hd-assets\packed-blue-four-foundation-type10-v9-test' }
 if ($BeforeType10) { $debugAssets = Join-Path $debugTaskRoot 'runtime-hd-assets\packed-blue-four-foundation-v1-test' }
 if ($BeforeFoundation) { $debugAssets = Join-Path $debugTaskRoot 'runtime-hd-assets\packed-blue-four-v4-test' }

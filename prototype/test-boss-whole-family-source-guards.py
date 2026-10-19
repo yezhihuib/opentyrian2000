@@ -14,6 +14,8 @@ import struct
 import subprocess
 import sys
 
+from nondefault_pack_fixture import NONDEFAULT_PACK, add_nondefault_pack_fixture
+
 sys.dont_write_bytecode = True
 SOURCE = 'assets/hd/artwork/boss-whole-family-v2-inward-alpha'
 SCRIPT = 'prototype/build-boss-whole-family-art.py'
@@ -323,7 +325,7 @@ def main():
             del pack['files']['enemy-newsh4-1-8.hda'];pack['count']-=1;reason='enemy-newsh4-1-8.hda'
         elif label in ['four-density','other-pack','header-alias','empty-pack']:
             if label=='other-pack':
-                pack=changed['packs'][next(n for n in changed['packs'] if n not in boss.DEFAULTS)]
+                pack=changed['packs'][add_nondefault_pack_fixture(changed)]
             filename={'four-density':'enemy-newsh4-1-4.hda','header-alias':'unapproved-alias.hda',
                       'empty-pack':'enemy-newsh4-238-8.hda'}.get(label,'enemy-newsh4-1-8.hda')
             pack['files'][filename]=dict(entry);pack['count']+=1;reason='widened pack'
@@ -353,7 +355,7 @@ def main():
         finally:
             manifest_path.write_bytes(raw_manifest)
     change_file('duplicate-JSON-key','assets/hd/manifest.json',validate,'duplicate JSON key',lambda b:b'{"packs":{},'+b.lstrip()[1:])
-    other=next(n for n in manifest['packs'] if n not in boss.DEFAULTS)
+    other=NONDEFAULT_PACK
     extras=[('disk-four-density',f'assets/hd/packs/{boss.DEFAULTS[0]}/enemy-newsh4-1-4.hda',False),
             ('disk-other-pack',f'assets/hd/packs/{other}/enemy-newsh4-1-8.hda',False),
             ('disk-renamed-key-alias',f'assets/hd/packs/{boss.DEFAULTS[0]}/renamed.bin',False),

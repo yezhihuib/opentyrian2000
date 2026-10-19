@@ -18,6 +18,7 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT / 'prototype'))
+from nondefault_pack_fixture import NONDEFAULT_PACK, add_nondefault_pack_fixture
 from type3_small_coexistence import project_type3_small_family
 spec = importlib.util.spec_from_file_location('title_layer_bundle', ROOT / 'prototype/title_layer_bundle.py')
 bundle = importlib.util.module_from_spec(spec)
@@ -648,7 +649,7 @@ class TitlePackageTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.source = ROOT / 'assets/hd/artwork/title-screen-v1'
-        cls.runtime = ROOT / 'assets/hd/packs/startup-title-v1'
+        cls.runtime = ROOT / 'assets/hd/packs/startup-title-settings-v1'
         cls.manifest = json.loads((ROOT / 'assets/hd/manifest.json').read_text())
         cls.bundles = bundle.build_bundles(ROOT)
         cls.family = cls.manifest['startup_title_v1']
@@ -747,8 +748,9 @@ class TitlePackageTests(unittest.TestCase):
                 elif case == 'duplicate-png-index':
                     changed['source_pngs']['0' * 64] = dict(changed['source_pngs'][stamp])
                 elif case == 'foreign-pack':
-                    other = next(value for name, value in changed['packs'].items()
-                                 if name not in {changed['default_preview_pack'], changed['default_debug_pack']})
+                    other = changed['packs'][add_nondefault_pack_fixture(changed)]
+                    # The metadata fixture alone must pass this family's guard.
+                    project_late_spike_family(self, json.loads(json.dumps(changed)))
                     other['files'][filename] = dict(receipt)
                     other['count'] += 1
                 elif case == 'changed-family-metadata':
@@ -759,6 +761,11 @@ class TitlePackageTests(unittest.TestCase):
                     changed['late_spike_v1']['unapproved'] = True
                 else:
                     del changed['late_spike_v1']
+                if case == 'foreign-pack':
+                    # Exercise ownership before unrelated historical projections.
+                    with self.assertRaisesRegex(AssertionError, NONDEFAULT_PACK):
+                        project_late_spike_family(self, changed)
+                    continue
                 self.manifest = changed
                 try:
                     with self.assertRaises(AssertionError):
@@ -820,8 +827,9 @@ class TitlePackageTests(unittest.TestCase):
                 elif case == 'duplicate-png-index':
                     changed['source_pngs']['0' * 64] = dict(changed['source_pngs'][stamp])
                 elif case == 'foreign-pack':
-                    other = next(value for name, value in changed['packs'].items()
-                                 if name not in {changed['default_preview_pack'], changed['default_debug_pack']})
+                    other = changed['packs'][add_nondefault_pack_fixture(changed)]
+                    # The metadata fixture alone must pass this family's guard.
+                    project_newsh4_entry6_family(self, json.loads(json.dumps(changed)))
                     other['files'][filename] = dict(receipt)
                     other['count'] += 1
                 elif case == 'changed-family-metadata':
@@ -832,6 +840,11 @@ class TitlePackageTests(unittest.TestCase):
                     changed['newsh4_entry6_v1']['unapproved'] = True
                 else:
                     del changed['newsh4_entry6_v1']
+                if case == 'foreign-pack':
+                    # Exercise ownership before unrelated historical projections.
+                    with self.assertRaisesRegex(AssertionError, NONDEFAULT_PACK):
+                        project_newsh4_entry6_family(self, changed)
+                    continue
                 self.manifest = changed
                 try:
                     with self.assertRaises(AssertionError):
@@ -912,8 +925,9 @@ class TitlePackageTests(unittest.TestCase):
                 elif case == 'duplicate-png-index':
                     changed['source_pngs']['0' * 64] = dict(changed['source_pngs'][stamp])
                 elif case == 'foreign-pack':
-                    other = next(value for name, value in changed['packs'].items()
-                                 if name not in {changed['default_preview_pack'], changed['default_debug_pack']})
+                    other = changed['packs'][add_nondefault_pack_fixture(changed)]
+                    # The metadata fixture alone must pass this family's guard.
+                    project_type15_family(self, json.loads(json.dumps(changed)))
                     other['files'][filename] = dict(receipt)
                     other['count'] += 1
                 elif case == 'changed-family-metadata':
@@ -924,6 +938,11 @@ class TitlePackageTests(unittest.TestCase):
                     changed['enemy_type15_eightheading_v1']['unapproved'] = True
                 else:
                     del changed['enemy_type15_eightheading_v1']
+                if case == 'foreign-pack':
+                    # Exercise ownership before unrelated historical projections.
+                    with self.assertRaisesRegex(AssertionError, NONDEFAULT_PACK):
+                        project_type15_family(self, changed)
+                    continue
                 self.manifest = changed
                 try:
                     with self.assertRaises(AssertionError):
@@ -965,6 +984,8 @@ class TitlePackageTests(unittest.TestCase):
                 menu_bundles(ROOT)
             except ValueError as error:
                 self.fail(str(error))
+            expected_menu['pack'] = 'startup-title-menu-v1'
+            expected_menu['compatibility_source_pack'] = 'startup-title-v1'
             self.assertEqual(added_menu, expected_menu)
         project_type15_family(self, without_title)
         opposite = without_title.pop('newsh4_opposite7_v1', None)
@@ -1049,16 +1070,18 @@ class TitlePackageTests(unittest.TestCase):
                 finally:
                     self.manifest = original
 
-    def test_original_mfg1_family_source_and_pack_are_unchanged(self):
-        paths = ['assets/hd/artwork/startup-manufacturer-v1',
-                 'assets/hd/packs/startup-manufacturer-v1', 'prototype/startup_manufacturer_bundle.py']
+    def test_original_mfg1_family_source_and_current_bytes_are_unchanged(self):
+        paths = ['assets/hd/artwork/startup-manufacturer-v1']
         subprocess.run(['git', 'diff', '--exit-code', '1df1d87', '--', *paths], cwd=ROOT, check=True,
                        capture_output=True)
         original = self.manifest['startup_manufacturer_v1']
+        from startup_manufacturer_bundle import build_bundles as manufacturer_bundles
+        generated = manufacturer_bundles(ROOT)
         for name, receipt in original['files'].items():
-            source = ROOT / 'assets/hd/packs/startup-manufacturer-v1' / name
+            raw, source_receipt = generated[name]
             copy = self.runtime / name
-            self.assertEqual(source.read_bytes(), copy.read_bytes())
+            self.assertEqual(raw, copy.read_bytes())
+            self.assertEqual(source_receipt, receipt)
             self.assertEqual(self.family['files'][name], receipt)
             self.assertEqual(sha(copy.read_bytes()), receipt['sha256'])
             self.assertEqual(copy.read_bytes()[:4], b'MFG1')
@@ -1073,7 +1096,7 @@ class TitlePackageTests(unittest.TestCase):
         self.assertEqual(copies_total, 8192128)
         self.assertEqual(title_total, self.family['title_resource_bytes'])
         self.assertEqual(copies_total, self.family['manufacturer_compatibility_bytes'])
-        self.assertEqual(len(list(self.runtime.iterdir())), 5)
+        self.assertEqual({p.name for p in self.runtime.iterdir()}, bundle.CURRENT_RUNTIME_FILES)
 
     def test_source_only_relocated_rebuild_is_exact(self):
         report = bundle.verify_source_rebuild(ROOT)
@@ -1185,7 +1208,7 @@ class TitlePackageTests(unittest.TestCase):
         # Isolate final on-disk checks from the already-tested expensive producer.
         with tempfile.TemporaryDirectory(prefix='title-runtime-rejections-') as temporary:
             repo = Path(temporary)
-            runtime = repo / 'assets/hd/packs/startup-title-v1'
+            runtime = repo / 'assets/hd/packs/startup-title-settings-v1'
             runtime.parent.mkdir(parents=True)
             shutil.copytree(self.runtime, runtime)
             manifest_path = repo / 'assets/hd/manifest.json'
@@ -1220,7 +1243,7 @@ class TitlePackageTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, 'independent receipt'):
                     bundle.build_bundles(repo)
 
-    def test_aggregate_title_block_verifies_and_outputs_only_five_files(self):
+    def test_aggregate_title_block_verifies_current_subset_without_duplicate_output(self):
         # Execute only the real title-family block, never the aggregate rebuild.
         text = (ROOT / 'prototype/build-hd-assets.py').read_text()
         block = text[text.index('title_count=0\n'):text.index('title_menu_count=0\n')]
@@ -1231,11 +1254,7 @@ class TitlePackageTests(unittest.TestCase):
             self.assertEqual(namespace['title_count'], 3)
             self.assertEqual(namespace['title_source_count'], 19)
             self.assertEqual(namespace['title_compatibility_count'], 2)
-            output = Path(temporary) / 'startup-title-v1'
-            self.assertEqual({p.name for p in output.iterdir()}, set(self.bundles))
-            for name, (raw, _) in self.bundles.items():
-                self.assertEqual((output / name).read_bytes(), raw)
-            self.assertEqual({p.name for p in Path(temporary).iterdir()}, {'startup-title-v1'})
+            self.assertEqual(list(Path(temporary).iterdir()), [])
 
 
 if __name__ == '__main__':

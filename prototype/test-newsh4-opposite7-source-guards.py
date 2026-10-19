@@ -12,6 +12,8 @@ import shutil
 import subprocess
 import sys
 
+from nondefault_pack_fixture import NONDEFAULT_PACK, add_nondefault_pack_fixture
+
 SOURCE = 'assets/hd/artwork/newsh4-opposite7-v1'
 SCRIPT = 'prototype/build-newsh4-opposite7-art.py'
 IDS = [231, 233, 235, 267, 269, 271, 273]
@@ -151,8 +153,7 @@ def main():
             pack['files']['enemy-newsh4-231-4.hda'] = entry
             pack['count'] += 1
         elif label == 'widened-other-pack':
-            other = next(name for name in changed['packs'] if name not in
-                         [changed['default_preview_pack'], changed['default_debug_pack']])
+            other = add_nondefault_pack_fixture(changed)
             changed['packs'][other]['files']['enemy-newsh4-231-8.hda'] = entry
             changed['packs'][other]['count'] += 1
         elif label == 'widened-quadrant':

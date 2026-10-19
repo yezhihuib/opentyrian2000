@@ -16,6 +16,8 @@ import struct
 import subprocess
 import sys
 
+from nondefault_pack_fixture import NONDEFAULT_PACK, add_nondefault_pack_fixture
+
 SOURCE = 'assets/hd/artwork/type3-small-six-v1'
 SCRIPT = 'prototype/build-type3-small-art.py'
 IDS = [171, 190, 209, 228, 247, 266]
@@ -242,7 +244,7 @@ def main():
         family = changed['type3_small_six_v1']
         if label.startswith('widened') or label == 'alias-header':
             if label == 'widened-other-pack':
-                other = next(name for name in changed['packs'] if name not in defaults)
+                other = add_nondefault_pack_fixture(changed)
                 pack = changed['packs'][other]
             filename = {'widened4x': 'enemy-newsh2-171-4.hda',
                         'alias-header': 'type3-unapproved-alias.hda'}.get(label, 'enemy-newsh2-171-8.hda')
@@ -320,7 +322,7 @@ def main():
             manifest_path.write_bytes(raw_manifest)
     corrupted('duplicate-manifest-key', 'assets/hd/manifest.json', 'duplicate JSON key',
               lambda b: b'{"packs": {},' + b.lstrip()[1:])
-    other = next(name for name in manifest['packs'] if name not in defaults)
+    other = NONDEFAULT_PACK
     extras = [
         ('unindexed-disk4x', f'assets/hd/packs/{defaults[1]}/enemy-newsh2-171-4.hda', 'widened on-disk pack inventory'),
         ('unindexed-other-pack', f'assets/hd/packs/{other}/enemy-newsh2-171-8.hda', 'widened on-disk pack inventory'),

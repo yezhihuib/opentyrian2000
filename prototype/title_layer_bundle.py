@@ -1,8 +1,8 @@
-"""Build and verify the finite, opt-in title TLV1 plus manufacturer MFG1 pack.
+"""Build and verify the finite title TLV1/MFG1 subset of the current startup pack.
 
 Only the frozen generated-only title source package is an artwork input. The
 original decoded source and palette hashes are compatibility identities, never
-original game pixels. MFG1 compatibility resources are copied byte-for-byte.
+original game pixels. MFG1 compatibility resources are rebuilt from their frozen canonical source.
 """
 from pathlib import Path
 import argparse
@@ -15,11 +15,14 @@ import sys
 import tempfile
 
 from PIL import Image
+from startup_manufacturer_bundle import (
+    CURRENT_RUNTIME_FILES, build_bundles as manufacturer_bundles,
+)
 
-PACK = 'startup-title-v1'
+PACK = 'startup-title-settings-v1'
 SOURCE = 'assets/hd/artwork/title-screen-v1'
 SCHEMA = 'finite-startup-title-tlv1-v1'
-MANUFACTURER_PACK = 'startup-manufacturer-v1'
+MANUFACTURER_PACK = PACK
 SOURCE_MANIFEST_SHA256 = 'd7bd240f1210d01c3d0e01a81ec5511fe02be7972014d6564e333c54306bd7cc'
 HEADER = struct.Struct('<4s11I4Q')
 PALETTE_FNV64 = '8f64628a08533287'
@@ -209,11 +212,13 @@ def build_family(repo):
     family = manifest['startup_manufacturer_v1']
     require(family['pack'] == MANUFACTURER_PACK and family['count'] == 2 and
             set(family['files']) == set(MANUFACTURER_HASHES), 'Unexpected MFG1 compatibility family')
-    original_root = repo / 'assets/hd/packs' / MANUFACTURER_PACK
-    require_inventory(original_root, MANUFACTURER_HASHES, 'Original manufacturer runtime pack')
+    generated_manufacturer = manufacturer_bundles(repo)
+    require(set(generated_manufacturer) == set(MANUFACTURER_HASHES),
+            'Unexpected generated manufacturer resources')
     for name, expected_sha in MANUFACTURER_HASHES.items():
-        raw = checked_file(original_root, name).read_bytes()
+        raw, generated_receipt = generated_manufacturer[name]
         receipt = family['files'][name]
+        require(receipt == generated_receipt, 'Manufacturer source receipt changed: ' + name)
         require(len(raw) == receipt['bytes'] == 4096064 and
                 sha(raw) == receipt['sha256'] == expected_sha and raw[:4] == b'MFG1',
                 'Original manufacturer compatibility identity changed: ' + name)
@@ -238,7 +243,7 @@ def build_bundles(repo):
     manifest = json.loads(checked_file(repo, 'assets/hd/manifest.json').read_text())
     require(manifest['startup_title_v1'] == expected, 'Title family differs from independent receipt')
     runtime_root = repo / 'assets/hd/packs' / PACK
-    require_inventory(runtime_root, RUNTIME_FILES, 'Title runtime pack')
+    require_inventory(runtime_root, CURRENT_RUNTIME_FILES, 'Current startup runtime pack')
     for name, (raw, _) in bundles.items():
         require(checked_file(runtime_root, name).read_bytes() == raw,
                 'Runtime bytes differ from frozen source: ' + name)

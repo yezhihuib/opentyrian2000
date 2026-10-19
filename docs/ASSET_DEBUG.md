@@ -1,5 +1,18 @@
 # 素材调试与 15 秒片段索引（首个可运行版本）
 
+## 当前资源包与历史检查点
+
+当前预览和调试入口分别保留自己的 `head-v1` 默认包。`-BeforeGreenHead`、
+`-BeforeGreenV2`、`-BeforeGreenTrail`、`-BeforeShield`、`-BeforeWhiteSmoke`、
+`-BeforeLargeGround`、`-BeforeImpact` 与 `-BeforeLargeAir` 对应的 16 个旧阶段目录
+已退役；脚本会在创建运行目录或启动程序前提示退役，不会静默改用新包。
+普通调试请省略这些参数。历史对照请先按[恢复与外部重建说明](RETIRED_HD_PACKS.md)
+恢复准确的旧包，再通过 `-Assets` 指向独立目录。更早的外部 `runtime-hd-assets`
+选择器只有在对应本地输入存在时才可使用。
+
+下文的首版默认帧数、文件数量、冻结回退点与验收记录均为历史检查点说明；
+其有限输入、时间与验收边界仍按原记录保留，不能作为当前默认资源数量的声明。
+
 在现有本地高清原型上使用；不下载游戏数据，不自动构建，不修改素材 ID 或关卡逻辑。蓝机械 v4 仍是冻结的整合进度，本交付验证调试入口，不代表蓝 v4 全部视觉状态已验收。
 
 ## 直接进入与暂停操作
@@ -75,4 +88,3 @@ git apply --reverse 'C:\path\opentyrian-asset-debug-only.patch'
 ```
 
 如check失败，保留现场差异并核对，不强行覆盖。冻结的本地完整回退点是 `checkpoints/blue-four-v4-before-asset-debug`。源文件更改后需用已有工具链执行 `.\prototype\build-game.ps1`；正常启动脚本、默认15素材/5船帧、固定flare145和已验收Talon13控制器均保留。
-

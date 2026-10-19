@@ -1,14 +1,14 @@
 # Accepted HD resources
 
-The manifest is the finite accepted mapping and authoritative default-pack count. Run `python prototype/build-hd-assets.py` to report and verify the current pack, HDR1 and source PNG totals. Historical resource stages remain available as rollback packs; their older counts are not the current defaults. No original game data or runtime captures are included.
+The manifest is the finite accepted mapping and authoritative default-pack count. Run `python prototype/build-hd-assets.py` to report and verify the current pack, HDR1 and source PNG totals. The two installed gameplay defaults retain their head-v1 directories. The 16 superseded gameplay stage packs and three duplicate startup subset directories have been retired; their recipes, sources and Git history remain available. Historical counts describe their original checkpoints. See [retired packs, recovery and external rebuilds](../../docs/RETIRED_HD_PACKS.md). No original game data or runtime captures are included.
 
 Recent scoped validation: `docs/GREEN_RENDER_VALIDATION.md`, `docs/ROTOR_ENEMY_VALIDATION.md`, `docs/GROUND_NINE_VALIDATION.md`, and `docs/ENEMY_ORB_VALIDATION.md`, and `docs/PLATEAU_FOUR_VALIDATION.md`. Each records its finite native-scene checks and remaining limitations. New artwork includes saved generated sources and deterministic registration/rebuild scripts in `artwork/`.
 
 source/*.png are exact RGBA dumps of accepted runtime payloads, with no resizing, color or alpha changes. Header keys, density, logical size and anchor are retained in manifest.json. These are production resource inputs, not screenshots. Regeneration must preserve those header fields.
 
-Run `python prototype/build-hd-assets.py` to verify every source/header/runtime hash. Use `--output NEW_DIRECTORY` to rebuild exact packs from PNGs without overwriting originals.
+Run `python prototype/build-hd-assets.py` to verify the active source/header/runtime hashes and the complete retained startup pack. Use `--output NEW_DIRECTORY` to rebuild the active packs from PNGs without overwriting originals. Historical gameplay recipes are retained separately in `manifest.json` under `retired_packs`; rebuild one externally with `python3 prototype/rebuild_retired_hd_pack.py PACK --output ABS_NEW_EXTERNAL_DIRECTORY`.
 
-Defaults and the three recent rollback selectors in start-actual-preview.ps1/start-asset-debug.ps1 use these repository packs. Earlier selectors still refer to preserved local legacy packs. Game data and local SDL SDKs remain separate prerequisites.
+The default `start-actual-preview.ps1` and `start-asset-debug.ps1` paths still use their respective installed head-v1 packs. Their eight superseded in-repository stage switches now stop with a retirement message. Older selectors for external `runtime-hd-assets` checkpoints remain available only when those separately managed local inputs exist. Game data and local SDL SDKs remain separate prerequisites.
 
 Static physical installation125–128: [validation](../../docs/INSTALLATION_VALIDATION.md), including the separate pending original-underlay strip.
 

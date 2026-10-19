@@ -114,6 +114,13 @@
     "src/xmas.h": "067ae634362b7d153ed71ecf69e66283e7f3a417279a7a06f1704503e919bf5a"
   },
   "test_resource_pack": "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-v1-test",
+  "test_resource_pack_rebuild": {
+    "recipe_manifest": "assets/hd/manifest.json",
+    "recipe_section": "retired_packs",
+    "builder": "prototype/rebuild_retired_hd_pack.py",
+    "output_policy": "new_absolute_directory_outside_checkout",
+    "meaning": "Frozen historical pack. Rebuild exact archived bytes; do not substitute current runtime assets."
+  },
   "fixture_environment": "No additional environment flag. Read-only natural shield observer; use normal asset-debug/capture arguments.",
   "limits": [],
   "snapshot_export_only_no_new_test_run": true

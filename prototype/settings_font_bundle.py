@@ -12,6 +12,7 @@ def regular(p):
     assert p.is_file() and not any(x.is_symlink() for x in [p,*p.parents]),p
     return p.read_bytes()
 def build_bundles(repo,check_manifest=True):
+    repo=Path(repo)
     pin_bytes=regular(repo/SOURCE/'large-source-pins.json')
     assert sha(pin_bytes)=='962be4b2fa26cbb64f4777e488dcd378377e49ab196ad1cc4d25e26f61318b51'
     pins=json.loads(pin_bytes)
@@ -26,7 +27,7 @@ def build_bundles(repo,check_manifest=True):
             raw=regular(repo/SOURCE/'canonical'/name)
             assert len(raw)==size and sha(raw)==digest and raw==regular(output/name),name
             bundles[name]=(raw,{'bytes':len(raw),'sha256':sha(raw)})
-    family={'schema':'finite-settings-font-sfn1-v1','pack':PACK,'source':SOURCE,'large_source':LARGE,'large_source_pins_sha256':sha(regular(repo/SOURCE/'large-source-pins.json')),'count':9,'settings_font_count':3,'compatibility_source_pack':'startup-title-menu-v1','compatibility_count':6,'files':{name:stamp for name,(_,stamp) in sorted(bundles.items())},'runtime_bytes':sum(len(raw) for raw,_ in bundles.values())}
+    family={'schema':'finite-settings-font-sfn1-v1','pack':PACK,'source':SOURCE,'large_source':LARGE,'large_source_pins_sha256':sha(regular(repo/SOURCE/'large-source-pins.json')),'count':9,'settings_font_count':3,'compatibility_source_pack':PACK,'compatibility_count':6,'files':{name:stamp for name,(_,stamp) in sorted(bundles.items())},'runtime_bytes':sum(len(raw) for raw,_ in bundles.values())}
     if check_manifest:assert json.loads(regular(repo/'assets/hd/manifest.json'))['startup_settings_font_v1']==family
     directory=repo/'assets/hd/packs'/PACK
     assert {p.name for p in directory.iterdir()}==set(bundles)

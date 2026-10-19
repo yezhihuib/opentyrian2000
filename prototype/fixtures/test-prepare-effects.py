@@ -35,6 +35,18 @@ class PrepareEffectsTests(unittest.TestCase):
         self.fixture = self.script.parent / 'effects/green-trail'
         (self.fixture / 'overrides/src').mkdir(parents=True)
         self.configure()
+        self.builder = self.repo / 'prototype/rebuild_retired_hd_pack.py'
+        self.builder.write_text(
+            "from pathlib import Path\nimport json\n"
+            "def build_pack(repo, pack_name, output):\n"
+            "    assert isinstance(repo, Path) and isinstance(output, Path)\n"
+            "    if pack_name != 'test-pack':\n"
+            "        raise ValueError('Unknown retired pack: ' + pack_name)\n"
+            "    output.mkdir(parents=True)\n"
+            "    (output / 'build-call.json').write_text(json.dumps({\n"
+            "        'repo': str(repo), 'pack': pack_name, 'output': str(output)}))\n"
+            "    (output / 'frozen.hda').write_bytes(b'archived pack bytes')\n"
+        )
 
     def configure(self, production=BASE, expected=None, override=OVERRIDE,
                   rel='src/base.c'):
@@ -53,14 +65,99 @@ class PrepareEffectsTests(unittest.TestCase):
         }
         (self.fixture / 'manifest.json').write_text(json.dumps(manifest))
 
-    def prepare(self, output=None):
+    def prepare(self, output=None, assets_output=None):
         if output is None:
             output = self.root / 'output'
-        return subprocess.run(
-            [sys.executable, str(self.script), '--family', 'green-trail',
-             '--output', str(output)],
-            capture_output=True, text=True,
+        command = [sys.executable, str(self.script), '--family', 'green-trail',
+                   '--output', str(output)]
+        if assets_output is not None:
+            command += ['--assets-output', str(assets_output)]
+        return subprocess.run(command, capture_output=True, text=True)
+
+    def test_source_only_prints_exact_historical_rebuild_command(self):
+        self.builder.write_text("raise AssertionError('unexpected asset rebuild')\n")
+        result = self.prepare()
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn('Required historical asset pack: test-pack', result.stdout)
+        self.assertIn('prototype/rebuild_retired_hd_pack.py test-pack --output ABS_NEW_EXTERNAL_DIRECTORY', result.stdout)
+        self.assertIn('--assets-output ABS_NEW_EXTERNAL_DIRECTORY', result.stdout)
+        self.assertFalse((self.repo / 'assets').exists())
+
+    def test_optional_assets_rebuild_uses_exact_recipe_and_external_path(self):
+        assets = self.root / 'historical-assets'
+        result = self.prepare(assets_output=assets)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(json.loads((assets / 'build-call.json').read_text()), {
+            'repo': str(self.repo), 'pack': 'test-pack', 'output': str(assets),
+        })
+        self.assertEqual((assets / 'frozen.hda').read_bytes(), b'archived pack bytes')
+        self.assertEqual((self.root / 'output/src/override.c').read_bytes(), OVERRIDE)
+        self.assertIn('Rebuilt exact archived asset pack: ' + str(assets), result.stdout)
+        self.assertFalse((self.repo / 'assets').exists())
+
+    def test_asset_output_rejects_relative_existing_checkout_and_overlap(self):
+        existing = self.root / 'existing-assets'
+        existing.mkdir()
+        (existing / 'keep').write_bytes(b'unchanged')
+        cases = (
+            ('relative', Path('relative-assets'), self.root / 'relative-sources', 'absolute'),
+            ('existing', existing, self.root / 'existing-sources', 'new resource-pack output'),
+            ('checkout', self.repo / 'retired-assets', self.root / 'checkout-sources', 'outside'),
+            ('same', self.root / 'same', self.root / 'same', 'separate'),
+            ('child', self.root / 'sources/pack', self.root / 'sources', 'separate'),
+            ('parent', self.root / 'pack', self.root / 'pack/sources', 'separate'),
         )
+        for label, assets, output, error in cases:
+            with self.subTest(case=label):
+                result = self.prepare(output, assets)
+                self.assertNotEqual(result.returncode, 0)
+                self.assertIn(error, result.stderr)
+                self.assertFalse(output.exists())
+                if assets != existing:
+                    self.assertFalse(assets.exists())
+        self.assertEqual((existing / 'keep').read_bytes(), b'unchanged')
+
+    def test_asset_output_rejects_symlink_into_checkout(self):
+        link = self.root / 'external-link'
+        try:
+            link.symlink_to(self.repo / 'new-assets', target_is_directory=True)
+        except (OSError, NotImplementedError):
+            self.skipTest('Directory symlinks unavailable')
+        result = self.prepare(assets_output=link)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn('Keep resource-pack output outside', result.stderr)
+        self.assertFalse((self.repo / 'new-assets').exists())
+        self.assertFalse((self.root / 'output').exists())
+
+    def test_invalid_sources_do_not_start_asset_reconstruction(self):
+        self.builder.write_text("raise AssertionError('unexpected asset rebuild')\n")
+        cases = (
+            ('production', BASE.replace(b'1', b'3'), OVERRIDE, 'Production base changed'),
+            ('override', BASE, OVERRIDE + b'changed', 'AssertionError'),
+        )
+        for label, production, override, error in cases:
+            with self.subTest(case=label):
+                self.configure(production=production, override=override)
+                assets = self.root / (label + '-assets')
+                output = self.root / (label + '-sources')
+                result = self.prepare(output, assets)
+                self.assertNotEqual(result.returncode, 0)
+                self.assertIn(error, result.stderr)
+                self.assertNotIn('unexpected asset rebuild', result.stderr)
+                self.assertFalse(assets.exists())
+                self.assertFalse(output.exists())
+
+    def test_unknown_historical_pack_fails_without_modern_fallback(self):
+        manifest_path = self.fixture / 'manifest.json'
+        manifest = json.loads(manifest_path.read_text())
+        manifest['test_resource_pack'] = 'missing-frozen-pack'
+        manifest_path.write_text(json.dumps(manifest))
+        assets = self.root / 'assets'
+        result = self.prepare(assets_output=assets)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn('Historical resource-pack rebuild failed: Unknown retired pack: missing-frozen-pack', result.stderr)
+        self.assertFalse(assets.exists())
+        self.assertFalse((self.root / 'output').exists())
 
     def assert_prepares_unchanged(self, production, expected):
         self.configure(production=production, expected=expected)
@@ -264,6 +361,26 @@ class PrepareEffectsTests(unittest.TestCase):
         self.assertNotEqual(result.returncode, 0)
         self.assertIn('Keep fixture output outside', result.stderr)
         self.assertFalse(output.exists())
+
+
+class ArchivedResourceManifestTests(unittest.TestCase):
+    def test_frozen_family_pack_names_and_reconstruction_contract(self):
+        prefix = 'packed-blue-four-foundation-type10-death-effects-'
+        expected = {
+            'white-smoke-v1': prefix + 'white-smoke-v1-test',
+            'shield-v1': prefix + 'white-smoke-shield-v1-test',
+            'green-trail': prefix + 'white-smoke-shield-green-v1-test',
+        }
+        for family, pack in expected.items():
+            with self.subTest(family=family):
+                manifest = json.loads((PREPARE.parent / 'effects' / family / 'manifest.json').read_text())
+                self.assertEqual(manifest['test_resource_pack'], pack)
+                rebuild = manifest['test_resource_pack_rebuild']
+                self.assertEqual(rebuild['recipe_manifest'], 'assets/hd/manifest.json')
+                self.assertEqual(rebuild['recipe_section'], 'retired_packs')
+                self.assertEqual(rebuild['builder'], 'prototype/rebuild_retired_hd_pack.py')
+                self.assertEqual(rebuild['output_policy'], 'new_absolute_directory_outside_checkout')
+                self.assertTrue(manifest['diagnostic_only_never_installed'])
 
 
 if __name__ == '__main__':

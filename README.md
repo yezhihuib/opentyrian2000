@@ -25,9 +25,9 @@ It builds on OpenTyrian2000 and OpenTyrian; the upstream README is preserved bel
   certification. The latest changes still need Windows runtime acceptance.
 - Fixed MODE/SHIELD/ARMOR lettering and finite gameplay tiny-font rendering
   are integrated, along with finite firepower, generator and coarse armor
-  meter refinement. Manufacturer PIC10/PIC12 have a separate opt-in. A separate
-  combined pack adds PIC4 and the two title logos; title menu typography has
-  its own opt-in below.
+  meter refinement. One optional complete startup pack includes manufacturer
+  PIC10/PIC12, PIC4 and both title logos, plus title/menu/settings/load and the
+  documented selector/pregame typography below.
   Title checks pass in eight bounded cases / 13 actual-engine executions, plus one
   exact post-merge regression. Native 2×/4×, cursor/restart and real idle handoff are covered.
   Manufacturer startup checks passed at native 2×/4× output sizes
@@ -208,19 +208,20 @@ normal local startup:
 
 ```sh
 ./opentyrian2000 --data=/absolute/path/to/tyrian2000 \
-  --startup-assets=assets/hd/packs/startup-manufacturer-v1
+  --startup-assets=assets/hd/packs/startup-title-settings-v1
 ```
 
-Run from the repository root, or give an absolute asset-directory path. This
-two-card directory replaces only PIC10 (XSIV GAMES) and PIC12 (ECLIPSE); title, menus and
-subsequent manual gameplay retain their existing presentation unless separately opted in. Missing,
-invalid or incompatible cards fall back independently to their originals.
+Run from the repository root, or give an absolute asset-directory path. The
+retained complete pack includes PIC10 (XSIV GAMES) and PIC12 (ECLIPSE), layered title
+art and the supported UI typography described below. It does not enable gameplay
+HD by itself. Missing, invalid or incompatible cards fall back independently to
+their originals.
 Original fades and skip/input code are preserved. Do not combine this option
 with network, render-test or asset-debug modes; those combinations are rejected.
 Without this option, ordinary startup remains classic. Debug builds reject it
 because their original startup skips the cards.
 
-[Startup contract and checks](docs/STARTUP_MANUFACTURER.md) record passing source/
+[Historical startup contract and checks](docs/STARTUP_MANUFACTURER.md) record passing source/
 unit checks and 12 bounded actual-engine executions: native-sized 2×/4×, original
 fades, queued key/held-mouse skipping, independent missing-card fallback and
 classic title handoff. These used SDL dummy/software; physical desktop/GPU,
@@ -230,18 +231,19 @@ manual-gameplay HD coverage.
 
 ### Optional layered title
 
-The separate combined pack keeps the two manufacturer cards and adds the PIC4
-background plus independently moving Tyrian and 2000™ logo layers:
+The same complete startup pack includes the two manufacturer cards, PIC4
+background and independently moving Tyrian and 2000™ logo layers:
 
 ```sh
 ./opentyrian2000 --data=/absolute/path/to/tyrian2000 \
-  --startup-assets=assets/hd/packs/startup-title-v1
+  --startup-assets=assets/hd/packs/startup-title-settings-v1
 ```
 
 The original 29 positions, split art/UI fades, version, menu/highlight and cursor
 writes are retained. Missing resources fall back per layer; invalid ownership
-returns the whole title to classic. The old two-card directory remains unchanged.
-[Title contract and checks](docs/STARTUP_TITLE.md) record eight passing cases / 13
+returns the whole title to classic. Earlier subset directories have been retired;
+see [historical pack recovery and rebuilds](docs/RETIRED_HD_PACKS.md).
+[Historical title contract and checks](docs/STARTUP_TITLE.md) record eight passing cases / 13
 actual-engine executions: native 2×/4×, independent missing layers, keyboard/mouse
 menu and cursor erase, Instructions/settled restart, fade-time input and the real
 30-second idle demo handoff. A further media-free merged regression matches all
@@ -252,12 +254,12 @@ physical joystick and demo gameplay remain untested; gameplay HD selection is un
 
 ### Optional title menu typography trial
 
-The separate six-file pack adds the reviewed medium-font V3.1 lettering to the
-existing manufacturer/title artwork:
+The same nine-file complete pack includes the reviewed medium-font V3.1 lettering
+alongside the manufacturer/title artwork and settings/load typography:
 
 ```sh
 ./opentyrian2000 --data=/absolute/path/to/tyrian2000 \
-  --startup-assets=assets/hd/packs/startup-title-menu-v1
+  --startup-assets=assets/hd/packs/startup-title-settings-v1
 ```
 
 Native 2×/4× retain their accepted output exactly. Other valid output sizes use
@@ -265,8 +267,9 @@ font-only coverage reduction and premultiplied linear magnification, while title
 art keeps its original sampling. Only the seven main-title rows use the new glyphs.
 Original colors, indexed text, widths, centering, hit boxes, input, palette fades
 and cursor remain authoritative. Missing or incompatible typography restores the
-whole classic menu while valid title art remains active. Version text, Settings/Load
-typography and gameplay HUF1 remain separate; existing packs/defaults are unchanged.
+whole classic menu while valid title art remains active. Version text and gameplay
+HUF1 remain separate; Settings/Load typography uses the same complete pack as
+explained below. Ordinary startup without the option stays classic.
 See the [historical protocol and acceptance](docs/TITLE_MENU_FONT.md) and
 [current output-portability checks and limits](docs/TITLE_MENU_FONT_PORTABILITY.md),
 including actual 1920×1200 and odd/letterboxed software output.
@@ -347,8 +350,8 @@ forums:  https://tyrian2k.proboards.com/board/5
 
 ### Optional settings typography
 
-The nine-file compatibility pack keeps the six published manufacturer/title/menu
-resources and adds smooth large, medium and tiny settings lettering:
+The retained nine-file complete startup pack includes the six manufacturer/title/menu
+resources and smooth large, medium and tiny settings lettering:
 
 ```sh
 ./opentyrian2000 --data=/absolute/path/to/tyrian2000 \
@@ -360,7 +363,8 @@ Only Setup, Graphics, Sound and their pickers are enhanced. Native nearest
 filtered/aspect output, uses the font-only portable path. Original colors, PIC2,
 bars, cursor, indexed text, metrics, input and saved settings remain authoritative.
 Missing or incompatible SFN1 files keep the complete settings menu classic while
-valid title resources remain usable. Existing packs/defaults are unchanged.
+valid title resources remain usable. Ordinary startup without the option stays
+classic.
 See [current output handling, fallback and validation](docs/SETTINGS_LOAD_FONT_PORTABILITY.md).
 [Protocol and bounded acceptance](docs/settings-font-v1/ACCEPTANCE.txt) include
 paired actual-engine controls, fades and lifecycle checks on SDL dummy/software,

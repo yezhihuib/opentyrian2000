@@ -12,6 +12,8 @@ import shutil
 import subprocess
 import sys
 
+from nondefault_pack_fixture import NONDEFAULT_PACK, add_nondefault_pack_fixture
+
 SOURCE = 'assets/hd/artwork/late-spike-v1'
 SCRIPT = 'prototype/build-late-spike-art.py'
 IDS = [1, 3, 5, 7, 9, 11]
@@ -154,8 +156,7 @@ def main():
             pack['files']['enemy-newsh2-1-4.hda'] = entry
             pack['count'] += 1
         elif label == 'widened-other-pack':
-            other = next(name for name in changed['packs'] if name not in
-                         [changed['default_preview_pack'], changed['default_debug_pack']])
+            other = add_nondefault_pack_fixture(changed)
             changed['packs'][other]['files']['enemy-newsh2-1-8.hda'] = entry
             changed['packs'][other]['count'] += 1
         elif label == 'widened-quadrant':
@@ -200,7 +201,7 @@ def main():
         finally:
             manifest_path.write_bytes(raw_manifest)
     defaults = [manifest['default_preview_pack'], manifest['default_debug_pack']]
-    other = next(name for name in manifest['packs'] if name not in defaults)
+    other = NONDEFAULT_PACK
     canonical = manifest['packs'][defaults[0]]['files']['enemy-newsh2-1-8.hda']['source_png']
     extras = [
         ('unindexed-disk4x', f'assets/hd/packs/{defaults[1]}/enemy-newsh2-1-4.hda', 'widened on-disk pack inventory'),

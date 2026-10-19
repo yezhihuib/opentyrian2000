@@ -1,6 +1,6 @@
 # Separate runtime and development packages
 
-The full project remains unchanged. `scripts/package_runtime.py` makes a new,
+`scripts/package_runtime.py` makes a new,
 allowlisted runtime copy outside the source root; it has no network, deletion,
 Git, overwrite, or source-move actions. A dry run is the default.
 
@@ -37,10 +37,13 @@ The copied inventory records SHA256 for every output resource.
 ## What stays in development
 
 Original image-generation outputs, editable PNGs, font TTF source, exported asset
-JSON, older experimental/debug packs, source, tests, build objects and Git history
-stay in their existing locations and do not enter the runtime copy. The
-classification is recorded in `packaging/runtime-selection-v1.json`. Nothing is
-moved, deleted, deduplicated in place, or removed from Git history.
+JSON, retained preview/debug packs, historical rebuild recipes, source, tests,
+build objects and Git history do not enter the runtime copy. The classification
+is recorded in `packaging/runtime-selection-v1.json`. The separate source-checkout
+cleanup retires 16 superseded gameplay pack directories and three duplicate
+startup subsets; their canonical sources, recipes and Git history remain intact.
+See [retired packs and recovery](RETIRED_HD_PACKS.md). The packaging tool itself
+never moves, deletes or deduplicates source files.
 
 Font license and provenance notices still ship with their derived runtime atlas.
 The compiled decoder's license and provenance notices are retained too.
@@ -137,5 +140,7 @@ All gameplay asset bytes were reused from locally available, hash-matching
 validation files. Only six missing startup resources (15,994,352 bytes) were
 retrieved from the pinned public baseline. No full-project asset download was
 needed. These measurements are a generated Linux runtime copy, not the previous
-Windows source ZIP or a complete Windows release. The source project and public
-repository were not reduced, deleted or rewritten.
+Windows source ZIP or a complete Windows release. That packaging run did not reduce, delete or rewrite the source project or public
+repository. The later, separately reviewed obsolete-pack cleanup is documented in
+[retired packs and recovery](RETIRED_HD_PACKS.md) and does not change this pinned
+runtime selection.

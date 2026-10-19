@@ -114,6 +114,13 @@
     "src/xmas.h": "067ae634362b7d153ed71ecf69e66283e7f3a417279a7a06f1704503e919bf5a"
   },
   "test_resource_pack": "packed-blue-four-foundation-type10-death-effects-white-smoke-v1-test",
+  "test_resource_pack_rebuild": {
+    "recipe_manifest": "assets/hd/manifest.json",
+    "recipe_section": "retired_packs",
+    "builder": "prototype/rebuild_retired_hd_pack.py",
+    "output_policy": "new_absolute_directory_outside_checkout",
+    "meaning": "Frozen historical pack. Rebuild exact archived bytes; do not substitute current runtime assets."
+  },
   "fixture_environment": "OT_FX_FIXTURE=1 and OT_FX_PROBE=1 for white/green; OT_SHIELD_PROBE=1 for shield observer",
   "limits": [
     "Script smoke and trail variants are deliberately triggered in an isolated original-call fixture; this is not proof of their natural occurrence in every level or weapon loadout.",

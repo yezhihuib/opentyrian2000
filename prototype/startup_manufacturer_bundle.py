@@ -1,11 +1,11 @@
-"""Validate the generated-only manufacturer artwork and separate MFG1 pack."""
+"""Validate the generated-only manufacturer artwork and MFG1 subset of the current startup pack."""
 from pathlib import Path
 import hashlib
 import json
 import runpy
 
-PACK = 'startup-manufacturer-v1'
-SOURCE = 'assets/hd/artwork/' + PACK
+PACK = 'startup-title-settings-v1'
+SOURCE = 'assets/hd/artwork/startup-manufacturer-v1'
 SCHEMA = 'finite-startup-manufacturer-mfg1-v1'
 SOURCE_FILES = frozenset((
     'FILES.txt', 'README.md', 'SHA256SUMS', 'build_previews.py', 'build_resource.py',
@@ -19,6 +19,11 @@ SOURCE_FILES = frozenset((
     'provenance/pilot-SHA256SUMS', 'provenance/pilot-manifest.json',
 ))
 RUNTIME_FILES = frozenset(('startup-pic10-v1.hda', 'startup-pic12-v1.hda'))
+CURRENT_RUNTIME_FILES = RUNTIME_FILES | frozenset((
+    'title-pic4-v1.hda', 'title-planet146-v1.hda', 'title-planet151-v1.hda',
+    'title-menu-font-v1.hda', 'settings-font-large-v1.hda',
+    'settings-font-medium-v1.hda', 'settings-font-tiny-v1.hda',
+))
 
 
 def sha(data):
@@ -73,10 +78,84 @@ def build_bundles(repo):
     require(set(bundles) == RUNTIME_FILES, 'Unexpected generated runtime filenames')
     runtime_root = repo / 'assets/hd/packs' / PACK
     require(runtime_root.is_dir() and not runtime_root.is_symlink(), 'Missing or symlinked runtime pack')
-    require({path.name for path in runtime_root.iterdir()} == RUNTIME_FILES,
-            'Manufacturer runtime directory contains unexpected files')
+    paths = list(runtime_root.iterdir())
+    require({path.name for path in paths} == CURRENT_RUNTIME_FILES and
+            all(path.is_file() and not path.is_symlink() for path in paths),
+            'Current startup runtime directory differs from its finite inventory')
     for name, (raw, receipt) in bundles.items():
         require(family['files'][name] == receipt, 'Runtime receipt differs from frozen manifest: ' + name)
         path = checked_file(repo, 'assets/hd/packs/' + PACK + '/' + name)
         require(path.read_bytes() == raw, 'Runtime bytes differ from canonical image: ' + name)
     return bundles
+
+
+# Exact historical recipes are projected only for pre-existing preservation
+# tests. They remain archived metadata, never installed runtime dependencies.
+RETIRED_GAMEPLAY_PACKS = (
+    'packed-talon13-foundation-type10-explosion-v2-test',
+    'packed-blue-four-foundation-type10-explosion-v2-test',
+    'packed-talon13-foundation-type10-explosion-v2-large-air-v1-test',
+    'packed-blue-four-foundation-type10-explosion-v2-large-air-v1-test',
+    'packed-talon13-foundation-type10-explosion-v2-large-air-v1-impact-v1-test',
+    'packed-blue-four-foundation-type10-explosion-v2-large-air-v1-impact-v1-test',
+    'packed-talon13-foundation-type10-death-effects-v1-test',
+    'packed-blue-four-foundation-type10-death-effects-v1-test',
+    'packed-talon13-foundation-type10-death-effects-white-smoke-v1-test',
+    'packed-blue-four-foundation-type10-death-effects-white-smoke-v1-test',
+    'packed-talon13-foundation-type10-death-effects-white-smoke-shield-v1-test',
+    'packed-blue-four-foundation-type10-death-effects-white-smoke-shield-v1-test',
+    'packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v1-test',
+    'packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v1-test',
+    'packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-test',
+    'packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-test',
+)
+ACTIVE_GAMEPLAY_PACKS = (
+    'packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test',
+    'packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test',
+)
+RETIRED_GAMEPLAY_SHA256 = 'adec3a11fc1d08fe2e598039547352afda3c5291c3afed7ba332b259ea54024b'
+
+
+def project_retired_resources_for_historical_checks(manifest):
+    """Validate the finite retirement delta, then restore its historical view.
+
+    Mutates only a caller-owned manifest copy. All archived receipts are pinned
+    before projection; unknown archives, changed defaults and route edits fail.
+    Existing historical whole-manifest/hash tests continue to verify everything
+    else against their original published checkpoints.
+    """
+    archived = manifest.get('retired_packs')
+    require(isinstance(archived, dict) and set(archived) == set(RETIRED_GAMEPLAY_PACKS),
+            'Retired gameplay recipe inventory changed')
+    encoded = json.dumps(archived, sort_keys=True, separators=(',', ':')).encode()
+    require(sha(encoded) == RETIRED_GAMEPLAY_SHA256,
+            'Retired gameplay recipe receipts changed')
+    packs = manifest['packs']
+    require(set(packs) == set(ACTIVE_GAMEPLAY_PACKS) and
+            manifest['default_preview_pack'] == ACTIVE_GAMEPLAY_PACKS[0] and
+            manifest['default_debug_pack'] == ACTIVE_GAMEPLAY_PACKS[1],
+            'Active gameplay pack scope changed')
+    locations = {
+        'startup_manufacturer_v1': {'pack': 'startup-manufacturer-v1'},
+        'startup_title_v1': {
+            'pack': 'startup-title-v1',
+            'manufacturer_compatibility_source_pack': 'startup-manufacturer-v1',
+        },
+        'startup_title_menu_v1': {
+            'pack': 'startup-title-menu-v1',
+            'compatibility_source_pack': 'startup-title-v1',
+        },
+    }
+    if 'startup_settings_font_v1' in manifest:
+        locations['startup_settings_font_v1'] = {
+            'compatibility_source_pack': 'startup-title-menu-v1',
+        }
+    for family, fields in locations.items():
+        for field in fields:
+            require(manifest[family][field] == PACK,
+                    'Current startup family route changed: ' + family + '.' + field)
+    manifest['packs'] = {name: archived[name] for name in RETIRED_GAMEPLAY_PACKS}
+    manifest['packs'].update({name: packs[name] for name in ACTIVE_GAMEPLAY_PACKS})
+    del manifest['retired_packs']
+    for family, fields in locations.items():
+        manifest[family].update(fields)

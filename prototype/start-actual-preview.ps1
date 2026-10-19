@@ -1,3 +1,13 @@
+<#
+.SYNOPSIS
+Launch the controlled HD preview with the current default resource pack.
+.DESCRIPTION
+The eight historical stage switches BeforeGreenHead, BeforeGreenV2,
+BeforeGreenTrail, BeforeShield, BeforeWhiteSmoke, BeforeLargeGround,
+BeforeImpact and BeforeLargeAir are retained only to report retirement.
+Omit them to use the current head-v1 pack. See docs/RETIRED_HD_PACKS.md
+for historical checkpoint recovery and external, on-demand rebuilds.
+#>
 param(
     [ValidateRange(60,6000)][int]$Ticks = 600,
     [switch]$Headless,
@@ -21,18 +31,17 @@ param(
     [switch]$BeforeFoundation
 )
 $ErrorActionPreference = 'Stop'
+# Fail before checking dependencies, creating runs, or launching a process.
+$retiredSelectors = @('BeforeGreenHead', 'BeforeGreenV2', 'BeforeGreenTrail', 'BeforeShield', 'BeforeWhiteSmoke', 'BeforeLargeGround', 'BeforeImpact', 'BeforeLargeAir')
+foreach ($retiredSelector in $retiredSelectors) {
+    if ($PSBoundParameters[$retiredSelector]) {
+        throw "Historical -$retiredSelector is retired. Omit this switch to use the current packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test pack. See docs/RETIRED_HD_PACKS.md for Git recovery or an external historical rebuild."
+    }
+}
 $previewRepoRoot = Split-Path -Parent $PSScriptRoot
 $previewTaskRoot = Split-Path -Parent $previewRepoRoot
 $previewPython = 'C:\Program Files\Python311\python.exe'
 $previewAssets = Join-Path $previewRepoRoot 'assets\hd\packs\packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test'
-if ($BeforeGreenHead) { $previewAssets = Join-Path $previewRepoRoot 'assets\hd\packs\packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-test' }
-if ($BeforeGreenV2) { $previewAssets = Join-Path $previewRepoRoot 'assets\hd\packs\packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v1-test' }
-if ($BeforeGreenTrail) { $previewAssets = Join-Path $previewRepoRoot 'assets\hd\packs\packed-talon13-foundation-type10-death-effects-white-smoke-shield-v1-test' }
-if ($BeforeShield) { $previewAssets = Join-Path $previewRepoRoot 'assets\hd\packs\packed-talon13-foundation-type10-death-effects-white-smoke-v1-test' }
-if ($BeforeWhiteSmoke) { $previewAssets = Join-Path $previewRepoRoot 'assets\hd\packs\packed-talon13-foundation-type10-death-effects-v1-test' }
-if ($BeforeLargeGround) { $previewAssets = Join-Path $previewRepoRoot 'assets\hd\packs\packed-talon13-foundation-type10-explosion-v2-large-air-v1-impact-v1-test' }
-if ($BeforeImpact) { $previewAssets = Join-Path $previewRepoRoot 'assets\hd\packs\packed-talon13-foundation-type10-explosion-v2-large-air-v1-test' }
-if ($BeforeLargeAir) { $previewAssets = Join-Path $previewRepoRoot 'assets\hd\packs\packed-talon13-foundation-type10-explosion-v2-test' }
 if ($BeforeSmallExplosion) { $previewAssets = Join-Path $previewTaskRoot 'runtime-hd-assets\packed-talon13-foundation-type10-v9-test' }
 if ($BeforeType10) { $previewAssets = Join-Path $previewTaskRoot 'runtime-hd-assets\packed-talon13-foundation-v1-test' }
 if ($BeforeFoundation) { $previewAssets = Join-Path $previewTaskRoot 'runtime-hd-assets\packed-talon13-test' }

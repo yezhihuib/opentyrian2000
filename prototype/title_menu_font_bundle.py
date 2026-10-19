@@ -1,10 +1,11 @@
-"""Finite title-only TMF1 V3.1 artwork and the explicit six-file startup pack."""
+"""Finite title-only TMF1 V3.1 artwork and the six-file subset of the current startup pack."""
 from pathlib import Path
 import argparse,hashlib,json,shutil,struct,subprocess,sys,tempfile
 from PIL import Image
+from startup_manufacturer_bundle import CURRENT_RUNTIME_FILES
 from title_layer_bundle import checked_file,require,require_inventory,sha,fnv64,build_bundles as title_bundles
 
-PACK='startup-title-menu-v1'
+PACK='startup-title-settings-v1'
 SOURCE='assets/hd/artwork/title-menu-font-v3-1'
 FILENAME='title-menu-font-v1.hda'
 SCHEMA='finite-title-menu-tmf1-v3-1'
@@ -62,14 +63,14 @@ def build_family(repo):
     bundles=title_bundles(repo)
     require(len(bundles)==5,'Expected five exact prior startup resources')
     raw,receipt=build_resource(repo/SOURCE);bundles[FILENAME]=(raw,receipt)
-    family={'schema':SCHEMA,'pack':PACK,'source':SOURCE,'source_manifest_sha256':SOURCE_MANIFEST_SHA256,'source_files':source_receipts(repo/SOURCE),'count':6,'menu_font_count':1,'startup_compatibility_count':5,'compatibility_source_pack':'startup-title-v1','files':{name:stamp for name,(_,stamp) in sorted(bundles.items())},'runtime_bytes':sum(len(data) for data,_ in bundles.values())}
+    family={'schema':SCHEMA,'pack':PACK,'source':SOURCE,'source_manifest_sha256':SOURCE_MANIFEST_SHA256,'source_files':source_receipts(repo/SOURCE),'count':6,'menu_font_count':1,'startup_compatibility_count':5,'compatibility_source_pack':PACK,'files':{name:stamp for name,(_,stamp) in sorted(bundles.items())},'runtime_bytes':sum(len(data) for data,_ in bundles.values())}
     return bundles,family
 
 def build_bundles(repo):
     repo=Path(repo);bundles,family=build_family(repo)
     manifest=json.loads(checked_file(repo,'assets/hd/manifest.json').read_text())
     require(manifest['startup_title_menu_v1']==family,'TMF1 family receipt changed')
-    pack=repo/'assets/hd/packs'/PACK;require_inventory(pack,bundles,'Title menu runtime pack')
+    pack=repo/'assets/hd/packs'/PACK;require_inventory(pack,CURRENT_RUNTIME_FILES,'Current startup runtime pack')
     for name,(raw,_) in bundles.items():require(checked_file(pack,name).read_bytes()==raw,'TMF1 runtime differs: '+name)
     return bundles
 

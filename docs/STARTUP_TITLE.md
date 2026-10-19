@@ -1,5 +1,12 @@
 # Optional layered title artwork
 
+Historical checkpoint: the commands, subset directories and file counts below
+record the original bounded acceptance. Those subset runtime directories have
+since been retired. For current use, select
+`--startup-assets=assets/hd/packs/startup-title-settings-v1`, which also enables
+the complete supported startup/UI family. See [retired pack recovery and
+rebuilds](RETIRED_HD_PACKS.md) to reproduce the historical subsets.
+
 The title family contains three separate generated assets: opaque PIC4 background,
 PLANET_SHAPES146 Tyrian logo, and PLANET_SHAPES151 2000™ companion. Version text,
 its indexed shadow, menu text/highlights and mouse cursor remain classic live draws.

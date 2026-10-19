@@ -145,4 +145,7 @@ def project_settings_family(test,manifest):
     root=Path(__file__).resolve().parents[1]
     _,family=build_bundles(root)
     test.assertEqual(manifest.pop('startup_settings_font_v1'),family)
+    from startup_manufacturer_bundle import project_retired_resources_for_historical_checks
+    try:project_retired_resources_for_historical_checks(manifest)
+    except ValueError as error:test.fail(str(error))
     test.assertEqual(hashlib.sha256((__import__('json').dumps(manifest,indent=2)+'\n').encode()).hexdigest(),'aebd2582950fa2c1d9b25ce4f0a1ec649f2dd6ff382432238624c9634e697d80')

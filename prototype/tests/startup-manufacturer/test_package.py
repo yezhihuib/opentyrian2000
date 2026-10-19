@@ -17,6 +17,7 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT / 'prototype'))
+from nondefault_pack_fixture import NONDEFAULT_PACK, add_nondefault_pack_fixture
 from type3_small_coexistence import project_type3_small_family
 sys.path.insert(0, str(ROOT / 'prototype'))
 from startup_manufacturer_bundle import build_bundles, PACK, SOURCE, SOURCE_FILES, RUNTIME_FILES
@@ -807,8 +808,9 @@ class ManufacturerPackageTests(unittest.TestCase):
                 elif case == 'duplicate-png-index':
                     changed['source_pngs']['0' * 64] = dict(changed['source_pngs'][stamp])
                 elif case == 'foreign-pack':
-                    other = next(value for name, value in changed['packs'].items()
-                                 if name not in {changed['default_preview_pack'], changed['default_debug_pack']})
+                    other = changed['packs'][add_nondefault_pack_fixture(changed)]
+                    # The metadata fixture alone must pass this family's guard.
+                    project_late_spike_family(self, json.loads(json.dumps(changed)))
                     other['files'][filename] = dict(receipt)
                     other['count'] += 1
                 elif case == 'changed-family-metadata':
@@ -819,6 +821,11 @@ class ManufacturerPackageTests(unittest.TestCase):
                     changed['late_spike_v1']['unapproved'] = True
                 else:
                     del changed['late_spike_v1']
+                if case == 'foreign-pack':
+                    # Exercise ownership before unrelated historical projections.
+                    with self.assertRaisesRegex(AssertionError, NONDEFAULT_PACK):
+                        project_late_spike_family(self, changed)
+                    continue
                 self.manifest = changed
                 try:
                     with self.assertRaises(AssertionError):
@@ -880,8 +887,9 @@ class ManufacturerPackageTests(unittest.TestCase):
                 elif case == 'duplicate-png-index':
                     changed['source_pngs']['0' * 64] = dict(changed['source_pngs'][stamp])
                 elif case == 'foreign-pack':
-                    other = next(value for name, value in changed['packs'].items()
-                                 if name not in {changed['default_preview_pack'], changed['default_debug_pack']})
+                    other = changed['packs'][add_nondefault_pack_fixture(changed)]
+                    # The metadata fixture alone must pass this family's guard.
+                    project_newsh4_entry6_family(self, json.loads(json.dumps(changed)))
                     other['files'][filename] = dict(receipt)
                     other['count'] += 1
                 elif case == 'changed-family-metadata':
@@ -892,6 +900,11 @@ class ManufacturerPackageTests(unittest.TestCase):
                     changed['newsh4_entry6_v1']['unapproved'] = True
                 else:
                     del changed['newsh4_entry6_v1']
+                if case == 'foreign-pack':
+                    # Exercise ownership before unrelated historical projections.
+                    with self.assertRaisesRegex(AssertionError, NONDEFAULT_PACK):
+                        project_newsh4_entry6_family(self, changed)
+                    continue
                 self.manifest = changed
                 try:
                     with self.assertRaises(AssertionError):
@@ -972,8 +985,9 @@ class ManufacturerPackageTests(unittest.TestCase):
                 elif case == 'duplicate-png-index':
                     changed['source_pngs']['0' * 64] = dict(changed['source_pngs'][stamp])
                 elif case == 'foreign-pack':
-                    other = next(value for name, value in changed['packs'].items()
-                                 if name not in {changed['default_preview_pack'], changed['default_debug_pack']})
+                    other = changed['packs'][add_nondefault_pack_fixture(changed)]
+                    # The metadata fixture alone must pass this family's guard.
+                    project_type15_family(self, json.loads(json.dumps(changed)))
                     other['files'][filename] = dict(receipt)
                     other['count'] += 1
                 elif case == 'changed-family-metadata':
@@ -984,6 +998,11 @@ class ManufacturerPackageTests(unittest.TestCase):
                     changed['enemy_type15_eightheading_v1']['unapproved'] = True
                 else:
                     del changed['enemy_type15_eightheading_v1']
+                if case == 'foreign-pack':
+                    # Exercise ownership before unrelated historical projections.
+                    with self.assertRaisesRegex(AssertionError, NONDEFAULT_PACK):
+                        project_type15_family(self, changed)
+                    continue
                 self.manifest = changed
                 try:
                     with self.assertRaises(AssertionError):

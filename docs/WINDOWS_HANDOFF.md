@@ -1,5 +1,12 @@
 # Windows handoff to dot
 
+Resource-inventory update: aggregate HD verification now uses the two retained
+head-v1 gameplay packs and the complete `startup-title-settings-v1` pack. The 16
+older gameplay stages and three duplicate startup subsets are retired. Older
+counts, rollback switches and fixture paths below describe their historical
+checkpoints; use [retired pack recovery and rebuilds](RETIRED_HD_PACKS.md) for
+those resources. This cleanup does not add Windows runtime acceptance.
+
 ## Optional external MP3 source/launcher support (2026-10-14)
 
 The source supports `--music-dir=DIR`, with the vendored single-header dr_mp3
@@ -61,7 +68,9 @@ and runtime remain untested at this checkpoint.**
 
 The last actual Windows acceptance was7a5c62f: classic/HD first15-second SDL runs,
 limited2×/4× checks and audio initialization. The next bounded smoke should use
-this current branch and rebuild all18 packs (2,946 HDA entries;369 active PNGs).
+the current branch and verify its two active gameplay packs plus the complete
+startup pack with `python prototype/build-hd-assets.py`. The earlier 18-pack count
+(2,946 HDA entries;369 active PNGs) describes the pre-cleanup checkpoint.
 Keep both lower-world parts, the cap sidecar, and the forest sidecar/declaration
 with each default pack. Start with classic and HD ordinary first15 seconds at
 native2×/4×, then inspect ordinary road/rock phase around500–559. Verify corrupt
