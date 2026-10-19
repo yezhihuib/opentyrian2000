@@ -1,0 +1,40 @@
+{
+  "format": "PSP1",
+  "header_bytes": 128,
+  "source": {
+    "file": "source-imagegen.png",
+    "sha256": "62b83ef444e0c767cb41f5d087d09f6f5e236533049a48f8f20c7b7347766476",
+    "size": [
+      1093,
+      1439
+    ],
+    "crop_xyxy": [
+      0,
+      0,
+      1093,
+      1390
+    ],
+    "provenance": "OpenAI imagegen exec-33bfe602-3004-4c52-b55b-79ee48a8cdbd"
+  },
+  "normalization": "Original RGBA crop -> 340x448 Lanczos; no original-mask clipping",
+  "alpha_below_8_zeroed_samples": 1427,
+  "outside_one_logical_pixel_samples": 0,
+  "logical_size": [
+    85,
+    112
+  ],
+  "density": 4,
+  "anchor": [
+    35,
+    33
+  ],
+  "rgba": "straight RGBA8; transparent RGB is zero",
+  "payload_bytes": 609280,
+  "payload_fnv1a": "0x3f8eb4a3ad911236",
+  "file_sha256": "708c0421a5228c0bacc59873f62a4f44c5d2c8f3dc0a38526a765b2f661ca099",
+  "pillow": "12.3.0",
+  "original_rle_fnv1a": "0x1cdda2674a130af2",
+  "original_index_fnv1a": "0x46b339e8cc2fd434",
+  "original_mask_fnv1a": "0xcdbc751beacea75c",
+  "runtime": "Independent optional sibling of SFN1 resources in --startup-assets"
+}

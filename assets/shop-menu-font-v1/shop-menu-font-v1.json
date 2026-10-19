@@ -1,0 +1,171 @@
+{
+  "format": "SMR1",
+  "header_bytes": 128,
+  "runs": [
+    {
+      "id": 0,
+      "text": "Game Menu",
+      "file": "shop-menu-run0-v1.hda",
+      "output_xywh": [
+        695,
+        38,
+        482,
+        57
+      ],
+      "anchor_native_640": [
+        348.099609375,
+        20
+      ],
+      "baseline_native_640": 46.25,
+      "font_size_native_640": 36,
+      "natural_advance_native_640": 239.80078125,
+      "payload_bytes": 54948,
+      "payload_fnv1a": "0xc1b5ce69a90ade7f",
+      "file_sha256": "d8c100e5ca103bdda246913f2818a8815fd03a02165e494380fed9688d7a763a"
+    },
+    {
+      "id": 1,
+      "text": "Data",
+      "file": "shop-menu-run1-v1.hda",
+      "output_xywh": [
+        663,
+        151,
+        141,
+        41
+      ],
+      "anchor_native_640": [
+        332,
+        76
+      ],
+      "baseline_native_640": 95.0,
+      "font_size_native_640": 26,
+      "natural_advance_native_640": 69.1015625,
+      "payload_bytes": 11562,
+      "payload_fnv1a": "0x8a973e6f1d86f1d6",
+      "file_sha256": "8b85a42a210f0c5a91b7c8d90307398329fe5dfd95e0ebd408d22e28eb42f3d0"
+    },
+    {
+      "id": 2,
+      "text": "Ship Specs",
+      "file": "shop-menu-run2-v1.hda",
+      "output_xywh": [
+        663,
+        213,
+        322,
+        53
+      ],
+      "anchor_native_640": [
+        332,
+        108
+      ],
+      "baseline_native_640": 127.0,
+      "font_size_native_640": 26,
+      "natural_advance_native_640": 159.673828125,
+      "payload_bytes": 34132,
+      "payload_fnv1a": "0xa521134ef0554bb0",
+      "file_sha256": "e228e0e9798e8fb048459bcf837c0bddb50d3a1d545b93c52e65d045e0ae7a55"
+    },
+    {
+      "id": 3,
+      "text": "Upgrade Ship",
+      "file": "shop-menu-run3-v1.hda",
+      "output_xywh": [
+        663,
+        277,
+        400,
+        54
+      ],
+      "anchor_native_640": [
+        332,
+        140
+      ],
+      "baseline_native_640": 159.0,
+      "font_size_native_640": 26,
+      "natural_advance_native_640": 198.76171875,
+      "payload_bytes": 43200,
+      "payload_fnv1a": "0xf4ea22a5bbfb83c1",
+      "file_sha256": "05a5757b27836b9d72390b00a059a207d37b2a0d060b0ade3165c3cdb580944d"
+    },
+    {
+      "id": 4,
+      "text": "Options",
+      "file": "shop-menu-run4-v1.hda",
+      "output_xywh": [
+        663,
+        341,
+        230,
+        53
+      ],
+      "anchor_native_640": [
+        332,
+        172
+      ],
+      "baseline_native_640": 191.0,
+      "font_size_native_640": 26,
+      "natural_advance_native_640": 113.90625,
+      "payload_bytes": 24380,
+      "payload_fnv1a": "0xe90679beaf196c6b",
+      "file_sha256": "cbd2b086dc5f99439972aa8ed2fa3a831d67b6e047e2a3dc58a9ead255de777f"
+    },
+    {
+      "id": 5,
+      "text": "Start Level",
+      "file": "shop-menu-run5-v1.hda",
+      "output_xywh": [
+        663,
+        405,
+        324,
+        43
+      ],
+      "anchor_native_640": [
+        332,
+        204
+      ],
+      "baseline_native_640": 223.0,
+      "font_size_native_640": 26,
+      "natural_advance_native_640": 160.705078125,
+      "payload_bytes": 27864,
+      "payload_fnv1a": "0xc547806623816490",
+      "file_sha256": "62f511ca6a67e7720df6d1abd5cebe3114f7a126b2447332519bca2d76b8f550"
+    },
+    {
+      "id": 6,
+      "text": "Quit Game",
+      "file": "shop-menu-run6-v1.hda",
+      "output_xywh": [
+        663,
+        533,
+        312,
+        50
+      ],
+      "anchor_native_640": [
+        332,
+        268
+      ],
+      "baseline_native_640": 287.0,
+      "font_size_native_640": 26,
+      "natural_advance_native_640": 154.62109375,
+      "payload_bytes": 31200,
+      "payload_fnv1a": "0xb3904d5309698c42",
+      "file_sha256": "98740d6e2c5e4d537a0dfa06e74184ba1dcfb77f84b3a367e87b046617aac98c"
+    }
+  ],
+  "payload_bytes": 227286,
+  "source": {
+    "file": "DejaVuSans-Bold.ttf",
+    "sha256": "a4c5bc453ca281d90ea079e596da7ae0dfeb5777497c29ec254e76d97ff6f890",
+    "license": "LICENSE-DejaVu.txt"
+  },
+  "rasterizer": {
+    "pillow": "12.3.0",
+    "freetype": "2.14.3",
+    "raqm": "0.10.5",
+    "preview_supersample": 8
+  },
+  "planes": "alpha8 then role8; role zero iff alpha zero, otherwise 12..15",
+  "shadow_output_offset": [
+    8,
+    8
+  ],
+  "runtime": "Optional per-run sibling of SFN1; root menu only; no runtime FreeType"
+}

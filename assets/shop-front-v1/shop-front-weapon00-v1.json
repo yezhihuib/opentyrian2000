@@ -1,0 +1,43 @@
+{
+  "format": "PSP1",
+  "header_bytes": 128,
+  "part": "front",
+  "source": {
+    "file": "source-imagegen.png",
+    "sha256": "a8ffaf746ee2a81a62aaadcbd0f6c3b720165392c8a2d94d6279f4ed03692365",
+    "size": [
+      1236,
+      1273
+    ],
+    "crop_xyxy": [
+      27,
+      33,
+      1209,
+      1233
+    ],
+    "provenance": "OpenAI imagegen exec-af83d411-da96-4062-9f42-61d53c38f630"
+  },
+  "normalization": "Original RGBA crop -> 4x Lanczos; alpha<8 zeroed with RGB; no original-mask clipping",
+  "alpha_below_8_zeroed_samples": 550,
+  "outside_runtime_one_logical_cell_samples": 0,
+  "bank": 6,
+  "index": 0,
+  "logical_size": [
+    33,
+    34
+  ],
+  "density": 4,
+  "anchor": [
+    61,
+    48
+  ],
+  "rgba": "straight RGBA8; transparent RGB zero",
+  "payload_bytes": 71808,
+  "payload_fnv1a": "0xd930cdf47ff0e77c",
+  "file_sha256": "638b515d06fb019171eb9ee4b1e17ff680e5b8a1b03351b7e36c203defe8657e",
+  "pillow": "12.3.0",
+  "original_rle_fnv1a": "0x1a232f9fc3e904b2",
+  "original_index_fnv1a": "0xdb89c876a399ba93",
+  "original_mask_fnv1a": "0x1ea87c3f611af9a4",
+  "runtime": "Independent optional SFN1 sibling; only known Talon full illustration; fixed front anchor excludes rear"
+}
