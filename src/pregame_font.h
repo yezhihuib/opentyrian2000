@@ -4,13 +4,16 @@
 #include "SDL.h"
 #include <stdbool.h>
 #include <stddef.h>
-enum PregameRun { PREGAME_HEADING, PREGAME_ROW, PREGAME_CASH, PREGAME_FOOTER };
+enum PregameRun { PREGAME_HEADING, PREGAME_ROW, PREGAME_CASH, PREGAME_FOOTER, PREGAME_PRODUCT_NAME, PREGAME_PRODUCT_COST, PREGAME_POWER };
 enum PregameGlyph { PREGAME_DARK, PREGAME_BLACK, PREGAME_FACE, PREGAME_UNSAFE, PREGAME_ORIGINAL };
 enum PregamePhase { PREGAME_CUBES=10, PREGAME_BARS, PREGAME_SHIP };
 size_t pregame_font_static_bytes(void);
 bool pregame_font_owns_display(void);
 void pregame_font_set_directory(const char *);
 void pregame_font_begin(unsigned menu, unsigned selected, unsigned last, bool ordinary, unsigned long cash, unsigned cubes, SDL_Surface *, SDL_Surface *);
+void pregame_font_product_begin(unsigned category, unsigned selected, unsigned last, bool ordinary, SDL_Surface *, SDL_Surface *);
+void pregame_font_product_update_begin(void);
+void pregame_font_product_update_end(void);
 void pregame_font_end(void);
 void pregame_font_release_texture(void);
 void pregame_font_invalidate(void);

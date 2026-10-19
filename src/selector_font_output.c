@@ -190,9 +190,10 @@ static bool cursor_tiles(SDL_Renderer *r,const struct OutputGeometry *g,const SD
  return true;
 }
 
-/* Continuous reconstruction belongs only to the title-font overlay. Enlarge
+/* Explicit continuous reconstruction for opted-in completed overlays. Enlarge
  * the completed correlated premultiplied layer, not individual glyph passes.
- * Fully covered flat interiors stay exact; artwork never enters this filter. */
+ * Default callers retain sample(). The optional pregame metal caller supplies
+ * an additional classic-write guard below; no indexed artwork is filtered. */
 static Uint32 sample_overlay(const Uint32 *layer,const struct OutputGeometry *g,int px,int py,Uint32 base)
 {
  if(g->w<=CW&&g->h<=CH)return sample(layer,g,px,py,base);
@@ -223,7 +224,7 @@ static Uint32 sample_overlay(const Uint32 *layer,const struct OutputGeometry *g,
 
 static bool present(SDL_Renderer *renderer,SDL_Texture *reference,
  SDL_Surface *underlay,ScalerFunction scale,const SDL_Rect *dst,
- const Uint32 *layer,const SDL_Rect *support,const Uint8 *cursor,unsigned radius,bool smooth)
+ const Uint32 *layer,const SDL_Rect *support,const Uint8 *cursor,unsigned radius,bool smooth,const Uint8 *guard)
 {
  struct OutputGeometry g;SDL_RendererInfo info;SDL_Rect canonical={0,0,CW,CH};
  SDL_Rect ink,cursor_box={0,0,0,0};Uint8 old_r,old_g,old_b,old_a;bool ok=false,changed_scale=false;
@@ -270,7 +271,12 @@ static bool present(SDL_Renderer *renderer,SDL_Texture *reference,
    if(SDL_RenderReadPixels(renderer,&tile,SDL_PIXELFORMAT_ARGB8888,output.pixels,TILE_W*4))goto finish;
    for(int y=0;y<height;y++)for(int x=0;x<width;x++){
     unsigned p=y*TILE_W+x;int ox=tx+x,oy=ty+y;
-    output.pixels[p]=smooth?sample_overlay(layer,&g,ox,oy,output.pixels[p]):sample(layer,&g,ox,oy,output.pixels[p]);
+    bool reconstruct=smooth;
+    if(guard&&reconstruct&&(g.w>CW||g.h>CH)){
+     int gx=(int)floor(((ox+0.5-g.x)*CW/g.w)/4),gy=(int)floor(((oy+0.5-g.y)*CH/g.h)/4);
+     if(gx>=0&&gx<IW&&gy>=0&&gy<IH&&guard[gy*IW+gx])reconstruct=false;
+    }
+    output.pixels[p]=reconstruct?sample_overlay(layer,&g,ox,oy,output.pixels[p]):sample(layer,&g,ox,oy,output.pixels[p]);
    }
    SDL_Rect source={0,0,width,height},destination={tx-g.viewport.x,ty-g.viewport.y,width,height};
    if(SDL_UpdateTexture(output.tile,&source,output.pixels,TILE_W*4)||SDL_RenderCopy(renderer,output.tile,&source,&destination))goto finish;
@@ -291,12 +297,17 @@ static bool present(SDL_Renderer *renderer,SDL_Texture *reference,
 bool selector_font_output_present(SDL_Renderer *r,SDL_Texture *reference,
  SDL_Surface *underlay,ScalerFunction scale,const SDL_Rect *dst,
  const Uint32 *layer,const SDL_Rect *support,const Uint8 *cursor,unsigned radius)
-{return present(r,reference,underlay,scale,dst,layer,support,cursor,radius,false);}
+{return present(r,reference,underlay,scale,dst,layer,support,cursor,radius,false,NULL);}
 
 bool selector_font_output_present_smooth(SDL_Renderer *r,SDL_Texture *reference,
  SDL_Surface *underlay,ScalerFunction scale,const SDL_Rect *dst,
  const Uint32 *layer,const SDL_Rect *support,const Uint8 *cursor,unsigned radius)
-{return present(r,reference,underlay,scale,dst,layer,support,cursor,radius,true);}
+{return present(r,reference,underlay,scale,dst,layer,support,cursor,radius,true,NULL);}
+
+bool selector_font_output_present_smooth_guarded(SDL_Renderer *r,SDL_Texture *reference,
+ SDL_Surface *underlay,ScalerFunction scale,const SDL_Rect *dst,
+ const Uint32 *layer,const SDL_Rect *support,const Uint8 *cursor,unsigned radius,const Uint8 *guard)
+{return present(r,reference,underlay,scale,dst,layer,support,cursor,radius,true,guard);}
 
 /* Title artwork has its own authenticated RGBA compositor, so it supplies the
  * unchanged rendered underlay rather than an indexed scaler source. Reuse the

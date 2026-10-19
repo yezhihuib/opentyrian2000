@@ -7,9 +7,9 @@
 #include <unistd.h>
 static unsigned allocation_calls,fail_allocation=UINT_MAX;
 static size_t allocated,peak_allocated;
-static struct {void *p;size_t size;} allocations[4];
-static void *lease_malloc(size_t n){if(allocation_calls++==fail_allocation)return NULL;void *p=malloc(n);if(p){unsigned i=0;while(i<4&&allocations[i].p)i++;if(i==4)abort();allocations[i].p=p;allocations[i].size=n;allocated+=n;if(allocated>peak_allocated)peak_allocated=allocated;}return p;}
-static void lease_free(void *p){if(p){unsigned i=0;while(i<4&&allocations[i].p!=p)i++;if(i==4)abort();allocated-=allocations[i].size;allocations[i].p=NULL;free(p);}}
+static struct {void *p;size_t size;} allocations[5];
+static void *lease_malloc(size_t n){if(allocation_calls++==fail_allocation)return NULL;void *p=malloc(n);if(p){unsigned i=0;while(i<5&&allocations[i].p)i++;if(i==5)abort();allocations[i].p=p;allocations[i].size=n;allocated+=n;if(allocated>peak_allocated)peak_allocated=allocated;}return p;}
+static void lease_free(void *p){if(p){unsigned i=0;while(i<5&&allocations[i].p!=p)i++;if(i==5)abort();allocated-=allocations[i].size;allocations[i].p=NULL;free(p);}}
 #define malloc lease_malloc
 #define free lease_free
 #include "../src/pregame_font.c"
@@ -125,6 +125,15 @@ static int original_role(unsigned bank,unsigned id,unsigned tx,unsigned ty)
 static Uint32 oracle(unsigned x,unsigned y)
 {
  unsigned p=(y/4)*320+x/4,index=sf.base[p];Uint32 color=0;
+ if(metal_visible()){
+  unsigned offset=0,target=y*SF_OW+x;
+  for(unsigned run=0;run<PF_METAL_RUNS;run++){
+   unsigned start=u32(sf.metal+offset),n=u32(sf.metal+offset+4);offset+=8;
+   if(target>=start&&target<start+n){const Uint8 *v=sf.metal+offset+(target-start)*4;unsigned a=v[3];color=a<<24;
+    for(unsigned c=0;c<3;c++)color|=((((v[c]*sf.metal_gain+127)/255)*a+127)/255)<<(16-c*8);break;}
+   offset+=n*4;
+  }
+ }
  for(unsigned k=0;k<sf.count;k++){
   const struct SfCommand *c=&sf.commands[k];
   if(c->kind==C_CLASSIC){for(unsigned i=c->first;i<c->first+c->events;i++)if(sf.events[i].position==p){index=sf.events[i].index;color=0;}continue;}
@@ -144,7 +153,7 @@ static void render_checks(void)
  for(unsigned k=0;k<200;k++){unsigned x=(k*71+states*11)%1280,y=(k*53+states*17)%800;REQUIRE(sf.output[y*1280+x]==oracle(x,y));}
  /* Inspect every canonical glyph point on a deterministic sparse grid. */
  for(unsigned k=0;k<sf.count;k++)if(sf.commands[k].kind!=C_CLASSIC){const struct SfCommand *c=&sf.commands[k];unsigned x=c->x*4+c->w*2,y=c->y*4+c->h*2;REQUIRE(sf.output[y*1280+x]==oracle(x,y));}
- for(unsigned p=0;p<SF_N;p++)if(!sf.owner[p]){REQUIRE(sf.underlay[p]==sf.expected[p]);REQUIRE(sf.output[(p/320)*4*1280+(p%320)*4]==0);}
+ for(unsigned p=0;p<SF_N;p++)if(!sf.owner[p]){REQUIRE(sf.underlay[p]==sf.expected[p]);if(!metal_visible())REQUIRE(sf.output[(p/320)*4*1280+(p%320)*4]==0);}
 }
 static void cursor_checks(void)
 {
@@ -183,6 +192,7 @@ static void write_bytes(const char *path,const Uint8 *p,size_t n)
 static void failed_acquire(const char *d)
 {
  Uint8 before[SF_N];memcpy(VGAScreen->pixels,raw_base,SF_N);memcpy(before,VGAScreen->pixels,SF_N);pregame_font_set_directory(d);memcpy(VGAScreen->pixels,raw_base,SF_N);pregame_font_begin(0,2,7,true,10000,4,VGAScreen,VGAScreen2);REQUIRE(!sf.active&&!sf.output&&allocated==0);REQUIRE(!memcmp(before,VGAScreen->pixels,SF_N));
+ pregame_font_product_begin(3,2,4,true,VGAScreen,VGAScreen2);REQUIRE(!sf.active&&!sf.output&&allocated==0);REQUIRE(!memcmp(before,VGAScreen->pixels,SF_N));
 }
 static void resource_failures(const char *d)
 {
@@ -252,16 +262,157 @@ static void negatives(const char *dir)
  /* Unsafe arithmetic is deliberately neither saturated nor RGB-halved. */
  REQUIRE(face(0,15,-3)==253&&face(15,1,6)==21&&shade(239)==231);
 }
+/* Small product-page grammar and dynamic-tail regressions. No purchase code. */
+static void product_text(enum PregameRun role,unsigned row,int x,int y,const char *text,unsigned font,unsigned hue,int value)
+{
+ pregame_font_run_begin(role,row,VGAScreen,x,y,text,font,hue,value);
+ if(font==0)JE_dString(VGAScreen,x,y,text,font);
+ else if(role==PREGAME_POWER)JE_outText(VGAScreen,x,y,text,hue,value);
+ else JE_textShade(VGAScreen,x,y,text,hue,value,DARKEN);
+ pregame_font_run_end();
+}
+static void product_page(const char *dir,unsigned category,unsigned selected,const char *cash,bool enabled)
+{
+ pregame_font_set_directory(dir);memcpy(VGAScreen->pixels,raw_base,SF_N);memcpy(VGAScreen2->pixels,raw_base,SF_N);live_palette(colors);
+ pregame_font_product_begin(category,selected,4,enabled,VGAScreen,VGAScreen2);
+ trace=SF_FNV;trace_count=0;
+ const char *title=menuInt[2][category-1];
+ product_text(PREGAME_HEADING,0,234-JE_textWidth(title,0)/2,10,title,0,15,-3);
+ const char *names[]={"Pulse-Cannon","Multi-Cannon","Done"};
+ for(unsigned row=1;row<=3;row++){
+  unsigned hue=row+1==selected?0:1;int value=row+1==selected?7:4;
+  if(row==2)value-=4; /* unaffordable row */
+  if(row==1){fill_rectangle_xy(VGAScreen,160,47,300,51,227);blit_sprite2(VGAScreen,298,42,shopSpriteSheet,247);}
+  product_text(PREGAME_PRODUCT_NAME,row,185,40+(row-1)*26,names[row-1],2,hue,value);
+  if(row<3){blit_sprite2x2(VGAScreen,160,36+(row-1)*26,shopSpriteSheet,1);product_text(PREGAME_PRODUCT_COST,row,187,50+(row-1)*26,row==1?"Cost: 500":"Cost: 1000000000",2,hue,value);}
+ }
+ product_text(PREGAME_CASH,0,65,173,cash,2,1,6);
+ product_text(PREGAME_FOOTER,selected,10,187,mainMenuHelp[selected==4?11:23],2,14,1);
+ pregame_font_frame_end();
+}
+static void product_tick(const char *cash,unsigned power_level,bool mode,bool occlude)
+{
+ pregame_font_product_update_begin();
+ fill_rectangle_xy(VGAScreen,8,8,143,182,0);
+ blit_sprite(VGAScreen,0,0,5,12);
+ /* Many writes to one pixel must not consume the finite event array. */
+ for(unsigned i=0;i<50000;i++)JE_pix(VGAScreen,20,20,i&255);
+ unsigned px=58,py=137,xx=0,yy=0;const Sprite *g=sprite(2,font_ascii['P']);
+ for(unsigned k=0;k<g->size;k++){
+  unsigned v=g->data[k];
+  if(v==255)xx+=g->data[++k];else if(v==254)xx=g->width;else if(v==253)++xx;else break;
+  if(xx==g->width){xx=0;++yy;}
+ }
+ px+=xx;py+=yy;
+ if(occlude){JE_pix(VGAScreen,px,py,111);JE_pix(VGAScreen,px,py,112);}
+ char buf[32];
+ if(mode)product_text(PREGAME_POWER,3,28,137,miscText[70],2,1,4);
+ else {
+  product_text(PREGAME_POWER,1,108,137,"100000",2,7,4);
+  snprintf(buf,sizeof(buf),"%s %u",miscTextB[5],power_level);
+  product_text(PREGAME_POWER,2,58,137,buf,2,15,4);
+ }
+ if(occlude){JE_pix(VGAScreen,px,py,253);JE_pix(VGAScreen,px,py,254);}
+ product_text(PREGAME_CASH,0,65,173,cash,2,1,6);
+ pregame_font_product_update_end();
+ if(sf.frame){
+  REQUIRE(sf.stage==S_READY&&sf.event_count<SF_EVENTS);render();REQUIRE(replay_matches());
+  if(occlude)for(unsigned yy=0;yy<4;yy++)for(unsigned xx=0;xx<4;xx++)REQUIRE(!sf.output[(py*4+yy)*SF_OW+px*4+xx]);
+ }
+}
+static void product_checks(const char *dir)
+{
+ strcpy(miscTextB[5],"POWER:");strcpy(miscText[70],"[/] Rear Weapon Mode");
+ for(unsigned category=2;category<=8;category++){
+  product_page(dir,category,2,"10000",true);REQUIRE(sf.active&&sf.frame&&sf.stage==S_READY);render();REQUIRE(replay_matches());
+ }
+ Uint8 expected[SF_N];uint64_t original_trace;unsigned original_count;
+ product_page(dir,3,2,"10000",true);REQUIRE(sf.frame);product_tick("999",11,false,true);REQUIRE(sf.frame);
+ memcpy(expected,sf.pixels,SF_N);original_trace=trace;original_count=trace_count;
+ product_page(dir,3,2,"10000",false);product_tick("999",11,false,true);
+ REQUIRE(!memcmp(expected,VGAScreen->pixels,SF_N)&&trace==original_trace&&trace_count==original_count);
+ product_page(dir,4,2,"10000",true);
+ for(unsigned tick=0;tick<8;tick++){product_tick(tick%2?"999":"10000",tick%2?1:11,tick%2,false);REQUIRE(sf.frame);}
+ present_checks();
+ /* Repeated non-sim Cash shadows are the sole replay exception. */
+ product_page(dir,2,2,"10000",true);
+ for(unsigned i=0;i<3;i++){pregame_font_product_update_begin();product_text(PREGAME_CASH,0,65,173,"10000",2,1,6);pregame_font_product_update_end();render();REQUIRE(sf.frame&&replay_matches());}
+ pregame_font_product_update_begin();JE_pix(VGAScreen,10,187,0);REQUIRE(!sf.frame);
+ product_page(dir,3,4,"999",true);REQUIRE(sf.frame&&sf.product_footer);render();REQUIRE(replay_matches());
+ pregame_font_product_update_begin();JE_pix(VGAScreen,154,20,0);REQUIRE(!sf.frame);
+ product_page(dir,3,2,"10000",true);((Uint8 *)sf.pixels)[100]^=1;pregame_font_product_update_begin();REQUIRE(!sf.frame);
+ product_page(dir,3,2,"10000",true);sf.static_events=SF_EVENTS;pregame_font_product_update_begin();JE_pix(VGAScreen,20,20,0);REQUIRE(!sf.frame);
+ pregame_font_end();memcpy(VGAScreen->pixels,raw_base,SF_N);pregame_font_product_begin(3,2,8,true,VGAScreen,VGAScreen2);REQUIRE(!sf.active);
+}
+
+/* The optional skin is additive to the font contract, with independent failure
+ * and exact provenance occlusion. These tests need the separate staged dir. */
+static void metal_checks(const char *dir)
+{
+ frame_checks(dir,0,4,4,15,10);REQUIRE(sf.metal&&metal_visible()&&sf.metal_gain==255);render_checks();
+ Uint8 indexed[SF_N];memcpy(indexed,sf.pixels,SF_N);uint64_t output_hash=hash(sf.output,SF_OUT_BYTES);
+ for(unsigned i=0;i<20;i++){render();REQUIRE(hash(sf.output,SF_OUT_BYTES)==output_hash&&!memcmp(sf.pixels,indexed,SF_N));}
+ /* The complete 4x4 footprint of any classic event must be skin-free, even
+  * when the write repeats the original PIC1 index exactly. */
+ sf.count=0;sf.event_count=0;sf.stage=S_BUILD;render();unsigned p=0;
+ while(p<SF_N&&!(sf.output[(p/320)*4*SF_OW+(p%320)*4]>>24))++p;REQUIRE(p<SF_N);
+ struct SfCommand *c=append(C_CLASSIC,0,0,0,0,0,0);REQUIRE(c);REQUIRE(event(p%320,p/320,sf.base[p],0));c->events=1;
+ render();REQUIRE(sf.metal_blocked[p]);
+ for(unsigned y=0;y<4;y++)for(unsigned x=0;x<4;x++)REQUIRE(!sf.output[((p/320)*4+y)*SF_OW+(p%320)*4+x]);
+ /* Classic -> partial HD font in the same logical cell. The provenance
+  * guard must survive, so enlarged reconstruction cannot pull neighbouring
+  * metal into the uncovered samples of that cell. */
+ sf.count=sf.event_count=0;sf.stage=S_BUILD;unsigned id=font_ascii['A'];
+ const struct SfSpec *sp=&spec[2];const struct SfGlyph *g=glyph(2,id);unsigned gx=0,gy=0;
+ while(gy<g->h*4u&&!sf.payload[2][((id/16)*sp->ch+4+gy)*sp->aw+(id%16)*sp->cw+4+gx]){if(++gx==g->w*4u){gx=0;++gy;}}
+ REQUIRE(gy<g->h*4u);p=(10+gy/4)*SF_W+10+gx/4;
+ c=append(C_CLASSIC,0,0,0,0,0,0);REQUIRE(c);REQUIRE(event(p%320,p/320,sf.base[p],0));c->events=1;REQUIRE(append(C_FACE,10,10,2,id,1,6));
+ SDL_Rect support=render();REQUIRE(sf.metal_blocked[p]);
+ SDL_Surface *out=SDL_CreateRGBSurfaceWithFormat(0,2560,1600,32,SDL_PIXELFORMAT_RGB888);REQUIRE(out);SDL_Renderer *renderer=SDL_CreateSoftwareRenderer(out);REQUIRE(renderer);
+ SDL_Texture *reference=SDL_CreateTexture(renderer,SDL_PIXELFORMAT_RGB888,SDL_TEXTUREACCESS_STREAMING,640,400);REQUIRE(reference);REQUIRE(!SDL_SetTextureBlendMode(reference,SDL_BLENDMODE_NONE));
+ SDL_Surface underlay=*sf.screen;underlay.pixels=sf.underlay;scaler=1;scalers[1].scaler32(&underlay,reference);SDL_Rect dst={0,0,2560,1600};
+ REQUIRE(selector_font_output_present_smooth_guarded(renderer,reference,&underlay,scalers[1].scaler32,&dst,sf.output,&support,NULL,0,sf.metal_blocked));
+ Uint32 base=sf.palette[sf.underlay[p]];
+ for(unsigned y=0;y<8;y++)for(unsigned x=0;x<8;x++){
+  unsigned ox=(p%SF_W)*8+x,oy=(p/SF_W)*8+y;Uint32 layer=sf.output[(oy/2)*SF_OW+ox/2],actual=((Uint32 *)((Uint8 *)out->pixels+oy*out->pitch))[ox];
+  Uint8 r,b,green;SDL_GetRGB(actual,out->format,&r,&green,&b);unsigned channels[3]={b,green,r};
+  for(unsigned z=0;z<3;z++)REQUIRE(channels[z]==((layer>>(z*8))&255)+((((base>>(z*8))&255)*(255-(layer>>24))+127)/255));
+ }
+ pregame_font_release_texture();SDL_DestroyTexture(reference);SDL_DestroyRenderer(renderer);SDL_FreeSurface(out);
+ for(unsigned category=2;category<=8;category++){
+  product_page(dir,category,2,"10000",true);REQUIRE(sf.metal&&metal_visible()==(category==2||category==5));render();REQUIRE(replay_matches());
+ }
+ frame_checks(dir,0,4,4,15,10);fades(dir); /* gain reaches exact black/full */
+ frame_checks(dir,0,4,4,15,10);pregame_font_fade_declare(10);SDL_Color black={0,0,0,255};pregame_font_fade_start(NULL,&black,0,255);
+ for(int n=10;n;n--){SDL_Color pal[256];memcpy(pal,sf.expected_palette,sizeof(pal));for(unsigned i=0;i<256;i++){pal[i].r+=(0-pal[i].r)/n;pal[i].g+=(0-pal[i].g)/n;pal[i].b+=(0-pal[i].b)/n;}live_palette(pal);pregame_font_fade_step(n,0,255);render();}
+ REQUIRE(sf.metal_gain==0);render_checks();
+ pregame_font_end();REQUIRE(!allocated);
+ char temp[]="/tmp/shop-metal-test-XXXXXX";REQUIRE(mkdtemp(temp));char paths[4][1024];
+ for(unsigned b=0;b<3;b++){char in[1024];snprintf(in,sizeof(in),"%s/settings-font-%s-v1.hda",dir,spec[b].name);snprintf(paths[b],sizeof(paths[b]),"%s/settings-font-%s-v1.hda",temp,spec[b].name);REQUIRE(!symlink(in,paths[b]));}
+ snprintf(paths[3],sizeof(paths[3]),"%s/shop-frame-metal-v1.hda",temp);char in[1024];snprintf(in,sizeof(in),"%s/shop-frame-metal-v1.hda",dir);
+ FILE *f=fopen(in,"rb");REQUIRE(f);size_t bytes=128+PF_METAL_BYTES;Uint8 *file=malloc(bytes+1);REQUIRE(file&&fread(file,1,bytes,f)==bytes);fclose(f);file[bytes]=0;
+ acquire(temp,0,2,4);REQUIRE(!sf.metal);pregame_font_end();
+ for(unsigned offset=0;offset<128;offset+=4){file[offset]^=128;write_bytes(paths[3],file,bytes);acquire(temp,0,2,4);REQUIRE(!sf.metal&&sf.active);pregame_font_end();file[offset]^=128;}
+ const size_t sizes[]={0,127,bytes-1,bytes+1};for(unsigned i=0;i<4;i++){write_bytes(paths[3],file,sizes[i]);acquire(temp,0,2,4);REQUIRE(!sf.metal&&sf.active);pregame_font_end();}
+ file[128]^=1;write_bytes(paths[3],file,bytes);acquire(temp,0,2,4);REQUIRE(!sf.metal&&sf.active);pregame_font_end();file[128]^=1;
+ write_bytes(paths[3],file,bytes);fail_allocation=allocation_calls+4;acquire(temp,0,2,4);REQUIRE(!sf.metal&&sf.active);pregame_font_end();fail_allocation=UINT_MAX;
+ acquire(temp,0,2,4);REQUIRE(sf.metal);pregame_font_invalidate();REQUIRE(!sf.frame);pregame_font_end();
+ REQUIRE(!unlink(paths[3]));REQUIRE(!mkdir(paths[3],0700));acquire(temp,0,2,4);REQUIRE(!sf.metal);pregame_font_end();REQUIRE(!rmdir(paths[3]));
+ REQUIRE(!mkfifo(paths[3],0600));acquire(temp,0,2,4);REQUIRE(!sf.metal);pregame_font_end();REQUIRE(!unlink(paths[3]));
+ for(unsigned b=0;b<3;b++)REQUIRE(!unlink(paths[b]));REQUIRE(!rmdir(temp));free(file);
+}
+
 int main(int argc,char **argv)
 {
- REQUIRE(argc==3);REQUIRE(SDL_Init(SDL_INIT_VIDEO)==0);
+ REQUIRE(argc==3||argc==4);REQUIRE(SDL_Init(SDL_INIT_VIDEO)==0);
  VGAScreen=VGAScreenSeg=SDL_CreateRGBSurface(0,320,200,8,0,0,0,0);VGAScreen2=SDL_CreateRGBSurface(0,320,200,8,0,0,0,0);REQUIRE(VGAScreen&&VGAScreen2);
  main_window_tex_format=SDL_AllocFormat(SDL_PIXELFORMAT_RGB888);REQUIRE(main_window_tex_format);
  fixtures(argv[1]);strings_fixture(argv[1]);memcpy(raw_base,VGAScreen2->pixels,SF_N);REQUIRE(hash(raw_base,SF_N)==PF_BASE);REQUIRE(classic_sources());
  for(unsigned menu=0;menu<2;menu++)for(unsigned selected=2;selected<=(menu?9u:7u);selected++)for(unsigned cubes=0;cubes<=4;cubes++){
   frame_checks(argv[2],menu,selected,cubes,15+cubes,10+cubes);render_checks();
  }
- frame_checks(argv[2],0,4,4,15,10);cursor_checks();present_checks();fades(argv[2]);occlusion_checks(argv[2]);negatives(argv[2]);resource_failures(argv[2]);pregame_font_end();REQUIRE(!allocated);
+ frame_checks(argv[2],0,4,4,15,10);cursor_checks();present_checks();fades(argv[2]);occlusion_checks(argv[2]);negatives(argv[2]);product_checks(argv[2]);resource_failures(argv[2]);pregame_font_end();REQUIRE(!allocated);
+ if(argc==4)metal_checks(argv[3]);
  for(unsigned b=0;b<7;b++)for(unsigned id=0;id<sprite_table[b].count;id++)free(sprite(b,id)->data);
  free(shopSpriteSheet.data);SDL_FreeSurface(VGAScreen);SDL_FreeSurface(VGAScreen2);SDL_FreeFormat(main_window_tex_format);SDL_Quit();
  printf("PASS pregame core: %u states, %u checks; static=%zu peak_owned=%zu output_static=%zu; no game runs\n",states,checks,sizeof(sf),peak_allocated,selector_font_output_static_bytes());return 0;

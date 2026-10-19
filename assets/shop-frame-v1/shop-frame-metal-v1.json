@@ -1,0 +1,75 @@
+{
+  "format": "PMF1 sparse row runs, straight RGBA8",
+  "version": 1,
+  "source": {
+    "file": "source-imagegen.png",
+    "sha256": "455e3b1b64754def2243583f9f19233eb926ea73ff546a9cc5311de1d24ab551",
+    "size": [
+      1586,
+      992
+    ],
+    "provenance": "Existing approved OpenAI imagegen output exec-40e633a6-95b6-48ca-b95c-6e4927a6ea0d; no redraw"
+  },
+  "layout_mask": {
+    "file": "static-metal-support-320x200.bin",
+    "sha256": "f640be25a78f702b314aed5ffa3670a93a115df30f78169f81b715b1c94c90ac",
+    "role": "Authenticated PIC1 safety layout; continuous narrow contour plus explicit empty lower-left corner repair"
+  },
+  "normalization": "1586x992 -> 1280x800 Lanczos; fixed 320x200 logical mapping, not native 8x art",
+  "alpha": "Gaussian 2.2 canonical px, tight level-set ramp 112..144; original flat floors remain transparent",
+  "corner_repair": {
+    "bounds_logical": [
+      159,
+      136,
+      169,
+      181
+    ],
+    "anchors_logical": [
+      [
+        159,
+        136
+      ],
+      [
+        160,
+        136
+      ],
+      [
+        161.5,
+        140
+      ],
+      [
+        161.5,
+        161
+      ],
+      [
+        163,
+        166
+      ],
+      [
+        166.5,
+        175
+      ],
+      [
+        168.5,
+        180
+      ],
+      [
+        159,
+        180
+      ]
+    ],
+    "purpose": "Replace old diagonal metal retained by the conservative rectangle; no text/anchor changes"
+  },
+  "canvas": [
+    1280,
+    800
+  ],
+  "runs": 2492,
+  "pixels": 314221,
+  "payload_bytes": 1276820,
+  "payload_fnv1a": "0xccdc5e34cc4f9f93",
+  "file_bytes": 1276948,
+  "file_sha256": "639f0c723e1058628e32b052a9613d09a478ff1d2fb4ce28235a94aaa8235260",
+  "reference_pillow": "12.3.0",
+  "runtime": "Optional sibling of settings-font-*-v1.hda in --startup-assets directory"
+}

@@ -112,6 +112,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\src\animlib.c" />
+    <ClCompile Include="..\src\data_pickup_glyph.c" />
+    <ClCompile Include="..\src\fixed_pickup_flash.c" />
+    <ClCompile Include="..\src\gameplay_hud_storm.c" />
+    <ClCompile Include="..\src\rear_multi_p1.c" />
+    <ClCompile Include="..\src\secret_exit_orb.c" />
     <ClCompile Include="..\src\arg_parse.c" />
     <ClCompile Include="..\src\backgrnd.c" />
     <ClCompile Include="..\src\config.c" />

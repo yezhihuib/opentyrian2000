@@ -535,8 +535,12 @@ void JE_itemScreen(void)
 				rightPower = false;
 			}
 
+			pregame_font_product_begin(curSel[MENU_UPGRADES],curSel[curMenu],menuChoices[curMenu], !twoPlayerMode && !onePlayerAction && !isNetworkGame && !superTyrian && superArcadeMode == SA_NONE && !constantPlay && !timedBattleMode,VGAScreen,VGAScreen2);
+
 			/* submenu title  e.g., "Left Sidekick" */
+			pregame_font_run_begin(PREGAME_HEADING,0,VGAScreen,74+JE_fontCenter(menuInt[2][curSel[MENU_UPGRADES]-1],FONT_SHAPES),10,menuInt[2][curSel[MENU_UPGRADES]-1],FONT_SHAPES,15,-3);
 			JE_dString(VGAScreen, 74 + JE_fontCenter(menuInt[2][curSel[MENU_UPGRADES]-1], FONT_SHAPES), 10, menuInt[2][curSel[MENU_UPGRADES]-1], FONT_SHAPES);
+			pregame_font_run_end();
 
 			/* Iterate through all submenu options */
 			for (tempW = 1; tempW < menuChoices[curMenu]; tempW++)
@@ -601,7 +605,9 @@ void JE_itemScreen(void)
 				{
 					strcpy(tempStr, miscText[13]);
 				}
+				pregame_font_run_begin(PREGAME_PRODUCT_NAME,tempW,VGAScreen,185,tempY,tempStr,TINY_FONT,temp2/16,temp2%16-8-afford_shade);
 				JE_textShade(VGAScreen, 185, tempY, tempStr, temp2 / 16, temp2 % 16 - 8 - afford_shade, DARKEN);
+				pregame_font_run_end();
 
 				/* Draw icon if not DONE. NOTE: None is a normal item with a blank icon. */
 				if (tempW < menuChoices[curMenu]-1)
@@ -618,7 +624,9 @@ void JE_itemScreen(void)
 					char buf[20];
 
 					snprintf(buf, sizeof buf, "Cost: %d", temp_cost);
+					pregame_font_run_begin(PREGAME_PRODUCT_COST,tempW,VGAScreen,187,tempY+10,buf,TINY_FONT,temp2/16,temp2%16-8-afford_shade);
 					JE_textShade(VGAScreen, 187, tempY+10, buf, temp2 / 16, temp2 % 16 - 8 - afford_shade, DARKEN);
+					pregame_font_run_end();
 				}
 			}
 		}
@@ -936,8 +944,10 @@ void JE_itemScreen(void)
 					      curSel[MENU_UPGRADES] <= 8)))
 					{
 						setDelay(3);
+						pregame_font_product_update_begin();
 						JE_weaponSimUpdate();
 						JE_drawScore();
+						pregame_font_product_update_end();
 						service_SDL_events(false);
 
 						if (newPal > 0)
@@ -966,13 +976,16 @@ void JE_itemScreen(void)
 						}
 
 						JE_mouseReplace();
+						pregame_font_cursor_erased();
 
 					}
 					else  /* current menu is anything but weapon sim or datacube */
 					{
 						setDelay(2);
 
+						pregame_font_product_update_begin();
 						JE_drawScore();
+						pregame_font_product_update_end();
 
 						if (newPal > 0)
 						{
@@ -2693,7 +2706,9 @@ void JE_drawScore(void)
 	if (curMenu == MENU_UPGRADE_SUB)
 	{
 		sprintf(cl, "%d", JE_cashLeft());
+		pregame_font_run_begin(PREGAME_CASH,0,VGAScreen,65,173,cl,TINY_FONT,1,6);
 		JE_textShade(VGAScreen, 65, 173, cl, 1, 6, DARKEN);
+		pregame_font_run_end();
 	}
 }
 
@@ -3287,23 +3302,31 @@ void JE_weaponSimUpdate(void)
 			&& (weaponSimTime >= 75))
 		{
 			// [/] Rear Weapon Mode
+			pregame_font_run_begin(PREGAME_POWER,3,VGAScreen,28,137,miscText[70],TINY_FONT,1,4);
 			JE_outText(VGAScreen, 28, 137, miscText[70], 1, 4);
+			pregame_font_run_end();
 		}
 		else
 		{
 			if (leftPower)
 			{
 				sprintf(buf, "%d", downgradeCost);
+				pregame_font_run_begin(PREGAME_POWER,0,VGAScreen,26,137,buf,TINY_FONT,1,4);
 				JE_outText(VGAScreen, 26, 137, buf, 1, 4);
+				pregame_font_run_end();
 			}
 			if (rightPower)
 			{
 				sprintf(buf, "%d", upgradeCost);
+				pregame_font_run_begin(PREGAME_POWER,1,VGAScreen,108,137,buf,TINY_FONT,(rightPowerAfford) ? 1 : 7,4);
 				JE_outText(VGAScreen, 108, 137, buf, (rightPowerAfford) ? 1 : 7, 4);
+				pregame_font_run_end();
 			}
 
 			sprintf(buf, "%s %d", miscTextB[5], temp);
+			pregame_font_run_begin(PREGAME_POWER,2,VGAScreen,58,137,buf,TINY_FONT,15,4);
 			JE_outText(VGAScreen, 58, 137, buf, 15, 4);
+			pregame_font_run_end();
 		}
 
 		for (int x = 1; x <= temp; x++)

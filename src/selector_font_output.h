@@ -32,12 +32,23 @@ bool selector_font_output_present(SDL_Renderer *renderer,
  const Uint8 *cursor_mask, unsigned scaler_radius);
 /* Explicit opt-in for portable menus: same contract and untouched indexed
  * underlay as present(), with continuous premultiplied reconstruction on
- * enlarged axes. Existing selector/pregame callers keep present() unchanged. */
+ * enlarged axes. Existing default callers retain present() unchanged; optional
+ * pregame metal opts in through the guarded entry point below. */
 bool selector_font_output_present_smooth(SDL_Renderer *renderer,
  SDL_Texture *reference_texture, SDL_Surface *indexed_underlay,
  ScalerFunction scale, const SDL_Rect *destination,
  const Uint32 *canonical_premul_argb, const SDL_Rect *support,
  const Uint8 *cursor_mask, unsigned scaler_radius);
+/* As smooth(), but final classic writes retain their exact logical footprint
+ * on enlarged axes. A 320x200 provenance mask prevents reconstructed background
+ * metal from bleeding back into opaque dynamic writes, including same-index
+ * writes. Later font samples remain in the ordered layer, using the original
+ * nearest reconstruction inside these guarded logical cells. */
+bool selector_font_output_present_smooth_guarded(SDL_Renderer *renderer,
+ SDL_Texture *reference_texture, SDL_Surface *indexed_underlay,
+ ScalerFunction scale, const SDL_Rect *destination,
+ const Uint32 *canonical_premul_argb, const SDL_Rect *support,
+ const Uint8 *cursor_mask, unsigned scaler_radius, const Uint8 *classic_guard);
 
 /* Draw only the ordered transparent font layer over an already rendered
  * nearest-sampled canonical RGBA underlay. The completed premultiplied font
