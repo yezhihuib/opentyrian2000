@@ -45,12 +45,13 @@
 #define PF_METAL_HASH UINT64_C(0xccdc5e34cc4f9f93)
 #include "shop_talon_sprite_pins.h"
 #include "shop_equipment_sprite_pins.h"
+#include "shop_generator_sprite_pins.h"
 enum { SF_W=320,SF_H=200,SF_N=64000,SF_OW=1280,SF_OH=800,
  SF_OUT_BYTES=4096000,SF_PAYLOAD=1785856,SF_COMMANDS=1024,SF_GLYPHS=272,
  SF_MASK_BYTES=60*17*20+85*12*13+127*6*8,SF_EVENTS=40000,SF_CAP=11*1024*1024,
  PF_METAL_BYTES=1276820,PF_METAL_RUNS=2492,PF_METAL_PIXELS=314221,
  PF_SPRITE_W=85,PF_SPRITE_H=112,PF_SPRITE_BYTES=85*112*16*4,
- PF_FRONT_BYTES=33*34*16*4,PF_SHOP_SPRITES=2 };
+ PF_FRONT_BYTES=33*34*16*4,PF_GENERATOR_BYTES=31*35*16*4,PF_SHOP_SPRITES=3 };
 enum { C_DARK,C_FACE,C_CLASSIC,C_SPRITE };
 enum { S_IDLE,S_BUILD,S_RUN,S_PRIMITIVE,S_READY,S_CURSOR,S_CURSOR_DONE };
 struct SfSpec { unsigned aw,ah,cw,ch,n,eligible,plane,mode,lo,hi,mw,mh; uint64_t metrics,encoded,eligibility,payload; const char *name; };
@@ -59,11 +60,12 @@ static const struct SfSpec spec[3]={
  {896,384,56,64,85,76,344064,1,12,15,12,13,UINT64_C(0xf0dec0f37828f1c4),UINT64_C(0x96f0e4e668876f23),UINT64_C(0xa3861b64f710cb1f),UINT64_C(0x08f9609583417c89),"medium"},
  {512,320,32,40,127,86,163840,0,7,7,6,8,UINT64_C(0x0908ca85cbf2a1e3),UINT64_C(0x2ed2973d82ce6f3d),UINT64_C(0x68e8c2bab3c43d0d),UINT64_C(0x85cddeb8bd7ea09a),"tiny"}
 };
-/* Exactly two fixed identities; PSP1 never supplies allocation geometry. */
+/* Exactly three fixed identities; PSP1 never supplies allocation geometry. */
 struct ShopSpriteSpec { unsigned bank,id,w,h,x,y,bytes,rle_bytes;uint64_t rle,index,mask,payload;const char *name; };
 static const struct ShopSpriteSpec shop_spec[PF_SHOP_SPRITES]={
  {5,31,85,112,35,33,PF_SPRITE_BYTES,5578,PF_SPRITE_RLE,PF_SPRITE_INDEX,PF_SPRITE_MASK,PF_SPRITE_HASH,"shop-talon-option31-v1.hda"},
- {6,0,33,34,61,48,PF_FRONT_BYTES,897,UINT64_C(0x1a232f9fc3e904b2),UINT64_C(0xdb89c876a399ba93),UINT64_C(0x1ea87c3f611af9a4),PF_FRONT_HASH,"shop-front-weapon00-v1.hda"}
+ {6,0,33,34,61,48,PF_FRONT_BYTES,897,UINT64_C(0x1a232f9fc3e904b2),UINT64_C(0xdb89c876a399ba93),UINT64_C(0x1ea87c3f611af9a4),PF_FRONT_HASH,"shop-front-weapon00-v1.hda"},
+ {6,16,31,35,62,84,PF_GENERATOR_BYTES,959,UINT64_C(0xef17480633ee6a68),UINT64_C(0xf4c1e126306f62fa),UINT64_C(0x80b82cd8620511c6),PF_GENERATOR_HASH,"shop-generator-weapon16-v1.hda"}
 };
 struct SfGlyph { const Uint8 *rle; Uint16 size,mask; Uint8 w,h,ink; };
 /* Whole-run typography is deliberately independent of shared SFN1 metrics. */
@@ -89,12 +91,12 @@ static struct {
  struct SfGlyph glyphs[SF_GLYPHS];Uint8 masks[SF_MASK_BYTES];
  struct SfCommand commands[SF_COMMANDS];struct SfEvent events[SF_EVENTS];
  SDL_Color expected_palette[256],fade_target[256];Uint32 palette[256];
- Uint8 *payload[3],*metal,*shop_sprite,*shop_front,*menu_run[7];unsigned metal_gain,metal_target;Uint32 *output;
+ Uint8 *payload[3],*metal,*shop_sprite,*shop_front,*shop_generator,*menu_run[7];unsigned metal_gain,metal_target;Uint32 *output;
 } sf;
 static const char *directory;
 size_t pregame_font_static_bytes(void){return sizeof(sf);}
 bool pregame_font_owns_display(void){return sf.active;}
-typedef char sf_budget_check[(sizeof(sf)+1800000+70000+SF_PAYLOAD+SF_OUT_BYTES+PF_METAL_BYTES+PF_SPRITE_BYTES+PF_FRONT_BYTES+PF_MENU_BYTES+5*128+2048<=SF_CAP)?1:-1];
+typedef char sf_budget_check[(sizeof(sf)+1800000+70000+SF_PAYLOAD+SF_OUT_BYTES+PF_METAL_BYTES+PF_SPRITE_BYTES+PF_FRONT_BYTES+PF_GENERATOR_BYTES+PF_MENU_BYTES+6*128+2048<=SF_CAP)?1:-1];
 typedef char sf_command_check[(sizeof(struct SfCommand)<=24)?1:-1];
 static uint64_t hash_more(uint64_t h,const Uint8 *p,size_t n)
 {while(n--)h=(h^*p++)*UINT64_C(1099511628211);return h;}
@@ -107,7 +109,7 @@ static struct SfGlyph *glyph(unsigned bank,unsigned id){return &sf.glyphs[(bank=
 static void reject(void){sf.frame=false;sf.glyph=false;sf.stage=S_IDLE;}
 void pregame_font_set_directory(const char *path){pregame_font_end();directory=path&&*path?path:NULL;}
 void pregame_font_release_texture(void){if(sf.active||sf.output)selector_font_output_release();}
-void pregame_font_end(void){pregame_font_release_texture();for(unsigned b=0;b<3;b++)free(sf.payload[b]);for(unsigned r=0;r<7;r++)free(sf.menu_run[r]);free(sf.metal);free(sf.shop_sprite);free(sf.shop_front);free(sf.output);memset(&sf,0,sizeof(sf));}
+void pregame_font_end(void){pregame_font_release_texture();for(unsigned b=0;b<3;b++)free(sf.payload[b]);for(unsigned r=0;r<7;r++)free(sf.menu_run[r]);free(sf.metal);free(sf.shop_sprite);free(sf.shop_front);free(sf.shop_generator);free(sf.output);memset(&sf,0,sizeof(sf));}
 void pregame_font_invalidate(void){if(sf.active){++sf.generation;reject();}pregame_font_release_texture();}
 void pregame_font_table_reset(unsigned table){if(table<3||table==5||table==6)pregame_font_end();}
 static bool geometry(SDL_Surface *s){return s&&s->pixels&&s->format&&s->w==SF_W&&s->h==SF_H&&s->pitch==SF_W&&s->format->BitsPerPixel==8&&s->format->BytesPerPixel==1&&s->clip_rect.x==0&&s->clip_rect.y==0&&s->clip_rect.w==SF_W&&s->clip_rect.h==SF_H;}
@@ -225,7 +227,7 @@ static void load_metal(void)
 /* Independently installed finite PSP1 siblings. All source identities and
  * dimensions are compile-time pins, including each one-cell contour bound. */
 static Uint8 *shop_sprite_payload(unsigned slot)
-{return slot?sf.shop_front:sf.shop_sprite;}
+{return slot==2?sf.shop_generator:slot==1?sf.shop_front:sf.shop_sprite;}
 static int shop_sprite_slot(unsigned bank,unsigned id)
 {for(unsigned i=0;i<PF_SHOP_SPRITES;i++)if(shop_spec[i].bank==bank&&shop_spec[i].id==id)return (int)i;return -1;}
 static bool shop_sprite_source_item(unsigned slot,Uint8 *mask)
@@ -262,7 +264,7 @@ static void load_shop_sprite_item(unsigned slot)
   if(!supported)goto done;
  }
  valid=true;
- done:if(SF_CLOSE(fd))valid=false;if(valid){if(slot)sf.shop_front=data;else sf.shop_sprite=data;}else free(data);
+ done:if(SF_CLOSE(fd))valid=false;if(valid){if(slot==2)sf.shop_generator=data;else if(slot==1)sf.shop_front=data;else sf.shop_sprite=data;}else free(data);
 }
 static void load_shop_sprite(void){for(unsigned i=0;i<PF_SHOP_SPRITES;i++)load_shop_sprite_item(i);}
 /* Shield is category 5. Trial pages deliberately retain their old OPTION[12]
@@ -549,7 +551,7 @@ static bool shop_sprite_match(int x,int y,unsigned bank,unsigned id,unsigned op)
  int slot=shop_sprite_slot(bank,id);if(slot<0||!shop_sprite_payload(slot)||op!=PREGAME_ORIGINAL)return false;
  const struct ShopSpriteSpec *sp=&shop_spec[slot];
  if(x!=(int)sp->x||y!=(int)sp->y||!shop_illustration_scope(sf.screen))return false;
- return slot==0||sf.illustration==2;
+ return slot==0||(slot==1&&sf.illustration==2)||(slot==2&&sf.illustration==1);
 }
 /* Read only the original ordered blit calls, independently of installed art.
  * Before the known Talon hull, no assembly identity is assumed. A generator

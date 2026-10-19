@@ -27,7 +27,13 @@ ScalingMode scaling_mode=SCALE_INTEGER;
 char episode_name[6][31],difficulty_name[7][21],gameplay_name[6][26],timed_battle_name[4][23];
 JE_boolean episodeAvail[EPISODE_AVAILABLE];
 static unsigned checks,states;static uint64_t trace;static unsigned trace_count;
-static Uint8 raw_base[64000];static unsigned test_ship=27,test_boundary_p,test_generator=16,test_front=0,test_front_x=61,test_front_y=48,test_rear=9;static bool test_product_ship,test_product_boundary,test_front_boundary;
+static Uint8 raw_base[64000];static unsigned test_ship=27,test_boundary_p,test_generator=16,test_front=0,test_front_x=61,test_front_y=48,test_rear=9;static bool test_product_ship,test_product_boundary,test_front_boundary,test_generator_boundary,test_repeat_generator;
+static int test_generator_x=-1,test_generator_y=-1;
+static void draw_generator(void)
+{
+ static const int x[5]={62,64,67,66,63},y[5]={84,85,86,84,97};
+ blit_sprite(VGAScreen,test_generator_x<0?x[test_generator-16]:test_generator_x,test_generator_y<0?y[test_generator-16]:test_generator_y,6,test_generator);
+}
 void render_mirror_pixel(SDL_Surface *s,Uint8 *p,Uint8 color,int style){(void)color;uintptr_t n=(uintptr_t)p-(uintptr_t)s->pixels;for(unsigned i=0;i<4;i++)trace=(trace^((n>>(i*8))&255))*UINT64_C(1099511628211);trace=(trace^*p)*UINT64_C(1099511628211);trace=(trace^style)*UINT64_C(1099511628211);++trace_count;pregame_font_pixel(s,p,style);selector_font_pixel(s,p,style);load_font_pixel(s,p,style);settings_font_pixel(s,p,style);}
 void render_mirror_rect(SDL_Surface *s,const SDL_Rect *r){pregame_font_rect(s,r);selector_font_rect(s,r);load_font_rect(s,r);settings_font_rect(s,r);}
 void render_mirror_text_glyph_begin(SDL_Surface *s,int x,int y,unsigned t,unsigned id,bool black,unsigned hue,int value){(void)s;(void)x;(void)y;(void)t;(void)id;(void)black;(void)hue;(void)value;}
@@ -99,7 +105,7 @@ static void frame(unsigned menu,unsigned selected,unsigned cubes,unsigned armor,
  JE_barDrawShadow(VGAScreen,42,152,3,14,armor,2,13);JE_barDrawShadow(VGAScreen,104,152,2,14,shield,2,13);
  pregame_font_phase_end();
  pregame_font_phase_begin(PREGAME_SHIP,0,0);
- blit_sprite(VGAScreen,test_ship==31?35:31,test_ship==31?33:36,5,test_ship);blit_sprite(VGAScreen,test_generator==16?62:64,test_generator==16?84:85,6,test_generator);blit_sprite(VGAScreen,test_front_x,test_front_y,6,test_front);blit_sprite(VGAScreen,41,92,6,test_rear);
+ blit_sprite(VGAScreen,test_ship==31?35:31,test_ship==31?33:36,5,test_ship);draw_generator();blit_sprite(VGAScreen,test_front_x,test_front_y,6,test_front);if(test_repeat_generator)blit_sprite(VGAScreen,62,84,6,16);blit_sprite(VGAScreen,41,92,6,test_rear);
  /* Episode1 option1/2 itemgraphic1/5, independently decoded in fixtures. */
  blit_sprite2x2(VGAScreen,3,84,shopSpriteSheet,1);blit_sprite2x2(VGAScreen,129,84,shopSpriteSheet,selected==9?283:5);
  blit_sprite_hv(VGAScreen,28,23,5,26,15,(int)shield/2-10);
@@ -304,7 +310,13 @@ static void product_page(const char *dir,unsigned category,unsigned selected,con
    REQUIRE(sf.count==before+3&&sf.commands[before+2].kind==C_CLASSIC&&sf.commands[before+2].events==1&&sf.commands[before+2].first!=sf.commands[before].first);
    REQUIRE(sf.events[sf.commands[before+2].first].index==same);
   }
-  blit_sprite(VGAScreen,test_generator==16?62:64,test_generator==16?84:85,6,test_generator);
+  if(test_generator_boundary)JE_pix(VGAScreen,test_boundary_p%SF_W,test_boundary_p/SF_W,77);
+  unsigned generator_before=sf.count;draw_generator();
+  if(test_generator_boundary){
+   REQUIRE(sf.count==generator_before+1&&sf.commands[generator_before].kind==C_SPRITE&&sf.commands[generator_before-1].kind==C_CLASSIC);
+   Uint8 same=((Uint8 *)sf.pixels)[test_boundary_p];JE_pix(VGAScreen,test_boundary_p%SF_W,test_boundary_p/SF_W,same);
+   REQUIRE(sf.count==generator_before+2&&sf.commands[generator_before+1].kind==C_CLASSIC&&sf.commands[generator_before+1].events==1);
+  }
   if(test_front_boundary)JE_pix(VGAScreen,test_boundary_p%SF_W,test_boundary_p/SF_W,77);
   unsigned front_before=sf.count;blit_sprite(VGAScreen,test_front_x,test_front_y,6,test_front);
   if(test_front_boundary){
@@ -312,7 +324,7 @@ static void product_page(const char *dir,unsigned category,unsigned selected,con
    Uint8 same=((Uint8 *)sf.pixels)[test_boundary_p];JE_pix(VGAScreen,test_boundary_p%SF_W,test_boundary_p/SF_W,same);
    REQUIRE(sf.count==front_before+2&&sf.commands[front_before+1].kind==C_CLASSIC&&sf.commands[front_before+1].events==1);
   }
-  blit_sprite(VGAScreen,41,92,6,test_rear);blit_sprite_hv(VGAScreen,28,23,5,26,15,0);
+  if(test_repeat_generator)blit_sprite(VGAScreen,62,84,6,16);blit_sprite(VGAScreen,41,92,6,test_rear);blit_sprite_hv(VGAScreen,28,23,5,26,15,0);
  }
  product_text(PREGAME_FOOTER,selected,10,187,mainMenuHelp[selected==4?11:23],2,14,1);
  pregame_font_frame_end();
@@ -561,9 +573,74 @@ static void front_checks(const char *dir)
  for(unsigned n=0;n<6;n++)if(n!=3)REQUIRE(!unlink(paths[n]));REQUIRE(!rmdir(temp));free(file);
  test_ship=27;test_rear=9;pregame_font_end();REQUIRE(!allocated);
 }
+/* Generator v9 is independently installed and selected only between the
+ * authenticated original Talon and first front-weapon draw. */
+static void generator_frame(const char *dir,unsigned expected)
+{
+ frame_checks(dir,0,4,4,15,10);REQUIRE(sprite_commands()==expected);render_checks();sprite_underlay_checks();
+ unsigned generator=0;for(unsigned k=0;k<sf.count;k++)if(sf.commands[k].kind==C_SPRITE&&sf.commands[k].bank==6&&sf.commands[k].id==16){REQUIRE(sf.commands[k].x==62&&sf.commands[k].y==84);generator++;}REQUIRE(generator<=1);
+}
+static void generator_checks(const char *dir)
+{
+ test_ship=31;test_rear=16;generator_frame(dir,3);REQUIRE(sf.shop_sprite&&sf.shop_front&&sf.shop_generator);
+ Uint8 mask[PF_SPRITE_W*PF_SPRITE_H];REQUIRE(shop_sprite_source_item(2,mask));
+ unsigned partial=0;for(unsigned p=0;p<PF_GENERATOR_BYTES;p+=4)partial+=sf.shop_generator[p+3]>0&&sf.shop_generator[p+3]<255;REQUIRE(partial==13438);
+ present_checks();cursor_checks();fades(dir);generator_frame(dir,3);
+ frame_checks(dir,1,4,4,15,10);render_checks();REQUIRE(sprite_commands()==3);sprite_underlay_checks();
+ for(unsigned gen=17;gen<=20;gen++){test_generator=gen;generator_frame(dir,2);}test_generator=16;
+ test_front=1;test_front_x=52;test_front_y=41;generator_frame(dir,2);
+ test_front=0;test_front_x=59;test_front_y=38;generator_frame(dir,2);test_front_x=61;test_front_y=48;
+ test_generator_x=63;generator_frame(dir,1);test_generator_x=-1;
+ test_generator_y=85;generator_frame(dir,1);test_generator_y=-1;
+ test_ship=27;generator_frame(dir,0);test_ship=31;
+ test_repeat_generator=true;generator_frame(dir,3);test_repeat_generator=false;
+ acquire(dir,0,4,4);REQUIRE(!shop_sprite_match(62,84,6,16,PREGAME_ORIGINAL));
+ sf.illustration=1;REQUIRE(!shop_sprite_match(62,84,6,16,PREGAME_FACE));
+ /* Three fixed commands retain actual hull -> generator -> front order. */
+ generator_frame(dir,3);unsigned hull=0,generator=0,front=0;
+ for(unsigned k=0;k<sf.count;k++)if(sf.commands[k].kind==C_SPRITE){if(sf.commands[k].bank==5)hull=k;else if(sf.commands[k].id==16)generator=k;else front=k;}
+ REQUIRE(hull&&generator>hull&&front>generator);unsigned point=0;const struct SfCommand *gc=&sf.commands[generator];
+ for(unsigned i=gc->first;i<gc->first+gc->events&&!point;i++)for(unsigned j=sf.commands[hull].first;j<sf.commands[hull].first+sf.commands[hull].events;j++)if(sf.events[i].position==sf.events[j].position&&!sf.metal_blocked[sf.events[i].position]){point=sf.events[i].position;break;}
+ REQUIRE(point);unsigned x=point%SF_W*4,y=point/SF_W*4,hp=((y-33*4)*(85*4)+x-35*4)*4,gp=((y-84*4)*(31*4)+x-62*4)*4;
+ memset(sf.shop_sprite,0,PF_SPRITE_BYTES);memset(sf.shop_front,0,PF_FRONT_BYTES);memset(sf.shop_generator,0,PF_GENERATOR_BYTES);
+ sf.shop_sprite[hp]=210;sf.shop_sprite[hp+1]=30;sf.shop_sprite[hp+2]=70;sf.shop_sprite[hp+3]=128;
+ sf.shop_generator[gp]=40;sf.shop_generator[gp+1]=180;sf.shop_generator[gp+2]=90;sf.shop_generator[gp+3]=128;
+ lease_free(sf.metal);sf.metal=NULL;render();REQUIRE((sf.output[y*SF_OW+x]>>24)==192&&sf.output[y*SF_OW+x]==oracle(x,y));REQUIRE(sf.underlay[point]==sf.base[point]);sprite_underlay_checks();
+ struct SfCommand *later=append(C_CLASSIC,0,0,0,0,0,0);REQUIRE(later&&event(point%SF_W,point/SF_W,sf.expected[point],0));later->events=1;render();
+ for(unsigned yy=0;yy<4;yy++)for(unsigned xx=0;xx<4;xx++)REQUIRE(!sf.output[(y+yy)*SF_OW+x+xx]);
+ struct SfCommand *text=append(C_FACE,point%SF_W,point/SF_W,2,font_ascii['A'],1,6);REQUIRE(text);render();
+ for(unsigned yy=0;yy<text->h*4u;yy++)for(unsigned xx=0;xx<text->w*4u;xx++)REQUIRE(sf.output[(y+yy)*SF_OW+x+xx]==oracle(x+xx,y+yy));
+ test_product_ship=true;
+ for(unsigned category=2;category<=5;category++){
+  product_page(dir,category,2,"10000",true);REQUIRE(sf.frame);render();sprite_underlay_checks();unsigned expected=category==2||category==5?3:0;REQUIRE(sprite_commands()==expected);
+  if(expected)for(unsigned tick=0;tick<2;tick++){pregame_font_product_update_begin();product_text(PREGAME_CASH,0,65,173,"10000",2,1,6);pregame_font_product_update_end();render();REQUIRE(sf.frame&&replay_matches()&&sprite_commands()==3);sprite_underlay_checks();}
+ }
+ test_generator_boundary=true;test_boundary_p=point;
+ for(unsigned category=2;category<=5;category+=3){product_page(dir,category,2,"10000",true);REQUIRE(sf.frame);render();REQUIRE(replay_matches()&&sf.underlay[point]==sf.expected[point]);sprite_underlay_checks();for(unsigned yy=0;yy<4;yy++)for(unsigned xx=0;xx<4;xx++)REQUIRE(!sf.output[(y+yy)*SF_OW+x+xx]);}
+ test_generator_boundary=false;test_product_ship=false;
+ /* Malformed generator data cannot disable fonts, metal, hull or front. */
+ pregame_font_end();char temp[]="/tmp/shop-generator-test-XXXXXX";REQUIRE(mkdtemp(temp));char paths[7][1024],in[1024];
+ const char *names[]={"settings-font-large-v1.hda","settings-font-medium-v1.hda","settings-font-tiny-v1.hda","shop-frame-metal-v1.hda","shop-talon-option31-v1.hda","shop-front-weapon00-v1.hda","shop-generator-weapon16-v1.hda"};
+ for(unsigned n=0;n<7;n++){snprintf(paths[n],sizeof(paths[n]),"%s/%s",temp,names[n]);if(n<6){snprintf(in,sizeof(in),"%s/%s",dir,names[n]);REQUIRE(!symlink(in,paths[n]));}}
+ snprintf(in,sizeof(in),"%s/%s",dir,names[6]);FILE *f=fopen(in,"rb");REQUIRE(f);size_t bytes=128+PF_GENERATOR_BYTES;Uint8 *file=malloc(bytes+1);REQUIRE(file&&fread(file,1,bytes,f)==bytes);fclose(f);file[bytes]=0;
+ generator_frame(temp,2);REQUIRE(sf.shop_sprite&&sf.shop_front&&!sf.shop_generator&&sf.metal);pregame_font_end();
+ for(unsigned offset=0;offset<128;offset+=4){file[offset]^=128;write_bytes(paths[6],file,bytes);acquire(temp,0,4,4);REQUIRE(sf.active&&sf.shop_sprite&&sf.shop_front&&sf.metal&&!sf.shop_generator);pregame_font_end();file[offset]^=128;}
+ const size_t sizes[]={0,127,bytes-1,bytes+1};for(unsigned i=0;i<4;i++){write_bytes(paths[6],file,sizes[i]);acquire(temp,0,4,4);REQUIRE(sf.active&&sf.shop_sprite&&sf.shop_front&&sf.metal&&!sf.shop_generator);pregame_font_end();}
+ file[128]^=1;write_bytes(paths[6],file,bytes);generator_frame(temp,2);REQUIRE(sf.shop_sprite&&sf.shop_front&&!sf.shop_generator&&sf.metal);pregame_font_end();file[128]^=1;
+ write_bytes(paths[6],file,bytes);fail_allocation=allocation_calls+7;acquire(temp,0,4,4);REQUIRE(sf.active&&sf.shop_sprite&&sf.shop_front&&sf.metal&&!sf.shop_generator);pregame_font_end();fail_allocation=UINT_MAX;
+ REQUIRE(!unlink(paths[4]));generator_frame(temp,2);REQUIRE(sf.shop_generator&&sf.shop_front&&!sf.shop_sprite&&sf.metal);pregame_font_end();
+ snprintf(in,sizeof(in),"%s/%s",dir,names[4]);f=fopen(in,"rb");REQUIRE(f);Uint8 *bad=malloc(128+PF_SPRITE_BYTES);REQUIRE(bad&&fread(bad,1,128+PF_SPRITE_BYTES,f)==128+PF_SPRITE_BYTES);fclose(f);bad[128]^=1;write_bytes(paths[4],bad,128+PF_SPRITE_BYTES);free(bad);generator_frame(temp,2);REQUIRE(sf.shop_generator&&sf.shop_front&&!sf.shop_sprite&&sf.metal);pregame_font_end();
+ REQUIRE(!unlink(paths[4]));REQUIRE(!symlink(in,paths[4]));REQUIRE(!unlink(paths[5]));generator_frame(temp,2);REQUIRE(sf.shop_generator&&sf.shop_sprite&&!sf.shop_front&&sf.metal);pregame_font_end();
+ snprintf(in,sizeof(in),"%s/%s",dir,names[5]);f=fopen(in,"rb");REQUIRE(f);bad=malloc(128+PF_FRONT_BYTES);REQUIRE(bad&&fread(bad,1,128+PF_FRONT_BYTES,f)==128+PF_FRONT_BYTES);fclose(f);bad[128]^=1;write_bytes(paths[5],bad,128+PF_FRONT_BYTES);free(bad);generator_frame(temp,2);REQUIRE(sf.shop_generator&&sf.shop_sprite&&!sf.shop_front&&sf.metal);pregame_font_end();REQUIRE(!unlink(paths[5]));
+ REQUIRE(!unlink(paths[4]));generator_frame(temp,1);REQUIRE(sf.shop_generator&&!sf.shop_sprite&&!sf.shop_front&&sf.metal);pregame_font_end();
+ REQUIRE(!unlink(paths[3]));generator_frame(temp,1);REQUIRE(sf.shop_generator&&!sf.shop_sprite&&!sf.shop_front&&!sf.metal);pregame_font_end();
+ REQUIRE(!unlink(paths[6]));REQUIRE(!mkdir(paths[6],0700));acquire(temp,0,4,4);REQUIRE(sf.active&&!sf.shop_generator);pregame_font_end();REQUIRE(!rmdir(paths[6]));REQUIRE(!mkfifo(paths[6],0600));acquire(temp,0,4,4);REQUIRE(sf.active&&!sf.shop_generator);pregame_font_end();REQUIRE(!unlink(paths[6]));
+ for(unsigned n=0;n<3;n++)REQUIRE(!unlink(paths[n]));REQUIRE(!rmdir(temp));free(file);
+ test_ship=27;test_rear=9;pregame_font_end();REQUIRE(!allocated);
+}
 int main(int argc,char **argv)
 {
- REQUIRE(argc>=3&&argc<=6);REQUIRE(SDL_Init(SDL_INIT_VIDEO)==0);
+ REQUIRE(argc>=3&&argc<=7);REQUIRE(SDL_Init(SDL_INIT_VIDEO)==0);
  VGAScreen=VGAScreenSeg=SDL_CreateRGBSurface(0,320,200,8,0,0,0,0);VGAScreen2=SDL_CreateRGBSurface(0,320,200,8,0,0,0,0);REQUIRE(VGAScreen&&VGAScreen2);
  main_window_tex_format=SDL_AllocFormat(SDL_PIXELFORMAT_RGB888);REQUIRE(main_window_tex_format);
  fixtures(argv[1]);strings_fixture(argv[1]);memcpy(raw_base,VGAScreen2->pixels,SF_N);REQUIRE(hash(raw_base,SF_N)==PF_BASE);REQUIRE(classic_sources());
@@ -571,7 +648,7 @@ int main(int argc,char **argv)
   frame_checks(argv[2],menu,selected,cubes,15+cubes,10+cubes);render_checks();
  }
  frame_checks(argv[2],0,4,4,15,10);cursor_checks();present_checks();fades(argv[2]);occlusion_checks(argv[2]);negatives(argv[2]);product_checks(argv[2]);resource_failures(argv[2]);pregame_font_end();REQUIRE(!allocated);
- if(argc>=4)metal_checks(argv[3]);if(argc>=5)sprite_checks(argv[4]);if(argc==6)front_checks(argv[5]);
+ if(argc>=4)metal_checks(argv[3]);if(argc>=5)sprite_checks(argv[4]);if(argc>=6)front_checks(argv[5]);if(argc==7)generator_checks(argv[6]);
  for(unsigned b=0;b<7;b++)for(unsigned id=0;id<sprite_table[b].count;id++)free(sprite(b,id)->data);
  free(shopSpriteSheet.data);SDL_FreeSurface(VGAScreen);SDL_FreeSurface(VGAScreen2);SDL_FreeFormat(main_window_tex_format);SDL_Quit();
  printf("PASS pregame core: %u states, %u checks; static=%zu peak_owned=%zu output_static=%zu; no game runs\n",states,checks,sizeof(sf),peak_allocated,selector_font_output_static_bytes());return 0;

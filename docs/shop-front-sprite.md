@@ -3,8 +3,9 @@
 This local extension adds one independent optional PSP1 sibling to the accepted
 Talon and natural root-menu typography: WEAPON table 6, zero-based shape 0,
 33 × 34 logical pixels at the existing front anchor (61, 48), density 4.
-It does not include a generator replacement. The fixed runtime list contains
-only OPTION31 Talon and this front shape; geometry never comes from a file.
+This document records the front-only batch. Its fixed runtime list contained
+OPTION31 Talon and this front shape; geometry never comes from a file. The
+later independent generator extension is documented in `shop-generator-sprite.md`.
 
 ## Placement and fallback
 

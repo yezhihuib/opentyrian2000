@@ -2,9 +2,12 @@
 
 This local candidate replaces one large shop sprite: OPTION table 5, zero-based
 index 31, the 85 × 112 Talon hull drawn at (35, 33). Ordinary single-player root,
-upgrade-category, Ship Type and Shield pages can use it. Other ships, weapons,
-generators, sidekicks, shield arcs, the trial display and Ship Specs stay on their
-existing paths. Original INDEX8 draws and every observed write still execute.
+upgrade-category, Ship Type and Shield pages can use it. In this hull-only
+batch, other ships, weapons, generators, sidekicks, shield arcs, the trial
+display and Ship Specs stayed on their existing paths. Later independent
+equipment extensions are documented in `shop-front-sprite.md` and
+`shop-generator-sprite.md`. Original INDEX8 draws and every observed write
+still execute.
 Purchase calculations, player state, inputs, RNG and logical coordinates are
 unchanged. There are no game-menu, sprite-blitter or gameplay-mirror changes.
 

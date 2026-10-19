@@ -1,0 +1,12 @@
+{
+  "schema": "opentyrian-runtime-selection-v1",
+  "gameplay_pack": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+  "gameplay_destination": "assets/gameplay",
+  "startup_pack": "assets/hd/packs/startup-title-settings-v1",
+  "startup_destination": "assets/startup",
+  "shop_runtime_directories": ["assets/shop-frame-v1", "assets/shop-talon-v1", "assets/shop-front-v1", "assets/shop-menu-font-v1", "assets/shop-generator-v1"],
+  "shop_runtime_extension": ".hda",
+  "preserve_in_development_only": ["assets/hd/artwork/**", "assets/hd/source/**", "assets/shop-*/source-imagegen.png", "assets/shop-*/*.png", "assets/shop-*/*.json", "assets/shop-menu-font-v1/*.ttf", "tests/**", "prototype/test-*", "docs/**", "src/**", ".git/**", "obj/**", "all nonselected historical/debug/experimental asset packs"],
+  "never_delete_or_move_source": true,
+  "notes": "Classification affects only generated runtime copies. 4x fallback files in the one selected gameplay pack are retained. Font source TTFs stay in development; derived atlas notices ship in the runtime."
+}

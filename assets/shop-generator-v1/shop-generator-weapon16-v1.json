@@ -1,0 +1,44 @@
+{
+  "format": "PSP1",
+  "header_bytes": 128,
+  "part": "generator",
+  "source": {
+    "file": "source-imagegen.png",
+    "sha256": "da19e9514a9f5874f2366f8e1123588994aaea454d2b8c1b31e359fd30755206",
+    "size": [
+      1180,
+      1333
+    ],
+    "crop_xyxy": [
+      0,
+      0,
+      1180,
+      1323
+    ],
+    "provenance": "OpenAI imagegen; reviewed generator v9"
+  },
+  "normalization": "Reviewed fixed whole-subject crop -> direct 124x140 RGBA Lanczos; alpha<8 and RGB zeroed; no original-mask clipping",
+  "alpha_below_8_zeroed_samples": 325,
+  "outside_runtime_one_logical_cell_samples": 0,
+  "bank": 6,
+  "index": 16,
+  "logical_size": [
+    31,
+    35
+  ],
+  "density": 4,
+  "anchor": [
+    62,
+    84
+  ],
+  "rgba": "straight RGBA8; transparent RGB zero; continuous authored alpha",
+  "payload_bytes": 69440,
+  "payload_fnv1a": "0x8df7cb1657cdd101",
+  "file_sha256": "1ea5097527e947be2d984fbbda94408af942d2c6bbd305a79e96873498c96756",
+  "png_sha256": "055fac0da3b71700e9616af36d78bd0664376a45bb81175f41057cea271218cc",
+  "pillow": "12.3.0",
+  "original_rle_fnv1a": "0xef17480633ee6a68",
+  "original_index_fnv1a": "0xf4c1e126306f62fa",
+  "original_mask_fnv1a": "0x80b82cd8620511c6",
+  "runtime": "Independent optional SFN1 sibling; known Talon assembly after original hull, before front; fixed generator anchor"
+}
