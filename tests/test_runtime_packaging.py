@@ -141,13 +141,71 @@ class PackagingTests(unittest.TestCase):
         for item in manifest['files']: groups[item['group']] = groups.get(item['group'], 0) + 1
         self.assertEqual(groups['gameplay'], 637)
         self.assertEqual(groups['startup'], 9)
-        self.assertEqual(groups['shop'], 11)
-        self.assertEqual(groups['notice'], 5)
-        for name in ['settings-font-large-v1.hda', 'settings-font-medium-v1.hda', 'settings-font-tiny-v1.hda', 'title-menu-font-v1.hda', 'shop-generator-weapon16-v1.hda']:
+        self.assertEqual(groups['shop'], 12)
+        self.assertEqual(groups['notice'], 11)
+        self.assertEqual(groups['data-frame'], 1)
+        self.assertEqual(groups['data-text'], 3)
+        self.assertEqual(manifest['closure']['shop_files'], groups['shop'])
+        self.assertEqual(len(manifest['files']), 694)
+        self.assertEqual(sum(item['bytes'] for item in manifest['files']), 127732786)
+        for name in ['settings-font-large-v1.hda', 'settings-font-medium-v1.hda', 'settings-font-tiny-v1.hda', 'title-menu-font-v1.hda', 'shop-generator-weapon16-v1.hda', 'shop-shield-option26-v1.hda']:
             self.assertIn('assets/startup/' + name, destinations)
         for name in ['ground101-world-material.g101.0', 'ground101-world-material.g101.1', 'forest13-world-material.fcan', 'forest13.policy', 'plateau-cap-world-material.pcap']:
             self.assertIn('assets/gameplay/' + name, destinations)
-        self.assertFalse(any(x['source_path'].endswith(('.png', '.ttf')) for x in manifest['files']))
+        self.assertFalse(any(x['source_path'].endswith(('.png', '.ttf', '.bin', '.py')) for x in manifest['files']))
+
+    def test_shield_selection_pins_only_the_accepted_runtime_material(self):
+        selection = json.loads((ROOT / 'packaging/runtime-selection-v1.json').read_text())
+        self.assertIn('assets/shop-shield-v1', selection['shop_runtime_directories'])
+        self.assertEqual(selection['shop_runtime_extension'], '.hda')
+        manifest = PACK.load_manifest(ROOT / 'packaging/runtime-assets-v1.json')
+        shield_rows = [item for item in manifest['files'] if item['source_path'].startswith('assets/shop-shield-v1/')]
+        self.assertEqual(len(shield_rows), 1)
+        material = shield_rows[0]
+        self.assertEqual(material['source_path'], 'assets/shop-shield-v1/shop-shield-option26-v1.hda')
+        self.assertEqual(material['destination'], 'assets/startup/shop-shield-option26-v1.hda')
+        self.assertEqual(material['group'], 'shop')
+        self.assertEqual(material['bytes'], 72992)
+        self.assertEqual(material['revision'], 'local-reviewed-source')
+        self.assertEqual(manifest['source_revision']['shield_integration'], 'local accepted source; no commit assigned')
+        self.assertEqual(PACK.checked_source(ROOT / material['source_path'], material)['sha256'], material['sha256'])
+
+    def test_data_text_closure_and_relocated_launcher_arguments(self):
+        manifest = PACK.load_manifest(ROOT / 'packaging/runtime-assets-v1.json')
+        rows = [r for r in manifest['files'] if r['group'] == 'data-text']
+        self.assertEqual(len(rows), 3)
+        for item in rows:
+            self.assertEqual(item['source_path'], item['destination'])
+            self.assertEqual(PACK.checked_source(ROOT / item['source_path'], item)['sha256'], item['sha256'])
+        script = (ROOT / 'packaging/start-hd.ps1').read_text()
+        self.assertIn("Join-Path $repoRoot 'assets/data-text-zh-CN-v1'", script)
+        self.assertNotIn("Join-Path $root 'assets/data-text-zh-CN-v1'", script)
+        self.assertIn('--data-text-assets=', script)
+
+    def test_data_frame_optional_resource_closure(self):
+        manifest = PACK.load_manifest(ROOT / 'packaging/runtime-assets-v1.json')
+        rows = [r for r in manifest['files'] if r['group'] == 'data-frame']
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0]['source_path'], 'assets/data-frame-v1/data-frame-v1.hda')
+        self.assertEqual(rows[0]['destination'], rows[0]['source_path'])
+        self.assertEqual(rows[0]['bytes'], 4096128)
+        self.assertEqual(PACK.checked_source(ROOT / rows[0]['source_path'], rows[0])['sha256'], rows[0]['sha256'])
+        self.assertEqual(manifest['closure']['data_frame_files'], 1)
+        for launcher in ('start-hd.sh', 'start-hd.ps1'):
+            self.assertIn('--data-frame-assets=', (ROOT / 'packaging' / launcher).read_text())
+
+    def test_data_portrait_optional_resource_closure(self):
+        manifest = PACK.load_manifest(ROOT / 'packaging/runtime-assets-v1.json')
+        rows = [r for r in manifest['files'] if r['group'] == 'data-portrait']
+        self.assertEqual(len(rows), 18)
+        self.assertEqual([r['source_path'] for r in rows], [f'assets/data-portrait-v1/face{f:02d}-v1.hda' for f in range(18)])
+        self.assertEqual(sum(r['bytes'] for r in rows), 4420800)
+        for row in rows:
+            self.assertEqual(row['destination'], row['source_path'])
+            self.assertEqual(PACK.checked_source(ROOT / row['source_path'], row)['sha256'], row['sha256'])
+        self.assertEqual(manifest['closure']['data_portrait_files'], 18)
+        for launcher in ('start-hd.sh', 'start-hd.ps1'):
+            self.assertIn('--data-portrait-assets=', (ROOT / 'packaging' / launcher).read_text())
 
     def test_launcher_uses_actual_engine_user_directory_function(self):
         compiler = shutil.which('cc')
@@ -201,7 +259,7 @@ class PackagingTests(unittest.TestCase):
         self.assertEqual((ordinary / 'opentyrian2000/opentyrian.cfg').read_text(), 'ordinary profile must survive\n')
         self.assertEqual(config.read_text(), 'existing settings must survive\n')
         self.assertEqual((effective / 'save.sav').read_bytes(), b'personal save')
-        self.assertEqual((effective / 'args.txt').read_text().splitlines(), ['--data=' + str(data), '--manual-hd-assets=' + str(package / 'assets/gameplay'), '--startup-assets=' + str(package / 'assets/startup'), '--sound=off'])
+        self.assertEqual((effective / 'args.txt').read_text().splitlines(), ['--data=' + str(data), '--manual-hd-assets=' + str(package / 'assets/gameplay'), '--startup-assets=' + str(package / 'assets/startup'), '--data-text-assets=' + str(package / 'assets/data-text-zh-CN-v1'), '--data-frame-assets=' + str(package / 'assets/data-frame-v1'), '--data-portrait-assets=' + str(package / 'assets/data-portrait-v1'), '--sound=off'])
 
 
 if __name__ == '__main__':

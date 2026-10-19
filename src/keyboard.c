@@ -17,6 +17,8 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 #include "keyboard.h"
+#include "hd_cursor.h"
+#include "data_text.h"
 
 #include "config.h"
 #include "joystick.h"
@@ -195,6 +197,21 @@ void service_SDL_events(JE_boolean clear_new)
 				keydown = false;
 				return;
 
+			case SDL_RENDER_DEVICE_RESET:
+			case SDL_RENDER_TARGETS_RESET:
+				hd_cursor_release();
+				data_text_invalidate();
+				break;
+
+			case SDL_MOUSEWHEEL:
+				if (data_text_body_active()) {
+					int delta = ev.wheel.y;
+					if (delta > 100) delta = 100;
+					if (delta < -100) delta = -100;
+					data_text_wheel((ev.wheel.direction == SDL_MOUSEWHEEL_FLIPPED ? delta : -delta) * 3);
+				}
+				break;
+
 			case SDL_MOUSEMOTION:
 				mouse_x = ev.motion.x;
 				mouse_y = ev.motion.y;
@@ -227,6 +244,9 @@ void service_SDL_events(JE_boolean clear_new)
 					lastmouse_x = ev.button.x;
 					lastmouse_y = ev.button.y;
 					mousedown = true;
+					if (data_text_body_active() && ev.button.button == SDL_BUTTON_LEFT &&
+					    ev.button.x > 164 && ev.button.x < 299 && ev.button.y > 47 && ev.button.y < 153)
+						data_text_mouse_scroll(ev.button.y > 100 ? 1 : -1);
 				}
 				else
 				{

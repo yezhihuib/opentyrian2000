@@ -128,6 +128,9 @@
     <ClCompile Include="..\src\file.c" />
     <ClCompile Include="..\src\font.c" />
     <ClCompile Include="..\src\fonthand.c" />
+    <ClCompile Include="..\src\data_frame.c" />
+    <ClCompile Include="..\src\data_portrait.c" />
+    <ClCompile Include="..\src\data_text.c" />
     <ClCompile Include="..\src\game_menu.c" />
     <ClCompile Include="..\src\helptext.c" />
     <ClCompile Include="..\src\joystick.c" />
@@ -139,6 +142,7 @@
     <ClCompile Include="..\src\lvlmast.c" />
     <ClCompile Include="..\src\mainint.c" />
     <ClCompile Include="..\src\menus.c" />
+    <ClCompile Include="..\src\hd_cursor.c" />
     <ClCompile Include="..\src\mouse.c" />
     <ClCompile Include="..\src\mtrand.c" />
     <ClCompile Include="..\src\musmast.c" />
@@ -213,6 +217,7 @@
     <ClInclude Include="..\src\lvlmast.h" />
     <ClInclude Include="..\src\mainint.h" />
     <ClInclude Include="..\src\menus.h" />
+    <ClInclude Include="..\src\hd_cursor.h" />
     <ClInclude Include="..\src\mouse.h" />
     <ClInclude Include="..\src\mtrand.h" />
     <ClInclude Include="..\src\musmast.h" />
@@ -234,6 +239,13 @@
     <ClInclude Include="..\src\settings_font.h" />
     <ClInclude Include="..\src\load_font.h" />
     <ClInclude Include="..\src\selector_font.h" />
+    <ClInclude Include="..\src\data_frame.h" />
+    <ClInclude Include="..\src\data_portrait.h" />
+    <ClInclude Include="..\src\data_portrait_pins.inc" />
+    <ClInclude Include="..\src\data_frame_pins.inc" />
+    <ClInclude Include="..\src\data_text.h" />
+    <ClInclude Include="..\src\data_text_pins.inc" />
+    <ClInclude Include="..\src\data_exit_pins.inc" />
     <ClInclude Include="..\src\pregame_font.h" />
     <ClInclude Include="..\src\selector_font_output.h" />
     <ClInclude Include="..\src\sprite.h" />

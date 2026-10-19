@@ -1,0 +1,24 @@
+Data frame license status
+2026-10-19
+
+The exporter and new runtime integration code are GPL-2.0-or-later, under the
+repository's existing COPYING notice. This does not relicense original game
+artwork, reference-derived layout geometry, or generated image content.
+
+source-v3.png is an OpenAI image_gen output, normalized once to 676x744, from
+the original Tyrian OPTION20 layout and the project's previously accepted PMF1
+material reference. data-frame-v1.hda also reuses exact accepted PMF1 RGBA pixels
+where the original PIC1 survives. Original Tyrian artwork and its existing rights
+remain with their respective rights holders. The upstream repository describes
+separately obtained Tyrian 2000 data as freeware; freeware status is not
+represented here as a GPL, CC, or public-domain grant for that artwork.
+
+No separate CC/public-domain/GPL artwork license or third-party redistribution
+permission is asserted by this notice. The retained provenance documents the
+actual inputs and processing; it is not an additional rights grant. This local
+integration does not establish broader redistribution rights. Preserve this
+notice and DATA-FRAME-PROVENANCE.txt with any separately authorized distribution.
+
+No original game-data archive, original portrait PNGs, source font or new font
+license is included in this Data frame asset directory. Original game data
+remains an external runtime dependency.

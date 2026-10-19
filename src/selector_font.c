@@ -3,6 +3,7 @@
  * menu state, source pixels, font metrics, or the normal presentation transform.
  */
 #include "selector_font.h"
+#include "hd_cursor.h"
 #include "selector_font_output.h"
 #include "settings_font.h"
 #include "menus.h"
@@ -411,7 +412,7 @@ static SDL_Rect render(void)
    sf.replay[p]=c->kind==C_DARK?shade(sf.replay[p]):face(role,c->value);sf.owner[p]=1;
   }
  }
- for(unsigned p=0;p<SF_N;p++)if(sf.cursor_mask[p])sf.replay[p]=sf.underlay[p]=sf.cursor_index[p];
+ for(unsigned p=0;p<SF_N;p++)if(sf.cursor_mask[p]){sf.replay[p]=sf.cursor_index[p];if(!hd_cursor_active())sf.underlay[p]=sf.cursor_index[p];}
  support.w=right-support.x;support.h=bottom-support.y;return support;
 }
 bool selector_font_present(SDL_Renderer *renderer,SDL_Texture *reference,SDL_Surface *surface,const SDL_Rect *destination,bool foreign_owner)
@@ -423,5 +424,5 @@ bool selector_font_present(SDL_Renderer *renderer,SDL_Texture *reference,SDL_Sur
  SDL_Rect support=render();if(memcmp(sf.replay,sf.expected,SF_N)){reject();return false;}
  SDL_Surface underlay=*sf.screen;underlay.pixels=sf.underlay;
  unsigned radius=scaler==0||scaler==1||scaler==4||scaler==7?0:1;
- return selector_font_output_present(renderer,reference,&underlay,scalers[scaler].scaler32,destination,sf.output,&support,sf.cursor_mask,radius);
+ return selector_font_output_present(renderer,reference,&underlay,scalers[scaler].scaler32,destination,sf.output,&support,hd_cursor_active()?NULL:sf.cursor_mask,radius);
 }

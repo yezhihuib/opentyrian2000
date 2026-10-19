@@ -2,7 +2,7 @@ OpenTyrian2000 HD runtime copy
 
 This copy contains one active gameplay pack, the complete startup/title/settings/
 load/selector/shop font pack, and the current optional shop metal/Talon/Pulse/
-generator resources. The eleven shop HDAs are installed in the startup directory
+generator/shield resources. The twelve shop HDAs are installed in the startup directory
 because --startup-assets is shared by all of these loaders. Filenames and asset
 bytes are unchanged. The full source/artwork/older experiments remain in the source
 project; this tool neither moves nor deletes them.
@@ -43,3 +43,29 @@ whether a binary was supplied. Neither file claims whole-game runtime acceptance
 RUNTIME-INVENTORY.json records every source/destination/hash. The layout, counts
 and compression are packaging decisions; no resource decoder or gameplay changes
 are made. Font and decoder notices are retained under licenses/.
+
+Optional Data text: in Data, press F6 to choose English or Simplified Chinese.
+Only Data titles and stories change. Scroll with arrows, PageUp/PageDown,
+Home/End or the mouse wheel. The language choice is saved in your profile.
+The launchers pass the packaged Data resource directory explicitly.
+Chinese font attribution and OFL license are included under licenses/.
+
+Optional Data frame: Data lists and stories have a separately optional HD static
+bronze background, including the oval portrait surround. All 18 portraits remain
+native; list cubes, English text and cursor remain live. The launchers pass
+--data-frame-assets with the package-relative assets/data-frame-v1 directory.
+An absent or invalid DFM1 resource keeps the native background independently of
+the optional Chinese resources. Help/other menus remain outside its scope.
+Artwork/source provenance and the precise art-license status are under licenses/.
+This package does not include original Tyrian game-data archives or native
+portrait PNGs. Existing generated runtime directories/ZIPs are not refreshed by
+a source-manifest update; build a new verified runtime copy to include the frame.
+
+Optional Data HD portraits
+---------------------------
+Both launchers pass --data-portrait-assets with the package-relative
+assets/data-portrait-v1 directory. All18 approved identities retain native size/anchor, including tall FACE15;
+noPortrait remains intentionally absent. Missing/corrupt/source-mismatched
+resources preserve the native portrait independently of optional frame/text.
+The original game data remains external. See licenses/DATA-PORTRAIT-PROVENANCE.txt
+and licenses/LICENSE-Data-Portrait.txt for provenance and rights status.

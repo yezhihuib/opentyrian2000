@@ -1,0 +1,1259 @@
+{
+  "schema": "data-portrait-source-v2",
+  "scope": "All18 parent-approved native Data portraits;13 noPortrait entries remain intentionally absent",
+  "canonical_scale": 4,
+  "source_files": {
+    "tyrian.shp": {
+      "bytes": 505983,
+      "sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+      "fnv1a64": "0x5e490c45465ef7b0"
+    },
+    "tyrian.pic": {
+      "bytes": 367161,
+      "sha256": "76fa51ba6878c886f67daa65cf6d19968615e4423822c9fe1dde797fc2f8d802",
+      "fnv1a64": "0xa348ffcf393764e0"
+    },
+    "palette.dat": {
+      "bytes": 18432,
+      "sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0",
+      "fnv1a64": "0x85e04ee4cd9cca88"
+    }
+  },
+  "effective_palette": "palette0 except indexes1..207 from per-face palette; VGA (v<<2)|(v>>4)",
+  "entries_with_face": 136,
+  "entries_intentionally_without_face": 13,
+  "portraits": [
+    {
+      "bank": 4,
+      "id_0based": 0,
+      "size": [
+        65,
+        55
+      ],
+      "rle_bytes": 2314,
+      "rle_offset": 135047,
+      "rle_sha256": "b546ab9ef942794df9db7864ba1dc459c26fff6705dc5f1507fe3a9d2360599d",
+      "rle_fnv1a64": "0xcab518803e77499e",
+      "index_sha256": "512d713857cf844c53e99ce048e8e52e80950f5468ee6f1d671ec8ba67be6c0d",
+      "index_fnv1a64": "0x140e8e5cf764c13e",
+      "mask_sha256": "42e51873d5afe19792b5c84d99599fcd6e5888c746be719951426f5f979bcc5e",
+      "mask_fnv1a64": "0xbaa8c95920601b0c",
+      "opaque_bbox": [
+        0,
+        5,
+        65,
+        55
+      ],
+      "opaque_pixels": 2183,
+      "palette_index": 1,
+      "occurrences": 30,
+      "reference_file": "original-face-00-65x55.png",
+      "anchor": [
+        45,
+        65
+      ],
+      "entries": [
+        "ep1.cube06",
+        "ep1.cube13",
+        "ep1.cube14",
+        "ep1.cube15",
+        "ep1.cube16",
+        "ep1.cube36",
+        "ep2.cube01",
+        "ep2.cube02",
+        "ep2.cube04",
+        "ep2.cube05",
+        "ep2.cube07",
+        "ep2.cube09",
+        "ep3.cube11",
+        "ep3.cube20",
+        "ep3.cube21",
+        "ep4.cube10",
+        "ep4.cube11",
+        "ep4.cube12",
+        "ep4.cube13",
+        "ep4.cube14",
+        "ep4.cube15",
+        "ep4.cube16",
+        "ep4.cube25",
+        "ep4.cube27",
+        "ep4.cube31",
+        "ep4.cube50",
+        "ep4.cube66",
+        "ep5.cube03",
+        "ep5.cube04",
+        "ep5.cube05"
+      ],
+      "runtime_id": 0,
+      "source_id_1based": 1,
+      "canonical_1280_export_size": [
+        260,
+        220
+      ],
+      "canonical_1280_anchor": [
+        180,
+        260
+      ],
+      "visual_identity_notes": "White enclosed pilot helmet with small warm amber eye opening and mask, near frontal; preserve narrow visible facial area.",
+      "effective_palette_rgb_fnv1a64": "0xcde62a6556131dec",
+      "approved_png": "source-face00-v2.png",
+      "approved_png_sha256": "1b5627f57cec7f02735b3d7366f89a509c00916d986e6aeca1b8a7b520b75b0a",
+      "art_version": 2,
+      "master_png_sha256": "f8f6eb2d65acfdc759b1657aef625c2651c84ecbc54a3022e2dc09da226f07fd",
+      "source_png_sha256": "d34dc62f239e26976b040d2890c0b58e29dfd0614fd93ebcd386f2404dd4b771",
+      "generated_alpha_bbox": [
+        0,
+        30,
+        260,
+        220
+      ],
+      "mask_comparison": {
+        "alpha_threshold": 127,
+        "alpha_iou": 0.879692202850815,
+        "generated_pixels_outside_native": 290,
+        "native_pixels_not_covered": 3947
+      }
+    },
+    {
+      "bank": 4,
+      "id_0based": 1,
+      "size": [
+        65,
+        55
+      ],
+      "rle_bytes": 2733,
+      "rle_offset": 137368,
+      "rle_sha256": "0654ddd1a0efeb2c7f4e993283a8dc3e4542bd0649de0fe9d54677cf9f252037",
+      "rle_fnv1a64": "0xbcdb97d4851a3ab9",
+      "index_sha256": "7403acd58954f34697ac33aa3aeaf5e71d8ff553725f76e8d5dbb93da4c23b0c",
+      "index_fnv1a64": "0xe825be6ff9498d94",
+      "mask_sha256": "88b94c9046b0812660f087c8940902152d1fffeba4fd1e837dc01a5a504bfe2e",
+      "mask_fnv1a64": "0xfa0d10f54cc9f889",
+      "opaque_bbox": [
+        0,
+        2,
+        65,
+        55
+      ],
+      "opaque_pixels": 2622,
+      "palette_index": 2,
+      "occurrences": 23,
+      "reference_file": "original-face-01-65x55.png",
+      "anchor": [
+        45,
+        65
+      ],
+      "entries": [
+        "ep1.cube02",
+        "ep1.cube07",
+        "ep1.cube17",
+        "ep1.cube18",
+        "ep1.cube30",
+        "ep1.cube31",
+        "ep1.cube32",
+        "ep2.cube10",
+        "ep2.cube11",
+        "ep3.cube10",
+        "ep3.cube14",
+        "ep3.cube18",
+        "ep4.cube01",
+        "ep4.cube02",
+        "ep4.cube03",
+        "ep4.cube04",
+        "ep4.cube07",
+        "ep4.cube08",
+        "ep4.cube21",
+        "ep4.cube65",
+        "ep5.cube02",
+        "ep5.cube06",
+        "ep5.cube12"
+      ],
+      "runtime_id": 1,
+      "source_id_1based": 2,
+      "canonical_1280_export_size": [
+        260,
+        220
+      ],
+      "canonical_1280_anchor": [
+        180,
+        260
+      ],
+      "visual_identity_notes": "Bulky white padded pilot hood and chest collar, tan eyes/upper face, broad white lower-face mask; do not merge identity with FACE0.",
+      "effective_palette_rgb_fnv1a64": "0x36a5c7cddcfde108",
+      "approved_png": "source-face01-v2.png",
+      "approved_png_sha256": "214f6a80e62dbd56331f5a619f05bbace5728a5f5a2bdd104b0f57bd574bec20",
+      "art_version": 2,
+      "master_png_sha256": "3d72ae08e2ee14854c683c42dd929315827e9a46eff87b0c3e131b349a52d600",
+      "source_png_sha256": "45e9f503ad76cccf8bd21bdb2d599f0c15d4c8f6eaa38eb7574353becd89317d",
+      "generated_alpha_bbox": [
+        0,
+        3,
+        260,
+        220
+      ],
+      "mask_comparison": {
+        "alpha_threshold": 127,
+        "alpha_iou": 0.93037900601634,
+        "generated_pixels_outside_native": 765,
+        "native_pixels_not_covered": 2209
+      }
+    },
+    {
+      "bank": 4,
+      "id_0based": 2,
+      "size": [
+        65,
+        55
+      ],
+      "rle_bytes": 2144,
+      "rle_offset": 140108,
+      "rle_sha256": "b7f27175d62da8bef73b6ee2a88e21eb44dcb5cb98f0df6da8926c01312e2a3d",
+      "rle_fnv1a64": "0x729460d4557c88bb",
+      "index_sha256": "e12b70c48064e1d436fd36a20166b45c2e96295fa61362cae9e9cc8ddb64400b",
+      "index_fnv1a64": "0xfed8eb1394af9079",
+      "mask_sha256": "30b10b4e2c3df50100bf8513fcffe54718ebf6b3bac0e1c357d37e2f36fd4506",
+      "mask_fnv1a64": "0x812c8498e631d12d",
+      "opaque_bbox": [
+        0,
+        0,
+        65,
+        55
+      ],
+      "opaque_pixels": 1982,
+      "palette_index": 3,
+      "occurrences": 24,
+      "reference_file": "original-face-02-65x55.png",
+      "anchor": [
+        45,
+        65
+      ],
+      "entries": [
+        "ep1.cube04",
+        "ep1.cube08",
+        "ep1.cube10",
+        "ep1.cube23",
+        "ep1.cube24",
+        "ep1.cube25",
+        "ep1.cube26",
+        "ep1.cube27",
+        "ep1.cube28",
+        "ep1.cube29",
+        "ep3.cube17",
+        "ep4.cube30",
+        "ep4.cube35",
+        "ep4.cube41",
+        "ep4.cube42",
+        "ep4.cube43",
+        "ep4.cube44",
+        "ep4.cube45",
+        "ep4.cube51",
+        "ep4.cube55",
+        "ep4.cube56",
+        "ep4.cube57",
+        "ep4.cube58",
+        "ep4.cube67"
+      ],
+      "runtime_id": 2,
+      "source_id_1based": 3,
+      "canonical_1280_export_size": [
+        260,
+        220
+      ],
+      "canonical_1280_anchor": [
+        180,
+        260
+      ],
+      "visual_identity_notes": "Pale lean smiling man, high swept dark pompadour, dark sunglasses, green military jacket; preserve grin and head tilt.",
+      "effective_palette_rgb_fnv1a64": "0x55d961f3bdf1812e",
+      "approved_png": "source-face02-v1.png",
+      "approved_png_sha256": "5b3eeab5e506281b5fa83c86ce107a96ee47dd868d28c35f01705ab85dafaabe",
+      "art_version": 1,
+      "master_png_sha256": "0d74d9a382eb47fcc104b89ee069dd16d0fbce20b2f0c7e2bd94d035e56dd6da",
+      "source_png_sha256": "c72c91afc178481ddf1fc2cda2440518cf08e566c736c2bc1fb8290ee1596ece",
+      "generated_alpha_bbox": [
+        0,
+        0,
+        260,
+        220
+      ],
+      "mask_comparison": {
+        "alpha_threshold": 127,
+        "alpha_iou": 0.8752793380443317,
+        "generated_pixels_outside_native": 1402,
+        "native_pixels_not_covered": 2728
+      }
+    },
+    {
+      "bank": 4,
+      "id_0based": 3,
+      "size": [
+        65,
+        55
+      ],
+      "rle_bytes": 2095,
+      "rle_offset": 142259,
+      "rle_sha256": "0ba2cc719a0b8f242a6dc03cfbc9944ebb3dad0c61361429cb982e56b6191e63",
+      "rle_fnv1a64": "0x4d97165f20b171fe",
+      "index_sha256": "23b7d53a59bfc2264b54e42c0c89089eb642d98586c06a71f8e19a9e7b0b3fe4",
+      "index_fnv1a64": "0xc4ebe8e301e47016",
+      "mask_sha256": "0047c58d1cac3140a53e3964919dcee32603b9e337d834183bedb0dcabc5d5b5",
+      "mask_fnv1a64": "0x693870128a740dd2",
+      "opaque_bbox": [
+        0,
+        6,
+        60,
+        55
+      ],
+      "opaque_pixels": 1975,
+      "palette_index": 4,
+      "occurrences": 4,
+      "reference_file": "original-face-03-65x55.png",
+      "anchor": [
+        45,
+        65
+      ],
+      "entries": [
+        "ep1.cube01",
+        "ep3.cube09",
+        "ep4.cube24",
+        "ep4.cube28"
+      ],
+      "runtime_id": 3,
+      "source_id_1based": 4,
+      "canonical_1280_export_size": [
+        260,
+        220
+      ],
+      "canonical_1280_anchor": [
+        180,
+        260
+      ],
+      "visual_identity_notes": "Gray/ivory multi-lens respirator helmet and ribbed dark neck/shoulder suit; preserve asymmetric shoulders and circular lens layout.",
+      "effective_palette_rgb_fnv1a64": "0x90c96a69d9b9b5bc",
+      "approved_png": "source-face03-v2.png",
+      "approved_png_sha256": "82243bf6aae81cd330d13415f700853bf4b613cb976fe133cbb38b50f1272648",
+      "art_version": 2,
+      "master_png_sha256": "94f938ac14903be2258909471b4df963552ca8302a7e4c3da77ae2c2d40ab382",
+      "source_png_sha256": "dddf90e439820519ddd58212aa358325d0a5e6aed0b4b9c5ce87425b4cf856f5",
+      "generated_alpha_bbox": [
+        0,
+        31,
+        252,
+        220
+      ],
+      "mask_comparison": {
+        "alpha_threshold": 127,
+        "alpha_iou": 0.8633850599987435,
+        "generated_pixels_outside_native": 234,
+        "native_pixels_not_covered": 4115
+      }
+    },
+    {
+      "bank": 4,
+      "id_0based": 4,
+      "size": [
+        65,
+        53
+      ],
+      "rle_bytes": 2439,
+      "rle_offset": 144361,
+      "rle_sha256": "fa5e100fc21007b2b3f456a166111c93ac0f26119189e2cd23268fcd3e1f75cb",
+      "rle_fnv1a64": "0xe721d0351d4fc0f2",
+      "index_sha256": "eb46011820bd73d14bcb59551eadce65bbf3425f9d4b79b88cfe3ac9a3728978",
+      "index_fnv1a64": "0xe49c3d5d434705ae",
+      "mask_sha256": "6386c3252d82351da5a4bb98e00072166dfe10c97960a571404fc0ce00b9d057",
+      "mask_fnv1a64": "0xa813ab2f952fb568",
+      "opaque_bbox": [
+        0,
+        0,
+        65,
+        53
+      ],
+      "opaque_pixels": 2323,
+      "palette_index": 6,
+      "occurrences": 5,
+      "reference_file": "original-face-04-65x53.png",
+      "anchor": [
+        45,
+        66
+      ],
+      "entries": [
+        "ep1.cube20",
+        "ep1.cube37",
+        "ep4.cube34",
+        "ep4.cube38",
+        "ep4.cube40"
+      ],
+      "runtime_id": 4,
+      "source_id_1based": 5,
+      "canonical_1280_export_size": [
+        260,
+        212
+      ],
+      "canonical_1280_anchor": [
+        180,
+        264
+      ],
+      "visual_identity_notes": "Green vertically ribbed alien or organic helmet face with pale metallic side structures and dark blue shoulders; no invented human anatomy.",
+      "effective_palette_rgb_fnv1a64": "0x940c0f3dbcc92374",
+      "approved_png": "source-face04-v1.png",
+      "approved_png_sha256": "bef1eca7449783ac27a9c29e9a4fb37c26943fcabe23582e22a31c04640c2d5d",
+      "art_version": 1,
+      "master_png_sha256": "68884f7ea50cc1ad033e720f7d8a686edd978b168f270d961b28816c21d42c0b",
+      "source_png_sha256": "78ab3baca53494939671decfb14f4c8dbfecb8e3ec3356b4570c8f5b5cc66512",
+      "generated_alpha_bbox": [
+        0,
+        0,
+        260,
+        212
+      ],
+      "mask_comparison": {
+        "alpha_threshold": 127,
+        "alpha_iou": 0.8614837264461721,
+        "generated_pixels_outside_native": 777,
+        "native_pixels_not_covered": 4479
+      }
+    },
+    {
+      "bank": 4,
+      "id_0based": 5,
+      "size": [
+        65,
+        55
+      ],
+      "rle_bytes": 1835,
+      "rle_offset": 146807,
+      "rle_sha256": "838c68222593167cf688cca59b9223a8e3bac6129aa73f19e5c9c97fff2b6095",
+      "rle_fnv1a64": "0xdfd888dcd54b1dbc",
+      "index_sha256": "8c2b14da71223cf4b236c6f24cb4a93cb7a07b5b40dbe642e9fec7d9271d7a3d",
+      "index_fnv1a64": "0xcca9d9a99e566b4d",
+      "mask_sha256": "288aaf3f4156e976229290428900119536a3cce1213319c601d1df7ea3c315a0",
+      "mask_fnv1a64": "0xc011d589355737e2",
+      "opaque_bbox": [
+        4,
+        0,
+        65,
+        55
+      ],
+      "opaque_pixels": 1671,
+      "palette_index": 9,
+      "occurrences": 5,
+      "reference_file": "original-face-05-65x55.png",
+      "anchor": [
+        45,
+        65
+      ],
+      "entries": [
+        "ep2.cube08",
+        "ep3.cube01",
+        "ep3.cube03",
+        "ep3.cube05",
+        "ep4.cube63"
+      ],
+      "runtime_id": 5,
+      "source_id_1based": 6,
+      "canonical_1280_export_size": [
+        260,
+        220
+      ],
+      "canonical_1280_anchor": [
+        180,
+        260
+      ],
+      "visual_identity_notes": "Dark-haired middle-aged man with mustache and short pointed beard, serious eyes, blue-gray collar; preserve restrained human proportions.",
+      "effective_palette_rgb_fnv1a64": "0x857431327923373e",
+      "approved_png": "source-face05-v1.png",
+      "approved_png_sha256": "046912b956ae7b32a1dc2786eceec004bb5ed5583264b35d53559dcc80f9fd61",
+      "art_version": 1,
+      "master_png_sha256": "6c9fd6443d44926d95b531d2fca6e5937e0a5959fde2719a7fbb54fa5c01b995",
+      "source_png_sha256": "67053afccb2d9ddd5a8c9a184e5678064c8aebff73868c0cdd131b121293ee59",
+      "generated_alpha_bbox": [
+        0,
+        0,
+        260,
+        220
+      ],
+      "mask_comparison": {
+        "alpha_threshold": 127,
+        "alpha_iou": 0.7957332652018395,
+        "generated_pixels_outside_native": 4576,
+        "native_pixels_not_covered": 1820
+      }
+    },
+    {
+      "bank": 4,
+      "id_0based": 6,
+      "size": [
+        65,
+        55
+      ],
+      "rle_bytes": 2337,
+      "rle_offset": 148649,
+      "rle_sha256": "4762a941fd3507ca41a320b25f7fe1e88b79d071d7ecbde8937270fd44b62858",
+      "rle_fnv1a64": "0x79f074daa8c50632",
+      "index_sha256": "ca0e29793deb70754b52fcbfc4440a1138f7f6376e8c5a5f648f3ccd7b9dd640",
+      "index_fnv1a64": "0x68cff3ed90cf5ef5",
+      "mask_sha256": "f05ab767ab3face5c8ebb5e04e2beb2f75ad1860c6561ae023e97fa90af57748",
+      "mask_fnv1a64": "0xf0406a6360f9f357",
+      "opaque_bbox": [
+        0,
+        1,
+        65,
+        55
+      ],
+      "opaque_pixels": 2214,
+      "palette_index": 11,
+      "occurrences": 8,
+      "reference_file": "original-face-06-65x55.png",
+      "anchor": [
+        45,
+        65
+      ],
+      "entries": [
+        "ep1.cube21",
+        "ep2.cube12",
+        "ep3.cube04",
+        "ep3.cube08",
+        "ep3.cube13",
+        "ep3.cube15",
+        "ep4.cube46",
+        "ep4.cube47"
+      ],
+      "runtime_id": 6,
+      "source_id_1based": 7,
+      "canonical_1280_export_size": [
+        260,
+        220
+      ],
+      "canonical_1280_anchor": [
+        180,
+        260
+      ],
+      "visual_identity_notes": "Deep purple hooded face almost entirely in shadow, narrow warm eyes, angular nose; preserve deliberate low visibility rather than brightening it.",
+      "effective_palette_rgb_fnv1a64": "0xcb6865be9b0f97e5",
+      "approved_png": "source-face06-v1.png",
+      "approved_png_sha256": "c32f5f933ca9a82415c66d397e759d0ddd4e26c5c4dea12786a9d9d525f5aff6",
+      "art_version": 1,
+      "master_png_sha256": "a4c7788bbfb923b0c683ea79623811a70eaed3baa979bee1676f180b4610df62",
+      "source_png_sha256": "492a314be19fe8e1bac64c2f728a8944fbd1526b138b8a85bf7d22e07b0f1c8e",
+      "generated_alpha_bbox": [
+        0,
+        0,
+        260,
+        220
+      ],
+      "mask_comparison": {
+        "alpha_threshold": 127,
+        "alpha_iou": 0.9515485203028218,
+        "generated_pixels_outside_native": 901,
+        "native_pixels_not_covered": 859
+      }
+    },
+    {
+      "bank": 4,
+      "id_0based": 7,
+      "size": [
+        65,
+        55
+      ],
+      "rle_bytes": 2146,
+      "rle_offset": 150993,
+      "rle_sha256": "a1017916af47aafecbdf64318b27258545783f7605c7aa8f4e24101e890bfaff",
+      "rle_fnv1a64": "0x6766e73017791108",
+      "index_sha256": "750e872c959c46a793b8e9552b11d3b648cb91b905837839e717ea43948e3cbf",
+      "index_fnv1a64": "0xe6e26afe34e67421",
+      "mask_sha256": "fda8e5e74037e39e3294b55d13b89d650f9a11df46d7feb41ed362870a9c9e0d",
+      "mask_fnv1a64": "0x7d5e8912228bbf42",
+      "opaque_bbox": [
+        0,
+        1,
+        65,
+        55
+      ],
+      "opaque_pixels": 2001,
+      "palette_index": 12,
+      "occurrences": 14,
+      "reference_file": "original-face-07-65x55.png",
+      "anchor": [
+        45,
+        65
+      ],
+      "entries": [
+        "ep1.cube11",
+        "ep1.cube19",
+        "ep1.cube22",
+        "ep3.cube19",
+        "ep4.cube05",
+        "ep4.cube06",
+        "ep4.cube17",
+        "ep4.cube18",
+        "ep4.cube22",
+        "ep4.cube23",
+        "ep4.cube26",
+        "ep4.cube29",
+        "ep4.cube39",
+        "ep4.cube48"
+      ],
+      "runtime_id": 7,
+      "source_id_1based": 8,
+      "canonical_1280_export_size": [
+        260,
+        220
+      ],
+      "canonical_1280_anchor": [
+        180,
+        260
+      ],
+      "visual_identity_notes": "Transon: elderly high-foreheaded bald man with sparse gray hair, mild weary expression, red/gray-olive jacket, pointed ivory collar and gray tie.",
+      "effective_palette_rgb_fnv1a64": "0x924c94ee00536f5e",
+      "approved_png": "source-face07-v3.png",
+      "approved_png_sha256": "646237fab8e96ae5c2400a098aec8c76f19f6e37b1610919faf2fd18213ad7ad",
+      "art_version": 3,
+      "mask_comparison": {
+        "source_4x_opaque_pixels": 32016,
+        "pilot_v3_alpha_gt127_pixels": 30752,
+        "native_vs_pilot_alpha_iou": 0.9287118977384464,
+        "pilot_outside_native_mask_pixels": 528,
+        "native_mask_uncovered_by_pilot_pixels": 1792,
+        "note": "Artwork is a redrawn silhouette and must not be mistaken for native INDEX8 ownership. Parent must decide safe underlay/ownership compositing."
+      },
+      "master_png_sha256": "f9334e2cdcf860364bdc630fc90ed129f27d17ef9bc40439a617b3872209663f",
+      "source_png_sha256": "7de0eb8c93b90743e0e1c933b84fb924c666f0bd658bff7ffb5e124219d228e8"
+    },
+    {
+      "bank": 4,
+      "id_0based": 8,
+      "size": [
+        65,
+        55
+      ],
+      "rle_bytes": 2055,
+      "rle_offset": 153146,
+      "rle_sha256": "b7f00f11ed8e6acb13ddbeeeb6161c266791ae3473bc331dac5b51c23eeac9e7",
+      "rle_fnv1a64": "0x3c6bb6e3709e4e6a",
+      "index_sha256": "623d37b951546d519fb1e944dbc190455c1ebc0bf222432023d400c6bc327134",
+      "index_fnv1a64": "0x7f4b98cecbc054fd",
+      "mask_sha256": "3e28ce15327faaebacf1dbd66ad0c8792a5702bc7e340cd2e2dbfb674777ff73",
+      "mask_fnv1a64": "0x5279897e88f89b93",
+      "opaque_bbox": [
+        0,
+        2,
+        65,
+        55
+      ],
+      "opaque_pixels": 1922,
+      "palette_index": 16,
+      "occurrences": 5,
+      "reference_file": "original-face-08-65x55.png",
+      "anchor": [
+        45,
+        65
+      ],
+      "entries": [
+        "ep2.cube06",
+        "ep3.cube06",
+        "ep3.cube12",
+        "ep4.cube32",
+        "ep4.cube36"
+      ],
+      "runtime_id": 8,
+      "source_id_1based": 9,
+      "canonical_1280_export_size": [
+        260,
+        220
+      ],
+      "canonical_1280_anchor": [
+        180,
+        260
+      ],
+      "visual_identity_notes": "Black-hooded masked character with narrow pale eyes and nose bridge showing; preserve black silhouette and minimal exposed skin.",
+      "effective_palette_rgb_fnv1a64": "0x2631f803b1f96d58",
+      "approved_png": "source-face08-v1.png",
+      "approved_png_sha256": "31d364216028a267e6dcbe27490457cfe3accb1dc36fd3c35f7847cff69df824",
+      "art_version": 1,
+      "master_png_sha256": "97ba62f4ac0ddcc00b3109a3b093cd15d0dd9ff18319bdd368807fa2a6c405af",
+      "source_png_sha256": "26707ea3a718c49c20aa69ba4c29ee297dc787eadc942296c2dd32e48cb78a40",
+      "generated_alpha_bbox": [
+        0,
+        6,
+        260,
+        220
+      ],
+      "mask_comparison": {
+        "alpha_threshold": 127,
+        "alpha_iou": 0.8968975621544875,
+        "generated_pixels_outside_native": 2351,
+        "native_pixels_not_covered": 1062
+      }
+    },
+    {
+      "bank": 4,
+      "id_0based": 9,
+      "size": [
+        65,
+        55
+      ],
+      "rle_bytes": 2542,
+      "rle_offset": 155208,
+      "rle_sha256": "58b995cb1bbfa68282a8eb4520ba1d044464d5a559dba42ec21e7fc9f5bae685",
+      "rle_fnv1a64": "0x74819ccca1e100c2",
+      "index_sha256": "64538ffef22bef659a1b59dde2bd69e67f6d8c7bbb932cdf4b667652f372d9c2",
+      "index_fnv1a64": "0x6eeb4f58233618a4",
+      "mask_sha256": "1e5790e1df188d7d8069e1e24e7b12498e07e51001f648dacfb4b6dec08bdb20",
+      "mask_fnv1a64": "0x68bf7649f2274798",
+      "opaque_bbox": [
+        0,
+        0,
+        65,
+        55
+      ],
+      "opaque_pixels": 2393,
+      "palette_index": 13,
+      "occurrences": 5,
+      "reference_file": "original-face-09-65x55.png",
+      "anchor": [
+        45,
+        65
+      ],
+      "entries": [
+        "ep3.cube02",
+        "ep4.cube09",
+        "ep4.cube19",
+        "ep4.cube20",
+        "ep4.cube49"
+      ],
+      "runtime_id": 9,
+      "source_id_1based": 10,
+      "canonical_1280_export_size": [
+        260,
+        220
+      ],
+      "canonical_1280_anchor": [
+        180,
+        260
+      ],
+      "visual_identity_notes": "Long sandy-haired bearded man with one black eyepatch and strap; gray patterned shoulders; preserve eyepatch side and strap direction.",
+      "effective_palette_rgb_fnv1a64": "0xde723fd49c69215e",
+      "approved_png": "source-face09-v1.png",
+      "approved_png_sha256": "c3498b8d381c27aca6c0d8720ec15580acdd4a95ef543072bc610ad99e60389b",
+      "art_version": 1,
+      "master_png_sha256": "b3ace2aa484fbe7cbffcb387e97fbb987fad36134f4ae33a9278cb7ac1442071",
+      "source_png_sha256": "abb1d582b0b6d5018cb104cbc5cff8704d722ca18f06545b8a742c9035e5ebe2",
+      "generated_alpha_bbox": [
+        0,
+        0,
+        260,
+        220
+      ],
+      "mask_comparison": {
+        "alpha_threshold": 127,
+        "alpha_iou": 0.9287149111511718,
+        "generated_pixels_outside_native": 542,
+        "native_pixels_not_covered": 2226
+      }
+    },
+    {
+      "bank": 4,
+      "id_0based": 10,
+      "size": [
+        65,
+        55
+      ],
+      "rle_bytes": 2106,
+      "rle_offset": 157757,
+      "rle_sha256": "ff9f948c37fdc22a2b07d19df138a0623740d1fdcd2e6b6cb496a540f5913edf",
+      "rle_fnv1a64": "0x8fc20c17b4f5057e",
+      "index_sha256": "61c572ea84ed0b51427720965ec86b8061bbab5f5c6b803d92804f79ebd87c07",
+      "index_fnv1a64": "0x19d5db000029c633",
+      "mask_sha256": "ecee06533e448ef1b7c6bff0bda6a1a95ccfb7531e10ef6bc7cdc45371ac0172",
+      "mask_fnv1a64": "0xe8e0c53ee2a64d61",
+      "opaque_bbox": [
+        1,
+        1,
+        65,
+        55
+      ],
+      "opaque_pixels": 1956,
+      "palette_index": 14,
+      "occurrences": 4,
+      "reference_file": "original-face-10-65x55.png",
+      "anchor": [
+        45,
+        65
+      ],
+      "entries": [
+        "ep2.cube03",
+        "ep4.cube33",
+        "ep4.cube37",
+        "ep4.cube62"
+      ],
+      "runtime_id": 10,
+      "source_id_1based": 11,
+      "canonical_1280_export_size": [
+        260,
+        220
+      ],
+      "canonical_1280_anchor": [
+        180,
+        260
+      ],
+      "visual_identity_notes": "Red side-parted hair, light-skinned middle-aged man, dark high neck and tan-gray jacket; preserve asymmetrical hair and severe expression.",
+      "effective_palette_rgb_fnv1a64": "0x589a74be44867c4d",
+      "approved_png": "source-face10-v1.png",
+      "approved_png_sha256": "f494040385d13329a53b39086c582983c99b0d15ef02d09c426f0175f4283c3a",
+      "art_version": 1,
+      "master_png_sha256": "39b4c50975aab3715cc267e226e8b051399521b57e1e587fcbdd917c896b8173",
+      "source_png_sha256": "d2beadaae5f303f5e417ae8663e18f4f0262a5decdddcd40f6f508c712c39873",
+      "generated_alpha_bbox": [
+        0,
+        0,
+        260,
+        220
+      ],
+      "mask_comparison": {
+        "alpha_threshold": 127,
+        "alpha_iou": 0.92179169249845,
+        "generated_pixels_outside_native": 964,
+        "native_pixels_not_covered": 1559
+      }
+    },
+    {
+      "bank": 4,
+      "id_0based": 11,
+      "size": [
+        65,
+        55
+      ],
+      "rle_bytes": 2800,
+      "rle_offset": 159870,
+      "rle_sha256": "0795cfc500e5364b7ada7584a1c23c38aeda2b0fd0e20ea8b4b79a0026e5bd46",
+      "rle_fnv1a64": "0xb2fc6a06b69cf65b",
+      "index_sha256": "ad9982214c09f1aa2b0ea8fb585e3dd291db669879bfbfd1a2c069537443b91f",
+      "index_fnv1a64": "0x6ed4aa0cce4b2be1",
+      "mask_sha256": "21aaeecd02665a85e3bb80e2527f336c159236487541907d289f02fbf4f74043",
+      "mask_fnv1a64": "0xecf1a0d02d5e5e78",
+      "opaque_bbox": [
+        0,
+        0,
+        65,
+        55
+      ],
+      "opaque_pixels": 2697,
+      "palette_index": 15,
+      "occurrences": 2,
+      "reference_file": "original-face-11-65x55.png",
+      "anchor": [
+        45,
+        65
+      ],
+      "entries": [
+        "ep3.cube07",
+        "ep3.cube16"
+      ],
+      "runtime_id": 11,
+      "source_id_1based": 12,
+      "canonical_1280_export_size": [
+        260,
+        220
+      ],
+      "canonical_1280_anchor": [
+        180,
+        260
+      ],
+      "visual_identity_notes": "Heavy elderly white-haired man wearing black wraparound goggles, thick blue high collar and red jacket; preserve broad body/head proportions.",
+      "effective_palette_rgb_fnv1a64": "0x14fe9959b4946723",
+      "approved_png": "source-face11-v1.png",
+      "approved_png_sha256": "2854888a6a9cac6ed163e9cc98e625346e44c8933093189d920391c78200a656",
+      "art_version": 1,
+      "master_png_sha256": "90c16f0931f3ea8255cd22f37e20cadcd5cf308f6ce50e907ca6776572a29d0c",
+      "source_png_sha256": "67fbf08bf17c055e030321f4a105a38af52c828393253831bd059a185d2bcd42",
+      "generated_alpha_bbox": [
+        0,
+        0,
+        260,
+        220
+      ],
+      "mask_comparison": {
+        "alpha_threshold": 127,
+        "alpha_iou": 0.901015871553293,
+        "generated_pixels_outside_native": 259,
+        "native_pixels_not_covered": 4038
+      }
+    },
+    {
+      "bank": 4,
+      "id_0based": 12,
+      "size": [
+        69,
+        64
+      ],
+      "rle_bytes": 3090,
+      "rle_offset": 162677,
+      "rle_sha256": "569b3bc01bc3e54b8e0aabc945fa91c43e00a01f43971bee8f241629aea03443",
+      "rle_fnv1a64": "0x69c8cdd338b1a74e",
+      "index_sha256": "6eaa9ed6175049348475a4af9d2cf3e7427f0b34316612dd95a2527505a09fbd",
+      "index_fnv1a64": "0xaf42bb666ea24a3f",
+      "mask_sha256": "2edee4bba5c46fbcaf315ba0cad33b9ab3b31b49215e71070a93564ddea6ab21",
+      "mask_fnv1a64": "0x7a12b2ed5fb89f08",
+      "opaque_bbox": [
+        0,
+        1,
+        69,
+        64
+      ],
+      "opaque_pixels": 2939,
+      "palette_index": 0,
+      "occurrences": 1,
+      "reference_file": "original-face-12-69x64.png",
+      "anchor": [
+        43,
+        60
+      ],
+      "entries": [
+        "ep5.cube07"
+      ],
+      "runtime_id": 12,
+      "source_id_1based": 13,
+      "canonical_1280_export_size": [
+        276,
+        256
+      ],
+      "canonical_1280_anchor": [
+        172,
+        240
+      ],
+      "visual_identity_notes": "Cartoon-stylized bald man with thick dark brows, curled mustache, gray pointed beard, red and yellow uniform; preserve its original cartoon treatment.",
+      "effective_palette_rgb_fnv1a64": "0x1c6687307999bd82",
+      "approved_png": "source-face12-v1.png",
+      "approved_png_sha256": "229988e459c3bd61c3346f9e6b5af106cebf0335282ce339d48011bb80468568",
+      "art_version": 1,
+      "master_png_sha256": "d5c44d690f779a4c3d79ca6fd4df81587daee94a01e59e0f77349bf486f640a5",
+      "source_png_sha256": "e1d61e669ec05aa012ab004df010f83682c8a423c697ad159db1617c27351ae6",
+      "generated_alpha_bbox": [
+        0,
+        6,
+        276,
+        256
+      ],
+      "mask_comparison": {
+        "alpha_threshold": 127,
+        "alpha_iou": 0.8889821615949632,
+        "generated_pixels_outside_native": 626,
+        "native_pixels_not_covered": 4664
+      }
+    },
+    {
+      "bank": 4,
+      "id_0based": 13,
+      "size": [
+        70,
+        63
+      ],
+      "rle_bytes": 3078,
+      "rle_offset": 165774,
+      "rle_sha256": "f8df217719c196d0b7cad1ecdb661288177ed7ecfc342c4b494a0095c613d241",
+      "rle_fnv1a64": "0x98dd9792cd20c03f",
+      "index_sha256": "aa8e9bbe525cfe7329c9df46ad15cf2214e79725616b99f6932358774b5f62fd",
+      "index_fnv1a64": "0x628a5c9114335218",
+      "mask_sha256": "2f1ffe9d6d3f3c43ffc5b6b8d3e27420df989d2f985714615d229bce5a639287",
+      "mask_fnv1a64": "0xd864fb45f30e2c03",
+      "opaque_bbox": [
+        0,
+        0,
+        70,
+        63
+      ],
+      "opaque_pixels": 2840,
+      "palette_index": 0,
+      "occurrences": 1,
+      "reference_file": "original-face-13-70x63.png",
+      "anchor": [
+        42,
+        61
+      ],
+      "entries": [
+        "ep5.cube01"
+      ],
+      "runtime_id": 13,
+      "source_id_1based": 14,
+      "canonical_1280_export_size": [
+        280,
+        252
+      ],
+      "canonical_1280_anchor": [
+        168,
+        244
+      ],
+      "visual_identity_notes": "Dark biomechanical insectlike helmet with amber side detail and silver shoulder fragments; retain deliberate shadow and asymmetric components.",
+      "effective_palette_rgb_fnv1a64": "0x1c6687307999bd82",
+      "approved_png": "source-face13-v1.png",
+      "approved_png_sha256": "f88fdff67e581ad1dc88f41164bc6d3a738b2ddca400f1950feb73751e3c44b9",
+      "art_version": 1,
+      "master_png_sha256": "d6297f4dbf6ed4734321c986dfbaf56a1a40994b01998bb2a9054adfe6035446",
+      "source_png_sha256": "23df5e0b96512a8c945bb96b1d997a4e869945b7106176b1628f0f569cc72ea0",
+      "generated_alpha_bbox": [
+        0,
+        0,
+        280,
+        252
+      ],
+      "mask_comparison": {
+        "alpha_threshold": 127,
+        "alpha_iou": 0.888283949324678,
+        "generated_pixels_outside_native": 2315,
+        "native_pixels_not_covered": 3020
+      }
+    },
+    {
+      "bank": 4,
+      "id_0based": 14,
+      "size": [
+        70,
+        59
+      ],
+      "rle_bytes": 3407,
+      "rle_offset": 168859,
+      "rle_sha256": "3dfc927357eeca1fd647662128c9282ca9e711f31af372ed6d1f2078c79b8439",
+      "rle_fnv1a64": "0xc8d1cf529e486658",
+      "index_sha256": "4f49f8b4d38cc77afab09aa81e8bbcf2dd189a482309c766832de1019fd562b8",
+      "index_fnv1a64": "0x4f2b4d1024bc276f",
+      "mask_sha256": "97b4eb64019b5e7e987830a07504f95b5af6b02e4eac58d19d4a1dbbcfd6dc87",
+      "mask_fnv1a64": "0xa3367da1a771234f",
+      "opaque_bbox": [
+        0,
+        0,
+        70,
+        59
+      ],
+      "opaque_pixels": 3302,
+      "palette_index": 0,
+      "occurrences": 1,
+      "reference_file": "original-face-14-70x59.png",
+      "anchor": [
+        42,
+        63
+      ],
+      "entries": [
+        "ep5.cube10"
+      ],
+      "runtime_id": 14,
+      "source_id_1based": 15,
+      "canonical_1280_export_size": [
+        280,
+        236
+      ],
+      "canonical_1280_anchor": [
+        168,
+        252
+      ],
+      "visual_identity_notes": "Red/orange armored or alien respirator helmet with gray central trunk/ridge and tan side prongs; preserve original bilateral structures.",
+      "effective_palette_rgb_fnv1a64": "0x1c6687307999bd82",
+      "approved_png": "source-face14-v2.png",
+      "approved_png_sha256": "d305f27383b2b31580405c0ca9d1c695ec379db4bf002f9a8d355faf2f72c071",
+      "art_version": 2,
+      "master_png_sha256": "fb20f803ddd03ed33cd29b47aa2cbe5835cc815836a018407f59be1e0ac0f262",
+      "source_png_sha256": "6f83c6717c56d82d909367ecc7aaf361e8838220bb0acc50ff7ed3843181890e",
+      "generated_alpha_bbox": [
+        0,
+        22,
+        280,
+        236
+      ],
+      "mask_comparison": {
+        "alpha_threshold": 127,
+        "alpha_iou": 0.828246850629874,
+        "generated_pixels_outside_native": 512,
+        "native_pixels_not_covered": 8650
+      }
+    },
+    {
+      "bank": 4,
+      "id_0based": 15,
+      "size": [
+        70,
+        77
+      ],
+      "rle_bytes": 3572,
+      "rle_offset": 172273,
+      "rle_sha256": "437ed4ab9580348f7da2d42e7f467949af66c8fbfcd279e3cc8788d09df41549",
+      "rle_fnv1a64": "0xa3a8f3b8ff2c8fa6",
+      "index_sha256": "fe1d395f2dd710f5efbfa059783aa39d2d092c3768a73f2fc5a8fa381c15755f",
+      "index_fnv1a64": "0xdf90d21e20883bcf",
+      "mask_sha256": "765754f763cf345e1d64adfff0c7f3b9d94dc4b9aa14d3bd0667cb1c0193902d",
+      "mask_fnv1a64": "0xbdc98d1bf1f0990e",
+      "opaque_bbox": [
+        0,
+        0,
+        70,
+        77
+      ],
+      "opaque_pixels": 3365,
+      "palette_index": 0,
+      "occurrences": 1,
+      "reference_file": "original-face-15-70x77.png",
+      "anchor": [
+        42,
+        54
+      ],
+      "entries": [
+        "ep1.cube12"
+      ],
+      "runtime_id": 15,
+      "source_id_1based": 16,
+      "canonical_1280_export_size": [
+        280,
+        308
+      ],
+      "canonical_1280_anchor": [
+        168,
+        216
+      ],
+      "visual_identity_notes": "Cartoon-stylized smiling young man with wide bright eyes, red-brown cap and light blue shirt; tallest native portrait, do not make photoreal.",
+      "effective_palette_rgb_fnv1a64": "0x1c6687307999bd82",
+      "approved_png": "source-face15-v1.png",
+      "approved_png_sha256": "23ed77e3026a6ee458098497e22c174173b47ce0aab90f51337251b45193ee27",
+      "art_version": 1,
+      "master_png_sha256": "2bbf62bfd2823bf3c4f9964ae6de80ae7774efa887f3a9615f51e11913cfc207",
+      "source_png_sha256": "3728c9ccbda6661cb4459ccf594faab5cbe8e20bb05f1603efba79584db6d6c0",
+      "generated_alpha_bbox": [
+        0,
+        0,
+        280,
+        308
+      ],
+      "mask_comparison": {
+        "alpha_threshold": 127,
+        "alpha_iou": 0.8220640569395018,
+        "generated_pixels_outside_native": 112,
+        "native_pixels_not_covered": 9488
+      }
+    },
+    {
+      "bank": 4,
+      "id_0based": 16,
+      "size": [
+        69,
+        71
+      ],
+      "rle_bytes": 2670,
+      "rle_offset": 175852,
+      "rle_sha256": "52b513f98a11a3fed56671bc6d12d72f3a3d89272d259d532f34954f2030dffd",
+      "rle_fnv1a64": "0x307769c104f880fa",
+      "index_sha256": "cc60bf30f8d93eb2cd081ebbfcce3f5330a320787ef2f65d604eb87f5ed1039b",
+      "index_fnv1a64": "0x2d409c50c7f410c2",
+      "mask_sha256": "c837b9fdc46350e15279022ec0ce12f229a850e397abe5540b5f87b6fe3e4121",
+      "mask_fnv1a64": "0xb8cf170e5d113bbd",
+      "opaque_bbox": [
+        0,
+        0,
+        69,
+        71
+      ],
+      "opaque_pixels": 2320,
+      "palette_index": 0,
+      "occurrences": 2,
+      "reference_file": "original-face-16-69x71.png",
+      "anchor": [
+        43,
+        57
+      ],
+      "entries": [
+        "ep5.cube08",
+        "ep5.cube11"
+      ],
+      "runtime_id": 16,
+      "source_id_1based": 17,
+      "canonical_1280_export_size": [
+        276,
+        284
+      ],
+      "canonical_1280_anchor": [
+        172,
+        228
+      ],
+      "visual_identity_notes": "Gray visor helmet with black horizontal face slats, muted tan lower face and fragmented shoulders; preserve unusual alpha holes/silhouette.",
+      "effective_palette_rgb_fnv1a64": "0x1c6687307999bd82",
+      "approved_png": "source-face16-v2.png",
+      "approved_png_sha256": "7f20ae3b89273bad3675ec2700be9b0856e3fce3d100c1024944095ae41a410b",
+      "art_version": 2,
+      "master_png_sha256": "898e43c1f9f48d9c313539a44264043aaae996abb0f8fdcbdf12fb0bbfb3c654",
+      "source_png_sha256": "ad84c680307d27544b6feca1e9b74922adf23e60ec2083cc486cc1057161eefd",
+      "generated_alpha_bbox": [
+        0,
+        0,
+        275,
+        283
+      ],
+      "mask_comparison": {
+        "alpha_threshold": 127,
+        "alpha_iou": 0.6961916435498785,
+        "generated_pixels_outside_native": 9383,
+        "native_pixels_not_covered": 4745
+      }
+    },
+    {
+      "bank": 4,
+      "id_0based": 17,
+      "size": [
+        48,
+        63
+      ],
+      "rle_bytes": 2227,
+      "rle_offset": 178529,
+      "rle_sha256": "fcef08bf3f5fbc76f3877f564676bb70c6d8314665d743b60a3ba89eb5e40671",
+      "rle_fnv1a64": "0xa7e77f712e63d2af",
+      "index_sha256": "e159ec7f0087be25278c627813ea77ccc4d760d7b8a8733891b8dd6f328f2ad1",
+      "index_fnv1a64": "0x1974265e3d8fc0f6",
+      "mask_sha256": "a85148f68c3630bd6b44310ef1ca253de833f4523ff5192c1d669ef0ce310b59",
+      "mask_fnv1a64": "0x1a90e1729d3f4c29",
+      "opaque_bbox": [
+        1,
+        2,
+        47,
+        63
+      ],
+      "opaque_pixels": 2008,
+      "palette_index": 0,
+      "occurrences": 1,
+      "reference_file": "original-face-17-48x63.png",
+      "anchor": [
+        53,
+        61
+      ],
+      "entries": [
+        "ep5.cube09"
+      ],
+      "runtime_id": 17,
+      "source_id_1based": 18,
+      "canonical_1280_export_size": [
+        192,
+        252
+      ],
+      "canonical_1280_anchor": [
+        212,
+        244
+      ],
+      "visual_identity_notes": "Narrow head-only bald man with dark sunglasses, deep amber/red facial tones and dark goatee; preserve narrow 48px canvas and no invented shoulders.",
+      "effective_palette_rgb_fnv1a64": "0x1c6687307999bd82",
+      "approved_png": "source-face17-v1.png",
+      "approved_png_sha256": "7d6aea7762b22848e0a815202f82c3a6695f1ae3eb9c610cf0cdcab212b3d3a3",
+      "art_version": 1,
+      "master_png_sha256": "dfa30de7ad4bff7a0b9bef9938ffbf222e34ab8570866deec4753a16a16919a6",
+      "source_png_sha256": "ea084513488b406d59c3f78654e635841000969170da008ac312e80c4c242f85",
+      "generated_alpha_bbox": [
+        0,
+        4,
+        188,
+        248
+      ],
+      "mask_comparison": {
+        "alpha_threshold": 127,
+        "alpha_iou": 0.8137687555163283,
+        "generated_pixels_outside_native": 729,
+        "native_pixels_not_covered": 5390
+      }
+    }
+  ],
+  "composition": "Capture full true pre-face underlay; preserve generated alpha exactly; no native-mask or aperture clipping; FACE15 keeps original rim overlap; later native writes and cursor own full logical cells",
+  "approval_manifest_sha256": "454a799aa4e204c893191a557473dd3b9fd17ffb1c0c465615ea07f7201ff607"
+}

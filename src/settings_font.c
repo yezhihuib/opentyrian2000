@@ -3,6 +3,7 @@
  * Resource/core candidate. Call-site activation is a separately reviewed change.
  */
 #include "settings_font.h"
+#include "hd_cursor.h"
 #include "load_font.h"
 #include "selector_font.h"
 #include "selector_font_output.h"
@@ -447,7 +448,7 @@ static void render(void)
    }
   }
  }
- for(unsigned p=0;p<SF_N;p++)if(sf.cursor_mask[p]){sf.replay[p]=sf.cursor_index[p];paint_original(p,sf.cursor_index[p]);}
+ for(unsigned p=0;p<SF_N;p++)if(sf.cursor_mask[p]){sf.replay[p]=sf.cursor_index[p];if(!hd_cursor_active())paint_original(p,sf.cursor_index[p]);}
 }
 /* Portable output keeps authored glyphs as an ordered premultiplied layer.
  * sf.replay first proves the complete original indexed command stream. Only
@@ -502,7 +503,7 @@ static bool render_portable(SDL_Rect *support)
    unsigned p=(c->y+y)*SF_W+c->x+x;sf.replay[p]=c->kind==C_SOLID?(Uint8)c->value:shade(sf.replay[p]);
   }
  }
- for(unsigned p=0;p<SF_N;p++)if(sf.cursor_mask[p])sf.replay[p]=sf.cursor_index[p];
+ if(!hd_cursor_active())for(unsigned p=0;p<SF_N;p++)if(sf.cursor_mask[p])sf.replay[p]=sf.cursor_index[p];
  *support=left<right&&top<bottom?(SDL_Rect){left,top,right-left,bottom-top}:(SDL_Rect){0,0,0,0};
  return true;
 }
@@ -534,7 +535,7 @@ bool settings_font_present(SDL_Renderer *renderer,SDL_Texture *reference,SDL_Sur
   SDL_Rect support;if(!render_portable(&support)){reject();return false;}
   SDL_Surface underlay=*surface;underlay.pixels=sf.replay;
   unsigned radius=scaler==0||scaler==1||scaler==4||scaler==7?0:1;
-  if(!selector_font_output_present_smooth(renderer,reference,&underlay,scalers[scaler].scaler32,destination,sf.output,&support,sf.cursor_mask,radius)){settings_font_invalidate();return false;}
+  if(!selector_font_output_present_smooth(renderer,reference,&underlay,scalers[scaler].scaler32,destination,sf.output,&support,hd_cursor_active()?NULL:sf.cursor_mask,radius)){settings_font_invalidate();return false;}
   sf.renderer=renderer;return true;
  }
  render();if(memcmp(sf.replay,sf.expected,SF_N)){reject();return false;}
@@ -542,5 +543,6 @@ bool settings_font_present(SDL_Renderer *renderer,SDL_Texture *reference,SDL_Sur
  if(!sf.texture){sf.texture=SDL_CreateTexture(renderer,SDL_PIXELFORMAT_ARGB8888,SDL_TEXTUREACCESS_STREAMING,SF_OW,SF_OH);if(!sf.texture||SDL_SetTextureScaleMode(sf.texture,SDL_ScaleModeNearest)||SDL_SetTextureBlendMode(sf.texture,SDL_BLENDMODE_NONE)){settings_font_invalidate();return false;}sf.renderer=renderer;}
  SDL_Rect source_rect={0,0,destination->w,destination->h};
  if(SDL_UpdateTexture(sf.texture,&source_rect,sf.output,destination->w*4)||SDL_SetRenderDrawColor(renderer,0,0,0,255)||SDL_RenderClear(renderer)||SDL_RenderCopy(renderer,sf.texture,&source_rect,destination)){settings_font_invalidate();return false;}
+ if(!hd_cursor_present(renderer,destination)){settings_font_invalidate();return false;}
  SDL_RenderPresent(renderer);return true;
 }

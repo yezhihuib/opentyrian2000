@@ -1,0 +1,88 @@
+{
+  "schema": "data-frame-resource-v1",
+  "format": "DFM1 full-canvas straight RGBA8",
+  "version": 1,
+  "header_bytes": 128,
+  "logical_size": [
+    320,
+    200
+  ],
+  "density": 4,
+  "canvas": [
+    1280,
+    800
+  ],
+  "option20_size": [
+    169,
+    186
+  ],
+  "option20_anchor": [
+    1,
+    1
+  ],
+  "header_uint32_fields": [
+    1,
+    320,
+    200,
+    4,
+    1280,
+    800,
+    4096000,
+    169,
+    186,
+    1,
+    1,
+    2,
+    0,
+    0,
+    0
+  ],
+  "source": {
+    "file": "source-v3.png",
+    "sha256": "34c464d5a05d0dd091a4d1cb3a11d53567ab094768bdb8253b27fcd35d53904d",
+    "bytes": 701041,
+    "size": [
+      676,
+      744
+    ],
+    "modifications": "None; copied byte-for-byte from reviewed v3"
+  },
+  "pmf1": {
+    "file": "assets/shop-frame-v1/shop-frame-metal-v1.hda",
+    "sha256": "639f0c723e1058628e32b052a9613d09a478ff1d2fb4ce28235a94aaa8235260",
+    "processing": "Exact decoded samples reused only in source cells not owned by native clear rectangle or OPTION20 opaque writes"
+  },
+  "source_support": {
+    "file": "option20-source-support-320x200.bin",
+    "sha256": "9cf12bc96e544f8f00c78e03f9635dc67164ccb82433847dcac43f2e09544211",
+    "opaque_pixels": 24469,
+    "packed_include_bytes": 3930,
+    "packed_fnv1a64": "0x28baf73ad74c9068",
+    "pic1_surviving_cells": 32566
+  },
+  "source_identity": {
+    "pic1_fnv1a64": "0x45a77a2246c174b9",
+    "option20_rle_fnv1a64": "0x3c232016c519ed17",
+    "option20_index_fnv1a64": "0x03a1b83be967efe2",
+    "option20_mask_fnv1a64": "0x2f1faa16b55f7cfc",
+    "palette_high_rgb_fnv1a64": "0xdda550ae729ffb73"
+  },
+  "resource_geometry": {
+    "guard_logical_cells": 2,
+    "metric": "Chebyshev",
+    "guard_hd_pixels": 8,
+    "rule_scope": "This Data DFM1 frame only; PSP1 source projection remains one cell",
+    "outside_guard_alpha_pixels_removed": 13598,
+    "outside_guard_alpha_gt127_pixels_removed": 0,
+    "outside_guard_alpha_sum_removed": 13683,
+    "allowed_candidate_samples": "Exact source-v3 samples; no paint, forced opacity, smoothing, or recoloring"
+  },
+  "payload_bytes": 4096000,
+  "payload_fnv1a64": "0x9ea9dd7097643604",
+  "file_bytes": 4096128,
+  "file_fnv1a64": "0xf0ff3afc4b257334",
+  "file_sha256": "585ab4852480e2a4ff3e8df86bbc3a56d25ad797daafda83df54fa4015bc9f5e",
+  "reference_pillow": "12.3.0",
+  "runtime": "Independent optional --data-frame-assets directory; Data menus7/8 only; native faces and dynamic content remain live",
+  "license_and_provenance": "DATA-FRAME-PROVENANCE.txt"
+}

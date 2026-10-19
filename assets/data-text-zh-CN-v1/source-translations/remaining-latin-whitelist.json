@@ -1,0 +1,630 @@
+{
+  "schema": "tyrian-zh-latin-review-v1",
+  "policy": "Every remaining visible ASCII letter is accounted for by an exact literal rule. No untranslated person/place/company/ship name remains. English source and metadata are outside this visible-text audit.",
+  "occurrences": [
+    {
+      "id": "ep1.cube04",
+      "field": "paragraphs[0]",
+      "literal": "USP",
+      "category": "product-series abbreviation",
+      "reason": "Literal series abbreviation; full source expansion is translated 非公司星系载人, and Talon/Perren are Chinese."
+    },
+    {
+      "id": "ep1.cube04",
+      "field": "paragraphs[1]",
+      "literal": "USP",
+      "category": "product-series abbreviation",
+      "reason": "Literal series abbreviation; full source expansion is translated 非公司星系载人, and Talon/Perren are Chinese."
+    },
+    {
+      "id": "ep1.cube04",
+      "field": "paragraphs[2]",
+      "literal": "USP",
+      "category": "product-series abbreviation",
+      "reason": "Literal series abbreviation; full source expansion is translated 非公司星系载人, and Talon/Perren are Chinese."
+    },
+    {
+      "id": "ep1.cube04",
+      "field": "paragraphs[2]",
+      "literal": "G",
+      "category": "unit symbol",
+      "reason": "Acceleration unit symbol G."
+    },
+    {
+      "id": "ep1.cube04",
+      "field": "paragraphs[3]",
+      "literal": "Mark VII",
+      "category": "model designation",
+      "reason": "Air-conditioning model/generation is kept literal."
+    },
+    {
+      "id": "ep1.cube04",
+      "field": "paragraphs[3]",
+      "literal": "USP",
+      "category": "product-series abbreviation",
+      "reason": "Literal series abbreviation; full source expansion is translated 非公司星系载人, and Talon/Perren are Chinese."
+    },
+    {
+      "id": "ep1.cube04",
+      "field": "paragraphs[3]",
+      "literal": "P-3",
+      "category": "equipment model serial",
+      "reason": "Exact stabilizer model."
+    },
+    {
+      "id": "ep1.cube05",
+      "field": "paragraphs[2]",
+      "literal": "Sti-5",
+      "category": "sector identifier",
+      "reason": "Letter-number sector designation, with the surrounding geography in Chinese."
+    },
+    {
+      "id": "ep1.cube05",
+      "field": "paragraphs[2]",
+      "literal": "P-",
+      "category": "job code prefix",
+      "reason": "Unexpanded source prefix P- is retained; Scouting is translated 勘探."
+    },
+    {
+      "id": "ep1.cube07",
+      "field": "paragraphs[0]",
+      "literal": "HX-21",
+      "category": "vehicle model serial",
+      "reason": "Thunder is translated 雷霆; model serial remains literal."
+    },
+    {
+      "id": "ep1.cube14",
+      "field": "title",
+      "literal": "004-55506B",
+      "category": "machine serial",
+      "reason": "MagVend system serial; the brand itself is translated."
+    },
+    {
+      "id": "ep1.cube14",
+      "field": "paragraphs[1]",
+      "literal": "445x56.4",
+      "category": "stardate code",
+      "reason": "Literal numeric stardate."
+    },
+    {
+      "id": "ep1.cube14",
+      "field": "paragraphs[4]",
+      "literal": "004-55506B",
+      "category": "machine serial",
+      "reason": "MagVend system serial; the brand itself is translated."
+    },
+    {
+      "id": "ep1.cube15",
+      "field": "paragraphs[2]",
+      "literal": "stog rock at elpim mb tst",
+      "category": "damaged transmission literal",
+      "reason": "Unexplained garbled position string from the intercepted transmission; no invented location name."
+    },
+    {
+      "id": "ep1.cube15",
+      "field": "paragraphs[2]",
+      "literal": "334-G",
+      "category": "probe ID",
+      "reason": "Exact probe identifier."
+    },
+    {
+      "id": "ep1.cube16",
+      "field": "paragraphs[1]",
+      "literal": "HAR",
+      "category": "robot type/model abbreviation",
+      "reason": "Exact robot designation; source does not spell it out."
+    },
+    {
+      "id": "ep1.cube16",
+      "field": "paragraphs[2]",
+      "literal": "III",
+      "category": "model generation",
+      "reason": "Roman generation number in 新星 III."
+    },
+    {
+      "id": "ep1.cube19",
+      "field": "title",
+      "literal": "A1",
+      "category": "uplink identifier",
+      "reason": "Exact priority uplink identifier."
+    },
+    {
+      "id": "ep1.cube20",
+      "field": "paragraphs[1]",
+      "literal": "41x30",
+      "category": "coordinate code",
+      "reason": "Literal beam-target coordinate."
+    },
+    {
+      "id": "ep1.cube20",
+      "field": "paragraphs[4]",
+      "literal": "T-29",
+      "category": "vehicle model serial",
+      "reason": "Exact blimp model."
+    },
+    {
+      "id": "ep1.cube22",
+      "field": "title",
+      "literal": "A1",
+      "category": "uplink identifier",
+      "reason": "Exact priority uplink identifier."
+    },
+    {
+      "id": "ep1.cube24",
+      "field": "paragraphs[7]",
+      "literal": "G",
+      "category": "unit symbol",
+      "reason": "Acceleration unit symbol G."
+    },
+    {
+      "id": "ep1.cube28",
+      "field": "paragraphs[2]",
+      "literal": "ms",
+      "category": "unit symbol",
+      "reason": "Millisecond unit symbol in the original technical description."
+    },
+    {
+      "id": "ep1.cube28",
+      "field": "paragraphs[2]",
+      "literal": "ms",
+      "category": "unit symbol",
+      "reason": "Millisecond unit symbol in the original technical description."
+    },
+    {
+      "id": "ep1.cube28",
+      "field": "paragraphs[2]",
+      "literal": "ms",
+      "category": "unit symbol",
+      "reason": "Millisecond unit symbol in the original technical description."
+    },
+    {
+      "id": "ep1.cube30",
+      "field": "paragraphs[5]",
+      "literal": "45592-2300-66A",
+      "category": "work serial",
+      "reason": "Numeric serial in the computer-generated song title."
+    },
+    {
+      "id": "ep1.cube30",
+      "field": "paragraphs[7]",
+      "literal": "WoULD yoU Like to sING a SonG wItH me sUbJEcT To bLUe CashEWs?",
+      "category": "verbatim damaged computer lyric",
+      "reason": "Exact source-only computer output. Case, spacing and six isolated highlighted source letters are preserved as an unknown original signal; not asserted to be a decoded password."
+    },
+    {
+      "id": "ep1.cube33",
+      "field": "paragraphs[4]",
+      "literal": "U",
+      "category": "shape letter",
+      "reason": "Alphabetic hull-shape descriptor, not an enemy name."
+    },
+    {
+      "id": "ep1.cube33",
+      "field": "paragraphs[5]",
+      "literal": "O",
+      "category": "shape letter",
+      "reason": "Alphabetic hull-shape descriptor, not an enemy name."
+    },
+    {
+      "id": "ep1.cube33",
+      "field": "paragraphs[6]",
+      "literal": "V",
+      "category": "shape letter",
+      "reason": "Alphabetic hull-shape descriptor, not an enemy name."
+    },
+    {
+      "id": "ep1.cube36",
+      "field": "paragraphs[15]",
+      "literal": "f",
+      "category": "censored fragment",
+      "reason": "Literal cut-off first letter in a censored advertisement; no complete word is invented."
+    },
+    {
+      "id": "ep2.cube05",
+      "field": "paragraphs[0]",
+      "literal": "C",
+      "category": "sector identifier",
+      "reason": "Letter suffix C in the 门迪维安 sector designation."
+    },
+    {
+      "id": "ep2.cube07",
+      "field": "paragraphs[0]",
+      "literal": "C",
+      "category": "sector identifier",
+      "reason": "Letter suffix C in the 门迪维安 sector designation."
+    },
+    {
+      "id": "ep2.cube10",
+      "field": "title",
+      "literal": "004-55506W",
+      "category": "machine serial",
+      "reason": "MagVend system serial; the brand itself is translated."
+    },
+    {
+      "id": "ep2.cube10",
+      "field": "paragraphs[4]",
+      "literal": "FILE0001 LOOT",
+      "category": "literal input",
+      "reason": "Secret input is entered exactly as supplied."
+    },
+    {
+      "id": "ep2.cube10",
+      "field": "paragraphs[5]",
+      "literal": "ALT-254",
+      "category": "literal keys",
+      "reason": "Exact ALT character-entry instruction."
+    },
+    {
+      "id": "ep2.cube10",
+      "field": "paragraphs[5]",
+      "literal": "LOOT",
+      "category": "literal input",
+      "reason": "Repeated word of the exact secret input."
+    },
+    {
+      "id": "ep2.cube10",
+      "field": "paragraphs[6]",
+      "literal": "004-55506B",
+      "category": "machine serial",
+      "reason": "MagVend system serial; the brand itself is translated."
+    },
+    {
+      "id": "ep3.cube09",
+      "field": "paragraphs[1]",
+      "literal": "X",
+      "category": "stage variant identifier",
+      "reason": "X variant label in 泰瑞安 X."
+    },
+    {
+      "id": "ep3.cube17",
+      "field": "paragraphs[0]",
+      "literal": "USP",
+      "category": "product-series abbreviation",
+      "reason": "Literal series abbreviation; full source expansion is translated 非公司星系载人, and Talon/Perren are Chinese."
+    },
+    {
+      "id": "ep3.cube18",
+      "field": "paragraphs[0]",
+      "literal": "AEU",
+      "category": "unit symbol",
+      "reason": "Source unit abbreviation; its expansion is already translated 星体爆炸单位."
+    },
+    {
+      "id": "ep3.cube18",
+      "field": "paragraphs[4]",
+      "literal": "F2+F3+F4",
+      "category": "literal keys",
+      "reason": "Three-key self-destruct code."
+    },
+    {
+      "id": "ep3.cube19",
+      "field": "paragraphs[0]",
+      "literal": "Z-29",
+      "category": "ship model serial",
+      "reason": "Exact Central Defense Ship model."
+    },
+    {
+      "id": "ep4.cube04",
+      "field": "paragraphs[2]",
+      "literal": "IX9204",
+      "category": "technician ID",
+      "reason": "Exact technician identifier."
+    },
+    {
+      "id": "ep4.cube05",
+      "field": "title",
+      "literal": "II",
+      "category": "ship generation",
+      "reason": "Roman generation number in 艾科星 II 号."
+    },
+    {
+      "id": "ep4.cube06",
+      "field": "title",
+      "literal": "II",
+      "category": "ship generation",
+      "reason": "Roman generation number in 艾科星 II 号."
+    },
+    {
+      "id": "ep4.cube06",
+      "field": "paragraphs[0]",
+      "literal": "GT 29:21",
+      "category": "recording code/time",
+      "reason": "Unexpanded recording metadata; no fabricated expansion."
+    },
+    {
+      "id": "ep4.cube11",
+      "field": "paragraphs[2]",
+      "literal": "FPP",
+      "category": "technical acronym",
+      "reason": "Exact source acronym for Forced Particle Packing. The complete description is also translated as 强制粒子压缩技术; no new untranslated name is introduced."
+    },
+    {
+      "id": "ep4.cube17",
+      "field": "title",
+      "literal": "II",
+      "category": "ship generation",
+      "reason": "Roman generation number in 艾科星 II 号."
+    },
+    {
+      "id": "ep4.cube18",
+      "field": "title",
+      "literal": "II",
+      "category": "ship generation",
+      "reason": "Roman generation number in 艾科星 II 号."
+    },
+    {
+      "id": "ep4.cube22",
+      "field": "title",
+      "literal": "II",
+      "category": "ship generation",
+      "reason": "Roman generation number in 艾科星 II 号."
+    },
+    {
+      "id": "ep4.cube23",
+      "field": "title",
+      "literal": "II",
+      "category": "ship generation",
+      "reason": "Roman generation number in 艾科星 II 号."
+    },
+    {
+      "id": "ep4.cube24",
+      "field": "title",
+      "literal": "A2",
+      "category": "uplink identifier",
+      "reason": "Exact priority uplink identifier."
+    },
+    {
+      "id": "ep4.cube24",
+      "field": "paragraphs[0]",
+      "literal": "II",
+      "category": "ship generation",
+      "reason": "Roman generation number in 艾科星 II 号."
+    },
+    {
+      "id": "ep4.cube24",
+      "field": "paragraphs[0]",
+      "literal": "A1",
+      "category": "uplink identifier",
+      "reason": "Exact priority uplink identifier."
+    },
+    {
+      "id": "ep4.cube24",
+      "field": "paragraphs[8]",
+      "literal": "A1",
+      "category": "uplink identifier",
+      "reason": "Exact priority uplink identifier."
+    },
+    {
+      "id": "ep4.cube26",
+      "field": "title",
+      "literal": "II",
+      "category": "ship generation",
+      "reason": "Roman generation number in 艾科星 II 号."
+    },
+    {
+      "id": "ep4.cube28",
+      "field": "title",
+      "literal": "A2",
+      "category": "uplink identifier",
+      "reason": "Exact priority uplink identifier."
+    },
+    {
+      "id": "ep4.cube28",
+      "field": "title",
+      "literal": "P",
+      "category": "link code",
+      "reason": "Literal private-link code P."
+    },
+    {
+      "id": "ep4.cube29",
+      "field": "title",
+      "literal": "II",
+      "category": "ship generation",
+      "reason": "Roman generation number in 艾科星 II 号."
+    },
+    {
+      "id": "ep4.cube29",
+      "field": "paragraphs[1]",
+      "literal": "II",
+      "category": "ship generation",
+      "reason": "Roman generation number in 艾科星 II 号."
+    },
+    {
+      "id": "ep4.cube29",
+      "field": "paragraphs[3]",
+      "literal": "Z-29",
+      "category": "ship model serial",
+      "reason": "Exact Central Defense Ship model."
+    },
+    {
+      "id": "ep4.cube33",
+      "field": "title",
+      "literal": "184-3C",
+      "category": "ship identifier",
+      "reason": "Exact transmission ship identifier."
+    },
+    {
+      "id": "ep4.cube33",
+      "field": "paragraphs[1]",
+      "literal": "TQ930",
+      "category": "communications equipment model",
+      "reason": "Exact communications-system model."
+    },
+    {
+      "id": "ep4.cube33",
+      "field": "paragraphs[1]",
+      "literal": "VLR",
+      "category": "sensor specification abbreviation",
+      "reason": "Exact sensor-grid specification; source does not spell it out."
+    },
+    {
+      "id": "ep4.cube37",
+      "field": "title",
+      "literal": "184-3C",
+      "category": "ship identifier",
+      "reason": "Exact transmission ship identifier."
+    },
+    {
+      "id": "ep4.cube39",
+      "field": "title",
+      "literal": "A1",
+      "category": "uplink identifier",
+      "reason": "Exact priority uplink identifier."
+    },
+    {
+      "id": "ep4.cube39",
+      "field": "title",
+      "literal": "A",
+      "category": "link code",
+      "reason": "Literal private-link code A."
+    },
+    {
+      "id": "ep4.cube41",
+      "field": "paragraphs[0]",
+      "literal": "X3",
+      "category": "character model",
+      "reason": "Zik-Nar is translated 齐克纳尔; model identifier remains literal."
+    },
+    {
+      "id": "ep4.cube41",
+      "field": "paragraphs[1]",
+      "literal": "X3",
+      "category": "character model",
+      "reason": "Zik-Nar is translated 齐克纳尔; model identifier remains literal."
+    },
+    {
+      "id": "ep4.cube41",
+      "field": "paragraphs[2]",
+      "literal": "X3",
+      "category": "character model",
+      "reason": "Zik-Nar is translated 齐克纳尔; model identifier remains literal."
+    },
+    {
+      "id": "ep4.cube41",
+      "field": "paragraphs[4]",
+      "literal": "X3",
+      "category": "character model",
+      "reason": "Zik-Nar is translated 齐克纳尔; model identifier remains literal."
+    },
+    {
+      "id": "ep4.cube48",
+      "field": "title",
+      "literal": "A1",
+      "category": "uplink identifier",
+      "reason": "Exact priority uplink identifier."
+    },
+    {
+      "id": "ep4.cube48",
+      "field": "title",
+      "literal": "A",
+      "category": "link code",
+      "reason": "Literal private-link code A."
+    },
+    {
+      "id": "ep4.cube49",
+      "field": "paragraphs[15]",
+      "literal": "Y",
+      "category": "keyboard key",
+      "reason": "The Y keyboard key in Nob’s dialogue."
+    },
+    {
+      "id": "ep4.cube50",
+      "field": "title",
+      "literal": "XP9 v123-02-39",
+      "category": "news version code",
+      "reason": "Exact news program identifier/version."
+    },
+    {
+      "id": "ep4.cube56",
+      "field": "paragraphs[8]",
+      "literal": "X3",
+      "category": "character model",
+      "reason": "Zik-Nar is translated 齐克纳尔; model identifier remains literal."
+    },
+    {
+      "id": "ep4.cube62",
+      "field": "title",
+      "literal": "184-3C",
+      "category": "ship identifier",
+      "reason": "Exact transmission ship identifier."
+    },
+    {
+      "id": "ep4.cube63",
+      "field": "title",
+      "literal": "445-A1-A1-Jack",
+      "category": "transmission code",
+      "reason": "Jack is inside the exact scrambled-transmission code, not an untranslated person name."
+    },
+    {
+      "id": "ep4.cube64",
+      "field": "paragraphs[0]",
+      "literal": "4410-303-TDCam",
+      "category": "memo code",
+      "reason": "Exact confidential memorandum number."
+    },
+    {
+      "id": "ep4.cube64",
+      "field": "paragraphs[3]",
+      "literal": "399 x 21",
+      "category": "coordinate code",
+      "reason": "Literal pickup coordinate."
+    },
+    {
+      "id": "ep5.cube01",
+      "field": "title",
+      "literal": "GD3 v123-02-48",
+      "category": "news version code",
+      "reason": "Exact news program identifier/version."
+    },
+    {
+      "id": "ep5.cube03",
+      "field": "title",
+      "literal": "SV-510",
+      "category": "dispatch code",
+      "reason": "Exact dispatch code."
+    },
+    {
+      "id": "ep5.cube03",
+      "field": "paragraphs[0]",
+      "literal": "L",
+      "category": "reporting line identifier",
+      "reason": "Letter identifier L, with line/agent labels translated."
+    },
+    {
+      "id": "ep5.cube04",
+      "field": "title",
+      "literal": "CA-220",
+      "category": "dispatch code",
+      "reason": "Exact dispatch code."
+    },
+    {
+      "id": "ep5.cube04",
+      "field": "paragraphs[0]",
+      "literal": "L",
+      "category": "reporting line identifier",
+      "reason": "Letter identifier L, with line/agent labels translated."
+    },
+    {
+      "id": "ep5.cube04",
+      "field": "paragraphs[2]",
+      "literal": "100031iRev",
+      "category": "date code",
+      "reason": "Literal in-world date notation."
+    },
+    {
+      "id": "ep5.cube05",
+      "field": "title",
+      "literal": "ZI-11",
+      "category": "dispatch code",
+      "reason": "Exact dispatch code."
+    },
+    {
+      "id": "ep5.cube06",
+      "field": "title",
+      "literal": "WZ-01",
+      "category": "dispatch code",
+      "reason": "Exact dispatch code."
+    }
+  ],
+  "unclassified": []
+}

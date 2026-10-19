@@ -21,6 +21,9 @@
 #include "selector_font.h"
 #include "pregame_font.h"
 #include "palette.h"
+#include "data_text.h"
+#include "data_frame.h"
+#include "data_portrait.h"
 #include "render_mirror.h"
 #include "startup_logos.h"
 #include "title_layers.h"
@@ -157,6 +160,7 @@ void step_fade_palette(int diff[256][3], int steps, unsigned int first_color, un
 void fade_palette(Palette colors, int steps, unsigned int first_color, unsigned int last_color)
 {
 	assert(steps > 0);
+	data_text_transition(true); data_frame_transition(true); data_portrait_transition(true);
 	
 	static int diff[256][3];
 	load_font_fade_declare(steps);
@@ -174,11 +178,13 @@ void fade_palette(Palette colors, int steps, unsigned int first_color, unsigned 
 		
 		service_wait_delay();
 	}
+	data_text_transition(false); data_frame_transition(false); data_portrait_transition(false);
 }
 
 void fade_solid(SDL_Color color, int steps, unsigned int first_color, unsigned int last_color)
 {
 	assert(steps > 0);
+	data_text_transition(true); data_frame_transition(true); data_portrait_transition(true);
 	
 	static int diff[256][3];
 	load_font_fade_declare(steps);
@@ -196,6 +202,7 @@ void fade_solid(SDL_Color color, int steps, unsigned int first_color, unsigned i
 		
 		service_wait_delay();
 	}
+	data_text_transition(false); data_frame_transition(false); data_portrait_transition(false);
 }
 
 void fade_black(int steps)

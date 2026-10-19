@@ -17,6 +17,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 #include "settings_font.h"
+#include "data_text.h"
 #include "load_font.h"
 #include "selector_font.h"
 #include "pregame_font.h"
@@ -624,7 +625,7 @@ void blit_sprite2_clip(SDL_Surface *surface, int x, int y, Sprite2_array sprite2
 				++data;
 
 				if (x >= 0 && x < surface->pitch)
-					{ pixel_row[x] = *data; render_mirror_pixel(surface,&pixel_row[x],pixel_row[x],MIRROR_NORMAL); }
+					{ pixel_row[x] = *data; data_text_cursor_pixel(surface,&pixel_row[x]); render_mirror_pixel(surface,&pixel_row[x],pixel_row[x],MIRROR_NORMAL); }
 				x += 1;
 			} while (--fill_count);
 		}

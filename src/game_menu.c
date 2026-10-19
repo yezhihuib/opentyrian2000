@@ -17,6 +17,9 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 #include "game_menu.h"
+#include "data_text.h"
+#include "data_frame.h"
+#include "data_portrait.h"
 #include "pregame_font.h"
 #include "render_mirror.h"
 
@@ -267,6 +270,9 @@ void JE_itemScreen(void)
 		{
 			memcpy(VGAScreen->pixels, VGAScreen2->pixels, VGAScreen->pitch * VGAScreen->h);
 		}
+		data_frame_begin(curMenu, VGAScreen, VGAScreen2, curMenu != MENU_DATA_CUBE_SUB || firstMenu9 || backFromHelp);
+		data_portrait_begin(curMenu, VGAScreen, curMenu != MENU_DATA_CUBE_SUB || firstMenu9 || backFromHelp);
+		data_text_begin(curMenu, curSel[MENU_DATA_CUBES] - 2u, cubeMax, VGAScreen);
 		pregame_font_begin(curMenu,curSel[curMenu],menuChoices[curMenu], !twoPlayerMode && !onePlayerAction && !isNetworkGame && !superTyrian && superArcadeMode == SA_NONE && !constantPlay && !timedBattleMode,player[0].cash,cubeMax,VGAScreen,VGAScreen2);
 
 		if (curMenu == MENU_UPGRADES &&
@@ -710,9 +716,12 @@ void JE_itemScreen(void)
 		{
 			firstMenu9 = false;
 			menuChoices[MENU_DATA_CUBES] = cubeMax + 2;
+			const Sprite *data_surround = sprite(OPTION_SHAPES, 20);
+			data_frame_surround_begin(VGAScreen, data_surround->data, data_surround->size, data_surround->width, data_surround->height);
 			fill_rectangle_xy(VGAScreen, 1, 1, 145, 170, 0);
 
 			blit_sprite(VGAScreenSeg, 1, 1, OPTION_SHAPES, 20); /* Portrait area background */
+			data_frame_surround_end(VGAScreen);
 
 			if (curMenu == MENU_DATA_CUBES)
 			{
@@ -765,7 +774,10 @@ void JE_itemScreen(void)
 					const int face_x = 77 - (sprite(FACE_SHAPES, face_sprite)->width / 2),
 					          face_y = 92 - (sprite(FACE_SHAPES, face_sprite)->height / 2);
 
+					const Sprite *data_face = sprite(FACE_SHAPES, face_sprite);
+					data_portrait_capture(VGAScreenSeg, (unsigned)face_sprite, face_sprite < 12 ? facepal[face_sprite] : 0, face_x, face_y, data_face->data, data_face->size, data_face->width, data_face->height);
 					blit_sprite(VGAScreenSeg, face_x, face_y, FACE_SHAPES, face_sprite);  // datacube face
+					data_portrait_face_done(VGAScreenSeg);
 
 					// modify palette for face
 					paletteChanged = true;
@@ -822,6 +834,9 @@ void JE_itemScreen(void)
 			JE_textShade(VGAScreen, 75 - JE_textWidth(cube[curSel[MENU_DATA_CUBES] - 2].header, TINY_FONT) / 2, 173, cube[curSel[MENU_DATA_CUBES] - 2].header, 14, 3, DARKEN);
 		}
 
+		if (curMenu == MENU_DATA_CUBES || curMenu == MENU_DATA_CUBE_SUB)
+			JE_outTextAndDarken(VGAScreen, 8, 185, !strcmp(data_text_language(), "en") ? "F6: Data English / Chinese" : "F6: Chinese / English (fallback)", 14, 1, TINY_FONT);
+
 		/* SYN: Everything above was just drawing the screen. In the rest of it, we process
 		   any user input (and do a few other things) */
 
@@ -865,13 +880,13 @@ void JE_itemScreen(void)
 					}
 
 					fill_rectangle_xy(VGAScreen, 160, 49, 310, 158, 228);
-					if (yLoc + yChg < 0)
+					if (!data_text_body_active() && yLoc + yChg < 0)
 					{
 						yChg = 0;
 						yLoc = 0;
 					}
 
-					yLoc += yChg;
+					if (!data_text_body_active()) yLoc += yChg;
 					temp = yLoc / 12;
 					temp2 = yLoc % 12;
 					tempW = 38 + 12 - temp2;
@@ -899,7 +914,7 @@ void JE_itemScreen(void)
 
 					JE_dString(VGAScreen, 260, 160, miscText[12], SMALL_FONT_SHAPES);
 
-					if (temp2 == 0)
+					if (temp2 == 0 && !data_text_body_active())
 						yChg = 0;
 
 					JE_mouseStart();
@@ -1061,6 +1076,27 @@ void JE_itemScreen(void)
 
 				if (curMenu == MENU_DATA_CUBE_SUB)
 				{
+					if (data_text_body_active())
+					{
+						int direction = 0;
+						bool page = keysactive[SDL_SCANCODE_PAGEUP] || keysactive[SDL_SCANCODE_PAGEDOWN];
+						if (keysactive[SDL_SCANCODE_UP] || keysactive[SDL_SCANCODE_PAGEUP] ||
+						    (mouseButton > 0 && mouseCursor == MOUSE_POINTER_UP)) direction = -1;
+						if (keysactive[SDL_SCANCODE_DOWN] || keysactive[SDL_SCANCODE_PAGEDOWN] ||
+						    (mouseButton > 0 && mouseCursor == MOUSE_POINTER_DOWN)) direction = 1;
+						for (int j = 0; j < joysticks; ++j) {
+							if (joystick[j].direction[0]) direction = -1;
+							if (joystick[j].direction[2]) direction = 1;
+						}
+						data_text_scroll_held(direction, page);
+						if (direction) {
+							if (newkey && (lastkey_scan == SDL_SCANCODE_UP || lastkey_scan == SDL_SCANCODE_DOWN ||
+							    lastkey_scan == SDL_SCANCODE_PAGEUP || lastkey_scan == SDL_SCANCODE_PAGEDOWN)) newkey = false;
+							if (!newkey) inputDetected = false;
+						}
+					}
+					else
+					{
 					if (mouseButton > 0 && mouseCursor != MOUSE_POINTER_NORMAL)
 					{
 						inputDetected = false;
@@ -1107,6 +1143,7 @@ void JE_itemScreen(void)
 					if (yChg  > 0 && (yLoc / 12) > cube[currentCube].last_line - 10)
 					{
 						yChg = 0;
+					}
 					}
 				}
 
@@ -1293,6 +1330,15 @@ void JE_itemScreen(void)
 		{
 			switch (lastkey_scan)
 			{
+			case SDL_SCANCODE_F6:
+				if (curMenu == MENU_DATA_CUBES || curMenu == MENU_DATA_CUBE_SUB) {
+					yChg = 0;
+					data_text_toggle();
+					save_opentyrian_config();
+					firstMenu9 = true;
+				}
+				break;
+
 			case SDL_SCANCODE_SLASH:
 				// if in rear weapon upgrade screen
 				if (curMenu == MENU_UPGRADE_SUB && curSel[MENU_UPGRADES] == 4)
@@ -1350,6 +1396,7 @@ void JE_itemScreen(void)
 			case SDL_SCANCODE_F1:
 				if (!isNetworkGame)
 				{
+					data_text_end(); data_frame_end(); data_portrait_end();
 					fade_black(10);
 					pregame_font_end();
 					JE_helpSystem(2);
@@ -1379,7 +1426,13 @@ void JE_itemScreen(void)
 				}
 				break;
 
+			case SDL_SCANCODE_PAGEUP:
+			case SDL_SCANCODE_PAGEDOWN:
+				if (data_text_body_active()) data_text_page(lastkey_scan == SDL_SCANCODE_PAGEUP ? -1 : 1);
+				break;
+
 			case SDL_SCANCODE_UP:
+				if (data_text_body_active()) { data_text_scroll(-1); break; }
 				keyboardUsed = true;
 				lastDirection = -1;
 
@@ -1411,6 +1464,7 @@ void JE_itemScreen(void)
 				break;
 
 			case SDL_SCANCODE_DOWN:
+				if (data_text_body_active()) { data_text_scroll(1); break; }
 				keyboardUsed = true;
 				lastDirection = 1;
 
@@ -1443,12 +1497,18 @@ void JE_itemScreen(void)
 
 			case SDL_SCANCODE_HOME:
 				if (curMenu == MENU_DATA_CUBE_SUB)
-					yLoc = 0;
+				{
+					if (data_text_body_active()) data_text_home(false);
+					else yLoc = 0;
+				}
 				break;
 
 			case SDL_SCANCODE_END:
 				if (curMenu == MENU_DATA_CUBE_SUB)
-					yLoc = (cube[currentCube].last_line - 9) * 12;
+				{
+					if (data_text_body_active()) data_text_home(true);
+					else yLoc = (cube[currentCube].last_line - 9) * 12;
+				}
 				break;
 
 			case SDL_SCANCODE_LEFT:
@@ -1647,7 +1707,9 @@ void JE_itemScreen(void)
 			}
 		}
 
+		if (curMenu != MENU_DATA_CUBES && curMenu != MENU_DATA_CUBE_SUB) { data_text_end(); data_frame_end(); data_portrait_end(); }
 	} while (!(quit || gameLoaded || jumpSection));
+	data_text_end(); data_frame_end(); data_portrait_end();
 	pregame_font_end();
 
 #ifdef WITH_NETWORK
@@ -1793,10 +1855,12 @@ void draw_ship_illustration(void)
 
 void load_cubes(void)
 {
+	data_text_episode(episodeNum, data_dir());
 	for (int cube_slot = 0; cube_slot < cubeMax; ++cube_slot)
 	{
 		memset(cube[cube_slot].text, 0, sizeof(cube->text));
 
+		data_text_bind((unsigned)cube_slot, cubeList[cube_slot]);
 		load_cube(cube_slot, cubeList[cube_slot]);
 	}
 }

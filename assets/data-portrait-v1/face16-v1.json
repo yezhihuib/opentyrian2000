@@ -1,0 +1,35 @@
+{
+  "schema": "data-portrait-resource-v1",
+  "format": "DPR1 bounded straight RGBA8",
+  "header_bytes": 128,
+  "header_uint32_fields": [
+    1,
+    320,
+    200,
+    4,
+    69,
+    71,
+    276,
+    284,
+    43,
+    57,
+    16,
+    17,
+    0,
+    313536,
+    0
+  ],
+  "source_identity_fnv1a64": [
+    "307769c104f880fa",
+    "2d409c50c7f410c2",
+    "b8cf170e5d113bbd",
+    "1c6687307999bd82"
+  ],
+  "source_png_sha256": "7f20ae3b89273bad3675ec2700be9b0856e3fce3d100c1024944095ae41a410b",
+  "payload_fnv1a64": "454855c2ef676ec6",
+  "file_fnv1a64": "143b4c200a5a9081",
+  "file_sha256": "418cfe0eb4a02f298afb260af7898f417cfc959188f81f733654d374b5c8e364",
+  "file_bytes": 313664,
+  "processing": "Exact approved 276x284 PNG samples, no filtering, paint, mask clipping, recoloring, or alpha changes",
+  "composition": "Captured pre-native-face underlay + independently authenticated DFM static contribution + approved face alpha; later native writes/cursor retain full logical ownership"
+}

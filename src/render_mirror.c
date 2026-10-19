@@ -7,6 +7,8 @@
 #include "load_font.h"
 #include "selector_font.h"
 #include "pregame_font.h"
+#include "data_frame.h"
+#include "data_portrait.h"
 #include "render_mirror.h"
 #include "data_pickup_glyph.h"
 #include "fixed_pickup_flash.h"
@@ -1144,6 +1146,8 @@ void render_mirror_begin(void)
 
 void render_mirror_pixel(SDL_Surface *surface,Uint8 *address,Uint8 source,int style)
 {
+ data_frame_pixel(surface,address);
+ data_portrait_pixel(surface,address);
  storm_pixel(surface,address);
  settings_font_pixel(surface,address,style);
  load_font_pixel(surface,address,style);
@@ -1203,6 +1207,8 @@ void render_mirror_pixel(SDL_Surface *surface,Uint8 *address,Uint8 source,int st
 
 void render_mirror_rect(SDL_Surface *s,const SDL_Rect *rect)
 {
+ data_frame_rect(s,rect);
+ data_portrait_rect(s,rect);
  storm_rect(s,rect);
  settings_font_rect(s,rect);
  load_font_rect(s,rect);

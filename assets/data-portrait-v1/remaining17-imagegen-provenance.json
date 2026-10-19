@@ -1,0 +1,338 @@
+{
+  "date": "2026-10-19",
+  "tool_mode": "built-in image_gen only; no CLI/API fallback",
+  "source_plan": "portrait-source-plan.json (external historical generation plan; fingerprint retained below; not a rebuild input)",
+  "source_plan_sha256": "3b219a65259d94d7805c170bafdac59fe4ee24ae82908aa863f7daa34f7f1ad6",
+  "style_reference_sha256": "f9334e2cdcf860364bdc630fc90ed129f27d17ef9bc40439a617b3872209663f",
+  "generation_count": 22,
+  "runs": [
+    {
+      "runtime_id": 0,
+      "version": 1,
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "referenced_image_paths": [
+        "original-face-00-65x55.png",
+        "face07-transon-hd-pilot-v3.png"
+      ],
+      "prompt": "Use case: identity-preserve. Asset: faithful high-definition redrawn 2D sci-fi game portrait sprite for Tyrian's Data page. Input image 1 is the AUTHORITATIVE original pixel sprite and edit target; preserve its particular character, pose, exact costume shapes, expression, colors, full sprite composition and cutout framing. Input image 2 is only the APPROVED PAINTING STYLE reference of a DIFFERENT character: borrow its restrained aged 1990s 2D painted game illustration treatment, subtle brush texture, matte materials and resolved detail, never its identity or clothing. Genuinely redraw the source with newly resolved illustrated detail, do not merely enlarge or smooth pixels.\nFraming: one portrait only, original 65x55 source aspect ratio 13:11, intended final export 260x220. Keep relative head/shoulder positions and source crop, shoulders meeting source left/right/bottom where applicable. Transparent exterior precisely around the character, no scene, generic oval, frame, solid fill, extra padding or extra torso. No source pixel sprite or comparison panel in output. No text, numbers, logos, insignia, badges, invented embellishments, extra hardware, weapons or props. No photoreal headshot, glossy 3D/plastic rendering, Pixar look, airbrush haze, oversaturated highlights, beautification or exaggerated pores.\nSubject-specific invariants: the enclosed WHITE/IVORY pilot helmet in image 1, front-facing and centered. Preserve smooth large rounded dome, distinct pale side rails and dark gray vertical side/neck padding, very narrow WARM AMBER/TAN visible eye region with small stern eyes, original nose/eyebrow plane, and the original pale broad geometric mask covering nose/mouth/lower face. Most face is hidden. Preserve muted olive-gray shoulders/chest at bottom, the exact white chin-mask shape and original helmet silhouette. Keep helmet design simple, source-faithful and worn matte, not a modern motorcycle helmet, astronaut helmet or combat visor. The small amber face opening must stay narrow. Do not invent exposed mouth or extra face anatomy.",
+      "staged_master": "face00-hd-master-v1.png",
+      "master_sha256": "fcedacaacc8e9a16c6587ff61b24511912badaa61b7e542b7eea93f98df3aae3",
+      "selected": false
+    },
+    {
+      "runtime_id": 0,
+      "version": 2,
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "referenced_image_paths": [
+        "original-face-00-65x55.png",
+        "face00-hd-master-v1.png"
+      ],
+      "prompt": "Use case: identity-preserve. Asset: corrected HD 2D Tyrian Data portrait FACE00 with genuinely transparent exterior. Input image 1 is the AUTHORITATIVE original 65x55 pixel sprite for exact composition, helmet shape and feature placement. Input image 2 is the CURRENT PAINTED CANDIDATE and EDIT TARGET. Correct the candidate's spatial composition to match source image 1; keep its already good restrained aged hand-painted 1990s sci-fi game illustration treatment, resolved detail, original identity, mask, costume, palette and matte material quality. Do not merely crop, stretch or scale the existing rendered head. Redraw/recompose the helmet proportions faithfully.\nCanvas: same 13:11 aspect ratio, final canonical 260x220. Original portrait shoulders meet left/right/bottom edge. Keep source shoulder/body crop unchanged and no added torso. IMPORTANT: original helmet top begins at y20 out of 220, leaving 20 pixels (9.1% of canvas height) of genuinely transparent top headroom. Restore that exact headroom. Helmet dome must be low and smoothly ROUNDED like source, NOT a tall vertical egg. Shorten dome height ABOVE the eyes; preserve source eye opening location, mask shape, head size, side rails, chin and bottom shoulder placement. White top dome's width-to-height and original rounded skull shape are essential.\nPreserve exact character-specific visible warm tan upper face, stern small eyes, ivory mask covering lower face, original muted ivory/olive-gray palette and clothing arrangement. Don't add anything. No logos, text, symbols, badges, new equipment, background, frame, oval, solid fill or comparison panel. No glossy 3D, plastic, photoreal headshot, oversaturated highlights, or new features. Output only one corrected cutout portrait. Transparent exterior and top headroom are mandatory.",
+      "staged_master": "face00-hd-master-v2.png",
+      "master_sha256": "f8f6eb2d65acfdc759b1657aef625c2651c84ecbc54a3022e2dc09da226f07fd",
+      "selected": true,
+      "retained_approved_png": "source-face00-v2.png"
+    },
+    {
+      "runtime_id": 1,
+      "version": 1,
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "referenced_image_paths": [
+        "original-face-01-65x55.png",
+        "face07-transon-hd-pilot-v3.png"
+      ],
+      "prompt": "Use case: identity-preserve. Asset: faithful high-definition redrawn 2D sci-fi game portrait sprite for Tyrian's Data page. Input image 1 is the AUTHORITATIVE original pixel sprite and edit target; preserve its particular character, pose, exact costume shapes, expression, colors, full sprite composition and cutout framing. Input image 2 is only the APPROVED PAINTING STYLE reference of a DIFFERENT character: borrow its restrained aged 1990s 2D painted game illustration treatment, subtle brush texture, matte materials and resolved detail, never its identity or clothing. Genuinely redraw the source with newly resolved illustrated detail, do not merely enlarge or smooth pixels.\nFraming: one portrait only, original 65x55 source aspect ratio 13:11, intended final export 260x220. Keep relative head/shoulder positions and source crop, shoulders meeting source left/right/bottom where applicable. Transparent exterior precisely around the character, no scene, generic oval, frame, solid fill, extra padding or extra torso. No source pixel sprite or comparison panel in output. No text, numbers, logos, insignia, badges, invented embellishments, extra hardware, weapons or props. No photoreal headshot, glossy 3D/plastic rendering, Pixar look, airbrush haze, oversaturated highlights, beautification or exaggerated pores.\nSubject-specific invariants: the source's bulky WHITE/IVORY padded pilot HOOD with squared upper dome, broad rounded ear pads and layered cloth-like chest/collar structures. This is a DIFFERENT character/design from the smoother narrow-opening FACE00 helmet. Preserve comparatively broad warm TAN upper face and stern dark eyes visible in the horizontal upper-face opening; furrowed brows and top of nose. Preserve large white crescent/curving fabric mask across nose/mouth/lower face, original hood seams, blocky padded sides, and full pale shoulders across the bottom. Fabric looks worn and matte, muted ivory with green-gray shadows, no glossy metal. Keep mask on, no mouth exposed. The hood's bulky shoulder width, head orientation and opening shape must follow source. No extra straps, breathing tubes, emblems or invented modern tactical equipment.",
+      "staged_master": "face01-hd-master-v1.png",
+      "master_sha256": "2dc04f26c61a696676f8626fa39f360b59deba6a06631a2ee3bd184c2807522c",
+      "selected": false
+    },
+    {
+      "runtime_id": 1,
+      "version": 2,
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "referenced_image_paths": [
+        "original-face-01-65x55.png",
+        "face01-hd-master-v1.png"
+      ],
+      "prompt": "Use case: identity-preserve. Asset: corrected HD 2D Tyrian Data portrait FACE01 with genuinely transparent exterior. Input image 1 is the AUTHORITATIVE original 65x55 pixel sprite for exact composition, helmet shape and feature placement. Input image 2 is the CURRENT PAINTED CANDIDATE and EDIT TARGET. Correct the candidate's spatial composition to match source image 1; keep its already good restrained aged hand-painted 1990s sci-fi game illustration treatment, resolved detail, original identity, mask, costume, palette and matte material quality. Do not merely crop, stretch or scale the existing rendered head. Redraw/recompose the helmet proportions faithfully.\nCanvas: same 13:11 aspect ratio, final canonical 260x220. Original portrait shoulders meet left/right/bottom edge. Keep source shoulder/body crop unchanged and no added torso. IMPORTANT: original hood top begins at y8 out of 220, leaving 8 pixels (3.6% of canvas height) of genuinely transparent top headroom. Restore that headroom and the original hood profile. Source eye opening and lower-face mask sit slightly HIGHER within the composition than this candidate; carefully align hood, eyes, broad mask and layered collars to image 1. Maintain bulky squared padded dome/ear pads, not the smoother FACE00 enclosed helmet design.\nPreserve exact character-specific visible warm tan upper face, stern small eyes, ivory mask covering lower face, original muted ivory/olive-gray palette and clothing arrangement. Don't add anything. No logos, text, symbols, badges, new equipment, background, frame, oval, solid fill or comparison panel. No glossy 3D, plastic, photoreal headshot, oversaturated highlights, or new features. Output only one corrected cutout portrait. Transparent exterior and top headroom are mandatory.",
+      "staged_master": "face01-hd-master-v2.png",
+      "master_sha256": "3d72ae08e2ee14854c683c42dd929315827e9a46eff87b0c3e131b349a52d600",
+      "selected": true,
+      "retained_approved_png": "source-face01-v2.png"
+    },
+    {
+      "runtime_id": 2,
+      "version": 1,
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "referenced_image_paths": [
+        "original-face-02-65x55.png",
+        "face07-transon-hd-pilot-v3.png"
+      ],
+      "prompt": "Use case: identity-preserve. Asset: faithful high-definition redrawn 2D sci-fi game portrait sprite for Tyrian's Data page. Input image 1 is the AUTHORITATIVE original pixel sprite and edit target; preserve its particular character, pose, exact costume shapes, expression, colors, full sprite composition and cutout framing. Input image 2 is only the APPROVED PAINTING STYLE reference of a DIFFERENT character: borrow its restrained aged 1990s 2D painted game illustration treatment, subtle brush texture, matte materials and resolved detail, never its identity or clothing. Genuinely redraw the source with newly resolved illustrated detail, do not merely enlarge or smooth pixels.\nFraming: one portrait only, original 65x55 source aspect ratio 13:11, intended final export 260x220. Keep relative head/shoulder positions and source crop, shoulders meeting source left/right/bottom where applicable. Transparent exterior precisely around the character, no scene, generic oval, frame, solid fill, extra padding or extra torso. No source pixel sprite or comparison panel in output. No text, numbers, logos, insignia, badges, invented embellishments, extra hardware, weapons or props. No photoreal headshot, glossy 3D/plastic rendering, Pixar look, airbrush haze, oversaturated highlights, beautification or exaggerated pores.\nSubject-specific invariants: pale lean smiling man with HIGH SWEPT DARK BROWN pompadour hair, small dark oval sunglasses with pale rims, long angular thin face, characteristic wide mischievous toothy GRIN, visible ears, short narrow chin and head inclined slightly toward viewer's right as in source. Preserve playful confident expression without a sinister scowl. Dark olive GREEN military-style jacket with source's low shoulder crop and standing/folded collar. Keep exact original hair silhouette and grin, original sunglass size and orientation, muted pale tan complexion, blue-black glasses lenses, subdued green and brown palette. Do not make sunglasses enormous or reflective mirrored chrome. No added badges, insignia, tattoos, facial hair, weapons, jewelry or new clothing.",
+      "staged_master": "face02-hd-master-v1.png",
+      "master_sha256": "0d74d9a382eb47fcc104b89ee069dd16d0fbce20b2f0c7e2bd94d035e56dd6da",
+      "selected": true,
+      "retained_approved_png": "source-face02-v1.png"
+    },
+    {
+      "runtime_id": 3,
+      "version": 1,
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "referenced_image_paths": [
+        "original-face-03-65x55.png",
+        "face07-transon-hd-pilot-v3.png"
+      ],
+      "prompt": "Use case: identity-preserve. Asset: high-definition hand-painted 2D Tyrian Data character sprite. Input1 is the AUTHORITATIVE original pixel character to redraw with newly resolved painted detail: preserve its exact identity, anatomy/hardware, facial expression, pose, costume, full source composition and muted original colors. Input2 is a DIFFERENT approved character used only for restrained aged 1990s 2D painted illustration style, subtle natural brush texture and matte surfaces; never transfer its face or clothing. Keep source-relative head size, headroom, shoulder width, sprite edge contacts, asymmetry and crop. Never standardize to an oversized head or generic centered oval. Entire exterior must be genuinely transparent; no scene, panel, frame, extra padding, extra torso, props, logos, text, insignia or invented symbols. No shiny 3D/plastic, photoreal headshot, airbrush haze or over-dramatic lighting. Output a single source-faithful cutout only, not a comparison.\nFACE03 source65x55/aspect13:11/final260x220. IMPORTANT exact source silhouette: top of helmet begins y6/55 (24px canonical, about11% transparent top headroom). Original shoulders start on viewer's LEFT and are asymmetrical; entire source extent ends at x60/65 leaving about20px transparent to viewer's RIGHT. Maintain source head angled slightly toward viewer's RIGHT, don't center/frontalize. Preserve the light GRAY/IVORY oval multi-lens respirator helmet, exact original asymmetric round lens/opening arrangement (smaller upper openings and larger dark central eye lenses) and small dark mechanical mouth grille, original black-ribbed neck and gray/black suit shoulders. Keep hardware design precisely source-like, subtle worn matte pale metal, deep black lens openings. No visible human face, no new greebles, tubes, antennae, extra lenses, lights, new equipment or armor plates. Head/costume silhouette should closely follow input1.\nAt final260px size use restrained painted texture; not oversharpened lines or excessive gritty microdetail.",
+      "staged_master": "face03-hd-master-v1.png",
+      "master_sha256": "02b67f297ddda59d24b6091a2e9e74c9e5681debb05991f2bfcf7b0fe38d180a",
+      "selected": false
+    },
+    {
+      "runtime_id": 3,
+      "version": 2,
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "referenced_image_paths": [
+        "original-face-03-65x55.png",
+        "face03-hd-260x220-v1.png"
+      ],
+      "prompt": "Use case: identity-preserve. Input1 is AUTHORITATIVE original Tyrian FACE03 pixel sprite. Input2 is painted HD candidate and EDIT TARGET. Correct ONLY spatial composition/proportions so the whole candidate matches input1; keep restrained matte hand-painted 2D sci-fi style, gray/ivory multi-lens respirator design, exact source circular opening arrangement, black ribbed neck and asymmetric gray-black suit shoulders. Current candidate made helmet much too SMALL and too far LEFT/down, creating excess blank space above/right. Redraw and ENLARGE helmet about25-30%, move helmet center toward viewer's RIGHT about25 canonical pixels, raise crown fromy40toy24 in260x220 canvas. The source helmet occupies roughly x76..224,y24..174; match input1's large head, source orientation and feature locations. Fill original shoulder/neck footprint and reach original rightmost extentx240, leaving20px clear on right, while left shoulder and bottom reach canvas edges. Keep original55px high composition/aspect13:11, no extra torso. Do not crop or mechanically stretch; source-faithful redrawing. No new openings, hardware, anatomy, symbols, text, props, background, frame or comparison. Genuinely transparent exterior and source top/right headroom. Output one corrected portrait.",
+      "staged_master": "face03-hd-master-v2.png",
+      "master_sha256": "94f938ac14903be2258909471b4df963552ca8302a7e4c3da77ae2c2d40ab382",
+      "selected": true,
+      "retained_approved_png": "source-face03-v2.png"
+    },
+    {
+      "runtime_id": 4,
+      "version": 1,
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "referenced_image_paths": [
+        "original-face-04-65x53.png",
+        "face07-transon-hd-pilot-v3.png"
+      ],
+      "prompt": "Use case: identity-preserve. Asset: high-definition hand-painted Tyrian Data character sprite. Input image 1 is AUTHORITATIVE original pixel character: preserve identity, exact costume, original face/hardware shapes, expression, head/shoulder pose, muted colors, silhouette and full composition. Input image 2 is a DIFFERENT character used only for approved 2D painted style, never clothing or anatomy. Redraw source into genuinely resolved restrained 1990s 2D sci-fi game illustration, aged subtle painterly texture, matte materials. Preserve intentionally low visibility; do not invent hidden anatomy. Composition must faithfully match source; never replace with a generic oversized head or standardized bust crop. Entire exterior genuinely transparent; no background, oval, panel, frame, extra padding, extra torso, props, added symbols, badges, insignia, text or comparison panel. Keep source edge contacts and shoulder width. No glossy plastic/3D, photoreal headshot, airbrush haze or oversaturation.\nThis is FACE04, an unusual GREEN mottled biomechanical/alien face with vertically RIBBED ridges and subtle source red-brown flecks; NOT a human head and not an invented reptile species. Source canvas65x53, aspect65:53, final260x212. Crown touches top and dark navy-blue shoulders touch left/right/bottom. Tall narrow green central face tapering toward lower face; original stern angular dark eye openings, original pale gray/lilac METALLIC side structures (especially broad plate along viewer's RIGHT side), small source mouth. Carefully retain original ridge layout, green and yellow-olive tones, original dark blue ribbed collar/shoulders. No added horns, tentacles, antennae, teeth, extra eyes, exposed human anatomy or extra machinery. Preserve source facial asymmetry and exactly which structures are organic versus pale metal.",
+      "staged_master": "face04-hd-master-v1.png",
+      "master_sha256": "68884f7ea50cc1ad033e720f7d8a686edd978b168f270d961b28816c21d42c0b",
+      "selected": true,
+      "retained_approved_png": "source-face04-v1.png"
+    },
+    {
+      "runtime_id": 5,
+      "version": 1,
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "referenced_image_paths": [
+        "original-face-05-65x55.png",
+        "face07-transon-hd-pilot-v3.png"
+      ],
+      "prompt": "Use case: identity-preserve. Asset: high-definition hand-painted 2D Tyrian Data character sprite. Input1 is the AUTHORITATIVE original pixel character to redraw with newly resolved painted detail: preserve its exact identity, anatomy/hardware, facial expression, pose, costume, full source composition and muted original colors. Input2 is a DIFFERENT approved character used only for restrained aged 1990s 2D painted illustration style, subtle natural brush texture and matte surfaces; never transfer its face or clothing. Keep source-relative head size, headroom, shoulder width, sprite edge contacts, asymmetry and crop. Never standardize to an oversized head or generic centered oval. Entire exterior must be genuinely transparent; no scene, panel, frame, extra padding, extra torso, props, logos, text, insignia or invented symbols. No shiny 3D/plastic, photoreal headshot, airbrush haze or over-dramatic lighting. Output a single source-faithful cutout only, not a comparison.\nFACE05 source65x55/aspect13:11/final260x220. Dark-haired middle-aged MAN with thick black mustache joining a SHORT narrow pointed goatee, pronounced natural brow, serious direct narrow eyes, long defined nose, slightly weathered warm tan face, original short black hair with a slightly crooked forelock and grayish side highlights. Preserve stern closed mouth, original facial proportions and original head orientation; do not make villainous/angry or younger. Crown nearly touches top, original source leaves a4/65-width transparent margin at viewer's LEFT, and right shoulder/bottom crop meet edges. Keep original simple muted BLUE-GRAY collar and shoulders, without high armor or badges. Preserve source irregular hair silhouette, restrained facial hair shape, blue-gray and warm muted tan palette. No sunglasses, hat, jewelry, tattoos, insignia or props.\nAt final260px size use restrained painted texture; not oversharpened lines or excessive gritty microdetail.",
+      "staged_master": "face05-hd-master-v1.png",
+      "master_sha256": "6c9fd6443d44926d95b531d2fca6e5937e0a5959fde2719a7fbb54fa5c01b995",
+      "selected": true,
+      "retained_approved_png": "source-face05-v1.png"
+    },
+    {
+      "runtime_id": 6,
+      "version": 1,
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "referenced_image_paths": [
+        "original-face-06-65x55.png",
+        "face07-transon-hd-pilot-v3.png"
+      ],
+      "prompt": "Use case: identity-preserve. Asset: high-definition hand-painted Tyrian Data character sprite. Input image 1 is AUTHORITATIVE original pixel character: preserve identity, exact costume, original face/hardware shapes, expression, head/shoulder pose, muted colors, silhouette and full composition. Input image 2 is a DIFFERENT character used only for approved 2D painted style, never clothing or anatomy. Redraw source into genuinely resolved restrained 1990s 2D sci-fi game illustration, aged subtle painterly texture, matte materials. Preserve intentionally low visibility; do not invent hidden anatomy. Composition must faithfully match source; never replace with a generic oversized head or standardized bust crop. Entire exterior genuinely transparent; no background, oval, panel, frame, extra padding, extra torso, props, added symbols, badges, insignia, text or comparison panel. Keep source edge contacts and shoulder width. No glossy plastic/3D, photoreal headshot, airbrush haze or oversaturation.\nThis is FACE06, the deliberate very DARK PURPLE HOOD character. Canvas65x55/aspect13:11/final260x220. Original top of pointed hood at y1 of55, almost touching top, shoulders/cape touch left/right/bottom. Preserve upright pointed dark plum hood, broad dark cloak around original shoulders and V-shaped opening. Almost the entire face is purposefully in deep shadow: only small reddish warm narrow eyes, a faint long angular nose, and very subtle dark lower face/mask planes. Keep original serious lowered gaze and nearly invisible mouth. Do not brighten or reveal the face, do not give him a clearly visible pale human face, glowing eyes, skull, extra anatomy, ornaments or wizard costume. Dark muted plum-charcoal palette and original warm eye accents, subdued light on hood folds. Use source's exact shadow visibility and hood silhouette.",
+      "staged_master": "face06-hd-master-v1.png",
+      "master_sha256": "a4c7788bbfb923b0c683ea79623811a70eaed3baa979bee1676f180b4610df62",
+      "selected": true,
+      "retained_approved_png": "source-face06-v1.png"
+    },
+    {
+      "runtime_id": 8,
+      "version": 1,
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "referenced_image_paths": [
+        "original-face-08-65x55.png",
+        "face07-transon-hd-pilot-v3.png"
+      ],
+      "prompt": "Use case: identity-preserve. Asset: high-definition hand-painted 2D Tyrian Data character sprite. Input1 is the AUTHORITATIVE original pixel character to redraw with newly resolved painted detail: preserve its exact identity, anatomy/hardware, facial expression, pose, costume, full source composition and muted original colors. Input2 is a DIFFERENT approved character used only for restrained aged 1990s 2D painted illustration style, subtle natural brush texture and matte surfaces; never transfer its face or clothing. Keep source-relative head size, headroom, shoulder width, sprite edge contacts, asymmetry and crop. Never standardize to an oversized head or generic centered oval. Entire exterior must be genuinely transparent; no scene, panel, frame, extra padding, extra torso, props, logos, text, insignia or invented symbols. No shiny 3D/plastic, photoreal headshot, airbrush haze or over-dramatic lighting. Output a single source-faithful cutout only, not a comparison.\nFACE08 source65x55/aspect13:11/final260x220. Black-hooded/black-wrapped masked figure: broad rounded black cloth headwrap with slight muted green-gray worn highlight, black mask concealing entire lower face, dark black shoulders and cloak. Only VERY NARROW pale eyes and tiny warm nose-bridge wedge show through an almost horizontal eye opening. Preserve source direct watchful expression and exact minimal exposed skin, no extra anatomy. Top of hood begins y2/55 (about8px canonical transparent headroom); original shoulders fill bottom left/right. Dark charcoal-black muted palette, low subdued light, preserve deliberate shadow and simple cloth-wrap structures. No glowing eyes, exposed mouth, bright full face, modern tactical gear, extra straps, armor, ornaments, weapons or new design. Keep character visibly distinct from purple pointed-hood FACE06; this source has lower round wrapped head and nearly horizontal eye opening.\nAt final260px size use restrained painted texture; not oversharpened lines or excessive gritty microdetail.",
+      "staged_master": "face08-hd-master-v1.png",
+      "master_sha256": "97ba62f4ac0ddcc00b3109a3b093cd15d0dd9ff18319bdd368807fa2a6c405af",
+      "selected": true,
+      "retained_approved_png": "source-face08-v1.png"
+    },
+    {
+      "runtime_id": 9,
+      "version": 1,
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "referenced_image_paths": [
+        "original-face-09-65x55.png",
+        "face07-transon-hd-pilot-v3.png"
+      ],
+      "prompt": "Use case: identity-preserve. Asset: high-definition hand-painted Tyrian Data character sprite. Input image 1 is AUTHORITATIVE original pixel character: preserve identity, exact costume, original face/hardware shapes, expression, head/shoulder pose, muted colors, silhouette and full composition. Input image 2 is a DIFFERENT character used only for approved 2D painted style, never clothing or anatomy. Redraw source into genuinely resolved restrained 1990s 2D sci-fi game illustration, aged subtle painterly texture, matte materials. Preserve intentionally low visibility; do not invent hidden anatomy. Composition must faithfully match source; never replace with a generic oversized head or standardized bust crop. Entire exterior genuinely transparent; no background, oval, panel, frame, extra padding, extra torso, props, added symbols, badges, insignia, text or comparison panel. Keep source edge contacts and shoulder width. No glossy plastic/3D, photoreal headshot, airbrush haze or oversaturation.\nThis is FACE09, sandy/blond long-haired BEARDED man with BLACK EYEPATCH over his own RIGHT eye on viewer's LEFT. Black diagonal strap climbs from that patch upward toward viewer's RIGHT across the forehead. Keep correct side; never mirror. Source canvas65x55/aspect13:11/final260x220. Hair crown almost touches top, shoulder crop touches left/right/bottom. Preserve middle-aged weary mildly bemused face, long rounded nose, slightly open/relaxed mouth, pale visible LEFT eye on viewer's RIGHT, long sandy golden-brown hair reaching shoulders, full short sandy beard and mustache, original subtly asymmetrical head and source gray patterned shoulders/clothing. Gray/black small patterned shoulder fabric stays restrained, no new badges, armor, chainmail details, skull emblems, pirate hat, jewelry or props. Preserve original warm tan complexion and source subdued gold-gray-brown palette.",
+      "staged_master": "face09-hd-master-v1.png",
+      "master_sha256": "b3ace2aa484fbe7cbffcb387e97fbb987fad36134f4ae33a9278cb7ac1442071",
+      "selected": true,
+      "retained_approved_png": "source-face09-v1.png"
+    },
+    {
+      "runtime_id": 10,
+      "version": 1,
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "referenced_image_paths": [
+        "original-face-10-65x55.png",
+        "face07-transon-hd-pilot-v3.png"
+      ],
+      "prompt": "Use case: identity-preserve. Asset: source-faithful high-definition 2D Tyrian Data portrait sprite. Input1 is AUTHORITATIVE original pixel character to redraw with newly resolved painted detail. Preserve its specific identity, age, exact expression, head orientation, haircut, body proportions, costume, muted palette and entire source sprite composition. Input2 is only an approved DIFFERENT character for aged restrained1990s painted sci-fi game illustration style, subtle brush texture and matte surfaces; do not borrow its face/clothes. Keep source-relative head size, headroom, shoulder crop, asymmetric edge contacts and transparent silhouette; do not standardize to a generic oversized head. Entire exterior genuinely transparent, no scene/oval/frame/padding/extra torso. No invented insignia, badges, props, text or comparison panels. No photoreal headshot, shiny3D/plastic, airbrush haze, gritty oversharpened pores or beautification.\nFACE10 source65x55, aspect13:11, final260x220. Middle-aged light-skinned man with RED/AUBURN side-parted hair swept in the original asymmetric shape, distinct lined narrow face, slight three-quarter head turn toward viewer's LEFT, lowered chin, narrowed serious eyes and small tense tooth-showing grimace as in source. Match original expression carefully: strained concentration, not broad happy grin, no villainous exaggeration. Preserve source long nose and face geometry, red-brown hair and muted warm complexion, dark brown high neck/turtleneck underneath plain TAN/GRAY jacket. Preserve low natural shoulders and crop touching source left/right/bottom; hair crown almost touches top. No beard, mustache, sunglasses, jewelry, armor, marks or new costume details.",
+      "staged_master": "face10-hd-master-v1.png",
+      "master_sha256": "39b4c50975aab3715cc267e226e8b051399521b57e1e587fcbdd917c896b8173",
+      "selected": true,
+      "retained_approved_png": "source-face10-v1.png"
+    },
+    {
+      "runtime_id": 11,
+      "version": 1,
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "referenced_image_paths": [
+        "original-face-11-65x55.png",
+        "face07-transon-hd-pilot-v3.png"
+      ],
+      "prompt": "Use case: identity-preserve. Asset: source-faithful high-definition 2D Tyrian Data portrait sprite. Input1 is AUTHORITATIVE original pixel character to redraw with newly resolved painted detail. Preserve its specific identity, age, exact expression, head orientation, haircut, body proportions, costume, muted palette and entire source sprite composition. Input2 is only an approved DIFFERENT character for aged restrained1990s painted sci-fi game illustration style, subtle brush texture and matte surfaces; do not borrow its face/clothes. Keep source-relative head size, headroom, shoulder crop, asymmetric edge contacts and transparent silhouette; do not standardize to a generic oversized head. Entire exterior genuinely transparent, no scene/oval/frame/padding/extra torso. No invented insignia, badges, props, text or comparison panels. No photoreal headshot, shiny3D/plastic, airbrush haze, gritty oversharpened pores or beautification.\nFACE11 source65x55, aspect13:11, final260x220. BROAD heavy elderly man with short swept-back WHITE/GRAY hair, very broad face and jowls, BLACK wraparound goggles with muted amber-brown dark lenses, original severe/dour closed mouth. Preserve large stout head/body proportions, original slight three-quarter head orientation toward viewer's LEFT, big ears, square rounded nose, thick original BLUE high padded collar rising beside jaw, RED jacket across shoulders, small pale gray inner shirt at bottom. Keep original headroom and shoulder crop, no making him slim/young, no huge smile or angry caricature. Original subdued red, blue, warm tan and pale gray palette. No extra emblems, invented straps, ornaments, helmets, armor or props.",
+      "staged_master": "face11-hd-master-v1.png",
+      "master_sha256": "90c16f0931f3ea8255cd22f37e20cadcd5cf308f6ce50e907ca6776572a29d0c",
+      "selected": true,
+      "retained_approved_png": "source-face11-v1.png"
+    },
+    {
+      "runtime_id": 12,
+      "version": 1,
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "referenced_image_paths": [
+        "original-face-12-69x64.png",
+        "face07-transon-hd-pilot-v3.png"
+      ],
+      "prompt": "Use case: identity-preserve. Asset: faithful high-definition Tyrian Data sprite. Input1 is the AUTHORITATIVE original pixel portrait to redraw with newly resolved painted detail. Preserve exact character identity/design, pose, expression, colors, whole source composition and transparent silhouette; original head size/headroom and source shoulder crop, never generic standardized busts. Input2 shows a DIFFERENT character used only for restrained matte painted game-illustration surface quality, never its face, clothing or anatomy. Exterior must be genuinely transparent, including original intentional silhouette gaps. No scene, frame, oval, extra padding/torso, text, logos, badges, props, invented features or comparison panel. No glossy3D/plastic, photoreal headshot, oversharpened gritty texture or cinematic reinvention.\nFACE12 is intentionally CARTOON-STYLIZED; retain its original humorous exaggerated geometry instead of realistic human anatomy. Source69x64, aspect69:64, final276x256. Bald round/pear-shaped head with pale warm tan skin, dark sidehair where shown, thick DARK angled eyebrows, large dark eyes, prominent rounded nose, thick black curled MUSTACHE with pointed sweeping ends and small GRAY pointed GOATEE. Preserve original amused stern/mischievous expression and original exaggerated broad cheeks, small pointed chin, ear shape and bald forehead. Red uniform across shoulders with bright YELLOW side/shoulder trim exactly like source. Preserve tall original head placement/crop. Style should be refined hand-painted2D cartoon sprite, simple clear forms and playful original features, not a realistic portrait, photoreal skin,3D cartoon or new villain. No extra teeth, ornate costume, symbols or new facial hair.",
+      "staged_master": "face12-hd-master-v1.png",
+      "master_sha256": "d5c44d690f779a4c3d79ca6fd4df81587daee94a01e59e0f77349bf486f640a5",
+      "selected": true,
+      "retained_approved_png": "source-face12-v1.png"
+    },
+    {
+      "runtime_id": 13,
+      "version": 1,
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "referenced_image_paths": [
+        "original-face-13-70x63.png",
+        "face07-transon-hd-pilot-v3.png"
+      ],
+      "prompt": "Use case: identity-preserve. Asset: faithful high-definition Tyrian Data sprite. Input1 is the AUTHORITATIVE original pixel portrait to redraw with newly resolved painted detail. Preserve exact character identity/design, pose, expression, colors, whole source composition and transparent silhouette; original head size/headroom and source shoulder crop, never generic standardized busts. Input2 shows a DIFFERENT character used only for restrained matte painted game-illustration surface quality, never its face, clothing or anatomy. Exterior must be genuinely transparent, including original intentional silhouette gaps. No scene, frame, oval, extra padding/torso, text, logos, badges, props, invented features or comparison panel. No glossy3D/plastic, photoreal headshot, oversharpened gritty texture or cinematic reinvention.\nFACE13 dark BIOMECHANICAL/INSECTLIKE helmet portrait, NOT a visible human or generic robot. Source70x63, aspect10:9, final280x252. Preserve source's deliberate very dark blue-black/charcoal shell, asymmetric ridged narrow head, small muted AMBER/gold side detail on viewer's RIGHT, original vertical SILVER respirator-like fragment on lower face, silver-gray fragmented original shoulders along bottom. Preserve prominent dark angular side structure extending from viewer's LEFT side of head into the shoulder, including its original transparent gaps. Source is low-visibility and nearly black: reveal only subtle painted hardware planes corresponding to actual source, no bright frontal face or invented eyes. No extra horns, mandibles, antennae, glowing lights, new teeth, tubes, human anatomy or symmetrical redesign. Exact native irregular silhouette/alpha openings are important.",
+      "staged_master": "face13-hd-master-v1.png",
+      "master_sha256": "d6297f4dbf6ed4734321c986dfbaf56a1a40994b01998bb2a9054adfe6035446",
+      "selected": true,
+      "retained_approved_png": "source-face13-v1.png"
+    },
+    {
+      "runtime_id": 14,
+      "version": 1,
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "referenced_image_paths": [
+        "original-face-14-70x59.png",
+        "face07-transon-hd-pilot-v3.png"
+      ],
+      "prompt": "Use case: identity-preserve. Asset: faithful high-definition Tyrian Data sprite. Input1 is the AUTHORITATIVE original pixel portrait to redraw with newly resolved painted detail. Preserve exact character identity/design, pose, expression, colors, whole source composition and transparent silhouette; original head size/headroom and source shoulder crop, never generic standardized busts. Input2 shows a DIFFERENT character used only for restrained matte painted game-illustration surface quality, never its face, clothing or anatomy. Exterior must be genuinely transparent, including original intentional silhouette gaps. No scene, frame, oval, extra padding/torso, text, logos, badges, props, invented features or comparison panel. No glossy3D/plastic, photoreal headshot, oversharpened gritty texture or cinematic reinvention.\nFACE14 unusual RED/ORANGE armored alien/respirator helmet, not a human face. Source70x59, aspect70:59, final280x236. Preserve original front-facing bilateral form, dark narrow eye recesses, red/orange ridged upper central shell, tan/bronze upward side PRONGS flanking the head, prominent GRAY central vertical TRUNK/RIDGE/respirator structure descending from face toward chest, original tan lower center and broad red/orange shoulder structures filling sides/bottom. Keep source-specific count, placement and shape of prongs/ridges, no extra horns/tentacles, no invented mouth/teeth or exposed human face. Match source worn matte red-orange, bronze/tan, gray-blue and deep charcoal shadows. Preserve low broad source composition and asymmetric tiny details; no generic superhero armor or simplified gasmask.",
+      "staged_master": "face14-hd-master-v1.png",
+      "master_sha256": "96fb12109db2a3a449735f00c2ac94dbe359376ac0b85db2fc056406fed47aa5",
+      "selected": false
+    },
+    {
+      "runtime_id": 14,
+      "version": 2,
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "referenced_image_paths": [
+        "original-face-14-70x59.png",
+        "face14-hd-280x236-v1.png"
+      ],
+      "prompt": "Use case: identity-preserve. Input1 AUTHORITATIVE original Tyrian FACE14 source70x59 defines the design and composition. Input2 CURRENT PAINTED CANDIDATE is EDIT TARGET. Correct only its oversized side horns/prongs and top silhouette; keep the good source-faithful matte painted red/orange armor, original dark eye recesses, gray central trunk/ridge respirator, tan lower center, full shoulder/body crop, 70:59 canvas (final280x236), and true transparent exterior. Current candidate invented LONG tall bronze horns reaching/cutting off the top; original has SHORT DARK SIDE POINTS snug beside the red crown. Remove the long antler-like upper lengths, shorten side points dramatically to original proportions, with small darkened tips and restrained tan/bronze bases. Tips should not tower above the central red/orange crown. Match input1's exact small points and original top headroom; keep all points completely visible rather than clipped. Redraw only these helmet-side shapes and necessary surrounding transparent headroom. No extra horns, spikes, ears, antennae, face, machinery, background, text or props. Preserve original low broad centered composition, not a tall helmet redesign. Output one corrected painted cutout.",
+      "staged_master": "face14-hd-master-v2.png",
+      "master_sha256": "fb20f803ddd03ed33cd29b47aa2cbe5835cc815836a018407f59be1e0ac0f262",
+      "selected": true,
+      "retained_approved_png": "source-face14-v2.png"
+    },
+    {
+      "runtime_id": 15,
+      "version": 1,
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "referenced_image_paths": [
+        "original-face-15-70x77.png",
+        "face07-transon-hd-pilot-v3.png"
+      ],
+      "prompt": "Use case: identity-preserve. Asset: faithful high-definition Tyrian Data sprite. Input1 is the AUTHORITATIVE original pixel portrait to redraw with newly resolved painted detail. Preserve exact character identity/design, pose, expression, colors, whole source composition and transparent silhouette; original head size/headroom and source shoulder crop, never generic standardized busts. Input2 shows a DIFFERENT character used only for restrained matte painted game-illustration surface quality, never its face, clothing or anatomy. Exterior must be genuinely transparent, including original intentional silhouette gaps. No scene, frame, oval, extra padding/torso, text, logos, badges, props, invented features or comparison panel. No glossy3D/plastic, photoreal headshot, oversharpened gritty texture or cinematic reinvention.\nFACE15 is deliberately HUMOROUS CARTOON-STYLIZED young man, not a realistic human. Source70x77, aspect10:11, final280x308, tall source portrait. Preserve elongated warm tan oval head, very LARGE bright WHITE eyes with small dark pupils and original forward gaze, rounded large nose, raised expressive brows, friendly wide TOOTHY GRIN, source brown sidehair/ears, RED-BROWN CAP with original brim and tilted shape at top. LIGHT BLUE shirt and shoulders meet bottom/side edges exactly as source. Keep original tall head/cap/shoulder placement and cheerful expression, original exaggerated cartoon anatomy and simple painted forms. Refine to high-definition2D painted cartoon sprite; don't make photoreal, mature, gritty or3D. No extra teeth, beard, symbols, hat logo, jacket or props.",
+      "staged_master": "face15-hd-master-v1.png",
+      "master_sha256": "2bbf62bfd2823bf3c4f9964ae6de80ae7774efa887f3a9615f51e11913cfc207",
+      "selected": true,
+      "retained_approved_png": "source-face15-v1.png"
+    },
+    {
+      "runtime_id": 16,
+      "version": 1,
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "referenced_image_paths": [
+        "original-face-16-69x71.png",
+        "face07-transon-hd-pilot-v3.png"
+      ],
+      "prompt": "Use case: identity-preserve. Asset: faithful high-definition Tyrian Data sprite. Input1 is the AUTHORITATIVE original pixel portrait to redraw with newly resolved painted detail. Preserve exact character identity/design, pose, expression, colors, whole source composition and transparent silhouette; original head size/headroom and source shoulder crop, never generic standardized busts. Input2 shows a DIFFERENT character used only for restrained matte painted game-illustration surface quality, never its face, clothing or anatomy. Exterior must be genuinely transparent, including original intentional silhouette gaps. No scene, frame, oval, extra padding/torso, text, logos, badges, props, invented features or comparison panel. No glossy3D/plastic, photoreal headshot, oversharpened gritty texture or cinematic reinvention.\nFACE16 source69x71, aspect69:71, final276x284. Unusual angular GRAY VISOR HELMET with BLACK HORIZONTAL FACE SLATS, only muted TAN lower mouth/chin face visible, original dark gray fragmented shoulder/body pieces. Preserve gray domed/sloping angular top shell and original small raised point at viewer's RIGHT, black horizontal visor/screen strips with original dark gaps, source lower tan face and straight closed mouth, no exposed eyes. Preserve ALL original broken/asymmetric silhouette and transparency holes between shoulders and helmet: source bottom center has intentional transparent open region rather than a filled conventional bust. Keep original silver highlights on fragment at viewer's LEFT and small tan/brown lower right piece as source, no added anatomy or invented gadgets. Low-key matte metal/cloth; no extra fins, antennae, glowing eyes, tubes, new emblems or armor.",
+      "staged_master": "face16-hd-master-v1.png",
+      "master_sha256": "6beec503d957376726faa39a957b08cc3b5c938810be8e91ceb3135eaece1461",
+      "selected": false
+    },
+    {
+      "runtime_id": 16,
+      "version": 2,
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "referenced_image_paths": [
+        "original-face-16-69x71.png",
+        "face16-hd-276x284-v1.png"
+      ],
+      "prompt": "Use case: identity-preserve. Input1 AUTHORITATIVE original Tyrian FACE16 source69x71 defines exact helmet/visor/chin/body silhouette. Input2 CURRENT PAINTED CANDIDATE is EDIT TARGET. Correct two invented design details while keeping good matte hand-painted 2D sci-fi style, source gray sloping angular helmet, small original raised point/antenna at viewer's RIGHT, BLACK HORIZONTAL visor slats and true transparent silhouette gaps.\n1) The source's lower face is a BRONZE/GOLD METAL JAW PLATE/FACEGUARD, not a visible human mouth. Replace current fleshy lips, anatomical mouth and human chin with the original muted BRONZE/GOLD mechanical chin guard shape, metal planar surfaces and restrained small source seam/details. Absolutely no flesh, lips, exposed human skin, nose, teeth or invented facial identity.\n2) Restore more continuous SOURCE-LIKE dark angular neck/torso/shoulder support beneath helmet. Current candidate exaggerated the huge open gap and separated shoulder fragments. Follow input1 exactly for original connected black/gray support planes and positions: preserve the source dark neck/base structure and bottom shoulder fragments. Retain genuine transparent alpha gaps only where source has them, never fill source holes as an opaque generic bust; conversely do not introduce new enormous holes. Match source full69:71 canvas, final276x284, original left/right/bottom extent, head size and shoulder crop.\nDo not redesign visor, add extra slats, add new armor, glowing eyes, new greebles, symbols, text, frame, props or background. Output one corrected source-faithful transparent sprite.",
+      "staged_master": "face16-hd-master-v2.png",
+      "master_sha256": "898e43c1f9f48d9c313539a44264043aaae996abb0f8fdcbdf12fb0bbfb3c654",
+      "selected": true,
+      "retained_approved_png": "source-face16-v2.png"
+    },
+    {
+      "runtime_id": 17,
+      "version": 1,
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "referenced_image_paths": [
+        "original-face-17-48x63.png",
+        "face07-transon-hd-pilot-v3.png"
+      ],
+      "prompt": "Use case: identity-preserve. Asset: source-faithful high-definition 2D Tyrian Data portrait sprite. Input1 is AUTHORITATIVE original pixel character to redraw with newly resolved painted detail. Preserve its specific identity, age, exact expression, head orientation, haircut, body proportions, costume, muted palette and entire source sprite composition. Input2 is only an approved DIFFERENT character for aged restrained1990s painted sci-fi game illustration style, subtle brush texture and matte surfaces; do not borrow its face/clothes. Keep source-relative head size, headroom, shoulder crop, asymmetric edge contacts and transparent silhouette; do not standardize to a generic oversized head. Entire exterior genuinely transparent, no scene/oval/frame/padding/extra torso. No invented insignia, badges, props, text or comparison panels. No photoreal headshot, shiny3D/plastic, airbrush haze, gritty oversharpened pores or beautification.\nFACE17 is a NARROW HEAD-ONLY portrait, source48x63, aspect16:21, final192x252. IMPORTANT no shoulders or torso exist in original; DO NOT ADD shoulders/clothes. Preserve head-only crop and narrow vertical canvas. Bald middle-aged man's head with deep muted AMBER/RED/BROWN skin tones, black dark sunglasses, strong nose, angular jaw and short DARK GOATEE/close beard around mouth/chin. Original slight three-quarter head turn toward viewer's RIGHT; retain source geometry, serious closed lips and bald skull, no friendly grin, no gray sidehair. Crown near top, narrow neck ends near bottom. Match source warm dramatic yet matte painted planes, dark shadow along lower left jaw, small restrained highlights. No leather collar, clothing, new ears/extra anatomy, jewelry, tattoos or props. Preserve exactly the original head and minimal neck only, transparent exterior.",
+      "staged_master": "face17-hd-master-v1.png",
+      "master_sha256": "dfa30de7ad4bff7a0b9bef9938ffbf222e34ab8570866deec4753a16a16919a6",
+      "selected": true,
+      "retained_approved_png": "source-face17-v1.png"
+    }
+  ],
+  "postprocessing": "Copy generated masters and only non-creative Lanczos resample to exact4x dimensions. No raster recoloring, creative painting or alpha reauthoring outside image_gen. Diagnostic review sheets composite original nearest and generated export on checkerboard.",
+  "unused_prompt": "face00-v3-prompt.txt was prepared but NOT RUN, per parent direction to stop margin optimization.",
+  "reference_identity_policy": "Native reference images and generated masters remain external; basenames below identify historical generation inputs only. Exact native identities and retained canonical PNG paths are in source-pack.json. Rebuild from the retained approved PNGs, not these historical masters."
+}

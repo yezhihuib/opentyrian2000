@@ -1,0 +1,49 @@
+Data portraits provenance, 2026-10-19
+
+Authoritative geometry and identity: Tyrian2000 tyrian.shp FACE_SHAPES bank4,
+runtime IDs0..17/source IDs1..18. source-pack.json retains all18 exact native
+RLE, decoded INDEX8 and opaque-mask hashes, palette identities, dimensions,
+anchors and all136 original Data occurrence mappings. The13 intentionally
+portrait-free entries remain without portraits. Original game data and native
+reference PNGs are not bundled.
+
+All18 PNGs were parent-visually-approved at their final canonical4x dimensions.
+Selected versions: FACE0/1/3/14/16 v2; FACE7 existing approved v3; all others v1.
+FACE7 source PNG SHA256 remains
+646237fab8e96ae5c2400a098aec8c76f19f6e37b1610919faf2fd18213ad7ad,
+and its DPR1 SHA256 remains
+9c861bd247753c3801ee73fd1fe2e8bf518a27550b58b01d311da3d815b450aa.
+The remaining17 approval-manifest SHA256 is
+454a799aa4e204c893191a557473dd3b9fd17ffb1c0c465615ea07f7201ff607.
+Every selected PNG, original source and generated-master fingerprint is retained
+in source-pack.json. Full initial pilot prompts are in imagegen-provenance.txt;
+all22 remaining-art runs, exact prompts and reference identities are retained in
+remaining17-imagegen-provenance.json. Historical native-reference images and
+generated masters are external; basename labels and fingerprints identify them.
+Selected canonical PNG paths resolve through source-pack.json. Private workspace
+paths and tool-output identifiers are omitted. Only the17 selected masters were
+approved.
+
+Artwork was created through built-in image_gen identity-preserving edits using
+each exact original face and the approved FACE7 painting-style reference. Only
+non-creative Lanczos resampling produced final native4x exports. The packer
+copies every approved RGBA sample exactly, with no further filtering, painting,
+mask clipping, recoloring, sharpening, forced opacity or alpha modification.
+Variable native footprints are intentional: FACE4 65x53; FACE12 69x64;
+FACE13 70x63; FACE14 70x59; FACE15 70x77; FACE16 69x71; FACE17 48x63.
+Other faces are65x55. No generic aperture or old-mask clipping is applied.
+FACE15 preserves its original overlap with the surrounding rim.
+
+Redrawn silhouettes differ from original masks. Presentation reconstructs the
+complete true captured pre-face underlay, including independently authenticated
+optional DFM metal contributions, before compositing new alpha. Later native
+opaque writes and native cursor retain complete logical-cell ownership. Native
+INDEX8, palette, RNG, selection, text and input remain unchanged. Each runtime
+resource is checked against its own compiled source/geometry/palette and exact
+header/payload/file fingerprints. A missing/corrupt/wrong-source face falls back
+individually without disabling other faces, frame or Chinese text.
+
+DPR1 exact file metadata: face00-v1.json through face17-v1.json.
+Code/artwork rights status: LICENSE-Data-Portrait.txt. This integration and its
+art are local only. No publication or broader redistribution permission is
+asserted by the presence of these files or provenance records.

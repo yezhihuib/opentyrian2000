@@ -6,20 +6,23 @@ Git, overwrite, or source-move actions. A dry run is the default.
 
 ## Current selection and closure
 
-`packaging/runtime-assets-v1.json` pins 665 selected files and 115,250,568 bytes,
+`packaging/runtime-assets-v1.json` pins 694 selected files and 127,732,786 bytes,
 excluding an optional executable and generated inventory/status metadata:
 
 - One active manual gameplay pack: all 637 files, 95,176,717 bytes. Its four- and
-  eight-density files are retained, including fallback resources. Split
-  `ground101` transport parts, forest material and its coupled-original policy,
-  plateau cap material, and all seven gameplay HUD sidecars are present.
-- Complete startup/title/settings pack: nine files, 17,780,592 bytes. This includes
-  all three settings-font atlases shared by settings/load/selector/pregame UI,
-  the separate title-menu font, two manufacturer cards, and three title layers.
-- All eleven current optional shop HDAs: 2,256,042 bytes, including the locally
-  accepted generator. These are flattened into that same startup directory;
-  `params.c` connects `--startup-assets` to all six startup/UI font consumers.
-- Five license/provenance notices and three launcher/readme files: 37,217 bytes.
+  eight-density files and tested fallback resources are retained.
+- Complete startup/title/settings pack: nine files, 17,780,592 bytes, with all
+  shared UI font atlases, manufacturer cards and title layers.
+- All twelve current optional shop HDAs: 2,329,034 bytes, flattened into that
+  same startup directory, including the accepted generator and shield material.
+- Three optional Data resources: 3,876,511 bytes. The Chinese text covers
+  all 149 entries, its derived atlas contains 1,905 glyphs, and gold EXIT
+  uses the accepted compact shop-font resource in both languages.
+- One independently optional Data static frame: 4,096,128 bytes.
+- Eighteen independently optional source-authenticated Data portraits:
+  4,420,800 bytes, with exact native geometry and per-face fallback.
+- Eleven license/provenance notices and three launcher/readme files:
+  53,004 bytes.
 
 This is an explicit snapshot, not a claim of a theoretically minimal asset set.
 The complete selected gameplay directory is retained rather than stripping
@@ -29,10 +32,27 @@ contents at the public baseline; only one is included here.
 The public baseline is `fedc541cc6b6e93f7748a85e6c40318b6ca9f5a8`.
 The generator is a local-only addition from
 `55d418de4f914d4694eb7f074458207b1cf6a2d2`; packaging does not publish it.
+The shield material and integration are locally accepted source with no commit
+assigned yet. Adding them does not advance the pinned public baseline.
 Source paths, destination paths, sizes, Git-blob SHA1 and available SHA256 are
 explicit in the allowlist. The public tree was complete (`truncated=false`), and
 all selected local inputs are checked against pinned sizes and content hashes.
 The copied inventory records SHA256 for every output resource.
+
+## Optional dynamic shop shield
+
+Exactly one resource is selected from `assets/shop-shield-v1`:
+`shop-shield-option26-v1.hda` is copied to
+`assets/startup/shop-shield-option26-v1.hda`. Its 72,992 bytes contain a 128-byte
+`PSS1` header followed by separate alpha8 and Q4 tone planes for the accepted
+396×92 material. The live shield draw's original hue/value and current palette
+provide its equipment-dependent color; fixed-RGBA previews are not runtime
+inputs. The existing public assets and license rows retain their original pins.
+
+Only the `.hda` enters the runtime allowlist. Inspection PNGs, raw plane binaries,
+authoring recipes, metadata and previews remain development inputs. The shield
+is independently optional: an absent or rejected material retains the original
+shield without disabling the other accepted shop resources.
 
 ## What stays in development
 
@@ -116,7 +136,11 @@ coverage, and a quoted-path/save-preserving Linux launcher witness. Hash/copy
 verification is not whole-game acceptance, Windows execution, GPU/fullscreen,
 performance or full-campaign certification.
 
-## Measured local copy (2026-10-19 UTC)
+## Earlier measured local copy (2026-10-19 UTC, before shield integration)
+
+The directory and ZIP below are the earlier snapshot. They do not contain the
+new shield material, and the updated allowlist does not rebuild or overwrite
+either deliverable. A fresh copy requires a separately authorized packaging run.
 
 Final corrected Linux copy: 666 selected payload files, 116,339,392 bytes including
 its supplied executable. Inventory/status/completion metadata brings the generated
@@ -144,3 +168,31 @@ Windows source ZIP or a complete Windows release. That packaging run did not red
 repository. The later, separately reviewed obsolete-pack cleanup is documented in
 [retired packs and recovery](RETIRED_HD_PACKS.md) and does not change this pinned
 runtime selection.
+
+## Optional Data-only Chinese
+
+Two independent optional resources are copied under `assets/data-text-zh-CN-v1`: the complete bounded DCT translation and the subset DZF alpha atlas. Their OFL license and font provenance are copied under `licenses/`. The development catalog, merged JSON, source font, previews, and font manifest are excluded. Both launchers pass `--data-text-assets` with an absolute package-relative directory; changing to the dedicated save profile does not break resource loading. F6 in Data toggles English/Simplified Chinese, default English. See [Data text usage](data-text-chinese.md).
+
+## Optional Data static frame
+
+One independently optional resource, `assets/data-frame-v1/data-frame-v1.hda`,
+is copied to the same relative path in the runtime. Its 4,096,128 bytes contain
+a fixed 128-byte DFM1 header and a full 1280x800 straight-RGBA payload. Both
+launchers pass the absolute package-relative `--data-frame-assets` directory.
+Missing or rejected art preserves the native Data background independently of
+valid optional Chinese text/font resources. The static-frame resource upgrades
+the metal background and oval surround only; the separate source-authenticated
+all18-face compositor is described in [Data portrait HD](data-portrait-hd.md).
+
+The retained source-v3 PNG is 701,041 bytes and remains unchanged. The DFM1
+exporter reuses accepted PMF1 samples only where exact original Data writes
+leave PIC1 visible. Only exported candidate alpha outside an explicitly reviewed
+two-logical-cell Chebyshev source-support bound is clipped; this rule is scoped
+to DFM1, and PSP1 retains its separate one-cell bound. No existing art pack,
+previous runtime directory, or ZIP is regenerated by this manifest update.
+
+Only the HDA and its two provenance/license-status notices enter the runtime
+allowlist. Artwork PNGs, prompts/JSON, exact source-layout mask, authoring scripts,
+native game data, portrait PNGs, and font sources are excluded. The notices do
+not assert a new redistribution grant for original game artwork. See the
+[Data frame contract](data-frame-metal.md) and the retained license-status file.

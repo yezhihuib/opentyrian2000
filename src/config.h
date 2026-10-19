@@ -115,6 +115,8 @@ typedef struct
 } T2KHighScoreType;
 
 // First 10 are timed battle, next 10 are episodes
+bool save_opentyrian_config(void);
+
 extern T2KHighScoreType t2kHighScores[20][3];
 
 extern const JE_byte cryptKey[10];

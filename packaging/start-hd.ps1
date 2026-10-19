@@ -67,6 +67,9 @@ function Quote-ManualArgument([string]$Value) {
 }
 $arguments = @((Quote-ManualArgument "--data=$DataDirectory"), (Quote-ManualArgument "--manual-hd-assets=$AssetsDirectory"))
 if ($StartupAssetsDirectory) { $arguments += Quote-ManualArgument "--startup-assets=$StartupAssetsDirectory" }
+$arguments += Quote-ManualArgument "--data-text-assets=$(Join-Path $repoRoot 'assets/data-text-zh-CN-v1')"
+$arguments += Quote-ManualArgument "--data-frame-assets=$(Join-Path $repoRoot 'assets/data-frame-v1')"
+$arguments += Quote-ManualArgument "--data-portrait-assets=$(Join-Path $repoRoot 'assets/data-portrait-v1')"
 if ($MusicDirectory) { $arguments += Quote-ManualArgument "--music-dir=$MusicDirectory" }
 Write-Host "Profile: $ProfileDirectory"
 Write-Host 'Choose New Game and Episode 1 normally. HD is limited to its first level; other gameplay stays classic.'

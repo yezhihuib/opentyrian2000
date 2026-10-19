@@ -4,9 +4,81 @@
   "gameplay_destination": "assets/gameplay",
   "startup_pack": "assets/hd/packs/startup-title-settings-v1",
   "startup_destination": "assets/startup",
-  "shop_runtime_directories": ["assets/shop-frame-v1", "assets/shop-talon-v1", "assets/shop-front-v1", "assets/shop-menu-font-v1", "assets/shop-generator-v1"],
+  "shop_runtime_directories": [
+    "assets/shop-frame-v1",
+    "assets/shop-talon-v1",
+    "assets/shop-front-v1",
+    "assets/shop-menu-font-v1",
+    "assets/shop-generator-v1",
+    "assets/shop-shield-v1"
+  ],
   "shop_runtime_extension": ".hda",
-  "preserve_in_development_only": ["assets/hd/artwork/**", "assets/hd/source/**", "assets/shop-*/source-imagegen.png", "assets/shop-*/*.png", "assets/shop-*/*.json", "assets/shop-menu-font-v1/*.ttf", "tests/**", "prototype/test-*", "docs/**", "src/**", ".git/**", "obj/**", "retained nonselected preview/debug packs and historical rebuild recipes"],
+  "preserve_in_development_only": [
+    "assets/hd/artwork/**",
+    "assets/hd/source/**",
+    "assets/shop-*/source-imagegen.png",
+    "assets/shop-*/*.png",
+    "assets/shop-*/*.json",
+    "assets/shop-menu-font-v1/*.ttf",
+    "tests/**",
+    "prototype/test-*",
+    "docs/**",
+    "src/**",
+    ".git/**",
+    "obj/**",
+    "retained nonselected preview/debug packs and historical rebuild recipes",
+    "assets/data-text-zh-CN-v1/*.json",
+    "assets/data-text-zh-CN-v1/*.png",
+    "assets/data-frame-v1/*.png",
+    "assets/data-frame-v1/*.json",
+    "assets/data-frame-v1/*.bin",
+    "assets/data-frame-v1/README.md",
+    "assets/data-text-zh-CN-v1/source-translations/**",
+    "assets/data-portrait-v1/*.png",
+    "assets/data-portrait-v1/*.json",
+    "assets/data-portrait-v1/README.md",
+    "assets/data-portrait-v1/imagegen-provenance.txt"
+  ],
   "never_delete_or_move_source": true,
-  "notes": "Classification affects only generated runtime copies; it does not require retired pack directories to remain installed. 4x fallback files in the one selected gameplay pack are retained. Font source TTFs stay in development; derived atlas notices ship in the runtime."
+  "notes": "Classification affects only generated runtime copies; it does not require retired pack directories to remain installed. 4x fallback files in the one selected gameplay pack are retained. Font source TTFs stay in development; derived atlas notices ship in the runtime.",
+  "data_text_runtime_files": [
+    "assets/data-text-zh-CN-v1/data-text-zh-CN-v1.dct",
+    "assets/data-text-zh-CN-v1/data-text-zh-CN-v1.dzf",
+    "assets/data-text-zh-CN-v1/data-exit-v1.hda"
+  ],
+  "data_text_notices": [
+    "assets/data-text-zh-CN-v1/LICENSE-Data-Font-OFL.txt",
+    "assets/data-text-zh-CN-v1/DATA-FONT-PROVENANCE.txt"
+  ],
+  "data_frame_runtime_files": [
+    "assets/data-frame-v1/data-frame-v1.hda"
+  ],
+  "data_frame_notices": [
+    "assets/data-frame-v1/DATA-FRAME-PROVENANCE.txt",
+    "assets/data-frame-v1/LICENSE-Data-Frame.txt"
+  ],
+  "data_portrait_runtime_files": [
+    "assets/data-portrait-v1/face00-v1.hda",
+    "assets/data-portrait-v1/face01-v1.hda",
+    "assets/data-portrait-v1/face02-v1.hda",
+    "assets/data-portrait-v1/face03-v1.hda",
+    "assets/data-portrait-v1/face04-v1.hda",
+    "assets/data-portrait-v1/face05-v1.hda",
+    "assets/data-portrait-v1/face06-v1.hda",
+    "assets/data-portrait-v1/face07-v1.hda",
+    "assets/data-portrait-v1/face08-v1.hda",
+    "assets/data-portrait-v1/face09-v1.hda",
+    "assets/data-portrait-v1/face10-v1.hda",
+    "assets/data-portrait-v1/face11-v1.hda",
+    "assets/data-portrait-v1/face12-v1.hda",
+    "assets/data-portrait-v1/face13-v1.hda",
+    "assets/data-portrait-v1/face14-v1.hda",
+    "assets/data-portrait-v1/face15-v1.hda",
+    "assets/data-portrait-v1/face16-v1.hda",
+    "assets/data-portrait-v1/face17-v1.hda"
+  ],
+  "data_portrait_notices": [
+    "assets/data-portrait-v1/DATA-PORTRAIT-PROVENANCE.txt",
+    "assets/data-portrait-v1/LICENSE-Data-Portrait.txt"
+  ]
 }

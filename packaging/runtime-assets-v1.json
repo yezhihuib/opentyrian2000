@@ -1,6 +1,10 @@
 {
   "closure": {
     "all_active_pack_files_and_fallbacks_retained": true,
+    "data_frame_files": 1,
+    "data_portrait_files": 18,
+    "data_text_files": 3,
+    "data_text_font_glyphs": 1905,
     "fonts": [
       "settings-font-large-v1.hda",
       "settings-font-medium-v1.hda",
@@ -9,7 +13,7 @@
     ],
     "gameplay_files": 637,
     "shared_startup_directory": true,
-    "shop_files": 11,
+    "shop_files": 12,
     "startup_files": 9
   },
   "excluded": [
@@ -25,7 +29,18 @@
     "src/**",
     ".git/**",
     "obj/**",
-    "all nonselected historical/debug/experimental asset packs"
+    "retained nonselected preview/debug packs and historical rebuild recipes",
+    "assets/data-text-zh-CN-v1/*.json",
+    "assets/data-text-zh-CN-v1/*.png",
+    "assets/data-frame-v1/*.png",
+    "assets/data-frame-v1/*.json",
+    "assets/data-frame-v1/*.bin",
+    "assets/data-frame-v1/README.md",
+    "assets/data-text-zh-CN-v1/source-translations/**",
+    "assets/data-portrait-v1/*.png",
+    "assets/data-portrait-v1/*.json",
+    "assets/data-portrait-v1/README.md",
+    "assets/data-portrait-v1/imagegen-provenance.txt"
   ],
   "external_dependencies": {
     "linux": "Compatible SDL2, SDL2_net and system C/math runtime; dynamic library resolution must be checked on the target.",
@@ -36,13 +51,211 @@
   },
   "files": [
     {
-      "bytes": 2675,
+      "bytes": 4385,
       "destination": "README.txt",
-      "git_blob": "5b117e1317b15b0f134776e300a1acc1504130c8",
+      "git_blob": "0b8dfdee0d9391446049fcd48dd35f8ec9eb3e59",
       "group": "launcher-and-config",
       "revision": "local-reviewed-source",
-      "sha256": "8c9632a34930e0dda187c8a9942f09b41a2775b64cb915e608e712cf1212007f",
+      "sha256": "4f6ebcd5274a8e4067983fa4e1f5fb37bf3f5872c7aeb3de88e183685b33f48f",
       "source_path": "packaging/runtime-README.txt"
+    },
+    {
+      "bytes": 4096128,
+      "destination": "assets/data-frame-v1/data-frame-v1.hda",
+      "git_blob": "9b9782d11dace48b6d8f9870d53f664077a135a8",
+      "group": "data-frame",
+      "revision": "local-reviewed-source",
+      "sha256": "585ab4852480e2a4ff3e8df86bbc3a56d25ad797daafda83df54fa4015bc9f5e",
+      "source_path": "assets/data-frame-v1/data-frame-v1.hda"
+    },
+    {
+      "bytes": 228928,
+      "destination": "assets/data-portrait-v1/face00-v1.hda",
+      "git_blob": "6e9ab2e29fbe54b68ed1170c47ca754cd7356d4a",
+      "group": "data-portrait",
+      "revision": "local-reviewed-source",
+      "sha256": "ead4949d2cb5d03143dfc1eb441c1819fe0b8d4689bb017e6934f9a2516e43f6",
+      "source_path": "assets/data-portrait-v1/face00-v1.hda"
+    },
+    {
+      "bytes": 228928,
+      "destination": "assets/data-portrait-v1/face01-v1.hda",
+      "git_blob": "1aaba3244ee7a9daf175624590dd85262249b4c2",
+      "group": "data-portrait",
+      "revision": "local-reviewed-source",
+      "sha256": "1c8f118d38a7ee22213599c1032370d92b553ca226c4729c10f4b8269caf0886",
+      "source_path": "assets/data-portrait-v1/face01-v1.hda"
+    },
+    {
+      "bytes": 228928,
+      "destination": "assets/data-portrait-v1/face02-v1.hda",
+      "git_blob": "0c1c4ba6f9a4dae50e0ba2051bfaddcdfce4f56e",
+      "group": "data-portrait",
+      "revision": "local-reviewed-source",
+      "sha256": "782293476b6738d85b2012bba3a10fb42a5e00ff49bd43b96835faf99c585f21",
+      "source_path": "assets/data-portrait-v1/face02-v1.hda"
+    },
+    {
+      "bytes": 228928,
+      "destination": "assets/data-portrait-v1/face03-v1.hda",
+      "git_blob": "ce9079d3d968207e689a4d83be85cd0e1d330c01",
+      "group": "data-portrait",
+      "revision": "local-reviewed-source",
+      "sha256": "66dfaf6196c690ae92e70d10ba95d3d9b93a831ec5b46f576c40a0964a20b753",
+      "source_path": "assets/data-portrait-v1/face03-v1.hda"
+    },
+    {
+      "bytes": 220608,
+      "destination": "assets/data-portrait-v1/face04-v1.hda",
+      "git_blob": "cfcadf7098643cb6d4b0f1aa6da1ddd2162fe72e",
+      "group": "data-portrait",
+      "revision": "local-reviewed-source",
+      "sha256": "11d219a5099a10bfcf64c76713b0be2afab96664d7fa3b3516387e47d6f6dc16",
+      "source_path": "assets/data-portrait-v1/face04-v1.hda"
+    },
+    {
+      "bytes": 228928,
+      "destination": "assets/data-portrait-v1/face05-v1.hda",
+      "git_blob": "e31b5af4c931d8d67bef685e97331cf1a4adf3cc",
+      "group": "data-portrait",
+      "revision": "local-reviewed-source",
+      "sha256": "65b10fd95729a9d9cea8b1a0ce219874c6ff548043a4d174e0e6ef56cbbcf097",
+      "source_path": "assets/data-portrait-v1/face05-v1.hda"
+    },
+    {
+      "bytes": 228928,
+      "destination": "assets/data-portrait-v1/face06-v1.hda",
+      "git_blob": "dccd24416c22dfbba5959deb57fe5a6102d0f166",
+      "group": "data-portrait",
+      "revision": "local-reviewed-source",
+      "sha256": "591fe9e330134f32e0dc1858da84bbb3e395acd138729a4dc428776def456f72",
+      "source_path": "assets/data-portrait-v1/face06-v1.hda"
+    },
+    {
+      "bytes": 228928,
+      "destination": "assets/data-portrait-v1/face07-v1.hda",
+      "git_blob": "abb6e9c2425d74a7009188b9d153a3a62f375bfc",
+      "group": "data-portrait",
+      "revision": "local-reviewed-source",
+      "sha256": "9c861bd247753c3801ee73fd1fe2e8bf518a27550b58b01d311da3d815b450aa",
+      "source_path": "assets/data-portrait-v1/face07-v1.hda"
+    },
+    {
+      "bytes": 228928,
+      "destination": "assets/data-portrait-v1/face08-v1.hda",
+      "git_blob": "17d1c20ee9bfcd3ac0c859f368d66dfd38aa9933",
+      "group": "data-portrait",
+      "revision": "local-reviewed-source",
+      "sha256": "c28f336fb572b4ca7ee725c2f33ba1ff83f499fb7ed620e68e20d9c15bce3a8a",
+      "source_path": "assets/data-portrait-v1/face08-v1.hda"
+    },
+    {
+      "bytes": 228928,
+      "destination": "assets/data-portrait-v1/face09-v1.hda",
+      "git_blob": "73e33e30430ebbb1f394b0af5d31db94967be063",
+      "group": "data-portrait",
+      "revision": "local-reviewed-source",
+      "sha256": "814dc7d6692e271d82cab9104939d82cdb6c2e9cb5519cc37c8e2889e96c214b",
+      "source_path": "assets/data-portrait-v1/face09-v1.hda"
+    },
+    {
+      "bytes": 228928,
+      "destination": "assets/data-portrait-v1/face10-v1.hda",
+      "git_blob": "871051d4f4b00e30bf4e439c9efcd3d0411fac2d",
+      "group": "data-portrait",
+      "revision": "local-reviewed-source",
+      "sha256": "d3038c9c7d7f058b58fd1bd871f13eab29a875fa19f92aec515e02b2de0caee9",
+      "source_path": "assets/data-portrait-v1/face10-v1.hda"
+    },
+    {
+      "bytes": 228928,
+      "destination": "assets/data-portrait-v1/face11-v1.hda",
+      "git_blob": "2f4bfe4dde9623e81c3a43336a4b714230c6d3f0",
+      "group": "data-portrait",
+      "revision": "local-reviewed-source",
+      "sha256": "ed40a4c776c4f446a1e9b63400ee6c70af3429c552d81f37cba4fa5b8ab66aa1",
+      "source_path": "assets/data-portrait-v1/face11-v1.hda"
+    },
+    {
+      "bytes": 282752,
+      "destination": "assets/data-portrait-v1/face12-v1.hda",
+      "git_blob": "03287e814c4219d49fd82285a3dad1a03c403db5",
+      "group": "data-portrait",
+      "revision": "local-reviewed-source",
+      "sha256": "ca7eeda286ffe9f3ee771778715b1e44436dc27618606c1067dfa31c6f3bc0ef",
+      "source_path": "assets/data-portrait-v1/face12-v1.hda"
+    },
+    {
+      "bytes": 282368,
+      "destination": "assets/data-portrait-v1/face13-v1.hda",
+      "git_blob": "39ef0e62ec772198ab6463a7af1de2e6e2532a28",
+      "group": "data-portrait",
+      "revision": "local-reviewed-source",
+      "sha256": "feabd0a38941559981b69c335f4c2143313d2861135bc18e6642e172d0b9b682",
+      "source_path": "assets/data-portrait-v1/face13-v1.hda"
+    },
+    {
+      "bytes": 264448,
+      "destination": "assets/data-portrait-v1/face14-v1.hda",
+      "git_blob": "5880aded8e9e261e642f4222cceb2cce369a44b6",
+      "group": "data-portrait",
+      "revision": "local-reviewed-source",
+      "sha256": "8cdef30b3e7f8e493a118c48d640b9ca9d63ef369a6d38237cef42201d019499",
+      "source_path": "assets/data-portrait-v1/face14-v1.hda"
+    },
+    {
+      "bytes": 345088,
+      "destination": "assets/data-portrait-v1/face15-v1.hda",
+      "git_blob": "8e53ae47d301a7d1d3c566fc033e6e6763b099d7",
+      "group": "data-portrait",
+      "revision": "local-reviewed-source",
+      "sha256": "c4b417d32da4471c8fbfaa63a59cafd219d31babfdb605598e8397a122e8723f",
+      "source_path": "assets/data-portrait-v1/face15-v1.hda"
+    },
+    {
+      "bytes": 313664,
+      "destination": "assets/data-portrait-v1/face16-v1.hda",
+      "git_blob": "c806df16b6165fe752e296602e13f42f8c5bf61d",
+      "group": "data-portrait",
+      "revision": "local-reviewed-source",
+      "sha256": "418cfe0eb4a02f298afb260af7898f417cfc959188f81f733654d374b5c8e364",
+      "source_path": "assets/data-portrait-v1/face16-v1.hda"
+    },
+    {
+      "bytes": 193664,
+      "destination": "assets/data-portrait-v1/face17-v1.hda",
+      "git_blob": "ee62450bbed8ce891fe80ea04346be6d0e3e0c6c",
+      "group": "data-portrait",
+      "revision": "local-reviewed-source",
+      "sha256": "7f2528d43de216fb1bff09f02c8eac78a913d2635a5c8c7e35f2d9eb1a461860",
+      "source_path": "assets/data-portrait-v1/face17-v1.hda"
+    },
+    {
+      "bytes": 10704,
+      "destination": "assets/data-text-zh-CN-v1/data-exit-v1.hda",
+      "git_blob": "26337404f8ed22a33453de44f1d2e7900ffc5040",
+      "group": "data-text",
+      "revision": "local-reviewed-source",
+      "sha256": "f0610cbf5be4956b124ea35b5edd0c42b07ae21c76a2b57209b3354527804891",
+      "source_path": "assets/data-text-zh-CN-v1/data-exit-v1.hda"
+    },
+    {
+      "bytes": 114951,
+      "destination": "assets/data-text-zh-CN-v1/data-text-zh-CN-v1.dct",
+      "git_blob": "fdecf86ef4818808181657eacd8e9fba8bf3d974",
+      "group": "data-text",
+      "revision": "local-reviewed-source",
+      "sha256": "974940781a19a8ca6470cb99bbb5437064c36be91942bbc39226fe8837bed2fe",
+      "source_path": "assets/data-text-zh-CN-v1/data-text-zh-CN-v1.dct"
+    },
+    {
+      "bytes": 3750856,
+      "destination": "assets/data-text-zh-CN-v1/data-text-zh-CN-v1.dzf",
+      "git_blob": "aa8bfd6db40224428f860a9301ede4ff68469029",
+      "group": "data-text",
+      "revision": "local-reviewed-source",
+      "sha256": "d124cd1ac996ec152e8f1dc5ac56ddbd09623c5877710d97d24a24dc66cab235",
+      "source_path": "assets/data-text-zh-CN-v1/data-text-zh-CN-v1.dzf"
     },
     {
       "bytes": 43036,
@@ -5255,6 +5468,15 @@
       "source_path": "assets/shop-menu-font-v1/shop-menu-run6-v1.hda"
     },
     {
+      "bytes": 72992,
+      "destination": "assets/startup/shop-shield-option26-v1.hda",
+      "git_blob": "ba63da75737553826f9df3c820f5a11de675570d",
+      "group": "shop",
+      "revision": "local-reviewed-source",
+      "sha256": "d93bf60729fc2154c0274847e01910e15484db34935d296782d7d7b218c547a2",
+      "source_path": "assets/shop-shield-v1/shop-shield-option26-v1.hda"
+    },
+    {
       "bytes": 609408,
       "destination": "assets/startup/shop-talon-option31-v1.hda",
       "git_blob": "8bfcc364610448544cac47950952ecf002f876c7",
@@ -5321,6 +5543,33 @@
       "source_path": "COPYING"
     },
     {
+      "bytes": 708,
+      "destination": "licenses/DATA-FONT-PROVENANCE.txt",
+      "git_blob": "30d713663ac4361da0d04fa8e1229898f6d0885c",
+      "group": "notice",
+      "revision": "local-reviewed-source",
+      "sha256": "d5c553203616b79da857b2fa83847cb3d5d70aeac0bdeaeb104d951a51a037f0",
+      "source_path": "assets/data-text-zh-CN-v1/DATA-FONT-PROVENANCE.txt"
+    },
+    {
+      "bytes": 3469,
+      "destination": "licenses/DATA-FRAME-PROVENANCE.txt",
+      "git_blob": "5d18b16f563ff9ed366f2bbcf5a468d3329a0040",
+      "group": "notice",
+      "revision": "local-reviewed-source",
+      "sha256": "a52ebcc73b43422e7d4cff83a913d2874930991303ee3e8e7da7801868f00530",
+      "source_path": "assets/data-frame-v1/DATA-FRAME-PROVENANCE.txt"
+    },
+    {
+      "bytes": 2815,
+      "destination": "licenses/DATA-PORTRAIT-PROVENANCE.txt",
+      "git_blob": "44b4a4d7e976d2f407f7a50a0e87c0fdba9d1497",
+      "group": "notice",
+      "revision": "local-reviewed-source",
+      "sha256": "35611e3d4acd25e4d5e070d380b2a74752fa27e25426d8e36c669c84c9d9b1a0",
+      "source_path": "assets/data-portrait-v1/DATA-PORTRAIT-PROVENANCE.txt"
+    },
+    {
       "bytes": 371,
       "destination": "licenses/FONT-PROVENANCE.txt",
       "git_blob": "efb426f373bcd0530e1f5c265bef62bff013ae67",
@@ -5328,6 +5577,33 @@
       "revision": "local-reviewed-source",
       "sha256": "9b0fe182725e5b41687eaac87eb7a892ebe86f8a97b78009641bb663b2426d06",
       "source_path": "assets/shop-menu-font-v1/FONT-PROVENANCE.txt"
+    },
+    {
+      "bytes": 4285,
+      "destination": "licenses/LICENSE-Data-Font-OFL.txt",
+      "git_blob": "2c519dd462fa41a18b097e20dfa92bb5b74ff0c3",
+      "group": "notice",
+      "revision": "local-reviewed-source",
+      "sha256": "168be6bf820a73f35fe793f3f06573963bb5a53acd7bf9524f9db7ba61650ecd",
+      "source_path": "assets/data-text-zh-CN-v1/LICENSE-Data-Font-OFL.txt"
+    },
+    {
+      "bytes": 1399,
+      "destination": "licenses/LICENSE-Data-Frame.txt",
+      "git_blob": "dfd5f99a68862d9ec90b2152dc71fcdedefac8ad",
+      "group": "notice",
+      "revision": "local-reviewed-source",
+      "sha256": "f885b3e7e98951a01f5f27604357d17374afab887035fe2e97cc3fae84d1bc5d",
+      "source_path": "assets/data-frame-v1/LICENSE-Data-Frame.txt"
+    },
+    {
+      "bytes": 925,
+      "destination": "licenses/LICENSE-Data-Portrait.txt",
+      "git_blob": "e6d61fa5202ad200badf218e845389c3d37dbbc9",
+      "group": "notice",
+      "revision": "local-reviewed-source",
+      "sha256": "ed7923395f7c6c0b067f34f932c0541a088d1853a67454dd99d30b2d08b7506c",
+      "source_path": "assets/data-portrait-v1/LICENSE-Data-Portrait.txt"
     },
     {
       "bytes": 4920,
@@ -5357,28 +5633,32 @@
       "source_path": "src/third_party/dr_mp3-PROVENANCE.md"
     },
     {
-      "bytes": 4207,
+      "bytes": 4526,
       "destination": "start-hd.ps1",
-      "git_blob": "8f9c8782169f48527dec402e61dae815515d0ab1",
+      "git_blob": "ab0adb685ba433ed222e49e77fcae4dec1b39e68",
       "group": "launcher-and-config",
       "revision": "local-reviewed-source",
-      "sha256": "2384b2b388703db3eaf2d2da9d9daee77ce9c337e1028dec981f2255cfd29e3e",
+      "sha256": "d2e515d3639e4909954aaba8f14aa77e038dd201c2d53d749cc90a69b163c611",
       "source_path": "packaging/start-hd.ps1"
     },
     {
-      "bytes": 2189,
+      "bytes": 2346,
       "destination": "start-hd.sh",
-      "git_blob": "55ac278ecb63d4d2e9642b372119663148010027",
+      "git_blob": "2f5f39180dcc07e8e1592c3bb0a1ab45f7f62fb7",
       "group": "launcher-and-config",
       "revision": "local-reviewed-source",
-      "sha256": "1646123faa4720b25c3b93e35f236d5602705d5a4e46291714ed5a8cee1c9227",
+      "sha256": "0334d8797fe52937e3f97de42537807de110112fe17d872cbd08b39be0f4402e",
       "source_path": "packaging/start-hd.sh"
     }
   ],
   "schema": "opentyrian-runtime-package-v1",
   "source_revision": {
+    "data_frame_integration": "local reviewed Data-only DFM1 static frame; no commit assigned",
+    "data_portrait_integration": "local reviewed source-authenticated all18 DPR1 portraits",
+    "data_text_integration": "local reviewed Data-only Chinese source; no commit assigned",
     "generator_integration": "55d418de4f914d4694eb7f074458207b1cf6a2d2",
     "packaging": "local working source; artifact rows pin exact SHA256",
-    "public_assets": "fedc541cc6b6e93f7748a85e6c40318b6ca9f5a8"
+    "public_assets": "fedc541cc6b6e93f7748a85e6c40318b6ca9f5a8",
+    "shield_integration": "local accepted source; no commit assigned"
   }
 }

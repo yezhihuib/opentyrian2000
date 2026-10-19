@@ -2,6 +2,7 @@
  * Bounded output-space font sampling over the unchanged selected scaler.
  */
 #include "selector_font_output.h"
+#include "hd_cursor.h"
 #include <limits.h>
 #include <math.h>
 #include <stdint.h>
@@ -290,6 +291,7 @@ static bool present(SDL_Renderer *renderer,SDL_Texture *reference,
  /* A genuine state/resource error leaves presentation to the classic caller. */
  if(changed_scale&&SDL_RenderSetScale(renderer,g.sx,g.sy))ok=false;
  if(SDL_SetRenderDrawColor(renderer,old_r,old_g,old_b,old_a))ok=false;
+ if(ok)ok=hd_cursor_present(renderer,dst);
  if(ok)SDL_RenderPresent(renderer);else selector_font_output_release();
  return ok;
 }

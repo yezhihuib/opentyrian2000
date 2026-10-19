@@ -20,6 +20,8 @@
 #include "load_font.h"
 #include "selector_font.h"
 #include "picload.h"
+#include "data_frame.h"
+#include "data_portrait.h"
 #include "render_mirror.h"
 #include "startup_logos.h"
 #include "title_layers.h"
@@ -35,6 +37,7 @@
 
 void JE_loadPic(SDL_Surface *screen, JE_byte PCXnumber, JE_boolean storepal)
 {
+	data_frame_end(); data_portrait_end();
 	startup_logos_reset();
 	title_layers_end();
 	settings_font_end();

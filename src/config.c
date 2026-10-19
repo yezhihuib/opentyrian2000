@@ -17,6 +17,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 #include "config.h"
+#include "data_text.h"
 #include "asset_debug.h"
 
 #include "episodes.h"
@@ -212,6 +213,7 @@ Config opentyrian_config;  // implicitly initialized
 bool load_opentyrian_config(void)
 {
 	// defaults
+	data_text_set_language("en");
 	fullscreen_display = -1;
 	set_scaler_by_name("Scale2x");
 	memcpy(keySettings, defaultKeySettings, sizeof(keySettings));
@@ -232,6 +234,12 @@ bool load_opentyrian_config(void)
 	
 	ConfigSection *section;
 	
+	section = config_find_section(config, "data", NULL);
+	if (section != NULL) {
+		const char *language;
+		if (config_get_string_option(section, "language", &language)) data_text_set_language(language);
+	}
+
 	section = config_find_section(config, "video", NULL);
 	if (section != NULL)
 	{
@@ -292,6 +300,10 @@ bool save_opentyrian_config(void)
 	
 	ConfigSection *section;
 	
+	section = config_find_or_add_section(config, "data", NULL);
+	if (section == NULL) exit(EXIT_FAILURE);
+	config_set_string_option(section, "language", data_text_language());
+
 	section = config_find_or_add_section(config, "video", NULL);
 	if (section == NULL)
 		exit(EXIT_FAILURE);  // out of memory

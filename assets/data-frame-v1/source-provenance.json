@@ -1,0 +1,107 @@
+{
+  "schema": "data-frame-source-provenance-v1",
+  "generated_utc": "2026-10-19",
+  "source_v3": {
+    "file": "source-v3.png",
+    "sha256": "34c464d5a05d0dd091a4d1cb3a11d53567ab094768bdb8253b27fcd35d53904d",
+    "bytes": 701041,
+    "size": [
+      676,
+      744
+    ],
+    "origin": "OpenAI image_gen v3, normalized once with Pillow Lanczos; copied byte-for-byte, with no painting or alpha edits",
+    "original_generation": {
+      "file": "imagegen-surround-v3-source.png",
+      "size": [
+        1195,
+        1316
+      ],
+      "mode": "RGBA",
+      "bytes": 1977736,
+      "sha256": "5c8d404912f738242b4ffe3757ebf76657f0a6081acdd670c10b582a57549bde",
+      "alpha_zero": 287535,
+      "alpha_1_to_127": 51389,
+      "alpha_128_to_254": 1233524,
+      "alpha255": 172
+    },
+    "generation_prompts": "imagegen-prompts.json",
+    "prior_generation_passes": "v1 and v2 are described in the retained prompt record; their large PNGs are not required to rebuild this accepted v3 resource"
+  },
+  "original_source_files": {
+    "tyrian.shp": {
+      "bytes": 505983,
+      "sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+      "fnv1a64": "0x5e490c45465ef7b0"
+    },
+    "tyrian.pic": {
+      "bytes": 367161,
+      "sha256": "76fa51ba6878c886f67daa65cf6d19968615e4423822c9fe1dde797fc2f8d802",
+      "fnv1a64": "0xa348ffcf393764e0"
+    },
+    "palette.dat": {
+      "bytes": 18432,
+      "sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0",
+      "fnv1a64": "0x85e04ee4cd9cca88"
+    }
+  },
+  "pic1": {
+    "size": [
+      320,
+      200
+    ],
+    "encoded_offset": 58,
+    "encoded_bytes": 19163,
+    "encoded_sha256": "a5adc2b192e04a69b0bf91ae69eab8ed3d3c750fd2771bc9e53fd0fcc7ef4fc9",
+    "index_sha256": "af83a9b837bcde7983c32d5a6e37043d76d6ca8b015e049673eef56bc95fd590",
+    "index_fnv1a64": "0x45a77a2246c174b9",
+    "palette_index": 0,
+    "palette_rgb_sha256": "bb12f765838bd66b48ca56b47d8c22d747345b59a1c5d6c3deef4a8de1f34a31"
+  },
+  "option20": {
+    "bank": 5,
+    "id_0based": 20,
+    "size": [
+      169,
+      186
+    ],
+    "rle_bytes": 24704,
+    "rle_offset": 201821,
+    "rle_sha256": "2d8206766505643b87af39cd7d89cf86c132c6b9c9532617ecbdf5e4fb69bffe",
+    "rle_fnv1a64": "0x3c232016c519ed17",
+    "index_sha256": "8687ec560e0842e091061c8c9bbb07f1f758f77735693a3f60b357b4cf6d613e",
+    "index_fnv1a64": "0x03a1b83be967efe2",
+    "mask_sha256": "277d0b2f1da70f702025cf029a7dc4aa344ce42e59cd97da1775ce2c4ddeded0",
+    "mask_fnv1a64": "0x2f1faa16b55f7cfc",
+    "opaque_bbox": [
+      0,
+      0,
+      169,
+      186
+    ],
+    "opaque_pixels": 24469
+  },
+  "support_mask": {
+    "file": "option20-source-support-320x200.bin",
+    "size": [
+      320,
+      200
+    ],
+    "encoding": "64000 row-major bytes, 0 or 1; exact OPTION20 source opaque support at screen (1,1); all other cells zero",
+    "sha256": "9cf12bc96e544f8f00c78e03f9635dc67164ccb82433847dcac43f2e09544211",
+    "fnv1a64": "0x0cfb4a173952b41c",
+    "opaque_pixels": 24469
+  },
+  "palette_high": {
+    "range_inclusive": [
+      208,
+      255
+    ],
+    "rgb_bytes": 144,
+    "expansion": "(v << 2) | (v >> 4), palette 0",
+    "fnv1a64": "0xdda550ae729ffb73",
+    "sha256": "618e22bb7de83249275ff37b28983aa46253382fc9b3c0a8e9bac63dc99a6c06"
+  },
+  "native_sources_copied": false,
+  "native_portraits_copied": false,
+  "source_font_copied": false
+}

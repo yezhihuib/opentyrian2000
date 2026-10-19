@@ -3,6 +3,7 @@
  * Reuses accepted SFN1 resources and the selector output-footprint sampler.
  */
 #include "pregame_font.h"
+#include "hd_cursor.h"
 #include "settings_font.h"
 #include "selector_font_output.h"
 #include "helptext.h"
@@ -46,13 +47,15 @@
 #include "shop_talon_sprite_pins.h"
 #include "shop_equipment_sprite_pins.h"
 #include "shop_generator_sprite_pins.h"
+#include "shop_shield_material_pins.h"
 enum { SF_W=320,SF_H=200,SF_N=64000,SF_OW=1280,SF_OH=800,
  SF_OUT_BYTES=4096000,SF_PAYLOAD=1785856,SF_COMMANDS=1024,SF_GLYPHS=272,
  SF_MASK_BYTES=60*17*20+85*12*13+127*6*8,SF_EVENTS=40000,SF_CAP=11*1024*1024,
  PF_METAL_BYTES=1276820,PF_METAL_RUNS=2492,PF_METAL_PIXELS=314221,
  PF_SPRITE_W=85,PF_SPRITE_H=112,PF_SPRITE_BYTES=85*112*16*4,
- PF_FRONT_BYTES=33*34*16*4,PF_GENERATOR_BYTES=31*35*16*4,PF_SHOP_SPRITES=3 };
-enum { C_DARK,C_FACE,C_CLASSIC,C_SPRITE };
+ PF_FRONT_BYTES=33*34*16*4,PF_GENERATOR_BYTES=31*35*16*4,PF_SHOP_SPRITES=3,
+ PF_SHIELD_W=99,PF_SHIELD_H=23,PF_SHIELD_PLANE=99*23*16,PF_SHIELD_BYTES=99*23*16*2 };
+enum { C_DARK,C_FACE,C_CLASSIC,C_SPRITE,C_SHIELD };
 enum { S_IDLE,S_BUILD,S_RUN,S_PRIMITIVE,S_READY,S_CURSOR,S_CURSOR_DONE };
 struct SfSpec { unsigned aw,ah,cw,ch,n,eligible,plane,mode,lo,hi,mw,mh; uint64_t metrics,encoded,eligibility,payload; const char *name; };
 static const struct SfSpec spec[3]={
@@ -91,12 +94,12 @@ static struct {
  struct SfGlyph glyphs[SF_GLYPHS];Uint8 masks[SF_MASK_BYTES];
  struct SfCommand commands[SF_COMMANDS];struct SfEvent events[SF_EVENTS];
  SDL_Color expected_palette[256],fade_target[256];Uint32 palette[256];
- Uint8 *payload[3],*metal,*shop_sprite,*shop_front,*shop_generator,*menu_run[7];unsigned metal_gain,metal_target;Uint32 *output;
+ Uint8 *payload[3],*metal,*shop_sprite,*shop_front,*shop_generator,*shop_shield,*menu_run[7];unsigned metal_gain,metal_target;Uint32 *output;
 } sf;
 static const char *directory;
 size_t pregame_font_static_bytes(void){return sizeof(sf);}
 bool pregame_font_owns_display(void){return sf.active;}
-typedef char sf_budget_check[(sizeof(sf)+1800000+70000+SF_PAYLOAD+SF_OUT_BYTES+PF_METAL_BYTES+PF_SPRITE_BYTES+PF_FRONT_BYTES+PF_GENERATOR_BYTES+PF_MENU_BYTES+6*128+2048<=SF_CAP)?1:-1];
+typedef char sf_budget_check[(sizeof(sf)+1800000+70000+SF_PAYLOAD+SF_OUT_BYTES+PF_METAL_BYTES+PF_SPRITE_BYTES+PF_FRONT_BYTES+PF_GENERATOR_BYTES+PF_SHIELD_BYTES+PF_MENU_BYTES+7*128+2048<=SF_CAP)?1:-1];
 typedef char sf_command_check[(sizeof(struct SfCommand)<=24)?1:-1];
 static uint64_t hash_more(uint64_t h,const Uint8 *p,size_t n)
 {while(n--)h=(h^*p++)*UINT64_C(1099511628211);return h;}
@@ -109,7 +112,7 @@ static struct SfGlyph *glyph(unsigned bank,unsigned id){return &sf.glyphs[(bank=
 static void reject(void){sf.frame=false;sf.glyph=false;sf.stage=S_IDLE;}
 void pregame_font_set_directory(const char *path){pregame_font_end();directory=path&&*path?path:NULL;}
 void pregame_font_release_texture(void){if(sf.active||sf.output)selector_font_output_release();}
-void pregame_font_end(void){pregame_font_release_texture();for(unsigned b=0;b<3;b++)free(sf.payload[b]);for(unsigned r=0;r<7;r++)free(sf.menu_run[r]);free(sf.metal);free(sf.shop_sprite);free(sf.shop_front);free(sf.shop_generator);free(sf.output);memset(&sf,0,sizeof(sf));}
+void pregame_font_end(void){pregame_font_release_texture();for(unsigned b=0;b<3;b++)free(sf.payload[b]);for(unsigned r=0;r<7;r++)free(sf.menu_run[r]);free(sf.metal);free(sf.shop_sprite);free(sf.shop_front);free(sf.shop_generator);free(sf.shop_shield);free(sf.output);memset(&sf,0,sizeof(sf));}
 void pregame_font_invalidate(void){if(sf.active){++sf.generation;reject();}pregame_font_release_texture();}
 void pregame_font_table_reset(unsigned table){if(table<3||table==5||table==6)pregame_font_end();}
 static bool geometry(SDL_Surface *s){return s&&s->pixels&&s->format&&s->w==SF_W&&s->h==SF_H&&s->pitch==SF_W&&s->format->BitsPerPixel==8&&s->format->BytesPerPixel==1&&s->clip_rect.x==0&&s->clip_rect.y==0&&s->clip_rect.w==SF_W&&s->clip_rect.h==SF_H;}
@@ -267,6 +270,52 @@ static void load_shop_sprite_item(unsigned slot)
  done:if(SF_CLOSE(fd))valid=false;if(valid){if(slot==2)sf.shop_generator=data;else if(slot==1)sf.shop_front=data;else sf.shop_sprite=data;}else free(data);
 }
 static void load_shop_sprite(void){for(unsigned i=0;i<PF_SHOP_SPRITES;i++)load_shop_sprite_item(i);}
+
+/* PSS1 is a distinct live-palette material, never a fixed-RGBA PSP1 sibling.
+ * Geometry, source, support and allocation are all compile-time bounded. */
+static bool shop_shield_source(Uint8 *mask)
+{
+ const Sprite *s=sprite(5,26);Uint8 indices[PF_SHIELD_W*PF_SHIELD_H];unsigned x=0,y=0;
+ if(!s->data||s->width!=PF_SHIELD_W||s->height!=PF_SHIELD_H||s->size!=678||hash(s->data,s->size)!=UINT64_C(0x2b70bbc97a03a906))return false;
+ memset(indices,0,sizeof(indices));memset(mask,0,sizeof(indices));
+ for(unsigned k=0;k<s->size;k++){
+  unsigned v=s->data[k];if(y>=PF_SHIELD_H)return false;
+  if(v==255){if(++k>=s->size)return false;x+=s->data[k];}
+  else if(v==254)x=PF_SHIELD_W;else if(v==253)++x;
+  else{if(x>=PF_SHIELD_W)return false;indices[y*PF_SHIELD_W+x]=v;mask[y*PF_SHIELD_W+x]=255;++x;}
+  if(x>PF_SHIELD_W)return false;
+  if(x==PF_SHIELD_W){x=0;++y;}
+ }
+ return !x&&y<=PF_SHIELD_H&&hash(indices,sizeof(indices))==UINT64_C(0xb2954b44fe9312bd)&&hash(mask,sizeof(indices))==UINT64_C(0xb3481df839c0dec8);
+}
+static bool shop_shield_padding(const Uint8 *data,const Uint8 *mask)
+{
+ for(unsigned p=0;p<PF_SHIELD_PLANE;p++){
+  unsigned a=data[p],role=data[PF_SHIELD_PLANE+p];
+  if(role>240||(!a&&role))return false;
+  if(!a)continue;
+  int x=(int)(p%(PF_SHIELD_W*4))/4,y=(int)(p/(PF_SHIELD_W*4))/4;bool supported=false;
+  for(int yy=MAX(0,y-1);yy<=MIN(PF_SHIELD_H-1,y+1);yy++)for(int xx=MAX(0,x-1);xx<=MIN(PF_SHIELD_W-1,x+1);xx++)if(mask[yy*PF_SHIELD_W+xx])supported=true;
+  if(!supported)return false;
+ }
+ return true;
+}
+static void load_shop_shield(void)
+{
+ char path[1024];Uint8 h[128],extra,*data=NULL,mask[PF_SHIELD_W*PF_SHIELD_H];SF_STAT st;bool valid=false;
+ int n=snprintf(path,sizeof(path),"%s/shop-shield-option26-v1.hda",directory);
+ if(n<0||(size_t)n>=sizeof(path))return;
+ int fd=SF_OPEN(path);if(fd<0)return;
+ const unsigned fields[15]={1,5,26,PF_SHIELD_W,PF_SHIELD_H,4,PF_SHIELD_W*4,PF_SHIELD_H*4,28,23,PF_SHIELD_PLANE,PF_SHIELD_PLANE,15,4,0};
+ if(SF_FSTAT(fd,&st)||!SF_REGULAR(st.st_mode)||st.st_size!=128+PF_SHIELD_BYTES||SF_READ(fd,h,128)!=128||memcmp(h,"PSS1",4))goto done;
+ for(unsigned i=0;i<15;i++)if(u32(h+4+4*i)!=fields[i])goto done;
+ if(u64(h+64)!=PF_BASE||u64(h+72)!=PF_PAL||u64(h+80)!=UINT64_C(0x2b70bbc97a03a906)||u64(h+88)!=UINT64_C(0xb2954b44fe9312bd)||u64(h+96)!=UINT64_C(0xb3481df839c0dec8)||u64(h+104)!=PF_SHIELD_HASH||u64(h+112)||u64(h+120)||!shop_shield_source(mask))goto done;
+ data=malloc(PF_SHIELD_BYTES);
+ if(!data||SF_READ(fd,data,PF_SHIELD_BYTES)!=PF_SHIELD_BYTES||SF_READ(fd,&extra,1)!=0||hash(data,PF_SHIELD_BYTES)!=PF_SHIELD_HASH||!shop_shield_padding(data,mask))goto done;
+ valid=true;
+ done:if(SF_CLOSE(fd))valid=false;if(valid)sf.shop_shield=data;else free(data);
+}
+
 /* Shield is category 5. Trial pages deliberately retain their old OPTION[12]
  * left frame and the original PIC1 skin; no partial-coverage claim is made. */
 static bool metal_visible(void){return sf.metal&&(!sf.product||sf.category==2||sf.category==5);}
@@ -325,7 +374,7 @@ static bool acquire_surfaces(SDL_Surface *screen,SDL_Surface *backup)
   if(c.r||c.g||c.b)black=false;
  }
  if(!pic&&!black){pregame_font_end();return false;}
- sf.metal_gain=pic?255:0;load_metal();load_shop_sprite();
+ sf.metal_gain=pic?255:0;load_metal();load_shop_sprite();load_shop_shield();
  sf.active=sf.frame=true;sf.stage=S_BUILD;sf.generation=sf.frame_generation=1;
  return true;
 }
@@ -369,7 +418,7 @@ static struct SfCommand *append(unsigned kind,int x,int y,unsigned b,unsigned id
  if(sf.count==SF_COMMANDS){reject();return NULL;}
  struct SfCommand *c=&sf.commands[sf.count++];memset(c,0,sizeof(*c));c->kind=kind;c->x=x;c->y=y;c->bank=b;c->id=id;c->hue=hue;c->value=value;c->cash=(kind==C_DARK||kind==C_FACE)&&sf.product&&sf.run_role==PREGAME_CASH;
  if(kind==C_DARK||kind==C_FACE){const struct SfGlyph *g=glyph(b,id);if(!box(x,y,g->w,g->h)){reject();return NULL;}c->w=g->w;c->h=g->h;}
- else {c->first=sf.event_count;if(kind==C_SPRITE){int slot=shop_sprite_slot(b,id);if(slot<0){reject();return NULL;}c->w=shop_spec[slot].w;c->h=shop_spec[slot].h;}}
+ else {c->first=sf.event_count;if(kind==C_SPRITE){int slot=shop_sprite_slot(b,id);if(slot<0){reject();return NULL;}c->w=shop_spec[slot].w;c->h=shop_spec[slot].h;}else if(kind==C_SHIELD){c->w=PF_SHIELD_W;c->h=PF_SHIELD_H;}}
  return c;
 }
 /* Product data is supplied by the original draws. Geometry, draw mode and
@@ -553,13 +602,19 @@ static bool shop_sprite_match(int x,int y,unsigned bank,unsigned id,unsigned op)
  if(x!=(int)sp->x||y!=(int)sp->y||!shop_illustration_scope(sf.screen))return false;
  return slot==0||(slot==1&&sf.illustration==2)||(slot==2&&sf.illustration==1);
 }
+/* Preserve the original signed-byte HV domain, including legacy clamps. */
+static bool shop_shield_match(int x,int y,unsigned bank,unsigned id,unsigned op,unsigned hue,int value)
+{return sf.shop_shield&&bank==5&&id==26&&x==28&&y==23&&op==PREGAME_FACE&&hue==15&&value>=-128&&value<=127&&sf.illustration==3&&!sf.ship_shield&&shop_illustration_scope(sf.screen);}
 /* Read only the original ordered blit calls, independently of installed art.
  * Before the known Talon hull, no assembly identity is assumed. A generator
  * of any supported original type advances to the first weapon call; rear
  * reuse of a front shape is therefore never selected by index alone. */
 static void shop_illustration_observe(SDL_Surface *surface,int x,int y,unsigned bank,unsigned id,unsigned op)
 {
- if(!shop_illustration_scope(surface)||op!=PREGAME_ORIGINAL)return;
+ if(!shop_illustration_scope(surface))return;
+ /* Any original shield-face call closes this assembly, even without PSS1. */
+ if(bank==5&&id==26&&op==PREGAME_FACE){sf.ship_shield=true;sf.illustration=0;return;}
+ if(op!=PREGAME_ORIGINAL||sf.ship_shield)return;
  if(bank==5&&id>=27&&id<=45)sf.illustration=id==31&&x==35&&y==33?1:0;
  else if(bank==6&&sf.illustration==1){
   static const int gx[5]={62,64,67,66,63},gy[5]={84,85,86,84,97};
@@ -570,7 +625,8 @@ static void shop_illustration_observe(SDL_Surface *surface,int x,int y,unsigned 
 static bool classic_begin(SDL_Surface *surface,int x,int y,unsigned bank,unsigned id,unsigned op,unsigned hue,int value)
 {
  if(!exact())return false;
- bool replacement=shop_sprite_match(x,y,bank,id,op);
+ bool shield=shop_shield_match(x,y,bank,id,op,hue,value);
+ bool replacement=shield||shop_sprite_match(x,y,bank,id,op);
  if(sf.primitive||surface!=sf.screen||(bank!=5&&bank!=6)||id>=sprite_table[bank].count){reject();return false;}
  if(sf.product){if(sf.stage!=S_BUILD||!replacement){reject();return false;}}
  else if(sf.stage!=S_PRIMITIVE){reject();return false;}
@@ -582,7 +638,7 @@ static bool classic_begin(SDL_Surface *surface,int x,int y,unsigned bank,unsigne
   if(op==PREGAME_FACE)sf.ship_shield=true;
  }else {reject();return false;}
  const Sprite *s=sprite(bank,id);if(!s->data||!box(x,y,s->width,s->height)||((sf.product||sf.phase==PREGAME_SHIP)&&(x+s->width>154||y+s->height>150))){reject();return false;}
- struct SfCommand *c=append(replacement?C_SPRITE:C_CLASSIC,x,y,bank,id,0,0);if(!c)return false;
+ struct SfCommand *c=append(shield?C_SHIELD:replacement?C_SPRITE:C_CLASSIC,x,y,bank,id,hue,value);if(!c)return false;
  unsigned xx=0,yy=0;
  for(unsigned k=0;k<s->size;k++){
   unsigned v=s->data[k];if(yy>=s->height){reject();return false;}
@@ -604,7 +660,7 @@ static bool classic_begin(SDL_Surface *surface,int x,int y,unsigned bank,unsigne
 void pregame_font_glyph_begin(SDL_Surface *surface,int x,int y,unsigned font,unsigned id,enum PregameGlyph op,unsigned hue,int value)
 {
  if(!check())return;
- if(sf.product&&font>=3){if(shop_sprite_match(x,y,font,id,op))classic_begin(surface,x,y,font,id,op,hue,value);if(sf.frame)shop_illustration_observe(surface,x,y,font,id,op);return;}
+ if(sf.product&&font>=3){if(shop_sprite_match(x,y,font,id,op)||shop_shield_match(x,y,font,id,op,hue,value))classic_begin(surface,x,y,font,id,op,hue,value);if(sf.frame)shop_illustration_observe(surface,x,y,font,id,op);return;}
  if(font>=3){classic_begin(surface,x,y,font,id,op,hue,value);if(sf.frame)shop_illustration_observe(surface,x,y,font,id,op);return;}
  if(sf.stage!=S_RUN||sf.glyph||sf.next>=sf.limit||surface!=sf.screen){reject();return;}
  const struct SfCommand *c=&sf.commands[sf.next];unsigned want=c->kind==C_DARK?PREGAME_DARK:PREGAME_UNSAFE;
@@ -762,6 +818,17 @@ static Uint32 over(Uint32 dst,Uint32 color,unsigned alpha)
  for(unsigned shift=0;shift<=16;shift+=8){unsigned v=(((color>>shift)&255)*alpha+((dst>>shift)&255)*inv+127)/255;result|=v<<shift;}
  return result;
 }
+/* blit_sprite_hv wraps into Uint8 before its two-sided legacy clamp.
+ * Mapping adjacent tones independently retains overflow/underflow behavior. */
+static Uint8 hv_tone(unsigned role,int value)
+{Uint8 tone=(int)role+value;if(tone>15)tone=tone>=31?0:15;return tone;}
+static Uint32 shield_color(unsigned role,int value)
+{
+ unsigned low=role>>4,fraction=role&15;
+ Uint32 a=sf.palette[240|hv_tone(low,value)],b=sf.palette[240|hv_tone(MIN(low+1,15u),value)],color=0;
+ for(unsigned shift=0;shift<=16;shift+=8){unsigned channel=(((a>>shift)&255)*(16-fraction)+((b>>shift)&255)*fraction+8)/16;color|=channel<<shift;}
+ return color;
+}
 static void render_menu_run(unsigned r,bool shadow,SDL_Rect *support,int *right,int *bottom)
 {
  const struct PfMenuSpec *s=&menu_spec[r];const Uint8 *data=sf.menu_run[r];
@@ -801,15 +868,16 @@ static SDL_Rect render(void)
   /* Shadow samples the true pre-run indexed scene. Face lands at the end of
    * that same run, before any later cube/classic writes can occlude it. */
   if(c->menu_run&&(!k||sf.commands[k-1].menu_run!=c->menu_run))render_menu_run(c->menu_run-1,true,&support,&right,&bottom);
-  if(c->kind==C_SPRITE){
-   int slot=shop_sprite_slot(c->bank,c->id);const Uint8 *data=shop_sprite_payload(slot);
+  if(c->kind==C_SPRITE||c->kind==C_SHIELD){
+   int slot=c->kind==C_SPRITE?shop_sprite_slot(c->bank,c->id):-1;const Uint8 *data=c->kind==C_SHIELD?sf.shop_shield:shop_sprite_payload(slot);
    /* Replay the real indexed hull for verification and all later classic
     * arithmetic, but leave its actual pre-draw underlay untouched. In
     * particular, transparent authored samples never reveal the old hull. */
    for(unsigned i=c->first;i<c->first+c->events;i++){unsigned p=sf.events[i].position;sf.replay[p]=sf.events[i].index;sf.owner[p]=1;}
    for(unsigned y=0;y<c->h*4u;y++)for(unsigned x=0;x<c->w*4u;x++){
-    const Uint8 *v=data+(y*c->w*4+x)*4;unsigned a=v[3];if(!a)continue;Uint32 color=0;
-    for(unsigned ch=0;ch<3;ch++)color|=((v[ch]*sf.metal_gain+127)/255)<<(16-ch*8);
+    unsigned at=y*c->w*4+x,a;Uint32 color;
+    if(c->kind==C_SHIELD){a=data[at];if(!a)continue;color=shield_color(data[PF_SHIELD_PLANE+at],c->value);}
+    else{const Uint8 *v=data+at*4;a=v[3];if(!a)continue;color=0;for(unsigned ch=0;ch<3;ch++)color|=((v[ch]*sf.metal_gain+127)/255)<<(16-ch*8);}
     unsigned out=(c->y*4+y)*SF_OW+c->x*4+x;sf.output[out]=over(sf.output[out],color,a);sf.owner[(c->y+y/4)*SF_W+c->x+x/4]=1;
    }
    if(c->x*4<support.x)support.x=c->x*4;
@@ -844,7 +912,7 @@ static SDL_Rect render(void)
   }
   if(c->menu_run&&(k+1==sf.count||sf.commands[k+1].menu_run!=c->menu_run))render_menu_run(c->menu_run-1,false,&support,&right,&bottom);
  }
- for(unsigned p=0;p<SF_N;p++)if(sf.cursor_mask[p])sf.replay[p]=sf.underlay[p]=sf.cursor_index[p];
+ for(unsigned p=0;p<SF_N;p++)if(sf.cursor_mask[p]){sf.replay[p]=sf.cursor_index[p];if(!hd_cursor_active())sf.underlay[p]=sf.cursor_index[p];}
  support.w=right-support.x;support.h=bottom-support.y;return support;
 }
 static bool replay_matches(void)
@@ -872,6 +940,6 @@ bool pregame_font_present(SDL_Renderer *renderer,SDL_Texture *reference,SDL_Surf
  SDL_Rect support=render();if(!replay_matches()){reject();return false;}
  SDL_Surface underlay=*sf.screen;underlay.pixels=sf.underlay;
  unsigned radius=scaler==0||scaler==1||scaler==4||scaler==7?0:1;
- if(metal_visible()||sf.sprite_drawn)return selector_font_output_present_smooth_guarded(renderer,reference,&underlay,scalers[scaler].scaler32,destination,sf.output,&support,sf.cursor_mask,radius,sf.metal_blocked);
- return selector_font_output_present(renderer,reference,&underlay,scalers[scaler].scaler32,destination,sf.output,&support,sf.cursor_mask,radius);
+ if(metal_visible()||sf.sprite_drawn)return selector_font_output_present_smooth_guarded(renderer,reference,&underlay,scalers[scaler].scaler32,destination,sf.output,&support,hd_cursor_active()?NULL:sf.cursor_mask,radius,sf.metal_blocked);
+ return selector_font_output_present(renderer,reference,&underlay,scalers[scaler].scaler32,destination,sf.output,&support,hd_cursor_active()?NULL:sf.cursor_mask,radius);
 }

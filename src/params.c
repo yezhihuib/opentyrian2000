@@ -21,6 +21,9 @@
 #include "selector_font.h"
 #include "pregame_font.h"
 #include "params.h"
+#include "data_text.h"
+#include "data_frame.h"
+#include "data_portrait.h"
 #include "startup_logos.h"
 #include "title_layers.h"
 
@@ -60,6 +63,9 @@ void JE_paramCheck(int argc, char *argv[])
 		{ 't', 't', "data",              true },
 		{ 258, 0,   "startup-assets",    true },
 		{ 259, 0,   "music-dir",         true },
+		{ 260, 0,   "data-text-assets",  true },
+		{ 261, 0,   "data-frame-assets", true },
+		{ 262, 0,   "data-portrait-assets", true },
 		
 		{ 'n', 'n', "net",               true },
 		{ 256, 0,   "net-player-name",   true }, // TODO: no short codes because there should
@@ -103,6 +109,9 @@ void JE_paramCheck(int argc, char *argv[])
 			       "  -x, --no-xmas                Disable Christmas mode\n\n"
 			       "  -t, --data=DIR               Set Tyrian data directory\n"
 			       "  --music-dir=DIR             Optional MP3 replacements: track01.mp3, track02.mp3, ...\n"
+			       "  --data-text-assets=DIR      Optional Data-only Chinese text and font resources\n"
+			       "  --data-frame-assets=DIR     Optional Data-only static HD frame resource\n"
+			       "  --data-portrait-assets=DIR  Optional source-bound HD Data portraits\n"
 			       "  --startup-assets=DIR        Optional HD manufacturer/title art (release, local startup only)\n"
 			       "  --manual-hd-assets=DIR      Display-only HD for local single-player Episode 1 / level 9\n"
 			       "                               Native menus and controls; classic outside this first level\n\n"
@@ -141,6 +150,21 @@ void JE_paramCheck(int argc, char *argv[])
 				fprintf(stderr, "Music override requires a nonempty directory\n");
 				exit(EXIT_FAILURE);
 			}
+			break;
+
+		case 262: // --data-portrait-assets
+			if (!option.arg || !*option.arg) { fprintf(stderr, "Data portrait assets require a nonempty directory\n"); exit(EXIT_FAILURE); }
+			data_portrait_set_directory(option.arg);
+			break;
+
+		case 261: // --data-frame-assets
+			if (!option.arg || !*option.arg) { fprintf(stderr, "Data frame assets require a nonempty directory\n"); exit(EXIT_FAILURE); }
+			data_frame_set_directory(option.arg);
+			break;
+
+		case 260: // --data-text-assets
+			if (!option.arg || !*option.arg) { fprintf(stderr, "Data text assets require a nonempty directory\n"); exit(EXIT_FAILURE); }
+			data_text_set_directory(option.arg);
 			break;
 
 		case 258: // --startup-assets

@@ -1,0 +1,55 @@
+Optional Data static frame, DFM1 v1
+2026-10-19
+
+Scope: static Data menu 7/8 background and oval metal portrait surround only.
+All 18 portraits remain native dynamic game sprites. No characters, words,
+equipment, armor/shield widgets, font source, or original game-data archive was
+added. The separately optional Chinese text/font resources are unchanged.
+
+Retained artwork source: source-v3.png, RGBA 676x744, 701041 bytes.
+SHA256: 34c464d5a05d0dd091a4d1cb3a11d53567ab094768bdb8253b27fcd35d53904d
+Origin: three OpenAI image_gen edit passes; full prompts in imagegen-prompts.json.
+The accepted v3 generated output was 1195x1316, 1977736 bytes, SHA256
+5c8d404912f738242b4ffe3757ebf76657f0a6081acdd670c10b582a57549bde.
+That output was normalized once with Pillow Lanczos to the retained 676x744 PNG.
+The PNG is copied unchanged. No hand painting, forced opacity, alpha repair,
+color changes, sharpening, or low-resolution enlargement is claimed as HD art.
+The original large generated output and earlier passes are not rebuild inputs;
+their hashes and prompts are retained without copying the large PNGs.
+
+Exact PMF1 reuse: assets/shop-frame-v1/shop-frame-metal-v1.hda, SHA256
+639f0c723e1058628e32b052a9613d09a478ff1d2fb4ce28235a94aaa8235260.
+Its decoded straight-RGBA samples are retained only where the exact original
+PIC1 source survives both the clear rectangle [1,1,146,171) and OPTION20's
+opaque source writes at (1,1). No equipment-widget art is reused on Data.
+
+Original source identities (source files are not copied):
+tyrian.shp SHA256 80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0
+tyrian.pic SHA256 76fa51ba6878c886f67daa65cf6d19968615e4423822c9fe1dde797fc2f8d802
+palette.dat SHA256 f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0
+PIC1 decoded index FNV1a64: 45a77a2246c174b9.
+OPTION20 RLE/index/mask FNV1a64:
+3c232016c519ed17 / 03a1b83be967efe2 / 2f1faa16b55f7cfc.
+Palette 0 indices 208..255, expanded RGB 144 bytes, FNV1a64: dda550ae729ffb73.
+VGA expansion is (v << 2) | (v >> 4). The low palette may change per portrait.
+The 64000-byte 0/1 support mask retains only source write-ownership geometry.
+src/data_frame_pins.inc contains the same local 169x186 mask packed LSB-first
+into 3930 bytes for source-underlay restoration. No original index art is stored.
+
+Resource processing: exact PMF1 reuse first, then v3 at canonical (4,4).
+Only the exported candidate contribution is alpha-clipped outside OPTION20
+source support dilated by two logical cells (8 canonical HD pixels), Chebyshev
+distance. This is an explicit DFM1-only bound; PSP1 retains its one-cell rule.
+The geometry clip removes 13598 faint nonzero-alpha pixels, alpha sum 13683,
+and zero pixels with alpha > 127. Allowed source-v3 samples are unchanged.
+The source PNG is never masked or resaved. There is no raster-patch painting.
+
+Rebuild with Python/Pillow 12.3.0: python3 scripts/export_data_frame.py
+Output: data-frame-v1.hda, 128-byte little-endian DFM1 header plus 4096000-byte
+1280x800 straight-RGBA payload. JSON manifest pins source, geometry and output.
+Only the HDA and these provenance/license notices enter the runtime allowlist.
+Development source PNG, prompts, JSON, source mask and scripts stay external to
+the runtime copy. Missing or rejected frame must fall back independently.
+
+License status is stated precisely in LICENSE-Data-Frame.txt. This provenance
+notice does not relicense original artwork or assert a new redistribution grant.

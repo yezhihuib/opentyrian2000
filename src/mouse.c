@@ -17,6 +17,10 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 #include "mouse.h"
+#include "hd_cursor.h"
+#include "data_text.h"
+#include "data_frame.h"
+#include "data_portrait.h"
 
 #include "keyboard.h"
 #include "nortvars.h"
@@ -114,6 +118,7 @@ static const MousePointerSpriteInfo mousePointerSprites[] = // fka mouseCursorGr
 
 void JE_mouseStart(void)
 {
+	hd_cursor_clear();
 	if (has_mouse)
 	{
 		service_SDL_events(false);
@@ -127,17 +132,28 @@ void JE_mouseStart(void)
 
 		JE_grabShapeTypeOne(mouseGrabX, mouseGrabY, mouseGrabShape);
 
+		hd_cursor_begin(VGAScreen,mouse_x-spriteInfo->x-spriteInfo->fx,mouse_y-spriteInfo->y-spriteInfo->fy,
+		                spriteInfo->index,shopSpriteSheet.data,shopSpriteSheet.size,!mouseInactive,-1);
+		data_text_cursor_frame_owner(data_frame_active(VGAScreen) || data_portrait_active(VGAScreen));
+		data_frame_cursor_begin(VGAScreen);
+		data_portrait_cursor_begin(VGAScreen);
+		data_text_cursor_begin(VGAScreen);
 		if (!mouseInactive)
 		{
 			const Sint32 x = mouse_x - spriteInfo->x - spriteInfo->fx;
 			const Sint32 y = mouse_y - spriteInfo->y - spriteInfo->fy;
 			blit_sprite2x2_clip(VGAScreen, x, y, shopSpriteSheet, spriteInfo->index);
 		}
+		data_text_cursor_done();
+		data_frame_cursor_done();
+		data_portrait_cursor_done();
+		hd_cursor_done();
 	 }
 }
 
 void JE_mouseStartFilter(Uint8 filter)
 {
+	hd_cursor_clear();
 	if (has_mouse)
 	{
 		mouseButton = mousedown ? lastmouse_but : 0; /* incorrect, possibly unimportant */
@@ -148,6 +164,8 @@ void JE_mouseStartFilter(Uint8 filter)
 		mouseGrabY = MIN(MAX(spriteInfo->fy, mouse_y), 200 - (spriteInfo->h - spriteInfo->fy)) - spriteInfo->fy;
 
 		JE_grabShapeTypeOne(mouseGrabX, mouseGrabY, mouseGrabShape);
+		hd_cursor_begin(VGAScreen,mouse_x-spriteInfo->x-spriteInfo->fx,mouse_y-spriteInfo->y-spriteInfo->fy,
+		                spriteInfo->index,shopSpriteSheet.data,shopSpriteSheet.size,!mouseInactive,filter);
 
 		if (!mouseInactive)
 		{
@@ -155,11 +173,16 @@ void JE_mouseStartFilter(Uint8 filter)
 			const Sint32 y = mouse_y - spriteInfo->y - spriteInfo->fy;
 			blit_sprite2x2_filter_clip(VGAScreen, x, y, shopSpriteSheet, spriteInfo->index, filter);
 		}
+		hd_cursor_done();
 	}
 }
 
 void JE_mouseReplace(void)
 {
+	hd_cursor_clear();
+	data_text_cursor_clear();
 	if (has_mouse)
 		JE_drawShapeTypeOne(mouseGrabX, mouseGrabY, mouseGrabShape);
+	data_frame_cursor_restored(VGAScreen);
+	data_portrait_cursor_restored(VGAScreen);
 }
