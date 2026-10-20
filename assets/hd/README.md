@@ -11,7 +11,7 @@ See [scope and bounded validation](../../docs/sonic-mint-shadows.md).
 Missile31–33, Charge252–254 and green214–217 also reuse their unchanged head
 alpha for guarded smooth shadows. See [finite scope and validation](../../docs/ten-weapon-shadows.md).
 
-The manifest is the finite accepted mapping and authoritative default-pack count. `packs` contains only the two installed defaults (629 HDR1 files each); `optional_packs` separately catalogs all 35 images across the fifteen ASTEROID1 opt-in families. `python prototype/build-hd-assets.py --catalog-only` verifies their explicit source PNG, header and runtime byte pins without rebuilding artwork. Missing historical resources are a failure, not a partial pass. Run `python prototype/build-hd-assets.py` to report and verify the current pack, HDR1 and source PNG totals. The two installed gameplay defaults retain their head-v1 directories. The 16 superseded gameplay stage packs and three duplicate startup subset directories have been retired; their recipes, sources and Git history remain available. Historical counts describe their original checkpoints. See [retired packs, recovery and external rebuilds](../../docs/RETIRED_HD_PACKS.md). No original game data or runtime captures are included.
+The manifest is the finite accepted mapping and authoritative default-pack count. `packs` contains only the two installed defaults (629 HDR1 files each); `optional_packs` separately catalogs all 53 images across the nineteen ASTEROID1 opt-in families. `python prototype/build-hd-assets.py --catalog-only` verifies their explicit source PNG, header and runtime byte pins without rebuilding artwork. Missing historical resources are a failure, not a partial pass. Run `python prototype/build-hd-assets.py` to report and verify the current pack, HDR1 and source PNG totals. The two installed gameplay defaults retain their head-v1 directories. The 16 superseded gameplay stage packs and three duplicate startup subset directories have been retired; their recipes, sources and Git history remain available. Historical counts describe their original checkpoints. See [retired packs, recovery and external rebuilds](../../docs/RETIRED_HD_PACKS.md). No original game data or runtime captures are included.
 
 Recent scoped validation: `docs/GREEN_RENDER_VALIDATION.md`, `docs/ROTOR_ENEMY_VALIDATION.md`, `docs/GROUND_NINE_VALIDATION.md`, and `docs/ENEMY_ORB_VALIDATION.md`, and `docs/PLATEAU_FOUR_VALIDATION.md`. Each records its finite native-scene checks and remaining limitations. New artwork includes saved generated sources and deterministic registration/rebuild scripts in `artwork/`.
 
@@ -20,6 +20,12 @@ source/*.png are exact RGBA dumps of accepted runtime payloads, with no resizing
 Run `python prototype/build-hd-assets.py` to verify the active source/header/runtime hashes and the complete retained startup pack. Use `--output NEW_DIRECTORY` to rebuild the active packs from PNGs without overwriting originals. Historical gameplay recipes are retained separately in `manifest.json` under `retired_packs`; rebuild one externally with `python3 prototype/rebuild_retired_hd_pack.py PACK --output ABS_NEW_EXTERNAL_DIRECTORY`.
 
 The default `start-actual-preview.ps1` and `start-asset-debug.ps1` paths still use their respective installed head-v1 packs. Their eight superseded in-repository stage switches now stop with a retirement message. Older selectors for external `runtime-hd-assets` checkpoints remain available only when those separately managed local inputs exist. Game data and local SDL SDKs remain separate prerequisites.
+
+ASTEROID1's coherent five-actor NEWSHP gold platform and persistent wreck: [source identity,
+material135, artwork and finite validation](../../docs/asteroid1-linked338-v1/README.md).
+
+ASTEROID1's coherent four-state NEWSHD ember installation: [source identity,
+guarded animation, artwork and finite validation](../../docs/asteroid1-ember269-v1/README.md).
 
 Static physical installation125–128: [validation](../../docs/INSTALLATION_VALIDATION.md), including the separate pending original-underlay strip.
 

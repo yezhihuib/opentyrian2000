@@ -43,7 +43,7 @@ def main(default_effect="data"):
                     'compositor':'\n'.join(extract(s,n) for n in compositor),
                     'adapter':'\n'.join(extract(s,n) for n in ['decode_tile','cash25_surface_ready','render_mirror_data_value_begin','data_value_source_matches','data_value_draw','render_mirror_fixed_pickup_flash_begin','fixed_pickup_flash_source_matches','fixed_pickup_flash_surface_ready','fixed_pickup_flash_draw','explosion_asset_slot']),
                     'pixel':extract(s,'render_mirror_pixel'),
-                    'blend':'\n'.join(extract(s,n) for n in ['explosion_blend_rgba','effect_ramp_monotone_to','effect_ramp_monotone','recognized_value_effect','recognized_contact_effect','have_supported_talon','render_mirror_sprite2_blend_pixel']),
+                    'blend':'\n'.join(extract(s,n) for n in ['explosion_blend_rgba','effect_ramp_monotone_to','effect_ramp_monotone','recognized_value_effect','recognized_contact_effect','have_supported_talon'])+(ROOT/'src/asteroid1_effect_blend_mirror.inc').read_text()+extract(s,'render_mirror_sprite2_blend_pixel'),
                     'blit':'\n'.join(extract(sprite,n) for n in ['blit_sprite2','blit_sprite2_blend']),
                     'wrapper':extract(entity,'draw_entity_sprite2'),
                     'end':extract(s,'render_mirror_entity_end')}

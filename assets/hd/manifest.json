@@ -55779,8 +55779,8 @@
   },
   "optional_packs": {
     "asteroid1-ten-v1": {
-      "count": 35,
-      "scope": "Separate asteroid-only normal-data Episode 1 physical level 1 opt-in; fifteen independently preflighted families, 35 images and 42 source records. All other artwork remains classic.",
+      "count": 57,
+      "scope": "Separate asteroid-only normal-data Episode 1 physical level 1 opt-in; twenty independently preflighted families, 57 images and 52 source-record dependencies across NEWSHD, NEWSHS and NEWSHP. All other artwork remains classic.",
       "files": {
         "enemy-newshd-1-8.hda": {
           "sha256": "c59e7286da4f08915d710b8c9ef2edf7af69b4ca3f7171c47ab3b7d02cc1f9af",
@@ -56236,6 +56236,292 @@
           ],
           "source_png": "assets/hd/artwork/asteroid1-capsule545-v1/enemy-newshd-77-8.png",
           "source_png_sha256": "becb9d8405e3fe3ab46e335bdabdc5692aaa4c2414090d14072e6dad1a7de27e"
+        },
+        "enemy-newshd-245-8.hda": {
+          "sha256": "71f5abb6edef89f4f151eca6aec54d5d6e517e17db48875d1bfcc2672b283f5e",
+          "header_u32": [
+            1080245,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-paired287-288-v1/enemy-newshd-245-8.png",
+          "source_png_sha256": "ff58bd99ff36013d4365513c1b40c49fc78aa81f15704ba1c1bf0f612a43dda8"
+        },
+        "enemy-newshd-281-8.hda": {
+          "sha256": "0669e8e3ea3a50752f2e645dd72c6ae5ad1bc5af8931cc3b039fd12a43a07b23",
+          "header_u32": [
+            1080281,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-paired287-288-v1/enemy-newshd-281-8.png",
+          "source_png_sha256": "c13d7678e3900de19df92593e3083ff6d799d00f20135ee5cc0fc0798d7879bc"
+        },
+        "enemy-newshd-283-8.hda": {
+          "sha256": "9e8d91e67d142ec4351001aebe9dc33fb70dcc91123dbe353ce84f6bf5b8a658",
+          "header_u32": [
+            1080283,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-paired287-288-v1/enemy-newshd-283-8.png",
+          "source_png_sha256": "46887473de411652a4f53c22f2549b36acdaff26ce88b358e28cf1f611aaff34"
+        },
+        "enemy-newshs-11-8.hda": {
+          "sha256": "7fcc1ec61b4572f6a8c693674d71f30342583549d9a03787c26bc3574f854b27",
+          "header_u32": [
+            1080011,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-firing325-v1/enemy-newshs-11-8.png",
+          "source_png_sha256": "c11377cb0b93850595aa29eed45fdc716c5b6ff2544589641c690ef108458507"
+        },
+        "enemy-newshs-125-8.hda": {
+          "sha256": "94582fc57ff68f44f91e51d57ea1fc0f85ce0b6c5d2bd75377310f3ddfe74902",
+          "header_u32": [
+            1080125,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-firing325-v1/enemy-newshs-125-8.png",
+          "source_png_sha256": "da71bd50599d48d278b63acce64b98bbe73934ebb30b46dd1be6c09ad6a38a5d"
+        },
+        "enemy-newshs-277-8.hda": {
+          "sha256": "fafb983ca4fdcc84a7000b5e18ed9111f51040374f2d930b47743901c4d81942",
+          "header_u32": [
+            1080277,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-firing325-v1/enemy-newshs-277-8.png",
+          "source_png_sha256": "bf8121924ca86e4912da5bac6637448d9f175fbca553b84f0de23979bb8cd492"
+        },
+        "enemy-newshd-267-8.hda": {
+          "sha256": "2df4003aa25526ffd4b1a263e5310e95efe429b344cb13f565593919f7a1e359",
+          "header_u32": [
+            1080267,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-ember269-v1/enemy-newshd-267-8.png",
+          "source_png_sha256": "7cc6f5967a9fa0fab516d266d779a4d6b9ac05ee0da71d3335a7895df92b9e41"
+        },
+        "enemy-newshd-269-8.hda": {
+          "sha256": "1b9ef68aedfef1f4e4dc8145b218f96be8e4dcbf356446279ce52ea8465d998a",
+          "header_u32": [
+            1080269,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-ember269-v1/enemy-newshd-269-8.png",
+          "source_png_sha256": "f3adef02b3189f84aab9e4a6daae226d4df938204ade104c0dce696d5100a8a2"
+        },
+        "enemy-newshd-271-8.hda": {
+          "sha256": "b6db25b6b81ede4cec9a33c8f81de0468fa66f3e6d6565b63cb736caef78656a",
+          "header_u32": [
+            1080271,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-ember269-v1/enemy-newshd-271-8.png",
+          "source_png_sha256": "9f9a7b1b2542e4244c90d0cbf5e5294d5d0f21c5345314b863ba33787a8dd798"
+        },
+        "enemy-newshd-273-8.hda": {
+          "sha256": "5433116da95b8e1bf08fc808ca9f42a9e3522c90b123bd822a89c828db851293",
+          "header_u32": [
+            1080273,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-ember269-v1/enemy-newshd-273-8.png",
+          "source_png_sha256": "b9da9bf17b0bf468b3dc2f41c239fe174689e6e8c2d4fb7be29ea00d0bc77b29"
+        },
+        "enemy-newshp-115-8.hda": {
+          "sha256": "f3990602fa3c9199cf15c85e62d96954d414d08cea7171c1ba07172c9f44322c",
+          "header_u32": [
+            1350115,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-linked338-v1/enemy-newshp-115-8.png",
+          "source_png_sha256": "19469f29fe0faed712009832a140de43af72b41be8550d3a756db11f29849614"
+        },
+        "enemy-newshp-117-8.hda": {
+          "sha256": "951364ebd06145962cde9e6d0f676e547bffc36777297d98a4f9a3ce349d2519",
+          "header_u32": [
+            1350117,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-linked338-v1/enemy-newshp-117-8.png",
+          "source_png_sha256": "a37fcafeb3420c826c430dedc18dd2f5799fd3b37330b0264fc1a79d63581419"
+        },
+        "enemy-newshp-119-8.hda": {
+          "sha256": "09b0bd98f62a7c5ee16114cbd71c2a09e34a03a17aca23387ce5033fe0930c0e",
+          "header_u32": [
+            1350119,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-linked338-v1/enemy-newshp-119-8.png",
+          "source_png_sha256": "51eb12397166be630adf8b4dd927b3bc371b25fe214f11ede1e5ba4c95b9aa29"
+        },
+        "enemy-newshp-121-8.hda": {
+          "sha256": "48846ee1d419ca5fe8cf8ad2900566937c0754fa413255dc902392567d4aec10",
+          "header_u32": [
+            1350121,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-linked338-v1/enemy-newshp-121-8.png",
+          "source_png_sha256": "5a39c7611c2a56bcc9fa94fedfe704f6f5dce5d057179aa0af0527d700aa68b1"
+        },
+        "enemy-newshp-229-8.hda": {
+          "sha256": "74efdec8ff95e20ab7c47f2aa8ec4e40a963551da6396392d04d4c6e0be7b89c",
+          "header_u32": [
+            1350229,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-linked338-v1/enemy-newshp-229-8.png",
+          "source_png_sha256": "3998ed24d4679a5065c5d2a2875423b958f319afe510c48e18737736aaf52113"
+        },
+        "enemy-newshp-231-8.hda": {
+          "sha256": "c97be4c67e41aa129be53aec9cdbe31b23f9b93b5cc657be69f80556d4c26c1a",
+          "header_u32": [
+            1350231,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-linked338-v1/enemy-newshp-231-8.png",
+          "source_png_sha256": "61a772e0f2353ed68ac16328a5ac59e7da91d6528fcce981893d0c7d9d000f80"
+        },
+        "enemy-newshp-267-8.hda": {
+          "sha256": "1eb0fe96fd5c86a967fa4bc73ab97bac2d9cc360cf8db570b294d12951984678",
+          "header_u32": [
+            1350267,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-linked338-v1/enemy-newshp-267-8.png",
+          "source_png_sha256": "a57b3df8dfe3dfc5bb4f4c2a5ec06cc0be38c25ff91f0dc797c277043aa43355"
+        },
+        "enemy-newshp-269-8.hda": {
+          "sha256": "7ef0d2edc92cec157b49d7346dada16e430dc9942276b4bfaa0968c82aa9aaaf",
+          "header_u32": [
+            1350269,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-linked338-v1/enemy-newshp-269-8.png",
+          "source_png_sha256": "7cb92929aff805863f98d2c3041a70a03e7ed4d6f58a6fd74cbf6c14346ff0a1"
+        },
+        "enemy-newshs-229-8.hda": {
+          "sha256": "1a8c6616d2d1ebc3e7c324fed692f3bbf2ee67e3ca2ddfa068c981f218600224",
+          "header_u32": [
+            1360229,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-pulsing272-v1/enemy-newshs-229-8.png",
+          "source_png_sha256": "642a0f07166688b7407c112ac89af96e88e930e8eba3718cdf200c07aa4fd747"
+        },
+        "enemy-newshs-231-8.hda": {
+          "sha256": "02e4df95460260825ce929561804702763e91a45463a5d4f9978b0a086bac97e",
+          "header_u32": [
+            1360231,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-pulsing272-v1/enemy-newshs-231-8.png",
+          "source_png_sha256": "d8d9db9abcc78473af9367eb9976010f81cb1a37a5bbfda2bc8751fb7fe4f682"
+        },
+        "enemy-newshs-233-8.hda": {
+          "sha256": "f75ed9d2c605b7eb1711e0c95a4ef765bb7035105949b7bd603598301f7cbd05",
+          "header_u32": [
+            1360233,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-pulsing272-v1/enemy-newshs-233-8.png",
+          "source_png_sha256": "96dbd6769b4742bb23070044f2c906c66c9c14074e3547f638f1ec467ec0f91d"
+        },
+        "enemy-newshs-235-8.hda": {
+          "sha256": "a0a58eb92805eb6736ce8e8662eb140559757fed2fdb8118b86f287f64992b8f",
+          "header_u32": [
+            1360235,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-pulsing272-v1/enemy-newshs-235-8.png",
+          "source_png_sha256": "1ece29a19cfb36b7b747443d327265a573e3ce3097cdddeaa459b4f838f9512b"
         }
       },
       "families": {
@@ -56405,6 +56691,78 @@
           "source_records": [
             545
           ]
+        },
+        "paired287_288": {
+          "image_bases": [
+            245,
+            281,
+            283
+          ],
+          "source_records": [
+            287,
+            288
+          ]
+        },
+        "firing325": {
+          "image_bases": [
+            11,
+            125,
+            277
+          ],
+          "source_records": [
+            325
+          ],
+          "logical_bank": 23,
+          "source_bank": "newshs.shp"
+        },
+        "ember269": {
+          "image_bases": [
+            267,
+            269,
+            271,
+            273
+          ],
+          "source_records": [
+            269
+          ],
+          "logical_bank": 8,
+          "source_bank": "newshd.shp"
+        },
+        "linked338": {
+          "image_bases": [
+            115,
+            117,
+            119,
+            121,
+            229,
+            231,
+            267,
+            269
+          ],
+          "source_records": [
+            338,
+            339,
+            340,
+            341,
+            342
+          ],
+          "logical_bank": 20,
+          "source_bank": "newshp.shp",
+          "material_role": 135
+        },
+        "pulsing272": {
+          "image_bases": [
+            229,
+            231,
+            233,
+            235
+          ],
+          "source_records": [
+            272
+          ],
+          "logical_bank": 23,
+          "source_bank": "newshs.shp",
+          "material_role": 136
         }
       }
     }

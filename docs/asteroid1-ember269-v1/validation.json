@@ -1,0 +1,549 @@
+{
+  "status": "PASS",
+  "checkpoint": "ASTEROID1 NEWSHD record269 four-state ember installation",
+  "local_parent": "954b2acd132801e6ff68748811190cd8cfaeb91e",
+  "source": {
+    "bank": "newshd.shp",
+    "logical_bank": 8,
+    "bank_bytes": 42012,
+    "bank_fnv1a64": "913975450e0fc00d",
+    "record": 269,
+    "serialized77_fnv1a64": "587e8cbe02db82e2",
+    "image_bases": [
+      267,
+      269,
+      271,
+      273
+    ],
+    "twenty_original_entries": [
+      267,
+      267,
+      269,
+      269,
+      271,
+      271,
+      273,
+      273,
+      271,
+      271,
+      269,
+      269,
+      267,
+      267,
+      267,
+      267,
+      267,
+      267,
+      267,
+      267
+    ],
+    "source_occupied_cells": 672,
+    "no_fire_launch_drop_or_damage_alternate": true
+  },
+  "catalog": {
+    "verified_pack_count": 2,
+    "verified_HDA_entries": 1258,
+    "verified_optional_pack_count": 1,
+    "verified_optional_HDA_entries": 45,
+    "verified_exact_source_pngs": 629,
+    "verified_optional_source_pngs": 45,
+    "default_pack_counts": [
+      629,
+      629
+    ],
+    "optional_pack_counts": {
+      "asteroid1-ten-v1": 45
+    },
+    "optional_catalog_sha256": "ab1611262dd076c58eea9ee6b4cbd3e3eb658ce32612a16c6e75f7765ed78117",
+    "catalog_only": true,
+    "artwork_rebuilt": false
+  },
+  "historical_optional_pairs_verified_byte_identical": 41,
+  "unit": {
+    "records": [
+      269
+    ],
+    "bases": [
+      267,
+      269,
+      271,
+      273
+    ],
+    "logical_size": [
+      24,
+      28
+    ],
+    "density": 8,
+    "cold_source_record_byte_mutations": 77,
+    "warm_source_record_byte_mutations": 77,
+    "boundary_pool_slots": [
+      25,
+      49
+    ],
+    "accepted_links": [
+      0
+    ],
+    "cycles": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "sequence": [
+      267,
+      267,
+      269,
+      269,
+      271,
+      271,
+      273,
+      273,
+      271,
+      271,
+      269,
+      269,
+      267,
+      267,
+      267,
+      267,
+      267,
+      267,
+      267,
+      267
+    ],
+    "constructor_cycle": 0,
+    "original_animation_tick_comparisons": 3564,
+    "original_animation_scenarios": 27,
+    "original_animation_HD_accepted_all_cycles": true,
+    "difficulties": [
+      0,
+      2,
+      10
+    ],
+    "independent_actors": true,
+    "positive_armor_values": 255,
+    "ice_values": 256,
+    "clipping_origins": 6,
+    "clipping_filters": [
+      0,
+      17,
+      255
+    ],
+    "fixture_count": 64,
+    "independent_peer_families": 17,
+    "two_bank_current_byte_independence": true,
+    "sticky_whole_frame": true,
+    "compiler_peak_rss_bytes": 333193216,
+    "runtime_peak_rss_bytes": 66674688,
+    "compiler_address_space_limit_bytes": 1073741824,
+    "runtime_rss_limit_bytes": 536870912,
+    "output_limit_bytes": 16777216,
+    "output_bytes": 9854464,
+    "runs": [
+      {
+        "mode": "optimized",
+        "positive": 2,
+        "peer_independence": 1,
+        "negative": 64,
+        "original_animation_HD_admissions": 6606,
+        "binary_sha256": "e4247118cca00dd096b41fc2b726781b7de0b17f7e9644d4da8e42430fb59703"
+      },
+      {
+        "mode": "asan-ubsan",
+        "positive": 2,
+        "peer_independence": 1,
+        "negative": 64,
+        "original_animation_HD_admissions": 6606,
+        "binary_sha256": "e7a5ed06a6caa26a8b41035fbbba6fbfb583f2e8720a0965ceae77a3d333c381"
+      }
+    ],
+    "source_sha256": "37f63ad146cb61805abd1bc3ca85d490407dd827f1074ee898152eaf3188c117",
+    "engine_draw_sha256": "a577a34c175587d0831c958a6342f9fdf43ea44d2c427ca6f44112f2966c43d7",
+    "engine_constructor_sha256": "64ab2eb27122b40484a2114e4837cc0592f0a16e83bd5b99a6c8336673245446",
+    "engine_allocator_sha256": "6a3bbdb632aace5683d8ac4730459e85fdab85847424db77a4d940e0d6347f49",
+    "production_rng_sha256": "9bb519b6b67d990184da25f1d373858760d2952a782c3e850e2f21c972c01f95",
+    "leak_sanitizer": false,
+    "scope": "Extracted production guards and JE_makeEnemy/JE_newEnemy and JE_drawEnemy pre-launch animation/fire block with production MT RNG. Actual-engine event/destruction validation remains separate."
+  },
+  "two_bank_snapshot": {
+    "runs": [
+      {
+        "mode": "optimized",
+        "result": "source snapshot guards passed: 3070 checks across 18 families, 46 dependencies; 17 NEWSHD/45 records + NEWSHS record325; cold/warm, all slots, strict roles, reload/address reuse, record-local and bidirectional bank independence and epochs",
+        "binary_sha256": "2f8068123d8c48f7c4bf748494169b08452593e0c30ed192b7dc462369f01646"
+      },
+      {
+        "mode": "asan-ubsan",
+        "result": "source snapshot guards passed: 3070 checks across 18 families, 46 dependencies; 17 NEWSHD/45 records + NEWSHS record325; cold/warm, all slots, strict roles, reload/address reuse, record-local and bidirectional bank independence and epochs",
+        "binary_sha256": "7c3562ab4011c592690afe9499d17cdce7a24aa5e9f76c451ef6b553d5bb951f"
+      }
+    ],
+    "helper_sha256": "b6b9d48eb57fb5029d25a20ab4bac5e56ca77f9a28cc31d4d8513e0fc9d93f9a",
+    "firing325_source_sha256": "ba498fc6ea5cdd3b4355df620199ca909faebe62135fd17aa6fca529b055bce1",
+    "compiler_peak_rss_bytes": 69894144,
+    "runtime_peak_rss_bytes": 8642560,
+    "compiler_address_space_limit_bytes": 1073741824,
+    "runtime_rss_limit_bytes": 536870912,
+    "families": 18,
+    "record_dependencies": 46,
+    "NEWSHD_families": 17,
+    "NEWSHD_records": 45,
+    "NEWSHS_families": 1,
+    "NEWSHS_records": [
+      325
+    ],
+    "leak_sanitizer": false,
+    "scope": "Extracted current production helper, source predicates and shutdown. Record-stamp stub checks dependency queries; complete family suites validate real records and drawing separately. Two independent source-bank snapshots verified."
+  },
+  "art": {
+    "status": "PASS",
+    "source_bank": "NEWSHD",
+    "logical_bank": 8,
+    "original_bytes": 42012,
+    "original_fnv64": "0x913975450e0fc00d",
+    "roles": [
+      1080267,
+      1080269,
+      1080271,
+      1080273
+    ],
+    "images": [
+      {
+        "base": 267,
+        "hda_sha256": "2df4003aa25526ffd4b1a263e5310e95efe429b344cb13f565593919f7a1e359",
+        "rgba_fnv64": "0xd0e4ab5ba04e3363"
+      },
+      {
+        "base": 269,
+        "hda_sha256": "1b9ef68aedfef1f4e4dc8145b218f96be8e4dcbf356446279ce52ea8465d998a",
+        "rgba_fnv64": "0xb685e8af26bab976"
+      },
+      {
+        "base": 271,
+        "hda_sha256": "b6db25b6b81ede4cec9a33c8f81de0468fa66f3e6d6565b63cb736caef78656a",
+        "rgba_fnv64": "0x54d5868a234306d5"
+      },
+      {
+        "base": 273,
+        "hda_sha256": "5433116da95b8e1bf08fc808ca9f42a9e3522c90b123bd822a89c828db851293",
+        "rgba_fnv64": "0xd45268a1da451f08"
+      }
+    ],
+    "occupied_logical_cells_per_image": 672,
+    "state_difference_region": [
+      8,
+      6,
+      5,
+      13
+    ],
+    "shared_housing_outside_state_region_exact": true,
+    "rebuild_png_and_HDA_exact": true,
+    "masters_match_provenance": true,
+    "scope": "Finite art conversion only; real engine and original animation acceptance are separate."
+  },
+  "preceding_regressions": {
+    "firing325": {
+      "records": [
+        325
+      ],
+      "cold_source_record_byte_mutations": 77,
+      "warm_source_record_byte_mutations": 77,
+      "fixture_count": 48,
+      "runs": [
+        {
+          "mode": "optimized",
+          "positive": 2,
+          "peer_independence": 1,
+          "negative": 48,
+          "original_fire_HD_admissions": 14256,
+          "binary_sha256": "0aaf4f97dd37698eba3f47b8dcf5a3e8785a6ad4941832f53f204280a6e3c0ad"
+        },
+        {
+          "mode": "asan-ubsan",
+          "positive": 2,
+          "peer_independence": 1,
+          "negative": 48,
+          "original_fire_HD_admissions": 14256,
+          "binary_sha256": "ccfa112e463dd06f9617b27e566c639bf615b92d2384c9848433dfc61ae654f0"
+        }
+      ]
+    },
+    "paired287_288": {
+      "records": [
+        287,
+        288
+      ],
+      "cold_source_record_byte_mutations": 154,
+      "warm_source_record_byte_mutations": 154,
+      "fixture_count": 48,
+      "runs": [
+        {
+          "mode": "optimized",
+          "positive": 2,
+          "peer_independence": 1,
+          "negative": 48,
+          "binary_sha256": "1d91bfcd354f44a938d02f661fd652df8960e118c5df9474863133c639c11662"
+        },
+        {
+          "mode": "asan-ubsan",
+          "positive": 2,
+          "peer_independence": 1,
+          "negative": 48,
+          "binary_sha256": "bcc7a5153f2ff867050cfd416b6f164b8045f99b7a075ba2c16323feb259191b"
+        }
+      ]
+    }
+  },
+  "strict_build": {
+    "source_count": 81,
+    "objects_passed": 81,
+    "objects_failed": 0,
+    "warnings": 0,
+    "compiler_address_space_limit_bytes": 1073741824,
+    "peak_child_rss_bytes": 573394944,
+    "elapsed_seconds": 72.871
+  },
+  "strict_link_passed": true,
+  "actual_engine": {
+    "status": "PASS",
+    "scope": "ASSISTED original-event windows, Episode1 Normal physical1 ASTEROID1 seed1. Prefix actors omitted; original setup replayed in original order. Raw eventRec bytes unchanged by direct memcmp, selector RNG unchanged. Every selected actor is allocated by original JE_makeEnemy/event6 dispatcher, with no constructor position RNG consumed for source269 zero startxc/startyc. No actors or projectiles injected, healed or resurrected; no natural-campaign or whole-level claim.",
+    "native_scales": [
+      "2x:640x400",
+      "4x:1280x800"
+    ],
+    "paired_windows": 24,
+    "enabled_pairs": 6,
+    "fallback_pairs": 18,
+    "engine_processes": 48,
+    "paired_frames": 3150,
+    "expected_original_occurrences": 5,
+    "observed_original_event_ordinals": [
+      250,
+      251,
+      352,
+      353,
+      373
+    ],
+    "all5_in_both_native_scales": true,
+    "all5_each_have_all20_accepted_cycles_in_both_native_scales": true,
+    "all_three_original_event_locations": [
+      4220,
+      5676,
+      6208
+    ],
+    "all24_traces_exact_in_every_pair": true,
+    "accepted_type269_hd_quadrants": 4692,
+    "accepted_prior_hd_quadrants": 15116,
+    "all_prior_hd_command_subsequences_exact": true,
+    "callback_states": [
+      [
+        1,
+        1,
+        267
+      ],
+      [
+        2,
+        1,
+        267
+      ],
+      [
+        3,
+        1,
+        269
+      ],
+      [
+        4,
+        1,
+        269
+      ],
+      [
+        5,
+        1,
+        271
+      ],
+      [
+        6,
+        1,
+        271
+      ],
+      [
+        7,
+        1,
+        273
+      ],
+      [
+        8,
+        1,
+        273
+      ],
+      [
+        9,
+        1,
+        271
+      ],
+      [
+        10,
+        1,
+        271
+      ],
+      [
+        11,
+        1,
+        269
+      ],
+      [
+        12,
+        1,
+        269
+      ],
+      [
+        13,
+        1,
+        267
+      ],
+      [
+        14,
+        1,
+        267
+      ],
+      [
+        15,
+        1,
+        267
+      ],
+      [
+        16,
+        1,
+        267
+      ],
+      [
+        17,
+        1,
+        267
+      ],
+      [
+        18,
+        1,
+        267
+      ],
+      [
+        19,
+        1,
+        267
+      ],
+      [
+        20,
+        1,
+        267
+      ]
+    ],
+    "animation_transitions": {
+      "constructor0_to_callback1": 46,
+      "vertical_offscreen_progression": 92,
+      "ordinary_preincrement": 4978,
+      "wrap20_to1": 238
+    },
+    "all_mirror_callbacks_preserve_enemy_shot_countdown_state_rng_and_index8": true,
+    "full_body_witnesses": 1120,
+    "partial_top_witnesses": 70,
+    "partial_bottom_witnesses": 36,
+    "side_viewport_witnesses": 0,
+    "actual_engine_side_boundary_crossing_observed": false,
+    "side_boundary_geometry_evidence": "Separate dedicated production-draw unit suite; original-event runtime does not claim side crossing.",
+    "all_changed_display_cells_inside_original_body_support": true,
+    "missing_each_member_corrupt_each_member_and_flagoff_both_scales_byte_exact": true,
+    "coverage_mismatches": 0,
+    "rejected_frames": 0,
+    "bmp_files": 0,
+    "compiler_as_limit_bytes": 1073741824,
+    "runtime_as_limit_bytes": 536870912,
+    "max_runtime_rss_bytes": 97030144,
+    "max_process_sampled_cpu_seconds": 15.53,
+    "max_process_wall_seconds": 16.345,
+    "resources": {
+      "output_bytes": 30530643,
+      "png_bytes": 5176513,
+      "free_bytes": 15544418304
+    },
+    "inputs": {
+      "src/render_mirror.c": {
+        "bytes": 237997,
+        "sha256": "32006a4f99da5631fbae0e68165069bf6856273786bd0d2ba9c4d1cae7236dc0"
+      },
+      "src/tyrian2.c": {
+        "bytes": 134969,
+        "sha256": "38efa746a6add0ccc02efc7a5fb64138523e31c1e0a0d710470eaaac9f44eb08"
+      },
+      "src/render_mirror.h": {
+        "bytes": 10790,
+        "sha256": "5e41784c2947c5893620ef81b35cb50ce87a73d28e14928e48f99ac9b3834785"
+      },
+      "assets/hd/packs/asteroid1-ten-v1/enemy-newshd-267-8.hda": {
+        "bytes": 172060,
+        "sha256": "2df4003aa25526ffd4b1a263e5310e95efe429b344cb13f565593919f7a1e359"
+      },
+      "assets/hd/packs/asteroid1-ten-v1/enemy-newshd-269-8.hda": {
+        "bytes": 172060,
+        "sha256": "1b9ef68aedfef1f4e4dc8145b218f96be8e4dcbf356446279ce52ea8465d998a"
+      },
+      "assets/hd/packs/asteroid1-ten-v1/enemy-newshd-271-8.hda": {
+        "bytes": 172060,
+        "sha256": "b6db25b6b81ede4cec9a33c8f81de0468fa66f3e6d6565b63cb736caef78656a"
+      },
+      "assets/hd/packs/asteroid1-ten-v1/enemy-newshd-273-8.hda": {
+        "bytes": 172060,
+        "sha256": "5433116da95b8e1bf08fc808ca9f42a9e3522c90b123bd822a89c828db851293"
+      }
+    },
+    "source_baseline": {
+      "commit": "954b2acd132801e6ff68748811190cd8cfaeb91e",
+      "renderer_sha256": "dd51719d99f66c99c29f091e5025e57bb09936420bd068d1c59a8e7a7130760d",
+      "scope": "Pre-ember269 HEAD renderer, external immutable source baseline; existing 17 families retained"
+    },
+    "native_contact": "actual-engine-native2x4x-ember-states-contact.png",
+    "all5_contact": "actual-engine-native4x-all-five-events-contact.png",
+    "native_contact_receipt": "actual-engine-contact-receipt.json",
+    "complete_analysis": "runtime-final-analysis.json",
+    "disclosures": [
+      "Assisted prefix selection, never a natural campaign or whole-level validation.",
+      "Original setup events replayed in order; prefix actor spawns omitted.",
+      "All selected actor creation, original allocation, animation, motion, scoring, death and culling remain engine-owned. Source269 constructor consumes no position RNG because original startxc/startyc are zero.",
+      "Read-only external observer source copy and linker wrapper. No repository source edit, JE_makeEnemy change, actor/shot injection, healing, resurrection, event byte change, extra RNG draw or gameplay write.",
+      "Trust-boundary, mutation, ice and source-bank matrices are separate unit-suite evidence. The five original x positions do not cross a side viewport boundary in these windows; side-clipping geometry is covered by the separate unit suite."
+    ],
+    "display_backend": "Headless SDL dummy video driver, software renderer; unresized native640x400 and1280x800 renderer readbacks. No desktop-window claim.",
+    "original_inputs_receipt": "original-inputs-receipt.json"
+  },
+  "independent_review": {
+    "status": "PASS",
+    "source_art_catalog_tests_docs": "No blocking findings",
+    "historical_optional_pairs_byte_identical": 41,
+    "enabled_pairs_independently_rechecked": 6,
+    "final_fallback_review": "PASS: 18 negative pairs independently rechecked; exact 24 traces, frames, scene commands and PNG bytes, zero269 admissions, prior families active for each bad-art fixture."
+  },
+  "limits": [
+    "Assisted original-event windows; original setup replayed and prefix actor spawns omitted. No natural campaign or whole-level clear claim.",
+    "Original placements show top/bottom clipping. Side viewport crossing is absent; side-boundary/filter evidence is separate production-draw unit coverage.",
+    "Some state crops include unchanged partial INSERT COIN overlay.",
+    "AddressSanitizer and UndefinedBehaviorSanitizer run; LeakSanitizer disabled.",
+    "No Windows build or external publication.",
+    "Historical catalog root is a validation-only explicit input, never a public runtime path.",
+    "Actual-engine runs use headless SDL dummy/software rendering with unresized native readbacks; no desktop-window validation claim."
+  ]
+}

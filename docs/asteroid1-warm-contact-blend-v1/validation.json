@@ -1,0 +1,342 @@
+{
+  "status": "PASS_SCOPED_AUTHENTICATED_WARM_CONTACT_BLEND",
+  "baseline_commit": "af491809879a7f75279082ed50d7e88d3219d870",
+  "scope": {
+    "original_source": "normal explosionSpriteSheet / newsh6.shp,17810 bytes; current decoded168 index bytes plus168 coverage bytes pinned per callback",
+    "frame_count": 116,
+    "frame_ranges": [
+      [
+        3,
+        14
+      ],
+      [
+        22,
+        33
+      ],
+      [
+        41,
+        52
+      ],
+      [
+        60,
+        71
+      ],
+      [
+        122,
+        133
+      ],
+      [
+        145,
+        152
+      ],
+      [
+        154,
+        165
+      ],
+      [
+        173,
+        184
+      ],
+      [
+        192,
+        203
+      ],
+      [
+        211,
+        222
+      ]
+    ],
+    "source_hues": [
+      "0x70",
+      "0x40"
+    ],
+    "palette": "current ramp must be channelwise monotone; indexed after must equal original hue-overwrite/ramp-average equation",
+    "policy": "ASTEROID1 existing probe/live-lease policy only; global known_blend=false and first-level path unchanged",
+    "excluded": "Shield,green,smoke,value and other or altered sources; unsupported origins/layouts/ramps; original-reference,suppressed,rejected or out-of-scope calls keep original fallback"
+  },
+  "source_pin_canonical_sha256": "c40972fd5607bcfc8f601ab655dad76258cd3b2997c77e0cc97dfc527ad55df4",
+  "production_source_sha256": {
+    "src/render_mirror.c": "1bbb9a7f8f1bd241d3ceeb137640963243e6ccb2519f2b5f23346d34b2770e6a",
+    "src/asteroid1_effect_blend_mirror.inc": "229197dd0bd339f3a66b00727fc3a3a827e87f47c0952322c8b48f9968d95aca",
+    "src/sprite.c": "4b78f9e792509fcd490549a81a86bf18c2f524368d9bb8d00ee573cc47775a52"
+  },
+  "historical_regression": "../asteroid1-pulsing272-v1/tick28-shared-blend-regression.json is unchanged pre-fix evidence; its OPEN status describes that historical checkpoint",
+  "unit": {
+    "modes": [
+      "optimized",
+      "ASan+UBSan"
+    ],
+    "checks_each": 3190088,
+    "reset_cases": 299,
+    "positive_callbacks": 236,
+    "negative_callbacks": 45,
+    "actual_indexed_blits": 5,
+    "current_frames_checked": 116,
+    "density": [
+      4,
+      8
+    ],
+    "legacy_source_identity": "exactaf49180 first-level callback tail,render_mirror_pixel,blend/ramp/source helpers and indexed blitter",
+    "SDL_fixture": "bounded structural shim; actualSDL engine validation below",
+    "receipt": "unit-final-v2/receipt.json",
+    "leak_sanitizer": "disabled for executor ptrace incompatibility; AddressSanitizer and UndefinedBehaviorSanitizer enabled"
+  },
+  "strict_build": {
+    "source_count": 81,
+    "compile_passed": 81,
+    "link_passed": true,
+    "warnings": 0,
+    "compiler_peak_rss_bytes": 573263872,
+    "receipt": "<EXTERNAL_VALIDATION_ROOT>/build-regressions/strict-build/receipt.json",
+    "binary": "<EXTERNAL_VALIDATION_ROOT>/build-regressions/strict-build/opentyrian2000-strict-local",
+    "binary_sha256": "44f143641cbcd9f3239fa9d343b3c8c5d9cd89d8b7bfbda85f1f06f9dfe0cff4"
+  },
+  "legacy_adapters": {
+    "DATA_glyph": "plain+UBSan actual-data adapter+vector PASS",
+    "fixed_flash145": "plain+UBSan actual-data adapter+vector PASS"
+  },
+  "prior_runtime_regressions": {
+    "families": [
+      "pulsing272",
+      "linked338",
+      "firing325",
+      "ember269",
+      "paired287_288"
+    ],
+    "modes": [
+      "optimized",
+      "ASan+UBSan"
+    ],
+    "negative_fixtures_per_mode": 356,
+    "status": "PASS"
+  },
+  "actual_engine": {
+    "scope": "Four ASSISTED original-event site windows, ordinary partial/lethal3940 fire, flag-off and272-family missing/corrupt controls. Native SDL dummy/software captures, no natural campaign or desktop/window acceptance.",
+    "paired_cases": 14,
+    "engine_runs": 28,
+    "total_logic_ticks": 2240,
+    "exact_trace_comparisons": 392,
+    "warm_hd_write_callbacks": 17042,
+    "capture_files": 72
+  },
+  "tick28_native": {
+    "2x": {
+      "before_restore": {
+        "tick": "28",
+        "source_index": "0",
+        "requested_x": "95",
+        "requested_y": "21",
+        "requested_w": "24",
+        "requested_h": "28",
+        "x": "95",
+        "y": "21",
+        "w": "24",
+        "h": "28",
+        "visual_groups": "0",
+        "restored_hd_blocks": "590"
+      },
+      "after_trigger": {
+        "tick": "28",
+        "known_sheet": "1",
+        "index": "151",
+        "origin_x": "93",
+        "origin_y": "42",
+        "x": "98",
+        "y": "43",
+        "before": "6",
+        "source": "112",
+        "after": "115",
+        "hd_subpixels_before": "64",
+        "restored_blocks": "0",
+        "rgba": "1"
+      },
+      "accepted_material136_commands": [
+        {
+          "tick": "28",
+          "role": "136",
+          "index": "233",
+          "x": "95",
+          "y": "21",
+          "part": "0",
+          "style": "0",
+          "mirrored": "1"
+        },
+        {
+          "tick": "28",
+          "role": "136",
+          "index": "233",
+          "x": "107",
+          "y": "21",
+          "part": "1",
+          "style": "0",
+          "mirrored": "1"
+        },
+        {
+          "tick": "28",
+          "role": "136",
+          "index": "233",
+          "x": "95",
+          "y": "35",
+          "part": "19",
+          "style": "0",
+          "mirrored": "1"
+        },
+        {
+          "tick": "28",
+          "role": "136",
+          "index": "233",
+          "x": "107",
+          "y": "35",
+          "part": "20",
+          "style": "0",
+          "mirrored": "1"
+        }
+      ],
+      "all_warm_effect_writes": 213,
+      "candidate_restore_regions": 0,
+      "state_rng_index8_exact": true
+    },
+    "4x": {
+      "before_restore": {
+        "tick": "28",
+        "source_index": "0",
+        "requested_x": "95",
+        "requested_y": "21",
+        "requested_w": "24",
+        "requested_h": "28",
+        "x": "95",
+        "y": "21",
+        "w": "24",
+        "h": "28",
+        "visual_groups": "0",
+        "restored_hd_blocks": "590"
+      },
+      "after_trigger": {
+        "tick": "28",
+        "known_sheet": "1",
+        "index": "151",
+        "origin_x": "93",
+        "origin_y": "42",
+        "x": "98",
+        "y": "43",
+        "before": "6",
+        "source": "112",
+        "after": "115",
+        "hd_subpixels_before": "64",
+        "restored_blocks": "0",
+        "rgba": "1"
+      },
+      "accepted_material136_commands": [
+        {
+          "tick": "28",
+          "role": "136",
+          "index": "233",
+          "x": "95",
+          "y": "21",
+          "part": "0",
+          "style": "0",
+          "mirrored": "1"
+        },
+        {
+          "tick": "28",
+          "role": "136",
+          "index": "233",
+          "x": "107",
+          "y": "21",
+          "part": "1",
+          "style": "0",
+          "mirrored": "1"
+        },
+        {
+          "tick": "28",
+          "role": "136",
+          "index": "233",
+          "x": "95",
+          "y": "35",
+          "part": "19",
+          "style": "0",
+          "mirrored": "1"
+        },
+        {
+          "tick": "28",
+          "role": "136",
+          "index": "233",
+          "x": "107",
+          "y": "35",
+          "part": "20",
+          "style": "0",
+          "mirrored": "1"
+        }
+      ],
+      "all_warm_effect_writes": 213,
+      "candidate_restore_regions": 0,
+      "state_rng_index8_exact": true
+    }
+  },
+  "native_80tick_warm_window": {
+    "each_scale": {
+      "baseline_restore_regions": 78,
+      "candidate_restore_regions": 0,
+      "warm_hd_callback_writes": 3395
+    },
+    "native_tick28_difference_bbox": {
+      "2x": [
+        142,
+        42,
+        190,
+        98
+      ],
+      "4x": [
+        284,
+        84,
+        380,
+        196
+      ]
+    },
+    "outside_live_survivor_tick28": "pixel-identical"
+  },
+  "art_and_catalogs": {
+    "existing_optional_images": 57,
+    "families": 20,
+    "source_dependencies": 52,
+    "new_art": 0,
+    "tracked_assets": "unchanged byte-for-byte from baseline",
+    "catalog_regression": "all57 actualHDR1/PNG pairs and finite identity mutations PASS; existing resources unchanged"
+  },
+  "independent_review": {
+    "status": "PASS",
+    "reviewed_native": [
+      "2x",
+      "4x"
+    ],
+    "source_pins_independently_verified": 116,
+    "receipt": "review/review.json"
+  },
+  "external_evidence_root": "tyrian-asteroid-blend-validation-20261020",
+  "external_native_contact": "runtime/tick28-native2x4x-before-after.png",
+  "bounds": {
+    "runtime_RSS_MiB": 512,
+    "compiler_MiB": 1024,
+    "minimum_free_GB": 5,
+    "PNG_only": true
+  },
+  "limitations": [
+    "Finite assisted original-event windows,not a natural campaign or whole-level acceptance.",
+    "HeadlessSDL dummy/software captures,not a desktop window test.",
+    "All116 source frames exercised by extracted tests; actual engine witnesses only the original frames reached in these finitewindows.",
+    "Existing native side-clipping evidence gap remains; extracted origin/bounds tests pass.",
+    "Unknown/incompatible shared effects retain conservative fallback; no all-effects fix claimed.",
+    "No Windows build,external push or new artwork."
+  ],
+  "source_snapshot_regression": {
+    "status": "PASS",
+    "checks_each": 6812,
+    "modes": [
+      "optimized",
+      "ASan+UBSan"
+    ],
+    "families": 20,
+    "dependencies": 52,
+    "receipt": "source-snapshot/receipt.json"
+  }
+}

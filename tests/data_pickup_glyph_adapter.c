@@ -50,10 +50,13 @@ typedef int EntityDrawStyle;typedef int EntityDrawLayout;
 enum {MIRROR_NORMAL,MIRROR_BLEND,MIRROR_SHADOW};
 enum {ENTITY_NORMAL,ENTITY_BLEND,ENTITY_SHADOW,ENTITY_TILE,ENTITY_QUAD};
 static SDL_Surface *canvas,*game_screen,*VGAScreen;
+static const Asset *pulsing272_draw_lease;
 static Uint8 *hd_owner,*cloud_owner,*green_under_owner;
 static Uint16 *green_first;static Uint32 *green_under,*oracle;
 static Uint8 selected[64000],expected[64000],restored_mask[64000];static Uint32 rgb_palette[256];
-static bool active=true,suppress,suppress_green_smoke,suppress_cloud,scope=true;
+static bool active=true,suppress,suppress_green_smoke,suppress_cloud,scope=true,asteroid_hd_enabled,game_probe_enabled,asteroid_hd_lease;
+static bool asteroid1_level_scope(void){return false;}
+static bool asteroid1_scope(void){return false;}
 static bool game_probe_known_blend=true,game_probe_local_blend=true,game_probe_original_reference,game_probe_missing,game_probe_invalid,xmas;
 static int game_probe_density=8;static const char *game_probe_assets="fixture",*reject_reason;
 static bool cash25_fixed_value,cash75_fixed_value,cash50_fixed_value,gem100_fixed_value,gem250_fixed_value,data_fixed_value,fixed_pickup_flash;
@@ -78,6 +81,8 @@ static int explosion_asset_slot(unsigned index);
 #include "actual_adapter.inc"
 #define game_probe_scene_draw(...) ((void)0)
 #include "actual_entity.inc"
+#define data_frame_pixel(...) ((void)0)
+#define data_portrait_pixel(...) ((void)0)
 #define storm_pixel(...) ((void)0)
 #define settings_font_pixel(...) ((void)0)
 #define load_font_pixel(...) ((void)0)

@@ -1,0 +1,564 @@
+{
+  "status": "PASS",
+  "checkpoint": "ASTEROID1 NEWSHS record325 three-state firing lamp",
+  "local_parent": "df13a53425271131fedb647d54f7a5ad21b075d9",
+  "source": {
+    "bank": "newshs.shp",
+    "logical_bank": 23,
+    "bank_bytes": 46566,
+    "bank_fnv1a64": "f22ec1295ced5d11",
+    "record": 325,
+    "serialized77_fnv1a64": "521b35b127dbdc53",
+    "image_bases": [
+      11,
+      125,
+      277
+    ],
+    "eight_original_entries": [
+      277,
+      277,
+      277,
+      125,
+      125,
+      277,
+      277,
+      11
+    ],
+    "source_occupied_cells": 672
+  },
+  "catalog": {
+    "verified_pack_count": 2,
+    "verified_HDA_entries": 1258,
+    "verified_optional_pack_count": 1,
+    "verified_optional_HDA_entries": 41,
+    "verified_exact_source_pngs": 629,
+    "verified_optional_source_pngs": 41,
+    "default_pack_counts": [
+      629,
+      629
+    ],
+    "optional_pack_counts": {
+      "asteroid1-ten-v1": 41
+    },
+    "optional_catalog_sha256": "2fae75e26a97331082ad233765060bd9ae7ab5e1a1e58abe741490230b1c2e91",
+    "catalog_only": true,
+    "artwork_rebuilt": false
+  },
+  "historical_optional_pairs_verified_byte_identical": 38,
+  "unit": {
+    "records": [
+      325
+    ],
+    "bases": [
+      11,
+      125,
+      277
+    ],
+    "logical_size": [
+      24,
+      28
+    ],
+    "density": 8,
+    "cold_source_record_byte_mutations": 77,
+    "warm_source_record_byte_mutations": 77,
+    "boundary_pool_slots": [
+      25,
+      49
+    ],
+    "accepted_links": [
+      0
+    ],
+    "cycles": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "held_cycles": [
+      1,
+      8
+    ],
+    "bright125_cycles": [
+      4,
+      5
+    ],
+    "original_fire_tick_comparisons": 5148,
+    "original_fire_scenarios": 13,
+    "original_fire_HD_accepted_all_cycles": true,
+    "difficulties": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "independent_actors": true,
+    "positive_armor_values": 255,
+    "ice_values": 256,
+    "clipping_origins": 6,
+    "clipping_filters": [
+      0,
+      17,
+      255
+    ],
+    "fixture_count": 48,
+    "independent_peer_families": 16,
+    "sticky_whole_frame": true,
+    "compiler_peak_rss_bytes": 316248064,
+    "runtime_peak_rss_bytes": 46424064,
+    "compiler_address_space_limit_bytes": 1073741824,
+    "runtime_rss_limit_bytes": 536870912,
+    "output_limit_bytes": 16777216,
+    "output_bytes": 7683894,
+    "runs": [
+      {
+        "mode": "optimized",
+        "positive": 2,
+        "peer_independence": 1,
+        "negative": 48,
+        "original_fire_HD_admissions": 14256,
+        "binary_sha256": "ce6306bc56ba3943f805fb3c37d1573083c2e432f62529ed4b83e6de618f3ad2"
+      },
+      {
+        "mode": "asan-ubsan",
+        "positive": 2,
+        "peer_independence": 1,
+        "negative": 48,
+        "original_fire_HD_admissions": 14256,
+        "binary_sha256": "68650dd034f17aa467684825cc556ae66ab5d761b1eef1e474236ceed3b33f50"
+      }
+    ],
+    "source_sha256": "ba498fc6ea5cdd3b4355df620199ca909faebe62135fd17aa6fca529b055bce1",
+    "engine_draw_sha256": "a577a34c175587d0831c958a6342f9fdf43ea44d2c427ca6f44112f2966c43d7",
+    "production_rng_sha256": "9bb519b6b67d990184da25f1d373858760d2952a782c3e850e2f21c972c01f95",
+    "leak_sanitizer": false,
+    "scope": "Extracted production guards and JE_drawEnemy pre-launch animation/fire block with production MT RNG. Actual-engine event/destruction validation remains separate."
+  },
+  "source_snapshots": {
+    "runs": [
+      {
+        "mode": "optimized",
+        "result": "source snapshot guards passed: 2119 checks across 17 families, 45 dependencies; 16 NEWSHD/44 records + NEWSHS record325; cold/warm, all slots, strict roles, reload/address reuse, bidirectional independence and epochs",
+        "binary_sha256": "def2981e505506df5a9bc196beb57fd64155823189fd51e369119697d46c8f58"
+      },
+      {
+        "mode": "asan-ubsan",
+        "result": "source snapshot guards passed: 2119 checks across 17 families, 45 dependencies; 16 NEWSHD/44 records + NEWSHS record325; cold/warm, all slots, strict roles, reload/address reuse, bidirectional independence and epochs",
+        "binary_sha256": "7aea59f3339bdf0c0afdf3bfce9cb2aae6021d8de51c340729bbebd4a734235a"
+      }
+    ],
+    "helper_sha256": "b6b9d48eb57fb5029d25a20ab4bac5e56ca77f9a28cc31d4d8513e0fc9d93f9a",
+    "firing325_source_sha256": "ba498fc6ea5cdd3b4355df620199ca909faebe62135fd17aa6fca529b055bce1",
+    "compiler_peak_rss_bytes": 66273280,
+    "runtime_peak_rss_bytes": 8511488,
+    "compiler_address_space_limit_bytes": 1073741824,
+    "runtime_rss_limit_bytes": 536870912,
+    "families": 17,
+    "record_dependencies": 45,
+    "NEWSHD_families": 16,
+    "NEWSHD_records": 44,
+    "NEWSHS_families": 1,
+    "NEWSHS_records": [
+      325
+    ],
+    "leak_sanitizer": false,
+    "scope": "Extracted current production helper, source predicates and shutdown. Record-stamp stub checks dependency queries; complete family suites validate real records and drawing separately. Two independent source-bank snapshots verified."
+  },
+  "preceding_paired_regression": {
+    "records": [
+      287,
+      288
+    ],
+    "bases": [
+      245,
+      281,
+      283
+    ],
+    "logical_size": [
+      24,
+      28
+    ],
+    "density": 8,
+    "cold_source_record_byte_mutations": 154,
+    "warm_source_record_byte_mutations": 154,
+    "boundary_pool_slots": [
+      25,
+      49
+    ],
+    "accepted_links": [
+      24,
+      25,
+      28,
+      30,
+      31,
+      34,
+      35
+    ],
+    "lower_cycles": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "lower_lamp281_cycles": [
+      7,
+      10
+    ],
+    "independent_actors": true,
+    "positive_armor_values": 255,
+    "ice_values": 256,
+    "clipping_origins": 6,
+    "clipping_filters": [
+      0,
+      17,
+      255
+    ],
+    "fixture_count": 48,
+    "independent_peer_families": 15,
+    "sticky_whole_frame": true,
+    "compiler_peak_rss_bytes": 318365696,
+    "runtime_peak_rss_bytes": 42618880,
+    "compiler_address_space_limit_bytes": 1073741824,
+    "runtime_rss_limit_bytes": 536870912,
+    "output_limit_bytes": 16777216,
+    "output_bytes": 7442333,
+    "runs": [
+      {
+        "mode": "optimized",
+        "positive": 2,
+        "peer_independence": 1,
+        "negative": 48,
+        "binary_sha256": "3734f8312678da8b2cbe7437190eb26878cfdeed32aeb8c61ac5307ccf02226d"
+      },
+      {
+        "mode": "asan-ubsan",
+        "positive": 2,
+        "peer_independence": 1,
+        "negative": 48,
+        "binary_sha256": "ae1468ac0338e9db2770c3e05d98189cf2cb1135559a76b97f78d179feec031f"
+      }
+    ],
+    "source_sha256": "fb4540a6e0503adc23c2bd073357ceb782c6c6f30fac07ea5cdfa1b6ab0316cd",
+    "leak_sanitizer": false,
+    "scope": "Extracted production functions and full live struct. Independent actor admission and original cycle selection tested; actual engine event/RNG/destruction validation is separate."
+  },
+  "art": {
+    "status": "PASS",
+    "source_bank": "NEWSHS",
+    "logical_bank": 23,
+    "original_bytes": 46566,
+    "original_fnv64": "0xf22ec1295ced5d11",
+    "roles": [
+      1080011,
+      1080125,
+      1080277
+    ],
+    "images": [
+      {
+        "base": 11,
+        "hda_sha256": "7fcc1ec61b4572f6a8c693674d71f30342583549d9a03787c26bc3574f854b27",
+        "rgba_fnv64": "0x88265ed397c18d7c"
+      },
+      {
+        "base": 125,
+        "hda_sha256": "94582fc57ff68f44f91e51d57ea1fc0f85ce0b6c5d2bd75377310f3ddfe74902",
+        "rgba_fnv64": "0xec456f91753ce5b4"
+      },
+      {
+        "base": 277,
+        "hda_sha256": "fafb983ca4fdcc84a7000b5e18ed9111f51040374f2d930b47743901c4d81942",
+        "rgba_fnv64": "0x698376c61e837dd6"
+      }
+    ],
+    "occupied_logical_cells_per_image": 672,
+    "state_difference_region": [
+      9,
+      2,
+      7,
+      4
+    ],
+    "shared_housing_outside_state_region_exact": true,
+    "rebuild_png_and_HDA_exact": true,
+    "masters_match_provenance": true,
+    "scope": "Finite art conversion only; real engine and original firing acceptance are separate."
+  },
+  "strict_build": {
+    "source_count": 81,
+    "objects_passed": 81,
+    "objects_failed": 0,
+    "warnings": 0,
+    "flags": [
+      "-DTARGET_UNIX",
+      "-DNDEBUG",
+      "-std=iso9899:1999",
+      "-pedantic",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-Wno-misleading-indentation",
+      "-Wno-format-truncation",
+      "-Wno-missing-field-initializers",
+      "-O2",
+      "-Isrc",
+      "-I<SDL2_INCLUDE_DIR>",
+      "-I<PLATFORM_INCLUDE_DIR>",
+      "-D_REENTRANT",
+      "-DTYRIAN_DIR=\"/usr/local/share/games/opentyrian2000\""
+    ],
+    "compiler_address_space_limit_bytes": 1073741824,
+    "peak_child_rss_bytes": 573079552,
+    "elapsed_seconds": 107.524
+  },
+  "independent_review": {
+    "result": "No actionable production source or logic findings",
+    "test_issues_resolved": [
+      "Separate ex299 draw-eligible/fire-ineligible and ex300 excluded boundary cases",
+      "Require integrated original-fire HD admissions, no rejection and all-cycle/hold/base masks"
+    ],
+    "review_sha256": "66ef41f1bb8bbe53e8be89552c21e0a252c512277cca105a6187fa4741532c49"
+  },
+  "actual_engine": {
+    "status": "PASS",
+    "scope": "ASSISTED original-event windows, Episode1 Normal physical1 ASTEROID1 seed1. Prefix actors omitted; original setup replayed in original order. Raw eventRec bytes unchanged by direct memcmp, selector RNG unchanged. Every selected actor is allocated by original JE_makeEnemy/event6 dispatcher with its original RNG draw. No actors or projectiles injected, healed or resurrected; no natural-campaign or whole-level claim.",
+    "native_scales": [
+      "2x:640x400",
+      "4x:1280x800"
+    ],
+    "paired_windows": 26,
+    "enabled_pairs": 12,
+    "fallback_pairs": 14,
+    "engine_processes": 52,
+    "paired_frames": 3770,
+    "expected_original_occurrences": 19,
+    "observed_original_event_ordinals": [
+      221,
+      222,
+      223,
+      224,
+      225,
+      226,
+      329,
+      330,
+      335,
+      336,
+      359,
+      361,
+      362,
+      363,
+      379,
+      380,
+      381,
+      402,
+      406
+    ],
+    "all19_in_both_native_scales": true,
+    "x282_ordinals_verified": [
+      224,
+      226
+    ],
+    "late_x234_ordinals_verified": [
+      402,
+      406
+    ],
+    "all24_traces_exact_in_every_pair": true,
+    "accepted_type325_hd_quadrants": 18268,
+    "accepted_prior_hd_quadrants": 17134,
+    "all_prior_hd_command_subsequences_exact": true,
+    "callback_states": [
+      [
+        1,
+        1,
+        277
+      ],
+      [
+        1,
+        2,
+        277
+      ],
+      [
+        2,
+        1,
+        277
+      ],
+      [
+        3,
+        1,
+        277
+      ],
+      [
+        4,
+        1,
+        125
+      ],
+      [
+        5,
+        1,
+        125
+      ],
+      [
+        6,
+        1,
+        277
+      ],
+      [
+        7,
+        1,
+        277
+      ],
+      [
+        8,
+        2,
+        11
+      ]
+    ],
+    "original_ordinary_shot145_emissions": 376,
+    "all_shots_classic_frame112_animation2_damage2_duration255": true,
+    "animation_and_fire_transitions": {
+      "held_endpoint_unchanged_at_draw": 8046,
+      "shot_activation_from_hold1": 130,
+      "ordinary_preincrement": 2142,
+      "preincrement_to_hold8": 312,
+      "shot_activation_from_hold8": 246,
+      "wrap8_to1": 236
+    },
+    "all_mirror_callbacks_preserve_enemy_shot_state_rng_and_index8": true,
+    "full_body_witnesses": 4324,
+    "partial_top_witnesses": 330,
+    "partial_bottom_witnesses": 156,
+    "side_viewport_witnesses": 1820,
+    "all_changed_display_cells_inside_original_body_support": true,
+    "missing_each_member_corrupt_each_member_and_flagoff_both_scales_byte_exact": true,
+    "coverage_mismatches": 0,
+    "rejected_frames": 0,
+    "bmp_files": 0,
+    "compiler_as_limit_bytes": 1073741824,
+    "runtime_as_limit_bytes": 536870912,
+    "max_runtime_rss_bytes": 95510528,
+    "max_process_sampled_cpu_seconds": 19.86,
+    "max_process_wall_seconds": 20.671,
+    "resources": {
+      "output_bytes": 46197408,
+      "png_bytes": 4797850,
+      "free_bytes": 15655079936
+    },
+    "inputs": {
+      "src/render_mirror.c": {
+        "bytes": 230104,
+        "sha256": "dd51719d99f66c99c29f091e5025e57bb09936420bd068d1c59a8e7a7130760d"
+      },
+      "src/asteroid1_firing325_mirror.inc": {
+        "bytes": 9191,
+        "sha256": "ba498fc6ea5cdd3b4355df620199ca909faebe62135fd17aa6fca529b055bce1"
+      },
+      "assets/hd/packs/asteroid1-ten-v1/enemy-newshs-11-8.hda": {
+        "bytes": 172060,
+        "sha256": "7fcc1ec61b4572f6a8c693674d71f30342583549d9a03787c26bc3574f854b27"
+      },
+      "assets/hd/packs/asteroid1-ten-v1/enemy-newshs-125-8.hda": {
+        "bytes": 172060,
+        "sha256": "94582fc57ff68f44f91e51d57ea1fc0f85ce0b6c5d2bd75377310f3ddfe74902"
+      },
+      "assets/hd/packs/asteroid1-ten-v1/enemy-newshs-277-8.hda": {
+        "bytes": 172060,
+        "sha256": "fafb983ca4fdcc84a7000b5e18ed9111f51040374f2d930b47743901c4d81942"
+      }
+    },
+    "source_baseline": {
+      "commit": "df13a53425271131fedb647d54f7a5ad21b075d9",
+      "renderer_sha256": "3ebf681e43e28f9f086d09caf0f9c8a8989912d6472fcaafe92778064fc0ca3c",
+      "scope": "Pre-firing325 HEAD renderer, external immutable source baseline; existing 16 families retained"
+    },
+    "native_contact": "actual-engine-native2x4x-firing-states-contact.png",
+    "native_contact_receipt": "actual-engine-contact-receipt.json",
+    "complete_analysis": "runtime-final-analysis.json",
+    "disclosures": [
+      "Assisted prefix selection, never a natural campaign or whole-level validation.",
+      "Original setup events replayed; prefix actor spawns omitted.",
+      "All selected actor creation, original random x initializer consumption, animation, shot allocation, projectile movement, damage and culling remain engine-owned.",
+      "Read-only external observer source copy and linker wrapper. No repository source edit, actor/shot injection, healing, resurrection, event byte change, RNG draw or gameplay write.",
+      "Full-shot-pool, ice, running-fire, difficulty, and trust-boundary matrix are separate unit-suite evidence owned by the guard worker."
+    ]
+  },
+  "receipt_sha256": {
+    "unit": {
+      "receipt": "unit/runtime-final/receipt.json",
+      "sha256": "920922624ce67491ba964b66d9b98b7b708752ab9e2ad374b2a10d4ddd24ad2f"
+    },
+    "source_snapshots": {
+      "receipt": "unit/snapshot-v3/receipt.json",
+      "sha256": "683f1fd5bdbdc51b90eec7df4fc7a2d5bbf46444283d2ca5b3e6c39b73a9ed65"
+    },
+    "preceding_paired_regression": {
+      "receipt": "prior-paired-regression/receipt.json",
+      "sha256": "8b35fad336ffaee1e0b5ec4f42d7f8b9179bf046c49df724b90e8f8ee8b0496a"
+    },
+    "strict_build": {
+      "receipt": "strict-build/receipt.json",
+      "sha256": "de44ea232dae5d834a0928592c425ed7fd8ac3894d7ea41f9bc4813ff4b5f2fc"
+    },
+    "art": {
+      "receipt": "art-regression-final/receipt.json",
+      "sha256": "80c27b04261487606100fc840c84ae4ee937d5b10f1d392d31e4bdd8b6c09ea9"
+    },
+    "catalog_regression": {
+      "receipt": "catalog-regression-final/report.json",
+      "sha256": "6f567fa89be5a15db95f621b783abb7442fac769536bcd9d6803fb81033f5eb1"
+    },
+    "catalog_only": {
+      "receipt": "catalog-only-final.json",
+      "sha256": "371972510c29df41359c64ec9daf8c2d93562a1dc4a09ee0a202d806d4bf2a08"
+    },
+    "actual_engine": {
+      "receipt": "runtime/runtime-final-receipt.json",
+      "sha256": "4365bbce67b4ba803a09b563514995f86920778a2c8f896402a8e0bd7a8fa04a"
+    },
+    "independent_review_artifacts": {
+      "receipt": "review/artifact-review.json",
+      "sha256": "53677c712f06622b52d20fdca23d31a6002f80b4db96689e6a2dcd46e576271e"
+    }
+  },
+  "final_named_source_sha256": {
+    "src/render_mirror.c": "dd51719d99f66c99c29f091e5025e57bb09936420bd068d1c59a8e7a7130760d",
+    "src/asteroid1_firing325_mirror.inc": "ba498fc6ea5cdd3b4355df620199ca909faebe62135fd17aa6fca529b055bce1",
+    "prototype/hd_pack_catalog.py": "c63cfeaa4905064cadc4ae140da91a13bb99ccaa0e2cb4162c4cde441f95db2e",
+    "prototype/build-asteroid1-firing325-art.py": "3361caa998e866b9505bc7240a189c4da7b8f2ac911c586e38bf664e6c433d67",
+    "tests/test_asteroid1_firing325_runtime.py": "c541eada841088fb7679b4d87db7774c11addc4cf0c046b70f1f0e70553a1f77",
+    "tests/test_asteroid1_source_snapshot.py": "96a9c0375d5147ac64632bcd7f89421dc8e7203699ed1251c5578d7517b4aca7",
+    "tests/test_asteroid1_firing325_art.py": "cbc2d14e6f9ca82f1243ff6396fd8b3e26866336e6f2d5d96e4b7b15586527bb",
+    "tests/test_hd_pack_catalog.py": "51e3fe35ec3e79e20ac4d08118204e10af368bc45b443a43168f462a4643c3cb",
+    "assets/hd/manifest.json": "de0a265cf7f1afd4054bccb0f8efa4666a6d6a20284356c72a7a8a676026c1c0"
+  },
+  "limits": [
+    "Local checkpoint only, no external push or Windows build.",
+    "Actual-engine evidence uses assisted original-event selectors with prefix spawns omitted; no natural-campaign or whole-level-clear claim.",
+    "Original game data and runtime captures/binaries remain external.",
+    "LeakSanitizer disabled; optimized and AddressSanitizer/UndefinedBehaviorSanitizer pass.",
+    "Historical validation root is an explicit catalog input only, never a runtime setting."
+  ]
+}

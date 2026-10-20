@@ -8,8 +8,35 @@ import json
 import struct
 from PIL import Image
 
-ASTEROID1_OPTIONAL_CATALOG_SHA256 = '6a86d6582a6b6531aaf67e75d14d6a32886a496d7525899a059e6e76db05c118'
-ASTEROID1_BASES = (1, 3, 5, 7, 9, 13, 15, 31, 34, 39, 41, 43, 45, 47, 49, 51, 53, 77, 79, 81, 83, 85, 88, 89, 91, 95, 114, 121, 123, 133, 152, 229, 231, 233, 235)
+ASTEROID1_OPTIONAL_CATALOG_SHA256 = '28762419911951821cad84edf4a6edbb915d3958ee4e9244c752a17e3f24107a'
+ASTEROID1_BASES = (1, 3, 5, 7, 9, 13, 15, 31, 34, 39, 41, 43, 45, 47, 49, 51, 53, 77, 79, 81, 83, 85, 88, 89, 91, 95, 114, 121, 123, 133, 152, 229, 231, 233, 235, 245, 267, 269, 271, 273, 281, 283)
+ASTEROID1_NEWSHS_BASES = (11, 125, 229, 231, 233, 235, 277)
+ASTEROID1_NEWSHP_BASES = (115, 117, 119, 121, 229, 231, 267, 269)
+# Explicit family/base namespaces are the identity boundary. NEWSHS325 retains
+# material108 while NEWSHS272 uses136; a source-bank-only mapping is unsafe.
+# Tuples are logical bank, exact source filename, retained material, image bases.
+ASTEROID1_FAMILY_ROLES = {
+    'ten': (8, 'newshd.shp', 108, (13, 15, 31, 34, 49, 51, 53, 88, 89, 91)),
+    'four': (8, 'newshd.shp', 108, (7, 9, 45, 47)),
+    'common4': (8, 'newshd.shp', 108, (1, 3, 39, 41)),
+    'random5': (8, 'newshd.shp', 108, (5,)),
+    'goldwing': (8, 'newshd.shp', 108, (79, 81, 83)),
+    'random43': (8, 'newshd.shp', 108, (43,)),
+    'random85': (8, 'newshd.shp', 108, (85,)),
+    'random123': (8, 'newshd.shp', 108, (123,)),
+    'random95': (8, 'newshd.shp', 108, (95,)),
+    'random114': (8, 'newshd.shp', 108, (114,)),
+    'random133': (8, 'newshd.shp', 108, (133,)),
+    'random152': (8, 'newshd.shp', 108, (152,)),
+    'random286': (8, 'newshd.shp', 108, (229, 231, 233, 235)),
+    'fork284': (8, 'newshd.shp', 108, (121,)),
+    'capsule545': (8, 'newshd.shp', 108, (77,)),
+    'paired287_288': (8, 'newshd.shp', 108, (245, 281, 283)),
+    'firing325': (23, 'newshs.shp', 108, (11, 125, 277)),
+    'ember269': (8, 'newshd.shp', 108, (267, 269, 271, 273)),
+    'linked338': (20, 'newshp.shp', 135, (115, 117, 119, 121, 229, 231, 267, 269)),
+    'pulsing272': (23, 'newshs.shp', 136, (229, 231, 233, 235)),
+}
 SHA = lambda data: hashlib.sha256(data).hexdigest()
 
 
@@ -19,12 +46,47 @@ def verify_optional_inventory(manifest):
         return optional
     assert set(optional) == {'asteroid1-ten-v1'}, 'Unrecognized optional pack inventory'
     pack = optional['asteroid1-ten-v1']
-    expected = {f'enemy-newshd-{base}-8.hda' for base in ASTEROID1_BASES}
-    assert pack['count'] == 35 and set(pack['files']) == expected, 'Optional pack must list all 35 exact images'
+    expected = ({f'enemy-newshd-{base}-8.hda' for base in ASTEROID1_BASES} |
+                {f'enemy-newshs-{base}-8.hda' for base in ASTEROID1_NEWSHS_BASES} |
+                {f'enemy-newshp-{base}-8.hda' for base in ASTEROID1_NEWSHP_BASES})
+    assert pack['count'] == 57 and set(pack['files']) == expected, 'Optional pack must list all 57 exact bank-qualified images'
     families = pack['families']
-    assert set(families) == {'ten', 'four', 'common4', 'random5', 'random43', 'random85', 'random123', 'random95', 'random114', 'random133', 'random152', 'random286', 'goldwing', 'fork284', 'capsule545'}
-    assert sum(len(row['source_records']) for row in families.values()) == 42
-    assert {base for row in families.values() for base in row['image_bases']} == set(ASTEROID1_BASES)
+    assert set(families) == set(ASTEROID1_FAMILY_ROLES), 'Optional family inventory changed'
+    assert sum(len(row['source_records']) for row in families.values()) == 52
+    # Keep earlier families byte-for-byte in metadata; only272 adds material136.
+    assert families['firing325'] == {'image_bases': [11, 125, 277], 'source_records': [325],
+                                      'logical_bank': 23, 'source_bank': 'newshs.shp'}
+    assert families['ember269'] == {'image_bases': [267, 269, 271, 273], 'source_records': [269],
+                                     'logical_bank': 8, 'source_bank': 'newshd.shp'}
+    assert families['linked338'] == {'image_bases': list(ASTEROID1_NEWSHP_BASES),
+                                    'source_records': [338, 339, 340, 341, 342],
+                                    'logical_bank': 20, 'source_bank': 'newshp.shp', 'material_role': 135}
+    assert families['pulsing272'] == {'image_bases': [229, 231, 233, 235], 'source_records': [272],
+                                     'logical_bank': 23, 'source_bank': 'newshs.shp', 'material_role': 136}
+    identities, roles, new_roles = set(), [], set()
+    for name, (logical_bank, source_bank, material, bases) in ASTEROID1_FAMILY_ROLES.items():
+        row = families[name]
+        assert (row.get('logical_bank', 8), row.get('source_bank', 'newshd.shp'),
+                row.get('material_role', 108), tuple(row['image_bases'])) == (
+                    logical_bank, source_bank, material, bases), 'Family/base material allowlist mismatch'
+        for base in bases:
+            identity = (logical_bank, base)
+            assert identity not in identities, 'Optional source-bank/base collision'
+            identities.add(identity)
+            item = pack['files'][f'enemy-{source_bank[:-4]}-{base}-8.hda']
+            header = item['header_u32']
+            assert header == [material * 10000 + base, 8, 24, 28, 0, 0] or (
+                logical_bank == 8 and header == [material * 10000 + base, 8, 12, 14, 0, 0]), 'Family/base HDR1 material mismatch'
+            roles.append(header[0])
+            if material in (135, 136):
+                new_roles.add(header[0])
+    assert identities == ({(8, base) for base in ASTEROID1_BASES} |
+                          {(23, base) for base in ASTEROID1_NEWSHS_BASES} |
+                          {(20, base) for base in ASTEROID1_NEWSHP_BASES})
+    assert len(roles) == len(set(roles)) == 57, 'Optional role collision'
+    default_roles = {item['header_u32'][0] for installed in manifest['packs'].values()
+                     for item in installed['files'].values()}
+    assert not (new_roles & default_roles), 'NEWSHP/NEWSHS material collides with a default role'
     normalized = json.dumps(optional, sort_keys=True, separators=(',', ':')).encode()
     assert SHA(normalized) == ASTEROID1_OPTIONAL_CATALOG_SHA256, 'Frozen optional catalog changed'
     return optional

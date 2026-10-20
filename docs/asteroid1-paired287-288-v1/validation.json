@@ -1,0 +1,3636 @@
+{
+  "baseline_commit": "14c6548a1d3343e7f01a48de1e5c12741ca27189",
+  "scope": "Separate normal-data Episode1 physical1 ASTEROID1 opt-in. Paired287/288 remain independently allocated actors. Three source-bound images; other second-stage artwork is outside scope.",
+  "optional_images": 38,
+  "optional_source_records": 44,
+  "optional_families": 16,
+  "default_counts": [
+    629,
+    629
+  ],
+  "original_source": {
+    "original_record_data": "tyrian.hdt named records287,288 only",
+    "reference_palette": "palette.dat palette0; runtime palette not certified",
+    "newshd_size": 42012,
+    "records": {
+      "287": {
+        "fields": {
+          "ani": 1,
+          "tur": [
+            0,
+            0,
+            0
+          ],
+          "freq": [
+            0,
+            0,
+            0
+          ],
+          "xmove": 0,
+          "ymove": 0,
+          "xaccel": 0,
+          "yaccel": 0,
+          "xcaccel": 0,
+          "ycaccel": 0,
+          "startx": 130,
+          "starty": -13,
+          "startxc": 125,
+          "startyc": 0,
+          "armor": 10,
+          "size": 1,
+          "graphics": [
+            245,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "explosiontype": 27,
+          "animate": 0,
+          "bank": 8,
+          "xrev": 0,
+          "yrev": 0,
+          "damage_graphic": 0,
+          "damage_level": 0,
+          "damage_animation": 0,
+          "launch_freq": 0,
+          "launch_type": 0,
+          "value": 50,
+          "drop": 0
+        },
+        "serialized77_fnv1a64": "7b520ef86aceb758",
+        "scheduled_events": [
+          {
+            "ordinal": 245,
+            "loc": 4164,
+            "kind": 6,
+            "d1": 287,
+            "d2": 138,
+            "d3": 0,
+            "d4": 24,
+            "d5": -28,
+            "d6": 0
+          },
+          {
+            "ordinal": 247,
+            "loc": 4164,
+            "kind": 6,
+            "d1": 287,
+            "d2": 162,
+            "d3": 0,
+            "d4": 25,
+            "d5": -28,
+            "d6": 0
+          },
+          {
+            "ordinal": 326,
+            "loc": 5200,
+            "kind": 6,
+            "d1": 287,
+            "d2": 162,
+            "d3": 0,
+            "d4": 28,
+            "d5": -28,
+            "d6": 0
+          },
+          {
+            "ordinal": 351,
+            "loc": 5676,
+            "kind": 6,
+            "d1": 287,
+            "d2": 138,
+            "d3": 0,
+            "d4": 31,
+            "d5": -28,
+            "d6": 0
+          },
+          {
+            "ordinal": 355,
+            "loc": 5676,
+            "kind": 6,
+            "d1": 287,
+            "d2": 90,
+            "d3": 0,
+            "d4": 30,
+            "d5": -28,
+            "d6": 0
+          },
+          {
+            "ordinal": 385,
+            "loc": 6544,
+            "kind": 6,
+            "d1": 287,
+            "d2": 18,
+            "d3": 0,
+            "d4": 34,
+            "d5": -28,
+            "d6": 0
+          },
+          {
+            "ordinal": 387,
+            "loc": 6628,
+            "kind": 6,
+            "d1": 287,
+            "d2": 18,
+            "d3": 0,
+            "d4": 35,
+            "d5": -28,
+            "d6": 0
+          }
+        ]
+      },
+      "288": {
+        "fields": {
+          "ani": 20,
+          "tur": [
+            0,
+            0,
+            0
+          ],
+          "freq": [
+            0,
+            0,
+            0
+          ],
+          "xmove": 0,
+          "ymove": 0,
+          "xaccel": 0,
+          "yaccel": 0,
+          "xcaccel": 0,
+          "ycaccel": 0,
+          "startx": 130,
+          "starty": -13,
+          "startxc": 125,
+          "startyc": 0,
+          "armor": 16,
+          "size": 1,
+          "graphics": [
+            283,
+            283,
+            283,
+            283,
+            283,
+            283,
+            281,
+            283,
+            283,
+            281,
+            283,
+            283,
+            283,
+            283,
+            283,
+            283,
+            283,
+            283,
+            283,
+            283
+          ],
+          "explosiontype": 27,
+          "animate": 1,
+          "bank": 8,
+          "xrev": 0,
+          "yrev": 0,
+          "damage_graphic": 0,
+          "damage_level": 0,
+          "damage_animation": 0,
+          "launch_freq": 0,
+          "launch_type": 0,
+          "value": 0,
+          "drop": 0
+        },
+        "serialized77_fnv1a64": "0ca4ab6a0bd64091",
+        "scheduled_events": [
+          {
+            "ordinal": 244,
+            "loc": 4164,
+            "kind": 6,
+            "d1": 288,
+            "d2": 138,
+            "d3": 0,
+            "d4": 24,
+            "d5": 0,
+            "d6": 0
+          },
+          {
+            "ordinal": 246,
+            "loc": 4164,
+            "kind": 6,
+            "d1": 288,
+            "d2": 162,
+            "d3": 0,
+            "d4": 25,
+            "d5": 0,
+            "d6": 0
+          },
+          {
+            "ordinal": 325,
+            "loc": 5200,
+            "kind": 6,
+            "d1": 288,
+            "d2": 162,
+            "d3": 0,
+            "d4": 28,
+            "d5": 0,
+            "d6": 0
+          },
+          {
+            "ordinal": 350,
+            "loc": 5676,
+            "kind": 6,
+            "d1": 288,
+            "d2": 138,
+            "d3": 0,
+            "d4": 31,
+            "d5": 0,
+            "d6": 0
+          },
+          {
+            "ordinal": 354,
+            "loc": 5676,
+            "kind": 6,
+            "d1": 288,
+            "d2": 90,
+            "d3": 0,
+            "d4": 30,
+            "d5": 0,
+            "d6": 0
+          },
+          {
+            "ordinal": 384,
+            "loc": 6544,
+            "kind": 6,
+            "d1": 288,
+            "d2": 18,
+            "d3": 0,
+            "d4": 34,
+            "d5": 0,
+            "d6": 0
+          },
+          {
+            "ordinal": 386,
+            "loc": 6628,
+            "kind": 6,
+            "d1": 288,
+            "d2": 18,
+            "d3": 0,
+            "d4": 35,
+            "d5": 0,
+            "d6": 0
+          }
+        ]
+      }
+    },
+    "images": {
+      "245": {
+        "record": 287,
+        "tiles": [
+          245,
+          246,
+          264,
+          265
+        ],
+        "footprint": [
+          24,
+          28
+        ],
+        "opaque_pixels": 672,
+        "opaque_bbox_xywh": [
+          0,
+          0,
+          24,
+          28
+        ],
+        "index_coverage_fnv1a64": "9a4a128925913aca",
+        "palette_indices": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          14,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          29,
+          67,
+          162
+        ]
+      },
+      "283": {
+        "record": 288,
+        "tiles": [
+          283,
+          284,
+          302,
+          303
+        ],
+        "footprint": [
+          24,
+          28
+        ],
+        "opaque_pixels": 670,
+        "opaque_bbox_xywh": [
+          0,
+          0,
+          24,
+          28
+        ],
+        "index_coverage_fnv1a64": "494cc4ff1a876bd1",
+        "palette_indices": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          76,
+          77,
+          163,
+          164,
+          165
+        ]
+      },
+      "281": {
+        "record": 288,
+        "tiles": [
+          281,
+          282,
+          300,
+          301
+        ],
+        "footprint": [
+          24,
+          28
+        ],
+        "opaque_pixels": 670,
+        "opaque_bbox_xywh": [
+          0,
+          0,
+          24,
+          28
+        ],
+        "index_coverage_fnv1a64": "5a468fcbfa163b82",
+        "palette_indices": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          116,
+          118,
+          119,
+          120,
+          121,
+          122,
+          123,
+          124,
+          163,
+          164
+        ]
+      }
+    },
+    "lamp_state_difference": {
+      "bases": [
+        283,
+        281
+      ],
+      "coverage_identical": true,
+      "changed_pixels": 23,
+      "changed_bbox_xywh": [
+        8,
+        2,
+        5,
+        6
+      ],
+      "changes": [
+        {
+          "xy": [
+            8,
+            2
+          ],
+          "base283_index": 70,
+          "base281_index": 118
+        },
+        {
+          "xy": [
+            9,
+            2
+          ],
+          "base283_index": 77,
+          "base281_index": 123
+        },
+        {
+          "xy": [
+            10,
+            2
+          ],
+          "base283_index": 74,
+          "base281_index": 122
+        },
+        {
+          "xy": [
+            11,
+            2
+          ],
+          "base283_index": 72,
+          "base281_index": 120
+        },
+        {
+          "xy": [
+            12,
+            2
+          ],
+          "base283_index": 22,
+          "base281_index": 116
+        },
+        {
+          "xy": [
+            8,
+            3
+          ],
+          "base283_index": 72,
+          "base281_index": 120
+        },
+        {
+          "xy": [
+            9,
+            3
+          ],
+          "base283_index": 76,
+          "base281_index": 122
+        },
+        {
+          "xy": [
+            10,
+            3
+          ],
+          "base283_index": 71,
+          "base281_index": 119
+        },
+        {
+          "xy": [
+            11,
+            3
+          ],
+          "base283_index": 71,
+          "base281_index": 119
+        },
+        {
+          "xy": [
+            12,
+            3
+          ],
+          "base283_index": 165,
+          "base281_index": 116
+        },
+        {
+          "xy": [
+            8,
+            5
+          ],
+          "base283_index": 70,
+          "base281_index": 118
+        },
+        {
+          "xy": [
+            9,
+            5
+          ],
+          "base283_index": 72,
+          "base281_index": 120
+        },
+        {
+          "xy": [
+            10,
+            5
+          ],
+          "base283_index": 73,
+          "base281_index": 121
+        },
+        {
+          "xy": [
+            11,
+            5
+          ],
+          "base283_index": 70,
+          "base281_index": 118
+        },
+        {
+          "xy": [
+            12,
+            5
+          ],
+          "base283_index": 165,
+          "base281_index": 116
+        },
+        {
+          "xy": [
+            8,
+            6
+          ],
+          "base283_index": 73,
+          "base281_index": 121
+        },
+        {
+          "xy": [
+            9,
+            6
+          ],
+          "base283_index": 77,
+          "base281_index": 124
+        },
+        {
+          "xy": [
+            10,
+            6
+          ],
+          "base283_index": 77,
+          "base281_index": 123
+        },
+        {
+          "xy": [
+            11,
+            6
+          ],
+          "base283_index": 74,
+          "base281_index": 122
+        },
+        {
+          "xy": [
+            12,
+            6
+          ],
+          "base283_index": 70,
+          "base281_index": 118
+        },
+        {
+          "xy": [
+            9,
+            7
+          ],
+          "base283_index": 72,
+          "base281_index": 120
+        },
+        {
+          "xy": [
+            10,
+            7
+          ],
+          "base283_index": 73,
+          "base281_index": 121
+        },
+        {
+          "xy": [
+            11,
+            7
+          ],
+          "base283_index": 70,
+          "base281_index": 118
+        }
+      ]
+    },
+    "source_overlap_physical1_body_closure": [
+      {
+        "record": 287,
+        "base": 245,
+        "target_base": 245,
+        "intersect_tiles": [
+          245,
+          246,
+          264,
+          265
+        ]
+      },
+      {
+        "record": 288,
+        "base": 281,
+        "target_base": 281,
+        "intersect_tiles": [
+          281,
+          282,
+          300,
+          301
+        ]
+      },
+      {
+        "record": 288,
+        "base": 283,
+        "target_base": 283,
+        "intersect_tiles": [
+          283,
+          284,
+          302,
+          303
+        ]
+      }
+    ],
+    "physical1_original_events_match_inventory": true,
+    "paired_instances": [
+      [
+        4164,
+        138,
+        24
+      ],
+      [
+        4164,
+        162,
+        25
+      ],
+      [
+        5200,
+        162,
+        28
+      ],
+      [
+        5676,
+        138,
+        31
+      ],
+      [
+        5676,
+        90,
+        30
+      ],
+      [
+        6544,
+        18,
+        34
+      ],
+      [
+        6628,
+        18,
+        35
+      ]
+    ],
+    "physical1_relevant_targeted_mutations": []
+  },
+  "source_bank_fnv64": "0x913975450e0fc00d",
+  "art": {
+    "enemy-newshd-245-8": {
+      "record": 287,
+      "base": 245,
+      "size": 1,
+      "logical_size": [
+        24,
+        28
+      ],
+      "source_occupied_cells": 672,
+      "rgba_fnv64": "0x3edfa524d0735809",
+      "sha256": "71f5abb6edef89f4f151eca6aec54d5d6e517e17db48875d1bfcc2672b283f5e"
+    },
+    "enemy-newshd-281-8": {
+      "record": 288,
+      "base": 281,
+      "size": 1,
+      "logical_size": [
+        24,
+        28
+      ],
+      "source_occupied_cells": 670,
+      "rgba_fnv64": "0x5255797c80e9952b",
+      "sha256": "0669e8e3ea3a50752f2e645dd72c6ae5ad1bc5af8931cc3b039fd12a43a07b23"
+    },
+    "enemy-newshd-283-8": {
+      "record": 288,
+      "base": 283,
+      "size": 1,
+      "logical_size": [
+        24,
+        28
+      ],
+      "source_occupied_cells": 670,
+      "rgba_fnv64": "0xe24410be52075d07",
+      "sha256": "9e8d91e67d142ec4351001aebe9dc33fb70dcc91123dbe353ce84f6bf5b8a658"
+    }
+  },
+  "unit": {
+    "records": [
+      287,
+      288
+    ],
+    "bases": [
+      245,
+      281,
+      283
+    ],
+    "logical_size": [
+      24,
+      28
+    ],
+    "density": 8,
+    "cold_source_record_byte_mutations": 154,
+    "warm_source_record_byte_mutations": 154,
+    "boundary_pool_slots": [
+      25,
+      49
+    ],
+    "accepted_links": [
+      24,
+      25,
+      28,
+      30,
+      31,
+      34,
+      35
+    ],
+    "lower_cycles": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "lower_lamp281_cycles": [
+      7,
+      10
+    ],
+    "independent_actors": true,
+    "positive_armor_values": 255,
+    "ice_values": 256,
+    "clipping_origins": 6,
+    "clipping_filters": [
+      0,
+      17,
+      255
+    ],
+    "fixture_count": 48,
+    "independent_peer_families": 15,
+    "sticky_whole_frame": true,
+    "compiler_peak_rss_bytes": 323346432,
+    "runtime_peak_rss_bytes": 42569728,
+    "compiler_address_space_limit_bytes": 1073741824,
+    "runtime_rss_limit_bytes": 536870912,
+    "output_limit_bytes": 16777216,
+    "output_bytes": 7442309,
+    "runs": [
+      {
+        "mode": "optimized",
+        "positive": 2,
+        "peer_independence": 1,
+        "negative": 48,
+        "binary_sha256": "6e394fbc06475a5ddfe24f4177a32d1625bbb0abe47ca24d8cf34b0d58afa922"
+      },
+      {
+        "mode": "asan-ubsan",
+        "positive": 2,
+        "peer_independence": 1,
+        "negative": 48,
+        "binary_sha256": "2027fb7c748c538751a4dca5c7414ece2cf7920fd1a018ec529b41c5a2ac119c"
+      }
+    ],
+    "source_sha256": "fb4540a6e0503adc23c2bd073357ceb782c6c6f30fac07ea5cdfa1b6ab0316cd",
+    "leak_sanitizer": false,
+    "scope": "Extracted production functions and full live struct. Independent actor admission and original cycle selection tested; actual engine event/RNG/destruction validation is separate."
+  },
+  "source_snapshot": {
+    "runs": [
+      {
+        "mode": "optimized",
+        "result": "source snapshot guards passed: 764 checks across 16 families, 44 record dependencies, cold/warm corruption, role/size/pointer/reload/address reuse and renderer epochs",
+        "binary_sha256": "d48aca00bbbf850cebf67a9fa32ce4328ae4d84013324e34f6f4bf3170ec5b72"
+      },
+      {
+        "mode": "asan-ubsan",
+        "result": "source snapshot guards passed: 764 checks across 16 families, 44 record dependencies, cold/warm corruption, role/size/pointer/reload/address reuse and renderer epochs",
+        "binary_sha256": "f3d4db416435f9187524674de0b5f3648eca21ba07e84882a43a412fed46d843"
+      }
+    ],
+    "helper_sha256": "b6b9d48eb57fb5029d25a20ab4bac5e56ca77f9a28cc31d4d8513e0fc9d93f9a",
+    "peak_child_rss_bytes": 42307584,
+    "leak_sanitizer": false,
+    "scope": "Extracted current production helper, source predicates and shutdown. Record-stamp stub checks dependency queries; complete family suites validate real records and drawing separately."
+  },
+  "prior_capsule545_regression": {
+    "record": 545,
+    "base": 77,
+    "logical_size": [
+      24,
+      28
+    ],
+    "density": 8,
+    "cold_source_record_byte_mutations": 77,
+    "warm_source_record_byte_mutations": 77,
+    "boundary_pool_slots": [
+      75,
+      99
+    ],
+    "ordered_quadrants": 8,
+    "fixture_count": 16,
+    "accepted_links": {
+      "75-99": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    "allowed_drop": 0,
+    "movement": "Unrestricted; event19 zero/down/left/right, event20/27 and field-range extremes tested",
+    "positive_armor_values": 255,
+    "source_occupied_cells": 255,
+    "source_occupied_bbox": [
+      6,
+      3,
+      13,
+      25
+    ],
+    "hd_occupied_cells": 255,
+    "clipping_origins": 6,
+    "clipping_filters": [
+      0,
+      17,
+      255
+    ],
+    "independent_peer_families": 14,
+    "sticky_whole_frame": true,
+    "compiler_peak_rss_bytes": 247566336,
+    "runtime_peak_rss_bytes": 20398080,
+    "compiler_address_space_limit_bytes": 1073741824,
+    "runtime_rss_limit_bytes": 536870912,
+    "output_limit_bytes": 8388608,
+    "output_bytes": 3188495,
+    "runs": [
+      {
+        "mode": "optimized",
+        "positive": 2,
+        "peer_independence": 1,
+        "negative": 16,
+        "binary_sha256": "71afaa9284d7474e70f87ae8c87dac39cf789d99a464806bdaf1c0dde172a5de"
+      },
+      {
+        "mode": "asan-ubsan",
+        "positive": 2,
+        "peer_independence": 1,
+        "negative": 16,
+        "binary_sha256": "763464416ce213f166543bd6c4f4983b16cd0772c3a4add7b6848de2b1ffb063"
+      }
+    ],
+    "source_sha256": "857a7c9c6c08523e3c2730b8fe7ac519c976f6ad1c000f47decaeb3b0e73d484",
+    "leak_sanitizer": false,
+    "scope": "Extracted production functions and full live struct. Separate actual-engine pixel pairs required."
+  },
+  "catalog": {
+    "verified_pack_count": 2,
+    "verified_HDA_entries": 1258,
+    "verified_optional_pack_count": 1,
+    "verified_optional_HDA_entries": 38,
+    "verified_exact_source_pngs": 629,
+    "verified_optional_source_pngs": 38,
+    "default_pack_counts": [
+      629,
+      629
+    ],
+    "optional_pack_counts": {
+      "asteroid1-ten-v1": 38
+    },
+    "optional_catalog_sha256": "ea33607468483eb74ee8722cd79bda1b9f24dc44f700f1f71f81958e26cf7f28",
+    "catalog_only": true,
+    "artwork_rebuilt": false
+  },
+  "catalog_regression": {
+    "status": "PASS",
+    "current_default_catalog_counts": [
+      629,
+      629
+    ],
+    "real_optional_HDR1_and_source_PNG_pairs_verified": 38,
+    "optional_catalog_sha256": "ea33607468483eb74ee8722cd79bda1b9f24dc44f700f1f71f81958e26cf7f28",
+    "synthetic_default_only_entries_verified": 2,
+    "missing_and_corrupt_default_optional_cases_rejected": true,
+    "existing_resources_unchanged": true,
+    "scope": "Finite catalog integration; complete historical default payload acceptance is separate."
+  },
+  "prior35_assets_and_metadata_unchanged": true,
+  "default_catalogs_unchanged": true,
+  "production_compile": {
+    "returncode": 0,
+    "peak_child_rss_bytes": 211947520,
+    "compiler_as_limit_bytes": 1073741824,
+    "compile_warnings": 0,
+    "object_sha256": "e600499468391a2a1be0b21c07ebea0b318cd3853013246b4f96eda91d07c2ea"
+  },
+  "visual_review": {
+    "source_candidate_native2x4x": "Parent approved before local commit.",
+    "actual_native2x4080_tick88": "Parent approved before local commit.",
+    "actual_native2x_other_regimes": "Ticks89 lamp state,65 top clipping,153 upper-after-lower-cull, and6544 tick130 left clipping inspected.",
+    "native_captures": "Unresized native SDL renderer readbacks. No game data or runtime captures committed.",
+    "actual_native4x": "Direct1280x800 candidate tick88 and independent-cull tick153 comparison inspected. Source/candidate contacts preserve native readback sizes."
+  },
+  "runtime": {
+    "status": "PASS",
+    "scope": "ASSISTED original-event diagnostic windows. No natural campaign/full-level clear.",
+    "episode": 1,
+    "physical_level": 1,
+    "level": "ASTEROID1",
+    "difficulty": "Normal",
+    "seed": 1,
+    "no_actor_injection_or_revival_or_healing": true,
+    "no_projectile_injection": true,
+    "ordinary_input_firing_diagnostic": true,
+    "original_event_dispatch_and_actor_initialization_preserved": true,
+    "enabled_pair_count": 10,
+    "fallback_pair_count": 14,
+    "paired_runtime": {
+      "assisted4080-2x": {
+        "observed_ticks": 180,
+        "start_curLoc": 4080,
+        "end_curLoc": 4440,
+        "accepted_new_commands": 1608,
+        "accepted_prior_commands": 905,
+        "accepted_types": [
+          287,
+          288
+        ],
+        "accepted_bases": [
+          245,
+          281,
+          283
+        ],
+        "accepted_lower_cycles": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "accepted_quadrants": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "full_body_witnesses": 376,
+        "partial_top_witnesses": 28,
+        "partial_bottom_witnesses": 24,
+        "independent_upper_after_lower_cull": [
+          {
+            "link": 24,
+            "tick": 152,
+            "remaining_upper_slot": 26,
+            "remaining_upper_y": 166
+          },
+          {
+            "link": 25,
+            "tick": 152,
+            "remaining_upper_slot": 28,
+            "remaining_upper_y": 166
+          }
+        ],
+        "linked_lethal_shots": [],
+        "nonlethal_shots": [],
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": false,
+        "capture_parity": {
+          "count": 4,
+          "dimensions": [
+            640,
+            400
+          ],
+          "all_byte_equal": false,
+          "all_pixel_equal": false,
+          "all_changed_cells_within_original_support": true
+        },
+        "all_original_traces_exact": true,
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "native_scale": "2x",
+        "peak_sampled_rss_bytes": 80105472,
+        "exit_codes": {
+          "baseline": 0,
+          "candidate": 0
+        }
+      },
+      "assisted5200-2x": {
+        "observed_ticks": 140,
+        "start_curLoc": 5200,
+        "end_curLoc": 5480,
+        "accepted_new_commands": 804,
+        "accepted_prior_commands": 346,
+        "accepted_types": [
+          287,
+          288
+        ],
+        "accepted_bases": [
+          245,
+          281,
+          283
+        ],
+        "accepted_lower_cycles": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "accepted_quadrants": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "full_body_witnesses": 188,
+        "partial_top_witnesses": 14,
+        "partial_bottom_witnesses": 12,
+        "independent_upper_after_lower_cull": [
+          {
+            "link": 28,
+            "tick": 110,
+            "remaining_upper_slot": 26,
+            "remaining_upper_y": 166
+          }
+        ],
+        "linked_lethal_shots": [],
+        "nonlethal_shots": [],
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": false,
+        "capture_parity": {
+          "count": 4,
+          "dimensions": [
+            640,
+            400
+          ],
+          "all_byte_equal": false,
+          "all_pixel_equal": false,
+          "all_changed_cells_within_original_support": true
+        },
+        "all_original_traces_exact": true,
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "native_scale": "2x",
+        "peak_sampled_rss_bytes": 81641472,
+        "exit_codes": {
+          "baseline": 0,
+          "candidate": 0
+        }
+      },
+      "assisted5676-2x": {
+        "observed_ticks": 110,
+        "start_curLoc": 5676,
+        "end_curLoc": 5769,
+        "accepted_new_commands": 1528,
+        "accepted_prior_commands": 418,
+        "accepted_types": [
+          287,
+          288
+        ],
+        "accepted_bases": [
+          245,
+          281,
+          283
+        ],
+        "accepted_lower_cycles": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "accepted_quadrants": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "full_body_witnesses": 368,
+        "partial_top_witnesses": 28,
+        "partial_bottom_witnesses": 0,
+        "independent_upper_after_lower_cull": [],
+        "linked_lethal_shots": [],
+        "nonlethal_shots": [],
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": false,
+        "capture_parity": {
+          "count": 3,
+          "dimensions": [
+            640,
+            400
+          ],
+          "all_byte_equal": false,
+          "all_pixel_equal": false,
+          "all_changed_cells_within_original_support": true
+        },
+        "all_original_traces_exact": true,
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "native_scale": "2x",
+        "peak_sampled_rss_bytes": 81108992,
+        "exit_codes": {
+          "baseline": 0,
+          "candidate": 0
+        }
+      },
+      "assisted6544-2x": {
+        "observed_ticks": 180,
+        "start_curLoc": 6544,
+        "end_curLoc": 6904,
+        "accepted_new_commands": 1608,
+        "accepted_prior_commands": 657,
+        "accepted_types": [
+          287,
+          288
+        ],
+        "accepted_bases": [
+          245,
+          281,
+          283
+        ],
+        "accepted_lower_cycles": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "accepted_quadrants": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "full_body_witnesses": 376,
+        "partial_top_witnesses": 28,
+        "partial_bottom_witnesses": 24,
+        "independent_upper_after_lower_cull": [
+          {
+            "link": 34,
+            "tick": 110,
+            "remaining_upper_slot": 26,
+            "remaining_upper_y": 166
+          },
+          {
+            "link": 35,
+            "tick": 152,
+            "remaining_upper_slot": 28,
+            "remaining_upper_y": 166
+          }
+        ],
+        "linked_lethal_shots": [],
+        "nonlethal_shots": [],
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": false,
+        "capture_parity": {
+          "count": 5,
+          "dimensions": [
+            640,
+            400
+          ],
+          "all_byte_equal": false,
+          "all_pixel_equal": false,
+          "all_changed_cells_within_original_support": true
+        },
+        "all_original_traces_exact": true,
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "native_scale": "2x",
+        "peak_sampled_rss_bytes": 81809408,
+        "exit_codes": {
+          "baseline": 0,
+          "candidate": 0
+        }
+      },
+      "assisted5200-fire-2x": {
+        "observed_ticks": 75,
+        "start_curLoc": 5200,
+        "end_curLoc": 5350,
+        "accepted_new_commands": 300,
+        "accepted_prior_commands": 160,
+        "accepted_types": [
+          287,
+          288
+        ],
+        "accepted_bases": [
+          245,
+          281,
+          283
+        ],
+        "accepted_lower_cycles": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "accepted_quadrants": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "full_body_witnesses": 68,
+        "partial_top_witnesses": 14,
+        "partial_bottom_witnesses": 0,
+        "independent_upper_after_lower_cull": [],
+        "linked_lethal_shots": [
+          {
+            "tick": 51,
+            "link": 28,
+            "hit_type": 288,
+            "hit_slot": 25,
+            "armor_before": 2,
+            "damage": 2,
+            "both_linked_actors_destroyed": true,
+            "partner_armor_retained": 10
+          }
+        ],
+        "nonlethal_shots": [
+          {
+            "tick": 27,
+            "link": 28,
+            "hit_type": 288,
+            "armor_before": 16,
+            "damage": 2,
+            "partner_armor_unchanged": true
+          },
+          {
+            "tick": 31,
+            "link": 28,
+            "hit_type": 288,
+            "armor_before": 14,
+            "damage": 2,
+            "partner_armor_unchanged": true
+          },
+          {
+            "tick": 34,
+            "link": 28,
+            "hit_type": 288,
+            "armor_before": 12,
+            "damage": 2,
+            "partner_armor_unchanged": true
+          },
+          {
+            "tick": 38,
+            "link": 28,
+            "hit_type": 288,
+            "armor_before": 10,
+            "damage": 2,
+            "partner_armor_unchanged": true
+          },
+          {
+            "tick": 41,
+            "link": 28,
+            "hit_type": 288,
+            "armor_before": 8,
+            "damage": 2,
+            "partner_armor_unchanged": true
+          },
+          {
+            "tick": 44,
+            "link": 28,
+            "hit_type": 288,
+            "armor_before": 6,
+            "damage": 2,
+            "partner_armor_unchanged": true
+          },
+          {
+            "tick": 48,
+            "link": 28,
+            "hit_type": 288,
+            "armor_before": 4,
+            "damage": 2,
+            "partner_armor_unchanged": true
+          }
+        ],
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": false,
+        "capture_parity": {
+          "count": 4,
+          "dimensions": [
+            640,
+            400
+          ],
+          "all_byte_equal": false,
+          "all_pixel_equal": false,
+          "all_changed_cells_within_original_support": true
+        },
+        "all_original_traces_exact": true,
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "native_scale": "2x",
+        "peak_sampled_rss_bytes": 80465920,
+        "exit_codes": {
+          "baseline": 0,
+          "candidate": 0
+        }
+      },
+      "assisted4080-missing245-2x": {
+        "observed_ticks": 100,
+        "start_curLoc": 4080,
+        "end_curLoc": 4280,
+        "accepted_new_commands": 0,
+        "accepted_prior_commands": 578,
+        "accepted_types": [],
+        "accepted_bases": [],
+        "accepted_lower_cycles": [],
+        "accepted_quadrants": [],
+        "full_body_witnesses": 0,
+        "partial_top_witnesses": 0,
+        "partial_bottom_witnesses": 0,
+        "independent_upper_after_lower_cull": [],
+        "linked_lethal_shots": [],
+        "nonlethal_shots": [],
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": true,
+        "capture_parity": {
+          "count": 2,
+          "dimensions": [
+            640,
+            400
+          ],
+          "all_byte_equal": true,
+          "all_pixel_equal": true,
+          "all_changed_cells_within_original_support": true
+        },
+        "all_original_traces_exact": true,
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "native_scale": "2x",
+        "peak_sampled_rss_bytes": 81211392,
+        "exit_codes": {
+          "baseline": 0,
+          "candidate": 0
+        }
+      },
+      "assisted4080-missing281-2x": {
+        "observed_ticks": 100,
+        "start_curLoc": 4080,
+        "end_curLoc": 4280,
+        "accepted_new_commands": 0,
+        "accepted_prior_commands": 578,
+        "accepted_types": [],
+        "accepted_bases": [],
+        "accepted_lower_cycles": [],
+        "accepted_quadrants": [],
+        "full_body_witnesses": 0,
+        "partial_top_witnesses": 0,
+        "partial_bottom_witnesses": 0,
+        "independent_upper_after_lower_cull": [],
+        "linked_lethal_shots": [],
+        "nonlethal_shots": [],
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": true,
+        "capture_parity": {
+          "count": 2,
+          "dimensions": [
+            640,
+            400
+          ],
+          "all_byte_equal": true,
+          "all_pixel_equal": true,
+          "all_changed_cells_within_original_support": true
+        },
+        "all_original_traces_exact": true,
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "native_scale": "2x",
+        "peak_sampled_rss_bytes": 81223680,
+        "exit_codes": {
+          "baseline": 0,
+          "candidate": 0
+        }
+      },
+      "assisted4080-missing283-2x": {
+        "observed_ticks": 100,
+        "start_curLoc": 4080,
+        "end_curLoc": 4280,
+        "accepted_new_commands": 0,
+        "accepted_prior_commands": 578,
+        "accepted_types": [],
+        "accepted_bases": [],
+        "accepted_lower_cycles": [],
+        "accepted_quadrants": [],
+        "full_body_witnesses": 0,
+        "partial_top_witnesses": 0,
+        "partial_bottom_witnesses": 0,
+        "independent_upper_after_lower_cull": [],
+        "linked_lethal_shots": [],
+        "nonlethal_shots": [],
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": true,
+        "capture_parity": {
+          "count": 2,
+          "dimensions": [
+            640,
+            400
+          ],
+          "all_byte_equal": true,
+          "all_pixel_equal": true,
+          "all_changed_cells_within_original_support": true
+        },
+        "all_original_traces_exact": true,
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "native_scale": "2x",
+        "peak_sampled_rss_bytes": 80007168,
+        "exit_codes": {
+          "baseline": 0,
+          "candidate": 0
+        }
+      },
+      "assisted4080-corrupt245-2x": {
+        "observed_ticks": 100,
+        "start_curLoc": 4080,
+        "end_curLoc": 4280,
+        "accepted_new_commands": 0,
+        "accepted_prior_commands": 578,
+        "accepted_types": [],
+        "accepted_bases": [],
+        "accepted_lower_cycles": [],
+        "accepted_quadrants": [],
+        "full_body_witnesses": 0,
+        "partial_top_witnesses": 0,
+        "partial_bottom_witnesses": 0,
+        "independent_upper_after_lower_cull": [],
+        "linked_lethal_shots": [],
+        "nonlethal_shots": [],
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": true,
+        "capture_parity": {
+          "count": 2,
+          "dimensions": [
+            640,
+            400
+          ],
+          "all_byte_equal": true,
+          "all_pixel_equal": true,
+          "all_changed_cells_within_original_support": true
+        },
+        "all_original_traces_exact": true,
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "native_scale": "2x",
+        "peak_sampled_rss_bytes": 81629184,
+        "exit_codes": {
+          "baseline": 0,
+          "candidate": 0
+        }
+      },
+      "assisted4080-corrupt281-2x": {
+        "observed_ticks": 100,
+        "start_curLoc": 4080,
+        "end_curLoc": 4280,
+        "accepted_new_commands": 0,
+        "accepted_prior_commands": 578,
+        "accepted_types": [],
+        "accepted_bases": [],
+        "accepted_lower_cycles": [],
+        "accepted_quadrants": [],
+        "full_body_witnesses": 0,
+        "partial_top_witnesses": 0,
+        "partial_bottom_witnesses": 0,
+        "independent_upper_after_lower_cull": [],
+        "linked_lethal_shots": [],
+        "nonlethal_shots": [],
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": true,
+        "capture_parity": {
+          "count": 2,
+          "dimensions": [
+            640,
+            400
+          ],
+          "all_byte_equal": true,
+          "all_pixel_equal": true,
+          "all_changed_cells_within_original_support": true
+        },
+        "all_original_traces_exact": true,
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "native_scale": "2x",
+        "peak_sampled_rss_bytes": 80003072,
+        "exit_codes": {
+          "baseline": 0,
+          "candidate": 0
+        }
+      },
+      "assisted4080-corrupt283-2x": {
+        "observed_ticks": 100,
+        "start_curLoc": 4080,
+        "end_curLoc": 4280,
+        "accepted_new_commands": 0,
+        "accepted_prior_commands": 578,
+        "accepted_types": [],
+        "accepted_bases": [],
+        "accepted_lower_cycles": [],
+        "accepted_quadrants": [],
+        "full_body_witnesses": 0,
+        "partial_top_witnesses": 0,
+        "partial_bottom_witnesses": 0,
+        "independent_upper_after_lower_cull": [],
+        "linked_lethal_shots": [],
+        "nonlethal_shots": [],
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": true,
+        "capture_parity": {
+          "count": 2,
+          "dimensions": [
+            640,
+            400
+          ],
+          "all_byte_equal": true,
+          "all_pixel_equal": true,
+          "all_changed_cells_within_original_support": true
+        },
+        "all_original_traces_exact": true,
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "native_scale": "2x",
+        "peak_sampled_rss_bytes": 81592320,
+        "exit_codes": {
+          "baseline": 0,
+          "candidate": 0
+        }
+      },
+      "assisted4080-flag-off-2x": {
+        "observed_ticks": 100,
+        "start_curLoc": 4080,
+        "end_curLoc": 4280,
+        "accepted_new_commands": 0,
+        "accepted_prior_commands": 0,
+        "accepted_types": [],
+        "accepted_bases": [],
+        "accepted_lower_cycles": [],
+        "accepted_quadrants": [],
+        "full_body_witnesses": 0,
+        "partial_top_witnesses": 0,
+        "partial_bottom_witnesses": 0,
+        "independent_upper_after_lower_cull": [],
+        "linked_lethal_shots": [],
+        "nonlethal_shots": [],
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": true,
+        "capture_parity": {
+          "count": 2,
+          "dimensions": [
+            640,
+            400
+          ],
+          "all_byte_equal": true,
+          "all_pixel_equal": true,
+          "all_changed_cells_within_original_support": true
+        },
+        "all_original_traces_exact": true,
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "native_scale": "2x",
+        "peak_sampled_rss_bytes": 80084992,
+        "exit_codes": {
+          "baseline": 0,
+          "candidate": 0
+        }
+      },
+      "assisted4080-4x": {
+        "observed_ticks": 180,
+        "start_curLoc": 4080,
+        "end_curLoc": 4440,
+        "accepted_new_commands": 1608,
+        "accepted_prior_commands": 905,
+        "accepted_types": [
+          287,
+          288
+        ],
+        "accepted_bases": [
+          245,
+          281,
+          283
+        ],
+        "accepted_lower_cycles": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "accepted_quadrants": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "full_body_witnesses": 376,
+        "partial_top_witnesses": 28,
+        "partial_bottom_witnesses": 24,
+        "independent_upper_after_lower_cull": [
+          {
+            "link": 24,
+            "tick": 152,
+            "remaining_upper_slot": 26,
+            "remaining_upper_y": 166
+          },
+          {
+            "link": 25,
+            "tick": 152,
+            "remaining_upper_slot": 28,
+            "remaining_upper_y": 166
+          }
+        ],
+        "linked_lethal_shots": [],
+        "nonlethal_shots": [],
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": false,
+        "capture_parity": {
+          "count": 4,
+          "dimensions": [
+            1280,
+            800
+          ],
+          "all_byte_equal": false,
+          "all_pixel_equal": false,
+          "all_changed_cells_within_original_support": true
+        },
+        "all_original_traces_exact": true,
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "native_scale": "4x",
+        "peak_sampled_rss_bytes": 95707136,
+        "exit_codes": {
+          "baseline": 0,
+          "candidate": 0
+        }
+      },
+      "assisted5200-4x": {
+        "observed_ticks": 140,
+        "start_curLoc": 5200,
+        "end_curLoc": 5480,
+        "accepted_new_commands": 804,
+        "accepted_prior_commands": 346,
+        "accepted_types": [
+          287,
+          288
+        ],
+        "accepted_bases": [
+          245,
+          281,
+          283
+        ],
+        "accepted_lower_cycles": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "accepted_quadrants": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "full_body_witnesses": 188,
+        "partial_top_witnesses": 14,
+        "partial_bottom_witnesses": 12,
+        "independent_upper_after_lower_cull": [
+          {
+            "link": 28,
+            "tick": 110,
+            "remaining_upper_slot": 26,
+            "remaining_upper_y": 166
+          }
+        ],
+        "linked_lethal_shots": [],
+        "nonlethal_shots": [],
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": false,
+        "capture_parity": {
+          "count": 4,
+          "dimensions": [
+            1280,
+            800
+          ],
+          "all_byte_equal": false,
+          "all_pixel_equal": false,
+          "all_changed_cells_within_original_support": true
+        },
+        "all_original_traces_exact": true,
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "native_scale": "4x",
+        "peak_sampled_rss_bytes": 95477760,
+        "exit_codes": {
+          "baseline": 0,
+          "candidate": 0
+        }
+      },
+      "assisted5676-4x": {
+        "observed_ticks": 110,
+        "start_curLoc": 5676,
+        "end_curLoc": 5769,
+        "accepted_new_commands": 1528,
+        "accepted_prior_commands": 418,
+        "accepted_types": [
+          287,
+          288
+        ],
+        "accepted_bases": [
+          245,
+          281,
+          283
+        ],
+        "accepted_lower_cycles": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "accepted_quadrants": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "full_body_witnesses": 368,
+        "partial_top_witnesses": 28,
+        "partial_bottom_witnesses": 0,
+        "independent_upper_after_lower_cull": [],
+        "linked_lethal_shots": [],
+        "nonlethal_shots": [],
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": false,
+        "capture_parity": {
+          "count": 3,
+          "dimensions": [
+            1280,
+            800
+          ],
+          "all_byte_equal": false,
+          "all_pixel_equal": false,
+          "all_changed_cells_within_original_support": true
+        },
+        "all_original_traces_exact": true,
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "native_scale": "4x",
+        "peak_sampled_rss_bytes": 95027200,
+        "exit_codes": {
+          "baseline": 0,
+          "candidate": 0
+        }
+      },
+      "assisted6544-4x": {
+        "observed_ticks": 180,
+        "start_curLoc": 6544,
+        "end_curLoc": 6904,
+        "accepted_new_commands": 1608,
+        "accepted_prior_commands": 657,
+        "accepted_types": [
+          287,
+          288
+        ],
+        "accepted_bases": [
+          245,
+          281,
+          283
+        ],
+        "accepted_lower_cycles": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "accepted_quadrants": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "full_body_witnesses": 376,
+        "partial_top_witnesses": 28,
+        "partial_bottom_witnesses": 24,
+        "independent_upper_after_lower_cull": [
+          {
+            "link": 34,
+            "tick": 110,
+            "remaining_upper_slot": 26,
+            "remaining_upper_y": 166
+          },
+          {
+            "link": 35,
+            "tick": 152,
+            "remaining_upper_slot": 28,
+            "remaining_upper_y": 166
+          }
+        ],
+        "linked_lethal_shots": [],
+        "nonlethal_shots": [],
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": false,
+        "capture_parity": {
+          "count": 5,
+          "dimensions": [
+            1280,
+            800
+          ],
+          "all_byte_equal": false,
+          "all_pixel_equal": false,
+          "all_changed_cells_within_original_support": true
+        },
+        "all_original_traces_exact": true,
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "native_scale": "4x",
+        "peak_sampled_rss_bytes": 95199232,
+        "exit_codes": {
+          "baseline": 0,
+          "candidate": 0
+        }
+      },
+      "assisted5200-fire-4x": {
+        "observed_ticks": 75,
+        "start_curLoc": 5200,
+        "end_curLoc": 5350,
+        "accepted_new_commands": 300,
+        "accepted_prior_commands": 160,
+        "accepted_types": [
+          287,
+          288
+        ],
+        "accepted_bases": [
+          245,
+          281,
+          283
+        ],
+        "accepted_lower_cycles": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "accepted_quadrants": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "full_body_witnesses": 68,
+        "partial_top_witnesses": 14,
+        "partial_bottom_witnesses": 0,
+        "independent_upper_after_lower_cull": [],
+        "linked_lethal_shots": [
+          {
+            "tick": 51,
+            "link": 28,
+            "hit_type": 288,
+            "hit_slot": 25,
+            "armor_before": 2,
+            "damage": 2,
+            "both_linked_actors_destroyed": true,
+            "partner_armor_retained": 10
+          }
+        ],
+        "nonlethal_shots": [
+          {
+            "tick": 27,
+            "link": 28,
+            "hit_type": 288,
+            "armor_before": 16,
+            "damage": 2,
+            "partner_armor_unchanged": true
+          },
+          {
+            "tick": 31,
+            "link": 28,
+            "hit_type": 288,
+            "armor_before": 14,
+            "damage": 2,
+            "partner_armor_unchanged": true
+          },
+          {
+            "tick": 34,
+            "link": 28,
+            "hit_type": 288,
+            "armor_before": 12,
+            "damage": 2,
+            "partner_armor_unchanged": true
+          },
+          {
+            "tick": 38,
+            "link": 28,
+            "hit_type": 288,
+            "armor_before": 10,
+            "damage": 2,
+            "partner_armor_unchanged": true
+          },
+          {
+            "tick": 41,
+            "link": 28,
+            "hit_type": 288,
+            "armor_before": 8,
+            "damage": 2,
+            "partner_armor_unchanged": true
+          },
+          {
+            "tick": 44,
+            "link": 28,
+            "hit_type": 288,
+            "armor_before": 6,
+            "damage": 2,
+            "partner_armor_unchanged": true
+          },
+          {
+            "tick": 48,
+            "link": 28,
+            "hit_type": 288,
+            "armor_before": 4,
+            "damage": 2,
+            "partner_armor_unchanged": true
+          }
+        ],
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": false,
+        "capture_parity": {
+          "count": 4,
+          "dimensions": [
+            1280,
+            800
+          ],
+          "all_byte_equal": false,
+          "all_pixel_equal": false,
+          "all_changed_cells_within_original_support": true
+        },
+        "all_original_traces_exact": true,
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "native_scale": "4x",
+        "peak_sampled_rss_bytes": 94863360,
+        "exit_codes": {
+          "baseline": 0,
+          "candidate": 0
+        }
+      },
+      "assisted4080-missing245-4x": {
+        "observed_ticks": 100,
+        "start_curLoc": 4080,
+        "end_curLoc": 4280,
+        "accepted_new_commands": 0,
+        "accepted_prior_commands": 578,
+        "accepted_types": [],
+        "accepted_bases": [],
+        "accepted_lower_cycles": [],
+        "accepted_quadrants": [],
+        "full_body_witnesses": 0,
+        "partial_top_witnesses": 0,
+        "partial_bottom_witnesses": 0,
+        "independent_upper_after_lower_cull": [],
+        "linked_lethal_shots": [],
+        "nonlethal_shots": [],
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": true,
+        "capture_parity": {
+          "count": 2,
+          "dimensions": [
+            1280,
+            800
+          ],
+          "all_byte_equal": true,
+          "all_pixel_equal": true,
+          "all_changed_cells_within_original_support": true
+        },
+        "all_original_traces_exact": true,
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "native_scale": "4x",
+        "peak_sampled_rss_bytes": 95363072,
+        "exit_codes": {
+          "baseline": 0,
+          "candidate": 0
+        }
+      },
+      "assisted4080-missing281-4x": {
+        "observed_ticks": 100,
+        "start_curLoc": 4080,
+        "end_curLoc": 4280,
+        "accepted_new_commands": 0,
+        "accepted_prior_commands": 578,
+        "accepted_types": [],
+        "accepted_bases": [],
+        "accepted_lower_cycles": [],
+        "accepted_quadrants": [],
+        "full_body_witnesses": 0,
+        "partial_top_witnesses": 0,
+        "partial_bottom_witnesses": 0,
+        "independent_upper_after_lower_cull": [],
+        "linked_lethal_shots": [],
+        "nonlethal_shots": [],
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": true,
+        "capture_parity": {
+          "count": 2,
+          "dimensions": [
+            1280,
+            800
+          ],
+          "all_byte_equal": true,
+          "all_pixel_equal": true,
+          "all_changed_cells_within_original_support": true
+        },
+        "all_original_traces_exact": true,
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "native_scale": "4x",
+        "peak_sampled_rss_bytes": 89133056,
+        "exit_codes": {
+          "baseline": 0,
+          "candidate": 0
+        }
+      },
+      "assisted4080-missing283-4x": {
+        "observed_ticks": 100,
+        "start_curLoc": 4080,
+        "end_curLoc": 4280,
+        "accepted_new_commands": 0,
+        "accepted_prior_commands": 578,
+        "accepted_types": [],
+        "accepted_bases": [],
+        "accepted_lower_cycles": [],
+        "accepted_quadrants": [],
+        "full_body_witnesses": 0,
+        "partial_top_witnesses": 0,
+        "partial_bottom_witnesses": 0,
+        "independent_upper_after_lower_cull": [],
+        "linked_lethal_shots": [],
+        "nonlethal_shots": [],
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": true,
+        "capture_parity": {
+          "count": 2,
+          "dimensions": [
+            1280,
+            800
+          ],
+          "all_byte_equal": true,
+          "all_pixel_equal": true,
+          "all_changed_cells_within_original_support": true
+        },
+        "all_original_traces_exact": true,
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "native_scale": "4x",
+        "peak_sampled_rss_bytes": 95170560,
+        "exit_codes": {
+          "baseline": 0,
+          "candidate": 0
+        }
+      },
+      "assisted4080-corrupt245-4x": {
+        "observed_ticks": 100,
+        "start_curLoc": 4080,
+        "end_curLoc": 4280,
+        "accepted_new_commands": 0,
+        "accepted_prior_commands": 578,
+        "accepted_types": [],
+        "accepted_bases": [],
+        "accepted_lower_cycles": [],
+        "accepted_quadrants": [],
+        "full_body_witnesses": 0,
+        "partial_top_witnesses": 0,
+        "partial_bottom_witnesses": 0,
+        "independent_upper_after_lower_cull": [],
+        "linked_lethal_shots": [],
+        "nonlethal_shots": [],
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": true,
+        "capture_parity": {
+          "count": 2,
+          "dimensions": [
+            1280,
+            800
+          ],
+          "all_byte_equal": true,
+          "all_pixel_equal": true,
+          "all_changed_cells_within_original_support": true
+        },
+        "all_original_traces_exact": true,
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "native_scale": "4x",
+        "peak_sampled_rss_bytes": 95502336,
+        "exit_codes": {
+          "baseline": 0,
+          "candidate": 0
+        }
+      },
+      "assisted4080-corrupt281-4x": {
+        "observed_ticks": 100,
+        "start_curLoc": 4080,
+        "end_curLoc": 4280,
+        "accepted_new_commands": 0,
+        "accepted_prior_commands": 578,
+        "accepted_types": [],
+        "accepted_bases": [],
+        "accepted_lower_cycles": [],
+        "accepted_quadrants": [],
+        "full_body_witnesses": 0,
+        "partial_top_witnesses": 0,
+        "partial_bottom_witnesses": 0,
+        "independent_upper_after_lower_cull": [],
+        "linked_lethal_shots": [],
+        "nonlethal_shots": [],
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": true,
+        "capture_parity": {
+          "count": 2,
+          "dimensions": [
+            1280,
+            800
+          ],
+          "all_byte_equal": true,
+          "all_pixel_equal": true,
+          "all_changed_cells_within_original_support": true
+        },
+        "all_original_traces_exact": true,
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "native_scale": "4x",
+        "peak_sampled_rss_bytes": 89198592,
+        "exit_codes": {
+          "baseline": 0,
+          "candidate": 0
+        }
+      },
+      "assisted4080-corrupt283-4x": {
+        "observed_ticks": 100,
+        "start_curLoc": 4080,
+        "end_curLoc": 4280,
+        "accepted_new_commands": 0,
+        "accepted_prior_commands": 578,
+        "accepted_types": [],
+        "accepted_bases": [],
+        "accepted_lower_cycles": [],
+        "accepted_quadrants": [],
+        "full_body_witnesses": 0,
+        "partial_top_witnesses": 0,
+        "partial_bottom_witnesses": 0,
+        "independent_upper_after_lower_cull": [],
+        "linked_lethal_shots": [],
+        "nonlethal_shots": [],
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": true,
+        "capture_parity": {
+          "count": 2,
+          "dimensions": [
+            1280,
+            800
+          ],
+          "all_byte_equal": true,
+          "all_pixel_equal": true,
+          "all_changed_cells_within_original_support": true
+        },
+        "all_original_traces_exact": true,
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "native_scale": "4x",
+        "peak_sampled_rss_bytes": 95387648,
+        "exit_codes": {
+          "baseline": 0,
+          "candidate": 0
+        }
+      },
+      "assisted4080-flag-off-4x": {
+        "observed_ticks": 100,
+        "start_curLoc": 4080,
+        "end_curLoc": 4280,
+        "accepted_new_commands": 0,
+        "accepted_prior_commands": 0,
+        "accepted_types": [],
+        "accepted_bases": [],
+        "accepted_lower_cycles": [],
+        "accepted_quadrants": [],
+        "full_body_witnesses": 0,
+        "partial_top_witnesses": 0,
+        "partial_bottom_witnesses": 0,
+        "independent_upper_after_lower_cull": [],
+        "linked_lethal_shots": [],
+        "nonlethal_shots": [],
+        "coverage_mismatches": 0,
+        "rejected_frames": 0,
+        "frames_byte_exact": true,
+        "capture_parity": {
+          "count": 2,
+          "dimensions": [
+            1280,
+            800
+          ],
+          "all_byte_equal": true,
+          "all_pixel_equal": true,
+          "all_changed_cells_within_original_support": true
+        },
+        "all_original_traces_exact": true,
+        "original_actual_call_arguments_and_actor_states_exact": true,
+        "prior_HD_command_subsequence_exact": true,
+        "native_scale": "4x",
+        "peak_sampled_rss_bytes": 94027776,
+        "exit_codes": {
+          "baseline": 0,
+          "candidate": 0
+        }
+      }
+    },
+    "cross_native_scale": {
+      "assisted4080": {
+        "all14_original_traces_byte_exact": true,
+        "original_actor_and_call_traces_exact": true,
+        "event_tables_clocks_and_selector_receipts_exact": true,
+        "scene_commands_and_frame_traces_exact": true
+      },
+      "assisted5200": {
+        "all14_original_traces_byte_exact": true,
+        "original_actor_and_call_traces_exact": true,
+        "event_tables_clocks_and_selector_receipts_exact": true,
+        "scene_commands_and_frame_traces_exact": true
+      },
+      "assisted5676": {
+        "all14_original_traces_byte_exact": true,
+        "original_actor_and_call_traces_exact": true,
+        "event_tables_clocks_and_selector_receipts_exact": true,
+        "scene_commands_and_frame_traces_exact": true
+      },
+      "assisted6544": {
+        "all14_original_traces_byte_exact": true,
+        "original_actor_and_call_traces_exact": true,
+        "event_tables_clocks_and_selector_receipts_exact": true,
+        "scene_commands_and_frame_traces_exact": true
+      },
+      "assisted5200-fire": {
+        "all14_original_traces_byte_exact": true,
+        "original_actor_and_call_traces_exact": true,
+        "event_tables_clocks_and_selector_receipts_exact": true,
+        "scene_commands_and_frame_traces_exact": true
+      },
+      "assisted4080-missing245": {
+        "all14_original_traces_byte_exact": true,
+        "original_actor_and_call_traces_exact": true,
+        "event_tables_clocks_and_selector_receipts_exact": true,
+        "scene_commands_and_frame_traces_exact": true
+      },
+      "assisted4080-missing281": {
+        "all14_original_traces_byte_exact": true,
+        "original_actor_and_call_traces_exact": true,
+        "event_tables_clocks_and_selector_receipts_exact": true,
+        "scene_commands_and_frame_traces_exact": true
+      },
+      "assisted4080-missing283": {
+        "all14_original_traces_byte_exact": true,
+        "original_actor_and_call_traces_exact": true,
+        "event_tables_clocks_and_selector_receipts_exact": true,
+        "scene_commands_and_frame_traces_exact": true
+      },
+      "assisted4080-corrupt245": {
+        "all14_original_traces_byte_exact": true,
+        "original_actor_and_call_traces_exact": true,
+        "event_tables_clocks_and_selector_receipts_exact": true,
+        "scene_commands_and_frame_traces_exact": true
+      },
+      "assisted4080-corrupt281": {
+        "all14_original_traces_byte_exact": true,
+        "original_actor_and_call_traces_exact": true,
+        "event_tables_clocks_and_selector_receipts_exact": true,
+        "scene_commands_and_frame_traces_exact": true
+      },
+      "assisted4080-corrupt283": {
+        "all14_original_traces_byte_exact": true,
+        "original_actor_and_call_traces_exact": true,
+        "event_tables_clocks_and_selector_receipts_exact": true,
+        "scene_commands_and_frame_traces_exact": true
+      },
+      "assisted4080-flag-off": {
+        "all14_original_traces_byte_exact": true,
+        "original_actor_and_call_traces_exact": true,
+        "event_tables_clocks_and_selector_receipts_exact": true,
+        "scene_commands_and_frame_traces_exact": true
+      }
+    },
+    "source_scheduled_instances": 14,
+    "source_linked_installations": 7,
+    "source_instances": [
+      {
+        "link": 24,
+        "type": 288,
+        "slot": 25,
+        "first_tick": 42,
+        "first_position": [
+          126,
+          -26
+        ],
+        "last_live_tick": 151,
+        "minimum_armor": 16,
+        "original_event_ordinal": 244
+      },
+      {
+        "link": 24,
+        "type": 287,
+        "slot": 26,
+        "first_tick": 42,
+        "first_position": [
+          126,
+          -54
+        ],
+        "last_live_tick": 165,
+        "minimum_armor": 10,
+        "original_event_ordinal": 245
+      },
+      {
+        "link": 25,
+        "type": 288,
+        "slot": 27,
+        "first_tick": 42,
+        "first_position": [
+          150,
+          -26
+        ],
+        "last_live_tick": 151,
+        "minimum_armor": 16,
+        "original_event_ordinal": 246
+      },
+      {
+        "link": 25,
+        "type": 287,
+        "slot": 28,
+        "first_tick": 42,
+        "first_position": [
+          150,
+          -54
+        ],
+        "last_live_tick": 165,
+        "minimum_armor": 10,
+        "original_event_ordinal": 247
+      },
+      {
+        "link": 28,
+        "type": 288,
+        "slot": 25,
+        "first_tick": 0,
+        "first_position": [
+          150,
+          -26
+        ],
+        "last_live_tick": 109,
+        "minimum_armor": 16,
+        "original_event_ordinal": 325
+      },
+      {
+        "link": 28,
+        "type": 287,
+        "slot": 26,
+        "first_tick": 0,
+        "first_position": [
+          150,
+          -54
+        ],
+        "last_live_tick": 123,
+        "minimum_armor": 10,
+        "original_event_ordinal": 326
+      },
+      {
+        "link": 30,
+        "type": 288,
+        "slot": 30,
+        "first_tick": 0,
+        "first_position": [
+          78,
+          -26
+        ],
+        "last_live_tick": 109,
+        "minimum_armor": 16,
+        "original_event_ordinal": 354
+      },
+      {
+        "link": 30,
+        "type": 287,
+        "slot": 31,
+        "first_tick": 0,
+        "first_position": [
+          78,
+          -54
+        ],
+        "last_live_tick": 109,
+        "minimum_armor": 10,
+        "original_event_ordinal": 355
+      },
+      {
+        "link": 31,
+        "type": 288,
+        "slot": 26,
+        "first_tick": 0,
+        "first_position": [
+          126,
+          -26
+        ],
+        "last_live_tick": 109,
+        "minimum_armor": 16,
+        "original_event_ordinal": 350
+      },
+      {
+        "link": 31,
+        "type": 287,
+        "slot": 27,
+        "first_tick": 0,
+        "first_position": [
+          126,
+          -54
+        ],
+        "last_live_tick": 109,
+        "minimum_armor": 10,
+        "original_event_ordinal": 351
+      },
+      {
+        "link": 34,
+        "type": 288,
+        "slot": 25,
+        "first_tick": 0,
+        "first_position": [
+          6,
+          -26
+        ],
+        "last_live_tick": 109,
+        "minimum_armor": 16,
+        "original_event_ordinal": 384
+      },
+      {
+        "link": 34,
+        "type": 287,
+        "slot": 26,
+        "first_tick": 0,
+        "first_position": [
+          6,
+          -54
+        ],
+        "last_live_tick": 123,
+        "minimum_armor": 10,
+        "original_event_ordinal": 385
+      },
+      {
+        "link": 35,
+        "type": 288,
+        "slot": 27,
+        "first_tick": 42,
+        "first_position": [
+          6,
+          -26
+        ],
+        "last_live_tick": 151,
+        "minimum_armor": 16,
+        "original_event_ordinal": 386
+      },
+      {
+        "link": 35,
+        "type": 287,
+        "slot": 28,
+        "first_tick": 42,
+        "first_position": [
+          6,
+          -54
+        ],
+        "last_live_tick": 165,
+        "minimum_armor": 10,
+        "original_event_ordinal": 387
+      }
+    ],
+    "original_spawn_events": [
+      {
+        "ordinal": "244",
+        "curLoc": "4164",
+        "type": "6",
+        "data": "288",
+        "data2": "138",
+        "data3": "0",
+        "data4": "24",
+        "data5": "0",
+        "data6": "0"
+      },
+      {
+        "ordinal": "245",
+        "curLoc": "4164",
+        "type": "6",
+        "data": "287",
+        "data2": "138",
+        "data3": "0",
+        "data4": "24",
+        "data5": "-28",
+        "data6": "0"
+      },
+      {
+        "ordinal": "246",
+        "curLoc": "4164",
+        "type": "6",
+        "data": "288",
+        "data2": "162",
+        "data3": "0",
+        "data4": "25",
+        "data5": "0",
+        "data6": "0"
+      },
+      {
+        "ordinal": "247",
+        "curLoc": "4164",
+        "type": "6",
+        "data": "287",
+        "data2": "162",
+        "data3": "0",
+        "data4": "25",
+        "data5": "-28",
+        "data6": "0"
+      },
+      {
+        "ordinal": "325",
+        "curLoc": "5200",
+        "type": "6",
+        "data": "288",
+        "data2": "162",
+        "data3": "0",
+        "data4": "28",
+        "data5": "0",
+        "data6": "0"
+      },
+      {
+        "ordinal": "326",
+        "curLoc": "5200",
+        "type": "6",
+        "data": "287",
+        "data2": "162",
+        "data3": "0",
+        "data4": "28",
+        "data5": "-28",
+        "data6": "0"
+      },
+      {
+        "ordinal": "350",
+        "curLoc": "5676",
+        "type": "6",
+        "data": "288",
+        "data2": "138",
+        "data3": "0",
+        "data4": "31",
+        "data5": "0",
+        "data6": "0"
+      },
+      {
+        "ordinal": "351",
+        "curLoc": "5676",
+        "type": "6",
+        "data": "287",
+        "data2": "138",
+        "data3": "0",
+        "data4": "31",
+        "data5": "-28",
+        "data6": "0"
+      },
+      {
+        "ordinal": "354",
+        "curLoc": "5676",
+        "type": "6",
+        "data": "288",
+        "data2": "90",
+        "data3": "0",
+        "data4": "30",
+        "data5": "0",
+        "data6": "0"
+      },
+      {
+        "ordinal": "355",
+        "curLoc": "5676",
+        "type": "6",
+        "data": "287",
+        "data2": "90",
+        "data3": "0",
+        "data4": "30",
+        "data5": "-28",
+        "data6": "0"
+      },
+      {
+        "ordinal": "384",
+        "curLoc": "6544",
+        "type": "6",
+        "data": "288",
+        "data2": "18",
+        "data3": "0",
+        "data4": "34",
+        "data5": "0",
+        "data6": "0"
+      },
+      {
+        "ordinal": "385",
+        "curLoc": "6544",
+        "type": "6",
+        "data": "287",
+        "data2": "18",
+        "data3": "0",
+        "data4": "34",
+        "data5": "-28",
+        "data6": "0"
+      },
+      {
+        "ordinal": "386",
+        "curLoc": "6628",
+        "type": "6",
+        "data": "288",
+        "data2": "18",
+        "data3": "0",
+        "data4": "35",
+        "data5": "0",
+        "data6": "0"
+      },
+      {
+        "ordinal": "387",
+        "curLoc": "6628",
+        "type": "6",
+        "data": "287",
+        "data2": "18",
+        "data3": "0",
+        "data4": "35",
+        "data5": "-28",
+        "data6": "0"
+      }
+    ],
+    "assisted_selectors": {
+      "4080": {
+        "start_event_ordinal": 236,
+        "original_setup_event_ordinals_replayed": [
+          1,
+          2,
+          3,
+          4,
+          21
+        ],
+        "serialized_eventrec_fnv": "01d73c470a9401b1",
+        "raw_eventrec_bytes": 5772,
+        "raw_eventrec_fnv": "b839e2440d1b5eff",
+        "selector_rng": "8005e0d4ef40f5b1",
+        "direct_memory_byte_comparison_equal": true
+      },
+      "5200": {
+        "start_event_ordinal": 325,
+        "original_setup_event_ordinals_replayed": [
+          1,
+          2,
+          3,
+          4,
+          21
+        ],
+        "serialized_eventrec_fnv": "01d73c470a9401b1",
+        "raw_eventrec_bytes": 5772,
+        "raw_eventrec_fnv": "b839e2440d1b5eff",
+        "selector_rng": "8005e0d4ef40f5b1",
+        "direct_memory_byte_comparison_equal": true
+      },
+      "5676": {
+        "start_event_ordinal": 349,
+        "original_setup_event_ordinals_replayed": [
+          1,
+          2,
+          3,
+          4,
+          21
+        ],
+        "serialized_eventrec_fnv": "01d73c470a9401b1",
+        "raw_eventrec_bytes": 5772,
+        "raw_eventrec_fnv": "b839e2440d1b5eff",
+        "selector_rng": "8005e0d4ef40f5b1",
+        "direct_memory_byte_comparison_equal": true
+      },
+      "6544": {
+        "start_event_ordinal": 384,
+        "original_setup_event_ordinals_replayed": [
+          1,
+          2,
+          3,
+          4,
+          21,
+          364,
+          365,
+          367
+        ],
+        "serialized_eventrec_fnv": "01d73c470a9401b1",
+        "raw_eventrec_bytes": 5772,
+        "raw_eventrec_fnv": "b839e2440d1b5eff",
+        "selector_rng": "8005e0d4ef40f5b1",
+        "direct_memory_byte_comparison_equal": true
+      }
+    },
+    "baseline_commit": "14c6548a1d3343e7f01a48de1e5c12741ca27189",
+    "baseline_render_source_sha256": "9a71f361aad240214dba783203ea4d7f8aacc62071f03fb9120aeb2ef2854a52",
+    "candidate_render_source_sha256": "3ebf681e43e28f9f086d09caf0f9c8a8989912d6472fcaafe92778064fc0ca3c",
+    "candidate_paired_include_sha256": "fb4540a6e0503adc23c2bd073357ceb782c6c6f30fac07ea5cdfa1b6ab0316cd",
+    "tested_candidate_render_object_sha256": "e600499468391a2a1be0b21c07ebea0b318cd3853013246b4f96eda91d07c2ea",
+    "strict_production_render_object_sha256": "e600499468391a2a1be0b21c07ebea0b318cd3853013246b4f96eda91d07c2ea",
+    "runtime_address_space_limit_bytes": 536870912,
+    "compiler_address_space_limit_bytes": 1073741824,
+    "runtime_file_size_limit_bytes": 8388608,
+    "runtime_cpu_limit_seconds": 120,
+    "runtime_wall_limit_seconds": 180,
+    "free_disk_minimum_bytes": 5000000000,
+    "peak_sampled_runtime_rss_bytes": 95707136,
+    "no_BMP_generated": true,
+    "native_captures_unresized": true,
+    "native_capture_dimensions": {
+      "2x": [
+        640,
+        400
+      ],
+      "4x": [
+        1280,
+        800
+      ]
+    },
+    "all_native_capture_difference_cells_within_original_occupied_support": true,
+    "limits": [
+      "Assisted prefix omission with original setup replay; no natural campaign or full-level clear.",
+      "Headless SDL software renderer; no Windows, fullscreen/GPU, performance or LeakSanitizer acceptance."
+    ],
+    "tested_candidate_exact_to_strict_production": true,
+    "visual_review": {
+      "root_approved_actual_native2x_4080_tick88": true,
+      "implementation_owner_approved_actual_native4x_4080_tick88_and_independent_cull": true,
+      "QA_worker_inspected_all_native2x_regimes_and_native4x_lamp_contact": true
+    },
+    "budget_snapshot": {
+      "output_bytes": 30696101,
+      "png_bytes": 5035017,
+      "free_bytes": 15794855936
+    }
+  },
+  "independent_review": {
+    "status": "PASS",
+    "blocking_findings": [],
+    "production_code_review": "PASS",
+    "art_review": "PASS",
+    "deterministic_art_rebuild_exact": true,
+    "source_support_cells": {
+      "245": 672,
+      "281": 670,
+      "283": 670
+    },
+    "lower_state_changed_source_cells": 23,
+    "lower_state_changed_HD_pixels": 1453,
+    "prior35_HDA_and_PNG_bytes_exact": true,
+    "prior15_family_metadata_exact": true,
+    "both629_entry_default_catalogs_exact": true,
+    "catalog_only_verified_default_HDA_entries": 1258,
+    "catalog_only_verified_optional_HDA_PNG_pairs": 38,
+    "optimized_ASan_UBSan_units": "PASS",
+    "shared_source_snapshot_16_families_44_dependencies": "PASS",
+    "capsule545_regression": "PASS",
+    "strict_production_compile": "PASS",
+    "actual_native_visual_review": [
+      "2x lamps281/283",
+      "4x original1280x800 lamps",
+      "4x top/bottom independent clipping",
+      "4x upper-after-lower-cull",
+      "4x late left-side pair"
+    ],
+    "actual_engine_report": "PASS",
+    "engine_pairs": 24,
+    "engine_processes_exit0": 48,
+    "independently_recompared_named_trace_files": 1008,
+    "independently_recompared_trace_bytes": 5022800,
+    "independently_recompared_original_actor_call_rows": 22320,
+    "independently_recompared_fallback_native_PNG_pairs": 28,
+    "all21_named_gameplay_actor_event_traces_exact": true,
+    "prior_HD_scene_command_subsequences_exact": true,
+    "cross_native_scale_traces_exact": true,
+    "source_original_event6_allocations_exact": 14,
+    "source_linked_installations": 7,
+    "ordinary_input_linked_destruction_tick": 51,
+    "candidate_source_and_strict_object_receipt_digests_match_current": true,
+    "runtime_peak_sampled_rss_bytes": 95707136,
+    "scope": "ASSISTED original-event diagnostic windows. No natural campaign/full-level clear.",
+    "limits": [
+      "Assisted prefix omission with original setup replay; no natural campaign or full-level clear.",
+      "Headless SDL software renderer; no Windows, fullscreen/GPU, performance or LeakSanitizer acceptance."
+    ],
+    "evidence": {
+      "art_and_catalog": "Independently rebuilt and checked; exact digest/support results are embedded above.",
+      "unit": "Embedded unit/source-snapshot/capsule545 regression receipts.",
+      "runtime": "Embedded actual-engine report and trace hashes."
+    },
+    "read_only_checkout": true,
+    "no_commit_push_upload": true
+  },
+  "limits": [
+    "Assisted original-event windows, not natural campaign completion.",
+    "No Windows/fullscreen/GPU/performance or LeakSanitizer acceptance.",
+    "No external push."
+  ],
+  "runtime_trace_sha256": {
+    "status": "PASS",
+    "scope": "ASSISTED original-event diagnostic windows. No natural campaign/full-level clear.",
+    "trace_files": [
+      "state.tsv",
+      "collisions.tsv",
+      "enemy-projectiles.tsv",
+      "scene-enemies.tsv",
+      "scene-hits.tsv",
+      "player-projectiles.tsv",
+      "player-shot-emissions.tsv",
+      "player-shot-requests.tsv",
+      "player-shot-results.tsv",
+      "poses.tsv",
+      "fire-events.tsv",
+      "presentation.tsv",
+      "weapon-loadout.tsv",
+      "fade-steps.tsv"
+    ],
+    "paired_runs": {
+      "assisted4080-2x": {
+        "state.tsv": "ba8cb1a1c4233a30ca7cd0754ef5b421d8fba0bdd45a635068e20ff59ca4f205",
+        "collisions.tsv": "e9571446e6c3ccbf57616576c47a9c16198b89d61ad61b1fdf9c9aa7840815e1",
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "scene-enemies.tsv": "39d8278778afa2c663e8a0630925c55d6e48b5dfb375181a9f428b59189a1bd1",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+        "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+        "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+        "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+        "poses.tsv": "2ab7005d9b84d2a86059d05d5cd53007557097f3e44d5c70dc13ef38e9ab0d34",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "presentation.tsv": "6224edcbae1ba6c7cf41b46cbddb899f9e16b10276f1b1dc619ae754edb05e4b",
+        "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+      },
+      "assisted5200-2x": {
+        "state.tsv": "5563decf1618ffd51c425e2feb1ba7a9788453afa491daae72a54e565ecbf97a",
+        "collisions.tsv": "7288005b9392b7a0f44fca6791052fa8bbb689ff8c03a1e19e0d5157549224e2",
+        "enemy-projectiles.tsv": "447c278e0b204bdbfc0814a44a58dfd37717525d274b00327c9a0a2e43d617d5",
+        "scene-enemies.tsv": "9ab12f97759735c5a4bbbc425ca22d67e8c6f5c500016e3d4c08c6f050664e07",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+        "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+        "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+        "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+        "poses.tsv": "7600d674426b784d934c299e2e7991e69e596719d8392dbb38b6f81d8a1cce00",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "presentation.tsv": "95e7456f917b9a2233bfce93506be749a79dc437ba993c10eb088e8cd8a8400c",
+        "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+      },
+      "assisted5676-2x": {
+        "state.tsv": "607f15992cc07b8f89b8ae2d7026186726799bab52523b89fe565fdcd0fa3849",
+        "collisions.tsv": "0184b39aed19614bc61f98dd99e4af5edec5ea8f92a3f10498e68c8151e432ba",
+        "enemy-projectiles.tsv": "3415a96a581d693d8e6a2bf41a6dddbed7ae4b6582771ddb0c73b58c6e413cec",
+        "scene-enemies.tsv": "ecd4c8c09948987f66df435a01ea573d0a70e826480cc0e79d7724648a51dc43",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+        "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+        "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+        "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+        "poses.tsv": "aab752a61c66fe5d4751f0b2491053e8b4b2810a331d9826f8ec73bf0420e84d",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "presentation.tsv": "94105fd343e745fcb559de88f655b4cb522b2c541a22c3c7dca1158d6d4e8771",
+        "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+      },
+      "assisted6544-2x": {
+        "state.tsv": "42a9ed4eba60a51362aa6a3131d5e62f92bce2f2d65076460ed1b83e50a509b1",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "scene-enemies.tsv": "df9461af913141d64dae434a4521b111553bf1b379ccc52b41dcd1731d58a739",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+        "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+        "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+        "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+        "poses.tsv": "41767e289f534ff5fd33383d2a0c88144cc4588c85517691e2313ab6aeef71c3",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "presentation.tsv": "d450050483fe8859f0c2b8b594daa6955053e2c1d6542b0748a3dc64b6108ced",
+        "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+      },
+      "assisted5200-fire-2x": {
+        "state.tsv": "e2a40ef88cbd51a6c911a6e31d6cea4ab71b38006621cc69cdcd347d56be5ff2",
+        "collisions.tsv": "81a3b6f1094d6948fafb8cb552def2b84fc6c57f6b5fffa9986a051bb1765d6a",
+        "enemy-projectiles.tsv": "694ef5b08d148ed496e16033b3d5bb11d021f0e45e7d7d6a57a153cf8ddd43d0",
+        "scene-enemies.tsv": "dc21fbf29f9790eb5e211b1a191558bb96b504469bd613944659473804161eab",
+        "scene-hits.tsv": "3e16c1414c10af9ebb2a28e1449bc1e4f0c4f9d94d7f44ea26742cebe4ffdceb",
+        "player-projectiles.tsv": "6e6df9a7a11fccc95bb1924da27c1cb5223ce312f27ed055d733a6ad5f6ee8db",
+        "player-shot-emissions.tsv": "c91696fe14ae5af1991202faf1ce009850496cd15bc768d8b5928d972fb788b6",
+        "player-shot-requests.tsv": "6b6071c9a7f196bf09aa3ee145fcd66a6a5812658971db31935284bce598b61c",
+        "player-shot-results.tsv": "733ecde2504150558794ac4ecc056e9bbd5f71225b16017928a3c95d3c910046",
+        "poses.tsv": "1b453992a38d6bb08807530c70db7f030603c848d7f9a5a9efa79727da78a407",
+        "fire-events.tsv": "2552183fb3d820cf809ea16c0241e118d110d77a27758331f765246571d5f300",
+        "presentation.tsv": "72322b282f8cd87b006e9f11c67f2f61093fccc19e650a0a891534ff53f93de0",
+        "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+      },
+      "assisted4080-missing245-2x": {
+        "state.tsv": "b4bbc440b9f7b69437af5836d832de99db8c350213ddd6e457e5225bea55a325",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "scene-enemies.tsv": "7ae0eeb26a0e7eef8b0fb2477c4040811e0a887cbcc9980583dc1b078118a899",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+        "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+        "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+        "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+        "poses.tsv": "e343bb48c472413114ec97493fccd230426147d5012849e60471532571ab4e6d",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "presentation.tsv": "12b41f26fb3bac23690ae18213326a084e92426d86f267db0f70867b237b8142",
+        "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+      },
+      "assisted4080-missing281-2x": {
+        "state.tsv": "b4bbc440b9f7b69437af5836d832de99db8c350213ddd6e457e5225bea55a325",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "scene-enemies.tsv": "7ae0eeb26a0e7eef8b0fb2477c4040811e0a887cbcc9980583dc1b078118a899",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+        "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+        "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+        "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+        "poses.tsv": "e343bb48c472413114ec97493fccd230426147d5012849e60471532571ab4e6d",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "presentation.tsv": "12b41f26fb3bac23690ae18213326a084e92426d86f267db0f70867b237b8142",
+        "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+      },
+      "assisted4080-missing283-2x": {
+        "state.tsv": "b4bbc440b9f7b69437af5836d832de99db8c350213ddd6e457e5225bea55a325",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "scene-enemies.tsv": "7ae0eeb26a0e7eef8b0fb2477c4040811e0a887cbcc9980583dc1b078118a899",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+        "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+        "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+        "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+        "poses.tsv": "e343bb48c472413114ec97493fccd230426147d5012849e60471532571ab4e6d",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "presentation.tsv": "12b41f26fb3bac23690ae18213326a084e92426d86f267db0f70867b237b8142",
+        "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+      },
+      "assisted4080-corrupt245-2x": {
+        "state.tsv": "b4bbc440b9f7b69437af5836d832de99db8c350213ddd6e457e5225bea55a325",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "scene-enemies.tsv": "7ae0eeb26a0e7eef8b0fb2477c4040811e0a887cbcc9980583dc1b078118a899",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+        "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+        "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+        "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+        "poses.tsv": "e343bb48c472413114ec97493fccd230426147d5012849e60471532571ab4e6d",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "presentation.tsv": "12b41f26fb3bac23690ae18213326a084e92426d86f267db0f70867b237b8142",
+        "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+      },
+      "assisted4080-corrupt281-2x": {
+        "state.tsv": "b4bbc440b9f7b69437af5836d832de99db8c350213ddd6e457e5225bea55a325",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "scene-enemies.tsv": "7ae0eeb26a0e7eef8b0fb2477c4040811e0a887cbcc9980583dc1b078118a899",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+        "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+        "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+        "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+        "poses.tsv": "e343bb48c472413114ec97493fccd230426147d5012849e60471532571ab4e6d",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "presentation.tsv": "12b41f26fb3bac23690ae18213326a084e92426d86f267db0f70867b237b8142",
+        "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+      },
+      "assisted4080-corrupt283-2x": {
+        "state.tsv": "b4bbc440b9f7b69437af5836d832de99db8c350213ddd6e457e5225bea55a325",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "scene-enemies.tsv": "7ae0eeb26a0e7eef8b0fb2477c4040811e0a887cbcc9980583dc1b078118a899",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+        "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+        "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+        "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+        "poses.tsv": "e343bb48c472413114ec97493fccd230426147d5012849e60471532571ab4e6d",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "presentation.tsv": "12b41f26fb3bac23690ae18213326a084e92426d86f267db0f70867b237b8142",
+        "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+      },
+      "assisted4080-flag-off-2x": {
+        "state.tsv": "b4bbc440b9f7b69437af5836d832de99db8c350213ddd6e457e5225bea55a325",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "scene-enemies.tsv": "7ae0eeb26a0e7eef8b0fb2477c4040811e0a887cbcc9980583dc1b078118a899",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+        "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+        "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+        "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+        "poses.tsv": "e343bb48c472413114ec97493fccd230426147d5012849e60471532571ab4e6d",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "presentation.tsv": "12b41f26fb3bac23690ae18213326a084e92426d86f267db0f70867b237b8142",
+        "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+      },
+      "assisted4080-4x": {
+        "state.tsv": "ba8cb1a1c4233a30ca7cd0754ef5b421d8fba0bdd45a635068e20ff59ca4f205",
+        "collisions.tsv": "e9571446e6c3ccbf57616576c47a9c16198b89d61ad61b1fdf9c9aa7840815e1",
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "scene-enemies.tsv": "39d8278778afa2c663e8a0630925c55d6e48b5dfb375181a9f428b59189a1bd1",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+        "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+        "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+        "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+        "poses.tsv": "2ab7005d9b84d2a86059d05d5cd53007557097f3e44d5c70dc13ef38e9ab0d34",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "presentation.tsv": "6224edcbae1ba6c7cf41b46cbddb899f9e16b10276f1b1dc619ae754edb05e4b",
+        "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+      },
+      "assisted5200-4x": {
+        "state.tsv": "5563decf1618ffd51c425e2feb1ba7a9788453afa491daae72a54e565ecbf97a",
+        "collisions.tsv": "7288005b9392b7a0f44fca6791052fa8bbb689ff8c03a1e19e0d5157549224e2",
+        "enemy-projectiles.tsv": "447c278e0b204bdbfc0814a44a58dfd37717525d274b00327c9a0a2e43d617d5",
+        "scene-enemies.tsv": "9ab12f97759735c5a4bbbc425ca22d67e8c6f5c500016e3d4c08c6f050664e07",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+        "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+        "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+        "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+        "poses.tsv": "7600d674426b784d934c299e2e7991e69e596719d8392dbb38b6f81d8a1cce00",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "presentation.tsv": "95e7456f917b9a2233bfce93506be749a79dc437ba993c10eb088e8cd8a8400c",
+        "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+      },
+      "assisted5676-4x": {
+        "state.tsv": "607f15992cc07b8f89b8ae2d7026186726799bab52523b89fe565fdcd0fa3849",
+        "collisions.tsv": "0184b39aed19614bc61f98dd99e4af5edec5ea8f92a3f10498e68c8151e432ba",
+        "enemy-projectiles.tsv": "3415a96a581d693d8e6a2bf41a6dddbed7ae4b6582771ddb0c73b58c6e413cec",
+        "scene-enemies.tsv": "ecd4c8c09948987f66df435a01ea573d0a70e826480cc0e79d7724648a51dc43",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+        "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+        "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+        "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+        "poses.tsv": "aab752a61c66fe5d4751f0b2491053e8b4b2810a331d9826f8ec73bf0420e84d",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "presentation.tsv": "94105fd343e745fcb559de88f655b4cb522b2c541a22c3c7dca1158d6d4e8771",
+        "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+      },
+      "assisted6544-4x": {
+        "state.tsv": "42a9ed4eba60a51362aa6a3131d5e62f92bce2f2d65076460ed1b83e50a509b1",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "scene-enemies.tsv": "df9461af913141d64dae434a4521b111553bf1b379ccc52b41dcd1731d58a739",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+        "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+        "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+        "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+        "poses.tsv": "41767e289f534ff5fd33383d2a0c88144cc4588c85517691e2313ab6aeef71c3",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "presentation.tsv": "d450050483fe8859f0c2b8b594daa6955053e2c1d6542b0748a3dc64b6108ced",
+        "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+      },
+      "assisted5200-fire-4x": {
+        "state.tsv": "e2a40ef88cbd51a6c911a6e31d6cea4ab71b38006621cc69cdcd347d56be5ff2",
+        "collisions.tsv": "81a3b6f1094d6948fafb8cb552def2b84fc6c57f6b5fffa9986a051bb1765d6a",
+        "enemy-projectiles.tsv": "694ef5b08d148ed496e16033b3d5bb11d021f0e45e7d7d6a57a153cf8ddd43d0",
+        "scene-enemies.tsv": "dc21fbf29f9790eb5e211b1a191558bb96b504469bd613944659473804161eab",
+        "scene-hits.tsv": "3e16c1414c10af9ebb2a28e1449bc1e4f0c4f9d94d7f44ea26742cebe4ffdceb",
+        "player-projectiles.tsv": "6e6df9a7a11fccc95bb1924da27c1cb5223ce312f27ed055d733a6ad5f6ee8db",
+        "player-shot-emissions.tsv": "c91696fe14ae5af1991202faf1ce009850496cd15bc768d8b5928d972fb788b6",
+        "player-shot-requests.tsv": "6b6071c9a7f196bf09aa3ee145fcd66a6a5812658971db31935284bce598b61c",
+        "player-shot-results.tsv": "733ecde2504150558794ac4ecc056e9bbd5f71225b16017928a3c95d3c910046",
+        "poses.tsv": "1b453992a38d6bb08807530c70db7f030603c848d7f9a5a9efa79727da78a407",
+        "fire-events.tsv": "2552183fb3d820cf809ea16c0241e118d110d77a27758331f765246571d5f300",
+        "presentation.tsv": "72322b282f8cd87b006e9f11c67f2f61093fccc19e650a0a891534ff53f93de0",
+        "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+      },
+      "assisted4080-missing245-4x": {
+        "state.tsv": "b4bbc440b9f7b69437af5836d832de99db8c350213ddd6e457e5225bea55a325",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "scene-enemies.tsv": "7ae0eeb26a0e7eef8b0fb2477c4040811e0a887cbcc9980583dc1b078118a899",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+        "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+        "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+        "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+        "poses.tsv": "e343bb48c472413114ec97493fccd230426147d5012849e60471532571ab4e6d",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "presentation.tsv": "12b41f26fb3bac23690ae18213326a084e92426d86f267db0f70867b237b8142",
+        "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+      },
+      "assisted4080-missing281-4x": {
+        "state.tsv": "b4bbc440b9f7b69437af5836d832de99db8c350213ddd6e457e5225bea55a325",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "scene-enemies.tsv": "7ae0eeb26a0e7eef8b0fb2477c4040811e0a887cbcc9980583dc1b078118a899",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+        "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+        "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+        "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+        "poses.tsv": "e343bb48c472413114ec97493fccd230426147d5012849e60471532571ab4e6d",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "presentation.tsv": "12b41f26fb3bac23690ae18213326a084e92426d86f267db0f70867b237b8142",
+        "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+      },
+      "assisted4080-missing283-4x": {
+        "state.tsv": "b4bbc440b9f7b69437af5836d832de99db8c350213ddd6e457e5225bea55a325",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "scene-enemies.tsv": "7ae0eeb26a0e7eef8b0fb2477c4040811e0a887cbcc9980583dc1b078118a899",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+        "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+        "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+        "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+        "poses.tsv": "e343bb48c472413114ec97493fccd230426147d5012849e60471532571ab4e6d",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "presentation.tsv": "12b41f26fb3bac23690ae18213326a084e92426d86f267db0f70867b237b8142",
+        "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+      },
+      "assisted4080-corrupt245-4x": {
+        "state.tsv": "b4bbc440b9f7b69437af5836d832de99db8c350213ddd6e457e5225bea55a325",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "scene-enemies.tsv": "7ae0eeb26a0e7eef8b0fb2477c4040811e0a887cbcc9980583dc1b078118a899",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+        "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+        "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+        "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+        "poses.tsv": "e343bb48c472413114ec97493fccd230426147d5012849e60471532571ab4e6d",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "presentation.tsv": "12b41f26fb3bac23690ae18213326a084e92426d86f267db0f70867b237b8142",
+        "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+      },
+      "assisted4080-corrupt281-4x": {
+        "state.tsv": "b4bbc440b9f7b69437af5836d832de99db8c350213ddd6e457e5225bea55a325",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "scene-enemies.tsv": "7ae0eeb26a0e7eef8b0fb2477c4040811e0a887cbcc9980583dc1b078118a899",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+        "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+        "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+        "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+        "poses.tsv": "e343bb48c472413114ec97493fccd230426147d5012849e60471532571ab4e6d",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "presentation.tsv": "12b41f26fb3bac23690ae18213326a084e92426d86f267db0f70867b237b8142",
+        "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+      },
+      "assisted4080-corrupt283-4x": {
+        "state.tsv": "b4bbc440b9f7b69437af5836d832de99db8c350213ddd6e457e5225bea55a325",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "scene-enemies.tsv": "7ae0eeb26a0e7eef8b0fb2477c4040811e0a887cbcc9980583dc1b078118a899",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+        "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+        "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+        "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+        "poses.tsv": "e343bb48c472413114ec97493fccd230426147d5012849e60471532571ab4e6d",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "presentation.tsv": "12b41f26fb3bac23690ae18213326a084e92426d86f267db0f70867b237b8142",
+        "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+      },
+      "assisted4080-flag-off-4x": {
+        "state.tsv": "b4bbc440b9f7b69437af5836d832de99db8c350213ddd6e457e5225bea55a325",
+        "collisions.tsv": "13c41afb8238db84028d8ae774ab671b8bcbf87b7c64583c1a94014f2f455bbf",
+        "enemy-projectiles.tsv": "6520ecc9cdb4d3b0a416a0ecc94ac496c4c417c2d9ab3e1b1e3fce610bbae634",
+        "scene-enemies.tsv": "7ae0eeb26a0e7eef8b0fb2477c4040811e0a887cbcc9980583dc1b078118a899",
+        "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6",
+        "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+        "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+        "player-shot-requests.tsv": "04552ada55d4b32796ff13bf06ae7d4e4d7f2e5231d6bd8374a025afc4f4f723",
+        "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+        "poses.tsv": "e343bb48c472413114ec97493fccd230426147d5012849e60471532571ab4e6d",
+        "fire-events.tsv": "5f048d7790fe6ae80a7359a9fc18ab02c1a4b33abc3504ea1208f37cb72f5152",
+        "presentation.tsv": "12b41f26fb3bac23690ae18213326a084e92426d86f267db0f70867b237b8142",
+        "weapon-loadout.tsv": "3b37c7357e66d5a5df67fa0f4d89cfdce1bc655180164f8ab491a32376d01b79",
+        "fade-steps.tsv": "0ae16cca85c1205b5cdd4be959bb9ffe544208730cdd2b6a682d5eb81c82e7eb"
+      }
+    },
+    "baseline_candidate_hashes_identical": true,
+    "cross_native_scale": {
+      "assisted4080": {
+        "all14_original_traces_byte_exact": true,
+        "original_actor_and_call_traces_exact": true,
+        "event_tables_clocks_and_selector_receipts_exact": true,
+        "scene_commands_and_frame_traces_exact": true
+      },
+      "assisted5200": {
+        "all14_original_traces_byte_exact": true,
+        "original_actor_and_call_traces_exact": true,
+        "event_tables_clocks_and_selector_receipts_exact": true,
+        "scene_commands_and_frame_traces_exact": true
+      },
+      "assisted5676": {
+        "all14_original_traces_byte_exact": true,
+        "original_actor_and_call_traces_exact": true,
+        "event_tables_clocks_and_selector_receipts_exact": true,
+        "scene_commands_and_frame_traces_exact": true
+      },
+      "assisted6544": {
+        "all14_original_traces_byte_exact": true,
+        "original_actor_and_call_traces_exact": true,
+        "event_tables_clocks_and_selector_receipts_exact": true,
+        "scene_commands_and_frame_traces_exact": true
+      },
+      "assisted5200-fire": {
+        "all14_original_traces_byte_exact": true,
+        "original_actor_and_call_traces_exact": true,
+        "event_tables_clocks_and_selector_receipts_exact": true,
+        "scene_commands_and_frame_traces_exact": true
+      },
+      "assisted4080-missing245": {
+        "all14_original_traces_byte_exact": true,
+        "original_actor_and_call_traces_exact": true,
+        "event_tables_clocks_and_selector_receipts_exact": true,
+        "scene_commands_and_frame_traces_exact": true
+      },
+      "assisted4080-missing281": {
+        "all14_original_traces_byte_exact": true,
+        "original_actor_and_call_traces_exact": true,
+        "event_tables_clocks_and_selector_receipts_exact": true,
+        "scene_commands_and_frame_traces_exact": true
+      },
+      "assisted4080-missing283": {
+        "all14_original_traces_byte_exact": true,
+        "original_actor_and_call_traces_exact": true,
+        "event_tables_clocks_and_selector_receipts_exact": true,
+        "scene_commands_and_frame_traces_exact": true
+      },
+      "assisted4080-corrupt245": {
+        "all14_original_traces_byte_exact": true,
+        "original_actor_and_call_traces_exact": true,
+        "event_tables_clocks_and_selector_receipts_exact": true,
+        "scene_commands_and_frame_traces_exact": true
+      },
+      "assisted4080-corrupt281": {
+        "all14_original_traces_byte_exact": true,
+        "original_actor_and_call_traces_exact": true,
+        "event_tables_clocks_and_selector_receipts_exact": true,
+        "scene_commands_and_frame_traces_exact": true
+      },
+      "assisted4080-corrupt283": {
+        "all14_original_traces_byte_exact": true,
+        "original_actor_and_call_traces_exact": true,
+        "event_tables_clocks_and_selector_receipts_exact": true,
+        "scene_commands_and_frame_traces_exact": true
+      },
+      "assisted4080-flag-off": {
+        "all14_original_traces_byte_exact": true,
+        "original_actor_and_call_traces_exact": true,
+        "event_tables_clocks_and_selector_receipts_exact": true,
+        "scene_commands_and_frame_traces_exact": true
+      }
+    },
+    "assisted_selectors": {
+      "4080": {
+        "start_event_ordinal": 236,
+        "original_setup_event_ordinals_replayed": [
+          1,
+          2,
+          3,
+          4,
+          21
+        ],
+        "serialized_eventrec_fnv": "01d73c470a9401b1",
+        "raw_eventrec_bytes": 5772,
+        "raw_eventrec_fnv": "b839e2440d1b5eff",
+        "selector_rng": "8005e0d4ef40f5b1",
+        "direct_memory_byte_comparison_equal": true
+      },
+      "5200": {
+        "start_event_ordinal": 325,
+        "original_setup_event_ordinals_replayed": [
+          1,
+          2,
+          3,
+          4,
+          21
+        ],
+        "serialized_eventrec_fnv": "01d73c470a9401b1",
+        "raw_eventrec_bytes": 5772,
+        "raw_eventrec_fnv": "b839e2440d1b5eff",
+        "selector_rng": "8005e0d4ef40f5b1",
+        "direct_memory_byte_comparison_equal": true
+      },
+      "5676": {
+        "start_event_ordinal": 349,
+        "original_setup_event_ordinals_replayed": [
+          1,
+          2,
+          3,
+          4,
+          21
+        ],
+        "serialized_eventrec_fnv": "01d73c470a9401b1",
+        "raw_eventrec_bytes": 5772,
+        "raw_eventrec_fnv": "b839e2440d1b5eff",
+        "selector_rng": "8005e0d4ef40f5b1",
+        "direct_memory_byte_comparison_equal": true
+      },
+      "6544": {
+        "start_event_ordinal": 384,
+        "original_setup_event_ordinals_replayed": [
+          1,
+          2,
+          3,
+          4,
+          21,
+          364,
+          365,
+          367
+        ],
+        "serialized_eventrec_fnv": "01d73c470a9401b1",
+        "raw_eventrec_bytes": 5772,
+        "raw_eventrec_fnv": "b839e2440d1b5eff",
+        "selector_rng": "8005e0d4ef40f5b1",
+        "direct_memory_byte_comparison_equal": true
+      }
+    },
+    "original_scheduled_allocations": 14,
+    "original_linked_installations": 7
+  }
+}

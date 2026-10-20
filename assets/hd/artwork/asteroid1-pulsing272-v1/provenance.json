@@ -1,0 +1,18 @@
+{
+  "generator": "Built-in image_gen tool; one common dark-red metal-panel master and three registered lens-only pulse edits.",
+  "reference": "Exact original NEWSHS23 record272 four-image contact viewed before artwork generation; source palette0 reference only, original data remains external.",
+  "initial_generation_prompt": "Smooth clean hand-painted top-down2D original grey/charcoal mechanical panel, full opaque24x28 housing, dark-red oval reactor lens with orange top-left and lower-right rim. Preserve proportions, channels and vent strips; no extra parts, exterior glow, transparency, text or3D.",
+  "state_edit_prompts": {
+    "231": "Slightly brighter red/orange inner rings and upper-left/lower-right rim, deep-red center, low pulse. Change lens illumination only.",
+    "233": "Medium orange upper-left/lower-right rim and ember-red legible inner oval rings, dark-red center. Change lens illumination only.",
+    "235": "Bright warm-orange broad inner oval ring and orange rims, dark-red center. Contain glow entirely in lens. Change lens illumination only."
+  },
+  "converter": "prototype/build-asteroid1-pulsing272-art.py",
+  "registration": "Full-canvas LANCZOS192x224 normalization; common229 housing copied exactly outside the independently decoded original288-index-cell union bbox[4,4,15,20]. Other states supply only that union. All672 original logical pixels remain fully opaque. No procedural recoloring, code-drawn geometry, interpolation or additional states. Internal density8 is separate from actual display2x/4x.",
+  "masters": {
+    "imagegen-master-229.png": "7dad9ee77afa4ba57521ca0076ae00ea21e3e14ed2e17da2fc31afdd64b5d5c9",
+    "imagegen-master-231.png": "06f1ce5485d8efd95e57ed6625b8f9ee4dc99170061e799459a0e91b0335c636",
+    "imagegen-master-233.png": "7fc3232fbdf8855a616c8969a753f9e7e059a3c9ee603d0953a2ad7885f00e78",
+    "imagegen-master-235.png": "1be83db6f7f1c6f140928d964df377955053c32225814b3b9ec57b29bf3d25dd"
+  }
+}

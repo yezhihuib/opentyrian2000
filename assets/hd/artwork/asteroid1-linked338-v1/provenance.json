@@ -1,0 +1,18 @@
+{
+  "generator": "Built-in image_gen tool; one coherent gold/grey complete installation master plus precise middle/upper lighting and destroyed-cap edits",
+  "reference": "Exact original NEWSHP20 eight-image and five-record installation338\u2013342 contact; original game data stays external",
+  "initial_generation_prompt": "Smooth hand-painted top-down2D original gold/copper three-tier cap above the left half of a coherent grey rail/bronze machinery48x56 platform, preserving exact48x84 assembly, asymmetric cap silhouette and empty upper-right cell. Lower tier illuminated. Original palette. No text/background/exterior glow/extra parts.",
+  "state_edit_prompts": {
+    "middle": "Only cap lighting: middle tier bright pale gold, upper/lower dim bronze. Preserve registration and geometry.",
+    "upper": "Only cap lighting: upper small tier bright pale gold, middle/lower dim bronze. Preserve registration and geometry.",
+    "wreck": "Only cap: dark cracked broken scorched bronze/charcoal, black gaps, narrow vertical red detail at right, same silhouette. No smoke/explosion/exterior debris."
+  },
+  "converter": "prototype/build-asteroid1-linked338-art.py",
+  "registration": "Uniform full-canvas384x672 LANCZOS normalization provides aligned192x224 cap crops; base lower master cap shared outside original279-index-cell live-difference union. Wreck uses same original346-cell coverage. One lower-master platform crop[29,535,918,1583] normalized384x448 then sliced at192x224 boundaries; exact original alpha repeated8x from independently decoded NEWSHP bank.229 hole(15,1),269 hole(12,0) preserved; dark floors opaque. No procedural recoloring or code-drawn geometry. Internal density8 distinct from native2x/4x display.",
+  "masters": {
+    "imagegen-master-lower.png": "e42ae60db604e9f8807238652a29fda8eecc655ec26a9c39f0efb18e61c0aaec",
+    "imagegen-master-middle.png": "35ac02dc12637d7c5c09dc735fb69c5abbe32d1588037fe7a2ad7e3eb696579c",
+    "imagegen-master-upper.png": "b3cd150d1ccd0dc24816ab99d3e29251d05daadfda17b819daab8cf134501a46",
+    "imagegen-master-wreck.png": "df8685d643010024c1da576b36a76e9c6b1885bd88fa12f1ad24c5792c03f048"
+  }
+}
