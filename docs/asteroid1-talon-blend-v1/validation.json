@@ -1,0 +1,507 @@
+{
+  "status": "PASS_SCOPED_TALON_INVULNERABILITY_BLEND",
+  "baseline_commit": "4c373d7",
+  "talon_source_tests": true,
+  "unit_checks_per_mode": 3265773,
+  "unit_modes": [
+    "optimized",
+    "asan-ubsan"
+  ],
+  "source_sha256": {
+    "src/asteroid1_talon_blend_mirror.inc": "11d0fe45406d2250fe6648aa2cd50e66f1caff8ff50eb386e5b3d8bfc52a0d6f",
+    "src/asteroid1_effect_blend_mirror.inc": "fa07b54f2d98ea2440c182ac55b49028d56e2f251a848475b2afeab2108950cf",
+    "src/render_mirror.c": "fc0d511ad566cc242f2e12ea4a11b9b0c62ab83e157b0d2596d464a005954ffe",
+    "tests/asteroid_effect_blend_test.c": "b4f5fdfa733e7512b653fce5a6267f268266af9a1530c3531e83aa9035f1d2bb",
+    "tests/run_asteroid_effect_blend_tests.py": "5bb11c609a2fe3e31ac3a388b9ed5836efccebc973a9fd2a660067cc17018121"
+  },
+  "unit_extracted_sha256": {
+    "primitives": "f977e0847e536646bb5ddbb03dd775239e4d6dc31ca34b7c432e43cbfb169ba2",
+    "pixel": "c6094b5cc4bccda6131efdca30c72c4cf10dc39eb9994dd2f01432f11be7bd67",
+    "talon": "11d0fe45406d2250fe6648aa2cd50e66f1caff8ff50eb386e5b3d8bfc52a0d6f",
+    "asteroid": "fa07b54f2d98ea2440c182ac55b49028d56e2f251a848475b2afeab2108950cf",
+    "callback": "af766f8a903c0ed28172d56bc76d517002c22759ea7482c6564faded43eac6fb",
+    "blitter": "0b57d4ccb9da6cca775933a41f459f15d321d478e44bfcaad2b5ac947ba0eeea"
+  },
+  "runtime": {
+    "runs": 20,
+    "logic_ticks_total": 2240,
+    "trace_comparisons": 266,
+    "captures": 56,
+    "opening": {
+      "2": {
+        "exact_trace_files": {
+          "draw-commands.tsv": true,
+          "sdl-runtime.tsv": true,
+          "player-projectiles.tsv": true,
+          "player-shot-emissions.tsv": true,
+          "player-shot-requests.tsv": true,
+          "collisions.tsv": true,
+          "scene-enemies.tsv": true,
+          "pulsing272-actors.tsv": true,
+          "talon-bank-visual.tsv": true,
+          "fire-events.tsv": true,
+          "enemy-projectiles.tsv": true,
+          "blend-palette.tsv": true,
+          "scene-hits.tsv": true,
+          "state.tsv": true,
+          "presentation.tsv": true,
+          "fade-steps.tsv": true,
+          "player-shot-draws.tsv": true,
+          "original-event-clock.tsv": true,
+          "player-shot-results.tsv": true,
+          "weapon-loadout.tsv": true,
+          "scene-draw-commands.tsv": true,
+          "poses.tsv": true
+        },
+        "talon_rgba_writes": 26600,
+        "talon_writes_over_hd": 324,
+        "restores_before": 15,
+        "restores_after": 0,
+        "captures": {
+          "visible-0087.png": {
+            "difference_bbox": [
+              140,
+              92,
+              268,
+              360
+            ],
+            "changed_cells": 4318,
+            "outside_fallback_regions": 0
+          },
+          "visible-0103.png": {
+            "difference_bbox": null,
+            "changed_cells": 0,
+            "outside_fallback_regions": 0
+          },
+          "visible-0098.png": {
+            "difference_bbox": [
+              140,
+              222,
+              220,
+              330
+            ],
+            "changed_cells": 1601,
+            "outside_fallback_regions": 0
+          },
+          "visible-0085.png": {
+            "difference_bbox": [
+              140,
+              146,
+              268,
+              352
+            ],
+            "changed_cells": 3713,
+            "outside_fallback_regions": 0
+          }
+        }
+      },
+      "4": {
+        "exact_trace_files": {
+          "draw-commands.tsv": true,
+          "sdl-runtime.tsv": true,
+          "player-projectiles.tsv": true,
+          "player-shot-emissions.tsv": true,
+          "player-shot-requests.tsv": true,
+          "collisions.tsv": true,
+          "scene-enemies.tsv": true,
+          "pulsing272-actors.tsv": true,
+          "talon-bank-visual.tsv": true,
+          "fire-events.tsv": true,
+          "enemy-projectiles.tsv": true,
+          "blend-palette.tsv": true,
+          "scene-hits.tsv": true,
+          "state.tsv": true,
+          "presentation.tsv": true,
+          "fade-steps.tsv": true,
+          "player-shot-draws.tsv": true,
+          "original-event-clock.tsv": true,
+          "player-shot-results.tsv": true,
+          "weapon-loadout.tsv": true,
+          "scene-draw-commands.tsv": true,
+          "poses.tsv": true
+        },
+        "talon_rgba_writes": 26600,
+        "talon_writes_over_hd": 324,
+        "restores_before": 15,
+        "restores_after": 0,
+        "captures": {
+          "visible-0087.png": {
+            "difference_bbox": [
+              280,
+              184,
+              536,
+              720
+            ],
+            "changed_cells": 4318,
+            "outside_fallback_regions": 0
+          },
+          "visible-0103.png": {
+            "difference_bbox": null,
+            "changed_cells": 0,
+            "outside_fallback_regions": 0
+          },
+          "visible-0098.png": {
+            "difference_bbox": [
+              280,
+              444,
+              440,
+              660
+            ],
+            "changed_cells": 1601,
+            "outside_fallback_regions": 0
+          },
+          "visible-0085.png": {
+            "difference_bbox": [
+              280,
+              292,
+              536,
+              704
+            ],
+            "changed_cells": 3713,
+            "outside_fallback_regions": 0
+          }
+        }
+      }
+    },
+    "controls": {
+      "flagoff-2x": {
+        "trace_files_identical": {
+          "draw-commands.tsv": true,
+          "sdl-runtime.tsv": true,
+          "player-projectiles.tsv": true,
+          "player-shot-emissions.tsv": true,
+          "player-shot-requests.tsv": true,
+          "frames.tsv": true,
+          "collisions.tsv": true,
+          "scene-enemies.tsv": true,
+          "pulsing272-actors.tsv": true,
+          "talon-bank-visual.tsv": true,
+          "fire-events.tsv": true,
+          "effects.tsv": true,
+          "enemy-projectiles.tsv": true,
+          "blend-palette.tsv": true,
+          "scene-hits.tsv": true,
+          "state.tsv": true,
+          "presentation.tsv": true,
+          "fade-steps.tsv": true,
+          "player-shot-draws.tsv": true,
+          "original-event-clock.tsv": true,
+          "player-shot-results.tsv": true,
+          "weapon-loadout.tsv": true,
+          "scene-draw-commands.tsv": true,
+          "restore-regions.tsv": true,
+          "poses.tsv": true,
+          "rgb-audit.tsv": true
+        },
+        "captures_byte_identical": {
+          "visible-0102.png": true,
+          "visible-0103.png": true,
+          "visible-0101.png": true
+        },
+        "warm_rgba_writes": 0,
+        "talon_rgba_writes": 0,
+        "talon_writes_over_hd": 0,
+        "shield_rgba_writes": 0,
+        "shield_writes_over_hd": 0
+      },
+      "missing-2x": {
+        "trace_files_identical": {
+          "draw-commands.tsv": true,
+          "sdl-runtime.tsv": true,
+          "player-projectiles.tsv": true,
+          "player-shot-emissions.tsv": true,
+          "player-shot-requests.tsv": true,
+          "frames.tsv": true,
+          "collisions.tsv": true,
+          "scene-enemies.tsv": true,
+          "pulsing272-actors.tsv": true,
+          "talon-bank-visual.tsv": true,
+          "fire-events.tsv": true,
+          "effects.tsv": true,
+          "enemy-projectiles.tsv": true,
+          "blend-palette.tsv": true,
+          "scene-hits.tsv": true,
+          "state.tsv": true,
+          "presentation.tsv": true,
+          "fade-steps.tsv": true,
+          "player-shot-draws.tsv": true,
+          "original-event-clock.tsv": true,
+          "player-shot-results.tsv": true,
+          "weapon-loadout.tsv": true,
+          "scene-draw-commands.tsv": true,
+          "restore-regions.tsv": true,
+          "poses.tsv": true,
+          "rgb-audit.tsv": true
+        },
+        "captures_byte_identical": {
+          "visible-0102.png": true,
+          "visible-0103.png": true,
+          "visible-0101.png": true
+        },
+        "warm_rgba_writes": 23732,
+        "talon_rgba_writes": 26600,
+        "talon_writes_over_hd": 0,
+        "shield_rgba_writes": 2556,
+        "shield_writes_over_hd": 0
+      },
+      "corrupt-2x": {
+        "trace_files_identical": {
+          "draw-commands.tsv": true,
+          "sdl-runtime.tsv": true,
+          "player-projectiles.tsv": true,
+          "player-shot-emissions.tsv": true,
+          "player-shot-requests.tsv": true,
+          "frames.tsv": true,
+          "collisions.tsv": true,
+          "scene-enemies.tsv": true,
+          "pulsing272-actors.tsv": true,
+          "talon-bank-visual.tsv": true,
+          "fire-events.tsv": true,
+          "effects.tsv": true,
+          "enemy-projectiles.tsv": true,
+          "blend-palette.tsv": true,
+          "scene-hits.tsv": true,
+          "state.tsv": true,
+          "presentation.tsv": true,
+          "fade-steps.tsv": true,
+          "player-shot-draws.tsv": true,
+          "original-event-clock.tsv": true,
+          "player-shot-results.tsv": true,
+          "weapon-loadout.tsv": true,
+          "scene-draw-commands.tsv": true,
+          "restore-regions.tsv": true,
+          "poses.tsv": true,
+          "rgb-audit.tsv": true
+        },
+        "captures_byte_identical": {
+          "visible-0102.png": true,
+          "visible-0103.png": true,
+          "visible-0101.png": true
+        },
+        "warm_rgba_writes": 23732,
+        "talon_rgba_writes": 26600,
+        "talon_writes_over_hd": 0,
+        "shield_rgba_writes": 2556,
+        "shield_writes_over_hd": 0
+      },
+      "warm-2x": {
+        "trace_files_identical": {
+          "draw-commands.tsv": true,
+          "sdl-runtime.tsv": true,
+          "pulsing272-draw-witness.tsv": true,
+          "player-projectiles.tsv": true,
+          "player-shot-emissions.tsv": true,
+          "player-shot-requests.tsv": true,
+          "frames.tsv": true,
+          "collisions.tsv": true,
+          "scene-enemies.tsv": true,
+          "selector-eventrec-bytes.tsv": true,
+          "pulsing272-actors.tsv": true,
+          "talon-bank-visual.tsv": true,
+          "fire-events.tsv": true,
+          "pulsing272-spawns.tsv": true,
+          "effects.tsv": true,
+          "assisted-seek.tsv": true,
+          "enemy-projectiles.tsv": true,
+          "blend-palette.tsv": true,
+          "scene-hits.tsv": true,
+          "state.tsv": true,
+          "presentation.tsv": true,
+          "pulsing272-phases.tsv": true,
+          "fade-steps.tsv": true,
+          "player-shot-draws.tsv": true,
+          "original-events.tsv": true,
+          "original-event-clock.tsv": true,
+          "player-shot-results.tsv": true,
+          "weapon-loadout.tsv": true,
+          "scene-draw-commands.tsv": true,
+          "restore-regions.tsv": true,
+          "poses.tsv": true,
+          "pulsing272-linked-effects.tsv": true,
+          "rgb-audit.tsv": true
+        },
+        "captures_byte_identical": {
+          "visible-0028.png": true
+        },
+        "warm_rgba_writes": 70660,
+        "talon_rgba_writes": 20986,
+        "talon_writes_over_hd": 0,
+        "shield_rgba_writes": 0,
+        "shield_writes_over_hd": 0
+      },
+      "flagoff-4x": {
+        "trace_files_identical": {
+          "draw-commands.tsv": true,
+          "sdl-runtime.tsv": true,
+          "player-projectiles.tsv": true,
+          "player-shot-emissions.tsv": true,
+          "player-shot-requests.tsv": true,
+          "frames.tsv": true,
+          "collisions.tsv": true,
+          "scene-enemies.tsv": true,
+          "pulsing272-actors.tsv": true,
+          "talon-bank-visual.tsv": true,
+          "fire-events.tsv": true,
+          "effects.tsv": true,
+          "enemy-projectiles.tsv": true,
+          "blend-palette.tsv": true,
+          "scene-hits.tsv": true,
+          "state.tsv": true,
+          "presentation.tsv": true,
+          "fade-steps.tsv": true,
+          "player-shot-draws.tsv": true,
+          "original-event-clock.tsv": true,
+          "player-shot-results.tsv": true,
+          "weapon-loadout.tsv": true,
+          "scene-draw-commands.tsv": true,
+          "restore-regions.tsv": true,
+          "poses.tsv": true,
+          "rgb-audit.tsv": true
+        },
+        "captures_byte_identical": {
+          "visible-0102.png": true,
+          "visible-0103.png": true,
+          "visible-0101.png": true
+        },
+        "warm_rgba_writes": 0,
+        "talon_rgba_writes": 0,
+        "talon_writes_over_hd": 0,
+        "shield_rgba_writes": 0,
+        "shield_writes_over_hd": 0
+      },
+      "missing-4x": {
+        "trace_files_identical": {
+          "draw-commands.tsv": true,
+          "sdl-runtime.tsv": true,
+          "player-projectiles.tsv": true,
+          "player-shot-emissions.tsv": true,
+          "player-shot-requests.tsv": true,
+          "frames.tsv": true,
+          "collisions.tsv": true,
+          "scene-enemies.tsv": true,
+          "pulsing272-actors.tsv": true,
+          "talon-bank-visual.tsv": true,
+          "fire-events.tsv": true,
+          "effects.tsv": true,
+          "enemy-projectiles.tsv": true,
+          "blend-palette.tsv": true,
+          "scene-hits.tsv": true,
+          "state.tsv": true,
+          "presentation.tsv": true,
+          "fade-steps.tsv": true,
+          "player-shot-draws.tsv": true,
+          "original-event-clock.tsv": true,
+          "player-shot-results.tsv": true,
+          "weapon-loadout.tsv": true,
+          "scene-draw-commands.tsv": true,
+          "restore-regions.tsv": true,
+          "poses.tsv": true,
+          "rgb-audit.tsv": true
+        },
+        "captures_byte_identical": {
+          "visible-0102.png": true,
+          "visible-0103.png": true,
+          "visible-0101.png": true
+        },
+        "warm_rgba_writes": 23732,
+        "talon_rgba_writes": 26600,
+        "talon_writes_over_hd": 0,
+        "shield_rgba_writes": 2556,
+        "shield_writes_over_hd": 0
+      },
+      "corrupt-4x": {
+        "trace_files_identical": {
+          "draw-commands.tsv": true,
+          "sdl-runtime.tsv": true,
+          "player-projectiles.tsv": true,
+          "player-shot-emissions.tsv": true,
+          "player-shot-requests.tsv": true,
+          "frames.tsv": true,
+          "collisions.tsv": true,
+          "scene-enemies.tsv": true,
+          "pulsing272-actors.tsv": true,
+          "talon-bank-visual.tsv": true,
+          "fire-events.tsv": true,
+          "effects.tsv": true,
+          "enemy-projectiles.tsv": true,
+          "blend-palette.tsv": true,
+          "scene-hits.tsv": true,
+          "state.tsv": true,
+          "presentation.tsv": true,
+          "fade-steps.tsv": true,
+          "player-shot-draws.tsv": true,
+          "original-event-clock.tsv": true,
+          "player-shot-results.tsv": true,
+          "weapon-loadout.tsv": true,
+          "scene-draw-commands.tsv": true,
+          "restore-regions.tsv": true,
+          "poses.tsv": true,
+          "rgb-audit.tsv": true
+        },
+        "captures_byte_identical": {
+          "visible-0102.png": true,
+          "visible-0103.png": true,
+          "visible-0101.png": true
+        },
+        "warm_rgba_writes": 23732,
+        "talon_rgba_writes": 26600,
+        "talon_writes_over_hd": 0,
+        "shield_rgba_writes": 2556,
+        "shield_writes_over_hd": 0
+      },
+      "warm-4x": {
+        "trace_files_identical": {
+          "draw-commands.tsv": true,
+          "sdl-runtime.tsv": true,
+          "pulsing272-draw-witness.tsv": true,
+          "player-projectiles.tsv": true,
+          "player-shot-emissions.tsv": true,
+          "player-shot-requests.tsv": true,
+          "frames.tsv": true,
+          "collisions.tsv": true,
+          "scene-enemies.tsv": true,
+          "selector-eventrec-bytes.tsv": true,
+          "pulsing272-actors.tsv": true,
+          "talon-bank-visual.tsv": true,
+          "fire-events.tsv": true,
+          "pulsing272-spawns.tsv": true,
+          "effects.tsv": true,
+          "assisted-seek.tsv": true,
+          "enemy-projectiles.tsv": true,
+          "blend-palette.tsv": true,
+          "scene-hits.tsv": true,
+          "state.tsv": true,
+          "presentation.tsv": true,
+          "pulsing272-phases.tsv": true,
+          "fade-steps.tsv": true,
+          "player-shot-draws.tsv": true,
+          "original-events.tsv": true,
+          "original-event-clock.tsv": true,
+          "player-shot-results.tsv": true,
+          "weapon-loadout.tsv": true,
+          "scene-draw-commands.tsv": true,
+          "restore-regions.tsv": true,
+          "poses.tsv": true,
+          "pulsing272-linked-effects.tsv": true,
+          "rgb-audit.tsv": true
+        },
+        "captures_byte_identical": {
+          "visible-0028.png": true
+        },
+        "warm_rgba_writes": 70660,
+        "talon_rgba_writes": 20986,
+        "talon_writes_over_hd": 0,
+        "shield_rgba_writes": 0,
+        "shield_writes_over_hd": 0
+      }
+    }
+  },
+  "independent_review": "Approved with no blocking findings; same-tick identical draw can reacquire draw-scoped lease.",
+  "limits": [
+    "Native straight-pose headless SDL checks only; not Windows/GPU/natural campaign acceptance.",
+    "Warm regression is assisted; prefix spawns omitted.",
+    "All five poses tested in extracted fixture, not native banking movement.",
+    "No broad unknown-source admission.",
+    "LeakSanitizer disabled; ASan/UBSan enabled."
+  ]
+}

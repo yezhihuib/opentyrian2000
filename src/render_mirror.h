@@ -74,6 +74,9 @@ typedef enum {
 #define render_mirror_bind_terrain(...) ((void)0)
 #define render_mirror_terrain_row(...) 0u
 #define render_mirror_ground101_layer1(...) ((void)0)
+#define render_mirror_asteroid_terrain_map(...) ((void)0)
+#define render_mirror_asteroid_terrain_layer1(...) ((void)0)
+#define render_mirror_asteroid_terrain_end(...) ((void)0)
 #define render_mirror_terrain_pixel(...) ((void)0)
 #define render_mirror_cloud_blend_row(...) 0u
 #define render_mirror_cloud_blend_pixel(surface,address,source,compatible,replaced) ((void)(compatible),(void)(replaced))
@@ -144,6 +147,9 @@ void render_mirror_fade_step(int steps);
 bool render_mirror_enemy_tile(SDL_Surface *, int x, int y, Sprite2_array, unsigned int base, int part, int filter, const G101EnemyContext *);
 void render_mirror_ground101_layer1(SDL_Surface *, const void *first_cell, int x, int y);
 void render_mirror_map_begin(char shape_file);
+void render_mirror_asteroid_terrain_map(char map_file,char shape_file);
+void render_mirror_asteroid_terrain_layer1(SDL_Surface *,const void *first,int x,int y);
+void render_mirror_asteroid_terrain_end(void);
 void render_mirror_rear_p1_reset(void);
 void render_mirror_rear_p1_call_begin(unsigned port,unsigned bay,unsigned power_index,unsigned mode_index,unsigned pnum,unsigned record);
 void render_mirror_rear_p1_call_end(void);

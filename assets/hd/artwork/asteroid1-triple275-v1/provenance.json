@@ -1,0 +1,31 @@
+{
+  "generator": "Built-in image_gen; one master and five lighting-only edits.",
+  "reference": "Original NEWSHS bank23 record275 six states, decoded palette0 viewed before generation; existing272 material style only.",
+  "initial_generation_prompt": "Three stacked horizontal rounded dark red glass windows, original relative positions and wide right grey metal border. Smooth HD painted grey/charcoal housing, opaque full6:7 canvas; bottom window moderately brighter red. No perspective, lettering or additional components.",
+  "layout_refinement_prompt": "Correct window regions to source: x2..20/24, top y2..9/28 middle11..18/28 bottom20..27/28; thin top/bottom margins and dividers. Preserve style.",
+  "state_edit_prompts": {
+    "155": "Bottom bright orange-red; top/middle dark.",
+    "157": "Middle moderate red; top/bottom dark.",
+    "159": "Middle bright orange-red; top/bottom dark.",
+    "161": "Top moderate red; middle/bottom dark.",
+    "163": "Top bright orange-red; middle/bottom dark."
+  },
+  "converter": "prototype/build-asteroid1-triple275-art.py",
+  "registration": "Full-canvas LANCZOS192x224 normalization. Shared153 master outside exact original370-cell source-index union bbox[2,2,18,25]. Other authored states sampled only inside union. All672source cells opaque. No procedural recolor or invented animation.",
+  "masters": {
+    "imagegen-master-159.png": "263092cd4bb7e38e7681a6fd26e948eab3a00c75ba97d8a16b5e39cf4b69825c",
+    "imagegen-master-161.png": "0c679113b82180bf957bfe39f1b979fb38de509923bfbd3c0f2045e6fea5b7ea",
+    "imagegen-master-163.png": "0984051c421c7baac2a7cd81700a83e6db4935e79c0e820adf78848f8e572732",
+    "imagegen-master-153.png": "0ffa19e7c6ee595f1dbe73f2bb7f6ddc6163e54fe4500ffd9f846f3595c77d8c",
+    "imagegen-master-157.png": "67c79283b15e311e268c0a288e6ee8b106908d8c35ebde63bd8a47e954967229",
+    "imagegen-master-155.png": "b347915aabe974c5ec027fdfeeb778ab4b44038ac1f02782d4fc415e4bf96356"
+  },
+  "state_edit_prompt_template": "Precise lighting-only edit, game animation state {base}. Image1 is edit target: preserve exact canvas, full opaque grey metal housing, THREE window positions, outlines and highlights. Image2 is authoritative window illumination reference. Change only interior window illumination to: {state}. All inactive windows stay dark burgundy like the original reference. No extra light, no white/yellow core, no change to housing, no perspective or size changes. Smooth HD painted sci-fi sprite, no text.",
+  "state_edit_prompt_values": {
+    "155": "BOTTOM window bright saturated orange-red glow",
+    "157": "MIDDLE window moderately bright red, no orange; bottom and top dark red",
+    "159": "MIDDLE window bright saturated orange-red glow; bottom and top dark red",
+    "161": "TOP window moderately bright red, no orange; middle and bottom dark red",
+    "163": "TOP window bright saturated orange-red glow; middle and bottom dark red"
+  }
+}

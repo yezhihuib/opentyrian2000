@@ -1,0 +1,17 @@
+{
+  "initial": "Use case: style-transfer. Single opaque full-canvas 6:7 game sprite based exactly on image1 original24x28 geometry. Grey steel rounded mechanical twin-emitter turret inset in dark charcoal tiled floor, TWO red apertures vertically aligned, not side-by-side. Centers at logical x11.5/24, y10.5/28 and y17/28. Broad pale grey central vertical bracket holds both dark-red lenses; symmetrical grey shoulder plates curve left/right; dark shadow under unit. Preserve original muted grey/charcoal palette, two dim deep-red emitters, silhouette, footprint, overhead orthographic view and camera. Refine chunky source pixels into smooth painted beveled metal, readable clean seams, no extra weapons, text, logos, antennas, bright glow or new parts. All canvas opaque including floor/corners; no transparency. One sprite, not a sheet.",
+  "states": {
+    "129": "Precise lighting-only animation edit. Image1 is fixed grey steel twin-emitter HD sprite; image2 is authoritative original state intensity/color reference. Both emitter interiors moderately red-orange, small amber-orange center, matching source intermediate charge. Not yellow-white or bright exterior glow. Preserve every metal housing, emitter rim, floor, camera, silhouette, position and dimensions exactly. Change only the two existing vertically stacked red emitter interiors, centered x11.5/24 and y10.5/28,17/28. No movement, extra parts, rays, beam, external glow, text, transparency. Smooth painted game sprite, single full opaque6:7 canvas.",
+    "131": "Precise lighting-only animation edit. Image1 is fixed grey steel twin-emitter HD sprite; image2 is authoritative original state intensity/color reference. Both emitter interiors bright orange-yellow at center surrounded by red-orange, matching source full firing charge. Keep compact bright area inside existing red lenses. Preserve every metal housing, emitter rim, floor, camera, silhouette, position and dimensions exactly. Change only the two existing vertically stacked red emitter interiors, centered x11.5/24 and y10.5/28,17/28. No movement, extra parts, rays, beam, external glow, text, transparency. Smooth painted game sprite, single full opaque6:7 canvas."
+  },
+  "generator": "Built-in image_gen, one master and two lighting-only state edits.",
+  "reference": "Actual NEWSHD270 source127/129/131, grey metal and vertically stacked emitters.",
+  "converter": "prototype/build-asteroid1-twin270-art.py",
+  "registration": "LANCZOS192x224;127 common outside exact31-cell original difference union bbox[10,9,5,10]; all672cells opaque; no recoloring or added geometry.",
+  "masters": {
+    "imagegen-master-129.png": "301611bdbdd8ecda9fd833cb21b638d6094b01e5e8363766adc82f7c75f9addc",
+    "imagegen-master-127.png": "98d8d32dd4969d7c003750db2fbcdfe0e8ced0a1c4aaba7788f2364939177d55",
+    "imagegen-master-131.png": "ae277260b296615853a27afb0f77ee24f942b355e27d6e61bfa174dd62a4d37e"
+  },
+  "refinement129": "Precise single-detail correction: image1 is target. Keep ALL grey metal, floor, aperture geometry, camera and upper emitter exactly unchanged. ONLY reduce LOWER emitter interior illumination to saturated RED with a small dark-orange center, substantially less yellow/bright than upper emitter. Image2 original state129 has upper emitter orange and lower emitter redder/dimmer; match that relationship. Lower should be brighter than idle deep-red but no yellow core. Smooth painted light, no pixel squares. All canvas opaque6:7; no new parts, rays, outer glow or text."
+}

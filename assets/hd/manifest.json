@@ -55779,8 +55779,8 @@
   },
   "optional_packs": {
     "asteroid1-ten-v1": {
-      "count": 57,
-      "scope": "Separate asteroid-only normal-data Episode 1 physical level 1 opt-in; twenty independently preflighted families, 57 images and 52 source-record dependencies across NEWSHD, NEWSHS and NEWSHP. All other artwork remains classic.",
+      "count": 91,
+      "scope": "Separate asteroid-only normal-data Episode 1 physical level 1 opt-in; twenty-eight finite families, 91 images, 57 body source-record dependencies plus exact TYRIAN.SHP enemy-role sources304 and112/113 and SHAPESZ layer1 terrain429/430/439/440. Record285 is body-only; original weapon24 projectile91 remains classic. Shared projectile families are not emitter-specific. Terrain adds no enemy source records. No gameplay or default catalog changes.",
       "files": {
         "enemy-newshd-1-8.hda": {
           "sha256": "c59e7286da4f08915d710b8c9ef2edf7af69b4ca3f7171c47ab3b7d02cc1f9af",
@@ -56522,6 +56522,448 @@
           ],
           "source_png": "assets/hd/artwork/asteroid1-pulsing272-v1/enemy-newshs-235-8.png",
           "source_png_sha256": "1ece29a19cfb36b7b747443d327265a573e3ce3097cdddeaa459b4f838f9512b"
+        },
+        "enemy-newshs-153-8.hda": {
+          "sha256": "6d8dd571ae6746cd0403a92dc5051e090638dc4e87a09a917b17c758d84e7bff",
+          "header_u32": [
+            1370153,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-triple275-v1/enemy-newshs-153-8.png",
+          "source_png_sha256": "c83e79e31f2248a92063e666976e80631eee6b14c61aae7a498e29bc953e195a"
+        },
+        "enemy-newshs-155-8.hda": {
+          "sha256": "c5bf16dad0f327b9a52338c825aa90a1a5619d08fd4812c3cc48e23c907e534c",
+          "header_u32": [
+            1370155,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-triple275-v1/enemy-newshs-155-8.png",
+          "source_png_sha256": "414a4c7a9fdec8201d3473815b3e275a15001e24c8faa89597a5fba8e5c5d123"
+        },
+        "enemy-newshs-157-8.hda": {
+          "sha256": "f3131c0b8bae2ceb01c4191b6b2e5335240ed6b5125b74271b4bfa3d1c6e401e",
+          "header_u32": [
+            1370157,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-triple275-v1/enemy-newshs-157-8.png",
+          "source_png_sha256": "be6c2ccc8dd7488dcadda8bf87d0a99c62d986fdc80cf35a1da6a958e5a8e1d0"
+        },
+        "enemy-newshs-159-8.hda": {
+          "sha256": "1a1c5e039d42f088a79228ca24e10fbfc445ca08c2b792ee1e6ffd627bbafc91",
+          "header_u32": [
+            1370159,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-triple275-v1/enemy-newshs-159-8.png",
+          "source_png_sha256": "ec3aa15b845bb25b401964eaf6490469c2b0a08617d794ef6a935ef635b8ba0b"
+        },
+        "enemy-newshs-161-8.hda": {
+          "sha256": "b74efddd0426eb149d6e52f8c771acd10b5c0728cbd5928da37652441e303189",
+          "header_u32": [
+            1370161,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-triple275-v1/enemy-newshs-161-8.png",
+          "source_png_sha256": "a5fc332d6d094e2754689986186eb6f235f1d0fac21defc4e6eb1237e3320e3f"
+        },
+        "enemy-newshs-163-8.hda": {
+          "sha256": "19d2c6677c7ff3fd30fcf5f7660ed38ea72de0dade7320a12789994fddc799ad",
+          "header_u32": [
+            1370163,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-triple275-v1/enemy-newshs-163-8.png",
+          "source_png_sha256": "571fcc46c597dab05a946360441cee3bd71e7d02d36c050674cbdf677eddf604"
+        },
+        "enemy-newshs-191-8.hda": {
+          "sha256": "7dc6a39a355d7754678ec02a66535447e0ee9a3e64d53026eb6085bd12335a5a",
+          "header_u32": [
+            1380191,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-columns276-v1/enemy-newshs-191-8.png",
+          "source_png_sha256": "63b69f3790014e81d043492b670525bfd05eb603dd606e19f2a01482664921ae"
+        },
+        "enemy-newshs-193-8.hda": {
+          "sha256": "32f57becaf6191ed106eb43c3352fb41906bb3e621b1b3ecc2eb2024e9a93439",
+          "header_u32": [
+            1380193,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-columns276-v1/enemy-newshs-193-8.png",
+          "source_png_sha256": "50816ba119c0549c8bbf0e1aa72c48d3337ad11686539e6041c73c9a80129546"
+        },
+        "enemy-newshs-195-8.hda": {
+          "sha256": "98211e49c2f2ff1b6781b3c3366cda12cff4565ac9793df34e1c2288ff276394",
+          "header_u32": [
+            1380195,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-columns276-v1/enemy-newshs-195-8.png",
+          "source_png_sha256": "4e7bd731a4b696e567ce7b4c4132739c66f7f7e5d020d03dc641218c2aa9a0fc"
+        },
+        "enemy-newshs-197-8.hda": {
+          "sha256": "50737f5a915d968f2809a42afd5b74ac33e95b1e40bbddbc0469ab681d257a1c",
+          "header_u32": [
+            1380197,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-columns276-v1/enemy-newshs-197-8.png",
+          "source_png_sha256": "c84af63ad8b2826f5547f6c92653c262b850d8072c3bd702e309a64a4953bc1b"
+        },
+        "enemy-newshs-199-8.hda": {
+          "sha256": "125e282d301a79ac13ae551d66f1e74378d10f009b46c4e890a7cd0301733463",
+          "header_u32": [
+            1380199,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-columns276-v1/enemy-newshs-199-8.png",
+          "source_png_sha256": "d47e99174a1cf406088d63c4c1742b94ae5a2e7421e34ac752c578ff3b22a91e"
+        },
+        "enemy-newshs-201-8.hda": {
+          "sha256": "87c3032212fb0919ba2d735b2b053876dc027c569a7954224273e62ce01513f2",
+          "header_u32": [
+            1380201,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-columns276-v1/enemy-newshs-201-8.png",
+          "source_png_sha256": "a6bd4bb1b12bb7f5adecc03d258c40d5d1f0cd7708e60a1a0571d15b2f592bfc"
+        },
+        "enemy-newshd-169-8.hda": {
+          "sha256": "0650b5ef93849d23b757eb76c9ccbcc222dbdfbed7e23f872cf0990873543639",
+          "header_u32": [
+            1390169,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-turret273-v1/enemy-newshd-169-8.png",
+          "source_png_sha256": "20fbc73b1888d780d45175999b702d0afea7b20f12a8f4dfee68635df00d49a8"
+        },
+        "enemy-newshd-193-8.hda": {
+          "sha256": "b09b304729ccb04ba569ddc0383d9934ac7de562c5402494b9c3c8db451d3b4c",
+          "header_u32": [
+            1390193,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-turret273-v1/enemy-newshd-193-8.png",
+          "source_png_sha256": "3cb181b9639f3552df8ae1249cedc280a3fe65fc78b75d72d46e04817bd92671"
+        },
+        "enemy-newshd-195-8.hda": {
+          "sha256": "ba9005d5a19616a1425b04164c3b3e59193f1db8e01bca0805ac3382dfef1652",
+          "header_u32": [
+            1390195,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-turret273-v1/enemy-newshd-195-8.png",
+          "source_png_sha256": "728d80592af9d017936823abc4479558c8f6b2b6f13b7d6307eeebe10802ced8"
+        },
+        "enemy-newshd-197-8.hda": {
+          "sha256": "aa3f8b90ab19c1160647be14264df73678b763064cdc8d8abc22aba2ecfe347a",
+          "header_u32": [
+            1390197,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-turret273-v1/enemy-newshd-197-8.png",
+          "source_png_sha256": "b518de24011de1f0a5badeea94d4df9e68a8bee66d93d343ef55c5911aa47cf8"
+        },
+        "enemy-newshd-199-8.hda": {
+          "sha256": "1812680982e5b22242cedfb1c7d378a4c53073d548e27dbbd7f0c63250c1ada2",
+          "header_u32": [
+            1390199,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-turret273-v1/enemy-newshd-199-8.png",
+          "source_png_sha256": "5892df8602f39c4ebe366c48f39556a9f61fd68a97c027ed4bafe20c277dac38"
+        },
+        "enemy-newshd-201-8.hda": {
+          "sha256": "bae10e8a4dce967a6d19868dbb527fc6ff2d0a4be5a7a6e3256ae0a56b6f9c31",
+          "header_u32": [
+            1390201,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-turret273-v1/enemy-newshd-201-8.png",
+          "source_png_sha256": "c3d506d0e91b4542902c8804c24bb1327ecacab8cab189dc2d54b8a0aa9f3cec"
+        },
+        "enemy-newshd-203-8.hda": {
+          "sha256": "dae8ebc5b00ae7815432827ba352998fa4d387a77e327dea790bdf02523bb5fc",
+          "header_u32": [
+            1390203,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-turret273-v1/enemy-newshd-203-8.png",
+          "source_png_sha256": "f7f317f854e7f78d61bd90df2169c278935a5da988871ae39fab7162a57d0632"
+        },
+        "enemy-newshd-205-8.hda": {
+          "sha256": "dc8ceeba073abd35e508b1004b77c022d298027fd01f99accc563640b20ebac4",
+          "header_u32": [
+            1390205,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-turret273-v1/enemy-newshd-205-8.png",
+          "source_png_sha256": "ff5e6946b7db7882bc698f99379142636b0588c5bdd18d69e69670fae219fb62"
+        },
+        "enemy-newshd-207-8.hda": {
+          "sha256": "48da35b8f1240d938296c9fdfeb3118335f8dc8faa246f731a722bf445874071",
+          "header_u32": [
+            1390207,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-turret273-v1/enemy-newshd-207-8.png",
+          "source_png_sha256": "30a569acf7ce31dc3d16b568f8433e38faf285d0dd27dc6bb4ed33778a6e5310"
+        },
+        "enemy-projectile304-304-8.hda": {
+          "sha256": "0b86006d9d749f3bdceae0f7a4081250d07838eee7f1f54f284313fd14f17da8",
+          "header_u32": [
+            1400304,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-projectile304-v1/enemy-projectile304-304-8.png",
+          "source_png_sha256": "72218d326cd5c65bbd06c6ea83c28e8f8314726c93fd81422abf0c9a8c01581e"
+        },
+        "enemy-newshd-127-8.hda": {
+          "sha256": "0fe44c1bc3a533f0f771a45705df0c07f66d662f51c0beb67fcae8ec7c30ffb5",
+          "header_u32": [
+            1410127,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-twin270-v1/enemy-newshd-127-8.png",
+          "source_png_sha256": "844acd0de22de7ef725b4e051448cd1909f47e043e2b39dcb8e94255119b4643"
+        },
+        "enemy-newshd-129-8.hda": {
+          "sha256": "fbdca2d2609801fa3dd89c0f3458c981f3c515f9de2f25f07111f8111a3d3b0b",
+          "header_u32": [
+            1410129,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-twin270-v1/enemy-newshd-129-8.png",
+          "source_png_sha256": "2d3e5cc2f8cec045d4b9f4e8015dd1cd9d6fb0d980e61acbc12598bcbebc19f6"
+        },
+        "enemy-newshd-131-8.hda": {
+          "sha256": "d6629214cb77a7bebf3b4753caa473d6653048bfa548147e61fb1c0e0b5bfb8f",
+          "header_u32": [
+            1410131,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-twin270-v1/enemy-newshd-131-8.png",
+          "source_png_sha256": "2ba2a5a3e79e90bf916d365e70151b2ae63b5cdaebecfcce4b327976ebe65377"
+        },
+        "enemy-orb112113-112-8.hda": {
+          "sha256": "84546804885d7c602449fe0c4783d1873e60f30a8abde3e3095356fc3d8bd720",
+          "header_u32": [
+            1420112,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-orb112113-v1/enemy-orb112113-112-8.png",
+          "source_png_sha256": "43f9fd974d90fffd8f1cfc58073491ecd46b489ca24efa0bb51bbaddd5cf7e9b"
+        },
+        "enemy-orb112113-113-8.hda": {
+          "sha256": "20a9b6480d91a324a4ca375e79f596504103a80f165512fa33d8c5ffeeac7fba",
+          "header_u32": [
+            1420113,
+            8,
+            12,
+            14,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-orb112113-v1/enemy-orb112113-113-8.png",
+          "source_png_sha256": "3b0bc58c9bd31154afee6cb4821abd13eae4fa8bb860472c8fde72bd102c12bc"
+        },
+        "enemy-newshd-157-8.hda": {
+          "sha256": "4cbf65176d6536c148a4f7a1b8f5a54e565bca47fae24a82a9c0e8345c1c0ebd",
+          "header_u32": [
+            1430157,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-clamshell285-v1/enemy-newshd-157-8.png",
+          "source_png_sha256": "a71c054344f71320d0c0eb9af9c1d25c9d1e9483d571279d7525c8d667121268"
+        },
+        "enemy-newshd-159-8.hda": {
+          "sha256": "f19c34174c2a17a0c2386de06c4ba497996122122dc67c50bd9fd8677cb7c07e",
+          "header_u32": [
+            1430159,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-clamshell285-v1/enemy-newshd-159-8.png",
+          "source_png_sha256": "798939c442e44b4b7378430e7a9595f95d3e1a8502dc6ded12095eb0f281fcf1"
+        },
+        "enemy-newshd-161-8.hda": {
+          "sha256": "ad178825c48d9a2e0946c848e2c38c747a391b876ef8b4e8944295654b01e5b5",
+          "header_u32": [
+            1430161,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-clamshell285-v1/enemy-newshd-161-8.png",
+          "source_png_sha256": "3eeea5ebac1fab0d129df6d544d5c06f33928b151782b9d809840be706b571c5"
+        },
+        "terrain-shapesz-429-8.hda": {
+          "sha256": "fe7d98b40bd08a80191e8d3be373bece76dc64ab545b831ef9b68e06ffadb2b4",
+          "header_u32": [
+            1440429,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-fixture429-v1/terrain-shapesz-429-8.png",
+          "source_png_sha256": "b1ad5cf180c88ab55177d050845519c4b17430bf6540fc67b8b67e4b6ba17ab5"
+        },
+        "terrain-shapesz-430-8.hda": {
+          "sha256": "ac2fa9ec717df510b8760b6f6d152e80b7afed737df5360f65a66b7dc52b6d62",
+          "header_u32": [
+            1440430,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-fixture429-v1/terrain-shapesz-430-8.png",
+          "source_png_sha256": "787775f229283534ebf4d537ca814bf00f636590fb3887ccdebb7ebf524168cf"
+        },
+        "terrain-shapesz-439-8.hda": {
+          "sha256": "9ff0686afd3b2cf6ce919cf93c8d8138cd993e56b2a24e939566e0a949e008b8",
+          "header_u32": [
+            1440439,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-fixture429-v1/terrain-shapesz-439-8.png",
+          "source_png_sha256": "2975a32a37aa02a05e93b72d9ad2783da23f2d734801a0ace98b4caf9368d8ce"
+        },
+        "terrain-shapesz-440-8.hda": {
+          "sha256": "4d55a5004655894a867458663f3178e213f49a489389bdfa35eb87f431cbafa3",
+          "header_u32": [
+            1440440,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/artwork/asteroid1-fixture429-v1/terrain-shapesz-440-8.png",
+          "source_png_sha256": "df009e8eebe4138509bb502d1926e03577dc3ca3614330c1cb0bbd7e27fc3ad0"
         }
       },
       "families": {
@@ -56763,6 +57205,145 @@
           "logical_bank": 23,
           "source_bank": "newshs.shp",
           "material_role": 136
+        },
+        "triple275": {
+          "image_bases": [
+            153,
+            155,
+            157,
+            159,
+            161,
+            163
+          ],
+          "source_records": [
+            275
+          ],
+          "logical_bank": 23,
+          "source_bank": "newshs.shp",
+          "material_role": 137
+        },
+        "columns276": {
+          "image_bases": [
+            191,
+            193,
+            195,
+            197,
+            199,
+            201
+          ],
+          "source_records": [
+            276
+          ],
+          "logical_bank": 23,
+          "source_bank": "newshs.shp",
+          "material_role": 138
+        },
+        "turret273": {
+          "image_bases": [
+            169,
+            193,
+            195,
+            197,
+            199,
+            201,
+            203,
+            205,
+            207
+          ],
+          "source_records": [
+            273
+          ],
+          "logical_bank": 8,
+          "source_bank": "newshd.shp",
+          "material_role": 139,
+          "source_weapons": [
+            144
+          ],
+          "projectile_selectors": [
+            304
+          ]
+        },
+        "projectile304": {
+          "image_bases": [
+            304
+          ],
+          "source_records": [],
+          "logical_bank": 8,
+          "source_bank": "tyrian.shp",
+          "source_subbank": "player-shot-bank",
+          "source_role": "enemy-shot",
+          "material_role": 140,
+          "source_bank_bytes": 32060,
+          "source_bank_sha256": "9bba1e94d38df61f152412c226bfd6df235e42027c9143c5961d4a5add853a68"
+        },
+        "firing270": {
+          "image_bases": [
+            127,
+            129,
+            131
+          ],
+          "source_records": [
+            270
+          ],
+          "logical_bank": 8,
+          "source_bank": "newshd.shp",
+          "material_role": 141,
+          "source_weapons": [
+            145,
+            146
+          ],
+          "projectile_selectors": [
+            112,
+            113
+          ]
+        },
+        "enemy_orb112113": {
+          "image_bases": [
+            112,
+            113
+          ],
+          "source_records": [],
+          "logical_bank": 8,
+          "source_bank": "tyrian.shp",
+          "source_subbank": "player-shot-bank",
+          "source_role": "enemy-shot",
+          "material_role": 142,
+          "source_bank_bytes": 32060,
+          "source_bank_sha256": "9bba1e94d38df61f152412c226bfd6df235e42027c9143c5961d4a5add853a68"
+        },
+        "clamshell285": {
+          "image_bases": [
+            157,
+            159,
+            161
+          ],
+          "source_records": [
+            285
+          ],
+          "logical_bank": 8,
+          "source_bank": "newshd.shp",
+          "material_role": 143,
+          "source_weapons": [
+            24
+          ],
+          "classic_projectile_selectors": [
+            91
+          ]
+        },
+        "fixture429": {
+          "image_bases": [
+            429,
+            430,
+            439,
+            440
+          ],
+          "source_records": [],
+          "logical_bank": 201,
+          "source_bank": "shapesz.dat",
+          "source_role": "terrain-layer1",
+          "material_role": 144,
+          "source_bank_bytes": 318976,
+          "source_bank_sha256": "3ecc9b59c82e8e7d9c91889aac7d337ca28a59519c4970e256250e4603a9b248"
         }
       }
     }

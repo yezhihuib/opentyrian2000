@@ -252,9 +252,9 @@ def main():
     prefix=ten.HARNESS.split('int main(int argc',1)[0].replace('for(unsigned t=444;t<=453;t++)','const unsigned types[]={272,276,325};for(unsigned n=0;n<3;n++) {unsigned t=types[n];').replace('  Uint8 b[77];','  Uint8 b[77];')
     # The replacement adds one scope; close it immediately before EOF check.
     prefix=prefix.replace(' assert(fgetc(f)==EOF);fclose(f);',' }assert(fgetc(f)==EOF);fclose(f);')
-    prefix=prefix.replace('#define ASSET_ASTEROID1 108','#define ASSET_ASTEROID1 108\n#define ASSET_ASTEROID1_NEWSHS 136')
+    prefix=prefix.replace('#define ASSET_ASTEROID1 108','#define ASSET_ASTEROID1 108\n#define ASSET_ASTEROID1_NEWSHS 136\n#define ASSET_ASTEROID1_TRIPLE275 137\n#define ASSET_ASTEROID1_TURRET273 139\n#define ASSET_ASTEROID1_PROJECTILE304 140\n#define ASSET_ASTEROID1_ENEMY_ORB112113 142\n#define ASSET_ASTEROID1_FIRING270 141\n#define ASSET_ASTEROID1_FIRING285 143\n#define ASSET_ASTEROID1_TERRAIN144 144\n#define ASSET_ASTEROID1_COLUMNS276 138')
     prefix=prefix.replace('static Uint8 last_filter;','static Uint8 last_filter;static Asset *last_asset;').replace('accepted++;last_x=x;','last_asset=a;accepted++;last_x=x;').replace('a->bank==108','a->bank==136').replace('assert(role==108&&mirrored)','assert(role==136&&mirrored)')
-    prefix=prefix.replace('static SDL_PixelFormat format=', 'static const Asset *pulsing272_draw_lease;\nstatic SDL_PixelFormat format=')
+    prefix=prefix.replace('static SDL_PixelFormat format=', 'static const Asset *pulsing272_draw_lease,*triple275_draw_lease,*columns276_draw_lease,*turret273_draw_lease,*enemy_orb112113_draw_lease,*projectile304_draw_lease,*terrain144_draw_lease,*firing285_draw_lease,*firing270_draw_lease;\nstatic SDL_PixelFormat format=')
     prefix=prefix.replace('assert(a&&a->bank==136&&a->rgba', 'assert(a&&a==pulsing272_draw_lease&&a->bank==136&&a->rgba')
     scopes=extract(renderer,'asteroid1_level_scope')+extract(renderer,'asteroid1_scope')
     common=extract(source['asteroid1_ten_mirror.inc'],'asteroid1_stamp')+extract(source['asteroid1_ten_mirror.inc'],'asteroid1_record_stamp')
@@ -296,6 +296,7 @@ typedef struct { SDL_Rect rect; int bank,index,style; bool live; } HdRegion;
 static HdRegion regions[16];static unsigned region_count;
 static bool production_region_admission(int x,int y,Asset *a,int style)
 {
+ const SDL_Rect *part=NULL; unsigned filter=0; const void *material=NULL,*cap=NULL,*forest=NULL;
 @GATE@
 @REGION@
  return true;

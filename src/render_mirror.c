@@ -4,6 +4,7 @@
  * Unsupported effects or incomplete changed-pixel coverage reject the full frame.
  */
 #include "settings_font.h"
+#include "backgrnd.h"
 #include "load_font.h"
 #include "selector_font.h"
 #include "pregame_font.h"
@@ -48,7 +49,7 @@ typedef struct {
  int bank,index,w,h,anchor_x,anchor_y,density;
  Uint8 *rgba;
 } Asset;
-enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121, ASSET_ENEMY_TANK_SHELL=122, ASSET_REAR534_BODY=123, ASSET_DATA513_BODY=124, ASSET_PROTRON_SHADOW=125, ASSET_MARLO_BODY=126, ASSET_MINT_BODY=127, ASSET_FRONTBLASTER_BODY=128, ASSET_PLASMA_BODY=129, ASSET_PLASMA_PROJECTILE=130, ASSET_REAR_MULTI_P1=131, ASSET_DATA_VALUE=132, ASSET_FIXED_PICKUP_FLASH=133, ASSET_SECRET_EXIT_ORB=134, ASSET_ASTEROID1_NEWSHP=135, ASSET_ASTEROID1_NEWSHS=136, ASSET_ASTEROID1=108 };
+enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121, ASSET_ENEMY_TANK_SHELL=122, ASSET_REAR534_BODY=123, ASSET_DATA513_BODY=124, ASSET_PROTRON_SHADOW=125, ASSET_MARLO_BODY=126, ASSET_MINT_BODY=127, ASSET_FRONTBLASTER_BODY=128, ASSET_PLASMA_BODY=129, ASSET_PLASMA_PROJECTILE=130, ASSET_REAR_MULTI_P1=131, ASSET_DATA_VALUE=132, ASSET_FIXED_PICKUP_FLASH=133, ASSET_SECRET_EXIT_ORB=134, ASSET_ASTEROID1_NEWSHP=135, ASSET_ASTEROID1_NEWSHS=136, ASSET_ASTEROID1_TRIPLE275=137, ASSET_ASTEROID1_COLUMNS276=138, ASSET_ASTEROID1_TURRET273=139, ASSET_ASTEROID1_PROJECTILE304=140, ASSET_ASTEROID1_FIRING270=141, ASSET_ASTEROID1_ENEMY_ORB112113=142, ASSET_ASTEROID1_FIRING285=143, ASSET_ASTEROID1_TERRAIN144=144, ASSET_ASTEROID1=108 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
 /* Slots 507..509 are rear534; slots 510..521 are Data513. */
 static Asset assets[567];
@@ -75,8 +76,27 @@ static void firing325_shutdown(void);
 static void ember269_shutdown(void);
 static void linked338_shutdown(void);
 static void pulsing272_shutdown(void);
-/* Material136 is private to the source- and actor-guarded272 callback. */
+static void triple275_shutdown(void);
+static void columns276_shutdown(void);
+static void turret273_shutdown(void);
+static void projectile304_shutdown(void);
+static void firing270_shutdown(void);
+static void firing285_shutdown(void);
+static void enemy_orb112113_shutdown(void);
+static void terrain144_shutdown(void);
+static void terrain144_map_reset(char,char);
+static bool projectile304_draw(SDL_Surface *,int,int,Sprite2_array,unsigned);
+static bool enemy_orb112113_draw(SDL_Surface *,int,int,Sprite2_array,unsigned);
+/* Each material stays private to its own source- and actor-guarded callback. */
 static const Asset *pulsing272_draw_lease;
+static const Asset *triple275_draw_lease;
+static const Asset *columns276_draw_lease;
+static const Asset *turret273_draw_lease;
+static const Asset *projectile304_draw_lease;
+static const Asset *firing270_draw_lease;
+static const Asset *firing285_draw_lease;
+static const Asset *enemy_orb112113_draw_lease;
+static const Asset *terrain144_draw_lease;
 /* One draw-call lease from the original fixed explosion; never gameplay state. */
 static bool cash25_fixed_value;
 static bool cash75_fixed_value;
@@ -97,6 +117,11 @@ static TalonBank talon_banks[2];
 static uint64_t mirror_logic_tick;
 static bool talon_banking_enabled=true;
 static unsigned int banking_draw_player;
+static void asteroid1_talon_blend_reset(void);
+static void asteroid1_talon_blend_pose(unsigned,Sprite2_array,int,int,unsigned,int,int);
+static void asteroid1_talon_blend_begin(SDL_Surface *,int,int,Sprite2_array,unsigned,int,int);
+static void asteroid1_talon_blend_end(void);
+
 static FILE *banking_trace;
 static const int original_visual_indices[5]={0,2,6,10,12};
 
@@ -1000,6 +1025,7 @@ static void hud_frame_reset(void)
 
 void render_mirror_hud_reset(void)
 {
+ asteroid1_talon_blend_reset();
  render_mirror_shadow_end();
  hud_storm_reset();
  font_reset();fixed_text_reset();indicators_reset();components_reset();hud_frame_reset();
@@ -1012,7 +1038,7 @@ void render_mirror_hud_reset(void)
 
 void render_mirror_hud_shutdown(void)
 {
- render_mirror_hud_reset();gameplay_hud_shutdown();hud_components_shutdown();hud_meters_shutdown();hud_indicators_shutdown();hud_fixed_text_shutdown();font_shutdown();hud_storm_shutdown();rear_p1_shutdown();asteroid1_shutdown();asteroid4_shutdown();asteroid_common4_shutdown();asteroid_random5_shutdown();asteroid_random43_shutdown();asteroid_random85_shutdown();asteroid_random123_shutdown();asteroid_random95_shutdown();asteroid_random114_shutdown();asteroid_random133_shutdown();asteroid_random152_shutdown();goldwing_shutdown();asteroid_random286_shutdown();fork284_shutdown();capsule545_shutdown();paired287_288_shutdown();firing325_shutdown();ember269_shutdown();linked338_shutdown();pulsing272_shutdown();
+ render_mirror_hud_reset();gameplay_hud_shutdown();hud_components_shutdown();hud_meters_shutdown();hud_indicators_shutdown();hud_fixed_text_shutdown();font_shutdown();hud_storm_shutdown();rear_p1_shutdown();asteroid1_shutdown();asteroid4_shutdown();asteroid_common4_shutdown();asteroid_random5_shutdown();asteroid_random43_shutdown();asteroid_random85_shutdown();asteroid_random123_shutdown();asteroid_random95_shutdown();asteroid_random114_shutdown();asteroid_random133_shutdown();asteroid_random152_shutdown();goldwing_shutdown();asteroid_random286_shutdown();fork284_shutdown();capsule545_shutdown();paired287_288_shutdown();firing325_shutdown();ember269_shutdown();linked338_shutdown();pulsing272_shutdown();triple275_shutdown();columns276_shutdown();turret273_shutdown();projectile304_shutdown();firing270_shutdown();firing285_shutdown();enemy_orb112113_shutdown();terrain144_shutdown();
 }
 
 /* Validate the original bytecode as well as declared dimensions: malformed RLE
@@ -1328,9 +1354,17 @@ static bool decode_tile(Sprite2_array bank,unsigned int index,Uint8 *indices,Uin
 
 static bool read_asset(Asset *a,int wanted)
 {
- /* These private families own eager loading; never route135/136 generically. */
+ /* These private families own eager loading; never route135/136/137/138/139/140/141/142 generically. */
  if(a->bank==ASSET_ASTEROID1_NEWSHP)return false;
  if(a->bank==ASSET_ASTEROID1_NEWSHS)return false;
+ if(a->bank==ASSET_ASTEROID1_TRIPLE275)return false;
+ if(a->bank==ASSET_ASTEROID1_COLUMNS276)return false;
+ if(a->bank==ASSET_ASTEROID1_TURRET273)return false;
+ if(a->bank==ASSET_ASTEROID1_PROJECTILE304)return false;
+ if(a->bank==ASSET_ASTEROID1_FIRING270)return false;
+ if(a->bank==ASSET_ASTEROID1_FIRING285)return false;
+ if(a->bank==ASSET_ASTEROID1_ENEMY_ORB112113)return false;
+ if(a->bank==ASSET_ASTEROID1_TERRAIN144)return false;
  if(asteroid_hd_enabled&&a->bank!=ASSET_ASTEROID1)return false;
  char name[1024];
  const char *prefix=a->bank==ASSET_PLASMA_PROJECTILE?"option-plasma-projectile":a->bank==ASSET_PLASMA_BODY?"option-plasma-bank9":a->bank==ASSET_FRONTBLASTER_BODY?"option-frontblaster-bank10":a->bank==ASSET_MINT_BODY?"option-mint-bank9":a->bank==ASSET_MARLO_BODY?"option-marlo-bank9":a->bank==ASSET_PROTRON_SHADOW?"protron-shadow":a->bank==ASSET_REAR534_BODY?"rear534-bank11":a->bank==ASSET_DATA513_BODY?"data513-bank11":a->bank==ASSET_ENEMY_TANK_SHELL?"enemy-tank-shell":a->bank==ASSET_GEM250_BODY?"gem250-bank11":a->bank==ASSET_GEM250_VALUE?"gem250-value-newsh6":a->bank==ASSET_GEM100_BODY?"gem100-bank11":a->bank==ASSET_GEM100_VALUE?"gem100-value-newsh6":a->bank==ASSET_CASH50_BODY?"coin50-bank11":a->bank==ASSET_CASH50_VALUE?"coin50-value-newsh6":a->bank==ASSET_CASH75_BODY?"coin75-bank11":a->bank==ASSET_CASH75_VALUE?"coin75-value-newsh6":a->bank==ASSET_CASH25_BODY?"coin25-bank11":a->bank==ASSET_CASH25_VALUE?"coin25-value-newsh6":a->bank==9?"ship":a->bank==8?"bullet":a->bank==ASSET_ENEMY_ENERGY?"enemy-energy":a->bank==ASSET_NEWSH2?"enemy-newsh2":a->bank==ASSET_NEWSH4?"enemy-newsh4":a->bank==ASSET_NEWSHE?"enemy-newshe":a->bank==ASSET_TALON_BANK?"talon-bank":a->bank==ASSET_EXPLOSION?"explosion-newsh6":"terrain-shapesz";
@@ -2190,6 +2224,7 @@ void render_mirror_player_pose(unsigned int pnum,Sprite2_array bank,int base,int
 {
  if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled())return;
  if(pnum<1||pnum>2)return;
+ asteroid1_talon_blend_pose(pnum,bank,base,index,invulnerable,player[pnum-1].x,player[pnum-1].y);
  TalonBank *s=&talon_banks[pnum-1];
  bool supported=bank.data==spriteSheet9.data&&base==233&&index>=229&&index<=237&&index%2==1;
  bool available=talon_banking_enabled&&supported&&talon_frames_ready();
@@ -2308,9 +2343,17 @@ static Uint32 green_head_composite(int dx,int dy,unsigned int first,Uint32 color
 
 static bool draw_asset_filtered(int x,int y,Asset *a,int style,const SDL_Rect *part,Uint8 filter,const G101Record *material,const PCapRecord *cap,const Forest13Record *forest)
 {
- /* A numeric136 asset cannot borrow the new family's guarded draw path. */
+ /* Numeric136/137/138/139/140/141/142/143/144 assets cannot borrow another private guarded draw path. */
  if(a->bank==ASSET_ASTEROID1_NEWSHS&&(!asteroid_hd_enabled||a!=pulsing272_draw_lease))return false;
- if(asteroid_hd_enabled&&a->bank!=ASSET_ASTEROID1&&a->bank!=ASSET_ASTEROID1_NEWSHP&&a->bank!=ASSET_ASTEROID1_NEWSHS)return false;
+ if(a->bank==ASSET_ASTEROID1_TRIPLE275&&(!asteroid_hd_enabled||a!=triple275_draw_lease))return false;
+ if(a->bank==ASSET_ASTEROID1_COLUMNS276&&(!asteroid_hd_enabled||a!=columns276_draw_lease))return false;
+ if(a->bank==ASSET_ASTEROID1_TURRET273&&(!asteroid_hd_enabled||a!=turret273_draw_lease))return false;
+ if(a->bank==ASSET_ASTEROID1_PROJECTILE304&&(!asteroid_hd_enabled||a!=projectile304_draw_lease))return false;
+ if(a->bank==ASSET_ASTEROID1_FIRING270&&(!asteroid_hd_enabled||a!=firing270_draw_lease))return false;
+ if(a->bank==ASSET_ASTEROID1_FIRING285&&(!asteroid_hd_enabled||a!=firing285_draw_lease||style!=MIRROR_NORMAL))return false;
+ if(a->bank==ASSET_ASTEROID1_ENEMY_ORB112113&&(!asteroid_hd_enabled||a!=enemy_orb112113_draw_lease||style!=MIRROR_NORMAL))return false;
+ if(a->bank==ASSET_ASTEROID1_TERRAIN144&&(!asteroid_hd_enabled||a!=terrain144_draw_lease||style!=MIRROR_NORMAL||part||filter||material||cap||forest))return false;
+ if(asteroid_hd_enabled&&a->bank!=ASSET_ASTEROID1&&a->bank!=ASSET_ASTEROID1_NEWSHP&&a->bank!=ASSET_ASTEROID1_NEWSHS&&a->bank!=ASSET_ASTEROID1_TRIPLE275&&a->bank!=ASSET_ASTEROID1_COLUMNS276&&a->bank!=ASSET_ASTEROID1_TURRET273&&a->bank!=ASSET_ASTEROID1_PROJECTILE304&&a->bank!=ASSET_ASTEROID1_FIRING270&&a->bank!=ASSET_ASTEROID1_FIRING285&&a->bank!=ASSET_ASTEROID1_ENEMY_ORB112113&&a->bank!=ASSET_ASTEROID1_TERRAIN144)return false;
  render_mirror_shadow_end();
  /* Original Talon invulnerability uses half-opacity, not a different sprite.
   * Preserve that effect over the ordered RGBA scene and keep the engine's
@@ -2685,6 +2728,7 @@ static bool secret_exit_orb_pickup(SDL_Surface *surface,int x,int y,Sprite2_arra
 
 bool render_mirror_entity(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int index,int style,int layout)
 {
+ asteroid1_talon_blend_begin(surface,x,y,bank,index,style,layout);
  render_mirror_shadow_end();
  /* Consume the lease before every early return, including inactive/rejected draws. */
  bool fixed_value=cash25_fixed_value;cash25_fixed_value=false;
@@ -2883,6 +2927,11 @@ static bool enemy_tank_shell_family_ready(void)
 bool render_mirror_enemy_shot(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int index)
 {
  render_mirror_shadow_end();
+ /* Only this enemy-shot role can lease the optional shared normal304 art. */
+ if(index==304)return projectile304_draw(surface,x,y,bank,index);
+ /* The opt-in owns this finite enemy role, never generic/player role8.
+  * Any failed source/scope check stays classic rather than using old orbs. */
+ if(asteroid_hd_enabled&&(index==112||index==113))return enemy_orb112113_draw(surface,x,y,bank,index);
  /* These nine enemy IDs use different Christmas originals. Decline before
   * even a warm normal-art cache; byte-identical shell146/147 stay eligible. */
  if(xmas&&bank.data==spriteSheet8.data&&
@@ -3201,6 +3250,13 @@ static bool boss_whole_base_allowed(const G101EnemyContext *context,unsigned int
 #include "asteroid1_paired287_288_mirror.inc"
 #include "asteroid1_firing325_mirror.inc"
 #include "asteroid1_pulsing272_mirror.inc"
+#include "asteroid1_triple275_mirror.inc"
+#include "asteroid1_columns276_mirror.inc"
+#include "asteroid1_turret273_mirror.inc"
+#include "asteroid1_projectile304_mirror.inc"
+#include "asteroid1_enemy_orb112113_mirror.inc"
+#include "asteroid1_firing270_mirror.inc"
+#include "asteroid1_firing285_mirror.inc"
 #include "render_mirror_asteroid_linked338.inc"
 
 /* Scheduled record269: one four-state ember in logical bank8/NEWSHD.
@@ -3343,6 +3399,16 @@ bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array ban
  if(asteroid_hd_enabled) {
   if(material_context&&material_context->type>=338&&material_context->type<=342)
    return linked338_draw(surface,x,y,bank,base,part,filter,material_context);
+  if(material_context&&material_context->type==273)
+   return turret273_draw(surface,x,y,bank,base,part,filter,material_context);
+  if(material_context&&material_context->type==276)
+   return columns276_draw(surface,x,y,bank,base,part,filter,material_context);
+  if(material_context&&material_context->type==275)
+   return triple275_draw(surface,x,y,bank,base,part,filter,material_context);
+  if(material_context&&material_context->type==285)
+   return firing285_draw(surface,x,y,bank,base,part,filter,material_context);
+  if(material_context&&material_context->type==270)
+   return firing270_draw(surface,x,y,bank,base,part,filter,material_context);
   if(material_context&&material_context->type==272)
    return pulsing272_draw(surface,x,y,bank,base,part,filter,material_context);
   if(material_context&&material_context->type==269)
@@ -3553,8 +3619,11 @@ bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array ban
  game_probe_scene_draw(role,base,x,y,part,filter?3:MIRROR_NORMAL,mirrored);return mirrored;
 }
 
+
+#include "asteroid1_terrain144_mirror.inc"
+
 void render_mirror_map_begin(char shape_file)
-{render_mirror_rear_p1_reset();plasma_art_reset();ground101_frame_reset();terrain_file=shape_file=='Z'?'z':shape_file;terrain_source_count=0;forest_registry_ok=true;render_mirror_reset_banking();}
+{terrain144_map_reset(0,shape_file);render_mirror_rear_p1_reset();plasma_art_reset();ground101_frame_reset();terrain_file=shape_file=='Z'?'z':shape_file;terrain_source_count=0;forest_registry_ok=true;render_mirror_reset_banking();}
 /* Only shapesZ layer2 cloud IDs; no renderer/filter or game-state changes. */
 static int cloud_terrain_slot(unsigned int id)
 {
@@ -3659,6 +3728,7 @@ static int layer3_linked31_slot(unsigned int id)
 }
 void render_mirror_bind_terrain(unsigned int layer,unsigned int id,const Uint8 *data)
 {
+ terrain144_bind(layer,id,data);
  if(terrain_file=='z'&&((layer==1&&(forest_terrain_slot(id)>=0||grass_sand_slot(id)>=0||stone_foundation_slot(id)>=0||terrain_holes_slot(id)>=0||road_terrain_slot(id)>=0||underlay_terrain_slot(id)>=0||plateau_terrain_slot(id)>=0||ground_terrain_slot(id)>=0||id==101||id==37||id==57||id==49||id==50||id==321||id==322||id==331||id==332))||(layer==2&&cloud_terrain_slot(id)>=0)||(layer==3&&(layer3_gray_slot(id)>=0||layer3_purple_slot(id)>=0||layer3_circuit_slot(id)>=0||layer3_mechanical_slot(id)>=0||layer3_linked31_slot(id)>=0)))&&terrain_source_count<199) {
   terrain_sources[terrain_source_count].data=data;
   terrain_sources[terrain_source_count++].id=id;
@@ -3712,6 +3782,7 @@ void render_mirror_ground101_layer1(SDL_Surface *surface,const void *first,int x
 }
 unsigned int render_mirror_terrain_row(SDL_Surface *surface,int x,int y,Uint8 **map,int style)
 {
+ if(asteroid_hd_enabled)return terrain144_row(surface,x,y,map,style);
  if(!active||surface!=game_screen||reject_reason||!(game_probe_scene_assets&2))return 0;
  if(x<0||x+12*24>surface->pitch) {render_mirror_unsupported("terrain-row-outside-linear-layout");return 0;}
  font_before_effect((SDL_Rect){x,y,12*24,28});
@@ -3780,7 +3851,7 @@ void render_mirror_terrain_pixel(SDL_Surface *surface,Uint8 *address,Uint8 sourc
  render_mirror_pixel(surface,address,source,style);suppress=previous;suppress_cloud=previous_cloud;
 }
 
-void render_mirror_entity_end(void) { render_mirror_shadow_end();cash25_fixed_value=false;cash75_fixed_value=false;cash50_fixed_value=false;gem100_fixed_value=false;gem250_fixed_value=false;data_fixed_value=false;fixed_pickup_flash=false;suppress=false;suppress_green_smoke=false;suppress_cloud=false; }
+void render_mirror_entity_end(void) { asteroid1_talon_blend_end(); render_mirror_shadow_end();cash25_fixed_value=false;cash75_fixed_value=false;cash50_fixed_value=false;gem100_fixed_value=false;gem250_fixed_value=false;data_fixed_value=false;fixed_pickup_flash=false;suppress=false;suppress_green_smoke=false;suppress_cloud=false; }
 
 /* Recognized original warm/contact explosions and nine shield-hit pieces.
  * Original hue overwrite + averaged ramp value is approximated continuously
@@ -4158,6 +4229,7 @@ static bool have_supported_talon(void)
  return false;
 }
 
+#include "asteroid1_talon_blend_mirror.inc"
 #include "asteroid1_effect_blend_mirror.inc"
 
 void render_mirror_sprite2_blend_pixel(SDL_Surface *surface,Uint8 *address,Uint8 source,Sprite2_array bank,unsigned int index,int origin_x,int origin_y)

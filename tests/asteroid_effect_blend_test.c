@@ -38,7 +38,10 @@ static bool game_probe_known_blend,game_probe_local_blend,asteroid_hd_enabled,xm
 static unsigned fixture_policy;
 static int game_probe_density;static const char *reject_reason;
 static unsigned local_blocks,local_regions,expanded_regions,boundary_crossings,occlusions,blend_source_index;
-static Sprite2_array explosionSpriteSheet;
+static Sprite2_array explosionSpriteSheet,spriteSheet9;
+static bool twoPlayerMode,galagaMode,twoPlayerLinked;
+static uint64_t mirror_logic_tick;
+#define ENTITY_QUAD 1
 static unsigned fallback_calls,font_calls,shadow_ends,restore_calls,restore_index,font_reject;
 static SDL_Rect restored_request,restored_rect;
 static struct {unsigned calls,index,subpixels,blocks;int ox,oy,x,y;Uint8 before,source,after;bool known,rgba;} metric;
@@ -68,6 +71,7 @@ static Uint32 palette_rgb(Uint8 index);
 #undef render_mirror_pixel
 static void render_mirror_pixel(SDL_Surface *s,Uint8 *address,Uint8 source,int style)
 {++fallback_calls;actual_render_mirror_pixel(s,address,source,style);}
+#include "actual_talon.inc"
 #include "actual_asteroid.inc"
 #include "actual_callback.inc"
 #define asset_debug_effect(...) ((void)0)
@@ -88,8 +92,10 @@ static bool reference_decode(Sprite2_array b,unsigned index,Uint8 color[168],Uin
  }
  return false;
 }
+static bool shield_supported(unsigned i)
+{return (i>=229&&i<=237)||(i>=248&&i<=250)||(i>=252&&i<=256)||(i>=267&&i<=269)||i==272||i==275;}
 static bool supported(unsigned i)
-{return (i>=3&&i<=14)||(i>=22&&i<=33)||(i>=41&&i<=52)||(i>=60&&i<=71)||(i>=122&&i<=133)||i==145||(i>=146&&i<=152)||(i>=154&&i<=165)||(i>=173&&i<=184)||(i>=192&&i<=203)||(i>=211&&i<=222);}
+{return shield_supported(i)|| (i>=3&&i<=14)||(i>=22&&i<=33)||(i>=41&&i<=52)||(i>=60&&i<=71)||(i>=122&&i<=133)||i==145||(i>=146&&i<=152)||(i>=154&&i<=165)||(i>=173&&i<=184)||(i>=192&&i<=203)||(i>=211&&i<=222);}
 static unsigned first_cell(const Uint8 c[168],const Uint8 m[168],int hue)
 {for(unsigned i=0;i<168;i++)if(m[i]&&(hue<0||(c[i]&240)==hue))return i;CHECK(false);return 0;}
 static Uint8 indexed_after(Uint8 before,Uint8 source)
@@ -109,7 +115,7 @@ static void set_palette(void)
 {for(unsigned h=0;h<16;h++)for(unsigned v=0;v<16;v++)rgb_palette[h*16+v]=(v*(5+h%7)<<16)|(v*(4+h*3%12)<<8)|(v*(3+h*5%13));}
 static void reset(int d)
 {
- ++cases;game_probe_density=d;canvas->w=320*d;canvas->h=200*d;canvas->pitch=canvas->w*4;
+ ++cases;asteroid1_talon_blend_reset();twoPlayerMode=galagaMode=twoPlayerLinked=false;game_probe_density=d;canvas->w=320*d;canvas->h=200*d;canvas->pitch=canvas->w*4;
  active=asteroid_hd_enabled=game_probe_known_blend=game_probe_local_blend=level_scope=true;
  suppress=suppress_cloud=suppress_green_smoke=game_probe_original_reference=xmas=false;game_probe_enabled=fixture_policy==0;asteroid_hd_lease=fixture_policy==1;actor_scope=fixture_policy==1;
  reject_reason=NULL;local_blocks=local_regions=expanded_regions=boundary_crossings=occlusions=blend_source_index=0;
@@ -139,9 +145,9 @@ static void source_tests(void)
 {
  reset(8);Uint8 c[168],m[168],actual[336];size_t raw[168];unsigned accepted=0;
  for(unsigned i=1;i<=275;i++) {CHECK(reference_decode(explosionSpriteSheet,i,c,m,NULL));memset(actual,0,sizeof(actual));CHECK(decode_tile(explosionSpriteSheet,i,actual,actual+168,12,0,0));CHECK(!memcmp(c,actual,168)&&!memcmp(m,actual+168,168));
-  for(unsigned cell=0;cell<168;cell++)if(m[cell]) {bool ok=asteroid1_effect_blend_source(explosionSpriteSheet,i,c[cell],100,80,100+(int)cell%12,80+(int)cell/12);CHECK(ok==(supported(i)&&((c[cell]&240)==0x70||(c[cell]&240)==0x40)));if(ok)++accepted;}
+  for(unsigned cell=0;cell<168;cell++)if(m[cell]) {bool ok=asteroid1_effect_blend_source(explosionSpriteSheet,i,c[cell],100,80,100+(int)cell%12,80+(int)cell/12);CHECK(ok==(supported(i)&&((shield_supported(i)&&(c[cell]&240)==0x80)||(!shield_supported(i)&&((c[cell]&240)==0x70||(c[cell]&240)==0x40)))));if(ok)++accepted;}
  }
- CHECK(accepted>5000);CHECK(sizeof(asteroid1_effect_blend_pins)/sizeof(*asteroid1_effect_blend_pins)==116);
+ CHECK(accepted>5000);CHECK(sizeof(asteroid1_effect_blend_pins)/sizeof(*asteroid1_effect_blend_pins)==116);CHECK(sizeof(asteroid1_shield_blend_pins)/sizeof(*asteroid1_shield_blend_pins)==22);
  CHECK(reference_decode(explosionSpriteSheet,122,c,m,raw));unsigned cell=first_cell(c,m,-1);int x=100+(int)cell%12,y=80+(int)cell/12;Uint8 v=c[cell];
  #define SOURCE(b,i,s,ox,oy,px,py) asteroid1_effect_blend_source(b,i,s,ox,oy,px,py)
  CHECK(SOURCE(explosionSpriteSheet,122,v,100,80,x,y));CHECK(!SOURCE(explosionSpriteSheet,0,v,100,80,x,y));CHECK(!SOURCE(explosionSpriteSheet,UINT_MAX,v,100,80,x,y));CHECK(!SOURCE(explosionSpriteSheet,122,v,100,80,INT_MIN,INT_MAX));CHECK(!SOURCE(explosionSpriteSheet,122,v,100,80,INT_MAX,INT_MIN));
@@ -161,6 +167,34 @@ static void source_tests(void)
  Uint8 *original=explosionSpriteSheet.data;explosionSpriteSheet.data=foreign.data;Sprite2_array old={original_size,original};CHECK(!SOURCE(old,122,v,100,80,x,y));CHECK(SOURCE(explosionSpriteSheet,122,v,100,80,x,y));explosionSpriteSheet.data=original;free(foreign.data);
  #undef SOURCE
 }
+/* Independently mutate each original shield frame in place, including an
+ * off-callback painted cell and its coverage stream. No cached source trust. */
+static void shield_source_mutations(void)
+{
+ reset(8);Uint8 c[168],m[168];size_t raw[168];unsigned frames=0;
+ for(unsigned index=229;index<=275;index++)if(shield_supported(index)) {
+  ++frames;CHECK(reference_decode(explosionSpriteSheet,index,c,m,raw));unsigned cell=first_cell(c,m,0x80);
+  int x=100+(int)cell%12,y=80+(int)cell/12;Uint8 v=c[cell];
+  CHECK(asteroid1_effect_blend_source(explosionSpriteSheet,index,v,100,80,x,y));
+  CHECK(!asteroid1_effect_blend_source(explosionSpriteSheet,index,(Uint8)(v^1),100,80,x,y));
+  CHECK(!asteroid1_effect_blend_source(explosionSpriteSheet,index,(Uint8)(0x70|(v&15)),100,80,x,y));
+  for(unsigned other=0;other<168;other++)if(m[other]) {
+   size_t at=raw[other];Uint8 save=explosionSpriteSheet.data[at];explosionSpriteSheet.data[at]^=1;
+   CHECK(!asteroid1_effect_blend_source(explosionSpriteSheet,index,v,100,80,x,y));
+   explosionSpriteSheet.data[at]=save;CHECK(asteroid1_effect_blend_source(explosionSpriteSheet,index,v,100,80,x,y));
+  }
+  size_t start=(size_t)explosionSpriteSheet.data[2*(index-1)]+256u*explosionSpriteSheet.data[2*(index-1)+1];
+  Uint8 save=explosionSpriteSheet.data[start];explosionSpriteSheet.data[start]=15;
+  CHECK(!asteroid1_effect_blend_source(explosionSpriteSheet,index,v,100,80,x,y));
+  explosionSpriteSheet.data[start]=save;CHECK(asteroid1_effect_blend_source(explosionSpriteSheet,index,v,100,80,x,y));
+ }
+ CHECK(frames==22);
+ const unsigned empty[]={251,270,271,273,274};
+ for(unsigned i=0;i<5;i++) {CHECK(reference_decode(explosionSpriteSheet,empty[i],c,m,NULL));
+  for(unsigned cell=0;cell<168;cell++) {CHECK(!m[cell]);CHECK(!asteroid1_effect_blend_source(explosionSpriteSheet,empty[i],0x80,100,80,100+(int)cell%12,80+(int)cell/12));}
+ }
+}
+
 static void layout_tests(void)
 {
  reset(8);CHECK(asteroid1_effect_blend_layout(game_screen));
@@ -174,10 +208,10 @@ static void layout_tests(void)
 }
 /* Negative paths use the real callback, real pixel fallback, and real complete
  * rectangle restore. No fake fallback substitutes for restoration behavior. */
-static void negative_callback(unsigned kind,int owners,bool live)
+static void negative_callback(unsigned seed_index,unsigned kind,int owners,bool live)
 {
- reset(8);++negative_cases;Uint8 c[168],m[168];size_t raw[168];CHECK(reference_decode(explosionSpriteSheet,122,c,m,raw));unsigned cell=first_cell(c,m,-1);int ox=100,oy=80,x=ox+(int)cell%12,y=oy+(int)cell/12;Uint8 source=c[cell];Uint32 prior[64];Uint8 own[64];prepare_block(x,y,owners,prior,own);Uint8 after=indexed_after(0x3d,source);*index_at(x,y)=after;
- Sprite2_array bank=explosionSpriteSheet;unsigned index=122;Uint8 changed=0;size_t changed_at=0;
+ reset(8);++negative_cases;Uint8 c[168],m[168];size_t raw[168];CHECK(reference_decode(explosionSpriteSheet,seed_index,c,m,raw));unsigned cell=first_cell(c,m,-1);int ox=100,oy=80,x=ox+(int)cell%12,y=oy+(int)cell/12;Uint8 source=c[cell];Uint32 prior[64];Uint8 own[64];prepare_block(x,y,owners,prior,own);Uint8 after=indexed_after(0x3d,source);*index_at(x,y)=after;
+ Sprite2_array bank=explosionSpriteSheet;unsigned index=seed_index;Uint8 changed=0;size_t changed_at=0;
  if(live) {regions[0]=(HdRegion){{x-1,y-1,3,3},8,27,MIRROR_NORMAL,true};region_count=1;
   for(int yy=y-1;yy<=y+1;yy++)for(int xx=x-1;xx<=x+1;xx++) {Uint32 temp[64];Uint8 tempown[64];prepare_block(xx,yy,owners,temp,tempown);}
  }
@@ -237,19 +271,62 @@ static void legacy_tests(void)
  reset(8);asteroid_hd_enabled=false;prepare_block(x,y,-1,prior,own);regions[0]=(HdRegion){{100,80,12,14},9,233,MIRROR_NORMAL,true};region_count=1;*index_at(x,y)=indexed_after(0x3d,source);render_mirror_sprite2_blend_pixel(game_screen,index_at(x,y),source,explosionSpriteSheet,3,100,80);CHECK(metric.rgba&&!fallback_calls&&!reject_reason);
  reset(8);asteroid_hd_enabled=false;game_probe_known_blend=false;prepare_block(x,y,0,prior,own);*index_at(x,y)=indexed_after(0x3d,source);render_mirror_sprite2_blend_pixel(game_screen,index_at(x,y),source,explosionSpriteSheet,122,100,80);CHECK(!metric.rgba&&fallback_calls&&!reject_reason);
 }
+
+/* Bank9 is loaded read-only from the ordinary main shape container. Independent
+ * offset parsing and RLE walking test all five finite Talon poses, never emit art. */
+static unsigned le32(const Uint8 *b)
+{return (unsigned)b[0]|((unsigned)b[1]<<8)|((unsigned)b[2]<<16)|((unsigned)b[3]<<24);}
+static void talon_tests(const char *path)
+{
+ FILE *f=fopen(path,"rb");CHECK(f);Uint8 header[54];CHECK(fread(header,1,sizeof(header),f)==sizeof(header));
+ CHECK(header[0]==13&&header[1]==0);unsigned begin=le32(header+2+8*4),end=le32(header+2+9*4);CHECK(end>begin&&end-begin==33484);
+ spriteSheet9.size=end-begin;spriteSheet9.data=malloc(spriteSheet9.size);CHECK(spriteSheet9.data);CHECK(!fseek(f,begin,SEEK_SET));CHECK(fread(spriteSheet9.data,1,spriteSheet9.size,f)==spriteSheet9.size);CHECK(!fclose(f));
+ for(unsigned base=229;base<=237;base+=2)for(unsigned piece=0;piece<4;piece++) {
+  unsigned index=base+(piece&1)+(piece/2)*19;int ox=95+(piece&1)*12,oy=73+(piece/2)*14;
+  Uint8 c[168],m[168];size_t raw[168];CHECK(reference_decode(spriteSheet9,index,c,m,raw));unsigned cell=first_cell(c,m,0x10);int x=ox+(int)cell%12,y=oy+(int)cell/12;Uint8 source=c[cell];
+  for(int d=4;d<=8;d+=4)for(int owners=-1;owners<=1;owners++) {
+   reset(d);asteroid1_talon_blend_pose(1,spriteSheet9,233,(int)base,10,100,80);asteroid1_talon_blend_begin(game_screen,95,73,spriteSheet9,base,MIRROR_BLEND,ENTITY_QUAD);
+   CHECK(asteroid1_talon_blend_source(spriteSheet9,index,source,ox,oy,x,y));
+   Uint32 prior[64];Uint8 own[64];unsigned hd=prepare_block(x,y,owners,prior,own);*index_at(x,y)=indexed_after(0x3d,source);
+   asteroid1_sprite2_blend_pixel(game_screen,index_at(x,y),source,spriteSheet9,index,ox,oy);
+   CHECK(metric.rgba&&metric.subpixels==hd&&metric.blocks==0&&!fallback_calls);CHECK(expected[y*320+x]==indexed_after(0x3d,source));
+   for(int sy=0;sy<d;sy++)for(int sx=0;sx<d;sx++){unsigned k=(unsigned)(sy*d+sx);CHECK(*rgba_at(x*d+sx,y*d+sy)==(own[k]==1?reference_blend(prior[k],source):palette_rgb(*index_at(x,y))));}
+   asteroid1_talon_blend_end();CHECK(!asteroid1_talon_blend_source(spriteSheet9,index,source,ox,oy,x,y));
+  }
+  reset(8);asteroid1_talon_blend_pose(1,spriteSheet9,233,(int)base,10,100,80);asteroid1_talon_blend_begin(game_screen,95,73,spriteSheet9,base,MIRROR_BLEND,ENTITY_QUAD);
+  for(unsigned k=0;k<168;k++)if(m[k]) {Uint8 save=spriteSheet9.data[raw[k]];spriteSheet9.data[raw[k]]^=1;CHECK(!asteroid1_talon_blend_source(spriteSheet9,index,source,ox,oy,x,y));spriteSheet9.data[raw[k]]=save;CHECK(asteroid1_talon_blend_source(spriteSheet9,index,source,ox,oy,x,y));}
+  unsigned start=spriteSheet9.data[2*(index-1)]+256u*spriteSheet9.data[2*(index-1)+1];Uint8 save=spriteSheet9.data[start];spriteSheet9.data[start]=15;CHECK(!asteroid1_talon_blend_source(spriteSheet9,index,source,ox,oy,x,y));spriteSheet9.data[start]=save;
+  CHECK(!asteroid1_talon_blend_source(spriteSheet9,index,source^1,ox,oy,x,y));CHECK(!asteroid1_talon_blend_source(spriteSheet9,index,0x80|(source&15),ox,oy,x,y));CHECK(!asteroid1_talon_blend_source(spriteSheet9,index,source,ox+1,oy,x,y));
+  ++mirror_logic_tick;CHECK(!asteroid1_talon_blend_source(spriteSheet9,index,source,ox,oy,x,y));--mirror_logic_tick;
+  twoPlayerMode=true;CHECK(!asteroid1_talon_blend_source(spriteSheet9,index,source,ox,oy,x,y));twoPlayerMode=false;galagaMode=true;CHECK(!asteroid1_talon_blend_source(spriteSheet9,index,source,ox,oy,x,y));galagaMode=false;twoPlayerLinked=true;CHECK(!asteroid1_talon_blend_source(spriteSheet9,index,source,ox,oy,x,y));twoPlayerLinked=false;xmas=true;CHECK(!asteroid1_talon_blend_source(spriteSheet9,index,source,ox,oy,x,y));xmas=false;
+  Sprite2_array foreign=spriteSheet9;foreign.data=explosionSpriteSheet.data;CHECK(!asteroid1_talon_blend_source(foreign,index,source,ox,oy,x,y));foreign=spriteSheet9;foreign.size--;CHECK(!asteroid1_talon_blend_source(foreign,index,source,ox,oy,x,y));
+  for(unsigned wrong=0;wrong<8;wrong++) {
+   asteroid1_talon_blend_pose(wrong==0?2:1,spriteSheet9,wrong==1?1:233,(int)base,wrong==2?0:10,100,80);
+   asteroid1_talon_blend_begin(game_screen,wrong==3?96:95,wrong==4?74:73,spriteSheet9,wrong==5?base+2:base,wrong==6?MIRROR_NORMAL:MIRROR_BLEND,wrong==7?0:ENTITY_QUAD);
+   CHECK(!asteroid1_talon_blend_source(spriteSheet9,index,source,ox,oy,x,y));
+   Uint32 prior[64];Uint8 own[64];prepare_block(x,y,1,prior,own);*index_at(x,y)=indexed_after(0x3d,source);fallback_calls=0;memset(&metric,0,sizeof(metric));
+   asteroid1_sprite2_blend_pixel(game_screen,index_at(x,y),source,spriteSheet9,index,ox,oy);
+   CHECK(metric.calls==1&&!metric.rgba&&fallback_calls==1&&*index_at(x,y)==indexed_after(0x3d,source));
+  }
+ }
+ asteroid1_talon_blend_reset();free(spriteSheet9.data);memset(&spriteSheet9,0,sizeof(spriteSheet9));
+ printf("Talon: all5 bank9 poses/20 quadrants, d4/8, classic/HD/mixed ownership, per-cell corruption, coverage mutation and finite role negatives passed\n");
+}
+
 int main(int argc,char **argv)
 {
- CHECK(argc==2);FILE *f=fopen(argv[1],"rb");CHECK(f);CHECK(!fseek(f,0,SEEK_END));long size=ftell(f);CHECK(size==17810);CHECK(!fseek(f,0,SEEK_SET));explosionSpriteSheet.size=(size_t)size;explosionSpriteSheet.data=malloc((size_t)size);CHECK(explosionSpriteSheet.data);CHECK(fread(explosionSpriteSheet.data,1,(size_t)size,f)==(size_t)size);CHECK(!fclose(f));
+ CHECK(argc==2||argc==3);FILE *f=fopen(argv[1],"rb");CHECK(f);CHECK(!fseek(f,0,SEEK_END));long size=ftell(f);CHECK(size==17810);CHECK(!fseek(f,0,SEEK_SET));explosionSpriteSheet.size=(size_t)size;explosionSpriteSheet.data=malloc((size_t)size);CHECK(explosionSpriteSheet.data);CHECK(fread(explosionSpriteSheet.data,1,(size_t)size,f)==(size_t)size);CHECK(!fclose(f));
  SDL_PixelFormat sf={SDL_PIXELFORMAT_INDEX8,8,1},cf={SDL_PIXELFORMAT_ARGB8888,32,4};Uint8 *screen_allocation=malloc(64000*3);CHECK(screen_allocation);SDL_Surface s={320,200,320,screen_allocation+64000,&sf,{0,0,320,200}},cv={2560,1600,10240,malloc(2560u*1600*4),&cf,{0,0,2560,1600}};CHECK(cv.pixels);game_screen=VGAScreen=&s;canvas=&cv;
  hd_owner=malloc(2560u*1600);cloud_owner=malloc(2560u*1600);green_first=malloc(2560u*1600*2);green_under_owner=malloc(2560u*1600);CHECK(hd_owner&&cloud_owner&&green_first&&green_under_owner);memset(cv.pixels,0,2560u*1600*4);memset(hd_owner,0,2560u*1600);memset(cloud_owner,0,2560u*1600);memset(green_first,0,2560u*1600*2);memset(green_under_owner,0,2560u*1600);
- source_tests();layout_tests();
+ source_tests();shield_source_mutations();layout_tests();
  for(unsigned index=1;index<=275;index++)if(supported(index)){positive(index,4,-1,100,80,UINT_MAX);positive(index,8,-1,100,80,UINT_MAX);}
- fixture_policy=1;positive(122,8,0x40,100,80,UINT_MAX);fixture_policy=0;positive(173,4,0x40,100,80,UINT_MAX);
+ fixture_policy=1;positive(122,8,0x40,100,80,UINT_MAX);positive(255,8,0x80,100,80,UINT_MAX);fixture_policy=0;positive(173,4,0x40,100,80,UINT_MAX);
  Uint8 c[168],m[168];CHECK(reference_decode(explosionSpriteSheet,3,c,m,NULL));unsigned bottom=UINT_MAX;for(unsigned i=156;i<168;i++)if(m[i]){bottom=i;break;}CHECK(bottom!=UINT_MAX);positive(3,8,-1,0,-13,bottom);
  CHECK(reference_decode(explosionSpriteSheet,173,c,m,NULL));unsigned top=UINT_MAX;for(unsigned i=0;i<12;i++)if(m[i]){top=i;break;}CHECK(top!=UINT_MAX);positive(173,4,-1,308,199,top);
- for(unsigned kind=0;kind<15;kind++){negative_callback(kind,1,false);negative_callback(kind,0,false);negative_callback(kind,1,true);}
+ const unsigned negative_indices[]={122,230,255,275};for(unsigned i=0;i<4;i++)for(unsigned kind=0;kind<15;kind++){negative_callback(negative_indices[i],kind,1,false);negative_callback(negative_indices[i],kind,0,false);negative_callback(negative_indices[i],kind,1,true);}
  suppression_and_font();bounds_and_no_write();
- full_blit(122,4,100,80);full_blit(145,8,100,80);full_blit(173,8,308,80);full_blit(3,8,0,-13);full_blit(173,4,308,199);legacy_tests();
- printf("PASS %lu checks; %u reset cases; %u positive callback cases; %u negative callback cases; %u original indexed blits; all116 source frames, d4/8, first-level baseline identity checked by runner\n",checks,cases,positive_cases,negative_cases,full_blits);
+ full_blit(122,4,100,80);full_blit(145,8,100,80);full_blit(173,8,308,80);full_blit(3,8,0,-13);full_blit(173,4,308,199);for(unsigned i=229;i<=275;i++)if((i>=229&&i<=237)||(i>=248&&i<=256)||i>=267){full_blit(i,4,100,80);full_blit(i,8,100,80);}legacy_tests();
+ if(argc==3)talon_tests(argv[2]);
+ printf("PASS %lu checks; %u reset cases; %u positive callback cases; %u negative callback cases; %u original indexed blits; 116 warm+22 shield source frames,27 original shield animation slots, d4/8, first-level baseline identity checked by runner\n",checks,cases,positive_cases,negative_cases,full_blits);
  free(explosionSpriteSheet.data);free(screen_allocation);free(cv.pixels);free(hd_owner);free(cloud_owner);free(green_first);free(green_under_owner);return 0;
 }

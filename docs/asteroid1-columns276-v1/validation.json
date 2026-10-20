@@ -1,0 +1,1992 @@
+{
+  "status": "PASS_WITH_DISCLOSED_SCOPE",
+  "local_baseline_commit": "3a8e5d5",
+  "source_and_artwork": {
+    "status": "PASS",
+    "source_bank": "NEWSHS",
+    "logical_bank": 23,
+    "material_role": 138,
+    "source_bytes": 46566,
+    "source_fnv64": "0xf22ec1295ced5d11",
+    "images": [
+      {
+        "base": 191,
+        "role": 1380191,
+        "hda_sha256": "7dc6a39a355d7754678ec02a66535447e0ee9a3e64d53026eb6085bd12335a5a",
+        "rgba_fnv64": "0xb69c4a8ec6643b32"
+      },
+      {
+        "base": 193,
+        "role": 1380193,
+        "hda_sha256": "32f57becaf6191ed106eb43c3352fb41906bb3e621b1b3ecc2eb2024e9a93439",
+        "rgba_fnv64": "0x733140ca91947918"
+      },
+      {
+        "base": 195,
+        "role": 1380195,
+        "hda_sha256": "98211e49c2f2ff1b6781b3c3366cda12cff4565ac9793df34e1c2288ff276394",
+        "rgba_fnv64": "0xd943c48b354d2346"
+      },
+      {
+        "base": 197,
+        "role": 1380197,
+        "hda_sha256": "50737f5a915d968f2809a42afd5b74ac33e95b1e40bbddbc0469ab681d257a1c",
+        "rgba_fnv64": "0xb9eccb9750b19435"
+      },
+      {
+        "base": 199,
+        "role": 1380199,
+        "hda_sha256": "125e282d301a79ac13ae551d66f1e74378d10f009b46c4e890a7cd0301733463",
+        "rgba_fnv64": "0x0da564da8ec607ac"
+      },
+      {
+        "base": 201,
+        "role": 1380201,
+        "hda_sha256": "87c3032212fb0919ba2d735b2b053876dc027c569a7954224273e62ce01513f2",
+        "rgba_fnv64": "0x495b36de8b07fad2"
+      }
+    ],
+    "occupied_logical_cells_per_image": 672,
+    "state_difference_union_cells": 387,
+    "state_difference_bbox": [
+      0,
+      4,
+      24,
+      20
+    ],
+    "housing_outside_source_union_exact": true,
+    "all_thirty_directed_pair_transitions_distinct": true,
+    "three_authentic_low_high_red_energy_pairs": {
+      "193": [
+        159.35204081632654,
+        184.24649234693877
+      ],
+      "197": [
+        130.79272959183675,
+        181.83227040816325
+      ],
+      "201": [
+        142.64795918367346,
+        185.60522959183675
+      ]
+    },
+    "rebuild_png_and_HDA_exact": true,
+    "masters_match_provenance": true,
+    "scope": "Finite deterministic art conversion only; native original-engine acceptance is separate."
+  },
+  "extracted_production": {
+    "records": [
+      276
+    ],
+    "bases": [
+      191,
+      193,
+      195,
+      197,
+      199,
+      201
+    ],
+    "material_role": 138,
+    "source_bank": 23,
+    "cold_record_bytes": 77,
+    "warm_record_bytes": 77,
+    "canonical_mutation_member_callbacks": 6,
+    "production_constructor": true,
+    "original_event_ordinals": [
+      349,
+      369
+    ],
+    "selected276_ordinals": [
+      349,
+      369
+    ],
+    "neighbor275_ordinal": 331,
+    "raw_events_unchanged": true,
+    "original_event_bytes": [
+      "2c16061401720000000000",
+      "9817061401ba0000000000"
+    ],
+    "original_event_times": [
+      5676,
+      6040
+    ],
+    "original_event_x": [
+      114,
+      186
+    ],
+    "actors_per_site": 1,
+    "allocation_cases": 48,
+    "allocation_free_slots": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "allocation_holes": [
+      25,
+      34,
+      49
+    ],
+    "synthetic_allocator_pool_limit": 25,
+    "site_lifecycle_comparisons": 240,
+    "production_animation_comparisons": 4080,
+    "cycles": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "hidden_first_step": true,
+    "production_damage_cases": 10,
+    "normal_ice_and_lethal": true,
+    "independent_link0_death": true,
+    "original_explosion_allocation": true,
+    "original_repeating_explosion_RNG": true,
+    "production_ram_predicate_and_body": true,
+    "ram_positive_armor_values": 255,
+    "ram_ice_values": 256,
+    "INDEX8_byte_equality": true,
+    "classic_callback_trace_equality": true,
+    "source_bank275_325_record_independence": true,
+    "production_identity_equal_bases": [
+      191,
+      193
+    ],
+    "production_identity_materials": [
+      108,
+      135,
+      136,
+      137,
+      138
+    ],
+    "production_distinct_regions": 10,
+    "production_distinct_command_identities": 10,
+    "production_generic136_137_138_rejection": true,
+    "production_unguarded136_137_138_rejection": true,
+    "private_lease_cross_rejection": true,
+    "strict_sprite_object_binding": true,
+    "admitted_pool_slots": [
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49
+    ],
+    "source_logical_bank_exclusions": 255,
+    "resource_role_rejections": [
+      108,
+      135,
+      136,
+      137
+    ],
+    "fixture_count": 114,
+    "compiler_peak_rss_bytes": 396267520,
+    "runtime_peak_rss_bytes": 166739968,
+    "compiler_address_space_limit_bytes": 1073741824,
+    "runtime_rss_limit_bytes": 536870912,
+    "runtime_timeout_seconds": 120,
+    "compiler_timeout_seconds": 90,
+    "output_limit_bytes": 50331648,
+    "output_bytes": 16795729,
+    "runs": [
+      {
+        "mode": "optimized",
+        "positive": 1,
+        "negative": 114,
+        "production_HD_admissions": 11100,
+        "binary_sha256": "5575c89d284a3ff46268d93fb8f4312ec3a366a66ee2b196e04c08e61a9159a5"
+      },
+      {
+        "mode": "asan-ubsan",
+        "positive": 1,
+        "negative": 114,
+        "production_HD_admissions": 11100,
+        "binary_sha256": "d982ff24d5a067c63aa54ec9b1f60116cd5ff922430e02075a253a58a6ccccce"
+      }
+    ],
+    "leak_sanitizer": false,
+    "source_sha256": {
+      "render_mirror.c": "0de01f113e316cf58139b4044796f87a700c264c356bb84a567d3f4e9bac7777",
+      "asteroid1_columns276_mirror.inc": "d69e50a23b1a0c416abe2cd41273f6700c210a8df6328e105c5e5337a27e4ad9",
+      "asteroid1_triple275_mirror.inc": "edf182b8762675086153368ba1a8a9f490834f1483741c293ab1ce031c163de8",
+      "asteroid1_firing325_mirror.inc": "ba498fc6ea5cdd3b4355df620199ca909faebe62135fd17aa6fca529b055bce1",
+      "asteroid1_ten_mirror.inc": "59405811f96b992e52a40f32a8b1f88222a237be2f23f18a47101cb0c551b61e",
+      "varz.h": "7c5b67fdb8f595d928432f0fb4d5b936c15bd7f881a00c24f7677e8e2f38dc56",
+      "varz.c": "231800bf30d7db8852985b3286c3fca71fc2537bc2ede295e50d3bd7188bd5c6",
+      "tyrian2.c": "38efa746a6add0ccc02efc7a5fb64138523e31c1e0a0d710470eaaac9f44eb08",
+      "mtrand.c": "9bb519b6b67d990184da25f1d373858760d2952a782c3e850e2f21c972c01f95",
+      "config.h": "df43ab4f8887c1275d1f876f83b2ab9f8dcd4a333ee1f2414caa3c8123522fe0",
+      "shots.h": "b6e009500719222b134f508e3db2bf3c365a9e1f54e576f8465f98ff6f364042",
+      "mainint.c": "7555d124b7b7d6a0c6690424da0948fc54724611cea1cf6b6c6e9b20740a1f13",
+      "sprite.c": "4b78f9e792509fcd490549a81a86bf18c2f524368d9bb8d00ee573cc47775a52",
+      "game_probe.c": "dd81bd0e8c26df04b598271c85854535fc3e4c23429aa95128e8abd5df43dbba"
+    },
+    "harness_sha256": "a47b5240b15f576a45c94d23453dbbfa820a68f59ba57b213a9da60b95eece9f",
+    "test_sha256": "e3887858a02ba278fbf7867aee5b94a86c1b32b7980789786701a0f9c817ee63",
+    "original_record276_fnv64": "5ef5beadaa8fd4df",
+    "original_record276_sha256": "11937d2fea154f951067f6e3e23139718b1566571fc3566f7e5966b09484af23",
+    "original_level_sha256": "54cbb00b57b84aa992a70cfcb170cb1edeb59507873723630d60080ba8351352",
+    "original_NEWSHS_sha256": "f0bccf154a436ba46834a00b934e7cb8a77d8585b175a39c1270ad7888411c88",
+    "identity_scope": "Exact production admission guards, region registration, generic loading exclusion guards and complete scene-command serializer; compositor rasterization is separate.",
+    "scope": "Extracted production constructor, allocation, event6, draw prelaunch, indexed tile writes, ordinary player-shot destruction, ram condition/body, explosion allocation and repeating effects with production MT RNG. Real-engine evidence is separate."
+  },
+  "native_runtime": {
+    "status": "PASS_WITH_DISCLOSED_RUNTIME_SCOPE",
+    "paired_cases": 60,
+    "engine_runs": 120,
+    "total_logic_ticks": 8000,
+    "matrix": {
+      "intact_two_site_native_pairs": 4,
+      "ordinary_shot_partial_lethal_pairs": 4,
+      "missing_pairs": 24,
+      "payload_corrupt_pairs": 24,
+      "flagoff_pairs": 4
+    },
+    "scope": "ASSISTED original two-windows5676/6040, Episode1 Normal physical1 ASTEROID1 seed1. Prefix spawn/mutation events omitted; original setup replayed in original order. Raw eventRec5772 bytes retained and direct-memcmp unchanged; both2 record276 original event6 entries retained. Selector RNG unchanged. Two original sites, one live allocation each; animation, collision, effects and culling remain original engine. First-site no-fire window halts at original stop event5769 with actor alive; second naturally culls at tick110. Ordinary front-port1 power11 fire with bounded ordinary targetX98/170 controls supplies genuine partial/lethal processing in lethal cases. No actor/projectile injection/healing/resurrection/forced graphics. No natural-campaign or whole-level claim.",
+    "runtime_gap": "Both original record276 sites covered independently. Prefix spawns omitted and setup replayed; no natural campaign certification. No side clipping occurs in selected windows. Native SDL readback uses dummy software driver, not a desktop-visible or human-interactive certification.",
+    "original_source_event_ordinals": [
+      349,
+      369
+    ],
+    "original_sites": [
+      5676,
+      6040
+    ],
+    "nominal_slots": {
+      "5676": 25,
+      "6040": 26
+    },
+    "constructor_rng_calls": 0,
+    "all_original_18_cycles_observed": true,
+    "source_sequence": [
+      191,
+      191,
+      193,
+      193,
+      191,
+      191,
+      195,
+      195,
+      197,
+      197,
+      195,
+      195,
+      199,
+      199,
+      201,
+      201,
+      199,
+      199
+    ],
+    "natural_cull_ordinals": [
+      369
+    ],
+    "first_site_original_stop": {
+      "curLoc": 5769,
+      "next_event_ordinal": 367,
+      "actor_y": 65,
+      "alive_at_last_tick139": true,
+      "natural_cull_claim": false
+    },
+    "all_gameplay_event_actor_collision_projectile_effect_sound_counter_rng_index8_traces_exact": true,
+    "all_original_draw_arguments_order_exact": true,
+    "all_mirror_callbacks_state_rng_index8_unchanged": true,
+    "all_prior_material_command_subsequences_exact": true,
+    "prior_material_scope": "Observed material108 and136 commands remain exact; not a claim every prior63 image is drawn.",
+    "observed_prior_material_roles": [
+      108,
+      136
+    ],
+    "all_original_blend_pixel_operations_exact": true,
+    "observed_original_blend_pixel_writes": 1303514,
+    "negative_exactness": [
+      {
+        "name": "fallback5676-corrupt191-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback5676-corrupt191-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback5676-corrupt193-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback5676-corrupt193-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback5676-corrupt195-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback5676-corrupt195-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback5676-corrupt197-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback5676-corrupt197-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback5676-corrupt199-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback5676-corrupt199-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback5676-corrupt201-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback5676-corrupt201-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback5676-flag-off-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback5676-flag-off-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback5676-missing191-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback5676-missing191-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback5676-missing193-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback5676-missing193-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback5676-missing195-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback5676-missing195-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback5676-missing197-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback5676-missing197-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback5676-missing199-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback5676-missing199-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback5676-missing201-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback5676-missing201-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback6040-corrupt191-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback6040-corrupt191-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback6040-corrupt193-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback6040-corrupt193-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback6040-corrupt195-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback6040-corrupt195-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback6040-corrupt197-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback6040-corrupt197-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback6040-corrupt199-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback6040-corrupt199-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback6040-corrupt201-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback6040-corrupt201-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback6040-flag-off-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback6040-flag-off-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback6040-missing191-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback6040-missing191-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback6040-missing193-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback6040-missing193-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback6040-missing195-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback6040-missing195-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback6040-missing197-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback6040-missing197-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback6040-missing199-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback6040-missing199-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback6040-missing201-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "fallback6040-missing201-4x",
+        "all_tsv_files_exact": 33
+      }
+    ],
+    "changed_pixels_outside_original276_full_opaque_canvases": 0,
+    "coverage_mismatches": 0,
+    "rejected_frames": 0,
+    "accepted_new_commands": 2544,
+    "accepted_prior_commands": 74132,
+    "lethal": {
+      "ordinary_front_port": 1,
+      "ordinary_front_power": 11,
+      "ordinary_target_x": {
+        "5676": 98,
+        "6040": 170
+      },
+      "original_deaths": [
+        {
+          "case": "lethal-partial5676-2x",
+          "tick": "60",
+          "slot": "25",
+          "killed_increment": 1,
+          "cash_increment": 0
+        },
+        {
+          "case": "lethal-partial5676-4x",
+          "tick": "60",
+          "slot": "25",
+          "killed_increment": 1,
+          "cash_increment": 0
+        },
+        {
+          "case": "lethal-partial6040-2x",
+          "tick": "38",
+          "slot": "26",
+          "killed_increment": 1,
+          "cash_increment": 0
+        },
+        {
+          "case": "lethal-partial6040-4x",
+          "tick": "38",
+          "slot": "26",
+          "killed_increment": 1,
+          "cash_increment": 0
+        }
+      ],
+      "positive_armor_states": {
+        "lethal-partial5676-2x": [
+          1,
+          3,
+          5,
+          7,
+          9,
+          11,
+          12
+        ],
+        "lethal-partial5676-4x": [
+          1,
+          3,
+          5,
+          7,
+          9,
+          11,
+          12
+        ],
+        "lethal-partial6040-2x": [
+          2,
+          4,
+          6,
+          8,
+          10,
+          12
+        ],
+        "lethal-partial6040-4x": [
+          2,
+          4,
+          6,
+          8,
+          10,
+          12
+        ]
+      },
+      "child_wreck_or_drop": false,
+      "filter_scope": "Witnessed callbacks use original filter0; no filtered damage-pose certification."
+    },
+    "shared_effect_overlap": {
+      "lethal-partial5676-2x": {
+        "original_blend_operations_exact": true,
+        "all_blend_rows": 65078,
+        "known_original_blend_rows_over_new276": 903,
+        "attribution": "Known original blend writes inside accepted276 original canvas, with increased HD subpixel coverage relative to baseline.",
+        "source_indices": [
+          3,
+          22,
+          41,
+          60,
+          128,
+          129,
+          130,
+          131,
+          132,
+          133,
+          146,
+          147,
+          148,
+          149,
+          150,
+          151,
+          152
+        ],
+        "ticks": [
+          17,
+          18,
+          19,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          60
+        ],
+        "all_blends_applied_in_rgba": true,
+        "full_region_restorations": 0,
+        "sample": [
+          {
+            "tick": "17",
+            "known_sheet": "1",
+            "index": "146",
+            "origin_x": "109",
+            "origin_y": "18",
+            "x": "116",
+            "y": "23",
+            "before": "8",
+            "source": "114",
+            "after": "117",
+            "hd_subpixels_before": "64",
+            "restored_blocks": "0",
+            "rgba": "1"
+          },
+          {
+            "tick": "17",
+            "known_sheet": "1",
+            "index": "146",
+            "origin_x": "109",
+            "origin_y": "18",
+            "x": "116",
+            "y": "24",
+            "before": "8",
+            "source": "117",
+            "after": "118",
+            "hd_subpixels_before": "64",
+            "restored_blocks": "0",
+            "rgba": "1"
+          },
+          {
+            "tick": "17",
+            "known_sheet": "1",
+            "index": "146",
+            "origin_x": "109",
+            "origin_y": "18",
+            "x": "117",
+            "y": "24",
+            "before": "6",
+            "source": "114",
+            "after": "116",
+            "hd_subpixels_before": "64",
+            "restored_blocks": "0",
+            "rgba": "1"
+          }
+        ]
+      },
+      "lethal-partial5676-4x": {
+        "original_blend_operations_exact": true,
+        "all_blend_rows": 65078,
+        "known_original_blend_rows_over_new276": 903,
+        "attribution": "Known original blend writes inside accepted276 original canvas, with increased HD subpixel coverage relative to baseline.",
+        "source_indices": [
+          3,
+          22,
+          41,
+          60,
+          128,
+          129,
+          130,
+          131,
+          132,
+          133,
+          146,
+          147,
+          148,
+          149,
+          150,
+          151,
+          152
+        ],
+        "ticks": [
+          17,
+          18,
+          19,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          60
+        ],
+        "all_blends_applied_in_rgba": true,
+        "full_region_restorations": 0,
+        "sample": [
+          {
+            "tick": "17",
+            "known_sheet": "1",
+            "index": "146",
+            "origin_x": "109",
+            "origin_y": "18",
+            "x": "116",
+            "y": "23",
+            "before": "8",
+            "source": "114",
+            "after": "117",
+            "hd_subpixels_before": "64",
+            "restored_blocks": "0",
+            "rgba": "1"
+          },
+          {
+            "tick": "17",
+            "known_sheet": "1",
+            "index": "146",
+            "origin_x": "109",
+            "origin_y": "18",
+            "x": "116",
+            "y": "24",
+            "before": "8",
+            "source": "117",
+            "after": "118",
+            "hd_subpixels_before": "64",
+            "restored_blocks": "0",
+            "rgba": "1"
+          },
+          {
+            "tick": "17",
+            "known_sheet": "1",
+            "index": "146",
+            "origin_x": "109",
+            "origin_y": "18",
+            "x": "117",
+            "y": "24",
+            "before": "6",
+            "source": "114",
+            "after": "116",
+            "hd_subpixels_before": "64",
+            "restored_blocks": "0",
+            "rgba": "1"
+          }
+        ]
+      },
+      "lethal-partial6040-2x": {
+        "original_blend_operations_exact": true,
+        "all_blend_rows": 116047,
+        "known_original_blend_rows_over_new276": 487,
+        "attribution": "Known original blend writes inside accepted276 original canvas, with increased HD subpixel coverage relative to baseline.",
+        "source_indices": [
+          3,
+          22,
+          41,
+          60,
+          146,
+          147,
+          148,
+          149,
+          150,
+          151,
+          152
+        ],
+        "ticks": [
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38
+        ],
+        "all_blends_applied_in_rgba": true,
+        "full_region_restorations": 0,
+        "sample": [
+          {
+            "tick": "27",
+            "known_sheet": "1",
+            "index": "146",
+            "origin_x": "176",
+            "origin_y": "38",
+            "x": "181",
+            "y": "43",
+            "before": "8",
+            "source": "117",
+            "after": "118",
+            "hd_subpixels_before": "64",
+            "restored_blocks": "0",
+            "rgba": "1"
+          },
+          {
+            "tick": "27",
+            "known_sheet": "1",
+            "index": "146",
+            "origin_x": "176",
+            "origin_y": "38",
+            "x": "182",
+            "y": "43",
+            "before": "7",
+            "source": "117",
+            "after": "118",
+            "hd_subpixels_before": "64",
+            "restored_blocks": "0",
+            "rgba": "1"
+          },
+          {
+            "tick": "27",
+            "known_sheet": "1",
+            "index": "146",
+            "origin_x": "176",
+            "origin_y": "38",
+            "x": "183",
+            "y": "43",
+            "before": "8",
+            "source": "114",
+            "after": "117",
+            "hd_subpixels_before": "64",
+            "restored_blocks": "0",
+            "rgba": "1"
+          }
+        ]
+      },
+      "lethal-partial6040-4x": {
+        "original_blend_operations_exact": true,
+        "all_blend_rows": 116047,
+        "known_original_blend_rows_over_new276": 487,
+        "attribution": "Known original blend writes inside accepted276 original canvas, with increased HD subpixel coverage relative to baseline.",
+        "source_indices": [
+          3,
+          22,
+          41,
+          60,
+          146,
+          147,
+          148,
+          149,
+          150,
+          151,
+          152
+        ],
+        "ticks": [
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38
+        ],
+        "all_blends_applied_in_rgba": true,
+        "full_region_restorations": 0,
+        "sample": [
+          {
+            "tick": "27",
+            "known_sheet": "1",
+            "index": "146",
+            "origin_x": "176",
+            "origin_y": "38",
+            "x": "181",
+            "y": "43",
+            "before": "8",
+            "source": "117",
+            "after": "118",
+            "hd_subpixels_before": "64",
+            "restored_blocks": "0",
+            "rgba": "1"
+          },
+          {
+            "tick": "27",
+            "known_sheet": "1",
+            "index": "146",
+            "origin_x": "176",
+            "origin_y": "38",
+            "x": "182",
+            "y": "43",
+            "before": "7",
+            "source": "117",
+            "after": "118",
+            "hd_subpixels_before": "64",
+            "restored_blocks": "0",
+            "rgba": "1"
+          },
+          {
+            "tick": "27",
+            "known_sheet": "1",
+            "index": "146",
+            "origin_x": "176",
+            "origin_y": "38",
+            "x": "183",
+            "y": "43",
+            "before": "8",
+            "source": "114",
+            "after": "117",
+            "hd_subpixels_before": "64",
+            "restored_blocks": "0",
+            "rgba": "1"
+          }
+        ]
+      }
+    },
+    "all_eventrec_bytes_direct_memcmp_equal": true,
+    "raw_eventrec_bytes_per_run": 5772,
+    "selector_rng_unchanged": true,
+    "setup_ordinals_replayed": {
+      "5676": [
+        1,
+        2,
+        3,
+        4,
+        21
+      ],
+      "6040": [
+        1,
+        2,
+        3,
+        4,
+        21,
+        364,
+        365,
+        367
+      ]
+    },
+    "prefix_event_ordinals_omitted_otherwise": {
+      "5676": [
+        1,
+        348
+      ],
+      "6040": [
+        1,
+        367
+      ]
+    },
+    "native_readback_sizes": [
+      [
+        640,
+        400
+      ],
+      [
+        1280,
+        800
+      ]
+    ],
+    "headless": true,
+    "display_claim": "Native SDL software readback under dummy video driver; not desktop-visible, human-interactive, natural-campaign or whole-level certification.",
+    "sources": {
+      "original_data": {
+        "newshs.shp": {
+          "path": "EXTERNAL_ORIGINAL_DATA/newshs.shp",
+          "bytes": 46566,
+          "sha256": "f0bccf154a436ba46834a00b934e7cb8a77d8585b175a39c1270ad7888411c88"
+        },
+        "tyrian1.lvl": {
+          "path": "EXTERNAL_ORIGINAL_DATA/tyrian1.lvl",
+          "bytes": 538856,
+          "sha256": "54cbb00b57b84aa992a70cfcb170cb1edeb59507873723630d60080ba8351352"
+        },
+        "tyrian.hdt": {
+          "path": "EXTERNAL_ORIGINAL_DATA/tyrian.hdt",
+          "bytes": 295069,
+          "sha256": "fde8506326e7bb0916b38c362e33bf8a8a5affa561206c021af7f65b4a17745b"
+        }
+      },
+      "events": [
+        {
+          "ordinal": "349",
+          "curLoc": "5676",
+          "type": "6",
+          "data": "276",
+          "data2": "114",
+          "data3": "0",
+          "data4": "0",
+          "data5": "0",
+          "data6": "0"
+        },
+        {
+          "ordinal": "369",
+          "curLoc": "6040",
+          "type": "6",
+          "data": "276",
+          "data2": "186",
+          "data3": "0",
+          "data4": "0",
+          "data5": "0",
+          "data6": "0"
+        }
+      ],
+      "base_commit": "3a8e5d5e34187dd371ce96727d26ef8203d12b1e"
+    },
+    "input_stability": {
+      "all69_pack_file_hashes_unchanged": true,
+      "renderer_source_unchanged": true,
+      "production_engine_unchanged": true,
+      "helper_only_final_comment_change_object_byte_identical": true,
+      "final_helper_sha256": "d69e50a23b1a0c416abe2cd41273f6700c210a8df6328e105c5e5337a27e4ad9",
+      "final_renderer_sha256": "0de01f113e316cf58139b4044796f87a700c264c356bb84a567d3f4e9bac7777",
+      "pack_sha256": {
+        "enemy-newshd-1-8.hda": "c59e7286da4f08915d710b8c9ef2edf7af69b4ca3f7171c47ab3b7d02cc1f9af",
+        "enemy-newshd-114-8.hda": "594d8d8ae896e2145bfbe269418bc7f3182cab4892e59aa8525822d96c1bbfbc",
+        "enemy-newshd-121-8.hda": "65609c1c9d7cc981faecc914ada8e1100c550047733967ba7ae4b3635fdd1dad",
+        "enemy-newshd-123-8.hda": "9b715a874a8d8d12ff6849f5946787647072bfc0e6c2ca102e753fed48ca4fac",
+        "enemy-newshd-13-8.hda": "4e50f5e538cc0271e902d2dbe23d4bec0bf8754e996bdf2a4ae20d983628bf32",
+        "enemy-newshd-133-8.hda": "6365fe3258b918f3a3257b5a92963c917564cfdae5a045ea932995b0da293532",
+        "enemy-newshd-15-8.hda": "01a7a75264a4575072390e9ae2a96aeaab2b2e865ef1087b934fbbf2a994ec33",
+        "enemy-newshd-152-8.hda": "7c346971170ca612506af55d50c1c7cd2150830fa6ec2b0043caa6e8104c410b",
+        "enemy-newshd-229-8.hda": "c8182428567a09114a560f8730a797157a3ee3202083658db0e33476b7e2cb27",
+        "enemy-newshd-231-8.hda": "361b5631f7d20d142d25eb3e15780d468b6dcd542cd3ec4fee246087e6a276c1",
+        "enemy-newshd-233-8.hda": "fbd56b67b4d8df177228b88b878be5c58aa2fcc9af4bd488f8588371aec1f1c4",
+        "enemy-newshd-235-8.hda": "b26c696a3f640f50a6b4625fe7fdaf8c1c60fb9f53ef3d0d9e6a40099ad2c7ba",
+        "enemy-newshd-245-8.hda": "71f5abb6edef89f4f151eca6aec54d5d6e517e17db48875d1bfcc2672b283f5e",
+        "enemy-newshd-267-8.hda": "2df4003aa25526ffd4b1a263e5310e95efe429b344cb13f565593919f7a1e359",
+        "enemy-newshd-269-8.hda": "1b9ef68aedfef1f4e4dc8145b218f96be8e4dcbf356446279ce52ea8465d998a",
+        "enemy-newshd-271-8.hda": "b6db25b6b81ede4cec9a33c8f81de0468fa66f3e6d6565b63cb736caef78656a",
+        "enemy-newshd-273-8.hda": "5433116da95b8e1bf08fc808ca9f42a9e3522c90b123bd822a89c828db851293",
+        "enemy-newshd-281-8.hda": "0669e8e3ea3a50752f2e645dd72c6ae5ad1bc5af8931cc3b039fd12a43a07b23",
+        "enemy-newshd-283-8.hda": "9e8d91e67d142ec4351001aebe9dc33fb70dcc91123dbe353ce84f6bf5b8a658",
+        "enemy-newshd-3-8.hda": "19160e7f2ce32a441b93e8d38d78b8fc718a8ca1d6ec5e5d9629479562bdd041",
+        "enemy-newshd-31-8.hda": "ed2717939279681e494da1c64bae97437b7d762d2fcfb4488ba555e035150535",
+        "enemy-newshd-34-8.hda": "de0e9d141d8b2bb657a3fa9a49cac3881b87d055fabde43c74784fb469b48a4f",
+        "enemy-newshd-39-8.hda": "70222e9f86a655e15318caeda8fbb44070d0bb9daa67d586efc04fe3bf4d81b7",
+        "enemy-newshd-41-8.hda": "7608f5317b3196fc1ade7e0875d4c33078925c8daad8b9d7c6fa6bd471fc1b10",
+        "enemy-newshd-43-8.hda": "d32bab72c7e674a43aa35a548fbd192c3924a8de9aad142e6f00582458f9cda5",
+        "enemy-newshd-45-8.hda": "434d156af662e23b0a03b78574fef28ff7a972cce8b61a2f70f114cb13b518a7",
+        "enemy-newshd-47-8.hda": "24d8ecf14fe83f8670004b0e5f0f7486ce6e9e5dda3dcdf4f3514d4dee5c2bc9",
+        "enemy-newshd-49-8.hda": "6a955c8ee1c9beed292ff56f9c98cb1aeac33675f345c82d6978bcb780c2de05",
+        "enemy-newshd-5-8.hda": "bc4fe34b0ce8f43351b37a7c7af9c57ac100e13697aa03fe48458112be16c322",
+        "enemy-newshd-51-8.hda": "a20ceeec15221ec94dd79064c3dd28471d1036d8a1cafa59dde7f504f98c63aa",
+        "enemy-newshd-53-8.hda": "e719f0d6c5067de6f9f52644122f337def77dfe56011f58ed4bbf607ee50b38c",
+        "enemy-newshd-7-8.hda": "e7dfe3c87afc50df46504ccd4dcbd7d37456093c56f5926341906646c4701f83",
+        "enemy-newshd-77-8.hda": "52616dad83368574da424e3e180dc8b291a649ed1a8dab0106eca2167214e81c",
+        "enemy-newshd-79-8.hda": "58ec2fbe2fb605cef591dda33e373283dd35974e9e160cff0c4f3509c1dba298",
+        "enemy-newshd-81-8.hda": "a657626679cbe322680394f4489443efed4532548ead118f4794699b9ec1cb56",
+        "enemy-newshd-83-8.hda": "3f103041cc41eaa52d53b8f06d53056204a7f76ed38d56eca63064b4d354c901",
+        "enemy-newshd-85-8.hda": "6ea525685fc9b898c4054b93bca8e1f64fce0c1914ed18b41727b9d1fe2a7935",
+        "enemy-newshd-88-8.hda": "2fa2b3c0e53ff635beae67be4a01542ea170b7c41004d6be14159e9259128598",
+        "enemy-newshd-89-8.hda": "322ec042756f610033fd3b6b509a21804781c145d7b8e9fd07cbf5e673080779",
+        "enemy-newshd-9-8.hda": "1f40fc59af8e535d9ddf703ac432e0d02f67c994302871a37870a5b2a42e084e",
+        "enemy-newshd-91-8.hda": "b8ebad6ec7146342d833ed409ef7f9dce09e7aecd9c6e20edbb5ed93fd95870d",
+        "enemy-newshd-95-8.hda": "3d099619cd2f520caaa3b0bb54457780bbc86cb74f1affd76d14794e8f9bf6d7",
+        "enemy-newshp-115-8.hda": "f3990602fa3c9199cf15c85e62d96954d414d08cea7171c1ba07172c9f44322c",
+        "enemy-newshp-117-8.hda": "951364ebd06145962cde9e6d0f676e547bffc36777297d98a4f9a3ce349d2519",
+        "enemy-newshp-119-8.hda": "09b0bd98f62a7c5ee16114cbd71c2a09e34a03a17aca23387ce5033fe0930c0e",
+        "enemy-newshp-121-8.hda": "48846ee1d419ca5fe8cf8ad2900566937c0754fa413255dc902392567d4aec10",
+        "enemy-newshp-229-8.hda": "74efdec8ff95e20ab7c47f2aa8ec4e40a963551da6396392d04d4c6e0be7b89c",
+        "enemy-newshp-231-8.hda": "c97be4c67e41aa129be53aec9cdbe31b23f9b93b5cc657be69f80556d4c26c1a",
+        "enemy-newshp-267-8.hda": "1eb0fe96fd5c86a967fa4bc73ab97bac2d9cc360cf8db570b294d12951984678",
+        "enemy-newshp-269-8.hda": "7ef0d2edc92cec157b49d7346dada16e430dc9942276b4bfaa0968c82aa9aaaf",
+        "enemy-newshs-11-8.hda": "7fcc1ec61b4572f6a8c693674d71f30342583549d9a03787c26bc3574f854b27",
+        "enemy-newshs-125-8.hda": "94582fc57ff68f44f91e51d57ea1fc0f85ce0b6c5d2bd75377310f3ddfe74902",
+        "enemy-newshs-153-8.hda": "6d8dd571ae6746cd0403a92dc5051e090638dc4e87a09a917b17c758d84e7bff",
+        "enemy-newshs-155-8.hda": "c5bf16dad0f327b9a52338c825aa90a1a5619d08fd4812c3cc48e23c907e534c",
+        "enemy-newshs-157-8.hda": "f3131c0b8bae2ceb01c4191b6b2e5335240ed6b5125b74271b4bfa3d1c6e401e",
+        "enemy-newshs-159-8.hda": "1a1c5e039d42f088a79228ca24e10fbfc445ca08c2b792ee1e6ffd627bbafc91",
+        "enemy-newshs-161-8.hda": "b74efddd0426eb149d6e52f8c771acd10b5c0728cbd5928da37652441e303189",
+        "enemy-newshs-163-8.hda": "19d2c6677c7ff3fd30fcf5f7660ed38ea72de0dade7320a12789994fddc799ad",
+        "enemy-newshs-191-8.hda": "7dc6a39a355d7754678ec02a66535447e0ee9a3e64d53026eb6085bd12335a5a",
+        "enemy-newshs-193-8.hda": "32f57becaf6191ed106eb43c3352fb41906bb3e621b1b3ecc2eb2024e9a93439",
+        "enemy-newshs-195-8.hda": "98211e49c2f2ff1b6781b3c3366cda12cff4565ac9793df34e1c2288ff276394",
+        "enemy-newshs-197-8.hda": "50737f5a915d968f2809a42afd5b74ac33e95b1e40bbddbc0469ab681d257a1c",
+        "enemy-newshs-199-8.hda": "125e282d301a79ac13ae551d66f1e74378d10f009b46c4e890a7cd0301733463",
+        "enemy-newshs-201-8.hda": "87c3032212fb0919ba2d735b2b053876dc027c569a7954224273e62ce01513f2",
+        "enemy-newshs-229-8.hda": "1a8c6616d2d1ebc3e7c324fed692f3bbf2ee67e3ca2ddfa068c981f218600224",
+        "enemy-newshs-231-8.hda": "02e4df95460260825ce929561804702763e91a45463a5d4f9978b0a086bac97e",
+        "enemy-newshs-233-8.hda": "f75ed9d2c605b7eb1711e0c95a4ef765bb7035105949b7bd603598301f7cbd05",
+        "enemy-newshs-235-8.hda": "a0a58eb92805eb6736ce8e8662eb140559757fed2fdb8118b86f287f64992b8f",
+        "enemy-newshs-277-8.hda": "fafb983ca4fdcc84a7000b5e18ed9111f51040374f2d930b47743901c4d81942"
+      }
+    },
+    "final_comment_object_equivalence": {
+      "only_change": "Helper comment: 'twin-column' to 'three-column'.",
+      "prior_helper_sha256": "483adb7f18b6cd2132ba1ac73b0f66024e75f47b0a4cf8ae9e1d9f7473482d13",
+      "final_helper_sha256": "d69e50a23b1a0c416abe2cd41273f6700c210a8df6328e105c5e5337a27e4ad9",
+      "compiled_final_source_object_byte_identical_to_tested_object": true,
+      "object_sha256": "bea499891d5e90652b853988bb25c40e5873a160ea3b4a8f48773855ba01ab83",
+      "no_engine_binary_or_runtime_output_change": true,
+      "compiler_command": [
+        "cc",
+        "-DTARGET_UNIX",
+        "-DNDEBUG",
+        "-std=iso9899:1999",
+        "-pedantic",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Wno-misleading-indentation",
+        "-Wno-format-truncation",
+        "-Wno-missing-field-initializers",
+        "-O2",
+        "-IREPOSITORY/src",
+        "-ILOCAL_SDL_SDK/usr/include/SDL2",
+        "-ILOCAL_SDL_SDK/usr/include/x86_64-linux-gnu",
+        "-D_REENTRANT",
+        "-c",
+        "RUNTIME_EVIDENCE/candidate-render_mirror.c",
+        "-o",
+        "RUNTIME_EVIDENCE/final-comment-render_mirror.o"
+      ]
+    },
+    "observer_receipt": {
+      "production_source_edits": false,
+      "observer_files": {
+        "qa-tyrian2.c": "d108aaf633e4a43208f593cceed14895ee81339a1788044b2d76d72a43f2a0b0",
+        "qa-game_probe.c": "014c7574fa2d5733acbb083ac819df0fb04bf4df55b7d25a1a00131d0ac50882",
+        "qa-asset_debug.c": "aea4aaa52c5b63c45f8f0cfe33ae909c4122a8211421a94447bc9010a407a7b9",
+        "record276_draw_witness.c": "086e01a9f2cd571e24e662880fe6badedec92e51dd199e374c0d4a1504651dc5",
+        "png_capture_native_crop.c": "e853f738c73317356e8599ae63a99b6d5b9808a3c6eccf3ba0b08d841045a21d"
+      },
+      "scope": "External read-only actor/allocation/original-shot lethal-effect/quadrant observers adapted to276. No actor/projectile/eventRec/physics/RNG writes. Existing assisted prefix selector and bounded ordinary controls explicitly disclosed. PNG readback shim captures native SDL renderer without gameplay writes."
+    },
+    "baseline_build": {
+      "qa_scope": "External physical1 normal ASTEROID1 assisted original-event selectors, original event clock and read-only record276 actor logging; no injected or revived actor and no event-byte, spawner, physics or RNG changes.",
+      "qa_probe_sha256": "014c7574fa2d5733acbb083ac819df0fb04bf4df55b7d25a1a00131d0ac50882",
+      "render_sha256": "cac14ab3804048a275fab6b8e1e074a0613649c32a768ccf50d24eacbcebfa3e",
+      "binaries": {
+        "baseline": "fb9cadffeebeb4ae178054611faccf901a16bfa28cfd39dbdc1f3a64fb6d2a8b",
+        "flag-off-baseline": "264c979c2e9d05b0ed3d94675cc97b9906806053928908f20c3ba7020be25887"
+      },
+      "peak_child_rss_bytes": 224542720,
+      "compiler_as_limit_bytes": 1073741824
+    },
+    "candidate_build": {
+      "qa_scope": "External physical1 normal ASTEROID1 assisted original-event selectors, original event clock and read-only record276 actor logging; no injected or revived actor and no event-byte, spawner, physics or RNG changes.",
+      "qa_probe_sha256": "014c7574fa2d5733acbb083ac819df0fb04bf4df55b7d25a1a00131d0ac50882",
+      "render_sha256": "0de01f113e316cf58139b4044796f87a700c264c356bb84a567d3f4e9bac7777",
+      "binaries": {
+        "candidate": "92eb83fb6f0e4abbf201d8505d20cde6465b5e87338f2036bdda54a5383b3ba4",
+        "flag-off-candidate": "2cb61f344ed6e31701cdca04accc9c50716fc98bea5ee6e587e94fa2752d30c7"
+      },
+      "peak_child_rss_bytes": 226709504,
+      "compiler_as_limit_bytes": 1073741824
+    },
+    "limits": {
+      "runtime_as_bytes": 536870912,
+      "compiler_as_bytes": 1073741824,
+      "runtime_cpu_seconds": 120,
+      "runtime_wall_seconds": 180,
+      "disk_reserve_bytes": 5000000000,
+      "output_budget_bytes": 180000000,
+      "png_budget_bytes": 33554432,
+      "expanded_budget_reason": "Both original sites and 52negative pairs, rather than prior single-site26 negatives."
+    },
+    "observed": {
+      "max_runtime_rss_bytes": 98185216,
+      "max_runtime_wall_seconds": 27.888,
+      "max_runtime_sampled_cpu_seconds": 23.52,
+      "all_exit_zero": true
+    },
+    "exploratory_runs_excluded": [
+      {
+        "name": "scan5676-2x-baseline",
+        "ticks": 145,
+        "purpose": "baseline original allocation/animation/culling discovery"
+      }
+    ],
+    "paired_native_png_captures": 416,
+    "rejected_pre_gameplay_launches": 27,
+    "engine_source_provenance": {
+      "baseline_renderer_exact_git_show": true,
+      "baseline_material138_absent": true,
+      "observer_removal_exactly_reconstructs_production_tyrian2": true,
+      "production_tyrian2_sha256": "38efa746a6add0ccc02efc7a5fb64138523e31c1e0a0d710470eaaac9f44eb08",
+      "qa_tyrian2_sha256": "d108aaf633e4a43208f593cceed14895ee81339a1788044b2d76d72a43f2a0b0",
+      "no_gameplay_change_in_observer_source": true
+    },
+    "production_engine_probe_edits": false
+  },
+  "catalog": {
+    "status": "PASS",
+    "current_default_catalog_counts": [
+      629,
+      629
+    ],
+    "real_optional_HDR1_and_source_PNG_pairs_verified": 69,
+    "optional_catalog_sha256": "fad32073ea72e969d8b41c5deb10c76cf4e9e39e53dcccd433394843d657895f",
+    "metadata_mutations_rejected": [
+      "missing",
+      "digest",
+      "scope",
+      "bank-filename",
+      "bank-identity",
+      "role-collision",
+      "newshp-material",
+      "newshp-header",
+      "newshp-default-collision",
+      "pulsing272-bank",
+      "pulsing272-source-bank",
+      "pulsing272-record",
+      "pulsing272-bases",
+      "pulsing272-material108",
+      "pulsing272-material135",
+      "pulsing272-header108",
+      "pulsing272-header135",
+      "firing325-header136",
+      "firing325-material136",
+      "newshd-header136",
+      "newshp-header136",
+      "pulsing272-default-collision",
+      "same-base-crossbank-swap",
+      "newshd-family-material136",
+      "newshd-family-bank23",
+      "newshs-foreign-filename",
+      "source-bank-provenance",
+      "triple275-bank",
+      "triple275-record",
+      "triple275-material",
+      "triple275-header",
+      "triple275-default-collision",
+      "columns276-bank",
+      "columns276-record",
+      "columns276-material",
+      "columns276-header",
+      "columns276-default-collision",
+      "pulsing272-missing-229",
+      "pulsing272-missing-231",
+      "pulsing272-missing-233",
+      "pulsing272-missing-235",
+      "triple275-missing-153",
+      "triple275-missing-155",
+      "triple275-missing-157",
+      "triple275-missing-159",
+      "triple275-missing-161",
+      "triple275-missing-163",
+      "columns276-missing-191",
+      "columns276-missing-193",
+      "columns276-missing-195",
+      "columns276-missing-197",
+      "columns276-missing-199",
+      "columns276-missing-201"
+    ],
+    "explicit_family_base_material_identity_checks_before_frozen_digest": true,
+    "pulsing272_triple275_columns276_resource_mutations_rejected": [
+      "229:material108",
+      "229:material136or137",
+      "229:material135",
+      "229:density",
+      "229:anchor",
+      "229:short",
+      "229:long",
+      "229:payload",
+      "229:source-png",
+      "231:material108",
+      "231:material136or137",
+      "231:material135",
+      "231:density",
+      "231:anchor",
+      "231:short",
+      "231:long",
+      "231:payload",
+      "231:source-png",
+      "233:material108",
+      "233:material136or137",
+      "233:material135",
+      "233:density",
+      "233:anchor",
+      "233:short",
+      "233:long",
+      "233:payload",
+      "233:source-png",
+      "235:material108",
+      "235:material136or137",
+      "235:material135",
+      "235:density",
+      "235:anchor",
+      "235:short",
+      "235:long",
+      "235:payload",
+      "235:source-png",
+      "153:material108",
+      "153:material136or137",
+      "153:material135",
+      "153:density",
+      "153:anchor",
+      "153:short",
+      "153:long",
+      "153:payload",
+      "153:source-png",
+      "155:material108",
+      "155:material136or137",
+      "155:material135",
+      "155:density",
+      "155:anchor",
+      "155:short",
+      "155:long",
+      "155:payload",
+      "155:source-png",
+      "157:material108",
+      "157:material136or137",
+      "157:material135",
+      "157:density",
+      "157:anchor",
+      "157:short",
+      "157:long",
+      "157:payload",
+      "157:source-png",
+      "159:material108",
+      "159:material136or137",
+      "159:material135",
+      "159:density",
+      "159:anchor",
+      "159:short",
+      "159:long",
+      "159:payload",
+      "159:source-png",
+      "161:material108",
+      "161:material136or137",
+      "161:material135",
+      "161:density",
+      "161:anchor",
+      "161:short",
+      "161:long",
+      "161:payload",
+      "161:source-png",
+      "163:material108",
+      "163:material136or137",
+      "163:material135",
+      "163:density",
+      "163:anchor",
+      "163:short",
+      "163:long",
+      "163:payload",
+      "163:source-png",
+      "191:material108",
+      "191:material136or137",
+      "191:material135",
+      "191:density",
+      "191:anchor",
+      "191:short",
+      "191:long",
+      "191:payload",
+      "191:source-png",
+      "193:material108",
+      "193:material136or137",
+      "193:material135",
+      "193:density",
+      "193:anchor",
+      "193:short",
+      "193:long",
+      "193:payload",
+      "193:source-png",
+      "195:material108",
+      "195:material136or137",
+      "195:material135",
+      "195:density",
+      "195:anchor",
+      "195:short",
+      "195:long",
+      "195:payload",
+      "195:source-png",
+      "197:material108",
+      "197:material136or137",
+      "197:material135",
+      "197:density",
+      "197:anchor",
+      "197:short",
+      "197:long",
+      "197:payload",
+      "197:source-png",
+      "199:material108",
+      "199:material136or137",
+      "199:material135",
+      "199:density",
+      "199:anchor",
+      "199:short",
+      "199:long",
+      "199:payload",
+      "199:source-png",
+      "201:material108",
+      "201:material136or137",
+      "201:material135",
+      "201:density",
+      "201:anchor",
+      "201:short",
+      "201:long",
+      "201:payload",
+      "201:source-png"
+    ],
+    "NEWSHS_family_materials": {
+      "firing325": 108,
+      "pulsing272": 136,
+      "triple275": 137,
+      "columns276": 138
+    },
+    "synthetic_default_only_entries_verified": 2,
+    "missing_and_corrupt_default_optional_cases_rejected": true,
+    "existing_resources_unchanged": true,
+    "scope": "Finite catalog integration; complete historical default payload acceptance is separate."
+  },
+  "full_catalog": {
+    "verified_pack_count": 2,
+    "verified_HDA_entries": 1258,
+    "verified_optional_pack_count": 1,
+    "verified_optional_HDA_entries": 69,
+    "verified_exact_source_pngs": 629,
+    "verified_optional_source_pngs": 69,
+    "default_pack_counts": [
+      629,
+      629
+    ],
+    "optional_pack_counts": {
+      "asteroid1-ten-v1": 69
+    },
+    "optional_catalog_sha256": "fad32073ea72e969d8b41c5deb10c76cf4e9e39e53dcccd433394843d657895f",
+    "catalog_only": true,
+    "artwork_rebuilt": false
+  },
+  "previous272_regression": {
+    "records": [
+      272
+    ],
+    "bases": [
+      229,
+      231,
+      233,
+      235
+    ],
+    "material_role": 136,
+    "source_bank": 23,
+    "cold_record_bytes": 77,
+    "warm_record_bytes": 77,
+    "canonical_mutation_member_callbacks": 4,
+    "production_constructor": true,
+    "original_event_ordinals": [
+      227,
+      228,
+      368,
+      369,
+      370,
+      374,
+      391,
+      392
+    ],
+    "selected272_ordinals": [
+      227,
+      228,
+      368,
+      370,
+      374,
+      391,
+      392
+    ],
+    "intervening276_ordinal": 369,
+    "raw_events_unchanged": true,
+    "allocation_cases": 96,
+    "allocation_free_slots": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "allocation_holes": [
+      25,
+      34,
+      49
+    ],
+    "production_animation_comparisons": 4080,
+    "cycles": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "hidden_first_step": true,
+    "production_damage_cases": 35,
+    "normal_ice_and_lethal": true,
+    "independent_link0_death": true,
+    "original_explosion_allocation": true,
+    "original_repeating_explosion_RNG": true,
+    "production_ram_predicate_and_body": true,
+    "ram_positive_armor_values": 255,
+    "ram_ice_values": 256,
+    "INDEX8_byte_equality": true,
+    "classic_callback_trace_equality": true,
+    "source_bank325_record_independence": true,
+    "production_identity_equal_bases": [
+      229,
+      231
+    ],
+    "production_identity_materials": [
+      108,
+      135,
+      136
+    ],
+    "production_distinct_regions": 6,
+    "production_distinct_command_identities": 6,
+    "production_generic136_rejection": true,
+    "production_unguarded136_rejection": true,
+    "strict_sprite_object_binding": true,
+    "admitted_pool_slots": [
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49
+    ],
+    "source_logical_bank_exclusions": 255,
+    "resource_role_rejections": [
+      108,
+      135
+    ],
+    "fixture_count": 68,
+    "compiler_peak_rss_bytes": 374255616,
+    "runtime_peak_rss_bytes": 90193920,
+    "compiler_address_space_limit_bytes": 1073741824,
+    "runtime_rss_limit_bytes": 536870912,
+    "runtime_timeout_seconds": 120,
+    "compiler_timeout_seconds": 90,
+    "output_limit_bytes": 33554432,
+    "output_bytes": 10569586,
+    "runs": [
+      {
+        "mode": "optimized",
+        "positive": 1,
+        "negative": 68,
+        "production_HD_admissions": 20788,
+        "binary_sha256": "c721c9c5c98529f596b0e3f92c0ed3b339d6481bea6907353363e92e3a37ae67"
+      },
+      {
+        "mode": "asan-ubsan",
+        "positive": 1,
+        "negative": 68,
+        "production_HD_admissions": 20788,
+        "binary_sha256": "cd886154e5a7bcfd792d236334b835b3abb36622ee53723d6b70e1be541fdbb2"
+      }
+    ],
+    "leak_sanitizer": false,
+    "source_sha256": {
+      "render_mirror.c": "0de01f113e316cf58139b4044796f87a700c264c356bb84a567d3f4e9bac7777",
+      "asteroid1_pulsing272_mirror.inc": "66a7d96811f70cf74951e3d0df7cdc20983cdf30838b5173016dd81d50785a93",
+      "asteroid1_firing325_mirror.inc": "ba498fc6ea5cdd3b4355df620199ca909faebe62135fd17aa6fca529b055bce1",
+      "asteroid1_ten_mirror.inc": "59405811f96b992e52a40f32a8b1f88222a237be2f23f18a47101cb0c551b61e",
+      "varz.h": "7c5b67fdb8f595d928432f0fb4d5b936c15bd7f881a00c24f7677e8e2f38dc56",
+      "varz.c": "231800bf30d7db8852985b3286c3fca71fc2537bc2ede295e50d3bd7188bd5c6",
+      "tyrian2.c": "38efa746a6add0ccc02efc7a5fb64138523e31c1e0a0d710470eaaac9f44eb08",
+      "mtrand.c": "9bb519b6b67d990184da25f1d373858760d2952a782c3e850e2f21c972c01f95",
+      "config.h": "df43ab4f8887c1275d1f876f83b2ab9f8dcd4a333ee1f2414caa3c8123522fe0",
+      "shots.h": "b6e009500719222b134f508e3db2bf3c365a9e1f54e576f8465f98ff6f364042",
+      "mainint.c": "7555d124b7b7d6a0c6690424da0948fc54724611cea1cf6b6c6e9b20740a1f13",
+      "sprite.c": "4b78f9e792509fcd490549a81a86bf18c2f524368d9bb8d00ee573cc47775a52",
+      "game_probe.c": "dd81bd0e8c26df04b598271c85854535fc3e4c23429aa95128e8abd5df43dbba"
+    },
+    "identity_scope": "Exact production admission guards, region registration, generic loading exclusion guards and complete scene-command serializer; compositor rasterization is separate.",
+    "scope": "Extracted production constructor, allocation, event6, draw prelaunch, indexed tile writes, ordinary player-shot destruction, ram condition/body, explosion allocation and repeating effects with production MT RNG. Real-engine evidence is separate."
+  },
+  "previous275_regression": {
+    "records": [
+      275
+    ],
+    "bases": [
+      153,
+      155,
+      157,
+      159,
+      161,
+      163
+    ],
+    "material_role": 137,
+    "source_bank": 23,
+    "cold_record_bytes": 77,
+    "warm_record_bytes": 77,
+    "canonical_mutation_member_callbacks": 6,
+    "production_constructor": true,
+    "original_event_ordinals": [
+      331,
+      332,
+      333,
+      334,
+      446,
+      447,
+      448,
+      449,
+      450,
+      451,
+      452,
+      453,
+      455,
+      456,
+      457,
+      458,
+      459,
+      460,
+      461,
+      462,
+      463,
+      464,
+      465,
+      466,
+      467,
+      468,
+      469,
+      470,
+      471,
+      472,
+      473,
+      474,
+      475,
+      476,
+      477,
+      478,
+      479,
+      480
+    ],
+    "selected275_ordinals": [
+      331,
+      332,
+      333,
+      334,
+      446,
+      447,
+      448,
+      449,
+      450,
+      451,
+      452,
+      453,
+      455,
+      456,
+      457,
+      458,
+      459,
+      460,
+      461,
+      462,
+      463,
+      464,
+      465,
+      466,
+      467,
+      468,
+      469,
+      470,
+      471,
+      472,
+      473,
+      474,
+      475,
+      476,
+      477,
+      478,
+      479,
+      480
+    ],
+    "neighbor276_ordinal": 349,
+    "raw_events_unchanged": true,
+    "allocation_cases": 456,
+    "allocation_free_slots": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "allocation_holes": [
+      25,
+      34,
+      49
+    ],
+    "dense_wave_pool_limit": 25,
+    "site_lifecycle_comparisons": 2280,
+    "production_animation_comparisons": 4080,
+    "cycles": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "hidden_first_step": true,
+    "production_damage_cases": 190,
+    "normal_ice_and_lethal": true,
+    "independent_link0_death": true,
+    "original_explosion_allocation": true,
+    "original_repeating_explosion_RNG": true,
+    "production_ram_predicate_and_body": true,
+    "ram_positive_armor_values": 255,
+    "ram_ice_values": 256,
+    "INDEX8_byte_equality": true,
+    "classic_callback_trace_equality": true,
+    "source_bank325_record_independence": true,
+    "production_identity_equal_bases": [
+      153,
+      155
+    ],
+    "production_identity_materials": [
+      108,
+      135,
+      136,
+      137
+    ],
+    "production_distinct_regions": 8,
+    "production_distinct_command_identities": 8,
+    "production_generic136_137_rejection": true,
+    "production_unguarded136_137_rejection": true,
+    "private_lease_cross_rejection": true,
+    "strict_sprite_object_binding": true,
+    "admitted_pool_slots": [
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49
+    ],
+    "source_logical_bank_exclusions": 255,
+    "resource_role_rejections": [
+      108,
+      135,
+      136
+    ],
+    "fixture_count": 108,
+    "compiler_peak_rss_bytes": 390877184,
+    "runtime_peak_rss_bytes": 160448512,
+    "compiler_address_space_limit_bytes": 1073741824,
+    "runtime_rss_limit_bytes": 536870912,
+    "runtime_timeout_seconds": 120,
+    "compiler_timeout_seconds": 90,
+    "output_limit_bytes": 50331648,
+    "output_bytes": 15758557,
+    "runs": [
+      {
+        "mode": "optimized",
+        "positive": 1,
+        "negative": 108,
+        "production_HD_admissions": 86916,
+        "binary_sha256": "ba8a18c5e90e2bbc3a589819972aa76b908b39014f328b0b1e22bb703cef0436"
+      },
+      {
+        "mode": "asan-ubsan",
+        "positive": 1,
+        "negative": 108,
+        "production_HD_admissions": 86916,
+        "binary_sha256": "871955466d01c69a6e8c59d330d65f93ea193673ac92fed4aacd64ea4b3329af"
+      }
+    ],
+    "leak_sanitizer": false,
+    "source_sha256": {
+      "render_mirror.c": "0de01f113e316cf58139b4044796f87a700c264c356bb84a567d3f4e9bac7777",
+      "asteroid1_triple275_mirror.inc": "edf182b8762675086153368ba1a8a9f490834f1483741c293ab1ce031c163de8",
+      "asteroid1_firing325_mirror.inc": "ba498fc6ea5cdd3b4355df620199ca909faebe62135fd17aa6fca529b055bce1",
+      "asteroid1_ten_mirror.inc": "59405811f96b992e52a40f32a8b1f88222a237be2f23f18a47101cb0c551b61e",
+      "varz.h": "7c5b67fdb8f595d928432f0fb4d5b936c15bd7f881a00c24f7677e8e2f38dc56",
+      "varz.c": "231800bf30d7db8852985b3286c3fca71fc2537bc2ede295e50d3bd7188bd5c6",
+      "tyrian2.c": "38efa746a6add0ccc02efc7a5fb64138523e31c1e0a0d710470eaaac9f44eb08",
+      "mtrand.c": "9bb519b6b67d990184da25f1d373858760d2952a782c3e850e2f21c972c01f95",
+      "config.h": "df43ab4f8887c1275d1f876f83b2ab9f8dcd4a333ee1f2414caa3c8123522fe0",
+      "shots.h": "b6e009500719222b134f508e3db2bf3c365a9e1f54e576f8465f98ff6f364042",
+      "mainint.c": "7555d124b7b7d6a0c6690424da0948fc54724611cea1cf6b6c6e9b20740a1f13",
+      "sprite.c": "4b78f9e792509fcd490549a81a86bf18c2f524368d9bb8d00ee573cc47775a52",
+      "game_probe.c": "dd81bd0e8c26df04b598271c85854535fc3e4c23429aa95128e8abd5df43dbba"
+    },
+    "harness_sha256": "27df649cf5b0dd78910a9d532b4b66af594f8eb68210b822a0c9506f19f7963b",
+    "test_sha256": "1c732c174e78aa26991f633ac0f3781c256c2596f2b3fef0585e8f4faa46b532",
+    "original_record275_fnv64": "17f7fe80fc8c2adf",
+    "original_record275_sha256": "02568f834fbabda2abe229ef9dc34436fdc87894ecbd9441e7d5605db4019542",
+    "original_level_sha256": "54cbb00b57b84aa992a70cfcb170cb1edeb59507873723630d60080ba8351352",
+    "original_NEWSHS_sha256": "f0bccf154a436ba46834a00b934e7cb8a77d8585b175a39c1270ad7888411c88",
+    "identity_scope": "Exact production admission guards, region registration, generic loading exclusion guards and complete scene-command serializer; compositor rasterization is separate.",
+    "scope": "Extracted production constructor, allocation, event6, draw prelaunch, indexed tile writes, ordinary player-shot destruction, ram condition/body, explosion allocation and repeating effects with production MT RNG. Real-engine evidence is separate."
+  },
+  "warm_shield_talon_regression": {
+    "extraction": "actual production helper, callback, indexed blitter, fallback and restore; bounded SDL structural shim",
+    "first_level_source_identity": "passed: exact baseline functions and unchanged callback tail",
+    "game_data": "read-only original effect sheet and optional main shape container; never copied or emitted",
+    "talon_source_tests": true,
+    "runtime_gameplay": "not tested by this fixture",
+    "limits": {
+      "compile_rss_mib": 1024,
+      "runtime_rss_mib": 512,
+      "minimum_free_gib": 5,
+      "leak_detection": "disabled: this executor uses ptrace, incompatible with LeakSanitizer; ASan and UBSan remain enabled",
+      "note": "RSS watchdog used because ASan reserves virtual address space beyond an RLIMIT_AS cap"
+    },
+    "extracted_code_sha256": {
+      "primitives": "f977e0847e536646bb5ddbb03dd775239e4d6dc31ca34b7c432e43cbfb169ba2",
+      "pixel": "c6094b5cc4bccda6131efdca30c72c4cf10dc39eb9994dd2f01432f11be7bd67",
+      "talon": "11d0fe45406d2250fe6648aa2cd50e66f1caff8ff50eb386e5b3d8bfc52a0d6f",
+      "asteroid": "fa07b54f2d98ea2440c182ac55b49028d56e2f251a848475b2afeab2108950cf",
+      "callback": "af766f8a903c0ed28172d56bc76d517002c22759ea7482c6564faded43eac6fb",
+      "blitter": "0b57d4ccb9da6cca775933a41f459f15d321d478e44bfcaad2b5ac947ba0eeea"
+    },
+    "runs": {
+      "optimized-compile": {
+        "status": "passed",
+        "peak_rss_kib_observed": 48212,
+        "seconds": 2.291,
+        "log": "optimized-compile.log"
+      },
+      "optimized": {
+        "status": "passed",
+        "peak_rss_kib_observed": 49368,
+        "seconds": 1.342,
+        "log": "optimized.log"
+      },
+      "asan-ubsan-compile": {
+        "status": "passed",
+        "peak_rss_kib_observed": 88728,
+        "seconds": 4.671,
+        "log": "asan-ubsan-compile.log"
+      },
+      "asan-ubsan": {
+        "status": "passed",
+        "peak_rss_kib_observed": 348860,
+        "seconds": 2.815,
+        "log": "asan-ubsan.log"
+      }
+    }
+  },
+  "independent_review": "Read-only review found no functional blocker; exact source record, six payloads, private material138 and catalog69/22/54 verified.",
+  "visual_QA": "All six original states and registered authored images viewed. Both native site six-state2x/4x contacts and ordinary-shot damage contact inspected; original beam/effects stay visible.",
+  "original_data_included": false,
+  "old63_payloads_and_metadata_unchanged": true,
+  "old21_family_entries_unchanged": true,
+  "default629_plus629_catalogs_unchanged": true,
+  "original_gameplay_sources_unchanged": true
+}

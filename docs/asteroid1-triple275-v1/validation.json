@@ -1,0 +1,1315 @@
+{
+  "status": "PASS_WITH_DISCLOSED_SCOPE",
+  "local_baseline_commit": "3dc9248eaaef48bba66e127d07722dec81396c6e",
+  "source_and_artwork": {
+    "status": "PASS",
+    "source_bank": "NEWSHS",
+    "logical_bank": 23,
+    "material_role": 137,
+    "source_bytes": 46566,
+    "source_fnv64": "0xf22ec1295ced5d11",
+    "images": [
+      {
+        "base": 153,
+        "role": 1370153,
+        "hda_sha256": "6d8dd571ae6746cd0403a92dc5051e090638dc4e87a09a917b17c758d84e7bff",
+        "rgba_fnv64": "0xd18a4aef60739d9c"
+      },
+      {
+        "base": 155,
+        "role": 1370155,
+        "hda_sha256": "c5bf16dad0f327b9a52338c825aa90a1a5619d08fd4812c3cc48e23c907e534c",
+        "rgba_fnv64": "0xc3ad0a413839574f"
+      },
+      {
+        "base": 157,
+        "role": 1370157,
+        "hda_sha256": "f3131c0b8bae2ceb01c4191b6b2e5335240ed6b5125b74271b4bfa3d1c6e401e",
+        "rgba_fnv64": "0x88262ba9d6ddc180"
+      },
+      {
+        "base": 159,
+        "role": 1370159,
+        "hda_sha256": "1a1c5e039d42f088a79228ca24e10fbfc445ca08c2b792ee1e6ffd627bbafc91",
+        "rgba_fnv64": "0x10b801d1a503d951"
+      },
+      {
+        "base": 161,
+        "role": 1370161,
+        "hda_sha256": "b74efddd0426eb149d6e52f8c771acd10b5c0728cbd5928da37652441e303189",
+        "rgba_fnv64": "0xa6a0478233b9ff2b"
+      },
+      {
+        "base": 163,
+        "role": 1370163,
+        "hda_sha256": "19d2c6677c7ff3fd30fcf5f7660ed38ea72de0dade7320a12789994fddc799ad",
+        "rgba_fnv64": "0xcaf3a3760e161829"
+      }
+    ],
+    "occupied_logical_cells_per_image": 672,
+    "state_difference_union_cells": 370,
+    "state_difference_bbox": [
+      2,
+      2,
+      18,
+      25
+    ],
+    "housing_outside_source_union_exact": true,
+    "all_thirty_directed_pair_transitions_distinct": true,
+    "three_authentic_low_high_green_energy_pairs": {
+      "155": [
+        9.17837389380531,
+        41.14975110619469
+      ],
+      "159": [
+        8.288716814159292,
+        38.331720132743364
+      ],
+      "163": [
+        5.272400442477876,
+        36.00096792035398
+      ]
+    },
+    "rebuild_png_and_HDA_exact": true,
+    "masters_match_provenance": true,
+    "scope": "Finite deterministic art conversion only; native original-engine acceptance is separate."
+  },
+  "extracted_production": {
+    "records": [
+      275
+    ],
+    "bases": [
+      153,
+      155,
+      157,
+      159,
+      161,
+      163
+    ],
+    "material_role": 137,
+    "source_bank": 23,
+    "cold_record_bytes": 77,
+    "warm_record_bytes": 77,
+    "canonical_mutation_member_callbacks": 6,
+    "production_constructor": true,
+    "original_event_ordinals": [
+      331,
+      332,
+      333,
+      334,
+      446,
+      447,
+      448,
+      449,
+      450,
+      451,
+      452,
+      453,
+      455,
+      456,
+      457,
+      458,
+      459,
+      460,
+      461,
+      462,
+      463,
+      464,
+      465,
+      466,
+      467,
+      468,
+      469,
+      470,
+      471,
+      472,
+      473,
+      474,
+      475,
+      476,
+      477,
+      478,
+      479,
+      480
+    ],
+    "selected275_ordinals": [
+      331,
+      332,
+      333,
+      334,
+      446,
+      447,
+      448,
+      449,
+      450,
+      451,
+      452,
+      453,
+      455,
+      456,
+      457,
+      458,
+      459,
+      460,
+      461,
+      462,
+      463,
+      464,
+      465,
+      466,
+      467,
+      468,
+      469,
+      470,
+      471,
+      472,
+      473,
+      474,
+      475,
+      476,
+      477,
+      478,
+      479,
+      480
+    ],
+    "neighbor276_ordinal": 349,
+    "raw_events_unchanged": true,
+    "allocation_cases": 456,
+    "allocation_free_slots": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "allocation_holes": [
+      25,
+      34,
+      49
+    ],
+    "dense_wave_pool_limit": 25,
+    "site_lifecycle_comparisons": 2280,
+    "production_animation_comparisons": 4080,
+    "cycles": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "hidden_first_step": true,
+    "production_damage_cases": 190,
+    "normal_ice_and_lethal": true,
+    "independent_link0_death": true,
+    "original_explosion_allocation": true,
+    "original_repeating_explosion_RNG": true,
+    "production_ram_predicate_and_body": true,
+    "ram_positive_armor_values": 255,
+    "ram_ice_values": 256,
+    "INDEX8_byte_equality": true,
+    "classic_callback_trace_equality": true,
+    "source_bank325_record_independence": true,
+    "production_identity_equal_bases": [
+      153,
+      155
+    ],
+    "production_identity_materials": [
+      108,
+      135,
+      136,
+      137
+    ],
+    "production_distinct_regions": 8,
+    "production_distinct_command_identities": 8,
+    "production_generic136_137_rejection": true,
+    "production_unguarded136_137_rejection": true,
+    "private_lease_cross_rejection": true,
+    "strict_sprite_object_binding": true,
+    "admitted_pool_slots": [
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49
+    ],
+    "source_logical_bank_exclusions": 255,
+    "resource_role_rejections": [
+      108,
+      135,
+      136
+    ],
+    "fixture_count": 108,
+    "compiler_peak_rss_bytes": 395571200,
+    "runtime_peak_rss_bytes": 160526336,
+    "compiler_address_space_limit_bytes": 1073741824,
+    "runtime_rss_limit_bytes": 536870912,
+    "runtime_timeout_seconds": 120,
+    "compiler_timeout_seconds": 90,
+    "output_limit_bytes": 50331648,
+    "output_bytes": 15757332,
+    "runs": [
+      {
+        "mode": "optimized",
+        "positive": 1,
+        "negative": 108,
+        "production_HD_admissions": 86916,
+        "binary_sha256": "4469612896bc9ad3a933e8df835edcce40651ccd6e07ede7cb1824b931d28e9e"
+      },
+      {
+        "mode": "asan-ubsan",
+        "positive": 1,
+        "negative": 108,
+        "production_HD_admissions": 86916,
+        "binary_sha256": "ee52f90b4c22976b466560ea92971623c43aadd1667106c9b52fbf66195c642a"
+      }
+    ],
+    "leak_sanitizer": false,
+    "source_sha256": {
+      "render_mirror.c": "cac14ab3804048a275fab6b8e1e074a0613649c32a768ccf50d24eacbcebfa3e",
+      "asteroid1_triple275_mirror.inc": "edf182b8762675086153368ba1a8a9f490834f1483741c293ab1ce031c163de8",
+      "asteroid1_firing325_mirror.inc": "ba498fc6ea5cdd3b4355df620199ca909faebe62135fd17aa6fca529b055bce1",
+      "asteroid1_ten_mirror.inc": "59405811f96b992e52a40f32a8b1f88222a237be2f23f18a47101cb0c551b61e",
+      "varz.h": "7c5b67fdb8f595d928432f0fb4d5b936c15bd7f881a00c24f7677e8e2f38dc56",
+      "varz.c": "231800bf30d7db8852985b3286c3fca71fc2537bc2ede295e50d3bd7188bd5c6",
+      "tyrian2.c": "38efa746a6add0ccc02efc7a5fb64138523e31c1e0a0d710470eaaac9f44eb08",
+      "mtrand.c": "9bb519b6b67d990184da25f1d373858760d2952a782c3e850e2f21c972c01f95",
+      "config.h": "df43ab4f8887c1275d1f876f83b2ab9f8dcd4a333ee1f2414caa3c8123522fe0",
+      "shots.h": "b6e009500719222b134f508e3db2bf3c365a9e1f54e576f8465f98ff6f364042",
+      "mainint.c": "7555d124b7b7d6a0c6690424da0948fc54724611cea1cf6b6c6e9b20740a1f13",
+      "sprite.c": "4b78f9e792509fcd490549a81a86bf18c2f524368d9bb8d00ee573cc47775a52",
+      "game_probe.c": "dd81bd0e8c26df04b598271c85854535fc3e4c23429aa95128e8abd5df43dbba"
+    },
+    "harness_sha256": "9dead26d5371b70b55343895b6aa5054349bbc00b94a886ffbe2cdb8f5beafef",
+    "test_sha256": "d3716c5587b80dbe468c263e3502d8815f472f877f7868656898d1f9b69bb4ac",
+    "original_record275_fnv64": "17f7fe80fc8c2adf",
+    "original_record275_sha256": "02568f834fbabda2abe229ef9dc34436fdc87894ecbd9441e7d5605db4019542",
+    "original_level_sha256": "54cbb00b57b84aa992a70cfcb170cb1edeb59507873723630d60080ba8351352",
+    "original_NEWSHS_sha256": "f0bccf154a436ba46834a00b934e7cb8a77d8585b175a39c1270ad7888411c88",
+    "identity_scope": "Exact production admission guards, region registration, generic loading exclusion guards and complete scene-command serializer; compositor rasterization is separate.",
+    "scope": "Extracted production constructor, allocation, event6, draw prelaunch, indexed tile writes, ordinary player-shot destruction, ram condition/body, explosion allocation and repeating effects with production MT RNG. Real-engine evidence is separate."
+  },
+  "native_runtime": {
+    "status": "PASS_WITH_DISCLOSED_RUNTIME_SCOPE",
+    "paired_cases": 32,
+    "engine_runs": 64,
+    "total_logic_ticks": 5440,
+    "matrix": {
+      "intact_full_lifecycle_pairs": 2,
+      "clean_six_pose_pairs": 2,
+      "ordinary_shot_partial_lethal_pairs": 2,
+      "missing_pairs": 12,
+      "payload_corrupt_pairs": 12,
+      "flagoff_pairs": 2
+    },
+    "scope": "ASSISTED original first-window5312, Episode1 Normal physical1 ASTEROID1 seed1. Prefix spawn/mutation events omitted; original setup replayed in original order. Raw eventRec5772 bytes retained and direct-memcmp unchanged; all38 record275 original event6 entries retained. Selector RNG unchanged. Four live allocations, animation, collision, effects and culling remain original engine. Ordinary front-port1 power11 fire with bounded ordinary targetX98 controls supplies genuine partial/lethal processing in lethal cases. No actor/projectile injection/healing/resurrection/forced graphics. No natural-campaign or whole-level claim.",
+    "runtime_gap": "Actual engine evidence is limited to the first four original actors at5312/5340; later34 spawns not runtime-certified here. No side clipping occurs in selected window. Native SDL readback uses dummy software driver, not a desktop-visible or human-interactive certification.",
+    "original_source_event_ordinals": [
+      331,
+      332,
+      333,
+      334
+    ],
+    "first_spawns_at_ticks": [
+      0,
+      0,
+      14,
+      14
+    ],
+    "nominal_slots": [
+      25,
+      26,
+      27,
+      28
+    ],
+    "original_sites": [
+      5312,
+      5340
+    ],
+    "constructor_rng_calls": 0,
+    "all_original_18_cycles_observed": true,
+    "source_sequence": [
+      153,
+      153,
+      155,
+      155,
+      153,
+      153,
+      157,
+      157,
+      159,
+      159,
+      157,
+      157,
+      161,
+      161,
+      163,
+      163,
+      161,
+      161
+    ],
+    "natural_cull_ordinals": [
+      331,
+      332,
+      333,
+      334
+    ],
+    "all_gameplay_event_actor_collision_projectile_effect_sound_counter_rng_index8_traces_exact": true,
+    "all_original_draw_arguments_order_exact": true,
+    "all_mirror_callbacks_state_rng_index8_unchanged": true,
+    "all_prior_material_command_subsequences_exact": true,
+    "prior_material_scope": "Observed prior material108 commands remain exact; not a claim that every prior57 image is drawn in this first window.",
+    "all_original_blend_pixel_operations_exact": true,
+    "negative_exactness": [
+      {
+        "name": "assisted5312-missing153-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "assisted5312-missing155-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "assisted5312-missing157-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "assisted5312-missing159-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "assisted5312-missing161-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "assisted5312-missing163-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "assisted5312-corrupt153-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "assisted5312-corrupt155-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "assisted5312-corrupt157-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "assisted5312-corrupt159-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "assisted5312-corrupt161-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "assisted5312-corrupt163-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "assisted5312-flag-off-2x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "assisted5312-missing153-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "assisted5312-missing155-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "assisted5312-missing157-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "assisted5312-missing159-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "assisted5312-missing161-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "assisted5312-missing163-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "assisted5312-corrupt153-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "assisted5312-corrupt155-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "assisted5312-corrupt157-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "assisted5312-corrupt159-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "assisted5312-corrupt161-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "assisted5312-corrupt163-4x",
+        "all_tsv_files_exact": 33
+      },
+      {
+        "name": "assisted5312-flag-off-4x",
+        "all_tsv_files_exact": 33
+      }
+    ],
+    "changed_pixels_outside_original275_full_opaque_canvases": 0,
+    "coverage_mismatches": 0,
+    "rejected_frames": 0,
+    "accepted_new_commands": 6560,
+    "accepted_prior_commands": 15056,
+    "lethal": {
+      "ordinary_front_port": 1,
+      "ordinary_front_power": 11,
+      "ordinary_target_x": 98,
+      "original_deaths": [
+        {
+          "slot": 25,
+          "tick": 22
+        },
+        {
+          "slot": 27,
+          "tick": 30
+        }
+      ],
+      "neighbor_slots_remain_live": [
+        26,
+        28
+      ],
+      "positive_armor_states": [
+        1,
+        3,
+        6,
+        10
+      ],
+      "killed_increment_per_lethal": 1,
+      "cash_increment_per_lethal": 0,
+      "child_wreck_or_drop": false,
+      "filter_scope": "All witnessed callbacks use original filter0; no filtered damage-pose certification."
+    },
+    "shared_effect_overlap": {
+      "2x": {
+        "original_blend_operations_exact": true,
+        "all_blend_rows": 36148,
+        "known_original_blend_rows_over_275": 592,
+        "source_indices": [
+          3,
+          22,
+          41,
+          60,
+          122,
+          123,
+          124,
+          146,
+          147,
+          148,
+          149,
+          150,
+          151
+        ],
+        "ticks": [
+          17,
+          18,
+          19,
+          20,
+          22,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30
+        ],
+        "all_blends_applied_in_rgba": true,
+        "full_region_restorations": 0,
+        "sample": [
+          {
+            "tick": "17",
+            "known_sheet": "1",
+            "index": "146",
+            "origin_x": "99",
+            "origin_y": "14",
+            "x": "104",
+            "y": "20",
+            "before": "113",
+            "source": "118",
+            "after": "115",
+            "hd_subpixels_before": "64",
+            "restored_blocks": "0",
+            "rgba": "1"
+          },
+          {
+            "tick": "17",
+            "known_sheet": "1",
+            "index": "146",
+            "origin_x": "99",
+            "origin_y": "14",
+            "x": "106",
+            "y": "20",
+            "before": "112",
+            "source": "117",
+            "after": "114",
+            "hd_subpixels_before": "64",
+            "restored_blocks": "0",
+            "rgba": "1"
+          },
+          {
+            "tick": "17",
+            "known_sheet": "1",
+            "index": "146",
+            "origin_x": "99",
+            "origin_y": "14",
+            "x": "107",
+            "y": "20",
+            "before": "113",
+            "source": "114",
+            "after": "113",
+            "hd_subpixels_before": "64",
+            "restored_blocks": "0",
+            "rgba": "1"
+          }
+        ]
+      },
+      "4x": {
+        "original_blend_operations_exact": true,
+        "all_blend_rows": 36148,
+        "known_original_blend_rows_over_275": 592,
+        "source_indices": [
+          3,
+          22,
+          41,
+          60,
+          122,
+          123,
+          124,
+          146,
+          147,
+          148,
+          149,
+          150,
+          151
+        ],
+        "ticks": [
+          17,
+          18,
+          19,
+          20,
+          22,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30
+        ],
+        "all_blends_applied_in_rgba": true,
+        "full_region_restorations": 0,
+        "sample": [
+          {
+            "tick": "17",
+            "known_sheet": "1",
+            "index": "146",
+            "origin_x": "99",
+            "origin_y": "14",
+            "x": "104",
+            "y": "20",
+            "before": "113",
+            "source": "118",
+            "after": "115",
+            "hd_subpixels_before": "64",
+            "restored_blocks": "0",
+            "rgba": "1"
+          },
+          {
+            "tick": "17",
+            "known_sheet": "1",
+            "index": "146",
+            "origin_x": "99",
+            "origin_y": "14",
+            "x": "106",
+            "y": "20",
+            "before": "112",
+            "source": "117",
+            "after": "114",
+            "hd_subpixels_before": "64",
+            "restored_blocks": "0",
+            "rgba": "1"
+          },
+          {
+            "tick": "17",
+            "known_sheet": "1",
+            "index": "146",
+            "origin_x": "99",
+            "origin_y": "14",
+            "x": "107",
+            "y": "20",
+            "before": "113",
+            "source": "114",
+            "after": "113",
+            "hd_subpixels_before": "64",
+            "restored_blocks": "0",
+            "rgba": "1"
+          }
+        ]
+      }
+    },
+    "all_eventrec_bytes_direct_memcmp_equal": true,
+    "raw_eventrec_bytes_per_run": 5772,
+    "selector_rng_unchanged": true,
+    "setup_ordinals_replayed": [
+      1,
+      2,
+      3,
+      4,
+      21
+    ],
+    "prefix_event_ordinals_omitted_otherwise": [
+      1,
+      330
+    ],
+    "native_readback_sizes": [
+      [
+        640,
+        400
+      ],
+      [
+        1280,
+        800
+      ]
+    ],
+    "headless": true,
+    "display_claim": "Native SDL software readback under dummy video driver; not desktop-visible, human-interactive, natural-campaign, whole-level, or later34-spawn certification.",
+    "sources": {
+      "game_data_root": "external user-owned original data; not included",
+      "named_original_sources": {
+        "tyrian.hdt": {
+          "bytes": 295069,
+          "sha256": "fde8506326e7bb0916b38c362e33bf8a8a5affa561206c021af7f65b4a17745b"
+        },
+        "tyrian1.lvl": {
+          "bytes": 538856,
+          "sha256": "54cbb00b57b84aa992a70cfcb170cb1edeb59507873723630d60080ba8351352"
+        },
+        "newshs.shp": {
+          "bytes": 46566,
+          "sha256": "f0bccf154a436ba46834a00b934e7cb8a77d8585b175a39c1270ad7888411c88"
+        },
+        "palette.dat": {
+          "bytes": 18432,
+          "sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+        }
+      },
+      "baseline_commit": "3dc9248eaaef48bba66e127d07722dec81396c6e",
+      "baseline_existing_helpers": {
+        "gameplay_hud_font_mirror.inc": {
+          "sha256": "e54f546cc60c679e1b2a2f55869e0f96c0c955a3bcdcf00103e5058a842bef1c",
+          "unchanged_from_baseline": true
+        },
+        "gameplay_hud_storm_mirror.inc": {
+          "sha256": "63034eeb2f55a1bcd60cc738ef739951fb60a888ab8b7d7ecfb8d3574dbd3345",
+          "unchanged_from_baseline": true
+        },
+        "rear_multi_p1_mirror.inc": {
+          "sha256": "9f5f48ea19330f6afeace40f156e049c0621fdcd6a10e281d2084cf74442538c",
+          "unchanged_from_baseline": true
+        },
+        "rear_multi_p11_shadow.inc": {
+          "sha256": "60635f8c2723e7cbba341baf7d4853486d7d850c795a55f02a0cc46a36b02fbb",
+          "unchanged_from_baseline": true
+        },
+        "asteroid1_ten_mirror.inc": {
+          "sha256": "59405811f96b992e52a40f32a8b1f88222a237be2f23f18a47101cb0c551b61e",
+          "unchanged_from_baseline": true
+        },
+        "asteroid1_four_mirror.inc": {
+          "sha256": "3045ab6db880062f5cf46a54349a9c09b98b82d55b27b83c112e9fca26e4fc75",
+          "unchanged_from_baseline": true
+        },
+        "asteroid1_common4_mirror.inc": {
+          "sha256": "b1bfca51933419e00461ca762527fa880ec191d42fee50a679cb005f23ef66e5",
+          "unchanged_from_baseline": true
+        },
+        "asteroid1_random5_mirror.inc": {
+          "sha256": "de0de609881a08bb53e32b3b2b4d190871284d28e25b5dcef6b265b657441aa9",
+          "unchanged_from_baseline": true
+        },
+        "asteroid1_random43_mirror.inc": {
+          "sha256": "d7d1b5413400be41d0d8817c8e30aecb294302bcce5d07fbc85612acd1aa53a9",
+          "unchanged_from_baseline": true
+        },
+        "asteroid1_random85_mirror.inc": {
+          "sha256": "bcbf8743e9b487097f403d3e45e83c89bda608882870c9c53b9aa3ccb92e1639",
+          "unchanged_from_baseline": true
+        },
+        "asteroid1_random123_mirror.inc": {
+          "sha256": "7f555ca000c047db2b7bbc6aead046be87028ce93beba26f77c89c2f4ab13695",
+          "unchanged_from_baseline": true
+        },
+        "asteroid1_random95_mirror.inc": {
+          "sha256": "276f5549a7182459ba9d6c92e581d6d9c8c44087b0fc17afc7b23b313536886b",
+          "unchanged_from_baseline": true
+        },
+        "asteroid1_random114_mirror.inc": {
+          "sha256": "1fd521e2d08e5e885602a1cbca7145f0a77146efeabeaec25f789f650015733e",
+          "unchanged_from_baseline": true
+        },
+        "asteroid1_random133_mirror.inc": {
+          "sha256": "046ebf8d0b2ca368ebce39fcaf752f3577d251f039a4eec748fc3e35c2d34af7",
+          "unchanged_from_baseline": true
+        },
+        "asteroid1_random152_mirror.inc": {
+          "sha256": "e7510937334e46096092e2267c2408b7211291ba2d40f582ca2b757f590ce0b4",
+          "unchanged_from_baseline": true
+        },
+        "asteroid1_goldwing_mirror.inc": {
+          "sha256": "bc6dd4571870cf0fcb836f0c76e4b272a15bd68d768f7f568dc94ee89f32e727",
+          "unchanged_from_baseline": true
+        },
+        "asteroid1_random286_mirror.inc": {
+          "sha256": "af22344195ea5146522f0d3287aac369ba6d77521c3eafb3cd919dea59e7415e",
+          "unchanged_from_baseline": true
+        },
+        "asteroid1_fork284_mirror.inc": {
+          "sha256": "4f01f641de50f900c7c5c41baff6eaa100a1c742b918aa607eeaa87a2d5f2479",
+          "unchanged_from_baseline": true
+        },
+        "asteroid1_capsule545_mirror.inc": {
+          "sha256": "857a7c9c6c08523e3c2730b8fe7ac519c976f6ad1c000f47decaeb3b0e73d484",
+          "unchanged_from_baseline": true
+        },
+        "asteroid1_paired287_288_mirror.inc": {
+          "sha256": "fb4540a6e0503adc23c2bd073357ceb782c6c6f30fac07ea5cdfa1b6ab0316cd",
+          "unchanged_from_baseline": true
+        },
+        "asteroid1_firing325_mirror.inc": {
+          "sha256": "ba498fc6ea5cdd3b4355df620199ca909faebe62135fd17aa6fca529b055bce1",
+          "unchanged_from_baseline": true
+        },
+        "asteroid1_pulsing272_mirror.inc": {
+          "sha256": "66a7d96811f70cf74951e3d0df7cdc20983cdf30838b5173016dd81d50785a93",
+          "unchanged_from_baseline": true
+        },
+        "render_mirror_asteroid_linked338.inc": {
+          "sha256": "738c8c88a7383ca363427b814594f4a0ed8404929dad3188e2d4bde5d2dd5ee0",
+          "unchanged_from_baseline": true
+        },
+        "asteroid1_talon_blend_mirror.inc": {
+          "sha256": "11d0fe45406d2250fe6648aa2cd50e66f1caff8ff50eb386e5b3d8bfc52a0d6f",
+          "unchanged_from_baseline": true
+        },
+        "asteroid1_effect_blend_mirror.inc": {
+          "sha256": "fa07b54f2d98ea2440c182ac55b49028d56e2f251a848475b2afeab2108950cf",
+          "unchanged_from_baseline": true
+        }
+      },
+      "candidate_new_helper_sha256": "edf182b8762675086153368ba1a8a9f490834f1483741c293ab1ce031c163de8"
+    },
+    "observer_receipt": {
+      "production_source_edits": false,
+      "observer_files": {
+        "qa-tyrian2.c": "e6d0f5518699de1ca65151b81a703429585a6724cd35870d7d7eb0ac8e0cb40d",
+        "qa-game_probe.c": "228d90bdeb64512b8076cbf1834d8712d583c2905b3814228eb06ff574ef85ad",
+        "qa-asset_debug.c": "aea4aaa52c5b63c45f8f0cfe33ae909c4122a8211421a94447bc9010a407a7b9",
+        "record275_draw_witness.c": "534a1cec4bb73bf495434d64775573a2de8c0568cafd61bc4edd7512848ffb38"
+      },
+      "scope": "External read-only actor, allocation, original-shot lethal-effect and quadrant observers adapted to275. No actor/projectile/eventRec/physics/RNG writes; assisted prefix selector and bounded ordinary controls explicitly disclosed."
+    },
+    "baseline_build": {
+      "qa_scope": "External physical1 normal ASTEROID1 assisted original-event selectors, original event clock and read-only record275 actor logging; no injected or revived actor and no event-byte, spawner, physics or RNG changes.",
+      "qa_probe_sha256": "228d90bdeb64512b8076cbf1834d8712d583c2905b3814228eb06ff574ef85ad",
+      "render_sha256": "fc0d511ad566cc242f2e12ea4a11b9b0c62ab83e157b0d2596d464a005954ffe",
+      "binaries": {
+        "baseline": "9c269d6cd531a3e1912f33f2b81f71be77edde63331393d29793b541b76782fd",
+        "flag-off-baseline": "f72e3bb2315f482d252d22397f79ec64f99028a06f9ba2c16c633b92a2e6ab68"
+      },
+      "peak_child_rss_bytes": 222597120,
+      "compiler_as_limit_bytes": 1073741824
+    },
+    "candidate_build": {
+      "qa_scope": "External physical1 normal ASTEROID1 assisted original-event selectors, original event clock and read-only record275 actor logging; no injected or revived actor and no event-byte, spawner, physics or RNG changes.",
+      "qa_probe_sha256": "228d90bdeb64512b8076cbf1834d8712d583c2905b3814228eb06ff574ef85ad",
+      "render_sha256": "cac14ab3804048a275fab6b8e1e074a0613649c32a768ccf50d24eacbcebfa3e",
+      "binaries": {
+        "candidate": "ce3205d32e50dbf18153c1ead9a282b28356830b2036e5b261072736074f2e26",
+        "flag-off-candidate": "416b3156c66bf998f5bfc846065b7c524f22afa400e1abb6e26f6df60a124a3d"
+      },
+      "peak_child_rss_bytes": 224694272,
+      "compiler_as_limit_bytes": 1073741824
+    },
+    "limits": {
+      "runtime_as_bytes": 536870912,
+      "compiler_as_bytes": 1073741824,
+      "runtime_cpu_seconds": 120,
+      "runtime_wall_seconds": 180,
+      "disk_reserve_bytes": 5000000000,
+      "output_budget_bytes": 100000000,
+      "png_budget_bytes": 16777216
+    },
+    "observed": {
+      "max_runtime_rss_bytes": 96624640,
+      "max_runtime_wall_seconds": 28.459,
+      "max_runtime_sampled_cpu_seconds": 27.43,
+      "all_exit_zero": true
+    },
+    "exploratory_runs_excluded": [
+      {
+        "name": "scan5312-2x-baseline",
+        "ticks": 180,
+        "purpose": "baseline original allocation/animation/culling discovery"
+      },
+      {
+        "name": "damage-scan5312-2x-baseline",
+        "ticks": 90,
+        "purpose": "ordinary-shot control discovery"
+      }
+    ],
+    "production_engine_probe_edits": false,
+    "paired_native_png_captures": 196,
+    "reviewed_contact_pngs": 2
+  },
+  "catalog": {
+    "status": "PASS",
+    "current_default_catalog_counts": [
+      629,
+      629
+    ],
+    "real_optional_HDR1_and_source_PNG_pairs_verified": 63,
+    "optional_catalog_sha256": "a26d9d088227d801be1f6fbb6d0627a1d7b437bedeb2f6302af7080b15bd193f",
+    "metadata_mutations_rejected": [
+      "missing",
+      "digest",
+      "scope",
+      "bank-filename",
+      "bank-identity",
+      "role-collision",
+      "newshp-material",
+      "newshp-header",
+      "newshp-default-collision",
+      "pulsing272-bank",
+      "pulsing272-source-bank",
+      "pulsing272-record",
+      "pulsing272-bases",
+      "pulsing272-material108",
+      "pulsing272-material135",
+      "pulsing272-header108",
+      "pulsing272-header135",
+      "firing325-header136",
+      "firing325-material136",
+      "newshd-header136",
+      "newshp-header136",
+      "pulsing272-default-collision",
+      "same-base-crossbank-swap",
+      "newshd-family-material136",
+      "newshd-family-bank23",
+      "newshs-foreign-filename",
+      "source-bank-provenance",
+      "triple275-bank",
+      "triple275-record",
+      "triple275-material",
+      "triple275-header",
+      "triple275-default-collision",
+      "pulsing272-missing-229",
+      "pulsing272-missing-231",
+      "pulsing272-missing-233",
+      "pulsing272-missing-235",
+      "triple275-missing-153",
+      "triple275-missing-155",
+      "triple275-missing-157",
+      "triple275-missing-159",
+      "triple275-missing-161",
+      "triple275-missing-163"
+    ],
+    "explicit_family_base_material_identity_checks_before_frozen_digest": true,
+    "pulsing272_and_triple275_resource_mutations_rejected": [
+      "229:material108",
+      "229:material136or137",
+      "229:material135",
+      "229:density",
+      "229:anchor",
+      "229:short",
+      "229:long",
+      "229:payload",
+      "229:source-png",
+      "231:material108",
+      "231:material136or137",
+      "231:material135",
+      "231:density",
+      "231:anchor",
+      "231:short",
+      "231:long",
+      "231:payload",
+      "231:source-png",
+      "233:material108",
+      "233:material136or137",
+      "233:material135",
+      "233:density",
+      "233:anchor",
+      "233:short",
+      "233:long",
+      "233:payload",
+      "233:source-png",
+      "235:material108",
+      "235:material136or137",
+      "235:material135",
+      "235:density",
+      "235:anchor",
+      "235:short",
+      "235:long",
+      "235:payload",
+      "235:source-png",
+      "153:material108",
+      "153:material136or137",
+      "153:material135",
+      "153:density",
+      "153:anchor",
+      "153:short",
+      "153:long",
+      "153:payload",
+      "153:source-png",
+      "155:material108",
+      "155:material136or137",
+      "155:material135",
+      "155:density",
+      "155:anchor",
+      "155:short",
+      "155:long",
+      "155:payload",
+      "155:source-png",
+      "157:material108",
+      "157:material136or137",
+      "157:material135",
+      "157:density",
+      "157:anchor",
+      "157:short",
+      "157:long",
+      "157:payload",
+      "157:source-png",
+      "159:material108",
+      "159:material136or137",
+      "159:material135",
+      "159:density",
+      "159:anchor",
+      "159:short",
+      "159:long",
+      "159:payload",
+      "159:source-png",
+      "161:material108",
+      "161:material136or137",
+      "161:material135",
+      "161:density",
+      "161:anchor",
+      "161:short",
+      "161:long",
+      "161:payload",
+      "161:source-png",
+      "163:material108",
+      "163:material136or137",
+      "163:material135",
+      "163:density",
+      "163:anchor",
+      "163:short",
+      "163:long",
+      "163:payload",
+      "163:source-png"
+    ],
+    "NEWSHS_family_materials": {
+      "firing325": 108,
+      "pulsing272": 136,
+      "triple275": 137
+    },
+    "synthetic_default_only_entries_verified": 2,
+    "missing_and_corrupt_default_optional_cases_rejected": true,
+    "existing_resources_unchanged": true,
+    "scope": "Finite catalog integration; complete historical default payload acceptance is separate."
+  },
+  "full_catalog": {
+    "verified_pack_count": 2,
+    "verified_HDA_entries": 1258,
+    "verified_optional_pack_count": 1,
+    "verified_optional_HDA_entries": 63,
+    "verified_exact_source_pngs": 629,
+    "verified_optional_source_pngs": 63,
+    "default_pack_counts": [
+      629,
+      629
+    ],
+    "optional_pack_counts": {
+      "asteroid1-ten-v1": 63
+    },
+    "optional_catalog_sha256": "a26d9d088227d801be1f6fbb6d0627a1d7b437bedeb2f6302af7080b15bd193f",
+    "catalog_only": true,
+    "artwork_rebuilt": false
+  },
+  "previous272_regression": {
+    "records": [
+      272
+    ],
+    "bases": [
+      229,
+      231,
+      233,
+      235
+    ],
+    "material_role": 136,
+    "source_bank": 23,
+    "cold_record_bytes": 77,
+    "warm_record_bytes": 77,
+    "canonical_mutation_member_callbacks": 4,
+    "production_constructor": true,
+    "original_event_ordinals": [
+      227,
+      228,
+      368,
+      369,
+      370,
+      374,
+      391,
+      392
+    ],
+    "selected272_ordinals": [
+      227,
+      228,
+      368,
+      370,
+      374,
+      391,
+      392
+    ],
+    "intervening276_ordinal": 369,
+    "raw_events_unchanged": true,
+    "allocation_cases": 96,
+    "allocation_free_slots": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "allocation_holes": [
+      25,
+      34,
+      49
+    ],
+    "production_animation_comparisons": 4080,
+    "cycles": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "hidden_first_step": true,
+    "production_damage_cases": 35,
+    "normal_ice_and_lethal": true,
+    "independent_link0_death": true,
+    "original_explosion_allocation": true,
+    "original_repeating_explosion_RNG": true,
+    "production_ram_predicate_and_body": true,
+    "ram_positive_armor_values": 255,
+    "ram_ice_values": 256,
+    "INDEX8_byte_equality": true,
+    "classic_callback_trace_equality": true,
+    "source_bank325_record_independence": true,
+    "production_identity_equal_bases": [
+      229,
+      231
+    ],
+    "production_identity_materials": [
+      108,
+      135,
+      136
+    ],
+    "production_distinct_regions": 6,
+    "production_distinct_command_identities": 6,
+    "production_generic136_rejection": true,
+    "production_unguarded136_rejection": true,
+    "strict_sprite_object_binding": true,
+    "admitted_pool_slots": [
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49
+    ],
+    "source_logical_bank_exclusions": 255,
+    "resource_role_rejections": [
+      108,
+      135
+    ],
+    "fixture_count": 68,
+    "compiler_peak_rss_bytes": 374652928,
+    "runtime_peak_rss_bytes": 90116096,
+    "compiler_address_space_limit_bytes": 1073741824,
+    "runtime_rss_limit_bytes": 536870912,
+    "runtime_timeout_seconds": 120,
+    "compiler_timeout_seconds": 90,
+    "output_limit_bytes": 33554432,
+    "output_bytes": 10563889,
+    "runs": [
+      {
+        "mode": "optimized",
+        "positive": 1,
+        "negative": 68,
+        "production_HD_admissions": 20788,
+        "binary_sha256": "4ef7dc6358f58a9cad1f5d7343300a9a6c4e44d56657777bfca3194b10675988"
+      },
+      {
+        "mode": "asan-ubsan",
+        "positive": 1,
+        "negative": 68,
+        "production_HD_admissions": 20788,
+        "binary_sha256": "81bdf796d1e693991bc416d04c18091dcc35ffd198fc7164be2850b70b9a09b3"
+      }
+    ],
+    "leak_sanitizer": false,
+    "source_sha256": {
+      "render_mirror.c": "cac14ab3804048a275fab6b8e1e074a0613649c32a768ccf50d24eacbcebfa3e",
+      "asteroid1_pulsing272_mirror.inc": "66a7d96811f70cf74951e3d0df7cdc20983cdf30838b5173016dd81d50785a93",
+      "asteroid1_firing325_mirror.inc": "ba498fc6ea5cdd3b4355df620199ca909faebe62135fd17aa6fca529b055bce1",
+      "asteroid1_ten_mirror.inc": "59405811f96b992e52a40f32a8b1f88222a237be2f23f18a47101cb0c551b61e",
+      "varz.h": "7c5b67fdb8f595d928432f0fb4d5b936c15bd7f881a00c24f7677e8e2f38dc56",
+      "varz.c": "231800bf30d7db8852985b3286c3fca71fc2537bc2ede295e50d3bd7188bd5c6",
+      "tyrian2.c": "38efa746a6add0ccc02efc7a5fb64138523e31c1e0a0d710470eaaac9f44eb08",
+      "mtrand.c": "9bb519b6b67d990184da25f1d373858760d2952a782c3e850e2f21c972c01f95",
+      "config.h": "df43ab4f8887c1275d1f876f83b2ab9f8dcd4a333ee1f2414caa3c8123522fe0",
+      "shots.h": "b6e009500719222b134f508e3db2bf3c365a9e1f54e576f8465f98ff6f364042",
+      "mainint.c": "7555d124b7b7d6a0c6690424da0948fc54724611cea1cf6b6c6e9b20740a1f13",
+      "sprite.c": "4b78f9e792509fcd490549a81a86bf18c2f524368d9bb8d00ee573cc47775a52",
+      "game_probe.c": "dd81bd0e8c26df04b598271c85854535fc3e4c23429aa95128e8abd5df43dbba"
+    },
+    "identity_scope": "Exact production admission guards, region registration, generic loading exclusion guards and complete scene-command serializer; compositor rasterization is separate.",
+    "scope": "Extracted production constructor, allocation, event6, draw prelaunch, indexed tile writes, ordinary player-shot destruction, ram condition/body, explosion allocation and repeating effects with production MT RNG. Real-engine evidence is separate."
+  },
+  "warm_shield_talon_regression": {
+    "extraction": "actual production helper, callback, indexed blitter, fallback and restore; bounded SDL structural shim",
+    "first_level_source_identity": "passed: exact baseline functions and unchanged callback tail",
+    "game_data": "read-only original effect sheet and optional main shape container; never copied or emitted",
+    "talon_source_tests": true,
+    "runtime_gameplay": "not tested by this fixture",
+    "limits": {
+      "compile_rss_mib": 1024,
+      "runtime_rss_mib": 512,
+      "minimum_free_gib": 5,
+      "leak_detection": "disabled: this executor uses ptrace, incompatible with LeakSanitizer; ASan and UBSan remain enabled",
+      "note": "RSS watchdog used because ASan reserves virtual address space beyond an RLIMIT_AS cap"
+    },
+    "extracted_code_sha256": {
+      "primitives": "f977e0847e536646bb5ddbb03dd775239e4d6dc31ca34b7c432e43cbfb169ba2",
+      "pixel": "c6094b5cc4bccda6131efdca30c72c4cf10dc39eb9994dd2f01432f11be7bd67",
+      "talon": "11d0fe45406d2250fe6648aa2cd50e66f1caff8ff50eb386e5b3d8bfc52a0d6f",
+      "asteroid": "fa07b54f2d98ea2440c182ac55b49028d56e2f251a848475b2afeab2108950cf",
+      "callback": "af766f8a903c0ed28172d56bc76d517002c22759ea7482c6564faded43eac6fb",
+      "blitter": "0b57d4ccb9da6cca775933a41f459f15d321d478e44bfcaad2b5ac947ba0eeea"
+    },
+    "runs": {
+      "optimized-compile": {
+        "status": "passed",
+        "peak_rss_kib_observed": 48188,
+        "seconds": 1.924,
+        "log": "optimized-compile.log"
+      },
+      "optimized": {
+        "status": "passed",
+        "peak_rss_kib_observed": 49344,
+        "seconds": 0.514,
+        "log": "optimized.log"
+      },
+      "asan-ubsan-compile": {
+        "status": "passed",
+        "peak_rss_kib_observed": 88852,
+        "seconds": 3.422,
+        "log": "asan-ubsan-compile.log"
+      },
+      "asan-ubsan": {
+        "status": "passed",
+        "peak_rss_kib_observed": 345320,
+        "seconds": 1.956,
+        "log": "asan-ubsan.log"
+      }
+    }
+  },
+  "independent_review": "Read-only review found no functional blockers; stale descriptive catalog count corrected and catalog suites rerun.",
+  "visual_QA": "Original six states, generated master registration, native2x/4x six-state captures and ordinary-shot damage contacts inspected.",
+  "source_data_included": false,
+  "old57_payloads_and_metadata_unchanged": true,
+  "old20_families_unchanged": true,
+  "original_gameplay_sources_unchanged": true
+}

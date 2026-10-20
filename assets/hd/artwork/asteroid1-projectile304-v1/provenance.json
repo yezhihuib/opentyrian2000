@@ -1,0 +1,8 @@
+{
+  "prompt": "Use case: game sprite refinement. Image1 is the authoritative original 12x14 transparent game sprite, shown nearest-neighbor enlarged: a TINY orange/yellow energy DIAMOND, 5 logical pixels wide and tall, centered at logical x6,y7, bounding x4..8 and y5..9. Preserve exact location, footprint and diamond silhouette. Create one clean high-definition painted luminous projectile: small pale warm-yellow center, amber inner light, orange then dark rust-red tips, crisp compact silhouette, no white star rays or particles or outer glow. Do not make a round orb, flame, arrow, metal object or lens. Transparent empty space everywhere else, full canvas aspect ratio12:14. Smooth internal color gradients and subtle luminous volume, readable at tiny scale. No text, no background, no sheet. This is a single static projectile, no additional animation.",
+  "generator": "Built-in image_gen reference-guided raster refinement",
+  "reference": "Original TYRIAN.SHP normal player-shot bank selector304; 13-cell source mask.",
+  "conversion": "prototype/build-asteroid1-projectile304-art.py",
+  "master": "imagegen-master.png",
+  "master_sha256": "18c6aeb742e3d743ad5b4d272abb43762af16703aef0dad3050fcdef43c62bbf"
+}

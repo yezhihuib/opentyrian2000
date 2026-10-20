@@ -1,0 +1,17 @@
+{
+  "tool": "Built-in imagegen",
+  "intent": "Three matched mechanically moving clamshell poses, not recolored pulse art.",
+  "masters": {
+    "master159-v1.png": "8bdb70a5220c2091cb2bae8127201794afb565ca176aa122e03024c6088c66db",
+    "master161-v1.png": "f140593c1fc8b21f06c4903215492f1a7ac1a2c309bd0da93f7308ac50f66406",
+    "master157-v2.png": "875d906dc4ad737c7ecebf4437935bdc45bbb8f41c17f23e02e30a3eb20b0daf"
+  },
+  "prompts": {
+    "master157-v2.png": "Refine open original157 reconstruction to smooth gunmetal while retaining same silhouette, silver upper-left inset, right crescent rim and small orange core. Reject pixelated initial master.",
+    "master159-v1.png": "Move matching shell plates inward to exact intermediate original159 geometry, retain visible core and smooth metal identity; do not squash plates.",
+    "master161-v1.png": "Move matching plates fully closed to original161 geometry, narrow vertical seam, orange core completely hidden."
+  },
+  "registration": "Alpha>128 master bounding-box crop; resample to exact original per-pose bounding box within192x224 canvas; zero RGBA outside each original source mask; preserve generated alpha inside. No procedural repainting.",
+  "original_source": "NEWSHD42012bytes FNV913975450e0fc00d",
+  "scope": "Three24x28 body images only, no projectile art."
+}

@@ -1907,7 +1907,7 @@ draw_player_shot_loop_end:
 						else
 						{
 							unsigned int sprite = enemyShot[z].sgr + enemyShot[z].animate;
-							if (sprite == 112 || sprite == 113 || sprite == 77 || sprite == 58 || sprite == 182 || sprite == 163 || sprite == 1 || sprite == 183 || sprite == 164 || sprite == 146 || sprite == 147)
+							if (sprite == 112 || sprite == 113 || sprite == 77 || sprite == 58 || sprite == 182 || sprite == 163 || sprite == 1 || sprite == 183 || sprite == 164 || sprite == 146 || sprite == 147 || sprite == 304)
 								draw_enemy_shot_sprite2(VGAScreen, enemyShot[z].sx, enemyShot[z].sy, spriteSheet8, sprite);
 							else
 								blit_sprite2(VGAScreen, enemyShot[z].sx, enemyShot[z].sy, spriteSheet8, sprite);
@@ -3150,6 +3150,7 @@ new_game:
 
 	/* Read Shapes.DAT */
 	render_mirror_map_begin(char_shapeFile);
+	render_mirror_asteroid_terrain_map(char_mapFile,char_shapeFile);
 	sprintf(tempStr, "shapes%c.dat", tolower((unsigned char)char_shapeFile));
 	FILE *shpFile = dir_fopen_die(data_dir(), tempStr, "rb");
 

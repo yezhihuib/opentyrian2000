@@ -94,8 +94,10 @@ receipts and native captures remain external under
 
 ## Remaining limits
 
-Shield, green, smoke, value, other sheets and unknown/incompatible sources or ramps
-keep conservative fallback. This is not an all-effects fix. All 116 source frames
+At this warm-contact checkpoint, shield, green, smoke, value, other sheets and
+unknown/incompatible sources or ramps retained conservative fallback. A later
+[finite authenticated cyan-shield extension](../asteroid1-shield-blend-v1/README.md)
+adds 22 nonempty shield frames without broadening the other effect policies. This is not an all-effects fix. All 116 source frames
 are exercised by extracted tests; actual engine captures witness only the frames
 reached in the finite original-event windows. Those windows are explicitly
 ASSISTED, preserving original setup/events/allocators/physics/RNG while omitting

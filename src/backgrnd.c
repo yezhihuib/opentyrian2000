@@ -167,6 +167,7 @@ void draw_background_1(SDL_Surface *surface)
 	
 	Uint8 **map = (Uint8 **)mapYPos + mapXbpPos - 12;
 	render_mirror_ground101_layer1(surface,map,mapXPos,backPos-28);
+	render_mirror_asteroid_terrain_layer1(surface,map,mapXPos,backPos-28);
 	
 	for (int i = -1; i < 7; i++)
 	{
@@ -174,6 +175,7 @@ void draw_background_1(SDL_Surface *surface)
 		
 		map += 14;
 	}
+	render_mirror_asteroid_terrain_end();
 }
 
 void draw_background_2(SDL_Surface *surface)

@@ -1,5 +1,5 @@
 /* SPDX-License-Identifier: GPL-2.0-or-later
- * ASTEROID1 display-only compatibility for finite original warm explosions.
+ * ASTEROID1 display-only compatibility for finite original warm and shield effects.
  * Keep the indexed blitter and first-level known-blend policy authoritative.
  * Semantic source pins include both all168 palette bytes and168 coverage bytes;
  * re-decode each callback so same-address source changes cannot reuse trust.
@@ -123,6 +123,33 @@ static const struct {unsigned index;uint64_t source;} asteroid1_effect_blend_pin
  {222,UINT64_C(0xcaa8e08819302202)},
 };
 
+/* Original shield pieces:27 animation slots,22 nonempty. The five empty
+ * slots251/270/271/273/274 produce no writes and receive no new admission. */
+static const struct {unsigned index;uint64_t source;} asteroid1_shield_blend_pins[]={
+ {229,UINT64_C(0x8c135499d13963be)},
+ {230,UINT64_C(0x1bb9953e3b238540)},
+ {231,UINT64_C(0xb5537a992563eb0d)},
+ {232,UINT64_C(0x7305539d6b6b17d1)},
+ {233,UINT64_C(0xe72e4a3d5818c55a)},
+ {234,UINT64_C(0x4f656159fa007c86)},
+ {235,UINT64_C(0x0aef691b1ca24a95)},
+ {236,UINT64_C(0x7e42bb7eb832ac9d)},
+ {237,UINT64_C(0xe91cc9956d4c7023)},
+ {248,UINT64_C(0x2580739d6e2a343f)},
+ {249,UINT64_C(0x552fe5439ccd6fdc)},
+ {250,UINT64_C(0x07d477b0c0eedb40)},
+ {252,UINT64_C(0xa4cfe017190810ca)},
+ {253,UINT64_C(0x1b89e4401f5a0dae)},
+ {254,UINT64_C(0x8d7cfcf03c183cd0)},
+ {255,UINT64_C(0x16b217048c05fb49)},
+ {256,UINT64_C(0xaac64f1476d44802)},
+ {267,UINT64_C(0xd2f814b0b46162fb)},
+ {268,UINT64_C(0xd2f814b0b46162fb)},
+ {269,UINT64_C(0xd2f814b0b46162fb)},
+ {272,UINT64_C(0xc22e38bed2cee2a5)},
+ {275,UINT64_C(0xc3db252a0712543b)},
+};
+
 static bool asteroid1_effect_blend_layout(SDL_Surface *surface)
 {
  int d=game_probe_density;
@@ -145,12 +172,17 @@ static bool asteroid1_effect_blend_source(Sprite2_array bank,unsigned int index,
   * Widen before subtraction so hostile origin coordinates cannot overflow. */
  if(xmas||!bank.data||bank.data!=explosionSpriteSheet.data||bank.size!=17810||
     bank.size!=explosionSpriteSheet.size||ox<0||ox>308||oy<=-14||oy>=200||
-    ((source&240)!=0x70&&(source&240)!=0x40))return false;
+    ((source&240)!=0x70&&(source&240)!=0x40&&(source&240)!=0x80))return false;
  int64_t lx=(int64_t)x-ox,ly=(int64_t)y-oy;
  if(lx<0||lx>=12||ly<0||ly>=14)return false;
  uint64_t wanted=0;
- for(unsigned i=0;i<sizeof(asteroid1_effect_blend_pins)/sizeof(*asteroid1_effect_blend_pins);i++)
-  if(index==asteroid1_effect_blend_pins[i].index){wanted=asteroid1_effect_blend_pins[i].source;break;}
+ if((source&240)==0x80) {
+  for(unsigned i=0;i<sizeof(asteroid1_shield_blend_pins)/sizeof(*asteroid1_shield_blend_pins);i++)
+   if(index==asteroid1_shield_blend_pins[i].index){wanted=asteroid1_shield_blend_pins[i].source;break;}
+ } else {
+  for(unsigned i=0;i<sizeof(asteroid1_effect_blend_pins)/sizeof(*asteroid1_effect_blend_pins);i++)
+   if(index==asteroid1_effect_blend_pins[i].index){wanted=asteroid1_effect_blend_pins[i].source;break;}
+ }
  if(!wanted)return false;
  Uint8 decoded[12*14*2]={0};
  if(!decode_tile(bank,index,decoded,decoded+12*14,12,0,0))return false;
@@ -181,7 +213,8 @@ static void asteroid1_sprite2_blend_pixel(SDL_Surface *surface,Uint8 *address,Ui
  bool rgba=layout&&asteroid_hd_enabled&&asteroid1_level_scope()&&
   (game_probe_enabled||(asteroid_hd_lease&&asteroid1_scope()))&&
   !game_probe_original_reference&&!suppress&&!reject_reason&&
-  asteroid1_effect_blend_source(bank,index,source,ox,oy,x,y)&&effect_ramp_monotone(source&240)&&
+  (asteroid1_effect_blend_source(bank,index,source,ox,oy,x,y)||
+   asteroid1_talon_blend_source(bank,index,source,ox,oy,x,y))&&effect_ramp_monotone(source&240)&&
   *address==(Uint8)((source&240)|(((before&15)+(source&15))/2));
  if(rgba){font_before_effect((SDL_Rect){x,y,1,1});rgba=!reject_reason;}
  if(rgba) {

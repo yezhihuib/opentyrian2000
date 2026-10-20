@@ -1,0 +1,23 @@
+{
+  "tool": "Built-in imagegen",
+  "intent": "One unified, opaque mechanical fixture, registered as four finite original terrain tiles.",
+  "masters": {
+    "master-v1.png": "e05e055bb9493c6904979a69c7d25da2782077f01fa2ebd611bbe5e851b0e638"
+  },
+  "generation_prompt_file": "generation-prompts.md",
+  "registration": "Convert the complete 1161x1355 opaque master to RGBA; resize once to 384x448 with Pillow LANCZOS; split exact 192x224 quadrants: 429 top-left, 430 top-right, 439 bottom-left, 440 bottom-right. No crop, repaint, synthesized seam, silhouette mask, alpha edit or content duplication.",
+  "original_source": {
+    "filename": "shapesz.dat",
+    "bytes": 318976,
+    "sha256": "3ecc9b59c82e8e7d9c91889aac7d337ca28a59519c4970e256250e4603a9b248",
+    "fnv64": "0x14ebb02c262fc4a9",
+    "tile_ids": [
+      429,
+      430,
+      439,
+      440
+    ],
+    "opaque_cells_per_tile": 672
+  },
+  "scope": "Four 24x28 layer1 terrain images at 8x density, private material 144, optional asteroid1-ten-v1 pack only. No body source records, projectile art, gameplay changes or default catalog changes."
+}
