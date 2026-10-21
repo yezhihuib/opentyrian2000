@@ -3405,7 +3405,9 @@ void JE_weaponSimUpdate(void)
 	else
 		blit_sprite(VGAScreenSeg, 20, 146, OPTION_SHAPES, 17);  // hide power level interface
 
+	pregame_shop_ship_begin(player[0].items.ship, player[0].x - 5, player[0].y - 7);
 	JE_drawItem(1, player[0].items.ship, player[0].x - 5, player[0].y - 7);
+	pregame_shop_ship_end();
 }
 
 void JE_weaponViewFrame(void)

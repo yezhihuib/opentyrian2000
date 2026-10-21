@@ -27,6 +27,9 @@ before=extract(old('src/game_menu.c'),'JE_weaponViewFrame');after=extract(curren
 after=strip(after,['\n\tpregame_shop_pulse_preview_begin();','\n\t\t\tshop_pulse_front_begin(item, i, item_power, item_mode, 1, weaponPort[item].op[item_mode][item_power]);','\n\t\t\tshop_pulse_front_end();','\n\tpregame_shop_pulse_preview_end();'])
 assert after==before;cases+=1
 # No accepted art (or battle family ownership implementation) was modified.
-protected=['assets','src/global_pulse_mirror.inc','src/global_vulcan_mirror.inc','src/global_shield_mirror.inc','src/global_talon_mirror.inc','src/global_hitflare_mirror.inc','src/global_asset_registry.h']
+protected=['src/global_pulse_mirror.inc','src/global_vulcan_mirror.inc','src/global_shield_mirror.inc','src/global_talon_mirror.inc','src/global_hitflare_mirror.inc','src/global_asset_registry.h']
 assert not subprocess.check_output(['git','diff',BASE,'--']+protected,cwd=ROOT)
-print(json.dumps({'result':'PASS','reverse_projected_functions':cases,'base':BASE,'protected_assets_and_battle_owners_unchanged':True},sort_keys=True))
+# Static shop icons were independently accepted after the Pulse slice.
+ASSET_BASE='3d8f3b28a74e919b2e584a84ff1fa17a0e78888f'
+assert not subprocess.check_output(['git','diff',ASSET_BASE,'--','assets'],cwd=ROOT)
+print(json.dumps({'result':'PASS','reverse_projected_functions':cases,'base':BASE,'asset_base':ASSET_BASE,'protected_assets_and_battle_owners_unchanged':True},sort_keys=True))

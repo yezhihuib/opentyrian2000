@@ -5,6 +5,7 @@
  */
 /* SHOP owner is deliberately disabled in these battle-only shims. */
 #define pregame_shop_pulse_set_directory(...) ((void)0)
+#define pregame_shop_ship_set_directory(...) ((void)0)
 #define shop_pulse_allocated(...) ((void)0)
 #define shop_pulse_initialized(...) ((void)0)
 #include <assert.h>

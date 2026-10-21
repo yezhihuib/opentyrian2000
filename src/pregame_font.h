@@ -29,6 +29,9 @@ void pregame_font_glyph_begin(SDL_Surface *, int x, int y, unsigned font, unsign
 void pregame_font_glyph_end(void);
 void pregame_font_sprite2_begin(SDL_Surface *, int x, int y, const void *, size_t, unsigned id);
 void pregame_font_sprite2_end(void);
+void pregame_shop_ship_set_directory(const char *);
+void pregame_shop_ship_begin(unsigned,int,int);
+void pregame_shop_ship_end(void);
 void pregame_font_quad_begin(SDL_Surface *,int,int,const void *,size_t,unsigned);
 void pregame_font_quad_end(void);
 void pregame_font_frame_end(void);

@@ -61,7 +61,7 @@ static bool shop_static_valid(unsigned slot)
  bool ok=shop_static_requested()&&shop_static_source()&&shop_static.rgba[slot]&&hash(shop_static.rgba[slot],172032)==shop_static_spec[slot].payload;
  if(!ok&&shop_static.contributed[slot])shop_static.fault[slot]=true;return ok;
 }
-void pregame_font_quad_begin(SDL_Surface *surface,int x,int y,const void *data,size_t size,unsigned quad)
+static void shop_static_quad_begin(SDL_Surface *surface,int x,int y,const void *data,size_t size,unsigned quad)
 {
  if(shop_static.blitting){reject();return;}
  if(!sf.active||!sf.frame||surface!=sf.screen||data!=shopSpriteSheet.data||size!=shopSpriteSheet.size||!box(x,y,24,28))return;
@@ -79,7 +79,7 @@ void pregame_font_quad_begin(SDL_Surface *surface,int x,int y,const void *data,s
  c->events=sf.event_count-c->first;sf.event_next=c->first;sf.event_limit=sf.event_count;sf.primitive=true;sf.stage=S_PRIMITIVE;
  shop_static.blitting=shop_static.contributed[slot]=true;
 }
-void pregame_font_quad_end(void)
+static void shop_static_quad_end(void)
 {
  if(!shop_static.blitting)return;shop_static.blitting=false;pregame_font_glyph_end();
 }
