@@ -27,6 +27,12 @@ typedef enum {
 #define render_mirror_global_pulse(...) (-1)
 #define render_mirror_global_vulcan(...) (-1)
 #define render_mirror_global_hitflare(...) (-1)
+#define render_mirror_global_smoke(...) (-1)
+#define render_mirror_global_small_explosion(...) (-1)
+#define render_mirror_smoke_explosion_allocated(...) ((void)0)
+#define render_mirror_small_explosion_allocated(...) ((void)0)
+#define render_mirror_smoke_explosion_initialized(...) ((void)0)
+#define render_mirror_small_explosion_initialized(...) ((void)0)
 #define render_mirror_hitflare_birth_begin(...) ((void)0)
 #define render_mirror_hitflare_birth_end(...) ((void)0)
 #define render_mirror_hitflare_explosion_allocated(...) ((void)0)
@@ -134,6 +140,12 @@ void render_mirror_front_shot_initialized(uint64_t,unsigned,unsigned,unsigned,un
 int render_mirror_global_pulse(SDL_Surface *,int,int,Sprite2_array,unsigned,int,unsigned,unsigned);
 int render_mirror_global_vulcan(SDL_Surface *,int,int,Sprite2_array,unsigned,int,unsigned,unsigned);
 int render_mirror_global_hitflare(SDL_Surface *,int,int,Sprite2_array,unsigned,int,unsigned);
+int render_mirror_global_smoke(SDL_Surface *,int,int,Sprite2_array,unsigned,int,unsigned);
+int render_mirror_global_small_explosion(SDL_Surface *,int,int,Sprite2_array,unsigned,int,unsigned);
+void render_mirror_smoke_explosion_allocated(unsigned,int,int,int,int,bool,bool);
+void render_mirror_small_explosion_allocated(unsigned,int,int,int,int,bool,bool);
+void render_mirror_smoke_explosion_initialized(unsigned,unsigned);
+void render_mirror_small_explosion_initialized(unsigned,unsigned);
 void render_mirror_hitflare_birth_begin(unsigned role,int x,int y);
 void render_mirror_hitflare_birth_end(void);
 void render_mirror_hitflare_explosion_allocated(unsigned slot);

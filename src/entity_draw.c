@@ -172,7 +172,9 @@ void draw_player_ship_sprite2(SDL_Surface *target,int x,int y,Sprite2_array bank
 void draw_explosion_sprite2(SDL_Surface *target,int x,int y,Sprite2_array bank,unsigned index,EntityDrawStyle style,unsigned slot)
 {
 #ifndef RENDER_MIRROR_DISABLED
- int admitted=render_mirror_global_hitflare(target,x,y,bank,index,style,slot);
+ int admitted=render_mirror_global_small_explosion(target,x,y,bank,index,style,slot);
+ if(admitted<0)admitted=render_mirror_global_smoke(target,x,y,bank,index,style,slot);
+ if(admitted<0)admitted=render_mirror_global_hitflare(target,x,y,bank,index,style,slot);
  if(admitted<0)admitted=render_mirror_global_shield(target,x,y,bank,index,style,slot);
  if(admitted<0){draw_entity_sprite2(target,x,y,bank,index,style,ENTITY_TILE);return;}
  game_probe_draw(6,index,x,y,style,ENTITY_TILE,admitted>0);

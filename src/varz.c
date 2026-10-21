@@ -951,6 +951,8 @@ void JE_setupExplosion(
 			{
 				render_mirror_explosion_allocated(i);
 				render_mirror_hitflare_explosion_allocated(i);
+				render_mirror_smoke_explosion_allocated(i,type,x,y,deltaY,fixedPosition,followPlayer);
+				render_mirror_small_explosion_allocated(i,type,x,y,deltaY,fixedPosition,followPlayer);
 				explosions[i].x = x;
 				explosions[i].y = y;
 				if (type == 6)
@@ -969,6 +971,8 @@ void JE_setupExplosion(
 				explosions[i].deltaY = deltaY;
 				render_mirror_explosion_initialized(i, type);
 				render_mirror_hitflare_explosion_initialized(i, type);
+				render_mirror_smoke_explosion_initialized(i, type);
+				render_mirror_small_explosion_initialized(i, type);
 				break;
 			}
 		}

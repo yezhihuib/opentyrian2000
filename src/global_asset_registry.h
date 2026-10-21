@@ -1,7 +1,7 @@
 /* SPDX-License-Identifier: GPL-2.0-or-later
- * RECONSTRUCTED from exact recovered global-assets-v1/registry.json.
- * This is not the missing original header. Do not edit generated pins.
- * Registry SHA256: d75383aba0bc207800d5b2f875de6b98a7ea127159873ec9837d05a04fc19e77 */
+ * Generated from reviewed global-assets-v1/registry.json.
+ * Regenerate with scripts/build_global_registry_header.py; do not edit pins.
+ * Registry SHA256: f06217ef4e0ba443227b584d98e18df245d4014964a97573956b2c993f0a3ba3 */
 #ifndef GLOBAL_ASSET_REGISTRY_H
 #define GLOBAL_ASSET_REGISTRY_H
 #include <stdint.h>
@@ -58,8 +58,27 @@ static const GlobalAssetResource global_asset_resources[] = {
  {1060152u,43036u,8u,12u,14u,0,0,"content/6d6a2f0addecec74acd0d8e9b1cb3246b5b40e759c3b3f0e24c1dea43d4b2ad7.hda",UINT64_C(0x9cf81341ec3a6f03)},
  {80067u,43036u,8u,12u,14u,0,0,"content/96b975abbccf393464cf2444f72d63c8ad3f996d8cc5c153593ad16f476e30e0.hda",UINT64_C(0xaea83e10c9169380)},
  {80070u,43036u,8u,12u,14u,0,0,"content/eebd525dab58f0fc6708f4f3c7b15a88e67270be877ff250e93c4bb2a2aeb8de.hda",UINT64_C(0x6c26e938d94472c2)},
+ {1060135u,43036u,8u,12u,14u,0,0,"content/5d2fc0b502900c0d9a18899acaf4cd9cc418d91f73ab6864ec35c9d4c38e78e2.hda",UINT64_C(0x05f600baacc46e91)},
+ {1060136u,43036u,8u,12u,14u,0,0,"content/56edfc2111fd372c6466c69b7158e817c65f6f07bf73ef0a26ea83150a266ae9.hda",UINT64_C(0x16746d724eadc23a)},
+ {1060137u,43036u,8u,12u,14u,0,0,"content/393d36c4f15a463f6799a967a71911fb0a7aa937bbcfc083497f42a138fd578a.hda",UINT64_C(0xde2537c5f8e6c348)},
+ {1060138u,43036u,8u,12u,14u,0,0,"content/c7dfaef6bcdd206bf3f10b65b224a13e0f992bb69edf4f59d8001951985cf3e9.hda",UINT64_C(0xaeca5a9f45ca467c)},
+ {1060139u,43036u,8u,12u,14u,0,0,"content/4486ad1625580b5947f00db6e580f9020775fc71a5815fb5fd2dbd226cfbed31.hda",UINT64_C(0xb4ddcd0117d2d2e4)},
+ {1060140u,43036u,8u,12u,14u,0,0,"content/e68dcef338f42f0595ca85ae1340f4eff95b9352dc1b84b3e6eb91e252059f8c.hda",UINT64_C(0xf035d7c3b9bed804)},
+ {1060141u,43036u,8u,12u,14u,0,0,"content/fb4f7ee942107321deba815538b903c23c43448320dbc44c6487fd744b7e0c08.hda",UINT64_C(0xd9a3a7c66cac92c0)},
+ {1060122u,43036u,8u,12u,14u,0,0,"content/e5a1cff9818e876cd317cc78d34c206b859f6eb6beff695062eefa4ffb603336.hda",UINT64_C(0x8a0633c3cdfe6788)},
+ {1060123u,43036u,8u,12u,14u,0,0,"content/53626aeff7d46c921c47a9acf4812948f4b09580cb1084efefa3a7677e9b68ea.hda",UINT64_C(0x5528c1fc6efbca8b)},
+ {1060124u,43036u,8u,12u,14u,0,0,"content/c82beb74fa1313bde51335a0e29774cb2df03ec5b468018a63806545522055e8.hda",UINT64_C(0xe4fbd83972b3fdd6)},
+ {1060125u,43036u,8u,12u,14u,0,0,"content/f0e953b8d9132b084aa5ead8389140aa933d95be1f9480e14488fa1aa78503d1.hda",UINT64_C(0x041f111cb4fdfdef)},
+ {1060126u,43036u,8u,12u,14u,0,0,"content/2775f74601f7e3de25daafddf9a11115d0eefe1dbe56a332594c089051305392.hda",UINT64_C(0x8dbafafe6c4b6a38)},
+ {1060127u,43036u,8u,12u,14u,0,0,"content/d37e797583e156913786bb4c617e059644a6e7ba4ab19b4c3b63e278c5a8fee7.hda",UINT64_C(0x0febdf5ed0ad0977)},
+ {1060128u,43036u,8u,12u,14u,0,0,"content/6f4a71509dc1f0a91af3eb15449c7abb25d3506fadf731b45904322261eaf344.hda",UINT64_C(0xc0200936752d1146)},
+ {1060129u,43036u,8u,12u,14u,0,0,"content/0378f90c069578635fe9f09f91100493156fda653757a191cfb1fade15d3d27c.hda",UINT64_C(0x84944853d8be654f)},
+ {1060130u,43036u,8u,12u,14u,0,0,"content/32bd4b3cd65568c231f68de65e8b9e797f31ef2d2ad2c88aae8b8bf6dd07ad5d.hda",UINT64_C(0xc6c28cd9f987c964)},
+ {1060131u,43036u,8u,12u,14u,0,0,"content/8206806e170690297a939c1075d2c18478f4bf3554332b0177d5c2c0d2ee0ddb.hda",UINT64_C(0x83101dd94db6795a)},
+ {1060132u,43036u,8u,12u,14u,0,0,"content/749d65e85dc2772ae6ef7f3061ac02f287b6a780fa71f8745546446950beee79.hda",UINT64_C(0x503d5391202b0b7b)},
+ {1060133u,43036u,8u,12u,14u,0,0,"content/6e1223b35eae0763a86bd58a31f11c757a93ad039475d5370d53c6ba699007bb.hda",UINT64_C(0xddba940b87be6844)},
 };
-enum { GLOBAL_ASSET_RESOURCE_COUNT = 49, GLOBAL_ASSET_FAMILY_COUNT = 5 };
+enum { GLOBAL_ASSET_RESOURCE_COUNT = 68, GLOBAL_ASSET_FAMILY_COUNT = 7 };
 enum { GLOBAL_TALON_BANK_BYTES = 33484 };
 static const GlobalAssetSourceTile global_talon_source[] = {
  {229u,UINT64_C(0x3039ccf24a3813c9)},
@@ -257,4 +276,61 @@ static const uint64_t global_vulcan_record_fnv[11][3] = {
  {UINT64_C(0x6029ca73a5d2fb47),UINT64_C(0x602a6a73a5d40b27),UINT64_C(0x602a6a73a5d40b27)},
  {UINT64_C(0x8afdcb780f83f14a),UINT64_C(0x8afd6b780f834e2a),UINT64_C(0x8afd6b780f834e2a)},
 };
+enum { GLOBAL_SMOKE_BANK_BYTES = 17810 };
+static const GlobalAssetSourceTile global_smoke_source[] = {
+ {135u,UINT64_C(0x834742a71f5082f1)},
+ {136u,UINT64_C(0xf420c811c5342906)},
+ {137u,UINT64_C(0x1b6be6a44ef2f7f9)},
+ {138u,UINT64_C(0x6049d776579346e8)},
+ {139u,UINT64_C(0x1a71d31e21f5dfaa)},
+ {140u,UINT64_C(0xa87ef6923bf4e24b)},
+ {141u,UINT64_C(0x912e4d02ec565943)},
+};
+static const GlobalAssetPaletteColor global_smoke_palette[] = {
+ {9u,UINT32_C(0x797979)},
+ {10u,UINT32_C(0x8e8e8e)},
+ {11u,UINT32_C(0xa2a6a2)},
+ {12u,UINT32_C(0xbababa)},
+ {13u,UINT32_C(0xcfcfcf)},
+ {14u,UINT32_C(0xe7e7e7)},
+ {15u,UINT32_C(0xfbffff)},
+};
+static const unsigned global_smoke_resource_ids[] = {1060135u,1060136u,1060137u,1060138u,1060139u,1060140u,1060141u};
+static const unsigned global_smoke_phase_indices[] = {135u,136u,137u,138u,139u,140u,141u};
+static const unsigned global_smoke_phase_ttl[] = {7u,6u,5u,4u,3u,2u,1u};
+enum { GLOBAL_SMALL_EXPLOSION_BANK_BYTES = 17810 };
+static const GlobalAssetSourceTile global_small_explosion_source[] = {
+ {122u,UINT64_C(0x19b7637c1469f360)},
+ {123u,UINT64_C(0x18f02cc5cb8df708)},
+ {124u,UINT64_C(0x25792af6c594081b)},
+ {125u,UINT64_C(0x0a9bc24f99095a66)},
+ {126u,UINT64_C(0xca99f5c48782db68)},
+ {127u,UINT64_C(0x3967c31439aea00b)},
+ {128u,UINT64_C(0x37a292527580e81c)},
+ {129u,UINT64_C(0xba48bc2b6760813f)},
+ {130u,UINT64_C(0xf8a796418cb59a12)},
+ {131u,UINT64_C(0x1769e0a1c6fde96b)},
+ {132u,UINT64_C(0x0ee1f2c21d3ecff4)},
+ {133u,UINT64_C(0xf8ab18755d8866de)},
+};
+static const GlobalAssetPaletteColor global_small_explosion_palette[] = {
+ {75u,UINT32_C(0xd7796d)},
+ {76u,UINT32_C(0xe38e82)},
+ {77u,UINT32_C(0xeba296)},
+ {79u,UINT32_C(0xffcbc3)},
+ {117u,UINT32_C(0x9e0800)},
+ {118u,UINT32_C(0xba0c00)},
+ {119u,UINT32_C(0xd31400)},
+ {120u,UINT32_C(0xdf3c00)},
+ {121u,UINT32_C(0xe7610c)},
+ {122u,UINT32_C(0xeb8a18)},
+ {123u,UINT32_C(0xf3ae24)},
+ {124u,UINT32_C(0xfbcb30)},
+ {125u,UINT32_C(0xffe73c)},
+ {126u,UINT32_C(0xfffb96)},
+ {127u,UINT32_C(0xfffff3)},
+};
+static const unsigned global_small_explosion_resource_ids[] = {1060122u,1060123u,1060124u,1060125u,1060126u,1060127u,1060128u,1060129u,1060130u,1060131u,1060132u,1060133u};
+static const unsigned global_small_explosion_phase_indices[] = {122u,123u,124u,125u,126u,127u,128u,129u,130u,131u,132u,133u};
+static const unsigned global_small_explosion_phase_ttl[] = {12u,11u,10u,9u,8u,7u,6u,5u,4u,3u,2u,1u};
 #endif

@@ -150,12 +150,12 @@ class PackagingTests(unittest.TestCase):
         self.assertEqual(groups['data-frame'], 1)
         self.assertEqual(groups['data-text'], 3)
         self.assertEqual(manifest['closure']['shop_files'], groups['shop'])
-        self.assertEqual(groups['global-source-identity'], 49)
+        self.assertEqual(groups['global-source-identity'], 68)
         self.assertEqual(groups['global-registry'], 1)
         self.assertEqual(groups['reconstructed-menu-runs'], 171)
         self.assertEqual(groups['shared-hud-exact-recovery'], 6)
         self.assertEqual(groups['current-production-validation'], 1)
-        self.assertEqual(len(manifest['files']), 935)
+        self.assertEqual(len(manifest['files']), 954)
         approval = REBUILD.approved_static(ROOT)
         selected = {r['source_path']: r for r in manifest['files']}
         for item in approval['files']:
@@ -278,7 +278,7 @@ class PackagingTests(unittest.TestCase):
         manifest = PACK.load_manifest(ROOT / 'packaging/runtime-assets-v1.json')
         selected = {r['destination']: r for r in manifest['files']}
         registry = json.loads((ROOT / 'assets/hd/global-assets-v1/registry.json').read_text())
-        self.assertEqual(len(registry['resources']), 49)
+        self.assertEqual(len(registry['resources']), 68)
         expected = {'assets/global/registry.json'}
         for resource in registry['resources']:
             destination = 'assets/global/' + resource['path']
@@ -293,9 +293,27 @@ class PackagingTests(unittest.TestCase):
         for launcher in ('start-hd.sh', 'start-hd.ps1'):
             self.assertIn('--global-assets=', (ROOT / 'packaging' / launcher).read_text())
 
+    def test_small_explosion_family_has_exact_twelve_packaged_resources(self):
+        manifest = PACK.load_manifest(ROOT / 'packaging/runtime-assets-v1.json')
+        registry = json.loads((ROOT / 'assets/hd/global-assets-v1/registry.json').read_text())
+        family = registry['families'][6]
+        self.assertEqual(family['name'], 'moving-small-explosion')
+        self.assertEqual([p['index'] for p in family['phases']], list(range(122, 134)))
+        self.assertEqual([p['ttl'] for p in family['phases']], list(range(12, 0, -1)))
+        identities = {p['resource_identity'] for p in family['phases']}
+        self.assertEqual(identities, set(range(1060122, 1060134)))
+        resources = [r for r in registry['resources'] if r['identity'] in identities]
+        rows = {r['destination']: r for r in manifest['files']}
+        self.assertEqual(len(resources), 12)
+        for resource in resources:
+            row = rows['assets/global/' + resource['path']]
+            self.assertEqual(PACK.checked_source(ROOT / row['source_path'], row)['sha256'], resource['sha256'])
+        self.assertEqual(manifest['closure']['global_hda_files'], 68)
+        self.assertEqual(manifest['closure']['global_families'][-1], 'SmallExplosion12')
+
     def test_global_validation_binds_current_production_source(self):
         validation = json.loads((ROOT / 'packaging/current-production-validation.json').read_text())
-        self.assertEqual(CURRENT.verify(ROOT, validation), 237)
+        self.assertEqual(CURRENT.verify(ROOT, validation), 239)
         historical = json.loads((ROOT / 'packaging/global-validation.json').read_text())
         manifest = PACK.load_manifest(ROOT / 'packaging/runtime-assets-v1.json')
         self.assertEqual(manifest['source_revision']['global_runtime_commit'], historical['production_commit'])
@@ -375,6 +393,15 @@ class PackagingTests(unittest.TestCase):
         with self.assertRaises(ValueError): CURRENT.verify(self.source, receipt)
         receipt['historical_validation_sha256'] = {}
         with self.assertRaises(ValueError): CURRENT.verify(self.source, receipt)
+
+    def test_source_manifest_digest_is_verified_when_present(self):
+        receipt = self.source_fixture()
+        self.assertEqual(CURRENT.verify(self.source, receipt), 1)
+        receipt['production_source_manifest_sha256'] = CURRENT.source_manifest_digest(receipt['source_sha256'])
+        self.assertEqual(CURRENT.verify(self.source, receipt), 1)
+        receipt['production_source_manifest_sha256'] = '0' * 64
+        with self.assertRaisesRegex(ValueError, 'manifest digest mismatch'):
+            CURRENT.verify(self.source, receipt)
 
     def test_current_source_mutation_rejected(self):
         receipt = self.source_fixture()

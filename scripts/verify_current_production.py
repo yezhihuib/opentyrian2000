@@ -32,6 +32,11 @@ def source_inventory(root):
     return result
 
 
+def source_manifest_digest(inventory):
+    """SHA256 of UTF-8 JSON, sorted keys, compact separators, no newline."""
+    return hashlib.sha256(json.dumps(inventory, sort_keys=True, separators=(',', ':'), ensure_ascii=True).encode('utf-8')).hexdigest()
+
+
 def verify(root, receipt):
     if receipt['schema'] != 'opentyrian-current-production-binding-v1':
         raise ValueError('Unexpected production binding schema')
@@ -46,6 +51,9 @@ def verify(root, receipt):
             raise ValueError('Build input changed: ' + name)
     actual = source_inventory(root)
     expected = receipt['source_sha256']
+    if ('production_source_manifest_sha256' in receipt and
+            receipt['production_source_manifest_sha256'] != source_manifest_digest(expected)):
+        raise ValueError('Production source manifest digest mismatch')
     if actual != expected:
         raise ValueError('Production source mismatch: missing=%s extra=%s changed=%s' % (
             sorted(expected.keys() - actual.keys()), sorted(actual.keys() - expected.keys()),

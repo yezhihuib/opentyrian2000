@@ -32,6 +32,58 @@ enum {ENTITY_TILE,ENTITY_QUAD};
 enum {SDL_PIXELFORMAT_ARGB8888=1,SDL_PIXELFORMAT_INDEX8=2};
 typedef enum {MIRROR_OUTPUT_UNSUPPORTED,MIRROR_OUTPUT_ORDINARY,MIRROR_OUTPUT_NORMAL15_NIGHT,MIRROR_OUTPUT_NORMAL15_LOW_DETAIL} MirrorOutputKind;
 /* This family is disabled in this isolated regression harness. */
+/* Small explosion disabled only in this isolated existing-family harness. */
+static bool global_small_explosion_frame,global_small_explosion_fault,global_small_explosion_cached;
+static Uint8 *global_small_explosion_owner,*global_small_explosion_foreign;
+static bool global_small_explosion_source_matches(Sprite2_array b){(void)b;return true;}
+static bool global_small_explosion_palette_matches(void){return true;}
+static bool global_small_explosion_requested(void){return false;}
+static bool global_small_explosion_is_index(unsigned index){return false;}
+static bool global_small_explosion_surface_matches(void){return true;}
+static bool global_small_explosion_final_surface_matches(void){return true;}
+static void global_small_explosion_shutdown(void){}
+static void global_small_explosion_reset(void){}
+static void global_small_explosion_frame_begin(void){}
+static bool global_small_explosion_pixel(int x,int y,Uint8 b,Uint8 a,int s){return false;}
+static void global_small_explosion_final_pixel(SDL_Surface *s,Uint8 *p){}
+static void global_small_explosion_final_rect(SDL_Surface *s,const SDL_Rect *r){}
+static void global_small_explosion_end(void){}
+static bool global_small_explosion_observe_blend(SDL_Surface *s,Uint8 *p){return false;}
+static bool global_small_explosion_finish_proof(void){return true;}
+static bool global_small_explosion_compose(MirrorOutputKind k,int x,int y){return false;}
+static void global_small_explosion_check_cache(void){}
+static bool global_small_explosion_fade_buffer_safe(void){return true;}
+static bool global_small_explosion_fade_capture(void){return true;}
+static bool global_small_explosion_fade_step_valid(int steps){return true;}
+static void global_small_explosion_fade_palette(void){}
+#define render_mirror_small_explosion_allocated(...) ((void)0)
+#define render_mirror_small_explosion_initialized(...) ((void)0)
+/* White smoke disabled only in this isolated existing-family harness. */
+static bool global_smoke_frame,global_smoke_fault,global_smoke_cached;
+static Uint8 *global_smoke_owner,*global_smoke_foreign;
+static bool global_smoke_source_matches(Sprite2_array b){(void)b;return true;}
+static bool global_smoke_palette_matches(void){return true;}
+static bool global_smoke_requested(void){return false;}
+static bool global_smoke_is_index(unsigned index){return false;}
+static bool global_smoke_surface_matches(void){return true;}
+static bool global_smoke_final_surface_matches(void){return true;}
+static void global_smoke_shutdown(void){}
+static void global_smoke_reset(void){}
+static void global_smoke_frame_begin(void){}
+static bool global_smoke_pixel(int x,int y,Uint8 b,Uint8 a,int s){return false;}
+static void global_smoke_final_pixel(SDL_Surface *s,Uint8 *p){}
+static void global_smoke_final_rect(SDL_Surface *s,const SDL_Rect *r){}
+static void global_smoke_end(void){}
+static bool global_smoke_observe_blend(SDL_Surface *s,Uint8 *p){return false;}
+static bool global_smoke_finish_proof(void){return true;}
+static bool global_smoke_compose(MirrorOutputKind k,int x,int y){return false;}
+static void global_smoke_check_cache(void){}
+static bool global_smoke_fade_buffer_safe(void){return true;}
+static bool global_smoke_fade_capture(void){return true;}
+static bool global_smoke_fade_step_valid(int steps){return true;}
+static void global_smoke_fade_palette(void){}
+#define render_mirror_smoke_explosion_allocated(...) ((void)0)
+#define render_mirror_smoke_explosion_initialized(...) ((void)0)
 static bool global_hitflare_frame,global_hitflare_fault,global_hitflare_cached;
 static Uint8 *global_hitflare_owner,*global_hitflare_foreign;
 static bool global_hitflare_source_matches(Sprite2_array b){(void)b;return true;}
