@@ -21,6 +21,10 @@ void title_layers_logo(unsigned int id, int x, int y);
 void title_layers_art_ready(void);
 void title_layers_menu_begin(void);
 void title_layers_menu_done(void);
+/* Keep all original 35 base and one selected calls and their indexed writes.
+ * MAIN7 is an independently optional display lease over those witnesses;
+ * missing MAIN7 preserves legacy TMF, while missing TMF does not disable MAIN7.
+ * Common run resources are configured separately through common_menu_runs. */
 void title_layers_menu_text_begin(SDL_Surface *surface, int x, int y, const char *text, int font, int alignment, Uint8 hue, Sint8 value);
 void title_layers_menu_text_done(void);
 void title_layers_highlight_done(void);

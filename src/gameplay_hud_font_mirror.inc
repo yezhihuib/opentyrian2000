@@ -14,6 +14,8 @@ static FontCommand font_commands[100];
 static unsigned font_command_count,font_command_next;
 static int font_context=-1;
 static bool font_glyph_active,font_gameplay,font_suspended;
+/* Final-surface writes are distinct from writes on the shifted scene source. */
+static unsigned font_shared_rejected;
 static SDL_Surface *font_source_surface;
 static void *font_source_pixels;
 static SDL_PixelFormat *font_source_format;
@@ -43,13 +45,15 @@ static bool font_source_matches(void)
 {
  return VGAScreenSeg&&VGAScreenSeg==font_source_surface&&VGAScreenSeg->pixels&&VGAScreenSeg->pixels==font_source_pixels&&
   VGAScreenSeg->format&&VGAScreenSeg->format==font_source_format&&VGAScreenSeg->pitch==font_source_pitch&&
-  VGAScreenSeg->w==320&&VGAScreenSeg->h==200&&VGAScreenSeg->format->BitsPerPixel==8&&VGAScreenSeg->format->BytesPerPixel==1;
+  VGAScreenSeg->w==320&&VGAScreenSeg->h==200&&VGAScreenSeg->format->format==SDL_PIXELFORMAT_INDEX8&&
+  VGAScreenSeg->format->BitsPerPixel==8&&VGAScreenSeg->format->BytesPerPixel==1;
 }
 static bool font_scene_source(const FontScene *r)
 {
  return game_screen&&game_screen==r->surface&&game_screen->pixels&&game_screen->pixels==r->pixels&&
   game_screen->format&&game_screen->format==r->format&&game_screen->pitch==r->pitch&&
-  game_screen->w==320&&game_screen->h==200&&game_screen->format->BitsPerPixel==8&&game_screen->format->BytesPerPixel==1;
+  game_screen->w==320&&game_screen->h==200&&game_screen->format->format==SDL_PIXELFORMAT_INDEX8&&
+  game_screen->format->BitsPerPixel==8&&game_screen->format->BytesPerPixel==1;
 }
 static bool font_intersects(SDL_Rect a,SDL_Rect b)
 {return a.x<b.x+b.w&&a.x+a.w>b.x&&a.y<b.y+b.h&&a.y+a.h>b.y;}
@@ -160,11 +164,12 @@ static bool font_plan(int x,int y,const char *text,unsigned hue,int value,unsign
 void render_mirror_text_begin(SDL_Surface *surface,unsigned kind,int x,int y,const char *text,unsigned hue,int value)
 {
  if(font_context>=0)font_strip_scene((unsigned)font_context);
- if(!font_gameplay||font_suspended||!hud_font_ready()||!active||reject_reason||surface!=game_screen||suppress||
+ if(!font_gameplay||font_suspended||!hud_font_ready()||(!active&&!shared_hud_frame)||reject_reason||surface!=game_screen||suppress||
   game_probe_original_reference||!font_source_matches()||!font_runtime_source()||!hud_font_palette_matches(rgb_palette)||kind>1)return;
  if((kind==0&&(x!=30||y!=175||hue!=2||value!=4))||(kind==1&&(x!=28||(y!=8&&y!=28)||hue!=2||value!=6)))return;
  if(kind==0)for(unsigned i=0;i<=20&&text&&text[i];i++)if(text[i]<'0'||text[i]>'9')return;
  FontScene *r=font_scenes+kind;if(r->canvas_live)font_strip_scene(kind);
+ font_shared_rejected&=~(1u<<kind);
  SDL_Rect box;if(!font_plan(x,y,text,hue,value,20,true,&box)||!box.w||box.x<24||box.y<0||box.x+box.w>288||box.y+box.h>184||
   box.w>(kind?141:101)||box.h>(kind?10:8))return;
  if(!font_allocate())return;
@@ -284,6 +289,46 @@ static void font_clear_cached(unsigned bits)
  if(!saved)font_saved_generation=0;
  if(verified)font_cache_retained();
 }
+/* Observe actual destination writes as events, including equal-index writes.
+ * Retirement is run-local; unrelated HUD families and legacy feature-off paths
+ * are unaffected. A later native scene-to-final copy may make this conservative. */
+static void font_final_pixel(SDL_Surface *surface,Uint8 *address)
+{
+ if(!shared_hud_lease||surface!=VGAScreenSeg||!font_source_matches()||!font_history)return;
+ intptr_t offset=(intptr_t)address-(intptr_t)surface->pixels;
+ if(offset<0||offset>=(intptr_t)surface->pitch*surface->h)return;
+ int y=(int)(offset/surface->pitch),x=(int)(offset%surface->pitch);
+ if(x>=320||y>=200)return;
+ for(unsigned i=0;i<2;i++) {
+  FontScene *r=font_scenes+i;
+  if(x<r->rect.x-24||x>=r->rect.x+r->rect.w-24||y<r->rect.y||y>=r->rect.y+r->rect.h)continue;
+  if(r->canvas_live){font_strip_scene(i);font_shared_rejected|=1u<<i;}
+  if(!r->output_live&&!(font_shared_rejected&(1u<<i)))continue;
+  if(r->output_live){font_clear_cached(4u<<i);font_shared_rejected|=1u<<i;}
+  /* The event's cell is now classic, not the old HD underlay of the retired
+   * text. Clear both current and saved history so a fade cannot replay it. */
+  int d=font_density;
+  if(!last_output_valid||!output||!output->pixels||(d!=4&&d!=8))continue;
+  for(int sy=0;sy<d;sy++)for(int sx=0;sx<d;sx++) {
+   int px=x*d+sx,py=y*d+sy;
+   ((Uint32 *)((Uint8 *)output->pixels+py*output->pitch))[px]=palette_rgb(*address);
+   hd_owner[py*canvas->w+px+24*d]=0;cloud_owner[py*canvas->w+px+24*d]=0;
+   if(have_fade_saved&&fade_saved)
+    ((Uint32 *)((Uint8 *)fade_saved->pixels+py*fade_saved->pitch))[px]=0xff000000u|(fade_saved_palette[*address]&0xffffffu);
+  }
+  font_cache_retained();
+ }
+}
+static void font_final_rect(SDL_Surface *surface,const SDL_Rect *rect)
+{
+ if(!shared_hud_lease||surface!=VGAScreenSeg||!font_source_matches())return;
+ int x0=rect?rect->x:0,y0=rect?rect->y:0;
+ int x1=rect?rect->x+rect->w:surface->w,y1=rect?rect->y+rect->h:surface->h;
+ x0=MAX(MAX(x0,surface->clip_rect.x),0);y0=MAX(MAX(y0,surface->clip_rect.y),0);
+ x1=MIN(MIN(x1,surface->clip_rect.x+surface->clip_rect.w),320);
+ y1=MIN(MIN(y1,surface->clip_rect.y+surface->clip_rect.h),200);
+ for(int y=y0;y<y1;y++)for(int x=x0;x<x1;x++)font_final_pixel(surface,(Uint8 *)surface->pixels+y*surface->pitch+x);
+}
 static void font_reset(void)
 {
  if(font_history)for(unsigned i=0;i<2;i++)font_strip_scene(i);
@@ -311,7 +356,7 @@ static bool font_indices_equal(unsigned which,const Uint8 *reference)
 }
 static void font_start(SDL_Surface *source)
 {
- if(!hud_font_load(game_probe_assets)||sprite_table[TINY_FONT].count!=127)return;
+ if(!hud_font_load(hud_asset_directory())||sprite_table[TINY_FONT].count!=127)return;
  HudFontGlyph glyphs[127];for(unsigned i=0;i<127;i++){const Sprite *s=&sprite_table[TINY_FONT].sprite[i];glyphs[i]=(HudFontGlyph){s->width,s->height,s->size,s->data};}
  if(!hud_font_capture(source->pixels,source->pitch,font_ascii,glyphs)||!font_allocate())return;
  font_source_surface=source;font_source_pixels=source->pixels;font_source_format=source->format;font_source_pitch=source->pitch;
@@ -320,6 +365,7 @@ static void font_start(SDL_Surface *source)
 }
 static void font_begin(void)
 {
+ font_shared_rejected=0;
  if(!font_history||!font_gameplay)return;
  font_suspended=false;
  font_context=-1;font_glyph_active=false;font_output_generation=font_saved_generation=0;
@@ -439,6 +485,58 @@ static bool font_compose_persistent(unsigned which)
 /* Must run before finish copies canvas into output, including defensive aborts. */
 static void font_prepare_finish(void)
 {if(font_context>=0)font_strip_scene((unsigned)font_context);}
+/* A shared HUD scene run may be presented without a legacy scene lease. Only
+ * copy its witnessed contribution, not the scene canvas. Match the original
+ * submitted indices over the whole run, including the recorded underlay. */
+static void font_validate_shared_scene(bool accepted)
+{
+ for(unsigned i=0;i<2;i++) {
+  FontScene *r=font_scenes+i;
+  if(!r->canvas_live)continue;
+  bool valid=accepted&&font_scene_source(r)&&font_source_matches()&&
+   font_density==game_probe_density&&hud_font_palette_matches(rgb_palette)&&
+   r->rect.x>=24&&r->rect.y>=0&&r->rect.x+r->rect.w<=288&&r->rect.y+r->rect.h<=184;
+  if(valid)for(int y=0;y<r->rect.h&&valid;y++)for(int x=0;x<r->rect.w;x++)
+   if(((Uint8 *)VGAScreenSeg->pixels)[(r->rect.y+y)*VGAScreenSeg->pitch+r->rect.x+x-24]!=
+      ((Uint8 *)game_screen->pixels)[(r->rect.y+y)*game_screen->pitch+r->rect.x+x]) {valid=false;break;}
+  if(!valid){font_strip_scene(i);font_shared_rejected|=1u<<i;}
+ }
+}
+/* An accepted legacy world copy must not overwrite an invalid shared run with
+ * its unwitnessed source image. Restore only those final run rectangles. */
+static void font_restore_shared_rejected(void)
+{
+ if(!shared_hud_lease||!font_source_matches())return;
+ int d=font_density;
+ for(unsigned i=0;i<2;i++)if(font_shared_rejected&(1u<<i)) {
+  FontScene *r=font_scenes+i;
+  for(int y=MAX(0,r->rect.y);y<MIN(184,r->rect.y+r->rect.h);y++)
+   for(int x=MAX(0,r->rect.x-24);x<MIN(264,r->rect.x+r->rect.w-24);x++)
+    for(int sy=0;sy<d;sy++)for(int sx=0;sx<d;sx++) {
+     int px=x*d+sx,py=y*d+sy;
+     ((Uint32 *)((Uint8 *)output->pixels+py*output->pitch))[px]=palette_rgb(((Uint8 *)VGAScreenSeg->pixels)[y*VGAScreenSeg->pitch+x]);
+     hd_owner[py*canvas->w+px+24*d]=0;cloud_owner[py*canvas->w+px+24*d]=0;
+    }
+ }
+}
+static bool font_compose_shared_scene(bool accepted)
+{
+ font_validate_shared_scene(accepted);
+ bool retained=false;
+ for(unsigned i=0;i<2;i++) {
+  FontScene *r=font_scenes+i;if(!r->canvas_live)continue;
+  int d=font_density;
+  for(int y=0;y<r->rect.h;y++)for(int x=0;x<r->rect.w;x++)for(int sy=0;sy<d;sy++)for(int sx=0;sx<d;sx++) {
+   unsigned k=r->offset+(unsigned)((y*r->rect.w+x)*d*d+sy*d+sx);
+   if(!font_owner[k])continue;
+   int px=(r->rect.x+x)*d+sx,py=(r->rect.y+y)*d+sy;
+   ((Uint32 *)((Uint8 *)output->pixels+py*output->pitch))[px-24*d]=
+    ((Uint32 *)((Uint8 *)canvas->pixels+py*canvas->pitch))[px];
+   retained=true;
+  }
+ }
+ return retained;
+}
 static bool font_finish(bool accepted)
 {
  if(!font_gameplay||!font_history)return false;

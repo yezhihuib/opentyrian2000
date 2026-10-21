@@ -26,6 +26,8 @@
 #include "video.h"
 #include "hd_cursor.h"
 #include "render_mirror.h"
+#include "common_pause.h"
+#include "common_menu_config.h"
 #include "asset_debug.h"
 #include "startup_logos.h"
 #include "title_layers.h"
@@ -120,10 +122,12 @@ void init_video(void)
 	SDL_SetRenderDrawColor(main_window_renderer, 0, 0, 0, 255);
 	SDL_RenderClear(main_window_renderer);
 	SDL_RenderPresent(main_window_renderer);
+	common_pause_snapshot_reset();
 }
 
 void deinit_video(void)
 {
+	common_pause_invalidate();
 	render_mirror_hud_shutdown();
 	startup_logos_shutdown();
 	title_layers_end();
@@ -156,6 +160,8 @@ static void init_renderer(void)
 
 static void deinit_renderer(void)
 {
+	common_pause_invalidate();
+	common_pause_release_texture();
 	if (main_window_renderer != NULL)
 	{
 		startup_logos_release_texture();
@@ -194,6 +200,8 @@ static void init_texture(void)
 
 static void deinit_texture(void)
 {
+	common_pause_invalidate();
+	common_pause_release_texture();
 	data_text_invalidate(); data_frame_invalidate(); data_portrait_invalidate();
 	settings_font_invalidate();
 	load_font_invalidate();
@@ -438,18 +446,20 @@ static void scale_and_flip(SDL_Surface *src_surface)
 	assert(scaler_function != NULL);
 	SDL_Rect dst_rect;
 	calc_dst_render_rect(src_surface, &dst_rect);
-	if(render_mirror_owns_display() || startup_logos_owns_display())hd_cursor_clear();
+	if(common_pause_owns_display() || render_mirror_owns_display() || startup_logos_owns_display())hd_cursor_clear();
 	hd_cursor_prepare(main_window_renderer,src_surface,&dst_rect,rgb_palette,main_window_tex_format);
 	const bool cursor_replaced=hd_cursor_active();
 	scaler_function(hd_cursor_underlay(src_surface), main_window_texture);
-	if(selector_font_owns_display() && (startup_logos_owns_display() || title_layers_owns_display() || render_mirror_owns_display() || settings_font_owns_display() || load_font_owns_display())) selector_font_end();
-	if(pregame_font_owns_display() && (startup_logos_owns_display() || title_layers_owns_display() || render_mirror_owns_display() || settings_font_owns_display() || load_font_owns_display() || selector_font_owns_display())) pregame_font_end();
-	if(startup_logos_present(main_window_renderer,src_surface,&dst_rect)) { last_output_rect=dst_rect; return; }
-	if(title_layers_present(main_window_renderer,src_surface,&dst_rect)) { last_output_rect=dst_rect; return; }
-	if(settings_font_present(main_window_renderer,main_window_texture,src_surface,&dst_rect, startup_logos_owns_display() || title_layers_owns_display() || render_mirror_owns_display() || load_font_owns_display() || selector_font_owns_display())) { last_output_rect=dst_rect; return; }
-	if(load_font_present(main_window_renderer,main_window_texture,src_surface,&dst_rect, startup_logos_owns_display() || title_layers_owns_display() || render_mirror_owns_display() || settings_font_owns_display() || selector_font_owns_display())) { last_output_rect=dst_rect; return; }
-	if(selector_font_present(main_window_renderer,main_window_texture,src_surface,&dst_rect, startup_logos_owns_display() || title_layers_owns_display() || render_mirror_owns_display() || settings_font_owns_display() || load_font_owns_display())) { last_output_rect=dst_rect; return; }
-	if(pregame_font_present(main_window_renderer,main_window_texture,src_surface,&dst_rect, startup_logos_owns_display() || title_layers_owns_display() || render_mirror_owns_display() || settings_font_owns_display() || load_font_owns_display() || selector_font_owns_display())) { last_output_rect=dst_rect; return; }
+	if(selector_font_owns_display() && (common_pause_owns_display() || startup_logos_owns_display() || title_layers_owns_display() || render_mirror_owns_display() || settings_font_owns_display() || load_font_owns_display())) selector_font_end();
+	if(pregame_font_owns_display() && (common_pause_owns_display() || startup_logos_owns_display() || title_layers_owns_display() || render_mirror_owns_display() || settings_font_owns_display() || load_font_owns_display() || selector_font_owns_display())) pregame_font_end();
+	if (!common_menu_configured()) common_pause_invalidate();
+	if(common_pause_present(main_window_renderer,main_window_texture,src_surface,&dst_rect, startup_logos_owns_display() || title_layers_owns_display() || settings_font_owns_display() || load_font_owns_display() || selector_font_owns_display() || pregame_font_owns_display())) { last_output_rect=dst_rect; return; }
+	if(startup_logos_present(main_window_renderer,src_surface,&dst_rect)) { common_pause_snapshot_reset(); last_output_rect=dst_rect; return; }
+	if(title_layers_present(main_window_renderer,src_surface,&dst_rect)) { common_pause_snapshot_reset(); last_output_rect=dst_rect; return; }
+	if(settings_font_present(main_window_renderer,main_window_texture,src_surface,&dst_rect, startup_logos_owns_display() || title_layers_owns_display() || render_mirror_owns_display() || load_font_owns_display() || selector_font_owns_display())) { common_pause_snapshot_reset(); last_output_rect=dst_rect; return; }
+	if(load_font_present(main_window_renderer,main_window_texture,src_surface,&dst_rect, startup_logos_owns_display() || title_layers_owns_display() || render_mirror_owns_display() || settings_font_owns_display() || selector_font_owns_display())) { common_pause_snapshot_reset(); last_output_rect=dst_rect; return; }
+	if(selector_font_present(main_window_renderer,main_window_texture,src_surface,&dst_rect, startup_logos_owns_display() || title_layers_owns_display() || render_mirror_owns_display() || settings_font_owns_display() || load_font_owns_display())) { common_pause_snapshot_reset(); last_output_rect=dst_rect; return; }
+	if(pregame_font_present(main_window_renderer,main_window_texture,src_surface,&dst_rect, startup_logos_owns_display() || title_layers_owns_display() || render_mirror_owns_display() || settings_font_owns_display() || load_font_owns_display() || selector_font_owns_display())) { common_pause_snapshot_reset(); last_output_rect=dst_rect; return; }
 	if(render_mirror_present(main_window_renderer,src_surface,&dst_rect)) { last_output_rect=dst_rect; return; }
 
 	// A late optional-presenter failure may have retired the cursor lease.
@@ -475,6 +485,7 @@ static void scale_and_flip(SDL_Surface *src_surface)
 	}
 	asset_debug_readback(main_window_renderer);
 	SDL_RenderPresent(main_window_renderer);
+	common_pause_snapshot_reset();
 
 	// Save output rect to be used by mouse functions
 	last_output_rect = dst_rect;

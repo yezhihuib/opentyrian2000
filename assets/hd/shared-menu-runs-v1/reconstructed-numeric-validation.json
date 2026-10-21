@@ -1,0 +1,22 @@
+{
+  "sha256": "7becf23de59c40582992f3c8caeea4b953405f014f86a070b0d25cef63f4878d",
+  "git_blob": "9fb2d2fb5f3c8adbfa3da7fb51609db6e7cab99c",
+  "bytes": 41110,
+  "payload_sha256": "09ee5232896a1d9540608eef1762ff169fb2e20650e21a7194e139041972eb8e",
+  "payload_bytes": 41046,
+  "masks": 64,
+  "header_hex": "4e46523101000000400000000c000000400000004000000056a00000000000001459a7c4143932ce335f48311e43030d00000000000000000000000000000000",
+  "validation": {
+    "whole_string_raqm_cases": 1832,
+    "all_64_residues_for_each_fixed_case": true,
+    "signed_start_pen_range64": [
+      -256,
+      256
+    ],
+    "boolean_overlap_samples": 0,
+    "mismatches": 0,
+    "note": "Independent whole-string RAQM draw compared with packed-mask assembly; no pair-advance-only proof."
+  },
+  "status": "byte_identical_resource_new_generator_source",
+  "runtime_validated": false
+}

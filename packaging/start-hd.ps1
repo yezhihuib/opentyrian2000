@@ -66,13 +66,17 @@ function Quote-ManualArgument([string]$Value) {
     return '"' + $Value + ('\' * $tail) + '"'
 }
 $arguments = @((Quote-ManualArgument "--data=$DataDirectory"), (Quote-ManualArgument "--manual-hd-assets=$AssetsDirectory"))
-if ($StartupAssetsDirectory) { $arguments += Quote-ManualArgument "--startup-assets=$StartupAssetsDirectory" }
+if ($StartupAssetsDirectory) {
+    $arguments += Quote-ManualArgument "--startup-assets=$StartupAssetsDirectory"
+    $arguments += Quote-ManualArgument "--common-menu-assets=$StartupAssetsDirectory"
+}
+$arguments += Quote-ManualArgument "--hud-assets=$(Join-Path $repoRoot 'assets/shared-ui')"
 $arguments += Quote-ManualArgument "--data-text-assets=$(Join-Path $repoRoot 'assets/data-text-zh-CN-v1')"
 $arguments += Quote-ManualArgument "--data-frame-assets=$(Join-Path $repoRoot 'assets/data-frame-v1')"
 $arguments += Quote-ManualArgument "--data-portrait-assets=$(Join-Path $repoRoot 'assets/data-portrait-v1')"
 if ($MusicDirectory) { $arguments += Quote-ManualArgument "--music-dir=$MusicDirectory" }
 Write-Host "Profile: $ProfileDirectory"
-Write-Host 'Choose New Game and Episode 1 normally. HD is limited to its first level; other gameplay stays classic.'
+Write-Host 'Choose New Game and Episode 1 normally. The legacy scene pack retains its original scope; shared HUD and interface are reused across compatible levels. Aircraft and weapon behavior remains the existing public baseline.'
 $game = Start-Process -FilePath $Executable -ArgumentList $arguments -WorkingDirectory $ProfileDirectory -Wait -PassThru
 if ($game.ExitCode -ne 0) { throw "Game exited with code $($game.ExitCode)." }
 

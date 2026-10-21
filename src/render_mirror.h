@@ -11,6 +11,7 @@ typedef enum {
  MIRROR_OUTPUT_NORMAL15_NIGHT, MIRROR_OUTPUT_NORMAL15_LOW_DETAIL
 } MirrorOutputKind;
 #ifdef RENDER_MIRROR_DISABLED
+#define render_mirror_set_hud_assets(directory) ((void)(directory),true)
 #define render_mirror_owns_display() false
 #define render_mirror_text_begin(...) ((void)0)
 #define render_mirror_text_end(...) ((void)0)
@@ -90,6 +91,9 @@ typedef enum {
 #define render_mirror_reset_banking(...) ((void)0)
 #define render_mirror_player_pose(...) ((void)0)
 #else
+/* Independent shared HUD root. NULL disables; overlong paths fail closed.
+ * This never grants world/scene rendering or enables probe/input behavior. */
+bool render_mirror_set_hud_assets(const char *directory);
 bool render_mirror_owns_display(void);
 void render_mirror_text_begin(SDL_Surface *,unsigned kind,int x,int y,const char *,unsigned hue,int value);
 void render_mirror_text_end(void);

@@ -1,0 +1,61 @@
+#!/usr/bin/env python3
+"""Extend the pinned public runtime allowlist with explicitly reconstructed work.
+
+No network, downloads, deletions, or inferred assets. Output is mandatory and
+must not replace the input manifest. Every original non-launcher row is verified
+before it can enter the new manifest. Reconstructed resources retain new hashes.
+"""
+import argparse, hashlib, json
+from pathlib import Path
+
+def pins(path):
+    if path.is_symlink() or not path.is_file():
+        raise ValueError('Expected regular selected file: '+str(path))
+    data=path.read_bytes()
+    if len(data)>64*1024*1024: raise ValueError('Oversized selected file')
+    return len(data),hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest(),hashlib.sha256(data).hexdigest()
+
+def main():
+    ap=argparse.ArgumentParser(description=__doc__)
+    ap.add_argument('--root',type=Path,default=Path(__file__).resolve().parents[1])
+    ap.add_argument('--base-manifest',type=Path)
+    ap.add_argument('--output',type=Path,required=True)
+    a=ap.parse_args();root=a.root.resolve();base=(a.base_manifest or root/'packaging/runtime-assets-public63a89b3.json').resolve()
+    if a.output.resolve()==base:raise ValueError('Output must not overwrite pinned base manifest')
+    j=json.loads(base.read_text());rows={}
+    def add(source,destination,group,exact=None):
+        size,blob,sha=pins(root/source)
+        if exact and (size!=exact['bytes'] or blob!=exact['git_blob'] or (exact.get('sha256') and sha!=exact['sha256'])):
+            raise ValueError('Pinned baseline mismatch: '+source)
+        row=dict(source_path=source,destination=destination,group=group,bytes=size,git_blob=blob,sha256=sha,revision='reconstructed-local-unpublished')
+        if destination in rows:raise ValueError('Destination collision: '+destination)
+        rows[destination]=row
+    for old in j['files']:
+        changed=old['group']=='launcher-and-config'
+        if old['source_path']=='assets/data-portrait-v1/DATA-PORTRAIT-PROVENANCE.txt':
+            # Public63a89b3 updated this notice but left the older packaging row.
+            # This is the only preexisting mismatch, pinned to the verified tree.
+            if old['git_blob']!='44b4a4d7e976d2f407f7a50a0e87c0fdba9d1497':raise ValueError('Unexpected old notice pin')
+            old=dict(old,bytes=(root/old['source_path']).stat().st_size,git_blob='ab6842928c05f8598e0c03f5f82cffc9bbc48735')
+            old.pop('sha256',None)
+        add(old['source_path'],old['destination'],old['group'],None if changed else old)
+    for p in sorted((root/'assets/hd/shared-ui-v1').glob('*.hda')):
+        add(p.relative_to(root).as_posix(),'assets/shared-ui/'+p.name,'shared-hud-exact-recovery')
+    m=root/'assets/hd/shared-menu-runs-v1'
+    runs=sorted(m.glob('*.rfr'))
+    if len(runs)!=171:raise ValueError('Expected171 explicitly rebuilt complete runs')
+    for p in runs+[m/'numeric-runs-v1.nfr']:
+        add(p.relative_to(root).as_posix(),'assets/startup/'+p.name,'reconstructed-menu-runs' if p.suffix=='.rfr' else 'numeric-exact-recovery')
+    for name in ['FONT-LICENSE.txt','OSIFONT-LICENSE.txt','OSIFONT-GPL-2.txt','RFR3-RECONSTRUCTION.md']:
+        add((m/name).relative_to(root).as_posix(),'licenses/shared-menu/'+name,'font-notice')
+    for p in sorted((m/'osifont-source').glob('*')):
+        if p.is_file():add(p.relative_to(root).as_posix(),'licenses/shared-menu/osifont-source/'+p.name,'font-corresponding-source')
+    add('packaging/frontend-validation.json','FRONTEND-VALIDATION.json','frontend-validation')
+    j['files']=sorted(rows.values(),key=lambda x:x['destination'])
+    j['source_revision']['reconstruction']='Public63a89b33e4ee3f287b422df0ea986b907941cedd plus independently verified shared UI and reconstructed frontend only; global player/effect/weapon changes excluded'
+    j['closure']['reconstructed_complete_menu_runs']=171
+    j['closure']['byte_exact_numeric_pack']=True
+    j['closure']['independent_shared_roots']=True
+    a.output.write_text(json.dumps(j,indent=2,sort_keys=True)+'\n')
+    print(json.dumps({'files':len(rows),'bytes':sum(x['bytes'] for x in rows.values()),'output':str(a.output)}))
+if __name__=='__main__':main()

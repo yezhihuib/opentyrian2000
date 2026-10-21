@@ -30,10 +30,13 @@ and saves are retained. Nonempty unmarked profiles are refused. On Linux set
 OPENTYRIAN_HD_PROFILE to override the dedicated XDG base; the actual Linux
 config and saves live under its opentyrian2000/ subdirectory. On Windows
 use -ProfileDirectory. Startup/shop HD is enabled by these launchers. Other launch
-methods can opt out by omitting --startup-assets.
+methods can opt out of these additions by omitting --startup-assets,
+--common-menu-assets and --hud-assets as appropriate.
 
-Scope: local single-player Episode 1, first physical-level-9/15 variants only;
-this package does not turn the entire campaign into HD. Display fallbacks and the
+Legacy scene-pack scope: local single-player Episode 1, original physical-level-9/15
+variants. The separately configured shared interface and verified player families
+are source-identity based across compatible levels. This package does not turn
+the entire campaign into HD. Display fallbacks and the
 existing bounded acceptance scope still apply. Linux copying/hashing acceptance is
 separate from a complete Windows/device/runtime acceptance test.
 
@@ -69,3 +72,25 @@ noPortrait remains intentionally absent. Missing/corrupt/source-mismatched
 resources preserve the native portrait independently of optional frame/text.
 The original game data remains external. See licenses/DATA-PORTRAIT-PROVENANCE.txt
 and licenses/LICENSE-Data-Portrait.txt for provenance and rights status.
+
+RECONSTRUCTED SHARED RUNTIME
+The launchers additionally configure two independent resource roots:
+  assets/shared-ui: shared gameplay HUD resources.
+  assets/startup: natural menu runs and the original source-witness font files.
+Shared resources are not authorized by episode or level. The older scene pack
+retains its separate, existing renderer scope; it does not grant shared roles.
+
+The reconstructed RFR3 complete-run resources are newly versioned and are not
+claimed byte-identical to the lost RFR1/RFR2 files. They preserve the approved
+fonts, natural advances and menu semantics. The OSIfont numeric NFR and recovered
+shared HUD artwork retain their original verified bytes. Product source strings and game
+economy remain original. Font licenses and corresponding OSIfont source archives
+are under licenses/shared-menu. Runtime requires no external font renderer.
+
+This frontend-only update excludes the unfinished global aircraft, shield,
+weapon and hit-effect reconstruction. Existing public-baseline aircraft and
+weapon behavior is unchanged.
+
+Consult RUNTIME-STATUS.json and FRONTEND-VALIDATION.json for
+actual platform and verification scope. A successful copy is not proof of game
+acceptance. No whole-campaign, Windows/GPU or frame-pacing validation is implied.

@@ -3,6 +3,14 @@
  * Reuses accepted SFN1 resources and the selector output-footprint sampler.
  */
 #include "pregame_font.h"
+#include "common_menu_runs.h"
+#include "game_probe.h"
+#include "episodes.h"
+#include "mainint.h"
+#include "player.h"
+#include "tyrian2.h"
+#include "../assets/hd/shared-menu-runs-v1/reconstructed_name_source_specs.h"
+#include <limits.h>
 #include "hd_cursor.h"
 #include "settings_font.h"
 #include "selector_font_output.h"
@@ -50,7 +58,7 @@
 #include "shop_shield_material_pins.h"
 enum { SF_W=320,SF_H=200,SF_N=64000,SF_OW=1280,SF_OH=800,
  SF_OUT_BYTES=4096000,SF_PAYLOAD=1785856,SF_COMMANDS=1024,SF_GLYPHS=272,
- SF_MASK_BYTES=60*17*20+85*12*13+127*6*8,SF_EVENTS=40000,SF_CAP=11*1024*1024,
+ SF_MASK_BYTES=60*17*20+85*12*13+127*6*8,SF_EVENTS=40000,SF_CAP=16*1024*1024,
  PF_METAL_BYTES=1276820,PF_METAL_RUNS=2492,PF_METAL_PIXELS=314221,
  PF_SPRITE_W=85,PF_SPRITE_H=112,PF_SPRITE_BYTES=85*112*16*4,
  PF_FRONT_BYTES=33*34*16*4,PF_GENERATOR_BYTES=31*35*16*4,PF_SHOP_SPRITES=3,
@@ -72,14 +80,23 @@ static const struct ShopSpriteSpec shop_spec[PF_SHOP_SPRITES]={
 };
 struct SfGlyph { const Uint8 *rle; Uint16 size,mask; Uint8 w,h,ink; };
 /* Whole-run typography is deliberately independent of shared SFN1 metrics. */
-struct PfMenuSpec { const char *text; unsigned x,y,w,h; uint64_t text_hash,payload_hash; };
-#include "shop_menu_font_pins.h"
+enum { PF_FIXED_SLOTS=10,PF_NAME_TAG=16,PF_NUMERIC_TAG=32,PF_NAMES=5,PF_NUMBERS=8 };
+struct PfRun { CommonMenuRun run; int x,y,value;unsigned hue,shadow;bool active; };
+struct PfNumber { CommonMenuNumericRun run; int x,y,value;unsigned hue,shadow;bool active;char text[24]; };
+struct PfNameProof { unsigned item,source,cost;bool unaffordable; };
 struct SfCommand { Uint16 x,y,w,h; Uint8 kind,bank,id,hue,cash,menu_run; Sint16 value; unsigned first,events; };
 struct SfEvent { Uint16 position; Uint8 index,style; };
 static struct {
  bool active,frame,glyph,cursor,exiting,primitive,ship_shield,product,updating;
  unsigned category,names,costs,static_count,static_events,cash_first,cash_limit,illustration;
  bool heading,product_footer,cash_seen,sprite_drawn;
+ bool fixed_ready,names_ready,numeric_ready,root_cash_valid,cash_replay_witness;
+ unsigned fixed_count,static_fixed,power_seen,power_last,power_item,power_level;
+ enum CommonMenuFamily fixed_family;
+ uint64_t fixed_generation,names_generation,numeric_generation;
+ struct PfRun fixed[PF_FIXED_SLOTS],name_run[PF_NAMES];
+ struct PfNameProof name_proof[PF_NAMES],cost_proof[PF_NAMES];
+ struct PfNumber number[PF_NUMBERS];
  int stage,fade_remaining,fade_declared;
  unsigned menu,selected,last,row,next_role,cubes,phase,phase_count;
  unsigned count,next,limit,pixel,run_count,run_role,event_count,event_next,event_limit;
@@ -94,12 +111,20 @@ static struct {
  struct SfGlyph glyphs[SF_GLYPHS];Uint8 masks[SF_MASK_BYTES];
  struct SfCommand commands[SF_COMMANDS];struct SfEvent events[SF_EVENTS];
  SDL_Color expected_palette[256],fade_target[256];Uint32 palette[256];
- Uint8 *payload[3],*metal,*shop_sprite,*shop_front,*shop_generator,*shop_shield,*menu_run[7];unsigned metal_gain,metal_target;Uint32 *output;
+ Uint8 *payload[3],*metal,*shop_sprite,*shop_front,*shop_generator,*shop_shield;unsigned metal_gain,metal_target;Uint32 *output;
 } sf;
 static const char *directory;
-size_t pregame_font_static_bytes(void){return sizeof(sf);}
+size_t pregame_font_static_bytes(void){return sizeof(sf)+sizeof(cmr3_name_sources);}
+size_t pregame_font_retained_bytes(void)
+{
+ size_t bytes=pregame_font_static_bytes()+2048+selector_font_output_static_bytes()+common_menu_runs_retained_bytes()+common_menu_numeric_runs_retained_bytes();
+ for(unsigned b=0;b<3;b++)if(sf.payload[b])bytes+=spec[b].plane*(spec[b].mode?2:1);
+ if(sf.output)bytes+=SF_OUT_BYTES;if(sf.metal)bytes+=PF_METAL_BYTES;if(sf.shop_sprite)bytes+=PF_SPRITE_BYTES;
+ if(sf.shop_front)bytes+=PF_FRONT_BYTES;if(sf.shop_generator)bytes+=PF_GENERATOR_BYTES;if(sf.shop_shield)bytes+=PF_SHIELD_BYTES;
+ return bytes;
+}
 bool pregame_font_owns_display(void){return sf.active;}
-typedef char sf_budget_check[(sizeof(sf)+1800000+70000+SF_PAYLOAD+SF_OUT_BYTES+PF_METAL_BYTES+PF_SPRITE_BYTES+PF_FRONT_BYTES+PF_GENERATOR_BYTES+PF_SHIELD_BYTES+PF_MENU_BYTES+7*128+2048<=SF_CAP)?1:-1];
+typedef char sf_budget_check[(sizeof(sf)+1800000+70000+SF_PAYLOAD+SF_OUT_BYTES+PF_METAL_BYTES+PF_SPRITE_BYTES+PF_FRONT_BYTES+PF_GENERATOR_BYTES+PF_SHIELD_BYTES+3400000+65536+sizeof(cmr3_name_sources)+2048<=SF_CAP)?1:-1];
 typedef char sf_command_check[(sizeof(struct SfCommand)<=24)?1:-1];
 static uint64_t hash_more(uint64_t h,const Uint8 *p,size_t n)
 {while(n--)h=(h^*p++)*UINT64_C(1099511628211);return h;}
@@ -112,10 +137,10 @@ static struct SfGlyph *glyph(unsigned bank,unsigned id){return &sf.glyphs[(bank=
 static void reject(void){sf.frame=false;sf.glyph=false;sf.stage=S_IDLE;}
 void pregame_font_set_directory(const char *path){pregame_font_end();directory=path&&*path?path:NULL;}
 void pregame_font_release_texture(void){if(sf.active||sf.output)selector_font_output_release();}
-void pregame_font_end(void){pregame_font_release_texture();for(unsigned b=0;b<3;b++)free(sf.payload[b]);for(unsigned r=0;r<7;r++)free(sf.menu_run[r]);free(sf.metal);free(sf.shop_sprite);free(sf.shop_front);free(sf.shop_generator);free(sf.shop_shield);free(sf.output);memset(&sf,0,sizeof(sf));}
+void pregame_font_end(void){pregame_font_release_texture();for(unsigned b=0;b<3;b++)free(sf.payload[b]);free(sf.metal);free(sf.shop_sprite);free(sf.shop_front);free(sf.shop_generator);free(sf.shop_shield);free(sf.output);memset(&sf,0,sizeof(sf));}
 void pregame_font_invalidate(void){if(sf.active){++sf.generation;reject();}pregame_font_release_texture();}
 void pregame_font_table_reset(unsigned table){if(table<3||table==5||table==6)pregame_font_end();}
-static bool geometry(SDL_Surface *s){return s&&s->pixels&&s->format&&s->w==SF_W&&s->h==SF_H&&s->pitch==SF_W&&s->format->BitsPerPixel==8&&s->format->BytesPerPixel==1&&s->clip_rect.x==0&&s->clip_rect.y==0&&s->clip_rect.w==SF_W&&s->clip_rect.h==SF_H;}
+static bool geometry(SDL_Surface *s){return s&&s->pixels&&s->format&&s->w==SF_W&&s->h==SF_H&&s->pitch==SF_W&&s->format->format==SDL_PIXELFORMAT_INDEX8&&s->format->BitsPerPixel==8&&s->format->BytesPerPixel==1&&s->clip_rect.x==0&&s->clip_rect.y==0&&s->clip_rect.w==SF_W&&s->clip_rect.h==SF_H;}
 static bool layout(void){return sf.screen==VGAScreen&&sf.screen==VGAScreenSeg&&sf.backup==VGAScreen2&&geometry(sf.screen)&&geometry(sf.backup)&&sf.screen->pixels==sf.pixels&&sf.backup->pixels==sf.backup_pixels&&sf.screen->format==sf.format&&sf.backup->format==sf.backup_format;}
 static bool source(bool capture)
 {
@@ -180,25 +205,6 @@ static bool load(unsigned b)
  if(u64(h+64)!=SF_MAP||u64(h+72)!=s->metrics||u64(h+80)!=s->encoded||u64(h+88)!=s->eligibility||u64(h+96)!=SF_PAL||u64(h+104)!=s->payload||u64(h+112)||u64(h+120))goto done;
  data=malloc(size);if(!data||SF_READ(fd,data,size)!=(long)size||SF_READ(fd,&extra,1)!=0||hash(data,size)!=s->payload||!padding(b,data))goto done;valid=true;
  done:if(SF_CLOSE(fd))valid=false;if(valid)sf.payload[b]=data;else free(data);return valid;
-}
-/* Each immutable English label is optional on its own. Reject malformed or
- * unrecognized resources without dropping the underlying SFN1 lease. Bounds,
- * anchors, source provenance, text, role range and payload are all pinned. */
-static void load_menu_run(unsigned r)
-{
- const struct PfMenuSpec *s=&menu_spec[r];char path[1024];Uint8 h[128],extra;SF_STAT st;
- unsigned plane=s->w*s->h,size=plane*2;
- int n=snprintf(path,sizeof(path),"%s/shop-menu-run%u-v1.hda",directory,r);
- if(n<0||(size_t)n>=sizeof(path)||!s->w||!s->h||s->x+s->w+8>SF_OW||s->y+s->h+8>SF_OH||size>PF_MENU_BYTES)return;
- int fd=SF_OPEN(path);if(fd<0)return;Uint8 *data=NULL;bool valid=false;
- unsigned fields[15]={1,r,4,s->x,s->y,s->w,s->h,plane,plane,12,15,8,8,r?r+1:0,(unsigned)strlen(s->text)};
- if(SF_FSTAT(fd,&st)||!SF_REGULAR(st.st_mode)||st.st_size!=128+size||SF_READ(fd,h,128)!=128||memcmp(h,"SMR1",4))goto done;
- for(unsigned i=0;i<15;i++)if(u32(h+4+4*i)!=fields[i])goto done;
- if(u64(h+64)!=s->text_hash||u64(h+72)!=SF_MAP||u64(h+80)!=PF_BASE||u64(h+88)!=PF_PAL||u64(h+96)!=s->payload_hash||u64(h+104)||u64(h+112)||u64(h+120))goto done;
- data=malloc(size);if(!data||SF_READ(fd,data,size)!=(long)size||SF_READ(fd,&extra,1)!=0||hash(data,size)!=s->payload_hash)goto done;
- for(unsigned i=0;i<plane;i++)if(data[i]?(data[plane+i]<12||data[plane+i]>15):data[plane+i]!=0)goto done;
- valid=true;
- done:if(SF_CLOSE(fd))valid=false;if(valid)sf.menu_run[r]=data;else free(data);
 }
 /* A separately installed, optional skin. Failure affects only the metal, never
  * the accepted SFN1 font lease. Parse once, with exact provenance and bounds. */
@@ -385,8 +391,10 @@ void pregame_font_begin(unsigned menu,unsigned selected,unsigned last,bool ordin
  if(!acquire_surfaces(screen,backup))return;
  sf.menu=menu;sf.selected=selected;sf.last=last;sf.cubes=cubes;
  if(!strings(true)){pregame_font_end();return;}
- if(!menu)for(unsigned r=0;r<7;r++)load_menu_run(r);
- snprintf(sf.cash,sizeof(sf.cash),"%lu",cash);
+ sf.fixed_family=menu?COMMON_MENU_CATEGORY:COMMON_MENU_SHOP;
+ sf.fixed_ready=!game_probe_original_reference&&common_menu_runs_load(sf.fixed_family);sf.fixed_generation=common_menu_runs_generation(sf.fixed_family);
+ sf.numeric_ready=!game_probe_original_reference&&common_menu_numeric_runs_load();sf.numeric_generation=common_menu_numeric_runs_generation();
+ int cash_length=snprintf(sf.cash,20,"%lu",cash);sf.root_cash_valid=cash_length>0&&cash_length<20;
  sf.next_role=PREGAME_HEADING;sf.row=2;
 }
 void pregame_font_product_begin(unsigned category,unsigned selected,unsigned last,bool ordinary,SDL_Surface *screen,SDL_Surface *backup)
@@ -396,6 +404,9 @@ void pregame_font_product_begin(unsigned category,unsigned selected,unsigned las
  if(!ordinary||category<2||category>8||last<3||last>7||selected<2||selected>last||!directory)return;
  if(!acquire_surfaces(screen,backup))return;
  sf.product=true;sf.menu=4;sf.category=category;sf.selected=selected;sf.last=last;
+ sf.fixed_family=COMMON_MENU_PRODUCT;sf.fixed_ready=!game_probe_original_reference&&common_menu_runs_load(sf.fixed_family);sf.fixed_generation=common_menu_runs_generation(sf.fixed_family);
+ sf.names_ready=!game_probe_original_reference&&common_menu_runs_load(COMMON_MENU_NAMES);sf.names_generation=common_menu_runs_generation(COMMON_MENU_NAMES);
+ sf.numeric_ready=!game_probe_original_reference&&common_menu_numeric_runs_load();sf.numeric_generation=common_menu_numeric_runs_generation();
 }
 static bool check(void)
 {
@@ -403,11 +414,12 @@ static bool check(void)
  if(!layout()){pregame_font_end();return false;}
  if(sf.frame_generation!=sf.generation){reject();return false;}return true;
 }
+static void validate_typography(void);
 static bool exact(void)
 {
  if(!check())return false;
  if(!source(false)||!classic_sources()||(!sf.product&&!strings(false))||palette_count<=7||palette_hash(palettes[0])!=PF_PAL||palette_hash(palettes[7])!=SF_PAL||memcmp(sf.backup_pixels,sf.base,SF_N)){pregame_font_end();return false;}
- if(memcmp(sf.pixels,sf.expected,SF_N)){reject();return false;}return true;
+ if(memcmp(sf.pixels,sf.expected,SF_N)){reject();return false;}validate_typography();return true;
 }
 static Uint8 shade(Uint8 v){return (v&240)|((v&15)/2);}
 /* JE_dString and DARKEN both use unsafe OR, including negative overflow. */
@@ -416,7 +428,7 @@ static bool box(int x,int y,int w,int h){return x>=0&&y>=0&&w>0&&h>0&&x<=SF_W-w&
 static struct SfCommand *append(unsigned kind,int x,int y,unsigned b,unsigned id,unsigned hue,int value)
 {
  if(sf.count==SF_COMMANDS){reject();return NULL;}
- struct SfCommand *c=&sf.commands[sf.count++];memset(c,0,sizeof(*c));c->kind=kind;c->x=x;c->y=y;c->bank=b;c->id=id;c->hue=hue;c->value=value;c->cash=(kind==C_DARK||kind==C_FACE)&&sf.product&&sf.run_role==PREGAME_CASH;
+ struct SfCommand *c=&sf.commands[sf.count++];memset(c,0,sizeof(*c));c->kind=kind;c->x=x;c->y=y;c->bank=b;c->id=id;c->hue=hue;c->value=value;c->cash=(kind==C_DARK||kind==C_FACE)&&sf.product&&sf.run_role==PREGAME_CASH&&sf.cash_replay_witness;
  if(kind==C_DARK||kind==C_FACE){const struct SfGlyph *g=glyph(b,id);if(!box(x,y,g->w,g->h)){reject();return NULL;}c->w=g->w;c->h=g->h;}
  else {c->first=sf.event_count;if(kind==C_SPRITE){int slot=shop_sprite_slot(b,id);if(slot<0){reject();return NULL;}c->w=shop_spec[slot].w;c->h=shop_spec[slot].h;}else if(kind==C_SHIELD){c->w=PF_SHIELD_W;c->h=PF_SHIELD_H;}}
  return c;
@@ -429,6 +441,178 @@ static bool digits(const char *text,bool sign)
  if(!*text)return false;
  for(;*text;text++)if(*text<'0'||*text>'9')return false;
  return true;
+}
+/* Family tags never confer authority on a native call. A failed family only
+ * removes its replacement tags, leaving every original glyph/event intact. */
+static void retire_typography(unsigned family)
+{
+ for(unsigned k=0;k<sf.count;k++){
+  unsigned tag=sf.commands[k].menu_run;
+  if((family==0&&tag&&tag<PF_NAME_TAG)||(family==1&&tag>=PF_NAME_TAG&&tag<PF_NUMERIC_TAG)||(family==2&&tag>=PF_NUMERIC_TAG))sf.commands[k].menu_run=0;
+ }
+ if(family==0){sf.fixed_ready=false;memset(sf.fixed,0,sizeof(sf.fixed));}
+ else if(family==1){sf.names_ready=false;memset(sf.name_run,0,sizeof(sf.name_run));}
+ else{sf.numeric_ready=false;memset(sf.number,0,sizeof(sf.number));}
+}
+static bool same_item_proof(unsigned,const struct PfNameProof *,bool);
+static bool live_power(unsigned *,unsigned *);
+static void validate_typography(void)
+{
+ /* Reference mode disables only reconstructed runs, never the legacy SFN
+  * owner. Retired borrowed views require a fresh begin to become eligible. */
+ if(game_probe_original_reference){for(unsigned family=0;family<3;family++)retire_typography(family);return;}
+ if(sf.fixed_ready&&(!common_menu_runs_ready(sf.fixed_family)||common_menu_runs_generation(sf.fixed_family)!=sf.fixed_generation))retire_typography(0);
+ if(sf.names_ready&&(!common_menu_runs_ready(COMMON_MENU_NAMES)||common_menu_runs_generation(COMMON_MENU_NAMES)!=sf.names_generation))retire_typography(1);
+ if(sf.numeric_ready&&(!common_menu_numeric_runs_ready()||common_menu_numeric_runs_generation()!=sf.numeric_generation))retire_typography(2);
+ for(unsigned i=0;i<PF_NAMES;i++){
+  if(sf.names_ready&&sf.name_run[i].active&&!same_item_proof(i+1,&sf.name_proof[i],false))retire_typography(1);
+  if(sf.numeric_ready&&sf.number[i].active&&!same_item_proof(i+1,&sf.cost_proof[i],true))retire_typography(2);
+ }
+ if(sf.power_seen){unsigned item,power;if(!live_power(&item,&power)||item!=sf.power_item||power!=sf.power_level){
+  retire_typography(2);for(unsigned i=sf.static_fixed;i<sf.fixed_count;i++)sf.fixed[i].active=false;
+  for(unsigned k=sf.static_count;k<sf.count;k++)if(sf.commands[k].menu_run&&sf.commands[k].menu_run<PF_NAME_TAG)sf.commands[k].menu_run=0;
+ }}
+}
+static void tag_commands(unsigned tag)
+{for(unsigned k=sf.next;k<sf.limit;k++)sf.commands[k].menu_run=tag;}
+static bool place_run(struct PfRun *p,enum CommonMenuFamily family,unsigned id,int x,int y,unsigned font,unsigned hue,int value,bool shadow,bool centered)
+{
+ memset(p,0,sizeof(*p));if(!common_menu_runs_get(family,id,&p->run))return false;
+ p->x=centered?234*4-(int)((p->run.advance256+256)/512):x*4+(font==2&&shadow?4:0);
+ p->y=y*4+(font==2&&shadow?4:0);p->x+=p->run.dx;p->y+=p->run.dy;
+ p->shadow=shadow?(font==2?4:8):0;p->hue=hue;p->value=value;
+ if(p->x<0||p->y<0||p->x+(int)p->run.width+(int)p->shadow>SF_OW||p->y+(int)p->run.height+(int)p->shadow>SF_OH)return false;
+ p->active=true;return true;
+}
+/* Inventory provenance is independent of episode selection: the exact original
+ * table record, category, inventory row and ID must all agree. */
+static bool inventory_item(unsigned row,unsigned *item)
+{
+ static const unsigned map[7]={0,1,2,8,3,5,6};
+ if(sf.category<2||sf.category>8||!row||row>=sf.last-1||row>PF_NAMES)return false;
+ unsigned bank=map[sf.category-2];
+ if(itemAvailMax[bank]!=sf.last-2||itemAvailMax[bank]>PF_NAMES)return false;
+ *item=itemAvail[bank][row-1];return true;
+}
+static bool table_item(unsigned item,unsigned *table,const char **name,unsigned *cost)
+{
+ switch(sf.category){
+ case 2:if(item>SHIP_NUM)return false;*table=CMR3_TABLE_SHIPS;*name=ships[item].name;*cost=ships[item].cost;break;
+ case 3:case 4:if(item>PORT_NUM)return false;*table=CMR3_TABLE_WEAPON_PORT;*name=weaponPort[item].name;*cost=weaponPort[item].cost;break;
+ case 5:if(item>SHIELD_NUM)return false;*table=CMR3_TABLE_SHIELDS;*name=shields[item].name;*cost=shields[item].cost;break;
+ case 6:if(item>POWER_NUM)return false;*table=CMR3_TABLE_POWER_SYS;*name=powerSys[item].name;*cost=powerSys[item].cost;break;
+ case 7:case 8:if(item>OPTION_NUM)return false;*table=CMR3_TABLE_OPTIONS;*name=options[item].name;*cost=options[item].cost;break;
+ default:return false;
+ }return true;
+}
+static bool item_proof(unsigned row,struct PfNameProof *proof,bool custom)
+{
+ unsigned item,table,cost;const char *name;
+ if(!inventory_item(row,&item))return false;
+ if(custom&&sf.category==2&&item>90){proof->item=item;proof->source=UINT_MAX;proof->cost=100;proof->unaffordable=100>player[0].cash;return true;}
+ if(!table_item(item,&table,&name,&cost))return false;
+ for(unsigned i=0;i<CMR3_NAME_SOURCE_COUNT;i++){
+  const struct Cmr3NameSource *s=&cmr3_name_sources[i];
+  if(s->table==table&&s->item==item&&(s->category_mask&(1u<<sf.category))&&s->base_cost==cost&&!memcmp(name,s->source31,31)){
+   proof->item=item;proof->source=i;proof->cost=cost;proof->unaffordable=cost>player[0].cash;return true;
+  }
+ }return false;
+}
+static bool same_item_proof(unsigned row,const struct PfNameProof *saved,bool custom)
+{
+ struct PfNameProof live;
+ return item_proof(row,&live,custom)&&live.item==saved->item&&live.source==saved->source&&live.cost==saved->cost&&live.unaffordable==saved->unaffordable;
+}
+static int item_value(unsigned row,const struct PfNameProof *p)
+{return (row+1==sf.selected?7:4)-(p->unaffordable?4:0);}
+static bool canonical_signed32(const char *text)
+{
+ bool negative=*text=='-';const char *p=text+negative;
+ if(!digits(text,true)||(*p=='0'&&(negative||p[1])))return false;
+ uint64_t v=0,limit=negative?UINT64_C(2147483648):UINT64_C(2147483647);
+ for(;*p;p++){unsigned d=(unsigned)(*p-'0');if(v>(limit-d)/10)return false;v=v*10+d;}
+ return true;
+}
+static bool live_power(unsigned *item,unsigned *power)
+{
+ if((sf.category!=3&&sf.category!=4)||sf.selected>=sf.last||!inventory_item(sf.selected-1,item)||*item>PORT_NUM||(sf.category==4&&!*item))return false;
+ unsigned port=sf.category-3;*power=player[0].items.weapon[port].power;
+ return player[0].items.weapon[port].id==*item&&*power>=1&&*power<=11;
+}
+static bool power_observe(unsigned row,const char *text)
+{
+ unsigned item,power;bool valid=live_power(&item,&power);
+ if(valid&&sf.power_seen&&(sf.power_item!=item||sf.power_level!=power))valid=false;
+ if(valid){sf.power_item=item;sf.power_level=power;}
+ unsigned bit=1u<<row;
+ if((sf.power_seen&bit)||(sf.power_seen&&row<=sf.power_last)||(row==3&&sf.power_seen)||(row!=3&&(sf.power_seen&8)))valid=false;
+ if(valid&&((row==0&&power==1)||(row==1&&power==11)||(row==3&&(sf.category!=4||weaponPort[item].opnum!=2))))valid=false;
+ sf.power_seen|=bit;sf.power_last=row;
+ if(!valid){retire_typography(2);return false;}
+ if(row<2){char canonical[16];snprintf(canonical,sizeof(canonical),"%u",row?upgradeCost:downgradeCost);if(strcmp(text,canonical))retire_typography(2);}
+ return true;
+}
+static void names_tag(unsigned row,const char *text,unsigned font,unsigned hue,int value,int x,int y)
+{
+ if(!sf.names_ready)return;
+ struct PfNameProof proof;size_t n=0;while(n<31&&text[n])++n;
+ if(n!=30||sf.names!=((1u<<(row+1))-2u)||sf.costs!=((1u<<row)-2u)||!item_proof(row,&proof,false)||memcmp(text,cmr3_name_sources[proof.source].source31,31)||value!=item_value(row,&proof)){
+  retire_typography(1);return;
+ }
+ /* Only after exact padded-source admission may ASCII spaces be normalized. */
+ char display[31];unsigned end=30,at=0;while(end&&text[end-1]==' ')--end;
+ for(unsigned i=0;i<end;i++)if(text[i]!=' '||(at&&display[at-1]!=' '))display[at++]=text[i];display[at]=0;
+ unsigned id=cmr3_name_sources[proof.source].run;CommonMenuRun view;
+ if(!common_menu_runs_get(COMMON_MENU_NAMES,id,&view)||strcmp(display,view.text)||view.width>520||view.height>35||
+    !place_run(&sf.name_run[row-1],COMMON_MENU_NAMES,id,x,y,font,hue,value,true,false)){
+  retire_typography(1);return;
+ }
+ sf.name_proof[row-1]=proof;tag_commands(PF_NAME_TAG+row-1);
+}
+static void numeric_tag(enum PregameRun role,unsigned row,const char *text,unsigned hue,int value,int x,int y)
+{
+ if(!sf.numeric_ready)return;
+ unsigned slot;bool shadow=role!=PREGAME_POWER;
+ if(role==PREGAME_PRODUCT_COST){
+  slot=row-1;struct PfNameProof proof;char canonical[20];
+  if(!(sf.names&(1u<<row))||sf.costs!=((1u<<(row+1))-2u)||!item_proof(row,&proof,true)){retire_typography(2);return;}
+  int n=snprintf(canonical,sizeof(canonical),"Cost: %u",proof.cost);
+  if(n<=0||n>=(int)sizeof(canonical)||strcmp(text,canonical)||value!=item_value(row,&proof)){retire_typography(2);return;}
+  sf.cost_proof[slot]=proof;
+ }else if(role==PREGAME_CASH){slot=5;if(sf.product?!canonical_signed32(text):!sf.root_cash_valid){retire_typography(2);return;}}
+ else if(role==PREGAME_POWER&&row<2)slot=6+row;else return;
+ struct PfNumber *p=&sf.number[slot];
+ if(p->active||strlen(text)>=sizeof(p->text)||!common_menu_numeric_runs_layout(text,&p->run)){retire_typography(2);return;}
+ p->x=x*4+(shadow?4:0);p->y=y*4+(shadow?4:0);p->shadow=shadow?4:0;p->hue=hue;p->value=value;
+ int bx=p->x+p->run.dx,by=p->y+p->run.dy;
+ if(bx<0||by<0||bx+(int)p->run.width+(int)p->shadow>SF_OW||by+(int)p->run.height+(int)p->shadow>SF_OH){retire_typography(2);return;}
+ memcpy(p->text,text,strlen(text)+1);p->active=true;tag_commands(PF_NUMERIC_TAG+slot);
+}
+static void tag_typography(enum PregameRun role,unsigned row,const char *text,unsigned font,unsigned hue,int value,int x,int y)
+{
+ bool power_valid=true;
+ if(sf.product&&role==PREGAME_POWER)power_valid=power_observe(row,text);
+ if(sf.product&&role==PREGAME_PRODUCT_NAME&&row<sf.last-1)names_tag(row,text,font,hue,value,x,y);
+ if(role==PREGAME_PRODUCT_COST||role==PREGAME_CASH||(role==PREGAME_POWER&&row<2&&power_valid))numeric_tag(role,row,text,hue,value,x,y);
+ if(!sf.fixed_ready)return;
+ int id=-1;const char *plain=*text=='~'?text+1:text;
+ if(!sf.product&&(role==PREGAME_HEADING||role==PREGAME_ROW))id=role==PREGAME_HEADING?0:(int)row-1;
+ else if(sf.product&&role==PREGAME_HEADING)id=(int)sf.category-2;
+ else if(sf.product&&role==PREGAME_PRODUCT_NAME&&row==sf.last-1)id=7;
+ else if(sf.product&&role==PREGAME_POWER&&row==2){
+  char canonical[32];int n=snprintf(canonical,sizeof(canonical),"%s %u",miscTextB[5],sf.power_level);
+  if(!power_valid||strcmp(miscTextB[5],"POWER:")||n<=0||n>=(int)sizeof(canonical)||strcmp(text,canonical)){retire_typography(0);return;}
+  id=(int)sf.power_level+7;
+ }
+ else return;
+ CommonMenuRun run;
+ if(id<0||sf.fixed_count==PF_FIXED_SLOTS||!common_menu_runs_get(sf.fixed_family,(unsigned)id,&run)||strcmp(plain,run.text)){
+  retire_typography(0);return;
+ }
+ int face_value=value+(!sf.product&&role==PREGAME_ROW&&row==sf.selected?2:0);
+ struct PfRun *p=&sf.fixed[sf.fixed_count];
+ if(!place_run(p,sf.fixed_family,(unsigned)id,x,y,font,hue,face_value,role!=PREGAME_POWER,role==PREGAME_HEADING)){retire_typography(0);return;}
+ tag_commands(++sf.fixed_count);
 }
 static bool product_run(enum PregameRun role,unsigned row,int x,int y,const char *text,unsigned font,unsigned hue,int value)
 {
@@ -444,25 +628,26 @@ static bool product_run(enum PregameRun role,unsigned row,int x,int y,const char
  case PREGAME_PRODUCT_COST:
   if(sf.updating||!sf.heading||row<1||row>=sf.last||font!=2||y!=40+(int)(row-1)*26+(role==PREGAME_PRODUCT_COST?10:0)||x!=(role==PREGAME_PRODUCT_COST?187:185)||hue!=(selected?0u:1u)||(value!=(selected?7:4)&&value!=(selected?3:0)))return false;
   if(role==PREGAME_PRODUCT_NAME){if(sf.names&(1u<<row))return false;sf.names|=1u<<row;}
-  else {if(row==sf.last-1||(sf.costs&(1u<<row))||strncmp(text,"Cost: ",6)||!digits(text+6,false))return false;sf.costs|=1u<<row;}
+  else {if(row==sf.last-1||(sf.costs&(1u<<row)))return false;sf.costs|=1u<<row;}
   break;
  case PREGAME_CASH:
-  if(row||font!=2||x!=65||y!=173||hue!=1||value!=6||length>=sizeof(sf.cash)||!digits(text,true)||sf.cash_seen)return false;
+  if(row||font!=2||x!=65||y!=173||hue!=1||value!=6||length>=sizeof(sf.cash)||sf.cash_seen)return false;
   sf.cash_seen=true;sf.cash_first=sf.count;break;
  case PREGAME_FOOTER:
   if(sf.updating||sf.product_footer||row!=sf.selected||font!=2||x!=10||y!=187||hue!=14||value!=1||(strcmp(text,mainMenuHelp[23])&&strcmp(text,mainMenuHelp[11])&&strcmp(text,mainMenuHelp[18])))return false;
   sf.product_footer=true;break;
  case PREGAME_POWER:
   if(!sf.updating||font!=2||y!=137||value!=4||row>3)return false;
-  if(row==0){if(x!=26||hue!=1||!digits(text,false))return false;}
-  else if(row==1){if(x!=108||(hue!=1&&hue!=7)||!digits(text,false))return false;}
-  else if(row==2){size_t n=strlen(miscTextB[5]);if(x!=58||hue!=15||strncmp(text,miscTextB[5],n)||text[n]!=' '||!digits(text+n+1,false))return false;}
+  if(row==0){if(x!=26||hue!=1)return false;}
+  else if(row==1){if(x!=108||(hue!=1&&hue!=7))return false;}
+  else if(row==2){size_t n=strlen(miscTextB[5]);if(x!=58||hue!=15||strncmp(text,miscTextB[5],n)||text[n]!=' ')return false;}
   else if(sf.category!=4||x!=28||hue!=1||strcmp(text,miscText[70]))return false;
   break;
  default:return false;
  }
  return true;
 }
+static void tag_typography(enum PregameRun,unsigned,const char *,unsigned,unsigned,int,int,int);
 void pregame_font_run_begin(enum PregameRun role,unsigned row,SDL_Surface *surface,int x,int y,const char *text,unsigned font,unsigned hue,int value)
 {
  if(!exact())return;
@@ -478,8 +663,10 @@ void pregame_font_run_begin(enum PregameRun role,unsigned row,SDL_Surface *surfa
  else wanted=role==PREGAME_HEADING?sf.text[0]:role==PREGAME_CASH?sf.cash:sf.footer[sf.selected-2];
  if((role!=PREGAME_ROW&&row!=(role==PREGAME_FOOTER?sf.selected:0))||strcmp(text,wanted)||font!=b||x!=ex||y!=ey||hue!=eh||value!=ev){reject();return;}
  }
+ int run_x=x,run_y=y;
  unsigned b=sf.product?font:role==PREGAME_HEADING?0:role==PREGAME_ROW?1:2;
  sf.next=sf.count;sf.pixel=0;sf.run_role=role;
+ sf.cash_replay_witness=sf.product&&role==PREGAME_CASH&&canonical_signed32(text);
  bool shadow=role!=PREGAME_POWER;
  if(b==2&&shadow){++x;++y;}
  int v=value;bool highlight=false;
@@ -491,13 +678,9 @@ void pregame_font_run_begin(enum PregameRun role,unsigned row,SDL_Surface *surfa
   x+=glyph(b,id)->w+1;
  }
  sf.limit=sf.count;sf.stage=S_RUN;++sf.run_count;
- /* The original commands above remain the sole indexed proof. Only these
-  * exact root labels may suppress their old HD glyphs; '~' is selection. */
- if(!sf.product&&!sf.menu&&(role==PREGAME_HEADING||role==PREGAME_ROW)){
-  unsigned r=role==PREGAME_HEADING?0:row-1;const char *plain=*text=='~'?text+1:text;
-  if(r<7&&sf.menu_run[r]&&!strcmp(plain,menu_spec[r].text))
-   for(unsigned k=sf.next;k<sf.limit;k++)sf.commands[k].menu_run=r+1;
- }
+ /* Original glyph and indexed callbacks remain the sole draw witness. */
+ tag_typography(role,row,text,font,hue,value,run_x,run_y);
+
 }
 void pregame_font_run_end(void)
 {
@@ -543,11 +726,18 @@ void pregame_font_product_update_begin(void)
  if(sf.stage!=S_READY||sf.cursor||sf.updating){reject();return;}
  sf.count=sf.static_count;sf.event_count=sf.static_events;
  sf.next=sf.limit=sf.count;sf.cash_seen=false;sf.updating=true;sf.stage=S_BUILD;
+ sf.fixed_count=sf.static_fixed;sf.power_seen=sf.power_last=0;
+ memset(sf.fixed+sf.static_fixed,0,(PF_FIXED_SLOTS-sf.static_fixed)*sizeof(*sf.fixed));
+ memset(sf.number+5,0,3*sizeof(*sf.number));
 }
 void pregame_font_product_update_end(void)
 {
  if(!sf.product||!exact())return;
  if(!sf.updating||sf.stage!=S_BUILD||!sf.cash_seen||sf.glyph){reject();return;}
+ if(sf.power_seen&&sf.power_seen!=8){
+  unsigned expected=4|(sf.power_level>1?1:0)|(sf.power_level<11?2:0);
+  if(sf.power_seen!=expected)retire_typography(2);
+ }
  sf.updating=false;sf.stage=S_READY;
 }
 static bool rect_events(unsigned x,unsigned y,unsigned w,unsigned h,int index)
@@ -738,7 +928,7 @@ void pregame_font_frame_end(void)
   memcpy(cash,sf.commands+sf.cash_first,n*sizeof(*cash));
   memmove(sf.commands+sf.cash_first,sf.commands+sf.cash_limit,(sf.count-sf.cash_limit)*sizeof(*cash));
   memcpy(sf.commands+sf.count-n,cash,n*sizeof(*cash));
-  sf.static_count=sf.count-n;sf.static_events=sf.event_count;sf.stage=S_READY;return;
+  sf.static_count=sf.count-n;sf.static_events=sf.event_count;sf.static_fixed=sf.fixed_count;sf.stage=S_READY;return;
  }
  if(sf.stage!=S_BUILD||sf.next_role!=99||sf.row!=sf.last+1||sf.run_count!=sf.last+2||sf.glyph||sf.primitive||sf.next!=sf.count){reject();return;}sf.stage=S_READY;
 }
@@ -829,25 +1019,33 @@ static Uint32 shield_color(unsigned role,int value)
  for(unsigned shift=0;shift<=16;shift+=8){unsigned channel=(((a>>shift)&255)*(16-fraction)+((b>>shift)&255)*fraction+8)/16;color|=channel<<shift;}
  return color;
 }
-static void render_menu_run(unsigned r,bool shadow,SDL_Rect *support,int *right,int *bottom)
+static void render_typography(unsigned tag,bool shadow,SDL_Rect *support,int *right,int *bottom)
 {
- const struct PfMenuSpec *s=&menu_spec[r];const Uint8 *data=sf.menu_run[r];
- unsigned x0=s->x+(shadow?8:0),y0=s->y+(shadow?8:0),plane=s->w*s->h;
- int value=-3+(r&&sf.selected==r+1?2:0);
- for(unsigned y=0;y<s->h;y++)for(unsigned x=0;x<s->w;x++){
-  unsigned at=y*s->w+x,alpha=data[at];if(!alpha)continue;
-  unsigned p=((y0+y)/4)*SF_W+(x0+x)/4;
-  Uint8 v=shadow?shade(sf.replay[p]):face(data[plane+at],15,value);
-  unsigned out=(y0+y)*SF_OW+x0+x;
-  sf.output[out]=over(sf.output[out],sf.palette[v],alpha);sf.owner[p]=1;
+ const struct PfRun *p=NULL;const struct PfNumber *number=NULL;
+ int x0,y0;unsigned width,height;
+ if(tag>=PF_NUMERIC_TAG&&tag<PF_NUMERIC_TAG+PF_NUMBERS){
+  number=&sf.number[tag-PF_NUMERIC_TAG];if(!number->active||(shadow&&!number->shadow))return;
+  x0=number->x+number->run.dx+(shadow?(int)number->shadow:0);y0=number->y+number->run.dy+(shadow?(int)number->shadow:0);width=number->run.width;height=number->run.height;
+ }else{
+  if(tag>=PF_NAME_TAG&&tag<PF_NAME_TAG+PF_NAMES)p=&sf.name_run[tag-PF_NAME_TAG];
+  else if(tag&&tag<=sf.fixed_count)p=&sf.fixed[tag-1];else return;
+  if(!p->active||(shadow&&!p->shadow))return;
+  x0=p->x+(shadow?(int)p->shadow:0);y0=p->y+(shadow?(int)p->shadow:0);width=p->run.width;height=p->run.height;
  }
- if((int)x0<support->x)support->x=x0;
- if((int)y0<support->y)support->y=y0;
- if((int)(x0+s->w)>*right)*right=x0+s->w;
- if((int)(y0+s->h)>*bottom)*bottom=y0+s->h;
+ for(unsigned y=0;y<height;y++)for(unsigned x=0;x<width;x++){
+  Uint8 a,role;
+  if(number){if(!common_menu_numeric_runs_sample(&number->run,number->run.dx+(int)x,number->run.dy+(int)y,&a,&role))continue;}
+  else{unsigned at=y*p->run.pitch+x;a=p->run.alpha[at];role=p->run.roles[at];}
+  if(!a)continue;unsigned cell=((y0+y)/4)*SF_W+(x0+x)/4;
+  Uint8 v=shadow?shade(sf.replay[cell]):face(role,number?number->hue:p->hue,number?number->value:p->value);
+  unsigned out=(y0+y)*SF_OW+x0+x;sf.output[out]=over(sf.output[out],sf.palette[v],a);sf.owner[cell]=1;
+ }
+ if(x0<support->x)support->x=x0;if(y0<support->y)support->y=y0;
+ if(x0+(int)width>*right)*right=x0+width;if(y0+(int)height>*bottom)*bottom=y0+height;
 }
 static SDL_Rect render(void)
 {
+ validate_typography();
  SDL_Rect support={SF_OW,SF_OH,0,0};int right=0,bottom=0;
  for(unsigned i=0;i<256;i++){SDL_Color p=sf.expected_palette[i];sf.palette[i]=((Uint32)p.r<<16)|((Uint32)p.g<<8)|p.b;}
  memcpy(sf.replay,sf.base,SF_N);memcpy(sf.underlay,sf.base,SF_N);memset(sf.output,0,SF_OUT_BYTES);memset(sf.owner,0,SF_N);memset(sf.metal_blocked,0,SF_N);sf.sprite_drawn=false;
@@ -867,7 +1065,7 @@ static SDL_Rect render(void)
   const struct SfCommand *c=&sf.commands[k];
   /* Shadow samples the true pre-run indexed scene. Face lands at the end of
    * that same run, before any later cube/classic writes can occlude it. */
-  if(c->menu_run&&(!k||sf.commands[k-1].menu_run!=c->menu_run))render_menu_run(c->menu_run-1,true,&support,&right,&bottom);
+  if(c->menu_run&&(!k||sf.commands[k-1].menu_run!=c->menu_run))render_typography(c->menu_run,true,&support,&right,&bottom);
   if(c->kind==C_SPRITE||c->kind==C_SHIELD){
    int slot=c->kind==C_SPRITE?shop_sprite_slot(c->bank,c->id):-1;const Uint8 *data=c->kind==C_SHIELD?sf.shop_shield:shop_sprite_payload(slot);
    /* Replay the real indexed hull for verification and all later classic
@@ -910,7 +1108,7 @@ static SDL_Rect render(void)
    Uint8 role=sf.masks[g->mask+y*c->w+x];if(role==255)continue;unsigned p=(c->y+y)*SF_W+c->x+x;
    sf.replay[p]=c->kind==C_DARK?shade(sf.replay[p]):face(role,c->hue,c->value);sf.owner[p]=1;
   }
-  if(c->menu_run&&(k+1==sf.count||sf.commands[k+1].menu_run!=c->menu_run))render_menu_run(c->menu_run-1,false,&support,&right,&bottom);
+  if(c->menu_run&&(k+1==sf.count||sf.commands[k+1].menu_run!=c->menu_run))render_typography(c->menu_run,false,&support,&right,&bottom);
  }
  for(unsigned p=0;p<SF_N;p++)if(sf.cursor_mask[p]){sf.replay[p]=sf.cursor_index[p];if(!hd_cursor_active())sf.underlay[p]=sf.cursor_index[p];}
  support.w=right-support.x;support.h=bottom-support.y;return support;

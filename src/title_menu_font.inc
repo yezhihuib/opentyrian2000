@@ -1,7 +1,7 @@
 /* SPDX-License-Identifier: GPL-2.0-or-later
- * Private title-only TMF1 lease. Included by title_layers.c; no shared-font
- * replacement and no indexed writes. Every observed classic run must agree
- * before its menu plane may be replaced by ordered authored glyph commands.
+ * Title-only source witness, optional legacy TMF1, and reconstructed MAIN7.
+ * Included by title_layers.c; no shared-font replacement or indexed writes.
+ * The complete original 35+1 runs remain mandatory with either resource.
  */
 #ifndef TITLE_MENU_MAP_FNV
 #define TITLE_MENU_MAP_FNV UINT64_C(0x845b16939661b466)
@@ -41,9 +41,14 @@ static struct {
  struct TmEvent event[TM_EVENTS];
  char text[7][TM_TEXT];
  unsigned count,base_count,runs,event_count,event_next;
- int phase;
- bool in_run;
+ unsigned natural_id[7];
+ uint64_t natural_generation;
+ int phase,selected;
+ bool in_run,source_ready,natural_ready;
 } menu_font;
+static const char *const tm_natural_text[7]={
+ "Start New Game","Load Game","High Scores","Instructions","Setup","Demo","Quit"
+};
 
 static uint64_t tm_hash_more(uint64_t h,const Uint8 *p,size_t n)
 { while(n--)h=(h^*p++)*UINT64_C(1099511628211);return h; }
@@ -102,7 +107,7 @@ static bool tm_source(bool capture)
 }
 static bool tm_check(void)
 {
- if(!menu_font.payload)return false;
+ if(!menu_font.source_ready)return false;
  if(!tm_source(false)){tm_end();return false;}
  return true;
 }
@@ -125,10 +130,9 @@ static bool tm_padding(const Uint8 *data)
  }
  return ink_count==TM_INK;
 }
-static void tm_load(const char *directory)
+static void tm_load_legacy(const char *directory)
 {
- tm_end();
- if(!directory||!*directory||!tm_source(true))return;
+ if(!directory||!*directory)return;
  char path[1024];Uint8 header[TM_HEADER],extra;TL_STAT st;
  int n=snprintf(path,sizeof(path),"%s/title-menu-font-v1.hda",directory);
  if(n<0||(size_t)n>=sizeof(path))return;
@@ -147,9 +151,38 @@ static void tm_load(const char *directory)
 done:
  if(TL_CLOSE(fd))valid=false;
  if(!valid){free(data);return;}
- Uint32 *samples=malloc(TM_SAMPLE_BYTES);
- if(!samples){free(data);return;}
- menu_font.payload=data;menu_font.samples=samples;menu_font.phase=TM_LOADED;
+ menu_font.payload=data;
+}
+/* Family invalidation never retires the independent legacy atlas or source
+ * witness. A missing old TMF must likewise not disable an accepted MAIN7. */
+static bool tm_natural_check(void)
+{
+ if(menu_font.natural_ready&&(game_probe_original_reference||
+    !common_menu_runs_ready(COMMON_MENU_MAIN)||
+    common_menu_runs_generation(COMMON_MENU_MAIN)!=menu_font.natural_generation))
+  menu_font.natural_ready=false;
+ return menu_font.natural_ready;
+}
+static void tm_load(const char *directory)
+{
+ tm_end();
+ if(!tm_source(true))return;
+ menu_font.source_ready=true;menu_font.phase=TM_LOADED;menu_font.selected=-1;
+ tm_load_legacy(directory);
+ if(!game_probe_original_reference&&common_menu_runs_load(COMMON_MENU_MAIN)&&
+    common_menu_runs_count(COMMON_MENU_MAIN)==7) {
+  menu_font.natural_ready=true;
+  menu_font.natural_generation=common_menu_runs_generation(COMMON_MENU_MAIN);
+  for(unsigned row=0;row<7;row++) {
+   int id=common_menu_runs_find(COMMON_MENU_MAIN,tm_natural_text[row]);
+   if(id<0){menu_font.natural_ready=false;break;}
+   menu_font.natural_id[row]=(unsigned)id;
+  }
+ }
+ if(menu_font.payload||menu_font.natural_ready) {
+  menu_font.samples=malloc(TM_SAMPLE_BYTES);
+  if(!menu_font.samples)tm_end();
+ }
 }
 static void tm_base_begin(void)
 {
@@ -175,6 +208,7 @@ static void tm_restore(void)
  if(!tm_check())return;
  if((menu_font.phase!=TM_SAVED&&menu_font.phase!=TM_READY)||menu_font.in_run){tm_end();return;}
  menu_font.count=menu_font.base_count;menu_font.runs=0;
+ menu_font.selected=-1;
  menu_font.event_count=menu_font.event_next=0;menu_font.phase=TM_HIGHLIGHT;
 }
 static void tm_highlight_done(void)
@@ -213,10 +247,12 @@ void title_layers_menu_text_begin(SDL_Surface *surface,int x,int y,const char *t
   if(value!=(pass==4?-3:-10)||x!=160-(int)width/2+dx[pass]||y!=104+13*(int)row+dy[pass]){tm_end();return;}
   if(!pass)memcpy(menu_font.text[row],text,length+1);
   else if(strcmp(menu_font.text[row],text)){tm_end();return;}
+  if(strcmp(tm_natural_text[row],text))menu_font.natural_ready=false;
  } else {
   if(x!=160||y<104||y>182||(y-104)%13||value!=-1){tm_end();return;}
   row=(unsigned)(y-104)/13;
   if(strcmp(menu_font.text[row],text)){tm_end();return;}
+  menu_font.selected=(int)row;
   x-=(int)width/2;
  }
  menu_font.event_count=menu_font.event_next=0;
@@ -242,7 +278,7 @@ void title_layers_menu_text_begin(SDL_Surface *surface,int x,int y,const char *t
 }
 static void tm_pixel(unsigned offset,Uint8 index)
 {
- if(!menu_font.payload)return;
+ if(!menu_font.source_ready)return;
  if(!menu_font.in_run||menu_font.event_next>=menu_font.event_count||
     menu_font.event[menu_font.event_next].offset!=offset||menu_font.event[menu_font.event_next].index!=index){tm_end();return;}
  ++menu_font.event_next;
@@ -256,6 +292,7 @@ void title_layers_menu_text_done(void)
 static bool tm_render(const SDL_Rect *destination)
 {
  if(!tm_check()||(menu_font.phase!=TM_SAVED&&menu_font.phase!=TM_READY)||menu_font.in_run)return false;
+ if(tm_natural_check()||!menu_font.payload)return false;
  /* The bounded trial has exactly two output sizes. Other scales use the
   * original menu plane, leaving title artwork's existing sampling untouched. */
  bool reduce=destination->w==640&&destination->h==400;
@@ -302,6 +339,70 @@ static bool tm_render(const SDL_Rect *destination)
  return true;
 }
 
+/* Translate an entire shaped run once, in units of 1/512 canonical pixel.
+ * Interpolate alpha and premultiplied color together, then perform one over
+ * operation per destination pixel. Splitting the fractional translation into
+ * two independently blended passes would change both coverage and overlaps. */
+static void tm_natural_pass(const CommonMenuRun *run,unsigned row,bool contour,int value)
+{
+ int left512=160*TL_D*512-(int)run->advance256+run->dx*512;
+ int left=left512/512,phase=left512%512;
+ if(phase<0){phase+=512;--left;}
+ int top=(104+13*(int)row)*TL_D+run->dy;
+ const Uint8 *mask=contour?run->stroke:run->alpha;
+ for(unsigned y=0;y<run->height;y++)for(unsigned x=0;x<run->width+(phase!=0);x++) {
+  unsigned alpha=0,premul[3]={0,0,0};
+  for(unsigned side=0;side<2;side++) {
+   if((side&&x==0)||x-side>=run->width)continue;
+   unsigned weight=side?(unsigned)phase:512-(unsigned)phase;
+   if(!weight)continue;
+   unsigned p=y*run->pitch+x-side,a=mask[p];if(!a)continue;
+   SDL_Color color=state.expected_palette[tm_index(contour?13:run->roles[p],value)];
+   alpha+=a*weight;
+   premul[0]+=color.b*a*weight;premul[1]+=color.g*a*weight;premul[2]+=color.r*a*weight;
+  }
+  unsigned a=(alpha+256)/512;if(!a)continue;
+  unsigned pos=(unsigned)(top+(int)y)*TM_SAMPLE_W+(unsigned)(left+(int)x);
+  Uint32 dst=menu_font.samples[pos],result=(a+(((dst>>24)*(255-a)+127)/255))<<24;
+  for(unsigned c=0;c<3;c++) {
+   unsigned v=(premul[c]+255*256)/(255*512)+(((dst>>(8*c))&255)*(255-a)+127)/255;
+   result|=v<<(8*c);
+  }
+  menu_font.samples[pos]=result;
+ }
+}
+static bool tm_render_natural(void)
+{
+ if(!tm_natural_check())return false;
+ CommonMenuRun run[7];
+ for(unsigned row=0;row<7;row++) {
+  CommonMenuRun *r=&run[row];
+  if(!common_menu_runs_get(COMMON_MENU_MAIN,menu_font.natural_id[row],r)||
+     !r->text||strcmp(r->text,tm_natural_text[row])||!r->alpha||!r->roles||!r->stroke||
+     !r->width||r->width>TM_SAMPLE_W||!r->height||r->height>TM_SAMPLE_H||r->pitch!=r->width||
+     r->role_min!=13||r->role_max!=15||r->advance256>TM_SAMPLE_W*256||
+     r->dx < -TM_SAMPLE_W||r->dx>TM_SAMPLE_W||r->dy < -TM_SAMPLE_H||r->dy>TM_SAMPLE_H)
+   goto invalid;
+  int left512=160*TL_D*512-(int)r->advance256+r->dx*512;
+  int top=(104+13*(int)row)*TL_D+r->dy;
+  if(left512<0||left512+(int)r->width*512>TM_SAMPLE_W*512||
+     top<TM_SAMPLE_Y||top+(int)r->height>TM_SAMPLE_Y+TM_SAMPLE_H)goto invalid;
+ }
+ if(!tm_natural_check())return false;
+ /* Rebuild the immutable 14-operation base on every Present. In particular,
+  * do not erase a selected row's rectangle: adjacent contours can overlap. */
+ memset(menu_font.samples,0,TM_SAMPLE_BYTES);
+ for(unsigned row=0;row<7;row++) {
+  tm_natural_pass(&run[row],row,true,-10);
+  tm_natural_pass(&run[row],row,false,-3);
+ }
+ if(menu_font.phase==TM_READY&&menu_font.selected>=0&&menu_font.selected<7)
+  tm_natural_pass(&run[menu_font.selected],(unsigned)menu_font.selected,false,-1);
+ return true;
+invalid:
+ menu_font.natural_ready=false;return false;
+}
+
 /* Other output geometry uses the same accepted atlas and original command
  * order. Resolve live palette roles into one premultiplied canonical layer;
  * only this font layer is integrated, never title artwork or palette indices.
@@ -309,6 +410,8 @@ static bool tm_render(const SDL_Rect *destination)
 static bool tm_render_portable(void)
 {
  if(!tm_check()||(menu_font.phase!=TM_SAVED&&menu_font.phase!=TM_READY)||menu_font.in_run)return false;
+ if(tm_render_natural())return true;
+ if(!menu_font.payload)return false;
  memset(menu_font.samples,0,TL_OUT_BYTES);
  const Uint8 *roles=menu_font.payload+TM_PLANE;
  for(unsigned c=0;c<menu_font.count;c++) {

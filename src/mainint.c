@@ -20,6 +20,8 @@
 #include "load_font.h"
 #include "game_probe.h"
 #include "render_mirror.h"
+#include "common_pause.h"
+#include "common_menu_config.h"
 
 #include "backgrnd.h"
 #include "config.h"
@@ -1423,6 +1425,7 @@ JE_boolean JE_gammaCheck(void)
 
 void JE_doInGameSetup(void)
 {
+	if (yourInGameMenuRequest && common_menu_configured()) common_pause_begin(COMMON_PAUSE_ESC, VGAScreenSeg, VGAScreen2);
 	render_mirror_hud_suspend();
 	render_mirror_reset_banking();
 	mouseSetRelative(false);
@@ -1594,14 +1597,24 @@ JE_boolean JE_inGameSetup(void)
 		if (restart)
 		{
 			// Main box
+			common_pause_box_begin(0);
 			JE_barShade(VGAScreen, 3, 13, 217, 137);
+			common_pause_primitive_end();
+			common_pause_box_begin(1);
 			JE_barShade(VGAScreen, 5, 15, 215, 135);
+			common_pause_primitive_end();
 
 			// Help box
+			common_pause_box_begin(2);
 			JE_barShade(VGAScreen, 3, 143, 257, 157);
+			common_pause_primitive_end();
+			common_pause_box_begin(3);
 			JE_barShade(VGAScreen, 5, 145, 255, 155);
+			common_pause_primitive_end();
 
+			common_pause_save_before();
 			memcpy(VGAScreen2->pixels, VGAScreen->pixels, VGAScreen2->pitch * VGAScreen2->h);
+			common_pause_save_after();
 
 			mouseCursor = MOUSE_POINTER_NORMAL;
 
@@ -1609,7 +1622,10 @@ JE_boolean JE_inGameSetup(void)
 		}
 
 		// Restore background.
+		common_pause_restore_before();
 		memcpy(VGAScreen->pixels, VGAScreen2->pixels, (size_t)VGAScreen->pitch * VGAScreen->h);
+		common_pause_restore_after();
+		common_pause_frame_begin(selectedIndex, processorType-1, gameSpeed-1, tyrMusicVolume, fxVolume, music_disabled, samples_disabled);
 
 		// Draw menu items.
 		for (size_t i = 0; i < menuItemsCount; ++i)
@@ -1620,41 +1636,57 @@ JE_boolean JE_inGameSetup(void)
 
 			const bool selected = i == selectedIndex;
 
+			common_pause_run_begin(COMMON_PAUSE_NAME, i, VGAScreen, xMenuItemName, y, name, normal_font, left_aligned, 15, -4 + (selected ? 2 : 0));
 			draw_font_hv_shadow(VGAScreen, xMenuItemName, y, name, normal_font, left_aligned, 15, -4 + (selected ? 2 : 0), false, 2);
+			common_pause_run_end();
 
 			switch (i)
 			{
 			case MENU_ITEM_MUSIC_VOLUME:
 			{
+				common_pause_bar_begin(i);
 				JE_barDrawShadow(VGAScreen, xMenuItemValue, y, 1, music_disabled ? 12 : 16, (tyrMusicVolume + 6) / 12, 3, 13);
+				common_pause_primitive_end();
 				break;
 			}
 			case MENU_ITEM_EFFECTS_VOLUME:
 			{
+				common_pause_bar_begin(i);
 				JE_barDrawShadow(VGAScreen, xMenuItemValue, y, 1, samples_disabled ? 12 : 16, (fxVolume + 6) / 12, 3, 13);
+				common_pause_primitive_end();
 				break;
 			}
 			case MENU_ITEM_DETAIL_LEVEL:
 			{
-				draw_font_hv_shadow(VGAScreen, xMenuItemValue, y, detailLevel[processorType-1], normal_font, left_aligned, 15, -4 + (selected ? 2 : 0), false, 2);
+				common_pause_run_begin(COMMON_PAUSE_DETAIL, i, VGAScreen, xMenuItemValue, y, detailLevel[processorType-1], normal_font, left_aligned, 15, -4 + (selected ? 2 : 0));
+			draw_font_hv_shadow(VGAScreen, xMenuItemValue, y, detailLevel[processorType-1], normal_font, left_aligned, 15, -4 + (selected ? 2 : 0), false, 2);
+			common_pause_run_end();
 				break;
 			}
 			case MENU_ITEM_GAME_SPEED:
 			{
-				draw_font_hv_shadow(VGAScreen, xMenuItemValue, y, gameSpeedText[gameSpeed-1], normal_font, left_aligned, 15, -4 + (selected ? 2 : 0), false, 2);
+				common_pause_run_begin(COMMON_PAUSE_SPEED, i, VGAScreen, xMenuItemValue, y, gameSpeedText[gameSpeed-1], normal_font, left_aligned, 15, -4 + (selected ? 2 : 0));
+			draw_font_hv_shadow(VGAScreen, xMenuItemValue, y, gameSpeedText[gameSpeed-1], normal_font, left_aligned, 15, -4 + (selected ? 2 : 0), false, 2);
+			common_pause_run_end();
 				break;
 			}
 			}
 		}
 
 		// Draw help text.
+		common_pause_run_begin(COMMON_PAUSE_HELP, selectedIndex, VGAScreen, 10, 147, mainMenuHelp[helpIndexes[selectedIndex]], small_font, left_aligned, 14, 6);
 		JE_outTextAdjust(VGAScreen, 10, 147, mainMenuHelp[helpIndexes[selectedIndex]], 14, 6, TINY_FONT, true);
+		common_pause_run_end();
+		common_pause_frame_end();
 
 		service_SDL_events(true);
 
+		common_pause_cursor_begin();
 		JE_mouseStart();
+		common_pause_cursor_done();
 		JE_showVGA();
 		JE_mouseReplace();
+		common_pause_cursor_erased();
 
 		bool mouseMoved = false;
 		do
@@ -1949,6 +1981,7 @@ JE_boolean JE_inGameSetup(void)
 		}
 	}
 
+	common_pause_end();
 	VGAScreen = temp_surface; /* side-effect of game_screen */
 
 	return result;
@@ -3438,6 +3471,7 @@ void JE_mainKeyboardInput(void)
 
 void JE_pauseGame(void)
 {
+	if (!superPause && common_menu_configured()) common_pause_begin(COMMON_PAUSE_P, VGAScreenSeg, NULL);
 	render_mirror_hud_suspend();
 	render_mirror_reset_banking();
 	mouseSetRelative(false);
@@ -3451,7 +3485,9 @@ void JE_pauseGame(void)
 	//tempScreenSeg = VGAScreenSeg; // sega000
 	if (!superPause)
 	{
+		common_pause_run_begin(COMMON_PAUSE_LABEL, 0, VGAScreenSeg, 120, 90, miscText[22], large_font, left_aligned, 15, -3);
 		JE_dString(VGAScreenSeg, 120, 90, miscText[22], FONT_SHAPES);
+		common_pause_run_end();
 
 		VGAScreen = VGAScreenSeg;
 		JE_showVGA();
@@ -3539,6 +3575,7 @@ void JE_pauseGame(void)
 
 	//skipStarShowVGA = true;
 
+	common_pause_end();
 	VGAScreen = temp_surface; /* side-effect of game_screen */
 
 	mouseSetRelative(true);

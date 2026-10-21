@@ -5,6 +5,8 @@
 #include "title_layers.h"
 #include "hd_cursor.h"
 #include "font.h"
+#include "common_menu_runs.h"
+#include "game_probe.h"
 #include "selector_font_output.h"
 #include "fonthand.h"
 #include "palette.h"
@@ -127,7 +129,7 @@ void title_layers_end(void)
 void title_layers_sprite_table_reset(unsigned int table)
 { if(table==PLANET_SHAPES)title_layers_end();else if(table==SMALL_FONT_SHAPES)tm_end(); }
 static bool tl_geometry(SDL_Surface *s)
-{ return s&&s->pixels&&s->format&&s->w==TL_W&&s->h==TL_H&&s->pitch==TL_W&&s->format->BitsPerPixel==8&&s->format->BytesPerPixel==1; }
+{ return s&&s->pixels&&s->format&&s->w==TL_W&&s->h==TL_H&&s->pitch==TL_W&&s->format->format==SDL_PIXELFORMAT_INDEX8&&s->format->BitsPerPixel==8&&s->format->BytesPerPixel==1; }
 static bool tl_layout(void)
 {
  return state.screen==VGAScreen&&state.screen==VGAScreenSeg&&state.backup==VGAScreen2&&

@@ -16,6 +16,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
+#include "common_menu_config.h"
 #include "settings_font.h"
 #include "load_font.h"
 #include "selector_font.h"
@@ -62,6 +63,7 @@ void JE_paramCheck(int argc, char *argv[])
 		
 		{ 't', 't', "data",              true },
 		{ 258, 0,   "startup-assets",    true },
+		{ 263, 0,   "common-menu-assets", true },
 		{ 259, 0,   "music-dir",         true },
 		{ 260, 0,   "data-text-assets",  true },
 		{ 261, 0,   "data-frame-assets", true },
@@ -112,7 +114,9 @@ void JE_paramCheck(int argc, char *argv[])
 			       "  --data-text-assets=DIR      Optional Data-only Chinese text and font resources\n"
 			       "  --data-frame-assets=DIR     Optional Data-only static HD frame resource\n"
 			       "  --data-portrait-assets=DIR  Optional source-bound HD Data portraits\n"
+			       "  --common-menu-assets=DIR    Shared natural menu runs and pause fonts\n"
 			       "  --startup-assets=DIR        Optional HD manufacturer/title art (release, local startup only)\n"
+			       "  --hud-assets=DIR            Shared source-bound gameplay HUD assets\n"
 			       "  --manual-hd-assets=DIR      Display-only HD for local single-player Episode 1 / level 9\n"
 			       "                               Native menus and controls; classic outside this first level\n"
 			       "  --asteroid-hd-assets=DIR    Five asteroid families only, local Episode 1 / ASTEROID1\n"
@@ -167,6 +171,10 @@ void JE_paramCheck(int argc, char *argv[])
 		case 260: // --data-text-assets
 			if (!option.arg || !*option.arg) { fprintf(stderr, "Data text assets require a nonempty directory\n"); exit(EXIT_FAILURE); }
 			data_text_set_directory(option.arg);
+			break;
+
+		case 263: // --common-menu-assets
+			if (!common_menu_configure(option.arg)) { fprintf(stderr, "Common menu assets require a valid nonempty directory\n"); exit(EXIT_FAILURE); }
 			break;
 
 		case 258: // --startup-assets

@@ -8,6 +8,9 @@ enum PregameRun { PREGAME_HEADING, PREGAME_ROW, PREGAME_CASH, PREGAME_FOOTER, PR
 enum PregameGlyph { PREGAME_DARK, PREGAME_BLACK, PREGAME_FACE, PREGAME_UNSAFE, PREGAME_ORIGINAL };
 enum PregamePhase { PREGAME_CUBES=10, PREGAME_BARS, PREGAME_SHIP };
 size_t pregame_font_static_bytes(void);
+/* Owner state, active payloads, all shared run caches and output CPU staging;
+ * excludes unrelated owners and renderer-owned texture allocations. */
+size_t pregame_font_retained_bytes(void);
 bool pregame_font_owns_display(void);
 void pregame_font_set_directory(const char *);
 void pregame_font_begin(unsigned menu, unsigned selected, unsigned last, bool ordinary, unsigned long cash, unsigned cubes, SDL_Surface *, SDL_Surface *);
