@@ -1,0 +1,117 @@
+{
+  "schema": "shop-static-source-quad-v1",
+  "format": "SQC1",
+  "header_bytes": 128,
+  "header_u32_fields": [
+    "version",
+    "quad",
+    "logical_w",
+    "logical_h",
+    "density",
+    "pixel_w",
+    "pixel_h",
+    "anchor_x",
+    "anchor_y",
+    "payload_bytes",
+    "channels",
+    "rgba_straight",
+    "source_identity_version",
+    "reserved",
+    "reserved"
+  ],
+  "header_u64_fields": [
+    "PIC1_base_fnv",
+    "palette_fnv",
+    "NEWSH1_bank_fnv",
+    "decoded_quad_indices_fnv",
+    "decoded_quad_mask_fnv",
+    "RGBA_payload_fnv",
+    "reserved",
+    "reserved"
+  ],
+  "logical_canvas": [
+    24,
+    28
+  ],
+  "asset_canvas": [
+    192,
+    224
+  ],
+  "density": 8,
+  "anchor": [
+    0,
+    0
+  ],
+  "source_bank_bytes": 29941,
+  "source_bank_sha256": "77827c137462ebaa53ad9c6d190224a6e0e1d00bf36cff2c7c66f82b00b7026a",
+  "source_bank_fnv": "8c478c429071f043",
+  "quad_layout": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      12,
+      0
+    ],
+    [
+      19,
+      0,
+      14
+    ],
+    [
+      20,
+      12,
+      14
+    ]
+  ],
+  "approval": "User accepted normalized static comparison at 2026-10-21 06:55:18 UTC; Sentinel_9a2c870b188081919dfd89f614b4e24d",
+  "encoding": "Exact PNG decode RGBA8; no crop, resampling, alpha modification or recolor. PNG files copied byte for byte.",
+  "runtime_status": "Resource encoding only; integration acceptance recorded separately.",
+  "resources": [
+    {
+      "quad": 169,
+      "png": "newsh1-quad169-192x224.png",
+      "png_sha256": "552e3fd7d9a3aa3fc0746e8be671146b6a32a8c2e49d479dc5f45d9c402ff109",
+      "master_sha256": "feb5d8ba6b90a831ff79cad9f3243d9b7756255ad517580fd97a6ea33d53272a",
+      "resource": "shop-static-newsh1-quad169-v1.hda",
+      "bytes": 172160,
+      "sha256": "b7109a3533d90f19188e07e5af14176a08a638b6b52abdc2869fab38821af77a",
+      "rgba_sha256": "85d98debda4a9f727085e9df25ed360b57bf7fe90a55bead904b1c5899ba8229",
+      "index_fnv": "5ec5e0630289e535",
+      "mask_fnv": "f8fbb125b839079d",
+      "payload_fnv": "5f1e5c3d05b824ab",
+      "shared_canonical": false
+    },
+    {
+      "quad": 235,
+      "png": "newsh1-quad235-192x224.png",
+      "png_sha256": "bec6d0c84554929a58339cdf739e42e4981c214c8c7be6d1d3f4a790da51afd7",
+      "master_sha256": "32894e685cd7516e8244584300a35f080ecc91ac667eb6bbf560d7f52e5f9d1f",
+      "resource": "shop-static-newsh1-quad235-v1.hda",
+      "bytes": 172160,
+      "sha256": "4e63c197f0c74375a85d0f4e33030610c96a5168c450d44f94abeebd7376ae95",
+      "rgba_sha256": "3419c6b29a55f19f70505c1edab863ab9110a72bac28e7755c20a708b84885c1",
+      "index_fnv": "2cdfd6a3ceb256c0",
+      "mask_fnv": "d8c249ecd87bfbec",
+      "payload_fnv": "d8b5b5ffa15089c8",
+      "shared_canonical": true
+    },
+    {
+      "quad": 199,
+      "png": "newsh1-quad199-192x224.png",
+      "png_sha256": "19800799f2482f1a1e7a399165b85d28cdc2fc6ebc1189cfc62afc5db1d27dfa",
+      "master_sha256": "2ba5c85afa6ada7373b8ecf59db70c22cbda1c53d7b064aa732e2da4a275973c",
+      "resource": "shop-static-newsh1-quad199-v1.hda",
+      "bytes": 172160,
+      "sha256": "d58e1ddf672bd9d7777ee666a9061bfdbcbb20166d5e1874cc7741ce79a4836c",
+      "rgba_sha256": "efae448b0496425cc70c90671e6a923c0446d2e593083bd1925415766a13b919",
+      "index_fnv": "5a098cc32cb12561",
+      "mask_fnv": "79ce95e79af5063a",
+      "payload_fnv": "d1be6338c2238548",
+      "shared_canonical": true
+    }
+  ]
+}

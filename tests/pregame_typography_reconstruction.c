@@ -8,7 +8,8 @@ void common_pause_glyph_begin(SDL_Surface *s,int x,int y,unsigned b,unsigned id,
 void common_pause_glyph_end(void){}
 void common_pause_cursor_sprite_begin(SDL_Surface *s,int x,int y,const void *d,size_t n,unsigned id){(void)s;(void)x;(void)y;(void)d;(void)n;(void)id;}
 void common_pause_cursor_sprite_end(void){}
-bool game_probe_original_reference;
+bool game_probe_original_reference,game_probe_missing,game_probe_invalid;
+JE_WeaponType weapons[WEAP_NUM+1];
 JE_WeaponPortType weaponPort;
 JE_PowerType powerSys;
 JE_ShipType ships;

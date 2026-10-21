@@ -800,10 +800,12 @@ void blit_sprite2_filter_clip(SDL_Surface *surface, int x, int y, Sprite2_array 
 // does not clip on left or right edges of surface
 void blit_sprite2x2(SDL_Surface *surface, int x, int y, Sprite2_array sprite2s, unsigned int index)
 {
+	pregame_font_quad_begin(surface,x,y,sprite2s.data,sprite2s.size,index);
 	blit_sprite2(surface, x,      y,      sprite2s, index);
 	blit_sprite2(surface, x + 12, y,      sprite2s, index + 1);
 	blit_sprite2(surface, x,      y + 14, sprite2s, index + 19);
 	blit_sprite2(surface, x + 12, y + 14, sprite2s, index + 20);
+	pregame_font_quad_end();
 }
 
 void blit_sprite2x2_clip(SDL_Surface *surface, int x, int y, Sprite2_array sprite2s, unsigned int index)

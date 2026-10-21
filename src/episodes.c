@@ -17,6 +17,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 #include "episodes.h"
+#include "shop_pulse.h"
 #include "render_mirror.h"
 
 #include "config.h"
@@ -107,6 +108,7 @@ void JE_loadItemDat(void)
 		fread_u8_die( &nameLen,                   1, f);
 		fread_die(    &weaponPort[i].name,    1, 30, f);
 		render_mirror_front_port_name(i, nameLen, weaponPort[i].name);
+		shop_pulse_port_name(i, nameLen, weaponPort[i].name);
 		weaponPort[i].name[MIN(nameLen, 30)] = '\0';
 		fread_u8_die( &weaponPort[i].opnum,       1, f);
 		fread_u16_die( weaponPort[i].op[0],      11, f);
@@ -115,6 +117,7 @@ void JE_loadItemDat(void)
 		fread_u16_die(&weaponPort[i].itemgraphic, 1, f);
 		fread_u16_die(&weaponPort[i].poweruse,    1, f);
 		render_mirror_front_port_loaded(i);
+		shop_pulse_port_loaded(i);
 	}
 
 	for (int i = 0; i < SPECIAL_NUM + 1; ++i)

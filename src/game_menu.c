@@ -21,6 +21,7 @@
 #include "data_frame.h"
 #include "data_portrait.h"
 #include "pregame_font.h"
+#include "shop_pulse.h"
 #include "render_mirror.h"
 
 #include "backgrnd.h"
@@ -3409,6 +3410,7 @@ void JE_weaponSimUpdate(void)
 
 void JE_weaponViewFrame(void)
 {
+	pregame_shop_pulse_preview_begin();
 	fill_rectangle_xy(VGAScreen, 8, 8, 143, 182, 0);
 
 	/* JE: (* Port Configuration Display *)
@@ -3432,7 +3434,9 @@ void JE_weaponViewFrame(void)
 			           item_power = player[0].items.weapon[i].power - 1,
 			           item_mode = (i == REAR_WEAPON) ? player[0].weapon_mode - 1 : 0;
 
+			shop_pulse_front_begin(item, i, item_power, item_mode, 1, weaponPort[item].op[item_mode][item_power]);
 			b = player_shot_create(item, i, player[0].x, player[0].y, mouseX, mouseY, weaponPort[item].op[item_mode][item_power], 1);
+			shop_pulse_front_end();
 		}
 	}
 
@@ -3480,6 +3484,7 @@ void JE_weaponViewFrame(void)
 	}
 
 	simulate_player_shots();
+	pregame_shop_pulse_preview_end();
 
 	blit_sprite(VGAScreenSeg, 0, 0, OPTION_SHAPES, 12); // upgrade interface
 

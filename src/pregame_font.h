@@ -29,6 +29,8 @@ void pregame_font_glyph_begin(SDL_Surface *, int x, int y, unsigned font, unsign
 void pregame_font_glyph_end(void);
 void pregame_font_sprite2_begin(SDL_Surface *, int x, int y, const void *, size_t, unsigned id);
 void pregame_font_sprite2_end(void);
+void pregame_font_quad_begin(SDL_Surface *,int,int,const void *,size_t,unsigned);
+void pregame_font_quad_end(void);
 void pregame_font_frame_end(void);
 void pregame_font_pixel(SDL_Surface *, Uint8 *, int style);
 void pregame_font_rect(SDL_Surface *, const SDL_Rect *);

@@ -17,6 +17,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 #include "shots.h"
+#include "shop_pulse.h"
 
 #include "player.h"
 #include "sprite.h"
@@ -105,7 +106,11 @@ void simulate_player_shots(void)
 					if (anim_frame > 500)
 						blit_sprite2(VGAScreen, tempShotX+1, tempShotY, spriteSheet12, anim_frame - 500);
 					else
+					{
+						pregame_shop_pulse_head_begin(z, anim_frame, tempShotX+1, tempShotY);
 						blit_sprite2(VGAScreen, tempShotX+1, tempShotY, spriteSheet8, anim_frame);
+						pregame_shop_pulse_head_end();
+					}
 				}
 			}
 
@@ -369,6 +374,7 @@ JE_integer player_shot_create(JE_word portNum, uint bay_i, JE_word PX, JE_word P
 		}
 
 		render_mirror_shot_allocated(shot_id);
+		shop_pulse_allocated(shot_id);
 
 		if (shotMultiPos[bay_i] == weapon->max || shotMultiPos[bay_i] > 8)
 			shotMultiPos[bay_i] = 1;
@@ -543,6 +549,7 @@ JE_integer player_shot_create(JE_word portNum, uint bay_i, JE_word PX, JE_word P
 		render_mirror_plasma_art_emit(shot_id, wpNum, bay_i, playerNum, shot->shotGr);
 		render_mirror_rear_p1_emit(rear_p1_call, multi_i, shot_id, portNum, bay_i, wpNum, playerNum, shotMultiPos[bay_i], shot->shotGr);
 		render_mirror_front_shot_initialized(front_call, shot_id, portNum, bay_i, wpNum, playerNum, shotMultiPos[bay_i]);
+		shop_pulse_initialized(shot_id, portNum, bay_i, wpNum, playerNum, shotMultiPos[bay_i]);
 		game_probe_shot_emit(probe_call, multi_i, shotMultiPos[bay_i], shot_id);
 	}
 

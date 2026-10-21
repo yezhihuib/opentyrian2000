@@ -77,6 +77,11 @@ def main():
         add(source,'assets/global/'+relative,'global-source-identity')
     add('assets/hd/global-assets-v1/registry.json','assets/global/registry.json','global-registry')
     add('packaging/global-validation.json','GLOBAL-VALIDATION.json','global-validation')
+    for quad in (169,235,199):
+        name=f'shop-static-newsh1-quad{quad}-v1.hda'
+        add('assets/shop-static-v1/'+name,'assets/startup/'+name,'shop')
+    j['closure']['shop_files']=15
+    j['closure']['shop_static_canonical_quads']=[169,235,199]
     j['files']=sorted(rows.values(),key=lambda x:x['destination'])
     j['source_revision']['reconstruction']='Public63a89b33e4ee3f287b422df0ea986b907941cedd plus independently verified shared UI/frontend and five globally source-authenticated player/effect/weapon families; see separate validation records'
     j['closure']['reconstructed_complete_menu_runs']=171
