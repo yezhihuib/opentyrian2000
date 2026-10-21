@@ -192,6 +192,50 @@ static void global_talon_end(void){}
 static bool global_talon_compose(int kind,int lightx,int lighty){return false;}
 static void global_talon_check_cache(void){}
 static void global_talon_fade_palette(void){}
+/* Independent Shield disabled in this focused HUD observer. */
+/* This family is disabled in this isolated regression harness. */
+static bool global_pulse_frame,global_pulse_fault,global_pulse_cached;
+static Uint8 *global_pulse_owner,*global_pulse_foreign;
+#define global_pulse_source_matches(...) true
+static bool global_pulse_palette_matches(void){return true;}
+static bool global_pulse_requested(void){return false;}
+static bool global_pulse_is_index(unsigned index){return false;}
+static bool global_pulse_surface_matches(void){return true;}
+static bool global_pulse_final_surface_matches(void){return true;}
+static void global_pulse_shutdown(void){}
+static void global_pulse_reset(void){}
+static void global_pulse_frame_begin(void){}
+static bool global_pulse_pixel(int x,int y,Uint8 b,Uint8 a,int s){return false;}
+static void global_pulse_final_pixel(SDL_Surface *s,Uint8 *p){}
+static void global_pulse_final_rect(SDL_Surface *s,const SDL_Rect *r){}
+static void global_pulse_end(void){}
+static bool global_pulse_observe_blend(SDL_Surface *s,Uint8 *p){return false;}
+static bool global_pulse_finish_proof(void){return true;}
+#define global_pulse_compose(...) false
+static void global_pulse_check_cache(void){}
+static bool global_pulse_fade_buffer_safe(void){return true;}
+static bool global_pulse_fade_capture(void){return true;}
+static bool global_pulse_fade_step_valid(int steps){return true;}
+static void global_pulse_fade_palette(void){}
+static bool global_shield_frame;
+static bool global_shield_requested(void){return false;}
+static bool global_shield_surface_matches(void){return true;}
+static bool global_shield_final_surface_matches(void){return true;}
+static bool global_shield_fade_buffer_safe(void){return true;}
+static bool global_shield_fade_capture(void){return true;}
+static bool global_shield_fade_step_valid(int steps){(void)steps;return true;}
+static void global_shield_fail(void){}
+static void global_shield_shutdown(void){}
+static void global_shield_frame_begin(void){global_shield_frame=false;}
+static bool global_shield_pixel(int x,int y,Uint8 before,Uint8 after,int style){return false;}
+static void global_shield_final_pixel(SDL_Surface *s,Uint8 *p){}
+static void global_shield_final_rect(SDL_Surface *s,const SDL_Rect *r){}
+static void global_shield_end(void){}
+static bool global_shield_cached;
+static bool global_shield_finish_proof(void){return true;}
+static bool global_shield_compose(int kind,int lightx,int lighty){return false;}
+static void global_shield_check_cache(void){}
+static void global_shield_fade_palette(void){}
 static bool common_menu_configured(void){return false;}
 static void common_pause_snapshot_stage(SDL_Surface *s,const void *p,int pitch,int w,int h,unsigned d){}
 static void common_pause_snapshot_commit(void){}

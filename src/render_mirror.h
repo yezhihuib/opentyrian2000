@@ -15,6 +15,20 @@ typedef enum {
 #define render_mirror_set_global_assets(directory) ((void)(directory),true)
 #define render_mirror_global_reset(...) ((void)0)
 #define render_mirror_global_player_ship(...) (-1)
+#define render_mirror_front_port_name(...) ((void)0)
+#define render_mirror_front_port_loaded(...) ((void)0)
+#define render_mirror_front_call_begin(...) ((void)0)
+#define render_mirror_front_call_end(...) ((void)0)
+#define render_mirror_front_create_begin(...) (0)
+#define render_mirror_front_create_end(...) ((void)0)
+#define render_mirror_shot_allocated(...) ((void)0)
+#define render_mirror_front_shot_initialized(...) ((void)0)
+#define render_mirror_global_pulse(...) (-1)
+#define render_mirror_global_shield(...) (-1)
+#define render_mirror_shield_birth_begin(...) ((void)0)
+#define render_mirror_shield_birth_end(...) ((void)0)
+#define render_mirror_explosion_allocated(...) ((void)0)
+#define render_mirror_explosion_initialized(...) ((void)0)
 #define render_mirror_owns_display() false
 #define render_mirror_text_begin(...) ((void)0)
 #define render_mirror_text_end(...) ((void)0)
@@ -101,6 +115,20 @@ bool render_mirror_set_global_assets(const char *directory);
 /* Native semantic seam: -1 legacy route, 0 classic-only, 1 accepted HD. */
 int render_mirror_global_player_ship(SDL_Surface *,int x,int y,Sprite2_array,unsigned index,int style,unsigned pnum,int base);
 void render_mirror_global_reset(void);
+void render_mirror_front_port_name(unsigned,unsigned,const char *);
+void render_mirror_front_port_loaded(unsigned);
+void render_mirror_front_call_begin(unsigned,unsigned,unsigned,unsigned,unsigned,unsigned);
+void render_mirror_front_call_end(void);
+uint64_t render_mirror_front_create_begin(unsigned,unsigned,unsigned,unsigned);
+void render_mirror_front_create_end(uint64_t);
+void render_mirror_shot_allocated(unsigned);
+void render_mirror_front_shot_initialized(uint64_t,unsigned,unsigned,unsigned,unsigned,unsigned,unsigned);
+int render_mirror_global_pulse(SDL_Surface *,int,int,Sprite2_array,unsigned,int,unsigned,unsigned);
+int render_mirror_global_shield(SDL_Surface *,int,int,Sprite2_array,unsigned,int,unsigned);
+void render_mirror_shield_birth_begin(unsigned player,unsigned type,int x,int y,bool follow);
+void render_mirror_shield_birth_end(void);
+void render_mirror_explosion_allocated(unsigned slot);
+void render_mirror_explosion_initialized(unsigned slot,unsigned type);
 bool render_mirror_owns_display(void);
 void render_mirror_text_begin(SDL_Surface *,unsigned kind,int x,int y,const char *,unsigned hue,int value);
 void render_mirror_text_end(void);

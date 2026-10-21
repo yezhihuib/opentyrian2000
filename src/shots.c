@@ -326,6 +326,7 @@ JE_integer player_shot_create(JE_word portNum, uint bay_i, JE_word PX, JE_word P
 	static const JE_byte soundChannel[11] /* [1..11] */ = {0, 2, 4, 4, 2, 2, 5, 5, 1, 4, 1};
 
 	unsigned int probe_call = game_probe_shot_begin(portNum, bay_i, wpNum, playerNum, PX, PY);
+	uint64_t front_call = render_mirror_front_create_begin(portNum, bay_i, wpNum, playerNum);
 	uint64_t rear_p1_call = render_mirror_rear_p1_create_begin(portNum, bay_i, wpNum, playerNum);
 
 	// Bounds check
@@ -333,6 +334,7 @@ JE_integer player_shot_create(JE_word portNum, uint bay_i, JE_word PX, JE_word P
 	{
 		game_probe_shot_result(probe_call, "bounds", 0, MAX_PWEAPON);
 		render_mirror_rear_p1_create_end(rear_p1_call);
+		render_mirror_front_create_end(front_call);
 		return MAX_PWEAPON;
 	}
 
@@ -342,6 +344,7 @@ JE_integer player_shot_create(JE_word portNum, uint bay_i, JE_word PX, JE_word P
 	{
 		game_probe_shot_result(probe_call, "power", 0, MAX_PWEAPON);
 		render_mirror_rear_p1_create_end(rear_p1_call);
+		render_mirror_front_create_end(front_call);
 		return MAX_PWEAPON;
 	}
 	power -= weaponPort[portNum].poweruse;
@@ -360,8 +363,11 @@ JE_integer player_shot_create(JE_word portNum, uint bay_i, JE_word PX, JE_word P
 		{
 			game_probe_shot_result(probe_call, "capacity", multi_i - 1, MAX_PWEAPON);
 			render_mirror_rear_p1_create_end(rear_p1_call);
+		render_mirror_front_create_end(front_call);
 			return MAX_PWEAPON;
 		}
+
+		render_mirror_shot_allocated(shot_id);
 
 		if (shotMultiPos[bay_i] == weapon->max || shotMultiPos[bay_i] > 8)
 			shotMultiPos[bay_i] = 1;
@@ -535,10 +541,12 @@ JE_integer player_shot_create(JE_word portNum, uint bay_i, JE_word PX, JE_word P
 		shotRepeat[bay_i] = weapon->shotrepeat;
 		render_mirror_plasma_art_emit(shot_id, wpNum, bay_i, playerNum, shot->shotGr);
 		render_mirror_rear_p1_emit(rear_p1_call, multi_i, shot_id, portNum, bay_i, wpNum, playerNum, shotMultiPos[bay_i], shot->shotGr);
+		render_mirror_front_shot_initialized(front_call, shot_id, portNum, bay_i, wpNum, playerNum, shotMultiPos[bay_i]);
 		game_probe_shot_emit(probe_call, multi_i, shotMultiPos[bay_i], shot_id);
 	}
 
 	game_probe_shot_result(probe_call, "complete", weapon->multi, shot_id);
 	render_mirror_rear_p1_create_end(rear_p1_call);
+		render_mirror_front_create_end(front_call);
 	return shot_id;
 }

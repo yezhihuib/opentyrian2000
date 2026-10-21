@@ -4435,9 +4435,11 @@ redo:
 								const uint item_power = galagaMode ? 0 : this_player->items.weapon[temp].power - 1,
 								           item_mode = (temp == REAR_WEAPON) ? this_player->weapon_mode - 1 : 0;
 
+								render_mirror_front_call_begin(item, temp, item_power, item_mode, playerNum_, weaponPort[item].op[item_mode][item_power]);
 								render_mirror_rear_p1_call_begin(item, temp, item_power, item_mode, playerNum_, weaponPort[item].op[item_mode][item_power]);
 								b = player_shot_create(item, temp, this_player->x, this_player->y, *mouseX_, *mouseY_, weaponPort[item].op[item_mode][item_power], playerNum_);
 								render_mirror_rear_p1_call_end();
+								render_mirror_front_call_end();
 								game_probe_fire(playerNum_, item, temp, this_player->x, this_player->y, weaponPort[item].op[item_mode][item_power], b);
 							}
 						}

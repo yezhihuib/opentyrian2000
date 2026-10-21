@@ -2028,9 +2028,9 @@ draw_player_shot_loop_end:
 				render_mirror_fixed_pickup_flash_begin(explosions[j].fixedPosition, explosions[j].followPlayer,
 				                                      explosions[j].deltaY, explosions[j].sprite, explosions[j].ttl);
 				if (explosionTransparent)
-					draw_entity_sprite2(VGAScreen, explosions[j].x, explosions[j].y, explosionSpriteSheet, explosions[j].sprite + 1, ENTITY_BLEND, ENTITY_TILE);
+					draw_explosion_sprite2(VGAScreen, explosions[j].x, explosions[j].y, explosionSpriteSheet, explosions[j].sprite + 1, ENTITY_BLEND, j);
 				else
-					draw_entity_sprite2(VGAScreen, explosions[j].x, explosions[j].y, explosionSpriteSheet, explosions[j].sprite + 1, ENTITY_NORMAL, ENTITY_TILE);
+					draw_explosion_sprite2(VGAScreen, explosions[j].x, explosions[j].y, explosionSpriteSheet, explosions[j].sprite + 1, ENTITY_NORMAL, j);
 
 				explosions[j].ttl--;
 			}

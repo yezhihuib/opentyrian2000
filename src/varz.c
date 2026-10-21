@@ -949,6 +949,7 @@ void JE_setupExplosion(
 		{
 			if (explosions[i].ttl == 0)
 			{
+				render_mirror_explosion_allocated(i);
 				explosions[i].x = x;
 				explosions[i].y = y;
 				if (type == 6)
@@ -965,10 +966,19 @@ void JE_setupExplosion(
 				explosions[i].followPlayer = followPlayer;
 				explosions[i].fixedPosition = fixedPosition;
 				explosions[i].deltaY = deltaY;
+				render_mirror_explosion_initialized(i, type);
 				break;
 			}
 		}
 	}
+}
+
+/* Display provenance is bounded to the actual shield-damage branch. */
+static void JE_setupShieldExplosion(unsigned pnum, JE_integer x, JE_integer y, JE_integer type)
+{
+ render_mirror_shield_birth_begin(pnum,type,x,y,!twoPlayerMode);
+ JE_setupExplosion(x,y,0,type,false,!twoPlayerMode);
+ render_mirror_shield_birth_end();
 }
 
 void JE_setupExplosionLarge(JE_boolean enemyGround, JE_byte exploNum, JE_integer x, JE_integer y)
@@ -1090,17 +1100,17 @@ JE_byte JE_playerDamage(JE_byte temp,
 	{
 		this_player->shield -= temp;
 
-		JE_setupExplosion(this_player->x - 17, this_player->y - 12, 0, 14, false, !twoPlayerMode);
-		JE_setupExplosion(this_player->x - 5 , this_player->y - 12, 0, 15, false, !twoPlayerMode);
-		JE_setupExplosion(this_player->x + 7 , this_player->y - 12, 0, 16, false, !twoPlayerMode);
-		JE_setupExplosion(this_player->x + 19, this_player->y - 12, 0, 17, false, !twoPlayerMode);
+		JE_setupShieldExplosion(this_player==&player[0]?1u:this_player==&player[1]?2u:0u, this_player->x - 17, this_player->y - 12, 14);
+		JE_setupShieldExplosion(this_player==&player[0]?1u:this_player==&player[1]?2u:0u, this_player->x - 5 , this_player->y - 12, 15);
+		JE_setupShieldExplosion(this_player==&player[0]?1u:this_player==&player[1]?2u:0u, this_player->x + 7 , this_player->y - 12, 16);
+		JE_setupShieldExplosion(this_player==&player[0]?1u:this_player==&player[1]?2u:0u, this_player->x + 19, this_player->y - 12, 17);
 
-		JE_setupExplosion(this_player->x - 17, this_player->y + 2, 0,  18, false, !twoPlayerMode);
-		JE_setupExplosion(this_player->x + 19, this_player->y + 2, 0,  19, false, !twoPlayerMode);
+		JE_setupShieldExplosion(this_player==&player[0]?1u:this_player==&player[1]?2u:0u, this_player->x - 17, this_player->y + 2, 18);
+		JE_setupShieldExplosion(this_player==&player[0]?1u:this_player==&player[1]?2u:0u, this_player->x + 19, this_player->y + 2, 19);
 
-		JE_setupExplosion(this_player->x - 17, this_player->y + 16, 0, 20, false, !twoPlayerMode);
-		JE_setupExplosion(this_player->x - 5 , this_player->y + 16, 0, 21, false, !twoPlayerMode);
-		JE_setupExplosion(this_player->x + 7 , this_player->y + 16, 0, 22, false, !twoPlayerMode);
+		JE_setupShieldExplosion(this_player==&player[0]?1u:this_player==&player[1]?2u:0u, this_player->x - 17, this_player->y + 16, 20);
+		JE_setupShieldExplosion(this_player==&player[0]?1u:this_player==&player[1]?2u:0u, this_player->x - 5 , this_player->y + 16, 21);
+		JE_setupShieldExplosion(this_player==&player[0]?1u:this_player==&player[1]?2u:0u, this_player->x + 7 , this_player->y + 16, 22);
 	}
 
 	JE_wipeShieldArmorBars();

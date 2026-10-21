@@ -23,6 +23,30 @@ enum {MIRROR_NORMAL,MIRROR_BLEND,MIRROR_SHADOW};
 enum {ENTITY_TILE,ENTITY_QUAD};
 enum {SDL_PIXELFORMAT_ARGB8888=1,SDL_PIXELFORMAT_INDEX8=2};
 typedef enum {MIRROR_OUTPUT_UNSUPPORTED,MIRROR_OUTPUT_ORDINARY,MIRROR_OUTPUT_NORMAL15_NIGHT,MIRROR_OUTPUT_NORMAL15_LOW_DETAIL} MirrorOutputKind;
+/* This family is disabled in this isolated regression harness. */
+static bool global_pulse_frame,global_pulse_fault,global_pulse_cached;
+static Uint8 *global_pulse_owner,*global_pulse_foreign;
+static bool global_pulse_source_matches(Sprite2_array b){(void)b;return true;}
+static bool global_pulse_palette_matches(void){return true;}
+static bool global_pulse_requested(void){return false;}
+static bool global_pulse_is_index(unsigned index){return false;}
+static bool global_pulse_surface_matches(void){return true;}
+static bool global_pulse_final_surface_matches(void){return true;}
+static void global_pulse_shutdown(void){}
+static void global_pulse_reset(void){}
+static void global_pulse_frame_begin(void){}
+static bool global_pulse_pixel(int x,int y,Uint8 b,Uint8 a,int s){return false;}
+static void global_pulse_final_pixel(SDL_Surface *s,Uint8 *p){}
+static void global_pulse_final_rect(SDL_Surface *s,const SDL_Rect *r){}
+static void global_pulse_end(void){}
+static bool global_pulse_observe_blend(SDL_Surface *s,Uint8 *p){return false;}
+static bool global_pulse_finish_proof(void){return true;}
+static bool global_pulse_compose(MirrorOutputKind k,int x,int y){return false;}
+static void global_pulse_check_cache(void){}
+static bool global_pulse_fade_buffer_safe(void){return true;}
+static bool global_pulse_fade_capture(void){return true;}
+static bool global_pulse_fade_step_valid(int steps){return true;}
+static void global_pulse_fade_palette(void){}
 #define COUNTOF(x) (sizeof(x)/sizeof(*(x)))
 #define MIN(a,b) ((a)<(b)?(a):(b))
 #define MAX(a,b) ((a)>(b)?(a):(b))
@@ -34,7 +58,29 @@ static void counted_free(void *p){if(p)++asset_frees;free(p);}
 static SDL_Surface *canvas,*output,*game_screen,*VGAScreenSeg,*VGAScreen,*fade_saved;
 static Uint32 fade_saved_palette[256];
 static bool global_talon_frame;
-static Sprite2_array spriteSheet9;
+/* This existing Talon-only observer excludes the independent Shield owner.
+ * Enabled cross-family coverage lives in the Shield/native suites. */
+static bool global_shield_frame,global_shield_fault,global_talon_shield_dependency;
+static Uint8 *global_shield_owner,*global_shield_foreign;
+static bool global_shield_source_matches(Sprite2_array b){(void)b;return true;}
+static bool global_shield_palette_matches(void){return true;}
+static bool global_shield_is_index(unsigned i){(void)i;return false;}
+static bool global_shield_surface_matches(void){return true;}
+static bool global_shield_final_surface_matches(void){return true;}
+static void global_shield_shutdown(void){}
+static bool global_shield_pixel(int x,int y,Uint8 b,Uint8 a,int s){return false;}
+static void global_shield_final_pixel(SDL_Surface *s,Uint8 *p){}
+static bool global_shield_observe_blend(SDL_Surface *s,Uint8 *p){return false;}
+static bool global_shield_cached;
+static bool global_shield_finish_proof(void){return true;}
+static bool global_shield_compose(MirrorOutputKind k,int x,int y){return false;}
+static void global_shield_check_cache(void){}
+static bool global_shield_fade_buffer_safe(void){return true;}
+static bool global_shield_fade_capture(void){return true;}
+static bool global_shield_fade_step_valid(int steps){return true;}
+static void global_shield_fade_palette(void){}
+
+static Sprite2_array spriteSheet9,explosionSpriteSheet;
 static Uint32 rgb_palette[256],normal_palette[256];
 static Uint8 expected[64000],selected[64000],*hd_owner,*cloud_owner,*green_under_owner;
 static Uint16 *green_first;
@@ -76,6 +122,7 @@ static void render_mirror_shadow_end(void){}
 #define malloc counted_malloc
 #define free counted_free
 #include "global_talon_mirror.inc"
+static void render_mirror_global_reset(void){global_talon_reset();}
 #undef fopen
 #undef malloc
 #undef free
@@ -93,7 +140,7 @@ static void render_mirror_shadow_end(void){}
 #define font_pixel(...) false
 #include "pixel.inc"
 #include "root.inc"
-static Sprite2_array explosionSpriteSheet;
+
 static unsigned local_blocks,blend_source_index;
 static bool game_probe_known_blend;
 #define asteroid1_sprite2_blend_pixel(...) CHECK(false)
