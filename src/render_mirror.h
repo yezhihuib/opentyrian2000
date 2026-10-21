@@ -20,10 +20,17 @@ typedef enum {
 #define render_mirror_front_call_begin(...) ((void)0)
 #define render_mirror_front_call_end(...) ((void)0)
 #define render_mirror_front_create_begin(...) (0)
+#define render_mirror_front_create_geometry(...) ((void)0)
 #define render_mirror_front_create_end(...) ((void)0)
 #define render_mirror_shot_allocated(...) ((void)0)
 #define render_mirror_front_shot_initialized(...) ((void)0)
 #define render_mirror_global_pulse(...) (-1)
+#define render_mirror_global_vulcan(...) (-1)
+#define render_mirror_global_hitflare(...) (-1)
+#define render_mirror_hitflare_birth_begin(...) ((void)0)
+#define render_mirror_hitflare_birth_end(...) ((void)0)
+#define render_mirror_hitflare_explosion_allocated(...) ((void)0)
+#define render_mirror_hitflare_explosion_initialized(...) ((void)0)
 #define render_mirror_global_shield(...) (-1)
 #define render_mirror_shield_birth_begin(...) ((void)0)
 #define render_mirror_shield_birth_end(...) ((void)0)
@@ -120,10 +127,17 @@ void render_mirror_front_port_loaded(unsigned);
 void render_mirror_front_call_begin(unsigned,unsigned,unsigned,unsigned,unsigned,unsigned);
 void render_mirror_front_call_end(void);
 uint64_t render_mirror_front_create_begin(unsigned,unsigned,unsigned,unsigned);
+void render_mirror_front_create_geometry(uint64_t,int,int,int,int);
 void render_mirror_front_create_end(uint64_t);
 void render_mirror_shot_allocated(unsigned);
 void render_mirror_front_shot_initialized(uint64_t,unsigned,unsigned,unsigned,unsigned,unsigned,unsigned);
 int render_mirror_global_pulse(SDL_Surface *,int,int,Sprite2_array,unsigned,int,unsigned,unsigned);
+int render_mirror_global_vulcan(SDL_Surface *,int,int,Sprite2_array,unsigned,int,unsigned,unsigned);
+int render_mirror_global_hitflare(SDL_Surface *,int,int,Sprite2_array,unsigned,int,unsigned);
+void render_mirror_hitflare_birth_begin(unsigned role,int x,int y);
+void render_mirror_hitflare_birth_end(void);
+void render_mirror_hitflare_explosion_allocated(unsigned slot);
+void render_mirror_hitflare_explosion_initialized(unsigned slot,unsigned type);
 int render_mirror_global_shield(SDL_Surface *,int,int,Sprite2_array,unsigned,int,unsigned);
 void render_mirror_shield_birth_begin(unsigned player,unsigned type,int x,int y,bool follow);
 void render_mirror_shield_birth_end(void);

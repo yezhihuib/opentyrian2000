@@ -1593,7 +1593,7 @@ level_loop:
 								if (enemy[b].armorleft != 255)
 								{
 									enemy[b].armorleft -= damage;
-									JE_setupExplosion(tempShotX, tempShotY, 0, 0, false, false);
+									JE_setupHitflareExplosion(tempShotX, tempShotY, 1);
 								}
 								else
 								{
@@ -1880,7 +1880,7 @@ draw_player_shot_loop_end:
 
 							enemyShotAvail[z] = true;
 
-							JE_setupExplosion(tempX, tempY, 0, 0, false, false);
+							JE_setupHitflareExplosion(tempX, tempY, 2);
 
 							if (player[i].invulnerable_ticks == 0)
 							{

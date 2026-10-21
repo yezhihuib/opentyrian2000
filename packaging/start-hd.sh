@@ -37,4 +37,4 @@ if [ ! -e "$profile/opentyrian2000/opentyrian.cfg" ]; then
     printf "%s\n" "section 'video'" "    item 'fullscreen' '-1'" "    item 'scaler' '2x'" "    item 'scaling_mode' 'Integer'" > "$profile/opentyrian2000/opentyrian.cfg"
 fi
 cd -- "$profile"
-exec "$root/opentyrian2000" "--data=$data" "--manual-hd-assets=$root/assets/gameplay" "--startup-assets=$root/assets/startup" "--common-menu-assets=$root/assets/startup" "--hud-assets=$root/assets/shared-ui" "--data-text-assets=$root/assets/data-text-zh-CN-v1" "--data-frame-assets=$root/assets/data-frame-v1" "--data-portrait-assets=$root/assets/data-portrait-v1" "$@"
+exec "$root/opentyrian2000" "--data=$data" "--manual-hd-assets=$root/assets/gameplay" "--startup-assets=$root/assets/startup" "--common-menu-assets=$root/assets/startup" "--hud-assets=$root/assets/shared-ui" "--global-assets=$root/assets/global" "--data-text-assets=$root/assets/data-text-zh-CN-v1" "--data-frame-assets=$root/assets/data-frame-v1" "--data-portrait-assets=$root/assets/data-portrait-v1" "$@"

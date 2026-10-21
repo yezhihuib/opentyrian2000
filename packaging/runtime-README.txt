@@ -54,8 +54,9 @@ The launchers pass the packaged Data resource directory explicitly.
 Chinese font attribution and OFL license are included under licenses/.
 
 Optional Data frame: Data lists and stories have a separately optional HD static
-bronze background, including the oval portrait surround. All 18 portraits remain
-native; list cubes, English text and cursor remain live. The launchers pass
+bronze background, including the oval portrait surround. With the separate
+portrait root omitted, all 18 portraits remain native; list cubes, English text
+and cursor remain live. The launchers pass
 --data-frame-assets with the package-relative assets/data-frame-v1 directory.
 An absent or invalid DFM1 resource keeps the native background independently of
 the optional Chinese resources. Help/other menus remain outside its scope.
@@ -87,10 +88,30 @@ shared HUD artwork retain their original verified bytes. Product source strings 
 economy remain original. Font licenses and corresponding OSIfont source archives
 are under licenses/shared-menu. Runtime requires no external font renderer.
 
-This frontend-only update excludes the unfinished global aircraft, shield,
-weapon and hit-effect reconstruction. Existing public-baseline aircraft and
-weapon behavior is unchanged.
+GLOBAL PLAYER AND EFFECT RUNTIME
+The launchers now additionally pass --global-assets with assets/global.
+That independent root contains the exact 49 approved HDA resources plus registry:
+Talon (13 poses), Shield (22 resources, with 5 authenticated empty phases),
+Pulse (5), Hitflare (7) and front Vulcan (2). No new artwork is introduced.
+The renderer authenticates original source/role/palette/operator and lifetime;
+no episode or level list grants a global identity. Unknown or invalid contexts
+retain the original indexed renderer. The legacy scene pack remains separate.
+Original simulation, damage, random state and audio queues are unchanged.
 
-Consult RUNTIME-STATUS.json and FRONTEND-VALIDATION.json for
+These launchers enable the global root by default without changing your existing
+profile or scaler. PowerShell -GlobalAssetsDirectory can select an absolute
+alternate root. To run classic/global-disabled controls, invoke the executable
+without --global-assets; the old manual scene pack must also be omitted for a
+fully classic control. Independent feature roots are not interchangeable.
+A missing/corrupt global resource is a safe rendering fallback, not a successful
+complete installation: the packager strictly refuses an incomplete copy.
+
+GLOBAL-VALIDATION.json records the final production source fingerprints and
+bounded per-family evidence. FRONTEND-VALIDATION.json is retained unchanged as
+historical frontend acceptance, not evidence that later source is identical.
+Package integration adds no gameplay logic. Windows project source coverage is
+checked statically; this does not substitute for a Windows build or GPU test.
+
+Consult RUNTIME-STATUS.json, FRONTEND-VALIDATION.json and GLOBAL-VALIDATION.json for
 actual platform and verification scope. A successful copy is not proof of game
 acceptance. No whole-campaign, Windows/GPU or frame-pacing validation is implied.

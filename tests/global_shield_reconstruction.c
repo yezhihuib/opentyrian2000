@@ -24,6 +24,58 @@ enum {ENTITY_TILE,ENTITY_QUAD};
 enum {SDL_PIXELFORMAT_ARGB8888=1,SDL_PIXELFORMAT_INDEX8=2};
 typedef enum {MIRROR_OUTPUT_UNSUPPORTED,MIRROR_OUTPUT_ORDINARY,MIRROR_OUTPUT_NORMAL15_NIGHT,MIRROR_OUTPUT_NORMAL15_LOW_DETAIL} MirrorOutputKind;
 /* This family is disabled in this isolated regression harness. */
+/* Vulcan is disabled only in this isolated regression harness. */
+static bool global_vulcan_frame,global_vulcan_fault,global_vulcan_cached;
+static Uint8 *global_vulcan_owner,*global_vulcan_foreign;
+static bool global_vulcan_source_matches(Sprite2_array b){(void)b;return true;}
+static bool global_vulcan_palette_matches(void){return true;}
+static bool global_vulcan_requested(void){return false;}
+static bool global_vulcan_is_index(unsigned index){return false;}
+static bool global_vulcan_surface_matches(void){return true;}
+static bool global_vulcan_final_surface_matches(void){return true;}
+static void global_vulcan_shutdown(void){}
+static void global_vulcan_reset(void){}
+static void global_vulcan_root_changed(void){}
+static void global_vulcan_frame_begin(void){}
+static bool global_vulcan_pixel(int x,int y,Uint8 b,Uint8 a,int s){return false;}
+static void global_vulcan_final_pixel(SDL_Surface *s,Uint8 *p){}
+static void global_vulcan_final_rect(SDL_Surface *s,const SDL_Rect *r){}
+static void global_vulcan_end(void){}
+static bool global_vulcan_observe_blend(SDL_Surface *s,Uint8 *p){return false;}
+static bool global_vulcan_finish_proof(void){return true;}
+static bool global_vulcan_compose(MirrorOutputKind k,int x,int y){return false;}
+static void global_vulcan_check_cache(void){}
+static bool global_vulcan_fade_buffer_safe(void){return true;}
+static bool global_vulcan_fade_capture(void){return true;}
+static bool global_vulcan_fade_step_valid(int steps){return true;}
+static void global_vulcan_fade_palette(void){}
+static bool global_hitflare_frame,global_hitflare_fault,global_hitflare_cached;
+static Uint8 *global_hitflare_owner,*global_hitflare_foreign;
+static bool global_hitflare_source_matches(Sprite2_array b){(void)b;return true;}
+static bool global_hitflare_palette_matches(void){return true;}
+static bool global_hitflare_requested(void){return false;}
+static bool global_hitflare_is_index(unsigned index){return false;}
+static bool global_hitflare_surface_matches(void){return true;}
+static bool global_hitflare_final_surface_matches(void){return true;}
+static void global_hitflare_shutdown(void){}
+static void global_hitflare_reset(void){}
+static void global_hitflare_frame_begin(void){}
+static bool global_hitflare_pixel(int x,int y,Uint8 b,Uint8 a,int s){return false;}
+static void global_hitflare_final_pixel(SDL_Surface *s,Uint8 *p){}
+static void global_hitflare_final_rect(SDL_Surface *s,const SDL_Rect *r){}
+static void global_hitflare_end(void){}
+static bool global_hitflare_observe_blend(SDL_Surface *s,Uint8 *p){return false;}
+static bool global_hitflare_finish_proof(void){return true;}
+static bool global_hitflare_compose(MirrorOutputKind k,int x,int y){return false;}
+static void global_hitflare_check_cache(void){}
+static bool global_hitflare_fade_buffer_safe(void){return true;}
+static bool global_hitflare_fade_capture(void){return true;}
+static bool global_hitflare_fade_step_valid(int steps){return true;}
+static void global_hitflare_fade_palette(void){}
+static void render_mirror_hitflare_explosion_allocated(unsigned slot){(void)slot;}
+static void render_mirror_hitflare_explosion_initialized(unsigned slot,unsigned type){(void)slot;(void)type;}
+
+/* This family is disabled in this isolated regression harness. */
 static bool global_pulse_frame,global_pulse_fault,global_pulse_cached;
 static Uint8 *global_pulse_owner,*global_pulse_foreign;
 static bool global_pulse_source_matches(Sprite2_array b){(void)b;return true;}

@@ -6,6 +6,7 @@ must not replace the input manifest. Every original non-launcher row is verified
 before it can enter the new manifest. Reconstructed resources retain new hashes.
 """
 import argparse, hashlib, json
+GLOBAL_REGISTRY_SHA256 = 'd75383aba0bc207800d5b2f875de6b98a7ea127159873ec9837d05a04fc19e77'
 from pathlib import Path
 
 def pins(path):
@@ -51,11 +52,41 @@ def main():
     for p in sorted((m/'osifont-source').glob('*')):
         if p.is_file():add(p.relative_to(root).as_posix(),'licenses/shared-menu/osifont-source/'+p.name,'font-corresponding-source')
     add('packaging/frontend-validation.json','FRONTEND-VALIDATION.json','frontend-validation')
+    # The final independent registry is an exact accepted 49-resource allowlist,
+    # not a filesystem glob that could silently package unrelated artwork.
+    global_root=root/'assets/hd/global-assets-v1'
+    registry=global_root/'registry.json'
+    if hashlib.sha256(registry.read_bytes()).hexdigest() != GLOBAL_REGISTRY_SHA256:
+        raise ValueError('Accepted global registry fingerprint mismatch')
+    gj=json.loads(registry.read_text())
+    if gj['schema']!='opentyrian-global-asset-registry-v1' or len(gj['resources'])!=49:
+        raise ValueError('Expected exact 49-resource global registry')
+    seen=set()
+    for resource in gj['resources']:
+        sha=resource['sha256']
+        if len(sha)!=64 or any(c not in '0123456789abcdef' for c in sha):
+            raise ValueError('Invalid resource hash')
+        relative='content/'+sha+'.hda'
+        if resource['path']!=relative or relative in seen:
+            raise ValueError('Unexpected or duplicate global resource path')
+        seen.add(relative)
+        source='assets/hd/global-assets-v1/'+relative
+        size,blob,actual=pins(root/source)
+        if size!=resource['bytes'] or actual!=sha:
+            raise ValueError('Global resource content mismatch: '+relative)
+        add(source,'assets/global/'+relative,'global-source-identity')
+    add('assets/hd/global-assets-v1/registry.json','assets/global/registry.json','global-registry')
+    add('packaging/global-validation.json','GLOBAL-VALIDATION.json','global-validation')
     j['files']=sorted(rows.values(),key=lambda x:x['destination'])
-    j['source_revision']['reconstruction']='Public63a89b33e4ee3f287b422df0ea986b907941cedd plus independently verified shared UI and reconstructed frontend only; global player/effect/weapon changes excluded'
+    j['source_revision']['reconstruction']='Public63a89b33e4ee3f287b422df0ea986b907941cedd plus independently verified shared UI/frontend and five globally source-authenticated player/effect/weapon families; see separate validation records'
     j['closure']['reconstructed_complete_menu_runs']=171
     j['closure']['byte_exact_numeric_pack']=True
     j['closure']['independent_shared_roots']=True
+    j['source_revision']['global_runtime_commit']=json.loads((root/'packaging/global-validation.json').read_text())['production_commit']
+    j['source_revision']['global_registry_sha256']=GLOBAL_REGISTRY_SHA256
+    j['closure']['global_hda_files']=49
+    j['closure']['global_registry_files']=1
+    j['closure']['global_families']=['Talon13','Shield22','Pulse5','Hitflare7','FrontVulcan2']
     a.output.write_text(json.dumps(j,indent=2,sort_keys=True)+'\n')
     print(json.dumps({'files':len(rows),'bytes':sum(x['bytes'] for x in rows.values()),'output':str(a.output)}))
 if __name__=='__main__':main()

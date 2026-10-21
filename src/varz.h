@@ -339,6 +339,7 @@ void JE_doSpecialShot(JE_byte playernum, uint *armor, uint *shield);
 void JE_wipeShieldArmorBars(void);
 JE_byte JE_playerDamage(JE_byte temp, Player *);
 
+void JE_setupHitflareExplosion(JE_integer x,JE_integer y,unsigned role);
 void JE_setupExplosion(JE_integer x, JE_integer y, JE_integer deltaY, JE_integer type, bool fixedPosition, bool followPlayer);
 void JE_setupExplosionLarge(JE_boolean enemyground, JE_byte explonum, JE_integer x, JE_integer y);
 

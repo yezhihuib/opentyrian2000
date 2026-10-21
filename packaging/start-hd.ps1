@@ -4,6 +4,7 @@ param(
     [string]$Executable,
     [string]$AssetsDirectory,
     [string]$StartupAssetsDirectory,
+    [string]$GlobalAssetsDirectory,
     [string]$ProfileDirectory,
     [ValidateSet('2x', '4x')][string]$InitialScale = '2x',
     [string]$MusicDirectory
@@ -15,6 +16,7 @@ if (-not $AssetsDirectory) {
     $AssetsDirectory = Join-Path $repoRoot 'assets\gameplay'
 }
 if (-not $StartupAssetsDirectory) { $StartupAssetsDirectory = Join-Path $repoRoot 'assets\startup' }
+if (-not $GlobalAssetsDirectory) { $GlobalAssetsDirectory = Join-Path $repoRoot 'assets/global' }
 if (-not $ProfileDirectory) {
     if (-not $env:LOCALAPPDATA) { throw 'Specify an absolute dedicated -ProfileDirectory.' }
     $ProfileDirectory = Join-Path $env:LOCALAPPDATA 'OpenTyrian2000-HD\manual-first-level'
@@ -27,6 +29,7 @@ function Resolve-ManualPath([string]$Path, [string]$Kind) {
 $Executable = Resolve-ManualPath $Executable 'Leaf'
 $DataDirectory = Resolve-ManualPath $DataDirectory 'Container'
 $AssetsDirectory = Resolve-ManualPath $AssetsDirectory 'Container'
+$GlobalAssetsDirectory = Resolve-ManualPath $GlobalAssetsDirectory 'Container'
 if (-not (Test-Path -LiteralPath (Join-Path $DataDirectory 'tyrian1.lvl') -PathType Leaf)) {
     throw 'The data directory must contain your separately obtained complete Tyrian 2000 data.'
 }
@@ -70,13 +73,14 @@ if ($StartupAssetsDirectory) {
     $arguments += Quote-ManualArgument "--startup-assets=$StartupAssetsDirectory"
     $arguments += Quote-ManualArgument "--common-menu-assets=$StartupAssetsDirectory"
 }
+$arguments += Quote-ManualArgument "--global-assets=$GlobalAssetsDirectory"
 $arguments += Quote-ManualArgument "--hud-assets=$(Join-Path $repoRoot 'assets/shared-ui')"
 $arguments += Quote-ManualArgument "--data-text-assets=$(Join-Path $repoRoot 'assets/data-text-zh-CN-v1')"
 $arguments += Quote-ManualArgument "--data-frame-assets=$(Join-Path $repoRoot 'assets/data-frame-v1')"
 $arguments += Quote-ManualArgument "--data-portrait-assets=$(Join-Path $repoRoot 'assets/data-portrait-v1')"
 if ($MusicDirectory) { $arguments += Quote-ManualArgument "--music-dir=$MusicDirectory" }
 Write-Host "Profile: $ProfileDirectory"
-Write-Host 'Choose New Game and Episode 1 normally. The legacy scene pack retains its original scope; shared HUD and interface are reused across compatible levels. Aircraft and weapon behavior remains the existing public baseline.'
+Write-Host 'Choose New Game and Episode 1 normally. The legacy scene pack retains its original scope; shared HUD and interface are reused across compatible levels. Source-identity Talon, Shield, Pulse, Hitflare and front Vulcan are enabled globally; unknown sources retain the original renderer.'
 $game = Start-Process -FilePath $Executable -ArgumentList $arguments -WorkingDirectory $ProfileDirectory -Wait -PassThru
 if ($game.ExitCode -ne 0) { throw "Game exited with code $($game.ExitCode)." }
 

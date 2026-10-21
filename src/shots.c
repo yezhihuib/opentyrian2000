@@ -327,6 +327,7 @@ JE_integer player_shot_create(JE_word portNum, uint bay_i, JE_word PX, JE_word P
 
 	unsigned int probe_call = game_probe_shot_begin(portNum, bay_i, wpNum, playerNum, PX, PY);
 	uint64_t front_call = render_mirror_front_create_begin(portNum, bay_i, wpNum, playerNum);
+	render_mirror_front_create_geometry(front_call, PX, PY, mouseX, mouseY);
 	uint64_t rear_p1_call = render_mirror_rear_p1_create_begin(portNum, bay_i, wpNum, playerNum);
 
 	// Bounds check

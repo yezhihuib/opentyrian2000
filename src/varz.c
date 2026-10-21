@@ -950,6 +950,7 @@ void JE_setupExplosion(
 			if (explosions[i].ttl == 0)
 			{
 				render_mirror_explosion_allocated(i);
+				render_mirror_hitflare_explosion_allocated(i);
 				explosions[i].x = x;
 				explosions[i].y = y;
 				if (type == 6)
@@ -967,10 +968,20 @@ void JE_setupExplosion(
 				explosions[i].fixedPosition = fixedPosition;
 				explosions[i].deltaY = deltaY;
 				render_mirror_explosion_initialized(i, type);
+				render_mirror_hitflare_explosion_initialized(i, type);
 				break;
 			}
 		}
 	}
+}
+
+/* Only collision call sites invoke this semantic wrapper; generic type 0,
+ * sidekick animations, fixed 145 and other explosions do not acquire it. */
+void JE_setupHitflareExplosion(JE_integer x,JE_integer y,unsigned role)
+{
+ render_mirror_hitflare_birth_begin(role,x,y);
+ JE_setupExplosion(x,y,0,0,false,false);
+ render_mirror_hitflare_birth_end();
 }
 
 /* Display provenance is bounded to the actual shield-damage branch. */

@@ -43,7 +43,8 @@ void draw_player_shot_sprite2(SDL_Surface *target,int x,int y,Sprite2_array bank
  unsigned index,unsigned slot,unsigned raw)
 {
 #ifndef RENDER_MIRROR_DISABLED
- int global=render_mirror_global_pulse(target,x,y,bank,index,ENTITY_NORMAL,slot,raw);
+ int global=render_mirror_global_vulcan(target,x,y,bank,index,ENTITY_NORMAL,slot,raw);
+ if(global<0)global=render_mirror_global_pulse(target,x,y,bank,index,ENTITY_NORMAL,slot,raw);
  if(global>=0) {
   game_probe_draw(8,index,x,y,ENTITY_NORMAL,ENTITY_TILE,global>0);
   blit_sprite2(target,x,y,bank,index);render_mirror_entity_end();return;
@@ -67,7 +68,8 @@ void draw_player_shot_shadow_sprite2(SDL_Surface *target,int x,int y,Sprite2_arr
  unsigned index,unsigned slot,unsigned raw)
 {
 #ifndef RENDER_MIRROR_DISABLED
- int global=render_mirror_global_pulse(target,x,y,bank,index,ENTITY_SHADOW,slot,raw);
+ int global=render_mirror_global_vulcan(target,x,y,bank,index,ENTITY_SHADOW,slot,raw);
+ if(global<0)global=render_mirror_global_pulse(target,x,y,bank,index,ENTITY_SHADOW,slot,raw);
  if(global>=0) {
   game_probe_draw(8,index,x,y,ENTITY_SHADOW,ENTITY_TILE,global>0);
   blit_sprite2_darken(target,x,y,bank,index);render_mirror_entity_end();return;
@@ -170,7 +172,8 @@ void draw_player_ship_sprite2(SDL_Surface *target,int x,int y,Sprite2_array bank
 void draw_explosion_sprite2(SDL_Surface *target,int x,int y,Sprite2_array bank,unsigned index,EntityDrawStyle style,unsigned slot)
 {
 #ifndef RENDER_MIRROR_DISABLED
- int admitted=render_mirror_global_shield(target,x,y,bank,index,style,slot);
+ int admitted=render_mirror_global_hitflare(target,x,y,bank,index,style,slot);
+ if(admitted<0)admitted=render_mirror_global_shield(target,x,y,bank,index,style,slot);
  if(admitted<0){draw_entity_sprite2(target,x,y,bank,index,style,ENTITY_TILE);return;}
  game_probe_draw(6,index,x,y,style,ENTITY_TILE,admitted>0);
  if(style==ENTITY_BLEND)blit_sprite2_blend(target,x,y,bank,index);

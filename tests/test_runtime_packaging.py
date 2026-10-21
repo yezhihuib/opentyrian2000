@@ -146,8 +146,12 @@ class PackagingTests(unittest.TestCase):
         self.assertEqual(groups['data-frame'], 1)
         self.assertEqual(groups['data-text'], 3)
         self.assertEqual(manifest['closure']['shop_files'], groups['shop'])
-        self.assertEqual(len(manifest['files']), 694)
-        self.assertEqual(sum(item['bytes'] for item in manifest['files']), 127732786)
+        self.assertEqual(groups['global-source-identity'], 49)
+        self.assertEqual(groups['global-registry'], 1)
+        self.assertEqual(groups['reconstructed-menu-runs'], 171)
+        self.assertEqual(groups['shared-hud-exact-recovery'], 6)
+        self.assertEqual(len(manifest['files']), 931)
+        self.assertLess(sum(item['bytes'] for item in manifest['files']), PACK.RUNTIME_LIMIT)
         for name in ['settings-font-large-v1.hda', 'settings-font-medium-v1.hda', 'settings-font-tiny-v1.hda', 'title-menu-font-v1.hda', 'shop-generator-weapon16-v1.hda', 'shop-shield-option26-v1.hda']:
             self.assertIn('assets/startup/' + name, destinations)
         for name in ['ground101-world-material.g101.0', 'ground101-world-material.g101.1', 'forest13-world-material.fcan', 'forest13.policy', 'plateau-cap-world-material.pcap']:
@@ -166,7 +170,7 @@ class PackagingTests(unittest.TestCase):
         self.assertEqual(material['destination'], 'assets/startup/shop-shield-option26-v1.hda')
         self.assertEqual(material['group'], 'shop')
         self.assertEqual(material['bytes'], 72992)
-        self.assertEqual(material['revision'], 'local-reviewed-source')
+        self.assertEqual(material['revision'], 'reconstructed-local-unpublished')
         self.assertEqual(manifest['source_revision']['shield_integration'], 'local accepted source; no commit assigned')
         self.assertEqual(PACK.checked_source(ROOT / material['source_path'], material)['sha256'], material['sha256'])
 
@@ -259,7 +263,70 @@ class PackagingTests(unittest.TestCase):
         self.assertEqual((ordinary / 'opentyrian2000/opentyrian.cfg').read_text(), 'ordinary profile must survive\n')
         self.assertEqual(config.read_text(), 'existing settings must survive\n')
         self.assertEqual((effective / 'save.sav').read_bytes(), b'personal save')
-        self.assertEqual((effective / 'args.txt').read_text().splitlines(), ['--data=' + str(data), '--manual-hd-assets=' + str(package / 'assets/gameplay'), '--startup-assets=' + str(package / 'assets/startup'), '--data-text-assets=' + str(package / 'assets/data-text-zh-CN-v1'), '--data-frame-assets=' + str(package / 'assets/data-frame-v1'), '--data-portrait-assets=' + str(package / 'assets/data-portrait-v1'), '--sound=off'])
+        self.assertEqual((effective / 'args.txt').read_text().splitlines(), ['--data=' + str(data), '--manual-hd-assets=' + str(package / 'assets/gameplay'), '--startup-assets=' + str(package / 'assets/startup'), '--common-menu-assets=' + str(package / 'assets/startup'), '--hud-assets=' + str(package / 'assets/shared-ui'), '--global-assets=' + str(package / 'assets/global'), '--data-text-assets=' + str(package / 'assets/data-text-zh-CN-v1'), '--data-frame-assets=' + str(package / 'assets/data-frame-v1'), '--data-portrait-assets=' + str(package / 'assets/data-portrait-v1'), '--sound=off'])
+
+    def test_exact_global_registry_and_resource_closure(self):
+        manifest = PACK.load_manifest(ROOT / 'packaging/runtime-assets-v1.json')
+        selected = {r['destination']: r for r in manifest['files']}
+        registry = json.loads((ROOT / 'assets/hd/global-assets-v1/registry.json').read_text())
+        self.assertEqual(len(registry['resources']), 49)
+        expected = {'assets/global/registry.json'}
+        for resource in registry['resources']:
+            destination = 'assets/global/' + resource['path']
+            expected.add(destination)
+            row = selected[destination]
+            self.assertEqual(row['source_path'], 'assets/hd/global-assets-v1/' + resource['path'])
+            self.assertEqual(row['bytes'], resource['bytes'])
+            self.assertEqual(PACK.checked_source(ROOT / row['source_path'], row)['sha256'], resource['sha256'])
+        self.assertEqual({p for p in selected if p.startswith('assets/global/')}, expected)
+        self.assertIn('FRONTEND-VALIDATION.json', selected)
+        self.assertIn('GLOBAL-VALIDATION.json', selected)
+        for launcher in ('start-hd.sh', 'start-hd.ps1'):
+            self.assertIn('--global-assets=', (ROOT / 'packaging' / launcher).read_text())
+
+    def test_global_validation_binds_current_production_source(self):
+        validation = json.loads((ROOT / 'packaging/global-validation.json').read_text())
+        sources = {str(p.relative_to(ROOT)) for p in (ROOT / 'src').iterdir()
+                   if p.is_file() and p.suffix in ('.c', '.h', '.inc')}
+        self.assertEqual(set(validation['source_sha256']), sources)
+        for source, digest in validation['source_sha256'].items():
+            self.assertEqual(hashlib.sha256((ROOT / source).read_bytes()).hexdigest(), digest)
+        manifest = PACK.load_manifest(ROOT / 'packaging/runtime-assets-v1.json')
+        self.assertEqual(manifest['source_revision']['global_runtime_commit'], validation['production_commit'])
+        self.assertEqual(manifest['source_revision']['global_registry_sha256'],
+                         hashlib.sha256((ROOT / 'assets/hd/global-assets-v1/registry.json').read_bytes()).hexdigest())
+
+    def test_global_selected_file_missing_corrupt_refuses_copy(self):
+        manifest = PACK.load_manifest(ROOT / 'packaging/runtime-assets-v1.json')
+        original = next(r for r in manifest['files'] if r['group'] == 'global-source-identity')
+        self.content['files'] = [original]
+        self.save()
+        code, report = self.run_pack()
+        self.assertEqual(code, 2)
+        self.assertEqual(len(report['missing']), 1)
+        target = self.source / original['source_path']
+        target.parent.mkdir(parents=True)
+        target.write_bytes(b'x' * original['bytes'])
+        with self.assertRaises(ValueError):
+            self.run_pack('--build', '--output', self.base / 'incomplete-global')
+        self.assertFalse((self.base / 'incomplete-global').exists())
+
+    def test_windows_project_covers_all_compile_units(self):
+        import xml.etree.ElementTree as ET
+        tree = ET.parse(ROOT / 'visualc/opentyrian.vcxproj')
+        ns = {'m': 'http://schemas.microsoft.com/developer/msbuild/2003'}
+        units = [Path(n.attrib['Include'].replace('\\', '/')).name
+                 for n in tree.findall('.//m:ClCompile', ns) if 'Include' in n.attrib]
+        self.assertEqual(len(units), len(set(units)))
+        self.assertEqual(set(units), {p.name for p in (ROOT / 'src').glob('*.c')})
+        # Global .inc files are compiled through render_mirror.c, never as units.
+        self.assertIn('render_mirror.c', units)
+
+    def test_manifest_rebuild_is_deterministic(self):
+        output = self.base / 'rebuilt.json'
+        subprocess.run([__import__('sys').executable, str(ROOT / 'scripts/rebuild_recovered_runtime_manifest.py'),
+                        '--root', str(ROOT), '--output', str(output)], check=True, capture_output=True)
+        self.assertEqual(output.read_bytes(), (ROOT / 'packaging/runtime-assets-v1.json').read_bytes())
 
 
 if __name__ == '__main__':
