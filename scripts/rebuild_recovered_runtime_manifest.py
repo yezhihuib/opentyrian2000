@@ -7,7 +7,7 @@ before it can enter the new manifest. Reconstructed resources retain new hashes.
 """
 import argparse, hashlib, json
 from verify_current_production import verify
-GLOBAL_REGISTRY_SHA256 = 'f06217ef4e0ba443227b584d98e18df245d4014964a97573956b2c993f0a3ba3'
+GLOBAL_REGISTRY_SHA256 = 'b224adfc0b12aee5a4753e32aa12e30c8594eb4237727a983148776239162860'
 from pathlib import Path
 
 def pins(path):
@@ -73,15 +73,15 @@ def main():
     for p in sorted((m/'osifont-source').glob('*')):
         if p.is_file():add(p.relative_to(root).as_posix(),'licenses/shared-menu/osifont-source/'+p.name,'font-corresponding-source')
     add('packaging/frontend-validation.json','FRONTEND-VALIDATION.json','frontend-validation')
-    # The final independent registry is an exact accepted 68-resource allowlist,
+    # The final independent registry is an exact accepted 120-resource allowlist,
     # not a filesystem glob that could silently package unrelated artwork.
     global_root=root/'assets/hd/global-assets-v1'
     registry=global_root/'registry.json'
     if hashlib.sha256(registry.read_bytes()).hexdigest() != GLOBAL_REGISTRY_SHA256:
         raise ValueError('Accepted global registry fingerprint mismatch')
     gj=json.loads(registry.read_text())
-    if gj['schema']!='opentyrian-global-asset-registry-v1' or len(gj['resources'])!=68:
-        raise ValueError('Expected exact 68-resource global registry')
+    if gj['schema']!='opentyrian-global-asset-registry-v1' or len(gj['resources'])!=120:
+        raise ValueError('Expected exact 120-resource global registry')
     seen=set()
     for resource in gj['resources']:
         sha=resource['sha256']
@@ -110,15 +110,15 @@ def main():
     j['closure']['shop_files']=15
     j['closure']['shop_static_canonical_quads']=[169,235,199]
     j['files']=sorted(rows.values(),key=lambda x:x['destination'])
-    j['source_revision']['reconstruction']='Public63a89b33e4ee3f287b422df0ea986b907941cedd plus independently verified shared UI/frontend and seven globally source-authenticated player/effect/weapon families; see separate validation records'
+    j['source_revision']['reconstruction']='Public63a89b33e4ee3f287b422df0ea986b907941cedd plus independently verified shared UI/frontend and fourteen globally source-authenticated player/effect/weapon families; see separate validation records'
     j['closure']['reconstructed_complete_menu_runs']=171
     j['closure']['byte_exact_numeric_pack']=True
     j['closure']['independent_shared_roots']=True
     j['source_revision']['global_runtime_commit']=json.loads((root/'packaging/global-validation.json').read_text())['production_commit']
     j['source_revision']['global_registry_sha256']=GLOBAL_REGISTRY_SHA256
-    j['closure']['global_hda_files']=68
+    j['closure']['global_hda_files']=120
     j['closure']['global_registry_files']=1
-    j['closure']['global_families']=['Talon13','Shield22','Pulse5','Hitflare7','FrontVulcan2','WhiteSmoke7','SmallExplosion12']
+    j['closure']['global_families']=['Talon13','Shield22','Pulse5','Hitflare7','FrontVulcan2','WhiteSmoke7','SmallExplosion12','Cash25BodyAndValue7','Cash50BodyAndValue7','Cash75BodyAndValue7','Gem100BodyAndValue6','Gem250BodyAndValue6','Rotor5And11Eight','GreenHeadAndTrail11']
     a.output.write_text(json.dumps(j,indent=2,sort_keys=True)+'\n')
     print(json.dumps({'files':len(rows),'bytes':sum(x['bytes'] for x in rows.values()),'output':str(a.output)}))
 if __name__=='__main__':main()

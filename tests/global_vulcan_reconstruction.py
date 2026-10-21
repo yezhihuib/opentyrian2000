@@ -30,7 +30,7 @@ def main():
   data=(a.data/provenance['file']).read_bytes();start=provenance['table_offset']+14
   payload+=b''.join(data[start+i*80:start+(i+1)*80] for i in w['record_indices'])
   start+=(819+819)*80+w['port_index']*82;payload+=data[start:start+82]
- paths=[ROOT/'src'/x for x in ['render_mirror.c','render_mirror.h','global_talon_mirror.inc','global_shield_mirror.inc','global_vulcan_mirror.inc','global_pulse_mirror.inc','global_asset_registry.h','varz.c','shots.c','episodes.h','shots.h']]+[HERE/'global_vulcan_reconstruction.c',HERE/'global_vulcan_reconstruction.py',HERE/'global_vulcan_reconstruction.md']
+ paths=[ROOT/'src'/x for x in ['render_mirror.c','render_mirror.h','global_talon_mirror.inc','global_shield_mirror.inc','global_vulcan_mirror.inc','global_pulse_mirror.inc','global_asset_registry.h','shared_asset_reader.h','varz.c','shots.c','episodes.h','shots.h']]+[HERE/'global_vulcan_reconstruction.c',HERE/'global_vulcan_reconstruction.py',HERE/'global_vulcan_reconstruction.md']
  snap={x:x.read_bytes() for x in paths};mirror=snap[ROOT/'src/render_mirror.c'].decode();varz=snap[ROOT/'src/varz.c'].decode()
  names=['palette_rgb','blend_rgba','darken_rgba','decode_tile','upscale','cloud_shadow_rgba','normal15_palette','normal15_branch','normal15_index','normal15_channel','normal15_rgba','normal15_indices_match']
  with tempfile.TemporaryDirectory(prefix='vulcan-production-test-') as d:

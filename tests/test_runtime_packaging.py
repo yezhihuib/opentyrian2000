@@ -150,12 +150,12 @@ class PackagingTests(unittest.TestCase):
         self.assertEqual(groups['data-frame'], 1)
         self.assertEqual(groups['data-text'], 3)
         self.assertEqual(manifest['closure']['shop_files'], groups['shop'])
-        self.assertEqual(groups['global-source-identity'], 68)
+        self.assertEqual(groups['global-source-identity'], 120)
         self.assertEqual(groups['global-registry'], 1)
         self.assertEqual(groups['reconstructed-menu-runs'], 171)
         self.assertEqual(groups['shared-hud-exact-recovery'], 6)
         self.assertEqual(groups['current-production-validation'], 1)
-        self.assertEqual(len(manifest['files']), 954)
+        self.assertEqual(len(manifest['files']), 1006)
         approval = REBUILD.approved_static(ROOT)
         selected = {r['source_path']: r for r in manifest['files']}
         for item in approval['files']:
@@ -278,7 +278,7 @@ class PackagingTests(unittest.TestCase):
         manifest = PACK.load_manifest(ROOT / 'packaging/runtime-assets-v1.json')
         selected = {r['destination']: r for r in manifest['files']}
         registry = json.loads((ROOT / 'assets/hd/global-assets-v1/registry.json').read_text())
-        self.assertEqual(len(registry['resources']), 68)
+        self.assertEqual(len(registry['resources']), 120)
         expected = {'assets/global/registry.json'}
         for resource in registry['resources']:
             destination = 'assets/global/' + resource['path']
@@ -308,12 +308,106 @@ class PackagingTests(unittest.TestCase):
         for resource in resources:
             row = rows['assets/global/' + resource['path']]
             self.assertEqual(PACK.checked_source(ROOT / row['source_path'], row)['sha256'], resource['sha256'])
-        self.assertEqual(manifest['closure']['global_hda_files'], 68)
-        self.assertEqual(manifest['closure']['global_families'][-1], 'SmallExplosion12')
+        self.assertEqual(manifest['closure']['global_hda_files'], 120)
+        self.assertEqual(manifest['closure']['global_families'][6], 'SmallExplosion12')
+
+    def test_cash25_family_has_exact_seven_packaged_resources(self):
+        manifest = PACK.load_manifest(ROOT / 'packaging/runtime-assets-v1.json')
+        registry = json.loads((ROOT / 'assets/hd/global-assets-v1/registry.json').read_text())
+        family = registry['families'][7]
+        self.assertEqual(family['name'], 'cash25-body-and-value')
+        identities = set(family['resources'])
+        self.assertEqual(identities, set(range(1120007, 1120013)) | {1130185})
+        resources = [r for r in registry['resources'] if r['identity'] in identities]
+        rows = {r['destination']: r for r in manifest['files']}
+        self.assertEqual(len(resources), 7)
+        for resource in resources:
+            row = rows['assets/global/' + resource['path']]
+            self.assertEqual(PACK.checked_source(ROOT / row['source_path'], row)['sha256'], resource['sha256'])
+        self.assertEqual(manifest['closure']['global_families'][7], 'Cash25BodyAndValue7')
+        self.assertEqual(manifest['closure']['global_hda_files'], 120)
+
+    def test_cash50_cash75_exact_independent_resource_closure(self):
+        manifest = PACK.load_manifest(ROOT / 'packaging/runtime-assets-v1.json')
+        registry = json.loads((ROOT / 'assets/hd/global-assets-v1/registry.json').read_text())
+        rows = {r['destination']: r for r in manifest['files']}
+        seen = set()
+        for ordinal, name, indices, label in (
+                (8, 'cash50-body-and-value', set(range(1160026, 1160032)) | {1170204}, 'Cash50BodyAndValue7'),
+                (9, 'cash75-body-and-value', set(range(1140020, 1140026)) | {1150223}, 'Cash75BodyAndValue7')):
+            family = registry['families'][ordinal]
+            self.assertEqual(family['name'], name)
+            self.assertEqual(set(family['resources']), indices)
+            self.assertFalse(seen & indices)
+            seen |= indices
+            selected = [r for r in registry['resources'] if r['identity'] in indices]
+            self.assertEqual(len(selected), 7)
+            for resource in selected:
+                row = rows['assets/global/' + resource['path']]
+                self.assertEqual(PACK.checked_source(ROOT / row['source_path'], row)['sha256'], resource['sha256'])
+            self.assertEqual(manifest['closure']['global_families'][ordinal], label)
+        self.assertEqual(len(seen), 14)
+        self.assertEqual(manifest['closure']['global_hda_files'], 120)
+
+    def test_gem100_gem250_exact_independent_resource_closure(self):
+        manifest = PACK.load_manifest(ROOT / 'packaging/runtime-assets-v1.json')
+        registry = json.loads((ROOT / 'assets/hd/global-assets-v1/registry.json').read_text())
+        rows = {r['destination']: r for r in manifest['files']}
+        seen = set()
+        for ordinal, name, indices, label in (
+                (10, 'gem100-body-and-value', set(range(1180032, 1180037)) | {1190169}, 'Gem100BodyAndValue6'),
+                (11, 'gem250-body-and-value', set(range(1200014, 1200019)) | {1210188}, 'Gem250BodyAndValue6')):
+            family = registry['families'][ordinal]
+            self.assertEqual(family['name'], name)
+            self.assertEqual(set(family['resources']), indices)
+            self.assertFalse(seen & indices)
+            seen |= indices
+            selected = [r for r in registry['resources'] if r['identity'] in indices]
+            self.assertEqual(len(selected), 6)
+            for resource in selected:
+                row = rows['assets/global/' + resource['path']]
+                self.assertEqual(PACK.checked_source(ROOT / row['source_path'], row)['sha256'], resource['sha256'])
+            self.assertEqual(manifest['closure']['global_families'][ordinal], label)
+        self.assertEqual(len(seen), 12)
+        self.assertEqual(manifest['closure']['global_hda_files'], 120)
+
+    def test_rotor_exact_independent_resource_closure(self):
+        manifest = PACK.load_manifest(ROOT / 'packaging/runtime-assets-v1.json')
+        registry = json.loads((ROOT / 'assets/hd/global-assets-v1/registry.json').read_text())
+        family = registry['families'][12]
+        self.assertEqual(family['name'], 'rotor-enemy-5-and-11')
+        indices = set(range(1010229, 1010244, 2))
+        self.assertEqual(set(family['resources']), indices)
+        rows = {r['destination']: r for r in manifest['files']}
+        selected = [r for r in registry['resources'] if r['identity'] in indices]
+        self.assertEqual(len(selected), 8)
+        for resource in selected:
+            row = rows['assets/global/' + resource['path']]
+            self.assertEqual(PACK.checked_source(ROOT / row['source_path'], row)['sha256'], resource['sha256'])
+        self.assertEqual(manifest['closure']['global_families'][12], 'Rotor5And11Eight')
+        self.assertEqual(manifest['closure']['global_hda_files'], 120)
+
+    def test_green_exact_independent_resource_closure(self):
+        manifest = PACK.load_manifest(ROOT / 'packaging/runtime-assets-v1.json')
+        registry = json.loads((ROOT / 'assets/hd/global-assets-v1/registry.json').read_text())
+        family = registry['families'][13]
+        self.assertEqual(family['name'], 'green-energy-head-and-trail')
+        indices = set(range(80214, 80218)) | set(range(1060078, 1060085))
+        self.assertEqual(set(family['resources']), indices)
+        rows = {r['destination']: r for r in manifest['files']}
+        selected = [r for r in registry['resources'] if r['identity'] in indices]
+        self.assertEqual(len(selected), 11)
+        for resource in selected:
+            row = rows['assets/global/' + resource['path']]
+            self.assertEqual(PACK.checked_source(ROOT / row['source_path'], row)['sha256'], resource['sha256'])
+        self.assertEqual(manifest['closure']['global_families'][13], 'GreenHeadAndTrail11')
+        self.assertEqual(manifest['closure']['global_hda_files'], 120)
 
     def test_global_validation_binds_current_production_source(self):
         validation = json.loads((ROOT / 'packaging/current-production-validation.json').read_text())
-        self.assertEqual(CURRENT.verify(ROOT, validation), 239)
+        self.assertEqual(CURRENT.verify(ROOT, validation), 247)
+        self.assertIn('src/shared_asset_reader.h', validation['source_sha256'])
+        self.assertIn('src/shared_asset_fd_reader.inc', validation['source_sha256'])
         historical = json.loads((ROOT / 'packaging/global-validation.json').read_text())
         manifest = PACK.load_manifest(ROOT / 'packaging/runtime-assets-v1.json')
         self.assertEqual(manifest['source_revision']['global_runtime_commit'], historical['production_commit'])
@@ -337,6 +431,90 @@ class PackagingTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.run_pack('--build', '--output', self.base / 'incomplete-global')
         self.assertFalse((self.base / 'incomplete-global').exists())
+
+    def test_each_cash50_cash75_resource_missing_or_corrupt_refuses_copy(self):
+        manifest = PACK.load_manifest(ROOT / 'packaging/runtime-assets-v1.json')
+        registry = json.loads((ROOT / 'assets/hd/global-assets-v1/registry.json').read_text())
+        ids = set(registry['families'][8]['resources']) | set(registry['families'][9]['resources'])
+        paths = {'assets/global/' + r['path'] for r in registry['resources'] if r['identity'] in ids}
+        selected = [r for r in manifest['files'] if r['destination'] in paths]
+        self.assertEqual(len(selected), 14)
+        for ordinal, original in enumerate(selected):
+            self.content['files'] = [original]
+            self.save()
+            code, report = self.run_pack()
+            self.assertEqual(code, 2)
+            self.assertEqual(len(report['missing']), 1)
+            target = self.source / original['source_path']
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(b'x' * original['bytes'])
+            output = self.base / ('incomplete-cash-' + str(ordinal))
+            with self.assertRaises(ValueError):
+                self.run_pack('--build', '--output', output)
+            self.assertFalse(output.exists())
+
+    def test_each_gem100_gem250_resource_missing_or_corrupt_refuses_copy(self):
+        manifest = PACK.load_manifest(ROOT / 'packaging/runtime-assets-v1.json')
+        registry = json.loads((ROOT / 'assets/hd/global-assets-v1/registry.json').read_text())
+        ids = set(registry['families'][10]['resources']) | set(registry['families'][11]['resources'])
+        paths = {'assets/global/' + r['path'] for r in registry['resources'] if r['identity'] in ids}
+        selected = [r for r in manifest['files'] if r['destination'] in paths]
+        self.assertEqual(len(selected), 12)
+        for ordinal, original in enumerate(selected):
+            self.content['files'] = [original]
+            self.save()
+            code, report = self.run_pack()
+            self.assertEqual(code, 2)
+            self.assertEqual(len(report['missing']), 1)
+            target = self.source / original['source_path']
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(b'x' * original['bytes'])
+            output = self.base / ('incomplete-gem-' + str(ordinal))
+            with self.assertRaises(ValueError):
+                self.run_pack('--build', '--output', output)
+            self.assertFalse(output.exists())
+
+    def test_each_rotor_resource_missing_or_corrupt_refuses_copy(self):
+        manifest = PACK.load_manifest(ROOT / 'packaging/runtime-assets-v1.json')
+        registry = json.loads((ROOT / 'assets/hd/global-assets-v1/registry.json').read_text())
+        ids = set(registry['families'][12]['resources'])
+        paths = {'assets/global/' + r['path'] for r in registry['resources'] if r['identity'] in ids}
+        selected = [r for r in manifest['files'] if r['destination'] in paths]
+        self.assertEqual(len(selected), 8)
+        for ordinal, original in enumerate(selected):
+            self.content['files'] = [original]
+            self.save()
+            code, report = self.run_pack()
+            self.assertEqual(code, 2)
+            self.assertEqual(len(report['missing']), 1)
+            target = self.source / original['source_path']
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(b'x' * original['bytes'])
+            output = self.base / ('incomplete-rotor-' + str(ordinal))
+            with self.assertRaises(ValueError):
+                self.run_pack('--build', '--output', output)
+            self.assertFalse(output.exists())
+
+    def test_each_green_resource_missing_or_corrupt_refuses_copy(self):
+        manifest = PACK.load_manifest(ROOT / 'packaging/runtime-assets-v1.json')
+        registry = json.loads((ROOT / 'assets/hd/global-assets-v1/registry.json').read_text())
+        ids = set(registry['families'][13]['resources'])
+        paths = {'assets/global/' + r['path'] for r in registry['resources'] if r['identity'] in ids}
+        selected = [r for r in manifest['files'] if r['destination'] in paths]
+        self.assertEqual(len(selected), 11)
+        for ordinal, original in enumerate(selected):
+            self.content['files'] = [original]
+            self.save()
+            code, report = self.run_pack()
+            self.assertEqual(code, 2)
+            self.assertEqual(len(report['missing']), 1)
+            target = self.source / original['source_path']
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(b'x' * original['bytes'])
+            output = self.base / ('incomplete-green-' + str(ordinal))
+            with self.assertRaises(ValueError):
+                self.run_pack('--build', '--output', output)
+            self.assertFalse(output.exists())
 
     def test_windows_project_covers_all_compile_units(self):
         import xml.etree.ElementTree as ET

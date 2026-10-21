@@ -1,0 +1,262 @@
+{
+  "schema": "opentyrian-approved-pulse-art-revision-v2",
+  "baseline_commit": "bdea6e3d726c544e36198f08e9d8ca055642d940",
+  "scope": "Exactly five Pulse payload/provenance rows. No source identity, role, weapon, palette or anchor changes.",
+  "revisions": [
+    {
+      "identity": 80058,
+      "previous": {
+        "identity": 80058,
+        "path": "content/571feee3e3a572c6178fad80ca8fe3ca12e2cde21438464fa916b68cab1b43b0.hda",
+        "sha256": "571feee3e3a572c6178fad80ca8fe3ca12e2cde21438464fa916b68cab1b43b0",
+        "bytes": 43036,
+        "magic": "HDR1",
+        "header_u32": [
+          80058,
+          8,
+          12,
+          14,
+          0,
+          0
+        ],
+        "payload_fnv64": "4acb84bfa5b4664c",
+        "provenance": {
+          "manifest": "assets/hd/manifest.json",
+          "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+          "file": "bullet-58-8.hda",
+          "source_png": "assets/hd/source/bullet-58-8-571feee3e3a5.png",
+          "source_png_sha256": "45a11f50dfac38b52b062c32c9085abc0f72c25b2471aced8305d3f2eea85166"
+        }
+      },
+      "current": {
+        "identity": 80058,
+        "path": "content/17dcd126156a3555b6c157fca2d0353666d1b533d4e770f0aba4d82be2d189a5.hda",
+        "sha256": "17dcd126156a3555b6c157fca2d0353666d1b533d4e770f0aba4d82be2d189a5",
+        "bytes": 43036,
+        "magic": "HDR1",
+        "header_u32": [
+          80058,
+          8,
+          12,
+          14,
+          0,
+          0
+        ],
+        "payload_fnv64": "4a7203e28e6af9f2",
+        "provenance": {
+          "manifest": "assets/hd/artwork/pulse-family-v2-simple/candidate-manifest.json",
+          "revision": "pulse-family-v2-simple",
+          "file": "runtime/bullet-58-8.hda",
+          "source_png": "assets/hd/artwork/pulse-family-v2-simple/exports/bullet-58-8.png",
+          "source_png_sha256": "aebd0ec31a5ac1a14a58340a5bfb084a05df49bcf95d040565c8a423674979e6",
+          "master_sha256": "b7db0daeb7e44ed1a2fe09b99f443cc653de96167dd697adf1642b89380fad0f",
+          "prior_hda_sha256": "571feee3e3a572c6178fad80ca8fe3ca12e2cde21438464fa916b68cab1b43b0"
+        }
+      }
+    },
+    {
+      "identity": 80059,
+      "previous": {
+        "identity": 80059,
+        "path": "content/9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae.hda",
+        "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
+        "bytes": 43036,
+        "magic": "HDR1",
+        "header_u32": [
+          80059,
+          8,
+          12,
+          14,
+          4294967295,
+          0
+        ],
+        "payload_fnv64": "bb5ffa41cd02570b",
+        "provenance": {
+          "manifest": "assets/hd/manifest.json",
+          "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+          "file": "bullet-59-8.hda",
+          "source_png": "assets/hd/source/bullet-59-8-9b12eb865bca.png",
+          "source_png_sha256": "b95925b600464c12244b292d14c5c3b0d05fa8ed125b111459c479360afa3304"
+        }
+      },
+      "current": {
+        "identity": 80059,
+        "path": "content/50121eda138eb594e765a97fdbe60ea747f67a4411397f862f07f9cc25dcc3ca.hda",
+        "sha256": "50121eda138eb594e765a97fdbe60ea747f67a4411397f862f07f9cc25dcc3ca",
+        "bytes": 43036,
+        "magic": "HDR1",
+        "header_u32": [
+          80059,
+          8,
+          12,
+          14,
+          4294967295,
+          0
+        ],
+        "payload_fnv64": "1adcfe7354fb0ea4",
+        "provenance": {
+          "manifest": "assets/hd/artwork/pulse-family-v2-simple/candidate-manifest.json",
+          "revision": "pulse-family-v2-simple",
+          "file": "runtime/bullet-59-8.hda",
+          "source_png": "assets/hd/artwork/pulse-family-v2-simple/exports/bullet-59-8.png",
+          "source_png_sha256": "1731d54c2d42bb550be7d6b3b81cc9db606235fdb5f5f2aaceecd50c7e506b88",
+          "master_sha256": "c323b96a656a5eccefb4f59b4b0fca110b0da93d6f59b00132046fb1936f39f0",
+          "prior_hda_sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae"
+        }
+      }
+    },
+    {
+      "identity": 80060,
+      "previous": {
+        "identity": 80060,
+        "path": "content/e570776739129ff48f15aa5d4f5f809974e3420bf8bc55241429d419ce08f0d8.hda",
+        "sha256": "e570776739129ff48f15aa5d4f5f809974e3420bf8bc55241429d419ce08f0d8",
+        "bytes": 43036,
+        "magic": "HDR1",
+        "header_u32": [
+          80060,
+          8,
+          12,
+          14,
+          0,
+          0
+        ],
+        "payload_fnv64": "50ea36578382d3dd",
+        "provenance": {
+          "manifest": "assets/hd/manifest.json",
+          "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+          "file": "bullet-60-8.hda",
+          "source_png": "assets/hd/source/bullet-60-8-e57077673912.png",
+          "source_png_sha256": "9c40ba8e225cf758e6ff0adf5b5c9c2101ce61fba134c6a57077b0fee0164cf9"
+        }
+      },
+      "current": {
+        "identity": 80060,
+        "path": "content/200eae408268ac6d1bcb8ba2e688a14c06de93d0db5120ca18c8bf6bd0cc0102.hda",
+        "sha256": "200eae408268ac6d1bcb8ba2e688a14c06de93d0db5120ca18c8bf6bd0cc0102",
+        "bytes": 43036,
+        "magic": "HDR1",
+        "header_u32": [
+          80060,
+          8,
+          12,
+          14,
+          0,
+          0
+        ],
+        "payload_fnv64": "f82b44a194e07d0e",
+        "provenance": {
+          "manifest": "assets/hd/artwork/pulse-family-v2-simple/candidate-manifest.json",
+          "revision": "pulse-family-v2-simple",
+          "file": "runtime/bullet-60-8.hda",
+          "source_png": "assets/hd/artwork/pulse-family-v2-simple/exports/bullet-60-8.png",
+          "source_png_sha256": "f89d1620ce33ef06410439ef3245ec7be4084e82184bc36971f767e4c748aafa",
+          "master_sha256": "d2c7751a010d2e021274a9a4af1f654e91af8b798e4c93a10b2bd9afe0f3af37",
+          "prior_hda_sha256": "e570776739129ff48f15aa5d4f5f809974e3420bf8bc55241429d419ce08f0d8"
+        }
+      }
+    },
+    {
+      "identity": 80062,
+      "previous": {
+        "identity": 80062,
+        "path": "content/0da3659e64942dfef38833193b19f5186586ca0f43b99f8fa5e31b7792a18ecf.hda",
+        "sha256": "0da3659e64942dfef38833193b19f5186586ca0f43b99f8fa5e31b7792a18ecf",
+        "bytes": 43036,
+        "magic": "HDR1",
+        "header_u32": [
+          80062,
+          8,
+          12,
+          14,
+          0,
+          0
+        ],
+        "payload_fnv64": "3b7514e77675738f",
+        "provenance": {
+          "manifest": "assets/hd/manifest.json",
+          "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+          "file": "bullet-62-8.hda",
+          "source_png": "assets/hd/source/bullet-62-8-0da3659e6494.png",
+          "source_png_sha256": "fc279beae018eb0506910ddf5503c1c6a599c411536b75a0b9f3c397f4529b4b"
+        }
+      },
+      "current": {
+        "identity": 80062,
+        "path": "content/78691413335fd513e10e4182771e325aa5b778b56825b70f3880143d6f655a07.hda",
+        "sha256": "78691413335fd513e10e4182771e325aa5b778b56825b70f3880143d6f655a07",
+        "bytes": 43036,
+        "magic": "HDR1",
+        "header_u32": [
+          80062,
+          8,
+          12,
+          14,
+          0,
+          0
+        ],
+        "payload_fnv64": "674664dcae38efa9",
+        "provenance": {
+          "manifest": "assets/hd/artwork/pulse-family-v2-simple/candidate-manifest.json",
+          "revision": "pulse-family-v2-simple",
+          "file": "runtime/bullet-62-8.hda",
+          "source_png": "assets/hd/artwork/pulse-family-v2-simple/exports/bullet-62-8.png",
+          "source_png_sha256": "b50f4b4de729a8231f80cedec5856b5273141418ce2e7b9c76d63cf53cb6d19e",
+          "master_sha256": "669724db4ce96a617737e77ae1a881835c94990791e5799e709f01eec47ed012",
+          "prior_hda_sha256": "0da3659e64942dfef38833193b19f5186586ca0f43b99f8fa5e31b7792a18ecf"
+        }
+      }
+    },
+    {
+      "identity": 80165,
+      "previous": {
+        "identity": 80165,
+        "path": "content/255fa3dc879f33cb014f4393b56305bc118ef651c51f3ad6892f67922d959047.hda",
+        "sha256": "255fa3dc879f33cb014f4393b56305bc118ef651c51f3ad6892f67922d959047",
+        "bytes": 43036,
+        "magic": "HDR1",
+        "header_u32": [
+          80165,
+          8,
+          12,
+          14,
+          0,
+          0
+        ],
+        "payload_fnv64": "8a76e6547f1cfb41",
+        "provenance": {
+          "manifest": "assets/hd/manifest.json",
+          "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+          "file": "bullet-165-8.hda",
+          "source_png": "assets/hd/source/bullet-165-8-255fa3dc879f.png",
+          "source_png_sha256": "70493abb68156ecaff07f731d421c3ed780c4ff88911a3cb2a607a1d86050004"
+        }
+      },
+      "current": {
+        "identity": 80165,
+        "path": "content/3efbda4baac296de195fdf47a40f1472f112a76ff51a4c04fd1255fd3e878752.hda",
+        "sha256": "3efbda4baac296de195fdf47a40f1472f112a76ff51a4c04fd1255fd3e878752",
+        "bytes": 43036,
+        "magic": "HDR1",
+        "header_u32": [
+          80165,
+          8,
+          12,
+          14,
+          0,
+          0
+        ],
+        "payload_fnv64": "1ec9c190029a963f",
+        "provenance": {
+          "manifest": "assets/hd/artwork/pulse-family-v2-simple/candidate-manifest.json",
+          "revision": "pulse-family-v2-simple",
+          "file": "runtime/bullet-165-8.hda",
+          "source_png": "assets/hd/artwork/pulse-family-v2-simple/exports/bullet-165-8.png",
+          "source_png_sha256": "d34b80ea12d9accd46ddfd7f8cd98910b75416b9e79a55a0c5452d839ed7acd3",
+          "master_sha256": "1b267734cc1143b2bb86973bc72b911528e8c665aafc9a8ef72487211282ea69",
+          "prior_hda_sha256": "255fa3dc879f33cb014f4393b56305bc118ef651c51f3ad6892f67922d959047"
+        }
+      }
+    }
+  ]
+}

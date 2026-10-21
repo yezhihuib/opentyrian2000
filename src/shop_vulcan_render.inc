@@ -58,17 +58,11 @@ static void shop_vulcan_art_load(void)
  if(shop_vulcan_art.attempted)return;shop_vulcan_art.attempted=true;shop_vulcan_art.good=true;
  shop_vulcan_art.bank=spriteSheet8.data;shop_vulcan_art.bank_size=spriteSheet8.size;
  for(unsigned i=0;i<2;i++){
-  const GlobalAssetResource *r=shop_vulcan_resource(i);char path[1200];Uint8 h[28];SF_STAT st;
+  const GlobalAssetResource *r=shop_vulcan_resource(i);char path[1200];
   if(!r||r->bytes!=43036||r->density!=8||r->width!=12||r->height!=14||r->anchor_x!=0||r->anchor_y||
    snprintf(path,sizeof(path),"%s/%s",shop_vulcan_directory,r->path)>=(int)sizeof(path)){shop_vulcan_art.good=false;break;}
-  int fd=SF_OPEN(path);if(fd<0){shop_vulcan_art.good=false;break;}
-  bool ok=SF_FSTAT(fd,&st)==0&&SF_REGULAR(st.st_mode)&&st.st_size==43036&&SF_READ(fd,h,28)==28&&
-   !memcmp(h,"HDR1",4)&&u32(h+4)==r->identity&&u32(h+8)==8&&u32(h+12)==12&&u32(h+16)==14&&
-   (int32_t)u32(h+20)==r->anchor_x&&(int32_t)u32(h+24)==0;
-  Uint8 *p=ok?malloc(43008):NULL;size_t at=0;
-  while(p&&at<43008){int n=SF_READ(fd,p+at,43008-at);if(n<=0)break;at+=(unsigned)n;}
-  Uint8 extra;ok=p&&at==43008&&SF_READ(fd,&extra,1)==0&&hash(p,43008)==r->payload_fnv;SF_CLOSE(fd);
-  if(!ok){free(p);shop_vulcan_art.good=false;break;}shop_vulcan_art.rgba[i]=p;
+  Uint8 *p=shared_asset_load_fd(path,r,false);
+  if(!p){shop_vulcan_art.good=false;break;}shop_vulcan_art.rgba[i]=p;
  }
  if(!shop_vulcan_art.good)for(unsigned i=0;i<2;i++){free(shop_vulcan_art.rgba[i]);shop_vulcan_art.rgba[i]=NULL;}
 }

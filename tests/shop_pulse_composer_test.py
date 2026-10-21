@@ -10,7 +10,7 @@ def main():
  p=argparse.ArgumentParser(description=__doc__)
  for arg in ('data','startup','global-root','receipt'):p.add_argument('--'+arg,type=Path,required=True)
  p.add_argument('--sanitize',action='store_true');a=p.parse_args()
- paths=['src/'+x for x in ('shop_pulse.h','shop_pulse_proof.inc','shop_pulse_render.inc','pregame_font.c','shots.c','game_menu.c','episodes.c','render_mirror.c')]+['visualc/opentyrian.vcxproj','tests/shop_pulse_composer_test.c','tests/shop_pulse_composer_test.py']
+ paths=['src/'+x for x in ('shop_pulse.h','shop_pulse_proof.inc','shop_pulse_render.inc','pregame_font.c','shared_asset_reader.h','shared_asset_fd_reader.inc','shots.c','game_menu.c','episodes.c','render_mirror.c')]+['visualc/opentyrian.vcxproj','tests/shop_pulse_composer_test.c','tests/shop_pulse_composer_test.py']
  before={s:hashlib.sha256((ROOT/s).read_bytes()).hexdigest() for s in paths}
  with tempfile.TemporaryDirectory(prefix='shop-pulse-composer-') as t:
   tmp=Path(t);shutil.copytree(ROOT/'src',tmp/'src');shutil.copytree(ROOT/'tests',tmp/'tests');(tmp/'assets').symlink_to(ROOT/'assets',target_is_directory=True)

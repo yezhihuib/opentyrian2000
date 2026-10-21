@@ -207,11 +207,17 @@
     <ClInclude Include="..\src\common_pause.h" />
     <ClInclude Include="..\src\global_asset_registry.h" />
     <ClInclude Include="..\src\global_talon_mirror.inc" />
+    <ClInclude Include="..\src\shared_asset_reader.h" />
+    <ClInclude Include="..\src\shared_asset_fd_reader.inc" />
     <ClInclude Include="..\src\global_shield_mirror.inc" />
     <ClInclude Include="..\src\global_pulse_mirror.inc" />
     <ClInclude Include="..\src\global_hitflare_mirror.inc" />
     <ClInclude Include="..\src\global_smoke_mirror.inc" />
     <ClInclude Include="..\src\global_small_explosion_mirror.inc" />
+    <ClInclude Include="..\src\global_cash25_mirror.inc" />
+    <ClInclude Include="..\src\global_cash25_identity.inc" />
+    <ClInclude Include="..\src\global_rotor_identity.inc" />
+    <ClInclude Include="..\src\global_rotor_mirror.inc" />
     <ClInclude Include="..\src\global_vulcan_mirror.inc" />
     <ClInclude Include="..\src\config.h" />
     <ClInclude Include="..\src\config_file.h" />

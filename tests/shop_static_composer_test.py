@@ -10,7 +10,7 @@ def main():
  p=argparse.ArgumentParser(description=__doc__)
  for arg in ('data','startup','receipt'):p.add_argument('--'+arg,type=Path,required=True)
  p.add_argument('--sanitize',action='store_true');a=p.parse_args()
- paths=['src/'+x for x in ('shop_static_render.inc','shop_static_pins.h','pregame_font.c','pregame_font.h','sprite.c')]+['tests/shop_static_composer_test.c','tests/shop_static_composer_test.py']
+ paths=['src/'+x for x in ('shop_static_render.inc','shop_static_pins.h','pregame_font.c','shared_asset_reader.h','shared_asset_fd_reader.inc','pregame_font.h','sprite.c')]+['tests/shop_static_composer_test.c','tests/shop_static_composer_test.py']
  paths += [str(p.relative_to(ROOT)) for p in sorted((ROOT/'assets/shop-static-v1').glob('*.hda'))]
  before={s:hashlib.sha256((ROOT/s).read_bytes()).hexdigest() for s in paths}
  with tempfile.TemporaryDirectory(prefix='shop-static-composer-') as t:

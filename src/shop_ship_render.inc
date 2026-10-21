@@ -75,18 +75,11 @@ static void shop_ship_load(void)
  if(shop_ship.attempted)return;
  shop_ship.attempted=true;
  if(!shop_ship_requested()||!shop_ship_source())return;
- const GlobalAssetResource *r=shop_ship_resource();char path[1200];Uint8 h[28],extra,*p=NULL;SF_STAT st;bool ok=false;
+ const GlobalAssetResource *r=shop_ship_resource();char path[1200];
  if(!r||r->bytes!=172060||r->density!=8||r->width!=24||r->height!=28||r->anchor_x!=5||r->anchor_y!=7)return;
  int n=snprintf(path,sizeof(path),"%s/%s",shop_ship_directory,r->path);if(n<0||(size_t)n>=sizeof(path))return;
- int fd=SF_OPEN(path);if(fd<0)return;
- if(SF_FSTAT(fd,&st)||!SF_REGULAR(st.st_mode)||st.st_size!=172060||SF_READ(fd,h,28)!=28||memcmp(h,"HDR1",4)||
-  u32(h+4)!=90233||u32(h+8)!=8||u32(h+12)!=24||u32(h+16)!=28||u32(h+20)!=5||u32(h+24)!=7)goto done;
- p=malloc(172032);if(!p)goto done;size_t at=0;
- while(at<172032){int got=SF_READ(fd,p+at,172032-at);if(got<=0)goto done;at+=(unsigned)got;}
- if(SF_READ(fd,&extra,1)!=0||hash(p,172032)!=r->payload_fnv)goto done;
- ok=true;
- done:if(SF_CLOSE(fd))ok=false;
- if(ok){shop_ship.rgba=p;shop_ship.bank=spriteSheet9.data;shop_ship.bank_size=spriteSheet9.size;}else free(p);
+ Uint8 *p=shared_asset_load_fd(path,r,true);
+ if(p){shop_ship.rgba=p;shop_ship.bank=spriteSheet9.data;shop_ship.bank_size=spriteSheet9.size;}
 }
 static bool shop_ship_valid(void)
 {

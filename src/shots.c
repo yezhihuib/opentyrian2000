@@ -239,10 +239,12 @@ bool player_shot_move_and_draw(
 
 		if (shot->shotTrail != 255)
 		{
+			render_mirror_green_trail_begin(shot_id);
 			if (shot->shotTrail == 98 || shot->shotTrail == 198)
 				JE_setupExplosion(shot->shotX - shot->shotXM, shot->shotY - shot->shotYM, 0, shot->shotTrail, false, false);
 			else
 				JE_setupExplosion(shot->shotX, shot->shotY, 0, shot->shotTrail, false, false);
+			render_mirror_green_trail_end();
 		}
 
 		if (shot->aimAtEnemy != 0)
@@ -334,6 +336,7 @@ JE_integer player_shot_create(JE_word portNum, uint bay_i, JE_word PX, JE_word P
 	static const JE_byte soundChannel[11] /* [1..11] */ = {0, 2, 4, 4, 2, 2, 5, 5, 1, 4, 1};
 
 	unsigned int probe_call = game_probe_shot_begin(portNum, bay_i, wpNum, playerNum, PX, PY);
+	uint64_t green_call = render_mirror_green_create_begin(portNum, bay_i, wpNum, playerNum, PX, PY, mouseX, mouseY);
 	uint64_t front_call = render_mirror_front_create_begin(portNum, bay_i, wpNum, playerNum);
 	render_mirror_front_create_geometry(front_call, PX, PY, mouseX, mouseY);
 	uint64_t rear_p1_call = render_mirror_rear_p1_create_begin(portNum, bay_i, wpNum, playerNum);
@@ -344,6 +347,7 @@ JE_integer player_shot_create(JE_word portNum, uint bay_i, JE_word PX, JE_word P
 		game_probe_shot_result(probe_call, "bounds", 0, MAX_PWEAPON);
 		render_mirror_rear_p1_create_end(rear_p1_call);
 		render_mirror_front_create_end(front_call);
+		render_mirror_green_create_end(green_call);
 		return MAX_PWEAPON;
 	}
 
@@ -354,6 +358,7 @@ JE_integer player_shot_create(JE_word portNum, uint bay_i, JE_word PX, JE_word P
 		game_probe_shot_result(probe_call, "power", 0, MAX_PWEAPON);
 		render_mirror_rear_p1_create_end(rear_p1_call);
 		render_mirror_front_create_end(front_call);
+		render_mirror_green_create_end(green_call);
 		return MAX_PWEAPON;
 	}
 	power -= weaponPort[portNum].poweruse;
@@ -373,10 +378,12 @@ JE_integer player_shot_create(JE_word portNum, uint bay_i, JE_word PX, JE_word P
 			game_probe_shot_result(probe_call, "capacity", multi_i - 1, MAX_PWEAPON);
 			render_mirror_rear_p1_create_end(rear_p1_call);
 		render_mirror_front_create_end(front_call);
+		render_mirror_green_create_end(green_call);
 			return MAX_PWEAPON;
 		}
 
 		render_mirror_shot_allocated(shot_id);
+		render_mirror_green_shot_allocated(shot_id);
 		shop_pulse_allocated(shot_id);
 		shop_vulcan_allocated(shot_id, PX, PY, mouseX, mouseY);
 
@@ -553,6 +560,7 @@ JE_integer player_shot_create(JE_word portNum, uint bay_i, JE_word PX, JE_word P
 		render_mirror_plasma_art_emit(shot_id, wpNum, bay_i, playerNum, shot->shotGr);
 		render_mirror_rear_p1_emit(rear_p1_call, multi_i, shot_id, portNum, bay_i, wpNum, playerNum, shotMultiPos[bay_i], shot->shotGr);
 		render_mirror_front_shot_initialized(front_call, shot_id, portNum, bay_i, wpNum, playerNum, shotMultiPos[bay_i]);
+		render_mirror_green_shot_initialized(green_call, shot_id, portNum, bay_i, wpNum, playerNum, shotMultiPos[bay_i]);
 		shop_pulse_initialized(shot_id, portNum, bay_i, wpNum, playerNum, shotMultiPos[bay_i]);
 		shop_vulcan_initialized(shot_id, portNum, bay_i, wpNum, playerNum, shotMultiPos[bay_i]);
 		game_probe_shot_emit(probe_call, multi_i, shotMultiPos[bay_i], shot_id);
@@ -561,5 +569,6 @@ JE_integer player_shot_create(JE_word portNum, uint bay_i, JE_word PX, JE_word P
 	game_probe_shot_result(probe_call, "complete", weapon->multi, shot_id);
 	render_mirror_rear_p1_create_end(rear_p1_call);
 		render_mirror_front_create_end(front_call);
+		render_mirror_green_create_end(green_call);
 	return shot_id;
 }

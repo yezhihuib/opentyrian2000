@@ -26,7 +26,7 @@ def main():
  ids={x['resource_identity'] for x in f['phases'] if x.get('resource_identity')};records=[x for x in j['resources'] if x['identity'] in ids];assert len(records)==7
  for item in records:
   b=(a.assets/item['path']).read_bytes();assert len(b)==43036 and hashlib.sha256(b).hexdigest()==item['sha256'];assert fnv64(b[28:])==int(item['payload_fnv64'],16)
- paths=[ROOT/'src'/x for x in ['render_mirror.c','render_mirror.h','global_talon_mirror.inc','global_smoke_mirror.inc','global_asset_registry.h','varz.c']]+[HERE/'global_smoke_reconstruction.c',HERE/'global_smoke_reconstruction.py',HERE/'global_smoke_reconstruction.md',HERE/'global_talon_reconstruction.py']
+ paths=[ROOT/'src'/x for x in ['render_mirror.c','render_mirror.h','global_talon_mirror.inc','global_smoke_mirror.inc','global_asset_registry.h','shared_asset_reader.h','varz.c']]+[HERE/'global_smoke_reconstruction.c',HERE/'global_smoke_reconstruction.py',HERE/'global_smoke_reconstruction.md',HERE/'global_talon_reconstruction.py']
  snap={x:x.read_bytes() for x in paths};mirror=snap[ROOT/'src/render_mirror.c'].decode();varz=snap[ROOT/'src/varz.c'].decode()
  names=['palette_rgb','blend_rgba','darken_rgba','decode_tile','upscale','cloud_shadow_rgba','normal15_palette','normal15_branch','normal15_index','normal15_channel','normal15_rgba','normal15_indices_match']
  with tempfile.TemporaryDirectory(prefix='smoke-production-test-') as d:

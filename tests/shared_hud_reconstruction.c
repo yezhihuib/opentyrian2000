@@ -1,3 +1,9 @@
+#define render_mirror_green_create_begin(...) (0)
+#define render_mirror_green_create_end(...) ((void)0)
+#define render_mirror_green_shot_allocated(...) ((void)0)
+#define render_mirror_green_shot_initialized(...) ((void)0)
+#define render_mirror_green_trail_begin(...) ((void)0)
+#define render_mirror_green_trail_end(...) ((void)0)
 /* SHOP routes are outside this isolated battle-HUD oracle. */
 #define pregame_shop_pulse_set_directory(...) ((void)0)
 #define pregame_shop_vulcan_set_directory(...) ((void)0)
@@ -224,6 +230,32 @@ static bool global_vulcan_fade_capture(void){return true;}
 static bool global_vulcan_fade_step_valid(int steps){return true;}
 static void global_vulcan_fade_palette(void){}
 /* Small explosion disabled only in this isolated existing-family harness. */
+static bool global_cash25_frame,global_cash25_fault,global_cash25_cached;
+static Uint8 *global_cash25_owner,*global_cash25_foreign;
+#define global_cash25_source_matches(...) true
+static bool global_cash25_palette_matches(void){return true;}
+static bool global_cash25_requested(void){return false;}
+static bool global_cash25_is_index(unsigned index){return false;}
+static bool global_cash25_surface_matches(void){return true;}
+static bool global_cash25_final_surface_matches(void){return true;}
+static void global_cash25_shutdown(void){}
+static void global_cash25_reset(void){}
+static void global_cash25_frame_begin(void){}
+static bool global_cash25_pixel(int x,int y,Uint8 b,Uint8 a,int s){return false;}
+static void global_cash25_final_pixel(SDL_Surface *s,Uint8 *p){}
+static void global_cash25_final_rect(SDL_Surface *s,const SDL_Rect *r){}
+static void global_cash25_end(void){}
+static bool global_cash25_observe_blend(SDL_Surface *s,Uint8 *p){return false;}
+static bool global_cash25_finish_proof(void){return true;}
+#define global_cash25_compose(...) false
+static void global_cash25_check_cache(void){}
+static bool global_cash25_fade_buffer_safe(void){return true;}
+static bool global_cash25_fade_capture(void){return true;}
+static bool global_cash25_fade_step_valid(int steps){return true;}
+static void global_cash25_fade_palette(void){}
+#define render_mirror_cash25_value_allocated(...) ((void)0)
+#define render_mirror_cash25_value_initialized(...) ((void)0)
+
 static bool global_small_explosion_frame,global_small_explosion_fault,global_small_explosion_cached;
 static Uint8 *global_small_explosion_owner,*global_small_explosion_foreign;
 #define global_small_explosion_source_matches(...) true
@@ -250,6 +282,34 @@ static void global_small_explosion_fade_palette(void){}
 #define render_mirror_small_explosion_allocated(...) ((void)0)
 #define render_mirror_small_explosion_initialized(...) ((void)0)
 /* White smoke disabled only in this isolated existing-family harness. */
+static bool global_rotor_frame,global_rotor_fault,global_rotor_cached;
+static Uint8 *global_rotor_owner,*global_rotor_foreign;
+#define global_rotor_source_matches(...) true
+static bool global_rotor_palette_matches(void){return true;}
+static bool global_rotor_requested(void){return false;}
+static bool global_rotor_is_index(unsigned index){return false;}
+static bool global_rotor_surface_matches(void){return true;}
+static bool global_rotor_final_surface_matches(void){return true;}
+static void global_rotor_shutdown(void){}
+static void global_rotor_reset(void){}
+static void global_rotor_frame_begin(void){}
+static bool global_rotor_pixel(int x,int y,Uint8 b,Uint8 a,int s){return false;}
+static void global_rotor_final_pixel(SDL_Surface *s,Uint8 *p){}
+static void global_rotor_final_rect(SDL_Surface *s,const SDL_Rect *r){}
+static void global_rotor_end(void){}
+static bool global_rotor_observe_blend(SDL_Surface *s,Uint8 *p){return false;}
+static bool global_rotor_finish_proof(void){return true;}
+#define global_rotor_compose(...) false
+static void global_rotor_check_cache(void){}
+static bool global_rotor_fade_buffer_safe(void){return true;}
+static bool global_rotor_fade_capture(void){return true;}
+static bool global_rotor_fade_step_valid(int steps){return true;}
+static void global_rotor_fade_palette(void){}
+
+#define render_mirror_rotor_enemy_allocated(...) ((void)0)
+#define render_mirror_rotor_enemy_initialized(...) ((void)0)
+#define render_mirror_rotor_enemy_animated(...) ((void)0)
+
 static bool global_smoke_frame,global_smoke_fault,global_smoke_cached;
 static Uint8 *global_smoke_owner,*global_smoke_foreign;
 #define global_smoke_source_matches(...) true
@@ -354,6 +414,33 @@ RECT(common_pause_rect)
 PIXEL3(settings_font_pixel) PIXEL3(load_font_pixel) PIXEL3(selector_font_pixel) PIXEL3(pregame_font_pixel)
 RECT(data_frame_rect) RECT(data_portrait_rect) RECT(storm_rect) RECT(settings_font_rect) RECT(load_font_rect) RECT(selector_font_rect) RECT(pregame_font_rect)
 typedef enum {MIRROR_OUTPUT_UNKNOWN,MIRROR_OUTPUT_ORDINARY,MIRROR_OUTPUT_NORMAL15_NIGHT,MIRROR_OUTPUT_NORMAL15_LOW_DETAIL} MirrorOutputKind;
+/* Green is disabled only in this isolated prior-family harness. */
+static bool global_green_frame,global_green_fault,global_green_cached;
+static Uint8 *global_green_owner,*global_green_foreign;
+#define global_green_source_matches(...) true
+static bool global_green_palette_matches(void){return true;}
+static bool global_green_requested(void){return false;}
+static bool global_green_is_index(unsigned index){return false;}
+static bool global_green_surface_matches(void){return true;}
+static bool global_green_final_surface_matches(void){return true;}
+static void global_green_shutdown(void){}
+static void global_green_reset(void){}
+static void global_green_frame_begin(void){}
+static bool global_green_pixel(int x,int y,Uint8 b,Uint8 a,int s){return false;}
+static void global_green_final_pixel(SDL_Surface *s,Uint8 *p){}
+static void global_green_final_rect(SDL_Surface *s,const SDL_Rect *r){}
+static void global_green_end(void){}
+static bool global_green_observe_blend(SDL_Surface *s,Uint8 *p){return false;}
+static bool global_green_finish_proof(void){return true;}
+static bool global_green_compose(MirrorOutputKind k,int x,int y){return false;}
+static void global_green_check_cache(void){}
+static bool global_green_fade_buffer_safe(void){return true;}
+static bool global_green_fade_capture(void){return true;}
+static bool global_green_fade_step_valid(int steps){return true;}
+static void global_green_fade_palette(void){}
+#define render_mirror_green_smoke_allocated(...) ((void)0)
+#define render_mirror_green_smoke_initialized(...) ((void)0)
+
 #include "gameplay_hud_font_mirror.inc"
 #include "production.inc"
 static Uint8 original_pic[64000];

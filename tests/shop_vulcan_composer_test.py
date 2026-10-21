@@ -10,7 +10,7 @@ def main():
  p=argparse.ArgumentParser(description=__doc__)
  for arg in ('data','startup','global-root','receipt'):p.add_argument('--'+arg,type=Path,required=True)
  p.add_argument('--sanitize',action='store_true');a=p.parse_args()
- paths=['src/'+x for x in ('shop_vulcan.h','shop_vulcan_proof.inc','shop_vulcan_render.inc','pregame_font.c','pregame_font.h','shop_pulse.h','shop_pulse_proof.inc','shop_pulse_render.inc','shop_ship_render.inc','shop_static_render.inc','global_asset_registry.h','sprite.c','shots.c','game_menu.c','episodes.c','render_mirror.c')]+['visualc/opentyrian.vcxproj','tests/shop_vulcan_composer_test.c','tests/shop_vulcan_composer_test.py','tests/pregame_font_test.c','tests/pregame_typography_reconstruction.c']
+ paths=['src/'+x for x in ('shop_vulcan.h','shop_vulcan_proof.inc','shop_vulcan_render.inc','pregame_font.c','pregame_font.h','shop_pulse.h','shop_pulse_proof.inc','shop_pulse_render.inc','shop_ship_render.inc','shop_static_render.inc','global_asset_registry.h','shared_asset_reader.h','shared_asset_fd_reader.inc','sprite.c','shots.c','game_menu.c','episodes.c','render_mirror.c')]+['visualc/opentyrian.vcxproj','tests/shop_vulcan_composer_test.c','tests/shop_vulcan_composer_test.py','tests/pregame_font_test.c','tests/pregame_typography_reconstruction.c']
  before={s:hashlib.sha256((ROOT/s).read_bytes()).hexdigest() for s in paths}
  with tempfile.TemporaryDirectory(prefix='shop-vulcan-composer-') as t:
   tmp=Path(t);shutil.copytree(ROOT/'src',tmp/'src');shutil.copytree(ROOT/'tests',tmp/'tests');(tmp/'assets').symlink_to(ROOT/'assets',target_is_directory=True)

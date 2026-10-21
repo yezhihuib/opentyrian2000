@@ -2,6 +2,7 @@
  * Reconstructed Talon13 semantic owner. Exact authored assets are unchanged.
  * Included after decode_tile; no level/episode/map predicate grants this owner. */
 #include "global_asset_registry.h"
+#include "shared_asset_reader.h"
 static Uint8 *global_talon_rgba[13];
 static bool global_talon_loaded,global_talon_good,global_talon_cached,global_talon_fault;
 static Uint8 *global_talon_owner,*global_talon_foreign;
@@ -18,7 +19,7 @@ static struct {
 static struct {bool valid;const Uint8 *bank;uint64_t tick;int index,visual;unsigned invulnerable;} global_talon_poses[2];
 static struct {bool live;int x,y,style;unsigned left;Uint8 source[672],mask[672],seen[672];} global_talon_call;
 static uint64_t global_bytes_hash(const Uint8 *p,size_t n)
-{uint64_t h=UINT64_C(14695981039346656037);for(size_t i=0;i<n;i++)h=(h^p[i])*UINT64_C(1099511628211);return h;}
+{return shared_asset_hash(p,n);}
 static bool global_talon_requested(void)
 {return global_asset_directory[0]&&!game_probe_original_reference&&!game_probe_missing&&!game_probe_invalid;}
 static bool global_talon_palette_matches(void)
@@ -86,21 +87,12 @@ static bool global_talon_surface_matches(void)
   s->format->format==SDL_PIXELFORMAT_INDEX8&&s->format->BitsPerPixel==8&&s->format->BytesPerPixel==1&&
   game_probe_density==global_talon_source_lease.density;
 }
-static Uint32 global_u32(const Uint8 *p)
-{return (Uint32)p[0]|((Uint32)p[1]<<8)|((Uint32)p[2]<<16)|((Uint32)p[3]<<24);}
 static Uint8 *global_resource_load(const GlobalAssetResource *r)
 {
  char path[1200];
  if(!r||r->density!=8||r->bytes!=28u+r->width*r->height*8u*8u*4u||
     snprintf(path,sizeof(path),"%s/%s",global_asset_directory,r->path)>=(int)sizeof(path))return NULL;
- FILE *f=fopen(path,"rb");if(!f)return NULL;
- Uint8 h[28];bool ok=fread(h,1,sizeof(h),f)==sizeof(h)&&!memcmp(h,"HDR1",4)&&
-  global_u32(h+4)==r->identity&&global_u32(h+8)==r->density&&global_u32(h+12)==r->width&&global_u32(h+16)==r->height&&
-  (int32_t)global_u32(h+20)==r->anchor_x&&(int32_t)global_u32(h+24)==r->anchor_y;
- Uint8 *rgba=ok?malloc(r->bytes-28u):NULL;
- ok=rgba&&fread(rgba,1,r->bytes-28u,f)==r->bytes-28u&&fgetc(f)==EOF&&
-  global_bytes_hash(rgba,r->bytes-28u)==r->payload_fnv;
- fclose(f);if(!ok){free(rgba);return NULL;}return rgba;
+ return shared_asset_load_stdio(path,r);
 }
 static bool global_talon_family_ready(void)
 {
@@ -235,7 +227,10 @@ int render_mirror_global_player_ship(SDL_Surface *surface,int x,int y,Sprite2_ar
   if(global_pulse_owner)global_pulse_owner[n]=global_pulse_foreign[n]=0;
   if(global_hitflare_owner)global_hitflare_owner[n]=global_hitflare_foreign[n]=0;
   if(global_smoke_owner)global_smoke_owner[n]=global_smoke_foreign[n]=0;
+  if(global_green_owner)global_green_owner[n]=global_green_foreign[n]=0;
   if(global_small_explosion_owner)global_small_explosion_owner[n]=global_small_explosion_foreign[n]=0;
+  if(global_cash25_owner)global_cash25_owner[n]=global_cash25_foreign[n]=0;
+  if(global_rotor_owner)global_rotor_owner[n]=global_rotor_foreign[n]=0;
   if(global_vulcan_owner)global_vulcan_owner[n]=global_vulcan_foreign[n]=0;
   global_talon_owner[n]=1;global_talon_foreign[n]=foreign;hd_owner[n]=1;cloud_owner[n]=0;green_first[n]=0;
   selected[(dy/d)*320+dx/d]=1;

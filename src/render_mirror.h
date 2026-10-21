@@ -27,8 +27,29 @@ typedef enum {
 #define render_mirror_global_pulse(...) (-1)
 #define render_mirror_global_vulcan(...) (-1)
 #define render_mirror_global_hitflare(...) (-1)
+#define render_mirror_global_green_head(...) (-1)
+#define render_mirror_global_green_smoke(...) (-1)
+#define render_mirror_green_create_begin(...) (0)
+#define render_mirror_green_create_end(...) ((void)0)
+#define render_mirror_green_shot_allocated(...) ((void)0)
+#define render_mirror_green_shot_initialized(...) ((void)0)
+#define render_mirror_green_trail_begin(...) ((void)0)
+#define render_mirror_green_trail_end(...) ((void)0)
+#define render_mirror_green_smoke_allocated(...) ((void)0)
+#define render_mirror_green_smoke_initialized(...) ((void)0)
 #define render_mirror_global_smoke(...) (-1)
 #define render_mirror_global_small_explosion(...) (-1)
+#define render_mirror_global_cash25_value(...) (-1)
+#define render_mirror_global_cash25_body(...) (-1)
+#define render_mirror_global_rotor_body(...) (-1)
+#define render_mirror_cash25_enemy_allocated(...) ((void)0)
+#define render_mirror_rotor_enemy_allocated(...) ((void)0)
+#define render_mirror_cash25_enemy_animated(...) ((void)0)
+#define render_mirror_rotor_enemy_animated(...) ((void)0)
+#define render_mirror_cash25_enemy_initialized(...) ((void)0)
+#define render_mirror_rotor_enemy_initialized(...) ((void)0)
+#define render_mirror_cash25_value_allocated(...) ((void)0)
+#define render_mirror_cash25_value_initialized(...) ((void)0)
 #define render_mirror_smoke_explosion_allocated(...) ((void)0)
 #define render_mirror_small_explosion_allocated(...) ((void)0)
 #define render_mirror_smoke_explosion_initialized(...) ((void)0)
@@ -140,8 +161,29 @@ void render_mirror_front_shot_initialized(uint64_t,unsigned,unsigned,unsigned,un
 int render_mirror_global_pulse(SDL_Surface *,int,int,Sprite2_array,unsigned,int,unsigned,unsigned);
 int render_mirror_global_vulcan(SDL_Surface *,int,int,Sprite2_array,unsigned,int,unsigned,unsigned);
 int render_mirror_global_hitflare(SDL_Surface *,int,int,Sprite2_array,unsigned,int,unsigned);
+int render_mirror_global_green_head(SDL_Surface *,int,int,Sprite2_array,unsigned,int,unsigned,unsigned);
+int render_mirror_global_green_smoke(SDL_Surface *,int,int,Sprite2_array,unsigned,int,unsigned);
+uint64_t render_mirror_green_create_begin(unsigned,unsigned,unsigned,unsigned,int,int,int,int);
+void render_mirror_green_create_end(uint64_t);
+void render_mirror_green_shot_allocated(unsigned);
+void render_mirror_green_shot_initialized(uint64_t,unsigned,unsigned,unsigned,unsigned,unsigned,unsigned);
+void render_mirror_green_trail_begin(unsigned);
+void render_mirror_green_trail_end(void);
+void render_mirror_green_smoke_allocated(unsigned,int,int,int,int,bool,bool);
+void render_mirror_green_smoke_initialized(unsigned,unsigned);
 int render_mirror_global_smoke(SDL_Surface *,int,int,Sprite2_array,unsigned,int,unsigned);
 int render_mirror_global_small_explosion(SDL_Surface *,int,int,Sprite2_array,unsigned,int,unsigned);
+int render_mirror_global_cash25_value(SDL_Surface *,int,int,Sprite2_array,unsigned,int,unsigned);
+int render_mirror_global_cash25_body(SDL_Surface *,int,int,Sprite2_array,unsigned,int,int,const G101EnemyContext *);
+int render_mirror_global_rotor_body(SDL_Surface *,int,int,Sprite2_array,unsigned,int,int,const G101EnemyContext *);
+void render_mirror_cash25_enemy_allocated(void *,unsigned,int);
+void render_mirror_rotor_enemy_allocated(void *,unsigned,int);
+void render_mirror_cash25_enemy_animated(unsigned);
+void render_mirror_rotor_enemy_animated(unsigned);
+void render_mirror_cash25_enemy_initialized(void *,unsigned,unsigned);
+void render_mirror_rotor_enemy_initialized(void *,unsigned,unsigned);
+void render_mirror_cash25_value_allocated(unsigned,int,int,int,int,bool,bool);
+void render_mirror_cash25_value_initialized(unsigned,unsigned);
 void render_mirror_smoke_explosion_allocated(unsigned,int,int,int,int,bool,bool);
 void render_mirror_small_explosion_allocated(unsigned,int,int,int,int,bool,bool);
 void render_mirror_smoke_explosion_initialized(unsigned,unsigned);

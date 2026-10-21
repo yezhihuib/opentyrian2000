@@ -146,7 +146,7 @@ def main():
     registry = json.loads((args.assets / 'registry.json').read_text())
     talon = verify_registry(args.assets, registry)
     payload = original_payload(args.data, registry)
-    sources = [ROOT / 'src/render_mirror.c', ROOT / 'src/global_asset_registry.h',
+    sources = [ROOT / 'src/render_mirror.c', ROOT / 'src/global_asset_registry.h', ROOT / 'src/shared_asset_reader.h',
                ROOT / 'src/global_talon_mirror.inc', ROOT / 'src/render_mirror.h', ROOT / 'src/sprite.c', HERE / 'global_talon_reconstruction.c',
                HERE / 'global_talon_reconstruction.py', HERE / 'global_talon_reconstruction.md']
     snapshot = {path: path.read_bytes() for path in sources}

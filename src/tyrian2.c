@@ -248,6 +248,9 @@ void JE_drawEnemy(int enemyOffset) // actually does a whole lot more than just d
 						enemy[i].enemycycle = enemy[i].animin;
 				}
 
+				render_mirror_cash25_enemy_animated(i);
+				render_mirror_rotor_enemy_animated(i);
+
 				if (enemy[i].egr[enemy[i].enemycycle - 1] == 999)
 					goto enemy_gone;
 
@@ -4029,6 +4032,8 @@ Sint16 JE_newEnemy(int enemyOffset, Uint16 eDatI, Sint16 uniqueShapeTableI)
 
 uint JE_makeEnemy(struct JE_SingleEnemyType *enemy, Uint16 eDatI, Sint16 uniqueShapeTableI)
 {
+	render_mirror_cash25_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
+	render_mirror_rotor_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
 	uint avail;
 
 	JE_byte shapeTableI;
@@ -4315,6 +4320,8 @@ uint JE_makeEnemy(struct JE_SingleEnemyType *enemy, Uint16 eDatI, Sint16 uniqueS
 		totalEnemy++;  /*Destruction ratio*/
 	}
 
+	render_mirror_cash25_enemy_initialized(enemy,eDatI,avail);
+	render_mirror_rotor_enemy_initialized(enemy,eDatI,avail);
 	/* indicates what to set ENEMYAVAIL to */
 	return avail;
 }

@@ -50,6 +50,7 @@
 #define SF_STAT struct stat
 #define SF_REGULAR(m) S_ISREG(m)
 #endif
+#include "shared_asset_fd_reader.inc"
 #define SF_MAP UINT64_C(0x845b16939661b466)
 #define SF_PAL UINT64_C(0x69f74bd2c5d2ad5b)
 #define SF_FNV UINT64_C(14695981039346656037)

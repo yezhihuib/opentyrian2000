@@ -320,7 +320,10 @@ int render_mirror_global_pulse(SDL_Surface *surface,int x,int y,Sprite2_array ba
   global_pulse_contributed=true;
   if(global_hitflare_owner)global_hitflare_owner[n]=global_hitflare_foreign[n]=0;
   if(global_smoke_owner)global_smoke_owner[n]=global_smoke_foreign[n]=0;
+  if(global_green_owner)global_green_owner[n]=global_green_foreign[n]=0;
   if(global_small_explosion_owner)global_small_explosion_owner[n]=global_small_explosion_foreign[n]=0;
+  if(global_cash25_owner)global_cash25_owner[n]=global_cash25_foreign[n]=0;
+  if(global_rotor_owner)global_rotor_owner[n]=global_rotor_foreign[n]=0;
   if(global_vulcan_owner)global_vulcan_owner[n]=global_vulcan_foreign[n]=0;
   global_pulse_owner[n]=1;global_pulse_foreign[n]=foreign;hd_owner[n]=1;cloud_owner[n]=0;green_first[n]=0;
   selected[(dy/d)*320+dx/d]=1;

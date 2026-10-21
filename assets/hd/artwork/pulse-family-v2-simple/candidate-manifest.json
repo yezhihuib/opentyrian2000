@@ -1,0 +1,304 @@
+{
+  "schema": "opentyrian-pulse-art-revision-v2",
+  "scope": "Exactly five revised Pulse head payloads; source identities, weapon records and roles unchanged.",
+  "approval": "User accepted simpler imagegen direction and whole-image crop, equal resize and transparent padding. No approval of gameplay or other assets is inferred.",
+  "image_editing": "Whole-image crop, uniform scale 1/10, transparent padding only; no recolor, alpha cleanup, per-lobe shift or procedural drawing.",
+  "anchor": "Resource59 retains metadata(-1,0), registration baked in canvas; do not apply second offset.",
+  "frames": [
+    {
+      "identity": 80058,
+      "master": "selected-masters/pulse-58-master.png",
+      "master_sha256": "b7db0daeb7e44ed1a2fe09b99f443cc653de96167dd697adf1642b89380fad0f",
+      "master_size": [
+        1161,
+        1355
+      ],
+      "crop": [
+        450,
+        260,
+        710,
+        1080
+      ],
+      "resize": [
+        26,
+        82
+      ],
+      "scale": [
+        1,
+        10
+      ],
+      "resampler": "Lanczos",
+      "paste": [
+        35,
+        2
+      ],
+      "canvas": [
+        96,
+        112
+      ],
+      "source_png": "exports/bullet-58-8.png",
+      "source_png_sha256": "aebd0ec31a5ac1a14a58340a5bfb084a05df49bcf95d040565c8a423674979e6",
+      "hda": "runtime/bullet-58-8.hda",
+      "sha256": "17dcd126156a3555b6c157fca2d0353666d1b533d4e770f0aba4d82be2d189a5",
+      "bytes": 43036,
+      "header_u32": [
+        80058,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "4a7203e28e6af9f2",
+      "alpha_bbox_gt16": [
+        36,
+        3,
+        61,
+        82
+      ],
+      "alpha_bbox_gt128": [
+        36,
+        3,
+        60,
+        81
+      ],
+      "max_outer_alpha": 0
+    },
+    {
+      "identity": 80059,
+      "master": "selected-masters/pulse-59-master.png",
+      "master_sha256": "c323b96a656a5eccefb4f59b4b0fca110b0da93d6f59b00132046fb1936f39f0",
+      "master_size": [
+        1161,
+        1355
+      ],
+      "crop": [
+        300,
+        240,
+        860,
+        1060
+      ],
+      "resize": [
+        56,
+        82
+      ],
+      "scale": [
+        1,
+        10
+      ],
+      "resampler": "Lanczos",
+      "paste": [
+        20,
+        1
+      ],
+      "canvas": [
+        96,
+        112
+      ],
+      "source_png": "exports/bullet-59-8.png",
+      "source_png_sha256": "1731d54c2d42bb550be7d6b3b81cc9db606235fdb5f5f2aaceecd50c7e506b88",
+      "hda": "runtime/bullet-59-8.hda",
+      "sha256": "50121eda138eb594e765a97fdbe60ea747f67a4411397f862f07f9cc25dcc3ca",
+      "bytes": 43036,
+      "header_u32": [
+        80059,
+        8,
+        12,
+        14,
+        4294967295,
+        0
+      ],
+      "payload_fnv64": "1adcfe7354fb0ea4",
+      "alpha_bbox_gt16": [
+        21,
+        2,
+        76,
+        82
+      ],
+      "alpha_bbox_gt128": [
+        21,
+        3,
+        75,
+        81
+      ],
+      "max_outer_alpha": 0
+    },
+    {
+      "identity": 80060,
+      "master": "selected-masters/pulse-60-master.png",
+      "master_sha256": "d2c7751a010d2e021274a9a4af1f654e91af8b798e4c93a10b2bd9afe0f3af37",
+      "master_size": [
+        1161,
+        1355
+      ],
+      "crop": [
+        240,
+        250,
+        920,
+        1130
+      ],
+      "resize": [
+        68,
+        88
+      ],
+      "scale": [
+        1,
+        10
+      ],
+      "resampler": "Lanczos",
+      "paste": [
+        14,
+        1
+      ],
+      "canvas": [
+        96,
+        112
+      ],
+      "source_png": "exports/bullet-60-8.png",
+      "source_png_sha256": "f89d1620ce33ef06410439ef3245ec7be4084e82184bc36971f767e4c748aafa",
+      "hda": "runtime/bullet-60-8.hda",
+      "sha256": "200eae408268ac6d1bcb8ba2e688a14c06de93d0db5120ca18c8bf6bd0cc0102",
+      "bytes": 43036,
+      "header_u32": [
+        80060,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "f82b44a194e07d0e",
+      "alpha_bbox_gt16": [
+        15,
+        2,
+        82,
+        89
+      ],
+      "alpha_bbox_gt128": [
+        15,
+        3,
+        81,
+        89
+      ],
+      "max_outer_alpha": 0
+    },
+    {
+      "identity": 80062,
+      "master": "selected-masters/pulse-62-master.png",
+      "master_sha256": "669724db4ce96a617737e77ae1a881835c94990791e5799e709f01eec47ed012",
+      "master_size": [
+        1161,
+        1355
+      ],
+      "crop": [
+        130,
+        250,
+        1030,
+        1070
+      ],
+      "resize": [
+        90,
+        82
+      ],
+      "scale": [
+        1,
+        10
+      ],
+      "resampler": "Lanczos",
+      "paste": [
+        3,
+        2
+      ],
+      "canvas": [
+        96,
+        112
+      ],
+      "source_png": "exports/bullet-62-8.png",
+      "source_png_sha256": "b50f4b4de729a8231f80cedec5856b5273141418ce2e7b9c76d63cf53cb6d19e",
+      "hda": "runtime/bullet-62-8.hda",
+      "sha256": "78691413335fd513e10e4182771e325aa5b778b56825b70f3880143d6f655a07",
+      "bytes": 43036,
+      "header_u32": [
+        80062,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "674664dcae38efa9",
+      "alpha_bbox_gt16": [
+        4,
+        3,
+        92,
+        82
+      ],
+      "alpha_bbox_gt128": [
+        5,
+        4,
+        92,
+        82
+      ],
+      "max_outer_alpha": 0
+    },
+    {
+      "identity": 80165,
+      "master": "selected-masters/pulse-165-master.png",
+      "master_sha256": "1b267734cc1143b2bb86973bc72b911528e8c665aafc9a8ef72487211282ea69",
+      "master_size": [
+        1161,
+        1355
+      ],
+      "crop": [
+        250,
+        190,
+        910,
+        990
+      ],
+      "resize": [
+        66,
+        80
+      ],
+      "scale": [
+        1,
+        10
+      ],
+      "resampler": "Lanczos",
+      "paste": [
+        15,
+        3
+      ],
+      "canvas": [
+        96,
+        112
+      ],
+      "source_png": "exports/bullet-165-8.png",
+      "source_png_sha256": "d34b80ea12d9accd46ddfd7f8cd98910b75416b9e79a55a0c5452d839ed7acd3",
+      "hda": "runtime/bullet-165-8.hda",
+      "sha256": "3efbda4baac296de195fdf47a40f1472f112a76ff51a4c04fd1255fd3e878752",
+      "bytes": 43036,
+      "header_u32": [
+        80165,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "1ec9c190029a963f",
+      "alpha_bbox_gt16": [
+        16,
+        4,
+        81,
+        82
+      ],
+      "alpha_bbox_gt128": [
+        16,
+        5,
+        80,
+        81
+      ],
+      "max_outer_alpha": 0
+    }
+  ]
+}
