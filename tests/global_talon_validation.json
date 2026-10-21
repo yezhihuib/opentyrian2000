@@ -1,0 +1,314 @@
+{
+  "schema": "global-talon-validation-v1",
+  "verified_utc": "2026-10-21T03:11:54.037330+00:00",
+  "public_baseline": "23e3ece9f4618c734fc500b868d482be95bb4ed9",
+  "local_baseline": "81b072497eaf48c41abb16e8a6e80ba6d386ef67",
+  "equal_baseline_tree": "57837f9558af041b0d884e597d659adba0abf606",
+  "scope": "Opt-in global Talon13 only, independent of level gates. Other four global effect/weapon families remain data only.",
+  "focused_talon": {
+    "cases": 365,
+    "assertions": 421050144,
+    "plain": "PASS",
+    "asan_ubsan": "PASS",
+    "includes": "native alias, role/source/palette, output, reset, fade, night, shared HUD original-blend observation"
+  },
+  "focused_hud": {
+    "assertions": 166155902,
+    "plain": "PASS",
+    "asan_ubsan": "PASS",
+    "global_stubbed": true
+  },
+  "native": {
+    "runs": 22,
+    "frames_per_run": 160,
+    "total_frames": 3520,
+    "scenarios": [
+      "ordinary",
+      "genuine Hard15",
+      "HUD and Talon independently and together",
+      "legacy scene with independent roots",
+      "ship/cash overlap",
+      "each owner root disabled after frame115 finish"
+    ],
+    "simulation_indexed_palette_rng_parity": "PASS",
+    "screenshots_outside_talon_conservative_support": 0,
+    "independent_public_hard15_reference": "PASS",
+    "revocation": "One classic Present conservatively invalidates shared buffer; remaining owner exact own-only result at frames125,140,160."
+  },
+  "build": "Full clean make and syntax compilation passed against matching copied source.",
+  "files": [
+    {
+      "path": "assets/hd/global-assets-v1/content/032b9a95b91fe76016e28cc4416ae965743088b238a6ef1b3119c368788b7fbb.hda",
+      "sha256": "032b9a95b91fe76016e28cc4416ae965743088b238a6ef1b3119c368788b7fbb"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/04e2163c6ae9fcca00b0ce6ef155d5680f2e36c710d898b8f5a1cf3611948e0e.hda",
+      "sha256": "04e2163c6ae9fcca00b0ce6ef155d5680f2e36c710d898b8f5a1cf3611948e0e"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/05e222ca3581e6718752ea0577c212f08729749cdcfc936d59b2218f393d660a.hda",
+      "sha256": "05e222ca3581e6718752ea0577c212f08729749cdcfc936d59b2218f393d660a"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/07f4b19c3630ecd061f0c5701e30ac2e9222a5180d889cd0339edbcd2bdaaef4.hda",
+      "sha256": "07f4b19c3630ecd061f0c5701e30ac2e9222a5180d889cd0339edbcd2bdaaef4"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/0da3659e64942dfef38833193b19f5186586ca0f43b99f8fa5e31b7792a18ecf.hda",
+      "sha256": "0da3659e64942dfef38833193b19f5186586ca0f43b99f8fa5e31b7792a18ecf"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/0e42426b54f2b56d29d446153361864aa9c18058f1ba6d61c0827d49aadb5869.hda",
+      "sha256": "0e42426b54f2b56d29d446153361864aa9c18058f1ba6d61c0827d49aadb5869"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/173d815b5a3f641e7147de537cb5246ba1fad8a013b3d91d585fd67828a7b803.hda",
+      "sha256": "173d815b5a3f641e7147de537cb5246ba1fad8a013b3d91d585fd67828a7b803"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/1aaf6de91392988e89266e8f8c760ea00f74a2abdaf4ae5e59c592e5a64feebc.hda",
+      "sha256": "1aaf6de91392988e89266e8f8c760ea00f74a2abdaf4ae5e59c592e5a64feebc"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/207239469f9c8a76fd2d63f30dfc537263742ecc7683a44d067519272430b691.hda",
+      "sha256": "207239469f9c8a76fd2d63f30dfc537263742ecc7683a44d067519272430b691"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/255fa3dc879f33cb014f4393b56305bc118ef651c51f3ad6892f67922d959047.hda",
+      "sha256": "255fa3dc879f33cb014f4393b56305bc118ef651c51f3ad6892f67922d959047"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/2684439fb26d3ba4c0a1cadef9aba5c6baefc641dc8298493f4ea1b232bf9f2f.hda",
+      "sha256": "2684439fb26d3ba4c0a1cadef9aba5c6baefc641dc8298493f4ea1b232bf9f2f"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/4320a1a0771cbbd6f9a58239fcb78adfc193501f6b3bcf4b148f82c15b964ee0.hda",
+      "sha256": "4320a1a0771cbbd6f9a58239fcb78adfc193501f6b3bcf4b148f82c15b964ee0"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/4cfd97f983844e5651d5b28778e414a1599f811a1475faa6ccde66cee8d696b7.hda",
+      "sha256": "4cfd97f983844e5651d5b28778e414a1599f811a1475faa6ccde66cee8d696b7"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/4ffc2b7596daf9da246c8c502e7d48a9c5a72271a3f4bd00aded691916eff5e3.hda",
+      "sha256": "4ffc2b7596daf9da246c8c502e7d48a9c5a72271a3f4bd00aded691916eff5e3"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/50e521515f6929ffb5fa786a7ca19304eed782583087b1f768c24491d74c3f0d.hda",
+      "sha256": "50e521515f6929ffb5fa786a7ca19304eed782583087b1f768c24491d74c3f0d"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/557cbe6ec20edcb1615942492c6feecc2d1cdf4d82565f2a63d773185739dc92.hda",
+      "sha256": "557cbe6ec20edcb1615942492c6feecc2d1cdf4d82565f2a63d773185739dc92"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/571feee3e3a572c6178fad80ca8fe3ca12e2cde21438464fa916b68cab1b43b0.hda",
+      "sha256": "571feee3e3a572c6178fad80ca8fe3ca12e2cde21438464fa916b68cab1b43b0"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/5c264f1bcb8cd5ba90572f1f58fab27918d0d1422b08bf79c10475bb588f358e.hda",
+      "sha256": "5c264f1bcb8cd5ba90572f1f58fab27918d0d1422b08bf79c10475bb588f358e"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/5cfa025cce0d662d0d92f1f1371cd0153910175a5956e4ed02ae7dc6fc3bafc7.hda",
+      "sha256": "5cfa025cce0d662d0d92f1f1371cd0153910175a5956e4ed02ae7dc6fc3bafc7"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/5f09994d08e87f4e7ce0ad95f247e477a7a92b957c9dc5f8f6c6188e75f0335c.hda",
+      "sha256": "5f09994d08e87f4e7ce0ad95f247e477a7a92b957c9dc5f8f6c6188e75f0335c"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/692b9a7cc8455798a1dda8a1dfe4aba10bb9872cacc790fd26ac5b246fa91350.hda",
+      "sha256": "692b9a7cc8455798a1dda8a1dfe4aba10bb9872cacc790fd26ac5b246fa91350"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/6affeaa882afe7ca48267f6303d5d809866f2c916729d1bfc533b9c32dbeaa49.hda",
+      "sha256": "6affeaa882afe7ca48267f6303d5d809866f2c916729d1bfc533b9c32dbeaa49"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/6d6a2f0addecec74acd0d8e9b1cb3246b5b40e759c3b3f0e24c1dea43d4b2ad7.hda",
+      "sha256": "6d6a2f0addecec74acd0d8e9b1cb3246b5b40e759c3b3f0e24c1dea43d4b2ad7"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/7b68a29d3f1f765cfa830ca83dd2c348a4f13182f9c637f4baa9b1ac4ef3877c.hda",
+      "sha256": "7b68a29d3f1f765cfa830ca83dd2c348a4f13182f9c637f4baa9b1ac4ef3877c"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/86956e4f8ba83188e38897eedb7fc7fef6823b331a1036d586cd0b7551c896a9.hda",
+      "sha256": "86956e4f8ba83188e38897eedb7fc7fef6823b331a1036d586cd0b7551c896a9"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/88a24e24a1d715d0dea69085528d09baaa5a670494a854d4db58bf68d4b402b0.hda",
+      "sha256": "88a24e24a1d715d0dea69085528d09baaa5a670494a854d4db58bf68d4b402b0"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/96b975abbccf393464cf2444f72d63c8ad3f996d8cc5c153593ad16f476e30e0.hda",
+      "sha256": "96b975abbccf393464cf2444f72d63c8ad3f996d8cc5c153593ad16f476e30e0"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae.hda",
+      "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/a375ba8f0cf276a2eb2e8be75165f96ea9b67edf37a6dca9f29fd8aef07bd7dc.hda",
+      "sha256": "a375ba8f0cf276a2eb2e8be75165f96ea9b67edf37a6dca9f29fd8aef07bd7dc"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/ae97ccc3056b059c5e8e78da37c1c3cf1dede697fcaeef37d8c7f082b1f49902.hda",
+      "sha256": "ae97ccc3056b059c5e8e78da37c1c3cf1dede697fcaeef37d8c7f082b1f49902"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/b65b0524a05d1321131eea311f4e07f84841b895543def21f5f284b3ed6e7d8d.hda",
+      "sha256": "b65b0524a05d1321131eea311f4e07f84841b895543def21f5f284b3ed6e7d8d"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/b6a2fed82b69e624ea249868f584638345ffb0d21807c453d18e4d8af1d0be20.hda",
+      "sha256": "b6a2fed82b69e624ea249868f584638345ffb0d21807c453d18e4d8af1d0be20"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/b71609dd0caf8c545e1683328e47e9a1a26222e5f65d3774faafaa41ad36330f.hda",
+      "sha256": "b71609dd0caf8c545e1683328e47e9a1a26222e5f65d3774faafaa41ad36330f"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/babd7fd35c3e5d36b91f3e12fb4321f10710534365966650c0300b6d0fb7baa7.hda",
+      "sha256": "babd7fd35c3e5d36b91f3e12fb4321f10710534365966650c0300b6d0fb7baa7"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/c21b09f637019168b208412849aff98a5e94b79b7910ec06bc835efbb5036303.hda",
+      "sha256": "c21b09f637019168b208412849aff98a5e94b79b7910ec06bc835efbb5036303"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/ce7e60e2a2f7df5290909a07655d432179c0ff3e204b4449d5e2ad637bdae1c1.hda",
+      "sha256": "ce7e60e2a2f7df5290909a07655d432179c0ff3e204b4449d5e2ad637bdae1c1"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/d06d24e14dc51657c392bf6b2fae142cf7209dea740495a30786231eefdb58ea.hda",
+      "sha256": "d06d24e14dc51657c392bf6b2fae142cf7209dea740495a30786231eefdb58ea"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/d1fe9bfe2dd84207fceb2f453c862eeaea802d9832fd14c1e1c3290622a53964.hda",
+      "sha256": "d1fe9bfe2dd84207fceb2f453c862eeaea802d9832fd14c1e1c3290622a53964"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/d4fdb95e09cec1c5a70a3a1c69ed322616c52bb16a3a3ecf50ddcdb6711cc034.hda",
+      "sha256": "d4fdb95e09cec1c5a70a3a1c69ed322616c52bb16a3a3ecf50ddcdb6711cc034"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/dd505a16d35d08ad736219fe75622f5ec0f0370298dce20f8c69f862be6ac270.hda",
+      "sha256": "dd505a16d35d08ad736219fe75622f5ec0f0370298dce20f8c69f862be6ac270"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/e373dd69863cf6f741ac095ace46183a3af045dad42dc6fc292b00c9774bf612.hda",
+      "sha256": "e373dd69863cf6f741ac095ace46183a3af045dad42dc6fc292b00c9774bf612"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/e4ea83cf45e3ab8c97f563e73337c16f28ec19f39de724b51d712bb6442d9b4b.hda",
+      "sha256": "e4ea83cf45e3ab8c97f563e73337c16f28ec19f39de724b51d712bb6442d9b4b"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/e570776739129ff48f15aa5d4f5f809974e3420bf8bc55241429d419ce08f0d8.hda",
+      "sha256": "e570776739129ff48f15aa5d4f5f809974e3420bf8bc55241429d419ce08f0d8"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/ec6c662bc5a8f596a0e8b1023530636b3cdf1a9b608382c7d8ee37337d9cfefb.hda",
+      "sha256": "ec6c662bc5a8f596a0e8b1023530636b3cdf1a9b608382c7d8ee37337d9cfefb"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/ed46bd33c56712bfc3fbdeeb48a900fd5e21d8ea78f361392f18fdee0d761785.hda",
+      "sha256": "ed46bd33c56712bfc3fbdeeb48a900fd5e21d8ea78f361392f18fdee0d761785"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/eebd525dab58f0fc6708f4f3c7b15a88e67270be877ff250e93c4bb2a2aeb8de.hda",
+      "sha256": "eebd525dab58f0fc6708f4f3c7b15a88e67270be877ff250e93c4bb2a2aeb8de"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/efa6886201d97f13f2f27a2dc8ea13f9d6bb7229488d52befdb60571142993da.hda",
+      "sha256": "efa6886201d97f13f2f27a2dc8ea13f9d6bb7229488d52befdb60571142993da"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/f11918f94d45b0b4ceb193858e6cdc7a12fda2161d89da42ce68f98fd95070ee.hda",
+      "sha256": "f11918f94d45b0b4ceb193858e6cdc7a12fda2161d89da42ce68f98fd95070ee"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/content/f31dc159a1fc519dc897afe2959bf1eab709ea9ac148c0f72ee78591e8629e7e.hda",
+      "sha256": "f31dc159a1fc519dc897afe2959bf1eab709ea9ac148c0f72ee78591e8629e7e"
+    },
+    {
+      "path": "assets/hd/global-assets-v1/registry.json",
+      "sha256": "d75383aba0bc207800d5b2f875de6b98a7ea127159873ec9837d05a04fc19e77"
+    },
+    {
+      "path": "src/entity_draw.c",
+      "sha256": "040b70e5340192f712647cba896498738d1388d55806573d2bb26b6d2266c09d"
+    },
+    {
+      "path": "src/entity_draw.h",
+      "sha256": "6b937676a9360f7485452282f4c68502bf8678fc8e2b67b6ef551d5871145ea5"
+    },
+    {
+      "path": "src/game_probe.c",
+      "sha256": "569ce918649e1099cda6eae7bd712d914a42480a615ed31d8e17198e20cc5364"
+    },
+    {
+      "path": "src/global_asset_registry.h",
+      "sha256": "91095851278c62c65eb184083d6dcd7b5e8f4abb5290d6583bf804ea4471b561"
+    },
+    {
+      "path": "src/global_talon_mirror.inc",
+      "sha256": "ac90f9ce877ee79e944c226a8e040efface35d75b0b157c82bd58bec8d6c3e91"
+    },
+    {
+      "path": "src/mainint.c",
+      "sha256": "b63a54295e6776c67050ba871b13252b139ac57e82c21757d2ab83f37cf1e1a5"
+    },
+    {
+      "path": "src/params.c",
+      "sha256": "f7929c17473fdea0ab9c3fc1ee944922273e95f4ac06b4bb0e1e18606d2fd6e9"
+    },
+    {
+      "path": "src/render_mirror.c",
+      "sha256": "b077a7e5303f72e6454419de20c602b77030aa059dc2a3d13f8222afc1c7f926"
+    },
+    {
+      "path": "src/render_mirror.h",
+      "sha256": "4bbcabc863cdccf377a5b4734ea7699cf2e2db7dd787740af84835d8fdc18732"
+    },
+    {
+      "path": "src/sprite.c",
+      "sha256": "f175201797ca099a4a1a9624b491091c86d35075d12e355522b4dce52484b428"
+    },
+    {
+      "path": "src/tyrian2.c",
+      "sha256": "7d531f8faeafbd8c1d8eba1bb2d4a882bbce660f98503faa8366a9edf1ca4669"
+    },
+    {
+      "path": "src/video.c",
+      "sha256": "67dbb38e6928bb8c4cea0d4006b098ce3b1eae651ab283eef3b2494b3d4a3bbf"
+    },
+    {
+      "path": "tests/global_talon_reconstruction.c",
+      "sha256": "87413808f2c6bfedc35cbaf93c83972d8e2bb696800c29a09990bb1103c09bdf"
+    },
+    {
+      "path": "tests/global_talon_reconstruction.md",
+      "sha256": "f438edcffecad8bbf9b2f444bf4ba187541494782e13a69a1cd06ccf5e9c1df1"
+    },
+    {
+      "path": "tests/global_talon_reconstruction.py",
+      "sha256": "faf6d2f2cbb228ca9564c508a29c07deafbfd005d0c4c4ef4303e5f40f08cd06"
+    },
+    {
+      "path": "tests/shared_hud_reconstruction.c",
+      "sha256": "df89725e6769c3d1618a5ad80d08ee7a982c2fe56af2f86b8d44ee85ca5486fe"
+    }
+  ],
+  "limits": [
+    "Native SDL dummy/software presentation, no GPU or Windows certification.",
+    "Assisted original loadout and campaign-section selection before level initialization; original runtime input/gameplay preserved.",
+    "Original game data not included.",
+    "No complete campaign or audio/frame-pacing certification.",
+    "Published launchers and packaging remain unchanged; this batch requires explicit --global-assets for developer testing.",
+    "Validation and local save performed before separately authorized GitHub publication."
+  ],
+  "independent_review": "ACCEPT final v7: 365 cases / 421050144 assertions under ASan+UBSan; all 221 frozen production hashes, 66 integration files and six enabled-family root-drop comparisons verified."
+}

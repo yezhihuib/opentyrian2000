@@ -547,6 +547,8 @@ void JE_loadCompShapesB(Sprite2_array *sprite2s, FILE *f)
 
 void free_sprite2s(Sprite2_array *sprite2s)
 {
+	if (sprite2s == &spriteSheet8 || sprite2s == &spriteSheet9 || sprite2s == &explosionSpriteSheet)
+		render_mirror_global_reset();
 	free(sprite2s->data);
 	sprite2s->data = NULL;
 

@@ -150,7 +150,7 @@ enum {MIRROR_NORMAL,MIRROR_BLEND,MIRROR_SHADOW};
 /* Unrelated scene/menu adapters are deliberately inert. HUD and font paths below
  * are production bodies; all six production loaders retain their real pins. */
 static bool shared_hud_lease,shared_hud_frame,manual_hd_lease,asteroid_hd_lease;
-static char shared_hud_assets[1024];
+static char shared_hud_assets[1024],global_asset_directory[1024];
 #include "shared_root.inc"
 static bool manual_hd_enabled,asteroid_hd_enabled,xmas,isNetworkGame,twoPlayerLinked,record_demo,onePlayerAction,superTyrian,timedBattleMode,bonusLevel,normalBonusLevelCurrent,bonusLevelCurrent,play_demo;
 static int episodeNum=1,lvlFileNum=2,initialDifficulty=2,superArcadeMode;
@@ -171,19 +171,39 @@ NOOP(asteroid_random5_shutdown) NOOP(asteroid_random43_shutdown) NOOP(asteroid_r
 static void storm_start(SDL_Surface *s){}
 static void hud_storm_fade_palette(const Uint32 *p){}
 static void storm_present(void *p,int pitch){}
-#define PIXEL2(n) static void n(SDL_Surface *s,Uint8 *p){}
-#define PIXEL3(n) static void n(SDL_Surface *s,Uint8 *p,int style){}
-#define RECT(n) static void n(SDL_Surface *s,const SDL_Rect *r){}
-PIXEL2(data_frame_pixel) PIXEL2(data_portrait_pixel) PIXEL2(storm_pixel)
-PIXEL3(settings_font_pixel) PIXEL3(load_font_pixel) PIXEL3(selector_font_pixel) PIXEL3(pregame_font_pixel)
-RECT(data_frame_rect) RECT(data_portrait_rect) RECT(storm_rect) RECT(settings_font_rect) RECT(load_font_rect) RECT(selector_font_rect) RECT(pregame_font_rect)
-/* Pause is a separately tested presenter; this extracted HUD oracle keeps it disabled. */
+/* Pause seam is independently tested; HUD oracle keeps the menu owner off. */
+/* Global family internals have a separate real-source oracle. This suite
+ * exercises the shared HUD with that independent owner inactive. */
+static bool global_talon_frame;
+static bool global_talon_requested(void){return false;}
+static bool global_talon_surface_matches(void){return true;}
+static bool global_talon_final_surface_matches(void){return true;}
+static bool global_talon_fade_buffer_safe(void){return true;}
+static bool global_talon_fade_capture(void){return true;}
+static bool global_talon_fade_step_valid(int steps){(void)steps;return true;}
+void render_mirror_global_reset(void){}
+static void global_talon_fail(void){}
+static void global_talon_shutdown(void){}
+static void global_talon_frame_begin(void){global_talon_frame=false;}
+static bool global_talon_pixel(int x,int y,Uint8 before,Uint8 after,int style){return false;}
+static void global_talon_final_pixel(SDL_Surface *s,Uint8 *p){}
+static void global_talon_final_rect(SDL_Surface *s,const SDL_Rect *r){}
+static void global_talon_end(void){}
+static bool global_talon_compose(int kind,int lightx,int lighty){return false;}
+static void global_talon_check_cache(void){}
+static void global_talon_fade_palette(void){}
 static bool common_menu_configured(void){return false;}
 static void common_pause_snapshot_stage(SDL_Surface *s,const void *p,int pitch,int w,int h,unsigned d){}
 static void common_pause_snapshot_commit(void){}
 static void common_pause_snapshot_discard_candidate(void){}
+#define PIXEL2(n) static void n(SDL_Surface *s,Uint8 *p){}
+#define PIXEL3(n) static void n(SDL_Surface *s,Uint8 *p,int style){}
+#define RECT(n) static void n(SDL_Surface *s,const SDL_Rect *r){}
+PIXEL2(data_frame_pixel) PIXEL2(data_portrait_pixel) PIXEL2(storm_pixel)
 PIXEL3(common_pause_pixel)
 RECT(common_pause_rect)
+PIXEL3(settings_font_pixel) PIXEL3(load_font_pixel) PIXEL3(selector_font_pixel) PIXEL3(pregame_font_pixel)
+RECT(data_frame_rect) RECT(data_portrait_rect) RECT(storm_rect) RECT(settings_font_rect) RECT(load_font_rect) RECT(selector_font_rect) RECT(pregame_font_rect)
 typedef enum {MIRROR_OUTPUT_UNKNOWN,MIRROR_OUTPUT_ORDINARY,MIRROR_OUTPUT_NORMAL15_NIGHT,MIRROR_OUTPUT_NORMAL15_LOW_DETAIL} MirrorOutputKind;
 #include "gameplay_hud_font_mirror.inc"
 #include "production.inc"
@@ -208,7 +228,7 @@ static void cleanup(void)
  canvas=output=fade_saved=game_screen=VGAScreenSeg=NULL;
  free(hd_owner);free(cloud_owner);free(green_first);free(green_under);free(green_under_owner);
  hd_owner=cloud_owner=green_under_owner=NULL;green_first=NULL;green_under=NULL;
- shared_hud_assets[0]=0;shared_hud_lease=shared_hud_frame=false;
+ shared_hud_assets[0]=global_asset_directory[0]=0;shared_hud_lease=shared_hud_frame=false;
 }
 static void setup(const char *root,int d)
 {
@@ -292,7 +312,7 @@ static void stage_suite(const char *root)
   CHECK(render_mirror_present(NULL,VGAScreenSeg,NULL));CHECK(!render_mirror_present(NULL,VGAScreenSeg,NULL));
  }
  setup(NULL,4);grant();none_ready();CHECK(!shared_hud_lease);render_mirror_begin();CHECK(!active&&!shared_hud_frame);
- setup(root,4);CHECK(!mirror_enabled());grant();all_ready();CHECK(!mirror_enabled());
+ setup(root,4);CHECK(render_mirror_set_global_assets("/configured-but-unadmitted"));CHECK(!mirror_enabled());grant();all_ready();CHECK(!mirror_enabled());
  for(unsigned flag=0;flag<7;flag++) {
   setup(root,4);if(flag==0)twoPlayerMode=true;if(flag==1)galagaMode=true;if(flag==2)game_probe_missing=true;if(flag==3)game_probe_invalid=true;if(flag==4)game_probe_original_reference=true;if(flag==5)game_probe_density=1;if(flag==6)game_probe_density=3;
   grant();none_ready();CHECK(!shared_hud_lease);

@@ -4264,10 +4264,10 @@ redo:
 		{
 			if (background2)
 			{
-				draw_entity_sprite2(VGAScreen, this_player->x - 5 - mapX2Ofs + 30, this_player->y - 7 + shadowYDist, *shipGrPtr_, ship_sprite, ENTITY_SHADOW, ENTITY_QUAD);
+				draw_player_ship_sprite2(VGAScreen, this_player->x - 5 - mapX2Ofs + 30, this_player->y - 7 + shadowYDist, *shipGrPtr_, ship_sprite, ENTITY_SHADOW, playerNum_, shipGr_);
 				if (superWild)
 				{
-					draw_entity_sprite2(VGAScreen, this_player->x - 4 - mapX2Ofs + 30, this_player->y - 7 + shadowYDist, *shipGrPtr_, ship_sprite, ENTITY_SHADOW, ENTITY_QUAD);
+					draw_player_ship_sprite2(VGAScreen, this_player->x - 4 - mapX2Ofs + 30, this_player->y - 7 + shadowYDist, *shipGrPtr_, ship_sprite, ENTITY_SHADOW, playerNum_, shipGr_);
 				}
 			}
 		}
@@ -4287,7 +4287,7 @@ redo:
 				draw_entity_sprite2(VGAScreen, this_player->x + 7 , this_player->y - 7, *shipGrPtr_, 222, ENTITY_BLEND, ENTITY_QUAD);
 			}
 			else
-				draw_entity_sprite2(VGAScreen, this_player->x - 5, this_player->y - 7, *shipGrPtr_, ship_sprite, ENTITY_BLEND, ENTITY_QUAD);
+				draw_player_ship_sprite2(VGAScreen, this_player->x - 5, this_player->y - 7, *shipGrPtr_, ship_sprite, ENTITY_BLEND, playerNum_, shipGr_);
 		}
 		else
 		{
@@ -4343,7 +4343,7 @@ redo:
 			}
 			else
 			{
-				draw_entity_sprite2(VGAScreen, this_player->x - 5, this_player->y - 7, *shipGrPtr_, ship_sprite, ENTITY_NORMAL, ENTITY_QUAD);
+				draw_player_ship_sprite2(VGAScreen, this_player->x - 5, this_player->y - 7, *shipGrPtr_, ship_sprite, ENTITY_NORMAL, playerNum_, shipGr_);
 			}
 		}
 

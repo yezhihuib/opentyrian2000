@@ -127,6 +127,7 @@ void init_video(void)
 
 void deinit_video(void)
 {
+	render_mirror_global_reset();
 	common_pause_invalidate();
 	render_mirror_hud_shutdown();
 	startup_logos_shutdown();

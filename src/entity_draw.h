@@ -16,6 +16,9 @@ void draw_entity_sprite2(SDL_Surface *target, int x, int y,
                          Sprite2_array bank, unsigned int index,
                          EntityDrawStyle style, EntityDrawLayout layout);
 
+/* Ordinary player QUAD semantic boundary; original indexed draw remains once. */
+void draw_player_ship_sprite2(SDL_Surface *,int,int,Sprite2_array,unsigned,EntityDrawStyle,unsigned,int);
+
 /* Dedicated provenance-gated bank8 normal head; fallback keeps existing roles. */
 void draw_player_shot_sprite2(SDL_Surface *,int x,int y,Sprite2_array,unsigned index,unsigned slot,unsigned raw);
 void draw_player_shot_shadow_sprite2(SDL_Surface *,int x,int y,Sprite2_array,unsigned index,unsigned slot,unsigned raw);

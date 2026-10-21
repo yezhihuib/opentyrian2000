@@ -132,3 +132,24 @@ void draw_plasma_body_sprite2(SDL_Surface *target,int x,int y,Sprite2_array bank
  blit_sprite2(target,x,y,bank,index);
  render_mirror_entity_end();
 }
+
+/* Tri-state admission prevents a rejected migrated identity from falling back
+ * through a warm generic cache. Unsupported ships retain their old path. */
+void draw_player_ship_sprite2(SDL_Surface *target,int x,int y,Sprite2_array bank,
+ unsigned index,EntityDrawStyle style,unsigned player,int base)
+{
+#ifndef RENDER_MIRROR_DISABLED
+ int admitted=render_mirror_global_player_ship(target,x,y,bank,index,style,player,base);
+ if(admitted<0){draw_entity_sprite2(target,x,y,bank,index,style,ENTITY_QUAD);return;}
+ int role=bank.data==spriteSheet9.data?9:bank.data==spriteSheet8.data?8:bank.data==spriteSheet12.data?12:bank.data==explosionSpriteSheet.data?6:0;
+ game_probe_draw(role,index,x,y,style,ENTITY_QUAD,admitted>0);
+ switch(style){
+ case ENTITY_NORMAL:blit_sprite2x2(target,x,y,bank,index);break;
+ case ENTITY_BLEND:blit_sprite2x2_blend(target,x,y,bank,index);break;
+ case ENTITY_SHADOW:blit_sprite2x2_darken(target,x,y,bank,index);break;
+ }
+ render_mirror_entity_end();
+#else
+ (void)player;(void)base;draw_entity_sprite2(target,x,y,bank,index,style,ENTITY_QUAD);
+#endif
+}

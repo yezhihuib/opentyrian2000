@@ -117,6 +117,7 @@ void JE_paramCheck(int argc, char *argv[])
 			       "  --common-menu-assets=DIR    Shared natural menu runs and pause fonts\n"
 			       "  --startup-assets=DIR        Optional HD manufacturer/title art (release, local startup only)\n"
 			       "  --hud-assets=DIR            Shared source-bound gameplay HUD assets\n"
+			       "  --global-assets=DIR         Shared source-bound player/effect assets\n"
 			       "  --manual-hd-assets=DIR      Display-only HD for local single-player Episode 1 / level 9\n"
 			       "                               Native menus and controls; classic outside this first level\n"
 			       "  --asteroid-hd-assets=DIR    Five asteroid families only, local Episode 1 / ASTEROID1\n"

@@ -12,6 +12,9 @@ typedef enum {
 } MirrorOutputKind;
 #ifdef RENDER_MIRROR_DISABLED
 #define render_mirror_set_hud_assets(directory) ((void)(directory),true)
+#define render_mirror_set_global_assets(directory) ((void)(directory),true)
+#define render_mirror_global_reset(...) ((void)0)
+#define render_mirror_global_player_ship(...) (-1)
 #define render_mirror_owns_display() false
 #define render_mirror_text_begin(...) ((void)0)
 #define render_mirror_text_end(...) ((void)0)
@@ -94,6 +97,10 @@ typedef enum {
 /* Independent shared HUD root. NULL disables; overlong paths fail closed.
  * This never grants world/scene rendering or enables probe/input behavior. */
 bool render_mirror_set_hud_assets(const char *directory);
+bool render_mirror_set_global_assets(const char *directory);
+/* Native semantic seam: -1 legacy route, 0 classic-only, 1 accepted HD. */
+int render_mirror_global_player_ship(SDL_Surface *,int x,int y,Sprite2_array,unsigned index,int style,unsigned pnum,int base);
+void render_mirror_global_reset(void);
 bool render_mirror_owns_display(void);
 void render_mirror_text_begin(SDL_Surface *,unsigned kind,int x,int y,const char *,unsigned hue,int value);
 void render_mirror_text_end(void);

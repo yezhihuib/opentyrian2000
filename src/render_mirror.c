@@ -150,6 +150,24 @@ static bool hud_gameplay,hud_suspended,hud_live,last_output_scene_hd;
 /* Reconstructed shared HUD route. The original scene predicates below remain
  * separate: a successful PIC3 witness cannot authorize a world asset. */
 static char shared_hud_assets[1024];
+/* Configuration only until the independently tested global registry stage. */
+static char global_asset_directory[1024];
+static bool global_talon_frame;
+static bool global_talon_requested(void);
+static void global_talon_shutdown(void);
+static void global_talon_frame_begin(void);
+static bool global_talon_pixel(int,int,Uint8,Uint8,int);
+static void global_talon_final_pixel(SDL_Surface *,Uint8 *);
+static void global_talon_final_rect(SDL_Surface *,const SDL_Rect *);
+static void global_talon_end(void);
+static bool global_talon_compose(MirrorOutputKind,int,int);
+static bool normal15_palette(void);
+static int normal15_branch(int,int,int,int);
+static Uint8 normal15_index(Uint8,int,int,int,int);
+static Uint32 normal15_rgba(Uint32,Uint8,Uint8,bool);
+static bool normal15_indices_match(MirrorOutputKind,int,int);
+static void global_talon_check_cache(void);
+static void global_talon_fade_palette(void);
 static bool shared_hud_lease,shared_hud_frame;
 static const char *hud_asset_directory(void)
 {return shared_hud_assets[0]?shared_hud_assets:game_probe_assets;}
@@ -1065,8 +1083,19 @@ bool render_mirror_set_hud_assets(const char *directory)
  return valid;
 }
 
+bool render_mirror_set_global_assets(const char *directory)
+{
+ size_t length=directory?strlen(directory):0;
+ if(length<sizeof(global_asset_directory)&&((!length&&!global_asset_directory[0])||(length&&!strcmp(directory,global_asset_directory))))return true;
+ global_talon_shutdown();global_asset_directory[0]='\0';
+ if(length>=sizeof(global_asset_directory))return false;
+ if(length)memcpy(global_asset_directory,directory,length+1);
+ return true;
+}
+
 void render_mirror_hud_shutdown(void)
 {
+ global_talon_shutdown();
  render_mirror_hud_reset();gameplay_hud_shutdown();hud_components_shutdown();hud_meters_shutdown();hud_indicators_shutdown();hud_fixed_text_shutdown();font_shutdown();hud_storm_shutdown();rear_p1_shutdown();asteroid1_shutdown();asteroid4_shutdown();asteroid_common4_shutdown();asteroid_random5_shutdown();asteroid_random43_shutdown();asteroid_random85_shutdown();asteroid_random123_shutdown();asteroid_random95_shutdown();asteroid_random114_shutdown();asteroid_random133_shutdown();asteroid_random152_shutdown();goldwing_shutdown();asteroid_random286_shutdown();fork284_shutdown();capsule545_shutdown();paired287_288_shutdown();firing325_shutdown();ember269_shutdown();linked338_shutdown();pulsing272_shutdown();triple275_shutdown();columns276_shutdown();turret273_shutdown();projectile304_shutdown();firing270_shutdown();firing285_shutdown();enemy_orb112113_shutdown();terrain144_shutdown();
 }
 
@@ -1252,15 +1281,15 @@ void render_mirror_begin(void)
  gem250_fixed_value=false;
  data_fixed_value=false;
  fixed_pickup_flash=false;
- if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()&&!shared_hud_lease) {render_mirror_hud_reset();return;}
+ if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()) {render_mirror_hud_reset();return;}
  hud_begin();
  /* JE_main level_loop calls begin exactly once per simulation tick. Neither
   * individual sprites, shadows nor repeated Present calls advance this clock. */
  ground101_frame_reset();
  ++mirror_logic_tick;banking_draw_player=0;
  last_output_valid=false;have_fade_saved=false;fade_mode=0;
- ready=false; active=false;shared_hud_frame=false; suppress=false;suppress_green_smoke=false;suppress_cloud=false;
- if(!mirror_enabled()&&!(shared_hud_lease&&shared_hud_requested())) return;
+ ready=false; active=false;shared_hud_frame=false;global_talon_frame=false; suppress=false;suppress_green_smoke=false;suppress_cloud=false;
+ if(!mirror_enabled()&&!(shared_hud_lease&&shared_hud_requested())&&!global_talon_requested()) return;
  if(!have_initial_palette) {memcpy(initial_palette,rgb_palette,sizeof(initial_palette));have_initial_palette=true;}
  if(asset_debug_fast_forward())return;
  if(game_probe_density<1||game_probe_density>8||!game_screen||!game_screen->pixels||
@@ -1292,6 +1321,7 @@ void render_mirror_begin(void)
  memset(selected,0,sizeof(selected)); memset(hd_owner,0,(size_t)canvas->w*canvas->h); draws=occlusions=mismatch=0; reject_reason=NULL;
  active=mirror_enabled();shared_hud_frame=shared_hud_lease&&shared_hud_requested();
  memset(cloud_owner,0,(size_t)canvas->w*canvas->h);
+ global_talon_frame_begin();
  green_head_count=0;memset(green_first,0,(size_t)canvas->w*canvas->h*sizeof(*green_first));
  region_count=local_entities=local_regions=local_blocks=0;all_rejections[0]='\0';
  memset(restored_mask,0,sizeof(restored_mask));brightness_blocks=restored_checks=restored_mismatches=expanded_regions=boundary_crossings=0;
@@ -1307,13 +1337,15 @@ void render_mirror_pixel(SDL_Surface *surface,Uint8 *address,Uint8 source,int st
  selector_font_pixel(surface,address,style);
  pregame_font_pixel(surface,address,style);
  font_final_pixel(surface,address);
+ global_talon_final_pixel(surface,address);
  common_pause_pixel(surface,address,style);
- if((!active&&!shared_hud_frame)||surface!=game_screen) {render_mirror_shadow_end();return;}
+ if((!active&&!shared_hud_frame&&!global_talon_frame)||surface!=game_screen) {render_mirror_shadow_end();return;}
  intptr_t offset=(intptr_t)address-(intptr_t)surface->pixels;
  if(offset<0||offset>=(intptr_t)surface->pitch*surface->h) { render_mirror_unsupported("invalid-write-address");return; }
  int y=(int)(offset/surface->pitch),x=(int)(offset%surface->pitch);
  if(x>=320||y>=200) {render_mirror_shadow_end();return;}
  Uint8 before=expected[y*320+x];expected[y*320+x]=*address;
+ if(global_talon_pixel(x,y,before,*address,style))return;
  if(reject_reason) {vulcan_shadow_clear();return;}
  if(vulcan_shadow_pixel(surface,x,y,before,*address,style))return;
  if(font_pixel(x,y,*address,style))return;
@@ -1370,7 +1402,8 @@ void render_mirror_rect(SDL_Surface *s,const SDL_Rect *rect)
  selector_font_rect(s,rect);
  pregame_font_rect(s,rect);
  font_final_rect(s,rect);
- if((!active&&!shared_hud_frame)||s!=game_screen) {common_pause_rect(s,rect);return;}
+ global_talon_final_rect(s,rect);
+ if((!active&&!shared_hud_frame&&!global_talon_frame)||s!=game_screen) {common_pause_rect(s,rect);return;}
  int x0=rect?rect->x:0,y0=rect?rect->y:0;
  int x1=rect?rect->x+rect->w:s->w,y1=rect?rect->y+rect->h:s->h;
  x0=MAX(x0,s->clip_rect.x);y0=MAX(y0,s->clip_rect.y);
@@ -1383,7 +1416,7 @@ void render_mirror_rect(SDL_Surface *s,const SDL_Rect *rect)
 void render_mirror_unsupported(const char *reason)
 {
  vulcan_shadow_clear();
- if(!active&&!shared_hud_frame)return;
+ if(!active&&!shared_hud_frame&&!global_talon_frame)return;
  if(!reject_reason) reject_reason=reason;
  if(!strstr(all_rejections,reason)) {
   size_t used=strlen(all_rejections),needed=strlen(reason)+(used?1:0);
@@ -1410,6 +1443,8 @@ static bool decode_tile(Sprite2_array bank,unsigned int index,Uint8 *indices,Uin
  }
  return false;
 }
+
+#include "global_talon_mirror.inc"
 
 static bool read_asset(Asset *a,int wanted)
 {
@@ -2281,6 +2316,7 @@ static bool talon_frames_ready(void)
 
 void render_mirror_player_pose(unsigned int pnum,Sprite2_array bank,int base,int index,unsigned int invulnerable)
 {
+ global_talon_pose(pnum,bank,base,index,invulnerable);
  if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled())return;
  if(pnum<1||pnum>2)return;
  asteroid1_talon_blend_pose(pnum,bank,base,index,invulnerable,player[pnum-1].x,player[pnum-1].y);
@@ -2787,6 +2823,8 @@ static bool secret_exit_orb_pickup(SDL_Surface *surface,int x,int y,Sprite2_arra
 
 bool render_mirror_entity(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int index,int style,int layout)
 {
+ /* Migrated Talon sprites require the native player-ship semantic seam. */
+ if(global_asset_directory[0]&&bank.data==spriteSheet9.data&&layout==ENTITY_QUAD&&index>=229&&index<=237&&(index&1))return false;
  asteroid1_talon_blend_begin(surface,x,y,bank,index,style,layout);
  render_mirror_shadow_end();
  /* Consume the lease before every early return, including inactive/rejected draws. */
@@ -3682,7 +3720,7 @@ bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array ban
 #include "asteroid1_terrain144_mirror.inc"
 
 void render_mirror_map_begin(char shape_file)
-{terrain144_map_reset(0,shape_file);render_mirror_rear_p1_reset();plasma_art_reset();ground101_frame_reset();terrain_file=shape_file=='Z'?'z':shape_file;terrain_source_count=0;forest_registry_ok=true;render_mirror_reset_banking();}
+{render_mirror_global_reset();terrain144_map_reset(0,shape_file);render_mirror_rear_p1_reset();plasma_art_reset();ground101_frame_reset();terrain_file=shape_file=='Z'?'z':shape_file;terrain_source_count=0;forest_registry_ok=true;render_mirror_reset_banking();}
 /* Only shapesZ layer2 cloud IDs; no renderer/filter or game-state changes. */
 static int cloud_terrain_slot(unsigned int id)
 {
@@ -3910,7 +3948,7 @@ void render_mirror_terrain_pixel(SDL_Surface *surface,Uint8 *address,Uint8 sourc
  render_mirror_pixel(surface,address,source,style);suppress=previous;suppress_cloud=previous_cloud;
 }
 
-void render_mirror_entity_end(void) { asteroid1_talon_blend_end(); render_mirror_shadow_end();cash25_fixed_value=false;cash75_fixed_value=false;cash50_fixed_value=false;gem100_fixed_value=false;gem250_fixed_value=false;data_fixed_value=false;fixed_pickup_flash=false;suppress=false;suppress_green_smoke=false;suppress_cloud=false; }
+void render_mirror_entity_end(void) { global_talon_end();asteroid1_talon_blend_end(); render_mirror_shadow_end();cash25_fixed_value=false;cash75_fixed_value=false;cash50_fixed_value=false;gem100_fixed_value=false;gem250_fixed_value=false;data_fixed_value=false;fixed_pickup_flash=false;suppress=false;suppress_green_smoke=false;suppress_cloud=false; }
 
 /* Recognized original warm/contact explosions and nine shield-hit pieces.
  * Original hue overwrite + averaged ramp value is approximated continuously
@@ -4293,6 +4331,10 @@ static bool have_supported_talon(void)
 
 void render_mirror_sprite2_blend_pixel(SDL_Surface *surface,Uint8 *address,Uint8 source,Sprite2_array bank,unsigned int index,int origin_x,int origin_y)
 {
+ if(global_talon_observe_blend(surface,address)){render_mirror_pixel(surface,address,source,MIRROR_BLEND);return;}
+ /* Shared HUD observes original blend writes even without a world owner.
+  * This grants no replacement role and prevents unrelated cash-run rejection. */
+ if(shared_hud_frame&&!active&&surface==game_screen){render_mirror_pixel(surface,address,source,MIRROR_BLEND);return;}
  if(asteroid_hd_enabled) {asteroid1_sprite2_blend_pixel(surface,address,source,bank,index,origin_x,origin_y);return;}
  if(!active||surface!=game_screen)return;
  intptr_t off=(intptr_t)address-(intptr_t)surface->pixels;
@@ -4441,16 +4483,16 @@ static void normal15_compose(MirrorOutputKind kind,int lightx,int lighty)
 /* Independent final HUD composition starts with the actual submitted indexed
  * canvas. It never assumes a map, imports a legacy scene rejection, or copies
  * an unproven world canvas. Each HUD family keeps its own source/cache proof. */
-static void shared_hud_finish(MirrorOutputKind kind)
+static void shared_hud_finish(MirrorOutputKind kind,int lightx,int lighty)
 {
- if(!shared_hud_frame)return;
+ if(!shared_hud_frame&&!global_talon_frame)return;
  font_prepare_finish();
- if(!shared_hud_frame||!shared_hud_requested()||!VGAScreenSeg||!VGAScreenSeg->pixels||
+ if((!shared_hud_requested()&&!global_talon_requested())||!VGAScreenSeg||!VGAScreenSeg->pixels||
     !VGAScreenSeg->format||VGAScreenSeg->w!=320||VGAScreenSeg->h!=200||VGAScreenSeg->pitch<320||
     VGAScreenSeg->format->format!=SDL_PIXELFORMAT_INDEX8||
     VGAScreenSeg->format->BitsPerPixel!=8||VGAScreenSeg->format->BytesPerPixel!=1||
     !output||output->w!=320*game_probe_density||output->h!=200*game_probe_density) {
-  shared_hud_frame=false;ready=false;return;
+  shared_hud_frame=global_talon_frame=false;ready=false;return;
  }
  bool scene_valid=(kind==MIRROR_OUTPUT_ORDINARY||kind==MIRROR_OUTPUT_NORMAL15_LOW_DETAIL)&&
   game_screen&&game_screen->pixels&&game_screen->pitch>=320&&
@@ -4460,7 +4502,8 @@ static void shared_hud_finish(MirrorOutputKind kind)
  if(scene_valid)for(int y=0;y<200;y++)
   if(memcmp(expected+y*320,(Uint8 *)game_screen->pixels+y*game_screen->pitch,320)){scene_valid=false;break;}
  upscale(output,VGAScreenSeg);
- bool retained_scene=font_compose_shared_scene(scene_valid);
+ bool retained_global=global_talon_compose(kind,lightx,lighty);
+ bool retained_scene=font_compose_shared_scene(scene_valid)||retained_global;
  bool retained_hud=hud_compose(),retained_components=components_compose();
  bool retained_indicators=indicators_compose(),retained_fixed=fixed_text_compose();
  bool retained_font=font_finish(true);
@@ -4478,9 +4521,18 @@ static void shared_hud_finish(MirrorOutputKind kind)
 void render_mirror_finish(MirrorOutputKind kind,int lightx,int lighty)
 {
  render_mirror_shadow_end();
- if(asteroid_hd_enabled&&!mirror_enabled()&&!shared_hud_lease) {render_mirror_hud_reset();return;}
+ if(global_talon_frame&&(!global_talon_surface_matches()||!global_talon_final_surface_matches())) {
+  /* An admitted global frame leased both indexed inputs and both RGB
+   * destinations. Mutation invalidates their allocation geometry, so neither
+   * legacy fallback nor independent HUD may upscale into them this frame. */
+  global_talon_fail();render_mirror_unsupported("global-source-layout");
+  render_mirror_global_reset();
+  active=shared_hud_frame=ready=last_output_valid=last_output_scene_hd=have_fade_saved=false;fade_mode=0;
+  return;
+ }
+ if(asteroid_hd_enabled&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()) {render_mirror_hud_reset();return;}
  hud_check_mode();
- if(!active){shared_hud_finish(kind);return;}
+ if(!active){shared_hud_finish(kind,lightx,lighty);return;}
  bool normal15=lvlFileNum==15||kind==MIRROR_OUTPUT_NORMAL15_NIGHT||kind==MIRROR_OUTPUT_NORMAL15_LOW_DETAIL;
  if(normal15&&!normal15_layout()) {
   /* A malformed destination cannot safely be upscaled. Decline presentation;
@@ -4488,7 +4540,7 @@ void render_mirror_finish(MirrorOutputKind kind,int lightx,int lighty)
   render_mirror_unsupported("normal15-output-layout");
   active=ready=last_output_valid=last_output_scene_hd=have_fade_saved=false;fade_mode=0;
   game_probe_frame(draws,occlusions,mismatch,reject_reason,all_rejections,local_entities,local_regions,local_blocks);
-  if(shared_hud_frame)shared_hud_finish(kind);
+  if(shared_hud_frame||global_talon_frame)shared_hud_finish(kind,lightx,lighty);
   return;
  }
  font_prepare_finish();
@@ -4535,12 +4587,13 @@ void render_mirror_finish(MirrorOutputKind kind,int lightx,int lighty)
   memset(hd_owner,0,(size_t)canvas->w*canvas->h);
   memset(cloud_owner,0,(size_t)canvas->w*canvas->h);
  }
+ bool retained_global=global_talon_compose(kind,lightx,lighty);
  bool retained_hud=hud_accepted&&hud_compose();
  bool retained_components=hud_accepted&&components_compose();
  bool retained_indicators=hud_accepted&&indicators_compose();
  bool retained_fixed_text=hud_accepted&&fixed_text_compose();
  bool retained_font=font_finish(hud_accepted);
- bool retained_scene_hd=!reject_reason&&(memchr(hd_owner,1,(size_t)canvas->w*canvas->h)!=NULL||memchr(hd_owner,2,(size_t)canvas->w*canvas->h)!=NULL);
+ bool retained_scene_hd=retained_global||(!reject_reason&&(memchr(hd_owner,1,(size_t)canvas->w*canvas->h)!=NULL||memchr(hd_owner,2,(size_t)canvas->w*canvas->h)!=NULL));
  bool retained_hd=retained_scene_hd||retained_hud||retained_components||retained_indicators||retained_fixed_text||retained_font;
  unsigned int classic_mismatches=0;
  if(game_probe_original_reference)for(int y=0;y<output->h;y++) {
@@ -4549,7 +4602,7 @@ void render_mirror_finish(MirrorOutputKind kind,int lightx,int lighty)
   for(int x=0;x<output->w;x++)if(row[x]!=palette_rgb(classic[x/game_probe_density]))++classic_mismatches;
  }
  game_probe_rgb_audit(output,classic_mismatches);
- last_output_scene_hd=!reject_reason&&retained_scene_hd;
+ last_output_scene_hd=retained_global||(!reject_reason&&retained_scene_hd);
  last_output_valid=retained_hd;
  memcpy(last_output_palette,rgb_palette,sizeof(last_output_palette));
  if(retained_hud)memcpy(hud_output_palette,rgb_palette,sizeof(hud_output_palette));
@@ -4571,11 +4624,12 @@ void render_mirror_finish(MirrorOutputKind kind,int lightx,int lighty)
 void render_mirror_fade_start(const SDL_Color *target,const SDL_Color *solid,unsigned int first,unsigned int last)
 {
  render_mirror_shadow_end();
- if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()&&!shared_hud_lease) {render_mirror_hud_reset();return;}
+ if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()) {render_mirror_hud_reset();return;}
  hud_check_mode();
  if(font_cached()&&!font_cached_indices_match())font_clear_cached(15);
+ global_talon_check_cache();
  bool cached=last_output_valid;last_output_valid=false;fade_mode=0;ready=false;
- if((!mirror_enabled()&&!(shared_hud_lease&&shared_hud_requested()))||game_probe_density<2||!output||!cached||first!=0||last!=255)return;
+ if((!mirror_enabled()&&!(shared_hud_lease&&shared_hud_requested())&&!global_talon_requested())||game_probe_density<2||!output||!cached||first!=0||last!=255)return;
  bool component_cached=component_output_generation||component_saved_generation;
  for(unsigned i=0;i<320*200&&!component_cached;i++)component_cached=(component_output_owner[i]|component_saved_owner[i])!=0;
  if(component_cached&&!components_cached_indices_match()) {components_clear_cached(63);return;}
@@ -4584,6 +4638,7 @@ void render_mirror_fade_start(const SDL_Color *target,const SDL_Color *solid,uns
   if(memcmp(last_output_palette,rgb_palette,sizeof(last_output_palette))!=0)return;
   if(!fade_saved)fade_saved=SDL_CreateRGBSurfaceWithFormat(0,output->w,output->h,32,SDL_PIXELFORMAT_ARGB8888);
   if(!fade_saved)return;
+  if(!global_talon_fade_buffer_safe())return;
   for(int y=0;y<output->h;y++)memcpy((Uint8 *)fade_saved->pixels+y*fade_saved->pitch,(Uint8 *)output->pixels+y*output->pitch,(size_t)output->w*4);
   memcpy(fade_saved_palette,rgb_palette,sizeof(fade_saved_palette));
   memcpy(hud_saved_owner,hud_output_owner,sizeof(hud_saved_owner));hud_saved_generation=hud_output_generation;
@@ -4597,14 +4652,15 @@ void render_mirror_fade_start(const SDL_Color *target,const SDL_Color *solid,uns
   for(int i=0;i<256;i++)if((fade_saved_palette[i]&0xffffffu)!=(((Uint32)target[i].r<<16)|((Uint32)target[i].g<<8)|target[i].b))return;
   fade_mode=3;
  }
- if(fade_mode)last_output_valid=true;
+ if(fade_mode&&global_talon_fade_capture())last_output_valid=true;
 }
 
 void render_mirror_fade_step(int steps)
 {
- if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()&&!shared_hud_lease) {render_mirror_hud_reset();return;}
+ if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()) {render_mirror_hud_reset();return;}
  hud_check_mode();
  if(!fade_mode||steps<=0)return;
+ if(!global_talon_fade_step_valid(steps))return;
  if(font_cached()&&!font_cached_indices_match()){font_clear_cached(15);return;}
  if(fixed_text_output_generation&&!fixed_text_cached_indices_match()) {fixed_text_clear_cached();return;}
  if(indicator_output_generation&&(!indicators_cached_indices_match()||!indicators_underlay_matches())) {indicators_clear_cached(3);return;}
@@ -4648,6 +4704,7 @@ void render_mirror_fade_step(int steps)
  if(component_output_generation)memcpy(component_output_palette,rgb_palette,sizeof(component_output_palette));
  if(fixed_text_output_generation)memcpy(fixed_text_output_palette,rgb_palette,sizeof(fixed_text_output_palette));
  hud_storm_fade_palette(rgb_palette);
+ global_talon_fade_palette();
  ready=true;game_probe_fade_sample(output,steps,hd_pixels,fade_mode);
  if(steps==1)fade_mode=0;
 }
@@ -4655,7 +4712,7 @@ void render_mirror_fade_step(int steps)
 bool render_mirror_present(SDL_Renderer *renderer,SDL_Surface *src,const SDL_Rect *dst)
 {
  render_mirror_shadow_end();
- if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()&&!shared_hud_lease) {render_mirror_hud_reset();return false;}
+ if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()) {render_mirror_hud_reset();return false;}
  hud_check_mode();
  if(font_cached()&&(!font_cached_indices_match()||memcmp(font_output_palette,rgb_palette,sizeof(font_output_palette))))font_clear_cached(15);
  if(fixed_text_output_generation&&(!fixed_text_cached_indices_match()||memcmp(fixed_text_output_palette,rgb_palette,sizeof(fixed_text_output_palette))!=0))fixed_text_clear_cached();
@@ -4664,6 +4721,7 @@ bool render_mirror_present(SDL_Renderer *renderer,SDL_Surface *src,const SDL_Rec
  bool component_cached=component_output_generation||component_saved_generation;
  for(unsigned i=0;i<320*200&&!component_cached;i++)component_cached=(component_output_owner[i]|component_saved_owner[i])!=0;
  if(component_cached&&(!components_cached_indices_match()||memcmp(component_output_palette,rgb_palette,sizeof(component_output_palette))!=0))components_clear_cached(63);
+ global_talon_check_cache();
  if(!ready||src!=VGAScreenSeg)return false;ready=false;
  if(game_probe_skip) { uint64_t rng=mt_state_fingerprint();game_probe_present(0,rng,rng);return true; }
  if(!texture) texture=SDL_CreateTexture(renderer,SDL_PIXELFORMAT_ARGB8888,SDL_TEXTUREACCESS_STREAMING,output->w,output->h);

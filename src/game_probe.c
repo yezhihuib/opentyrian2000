@@ -232,6 +232,11 @@ void game_probe_parse(int *argc, char **argv)
    }
    /* Display resolution only: never grants scene or probe authority. */
    game_probe_density=8;
+  } else if(strncmp(argv[i],"--global-assets=",16)==0) {
+   if(!argv[i][16] || !render_mirror_set_global_assets(argv[i]+16)) {
+    fprintf(stderr,"Global assets require a valid nonempty directory\n");exit(2);
+   }
+   game_probe_density=8;
   } else if(strncmp(argv[i],"--manual-hd-assets=",19)==0) {
    if(!argv[i][19]) {fprintf(stderr,"Manual HD assets require a nonempty directory\n");exit(2);}
    manual_hd_enabled=true;game_probe_assets=argv[i]+19;
