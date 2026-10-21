@@ -105,6 +105,69 @@ def load_manifest(path: Path) -> dict:
     return manifest
 
 
+
+def content_catalog(verified: list[dict], platform: str) -> dict:
+    """Project fully verified files into whole-byte identities, never aliases.
+
+    The caller must first complete checked_source for every selected file.
+    Resolved local paths and source roots are intentionally not serialized.
+    HDA headers/anchors participate in the hash just like all other bytes.
+    """
+    contents = {}
+    files = []
+    for row in sorted(verified, key=lambda r: r['destination']):
+        digest = row['sha256']
+        if not isinstance(digest, str) or len(digest) != 64 or any(c not in '0123456789abcdef' for c in digest):
+            raise ValueError('Invalid content SHA256')
+        identity = f"sha256:{digest}:{row['bytes']}"
+        item = contents.setdefault(identity, {'id': identity, 'sha256': digest, 'bytes': row['bytes'], 'destinations': []})
+        item['destinations'].append(row['destination'])
+        files.append({key: row[key] for key in ('source_path', 'destination', 'group', 'bytes', 'git_blob', 'sha256')} | {'content_id': identity})
+    groups = sorted(contents.values(), key=lambda item: item['id'])
+    duplicates = [item for item in groups if len(item['destinations']) > 1]
+    logical_bytes = sum(row['bytes'] for row in files)
+    unique_bytes = sum(item['bytes'] for item in groups)
+    return {
+        'schema': 'opentyrian-runtime-content-catalog-v1',
+        'platform': platform,
+        'identity_scope': 'whole-file bytes including headers; not role, lifetime or rendering authority',
+        'storage_policy': 'audit only; keep all logical paths as separate regular files',
+        'summary': {
+            'logical_files': len(files), 'unique_contents': len(groups),
+            'duplicate_groups': len(duplicates),
+            'duplicate_participating_files': sum(len(item['destinations']) for item in duplicates),
+            'logical_bytes': logical_bytes, 'unique_content_bytes': unique_bytes,
+            'duplicate_bytes': logical_bytes - unique_bytes,
+            'bytes_saved_by_this_tool': 0,
+        },
+        'contents': groups, 'files': files,
+    }
+
+
+def catalog_bytes(catalog: dict) -> bytes:
+    return (json.dumps(catalog, indent=2, sort_keys=True, ensure_ascii=True) + '\n').encode('utf-8')
+
+
+def read_content_catalog(path: Path) -> dict:
+    """Bounded snapshot input. It never controls which files are packaged."""
+    path = path.absolute()
+    if path.resolve() != path or not stat.S_ISREG(path.lstat().st_mode):
+        raise ValueError('Catalog snapshot must be a regular file without symlink components')
+    if path.stat().st_size > 16 * MIB:
+        raise ValueError('Catalog snapshot exceeds 16 MiB')
+    # Reject duplicate JSON keys rather than silently accepting one value.
+    def unique_keys(pairs):
+        result = {}
+        for key, value in pairs:
+            if key in result:
+                raise ValueError('Duplicate catalog JSON key: ' + key)
+            result[key] = value
+        return result
+    def invalid_constant(value):
+        raise ValueError('Non-finite catalog JSON number: ' + value)
+    return json.loads(path.read_text(encoding='utf-8'), object_pairs_hook=unique_keys, parse_constant=invalid_constant)
+
+
 def parent_for_new(path: Path) -> Path:
     if path.exists() or path.is_symlink():
         raise ValueError(f'Output already exists; choose a new path: {path}')
@@ -148,10 +211,18 @@ def main(argv=None) -> int:
     parser.add_argument('--build', action='store_true', help='Create a new runtime copy; otherwise dry run')
     parser.add_argument('--output', type=Path, help='New directory outside all source roots')
     parser.add_argument('--zip', type=Path, help='Optional new deterministic ZIP, outside source roots and output')
+    parser.add_argument('--content-catalog', type=Path, help='Export a new verified whole-file content catalog outside source roots; no storage changes')
+    parser.add_argument('--check-content-catalog', type=Path, help='Require an existing catalog to match this fully verified selection exactly')
     parser.add_argument('--report', type=Path, help='Optional new JSON report outside source roots')
     args = parser.parse_args(argv)
     roots = [args.source_root.resolve()] + [p.resolve() for p in args.asset_root]
     manifest = load_manifest(args.manifest or roots[0] / 'packaging/runtime-assets-v1.json')
+    if args.content_catalog or args.check_content_catalog:
+        for row in manifest['files']:
+            if 'sha256' in row:
+                digest = row['sha256']
+                if not isinstance(digest, str) or len(digest) != 64 or any(c not in '0123456789abcdef' for c in digest):
+                    raise ValueError('Invalid manifest content SHA256')
     source_map = read_json(args.source_map) if args.source_map else {}
     verified, missing = [], []
     for row in manifest['files']:
@@ -183,6 +254,28 @@ def main(argv=None) -> int:
             raise ValueError('Invalid executable size')
         blob, sha256 = fingerprints(binary, size)
         verified.append({'source_path': '(explicit prebuilt executable)', 'destination': binary_destination, 'bytes': size, 'git_blob': blob, 'sha256': sha256, 'source': str(binary), 'group': 'executable'})
+    # Opt-in catalog runs after complete byte verification and before any writes.
+    # Default report, runtime metadata, inventory and archive remain unchanged.
+    catalog_output = None
+    catalog_payload = None
+    if args.content_catalog or args.check_content_catalog:
+        if missing:
+            raise ValueError('Refusing catalog for incomplete or mismatched runtime selection')
+        catalog = content_catalog(verified, args.platform)
+        if args.check_content_catalog:
+            snapshot = read_content_catalog(args.check_content_catalog)
+            if catalog_bytes(snapshot) != catalog_bytes(catalog):
+                raise ValueError('Content catalog drift: selection, logical metadata or whole-file identity changed')
+        if args.content_catalog:
+            catalog_output = args.content_catalog.absolute()
+            parent_for_new(catalog_output)
+            assert_external(catalog_output, roots)
+            # Prevent aliases/nesting among outputs before any directory is made.
+            other_paths = [p.absolute() for p in (args.output, args.zip, args.report, args.check_content_catalog) if p]
+            for other in other_paths:
+                if catalog_output == other or catalog_output in other.parents or other in catalog_output.parents:
+                    raise ValueError('Catalog path overlaps another input/output path')
+            catalog_payload = catalog_bytes(catalog)
     expected = sum(row['bytes'] for row in manifest['files']) + (size if args.executable else 0)
     if expected > RUNTIME_LIMIT:
         raise ValueError('Runtime selection exceeds 512 MiB')
@@ -257,6 +350,10 @@ def main(argv=None) -> int:
         parent_for_new(target)
         assert_external(target, roots)
         target.write_text(json.dumps(report, indent=2, sort_keys=True) + '\n', encoding='utf-8')
+    if catalog_output is not None:
+        # Exclusive creation: never replace a snapshot or a source file.
+        with catalog_output.open('xb') as stream:
+            stream.write(catalog_payload)
     print(json.dumps(report, indent=2, sort_keys=True))
     return 0 if not missing else 2
 

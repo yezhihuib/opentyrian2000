@@ -1,0 +1,55 @@
+{
+  "schema": "opentyrian-current-hud-compatibility-v1",
+  "selection": "assets/hd/authoring/hud/current.json",
+  "version": "hud-approved-v1",
+  "files": [
+    {
+      "source_path": "assets/hd/shared-ui-v1/gameplay-hud-v1.hda",
+      "destinations": [
+        "assets/shared-ui/gameplay-hud-v1.hda",
+        "assets/gameplay/gameplay-hud-v1.hda"
+      ],
+      "sha256": "98cd6cfefa02a9ae79b75a65e02dd2566d3dec1492552f20b042b3c61c19cd17"
+    },
+    {
+      "source_path": "assets/hd/shared-ui-v1/gameplay-hud-meters-v2.hda",
+      "destinations": [
+        "assets/shared-ui/gameplay-hud-meters-v2.hda",
+        "assets/gameplay/gameplay-hud-meters-v2.hda"
+      ],
+      "sha256": "3f8d9c35a3a9791d554a3c46f3431289c8ecd68b57419747ce3a40c225dafa4c"
+    },
+    {
+      "source_path": "assets/hd/shared-ui-v1/gameplay-hud-font-v1.hda",
+      "destinations": [
+        "assets/shared-ui/gameplay-hud-font-v1.hda",
+        "assets/gameplay/gameplay-hud-font-v1.hda"
+      ],
+      "sha256": "3c328c1537cf1e09529ae8805e98a8deb57a859ea80ba269cfea0b55cfae539e"
+    },
+    {
+      "source_path": "assets/hd/shared-ui-v1/gameplay-hud-components-v1.hda",
+      "destinations": [
+        "assets/shared-ui/gameplay-hud-components-v1.hda",
+        "assets/gameplay/gameplay-hud-components-v1.hda"
+      ],
+      "sha256": "c40c9ecf16a0d654876597195880deb484c17e36b1d1a17a9c1a241fb2b26d33"
+    },
+    {
+      "source_path": "assets/hd/shared-ui-v1/gameplay-hud-indicators-v1.hda",
+      "destinations": [
+        "assets/shared-ui/gameplay-hud-indicators-v1.hda",
+        "assets/gameplay/gameplay-hud-indicators-v1.hda"
+      ],
+      "sha256": "c7e5925631cfeecb28a09b547702824af55ef3d9b5abe83f568dcf4672638631"
+    },
+    {
+      "source_path": "assets/hd/shared-ui-v1/gameplay-hud-fixed-text-v1.hda",
+      "destinations": [
+        "assets/shared-ui/gameplay-hud-fixed-text-v1.hda",
+        "assets/gameplay/gameplay-hud-fixed-text-v1.hda"
+      ],
+      "sha256": "6d096f31085b22fb381761d3c8460bd06956c2bd039a1e0cc97481bc09819745"
+    }
+  ]
+}

@@ -7,6 +7,9 @@ before it can enter the new manifest. Reconstructed resources retain new hashes.
 """
 import argparse, hashlib, json
 from verify_current_production import verify
+from current_art_compatibility import load as current_art_compatibility
+from current_art_policy import PROFILES
+from current_hud_compatibility import load as current_hud_compatibility
 GLOBAL_REGISTRY_SHA256 = 'b224adfc0b12aee5a4753e32aa12e30c8594eb4237727a983148776239162860'
 from pathlib import Path
 
@@ -45,6 +48,12 @@ def main():
     current=json.loads((root/'packaging/current-production-validation.json').read_text())
     verify(root,current)
     j=json.loads(base.read_text());rows={}
+    art_compat={}
+    for family in PROFILES:
+        for destination,row in current_art_compatibility(root,family).items():
+            if destination in art_compat:raise ValueError('Current art compatibility collision')
+            art_compat[destination]=dict(row,authoring_family=family)
+    hud_compat=current_hud_compatibility(root)
     def add(source,destination,group,exact=None):
         size,blob,sha=pins(root/source)
         if exact and (size!=exact['bytes'] or blob!=exact['git_blob'] or (exact.get('sha256') and sha!=exact['sha256'])):
@@ -61,8 +70,22 @@ def main():
             old=dict(old,bytes=(root/old['source_path']).stat().st_size,git_blob='ab6842928c05f8598e0c03f5f82cffc9bbc48735')
             old.pop('sha256',None)
         add(old['source_path'],old['destination'],old['group'],None if changed else old)
-    for p in sorted((root/'assets/hd/shared-ui-v1').glob('*.hda')):
-        add(p.relative_to(root).as_posix(),'assets/shared-ui/'+p.name,'shared-hud-exact-recovery')
+        if old['destination'] in art_compat:
+            replacement=art_compat.pop(old['destination'])
+            del rows[old['destination']]
+            add(replacement['source_path'],old['destination'],old['group'])
+            rows[old['destination']]['revision']='current-single-source-'+replacement['authoring_family']
+        if old['destination'] in hud_compat:
+            replacement=hud_compat.pop(old['destination'])
+            del rows[old['destination']]
+            add(replacement['source_path'],old['destination'],old['group'])
+            rows[old['destination']]['revision']='current-single-source-hud'
+    if art_compat: raise ValueError('Current art consumer absent from historical runtime selection')
+    if len(hud_compat)!=6 or any(not d.startswith('assets/shared-ui/') for d in hud_compat):
+        raise ValueError('Current HUD fallback missing from historical selection')
+    for destination,row in sorted(hud_compat.items()):
+        add(row['source_path'],destination,'shared-hud-exact-recovery')
+        rows[destination]['revision']='current-single-source-hud'
     m=root/'assets/hd/shared-menu-runs-v1'
     runs=sorted(m.glob('*.rfr'))
     if len(runs)!=171:raise ValueError('Expected171 explicitly rebuilt complete runs')

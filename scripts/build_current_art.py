@@ -1,0 +1,214 @@
+#!/usr/bin/env python3
+"""One selected semantic art version -> all declared current consumers.
+
+stage is non-mutating; apply re-derives the exact plan and checks every old hash
+before writing. check detects stale/missing outputs. No history is overwritten,
+no paths deleted, no source-bank/role identity changed and no image resampling.
+"""
+import argparse,copy,hashlib,io,json,os,re,shutil,struct,subprocess,sys,tempfile
+from pathlib import Path
+from PIL import Image
+from package_runtime import contained_file,checked_source
+from verify_current_production import source_inventory,source_manifest_digest,BUILD_INPUTS
+from current_art_policy import compatibility_name,PROFILES,ALL_IDS,profile,geometry,LEGACY_HEADER,legacy_header,APPROVED_PROVENANCE_SHA256
+from current_pulse_compatibility import IDS,MAPPING,ROOT as COMPAT
+SELECT='assets/hd/authoring/pulse-current.json'
+REGISTRY='assets/hd/global-assets-v1/registry.json'
+HEADER='src/global_asset_registry.h'
+REBUILD='scripts/rebuild_recovered_runtime_manifest.py'
+BINDING='packaging/current-production-validation.json'
+RUNTIME='packaging/runtime-assets-v1.json'
+# Immutable bounded policy after the approved Pulse base and same-value Vulcan/cash/gem
+# payload macro integration, plus same-value HUD meter pin header extraction.
+# Only selected art changes, never gameplay/authority.
+REGISTRY_AUTHORITY_SHA256='6eba6df45d3383e78486dde5b253083ecce3af80d94021e4404afe68b4f51412'
+GAMEPLAY_SOURCE_SHA256='c7bb1a23052ae62865f380ad22af7e185c049eee12444c04255100da51a62f14'
+BUILD_INPUT_SHA256='537111f6f8f9a1bd6b0efce18453669d72ac3e8df9062cab010b46cc4e48e7c6'
+
+def sha(data):return hashlib.sha256(data).hexdigest()
+def encoded(obj):return (json.dumps(obj,indent=2)+'\n').encode()
+def read(root,name):
+    p=contained_file(root,name)
+    if not p.is_file():raise ValueError('Missing regular input: '+name)
+    return p.read_bytes()
+def fingerprint(root,name):
+    p=contained_file(root,name)
+    if not p.exists():return None
+    return sha(read(root,name))
+def fnv(data):
+    h=14695981039346656037
+    for v in data:h=((h^v)*1099511628211)&((1<<64)-1)
+    return f'{h:016x}'
+def selection(root,raw,family='pulse'):
+    policy=profile(family);IDS=policy['ids']
+    j=json.loads(raw)
+    if set(j)-{'schema','version','note','resources'} or j.get('schema')!=f'opentyrian-current-{family}-authoring-v1':raise ValueError('Unknown selection schema/fields')
+    if not isinstance(j.get('version'),str) or not j['version'] or len(j['version'])>128:raise ValueError('Invalid version')
+    rows=j.get('resources')
+    if not isinstance(rows,list) or tuple(x.get('identity') for x in rows)!=IDS:raise ValueError('Expected exact ordered family identities')
+    for row in rows:
+        if set(row)!={'identity','source_png','source_sha256'} or type(row['identity']) is not int:raise ValueError('Invalid selected source')
+        digest=row['source_sha256']
+        if not isinstance(digest,str) or not re.fullmatch('[0-9a-f]{64}',digest):raise ValueError('Invalid source SHA256')
+        if sha(read(root,row['source_png']))!=digest:raise ValueError('Selected source changed: '+row['source_png'])
+    return j
+
+def verify_authority(root,registry,family='pulse'):
+    fixed=copy.deepcopy(registry)
+    for row in fixed['resources']:
+        if row['identity'] in ALL_IDS:
+            for key in ('path','sha256','payload_fnv64','provenance'):row.pop(key,None)
+    if source_manifest_digest(fixed)!=REGISTRY_AUTHORITY_SHA256:
+        raise ValueError('Registry role/source authority or unrelated resource changed')
+    sources=source_inventory(root);sources.pop(HEADER,None);sources.pop(LEGACY_HEADER,None);sources.pop('src/current_hud_payload_pins.h',None)
+    if source_manifest_digest(sources)!=GAMEPLAY_SOURCE_SHA256:
+        raise ValueError('Unrelated gameplay source changed')
+    inputs={p:sha(read(root,p)) for p in BUILD_INPUTS}
+    if source_manifest_digest(inputs)!=BUILD_INPUT_SHA256:
+        raise ValueError('Build inputs changed')
+
+    by_id={r['identity']:r for r in registry['resources']}
+    for other in PROFILES:
+        selected=selection(root,read(root,profile(other)['selection']),other)
+        for row in selected['resources']:
+            data,payload=source_blob(root,row)
+            current=by_id[row['identity']]
+            if other!=family and (current['sha256']!=sha(data) or current['path']!='content/'+sha(data)+'.hda' or
+                    current['payload_fnv64']!=fnv(payload) or current['bytes']!=len(data)):
+                raise ValueError('Unrelated selected family resource changed')
+            provenance=current.get('provenance',{})
+            approved=sha(json.dumps(provenance,sort_keys=True,separators=(',',':')).encode())==APPROVED_PROVENANCE_SHA256[row['identity']]
+            generated=(set(provenance)=={'selection','revision','source_png','source_png_sha256','prior_hda_sha256'} and
+                       provenance.get('selection')==profile(other)['selection'] and provenance.get('revision')==selected['version'] and
+                       isinstance(provenance.get('prior_hda_sha256'),str) and re.fullmatch('[0-9a-f]{64}',provenance['prior_hda_sha256']))
+            if (not (approved or generated) or provenance.get('source_png')!=row['source_png'] or
+                    provenance.get('source_png_sha256')!=row['source_sha256']):
+                raise ValueError('Unrelated selected family provenance changed')
+            if other!=family and read(root,'assets/hd/global-assets-v1/'+current['path'])!=data:
+                raise ValueError('Unrelated selected family bytes changed')
+
+def source_blob(root,row):
+    raw=read(root,row['source_png'])
+    if len(raw)>16*1024*1024:raise ValueError('Oversize source PNG')
+    with Image.open(io.BytesIO(raw)) as im:
+        if im.format!='PNG' or im.mode!='RGBA' or im.size!=(96,112) or getattr(im,'n_frames',1)!=1:
+            raise ValueError('Expected single 96x112 straight RGBA PNG')
+        payload=im.tobytes()
+    return b'HDR1'+struct.pack('<6I',*geometry(row['identity']))+payload,payload
+
+
+def validate_stage_location(root,destination):
+    absolute=destination.absolute()
+    if any(p.is_symlink() for p in (absolute,*absolute.parents)):
+        raise ValueError('Symlink stage or parent')
+    if absolute.resolve().is_relative_to(root.resolve()):
+        raise ValueError('Stage must be outside repository and historical resources')
+
+def derive(root,selected_raw,family='pulse'):
+    policy=profile(family);IDS=policy['ids'];SELECT=policy['selection'];MAPPING=policy['mapping'];COMPAT=policy['compatibility']
+    selected=selection(root,selected_raw,family);registry=json.loads(read(root,REGISTRY));before=copy.deepcopy(registry)
+    verify_authority(root,registry,family)
+    if len(registry['resources'])!=120:raise ValueError('Unexpected global registry scope')
+    by_id={r['identity']:r for r in registry['resources']}
+    outputs={SELECT:selected_raw};compat=[]
+    for row in selected['resources']:
+        i=row['identity'];raw=read(root,row['source_png'])
+        data,payload=source_blob(root,row);header=geometry(i)
+        if by_id[i]['header_u32']!=header:raise ValueError('Fixed art geometry/anchor changed')
+        digest=sha(data);r=by_id[i]
+        r.update(path='content/'+digest+'.hda',sha256=digest,bytes=len(data),payload_fnv64=fnv(payload))
+        # Preserve historical approved provenance byte-for-byte when selecting it.
+        if r.get('provenance',{}).get('source_png')!=row['source_png'] or r.get('provenance',{}).get('source_png_sha256')!=sha(raw):
+            r['provenance']={'selection':SELECT,'revision':selected['version'],'source_png':row['source_png'],'source_png_sha256':sha(raw),'prior_hda_sha256':before['resources'][registry['resources'].index(r)]['sha256']}
+        elif r.get('provenance',{}).get('selection')==SELECT:
+            r['provenance']['revision']=selected['version']
+        outputs['assets/hd/global-assets-v1/'+r['path']]=data
+        path=f'{COMPAT}/{compatibility_name(i)}';outputs[path]=data
+        compat.append(dict(identity=i,source_path=path,destination=f'assets/gameplay/{compatibility_name(i)}',sha256=digest))
+    outputs[REGISTRY]=encoded(registry)
+    outputs[LEGACY_HEADER]=legacy_header(registry['resources'])
+    outputs[MAPPING]=encoded({'schema':f'opentyrian-current-{family}-compatibility-v1','selection':SELECT,'version':selected['version'],'files':compat})
+    script=read(root,REBUILD).decode()
+    script,n=re.subn(r"GLOBAL_REGISTRY_SHA256 = '[0-9a-f]{64}'",f"GLOBAL_REGISTRY_SHA256 = '{sha(outputs[REGISTRY])}'",script)
+    if n!=1:raise ValueError('Expected one packaging registry pin')
+    outputs[REBUILD]=script.encode()
+    # Minimal isolated rebuild root: only declared package inputs and source pins.
+    with tempfile.TemporaryDirectory(prefix='pulse-authoring-build-') as temp:
+        work=Path(temp)
+        old_runtime=json.loads(read(root,RUNTIME));old_base=json.loads(read(root,'packaging/runtime-assets-public63a89b3.json'))
+        names={r['source_path'] for r in old_runtime['files']}|{r['source_path'] for r in old_base['files']}
+        names|={REGISTRY,BINDING,'packaging/runtime-assets-public63a89b3.json','packaging/shop-static-approved-v1.json'}|set(BUILD_INPUTS)
+        for supported in PROFILES:
+            names.add(profile(supported)['mapping'])
+        names.add('packaging/current-hud-compatibility.json')
+        names|={p.relative_to(root).as_posix() for p in (root/'src').rglob('*') if p.is_file() or p.is_symlink()}
+        names|={p.relative_to(root).as_posix() for p in (root/'scripts').glob('*.py')}
+        # Verify existing runtime except allowed stale current generated outputs.
+        generated_old={SELECT,REGISTRY,HEADER,LEGACY_HEADER,REBUILD,BINDING,RUNTIME,MAPPING}|{f'{COMPAT}/{compatibility_name(i)}' for i in IDS}
+        pulse_paths={'assets/hd/global-assets-v1/'+r['path'] for r in before['resources'] if r['identity'] in IDS}
+        for row in old_runtime['files']:
+            if row['source_path'] not in generated_old|pulse_paths:checked_source(contained_file(root,row['source_path']),row)
+        for name in sorted(names):
+            if name in outputs:continue
+            data=read(root,name);p=work/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(data)
+        for name,data in outputs.items():
+            p=work/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(data)
+        subprocess.run([sys.executable,str(work/'scripts/build_global_registry_header.py'),'--registry',str(work/REGISTRY),'--output',str(work/HEADER)],check=True,stdout=subprocess.DEVNULL)
+        outputs[HEADER]=(work/HEADER).read_bytes()
+        binding=json.loads(read(root,BINDING));binding['production_commit']=None
+        binding['source_sha256']=source_inventory(work);binding['production_source_manifest_sha256']=source_manifest_digest(binding['source_sha256'])
+        binding['scope']='Exact current single-source generated art pins; gameplay/role/source identity unchanged. Source binding only, not runtime acceptance.'
+        outputs[BINDING]=(json.dumps(binding,indent=2,sort_keys=True)+'\n').encode();(work/BINDING).write_bytes(outputs[BINDING])
+        subprocess.run([sys.executable,str(work/REBUILD),'--root',str(work),'--output',str(work/RUNTIME)],check=True,stdout=subprocess.DEVNULL)
+        outputs[RUNTIME]=(work/RUNTIME).read_bytes()
+    return outputs
+
+def make_plan(root,outputs,selected_raw,family='pulse'):
+    changes=[{'path':p,'before_sha256':fingerprint(root,p),'after_sha256':sha(data),'bytes':len(data)} for p,data in sorted(outputs.items())]
+    return {'schema':f'opentyrian-current-{family}-stage-v1','selection_sha256':sha(selected_raw),'files':changes,'scope':f'Exactly {len(profile(family)["ids"])} {family} art identities and declared generated consumers. No deletions/history or gameplay changes.'}
+
+def stage(root,selection_file,destination,family='pulse'):
+    validate_stage_location(root,destination)
+    if destination.exists():raise ValueError('Stage destination must be new')
+    raw=selection_file.read_bytes();outputs=derive(root,raw,family);plan=make_plan(root,outputs,raw,family)
+    destination.mkdir(parents=True)
+    for name,data in outputs.items():
+        p=destination/'files'/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(data)
+    (destination/'plan.json').write_bytes(encoded(plan));return plan
+
+def apply(root,destination,family='pulse'):
+    SELECT=profile(family)['selection']
+    validate_stage_location(root,destination)
+    if destination.is_symlink():raise ValueError('Symlink stage')
+    plan=json.loads(read(destination,'plan.json'));raw=read(destination,'files/'+SELECT)
+    outputs=derive(root,raw,family);expected=make_plan(root,outputs,raw,family)
+    if plan!=expected:raise ValueError('Stale or modified plan/current source; restage explicitly')
+    for name,data in outputs.items():
+        if read(destination,'files/'+name)!=data:raise ValueError('Modified staged bytes: '+name)
+        temporary=contained_file(root,name).with_name(Path(name).name+'.pulse-tmp')
+        if temporary.exists() or temporary.is_symlink():raise ValueError('Unexpected temporary output')
+    # All source/old/stage checks pass before the first write. Do not remove files.
+    for name,data in outputs.items():
+        p=contained_file(root,name);p.parent.mkdir(parents=True,exist_ok=True)
+        if p.exists() and p.read_bytes()==data:continue
+        temporary=p.with_name(p.name+'.pulse-tmp')
+        if temporary.exists() or temporary.is_symlink():raise ValueError('Unexpected temporary output')
+        with temporary.open('xb') as f:f.write(data)
+        os.replace(temporary,p)
+    return expected
+
+def check(root,family='pulse'):
+    SELECT=profile(family)['selection']
+    raw=read(root,SELECT);outputs=derive(root,raw,family)
+    bad=[p for p,data in outputs.items() if fingerprint(root,p)!=sha(data)]
+    if bad:raise ValueError('Stale/missing current consumers: '+', '.join(bad))
+    return {'status':'PASS','resources':len(profile(family)['ids']),'current_consumers':'global battle, SHOP, selected legacy compatibility package','historical_outputs':'untouched'}
+
+def main(family='pulse'):
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--root',type=Path,default=Path(__file__).resolve().parents[1]);p.add_argument('--family',choices=tuple(PROFILES),default=family);p.add_argument('mode',choices=['stage','apply','check']);p.add_argument('--selection',type=Path);p.add_argument('--stage',type=Path);a=p.parse_args();root=a.root.resolve();family=a.family;SELECT=profile(family)['selection']
+    if a.mode=='check':result=check(root,family)
+    else:
+        if not a.stage:p.error('--stage required')
+        result=stage(root,a.selection or root/SELECT,a.stage,family) if a.mode=='stage' else apply(root,a.stage,family)
+    print(json.dumps(result,indent=2))
+if __name__=='__main__':main()

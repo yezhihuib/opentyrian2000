@@ -10,6 +10,7 @@
 #include "pregame_font.h"
 #include "shop_pulse.h"
 #include "shop_vulcan.h"
+#include "current_art_payload_pins.h"
 #include "data_frame.h"
 #include "data_portrait.h"
 #include "render_mirror.h"
@@ -406,8 +407,8 @@ static VulcanShadowCall vulcan_shadow;
  * have separate resource slots and pins, leaving their translucent heads alone.
  * A source stamp covers colors and original RLE support, not the HDA contour. */
 static const struct {unsigned int index;int slot;uint64_t source,rgba;int coverage_slot;uint64_t coverage_rgba;} vulcan_shadow_pins[45]={
- {67,522,UINT64_C(0x9f5342ea1a7217ae),UINT64_C(0xaea83e10c9169380),0,0},
- {70,523,UINT64_C(0xfb4ea1a99e585804),UINT64_C(0x6c26e938d94472c2),0,0},
+ {67,522,UINT64_C(0x9f5342ea1a7217ae),CURRENT_VULCAN_67_RGBA,0,0},
+ {70,523,UINT64_C(0xfb4ea1a99e585804),CURRENT_VULCAN_70_RGBA,0,0},
  {121,524,UINT64_C(0xba0e9fed90289c7a),UINT64_C(0x769aa8931a65a717),0,0},
  {122,525,UINT64_C(0x4f9d6fbe1da41b7c),UINT64_C(0x761a0ae775198a5a),0,0},
  {163,526,UINT64_C(0xa34174ba65a5e3b2),UINT64_C(0xa99cb87d5291eb77),0,0},
@@ -1760,7 +1761,7 @@ static bool cash25_family_ready(void)
  if(cash25_checked)return cash25_valid;
  cash25_checked=true;cash25_valid=true;
  static const unsigned int ids[7]={7,8,9,10,11,12,185};
- static const uint64_t rgba_stamps[7]={UINT64_C(0xe952934bb0c309c4),UINT64_C(0x26d922fce156243e),UINT64_C(0x5a804e039a96052b),UINT64_C(0x4ba2888114d88f61),UINT64_C(0x751bda162b36b9a4),UINT64_C(0x999334a6fd5ac8ab),UINT64_C(0xa840af8b65d8ca4d)};
+ static const uint64_t rgba_stamps[7]={CURRENT_CASH25_1120007_RGBA,CURRENT_CASH25_1120008_RGBA,CURRENT_CASH25_1120009_RGBA,CURRENT_CASH25_1120010_RGBA,CURRENT_CASH25_1120011_RGBA,CURRENT_CASH25_1120012_RGBA,CURRENT_CASH25_1130185_RGBA};
  for(int i=0;i<7;i++) {
   Asset *a=&assets[472+i];
   a->initialized=true;a->bank=i<6?ASSET_CASH25_BODY:ASSET_CASH25_VALUE;a->index=(int)ids[i];
@@ -1785,7 +1786,7 @@ static bool cash75_family_ready(void)
  if(cash75_checked)return cash75_valid;
  cash75_checked=true;cash75_valid=true;
  static const unsigned int ids[7]={20,21,22,23,24,25,223};
- static const uint64_t rgba_stamps[7]={UINT64_C(0xa1726c63d4e7cc68),UINT64_C(0xd828f299359e35b5),UINT64_C(0x718306fc654bdf56),UINT64_C(0x2bf9c217827874ef),UINT64_C(0x419236f6294dd493),UINT64_C(0xc78b7f8d2dc8abd7),UINT64_C(0xb4d84008d761c5b0)};
+ static const uint64_t rgba_stamps[7]={CURRENT_CASH75_1140020_RGBA,CURRENT_CASH75_1140021_RGBA,CURRENT_CASH75_1140022_RGBA,CURRENT_CASH75_1140023_RGBA,CURRENT_CASH75_1140024_RGBA,CURRENT_CASH75_1140025_RGBA,CURRENT_CASH75_1150223_RGBA};
  for(int i=0;i<7;i++) {
   Asset *a=&assets[479+i];
   a->initialized=true;a->bank=i<6?ASSET_CASH75_BODY:ASSET_CASH75_VALUE;a->index=(int)ids[i];
@@ -1810,7 +1811,7 @@ static bool cash50_family_ready(void)
  if(cash50_checked)return cash50_valid;
  cash50_checked=true;cash50_valid=true;
  static const unsigned int ids[7]={26,27,28,29,30,31,204};
- static const uint64_t rgba_stamps[7]={UINT64_C(0x7c4e0590d0f393cb),UINT64_C(0xe6ef27afa8cd5246),UINT64_C(0x86a0b1489c3c8805),UINT64_C(0xf60da1b7c4a748c6),UINT64_C(0x497abec68554008a),UINT64_C(0xe8421af53de17a52),UINT64_C(0x5d4b2544af04d8a0)};
+ static const uint64_t rgba_stamps[7]={CURRENT_CASH50_1160026_RGBA,CURRENT_CASH50_1160027_RGBA,CURRENT_CASH50_1160028_RGBA,CURRENT_CASH50_1160029_RGBA,CURRENT_CASH50_1160030_RGBA,CURRENT_CASH50_1160031_RGBA,CURRENT_CASH50_1170204_RGBA};
  for(int i=0;i<7;i++) {
   Asset *a=&assets[486+i];
   a->initialized=true;a->bank=i<6?ASSET_CASH50_BODY:ASSET_CASH50_VALUE;a->index=(int)ids[i];
@@ -1835,7 +1836,7 @@ static bool gem100_family_ready(void)
  if(gem100_checked)return gem100_valid;
  gem100_checked=true;gem100_valid=true;
  static const unsigned int ids[6]={32,33,34,35,36,169};
- static const uint64_t rgba_stamps[6]={UINT64_C(0xed343349769eaf60),UINT64_C(0xb875aedd515d1eed),UINT64_C(0x39d72c1f99c01ff5),UINT64_C(0x74620d4bdbd8c517),UINT64_C(0x2cdddc095a32052b),UINT64_C(0x57749151cd61da91)};
+ static const uint64_t rgba_stamps[6]={CURRENT_GEM100_1180032_RGBA,CURRENT_GEM100_1180033_RGBA,CURRENT_GEM100_1180034_RGBA,CURRENT_GEM100_1180035_RGBA,CURRENT_GEM100_1180036_RGBA,CURRENT_GEM100_1190169_RGBA};
  for(int i=0;i<6;i++) {
   Asset *a=&assets[493+i];
   a->initialized=true;a->bank=i<5?ASSET_GEM100_BODY:ASSET_GEM100_VALUE;a->index=(int)ids[i];
@@ -1860,7 +1861,7 @@ static bool gem250_family_ready(void)
  if(gem250_checked)return gem250_valid;
  gem250_checked=true;gem250_valid=true;
  static const unsigned int ids[6]={14,15,16,17,18,188};
- static const uint64_t rgba_stamps[6]={UINT64_C(0x53aec4e78ff1d67d),UINT64_C(0xd464e3b9b8d9f606),UINT64_C(0xa10e488c46644504),UINT64_C(0x751869e7f1288b3a),UINT64_C(0x9a95b37e9a500e65),UINT64_C(0x9043dd670142a68f)};
+ static const uint64_t rgba_stamps[6]={CURRENT_GEM250_1200014_RGBA,CURRENT_GEM250_1200015_RGBA,CURRENT_GEM250_1200016_RGBA,CURRENT_GEM250_1200017_RGBA,CURRENT_GEM250_1200018_RGBA,CURRENT_GEM250_1210188_RGBA};
  for(int i=0;i<6;i++) {
   Asset *a=&assets[499+i];
   a->initialized=true;a->bank=i<5?ASSET_GEM250_BODY:ASSET_GEM250_VALUE;a->index=(int)ids[i];

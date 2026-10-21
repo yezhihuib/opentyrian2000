@@ -405,7 +405,9 @@ class PackagingTests(unittest.TestCase):
 
     def test_global_validation_binds_current_production_source(self):
         validation = json.loads((ROOT / 'packaging/current-production-validation.json').read_text())
-        self.assertEqual(CURRENT.verify(ROOT, validation), 247)
+        self.assertEqual(CURRENT.verify(ROOT, validation), 249)  # Includes generated HUD material pins.
+        self.assertIn('src/current_art_payload_pins.h', validation['source_sha256'])
+        self.assertIn('src/current_hud_payload_pins.h', validation['source_sha256'])
         self.assertIn('src/shared_asset_reader.h', validation['source_sha256'])
         self.assertIn('src/shared_asset_fd_reader.inc', validation['source_sha256'])
         historical = json.loads((ROOT / 'packaging/global-validation.json').read_text())

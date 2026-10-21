@@ -1,5 +1,6 @@
 /* Bounded HUM2 V2 coarse materials. Indexed original display remains authority. */
 #include "gameplay_hud_meters.h"
+#include "current_hud_payload_pins.h"
 #include <fcntl.h>
 #include <stddef.h>
 #include <stdio.h>
@@ -29,20 +30,8 @@
 #ifndef HUD_METERS_PALETTE_FNV
 #define HUD_METERS_PALETTE_FNV UINT64_C(0x5e80e83992be2927)
 #endif
-#ifndef HUD_METERS_FIRE_FNV
-#define HUD_METERS_FIRE_FNV UINT64_C(0x92ce2a65c65f67db)
-#endif
-#ifndef HUD_METERS_ARMOR_FNV
-#define HUD_METERS_ARMOR_FNV UINT64_C(0x33f13810daec0125)
-#endif
-#ifndef HUD_METERS_ROWS_FNV
-#define HUD_METERS_ROWS_FNV UINT64_C(0xc4231771a5413868)
-#endif
 #ifndef HUD_METERS_LOOKUP_FNV
 #define HUD_METERS_LOOKUP_FNV UINT64_C(0x1d129d23c2edc134)
-#endif
-#ifndef HUD_METERS_PAYLOAD_FNV
-#define HUD_METERS_PAYLOAD_FNV UINT64_C(0xfcc77c108870c9db)
 #endif
 enum { HEADER=112,FIRE_BYTES=4224,ARMOR_BYTES=51840,ROW_BYTES=120832,
        LOOKUP_BYTES=444912,ARMOR_OFFSET=4224,ROW_OFFSET=56064,
