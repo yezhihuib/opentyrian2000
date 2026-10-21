@@ -8,6 +8,9 @@
 #define pregame_shop_ship_set_directory(...) ((void)0)
 #define shop_pulse_allocated(...) ((void)0)
 #define shop_pulse_initialized(...) ((void)0)
+#define pregame_shop_vulcan_set_directory(...) ((void)0)
+#define shop_vulcan_allocated(...) ((void)0)
+#define shop_vulcan_initialized(...) ((void)0)
 #include <assert.h>
 #include <stdbool.h>
 #include <stdint.h>

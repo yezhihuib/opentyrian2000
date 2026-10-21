@@ -8,6 +8,7 @@ import json
 from pathlib import Path
 import shutil
 import subprocess
+import sys
 import tempfile
 import unittest
 import zipfile
@@ -16,6 +17,9 @@ ROOT = Path(__file__).resolve().parents[1]
 SPEC = importlib.util.spec_from_file_location('runtime_packaging', ROOT / 'scripts/package_runtime.py')
 PACK = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(PACK)
+sys.path.insert(0, str(ROOT / 'scripts'))
+import verify_current_production as CURRENT
+import rebuild_recovered_runtime_manifest as REBUILD
 
 
 def row(source, destination, data):
@@ -141,7 +145,7 @@ class PackagingTests(unittest.TestCase):
         for item in manifest['files']: groups[item['group']] = groups.get(item['group'], 0) + 1
         self.assertEqual(groups['gameplay'], 637)
         self.assertEqual(groups['startup'], 9)
-        self.assertEqual(groups['shop'], 12)
+        self.assertEqual(groups['shop'], 15)
         self.assertEqual(groups['notice'], 11)
         self.assertEqual(groups['data-frame'], 1)
         self.assertEqual(groups['data-text'], 3)
@@ -150,7 +154,12 @@ class PackagingTests(unittest.TestCase):
         self.assertEqual(groups['global-registry'], 1)
         self.assertEqual(groups['reconstructed-menu-runs'], 171)
         self.assertEqual(groups['shared-hud-exact-recovery'], 6)
-        self.assertEqual(len(manifest['files']), 931)
+        self.assertEqual(groups['current-production-validation'], 1)
+        self.assertEqual(len(manifest['files']), 935)
+        approval = REBUILD.approved_static(ROOT)
+        selected = {r['source_path']: r for r in manifest['files']}
+        for item in approval['files']:
+            self.assertEqual(selected[item['source_path']], item)
         self.assertLess(sum(item['bytes'] for item in manifest['files']), PACK.RUNTIME_LIMIT)
         for name in ['settings-font-large-v1.hda', 'settings-font-medium-v1.hda', 'settings-font-tiny-v1.hda', 'title-menu-font-v1.hda', 'shop-generator-weapon16-v1.hda', 'shop-shield-option26-v1.hda']:
             self.assertIn('assets/startup/' + name, destinations)
@@ -285,14 +294,14 @@ class PackagingTests(unittest.TestCase):
             self.assertIn('--global-assets=', (ROOT / 'packaging' / launcher).read_text())
 
     def test_global_validation_binds_current_production_source(self):
-        validation = json.loads((ROOT / 'packaging/global-validation.json').read_text())
-        sources = {str(p.relative_to(ROOT)) for p in (ROOT / 'src').iterdir()
-                   if p.is_file() and p.suffix in ('.c', '.h', '.inc')}
-        self.assertEqual(set(validation['source_sha256']), sources)
-        for source, digest in validation['source_sha256'].items():
-            self.assertEqual(hashlib.sha256((ROOT / source).read_bytes()).hexdigest(), digest)
+        validation = json.loads((ROOT / 'packaging/current-production-validation.json').read_text())
+        self.assertEqual(CURRENT.verify(ROOT, validation), 237)
+        historical = json.loads((ROOT / 'packaging/global-validation.json').read_text())
         manifest = PACK.load_manifest(ROOT / 'packaging/runtime-assets-v1.json')
-        self.assertEqual(manifest['source_revision']['global_runtime_commit'], validation['production_commit'])
+        self.assertEqual(manifest['source_revision']['global_runtime_commit'], historical['production_commit'])
+        self.assertEqual(manifest['source_revision']['current_production_commit'], validation['production_commit'])
+        selected = next(r for r in manifest['files'] if r['destination'] == 'CURRENT-PRODUCTION-VALIDATION.json')
+        self.assertEqual(PACK.checked_source(ROOT / selected['source_path'], selected)['sha256'], selected['sha256'])
         self.assertEqual(manifest['source_revision']['global_registry_sha256'],
                          hashlib.sha256((ROOT / 'assets/hd/global-assets-v1/registry.json').read_bytes()).hexdigest())
 
@@ -327,6 +336,99 @@ class PackagingTests(unittest.TestCase):
         subprocess.run([__import__('sys').executable, str(ROOT / 'scripts/rebuild_recovered_runtime_manifest.py'),
                         '--root', str(ROOT), '--output', str(output)], check=True, capture_output=True)
         self.assertEqual(output.read_bytes(), (ROOT / 'packaging/runtime-assets-v1.json').read_bytes())
+
+    def source_fixture(self):
+        (self.source / 'src/nested').mkdir(parents=True)
+        (self.source / 'src/nested/code.inc').write_text('original')
+        (self.source / 'packaging').mkdir()
+        history = {}
+        for name in ('frontend', 'global'):
+            path = f'packaging/{name}-validation.json'
+            (self.source / path).write_bytes(b'original')
+            history[path] = hashlib.sha256(b'original').hexdigest()
+        build = {}
+        for name in CURRENT.BUILD_INPUTS:
+            path = self.source / name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(b'build input')
+            build[name] = hashlib.sha256(b'build input').hexdigest()
+        return {'schema': 'opentyrian-current-production-binding-v1',
+                'source_sha256': CURRENT.source_inventory(self.source),
+                'build_input_sha256': build,
+                'historical_validation_sha256': history}
+
+    def test_external_build_input_mutation_missing_and_omission_rejected(self):
+        receipt = self.source_fixture()
+        for name in CURRENT.BUILD_INPUTS:
+            path = self.source / name
+            path.write_bytes(b'changed')
+            with self.assertRaises(ValueError): CURRENT.verify(self.source, receipt)
+            path.unlink()
+            with self.assertRaises(ValueError): CURRENT.verify(self.source, receipt)
+            path.write_bytes(b'build input')
+        receipt['build_input_sha256'].pop(CURRENT.BUILD_INPUTS[0])
+        with self.assertRaises(ValueError): CURRENT.verify(self.source, receipt)
+
+    def test_historical_validation_omission_rejected(self):
+        receipt = self.source_fixture()
+        receipt['historical_validation_sha256'].pop('packaging/global-validation.json')
+        with self.assertRaises(ValueError): CURRENT.verify(self.source, receipt)
+        receipt['historical_validation_sha256'] = {}
+        with self.assertRaises(ValueError): CURRENT.verify(self.source, receipt)
+
+    def test_current_source_mutation_rejected(self):
+        receipt = self.source_fixture()
+        (self.source / 'src/nested/code.inc').write_text('modified')
+        with self.assertRaises(ValueError): CURRENT.verify(self.source, receipt)
+
+    def test_current_source_missing_rejected(self):
+        receipt = self.source_fixture()
+        (self.source / 'src/nested/code.inc').unlink()
+        with self.assertRaises(ValueError): CURRENT.verify(self.source, receipt)
+
+    def test_current_source_untracked_ignored_and_unknown_suffix_not_ignored(self):
+        receipt = self.source_fixture()
+        for name in ('.hidden', 'unexpected.c', 'nested/extra.xyz'):
+            path = self.source / 'src' / name
+            path.write_text('not listed, regardless of Git ignore rules')
+            with self.assertRaises(ValueError): CURRENT.verify(self.source, receipt)
+            path.unlink()
+
+    def test_current_source_symlink_file_and_directory_rejected(self):
+        receipt = self.source_fixture()
+        for target in (self.source / 'src/nested/code.inc', self.source / 'src/nested'):
+            link = self.source / 'src/link'
+            link.symlink_to(target)
+            with self.assertRaises(ValueError): CURRENT.verify(self.source, receipt)
+            link.unlink()
+
+    def test_historical_validation_mutation_rejected(self):
+        receipt = self.source_fixture()
+        path = self.source / 'packaging/global-validation.json'
+        path.parent.mkdir(exist_ok=True)
+        path.write_bytes(b'original')
+        receipt['historical_validation_sha256'][str(path.relative_to(self.source))] = hashlib.sha256(b'original').hexdigest()
+        CURRENT.verify(self.source, receipt)
+        path.write_bytes(b'modified')
+        with self.assertRaises(ValueError): CURRENT.verify(self.source, receipt)
+
+    def test_approved_static_missing_and_same_size_corruption_rejected(self):
+        (self.source / 'packaging').mkdir()
+        shutil.copyfile(ROOT / 'packaging/shop-static-approved-v1.json', self.source / 'packaging/shop-static-approved-v1.json')
+        approval = REBUILD.approved_static(ROOT)
+        for row in approval['files']:
+            path = self.source / row['source_path']
+            path.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(ROOT / row['source_path'], path)
+        self.assertEqual(REBUILD.approved_static(self.source), approval)
+        for row in approval['files']:
+            path = self.source / row['source_path']
+            original = path.read_bytes()
+            path.unlink()
+            with self.assertRaises(ValueError): REBUILD.approved_static(self.source)
+            path.write_bytes(bytes([original[0] ^ 1]) + original[1:])
+            with self.assertRaises(ValueError): REBUILD.approved_static(self.source)
+            path.write_bytes(original)
 
 
 if __name__ == '__main__':

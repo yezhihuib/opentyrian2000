@@ -9,6 +9,7 @@
 #include "selector_font.h"
 #include "pregame_font.h"
 #include "shop_pulse.h"
+#include "shop_vulcan.h"
 #include "data_frame.h"
 #include "data_portrait.h"
 #include "render_mirror.h"
@@ -1161,10 +1162,12 @@ bool render_mirror_set_global_assets(const char *directory)
  if(length<sizeof(global_asset_directory)&&((!length&&!global_asset_directory[0])||(length&&!strcmp(directory,global_asset_directory))))return true;
  global_hitflare_shutdown();global_vulcan_root_changed();global_pulse_shutdown();global_shield_shutdown();global_talon_shutdown();global_asset_directory[0]='\0';
  pregame_shop_pulse_set_directory(NULL);
+ pregame_shop_vulcan_set_directory(NULL);
  pregame_shop_ship_set_directory(NULL);
  if(length>=sizeof(global_asset_directory))return false;
  if(length)memcpy(global_asset_directory,directory,length+1);
  pregame_shop_pulse_set_directory(global_asset_directory);
+ pregame_shop_vulcan_set_directory(global_asset_directory);
  pregame_shop_ship_set_directory(global_asset_directory);
  return true;
 }

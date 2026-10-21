@@ -68,6 +68,15 @@
   },
   "files": [
     {
+      "bytes": 24249,
+      "destination": "CURRENT-PRODUCTION-VALIDATION.json",
+      "git_blob": "11a0f366256a3a3ae166f1ddc1929efb139c6970",
+      "group": "current-production-validation",
+      "revision": "reconstructed-local-unpublished",
+      "sha256": "b7ff60ac85cf00d9fc119b5abfed63e5fc8988921f36880f9f2bf4911320899f",
+      "source_path": "packaging/current-production-validation.json"
+    },
+    {
       "bytes": 23514,
       "destination": "FRONTEND-VALIDATION.json",
       "git_blob": "ed568f2f6da98eecca93a947e8c2904790b3a3dd",
@@ -8476,6 +8485,7 @@
   ],
   "schema": "opentyrian-runtime-package-v1",
   "source_revision": {
+    "current_production_commit": "1ea58b6218addf9d7568a816d2bd561fe3a2a887",
     "data_frame_integration": "local reviewed Data-only DFM1 static frame; no commit assigned",
     "data_portrait_integration": "local reviewed source-authenticated all18 DPR1 portraits",
     "data_text_integration": "local reviewed Data-only Chinese source; no commit assigned",

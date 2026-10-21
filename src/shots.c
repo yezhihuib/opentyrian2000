@@ -18,6 +18,7 @@
  */
 #include "shots.h"
 #include "shop_pulse.h"
+#include "shop_vulcan.h"
 
 #include "player.h"
 #include "sprite.h"
@@ -108,8 +109,10 @@ void simulate_player_shots(void)
 					else
 					{
 						pregame_shop_pulse_head_begin(z, anim_frame, tempShotX+1, tempShotY);
+						pregame_shop_vulcan_head_begin(z, anim_frame, tempShotX+1, tempShotY);
 						blit_sprite2(VGAScreen, tempShotX+1, tempShotY, spriteSheet8, anim_frame);
 						pregame_shop_pulse_head_end();
+						pregame_shop_vulcan_head_end();
 					}
 				}
 			}
@@ -375,6 +378,7 @@ JE_integer player_shot_create(JE_word portNum, uint bay_i, JE_word PX, JE_word P
 
 		render_mirror_shot_allocated(shot_id);
 		shop_pulse_allocated(shot_id);
+		shop_vulcan_allocated(shot_id, PX, PY, mouseX, mouseY);
 
 		if (shotMultiPos[bay_i] == weapon->max || shotMultiPos[bay_i] > 8)
 			shotMultiPos[bay_i] = 1;
@@ -550,6 +554,7 @@ JE_integer player_shot_create(JE_word portNum, uint bay_i, JE_word PX, JE_word P
 		render_mirror_rear_p1_emit(rear_p1_call, multi_i, shot_id, portNum, bay_i, wpNum, playerNum, shotMultiPos[bay_i], shot->shotGr);
 		render_mirror_front_shot_initialized(front_call, shot_id, portNum, bay_i, wpNum, playerNum, shotMultiPos[bay_i]);
 		shop_pulse_initialized(shot_id, portNum, bay_i, wpNum, playerNum, shotMultiPos[bay_i]);
+		shop_vulcan_initialized(shot_id, portNum, bay_i, wpNum, playerNum, shotMultiPos[bay_i]);
 		game_probe_shot_emit(probe_call, multi_i, shotMultiPos[bay_i], shot_id);
 	}
 

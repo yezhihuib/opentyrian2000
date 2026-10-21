@@ -6,6 +6,7 @@ must not replace the input manifest. Every original non-launcher row is verified
 before it can enter the new manifest. Reconstructed resources retain new hashes.
 """
 import argparse, hashlib, json
+from verify_current_production import verify
 GLOBAL_REGISTRY_SHA256 = 'd75383aba0bc207800d5b2f875de6b98a7ea127159873ec9837d05a04fc19e77'
 from pathlib import Path
 
@@ -16,6 +17,24 @@ def pins(path):
     if len(data)>64*1024*1024: raise ValueError('Oversized selected file')
     return len(data),hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest(),hashlib.sha256(data).hexdigest()
 
+def approved_static(root):
+    """Use reviewed input pins, never metadata from the output being rebuilt."""
+    approval=json.loads((root/'packaging/shop-static-approved-v1.json').read_text())
+    if approval['schema']!='opentyrian-approved-shop-static-v1':
+        raise ValueError('Unexpected static approval schema')
+    expected={f'assets/shop-static-v1/shop-static-newsh1-quad{q}-v1.hda' for q in (169,235,199)}
+    if len(approval['files'])!=3 or {r['source_path'] for r in approval['files']}!=expected:
+        raise ValueError('Expected exact three approved static resources')
+    for row in approval['files']:
+        if (row['destination']!='assets/startup/'+Path(row['source_path']).name or
+                row['group']!='shop' or row['revision']!='local-user-accepted-static-source-quad'):
+            raise ValueError('Unexpected static approval metadata')
+        if pins(root/row['source_path'])!=(row['bytes'],row['git_blob'],row['sha256']):
+            raise ValueError('Approved static content mismatch: '+row['source_path'])
+    if set(approval['source_revision'])!={'shop_static_art'}:
+        raise ValueError('Unexpected static source revision keys')
+    return approval
+
 def main():
     ap=argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--root',type=Path,default=Path(__file__).resolve().parents[1])
@@ -23,6 +42,8 @@ def main():
     ap.add_argument('--output',type=Path,required=True)
     a=ap.parse_args();root=a.root.resolve();base=(a.base_manifest or root/'packaging/runtime-assets-public63a89b3.json').resolve()
     if a.output.resolve()==base:raise ValueError('Output must not overwrite pinned base manifest')
+    current=json.loads((root/'packaging/current-production-validation.json').read_text())
+    verify(root,current)
     j=json.loads(base.read_text());rows={}
     def add(source,destination,group,exact=None):
         size,blob,sha=pins(root/source)
@@ -77,9 +98,13 @@ def main():
         add(source,'assets/global/'+relative,'global-source-identity')
     add('assets/hd/global-assets-v1/registry.json','assets/global/registry.json','global-registry')
     add('packaging/global-validation.json','GLOBAL-VALIDATION.json','global-validation')
-    for quad in (169,235,199):
-        name=f'shop-static-newsh1-quad{quad}-v1.hda'
-        add('assets/shop-static-v1/'+name,'assets/startup/'+name,'shop')
+    add('packaging/current-production-validation.json','CURRENT-PRODUCTION-VALIDATION.json','current-production-validation')
+    approval=approved_static(root)
+    for approved in approval['files']:
+        add(approved['source_path'],approved['destination'],'shop',approved)
+        rows[approved['destination']]['revision']=approved['revision']
+    j['source_revision'].update(approval['source_revision'])
+    j['source_revision']['current_production_commit']=current['production_commit']
     j['closure']['shop_files']=15
     j['closure']['shop_static_canonical_quads']=[169,235,199]
     j['files']=sorted(rows.values(),key=lambda x:x['destination'])
