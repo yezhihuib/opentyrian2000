@@ -16,7 +16,7 @@
     "Six-sidekick generated header is read only by Python build/package validation; production C does not include it or enforce runtime payload pins. Existing raw-bank qualification and fallback remain unchanged."
   ],
   "production_commit": null,
-  "production_source_manifest_sha256": "f91e0f2bfc69529126d95c7acdd85dacbbada8091162829d0c242c6cfb022a4f",
+  "production_source_manifest_sha256": "61cc4e0d91534b693bacb3406b97a9afd28063f1f6c98a76a84cc89fcd140601",
   "schema": "opentyrian-current-production-binding-v1",
   "scope": "Exact current single-source generated art pins; gameplay/role/source identity unchanged. Source binding only, not runtime acceptance.",
   "source_manifest_encoding": "UTF-8 JSON of source_sha256 only, sort_keys=True, separators=(comma,colon), ensure_ascii=True, no newline",
@@ -73,7 +73,7 @@
     "src/current_art_payload_pins.h": "241a99017c7eb9f7d999e49b69683abdc9a408762bc0eb1afa91216121fc4d82",
     "src/current_enemy_energy_payload_pins.h": "b7a62e985b0cba0be3a6f865349d637fbefac8f08f53e6c4a6ba5821ba86602f",
     "src/current_hud_payload_pins.h": "5fa2744f0043c7ea57457f0f1cc78da66a1a226d37581060b51bd6525ced9456",
-    "src/current_sidekick_body_payload_pins.h": "baa91d0eb1864fe13691d43adc148a13a96e16ef3adcda5a0eb6673e17d44571",
+    "src/current_sidekick_body_payload_pins.h": "1d25bd99fd3bb300f150be65ea4bd4de9014354787eafb6d04250a9b86320da2",
     "src/current_tank_shell_payload_pins.h": "c474a33b8af08d772113a015fadca77f446cb49626a66bafbf7e24357326e5f6",
     "src/data_exit_pins.inc": "38103a33f86480c47623fc88b9c76b148fb0ba1dd955d231b06306d2d4bb3b33",
     "src/data_frame.c": "8d4a5238cb6fd29e94c7af571e58ffb43ae4edbb5b721dd50c1fe9594a813cc0",
