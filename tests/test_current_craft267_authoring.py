@@ -1,6 +1,7 @@
 """Bounded authoring/packaging tests; synthetic art, no game/data/profile activity."""
 import contextlib
 import copy
+import hashlib
 import io
 import json
 import os
@@ -36,10 +37,53 @@ VIEW_SIDEKICKS = {
     1290281: 'option-plasma-bank9-281-8.hda',
     1290300: 'option-plasma-bank9-300-8.hda',
 }
+VIEW_FAMILIES = {
+    'talon': 13, 'rotor': 8, 'green': 11, 'shield': 22, 'hitflare': 7,
+    'white_smoke': 7, 'small_explosion': 12, 'pulse': 5, 'vulcan': 2,
+    'cash25': 7, 'cash50': 7, 'cash75': 7, 'gem100': 6, 'gem250': 6,
+    'tank-shell': 2, 'enemy-energy': 7, 'sidekick-body': 6, 'craft267': 1,
+    'hud': 6,
+}
+
+
+def independent_current_overlays(case, root):
+    """Read declared canonical bytes directly, never the production composer/loaders."""
+    overlays = {}
+    runtime = {r['destination']: r for r in json.loads((root/b.RUNTIME).read_bytes())['files']}
+    for family, count in VIEW_FAMILIES.items():
+        mapping = json.loads((root/f'packaging/current-{family}-compatibility.json').read_bytes())
+        case.assertEqual(len(mapping['files']), count)
+        for row in mapping['files']:
+            destinations = row['destinations'] if family == 'hud' else [row['destination']]
+            gameplay = [d for d in destinations if d.startswith('assets/gameplay/')]
+            case.assertEqual(len(gameplay), 1)
+            destination = gameplay[0]
+            name = destination[len('assets/gameplay/'):]
+            case.assertNotIn('/', name)
+            case.assertNotIn(name, overlays)
+            data = (root/row['source_path']).read_bytes()
+            case.assertEqual(hashlib.sha256(data).hexdigest(), row['sha256'])
+            case.assertEqual(runtime[destination]['source_path'], row['source_path'])
+            case.assertEqual(runtime[destination]['sha256'], row['sha256'])
+            overlays[name] = data
+    case.assertEqual(len(overlays), 142)
+    # Independent literal geometry and PNG decoding; no production converter.
+    pulse = json.loads((root/'assets/hd/authoring/pulse-current.json').read_bytes())
+    case.assertEqual([r['identity'] for r in pulse['resources']], [80058, 80059, 80060, 80062, 80165])
+    for row in pulse['resources']:
+        source = (root/row['source_png']).read_bytes()
+        case.assertEqual(hashlib.sha256(source).hexdigest(), row['source_sha256'])
+        with Image.open(io.BytesIO(source)) as image:
+            case.assertEqual((image.mode, image.size), ('RGBA', (96, 112)))
+            identity = row['identity']
+            expected = struct.pack('<4s6I', b'HDR1', identity, 8, 12, 14,
+                                   0xffffffff if identity == 80059 else 0, 0) + image.tobytes()
+        case.assertEqual(overlays[f'bullet-{identity-80000}-8.hda'], expected)
+    return overlays
 
 
 def assert_current_view_bytes(case, actual, frozen, overlays):
-    case.assertEqual(set(overlays), {VIEW_CRAFT_NAME, *VIEW_SIDEKICKS.values()})
+    case.assertTrue({VIEW_CRAFT_NAME, *VIEW_SIDEKICKS.values()}.issubset(overlays))
     expected = dict(frozen)
     expected.update(overlays)
     case.assertEqual(actual, expected)
@@ -265,7 +309,8 @@ class Craft267AuthoringTests(unittest.TestCase):
         raw = struct.pack('<4s6I', b'HDR1', 1010267, 8, 24, 28, 6, 7) + pixels
         self.assertNotEqual(raw, self.initial[b.CANONICAL])
         self.assertEqual(raw, (self.root/b.CANONICAL).read_bytes())
-        overlays = {VIEW_CRAFT_NAME: raw}
+        overlays = independent_current_overlays(self, self.root)
+        self.assertEqual(overlays[VIEW_CRAFT_NAME], raw)
         sidekick_selection = 'assets/hd/authoring/sidekick-body-current.json'
         self.assertEqual((self.root/sidekick_selection).read_bytes(), self.initial[sidekick_selection])
         sidekicks = json.loads(self.initial[sidekick_selection])['resources']
@@ -293,11 +338,13 @@ class Craft267AuthoringTests(unittest.TestCase):
             target = self.base/f'view-{kind}'
             report = b.view(self.root, kind, target)
             self.assertEqual(report['files'], 641)
+            self.assertEqual(len(report['current_overlays']), 142)
             frozen = {p.relative_to(self.root/'assets/hd/packs'/base).as_posix():p.read_bytes()
                         for p in (self.root/'assets/hd/packs'/base).rglob('*') if p.is_file()}
             self.assertEqual(set(report['current_overlays']), set(overlays))
             actual = {p.relative_to(target).as_posix():p.read_bytes() for p in target.rglob('*') if p.is_file()}
             assert_current_view_bytes(self, actual, frozen, overlays)
+            self.assertEqual(len(set(frozen) - set(overlays)), 499)
         # The task forbids permission changes. Exercise real package copying and
         # fingerprints, explicitly suppressing its unrelated chmod operation.
         with contextlib.redirect_stdout(io.StringIO()), mock.patch.object(Path, 'chmod', return_value=None):
@@ -457,15 +504,163 @@ class Craft267AuthoringTests(unittest.TestCase):
     def test_view_refuses_existing_internal_or_changed_frozen_base(self):
         existing = self.base/'existing'
         existing.mkdir()
+        (existing/'sentinel').write_bytes(b'previous complete view')
         for destination in (existing, self.root/'view'):
             with self.assertRaises(ValueError):
                 b.view(self.root, 'preview', destination)
+        self.assertEqual((existing/'sentinel').read_bytes(), b'previous complete view')
         p = self.root/'assets/hd/packs'/b.BASES['preview']/b.NAME
         p.write_bytes(p.read_bytes()+b'drift')
         target = self.base/'bad-view'
         with self.assertRaises(ValueError):
             b.view(self.root, 'preview', target)
         self.assertFalse(target.exists())
+
+    def assert_view_preflight_rejects(self):
+        target = self.base/'unpublished-parent'/'view'
+        with mock.patch.object(Path, 'mkdir', side_effect=AssertionError('Preflight must not write')), \
+                self.assertRaises((ValueError, FileNotFoundError)):
+            b.view(self.root, 'preview', target)
+        self.assertFalse(target.parent.exists())
+
+    def test_current_views_all_canonical_hashes_and_499_frozen_members(self):
+        overlays = independent_current_overlays(self, self.root)
+        before = self.snapshot()
+        for kind, base in b.BASES.items():
+            target = self.base/f'current-{kind}'
+            report = b.view(self.root, kind, target)
+            frozen_root = self.root/'assets/hd/packs'/base
+            frozen = {p.relative_to(frozen_root).as_posix(): p.read_bytes()
+                      for p in frozen_root.rglob('*') if p.is_file()}
+            actual = {p.relative_to(target).as_posix(): p.read_bytes()
+                      for p in target.rglob('*') if p.is_file()}
+            self.assertEqual((len(actual), len(overlays), len(set(frozen) - set(overlays))), (641, 142, 499))
+            self.assertEqual(set(report['current_overlays']), set(overlays))
+            assert_current_view_bytes(self, actual, frozen, overlays)
+        self.assertEqual(self.snapshot(), before)
+
+    @unittest.skipIf(READ_ONLY, WRITE_SKIP)
+    def test_new_shared_vulcan_png_propagates_to_both_views(self):
+        # Vulcan was byte-identical to history but lacked a propagation edge.
+        policy = profile('vulcan')
+        selected = json.loads((self.root/policy['selection']).read_bytes())
+        selected['version'] = 'synthetic-preview-propagation'
+        source = 'assets/hd/authoring/synthetic-preview-vulcan.png'
+        source_bytes = png(size=(96, 112))
+        (self.root/source).write_bytes(source_bytes)
+        selected['resources'][0].update(source_png=source, source_sha256=hashlib.sha256(source_bytes).hexdigest())
+        draft = self.base/'vulcan-draft.json'; draft.write_bytes(b.encoded(selected))
+        stage = self.base/'vulcan-stage'
+        global_builder.stage(self.root, draft, stage, 'vulcan')
+        global_builder.apply(self.root, stage, 'vulcan')
+        expected = struct.pack('<4s6I', b'HDR1', 80067, 8, 12, 14, 0, 0) + bytes((37, 53, 71, 127)) * (96*112)
+        overlays = independent_current_overlays(self, self.root)
+        self.assertEqual(overlays['bullet-67-8.hda'], expected)
+        for kind, base in b.BASES.items():
+            frozen_root = self.root/'assets/hd/packs'/base
+            self.assertNotEqual((frozen_root/'bullet-67-8.hda').read_bytes(), expected)
+            target = self.base/f'vulcan-{kind}'
+            b.view(self.root, kind, target)
+            frozen = {p.relative_to(frozen_root).as_posix(): p.read_bytes()
+                      for p in frozen_root.rglob('*') if p.is_file()}
+            actual = {p.relative_to(target).as_posix(): p.read_bytes()
+                      for p in target.rglob('*') if p.is_file()}
+            assert_current_view_bytes(self, actual, frozen, overlays)
+            self.assertEqual(actual['bullet-67-8.hda'], expected)
+
+    def test_every_missing_or_version_stale_mapping_rejected_before_publication(self):
+        for family in VIEW_FAMILIES:
+            target = self.root/f'packaging/current-{family}-compatibility.json'
+            original = target.read_bytes()
+            target.unlink()
+            with self.subTest(family=family, defect='missing'):
+                self.assert_view_preflight_rejects()
+            changed = json.loads(original); changed['version'] += '-stale'
+            target.write_bytes(b.encoded(changed))
+            with self.subTest(family=family, defect='version'):
+                self.assert_view_preflight_rejects()
+            target.write_bytes(original)
+
+    def test_mapping_duplicate_wrong_target_hash_and_missing_canonical_rejected(self):
+        for family in ('pulse', 'tank-shell', 'enemy-energy', 'sidekick-body', 'hud'):
+            mapping_path = self.root/f'packaging/current-{family}-compatibility.json'
+            original = mapping_path.read_bytes()
+            mapping = json.loads(original)
+            canonical = self.root/mapping['files'][0]['source_path']
+            data = canonical.read_bytes()
+            for defect in ('duplicate', 'target', 'hash', 'missing-canonical', 'stale-canonical', 'duplicate-key'):
+                changed = copy.deepcopy(mapping)
+                if defect == 'duplicate': changed['files'].append(copy.deepcopy(changed['files'][0]))
+                if defect == 'target':
+                    if family == 'hud': changed['files'][0]['destinations'][1] = b.DESTINATION
+                    else: changed['files'][0]['destination'] = b.DESTINATION
+                if defect == 'hash': changed['files'][0]['sha256'] = '0'*64
+                if defect == 'missing-canonical': canonical.unlink()
+                if defect == 'stale-canonical': canonical.write_bytes(data[:-1] + bytes((data[-1] ^ 1,)))
+                raw = b.encoded(changed)
+                if defect == 'duplicate-key': raw = raw.replace(b'{', b'{"version":"duplicate",', 1)
+                mapping_path.write_bytes(raw)
+                with self.subTest(family=family, defect=defect):
+                    self.assert_view_preflight_rejects()
+                mapping_path.write_bytes(original)
+                canonical.write_bytes(data)
+
+    def test_selected_sources_and_self_consistent_stale_selection_rejected(self):
+        for family in ('pulse', 'tank-shell', 'enemy-energy', 'sidekick-body', 'craft267', 'hud'):
+            selection_path = self.root/('assets/hd/authoring/hud/current.json' if family == 'hud'
+                                       else f'assets/hd/authoring/{family}-current.json')
+            original = selection_path.read_bytes()
+            selected = json.loads(original)
+            row = selected['resources']['static'][0] if family == 'hud' else selected['resources'][0]
+            source = self.root/row['path' if family == 'hud' else 'source_png']
+            data = source.read_bytes()
+            # A source changed without its selection hash must fail, even warm.
+            source.write_bytes(data + b'changed')
+            with self.subTest(family=family, defect='stale-hash'):
+                self.assert_view_preflight_rejects()
+            source.write_bytes(data)
+            if family != 'hud':
+                with Image.open(io.BytesIO(data)) as image:
+                    image = image.copy()
+                r, g, blue, alpha = image.getpixel((0, 0))
+                image.putpixel((0, 0), ((r+1) % 256, g, blue, alpha))
+                out = io.BytesIO(); image.save(out, format='PNG'); changed = out.getvalue()
+                source.write_bytes(changed)
+                row['source_sha256'] = hashlib.sha256(changed).hexdigest()
+                selection_path.write_bytes(b.encoded(selected))
+                with self.subTest(family=family, defect='selected-pixels-not-installed'):
+                    self.assert_view_preflight_rejects()
+                source.write_bytes(data)
+                selection_path.write_bytes(original)
+
+    def test_overlay_collision_and_missing_frozen_consumer_refuse_before_write(self):
+        import current_art_compatibility
+        real = current_art_compatibility.load
+        def collision(root, family):
+            rows = real(root, family)
+            if family == 'pulse': rows[b.DESTINATION] = next(iter(rows.values()))
+            return rows
+        with mock.patch.object(current_art_compatibility, 'load', side_effect=collision):
+            self.assert_view_preflight_rejects()
+        with mock.patch.object(b, 'current_overlays', return_value={b.NAME: b'current', 'absent.hda': b'new'}):
+            self.assert_view_preflight_rejects()
+
+    def test_hud_config_hash_and_version_checked_without_rasterizing(self):
+        import build_current_hud as hud
+        with mock.patch.object(hud, 'render_resource', side_effect=AssertionError('Preview must not rebuild HUD')):
+            self.assertEqual(len(b.current_overlays(self.root)), 142)
+            selected_path = self.root/hud.SELECTION
+            selected = json.loads(selected_path.read_bytes())
+            record = selected['resources']['meters'][0]
+            config = self.root/record['path']
+            original = config.read_bytes()
+            config.write_bytes(original + b' ')
+            self.assert_view_preflight_rejects()
+            # A draft with refreshed hashes but an unapplied version also fails.
+            record['sha256'] = hashlib.sha256(config.read_bytes()).hexdigest()
+            selected['version'] += '-not-applied'
+            selected_path.write_bytes(b.encoded(selected))
+            self.assert_view_preflight_rejects()
 
     @unittest.skipIf(READ_ONLY, WRITE_SKIP)
     def test_new_output_and_directory_creation_are_rolled_back_on_write_failure(self):
@@ -536,6 +731,46 @@ class Craft267AuthoringTests(unittest.TestCase):
 
 
 class AssetIndexEntrypointTests(unittest.TestCase):
+    def test_build_uses_current_view_unless_explicit_assets_are_selected(self):
+        import runpy
+        script = ROOT/'prototype/asset-index.py'
+        with tempfile.TemporaryDirectory(prefix='preview-index-entry-') as temporary:
+            base = Path(temporary); run = base/'trace'; run.mkdir()
+            (run/'asset-debug-clock.tsv').write_text('tick\tstart_ms\tend_ms\n0\t0\t10\n')
+            (run/'state.tsv').write_text('tick\n0\n')
+            (run/'asset-debug-materials.tsv').write_text(
+                'tick\tcategory\tsheet\tid\tx\ty\ttile_id\n0\tplayer-projectile\tshapes8.dat\t59\t0\t0\t59\n')
+            (run/'asset-debug-run.json').write_text(json.dumps({'argv': [], 'exe_sha256': 'synthetic-no-engine'}))
+            current = base/'current'; current.mkdir()
+            name = 'bullet-59-8.hda'
+            (current/name).write_bytes((ROOT/'assets/hd/current-compat/pulse'/name).read_bytes())
+            historical = ROOT/'assets/hd/packs'/b.BASES['debug']
+            original_read = Path.read_bytes
+            def no_original_data(path):
+                if path.parent == ROOT.parent/'runtime-data/tyrian2000':
+                    return b'synthetic external-data fingerprint; no game data read'
+                return original_read(path)
+            for explicit in (None, historical):
+                output = base/('explicit.json' if explicit else 'default.json')
+                argv = [str(script), 'build', '--run', str(run), '--output', str(output)]
+                if explicit: argv += ['--assets', str(explicit)]
+                with mock.patch.object(sys, 'argv', argv), \
+                        mock.patch.object(b, 'view', return_value={'path': str(current)}) as view, \
+                        mock.patch.object(Path, 'read_bytes', no_original_data), \
+                        contextlib.redirect_stdout(io.StringIO()), self.assertRaises(SystemExit) as exited:
+                    runpy.run_path(str(script), run_name='__main__')
+                self.assertIsNone(exited.exception.code)
+                if explicit:
+                    view.assert_not_called()
+                else:
+                    view.assert_called_once()
+                    self.assertEqual(view.call_args.args[:2], (ROOT, 'debug'))
+                index = json.loads(output.read_bytes())
+                chosen = explicit or current
+                self.assertEqual(index['replay']['pack_directory'], str(chosen.resolve()))
+                record = next(iter(index['segments'][0]['materials'].values()))['replacement_at_index_build']
+                self.assertEqual(record['sha256'], hashlib.sha256((chosen/name).read_bytes()).hexdigest())
+
     def run_play_without_launch(self, assets=None):
         import runpy
         import subprocess

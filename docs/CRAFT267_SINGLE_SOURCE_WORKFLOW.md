@@ -79,13 +79,25 @@ python scripts/build_current_craft267.py view --kind preview --output /external/
 python scripts/build_current_craft267.py view --kind debug --output /external/new-debug
 ```
 
-Each view preflights the frozen base and selected craft267 and six sidekick
-PNGs against their canonical HDAs; copies all files; substitutes exactly those
-seven body transports; verifies every written byte; then publishes the complete
-view by a directory rename. No existing directory is
-overwritten. All other members, including base269/271 and every density4 file,
-are byte-exact copies. The view consumes the canonical HDA directly, not a second
-authoring image or independent regeneration recipe.
+Each view preflights the frozen base and all current gameplay compatibility
+mappings, then substitutes **142 canonical transports**: 120 global-family
+compatibility HDAs, two tank shells, seven enemy-energy shots, six sidekick
+bodies, craft267 and six HUD files. Duplicate, missing, stale or out-of-scope
+consumers fail before any output directory is created. Sprite PNG selections are checked
+against canonical pixels; selected versions must match their mappings. Every
+written byte is verified before publishing the complete view by directory rename.
+No existing directory is overwritten. The other **499 members**, including
+base269/271 and every density4 file, remain byte-exact frozen copies.
+
+The HUD check validates the existing canonical/mapping hashes and payload pins,
+selected input/configuration hashes and version, and fixed-input hashes. It does
+not rasterize the HUD meter recipe or add NumPy to preview dependencies. Full
+HUD source-to-HDA equivalence remains the explicit
+`python scripts/build_current_hud.py check` responsibility: manually changing an
+input and its selection hash while reusing the same version cannot be proven
+equivalent by this lightweight HUD preflight. Use the HUD stage/apply workflow,
+not manual edits to its generated mapping. Views copy installed canonical bytes;
+they never apply source edits or update the runtime manifest.
 
 Default `start-manual-hd.ps1`, `start-actual-preview.ps1`, `start-asset-debug.ps1`
 and `asset-index.py build` create a fresh view beneath the repository parent's
@@ -96,11 +108,12 @@ stage selectors keep their requested historical inputs; retired selectors still
 fail before dependency checks. No game or profile is launched by authoring/view
 commands. Views are ordinary external copies and may be retained for audit.
 
-The current views compose exactly craft267 plus the six bodies managed by
-public `build_current_sidekick_body.py`. Both builders carry the other mapping
-in their isolated rebuild closures. Each family keeps its existing canonical
-HDA authority; other independent historical pack families remain unchanged.
-No unpublished sidekick or renderer source was read or used.
+The authoring commands remain limited to their own family; only the shared view
+composer gathers all mapped current gameplay consumers. Each family retains its
+existing canonical HDA authority. No global-registry role or renderer routing flag
+is added, and the 1006-file runtime mapping stays unchanged. The default preview,
+debug, manual and asset-index paths inherit this composer; explicit assets and
+historical selectors still bypass it. No historical pack is rewritten.
 
 ## Identity and acceptance limits
 
@@ -126,6 +139,15 @@ at every replacement boundary. The package copy test explicitly mocks out
 copying/hashes but does not certify filesystem permission setup. Actual symlink/
 junction creation is explicitly skipped and **unverified**. No link or permission
 operation is attempted. No original game data is included or needed.
+
+The view tests independently read all 142 canonical mappings and runtime hashes,
+decode all five Pulse PNGs with literal HDR1 geometry, compare both complete
+641-file trees, and prove a newly selected Vulcan PNG propagates through public
+stage/apply into both views. Missing/stale/duplicate mappings, changed canonical
+bytes, changed selected PNGs/config hashes and absent frozen consumers fail before
+publication. Asset-index build/play tests check the default/explicit paths with
+synthetic traces and no game launch. These are transport/entrypoint checks, not
+new native rendering or Windows acceptance.
 
 The earlier Windows sandbox refused an actual test-fixture `os.replace` of its
 installed selection with WinError5 (access denied). That operation did not execute;

@@ -188,37 +188,79 @@ def check(root):
 
 
 def current_overlays(root):
-    """The fixed craft267 body plus the six independently selected current bodies."""
-    from current_sidekick_body_compatibility import load as sidekick_load
-    from build_current_sidekick_body import selection as sidekick_selection, source_blob as sidekick_blob
-    load(root)
+    """Current canonical gameplay consumers, not independent per-pack artwork."""
+    import build_current_art as art
+    import build_current_tank_shell as tank
+    import build_current_enemy_energy as energy
+    import build_current_sidekick_body as sidekick
+    import build_current_hud as hud
+    import current_art_compatibility as art_compat
+    import current_tank_shell_compatibility as tank_compat
+    import current_enemy_energy_compatibility as energy_compat
+    import current_sidekick_body_compatibility as sidekick_compat
+    import current_hud_compatibility as hud_compat
+    import current_hud_recipe as hud_recipe
+    from current_art_policy import compatibility_name
+
+    files = {}
+
+    def add(mapping_path, selection_path, selected, mapping, expected):
+        # Reuse each family's exact consumer/geometry/hash checks, then also bind
+        # its installed selection. A stale source or mapping must not fall back
+        # silently to the frozen pack. Reconstruct in memory only; copy canonical.
+        metadata = parse(read(root, mapping_path))
+        if (set(metadata) != {'schema', 'selection', 'version', 'files'} or
+                metadata['selection'] != selection_path or
+                metadata['version'] != selected['version']):
+            raise ValueError('Stale current preview selection/mapping: ' + mapping_path)
+        if set(mapping) != set(expected):
+            raise ValueError('Unexpected current preview consumers: ' + mapping_path)
+        for destination, entry in mapping.items():
+            name = destination.removeprefix('assets/gameplay/')
+            if not destination.startswith('assets/gameplay/') or not name or '/' in name or name in files:
+                raise ValueError('Current preview overlay collision/invalid destination: ' + destination)
+            data = read(root, entry['source_path'])
+            if sha(data) != entry['sha256'] or data != expected[destination]:
+                raise ValueError('Stale current preview selected source/canonical: ' + destination)
+            files[name] = data
+
     selected = selection(root, read(root, SELECTION))
-    canonical = read(root, CANONICAL)
-    if source_blob(root, selected['resources'][0]) != canonical:
-        raise ValueError('Stale craft267 selected pixels')
-    files = {NAME: canonical}
-    six = sidekick_selection(root, read(root, 'assets/hd/authoring/sidekick-body-current.json'))
-    mapping = sidekick_load(root)
-    for row in six['resources']:
-        generated, _ = sidekick_blob(root, row)
-        matched = [entry for entry in mapping.values() if entry['identity'] == row['identity']]
-        if len(matched) != 1:
-            raise ValueError('Missing current sidekick body consumer')
-        entry = matched[0]
-        data = read(root, entry['source_path'])
-        if generated != data:
-            raise ValueError('Stale sidekick selected pixels')
-        name = entry['destination'].removeprefix('assets/gameplay/')
-        if '/' in name or name in files:
-            raise ValueError('Current preview overlay collision')
-        files[name] = data
-    if len(files) != 7:
-        raise ValueError('Expected exactly seven current body overlays')
+    add(MAPPING, SELECTION, selected, load(root),
+        {DESTINATION: source_blob(root, selected['resources'][0])})
+    for family in PROFILES:
+        policy = profile(family)
+        selected = art.selection(root, read(root, policy['selection']), family)
+        expected = {'assets/gameplay/' + compatibility_name(row['identity']): art.source_blob(root, row)[0]
+                    for row in selected['resources']}
+        add(policy['mapping'], policy['selection'], selected, art_compat.load(root, family), expected)
+    for builder, compat in ((tank, tank_compat), (energy, energy_compat), (sidekick, sidekick_compat)):
+        selected = builder.selection(root, read(root, compat.SELECTION))
+        expected = {'assets/gameplay/' + compat.name(row['identity']): builder.source_blob(root, row)[0]
+                    for row in selected['resources']}
+        add(compat.MAPPING, compat.SELECTION, selected, compat.load(root), expected)
+    selected = hud.selection(root, read(root, hud.SELECTION))
+    # Preview consumes installed HUD transports, not its expensive meter recipe.
+    # Check selected/fixed inputs and mapping versions without adding NumPy to
+    # launch dependencies. Full source-to-HDA equivalence remains `hud ... check`.
+    for key, sources in selected['resources'].items():
+        if not isinstance(sources, list) or len(sources) != len(hud_recipe.DEFAULT_SELECTION[key]):
+            raise ValueError('Unexpected current HUD source count')
+        for record in sources:
+            hud_recipe.checked(root, record)
+    for record in hud_recipe.FIXED_INPUTS.values():
+        hud_recipe.checked(root, record)
+    expected = {'assets/gameplay/' + name: read(root, 'assets/hd/shared-ui-v1/' + name)
+                for name in hud.NAMES}
+    mapping = {destination: row for destination, row in hud_compat.load(root).items()
+               if destination.startswith('assets/gameplay/')}
+    add(hud.MAPPING, hud.SELECTION, selected, mapping, expected)
+    if len(files) != 142:
+        raise ValueError('Expected exactly 142 current gameplay overlays')
     return files
 
 
 def view(root, kind, destination):
-    """Materialize one frozen pack plus the seven fixed current body overlays."""
+    """Materialize one frozen pack plus all mapped current gameplay consumers."""
     external(root, destination)
     if destination.exists():
         raise ValueError('View destination must be new')
@@ -237,7 +279,7 @@ def view(root, kind, destination):
     if digest != BASE_TREE_SHA256:
         raise ValueError('Frozen preview base changed')
     if not set(overlays).issubset(files):
-        raise ValueError('Missing original current body consumer')
+        raise ValueError('Missing original current gameplay consumer')
     files.update(overlays)
     destination.parent.mkdir(parents=True, exist_ok=True)
     # Publish only a complete verified view. Temporary tree is exclusively ours.
