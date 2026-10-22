@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Byte-exact green head/trail reuse and separate source/weapon provenance."""
 import hashlib,json,struct,subprocess,sys,tempfile,unittest
+from historical_global_fixtures import registry_at
 from pathlib import Path
 from approved_pulse_art_revision import project_previous_art
 ROOT=Path(__file__).resolve().parents[1]
@@ -24,7 +25,7 @@ class GreenRegistryTests(unittest.TestCase):
   h=f['draw_semantics']['head_contract'];self.assertEqual(h['animation_length'],4);self.assertEqual(h['origin'],'shotX+1,shotY')
   smoke=f['draw_semantics']['smoke_contract'];self.assertEqual((smoke['input_types'],smoke['initial_sprite'],smoke['initial_ttl']),([12],76,7));self.assertFalse(smoke['fixedPosition']);self.assertFalse(smoke['followPlayer'])
  def test_unchanged_previous_and_eleven_resources(self):
-  baseline=json.loads(subprocess.check_output(['git','show','d5b08f5d9cde1dea43819daaa8a52bc8f211e20b:assets/hd/global-assets-v1/registry.json'],cwd=ROOT))
+  baseline=registry_at('d5b08f5d9cde1dea43819daaa8a52bc8f211e20b')
   self.assertEqual(project_previous_art(self.r['resources'][:109]),baseline['resources']);self.assertEqual(self.r['families'][:13],baseline['families']);self.assertEqual(len(self.r['resources']),120);self.assertEqual(len(self.r['families']),14)
   m=json.loads((ROOT/'assets/hd/manifest.json').read_text())
   for identity,r in zip(self.f['resources'],self.r['resources'][109:120]):

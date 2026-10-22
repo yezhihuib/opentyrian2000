@@ -7,6 +7,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from historical_global_fixtures import registry_at
 from pathlib import Path
 from approved_pulse_art_revision import project_previous_art
 
@@ -62,8 +63,7 @@ class SmallExplosionRegistryTests(unittest.TestCase):
             self.assertEqual(hashlib.sha256((ROOT / provenance['source_png']).read_bytes()).hexdigest(), approval['source_png_sha256'])
 
     def test_previous_six_families_and_resources_unchanged(self):
-        base = json.loads(subprocess.check_output(['git', 'show',
-            'c94acb347c610a0320386dc3a2ee83c1f273a776:assets/hd/global-assets-v1/registry.json'], cwd=ROOT))
+        base = registry_at('c94acb347c610a0320386dc3a2ee83c1f273a776')
         self.assertEqual(self.registry['families'][:6], base['families'])
         self.assertEqual(project_previous_art(self.registry['resources'][:56]), base['resources'])
         self.assertGreaterEqual(len(self.registry['families']), 7)

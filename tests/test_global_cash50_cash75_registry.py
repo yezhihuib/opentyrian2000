@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Byte-exact approved Cash50/75 reuse and native two-role registry proof."""
 import hashlib,json,re,struct,subprocess,sys,tempfile,unittest
+from historical_global_fixtures import registry_at
 from pathlib import Path
 from approved_pulse_art_revision import project_previous_art
 ROOT=Path(__file__).resolve().parents[1]
@@ -38,7 +39,7 @@ class Cash50Cash75RegistryTests(unittest.TestCase):
     self.assertEqual(list(struct.unpack('<6I',b[4:28])),[r['identity'],8,12,14,0,0]);self.assertEqual(f'{fnv64(b[28:]):016x}',r['payload_fnv64'])
     p=r['provenance'];self.assertEqual(b,(ROOT/'assets/hd/packs'/p['pack']/p['file']).read_bytes());approval=manifest['packs'][p['pack']]['files'][p['file']];self.assertEqual(approval['sha256'],r['sha256']);self.assertEqual(hashlib.sha256((ROOT/p['source_png']).read_bytes()).hexdigest(),approval['source_png_sha256'])
  def test_previous_eight_families_and_75_resources_unchanged(self):
-  baseline=json.loads(subprocess.check_output(['git','show','42453a546c79bcb0de6fc4c09b8370adf90660f8:assets/hd/global-assets-v1/registry.json'],cwd=ROOT))
+  baseline=registry_at('42453a546c79bcb0de6fc4c09b8370adf90660f8')
   self.assertEqual(self.r['families'][:8],baseline['families']);self.assertEqual(project_previous_art(self.r['resources'][:75]),baseline['resources']);self.assertEqual(len(self.r['resources']),120);self.assertEqual(len(self.r['families']),14)
   self.assertEqual(len(set(r['identity'] for r in self.r['resources'])),120)
  def test_generated_header_exact(self):

@@ -8,6 +8,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from historical_global_fixtures import registry_at
 from pathlib import Path
 from approved_pulse_art_revision import project_previous_art
 ROOT = Path(__file__).resolve().parents[1]
@@ -82,7 +83,7 @@ class Cash25RegistryTests(unittest.TestCase):
             self.assertEqual(hashlib.sha256((ROOT/provenance['source_png']).read_bytes()).hexdigest(),approval['source_png_sha256'])
 
     def test_previous_seven_families_and_resources_unchanged(self):
-        base=json.loads(subprocess.check_output(['git','show','ee1e98cfc6b8c00cb9a1837e4aa2c3a9aca2b0e5:assets/hd/global-assets-v1/registry.json'],cwd=ROOT))
+        base=registry_at('ee1e98cfc6b8c00cb9a1837e4aa2c3a9aca2b0e5')
         self.assertEqual(self.registry['families'][:7],base['families'])
         self.assertEqual(project_previous_art(self.registry['resources'][:68]),base['resources'])
         self.assertEqual(len(self.registry['families']),14)

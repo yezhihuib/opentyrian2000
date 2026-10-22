@@ -1,57 +1,34 @@
 #!/usr/bin/env python3
-"""Exact local typography delta from the accepted Talon parent.
+"""Live SHOP boundary and immutable published-stage proof; see fixture README."""
+import unittest
+from shop_published_boundary import check_inventory, check_pin_assets, published_source, sha
 
-Does not import historical projection modules or read their external fixtures.
-No source/asset wildcard exemptions and no game launch.
-"""
-from pathlib import Path
-import hashlib
-import json
-import subprocess
+class PublishedShopBoundary(unittest.TestCase):
+    def test_live_inventory_and_original_assets(self):
+        check_inventory()
+        check_pin_assets('menu_font')
 
-ROOT = Path(__file__).resolve().parents[1]
-PIN = json.loads((ROOT / 'tests/shop_menu_font_source_delta.json').read_text())
-BASE = PIN['base']
+    def test_published_source_boundary(self):
+        pin = check_pin_assets('menu_font')
+        source = published_source('menu', 'src/pregame_font.c')
+        # The intermediate private menu-only source is unavailable. The next
+        # independently published front stage has an existing original accepted
+        # source pin, retains these exact menu assets, and bounds every menu lease.
+        front_pin = check_pin_assets('front')
+        self.assertEqual(pin['accepted_sha256']['src/pregame_font.c'], front_pin['original_pregame_sha256'])
+        self.assertEqual(sha(source), front_pin['accepted_sha256']['src/pregame_font.c'])
+        text = source.decode()
+        for invariant in ('static void load_menu_run(unsigned r)', 'sf.menu_run[r]',
+                          'if(!menu)for(unsigned r=0;r<7;r++)load_menu_run(r);',
+                          'if(r<7&&sf.menu_run[r]&&!strcmp(plain,menu_spec[r].text))',
+                          'memcmp(h,"SMR1",4)', 'hash(data,size)!=s->payload_hash'):
+            self.assertIn(invariant, text)
+        for invariant in ('if(!replay_matches())', 'SF_EVENTS=40000'):
+            self.assertIn(invariant, text)
 
+    def test_original_private_tree_proof(self):
+        from shop_published_boundary import replay_original_historical_contract
+        replay_original_historical_contract('menu_font_boundary')
 
-def git(*args):
-    return subprocess.check_output(['git', '-C', str(ROOT), *args])
-
-
-def digest(raw):
-    return hashlib.sha256(raw).hexdigest()
-
-
-assert BASE == '1685561b2b5d6bd6264bd7756cc30cf7c7506c4f'
-assert git('rev-parse', BASE).decode().strip() == BASE
-tracked_sources = set(git('ls-tree', '-r', '--name-only', BASE, 'src').decode().splitlines())
-actual_sources = {str(p.relative_to(ROOT)) for p in (ROOT / 'src').rglob('*') if p.is_file()}
-assert actual_sources == tracked_sources | {'src/shop_menu_font_pins.h'}
-for name in sorted(tracked_sources):
-    raw = (ROOT / name).read_bytes()
-    if name == 'src/pregame_font.c':
-        assert digest(git('show', BASE + ':' + name)) == PIN['original_pregame_sha256']
-        assert digest(raw) == PIN['accepted_sha256'][name]
-    else:
-        assert raw == git('show', BASE + ':' + name), name
-old_assets = set(git('ls-tree', '-r', '--name-only', BASE, 'assets').decode().splitlines())
-changed_assets = set(git('diff', '--name-only', BASE, '--', 'assets').decode().splitlines())
-assert not changed_assets & old_assets, 'existing assets changed'
-new_assets = {str(p.relative_to(ROOT)) for p in (ROOT / 'assets/shop-menu-font-v1').iterdir() if p.is_file()}
-assert new_assets == {name for name in PIN['accepted_sha256'] if name.startswith('assets/')}
-actual_assets = {str(p.relative_to(ROOT)) for p in (ROOT / 'assets').rglob('*') if p.is_file()}
-assert actual_assets == old_assets | new_assets, 'unlisted asset added'
-rejections = 0
-for name, wanted in PIN['accepted_sha256'].items():
-    path = ROOT / name
-    assert path.is_file() and not path.is_symlink(), name
-    raw = path.read_bytes()
-    assert digest(raw) == wanted, name
-    for at in {0, len(raw) // 2, len(raw) - 1}:
-        bad = raw[:at] + bytes([raw[at] ^ 1]) + raw[at + 1:]
-        assert digest(bad) != wanted
-        rejections += 1
-print(json.dumps(dict(result='PASS', baseline=BASE, exact_old_source_files=len(tracked_sources)-1,
-    changed_production_source=['src/pregame_font.c'], exact_added_production=list(PIN['accepted_sha256']),
-    unchanged_existing_assets=True, mutation_rejections=rejections,
-    original_game_draw_input_purchase_rng_sources_unchanged=True), indent=2))
+if __name__ == '__main__':
+    unittest.main()

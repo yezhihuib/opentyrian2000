@@ -1,0 +1,16 @@
+# Native source proofs for historical frontend checks
+
+These fixtures preserve the native-source side of the original historical tests, not current production expectations.
+
+* Settings: the October 13 `settings-font-source-checkpoint-504b3d4-20261013.zip` includes the original incremental Git bundle. Its exact `504b3d4723d382548c698a77ce5dae318ffa146b` commit was recovered and all 140 archived source files were checked against its source tree.
+* Pre-game: `pregame-font-source-final.tar.gz` contains 148 source files and the original native acceptance document. The document identifies implementation `bf301cb37d0fe619f1ca7bf90c23f8e3580874e7` and states that production code remained unchanged through the later evidence-only addition. Published `docs/pregame-font-v1/COEXISTENCE-INDEPENDENT-REVIEW.md` identifies native checkpoint `c9232d59778c8689d85f9e87e8fee260b4c3187a` with that implementation. The c923 commit object itself was NOT recovered; the source-archive evidence is the explicit source oracle. Nine native resource SHA-256 values are independently retained in the original published coexistence receipt.
+
+The index pins archive SHA-256, complete source path sets and every source SHA-256/size. All but each renderer are byte-identical to a named public source blob, so only two exceptional renderer texts are copied. The loader independently pins the entire index digest. No executable, original game data, private Library IDs, or native captures are included.
+
+## Two distinct test scopes
+
+`frontend_history_oracles.py` retains the original three public CLI oracle bodies on exact temporary snapshots: pre-game `916b7aa8a4a837c695d6cef4b1e9da133db27ef1`, settings `a4974da93ee75fb18c7ad5827ea42a6b02d1b74d`. Original assertions, inverse hashes, source/art inventories and adversarial controls remain. Argument/output plumbing and the missing private-native Git reads now use explicit fixture APIs. The pre-game native map independently passes the original published type15 whole-source validator against public `4597e39c`: the only difference is exactly its eight approved FNV constants and adjacent comment. This is content equivalence, not a claim to have recovered the c923 commit object.
+
+Each CLI module also has a separately counted current-production test. It checks every current `src`, `assets`, and `visualc` path, regular-file status, executable mode and Git blob against the fixed accepted publication `775b6b77163723c6cae727bafce1d53746a5bd60`, tree `9306469adfc3a8897d11ab02d705757a0a8e77b8`. Added, removed, reverted and mutated production files fail. This gate is not a replacement for the old baseline and is not a new native-game acceptance claim; existing runtime tests remain independent. A future production change needs an explicitly reviewed new current gate, not an automatic HEAD refresh.
+
+Unittest discovery counts both proofs; direct CLI invocation performs both and labels the receipt. Tests need the published Git ancestors already used by the historical tests, but no private Git objects, Library access or network. Temporary snapshots (about 0.7 GB each) are removed on success or failure. Fixture and production-map negative controls cover corruption, unknown paths, missing/added paths, modes, and mutations both inside and outside the known later-change set.

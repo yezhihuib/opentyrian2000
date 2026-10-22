@@ -12,6 +12,8 @@ BASE='b0ff398229a2a6ab64abadf778b1003a576af38b0ca4d3d829c5c5c6b4d9eb39'
 FAMILY_SHA='50e532b44b372bc5182d255844f44f558e460cf10d524018988e195f6a3b824f'
 sha=lambda b:hashlib.sha256(b).hexdigest()
 def project_p9_mode2(root,catalog):
+    from accepted_later_changes import project_p9_catalog
+    catalog=project_p9_catalog(catalog)
     result=copy.deepcopy(catalog); paths=set()
     if FAMILY not in result:
         return result,paths

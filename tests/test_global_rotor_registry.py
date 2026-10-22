@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Byte-exact eight-pose rotor reuse and native record/quadrant source pins."""
 import hashlib,json,struct,subprocess,sys,tempfile,unittest
+from historical_global_fixtures import registry_at
 from pathlib import Path
 from approved_pulse_art_revision import project_previous_art
 ROOT=Path(__file__).resolve().parents[1]
@@ -20,7 +21,7 @@ class RotorRegistryTests(unittest.TestCase):
    self.assertEqual(r['record_fnv64_variants'],sorted(set(v['record_fnv64'] for v in r['variants'])))
   b=f['draw_semantics']['body_contract'];self.assertEqual(b['forward'],list(range(229,244,2)));self.assertEqual(b['reverse'],list(range(243,228,-2)));self.assertEqual(b['parts'],[0,1,19,20]);self.assertEqual(b['size'],1)
  def test_unchanged_previous_and_eight_resources(self):
-  baseline=json.loads(subprocess.check_output(['git','show','d418bc85e3033936a1f8d263679aeaba0e3640b7:assets/hd/global-assets-v1/registry.json'],cwd=ROOT))
+  baseline=registry_at('d418bc85e3033936a1f8d263679aeaba0e3640b7')
   self.assertEqual(project_previous_art(self.r['resources'][:101]),baseline['resources']);self.assertEqual(self.r['families'][:12],baseline['families']);self.assertGreaterEqual(len(self.r['resources']),109);self.assertGreaterEqual(len(self.r['families']),13)
   m=json.loads((ROOT/'assets/hd/manifest.json').read_text())
   for i,r in zip(range(229,244,2),self.r['resources'][101:109]):

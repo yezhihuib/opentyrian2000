@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Explicit five-head revision, exact approved normalization and unchanged roles."""
 import copy,hashlib,json,struct,subprocess,sys,tempfile,unittest
+from historical_global_fixtures import registry_at, verify_historical_receipt
 from pathlib import Path
 from PIL import Image
 from approved_pulse_art_revision import approval,project_previous_art,IDS
@@ -15,7 +16,7 @@ class PulseArtRevisionTests(unittest.TestCase):
  def setUp(self):
   self.a=approval();self.r=json.loads((ROOT/'assets/hd/global-assets-v1/registry.json').read_text());self.m=json.loads((ART/'candidate-manifest.json').read_text())
  def test_only_five_art_rows_changed(self):
-  b=json.loads(subprocess.check_output(['git','show',self.a['baseline_commit']+':assets/hd/global-assets-v1/registry.json'],cwd=ROOT))
+  b=registry_at(self.a['baseline_commit'])
   projected=copy.deepcopy(self.r);projected['resources']=project_previous_art(projected['resources']);self.assertEqual(projected,b)
   for change in self.a['revisions']:
    old=change['previous'];p=ROOT/'assets/hd/global-assets-v1'/old['path'];self.assertEqual(sha(p.read_bytes()),old['sha256']);self.assertEqual(sha((ROOT/old['provenance']['source_png']).read_bytes()),old['provenance']['source_png_sha256'])
@@ -42,5 +43,5 @@ class PulseArtRevisionTests(unittest.TestCase):
    p=Path(d)/'generated.h';subprocess.run([sys.executable,str(ROOT/'scripts/build_global_registry_header.py'),'--registry',str(ROOT/'assets/hd/global-assets-v1/registry.json'),'--output',str(p)],check=True,capture_output=True);self.assertEqual(p.read_bytes(),(ROOT/'src/global_asset_registry.h').read_bytes())
  def test_historical_receipts_unchanged(self):
   names=['packaging/global-validation.json','packaging/frontend-validation.json','assets/hd/manifest.json','docs/PULSE_UPGRADE_VALIDATION.json','docs/PULSE_UPGRADE_VALIDATION.md','tests/global_talon_validation.json']
-  for n in names:self.assertEqual((ROOT/n).read_bytes(),subprocess.check_output(['git','show',self.a['baseline_commit']+':'+n],cwd=ROOT))
+  for n in names:verify_historical_receipt(self.a['baseline_commit'],n,(ROOT/n).read_bytes())
 if __name__=='__main__':unittest.main()

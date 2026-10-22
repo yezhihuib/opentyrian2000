@@ -8,7 +8,8 @@ ROOT=Path(__file__).resolve().parents[1]
 HISTORICAL_SHA256={'src/sprite.c': '4b78f9e792509fcd490549a81a86bf18c2f524368d9bb8d00ee573cc47775a52', 'src/font.c': 'a4d9125a15ac161efb1f97e8bc2f37c537647339902c0f5ad875874150a71cc8', 'src/fonthand.c': '1d6c63d81e02538272a9225f70c26731c86a2048640a41e5857096cdeb03825e', 'src/mtrand.c': '9bb519b6b67d990184da25f1d373858760d2952a782c3e850e2f21c972c01f95', 'src/tyrian2.c': '38efa746a6add0ccc02efc7a5fb64138523e31c1e0a0d710470eaaac9f44eb08', 'src/pregame_font.c': 'da3474dc1930771d9fc84a11c2a2f0fce79938f53bf3c3ec70499e40d8eba9b1', 'assets/data-frame-v1/data-frame-v1.hda': '585ab4852480e2a4ff3e8df86bbc3a56d25ad797daafda83df54fa4015bc9f5e', 'assets/data-frame-v1/option20-source-support-320x200.bin': '9cf12bc96e544f8f00c78e03f9635dc67164ccb82433847dcac43f2e09544211', 'assets/data-frame-v1/source-v3.png': '34c464d5a05d0dd091a4d1cb3a11d53567ab094768bdb8253b27fcd35d53904d', 'assets/data-portrait-v1/source-face07-v3.png': '646237fab8e96ae5c2400a098aec8c76f19f6e37b1610919faf2fd18213ad7ad', 'assets/data-portrait-v1/face07-v1.hda': '9c861bd247753c3801ee73fd1fe2e8bf518a27550b58b01d311da3d815b450aa', 'assets/data-text-zh-CN-v1/data-text-zh-CN-v1.dzf': 'd124cd1ac996ec152e8f1dc5ac56ddbd09623c5877710d97d24a24dc66cab235', 'assets/data-text-zh-CN-v1/data-exit-v1.hda': 'f0610cbf5be4956b124ea35b5edd0c42b07ae21c76a2b57209b3354527804891'}
 
 def historical_source_bytes(test, name):
- data=(ROOT/name).read_bytes()
+ from accepted_later_changes import project_source
+ data=project_source("data",name,(ROOT/name).read_bytes())
  if name=='src/pregame_font.c':
   # These four exact, accepted HD-cursor edits are the only permitted delta
   # from the retained native-shop baseline. Validate every edit before undoing it.
@@ -79,4 +80,10 @@ class DataPortraitIntegration(unittest.TestCase):
   project=(ROOT/'visualc/opentyrian.vcxproj').read_text()
   for name in ('data_portrait.c','data_portrait.h','data_portrait_pins.inc'):self.assertIn(name,project)
   for name in ('start-hd.sh','start-hd.ps1'):self.assertIn('--data-portrait-assets=',(ROOT/'packaging'/name).read_text())
-if __name__=='__main__':unittest.main()
+
+class AcceptedCurrentSources(unittest.TestCase):
+    def test_current_source_inventory(self):
+        from accepted_later_changes import validate_current_sources
+        validate_current_sources(ROOT)
+
+if __name__=='__main__': unittest.main()

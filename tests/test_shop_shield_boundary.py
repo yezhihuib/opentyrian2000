@@ -8,6 +8,9 @@ import hashlib
 import json
 import struct
 import unittest
+import subprocess
+import sys
+import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
 # The combined public batch has independent history. Check the finite shield
@@ -82,9 +85,29 @@ class ShieldBoundary(unittest.TestCase):
         self.assertEqual(rows[0]['group'], 'shop')
         self.assertEqual(rows[0]['destination'], 'assets/startup/shop-shield-option26-v1.hda')
         self.assertEqual(rows[0]['bytes'], 72992)
-        self.assertEqual(manifest['closure']['shop_files'], 12)
-        self.assertEqual(len(manifest['files']), 694)
-        self.assertEqual(sum(r['bytes'] for r in manifest['files']), 127732786)
+        # Explicit current SHOP closure, not a count that silently admits any
+        # replacement set. Shared reconstructed text runs use a separate group.
+        expected = {
+            'shop-frame-metal-v1.hda', 'shop-front-weapon00-v1.hda',
+            'shop-generator-weapon16-v1.hda', 'shop-talon-option31-v1.hda',
+            'shop-shield-option26-v1.hda',
+            *{f'shop-menu-run{i}-v1.hda' for i in range(7)},
+            *{f'shop-static-newsh1-quad{i}-v1.hda' for i in (169, 199, 235)},
+        }
+        shop = [r for r in manifest['files'] if r['group'] == 'shop']
+        self.assertEqual(len(shop), len(expected))
+        self.assertEqual({r['destination'] for r in shop},
+                         {'assets/startup/'+name for name in expected})
+        self.assertEqual(manifest['closure']['shop_files'], len(expected))
+        # Replace obsolete unrelated whole-package byte/count constants with
+        # an exact fresh reconstruction from the finite approved inventories.
+        with tempfile.TemporaryDirectory(prefix='shield-package-closure-') as temp:
+            output = Path(temp)/'runtime.json'
+            subprocess.run([sys.executable,
+                            str(ROOT/'scripts/rebuild_recovered_runtime_manifest.py'),
+                            '--root', str(ROOT), '--output', str(output)],
+                           check=True, capture_output=True, text=True)
+            self.assertEqual(json.loads(output.read_text()), manifest)
 
 
 if __name__ == '__main__':

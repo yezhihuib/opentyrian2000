@@ -1,0 +1,2800 @@
+{
+  "schema": "opentyrian-global-asset-registry-v1",
+  "directory": "assets/hd/global-assets-v1",
+  "content_addressing": {
+    "algorithm": "sha256",
+    "scope": "complete_resource_bytes",
+    "path_template": "content/<sha256>.hda"
+  },
+  "lookup": {
+    "key": [
+      "source_identity",
+      "draw_semantics"
+    ],
+    "level_independent": true,
+    "unknown_identity": "original_renderer",
+    "invalid_or_missing_resource": "original_renderer"
+  },
+  "resources": [
+    {
+      "identity": 90229,
+      "path": "content/5cfa025cce0d662d0d92f1f1371cd0153910175a5956e4ed02ae7dc6fc3bafc7.hda",
+      "sha256": "5cfa025cce0d662d0d92f1f1371cd0153910175a5956e4ed02ae7dc6fc3bafc7",
+      "bytes": 172060,
+      "magic": "HDR1",
+      "header_u32": [
+        90229,
+        8,
+        24,
+        28,
+        5,
+        7
+      ],
+      "payload_fnv64": "848cb484fb735309",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "ship-229-8.hda",
+        "source_png": "assets/hd/source/ship-229-8-5cfa025cce0d.png",
+        "source_png_sha256": "e88f074866ff9c1fe1dfe2f24f39efeed0ed1bdba4176f4e60c71c78aef5b986"
+      }
+    },
+    {
+      "identity": 1090001,
+      "path": "content/0e42426b54f2b56d29d446153361864aa9c18058f1ba6d61c0827d49aadb5869.hda",
+      "sha256": "0e42426b54f2b56d29d446153361864aa9c18058f1ba6d61c0827d49aadb5869",
+      "bytes": 172060,
+      "magic": "HDR1",
+      "header_u32": [
+        1090001,
+        8,
+        24,
+        28,
+        5,
+        7
+      ],
+      "payload_fnv64": "85c60fdc8b6d4c66",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "talon-bank-1-8.hda",
+        "source_png": "assets/hd/source/talon-bank-1-8-0e42426b54f2.png",
+        "source_png_sha256": "12a53af05b9e42a2a46a82d0629c76e52534ee581ea337fce4d2cd29a11e1e58"
+      }
+    },
+    {
+      "identity": 90231,
+      "path": "content/ec6c662bc5a8f596a0e8b1023530636b3cdf1a9b608382c7d8ee37337d9cfefb.hda",
+      "sha256": "ec6c662bc5a8f596a0e8b1023530636b3cdf1a9b608382c7d8ee37337d9cfefb",
+      "bytes": 172060,
+      "magic": "HDR1",
+      "header_u32": [
+        90231,
+        8,
+        24,
+        28,
+        5,
+        7
+      ],
+      "payload_fnv64": "9294e8d8a9b88fea",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "ship-231-8.hda",
+        "source_png": "assets/hd/source/ship-231-8-ec6c662bc5a8.png",
+        "source_png_sha256": "c9db2fc3bc87ae7b41c629f03a14a38803a87a11b3e797da155a21b753bff269"
+      }
+    },
+    {
+      "identity": 1090003,
+      "path": "content/207239469f9c8a76fd2d63f30dfc537263742ecc7683a44d067519272430b691.hda",
+      "sha256": "207239469f9c8a76fd2d63f30dfc537263742ecc7683a44d067519272430b691",
+      "bytes": 172060,
+      "magic": "HDR1",
+      "header_u32": [
+        1090003,
+        8,
+        24,
+        28,
+        5,
+        7
+      ],
+      "payload_fnv64": "2b1df2f4f48a32a3",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "talon-bank-3-8.hda",
+        "source_png": "assets/hd/source/talon-bank-3-8-207239469f9c.png",
+        "source_png_sha256": "3330a86b8db3067d0e9d6dc6c2b1ffb5c9697ab0978ca2365b9b978447c09afd"
+      }
+    },
+    {
+      "identity": 1090004,
+      "path": "content/05e222ca3581e6718752ea0577c212f08729749cdcfc936d59b2218f393d660a.hda",
+      "sha256": "05e222ca3581e6718752ea0577c212f08729749cdcfc936d59b2218f393d660a",
+      "bytes": 172060,
+      "magic": "HDR1",
+      "header_u32": [
+        1090004,
+        8,
+        24,
+        28,
+        5,
+        7
+      ],
+      "payload_fnv64": "d140e691af6ed1e3",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "talon-bank-4-8.hda",
+        "source_png": "assets/hd/source/talon-bank-4-8-05e222ca3581.png",
+        "source_png_sha256": "ec64398a9900701618a4131be40cd37ef61e563b619c45daad7bce45e5be9409"
+      }
+    },
+    {
+      "identity": 1090005,
+      "path": "content/173d815b5a3f641e7147de537cb5246ba1fad8a013b3d91d585fd67828a7b803.hda",
+      "sha256": "173d815b5a3f641e7147de537cb5246ba1fad8a013b3d91d585fd67828a7b803",
+      "bytes": 172060,
+      "magic": "HDR1",
+      "header_u32": [
+        1090005,
+        8,
+        24,
+        28,
+        5,
+        7
+      ],
+      "payload_fnv64": "d85b10dbc41272a3",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "talon-bank-5-8.hda",
+        "source_png": "assets/hd/source/talon-bank-5-8-173d815b5a3f.png",
+        "source_png_sha256": "7e8cc681e3ce51c60ec708a1d051b61334d1588b4b56b8c11cc7f1fb273308f0"
+      }
+    },
+    {
+      "identity": 90233,
+      "path": "content/d1fe9bfe2dd84207fceb2f453c862eeaea802d9832fd14c1e1c3290622a53964.hda",
+      "sha256": "d1fe9bfe2dd84207fceb2f453c862eeaea802d9832fd14c1e1c3290622a53964",
+      "bytes": 172060,
+      "magic": "HDR1",
+      "header_u32": [
+        90233,
+        8,
+        24,
+        28,
+        5,
+        7
+      ],
+      "payload_fnv64": "f2bdffb6d17e2d67",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "ship-233-8.hda",
+        "source_png": "assets/hd/source/ship-233-8-d1fe9bfe2dd8.png",
+        "source_png_sha256": "19be1c587525ba6241929e699b2d3f0ab4903b9cd7e5e6d25a4a85f09de846b1"
+      }
+    },
+    {
+      "identity": 1090007,
+      "path": "content/2684439fb26d3ba4c0a1cadef9aba5c6baefc641dc8298493f4ea1b232bf9f2f.hda",
+      "sha256": "2684439fb26d3ba4c0a1cadef9aba5c6baefc641dc8298493f4ea1b232bf9f2f",
+      "bytes": 172060,
+      "magic": "HDR1",
+      "header_u32": [
+        1090007,
+        8,
+        24,
+        28,
+        5,
+        7
+      ],
+      "payload_fnv64": "31170616344845c8",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "talon-bank-7-8.hda",
+        "source_png": "assets/hd/source/talon-bank-7-8-2684439fb26d.png",
+        "source_png_sha256": "cc43d8c35558558931d364aa462d1524f9f099ffce33ede4701a8f11808a54c6"
+      }
+    },
+    {
+      "identity": 1090008,
+      "path": "content/b6a2fed82b69e624ea249868f584638345ffb0d21807c453d18e4d8af1d0be20.hda",
+      "sha256": "b6a2fed82b69e624ea249868f584638345ffb0d21807c453d18e4d8af1d0be20",
+      "bytes": 172060,
+      "magic": "HDR1",
+      "header_u32": [
+        1090008,
+        8,
+        24,
+        28,
+        5,
+        7
+      ],
+      "payload_fnv64": "022a48b1690f1dc0",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "talon-bank-8-8.hda",
+        "source_png": "assets/hd/source/talon-bank-8-8-b6a2fed82b69.png",
+        "source_png_sha256": "f03bc5b13959e9c3bb9bb9e46ae8670925099e8eae727e05cc0cac046132e7b6"
+      }
+    },
+    {
+      "identity": 1090009,
+      "path": "content/b65b0524a05d1321131eea311f4e07f84841b895543def21f5f284b3ed6e7d8d.hda",
+      "sha256": "b65b0524a05d1321131eea311f4e07f84841b895543def21f5f284b3ed6e7d8d",
+      "bytes": 172060,
+      "magic": "HDR1",
+      "header_u32": [
+        1090009,
+        8,
+        24,
+        28,
+        5,
+        7
+      ],
+      "payload_fnv64": "1c50760313d7ed2c",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "talon-bank-9-8.hda",
+        "source_png": "assets/hd/source/talon-bank-9-8-b65b0524a05d.png",
+        "source_png_sha256": "3d13ae4c155a7883c52bbf63730f331b5382d623d601f0babaea8a5b3b4b646c"
+      }
+    },
+    {
+      "identity": 90235,
+      "path": "content/692b9a7cc8455798a1dda8a1dfe4aba10bb9872cacc790fd26ac5b246fa91350.hda",
+      "sha256": "692b9a7cc8455798a1dda8a1dfe4aba10bb9872cacc790fd26ac5b246fa91350",
+      "bytes": 172060,
+      "magic": "HDR1",
+      "header_u32": [
+        90235,
+        8,
+        24,
+        28,
+        5,
+        7
+      ],
+      "payload_fnv64": "8072730d59fdf877",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "ship-235-8.hda",
+        "source_png": "assets/hd/source/ship-235-8-692b9a7cc845.png",
+        "source_png_sha256": "f7c257efb78bb243d26302d8e6389a6322c8bc6291ea14b4bf1d0ca09731325f"
+      }
+    },
+    {
+      "identity": 1090011,
+      "path": "content/ce7e60e2a2f7df5290909a07655d432179c0ff3e204b4449d5e2ad637bdae1c1.hda",
+      "sha256": "ce7e60e2a2f7df5290909a07655d432179c0ff3e204b4449d5e2ad637bdae1c1",
+      "bytes": 172060,
+      "magic": "HDR1",
+      "header_u32": [
+        1090011,
+        8,
+        24,
+        28,
+        5,
+        7
+      ],
+      "payload_fnv64": "043aee5d5850dc33",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "talon-bank-11-8.hda",
+        "source_png": "assets/hd/source/talon-bank-11-8-ce7e60e2a2f7.png",
+        "source_png_sha256": "db9b83d29bd46635c59c31b3fe94ee1d11d28aa05e0e49c4ad9c2ae039d2704b"
+      }
+    },
+    {
+      "identity": 90237,
+      "path": "content/a375ba8f0cf276a2eb2e8be75165f96ea9b67edf37a6dca9f29fd8aef07bd7dc.hda",
+      "sha256": "a375ba8f0cf276a2eb2e8be75165f96ea9b67edf37a6dca9f29fd8aef07bd7dc",
+      "bytes": 172060,
+      "magic": "HDR1",
+      "header_u32": [
+        90237,
+        8,
+        24,
+        28,
+        5,
+        7
+      ],
+      "payload_fnv64": "667a4488e270e85d",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "ship-237-8.hda",
+        "source_png": "assets/hd/source/ship-237-8-a375ba8f0cf2.png",
+        "source_png_sha256": "4d6825111dde13aa3475381f4783beb1c67c14ab1c5cfdd4666b1adff59d811d"
+      }
+    },
+    {
+      "identity": 1060229,
+      "path": "content/032b9a95b91fe76016e28cc4416ae965743088b238a6ef1b3119c368788b7fbb.hda",
+      "sha256": "032b9a95b91fe76016e28cc4416ae965743088b238a6ef1b3119c368788b7fbb",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        1060229,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "4c8332f5396fc90f",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "explosion-newsh6-229-8.hda",
+        "source_png": "assets/hd/source/explosion-newsh6-229-8-032b9a95b91f.png",
+        "source_png_sha256": "4fbb521b97bb254ea9f20bb07183d53756eb18b50d978e7fe7cb1687760a9f0b"
+      }
+    },
+    {
+      "identity": 1060230,
+      "path": "content/6affeaa882afe7ca48267f6303d5d809866f2c916729d1bfc533b9c32dbeaa49.hda",
+      "sha256": "6affeaa882afe7ca48267f6303d5d809866f2c916729d1bfc533b9c32dbeaa49",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        1060230,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "2072fe2fe9998580",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "explosion-newsh6-230-8.hda",
+        "source_png": "assets/hd/source/explosion-newsh6-230-8-6affeaa882af.png",
+        "source_png_sha256": "6d2a10d7de0c1c134006354cf9851d17e4465525b06deb93d138e33d1f6d2cbb"
+      }
+    },
+    {
+      "identity": 1060231,
+      "path": "content/50e521515f6929ffb5fa786a7ca19304eed782583087b1f768c24491d74c3f0d.hda",
+      "sha256": "50e521515f6929ffb5fa786a7ca19304eed782583087b1f768c24491d74c3f0d",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        1060231,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "33e7ccb4e1240985",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "explosion-newsh6-231-8.hda",
+        "source_png": "assets/hd/source/explosion-newsh6-231-8-50e521515f69.png",
+        "source_png_sha256": "b6419dae51b291b0249dfd85e25922f46f2e7d722802c68245fb013b251cb916"
+      }
+    },
+    {
+      "identity": 1060232,
+      "path": "content/4cfd97f983844e5651d5b28778e414a1599f811a1475faa6ccde66cee8d696b7.hda",
+      "sha256": "4cfd97f983844e5651d5b28778e414a1599f811a1475faa6ccde66cee8d696b7",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        1060232,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "dfc7f7473ec66f2b",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "explosion-newsh6-232-8.hda",
+        "source_png": "assets/hd/source/explosion-newsh6-232-8-4cfd97f98384.png",
+        "source_png_sha256": "bd2d7df2265e0c932a49d27682b1011526e6569c23d0a2095fb3af798726a296"
+      }
+    },
+    {
+      "identity": 1060233,
+      "path": "content/d4fdb95e09cec1c5a70a3a1c69ed322616c52bb16a3a3ecf50ddcdb6711cc034.hda",
+      "sha256": "d4fdb95e09cec1c5a70a3a1c69ed322616c52bb16a3a3ecf50ddcdb6711cc034",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        1060233,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "a49f9ccff5f5eba4",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "explosion-newsh6-233-8.hda",
+        "source_png": "assets/hd/source/explosion-newsh6-233-8-d4fdb95e09ce.png",
+        "source_png_sha256": "d18851ae63eccd9b1775850c62bae04a87c2d2f1a27a20d65440df24587c84b2"
+      }
+    },
+    {
+      "identity": 1060234,
+      "path": "content/07f4b19c3630ecd061f0c5701e30ac2e9222a5180d889cd0339edbcd2bdaaef4.hda",
+      "sha256": "07f4b19c3630ecd061f0c5701e30ac2e9222a5180d889cd0339edbcd2bdaaef4",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        1060234,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "e3b67c600863d521",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "explosion-newsh6-234-8.hda",
+        "source_png": "assets/hd/source/explosion-newsh6-234-8-07f4b19c3630.png",
+        "source_png_sha256": "12beb2a0431bc63e7016b285ddedb734c62f6b72ffd8fadd981a2113d119d75b"
+      }
+    },
+    {
+      "identity": 1060235,
+      "path": "content/f11918f94d45b0b4ceb193858e6cdc7a12fda2161d89da42ce68f98fd95070ee.hda",
+      "sha256": "f11918f94d45b0b4ceb193858e6cdc7a12fda2161d89da42ce68f98fd95070ee",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        1060235,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "2464105ae16bb36c",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "explosion-newsh6-235-8.hda",
+        "source_png": "assets/hd/source/explosion-newsh6-235-8-f11918f94d45.png",
+        "source_png_sha256": "a263ad9723402c1d8881cd5c6ba3005d23454a17609d3219459d0864488c334f"
+      }
+    },
+    {
+      "identity": 1060236,
+      "path": "content/88a24e24a1d715d0dea69085528d09baaa5a670494a854d4db58bf68d4b402b0.hda",
+      "sha256": "88a24e24a1d715d0dea69085528d09baaa5a670494a854d4db58bf68d4b402b0",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        1060236,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "24c43d76779ed185",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "explosion-newsh6-236-8.hda",
+        "source_png": "assets/hd/source/explosion-newsh6-236-8-88a24e24a1d7.png",
+        "source_png_sha256": "3f29ee9487361a61177328af8d6eaf7cac684fa1b6c181f036900da382928aaf"
+      }
+    },
+    {
+      "identity": 1060237,
+      "path": "content/b71609dd0caf8c545e1683328e47e9a1a26222e5f65d3774faafaa41ad36330f.hda",
+      "sha256": "b71609dd0caf8c545e1683328e47e9a1a26222e5f65d3774faafaa41ad36330f",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        1060237,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "9155c09987cc795e",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "explosion-newsh6-237-8.hda",
+        "source_png": "assets/hd/source/explosion-newsh6-237-8-b71609dd0caf.png",
+        "source_png_sha256": "30320cfa1a5e0ac7b2b9152860d015f923af54f6bea05ce9e1d8a230561aa766"
+      }
+    },
+    {
+      "identity": 1060248,
+      "path": "content/f31dc159a1fc519dc897afe2959bf1eab709ea9ac148c0f72ee78591e8629e7e.hda",
+      "sha256": "f31dc159a1fc519dc897afe2959bf1eab709ea9ac148c0f72ee78591e8629e7e",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        1060248,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "dfe305d22e00e808",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "explosion-newsh6-248-8.hda",
+        "source_png": "assets/hd/source/explosion-newsh6-248-8-f31dc159a1fc.png",
+        "source_png_sha256": "d132221849e51361cfdac7001a4a3f47cc47914cf9f5f3ab5705c737cf35f64a"
+      }
+    },
+    {
+      "identity": 1060249,
+      "path": "content/e4ea83cf45e3ab8c97f563e73337c16f28ec19f39de724b51d712bb6442d9b4b.hda",
+      "sha256": "e4ea83cf45e3ab8c97f563e73337c16f28ec19f39de724b51d712bb6442d9b4b",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        1060249,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "e0345bbafb6daa68",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "explosion-newsh6-249-8.hda",
+        "source_png": "assets/hd/source/explosion-newsh6-249-8-e4ea83cf45e3.png",
+        "source_png_sha256": "504ea55295b70c270db9f4b0e582c7479b61f59bd62c6f3d555860bf833b910c"
+      }
+    },
+    {
+      "identity": 1060250,
+      "path": "content/c21b09f637019168b208412849aff98a5e94b79b7910ec06bc835efbb5036303.hda",
+      "sha256": "c21b09f637019168b208412849aff98a5e94b79b7910ec06bc835efbb5036303",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        1060250,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "cf0d39294e52b996",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "explosion-newsh6-250-8.hda",
+        "source_png": "assets/hd/source/explosion-newsh6-250-8-c21b09f63701.png",
+        "source_png_sha256": "3885c40b4169326ece34bfd9e94e5a49228673954dcdcc699b58d7abd2134156"
+      }
+    },
+    {
+      "identity": 1060252,
+      "path": "content/ae97ccc3056b059c5e8e78da37c1c3cf1dede697fcaeef37d8c7f082b1f49902.hda",
+      "sha256": "ae97ccc3056b059c5e8e78da37c1c3cf1dede697fcaeef37d8c7f082b1f49902",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        1060252,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "9809bd2730735f56",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "explosion-newsh6-252-8.hda",
+        "source_png": "assets/hd/source/explosion-newsh6-252-8-ae97ccc3056b.png",
+        "source_png_sha256": "ce303f8d4eaa09d2e2dd963b58dfaa5baa80a20616e4020223ad886751db290c"
+      }
+    },
+    {
+      "identity": 1060253,
+      "path": "content/04e2163c6ae9fcca00b0ce6ef155d5680f2e36c710d898b8f5a1cf3611948e0e.hda",
+      "sha256": "04e2163c6ae9fcca00b0ce6ef155d5680f2e36c710d898b8f5a1cf3611948e0e",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        1060253,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "98722410c61cf86e",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "explosion-newsh6-253-8.hda",
+        "source_png": "assets/hd/source/explosion-newsh6-253-8-04e2163c6ae9.png",
+        "source_png_sha256": "2228b8d6dd146e8d5d45fa06d26f308c645af178d800a237d71473dfc7706119"
+      }
+    },
+    {
+      "identity": 1060254,
+      "path": "content/efa6886201d97f13f2f27a2dc8ea13f9d6bb7229488d52befdb60571142993da.hda",
+      "sha256": "efa6886201d97f13f2f27a2dc8ea13f9d6bb7229488d52befdb60571142993da",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        1060254,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "ceaec6dc08f4ff7d",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "explosion-newsh6-254-8.hda",
+        "source_png": "assets/hd/source/explosion-newsh6-254-8-efa6886201d9.png",
+        "source_png_sha256": "5702c4e659335b9decee7150bb32c03e37ab252f807a54bb529ffd90f5f1bb13"
+      }
+    },
+    {
+      "identity": 1060255,
+      "path": "content/dd505a16d35d08ad736219fe75622f5ec0f0370298dce20f8c69f862be6ac270.hda",
+      "sha256": "dd505a16d35d08ad736219fe75622f5ec0f0370298dce20f8c69f862be6ac270",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        1060255,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "9879fc41ab20d494",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "explosion-newsh6-255-8.hda",
+        "source_png": "assets/hd/source/explosion-newsh6-255-8-dd505a16d35d.png",
+        "source_png_sha256": "131450da1bdc0fc5c793af1e5621efdf942dc0cf373477f719eeac392dbc488e"
+      }
+    },
+    {
+      "identity": 1060256,
+      "path": "content/e373dd69863cf6f741ac095ace46183a3af045dad42dc6fc292b00c9774bf612.hda",
+      "sha256": "e373dd69863cf6f741ac095ace46183a3af045dad42dc6fc292b00c9774bf612",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        1060256,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "f98a2a64840e796d",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "explosion-newsh6-256-8.hda",
+        "source_png": "assets/hd/source/explosion-newsh6-256-8-e373dd69863c.png",
+        "source_png_sha256": "a51c9e8610c77600970cf66c163513915774d451bc67e78b7cd2421bf6cb500d"
+      }
+    },
+    {
+      "identity": 1060267,
+      "path": "content/1aaf6de91392988e89266e8f8c760ea00f74a2abdaf4ae5e59c592e5a64feebc.hda",
+      "sha256": "1aaf6de91392988e89266e8f8c760ea00f74a2abdaf4ae5e59c592e5a64feebc",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        1060267,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "529e0c7741c9798d",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "explosion-newsh6-267-8.hda",
+        "source_png": "assets/hd/source/explosion-newsh6-267-8-1aaf6de91392.png",
+        "source_png_sha256": "75013065eb1389ccff74c741c073a22f5092f46b4b5d985be3851a41a62dbfa4"
+      }
+    },
+    {
+      "identity": 1060268,
+      "path": "content/86956e4f8ba83188e38897eedb7fc7fef6823b331a1036d586cd0b7551c896a9.hda",
+      "sha256": "86956e4f8ba83188e38897eedb7fc7fef6823b331a1036d586cd0b7551c896a9",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        1060268,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "55196ad5642b4325",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "explosion-newsh6-268-8.hda",
+        "source_png": "assets/hd/source/explosion-newsh6-268-8-86956e4f8ba8.png",
+        "source_png_sha256": "d3777e01f89b3d1320a2c0ec428aa51bf14bda219f482a963df81e358b0c4351"
+      }
+    },
+    {
+      "identity": 1060269,
+      "path": "content/ed46bd33c56712bfc3fbdeeb48a900fd5e21d8ea78f361392f18fdee0d761785.hda",
+      "sha256": "ed46bd33c56712bfc3fbdeeb48a900fd5e21d8ea78f361392f18fdee0d761785",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        1060269,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "dcb93fdf92a6f4e7",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "explosion-newsh6-269-8.hda",
+        "source_png": "assets/hd/source/explosion-newsh6-269-8-ed46bd33c567.png",
+        "source_png_sha256": "02c6a2fef234430f26615c00c7edee21c67ae32b5212b6e51e87ab6416f8886e"
+      }
+    },
+    {
+      "identity": 1060272,
+      "path": "content/557cbe6ec20edcb1615942492c6feecc2d1cdf4d82565f2a63d773185739dc92.hda",
+      "sha256": "557cbe6ec20edcb1615942492c6feecc2d1cdf4d82565f2a63d773185739dc92",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        1060272,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "caa03a63544d990c",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "explosion-newsh6-272-8.hda",
+        "source_png": "assets/hd/source/explosion-newsh6-272-8-557cbe6ec20e.png",
+        "source_png_sha256": "b6dea2ef8440e02a751f0095158f8abc83d3930393f01e8954ca8f3e8743a727"
+      }
+    },
+    {
+      "identity": 1060275,
+      "path": "content/d06d24e14dc51657c392bf6b2fae142cf7209dea740495a30786231eefdb58ea.hda",
+      "sha256": "d06d24e14dc51657c392bf6b2fae142cf7209dea740495a30786231eefdb58ea",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        1060275,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "c60c9b4fb86dd6e8",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "explosion-newsh6-275-8.hda",
+        "source_png": "assets/hd/source/explosion-newsh6-275-8-d06d24e14dc5.png",
+        "source_png_sha256": "f855fbf995438b5c5fe9800b59e7897d82d35401e925bb42dec2b2c96a7b0a9e"
+      }
+    },
+    {
+      "identity": 80058,
+      "path": "content/571feee3e3a572c6178fad80ca8fe3ca12e2cde21438464fa916b68cab1b43b0.hda",
+      "sha256": "571feee3e3a572c6178fad80ca8fe3ca12e2cde21438464fa916b68cab1b43b0",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        80058,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "4acb84bfa5b4664c",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "bullet-58-8.hda",
+        "source_png": "assets/hd/source/bullet-58-8-571feee3e3a5.png",
+        "source_png_sha256": "45a11f50dfac38b52b062c32c9085abc0f72c25b2471aced8305d3f2eea85166"
+      }
+    },
+    {
+      "identity": 80059,
+      "path": "content/9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae.hda",
+      "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        80059,
+        8,
+        12,
+        14,
+        4294967295,
+        0
+      ],
+      "payload_fnv64": "bb5ffa41cd02570b",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "bullet-59-8.hda",
+        "source_png": "assets/hd/source/bullet-59-8-9b12eb865bca.png",
+        "source_png_sha256": "b95925b600464c12244b292d14c5c3b0d05fa8ed125b111459c479360afa3304"
+      }
+    },
+    {
+      "identity": 80060,
+      "path": "content/e570776739129ff48f15aa5d4f5f809974e3420bf8bc55241429d419ce08f0d8.hda",
+      "sha256": "e570776739129ff48f15aa5d4f5f809974e3420bf8bc55241429d419ce08f0d8",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        80060,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "50ea36578382d3dd",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "bullet-60-8.hda",
+        "source_png": "assets/hd/source/bullet-60-8-e57077673912.png",
+        "source_png_sha256": "9c40ba8e225cf758e6ff0adf5b5c9c2101ce61fba134c6a57077b0fee0164cf9"
+      }
+    },
+    {
+      "identity": 80062,
+      "path": "content/0da3659e64942dfef38833193b19f5186586ca0f43b99f8fa5e31b7792a18ecf.hda",
+      "sha256": "0da3659e64942dfef38833193b19f5186586ca0f43b99f8fa5e31b7792a18ecf",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        80062,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "3b7514e77675738f",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "bullet-62-8.hda",
+        "source_png": "assets/hd/source/bullet-62-8-0da3659e6494.png",
+        "source_png_sha256": "fc279beae018eb0506910ddf5503c1c6a599c411536b75a0b9f3c397f4529b4b"
+      }
+    },
+    {
+      "identity": 80165,
+      "path": "content/255fa3dc879f33cb014f4393b56305bc118ef651c51f3ad6892f67922d959047.hda",
+      "sha256": "255fa3dc879f33cb014f4393b56305bc118ef651c51f3ad6892f67922d959047",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        80165,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "8a76e6547f1cfb41",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "bullet-165-8.hda",
+        "source_png": "assets/hd/source/bullet-165-8-255fa3dc879f.png",
+        "source_png_sha256": "70493abb68156ecaff07f731d421c3ed780c4ff88911a3cb2a607a1d86050004"
+      }
+    },
+    {
+      "identity": 1060146,
+      "path": "content/4ffc2b7596daf9da246c8c502e7d48a9c5a72271a3f4bd00aded691916eff5e3.hda",
+      "sha256": "4ffc2b7596daf9da246c8c502e7d48a9c5a72271a3f4bd00aded691916eff5e3",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        1060146,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "816f0c7c46ce3e57",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "explosion-newsh6-146-8.hda",
+        "source_png": "assets/hd/source/explosion-newsh6-146-8-4ffc2b7596da.png",
+        "source_png_sha256": "d02d58fff8618ce11a39900e7815b9ec5c3181e0608b1a4c36401f8dd1a5cd74"
+      }
+    },
+    {
+      "identity": 1060147,
+      "path": "content/babd7fd35c3e5d36b91f3e12fb4321f10710534365966650c0300b6d0fb7baa7.hda",
+      "sha256": "babd7fd35c3e5d36b91f3e12fb4321f10710534365966650c0300b6d0fb7baa7",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        1060147,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "4a7f15f328f95dba",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "explosion-newsh6-147-8.hda",
+        "source_png": "assets/hd/source/explosion-newsh6-147-8-babd7fd35c3e.png",
+        "source_png_sha256": "a12d896ac22f9b15dc0fcf1adbe60a32777dccd19ad669d6646219b60a563f79"
+      }
+    },
+    {
+      "identity": 1060148,
+      "path": "content/5c264f1bcb8cd5ba90572f1f58fab27918d0d1422b08bf79c10475bb588f358e.hda",
+      "sha256": "5c264f1bcb8cd5ba90572f1f58fab27918d0d1422b08bf79c10475bb588f358e",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        1060148,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "e017ff97747afefb",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "explosion-newsh6-148-8.hda",
+        "source_png": "assets/hd/source/explosion-newsh6-148-8-5c264f1bcb8c.png",
+        "source_png_sha256": "664fd489297f5505432e8f110ca776b4e4e342fa4528e0fa08639b1af16ac5d4"
+      }
+    },
+    {
+      "identity": 1060149,
+      "path": "content/4320a1a0771cbbd6f9a58239fcb78adfc193501f6b3bcf4b148f82c15b964ee0.hda",
+      "sha256": "4320a1a0771cbbd6f9a58239fcb78adfc193501f6b3bcf4b148f82c15b964ee0",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        1060149,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "1ce381fbe3a34f5c",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "explosion-newsh6-149-8.hda",
+        "source_png": "assets/hd/source/explosion-newsh6-149-8-4320a1a0771c.png",
+        "source_png_sha256": "dceba6745e41dfa542d5859dce15552332ce092769ebe88a533f53188616402b"
+      }
+    },
+    {
+      "identity": 1060150,
+      "path": "content/7b68a29d3f1f765cfa830ca83dd2c348a4f13182f9c637f4baa9b1ac4ef3877c.hda",
+      "sha256": "7b68a29d3f1f765cfa830ca83dd2c348a4f13182f9c637f4baa9b1ac4ef3877c",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        1060150,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "f8a7a017f2b25431",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "explosion-newsh6-150-8.hda",
+        "source_png": "assets/hd/source/explosion-newsh6-150-8-7b68a29d3f1f.png",
+        "source_png_sha256": "4b09b3fd3a12e51cfc4425849faa3611ede987308b62194756c68c81c3e3c8a3"
+      }
+    },
+    {
+      "identity": 1060151,
+      "path": "content/5f09994d08e87f4e7ce0ad95f247e477a7a92b957c9dc5f8f6c6188e75f0335c.hda",
+      "sha256": "5f09994d08e87f4e7ce0ad95f247e477a7a92b957c9dc5f8f6c6188e75f0335c",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        1060151,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "35759aefcf8350f3",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "explosion-newsh6-151-8.hda",
+        "source_png": "assets/hd/source/explosion-newsh6-151-8-5f09994d08e8.png",
+        "source_png_sha256": "b125f33e2b71f44938504b06501f112d8afb8bb5c4ac81079a930ed4c05cc2eb"
+      }
+    },
+    {
+      "identity": 1060152,
+      "path": "content/6d6a2f0addecec74acd0d8e9b1cb3246b5b40e759c3b3f0e24c1dea43d4b2ad7.hda",
+      "sha256": "6d6a2f0addecec74acd0d8e9b1cb3246b5b40e759c3b3f0e24c1dea43d4b2ad7",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        1060152,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "9cf81341ec3a6f03",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "explosion-newsh6-152-8.hda",
+        "source_png": "assets/hd/source/explosion-newsh6-152-8-6d6a2f0addec.png",
+        "source_png_sha256": "4d449679770cf8ce77b7f55fc670b2c50e20a60e253d00d8c51abb83e0f2c591"
+      }
+    },
+    {
+      "identity": 80067,
+      "path": "content/96b975abbccf393464cf2444f72d63c8ad3f996d8cc5c153593ad16f476e30e0.hda",
+      "sha256": "96b975abbccf393464cf2444f72d63c8ad3f996d8cc5c153593ad16f476e30e0",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        80067,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "aea83e10c9169380",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "bullet-67-8.hda",
+        "source_png": "assets/hd/source/bullet-67-8-96b975abbccf.png",
+        "source_png_sha256": "eed5e50f445717a8b6663883f05f7c8809aff56436390e2697525dcecca2f953"
+      }
+    },
+    {
+      "identity": 80070,
+      "path": "content/eebd525dab58f0fc6708f4f3c7b15a88e67270be877ff250e93c4bb2a2aeb8de.hda",
+      "sha256": "eebd525dab58f0fc6708f4f3c7b15a88e67270be877ff250e93c4bb2a2aeb8de",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        80070,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "6c26e938d94472c2",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "bullet-70-8.hda",
+        "source_png": "assets/hd/source/bullet-70-8-eebd525dab58.png",
+        "source_png_sha256": "df20672a356778dcffb44191e483b5ac812b9e2aa3acbfbd16e636fc91f73dfe"
+      }
+    },
+    {
+      "identity": 1060135,
+      "path": "content/5d2fc0b502900c0d9a18899acaf4cd9cc418d91f73ab6864ec35c9d4c38e78e2.hda",
+      "sha256": "5d2fc0b502900c0d9a18899acaf4cd9cc418d91f73ab6864ec35c9d4c38e78e2",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        1060135,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "05f600baacc46e91",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "explosion-newsh6-135-8.hda",
+        "source_png": "assets/hd/source/explosion-newsh6-135-8-5d2fc0b50290.png",
+        "source_png_sha256": "61b9601cbe7f8448a5f3ed140703b5dac6cfba931f5db8ad89f4f5638a8b50c7"
+      }
+    },
+    {
+      "identity": 1060136,
+      "path": "content/56edfc2111fd372c6466c69b7158e817c65f6f07bf73ef0a26ea83150a266ae9.hda",
+      "sha256": "56edfc2111fd372c6466c69b7158e817c65f6f07bf73ef0a26ea83150a266ae9",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        1060136,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "16746d724eadc23a",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "explosion-newsh6-136-8.hda",
+        "source_png": "assets/hd/source/explosion-newsh6-136-8-56edfc2111fd.png",
+        "source_png_sha256": "5700302691ecb54304df856f0ee53f2ce64009124cf0ed90c09012a192ac9a6e"
+      }
+    },
+    {
+      "identity": 1060137,
+      "path": "content/393d36c4f15a463f6799a967a71911fb0a7aa937bbcfc083497f42a138fd578a.hda",
+      "sha256": "393d36c4f15a463f6799a967a71911fb0a7aa937bbcfc083497f42a138fd578a",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        1060137,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "de2537c5f8e6c348",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "explosion-newsh6-137-8.hda",
+        "source_png": "assets/hd/source/explosion-newsh6-137-8-393d36c4f15a.png",
+        "source_png_sha256": "79af4b6cad4cbf421cba1b6f449123515532548460d9131e330e7d6c51fb7e4d"
+      }
+    },
+    {
+      "identity": 1060138,
+      "path": "content/c7dfaef6bcdd206bf3f10b65b224a13e0f992bb69edf4f59d8001951985cf3e9.hda",
+      "sha256": "c7dfaef6bcdd206bf3f10b65b224a13e0f992bb69edf4f59d8001951985cf3e9",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        1060138,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "aeca5a9f45ca467c",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "explosion-newsh6-138-8.hda",
+        "source_png": "assets/hd/source/explosion-newsh6-138-8-c7dfaef6bcdd.png",
+        "source_png_sha256": "f84ba5b8c9fb062710f65d606fbee373f0df9c1cc2e72869e1779f74e21aaa2e"
+      }
+    },
+    {
+      "identity": 1060139,
+      "path": "content/4486ad1625580b5947f00db6e580f9020775fc71a5815fb5fd2dbd226cfbed31.hda",
+      "sha256": "4486ad1625580b5947f00db6e580f9020775fc71a5815fb5fd2dbd226cfbed31",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        1060139,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "b4ddcd0117d2d2e4",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "explosion-newsh6-139-8.hda",
+        "source_png": "assets/hd/source/explosion-newsh6-139-8-4486ad162558.png",
+        "source_png_sha256": "ebb063700330f11eb3706839e664dd7b946b80ba22f382838cc77a787b9455cc"
+      }
+    },
+    {
+      "identity": 1060140,
+      "path": "content/e68dcef338f42f0595ca85ae1340f4eff95b9352dc1b84b3e6eb91e252059f8c.hda",
+      "sha256": "e68dcef338f42f0595ca85ae1340f4eff95b9352dc1b84b3e6eb91e252059f8c",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        1060140,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "f035d7c3b9bed804",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "explosion-newsh6-140-8.hda",
+        "source_png": "assets/hd/source/explosion-newsh6-140-8-e68dcef338f4.png",
+        "source_png_sha256": "955c823b37ece5455ec2ec1db1eb911f24242d7b1357806e45cc19a5cfd2060b"
+      }
+    },
+    {
+      "identity": 1060141,
+      "path": "content/fb4f7ee942107321deba815538b903c23c43448320dbc44c6487fd744b7e0c08.hda",
+      "sha256": "fb4f7ee942107321deba815538b903c23c43448320dbc44c6487fd744b7e0c08",
+      "bytes": 43036,
+      "magic": "HDR1",
+      "header_u32": [
+        1060141,
+        8,
+        12,
+        14,
+        0,
+        0
+      ],
+      "payload_fnv64": "d9a3a7c66cac92c0",
+      "provenance": {
+        "manifest": "assets/hd/manifest.json",
+        "pack": "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
+        "file": "explosion-newsh6-141-8.hda",
+        "source_png": "assets/hd/source/explosion-newsh6-141-8-fb4f7ee94210.png",
+        "source_png_sha256": "40b85a10530803865ed2d490ad5733553618ac3ccbae361cb00390e23cd647ac"
+      }
+    }
+  ],
+  "families": [
+    {
+      "name": "normal-talon",
+      "source_identity": {
+        "bank": "spriteSheet9",
+        "logical_bank": 9,
+        "bank_bytes": 33484,
+        "base_index": 233,
+        "original_pose_indices": [
+          229,
+          231,
+          233,
+          235,
+          237
+        ],
+        "tile_dimensions": [
+          12,
+          14
+        ],
+        "fingerprint": {
+          "algorithm": "fnv1a64",
+          "input": "row-major decoded INDEX8 bytes followed by row-major coverage bytes (0 or 255)",
+          "bytes_per_tile": 336
+        },
+        "tiles": [
+          {
+            "index": 229,
+            "source_fnv64": "3039ccf24a3813c9"
+          },
+          {
+            "index": 230,
+            "source_fnv64": "635a7ba6a40cc3ce"
+          },
+          {
+            "index": 231,
+            "source_fnv64": "4671f4e4752bd3ce"
+          },
+          {
+            "index": 232,
+            "source_fnv64": "b8bda523f77d5ead"
+          },
+          {
+            "index": 233,
+            "source_fnv64": "9926ced363914e55"
+          },
+          {
+            "index": 234,
+            "source_fnv64": "05a23d411744639d"
+          },
+          {
+            "index": 235,
+            "source_fnv64": "c93fa9f51a911b4e"
+          },
+          {
+            "index": 236,
+            "source_fnv64": "369940597be73ebe"
+          },
+          {
+            "index": 237,
+            "source_fnv64": "8e9d59a9d052653d"
+          },
+          {
+            "index": 238,
+            "source_fnv64": "5ac8c78644eb7383"
+          },
+          {
+            "index": 248,
+            "source_fnv64": "c043a803bd7945bc"
+          },
+          {
+            "index": 249,
+            "source_fnv64": "0013f6e55ca29dad"
+          },
+          {
+            "index": 250,
+            "source_fnv64": "ea5cf097dd8cf380"
+          },
+          {
+            "index": 251,
+            "source_fnv64": "7362348361652579"
+          },
+          {
+            "index": 252,
+            "source_fnv64": "b91fe403723a8017"
+          },
+          {
+            "index": 253,
+            "source_fnv64": "8fc0dca692bb9d1a"
+          },
+          {
+            "index": 254,
+            "source_fnv64": "86b2a02d4b7dbe10"
+          },
+          {
+            "index": 255,
+            "source_fnv64": "b7ab4cf95818a3da"
+          },
+          {
+            "index": 256,
+            "source_fnv64": "50d17fa4d559a5dc"
+          },
+          {
+            "index": 257,
+            "source_fnv64": "72aa5b104aa72411"
+          }
+        ],
+        "palette": {
+          "first_index": 16,
+          "count": 16,
+          "encoding": "RGB8 in ascending source-index order",
+          "rgb_hex": [
+            "100800",
+            "1c1000",
+            "2c1804",
+            "382408",
+            "492c10",
+            "553c18",
+            "654920",
+            "71552c",
+            "7d6538",
+            "8e7145",
+            "9a8255",
+            "aa9265",
+            "b6a279",
+            "cfc39e",
+            "e7dfc7",
+            "fffff3"
+          ],
+          "rgb48_sha256": "544b86ea4616316e58917ee849864833bb6a5f8f30ead9d3b8218b3398bbb42c",
+          "match": "exact relevant source colors; not a level or whole-palette key"
+        }
+      },
+      "draw_semantics": {
+        "role": "player_ship",
+        "layout": "quad",
+        "logical_dimensions": [
+          24,
+          28
+        ],
+        "anchor": [
+          5,
+          7
+        ],
+        "tiles": [
+          {
+            "index_offset": 0,
+            "offset": [
+              0,
+              0
+            ]
+          },
+          {
+            "index_offset": 1,
+            "offset": [
+              12,
+              0
+            ]
+          },
+          {
+            "index_offset": 19,
+            "offset": [
+              0,
+              14
+            ]
+          },
+          {
+            "index_offset": 20,
+            "offset": [
+              12,
+              14
+            ]
+          }
+        ],
+        "operators": [
+          "normal",
+          "invulnerability_blend",
+          "shadow"
+        ],
+        "original_indexed_draw": "unchanged",
+        "collision_and_logical_animation": "unchanged",
+        "intermediate_frames": "display_only",
+        "density": 8,
+        "rgba": "straight_rgba8",
+        "shadow": {
+          "operator": "ordered_darken",
+          "alpha_source": "same selected visual frame",
+          "original_quadrant_order": [
+            0,
+            1,
+            19,
+            20
+          ],
+          "indexed_quad_calls_per_original_draw": 1
+        }
+      },
+      "visuals": [
+        {
+          "visual_index": 0,
+          "resource_identity": 90229,
+          "role": "original_pose",
+          "source_index": 229
+        },
+        {
+          "visual_index": 1,
+          "resource_identity": 1090001,
+          "role": "display_interpolation",
+          "source_index": null
+        },
+        {
+          "visual_index": 2,
+          "resource_identity": 90231,
+          "role": "original_pose",
+          "source_index": 231
+        },
+        {
+          "visual_index": 3,
+          "resource_identity": 1090003,
+          "role": "display_interpolation",
+          "source_index": null
+        },
+        {
+          "visual_index": 4,
+          "resource_identity": 1090004,
+          "role": "display_interpolation",
+          "source_index": null
+        },
+        {
+          "visual_index": 5,
+          "resource_identity": 1090005,
+          "role": "display_interpolation",
+          "source_index": null
+        },
+        {
+          "visual_index": 6,
+          "resource_identity": 90233,
+          "role": "original_pose",
+          "source_index": 233
+        },
+        {
+          "visual_index": 7,
+          "resource_identity": 1090007,
+          "role": "display_interpolation",
+          "source_index": null
+        },
+        {
+          "visual_index": 8,
+          "resource_identity": 1090008,
+          "role": "display_interpolation",
+          "source_index": null
+        },
+        {
+          "visual_index": 9,
+          "resource_identity": 1090009,
+          "role": "display_interpolation",
+          "source_index": null
+        },
+        {
+          "visual_index": 10,
+          "resource_identity": 90235,
+          "role": "original_pose",
+          "source_index": 235
+        },
+        {
+          "visual_index": 11,
+          "resource_identity": 1090011,
+          "role": "display_interpolation",
+          "source_index": null
+        },
+        {
+          "visual_index": 12,
+          "resource_identity": 90237,
+          "role": "original_pose",
+          "source_index": 237
+        }
+      ]
+    },
+    {
+      "name": "player-shield-hit",
+      "source_identity": {
+        "bank": "explosionSpriteSheet",
+        "physical_source": "NEWSH6",
+        "logical_bank": 6,
+        "bank_bytes": 17810,
+        "tile_dimensions": [
+          12,
+          14
+        ],
+        "fingerprint": {
+          "algorithm": "fnv1a64",
+          "input": "row-major decoded INDEX8 bytes followed by row-major coverage bytes (0 or 255)",
+          "bytes_per_tile": 336
+        },
+        "tiles": [
+          {
+            "index": 229,
+            "source_fnv64": "8c135499d13963be",
+            "covered_cells": 12,
+            "empty": false
+          },
+          {
+            "index": 230,
+            "source_fnv64": "1bb9953e3b238540",
+            "covered_cells": 16,
+            "empty": false
+          },
+          {
+            "index": 231,
+            "source_fnv64": "b5537a992563eb0d",
+            "covered_cells": 28,
+            "empty": false
+          },
+          {
+            "index": 232,
+            "source_fnv64": "7305539d6b6b17d1",
+            "covered_cells": 33,
+            "empty": false
+          },
+          {
+            "index": 233,
+            "source_fnv64": "e72e4a3d5818c55a",
+            "covered_cells": 70,
+            "empty": false
+          },
+          {
+            "index": 234,
+            "source_fnv64": "4f656159fa007c86",
+            "covered_cells": 124,
+            "empty": false
+          },
+          {
+            "index": 235,
+            "source_fnv64": "0aef691b1ca24a95",
+            "covered_cells": 30,
+            "empty": false
+          },
+          {
+            "index": 236,
+            "source_fnv64": "7e42bb7eb832ac9d",
+            "covered_cells": 64,
+            "empty": false
+          },
+          {
+            "index": 237,
+            "source_fnv64": "e91cc9956d4c7023",
+            "covered_cells": 121,
+            "empty": false
+          },
+          {
+            "index": 248,
+            "source_fnv64": "2580739d6e2a343f",
+            "covered_cells": 2,
+            "empty": false
+          },
+          {
+            "index": 249,
+            "source_fnv64": "552fe5439ccd6fdc",
+            "covered_cells": 16,
+            "empty": false
+          },
+          {
+            "index": 250,
+            "source_fnv64": "07d477b0c0eedb40",
+            "covered_cells": 35,
+            "empty": false
+          },
+          {
+            "index": 251,
+            "source_fnv64": "51795983e22e1d65",
+            "covered_cells": 0,
+            "empty": true
+          },
+          {
+            "index": 252,
+            "source_fnv64": "a4cfe017190810ca",
+            "covered_cells": 14,
+            "empty": false
+          },
+          {
+            "index": 253,
+            "source_fnv64": "1b89e4401f5a0dae",
+            "covered_cells": 23,
+            "empty": false
+          },
+          {
+            "index": 254,
+            "source_fnv64": "8d7cfcf03c183cd0",
+            "covered_cells": 13,
+            "empty": false
+          },
+          {
+            "index": 255,
+            "source_fnv64": "16b217048c05fb49",
+            "covered_cells": 16,
+            "empty": false
+          },
+          {
+            "index": 256,
+            "source_fnv64": "aac64f1476d44802",
+            "covered_cells": 20,
+            "empty": false
+          },
+          {
+            "index": 267,
+            "source_fnv64": "d2f814b0b46162fb",
+            "covered_cells": 1,
+            "empty": false
+          },
+          {
+            "index": 268,
+            "source_fnv64": "d2f814b0b46162fb",
+            "covered_cells": 1,
+            "empty": false
+          },
+          {
+            "index": 269,
+            "source_fnv64": "d2f814b0b46162fb",
+            "covered_cells": 1,
+            "empty": false
+          },
+          {
+            "index": 270,
+            "source_fnv64": "51795983e22e1d65",
+            "covered_cells": 0,
+            "empty": true
+          },
+          {
+            "index": 271,
+            "source_fnv64": "51795983e22e1d65",
+            "covered_cells": 0,
+            "empty": true
+          },
+          {
+            "index": 272,
+            "source_fnv64": "c22e38bed2cee2a5",
+            "covered_cells": 2,
+            "empty": false
+          },
+          {
+            "index": 273,
+            "source_fnv64": "51795983e22e1d65",
+            "covered_cells": 0,
+            "empty": true
+          },
+          {
+            "index": 274,
+            "source_fnv64": "51795983e22e1d65",
+            "covered_cells": 0,
+            "empty": true
+          },
+          {
+            "index": 275,
+            "source_fnv64": "c3db252a0712543b",
+            "covered_cells": 3,
+            "empty": false
+          }
+        ],
+        "palette": {
+          "first_index": 128,
+          "count": 16,
+          "encoding": "RGB8 in ascending source-index order",
+          "rgb_hex": [
+            "24556d",
+            "2c5d75",
+            "38697d",
+            "41758a",
+            "4d8292",
+            "558e9e",
+            "619aa6",
+            "6da6b2",
+            "7db2ba",
+            "8abec7",
+            "9acbcf",
+            "a6d3d7",
+            "badfe3",
+            "cbebeb",
+            "dbf7f7",
+            "efffff"
+          ],
+          "rgb48_sha256": "2a2c695472697c396a9dceb8b6878c7cfc0610c2bef4bdceb5f07b97ea7781a6",
+          "match": "exact relevant source colors; not a level or whole-palette key"
+        },
+        "physical_source_sha256": "49e3d08e122ea71d6a621d2de127da00ce8a26ff73a0fb40d0cdd7ca2909d075"
+      },
+      "draw_semantics": {
+        "role": "JE_playerDamage shield-hit explosion slot",
+        "layout": "tile",
+        "logical_dimensions": [
+          12,
+          14
+        ],
+        "anchor": [
+          0,
+          0
+        ],
+        "operators": [
+          "normal",
+          "explosion_blend"
+        ],
+        "density": 8,
+        "rgba": "straight_rgba8",
+        "slot_contract": {
+          "followPlayer": true,
+          "fixedPosition": false,
+          "deltaY": 0,
+          "type_range": [
+            14,
+            22
+          ],
+          "ttl_at_draw": [
+            3,
+            2,
+            1
+          ],
+          "draw_index": "slot.sprite + 1 after original sprite increment",
+          "position_update": "original non-fixed branch: y += explodeMove; deltaY applied unchanged"
+        },
+        "original_indexed_draw": "unchanged_once_per_original_draw",
+        "logical_animation_and_ttl": "unchanged",
+        "empty_original_indices": [
+          251,
+          270,
+          271,
+          273,
+          274
+        ],
+        "authored_transparent_indices": [
+          268
+        ],
+        "distinct_phase_identity": "267, 268 and 269 have identical decoded source but retain different resource identities; 268 remains authored transparent"
+      },
+      "phases": [
+        {
+          "type": 14,
+          "phase": 0,
+          "index": 229,
+          "ttl": 3,
+          "resource_identity": 1060229
+        },
+        {
+          "type": 14,
+          "phase": 1,
+          "index": 230,
+          "ttl": 2,
+          "resource_identity": 1060230
+        },
+        {
+          "type": 14,
+          "phase": 2,
+          "index": 231,
+          "ttl": 1,
+          "resource_identity": 1060231
+        },
+        {
+          "type": 15,
+          "phase": 0,
+          "index": 232,
+          "ttl": 3,
+          "resource_identity": 1060232
+        },
+        {
+          "type": 15,
+          "phase": 1,
+          "index": 233,
+          "ttl": 2,
+          "resource_identity": 1060233
+        },
+        {
+          "type": 15,
+          "phase": 2,
+          "index": 234,
+          "ttl": 1,
+          "resource_identity": 1060234
+        },
+        {
+          "type": 16,
+          "phase": 0,
+          "index": 235,
+          "ttl": 3,
+          "resource_identity": 1060235
+        },
+        {
+          "type": 16,
+          "phase": 1,
+          "index": 236,
+          "ttl": 2,
+          "resource_identity": 1060236
+        },
+        {
+          "type": 16,
+          "phase": 2,
+          "index": 237,
+          "ttl": 1,
+          "resource_identity": 1060237
+        },
+        {
+          "type": 17,
+          "phase": 0,
+          "index": 254,
+          "ttl": 3,
+          "resource_identity": 1060254
+        },
+        {
+          "type": 17,
+          "phase": 1,
+          "index": 255,
+          "ttl": 2,
+          "resource_identity": 1060255
+        },
+        {
+          "type": 17,
+          "phase": 2,
+          "index": 256,
+          "ttl": 1,
+          "resource_identity": 1060256
+        },
+        {
+          "type": 18,
+          "phase": 0,
+          "index": 248,
+          "ttl": 3,
+          "resource_identity": 1060248
+        },
+        {
+          "type": 18,
+          "phase": 1,
+          "index": 249,
+          "ttl": 2,
+          "resource_identity": 1060249
+        },
+        {
+          "type": 18,
+          "phase": 2,
+          "index": 250,
+          "ttl": 1,
+          "resource_identity": 1060250
+        },
+        {
+          "type": 19,
+          "phase": 0,
+          "index": 251,
+          "ttl": 3,
+          "resource_identity": null
+        },
+        {
+          "type": 19,
+          "phase": 1,
+          "index": 252,
+          "ttl": 2,
+          "resource_identity": 1060252
+        },
+        {
+          "type": 19,
+          "phase": 2,
+          "index": 253,
+          "ttl": 1,
+          "resource_identity": 1060253
+        },
+        {
+          "type": 20,
+          "phase": 0,
+          "index": 267,
+          "ttl": 3,
+          "resource_identity": 1060267
+        },
+        {
+          "type": 20,
+          "phase": 1,
+          "index": 268,
+          "ttl": 2,
+          "resource_identity": 1060268
+        },
+        {
+          "type": 20,
+          "phase": 2,
+          "index": 269,
+          "ttl": 1,
+          "resource_identity": 1060269
+        },
+        {
+          "type": 21,
+          "phase": 0,
+          "index": 270,
+          "ttl": 3,
+          "resource_identity": null
+        },
+        {
+          "type": 21,
+          "phase": 1,
+          "index": 271,
+          "ttl": 2,
+          "resource_identity": null
+        },
+        {
+          "type": 21,
+          "phase": 2,
+          "index": 272,
+          "ttl": 1,
+          "resource_identity": 1060272
+        },
+        {
+          "type": 22,
+          "phase": 0,
+          "index": 273,
+          "ttl": 3,
+          "resource_identity": null
+        },
+        {
+          "type": 22,
+          "phase": 1,
+          "index": 274,
+          "ttl": 2,
+          "resource_identity": null
+        },
+        {
+          "type": 22,
+          "phase": 2,
+          "index": 275,
+          "ttl": 1,
+          "resource_identity": 1060275
+        }
+      ]
+    },
+    {
+      "name": "player-front-pulse",
+      "source_identity": {
+        "bank": "spriteSheet8",
+        "physical_source": "newsh(.shp",
+        "logical_bank": 8,
+        "bank_bytes": 32060,
+        "physical_source_sha256": "9bba1e94d38df61f152412c226bfd6df235e42027c9143c5961d4a5add853a68",
+        "tile_dimensions": [
+          12,
+          14
+        ],
+        "fingerprint": {
+          "algorithm": "fnv1a64",
+          "input": "row-major decoded INDEX8 bytes followed by row-major coverage bytes (0 or 255)",
+          "bytes_per_tile": 336
+        },
+        "tiles": [
+          {
+            "index": 58,
+            "source_fnv64": "c81d2d4f1406ccd8",
+            "covered_cells": 37
+          },
+          {
+            "index": 59,
+            "source_fnv64": "54248fce4a428cfb",
+            "covered_cells": 74
+          },
+          {
+            "index": 60,
+            "source_fnv64": "aa7678e84837382e",
+            "covered_cells": 111
+          },
+          {
+            "index": 62,
+            "source_fnv64": "a8a22449671b45c2",
+            "covered_cells": 119
+          },
+          {
+            "index": 165,
+            "source_fnv64": "3ab7eacc37218895",
+            "covered_cells": 108
+          }
+        ],
+        "palette": {
+          "indices": [
+            113,
+            114,
+            115,
+            116,
+            117,
+            118,
+            119,
+            120,
+            121,
+            122,
+            123,
+            124
+          ],
+          "encoding": "RGB8 in ascending source-index order",
+          "rgb_hex": [
+            "380000",
+            "510000",
+            "6d0400",
+            "860400",
+            "9e0800",
+            "ba0c00",
+            "d31400",
+            "df3c00",
+            "e7610c",
+            "eb8a18",
+            "f3ae24",
+            "fbcb30"
+          ],
+          "rgb36_sha256": "5212c7ee98189781292c3bdfea2b01b2fa78e6d4c4decff21847c822ccc3e7b2",
+          "match": "exact used source colors; not a level or whole-palette key"
+        },
+        "weapon_identity": {
+          "port_index": 1,
+          "port_bytes": 82,
+          "port_fnv64": "95cfa13155109d97",
+          "port_sha256": "1c77f61d0930d3e8886f4a04c39a3eb29d04246b6159f712d0fcf7e3da533cfd",
+          "port_serialization": "one byte length30, name[0..29], opnum, op[0][0..10] LE16, op[1][0..10] LE16, cost/itemgraphic/poweruse LE16; require loaded name[30]==NUL",
+          "record_indices": [
+            155,
+            156,
+            157,
+            158,
+            159,
+            160,
+            161,
+            162,
+            163,
+            164,
+            165
+          ],
+          "record_bytes": 80,
+          "record_serialization": "all80 loader bytes in original order, all8 lanes including unused tails, explicit little-endian words and signed bytes, excluding struct padding",
+          "record_fnv64_variants": [
+            [
+              "3fe58ed27471f264",
+              "0b0ba64e14d161c3",
+              "4ccf793bf338e010"
+            ],
+            [
+              "9b5ea0704be3724b",
+              "2b6e16b222ffe499",
+              "3e1bd0350453737d"
+            ],
+            [
+              "3353f388011f61d6",
+              "376764adda23e23c",
+              "e1ba0723c31b3ea7"
+            ],
+            [
+              "3848494f3cd51468",
+              "716ebe7da1edc91a",
+              "d3697191e572d92f"
+            ],
+            [
+              "8fb2540acf28469b",
+              "077b667442b0402e",
+              "e4785ef6d4f4d814"
+            ],
+            [
+              "029adf2886282b82",
+              "74f38c411099bb7c",
+              "af6eaac0fc23bb5e"
+            ],
+            [
+              "2eccb0e9abadc314",
+              "875fd247e9d720e2",
+              "d49f94b35cd6e774"
+            ],
+            [
+              "61ee7e432971e129",
+              "edbbf539400b12aa",
+              "5b8f8ed2e2b45902"
+            ],
+            [
+              "a95ef38fcf6a22ac",
+              "abface4535e24b48",
+              "05a7a388d00e3312"
+            ],
+            [
+              "86cc7aaa348a5acd",
+              "23fdbafeced45b1b",
+              "ac6ddb2e210a74a0"
+            ],
+            [
+              "e33a916638f2275f",
+              "5ce7d02d81ebc88d",
+              "125d69cb06f8357c"
+            ]
+          ],
+          "variant_source_provenance": [
+            {
+              "file": "tyrian.hdt",
+              "sha256": "fde8506326e7bb0916b38c362e33bf8a8a5affa561206c021af7f65b4a17745b",
+              "table_offset": 21174
+            },
+            {
+              "file": "tyrian4.lvl",
+              "sha256": "6589b898094887925e7717c8663c4b8b5e4b76f3c89a7898ed9f4691c1f2cc16",
+              "table_offset": 663408
+            },
+            {
+              "file": "tyrian5.lvl",
+              "sha256": "275b5aaf55caecee8dc95e26f7cf118a9ee265f095ce61945b9ece56a4523323",
+              "table_offset": 247242
+            }
+          ],
+          "variant_match": "exact full record bytes; provenance variants do not require an episode or level selector"
+        }
+      },
+      "draw_semantics": {
+        "role": "ordinary player1 front-fire Pulse-Cannon birth",
+        "layout": "tile",
+        "logical_dimensions": [
+          12,
+          14
+        ],
+        "anchors": {
+          "58": [
+            0,
+            0
+          ],
+          "59": [
+            -1,
+            0
+          ],
+          "60": [
+            0,
+            0
+          ],
+          "62": [
+            0,
+            0
+          ],
+          "165": [
+            0,
+            0
+          ]
+        },
+        "operators": [
+          "normal",
+          "shadow"
+        ],
+        "density": 8,
+        "rgba": "straight_rgba8",
+        "original_indexed_draw": "unchanged_once_per_original_draw",
+        "birth_provenance": "actual front-fire call envelope, selected port/power/mode/record, allocator call and owned shot slot",
+        "borrowed_same_graphic_ids": "rejected without the matching birth provenance",
+        "shadow": {
+          "alpha_source": "same accepted asset as the associated projectile head",
+          "operator": "original ordered darken",
+          "original_coordinates": "unchanged"
+        },
+        "gameplay_state_and_projectile_fields": "unchanged"
+      },
+      "resources": [
+        80058,
+        80059,
+        80060,
+        80062,
+        80165
+      ]
+    },
+    {
+      "name": "moving-hitflare",
+      "source_identity": {
+        "bank": "explosionSpriteSheet",
+        "physical_source": "NEWSH6",
+        "logical_bank": 6,
+        "bank_bytes": 17810,
+        "physical_source_sha256": "49e3d08e122ea71d6a621d2de127da00ce8a26ff73a0fb40d0cdd7ca2909d075",
+        "tile_dimensions": [
+          12,
+          14
+        ],
+        "fingerprint": {
+          "algorithm": "fnv1a64",
+          "input": "row-major decoded INDEX8 bytes followed by row-major coverage bytes (0 or 255)",
+          "bytes_per_tile": 336
+        },
+        "tiles": [
+          {
+            "index": 146,
+            "source_fnv64": "728bd1411bf93862",
+            "covered_cells": 20
+          },
+          {
+            "index": 147,
+            "source_fnv64": "a194be258be5966d",
+            "covered_cells": 26
+          },
+          {
+            "index": 148,
+            "source_fnv64": "6862b82d59cc892e",
+            "covered_cells": 26
+          },
+          {
+            "index": 149,
+            "source_fnv64": "20c0c0769a07dad0",
+            "covered_cells": 32
+          },
+          {
+            "index": 150,
+            "source_fnv64": "08ac828d16156290",
+            "covered_cells": 26
+          },
+          {
+            "index": 151,
+            "source_fnv64": "af6f6ea168572b9c",
+            "covered_cells": 29
+          },
+          {
+            "index": 152,
+            "source_fnv64": "e512543cd3019da8",
+            "covered_cells": 20
+          }
+        ],
+        "palette": {
+          "first_index": 112,
+          "count": 16,
+          "encoding": "RGB8 in ascending source-index order",
+          "rgb_hex": [
+            "200000",
+            "380000",
+            "510000",
+            "6d0400",
+            "860400",
+            "9e0800",
+            "ba0c00",
+            "d31400",
+            "df3c00",
+            "e7610c",
+            "eb8a18",
+            "f3ae24",
+            "fbcb30",
+            "ffe73c",
+            "fffb96",
+            "fffff3"
+          ],
+          "rgb48_sha256": "4724659c6f4afe893195ec69f5e990adbb808e9b061e1d229d2c449f5387c45d",
+          "match": "exact relevant source colors; not a level or whole-palette key"
+        }
+      },
+      "draw_semantics": {
+        "role": "moving type0 hit-flare explosion slot",
+        "layout": "tile",
+        "logical_dimensions": [
+          12,
+          14
+        ],
+        "anchor": [
+          0,
+          0
+        ],
+        "operators": [
+          "normal",
+          "explosion_blend"
+        ],
+        "density": 8,
+        "rgba": "straight_rgba8",
+        "slot_contract": {
+          "followPlayer": false,
+          "fixedPosition": false,
+          "deltaY": 0,
+          "type": 0,
+          "ttl_at_draw": [
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1
+          ],
+          "draw_index": "153 - slot.ttl, equal to slot.sprite + 1 after original sprite increment",
+          "position_update": "original non-fixed branch: y += explodeMove; deltaY applied unchanged"
+        },
+        "original_indexed_draw": "unchanged_once_per_original_draw",
+        "logical_animation_and_ttl": "unchanged",
+        "explosion_blend": "source hue/value average followed by authored alpha coverage",
+        "fractional_alpha": "preserved",
+        "excluded_fixed_source_indices": [
+          145
+        ],
+        "mismatched_palette": "original_renderer; no palette adapter"
+      },
+      "phases": [
+        {
+          "type": 0,
+          "phase": 0,
+          "index": 146,
+          "ttl": 7,
+          "resource_identity": 1060146
+        },
+        {
+          "type": 0,
+          "phase": 1,
+          "index": 147,
+          "ttl": 6,
+          "resource_identity": 1060147
+        },
+        {
+          "type": 0,
+          "phase": 2,
+          "index": 148,
+          "ttl": 5,
+          "resource_identity": 1060148
+        },
+        {
+          "type": 0,
+          "phase": 3,
+          "index": 149,
+          "ttl": 4,
+          "resource_identity": 1060149
+        },
+        {
+          "type": 0,
+          "phase": 4,
+          "index": 150,
+          "ttl": 3,
+          "resource_identity": 1060150
+        },
+        {
+          "type": 0,
+          "phase": 5,
+          "index": 151,
+          "ttl": 2,
+          "resource_identity": 1060151
+        },
+        {
+          "type": 0,
+          "phase": 6,
+          "index": 152,
+          "ttl": 1,
+          "resource_identity": 1060152
+        }
+      ]
+    },
+    {
+      "name": "player-front-vulcan",
+      "source_identity": {
+        "bank": "spriteSheet8",
+        "physical_source": "newsh(.shp",
+        "logical_bank": 8,
+        "bank_bytes": 32060,
+        "physical_source_sha256": "9bba1e94d38df61f152412c226bfd6df235e42027c9143c5961d4a5add853a68",
+        "tile_dimensions": [
+          12,
+          14
+        ],
+        "fingerprint": {
+          "algorithm": "fnv1a64",
+          "input": "row-major decoded INDEX8 bytes followed by row-major coverage bytes (0 or 255)",
+          "bytes_per_tile": 336
+        },
+        "tiles": [
+          {
+            "index": 67,
+            "source_fnv64": "9f5342ea1a7217ae",
+            "covered_cells": 27
+          },
+          {
+            "index": 70,
+            "source_fnv64": "fb4ea1a99e585804",
+            "covered_cells": 46
+          }
+        ],
+        "palette": {
+          "indices": [
+            113,
+            114,
+            115,
+            116,
+            117,
+            118,
+            119,
+            120,
+            121,
+            122,
+            123,
+            124
+          ],
+          "encoding": "RGB8 in ascending source-index order",
+          "rgb_hex": [
+            "380000",
+            "510000",
+            "6d0400",
+            "860400",
+            "9e0800",
+            "ba0c00",
+            "d31400",
+            "df3c00",
+            "e7610c",
+            "eb8a18",
+            "f3ae24",
+            "fbcb30"
+          ],
+          "rgb36_sha256": "5212c7ee98189781292c3bdfea2b01b2fa78e6d4c4decff21847c822ccc3e7b2",
+          "match": "exact used source colors; not a level or whole-palette key"
+        },
+        "weapon_identity": {
+          "port_index": 7,
+          "port_bytes": 82,
+          "port_fnv64": "58b8cf2abb575185",
+          "port_sha256": "2e25724292b2e1f2517e41ee0b48acccb5e9fb4e6c67ae9980123028fc72afc2",
+          "port_serialization": "one byte length30, name[0..29], opnum, op[0][0..10] LE16, op[1][0..10] LE16, cost/itemgraphic/poweruse LE16; require loaded name[30]==NUL",
+          "record_indices": [
+            221,
+            222,
+            223,
+            224,
+            225,
+            226,
+            227,
+            228,
+            229,
+            230,
+            231
+          ],
+          "record_bytes": 80,
+          "record_serialization": "all80 loader bytes in original order, all8 lanes including unused tails, explicit little-endian words and signed bytes, excluding struct padding",
+          "record_fnv64_variants": [
+            [
+              "23561552312b0b02",
+              "c3f92901d88e7fbe",
+              "3bcc72cbfb6d5953"
+            ],
+            [
+              "93ef5beb5e67c729",
+              "0cb771bac9733abc",
+              "54d209d68391dea1"
+            ],
+            [
+              "f55ea773124b2b83",
+              "fbd7be20e6119a40",
+              "2c24d2731c9f30e3"
+            ],
+            [
+              "4aab6619ddc5861e",
+              "6c05b0c60eb86d43",
+              "29180c4d36ac4693"
+            ],
+            [
+              "e5bbe98a53ca561f",
+              "e5bb498a53c9463f",
+              "e5bb498a53c9463f"
+            ],
+            [
+              "e5bbe98a53ca561f",
+              "e5bb498a53c9463f",
+              "e5bb498a53c9463f"
+            ],
+            [
+              "eb9614e50b3576c3",
+              "ef4b7798deff2c71",
+              "45fc6a6079243b96"
+            ],
+            [
+              "3c6cce7b7049ef52",
+              "7741f7cb05ff00ca",
+              "ca225c5d48caf9d6"
+            ],
+            [
+              "379904f5a37f31cc",
+              "3799a4f5a38041ac",
+              "3799a4f5a38041ac"
+            ],
+            [
+              "6029ca73a5d2fb47",
+              "602a6a73a5d40b27",
+              "602a6a73a5d40b27"
+            ],
+            [
+              "8afdcb780f83f14a",
+              "8afd6b780f834e2a",
+              "8afd6b780f834e2a"
+            ]
+          ],
+          "variant_source_provenance": [
+            {
+              "file": "tyrian.hdt",
+              "sha256": "fde8506326e7bb0916b38c362e33bf8a8a5affa561206c021af7f65b4a17745b",
+              "table_offset": 21174
+            },
+            {
+              "file": "tyrian4.lvl",
+              "sha256": "6589b898094887925e7717c8663c4b8b5e4b76f3c89a7898ed9f4691c1f2cc16",
+              "table_offset": 663408
+            },
+            {
+              "file": "tyrian5.lvl",
+              "sha256": "275b5aaf55caecee8dc95e26f7cf118a9ee265f095ce61945b9ece56a4523323",
+              "table_offset": 247242
+            }
+          ],
+          "variant_match": "exact full record bytes; provenance variants do not require an episode or level selector"
+        }
+      },
+      "draw_semantics": {
+        "role": "ordinary player1 front-fire Vulcan-Cannon birth",
+        "layout": "tile",
+        "logical_dimensions": [
+          12,
+          14
+        ],
+        "anchors": {
+          "67": [
+            0,
+            0
+          ],
+          "70": [
+            0,
+            0
+          ]
+        },
+        "operators": [
+          "normal",
+          "shadow"
+        ],
+        "density": 8,
+        "rgba": "straight_rgba8",
+        "original_indexed_draw": "unchanged_once_per_original_draw",
+        "birth_provenance": "actual front-fire call envelope, selected port/power/mode/record, allocator call and owned shot slot",
+        "borrowed_same_graphic_ids": "rejected without the matching birth provenance",
+        "shadow": {
+          "alpha_source": "same accepted asset as the associated projectile head",
+          "operator": "original ordered darken",
+          "original_coordinates": "unchanged"
+        },
+        "gameplay_state_and_projectile_fields": "unchanged"
+      },
+      "resources": [
+        80067,
+        80070
+      ]
+    },
+    {
+      "name": "moving-white-smoke",
+      "source_identity": {
+        "bank": "explosionSpriteSheet",
+        "physical_source": "NEWSH6",
+        "logical_bank": 6,
+        "bank_bytes": 17810,
+        "physical_source_sha256": "49e3d08e122ea71d6a621d2de127da00ce8a26ff73a0fb40d0cdd7ca2909d075",
+        "tile_dimensions": [
+          12,
+          14
+        ],
+        "fingerprint": {
+          "algorithm": "fnv1a64",
+          "input": "row-major decoded INDEX8 bytes followed by row-major coverage bytes (0 or 255)",
+          "bytes_per_tile": 336
+        },
+        "tiles": [
+          {
+            "index": 135,
+            "source_fnv64": "834742a71f5082f1",
+            "covered_cells": 103
+          },
+          {
+            "index": 136,
+            "source_fnv64": "f420c811c5342906",
+            "covered_cells": 137
+          },
+          {
+            "index": 137,
+            "source_fnv64": "1b6be6a44ef2f7f9",
+            "covered_cells": 96
+          },
+          {
+            "index": 138,
+            "source_fnv64": "6049d776579346e8",
+            "covered_cells": 65
+          },
+          {
+            "index": 139,
+            "source_fnv64": "1a71d31e21f5dfaa",
+            "covered_cells": 43
+          },
+          {
+            "index": 140,
+            "source_fnv64": "a87ef6923bf4e24b",
+            "covered_cells": 20
+          },
+          {
+            "index": 141,
+            "source_fnv64": "912e4d02ec565943",
+            "covered_cells": 8
+          }
+        ],
+        "palette": {
+          "first_index": 9,
+          "count": 7,
+          "encoding": "RGB8 in ascending source-index order",
+          "rgb_hex": [
+            "797979",
+            "8e8e8e",
+            "a2a6a2",
+            "bababa",
+            "cfcfcf",
+            "e7e7e7",
+            "fbffff"
+          ],
+          "rgb21_sha256": "2b041b8c7b62bd65f270976dae5cf3202dce672cc9e70b1463c6a8d6f6d3076c",
+          "match": "exact relevant source colors; not a level or whole-palette key"
+        }
+      },
+      "draw_semantics": {
+        "role": "moving ordinary white-smoke explosion slot, native type 6 or aliases 98/198",
+        "layout": "tile",
+        "logical_dimensions": [
+          12,
+          14
+        ],
+        "anchor": [
+          0,
+          0
+        ],
+        "operators": [
+          "normal",
+          "explosion_blend"
+        ],
+        "density": 8,
+        "rgba": "straight_rgba8",
+        "slot_contract": {
+          "followPlayer": false,
+          "fixedPosition": false,
+          "deltaY": "original allocator value preserved, including scripted -2",
+          "type": 6,
+          "input_types": [
+            6,
+            98,
+            198
+          ],
+          "ttl_at_draw": [
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1
+          ],
+          "draw_index": "142 - slot.ttl, equal to slot.sprite + 1 after original sprite increment",
+          "position_update": "Native type 6 initialization adds x+2/y+12; 98/198 aliases retain input position. Original non-fixed branch y += explodeMove and deltaY remain unchanged."
+        },
+        "original_indexed_draw": "unchanged_once_per_original_draw",
+        "logical_animation_and_ttl": "unchanged",
+        "explosion_blend": "source hue/value average followed by authored alpha coverage",
+        "fractional_alpha": "preserved",
+        "mismatched_palette": "original_renderer; no palette adapter"
+      },
+      "phases": [
+        {
+          "type": 6,
+          "phase": 0,
+          "index": 135,
+          "ttl": 7,
+          "resource_identity": 1060135
+        },
+        {
+          "type": 6,
+          "phase": 1,
+          "index": 136,
+          "ttl": 6,
+          "resource_identity": 1060136
+        },
+        {
+          "type": 6,
+          "phase": 2,
+          "index": 137,
+          "ttl": 5,
+          "resource_identity": 1060137
+        },
+        {
+          "type": 6,
+          "phase": 3,
+          "index": 138,
+          "ttl": 4,
+          "resource_identity": 1060138
+        },
+        {
+          "type": 6,
+          "phase": 4,
+          "index": 139,
+          "ttl": 3,
+          "resource_identity": 1060139
+        },
+        {
+          "type": 6,
+          "phase": 5,
+          "index": 140,
+          "ttl": 2,
+          "resource_identity": 1060140
+        },
+        {
+          "type": 6,
+          "phase": 6,
+          "index": 141,
+          "ttl": 1,
+          "resource_identity": 1060141
+        }
+      ]
+    }
+  ]
+}

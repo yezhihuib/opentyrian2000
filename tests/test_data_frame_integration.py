@@ -7,7 +7,8 @@ ROOT=Path(__file__).resolve().parents[1]
 HISTORICAL_SHA256={'src/pregame_font.c': 'da3474dc1930771d9fc84a11c2a2f0fce79938f53bf3c3ec70499e40d8eba9b1', 'src/tyrian2.c': '38efa746a6add0ccc02efc7a5fb64138523e31c1e0a0d710470eaaac9f44eb08', 'src/mtrand.c': '9bb519b6b67d990184da25f1d373858760d2952a782c3e850e2f21c972c01f95', 'src/font.c': 'a4d9125a15ac161efb1f97e8bc2f37c537647339902c0f5ad875874150a71cc8', 'src/fonthand.c': '1d6c63d81e02538272a9225f70c26731c86a2048640a41e5857096cdeb03825e', 'src/sprite.c': '4b78f9e792509fcd490549a81a86bf18c2f524368d9bb8d00ee573cc47775a52', 'scripts/export_shop_sprite.py': 'e3cdc66f05edb08ab4a5c426c5f56250192fd0f70d301235c90be504005bca47', 'scripts/export_shop_frame.py': '6cbf878a716593a5897a13c489b487d7c9a38387fa78d1a16913964cfeecfca5', 'assets/shop-frame-v1/shop-frame-metal-v1.hda': '639f0c723e1058628e32b052a9613d09a478ff1d2fb4ce28235a94aaa8235260'}
 
 def historical_source_bytes(test, name):
- data=(ROOT/name).read_bytes()
+ from accepted_later_changes import project_source
+ data=project_source("data",name,(ROOT/name).read_bytes())
  if name=='src/pregame_font.c':
   # These four exact, accepted HD-cursor edits are the only permitted delta
   # from the retained native-shop baseline. Validate every edit before undoing it.
@@ -52,4 +53,10 @@ class DataFrameIntegration(unittest.TestCase):
  def test_reset_revokes_and_cursor_uses_native_sampler(self):
   frame=(ROOT/'src/data_frame.c').read_text();self.assertIn('release_texture();data_frame_end();',frame);self.assertIn('df.blocked[cell]||(!hd_cursor_active()&&df.cursor_mask[cell])',frame)
   text=(ROOT/'src/data_text.c').read_text();self.assertIn('SDL_RenderCopy(renderer,cursor_texture,NULL,output)',text);self.assertNotIn('cursor_mapped',text)
-if __name__=='__main__':unittest.main()
+
+class AcceptedCurrentSources(unittest.TestCase):
+    def test_current_source_inventory(self):
+        from accepted_later_changes import validate_current_sources
+        validate_current_sources(ROOT)
+
+if __name__=='__main__': unittest.main()
