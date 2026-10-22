@@ -2415,6 +2415,8 @@ static Asset *plasma_body_asset(Sprite2_array bank,unsigned int index,
 
 static Asset *get_asset(Sprite2_array bank,unsigned int index,int layout)
 {
+ static struct {const Uint8 *data;size_t size;} sources[sizeof(assets)/sizeof(assets[0])];
+ if(reject_reason)return NULL;
  int slot=-1,role=0;
  if(bank.data==spriteSheet9.data&&layout==ENTITY_QUAD&&index>=229&&index<=237&&index%2==1) {slot=(int)(index-229)/2;role=9;}
  if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&index==59) {slot=5;role=8;}
@@ -2527,7 +2529,16 @@ static Asset *get_asset(Sprite2_array bank,unsigned int index,int layout)
  if(bank.data==explosionSpriteSheet.data&&layout==ENTITY_TILE) {int explosion_slot=explosion_asset_slot(index);if(explosion_slot>=0){slot=explosion_slot;role=ASSET_EXPLOSION;}}
  if(slot<0||game_probe_density==1||game_probe_missing||(role==ASSET_EXPLOSION&&(!game_probe_assets||game_probe_original_reference))) return NULL;
  Asset *a=&assets[slot];
+ if(a->initialized&&(sources[slot].data!=bank.data||sources[slot].size!=bank.size)) {
+  /* A pending ordered command may still refer to this Asset. Retire the frame
+   * before replacing its storage; rebuild only through a later clean call. */
+  render_mirror_unsupported("legacy-source-changed");
+  free(a->rgba);memset(a,0,sizeof(*a));return NULL;
+ }
+ if(!bank.data||!index||index>bank.size/2||
+    (layout==ENTITY_QUAD&&bank.size/2-index<20))return NULL;
  if(a->initialized) return a->valid?a:NULL;
+ sources[slot].data=bank.data;sources[slot].size=bank.size;
  a->initialized=true; a->bank=role;a->index=(int)index;a->w=layout==ENTITY_QUAD?24:12;a->h=layout==ENTITY_QUAD?28:14;
  a->anchor_x=role==9?5:role==8&&index==59?-1:0;a->anchor_y=role==9?7:0;
  if(game_probe_invalid) return NULL;
@@ -3100,6 +3111,11 @@ bool render_mirror_entity(SDL_Surface *surface,int x,int y,Sprite2_array bank,un
   return mirrored;
  }
  if(!active||surface!=game_screen||reject_reason)return false;
+ /* The original blitters clip linear addresses and wrap physical rows. A
+  * two-dimensional HD clip cannot suppress those wrapped indexed writes.
+  * Bound coordinates before scaling; partial vertical clips remain eligible. */
+ int width=layout==ENTITY_QUAD?24:12,height=layout==ENTITY_QUAD?28:14;
+ if(x<0||x>320-width||y<1-height||y>199)return false;
  /* The quartet reuses only its frozen alpha; original indexed writes still run. */
  if(bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&sonic_quadrant_member(index)>=0&&style==MIRROR_SHADOW)return draw_vulcan_shadow(surface,x,y,bank,index);
  /* Resolve the frozen contour from this shadow call, before its own head. */
@@ -4754,9 +4770,9 @@ static void shared_hud_finish(MirrorOutputKind kind,int lightx,int lighty)
 void render_mirror_finish(MirrorOutputKind kind,int lightx,int lighty)
 {
  render_mirror_shadow_end();
- if(!global_vulcan_finish_proof()||!global_green_finish_proof()||!global_smoke_finish_proof()||!global_rotor_finish_proof()||!global_cash25_finish_proof()||!global_small_explosion_finish_proof()||!global_hitflare_finish_proof()||!global_pulse_finish_proof()||!global_shield_finish_proof()) {
+ if(!global_talon_finish_proof()||!global_vulcan_finish_proof()||!global_green_finish_proof()||!global_smoke_finish_proof()||!global_rotor_finish_proof()||!global_cash25_finish_proof()||!global_small_explosion_finish_proof()||!global_hitflare_finish_proof()||!global_pulse_finish_proof()||!global_shield_finish_proof()) {
   active=shared_hud_frame=ready=last_output_valid=last_output_scene_hd=have_fade_saved=false;
-  global_shield_frame=global_shield_cached=global_pulse_frame=global_pulse_cached=global_hitflare_frame=global_hitflare_cached=global_rotor_frame=global_cash25_frame=global_small_explosion_frame=global_green_frame=global_smoke_frame=global_rotor_cached=global_cash25_cached=global_small_explosion_cached=global_green_cached=global_smoke_cached=global_vulcan_frame=global_vulcan_cached=false;fade_mode=0;return;
+  global_talon_frame=global_talon_cached=global_shield_frame=global_shield_cached=global_pulse_frame=global_pulse_cached=global_hitflare_frame=global_hitflare_cached=global_rotor_frame=global_cash25_frame=global_small_explosion_frame=global_green_frame=global_smoke_frame=global_rotor_cached=global_cash25_cached=global_small_explosion_cached=global_green_cached=global_smoke_cached=global_vulcan_frame=global_vulcan_cached=false;fade_mode=0;return;
  }
  if((global_talon_frame&&(!global_talon_surface_matches()||!global_talon_final_surface_matches()))||
     (global_shield_frame&&(!global_shield_surface_matches()||!global_shield_final_surface_matches()))||

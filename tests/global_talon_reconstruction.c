@@ -938,11 +938,11 @@ static void reset_live_legacy_frame(void)
   unsigned visible=0;for(int y=73*d;y<101*d;y++)for(int x=95*d;x<119*d;x++)if(*rgba_at(x,y)!=palette_rgb(*index_at(x/d,y/d)))++visible;CHECK(visible>0);
   size_t sentinel=(size_t)5*d*canvas->w+30*d;Uint32 other=0xff12abcd;((Uint32 *)canvas->pixels)[sentinel]=other;hd_owner[sentinel]=1;
   if(disable)CHECK(render_mirror_set_global_assets(NULL));else render_mirror_global_reset();
-  CHECK(active);CHECK(!global_talon_frame&&!global_talon_cached);CHECK(!reject_reason);
-  finish_allow_upscale=true;render_mirror_finish(MIRROR_OUTPUT_ORDINARY,0,0);finish_allow_upscale=false;
-  CHECK(!reject_reason);CHECK(((Uint32 *)output->pixels)[(size_t)5*d*output->w+6*d]==other);CHECK(hd_owner[sentinel]==1);
-  ((Uint32 *)output->pixels)[(size_t)5*d*output->w+6*d]=palette_rgb(*index_at(30,5));hd_owner[sentinel]=0;
-  check_output_mapping(false);CHECK(!memchr(hd_owner,1,(size_t)canvas->w*canvas->h));
+  /* A contributor may already have moved into another owner. Reset must
+   * retire this Present even when unrelated canvas pixels remain intact. */
+  CHECK(!active&&!ready&&!last_output_valid&&!have_fade_saved);
+  CHECK(!global_talon_frame&&!global_talon_cached);CHECK(!reject_reason);
+  CHECK(((Uint32 *)canvas->pixels)[sentinel]==other);CHECK(hd_owner[sentinel]==1);
  }
 }
 /* Real fade entrypoints with independent HUD/font state held empty. The actual

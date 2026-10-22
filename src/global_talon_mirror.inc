@@ -5,6 +5,7 @@
 #include "shared_asset_reader.h"
 static Uint8 *global_talon_rgba[13];
 static bool global_talon_loaded,global_talon_good,global_talon_cached,global_talon_fault;
+static bool global_talon_contributed;
 static Uint8 *global_talon_owner,*global_talon_foreign;
 static size_t global_talon_capacity;
 static Uint32 global_talon_output_palette[256],global_talon_underlay_palette[256];
@@ -116,7 +117,8 @@ static void global_talon_reset(void)
   if(!safe){active=shared_hud_frame=ready=last_output_valid=last_output_scene_hd=have_fade_saved=false;fade_mode=0;}
  }
  if(global_talon_cached){ready=last_output_valid=have_fade_saved=false;fade_mode=0;}
- global_talon_frame=global_talon_cached=global_talon_fault=false;global_talon_call.live=false;global_talon_shield_dependency=false;
+ if(global_talon_contributed){active=shared_hud_frame=ready=last_output_valid=last_output_scene_hd=have_fade_saved=false;fade_mode=0;}
+ global_talon_frame=global_talon_cached=global_talon_fault=global_talon_contributed=false;global_talon_call.live=false;global_talon_shield_dependency=false;
  memset(global_talon_poses,0,sizeof(global_talon_poses));memset(&global_talon_source_lease,0,sizeof(global_talon_source_lease));
  memset(&global_talon_fade_lease,0,sizeof(global_talon_fade_lease));
  if(global_talon_owner)memset(global_talon_owner,0,global_talon_capacity);
@@ -131,7 +133,7 @@ static void global_talon_shutdown(void)
 }
 static void global_talon_frame_begin(void)
 {
- global_talon_frame=global_talon_cached=global_talon_fault=false;global_talon_call.live=false;global_talon_shield_dependency=false;
+ global_talon_frame=global_talon_cached=global_talon_fault=global_talon_contributed=false;global_talon_call.live=false;global_talon_shield_dependency=false;
  memset(global_talon_used_colors,0,sizeof(global_talon_used_colors));
  if(!global_talon_requested()||!global_talon_layout()||!VGAScreenSeg||!VGAScreenSeg->pixels||!VGAScreenSeg->format||
   VGAScreenSeg->w!=320||VGAScreenSeg->h!=200||VGAScreenSeg->pitch<320||VGAScreenSeg->format->format!=SDL_PIXELFORMAT_INDEX8)return;
@@ -233,6 +235,7 @@ int render_mirror_global_player_ship(SDL_Surface *surface,int x,int y,Sprite2_ar
   if(global_rotor_owner)global_rotor_owner[n]=global_rotor_foreign[n]=0;
   if(global_vulcan_owner)global_vulcan_owner[n]=global_vulcan_foreign[n]=0;
   global_talon_owner[n]=1;global_talon_foreign[n]=foreign;hd_owner[n]=1;cloud_owner[n]=0;green_first[n]=0;
+  global_talon_contributed=true;
   selected[(dy/d)*320+dx/d]=1;
  }
  ++draws;return 1;
@@ -261,6 +264,17 @@ static bool global_talon_pixel(int x,int y,Uint8 before,Uint8 after,int style)
 }
 static void global_talon_end(void)
 {if(global_talon_call.live&&global_talon_call.left)global_talon_fail();global_talon_call.live=false;}
+/* RGB can survive in a later translucent owner after our owner bits are gone.
+ * Revoke the entire Present when the original contributor loses its proof. */
+static bool global_talon_finish_proof(void)
+{
+ if(!global_talon_contributed)return true;
+ return global_talon_requested()&&!global_talon_fault&&!global_talon_call.live&&
+  global_talon_surface_matches()&&global_talon_final_surface_matches()&&
+  global_talon_source_matches(spriteSheet9)&&global_talon_palette_matches()&&
+  global_talon_underlay_matches()&&(!global_talon_shield_dependency||
+   (!global_shield_fault&&global_shield_source_matches(explosionSpriteSheet)&&global_shield_palette_matches()));
+}
 static bool global_talon_compose(MirrorOutputKind kind,int lightx,int lighty)
 {
  global_talon_end();
@@ -290,12 +304,12 @@ static bool global_talon_compose(MirrorOutputKind kind,int lightx,int lighty)
    else {*p=palette_rgb(((Uint8 *)VGAScreenSeg->pixels)[y*VGAScreenSeg->pitch+x-24]);global_talon_owner[n]=hd_owner[n]=0;}
   }
  }
- if(retained)memcpy(global_talon_output_palette,rgb_palette,sizeof(global_talon_output_palette));
- global_talon_cached=retained;global_talon_frame=false;return retained;
+ if(retained||global_talon_contributed)memcpy(global_talon_output_palette,rgb_palette,sizeof(global_talon_output_palette));
+ global_talon_cached=retained||(valid&&global_talon_contributed);global_talon_frame=false;return retained;
 }
 static bool global_talon_cache_source_matches(void)
 {
- bool valid=global_talon_requested()&&global_talon_surface_matches()&&global_talon_final_surface_matches()&&global_talon_source_matches(spriteSheet9)&&(!global_talon_shield_dependency||(!global_shield_fault&&global_shield_source_matches(explosionSpriteSheet)));
+ bool valid=!global_talon_fault&&global_talon_requested()&&global_talon_surface_matches()&&global_talon_final_surface_matches()&&global_talon_source_matches(spriteSheet9)&&(!global_talon_shield_dependency||(!global_shield_fault&&global_shield_source_matches(explosionSpriteSheet)));
  if(valid)for(int y=0;y<200;y++)if(memcmp(last_output_indices+y*320,(Uint8 *)VGAScreenSeg->pixels+y*VGAScreenSeg->pitch,320)){valid=false;break;}
  return valid;
 }

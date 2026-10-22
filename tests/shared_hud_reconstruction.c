@@ -200,6 +200,7 @@ static void global_talon_final_pixel(SDL_Surface *s,Uint8 *p){}
 static void global_talon_final_rect(SDL_Surface *s,const SDL_Rect *r){}
 static void global_talon_end(void){}
 static bool global_talon_compose(int kind,int lightx,int lighty){return false;}
+static bool global_talon_finish_proof(void){return true;}
 static void global_talon_check_cache(void){}
 static void global_talon_fade_palette(void){}
 /* Independent Shield disabled in this focused HUD observer. */
