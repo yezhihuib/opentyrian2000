@@ -405,11 +405,40 @@ class PackagingTests(unittest.TestCase):
 
     def test_global_validation_binds_current_production_source(self):
         validation = json.loads((ROOT / 'packaging/current-production-validation.json').read_text())
-        self.assertEqual(CURRENT.verify(ROOT, validation), 249)  # Includes generated HUD material pins.
+        self.assertEqual(CURRENT.verify(ROOT, validation), 250)  # Includes HUD and legacy tank-shell generated pins.
         self.assertIn('src/current_art_payload_pins.h', validation['source_sha256'])
         self.assertIn('src/current_hud_payload_pins.h', validation['source_sha256'])
+        self.assertIn('src/current_tank_shell_payload_pins.h', validation['source_sha256'])
         self.assertIn('src/shared_asset_reader.h', validation['source_sha256'])
         self.assertIn('src/shared_asset_fd_reader.inc', validation['source_sha256'])
+        # Exercise the actual production binding, not a synthetic header count.
+        # Each mutation is confined to this test's temporary source fixture.
+        names = (set(validation['source_sha256']) | set(validation['build_input_sha256']) |
+                 set(validation['historical_validation_sha256']))
+        for name in names:
+            target = self.source / name
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes((ROOT / name).read_bytes())
+        self.assertEqual(CURRENT.verify(self.source, validation), 250)
+        pin_name = 'src/current_tank_shell_payload_pins.h'
+        pin = self.source / pin_name
+        approved_pin = pin.read_bytes()
+        with self.subTest(binding='corrupt tank-shell header'):
+            pin.write_bytes(approved_pin + b'/* unexpected drift */\n')
+            with self.assertRaisesRegex(ValueError, 'Production source mismatch'):
+                CURRENT.verify(self.source, validation)
+        with self.subTest(binding='missing tank-shell header'):
+            pin.unlink()
+            with self.assertRaisesRegex(ValueError, 'Production source mismatch'):
+                CURRENT.verify(self.source, validation)
+        pin.write_bytes(approved_pin)
+        with self.subTest(binding='omitted tank-shell binding'):
+            omitted = json.loads(json.dumps(validation))
+            del omitted['source_sha256'][pin_name]
+            omitted['production_source_manifest_sha256'] = CURRENT.source_manifest_digest(omitted['source_sha256'])
+            with self.assertRaisesRegex(ValueError, 'Production source mismatch'):
+                CURRENT.verify(self.source, omitted)
+        self.assertEqual(CURRENT.verify(self.source, validation), 250)
         historical = json.loads((ROOT / 'packaging/global-validation.json').read_text())
         manifest = PACK.load_manifest(ROOT / 'packaging/runtime-assets-v1.json')
         self.assertEqual(manifest['source_revision']['global_runtime_commit'], historical['production_commit'])
