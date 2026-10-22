@@ -7,6 +7,7 @@ no paths deleted, no source-bank/role identity changed and no image resampling.
 """
 import argparse,copy,hashlib,io,json,os,re,shutil,struct,subprocess,sys,tempfile
 from pathlib import Path
+from functools import lru_cache
 from PIL import Image
 from package_runtime import contained_file,checked_source
 from verify_current_production import source_inventory,source_manifest_digest,BUILD_INPUTS
@@ -36,6 +37,14 @@ def fingerprint(root,name):
     if not p.exists():return None
     return sha(read(root,name))
 def fnv(data):
+    # Retain the existing iterable interface without caching mutable inputs.
+    if type(data) is bytes:return _fnv_bytes(data)
+    return _fnv_bytes.__wrapped__(data)
+
+@lru_cache(maxsize=128)
+def _fnv_bytes(data):
+    # Cache immutable payload bytes, never paths, mtimes or validation results.
+    # Every caller still rereads and validates its current source/consumer.
     h=14695981039346656037
     for v in data:h=((h^v)*1099511628211)&((1<<64)-1)
     return f'{h:016x}'
