@@ -1,0 +1,717 @@
+"""Bounded authoring/packaging tests; synthetic art, no game/data/profile activity."""
+import contextlib
+import copy
+import io
+import json
+import os
+import shutil
+import struct
+import sys
+import tempfile
+import unittest
+import zlib
+from pathlib import Path
+from unittest import mock
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT/'scripts'))
+sys.dont_write_bytecode = True
+os.environ['PYTHONDONTWRITEBYTECODE'] = '1'
+from PIL import Image
+import build_current_craft267 as b
+import build_current_art as global_builder
+import package_runtime
+from current_art_policy import PROFILES, profile
+from current_craft267_compatibility import HEADER, SIZE
+READ_ONLY = os.environ.get('CRAFT267_READ_ONLY_TESTS') == '1'
+WRITE_SKIP = 'Actual fixture replacement blocked by WinError 5; no directory/tool workaround attempted'
+
+# Independent test allowlist: never derive the expected view from its composer.
+VIEW_CRAFT_NAME = 'enemy-newsh2-267-8.hda'
+VIEW_SIDEKICKS = {
+    1260152: 'option-marlo-bank9-152-8.hda',
+    1290224: 'option-plasma-bank9-224-8.hda',
+    1290243: 'option-plasma-bank9-243-8.hda',
+    1290262: 'option-plasma-bank9-262-8.hda',
+    1290281: 'option-plasma-bank9-281-8.hda',
+    1290300: 'option-plasma-bank9-300-8.hda',
+}
+
+
+def assert_current_view_bytes(case, actual, frozen, overlays):
+    case.assertEqual(set(overlays), {VIEW_CRAFT_NAME, *VIEW_SIDEKICKS.values()})
+    expected = dict(frozen)
+    expected.update(overlays)
+    case.assertEqual(actual, expected)
+
+
+class InjectedReplaceFailure(OSError):
+    def __init__(self, boundary):
+        self.boundary = boundary
+        super().__init__(f'injected replace failure at boundary {boundary}')
+
+
+class ReplaceFault:
+    def __init__(self, replace, boundary):
+        self.replace = replace
+        self.boundary = boundary
+        self.calls = 0
+        self.hits = []
+
+    def __call__(self, source, target):
+        self.calls += 1
+        if self.calls == self.boundary:
+            self.hits.append(self.calls)
+            raise InjectedReplaceFailure(self.boundary)
+        return self.replace(source, target)
+
+
+def case_failed(case):
+    """Fail closed if the runner cannot expose ordinary unittest outcomes."""
+    result = getattr(getattr(case, '_outcome', None), 'result', None)
+    if result is None or not all(hasattr(result, key) for key in ('errors', 'failures')):
+        return True
+    return (any(test is case or getattr(test, 'test_case', None) is case
+                for test, _ in result.errors + result.failures)
+            or case in getattr(result, 'unexpectedSuccesses', ()))
+
+
+def png(mode='RGBA', size=(192, 224), animated=False):
+    out = io.BytesIO()
+    im = Image.new(mode, size, (37, 53, 71, 127) if mode == 'RGBA' else (37, 53, 71))
+    if animated:
+        im.save(out, format='PNG', save_all=True, append_images=[Image.new(mode, size, (19, 23, 29, 255))], duration=10)
+    else:
+        im.save(out, format='PNG')
+    return out.getvalue()
+
+
+def rgba16_png():
+    def chunk(kind, data):
+        return struct.pack('>I', len(data)) + kind + data + struct.pack('>I', zlib.crc32(kind+data) & 0xffffffff)
+    header = struct.pack('>IIBBBBB', 192, 224, 16, 6, 0, 0, 0)
+    pixels = (b'\0' + struct.pack('>4H', 100, 200, 300, 65535)*192)*224
+    return b'\x89PNG\r\n\x1a\n' + chunk(b'IHDR', header) + chunk(b'IDAT', zlib.compress(pixels)) + chunk(b'IEND', b'')
+
+
+class Craft267AuthoringTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        # Same default temp location; no finalizer may silently chmod/remove a
+        # failed fixture. Setup errors also leave the allocated tree intact.
+        cls._preserve_fixture = True
+        cls.base = Path(tempfile.mkdtemp(prefix='craft267-tests-'))
+        print(f'Private fixture allocated: {cls.base}', flush=True)
+        cls.root = cls.base/'repo'
+        _, names = b.closure(ROOT)
+        names.add(b.SELECTION)
+        names.add('assets/hd/README.md')
+        for f in PROFILES:
+            select = profile(f)['selection']
+            names.add(select)
+            names.update(row['source_png'] for row in json.loads((ROOT/select).read_bytes())['resources'])
+        for f in ('tank-shell', 'enemy-energy', 'craft267', 'sidekick-body'):
+            select = f'assets/hd/authoring/{f}-current.json'
+            names.add(select)
+            names.update(row['source_png'] for row in json.loads((ROOT/select).read_bytes())['resources'])
+        from current_enemy_energy_compatibility import MASK_POLICY
+        names.update(row[0] for row in MASK_POLICY.values())
+        import current_hud_recipe
+        select = 'assets/hd/authoring/hud/current.json'
+        names.add(select)
+        hud = json.loads((ROOT/select).read_bytes())
+        names.update(row['path'] for rows in hud['resources'].values() for row in rows)
+        names.update(row['path'] for row in current_hud_recipe.FIXED_INPUTS.values())
+        for name in b.BASES.values():
+            names.update(p.relative_to(ROOT).as_posix() for p in (ROOT/'assets/hd/packs'/name).rglob('*') if p.is_file())
+        cls.initial = {n:(ROOT/n).read_bytes() for n in sorted(names)}
+        print(f'Private fixture: {len(names)} files, {sum(map(len, cls.initial.values()))} bytes', flush=True)
+        for n, data in cls.initial.items():
+            p = cls.root/n
+            p.parent.mkdir(parents=True, exist_ok=True)
+            p.write_bytes(data)
+        print('Private fixture ready; no game/data/profile inputs', flush=True)
+        cls._preserve_fixture = False
+
+    @classmethod
+    def tearDownClass(cls):
+        if cls._preserve_fixture:
+            print(f'Fixture retained after failure: {cls.base}', flush=True)
+            return
+        try:
+            # Default rmtree raises on refusal; no permission-reset callback.
+            shutil.rmtree(cls.base)
+        except BaseException:
+            cls._preserve_fixture = True
+            print(f'Fixture cleanup stopped; retained: {cls.base}', flush=True)
+            raise
+
+    def setUp(self):
+        if type(self)._preserve_fixture:
+            self.skipTest('Prior failure retained the fixture; no further access')
+        self.count = 0
+
+    def tearDown(self):
+        cls = type(self)
+        if case_failed(self):
+            cls._preserve_fixture = True
+        if cls._preserve_fixture:
+            print(f'Fixture retained without restoration: {cls.base}', flush=True)
+            return
+        try:
+            self._restore_fixture()
+        except BaseException:
+            cls._preserve_fixture = True
+            print(f'Fixture restoration stopped; retained: {cls.base}', flush=True)
+            raise
+
+    def _restore_fixture(self):
+        # Only this class's private fixture tree; never source or user artifacts.
+        for p in sorted(self.root.rglob('*'), reverse=True):
+            n = p.relative_to(self.root).as_posix()
+            if p.is_file():
+                if n not in self.initial:
+                    p.unlink()
+                elif p.read_bytes() != self.initial[n]:
+                    p.write_bytes(self.initial[n])
+            elif p.is_dir() and not any(p.iterdir()):
+                p.rmdir()
+        for n, data in self.initial.items():
+            p = self.root/n
+            if not p.exists():
+                p.parent.mkdir(parents=True, exist_ok=True)
+                p.write_bytes(data)
+        for p in self.base.iterdir():
+            if p == self.root:
+                continue
+            if p.is_dir():
+                shutil.rmtree(p)
+            else:
+                p.unlink()
+
+    def selected(self):
+        return json.loads((self.root/b.SELECTION).read_bytes())
+
+    def synthetic(self, data=None):
+        j = self.selected()
+        j['version'] = 'synthetic267-v2'
+        source = 'assets/hd/authoring/synthetic-craft267.png'
+        data = png() if data is None else data
+        (self.root/source).write_bytes(data)
+        j['resources'][0].update(source_png=source, source_sha256=b.sha(data))
+        return j
+
+    def stage(self, selected):
+        self.count += 1
+        draft = self.base/f'draft-{self.count}.json'
+        draft.write_bytes(b.encoded(selected))
+        destination = self.base/f'stage-{self.count}'
+        b.stage(self.root, draft, destination)
+        return destination
+
+    def snapshot(self):
+        return {p.relative_to(self.root).as_posix():b.sha(p.read_bytes()) for p in self.root.rglob('*') if p.is_file()}
+
+    def test_bootstrap_exact_pixels_header_and_existing_runtime_set(self):
+        self.assertEqual(b.check(self.root)['status'], 'PASS')
+        raw = (self.root/b.CANONICAL).read_bytes()
+        self.assertEqual(len(raw), SIZE)
+        self.assertEqual(raw[:28], HEADER)
+        self.assertEqual(b.sha(raw), '60d4dcf1f76046c7d8e9f1f56495fce5affc4d919294334173d4a232430487a9')
+        source = self.selected()['resources'][0]['source_png']
+        self.assertEqual(b.sha((self.root/source).read_bytes()), '1bace298e65167bcc51f3db30c9faab807593ae6c56aa43a74579c7f7fa47487')
+        with Image.open(self.root/source) as im:
+            self.assertEqual(raw[28:], im.tobytes())
+        for base in b.BASES.values():
+            self.assertEqual(raw, (self.root/'assets/hd/packs'/base/b.NAME).read_bytes())
+        runtime = json.loads((self.root/b.RUNTIME).read_bytes())
+        self.assertEqual(len(runtime['files']), 1006)
+        self.assertEqual(len(json.loads((self.root/b.REGISTRY).read_bytes())['resources']), 120)
+        self.assertEqual({r['destination']:r for r in runtime['files']}[b.DESTINATION]['source_path'], b.CANONICAL)
+
+    @unittest.skipIf(READ_ONLY, WRITE_SKIP)
+    def test_single_source_stage_apply_package_and_both_preview_views(self):
+        j = self.synthetic()
+        before = self.snapshot()
+        old_runtime = json.loads((self.root/b.RUNTIME).read_bytes())
+        stage = self.stage(j)
+        self.assertEqual(before, self.snapshot())
+        second = self.stage(j)
+        self.assertEqual((stage/'plan.json').read_bytes(), (second/'plan.json').read_bytes())
+        b.apply(self.root, stage)
+        self.assertEqual(b.check(self.root)['status'], 'PASS')
+        # Decode independently, with literal geometry and known synthetic pixels.
+        with Image.open(self.root/j['resources'][0]['source_png']) as image:
+            self.assertEqual((image.mode, image.size), ('RGBA', (192, 224)))
+            pixels = image.tobytes()
+        self.assertEqual(pixels, bytes((37, 53, 71, 127)) * (192 * 224))
+        raw = struct.pack('<4s6I', b'HDR1', 1010267, 8, 24, 28, 6, 7) + pixels
+        self.assertNotEqual(raw, self.initial[b.CANONICAL])
+        self.assertEqual(raw, (self.root/b.CANONICAL).read_bytes())
+        overlays = {VIEW_CRAFT_NAME: raw}
+        sidekick_selection = 'assets/hd/authoring/sidekick-body-current.json'
+        self.assertEqual((self.root/sidekick_selection).read_bytes(), self.initial[sidekick_selection])
+        sidekicks = json.loads(self.initial[sidekick_selection])['resources']
+        self.assertEqual([row['identity'] for row in sidekicks], list(VIEW_SIDEKICKS))
+        for row in sidekicks:
+            identity = row['identity']
+            name = VIEW_SIDEKICKS[identity]
+            source = row['source_png']
+            self.assertEqual((self.root/source).read_bytes(), self.initial[source])
+            with Image.open(io.BytesIO(self.initial[source])) as image:
+                self.assertEqual((image.mode, image.size), ('RGBA', (96, 112)))
+                body = struct.pack('<4s6I', b'HDR1', identity, 8, 12, 14, 0, 0) + image.tobytes()
+            protected = 'assets/hd/current-compat/sidekick-body/' + name
+            self.assertEqual(body, self.initial[protected])
+            self.assertEqual((self.root/protected).read_bytes(), self.initial[protected])
+            overlays[name] = body
+        allowed = {b.SELECTION, b.CANONICAL, b.MAPPING, b.RUNTIME}
+        after = self.snapshot()
+        self.assertEqual({p for p in before if before[p] != after[p]}, allowed)
+        runtime = json.loads((self.root/b.RUNTIME).read_bytes())
+        self.assertEqual(len(runtime['files']), 1006)
+        self.assertEqual([r for r in runtime['files'] if r['destination'] != b.DESTINATION],
+                         [r for r in old_runtime['files'] if r['destination'] != b.DESTINATION])
+        for kind, base in b.BASES.items():
+            target = self.base/f'view-{kind}'
+            report = b.view(self.root, kind, target)
+            self.assertEqual(report['files'], 641)
+            frozen = {p.relative_to(self.root/'assets/hd/packs'/base).as_posix():p.read_bytes()
+                        for p in (self.root/'assets/hd/packs'/base).rglob('*') if p.is_file()}
+            self.assertEqual(set(report['current_overlays']), set(overlays))
+            actual = {p.relative_to(target).as_posix():p.read_bytes() for p in target.rglob('*') if p.is_file()}
+            assert_current_view_bytes(self, actual, frozen, overlays)
+        # The task forbids permission changes. Exercise real package copying and
+        # fingerprints, explicitly suppressing its unrelated chmod operation.
+        with contextlib.redirect_stdout(io.StringIO()), mock.patch.object(Path, 'chmod', return_value=None):
+            code = package_runtime.main(['--source-root', str(self.root), '--build', '--output', str(self.base/'runtime')])
+        self.assertEqual(code, 0)
+        self.assertEqual((self.base/'runtime'/b.DESTINATION).read_bytes(), raw)
+        self.assertEqual(after, self.snapshot())
+
+    @unittest.skipIf(READ_ONLY, WRITE_SKIP)
+    def test_other_public_authoring_closures_preserve_craft267(self):
+        b.apply(self.root, self.stage(self.synthetic()))
+        self.assertEqual(global_builder.check(self.root, 'pulse')['status'], 'PASS')
+        import build_current_hud, build_current_tank_shell, build_current_enemy_energy, build_current_sidekick_body
+        initial = self.snapshot()
+        protected = {p: digest for p, digest in initial.items() if p.startswith("assets/hd/current-compat/sidekick-body/") or p == "src/current_sidekick_body_payload_pins.h"}
+        for builder in (build_current_hud, build_current_tank_shell, build_current_enemy_energy, build_current_sidekick_body):
+            self.assertEqual(builder.check(self.root)['status'], 'PASS')
+        final = self.snapshot()
+        self.assertEqual(protected, {p: final[p] for p in protected})
+
+    def test_identity_scope_and_selection_fields(self):
+        original = self.selected()
+        for identity in (1010269, 1010271, 1010268, 1010286, 1010287, 1020267, 1060267, 267, True):
+            j = copy.deepcopy(original)
+            j['resources'][0]['identity'] = identity
+            with self.subTest(identity=identity), self.assertRaises(ValueError):
+                b.selection(self.root, b.encoded(j))
+        for field in ('role', 'bank', 'density', 'anchor', 'size', 'order'):
+            j = copy.deepcopy(original)
+            j['resources'][0][field] = 1
+            with self.subTest(field=field), self.assertRaises(ValueError):
+                b.selection(self.root, b.encoded(j))
+        for rows in ([], original['resources']*2):
+            j = copy.deepcopy(original)
+            j['resources'] = rows
+            with self.assertRaises(ValueError):
+                b.selection(self.root, b.encoded(j))
+        with self.assertRaises(ValueError):
+            b.parse(b'{"schema":1,"schema":2}')
+
+    def test_bad_png_mode_dimensions_animation_truncation_crc_and_trailing(self):
+        valid = png()
+        for data in (png('RGB'), png(size=(191,224)), png(size=(192,223)), png(animated=True), rgba16_png(), valid[:-1], valid+b'junk', valid[:40]+b'BAD!'+valid[44:]):
+            j = self.synthetic(data)
+            before = self.snapshot()
+            with self.subTest(length=len(data)), self.assertRaises((ValueError, OSError)):
+                self.stage(j)
+            self.assertEqual(before, self.snapshot())
+
+    def test_bad_sha_and_unsafe_source_paths(self):
+        j = self.selected()
+        j['resources'][0]['source_sha256'] = '0'*64
+        with self.assertRaises(ValueError):
+            b.selection(self.root, b.encoded(j))
+        for value in ('../outside.png', '/outside.png', 'C:/outside.png', 'assets\\bad.png', 'assets//bad.png', 'assets/CON.png'):
+            j = self.selected()
+            j['resources'][0]['source_png'] = value
+            with self.subTest(path=value), self.assertRaises(ValueError):
+                b.selection(self.root, b.encoded(j))
+        with self.assertRaises(ValueError):
+            b.stage(self.root, self.root/b.SELECTION, self.root/'stage')
+
+    def test_staged_bytes_and_plan_tampering_refused_before_writes(self):
+        j = self.synthetic()
+        for name in (b.SELECTION, b.CANONICAL, b.MAPPING, b.RUNTIME):
+            stage = self.stage(j)
+            target = stage/'files'/name
+            target.write_bytes(target.read_bytes()+b'junk')
+            before = self.snapshot()
+            with self.subTest(name=name), self.assertRaises(ValueError):
+                b.apply(self.root, stage)
+            self.assertEqual(before, self.snapshot())
+        stage = self.stage(j)
+        plan = json.loads((stage/'plan.json').read_bytes())
+        plan['files'][0]['after_sha256'] = '0'*64
+        (stage/'plan.json').write_bytes(b.encoded(plan))
+        before = self.snapshot()
+        with self.assertRaises(ValueError):
+            b.apply(self.root, stage)
+        self.assertEqual(before, self.snapshot())
+
+    @unittest.skipIf(READ_ONLY, WRITE_SKIP)
+    def test_changed_source_installed_selection_and_tool_closure_are_stale(self):
+        j = self.synthetic()
+        stage = self.stage(j)
+        p = self.root/j['resources'][0]['source_png']
+        original = p.read_bytes()
+        p.write_bytes(original+b'changed')
+        before = self.snapshot()
+        with self.assertRaises(ValueError):
+            b.apply(self.root, stage)
+        self.assertEqual(before, self.snapshot())
+        p.write_bytes(original)
+        other = self.selected()
+        other['version'] = 'another-installed-version'
+        b.apply(self.root, self.stage(other))
+        before = self.snapshot()
+        with self.assertRaises(ValueError):
+            b.apply(self.root, stage)
+        self.assertEqual(before, self.snapshot())
+        stage = self.stage(j)
+        p = self.root/'scripts/build_current_craft267.py'
+        p.write_bytes(p.read_bytes()+b'\n# tool changed\n')
+        before = self.snapshot()
+        with self.assertRaises(ValueError):
+            b.apply(self.root, stage)
+        self.assertEqual(before, self.snapshot())
+
+    def test_temporary_conflict_preflights_all_outputs(self):
+        stage = self.stage(self.synthetic())
+        p = self.root/(b.RUNTIME+b.SUFFIX)
+        p.write_bytes(b'occupied')
+        before = self.snapshot()
+        with self.assertRaises(ValueError):
+            b.apply(self.root, stage)
+        self.assertEqual(before, self.snapshot())
+
+    @unittest.skipIf(READ_ONLY, WRITE_SKIP)
+    def test_handled_replace_failure_at_each_boundary_rolls_back_every_byte(self):
+        j = self.synthetic()
+        stage = self.stage(j)
+        before = self.snapshot()
+        real = os.replace
+        for boundary in range(1,5):
+            fault = ReplaceFault(real, boundary)
+            # Unexpected OS errors propagate immediately; a subTest must not
+            # swallow them and continue accessing the failed fixture.
+            with mock.patch.object(b.os, 'replace', side_effect=fault), self.assertRaises(InjectedReplaceFailure) as error:
+                b.apply(self.root, stage)
+            self.assertEqual(error.exception.boundary, boundary)
+            self.assertEqual(fault.hits, [boundary])
+            self.assertEqual(before, self.snapshot())
+        b.apply(self.root, stage)
+        self.assertEqual(b.check(self.root)['status'], 'PASS')
+
+    def test_bad_mapping_geometry_length_missing_and_wrong_consumer(self):
+        original = (self.root/b.CANONICAL).read_bytes()
+        mapping = json.loads((self.root/b.MAPPING).read_bytes())
+        for offset, value in ((4,1020267),(8,4),(12,12),(16,14),(20,0),(24,0)):
+            raw = bytearray(original)
+            struct.pack_into('<I', raw, offset, value)
+            (self.root/b.CANONICAL).write_bytes(raw)
+            mapping['files'][0]['sha256'] = b.sha(raw)
+            (self.root/b.MAPPING).write_bytes(b.encoded(mapping))
+            with self.subTest(offset=offset), self.assertRaises(ValueError):
+                b.load(self.root)
+        for raw in (original[:-1], original+b'junk'):
+            (self.root/b.CANONICAL).write_bytes(raw)
+            mapping['files'][0]['sha256'] = b.sha(raw)
+            (self.root/b.MAPPING).write_bytes(b.encoded(mapping))
+            with self.assertRaises(ValueError):
+                b.load(self.root)
+        (self.root/b.CANONICAL).unlink()
+        with self.assertRaises(ValueError):
+            b.load(self.root)
+
+    def test_view_refuses_existing_internal_or_changed_frozen_base(self):
+        existing = self.base/'existing'
+        existing.mkdir()
+        for destination in (existing, self.root/'view'):
+            with self.assertRaises(ValueError):
+                b.view(self.root, 'preview', destination)
+        p = self.root/'assets/hd/packs'/b.BASES['preview']/b.NAME
+        p.write_bytes(p.read_bytes()+b'drift')
+        target = self.base/'bad-view'
+        with self.assertRaises(ValueError):
+            b.view(self.root, 'preview', target)
+        self.assertFalse(target.exists())
+
+    @unittest.skipIf(READ_ONLY, WRITE_SKIP)
+    def test_new_output_and_directory_creation_are_rolled_back_on_write_failure(self):
+        before = self.snapshot()
+        real = os.replace
+        fault = ReplaceFault(real, 2)
+        outputs = {'new-craft267-test/deep/first.hda': b'first',
+                   'new-craft267-test/deep/second.hda': b'second'}
+        with mock.patch.object(b.os, 'replace', side_effect=fault), self.assertRaises(InjectedReplaceFailure) as error:
+            b.replace_batch(self.root, outputs)
+        self.assertEqual(error.exception.boundary, 2)
+        self.assertEqual(fault.hits, [2])
+        self.assertEqual(before, self.snapshot())
+        self.assertFalse((self.root/'new-craft267-test').exists())
+
+    def test_mapping_scope_rejects_extra_missing_wrong_role_or_target(self):
+        original = json.loads((self.root/b.MAPPING).read_bytes())
+        for kind in ('extra', 'missing', 'role', 'target', 'source', 'schema'):
+            j = copy.deepcopy(original)
+            if kind == 'extra': j['files'] *= 2
+            if kind == 'missing': j['files'] = []
+            if kind == 'role': j['files'][0]['identity'] = 1020267
+            if kind == 'target': j['files'][0]['destination'] = 'assets/gameplay/enemy-newsh2-269-8.hda'
+            if kind == 'source': j['files'][0]['source_path'] = '../other.hda'
+            if kind == 'schema': j['schema'] = 'opentyrian-current-tank-shell-compatibility-v1'
+            (self.root/b.MAPPING).write_bytes(b.encoded(j))
+            with self.subTest(kind=kind), self.assertRaises(ValueError):
+                b.load(self.root)
+
+    def test_staging_propagates_only267_without_applying(self):
+        j = self.synthetic()
+        before = self.snapshot()
+        stage = self.stage(j)
+        self.assertEqual(before, self.snapshot())
+        plan = json.loads((stage/'plan.json').read_bytes())
+        self.assertEqual({r['path'] for r in plan['files']}, {b.SELECTION,b.CANONICAL,b.MAPPING,b.RUNTIME})
+        raw = b.source_blob(self.root, j['resources'][0])
+        self.assertEqual((stage/'files'/b.CANONICAL).read_bytes(), raw)
+        old = json.loads((self.root/b.RUNTIME).read_bytes())
+        new = json.loads((stage/'files'/b.RUNTIME).read_bytes())
+        self.assertEqual(len(new['files']), 1006)
+        self.assertEqual([r for r in old['files'] if r['destination'] != b.DESTINATION],
+                         [r for r in new['files'] if r['destination'] != b.DESTINATION])
+        self.assertEqual(next(r for r in new['files'] if r['destination'] == b.DESTINATION)['sha256'], b.sha(raw))
+
+    def test_stale_source_and_tool_preflight_has_no_replace_call(self):
+        j = self.synthetic()
+        stage = self.stage(j)
+        p = self.root/j['resources'][0]['source_png']
+        original = p.read_bytes()
+        p.write_bytes(original+b'changed')
+        before = self.snapshot()
+        with mock.patch.object(b.os, 'replace', side_effect=AssertionError('Unexpected write')), self.assertRaises(ValueError):
+            b.apply(self.root, stage)
+        self.assertEqual(before, self.snapshot())
+        p.write_bytes(original)
+        stage = self.stage(j)
+        p = self.root/'scripts/build_current_craft267.py'
+        p.write_bytes(p.read_bytes()+b'\n# tool drift\n')
+        before = self.snapshot()
+        with mock.patch.object(b.os, 'replace', side_effect=AssertionError('Unexpected write')), self.assertRaises(ValueError):
+            b.apply(self.root, stage)
+        self.assertEqual(before, self.snapshot())
+
+    @unittest.skip('Actual symlink/junction creation and permission changes are prohibited in this task; not verified')
+    def test_actual_symlink_junction_filesystem_behavior(self):
+        pass
+
+
+class AssetIndexEntrypointTests(unittest.TestCase):
+    def run_play_without_launch(self, assets=None):
+        import runpy
+        import subprocess
+        script = ROOT/'prototype/asset-index.py'
+        index = ROOT/'tests/no-launch-index-fixture.json'
+        data = json.dumps({'segments': [{'number': 0, 'start_tick': 0}],
+                           'materials': {}, 'replay': {'episode': 1, 'physical_level': 9}})
+        def read_index(path, *args, **kwargs):
+            self.assertEqual(path, index)
+            return data
+        argv = [str(script), 'play', '--index', str(index), '--segment', '0', '--no-launch']
+        if assets is not None:
+            argv += ['--assets', str(assets)]
+        with mock.patch.object(sys, 'argv', argv), \
+                mock.patch.object(Path, 'read_text', autospec=True, side_effect=read_index), \
+                mock.patch.object(subprocess, 'call', side_effect=AssertionError('No-launch must not launch')) as launch, \
+                contextlib.redirect_stdout(io.StringIO()):
+            # Run the complete entrypoint in its own globals: no injected sys.
+            namespace = runpy.run_path(str(script), run_name='__main__')
+        launch.assert_not_called()
+        return namespace['cmd']
+
+    def test_default_play_reuses_running_interpreter_without_launch(self):
+        cmd = self.run_play_without_launch()
+        self.assertNotIn('-Assets', cmd)
+        self.assertEqual(cmd[-2:], ['-Python', sys.executable])
+
+    def test_explicit_assets_do_not_add_python_or_launch(self):
+        assets = ROOT.parent/'explicit assets fixture'
+        cmd = self.run_play_without_launch(assets)
+        self.assertNotIn('-Python', cmd)
+        self.assertEqual(cmd[-2:], ['-Assets', str(assets.resolve())])
+
+
+class ViewOracleTests(unittest.TestCase):
+    def test_independent_current_bodies_and_unchanged_members(self):
+        names = (VIEW_CRAFT_NAME, *VIEW_SIDEKICKS.values())
+        frozen = {name: b'old:' + name.encode() for name in names}
+        frozen['unrelated.hda'] = b'unchanged'
+        overlays = {name: b'current:' + name.encode() for name in names}
+        actual = dict(frozen); actual.update(overlays)
+        assert_current_view_bytes(self, actual, frozen, overlays)
+
+    def test_each_historical_body_substitution_is_rejected(self):
+        names = (VIEW_CRAFT_NAME, *VIEW_SIDEKICKS.values())
+        frozen = {name: b'old:' + name.encode() for name in names}
+        frozen['unrelated.hda'] = b'unchanged'
+        overlays = {name: b'current:' + name.encode() for name in names}
+        actual = dict(frozen); actual.update(overlays)
+        for name in names:
+            stale = dict(actual); stale[name] = frozen[name]
+            with self.subTest(body=name), self.assertRaises(AssertionError):
+                assert_current_view_bytes(self, stale, frozen, overlays)
+        changed = dict(actual); changed['unrelated.hda'] = b'changed'
+        with self.assertRaises(AssertionError):
+            assert_current_view_bytes(self, changed, frozen, overlays)
+
+
+class MemoryRollbackTests(unittest.TestCase):
+    def test_transaction_failure_boundaries_in_memory_only(self):
+        """Algorithm witness only; does not certify OS rename/permission behavior."""
+        from pathlib import PurePosixPath
+        for boundary in (1,2,3,4,None):
+            files = {'a/old': b'old-a', 'b/old': b'old-b'}
+            dirs = {'.','a','b'}
+            before = dict(files), set(dirs)
+            class Stream(io.BytesIO):
+                def __init__(self, key):
+                    super().__init__()
+                    self.key = key
+                def write(self, data):
+                    result = super().write(data)
+                    files[self.key] = self.getvalue()
+                    return result
+                def fileno(self): return 0
+            class P:
+                def __init__(self, key): self.key = key
+                @property
+                def name(self): return PurePosixPath(self.key).name
+                @property
+                def parent(self): return P(str(PurePosixPath(self.key).parent))
+                def exists(self): return self.key in files or self.key in dirs
+                def with_name(self, name): return P(str(PurePosixPath(self.key).with_name(name)))
+                def mkdir(self):
+                    if self.exists() or not self.parent.exists(): raise OSError('invalid mkdir')
+                    dirs.add(self.key)
+                def rmdir(self):
+                    if any(x.startswith(self.key+'/') for x in set(files)|dirs): raise OSError('nonempty')
+                    dirs.remove(self.key)
+                def open(self, mode):
+                    if mode != 'xb' or self.exists() or not self.parent.exists(): raise OSError('invalid open')
+                    files[self.key] = b''
+                    return Stream(self.key)
+                def unlink(self): del files[self.key]
+            def replace(src, dst):
+                files[dst.key] = files.pop(src.key)
+            fault = ReplaceFault(replace, boundary)
+            outputs = {'a/old':b'new-a','new/deep/one':b'new-one','b/old':b'new-b','new/deep/two':b'new-two'}
+            with self.subTest(boundary=boundary), mock.patch.object(b,'path',side_effect=lambda root,name:P(name)), mock.patch.object(b,'read',side_effect=lambda root,name:files[name]), mock.patch.object(b.os,'replace',side_effect=fault), mock.patch.object(b.os,'fsync'):
+                if boundary:
+                    with self.assertRaises(InjectedReplaceFailure) as error: b.replace_batch(None, outputs)
+                    self.assertEqual(error.exception.boundary, boundary)
+                    self.assertEqual(fault.hits, [boundary])
+                    self.assertEqual((files,dirs), before)
+                else:
+                    b.replace_batch(None, outputs)
+                    self.assertEqual(fault.hits, [])
+                    self.assertEqual(files, outputs)
+
+
+class HarnessCalibrationTests(unittest.TestCase):
+    """Pure mocks only: never allocate a fixture or call OS replacement/cleanup."""
+    def test_injected_type_and_exact_boundary(self):
+        for boundary in range(1,5):
+            real = mock.Mock()
+            fault = ReplaceFault(real, boundary)
+            for _ in range(boundary-1):
+                fault('symbolic-source', 'symbolic-target')
+            with self.assertRaises(InjectedReplaceFailure) as error:
+                fault('symbolic-source', 'symbolic-target')
+            self.assertEqual(error.exception.boundary, boundary)
+            self.assertEqual(fault.hits, [boundary])
+            self.assertEqual(real.call_count, boundary-1)
+
+    def test_permission_error_cannot_satisfy_injected_failure(self):
+        fault = ReplaceFault(mock.Mock(side_effect=PermissionError('pure mock refusal')), 2)
+        with self.assertRaises(PermissionError):
+            with self.assertRaises(InjectedReplaceFailure):
+                fault('symbolic-source', 'symbolic-target')
+        self.assertEqual(fault.hits, [])
+        self.assertEqual(fault.calls, 1)
+
+    def probe(self, restore):
+        body = mock.Mock()
+        class Probe(Craft267AuthoringTests):
+            _preserve_fixture = False
+            base = Path('__pure_mock_fixture_never_allocated__')
+            @classmethod
+            def setUpClass(cls):
+                raise AssertionError('Calibration must not allocate a fixture')
+            def _restore_fixture(self): restore()
+            def test_ok(self): body()
+            def test_error(self): raise PermissionError('pure mock body refusal')
+            def test_subtest(self):
+                with self.subTest(kind='pure mock'):
+                    self.fail('pure mock subtest failure')
+        return Probe, body
+
+    def test_error_and_subtest_preserve_without_restore_or_following_access(self):
+        for method in ('test_error', 'test_subtest'):
+            restore = mock.Mock()
+            probe, body = self.probe(restore)
+            with mock.patch('builtins.print'), mock.patch.object(shutil, 'rmtree', side_effect=AssertionError('No real cleanup')) as cleanup:
+                result = unittest.TestResult()
+                probe(method).run(result)
+                self.assertFalse(result.wasSuccessful())
+                self.assertTrue(probe._preserve_fixture)
+                restore.assert_not_called()
+                following = unittest.TestResult()
+                probe('test_ok').run(following)
+                self.assertEqual(len(following.skipped), 1)
+                body.assert_not_called()
+                probe.tearDownClass()
+                cleanup.assert_not_called()
+
+    def test_restore_failure_preserves_without_final_cleanup(self):
+        restore = mock.Mock(side_effect=PermissionError('pure mock restore refusal'))
+        probe, _ = self.probe(restore)
+        with mock.patch('builtins.print'), mock.patch.object(shutil, 'rmtree', side_effect=AssertionError('No real cleanup')) as cleanup:
+            result = unittest.TestResult()
+            probe('test_ok').run(result)
+            self.assertEqual(len(result.errors), 1)
+            self.assertTrue(probe._preserve_fixture)
+            restore.assert_called_once_with()
+            probe.tearDownClass()
+            cleanup.assert_not_called()
+
+    def test_success_cleanup_has_no_permission_callback_and_refusal_is_not_retried(self):
+        probe, _ = self.probe(mock.Mock())
+        with mock.patch('builtins.print'), mock.patch.object(os, 'chmod', side_effect=AssertionError('No permission changes')) as chmod:
+            result = unittest.TestResult()
+            probe('test_ok').run(result)
+            self.assertTrue(result.wasSuccessful())
+            with mock.patch.object(shutil, 'rmtree') as cleanup:
+                probe.tearDownClass()
+                cleanup.assert_called_once_with(probe.base)
+            with mock.patch.object(shutil, 'rmtree', side_effect=PermissionError('pure mock cleanup refusal')) as cleanup:
+                with self.assertRaises(PermissionError): probe.tearDownClass()
+                self.assertTrue(probe._preserve_fixture)
+                probe.tearDownClass()
+                cleanup.assert_called_once_with(probe.base)
+            chmod.assert_not_called()
+
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)

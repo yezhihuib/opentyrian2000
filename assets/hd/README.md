@@ -19,7 +19,7 @@ source/*.png are exact RGBA dumps of accepted runtime payloads, with no resizing
 
 Run `python prototype/build-hd-assets.py` to verify the active source/header/runtime hashes and the complete retained startup pack. Use `--output NEW_DIRECTORY` to rebuild the active packs from PNGs without overwriting originals. Historical gameplay recipes are retained separately in `manifest.json` under `retired_packs`; rebuild one externally with `python3 prototype/rebuild_retired_hd_pack.py PACK --output ABS_NEW_EXTERNAL_DIRECTORY`.
 
-The default `start-actual-preview.ps1` and `start-asset-debug.ps1` paths still use their respective installed head-v1 packs. Their eight superseded in-repository stage switches now stop with a retirement message. Older selectors for external `runtime-hd-assets` checkpoints remain available only when those separately managed local inputs exist. Game data and local SDL SDKs remain separate prerequisites.
+The default `start-actual-preview.ps1`, `start-asset-debug.ps1` and manual launcher now materialize external [current craft267 views](../../docs/CRAFT267_SINGLE_SOURCE_WORKFLOW.md) from their respective frozen head-v1 bases. The historical catalog and its default pack names remain frozen; current deployment uses the runtime manifest. Their eight superseded in-repository stage switches now stop with a retirement message. Older selectors for external `runtime-hd-assets` checkpoints remain available only when those separately managed local inputs exist. Game data and local SDL SDKs remain separate prerequisites.
 
 ASTEROID1's coherent five-actor NEWSHP gold platform and persistent wreck: [source identity,
 material135, artwork and finite validation](../../docs/asteroid1-linked338-v1/README.md).

@@ -61,6 +61,7 @@ def derive(root,raw):
     names|={profile(f)['mapping'] for f in PROFILES}
     names.add('packaging/current-tank-shell-compatibility.json')
     names.add('packaging/current-sidekick-body-compatibility.json')
+    names.add('packaging/current-craft267-compatibility.json')
     names|={p.relative_to(root).as_posix() for p in (root/'src').rglob('*') if p.is_file() or p.is_symlink()}
     names|={p.relative_to(root).as_posix() for p in (root/'scripts').glob('*.py')}
     with tempfile.TemporaryDirectory(prefix='enemy-energy-authoring-build-') as tmp:

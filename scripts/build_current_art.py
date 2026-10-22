@@ -86,6 +86,8 @@ def verify_authority(root,registry,family='pulse'):
     energy_compatibility(root)
     from current_sidekick_body_compatibility import load as sidekick_body_compatibility
     sidekick_body_compatibility(root)
+    from current_craft267_compatibility import load as craft267_compatibility
+    craft267_compatibility(root)
     by_id={r['identity']:r for r in registry['resources']}
     for other in PROFILES:
         selected=selection(root,read(root,profile(other)['selection']),other)
@@ -171,6 +173,7 @@ def derive(root,selected_raw,family='pulse'):
         names.add('packaging/current-tank-shell-compatibility.json')
         names.add('packaging/current-enemy-energy-compatibility.json')
         names.add('packaging/current-sidekick-body-compatibility.json')
+        names.add('packaging/current-craft267-compatibility.json')
         names|={p.relative_to(root).as_posix() for p in (root/'src').rglob('*') if p.is_file() or p.is_symlink()}
         names|={p.relative_to(root).as_posix() for p in (root/'scripts').glob('*.py')}
         # Verify existing runtime except allowed stale current generated outputs.

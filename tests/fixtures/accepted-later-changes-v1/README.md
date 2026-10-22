@@ -96,3 +96,14 @@ fresh, needs no historical Git objects, does not change filesystem permissions
 and does not cache an acceptance verdict. Tests separately cover the eight
 existing executable scripts, index-mode changes, additions/deletions, arbitrary
 content hashes, ledger corruption and independent current-chain tampering.
+
+## NEWSH2 base267 current extension
+
+Exactly two additional current asset paths (selection and canonical HDA) are
+accepted only after deriving fixed HDA1010267 from its selected 192x224 RGBA8
+PNG and checking mapping and its unique current runtime row. Together with the
+six-body chain this admits exactly nine generated asset paths. The craft267
+README change has a separately pinned complete-blob and one-hunk inverse before
+the unchanged original inventory digest and all 3,259 historical asset edits.
+No craft267 C header or source-inventory exception is added; source scope stays
+252. Candidate PNGs under assets still need their own reviewed finite extension.

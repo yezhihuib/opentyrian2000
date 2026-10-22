@@ -53,6 +53,10 @@ if ($Before101) { $previewAssets = Join-Path $previewTaskRoot 'runtime-hd-assets
 if ($Talon13) {
     if ($Before101 -or $TurretV2 -or $TurretV4 -or $BeforeRoad) { throw 'Talon13 uses the accepted road49/50v4 asset set.' }
 }
+if (-not ($BeforeSmallExplosion -or $BeforeType10 -or $BeforeFoundation -or $BeforeRoad -or $TurretV4 -or $TurretV2 -or $Before101)) {
+    . (Join-Path $PSScriptRoot 'current-craft267-pack.ps1')
+    $previewAssets = New-CurrentCraft267Pack $previewRepoRoot 'preview' -Python $previewPython
+}
 foreach ($previewPath in @($previewPython, (Join-Path $previewRepoRoot 'opentyrian-x64-Release.exe'), $previewAssets, (Join-Path $previewTaskRoot 'runtime-data\tyrian2000'))) {
     if (-not (Test-Path -LiteralPath $previewPath)) { throw "Existing local preview dependency missing: $previewPath" }
 }

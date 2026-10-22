@@ -2,7 +2,7 @@
 
 The original feature oracle and its old digests are not rebased. Each inverse
 first verifies the entire accepted current blob, then every finite hunk, then
-the old blob. The one generated sidekick header and seven current asset outputs
+the old blob. The one generated sidekick header and nine fixed current asset outputs
 require a fresh exact current-generation proof before their finite projection.
 All other source bytes and the historical asset inventory remain fixed.
 The reviewed render-boundary correction has its own exact two-file inverse;
@@ -41,7 +41,7 @@ def project_source(label,name,raw):
  return restored
 
 PINS['p9-stage-catalog.json']='565303b7f5b4f2cf726214a61e2f95148f4ed0ba816a81939ad6bc4c2b62d4d3'
-PINS['p9-assets.json']='636a4f71bbd1210f261093023e61ab021eed602ac7ec324b1d7e281213ae3bf1'
+PINS['p9-assets.json']='1b83129e300efeb77fe0e143882a456b91e6083817fb80f442ea6d9740513ff7'
 def canonical(obj):return json.dumps(obj,sort_keys=True,separators=(',',':')).encode()
 
 SIDEKICK_HEADER='src/current_sidekick_body_payload_pins.h'
@@ -105,6 +105,51 @@ def verified_sidekick_current(root=ROOT):
  assert runtime_rows.get('CURRENT-PRODUCTION-VALIDATION.json')==blob_row(builder.BINDING,'CURRENT-PRODUCTION-VALIDATION.json','current-production-validation','reconstructed-local-unpublished',binding_raw),'stale current runtime source binding'
  assert runtime['source_revision']['current_production_source_manifest_sha256']==binding['production_source_manifest_sha256'],'stale current runtime source digest'
  return dict(assets=outputs,header_sha256=sha(header),source_pngs=sources)
+
+CRAFT267_SELECTION='assets/hd/authoring/craft267-current.json'
+CRAFT267_CANONICAL='assets/hd/current-compat/craft267/enemy-newsh2-267-8.hda'
+CRAFT267_DESTINATION='assets/gameplay/enemy-newsh2-267-8.hda'
+CRAFT267_README='assets/hd/README.md'
+
+def verified_craft267_current(root=ROOT):
+ """One fixed legacy identity; derive pixels before admitting its two outputs."""
+ scripts=str(ROOT/'scripts')
+ if scripts not in sys.path:sys.path.insert(0,scripts)
+ import build_current_craft267 as builder
+ import current_craft267_compatibility as compat
+ assert compat.IDENTITY==1010267 and compat.SELECTION==CRAFT267_SELECTION
+ assert compat.CANONICAL==CRAFT267_CANONICAL and compat.DESTINATION==CRAFT267_DESTINATION
+ raw=builder.read(root,CRAFT267_SELECTION);selected=builder.selection(root,raw)
+ blob=builder.source_blob(root,selected['resources'][0])
+ assert builder.read(root,CRAFT267_CANONICAL)==blob,'current craft267 PNG/HDA mismatch'
+ row=dict(identity=1010267,source_path=CRAFT267_CANONICAL,destination=CRAFT267_DESTINATION,sha256=sha(blob))
+ assert compat.load(root)=={CRAFT267_DESTINATION:row},'current craft267 compatibility mismatch'
+ expected=dict(schema='opentyrian-current-craft267-compatibility-v1',selection=CRAFT267_SELECTION,version=selected['version'],files=[row])
+ assert builder.read(root,compat.MAPPING)==builder.encoded(expected),'current craft267 selection/mapping mismatch'
+ runtime=builder.parse(builder.read(root,builder.RUNTIME));rows={r['destination']:r for r in runtime['files']}
+ assert len(rows)==len(runtime['files'])==1006,'unexpected current runtime destination scope'
+ oid=hashlib.sha1(b'blob '+str(len(blob)).encode()+b'\0'+blob).hexdigest()
+ expected=dict(source_path=CRAFT267_CANONICAL,destination=CRAFT267_DESTINATION,group='gameplay',revision='current-single-source-craft267',bytes=len(blob),git_blob=oid,sha256=sha(blob))
+ assert rows.get(CRAFT267_DESTINATION)==expected,'stale current craft267 runtime body'
+ source=selected['resources'][0]
+ return dict(assets={CRAFT267_SELECTION:{'sha256':sha(raw),'mode':'100644'},CRAFT267_CANONICAL:{'sha256':sha(blob),'mode':'100644'}},source_pngs={source['source_png']:source['source_sha256']})
+
+def project_craft267_readme(current,root,ledger):
+ """Undo exactly the reviewed complete README blob and its single line hunk."""
+ edit=ledger['craft267_readme_inverse']
+ assert edit['path']==CRAFT267_README and edit['mode']=='100644' and edit['after_lines']==[21,22],'unapproved craft267 README inverse scope'
+ assert current.get(CRAFT267_README)=={'sha256':edit['current_sha256'],'mode':'100644'},'unapproved craft267 README inventory'
+ raw=(root/CRAFT267_README).read_bytes()
+ assert sha(raw)==edit['current_sha256'],'unapproved craft267 README blob'
+ lines=raw.splitlines(keepends=True);a,b=edit['after_lines']
+ assert b''.join(lines[a:b])==edit['after'].encode(),'craft267 README inverse hunk drift'
+ lines[a:b]=edit['before'].encode().splitlines(keepends=True)
+ restored=b''.join(lines)
+ assert sha(restored)==edit['previous_sha256'],'craft267 README historical result drift'
+ row={'sha256':sha(restored),'mode':'100644'}
+ assert row==ledger['asset_edits'][CRAFT267_README]['after'],'craft267 README original ledger mismatch'
+ current[CRAFT267_README]=row
+
 
 def parse_git_asset_modes(raw):
  modes={}
@@ -175,16 +220,20 @@ Retired paths are explicitly absent, never a prefix/wildcard exclusion.
 def project_p9_inventory(current,root=ROOT):
  current=copy.deepcopy(current)
  ledger=load('p9-assets.json')
- verified=verified_sidekick_current(root);proof=verified['assets'];reviewed=ledger['verified_current_outputs']
- assert set(proof)==set(reviewed) and len(proof)==7,'unapproved current output scope'
+ verified=verified_sidekick_current(root);craft=verified_craft267_current(root)
+ proof=dict(verified['assets']);assert not set(proof)&set(craft['assets']),'current output collision'
+ proof.update(craft['assets']);reviewed=ledger['verified_current_outputs']
+ assert set(proof)==set(reviewed) and len(proof)==9,'unapproved current output scope'
  for name,row in proof.items():
   assert reviewed[name]['mode']=='100644' and row['mode']=='100644',('unapproved current output mode',name)
   assert current.get(name)==row,('unverified current output',name)
   del current[name]
- for name,digest in verified['source_pngs'].items():
+ sources=dict(verified['source_pngs']);sources.update(craft['source_pngs'])
+ for name,digest in sources.items():
   if name.startswith('assets/'):
    assert current.get(name)=={'sha256':digest,'mode':'100644'},('current PNG absent from asset inventory',name)
- # The complete pre-sidekick current set and hashes stay at the old pinned digest.
+ project_craft267_readme(current,root,ledger)
+ # The complete original current set and hashes stay at the old pinned digest.
  assert sha(canonical(current))==ledger['current_inventory_sha256'],'unapproved current asset inventory'
  for name,edit in ledger['asset_edits'].items():
   assert current.get(name)==edit['after'],('unapproved later asset',name)

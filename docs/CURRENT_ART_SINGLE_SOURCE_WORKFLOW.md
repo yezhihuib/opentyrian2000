@@ -105,3 +105,5 @@ identities and runtime qualifications. Its generated body header is read only
 by Python build/package consistency checks; production C does not include it
 or gain runtime payload enforcement. Coverage stays at 120
 global entries, six HUD classes and 15 independent legacy-only resources.
+
+NEWSH2 base267 uses the bounded [craft267 workflow](CRAFT267_SINGLE_SOURCE_WORKFLOW.md). Current body pack views combine that canonical HDA with the six selected sidekick transports.

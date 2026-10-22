@@ -37,7 +37,8 @@ param(
     [switch]$WindowOnly,
     [switch]$ExplosionLog,
     [switch]$IndexOnly,
-    [string]$Assets
+    [string]$Assets,
+    [string]$Python
 )
 $ErrorActionPreference = 'Stop'
 # Fail before checking dependencies, creating runs, or launching a process.
@@ -64,6 +65,10 @@ $debugAssets = Join-Path $debugRepoRoot 'assets\hd\packs\packed-blue-four-founda
 if ($BeforeSmallExplosion) { $debugAssets = Join-Path $debugTaskRoot 'runtime-hd-assets\packed-blue-four-foundation-type10-v9-test' }
 if ($BeforeType10) { $debugAssets = Join-Path $debugTaskRoot 'runtime-hd-assets\packed-blue-four-foundation-v1-test' }
 if ($BeforeFoundation) { $debugAssets = Join-Path $debugTaskRoot 'runtime-hd-assets\packed-blue-four-v4-test' }
+if (-not ($Assets -or $BeforeSmallExplosion -or $BeforeType10 -or $BeforeFoundation)) {
+    . (Join-Path $PSScriptRoot 'current-craft267-pack.ps1')
+    $debugAssets = New-CurrentCraft267Pack $debugRepoRoot 'debug' -Python $Python
+}
 if ($Assets) { $debugAssets = [IO.Path]::GetFullPath($Assets) }
 foreach ($debugPath in @($debugExe,$debugData,$debugAssets)) { if (-not (Test-Path -LiteralPath $debugPath)) { throw "Existing dependency missing: $debugPath" } }
 $debugSavedEnv = @{}

@@ -97,8 +97,9 @@ python3 prototype/build-hd-assets.py
 正常进入标题菜单，手动选择 New Game / 第一章：
 
 ```sh
+python scripts/build_current_craft267.py view --kind preview --output /absolute/path/to/new-current-preview
 ./opentyrian2000 --data=/absolute/path/to/tyrian2000 \
-  --manual-hd-assets=/absolute/path/to/repo/assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test
+  --manual-hd-assets=/absolute/path/to/new-current-preview
 ```
 
 该参数启用 8 倍源素材、既有混合处理与 Talon 的 13 姿态显示。按键、随机种子、
@@ -128,7 +129,8 @@ Windows 使用独立的[手动启动脚本](prototype/start-manual-hd.ps1)：
 仅在配置不存在时创建窗口化 2x/Integer 设置，之后保留用户设置和存档。
 `-InitialScale 4x` 仅对新配置生效；已有配置请通过游戏内设置修改。可使用绝对路径
 覆盖 `-Executable`、`-AssetsDirectory`、`-StartupAssetsDirectory`、`-ProfileDirectory`。
-已有内容但没有专用标记的目录会被拒绝，避免覆盖个人存档。无需 Python 或诊断包装器；
+已有内容但没有专用标记的目录会被拒绝，避免覆盖个人存档。默认 current pack 视图生成需要 Python 3 和 Pillow，详见
+[NEWSH2 base267 单源入口](docs/CRAFT267_SINGLE_SOURCE_WORKFLOW.md)；
 原版数据及 Windows 依赖仍需另行提供。
 
 这是有限的首关手动模式，不是完整战役高清认证。Windows 实机/设备运行验收须与源码、

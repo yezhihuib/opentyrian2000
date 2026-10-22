@@ -122,8 +122,9 @@ The last command is ordinary classic startup.
 Start the ordinary menus and choose New Game / Episode 1 normally:
 
 ```sh
+python scripts/build_current_craft267.py view --kind preview --output /absolute/path/to/new-current-preview
 ./opentyrian2000 --data=/absolute/path/to/tyrian2000 \
-  --manual-hd-assets=/absolute/path/to/repo/assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test
+  --manual-hd-assets=/absolute/path/to/new-current-preview
 ```
 
 The flag selects density-8 display assets, blend handling and the existing
@@ -159,8 +160,8 @@ and creates windowed 2x/Integer settings only when absent. Later settings and sa
 are retained. `-InitialScale 4x` applies only to a new profile; change an existing
 profile through the normal game settings. Absolute `-Executable`, `-AssetsDirectory`,
 `-StartupAssetsDirectory` and `-ProfileDirectory` overrides are available. An existing
-unmarked nonempty profile is refused to avoid overwriting personal saves. No Python
-or diagnostic wrapper is involved. Original data and Windows dependencies stay external.
+unmarked nonempty profile is refused to avoid overwriting personal saves. Default current-pack materialization requires Python 3 and Pillow;
+see [NEWSH2 base267 authoring](docs/CRAFT267_SINGLE_SOURCE_WORKFLOW.md). Original data and Windows dependencies stay external.
 
 This is a bounded first-level manual mode, not full-campaign HD certification.
 Windows runtime/device acceptance must be reported separately from source/build checks.

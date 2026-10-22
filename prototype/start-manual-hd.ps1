@@ -12,7 +12,8 @@ $ErrorActionPreference = 'Stop'
 $repoRoot = Split-Path -Parent $PSScriptRoot
 if (-not $Executable) { $Executable = Join-Path $repoRoot 'opentyrian-x64-Release.exe' }
 if (-not $AssetsDirectory) {
-    $AssetsDirectory = Join-Path $repoRoot 'assets\hd\packs\packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test'
+    . (Join-Path $PSScriptRoot 'current-craft267-pack.ps1')
+    $AssetsDirectory = New-CurrentCraft267Pack $repoRoot 'preview'
 }
 if (-not $ProfileDirectory) {
     if (-not $env:LOCALAPPDATA) { throw 'Specify an absolute dedicated -ProfileDirectory.' }

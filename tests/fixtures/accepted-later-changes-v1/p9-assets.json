@@ -83758,8 +83758,29 @@
     "assets/hd/current-compat/sidekick-body/option-plasma-bank9-300-8.hda": {
       "sha256": "c9368682b053458b0f6e438375c6b76c311a5ac9ec2665004dc3d9ee771cc072",
       "mode": "100644"
+    },
+    "assets/hd/authoring/craft267-current.json": {
+      "sha256": "743c626046d3aa750057f4ff48dffbe5954a682e9c4189ed684d81c10d351e83",
+      "mode": "100644"
+    },
+    "assets/hd/current-compat/craft267/enemy-newsh2-267-8.hda": {
+      "sha256": "60d4dcf1f76046c7d8e9f1f56495fce5affc4d919294334173d4a232430487a9",
+      "mode": "100644"
     }
   },
   "verified_current_outputs_reviewed_commit": "0ded81a95d854f30a4f4a4117fee96f28232039b",
-  "verified_current_outputs_policy": "Strict six-PNG/HDA/selection/generated-header consistency before projecting exactly these seven current paths; baseline hashes below are provenance, not editable-pixel acceptance."
+  "verified_current_outputs_policy": "Exact six-sidekick and one craft267 current generation before projecting precisely nine generated asset paths; the craft267 README edit has its separate whole-blob and finite-hunk inverse. Bootstrap hashes are provenance only.",
+  "craft267_readme_inverse": {
+    "path": "assets/hd/README.md",
+    "previous_sha256": "793620871ba918511cb9af808f9f298edbdc3e6d66524a12706c08ba84520aaf",
+    "current_sha256": "a99827b523bad414f8e1b1122153a032270c34d5a967bfe1c6c0ab550694e312",
+    "after_lines": [
+      21,
+      22
+    ],
+    "before": "The default `start-actual-preview.ps1` and `start-asset-debug.ps1` paths still use their respective installed head-v1 packs. Their eight superseded in-repository stage switches now stop with a retirement message. Older selectors for external `runtime-hd-assets` checkpoints remain available only when those separately managed local inputs exist. Game data and local SDL SDKs remain separate prerequisites.\n",
+    "after": "The default `start-actual-preview.ps1`, `start-asset-debug.ps1` and manual launcher now materialize external [current craft267 views](../../docs/CRAFT267_SINGLE_SOURCE_WORKFLOW.md) from their respective frozen head-v1 bases. The historical catalog and its default pack names remain frozen; current deployment uses the runtime manifest. Their eight superseded in-repository stage switches now stop with a retirement message. Older selectors for external `runtime-hd-assets` checkpoints remain available only when those separately managed local inputs exist. Game data and local SDL SDKs remain separate prerequisites.\n",
+    "mode": "100644"
+  },
+  "verified_craft267_reviewed_commit": "73f5020d271e2e1957f5c2c8ff91f318e7bf4836"
 }

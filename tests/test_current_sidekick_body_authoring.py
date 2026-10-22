@@ -46,7 +46,7 @@ class CurrentSidekickBodyTests(unittest.TestCase):
         names.update(e['source_png']for e in bootstrap_fixture()['selection']['resources'])
         # Other legacy check() calls decode their selected PNGs and support masks.
         # The runtime inventories contain their generated HDA, not these inputs.
-        for selected in ('assets/hd/authoring/tank-shell-current.json','assets/hd/authoring/enemy-energy-current.json'):
+        for selected in ('assets/hd/authoring/tank-shell-current.json','assets/hd/authoring/enemy-energy-current.json','assets/hd/authoring/craft267-current.json'):
             names.update(e['source_png']for e in json.loads((ROOT/selected).read_text())['resources'])
         from current_enemy_energy_compatibility import MASK_POLICY
         names.update(spec[0]for spec in MASK_POLICY.values())
@@ -54,6 +54,7 @@ class CurrentSidekickBodyTests(unittest.TestCase):
         hud=json.loads((ROOT/'assets/hd/authoring/hud/current.json').read_text())
         names.update(e['path']for rows in hud['resources'].values()for e in rows)
         names.update(e['path']for e in current_hud_recipe.FIXED_INPUTS.values())
+        names.add('assets/hd/README.md')
         cls.initial={n:(ROOT/n).read_bytes()for n in names}
         cls.art_hashes={p.relative_to(ROOT).as_posix():b.sha(p.read_bytes())for p in (ROOT/'assets/hd/packs').rglob('*')if p.is_file()}
         cls.serial=0
@@ -198,9 +199,9 @@ class CurrentSidekickBodyTests(unittest.TestCase):
 
     def test_global_hud_and_both_legacy_authoring_workflows_compose(self):
         j=self.synthetic();b.apply(self.root,self.stage(j))
-        import build_current_art,build_current_hud,build_current_tank_shell,build_current_enemy_energy
+        import build_current_art,build_current_hud,build_current_tank_shell,build_current_enemy_energy,build_current_craft267
         self.assertEqual(build_current_art.check(self.root,'pulse')['status'],'PASS')
-        for module in (build_current_hud,build_current_tank_shell,build_current_enemy_energy):self.assertEqual(module.check(self.root)['status'],'PASS')
+        for module in (build_current_hud,build_current_tank_shell,build_current_enemy_energy,build_current_craft267):self.assertEqual(module.check(self.root)['status'],'PASS')
 
     def test_wrong_identity_shape_schema_and_order(self):
         for case in ('duplicate','missing','extra','order','global','bool','geometry','schema'):

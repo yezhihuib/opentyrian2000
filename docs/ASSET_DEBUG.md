@@ -88,3 +88,5 @@ git apply --reverse 'C:\path\opentyrian-asset-debug-only.patch'
 ```
 
 如check失败，保留现场差异并核对，不强行覆盖。冻结的本地完整回退点是 `checkpoints/blue-four-v4-before-asset-debug`。源文件更改后需用已有工具链执行 `.\prototype\build-game.ps1`；正常启动脚本、默认15素材/5船帧、固定flare145和已验收Talon13控制器均保留。
+
+Default debug and preview launches materialize external current NEWSH2 base267 pack views before starting. Python 3 + Pillow are required; explicit asset overrides and historical selectors keep their selected inputs. See [craft267 workflow](CRAFT267_SINGLE_SOURCE_WORKFLOW.md).

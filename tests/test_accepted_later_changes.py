@@ -126,10 +126,11 @@ class AssetBoundary(unittest.TestCase):
             else:mutant[changed]['mode']='100755'
             with self.subTest(action=action),self.assertRaises(AssertionError):projection.project_p9_inventory(mutant)
 
-    def test_exact_seven_current_outputs_reject_missing_hash_mode_and_unknown(self):
-        proof=projection.verified_sidekick_current()['assets']
+    def test_exact_nine_current_outputs_reject_missing_hash_mode_and_unknown(self):
+        proof=dict(projection.verified_sidekick_current()['assets'])
+        proof.update(projection.verified_craft267_current()['assets'])
         reviewed=projection.load('p9-assets.json')['verified_current_outputs']
-        self.assertEqual(set(proof),set(reviewed));self.assertEqual(len(proof),7)
+        self.assertEqual(set(proof),set(reviewed));self.assertEqual(len(proof),9)
         for name in proof:
             for action in ('delete','hash','mode'):
                 mutant=copy.deepcopy(self.inventory)
@@ -147,6 +148,7 @@ class AssetBoundary(unittest.TestCase):
         self.assertEqual(len(ledger['asset_edits']),3259)
         current=copy.deepcopy(self.inventory)
         for name in ledger['verified_current_outputs']:del current[name]
+        projection.project_craft267_readme(current,projection.ROOT,ledger)
         self.assertEqual(projection.sha(projection.canonical(current)),ledger['current_inventory_sha256'])
         old=next(n for n in current if n not in ledger['asset_edits'])
         for action in ('delete','change'):
@@ -338,5 +340,67 @@ class CurrentGenerationBoundary(unittest.TestCase):
             (self.root/builder.BINDING).write_bytes(builder.encoded(binding))
             with self.subTest(case=case),self.assertRaisesRegex(AssertionError,'non-target production source binding'):
                 projection.verified_sidekick_current(self.root)
+
+class Craft267ProjectionBoundary(unittest.TestCase):
+    def test_readme_inverse_is_exact_complete_blob_and_one_hunk(self):
+        ledger=projection.load('p9-assets.json')
+        current={projection.CRAFT267_README:{'sha256':projection.sha((projection.ROOT/projection.CRAFT267_README).read_bytes()),'mode':'100644'}}
+        projection.project_craft267_readme(current,projection.ROOT,ledger)
+        self.assertEqual(current[projection.CRAFT267_README],{'sha256':'793620871ba918511cb9af808f9f298edbdc3e6d66524a12706c08ba84520aaf','mode':'100644'})
+        from unittest.mock import patch
+        raw=(projection.ROOT/projection.CRAFT267_README).read_bytes()
+        bad={projection.CRAFT267_README:{'sha256':projection.sha(raw),'mode':'100644'}}
+        with patch.object(Path,'read_bytes',return_value=raw+b'changed'):
+            with self.assertRaisesRegex(AssertionError,'README blob'):projection.project_craft267_readme(bad,projection.ROOT,ledger)
+        for field,value in (('path','assets/other.md'),('mode','100755'),('after_lines',[20,22]),('before','wrong\n'),('after','wrong\n')):
+            mutant=copy.deepcopy(ledger);mutant['craft267_readme_inverse'][field]=value
+            with self.subTest(field=field),self.assertRaises(AssertionError):projection.project_craft267_readme(copy.deepcopy(bad),projection.ROOT,mutant)
+
+class Craft267CurrentGenerationBoundary(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        from test_current_craft267_authoring import Craft267AuthoringTests
+        cls.fixture_class=Craft267AuthoringTests;cls.fixture_class.setUpClass()
+        cls.fixture=Craft267AuthoringTests();cls.root=Craft267AuthoringTests.root
+        cls.inventory=projection.current_asset_inventory()
+    @classmethod
+    def tearDownClass(cls):cls.fixture_class.tearDownClass()
+    def setUp(self):self.fixture.setUp()
+    def tearDown(self):
+        from test_current_craft267_authoring import case_failed
+        if case_failed(self):self.fixture_class._preserve_fixture=True
+        else:
+            try:self.fixture._restore_fixture()
+            except BaseException:
+                self.fixture_class._preserve_fixture=True
+                raise
+    def test_craft267_candidate_projects_and_preserves_sidekick_and_sources(self):
+        import build_current_craft267 as builder
+        from test_current_craft267_authoring import png
+        before=projection.verified_craft267_current(self.root)
+        sidekick=projection.verified_sidekick_current(self.root)
+        raw=png();candidate='craft267-projection-candidate.png';(self.root/candidate).write_bytes(raw)
+        selected=self.fixture.selected();selected['version']='projection-craft267-positive'
+        selected['resources'][0].update(source_png=candidate,source_sha256=projection.sha(raw))
+        stage=self.fixture.stage(selected);builder.apply(self.root,stage)
+        self.assertEqual(builder.check(self.root)['status'],'PASS')
+        after=projection.verified_craft267_current(self.root);self.assertNotEqual(before,after)
+        self.assertEqual(sidekick,projection.verified_sidekick_current(self.root))
+        projection.validate_current_sources(self.root)
+        inventory=copy.deepcopy(self.inventory);inventory.update(after['assets'])
+        self.assertEqual(projection.project_p9_inventory(inventory,self.root),projection.project_p9_inventory(self.inventory))
+        extra='assets/hd/authoring/unapproved-craft267.png';inventory[extra]={'sha256':projection.sha(raw),'mode':'100644'}
+        with self.assertRaisesRegex(AssertionError,'unapproved current asset inventory'):projection.project_p9_inventory(inventory,self.root)
+    def test_craft267_chain_rejects_independent_tampering(self):
+        import build_current_craft267 as builder
+        selected=self.fixture.selected()
+        names=[builder.SELECTION,builder.CANONICAL,builder.MAPPING,builder.RUNTIME,selected['resources'][0]['source_png']]
+        for name in names:
+            p=self.root/name;raw=p.read_bytes()
+            try:
+                p.write_bytes(raw+b'changed')
+                with self.subTest(path=name),self.assertRaises((AssertionError,ValueError,OSError)):projection.verified_craft267_current(self.root)
+            finally:p.write_bytes(raw)
+
 
 if __name__=='__main__':unittest.main()

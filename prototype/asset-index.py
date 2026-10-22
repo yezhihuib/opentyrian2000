@@ -1,13 +1,13 @@
 """Build/query an observed draw-reference index; replay by segment or sheet-qualified material."""
 from pathlib import Path
-import argparse,csv,hashlib,json,collections,subprocess,struct,os,datetime,shutil
+import argparse,csv,hashlib,json,collections,subprocess,struct,os,datetime,shutil,sys
 repo=Path(__file__).resolve().parent.parent;root=repo.parent
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def rows(p):return list(csv.DictReader(p.open(),delimiter='\t'))
 def key(x):return f'{x["category"]}:{x["sheet"]}:{x["id"]}'
 def hdstate(x,pack):
  name=None;id=int(x['id'])
- if x['category']=='enemy' and x['sheet']=='newsh2.shp' and id in [77,79,115,117,85,87,123,125,191,193,195,197,199,201,203,205]:name=f'enemy-newsh2-{id}-8.hda'
+ if x['category']=='enemy' and x['sheet']=='newsh2.shp' and id in [77,79,115,117,85,87,123,125,191,193,195,197,199,201,203,205,267]:name=f'enemy-newsh2-{id}-8.hda'
  elif x['category']=='terrain-layer1' and x['sheet']=='shapesz.dat' and id in [101,37,57,49,50,321,322,331,332]:name=f'terrain-shapesz-{id}-8.hda'
  elif x['category']=='effect' and x['sheet']=='newsh6.shp' and (122<=id<=133 or 3<=id<=14 or 22<=id<=33 or 41<=id<=52 or 60<=id<=71 or 146<=id<=152 or 192<=id<=203 or 154<=id<=165 or 211<=id<=222 or 173<=id<=184 or 135<=id<=141 or id in (229,230,231,232,233,234,235,236,237,248,249,250,252,253,254,255,256,267,268,269,272,275) or 78<=id<=84):name=f'explosion-newsh6-{id}-8.hda'
  elif x['category']=='player' and x['sheet']=='tyrian.shp#spriteSheet9' and id in [229,231,233,235,237]:name=f'ship-{id}-8.hda'
@@ -15,7 +15,7 @@ def hdstate(x,pack):
  p=pack/name if name else None
  return {'status':'mapped external asset available' if p and p.exists() else 'original fallback / no external binding','file':name,'sha256':sha(p) if p and p.exists() else None,'header_values':list(struct.unpack('<6I',p.read_bytes()[4:28])) if p and p.exists() else None,'note':'Availability, not proof that every effect/occlusion draw uses HD; replay reloads pack in a fresh process.'}
 p=argparse.ArgumentParser();sub=p.add_subparsers(dest='command',required=True)
-b=sub.add_parser('build');b.add_argument('--run',type=Path,required=True);b.add_argument('--output',type=Path,required=True);b.add_argument('--assets',type=Path,default=repo/'assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test')
+b=sub.add_parser('build');b.add_argument('--run',type=Path,required=True);b.add_argument('--output',type=Path,required=True);b.add_argument('--assets',type=Path)
 for name in ['list','find','play','replace']:
  q=sub.add_parser(name);q.add_argument('--index',type=Path,default=repo/'assets/hd/tyrian-e1-level9-index.json')
  if name in ['list','play']:q.add_argument('--segment',type=int)
@@ -25,6 +25,11 @@ for name in ['list','find','play','replace']:
  if name in ['list','find']:q.add_argument('--assets',type=Path)
 a=p.parse_args()
 if a.command=='build':
+ if a.assets is None:
+  import uuid
+  sys.path.insert(0,str(repo/'scripts'))
+  from build_current_craft267 import view
+  a.assets=Path(view(repo,'debug',root/'current-craft267-packs'/('index-'+uuid.uuid4().hex))['path'])
  r=a.run.resolve();clock=rows(r/'asset-debug-clock.tsv');draws=rows(r/'asset-debug-materials.tsv');state=rows(r/'state.tsv');assert len(clock)==len(state) and all(int(x['tick'])==i for i,x in enumerate(clock));assert clock
  for x in draws:
   x['sheet']={'shapes9.dat':'tyrian.shp#spriteSheet9','shapes8.dat':'tyrian.shp#spriteSheet8','shapes12.dat':'tyrian.shp#spriteSheet12','OPTION_SHAPES':'tyrian.shp#OPTION_SHAPES','explosions-shapes6':'newsh6.shp'}.get(x['sheet'],x['sheet'].lower())
@@ -88,6 +93,7 @@ if target is None:p.error('Play requires --segment or a sheet-qualified material
 if a.until<=target:p.error('--until must exceed selected target tick')
 cmd=['powershell.exe','-NoProfile','-ExecutionPolicy','Bypass','-File',str(repo/'prototype/start-asset-debug.ps1'),'-Preset','custom','-Episode',str(data['replay']['episode']),'-Level',str(data['replay']['physical_level']),'-Tick',str(target),'-Until',str(a.until)]
 if a.assets:cmd+=['-Assets',str(a.assets.resolve())]
+else:cmd+=['-Python',sys.executable]
 if a.capture:cmd+=['-CaptureCount',str(a.capture_count)]
 if a.capture_start>=0:cmd+=['-CaptureStart',str(a.capture_start)]
 if a.window_only:cmd.append('-WindowOnly')
