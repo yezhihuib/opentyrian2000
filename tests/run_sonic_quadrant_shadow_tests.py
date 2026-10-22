@@ -22,6 +22,24 @@ CASE_SOURCE = ROOT / 'tests/sonic_quadrant_shadow_test.c'
 OLD_IDS = (67, 70, 121, 122, 163, 164, 201, 202, 279, 280, 225, 244, 226)
 
 
+
+def resolve_current_payload_pins(source, header=None):
+    """Expand only declared art-payload tokens for structural frozen-pin checks.
+
+    This does not manufacture expected pins: callers retain their independent
+    frozen PINS and original-source/slot comparisons.
+    """
+    if header is None:
+        header = (ROOT / 'src/current_art_payload_pins.h').read_text()
+    pins = dict(re.findall(r'^#define (CURRENT_(?:VULCAN_(?:67|70)|GREEN_8021[4-7])_RGBA) (UINT64_C\(0x[0-9a-f]{16}\))$', header, re.M))
+    tokens = set(re.findall(r'\bCURRENT_(?:VULCAN|GREEN)_\w+_RGBA\b', source))
+    if not tokens <= pins.keys():
+        raise AssertionError('Unknown/missing generated shadow payload pin: ' + str(tokens - pins.keys()))
+    for name in tokens:
+        source = re.sub(r'\b' + name + r'\b', pins[name], source)
+    return source
+
+
 def units(out, source):
     names = ['decode_tile', 'read_asset', 'explosion_asset_slot', 'mint27_source_matches']
     names += re.findall(r'^static (?:int|bool) (sonic_\w+(?:_member|_source_matches))\(', source, re.M)
@@ -40,7 +58,8 @@ def units(out, source):
                 r'typedef struct \{\s*bool live,entered,rear;.*?\} VulcanShadowCall;',
                 r'static Asset assets\[\d+\];', r'enum \{ ASSET_NEWSH2=.*?\};',
                 r'static const struct \{unsigned int index;int slot;uint64_t source,rgba;int coverage_slot;uint64_t coverage_rgba;\} vulcan_shadow_pins\[\d+\]=\{.*?\n\};']
-    (out / 'types.inc').write_text('\n'.join(re.search(p, source, re.S).group() for p in patterns))
+    (out / 'types.inc').write_text('#include \"current_art_payload_pins.h\"\n' + '\n'.join(re.search(p, source, re.S).group() for p in patterns))
+    (out / 'current_art_payload_pins.h').write_bytes((ROOT / 'src/current_art_payload_pins.h').read_bytes())
     sprite = re.search(r'typedef struct\s*\{\s*size_t size;\s*Uint8 \*data;\s*\}\s*Sprite2_array;', (ROOT / 'src/sprite.h').read_text()).group()
     (out / 'sprite-type.inc').write_text(sprite)
     blitters = {name: base.extract((ROOT / 'src/sprite.c').read_text(), name) for name in ('blit_sprite2', 'blit_sprite2_blend', 'blit_sprite2_darken')}
@@ -48,8 +67,9 @@ def units(out, source):
     wrapper = base.extract((ROOT / 'src/entity_draw.c').read_text(), 'draw_entity_sprite2')
     (out / 'wrappers.inc').write_text(wrapper)
     prior = subprocess.check_output(['git', '-C', str(ROOT), 'show', 'HEAD:src/render_mirror.c'], text=True)
+    prior_header = subprocess.check_output(['git', '-C', str(ROOT), 'show', 'HEAD:src/current_art_payload_pins.h'], text=True)
     pinrows = lambda s: [row.rstrip(',') for row in re.findall(r'^ \{\d+,\d+,UINT64_C\(0x[0-9a-f]+\),UINT64_C\(0x[0-9a-f]+\),\d+,(?:UINT64_C\(0x[0-9a-f]+\)|0)\},?', s, re.M)]
-    assert pinrows(source)[:13] == pinrows(prior)[:13], 'Existing thirteen shadow pins changed'
+    assert pinrows(resolve_current_payload_pins(source))[:13] == pinrows(resolve_current_payload_pins(prior, prior_header))[:13], 'Existing thirteen shadow pins changed'
     # Classic exclusions must stay byte-for-byte at their established boundary.
     classic = lambda s: [line for line in base.extract(s, 'render_mirror_entity').splitlines() if 'MIRROR_SHADOW' in line and 'return false' in line and any(token in line for token in ('index>=31&&index<=33', 'index>=252&&index<=254', 'index>=214&&index<=217'))]
     assert classic(source) == classic(prior), 'Existing classic shadow exclusion changed'
@@ -122,7 +142,7 @@ def mutants(out, source, paths, full, variants, loader_mode=True):
         for before, after in edits:
             assert before != after and text.count(before) == 1, label
             text = text.replace(before, after, 1)
-        for name in ('types.inc', 'sprite-type.inc', 'blitters.inc', 'wrappers.inc', 'reference.bin'):
+        for name in ('types.inc', 'sprite-type.inc', 'blitters.inc', 'wrappers.inc', 'reference.bin', 'current_art_payload_pins.h'):
             shutil.copyfile(out / name, folder / name)
         (folder / 'functions.inc').write_text(text)
         results[label] = build_run(folder, paths, full, variants, expect_failure=True)

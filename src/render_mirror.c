@@ -11,6 +11,7 @@
 #include "shop_pulse.h"
 #include "shop_vulcan.h"
 #include "current_art_payload_pins.h"
+#include "current_tank_shell_payload_pins.h"
 #include "data_frame.h"
 #include "data_portrait.h"
 #include "render_mirror.h"
@@ -451,10 +452,10 @@ static const struct {unsigned int index;int slot;uint64_t source,rgba;int covera
  {252,330,UINT64_C(0x294a9d4afd93d8a4),UINT64_C(0x685a3572f08e508a),0,0},
  {253,331,UINT64_C(0xbcdf97bf4b75c746),UINT64_C(0xa4efdc2b3a6f26ed),0,0},
  {254,332,UINT64_C(0xf471322126d86fdd),UINT64_C(0xffdbece0353e10fe),0,0},
- {214,182,UINT64_C(0x17da292b54af394c),UINT64_C(0xa1bc11025ec02c94),0,0},
- {215,183,UINT64_C(0x46b4c47c5e741b0f),UINT64_C(0x71db2412311dc9af),0,0},
- {216,184,UINT64_C(0xcb04c4fc86a8cbb7),UINT64_C(0x62a2f5619503960f),0,0},
- {217,185,UINT64_C(0xfab1a11e30972f37),UINT64_C(0x4c366cbc9efc7cef),0,0}
+ {214,182,UINT64_C(0x17da292b54af394c),CURRENT_GREEN_80214_RGBA,0,0},
+ {215,183,UINT64_C(0x46b4c47c5e741b0f),CURRENT_GREEN_80215_RGBA,0,0},
+ {216,184,UINT64_C(0xcb04c4fc86a8cbb7),CURRENT_GREEN_80216_RGBA,0,0},
+ {217,185,UINT64_C(0xfab1a11e30972f37),CURRENT_GREEN_80217_RGBA,0,0}
 };
 static int vulcan_shadow_member(unsigned int index)
 {
@@ -3221,7 +3222,7 @@ static bool enemy_tank_shell_family_ready(void)
     game_probe_original_reference||!game_probe_assets)return false;
  if(enemy_tank_shell_checked)return enemy_tank_shell_valid;
  enemy_tank_shell_checked=true;enemy_tank_shell_valid=true;
- static const uint64_t rgba_stamps[2]={UINT64_C(0x8a02233c02993d45),UINT64_C(0x6786d727d8d42fbf)};
+ static const uint64_t rgba_stamps[2]={CURRENT_TANK_SHELL_1220146_PAYLOAD_FNV,CURRENT_TANK_SHELL_1220147_PAYLOAD_FNV};
  for(int i=0;i<2;i++) {
   Asset *a=&assets[505+i];
   a->initialized=true;a->bank=ASSET_ENEMY_TANK_SHELL;a->index=146+i;

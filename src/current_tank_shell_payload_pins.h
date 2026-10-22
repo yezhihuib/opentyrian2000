@@ -1,0 +1,6 @@
+/* Generated legacy enemy-shell art pins; role/source/geometry stay fixed. */
+#ifndef CURRENT_TANK_SHELL_PAYLOAD_PINS_H
+#define CURRENT_TANK_SHELL_PAYLOAD_PINS_H
+#define CURRENT_TANK_SHELL_1220146_PAYLOAD_FNV UINT64_C(0x8a02233c02993d45)
+#define CURRENT_TANK_SHELL_1220147_PAYLOAD_FNV UINT64_C(0x6786d727d8d42fbf)
+#endif

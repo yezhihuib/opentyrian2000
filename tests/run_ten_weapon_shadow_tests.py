@@ -48,10 +48,11 @@ def main():
     assert shutil.disk_usage(out).free >= 5_000_000_000
     source = (ROOT / 'src/render_mirror.c').read_text()
     prior = subprocess.check_output(['git', '-C', str(ROOT), 'show', 'HEAD:src/render_mirror.c'], text=True)
+    prior_header = subprocess.check_output(['git', '-C', str(ROOT), 'show', 'HEAD:src/current_art_payload_pins.h'], text=True)
     pinrows = lambda s: re.findall(r'^ \{\d+,\d+,UINT64_C\(0x[0-9a-f]+\),UINT64_C\(0x[0-9a-f]+\),\d+,(?:UINT64_C\(0x[0-9a-f]+\)|0)\}', s, re.M)
-    assert pinrows(source)[:35] == pinrows(prior)[:35], 'Previous thirty-five shadow pins changed'
+    assert pinrows(shadow.resolve_current_payload_pins(source))[:35] == pinrows(shadow.resolve_current_payload_pins(prior, prior_header))[:35], 'Previous thirty-five shadow pins changed'
     wanted = [f' {{{i},{slot},UINT64_C(0x{src:016x}),UINT64_C(0x{rgba:016x}),0,0}}' for i, slot, src, rgba in PINS]
-    assert pinrows(source)[35:] == wanted and len(pinrows(source)) == 45
+    assert pinrows(shadow.resolve_current_payload_pins(source))[35:] == wanted and len(pinrows(shadow.resolve_current_payload_pins(source))) == 45
     hashes, boundaries = shadow.units(out, source)
     path = args.data / 'tyrian.shp' if args.data.is_dir() else args.data
     normal, source_sha = base.bank_from(path)

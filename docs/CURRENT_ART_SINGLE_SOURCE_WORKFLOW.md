@@ -11,7 +11,13 @@ per semantic resource, and do not search each level or SHOP to replace copies.
 - `cash25`, `cash50`, `cash75`: six body frames and one fixed value popup each.
 - `gem100`, `gem250`: five body states and one fixed value popup each.
   These five families cover 33 independent IDs, not 33 interchangeable copies.
-- HUD is **not** migrated by this batch.
+- Green energy: four bank8 heads and seven NEWSH6 trails; see
+  [Green single-source workflow](GREEN_SINGLE_SOURCE_WORKFLOW.md).
+- Talon13 and Rotor8: fixed 192×224 sources, logical 24×28 at density 8; see
+  [large-sprite workflow](LARGE_SPRITE_SINGLE_SOURCE_WORKFLOW.md).
+- HUD was outside the original cash/gem batch; its separate current workflow
+  uses `scripts/build_current_hud.py`. Existing effect and Shield profiles also
+  use the shared builder.
 
 Each family has `assets/hd/authoring/<family>-current.json`. Each identity selects
 one PNG with its SHA256. Separate identities, source banks, roles and anchors stay
@@ -38,7 +44,7 @@ Every other supported family's selected source and provenance must remain consis
 
 Current global battle and SHOP consumers use the global identities; current legacy
 package consumers use `assets/hd/current-compat/<family>/`. The generated
-`src/current_art_payload_pins.h` covers Vulcan and cash/gem RGBA art only, never INDEX8 source identity.
+`src/current_art_payload_pins.h` covers Vulcan, cash/gem and Green head RGBA art only, never INDEX8 source identity.
 Changing pixels requires rebuilding the executable so its generated pins agree.
 Explicitly choosing an old development pack still chooses historical art.
 
@@ -52,7 +58,8 @@ atomic; this is not a crash-safe multi-file transaction. On interruption, inspec
 and restage rather than assuming the batch completed.
 
 No historical pack or accepted source PNG is overwritten or deleted. PNG decoding
-must be single-frame straight RGBA, exactly 96×112, with fixed original HDA geometry;
+must be single-frame straight RGBA, exactly the trusted per-profile dimensions
+(96×112, or 192×224 for Talon/ Rotor), with fixed original HDA geometry;
 there is no resize, palette conversion or re-interpretation of resource roles.
 `check` detects missing/stale declared generated consumers. Package assembly also
 requires exact compatibility/global equality. Source-binding inventory is not
@@ -72,3 +79,11 @@ generated compatibility HDA or C payload pins by hand.
 
 Propagation tests use synthetic PNG fixtures only; they never modify the user's
 approved art. Runtime/native acceptance records are separate.
+
+## Legacy-only authoring extension
+
+The enemy tank-shell pair (1220146/1220147) has a separate
+[`build_current_tank_shell.py` workflow](TANK_SHELL_SINGLE_SOURCE_WORKFLOW.md).
+It generates exactly two existing legacy consumers and payload-only pins, without
+adding global registry identities. Thus coverage is 120 global resources plus two
+legacy resources and the independent HUD workflow, not 122 global resources.
