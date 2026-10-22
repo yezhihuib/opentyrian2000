@@ -18,6 +18,7 @@ from run_render_boundary_tests import ROOT, extract
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--receipt', required=True, type=Path)
+    parser.add_argument('--msvc', type=Path, help='Existing cl.exe in an initialized environment; ASan without UBSan.')
     args = parser.parse_args()
     text = (ROOT / 'src/render_mirror.c').read_text(encoding='utf-8')
     body = extract(text, 'read_asset')
@@ -48,14 +49,18 @@ int main(int argc,char **argv){
 }
 '''
     report = {'status': 'PASS', 'function_sha256_lf_utf8': hashlib.sha256(body.encode()).hexdigest(),
-              'scope': 'Production generic HDA reader, finite internal geometry, ordinary synthetic files and allocation failure; ASan+UBSan. No native Windows IO or complete-family acceptance claim.', 'cases': []}
+              'scope': 'Production generic HDA reader, finite internal geometry, ordinary synthetic files and allocation failure. No complete-family or game-runtime acceptance claim.',
+              'sanitizers':'MSVC ASan; UBSan/LSan unavailable' if args.msvc else 'ASan+UBSan', 'cases': []}
     with tempfile.TemporaryDirectory(prefix='hda-boundary-') as temporary:
         root = Path(temporary)
-        c, exe = root / 'test.c', root / 'test'
+        c, exe = root / 'test.c', root / ('test.exe' if args.msvc else 'test')
         c.write_text(source, encoding='utf-8')
-        command = ['cc', '-std=c99', '-O1', '-g', '-Wall', '-Wextra', '-Werror', '-fsanitize=address,undefined',
-                   '-fno-sanitize-recover=all', '-fno-omit-frame-pointer', '-no-pie', str(c), '-o', str(exe)]
-        subprocess.run(command, check=True, timeout=60)
+        command = ([str(args.msvc),'/nologo','/std:c11','/Od','/Zi','/fsanitize=address','/D_CRT_SECURE_NO_WARNINGS',str(c),'/Fe:'+str(exe)] if args.msvc else
+                   ['cc', '-std=c99', '-O1', '-g', '-Wall', '-Wextra', '-Werror', '-fsanitize=address,undefined',
+                   '-fno-sanitize-recover=all', '-fno-omit-frame-pointer', '-no-pie', str(c), '-o', str(exe)])
+        build=subprocess.run(command, capture_output=True, text=True, errors='replace', timeout=60, cwd=root)
+        report['build']=dict(command=command,exit=build.returncode,stdout=build.stdout,stderr=build.stderr)
+        if build.returncode:raise RuntimeError(build.stdout+build.stderr)
         for density in (4, 8):
             header = struct.pack('<4s6I', b'HDR1', 80001, density, 12, 14, 0, 0)
             payload = bytes(12 * 14 * density * density * 4)
@@ -75,7 +80,7 @@ int main(int argc,char **argv){
                     (folder / ('bullet-1-%d.hda' % density)).write_bytes(data)
                 result = subprocess.run([str(exe), str(folder), str(density), str(int(name == 'allocation-failure'))],
                                         capture_output=True, text=True, timeout=5,
-                                        env=dict(os.environ, ASAN_OPTIONS='detect_leaks=1:halt_on_error=1', UBSAN_OPTIONS='halt_on_error=1'))
+                                        env=dict(os.environ, ASAN_OPTIONS=('detect_leaks=0' if args.msvc else 'detect_leaks=1')+':halt_on_error=1', UBSAN_OPTIONS='halt_on_error=1'))
                 assert result.returncode == expected, (name, result.stdout, result.stderr)
                 assert not result.stderr, result.stderr
                 report['cases'].append({'density': density, 'name': name, 'exit': result.returncode, 'stdout': result.stdout.strip()})

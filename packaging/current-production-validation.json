@@ -13,10 +13,20 @@
   "limits": [
     "Exact source binding and build/package consistency only; no GPU or full-campaign acceptance.",
     "Candidate runtime validation is separate from this exact source binding; production_commit is null until an external commit receipt identifies these bytes.",
-    "Six-sidekick generated header is read only by Python build/package validation; production C does not include it or enforce runtime payload pins. Existing raw-bank qualification and fallback remain unchanged."
+    "Six-sidekick generated header is read only by Python build/package validation; production C does not include it or enforce runtime payload pins. Existing raw-bank qualification and fallback remain unchanged.",
+    "The two named rendering files include the reviewed boundary/cache/Talon correction relative to 6ada526. Historical validation receipts and their source hashes retain their original scope; current source bytes are not claimed equal to 775."
   ],
   "production_commit": null,
-  "production_source_manifest_sha256": "61cc4e0d91534b693bacb3406b97a9afd28063f1f6c98a76a84cc89fcd140601",
+  "production_source_manifest_sha256": "d382948f61b88e8bf3300b21bc13b379b54b45f336044dd57391b928177ae898",
+  "reviewed_render_boundary_changes": {
+    "files": [
+      "src/global_talon_mirror.inc",
+      "src/render_mirror.c"
+    ],
+    "integration_base": "6ada526fa11c633e3ae02facb5f498bbfdacd1d9",
+    "ledger": "tests/fixtures/accepted-later-changes-v1/render-boundaries-source.json",
+    "ledger_sha256": "1bac028508e047cb862989d08ef7613b46652c6aea32c71d8bcbc6c78ff9ac30"
+  },
   "schema": "opentyrian-current-production-binding-v1",
   "scope": "Exact current single-source generated art pins; gameplay/role/source identity unchanged. Source binding only, not runtime acceptance.",
   "source_manifest_encoding": "UTF-8 JSON of source_sha256 only, sort_keys=True, separators=(comma,colon), ensure_ascii=True, no newline",
@@ -141,7 +151,7 @@
     "src/global_shield_mirror.inc": "eaa64e9f450f0b8c5bb0820a1d19f98a5cc636a0f97f2fb23186fea32e6718dc",
     "src/global_small_explosion_mirror.inc": "6f514b5a62cac3a74c2920dea099b321a0b0fac19576fb9a6c4dfc06afddb075",
     "src/global_smoke_mirror.inc": "eb5779f01a9df34a1777ace54a9b595cc8310629b595f787619cfc8de69cc6b9",
-    "src/global_talon_mirror.inc": "edc128a68f7112594316f04bea41c7d1b2cabe4725c77f56523b415960e2eaa4",
+    "src/global_talon_mirror.inc": "42821646a831f5aefb57bdec65f38ad9bebbe4d922f8d72fd1b9ee8061d7dead",
     "src/global_vulcan_mirror.inc": "05e4698aae6979720bba1b1b001b88f089e6b25304fb00dded76d3eb5db1d733",
     "src/ground101_bundle_index.h": "b8a59a727ee966a029618e00dfb0424fb51ed227623f7927d824a51a4fa3d469",
     "src/ground101_material.c": "c520102853e558bc9dedd2f1aa40ce886a82a82b90a377eab9b3f6bd9789dfd0",
@@ -209,7 +219,7 @@
     "src/rear_multi_p11_shadow.inc": "60635f8c2723e7cbba341baf7d4853486d7d850c795a55f02a0cc46a36b02fbb",
     "src/rear_multi_p1_mirror.inc": "9f5f48ea19330f6afeace40f156e049c0621fdcd6a10e281d2084cf74442538c",
     "src/rear_multi_p1_pins.h": "773d88e3287b44036885804b5d70c6fc6d633a9893504b200891c1509981ffa7",
-    "src/render_mirror.c": "54870dc260531503bd190092502ad88d4c2f1dd042200e32f3121aee6e83eea0",
+    "src/render_mirror.c": "5e53d1d69d18df434b1c0a3c35a210b43e1d5beeca5760324335fc6dc515ee58",
     "src/render_mirror.h": "be6ad39fa22bb9341ac945b9c4404acaca863b187c3884efb7a9763f889ec985",
     "src/render_mirror_asteroid_linked338.inc": "738c8c88a7383ca363427b814594f4a0ed8404929dad3188e2d4bde5d2dd5ee0",
     "src/secret_exit_orb.c": "fe0b50818365d5a009bd3db77681a1a2db2fc61bfc889c1f2bc41c9a95f79180",

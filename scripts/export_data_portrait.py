@@ -59,8 +59,8 @@ def export(output,pins):
  output.mkdir(parents=True,exist_ok=True);pins.parent.mkdir(parents=True,exist_ok=True)
  for face,(whole,metadata) in enumerate(packed):
   (output/f'face{face:02d}-v1.hda').write_bytes(whole)
-  (output/f'face{face:02d}-v1.json').write_text(json.dumps(metadata,indent=2)+'\n')
- pins.write_text('\n'.join(lines))
+  (output/f'face{face:02d}-v1.json').write_bytes((json.dumps(metadata,indent=2)+'\n').encode('utf-8'))
+ pins.write_bytes('\n'.join(lines).encode('utf-8'))
  return {'schema':'data-portrait-export-v2','portrait_count':COUNT,'payload_bytes':sum(len(p[0])-128 for p in packed),'resource_bytes':sum(len(p[0]) for p in packed),'resources':[p[1] for p in packed]}
 
 if __name__=='__main__':

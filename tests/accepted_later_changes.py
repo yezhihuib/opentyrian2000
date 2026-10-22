@@ -5,6 +5,9 @@ first verifies the entire accepted current blob, then every finite hunk, then
 the old blob. The one generated sidekick header and seven current asset outputs
 require a fresh exact current-generation proof before their finite projection.
 All other source bytes and the historical asset inventory remain fixed.
+The reviewed render-boundary correction has its own exact two-file inverse;
+current source bindings keep its real bytes, while older oracles see their
+original source through that explicit projection.
 """
 from pathlib import Path
 import copy, hashlib, json, os, subprocess, sys
@@ -14,6 +17,7 @@ PINS = {
  'data-source.json': '3bfbfea80342efbf8ad53e38957260fcdf674db5a57c732f3702e502324cc011',
  'rear-p1-source.json': '2f8fed7183dcf1087b93cc7bceb79ac189ac0209835f8108c8aa0cdc0b931ff3',
  'storm-source.json': '188f57d604004af08ec191cc6bddf2b7d07ea65b1f60348073f7e0263f8783a1',
+ 'render-boundaries-source.json': '1bac028508e047cb862989d08ef7613b46652c6aea32c71d8bcbc6c78ff9ac30',
 }
 def sha(raw): return hashlib.sha256(raw).hexdigest()
 def load(name):
@@ -21,6 +25,9 @@ def load(name):
  assert sha(raw)==PINS[name], ('changed accepted-history ledger',name)
  return json.loads(raw)
 def project_source(label,name,raw):
+ # Only this fixed reviewed correction is undone before the older feature's
+ # inverse. Whole current blob, every hunk and whole previous blob stay pinned.
+ if label!='render-boundaries':raw=project_source('render-boundaries',name,raw)
  pin=load(label+'-source.json')['files'].get(name)
  if pin is None:return raw
  assert sha(raw)==pin['current_sha256'],(label,name,'not the accepted published current blob')
@@ -81,6 +88,10 @@ def verified_sidekick_current(root=ROOT):
  assert verify(root,binding)==252,'unexpected current production source scope'
  expected_sources=dict(load('current-source-inventory.json')['files'])
  expected_sources[SIDEKICK_HEADER]=sha(header);expected_sources.update(PRODUCTION_NON_CODE)
+ for name,pin in load('render-boundaries-source.json')['files'].items():
+  raw=builder.read(root,name)
+  assert sha(project_source('render-boundaries',name,raw))==expected_sources[name],('render correction historical source mismatch',name)
+  expected_sources[name]=sha(raw)
  assert binding['source_sha256']==expected_sources,'unapproved non-target production source binding'
  runtime=json.loads(builder.read(root,builder.RUNTIME));runtime_rows={r['destination']:r for r in runtime['files']}
  assert len(runtime_rows)==len(runtime['files'])==1006,'unexpected current runtime destination scope'
@@ -188,11 +199,14 @@ def validate_current_sources(root=ROOT):
  actual={p.relative_to(root).as_posix():sha(p.read_bytes()) for p in (root/'src').rglob('*') if p.is_file() and p.suffix in ledger['extensions']}
  expected=load('current-source-inventory.json')['files']
  assert set(actual)==set(expected),'unapproved current source paths'
- assert {p:h for p,h in actual.items() if p!=SIDEKICK_HEADER}=={p:h for p,h in expected.items() if p!=SIDEKICK_HEADER},'unapproved non-target source bytes'
+ projected=dict(actual)
+ for name in load('render-boundaries-source.json')['files']:
+  projected[name]=sha(project_source('render-boundaries',name,(root/name).read_bytes()))
+ assert {p:h for p,h in projected.items() if p!=SIDEKICK_HEADER}=={p:h for p,h in expected.items() if p!=SIDEKICK_HEADER},'unapproved non-target source bytes'
  # Keep every source path. Only this one generated value is derived from the
  # same strict current proof used before the seven-path asset projection.
  expected=dict(expected);expected[SIDEKICK_HEADER]=verified_sidekick_current(root)['header_sha256']
- assert actual==expected,'unapproved current source inventory (added, removed or modified source)'
+ assert projected==expected,'unapproved current source inventory (added, removed or modified source)'
 
 def validate_source_inventory(actual):
  assert actual==load('current-source-inventory.json')['files'],'unapproved current source inventory (added, removed or modified source)'

@@ -21,7 +21,7 @@ class SourceBoundary(unittest.TestCase):
         self.assertEqual(ledger['files'][projection.SIDEKICK_HEADER],ledger['current_extensions'][projection.SIDEKICK_HEADER]['baseline_sha256'])
 
     def test_all_inverse_results_and_inside_outside_mutations(self):
-        for label in ('data','rear-p1','storm'):
+        for label in ('data','rear-p1','storm','render-boundaries'):
             for name,pin in projection.load(label+'-source.json')['files'].items():
                 with self.subTest(label=label,path=name):
                     raw=(projection.ROOT/name).read_bytes()
@@ -44,6 +44,22 @@ class SourceBoundary(unittest.TestCase):
             elif action=='delete':del mutant[name]
             else:mutant[name]='0'*64
             with self.subTest(action=action),self.assertRaises(AssertionError):projection.validate_source_inventory(mutant)
+
+    def test_render_correction_has_separate_current_and_historical_provenance(self):
+        ledger=projection.load('render-boundaries-source.json')
+        self.assertEqual(ledger['integration_base'],'6ada526fa11c633e3ae02facb5f498bbfdacd1d9')
+        self.assertEqual(set(ledger['files']),{'src/render_mirror.c','src/global_talon_mirror.inc'})
+        historical=projection.load('current-source-inventory.json')
+        self.assertEqual(historical['historical_current'],'775b6b77163723c6cae727bafce1d53746a5bd60')
+        for name,pin in ledger['files'].items():
+            raw=(projection.ROOT/name).read_bytes()
+            self.assertEqual(projection.sha(raw),pin['current_sha256'])
+            self.assertNotEqual(pin['current_sha256'],historical['files'][name])
+            self.assertEqual(projection.sha(projection.project_source('render-boundaries',name,raw)),historical['files'][name])
+        from unittest.mock import patch
+        raw=(projection.FIXTURES/'render-boundaries-source.json').read_bytes()
+        with patch.object(Path,'read_bytes',return_value=raw+b' '):
+            with self.assertRaises(AssertionError):projection.load('render-boundaries-source.json')
     def test_sidekick_header_is_exact_and_keeps_strict_inventory(self):
         name='src/current_sidekick_body_payload_pins.h'
         digest='baa91d0eb1864fe13691d43adc148a13a96e16ef3adcda5a0eb6673e17d44571'
@@ -301,10 +317,11 @@ class CurrentGenerationBoundary(unittest.TestCase):
         try:
             with self.assertRaisesRegex(AssertionError,'source paths'):projection.validate_current_sources(self.root)
         finally:extra.unlink()
-        old=self.root/'src/render_mirror.c';raw=old.read_bytes();old.write_bytes(raw+b'\n')
-        try:
-            with self.assertRaisesRegex(AssertionError,'non-target source'):projection.validate_current_sources(self.root)
-        finally:old.write_bytes(raw)
+        for name,reason in [('src/render_mirror.c','not the accepted published current blob'),('src/player.c','non-target source')]:
+            old=self.root/name;raw=old.read_bytes();old.write_bytes(raw+b'\n')
+            try:
+                with self.subTest(path=name),self.assertRaisesRegex(AssertionError,reason):projection.validate_current_sources(self.root)
+            finally:old.write_bytes(raw)
 
     def test_rebinding_changed_or_replaced_non_code_cannot_bless_same_count(self):
         import build_current_sidekick_body as builder

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Bounded production-function tests; synthetic sprites, no game data or UI.
 
-Run with an existing Linux C compiler (including WSL). SDL is a structural shim.
+Use an existing cc or optional MSVC toolchain. SDL is a structural shim.
 Unrelated feature observers are disabled explicitly; this is not native-game proof.
 """
 import argparse
@@ -31,6 +31,9 @@ def extract(text, name):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--source-ref')
+    parser.add_argument('--msvc', type=Path, help='Existing cl.exe in an initialized MSVC environment; ASan without UBSan.')
+    parser.add_argument('--case-group', choices=['all','cache','clips'], default='all')
+    parser.add_argument('--mode', choices=['all','optimized','asan'], default='all')
     parser.add_argument('--expect-baseline-defects', action='store_true')
     parser.add_argument('--receipt', required=True, type=Path)
     args = parser.parse_args()
@@ -83,21 +86,29 @@ def main():
     code = code.replace('/* PRODUCTION_FUNCTIONS */', '\n'.join(bodies.values()))
     args.receipt.parent.mkdir(parents=True, exist_ok=True)
     report = {'source_ref': args.source_ref or 'working-tree', 'expected_baseline_defects': args.expect_baseline_defects,
+              'case_group':args.case_group, 'sanitizers':'MSVC ASan; UBSan/LSan unavailable' if args.msvc else 'ASan+UBSan',
               'scope': 'Actual generic cache, compositor, pixel observer, wrapper and original indexed blitter; synthetic RLE; SDL structural shim; other owners disabled. No gameplay/native SDL acceptance.',
               'function_sha256_lf_utf8': {name: hashlib.sha256(body.encode()).hexdigest() for name, body in bodies.items()}, 'runs': []}
     with tempfile.TemporaryDirectory(prefix='render-boundary-') as temporary:
         directory = Path(temporary)
         c = directory / 'test.c'
         c.write_text(code, encoding='utf-8')
-        env = dict(os.environ, ASAN_OPTIONS='detect_leaks=1:halt_on_error=1', UBSAN_OPTIONS='halt_on_error=1:print_stacktrace=1')
-        for mode, flags in [('optimized', ['-O2']), ('asan-ubsan', ['-O1', '-g', '-fsanitize=address,undefined', '-fno-sanitize-recover=all', '-fno-omit-frame-pointer', '-no-pie'])]:
-            exe = directory / mode
-            command = ['cc', '-std=c99', '-Wall', '-Wextra', '-Werror=implicit-function-declaration',
-                       '-Wno-unused-function', '-Wno-unused-variable', '-Wno-unused-parameter', '-Wno-misleading-indentation'] + flags + [str(c), '-o', str(exe)]
-            compiled = subprocess.run(command, capture_output=True, text=True, timeout=60)
+        env = dict(os.environ, ASAN_OPTIONS=('detect_leaks=0' if args.msvc else 'detect_leaks=1')+':halt_on_error=1', UBSAN_OPTIONS='halt_on_error=1:print_stacktrace=1')
+        for mode in ['optimized','asan']:
+            if args.mode not in ('all',mode):continue
+            exe = directory / (mode + ('.exe' if args.msvc else ''))
+            if args.msvc:
+                flags=['/O2'] if mode=='optimized' else ['/Od','/Zi','/fsanitize=address']
+                command=[str(args.msvc),'/nologo','/std:c11','/W3','/we4013','/D_CRT_SECURE_NO_WARNINGS']+flags+[str(c),'/Fe:'+str(exe)]
+            else:
+                flags=['-O2'] if mode=='optimized' else ['-O1','-g','-fsanitize=address,undefined','-fno-sanitize-recover=all','-fno-omit-frame-pointer','-no-pie']
+                command = ['cc', '-std=c99', '-Wall', '-Wextra', '-Werror=implicit-function-declaration',
+                           '-Wno-unused-function', '-Wno-unused-variable', '-Wno-unused-parameter', '-Wno-misleading-indentation'] + flags + [str(c), '-o', str(exe)]
+            compiled = subprocess.run(command, capture_output=True, text=True, errors='replace', timeout=60, cwd=directory)
+            report.setdefault('builds',[]).append(dict(mode=mode,command=command,exit=compiled.returncode,stdout=compiled.stdout,stderr=compiled.stderr))
             if compiled.returncode:
                 raise RuntimeError(compiled.stdout + compiled.stderr)
-            run = subprocess.run([str(exe), 'baseline' if args.expect_baseline_defects else 'fixed'], capture_output=True, text=True, timeout=30, env=env)
+            run = subprocess.run([str(exe), 'baseline' if args.expect_baseline_defects else 'fixed']+([] if args.case_group=='all' else [args.case_group]), capture_output=True, text=True, timeout=30, env=env)
             report['runs'].append({'mode': mode, 'exit': run.returncode, 'stdout': run.stdout, 'stderr': run.stderr})
             if run.returncode:
                 report['status'] = 'FAIL'

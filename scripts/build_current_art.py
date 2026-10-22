@@ -23,7 +23,11 @@ RUNTIME='packaging/runtime-assets-v1.json'
 # payload macro integration, plus same-value HUD meter pin header extraction.
 # Only selected art changes, never gameplay/authority.
 REGISTRY_AUTHORITY_SHA256='21d0b78355542b5315df82a515f3e341a3070508bdfc414f632b1741b7682dd6'
-GAMEPLAY_SOURCE_SHA256='fff3fc79dc6283ea92c9b2bc20fab63c8ed53ae57967d3726e94d1a3ba997ac9'
+# Exact current authority after the reviewed two-file render correction on
+# 6ada526. Prior foundation digest fff3fc79dc6283ea92c9b2bc20fab63c8ed53ae57967d3726e94d1a3ba997ac9
+# remains historical provenance, never an alternative accepted source state.
+# The finite inverse is pinned in tests/fixtures/accepted-later-changes-v1/render-boundaries-source.json.
+GAMEPLAY_SOURCE_SHA256='c77d24021b682e1cf7cd382e60c827e7fd6a6df41739add90679ce36151a514f'
 BUILD_INPUT_SHA256='537111f6f8f9a1bd6b0efce18453669d72ac3e8df9062cab010b46cc4e48e7c6'
 
 def sha(data):return hashlib.sha256(data).hexdigest()

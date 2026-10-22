@@ -63,13 +63,22 @@ recomputed aggregate digest, fails verification.
 
 ## Runtime boundary and validation
 
-All 251 pre-existing source files remain byte-exact to baseline
+At the sidekick-only foundation `6ada526fa11c633e3ae02facb5f498bbfdacd1d9`,
+all 251 pre-existing source files remained byte-exact to baseline
 `775b6b77163723c6cae727bafce1d53746a5bd60` and the integration base
 `f8bf77f2f7219fcc63bebb6cc644c3ab83211e3e`. Original source-bank fingerprints,
 Marlo bank9 decoding, five-frame Plasma phase selection, 4x/8x/classic fallback,
 ammo, collisions, positions and RNG remain unchanged. The identities remain
 distinct even when artwork might look alike. Do not infer another role's HD
 eligibility from this authoring mapping.
+
+The later [reviewed render-boundary integration](RENDER_BOUNDARY_INTEGRATION.md)
+changes exactly `src/render_mirror.c` and `src/global_talon_mirror.inc` relative
+to that foundation. Its current package source binding records those actual
+bytes; the sidekick foundation and older receipts retain their original scope.
+Those rendering corrections are not a claim that current source still equals
+775, and they do not add sidekick runtime payload enforcement or change the
+six selected body resources.
 
 `tests/test_current_sidekick_body_authoring.py` uses synthetic PNG fixtures to
 exercise each source independently, exact propagation and isolation, unchanged

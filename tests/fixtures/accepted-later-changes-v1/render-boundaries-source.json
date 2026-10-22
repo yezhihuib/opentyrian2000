@@ -1,0 +1,125 @@
+{
+  "schema": "opentyrian-reviewed-render-boundaries-source-v1",
+  "integration_base": "6ada526fa11c633e3ae02facb5f498bbfdacd1d9",
+  "historical_source_inventory": "current-source-inventory.json",
+  "supplied_patch_sha256": "fc9f2dfa859fb59a29c95b0bab323164850308cda25621d8ad90c6b7f9cdf55a",
+  "scope": "Exact two-file reviewed rendering correction inverse only; historical source bytes remain separately pinned.",
+  "files": {
+    "src/global_talon_mirror.inc": {
+      "previous_sha256": "edc128a68f7112594316f04bea41c7d1b2cabe4725c77f56523b415960e2eaa4",
+      "current_sha256": "42821646a831f5aefb57bdec65f38ad9bebbe4d922f8d72fd1b9ee8061d7dead",
+      "hunks": [
+        {
+          "after_lines": [
+            7,
+            8
+          ],
+          "before": "",
+          "after": "static bool global_talon_contributed;\n"
+        },
+        {
+          "after_lines": [
+            119,
+            121
+          ],
+          "before": " global_talon_frame=global_talon_cached=global_talon_fault=false;global_talon_call.live=false;global_talon_shield_dependency=false;\n",
+          "after": " if(global_talon_contributed){active=shared_hud_frame=ready=last_output_valid=last_output_scene_hd=have_fade_saved=false;fade_mode=0;}\n global_talon_frame=global_talon_cached=global_talon_fault=global_talon_contributed=false;global_talon_call.live=false;global_talon_shield_dependency=false;\n"
+        },
+        {
+          "after_lines": [
+            135,
+            136
+          ],
+          "before": " global_talon_frame=global_talon_cached=global_talon_fault=false;global_talon_call.live=false;global_talon_shield_dependency=false;\n",
+          "after": " global_talon_frame=global_talon_cached=global_talon_fault=global_talon_contributed=false;global_talon_call.live=false;global_talon_shield_dependency=false;\n"
+        },
+        {
+          "after_lines": [
+            237,
+            238
+          ],
+          "before": "",
+          "after": "  global_talon_contributed=true;\n"
+        },
+        {
+          "after_lines": [
+            266,
+            277
+          ],
+          "before": "",
+          "after": "/* RGB can survive in a later translucent owner after our owner bits are gone.\n * Revoke the entire Present when the original contributor loses its proof. */\nstatic bool global_talon_finish_proof(void)\n{\n if(!global_talon_contributed)return true;\n return global_talon_requested()&&!global_talon_fault&&!global_talon_call.live&&\n  global_talon_surface_matches()&&global_talon_final_surface_matches()&&\n  global_talon_source_matches(spriteSheet9)&&global_talon_palette_matches()&&\n  global_talon_underlay_matches()&&(!global_talon_shield_dependency||\n   (!global_shield_fault&&global_shield_source_matches(explosionSpriteSheet)&&global_shield_palette_matches()));\n}\n"
+        },
+        {
+          "after_lines": [
+            306,
+            308
+          ],
+          "before": " if(retained)memcpy(global_talon_output_palette,rgb_palette,sizeof(global_talon_output_palette));\n global_talon_cached=retained;global_talon_frame=false;return retained;\n",
+          "after": " if(retained||global_talon_contributed)memcpy(global_talon_output_palette,rgb_palette,sizeof(global_talon_output_palette));\n global_talon_cached=retained||(valid&&global_talon_contributed);global_talon_frame=false;return retained;\n"
+        },
+        {
+          "after_lines": [
+            311,
+            312
+          ],
+          "before": " bool valid=global_talon_requested()&&global_talon_surface_matches()&&global_talon_final_surface_matches()&&global_talon_source_matches(spriteSheet9)&&(!global_talon_shield_dependency||(!global_shield_fault&&global_shield_source_matches(explosionSpriteSheet)));\n",
+          "after": " bool valid=!global_talon_fault&&global_talon_requested()&&global_talon_surface_matches()&&global_talon_final_surface_matches()&&global_talon_source_matches(spriteSheet9)&&(!global_talon_shield_dependency||(!global_shield_fault&&global_shield_source_matches(explosionSpriteSheet)));\n"
+        }
+      ]
+    },
+    "src/render_mirror.c": {
+      "previous_sha256": "54870dc260531503bd190092502ad88d4c2f1dd042200e32f3121aee6e83eea0",
+      "current_sha256": "5e53d1d69d18df434b1c0a3c35a210b43e1d5beeca5760324335fc6dc515ee58",
+      "hunks": [
+        {
+          "after_lines": [
+            2417,
+            2419
+          ],
+          "before": "",
+          "after": " static struct {const Uint8 *data;size_t size;} sources[sizeof(assets)/sizeof(assets[0])];\n if(reject_reason)return NULL;\n"
+        },
+        {
+          "after_lines": [
+            2531,
+            2539
+          ],
+          "before": "",
+          "after": " if(a->initialized&&(sources[slot].data!=bank.data||sources[slot].size!=bank.size)) {\n  /* A pending ordered command may still refer to this Asset. Retire the frame\n   * before replacing its storage; rebuild only through a later clean call. */\n  render_mirror_unsupported(\"legacy-source-changed\");\n  free(a->rgba);memset(a,0,sizeof(*a));return NULL;\n }\n if(!bank.data||!index||index>bank.size/2||\n    (layout==ENTITY_QUAD&&bank.size/2-index<20))return NULL;\n"
+        },
+        {
+          "after_lines": [
+            2540,
+            2541
+          ],
+          "before": "",
+          "after": " sources[slot].data=bank.data;sources[slot].size=bank.size;\n"
+        },
+        {
+          "after_lines": [
+            3113,
+            3118
+          ],
+          "before": "",
+          "after": " /* The original blitters clip linear addresses and wrap physical rows. A\n  * two-dimensional HD clip cannot suppress those wrapped indexed writes.\n  * Bound coordinates before scaling; partial vertical clips remain eligible. */\n int width=layout==ENTITY_QUAD?24:12,height=layout==ENTITY_QUAD?28:14;\n if(x<0||x>320-width||y<1-height||y>199)return false;\n"
+        },
+        {
+          "after_lines": [
+            4772,
+            4773
+          ],
+          "before": " if(!global_vulcan_finish_proof()||!global_green_finish_proof()||!global_smoke_finish_proof()||!global_rotor_finish_proof()||!global_cash25_finish_proof()||!global_small_explosion_finish_proof()||!global_hitflare_finish_proof()||!global_pulse_finish_proof()||!global_shield_finish_proof()) {\n",
+          "after": " if(!global_talon_finish_proof()||!global_vulcan_finish_proof()||!global_green_finish_proof()||!global_smoke_finish_proof()||!global_rotor_finish_proof()||!global_cash25_finish_proof()||!global_small_explosion_finish_proof()||!global_hitflare_finish_proof()||!global_pulse_finish_proof()||!global_shield_finish_proof()) {\n"
+        },
+        {
+          "after_lines": [
+            4774,
+            4775
+          ],
+          "before": "  global_shield_frame=global_shield_cached=global_pulse_frame=global_pulse_cached=global_hitflare_frame=global_hitflare_cached=global_rotor_frame=global_cash25_frame=global_small_explosion_frame=global_green_frame=global_smoke_frame=global_rotor_cached=global_cash25_cached=global_small_explosion_cached=global_green_cached=global_smoke_cached=global_vulcan_frame=global_vulcan_cached=false;fade_mode=0;return;\n",
+          "after": "  global_talon_frame=global_talon_cached=global_shield_frame=global_shield_cached=global_pulse_frame=global_pulse_cached=global_hitflare_frame=global_hitflare_cached=global_rotor_frame=global_cash25_frame=global_small_explosion_frame=global_green_frame=global_smoke_frame=global_rotor_cached=global_cash25_cached=global_small_explosion_cached=global_green_cached=global_smoke_cached=global_vulcan_frame=global_vulcan_cached=false;fade_mode=0;return;\n"
+        }
+      ]
+    }
+  }
+}

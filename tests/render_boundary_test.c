@@ -2,6 +2,12 @@
  * Isolated generic rendering observer. No original art, levels, RNG or profiles.
  */
 #include <assert.h>
+#ifdef NDEBUG
+#error This independent fixture requires active assertions
+#endif
+#ifdef _MSC_VER
+#include <crtdbg.h>
+#endif
 #include <stdbool.h>
 #include <stdint.h>
 #include <limits.h>
@@ -94,6 +100,14 @@ static void teardown(void)
  clear_assets();free(display.pixels);free(hd_owner);free(cloud_owner);free(green_first);
  free(green_under);free(green_under_owner);
 }
+static uint64_t index_hash(const Uint8 *p,size_t n)
+{uint64_t h=UINT64_C(14695981039346656037);for(size_t i=0;i<n;i++)h=(h^p[i])*UINT64_C(1099511628211);return h;}
+static void valid_source(Sprite2_array bank,unsigned index,Uint8 expected_color)
+{
+ Uint8 colors[168]={0},mask[168]={0};
+ assert(decode_tile(bank,index,colors,mask,12,0,0));
+ for(unsigned i=0;i<168;i++)assert(colors[i]==expected_color&&mask[i]==255);
+}
 static void clipping_case(int density,int x,int y,bool baseline,bool quad)
 {
  setup(density);
@@ -101,6 +115,9 @@ static void clipping_case(int density,int x,int y,bool baseline,bool quad)
  unsigned index=quad?229:59;
  int width=quad?24:12;
  bool wraps=x<0||x>320-width;
+ assert(active&&!game_probe_assets&&!game_probe_missing&&!game_probe_invalid&&!game_probe_original_reference&&!global_asset_directory[0]);
+ const unsigned parts[4]={0,1,19,20};
+ for(unsigned i=0;i<(quad?4u:1u);i++)valid_source(bank,index+parts[i],quad?0x42:0x21);
  draw_entity_sprite2(&screen,x,y,bank,index,ENTITY_NORMAL,quad?ENTITY_QUAD:ENTITY_TILE);
  assert(!reject_reason&&!suppress&&!suppress_cloud&&!suppress_green_smoke);
  assert(!memcmp(indexed,expected,sizeof(indexed)));
@@ -111,45 +128,63 @@ static void clipping_case(int density,int x,int y,bool baseline,bool quad)
   if((got&0xffffffu)!=(rgb_palette[indexed[py*320+px]]&0xffffffu))mismatches++;
  }
  assert(writes);
+ uint64_t native_hash=index_hash(indexed,sizeof(indexed));
  if(baseline&&wraps)assert(mismatches&&draws==1);
  else assert(!mismatches&&draws==(unsigned)!wraps);
  /* A later ordinary pixel must not inherit the entity's suppress lease. */
  indexed[100*320+100]=0x42;render_mirror_pixel(&screen,indexed+100*320+100,0x42,MIRROR_NORMAL);
  assert(((Uint32 *)display.pixels)[(100*density)*display.w+100*density]==palette_rgb(0x42));
- printf("clip d=%d %s x=%d y=%d original_writes=%u mismatches=%u hd_draws=%u\n",density,quad?"quad":"tile",x,y,writes,mismatches,draws);
+ printf("clip d=%d %s x=%d y=%d original_writes=%u mismatches=%u hd_draws=%u source_valid=1 index_hash=%016llx\n",density,quad?"quad":"tile",x,y,writes,mismatches,draws,(unsigned long long)native_hash);
  teardown();
 }
 static void cache_cases(bool baseline)
 {
  setup(4);
+ valid_source(spriteSheet8,59,0x21);valid_source((Sprite2_array){sizeof(source_b),source_b},59,0x42);
  Asset *a=get_asset(spriteSheet8,59,ENTITY_TILE);assert(a&&a->rgba[0]==0x12);
+ assert(a->initialized&&a->valid&&a->w==12&&a->h==14&&a->density==4&&a->rgba[1]==0x34&&a->rgba[2]==0x56&&a->rgba[3]==255);
+ Uint8 *warm_rgba=a->rgba;assert(get_asset(spriteSheet8,59,ENTITY_TILE)==a&&a->rgba==warm_rgba&&!reject_reason);
+ puts("cache_precondition source_a_valid=1 source_b_valid=1 initialized=1 valid=1 warm_hit=1 rgba=123456ff density=4");
  spriteSheet8=(Sprite2_array){sizeof(source_b),source_b};
  a=get_asset(spriteSheet8,59,ENTITY_TILE);
+ printf("cache_pointer declined=%d reason=%s\n",a==NULL,reject_reason?reject_reason:"none");
  if(!baseline){assert(!a&&reject_reason&&!assets[5].rgba);reject_reason=NULL;a=get_asset(spriteSheet8,59,ENTITY_TILE);}
  assert(a);
  assert(a->rgba[0]==(baseline?0x12:0xab));
+ printf("cache_pointer_recovery rgba=%02x%02x%02x%02x valid=%d density=%d\n",a->rgba[0],a->rgba[1],a->rgba[2],a->rgba[3],a->valid,a->density);
  spriteSheet8.size=2;a=get_asset(spriteSheet8,59,ENTITY_TILE);
+ printf("cache_size declined=%d reason=%s\n",a==NULL,reject_reason?reject_reason:"none");
  assert(baseline?a!=NULL:a==NULL);
  if(!baseline){assert(reject_reason&&!assets[5].rgba);reject_reason=NULL;assert(!get_asset(spriteSheet8,59,ENTITY_TILE));}
  spriteSheet8.size=sizeof(source_b);a=get_asset(spriteSheet8,59,ENTITY_TILE);
  assert(a&&a->rgba[0]==(baseline?0x12:0xab));
+ assert(a->valid&&a->density==4);
+ printf("cache_final_recovery rgba=%02x%02x%02x%02x valid=%d density=%d\n",a->rgba[0],a->rgba[1],a->rgba[2],a->rgba[3],a->valid,a->density);
  puts(baseline?"cache: reproduced stale pointer+length reuse":"cache: pointer+length changes rebuild or decline; valid source recovers");
  teardown();
 }
 int main(int argc,char **argv)
 {
- assert(argc==2);bool baseline=!strcmp(argv[1],"baseline");
+#ifdef _MSC_VER
+ _set_error_mode(_OUT_TO_STDERR);
+ _set_abort_behavior(0,_WRITE_ABORT_MSG|_CALL_REPORTFAULT);
+ _CrtSetReportMode(_CRT_ASSERT,_CRTDBG_MODE_FILE);_CrtSetReportFile(_CRT_ASSERT,_CRTDBG_FILE_STDERR);
+#endif
+ setvbuf(stdout,NULL,_IONBF,0);
+ assert(argc==2||argc==3);bool baseline=!strcmp(argv[1],"baseline");
+ bool only_cache=argc==3&&!strcmp(argv[2],"cache"),only_clips=argc==3&&!strcmp(argv[2],"clips");
+ assert(argc==2||only_cache||only_clips);
  bank_init(source_a,0x21);bank_init(source_b,0x42);
  rgb_palette[0]=0;rgb_palette[0x21]=0x123456;rgb_palette[0x42]=0xabcdef;
- cache_cases(baseline);
- for(int d=4;d<=8;d+=4){
+ if(!only_clips)cache_cases(baseline);
+ if(!only_cache)for(int d=4;d<=8;d+=4){
   for(unsigned q=0;q<2;q++){
    clipping_case(d,-1,50,baseline,q);clipping_case(d,q?297:309,50,baseline,q);
    clipping_case(d,0,50,baseline,q);clipping_case(d,q?296:308,50,baseline,q);
    clipping_case(d,100,-1,baseline,q);clipping_case(d,100,199,baseline,q);
   }
  }
- if(!baseline){
+ if(!baseline&&!only_cache){
   setup(8);
   const int values[]={INT_MIN,INT_MAX,-1000000,1000000};
   for(unsigned i=0;i<4;i++){
