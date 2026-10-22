@@ -9,7 +9,7 @@ import argparse,copy,hashlib,io,json,os,re,shutil,struct,subprocess,sys,tempfile
 from pathlib import Path
 from functools import lru_cache
 from PIL import Image
-from package_runtime import contained_file,checked_source
+from package_runtime import contained_file,checked_source,reparse_point
 from verify_current_production import source_inventory,source_manifest_digest,BUILD_INPUTS
 from current_art_policy import compatibility_name,PROFILES,ALL_IDS,profile,geometry,LEGACY_HEADER,legacy_header,APPROVED_PROVENANCE_SHA256
 from current_pulse_compatibility import IDS,MAPPING,ROOT as COMPAT
@@ -69,7 +69,7 @@ def verify_authority(root,registry,family='pulse'):
             for key in ('path','sha256','payload_fnv64','provenance'):row.pop(key,None)
     if source_manifest_digest(fixed)!=REGISTRY_AUTHORITY_SHA256:
         raise ValueError('Registry role/source authority or unrelated resource changed')
-    sources=source_inventory(root);sources.pop(HEADER,None);sources.pop(LEGACY_HEADER,None);sources.pop('src/current_hud_payload_pins.h',None);sources.pop('src/current_tank_shell_payload_pins.h',None);sources.pop('src/current_enemy_energy_payload_pins.h',None)
+    sources=source_inventory(root);sources.pop(HEADER,None);sources.pop(LEGACY_HEADER,None);sources.pop('src/current_hud_payload_pins.h',None);sources.pop('src/current_tank_shell_payload_pins.h',None);sources.pop('src/current_enemy_energy_payload_pins.h',None);sources.pop('src/current_sidekick_body_payload_pins.h',None)
     if source_manifest_digest(sources)!=GAMEPLAY_SOURCE_SHA256:
         raise ValueError('Unrelated gameplay source changed')
     inputs={p:sha(read(root,p)) for p in BUILD_INPUTS}
@@ -80,6 +80,8 @@ def verify_authority(root,registry,family='pulse'):
     tank_shell_compatibility(root)
     from current_enemy_energy_compatibility import load as energy_compatibility
     energy_compatibility(root)
+    from current_sidekick_body_compatibility import load as sidekick_body_compatibility
+    sidekick_body_compatibility(root)
     by_id={r['identity']:r for r in registry['resources']}
     for other in PROFILES:
         selected=selection(root,read(root,profile(other)['selection']),other)
@@ -120,6 +122,8 @@ def validate_stage_location(root,destination):
     absolute=destination.absolute()
     if any(p.is_symlink() for p in (absolute,*absolute.parents)):
         raise ValueError('Symlink stage or parent')
+    if any(reparse_point(p) for p in (absolute,*absolute.parents)):
+        raise ValueError('Reparse stage or parent')
     if absolute.resolve().is_relative_to(root.resolve()):
         raise ValueError('Stage must be outside repository and historical resources')
 
@@ -162,6 +166,7 @@ def derive(root,selected_raw,family='pulse'):
         names.add('packaging/current-hud-compatibility.json')
         names.add('packaging/current-tank-shell-compatibility.json')
         names.add('packaging/current-enemy-energy-compatibility.json')
+        names.add('packaging/current-sidekick-body-compatibility.json')
         names|={p.relative_to(root).as_posix() for p in (root/'src').rglob('*') if p.is_file() or p.is_symlink()}
         names|={p.relative_to(root).as_posix() for p in (root/'scripts').glob('*.py')}
         # Verify existing runtime except allowed stale current generated outputs.

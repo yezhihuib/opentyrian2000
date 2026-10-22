@@ -12,6 +12,7 @@ from current_art_policy import PROFILES
 from current_hud_compatibility import load as current_hud_compatibility
 from current_tank_shell_compatibility import load as current_tank_shell_compatibility
 from current_enemy_energy_compatibility import load as current_enemy_energy_compatibility
+from current_sidekick_body_compatibility import load as current_sidekick_body_compatibility
 GLOBAL_REGISTRY_SHA256 = 'b224adfc0b12aee5a4753e32aa12e30c8594eb4237727a983148776239162860'
 from pathlib import Path
 
@@ -61,6 +62,9 @@ def main():
     for destination,row in current_enemy_energy_compatibility(root).items():
         if destination in art_compat:raise ValueError('Legacy/global compatibility collision')
         art_compat[destination]=dict(row,authoring_family='enemy-energy')
+    for destination,row in current_sidekick_body_compatibility(root).items():
+        if destination in art_compat:raise ValueError('Legacy/global compatibility collision')
+        art_compat[destination]=dict(row,authoring_family='sidekick-body')
     hud_compat=current_hud_compatibility(root)
     def add(source,destination,group,exact=None):
         size,blob,sha=pins(root/source)
@@ -150,6 +154,6 @@ def main():
     j['closure']['global_hda_files']=120
     j['closure']['global_registry_files']=1
     j['closure']['global_families']=['Talon13','Shield22','Pulse5','Hitflare7','FrontVulcan2','WhiteSmoke7','SmallExplosion12','Cash25BodyAndValue7','Cash50BodyAndValue7','Cash75BodyAndValue7','Gem100BodyAndValue6','Gem250BodyAndValue6','Rotor5And11Eight','GreenHeadAndTrail11']
-    a.output.write_text(json.dumps(j,indent=2,sort_keys=True)+'\n')
+    a.output.write_bytes((json.dumps(j,indent=2,sort_keys=True)+'\n').encode('utf-8'))
     print(json.dumps({'files':len(rows),'bytes':sum(x['bytes'] for x in rows.values()),'output':str(a.output)}))
 if __name__=='__main__':main()

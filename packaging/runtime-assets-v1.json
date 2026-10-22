@@ -77,12 +77,12 @@
   },
   "files": [
     {
-      "bytes": 25945,
+      "bytes": 26312,
       "destination": "CURRENT-PRODUCTION-VALIDATION.json",
-      "git_blob": "05593f00a56e4162f524709f30783a384aa58ac2",
+      "git_blob": "056fcd3b21d34c94d623e33a3a3d500865bf133f",
       "group": "current-production-validation",
       "revision": "reconstructed-local-unpublished",
-      "sha256": "51c78a4663ceeff4b1f65198fcb176834977a67d7daa3ef7e56c1041823caa4a",
+      "sha256": "d9fcdacc1fc2d0f2bbd9e4dda0ac3a535d01ccda18bba9613667d558d31c3d88",
       "source_path": "packaging/current-production-validation.json"
     },
     {
@@ -4077,9 +4077,9 @@
       "destination": "assets/gameplay/option-marlo-bank9-152-8.hda",
       "git_blob": "24af680ef6f874b6d8b57cf33547a1ee965785bf",
       "group": "gameplay",
-      "revision": "reconstructed-local-unpublished",
+      "revision": "current-single-source-sidekick-body",
       "sha256": "aefe1218aaf7959b1623d877bf14ad5bb75b52a4520183e85d563d2ef3726fda",
-      "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/option-marlo-bank9-152-8.hda"
+      "source_path": "assets/hd/current-compat/sidekick-body/option-marlo-bank9-152-8.hda"
     },
     {
       "bytes": 43036,
@@ -4113,45 +4113,45 @@
       "destination": "assets/gameplay/option-plasma-bank9-224-8.hda",
       "git_blob": "159e2424ee864d6d6f4090ce75fdf0b6c774da10",
       "group": "gameplay",
-      "revision": "reconstructed-local-unpublished",
+      "revision": "current-single-source-sidekick-body",
       "sha256": "8df044e0cb436f2ff5c41ba4a5b938c9878a3def4bc08f1b877ed055a089dd1f",
-      "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/option-plasma-bank9-224-8.hda"
+      "source_path": "assets/hd/current-compat/sidekick-body/option-plasma-bank9-224-8.hda"
     },
     {
       "bytes": 43036,
       "destination": "assets/gameplay/option-plasma-bank9-243-8.hda",
       "git_blob": "c4ecd27893e0ed16334888cbc87e24441e6b6cea",
       "group": "gameplay",
-      "revision": "reconstructed-local-unpublished",
+      "revision": "current-single-source-sidekick-body",
       "sha256": "c8222727f733bb8718435c4fd052b68de06e1ee30c9b080cedeefdfb13b13d34",
-      "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/option-plasma-bank9-243-8.hda"
+      "source_path": "assets/hd/current-compat/sidekick-body/option-plasma-bank9-243-8.hda"
     },
     {
       "bytes": 43036,
       "destination": "assets/gameplay/option-plasma-bank9-262-8.hda",
       "git_blob": "06ce32bbc0ad749742548c209149e6594cd4677e",
       "group": "gameplay",
-      "revision": "reconstructed-local-unpublished",
+      "revision": "current-single-source-sidekick-body",
       "sha256": "c57c21c2457d0bfd3154b8debae24f0631893c766539f31c306d460db5adc164",
-      "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/option-plasma-bank9-262-8.hda"
+      "source_path": "assets/hd/current-compat/sidekick-body/option-plasma-bank9-262-8.hda"
     },
     {
       "bytes": 43036,
       "destination": "assets/gameplay/option-plasma-bank9-281-8.hda",
       "git_blob": "d55e441b8d630e524b48648657ba873e41a08202",
       "group": "gameplay",
-      "revision": "reconstructed-local-unpublished",
+      "revision": "current-single-source-sidekick-body",
       "sha256": "224b908731e05b932480eecdc0877755b00b7dca6968e9c4cb311c37f0cf0ec4",
-      "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/option-plasma-bank9-281-8.hda"
+      "source_path": "assets/hd/current-compat/sidekick-body/option-plasma-bank9-281-8.hda"
     },
     {
       "bytes": 43036,
       "destination": "assets/gameplay/option-plasma-bank9-300-8.hda",
       "git_blob": "f004dc21e7d5d0bb599c7383346614c470ca01fa",
       "group": "gameplay",
-      "revision": "reconstructed-local-unpublished",
+      "revision": "current-single-source-sidekick-body",
       "sha256": "c9368682b053458b0f6e438375c6b76c311a5ac9ec2665004dc3d9ee771cc072",
-      "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/option-plasma-bank9-300-8.hda"
+      "source_path": "assets/hd/current-compat/sidekick-body/option-plasma-bank9-300-8.hda"
     },
     {
       "bytes": 95260,
@@ -9134,7 +9134,7 @@
   "schema": "opentyrian-runtime-package-v1",
   "source_revision": {
     "current_production_commit": null,
-    "current_production_source_manifest_sha256": "bc503b5c148b603509487698ad5fa16181e6a03d39012a631e1dc238abdc24e7",
+    "current_production_source_manifest_sha256": "f91e0f2bfc69529126d95c7acdd85dacbbada8091162829d0c242c6cfb022a4f",
     "data_frame_integration": "local reviewed Data-only DFM1 static frame; no commit assigned",
     "data_portrait_integration": "local reviewed source-authenticated all18 DPR1 portraits",
     "data_text_integration": "local reviewed Data-only Chinese source; no commit assigned",

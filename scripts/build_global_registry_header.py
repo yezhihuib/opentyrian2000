@@ -93,7 +93,7 @@ def main():
             out += [' {' + ','.join('UINT64_C(0x' + v + ')' for v in row) + '},' for row in weapon['record_fnv64_variants']]
             out.append('};')
     out += ['#endif', '']
-    a.output.write_text('\n'.join(out))
+    a.output.write_bytes('\n'.join(out).encode('utf-8'))
     print('Generated reconstructed header:', a.output, hashlib.sha256(a.output.read_bytes()).hexdigest())
 
 

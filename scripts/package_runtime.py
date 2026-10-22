@@ -65,14 +65,29 @@ def checked_source(path: Path, row: dict) -> dict:
     return {**row, 'source': str(path), 'sha256': sha256}
 
 
+def reparse_point(path: Path) -> bool:
+    try:
+        return bool(getattr(path.lstat(), 'st_file_attributes', 0) & getattr(stat, 'FILE_ATTRIBUTE_REPARSE_POINT', 1024))
+    except FileNotFoundError:
+        return False
+
+
 def contained_file(root: Path, value: str) -> Path:
     path = root / relative_path(value)
     # Reject symlinks in *any* component, including a directory symlink.
     cursor = root
+    if root.is_symlink() or reparse_point(root):
+        raise ValueError(f'Reparse or symlink root is not accepted: {root}')
     for component in PurePosixPath(value).parts:
         cursor = cursor / component
         if cursor.is_symlink():
             raise ValueError(f'Symlink source is not accepted: {cursor}')
+        # Windows directory junctions are reparse points but are not symlinks
+        # on Python 3.11. Reject aliases before reading or replacing outputs.
+        if reparse_point(cursor):
+            raise ValueError(f'Reparse source is not accepted: {cursor}')
+    if not path.resolve().is_relative_to(root.resolve()):
+        raise ValueError(f'Source resolves outside root: {path}')
     return path
 
 

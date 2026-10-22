@@ -95,3 +95,13 @@ Seven enemy-energy resources have an independent single-source workflow in
 They remain outside the 120-entry global registry and preserve original mask
 support, static directions and Christmas rejection. Together with tank shells,
 there are now nine explicitly maintained legacy-only authoring resources.
+
+## Marlo and Plasma body family
+
+The six existing bank9 bodies have an independent workflow in
+[SIDEKICK_BODY_SINGLE_SOURCE_WORKFLOW.md](SIDEKICK_BODY_SINGLE_SOURCE_WORKFLOW.md).
+It preserves the approved Marlo single frame and Plasma five-frame bytes,
+identities and runtime qualifications. Its generated body header is read only
+by Python build/package consistency checks; production C does not include it
+or gain runtime payload enforcement. Coverage stays at 120
+global entries, six HUD classes and 15 independent legacy-only resources.
