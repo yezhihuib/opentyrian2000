@@ -13,6 +13,13 @@ from current_art_policy import PROFILES,profile
 
 # Deliberately independent of the implementation allowlist/name formatter.
 EXPECTED={1260152:'option-marlo-bank9-152-8.hda',1290224:'option-plasma-bank9-224-8.hda',1290243:'option-plasma-bank9-243-8.hda',1290262:'option-plasma-bank9-262-8.hda',1290281:'option-plasma-bank9-281-8.hda',1290300:'option-plasma-bank9-300-8.hda'}
+BOOTSTRAP=ROOT/'tests/fixtures/sidekick-body-bootstrap-v1.json'
+
+
+def bootstrap_fixture():
+    raw=BOOTSTRAP.read_bytes()
+    assert hashlib.sha256(raw).hexdigest()=='78b8565f7da7f374a290bab62ce9e44a95519dc6da426e76db4e1db5019e81e4','Changed historical bootstrap fixture'
+    return json.loads(raw)
 
 
 def png(value,width=96,height=112):
@@ -35,6 +42,8 @@ class CurrentSidekickBodyTests(unittest.TestCase):
         for family in PROFILES:
             names.update(e['source_png']for e in json.loads((ROOT/profile(family)['selection']).read_text())['resources'])
         names.update(e['source_png']for e in json.loads((ROOT/b.SELECTION).read_text())['resources'])
+        # The old-pixel bootstrap is an explicit fixture, independent of today's selection.
+        names.update(e['source_png']for e in bootstrap_fixture()['selection']['resources'])
         # Other legacy check() calls decode their selected PNGs and support masks.
         # The runtime inventories contain their generated HDA, not these inputs.
         for selected in ('assets/hd/authoring/tank-shell-current.json','assets/hd/authoring/enemy-energy-current.json'):
@@ -75,20 +84,92 @@ class CurrentSidekickBodyTests(unittest.TestCase):
         with self.assertRaises((ValueError,OSError)):fn()
         self.assertEqual(before,self.snapshot())
 
+    def assert_current_selection_matches_transports(self):
+        from PIL import Image
+        selected=self.selected()
+        self.assertEqual([row['identity']for row in selected['resources']],list(EXPECTED))
+        mapping=compat.load(self.root)
+        self.assertEqual(set(mapping),{'assets/gameplay/'+name for name in EXPECTED.values()})
+        for source in selected['resources']:
+            identity=source['identity'];n=EXPECTED[identity]
+            png_bytes=(self.root/source['source_png']).read_bytes()
+            self.assertEqual(hashlib.sha256(png_bytes).hexdigest(),source['source_sha256'])
+            with Image.open(self.root/source['source_png'])as image:
+                self.assertEqual((image.format,image.mode,image.size,getattr(image,'n_frames',1)),('PNG','RGBA',(96,112),1))
+                rgba=image.tobytes()
+            row=mapping['assets/gameplay/'+n];raw=(self.root/row['source_path']).read_bytes()
+            self.assertEqual(raw[:28],struct.pack('<4s6I',b'HDR1',identity,8,12,14,0,0))
+            self.assertEqual(raw[28:],rgba)
+            self.assertEqual(hashlib.sha256(raw).hexdigest(),row['sha256'])
+
     def test_approved_bytes_and_no_runtime_source_change(self):
         self.assertEqual(b.check(self.root)['resources'],6)
-        manifest=json.loads((ROOT/'assets/hd/manifest.json').read_text());old=manifest['packs'][manifest['default_preview_pack']]['files']
-        mapping=compat.load(self.root)
-        for identity,n in EXPECTED.items():
-            row=mapping['assets/gameplay/'+n];raw=(self.root/row['source_path']).read_bytes()
-            self.assertEqual(b.sha(raw),old[n]['sha256'])
-            self.assertEqual(raw[:28],struct.pack('<4s6I',b'HDR1',identity,8,12,14,0,0))
+        self.assert_current_selection_matches_transports()
         # Original C, source-bank guards, animation, ammo and fallback are byte-exact.
         tracked=subprocess.check_output(['git','-C',str(ROOT),'ls-tree','-r','--name-only','775b6b77163723c6cae727bafce1d53746a5bd60','--','src'],text=True).splitlines()
         for n in tracked:
             raw=subprocess.check_output(['git','-C',str(ROOT),'show','775b6b77163723c6cae727bafce1d53746a5bd60:'+n])
             self.assertEqual((ROOT/n).read_bytes(),raw,n)
         self.assertEqual(len(json.loads((self.root/b.REGISTRY).read_text())['resources']),120)
+
+    def test_historical_bootstrap_matches_immutable_default_pack(self):
+        fixture=bootstrap_fixture();catalog=(ROOT/fixture['catalog_path']).read_bytes()
+        self.assertEqual(hashlib.sha256(catalog).hexdigest(),fixture['catalog_sha256'])
+        manifest=json.loads(catalog);pack=manifest['default_preview_pack'];old=manifest['packs'][pack]['files']
+        selected=fixture['selection']
+        self.assertEqual([row['identity']for row in selected['resources']],list(EXPECTED))
+        historical={}
+        for source in selected['resources']:
+            n=EXPECTED[source['identity']]
+            self.assertEqual((source['source_png'],source['source_sha256']),(old[n]['source_png'],old[n]['source_png_sha256']))
+            historical[source['source_png']]=(ROOT/source['source_png']).read_bytes()
+            self.assertEqual(b.sha(historical[source['source_png']]),source['source_sha256'])
+            path='assets/hd/packs/'+pack+'/'+n;historical[path]=(ROOT/path).read_bytes()
+            self.assertEqual(b.sha(historical[path]),old[n]['sha256'])
+        # Rebuild old pixels in the test-owned root, never force current artwork back to them.
+        b.apply(self.root,self.stage(selected))
+        self.assertEqual(b.check(self.root)['resources'],6)
+        self.assert_current_selection_matches_transports()
+        mapping=compat.load(self.root)
+        for identity,n in EXPECTED.items():
+            raw=(self.root/mapping['assets/gameplay/'+n]['source_path']).read_bytes()
+            self.assertEqual(b.sha(raw),old[n]['sha256'])
+            self.assertEqual(raw,historical['assets/hd/packs/'+pack+'/'+n])
+        self.assertEqual(historical,{name:(ROOT/name).read_bytes()for name in historical})
+
+    def test_historical_bootstrap_fixture_pin_rejects_byte_changes(self):
+        raw=BOOTSTRAP.read_bytes()
+        with patch.object(Path,'read_bytes',return_value=raw+b' '):
+            with self.assertRaisesRegex(AssertionError,'historical bootstrap fixture'):bootstrap_fixture()
+
+    def test_current_acceptance_follows_legitimate_selection_change(self):
+        selected=self.selected();row=selected['resources'][1]
+        before=compat.load(self.root)['assets/gameplay/'+EXPECTED[row['identity']]]['sha256']
+        raw=png(83);relative='sidekick-alternate-current.png';(self.root/relative).write_bytes(raw)
+        selected['version']='alternate-current-source-control'
+        row.update(source_png=relative,source_sha256=b.sha(raw))
+        b.apply(self.root,self.stage(selected))
+        self.assertEqual(b.check(self.root)['resources'],6)
+        self.assert_current_selection_matches_transports()
+        self.assertNotEqual(compat.load(self.root)['assets/gameplay/'+EXPECTED[row['identity']]]['sha256'],before)
+
+    def test_current_acceptance_rejects_hda_source_mismatch(self):
+        for kind in ('coherent_transport_metadata','selected_png_without_regeneration'):
+            self.setUp();selected=self.selected();identity=selected['resources'][0]['identity']
+            if kind=='coherent_transport_metadata':
+                mapping=json.loads((self.root/b.MAPPING).read_bytes());row=mapping['files'][0]
+                path=self.root/row['source_path'];raw=path.read_bytes();path.write_bytes(raw[:28]+bytes([raw[28]^1])+raw[29:])
+                row['sha256']=b.sha(path.read_bytes());(self.root/b.MAPPING).write_bytes(b.encoded(mapping))
+                pins={r['identity']:compat.fnv((self.root/r['source_path']).read_bytes()[28:])for r in mapping['files']}
+                (self.root/b.HEADER).write_bytes(compat.payload_header(pins))
+            else:
+                raw=png(89);relative='sidekick-unrebuilt-current.png';(self.root/relative).write_bytes(raw)
+                selected['resources'][0].update(source_png=relative,source_sha256=b.sha(raw))
+                (self.root/b.SELECTION).write_bytes(b.encoded(selected))
+            # Mapping/header self-consistency is insufficient: source RGBA must agree.
+            self.assertIn('assets/gameplay/'+EXPECTED[identity],compat.load(self.root))
+            with self.subTest(kind=kind),self.assertRaises(AssertionError):self.assert_current_selection_matches_transports()
+            with self.subTest(kind=kind),self.assertRaisesRegex(ValueError,'Stale/missing current sidekick-body outputs'):b.check(self.root)
 
     def test_each_source_changes_only_its_declared_transport_and_pin(self):
         for index,identity in enumerate(EXPECTED):
