@@ -6,15 +6,17 @@ Git, overwrite, or source-move actions. A dry run is the default.
 
 ## Current selection and closure
 
-`packaging/runtime-assets-v1.json` pins 694 selected files and 127,732,786 bytes,
+`packaging/runtime-assets-v1.json` pins 1,006 selected files and 145,151,580 bytes,
 excluding an optional executable and generated inventory/status metadata:
 
-- One active manual gameplay pack: all 637 files, 95,176,717 bytes. Its four- and
-  eight-density files and tested fallback resources are retained.
+- One active manual gameplay selection: 637 files, 95,176,717 bytes, including
+  current single-source compatibility mappings, four- and eight-density files
+  and tested fallback resources.
 - Complete startup/title/settings pack: nine files, 17,780,592 bytes, with all
   shared UI font atlases, manufacturer cards and title layers.
-- All twelve current optional shop HDAs: 2,329,034 bytes, flattened into that
-  same startup directory, including the accepted generator and shield material.
+- All fifteen current optional shop HDAs: 2,845,514 bytes, flattened into that
+  same startup directory, including the accepted generator, shield and three
+  approved static materials.
 - Three optional Data resources: 3,876,511 bytes. The Chinese text covers
   all 149 entries, its derived atlas contains 1,905 glyphs, and gold EXIT
   uses the accepted compact shop-font resource in both languages.
@@ -22,18 +24,21 @@ excluding an optional executable and generated inventory/status metadata:
 - Eighteen independently optional source-authenticated Data portraits:
   4,420,800 bytes, with exact native geometry and per-face fallback.
 - Eleven license/provenance notices and three launcher/readme files:
-  53,004 bytes.
+  56,984 bytes.
+- 171 reconstructed shared menu runs, one numeric pack and six shared HUD
+  fallback resources, plus their four notices and three corresponding-source files.
+- 120 global source-identity resources, their registry and three validation records.
 
 This is an explicit snapshot, not a claim of a theoretically minimal asset set.
-The complete selected gameplay directory is retained rather than stripping
-untested fallback files. The preview/debug default pack copies have identical
-contents at the public baseline; only one is included here.
+The complete selected gameplay inventory is retained rather than stripping
+untested fallback files. Current mappings replace historical source paths without
+rewriting the historical packs used for recovery.
 
-The public baseline is `fedc541cc6b6e93f7748a85e6c40318b6ca9f5a8`.
-The generator is a local-only addition from
-`55d418de4f914d4694eb7f074458207b1cf6a2d2`; packaging does not publish it.
-The shield material and integration are locally accepted source with no commit
-assigned yet. Adding them does not advance the pinned public baseline.
+The historical public baseline is `fedc541cc6b6e93f7748a85e6c40318b6ca9f5a8`;
+the current builder retains its public input in
+`packaging/runtime-assets-public63a89b3.json` and verifies the reconstructed
+additions and current single-source mappings separately. Historical integration
+labels in the manifest are provenance, not the current runtime closure.
 Source paths, destination paths, sizes, Git-blob SHA1 and available SHA256 are
 explicit in the allowlist. The public tree was complete (`truncated=false`), and
 all selected local inputs are checked against pinned sizes and content hashes.
@@ -101,18 +106,43 @@ A completed directory has `COPY-VERIFIED.txt`, `RUNTIME-INVENTORY.json`, and
 compression. Equal verified inputs produce the same ZIP bytes in the tested
 Python/zlib environment; cross-version compressor identity is not promised.
 
-To refresh the pinned selection after a separately reviewed asset change, supply
-a complete recursive-tree metadata file for the pinned baseline:
+To refresh the current pinned selection after a separately reviewed asset change,
+use the current builder (not the historical public-tree exporter):
 
 ```sh
-python3 scripts/update_runtime_manifest.py --public-tree /absolute/tree.json
+python3 scripts/rebuild_recovered_runtime_manifest.py --output packaging/runtime-assets-v1.json
+python3 scripts/package_runtime.py --report /absolute/new-preflight.json
 python3 -m unittest discover -s tests -p 'test_runtime_packaging.py' -v
+python3 -m unittest discover -s tests -p 'test_runtime_manifest_refresh.py' -v
 ```
 
-The refresh tool only reads selected resource paths, notices and launchers. It
-fails if the public pack inventory, existing published shop bytes, or current
-shop-resource count changes. Update its pinned revision/counts only after
-reviewing the new runtime closure. It never reads development test fixtures.
+The builder verifies the pinned base, production binding, approved static
+resources, current authoring mappings, shared HUD/UI and global registry. Its
+output is mandatory; to inspect a candidate without changing the current
+manifest, pass a separate scratch `--output` and then use `package_runtime.py
+--manifest /absolute/candidate.json --report /absolute/new-preflight.json`.
+Packaging preflight verifies the supplied allowlist's bytes; it does not prove
+that a historical allowlist includes the current runtime closure.
+
+### Historical public-tree export only
+
+`update_runtime_manifest.py` retains the older selection algorithm for explicit
+historical recovery. It omits the current compatibility mappings, shared UI/HUD
+and global additions, so it must not refresh the production manifest. On the
+current checkout, the historical exporter yields 697 rows rather than 1,006.
+It requires both a complete recursive tree for its pinned `fedc541` revision and
+an explicit, separate output:
+
+```sh
+python3 scripts/update_runtime_manifest.py \
+  --public-tree /absolute/fedc541-tree.json \
+  --output /absolute/historical-runtime.json
+```
+
+Omitting `--output`, or targeting `packaging/runtime-assets-v1.json` in either
+the selected source root or the script's checkout (including filesystem aliases),
+is refused before inputs are read. Explicit historical exports keep their old
+selection semantics; they are not silently converted into current manifests.
 
 ## Runtime dependencies and acceptance limits
 

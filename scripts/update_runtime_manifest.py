@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
-"""Refresh the explicit runtime allowlist from a complete, pinned public tree.
+"""Export the historical runtime selection from a complete, pinned public tree.
 
 No network requests, source moves or deletions. Requires a supplied GitHub
 recursive-tree JSON; it does not inspect test fixtures or development artwork.
+This legacy exporter omits current single-source mappings, shared UI and global
+resources. To refresh the current runtime, use rebuild_recovered_runtime_manifest.py
+--output packaging/runtime-assets-v1.json instead.
 """
 import argparse
 import hashlib
@@ -11,6 +14,25 @@ from pathlib import Path
 import sys
 
 PUBLIC_REVISION = 'fedc541cc6b6e93f7748a85e6c40318b6ca9f5a8'
+ROOT = Path(__file__).resolve().parents[1]
+CURRENT_MANIFEST = Path('packaging/runtime-assets-v1.json')
+CURRENT_REFRESH = ('python3 scripts/rebuild_recovered_runtime_manifest.py '
+                   '--output packaging/runtime-assets-v1.json')
+
+
+def historical_output(root, output):
+    """Keep explicit historical exports separate from either current checkout."""
+    if output is None:
+        raise ValueError('Historical export requires an explicit --output; '
+                         'refresh the current runtime with: ' + CURRENT_REFRESH)
+    resolved = output.resolve()
+    for checkout in (root, ROOT):
+        current = checkout / CURRENT_MANIFEST
+        if (resolved == current.resolve() or
+                (output.exists() and current.exists() and output.samefile(current))):
+            raise ValueError('Historical export must not overwrite the current runtime manifest; '
+                             'use: ' + CURRENT_REFRESH)
+    return output
 
 
 def local_row(root, source, destination, group):
@@ -23,11 +45,14 @@ def local_row(root, source, destination, group):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--public-tree', type=Path, required=True)
-    parser.add_argument('--source-root', type=Path, default=Path(__file__).resolve().parents[1])
-    parser.add_argument('--output', type=Path, help='Defaults to SOURCE_ROOT/packaging/runtime-assets-v1.json')
+    parser.add_argument('--public-tree', type=Path, help='Complete tree for the pinned historical revision (required)')
+    parser.add_argument('--source-root', type=Path, default=ROOT)
+    parser.add_argument('--output', type=Path, help='Explicit historical export path (required); current runtime manifests are refused')
     args = parser.parse_args()
     root = args.source_root.resolve()
+    output = historical_output(root, args.output)
+    if args.public_tree is None:
+        parser.error('historical export requires --public-tree')
     selection = json.loads((root / 'packaging/runtime-selection-v1.json').read_text())
     tree = json.loads(args.public_tree.read_text())
     if tree.get('truncated') is not False or tree.get('sha') != PUBLIC_REVISION:
@@ -77,7 +102,6 @@ def main():
     destinations = [row['destination'] for row in rows]
     if len(destinations) != len(set(destinations)):
         raise ValueError('Destination collision')
-    output = args.output or root / 'packaging/runtime-assets-v1.json'
     output.write_text(json.dumps(manifest, indent=2, sort_keys=True) + '\n')
     print(json.dumps({'files': len(rows), 'payload_bytes': sum(row['bytes'] for row in rows), 'output': str(output)}))
 
@@ -86,5 +110,5 @@ if __name__ == '__main__':
     try:
         main()
     except (OSError, ValueError, KeyError) as error:
-        print('Manifest refresh refused: ' + str(error), file=sys.stderr)
+        print('Historical manifest export refused: ' + str(error), file=sys.stderr)
         raise SystemExit(1)
