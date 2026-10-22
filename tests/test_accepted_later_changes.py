@@ -30,6 +30,31 @@ class SourceBoundary(unittest.TestCase):
             elif action=='delete':del mutant[name]
             else:mutant[name]='0'*64
             with self.subTest(action=action),self.assertRaises(AssertionError):projection.validate_source_inventory(mutant)
+    def test_sidekick_header_is_exact_and_keeps_strict_inventory(self):
+        name='src/current_sidekick_body_payload_pins.h'
+        digest='baa91d0eb1864fe13691d43adc148a13a96e16ef3adcda5a0eb6673e17d44571'
+        rows=projection.load('current-source-inventory.json')['files']
+        self.assertEqual(rows[name],digest)
+        self.assertEqual(projection.sha((projection.ROOT/name).read_bytes()),digest)
+        projection.validate_current_sources()
+        for action in ('unknown','missing_header','changed_header'):
+            mutant=dict(rows)
+            if action=='unknown':mutant['src/current_sidekick_body_unapproved.h']=digest
+            elif action=='missing_header':del mutant[name]
+            else:mutant[name]='0'*64
+            with self.subTest(action=action),self.assertRaises(AssertionError):projection.validate_source_inventory(mutant)
+        from unittest.mock import patch
+        raw=(projection.FIXTURES/'current-source-inventory.json').read_bytes()
+        with patch.object(Path,'read_bytes',return_value=raw+b' '):
+            with self.assertRaises(AssertionError):projection.load('current-source-inventory.json')
+    def test_source_symlink_guard_with_portable_probe(self):
+        # The native-link negative below stays intact; this probe needs no link permission.
+        import tempfile
+        from unittest.mock import patch
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);(root/'src').mkdir();alias=root/'src/alias.c';alias.write_bytes(b'int fixture;')
+            with patch.object(Path,'is_symlink',lambda path:path==alias):
+                with self.assertRaisesRegex(AssertionError,'symlink'):projection.validate_current_sources(root)
     def test_source_symlink_rejected(self):
         import tempfile
         with tempfile.TemporaryDirectory() as directory:

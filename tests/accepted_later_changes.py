@@ -82,7 +82,7 @@ def project_p9_inventory(current):
   else:current[name]=edit['before']
  return {name:row['sha256'] for name,row in current.items()}
 
-PINS['current-source-inventory.json']='2e158e5a9a98491052017c97cc8de0b224e9b01fca2b1731a6e94c5553805398'
+PINS['current-source-inventory.json']='2a30fb3cb89ae39b8537c3a34717c3e414c4891ee8a41185ac61bb2844a7c6a5'
 def validate_current_sources(root=ROOT):
  ledger=load('current-source-inventory.json')
  assert not any(p.is_symlink() for p in (root/'src').rglob('*')),'source symlink rejected'
