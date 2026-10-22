@@ -1,5 +1,13 @@
 {
-  "published_current": "775b6b77163723c6cae727bafce1d53746a5bd60",
+  "historical_current": "775b6b77163723c6cae727bafce1d53746a5bd60",
+  "historical_source_count": 249,
+  "current_extensions": {
+    "src/current_sidekick_body_payload_pins.h": {
+      "introduced_by": "0ded81a95d854f30a4f4a4117fee96f28232039b",
+      "baseline_sha256": "baa91d0eb1864fe13691d43adc148a13a96e16ef3adcda5a0eb6673e17d44571",
+      "acceptance": "Exact current six-source generation proof; baseline digest is provenance only."
+    }
+  },
   "extensions": [
     ".c",
     ".h",

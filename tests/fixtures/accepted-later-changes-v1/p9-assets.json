@@ -83729,5 +83729,37 @@
     }
   },
   "current_inventory_sha256": "3f819ca1f9ac2b9ef4de53cfe4fb948bc0d347bd0f1f7b539dbb7bfd2915ae34",
-  "catalog_no_p9_sha256": "2445cf40788f34276f1ecc61b4bbc8cb340e5bedea3184051a2fa4959d5eb720"
+  "catalog_no_p9_sha256": "2445cf40788f34276f1ecc61b4bbc8cb340e5bedea3184051a2fa4959d5eb720",
+  "verified_current_outputs": {
+    "assets/hd/authoring/sidekick-body-current.json": {
+      "sha256": "482f03b43c59540c4ab1ef9b187ecdbbf5866d00bf936cb833c46eb8b49740c3",
+      "mode": "100644"
+    },
+    "assets/hd/current-compat/sidekick-body/option-marlo-bank9-152-8.hda": {
+      "sha256": "aefe1218aaf7959b1623d877bf14ad5bb75b52a4520183e85d563d2ef3726fda",
+      "mode": "100644"
+    },
+    "assets/hd/current-compat/sidekick-body/option-plasma-bank9-224-8.hda": {
+      "sha256": "8df044e0cb436f2ff5c41ba4a5b938c9878a3def4bc08f1b877ed055a089dd1f",
+      "mode": "100644"
+    },
+    "assets/hd/current-compat/sidekick-body/option-plasma-bank9-243-8.hda": {
+      "sha256": "c8222727f733bb8718435c4fd052b68de06e1ee30c9b080cedeefdfb13b13d34",
+      "mode": "100644"
+    },
+    "assets/hd/current-compat/sidekick-body/option-plasma-bank9-262-8.hda": {
+      "sha256": "c57c21c2457d0bfd3154b8debae24f0631893c766539f31c306d460db5adc164",
+      "mode": "100644"
+    },
+    "assets/hd/current-compat/sidekick-body/option-plasma-bank9-281-8.hda": {
+      "sha256": "224b908731e05b932480eecdc0877755b00b7dca6968e9c4cb311c37f0cf0ec4",
+      "mode": "100644"
+    },
+    "assets/hd/current-compat/sidekick-body/option-plasma-bank9-300-8.hda": {
+      "sha256": "c9368682b053458b0f6e438375c6b76c311a5ac9ec2665004dc3d9ee771cc072",
+      "mode": "100644"
+    }
+  },
+  "verified_current_outputs_reviewed_commit": "0ded81a95d854f30a4f4a4117fee96f28232039b",
+  "verified_current_outputs_policy": "Strict six-PNG/HDA/selection/generated-header consistency before projecting exactly these seven current paths; baseline hashes below are provenance, not editable-pixel acceptance."
 }
