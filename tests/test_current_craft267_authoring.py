@@ -106,6 +106,8 @@ class Craft267AuthoringTests(unittest.TestCase):
         _, names = b.closure(ROOT)
         names.add(b.SELECTION)
         names.add('assets/hd/README.md')
+        # Historical bootstrap evidence is not the editable current selection.
+        names.add('assets/hd/source/enemy-newsh2-267-8-60d4dcf1f760.png')
         for f in PROFILES:
             select = profile(f)['selection']
             names.add(select)
@@ -212,18 +214,33 @@ class Craft267AuthoringTests(unittest.TestCase):
     def snapshot(self):
         return {p.relative_to(self.root).as_posix():b.sha(p.read_bytes()) for p in self.root.rglob('*') if p.is_file()}
 
-    def test_bootstrap_exact_pixels_header_and_existing_runtime_set(self):
-        self.assertEqual(b.check(self.root)['status'], 'PASS')
-        raw = (self.root/b.CANONICAL).read_bytes()
+    def test_historical_bootstrap_exact_pixels_and_header(self):
+        # Fixed repository-local history: remains valid after approved art changes,
+        # with no dependency on local/private Git commits or a second authoring copy.
+        source = 'assets/hd/source/enemy-newsh2-267-8-60d4dcf1f760.png'
+        raw = (self.root/'assets/hd/packs'/b.BASES['preview']/b.NAME).read_bytes()
         self.assertEqual(len(raw), SIZE)
         self.assertEqual(raw[:28], HEADER)
         self.assertEqual(b.sha(raw), '60d4dcf1f76046c7d8e9f1f56495fce5affc4d919294334173d4a232430487a9')
-        source = self.selected()['resources'][0]['source_png']
         self.assertEqual(b.sha((self.root/source).read_bytes()), '1bace298e65167bcc51f3db30c9faab807593ae6c56aa43a74579c7f7fa47487')
         with Image.open(self.root/source) as im:
+            self.assertEqual((im.mode, im.size), ('RGBA', (192, 224)))
             self.assertEqual(raw[28:], im.tobytes())
         for base in b.BASES.values():
             self.assertEqual(raw, (self.root/'assets/hd/packs'/base/b.NAME).read_bytes())
+
+    def test_current_selected_png_pixels_header_and_existing_runtime_set(self):
+        self.assertEqual(b.check(self.root)['status'], 'PASS')
+        row = self.selected()['resources'][0]
+        source = self.root/row['source_png']
+        self.assertEqual(b.sha(source.read_bytes()), row['source_sha256'])
+        with Image.open(source) as im:
+            self.assertEqual((im.mode, im.size), ('RGBA', (192, 224)))
+            # Independent literal header and decoded PNG, not production source_blob.
+            expected = struct.pack('<4s6I', b'HDR1', 1010267, 8, 24, 28, 6, 7) + im.tobytes()
+        raw = (self.root/b.CANONICAL).read_bytes()
+        self.assertEqual(len(raw), 172060)
+        self.assertEqual(raw, expected)
         runtime = json.loads((self.root/b.RUNTIME).read_bytes())
         self.assertEqual(len(runtime['files']), 1006)
         self.assertEqual(len(json.loads((self.root/b.REGISTRY).read_bytes())['resources']), 120)
