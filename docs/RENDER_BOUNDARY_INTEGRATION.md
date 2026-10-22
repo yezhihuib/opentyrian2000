@@ -1,6 +1,7 @@
 # Reviewed render-boundary integration
 
-This candidate starts from public commit
+The render-only predecessor (`ab16f187d27ca53812d1e897afa209d35d44c9e4`)
+starts from public commit
 `6ada526fa11c633e3ae02facb5f498bbfdacd1d9`, tree
 `ca0b415afd576e29fcb8ac5dcbe3ed9025f30fb2`. It retains the six-body authoring
 foundation, its selected artwork and existing runtime qualifications.
@@ -74,7 +75,7 @@ long suite or additional visual acceptance is implied by this integration.
 
 Original `tyrian.shp` bytes are read-only and pass through memory/stdin only;
 they are not included in source, receipts, commits or delivery archives. The
-six new artwork samples and enemy267 are outside this candidate.
+six new artwork samples and enemy267 are outside that render-only predecessor.
 
 The authoring builder's whole-source authority digest is refreshed to this
 exact current source inventory. The old digest is provenance, not an alternate
@@ -86,3 +87,31 @@ The retained portrait regeneration oracle exposed native Windows newline
 translation in its JSON/pin text exporter. Those two writes now emit explicit
 UTF-8 LF bytes, matching the frozen Linux-generated artifacts exactly; no
 portrait pixels, HDA payloads or production pins change.
+
+## Prepared combination with the approved six-body selection
+
+The isolated combined candidate is based on exact
+`e556698ace6c52b4b94c079cb24c22d29807127a` (tree
+`f85e7a03f57ba7bd0ac2e9401ec5f039409860a4`), whose parent is the approved
+six-body artwork commit `7e0fb3685293b1ce54fb117a4ca527b934e79773`.
+It retains all six approved PNG/HDA bytes and the e556 test semantics split:
+current selection is checked independently against decoded PNG RGBA, while
+old bootstrap bytes are rebuilt in a fixed historical fixture.
+
+The retained original positive test additionally validates the true current
+source binding and applies only the already pinned two-file rendering inverse
+before comparing all 251 historical source bytes. Every other old source is
+still compared directly. This closes the stale blanket 775 assertion without
+removing it, adding path skips or claiming that current rendering code equals
+775. The bootstrap fixture and all older ledgers retain their exact bytes.
+
+The current 252-source binding and 1006-destination manifest are regenerated
+for the combined inputs. The new PNGs live under `authoring-inputs/`, so the
+historical `assets/` inventory needs no new exception. Existing source/asset
+projection rules, resource authority, runtime roles, geometry and phase remain
+unchanged. No production implementation is added beyond the reviewed original
+two-file rendering correction.
+
+This is local preparation pending independent review and confirmation that
+e556 is actually available from the intended remote with the exact same tree.
+It is not publication authorization, a remote push, or a formal game update.

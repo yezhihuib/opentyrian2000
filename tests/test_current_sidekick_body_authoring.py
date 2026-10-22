@@ -105,11 +105,16 @@ class CurrentSidekickBodyTests(unittest.TestCase):
     def test_approved_bytes_and_no_runtime_source_change(self):
         self.assertEqual(b.check(self.root)['resources'],6)
         self.assert_current_selection_matches_transports()
-        # Original C, source-bank guards, animation, ammo and fallback are byte-exact.
+        # Current source is independently bound. Only the fixed reviewed render
+        # correction is projected back before proving the old 251 source bytes;
+        # every other historical source still compares directly, without skips.
+        from accepted_later_changes import project_source,validate_current_sources
+        validate_current_sources(ROOT)
         tracked=subprocess.check_output(['git','-C',str(ROOT),'ls-tree','-r','--name-only','775b6b77163723c6cae727bafce1d53746a5bd60','--','src'],text=True).splitlines()
         for n in tracked:
             raw=subprocess.check_output(['git','-C',str(ROOT),'show','775b6b77163723c6cae727bafce1d53746a5bd60:'+n])
-            self.assertEqual((ROOT/n).read_bytes(),raw,n)
+            current=project_source('render-boundaries',n,(ROOT/n).read_bytes())
+            self.assertEqual(current,raw,n)
         self.assertEqual(len(json.loads((self.root/b.REGISTRY).read_text())['resources']),120)
 
     def test_historical_bootstrap_matches_immutable_default_pack(self):
