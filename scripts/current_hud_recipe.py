@@ -10,6 +10,7 @@ import json
 import stat
 import struct
 from pathlib import Path
+from functools import lru_cache
 from PIL import Image
 from package_runtime import contained_file, relative_path
 
@@ -214,7 +215,6 @@ def default_selection(root=None):
 
 
 def meter_payload(root, data):
-    import numpy as np
     colors = json.loads(data)
     ranges = {'firepower': range(116, 127), 'armor': range(226, 240), 'generator': range(113, 126)}
     require(isinstance(colors, dict) and set(colors) == set(ranges), 'Invalid meter roles')
@@ -225,10 +225,29 @@ def meter_payload(root, data):
         for index in indices:
             color = colors[role][str(index)]
             require(isinstance(color, list) and len(color) == 3 and all(type(v) is int and 0 <= v <= 255 for v in color) and max(color) > 0, 'Invalid RGB color')
-            rgb[role][index] = np.array(color, dtype=float)
+            rgb[role][index] = tuple(color)
+    recipe = checked(root, FIXED_INPUTS['meter_recipe'])
+    # Only pure rasterization is reused. Paths, hashes, selected color schema,
+    # fixed baseline, geometry and opacity are revalidated on every call.
+    sections, row_count, lookup_count = _meter_sections(
+        recipe, tuple((role, tuple(values.items())) for role, values in rgb.items()))
+    require(row_count == 944 and lookup_count == 222456, 'Meter row structure changed')
+    baseline = checked(root, FIXED_INPUTS['meter_baseline'])
+    require(sections[-1] == baseline[177008:], 'Meter lookup changed')
+    require([len(s) for s in sections] == [4224,51840,120832,444912], 'Meter section size changed')
+    require(all(set(s[3::4]) == {255} for s in sections[:3]), 'Nonopaque meter')
+    return list(sections)
+
+
+@lru_cache(maxsize=4)
+def _meter_sections(recipe, colors):
+    """Immutable bytes keyed by the checked recipe and validated RGB values."""
+    import numpy as np
+    rgb = {role: {index: np.array(color, dtype=float) for index, color in values}
+           for role, values in colors}
     # Only the immutable, hash-checked recipe can execute; selected JSON is data.
     namespace = {'__name__': '_pinned_current_hud_materials'}
-    exec(compile(checked(root, FIXED_INPUTS['meter_recipe']), '<pinned HUD materials>', 'exec'), namespace)
+    exec(compile(recipe, '<pinned HUD materials>', 'exec'), namespace)
     material = namespace['material']
     sections = []
     for role, specs, width in (
@@ -247,12 +266,8 @@ def meter_payload(root, data):
                 lookup.append(ids[row])
     require(len(rows) == 944 and len(lookup) == 222456, 'Meter row structure changed')
     table = struct.pack('<222456H', *lookup)
-    baseline = checked(root, FIXED_INPUTS['meter_baseline'])
-    require(table == baseline[177008:], 'Meter lookup changed')
     sections += [b''.join(rows), table]
-    require([len(s) for s in sections] == [4224,51840,120832,444912], 'Meter section size changed')
-    require(all(set(s[3::4]) == {255} for s in sections[:3]), 'Nonopaque meter')
-    return sections
+    return tuple(sections), len(rows), len(lookup)
 
 
 def render_resource(root, key, sources):
