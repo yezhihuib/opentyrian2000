@@ -47,6 +47,7 @@ def derive(root,raw):
     names={r['source_path'] for r in old['files']+base['files']}
     names|={REGISTRY,BINDING,'packaging/runtime-assets-public63a89b3.json','packaging/shop-static-approved-v1.json',MAPPING}|set(BUILD_INPUTS)
     names|={profile(f)['mapping'] for f in PROFILES}
+    names.add('packaging/current-enemy-energy-compatibility.json')
     names.add('packaging/current-tank-shell-compatibility.json')
     names|={p.relative_to(root).as_posix() for p in (root/'src').rglob('*') if p.is_file() or p.is_symlink()}
     names|={p.relative_to(root).as_posix() for p in (root/'scripts').glob('*.py')}

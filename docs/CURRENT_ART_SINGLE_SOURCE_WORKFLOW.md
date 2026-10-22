@@ -87,3 +87,11 @@ The enemy tank-shell pair (1220146/1220147) has a separate
 It generates exactly two existing legacy consumers and payload-only pins, without
 adding global registry identities. Thus coverage is 120 global resources plus two
 legacy resources and the independent HUD workflow, not 122 global resources.
+
+## Additional legacy enemy-energy family
+
+Seven enemy-energy resources have an independent single-source workflow in
+[ENEMY_ENERGY_SINGLE_SOURCE_WORKFLOW.md](ENEMY_ENERGY_SINGLE_SOURCE_WORKFLOW.md).
+They remain outside the 120-entry global registry and preserve original mask
+support, static directions and Christmas rejection. Together with tank shells,
+there are now nine explicitly maintained legacy-only authoring resources.

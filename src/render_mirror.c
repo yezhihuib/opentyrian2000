@@ -12,6 +12,7 @@
 #include "shop_vulcan.h"
 #include "current_art_payload_pins.h"
 #include "current_tank_shell_payload_pins.h"
+#include "current_enemy_energy_payload_pins.h"
 #include "data_frame.h"
 #include "data_portrait.h"
 #include "render_mirror.h"
@@ -3197,7 +3198,7 @@ static bool enemy_energy_family_ready(void)
  if(enemy_energy_checked)return enemy_energy_valid;
  enemy_energy_checked=true;enemy_energy_valid=true;
  static const unsigned int ids[7]={77,58,182,163,1,183,164};
- static const uint64_t rgba_stamps[7]={UINT64_C(0xe7ad74098293fa74),UINT64_C(0x6bde72d8a3fb5321),UINT64_C(0xdad683e2104c364c),UINT64_C(0xda40a3f50079bbb7),UINT64_C(0x17a96f454b155ee6),UINT64_C(0x46a1a574bc4971cf),UINT64_C(0x03388802eea7f5a4)};
+ static const uint64_t rgba_stamps[7]={CURRENT_ENEMY_ENERGY_1110077_PAYLOAD_FNV,CURRENT_ENEMY_ENERGY_1110058_PAYLOAD_FNV,CURRENT_ENEMY_ENERGY_1110182_PAYLOAD_FNV,CURRENT_ENEMY_ENERGY_1110163_PAYLOAD_FNV,CURRENT_ENEMY_ENERGY_1110001_PAYLOAD_FNV,CURRENT_ENEMY_ENERGY_1110183_PAYLOAD_FNV,CURRENT_ENEMY_ENERGY_1110164_PAYLOAD_FNV};
  for(int i=0;i<7;i++) {
   Asset *a=&assets[462+i];
   a->initialized=true;a->bank=ASSET_ENEMY_ENERGY;a->index=(int)ids[i];

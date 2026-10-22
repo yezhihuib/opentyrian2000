@@ -11,6 +11,7 @@ from current_art_compatibility import load as current_art_compatibility
 from current_art_policy import PROFILES
 from current_hud_compatibility import load as current_hud_compatibility
 from current_tank_shell_compatibility import load as current_tank_shell_compatibility
+from current_enemy_energy_compatibility import load as current_enemy_energy_compatibility
 GLOBAL_REGISTRY_SHA256 = 'b224adfc0b12aee5a4753e32aa12e30c8594eb4237727a983148776239162860'
 from pathlib import Path
 
@@ -57,6 +58,9 @@ def main():
     for destination,row in current_tank_shell_compatibility(root).items():
         if destination in art_compat:raise ValueError('Legacy/global compatibility collision')
         art_compat[destination]=dict(row,authoring_family='tank-shell')
+    for destination,row in current_enemy_energy_compatibility(root).items():
+        if destination in art_compat:raise ValueError('Legacy/global compatibility collision')
+        art_compat[destination]=dict(row,authoring_family='enemy-energy')
     hud_compat=current_hud_compatibility(root)
     def add(source,destination,group,exact=None):
         size,blob,sha=pins(root/source)

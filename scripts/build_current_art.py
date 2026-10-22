@@ -22,7 +22,7 @@ RUNTIME='packaging/runtime-assets-v1.json'
 # payload macro integration, plus same-value HUD meter pin header extraction.
 # Only selected art changes, never gameplay/authority.
 REGISTRY_AUTHORITY_SHA256='21d0b78355542b5315df82a515f3e341a3070508bdfc414f632b1741b7682dd6'
-GAMEPLAY_SOURCE_SHA256='97a978b05bbf5834076b7459ebc5895bfc6cabda69a1963c660c4a9724c8b86d'
+GAMEPLAY_SOURCE_SHA256='fff3fc79dc6283ea92c9b2bc20fab63c8ed53ae57967d3726e94d1a3ba997ac9'
 BUILD_INPUT_SHA256='537111f6f8f9a1bd6b0efce18453669d72ac3e8df9062cab010b46cc4e48e7c6'
 
 def sha(data):return hashlib.sha256(data).hexdigest()
@@ -60,7 +60,7 @@ def verify_authority(root,registry,family='pulse'):
             for key in ('path','sha256','payload_fnv64','provenance'):row.pop(key,None)
     if source_manifest_digest(fixed)!=REGISTRY_AUTHORITY_SHA256:
         raise ValueError('Registry role/source authority or unrelated resource changed')
-    sources=source_inventory(root);sources.pop(HEADER,None);sources.pop(LEGACY_HEADER,None);sources.pop('src/current_hud_payload_pins.h',None);sources.pop('src/current_tank_shell_payload_pins.h',None)
+    sources=source_inventory(root);sources.pop(HEADER,None);sources.pop(LEGACY_HEADER,None);sources.pop('src/current_hud_payload_pins.h',None);sources.pop('src/current_tank_shell_payload_pins.h',None);sources.pop('src/current_enemy_energy_payload_pins.h',None)
     if source_manifest_digest(sources)!=GAMEPLAY_SOURCE_SHA256:
         raise ValueError('Unrelated gameplay source changed')
     inputs={p:sha(read(root,p)) for p in BUILD_INPUTS}
@@ -69,6 +69,8 @@ def verify_authority(root,registry,family='pulse'):
 
     from current_tank_shell_compatibility import load as tank_shell_compatibility
     tank_shell_compatibility(root)
+    from current_enemy_energy_compatibility import load as energy_compatibility
+    energy_compatibility(root)
     by_id={r['identity']:r for r in registry['resources']}
     for other in PROFILES:
         selected=selection(root,read(root,profile(other)['selection']),other)
@@ -150,6 +152,7 @@ def derive(root,selected_raw,family='pulse'):
             names.add(profile(supported)['mapping'])
         names.add('packaging/current-hud-compatibility.json')
         names.add('packaging/current-tank-shell-compatibility.json')
+        names.add('packaging/current-enemy-energy-compatibility.json')
         names|={p.relative_to(root).as_posix() for p in (root/'src').rglob('*') if p.is_file() or p.is_symlink()}
         names|={p.relative_to(root).as_posix() for p in (root/'scripts').glob('*.py')}
         # Verify existing runtime except allowed stale current generated outputs.
