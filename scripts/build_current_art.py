@@ -177,8 +177,8 @@ def derive(root,selected_raw,family='pulse'):
         names.add('packaging/current-craft267-compatibility.json')
         names|={p.relative_to(root).as_posix() for p in (root/'src').rglob('*') if p.is_file() or p.is_symlink()}
         names|={p.relative_to(root).as_posix() for p in (root/'scripts').glob('*.py')}
-        from current_sidekick_body_compatibility import charge_input_paths,CHARGE_MAPPING
-        names|=charge_input_paths(root)|{CHARGE_MAPPING}
+        from current_sidekick_body_compatibility import independent_input_paths
+        names|=independent_input_paths(root)
         # Verify existing runtime except allowed stale current generated outputs.
         generated_old={SELECT,REGISTRY,HEADER,LEGACY_HEADER,REBUILD,BINDING,RUNTIME,MAPPING}|{f'{COMPAT}/{compatibility_name(i)}' for i in IDS}
         pulse_paths={'assets/hd/global-assets-v1/'+r['path'] for r in before['resources'] if r['identity'] in IDS}

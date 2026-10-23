@@ -35,8 +35,8 @@ class CurrentSidekickBodyTests(unittest.TestCase):
         cls.tmp=tempfile.TemporaryDirectory(prefix='six-',dir=parent);cls.base=Path(cls.tmp.name).resolve()
         assert cls.base.is_relative_to(parent.resolve())
         cls.root=cls.base/'repo';cls.root.mkdir();names=set(b.BUILD_INPUTS)
-        from current_sidekick_body_compatibility import charge_input_paths
-        names.update(charge_input_paths(ROOT))
+        from current_sidekick_body_compatibility import independent_input_paths
+        names.update(independent_input_paths(ROOT))
         for manifest in (b.RUNTIME,'packaging/runtime-assets-public63a89b3.json'):
             names.update(e['source_path']for e in json.loads((ROOT/manifest).read_text())['files'])
         for folder in ('src','scripts','packaging','assets/hd/authoring'):

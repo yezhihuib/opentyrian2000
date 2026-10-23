@@ -54,8 +54,8 @@ class CurrentLargeSpriteAuthoringTests(unittest.TestCase):
         cls.temp=tempfile.TemporaryDirectory(prefix='large-independent-',dir=temp_root)
         cls.base=Path(cls.temp.name); cls.root=cls.base/'repo'; cls.counter=0
         names=set(b.BUILD_INPUTS)
-        from current_sidekick_body_compatibility import charge_input_paths
-        names.update(charge_input_paths(ROOT))
+        from current_sidekick_body_compatibility import independent_input_paths
+        names.update(independent_input_paths(ROOT))
         for manifest in ('packaging/runtime-assets-v1.json','packaging/runtime-assets-public63a89b3.json'):
             names.update(r['source_path'] for r in json.loads((ROOT/manifest).read_text())['files'])
         for folder in ('src','scripts','packaging','assets/hd/authoring'):

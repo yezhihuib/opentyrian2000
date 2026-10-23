@@ -64,8 +64,8 @@ def derive(root,raw):
     names.add('packaging/current-craft267-compatibility.json')
     names|={p.relative_to(root).as_posix() for p in (root/'src').rglob('*') if p.is_file() or p.is_symlink()}
     names|={p.relative_to(root).as_posix() for p in (root/'scripts').glob('*.py')}
-    from current_sidekick_body_compatibility import charge_input_paths,CHARGE_MAPPING
-    names|=charge_input_paths(root)|{CHARGE_MAPPING}
+    from current_sidekick_body_compatibility import independent_input_paths
+    names|=independent_input_paths(root)
     with tempfile.TemporaryDirectory(prefix='enemy-energy-authoring-build-') as tmp:
         work=Path(tmp)
         for key in sorted(names|set(outputs)):

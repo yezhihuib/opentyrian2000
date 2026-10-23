@@ -117,3 +117,11 @@ tests and records its own candidate receipts. Neither the earlier review nor
 these targeted reruns establish that this integration passed the complete long
 test suite, GPU/compositor or natural campaign acceptance. New artwork remains
 outside this old-pixel integration.
+
+## Later independent Mint/Front authoring
+
+The four already-approved Mint/Front body resources now have a separate
+[`--family mint-front-body` workflow](MINT_FRONT_BODY_SINGLE_SOURCE_WORKFLOW.md).
+This does not extend this historical six-resource API or merge Mint's three
+independent phases into one source. It preserves current runtime destinations,
+renderer eligibility and all historical packs.

@@ -1,4 +1,6 @@
-"""Six legacy body consumers; no global IDs or new runtime qualifications.
+"""Finite six-body, Charge and Mint/Front authoring compatibility families.
+
+No global IDs or new runtime qualifications. The original six-body API stays fixed.
 
 The generated header is read only by Python build/package consistency checks.
 Production C does not include it or enforce these payload values. Existing C
@@ -256,7 +258,138 @@ def charge_load(root):
 
 
 def authoring_input_fingerprints(root):
-    """Bind only the finite new Charge dependency closure in legacy plans."""
-    paths=charge_input_paths(root)|{CHARGE_MAPPING}
+    """Bind finite Charge and Mint/Front dependency closures in legacy plans."""
+    paths=independent_input_paths(root)
     paths|={'scripts/current_charge_body_recipe.py','scripts/current_sidekick_body_compatibility.py','scripts/build_current_sidekick_body.py'}
     return {name:_charge_sha(_charge_read(root,name)) for name in sorted(paths)}
+
+
+# Independent Mint/FrontBlaster subfamily. No six-body or Charge API changes.
+# These fixed identities describe existing consumers, never renderer grants.
+MF_IDS=(1270112,1270131,1270150,1280083)
+MF_SELECTION='assets/hd/authoring/mint-front-body-current.json'
+MF_MAPPING='packaging/current-mint-front-body-compatibility.json'
+MF_ROOT='assets/hd/current-compat/mint-front-body'
+MF_SCHEMA='opentyrian-current-mint-front-body-authoring-v1'
+
+
+def mf_name(identity):
+    if type(identity) is not int or identity not in MF_IDS:
+        raise ValueError('Unknown Mint/Front body identity')
+    return ('option-frontblaster-bank10-83-8.hda' if identity==1280083 else
+            f'option-mint-bank9-{identity-1270000}-8.hda')
+
+
+def mf_parse(raw):
+    def unique(pairs):
+        result={}
+        for key,value in pairs:
+            if key in result:raise ValueError('Duplicate Mint/Front JSON key: '+key)
+            result[key]=value
+        return result
+    def invalid(value):raise ValueError('Non-finite Mint/Front JSON number: '+value)
+    if len(raw)>128*1024:raise ValueError('Oversize Mint/Front JSON')
+    return json.loads(raw,object_pairs_hook=unique,parse_constant=invalid)
+
+
+def mf_read(root,name,limit=16*1024*1024):
+    import stat
+    from current_craft267_compatibility import path
+    p=path(root,name)
+    if not p.is_file() or not stat.S_ISREG(p.lstat().st_mode) or p.stat().st_size>limit:
+        raise ValueError('Missing/oversize regular Mint/Front input: '+name)
+    return p.read_bytes()
+
+
+def mf_selection(root,raw):
+    selected=mf_parse(raw)
+    if not isinstance(selected,dict) or set(selected)!={'schema','version','resources'} or selected['schema']!=MF_SCHEMA:
+        raise ValueError('Invalid Mint/Front selection schema/fields')
+    if not isinstance(selected['version'],str) or not 1<=len(selected['version'])<=128:
+        raise ValueError('Invalid Mint/Front version')
+    if not isinstance(selected['resources'],list) or len(selected['resources'])!=4:
+        raise ValueError('Expected four independent Mint/Front sources')
+    paths=set()
+    for identity,row in zip(MF_IDS,selected['resources']):
+        if not isinstance(row,dict) or set(row)!={'identity','source_png','source_sha256'} or type(row['identity']) is not int or row['identity']!=identity:
+            raise ValueError('Invalid Mint/Front identity/fields/order')
+        source=row['source_png']
+        if not isinstance(source,str) or not source.startswith('authoring-inputs/') or not source.endswith('.png') or not _charge_hash(row['source_sha256']):
+            raise ValueError('Expected independent authoring-inputs Mint/Front PNG and SHA256')
+        # Charge's nine derived PNGs are generated outputs, never editable
+        # Mint/Front sources. Keep this exclusion finite, not a directory glob.
+        if source.casefold() in {charge_png(i).casefold() for i in CHARGE_IDS}:
+            raise ValueError('Generated Charge frame is not an independent Mint/Front source')
+        if source.casefold() in paths:raise ValueError('Mint/Front sources must have four independent paths')
+        paths.add(source.casefold())
+        if _charge_sha(mf_read(root,source))!=row['source_sha256']:
+            raise ValueError('Selected Mint/Front source changed')
+    return selected
+
+
+def mf_image(raw,identity):
+    """Bounded complete straight RGBA8 PNG; never resample or merge phases."""
+    import io,zlib
+    from PIL import Image
+    mf_name(identity)
+    size=(192,224) if identity==1280083 else (96,112)
+    if len(raw)>16*1024*1024 or raw[:8]!=b'\x89PNG\r\n\x1a\n':
+        raise ValueError('Expected bounded Mint/Front PNG')
+    offset=8;kinds=[]
+    while offset<len(raw):
+        if offset+12>len(raw):raise ValueError('Truncated Mint/Front PNG chunk')
+        length=struct.unpack('>I',raw[offset:offset+4])[0];end=offset+12+length
+        if end>len(raw):raise ValueError('Truncated Mint/Front PNG data')
+        kind=raw[offset+4:offset+8];body=raw[offset+8:end-4]
+        if zlib.crc32(kind+body)&0xffffffff!=struct.unpack('>I',raw[end-4:end])[0]:
+            raise ValueError('Mint/Front PNG CRC mismatch')
+        if not kinds and (kind!=b'IHDR' or body!=struct.pack('>IIBBBBB',*size,8,6,0,0,0)):
+            raise ValueError('Unexpected Mint/Front PNG dimensions/straight RGBA8 encoding')
+        if kind in (b'acTL',b'fcTL',b'fdAT') or (kind not in (b'IHDR',b'PLTE',b'IDAT',b'IEND') and not kind[0]&32):
+            raise ValueError('Animated/unknown critical Mint/Front PNG chunk')
+        kinds.append(kind);offset=end
+        if kind==b'IEND':
+            if length or offset!=len(raw):raise ValueError('Trailing Mint/Front PNG data')
+            break
+    if kinds.count(b'IHDR')!=1 or kinds.count(b'IEND')!=1 or b'IDAT' not in kinds:
+        raise ValueError('Expected complete Mint/Front PNG')
+    try:
+        with Image.open(io.BytesIO(raw)) as image:image.verify()
+        with Image.open(io.BytesIO(raw)) as image:
+            if image.format!='PNG' or image.mode!='RGBA' or image.size!=size or getattr(image,'n_frames',1)!=1:
+                raise ValueError('Expected single straight RGBA Mint/Front PNG')
+            return image.copy()
+    except (OSError,SyntaxError) as exc:raise ValueError('Malformed Mint/Front PNG') from exc
+
+
+def mf_generate(root,raw):
+    selected=mf_selection(root,raw);blobs={}
+    for row in selected['resources']:
+        identity=row['identity'];image=mf_image(mf_read(root,row['source_png']),identity)
+        width,height=(24,28) if identity==1280083 else (12,14)
+        blobs[identity]=b'HDR1'+struct.pack('<6I',identity,8,width,height,0,0)+image.tobytes()
+    return selected,blobs
+
+
+def mf_input_paths(root):
+    selected=mf_selection(root,mf_read(root,MF_SELECTION,128*1024))
+    return {MF_SELECTION}|{row['source_png'] for row in selected['resources']}
+
+
+def mf_load(root):
+    selected,blobs=mf_generate(root,mf_read(root,MF_SELECTION,128*1024))
+    mapping=mf_parse(mf_read(root,MF_MAPPING,128*1024));rows=[];result={}
+    for identity,blob in blobs.items():
+        source=MF_ROOT+'/'+mf_name(identity);destination='assets/gameplay/'+mf_name(identity)
+        if mf_read(root,source)!=blob:raise ValueError('Mint/Front HDA does not match selected PNG: '+source)
+        row=dict(identity=identity,source_path=source,destination=destination,sha256=_charge_sha(blob))
+        rows.append(row);result[destination]=row
+    expected=dict(schema='opentyrian-current-mint-front-body-compatibility-v1',selection=MF_SELECTION,version=selected['version'],files=rows)
+    if json.dumps(mapping,sort_keys=True)!=json.dumps(expected,sort_keys=True):
+        raise ValueError('Invalid/stale Mint/Front compatibility mapping')
+    return result
+
+
+def independent_input_paths(root):
+    """Finite current dependency closure shared by every authoring workflow."""
+    return charge_input_paths(root)|mf_input_paths(root)|{CHARGE_MAPPING,MF_MAPPING}

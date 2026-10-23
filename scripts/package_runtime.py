@@ -231,7 +231,8 @@ def main(argv=None) -> int:
     parser.add_argument('--report', type=Path, help='Optional new JSON report outside source roots')
     args = parser.parse_args(argv)
     roots = [args.source_root.resolve()] + [p.resolve() for p in args.asset_root]
-    manifest = load_manifest(args.manifest or roots[0] / 'packaging/runtime-assets-v1.json')
+    manifest_path = args.manifest or roots[0] / 'packaging/runtime-assets-v1.json'
+    manifest = load_manifest(manifest_path)
     if args.content_catalog or args.check_content_catalog:
         for row in manifest['files']:
             if 'sha256' in row:
@@ -254,6 +255,30 @@ def main(argv=None) -> int:
             current = selected[row['destination']]
             if row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256']:
                 raise ValueError('Stale Charge runtime selection')
+    # Historical manifests retain their original Mint/Front pack semantics.
+    # Current authoring references opt into the complete four-consumer closure;
+    # the default current manifest cannot silently remove every such reference.
+    mf_prefix = 'assets/hd/current-compat/mint-front-body/'
+    mf_rows = [row for row in manifest['files'] if any(
+        Path(row[key]).name.casefold().startswith(('option-mint-', 'option-frontblaster-'))
+        for key in ('destination', 'source_path')) or
+        row['source_path'].casefold().startswith(mf_prefix)]
+    mf_current = manifest_path.resolve() == (roots[0]/'packaging/runtime-assets-v1.json').resolve() or any(
+        row['source_path'].casefold().startswith(mf_prefix) or
+        (isinstance(row.get('revision'), str) and
+         row['revision'].casefold() == 'current-single-source-mint-front-body')
+        for row in manifest['files'])
+    if mf_current:
+        from current_sidekick_body_compatibility import MF_IDS, mf_name, mf_load
+        expected = {'assets/gameplay/'+mf_name(i) for i in MF_IDS}
+        if len(mf_rows)!=4 or {row['destination'] for row in mf_rows}!=expected:
+            raise ValueError('Mint/Front packaging requires exactly four current consumers')
+        selected = mf_load(roots[0])
+        for row in mf_rows:
+            current = selected[row['destination']]
+            if (row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or
+                    row.get('group')!='gameplay' or row.get('revision')!='current-single-source-mint-front-body'):
+                raise ValueError('Stale Mint/Front runtime selection')
     source_map = read_json(args.source_map) if args.source_map else {}
     verified, missing = [], []
     for row in manifest['files']:

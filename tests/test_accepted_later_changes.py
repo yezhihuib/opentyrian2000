@@ -241,6 +241,122 @@ class ChargeCurrentGenerationBoundary(unittest.TestCase):
         self.assertNotEqual(before,after);self.assertEqual(set(before['assets']),set(after['assets']))
         self.setUp();self.assertEqual(projection.verified_charge_current(self.root),before)
 
+class MintFrontCurrentGenerationBoundary(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        sys.path.insert(0,str(projection.ROOT/'scripts'))
+        import build_current_sidekick_body as builder
+        cls.builder=builder
+        cls.temp=tempfile.TemporaryDirectory(prefix='mint-front-projection-fixture-',dir=projection.ROOT.parent)
+        cls.root=Path(cls.temp.name)
+        selected=json.loads((projection.ROOT/projection.MF_SELECTION).read_bytes())
+        paths={projection.MF_SELECTION,projection.MF_MAPPING,builder.RUNTIME}
+        paths|={row['source_png'] for row in selected['resources']}
+        paths|={projection.MF_ROOT+'/'+name for name in projection.MF_NAMES}
+        # Four independent PNGs, selection, mapping, four HDAs and runtime plan.
+        # No frozen art, source binding, historical Git or extracted game pixels.
+        cls.baseline={name:(projection.ROOT/name).read_bytes() for name in paths}
+        if len(cls.baseline)!=11:raise AssertionError('unexpected Mint/Front fixture closure')
+
+    @classmethod
+    def tearDownClass(cls):cls.temp.cleanup()
+
+    def setUp(self):
+        for path in self.root.rglob('*'):
+            if path.is_file() and path.relative_to(self.root).as_posix() not in self.baseline:path.unlink()
+        for name,raw in self.baseline.items():
+            path=self.root/name;path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(raw)
+
+    def rehash_runtime_row(self,row,blob):
+        import hashlib
+        row.update(bytes=len(blob),sha256=projection.sha(blob),git_blob=hashlib.sha1(b'blob '+str(len(blob)).encode()+b'\0'+blob).hexdigest())
+
+    def test_each_declared_input_transport_mapping_and_runtime_is_required(self):
+        proof=projection.verified_mint_front_current(self.root)
+        self.assertEqual(len(proof['assets']),5)
+        self.assertEqual(len(proof['source_pngs']),4)
+        self.assertTrue(all(name.startswith('authoring-inputs/') for name in proof['source_pngs']))
+        for name,raw in self.baseline.items():
+            path=self.root/name
+            try:
+                path.write_bytes(raw+b'broken')
+                with self.subTest(path=name),self.assertRaises((AssertionError,ValueError,OSError)):
+                    projection.verified_mint_front_current(self.root)
+            finally:path.write_bytes(raw)
+
+    def test_coherent_transport_metadata_cannot_replace_selected_png_authority(self):
+        mapping=json.loads((self.root/projection.MF_MAPPING).read_bytes());row=mapping['files'][0]
+        path=self.root/row['source_path'];old=path.read_bytes();blob=old[:28]+bytes([old[28]^1])+old[29:]
+        path.write_bytes(blob);row['sha256']=projection.sha(blob)
+        (self.root/projection.MF_MAPPING).write_bytes(self.builder.encoded(mapping))
+        runtime=json.loads((self.root/self.builder.RUNTIME).read_bytes())
+        self.rehash_runtime_row(next(r for r in runtime['files'] if r['destination']==row['destination']),blob)
+        (self.root/self.builder.RUNTIME).write_bytes(self.builder.encoded(runtime))
+        with self.assertRaises((AssertionError,ValueError)):
+            projection.verified_mint_front_current(self.root)
+
+    def test_each_independent_current_png_can_change_without_rebasing_history(self):
+        import io,struct
+        from PIL import Image
+        before=projection.verified_mint_front_current(self.root)
+        for ordinal,identity in enumerate(projection.MF_IDS):
+            self.setUp()
+            selected=json.loads((self.root/projection.MF_SELECTION).read_bytes());record=selected['resources'][ordinal]
+            with Image.open(self.root/record['source_png']) as original:frame=original.copy()
+            point=next((x,y) for y in range(frame.height) for x in range(frame.width) if frame.getpixel((x,y))[3])
+            r,g,b,a=frame.getpixel(point);frame.putpixel(point,(r^1,g,b,a))
+            stream=io.BytesIO();frame.save(stream,format='PNG');png=stream.getvalue()
+            candidate=f'authoring-inputs/mint-front-projection-{identity}.png';(self.root/candidate).write_bytes(png)
+            selected['version']=f'current-Mint-Front-{identity}'
+            record.update(source_png=candidate,source_sha256=projection.sha(png))
+            (self.root/projection.MF_SELECTION).write_bytes(self.builder.encoded(selected))
+            w,h=(24,28) if identity==1280083 else (12,14)
+            blob=struct.pack('<4s6I',b'HDR1',identity,8,w,h,0,0)+frame.tobytes()
+            mapping=json.loads((self.root/projection.MF_MAPPING).read_bytes());mapping['version']=selected['version'];row=mapping['files'][ordinal]
+            (self.root/row['source_path']).write_bytes(blob);row['sha256']=projection.sha(blob)
+            (self.root/projection.MF_MAPPING).write_bytes(self.builder.encoded(mapping))
+            runtime=json.loads((self.root/self.builder.RUNTIME).read_bytes())
+            self.rehash_runtime_row(next(r for r in runtime['files'] if r['destination']==row['destination']),blob)
+            (self.root/self.builder.RUNTIME).write_bytes(self.builder.encoded(runtime))
+            after=projection.verified_mint_front_current(self.root)
+            with self.subTest(identity=identity):
+                self.assertEqual(set(before['assets']),set(after['assets']))
+                self.assertEqual({name for name in before['assets'] if before['assets'][name]!=after['assets'][name]},
+                                 {projection.MF_SELECTION,row['source_path']})
+                self.assertEqual(after['source_pngs'][candidate],projection.sha(png))
+        self.setUp();self.assertEqual(projection.verified_mint_front_current(self.root),before)
+
+    def test_existing_runtime_consumers_keep_exact_count_identity_and_metadata(self):
+        raw=self.baseline[self.builder.RUNTIME];baseline=json.loads(raw)
+        destination='assets/gameplay/'+projection.MF_NAMES[0]
+        for case in ('missing','duplicate','path','group','revision','sha','git_blob','bytes'):
+            runtime=copy.deepcopy(baseline);row=next(r for r in runtime['files'] if r['destination']==destination)
+            if case=='missing':runtime['files'].remove(row)
+            elif case=='duplicate':runtime['files'].append(copy.deepcopy(row))
+            elif case=='path':row['source_path']='assets/hd/packs/frozen/'+projection.MF_NAMES[0]
+            elif case=='sha':row['sha256']='0'*64
+            elif case=='git_blob':row['git_blob']='0'*40
+            elif case=='bytes':row['bytes']+=1
+            else:row[case]='unapproved'
+            (self.root/self.builder.RUNTIME).write_bytes(self.builder.encoded(runtime))
+            with self.subTest(case=case),self.assertRaises(AssertionError):
+                projection.verified_mint_front_current(self.root)
+        (self.root/self.builder.RUNTIME).write_bytes(raw)
+
+    def test_shared_phase_paths_and_new_asset_inputs_never_receive_projection_waivers(self):
+        raw=self.baseline[projection.MF_SELECTION];original=json.loads(raw)
+        for case in ('shared','asset'):
+            selected=copy.deepcopy(original)
+            if case=='shared':selected['resources'][1].update({key:selected['resources'][0][key] for key in ('source_png','source_sha256')})
+            else:
+                source=selected['resources'][0];name='assets/hd/authoring/unapproved-mint.png'
+                path=self.root/name;path.parent.mkdir(parents=True,exist_ok=True)
+                path.write_bytes((self.root/source['source_png']).read_bytes());source['source_png']=name
+            (self.root/projection.MF_SELECTION).write_bytes(self.builder.encoded(selected))
+            with self.subTest(case=case),self.assertRaises((AssertionError,ValueError)):
+                projection.verified_mint_front_current(self.root)
+        (self.root/projection.MF_SELECTION).write_bytes(raw)
+
 class AssetBoundary(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -292,6 +408,7 @@ class AssetBoundary(unittest.TestCase):
         self.assertEqual(ledger['current_inventory_sha256'],'3f819ca1f9ac2b9ef4de53cfe4fb948bc0d347bd0f1f7b539dbb7bfd2915ae34')
         self.assertEqual(len(ledger['asset_edits']),3259)
         current=copy.deepcopy(self.inventory)
+        for name in projection.verified_mint_front_current()['assets']:del current[name]
         for name in projection.verified_charge_current()['assets']:del current[name]
         for name in ledger['verified_current_outputs']:del current[name]
         projection.project_craft267_readme(current,projection.ROOT,ledger)
@@ -317,6 +434,25 @@ class AssetBoundary(unittest.TestCase):
                 with self.subTest(path=name,action=action),self.assertRaisesRegex(AssertionError,'unverified Charge current output'):
                     projection.project_p9_inventory(mutant)
         for name in (projection.CHARGE_ROOT+'/unapproved.hda','assets/hd/authoring/charge-body-extra.png'):
+            mutant=copy.deepcopy(self.inventory);mutant[name]={'sha256':'0'*64,'mode':'100644'}
+            with self.subTest(path=name),self.assertRaisesRegex(AssertionError,'unapproved current asset inventory'):
+                projection.project_p9_inventory(mutant)
+
+    def test_exact_five_mint_front_outputs_are_separate_from_frozen_assets(self):
+        proof=projection.verified_mint_front_current()['assets']
+        expected={projection.MF_SELECTION}|{projection.MF_ROOT+'/'+name for name in projection.MF_NAMES}
+        self.assertEqual(set(proof),expected);self.assertEqual(len(proof),5)
+        self.assertFalse(set(proof)&set(projection.load('p9-assets.json')['verified_current_outputs']))
+        self.assertFalse(set(proof)&set(projection.verified_charge_current()['assets']))
+        for name in proof:
+            for action in ('delete','hash','mode'):
+                mutant=copy.deepcopy(self.inventory)
+                if action=='delete':del mutant[name]
+                elif action=='hash':mutant[name]['sha256']='0'*64
+                else:mutant[name]['mode']='100755'
+                with self.subTest(path=name,action=action),self.assertRaisesRegex(AssertionError,'unverified Mint/Front current output'):
+                    projection.project_p9_inventory(mutant)
+        for name in (projection.MF_ROOT+'/unapproved.hda','assets/hd/authoring/mint-front-extra.png'):
             mutant=copy.deepcopy(self.inventory);mutant[name]={'sha256':'0'*64,'mode':'100644'}
             with self.subTest(path=name),self.assertRaisesRegex(AssertionError,'unapproved current asset inventory'):
                 projection.project_p9_inventory(mutant)

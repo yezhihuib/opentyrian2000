@@ -69,6 +69,10 @@ def main():
     for destination,row in current_craft267_compatibility(root).items():
         if destination in art_compat:raise ValueError('Legacy/global compatibility collision')
         art_compat[destination]=dict(row,authoring_family='craft267')
+    from current_sidekick_body_compatibility import mf_load
+    for destination,row in mf_load(root).items():
+        if destination in art_compat:raise ValueError('Mint/Front compatibility collision')
+        art_compat[destination]=dict(row,authoring_family='mint-front-body')
     hud_compat=current_hud_compatibility(root)
     def add(source,destination,group,exact=None):
         size,blob,sha=pins(root/source)

@@ -2,7 +2,7 @@
 
 The original feature oracle and its old digests are not rebased. Each inverse
 first verifies the entire accepted current blob, then every finite hunk, then
-the old blob. The one generated sidekick header and nineteen fixed current asset outputs
+the old blob. The one generated sidekick header and twenty-four fixed current asset outputs
 require a fresh exact current-generation proof before their finite projection.
 All other source bytes and the historical asset inventory remain fixed.
 The reviewed render-boundary correction has its own exact two-file inverse;
@@ -10,6 +10,8 @@ current source bindings keep its real bytes, while older oracles see their
 original source through that explicit projection. The later five-file Charge
 inverse is applied exactly once before that correction. Its ten current asset
 paths have an independent master/recipe derivation proof, not a rebased P9 ledger.
+The five Mint/Front current paths have a separate four-source pixel proof; their
+existing historical transports and three independent Mint phases stay frozen.
 """
 from pathlib import Path
 import copy, hashlib, json, os, subprocess, sys
@@ -188,6 +190,61 @@ def verified_charge_current(root=ROOT):
  assert len(outputs)==10,'unapproved Charge asset scope'
  return dict(assets=outputs)
 
+MF_SELECTION='assets/hd/authoring/mint-front-body-current.json'
+MF_ROOT='assets/hd/current-compat/mint-front-body'
+MF_IDS=(1270112,1270131,1270150,1280083)
+MF_NAMES=('option-mint-bank9-112-8.hda','option-mint-bank9-131-8.hda','option-mint-bank9-150-8.hda','option-frontblaster-bank10-83-8.hda')
+MF_MAPPING='packaging/current-mint-front-body-compatibility.json'
+
+def verified_mint_front_current(root=ROOT):
+ """Verify exactly four independent current sources, then project five assets.
+
+ Current pixels are not pinned to the historical bootstrap. Decode each selected
+ PNG independently and bind its exact fixed-role HDR1 transport, mapping and
+ existing runtime destination. No source PNG is an asset-inventory exemption.
+ """
+ import io,struct
+ from PIL import Image
+ scripts=str(ROOT/'scripts')
+ if scripts not in sys.path:sys.path.insert(0,scripts)
+ import build_current_sidekick_body as builder
+ import current_sidekick_body_compatibility as compat
+ assert compat.MF_IDS==MF_IDS and compat.MF_SELECTION==MF_SELECTION
+ assert compat.MF_ROOT==MF_ROOT and compat.MF_MAPPING==MF_MAPPING
+ loaded=compat.mf_load(root)
+ raw=builder.read(root,MF_SELECTION);selected=json.loads(raw)
+ assert set(selected)=={'schema','version','resources'} and selected['schema']=='opentyrian-current-mint-front-body-authoring-v1','unapproved Mint/Front selection contract'
+ assert isinstance(selected['version'],str) and 1<=len(selected['version'])<=128,'invalid Mint/Front version'
+ assert isinstance(selected['resources'],list) and len(selected['resources'])==4,'unapproved Mint/Front source count'
+ expected_destinations={'assets/gameplay/'+name for name in MF_NAMES}
+ assert set(loaded)==expected_destinations,'unapproved Mint/Front consumer scope'
+ outputs={MF_SELECTION:{'sha256':sha(raw),'mode':'100644'}};rows=[];sources={}
+ runtime=json.loads(builder.read(root,builder.RUNTIME));runtime_rows={r['destination']:r for r in runtime['files']}
+ assert len(runtime_rows)==len(runtime['files'])==1015,'unexpected current runtime destination scope'
+ for identity,name,record in zip(MF_IDS,MF_NAMES,selected['resources']):
+  assert set(record)=={'identity','source_png','source_sha256'} and type(record['identity']) is int and record['identity']==identity,'unapproved Mint/Front identity/fields/order'
+  source_png=record['source_png']
+  assert isinstance(source_png,str) and source_png.startswith('authoring-inputs/') and source_png.endswith('.png') and source_png not in sources,'Mint/Front requires four independent authoring inputs'
+  png=builder.read(root,source_png)
+  assert sha(png)==record['source_sha256'],'current Mint/Front selected PNG mismatch'
+  w,h=(24,28) if identity==1280083 else (12,14)
+  with Image.open(io.BytesIO(png)) as image:
+   assert image.format=='PNG' and image.mode=='RGBA' and image.size==(w*8,h*8) and getattr(image,'n_frames',1)==1,'current Mint/Front PNG geometry mismatch'
+   blob=struct.pack('<4s6I',b'HDR1',identity,8,w,h,0,0)+image.tobytes()
+  source=MF_ROOT+'/'+name;destination='assets/gameplay/'+name
+  assert builder.read(root,source)==blob,('current Mint/Front PNG/HDA mismatch',identity)
+  row=dict(identity=identity,source_path=source,destination=destination,sha256=sha(blob))
+  assert loaded[destination]==row,('current Mint/Front compatibility mismatch',identity)
+  rows.append(row);sources[source_png]=record['source_sha256']
+  oid=hashlib.sha1(b'blob '+str(len(blob)).encode()+b'\0'+blob).hexdigest()
+  expected=dict(source_path=source,destination=destination,group='gameplay',revision='current-single-source-mint-front-body',bytes=len(blob),git_blob=oid,sha256=sha(blob))
+  assert runtime_rows.get(destination)==expected,('stale current Mint/Front runtime body',destination)
+  outputs[source]={'sha256':sha(blob),'mode':'100644'}
+ expected=dict(schema='opentyrian-current-mint-front-body-compatibility-v1',selection=MF_SELECTION,version=selected['version'],files=rows)
+ assert builder.read(root,MF_MAPPING)==builder.encoded(expected),'current Mint/Front selection/mapping mismatch'
+ assert len(outputs)==5 and len(sources)==4,'unapproved Mint/Front asset scope'
+ return dict(assets=outputs,source_pngs=sources)
+
 def project_craft267_readme(current,root,ledger):
  """Undo exactly the reviewed complete README blob and its single line hunk."""
  edit=ledger['craft267_readme_inverse']
@@ -274,6 +331,11 @@ Retired paths are explicitly absent, never a prefix/wildcard exclusion.
 def project_p9_inventory(current,root=ROOT):
  current=copy.deepcopy(current)
  ledger=load('p9-assets.json')
+ mint_front=verified_mint_front_current(root)['assets']
+ assert set(mint_front)=={MF_SELECTION}|{MF_ROOT+'/'+name for name in MF_NAMES} and len(mint_front)==5,'unapproved Mint/Front output scope'
+ for name,row in mint_front.items():
+  assert row['mode']=='100644' and current.get(name)==row,('unverified Mint/Front current output',name)
+  del current[name]
  charge=verified_charge_current(root)['assets']
  assert set(charge)=={CHARGE_SELECTION}|{CHARGE_ROOT+'/'+name for name in CHARGE_NAMES} and len(charge)==10,'unapproved Charge output scope'
  for name,row in charge.items():
