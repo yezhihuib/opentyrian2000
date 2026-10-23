@@ -208,6 +208,7 @@ static int global_rotor_draw(SDL_Surface *surface,int x,int y,Sprite2_array bank
   }
   if(global_talon_owner)global_talon_owner[n]=global_talon_foreign[n]=0;
   global_rotor_contributed=true;
+  global_newshf_clear(n);
   if(global_pulse_owner)global_pulse_owner[n]=global_pulse_foreign[n]=0;
   if(global_shield_owner)global_shield_owner[n]=global_shield_foreign[n]=0;
   if(global_vulcan_owner)global_vulcan_owner[n]=global_vulcan_foreign[n]=0;

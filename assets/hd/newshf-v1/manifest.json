@@ -1,0 +1,188 @@
+{
+  "identity": {
+    "alpha": "binary-0-255",
+    "bank": "newshf.shp",
+    "bank_sha256": "852c2fb552c9077a198be7902d8f58699ed070dabcd36c6e3acfe80dd3804cce",
+    "bank_size": 33543,
+    "component_offsets": [
+      0,
+      1,
+      19,
+      20
+    ],
+    "density": 8,
+    "item_table": "tyrian.hdt",
+    "item_table_sha256": "fde8506326e7bb0916b38c362e33bf8a8a5affa561206c021af7f65b4a17745b",
+    "logical_anchor": [
+      6,
+      7
+    ],
+    "logical_bank": 10,
+    "logical_size": [
+      24,
+      28
+    ],
+    "pixel_size": [
+      192,
+      224
+    ],
+    "records": [
+      {
+        "ani": 1,
+        "animate": 0,
+        "bases": [
+          125,
+          123,
+          127
+        ],
+        "esize": 1,
+        "offset": 176566,
+        "record": 163,
+        "sha256": "9e7afb0db4dc9e07278b2e2de4fe610215b2b2241f43ebcda116816e9d8c901c",
+        "size": 77
+      },
+      {
+        "ani": 1,
+        "animate": 0,
+        "bases": [
+          3,
+          1,
+          5
+        ],
+        "esize": 1,
+        "offset": 176874,
+        "record": 167,
+        "sha256": "799fcf3bdf90d75e0cdf09eb63988db12a113bbd692cceaf80ed521aa29aaaa8",
+        "size": 77
+      },
+      {
+        "ani": 1,
+        "animate": 0,
+        "bases": [
+          55,
+          17,
+          93
+        ],
+        "esize": 1,
+        "offset": 176951,
+        "record": 168,
+        "sha256": "574bce52037236a1bc3dd655ad7be44c933fa71a68e203f6eecdb3c08aeb2e11",
+        "size": 77
+      }
+    ],
+    "selection": "enemycycle; not automatic three-frame animation"
+  },
+  "resources": [
+    {
+      "base": 125,
+      "bytes": 172060,
+      "destination": "assets/global/newshf/newshf-role2100000-8.hda",
+      "identity": 2100000,
+      "payload_fnv": "ecdef4c1c63985d7",
+      "record": 163,
+      "sha256": "bccab3ffa0e2743cd8e12b45101ab18ecc5ca22745fcd430701da2c2fda43420",
+      "source_path": "assets/hd/newshf-v1/newshf-role2100000-8.hda",
+      "source_png": "authoring-inputs/enemies/newshf-phase-a/enemy-163-v1-bbox-fit-base125.png",
+      "source_png_sha256": "8231cf3832460c679dfef3743b0f17604579e0f7df400f7deece96cdb64e684d"
+    },
+    {
+      "base": 123,
+      "bytes": 172060,
+      "destination": "assets/global/newshf/newshf-role2100001-8.hda",
+      "identity": 2100001,
+      "payload_fnv": "00e8222345a33891",
+      "record": 163,
+      "sha256": "fb326361a33883f7374732c3b4cea3be0f4e7cdfa298daefeed3a13b815f0807",
+      "source_path": "assets/hd/newshf-v1/newshf-role2100001-8.hda",
+      "source_png": "authoring-inputs/enemies/newshf-phase-a/enemy-163-v1-bbox-fit-base123.png",
+      "source_png_sha256": "f5fb995632edde27643bd462ffce52a76639c427d0229aeb97d176913878754d"
+    },
+    {
+      "base": 127,
+      "bytes": 172060,
+      "destination": "assets/global/newshf/newshf-role2100002-8.hda",
+      "identity": 2100002,
+      "payload_fnv": "4e24bd864beab765",
+      "record": 163,
+      "sha256": "6c311946d3d92ff2bca8ed6aa3874eb3acbcc694d2db6baa6b82b86c3e25c684",
+      "source_path": "assets/hd/newshf-v1/newshf-role2100002-8.hda",
+      "source_png": "authoring-inputs/enemies/newshf-phase-a/enemy-163-v1-bbox-fit-base127.png",
+      "source_png_sha256": "2a286657eaf91e7404bb3c3ccab77974c8d2c5060ab8a6961c4ab1ef7601b33a"
+    },
+    {
+      "base": 3,
+      "bytes": 172060,
+      "destination": "assets/global/newshf/newshf-role2100003-8.hda",
+      "identity": 2100003,
+      "payload_fnv": "8f4e4a308b49d7da",
+      "record": 167,
+      "sha256": "36f3e6eb60084635ecd38f29b437a9eedf014a8e7a19e8bcfed38f00bc052f23",
+      "source_path": "assets/hd/newshf-v1/newshf-role2100003-8.hda",
+      "source_png": "authoring-inputs/enemies/newshf-phase-a/enemy-167-v1-bbox-fit-base3.png",
+      "source_png_sha256": "931556bcf925637217e1039f063b043836abd568469a736aa5542fbb358e277f"
+    },
+    {
+      "base": 1,
+      "bytes": 172060,
+      "destination": "assets/global/newshf/newshf-role2100004-8.hda",
+      "identity": 2100004,
+      "payload_fnv": "23d8f0fed3b5000e",
+      "record": 167,
+      "sha256": "9a39daa716d85a5fb55534692a61cb09649cb59f24b2ad4a50b1dbb01d1b480c",
+      "source_path": "assets/hd/newshf-v1/newshf-role2100004-8.hda",
+      "source_png": "authoring-inputs/enemies/newshf-phase-a/enemy-167-v1-bbox-fit-base1.png",
+      "source_png_sha256": "076b9106aebc39c1c28349abae95fc014d3c2e8dff3813077912a27bc761a25e"
+    },
+    {
+      "base": 5,
+      "bytes": 172060,
+      "destination": "assets/global/newshf/newshf-role2100005-8.hda",
+      "identity": 2100005,
+      "payload_fnv": "3a4582bfa2cd9a40",
+      "record": 167,
+      "sha256": "8e3cff75572bbac1f830a8c50e060473cea14a170b5d10afea8567c92f2917ed",
+      "source_path": "assets/hd/newshf-v1/newshf-role2100005-8.hda",
+      "source_png": "authoring-inputs/enemies/newshf-phase-a/enemy-167-v1-bbox-fit-base5.png",
+      "source_png_sha256": "74dbf41d55eccdc35f50d913efd9871ab26e5d0b57f81e2a9cc985607154c7c7"
+    },
+    {
+      "base": 55,
+      "bytes": 172060,
+      "destination": "assets/global/newshf/newshf-role2100006-8.hda",
+      "identity": 2100006,
+      "payload_fnv": "c97f146e641ab54e",
+      "record": 168,
+      "sha256": "1954ceba77e72e099d3b92b8f6bc78c14c061ee28dfdd0cec037ca43e62b2c49",
+      "source_path": "assets/hd/newshf-v1/newshf-role2100006-8.hda",
+      "source_png": "authoring-inputs/enemies/newshf-phase-a/enemy-168-v1-bbox-fit-base55.png",
+      "source_png_sha256": "9cfc7d7b8c2b20917bd58898cf21fbb76ad2841e371158f37316aab3f8818e70"
+    },
+    {
+      "base": 17,
+      "bytes": 172060,
+      "destination": "assets/global/newshf/newshf-role2100007-8.hda",
+      "identity": 2100007,
+      "payload_fnv": "d29ec1c0a55df81d",
+      "record": 168,
+      "sha256": "1bc2d7b6f83a438ae167a0776481d60ac04fa19b181945499585fbb08ccc13c5",
+      "source_path": "assets/hd/newshf-v1/newshf-role2100007-8.hda",
+      "source_png": "authoring-inputs/enemies/newshf-phase-a/enemy-168-v1-bbox-fit-base17.png",
+      "source_png_sha256": "e02d8f0b3c622aa7fd846406f5df30dc6ac0a4af1eed70a1103fec19dac1955b"
+    },
+    {
+      "base": 93,
+      "bytes": 172060,
+      "destination": "assets/global/newshf/newshf-role2100008-8.hda",
+      "identity": 2100008,
+      "payload_fnv": "683831bfffa8e081",
+      "record": 168,
+      "sha256": "35a17d97f319ae97dcbfcf8c1545f66048c9c27a5545c2f6a9ac05f2ba4c97dd",
+      "source_path": "assets/hd/newshf-v1/newshf-role2100008-8.hda",
+      "source_png": "authoring-inputs/enemies/newshf-phase-a/enemy-168-v1-bbox-fit-base93.png",
+      "source_png_sha256": "c0f68d1715b31fa314f9ba65dbb910bc7c7edc3f6ad4bb4f2958da032e6f61b5"
+    }
+  ],
+  "schema": "opentyrian-newshf-hd-nine-v1",
+  "scope": "Independent default-off finite NEWSHF compositor; no global registry eligibility",
+  "source_contract": "authoring-inputs/enemies/newshf-phase-a/manifest.json"
+}

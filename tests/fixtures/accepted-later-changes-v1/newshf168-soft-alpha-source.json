@@ -1,0 +1,29 @@
+{
+  "files": {
+    "src/global_newshf_mirror.inc": {
+      "current_sha256": "805a4c259dcd6a06d18a09980371abfc0c3be5f3fb078269ff55c90a060c14ff",
+      "hunks": [
+        {
+          "after": "  /* Transparent or partial-alpha art needs a proven underlay. This finite\n   * owner may retain its own RGB, never another owner's unproven lifetime. */\n  if(a[3]<255&&foreign){global_newshf_fail();return 0;}\n",
+          "after_lines": [
+            209,
+            212
+          ],
+          "before": "  /* Binary-alpha art can preserve an existing RGB underlay only when this\n   * finite owner owns it. Unknown/other-owner lifetime is not borrowed. */\n  if(!a[3]&&foreign){global_newshf_fail();return 0;}\n"
+        },
+        {
+          "after": "  /* Opaque art replaces foreign RGB; all nonopaque foreign sampling declined above. */\n",
+          "after_lines": [
+            215,
+            216
+          ],
+          "before": "  /* Opaque art replaces foreign RGB; transparent foreign sampling declined above. */\n"
+        }
+      ],
+      "previous_sha256": "72ab056d6bb1de136f134735c5560ac9fd80a8391025efcd08dc29a372d883a1"
+    }
+  },
+  "integration_base": "0112ec8d3c3fd0b6145463b85a713a79ccd01ac5",
+  "schema": "opentyrian-reviewed-newshf168-soft-alpha-source-v1",
+  "scope": "Only nonopaque foreign-owner underlay rejection; immutable native proofs and original source pins unchanged"
+}

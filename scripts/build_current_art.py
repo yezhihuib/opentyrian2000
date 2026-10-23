@@ -28,11 +28,23 @@ REGISTRY_AUTHORITY_SHA256='21d0b78355542b5315df82a515f3e341a3070508bdfc414f632b1
 # on 11a9c7f6 and the earlier two-file render correction on 6ada526. Prior foundation digest fff3fc79dc6283ea92c9b2bc20fab63c8ed53ae57967d3726e94d1a3ba997ac9
 # remains historical provenance, never an alternative accepted source state.
 # Charge inverse: tests/fixtures/accepted-later-changes-v1/charge-body-source.json.
+# Orb opt-in payload-only inverse: tests/fixtures/accepted-later-changes-v1/enemy-orb-source.json.
 # Front Multi inverse: tests/fixtures/accepted-later-changes-v1/front-multi-source.json.
 # Plasma inverse: tests/fixtures/accepted-later-changes-v1/plasma-projectile-source.json.
 # The finite inverse is pinned in tests/fixtures/accepted-later-changes-v1/render-boundaries-source.json.
-GAMEPLAY_SOURCE_SHA256='c0d537996260167f5e341d86aaf76ad29cad629872177ee16b0f0f7f81afbaaf'
-BUILD_INPUT_SHA256='537111f6f8f9a1bd6b0efce18453669d72ac3e8df9062cab010b46cc4e48e7c6'
+# Also includes the reviewed default-off NEWSHF compositor; only its generated
+# nine-resource header is mutable, with strict selected-PNG derivation below.
+# Enemy reuse adds exactly three default-off semantic modules plus six guarded
+# hook edits (enemy-reuse-source.json exact inverse); no artwork authority change.
+# Prior gameplay/build digests: 0fcf5a1e252b888b99389e27f1cd3f5b93cec2af6914ada5382370b6d3e2c7c8 /
+# 537111f6f8f9a1bd6b0efce18453669d72ac3e8df9062cab010b46cc4e48e7c6.
+# Prior binary-alpha gameplay authority: 9855830c5b06b02c9e4ccd0952606f98357b6e2a0d2477f09e82652d2494edd3.
+# Only reviewed change is exact global_newshf_mirror.inc nonopaque-foreign guard;
+# finite inverse: tests/fixtures/accepted-later-changes-v1/newshf168-soft-alpha-source.json.
+# Prior V4 gameplay authority: c1bc7f29b1082c7c40f537593ab23c72fc30a087275604735980ee2a27dac001.
+# Exact P05 observational extension: enemy-green-reuse-source.json; no new asset authority.
+GAMEPLAY_SOURCE_SHA256='44923f96ea7d263760ca98d88a9d68420349a5cf37ce43a5665e13707aa3a914'
+BUILD_INPUT_SHA256='dcc93711da1cb8eb764582d33f81b80c8474a0009271b682ed235548314a3800'
 
 def sha(data):return hashlib.sha256(data).hexdigest()
 def encoded(obj):return (json.dumps(obj,indent=2)+'\n').encode()
@@ -77,13 +89,15 @@ def verify_authority(root,registry,family='pulse'):
             for key in ('path','sha256','payload_fnv64','provenance'):row.pop(key,None)
     if source_manifest_digest(fixed)!=REGISTRY_AUTHORITY_SHA256:
         raise ValueError('Registry role/source authority or unrelated resource changed')
-    sources=source_inventory(root);sources.pop(HEADER,None);sources.pop(LEGACY_HEADER,None);sources.pop('src/current_hud_payload_pins.h',None);sources.pop('src/current_tank_shell_payload_pins.h',None);sources.pop('src/current_enemy_energy_payload_pins.h',None);sources.pop('src/current_sidekick_body_payload_pins.h',None);sources.pop('src/current_plasma_projectile_payload_pins.h',None);sources.pop('src/hd_front_multi_current.h',None)
+    sources=source_inventory(root);sources.pop(HEADER,None);sources.pop(LEGACY_HEADER,None);sources.pop('src/current_hud_payload_pins.h',None);sources.pop('src/current_tank_shell_payload_pins.h',None);sources.pop('src/current_enemy_energy_payload_pins.h',None);sources.pop('src/current_sidekick_body_payload_pins.h',None);sources.pop('src/current_plasma_projectile_payload_pins.h',None);sources.pop('src/hd_front_multi_current.h',None);sources.pop('src/current_enemy_orb_payload_pins.h',None);sources.pop('src/newshf_hd_assets.h',None);sources.pop('src/current_enemy_protron_payload_pins.h',None)
     if source_manifest_digest(sources)!=GAMEPLAY_SOURCE_SHA256:
         raise ValueError('Unrelated gameplay source changed')
     inputs={p:sha(read(root,p)) for p in BUILD_INPUTS}
     if source_manifest_digest(inputs)!=BUILD_INPUT_SHA256:
         raise ValueError('Build inputs changed')
 
+    from build_newshf_hd import load as newshf_load
+    newshf_load(root)
     from current_tank_shell_compatibility import load as tank_shell_compatibility
     tank_shell_compatibility(root)
     from current_enemy_energy_compatibility import load as energy_compatibility

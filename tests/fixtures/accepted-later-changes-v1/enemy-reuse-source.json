@@ -1,0 +1,248 @@
+{
+  "added_sources": {
+    "src/enemy_reuse_identity.c": "4022c6885e55fc7a23c62aa861a5aa0032532c953f34873b7229b9ec97009a03",
+    "src/enemy_reuse_identity.h": "ee1a998698cd77d27843e8537b5db3e55fa67045deab709021f07dd7d95d003b",
+    "src/enemy_reuse_mirror.inc": "2a9f5f78b9b7be894148353314f38e5e513a3a146445df27deb57f9fc6d7a311"
+  },
+  "files": {
+    "src/entity_draw.c": {
+      "current_sha256": "232327b462a18dcc7648ef3f993f72bdffb9b9e7de1c6ba9be293ea16f0bc935",
+      "hunks": [
+        {
+          "after": "\n#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)\n/* Distinct enemy semantics: no player lookup, shadow lease, or altered blit. */\nvoid draw_enemy_reuse_shot_sprite2(SDL_Surface *target,int x,int y,Sprite2_array bank,unsigned index,unsigned slot,unsigned raw)\n{\n bool mirrored=render_mirror_enemy_reuse_shot(target,x,y,bank,index,slot,raw);\n#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)\n game_probe_scene_draw(146,index,x,y,0,ENTITY_NORMAL,mirrored);\n#else\n (void)mirrored;(void)slot;(void)raw;\n#endif\n blit_sprite2(target,x,y,bank,index);\n render_mirror_entity_end();\n}\n\n#endif\n",
+          "after_lines": [
+            201,
+            217
+          ],
+          "before": ""
+        }
+      ],
+      "previous_sha256": "4b65f5a17843ec74917c809cd988f9e98bfc72b18e08d1f8f62e25060c612379"
+    },
+    "src/entity_draw.h": {
+      "current_sha256": "2fa761d269860a0da42a5e02c418477a9b874f749ad979291038e2b6806ba827",
+      "hunks": [
+        {
+          "after": "\nvoid draw_enemy_reuse_shot_sprite2(SDL_Surface *,int,int,Sprite2_array,unsigned,unsigned,unsigned);\n",
+          "after_lines": [
+            24,
+            26
+          ],
+          "before": ""
+        }
+      ],
+      "previous_sha256": "2d21ec68769fb1e34b3fa275131b09bdaf12906ba0b55d07cf2171a26a986c7b"
+    },
+    "src/render_mirror.c": {
+      "current_sha256": "683c9d5c7e463668785344b99fc0254a12d174ea1d4dc55379f1ad83de8f2f32",
+      "hunks": [
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE\n#include \"enemy_reuse_identity.h\"\nstatic const Asset *enemy_reuse_draw_lease;\nstatic void enemy_reuse_shutdown(void),enemy_reuse_frame_begin(void);\nstatic bool enemy_reuse_proof(void),enemy_reuse_cache_check(void);\n#else\n#define enemy_reuse_shutdown() ((void)0)\n#define enemy_reuse_frame_begin() ((void)0)\n#define enemy_reuse_proof() true\n#define enemy_reuse_cache_check() true\n#endif\n",
+          "after_lines": [
+            60,
+            71
+          ],
+          "before": ""
+        },
+        {
+          "after": " enemy_reuse_shutdown();\n",
+          "after_lines": [
+            1322,
+            1323
+          ],
+          "before": ""
+        },
+        {
+          "after": " enemy_reuse_frame_begin();\n",
+          "after_lines": [
+            1503,
+            1504
+          ],
+          "before": ""
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE\n if(a->bank==146)return false; /* private enemy reuse never uses generic loader */\n#endif\n",
+          "after_lines": [
+            1786,
+            1789
+          ],
+          "before": ""
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE\n if(a->bank==146&&(a!=enemy_reuse_draw_lease||!game_probe_enabled||style!=MIRROR_NORMAL||part||filter||material||cap||forest))return false;\n#endif\n",
+          "after_lines": [
+            2782,
+            2785
+          ],
+          "before": ""
+        },
+        {
+          "after": "\n#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE\n#include \"enemy_reuse_mirror.inc\"\n#endif\n",
+          "after_lines": [
+            3388,
+            3392
+          ],
+          "before": ""
+        },
+        {
+          "after": "void render_mirror_entity_end(void) {\n#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE\n enemy_reuse_draw_end();\n#endif\n global_hitflare_end();global_smoke_end();global_green_end();global_small_explosion_end();global_cash25_end();global_rotor_end();global_newshf_end();global_vulcan_end();global_pulse_end();global_shield_end();global_talon_end();asteroid1_talon_blend_end(); render_mirror_shadow_end();cash25_fixed_value=false;cash75_fixed_value=false;cash50_fixed_value=false;gem100_fixed_value=false;gem250_fixed_value=false;data_fixed_value=false;fixed_pickup_flash=false;suppress=false;suppress_green_smoke=false;suppress_cloud=false; }\n",
+          "after_lines": [
+            4333,
+            4338
+          ],
+          "before": "void render_mirror_entity_end(void) { global_hitflare_end();global_smoke_end();global_green_end();global_small_explosion_end();global_cash25_end();global_rotor_end();global_newshf_end();global_vulcan_end();global_pulse_end();global_shield_end();global_talon_end();asteroid1_talon_blend_end(); render_mirror_shadow_end();cash25_fixed_value=false;cash75_fixed_value=false;cash50_fixed_value=false;gem100_fixed_value=false;gem250_fixed_value=false;data_fixed_value=false;fixed_pickup_flash=false;suppress=false;suppress_green_smoke=false;suppress_cloud=false; }\n"
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE\n if(enemy_reuse_frame.contributed&&kind!=MIRROR_OUTPUT_ORDINARY)render_mirror_unsupported(\"enemy-reuse-output-mode\");\n#endif\n if(!enemy_reuse_proof()||!global_newshf_finish_proof()||!global_newshf_output_proof(kind,lightx,lighty)||!global_talon_finish_proof()||!global_vulcan_finish_proof()||!global_green_finish_proof()||!global_smoke_finish_proof()||!global_rotor_finish_proof()||!global_cash25_finish_proof()||!global_small_explosion_finish_proof()||!global_hitflare_finish_proof()||!global_pulse_finish_proof()||!global_shield_finish_proof()) {\n",
+          "after_lines": [
+            4923,
+            4927
+          ],
+          "before": " if(!global_newshf_finish_proof()||!global_newshf_output_proof(kind,lightx,lighty)||!global_talon_finish_proof()||!global_vulcan_finish_proof()||!global_green_finish_proof()||!global_smoke_finish_proof()||!global_rotor_finish_proof()||!global_cash25_finish_proof()||!global_small_explosion_finish_proof()||!global_hitflare_finish_proof()||!global_pulse_finish_proof()||!global_shield_finish_proof()) {\n"
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE\n if(enemy_reuse_frame.contributed){ready=last_output_valid=last_output_scene_hd=have_fade_saved=false;fade_mode=0;return;}\n#endif\n",
+          "after_lines": [
+            5052,
+            5055
+          ],
+          "before": ""
+        },
+        {
+          "after": " if(!enemy_reuse_cache_check())return false;\n",
+          "after_lines": [
+            5144,
+            5145
+          ],
+          "before": ""
+        }
+      ],
+      "previous_sha256": "e44570b0203e47454c878a93596dae327ef056c2e54d9f29c84b4088b153218f"
+    },
+    "src/render_mirror.h": {
+      "current_sha256": "e8b04342f346e392cc627f3463932b7dc509b87f216a68846bf5bba127b3e138",
+      "hunks": [
+        {
+          "after": "#endif\n#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)\nbool render_mirror_enemy_reuse_shot(SDL_Surface *,int,int,Sprite2_array,unsigned,unsigned,unsigned);\n#else\n#define render_mirror_enemy_reuse_shot(...) false\n",
+          "after_lines": [
+            24,
+            29
+          ],
+          "before": ""
+        }
+      ],
+      "previous_sha256": "23370e3fa0b71cd8092e99b3fbd887a816084181cd3b81da6e178a5c657b10f7"
+    },
+    "src/sprite.c": {
+      "current_sha256": "9fe507a7724825c5cc1ffb42aa533ab947135368d1102bd8372743e0d4496a96",
+      "hunks": [
+        {
+          "after": "#include \"enemy_reuse_identity.h\"\n",
+          "after_lines": [
+            25,
+            26
+          ],
+          "before": ""
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)\n\tenemy_reuse_bank_changed(sprite2s);\n#endif\n",
+          "after_lines": [
+            543,
+            546
+          ],
+          "before": ""
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)\n\tenemy_reuse_bank_changed(sprite2s);\n#endif\n",
+          "after_lines": [
+            555,
+            558
+          ],
+          "before": ""
+        }
+      ],
+      "previous_sha256": "56e3a9b2207953b067ffd0563cb00b921a407ebe2c936c621da8a192c3fd6ab0"
+    },
+    "src/tyrian2.c": {
+      "current_sha256": "ef9751e9ecd2ffd4982b101a9bc545c7caea68f0114cc067ca900383213ea889",
+      "hunks": [
+        {
+          "after": "#include \"enemy_reuse_identity.h\"\n",
+          "after_lines": [
+            22,
+            23
+          ],
+          "before": ""
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)\n\t\t\t\t\t\t\t\tenemy_reuse_shot_retire(b);\n#endif\n",
+          "after_lines": [
+            472,
+            475
+          ],
+          "before": ""
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)\n\t\t\t\t\t\t\t\tenemy_reuse_shot_spawn(b,i,temp3,j,tempPos);\n#endif\n",
+          "after_lines": [
+            570,
+            573
+          ],
+          "before": ""
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)\n\tenemy_reuse_reset();\n#endif\n",
+          "after_lines": [
+            1070,
+            1073
+          ],
+          "before": ""
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)\n\t\t\t\t\tenemy_reuse_shot_retire(z);\n#endif\n",
+          "after_lines": [
+            1877,
+            1880
+          ],
+          "before": ""
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)\n\t\t\t\t\t\t\tenemy_reuse_shot_retire(z);\n#endif\n",
+          "after_lines": [
+            1897,
+            1900
+          ],
+          "before": ""
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)\n\t\t\t\t\t\t\tif (sprite == 105 || sprite == 106 || sprite == 124 || sprite == 125 || sprite == 20 || sprite == 21)\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tenemy_reuse_shot_begin_draw(z);\n\t\t\t\t\t\t\t\tdraw_enemy_reuse_shot_sprite2(VGAScreen, enemyShot[z].sx, enemyShot[z].sy, spriteSheet8, sprite, z, enemyShot[z].sgr);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\telse\n#endif\n",
+          "after_lines": [
+            1930,
+            1938
+          ],
+          "before": ""
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)\n\tenemy_reuse_actor_allocated(enemy,eDatI,uniqueShapeTableI);\n#endif\n",
+          "after_lines": [
+            4062,
+            4065
+          ],
+          "before": ""
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)\n\tenemy_reuse_actor_initialized(enemy,eDatI,avail);\n#endif\n",
+          "after_lines": [
+            4354,
+            4357
+          ],
+          "before": ""
+        }
+      ],
+      "previous_sha256": "83808c076a619a7ba711d2ff46cf05197eac020ba8e3046b6bfacababce1388e"
+    }
+  },
+  "integration_base": "461604a88e2f3fa4d0d75840ec54e535de1a74a9",
+  "schema": "opentyrian-reviewed-enemy-reuse-source-v1",
+  "scope": "Default-off finite P02/P04 probe-only enemy reuse; no payload edits, no gameplay writes"
+}

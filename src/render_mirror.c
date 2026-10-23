@@ -58,7 +58,19 @@ typedef struct {
  int bank,index,w,h,anchor_x,anchor_y,density;
  Uint8 *rgba;
 } Asset;
-enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121, ASSET_ENEMY_TANK_SHELL=122, ASSET_REAR534_BODY=123, ASSET_DATA513_BODY=124, ASSET_PROTRON_SHADOW=125, ASSET_MARLO_BODY=126, ASSET_MINT_BODY=127, ASSET_FRONTBLASTER_BODY=128, ASSET_PLASMA_BODY=129, ASSET_PLASMA_PROJECTILE=130, ASSET_REAR_MULTI_P1=131, ASSET_DATA_VALUE=132, ASSET_FIXED_PICKUP_FLASH=133, ASSET_SECRET_EXIT_ORB=134, ASSET_ASTEROID1_NEWSHP=135, ASSET_ASTEROID1_NEWSHS=136, ASSET_ASTEROID1_TRIPLE275=137, ASSET_ASTEROID1_COLUMNS276=138, ASSET_ASTEROID1_TURRET273=139, ASSET_ASTEROID1_PROJECTILE304=140, ASSET_ASTEROID1_FIRING270=141, ASSET_ASTEROID1_ENEMY_ORB112113=142, ASSET_ASTEROID1_FIRING285=143, ASSET_ASTEROID1_TERRAIN144=144, ASSET_CHARGE_BODY=145, ASSET_ASTEROID1=108 };
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
+#include "enemy_reuse_identity.h"
+#include "current_enemy_protron_payload_pins.h"
+static const Asset *enemy_reuse_draw_lease;
+static void enemy_reuse_shutdown(void),enemy_reuse_frame_begin(void);
+static bool enemy_reuse_proof(void),enemy_reuse_cache_check(void);
+#else
+#define enemy_reuse_shutdown() ((void)0)
+#define enemy_reuse_frame_begin() ((void)0)
+#define enemy_reuse_proof() true
+#define enemy_reuse_cache_check() true
+#endif
+enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121, ASSET_ENEMY_TANK_SHELL=122, ASSET_REAR534_BODY=123, ASSET_DATA513_BODY=124, ASSET_PROTRON_SHADOW=125, ASSET_MARLO_BODY=126, ASSET_MINT_BODY=127, ASSET_FRONTBLASTER_BODY=128, ASSET_PLASMA_BODY=129, ASSET_PLASMA_PROJECTILE=130, ASSET_REAR_MULTI_P1=131, ASSET_DATA_VALUE=132, ASSET_FIXED_PICKUP_FLASH=133, ASSET_SECRET_EXIT_ORB=134, ASSET_ASTEROID1_NEWSHP=135, ASSET_ASTEROID1_NEWSHS=136, ASSET_ASTEROID1_TRIPLE275=137, ASSET_ASTEROID1_COLUMNS276=138, ASSET_ASTEROID1_TURRET273=139, ASSET_ASTEROID1_PROJECTILE304=140, ASSET_ASTEROID1_FIRING270=141, ASSET_ASTEROID1_ENEMY_ORB112113=142, ASSET_ASTEROID1_FIRING285=143, ASSET_ASTEROID1_TERRAIN144=144, ASSET_CHARGE_BODY=145, ASSET_ENEMY_PROTRON_P09_MATERIAL=147, ASSET_ASTEROID1=108 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
 /* Slots 507..509 are rear534; slots 510..521 are Data513. */
 static Asset assets[576];
@@ -262,6 +274,50 @@ static bool global_rotor_palette_matches(void);
 static void global_rotor_check_cache(void);
 static void global_rotor_fade_palette(void);
 static Uint8 *global_rotor_owner,*global_rotor_foreign;
+#if defined(NEWSHF_HD_COMPOSITOR) && NEWSHF_HD_COMPOSITOR
+static bool global_newshf_frame,global_newshf_fault;
+static void global_newshf_shutdown(void);
+static void global_newshf_reset(void);
+static void global_newshf_frame_begin(void);
+static bool global_newshf_pixel(int,int,Uint8,Uint8,int);
+static void global_newshf_final_pixel(SDL_Surface *,Uint8 *);
+static void global_newshf_final_rect(SDL_Surface *,const SDL_Rect *);
+static void global_newshf_end(void);
+static bool global_newshf_compose(MirrorOutputKind,int,int);
+static bool global_newshf_surface_matches(void);
+static bool global_newshf_final_surface_matches(void);
+static bool global_newshf_source_matches(Sprite2_array);
+static bool global_newshf_palette_matches(void);
+static void global_newshf_check_cache(void);
+static bool global_newshf_fade_decline(void);
+static Uint8 *global_newshf_owner,*global_newshf_foreign;
+static bool global_newshf_requested(void);
+static void global_newshf_invalidate(void);
+static void global_newshf_tick_begin(void);
+static void global_newshf_clear(size_t n){if(global_newshf_owner)global_newshf_owner[n]=global_newshf_foreign[n]=0;}
+#else
+#define global_newshf_frame false
+#define global_newshf_requested() false
+#define global_newshf_clear(n) ((void)0)
+#define global_newshf_invalidate() ((void)0)
+#define global_newshf_tick_begin() ((void)0)
+#define global_newshf_shutdown() ((void)0)
+#define global_newshf_frame_begin() ((void)0)
+#define global_newshf_final_pixel(s,p) ((void)0)
+#define global_newshf_final_rect(s,r) ((void)0)
+#define global_newshf_pixel(x,y,b,a,s) false
+#define global_newshf_end() ((void)0)
+#define global_newshf_reset() ((void)0)
+#define global_newshf_compose(k,x,y) false
+#define global_newshf_finish_proof() true
+#define global_newshf_output_proof(k,x,y) true
+#define global_newshf_surface_matches() true
+#define global_newshf_final_surface_matches() true
+#define global_newshf_observe_blend(s,p) false
+#define global_newshf_check_cache() ((void)0)
+#define global_newshf_fade_decline() true
+#endif
+
 static bool global_shield_frame,global_shield_fault;
 static void global_shield_shutdown(void);
 static void global_shield_reset(void);
@@ -1250,7 +1306,8 @@ bool render_mirror_set_global_assets(const char *directory)
 {
  size_t length=directory?strlen(directory):0;
  if(length<sizeof(global_asset_directory)&&((!length&&!global_asset_directory[0])||(length&&!strcmp(directory,global_asset_directory))))return true;
- global_hitflare_shutdown();global_smoke_shutdown();global_green_shutdown();global_small_explosion_shutdown();global_cash25_shutdown();global_rotor_shutdown();global_vulcan_root_changed();global_pulse_shutdown();global_shield_shutdown();global_talon_shutdown();global_asset_directory[0]='\0';
+ render_mirror_newshf_validation_reset();
+ global_hitflare_shutdown();global_smoke_shutdown();global_green_shutdown();global_small_explosion_shutdown();global_cash25_shutdown();global_rotor_shutdown();global_newshf_shutdown();global_vulcan_root_changed();global_pulse_shutdown();global_shield_shutdown();global_talon_shutdown();global_asset_directory[0]='\0';
  pregame_shop_pulse_set_directory(NULL);
  pregame_shop_vulcan_set_directory(NULL);
  pregame_shop_ship_set_directory(NULL);
@@ -1264,7 +1321,9 @@ bool render_mirror_set_global_assets(const char *directory)
 
 void render_mirror_hud_shutdown(void)
 {
- global_hitflare_shutdown();global_smoke_shutdown();global_green_shutdown();global_small_explosion_shutdown();global_cash25_shutdown();global_rotor_shutdown();global_vulcan_shutdown();global_pulse_shutdown();global_shield_shutdown();global_talon_shutdown();
+ enemy_reuse_shutdown();
+ render_mirror_newshf_validation_reset();
+ global_hitflare_shutdown();global_smoke_shutdown();global_green_shutdown();global_small_explosion_shutdown();global_cash25_shutdown();global_rotor_shutdown();global_newshf_shutdown();global_vulcan_shutdown();global_pulse_shutdown();global_shield_shutdown();global_talon_shutdown();
  render_mirror_hud_reset();gameplay_hud_shutdown();hud_components_shutdown();hud_meters_shutdown();hud_indicators_shutdown();hud_fixed_text_shutdown();font_shutdown();hud_storm_shutdown();rear_p1_shutdown();asteroid1_shutdown();asteroid4_shutdown();asteroid_common4_shutdown();asteroid_random5_shutdown();asteroid_random43_shutdown();asteroid_random85_shutdown();asteroid_random123_shutdown();asteroid_random95_shutdown();asteroid_random114_shutdown();asteroid_random133_shutdown();asteroid_random152_shutdown();goldwing_shutdown();asteroid_random286_shutdown();fork284_shutdown();capsule545_shutdown();paired287_288_shutdown();firing325_shutdown();ember269_shutdown();linked338_shutdown();pulsing272_shutdown();triple275_shutdown();columns276_shutdown();turret273_shutdown();projectile304_shutdown();firing270_shutdown();firing285_shutdown();enemy_orb112113_shutdown();terrain144_shutdown();
 }
 
@@ -1441,6 +1500,9 @@ static bool hud_compose(void)
 
 void render_mirror_begin(void)
 {
+ render_mirror_newshf_validation_frame();
+ global_newshf_tick_begin();
+ enemy_reuse_frame_begin();
  rear_p1_frame();
  vulcan_shadow_clear();
  cash25_fixed_value=false;
@@ -1450,7 +1512,7 @@ void render_mirror_begin(void)
  gem250_fixed_value=false;
  data_fixed_value=false;
  fixed_pickup_flash=false;
- if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()) {render_mirror_hud_reset();return;}
+ if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()&&!global_newshf_requested()) {render_mirror_hud_reset();return;}
  hud_begin();
  /* JE_main level_loop calls begin exactly once per simulation tick. Neither
   * individual sprites, shadows nor repeated Present calls advance this clock. */
@@ -1458,7 +1520,7 @@ void render_mirror_begin(void)
  ++mirror_logic_tick;banking_draw_player=0;
  last_output_valid=false;have_fade_saved=false;fade_mode=0;
  ready=false; active=false;shared_hud_frame=false;global_talon_frame=global_shield_frame=global_pulse_frame=global_hitflare_frame=global_rotor_frame=global_cash25_frame=global_small_explosion_frame=global_green_frame=global_smoke_frame=global_vulcan_frame=false; suppress=false;suppress_green_smoke=false;suppress_cloud=false;
- if(!mirror_enabled()&&!(shared_hud_lease&&shared_hud_requested())&&!global_talon_requested()) return;
+ if(!mirror_enabled()&&!(shared_hud_lease&&shared_hud_requested())&&!global_talon_requested()&&!global_newshf_requested()) return;
  if(!have_initial_palette) {memcpy(initial_palette,rgb_palette,sizeof(initial_palette));have_initial_palette=true;}
  if(asset_debug_fast_forward())return;
  if(game_probe_density<1||game_probe_density>8||!game_screen||!game_screen->pixels||
@@ -1490,7 +1552,7 @@ void render_mirror_begin(void)
  memset(selected,0,sizeof(selected)); memset(hd_owner,0,(size_t)canvas->w*canvas->h); draws=occlusions=mismatch=0; reject_reason=NULL;
  active=mirror_enabled();shared_hud_frame=shared_hud_lease&&shared_hud_requested();
  memset(cloud_owner,0,(size_t)canvas->w*canvas->h);
- global_talon_frame_begin();global_shield_frame_begin();global_pulse_frame_begin();global_hitflare_frame_begin();global_smoke_frame_begin();global_green_frame_begin();global_small_explosion_frame_begin();global_cash25_frame_begin();global_rotor_frame_begin();global_vulcan_frame_begin();
+ global_talon_frame_begin();global_shield_frame_begin();global_pulse_frame_begin();global_hitflare_frame_begin();global_smoke_frame_begin();global_green_frame_begin();global_small_explosion_frame_begin();global_cash25_frame_begin();global_rotor_frame_begin();global_newshf_frame_begin();global_vulcan_frame_begin();
  green_head_count=0;memset(green_first,0,(size_t)canvas->w*canvas->h*sizeof(*green_first));
  region_count=local_entities=local_regions=local_blocks=0;all_rejections[0]='\0';
  memset(restored_mask,0,sizeof(restored_mask));brightness_blocks=restored_checks=restored_mismatches=expanded_regions=boundary_crossings=0;
@@ -1498,6 +1560,10 @@ void render_mirror_begin(void)
 
 void render_mirror_pixel(SDL_Surface *surface,Uint8 *address,Uint8 source,int style)
 {
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
+ /* An unrelated indexed write cannot retain an unconsumed enemy witness. */
+ enemy_reuse_draw_end();
+#endif
  data_frame_pixel(surface,address);
  data_portrait_pixel(surface,address);
  storm_pixel(surface,address);
@@ -1506,9 +1572,9 @@ void render_mirror_pixel(SDL_Surface *surface,Uint8 *address,Uint8 source,int st
  selector_font_pixel(surface,address,style);
  pregame_font_pixel(surface,address,style);
  font_final_pixel(surface,address);
- global_talon_final_pixel(surface,address);global_shield_final_pixel(surface,address);global_pulse_final_pixel(surface,address);global_hitflare_final_pixel(surface,address);global_smoke_final_pixel(surface,address);global_green_final_pixel(surface,address);global_small_explosion_final_pixel(surface,address);global_cash25_final_pixel(surface,address);global_rotor_final_pixel(surface,address);global_vulcan_final_pixel(surface,address);
+ global_talon_final_pixel(surface,address);global_shield_final_pixel(surface,address);global_pulse_final_pixel(surface,address);global_hitflare_final_pixel(surface,address);global_smoke_final_pixel(surface,address);global_green_final_pixel(surface,address);global_small_explosion_final_pixel(surface,address);global_cash25_final_pixel(surface,address);global_rotor_final_pixel(surface,address);global_newshf_final_pixel(surface,address);global_vulcan_final_pixel(surface,address);
  common_pause_pixel(surface,address,style);
- if((!active&&!shared_hud_frame&&!global_talon_frame&&!global_shield_frame&&!global_pulse_frame&&!global_hitflare_frame&&!global_small_explosion_frame&&!global_rotor_frame&&!global_cash25_frame&&!global_green_frame&&!global_smoke_frame&&!global_vulcan_frame)||surface!=game_screen) {render_mirror_shadow_end();return;}
+ if((!active&&!shared_hud_frame&&!global_talon_frame&&!global_shield_frame&&!global_pulse_frame&&!global_hitflare_frame&&!global_small_explosion_frame&&!global_rotor_frame&&!global_newshf_frame&&!global_cash25_frame&&!global_green_frame&&!global_smoke_frame&&!global_vulcan_frame)||surface!=game_screen) {render_mirror_shadow_end();return;}
  intptr_t offset=(intptr_t)address-(intptr_t)surface->pixels;
  if(offset<0||offset>=(intptr_t)surface->pitch*surface->h) { render_mirror_unsupported("invalid-write-address");return; }
  int y=(int)(offset/surface->pitch),x=(int)(offset%surface->pitch);
@@ -1517,6 +1583,7 @@ void render_mirror_pixel(SDL_Surface *surface,Uint8 *address,Uint8 source,int st
  if(global_vulcan_pixel(x,y,before,*address,style))return;
  if(global_green_pixel(x,y,before,*address,style))return;
  if(global_smoke_pixel(x,y,before,*address,style))return;
+ if(global_newshf_pixel(x,y,before,*address,style))return;
  if(global_rotor_pixel(x,y,before,*address,style))return;
  if(global_cash25_pixel(x,y,before,*address,style))return;
  if(global_small_explosion_pixel(x,y,before,*address,style))return;
@@ -1580,8 +1647,8 @@ void render_mirror_rect(SDL_Surface *s,const SDL_Rect *rect)
  selector_font_rect(s,rect);
  pregame_font_rect(s,rect);
  font_final_rect(s,rect);
- global_talon_final_rect(s,rect);global_shield_final_rect(s,rect);global_pulse_final_rect(s,rect);global_hitflare_final_rect(s,rect);global_smoke_final_rect(s,rect);global_green_final_rect(s,rect);global_small_explosion_final_rect(s,rect);global_cash25_final_rect(s,rect);global_rotor_final_rect(s,rect);global_vulcan_final_rect(s,rect);
- if((!active&&!shared_hud_frame&&!global_talon_frame&&!global_shield_frame&&!global_pulse_frame&&!global_hitflare_frame&&!global_small_explosion_frame&&!global_rotor_frame&&!global_cash25_frame&&!global_green_frame&&!global_smoke_frame&&!global_vulcan_frame)||s!=game_screen) {common_pause_rect(s,rect);return;}
+ global_talon_final_rect(s,rect);global_shield_final_rect(s,rect);global_pulse_final_rect(s,rect);global_hitflare_final_rect(s,rect);global_smoke_final_rect(s,rect);global_green_final_rect(s,rect);global_small_explosion_final_rect(s,rect);global_cash25_final_rect(s,rect);global_rotor_final_rect(s,rect);global_newshf_final_rect(s,rect);global_vulcan_final_rect(s,rect);
+ if((!active&&!shared_hud_frame&&!global_talon_frame&&!global_shield_frame&&!global_pulse_frame&&!global_hitflare_frame&&!global_small_explosion_frame&&!global_rotor_frame&&!global_newshf_frame&&!global_cash25_frame&&!global_green_frame&&!global_smoke_frame&&!global_vulcan_frame)||s!=game_screen) {common_pause_rect(s,rect);return;}
  int x0=rect?rect->x:0,y0=rect?rect->y:0;
  int x1=rect?rect->x+rect->w:s->w,y1=rect?rect->y+rect->h:s->h;
  x0=MAX(x0,s->clip_rect.x);y0=MAX(y0,s->clip_rect.y);
@@ -1594,7 +1661,7 @@ void render_mirror_rect(SDL_Surface *s,const SDL_Rect *rect)
 void render_mirror_unsupported(const char *reason)
 {
  vulcan_shadow_clear();
- if(!active&&!shared_hud_frame&&!global_talon_frame&&!global_shield_frame&&!global_pulse_frame&&!global_hitflare_frame&&!global_small_explosion_frame&&!global_rotor_frame&&!global_cash25_frame&&!global_green_frame&&!global_smoke_frame&&!global_vulcan_frame)return;
+ if(!active&&!shared_hud_frame&&!global_talon_frame&&!global_shield_frame&&!global_pulse_frame&&!global_hitflare_frame&&!global_small_explosion_frame&&!global_rotor_frame&&!global_newshf_frame&&!global_cash25_frame&&!global_green_frame&&!global_smoke_frame&&!global_vulcan_frame)return;
  if(!reject_reason) reject_reason=reason;
  if(!strstr(all_rejections,reason)) {
   size_t used=strlen(all_rejections),needed=strlen(reason)+(used?1:0);
@@ -1648,6 +1715,12 @@ static bool decode_tile(Sprite2_array bank,unsigned int index,Uint8 *indices,Uin
 static void explosion_asset_blend_rgba(Uint32,const Uint8 *,Uint8 *);
 #include "global_cash25_mirror.inc"
 #include "global_rotor_mirror.inc"
+#if (defined(NEWSHF_IDENTITY_VALIDATION) && NEWSHF_IDENTITY_VALIDATION) || (defined(NEWSHF_HD_COMPOSITOR) && NEWSHF_HD_COMPOSITOR)
+#include "newshf_identity_validation.inc"
+#endif
+#if defined(NEWSHF_HD_COMPOSITOR) && NEWSHF_HD_COMPOSITOR
+#include "global_newshf_mirror.inc"
+#endif
 typedef struct { Uint16 peak[16][14]; } GreenBackground;
 
 static void green_background_snapshot(GreenBackground *background,int x,int y)
@@ -1711,11 +1784,14 @@ void render_mirror_front_create_end(uint64_t t){render_mirror_pulse_front_create
 void render_mirror_shot_allocated(unsigned s){render_mirror_pulse_shot_allocated(s);render_mirror_vulcan_shot_allocated(s);}
 void render_mirror_front_shot_initialized(uint64_t t,unsigned s,unsigned p,unsigned b,unsigned r,unsigned n,unsigned phase){render_mirror_pulse_front_shot_initialized(t,s,p,b,r,n,phase);render_mirror_vulcan_front_shot_initialized(t,s,p,b,r,n,phase);}
 
-void render_mirror_global_reset(void){global_hitflare_reset();global_smoke_reset();global_green_reset();global_small_explosion_reset();global_cash25_reset();global_rotor_reset();global_vulcan_reset();global_pulse_reset();global_shield_reset();global_talon_reset();}
+void render_mirror_global_reset(void){render_mirror_newshf_validation_reset();global_hitflare_reset();global_smoke_reset();global_green_reset();global_small_explosion_reset();global_cash25_reset();global_rotor_reset();global_newshf_reset();global_vulcan_reset();global_pulse_reset();global_shield_reset();global_talon_reset();}
 
 static bool read_asset(Asset *a,int wanted)
 {
  /* These private families own eager loading; never route135/136/137/138/139/140/141/142 generically. */
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
+ if(a->bank==146||a->bank==ASSET_ENEMY_PROTRON_P09_MATERIAL)return false; /* private enemy reuse never uses generic loader */
+#endif
  if(a->bank==ASSET_ASTEROID1_NEWSHP)return false;
  if(a->bank==ASSET_ASTEROID1_NEWSHS)return false;
  if(a->bank==ASSET_ASTEROID1_TRIPLE275)return false;
@@ -2709,6 +2785,9 @@ static void explosion_asset_blend_rgba(Uint32 dst,const Uint8 *src,Uint8 *rgba)
  * hue/alpha, prior HD overlaps, and every other effect keep their old operator. */
 static bool draw_asset_filtered(int x,int y,Asset *a,int style,const SDL_Rect *part,Uint8 filter,const G101Record *material,const PCapRecord *cap,const Forest13Record *forest)
 {
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
+ if(a->bank==146&&(a!=enemy_reuse_draw_lease||!game_probe_enabled||style!=MIRROR_NORMAL||part||filter||material||cap||forest))return false;
+#endif
  /* Numeric136/137/138/139/140/141/142/143/144 assets cannot borrow another private guarded draw path. */
  if(a->bank==ASSET_ASTEROID1_NEWSHS&&(!asteroid_hd_enabled||a!=pulsing272_draw_lease))return false;
  if(a->bank==ASSET_ASTEROID1_TRIPLE275&&(!asteroid_hd_enabled||a!=triple275_draw_lease))return false;
@@ -3313,6 +3392,10 @@ static bool enemy_tank_shell_family_ready(void)
  return enemy_tank_shell_valid;
 }
 
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
+#include "enemy_reuse_mirror.inc"
+#endif
+
 /* Enemy-only bindings: the indexed original still executes in the wrapper. */
 bool render_mirror_enemy_shot(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int index)
 {
@@ -3785,6 +3868,13 @@ static bool ember269_draw(SDL_Surface *surface,int x,int y,Sprite2_array bank,un
 
 bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int base,int part,int filter,const G101EnemyContext *material_context)
 {
+#if defined(NEWSHF_HD_COMPOSITOR) && NEWSHF_HD_COMPOSITOR
+ bool newshf_identity=render_mirror_newshf_validation_tile(surface,x,y,bank,base,part,filter,material_context);
+ int newshf_result=global_newshf_body(surface,x,y,bank,base,part,filter,material_context,newshf_identity);
+ if(newshf_result>=0)return newshf_result>0;
+#else
+ (void)render_mirror_newshf_validation_tile(surface,x,y,bank,base,part,filter,material_context);
+#endif
  int global_rotor_result=render_mirror_global_rotor_body(surface,x,y,bank,base,part,filter,material_context);
  if(global_rotor_result>=0){game_probe_scene_draw(ASSET_NEWSH2,base,x,y,part,filter?3:MIRROR_NORMAL,global_rotor_result>0);return global_rotor_result>0;}
  int global_cash25_result=render_mirror_global_cash25_body(surface,x,y,bank,base,part,filter,material_context);
@@ -4246,7 +4336,11 @@ void render_mirror_terrain_pixel(SDL_Surface *surface,Uint8 *address,Uint8 sourc
  render_mirror_pixel(surface,address,source,style);suppress=previous;suppress_cloud=previous_cloud;
 }
 
-void render_mirror_entity_end(void) { global_hitflare_end();global_smoke_end();global_green_end();global_small_explosion_end();global_cash25_end();global_rotor_end();global_vulcan_end();global_pulse_end();global_shield_end();global_talon_end();asteroid1_talon_blend_end(); render_mirror_shadow_end();cash25_fixed_value=false;cash75_fixed_value=false;cash50_fixed_value=false;gem100_fixed_value=false;gem250_fixed_value=false;data_fixed_value=false;fixed_pickup_flash=false;suppress=false;suppress_green_smoke=false;suppress_cloud=false; }
+void render_mirror_entity_end(void) {
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
+ enemy_reuse_draw_end();
+#endif
+ global_hitflare_end();global_smoke_end();global_green_end();global_small_explosion_end();global_cash25_end();global_rotor_end();global_newshf_end();global_vulcan_end();global_pulse_end();global_shield_end();global_talon_end();asteroid1_talon_blend_end(); render_mirror_shadow_end();cash25_fixed_value=false;cash75_fixed_value=false;cash50_fixed_value=false;gem100_fixed_value=false;gem250_fixed_value=false;data_fixed_value=false;fixed_pickup_flash=false;suppress=false;suppress_green_smoke=false;suppress_cloud=false; }
 
 /* Recognized original warm/contact explosions and nine shield-hit pieces.
  * Original hue overwrite + averaged ramp value is approximated continuously
@@ -4629,6 +4723,9 @@ static bool have_supported_talon(void)
 
 void render_mirror_sprite2_blend_pixel(SDL_Surface *surface,Uint8 *address,Uint8 source,Sprite2_array bank,unsigned int index,int origin_x,int origin_y)
 {
+#if defined(NEWSHF_HD_COMPOSITOR) && NEWSHF_HD_COMPOSITOR
+ if(global_newshf_observe_blend(surface,address)){render_mirror_pixel(surface,address,source,MIRROR_BLEND);return;}
+#endif
  if(global_vulcan_observe_blend(surface,address)||global_green_observe_blend(surface,address)||global_smoke_observe_blend(surface,address)||global_rotor_observe_blend(surface,address)||global_cash25_observe_blend(surface,address)||global_small_explosion_observe_blend(surface,address)||global_hitflare_observe_blend(surface,address)||global_pulse_observe_blend(surface,address)||global_shield_observe_blend(surface,address)||global_talon_observe_blend(surface,address)){render_mirror_pixel(surface,address,source,MIRROR_BLEND);return;}
  /* Shared HUD observes original blend writes even without a world owner.
   * This grants no replacement role and prevents unrelated cash-run rejection. */
@@ -4783,9 +4880,9 @@ static void normal15_compose(MirrorOutputKind kind,int lightx,int lighty)
  * an unproven world canvas. Each HUD family keeps its own source/cache proof. */
 static void shared_hud_finish(MirrorOutputKind kind,int lightx,int lighty)
 {
- if(!shared_hud_frame&&!global_talon_frame&&!global_shield_frame&&!global_pulse_frame&&!global_hitflare_frame&&!global_small_explosion_frame&&!global_rotor_frame&&!global_cash25_frame&&!global_green_frame&&!global_smoke_frame&&!global_vulcan_frame)return;
+ if(!shared_hud_frame&&!global_talon_frame&&!global_shield_frame&&!global_pulse_frame&&!global_hitflare_frame&&!global_small_explosion_frame&&!global_rotor_frame&&!global_newshf_frame&&!global_cash25_frame&&!global_green_frame&&!global_smoke_frame&&!global_vulcan_frame)return;
  font_prepare_finish();
- if((!shared_hud_requested()&&!global_talon_requested())||!VGAScreenSeg||!VGAScreenSeg->pixels||
+ if((!shared_hud_requested()&&!global_talon_requested()&&!global_newshf_requested())||!VGAScreenSeg||!VGAScreenSeg->pixels||
     !VGAScreenSeg->format||VGAScreenSeg->w!=320||VGAScreenSeg->h!=200||VGAScreenSeg->pitch<320||
     VGAScreenSeg->format->format!=SDL_PIXELFORMAT_INDEX8||
     VGAScreenSeg->format->BitsPerPixel!=8||VGAScreenSeg->format->BytesPerPixel!=1||
@@ -4809,6 +4906,7 @@ static void shared_hud_finish(MirrorOutputKind kind,int lightx,int lighty)
  retained_global=global_small_explosion_compose(kind,lightx,lighty)||retained_global;
  retained_global=global_cash25_compose(kind,lightx,lighty)||retained_global;
  retained_global=global_rotor_compose(kind,lightx,lighty)||retained_global;
+ retained_global=global_newshf_compose(kind,lightx,lighty)||retained_global;
  retained_global=global_vulcan_compose(kind,lightx,lighty)||retained_global;
  bool retained_scene=font_compose_shared_scene(scene_valid)||retained_global;
  bool retained_hud=hud_compose(),retained_components=components_compose();
@@ -4828,11 +4926,15 @@ static void shared_hud_finish(MirrorOutputKind kind,int lightx,int lighty)
 void render_mirror_finish(MirrorOutputKind kind,int lightx,int lighty)
 {
  render_mirror_shadow_end();
- if(!global_talon_finish_proof()||!global_vulcan_finish_proof()||!global_green_finish_proof()||!global_smoke_finish_proof()||!global_rotor_finish_proof()||!global_cash25_finish_proof()||!global_small_explosion_finish_proof()||!global_hitflare_finish_proof()||!global_pulse_finish_proof()||!global_shield_finish_proof()) {
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
+ if(enemy_reuse_frame.contributed&&kind!=MIRROR_OUTPUT_ORDINARY)render_mirror_unsupported("enemy-reuse-output-mode");
+#endif
+ if(!enemy_reuse_proof()||!global_newshf_finish_proof()||!global_newshf_output_proof(kind,lightx,lighty)||!global_talon_finish_proof()||!global_vulcan_finish_proof()||!global_green_finish_proof()||!global_smoke_finish_proof()||!global_rotor_finish_proof()||!global_cash25_finish_proof()||!global_small_explosion_finish_proof()||!global_hitflare_finish_proof()||!global_pulse_finish_proof()||!global_shield_finish_proof()) {
   active=shared_hud_frame=ready=last_output_valid=last_output_scene_hd=have_fade_saved=false;
   global_talon_frame=global_talon_cached=global_shield_frame=global_shield_cached=global_pulse_frame=global_pulse_cached=global_hitflare_frame=global_hitflare_cached=global_rotor_frame=global_cash25_frame=global_small_explosion_frame=global_green_frame=global_smoke_frame=global_rotor_cached=global_cash25_cached=global_small_explosion_cached=global_green_cached=global_smoke_cached=global_vulcan_frame=global_vulcan_cached=false;fade_mode=0;return;
  }
- if((global_talon_frame&&(!global_talon_surface_matches()||!global_talon_final_surface_matches()))||
+ if((global_newshf_frame&&(!global_newshf_surface_matches()||!global_newshf_final_surface_matches()))||
+    (global_talon_frame&&(!global_talon_surface_matches()||!global_talon_final_surface_matches()))||
     (global_shield_frame&&(!global_shield_surface_matches()||!global_shield_final_surface_matches()))||
     (global_pulse_frame&&(!global_pulse_surface_matches()||!global_pulse_final_surface_matches()))||
     (global_hitflare_frame&&(!global_hitflare_surface_matches()||!global_hitflare_final_surface_matches()))||
@@ -4850,7 +4952,7 @@ void render_mirror_finish(MirrorOutputKind kind,int lightx,int lighty)
   active=shared_hud_frame=ready=last_output_valid=last_output_scene_hd=have_fade_saved=false;fade_mode=0;
   return;
  }
- if(asteroid_hd_enabled&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()) {render_mirror_hud_reset();return;}
+ if(asteroid_hd_enabled&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()&&!global_newshf_requested()) {render_mirror_hud_reset();return;}
  hud_check_mode();
  if(!active){shared_hud_finish(kind,lightx,lighty);return;}
  bool normal15=lvlFileNum==15||kind==MIRROR_OUTPUT_NORMAL15_NIGHT||kind==MIRROR_OUTPUT_NORMAL15_LOW_DETAIL;
@@ -4860,7 +4962,7 @@ void render_mirror_finish(MirrorOutputKind kind,int lightx,int lighty)
   render_mirror_unsupported("normal15-output-layout");
   active=ready=last_output_valid=last_output_scene_hd=have_fade_saved=false;fade_mode=0;
   game_probe_frame(draws,occlusions,mismatch,reject_reason,all_rejections,local_entities,local_regions,local_blocks);
-  if(shared_hud_frame||global_talon_frame||global_shield_frame||global_pulse_frame||global_hitflare_frame||global_small_explosion_frame||global_rotor_frame||global_cash25_frame||global_green_frame||global_smoke_frame||global_vulcan_frame)shared_hud_finish(kind,lightx,lighty);
+  if(global_newshf_frame||shared_hud_frame||global_talon_frame||global_shield_frame||global_pulse_frame||global_hitflare_frame||global_small_explosion_frame||global_rotor_frame||global_cash25_frame||global_green_frame||global_smoke_frame||global_vulcan_frame)shared_hud_finish(kind,lightx,lighty);
   return;
  }
  font_prepare_finish();
@@ -4916,6 +5018,7 @@ void render_mirror_finish(MirrorOutputKind kind,int lightx,int lighty)
  retained_global=global_small_explosion_compose(kind,lightx,lighty)||retained_global;
  retained_global=global_cash25_compose(kind,lightx,lighty)||retained_global;
  retained_global=global_rotor_compose(kind,lightx,lighty)||retained_global;
+ retained_global=global_newshf_compose(kind,lightx,lighty)||retained_global;
  retained_global=global_vulcan_compose(kind,lightx,lighty)||retained_global;
  bool retained_hud=hud_accepted&&hud_compose();
  bool retained_components=hud_accepted&&components_compose();
@@ -4952,13 +5055,17 @@ void render_mirror_finish(MirrorOutputKind kind,int lightx,int lighty)
  * schedule. Classic pixels use the original newly updated palette directly. */
 void render_mirror_fade_start(const SDL_Color *target,const SDL_Color *solid,unsigned int first,unsigned int last)
 {
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
+ if(enemy_reuse_frame.contributed){ready=last_output_valid=last_output_scene_hd=have_fade_saved=false;fade_mode=0;return;}
+#endif
  render_mirror_shadow_end();
- if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()) {render_mirror_hud_reset();return;}
+ if(!global_newshf_fade_decline())return;
+ if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()&&!global_newshf_requested()) {render_mirror_hud_reset();return;}
  hud_check_mode();
  if(font_cached()&&!font_cached_indices_match())font_clear_cached(15);
- global_talon_check_cache();global_shield_check_cache();global_pulse_check_cache();global_hitflare_check_cache();global_smoke_check_cache();global_green_check_cache();global_small_explosion_check_cache();global_cash25_check_cache();global_rotor_check_cache();global_vulcan_check_cache();
+ global_talon_check_cache();global_shield_check_cache();global_pulse_check_cache();global_hitflare_check_cache();global_smoke_check_cache();global_green_check_cache();global_small_explosion_check_cache();global_cash25_check_cache();global_rotor_check_cache();global_newshf_check_cache();global_vulcan_check_cache();
  bool cached=last_output_valid;last_output_valid=false;fade_mode=0;ready=false;
- if((!mirror_enabled()&&!(shared_hud_lease&&shared_hud_requested())&&!global_talon_requested())||game_probe_density<2||!output||!cached||first!=0||last!=255)return;
+ if((!mirror_enabled()&&!(shared_hud_lease&&shared_hud_requested())&&!global_talon_requested()&&!global_newshf_requested())||game_probe_density<2||!output||!cached||first!=0||last!=255)return;
  bool component_cached=component_output_generation||component_saved_generation;
  for(unsigned i=0;i<320*200&&!component_cached;i++)component_cached=(component_output_owner[i]|component_saved_owner[i])!=0;
  if(component_cached&&!components_cached_indices_match()) {components_clear_cached(63);return;}
@@ -4986,10 +5093,10 @@ void render_mirror_fade_start(const SDL_Color *target,const SDL_Color *solid,uns
 
 void render_mirror_fade_step(int steps)
 {
- if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()) {render_mirror_hud_reset();return;}
+ if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()&&!global_newshf_requested()) {render_mirror_hud_reset();return;}
  hud_check_mode();
  if(!fade_mode||steps<=0)return;
- if(!global_talon_fade_step_valid(steps)||!global_shield_fade_step_valid(steps)||!global_pulse_fade_step_valid(steps)||!global_vulcan_fade_step_valid(steps)||!global_hitflare_fade_step_valid(steps)||!global_green_fade_step_valid(steps)||!global_smoke_fade_step_valid(steps)||!global_rotor_fade_step_valid(steps)||!global_cash25_fade_step_valid(steps)||!global_small_explosion_fade_step_valid(steps))return;
+ if(!global_newshf_fade_decline()||!global_talon_fade_step_valid(steps)||!global_shield_fade_step_valid(steps)||!global_pulse_fade_step_valid(steps)||!global_vulcan_fade_step_valid(steps)||!global_hitflare_fade_step_valid(steps)||!global_green_fade_step_valid(steps)||!global_smoke_fade_step_valid(steps)||!global_rotor_fade_step_valid(steps)||!global_cash25_fade_step_valid(steps)||!global_small_explosion_fade_step_valid(steps))return;
  if(font_cached()&&!font_cached_indices_match()){font_clear_cached(15);return;}
  if(fixed_text_output_generation&&!fixed_text_cached_indices_match()) {fixed_text_clear_cached();return;}
  if(indicator_output_generation&&(!indicators_cached_indices_match()||!indicators_underlay_matches())) {indicators_clear_cached(3);return;}
@@ -5040,8 +5147,9 @@ void render_mirror_fade_step(int steps)
 
 bool render_mirror_present(SDL_Renderer *renderer,SDL_Surface *src,const SDL_Rect *dst)
 {
+ if(!enemy_reuse_cache_check())return false;
  render_mirror_shadow_end();
- if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()) {render_mirror_hud_reset();return false;}
+ if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()&&!global_newshf_requested()) {render_mirror_hud_reset();return false;}
  hud_check_mode();
  if(font_cached()&&(!font_cached_indices_match()||memcmp(font_output_palette,rgb_palette,sizeof(font_output_palette))))font_clear_cached(15);
  if(fixed_text_output_generation&&(!fixed_text_cached_indices_match()||memcmp(fixed_text_output_palette,rgb_palette,sizeof(fixed_text_output_palette))!=0))fixed_text_clear_cached();
@@ -5050,7 +5158,7 @@ bool render_mirror_present(SDL_Renderer *renderer,SDL_Surface *src,const SDL_Rec
  bool component_cached=component_output_generation||component_saved_generation;
  for(unsigned i=0;i<320*200&&!component_cached;i++)component_cached=(component_output_owner[i]|component_saved_owner[i])!=0;
  if(component_cached&&(!components_cached_indices_match()||memcmp(component_output_palette,rgb_palette,sizeof(component_output_palette))!=0))components_clear_cached(63);
- global_talon_check_cache();global_shield_check_cache();global_pulse_check_cache();global_hitflare_check_cache();global_smoke_check_cache();global_green_check_cache();global_small_explosion_check_cache();global_cash25_check_cache();global_rotor_check_cache();global_vulcan_check_cache();
+ global_talon_check_cache();global_shield_check_cache();global_pulse_check_cache();global_hitflare_check_cache();global_smoke_check_cache();global_green_check_cache();global_small_explosion_check_cache();global_cash25_check_cache();global_rotor_check_cache();global_newshf_check_cache();global_vulcan_check_cache();
  if(!ready||src!=VGAScreenSeg)return false;ready=false;
  if(game_probe_skip) { uint64_t rng=mt_state_fingerprint();game_probe_present(0,rng,rng);return true; }
  if(!texture) texture=SDL_CreateTexture(renderer,SDL_PIXELFORMAT_ARGB8888,SDL_TEXTUREACCESS_STREAMING,output->w,output->h);

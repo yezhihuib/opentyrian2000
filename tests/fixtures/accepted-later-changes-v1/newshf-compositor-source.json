@@ -1,0 +1,468 @@
+{
+  "schema": "opentyrian-reviewed-newshf-compositor-source-v1",
+  "integration_base": "3ce35baa60db9d561fb946b16cfae14891d691d3",
+  "historical_source_inventory": "current-source-inventory.json",
+  "scope": "Default-off bounded nine-pose independent NEWSHF HD compositor. Exact additive source inverse; no gameplay or source identity changes.",
+  "added_sources": {
+    "src/global_newshf_mirror.inc": "72ab056d6bb1de136f134735c5560ac9fd80a8391025efcd08dc29a372d883a1"
+  },
+  "generated_sources": [
+    "src/newshf_hd_assets.h"
+  ],
+  "files": {
+    "src/render_mirror.c": {
+      "previous_sha256": "0944b7d1943cc794585cf3f42892bdb140d2d9454f8e0cf493a55b83065137f8",
+      "current_sha256": "e44570b0203e47454c878a93596dae327ef056c2e54d9f29c84b4088b153218f",
+      "hunks": [
+        {
+          "after_lines": [
+            264,
+            308
+          ],
+          "before": "",
+          "after": "#if defined(NEWSHF_HD_COMPOSITOR) && NEWSHF_HD_COMPOSITOR\nstatic bool global_newshf_frame,global_newshf_fault;\nstatic void global_newshf_shutdown(void);\nstatic void global_newshf_reset(void);\nstatic void global_newshf_frame_begin(void);\nstatic bool global_newshf_pixel(int,int,Uint8,Uint8,int);\nstatic void global_newshf_final_pixel(SDL_Surface *,Uint8 *);\nstatic void global_newshf_final_rect(SDL_Surface *,const SDL_Rect *);\nstatic void global_newshf_end(void);\nstatic bool global_newshf_compose(MirrorOutputKind,int,int);\nstatic bool global_newshf_surface_matches(void);\nstatic bool global_newshf_final_surface_matches(void);\nstatic bool global_newshf_source_matches(Sprite2_array);\nstatic bool global_newshf_palette_matches(void);\nstatic void global_newshf_check_cache(void);\nstatic bool global_newshf_fade_decline(void);\nstatic Uint8 *global_newshf_owner,*global_newshf_foreign;\nstatic bool global_newshf_requested(void);\nstatic void global_newshf_invalidate(void);\nstatic void global_newshf_tick_begin(void);\nstatic void global_newshf_clear(size_t n){if(global_newshf_owner)global_newshf_owner[n]=global_newshf_foreign[n]=0;}\n#else\n#define global_newshf_frame false\n#define global_newshf_requested() false\n#define global_newshf_clear(n) ((void)0)\n#define global_newshf_invalidate() ((void)0)\n#define global_newshf_tick_begin() ((void)0)\n#define global_newshf_shutdown() ((void)0)\n#define global_newshf_frame_begin() ((void)0)\n#define global_newshf_final_pixel(s,p) ((void)0)\n#define global_newshf_final_rect(s,r) ((void)0)\n#define global_newshf_pixel(x,y,b,a,s) false\n#define global_newshf_end() ((void)0)\n#define global_newshf_reset() ((void)0)\n#define global_newshf_compose(k,x,y) false\n#define global_newshf_finish_proof() true\n#define global_newshf_output_proof(k,x,y) true\n#define global_newshf_surface_matches() true\n#define global_newshf_final_surface_matches() true\n#define global_newshf_observe_blend(s,p) false\n#define global_newshf_check_cache() ((void)0)\n#define global_newshf_fade_decline() true\n#endif\n\n"
+        },
+        {
+          "after_lines": [
+            1297,
+            1298
+          ],
+          "before": " global_hitflare_shutdown();global_smoke_shutdown();global_green_shutdown();global_small_explosion_shutdown();global_cash25_shutdown();global_rotor_shutdown();global_vulcan_root_changed();global_pulse_shutdown();global_shield_shutdown();global_talon_shutdown();global_asset_directory[0]='\\0';\n",
+          "after": " global_hitflare_shutdown();global_smoke_shutdown();global_green_shutdown();global_small_explosion_shutdown();global_cash25_shutdown();global_rotor_shutdown();global_newshf_shutdown();global_vulcan_root_changed();global_pulse_shutdown();global_shield_shutdown();global_talon_shutdown();global_asset_directory[0]='\\0';\n"
+        },
+        {
+          "after_lines": [
+            1312,
+            1313
+          ],
+          "before": " global_hitflare_shutdown();global_smoke_shutdown();global_green_shutdown();global_small_explosion_shutdown();global_cash25_shutdown();global_rotor_shutdown();global_vulcan_shutdown();global_pulse_shutdown();global_shield_shutdown();global_talon_shutdown();\n",
+          "after": " global_hitflare_shutdown();global_smoke_shutdown();global_green_shutdown();global_small_explosion_shutdown();global_cash25_shutdown();global_rotor_shutdown();global_newshf_shutdown();global_vulcan_shutdown();global_pulse_shutdown();global_shield_shutdown();global_talon_shutdown();\n"
+        },
+        {
+          "after_lines": [
+            1490,
+            1491
+          ],
+          "before": "",
+          "after": " global_newshf_tick_begin();\n"
+        },
+        {
+          "after_lines": [
+            1500,
+            1501
+          ],
+          "before": " if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()) {render_mirror_hud_reset();return;}\n",
+          "after": " if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()&&!global_newshf_requested()) {render_mirror_hud_reset();return;}\n"
+        },
+        {
+          "after_lines": [
+            1508,
+            1509
+          ],
+          "before": " if(!mirror_enabled()&&!(shared_hud_lease&&shared_hud_requested())&&!global_talon_requested()) return;\n",
+          "after": " if(!mirror_enabled()&&!(shared_hud_lease&&shared_hud_requested())&&!global_talon_requested()&&!global_newshf_requested()) return;\n"
+        },
+        {
+          "after_lines": [
+            1540,
+            1541
+          ],
+          "before": " global_talon_frame_begin();global_shield_frame_begin();global_pulse_frame_begin();global_hitflare_frame_begin();global_smoke_frame_begin();global_green_frame_begin();global_small_explosion_frame_begin();global_cash25_frame_begin();global_rotor_frame_begin();global_vulcan_frame_begin();\n",
+          "after": " global_talon_frame_begin();global_shield_frame_begin();global_pulse_frame_begin();global_hitflare_frame_begin();global_smoke_frame_begin();global_green_frame_begin();global_small_explosion_frame_begin();global_cash25_frame_begin();global_rotor_frame_begin();global_newshf_frame_begin();global_vulcan_frame_begin();\n"
+        },
+        {
+          "after_lines": [
+            1556,
+            1557
+          ],
+          "before": " global_talon_final_pixel(surface,address);global_shield_final_pixel(surface,address);global_pulse_final_pixel(surface,address);global_hitflare_final_pixel(surface,address);global_smoke_final_pixel(surface,address);global_green_final_pixel(surface,address);global_small_explosion_final_pixel(surface,address);global_cash25_final_pixel(surface,address);global_rotor_final_pixel(surface,address);global_vulcan_final_pixel(surface,address);\n",
+          "after": " global_talon_final_pixel(surface,address);global_shield_final_pixel(surface,address);global_pulse_final_pixel(surface,address);global_hitflare_final_pixel(surface,address);global_smoke_final_pixel(surface,address);global_green_final_pixel(surface,address);global_small_explosion_final_pixel(surface,address);global_cash25_final_pixel(surface,address);global_rotor_final_pixel(surface,address);global_newshf_final_pixel(surface,address);global_vulcan_final_pixel(surface,address);\n"
+        },
+        {
+          "after_lines": [
+            1558,
+            1559
+          ],
+          "before": " if((!active&&!shared_hud_frame&&!global_talon_frame&&!global_shield_frame&&!global_pulse_frame&&!global_hitflare_frame&&!global_small_explosion_frame&&!global_rotor_frame&&!global_cash25_frame&&!global_green_frame&&!global_smoke_frame&&!global_vulcan_frame)||surface!=game_screen) {render_mirror_shadow_end();return;}\n",
+          "after": " if((!active&&!shared_hud_frame&&!global_talon_frame&&!global_shield_frame&&!global_pulse_frame&&!global_hitflare_frame&&!global_small_explosion_frame&&!global_rotor_frame&&!global_newshf_frame&&!global_cash25_frame&&!global_green_frame&&!global_smoke_frame&&!global_vulcan_frame)||surface!=game_screen) {render_mirror_shadow_end();return;}\n"
+        },
+        {
+          "after_lines": [
+            1567,
+            1568
+          ],
+          "before": "",
+          "after": " if(global_newshf_pixel(x,y,before,*address,style))return;\n"
+        },
+        {
+          "after_lines": [
+            1631,
+            1633
+          ],
+          "before": " global_talon_final_rect(s,rect);global_shield_final_rect(s,rect);global_pulse_final_rect(s,rect);global_hitflare_final_rect(s,rect);global_smoke_final_rect(s,rect);global_green_final_rect(s,rect);global_small_explosion_final_rect(s,rect);global_cash25_final_rect(s,rect);global_rotor_final_rect(s,rect);global_vulcan_final_rect(s,rect);\n if((!active&&!shared_hud_frame&&!global_talon_frame&&!global_shield_frame&&!global_pulse_frame&&!global_hitflare_frame&&!global_small_explosion_frame&&!global_rotor_frame&&!global_cash25_frame&&!global_green_frame&&!global_smoke_frame&&!global_vulcan_frame)||s!=game_screen) {common_pause_rect(s,rect);return;}\n",
+          "after": " global_talon_final_rect(s,rect);global_shield_final_rect(s,rect);global_pulse_final_rect(s,rect);global_hitflare_final_rect(s,rect);global_smoke_final_rect(s,rect);global_green_final_rect(s,rect);global_small_explosion_final_rect(s,rect);global_cash25_final_rect(s,rect);global_rotor_final_rect(s,rect);global_newshf_final_rect(s,rect);global_vulcan_final_rect(s,rect);\n if((!active&&!shared_hud_frame&&!global_talon_frame&&!global_shield_frame&&!global_pulse_frame&&!global_hitflare_frame&&!global_small_explosion_frame&&!global_rotor_frame&&!global_newshf_frame&&!global_cash25_frame&&!global_green_frame&&!global_smoke_frame&&!global_vulcan_frame)||s!=game_screen) {common_pause_rect(s,rect);return;}\n"
+        },
+        {
+          "after_lines": [
+            1645,
+            1646
+          ],
+          "before": " if(!active&&!shared_hud_frame&&!global_talon_frame&&!global_shield_frame&&!global_pulse_frame&&!global_hitflare_frame&&!global_small_explosion_frame&&!global_rotor_frame&&!global_cash25_frame&&!global_green_frame&&!global_smoke_frame&&!global_vulcan_frame)return;\n",
+          "after": " if(!active&&!shared_hud_frame&&!global_talon_frame&&!global_shield_frame&&!global_pulse_frame&&!global_hitflare_frame&&!global_small_explosion_frame&&!global_rotor_frame&&!global_newshf_frame&&!global_cash25_frame&&!global_green_frame&&!global_smoke_frame&&!global_vulcan_frame)return;\n"
+        },
+        {
+          "after_lines": [
+            1699,
+            1700
+          ],
+          "before": "#if defined(NEWSHF_IDENTITY_VALIDATION) && NEWSHF_IDENTITY_VALIDATION\n",
+          "after": "#if (defined(NEWSHF_IDENTITY_VALIDATION) && NEWSHF_IDENTITY_VALIDATION) || (defined(NEWSHF_HD_COMPOSITOR) && NEWSHF_HD_COMPOSITOR)\n"
+        },
+        {
+          "after_lines": [
+            1701,
+            1704
+          ],
+          "before": "",
+          "after": "#endif\n#if defined(NEWSHF_HD_COMPOSITOR) && NEWSHF_HD_COMPOSITOR\n#include \"global_newshf_mirror.inc\"\n"
+        },
+        {
+          "after_lines": [
+            1768,
+            1769
+          ],
+          "before": "void render_mirror_global_reset(void){render_mirror_newshf_validation_reset();global_hitflare_reset();global_smoke_reset();global_green_reset();global_small_explosion_reset();global_cash25_reset();global_rotor_reset();global_vulcan_reset();global_pulse_reset();global_shield_reset();global_talon_reset();}\n",
+          "after": "void render_mirror_global_reset(void){render_mirror_newshf_validation_reset();global_hitflare_reset();global_smoke_reset();global_green_reset();global_small_explosion_reset();global_cash25_reset();global_rotor_reset();global_newshf_reset();global_vulcan_reset();global_pulse_reset();global_shield_reset();global_talon_reset();}\n"
+        },
+        {
+          "after_lines": [
+            3842,
+            3847
+          ],
+          "before": "",
+          "after": "#if defined(NEWSHF_HD_COMPOSITOR) && NEWSHF_HD_COMPOSITOR\n bool newshf_identity=render_mirror_newshf_validation_tile(surface,x,y,bank,base,part,filter,material_context);\n int newshf_result=global_newshf_body(surface,x,y,bank,base,part,filter,material_context,newshf_identity);\n if(newshf_result>=0)return newshf_result>0;\n#else\n"
+        },
+        {
+          "after_lines": [
+            3848,
+            3849
+          ],
+          "before": "",
+          "after": "#endif\n"
+        },
+        {
+          "after_lines": [
+            4310,
+            4311
+          ],
+          "before": "void render_mirror_entity_end(void) { global_hitflare_end();global_smoke_end();global_green_end();global_small_explosion_end();global_cash25_end();global_rotor_end();global_vulcan_end();global_pulse_end();global_shield_end();global_talon_end();asteroid1_talon_blend_end(); render_mirror_shadow_end();cash25_fixed_value=false;cash75_fixed_value=false;cash50_fixed_value=false;gem100_fixed_value=false;gem250_fixed_value=false;data_fixed_value=false;fixed_pickup_flash=false;suppress=false;suppress_green_smoke=false;suppress_cloud=false; }\n",
+          "after": "void render_mirror_entity_end(void) { global_hitflare_end();global_smoke_end();global_green_end();global_small_explosion_end();global_cash25_end();global_rotor_end();global_newshf_end();global_vulcan_end();global_pulse_end();global_shield_end();global_talon_end();asteroid1_talon_blend_end(); render_mirror_shadow_end();cash25_fixed_value=false;cash75_fixed_value=false;cash50_fixed_value=false;gem100_fixed_value=false;gem250_fixed_value=false;data_fixed_value=false;fixed_pickup_flash=false;suppress=false;suppress_green_smoke=false;suppress_cloud=false; }\n"
+        },
+        {
+          "after_lines": [
+            4693,
+            4696
+          ],
+          "before": "",
+          "after": "#if defined(NEWSHF_HD_COMPOSITOR) && NEWSHF_HD_COMPOSITOR\n if(global_newshf_observe_blend(surface,address)){render_mirror_pixel(surface,address,source,MIRROR_BLEND);return;}\n#endif\n"
+        },
+        {
+          "after_lines": [
+            4850,
+            4851
+          ],
+          "before": " if(!shared_hud_frame&&!global_talon_frame&&!global_shield_frame&&!global_pulse_frame&&!global_hitflare_frame&&!global_small_explosion_frame&&!global_rotor_frame&&!global_cash25_frame&&!global_green_frame&&!global_smoke_frame&&!global_vulcan_frame)return;\n",
+          "after": " if(!shared_hud_frame&&!global_talon_frame&&!global_shield_frame&&!global_pulse_frame&&!global_hitflare_frame&&!global_small_explosion_frame&&!global_rotor_frame&&!global_newshf_frame&&!global_cash25_frame&&!global_green_frame&&!global_smoke_frame&&!global_vulcan_frame)return;\n"
+        },
+        {
+          "after_lines": [
+            4852,
+            4853
+          ],
+          "before": " if((!shared_hud_requested()&&!global_talon_requested())||!VGAScreenSeg||!VGAScreenSeg->pixels||\n",
+          "after": " if((!shared_hud_requested()&&!global_talon_requested()&&!global_newshf_requested())||!VGAScreenSeg||!VGAScreenSeg->pixels||\n"
+        },
+        {
+          "after_lines": [
+            4876,
+            4877
+          ],
+          "before": "",
+          "after": " retained_global=global_newshf_compose(kind,lightx,lighty)||retained_global;\n"
+        },
+        {
+          "after_lines": [
+            4896,
+            4897
+          ],
+          "before": " if(!global_talon_finish_proof()||!global_vulcan_finish_proof()||!global_green_finish_proof()||!global_smoke_finish_proof()||!global_rotor_finish_proof()||!global_cash25_finish_proof()||!global_small_explosion_finish_proof()||!global_hitflare_finish_proof()||!global_pulse_finish_proof()||!global_shield_finish_proof()) {\n",
+          "after": " if(!global_newshf_finish_proof()||!global_newshf_output_proof(kind,lightx,lighty)||!global_talon_finish_proof()||!global_vulcan_finish_proof()||!global_green_finish_proof()||!global_smoke_finish_proof()||!global_rotor_finish_proof()||!global_cash25_finish_proof()||!global_small_explosion_finish_proof()||!global_hitflare_finish_proof()||!global_pulse_finish_proof()||!global_shield_finish_proof()) {\n"
+        },
+        {
+          "after_lines": [
+            4900,
+            4902
+          ],
+          "before": " if((global_talon_frame&&(!global_talon_surface_matches()||!global_talon_final_surface_matches()))||\n",
+          "after": " if((global_newshf_frame&&(!global_newshf_surface_matches()||!global_newshf_final_surface_matches()))||\n    (global_talon_frame&&(!global_talon_surface_matches()||!global_talon_final_surface_matches()))||\n"
+        },
+        {
+          "after_lines": [
+            4919,
+            4920
+          ],
+          "before": " if(asteroid_hd_enabled&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()) {render_mirror_hud_reset();return;}\n",
+          "after": " if(asteroid_hd_enabled&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()&&!global_newshf_requested()) {render_mirror_hud_reset();return;}\n"
+        },
+        {
+          "after_lines": [
+            4929,
+            4930
+          ],
+          "before": "  if(shared_hud_frame||global_talon_frame||global_shield_frame||global_pulse_frame||global_hitflare_frame||global_small_explosion_frame||global_rotor_frame||global_cash25_frame||global_green_frame||global_smoke_frame||global_vulcan_frame)shared_hud_finish(kind,lightx,lighty);\n",
+          "after": "  if(global_newshf_frame||shared_hud_frame||global_talon_frame||global_shield_frame||global_pulse_frame||global_hitflare_frame||global_small_explosion_frame||global_rotor_frame||global_cash25_frame||global_green_frame||global_smoke_frame||global_vulcan_frame)shared_hud_finish(kind,lightx,lighty);\n"
+        },
+        {
+          "after_lines": [
+            4985,
+            4986
+          ],
+          "before": "",
+          "after": " retained_global=global_newshf_compose(kind,lightx,lighty)||retained_global;\n"
+        },
+        {
+          "after_lines": [
+            5023,
+            5025
+          ],
+          "before": " if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()) {render_mirror_hud_reset();return;}\n",
+          "after": " if(!global_newshf_fade_decline())return;\n if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()&&!global_newshf_requested()) {render_mirror_hud_reset();return;}\n"
+        },
+        {
+          "after_lines": [
+            5027,
+            5028
+          ],
+          "before": " global_talon_check_cache();global_shield_check_cache();global_pulse_check_cache();global_hitflare_check_cache();global_smoke_check_cache();global_green_check_cache();global_small_explosion_check_cache();global_cash25_check_cache();global_rotor_check_cache();global_vulcan_check_cache();\n",
+          "after": " global_talon_check_cache();global_shield_check_cache();global_pulse_check_cache();global_hitflare_check_cache();global_smoke_check_cache();global_green_check_cache();global_small_explosion_check_cache();global_cash25_check_cache();global_rotor_check_cache();global_newshf_check_cache();global_vulcan_check_cache();\n"
+        },
+        {
+          "after_lines": [
+            5029,
+            5030
+          ],
+          "before": " if((!mirror_enabled()&&!(shared_hud_lease&&shared_hud_requested())&&!global_talon_requested())||game_probe_density<2||!output||!cached||first!=0||last!=255)return;\n",
+          "after": " if((!mirror_enabled()&&!(shared_hud_lease&&shared_hud_requested())&&!global_talon_requested()&&!global_newshf_requested())||game_probe_density<2||!output||!cached||first!=0||last!=255)return;\n"
+        },
+        {
+          "after_lines": [
+            5057,
+            5058
+          ],
+          "before": " if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()) {render_mirror_hud_reset();return;}\n",
+          "after": " if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()&&!global_newshf_requested()) {render_mirror_hud_reset();return;}\n"
+        },
+        {
+          "after_lines": [
+            5060,
+            5061
+          ],
+          "before": " if(!global_talon_fade_step_valid(steps)||!global_shield_fade_step_valid(steps)||!global_pulse_fade_step_valid(steps)||!global_vulcan_fade_step_valid(steps)||!global_hitflare_fade_step_valid(steps)||!global_green_fade_step_valid(steps)||!global_smoke_fade_step_valid(steps)||!global_rotor_fade_step_valid(steps)||!global_cash25_fade_step_valid(steps)||!global_small_explosion_fade_step_valid(steps))return;\n",
+          "after": " if(!global_newshf_fade_decline()||!global_talon_fade_step_valid(steps)||!global_shield_fade_step_valid(steps)||!global_pulse_fade_step_valid(steps)||!global_vulcan_fade_step_valid(steps)||!global_hitflare_fade_step_valid(steps)||!global_green_fade_step_valid(steps)||!global_smoke_fade_step_valid(steps)||!global_rotor_fade_step_valid(steps)||!global_cash25_fade_step_valid(steps)||!global_small_explosion_fade_step_valid(steps))return;\n"
+        },
+        {
+          "after_lines": [
+            5112,
+            5113
+          ],
+          "before": " if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()) {render_mirror_hud_reset();return false;}\n",
+          "after": " if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()&&!global_newshf_requested()) {render_mirror_hud_reset();return false;}\n"
+        },
+        {
+          "after_lines": [
+            5121,
+            5122
+          ],
+          "before": " global_talon_check_cache();global_shield_check_cache();global_pulse_check_cache();global_hitflare_check_cache();global_smoke_check_cache();global_green_check_cache();global_small_explosion_check_cache();global_cash25_check_cache();global_rotor_check_cache();global_vulcan_check_cache();\n",
+          "after": " global_talon_check_cache();global_shield_check_cache();global_pulse_check_cache();global_hitflare_check_cache();global_smoke_check_cache();global_green_check_cache();global_small_explosion_check_cache();global_cash25_check_cache();global_rotor_check_cache();global_newshf_check_cache();global_vulcan_check_cache();\n"
+        }
+      ]
+    },
+    "src/render_mirror.h": {
+      "previous_sha256": "81f21e728dff9e718c73d54fba012a3a93ac25532e5f05e170f5a2e8f9c81761",
+      "current_sha256": "23370e3fa0b71cd8092e99b3fbd887a816084181cd3b81da6e178a5c657b10f7",
+      "hunks": [
+        {
+          "after_lines": [
+            8,
+            9
+          ],
+          "before": "#if defined(NEWSHF_IDENTITY_VALIDATION) && NEWSHF_IDENTITY_VALIDATION && !defined(RENDER_MIRROR_DISABLED)\n",
+          "after": "#if ((defined(NEWSHF_IDENTITY_VALIDATION) && NEWSHF_IDENTITY_VALIDATION) || (defined(NEWSHF_HD_COMPOSITOR) && NEWSHF_HD_COMPOSITOR)) && !defined(RENDER_MIRROR_DISABLED)\n"
+        }
+      ]
+    },
+    "src/newshf_identity_validation.inc": {
+      "previous_sha256": "4de0b691c2d128a0ecb51ac4d1cabd023d3565a4f69910c890f79aa48441d5e2",
+      "current_sha256": "39e7bc46d90a19fe396117b437bd6bdb58aa697cade31053031f3f50103355c8",
+      "hunks": [
+        {
+          "after_lines": [
+            98,
+            101
+          ],
+          "before": "",
+          "after": "#if defined(NEWSHF_HD_COMPOSITOR) && NEWSHF_HD_COMPOSITOR\n global_newshf_invalidate();\n#endif\n"
+        },
+        {
+          "after_lines": [
+            108,
+            111
+          ],
+          "before": "",
+          "after": "#if defined(NEWSHF_HD_COMPOSITOR) && NEWSHF_HD_COMPOSITOR\n global_newshf_invalidate();\n#endif\n"
+        }
+      ]
+    },
+    "src/global_talon_mirror.inc": {
+      "previous_sha256": "42821646a831f5aefb57bdec65f38ad9bebbe4d922f8d72fd1b9ee8061d7dead",
+      "current_sha256": "c7456d1ec292faa5e4b895cd7982b1143b6c2b2eaa90a576f0d595f1958a9119",
+      "hunks": [
+        {
+          "after_lines": [
+            235,
+            236
+          ],
+          "before": "",
+          "after": "  global_newshf_clear(n);\n"
+        }
+      ]
+    },
+    "src/global_shield_mirror.inc": {
+      "previous_sha256": "eaa64e9f450f0b8c5bb0820a1d19f98a5cc636a0f97f2fb23186fea32e6718dc",
+      "current_sha256": "f0ce8600e2765141cb3af13dfb3241a4ae02102bbb1b30e05df58def16757cb5",
+      "hunks": [
+        {
+          "after_lines": [
+            246,
+            247
+          ],
+          "before": "",
+          "after": "  global_newshf_clear(n);\n"
+        }
+      ]
+    },
+    "src/global_pulse_mirror.inc": {
+      "previous_sha256": "7edde61673b79bc628695c3329cf19a3c59f06c2c6c77ac78be3e650934d85a9",
+      "current_sha256": "c51c264d0c32f757fe9465a3c5b045b9234251914410d788451fef82341cfbd4",
+      "hunks": [
+        {
+          "after_lines": [
+            326,
+            327
+          ],
+          "before": "",
+          "after": "  global_newshf_clear(n);\n"
+        }
+      ]
+    },
+    "src/global_vulcan_mirror.inc": {
+      "previous_sha256": "05e4698aae6979720bba1b1b001b88f089e6b25304fb00dded76d3eb5db1d733",
+      "current_sha256": "e215b407511cb6f90a01dd1f11d4f86268093178dfa2692bbf3c6316d7dced92",
+      "hunks": [
+        {
+          "after_lines": [
+            356,
+            357
+          ],
+          "before": "",
+          "after": "  global_newshf_clear(n);\n"
+        }
+      ]
+    },
+    "src/global_hitflare_mirror.inc": {
+      "previous_sha256": "23dbb8f8258133178fbc17996b1fb48a2928dc89ec03c37602a732786d66c34e",
+      "current_sha256": "0fce1f7c51c774338b352ceaa0bfb58073ee378590f8a2793401be074a22dd10",
+      "hunks": [
+        {
+          "after_lines": [
+            246,
+            247
+          ],
+          "before": "",
+          "after": "  global_newshf_clear(n);\n"
+        }
+      ]
+    },
+    "src/global_smoke_mirror.inc": {
+      "previous_sha256": "eb5779f01a9df34a1777ace54a9b595cc8310629b595f787619cfc8de69cc6b9",
+      "current_sha256": "19c570e67a35e48b22d426c6d3b01192aec453a56fc14eb4c443a069de64e024",
+      "hunks": [
+        {
+          "after_lines": [
+            251,
+            252
+          ],
+          "before": "",
+          "after": "  global_newshf_clear(n);\n"
+        }
+      ]
+    },
+    "src/global_green_mirror.inc": {
+      "previous_sha256": "80dd38f4805ce9cbfc96a713018693c446c884950cb3096df40bf2c8870b1fe8",
+      "current_sha256": "89d292d6cd7c946579c78dc503287afb75c386aa660238d89042c5b2e9e69c15",
+      "hunks": [
+        {
+          "after_lines": [
+            253,
+            254
+          ],
+          "before": "",
+          "after": "  global_newshf_clear(n);\n"
+        }
+      ]
+    },
+    "src/global_small_explosion_mirror.inc": {
+      "previous_sha256": "6f514b5a62cac3a74c2920dea099b321a0b0fac19576fb9a6c4dfc06afddb075",
+      "current_sha256": "08f3a16761c530e3413b686915b0f70b726a1247152f3783a950ee5446fbc8e3",
+      "hunks": [
+        {
+          "after_lines": [
+            252,
+            253
+          ],
+          "before": "",
+          "after": "  global_newshf_clear(n);\n"
+        }
+      ]
+    },
+    "src/global_cash25_mirror.inc": {
+      "previous_sha256": "a25188ab5dee1f43a276bcd34dd9040d85d21298069337365a249162f1172980",
+      "current_sha256": "0092bacb866753da033a6d6a54af9fdb787110c74f729bfebf477c0d44e1b64c",
+      "hunks": [
+        {
+          "after_lines": [
+            288,
+            289
+          ],
+          "before": "",
+          "after": "  global_newshf_clear(n);\n"
+        }
+      ]
+    },
+    "src/global_rotor_mirror.inc": {
+      "previous_sha256": "1b241e190f773a67fb44e699f06153dc286d4f94569a819a5903cafd4e11f03c",
+      "current_sha256": "144b85e9ea4469346a1bfd4c8a9f38529920e1192e34161ae8eb56c9ab1ad283",
+      "hunks": [
+        {
+          "after_lines": [
+            210,
+            211
+          ],
+          "before": "",
+          "after": "  global_newshf_clear(n);\n"
+        }
+      ]
+    }
+  }
+}

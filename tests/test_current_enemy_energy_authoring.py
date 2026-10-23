@@ -79,7 +79,7 @@ class CurrentEnemyEnergyAuthoringTests(unittest.TestCase):
             now=self.snapshot()
             for path,digest in original.items():
                 if path not in allowed:self.assertEqual(now[path],digest,path)
-            self.assertEqual(len(runtime['files']),1015)
+            self.assertEqual(len(runtime['files']),1024)
             for r in runtime['files']:
                 if r['destination'] not in mapping and r['destination']!='CURRENT-PRODUCTION-VALIDATION.json':self.assertEqual(r,next(x for x in old_runtime['files'] if x['destination']==r['destination']))
     def test_global_and_hud_workflows_remain_composable(self):

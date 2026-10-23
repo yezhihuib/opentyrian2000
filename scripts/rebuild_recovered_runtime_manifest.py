@@ -81,6 +81,12 @@ def main():
     for destination,row in front_multi_load(root).items():
         if destination in art_compat:raise ValueError('Front Multi compatibility collision')
         art_compat[destination]=dict(row,authoring_family='front-multi')
+    from current_enemy_orb_compatibility import load as enemy_orb_load, ORDINARY_IDS
+    for destination,row in enemy_orb_load(root).items():
+        # Role142 remains opt-in; it must never enter the default runtime.
+        if row['identity'] not in ORDINARY_IDS:continue
+        if destination in art_compat:raise ValueError('Enemy orb compatibility collision')
+        art_compat[destination]=dict(row,authoring_family='enemy-orb')
     hud_compat=current_hud_compatibility(root)
     def add(source,destination,group,exact=None):
         size,blob,sha=pins(root/source)
@@ -119,6 +125,25 @@ def main():
     for destination,row in sorted(charge.items()):
         add(row['source_path'],destination,'gameplay')
         rows[destination]['revision']='current-single-source-charge-body'
+
+    # NEWSHF is a separate exact-nine additive opt-in extension. In particular,
+    # do not fold it into art_compat: unknown historical consumers still fail.
+    from build_newshf_hd import load as newshf_load, IDS as NEWSHF_IDS, name as newshf_name
+    newshf = newshf_load(root)
+    expected_newshf = {'assets/global/newshf/'+newshf_name(i) for i in NEWSHF_IDS}
+    if len(newshf)!=9 or set(newshf)!=expected_newshf or set(newshf)&set(rows):
+        raise ValueError('Unexpected/colliding NEWSHF runtime extension')
+    for destination,row in sorted(newshf.items()):
+        add(row['source_path'],destination,'newshf-optin')
+        rows[destination]['revision']='current-single-source-newshf-nine'
+
+    # Exactly one private P09 transport; no player227 or duplicate226/244.
+    from build_enemy_protron_p09 import derive as protron_derive, read as protron_read, DIRECTORY as PROTRON_DIRECTORY
+    for name,raw in protron_derive(root).items():
+        if protron_read(root,name)!=raw:raise ValueError('Stale P09 selected-B output: '+name)
+    protron_source=PROTRON_DIRECTORY+'/enemy-protron-p09-227-8.hda'
+    add(protron_source,'assets/gameplay/enemy-protron-p09-227-8.hda','enemy-protron-p09-optin')
+    rows['assets/gameplay/enemy-protron-p09-227-8.hda']['revision']='selected-b-private-enemy-protron-p09'
 
     if len(hud_compat)!=6 or any(not d.startswith('assets/shared-ui/') for d in hud_compat):
         raise ValueError('Current HUD fallback missing from historical selection')

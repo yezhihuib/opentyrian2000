@@ -1,0 +1,163 @@
+{
+  "schema": 1,
+  "status": "PASS_BOUNDED_DEFAULT_OFF_P05",
+  "base_commit": "47e7d062e0fc4a449a36f1d1f47e53c42f65c66d",
+  "scope": "E2 physical2 GYGES record379 turret1 weapon153 only; shared approved214/215/216 pixels unchanged; private role146; no normal-game activation",
+  "native": {
+    "setups": 105,
+    "assertions": 115075282,
+    "scope": "Native JE_drawEnemy with controlled firing timers; exact extracted native projectile/explosion update loops; real player shot creation/movement; not gameplay acceptance",
+    "sanitizers": "ASan+UBSan renderer/sprite/tyrian2/entity_draw/identity/shots/varz/harness; remaining baseline production objects native optimized",
+    "original_bytes_persisted": false
+  },
+  "old_six_regression": "PASS native enemy reuse: 310 cases, 79076 assertions; actual renderer/wrapper/indexed blits; not gameplay acceptance",
+  "negative_controls": {
+    "negative-bank-pin": {
+      "status": "PASS",
+      "failure": "case 50\ncase 100\nCHECK failed case 127 /workspace/scratch/f67dd347fa0a/enemy-green-reuse-worktree/tests/enemy_reuse_validation.c:106: draws==0"
+    },
+    "negative-rgb-store": {
+      "status": "PASS",
+      "failure": "CHECK failed case 1 /workspace/scratch/f67dd347fa0a/enemy-green-reuse-worktree/tests/enemy_reuse_validation.c:90: *pixel(output,dx-24*8,dy)==want"
+    },
+    "negative-animation-witness": {
+      "status": "PASS",
+      "failure": "CHECK failed case 11 /workspace/scratch/f67dd347fa0a/enemy-green-reuse-worktree/tests/enemy_green_reuse_validation.c:160: !render_mirror_enemy_reuse_shot(game_screen,enemyShot[0].sx,enemyShot[0].sy,spriteSheet8,215,0,214)"
+    },
+    "negative-family-isolation": {
+      "status": "PASS",
+      "failure": "CHECK failed case 2 /workspace/scratch/f67dd347fa0a/enemy-green-reuse-worktree/tests/enemy_green_reuse_validation.c:138: enemy_reuse_frame.contributed"
+    }
+  },
+  "compile_modes": {
+    "default-off": 0,
+    "opt-in": 0,
+    "mirror-disabled": 0
+  },
+  "default_off_objects": {
+    "render_mirror": {
+      "equal": true,
+      "base": "280d7775142f58af88443a185ed414d8321b27955197c136db4f79e07eeabc8d",
+      "current": "280d7775142f58af88443a185ed414d8321b27955197c136db4f79e07eeabc8d"
+    },
+    "tyrian2": {
+      "equal": true,
+      "base": "15e3230d74e68b2f8e020176648807ab5821e441f6b6838a7307b0239f742aba",
+      "current": "15e3230d74e68b2f8e020176648807ab5821e441f6b6838a7307b0239f742aba"
+    },
+    "sprite": {
+      "equal": true,
+      "base": "a3d45c7718075a706c54e42dc94af69562b585b843cc64f12555d5e4b03f8fce",
+      "current": "a3d45c7718075a706c54e42dc94af69562b585b843cc64f12555d5e4b03f8fce"
+    },
+    "entity_draw": {
+      "equal": true,
+      "base": "1d61c494e70a3e038004e9f67982c0caf3c042880bd6300daf37c5069e9bdadf",
+      "current": "1d61c494e70a3e038004e9f67982c0caf3c042880bd6300daf37c5069e9bdadf"
+    },
+    "enemy_reuse_identity": {
+      "equal": true,
+      "base": "bdf64e0cc3cad7c72c8032c623e5b4fe70a4bcff1a6bfe870386d32b5cca3bec",
+      "current": "bdf64e0cc3cad7c72c8032c623e5b4fe70a4bcff1a6bfe870386d32b5cca3bec"
+    }
+  },
+  "current_checks": {
+    "reuse-binding": 0,
+    "green": 0,
+    "source-binding": 0,
+    "package": 0,
+    "runtime-package-tests": 0,
+    "finite-history": 0,
+    "charge": 0,
+    "mint-front": 0,
+    "front-multi": 0,
+    "plasma": 0,
+    "orb": 0
+  },
+  "newshf_tests": "51 total:50 passed in main run, optional private-original case rerun separately and passed",
+  "finite_history_tests": 18,
+  "runtime_package_tests": 40,
+  "new_and_old_binding_tests": 6,
+  "source_and_runtime_delta": {
+    "status": "PASS",
+    "base": "47e7d062e0fc4a449a36f1d1f47e53c42f65c66d",
+    "runtime_destinations": 1024,
+    "runtime_rows_changed": [
+      "CURRENT-PRODUCTION-VALIDATION.json"
+    ],
+    "asset_or_authoring_paths_changed": [],
+    "production_sources_changed": [
+      "src/enemy_reuse_identity.c",
+      "src/enemy_reuse_identity.h",
+      "src/enemy_reuse_mirror.inc",
+      "src/render_mirror.c",
+      "src/tyrian2.c"
+    ],
+    "source_count": 262,
+    "historical_fixture_edits": []
+  },
+  "genuine_game_observation": {
+    "initial": {
+      "ticks": 450,
+      "last_tick": 449,
+      "event_next": 152,
+      "curLoc": 450,
+      "paired_state_equal": true
+    },
+    "strong": {
+      "ticks": 2433,
+      "last_tick": 2432,
+      "event_next": 411,
+      "curLoc": 2689,
+      "paired_state_equal": true
+    },
+    "target": {
+      "episode": 2,
+      "physical_level": 2,
+      "event": 781,
+      "event_time": 5317,
+      "enemy_record": 379,
+      "weapon": 153
+    },
+    "positive_role146_observations": 0,
+    "conclusion": "Both initial and documented strong-loadout attempts ended naturally before target; no HD native witness. State/RNG/indexed equality established before encounter only."
+  },
+  "resolved_findings": [
+    "Pending transition across unrelated bare indexed write/direct failed admission now revoked; adversarial native cases and animation-witness mutant prove boundary.",
+    "Initial interleave fixture used wrong smoke bank, correctly rejected; fixed to original pinned newsh6.shp, no production guard loosened."
+  ],
+  "limits": [
+    "Positive P05 graphics are native production harness evidence, NOT target encounter acceptance in a complete live game.",
+    "Both original GYGES input profiles died before target; zero role146 game-loop observations.",
+    "P02/P04 preceding stage also lacks positive target-HD actual-game witness.",
+    "Controlled native harness sets emitter placement/fire timers; production simulation is unchanged.",
+    "No P09, frame217, TORM749/110, new art, global enablement, upload or laptop deployment.",
+    "Normal interleave RGB oracle covers full viewport; BLEND oracle covers independently identified enemy-alpha overlap samples, not every background pixel.",
+    "No Windows/GPU or production-wide performance certification."
+  ],
+  "evidence_root": "/workspace/scratch/f67dd347fa0a/enemy-green-reuse-validation",
+  "evidence_sha256": {
+    "native/receipt.json": "4d774694b7ec9c032a9210818e4340526f3adb1b70fd4bdd375a11ea448ebf4f",
+    "old310-final/receipt.json": "bf38a8b67fae5b58bcdd88390418076bd1b5ffdf86889006f27cd463e9467550",
+    "checks.json": "a952ac07481cca7cf3459c0c3fffaf54138023cc58c1b8ece3068c98dcc79b5a",
+    "default-off-equivalence.json": "a9962944c250793bd53bca8195259932409742b59321b9bc6484375a6895594c",
+    "exact-delta.json": "2eddda17645772d81d4f14b7b44a43704025a411a83c3ef8cd004c870ebb12b3",
+    "independent-native-review.json": "6cdcb0445645732f98cb88c8aec839043d382372b5a7422983e15acc0bb6a4e4",
+    "independent-source-review.json": "3853467e0573e63835049d1088ccb2846a8c4c27f25b556406ab30db1da4d19b",
+    "gameplay/receipt.json": "75a6be712dd658db42f81b0ea9ff10694ef4c4795e2e608a9834e0e8aba6281b",
+    "gameplay-strong/receipt.json": "e25e2cf197ab9173a755c592544d94f66553a8c809138ebeb2f7d5c10c9fe102",
+    "gameplay-observation-summary.json": "3d84ee8c7557d862551a922e7a96aa4cb6731c7bef1b6a9ca7f213f8ad6674e8",
+    "newshf-tests.log": "586e2dbbc9a143d910c845553945d67ee0e06ab56abdd545b47a862675a8b56e",
+    "newshf-private.log": "d3eb6ff2d4548c17391b4d9ada4ad26a609bfe336a3113146a85ae1a77df7b2b",
+    "p05-binding.log": "b4cf4f8c8196e56ca92b3fb43bc20e3e124fb612aee7818115280fe1405e5fc5",
+    "p05-sources.json": "148a3b226da0ae542bd5eb33edf4a47ae8a09f2993ac17208bb2f3d3595d4eac",
+    "old-sources.json": "1b76172b746f000a4f468f6c2a8e8f43c60fcc8b69611637e163daf3f5c955a4",
+    "negative-bank-pin/receipt.json": "b5464052192511febc6b42ef7270070d8c5744993d17f50767dadb7eb6575373",
+    "negative-rgb-store/receipt.json": "fcb35acf6d1b5a25b65c755dbb85464921a952790e715330ebbf1721ffefcc6e",
+    "negative-animation-witness/receipt.json": "f844d934b49c82c8d66a0b59132deb041adccccc4664f8b6c91553d4c37f67ed",
+    "negative-family-isolation/receipt.json": "4ef43dcbf8ca493d71e1475524ad348558a6f88c44089d6e33ddfc17afef5f3f"
+  },
+  "production_binding_sha256": "3d5b8899633897d8c34b08a57ae16f5bdb00699eef67eea7638ec9ba0971e363",
+  "runtime_manifest_sha256": "da8b33d7a5b57246bf963e81c001eb48a2f10d7fc9164df5a829904ac618322b",
+  "free_disk_bytes": 7513817088
+}

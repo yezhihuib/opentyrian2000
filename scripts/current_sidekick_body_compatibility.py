@@ -265,7 +265,9 @@ def authoring_input_fingerprints(root):
     paths=independent_input_paths(root)
     paths|={'scripts/current_charge_body_recipe.py','scripts/current_sidekick_body_compatibility.py','scripts/build_current_sidekick_body.py',
             'scripts/current_plasma_projectile_compatibility.py','scripts/build_current_plasma_projectile.py',
-            'scripts/current_front_multi_compatibility.py','scripts/build_current_front_multi.py'}
+            'scripts/current_front_multi_compatibility.py','scripts/build_current_front_multi.py',
+            'scripts/current_enemy_orb_compatibility.py','scripts/build_current_enemy_orb.py',
+            'scripts/build_newshf_hd.py','scripts/check_newshf_phase_a.py'}
     return {name:_charge_sha(_charge_read(root,name)) for name in sorted(paths)}
 
 
@@ -402,4 +404,8 @@ def independent_input_paths(root):
     """Finite current dependency closure shared by every authoring workflow."""
     from current_plasma_projectile_compatibility import input_paths as plasma_input_paths, MAPPING as PLASMA_MAPPING
     from current_front_multi_compatibility import input_paths as front_multi_input_paths, MAPPING as FRONT_MULTI_MAPPING
-    return charge_input_paths(root)|mf_input_paths(root)|plasma_input_paths(root)|front_multi_input_paths(root)|{CHARGE_MAPPING,MF_MAPPING,PLASMA_MAPPING,FRONT_MULTI_MAPPING}
+    from current_enemy_orb_compatibility import input_paths as orb_input_paths, MAPPING as ORB_MAPPING
+    from build_newshf_hd import input_paths as newshf_input_paths
+    from build_enemy_protron_p09 import DIRECTORY as P09, MASTER as P09_MASTER
+    p09={P09_MASTER}|{P09+'/'+n for n in ('identity.json','recipe.json','source227.png','enemy-protron-p09-227-8.hda')}
+    return p09|newshf_input_paths(root)|charge_input_paths(root)|mf_input_paths(root)|plasma_input_paths(root)|front_multi_input_paths(root)|orb_input_paths(root)|{CHARGE_MAPPING,MF_MAPPING,PLASMA_MAPPING,FRONT_MULTI_MAPPING,ORB_MAPPING}

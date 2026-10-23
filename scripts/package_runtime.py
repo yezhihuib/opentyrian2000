@@ -326,6 +326,35 @@ def main(argv=None) -> int:
             if (row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or
                     row.get('group')!='gameplay' or row.get('revision')!='current-single-source-front-multi'):
                 raise ValueError('Stale Front Multi runtime selection')
+    # Ordinary role8 is mandatory only for the default/current selection.
+    # Role142 remains an explicit opt-in pair; historical pack manifests retain
+    # their frozen semantics and never acquire current authoring dependencies.
+    orb_prefix = 'assets/hd/current-compat/enemy-orb/'
+    orb_names = {'bullet-112-8.hda', 'bullet-113-8.hda',
+                 'enemy-orb112113-112-8.hda', 'enemy-orb112113-113-8.hda'}
+    orb_rows = [row for row in manifest['files'] if any(
+        Path(row[key]).name.casefold() in orb_names for key in ('destination', 'source_path')) or
+        row['source_path'].casefold().startswith(orb_prefix)]
+    orb_current = manifest_path.resolve() == (roots[0]/'packaging/runtime-assets-v1.json').resolve() or any(
+        row['source_path'].casefold().startswith(orb_prefix) or
+        (isinstance(row.get('revision'), str) and row['revision'].casefold() == 'current-single-source-enemy-orb')
+        for row in manifest['files'])
+    if orb_current:
+        from current_enemy_orb_compatibility import ORDINARY_IDS, OPTIN_IDS, name as orb_name, load as orb_load
+        ordinary = {'assets/gameplay/'+orb_name(identity) for identity in ORDINARY_IDS}
+        optin = {'assets/gameplay/'+orb_name(identity) for identity in OPTIN_IDS}
+        expected = ordinary
+        if any(Path(row[key]).name.casefold().startswith('enemy-orb112113-')
+               for row in orb_rows for key in ('destination', 'source_path')):
+            expected = ordinary | optin
+        if len(orb_rows)!=len(expected) or {row['destination'] for row in orb_rows}!=expected:
+            raise ValueError('Enemy orb packaging requires ordinary pair and complete explicitly selected opt-in pair')
+        selected = orb_load(roots[0])
+        for row in orb_rows:
+            current = selected[row['destination']]
+            if (row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or
+                    row.get('group')!='gameplay' or row.get('revision')!='current-single-source-enemy-orb'):
+                raise ValueError('Stale enemy orb runtime selection')
     source_map = read_json(args.source_map) if args.source_map else {}
     verified, missing = [], []
     for row in manifest['files']:

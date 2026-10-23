@@ -196,14 +196,14 @@ class MintFrontBodyAuthoringTests(unittest.TestCase):
         installed=self.selected()['resources'][1]
         self.assertEqual((installed['source_png'],installed['source_sha256']),(original_path,b.sha(raw)))
 
-    def test_four_edits_propagate_to_both_views_and_1015_file_runtime(self):
+    def test_four_edits_propagate_to_both_views_and_1024_file_runtime(self):
         for index in range(4):
             b.mf_apply(self.root,self.stage(self.changed_source(index)))
         mapping=c.mf_load(self.root)
         for kind in ('preview','debug'):
             target=self.base/('mint-front-updated-'+kind)
             report=craft.view(self.root,kind,target)
-            self.assertEqual((report['files'],len(report['current_overlays'])),(650,169))
+            self.assertEqual((report['files'],len(report['current_overlays'])),(650,171))
             frozen=self.root/'assets/hd/packs'/craft.BASES[kind]
             nonoverlays=[p for p in frozen.rglob('*') if p.is_file()
                          and p.relative_to(frozen).as_posix() not in report['current_overlays']]
@@ -213,7 +213,7 @@ class MintFrontBodyAuthoringTests(unittest.TestCase):
             for destination,row in mapping.items():
                 self.assertEqual((target/Path(destination).name).read_bytes(),(self.root/row['source_path']).read_bytes())
         code,report=self.package()
-        self.assertEqual((code,report['verified_files']),(0,1015))
+        self.assertEqual((code,report['verified_files']),(0,1024))
         target=self.base/'mint-front-runtime-copy'
         evidence=os.environ.get('MINT_FRONT_REAL_COPY_OUTPUT')
         if evidence:
@@ -225,7 +225,7 @@ class MintFrontBodyAuthoringTests(unittest.TestCase):
             result=subprocess.run(command,capture_output=True,text=True)
             receipt=dict(command=command,returncode=result.returncode,stdout=result.stdout,
                          stderr=result.stderr,selection=self.selected(),mapping=list(mapping.values()),
-                         scope='Four independent synthetic source updates, two650-file views and real1015-file CLI copy; no game/Windows execution')
+                         scope='Four independent synthetic source updates, two650-file views and real1024-file CLI copy; no game/Windows execution')
             with target.with_name(target.name+'-receipt.json').open('xb') as stream:
                 stream.write(b.encoded(receipt))
             self.assertEqual(result.returncode,0,result.stdout+result.stderr)
@@ -235,8 +235,8 @@ class MintFrontBodyAuthoringTests(unittest.TestCase):
             # Content-only portable test. Real-copy acceptance is the opt-in above.
             with patch.object(Path,'chmod',return_value=None):
                 code,report=self.package('--build','--output',target)
-        self.assertEqual((code,report['verified_files']),(0,1015))
-        self.assertEqual(len(json.loads((target/'RUNTIME-INVENTORY.json').read_bytes())['files']),1015)
+        self.assertEqual((code,report['verified_files']),(0,1024))
+        self.assertEqual(len(json.loads((target/'RUNTIME-INVENTORY.json').read_bytes())['files']),1024)
         for destination,row in mapping.items():
             self.assertEqual((target/destination).read_bytes(),(self.root/row['source_path']).read_bytes())
 
@@ -543,7 +543,7 @@ class MintFrontBodyAuthoringTests(unittest.TestCase):
         self.assertEqual(sum(charge_before[name]!=charge_after[name] for name in charge_before if name.endswith('.hda')),9)
         self.assertEqual(b.mf_check(self.root)['status'],'PASS')
         self.assertEqual(b.charge_check(self.root)['status'],'PASS')
-        code,report=self.package();self.assertEqual((code,report['verified_files']),(0,1015))
+        code,report=self.package();self.assertEqual((code,report['verified_files']),(0,1024))
 
     def test_mint_front_source_drift_invalidates_each_legacy_and_charge_plan(self):
         import build_current_art as art

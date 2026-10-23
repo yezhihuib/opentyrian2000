@@ -20,6 +20,7 @@
 #include "render_mirror.h"
 #include "common_pause.h"
 #include "entity_draw.h"
+#include "enemy_reuse_identity.h"
 #include "game_probe.h"
 #include "asset_debug.h"
 #include "startup_logos.h"
@@ -250,6 +251,7 @@ void JE_drawEnemy(int enemyOffset) // actually does a whole lot more than just d
 
 				render_mirror_cash25_enemy_animated(i);
 				render_mirror_rotor_enemy_animated(i);
+				render_mirror_newshf_validation_observe(i);
 
 				if (enemy[i].egr[enemy[i].enemycycle - 1] == 999)
 					goto enemy_gone;
@@ -468,6 +470,9 @@ enemy_still_exists:
 								if (b == ENEMY_SHOT_MAX)
 									goto draw_enemy_end;
 
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
+								enemy_reuse_shot_retire(b);
+#endif
 								enemyShotAvail[b] = !enemyShotAvail[b];
 
 								if (weapons[temp3].sound > 0)
@@ -563,6 +568,9 @@ enemy_still_exists:
 									enemyShot[b].sxm = roundf((float)aimX / maxMagAim * aim);
 									enemyShot[b].sym = roundf((float)aimY / maxMagAim * aim);
 								}
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
+								enemy_reuse_shot_spawn(b,i,temp3,j,tempPos);
+#endif
 							}
 							break;
 						}
@@ -1060,6 +1068,9 @@ start_level_first:
 	}
 
 	memset(enemyAvail,       1, sizeof(enemyAvail));
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
+	enemy_reuse_reset();
+#endif
 	for (uint i = 0; i < COUNTOF(enemyShotAvail); i++)
 		enemyShotAvail[i] = 1;
 
@@ -1864,6 +1875,9 @@ draw_player_shot_loop_end:
 
 				if (enemyShot[z].duration-- == 0 || enemyShot[z].sy > 190 || enemyShot[z].sy <= -14 || enemyShot[z].sx > 275 || enemyShot[z].sx <= 0)
 				{
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
+					enemy_reuse_shot_retire(z);
+#endif
 					enemyShotAvail[z] = true;
 				}
 				else  // check if shot collided with player
@@ -1881,6 +1895,9 @@ draw_player_shot_loop_end:
 							JE_integer tempY = enemyShot[z].sy;
 							temp = enemyShot[z].sdmg;
 
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
+							enemy_reuse_shot_retire(z);
+#endif
 							enemyShotAvail[z] = true;
 
 							JE_setupHitflareExplosion(tempX, tempY, 2);
@@ -1900,17 +1917,31 @@ draw_player_shot_loop_end:
 
 					if (enemyShotAvail[z] == false)
 					{
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
+						enemy_reuse_shot_before_animation(z);
+#endif
 						if (enemyShot[z].animax != 0)
 						{
 							if (++enemyShot[z].animate >= enemyShot[z].animax)
 								enemyShot[z].animate = 0;
 						}
 
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
+						enemy_reuse_shot_after_animation(z);
+#endif
 						if (enemyShot[z].sgr >= 500)
 							blit_sprite2(VGAScreen, enemyShot[z].sx, enemyShot[z].sy, spriteSheet12, enemyShot[z].sgr + enemyShot[z].animate - 500);
 						else
 						{
 							unsigned int sprite = enemyShot[z].sgr + enemyShot[z].animate;
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
+							if (sprite == 105 || sprite == 106 || sprite == 124 || sprite == 125 || sprite == 20 || sprite == 21 || sprite == 214 || sprite == 215 || sprite == 216 || sprite == 226 || sprite == 227 || sprite == 244)
+							{
+								enemy_reuse_shot_begin_draw(z);
+								draw_enemy_reuse_shot_sprite2(VGAScreen, enemyShot[z].sx, enemyShot[z].sy, spriteSheet8, sprite, z, enemyShot[z].sgr);
+							}
+							else
+#endif
 							if (sprite == 112 || sprite == 113 || sprite == 77 || sprite == 58 || sprite == 182 || sprite == 163 || sprite == 1 || sprite == 183 || sprite == 164 || sprite == 146 || sprite == 147 || sprite == 304)
 								draw_enemy_shot_sprite2(VGAScreen, enemyShot[z].sx, enemyShot[z].sy, spriteSheet8, sprite);
 							else
@@ -4034,6 +4065,10 @@ uint JE_makeEnemy(struct JE_SingleEnemyType *enemy, Uint16 eDatI, Sint16 uniqueS
 {
 	render_mirror_cash25_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
 	render_mirror_rotor_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
+	render_mirror_newshf_validation_allocated(enemy,eDatI,uniqueShapeTableI);
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
+	enemy_reuse_actor_allocated(enemy,eDatI,uniqueShapeTableI);
+#endif
 	uint avail;
 
 	JE_byte shapeTableI;
@@ -4322,6 +4357,10 @@ uint JE_makeEnemy(struct JE_SingleEnemyType *enemy, Uint16 eDatI, Sint16 uniqueS
 
 	render_mirror_cash25_enemy_initialized(enemy,eDatI,avail);
 	render_mirror_rotor_enemy_initialized(enemy,eDatI,avail);
+	render_mirror_newshf_validation_initialized(enemy,eDatI,avail);
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
+	enemy_reuse_actor_initialized(enemy,eDatI,avail);
+#endif
 	/* indicates what to set ENEMYAVAIL to */
 	return avail;
 }

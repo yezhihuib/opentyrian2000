@@ -1,4 +1,4 @@
-"""Fail-closed inverses of named, already published later changes.
+"""Fail-closed inverses of named, reviewed later changes.
 
 The original feature oracle and its old digests are not rebased. Each inverse
 first verifies the entire accepted current blob, then every finite hunk, then
@@ -6,6 +6,9 @@ the old blob. The two generated payload headers and thirty-one fixed current ass
 require a fresh exact current-generation proof before their finite projection.
 A third generated header and exactly nine Front Multi outputs are separately
 derived; its two-hunk inverse precedes Plasma. All historical ledgers stay fixed.
+The local default-off NEWSHF compositor adds a separate newest exact inverse,
+one fixed executable module and nine independently derived HDR1 resources.
+This is a local binding proof, not publication or gameplay acceptance.
 All other source bytes and the historical asset inventory remain fixed.
 The reviewed render-boundary correction has its own exact two-file inverse;
 current source bindings keep its real bytes, while older oracles see their
@@ -22,6 +25,13 @@ import copy, hashlib, json, os, subprocess, sys
 ROOT = Path(__file__).resolve().parents[1]
 FIXTURES = ROOT/'tests/fixtures/accepted-later-changes-v1'
 PINS = {
+ 'enemy-protron-reuse-source.json': '5f82aa5edc9c9e3b1698f6480488e975101b392ffae0e741540e5c9cafccac6a',
+ 'enemy-green-reuse-source.json': '8c1c462965c780c0199132790a851f31575ef24f2966332bbc36c5936ceba2ba',
+ 'newshf168-soft-alpha-source.json': '668ce6cdff20bc65d649c3b283c9aef36f8dbcabe5efb520ad4e57a1fb301853',
+ 'enemy-reuse-source.json': '76e19c7b8bc2ec2fcf8644935c32306e38a334db9e8ddbc520841af0954fb6a0',
+ 'newshf-compositor-source.json': 'f423c5fa1f582c45027345124ace1d8efec049aeed23f7e92bfc5b6010f5754d',
+ 'newshf-identity-source.json': 'a402237cceeec01e05ca92249c1125e964bc1e8b984de95d81b523e134a5a787',
+ 'enemy-orb-source.json': '0a6f1105dd410c417dc56eff06aca9efcbca600419f22b53afc203c6dd645d05',
  'data-source.json': '3bfbfea80342efbf8ad53e38957260fcdf674db5a57c732f3702e502324cc011',
  'rear-p1-source.json': '2f8fed7183dcf1087b93cc7bceb79ac189ac0209835f8108c8aa0cdc0b931ff3',
  'storm-source.json': '188f57d604004af08ec191cc6bddf2b7d07ea65b1f60348073f7e0263f8783a1',
@@ -51,6 +61,18 @@ def _project_source_once(label,name,raw):
 
 def project_source(label,name,raw):
  # Newest first; generated payload values never relax executable source bytes.
+ raw=_project_source_once('enemy-protron-reuse',name,raw)
+ if label=='enemy-protron-reuse':return raw
+ raw=_project_source_once('enemy-green-reuse',name,raw)
+ if label=='enemy-green-reuse':return raw
+ raw=_project_source_once('enemy-reuse',name,raw)
+ if label=='enemy-reuse':return raw
+ raw=_project_source_once('newshf-compositor',name,raw)
+ if label=='newshf-compositor':return raw
+ raw=_project_source_once('newshf-identity',name,raw)
+ if label=='newshf-identity':return raw
+ raw=_project_source_once('enemy-orb',name,raw)
+ if label=='enemy-orb':return raw
  raw=_project_source_once('front-multi',name,raw)
  if label=='front-multi':return raw
  raw=_project_source_once('plasma-projectile',name,raw)
@@ -62,7 +84,142 @@ def project_source(label,name,raw):
  return _project_source_once(label,name,raw)
 
 def corrected_source_paths():
- return sorted(set(load('front-multi-source.json')['files'])|set(load('plasma-projectile-source.json')['files'])|set(load('charge-body-source.json')['files'])|set(load('render-boundaries-source.json')['files']))
+ return sorted(set(load('enemy-reuse-source.json')['files'])|set(load('newshf-compositor-source.json')['files'])|set(load('newshf-identity-source.json')['files'])|set(load('enemy-orb-source.json')['files'])|set(load('front-multi-source.json')['files'])|set(load('plasma-projectile-source.json')['files'])|set(load('charge-body-source.json')['files'])|set(load('render-boundaries-source.json')['files']))
+
+
+PROTRON_HEADER='src/current_enemy_protron_payload_pins.h'
+def verified_protron_current(root=ROOT):
+ """Finite derivative proof, immutable identity and independent selected pixels."""
+ scripts=str(ROOT/'scripts')
+ if scripts not in sys.path:sys.path.insert(0,scripts)
+ import build_enemy_protron_p09 as p
+ assert p.DIRECTORY=='assets/hd/enemy-protron-p09-v1' and p.HEADER==PROTRON_HEADER
+ outputs=p.derive(root)
+ for name,raw in outputs.items():assert p.read(root,name)==raw,('unverified P09 output',name)
+ assets={name:{'sha256':sha(raw),'mode':'100644'} for name,raw in outputs.items() if name!=PROTRON_HEADER}
+ for filename,expected in [('identity.json',p.IDENTITY),('recipe.json',p.RECIPE)]:
+  name=p.DIRECTORY+'/'+filename;raw=p.read(root,name);assert json.loads(raw)==expected
+  assets[name]={'sha256':sha(raw),'mode':'100644'}
+ assert len(assets)==4
+ return {'assets':assets,'header_sha256':sha(outputs[PROTRON_HEADER])}
+
+def verified_enemy_reuse_sources(root=ROOT):
+ """Exactly three independent enemy semantic modules, never player aliases."""
+ ledger=load('enemy-reuse-source.json')
+ assert set(ledger['files'])=={'src/entity_draw.c','src/entity_draw.h','src/render_mirror.c','src/render_mirror.h','src/sprite.c','src/tyrian2.c'},'unapproved enemy reuse hook scope'
+ added=ledger['added_sources']
+ assert set(added)=={'src/enemy_reuse_identity.c','src/enemy_reuse_identity.h','src/enemy_reuse_mirror.inc'},'unapproved enemy reuse source scope'
+ green=load('enemy-green-reuse-source.json')
+ assert set(green['files'])=={'src/enemy_reuse_identity.c','src/enemy_reuse_identity.h','src/enemy_reuse_mirror.inc','src/tyrian2.c','src/render_mirror.c'},'unapproved green enemy source scope'
+ current={}
+ for name,digest in added.items():
+  path=root/name
+  assert not path.is_symlink() and path.is_file(),('unapproved enemy reuse module',name)
+  raw=path.read_bytes()
+  current[name]=sha(raw)
+  raw=_project_source_once('enemy-protron-reuse',name,raw)
+  assert sha(raw)==green['files'][name]['current_sha256'],('unapproved green enemy module',name)
+  assert sha(_project_source_once('enemy-green-reuse',name,raw))==digest,('unapproved historical enemy reuse module',name)
+ return current
+
+def verified_newshf_identity_sources(root=ROOT):
+ """Two exact prototype modules, never a wildcard source/history exclusion."""
+ ledger=load('newshf-identity-source.json')
+ assert set(ledger['files'])=={'src/render_mirror.c','src/render_mirror.h','src/sprite.c','src/tyrian2.c'},'unapproved NEWSHF observer hook scope'
+ added=ledger['added_sources']
+ assert set(added)=={'src/newshf_identity_validation.inc','src/newshf_prototype_pins.h'},'unapproved NEWSHF prototype module scope'
+ for name,digest in added.items():
+  path=root/name
+  assert not path.is_symlink() and path.is_file(),('unapproved NEWSHF prototype module',name)
+  raw=path.read_bytes()
+  pin=load('newshf-compositor-source.json')['files'].get(name)
+  assert sha(raw)==(pin['current_sha256'] if pin else digest),('unapproved NEWSHF prototype module',name)
+  assert sha(_project_source_once('newshf-compositor',name,raw))==digest,('unapproved NEWSHF prototype module',name)
+ return dict(added)
+
+NEWSHF_HEADER='src/newshf_hd_assets.h'
+NEWSHF_ROOT='assets/hd/newshf-v1'
+NEWSHF_MANIFEST=NEWSHF_ROOT+'/manifest.json'
+NEWSHF_IDS=tuple(range(2100000,2100009))
+NEWSHF_NAMES=tuple(f'newshf-role{i}-8.hda' for i in NEWSHF_IDS)
+NEWSHF_PAIRS=((163,125),(163,123),(163,127),(167,3),(167,1),(167,5),(168,55),(168,17),(168,93))
+# Independent finite artwork-policy authority; original source identity stays binary.
+NEWSHF168_SOFT_POLICY={'alpha': 'straight-rgba8-zero-transparent-rgb', 'bases': [55, 17, 93], 'record': 168, 'revision': 'newshf168-v4-max-canvas-soft-alpha-v1', 'selected_png_sha256': {'17': 'e02d8f0b3c622aa7fd846406f5df30dc6ac0a4af1eed70a1103fec19dac1955b', '55': '9cfc7d7b8c2b20917bd58898cf21fbb76ad2841e371158f37316aab3f8818e70', '93': 'c0f68d1715b31fa314f9ba65dbb910bc7c7edc3f6ad4bb4f2958da032e6f61b5'}}
+
+def verified_newshf_compositor_sources(root=ROOT):
+ """One exact executable module; generated header has independent pixel proof."""
+ added=load('newshf-compositor-source.json')['added_sources']
+ assert set(added)=={'src/global_newshf_mirror.inc'},'unapproved NEWSHF compositor module scope'
+ soft=load('newshf168-soft-alpha-source.json')
+ assert set(soft['files'])=={'src/global_newshf_mirror.inc'},'unapproved NEWSHF soft-alpha module scope'
+ current={}
+ for name,digest in added.items():
+  path=root/name
+  assert not path.is_symlink() and path.is_file(),('unapproved NEWSHF compositor module',name)
+  raw=path.read_bytes()
+  assert sha(raw)==soft['files'][name]['current_sha256'],('unapproved NEWSHF compositor module',name)
+  assert sha(_project_source_once('newshf168-soft-alpha',name,raw))==digest,('unapproved NEWSHF compositor historical module',name)
+  current[name]=sha(raw)
+ return current
+
+def verified_newshf_current(root=ROOT):
+ """Independently bind nine PNG payloads, fixed roles, transports and package rows.
+
+ Generated payload bytes may follow a deliberate repinned source art edit. They
+ can never redefine bank identity, role, dimensions, anchor or consumer paths.
+ """
+ import io,struct
+ from PIL import Image
+ scripts=str(ROOT/'scripts')
+ if scripts not in sys.path:sys.path.insert(0,scripts)
+ import build_newshf_hd as builder
+ assert builder.IDS==NEWSHF_IDS and builder.PAIRS==NEWSHF_PAIRS,'unapproved NEWSHF identity roles'
+ assert builder.HEADER==NEWSHF_HEADER and builder.OUTPUT==NEWSHF_ROOT and builder.MANIFEST==NEWSHF_MANIFEST,'unapproved NEWSHF generated paths'
+ loaded=builder.load(root)
+ expected_destinations={'assets/global/newshf/'+name for name in NEWSHF_NAMES}
+ assert set(loaded)==expected_destinations,'unapproved NEWSHF consumers'
+ source='authoring-inputs/enemies/newshf-phase-a/'
+ selected=json.loads((root/(source+'manifest.json')).read_bytes())
+ assert len(selected['art'])==9,'unapproved NEWSHF pose count'
+ outputs={};declarations=[]
+ runtime=json.loads((root/'packaging/runtime-assets-v1.json').read_bytes())
+ runtime_rows={r['destination']:r for r in runtime['files']}
+ assert len(runtime_rows)==len(runtime['files'])==1025,'unapproved NEWSHF runtime scope'
+ for identity,pair,name,art in zip(NEWSHF_IDS,NEWSHF_PAIRS,NEWSHF_NAMES,selected['art']):
+  record,base=pair
+  assert (art['record'],art['base'])==pair and art['source_id']==f'newshf.shp:base:{base}','unapproved NEWSHF source association'
+  assert art['file']==f'enemy-{record}-v1-bbox-fit-base{base}.png','unapproved NEWSHF master path'
+  path=root/(source+art['file']);assert not path.is_symlink() and path.is_file(),'invalid NEWSHF master'
+  png=path.read_bytes();assert sha(png)==art['art_sha256'],'stale NEWSHF selected source'
+  with Image.open(io.BytesIO(png)) as image:
+   assert image.format=='PNG' and image.mode=='RGBA' and image.size==(192,224) and getattr(image,'n_frames',1)==1,'unapproved NEWSHF geometry'
+   payload=image.tobytes()
+  if record==168 and selected.get('schema')==2:
+   assert selected.get('art_policy')==NEWSHF168_SOFT_POLICY,'unapproved NEWSHF soft-alpha policy'
+   assert sha(png)==NEWSHF168_SOFT_POLICY['selected_png_sha256'][str(base)],'unselected NEWSHF168 soft-alpha revision'
+   assert all(payload[i+3] or payload[i:i+3]==b'\0\0\0' for i in range(0,len(payload),4)),'hidden NEWSHF168 transparent RGB'
+  else:
+   assert all(payload[i] in (0,255) for i in range(3,len(payload),4)),'nonbinary NEWSHF alpha'
+  blob=struct.pack('<4s6I',b'HDR1',identity,8,24,28,6,7)+payload
+  path=NEWSHF_ROOT+'/'+name;destination='assets/global/newshf/'+name
+  assert (root/path).read_bytes()==blob,'stale NEWSHF master/transport'
+  value=14695981039346656037
+  for byte in payload:value=((value^byte)*1099511628211)&0xffffffffffffffff
+  declarations.append(f' {{{identity}u,{len(blob)}u,8u,24u,28u,6,7,"newshf/{name}",UINT64_C(0x{value:016x})}},')
+  outputs[path]={'sha256':sha(blob),'mode':'100644'}
+  row=dict(source_path=path,destination=destination,group='newshf-optin',revision='current-single-source-newshf-nine',bytes=len(blob),sha256=sha(blob),git_blob=hashlib.sha1(b'blob '+str(len(blob)).encode()+b'\0'+blob).hexdigest())
+  assert runtime_rows[destination]==row,'stale NEWSHF runtime member'
+ header=('/* Generated by scripts/build_newshf_hd.py; unchanged selected pixels. */\n'
+  '#ifndef NEWSHF_HD_ASSETS_H\n#define NEWSHF_HD_ASSETS_H\n#include "global_asset_registry.h"\n'
+  'enum { NEWSHF_HD_RESOURCE_COUNT = 9 };\n'
+  'static const GlobalAssetResource newshf_hd_resources[NEWSHF_HD_RESOURCE_COUNT] = {\n'+
+  '\n'.join(declarations)+'\n};\n#endif\n').encode()
+ assert (root/NEWSHF_HEADER).read_bytes()==header,'stale NEWSHF generated header'
+ manifest=(root/NEWSHF_MANIFEST).read_bytes()
+ outputs[NEWSHF_MANIFEST]={'sha256':sha(manifest),'mode':'100644'}
+ binding=json.loads((root/'packaging/current-production-validation.json').read_bytes())
+ assert len(binding['source_sha256'])==263 and binding['source_sha256'].get(NEWSHF_HEADER)==sha(header),'stale NEWSHF source binding'
+ return dict(assets=outputs,header_sha256=sha(header))
 
 PINS['p9-stage-catalog.json']='565303b7f5b4f2cf726214a61e2f95148f4ed0ba816a81939ad6bc4c2b62d4d3'
 PINS['p9-assets.json']='1b83129e300efeb77fe0e143882a456b91e6083817fb80f442ea6d9740513ff7'
@@ -109,9 +266,15 @@ def verified_sidekick_current(root=ROOT):
  # current; coherent image bytes alone cannot bless a stale package plan.
  from verify_current_production import verify
  binding_raw=builder.read(root,builder.BINDING);binding=json.loads(binding_raw)
- assert verify(root,binding)==254,'unexpected current production source scope'
+ assert verify(root,binding)==263,'unexpected current production source scope'
  expected_sources=dict(load('current-source-inventory.json')['files'])
  expected_sources[SIDEKICK_HEADER]=sha(header);expected_sources.update(PRODUCTION_NON_CODE)
+ expected_sources.update(verified_newshf_identity_sources(root))
+ expected_sources.update(verified_newshf_compositor_sources(root))
+ expected_sources.update(verified_enemy_reuse_sources(root))
+ expected_sources[PROTRON_HEADER]=verified_protron_current(root)['header_sha256']
+ expected_sources[NEWSHF_HEADER]=verified_newshf_current(root)['header_sha256']
+ expected_sources[ORB_HEADER]=verified_enemy_orb_current(root)['header_sha256']
  expected_sources[PLASMA_HEADER]=verified_plasma_projectile_current(root)['header_sha256']
  # Preserve the existing non-target-source authority rejection before the
  # Front proof's runtime-binding check. Its actual header is derived below.
@@ -123,7 +286,7 @@ def verified_sidekick_current(root=ROOT):
  assert binding['source_sha256']==expected_sources,'unapproved non-target production source binding'
  assert expected_sources[FRONT_MULTI_HEADER]==verified_front_multi_current(root)['header_sha256'],'unverified Front Multi production header'
  runtime=json.loads(builder.read(root,builder.RUNTIME));runtime_rows={r['destination']:r for r in runtime['files']}
- assert len(runtime_rows)==len(runtime['files'])==1015,'unexpected current runtime destination scope'
+ assert len(runtime_rows)==len(runtime['files'])==1025,'unexpected current runtime destination scope'
  def blob_row(source,destination,group,revision,data):
   import hashlib
   oid=hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()
@@ -134,6 +297,70 @@ def verified_sidekick_current(root=ROOT):
  assert runtime_rows.get('CURRENT-PRODUCTION-VALIDATION.json')==blob_row(builder.BINDING,'CURRENT-PRODUCTION-VALIDATION.json','current-production-validation','reconstructed-local-unpublished',binding_raw),'stale current runtime source binding'
  assert runtime['source_revision']['current_production_source_manifest_sha256']==binding['production_source_manifest_sha256'],'stale current runtime source digest'
  return dict(assets=outputs,header_sha256=sha(header),source_pngs=sources)
+
+ORB_SELECTION='assets/hd/authoring/enemy-orb-current.json'
+ORB_ROOT='assets/hd/current-compat/enemy-orb'
+ORB_HEADER='src/current_enemy_orb_payload_pins.h'
+ORB_IDS=(80112,80113,1420112,1420113)
+ORB_NAMES=('bullet-112-8.hda','bullet-113-8.hda','enemy-orb112113-112-8.hda','enemy-orb112113-113-8.hda')
+ORB_MASK='000000000000000000000000000000000000000000000000000011111000000111111100000111111100000111111100000111111100000111111100000011111000000000000000000000000000000000000000'
+
+def verified_enemy_orb_current(root=ROOT):
+ """Independent two-master/four-contract proof before any history projection."""
+ import io,struct
+ from PIL import Image
+ scripts=str(ROOT/'scripts')
+ if scripts not in sys.path:sys.path.insert(0,scripts)
+ import current_enemy_orb_compatibility as compat
+ assert compat.IDS==ORB_IDS and compat.SELECTION==ORB_SELECTION and compat.ROOT==ORB_ROOT and compat.HEADER==ORB_HEADER,'unapproved orb scope'
+ assert compat.MASK==ORB_MASK and ORB_MASK.count('1')==45,'unapproved orb support'
+ loaded=compat.load(root);raw=compat.read(root,ORB_SELECTION);selected=json.loads(raw)
+ assert set(selected)=={'schema','version','masters'} and selected['schema']=='opentyrian-current-enemy-orb-authoring-v1','unapproved orb selection'
+ assert len(selected['masters'])==2,'unapproved orb master count'
+ payloads={}
+ for selector,record in zip((112,113),selected['masters']):
+  assert set(record)=={'selector','source_png','source_sha256'} and type(record['selector']) is int and record['selector']==selector,'unapproved orb identity/order'
+  assert record['source_png']==f'authoring-inputs/enemy-orb-current/orb-{selector}.png','unapproved orb authoring input'
+  png=compat.read(root,record['source_png']);assert sha(png)==record['source_sha256'],'stale orb source'
+  with Image.open(io.BytesIO(png)) as image:
+   assert image.format=='PNG' and image.mode=='RGBA' and image.size==(96,112) and getattr(image,'n_frames',1)==1,'unapproved orb PNG geometry'
+   original=image.tobytes()
+  masked=bytearray(original);occupied=set()
+  for y in range(112):
+   for x in range(96):
+    cell=(y//8)*12+x//8;offset=(y*96+x)*4
+    if ORB_MASK[cell]=='0':masked[offset:offset+4]=b'\0'*4
+    elif original[offset+3]:occupied.add(cell)
+  assert len(occupied)==45,'orb source misses original support'
+  payloads[80000+selector]=original;payloads[1420000+selector]=bytes(masked)
+ outputs={ORB_SELECTION:{'sha256':sha(raw),'mode':'100644'}};rows=[];pins={}
+ runtime=json.loads(compat.read(root,'packaging/runtime-assets-v1.json'));runtime_rows={r['destination']:r for r in runtime['files']}
+ assert len(runtime_rows)==len(runtime['files'])==1025,'unapproved orb runtime scope'
+ assert set(loaded)=={'assets/gameplay/'+name for name in ORB_NAMES},'unapproved orb consumers'
+ for identity,name in zip(ORB_IDS,ORB_NAMES):
+  payload=payloads[identity];blob=struct.pack('<4s6I',b'HDR1',identity,8,12,14,0,0)+payload
+  source=ORB_ROOT+'/'+name;destination='assets/gameplay/'+name
+  assert compat.read(root,source)==blob,'stale orb master/transport'
+  row=dict(identity=identity,density=8,source_path=source,destination=destination,sha256=sha(blob))
+  assert loaded[destination]==row,'stale orb mapping row'
+  rows.append(row);outputs[source]={'sha256':sha(blob),'mode':'100644'}
+  value=14695981039346656037
+  for byte in payload:value=((value^byte)*1099511628211)&0xffffffffffffffff
+  pins[identity,8]=f'{value:016x}'
+  if identity<100000:
+   oid=hashlib.sha1(b'blob '+str(len(blob)).encode()+b'\0'+blob).hexdigest()
+   expected=dict(source_path=source,destination=destination,group='gameplay',revision='current-single-source-enemy-orb',bytes=len(blob),git_blob=oid,sha256=sha(blob))
+   assert runtime_rows.get(destination)==expected,'stale orb runtime selection'
+  else:assert destination not in runtime_rows,'opt-in orb leaked into default runtime'
+ expected=dict(schema='opentyrian-current-enemy-orb-compatibility-v1',selection=ORB_SELECTION,version=selected['version'],files=rows)
+ assert compat.read(root,'packaging/current-enemy-orb-compatibility.json')==(json.dumps(expected,indent=2)+'\n').encode(),'stale orb mapping'
+ header=compat.payload_header(pins);assert compat.read(root,ORB_HEADER)==header,'stale orb generated header'
+ binding=json.loads(compat.read(root,'packaging/current-production-validation.json'))
+ assert len(binding['source_sha256'])==263 and binding['source_sha256'].get(ORB_HEADER)==sha(header),'stale orb source binding'
+ for name,pin in load('enemy-orb-source.json')['files'].items():
+  assert binding['source_sha256'].get(name)==pin['current_sha256'],'stale orb source inverse binding'
+ assert len(outputs)==5,'unapproved orb asset projection'
+ return dict(assets=outputs,header_sha256=sha(header))
 
 PLASMA_SELECTION='assets/hd/authoring/plasma-projectile-current.json'
 PLASMA_ROOT='assets/hd/current-compat/plasma-projectile'
@@ -168,7 +395,7 @@ def verified_plasma_projectile_current(root=ROOT):
  outputs={PLASMA_SELECTION:{'sha256':sha(raw),'mode':'100644'}};rows=[];pins={}
  runtime=json.loads((root/'packaging/runtime-assets-v1.json').read_bytes())
  runtime_rows={r['destination']:r for r in runtime['files']}
- assert len(runtime_rows)==len(runtime['files'])==1015,'unexpected current runtime destination scope'
+ assert len(runtime_rows)==len(runtime['files'])==1025,'unexpected current runtime destination scope'
  for (identity,density),name,record in zip(PLASMA_PAIRS,PLASMA_NAMES,selected['resources']):
   assert set(record)=={'identity','density','source_png','source_sha256'},'unapproved Plasma projectile resource fields'
   png=(root/record['source_png']).read_bytes()
@@ -227,7 +454,7 @@ def verified_front_multi_current(root=ROOT):
  assert set(loaded)=={'assets/gameplay/'+name for name in FRONT_MULTI_NAMES},'unapproved Front Multi consumers'
  outputs={FRONT_MULTI_SELECTION:{'sha256':sha(raw),'mode':'100644'}};rows=[];pins={};sources={}
  runtime=json.loads(compat.read(root,'packaging/runtime-assets-v1.json'));runtime_rows={r['destination']:r for r in runtime['files']}
- assert len(runtime_rows)==len(runtime['files'])==1015,'unexpected current runtime destination scope'
+ assert len(runtime_rows)==len(runtime['files'])==1025,'unexpected current runtime destination scope'
  for identity,name,record in zip(FRONT_MULTI_IDS,FRONT_MULTI_NAMES,selected['resources']):
   assert set(record)=={'identity','source_png','source_sha256'} and type(record['identity']) is int,'unapproved Front Multi resource fields'
   png=compat.read(root,record['source_png']);assert sha(png)==record['source_sha256'],'current Front Multi PNG hash mismatch'
@@ -252,8 +479,9 @@ def verified_front_multi_current(root=ROOT):
  assert compat.read(root,FRONT_MULTI_HEADER)==header,'current Front Multi/generated-header mismatch'
  binding_raw=compat.read(root,'packaging/current-production-validation.json');binding=json.loads(binding_raw)
  from verify_current_production import source_manifest_digest
- assert len(binding['source_sha256'])==254 and binding['source_sha256'].get(FRONT_MULTI_HEADER)==sha(header),'stale Front Multi production header binding'
- assert binding['source_sha256'].get('src/render_mirror.c')==load('front-multi-source.json')['files']['src/render_mirror.c']['current_sha256'],'stale Front Multi renderer binding'
+ assert len(binding['source_sha256'])==263 and binding['source_sha256'].get(FRONT_MULTI_HEADER)==sha(header),'stale Front Multi production header binding'
+ renderer=compat.read(root,'src/render_mirror.c')
+ assert binding['source_sha256'].get('src/render_mirror.c')==sha(renderer) and sha(project_source('newshf-identity','src/render_mirror.c',renderer))==load('front-multi-source.json')['files']['src/render_mirror.c']['current_sha256'],'stale Front Multi renderer binding'
  assert binding['production_source_manifest_sha256']==source_manifest_digest(binding['source_sha256']),'stale Front Multi source manifest digest'
  oid=hashlib.sha1(b'blob '+str(len(binding_raw)).encode()+b'\0'+binding_raw).hexdigest()
  expected=dict(source_path='packaging/current-production-validation.json',destination='CURRENT-PRODUCTION-VALIDATION.json',group='current-production-validation',revision='reconstructed-local-unpublished',bytes=len(binding_raw),git_blob=oid,sha256=sha(binding_raw))
@@ -283,7 +511,7 @@ def verified_craft267_current(root=ROOT):
  expected=dict(schema='opentyrian-current-craft267-compatibility-v1',selection=CRAFT267_SELECTION,version=selected['version'],files=[row])
  assert builder.read(root,compat.MAPPING)==builder.encoded(expected),'current craft267 selection/mapping mismatch'
  runtime=builder.parse(builder.read(root,builder.RUNTIME));rows={r['destination']:r for r in runtime['files']}
- assert len(rows)==len(runtime['files'])==1015,'unexpected current runtime destination scope'
+ assert len(rows)==len(runtime['files'])==1025,'unexpected current runtime destination scope'
  oid=hashlib.sha1(b'blob '+str(len(blob)).encode()+b'\0'+blob).hexdigest()
  expected=dict(source_path=CRAFT267_CANONICAL,destination=CRAFT267_DESTINATION,group='gameplay',revision='current-single-source-craft267',bytes=len(blob),git_blob=oid,sha256=sha(blob))
  assert rows.get(CRAFT267_DESTINATION)==expected,'stale current craft267 runtime body'
@@ -319,7 +547,7 @@ def verified_charge_current(root=ROOT):
  assert set(loaded)==expected_destinations,'unapproved Charge consumer scope'
  outputs={CHARGE_SELECTION:{'sha256':sha(raw),'mode':'100644'}}
  runtime=json.loads(builder.read(root,builder.RUNTIME));rows={r['destination']:r for r in runtime['files']}
- assert len(rows)==len(runtime['files'])==1015,'unexpected current runtime destination scope'
+ assert len(rows)==len(runtime['files'])==1025,'unexpected current runtime destination scope'
  for identity,name in zip(CHARGE_IDS,CHARGE_NAMES):
   source=CHARGE_ROOT+'/'+name;destination='assets/gameplay/'+name
   blob=builder.read(root,source)
@@ -362,7 +590,7 @@ def verified_mint_front_current(root=ROOT):
  assert set(loaded)==expected_destinations,'unapproved Mint/Front consumer scope'
  outputs={MF_SELECTION:{'sha256':sha(raw),'mode':'100644'}};rows=[];sources={}
  runtime=json.loads(builder.read(root,builder.RUNTIME));runtime_rows={r['destination']:r for r in runtime['files']}
- assert len(runtime_rows)==len(runtime['files'])==1015,'unexpected current runtime destination scope'
+ assert len(runtime_rows)==len(runtime['files'])==1025,'unexpected current runtime destination scope'
  for identity,name,record in zip(MF_IDS,MF_NAMES,selected['resources']):
   assert set(record)=={'identity','source_png','source_sha256'} and type(record['identity']) is int and record['identity']==identity,'unapproved Mint/Front identity/fields/order'
   source_png=record['source_png']
@@ -472,7 +700,20 @@ Retired paths are explicitly absent, never a prefix/wildcard exclusion.
 
 def project_p9_inventory(current,root=ROOT):
  current=copy.deepcopy(current)
+ for name,row in verified_protron_current(root)['assets'].items():
+  assert current.get(name)==row,('unverified P09 current output',name)
+  del current[name]
+ newshf=verified_newshf_current(root)['assets']
+ assert set(newshf)=={NEWSHF_MANIFEST}|{NEWSHF_ROOT+'/'+name for name in NEWSHF_NAMES},'unapproved NEWSHF output scope'
+ for name,row in newshf.items():
+  assert row['mode']=='100644' and current.get(name)==row,('unverified NEWSHF current output',name)
+  del current[name]
  ledger=load('p9-assets.json')
+ orb=verified_enemy_orb_current(root)['assets']
+ assert set(orb)=={ORB_SELECTION}|{ORB_ROOT+'/'+name for name in ORB_NAMES} and len(orb)==5,'unapproved orb output scope'
+ for name,row in orb.items():
+  assert row['mode']=='100644' and current.get(name)==row,('unverified orb current output',name)
+  del current[name]
  front_multi=verified_front_multi_current(root)['assets']
  assert set(front_multi)=={FRONT_MULTI_SELECTION}|{FRONT_MULTI_ROOT+'/'+name for name in FRONT_MULTI_NAMES} and len(front_multi)==9,'unapproved Front Multi output scope'
  for name,row in front_multi.items():
@@ -520,16 +761,28 @@ def validate_current_sources(root=ROOT):
  assert not any(p.is_symlink() for p in (root/'src').rglob('*')),'source symlink rejected'
  actual={p.relative_to(root).as_posix():sha(p.read_bytes()) for p in (root/'src').rglob('*') if p.is_file() and p.suffix in ledger['extensions']}
  expected=load('current-source-inventory.json')['files']
- assert set(actual)==set(expected)|{PLASMA_HEADER,FRONT_MULTI_HEADER},'unapproved current source paths'
+ added=verified_newshf_identity_sources(root)
+ compositor=verified_newshf_compositor_sources(root)
+ reuse=verified_enemy_reuse_sources(root)
+ assert set(actual)==set(expected)|{PLASMA_HEADER,FRONT_MULTI_HEADER,ORB_HEADER,NEWSHF_HEADER,PROTRON_HEADER}|set(added)|set(compositor)|set(reuse),'unapproved current source paths'
  projected=dict(actual)
+ assert projected.pop(PROTRON_HEADER)==verified_protron_current(root)['header_sha256']
+ for name,digest in reuse.items():
+  assert projected.pop(name)==digest,('unapproved enemy reuse module',name)
+ for name,digest in compositor.items():
+  assert projected.pop(name)==digest,('unapproved NEWSHF compositor source',name)
  for name in corrected_source_paths():
   projected[name]=sha(project_source('render-boundaries',name,(root/name).read_bytes()))
- assert {p:h for p,h in projected.items() if p not in (SIDEKICK_HEADER,PLASMA_HEADER,FRONT_MULTI_HEADER)}=={p:h for p,h in expected.items() if p not in (SIDEKICK_HEADER,PLASMA_HEADER,FRONT_MULTI_HEADER)},'unapproved non-target source bytes'
- # Keep every source path. Only the three named generated headers are derived
+ for name,digest in added.items():
+  assert projected.pop(name)==digest,('unapproved NEWSHF prototype source',name)
+ assert {p:h for p,h in projected.items() if p not in (SIDEKICK_HEADER,PLASMA_HEADER,FRONT_MULTI_HEADER,ORB_HEADER,NEWSHF_HEADER)}=={p:h for p,h in expected.items() if p not in (SIDEKICK_HEADER,PLASMA_HEADER,FRONT_MULTI_HEADER,ORB_HEADER,NEWSHF_HEADER)},'unapproved non-target source bytes'
+ # Keep every source path. Only the finite named generated headers are derived
  # from their exact current proofs; executable bytes use the pinned inverse.
  expected=dict(expected);expected[SIDEKICK_HEADER]=verified_sidekick_current(root)['header_sha256']
  expected[PLASMA_HEADER]=verified_plasma_projectile_current(root)['header_sha256']
  expected[FRONT_MULTI_HEADER]=verified_front_multi_current(root)['header_sha256']
+ expected[ORB_HEADER]=verified_enemy_orb_current(root)['header_sha256']
+ expected[NEWSHF_HEADER]=verified_newshf_current(root)['header_sha256']
  assert projected==expected,'unapproved current source inventory (added, removed or modified source)'
 
 def validate_source_inventory(actual):

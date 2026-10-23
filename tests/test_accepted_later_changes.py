@@ -21,7 +21,7 @@ class SourceBoundary(unittest.TestCase):
         self.assertEqual(ledger['files'][projection.SIDEKICK_HEADER],ledger['current_extensions'][projection.SIDEKICK_HEADER]['baseline_sha256'])
 
     def test_all_inverse_results_and_inside_outside_mutations(self):
-        for label in ('data','rear-p1','storm','render-boundaries','charge-body','plasma-projectile','front-multi'):
+        for label in ('data','rear-p1','storm','render-boundaries','charge-body','plasma-projectile','front-multi','enemy-orb','newshf-identity','newshf-compositor'):
             for name,pin in projection.load(label+'-source.json')['files'].items():
                 with self.subTest(label=label,path=name):
                     raw=(projection.ROOT/name).read_bytes()
@@ -104,7 +104,7 @@ class ChargeSourceBoundary(unittest.TestCase):
         self.assertEqual(ledger['supplied_patch_sha256'],'a9df9e940ba745f414a470cb534b98536d99c81c8f676378d4a7f306d460fbda')
         self.assertEqual(ledger['historical_source_inventory'],'current-source-inventory.json')
         self.assertEqual(set(ledger['files']),{'src/entity_draw.c','src/entity_draw.h','src/mainint.c','src/render_mirror.c','src/render_mirror.h'})
-        self.assertEqual(set(projection.corrected_source_paths()),set(ledger['files'])|{'src/global_talon_mirror.inc'})
+        self.assertEqual(set(projection.corrected_source_paths()),set(ledger['files'])|{'src/global_talon_mirror.inc','src/asteroid1_enemy_orb112113_mirror.inc','src/sprite.c','src/tyrian2.c','src/newshf_identity_validation.inc'}|{'src/global_'+family+'_mirror.inc' for family in ('shield','pulse','vulcan','hitflare','smoke','green','small_explosion','cash25','rotor')})
         for name,pin in ledger['files'].items():
             with self.subTest(path=name):
                 raw=(projection.ROOT/name).read_bytes()
@@ -120,7 +120,7 @@ class ChargeSourceBoundary(unittest.TestCase):
         with patch.object(projection.subprocess,'check_output',side_effect=AssertionError('Git history forbidden')):
             with patch.object(projection,'_project_source_once',wraps=projection._project_source_once) as once:
                 old=projection.project_source('storm',name,raw)
-                self.assertEqual([call.args[0] for call in once.call_args_list],['front-multi','plasma-projectile','charge-body','render-boundaries','storm'])
+                self.assertEqual([call.args[0] for call in once.call_args_list],['newshf-compositor','newshf-identity','enemy-orb','front-multi','plasma-projectile','charge-body','render-boundaries','storm'])
                 self.assertEqual(projection.sha(old),projection.load('storm-source.json')['files'][name]['previous_sha256'])
         intermediate=projection.project_source('charge-body',name,raw)
         with self.assertRaisesRegex(AssertionError,'not the accepted published current blob'):
@@ -408,6 +408,11 @@ class AssetBoundary(unittest.TestCase):
         self.assertEqual(ledger['current_inventory_sha256'],'3f819ca1f9ac2b9ef4de53cfe4fb948bc0d347bd0f1f7b539dbb7bfd2915ae34')
         self.assertEqual(len(ledger['asset_edits']),3259)
         current=copy.deepcopy(self.inventory)
+        # Match the production finite inverse: validate and remove only these
+        # exact newer families before checking the unchanged old digest.
+        for verifier in (projection.verified_protron_current, projection.verified_newshf_current, projection.verified_enemy_orb_current):
+            for name, row in verifier()['assets'].items():
+                self.assertEqual(current.pop(name), row)
         for name in projection.verified_front_multi_current()['assets']:del current[name]
         for name in projection.verified_plasma_projectile_current()['assets']:del current[name]
         for name in projection.verified_mint_front_current()['assets']:del current[name]
@@ -674,7 +679,7 @@ class CurrentGenerationBoundary(unittest.TestCase):
             binding=json.loads((self.root/builder.BINDING).read_bytes())
             binding['source_sha256']=production.source_inventory(self.root)
             binding['production_source_manifest_sha256']=production.source_manifest_digest(binding['source_sha256'])
-            self.assertEqual(len(binding['source_sha256']),254)
+            self.assertEqual(len(binding['source_sha256']),263)
             (self.root/builder.BINDING).write_bytes(builder.encoded(binding))
             with self.subTest(case=case),self.assertRaisesRegex(AssertionError,'non-target production source binding'):
                 projection.verified_sidekick_current(self.root)
@@ -849,5 +854,122 @@ class PlasmaProjectileCurrentGenerationBoundary(unittest.TestCase):
         header.write_bytes(self.baseline[projection.PLASMA_HEADER])
         with self.assertRaisesRegex(ValueError,'payload pins'):projection.verified_plasma_projectile_current(self.root)
 
+
+
+class NewshfIdentityProjectionBoundary(unittest.TestCase):
+    def test_exact_default_off_identity_only_source_scope(self):
+        ledger=projection.load('newshf-identity-source.json')
+        self.assertEqual(ledger['integration_base'],'b62a2b00cd2311bc215caa9807c0c85cbd901164')
+        self.assertEqual(set(ledger['files']),{'src/render_mirror.c','src/render_mirror.h','src/sprite.c','src/tyrian2.c'})
+        self.assertEqual(set(projection.verified_newshf_identity_sources()),{'src/newshf_identity_validation.inc','src/newshf_prototype_pins.h'})
+        for name,pin in ledger['files'].items():
+            raw=(projection.ROOT/name).read_bytes()
+            self.assertEqual(projection.sha(projection.project_source('newshf-identity',name,raw)),pin['previous_sha256'])
+
+    def test_added_module_mutation_missing_and_symlink_rejected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);(root/'src').mkdir()
+            files=projection.verified_newshf_identity_sources()
+            for name in files:(root/name).write_bytes((projection.ROOT/name).read_bytes())
+            self.assertEqual(projection.verified_newshf_identity_sources(root),files)
+            for name in files:
+                p=root/name;raw=p.read_bytes()
+                p.write_bytes(raw+b'\n/* unrelated */\n')
+                with self.assertRaisesRegex(AssertionError,'prototype module'):projection.verified_newshf_identity_sources(root)
+                p.unlink()
+                with self.assertRaisesRegex(AssertionError,'prototype module'):projection.verified_newshf_identity_sources(root)
+                p.write_bytes(raw)
+                from unittest.mock import patch
+                with patch.object(Path,'is_symlink',lambda path:path==p):
+                    with self.assertRaisesRegex(AssertionError,'prototype module'):projection.verified_newshf_identity_sources(root)
+
+    def test_authoring_authority_keeps_both_prototype_modules_fixed(self):
+        from unittest.mock import patch
+        sys.path.insert(0,str(projection.ROOT/'scripts'))
+        import build_current_art as builder
+        from verify_current_production import source_inventory
+        registry=json.loads((projection.ROOT/builder.REGISTRY).read_bytes())
+        source=source_inventory(projection.ROOT)
+        for name in ('src/newshf_identity_validation.inc','src/newshf_prototype_pins.h'):
+            for action in ('missing','changed'):
+                mutant=dict(source)
+                if action=='missing':del mutant[name]
+                else:mutant[name]='0'*64
+                with self.subTest(path=name,action=action),patch.object(builder,'source_inventory',return_value=mutant):
+                    with self.assertRaisesRegex(ValueError,'Unrelated gameplay source changed'):
+                        builder.verify_authority(projection.ROOT,registry)
+
+    def test_ledger_scope_and_partial_inverse_reject(self):
+        from unittest.mock import patch
+        ledger=projection.load('newshf-identity-source.json')
+        mutant=copy.deepcopy(ledger);mutant['added_sources']['src/unapproved.inc']='0'*64
+        with patch.object(projection,'load',return_value=mutant):
+            with self.assertRaisesRegex(AssertionError,'module scope'):projection.verified_newshf_identity_sources()
+        for name,pin in ledger['files'].items():
+            raw=(projection.ROOT/name).read_bytes()
+            for edit in pin['hunks']:
+                lines=raw.splitlines(keepends=True);a,b=edit['after_lines'];lines[a:b]=edit['before'].encode().splitlines(keepends=True)
+                with self.assertRaisesRegex(AssertionError,'not the accepted published current blob'):
+                    projection.project_source('newshf-identity',name,b''.join(lines))
+        raw=(projection.FIXTURES/'newshf-identity-source.json').read_bytes()
+        with patch.object(Path,'read_bytes',return_value=raw+b' '):
+            with self.assertRaisesRegex(AssertionError,'changed accepted-history ledger'):projection.load('newshf-identity-source.json')
+
+
+
+class NewshfCompositorProjectionBoundary(unittest.TestCase):
+    def test_exact_additive_source_scope(self):
+        ledger=projection.load('newshf-compositor-source.json')
+        self.assertEqual(ledger['integration_base'],'3ce35baa60db9d561fb946b16cfae14891d691d3')
+        self.assertEqual(set(ledger['files']),{'src/render_mirror.c','src/render_mirror.h','src/newshf_identity_validation.inc'}|{'src/global_'+family+'_mirror.inc' for family in ('talon','shield','pulse','vulcan','hitflare','smoke','green','small_explosion','cash25','rotor')})
+        self.assertEqual(ledger['generated_sources'],['src/newshf_hd_assets.h'])
+        self.assertEqual(set(projection.verified_newshf_compositor_sources()),{'src/global_newshf_mirror.inc'})
+        for name,pin in ledger['files'].items():
+            raw=(projection.ROOT/name).read_bytes()
+            self.assertEqual(projection.sha(projection.project_source('newshf-compositor',name,raw)),pin['previous_sha256'])
+
+    def test_executable_module_mutation_missing_and_symlink_rejected(self):
+        from unittest.mock import patch
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);(root/'src').mkdir()
+            name='src/global_newshf_mirror.inc';p=root/name
+            raw=(projection.ROOT/name).read_bytes();p.write_bytes(raw)
+            self.assertEqual(projection.verified_newshf_compositor_sources(root),projection.verified_newshf_compositor_sources())
+            p.write_bytes(raw+b'\n/* unauthorized */\n')
+            with self.assertRaisesRegex(AssertionError,'compositor module'):projection.verified_newshf_compositor_sources(root)
+            p.unlink()
+            with self.assertRaisesRegex(AssertionError,'compositor module'):projection.verified_newshf_compositor_sources(root)
+            p.write_bytes(raw)
+            with patch.object(Path,'is_symlink',lambda path:path==p):
+                with self.assertRaisesRegex(AssertionError,'compositor module'):projection.verified_newshf_compositor_sources(root)
+
+    def test_generated_assets_are_derived_and_extra_consumers_rejected(self):
+        import shutil
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)
+            for name in ('authoring-inputs/enemies/newshf-phase-a','assets/hd/newshf-v1'):
+                shutil.copytree(projection.ROOT/name,root/name)
+            for name in ('src/newshf_hd_assets.h','packaging/runtime-assets-v1.json','packaging/current-production-validation.json'):
+                (root/name).parent.mkdir(parents=True,exist_ok=True)
+                shutil.copyfile(projection.ROOT/name,root/name)
+            baseline=projection.verified_newshf_current(root)
+            self.assertEqual(len(baseline['assets']),10)
+            for name in (projection.NEWSHF_HEADER,projection.NEWSHF_ROOT+'/'+projection.NEWSHF_NAMES[0]):
+                path=root/name;raw=path.read_bytes();path.write_bytes(raw+b'\n')
+                with self.assertRaises((ValueError,AssertionError)):projection.verified_newshf_current(root)
+                path.write_bytes(raw)
+            runtime=root/'packaging/runtime-assets-v1.json';raw=runtime.read_bytes();obj=json.loads(raw)
+            extra=dict(obj['files'][-1]);extra['destination']='assets/global/newshf/unapproved.hda';obj['files'].append(extra)
+            runtime.write_text(json.dumps(obj))
+            with self.assertRaisesRegex(AssertionError,'runtime scope'):projection.verified_newshf_current(root)
+            runtime.write_bytes(raw)
+            self.assertEqual(projection.verified_newshf_current(root),baseline)
+
+    def test_unrelated_module_cannot_enter_finite_ledger(self):
+        from unittest.mock import patch
+        ledger=copy.deepcopy(projection.load('newshf-compositor-source.json'))
+        ledger['added_sources']['src/unapproved.inc']='0'*64
+        with patch.object(projection,'load',return_value=ledger):
+            with self.assertRaisesRegex(AssertionError,'module scope'):projection.verified_newshf_compositor_sources()
 
 if __name__=='__main__':unittest.main()

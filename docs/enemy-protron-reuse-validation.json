@@ -1,0 +1,412 @@
+{
+  "schema": 1,
+  "status": "PASS_BOUNDED_DEFAULT_OFF_P09_NATIVE_WITH_EXPLICIT_DEMO_RUNTIME_GAP",
+  "base_commit": "4810555b37ab12247690f383160e6bff433f41c6",
+  "scope": "E3 physical1 CAMANIS133/turret1/weapon141 and129/turret1/weapon134 ONLY; selected-B227 private material1470227; approved226244 unchanged; role146 rendering; default-off probe-only",
+  "native": {
+    "setups": 271,
+    "assertions": 189694609,
+    "scope": "Native JE_drawEnemy with controlled firing timers; exact extracted native projectile/explosion update loops; real player shot creation/movement; not gameplay acceptance",
+    "sanitizers": "ASan+UBSan renderer/sprite/tyrian2/entity_draw/identity/shots/varz/harness; remaining baseline production objects native optimized",
+    "original_bytes_persisted": false,
+    "full_old_P05_suite_included": true,
+    "source_stable_during_compile_and_execution": true
+  },
+  "old_six_regression": "PASS native enemy reuse: 310 cases, 79076 assertions; actual renderer/wrapper/indexed blits; not gameplay acceptance",
+  "negative_controls": {
+    "negative-p09-swapped": {
+      "status": "PASS",
+      "failure": "CHECK failed case 1 /workspace/scratch/f67dd347fa0a/enemy-protron-reuse-worktree/tests/enemy_protron_reuse_validation.c:35: draws-n==(p?3:1)"
+    },
+    "negative-p09-rgb": {
+      "status": "PASS",
+      "failure": "CHECK failed case 1 /workspace/scratch/f67dd347fa0a/enemy-protron-reuse-validation/negative-p09-rgb/native_p05_helpers.inc:54: *pixel(output,x-24*8,y)==want[(size_t)y*canvas->w+x]"
+    }
+  },
+  "compile_modes": {
+    "default-off": 0,
+    "opt-in": 0,
+    "mirror-disabled": 0
+  },
+  "default_off_objects": {
+    "render_mirror": {
+      "equal": true,
+      "base": "e9283c42c094bb797ce10b6342c028bf5d59cc29c6ea1b9e80f05dfaee00b8c8",
+      "current": "e9283c42c094bb797ce10b6342c028bf5d59cc29c6ea1b9e80f05dfaee00b8c8"
+    },
+    "tyrian2": {
+      "equal": true,
+      "base": "2d44db197c71110f67878d371c10a80200b32173a2bb142d424a51bfe635d77e",
+      "current": "2d44db197c71110f67878d371c10a80200b32173a2bb142d424a51bfe635d77e"
+    },
+    "sprite": {
+      "equal": true,
+      "base": "776930e816a921f7b28ead6137821ce0c5b9edbe1a1f4b1179fe8b83285f45c8",
+      "current": "776930e816a921f7b28ead6137821ce0c5b9edbe1a1f4b1179fe8b83285f45c8"
+    },
+    "entity_draw": {
+      "equal": true,
+      "base": "c0d28d46365d993c6c60b699fc87b0d50d7bfb0c6425a8a4acb5925f7a01cc09",
+      "current": "c0d28d46365d993c6c60b699fc87b0d50d7bfb0c6425a8a4acb5925f7a01cc09"
+    },
+    "enemy_reuse_identity": {
+      "equal": true,
+      "base": "5de44b7c52869e2be980d3a3203fe7c590d98ad0be666008233f6af59bf67b8d",
+      "current": "5de44b7c52869e2be980d3a3203fe7c590d98ad0be666008233f6af59bf67b8d"
+    }
+  },
+  "current_checks": {
+    "reuse-binding": 0,
+    "green": 0,
+    "source-binding": 0,
+    "package": 0,
+    "runtime-package-tests": 0,
+    "finite-history": 0,
+    "charge": 0,
+    "mint-front": 0,
+    "front-multi": 0,
+    "plasma": 0,
+    "orb": 0
+  },
+  "newshf_tests": "51 total;50 passed and1 optional skipped in main run; optional private-original case separately passed",
+  "finite_history_tests": 18,
+  "runtime_package_tests": 40,
+  "binding_tests": 10,
+  "authoring_tests": 5,
+  "source_and_runtime_delta": {
+    "old_runtime_count": 1024,
+    "new_runtime_count": 1025,
+    "added_destinations": [
+      "assets/gameplay/enemy-protron-p09-227-8.hda"
+    ],
+    "removed_destinations": [],
+    "changed_old_destinations": [
+      "CURRENT-PRODUCTION-VALIDATION.json"
+    ],
+    "new_source_files": [
+      "src/current_enemy_protron_payload_pins.h"
+    ],
+    "old_asset_mutations": []
+  },
+  "genuine_game_observation": {
+    "profiles": {
+      "gameplay": {
+        "runs": [
+          {
+            "event": 37,
+            "mode": "default-off",
+            "returncode": 0,
+            "state_rows": 332,
+            "role146_draws": 0,
+            "role146_mirrored": 0,
+            "candidate_frames": [],
+            "accepted_frames": [],
+            "target_messages": [
+              "Asset debug target reached at tick211 eventLoc39 in 1413.247ms"
+            ],
+            "captures": [
+              "asset-debug-window-0214.bmp",
+              "asset-debug-window-0211.bmp",
+              "asset-debug-window-0213.bmp",
+              "asset-debug-window-0212.bmp"
+            ]
+          },
+          {
+            "event": 37,
+            "mode": "opt-in",
+            "returncode": 0,
+            "state_rows": 332,
+            "role146_draws": 168,
+            "role146_mirrored": 0,
+            "candidate_frames": [
+              "226",
+              "227"
+            ],
+            "accepted_frames": [],
+            "target_messages": [
+              "Asset debug target reached at tick211 eventLoc39 in 3280.723ms"
+            ],
+            "captures": [
+              "asset-debug-window-0214.bmp",
+              "asset-debug-window-0211.bmp",
+              "asset-debug-window-0213.bmp",
+              "asset-debug-window-0212.bmp"
+            ]
+          },
+          {
+            "event": 150,
+            "mode": "default-off",
+            "returncode": 0,
+            "state_rows": 1043,
+            "role146_draws": 0,
+            "role146_mirrored": 0,
+            "candidate_frames": [],
+            "accepted_frames": [],
+            "target_messages": [
+              "Asset debug target reached at tick961 eventLoc151 in 10563.841ms"
+            ],
+            "captures": [
+              "asset-debug-window-0964.bmp",
+              "asset-debug-window-0962.bmp",
+              "asset-debug-window-0961.bmp",
+              "asset-debug-window-0963.bmp"
+            ]
+          },
+          {
+            "event": 150,
+            "mode": "opt-in",
+            "returncode": 0,
+            "state_rows": 1043,
+            "role146_draws": 390,
+            "role146_mirrored": 0,
+            "candidate_frames": [
+              "226",
+              "227",
+              "244"
+            ],
+            "accepted_frames": [],
+            "target_messages": [
+              "Asset debug target reached at tick961 eventLoc151 in 9411.590ms"
+            ],
+            "captures": [
+              "asset-debug-window-0964.bmp",
+              "asset-debug-window-0962.bmp",
+              "asset-debug-window-0961.bmp",
+              "asset-debug-window-0963.bmp"
+            ]
+          }
+        ],
+        "pairs": [
+          {
+            "event": 37,
+            "state_rng_index8_equal": true,
+            "compared_fields": [
+              "tick",
+              "players",
+              "enemies",
+              "shots",
+              "particles",
+              "globals",
+              "rng",
+              "hits",
+              "hit_hash",
+              "game_pixels",
+              "x",
+              "y",
+              "armor",
+              "shield"
+            ],
+            "state_rows": 332,
+            "raw_state_equal": true,
+            "capture_count": [
+              4,
+              4
+            ]
+          },
+          {
+            "event": 150,
+            "state_rng_index8_equal": true,
+            "compared_fields": [
+              "tick",
+              "players",
+              "enemies",
+              "shots",
+              "particles",
+              "globals",
+              "rng",
+              "hits",
+              "hit_hash",
+              "game_pixels",
+              "x",
+              "y",
+              "armor",
+              "shield"
+            ],
+            "state_rows": 1043,
+            "raw_state_equal": true,
+            "capture_count": [
+              4,
+              4
+            ]
+          }
+        ],
+        "receipt_sha256": "6b80598b840d6695d1bebe348b346eab833e1019b73df9d643994568480f410a"
+      },
+      "gameplay-stationary": {
+        "runs": [
+          {
+            "event": 37,
+            "mode": "default-off",
+            "returncode": 0,
+            "state_rows": 332,
+            "role146_draws": 0,
+            "role146_mirrored": 0,
+            "candidate_frames": [],
+            "accepted_frames": [],
+            "target_messages": [
+              "Asset debug target reached at tick211 eventLoc39 in 1330.227ms"
+            ],
+            "captures": [
+              "asset-debug-window-0253.bmp",
+              "asset-debug-window-0250.bmp",
+              "asset-debug-window-0251.bmp",
+              "asset-debug-window-0252.bmp"
+            ]
+          },
+          {
+            "event": 37,
+            "mode": "opt-in",
+            "returncode": 0,
+            "state_rows": 332,
+            "role146_draws": 267,
+            "role146_mirrored": 0,
+            "candidate_frames": [
+              "226",
+              "227"
+            ],
+            "accepted_frames": [],
+            "target_messages": [
+              "Asset debug target reached at tick211 eventLoc39 in 2252.768ms"
+            ],
+            "captures": [
+              "asset-debug-window-0253.bmp",
+              "asset-debug-window-0250.bmp",
+              "asset-debug-window-0251.bmp",
+              "asset-debug-window-0252.bmp"
+            ]
+          },
+          {
+            "event": 150,
+            "mode": "default-off",
+            "returncode": 2,
+            "state_rows": 481,
+            "role146_draws": 0,
+            "role146_mirrored": 0,
+            "candidate_frames": [],
+            "accepted_frames": [],
+            "target_messages": [
+              "Asset debug: target not reached before level/test ended"
+            ],
+            "captures": []
+          },
+          {
+            "event": 150,
+            "mode": "opt-in",
+            "returncode": 2,
+            "state_rows": 481,
+            "role146_draws": 1065,
+            "role146_mirrored": 0,
+            "candidate_frames": [
+              "226",
+              "227"
+            ],
+            "accepted_frames": [],
+            "target_messages": [
+              "Asset debug: target not reached before level/test ended"
+            ],
+            "captures": []
+          }
+        ],
+        "pairs": [
+          {
+            "event": 37,
+            "state_rng_index8_equal": true,
+            "compared_fields": [
+              "tick",
+              "players",
+              "enemies",
+              "shots",
+              "particles",
+              "globals",
+              "rng",
+              "hits",
+              "hit_hash",
+              "game_pixels",
+              "x",
+              "y",
+              "armor",
+              "shield"
+            ],
+            "state_rows": 332,
+            "raw_state_equal": true,
+            "capture_count": [
+              4,
+              4
+            ]
+          },
+          {
+            "event": 150,
+            "state_rng_index8_equal": true,
+            "compared_fields": [
+              "tick",
+              "players",
+              "enemies",
+              "shots",
+              "particles",
+              "globals",
+              "rng",
+              "hits",
+              "hit_hash",
+              "game_pixels",
+              "x",
+              "y",
+              "armor",
+              "shield"
+            ],
+            "state_rows": 481,
+            "raw_state_equal": true,
+            "capture_count": [
+              0,
+              0
+            ]
+          }
+        ],
+        "receipt_sha256": "2c2e2d17843b71ad5d266080a689f8834bdbdaf0b894fbbcb6515f1e5b1ef2c4"
+      }
+    },
+    "scope": "Original event replay with existing deterministic input/loadout; no forced spawn. Not harness.",
+    "admission": "Zero HD accepted: existing probe sets play_demo=true; unchanged !play_demo guard intentionally rejects. No supported non-demo probe startup variant found; no controls added.",
+    "distinct_reach_limit": "Strong reaches37 and150; stationary reaches37 but dies481 before150."
+  },
+  "diagnostic_scope": "Logging-only copied build outside repository; exact sole blocker play_demo=1; source startup unconditionally sets true; no guard/state change; not acceptance",
+  "resolved_findings": [
+    "Independent review found supplied raw226/227 could mismatch authenticated P09 shot; added exact raw==enemyShot[slot].sgr check and native negative coverage.",
+    "Boundary test initially demanded visible HD with all227 alpha offscreen; corrected independent finalRGB/visibility oracle, no production guard changes.",
+    "Excluded-record test upgraded to exact NEWSHB fixture and required actual native shot emissions before rejection assertions.",
+    "Current authoring scratch-root dependency closures extended by finite newP09 inputs; old fixture bytes remain unchanged and inverse/tests remove only exact new assets."
+  ],
+  "limits": [
+    "No accepted HD full-game visual witness: existing supported probe/debug startup sets play_demo=true, explicitly excluded by unchanged scope.",
+    "Strong original-event runs reached37 and150 and logged native226/227/244 candidates; zeroHD is demo rejection, not animation failure.",
+    "Stationary original-event runs reached37 but died481 before150; target nonappearance is distinct from demo rejection.",
+    "No supported non-demo probe/debug startup variant found; no new control or state override introduced for acceptance.",
+    "Native harness uses controlled placements/timers and exact production loops; not an original-event encounter claim.",
+    "No global/player227 eligibility, other enemy profiles, gameplay/RNG/INDEX8 writes, old artwork modifications, publication or installation.",
+    "No Windows/GPU certification; runtime performance optimization is a separate subsequent task."
+  ],
+  "evidence_root": "/workspace/scratch/f67dd347fa0a/enemy-protron-reuse-validation",
+  "evidence_sha256": {
+    "native-p09-final/receipt.json": "5d18ec2f06baab3d826b8b4fe058985645756a4fd7fa936b46c0c4604c532309",
+    "old310/receipt.json": "725e1be97024b88d84759f10f95e89a1d58e48767d7569a954d27b9d4b44dd9a",
+    "checks.json": "f92d15320489b1bad4ab0c186bd7f25f93d725f5f891ee2195e6c386f158de26",
+    "build-receipt.json": "f5b6776a6148cbb6e9fda78aa50a780736941cbe1e40ac75463697fd3851c6d3",
+    "default-off-equivalence.json": "257c1809333c1e38305cdd4eabf467c8301a8a95f872c683a8a58e1c1cf13fb7",
+    "exact-delta.json": "2a5a2195ac5696a1f0c527c15a66b6388edffd8c68c9b59b8d73b13f4a7cff14",
+    "gameplay/receipt.json": "6b80598b840d6695d1bebe348b346eab833e1019b73df9d643994568480f410a",
+    "gameplay-stationary/receipt.json": "2c2e2d17843b71ad5d266080a689f8834bdbdaf0b894fbbcb6515f1e5b1ef2c4",
+    "gameplay-observation-summary.json": "795fc4b9c3079b2a6fa29701ab0d319ee222354957d55f1b8e347b9a55a55d98",
+    "diagnostic-scope/receipt.json": "0e2fb18c124c759696c75059d21d2da2650a1a324884749c52c3499f597aec94",
+    "newshf-tests.log": "aa6cbdb16b6b3417155e5cbd446db563425a0748873cecf228d5091aaea7996a",
+    "newshf-private.log": "7ba0589596b861723bcc573af6f5caa6c2c1098c0348aa421343bef28f3b8d91",
+    "bindings-final.log": "49efd1109270077d505ed997e24ae64da6a3c9c97da726f0fde4ee64e7f9b5ea",
+    "authoring-tests.log": "593391511c737222d49bbbc1ecfd9738bc8761f7273613a8a941adb51d7611a4",
+    "source-proof.json": "95dc613907bddab4d622de0ef3bce705b0fad5dadfee1bc211d4960fda42d2f4",
+    "authoring-check.json": "c2f36f4aa459a3999c8069f6d3aafc2fad0745aed2d3b11769455767e2c2721b",
+    "finite-history-final.log": "5a58e7dd12fad920f126bf08a32333d1f1a0e70bb30b739e7166497a25ae7b60",
+    "negative-p09-swapped/receipt.json": "a27ad4a9e26d923700217a9b9f44b6b67139185568ba4d7a0cb8bc8e80b4d9b9",
+    "negative-p09-rgb/receipt.json": "70ca838cd96656d80472c5fa9f01c6e37f9f88b7dae6d0993a09931e8df8a23a"
+  },
+  "production_binding_sha256": "7f7052afef5846e2eaf664f995c858aae373961f94232985e5c93497bcb2abf7",
+  "runtime_manifest_sha256": "1d4cb9a5ec49901a875f0e6aeb0f0d0cc18393de22f89c85930d5a0814008d31",
+  "free_disk_bytes": 7108456448
+}

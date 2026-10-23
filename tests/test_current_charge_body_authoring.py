@@ -64,7 +64,7 @@ class ChargeAuthoringTests(unittest.TestCase):
             self.assertEqual(b.sha(data),expected['hda_sha256'])
             self.assertEqual(b.sha(data[28:]),expected['rgba_sha256'])
 
-    def test_master_edit_propagates_nine_two_views_and_1015_runtime(self):
+    def test_master_edit_propagates_nine_two_views_and_1024_runtime(self):
         before=self.outputs();six={r['source_path']:(self.root/r['source_path']).read_bytes() for r in c.load(self.root).values()}
         request=self.changed_master();stage=self.stage(request);self.assertEqual(self.outputs(),before)
         b.charge_apply(self.root,stage);self.assertEqual(b.charge_check(self.root)['status'],'PASS')
@@ -75,13 +75,13 @@ class ChargeAuthoringTests(unittest.TestCase):
         mapping=c.charge_load(self.root)
         for kind in ('preview','debug'):
             target=self.base/('master-update-'+kind);report=craft.view(self.root,kind,target)
-            self.assertEqual((report['files'],len(report['current_overlays'])),(650,169))
+            self.assertEqual((report['files'],len(report['current_overlays'])),(650,171))
             frozen=self.root/'assets/hd/packs'/craft.BASES[kind]
             nonoverlays=[p for p in frozen.rglob('*') if p.is_file() and p.relative_to(frozen).as_posix() not in report['current_overlays']]
             self.assertEqual(len(nonoverlays),481)
             for path in nonoverlays:self.assertEqual(path.read_bytes(),(target/path.relative_to(frozen)).read_bytes())
             for destination,row in mapping.items():self.assertEqual((target/Path(destination).name).read_bytes(),(self.root/row['source_path']).read_bytes())
-        code,report=self.package();self.assertEqual((code,report['verified_files']),(0,1015))
+        code,report=self.package();self.assertEqual((code,report['verified_files']),(0,1024))
         target=self.base/'charge-runtime-copy'
         evidence=os.environ.get('CHARGE_REAL_COPY_OUTPUT')
         if evidence:
@@ -90,7 +90,7 @@ class ChargeAuthoringTests(unittest.TestCase):
             target=Path(evidence)
             args=[sys.executable,'-B',str(self.root/'scripts/package_runtime.py'),'--source-root',str(self.root),'--build','--output',str(target)]
             result=subprocess.run(args,capture_output=True,text=True)
-            receipt=dict(command=args,returncode=result.returncode,stdout=result.stdout,stderr=result.stderr,selection=self.selected(),charge_mapping=list(mapping.values()),scope='Synthetic one-master update, nine derived frames, two650-file views and real1015-file CLI copy; no game/Windows execution')
+            receipt=dict(command=args,returncode=result.returncode,stdout=result.stdout,stderr=result.stderr,selection=self.selected(),charge_mapping=list(mapping.values()),scope='Synthetic one-master update, nine derived frames, two650-file views and real1024-file CLI copy; no game/Windows execution')
             receipt_path=target.with_name(target.name+'-receipt.json')
             with receipt_path.open('xb') as stream:stream.write(b.encoded(receipt))
             self.assertEqual(result.returncode,0,result.stdout+result.stderr)
@@ -98,9 +98,9 @@ class ChargeAuthoringTests(unittest.TestCase):
         else:
             # Isolated content test only; not real permission/setup acceptance.
             with patch.object(Path,'chmod',return_value=None):code,report=self.package('--build','--output',target)
-        self.assertEqual((code,report['verified_files']),(0,1015))
+        self.assertEqual((code,report['verified_files']),(0,1024))
         for destination,row in mapping.items():self.assertEqual((target/destination).read_bytes(),(self.root/row['source_path']).read_bytes())
-        self.assertEqual(len(json.loads((target/'RUNTIME-INVENTORY.json').read_bytes())['files']),1015)
+        self.assertEqual(len(json.loads((target/'RUNTIME-INVENTORY.json').read_bytes())['files']),1024)
 
     def test_candidate_cannot_supply_or_hide_derived_fields(self):
         request=self.changed_master()

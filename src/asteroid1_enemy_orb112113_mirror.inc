@@ -1,3 +1,4 @@
+#include "current_enemy_orb_payload_pins.h"
 /* SPDX-License-Identifier: GPL-2.0-or-later
  * Shared enemy-only normal TYRIAN.SHP selectors112/113. The original engine
  * owns their phase, firing, motion and lifetime; this role claims no emitter.
@@ -9,7 +10,7 @@
 static struct {bool valid;Uint8 bytes[32060];} enemy_orb112113_source_snapshot;
 static struct {bool checked,valid,frame_checked,drew;uint64_t checked_tick,drawn_tick;char root[1024];Asset members[2];} enemy_orb112113_resources;
 /* Reviewed authored96x112 RGBA, registered to each original45-cell support. */
-static const uint64_t enemy_orb112113_rgba_pins[2]={UINT64_C(0x78e05e604f9e747d),UINT64_C(0x15da665f28081a9c)};
+static const uint64_t enemy_orb112113_rgba_pins[2]={CURRENT_ENEMY_ORB_1420112_PAYLOAD_FNV,CURRENT_ENEMY_ORB_1420113_PAYLOAD_FNV};
 static void enemy_orb112113_shutdown(void)
 {
  for(unsigned k=0;k<2;k++)free(enemy_orb112113_resources.members[k].rgba);

@@ -23,6 +23,8 @@ void draw_player_ship_sprite2(SDL_Surface *,int,int,Sprite2_array,unsigned,Entit
 void draw_player_shot_sprite2(SDL_Surface *,int x,int y,Sprite2_array,unsigned index,unsigned slot,unsigned raw);
 void draw_player_shot_shadow_sprite2(SDL_Surface *,int x,int y,Sprite2_array,unsigned index,unsigned slot,unsigned raw);
 
+void draw_enemy_reuse_shot_sprite2(SDL_Surface *,int,int,Sprite2_array,unsigned,unsigned,unsigned);
+
 /* Dedicated surviving enemy-shot normal tile; no player-shadow binding. */
 void draw_enemy_shot_sprite2(SDL_Surface *, int x, int y, Sprite2_array, unsigned int index);
 

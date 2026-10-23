@@ -119,6 +119,8 @@ struct Player {int x,y,x_velocity,y_velocity,shot_hit_area_x,shot_hit_area_y,inv
 static struct Player player[2];static unsigned collision_calls,explosion_calls,damage_calls;
 static void game_probe_collision(const char *s,int z,int i,int d){assert(!strcmp(s,"enemy-shot")&&z<60&&i<2&&d>=0);collision_calls++;}
 static void JE_setupExplosion(int x,int y,int d,int t,bool a,bool b){(void)x;(void)y;assert(!d&&!t&&!a&&!b);explosion_calls++;}
+/* Current production hitflare wrapper keeps this unrelated collision stub observational. */
+static void JE_setupHitflareExplosion(int x,int y,int type){assert(type==2);JE_setupExplosion(x,y,0,0,false,false);}
 static int JE_playerDamage(int d,struct Player *p){(void)p;damage_calls++;return d;}
 '''
 

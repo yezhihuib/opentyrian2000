@@ -280,7 +280,41 @@ def current_overlays(root):
         {'assets/gameplay/' + front_multi.name(identity): blob for identity, blob in front_multi_blobs.items()})
     if len(files) != 169:
         raise ValueError('Expected exactly 169 current gameplay overlays')
+    import current_enemy_orb_compatibility as orb
+    selected, _, blobs = orb.generate(root, read(root, orb.SELECTION))
+    mapping = {destination: row for destination, row in orb.load(root).items()
+               if row['identity'] in orb.ORDINARY_IDS}
+    add(orb.MAPPING, orb.SELECTION, selected, mapping,
+        {'assets/gameplay/' + orb.name(identity, density): blob
+         for (identity, density), blob in blobs.items() if identity in orb.ORDINARY_IDS})
+    if len(files) != 171:
+        raise ValueError('Expected exactly 171 current gameplay overlays')
     return files
+
+
+def enemy_orb_contract_view(root, destination):
+    """Explicit four-transport export, not a pack or a renderer-mode toggle."""
+    import current_enemy_orb_compatibility as orb
+    external(root, destination)
+    if destination.exists():
+        raise ValueError('View destination must be new')
+    selected = orb.load(root)  # validates both contracts and their source authority
+    files = {Path(row['destination']).name: read(root, row['source_path'])
+             for row in selected.values()}
+    if len(files) != 4:
+        raise ValueError('Expected four current enemy orb transports')
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory(prefix='enemy-orb-view-', dir=destination.parent) as tmp:
+        work = Path(tmp)/'transports'
+        work.mkdir()
+        for name, data in files.items():
+            (work/name).write_bytes(data)
+            if (work/name).read_bytes() != data:
+                raise ValueError('Enemy orb view copy verification failed')
+        os.rename(work, destination)
+    return dict(status='PASS', kind='enemy-orb-contracts', files=4,
+                path=os.path.abspath(destination), renderer_mode_changed=False,
+                sha256={name: sha(data) for name, data in sorted(files.items())})
 
 
 def view(root, kind, destination):
@@ -332,7 +366,7 @@ def main():
     p.add_argument('mode', choices=('stage', 'apply', 'check', 'view'))
     p.add_argument('--selection', type=Path)
     p.add_argument('--stage', type=Path)
-    p.add_argument('--kind', choices=tuple(BASES))
+    p.add_argument('--kind', choices=tuple(BASES) + ('enemy-orb-contracts',))
     p.add_argument('--output', type=Path)
     a = p.parse_args()
     root = a.root.resolve()
@@ -341,7 +375,8 @@ def main():
     elif a.mode == 'view':
         if not a.kind or not a.output:
             p.error('view requires --kind and --output')
-        result = view(root, a.kind, a.output)
+        result = (enemy_orb_contract_view(root, a.output) if a.kind == 'enemy-orb-contracts'
+                  else view(root, a.kind, a.output))
     else:
         if not a.stage:
             p.error('--stage required')

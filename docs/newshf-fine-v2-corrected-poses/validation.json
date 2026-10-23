@@ -1,0 +1,78 @@
+{
+  "actual_game": {
+    "record163": "original E1 physical8 controlled60-tick loop; native38 and HD42; actual window42/43 plus later55\u201359, later state identical and RNG unchanged",
+    "record167": "not observed; native harness only",
+    "record168": "corrected-old-art extra run interrupted as superseded at383 exit130; NOT gameplay validated"
+  },
+  "changed_runtime_rows": {
+    "exact_changed_rows": [
+      "CURRENT-PRODUCTION-VALIDATION.json",
+      "assets/global/newshf/newshf-role2100000-8.hda",
+      "assets/global/newshf/newshf-role2100001-8.hda",
+      "assets/global/newshf/newshf-role2100002-8.hda",
+      "assets/global/newshf/newshf-role2100003-8.hda",
+      "assets/global/newshf/newshf-role2100004-8.hda",
+      "assets/global/newshf/newshf-role2100005-8.hda",
+      "assets/global/newshf/newshf-role2100006-8.hda",
+      "assets/global/newshf/newshf-role2100007-8.hda"
+    ],
+    "record168_base93_unchanged": true,
+    "runtime_destinations": 1024,
+    "source_count": 262,
+    "status": "PASS",
+    "unchanged_rows": 1015
+  },
+  "checks": {
+    "current_authoring": [
+      "charge",
+      "mint-front",
+      "front-multi",
+      "plasma",
+      "orb"
+    ],
+    "default_off_identical_objects": [
+      "render_mirror",
+      "sprite",
+      "tyrian2",
+      "entity_draw",
+      "enemy_reuse_identity"
+    ],
+    "historical_suite": "25/26 initial cases passed; sole baseline-established stale manual projection fixed, affected test and independent11-test review passed; original failure log retained",
+    "native_assertions": 2721899,
+    "native_build_modes": [
+      "default-off",
+      "HD-on",
+      "mirror-disabled"
+    ],
+    "native_cases": 155,
+    "native_sanitizers": "ASan/UBSan renderer/sprite/tyrian2/harness; other production units optimized; LSan disabled",
+    "newshf_tests_with_private_originals": 42,
+    "package_tests": 40,
+    "private_original_source_check": "PASS",
+    "runtime_rebuild": "byte-identical",
+    "unrelated_assets_and_historical_fixtures": "byte-unchanged"
+  },
+  "evidence": {
+    "exact-resource-delta.json": "490e9a5bc8a264dfaadb169f7ce82788942557235a18d2a33eb3cc0ce2a91d41",
+    "finite-history.log": "9bd6541245161b6c204408a7123a3a9dfe03fea8403b3d76439b4814e381bcee",
+    "history-preservation.json": "6227919154661f85fd033a585bc09a17e86e2475e1882326a6eefec38468d1a2",
+    "independent-guard-review.json": "0e1108e1f33aa541f526449766193cfa0e0c67296e89d0f5d119b0b3d185fbcb",
+    "legacy-history-digest-before.log": "c1d7cbe986b66d9f7339a8ac5322f216cb5ed8273eadd46825036aa145927412",
+    "legacy-history-digest-final.log": "e49558c1bde2a6d4a1754db30afdbdca2bfaff3ccb8bb46f20cacaadc8e1fb78",
+    "native-and-gameplay-receipt.json": "b4ffdad95cd3f274932a233b62b43ba061df9ecc598b8973eab6bdd4fcb0cae0",
+    "newshf-tests-final-private.log": "639d761e70046ab3992bb4078ac76f82cbba50eba69d554a2cf76408241d2c8d"
+  },
+  "free_disk_bytes": 6748467200,
+  "integration_base": "4a4868cad44872a6daa6719830374f2435897aa3",
+  "limitations": [
+    "No exact original silhouette or original internal feature registration claim",
+    "No natural/full-campaign/Windows/GPU acceptance",
+    "No default-on activation, install, push or laptop change",
+    "168V4 approval belongs to a separate subsequent stage; no soft-alpha renderer change here",
+    "Historical mislabeled bundle retained as audit evidence, not accepted pose correctness"
+  ],
+  "production_source_manifest_sha256": "7c9c0d78902aeedb32376173ec8c03df686ddc80ff78efa0112d7c8c510e664c",
+  "scope": "Six approved163/167 fine-v2 PNGs and corrected first-two167/168 physical assignments;168 retains old v1 art; default-off cloud-local only",
+  "selection_sha256": "24e7bc7556426a203cb0fb0e29aca01746fb4c550b77c389fc8a4971d1248074",
+  "status": "PASS_BOUNDED_BINARY_ALPHA_REVISION"
+}

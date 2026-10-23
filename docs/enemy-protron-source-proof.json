@@ -1,0 +1,151 @@
+{
+  "excluded_same227": [
+    {
+      "eligible": false,
+      "event_ordinal": 220,
+      "event_time": 1414,
+      "record": 216,
+      "sg": [
+        227,
+        227
+      ],
+      "weapon": 38
+    },
+    {
+      "eligible": false,
+      "event_ordinal": 222,
+      "event_time": 1414,
+      "record": 218,
+      "sg": [
+        227,
+        227
+      ],
+      "weapon": 37
+    },
+    {
+      "eligible": false,
+      "event_ordinal": 490,
+      "event_time": 2700,
+      "record": 134,
+      "sg": [
+        244,
+        227,
+        227
+      ],
+      "weapon": 135
+    },
+    {
+      "eligible": false,
+      "event_ordinal": 1072,
+      "event_time": 5900,
+      "record": 224,
+      "sg": [
+        227,
+        227
+      ],
+      "weapon": 37
+    },
+    {
+      "eligible": false,
+      "event_ordinal": 1073,
+      "event_time": 5900,
+      "record": 225,
+      "sg": [
+        227,
+        227
+      ],
+      "weapon": 37
+    }
+  ],
+  "original_binary_bytes_persisted": false,
+  "private_source_sha256": {
+    "newsh7.shp": "52c40a2438373f9fc9a7cd2d338ec149f4e81dda56d9c05061ee2264408f0b1a",
+    "tyrian.hdt": "fde8506326e7bb0916b38c362e33bf8a8a5affa561206c021af7f65b4a17745b",
+    "tyrian.shp": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+    "tyrian3.lvl": "6a5b94a7d3e4f5a228bc0f702cfe035c8f9f03b20a3f02867d25e95b4249ce86"
+  },
+  "profiles": [
+    {
+      "actor_shape_bank": 3,
+      "animation": 2,
+      "egraphic": [
+        13,
+        15,
+        17,
+        15
+      ],
+      "enemy_fnv": "9c877679a5ede691",
+      "enemy_offset": 174256,
+      "enemy_sha256": "f5c22b00c4633be3b5aee91dd7343016879ce57722a1d3f35dffe054ed77f9b0",
+      "episode": 3,
+      "event_offset": 514,
+      "event_ordinal": 37,
+      "event_time": 210,
+      "frequency": 40,
+      "maximum": 1,
+      "multi": 1,
+      "physical_level": 1,
+      "preceding_event5_banks": [
+        3,
+        6,
+        15,
+        8
+      ],
+      "record": 133,
+      "sg": [
+        226
+      ],
+      "turret_slot": 1,
+      "weapon": 141,
+      "weapon_fnv": "11ebca5d1ae1dfeb",
+      "weapon_offset": 32468,
+      "weapon_sha256": "35fe2ecef4faacec4e7e854cfdcbdabd4c74fcd7983232e46f9da7bcca245f2e"
+    },
+    {
+      "actor_shape_bank": 3,
+      "animation": 0,
+      "egraphic": [
+        51,
+        89,
+        127,
+        89
+      ],
+      "enemy_fnv": "481af40b89888070",
+      "enemy_offset": 173948,
+      "enemy_sha256": "f6546ee31807a1727453f62611cf30a9c51425a878e7688b710eefa50714fd6d",
+      "episode": 3,
+      "event_offset": 1757,
+      "event_ordinal": 150,
+      "event_time": 960,
+      "frequency": 28,
+      "maximum": 3,
+      "multi": 3,
+      "physical_level": 1,
+      "preceding_event5_banks": [
+        3,
+        6,
+        15,
+        8
+      ],
+      "record": 129,
+      "sg": [
+        244,
+        227,
+        227
+      ],
+      "turret_slot": 1,
+      "weapon": 134,
+      "weapon_fnv": "fdd291f76a044203",
+      "weapon_offset": 31908,
+      "weapon_sha256": "e3aa91eb38bae7633d40537bbfe4f61867cac6ae08957f3a53b97863e50773ee"
+    }
+  ],
+  "scope": "static original-source proof only; no live gameplay claim",
+  "source227": {
+    "coverage_sha256": "7c532bb268ec028bebf06c7f73b373029aafc4980d08d8329c8dd9e258879364",
+    "indexed_sha256": "6ea080e20b3e49fd46a19a8534559be1bad15297e5c29d51ad0a9093efc11b56",
+    "indices_plus_mask_fnv": "1279df8a4f701310",
+    "occupied_pixels": 45
+  },
+  "status": "PASS"
+}

@@ -4,7 +4,7 @@
     "assets/hd/shared-menu-runs-v1/reconstructed_name_source_specs.h": "75c040664b530efd504b2fa8ec36226a90249a2ddad55cfb4a13bcb3452a06dd",
     "assets/hd/shared-menu-runs-v1/reconstructed_numeric_specs.h": "ce5b8344d3bc8aade7e9729e2c999be34fa3446171be0f1c77bb38a1b67ec6b5",
     "assets/hd/shared-menu-runs-v1/reconstructed_run_specs.h": "be8cf0a6d6bffa3d55a6030c69a3630f68609093c00f46948f747da28099998e",
-    "visualc/opentyrian.vcxproj": "01ec0fd7523cec65504b98a8b69c19da358a54baa5bb6b64406d12285ae4c2dd"
+    "visualc/opentyrian.vcxproj": "43dd2be26926c238c367af37fbe915b0c7736b1a50af4a66e0ffd1da42f6807b"
   },
   "historical_validation_sha256": {
     "packaging/frontend-validation.json": "85fbbfaa5e14288c07664448106732508b617cb38ebddb5145d490416670cd1f",
@@ -16,10 +16,12 @@
     "Six-sidekick generated header is read only by Python build/package validation; production C does not include it or enforce runtime payload pins. Existing raw-bank qualification and fallback remain unchanged.",
     "The two named rendering files include the reviewed boundary/cache/Talon correction relative to 6ada526. Historical validation receipts and their source hashes retain their original scope; current source bytes are not claimed equal to 775.",
     "Charge role145 adds nine fixed body transports; the five-file render-only patch has separate renderer validation. This binding does not certify Windows/GPU/full-campaign behavior.",
-    "Plasma projectile extracts only six existing payload values into a generated header. Existing E1 Normal9/Hard15, normal-data/right-sidekick9, weapon88, geometry, blend, fallback, per-draw reopening and cache scope are unchanged; this is not expanded runtime acceptance."
+    "Plasma projectile extracts only six existing payload values into a generated header. Existing E1 Normal9/Hard15, normal-data/right-sidekick9, weapon88, geometry, blend, fallback, per-draw reopening and cache scope are unchanged; this is not expanded runtime acceptance.",
+    "NEWSHF now adds an independent compile-time default-off nine-pose HD compositor and exact additive resources. The source binding does not itself certify compositor execution, E1 gameplay, Windows/GPU or full-campaign acceptance; see separate native validation.",
+    "P02/P04 reuses six unchanged role8 resources under a default-off probe-only enemy semantic owner; source binding is not normal-game activation, gameplay acceptance, or Windows/GPU certification."
   ],
   "production_commit": null,
-  "production_source_manifest_sha256": "ed56afad80d04c60e683389223bf576862af39e68a317c3a1554313d019147e9",
+  "production_source_manifest_sha256": "0135416bcfa17b1393673b700b5be9c0eb2b084662b411e772a14f8409af0ae1",
   "reviewed_charge_body_changes": {
     "files": [
       "src/entity_draw.c",
@@ -32,6 +34,49 @@
     "ledger": "tests/fixtures/accepted-later-changes-v1/charge-body-source.json",
     "ledger_sha256": "c066932af771eb3a834c7becbeb59c6b0eac668d8da51df09d034d7247211e92",
     "production_patch_sha256": "a9df9e940ba745f414a470cb534b98536d99c81c8f676378d4a7f306d460fbda"
+  },
+  "reviewed_enemy_green_reuse": {
+    "integration_base": "47e7d062e0fc4a449a36f1d1f47e53c42f65c66d",
+    "scope": "Finite default-off probe-only E2 GYGES379/153 animation, independent three-resource preflight, no PNG/HDA changes",
+    "source_ledger": "tests/fixtures/accepted-later-changes-v1/enemy-green-reuse-source.json",
+    "source_ledger_sha256": "8c1c462965c780c0199132790a851f31575ef24f2966332bbc36c5936ceba2ba"
+  },
+  "reviewed_enemy_protron_reuse": {
+    "integration_base": "4810555b37ab12247690f383160e6bff433f41c6",
+    "scope": "Finite default-off probe-only E3 CAMANIS133/141 and129/134; independent P09 three-resource preflight; only new227 private selected-B derivative",
+    "source_ledger": "tests/fixtures/accepted-later-changes-v1/enemy-protron-reuse-source.json",
+    "source_ledger_sha256": "5f82aa5edc9c9e3b1698f6480488e975101b392ffae0e741540e5c9cafccac6a"
+  },
+  "reviewed_enemy_reuse_changes": {
+    "added_sources": [
+      "src/enemy_reuse_identity.c",
+      "src/enemy_reuse_identity.h",
+      "src/enemy_reuse_mirror.inc"
+    ],
+    "files": [
+      "src/entity_draw.c",
+      "src/entity_draw.h",
+      "src/render_mirror.c",
+      "src/render_mirror.h",
+      "src/sprite.c",
+      "src/tyrian2.c"
+    ],
+    "integration_base": "461604a88e2f3fa4d0d75840ec54e535de1a74a9",
+    "ledger": "tests/fixtures/accepted-later-changes-v1/enemy-reuse-source.json",
+    "ledger_sha256": "76e19c7b8bc2ec2fcf8644935c32306e38a334db9e8ddbc520841af0954fb6a0"
+  },
+  "reviewed_newshf168_soft_alpha": {
+    "integration_base": "0112ec8d3c3fd0b6145463b85a713a79ccd01ac5",
+    "scope": "Exact preferred168V4 revision only; straight alpha with conservative foreign-underlay rejection; six163167 source/payload bytes unchanged",
+    "selection": "docs/newshf168-v4-soft-alpha/selection.json",
+    "selection_sha256": "343c5ba7875a2b729f018be02cb626afbcf995fa106bb7d670849bca94df75ec",
+    "source_ledger": "tests/fixtures/accepted-later-changes-v1/newshf168-soft-alpha-source.json",
+    "source_ledger_sha256": "668ce6cdff20bc65d649c3b283c9aef36f8dbcabe5efb520ad4e57a1fb301853"
+  },
+  "reviewed_newshf_art_revision": {
+    "scope": "six fine-v2 sources plus corrected physical167/168 first-two assignment; immutable identities unchanged",
+    "selection": "docs/newshf-fine-v2-corrected-poses/selection.json",
+    "sha256": "24e7bc7556426a203cb0fb0e29aca01746fb4c550b77c389fc8a4971d1248074"
   },
   "reviewed_plasma_projectile_changes": {
     "files": [
@@ -65,7 +110,7 @@
     "src/asteroid1_columns276_mirror.inc": "d69e50a23b1a0c416abe2cd41273f6700c210a8df6328e105c5e5337a27e4ad9",
     "src/asteroid1_common4_mirror.inc": "b1bfca51933419e00461ca762527fa880ec191d42fee50a679cb005f23ef66e5",
     "src/asteroid1_effect_blend_mirror.inc": "fa07b54f2d98ea2440c182ac55b49028d56e2f251a848475b2afeab2108950cf",
-    "src/asteroid1_enemy_orb112113_mirror.inc": "859825cc45605da5969fd7d649c1678b1f8eee0e94342ad5256051fbc1f503c3",
+    "src/asteroid1_enemy_orb112113_mirror.inc": "7d3f8ccaf7c96d60c066b8cb48c0e451acce67632cea0db9bbb7df05fc8ff096",
     "src/asteroid1_firing270_mirror.inc": "464fa21d1a71fd1675cc2c8909ce72602f36546668a8dc64716d22417cccbec4",
     "src/asteroid1_firing285_mirror.inc": "bd902f90c31a1cd58d51e1c810a33fffe8344575b55e251d701bbe8df741f38e",
     "src/asteroid1_firing325_mirror.inc": "ba498fc6ea5cdd3b4355df620199ca909faebe62135fd17aa6fca529b055bce1",
@@ -106,6 +151,8 @@
     "src/config_file.h": "42e28cfb22e5def08ec333f8573750f658b29ee0e52054cee1084a48bfa59fc5",
     "src/current_art_payload_pins.h": "241a99017c7eb9f7d999e49b69683abdc9a408762bc0eb1afa91216121fc4d82",
     "src/current_enemy_energy_payload_pins.h": "b7a62e985b0cba0be3a6f865349d637fbefac8f08f53e6c4a6ba5821ba86602f",
+    "src/current_enemy_orb_payload_pins.h": "90c8d67b5ea3ee0153fa5c9f40141fdf572b0a1cc5927b2b4c656b8d84e7f9f8",
+    "src/current_enemy_protron_payload_pins.h": "a6138c492da92e824bc117491c2b20d7695077b6ae050a3ca9022d6c2ec0cd6d",
     "src/current_hud_payload_pins.h": "5fa2744f0043c7ea57457f0f1cc78da66a1a226d37581060b51bd6525ced9456",
     "src/current_plasma_projectile_payload_pins.h": "e8c6f7497df9a88d3653675136af8c9c727d85eba2328eddb03b2f69f2d89283",
     "src/current_sidekick_body_payload_pins.h": "1d25bd99fd3bb300f150be65ea4bd4de9014354787eafb6d04250a9b86320da2",
@@ -126,8 +173,11 @@
     "src/destruct.h": "50934ed9a4f35ef994adf9693ae237fe720ea629e8143eabc65c3c49151b0e7b",
     "src/editship.c": "5877d8012076a3a2631fd0e0d80c359cca8bf67d6bc534c5fb07add5812835af",
     "src/editship.h": "91c67ce815195f568661d158b970c430f453dd857df8cfbd7131f7c215a1236f",
-    "src/entity_draw.c": "4b65f5a17843ec74917c809cd988f9e98bfc72b18e08d1f8f62e25060c612379",
-    "src/entity_draw.h": "2d21ec68769fb1e34b3fa275131b09bdaf12906ba0b55d07cf2171a26a986c7b",
+    "src/enemy_reuse_identity.c": "967a7915bb7dc447347708f72fc9d1c5542ae08a692196491d4bdfe23363de7f",
+    "src/enemy_reuse_identity.h": "9947827fa7b709637a51be0e5de8fc1653fa868df8fb4b3792be0b09ec180f5a",
+    "src/enemy_reuse_mirror.inc": "d8a1b40cbb2ae52b95c8353ec5d719e4d193cb2adb36622b77307dadb9e395d8",
+    "src/entity_draw.c": "232327b462a18dcc7648ef3f993f72bdffb9b9e7de1c6ba9be293ea16f0bc935",
+    "src/entity_draw.h": "2fa761d269860a0da42a5e02c418477a9b874f749ad979291038e2b6806ba827",
     "src/episodes.c": "1430b09faa5c8cabeb95b2d0f84b1b40af0f81ff7f186847d5ae086c3f9c5d8e",
     "src/episodes.h": "e754c9f34372082084752cb2244c132b8ccad1a1e475d22366e5f1e1e2a59ef5",
     "src/external_music.c": "dc99cf7d3dae27e4f39dc3ea870423891d6cf3526e4c571e703f6182b7d7d1b7",
@@ -166,18 +216,19 @@
     "src/gameplay_hud_storm_mirror.inc": "63034eeb2f55a1bcd60cc738ef739951fb60a888ab8b7d7ecfb8d3574dbd3345",
     "src/global_asset_registry.h": "0c96a8b30482ecc5224e73de98efbb4e2cf5bbaa3478f717bc9118cf86570b69",
     "src/global_cash25_identity.inc": "28ba8a5f9f9465d13efcc582e8e3a96434e739abe660d658e3ecc0c5d213316d",
-    "src/global_cash25_mirror.inc": "a25188ab5dee1f43a276bcd34dd9040d85d21298069337365a249162f1172980",
+    "src/global_cash25_mirror.inc": "0092bacb866753da033a6d6a54af9fdb787110c74f729bfebf477c0d44e1b64c",
     "src/global_green_identity.inc": "aa6febe5e8c65e872357bd7fa36d16aa0d3beeac59d7a9ef8d58befa4d4006ca",
-    "src/global_green_mirror.inc": "80dd38f4805ce9cbfc96a713018693c446c884950cb3096df40bf2c8870b1fe8",
-    "src/global_hitflare_mirror.inc": "23dbb8f8258133178fbc17996b1fb48a2928dc89ec03c37602a732786d66c34e",
-    "src/global_pulse_mirror.inc": "7edde61673b79bc628695c3329cf19a3c59f06c2c6c77ac78be3e650934d85a9",
+    "src/global_green_mirror.inc": "89d292d6cd7c946579c78dc503287afb75c386aa660238d89042c5b2e9e69c15",
+    "src/global_hitflare_mirror.inc": "0fce1f7c51c774338b352ceaa0bfb58073ee378590f8a2793401be074a22dd10",
+    "src/global_newshf_mirror.inc": "805a4c259dcd6a06d18a09980371abfc0c3be5f3fb078269ff55c90a060c14ff",
+    "src/global_pulse_mirror.inc": "c51c264d0c32f757fe9465a3c5b045b9234251914410d788451fef82341cfbd4",
     "src/global_rotor_identity.inc": "d09e9a0a111b361bbb44b0c751115147f2a2b4053c01e9a89c52898b02ce28c0",
-    "src/global_rotor_mirror.inc": "1b241e190f773a67fb44e699f06153dc286d4f94569a819a5903cafd4e11f03c",
-    "src/global_shield_mirror.inc": "eaa64e9f450f0b8c5bb0820a1d19f98a5cc636a0f97f2fb23186fea32e6718dc",
-    "src/global_small_explosion_mirror.inc": "6f514b5a62cac3a74c2920dea099b321a0b0fac19576fb9a6c4dfc06afddb075",
-    "src/global_smoke_mirror.inc": "eb5779f01a9df34a1777ace54a9b595cc8310629b595f787619cfc8de69cc6b9",
-    "src/global_talon_mirror.inc": "42821646a831f5aefb57bdec65f38ad9bebbe4d922f8d72fd1b9ee8061d7dead",
-    "src/global_vulcan_mirror.inc": "05e4698aae6979720bba1b1b001b88f089e6b25304fb00dded76d3eb5db1d733",
+    "src/global_rotor_mirror.inc": "144b85e9ea4469346a1bfd4c8a9f38529920e1192e34161ae8eb56c9ab1ad283",
+    "src/global_shield_mirror.inc": "f0ce8600e2765141cb3af13dfb3241a4ae02102bbb1b30e05df58def16757cb5",
+    "src/global_small_explosion_mirror.inc": "08f3a16761c530e3413b686915b0f70b726a1247152f3783a950ee5446fbc8e3",
+    "src/global_smoke_mirror.inc": "19c570e67a35e48b22d426c6d3b01192aec453a56fc14eb4c443a069de64e024",
+    "src/global_talon_mirror.inc": "c7456d1ec292faa5e4b895cd7982b1143b6c2b2eaa90a576f0d595f1958a9119",
+    "src/global_vulcan_mirror.inc": "e215b407511cb6f90a01dd1f11d4f86268093178dfa2692bbf3c6316d7dced92",
     "src/ground101_bundle_index.h": "b8a59a727ee966a029618e00dfb0424fb51ed227623f7927d824a51a4fa3d469",
     "src/ground101_material.c": "c520102853e558bc9dedd2f1aa40ce886a82a82b90a377eab9b3f6bd9789dfd0",
     "src/ground101_material.h": "ca8bed2e22f473d1556b9aa53e016eb924c865c5bd5bd3a75cbb882aa94d0690",
@@ -214,6 +265,9 @@
     "src/musmast.h": "0ab73ab81d65ea311944623e617381fcea98cd70fa842234aa581d0268921701",
     "src/network.c": "68981dfce02ca2ae1ac643213b2e499c210e9306c27a05ac829a6d6f3e5f9e76",
     "src/network.h": "3d1db19be051259fecd16e1af5cbdfd514134fbe1ec19e5a7480aba59ba3a5cb",
+    "src/newshf_hd_assets.h": "c9552ffee0610c7ece607dce0e20a414818f143911d2a5e42bd21b5fd4a8d129",
+    "src/newshf_identity_validation.inc": "39e7bc46d90a19fe396117b437bd6bdb58aa697cade31053031f3f50103355c8",
+    "src/newshf_prototype_pins.h": "6b111c2b6c1d560d3698e822cf749aa55172849dcab53dfc20ceb5cd3fb85605",
     "src/nortsong.c": "0d0a1cbe9432a3263f80cf9e932339f76be0747d4f163b0430a36aff3011ae72",
     "src/nortsong.h": "99d2610d15c12eb34a24ae2e1b873d1c1e360663aef34e11598300cbd654adeb",
     "src/nortvars.c": "c5e048d081ce402cdb84f2fd73040aea936f1910cd343a326178b1edac11f077",
@@ -245,8 +299,8 @@
     "src/rear_multi_p11_shadow.inc": "60635f8c2723e7cbba341baf7d4853486d7d850c795a55f02a0cc46a36b02fbb",
     "src/rear_multi_p1_mirror.inc": "9f5f48ea19330f6afeace40f156e049c0621fdcd6a10e281d2084cf74442538c",
     "src/rear_multi_p1_pins.h": "773d88e3287b44036885804b5d70c6fc6d633a9893504b200891c1509981ffa7",
-    "src/render_mirror.c": "1019185ecff1de969355b60b179d43c7dd3aeb6fded2f84dc2edd40f74d85d1b",
-    "src/render_mirror.h": "300be2223be0f290a930c865c12438a53048e617dbc98f4200ba9f1c22c72bee",
+    "src/render_mirror.c": "57fa4db6548b5fe982ec69e155937e3e09953801e80d55d0e5ffddf3b7b2949a",
+    "src/render_mirror.h": "e8b04342f346e392cc627f3463932b7dc509b87f216a68846bf5bba127b3e138",
     "src/render_mirror_asteroid_linked338.inc": "738c8c88a7383ca363427b814594f4a0ed8404929dad3188e2d4bde5d2dd5ee0",
     "src/secret_exit_orb.c": "fe0b50818365d5a009bd3db77681a1a2db2fc61bfc889c1f2bc41c9a95f79180",
     "src/secret_exit_orb.h": "f9357364dc407e8615668f76ca4376710f4d4c033269e342dc1f09ccb7aaf9c7",
@@ -278,7 +332,7 @@
     "src/sizebuf.h": "a02bc0963f26a8d3ec1609013908583e08a9de29393999e0d0f8a7d421a4cb24",
     "src/sndmast.c": "74255135db19f9a4757df53821b4a419717104837da7094bece753e1d38b4fb7",
     "src/sndmast.h": "47657cb6846a8a701129c25e0b3a66250a362edb92487925996eea31b0cb036e",
-    "src/sprite.c": "9d421e114899a9af785ce2f576c799949ad2f2448172a5d0eca427dc34199d78",
+    "src/sprite.c": "9fe507a7724825c5cc1ffb42aa533ab947135368d1102bd8372743e0d4496a96",
     "src/sprite.h": "057f40950f96df7ed49b26c235a1398a34088f095380da8f52475cf3e46a7952",
     "src/starlib.c": "d1b1f2e3cae293088007ddf5be0452d2a1362286ffc201f89056a260ced879cc",
     "src/starlib.h": "a9f5dc80bde82dc12fdc34d0721951023e2133dbcb1eb9bf7c57d05aba37ac37",
@@ -290,7 +344,7 @@
     "src/title_layers.c": "4e12b9e54ce75bc98a5e36cf2ddad45f24840553cddb8a35969a852a1320a372",
     "src/title_layers.h": "2d5b69d52126174d77ab42edf321c355a08ad15d43fa099a5b0bbc7823a332b7",
     "src/title_menu_font.inc": "4bb6c3d143ce1dcbce71345e9799d499cdde1d962a99bc3d48c9200b84363224",
-    "src/tyrian2.c": "9e3e21b02601b13587064cfa2f2333dd10e2bab9d0a2694cd3dcc4a55f5cdaae",
+    "src/tyrian2.c": "201be3480a792437df0dee54fa72ec5f6f643552dd5512a82d119174345572ea",
     "src/tyrian2.h": "1341c4371128fda951031caef18ad6bd154beb9e187bd800a25ebb1ed1c4c32f",
     "src/varz.c": "70014229765dece18d2a15a0a906cb89daf2d0174bc1d1834008bfeb5772de45",
     "src/varz.h": "c0557171c5454d9b6e64c9eb22facf5e9cd5cdefcf54aa743020d5c4ffdde37c",

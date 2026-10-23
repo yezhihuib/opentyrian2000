@@ -1,0 +1,98 @@
+{
+  "status": "PASS_BOUNDED_PROBE_ONLY",
+  "base": "461604a88e2f3fa4d0d75840ec54e535de1a74a9",
+  "scope": "P02/P04 six unchanged role8 payloads, private enemy semantic owner146, compile-time default-off",
+  "activation": "ENEMY_REUSE_HD_PROTOTYPE=1 plus established game_probe_enabled density8 ordinary compositor; not normal/global gameplay enable",
+  "source_files": 262,
+  "source_manifest_sha256": "6153991d8e85d50e4d3d1d28a77d5c19aae62e2370df87836884f53ca06ea59e",
+  "runtime_destinations": 1024,
+  "changed_runtime_rows": [
+    "CURRENT-PRODUCTION-VALIDATION.json"
+  ],
+  "native": {
+    "cases": 310,
+    "assertions": 79076,
+    "sanitizers": "ASan+UBSan touched production TUs; LSan disabled",
+    "final_rgb_oracles": 6,
+    "negative_controls": [
+      "full source-bank stamp removed: caught at case127",
+      "normal compositor RGB store removed: caught at case1"
+    ],
+    "receipt_sha256": "99d6ea2f4e5b6bb9b320f5f3ba2bdfddeae4f5637e43dcd04491349cbfb2e7ed"
+  },
+  "builds": {
+    "default-off": 0,
+    "opt-in": 0,
+    "mirror-disabled": 0
+  },
+  "default_off_object_equivalence": {
+    "render_mirror": {
+      "equal": true,
+      "new": "280d7775142f58af88443a185ed414d8321b27955197c136db4f79e07eeabc8d",
+      "old": "280d7775142f58af88443a185ed414d8321b27955197c136db4f79e07eeabc8d"
+    },
+    "tyrian2": {
+      "equal": true,
+      "new": "15e3230d74e68b2f8e020176648807ab5821e441f6b6838a7307b0239f742aba",
+      "old": "15e3230d74e68b2f8e020176648807ab5821e441f6b6838a7307b0239f742aba"
+    },
+    "sprite": {
+      "equal": true,
+      "new": "a3d45c7718075a706c54e42dc94af69562b585b843cc64f12555d5e4b03f8fce",
+      "old": "a3d45c7718075a706c54e42dc94af69562b585b843cc64f12555d5e4b03f8fce"
+    },
+    "entity_draw": {
+      "equal": true,
+      "new": "1d61c494e70a3e038004e9f67982c0caf3c042880bd6300daf37c5069e9bdadf",
+      "old": "1d61c494e70a3e038004e9f67982c0caf3c042880bd6300daf37c5069e9bdadf"
+    }
+  },
+  "binding_and_pipeline": {
+    "source-binding": 0,
+    "sources": 0,
+    "package-dry-run": 0,
+    "runtime-rebuild": 0,
+    "current-green": 0,
+    "current-sidekick": 0,
+    "current-front-multi": 0,
+    "current-orb": 0,
+    "current-plasma": 0
+  },
+  "package_tests": 40,
+  "binding_tests": 3,
+  "source_pixels": {
+    "png": 6,
+    "hda": 12,
+    "changed": 0
+  },
+  "gameplay_observation": {
+    "scope": "unchanged controlled inputs, actual native game loop, no cheats or instrumentation",
+    "level5_state_rows": 485,
+    "level2_state_rows": 1342,
+    "paired_state_rng_indexed_outputs": "byte-identical",
+    "target_hd_draws": 0,
+    "result": "Both selected target events were unreached; player died first. Not positive gameplay acceptance."
+  },
+  "review_findings_fixed": [
+    "Cached game_screen mutations previously did not revoke prototype frame; expected[] now compared",
+    "Fade refusal previously left last_output_scene_hd stale; now cleared",
+    "Generic/player draw could retain enemy witness; entity_end now consumes/revokes it and six explicit tests pass"
+  ],
+  "deferred": [
+    "P05 green head/smoke/player lease separation",
+    "P09 missing227, no substitutes or mixed animation"
+  ],
+  "limits": [
+    "Prototype-only; no native target game-loop positive witnessed",
+    "No Windows/GPU/campaign or malloc-exhaustion acceptance",
+    "NEWSHF base461604 pose-to-art mapping known incorrect under separate parent audit; no NEWSHF art/contract changes here",
+    "Full baseline current-green test matrix was interrupted in favor of narrow real-current pipeline checks; it is not claimed passed"
+  ],
+  "evidence_directory": "/workspace/scratch/f67dd347fa0a/enemy-projectile-reuse-validation",
+  "legacy_regression": {
+    "enemy_orb112113": "PASS optimized + ASan/UBSan; 32060 cold and warm byte mutations,720 shot trace comparisons,50 resource failure cases",
+    "orb_harness_maintenance": "Added the observational JE_setupHitflareExplosion stub already used by unchanged base production collision loop",
+    "sonic_quadrant_helpers": "BLOCKED by preexisting extracted-harness global helper stub drift, reproduced on both current and unchanged461604 base; not claimed passed",
+    "sonic_base_error_match": "Missing global_* / asteroid1_talon_blend_begin / NEWSHF declarations in extracted standalone harnesses"
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "art": [
+    {
+      "art_sha256": "27811561ebf2d493763f6765242cf9a704d525144f6cb68051cf73910b47d337",
+      "base": 125,
+      "file": "enemy-163-v1-bbox-fit-base125.png",
+      "record": 163,
+      "source_id": "newshf.shp:base:125"
+    },
+    {
+      "art_sha256": "7b2a442d476981fb7829714355e347680ad8172875cc5acb1ac83cdd5180e844",
+      "base": 123,
+      "file": "enemy-163-v1-bbox-fit-base123.png",
+      "record": 163,
+      "source_id": "newshf.shp:base:123"
+    },
+    {
+      "art_sha256": "1e4788f314d30d47a58f08d2cd2598ed580d038dcd39677d9ce59e934b835a6b",
+      "base": 127,
+      "file": "enemy-163-v1-bbox-fit-base127.png",
+      "record": 163,
+      "source_id": "newshf.shp:base:127"
+    },
+    {
+      "art_sha256": "369bbc405376e7444a5029b78752b4efc06a2458e0bbc13c25588faac4da3a71",
+      "base": 3,
+      "file": "enemy-167-v1-bbox-fit-base3.png",
+      "record": 167,
+      "source_id": "newshf.shp:base:3"
+    },
+    {
+      "art_sha256": "9e9f7ce3c6cecbb76d3cb048321c19a1ead7ade121c58305a8a6c43632d6b2cf",
+      "base": 1,
+      "file": "enemy-167-v1-bbox-fit-base1.png",
+      "record": 167,
+      "source_id": "newshf.shp:base:1"
+    },
+    {
+      "art_sha256": "87753c7b9f38bd4de7133c88041de72084e23eef06ca29247dd7225a061f5cb0",
+      "base": 5,
+      "file": "enemy-167-v1-bbox-fit-base5.png",
+      "record": 167,
+      "source_id": "newshf.shp:base:5"
+    },
+    {
+      "art_sha256": "f51e6c54e4b78cfaf1e4798be501384c42968ed4cd339effa60d81f714b92842",
+      "base": 55,
+      "file": "enemy-168-v1-bbox-fit-base55.png",
+      "record": 168,
+      "source_id": "newshf.shp:base:55"
+    },
+    {
+      "art_sha256": "ba8ec19d86158947b89f290daf596666b7299c0c7df370e7d6b3444f0a0e0551",
+      "base": 17,
+      "file": "enemy-168-v1-bbox-fit-base17.png",
+      "record": 168,
+      "source_id": "newshf.shp:base:17"
+    },
+    {
+      "art_sha256": "3ef2485c7e8431c65898f9a1509a41417169b3db9e596b3732babeb521ab5f8c",
+      "base": 93,
+      "file": "enemy-168-v1-bbox-fit-base93.png",
+      "record": 168,
+      "source_id": "newshf.shp:base:93"
+    }
+  ],
+  "identity": {
+    "alpha": "binary-0-255",
+    "bank": "newshf.shp",
+    "bank_sha256": "852c2fb552c9077a198be7902d8f58699ed070dabcd36c6e3acfe80dd3804cce",
+    "bank_size": 33543,
+    "component_offsets": [
+      0,
+      1,
+      19,
+      20
+    ],
+    "density": 8,
+    "item_table": "tyrian.hdt",
+    "item_table_sha256": "fde8506326e7bb0916b38c362e33bf8a8a5affa561206c021af7f65b4a17745b",
+    "logical_anchor": [
+      6,
+      7
+    ],
+    "logical_bank": 10,
+    "logical_size": [
+      24,
+      28
+    ],
+    "pixel_size": [
+      192,
+      224
+    ],
+    "records": [
+      {
+        "ani": 1,
+        "animate": 0,
+        "bases": [
+          125,
+          123,
+          127
+        ],
+        "esize": 1,
+        "offset": 176566,
+        "record": 163,
+        "sha256": "9e7afb0db4dc9e07278b2e2de4fe610215b2b2241f43ebcda116816e9d8c901c",
+        "size": 77
+      },
+      {
+        "ani": 1,
+        "animate": 0,
+        "bases": [
+          3,
+          1,
+          5
+        ],
+        "esize": 1,
+        "offset": 176874,
+        "record": 167,
+        "sha256": "799fcf3bdf90d75e0cdf09eb63988db12a113bbd692cceaf80ed521aa29aaaa8",
+        "size": 77
+      },
+      {
+        "ani": 1,
+        "animate": 0,
+        "bases": [
+          55,
+          17,
+          93
+        ],
+        "esize": 1,
+        "offset": 176951,
+        "record": 168,
+        "sha256": "574bce52037236a1bc3dd655ad7be44c933fa71a68e203f6eecdb3c08aeb2e11",
+        "size": 77
+      }
+    ],
+    "selection": "enemycycle; not automatic three-frame animation"
+  },
+  "schema": 1,
+  "scope": "source-only-selected-art-candidate"
+}

@@ -23,6 +23,7 @@
 #include "selector_font.h"
 #include "pregame_font.h"
 #include "sprite.h"
+#include "enemy_reuse_identity.h"
 #include "render_mirror.h"
 #include "title_layers.h"
 #include "asset_debug.h"
@@ -539,6 +540,10 @@ void JE_loadCompShapes(Sprite2_array *sprite2s, char s)
 
 void JE_loadCompShapesB(Sprite2_array *sprite2s, FILE *f)
 {
+	render_mirror_newshf_validation_bank_changed(sprite2s);
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
+	enemy_reuse_bank_changed(sprite2s);
+#endif
 	assert(sprite2s->data == NULL);
 
 	sprite2s->data = malloc(sprite2s->size);
@@ -547,6 +552,10 @@ void JE_loadCompShapesB(Sprite2_array *sprite2s, FILE *f)
 
 void free_sprite2s(Sprite2_array *sprite2s)
 {
+	render_mirror_newshf_validation_bank_changed(sprite2s);
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
+	enemy_reuse_bank_changed(sprite2s);
+#endif
 	if (sprite2s == &spriteSheet8 || sprite2s == &spriteSheet9 || sprite2s == &explosionSpriteSheet)
 		render_mirror_global_reset();
 	free(sprite2s->data);

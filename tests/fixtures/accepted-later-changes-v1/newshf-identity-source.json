@@ -1,0 +1,132 @@
+{
+  "schema": "opentyrian-reviewed-newshf-identity-source-v1",
+  "integration_base": "b62a2b00cd2311bc215caa9807c0c85cbd901164",
+  "historical_source_inventory": "current-source-inventory.json",
+  "scope": "Compile-time default-off NEWSHF identity-validation observer only. Classic pixels and gameplay unchanged; no HD owner, assets, package destinations or runtime acceptance.",
+  "added_sources": {
+    "src/newshf_identity_validation.inc": "4de0b691c2d128a0ecb51ac4d1cabd023d3565a4f69910c890f79aa48441d5e2",
+    "src/newshf_prototype_pins.h": "6b111c2b6c1d560d3698e822cf749aa55172849dcab53dfc20ceb5cd3fb85605"
+  },
+  "files": {
+    "src/render_mirror.c": {
+      "previous_sha256": "1019185ecff1de969355b60b179d43c7dd3aeb6fded2f84dc2edd40f74d85d1b",
+      "current_sha256": "0944b7d1943cc794585cf3f42892bdb140d2d9454f8e0cf493a55b83065137f8",
+      "hunks": [
+        {
+          "after_lines": [
+            1252,
+            1253
+          ],
+          "before": "",
+          "after": " render_mirror_newshf_validation_reset();\n"
+        },
+        {
+          "after_lines": [
+            1267,
+            1268
+          ],
+          "before": "",
+          "after": " render_mirror_newshf_validation_reset();\n"
+        },
+        {
+          "after_lines": [
+            1445,
+            1446
+          ],
+          "before": "",
+          "after": " render_mirror_newshf_validation_frame();\n"
+        },
+        {
+          "after_lines": [
+            1653,
+            1656
+          ],
+          "before": "",
+          "after": "#if defined(NEWSHF_IDENTITY_VALIDATION) && NEWSHF_IDENTITY_VALIDATION\n#include \"newshf_identity_validation.inc\"\n#endif\n"
+        },
+        {
+          "after_lines": [
+            1719,
+            1720
+          ],
+          "before": "void render_mirror_global_reset(void){global_hitflare_reset();global_smoke_reset();global_green_reset();global_small_explosion_reset();global_cash25_reset();global_rotor_reset();global_vulcan_reset();global_pulse_reset();global_shield_reset();global_talon_reset();}\n",
+          "after": "void render_mirror_global_reset(void){render_mirror_newshf_validation_reset();global_hitflare_reset();global_smoke_reset();global_green_reset();global_small_explosion_reset();global_cash25_reset();global_rotor_reset();global_vulcan_reset();global_pulse_reset();global_shield_reset();global_talon_reset();}\n"
+        },
+        {
+          "after_lines": [
+            3793,
+            3794
+          ],
+          "before": "",
+          "after": " (void)render_mirror_newshf_validation_tile(surface,x,y,bank,base,part,filter,material_context);\n"
+        }
+      ]
+    },
+    "src/render_mirror.h": {
+      "previous_sha256": "300be2223be0f290a930c865c12438a53048e617dbc98f4200ba9f1c22c72bee",
+      "current_sha256": "81f21e728dff9e718c73d54fba012a3a93ac25532e5f05e170f5a2e8f9c81761",
+      "hunks": [
+        {
+          "after_lines": [
+            6,
+            25
+          ],
+          "before": "",
+          "after": "/* Diagnostic identity observer only. Default-off and mirror-disabled builds\n * compile every call to a no-op; no gameplay or rendering eligibility changes. */\n#if defined(NEWSHF_IDENTITY_VALIDATION) && NEWSHF_IDENTITY_VALIDATION && !defined(RENDER_MIRROR_DISABLED)\nvoid render_mirror_newshf_validation_reset(void);\nvoid render_mirror_newshf_validation_bank_changed(const void *);\nvoid render_mirror_newshf_validation_frame(void);\nvoid render_mirror_newshf_validation_allocated(void *,unsigned,int);\nvoid render_mirror_newshf_validation_initialized(void *,unsigned,unsigned);\nvoid render_mirror_newshf_validation_observe(unsigned);\nbool render_mirror_newshf_validation_tile(SDL_Surface *,int,int,Sprite2_array,unsigned,int,int,const G101EnemyContext *);\n#else\n#define render_mirror_newshf_validation_reset(...) ((void)0)\n#define render_mirror_newshf_validation_bank_changed(...) ((void)0)\n#define render_mirror_newshf_validation_frame(...) ((void)0)\n#define render_mirror_newshf_validation_allocated(...) ((void)0)\n#define render_mirror_newshf_validation_initialized(...) ((void)0)\n#define render_mirror_newshf_validation_observe(...) ((void)0)\n#define render_mirror_newshf_validation_tile(...) (false)\n#endif\n"
+        }
+      ]
+    },
+    "src/sprite.c": {
+      "previous_sha256": "9d421e114899a9af785ce2f576c799949ad2f2448172a5d0eca427dc34199d78",
+      "current_sha256": "56e3a9b2207953b067ffd0563cb00b921a407ebe2c936c621da8a192c3fd6ab0",
+      "hunks": [
+        {
+          "after_lines": [
+            541,
+            542
+          ],
+          "before": "",
+          "after": "\trender_mirror_newshf_validation_bank_changed(sprite2s);\n"
+        },
+        {
+          "after_lines": [
+            550,
+            551
+          ],
+          "before": "",
+          "after": "\trender_mirror_newshf_validation_bank_changed(sprite2s);\n"
+        }
+      ]
+    },
+    "src/tyrian2.c": {
+      "previous_sha256": "9e3e21b02601b13587064cfa2f2333dd10e2bab9d0a2694cd3dcc4a55f5cdaae",
+      "current_sha256": "83808c076a619a7ba711d2ff46cf05197eac020ba8e3046b6bfacababce1388e",
+      "hunks": [
+        {
+          "after_lines": [
+            252,
+            253
+          ],
+          "before": "",
+          "after": "\t\t\t\trender_mirror_newshf_validation_observe(i);\n"
+        },
+        {
+          "after_lines": [
+            4037,
+            4038
+          ],
+          "before": "",
+          "after": "\trender_mirror_newshf_validation_allocated(enemy,eDatI,uniqueShapeTableI);\n"
+        },
+        {
+          "after_lines": [
+            4326,
+            4327
+          ],
+          "before": "",
+          "after": "\trender_mirror_newshf_validation_initialized(enemy,eDatI,avail);\n"
+        }
+      ]
+    }
+  }
+}

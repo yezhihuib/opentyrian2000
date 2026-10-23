@@ -4,6 +4,30 @@
 #include "sprite.h"
 #include "ground101_material.h"
 #include "gameplay_hud_meters.h"
+/* Diagnostic identity observer only. Default-off and mirror-disabled builds
+ * compile every call to a no-op; no gameplay or rendering eligibility changes. */
+#if ((defined(NEWSHF_IDENTITY_VALIDATION) && NEWSHF_IDENTITY_VALIDATION) || (defined(NEWSHF_HD_COMPOSITOR) && NEWSHF_HD_COMPOSITOR)) && !defined(RENDER_MIRROR_DISABLED)
+void render_mirror_newshf_validation_reset(void);
+void render_mirror_newshf_validation_bank_changed(const void *);
+void render_mirror_newshf_validation_frame(void);
+void render_mirror_newshf_validation_allocated(void *,unsigned,int);
+void render_mirror_newshf_validation_initialized(void *,unsigned,unsigned);
+void render_mirror_newshf_validation_observe(unsigned);
+bool render_mirror_newshf_validation_tile(SDL_Surface *,int,int,Sprite2_array,unsigned,int,int,const G101EnemyContext *);
+#else
+#define render_mirror_newshf_validation_reset(...) ((void)0)
+#define render_mirror_newshf_validation_bank_changed(...) ((void)0)
+#define render_mirror_newshf_validation_frame(...) ((void)0)
+#define render_mirror_newshf_validation_allocated(...) ((void)0)
+#define render_mirror_newshf_validation_initialized(...) ((void)0)
+#define render_mirror_newshf_validation_observe(...) ((void)0)
+#define render_mirror_newshf_validation_tile(...) (false)
+#endif
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
+bool render_mirror_enemy_reuse_shot(SDL_Surface *,int,int,Sprite2_array,unsigned,unsigned,unsigned);
+#else
+#define render_mirror_enemy_reuse_shot(...) false
+#endif
 enum { MIRROR_NORMAL, MIRROR_BLEND, MIRROR_SHADOW };
 /* The original indexed branch that actually ran, not the requested effect. */
 typedef enum {

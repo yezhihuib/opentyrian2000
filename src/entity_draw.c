@@ -199,3 +199,19 @@ void draw_explosion_sprite2(SDL_Surface *target,int x,int y,Sprite2_array bank,u
  (void)slot;draw_entity_sprite2(target,x,y,bank,index,style,ENTITY_TILE);
 #endif
 }
+
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
+/* Distinct enemy semantics: no player lookup, shadow lease, or altered blit. */
+void draw_enemy_reuse_shot_sprite2(SDL_Surface *target,int x,int y,Sprite2_array bank,unsigned index,unsigned slot,unsigned raw)
+{
+ bool mirrored=render_mirror_enemy_reuse_shot(target,x,y,bank,index,slot,raw);
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
+ game_probe_scene_draw(146,index,x,y,0,ENTITY_NORMAL,mirrored);
+#else
+ (void)mirrored;(void)slot;(void)raw;
+#endif
+ blit_sprite2(target,x,y,bank,index);
+ render_mirror_entity_end();
+}
+
+#endif

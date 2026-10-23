@@ -145,6 +145,12 @@ def charge_derive(root,raw):
     names|=plasma_input_paths(root)|{PLASMA_MAPPING}
     from current_front_multi_compatibility import input_paths as front_multi_input_paths, MAPPING as FRONT_MULTI_MAPPING
     names|=front_multi_input_paths(root)|{FRONT_MULTI_MAPPING}
+    from current_enemy_orb_compatibility import input_paths as orb_input_paths, MAPPING as ORB_MAPPING
+    names|=orb_input_paths(root)|{ORB_MAPPING}
+    from build_enemy_protron_p09 import input_paths as p09_input_paths
+    names |= p09_input_paths(root)
+    from build_newshf_hd import input_paths as newshf_input_paths
+    names|=newshf_input_paths(root)
     names|={p.relative_to(root).as_posix() for p in (root/'src').rglob('*') if p.is_file() or p.is_symlink()}
     names|={p.relative_to(root).as_posix() for p in (root/'scripts').glob('*.py')}
     with tempfile.TemporaryDirectory(prefix='charge-body-authoring-build-') as tmp:
@@ -167,6 +173,12 @@ def charge_plan(root,outputs,raw):
     names|=plasma_input_paths(root)|{PLASMA_MAPPING}
     from current_front_multi_compatibility import input_paths as front_multi_input_paths, MAPPING as FRONT_MULTI_MAPPING
     names|=front_multi_input_paths(root)|{FRONT_MULTI_MAPPING}
+    from current_enemy_orb_compatibility import input_paths as orb_input_paths, MAPPING as ORB_MAPPING
+    names|=orb_input_paths(root)|{ORB_MAPPING}
+    from build_enemy_protron_p09 import input_paths as p09_input_paths
+    names |= p09_input_paths(root)
+    from build_newshf_hd import input_paths as newshf_input_paths
+    names|=newshf_input_paths(root)
     # Bind every installed destination and all request/tool inputs. Source and
     # gameplay authority are reverified on every derive, never cached by mtime.
     return dict(schema='opentyrian-current-charge-body-stage-v1',request_sha256=sha(raw),inputs_sha256={p:fingerprint(root,p) for p in sorted(names)},files=[dict(path=p,before_sha256=fingerprint(root,p),after_sha256=sha(data),bytes=len(data)) for p,data in sorted(outputs.items())])
@@ -231,6 +243,12 @@ def mf_derive(root,raw):
     names|=plasma_input_paths(root)|{PLASMA_MAPPING}
     from current_front_multi_compatibility import input_paths as front_multi_input_paths, MAPPING as FRONT_MULTI_MAPPING
     names|=front_multi_input_paths(root)|{FRONT_MULTI_MAPPING}
+    from current_enemy_orb_compatibility import input_paths as orb_input_paths, MAPPING as ORB_MAPPING
+    names|=orb_input_paths(root)|{ORB_MAPPING}
+    from build_enemy_protron_p09 import input_paths as p09_input_paths
+    names |= p09_input_paths(root)
+    from build_newshf_hd import input_paths as newshf_input_paths
+    names|=newshf_input_paths(root)
     names|={row['source_png'] for row in selected['resources']}
     names|={p.relative_to(root).as_posix() for p in (root/'src').rglob('*') if p.is_file() or p.is_symlink()}
     names|={p.relative_to(root).as_posix() for p in (root/'scripts').glob('*.py')}
@@ -255,6 +273,12 @@ def mf_plan(root,outputs,raw):
     names|=plasma_input_paths(root)|{PLASMA_MAPPING}
     from current_front_multi_compatibility import input_paths as front_multi_input_paths, MAPPING as FRONT_MULTI_MAPPING
     names|=front_multi_input_paths(root)|{FRONT_MULTI_MAPPING}
+    from current_enemy_orb_compatibility import input_paths as orb_input_paths, MAPPING as ORB_MAPPING
+    names|=orb_input_paths(root)|{ORB_MAPPING}
+    from build_enemy_protron_p09 import input_paths as p09_input_paths
+    names |= p09_input_paths(root)
+    from build_newshf_hd import input_paths as newshf_input_paths
+    names|=newshf_input_paths(root)
     names|={p.relative_to(root).as_posix() for p in (root/'scripts').glob('*.py')}
     return dict(schema='opentyrian-current-mint-front-body-stage-v1',request_sha256=sha(raw),inputs_sha256={p:fingerprint(root,p) for p in sorted(names)},files=[dict(path=p,before_sha256=fingerprint(root,p),after_sha256=sha(data),bytes=len(data)) for p,data in sorted(outputs.items())])
 

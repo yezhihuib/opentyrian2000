@@ -77,12 +77,12 @@
   },
   "files": [
     {
-      "bytes": 28661,
+      "bytes": 32488,
       "destination": "CURRENT-PRODUCTION-VALIDATION.json",
-      "git_blob": "b8a0d416a25e963307aeb65d80351c7d90ed97d2",
+      "git_blob": "365fdd12f106164fff221994dadcc8cf1d0434ec",
       "group": "current-production-validation",
       "revision": "reconstructed-local-unpublished",
-      "sha256": "e5905530623f08835a008213b7349a4f16cff3e5361aa99430078ef7577c70ef",
+      "sha256": "7f7052afef5846e2eaf664f995c858aae373961f94232985e5c93497bcb2abf7",
       "source_path": "packaging/current-production-validation.json"
     },
     {
@@ -324,18 +324,18 @@
       "destination": "assets/gameplay/bullet-112-8.hda",
       "git_blob": "218e953bf47ac78845d38d3f51f3bc184ac4927f",
       "group": "gameplay",
-      "revision": "reconstructed-local-unpublished",
+      "revision": "current-single-source-enemy-orb",
       "sha256": "22e2be2903bc897f2f2d674dc6f95e740f57a510110d8bbcd8df8e969ab5c6fd",
-      "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/bullet-112-8.hda"
+      "source_path": "assets/hd/current-compat/enemy-orb/bullet-112-8.hda"
     },
     {
       "bytes": 43036,
       "destination": "assets/gameplay/bullet-113-8.hda",
       "git_blob": "a7d6da83baf414a271762cf9614c5a11e169f0da",
       "group": "gameplay",
-      "revision": "reconstructed-local-unpublished",
+      "revision": "current-single-source-enemy-orb",
       "sha256": "185ae48dcc144f8222e26b3467e9dfea2de8f83de280a08fb2d9481fbf9b3924",
-      "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/bullet-113-8.hda"
+      "source_path": "assets/hd/current-compat/enemy-orb/bullet-113-8.hda"
     },
     {
       "bytes": 43036,
@@ -2478,6 +2478,15 @@
       "revision": "reconstructed-local-unpublished",
       "sha256": "6cbe2e8afc2b4d19204ea5644f9301d14a869de2e73e0a85c2e25f2d58801b6f",
       "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newshe-9-8.hda"
+    },
+    {
+      "bytes": 43036,
+      "destination": "assets/gameplay/enemy-protron-p09-227-8.hda",
+      "git_blob": "368dfb72ff27a62e19fc18c99819fcf15fd42502",
+      "group": "enemy-protron-p09-optin",
+      "revision": "selected-b-private-enemy-protron-p09",
+      "sha256": "9de332ec5d8d7f5c0e7eb56445aabebe22897b27a6fde1ee7f36da822076aac7",
+      "source_path": "assets/hd/enemy-protron-p09-v1/enemy-protron-p09-227-8.hda"
     },
     {
       "bytes": 43036,
@@ -7205,6 +7214,87 @@
       "source_path": "assets/hd/global-assets-v1/content/fd109402f59404a560ca5da78a84ca34f9cf815a275ec15a0c0fe291596b81aa.hda"
     },
     {
+      "bytes": 172060,
+      "destination": "assets/global/newshf/newshf-role2100000-8.hda",
+      "git_blob": "1cf12e9490b52bc333893114020d1d16df6ca113",
+      "group": "newshf-optin",
+      "revision": "current-single-source-newshf-nine",
+      "sha256": "bccab3ffa0e2743cd8e12b45101ab18ecc5ca22745fcd430701da2c2fda43420",
+      "source_path": "assets/hd/newshf-v1/newshf-role2100000-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshf/newshf-role2100001-8.hda",
+      "git_blob": "a5c3bb0bf0f7cf8e991daae1715cf66cad08dc93",
+      "group": "newshf-optin",
+      "revision": "current-single-source-newshf-nine",
+      "sha256": "fb326361a33883f7374732c3b4cea3be0f4e7cdfa298daefeed3a13b815f0807",
+      "source_path": "assets/hd/newshf-v1/newshf-role2100001-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshf/newshf-role2100002-8.hda",
+      "git_blob": "e832559968f2c955fa7595c2dcc31a73cfeda3ca",
+      "group": "newshf-optin",
+      "revision": "current-single-source-newshf-nine",
+      "sha256": "6c311946d3d92ff2bca8ed6aa3874eb3acbcc694d2db6baa6b82b86c3e25c684",
+      "source_path": "assets/hd/newshf-v1/newshf-role2100002-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshf/newshf-role2100003-8.hda",
+      "git_blob": "53de6637754385759994f067df36cab4c068915d",
+      "group": "newshf-optin",
+      "revision": "current-single-source-newshf-nine",
+      "sha256": "36f3e6eb60084635ecd38f29b437a9eedf014a8e7a19e8bcfed38f00bc052f23",
+      "source_path": "assets/hd/newshf-v1/newshf-role2100003-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshf/newshf-role2100004-8.hda",
+      "git_blob": "22429ee500d999acc58becfa9f4b71caceb3ce5b",
+      "group": "newshf-optin",
+      "revision": "current-single-source-newshf-nine",
+      "sha256": "9a39daa716d85a5fb55534692a61cb09649cb59f24b2ad4a50b1dbb01d1b480c",
+      "source_path": "assets/hd/newshf-v1/newshf-role2100004-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshf/newshf-role2100005-8.hda",
+      "git_blob": "77e6d2eafc3e280ce3371585aeb3379547f17a4d",
+      "group": "newshf-optin",
+      "revision": "current-single-source-newshf-nine",
+      "sha256": "8e3cff75572bbac1f830a8c50e060473cea14a170b5d10afea8567c92f2917ed",
+      "source_path": "assets/hd/newshf-v1/newshf-role2100005-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshf/newshf-role2100006-8.hda",
+      "git_blob": "5c80b98c994139001a2e4996d570da4abbff2419",
+      "group": "newshf-optin",
+      "revision": "current-single-source-newshf-nine",
+      "sha256": "1954ceba77e72e099d3b92b8f6bc78c14c061ee28dfdd0cec037ca43e62b2c49",
+      "source_path": "assets/hd/newshf-v1/newshf-role2100006-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshf/newshf-role2100007-8.hda",
+      "git_blob": "384e52a4c72f2dd145a9521bc1e6b1d4667ea184",
+      "group": "newshf-optin",
+      "revision": "current-single-source-newshf-nine",
+      "sha256": "1bc2d7b6f83a438ae167a0776481d60ac04fa19b181945499585fbb08ccc13c5",
+      "source_path": "assets/hd/newshf-v1/newshf-role2100007-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshf/newshf-role2100008-8.hda",
+      "git_blob": "f3295b1ad05a9c7d4a393fb7a77e2b92e7e018ce",
+      "group": "newshf-optin",
+      "revision": "current-single-source-newshf-nine",
+      "sha256": "35a17d97f319ae97dcbfcf8c1545f66048c9c27a5545c2f6a9ac05f2ba4c97dd",
+      "source_path": "assets/hd/newshf-v1/newshf-role2100008-8.hda"
+    },
+    {
       "bytes": 204989,
       "destination": "assets/global/registry.json",
       "git_blob": "3bd7d7bfc96f3bce8cd527228ed429b7ceb64447",
@@ -9215,7 +9305,7 @@
   "schema": "opentyrian-runtime-package-v1",
   "source_revision": {
     "current_production_commit": null,
-    "current_production_source_manifest_sha256": "ed56afad80d04c60e683389223bf576862af39e68a317c3a1554313d019147e9",
+    "current_production_source_manifest_sha256": "0135416bcfa17b1393673b700b5be9c0eb2b084662b411e772a14f8409af0ae1",
     "data_frame_integration": "local reviewed Data-only DFM1 static frame; no commit assigned",
     "data_portrait_integration": "local reviewed source-authenticated all18 DPR1 portraits",
     "data_text_integration": "local reviewed Data-only Chinese source; no commit assigned",

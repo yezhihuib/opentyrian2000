@@ -1,0 +1,31 @@
+{
+  "schema": "opentyrian-reviewed-enemy-orb-source-v1",
+  "integration_base": "ffd56cf4aad916c76f710a07bc4bf9ce47fe00e3",
+  "historical_source_inventory": "current-source-inventory.json",
+  "scope": "Exact role142 generated header include and two same-value payload pin substitutions. Role8, geometry, masks, original bank stamps, slots, eligibility and gameplay remain unchanged.",
+  "generated_header": "src/current_enemy_orb_payload_pins.h",
+  "files": {
+    "src/asteroid1_enemy_orb112113_mirror.inc": {
+      "previous_sha256": "859825cc45605da5969fd7d649c1678b1f8eee0e94342ad5256051fbc1f503c3",
+      "current_sha256": "7d3f8ccaf7c96d60c066b8cb48c0e451acce67632cea0db9bbb7df05fc8ff096",
+      "hunks": [
+        {
+          "after_lines": [
+            0,
+            1
+          ],
+          "before": "",
+          "after": "#include \"current_enemy_orb_payload_pins.h\"\n"
+        },
+        {
+          "after_lines": [
+            12,
+            13
+          ],
+          "before": "static const uint64_t enemy_orb112113_rgba_pins[2]={UINT64_C(0x78e05e604f9e747d),UINT64_C(0x15da665f28081a9c)};\n",
+          "after": "static const uint64_t enemy_orb112113_rgba_pins[2]={CURRENT_ENEMY_ORB_1420112_PAYLOAD_FNV,CURRENT_ENEMY_ORB_1420113_PAYLOAD_FNV};\n"
+        }
+      ]
+    }
+  }
+}

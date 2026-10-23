@@ -43,7 +43,7 @@ VIEW_FAMILIES = {
     'cash25': 7, 'cash50': 7, 'cash75': 7, 'gem100': 6, 'gem250': 6,
     'tank-shell': 2, 'enemy-energy': 7, 'sidekick-body': 6, 'craft267': 1,
     'hud': 6, 'charge-body': 9, 'mint-front-body': 4, 'plasma-projectile': 6,
-    'front-multi': 8,
+    'front-multi': 8, 'enemy-orb': 4,
 }
 
 
@@ -55,6 +55,8 @@ def independent_current_overlays(case, root):
         mapping = json.loads((root/f'packaging/current-{family}-compatibility.json').read_bytes())
         case.assertEqual(len(mapping['files']), count)
         for row in mapping['files']:
+            if family == 'enemy-orb' and row['identity'] in (1420112,1420113):
+                continue
             destinations = row['destinations'] if family == 'hud' else [row['destination']]
             gameplay = [d for d in destinations if d.startswith('assets/gameplay/')]
             case.assertEqual(len(gameplay), 1)
@@ -67,7 +69,7 @@ def independent_current_overlays(case, root):
             case.assertEqual(runtime[destination]['source_path'], row['source_path'])
             case.assertEqual(runtime[destination]['sha256'], row['sha256'])
             overlays[name] = data
-    case.assertEqual(len(overlays), 169)
+    case.assertEqual(len(overlays), 171)
     # Independent literal geometry and PNG decoding; no production converter.
     pulse = json.loads((root/'assets/hd/authoring/pulse-current.json').read_bytes())
     case.assertEqual([r['identity'] for r in pulse['resources']], [80058, 80059, 80060, 80062, 80165])
@@ -287,7 +289,7 @@ class Craft267AuthoringTests(unittest.TestCase):
         self.assertEqual(len(raw), 172060)
         self.assertEqual(raw, expected)
         runtime = json.loads((self.root/b.RUNTIME).read_bytes())
-        self.assertEqual(len(runtime['files']), 1015)
+        self.assertEqual(len(runtime['files']), 1024)
         self.assertEqual(len(json.loads((self.root/b.REGISTRY).read_bytes())['resources']), 120)
         self.assertEqual({r['destination']:r for r in runtime['files']}[b.DESTINATION]['source_path'], b.CANONICAL)
 
@@ -332,14 +334,14 @@ class Craft267AuthoringTests(unittest.TestCase):
         after = self.snapshot()
         self.assertEqual({p for p in before if before[p] != after[p]}, allowed)
         runtime = json.loads((self.root/b.RUNTIME).read_bytes())
-        self.assertEqual(len(runtime['files']), 1015)
+        self.assertEqual(len(runtime['files']), 1024)
         self.assertEqual([r for r in runtime['files'] if r['destination'] != b.DESTINATION],
                          [r for r in old_runtime['files'] if r['destination'] != b.DESTINATION])
         for kind, base in b.BASES.items():
             target = self.base/f'view-{kind}'
             report = b.view(self.root, kind, target)
             self.assertEqual(report['files'], 650)
-            self.assertEqual(len(report['current_overlays']), 169)
+            self.assertEqual(len(report['current_overlays']), 171)
             frozen = {p.relative_to(self.root/'assets/hd/packs'/base).as_posix():p.read_bytes()
                         for p in (self.root/'assets/hd/packs'/base).rglob('*') if p.is_file()}
             self.assertEqual(set(report['current_overlays']), set(overlays))
@@ -535,7 +537,7 @@ class Craft267AuthoringTests(unittest.TestCase):
                       for p in frozen_root.rglob('*') if p.is_file()}
             actual = {p.relative_to(target).as_posix(): p.read_bytes()
                       for p in target.rglob('*') if p.is_file()}
-            self.assertEqual((len(actual), len(overlays), len(set(frozen) - set(overlays))), (650, 169, 481))
+            self.assertEqual((len(actual), len(overlays), len(set(frozen) - set(overlays))), (650, 171, 479))
             self.assertEqual(set(report['current_overlays']), set(overlays))
             assert_current_view_bytes(self, actual, frozen, overlays)
         self.assertEqual(self.snapshot(), before)
@@ -649,7 +651,7 @@ class Craft267AuthoringTests(unittest.TestCase):
     def test_hud_config_hash_and_version_checked_without_rasterizing(self):
         import build_current_hud as hud
         with mock.patch.object(hud, 'render_resource', side_effect=AssertionError('Preview must not rebuild HUD')):
-            self.assertEqual(len(b.current_overlays(self.root)), 169)
+            self.assertEqual(len(b.current_overlays(self.root)), 171)
             selected_path = self.root/hud.SELECTION
             selected = json.loads(selected_path.read_bytes())
             record = selected['resources']['meters'][0]
@@ -702,7 +704,7 @@ class Craft267AuthoringTests(unittest.TestCase):
         self.assertEqual((stage/'files'/b.CANONICAL).read_bytes(), raw)
         old = json.loads((self.root/b.RUNTIME).read_bytes())
         new = json.loads((stage/'files'/b.RUNTIME).read_bytes())
-        self.assertEqual(len(new['files']), 1015)
+        self.assertEqual(len(new['files']), 1024)
         self.assertEqual([r for r in old['files'] if r['destination'] != b.DESTINATION],
                          [r for r in new['files'] if r['destination'] != b.DESTINATION])
         self.assertEqual(next(r for r in new['files'] if r['destination'] == b.DESTINATION)['sha256'], b.sha(raw))

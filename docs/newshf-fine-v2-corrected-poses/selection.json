@@ -1,0 +1,234 @@
+{
+  "historical_bundle_status": "retained for audit only; first-two167/168 assignments known wrong, not valid pose acceptance",
+  "identity": {
+    "alpha": "binary-0-255",
+    "bank": "newshf.shp",
+    "bank_sha256": "852c2fb552c9077a198be7902d8f58699ed070dabcd36c6e3acfe80dd3804cce",
+    "bank_size": 33543,
+    "component_offsets": [
+      0,
+      1,
+      19,
+      20
+    ],
+    "density": 8,
+    "item_table": "tyrian.hdt",
+    "item_table_sha256": "fde8506326e7bb0916b38c362e33bf8a8a5affa561206c021af7f65b4a17745b",
+    "logical_anchor": [
+      6,
+      7
+    ],
+    "logical_bank": 10,
+    "logical_size": [
+      24,
+      28
+    ],
+    "pixel_size": [
+      192,
+      224
+    ],
+    "records": [
+      {
+        "ani": 1,
+        "animate": 0,
+        "bases": [
+          125,
+          123,
+          127
+        ],
+        "esize": 1,
+        "offset": 176566,
+        "record": 163,
+        "sha256": "9e7afb0db4dc9e07278b2e2de4fe610215b2b2241f43ebcda116816e9d8c901c",
+        "size": 77
+      },
+      {
+        "ani": 1,
+        "animate": 0,
+        "bases": [
+          3,
+          1,
+          5
+        ],
+        "esize": 1,
+        "offset": 176874,
+        "record": 167,
+        "sha256": "799fcf3bdf90d75e0cdf09eb63988db12a113bbd692cceaf80ed521aa29aaaa8",
+        "size": 77
+      },
+      {
+        "ani": 1,
+        "animate": 0,
+        "bases": [
+          55,
+          17,
+          93
+        ],
+        "esize": 1,
+        "offset": 176951,
+        "record": 168,
+        "sha256": "574bce52037236a1bc3dd655ad7be44c933fa71a68e203f6eecdb3c08aeb2e11",
+        "size": 77
+      }
+    ],
+    "selection": "enemycycle; not automatic three-frame animation"
+  },
+  "integration_base": "4a4868cad44872a6daa6719830374f2435897aa3",
+  "schema": "newshf-reviewed-physical-pose-selection-v1",
+  "sources": [
+    {
+      "column_zero_based": 0,
+      "historical_mislabeled_filename_base": 125,
+      "original_reference_bbox": [
+        16,
+        0,
+        184,
+        224
+      ],
+      "original_reference_png_sha256": "6f0ee8d3c18790d146675482af81a697a8ca41dafff2e254c830bb5bd044f971",
+      "original_reference_rgba_sha256": "aa89c9d108333e599f2ce9bc9e683e30ee90d3c8aef2b8bacbd61136720e3600",
+      "physical_base": 125,
+      "record": 163,
+      "selected_png": "enemy-163-v1-bbox-fit-base125.png",
+      "selected_sha256": "8231cf3832460c679dfef3743b0f17604579e0f7df400f7deece96cdb64e684d",
+      "selected_version": "fine-v2"
+    },
+    {
+      "column_zero_based": 1,
+      "historical_mislabeled_filename_base": 123,
+      "original_reference_bbox": [
+        24,
+        0,
+        176,
+        224
+      ],
+      "original_reference_png_sha256": "895c4f47d3800a57b5364a75762b8cab1288e4a43a192fd271940d0e2622d2ab",
+      "original_reference_rgba_sha256": "45dfa0d5f9424d731ed0c3e962054f93810e08892d3a67c6048fc9991eab7883",
+      "physical_base": 123,
+      "record": 163,
+      "selected_png": "enemy-163-v1-bbox-fit-base123.png",
+      "selected_sha256": "f5fb995632edde27643bd462ffce52a76639c427d0229aeb97d176913878754d",
+      "selected_version": "fine-v2"
+    },
+    {
+      "column_zero_based": 2,
+      "historical_mislabeled_filename_base": 127,
+      "original_reference_bbox": [
+        24,
+        0,
+        176,
+        224
+      ],
+      "original_reference_png_sha256": "8b37ddaf536c1dc87738e905e225c6e528a15318111b45f4a2b96dd630c2c27b",
+      "original_reference_rgba_sha256": "8c6dbc07079e35b41b0931ffbd0f001a3ffcfd4993e22af8cad385caf167b30f",
+      "physical_base": 127,
+      "record": 163,
+      "selected_png": "enemy-163-v1-bbox-fit-base127.png",
+      "selected_sha256": "2a286657eaf91e7404bb3c3ccab77974c8d2c5060ab8a6961c4ab1ef7601b33a",
+      "selected_version": "fine-v2"
+    },
+    {
+      "column_zero_based": 0,
+      "historical_mislabeled_filename_base": 1,
+      "original_reference_bbox": [
+        40,
+        8,
+        176,
+        208
+      ],
+      "original_reference_png_sha256": "5a455af2e0799b5afc55d6bcb7441565f4065f77aa99027fb5f38cb69b5718b4",
+      "original_reference_rgba_sha256": "8e4dbc9e8fec3b10623aa2f6a92e0805f0c55e7f12a34e895319fb1e4992fa59",
+      "physical_base": 3,
+      "record": 167,
+      "selected_png": "enemy-167-v1-bbox-fit-base3.png",
+      "selected_sha256": "931556bcf925637217e1039f063b043836abd568469a736aa5542fbb358e277f",
+      "selected_version": "fine-v2"
+    },
+    {
+      "column_zero_based": 1,
+      "historical_mislabeled_filename_base": 3,
+      "original_reference_bbox": [
+        48,
+        8,
+        168,
+        208
+      ],
+      "original_reference_png_sha256": "eb8e2b6905de6bd150ae3dd42701387201229f42fe532e6ae5c98dc07054cda7",
+      "original_reference_rgba_sha256": "984085fb2dd5f5a1ffc7ca7c3e9d62c26d6f62f7907d50d6f8ad102a670ad6ce",
+      "physical_base": 1,
+      "record": 167,
+      "selected_png": "enemy-167-v1-bbox-fit-base1.png",
+      "selected_sha256": "076b9106aebc39c1c28349abae95fc014d3c2e8dff3813077912a27bc761a25e",
+      "selected_version": "fine-v2"
+    },
+    {
+      "column_zero_based": 2,
+      "historical_mislabeled_filename_base": 5,
+      "original_reference_bbox": [
+        48,
+        8,
+        168,
+        208
+      ],
+      "original_reference_png_sha256": "b54254f86d3c589d2bc1ddad5f0d8d2173b649a6f92eb9f48cd161316d342254",
+      "original_reference_rgba_sha256": "eb8b4057c549c115bdc81eee9e493fec38b6de49ec0c7e68929ccd66826f1761",
+      "physical_base": 5,
+      "record": 167,
+      "selected_png": "enemy-167-v1-bbox-fit-base5.png",
+      "selected_sha256": "74dbf41d55eccdc35f50d913efd9871ab26e5d0b57f81e2a9cc985607154c7c7",
+      "selected_version": "fine-v2"
+    },
+    {
+      "column_zero_based": 0,
+      "historical_mislabeled_filename_base": 17,
+      "original_reference_bbox": [
+        24,
+        0,
+        184,
+        208
+      ],
+      "original_reference_png_sha256": "6941ebd95f73ec46bf5c27f477f197c281b1264c4e173a9ab33007f0f1b946f6",
+      "original_reference_rgba_sha256": "9420daabe7dc550cd27f3a7a54481695e254fc60ef6bae716512ae3aea6b0831",
+      "physical_base": 55,
+      "record": 168,
+      "selected_png": "enemy-168-v1-bbox-fit-base55.png",
+      "selected_sha256": "ba8ec19d86158947b89f290daf596666b7299c0c7df370e7d6b3444f0a0e0551",
+      "selected_version": "v1-art-corrected-assignment"
+    },
+    {
+      "column_zero_based": 1,
+      "historical_mislabeled_filename_base": 55,
+      "original_reference_bbox": [
+        32,
+        0,
+        176,
+        208
+      ],
+      "original_reference_png_sha256": "3424165482bb62df17671e7bd45aaabeeb5f03a3d62d596f68d2ee46251ae488",
+      "original_reference_rgba_sha256": "264bcd8a33caca2000800a4fd6f0028eeb3273343f27e2064010fc0947cf631e",
+      "physical_base": 17,
+      "record": 168,
+      "selected_png": "enemy-168-v1-bbox-fit-base17.png",
+      "selected_sha256": "f51e6c54e4b78cfaf1e4798be501384c42968ed4cd339effa60d81f714b92842",
+      "selected_version": "v1-art-corrected-assignment"
+    },
+    {
+      "column_zero_based": 2,
+      "historical_mislabeled_filename_base": 93,
+      "original_reference_bbox": [
+        32,
+        0,
+        176,
+        208
+      ],
+      "original_reference_png_sha256": "e449d9b651275ec83960b47d9167587f6404ddb26c00c7927426b283016b5684",
+      "original_reference_rgba_sha256": "1067d16063a5ad2644f9d57a104d65d941ead9e6d5a9fbaf75b1bcc8bf3d7112",
+      "physical_base": 93,
+      "record": 168,
+      "selected_png": "enemy-168-v1-bbox-fit-base93.png",
+      "selected_sha256": "3ef2485c7e8431c65898f9a1509a41417169b3db9e596b3732babeb521ab5f8c",
+      "selected_version": "v1-art-corrected-assignment"
+    }
+  ],
+  "status": "selected art and corrected physical pose assignment; runtime acceptance recorded separately"
+}

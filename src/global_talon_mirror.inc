@@ -233,6 +233,7 @@ int render_mirror_global_player_ship(SDL_Surface *surface,int x,int y,Sprite2_ar
   if(global_small_explosion_owner)global_small_explosion_owner[n]=global_small_explosion_foreign[n]=0;
   if(global_cash25_owner)global_cash25_owner[n]=global_cash25_foreign[n]=0;
   if(global_rotor_owner)global_rotor_owner[n]=global_rotor_foreign[n]=0;
+  global_newshf_clear(n);
   if(global_vulcan_owner)global_vulcan_owner[n]=global_vulcan_foreign[n]=0;
   global_talon_owner[n]=1;global_talon_foreign[n]=foreign;hd_owner[n]=1;cloud_owner[n]=0;green_first[n]=0;
   global_talon_contributed=true;

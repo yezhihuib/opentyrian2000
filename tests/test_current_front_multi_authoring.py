@@ -178,7 +178,7 @@ class FrontMultiAuthoringTests(unittest.TestCase):
             self.assertIn(f'#define HD_FRONT_MULTI_CURRENT_PAYLOAD_{identity}_HASH UINT64_C(0x{value})'.encode(),header)
         self.assertEqual(sum(b'_HASH UINT64_C' in line for line in header.splitlines()),8)
         from verify_current_production import verify
-        self.assertEqual(verify(self.root,json.loads((self.root/b.BINDING).read_bytes())),254)
+        self.assertEqual(verify(self.root,json.loads((self.root/b.BINDING).read_bytes())),255)
         self.assertEqual(len(json.loads((self.root/b.REGISTRY).read_bytes())['resources']),120)
 
     def test_each_source_edit_changes_only_its_transport_and_runtime_row(self):
@@ -224,14 +224,14 @@ class FrontMultiAuthoringTests(unittest.TestCase):
         installed=self.selected()['resources'][1]
         self.assertEqual((installed['source_png'],installed['source_sha256']),(original_path,b.sha(raw)))
 
-    def test_eight_edits_propagate_to_both_views_and_1015_file_runtime(self):
+    def test_eight_edits_propagate_to_both_views_and_1024_file_runtime(self):
         for index in range(8):
             b.apply(self.root,self.stage(self.changed_source(index)))
         mapping=c.load(self.root)
         for kind in ('preview','debug'):
             target=self.base/('front-multi-updated-'+kind)
             report=craft.view(self.root,kind,target)
-            self.assertEqual((report['files'],len(report['current_overlays'])),(650,169))
+            self.assertEqual((report['files'],len(report['current_overlays'])),(650,171))
             frozen=self.root/'assets/hd/packs'/craft.BASES[kind]
             nonoverlays=[p for p in frozen.rglob('*') if p.is_file()
                          and p.relative_to(frozen).as_posix() not in report['current_overlays']]
@@ -241,7 +241,7 @@ class FrontMultiAuthoringTests(unittest.TestCase):
             for destination,row in mapping.items():
                 self.assertEqual((target/Path(destination).name).read_bytes(),(self.root/row['source_path']).read_bytes())
         code,report=self.package()
-        self.assertEqual((code,report['verified_files']),(0,1015))
+        self.assertEqual((code,report['verified_files']),(0,1024))
         target=self.base/'front-multi-runtime-copy'
         evidence=os.environ.get('FRONT_MULTI_REAL_COPY_OUTPUT')
         if evidence:
@@ -253,7 +253,7 @@ class FrontMultiAuthoringTests(unittest.TestCase):
             result=subprocess.run(command,capture_output=True,text=True)
             receipt=dict(command=command,returncode=result.returncode,stdout=result.stdout,
                          stderr=result.stderr,selection=self.selected(),mapping=list(mapping.values()),
-                         scope='Eight independent synthetic source updates, two650-file views and real1015-file CLI copy; no game/Windows execution')
+                         scope='Eight independent synthetic source updates, two650-file views and real1024-file CLI copy; no game/Windows execution')
             with target.with_name(target.name+'-receipt.json').open('xb') as stream:
                 stream.write(b.encoded(receipt))
             self.assertEqual(result.returncode,0,result.stdout+result.stderr)
@@ -263,8 +263,8 @@ class FrontMultiAuthoringTests(unittest.TestCase):
             # Content-only portable test. Real-copy acceptance is the opt-in above.
             with patch.object(Path,'chmod',return_value=None):
                 code,report=self.package('--build','--output',target)
-        self.assertEqual((code,report['verified_files']),(0,1015))
-        self.assertEqual(len(json.loads((target/'RUNTIME-INVENTORY.json').read_bytes())['files']),1015)
+        self.assertEqual((code,report['verified_files']),(0,1024))
+        self.assertEqual(len(json.loads((target/'RUNTIME-INVENTORY.json').read_bytes())['files']),1024)
         for destination,row in mapping.items():
             self.assertEqual((target/destination).read_bytes(),(self.root/row['source_path']).read_bytes())
 
@@ -741,7 +741,7 @@ class FrontMultiAuthoringTests(unittest.TestCase):
                                                      [plasma.name(i,d) for i,d in plasma.PAIRS]))
         for check in (b.check,body.charge_check,body.mf_check,plasma_builder.check):
             self.assertEqual(check(self.root)['status'],'PASS')
-        code,report=self.package();self.assertEqual((code,report['verified_files']),(0,1015))
+        code,report=self.package();self.assertEqual((code,report['verified_files']),(0,1024))
 
     def test_sources_and_output_paths_reject_symlinks_and_stage_inside_repo(self):
         selected=self.selected();source=self.root/selected['resources'][0]['source_png']

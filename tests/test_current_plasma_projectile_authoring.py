@@ -196,7 +196,7 @@ class PlasmaProjectileAuthoringTests(unittest.TestCase):
         current=json.loads((self.root/b.RUNTIME).read_bytes())
         old={row['destination']:row for row in before['files']}
         new={row['destination']:row for row in current['files']}
-        self.assertEqual((len(old),len(new)),(1015,1015))
+        self.assertEqual((len(old),len(new)),(1024,1024))
         self.assertEqual(set(old),set(new))
         destinations={'assets/gameplay/'+filename(*pair) for pair in EXPECTED}
         changed={name for name in old if old[name]!=new[name]}
@@ -215,7 +215,7 @@ class PlasmaProjectileAuthoringTests(unittest.TestCase):
             self.assertEqual(old[destination],new[destination])
         self.assertEqual(len(json.loads((self.root/b.REGISTRY).read_bytes())['resources']),120)
         from verify_current_production import verify
-        self.assertEqual(verify(self.root,json.loads((self.root/b.BINDING).read_bytes())),254)
+        self.assertEqual(verify(self.root,json.loads((self.root/b.BINDING).read_bytes())),255)
 
     def test_master_edit_updates_six_outputs_pins_views_and_complete_runtime(self):
         before=self.outputs()
@@ -252,7 +252,7 @@ class PlasmaProjectileAuthoringTests(unittest.TestCase):
         for kind in ('preview','debug'):
             target=self.base/('plasma-projectile-updated-'+kind)
             report=craft.view(self.root,kind,target)
-            self.assertEqual((report['files'],len(report['current_overlays'])),(650,169))
+            self.assertEqual((report['files'],len(report['current_overlays'])),(650,171))
             frozen=self.root/'assets/hd/packs'/craft.BASES[kind]
             nonoverlays=[path for path in frozen.rglob('*') if path.is_file()
                          and path.relative_to(frozen).as_posix() not in report['current_overlays']]
@@ -261,7 +261,7 @@ class PlasmaProjectileAuthoringTests(unittest.TestCase):
             for destination,row in mapping.items():
                 self.assertEqual((target/Path(destination).name).read_bytes(),(self.root/row['source_path']).read_bytes())
         code,report=self.package()
-        self.assertEqual((code,report['verified_files']),(0,1015))
+        self.assertEqual((code,report['verified_files']),(0,1024))
         target=self.base/'plasma-projectile-runtime-copy'
         evidence=os.environ.get('PLASMA_PROJECTILE_REAL_COPY_OUTPUT')
         if evidence:
@@ -273,15 +273,15 @@ class PlasmaProjectileAuthoringTests(unittest.TestCase):
             result=subprocess.run(command,capture_output=True,text=True)
             receipt=dict(command=command,returncode=result.returncode,stdout=result.stdout,
                          stderr=result.stderr,selection=self.selected(),mapping=list(mapping.values()),
-                         scope='Synthetic one-master/six-piece update; two650-file views and real1015-file CLI copy; no game/Windows acceptance')
+                         scope='Synthetic one-master/six-piece update; two650-file views and real1024-file CLI copy; no game/Windows acceptance')
             with target.with_name(target.name+'-receipt.json').open('xb') as stream:stream.write(b.encoded(receipt))
             self.assertEqual(result.returncode,0,result.stdout+result.stderr)
             code=result.returncode;report=json.loads(result.stdout)
         else:
             # Portable content-only copy. Real permission acceptance uses opt-in above.
             with patch.object(Path,'chmod',return_value=None):code,report=self.package('--build','--output',target)
-        self.assertEqual((code,report['verified_files']),(0,1015))
-        self.assertEqual(len(json.loads((target/'RUNTIME-INVENTORY.json').read_bytes())['files']),1015)
+        self.assertEqual((code,report['verified_files']),(0,1024))
+        self.assertEqual(len(json.loads((target/'RUNTIME-INVENTORY.json').read_bytes())['files']),1024)
         for destination,row in mapping.items():
             self.assertEqual((target/destination).read_bytes(),(self.root/row['source_path']).read_bytes())
 
@@ -529,6 +529,64 @@ class PlasmaProjectileAuthoringTests(unittest.TestCase):
             with self.subTest(mode=mode),self.assertRaises((ValueError,OSError)):b.apply(self.root,stage)
             self.assertEqual(self.fixture.snapshot(),before)
 
+    def test_unrelated_global_header_rejected_before_stage_or_binding(self):
+        request=self.changed_master()
+        header=self.root/'src/global_asset_registry.h'
+        header.write_bytes(header.read_bytes()+b'\n#error synthetic unrelated global header drift\n')
+        draft=self.base/'plasma-global-header-request.json';draft.write_bytes(b.encoded(request))
+        destination=self.base/'plasma-global-header-stage'
+        before=self.fixture.snapshot()
+        with patch.object(b,'source_inventory',wraps=b.source_inventory) as inventory:
+            with self.assertRaisesRegex(ValueError,'Unrelated global pins changed'):
+                b.stage(self.root,draft,destination)
+            inventory.assert_not_called()
+        self.assertFalse(destination.exists())
+        self.assertEqual(self.fixture.snapshot(),before)
+
+    def test_unrelated_global_header_after_stage_rejected_before_apply_or_binding(self):
+        stage=self.stage(self.changed_master())
+        header=self.root/'src/global_asset_registry.h'
+        header.write_bytes(header.read_bytes()+b'\n#error synthetic unrelated global header drift\n')
+        before=self.fixture.snapshot()
+        staged={path.relative_to(stage):path.read_bytes() for path in stage.rglob('*') if path.is_file()}
+        with patch.object(b,'source_inventory',wraps=b.source_inventory) as inventory:
+            with self.assertRaisesRegex(ValueError,'Unrelated global pins changed'):
+                b.apply(self.root,stage)
+            inventory.assert_not_called()
+        self.assertEqual(self.fixture.snapshot(),before)
+        self.assertEqual(staged,{path.relative_to(stage):path.read_bytes() for path in stage.rglob('*') if path.is_file()})
+
+    def test_current_selection_stage_apply_check_is_idempotent(self):
+        before=self.fixture.snapshot()
+        stage=self.stage()
+        self.assertEqual(self.fixture.snapshot(),before)
+        b.apply(self.root,stage)
+        self.assertEqual(b.check(self.root)['status'],'PASS')
+        self.assertEqual(self.fixture.snapshot(),before)
+
+    def test_changed_global_family_composes_with_plasma_without_reverting_pins(self):
+        import build_current_art as art
+        selected=json.loads((self.root/profile('pulse')['selection']).read_bytes())
+        row=selected['resources'][0]
+        with Image.open(self.root/row['source_png']) as original:size=original.size
+        raw=png(size);source='assets/hd/authoring/plasma-global-family.png';self.write(source,raw)
+        row.update(source_png=source,source_sha256=b.sha(raw));selected['version']='synthetic-plasma-global-family'
+        draft=self.base/'plasma-global-family-request.json';draft.write_bytes(b.encoded(selected))
+        stage=self.base/'plasma-global-family-stage'
+        original=(self.root/'src/global_asset_registry.h').read_bytes()
+        art.stage(self.root,draft,stage,'pulse');art.apply(self.root,stage,'pulse')
+        global_names=(b.REGISTRY,'src/global_asset_registry.h',b.LEGACY_HEADER,profile('pulse')['selection'],profile('pulse')['mapping'])
+        global_before={name:(self.root/name).read_bytes() for name in global_names}
+        self.assertNotEqual(global_before['src/global_asset_registry.h'],original)
+        b.apply(self.root,self.stage(self.changed_master()))
+        self.assertEqual(b.check(self.root)['status'],'PASS')
+        self.assertEqual(art.check(self.root,'pulse')['status'],'PASS')
+        self.assertEqual(global_before,{name:(self.root/name).read_bytes() for name in global_names})
+        self.assertEqual(len(json.loads((self.root/b.REGISTRY).read_bytes())['resources']),120)
+        from verify_current_production import verify
+        self.assertEqual(verify(self.root,json.loads((self.root/b.BINDING).read_bytes())),255)
+        code,report=self.package();self.assertEqual((code,report['verified_files']),(0,1024))
+
     def test_plan_duplicate_nonfinite_oversize_and_numeric_type_rejected(self):
         stage=self.stage();path=stage/'plan.json';original=path.read_bytes();before=self.outputs()
         plans=[b'{"schema":"a","schema":"b"}',b'{"x":NaN}',b' '*131073]
@@ -629,7 +687,7 @@ class PlasmaProjectileAuthoringTests(unittest.TestCase):
         self.assertEqual(body.charge_check(self.root)['status'],'PASS')
         self.assertEqual(body.mf_check(self.root)['status'],'PASS')
         self.assertEqual(b.check(self.root)['status'],'PASS')
-        code,report=self.package();self.assertEqual((code,report['verified_files']),(0,1015))
+        code,report=self.package();self.assertEqual((code,report['verified_files']),(0,1024))
 
     def test_new_plasma_tools_are_fingerprinted_and_invalidate_legacy_plan(self):
         tools=('scripts/current_plasma_projectile_compatibility.py',

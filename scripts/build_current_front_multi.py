@@ -28,6 +28,12 @@ def dependencies(root, selected):
     from current_sidekick_body_compatibility import (charge_input_paths, mf_input_paths,
                                                      CHARGE_MAPPING, MF_MAPPING)
     names = charge_input_paths(root) | mf_input_paths(root) | {CHARGE_MAPPING, MF_MAPPING}
+    from build_enemy_protron_p09 import input_paths as p09_input_paths
+    names |= p09_input_paths(root)
+    from build_newshf_hd import input_paths as newshf_input_paths
+    names |= newshf_input_paths(root)
+    from current_enemy_orb_compatibility import input_paths as orb_input_paths, MAPPING as ORB_MAPPING
+    names |= orb_input_paths(root) | {ORB_MAPPING}
     from current_plasma_projectile_compatibility import input_paths as plasma_inputs, MAPPING as PLASMA_MAPPING
     names |= plasma_inputs(root) | {PLASMA_MAPPING}
     names |= {row['source_png'] for row in selected['resources']}

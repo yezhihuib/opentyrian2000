@@ -28,6 +28,12 @@ def dependencies(root, selected):
     from current_sidekick_body_compatibility import (charge_input_paths, mf_input_paths,
                                                      CHARGE_MAPPING, MF_MAPPING)
     names = charge_input_paths(root) | mf_input_paths(root) | {CHARGE_MAPPING, MF_MAPPING}
+    from build_enemy_protron_p09 import input_paths as p09_input_paths
+    names |= p09_input_paths(root)
+    from build_newshf_hd import input_paths as newshf_input_paths
+    names |= newshf_input_paths(root)
+    from current_enemy_orb_compatibility import input_paths as orb_input_paths, MAPPING as ORB_MAPPING
+    names |= orb_input_paths(root) | {ORB_MAPPING}
     from current_front_multi_compatibility import input_paths as front_multi_input_paths, MAPPING as FRONT_MULTI_MAPPING
     names |= front_multi_input_paths(root) | {FRONT_MULTI_MAPPING}
     names |= {selected['master']['source_png'], selected['recipe']['path']}
@@ -75,6 +81,15 @@ def derive(root, raw):
             target = work/name
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_bytes(data)
+        # This family cannot rebind unrelated global source/geometry pins.
+        # Reconstruct the complete header from the already-verified registry
+        # inside the scratch root, then demand byte equality before rebinding.
+        global_header = 'src/global_asset_registry.h'
+        subprocess.run([sys.executable, str(work/'scripts/build_global_registry_header.py'),
+                        '--registry', str(work/REGISTRY), '--output', str(work/global_header)],
+                       check=True, stdout=subprocess.DEVNULL)
+        if (work/global_header).read_bytes() != read(root, global_header):
+            raise ValueError('Unrelated global pins changed')
         binding = json.loads(read(root, BINDING))
         binding['production_commit'] = None
         binding['source_sha256'] = source_inventory(work)

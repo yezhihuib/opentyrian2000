@@ -1,0 +1,198 @@
+{
+  "schema": 1,
+  "status": "PASS_BOUNDED_SOFT_ALPHA_AND_NATURAL_POSES",
+  "base_commit": "0112ec8d3c3fd0b6145463b85a713a79ccd01ac5",
+  "scope": "Approved preferred 168 V4 max-canvas, exact three selected PNGs; six 163/167 PNG/HDA unchanged. Default-off only.",
+  "geometry": {
+    "logical_size": [
+      24,
+      28
+    ],
+    "density": 8,
+    "anchor": [
+      6,
+      7
+    ],
+    "unchanged": true
+  },
+  "pose_semantics": {
+    "source_slot_calibrated": true,
+    "original_roll_direction_calibrated": false,
+    "artist_approved_order": [
+      55,
+      17,
+      93
+    ],
+    "automatic_animation": false
+  },
+  "alpha_policy": "Finite schema2 exception for exact selected168 revision hashes; old schema1 and 163/167 remain binary alpha; zero-alpha hidden RGB forbidden.",
+  "renderer": "Only executable change rejects foreign underlay for alpha<255; independent rounded integer blend oracle, same-owner and indexed cases, mask/outmask, d4/8 and filtering tested.",
+  "source_authority": "Exact one-module historical inverse; no old fixtures rewritten, source exclusions unchanged; current digest legitimately updated and mutation-tested.",
+  "current_checks_exit_codes": {
+    "source-binding": 0,
+    "package": 0,
+    "runtime-package-tests": 0,
+    "finite-history": 0,
+    "charge": 0,
+    "mint-front": 0,
+    "front-multi": 0,
+    "plasma": 0,
+    "orb": 0
+  },
+  "python_tests": {
+    "newshf_private_original": 51,
+    "runtime_package": 40,
+    "finite_history": 18,
+    "independent_focused": 33
+  },
+  "native_checks": {
+    "native_cases": 304,
+    "native_assertions": 4606439,
+    "sanitizers": "ASan+UBSan renderer, sprite, tyrian2 and harness; remaining production objects optimized native",
+    "three_compile_link_modes": {
+      "default-off": {
+        "exit_code": 0,
+        "binary_sha256": "d98d83cdeddacf862a417825e15028c930d7ddcbf0cb69fde10960344f11ce21"
+      },
+      "hd-on": {
+        "exit_code": 0,
+        "binary_sha256": "08def9f449c1cb5953d606ed04be57d85181a02d616129b20f110110853cc772"
+      },
+      "mirror-disabled": {
+        "exit_code": 0,
+        "binary_sha256": "58cfd6ebf7c14b0a56b1b76ddbaec52a7eaf1985422da263a0e84e20cdc49602"
+      }
+    },
+    "default_off": {
+      "render_mirror": {
+        "equal": true,
+        "new_sha256": "280d7775142f58af88443a185ed414d8321b27955197c136db4f79e07eeabc8d",
+        "prior_sha256": "280d7775142f58af88443a185ed414d8321b27955197c136db4f79e07eeabc8d"
+      },
+      "sprite": {
+        "equal": true,
+        "new_sha256": "a3d45c7718075a706c54e42dc94af69562b585b843cc64f12555d5e4b03f8fce",
+        "prior_sha256": "a3d45c7718075a706c54e42dc94af69562b585b843cc64f12555d5e4b03f8fce"
+      },
+      "tyrian2": {
+        "equal": true,
+        "new_sha256": "15e3230d74e68b2f8e020176648807ab5821e441f6b6838a7307b0239f742aba",
+        "prior_sha256": "15e3230d74e68b2f8e020176648807ab5821e441f6b6838a7307b0239f742aba"
+      },
+      "entity_draw": {
+        "equal": true,
+        "new_sha256": "1d61c494e70a3e038004e9f67982c0caf3c042880bd6300daf37c5069e9bdadf",
+        "prior_sha256": "1d61c494e70a3e038004e9f67982c0caf3c042880bd6300daf37c5069e9bdadf"
+      },
+      "enemy_reuse_identity": {
+        "equal": true,
+        "new_sha256": "bdf64e0cc3cad7c72c8032c623e5b4fe70a4bcff1a6bfe870386d32b5cca3bec",
+        "prior_sha256": "bdf64e0cc3cad7c72c8032c623e5b4fe70a4bcff1a6bfe870386d32b5cca3bec"
+      }
+    },
+    "negative_control": {
+      "status": "PASS",
+      "returncode": -6,
+      "guard": "a[3]<255&&foreign reverted to !a[3]&&foreign",
+      "failure": "case205 foreign alpha2, density4, unfiltered, outside-native: global_newshf_fault==reject"
+    },
+    "native_source_unchanged": true
+  },
+  "resource_delta": {
+    "status": "PASS",
+    "base": "0112ec8d3c3fd0b6145463b85a713a79ccd01ac5",
+    "runtime_destinations": 1024,
+    "changed_rows": [
+      "CURRENT-PRODUCTION-VALIDATION.json",
+      "assets/global/newshf/newshf-role2100006-8.hda",
+      "assets/global/newshf/newshf-role2100007-8.hda",
+      "assets/global/newshf/newshf-role2100008-8.hda"
+    ],
+    "unchanged_rows": 1020,
+    "six_source_and_hda_byte_identical": [
+      "assets/hd/newshf-v1/newshf-role2100000-8.hda",
+      "assets/hd/newshf-v1/newshf-role2100001-8.hda",
+      "assets/hd/newshf-v1/newshf-role2100002-8.hda",
+      "assets/hd/newshf-v1/newshf-role2100003-8.hda",
+      "assets/hd/newshf-v1/newshf-role2100004-8.hda",
+      "assets/hd/newshf-v1/newshf-role2100005-8.hda",
+      "authoring-inputs/enemies/newshf-phase-a/enemy-163-v1-bbox-fit-base125.png",
+      "authoring-inputs/enemies/newshf-phase-a/enemy-163-v1-bbox-fit-base123.png",
+      "authoring-inputs/enemies/newshf-phase-a/enemy-163-v1-bbox-fit-base127.png",
+      "authoring-inputs/enemies/newshf-phase-a/enemy-167-v1-bbox-fit-base3.png",
+      "authoring-inputs/enemies/newshf-phase-a/enemy-167-v1-bbox-fit-base1.png",
+      "authoring-inputs/enemies/newshf-phase-a/enemy-167-v1-bbox-fit-base5.png"
+    ],
+    "unrelated_assets_unchanged": true,
+    "old_historical_fixtures_unchanged": true
+  },
+  "natural_observations": [
+    {
+      "record": 168,
+      "base": 55,
+      "level": 8,
+      "native_tick": 1688,
+      "retained_tick": 1695,
+      "last_tick": 1714,
+      "receipt": "gameplay/record168-original-v1/receipt.json"
+    },
+    {
+      "record": 167,
+      "base": 3,
+      "level": 12,
+      "native_tick": 878,
+      "retained_tick": 883
+    },
+    {
+      "record": 167,
+      "base": 5,
+      "level": 12,
+      "retained_tick": 893
+    },
+    {
+      "record": 167,
+      "base": 1,
+      "level": 12,
+      "retained_tick": 933
+    }
+  ],
+  "record167_window": "Player dies at972 before1050 limit; all3 actual natural poses retained before death. First2 input profiles failed survival before spawn; not hidden.",
+  "screenshots_sha256": {
+    "record168-original-v1/asset-debug-window-1695.png": "46e0ec22543ff07692c5140c7bb35a761950d88b4455e4039245eb2354d72f86",
+    "record168-original-v1/asset-debug-window-1712.png": "646f159d79cfb9add8fd23085c22c137f037e8ce820fc3623c7d2d67cddca399",
+    "record167-exact-capture-replay/asset-debug-window-0883.png": "17e0ff9e34baa41364fa6bdc7a76c6b35c1dbe13ed57ecb59d2b81244f2baa37",
+    "record167-exact-capture-replay/asset-debug-window-0891.png": "93eea5b6e989f80490cc47d6e9a97162bef25913ab767948649d50a5b7c4e644",
+    "record167-exact-capture-replay/asset-debug-window-0893.png": "2475073cbd0cf7c6efcc8e0ae6f1db7f1ce9daeb25859e024a7947ba6c656d6a",
+    "record167-exact-capture-replay/asset-debug-window-0933.png": "ae1b6848ef60811669e740de9918cfbd09ebfba249d71ead48456aeea19f5678"
+  },
+  "limitations": [
+    "Historical successful168 argv/env was not stored; exact historical recipe replay is NOT claimed. Logged recipe/loadout and all1715 non-outputRGB state rows match; capture window differs explicitly.",
+    "168 only base55 observed in actual game; other2 poses have native harness, not actual-game proof.",
+    "167 neutral first-retention883 capture is top-clipped;891 is later visible scene, not explicitly logged retained perframe.",
+    "No natural user playthrough, full campaign, GPU/Windows, or LeakSanitizer claim.",
+    "No event/data modifications or forced spawns; assisted original event observation and existing supported input profiles only.",
+    "Raw neutral wing touches source edge; uncropped source silhouette not certified. Approved ~195px common height differs from prior208px; visual nose is not game anchor.",
+    "Failed early-survival attempts retained as incomplete, not acceptance.",
+    "NEWSHF remains opt-in/default-off. No production-wide performance qualification, GitHub push or laptop deployment."
+  ],
+  "evidence_root": "/workspace/scratch/f67dd347fa0a/newshf168-v4-validation",
+  "evidence_sha256": {
+    "checks.json": "8d6b5e2034a28a8859f8c6b78a8ffd56d2ea5c2ac52479dfa42de7aa8339d180",
+    "exact-resource-delta.json": "8897323176a2ac99672db6d059b7daf6ffe9b250539428fec4a2c70e51ddb63f",
+    "authoring-receipt.json": "daea61398da732e5bb053ebe0b3ea4c7bac1ee5aa3bfcef7c439ef77d384d1e1",
+    "independent-review.json": "7b4eb91b2372e75229f74b5a4549eb8b675800ee7557fb7649969a80603e10c5",
+    "authority-pin-review.json": "aee85e91571daba5b3e441fcda7ee3557a73bb47ddeee8812410b83deadeb135",
+    "native-and-gameplay-receipt.json": "1ec50d317ad13994119ae27cef1ff9379b4501e1ffb38812955cce207c4cea54",
+    "native/native-receipt.json": "39f3922f159961af476cc3d4c1302ce7e539c669414f64c4b02c93d1a34a8ebc",
+    "alpha-negative/native-receipt.json": "c9b731c29bbb97a8fb89dd86190a0e3eb027be25ad3799a9cd4f92045e60f468",
+    "newshf-tests-final51.log": "a730406a1f1bc0826471ed28c24bad97fa6f03bd3974ed8686c9e6d89910ef7c",
+    "finite-history.log": "8c053c25e7e5670cb71d06cbbec51451c467bc4417c9a92afe384c35b57ded60",
+    "runtime-package-tests.log": "faf58c196bd99d1c9cc6b9486ef9dd8b43b406a76b0ffdcb8e70b8dc350da35b",
+    "gameplay/record168-original-v1/receipt.json": "e9710308057589d844e2c2c7f14c7cb82d75a31ebe1eaa0a3efa0ab36c20e738",
+    "gameplay/record168-recipe-comparison.json": "aa9992a22977f89101add6c14487e13c24284b2b24a0c5858b3626cbfb73a5b1",
+    "gameplay/record167-exact-capture-replay/receipt.json": "e75227fad2826abe13a249b44fe202d6b30273161e7466b2ef3949a54ac6dd6c"
+  },
+  "production_binding_sha256": "9df166cdb27299184d4b9a79594e01ca1e154fdd65425b640f84ae272cac774e",
+  "runtime_manifest_sha256": "c0c24d4b8d56530c884a022d930e5e45a46344cdea5882baae8f934a84a141cf",
+  "original_game_input_manifest_sha256": "0e9a93d02759629d2c2d5baac1bc73eabbf7e73d291fa35441933315a35a06ce"
+}

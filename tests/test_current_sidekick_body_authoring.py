@@ -193,7 +193,7 @@ class CurrentSidekickBodyTests(unittest.TestCase):
                 for other,n in EXPECTED.items():
                     if other!=identity:self.assertEqual(now[mapping['assets/gameplay/'+n]['source_path']],before[oldmap['assets/gameplay/'+n]['source_path']])
                 old_rows={e['destination']:e for e in old_runtime['files']};new_rows={e['destination']:e for e in json.loads((self.root/b.RUNTIME).read_text())['files']}
-                self.assertEqual(set(old_rows),set(new_rows));self.assertEqual(len(new_rows),1015)
+                self.assertEqual(set(old_rows),set(new_rows));self.assertEqual(len(new_rows),1024)
                 self.assertEqual({p for p in old_rows if old_rows[p]!=new_rows[p]},{dest,'CURRENT-PRODUCTION-VALIDATION.json'})
                 # Reset changed state without touching source repository or historical packs.
                 for p in allowed:(self.root/p).write_bytes(self.initial[p])
@@ -320,7 +320,7 @@ class CurrentSidekickBodyTests(unittest.TestCase):
         with self.assertRaises(ValueError):compat.load(self.root)
 
     def test_actual_source_binding_rejects_omitted_new_header_and_other_drift(self):
-        receipt=json.loads((self.root/b.BINDING).read_text());self.assertEqual(production.verify(self.root,receipt),254)
+        receipt=json.loads((self.root/b.BINDING).read_text());self.assertEqual(production.verify(self.root,receipt),262)
         self.assertIn(b.HEADER,receipt['source_sha256']);omitted=copy.deepcopy(receipt);del omitted['source_sha256'][b.HEADER]
         omitted['production_source_manifest_sha256']=production.source_manifest_digest(omitted['source_sha256'])
         with self.assertRaisesRegex(ValueError,'Production source mismatch'):production.verify(self.root,omitted)
