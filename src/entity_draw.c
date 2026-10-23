@@ -149,6 +149,16 @@ void draw_plasma_body_sprite2(SDL_Surface *target,int x,int y,Sprite2_array bank
  render_mirror_entity_end();
 }
 
+/* Charge3 uses the original phase/charge tile and one indexed draw. */
+void draw_charge_body_sprite2(SDL_Surface *target,int x,int y,Sprite2_array bank,
+                             unsigned int index,unsigned int option,
+                             unsigned int sidekick_style,unsigned int charge)
+{
+ (void)render_mirror_charge_body(target,x,y,bank,index,option,sidekick_style,charge);
+ blit_sprite2(target,x,y,bank,index);
+ render_mirror_entity_end();
+}
+
 /* Tri-state admission prevents a rejected migrated identity from falling back
  * through a warm generic cache. Unsupported ships retain their old path. */
 void draw_player_ship_sprite2(SDL_Surface *target,int x,int y,Sprite2_array bank,

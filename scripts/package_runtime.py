@@ -238,6 +238,22 @@ def main(argv=None) -> int:
                 digest = row['sha256']
                 if not isinstance(digest, str) or len(digest) != 64 or any(c not in '0123456789abcdef' for c in digest):
                     raise ValueError('Invalid manifest content SHA256')
+    # Historical/custom manifests with no Charge consumers retain their exact
+    # generic semantics. Any Charge request must close over all nine current
+    # consumers and prove their source pixels, not only transport hashes.
+    charge_rows = [row for row in manifest['files'] if
+                   Path(row['destination']).name.casefold().startswith('option-charge-') or
+                   Path(row['source_path']).name.casefold().startswith('option-charge-')]
+    if charge_rows:
+        from current_sidekick_body_compatibility import charge_load, CHARGE_IDS, charge_name
+        expected = {'assets/gameplay/'+charge_name(i) for i in CHARGE_IDS}
+        if len(charge_rows)!=9 or {row['destination'] for row in charge_rows}!=expected:
+            raise ValueError('Charge packaging requires exactly nine current consumers')
+        selected = charge_load(roots[0])
+        for row in charge_rows:
+            current = selected[row['destination']]
+            if row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256']:
+                raise ValueError('Stale Charge runtime selection')
     source_map = read_json(args.source_map) if args.source_map else {}
     verified, missing = [], []
     for row in manifest['files']:

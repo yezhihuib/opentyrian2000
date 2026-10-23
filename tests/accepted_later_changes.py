@@ -2,12 +2,14 @@
 
 The original feature oracle and its old digests are not rebased. Each inverse
 first verifies the entire accepted current blob, then every finite hunk, then
-the old blob. The one generated sidekick header and nine fixed current asset outputs
+the old blob. The one generated sidekick header and nineteen fixed current asset outputs
 require a fresh exact current-generation proof before their finite projection.
 All other source bytes and the historical asset inventory remain fixed.
 The reviewed render-boundary correction has its own exact two-file inverse;
 current source bindings keep its real bytes, while older oracles see their
-original source through that explicit projection.
+original source through that explicit projection. The later five-file Charge
+inverse is applied exactly once before that correction. Its ten current asset
+paths have an independent master/recipe derivation proof, not a rebased P9 ledger.
 """
 from pathlib import Path
 import copy, hashlib, json, os, subprocess, sys
@@ -18,16 +20,15 @@ PINS = {
  'rear-p1-source.json': '2f8fed7183dcf1087b93cc7bceb79ac189ac0209835f8108c8aa0cdc0b931ff3',
  'storm-source.json': '188f57d604004af08ec191cc6bddf2b7d07ea65b1f60348073f7e0263f8783a1',
  'render-boundaries-source.json': '1bac028508e047cb862989d08ef7613b46652c6aea32c71d8bcbc6c78ff9ac30',
+ 'charge-body-source.json': 'c066932af771eb3a834c7becbeb59c6b0eac668d8da51df09d034d7247211e92',
 }
 def sha(raw): return hashlib.sha256(raw).hexdigest()
 def load(name):
  raw=(FIXTURES/name).read_bytes()
  assert sha(raw)==PINS[name], ('changed accepted-history ledger',name)
  return json.loads(raw)
-def project_source(label,name,raw):
- # Only this fixed reviewed correction is undone before the older feature's
- # inverse. Whole current blob, every hunk and whole previous blob stay pinned.
- if label!='render-boundaries':raw=project_source('render-boundaries',name,raw)
+def _project_source_once(label,name,raw):
+ # A single finite inverse: whole input, every hunk, and whole result are pinned.
  pin=load(label+'-source.json')['files'].get(name)
  if pin is None:return raw
  assert sha(raw)==pin['current_sha256'],(label,name,'not the accepted published current blob')
@@ -39,6 +40,17 @@ def project_source(label,name,raw):
  restored=b''.join(lines)
  assert sha(restored)==pin['previous_sha256'],(name,'historical result drift')
  return restored
+
+def project_source(label,name,raw):
+ # Newest first, with no recursive call that could undo Charge twice.
+ raw=_project_source_once('charge-body',name,raw)
+ if label=='charge-body':return raw
+ raw=_project_source_once('render-boundaries',name,raw)
+ if label=='render-boundaries':return raw
+ return _project_source_once(label,name,raw)
+
+def corrected_source_paths():
+ return sorted(set(load('charge-body-source.json')['files'])|set(load('render-boundaries-source.json')['files']))
 
 PINS['p9-stage-catalog.json']='565303b7f5b4f2cf726214a61e2f95148f4ed0ba816a81939ad6bc4c2b62d4d3'
 PINS['p9-assets.json']='1b83129e300efeb77fe0e143882a456b91e6083817fb80f442ea6d9740513ff7'
@@ -88,13 +100,13 @@ def verified_sidekick_current(root=ROOT):
  assert verify(root,binding)==252,'unexpected current production source scope'
  expected_sources=dict(load('current-source-inventory.json')['files'])
  expected_sources[SIDEKICK_HEADER]=sha(header);expected_sources.update(PRODUCTION_NON_CODE)
- for name,pin in load('render-boundaries-source.json')['files'].items():
+ for name in corrected_source_paths():
   raw=builder.read(root,name)
-  assert sha(project_source('render-boundaries',name,raw))==expected_sources[name],('render correction historical source mismatch',name)
+  assert sha(project_source('render-boundaries',name,raw))==expected_sources[name],('reviewed correction historical source mismatch',name)
   expected_sources[name]=sha(raw)
  assert binding['source_sha256']==expected_sources,'unapproved non-target production source binding'
  runtime=json.loads(builder.read(root,builder.RUNTIME));runtime_rows={r['destination']:r for r in runtime['files']}
- assert len(runtime_rows)==len(runtime['files'])==1006,'unexpected current runtime destination scope'
+ assert len(runtime_rows)==len(runtime['files'])==1015,'unexpected current runtime destination scope'
  def blob_row(source,destination,group,revision,data):
   import hashlib
   oid=hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()
@@ -127,12 +139,54 @@ def verified_craft267_current(root=ROOT):
  expected=dict(schema='opentyrian-current-craft267-compatibility-v1',selection=CRAFT267_SELECTION,version=selected['version'],files=[row])
  assert builder.read(root,compat.MAPPING)==builder.encoded(expected),'current craft267 selection/mapping mismatch'
  runtime=builder.parse(builder.read(root,builder.RUNTIME));rows={r['destination']:r for r in runtime['files']}
- assert len(rows)==len(runtime['files'])==1006,'unexpected current runtime destination scope'
+ assert len(rows)==len(runtime['files'])==1015,'unexpected current runtime destination scope'
  oid=hashlib.sha1(b'blob '+str(len(blob)).encode()+b'\0'+blob).hexdigest()
  expected=dict(source_path=CRAFT267_CANONICAL,destination=CRAFT267_DESTINATION,group='gameplay',revision='current-single-source-craft267',bytes=len(blob),git_blob=oid,sha256=sha(blob))
  assert rows.get(CRAFT267_DESTINATION)==expected,'stale current craft267 runtime body'
  source=selected['resources'][0]
  return dict(assets={CRAFT267_SELECTION:{'sha256':sha(raw),'mode':'100644'},CRAFT267_CANONICAL:{'sha256':sha(blob),'mode':'100644'}},source_pngs={source['source_png']:source['source_sha256']})
+
+CHARGE_SELECTION='assets/hd/authoring/charge-body-current.json'
+CHARGE_ROOT='assets/hd/current-compat/charge-body'
+CHARGE_IDS=(1450258,1450259,1450260,1450277,1450278,1450279,1450296,1450297,1450298)
+CHARGE_NAMES=tuple('option-charge-bank9-%d-8.hda'%(identity-1450000) for identity in CHARGE_IDS)
+
+def verified_charge_current(root=ROOT):
+ """Prove nine derived bodies from the one editable master/recipe, then ten paths.
+
+ This proof is independent of the immutable old P9 nine-output ledger. Original
+ game references are not inputs, and no authoring input becomes an assets waiver.
+ """
+ scripts=str(ROOT/'scripts')
+ if scripts not in sys.path:sys.path.insert(0,scripts)
+ import build_current_sidekick_body as builder
+ import current_sidekick_body_compatibility as compat
+ assert compat.CHARGE_IDS==CHARGE_IDS and compat.CHARGE_SELECTION==CHARGE_SELECTION
+ assert compat.CHARGE_ROOT==CHARGE_ROOT
+ assert compat.CHARGE_MAPPING=='packaging/current-charge-body-compatibility.json'
+ assert tuple(compat.charge_name(i) for i in CHARGE_IDS)==CHARGE_NAMES
+ # charge_load recomputes all nine RGBA payloads and checks derived PNGs, HDA,
+ # selector SHAs and the complete mapping; independent PNG hashes never suffice.
+ loaded=compat.charge_load(root)
+ raw=builder.read(root,CHARGE_SELECTION)
+ inputs=compat.charge_input_paths(root)
+ assert len(inputs)==12 and {p for p in inputs if p.startswith('assets/')}=={CHARGE_SELECTION},'unapproved Charge authoring asset inputs'
+ expected_destinations={'assets/gameplay/'+name for name in CHARGE_NAMES}
+ assert set(loaded)==expected_destinations,'unapproved Charge consumer scope'
+ outputs={CHARGE_SELECTION:{'sha256':sha(raw),'mode':'100644'}}
+ runtime=json.loads(builder.read(root,builder.RUNTIME));rows={r['destination']:r for r in runtime['files']}
+ assert len(rows)==len(runtime['files'])==1015,'unexpected current runtime destination scope'
+ for identity,name in zip(CHARGE_IDS,CHARGE_NAMES):
+  source=CHARGE_ROOT+'/'+name;destination='assets/gameplay/'+name
+  blob=builder.read(root,source)
+  expected=dict(identity=identity,source_path=source,destination=destination,sha256=sha(blob))
+  assert loaded[destination]==expected,('unapproved Charge compatibility row',destination)
+  oid=hashlib.sha1(b'blob '+str(len(blob)).encode()+b'\0'+blob).hexdigest()
+  expected=dict(source_path=source,destination=destination,group='gameplay',revision='current-single-source-charge-body',bytes=len(blob),git_blob=oid,sha256=sha(blob))
+  assert rows.get(destination)==expected,('stale current Charge runtime body',destination)
+  outputs[source]={'sha256':sha(blob),'mode':'100644'}
+ assert len(outputs)==10,'unapproved Charge asset scope'
+ return dict(assets=outputs)
 
 def project_craft267_readme(current,root,ledger):
  """Undo exactly the reviewed complete README blob and its single line hunk."""
@@ -220,6 +274,11 @@ Retired paths are explicitly absent, never a prefix/wildcard exclusion.
 def project_p9_inventory(current,root=ROOT):
  current=copy.deepcopy(current)
  ledger=load('p9-assets.json')
+ charge=verified_charge_current(root)['assets']
+ assert set(charge)=={CHARGE_SELECTION}|{CHARGE_ROOT+'/'+name for name in CHARGE_NAMES} and len(charge)==10,'unapproved Charge output scope'
+ for name,row in charge.items():
+  assert row['mode']=='100644' and current.get(name)==row,('unverified Charge current output',name)
+  del current[name]
  verified=verified_sidekick_current(root);craft=verified_craft267_current(root)
  proof=dict(verified['assets']);assert not set(proof)&set(craft['assets']),'current output collision'
  proof.update(craft['assets']);reviewed=ledger['verified_current_outputs']
@@ -249,7 +308,7 @@ def validate_current_sources(root=ROOT):
  expected=load('current-source-inventory.json')['files']
  assert set(actual)==set(expected),'unapproved current source paths'
  projected=dict(actual)
- for name in load('render-boundaries-source.json')['files']:
+ for name in corrected_source_paths():
   projected[name]=sha(project_source('render-boundaries',name,(root/name).read_bytes()))
  assert {p:h for p,h in projected.items() if p!=SIDEKICK_HEADER}=={p:h for p,h in expected.items() if p!=SIDEKICK_HEADER},'unapproved non-target source bytes'
  # Keep every source path. Only this one generated value is derived from the

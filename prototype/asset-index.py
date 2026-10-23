@@ -11,6 +11,7 @@ def hdstate(x,pack):
  elif x['category']=='terrain-layer1' and x['sheet']=='shapesz.dat' and id in [101,37,57,49,50,321,322,331,332]:name=f'terrain-shapesz-{id}-8.hda'
  elif x['category']=='effect' and x['sheet']=='newsh6.shp' and (122<=id<=133 or 3<=id<=14 or 22<=id<=33 or 41<=id<=52 or 60<=id<=71 or 146<=id<=152 or 192<=id<=203 or 154<=id<=165 or 211<=id<=222 or 173<=id<=184 or 135<=id<=141 or id in (229,230,231,232,233,234,235,236,237,248,249,250,252,253,254,255,256,267,268,269,272,275) or 78<=id<=84):name=f'explosion-newsh6-{id}-8.hda'
  elif x['category']=='player' and x['sheet']=='tyrian.shp#spriteSheet9' and id in [229,231,233,235,237]:name=f'ship-{id}-8.hda'
+ elif x['category']=='player' and x['sheet']=='tyrian.shp#spriteSheet9' and id in (258,259,260,277,278,279,296,297,298):name=f'option-charge-bank9-{id}-8.hda'
  elif x['category']=='player-projectile' and x['sheet']=='tyrian.shp#spriteSheet8' and id==59:name='bullet-59-8.hda'
  p=pack/name if name else None
  return {'status':'mapped external asset available' if p and p.exists() else 'original fallback / no external binding','file':name,'sha256':sha(p) if p and p.exists() else None,'header_values':list(struct.unpack('<6I',p.read_bytes()[4:28])) if p and p.exists() else None,'note':'Availability, not proof that every effect/occlusion draw uses HD; replay reloads pack in a fresh process.'}

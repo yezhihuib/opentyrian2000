@@ -21,7 +21,7 @@ class SourceBoundary(unittest.TestCase):
         self.assertEqual(ledger['files'][projection.SIDEKICK_HEADER],ledger['current_extensions'][projection.SIDEKICK_HEADER]['baseline_sha256'])
 
     def test_all_inverse_results_and_inside_outside_mutations(self):
-        for label in ('data','rear-p1','storm','render-boundaries'):
+        for label in ('data','rear-p1','storm','render-boundaries','charge-body'):
             for name,pin in projection.load(label+'-source.json')['files'].items():
                 with self.subTest(label=label,path=name):
                     raw=(projection.ROOT/name).read_bytes()
@@ -53,7 +53,7 @@ class SourceBoundary(unittest.TestCase):
         self.assertEqual(historical['historical_current'],'775b6b77163723c6cae727bafce1d53746a5bd60')
         for name,pin in ledger['files'].items():
             raw=(projection.ROOT/name).read_bytes()
-            self.assertEqual(projection.sha(raw),pin['current_sha256'])
+            self.assertEqual(projection.sha(projection.project_source('charge-body',name,raw)),pin['current_sha256'])
             self.assertNotEqual(pin['current_sha256'],historical['files'][name])
             self.assertEqual(projection.sha(projection.project_source('render-boundaries',name,raw)),historical['files'][name])
         from unittest.mock import patch
@@ -95,6 +95,151 @@ class SourceBoundary(unittest.TestCase):
         from unittest.mock import patch
         with patch.object(Path,'read_bytes',return_value=b'{}'):
             with self.assertRaises(AssertionError):projection.load('data-source.json')
+
+class ChargeSourceBoundary(unittest.TestCase):
+    def test_exact_five_file_freeze_has_independent_provenance(self):
+        ledger=projection.load('charge-body-source.json')
+        self.assertEqual(ledger['schema'],'opentyrian-reviewed-charge-body-source-v1')
+        self.assertEqual(ledger['integration_base'],'11a9c7f6eaf60ddb2607fe702b03d6ccadcfb6f4')
+        self.assertEqual(ledger['supplied_patch_sha256'],'a9df9e940ba745f414a470cb534b98536d99c81c8f676378d4a7f306d460fbda')
+        self.assertEqual(ledger['historical_source_inventory'],'current-source-inventory.json')
+        self.assertEqual(set(ledger['files']),{'src/entity_draw.c','src/entity_draw.h','src/mainint.c','src/render_mirror.c','src/render_mirror.h'})
+        self.assertEqual(set(projection.corrected_source_paths()),set(ledger['files'])|{'src/global_talon_mirror.inc'})
+        for name,pin in ledger['files'].items():
+            with self.subTest(path=name):
+                raw=(projection.ROOT/name).read_bytes()
+                self.assertEqual(projection.sha(raw),pin['current_sha256'])
+                self.assertEqual(projection.sha(projection.project_source('charge-body',name,raw)),pin['previous_sha256'])
+
+    def test_newest_then_render_then_feature_exactly_once_without_git(self):
+        from unittest.mock import patch
+        name='src/render_mirror.c';raw=(projection.ROOT/name).read_bytes()
+        charge=projection.load('charge-body-source.json')['files'][name]
+        render=projection.load('render-boundaries-source.json')['files'][name]
+        self.assertEqual(charge['previous_sha256'],render['current_sha256'])
+        with patch.object(projection.subprocess,'check_output',side_effect=AssertionError('Git history forbidden')):
+            with patch.object(projection,'_project_source_once',wraps=projection._project_source_once) as once:
+                old=projection.project_source('storm',name,raw)
+                self.assertEqual([call.args[0] for call in once.call_args_list],['charge-body','render-boundaries','storm'])
+                self.assertEqual(projection.sha(old),projection.load('storm-source.json')['files'][name]['previous_sha256'])
+        intermediate=projection.project_source('charge-body',name,raw)
+        with self.assertRaisesRegex(AssertionError,'not the accepted published current blob'):
+            projection.project_source('charge-body',name,intermediate)
+
+    def test_wrong_source_partial_inverse_and_extra_change_rejected(self):
+        ledger=projection.load('charge-body-source.json')
+        for name,pin in ledger['files'].items():
+            raw=(projection.ROOT/name).read_bytes()
+            wrong=next(path for path in ledger['files'] if path!=name)
+            mutants=[('wrong-source',(projection.ROOT/wrong).read_bytes()),('extra-change',raw+b'\n/* unapproved */\n')]
+            for index,hunk in enumerate(pin['hunks']):
+                lines=raw.splitlines(keepends=True);a,b=hunk['after_lines']
+                self.assertEqual(b''.join(lines[a:b]),hunk['after'].encode())
+                lines[a:b]=hunk['before'].encode().splitlines(keepends=True)
+                mutants.append(('partial-inverse-%d'%index,b''.join(lines)))
+            for case,mutant in mutants:
+                with self.subTest(path=name,case=case),self.assertRaisesRegex(AssertionError,'not the accepted published current blob'):
+                    projection.project_source('charge-body',name,mutant)
+
+    def test_fixture_pin_hunk_and_result_are_all_fail_closed(self):
+        from unittest.mock import patch
+        ledger=projection.load('charge-body-source.json');name='src/mainint.c'
+        raw=(projection.ROOT/name).read_bytes()
+        for field,value in (('after_lines',[0,1]),('after','wrong\n'),('before','wrong\n')):
+            mutant=copy.deepcopy(ledger);mutant['files'][name]['hunks'][0][field]=value
+            with self.subTest(field=field),patch.object(projection,'load',return_value=mutant):
+                with self.assertRaises(AssertionError):projection.project_source('charge-body',name,raw)
+        fixture=(projection.FIXTURES/'charge-body-source.json').read_bytes()
+        with patch.object(Path,'read_bytes',return_value=fixture+b' '):
+            with self.assertRaisesRegex(AssertionError,'changed accepted-history ledger'):
+                projection.load('charge-body-source.json')
+
+class ChargeCurrentGenerationBoundary(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        sys.path.insert(0,str(projection.ROOT/'scripts'))
+        import current_sidekick_body_compatibility as compat
+        import build_current_sidekick_body as builder
+        cls.compat=compat;cls.builder=builder
+        cls.temp=tempfile.TemporaryDirectory(prefix='charge-projection-fixture-',dir=projection.ROOT.parent)
+        cls.root=Path(cls.temp.name)
+        # Only the twelve declared inputs, nine HDAs, mapping and runtime plan.
+        # No original-game provenance image, historical Git object or full clone.
+        paths=compat.charge_input_paths(projection.ROOT)|{compat.CHARGE_MAPPING,builder.RUNTIME}|{projection.CHARGE_ROOT+'/'+name for name in projection.CHARGE_NAMES}
+        cls.baseline={name:(projection.ROOT/name).read_bytes() for name in paths}
+        if len(cls.baseline)!=23:raise AssertionError('unexpected Charge fixture closure')
+
+    @classmethod
+    def tearDownClass(cls):cls.temp.cleanup()
+
+    def setUp(self):
+        for name,raw in self.baseline.items():
+            path=self.root/name;path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(raw)
+
+    def _runtime_row(self,row,blob):
+        import hashlib
+        row.update(bytes=len(blob),sha256=projection.sha(blob),git_blob=hashlib.sha1(b'blob '+str(len(blob)).encode()+b'\0'+blob).hexdigest())
+
+    def test_independent_master_recipe_png_hda_mapping_and_runtime_tampering(self):
+        self.assertEqual(len(projection.verified_charge_current(self.root)['assets']),10)
+        for name,raw in self.baseline.items():
+            path=self.root/name
+            try:
+                path.write_bytes(raw+b'broken')
+                with self.subTest(path=name),self.assertRaises((AssertionError,ValueError,OSError)):
+                    projection.verified_charge_current(self.root)
+            finally:path.write_bytes(raw)
+
+    def test_rehashed_derived_png_hda_mapping_and_runtime_cannot_override_master(self):
+        import io
+        from PIL import Image
+        selected=json.loads((self.root/projection.CHARGE_SELECTION).read_bytes());row=selected['resources'][0]
+        path=self.root/row['source_png']
+        with Image.open(path) as original:frame=original.copy()
+        point=next((x,y) for y in range(112) for x in range(96) if frame.getpixel((x,y))[3]==255)
+        r,g,b,a=frame.getpixel(point);frame.putpixel(point,(r^1,g,b,a))
+        stream=io.BytesIO();frame.save(stream,format='PNG');path.write_bytes(stream.getvalue())
+        row['source_sha256']=projection.sha(path.read_bytes())
+        (self.root/projection.CHARGE_SELECTION).write_bytes(self.builder.encoded(selected))
+        mapping=json.loads((self.root/self.compat.CHARGE_MAPPING).read_bytes());mapped=mapping['files'][0]
+        path=self.root/mapped['source_path'];blob=path.read_bytes()[:28]+frame.tobytes();path.write_bytes(blob)
+        mapped['sha256']=projection.sha(blob)
+        (self.root/self.compat.CHARGE_MAPPING).write_bytes(self.builder.encoded(mapping))
+        runtime=json.loads((self.root/self.builder.RUNTIME).read_bytes())
+        self._runtime_row(next(r for r in runtime['files'] if r['destination']==mapped['destination']),blob)
+        (self.root/self.builder.RUNTIME).write_bytes(self.builder.encoded(runtime))
+        with self.assertRaisesRegex(ValueError,'Derived Charge PNG does not match master\\+recipe'):
+            projection.verified_charge_current(self.root)
+
+    def test_coherent_new_master_recipe_is_current_not_fixed_bootstrap_art(self):
+        import io
+        from PIL import Image
+        before=projection.verified_charge_current(self.root)
+        selected=json.loads((self.root/projection.CHARGE_SELECTION).read_bytes())
+        master=self.root/selected['master']['source_png']
+        with Image.open(master) as original:frame=original.copy()
+        point=next((x,y) for y in range(112) for x in range(96) if frame.getpixel((x,y))[3]==255)
+        r,g,b,a=frame.getpixel(point);frame.putpixel(point,(r^1,g,b,a))
+        stream=io.BytesIO();frame.save(stream,format='PNG');master.write_bytes(stream.getvalue())
+        selected['master']['source_sha256']=projection.sha(master.read_bytes())
+        path=self.root/selected['recipe']['path'];recipe=json.loads(path.read_bytes())
+        recipe['master_sha256']=selected['master']['source_sha256'];path.write_bytes(self.builder.encoded(recipe))
+        selected['recipe']['sha256']=projection.sha(path.read_bytes())
+        candidate={key:value for key,value in selected.items() if key!='resources'}
+        candidate.update(schema=self.compat.CHARGE_CANDIDATE_SCHEMA,version='history-current-master-positive')
+        installed,pngs,blobs=self.compat.charge_generate(self.root,self.builder.encoded(candidate),candidate=True)
+        (self.root/projection.CHARGE_SELECTION).write_bytes(self.builder.encoded(installed))
+        for name,raw in pngs.items():(self.root/name).write_bytes(raw)
+        mapping=json.loads((self.root/self.compat.CHARGE_MAPPING).read_bytes());mapping['version']=installed['version']
+        runtime=json.loads((self.root/self.builder.RUNTIME).read_bytes());runtime_rows={r['destination']:r for r in runtime['files']}
+        for row in mapping['files']:
+            blob=blobs[row['identity']];(self.root/row['source_path']).write_bytes(blob)
+            row['sha256']=projection.sha(blob);self._runtime_row(runtime_rows[row['destination']],blob)
+        (self.root/self.compat.CHARGE_MAPPING).write_bytes(self.builder.encoded(mapping))
+        (self.root/self.builder.RUNTIME).write_bytes(self.builder.encoded(runtime))
+        after=projection.verified_charge_current(self.root)
+        self.assertNotEqual(before,after);self.assertEqual(set(before['assets']),set(after['assets']))
+        self.setUp();self.assertEqual(projection.verified_charge_current(self.root),before)
 
 class AssetBoundary(unittest.TestCase):
     @classmethod
@@ -147,6 +292,7 @@ class AssetBoundary(unittest.TestCase):
         self.assertEqual(ledger['current_inventory_sha256'],'3f819ca1f9ac2b9ef4de53cfe4fb948bc0d347bd0f1f7b539dbb7bfd2915ae34')
         self.assertEqual(len(ledger['asset_edits']),3259)
         current=copy.deepcopy(self.inventory)
+        for name in projection.verified_charge_current()['assets']:del current[name]
         for name in ledger['verified_current_outputs']:del current[name]
         projection.project_craft267_readme(current,projection.ROOT,ledger)
         self.assertEqual(projection.sha(projection.canonical(current)),ledger['current_inventory_sha256'])
@@ -156,6 +302,24 @@ class AssetBoundary(unittest.TestCase):
             if action=='delete':del mutant[old]
             else:mutant[old]['sha256']='0'*64
             with self.subTest(action=action),self.assertRaises(AssertionError):projection.project_p9_inventory(mutant)
+
+    def test_exact_ten_charge_outputs_are_separate_from_old_nine(self):
+        proof=projection.verified_charge_current()['assets']
+        expected={projection.CHARGE_SELECTION}|{projection.CHARGE_ROOT+'/'+name for name in projection.CHARGE_NAMES}
+        self.assertEqual(set(proof),expected);self.assertEqual(len(proof),10)
+        self.assertFalse(set(proof)&set(projection.load('p9-assets.json')['verified_current_outputs']))
+        for name in proof:
+            for action in ('delete','hash','mode'):
+                mutant=copy.deepcopy(self.inventory)
+                if action=='delete':del mutant[name]
+                elif action=='hash':mutant[name]['sha256']='0'*64
+                else:mutant[name]['mode']='100755'
+                with self.subTest(path=name,action=action),self.assertRaisesRegex(AssertionError,'unverified Charge current output'):
+                    projection.project_p9_inventory(mutant)
+        for name in (projection.CHARGE_ROOT+'/unapproved.hda','assets/hd/authoring/charge-body-extra.png'):
+            mutant=copy.deepcopy(self.inventory);mutant[name]={'sha256':'0'*64,'mode':'100644'}
+            with self.subTest(path=name),self.assertRaisesRegex(AssertionError,'unapproved current asset inventory'):
+                projection.project_p9_inventory(mutant)
 
     def test_asset_ledger_pin_rejects_byte_changes(self):
         from unittest.mock import patch

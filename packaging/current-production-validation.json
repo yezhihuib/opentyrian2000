@@ -14,10 +14,24 @@
     "Exact source binding and build/package consistency only; no GPU or full-campaign acceptance.",
     "Candidate runtime validation is separate from this exact source binding; production_commit is null until an external commit receipt identifies these bytes.",
     "Six-sidekick generated header is read only by Python build/package validation; production C does not include it or enforce runtime payload pins. Existing raw-bank qualification and fallback remain unchanged.",
-    "The two named rendering files include the reviewed boundary/cache/Talon correction relative to 6ada526. Historical validation receipts and their source hashes retain their original scope; current source bytes are not claimed equal to 775."
+    "The two named rendering files include the reviewed boundary/cache/Talon correction relative to 6ada526. Historical validation receipts and their source hashes retain their original scope; current source bytes are not claimed equal to 775.",
+    "Charge role145 adds nine fixed body transports; the five-file render-only patch has separate renderer validation. This binding does not certify Windows/GPU/full-campaign behavior."
   ],
   "production_commit": null,
-  "production_source_manifest_sha256": "d382948f61b88e8bf3300b21bc13b379b54b45f336044dd57391b928177ae898",
+  "production_source_manifest_sha256": "4f0fdc91e279d539969f205770ea96c1affdd2658f2ae772d7cfe4a69bfbd282",
+  "reviewed_charge_body_changes": {
+    "files": [
+      "src/entity_draw.c",
+      "src/entity_draw.h",
+      "src/mainint.c",
+      "src/render_mirror.c",
+      "src/render_mirror.h"
+    ],
+    "integration_base": "11a9c7f6eaf60ddb2607fe702b03d6ccadcfb6f4",
+    "ledger": "tests/fixtures/accepted-later-changes-v1/charge-body-source.json",
+    "ledger_sha256": "c066932af771eb3a834c7becbeb59c6b0eac668d8da51df09d034d7247211e92",
+    "production_patch_sha256": "a9df9e940ba745f414a470cb534b98536d99c81c8f676378d4a7f306d460fbda"
+  },
   "reviewed_render_boundary_changes": {
     "files": [
       "src/global_talon_mirror.inc",
@@ -28,7 +42,7 @@
     "ledger_sha256": "1bac028508e047cb862989d08ef7613b46652c6aea32c71d8bcbc6c78ff9ac30"
   },
   "schema": "opentyrian-current-production-binding-v1",
-  "scope": "Exact current single-source generated art pins; gameplay/role/source identity unchanged. Source binding only, not runtime acceptance.",
+  "scope": "Exact current source binding including the separately reviewed Charge body rendering extension. Build/package consistency only; historical receipts retain their original scope.",
   "source_manifest_encoding": "UTF-8 JSON of source_sha256 only, sort_keys=True, separators=(comma,colon), ensure_ascii=True, no newline",
   "source_sha256": {
     "src/animlib.c": "1340570680ddff3fac80e34785f511657888d72430b47724330331d8c0b7a1de",
@@ -101,8 +115,8 @@
     "src/destruct.h": "50934ed9a4f35ef994adf9693ae237fe720ea629e8143eabc65c3c49151b0e7b",
     "src/editship.c": "5877d8012076a3a2631fd0e0d80c359cca8bf67d6bc534c5fb07add5812835af",
     "src/editship.h": "91c67ce815195f568661d158b970c430f453dd857df8cfbd7131f7c215a1236f",
-    "src/entity_draw.c": "095814f09776cb2852fd671624b3572820afcfacfa58f88b2366558c57302ab2",
-    "src/entity_draw.h": "436d162506ff17f8616573ae5befbb2bffe25e23e5616c943c4b4562fb08c344",
+    "src/entity_draw.c": "4b65f5a17843ec74917c809cd988f9e98bfc72b18e08d1f8f62e25060c612379",
+    "src/entity_draw.h": "2d21ec68769fb1e34b3fa275131b09bdaf12906ba0b55d07cf2171a26a986c7b",
     "src/episodes.c": "1430b09faa5c8cabeb95b2d0f84b1b40af0f81ff7f186847d5ae086c3f9c5d8e",
     "src/episodes.h": "e754c9f34372082084752cb2244c132b8ccad1a1e475d22366e5f1e1e2a59ef5",
     "src/external_music.c": "dc99cf7d3dae27e4f39dc3ea870423891d6cf3526e4c571e703f6182b7d7d1b7",
@@ -176,7 +190,7 @@
     "src/lvllib.h": "c9e0c879b41bdd4dbf7bd1a6e067c98a5efea3b998731671114b882799dee7c5",
     "src/lvlmast.c": "0c5e99f01d11ffaa5b08326ae88e183a1c1f0a60a3b17b0b7f83d311fb6c4faf",
     "src/lvlmast.h": "f33fbe72ec273bf4c72cb2c49bd4dbc4336b6bc6802e1b53d32ac58667026ed0",
-    "src/mainint.c": "9c059c01d4430e2635186189319fc56f98e5379300651889cc5505a23ff44816",
+    "src/mainint.c": "77e7104e907dd83c935f21cc03aaf887b19182f25a2735006c651ac52767a6c8",
     "src/mainint.h": "ebdb4f196f3db62b6e896381a8a6fc0bb4caf1854e0b44b1598ae09b5d7d572e",
     "src/menus.c": "c4bd830a9b90dbbe88ec4a93150e1a619bb2525a48fafe1ba56792f6b474310c",
     "src/menus.h": "e73cc1b9a6c5a090a7f3a2e65303e06f63a71d87e938885224fa64c89fb65c72",
@@ -219,8 +233,8 @@
     "src/rear_multi_p11_shadow.inc": "60635f8c2723e7cbba341baf7d4853486d7d850c795a55f02a0cc46a36b02fbb",
     "src/rear_multi_p1_mirror.inc": "9f5f48ea19330f6afeace40f156e049c0621fdcd6a10e281d2084cf74442538c",
     "src/rear_multi_p1_pins.h": "773d88e3287b44036885804b5d70c6fc6d633a9893504b200891c1509981ffa7",
-    "src/render_mirror.c": "5e53d1d69d18df434b1c0a3c35a210b43e1d5beeca5760324335fc6dc515ee58",
-    "src/render_mirror.h": "be6ad39fa22bb9341ac945b9c4404acaca863b187c3884efb7a9763f889ec985",
+    "src/render_mirror.c": "8071d2cd54a26d3064400fe4c7399809da41f6f15077c8d2d79e0847b1663b5f",
+    "src/render_mirror.h": "300be2223be0f290a930c865c12438a53048e617dbc98f4200ba9f1c22c72bee",
     "src/render_mirror_asteroid_linked338.inc": "738c8c88a7383ca363427b814594f4a0ed8404929dad3188e2d4bde5d2dd5ee0",
     "src/secret_exit_orb.c": "fe0b50818365d5a009bd3db77681a1a2db2fc61bfc889c1f2bc41c9a95f79180",
     "src/secret_exit_orb.h": "f9357364dc407e8615668f76ca4376710f4d4c033269e342dc1f09ccb7aaf9c7",

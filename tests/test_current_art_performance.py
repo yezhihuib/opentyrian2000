@@ -29,6 +29,9 @@ def png(value, alpha=127):
 class ContentFNVCacheTests(unittest.TestCase):
     def setUp(self):
         b._fnv_bytes.cache_clear()
+        self.input_pins = patch('current_sidekick_body_compatibility.authoring_input_fingerprints', return_value={})
+        self.input_pins.start()
+        self.addCleanup(self.input_pins.stop)
 
     def test_vectors_and_reuse_are_exact(self):
         for raw in (b'', b'a', b'foobar', bytes(range(256)), bytes([255]) * 172032):

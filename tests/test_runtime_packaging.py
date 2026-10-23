@@ -143,7 +143,7 @@ class PackagingTests(unittest.TestCase):
         groups = {}
         destinations = {x['destination'] for x in manifest['files']}
         for item in manifest['files']: groups[item['group']] = groups.get(item['group'], 0) + 1
-        self.assertEqual(groups['gameplay'], 637)
+        self.assertEqual(groups['gameplay'], 646)
         self.assertEqual(groups['startup'], 9)
         self.assertEqual(groups['shop'], 15)
         self.assertEqual(groups['notice'], 11)
@@ -155,7 +155,7 @@ class PackagingTests(unittest.TestCase):
         self.assertEqual(groups['reconstructed-menu-runs'], 171)
         self.assertEqual(groups['shared-hud-exact-recovery'], 6)
         self.assertEqual(groups['current-production-validation'], 1)
-        self.assertEqual(len(manifest['files']), 1006)
+        self.assertEqual(len(manifest['files']), 1015)
         approval = REBUILD.approved_static(ROOT)
         selected = {r['source_path']: r for r in manifest['files']}
         for item in approval['files']:

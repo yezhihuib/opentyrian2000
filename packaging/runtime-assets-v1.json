@@ -77,12 +77,12 @@
   },
   "files": [
     {
-      "bytes": 26934,
+      "bytes": 27698,
       "destination": "CURRENT-PRODUCTION-VALIDATION.json",
-      "git_blob": "7fa34419bdcde129f25366431d887b35d7eb4de9",
+      "git_blob": "34d563fbe41c692cd387282496235e8d11bc94ff",
       "group": "current-production-validation",
       "revision": "reconstructed-local-unpublished",
-      "sha256": "e47c31ea81a4876b9e7a4e22390cc29e6278427f8dc537e96eada3c3be14cd39",
+      "sha256": "a00622c2331194088e6e59c1ef21bacd3529615ce1610b859f1df786c67799d1",
       "source_path": "packaging/current-production-validation.json"
     },
     {
@@ -4062,6 +4062,87 @@
       "revision": "reconstructed-local-unpublished",
       "sha256": "eaa06dc540d128f01ab9be5c0afc4580311af4b183066dee7d4f4f3015e1a473",
       "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/ground101-world-material.g101.1"
+    },
+    {
+      "bytes": 43036,
+      "destination": "assets/gameplay/option-charge-bank9-258-8.hda",
+      "git_blob": "cf1fa66964d9b8680ee5db01df2594d05df1f61f",
+      "group": "gameplay",
+      "revision": "current-single-source-charge-body",
+      "sha256": "9a8aea7e15475d15a943b04fab1bbc27185f196d8bf471ed890eebe4ed83ce76",
+      "source_path": "assets/hd/current-compat/charge-body/option-charge-bank9-258-8.hda"
+    },
+    {
+      "bytes": 43036,
+      "destination": "assets/gameplay/option-charge-bank9-259-8.hda",
+      "git_blob": "c94290db1db4ba3150f3ce159cabfbf40d43ac9f",
+      "group": "gameplay",
+      "revision": "current-single-source-charge-body",
+      "sha256": "7a3718f52379aa9c25d1d56315f9612551ec0962fb064367dcb16394eca182ac",
+      "source_path": "assets/hd/current-compat/charge-body/option-charge-bank9-259-8.hda"
+    },
+    {
+      "bytes": 43036,
+      "destination": "assets/gameplay/option-charge-bank9-260-8.hda",
+      "git_blob": "810ead2bbad0112f1031074da98a540934045b8a",
+      "group": "gameplay",
+      "revision": "current-single-source-charge-body",
+      "sha256": "cda01691029e23f09cf33c6c6d2625b1809c609d34aac2e854e473cdad8b8848",
+      "source_path": "assets/hd/current-compat/charge-body/option-charge-bank9-260-8.hda"
+    },
+    {
+      "bytes": 43036,
+      "destination": "assets/gameplay/option-charge-bank9-277-8.hda",
+      "git_blob": "b26cbcba7c7ac9d0630f4044205e6918b2e2fff1",
+      "group": "gameplay",
+      "revision": "current-single-source-charge-body",
+      "sha256": "69f838f72b4e316f494fb338b9d9fca1bcbbfda69042ca21a6b38ec16118f3a1",
+      "source_path": "assets/hd/current-compat/charge-body/option-charge-bank9-277-8.hda"
+    },
+    {
+      "bytes": 43036,
+      "destination": "assets/gameplay/option-charge-bank9-278-8.hda",
+      "git_blob": "a656c5bb72aa8f1ea0038827114b51cce90abc58",
+      "group": "gameplay",
+      "revision": "current-single-source-charge-body",
+      "sha256": "a2911992de8a745959c8b2a520d2665fa999494001398854d35cadfe85768aad",
+      "source_path": "assets/hd/current-compat/charge-body/option-charge-bank9-278-8.hda"
+    },
+    {
+      "bytes": 43036,
+      "destination": "assets/gameplay/option-charge-bank9-279-8.hda",
+      "git_blob": "1f6e3e3a57a348e68540c5c5919a1679758c491a",
+      "group": "gameplay",
+      "revision": "current-single-source-charge-body",
+      "sha256": "499f61e54fb72885f844985d21d39bb633ad7fa5ae5f069f5e7ff95197990185",
+      "source_path": "assets/hd/current-compat/charge-body/option-charge-bank9-279-8.hda"
+    },
+    {
+      "bytes": 43036,
+      "destination": "assets/gameplay/option-charge-bank9-296-8.hda",
+      "git_blob": "e3de12ff3f050281a69b4fa06dc4d05b0c4c6cfa",
+      "group": "gameplay",
+      "revision": "current-single-source-charge-body",
+      "sha256": "cdbddb4c7559ec4c8fb41b3c292b280f7203b39cb11ca2c22d32b32e8f9e6797",
+      "source_path": "assets/hd/current-compat/charge-body/option-charge-bank9-296-8.hda"
+    },
+    {
+      "bytes": 43036,
+      "destination": "assets/gameplay/option-charge-bank9-297-8.hda",
+      "git_blob": "e7749ea8be89f65ffec490c2461348d02e368694",
+      "group": "gameplay",
+      "revision": "current-single-source-charge-body",
+      "sha256": "e1ac85a40d83a16a2df94df07bdca0fc88446ffb9e93482b2d65f54e610e4dad",
+      "source_path": "assets/hd/current-compat/charge-body/option-charge-bank9-297-8.hda"
+    },
+    {
+      "bytes": 43036,
+      "destination": "assets/gameplay/option-charge-bank9-298-8.hda",
+      "git_blob": "b1ed9d22f8039c22ab5e6e4b1ad1d9910975cfcd",
+      "group": "gameplay",
+      "revision": "current-single-source-charge-body",
+      "sha256": "c964c81a99f1bff38c61efe117bcb9551fe7ef227d9ec0eb8fc97de6f46a2d02",
+      "source_path": "assets/hd/current-compat/charge-body/option-charge-bank9-298-8.hda"
     },
     {
       "bytes": 172060,
@@ -9134,7 +9215,7 @@
   "schema": "opentyrian-runtime-package-v1",
   "source_revision": {
     "current_production_commit": null,
-    "current_production_source_manifest_sha256": "d382948f61b88e8bf3300b21bc13b379b54b45f336044dd57391b928177ae898",
+    "current_production_source_manifest_sha256": "4f0fdc91e279d539969f205770ea96c1affdd2658f2ae772d7cfe4a69bfbd282",
     "data_frame_integration": "local reviewed Data-only DFM1 static frame; no commit assigned",
     "data_portrait_integration": "local reviewed source-authenticated all18 DPR1 portraits",
     "data_text_integration": "local reviewed Data-only Chinese source; no commit assigned",

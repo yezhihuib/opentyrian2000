@@ -23,11 +23,12 @@ RUNTIME='packaging/runtime-assets-v1.json'
 # payload macro integration, plus same-value HUD meter pin header extraction.
 # Only selected art changes, never gameplay/authority.
 REGISTRY_AUTHORITY_SHA256='21d0b78355542b5315df82a515f3e341a3070508bdfc414f632b1741b7682dd6'
-# Exact current authority after the reviewed two-file render correction on
-# 6ada526. Prior foundation digest fff3fc79dc6283ea92c9b2bc20fab63c8ed53ae57967d3726e94d1a3ba997ac9
+# Exact current authority after the reviewed five-file Charge body extension
+# on 11a9c7f6 and the earlier two-file render correction on 6ada526. Prior foundation digest fff3fc79dc6283ea92c9b2bc20fab63c8ed53ae57967d3726e94d1a3ba997ac9
 # remains historical provenance, never an alternative accepted source state.
+# Charge inverse: tests/fixtures/accepted-later-changes-v1/charge-body-source.json.
 # The finite inverse is pinned in tests/fixtures/accepted-later-changes-v1/render-boundaries-source.json.
-GAMEPLAY_SOURCE_SHA256='c77d24021b682e1cf7cd382e60c827e7fd6a6df41739add90679ce36151a514f'
+GAMEPLAY_SOURCE_SHA256='f8d183f45e8d4ce0776869e21b10719fabdd7dfb27fe6020c552295e19fb1ae6'
 BUILD_INPUT_SHA256='537111f6f8f9a1bd6b0efce18453669d72ac3e8df9062cab010b46cc4e48e7c6'
 
 def sha(data):return hashlib.sha256(data).hexdigest()
@@ -176,6 +177,8 @@ def derive(root,selected_raw,family='pulse'):
         names.add('packaging/current-craft267-compatibility.json')
         names|={p.relative_to(root).as_posix() for p in (root/'src').rglob('*') if p.is_file() or p.is_symlink()}
         names|={p.relative_to(root).as_posix() for p in (root/'scripts').glob('*.py')}
+        from current_sidekick_body_compatibility import charge_input_paths,CHARGE_MAPPING
+        names|=charge_input_paths(root)|{CHARGE_MAPPING}
         # Verify existing runtime except allowed stale current generated outputs.
         generated_old={SELECT,REGISTRY,HEADER,LEGACY_HEADER,REBUILD,BINDING,RUNTIME,MAPPING}|{f'{COMPAT}/{compatibility_name(i)}' for i in IDS}
         pulse_paths={'assets/hd/global-assets-v1/'+r['path'] for r in before['resources'] if r['identity'] in IDS}
@@ -190,15 +193,16 @@ def derive(root,selected_raw,family='pulse'):
         outputs[HEADER]=(work/HEADER).read_bytes()
         binding=json.loads(read(root,BINDING));binding['production_commit']=None
         binding['source_sha256']=source_inventory(work);binding['production_source_manifest_sha256']=source_manifest_digest(binding['source_sha256'])
-        binding['scope']='Exact current single-source generated art pins; gameplay/role/source identity unchanged. Source binding only, not runtime acceptance.'
+        binding['scope']='Exact current source binding including the separately reviewed Charge body rendering extension. Build/package consistency only; historical receipts retain their original scope.'
         outputs[BINDING]=(json.dumps(binding,indent=2,sort_keys=True)+'\n').encode();(work/BINDING).write_bytes(outputs[BINDING])
         subprocess.run([sys.executable,str(work/REBUILD),'--root',str(work),'--output',str(work/RUNTIME)],check=True,stdout=subprocess.DEVNULL)
         outputs[RUNTIME]=(work/RUNTIME).read_bytes()
     return outputs
 
 def make_plan(root,outputs,selected_raw,family='pulse'):
+    from current_sidekick_body_compatibility import authoring_input_fingerprints
     changes=[{'path':p,'before_sha256':fingerprint(root,p),'after_sha256':sha(data),'bytes':len(data)} for p,data in sorted(outputs.items())]
-    return {'schema':f'opentyrian-current-{family}-stage-v1','selection_sha256':sha(selected_raw),'files':changes,'scope':f'Exactly {len(profile(family)["ids"])} {family} art identities and declared generated consumers. No deletions/history or gameplay changes.'}
+    return {'inputs_sha256':authoring_input_fingerprints(root),'schema':f'opentyrian-current-{family}-stage-v1','selection_sha256':sha(selected_raw),'files':changes,'scope':f'Exactly {len(profile(family)["ids"])} {family} art identities and declared generated consumers. No deletions/history or gameplay changes.'}
 
 def stage(root,selection_file,destination,family='pulse'):
     validate_stage_location(root,destination)

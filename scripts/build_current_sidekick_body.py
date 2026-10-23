@@ -63,6 +63,8 @@ def derive(root,raw):
     names.add('packaging/current-craft267-compatibility.json')
     names|={p.relative_to(root).as_posix() for p in (root/'src').rglob('*') if p.is_file() or p.is_symlink()}
     names|={p.relative_to(root).as_posix() for p in (root/'scripts').glob('*.py')}
+    from current_sidekick_body_compatibility import charge_input_paths,CHARGE_MAPPING
+    names|=charge_input_paths(root)|{CHARGE_MAPPING}
     with tempfile.TemporaryDirectory(prefix='sidekick-body-authoring-build-') as tmp:
         work=Path(tmp)
         for key in sorted(names|set(outputs)):
@@ -73,14 +75,15 @@ def derive(root,raw):
         if (work/header).read_bytes()!=read(root,header):raise ValueError('Unrelated global pins changed')
         binding=json.loads(read(root,BINDING));binding['production_commit']=None
         binding['source_sha256']=source_inventory(work);binding['production_source_manifest_sha256']=source_manifest_digest(binding['source_sha256'])
-        binding['scope']='Exact current single-source generated art pins; gameplay/role/source identity unchanged. Source binding only, not runtime acceptance.'
+        binding['scope']='Exact current source binding including the separately reviewed Charge body rendering extension. Build/package consistency only; historical receipts retain their original scope.'
         outputs[BINDING]=(json.dumps(binding,indent=2,sort_keys=True)+'\n').encode();(work/BINDING).write_bytes(outputs[BINDING])
         subprocess.run([sys.executable,str(work/REBUILD),'--root',str(work),'--output',str(work/RUNTIME)],check=True,stdout=subprocess.DEVNULL)
         outputs[RUNTIME]=(work/RUNTIME).read_bytes()
     return outputs
 
 def make_plan(root,outputs,raw):
-    return dict(schema='opentyrian-current-sidekick-body-stage-v1',selection_sha256=sha(raw),files=[dict(path=p,before_sha256=fingerprint(root,p),after_sha256=sha(data),bytes=len(data)) for p,data in sorted(outputs.items())])
+    from current_sidekick_body_compatibility import authoring_input_fingerprints
+    return dict(inputs_sha256=authoring_input_fingerprints(root),schema='opentyrian-current-sidekick-body-stage-v1',selection_sha256=sha(raw),files=[dict(path=p,before_sha256=fingerprint(root,p),after_sha256=sha(data),bytes=len(data)) for p,data in sorted(outputs.items())])
 
 def stage(root,selected,destination):
     validate_stage_location(root,destination)
@@ -114,12 +117,93 @@ def check(root):
     if bad:raise ValueError('Stale/missing current sidekick-body outputs: '+', '.join(bad))
     return dict(status='PASS',resources=6,logical_consumers=6,global_registry_additions=0,historical_outputs='untouched')
 
+# Charge uses the same shared transport workflow, with an explicit independent
+# candidate contract. Existing six-body functions and defaults above are unchanged.
+def charge_derive(root,raw):
+    import current_sidekick_body_compatibility as compat
+    parsed=compat._charge_parse(raw)
+    candidate=isinstance(parsed,dict) and parsed.get('schema')==compat.CHARGE_CANDIDATE_SCHEMA
+    selected,pngs,blobs=compat.charge_generate(root,raw,candidate=candidate)
+    registry=json.loads(read(root,REGISTRY));verify_authority(root,registry)
+    if read(root,LEGACY_HEADER)!=legacy_header(registry['resources']):raise ValueError('Unrelated legacy art pins changed')
+    outputs={compat.CHARGE_SELECTION:encoded(selected),**pngs};rows=[]
+    for identity,blob in blobs.items():
+        path=compat.CHARGE_ROOT+'/'+compat.charge_name(identity);outputs[path]=blob
+        rows.append(dict(identity=identity,source_path=path,destination='assets/gameplay/'+compat.charge_name(identity),sha256=sha(blob)))
+    outputs[compat.CHARGE_MAPPING]=encoded(dict(schema='opentyrian-current-charge-body-compatibility-v1',selection=compat.CHARGE_SELECTION,version=selected['version'],files=rows))
+    old=json.loads(read(root,RUNTIME));base=json.loads(read(root,'packaging/runtime-assets-public63a89b3.json'))
+    for row in old['files']:
+        if row['source_path'] not in outputs:checked_source(contained_file(root,row['source_path']),row)
+    names={r['source_path'] for r in old['files']+base['files']}
+    names|={REGISTRY,BINDING,'packaging/runtime-assets-public63a89b3.json','packaging/shop-static-approved-v1.json',MAPPING,'packaging/current-hud-compatibility.json','packaging/current-tank-shell-compatibility.json','packaging/current-enemy-energy-compatibility.json','packaging/current-craft267-compatibility.json'}|set(BUILD_INPUTS)
+    names|={profile(f)['mapping'] for f in PROFILES}
+    names|={selected['master']['source_png'],selected['recipe']['path']}
+    names|={p.relative_to(root).as_posix() for p in (root/'src').rglob('*') if p.is_file() or p.is_symlink()}
+    names|={p.relative_to(root).as_posix() for p in (root/'scripts').glob('*.py')}
+    with tempfile.TemporaryDirectory(prefix='charge-body-authoring-build-') as tmp:
+        work=Path(tmp)
+        for key in sorted(names|set(outputs)):
+            data=outputs[key] if key in outputs else read(root,key)
+            p=work/key;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(data)
+        subprocess.run([sys.executable,str(work/REBUILD),'--root',str(work),'--output',str(work/RUNTIME)],check=True,stdout=subprocess.DEVNULL)
+        outputs[RUNTIME]=(work/RUNTIME).read_bytes()
+    return outputs
+
+
+def charge_plan(root,outputs,raw):
+    import current_sidekick_body_compatibility as compat
+    request=compat._charge_parse(raw)
+    names={request['master']['source_png'],request['recipe']['path'],compat.CHARGE_SELECTION,compat.CHARGE_MAPPING,BINDING,RUNTIME}
+    names|={p.relative_to(root).as_posix() for p in (root/'scripts').glob('*.py')}
+    # Bind every installed destination and all request/tool inputs. Source and
+    # gameplay authority are reverified on every derive, never cached by mtime.
+    return dict(schema='opentyrian-current-charge-body-stage-v1',request_sha256=sha(raw),inputs_sha256={p:fingerprint(root,p) for p in sorted(names)},files=[dict(path=p,before_sha256=fingerprint(root,p),after_sha256=sha(data),bytes=len(data)) for p,data in sorted(outputs.items())])
+
+
+def charge_stage(root,selected,destination):
+    validate_stage_location(root,destination)
+    if destination.exists():raise ValueError('Stage destination must be new')
+    raw=selected.read_bytes();outputs=charge_derive(root,raw);plan=charge_plan(root,outputs,raw)
+    destination.mkdir(parents=True)
+    for name,data in outputs.items():
+        p=destination/'files'/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(data)
+    (destination/'request.json').write_bytes(raw)
+    (destination/'plan.json').write_bytes(encoded(plan));return plan
+
+
+def charge_apply(root,destination):
+    validate_stage_location(root,destination)
+    import current_sidekick_body_compatibility as compat
+    plan=compat._charge_parse(compat._charge_read(destination,'plan.json',128*1024));raw=compat._charge_read(destination,'request.json',128*1024)
+    outputs=charge_derive(root,raw);expected=charge_plan(root,outputs,raw)
+    if json.dumps(plan,sort_keys=True)!=json.dumps(expected,sort_keys=True):raise ValueError('Stale or modified Charge plan/current inputs; restage explicitly')
+    for name,data in outputs.items():
+        if read(destination,'files/'+name)!=data:raise ValueError('Modified staged Charge bytes: '+name)
+        temp=contained_file(root,name+'.craft267-tmp')
+        if temp.exists() or temp.is_symlink():raise ValueError('Unexpected Charge temporary output')
+    # Existing preflighted batch helper provides handled-failure rollback.
+    from build_current_craft267 import replace_batch
+    replace_batch(root,outputs)
+    return expected
+
+
+def charge_check(root):
+    import current_sidekick_body_compatibility as compat
+    compat.charge_load(root)
+    outputs=charge_derive(root,read(root,compat.CHARGE_SELECTION))
+    bad=[p for p,data in outputs.items() if fingerprint(root,p)!=sha(data)]
+    if bad:raise ValueError('Stale/missing current Charge outputs: '+', '.join(bad))
+    return dict(status='PASS',resources=9,editable_masters=1,logical_consumers=9,global_registry_additions=0,historical_outputs='untouched')
+
+
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--root',type=Path,default=Path(__file__).resolve().parents[1]);p.add_argument('mode',choices=('stage','apply','check'));p.add_argument('--selection',type=Path);p.add_argument('--stage',type=Path)
-    a=p.parse_args();root=a.root.resolve()
-    if a.mode=='check':result=check(root)
+    from current_sidekick_body_compatibility import CHARGE_SELECTION
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--root',type=Path,default=Path(__file__).resolve().parents[1]);p.add_argument('--family',choices=('sidekick-body','charge-body'),default='sidekick-body');p.add_argument('mode',choices=('stage','apply','check'));p.add_argument('--selection',type=Path);p.add_argument('--stage',type=Path)
+    a=p.parse_args();root=a.root.resolve();charge=a.family=='charge-body'
+    if a.mode=='check':result=charge_check(root) if charge else check(root)
     else:
         if not a.stage:p.error('--stage required')
-        result=stage(root,a.selection or root/SELECTION,a.stage) if a.mode=='stage' else apply(root,a.stage)
+        selected=a.selection or root/(CHARGE_SELECTION if charge else SELECTION)
+        result=(charge_stage(root,selected,a.stage) if charge else stage(root,selected,a.stage)) if a.mode=='stage' else (charge_apply(root,a.stage) if charge else apply(root,a.stage))
     print(json.dumps(result,indent=2))
 if __name__=='__main__':main()

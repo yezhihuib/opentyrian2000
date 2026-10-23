@@ -42,7 +42,7 @@ VIEW_FAMILIES = {
     'white_smoke': 7, 'small_explosion': 12, 'pulse': 5, 'vulcan': 2,
     'cash25': 7, 'cash50': 7, 'cash75': 7, 'gem100': 6, 'gem250': 6,
     'tank-shell': 2, 'enemy-energy': 7, 'sidekick-body': 6, 'craft267': 1,
-    'hud': 6,
+    'hud': 6, 'charge-body': 9,
 }
 
 
@@ -66,7 +66,7 @@ def independent_current_overlays(case, root):
             case.assertEqual(runtime[destination]['source_path'], row['source_path'])
             case.assertEqual(runtime[destination]['sha256'], row['sha256'])
             overlays[name] = data
-    case.assertEqual(len(overlays), 142)
+    case.assertEqual(len(overlays), 151)
     # Independent literal geometry and PNG decoding; no production converter.
     pulse = json.loads((root/'assets/hd/authoring/pulse-current.json').read_bytes())
     case.assertEqual([r['identity'] for r in pulse['resources']], [80058, 80059, 80060, 80062, 80165])
@@ -286,7 +286,7 @@ class Craft267AuthoringTests(unittest.TestCase):
         self.assertEqual(len(raw), 172060)
         self.assertEqual(raw, expected)
         runtime = json.loads((self.root/b.RUNTIME).read_bytes())
-        self.assertEqual(len(runtime['files']), 1006)
+        self.assertEqual(len(runtime['files']), 1015)
         self.assertEqual(len(json.loads((self.root/b.REGISTRY).read_bytes())['resources']), 120)
         self.assertEqual({r['destination']:r for r in runtime['files']}[b.DESTINATION]['source_path'], b.CANONICAL)
 
@@ -331,14 +331,14 @@ class Craft267AuthoringTests(unittest.TestCase):
         after = self.snapshot()
         self.assertEqual({p for p in before if before[p] != after[p]}, allowed)
         runtime = json.loads((self.root/b.RUNTIME).read_bytes())
-        self.assertEqual(len(runtime['files']), 1006)
+        self.assertEqual(len(runtime['files']), 1015)
         self.assertEqual([r for r in runtime['files'] if r['destination'] != b.DESTINATION],
                          [r for r in old_runtime['files'] if r['destination'] != b.DESTINATION])
         for kind, base in b.BASES.items():
             target = self.base/f'view-{kind}'
             report = b.view(self.root, kind, target)
-            self.assertEqual(report['files'], 641)
-            self.assertEqual(len(report['current_overlays']), 142)
+            self.assertEqual(report['files'], 650)
+            self.assertEqual(len(report['current_overlays']), 151)
             frozen = {p.relative_to(self.root/'assets/hd/packs'/base).as_posix():p.read_bytes()
                         for p in (self.root/'assets/hd/packs'/base).rglob('*') if p.is_file()}
             self.assertEqual(set(report['current_overlays']), set(overlays))
@@ -534,7 +534,7 @@ class Craft267AuthoringTests(unittest.TestCase):
                       for p in frozen_root.rglob('*') if p.is_file()}
             actual = {p.relative_to(target).as_posix(): p.read_bytes()
                       for p in target.rglob('*') if p.is_file()}
-            self.assertEqual((len(actual), len(overlays), len(set(frozen) - set(overlays))), (641, 142, 499))
+            self.assertEqual((len(actual), len(overlays), len(set(frozen) - set(overlays))), (650, 151, 499))
             self.assertEqual(set(report['current_overlays']), set(overlays))
             assert_current_view_bytes(self, actual, frozen, overlays)
         self.assertEqual(self.snapshot(), before)
@@ -648,7 +648,7 @@ class Craft267AuthoringTests(unittest.TestCase):
     def test_hud_config_hash_and_version_checked_without_rasterizing(self):
         import build_current_hud as hud
         with mock.patch.object(hud, 'render_resource', side_effect=AssertionError('Preview must not rebuild HUD')):
-            self.assertEqual(len(b.current_overlays(self.root)), 142)
+            self.assertEqual(len(b.current_overlays(self.root)), 151)
             selected_path = self.root/hud.SELECTION
             selected = json.loads(selected_path.read_bytes())
             record = selected['resources']['meters'][0]
@@ -701,7 +701,7 @@ class Craft267AuthoringTests(unittest.TestCase):
         self.assertEqual((stage/'files'/b.CANONICAL).read_bytes(), raw)
         old = json.loads((self.root/b.RUNTIME).read_bytes())
         new = json.loads((stage/'files'/b.RUNTIME).read_bytes())
-        self.assertEqual(len(new['files']), 1006)
+        self.assertEqual(len(new['files']), 1015)
         self.assertEqual([r for r in old['files'] if r['destination'] != b.DESTINATION],
                          [r for r in new['files'] if r['destination'] != b.DESTINATION])
         self.assertEqual(next(r for r in new['files'] if r['destination'] == b.DESTINATION)['sha256'], b.sha(raw))
@@ -770,6 +770,48 @@ class AssetIndexEntrypointTests(unittest.TestCase):
                 self.assertEqual(index['replay']['pack_directory'], str(chosen.resolve()))
                 record = next(iter(index['segments'][0]['materials'].values()))['replacement_at_index_build']
                 self.assertEqual(record['sha256'], hashlib.sha256((chosen/name).read_bytes()).hexdigest())
+
+    def test_charge_default_build_discovers_all_nine_and_play_keeps_current_route(self):
+        import runpy
+        import subprocess
+        script = ROOT/'prototype/asset-index.py'
+        sprites = (258,259,260,277,278,279,296,297,298)
+        with tempfile.TemporaryDirectory(prefix='charge-index-entry-') as temporary:
+            base = Path(temporary); run = base/'trace'; run.mkdir()
+            (run/'asset-debug-clock.tsv').write_text('tick\tstart_ms\tend_ms\n0\t0\t10\n')
+            (run/'state.tsv').write_text('tick\n0\n')
+            rows = 'tick\tcategory\tsheet\tid\tx\ty\ttile_id\n'
+            rows += ''.join(f'0\tplayer\tshapes9.dat\t{sprite}\t0\t0\t{sprite}\n' for sprite in sprites)
+            rows += '0\tplayer-projectile\tshapes9.dat\t258\t0\t0\t258\n0\tplayer\tshapes8.dat\t258\t0\t0\t258\n0\tplayer\tshapes9.dat\t257\t0\t0\t257\n'
+            (run/'asset-debug-materials.tsv').write_text(rows)
+            (run/'asset-debug-run.json').write_text(json.dumps({'argv': [], 'exe_sha256': 'synthetic-no-engine'}))
+            original_read = Path.read_bytes; real_view = b.view
+            def no_original_data(path):
+                if path.parent == ROOT.parent/'runtime-data/tyrian2000': return b'synthetic external-data fingerprint; no game data read'
+                return original_read(path)
+            def current_view(root, kind, destination):
+                self.assertEqual((root,kind),(ROOT,'debug'))
+                return real_view(root,kind,base/'current-view')
+            output = base/'index.json'
+            with mock.patch.object(sys,'argv',[str(script),'build','--run',str(run),'--output',str(output)]), mock.patch.object(b,'view',side_effect=current_view), mock.patch.object(Path,'read_bytes',no_original_data), contextlib.redirect_stdout(io.StringIO()), self.assertRaises(SystemExit):
+                runpy.run_path(str(script),run_name='__main__')
+            index=json.loads(output.read_bytes());view=Path(index['replay']['pack_directory'])
+            self.assertEqual(len([path for path in view.rglob('*') if path.is_file()]),650)
+            records=index['segments'][0]['materials']
+            self.assertEqual(len(records),12)
+            for key in ('player-projectile:tyrian.shp#spriteSheet9:258','player:tyrian.shp#spriteSheet8:258','player:tyrian.shp#spriteSheet9:257'):
+                self.assertIsNone(records[key]['replacement_at_index_build']['file'])
+            for sprite in sprites:
+                record=records[f'player:tyrian.shp#spriteSheet9:{sprite}']['replacement_at_index_build']
+                name=f'option-charge-bank9-{sprite}-8.hda'
+                self.assertEqual(record['file'],name)
+                self.assertEqual(record['header_values'],[1450000+sprite,8,12,14,0,0])
+                self.assertEqual(record['sha256'],hashlib.sha256((ROOT/'assets/hd/current-compat/charge-body'/name).read_bytes()).hexdigest())
+            argv=[str(script),'play','--index',str(output),'--sheet','tyrian.shp#spriteSheet9','--id','258','--category','player','--no-launch']
+            with mock.patch.object(sys,'argv',argv), mock.patch.object(subprocess,'call',side_effect=AssertionError('Must not launch')) as launch, contextlib.redirect_stdout(io.StringIO()):
+                result=runpy.run_path(str(script),run_name='__main__')
+            launch.assert_not_called();self.assertNotIn('-Assets',result['cmd'])
+            self.assertEqual(result['cmd'][-2:],['-Python',sys.executable])
 
     def run_play_without_launch(self, assets=None):
         import runpy

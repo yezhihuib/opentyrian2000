@@ -22,6 +22,8 @@ class CurrentTankShellAuthoringTests(unittest.TestCase):
         if shutil.disk_usage(tmp).free<4*1024**3:raise RuntimeError('4 GiB reserve required')
         cls.temp=tempfile.TemporaryDirectory(prefix='tank-independent-',dir=tmp);cls.base=Path(cls.temp.name);cls.root=cls.base/'repo'
         names=set(b.BUILD_INPUTS)
+        from current_sidekick_body_compatibility import charge_input_paths
+        names.update(charge_input_paths(ROOT))
         for manifest in ('packaging/runtime-assets-v1.json','packaging/runtime-assets-public63a89b3.json'):
             names.update(r['source_path'] for r in json.loads((ROOT/manifest).read_text())['files'])
         for folder in ('src','scripts','packaging','assets/hd/authoring'):
@@ -73,7 +75,7 @@ class CurrentTankShellAuthoringTests(unittest.TestCase):
             now=self.snapshot()
             for path,digest in original.items():
                 if path not in allowed:self.assertEqual(now[path],digest,path)
-            self.assertEqual(len(runtime['files']),1006)
+            self.assertEqual(len(runtime['files']),1015)
             for r in runtime['files']:
                 if r['destination'] not in mapping and r['destination']!='CURRENT-PRODUCTION-VALIDATION.json':self.assertEqual(r,next(x for x in old_runtime['files'] if x['destination']==r['destination']))
     def test_global_and_hud_workflows_remain_composable(self):

@@ -64,6 +64,8 @@ def derive(root,raw):
     names.add('packaging/current-craft267-compatibility.json')
     names|={p.relative_to(root).as_posix() for p in (root/'src').rglob('*') if p.is_file() or p.is_symlink()}
     names|={p.relative_to(root).as_posix() for p in (root/'scripts').glob('*.py')}
+    from current_sidekick_body_compatibility import charge_input_paths,CHARGE_MAPPING
+    names|=charge_input_paths(root)|{CHARGE_MAPPING}
     with tempfile.TemporaryDirectory(prefix='enemy-energy-authoring-build-') as tmp:
         work=Path(tmp)
         for key in sorted(names|set(outputs)):
@@ -74,14 +76,15 @@ def derive(root,raw):
         if (work/header).read_bytes()!=read(root,header):raise ValueError('Unrelated global pins changed')
         binding=json.loads(read(root,BINDING));binding['production_commit']=None
         binding['source_sha256']=source_inventory(work);binding['production_source_manifest_sha256']=source_manifest_digest(binding['source_sha256'])
-        binding['scope']='Exact current single-source generated art pins; gameplay/role/source identity unchanged. Source binding only, not runtime acceptance.'
+        binding['scope']='Exact current source binding including the separately reviewed Charge body rendering extension. Build/package consistency only; historical receipts retain their original scope.'
         outputs[BINDING]=(json.dumps(binding,indent=2,sort_keys=True)+'\n').encode();(work/BINDING).write_bytes(outputs[BINDING])
         subprocess.run([sys.executable,str(work/REBUILD),'--root',str(work),'--output',str(work/RUNTIME)],check=True,stdout=subprocess.DEVNULL)
         outputs[RUNTIME]=(work/RUNTIME).read_bytes()
     return outputs
 
 def make_plan(root,outputs,raw):
-    return dict(schema='opentyrian-current-enemy-energy-stage-v1',selection_sha256=sha(raw),files=[dict(path=p,before_sha256=fingerprint(root,p),after_sha256=sha(data),bytes=len(data)) for p,data in sorted(outputs.items())])
+    from current_sidekick_body_compatibility import authoring_input_fingerprints
+    return dict(inputs_sha256=authoring_input_fingerprints(root),schema='opentyrian-current-enemy-energy-stage-v1',selection_sha256=sha(raw),files=[dict(path=p,before_sha256=fingerprint(root,p),after_sha256=sha(data),bytes=len(data)) for p,data in sorted(outputs.items())])
 
 def stage(root,selected,destination):
     validate_stage_location(root,destination)

@@ -97,6 +97,17 @@ def main():
             add(replacement['source_path'],old['destination'],old['group'])
             rows[old['destination']]['revision']='current-single-source-hud'
     if art_compat: raise ValueError('Current art consumer absent from historical runtime selection')
+    # Charge is a new, separately bounded family. Keep the historical residual
+    # rejection above intact; it must never admit an unrelated new consumer.
+    from current_sidekick_body_compatibility import charge_load, CHARGE_IDS, charge_name
+    charge = charge_load(root)
+    expected_charge = {'assets/gameplay/'+charge_name(i) for i in CHARGE_IDS}
+    if len(charge)!=9 or set(charge)!=expected_charge or set(charge)&set(rows):
+        raise ValueError('Unexpected/colliding Charge runtime extension')
+    for destination,row in sorted(charge.items()):
+        add(row['source_path'],destination,'gameplay')
+        rows[destination]['revision']='current-single-source-charge-body'
+
     if len(hud_compat)!=6 or any(not d.startswith('assets/shared-ui/') for d in hud_compat):
         raise ValueError('Current HUD fallback missing from historical selection')
     for destination,row in sorted(hud_compat.items()):

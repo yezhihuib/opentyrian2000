@@ -1,0 +1,119 @@
+{
+  "schema": "opentyrian-reviewed-charge-body-source-v1",
+  "integration_base": "11a9c7f6eaf60ddb2607fe702b03d6ccadcfb6f4",
+  "supplied_patch_sha256": "a9df9e940ba745f414a470cb534b98536d99c81c8f676378d4a7f306d460fbda",
+  "historical_source_inventory": "current-source-inventory.json",
+  "scope": "Exact five-file Charge body renderer inverse, applied once before the older render-boundaries inverse. No original game bytes or historical Git object reads.",
+  "files": {
+    "src/entity_draw.c": {
+      "previous_sha256": "095814f09776cb2852fd671624b3572820afcfacfa58f88b2366558c57302ab2",
+      "current_sha256": "4b65f5a17843ec74917c809cd988f9e98bfc72b18e08d1f8f62e25060c612379",
+      "hunks": [
+        {
+          "after_lines": [
+            151,
+            161
+          ],
+          "before": "",
+          "after": "/* Charge3 uses the original phase/charge tile and one indexed draw. */\nvoid draw_charge_body_sprite2(SDL_Surface *target,int x,int y,Sprite2_array bank,\n                             unsigned int index,unsigned int option,\n                             unsigned int sidekick_style,unsigned int charge)\n{\n (void)render_mirror_charge_body(target,x,y,bank,index,option,sidekick_style,charge);\n blit_sprite2(target,x,y,bank,index);\n render_mirror_entity_end();\n}\n\n"
+        }
+      ]
+    },
+    "src/entity_draw.h": {
+      "previous_sha256": "436d162506ff17f8616573ae5befbb2bffe25e23e5616c943c4b4562fb08c344",
+      "current_sha256": "2d21ec68769fb1e34b3fa275131b09bdaf12906ba0b55d07cf2171a26a986c7b",
+      "hunks": [
+        {
+          "after_lines": [
+            48,
+            53
+          ],
+          "before": "",
+          "after": "/* Dedicated normal Charge body; no runtime animation or charge state changes. */\nvoid draw_charge_body_sprite2(SDL_Surface *,int x,int y,Sprite2_array,\n                             unsigned int index,unsigned int option,\n                             unsigned int sidekick_style,unsigned int charge);\n\n"
+        }
+      ]
+    },
+    "src/mainint.c": {
+      "previous_sha256": "9c059c01d4430e2635186189319fc56f98e5379300651889cc5505a23ff44816",
+      "current_sha256": "77e7104e907dd83c935f21cc03aaf887b19182f25a2735006c651ac52767a6c8",
+      "hunks": [
+        {
+          "after_lines": [
+            4762,
+            4770
+          ],
+          "before": "",
+          "after": "\t\t\t\telse if (this_player->items.sidekick[i] == 3 && this_player->sidekick[i].style == 0 &&\n\t\t\t\t         this_player->sidekick[i].charge <= 2 &&\n\t\t\t\t         (sprite == 258 + this_player->sidekick[i].charge ||\n\t\t\t\t          sprite == 277 + this_player->sidekick[i].charge ||\n\t\t\t\t          sprite == 296 + this_player->sidekick[i].charge))\n\t\t\t\t\tdraw_charge_body_sprite2(VGAScreen, x, y, spriteSheet9, sprite,\n\t\t\t\t\t                        this_player->items.sidekick[i],\n\t\t\t\t\t                        this_player->sidekick[i].style, this_player->sidekick[i].charge);\n"
+        }
+      ]
+    },
+    "src/render_mirror.c": {
+      "previous_sha256": "5e53d1d69d18df434b1c0a3c35a210b43e1d5beeca5760324335fc6dc515ee58",
+      "current_sha256": "8071d2cd54a26d3064400fe4c7399809da41f6f15077c8d2d79e0847b1663b5f",
+      "hunks": [
+        {
+          "after_lines": [
+            58,
+            59
+          ],
+          "before": "enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121, ASSET_ENEMY_TANK_SHELL=122, ASSET_REAR534_BODY=123, ASSET_DATA513_BODY=124, ASSET_PROTRON_SHADOW=125, ASSET_MARLO_BODY=126, ASSET_MINT_BODY=127, ASSET_FRONTBLASTER_BODY=128, ASSET_PLASMA_BODY=129, ASSET_PLASMA_PROJECTILE=130, ASSET_REAR_MULTI_P1=131, ASSET_DATA_VALUE=132, ASSET_FIXED_PICKUP_FLASH=133, ASSET_SECRET_EXIT_ORB=134, ASSET_ASTEROID1_NEWSHP=135, ASSET_ASTEROID1_NEWSHS=136, ASSET_ASTEROID1_TRIPLE275=137, ASSET_ASTEROID1_COLUMNS276=138, ASSET_ASTEROID1_TURRET273=139, ASSET_ASTEROID1_PROJECTILE304=140, ASSET_ASTEROID1_FIRING270=141, ASSET_ASTEROID1_ENEMY_ORB112113=142, ASSET_ASTEROID1_FIRING285=143, ASSET_ASTEROID1_TERRAIN144=144, ASSET_ASTEROID1=108 };\n",
+          "after": "enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121, ASSET_ENEMY_TANK_SHELL=122, ASSET_REAR534_BODY=123, ASSET_DATA513_BODY=124, ASSET_PROTRON_SHADOW=125, ASSET_MARLO_BODY=126, ASSET_MINT_BODY=127, ASSET_FRONTBLASTER_BODY=128, ASSET_PLASMA_BODY=129, ASSET_PLASMA_PROJECTILE=130, ASSET_REAR_MULTI_P1=131, ASSET_DATA_VALUE=132, ASSET_FIXED_PICKUP_FLASH=133, ASSET_SECRET_EXIT_ORB=134, ASSET_ASTEROID1_NEWSHP=135, ASSET_ASTEROID1_NEWSHS=136, ASSET_ASTEROID1_TRIPLE275=137, ASSET_ASTEROID1_COLUMNS276=138, ASSET_ASTEROID1_TURRET273=139, ASSET_ASTEROID1_PROJECTILE304=140, ASSET_ASTEROID1_FIRING270=141, ASSET_ASTEROID1_ENEMY_ORB112113=142, ASSET_ASTEROID1_FIRING285=143, ASSET_ASTEROID1_TERRAIN144=144, ASSET_CHARGE_BODY=145, ASSET_ASTEROID1=108 };\n"
+        },
+        {
+          "after_lines": [
+            61,
+            62
+          ],
+          "before": "static Asset assets[567];\n",
+          "after": "static Asset assets[576];\n"
+        },
+        {
+          "after_lines": [
+            1728,
+            1729
+          ],
+          "before": " const char *prefix=a->bank==ASSET_PLASMA_PROJECTILE?\"option-plasma-projectile\":a->bank==ASSET_PLASMA_BODY?\"option-plasma-bank9\":a->bank==ASSET_FRONTBLASTER_BODY?\"option-frontblaster-bank10\":a->bank==ASSET_MINT_BODY?\"option-mint-bank9\":a->bank==ASSET_MARLO_BODY?\"option-marlo-bank9\":a->bank==ASSET_PROTRON_SHADOW?\"protron-shadow\":a->bank==ASSET_REAR534_BODY?\"rear534-bank11\":a->bank==ASSET_DATA513_BODY?\"data513-bank11\":a->bank==ASSET_ENEMY_TANK_SHELL?\"enemy-tank-shell\":a->bank==ASSET_GEM250_BODY?\"gem250-bank11\":a->bank==ASSET_GEM250_VALUE?\"gem250-value-newsh6\":a->bank==ASSET_GEM100_BODY?\"gem100-bank11\":a->bank==ASSET_GEM100_VALUE?\"gem100-value-newsh6\":a->bank==ASSET_CASH50_BODY?\"coin50-bank11\":a->bank==ASSET_CASH50_VALUE?\"coin50-value-newsh6\":a->bank==ASSET_CASH75_BODY?\"coin75-bank11\":a->bank==ASSET_CASH75_VALUE?\"coin75-value-newsh6\":a->bank==ASSET_CASH25_BODY?\"coin25-bank11\":a->bank==ASSET_CASH25_VALUE?\"coin25-value-newsh6\":a->bank==9?\"ship\":a->bank==8?\"bullet\":a->bank==ASSET_ENEMY_ENERGY?\"enemy-energy\":a->bank==ASSET_NEWSH2?\"enemy-newsh2\":a->bank==ASSET_NEWSH4?\"enemy-newsh4\":a->bank==ASSET_NEWSHE?\"enemy-newshe\":a->bank==ASSET_TALON_BANK?\"talon-bank\":a->bank==ASSET_EXPLOSION?\"explosion-newsh6\":\"terrain-shapesz\";\n",
+          "after": " const char *prefix=a->bank==ASSET_CHARGE_BODY?\"option-charge-bank9\":a->bank==ASSET_PLASMA_PROJECTILE?\"option-plasma-projectile\":a->bank==ASSET_PLASMA_BODY?\"option-plasma-bank9\":a->bank==ASSET_FRONTBLASTER_BODY?\"option-frontblaster-bank10\":a->bank==ASSET_MINT_BODY?\"option-mint-bank9\":a->bank==ASSET_MARLO_BODY?\"option-marlo-bank9\":a->bank==ASSET_PROTRON_SHADOW?\"protron-shadow\":a->bank==ASSET_REAR534_BODY?\"rear534-bank11\":a->bank==ASSET_DATA513_BODY?\"data513-bank11\":a->bank==ASSET_ENEMY_TANK_SHELL?\"enemy-tank-shell\":a->bank==ASSET_GEM250_BODY?\"gem250-bank11\":a->bank==ASSET_GEM250_VALUE?\"gem250-value-newsh6\":a->bank==ASSET_GEM100_BODY?\"gem100-bank11\":a->bank==ASSET_GEM100_VALUE?\"gem100-value-newsh6\":a->bank==ASSET_CASH50_BODY?\"coin50-bank11\":a->bank==ASSET_CASH50_VALUE?\"coin50-value-newsh6\":a->bank==ASSET_CASH75_BODY?\"coin75-bank11\":a->bank==ASSET_CASH75_VALUE?\"coin75-value-newsh6\":a->bank==ASSET_CASH25_BODY?\"coin25-bank11\":a->bank==ASSET_CASH25_VALUE?\"coin25-value-newsh6\":a->bank==9?\"ship\":a->bank==8?\"bullet\":a->bank==ASSET_ENEMY_ENERGY?\"enemy-energy\":a->bank==ASSET_NEWSH2?\"enemy-newsh2\":a->bank==ASSET_NEWSH4?\"enemy-newsh4\":a->bank==ASSET_NEWSHE?\"enemy-newshe\":a->bank==ASSET_TALON_BANK?\"talon-bank\":a->bank==ASSET_EXPLOSION?\"explosion-newsh6\":\"terrain-shapesz\";\n"
+        },
+        {
+          "after_lines": [
+            2412,
+            2454
+          ],
+          "before": "",
+          "after": " return a->valid?a:NULL;\n}\n\n/* Charge3 is nine normal-bank9 body tiles, not its bank8 projectile.\n * Re-decode indices AND coverage before every cold or warm cache lookup. */\nstatic bool charge_body_source_matches(Sprite2_array bank,unsigned int index)\n{\n if(xmas||!bank.data||bank.data!=spriteSheet9.data||bank.size!=spriteSheet9.size)return false;\n uint64_t wanted;\n switch(index) {\n  case 258:wanted=UINT64_C(0x0b5ae45f1cc8f6bc);break;\n  case 259:wanted=UINT64_C(0x8316c4fccb96f5e8);break;\n  case 260:wanted=UINT64_C(0x742dd65f348500de);break;\n  case 277:wanted=UINT64_C(0xdf9ef3d36aa62f09);break;\n  case 278:wanted=UINT64_C(0xe860fa2cd7d7be32);break;\n  case 279:wanted=UINT64_C(0x352d5ec2fe0e5ed7);break;\n  case 296:wanted=UINT64_C(0xdac55cfaedd56587);break;\n  case 297:wanted=UINT64_C(0x3721d9c35bb96889);break;\n  case 298:wanted=UINT64_C(0xa0a959419548d222);break;\n  default:return false;\n }\n Uint8 source[12*14*2]={0};\n if(!decode_tile(bank,index,source,source+12*14,12,0,0))return false;\n uint64_t stamp=UINT64_C(0xcbf29ce484222325);\n for(size_t i=0;i<sizeof(source);i++){stamp^=source[i];stamp*=UINT64_C(0x100000001b3);}\n return stamp==wanted;\n}\n\nstatic Asset *charge_body_asset(Sprite2_array bank,unsigned int index,\n                               unsigned int option,unsigned int sidekick_style,unsigned int charge)\n{\n if(option!=3||sidekick_style!=0||charge>2||\n    (index!=258+charge&&index!=277+charge&&index!=296+charge)||\n    !charge_body_source_matches(bank,index)||(game_probe_density!=4&&game_probe_density!=8)||game_probe_missing||\n    game_probe_invalid||game_probe_original_reference||!game_probe_assets)return NULL;\n const unsigned int slot=567+3*((index-258)/19)+charge;\n Asset *a=&assets[slot];\n if(a->initialized)return a->valid?a:NULL;\n a->initialized=true;a->bank=ASSET_CHARGE_BODY;a->index=(int)index;\n a->w=12;a->h=14;a->anchor_x=0;a->anchor_y=0;\n /* One canonical 8x resource; the existing compositor handles d4/d8. */\n a->valid=read_asset(a,8);\n"
+        },
+        {
+          "after_lines": [
+            3237,
+            3251
+          ],
+          "before": "",
+          "after": " return a?draw_asset(x,y,a,MIRROR_NORMAL,NULL):false;\n}\n\n/* Only option3/style0 and the matching original charge tile enter here.\n * Horizontal row-wrap remains indexed; the wrapper always blits once. */\nbool render_mirror_charge_body(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int index,\n                              unsigned int option,unsigned int sidekick_style,unsigned int charge)\n{\n render_mirror_shadow_end();\n if(!active||!surface||surface!=game_screen||surface!=VGAScreen||reject_reason||\n    !surface->pixels||surface->w!=320||surface->h!=200||surface->pitch<320||!surface->format||\n    surface->format->BitsPerPixel!=8||surface->format->BytesPerPixel!=1||\n    x<0||x>308||y<-13||y>199)return false;\n Asset *a=charge_body_asset(bank,index,option,sidekick_style,charge);\n"
+        }
+      ]
+    },
+    "src/render_mirror.h": {
+      "previous_sha256": "be6ad39fa22bb9341ac945b9c4404acaca863b187c3884efb7a9763f889ec985",
+      "current_sha256": "300be2223be0f290a930c865c12438a53048e617dbc98f4200ba9f1c22c72bee",
+      "hunks": [
+        {
+          "after_lines": [
+            116,
+            117
+          ],
+          "before": "",
+          "after": "#define render_mirror_charge_body(...) false\n"
+        },
+        {
+          "after_lines": [
+            234,
+            236
+          ],
+          "before": "",
+          "after": "bool render_mirror_charge_body(SDL_Surface *,int x,int y,Sprite2_array,unsigned int index,\n                              unsigned int option,unsigned int sidekick_style,unsigned int charge);\n"
+        }
+      ]
+    }
+  }
+}

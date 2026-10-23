@@ -153,9 +153,9 @@ class CatalogTests(unittest.TestCase):
         manifest = PACK.load_manifest(ROOT/'packaging/runtime-assets-v1.json')
         verified = [PACK.checked_source(PACK.contained_file(ROOT, r['source_path']), r) for r in manifest['files']]
         catalog = PACK.content_catalog(verified, 'linux')
-        self.assertEqual(catalog['summary']['logical_files'], 1006)
+        self.assertEqual(catalog['summary']['logical_files'], 1015)
         # Current Pulse compatibility intentionally matches its five approved global blobs.
-        self.assertEqual(catalog['summary']['unique_contents'], 880)
+        self.assertEqual(catalog['summary']['unique_contents'], 889)
         self.assertEqual(catalog['summary']['duplicate_groups'], 126)
         self.assertEqual(catalog['summary']['duplicate_bytes'], 12911168)
 

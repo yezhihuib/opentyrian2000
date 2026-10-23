@@ -46,5 +46,10 @@ void draw_plasma_body_sprite2(SDL_Surface *,int x,int y,Sprite2_array,
                              unsigned int index,unsigned int option,
                              unsigned int sidekick_style,unsigned int charge);
 
+/* Dedicated normal Charge body; no runtime animation or charge state changes. */
+void draw_charge_body_sprite2(SDL_Surface *,int x,int y,Sprite2_array,
+                             unsigned int index,unsigned int option,
+                             unsigned int sidekick_style,unsigned int charge);
+
 void draw_explosion_sprite2(SDL_Surface *,int,int,Sprite2_array,unsigned,EntityDrawStyle,unsigned slot);
 #endif

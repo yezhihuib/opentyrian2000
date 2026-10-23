@@ -35,6 +35,8 @@ class CurrentSidekickBodyTests(unittest.TestCase):
         cls.tmp=tempfile.TemporaryDirectory(prefix='six-',dir=parent);cls.base=Path(cls.tmp.name).resolve()
         assert cls.base.is_relative_to(parent.resolve())
         cls.root=cls.base/'repo';cls.root.mkdir();names=set(b.BUILD_INPUTS)
+        from current_sidekick_body_compatibility import charge_input_paths
+        names.update(charge_input_paths(ROOT))
         for manifest in (b.RUNTIME,'packaging/runtime-assets-public63a89b3.json'):
             names.update(e['source_path']for e in json.loads((ROOT/manifest).read_text())['files'])
         for folder in ('src','scripts','packaging','assets/hd/authoring'):
@@ -191,7 +193,7 @@ class CurrentSidekickBodyTests(unittest.TestCase):
                 for other,n in EXPECTED.items():
                     if other!=identity:self.assertEqual(now[mapping['assets/gameplay/'+n]['source_path']],before[oldmap['assets/gameplay/'+n]['source_path']])
                 old_rows={e['destination']:e for e in old_runtime['files']};new_rows={e['destination']:e for e in json.loads((self.root/b.RUNTIME).read_text())['files']}
-                self.assertEqual(set(old_rows),set(new_rows));self.assertEqual(len(new_rows),1006)
+                self.assertEqual(set(old_rows),set(new_rows));self.assertEqual(len(new_rows),1015)
                 self.assertEqual({p for p in old_rows if old_rows[p]!=new_rows[p]},{dest,'CURRENT-PRODUCTION-VALIDATION.json'})
                 # Reset changed state without touching source repository or historical packs.
                 for p in allowed:(self.root/p).write_bytes(self.initial[p])

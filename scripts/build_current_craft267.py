@@ -42,6 +42,8 @@ def closure(root):
     names |= {profile(f)['mapping'] for f in PROFILES}
     names |= {p.relative_to(root).as_posix() for p in (root/'src').rglob('*') if p.is_file() or p.is_symlink()}
     names |= {p.relative_to(root).as_posix() for p in (root/'scripts').glob('*.py')}
+    from current_sidekick_body_compatibility import charge_input_paths, CHARGE_MAPPING
+    names |= charge_input_paths(root) | {CHARGE_MAPPING}
     return old, names
 
 
@@ -256,6 +258,11 @@ def current_overlays(root):
     add(hud.MAPPING, hud.SELECTION, selected, mapping, expected)
     if len(files) != 142:
         raise ValueError('Expected exactly 142 current gameplay overlays')
+    selected, _, charge_blobs = sidekick_compat.charge_generate(root, read(root, sidekick_compat.CHARGE_SELECTION))
+    add(sidekick_compat.CHARGE_MAPPING, sidekick_compat.CHARGE_SELECTION, selected,
+        sidekick_compat.charge_load(root), {'assets/gameplay/' + sidekick_compat.charge_name(i): blob for i, blob in charge_blobs.items()})
+    if len(files) != 151:
+        raise ValueError('Expected exactly 151 current gameplay overlays')
     return files
 
 
@@ -278,8 +285,12 @@ def view(root, kind, destination):
     digest = sha(json.dumps(inventory, sort_keys=True, separators=(',', ':')).encode())
     if digest != BASE_TREE_SHA256:
         raise ValueError('Frozen preview base changed')
-    if not set(overlays).issubset(files):
-        raise ValueError('Missing original current gameplay consumer')
+    from current_sidekick_body_compatibility import CHARGE_IDS, charge_name
+    additions = {charge_name(identity) for identity in CHARGE_IDS}
+    if len(files) != 641 or len(additions) != 9 or additions & set(files):
+        raise ValueError('Charge additions collide with frozen preview base')
+    if set(overlays) - set(files) != additions or not (set(overlays) - additions).issubset(files):
+        raise ValueError('Missing original current gameplay consumer or unapproved addition')
     files.update(overlays)
     destination.parent.mkdir(parents=True, exist_ok=True)
     # Publish only a complete verified view. Temporary tree is exclusively ours.

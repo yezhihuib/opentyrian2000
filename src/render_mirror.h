@@ -114,6 +114,7 @@ typedef enum {
 #define render_mirror_mint_body(...) false
 #define render_mirror_frontblaster_body(...) false
 #define render_mirror_plasma_body(...) false
+#define render_mirror_charge_body(...) false
 #define render_mirror_map_begin(...) ((void)0)
 #define render_mirror_rear_p1_reset(...) ((void)0)
 #define render_mirror_rear_p1_call_begin(...) ((void)0)
@@ -230,6 +231,8 @@ bool render_mirror_mint_body(SDL_Surface *,int x,int y,Sprite2_array,unsigned in
 bool render_mirror_frontblaster_body(SDL_Surface *,int x,int y,Sprite2_array,unsigned int index,
                                     unsigned int option,unsigned int sidekick_style,unsigned int charge);
 bool render_mirror_plasma_body(SDL_Surface *,int x,int y,Sprite2_array,unsigned int index,
+                              unsigned int option,unsigned int sidekick_style,unsigned int charge);
+bool render_mirror_charge_body(SDL_Surface *,int x,int y,Sprite2_array,unsigned int index,
                               unsigned int option,unsigned int sidekick_style,unsigned int charge);
 void render_mirror_pixel(SDL_Surface *, Uint8 *address, Uint8 source, int style);
 void render_mirror_shadow_begin(SDL_Surface *,int x,int y,Sprite2_array,unsigned int index);

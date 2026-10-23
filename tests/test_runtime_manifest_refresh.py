@@ -169,14 +169,14 @@ class RuntimeManifestRefreshTests(unittest.TestCase):
                 self.assertIn('Expected complete recursive tree', result.stderr)
                 self.assertFalse(output.exists())
 
-    def test_current_builder_preserves_all_1006_rows_byte_for_byte(self):
+    def test_current_builder_preserves_all_1015_rows_byte_for_byte(self):
         output = self.base / 'current.json'
         result = subprocess.run([sys.executable, '-B',
                                  str(ROOT / 'scripts/rebuild_recovered_runtime_manifest.py'),
                                  '--root', str(ROOT), '--output', str(output)],
                                 capture_output=True, text=True)
         self.assertEqual(result.returncode, 0, result.stderr)
-        self.assertEqual(json.loads(result.stdout)['files'], 1006)
+        self.assertEqual(json.loads(result.stdout)['files'], 1015)
         self.assertEqual(output.read_bytes(), self.current_bytes)
 
 

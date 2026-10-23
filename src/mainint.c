@@ -4760,6 +4760,14 @@ redo:
 					draw_plasma_body_sprite2(VGAScreen, x, y, spriteSheet9, sprite,
 					                        this_player->items.sidekick[i],
 					                        this_player->sidekick[i].style, this_player->sidekick[i].charge);
+				else if (this_player->items.sidekick[i] == 3 && this_player->sidekick[i].style == 0 &&
+				         this_player->sidekick[i].charge <= 2 &&
+				         (sprite == 258 + this_player->sidekick[i].charge ||
+				          sprite == 277 + this_player->sidekick[i].charge ||
+				          sprite == 296 + this_player->sidekick[i].charge))
+					draw_charge_body_sprite2(VGAScreen, x, y, spriteSheet9, sprite,
+					                        this_player->items.sidekick[i],
+					                        this_player->sidekick[i].style, this_player->sidekick[i].charge);
 				else
 					blit_sprite2(VGAScreen, x, y, spriteSheet9, sprite);
 			}

@@ -56,10 +56,10 @@ typedef struct {
  int bank,index,w,h,anchor_x,anchor_y,density;
  Uint8 *rgba;
 } Asset;
-enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121, ASSET_ENEMY_TANK_SHELL=122, ASSET_REAR534_BODY=123, ASSET_DATA513_BODY=124, ASSET_PROTRON_SHADOW=125, ASSET_MARLO_BODY=126, ASSET_MINT_BODY=127, ASSET_FRONTBLASTER_BODY=128, ASSET_PLASMA_BODY=129, ASSET_PLASMA_PROJECTILE=130, ASSET_REAR_MULTI_P1=131, ASSET_DATA_VALUE=132, ASSET_FIXED_PICKUP_FLASH=133, ASSET_SECRET_EXIT_ORB=134, ASSET_ASTEROID1_NEWSHP=135, ASSET_ASTEROID1_NEWSHS=136, ASSET_ASTEROID1_TRIPLE275=137, ASSET_ASTEROID1_COLUMNS276=138, ASSET_ASTEROID1_TURRET273=139, ASSET_ASTEROID1_PROJECTILE304=140, ASSET_ASTEROID1_FIRING270=141, ASSET_ASTEROID1_ENEMY_ORB112113=142, ASSET_ASTEROID1_FIRING285=143, ASSET_ASTEROID1_TERRAIN144=144, ASSET_ASTEROID1=108 };
+enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121, ASSET_ENEMY_TANK_SHELL=122, ASSET_REAR534_BODY=123, ASSET_DATA513_BODY=124, ASSET_PROTRON_SHADOW=125, ASSET_MARLO_BODY=126, ASSET_MINT_BODY=127, ASSET_FRONTBLASTER_BODY=128, ASSET_PLASMA_BODY=129, ASSET_PLASMA_PROJECTILE=130, ASSET_REAR_MULTI_P1=131, ASSET_DATA_VALUE=132, ASSET_FIXED_PICKUP_FLASH=133, ASSET_SECRET_EXIT_ORB=134, ASSET_ASTEROID1_NEWSHP=135, ASSET_ASTEROID1_NEWSHS=136, ASSET_ASTEROID1_TRIPLE275=137, ASSET_ASTEROID1_COLUMNS276=138, ASSET_ASTEROID1_TURRET273=139, ASSET_ASTEROID1_PROJECTILE304=140, ASSET_ASTEROID1_FIRING270=141, ASSET_ASTEROID1_ENEMY_ORB112113=142, ASSET_ASTEROID1_FIRING285=143, ASSET_ASTEROID1_TERRAIN144=144, ASSET_CHARGE_BODY=145, ASSET_ASTEROID1=108 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
 /* Slots 507..509 are rear534; slots 510..521 are Data513. */
-static Asset assets[567];
+static Asset assets[576];
 static void plasma_art_reset(void);
 static void rear_p1_frame(void);
 static void rear_p1_shutdown(void);
@@ -1726,7 +1726,7 @@ static bool read_asset(Asset *a,int wanted)
  if(a->bank==ASSET_ASTEROID1_TERRAIN144)return false;
  if(asteroid_hd_enabled&&a->bank!=ASSET_ASTEROID1)return false;
  char name[1024];
- const char *prefix=a->bank==ASSET_PLASMA_PROJECTILE?"option-plasma-projectile":a->bank==ASSET_PLASMA_BODY?"option-plasma-bank9":a->bank==ASSET_FRONTBLASTER_BODY?"option-frontblaster-bank10":a->bank==ASSET_MINT_BODY?"option-mint-bank9":a->bank==ASSET_MARLO_BODY?"option-marlo-bank9":a->bank==ASSET_PROTRON_SHADOW?"protron-shadow":a->bank==ASSET_REAR534_BODY?"rear534-bank11":a->bank==ASSET_DATA513_BODY?"data513-bank11":a->bank==ASSET_ENEMY_TANK_SHELL?"enemy-tank-shell":a->bank==ASSET_GEM250_BODY?"gem250-bank11":a->bank==ASSET_GEM250_VALUE?"gem250-value-newsh6":a->bank==ASSET_GEM100_BODY?"gem100-bank11":a->bank==ASSET_GEM100_VALUE?"gem100-value-newsh6":a->bank==ASSET_CASH50_BODY?"coin50-bank11":a->bank==ASSET_CASH50_VALUE?"coin50-value-newsh6":a->bank==ASSET_CASH75_BODY?"coin75-bank11":a->bank==ASSET_CASH75_VALUE?"coin75-value-newsh6":a->bank==ASSET_CASH25_BODY?"coin25-bank11":a->bank==ASSET_CASH25_VALUE?"coin25-value-newsh6":a->bank==9?"ship":a->bank==8?"bullet":a->bank==ASSET_ENEMY_ENERGY?"enemy-energy":a->bank==ASSET_NEWSH2?"enemy-newsh2":a->bank==ASSET_NEWSH4?"enemy-newsh4":a->bank==ASSET_NEWSHE?"enemy-newshe":a->bank==ASSET_TALON_BANK?"talon-bank":a->bank==ASSET_EXPLOSION?"explosion-newsh6":"terrain-shapesz";
+ const char *prefix=a->bank==ASSET_CHARGE_BODY?"option-charge-bank9":a->bank==ASSET_PLASMA_PROJECTILE?"option-plasma-projectile":a->bank==ASSET_PLASMA_BODY?"option-plasma-bank9":a->bank==ASSET_FRONTBLASTER_BODY?"option-frontblaster-bank10":a->bank==ASSET_MINT_BODY?"option-mint-bank9":a->bank==ASSET_MARLO_BODY?"option-marlo-bank9":a->bank==ASSET_PROTRON_SHADOW?"protron-shadow":a->bank==ASSET_REAR534_BODY?"rear534-bank11":a->bank==ASSET_DATA513_BODY?"data513-bank11":a->bank==ASSET_ENEMY_TANK_SHELL?"enemy-tank-shell":a->bank==ASSET_GEM250_BODY?"gem250-bank11":a->bank==ASSET_GEM250_VALUE?"gem250-value-newsh6":a->bank==ASSET_GEM100_BODY?"gem100-bank11":a->bank==ASSET_GEM100_VALUE?"gem100-value-newsh6":a->bank==ASSET_CASH50_BODY?"coin50-bank11":a->bank==ASSET_CASH50_VALUE?"coin50-value-newsh6":a->bank==ASSET_CASH75_BODY?"coin75-bank11":a->bank==ASSET_CASH75_VALUE?"coin75-value-newsh6":a->bank==ASSET_CASH25_BODY?"coin25-bank11":a->bank==ASSET_CASH25_VALUE?"coin25-value-newsh6":a->bank==9?"ship":a->bank==8?"bullet":a->bank==ASSET_ENEMY_ENERGY?"enemy-energy":a->bank==ASSET_NEWSH2?"enemy-newsh2":a->bank==ASSET_NEWSH4?"enemy-newsh4":a->bank==ASSET_NEWSHE?"enemy-newshe":a->bank==ASSET_TALON_BANK?"talon-bank":a->bank==ASSET_EXPLOSION?"explosion-newsh6":"terrain-shapesz";
  if(!game_probe_assets||snprintf(name,sizeof(name),"%s/%s-%d-%d.hda",game_probe_assets,prefix,a->index,wanted)>=(int)sizeof(name)) return false;
  FILE *f=fopen(name,"rb");if(!f)return false;
  Uint8 h[28]={0};bool ok=fread(h,1,sizeof(h),f)==sizeof(h)&&memcmp(h,"HDR1",4)==0;
@@ -2410,6 +2410,48 @@ static Asset *plasma_body_asset(Sprite2_array bank,unsigned int index,
  a->w=12;a->h=14;a->anchor_x=0;a->anchor_y=0;
  a->valid=read_asset(a,game_probe_density);
  if(!a->valid&&game_probe_density==8)a->valid=read_asset(a,4);
+ return a->valid?a:NULL;
+}
+
+/* Charge3 is nine normal-bank9 body tiles, not its bank8 projectile.
+ * Re-decode indices AND coverage before every cold or warm cache lookup. */
+static bool charge_body_source_matches(Sprite2_array bank,unsigned int index)
+{
+ if(xmas||!bank.data||bank.data!=spriteSheet9.data||bank.size!=spriteSheet9.size)return false;
+ uint64_t wanted;
+ switch(index) {
+  case 258:wanted=UINT64_C(0x0b5ae45f1cc8f6bc);break;
+  case 259:wanted=UINT64_C(0x8316c4fccb96f5e8);break;
+  case 260:wanted=UINT64_C(0x742dd65f348500de);break;
+  case 277:wanted=UINT64_C(0xdf9ef3d36aa62f09);break;
+  case 278:wanted=UINT64_C(0xe860fa2cd7d7be32);break;
+  case 279:wanted=UINT64_C(0x352d5ec2fe0e5ed7);break;
+  case 296:wanted=UINT64_C(0xdac55cfaedd56587);break;
+  case 297:wanted=UINT64_C(0x3721d9c35bb96889);break;
+  case 298:wanted=UINT64_C(0xa0a959419548d222);break;
+  default:return false;
+ }
+ Uint8 source[12*14*2]={0};
+ if(!decode_tile(bank,index,source,source+12*14,12,0,0))return false;
+ uint64_t stamp=UINT64_C(0xcbf29ce484222325);
+ for(size_t i=0;i<sizeof(source);i++){stamp^=source[i];stamp*=UINT64_C(0x100000001b3);}
+ return stamp==wanted;
+}
+
+static Asset *charge_body_asset(Sprite2_array bank,unsigned int index,
+                               unsigned int option,unsigned int sidekick_style,unsigned int charge)
+{
+ if(option!=3||sidekick_style!=0||charge>2||
+    (index!=258+charge&&index!=277+charge&&index!=296+charge)||
+    !charge_body_source_matches(bank,index)||(game_probe_density!=4&&game_probe_density!=8)||game_probe_missing||
+    game_probe_invalid||game_probe_original_reference||!game_probe_assets)return NULL;
+ const unsigned int slot=567+3*((index-258)/19)+charge;
+ Asset *a=&assets[slot];
+ if(a->initialized)return a->valid?a:NULL;
+ a->initialized=true;a->bank=ASSET_CHARGE_BODY;a->index=(int)index;
+ a->w=12;a->h=14;a->anchor_x=0;a->anchor_y=0;
+ /* One canonical 8x resource; the existing compositor handles d4/d8. */
+ a->valid=read_asset(a,8);
  return a->valid?a:NULL;
 }
 
@@ -3193,6 +3235,20 @@ bool render_mirror_plasma_body(SDL_Surface *surface,int x,int y,Sprite2_array ba
     surface->format->BitsPerPixel!=8||surface->format->BytesPerPixel!=1||
     x<0||x>308||y<-13||y>199)return false;
  Asset *a=plasma_body_asset(bank,index,option,sidekick_style,charge);
+ return a?draw_asset(x,y,a,MIRROR_NORMAL,NULL):false;
+}
+
+/* Only option3/style0 and the matching original charge tile enter here.
+ * Horizontal row-wrap remains indexed; the wrapper always blits once. */
+bool render_mirror_charge_body(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int index,
+                              unsigned int option,unsigned int sidekick_style,unsigned int charge)
+{
+ render_mirror_shadow_end();
+ if(!active||!surface||surface!=game_screen||surface!=VGAScreen||reject_reason||
+    !surface->pixels||surface->w!=320||surface->h!=200||surface->pitch<320||!surface->format||
+    surface->format->BitsPerPixel!=8||surface->format->BytesPerPixel!=1||
+    x<0||x>308||y<-13||y>199)return false;
+ Asset *a=charge_body_asset(bank,index,option,sidekick_style,charge);
  return a?draw_asset(x,y,a,MIRROR_NORMAL,NULL):false;
 }
 

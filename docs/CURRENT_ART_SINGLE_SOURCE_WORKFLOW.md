@@ -107,3 +107,11 @@ or gain runtime payload enforcement. Coverage stays at 120
 global entries, six HUD classes and 15 independent legacy-only resources.
 
 NEWSH2 base267 uses the bounded [craft267 workflow](CRAFT267_SINGLE_SOURCE_WORKFLOW.md). Current body pack views combine that canonical HDA with the six selected sidekick transports.
+
+## Charge body single-master extension
+
+Charge is a separate nine-state subfamily of the shared sidekick builder. One
+normalized master plus a data-only recipe generates every state; derived PNGs
+are not independent editable inputs. See [workflow and strict candidate/current
+boundaries](CHARGE_BODY_SINGLE_MASTER_WORKFLOW.md). Existing family defaults and
+historical exports retain their prior meanings.
