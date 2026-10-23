@@ -49,10 +49,10 @@ def main():
     source = (ROOT / 'src/render_mirror.c').read_text()
     prior = subprocess.check_output(['git', '-C', str(ROOT), 'show', 'HEAD:src/render_mirror.c'], text=True)
     prior_header = subprocess.check_output(['git', '-C', str(ROOT), 'show', 'HEAD:src/current_art_payload_pins.h'], text=True)
-    pinrows = lambda s: re.findall(r'^ \{\d+,\d+,UINT64_C\(0x[0-9a-f]+\),UINT64_C\(0x[0-9a-f]+\),\d+,(?:UINT64_C\(0x[0-9a-f]+\)|0)\}', s, re.M)
-    assert pinrows(shadow.resolve_current_payload_pins(source))[:35] == pinrows(shadow.resolve_current_payload_pins(prior, prior_header))[:35], 'Previous thirty-five shadow pins changed'
+    prior_front_header = subprocess.check_output(['git', '-C', str(ROOT), 'show', 'HEAD:src/' + shadow.FRONT_MULTI_HEADER], text=True) if 'HD_FRONT_MULTI_CURRENT_PAYLOAD_' in prior else None
+    rows = shadow.compare_previous_shadow_pins(source, prior, 35, prior_header, prior_front_header)
     wanted = [f' {{{i},{slot},UINT64_C(0x{src:016x}),UINT64_C(0x{rgba:016x}),0,0}}' for i, slot, src, rgba in PINS]
-    assert pinrows(shadow.resolve_current_payload_pins(source))[35:] == wanted and len(pinrows(shadow.resolve_current_payload_pins(source))) == 45
+    assert rows[35:] == wanted
     hashes, boundaries = shadow.units(out, source)
     path = args.data / 'tyrian.shp' if args.data.is_dir() else args.data
     normal, source_sha = base.bank_from(path)
@@ -74,7 +74,7 @@ def main():
     base.IDS = IDS
     full, variants, count = base.fixtures(out, art, normal)
     for i in shadow.OLD_IDS + (105, 106, 124, 125, 6, 44, 73, 63, 82, 16, 54, 130, 131, 149, 150, 223, 224, 242, 243, 143, 144, 27):
-        shutil.copyfile(args.pack / f'bullet-{i}-8.hda', full / f'bullet-{i}-8.hda')
+        shutil.copyfile(shadow.current_head_path(args.pack, i), full / f'bullet-{i}-8.hda')
     for i in (225, 244, 226):
         shutil.copyfile(args.pack / f'protron-shadow-{i}-8.hda', full / f'protron-shadow-{i}-8.hda')
     (out / 'normal.bank8').write_bytes(normal)

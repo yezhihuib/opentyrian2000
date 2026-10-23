@@ -115,3 +115,12 @@ normalized master plus a data-only recipe generates every state; derived PNGs
 are not independent editable inputs. See [workflow and strict candidate/current
 boundaries](CHARGE_BODY_SINGLE_MASTER_WORKFLOW.md). Existing family defaults and
 historical exports retain their prior meanings.
+
+## Front Multi8 independent current sources
+
+The eight existing role8 resources121/122/163/164/201/202/279/280 use the bounded
+[Front Multi8 workflow](FRONT_MULTI_EIGHT_SOURCE_WORKFLOW.md): eight independent
+96×112 sources, eight current transports and payload-only shadow pins. Current
+runtime remains1015 destinations; complete views are650 files with169 current
+overlays and481 frozen members. Historical rear182/183 still depend on frozen
+front163/164, not the mutable current selection. No gameplay coverage expands.

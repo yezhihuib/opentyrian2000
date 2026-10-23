@@ -1,0 +1,31 @@
+{
+  "schema": "opentyrian-reviewed-front-multi-source-v1",
+  "integration_base": "b3efaf4eb87375ece2f1f1535bec98812cb819da",
+  "historical_source_inventory": "current-source-inventory.json",
+  "scope": "Exact render_mirror.c dedicated generated header include and eight payload-only FNV literal substitutions. Source stamps, slots, coverage, geometry, eligibility, ASTEROID1 exclusions, scene scope, cache, blend and indexed writes are unchanged.",
+  "generated_header": "src/hd_front_multi_current.h",
+  "files": {
+    "src/render_mirror.c": {
+      "previous_sha256": "3dd046ceb4bb64467e6cfa6272d61c1a97576a836676fc6035081b30c7935961",
+      "current_sha256": "1019185ecff1de969355b60b179d43c7dd3aeb6fded2f84dc2edd40f74d85d1b",
+      "hunks": [
+        {
+          "after_lines": [
+            16,
+            17
+          ],
+          "before": "",
+          "after": "#include \"hd_front_multi_current.h\"\n"
+        },
+        {
+          "after_lines": [
+            415,
+            423
+          ],
+          "before": " {121,524,UINT64_C(0xba0e9fed90289c7a),UINT64_C(0x769aa8931a65a717),0,0},\n {122,525,UINT64_C(0x4f9d6fbe1da41b7c),UINT64_C(0x761a0ae775198a5a),0,0},\n {163,526,UINT64_C(0xa34174ba65a5e3b2),UINT64_C(0xa99cb87d5291eb77),0,0},\n {164,527,UINT64_C(0xd118e1292d0f1044),UINT64_C(0x6b0a01101b3bca0f),0,0},\n {201,528,UINT64_C(0xfb2f8d2713f98f50),UINT64_C(0x8d51f656ce22bf04),0,0},\n {202,529,UINT64_C(0xd92e815af85b74c6),UINT64_C(0x64cfd4d0e05f13a3),0,0},\n {279,530,UINT64_C(0x1edad45847d64c25),UINT64_C(0xd4ada839dcc2ebb5),0,0},\n {280,531,UINT64_C(0x0842bfe453e6cb1d),UINT64_C(0xca10e502fd370f78),0,0},\n",
+          "after": " {121,524,UINT64_C(0xba0e9fed90289c7a),HD_FRONT_MULTI_CURRENT_PAYLOAD_80121_HASH,0,0},\n {122,525,UINT64_C(0x4f9d6fbe1da41b7c),HD_FRONT_MULTI_CURRENT_PAYLOAD_80122_HASH,0,0},\n {163,526,UINT64_C(0xa34174ba65a5e3b2),HD_FRONT_MULTI_CURRENT_PAYLOAD_80163_HASH,0,0},\n {164,527,UINT64_C(0xd118e1292d0f1044),HD_FRONT_MULTI_CURRENT_PAYLOAD_80164_HASH,0,0},\n {201,528,UINT64_C(0xfb2f8d2713f98f50),HD_FRONT_MULTI_CURRENT_PAYLOAD_80201_HASH,0,0},\n {202,529,UINT64_C(0xd92e815af85b74c6),HD_FRONT_MULTI_CURRENT_PAYLOAD_80202_HASH,0,0},\n {279,530,UINT64_C(0x1edad45847d64c25),HD_FRONT_MULTI_CURRENT_PAYLOAD_80279_HASH,0,0},\n {280,531,UINT64_C(0x0842bfe453e6cb1d),HD_FRONT_MULTI_CURRENT_PAYLOAD_80280_HASH,0,0},\n"
+        }
+      ]
+    }
+  }
+}

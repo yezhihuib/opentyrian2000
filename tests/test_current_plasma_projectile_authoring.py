@@ -215,7 +215,7 @@ class PlasmaProjectileAuthoringTests(unittest.TestCase):
             self.assertEqual(old[destination],new[destination])
         self.assertEqual(len(json.loads((self.root/b.REGISTRY).read_bytes())['resources']),120)
         from verify_current_production import verify
-        self.assertEqual(verify(self.root,json.loads((self.root/b.BINDING).read_bytes())),253)
+        self.assertEqual(verify(self.root,json.loads((self.root/b.BINDING).read_bytes())),254)
 
     def test_master_edit_updates_six_outputs_pins_views_and_complete_runtime(self):
         before=self.outputs()
@@ -252,11 +252,11 @@ class PlasmaProjectileAuthoringTests(unittest.TestCase):
         for kind in ('preview','debug'):
             target=self.base/('plasma-projectile-updated-'+kind)
             report=craft.view(self.root,kind,target)
-            self.assertEqual((report['files'],len(report['current_overlays'])),(650,161))
+            self.assertEqual((report['files'],len(report['current_overlays'])),(650,169))
             frozen=self.root/'assets/hd/packs'/craft.BASES[kind]
             nonoverlays=[path for path in frozen.rglob('*') if path.is_file()
                          and path.relative_to(frozen).as_posix() not in report['current_overlays']]
-            self.assertEqual(len(nonoverlays),489)
+            self.assertEqual(len(nonoverlays),481)
             for path in nonoverlays:self.assertEqual(path.read_bytes(),(target/path.relative_to(frozen)).read_bytes())
             for destination,row in mapping.items():
                 self.assertEqual((target/Path(destination).name).read_bytes(),(self.root/row['source_path']).read_bytes())

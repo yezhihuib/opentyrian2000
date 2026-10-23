@@ -23,21 +23,94 @@ OLD_IDS = (67, 70, 121, 122, 163, 164, 201, 202, 279, 280, 225, 244, 226)
 
 
 
-def resolve_current_payload_pins(source, header=None):
-    """Expand only declared art-payload tokens for structural frozen-pin checks.
+# Independent original-source/slot oracle; payloads are read from the eight
+# selected PNGs, not accepted merely because a generated header declares them.
+FRONT_MULTI_PINS = (
+    (121, 524, 0xba0e9fed90289c7a), (122, 525, 0x4f9d6fbe1da41b7c),
+    (163, 526, 0xa34174ba65a5e3b2), (164, 527, 0xd118e1292d0f1044),
+    (201, 528, 0xfb2f8d2713f98f50), (202, 529, 0xd92e815af85b74c6),
+    (279, 530, 0x1edad45847d64c25), (280, 531, 0x0842bfe453e6cb1d),
+)
+FRONT_MULTI_HEADER = 'hd_front_multi_current.h'
 
-    This does not manufacture expected pins: callers retain their independent
-    frozen PINS and original-source/slot comparisons.
-    """
+
+def resolve_current_payload_pins(source, header=None, front_header=None):
+    """Expand only declared payload tokens; never silently drop unknown rows."""
     if header is None:
         header = (ROOT / 'src/current_art_payload_pins.h').read_text()
     pins = dict(re.findall(r'^#define (CURRENT_(?:VULCAN_(?:67|70)|GREEN_8021[4-7])_RGBA) (UINT64_C\(0x[0-9a-f]{16}\))$', header, re.M))
     tokens = set(re.findall(r'\bCURRENT_(?:VULCAN|GREEN)_\w+_RGBA\b', source))
+    front_tokens = set(re.findall(r'\bHD_FRONT_MULTI_CURRENT_PAYLOAD_\w+_HASH\b', source))
+    if front_tokens:
+        if front_header is None:
+            front_header = (ROOT / 'src' / FRONT_MULTI_HEADER).read_text()
+        entries = re.findall(r'^#define (HD_FRONT_MULTI_CURRENT_PAYLOAD_\w+_HASH) (UINT64_C\(0x[0-9a-f]{16}\))$', front_header, re.M)
+        expected = {'HD_FRONT_MULTI_CURRENT_PAYLOAD_%d_HASH' % (80000+i) for i, _, _ in FRONT_MULTI_PINS}
+        assert len(entries) == 8 and {name for name, _ in entries} == expected, 'Unknown/missing/duplicate Front Multi generated payload pin'
+        pins.update(entries)
+    tokens |= front_tokens
     if not tokens <= pins.keys():
         raise AssertionError('Unknown/missing generated shadow payload pin: ' + str(tokens - pins.keys()))
     for name in tokens:
         source = re.sub(r'\b' + name + r'\b', pins[name], source)
     return source
+
+
+def shadow_pin_rows(source, header=None, front_header=None):
+    source = resolve_current_payload_pins(source, header, front_header)
+    table = re.search(r'vulcan_shadow_pins\[(\d+)\]=\{(.*?)\n\};', source, re.S)
+    assert table and table[1] == '45', 'Expected exactly 45 declared shadow rows'
+    body = re.sub(r'/\*.*?\*/', '', table[2], flags=re.S)
+    lines = [line.rstrip(',') for line in body.splitlines() if line.strip()]
+    pattern = r' \{\d+,\d+,UINT64_C\(0x[0-9a-f]{16}\),UINT64_C\(0x[0-9a-f]{16}\),\d+,(?:UINT64_C\(0x[0-9a-f]{16}\)|0)\}'
+    assert len(lines) == 45 and all(re.fullmatch(pattern, line) for line in lines), 'Expected exactly 45 fully resolved shadow rows'
+    return lines
+
+
+def front_multi_payloads(root=ROOT):
+    """Independent PNG decoder: exact roles, geometry and selected byte hashes."""
+    import io
+    from PIL import Image
+    selected = json.loads((root / 'assets/hd/authoring/front-multi-current.json').read_bytes())
+    rows = selected['resources']
+    assert len(rows) == 8 and [r['identity'] for r in rows] == [80000+i for i, _, _ in FRONT_MULTI_PINS], 'Front Multi source identity/order'
+    result = {}
+    for row in rows:
+        path = Path(row['source_png'])
+        assert not path.is_absolute() and '..' not in path.parts and path.parts[0] == 'authoring-inputs', 'Front Multi source path'
+        raw = (root / path).read_bytes()
+        assert base.SHA(raw) == row['source_sha256'], 'Front Multi selected PNG pin'
+        with Image.open(io.BytesIO(raw)) as frame:
+            assert (frame.format, frame.mode, frame.size, getattr(frame, 'n_frames', 1)) == ('PNG', 'RGBA', (96,112), 1), 'Front Multi PNG geometry'
+            result[row['identity'] - 80000] = base.fnv(frame.tobytes())
+    return result
+
+
+def verify_front_multi_rows(source, header=None, front_header=None, payloads=None):
+    rows = shadow_pin_rows(source, header, front_header)
+    payloads = front_multi_payloads() if payloads is None else payloads
+    expected = [f' {{{i},{slot},UINT64_C(0x{stamp:016x}),UINT64_C(0x{payloads[i]:016x}),0,0}}' for i, slot, stamp in FRONT_MULTI_PINS]
+    assert rows[2:10] == expected, 'Front Multi source/slot/payload/coverage oracle mismatch'
+    return rows
+
+
+def compare_previous_shadow_pins(source, prior, count, prior_header=None, prior_front_header=None):
+    current = verify_front_multi_rows(source)
+    previous = shadow_pin_rows(prior, prior_header, prior_front_header)
+    # Current authoring may change these eight payloads, never source stamps,
+    # cache slots, coverage slots, ordering or any other family's shadow pins.
+    for offset, (i, slot, stamp) in enumerate(FRONT_MULTI_PINS, 2):
+        expected = f' {{{i},{slot},UINT64_C(0x{stamp:016x}),'
+        assert previous[offset].startswith(expected) and previous[offset].endswith(',0,0}'), 'Previous Front Multi structural oracle mismatch'
+        previous[offset] = current[offset]
+    assert current[:count] == previous[:count], f'Previous {count} shadow pins changed outside selected Front Multi payloads'
+    return current
+
+
+def current_head_path(pack, index):
+    if index in {i for i, _, _ in FRONT_MULTI_PINS}:
+        return ROOT / 'assets/hd/current-compat/front-multi' / f'bullet-{index}-8.hda'
+    return pack / f'bullet-{index}-8.hda'
 
 
 def units(out, source):
@@ -58,8 +131,9 @@ def units(out, source):
                 r'typedef struct \{\s*bool live,entered,rear;.*?\} VulcanShadowCall;',
                 r'static Asset assets\[\d+\];', r'enum \{ ASSET_NEWSH2=.*?\};',
                 r'static const struct \{unsigned int index;int slot;uint64_t source,rgba;int coverage_slot;uint64_t coverage_rgba;\} vulcan_shadow_pins\[\d+\]=\{.*?\n\};']
-    (out / 'types.inc').write_text('#include \"current_art_payload_pins.h\"\n' + '\n'.join(re.search(p, source, re.S).group() for p in patterns))
+    (out / 'types.inc').write_text('#include \"current_art_payload_pins.h\"\n#include \"hd_front_multi_current.h\"\n' + '\n'.join(re.search(p, source, re.S).group() for p in patterns))
     (out / 'current_art_payload_pins.h').write_bytes((ROOT / 'src/current_art_payload_pins.h').read_bytes())
+    (out / FRONT_MULTI_HEADER).write_bytes((ROOT / 'src' / FRONT_MULTI_HEADER).read_bytes())
     sprite = re.search(r'typedef struct\s*\{\s*size_t size;\s*Uint8 \*data;\s*\}\s*Sprite2_array;', (ROOT / 'src/sprite.h').read_text()).group()
     (out / 'sprite-type.inc').write_text(sprite)
     blitters = {name: base.extract((ROOT / 'src/sprite.c').read_text(), name) for name in ('blit_sprite2', 'blit_sprite2_blend', 'blit_sprite2_darken')}
@@ -68,8 +142,8 @@ def units(out, source):
     (out / 'wrappers.inc').write_text(wrapper)
     prior = subprocess.check_output(['git', '-C', str(ROOT), 'show', 'HEAD:src/render_mirror.c'], text=True)
     prior_header = subprocess.check_output(['git', '-C', str(ROOT), 'show', 'HEAD:src/current_art_payload_pins.h'], text=True)
-    pinrows = lambda s: [row.rstrip(',') for row in re.findall(r'^ \{\d+,\d+,UINT64_C\(0x[0-9a-f]+\),UINT64_C\(0x[0-9a-f]+\),\d+,(?:UINT64_C\(0x[0-9a-f]+\)|0)\},?', s, re.M)]
-    assert pinrows(resolve_current_payload_pins(source))[:13] == pinrows(resolve_current_payload_pins(prior, prior_header))[:13], 'Existing thirteen shadow pins changed'
+    prior_front_header = subprocess.check_output(['git', '-C', str(ROOT), 'show', 'HEAD:src/' + FRONT_MULTI_HEADER], text=True) if 'HD_FRONT_MULTI_CURRENT_PAYLOAD_' in prior else None
+    compare_previous_shadow_pins(source, prior, 13, prior_header, prior_front_header)
     # Classic exclusions must stay byte-for-byte at their established boundary.
     classic = lambda s: [line for line in base.extract(s, 'render_mirror_entity').splitlines() if 'MIRROR_SHADOW' in line and 'return false' in line and any(token in line for token in ('index>=31&&index<=33', 'index>=252&&index<=254', 'index>=214&&index<=217'))]
     assert classic(source) == classic(prior), 'Existing classic shadow exclusion changed'
@@ -142,7 +216,7 @@ def mutants(out, source, paths, full, variants, loader_mode=True):
         for before, after in edits:
             assert before != after and text.count(before) == 1, label
             text = text.replace(before, after, 1)
-        for name in ('types.inc', 'sprite-type.inc', 'blitters.inc', 'wrappers.inc', 'reference.bin', 'current_art_payload_pins.h'):
+        for name in ('types.inc', 'sprite-type.inc', 'blitters.inc', 'wrappers.inc', 'reference.bin', 'current_art_payload_pins.h', FRONT_MULTI_HEADER):
             shutil.copyfile(out / name, folder / name)
         (folder / 'functions.inc').write_text(text)
         results[label] = build_run(folder, paths, full, variants, expect_failure=True)
@@ -175,7 +249,7 @@ def main():
         assert len(art[i]) == 43036 and art[i][:28] == base.header(i, 8)
     full, variants, count = base.fixtures(out, art, normal)
     for i in OLD_IDS:
-        shutil.copyfile(args.pack / f'bullet-{i}-8.hda', full / f'bullet-{i}-8.hda')
+        shutil.copyfile(current_head_path(args.pack, i), full / f'bullet-{i}-8.hda')
     for i in (225, 244, 226):
         shutil.copyfile(args.pack / f'protron-shadow-{i}-8.hda', full / f'protron-shadow-{i}-8.hda')
     (out / 'normal.bank8').write_bytes(normal)

@@ -28,6 +28,8 @@ def dependencies(root, selected):
     from current_sidekick_body_compatibility import (charge_input_paths, mf_input_paths,
                                                      CHARGE_MAPPING, MF_MAPPING)
     names = charge_input_paths(root) | mf_input_paths(root) | {CHARGE_MAPPING, MF_MAPPING}
+    from current_front_multi_compatibility import input_paths as front_multi_input_paths, MAPPING as FRONT_MULTI_MAPPING
+    names |= front_multi_input_paths(root) | {FRONT_MULTI_MAPPING}
     names |= {selected['master']['source_png'], selected['recipe']['path']}
     names |= {REGISTRY, BINDING, RUNTIME, 'packaging/runtime-assets-public63a89b3.json',
               'packaging/shop-static-approved-v1.json', 'packaging/current-hud-compatibility.json',
@@ -77,7 +79,7 @@ def derive(root, raw):
         binding['production_commit'] = None
         binding['source_sha256'] = source_inventory(work)
         binding['production_source_manifest_sha256'] = source_manifest_digest(binding['source_sha256'])
-        binding['scope'] = 'Exact current source binding including the separately reviewed Charge body extension and Plasma projectile payload-pin extraction. Build/package consistency only; historical receipts retain their original scope.'
+        binding['scope'] = 'Exact current source binding including the separately reviewed Charge body extension, Plasma projectile and Front Multi payload-pin extractions. Build/package consistency only; historical receipts retain their original scope.'
         outputs[BINDING] = (json.dumps(binding, indent=2, sort_keys=True) + '\n').encode()
         (work/BINDING).write_bytes(outputs[BINDING])
         subprocess.run([sys.executable, str(work/REBUILD), '--root', str(work), '--output', str(work/RUNTIME)],

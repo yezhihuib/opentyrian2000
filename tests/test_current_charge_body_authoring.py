@@ -75,10 +75,10 @@ class ChargeAuthoringTests(unittest.TestCase):
         mapping=c.charge_load(self.root)
         for kind in ('preview','debug'):
             target=self.base/('master-update-'+kind);report=craft.view(self.root,kind,target)
-            self.assertEqual((report['files'],len(report['current_overlays'])),(650,161))
+            self.assertEqual((report['files'],len(report['current_overlays'])),(650,169))
             frozen=self.root/'assets/hd/packs'/craft.BASES[kind]
             nonoverlays=[p for p in frozen.rglob('*') if p.is_file() and p.relative_to(frozen).as_posix() not in report['current_overlays']]
-            self.assertEqual(len(nonoverlays),489)
+            self.assertEqual(len(nonoverlays),481)
             for path in nonoverlays:self.assertEqual(path.read_bytes(),(target/path.relative_to(frozen)).read_bytes())
             for destination,row in mapping.items():self.assertEqual((target/Path(destination).name).read_bytes(),(self.root/row['source_path']).read_bytes())
         code,report=self.package();self.assertEqual((code,report['verified_files']),(0,1015))

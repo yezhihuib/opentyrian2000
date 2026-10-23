@@ -4,6 +4,8 @@ The original feature oracle and its old digests are not rebased. Each inverse
 first verifies the entire accepted current blob, then every finite hunk, then
 the old blob. The two generated payload headers and thirty-one fixed current asset outputs
 require a fresh exact current-generation proof before their finite projection.
+A third generated header and exactly nine Front Multi outputs are separately
+derived; its two-hunk inverse precedes Plasma. All historical ledgers stay fixed.
 All other source bytes and the historical asset inventory remain fixed.
 The reviewed render-boundary correction has its own exact two-file inverse;
 current source bindings keep its real bytes, while older oracles see their
@@ -25,6 +27,7 @@ PINS = {
  'storm-source.json': '188f57d604004af08ec191cc6bddf2b7d07ea65b1f60348073f7e0263f8783a1',
  'render-boundaries-source.json': '1bac028508e047cb862989d08ef7613b46652c6aea32c71d8bcbc6c78ff9ac30',
  'charge-body-source.json': 'c066932af771eb3a834c7becbeb59c6b0eac668d8da51df09d034d7247211e92',
+ 'front-multi-source.json': '6863a514933e5b97fea60de5a19e6a03381ee6617d2a76fe2425c65f5b6d023d',
  'plasma-projectile-source.json': '91f475377244bfe4c43f3281ba9399979556db6e037ab1db4d2e07194e96b2b0',
 }
 def sha(raw): return hashlib.sha256(raw).hexdigest()
@@ -48,6 +51,8 @@ def _project_source_once(label,name,raw):
 
 def project_source(label,name,raw):
  # Newest first; generated payload values never relax executable source bytes.
+ raw=_project_source_once('front-multi',name,raw)
+ if label=='front-multi':return raw
  raw=_project_source_once('plasma-projectile',name,raw)
  if label=='plasma-projectile':return raw
  raw=_project_source_once('charge-body',name,raw)
@@ -57,7 +62,7 @@ def project_source(label,name,raw):
  return _project_source_once(label,name,raw)
 
 def corrected_source_paths():
- return sorted(set(load('plasma-projectile-source.json')['files'])|set(load('charge-body-source.json')['files'])|set(load('render-boundaries-source.json')['files']))
+ return sorted(set(load('front-multi-source.json')['files'])|set(load('plasma-projectile-source.json')['files'])|set(load('charge-body-source.json')['files'])|set(load('render-boundaries-source.json')['files']))
 
 PINS['p9-stage-catalog.json']='565303b7f5b4f2cf726214a61e2f95148f4ed0ba816a81939ad6bc4c2b62d4d3'
 PINS['p9-assets.json']='1b83129e300efeb77fe0e143882a456b91e6083817fb80f442ea6d9740513ff7'
@@ -104,15 +109,19 @@ def verified_sidekick_current(root=ROOT):
  # current; coherent image bytes alone cannot bless a stale package plan.
  from verify_current_production import verify
  binding_raw=builder.read(root,builder.BINDING);binding=json.loads(binding_raw)
- assert verify(root,binding)==253,'unexpected current production source scope'
+ assert verify(root,binding)==254,'unexpected current production source scope'
  expected_sources=dict(load('current-source-inventory.json')['files'])
  expected_sources[SIDEKICK_HEADER]=sha(header);expected_sources.update(PRODUCTION_NON_CODE)
  expected_sources[PLASMA_HEADER]=verified_plasma_projectile_current(root)['header_sha256']
+ # Preserve the existing non-target-source authority rejection before the
+ # Front proof's runtime-binding check. Its actual header is derived below.
+ expected_sources[FRONT_MULTI_HEADER]=sha(builder.read(root,FRONT_MULTI_HEADER))
  for name in corrected_source_paths():
   raw=builder.read(root,name)
   assert sha(project_source('render-boundaries',name,raw))==expected_sources[name],('reviewed correction historical source mismatch',name)
   expected_sources[name]=sha(raw)
  assert binding['source_sha256']==expected_sources,'unapproved non-target production source binding'
+ assert expected_sources[FRONT_MULTI_HEADER]==verified_front_multi_current(root)['header_sha256'],'unverified Front Multi production header'
  runtime=json.loads(builder.read(root,builder.RUNTIME));runtime_rows={r['destination']:r for r in runtime['files']}
  assert len(runtime_rows)==len(runtime['files'])==1015,'unexpected current runtime destination scope'
  def blob_row(source,destination,group,revision,data):
@@ -186,6 +195,72 @@ def verified_plasma_projectile_current(root=ROOT):
  assert (root/PLASMA_HEADER).read_bytes()==header,'current Plasma projectile/generated-header mismatch'
  assert len(outputs)==7,'unapproved Plasma projectile asset scope'
  return dict(assets=outputs,header_sha256=sha(header))
+
+FRONT_MULTI_SELECTION='assets/hd/authoring/front-multi-current.json'
+FRONT_MULTI_ROOT='assets/hd/current-compat/front-multi'
+FRONT_MULTI_HEADER='src/hd_front_multi_current.h'
+FRONT_MULTI_MAPPING='packaging/current-front-multi-compatibility.json'
+FRONT_MULTI_IDS=(80121,80122,80163,80164,80201,80202,80279,80280)
+FRONT_MULTI_NAMES=('bullet-121-8.hda','bullet-122-8.hda','bullet-163-8.hda','bullet-164-8.hda','bullet-201-8.hda','bullet-202-8.hda','bullet-279-8.hda','bullet-280-8.hda')
+
+def verified_front_multi_current(root=ROOT):
+ """Independently decode eight selected sources, then admit exactly nine assets.
+
+ No historical master, source image or transport is an exemption. Full actual
+ source bytes are checked separately by verified_sidekick_current and
+ validate_current_sources; this proof also binds its generated header and
+ current runtime manifest to the production binding, rather than hashes alone.
+ """
+ import io,struct
+ from PIL import Image
+ scripts=str(ROOT/'scripts')
+ if scripts not in sys.path:sys.path.insert(0,scripts)
+ import current_front_multi_compatibility as compat
+ assert compat.IDS==FRONT_MULTI_IDS and compat.SELECTION==FRONT_MULTI_SELECTION
+ assert compat.ROOT==FRONT_MULTI_ROOT and compat.HEADER==FRONT_MULTI_HEADER and compat.MAPPING==FRONT_MULTI_MAPPING
+ loaded=compat.load(root)
+ raw=compat.read(root,FRONT_MULTI_SELECTION);selected=json.loads(raw)
+ assert set(selected)=={'schema','version','resources'} and selected['schema']=='opentyrian-current-front-multi-authoring-v1','unapproved Front Multi selection contract'
+ inputs=compat.input_paths(root)
+ assert len(inputs)==9 and {p for p in inputs if p.startswith('assets/')}=={FRONT_MULTI_SELECTION},'unapproved Front Multi authoring input scope'
+ assert [r['identity'] for r in selected['resources']]==list(FRONT_MULTI_IDS),'unapproved Front Multi output order'
+ assert set(loaded)=={'assets/gameplay/'+name for name in FRONT_MULTI_NAMES},'unapproved Front Multi consumers'
+ outputs={FRONT_MULTI_SELECTION:{'sha256':sha(raw),'mode':'100644'}};rows=[];pins={};sources={}
+ runtime=json.loads(compat.read(root,'packaging/runtime-assets-v1.json'));runtime_rows={r['destination']:r for r in runtime['files']}
+ assert len(runtime_rows)==len(runtime['files'])==1015,'unexpected current runtime destination scope'
+ for identity,name,record in zip(FRONT_MULTI_IDS,FRONT_MULTI_NAMES,selected['resources']):
+  assert set(record)=={'identity','source_png','source_sha256'} and type(record['identity']) is int,'unapproved Front Multi resource fields'
+  png=compat.read(root,record['source_png']);assert sha(png)==record['source_sha256'],'current Front Multi PNG hash mismatch'
+  with Image.open(io.BytesIO(png)) as image:
+   assert image.format=='PNG' and image.mode=='RGBA' and image.size==(96,112) and getattr(image,'n_frames',1)==1,'current Front Multi PNG geometry mismatch'
+   payload=image.tobytes();blob=struct.pack('<4s6I',b'HDR1',identity,8,12,14,0,0)+payload
+  source=FRONT_MULTI_ROOT+'/'+name;destination='assets/gameplay/'+name
+  assert compat.read(root,source)==blob,('current Front Multi PNG/HDA mismatch',identity)
+  row=dict(identity=identity,source_path=source,destination=destination,sha256=sha(blob))
+  assert loaded[destination]==row,('current Front Multi compatibility mismatch',destination)
+  rows.append(row);sources[record['source_png']]=record['source_sha256']
+  value=14695981039346656037
+  for byte in payload:value=((value^byte)*1099511628211)&0xffffffffffffffff
+  pins[identity]=f'{value:016x}'
+  oid=hashlib.sha1(b'blob '+str(len(blob)).encode()+b'\0'+blob).hexdigest()
+  expected=dict(source_path=source,destination=destination,group='gameplay',revision='current-single-source-front-multi',bytes=len(blob),git_blob=oid,sha256=sha(blob))
+  assert runtime_rows.get(destination)==expected,('stale current Front Multi runtime body',destination)
+  outputs[source]={'sha256':sha(blob),'mode':'100644'}
+ expected=dict(schema='opentyrian-current-front-multi-compatibility-v1',selection=FRONT_MULTI_SELECTION,version=selected['version'],files=rows)
+ assert compat.read(root,FRONT_MULTI_MAPPING)==(json.dumps(expected,indent=2)+'\n').encode(),'current Front Multi selection/mapping mismatch'
+ header=compat.payload_header(pins)
+ assert compat.read(root,FRONT_MULTI_HEADER)==header,'current Front Multi/generated-header mismatch'
+ binding_raw=compat.read(root,'packaging/current-production-validation.json');binding=json.loads(binding_raw)
+ from verify_current_production import source_manifest_digest
+ assert len(binding['source_sha256'])==254 and binding['source_sha256'].get(FRONT_MULTI_HEADER)==sha(header),'stale Front Multi production header binding'
+ assert binding['source_sha256'].get('src/render_mirror.c')==load('front-multi-source.json')['files']['src/render_mirror.c']['current_sha256'],'stale Front Multi renderer binding'
+ assert binding['production_source_manifest_sha256']==source_manifest_digest(binding['source_sha256']),'stale Front Multi source manifest digest'
+ oid=hashlib.sha1(b'blob '+str(len(binding_raw)).encode()+b'\0'+binding_raw).hexdigest()
+ expected=dict(source_path='packaging/current-production-validation.json',destination='CURRENT-PRODUCTION-VALIDATION.json',group='current-production-validation',revision='reconstructed-local-unpublished',bytes=len(binding_raw),git_blob=oid,sha256=sha(binding_raw))
+ assert runtime_rows.get('CURRENT-PRODUCTION-VALIDATION.json')==expected,'stale Front Multi runtime source binding'
+ assert runtime['source_revision']['current_production_source_manifest_sha256']==binding['production_source_manifest_sha256'],'stale Front Multi runtime source digest'
+ assert len(outputs)==9 and len(sources)==8,'unapproved Front Multi asset scope'
+ return dict(assets=outputs,header_sha256=sha(header),source_pngs=sources)
 
 CRAFT267_SELECTION='assets/hd/authoring/craft267-current.json'
 CRAFT267_CANONICAL='assets/hd/current-compat/craft267/enemy-newsh2-267-8.hda'
@@ -398,6 +473,11 @@ Retired paths are explicitly absent, never a prefix/wildcard exclusion.
 def project_p9_inventory(current,root=ROOT):
  current=copy.deepcopy(current)
  ledger=load('p9-assets.json')
+ front_multi=verified_front_multi_current(root)['assets']
+ assert set(front_multi)=={FRONT_MULTI_SELECTION}|{FRONT_MULTI_ROOT+'/'+name for name in FRONT_MULTI_NAMES} and len(front_multi)==9,'unapproved Front Multi output scope'
+ for name,row in front_multi.items():
+  assert row['mode']=='100644' and current.get(name)==row,('unverified Front Multi current output',name)
+  del current[name]
  plasma=verified_plasma_projectile_current(root)['assets']
  assert set(plasma)=={PLASMA_SELECTION}|{PLASMA_ROOT+'/'+name for name in PLASMA_NAMES} and len(plasma)==7,'unapproved Plasma projectile output scope'
  for name,row in plasma.items():
@@ -440,15 +520,16 @@ def validate_current_sources(root=ROOT):
  assert not any(p.is_symlink() for p in (root/'src').rglob('*')),'source symlink rejected'
  actual={p.relative_to(root).as_posix():sha(p.read_bytes()) for p in (root/'src').rglob('*') if p.is_file() and p.suffix in ledger['extensions']}
  expected=load('current-source-inventory.json')['files']
- assert set(actual)==set(expected)|{PLASMA_HEADER},'unapproved current source paths'
+ assert set(actual)==set(expected)|{PLASMA_HEADER,FRONT_MULTI_HEADER},'unapproved current source paths'
  projected=dict(actual)
  for name in corrected_source_paths():
   projected[name]=sha(project_source('render-boundaries',name,(root/name).read_bytes()))
- assert {p:h for p,h in projected.items() if p not in (SIDEKICK_HEADER,PLASMA_HEADER)}=={p:h for p,h in expected.items() if p not in (SIDEKICK_HEADER,PLASMA_HEADER)},'unapproved non-target source bytes'
- # Keep every source path. Only the two named generated headers are derived
+ assert {p:h for p,h in projected.items() if p not in (SIDEKICK_HEADER,PLASMA_HEADER,FRONT_MULTI_HEADER)}=={p:h for p,h in expected.items() if p not in (SIDEKICK_HEADER,PLASMA_HEADER,FRONT_MULTI_HEADER)},'unapproved non-target source bytes'
+ # Keep every source path. Only the three named generated headers are derived
  # from their exact current proofs; executable bytes use the pinned inverse.
  expected=dict(expected);expected[SIDEKICK_HEADER]=verified_sidekick_current(root)['header_sha256']
  expected[PLASMA_HEADER]=verified_plasma_projectile_current(root)['header_sha256']
+ expected[FRONT_MULTI_HEADER]=verified_front_multi_current(root)['header_sha256']
  assert projected==expected,'unapproved current source inventory (added, removed or modified source)'
 
 def validate_source_inventory(actual):

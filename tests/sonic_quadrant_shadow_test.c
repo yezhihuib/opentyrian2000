@@ -44,7 +44,10 @@ static unsigned draw_calls,original_calls,end_calls,probe_calls,file_opens,alloc
 static unsigned geometry_cases,indexed_cases,gate_cases,source_cases,resource_cases,begin_cases,pixel_cases,classic_cases,old_pin_cases,later_write_cases;
 static uint64_t rgb_checked,indexed_checked,zero_samples,full_samples,partial_samples;
 static bool last_mirrored;
-#if defined(TEN_WEAPON_SHADOW_BATCH)
+#if defined(FRONT_MULTI_CURRENT_BATCH)
+static const unsigned ids[8]={121,122,163,164,201,202,279,280};
+#define MODE_FAULT_START 3
+#elif defined(TEN_WEAPON_SHADOW_BATCH)
 static const unsigned ids[10]={31,32,33,252,253,254,214,215,216,217};
 #elif defined(ENERGY_SHADOW_BATCH)
 static const unsigned ids[18]={6,44,73,63,82,16,54,130,131,149,150,223,224,242,243,143,144,27};
@@ -55,6 +58,9 @@ static const unsigned ids[4]={105,106,124,125};
 static const unsigned old_ids[35]={67,70,121,122,163,164,201,202,279,280,225,244,226,105,106,124,125,6,44,73,63,82,16,54,130,131,149,150,223,224,242,243,143,144,27};
 #else
 static const unsigned old_ids[13]={67,70,121,122,163,164,201,202,279,280,225,244,226};
+#endif
+#ifndef MODE_FAULT_START
+#define MODE_FAULT_START 0
 #endif
 static Uint8 references[COUNT(ids)][336];static const char *full_root;
 static Asset *rear_p11_shadow_current(const VulcanShadowCall*v,SDL_Surface*s,int x,int y,Sprite2_array b,unsigned i){(void)v;(void)s;(void)x;(void)y;(void)b;(void)i;assert(0);return NULL;}
@@ -80,6 +86,34 @@ static void font_before_effect(SDL_Rect r){assert(r.w==12&&r.h==14);font_effects
 static void restore_classic_rect(SDL_Rect r){(void)r;assert(!"blend restoration outside this shadow test");}
 static Asset *talon_frame(unsigned i){(void)i;assert(0);return NULL;}
 static bool draw_asset(int x,int y,Asset*a,int style,const SDL_Rect*r){(void)x;(void)y;assert(a&&a->valid&&!r);if(style==MIRROR_SHADOW)return false;draw_calls++;return true;}
+/* Explicit collaborators for the current renderer, not reconstructed global
+ * art/HUD behavior. Those independent routes remain disabled in this bounded
+ * selected-pack test. A selector reached despite the empty global root fails. */
+static const char global_asset_directory[1]="";
+static const bool shared_hud_frame=false;
+#define font_final_pixel(...) ((void)0)
+#define common_pause_pixel(...) ((void)0)
+#define asteroid1_talon_blend_begin(...) assert(!asteroid_hd_enabled)
+#define asteroid1_talon_blend_end() assert(!asteroid_hd_enabled)
+#define DISABLED_GLOBAL_FAMILY(name) \
+ static const bool global_##name##_frame=false; \
+ static bool global_##name##_pixel(int x,int y,Uint8 before,Uint8 after,int style) \
+ { (void)x;(void)y;(void)before;(void)after;(void)style;assert(!global_asset_directory[0]);return false;} \
+ static void global_##name##_final_pixel(SDL_Surface *surface,Uint8 *address) \
+ { (void)surface;(void)address;assert(!global_asset_directory[0]);} \
+ static void global_##name##_end(void) {assert(!global_asset_directory[0]);} \
+ static bool global_##name##_is_index(unsigned index) {(void)index;assert(!"disabled global selector entered");return false;}
+DISABLED_GLOBAL_FAMILY(talon)
+DISABLED_GLOBAL_FAMILY(shield)
+DISABLED_GLOBAL_FAMILY(pulse)
+DISABLED_GLOBAL_FAMILY(hitflare)
+DISABLED_GLOBAL_FAMILY(smoke)
+DISABLED_GLOBAL_FAMILY(green)
+DISABLED_GLOBAL_FAMILY(small_explosion)
+DISABLED_GLOBAL_FAMILY(cash25)
+DISABLED_GLOBAL_FAMILY(rotor)
+DISABLED_GLOBAL_FAMILY(vulcan)
+#undef DISABLED_GLOBAL_FAMILY
 #include "functions.inc"
 static Uint16 SDL_SwapLE16(Uint16 v){Uint8 b[2];memcpy(b,&v,2);return (Uint16)(b[0]|b[1]<<8);}
 #define asset_debug_effect(...) ((void)0)
@@ -141,7 +175,7 @@ static void wrapper_case(unsigned id,int x,int y,int pitch,int underlay,bool acc
  assert(wi==write_count);indexed_checked+=(size_t)pitch*200;indexed_cases++;
 }
 static void geometry(void){for(unsigned k=0;k<COUNT(ids);k++)for(int pitch=320;pitch<=328;pitch+=8)for(int under=0;under<3;under++)for(int warm=0;warm<2;warm++){
-#if defined(ENERGY_SHADOW_BATCH) || defined(TEN_WEAPON_SHADOW_BATCH)
+#if defined(ENERGY_SHADOW_BATCH) || defined(TEN_WEAPON_SHADOW_BATCH) || defined(FRONT_MULTI_CURRENT_BATCH)
  /* Pairwise representative coordinates, plus every boundary and all IDs.
   * Avoid multiplying all309x/213y positions by all finite authored resources. */
  const int xs[]={0,1,94,153,307,308},ys[]={-13,-12,-1,0,73,186,187,198,199};
@@ -164,7 +198,10 @@ static void no_cache(unsigned id,SDL_Surface*s,int x,int y,Sprite2_array bank){A
 #endif
  assert(!vulcan_shadow.live&&file_opens==f&&allocations==a&&!memcmp(before,assets,sizeof(assets)));gate_cases++;
 }
-static void gates(void){for(unsigned k=0;k<COUNT(ids);k++)for(int warm=0;warm<2;warm++)for(unsigned mode=1;mode<8;mode++){scene(94,73,1,320);clear_assets();if(warm)assert(get_asset(spriteSheet8,ids[k],ENTITY_TILE));flags(mode);no_cache(ids[k],&screen,94,73,spriteSheet8);}
+static void gates(void){
+#ifndef FRONT_MULTI_CURRENT_BATCH
+ for(unsigned k=0;k<COUNT(ids);k++)for(int warm=0;warm<2;warm++)for(unsigned mode=1;mode<8;mode++){scene(94,73,1,320);clear_assets();if(warm)assert(get_asset(spriteSheet8,ids[k],ENTITY_TILE));flags(mode);no_cache(ids[k],&screen,94,73,spriteSheet8);}
+#endif
  for(unsigned k=0;k<COUNT(ids);k++)for(int warm=0;warm<2;warm++)for(unsigned g=0;g<37;g++){scene(94,73,1,320);clear_assets();if(warm)assert(get_asset(spriteSheet8,ids[k],ENTITY_TILE));SDL_Surface alt=screen,*s=&screen;Sprite2_array b=spriteSheet8;int x=94,y=73;
   switch(g){case 0:game_probe_density=0;break;case 1:game_probe_density=1;break;case 2:game_probe_density=2;break;case 3:game_probe_density=4;break;case 4:game_probe_density=16;break;case 5:game_probe_missing=true;break;case 6:game_probe_invalid=true;break;case 7:game_probe_original_reference=true;break;case 8:game_probe_assets=NULL;break;case 9:xmas=true;break;case 10:active=false;break;case 11:reject_reason="existing-reject";break;case 12:s=&alt;break;case 13:s=NULL;break;case 14:screen.pixels=NULL;break;case 15:screen.w--;break;case 16:screen.h--;break;case 17:screen.pitch=319;break;case 18:screen.format=NULL;break;case 19:format.BitsPerPixel=32;break;case 20:format.BytesPerPixel=4;break;case 21:b.data=NULL;break;case 22:b.data++;break;case 23:b.size--;break;case 24:x=-1;break;case 25:x=309;break;case 26:y=-14;break;case 27:y=200;break;case 28:canvas=NULL;break;case 29:hd.w--;break;case 30:hd.h--;break;case 31:VGAScreen=&alt;break;case 32:game_screen=&alt;break;case 33:game_probe_density=-8;break;case 34:b.size=0;break;case 35:b.size=1;break;case 36:region_count=COUNT(regions);break;}
   if(g==36){Asset before[COUNT(assets)];memcpy(before,assets,sizeof(assets));assert(!draw_vulcan_shadow(s,x,y,b,ids[k])&&!vulcan_shadow.live);if(warm)assert(!memcmp(before,assets,sizeof(assets)));gate_cases++;}else no_cache(ids[k],s,x,y,b);
@@ -188,13 +225,13 @@ static void resource_fixtures(const char*root){char path[2048],name[128];snprint
  while(fscanf(f,"%127s %u %d %d %d %d",name,&id,&ok8,&d8,&ok4,&d4)==6){snprintf(path,sizeof(path),"%s/%s",root,name);for(unsigned warm=0;warm<2;warm++){scene(94,73,1,320);clear_assets();game_probe_assets=path;if(warm)(void)get_asset(spriteSheet8,id,ENTITY_TILE);bool expected8=ok8&&d8==8;unsigned d=draws;bool got=render_mirror_entity(&screen,94,73,spriteSheet8,id,MIRROR_SHADOW,ENTITY_TILE);assert(got==expected8);production_blit_sprite2_darken(&screen,94,73,spriteSheet8,id);render_mirror_entity_end();assert(!reject_reason&&!vulcan_shadow.live&&draws==d+(unsigned)expected8);oracle_shadow(id,94,73,expected8);check_scene(94,73);resource_cases++;}}
  assert(feof(f)&&!fclose(f));defaults();clear_assets();}
 static uint64_t canvas_stamp(void){return vulcan_shadow_stamp(hd.pixels,2560u*1600*4);}
-static void begin_faults(void){Uint8*normal=spriteSheet8.data;size_t ns=spriteSheet8.size;for(unsigned k=0;k<COUNT(ids);k++)for(unsigned g=0;g<34;g++){scene(94,73,1,320);assert(draw_vulcan_shadow(&screen,94,73,spriteSheet8,ids[k]));Asset*a=&assets[vulcan_shadow_pins[vulcan_shadow_member(ids[k])].slot],save=*a;int sk=vulcan_shadow_member(ids[k]);char path[1024];memcpy(path,vulcan_shadow_resource[sk].path,sizeof(path));Uint8 rgba=a->rgba[0];SDL_Surface alt=screen,*s=&screen;Sprite2_array bank=spriteSheet8;SDL_Surface hd_save=hd;int x=94,y=73;unsigned id=ids[k];Uint8*sourcebyte=NULL,sourcevalue=0;unsigned d=draws;uint64_t stamp=canvas_stamp();
+static void begin_faults(void){Uint8*normal=spriteSheet8.data;size_t ns=spriteSheet8.size;for(unsigned k=0;k<COUNT(ids);k++)for(unsigned g=MODE_FAULT_START;g<34;g++){scene(94,73,1,320);assert(draw_vulcan_shadow(&screen,94,73,spriteSheet8,ids[k]));Asset*a=&assets[vulcan_shadow_pins[vulcan_shadow_member(ids[k])].slot],save=*a;int sk=vulcan_shadow_member(ids[k]);char path[1024];memcpy(path,vulcan_shadow_resource[sk].path,sizeof(path));Uint8 rgba=a->rgba[0];SDL_Surface alt=screen,*s=&screen;Sprite2_array bank=spriteSheet8;SDL_Surface hd_save=hd;int x=94,y=73;unsigned id=ids[k];Uint8*sourcebyte=NULL,sourcevalue=0;unsigned d=draws;uint64_t stamp=canvas_stamp();
   switch(g){case 0:twoPlayerMode=true;break;case 1:galagaMode=true;break;case 2:twoPlayerLinked=true;break;case 3:mirror_logic_tick++;break;case 4:s=&alt;break;case 5:screen.pixels=indexed+1;break;case 6:screen.format=&canvas_format;break;case 7:screen.pitch=328;break;case 8:screen.w--;break;case 9:screen.h--;break;case 10:bank.data++;break;case 11:bank.size--;break;case 12:spriteSheet8.data++;break;case 13:spriteSheet8.size--;break;case 14:x++;break;case 15:y++;break;case 16:id=ids[(k+1)%COUNT(ids)];break;case 17:game_probe_density=4;break;case 18:game_probe_missing=true;break;case 19:game_probe_invalid=true;break;case 20:game_probe_original_reference=true;break;case 21:game_probe_assets=NULL;break;case 22:game_probe_assets="different-root";break;case 23:xmas=true;break;case 24:active=false;break;case 25:reject_reason="prior";break;case 26:a->rgba[0]^=1;break;case 27:a->w--;break;case 28:vulcan_shadow_resource[sk].path[0]^=1;break;case 29:expected[73*320+94]^=1;break;case 30:region_count=COUNT(regions);break;case 31:hd.pixels=(Uint8*)hd.pixels+4;break;case 32:hd.pitch+=4;break;case 33:{size_t pos=normal[2*(id-1)]|((size_t)normal[2*(id-1)+1]<<8);while(!(normal[pos]>>4))pos++;sourcebyte=normal+pos+1;sourcevalue=*sourcebyte;*sourcebyte^=1;break;}}
   render_mirror_shadow_begin(s,x,y,bank,id);assert(!vulcan_shadow.live&&draws==d);hd=hd_save;assert(canvas_stamp()==stamp);*a=save;a->rgba[0]=rgba;memcpy(vulcan_shadow_resource[sk].path,path,sizeof(path));if(sourcebyte)*sourcebyte=sourcevalue;spriteSheet8=(Sprite2_array){ns,normal};begin_cases++;defaults();
  }
  /* A second begin after visual output has started rejects the frame. */
  scene(94,73,1,320);assert(draw_vulcan_shadow(&screen,94,73,spriteSheet8,ids[0]));render_mirror_shadow_begin(&screen,94,73,spriteSheet8,ids[0]);render_mirror_shadow_begin(&screen,94,73,spriteSheet8,ids[0]);assert(reject_reason&&!strcmp(reject_reason,"vulcan-shadow-command-mismatch"));begin_cases++;defaults();clear_assets();}
-static void pixel_faults(void){Uint8*normal=spriteSheet8.data;size_t ns=spriteSheet8.size;for(unsigned k=0;k<COUNT(ids);k++)for(unsigned g=0;g<25;g++){scene(94,73,2,320);assert(draw_vulcan_shadow(&screen,94,73,spriteSheet8,ids[k]));render_mirror_shadow_begin(&screen,94,73,spriteSheet8,ids[k]);assert(vulcan_shadow.entered);unsigned cell=0;while(!references[k][168+cell])cell++;int x=94+(int)(cell%12),y=73+(int)(cell/12);Uint8*p=indexed+y*320+x;Uint8 before=*p;int style=MIRROR_SHADOW;SDL_Surface alt=screen,*s=&screen;SDL_Surface hd_save=hd;uint64_t stamp=canvas_stamp();
+static void pixel_faults(void){Uint8*normal=spriteSheet8.data;size_t ns=spriteSheet8.size;for(unsigned k=0;k<COUNT(ids);k++)for(unsigned g=MODE_FAULT_START;g<25;g++){scene(94,73,2,320);assert(draw_vulcan_shadow(&screen,94,73,spriteSheet8,ids[k]));render_mirror_shadow_begin(&screen,94,73,spriteSheet8,ids[k]);assert(vulcan_shadow.entered);unsigned cell=0;while(!references[k][168+cell])cell++;int x=94+(int)(cell%12),y=73+(int)(cell/12);Uint8*p=indexed+y*320+x;Uint8 before=*p;int style=MIRROR_SHADOW;SDL_Surface alt=screen,*s=&screen;SDL_Surface hd_save=hd;uint64_t stamp=canvas_stamp();
  switch(g){case 0:twoPlayerMode=true;break;case 1:galagaMode=true;break;case 2:twoPlayerLinked=true;break;case 3:mirror_logic_tick++;break;case 4:s=&alt;break;case 5:screen.pixels=indexed+1;break;case 6:screen.format=&canvas_format;break;case 7:screen.pitch=328;break;case 8:screen.w--;break;case 9:screen.h--;break;case 10:spriteSheet8.data++;break;case 11:spriteSheet8.size--;break;case 12:game_probe_density=4;break;case 13:game_probe_missing=true;break;case 14:game_probe_invalid=true;break;case 15:game_probe_original_reference=true;break;case 16:xmas=true;break;case 17:style=MIRROR_NORMAL;break;case 18:hd.pixels=(Uint8*)hd.pixels+4;break;case 19:hd.pitch+=4;break;case 20:expected[y*320+x]^=1;break;case 21:vulcan_shadow.coverage[cell]=0;break;case 22:p=indexed+y*320+93;break;case 23:VGAScreen=&alt;break;case 24:format.BitsPerPixel=32;break;}
  *p=(Uint8)((*p&240)|((*p&15)/2));bool consumed=vulcan_shadow_pixel(s,(int)(p-indexed)%320,(int)(p-indexed)/320,g==20?expected[y*320+x]:before,*p,style);assert(consumed&&reject_reason&&!strcmp(reject_reason,"vulcan-shadow-write-mismatch")&&!vulcan_shadow.live);hd=hd_save;assert(canvas_stamp()==stamp);spriteSheet8=(Sprite2_array){ns,normal};pixel_cases++;defaults();
  }
@@ -220,9 +257,27 @@ static void later_writes(void){for(unsigned k=0;k<COUNT(ids);k++)for(int under=0
    for(unsigned sy=0;sy<8;sy++)for(unsigned sx=0;sx<8;sx++){unsigned n=(unsigned)(y*8+sy)*2560+x*8+sx;oracle[n]=palette_oracle(v);oracle_owner[n]=0;oracle_cloud[n]=0;oracle_green[n]=0;}oracle_selected[y*320+x]=0;
   }assert(wi==write_count&&!reject_reason&&!vulcan_shadow.live);check_scene(94,73);later_write_cases++;}
  }defaults();clear_assets();}
+#ifdef FRONT_MULTI_CURRENT_BATCH
+/* The original first thirteen shadows intentionally accept all three mode
+ * flags. Check those unchanged Front Multi scopes, including flags changing
+ * between preparation and the real indexed blitter's begin/pixel transaction. */
+static void front_multi_modes(void){
+ for(unsigned k=0;k<COUNT(ids);k++)for(unsigned mode=0;mode<8;mode++)for(unsigned warm=0;warm<2;warm++){
+  scene(94,73,2,320);if(!warm)clear_assets();flags(mode);
+  assert(draw_vulcan_shadow(&screen,94,73,spriteSheet8,ids[k]));flags(mode^7);
+  production_blit_sprite2_darken(&screen,94,73,spriteSheet8,ids[k]);
+  assert(!reject_reason&&!vulcan_shadow.live);oracle_shadow(ids[k],94,73,true);check_scene(94,73);old_pin_cases++;
+ }defaults();clear_assets();
+}
+#endif
 int main(int argc,char**argv){assert(argc==6);size_t ns,cs=0,rs;Uint8*normal=read_file(argv[1],&ns),*christmas=NULL;if(strcmp(argv[2],"-"))christmas=read_file(argv[2],&cs);spriteSheet8=(Sprite2_array){ns,normal};Uint8 tokens[3]={0};spriteSheet9=(Sprite2_array){1,tokens};spriteSheet12=(Sprite2_array){1,tokens+1};explosionSpriteSheet=(Sprite2_array){1,tokens+2};full_root=argv[3];Uint8*ref=read_file(argv[4],&rs);assert(rs==sizeof(references));memcpy(references,ref,rs);free(ref);
  size_t np=2560u*1600;hd.pixels=calloc(np,4);oracle=calloc(np,4);hd_owner=calloc(np,1);oracle_owner=calloc(np,1);cloud_owner=calloc(np,1);oracle_cloud=calloc(np,1);green_first=calloc(np,2);oracle_green=calloc(np,2);green_under_owner=calloc(np,1);oracle_selected=calloc(320u*200,1);assert(hd.pixels&&oracle&&hd_owner&&oracle_owner&&cloud_owner&&oracle_cloud&&green_first&&oracle_green&&green_under_owner&&oracle_selected);
  for(unsigned i=0;i<256;i++){unsigned low=i&15;rgb_palette[i]=((low*15)<<16)|((((i>>4)*11+low*7)&255)<<8)|(i%7?low*13:0);}
- defaults();gates();sources(normal,ns,christmas,cs);resource_mutations();resource_fixtures(argv[5]);begin_faults();pixel_faults();mid_command_modes();later_writes();if(!getenv("SONIC_SHADOW_FAULTS_ONLY")){geometry();coexistence();}
+ defaults();gates();sources(normal,ns,christmas,cs);resource_mutations();resource_fixtures(argv[5]);begin_faults();pixel_faults();
+#ifdef FRONT_MULTI_CURRENT_BATCH
+ front_multi_modes();later_writes();if(!getenv("SONIC_SHADOW_FAULTS_ONLY"))geometry();
+#else
+ mid_command_modes();later_writes();if(!getenv("SONIC_SHADOW_FAULTS_ONLY")){geometry();coexistence();}
+#endif
  clear_assets();free(normal);free(christmas);free(hd.pixels);free(oracle);free(hd_owner);free(oracle_owner);free(cloud_owner);free(oracle_cloud);free(green_first);free(oracle_green);free(green_under_owner);free(oracle_selected);
  printf("{\"status\":\"PASS\",\"genuine_production_compositor\":true,\"geometry_cases\":%u,\"indexed_cases\":%u,\"early_gate_rejections\":%u,\"source_cases\":%u,\"resource_cases\":%u,\"begin_identity_epoch_cases\":%u,\"pixel_epoch_and_mode_cases\":%u,\"later_ordered_write_cases\":%u,\"unchanged_classic_route_cases\":%u,\"previous_thirteen_positive_cases\":%u,\"rgb_samples_checked\":%llu,\"indexed_bytes_checked\":%llu,\"alpha_zero_samples\":%llu,\"alpha_full_samples\":%llu,\"alpha_partial_samples\":%llu,\"rng_preserved\":true,\"game_runs\":0}\n",geometry_cases,indexed_cases,gate_cases,source_cases,resource_cases,begin_cases,pixel_cases,later_write_cases,classic_cases,old_pin_cases,(unsigned long long)rgb_checked,(unsigned long long)indexed_checked,(unsigned long long)zero_samples,(unsigned long long)full_samples,(unsigned long long)partial_samples);return 0;}

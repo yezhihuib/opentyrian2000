@@ -70,7 +70,7 @@ def derive(root,raw):
         if (work/header).read_bytes()!=read(root,header):raise ValueError('Unrelated global pins changed')
         binding=json.loads(read(root,BINDING));binding['production_commit']=None
         binding['source_sha256']=source_inventory(work);binding['production_source_manifest_sha256']=source_manifest_digest(binding['source_sha256'])
-        binding['scope']='Exact current source binding including the separately reviewed Charge body extension and Plasma projectile payload-pin extraction. Build/package consistency only; historical receipts retain their original scope.'
+        binding['scope']='Exact current source binding including the separately reviewed Charge body extension, Plasma projectile and Front Multi payload-pin extractions. Build/package consistency only; historical receipts retain their original scope.'
         outputs[BINDING]=(json.dumps(binding,indent=2,sort_keys=True)+'\n').encode();(work/BINDING).write_bytes(outputs[BINDING])
         subprocess.run([sys.executable,str(work/REBUILD),'--root',str(work),'--output',str(work/RUNTIME)],check=True,stdout=subprocess.DEVNULL)
         outputs[RUNTIME]=(work/RUNTIME).read_bytes()

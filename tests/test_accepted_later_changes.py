@@ -21,7 +21,7 @@ class SourceBoundary(unittest.TestCase):
         self.assertEqual(ledger['files'][projection.SIDEKICK_HEADER],ledger['current_extensions'][projection.SIDEKICK_HEADER]['baseline_sha256'])
 
     def test_all_inverse_results_and_inside_outside_mutations(self):
-        for label in ('data','rear-p1','storm','render-boundaries','charge-body','plasma-projectile'):
+        for label in ('data','rear-p1','storm','render-boundaries','charge-body','plasma-projectile','front-multi'):
             for name,pin in projection.load(label+'-source.json')['files'].items():
                 with self.subTest(label=label,path=name):
                     raw=(projection.ROOT/name).read_bytes()
@@ -120,7 +120,7 @@ class ChargeSourceBoundary(unittest.TestCase):
         with patch.object(projection.subprocess,'check_output',side_effect=AssertionError('Git history forbidden')):
             with patch.object(projection,'_project_source_once',wraps=projection._project_source_once) as once:
                 old=projection.project_source('storm',name,raw)
-                self.assertEqual([call.args[0] for call in once.call_args_list],['plasma-projectile','charge-body','render-boundaries','storm'])
+                self.assertEqual([call.args[0] for call in once.call_args_list],['front-multi','plasma-projectile','charge-body','render-boundaries','storm'])
                 self.assertEqual(projection.sha(old),projection.load('storm-source.json')['files'][name]['previous_sha256'])
         intermediate=projection.project_source('charge-body',name,raw)
         with self.assertRaisesRegex(AssertionError,'not the accepted published current blob'):
@@ -408,6 +408,7 @@ class AssetBoundary(unittest.TestCase):
         self.assertEqual(ledger['current_inventory_sha256'],'3f819ca1f9ac2b9ef4de53cfe4fb948bc0d347bd0f1f7b539dbb7bfd2915ae34')
         self.assertEqual(len(ledger['asset_edits']),3259)
         current=copy.deepcopy(self.inventory)
+        for name in projection.verified_front_multi_current()['assets']:del current[name]
         for name in projection.verified_plasma_projectile_current()['assets']:del current[name]
         for name in projection.verified_mint_front_current()['assets']:del current[name]
         for name in projection.verified_charge_current()['assets']:del current[name]
@@ -420,6 +421,24 @@ class AssetBoundary(unittest.TestCase):
             if action=='delete':del mutant[old]
             else:mutant[old]['sha256']='0'*64
             with self.subTest(action=action),self.assertRaises(AssertionError):projection.project_p9_inventory(mutant)
+
+    def test_exact_nine_front_multi_outputs_no_historical_input_waiver(self):
+        proof=projection.verified_front_multi_current()['assets']
+        expected={projection.FRONT_MULTI_SELECTION}|{projection.FRONT_MULTI_ROOT+'/'+name for name in projection.FRONT_MULTI_NAMES}
+        self.assertEqual(set(proof),expected);self.assertEqual(len(proof),9)
+        self.assertFalse(set(proof)&set(projection.load('p9-assets.json')['verified_current_outputs']))
+        for name in proof:
+            for action in ('delete','hash','mode'):
+                mutant=copy.deepcopy(self.inventory)
+                if action=='delete':del mutant[name]
+                elif action=='hash':mutant[name]['sha256']='0'*64
+                else:mutant[name]['mode']='100755'
+                with self.subTest(path=name,action=action),self.assertRaisesRegex(AssertionError,'unverified Front Multi current output'):
+                    projection.project_p9_inventory(mutant)
+        extra=projection.FRONT_MULTI_ROOT+'/unapproved.hda'
+        mutant=copy.deepcopy(self.inventory);mutant[extra]={'sha256':'0'*64,'mode':'100644'}
+        with self.assertRaisesRegex(AssertionError,'unapproved current asset inventory'):
+            projection.project_p9_inventory(mutant)
 
     def test_exact_seven_plasma_outputs_no_historical_input_waiver(self):
         proof=projection.verified_plasma_projectile_current()['assets']
@@ -655,7 +674,7 @@ class CurrentGenerationBoundary(unittest.TestCase):
             binding=json.loads((self.root/builder.BINDING).read_bytes())
             binding['source_sha256']=production.source_inventory(self.root)
             binding['production_source_manifest_sha256']=production.source_manifest_digest(binding['source_sha256'])
-            self.assertEqual(len(binding['source_sha256']),253)
+            self.assertEqual(len(binding['source_sha256']),254)
             (self.root/builder.BINDING).write_bytes(builder.encoded(binding))
             with self.subTest(case=case),self.assertRaisesRegex(AssertionError,'non-target production source binding'):
                 projection.verified_sidekick_current(self.root)
@@ -731,6 +750,7 @@ class PlasmaProjectileSourceBoundary(unittest.TestCase):
         self.assertEqual(set(ledger['files']),{'src/render_mirror.c'})
         self.assertEqual(ledger['generated_header'],projection.PLASMA_HEADER)
         name='src/render_mirror.c';pin=ledger['files'][name];raw=(projection.ROOT/name).read_bytes()
+        raw=projection.project_source('front-multi',name,raw)
         self.assertEqual(projection.sha(raw),pin['current_sha256'])
         self.assertEqual(len(pin['hunks']),2)
         self.assertEqual(pin['hunks'][0]['before'],'')
@@ -742,13 +762,13 @@ class PlasmaProjectileSourceBoundary(unittest.TestCase):
         self.assertEqual(macros,[f'CURRENT_PLASMA_PROJECTILE_{i}_D{d}_PAYLOAD_FNV' for i,d in projection.PLASMA_PAIRS])
         for literal,macro in zip(literals,macros):after=after.replace(macro,literal,1)
         self.assertEqual(before,after)
-        old=projection.project_source('plasma-projectile',name,raw)
+        old=projection._project_source_once('plasma-projectile',name,raw)
         self.assertEqual(projection.sha(old),projection.load('charge-body-source.json')['files'][name]['current_sha256'])
         self.assertNotIn(projection.PLASMA_HEADER,projection.load('current-source-inventory.json')['files'])
         for hunk in pin['hunks']:
             lines=raw.splitlines(keepends=True);a,b=hunk['after_lines'];lines[a:b]=hunk['before'].encode().splitlines(keepends=True)
-            with self.assertRaises(AssertionError):projection.project_source('plasma-projectile',name,b''.join(lines))
-        with self.assertRaises(AssertionError):projection.project_source('plasma-projectile',name,raw+b'\n')
+            with self.assertRaises(AssertionError):projection._project_source_once('plasma-projectile',name,b''.join(lines))
+        with self.assertRaises(AssertionError):projection._project_source_once('plasma-projectile',name,raw+b'\n')
 
     def test_inverse_fixture_tampering_and_no_git_chain(self):
         from unittest.mock import patch

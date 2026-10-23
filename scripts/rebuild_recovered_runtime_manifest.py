@@ -77,6 +77,10 @@ def main():
     for destination,row in plasma_projectile_load(root).items():
         if destination in art_compat:raise ValueError('Plasma projectile compatibility collision')
         art_compat[destination]=dict(row,authoring_family='plasma-projectile')
+    from current_front_multi_compatibility import load as front_multi_load
+    for destination,row in front_multi_load(root).items():
+        if destination in art_compat:raise ValueError('Front Multi compatibility collision')
+        art_compat[destination]=dict(row,authoring_family='front-multi')
     hud_compat=current_hud_compatibility(root)
     def add(source,destination,group,exact=None):
         size,blob,sha=pins(root/source)

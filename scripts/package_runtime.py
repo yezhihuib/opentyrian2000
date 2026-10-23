@@ -303,6 +303,29 @@ def main(argv=None) -> int:
             if (row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or
                     row.get('group')!='gameplay' or row.get('revision')!='current-single-source-plasma-projectile'):
                 raise ValueError('Stale Plasma runtime selection')
+    # Front Multi only opts into exact8 current closure for default deployment
+    # or explicit current references. Frozen/custom bullet manifests still work
+    # standalone, without importing today's authoring module or its inputs.
+    front_multi_prefix = 'assets/hd/current-compat/front-multi/'
+    front_multi_names = {f'bullet-{identity}-8.hda' for identity in (121,122,163,164,201,202,279,280)}
+    front_multi_rows = [row for row in manifest['files'] if any(
+        Path(row[key]).name.casefold() in front_multi_names for key in ('destination','source_path')) or
+        row['source_path'].casefold().startswith(front_multi_prefix)]
+    front_multi_current = manifest_path.resolve() == (roots[0]/'packaging/runtime-assets-v1.json').resolve() or any(
+        row['source_path'].casefold().startswith(front_multi_prefix) or
+        (isinstance(row.get('revision'),str) and row['revision'].casefold() == 'current-single-source-front-multi')
+        for row in manifest['files'])
+    if front_multi_current:
+        from current_front_multi_compatibility import IDS, name as front_multi_name, load as front_multi_load
+        expected = {'assets/gameplay/'+front_multi_name(identity) for identity in IDS}
+        if len(front_multi_rows)!=8 or {row['destination'] for row in front_multi_rows}!=expected:
+            raise ValueError('Front Multi packaging requires exactly eight current consumers')
+        selected = front_multi_load(roots[0])
+        for row in front_multi_rows:
+            current = selected[row['destination']]
+            if (row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or
+                    row.get('group')!='gameplay' or row.get('revision')!='current-single-source-front-multi'):
+                raise ValueError('Stale Front Multi runtime selection')
     source_map = read_json(args.source_map) if args.source_map else {}
     verified, missing = [], []
     for row in manifest['files']:

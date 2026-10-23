@@ -273,7 +273,13 @@ def current_overlays(root):
     add(plasma.MAPPING, plasma.SELECTION, selected, plasma.load(root),
         {'assets/gameplay/' + plasma.name(i, d): blob for (i, d), blob in plasma_blobs.items()})
     if len(files) != 161:
-        raise ValueError('Expected exactly 161 current gameplay overlays')
+        raise ValueError('Expected exactly 161 pre-Front-Multi gameplay overlays')
+    import current_front_multi_compatibility as front_multi
+    selected, front_multi_blobs = front_multi.generate(root, read(root, front_multi.SELECTION))
+    add(front_multi.MAPPING, front_multi.SELECTION, selected, front_multi.load(root),
+        {'assets/gameplay/' + front_multi.name(identity): blob for identity, blob in front_multi_blobs.items()})
+    if len(files) != 169:
+        raise ValueError('Expected exactly 169 current gameplay overlays')
     return files
 
 
