@@ -1,0 +1,31 @@
+{
+  "schema": "opentyrian-reviewed-plasma-projectile-source-v1",
+  "integration_base": "b32bc14adedd761f98b71a2638ee6b73b1b9faf3",
+  "historical_source_inventory": "current-source-inventory.json",
+  "scope": "Exact render_mirror.c dedicated generated header include and six payload-only FNV literal substitutions. No admission, geometry, emission, blend, fallback, reopening or cache changes.",
+  "generated_header": "src/current_plasma_projectile_payload_pins.h",
+  "files": {
+    "src/render_mirror.c": {
+      "previous_sha256": "8071d2cd54a26d3064400fe4c7399809da41f6f15077c8d2d79e0847b1663b5f",
+      "current_sha256": "3dd046ceb4bb64467e6cfa6272d61c1a97576a836676fc6035081b30c7935961",
+      "hunks": [
+        {
+          "after_lines": [
+            15,
+            16
+          ],
+          "before": "",
+          "after": "#include \"current_plasma_projectile_payload_pins.h\"\n"
+        },
+        {
+          "after_lines": [
+            4488,
+            4491
+          ],
+          "before": "  {UINT64_C(0x12a2955008494fed),UINT64_C(0x4d5a9f3b5f003c01)},\n  {UINT64_C(0x9bd4dfcda912736a),UINT64_C(0x5217e5306678067b)},\n  {UINT64_C(0x4b1682fb4a565e4a),UINT64_C(0x32d73141dd44ee25)}};\n",
+          "after": "  {CURRENT_PLASMA_PROJECTILE_1300022_D4_PAYLOAD_FNV,CURRENT_PLASMA_PROJECTILE_1300022_D8_PAYLOAD_FNV},\n  {CURRENT_PLASMA_PROJECTILE_1300023_D4_PAYLOAD_FNV,CURRENT_PLASMA_PROJECTILE_1300023_D8_PAYLOAD_FNV},\n  {CURRENT_PLASMA_PROJECTILE_1300024_D4_PAYLOAD_FNV,CURRENT_PLASMA_PROJECTILE_1300024_D8_PAYLOAD_FNV}};\n"
+        }
+      ]
+    }
+  }
+}

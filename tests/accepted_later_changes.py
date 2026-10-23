@@ -2,7 +2,7 @@
 
 The original feature oracle and its old digests are not rebased. Each inverse
 first verifies the entire accepted current blob, then every finite hunk, then
-the old blob. The one generated sidekick header and twenty-four fixed current asset outputs
+the old blob. The two generated payload headers and thirty-one fixed current asset outputs
 require a fresh exact current-generation proof before their finite projection.
 All other source bytes and the historical asset inventory remain fixed.
 The reviewed render-boundary correction has its own exact two-file inverse;
@@ -12,6 +12,8 @@ inverse is applied exactly once before that correction. Its ten current asset
 paths have an independent master/recipe derivation proof, not a rebased P9 ledger.
 The five Mint/Front current paths have a separate four-source pixel proof; their
 existing historical transports and three independent Mint phases stay frozen.
+Plasma projectile adds one fixed generated header and seven derived asset paths,
+with a two-hunk exact source inverse before Charge; all old fixtures stay frozen.
 """
 from pathlib import Path
 import copy, hashlib, json, os, subprocess, sys
@@ -23,6 +25,7 @@ PINS = {
  'storm-source.json': '188f57d604004af08ec191cc6bddf2b7d07ea65b1f60348073f7e0263f8783a1',
  'render-boundaries-source.json': '1bac028508e047cb862989d08ef7613b46652c6aea32c71d8bcbc6c78ff9ac30',
  'charge-body-source.json': 'c066932af771eb3a834c7becbeb59c6b0eac668d8da51df09d034d7247211e92',
+ 'plasma-projectile-source.json': '91f475377244bfe4c43f3281ba9399979556db6e037ab1db4d2e07194e96b2b0',
 }
 def sha(raw): return hashlib.sha256(raw).hexdigest()
 def load(name):
@@ -44,7 +47,9 @@ def _project_source_once(label,name,raw):
  return restored
 
 def project_source(label,name,raw):
- # Newest first, with no recursive call that could undo Charge twice.
+ # Newest first; generated payload values never relax executable source bytes.
+ raw=_project_source_once('plasma-projectile',name,raw)
+ if label=='plasma-projectile':return raw
  raw=_project_source_once('charge-body',name,raw)
  if label=='charge-body':return raw
  raw=_project_source_once('render-boundaries',name,raw)
@@ -52,7 +57,7 @@ def project_source(label,name,raw):
  return _project_source_once(label,name,raw)
 
 def corrected_source_paths():
- return sorted(set(load('charge-body-source.json')['files'])|set(load('render-boundaries-source.json')['files']))
+ return sorted(set(load('plasma-projectile-source.json')['files'])|set(load('charge-body-source.json')['files'])|set(load('render-boundaries-source.json')['files']))
 
 PINS['p9-stage-catalog.json']='565303b7f5b4f2cf726214a61e2f95148f4ed0ba816a81939ad6bc4c2b62d4d3'
 PINS['p9-assets.json']='1b83129e300efeb77fe0e143882a456b91e6083817fb80f442ea6d9740513ff7'
@@ -99,9 +104,10 @@ def verified_sidekick_current(root=ROOT):
  # current; coherent image bytes alone cannot bless a stale package plan.
  from verify_current_production import verify
  binding_raw=builder.read(root,builder.BINDING);binding=json.loads(binding_raw)
- assert verify(root,binding)==252,'unexpected current production source scope'
+ assert verify(root,binding)==253,'unexpected current production source scope'
  expected_sources=dict(load('current-source-inventory.json')['files'])
  expected_sources[SIDEKICK_HEADER]=sha(header);expected_sources.update(PRODUCTION_NON_CODE)
+ expected_sources[PLASMA_HEADER]=verified_plasma_projectile_current(root)['header_sha256']
  for name in corrected_source_paths():
   raw=builder.read(root,name)
   assert sha(project_source('render-boundaries',name,raw))==expected_sources[name],('reviewed correction historical source mismatch',name)
@@ -119,6 +125,67 @@ def verified_sidekick_current(root=ROOT):
  assert runtime_rows.get('CURRENT-PRODUCTION-VALIDATION.json')==blob_row(builder.BINDING,'CURRENT-PRODUCTION-VALIDATION.json','current-production-validation','reconstructed-local-unpublished',binding_raw),'stale current runtime source binding'
  assert runtime['source_revision']['current_production_source_manifest_sha256']==binding['production_source_manifest_sha256'],'stale current runtime source digest'
  return dict(assets=outputs,header_sha256=sha(header),source_pngs=sources)
+
+PLASMA_SELECTION='assets/hd/authoring/plasma-projectile-current.json'
+PLASMA_ROOT='assets/hd/current-compat/plasma-projectile'
+PLASMA_HEADER='src/current_plasma_projectile_payload_pins.h'
+PLASMA_MAPPING='packaging/current-plasma-projectile-compatibility.json'
+PLASMA_PAIRS=tuple((identity,density) for identity in (1300022,1300023,1300024) for density in (4,8))
+PLASMA_NAMES=tuple('option-plasma-projectile-%d-%d.hda'%(identity-1300000,density) for identity,density in PLASMA_PAIRS)
+
+def verified_plasma_projectile_current(root=ROOT):
+ """Derive six fixed transports and payload pins from one master/recipe.
+
+ Only the selection plus six HDA paths are projected from the old asset census.
+ The historical master and transports remain protected by the old immutable
+ inventory, while the current authoring master must live outside assets.
+ """
+ import io,struct
+ from PIL import Image
+ scripts=str(ROOT/'scripts')
+ if scripts not in sys.path:sys.path.insert(0,scripts)
+ import current_plasma_projectile_compatibility as compat
+ assert compat.PAIRS==PLASMA_PAIRS and compat.SELECTION==PLASMA_SELECTION
+ assert compat.ROOT==PLASMA_ROOT and compat.HEADER==PLASMA_HEADER and compat.MAPPING==PLASMA_MAPPING
+ loaded=compat.load(root)
+ raw=(root/PLASMA_SELECTION).read_bytes();selected=json.loads(raw)
+ assert set(selected)=={'schema','version','master','recipe','resources'},'unapproved Plasma projectile selection fields'
+ assert selected['schema']=='opentyrian-current-plasma-projectile-authoring-v1','unapproved Plasma projectile schema'
+ inputs=compat.input_paths(root)
+ assert len(inputs)==9 and {p for p in inputs if p.startswith('assets/')}=={PLASMA_SELECTION},'unapproved Plasma projectile authoring input scope'
+ expected_destinations={'assets/gameplay/'+name for name in PLASMA_NAMES}
+ assert set(loaded)==expected_destinations,'unapproved Plasma projectile consumers'
+ assert [(r['identity'],r['density']) for r in selected['resources']]==list(PLASMA_PAIRS),'unapproved Plasma projectile output order'
+ outputs={PLASMA_SELECTION:{'sha256':sha(raw),'mode':'100644'}};rows=[];pins={}
+ runtime=json.loads((root/'packaging/runtime-assets-v1.json').read_bytes())
+ runtime_rows={r['destination']:r for r in runtime['files']}
+ assert len(runtime_rows)==len(runtime['files'])==1015,'unexpected current runtime destination scope'
+ for (identity,density),name,record in zip(PLASMA_PAIRS,PLASMA_NAMES,selected['resources']):
+  assert set(record)=={'identity','density','source_png','source_sha256'},'unapproved Plasma projectile resource fields'
+  png=(root/record['source_png']).read_bytes()
+  assert sha(png)==record['source_sha256'],'current Plasma projectile PNG hash mismatch'
+  w,h={1300022:(62,24),1300023:(65,28),1300024:(62,23)}[identity]
+  with Image.open(io.BytesIO(png)) as image:
+   assert image.format=='PNG' and image.mode=='RGBA' and image.size==(w*density,h*density) and getattr(image,'n_frames',1)==1,'current Plasma projectile PNG geometry mismatch'
+   payload=image.tobytes();blob=struct.pack('<4s6I',b'HDR1',identity,density,w,h,0,0)+payload
+  source=PLASMA_ROOT+'/'+name;destination='assets/gameplay/'+name
+  assert (root/source).read_bytes()==blob,('current Plasma projectile PNG/HDA mismatch',identity,density)
+  row=dict(identity=identity,density=density,source_path=source,destination=destination,sha256=sha(blob))
+  assert loaded[destination]==row,('current Plasma projectile compatibility mismatch',destination)
+  rows.append(row)
+  value=14695981039346656037
+  for byte in payload:value=((value^byte)*1099511628211)&0xffffffffffffffff
+  pins[identity,density]=f'{value:016x}'
+  oid=hashlib.sha1(b'blob '+str(len(blob)).encode()+b'\0'+blob).hexdigest()
+  expected=dict(source_path=source,destination=destination,group='gameplay',revision='current-single-source-plasma-projectile',bytes=len(blob),git_blob=oid,sha256=sha(blob))
+  assert runtime_rows.get(destination)==expected,('stale current Plasma projectile runtime body',destination)
+  outputs[source]={'sha256':sha(blob),'mode':'100644'}
+ expected=dict(schema='opentyrian-current-plasma-projectile-compatibility-v1',selection=PLASMA_SELECTION,version=selected['version'],files=rows)
+ assert (root/PLASMA_MAPPING).read_bytes()==(json.dumps(expected,indent=2)+'\n').encode(),'current Plasma projectile selection/mapping mismatch'
+ header=compat.payload_header(pins)
+ assert (root/PLASMA_HEADER).read_bytes()==header,'current Plasma projectile/generated-header mismatch'
+ assert len(outputs)==7,'unapproved Plasma projectile asset scope'
+ return dict(assets=outputs,header_sha256=sha(header))
 
 CRAFT267_SELECTION='assets/hd/authoring/craft267-current.json'
 CRAFT267_CANONICAL='assets/hd/current-compat/craft267/enemy-newsh2-267-8.hda'
@@ -331,6 +398,11 @@ Retired paths are explicitly absent, never a prefix/wildcard exclusion.
 def project_p9_inventory(current,root=ROOT):
  current=copy.deepcopy(current)
  ledger=load('p9-assets.json')
+ plasma=verified_plasma_projectile_current(root)['assets']
+ assert set(plasma)=={PLASMA_SELECTION}|{PLASMA_ROOT+'/'+name for name in PLASMA_NAMES} and len(plasma)==7,'unapproved Plasma projectile output scope'
+ for name,row in plasma.items():
+  assert row['mode']=='100644' and current.get(name)==row,('unverified Plasma projectile current output',name)
+  del current[name]
  mint_front=verified_mint_front_current(root)['assets']
  assert set(mint_front)=={MF_SELECTION}|{MF_ROOT+'/'+name for name in MF_NAMES} and len(mint_front)==5,'unapproved Mint/Front output scope'
  for name,row in mint_front.items():
@@ -368,14 +440,15 @@ def validate_current_sources(root=ROOT):
  assert not any(p.is_symlink() for p in (root/'src').rglob('*')),'source symlink rejected'
  actual={p.relative_to(root).as_posix():sha(p.read_bytes()) for p in (root/'src').rglob('*') if p.is_file() and p.suffix in ledger['extensions']}
  expected=load('current-source-inventory.json')['files']
- assert set(actual)==set(expected),'unapproved current source paths'
+ assert set(actual)==set(expected)|{PLASMA_HEADER},'unapproved current source paths'
  projected=dict(actual)
  for name in corrected_source_paths():
   projected[name]=sha(project_source('render-boundaries',name,(root/name).read_bytes()))
- assert {p:h for p,h in projected.items() if p!=SIDEKICK_HEADER}=={p:h for p,h in expected.items() if p!=SIDEKICK_HEADER},'unapproved non-target source bytes'
- # Keep every source path. Only this one generated value is derived from the
- # same strict current proof used before the seven-path asset projection.
+ assert {p:h for p,h in projected.items() if p not in (SIDEKICK_HEADER,PLASMA_HEADER)}=={p:h for p,h in expected.items() if p not in (SIDEKICK_HEADER,PLASMA_HEADER)},'unapproved non-target source bytes'
+ # Keep every source path. Only the two named generated headers are derived
+ # from their exact current proofs; executable bytes use the pinned inverse.
  expected=dict(expected);expected[SIDEKICK_HEADER]=verified_sidekick_current(root)['header_sha256']
+ expected[PLASMA_HEADER]=verified_plasma_projectile_current(root)['header_sha256']
  assert projected==expected,'unapproved current source inventory (added, removed or modified source)'
 
 def validate_source_inventory(actual):

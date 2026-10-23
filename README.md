@@ -412,3 +412,5 @@ purchase pages and original ship/background artwork remain unchanged. Keep the
 same `--startup-assets` directory and
 existing large/medium SFN1 filenames; no new artwork is required.
 [Selector scope, cursor fallback and acceptance limits](docs/selector-font-v1/NATIVE-ACCEPTANCE.txt).
+
+Plasma Storm projectile artwork uses a [single-master current authoring workflow](docs/PLASMA_PROJECTILE_SINGLE_MASTER_WORKFLOW.md): one approved master derives all six current d4/d8 pieces and their existing payload pins, without changing renderer coverage or historical artwork.

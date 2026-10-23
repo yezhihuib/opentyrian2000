@@ -405,9 +405,10 @@ class PackagingTests(unittest.TestCase):
 
     def test_global_validation_binds_current_production_source(self):
         validation = json.loads((ROOT / 'packaging/current-production-validation.json').read_text())
-        self.assertEqual(CURRENT.verify(ROOT, validation), 252)  # Includes the packaging-only six-body generated header with all prior bindings.
+        self.assertEqual(CURRENT.verify(ROOT, validation), 253)  # Includes the dedicated Plasma payload header and all prior source bindings.
         self.assertIn('src/current_art_payload_pins.h', validation['source_sha256'])
         self.assertIn('src/current_hud_payload_pins.h', validation['source_sha256'])
+        self.assertIn('src/current_plasma_projectile_payload_pins.h', validation['source_sha256'])
         self.assertIn('src/current_tank_shell_payload_pins.h', validation['source_sha256'])
         self.assertIn('src/current_enemy_energy_payload_pins.h', validation['source_sha256'])
         self.assertIn('src/current_sidekick_body_payload_pins.h', validation['source_sha256'])
@@ -421,8 +422,8 @@ class PackagingTests(unittest.TestCase):
             target = self.source / name
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_bytes((ROOT / name).read_bytes())
-        self.assertEqual(CURRENT.verify(self.source, validation), 252)
-        for pin_name in ('src/current_tank_shell_payload_pins.h', 'src/current_enemy_energy_payload_pins.h', 'src/current_sidekick_body_payload_pins.h'):
+        self.assertEqual(CURRENT.verify(self.source, validation), 253)
+        for pin_name in ('src/current_tank_shell_payload_pins.h', 'src/current_enemy_energy_payload_pins.h', 'src/current_sidekick_body_payload_pins.h', 'src/current_plasma_projectile_payload_pins.h'):
             pin = self.source / pin_name
             approved_pin = pin.read_bytes()
             with self.subTest(binding='corrupt '+pin_name):
@@ -440,7 +441,7 @@ class PackagingTests(unittest.TestCase):
                 omitted['production_source_manifest_sha256'] = CURRENT.source_manifest_digest(omitted['source_sha256'])
                 with self.assertRaisesRegex(ValueError, 'Production source mismatch'):
                     CURRENT.verify(self.source, omitted)
-        self.assertEqual(CURRENT.verify(self.source, validation), 252)
+        self.assertEqual(CURRENT.verify(self.source, validation), 253)
         historical = json.loads((ROOT / 'packaging/global-validation.json').read_text())
         manifest = PACK.load_manifest(ROOT / 'packaging/runtime-assets-v1.json')
         self.assertEqual(manifest['source_revision']['global_runtime_commit'], historical['production_commit'])

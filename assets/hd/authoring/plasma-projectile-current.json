@@ -1,0 +1,50 @@
+{
+  "schema": "opentyrian-current-plasma-projectile-authoring-v1",
+  "version": "approved-plasma-projectile-master-v1",
+  "master": {
+    "source_png": "authoring-inputs/plasma-projectile-current/master.png",
+    "source_sha256": "de7d4bd38f70e4f19405c5349535f790729b469f1c4e7df9df1afaec186dccb4"
+  },
+  "recipe": {
+    "path": "authoring-inputs/plasma-projectile-current/recipe.json",
+    "sha256": "1f05cfe681802599a0b8c8055e66f49505d3a3901cbdd03695c11d743cba2888"
+  },
+  "resources": [
+    {
+      "identity": 1300022,
+      "density": 4,
+      "source_png": "authoring-inputs/plasma-projectile-current/derived/option-plasma-projectile-22-4.png",
+      "source_sha256": "2373de153a324de4f031dbd9d57b9e79fdcb90dd319dd48570429c114caa1221"
+    },
+    {
+      "identity": 1300022,
+      "density": 8,
+      "source_png": "authoring-inputs/plasma-projectile-current/derived/option-plasma-projectile-22-8.png",
+      "source_sha256": "9100a35b7e3688ad27c202103505c3add3a64d4147efce52cf1e0eedaa9a56c8"
+    },
+    {
+      "identity": 1300023,
+      "density": 4,
+      "source_png": "authoring-inputs/plasma-projectile-current/derived/option-plasma-projectile-23-4.png",
+      "source_sha256": "0e59411ef91c9d58391b8d5bcf9ff675458012379b3271cb0b07e396175f4c2b"
+    },
+    {
+      "identity": 1300023,
+      "density": 8,
+      "source_png": "authoring-inputs/plasma-projectile-current/derived/option-plasma-projectile-23-8.png",
+      "source_sha256": "d2c6d396de1a8fa9042b9e860ae186ace0eed9dcab8718aa3a2acb3012590351"
+    },
+    {
+      "identity": 1300024,
+      "density": 4,
+      "source_png": "authoring-inputs/plasma-projectile-current/derived/option-plasma-projectile-24-4.png",
+      "source_sha256": "8b9b1767aa35ed2180389dd396ecd17353737ae9218992405709cb0997d48851"
+    },
+    {
+      "identity": 1300024,
+      "density": 8,
+      "source_png": "authoring-inputs/plasma-projectile-current/derived/option-plasma-projectile-24-8.png",
+      "source_sha256": "dab0c3a49362bf818b11fd122130d8ce1fb91d10c6ede56f67f5d06713376ee6"
+    }
+  ]
+}

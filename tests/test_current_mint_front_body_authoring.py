@@ -203,11 +203,11 @@ class MintFrontBodyAuthoringTests(unittest.TestCase):
         for kind in ('preview','debug'):
             target=self.base/('mint-front-updated-'+kind)
             report=craft.view(self.root,kind,target)
-            self.assertEqual((report['files'],len(report['current_overlays'])),(650,155))
+            self.assertEqual((report['files'],len(report['current_overlays'])),(650,161))
             frozen=self.root/'assets/hd/packs'/craft.BASES[kind]
             nonoverlays=[p for p in frozen.rglob('*') if p.is_file()
                          and p.relative_to(frozen).as_posix() not in report['current_overlays']]
-            self.assertEqual(len(nonoverlays),495)
+            self.assertEqual(len(nonoverlays),489)
             for path in nonoverlays:
                 self.assertEqual(path.read_bytes(),(target/path.relative_to(frozen)).read_bytes())
             for destination,row in mapping.items():

@@ -77,12 +77,12 @@
   },
   "files": [
     {
-      "bytes": 27698,
+      "bytes": 28543,
       "destination": "CURRENT-PRODUCTION-VALIDATION.json",
-      "git_blob": "34d563fbe41c692cd387282496235e8d11bc94ff",
+      "git_blob": "c7e628dfead98114c413ee5beed37306d881c122",
       "group": "current-production-validation",
       "revision": "reconstructed-local-unpublished",
-      "sha256": "a00622c2331194088e6e59c1ef21bacd3529615ce1610b859f1df786c67799d1",
+      "sha256": "ca686a3813975ff24a1ffe58087544295bdf88ac127a15388c8ddb0452daccc8",
       "source_path": "packaging/current-production-validation.json"
     },
     {
@@ -4239,54 +4239,54 @@
       "destination": "assets/gameplay/option-plasma-projectile-22-4.hda",
       "git_blob": "6ccf2f0ddfa511d1d84a4df21048aaf99340095b",
       "group": "gameplay",
-      "revision": "reconstructed-local-unpublished",
+      "revision": "current-single-source-plasma-projectile",
       "sha256": "1f0942326b44ec51b83fec0caf75d9c20f515ee2eda56d64fac21c268f868a41",
-      "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/option-plasma-projectile-22-4.hda"
+      "source_path": "assets/hd/current-compat/plasma-projectile/option-plasma-projectile-22-4.hda"
     },
     {
       "bytes": 380956,
       "destination": "assets/gameplay/option-plasma-projectile-22-8.hda",
       "git_blob": "4b4ff2a52c38a50249ea0f815a504b4f7f47ee7b",
       "group": "gameplay",
-      "revision": "reconstructed-local-unpublished",
+      "revision": "current-single-source-plasma-projectile",
       "sha256": "9b40d0539f929026bb3fe3377fba9c75828ef24b52c5e316bb232f853ff8b773",
-      "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/option-plasma-projectile-22-8.hda"
+      "source_path": "assets/hd/current-compat/plasma-projectile/option-plasma-projectile-22-8.hda"
     },
     {
       "bytes": 116508,
       "destination": "assets/gameplay/option-plasma-projectile-23-4.hda",
       "git_blob": "e0caa818d35522cde31c04a0704e54ac321003e6",
       "group": "gameplay",
-      "revision": "reconstructed-local-unpublished",
+      "revision": "current-single-source-plasma-projectile",
       "sha256": "ccd34da86c4829e9bd883353c653e1c2032b32e24c49ea151ab91c7c4c4570f9",
-      "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/option-plasma-projectile-23-4.hda"
+      "source_path": "assets/hd/current-compat/plasma-projectile/option-plasma-projectile-23-4.hda"
     },
     {
       "bytes": 465948,
       "destination": "assets/gameplay/option-plasma-projectile-23-8.hda",
       "git_blob": "28ebd2226919b91dd263c0f1a8cf805829736a9c",
       "group": "gameplay",
-      "revision": "reconstructed-local-unpublished",
+      "revision": "current-single-source-plasma-projectile",
       "sha256": "14fa1ffdbeee1d407c75a2b0f0642ce65581b1824c7d7eecf00d668144d33d05",
-      "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/option-plasma-projectile-23-8.hda"
+      "source_path": "assets/hd/current-compat/plasma-projectile/option-plasma-projectile-23-8.hda"
     },
     {
       "bytes": 91292,
       "destination": "assets/gameplay/option-plasma-projectile-24-4.hda",
       "git_blob": "27bf5f496e1b8b5a6e4960858a0107b76cf7b0cc",
       "group": "gameplay",
-      "revision": "reconstructed-local-unpublished",
+      "revision": "current-single-source-plasma-projectile",
       "sha256": "584e37003902ed57ccf661dd28c6d3041462d49cd591e63a9aab7d6c44895cca",
-      "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/option-plasma-projectile-24-4.hda"
+      "source_path": "assets/hd/current-compat/plasma-projectile/option-plasma-projectile-24-4.hda"
     },
     {
       "bytes": 365084,
       "destination": "assets/gameplay/option-plasma-projectile-24-8.hda",
       "git_blob": "8f1903aea7278dfbd97c3987969ee787e2c24fdb",
       "group": "gameplay",
-      "revision": "reconstructed-local-unpublished",
+      "revision": "current-single-source-plasma-projectile",
       "sha256": "95e6ec5635e2a7a1c87124374fa1c69ae1bd743e84f13345d554c762af3abba1",
-      "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/option-plasma-projectile-24-8.hda"
+      "source_path": "assets/hd/current-compat/plasma-projectile/option-plasma-projectile-24-8.hda"
     },
     {
       "bytes": 3397820,
@@ -9215,7 +9215,7 @@
   "schema": "opentyrian-runtime-package-v1",
   "source_revision": {
     "current_production_commit": null,
-    "current_production_source_manifest_sha256": "4f0fdc91e279d539969f205770ea96c1affdd2658f2ae772d7cfe4a69bfbd282",
+    "current_production_source_manifest_sha256": "61ce3273eb8b396d77628bfcbddc3f1384481ab63ac31d8a077dbf57d102b3b8",
     "data_frame_integration": "local reviewed Data-only DFM1 static frame; no commit assigned",
     "data_portrait_integration": "local reviewed source-authenticated all18 DPR1 portraits",
     "data_text_integration": "local reviewed Data-only Chinese source; no commit assigned",

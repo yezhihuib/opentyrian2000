@@ -123,6 +123,9 @@ def charge_selection(root,raw,candidate=False):
         name=record[path_key]
         if not isinstance(name,str) or not name.startswith('authoring-inputs/') or not name.endswith(suffix) or name.startswith(CHARGE_INPUT_ROOT+'/derived/'):
             raise ValueError('Expected independent Charge '+key+' input')
+        from current_plasma_projectile_compatibility import generated_paths as plasma_generated_paths
+        if name.casefold() in {p.casefold() for p in plasma_generated_paths()}:
+            raise ValueError('Generated Plasma piece is not an independent Charge input')
         if _charge_sha(_charge_read(root,name))!=record[hash_key]:raise ValueError('Selected Charge '+key+' changed')
     if not candidate:
         if not isinstance(j['resources'],list) or len(j['resources'])!=9:raise ValueError('Expected nine derived Charge frames')
@@ -258,9 +261,10 @@ def charge_load(root):
 
 
 def authoring_input_fingerprints(root):
-    """Bind finite Charge and Mint/Front dependency closures in legacy plans."""
+    """Bind finite Charge, Mint/Front and Plasma inputs/tools in legacy plans."""
     paths=independent_input_paths(root)
-    paths|={'scripts/current_charge_body_recipe.py','scripts/current_sidekick_body_compatibility.py','scripts/build_current_sidekick_body.py'}
+    paths|={'scripts/current_charge_body_recipe.py','scripts/current_sidekick_body_compatibility.py','scripts/build_current_sidekick_body.py',
+            'scripts/current_plasma_projectile_compatibility.py','scripts/build_current_plasma_projectile.py'}
     return {name:_charge_sha(_charge_read(root,name)) for name in sorted(paths)}
 
 
@@ -320,6 +324,9 @@ def mf_selection(root,raw):
         # Mint/Front sources. Keep this exclusion finite, not a directory glob.
         if source.casefold() in {charge_png(i).casefold() for i in CHARGE_IDS}:
             raise ValueError('Generated Charge frame is not an independent Mint/Front source')
+        from current_plasma_projectile_compatibility import generated_paths as plasma_generated_paths
+        if source.casefold() in {name.casefold() for name in plasma_generated_paths()}:
+            raise ValueError('Generated Plasma piece is not an independent Mint/Front source')
         if source.casefold() in paths:raise ValueError('Mint/Front sources must have four independent paths')
         paths.add(source.casefold())
         if _charge_sha(mf_read(root,source))!=row['source_sha256']:
@@ -392,4 +399,5 @@ def mf_load(root):
 
 def independent_input_paths(root):
     """Finite current dependency closure shared by every authoring workflow."""
-    return charge_input_paths(root)|mf_input_paths(root)|{CHARGE_MAPPING,MF_MAPPING}
+    from current_plasma_projectile_compatibility import input_paths as plasma_input_paths, MAPPING as PLASMA_MAPPING
+    return charge_input_paths(root)|mf_input_paths(root)|plasma_input_paths(root)|{CHARGE_MAPPING,MF_MAPPING,PLASMA_MAPPING}

@@ -13,6 +13,7 @@
 #include "current_art_payload_pins.h"
 #include "current_tank_shell_payload_pins.h"
 #include "current_enemy_energy_payload_pins.h"
+#include "current_plasma_projectile_payload_pins.h"
 #include "data_frame.h"
 #include "data_portrait.h"
 #include "render_mirror.h"
@@ -4485,9 +4486,9 @@ static bool plasma_art_asset(Asset *a,unsigned index)
 {
  static const unsigned widths[3]={62,65,62},heights[3]={24,28,23};
  static const uint64_t pins[3][2]={
-  {UINT64_C(0x12a2955008494fed),UINT64_C(0x4d5a9f3b5f003c01)},
-  {UINT64_C(0x9bd4dfcda912736a),UINT64_C(0x5217e5306678067b)},
-  {UINT64_C(0x4b1682fb4a565e4a),UINT64_C(0x32d73141dd44ee25)}};
+  {CURRENT_PLASMA_PROJECTILE_1300022_D4_PAYLOAD_FNV,CURRENT_PLASMA_PROJECTILE_1300022_D8_PAYLOAD_FNV},
+  {CURRENT_PLASMA_PROJECTILE_1300023_D4_PAYLOAD_FNV,CURRENT_PLASMA_PROJECTILE_1300023_D8_PAYLOAD_FNV},
+  {CURRENT_PLASMA_PROJECTILE_1300024_D4_PAYLOAD_FNV,CURRENT_PLASMA_PROJECTILE_1300024_D8_PAYLOAD_FNV}};
  unsigned k=index-22;int d=game_probe_density;
  if(k>=3||(d!=4&&d!=8)||game_probe_missing||game_probe_invalid||
     game_probe_original_reference||!game_probe_assets||!(game_probe_scene_assets&1))return false;

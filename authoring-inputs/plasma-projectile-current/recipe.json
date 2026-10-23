@@ -1,0 +1,55 @@
+{
+  "schema": "plasma-projectile-fixed-recipe-v1",
+  "master_size": [
+    1167,
+    1347
+  ],
+  "resize_to": [
+    520,
+    600
+  ],
+  "resample": "Pillow-LANCZOS-RGBA",
+  "pieces": [
+    {
+      "identity": 1300022,
+      "logical_size": [
+        62,
+        24
+      ],
+      "logical_y": 0,
+      "anchor": [
+        0,
+        0
+      ]
+    },
+    {
+      "identity": 1300023,
+      "logical_size": [
+        65,
+        28
+      ],
+      "logical_y": 24,
+      "anchor": [
+        0,
+        0
+      ]
+    },
+    {
+      "identity": 1300024,
+      "logical_size": [
+        62,
+        23
+      ],
+      "logical_y": 52,
+      "anchor": [
+        0,
+        0
+      ]
+    }
+  ],
+  "densities": [
+    4,
+    8
+  ],
+  "density4": "resize-each-density8-piece-by-half"
+}

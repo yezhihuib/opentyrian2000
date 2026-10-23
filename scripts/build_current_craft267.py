@@ -268,6 +268,12 @@ def current_overlays(root):
         sidekick_compat.mf_load(root), {'assets/gameplay/' + sidekick_compat.mf_name(i): blob for i, blob in mf_blobs.items()})
     if len(files) != 155:
         raise ValueError('Expected exactly 155 current gameplay overlays')
+    import current_plasma_projectile_compatibility as plasma
+    selected, _, plasma_blobs = plasma.generate(root, read(root, plasma.SELECTION))
+    add(plasma.MAPPING, plasma.SELECTION, selected, plasma.load(root),
+        {'assets/gameplay/' + plasma.name(i, d): blob for (i, d), blob in plasma_blobs.items()})
+    if len(files) != 161:
+        raise ValueError('Expected exactly 161 current gameplay overlays')
     return files
 
 

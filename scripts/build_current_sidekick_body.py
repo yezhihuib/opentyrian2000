@@ -77,7 +77,7 @@ def derive(root,raw):
         if (work/header).read_bytes()!=read(root,header):raise ValueError('Unrelated global pins changed')
         binding=json.loads(read(root,BINDING));binding['production_commit']=None
         binding['source_sha256']=source_inventory(work);binding['production_source_manifest_sha256']=source_manifest_digest(binding['source_sha256'])
-        binding['scope']='Exact current source binding including the separately reviewed Charge body rendering extension. Build/package consistency only; historical receipts retain their original scope.'
+        binding['scope']='Exact current source binding including the separately reviewed Charge body extension and Plasma projectile payload-pin extraction. Build/package consistency only; historical receipts retain their original scope.'
         outputs[BINDING]=(json.dumps(binding,indent=2,sort_keys=True)+'\n').encode();(work/BINDING).write_bytes(outputs[BINDING])
         subprocess.run([sys.executable,str(work/REBUILD),'--root',str(work),'--output',str(work/RUNTIME)],check=True,stdout=subprocess.DEVNULL)
         outputs[RUNTIME]=(work/RUNTIME).read_bytes()
@@ -141,6 +141,8 @@ def charge_derive(root,raw):
     names|={profile(f)['mapping'] for f in PROFILES}
     names|={selected['master']['source_png'],selected['recipe']['path']}
     names|=compat.mf_input_paths(root)|{compat.MF_MAPPING}
+    from current_plasma_projectile_compatibility import input_paths as plasma_input_paths, MAPPING as PLASMA_MAPPING
+    names|=plasma_input_paths(root)|{PLASMA_MAPPING}
     names|={p.relative_to(root).as_posix() for p in (root/'src').rglob('*') if p.is_file() or p.is_symlink()}
     names|={p.relative_to(root).as_posix() for p in (root/'scripts').glob('*.py')}
     with tempfile.TemporaryDirectory(prefix='charge-body-authoring-build-') as tmp:
@@ -159,6 +161,8 @@ def charge_plan(root,outputs,raw):
     names={request['master']['source_png'],request['recipe']['path'],compat.CHARGE_SELECTION,compat.CHARGE_MAPPING,BINDING,RUNTIME}
     names|={p.relative_to(root).as_posix() for p in (root/'scripts').glob('*.py')}
     names|=compat.mf_input_paths(root)|{compat.MF_MAPPING}
+    from current_plasma_projectile_compatibility import input_paths as plasma_input_paths, MAPPING as PLASMA_MAPPING
+    names|=plasma_input_paths(root)|{PLASMA_MAPPING}
     # Bind every installed destination and all request/tool inputs. Source and
     # gameplay authority are reverified on every derive, never cached by mtime.
     return dict(schema='opentyrian-current-charge-body-stage-v1',request_sha256=sha(raw),inputs_sha256={p:fingerprint(root,p) for p in sorted(names)},files=[dict(path=p,before_sha256=fingerprint(root,p),after_sha256=sha(data),bytes=len(data)) for p,data in sorted(outputs.items())])
@@ -219,10 +223,12 @@ def mf_derive(root,raw):
     names|={REGISTRY,BINDING,'packaging/runtime-assets-public63a89b3.json','packaging/shop-static-approved-v1.json',MAPPING,'packaging/current-hud-compatibility.json','packaging/current-tank-shell-compatibility.json','packaging/current-enemy-energy-compatibility.json','packaging/current-craft267-compatibility.json'}|set(BUILD_INPUTS)
     names|={profile(f)['mapping'] for f in PROFILES}
     names|=compat.charge_input_paths(root)|{compat.CHARGE_MAPPING}
+    from current_plasma_projectile_compatibility import input_paths as plasma_input_paths, MAPPING as PLASMA_MAPPING
+    names|=plasma_input_paths(root)|{PLASMA_MAPPING}
     names|={row['source_png'] for row in selected['resources']}
     names|={p.relative_to(root).as_posix() for p in (root/'src').rglob('*') if p.is_file() or p.is_symlink()}
     names|={p.relative_to(root).as_posix() for p in (root/'scripts').glob('*.py')}
-    # No production source/header/binding generation: all 252 src files stay exact.
+    # No production source/header/binding generation: the exact current src inventory stays unchanged.
     with tempfile.TemporaryDirectory(prefix='mint-front-body-build-') as tmp:
         work=Path(tmp)
         for key in sorted(names|set(outputs)):
@@ -239,6 +245,8 @@ def mf_plan(root,outputs,raw):
     names={row['source_png'] for row in selected['resources']}
     names|={compat.MF_SELECTION,compat.MF_MAPPING,BINDING,RUNTIME}
     names|=compat.charge_input_paths(root)|{compat.CHARGE_MAPPING}
+    from current_plasma_projectile_compatibility import input_paths as plasma_input_paths, MAPPING as PLASMA_MAPPING
+    names|=plasma_input_paths(root)|{PLASMA_MAPPING}
     names|={p.relative_to(root).as_posix() for p in (root/'scripts').glob('*.py')}
     return dict(schema='opentyrian-current-mint-front-body-stage-v1',request_sha256=sha(raw),inputs_sha256={p:fingerprint(root,p) for p in sorted(names)},files=[dict(path=p,before_sha256=fingerprint(root,p),after_sha256=sha(data),bytes=len(data)) for p,data in sorted(outputs.items())])
 

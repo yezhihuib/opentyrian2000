@@ -73,6 +73,10 @@ def main():
     for destination,row in mf_load(root).items():
         if destination in art_compat:raise ValueError('Mint/Front compatibility collision')
         art_compat[destination]=dict(row,authoring_family='mint-front-body')
+    from current_plasma_projectile_compatibility import load as plasma_projectile_load
+    for destination,row in plasma_projectile_load(root).items():
+        if destination in art_compat:raise ValueError('Plasma projectile compatibility collision')
+        art_compat[destination]=dict(row,authoring_family='plasma-projectile')
     hud_compat=current_hud_compatibility(root)
     def add(source,destination,group,exact=None):
         size,blob,sha=pins(root/source)

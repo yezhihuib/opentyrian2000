@@ -21,7 +21,7 @@ class SourceBoundary(unittest.TestCase):
         self.assertEqual(ledger['files'][projection.SIDEKICK_HEADER],ledger['current_extensions'][projection.SIDEKICK_HEADER]['baseline_sha256'])
 
     def test_all_inverse_results_and_inside_outside_mutations(self):
-        for label in ('data','rear-p1','storm','render-boundaries','charge-body'):
+        for label in ('data','rear-p1','storm','render-boundaries','charge-body','plasma-projectile'):
             for name,pin in projection.load(label+'-source.json')['files'].items():
                 with self.subTest(label=label,path=name):
                     raw=(projection.ROOT/name).read_bytes()
@@ -108,7 +108,7 @@ class ChargeSourceBoundary(unittest.TestCase):
         for name,pin in ledger['files'].items():
             with self.subTest(path=name):
                 raw=(projection.ROOT/name).read_bytes()
-                self.assertEqual(projection.sha(raw),pin['current_sha256'])
+                self.assertEqual(projection.sha(projection.project_source('plasma-projectile',name,raw)),pin['current_sha256'])
                 self.assertEqual(projection.sha(projection.project_source('charge-body',name,raw)),pin['previous_sha256'])
 
     def test_newest_then_render_then_feature_exactly_once_without_git(self):
@@ -120,7 +120,7 @@ class ChargeSourceBoundary(unittest.TestCase):
         with patch.object(projection.subprocess,'check_output',side_effect=AssertionError('Git history forbidden')):
             with patch.object(projection,'_project_source_once',wraps=projection._project_source_once) as once:
                 old=projection.project_source('storm',name,raw)
-                self.assertEqual([call.args[0] for call in once.call_args_list],['charge-body','render-boundaries','storm'])
+                self.assertEqual([call.args[0] for call in once.call_args_list],['plasma-projectile','charge-body','render-boundaries','storm'])
                 self.assertEqual(projection.sha(old),projection.load('storm-source.json')['files'][name]['previous_sha256'])
         intermediate=projection.project_source('charge-body',name,raw)
         with self.assertRaisesRegex(AssertionError,'not the accepted published current blob'):
@@ -133,7 +133,7 @@ class ChargeSourceBoundary(unittest.TestCase):
             wrong=next(path for path in ledger['files'] if path!=name)
             mutants=[('wrong-source',(projection.ROOT/wrong).read_bytes()),('extra-change',raw+b'\n/* unapproved */\n')]
             for index,hunk in enumerate(pin['hunks']):
-                lines=raw.splitlines(keepends=True);a,b=hunk['after_lines']
+                lines=projection.project_source('plasma-projectile',name,raw).splitlines(keepends=True);a,b=hunk['after_lines']
                 self.assertEqual(b''.join(lines[a:b]),hunk['after'].encode())
                 lines[a:b]=hunk['before'].encode().splitlines(keepends=True)
                 mutants.append(('partial-inverse-%d'%index,b''.join(lines)))
@@ -408,6 +408,7 @@ class AssetBoundary(unittest.TestCase):
         self.assertEqual(ledger['current_inventory_sha256'],'3f819ca1f9ac2b9ef4de53cfe4fb948bc0d347bd0f1f7b539dbb7bfd2915ae34')
         self.assertEqual(len(ledger['asset_edits']),3259)
         current=copy.deepcopy(self.inventory)
+        for name in projection.verified_plasma_projectile_current()['assets']:del current[name]
         for name in projection.verified_mint_front_current()['assets']:del current[name]
         for name in projection.verified_charge_current()['assets']:del current[name]
         for name in ledger['verified_current_outputs']:del current[name]
@@ -419,6 +420,24 @@ class AssetBoundary(unittest.TestCase):
             if action=='delete':del mutant[old]
             else:mutant[old]['sha256']='0'*64
             with self.subTest(action=action),self.assertRaises(AssertionError):projection.project_p9_inventory(mutant)
+
+    def test_exact_seven_plasma_outputs_no_historical_input_waiver(self):
+        proof=projection.verified_plasma_projectile_current()['assets']
+        expected={projection.PLASMA_SELECTION}|{projection.PLASMA_ROOT+'/'+name for name in projection.PLASMA_NAMES}
+        self.assertEqual(set(proof),expected);self.assertEqual(len(proof),7)
+        self.assertFalse(set(proof)&set(projection.load('p9-assets.json')['verified_current_outputs']))
+        for name in proof:
+            for action in ('delete','hash','mode'):
+                mutant=copy.deepcopy(self.inventory)
+                if action=='delete':del mutant[name]
+                elif action=='hash':mutant[name]['sha256']='0'*64
+                else:mutant[name]['mode']='100755'
+                with self.subTest(path=name,action=action),self.assertRaisesRegex(AssertionError,'unverified Plasma projectile current output'):
+                    projection.project_p9_inventory(mutant)
+        for name in (projection.PLASMA_ROOT+'/unapproved.hda','assets/hd/authoring/plasma-projectile-extra.png'):
+            mutant=copy.deepcopy(self.inventory);mutant[name]={'sha256':'0'*64,'mode':'100644'}
+            with self.subTest(path=name),self.assertRaisesRegex(AssertionError,'unapproved current asset inventory'):
+                projection.project_p9_inventory(mutant)
 
     def test_exact_ten_charge_outputs_are_separate_from_old_nine(self):
         proof=projection.verified_charge_current()['assets']
@@ -636,7 +655,7 @@ class CurrentGenerationBoundary(unittest.TestCase):
             binding=json.loads((self.root/builder.BINDING).read_bytes())
             binding['source_sha256']=production.source_inventory(self.root)
             binding['production_source_manifest_sha256']=production.source_manifest_digest(binding['source_sha256'])
-            self.assertEqual(len(binding['source_sha256']),252)
+            self.assertEqual(len(binding['source_sha256']),253)
             (self.root/builder.BINDING).write_bytes(builder.encoded(binding))
             with self.subTest(case=case),self.assertRaisesRegex(AssertionError,'non-target production source binding'):
                 projection.verified_sidekick_current(self.root)
@@ -701,6 +720,114 @@ class Craft267CurrentGenerationBoundary(unittest.TestCase):
                 p.write_bytes(raw+b'changed')
                 with self.subTest(path=name),self.assertRaises((AssertionError,ValueError,OSError)):projection.verified_craft267_current(self.root)
             finally:p.write_bytes(raw)
+
+
+class PlasmaProjectileSourceBoundary(unittest.TestCase):
+    def test_exact_two_hunks_six_literals_and_separate_header_extension(self):
+        import re
+        ledger=projection.load('plasma-projectile-source.json')
+        self.assertEqual(ledger['schema'],'opentyrian-reviewed-plasma-projectile-source-v1')
+        self.assertEqual(ledger['integration_base'],'b32bc14adedd761f98b71a2638ee6b73b1b9faf3')
+        self.assertEqual(set(ledger['files']),{'src/render_mirror.c'})
+        self.assertEqual(ledger['generated_header'],projection.PLASMA_HEADER)
+        name='src/render_mirror.c';pin=ledger['files'][name];raw=(projection.ROOT/name).read_bytes()
+        self.assertEqual(projection.sha(raw),pin['current_sha256'])
+        self.assertEqual(len(pin['hunks']),2)
+        self.assertEqual(pin['hunks'][0]['before'],'')
+        self.assertEqual(pin['hunks'][0]['after'],'#include "current_plasma_projectile_payload_pins.h"\n')
+        before=pin['hunks'][1]['before'];after=pin['hunks'][1]['after']
+        literals=re.findall(r'UINT64_C\(0x[0-9a-f]{16}\)',before)
+        macros=re.findall(r'CURRENT_PLASMA_PROJECTILE_\d+_D[48]_PAYLOAD_FNV',after)
+        self.assertEqual(len(literals),6)
+        self.assertEqual(macros,[f'CURRENT_PLASMA_PROJECTILE_{i}_D{d}_PAYLOAD_FNV' for i,d in projection.PLASMA_PAIRS])
+        for literal,macro in zip(literals,macros):after=after.replace(macro,literal,1)
+        self.assertEqual(before,after)
+        old=projection.project_source('plasma-projectile',name,raw)
+        self.assertEqual(projection.sha(old),projection.load('charge-body-source.json')['files'][name]['current_sha256'])
+        self.assertNotIn(projection.PLASMA_HEADER,projection.load('current-source-inventory.json')['files'])
+        for hunk in pin['hunks']:
+            lines=raw.splitlines(keepends=True);a,b=hunk['after_lines'];lines[a:b]=hunk['before'].encode().splitlines(keepends=True)
+            with self.assertRaises(AssertionError):projection.project_source('plasma-projectile',name,b''.join(lines))
+        with self.assertRaises(AssertionError):projection.project_source('plasma-projectile',name,raw+b'\n')
+
+    def test_inverse_fixture_tampering_and_no_git_chain(self):
+        from unittest.mock import patch
+        name='src/render_mirror.c';raw=(projection.ROOT/name).read_bytes()
+        with patch.object(projection.subprocess,'check_output',side_effect=AssertionError('Git history forbidden')):
+            old=projection.project_source('storm',name,raw)
+            self.assertEqual(projection.sha(old),projection.load('storm-source.json')['files'][name]['previous_sha256'])
+        fixture=(projection.FIXTURES/'plasma-projectile-source.json').read_bytes()
+        with patch.object(Path,'read_bytes',return_value=fixture+b' '):
+            with self.assertRaisesRegex(AssertionError,'changed accepted-history ledger'):projection.load('plasma-projectile-source.json')
+
+class PlasmaProjectileCurrentGenerationBoundary(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        sys.path.insert(0,str(projection.ROOT/'scripts'))
+        import current_plasma_projectile_compatibility as compat
+        cls.compat=compat
+        cls.temp=tempfile.TemporaryDirectory(prefix='plasma-projection-fixture-',dir=projection.ROOT.parent)
+        cls.root=Path(cls.temp.name)
+        paths=compat.input_paths(projection.ROOT)|{compat.MAPPING,compat.HEADER,'packaging/runtime-assets-v1.json'}|{compat.ROOT+'/'+compat.name(i,d) for i,d in compat.PAIRS}
+        cls.baseline={name:(projection.ROOT/name).read_bytes()for name in paths}
+        if len(cls.baseline)!=18:raise AssertionError('unexpected Plasma fixture closure')
+
+    @classmethod
+    def tearDownClass(cls):cls.temp.cleanup()
+
+    def setUp(self):
+        for name,raw in self.baseline.items():
+            path=self.root/name;path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(raw)
+
+    def test_all_fixed_inputs_outputs_mapping_header_and_runtime_tampering(self):
+        self.assertEqual(len(projection.verified_plasma_projectile_current(self.root)['assets']),7)
+        for name,raw in self.baseline.items():
+            path=self.root/name
+            try:
+                path.write_bytes(raw+b'broken')
+                with self.subTest(path=name),self.assertRaises((AssertionError,ValueError,OSError)):
+                    projection.verified_plasma_projectile_current(self.root)
+            finally:path.write_bytes(raw)
+
+    def test_coherent_master_regeneration_changes_header_not_source_or_old_fixture(self):
+        import io
+        from PIL import Image
+        before=projection.verified_plasma_projectile_current(self.root)
+        source=(projection.ROOT/'src/render_mirror.c').read_bytes()
+        frozen={p.name:projection.sha(p.read_bytes()) for p in projection.FIXTURES.iterdir() if p.is_file()}
+        selected=json.loads((self.root/projection.PLASMA_SELECTION).read_bytes())
+        master=self.root/selected['master']['source_png']
+        with Image.open(master) as original:frame=original.copy()
+        # Broad color edit survives filtering into both densities.
+        for y in range(300,316):
+            for x in range(560,576):frame.putpixel((x,y),(17,231,79,255))
+        stream=io.BytesIO();frame.save(stream,format='PNG');master.write_bytes(stream.getvalue())
+        selected['master']['source_sha256']=projection.sha(master.read_bytes())
+        candidate={key:value for key,value in selected.items()if key!='resources'}
+        candidate.update(schema=self.compat.CANDIDATE_SCHEMA,version='plasma-history-positive-control')
+        encoded=lambda x:(json.dumps(x,indent=2)+'\n').encode()
+        installed,pngs,blobs=self.compat.generate(self.root,encoded(candidate),candidate=True)
+        (self.root/projection.PLASMA_SELECTION).write_bytes(encoded(installed))
+        for name,raw in pngs.items():(self.root/name).write_bytes(raw)
+        mapping=json.loads((self.root/projection.PLASMA_MAPPING).read_bytes());mapping['version']=installed['version']
+        runtime_path=self.root/'packaging/runtime-assets-v1.json';runtime=json.loads(runtime_path.read_bytes())
+        runtime_rows={r['destination']:r for r in runtime['files']};pins={}
+        import hashlib
+        from build_current_art import fnv
+        for row in mapping['files']:
+            blob=blobs[row['identity'],row['density']];(self.root/row['source_path']).write_bytes(blob)
+            row['sha256']=projection.sha(blob)
+            runtime_rows[row['destination']].update(bytes=len(blob),sha256=projection.sha(blob),git_blob=hashlib.sha1(b'blob '+str(len(blob)).encode()+b'\0'+blob).hexdigest())
+            pins[row['identity'],row['density']]=fnv(blob[28:])
+        (self.root/projection.PLASMA_MAPPING).write_bytes(encoded(mapping));runtime_path.write_bytes(encoded(runtime))
+        header=self.root/projection.PLASMA_HEADER;header.write_bytes(self.compat.payload_header(pins))
+        after=projection.verified_plasma_projectile_current(self.root)
+        self.assertNotEqual(before['header_sha256'],after['header_sha256'])
+        self.assertEqual(set(before['assets']),set(after['assets']))
+        self.assertEqual(source,(projection.ROOT/'src/render_mirror.c').read_bytes())
+        self.assertEqual(frozen,{p.name:projection.sha(p.read_bytes())for p in projection.FIXTURES.iterdir()if p.is_file()})
+        header.write_bytes(self.baseline[projection.PLASMA_HEADER])
+        with self.assertRaisesRegex(ValueError,'payload pins'):projection.verified_plasma_projectile_current(self.root)
 
 
 if __name__=='__main__':unittest.main()

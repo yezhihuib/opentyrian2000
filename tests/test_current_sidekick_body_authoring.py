@@ -320,7 +320,7 @@ class CurrentSidekickBodyTests(unittest.TestCase):
         with self.assertRaises(ValueError):compat.load(self.root)
 
     def test_actual_source_binding_rejects_omitted_new_header_and_other_drift(self):
-        receipt=json.loads((self.root/b.BINDING).read_text());self.assertEqual(production.verify(self.root,receipt),252)
+        receipt=json.loads((self.root/b.BINDING).read_text());self.assertEqual(production.verify(self.root,receipt),253)
         self.assertIn(b.HEADER,receipt['source_sha256']);omitted=copy.deepcopy(receipt);del omitted['source_sha256'][b.HEADER]
         omitted['production_source_manifest_sha256']=production.source_manifest_digest(omitted['source_sha256'])
         with self.assertRaisesRegex(ValueError,'Production source mismatch'):production.verify(self.root,omitted)

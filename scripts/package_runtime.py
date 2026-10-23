@@ -279,6 +279,30 @@ def main(argv=None) -> int:
             if (row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or
                     row.get('group')!='gameplay' or row.get('revision')!='current-single-source-mint-front-body'):
                 raise ValueError('Stale Mint/Front runtime selection')
+    # The six Plasma projectile consumers already exist historically. Only
+    # current references/default deployment opt into the single-master closure;
+    # frozen/custom manifests with historical rows retain generic semantics.
+    plasma_prefix = 'assets/hd/current-compat/plasma-projectile/'
+    plasma_rows = [row for row in manifest['files'] if any(
+        Path(row[key]).name.casefold().startswith('option-plasma-projectile-')
+        for key in ('destination', 'source_path')) or
+        row['source_path'].casefold().startswith(plasma_prefix)]
+    plasma_current = manifest_path.resolve() == (roots[0]/'packaging/runtime-assets-v1.json').resolve() or any(
+        row['source_path'].casefold().startswith(plasma_prefix) or
+        (isinstance(row.get('revision'), str) and
+         row['revision'].casefold() == 'current-single-source-plasma-projectile')
+        for row in manifest['files'])
+    if plasma_current:
+        from current_plasma_projectile_compatibility import PAIRS, name as plasma_name, load as plasma_load
+        expected = {'assets/gameplay/'+plasma_name(i,d) for i,d in PAIRS}
+        if len(plasma_rows)!=6 or {row['destination'] for row in plasma_rows}!=expected:
+            raise ValueError('Plasma packaging requires exactly six current consumers')
+        selected = plasma_load(roots[0])
+        for row in plasma_rows:
+            current = selected[row['destination']]
+            if (row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or
+                    row.get('group')!='gameplay' or row.get('revision')!='current-single-source-plasma-projectile'):
+                raise ValueError('Stale Plasma runtime selection')
     source_map = read_json(args.source_map) if args.source_map else {}
     verified, missing = [], []
     for row in manifest['files']:
