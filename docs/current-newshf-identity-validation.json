@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "base_public_commit": "4f7e60b5c9b64356719b207ff66a14ad081bcef6",
+  "production_changes": false,
+  "historical_driver_and_harness_unchanged": true,
+  "historical_driver_preflight": {
+    "result": "FAIL_BEFORE_NATIVE_EXECUTION",
+    "returncode": 1,
+    "reason": "first-statement frame-hook assertion is obsolete"
+  },
+  "current_identity": {
+    "status": "PASS",
+    "returncode": 0,
+    "source_unchanged": true,
+    "source_sha256": {
+      "src/newshf_identity_validation.inc": "39e7bc46d90a19fe396117b437bd6bdb58aa697cade31053031f3f50103355c8",
+      "src/newshf_prototype_pins.h": "6b111c2b6c1d560d3698e822cf749aa55172849dcab53dfc20ceb5cd3fb85605",
+      "src/render_mirror.c": "188c754bafc8e9d95e5fc843986482a27cc1b5ed41a3de6b86e074dadbca5fd7",
+      "src/render_mirror.h": "e8b04342f346e392cc627f3463932b7dc509b87f216a68846bf5bba127b3e138",
+      "src/tyrian2.c": "201be3480a792437df0dee54fa72ec5f6f643552dd5512a82d119174345572ea",
+      "src/sprite.c": "9fe507a7724825c5cc1ffb42aa533ab947135368d1102bd8372743e0d4496a96",
+      "src/episodes.h": "e754c9f34372082084752cb2244c132b8ccad1a1e475d22366e5f1e1e2a59ef5",
+      "src/varz.h": "c0557171c5454d9b6e64c9eb22facf5e9cd5cdefcf54aa743020d5c4ffdde37c",
+      "src/config.h": "df43ab4f8887c1275d1f876f83b2ab9f8dcd4a333ee1f2414caa3c8123522fe0",
+      "src/ground101_material.h": "ca8bed2e22f473d1556b9aa53e016eb924c865c5bd5bd3a75cbb882aa94d0690",
+      "tests/newshf_identity_validation.c": "6499e2dbc2c5cf0d5b6fe81a4723b1a5fffa1388b0d0db14146b72569c993216",
+      "tests/newshf_identity_validation.py": "8b86af41a83951ba6dbf39ac5f6f8a4741bc17bdfeee41020eb3c5295b89cf0c"
+    },
+    "private_original_bytes_persisted": false,
+    "feature_off_modes": [
+      "default",
+      "flag_zero",
+      "mirror_disabled"
+    ],
+    "sanitizers": "ASan+UBSan",
+    "leak_detection": "disabled: LeakSanitizer unsupported under container ptrace",
+    "scope": "Actual identity include, production structs/decode_tile/JE_makeEnemy with bounded SDL/RNG shim; not whole-game or HD rendering acceptance"
+  },
+  "identity_assertions": 24594,
+  "poses": 9,
+  "bank_mutation_sensitivity": {
+    "status": "PASS",
+    "returncode": -6,
+    "source_unchanged": true,
+    "expected_assertion": "newshf_identity_validation.c:179: !newshf_validation_slots[0].role"
+  },
+  "adapter_tests": {
+    "passed": 6,
+    "seconds": 0.274,
+    "native_prefix_modes": [
+      "default",
+      "ENEMY_REUSE_HD_PROTOTYPE=0",
+      "ENEMY_REUSE_HD_PROTOTYPE=1"
+    ],
+    "states_per_mode": 4,
+    "native_mutants_detected": [
+      "no_frame",
+      "frame_after_next",
+      "no_rejection",
+      "frame_before_rejection"
+    ]
+  },
+  "test_file_sha256": {
+    "tests/current_newshf_identity_validation.py": "02da13c2365648899920a9dd6eccb08181b8209a6d7e14020cc7715fa25384e5",
+    "tests/test_current_newshf_identity_validation.py": "5f7b82dc6f976f57fe0051bb1b4c271eb2ae7cceff3475da5c5cc61e58eba54c"
+  },
+  "log_sha256": {
+    "identity-driver.log": "8c43fa9a7e0e10f7f5270ec0655578787c6bb1c1e3bc164ba9c643055859cc54",
+    "negative-bank-driver.log": "8db601cfbb14d4a711006b96ab50060710b34ecaee4a623c618e810cbd4f1f1b",
+    "frozen-driver-preflight.log": "42989d669083f52d8874a406176bbaad2c189ed3f80fa6c2cb7507db31d6a32b",
+    "adapter-tests.log": "5eed8bd28ea70ab9d34d48025aee784530f25d01aaa763937eb2b25ba250ab48",
+    "identity/identity-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "identity/identity.log": "8c43fa9a7e0e10f7f5270ec0655578787c6bb1c1e3bc164ba9c643055859cc54",
+    "negative-bank/identity-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "negative-bank/identity.log": "8db601cfbb14d4a711006b96ab50060710b34ecaee4a623c618e810cbd4f1f1b"
+  },
+  "limits": [
+    "Extracted prefix tests use stub observation predicates; not full session activation",
+    "Identity harness uses bounded SDL/RNG shims",
+    "No whole game, natural level, HD compositor rerun, player shadow, Windows or physical GPU acceptance"
+  ]
+}
