@@ -30,6 +30,10 @@ class CurrentRearP7Tests(unittest.TestCase):
         self.master_paths={294:c.INPUT_ROOT+'/master-294.svg'};self.recipe_path=c.INPUT_ROOT+'/recipe.json'
         self.master=frozen(ART+'/sources/rear-multi-294.svg')
         self.write(self.master_paths[294],self.master);self.write(self.recipe_path,encode(c.RECIPE))
+        # The shared payload table now validates the independent six-output family.
+        import current_rear39_compatibility as rear39
+        for name in rear39.input_paths(ROOT) | {rear39.MAPPING}:
+            self.write(name,(ROOT/name).read_bytes())
         self.request=dict(schema=c.CANDIDATE_SCHEMA,version='fixture',masters=[dict(selector=294,source_svg=self.master_paths[294],source_sha256=c.sha(self.master))],recipe=dict(path=self.recipe_path,sha256=c.sha(encode(c.RECIPE))))
     def write(self,name,raw):
         p=self.root/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(raw);return p

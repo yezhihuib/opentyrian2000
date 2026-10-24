@@ -22,6 +22,10 @@ def check_additive_assets_and_runtime(base=BASE):
  # commit, with exact names. Every other historical asset remains byte-identical.
  changed=history.changed(base, a.ROOT)
  changed.update(subprocess.check_output(['git','ls-files','--others','--exclude-standard','--','assets','authoring-inputs'],cwd=a.ROOT).decode().splitlines())
+ for verify in (a.verified_current_rear39,a.verified_current_rear_p7):
+  later=verify()
+  assert later['paths']<=changed
+  changed-=later['paths']
  missile_proof=a.verified_current_missile()
  assert missile_proof['paths']<=changed
  changed-=missile_proof['paths']

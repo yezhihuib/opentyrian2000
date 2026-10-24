@@ -1,0 +1,89 @@
+{
+  "broken_other_family": "P7 HDA and reciprocal Rear39 HDA corruption both refused, full snapshot restored",
+  "check39": {
+    "composition": [
+      {
+        "clipped_alpha": 0,
+        "clipped_samples": 0,
+        "density": 4,
+        "source": 39,
+        "target": 40
+      },
+      {
+        "clipped_alpha": 1582,
+        "clipped_samples": 20,
+        "density": 4,
+        "source": 39,
+        "target": 41
+      },
+      {
+        "clipped_alpha": 0,
+        "clipped_samples": 0,
+        "density": 8,
+        "source": 39,
+        "target": 40
+      },
+      {
+        "clipped_alpha": 6900,
+        "clipped_samples": 60,
+        "density": 8,
+        "source": 39,
+        "target": 41
+      }
+    ],
+    "editable_masters": 1,
+    "global_registry_additions": 0,
+    "historical_outputs": "untouched",
+    "logical_pieces": 3,
+    "resources": 6,
+    "status": "PASS"
+  },
+  "check7": {
+    "editable_masters": 1,
+    "global_registry_additions": 0,
+    "historical_outputs": "untouched",
+    "logical_pieces": 2,
+    "resources": 4,
+    "status": "PASS"
+  },
+  "diagnostic": "Initial harness compared platform metadata as well as assets and failed; manifests1029 and metadata platform-only difference subsequently verified. No implementation failure.",
+  "dual_family_changed": [
+    "assets/gameplay/rear-multicannon-p1-bank8-294-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-294-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-295-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-295-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-39-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-39-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-40-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-40-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-41-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-41-8.hda"
+  ],
+  "export_files": 1029,
+  "export_metadata_difference": "RUNTIME-STATUS.json platform only",
+  "exports_equal": true,
+  "plan39_files": 17,
+  "plan39_inputs": 676,
+  "plan39_sha256": "16463cfa6e67389793ff8307478b7d9018de1d5975938b33509bda709780ec40",
+  "plan7_files": 13,
+  "plan7_inputs": 678,
+  "plan7_sha256": "911d7661f0a7ca4a00d3f730c5c81040ae144ecc60254c68eeae78f1c237383e",
+  "rollback": "full derive, actual second os.replace failure; all preapply hashes identical",
+  "single39_changed": [
+    "assets/gameplay/rear-multicannon-p1-bank8-39-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-39-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-40-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-40-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-41-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-41-8.hda"
+  ],
+  "source_sha256": {
+    "build_current_rear39.py": "41de5dce4cca93079100bd4983f287f89c5eb11fe3ec5f273d2a8fc0d56f22d8",
+    "build_current_rear_p7.py": "ed8c90f86ae8b3bb0858464e3bc460957fcfd23933a5a0e482c952e59cd29404",
+    "current_rear39_compatibility.py": "b43588be1aa858873c92e8925a1edf46c42a89f0767653f73c2aaec81531129a",
+    "current_rear_p7_compatibility.py": "df54070aa3d7f44a06747329d1e73cde86a8c21caa0f22784285d19b0ad20f72"
+  },
+  "staged_mapping_tamper": "refused after full rederive, no mutations",
+  "stale_stage": "full earlier39 stage after legitimate P7 edit refused, entire snapshot unchanged",
+  "status": "PASS"
+}

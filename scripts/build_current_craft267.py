@@ -332,7 +332,14 @@ def current_overlays(root):
         {'assets/gameplay/' + rear_p7.name(identity, density): blob
          for (identity, density), blob in blobs.items()})
     if len(files) != 190:
-        raise ValueError('Expected exactly 190 current gameplay overlays')
+        raise ValueError('Expected exactly 190 pre-Rear39 gameplay overlays')
+    import current_rear39_compatibility as rear39
+    selected, _, blobs = rear39.generate(root, read(root, rear39.SELECTION))
+    add(rear39.MAPPING, rear39.SELECTION, selected, rear39.load(root),
+        {'assets/gameplay/' + rear39.name(identity, density): blob
+         for (identity, density), blob in blobs.items()})
+    if len(files) != 196:
+        raise ValueError('Expected exactly 196 current gameplay overlays')
     return files
 
 

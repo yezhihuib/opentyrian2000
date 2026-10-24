@@ -1,0 +1,57 @@
+{
+  "status": "PASS after one owner-fixed closure defect",
+  "worktree": "/workspace/scratch/f67dd347fa0a/current-rear39-authoring-worktree",
+  "parent": "019c92a1547726807eacf93673983e91cd2ca7a6",
+  "reviewed_files_sha256": {
+    "scripts/current_rear39_compatibility.py": "b43588be1aa858873c92e8925a1edf46c42a89f0767653f73c2aaec81531129a",
+    "scripts/build_current_rear39.py": "41de5dce4cca93079100bd4983f287f89c5eb11fe3ec5f273d2a8fc0d56f22d8",
+    "scripts/current_rear_p7_compatibility.py": "df54070aa3d7f44a06747329d1e73cde86a8c21caa0f22784285d19b0ad20f72",
+    "scripts/build_current_rear_p7.py": "ed8c90f86ae8b3bb0858464e3bc460957fcfd23933a5a0e482c952e59cd29404",
+    "tests/test_current_rear39_authoring.py": "80613f17a7c4a3922f9cffe9d6ad3534bdf6bfb1720f534002dd4dff9cde2cfa",
+    "tests/test_current_rear_p7_authoring.py": "04fa656b12bcec0dabd36baddb3dca59c1737826aeb0ef30b15b0fb497c5e3b1",
+    "tests/current_rear39_transaction_validation.py": "3d63aa7571bce1d3a8f3058627bc5fab0e73471085fbe3a394bb2b30a12e8341"
+  },
+  "evidence_sha256": {
+    "probe-after.json": "4e52bce8f406139d681ef7cceb4360a8cf438b005e3ee69d7a4da575dd807c98",
+    "negative.json": "a210d001a3ef53e575e73984c49cb778e09145f8d84f1069cc9abb6eade3d08a",
+    "focusedp7.log": "317fa2ad478a5163432c432d3909cd5eced78147e659727048fb5a9d1ee9d595",
+    "negative.py": "cbe14c295be9d444ed7a439c885eb2856d5ae3c01c1c649fb651de54cbefb937",
+    "probe-before.json": "a1abf18f4861919c0e97aec97debd11ad19957369d52a23a409b71dc2b7a8aa5",
+    "probe.py": "dda31d099b0b39610dc80d86243bd8cb0018a4e430bcb25e14cb73eaf7f31614",
+    "focused39.log": "d1dc1fd5488a50f5d281ac27b68ce39111114f6e66f9753183654d10169753c9"
+  },
+  "baseline_header_exact_parent": true,
+  "tests": {
+    "focused_rear39": 10,
+    "focused_p7": 12,
+    "independent_invalid_geometry": 19,
+    "independent_missing_cross_family_inputs": 4,
+    "independent_true_edit_families": 2
+  },
+  "fixed_finding": "verified_pins originally validated master/recipe/PNG only, allowing missing opposite mapping/HDA; now _assets()[1] validates complete closure without recursive load",
+  "limits": [
+    "Focused stage/apply/rollback cases patch derive/dependencies; not full production transaction proof. Owner running full real pipeline separately.",
+    "No gameplay/compositor/Windows execution.",
+    "V8 heap and timeout are not hard native RSS bound; stdout cap is checked after process output.",
+    "Receipt binds exact file hashes; later edits need revalidation."
+  ],
+  "code_review": [
+    "Strict UTF8/NUL and duplicate-key rejection; closed schema and path M/L/C/Z grammar; finite bounded coordinates/heat and closed ordered color stops.",
+    "One JSON geometry path generates34 duplicated uses; d4/d8 rendered independently with exact Node/Sharp native profile plus six golden outputs and SVG golden.",
+    "Shared header constructed from frozen50 table with fresh complete other-family validation; no installed-header-as-baseline/cache or recursive load calls.",
+    "40 double composition no effective occupied crop;41 triple preserves accepted tail crop; overlaps/hidden RGB fail closed.",
+    "P7 historical test reference BASE unchanged; only complete Rear39 fixture data added, no repinned P7 source/golden."
+  ],
+  "incremental_review": {
+    "scope": "Static review only of two builders final full profile dependency selections/source_png, composition_metrics, and portable actual-data transaction harness",
+    "status": "PASS",
+    "findings_fixed": "Portable initially asserted metadata filename difference only; owner added export file set equality and RUNTIME-STATUS JSON exact equality after asserting/popping linux/windows platform. Independently inspected existing actual export JSON and confirmed platform is sole differing key.",
+    "portable_rerun": false,
+    "owner_actual_pipeline_receipt_sha256": "544ada93b89a5f02352616ec77951e1259f6d9e5830c6b2d70265979220cda16",
+    "notes": [
+      "Full dependency names are subsequently validated by existing path/read and fingerprint logic; no new uncontrolled evaluation.",
+      "Composition metrics re-render the selected bounded source and enter expected stage-plan equality; edits remain protected by rederive/input fingerprints.",
+      "Existing actual pipeline receipt inspected:39 plan676inputs/17outputs;P7 plan678inputs/13outputs. Portable itself not fully rerun by reviewer."
+    ]
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "baseline": "019c92a1547726807eacf93673983e91cd2ca7a6",
+  "scope": "Read-only repository audit; external phase probe and six physical payload checks only",
+  "consumers": [
+    {
+      "raw": 39,
+      "record": 254,
+      "power": 1,
+      "mode": 1,
+      "phase": 1,
+      "record_pin": "2de0fd3d91a6b30f"
+    },
+    {
+      "raw": 39,
+      "record": 255,
+      "power": 2,
+      "mode": 1,
+      "phase": 1,
+      "record_pin": "f92503c1cf7f8a67"
+    },
+    {
+      "raw": 40,
+      "record": 256,
+      "power": 3,
+      "mode": 1,
+      "phase": 1,
+      "record_pin": "336df95c79ab07a6"
+    },
+    {
+      "raw": 41,
+      "record": 258,
+      "power": 5,
+      "mode": 1,
+      "phase": 1,
+      "record_pin": "0a9404f2915a23c9"
+    },
+    {
+      "raw": 41,
+      "record": 259,
+      "power": 6,
+      "mode": 1,
+      "phase": 1,
+      "record_pin": "f3c7e8dc12351dc8"
+    },
+    {
+      "raw": 39,
+      "record": 261,
+      "power": 8,
+      "mode": 1,
+      "phase": 5,
+      "record_pin": "1987ab75603a42b9"
+    },
+    {
+      "raw": 41,
+      "record": 262,
+      "power": 9,
+      "mode": 1,
+      "phase": 5,
+      "record_pin": "5c8e78c68b542a04"
+    },
+    {
+      "raw": 39,
+      "record": 272,
+      "power": 8,
+      "mode": 2,
+      "phase": 6,
+      "record_pin": "1bc76a0fe7b06f72"
+    },
+    {
+      "raw": 39,
+      "record": 274,
+      "power": 10,
+      "mode": 2,
+      "phase": 7,
+      "record_pin": "8680b14f3eaffcf6"
+    },
+    {
+      "raw": 40,
+      "record": 275,
+      "power": 11,
+      "mode": 2,
+      "phase": 7,
+      "record_pin": "719bf3ad022a1918"
+    }
+  ],
+  "payloads": [
+    {
+      "raw": 39,
+      "density": 4,
+      "identity": 1310039,
+      "drawable_row": 0,
+      "payload_flat_cell": 0,
+      "source_index": 0,
+      "source_pin": "33b06acfb919521e",
+      "payload_pin": "d69e2fd8ed1cdb9a",
+      "hda_sha256": "873efa6361184041fd2ad7a86e3912bac2e3150fbad0e261cbac53182d0e915c",
+      "physical_source": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-39-4.hda"
+    },
+    {
+      "raw": 39,
+      "density": 8,
+      "identity": 1310039,
+      "drawable_row": 0,
+      "payload_flat_cell": 1,
+      "source_index": 0,
+      "source_pin": "33b06acfb919521e",
+      "payload_pin": "bc5d0f4e9ce3a2f5",
+      "hda_sha256": "54b7934272fe1838185157f66ec38362398e34442add648fb716e286d2c63ba5",
+      "physical_source": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-39-8.hda"
+    },
+    {
+      "raw": 40,
+      "density": 4,
+      "identity": 1310040,
+      "drawable_row": 6,
+      "payload_flat_cell": 12,
+      "source_index": 6,
+      "source_pin": "c358ef0c1ae44355",
+      "payload_pin": "e282898d9cb39ce5",
+      "hda_sha256": "0a5506d00eb19858f48078f872b66cc8f981214b652cec4f2b4889e668cd8604",
+      "physical_source": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-40-4.hda"
+    },
+    {
+      "raw": 40,
+      "density": 8,
+      "identity": 1310040,
+      "drawable_row": 6,
+      "payload_flat_cell": 13,
+      "source_index": 6,
+      "source_pin": "c358ef0c1ae44355",
+      "payload_pin": "27e07fd8d6be79d5",
+      "hda_sha256": "170a261a0de8e20241a836c791f04eef96a0e005e814a6e5f66d32924ae2f89a",
+      "physical_source": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-40-8.hda"
+    },
+    {
+      "raw": 41,
+      "density": 4,
+      "identity": 1310041,
+      "drawable_row": 13,
+      "payload_flat_cell": 26,
+      "source_index": 15,
+      "source_pin": "1d88ff33b672801e",
+      "payload_pin": "5dfd9280619f61ea",
+      "hda_sha256": "5479580cd938935eb369446c279153f8408638f157dc553896e30530806cb148",
+      "physical_source": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-41-4.hda"
+    },
+    {
+      "raw": 41,
+      "density": 8,
+      "identity": 1310041,
+      "drawable_row": 13,
+      "payload_flat_cell": 27,
+      "source_index": 15,
+      "source_pin": "1d88ff33b672801e",
+      "payload_pin": "8b30be3de1092cad",
+      "hda_sha256": "75c3a8221c7b05762a5d7b68f54ea1a4d0e35efe393943a84a74e54e26ecf1bb",
+      "physical_source": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-41-8.hda"
+    }
+  ],
+  "files": {
+    "src/rear_multi_p1.c": "335afe02b0830d082335a4f55e850976c905ba977d65a1a146b2d1a9def232f7",
+    "src/rear_multi_p1.h": "b905f8c0530cb0783d2258b855aa8d650f70a586927623faabda6f6f7187c048",
+    "src/rear_multi_p1_mirror.inc": "b231643815d8e867dd2e01a48c05cb345c251fba1952e9fc7edc24a27c6b144c",
+    "src/rear_multi_p11_shadow.inc": "60635f8c2723e7cbba341baf7d4853486d7d850c795a55f02a0cc46a36b02fbb",
+    "src/rear_multi_p1_pins.h": "773d88e3287b44036885804b5d70c6fc6d633a9893504b200891c1509981ffa7",
+    "src/current_rear_multi_payload_pins.h": "8bb99e02e583850d28d3af059349c3f5f24f2d86bb5295a715f8a1cab8a399bc",
+    "src/render_mirror.c": "bd160bb74cb6b53f3da1e31d1ee6b8d858a3622d7fdd7fda5f167245064d6b9a",
+    "scripts/current_rear_p7_compatibility.py": "c09a317dc846aa61a8065202217e1b20dc505841c7c81c41a7833c56258e2e9c",
+    "tests/accepted_later_changes.py": "2a763007ff79ac5f40f0e8a5e940d0580662aec9abb0aac02d53e4897cdaf59c"
+  },
+  "probe": {
+    "command": "cc -std=c99 -Wall -Wextra -Werror rear39-runtime-audit/probe.c -o rear39-runtime-audit/probe; rear39-runtime-audit/probe",
+    "records": 22,
+    "phases": 8,
+    "raws": 3,
+    "queries": 528,
+    "matches": 10,
+    "exit": 0
+  },
+  "preserved_p7_flat_cells": [
+    34,
+    35,
+    36,
+    37
+  ],
+  "unsupported_zero_cells": [
+    18,
+    20
+  ],
+  "limits": [
+    "No original weapon bank or decoded source bank exercised",
+    "No gameplay/compositor/Windows/GPU or campaign run",
+    "Downstream source closure uses existing source audit plus direct source read"
+  ]
+}

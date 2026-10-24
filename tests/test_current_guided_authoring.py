@@ -240,6 +240,12 @@ class CurrentGuidedTests(unittest.TestCase):
         self.assertEqual(len(rear_names),11)
         for name in rear_names:self.write(name,(ROOT/name).read_bytes())
         rear_p7.input_paths(self.root)
+        import current_rear39_compatibility as rear39
+        rear39.load(ROOT)
+        rear39_names=rear39.input_paths(ROOT)|{rear39.MAPPING}
+        self.assertEqual(len(rear39_names),16)
+        for name in rear39_names:self.write(name,(ROOT/name).read_bytes())
+        rear39.input_paths(self.root)
         # Mint27 adds one independent finite family; retain its real closure.
         import current_missile_compatibility as missile
         missile.load(ROOT)

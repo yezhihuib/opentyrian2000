@@ -161,6 +161,8 @@ def charge_derive(root,raw):
     names |= missile_input_paths(root) | {MISSILE_MAPPING}
     from current_rear_p7_compatibility import input_paths as rear_p7_input_paths, MAPPING as REAR_P7_MAPPING
     names |= rear_p7_input_paths(root) | {REAR_P7_MAPPING}
+    from current_rear39_compatibility import input_paths as rear39_input_paths, MAPPING as REAR39_MAPPING
+    names |= rear39_input_paths(root) | {REAR39_MAPPING}
     from current_newshf_compatibility import input_paths as newshf_input_paths
     names|=newshf_input_paths(root)
     names|={p.relative_to(root).as_posix() for p in (root/'src').rglob('*') if p.is_file() or p.is_symlink()}
@@ -201,6 +203,8 @@ def charge_plan(root,outputs,raw):
     names |= missile_input_paths(root) | {MISSILE_MAPPING}
     from current_rear_p7_compatibility import input_paths as rear_p7_input_paths, MAPPING as REAR_P7_MAPPING
     names |= rear_p7_input_paths(root) | {REAR_P7_MAPPING}
+    from current_rear39_compatibility import input_paths as rear39_input_paths, MAPPING as REAR39_MAPPING
+    names |= rear39_input_paths(root) | {REAR39_MAPPING}
     from current_newshf_compatibility import input_paths as newshf_input_paths
     names|=newshf_input_paths(root)
     # Bind every installed destination and all request/tool inputs. Source and
@@ -283,6 +287,8 @@ def mf_derive(root,raw):
     names |= missile_input_paths(root) | {MISSILE_MAPPING}
     from current_rear_p7_compatibility import input_paths as rear_p7_input_paths, MAPPING as REAR_P7_MAPPING
     names |= rear_p7_input_paths(root) | {REAR_P7_MAPPING}
+    from current_rear39_compatibility import input_paths as rear39_input_paths, MAPPING as REAR39_MAPPING
+    names |= rear39_input_paths(root) | {REAR39_MAPPING}
     from current_newshf_compatibility import input_paths as newshf_input_paths
     names|=newshf_input_paths(root)
     names|={row['source_png'] for row in selected['resources']}
@@ -325,6 +331,8 @@ def mf_plan(root,outputs,raw):
     names |= missile_input_paths(root) | {MISSILE_MAPPING}
     from current_rear_p7_compatibility import input_paths as rear_p7_input_paths, MAPPING as REAR_P7_MAPPING
     names |= rear_p7_input_paths(root) | {REAR_P7_MAPPING}
+    from current_rear39_compatibility import input_paths as rear39_input_paths, MAPPING as REAR39_MAPPING
+    names |= rear39_input_paths(root) | {REAR39_MAPPING}
     from current_newshf_compatibility import input_paths as newshf_input_paths
     names|=newshf_input_paths(root)
     names|={p.relative_to(root).as_posix() for p in (root/'scripts').glob('*.py')}

@@ -66,6 +66,46 @@ def _project_source_once(label,name,raw):
  assert sha(restored)==pin['previous_sha256'],(name,'historical result drift')
  return restored
 
+CURRENT_REAR39_LEDGER_SHA='ecdcaa893a6df956cb1a5f287f8e39119597262ee2dbc4239faaee27c7a87806'
+def current_rear39_ledger():
+ raw=(ROOT/'tests/current_rear39_source_projection.json').read_bytes()
+ assert sha(raw)==CURRENT_REAR39_LEDGER_SHA,'changed current REAR39 inverse ledger'
+ return json.loads(raw)
+
+def verified_current_rear39(root=ROOT):
+ """Fresh six-output proof including the composed P7/39 shared header."""
+ scripts=str(ROOT/'scripts')
+ if scripts not in sys.path:sys.path.insert(0,scripts)
+ import current_rear39_compatibility as c
+ mapping=c.load(root)
+ assert current_rear39_ledger()['files']=={},'Rear39 has no C source inverse hunks'
+ names=c.input_paths(root)|{c.MAPPING}
+ assets={n:{'sha256':sha(c.read(root,n)),'mode':'100644'} for n in names if n.startswith('assets/')}
+ assert len(assets)==7,'unapproved current REAR39 asset scope'
+ return dict(assets=assets,paths=names-{c.MAPPING},mapping=mapping,header_sha256=sha(c.read(root,c.HEADER)))
+
+def rear39_runtime_input_paths(root=ROOT):
+ import current_rear39_compatibility as c
+ import current_rear_p7_compatibility as p7
+ return c.input_paths(root)|{c.MAPPING,c.HEADER}|p7.input_paths(root)|{p7.MAPPING}|set(current_rear_p7_ledger()['files'])
+
+def before_current_rear39_runtime(rows,root=ROOT):
+ assert isinstance(rows,list) and len(rows)==1029,'unexpected REAR39 runtime scope / destination scope'
+ assert len({row['destination'] for row in rows})==1029,'duplicate REAR39 runtime destination scope'
+ proof=verified_current_rear39(root)
+ old={r['destination']:r for r in current_rear39_ledger()['runtime_before']}
+ assert set(old)==set(proof['mapping']) and len(old)==6
+ result=copy.deepcopy(rows);seen=set()
+ for index,row in enumerate(result):
+  destination=row['destination']
+  if destination not in old:continue
+  selected=proof['mapping'][destination];raw=(root/selected['source_path']).read_bytes()
+  expected=dict(old[destination],source_path=selected['source_path'],sha256=sha(raw),bytes=len(raw),git_blob=hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest(),revision='current-single-source-rear39')
+  assert row==expected,('unapproved current REAR39 runtime row',destination)
+  assert destination not in seen;seen.add(destination);result[index]=old[destination]
+ assert seen==set(old),'missing current REAR39 runtime row'
+ return result
+
 CURRENT_REAR_P7_HEADER='src/current_rear_multi_payload_pins.h'
 CURRENT_REAR_P7_LEDGER_SHA='e2f7e4866031c1facede68da9fef24dadaf9faf1b0d783a8b0b9ba31c59b29f1'
 def current_rear_p7_ledger():
@@ -114,9 +154,10 @@ def rear_p7_runtime_input_paths(root=ROOT):
  scripts=str(ROOT/'scripts')
  if scripts not in sys.path:sys.path.insert(0,scripts)
  import current_rear_p7_compatibility as c
- return c.input_paths(root)|{c.MAPPING,c.HEADER}|set(current_rear_p7_ledger()['files'])
+ return rear39_runtime_input_paths(root)
 
 def before_current_rear_p7_runtime(rows,root=ROOT):
+ rows=before_current_rear39_runtime(rows,root)
  assert isinstance(rows,list) and len(rows)==1029,'unexpected REAR_P7 runtime scope / destination scope'
  assert len({row['destination'] for row in rows})==1029,'duplicate REAR_P7 runtime destination scope'
  proof=verified_current_rear_p7(root)
@@ -1285,6 +1326,9 @@ Retired paths are explicitly absent, never a prefix/wildcard exclusion.
 
 def project_p9_inventory(current,root=ROOT):
  current=copy.deepcopy(current)
+ for name,row in verified_current_rear39(root)['assets'].items():
+  assert current.get(name)==row,('unverified current Rear39 output',name)
+  del current[name]
  for name,row in verified_current_rear_p7(root)['assets'].items():
   assert current.pop(name)==row,('unverified current Rear P7 output',name)
  for name,row in verified_current_missile(root)['assets'].items():

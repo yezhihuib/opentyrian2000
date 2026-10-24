@@ -43,6 +43,8 @@ def dependencies(root, selected):
     names |= missile_input_paths(root) | {MISSILE_MAPPING}
     from current_rear_p7_compatibility import input_paths as rear_p7_input_paths, MAPPING as REAR_P7_MAPPING
     names |= rear_p7_input_paths(root) | {REAR_P7_MAPPING}
+    from current_rear39_compatibility import input_paths as rear39_input_paths, MAPPING as REAR39_MAPPING
+    names |= rear39_input_paths(root) | {REAR39_MAPPING}
     from current_newshf_compatibility import input_paths as newshf_input_paths
     names |= newshf_input_paths(root)
     from current_enemy_orb_compatibility import input_paths as orb_input_paths, MAPPING as ORB_MAPPING

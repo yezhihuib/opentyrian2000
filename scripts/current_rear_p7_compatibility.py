@@ -112,7 +112,7 @@ def recipe(raw):
     return result
 
 
-def load(root):
+def _assets(root):
     from build_current_art import fnv
     selected, _, blobs = generate(root, read(root, SELECTION, 128 * 1024))
     mapping = parse(read(root, MAPPING, 128 * 1024))
@@ -130,7 +130,18 @@ def load(root):
                     version=selected['version'], files=rows)
     if json.dumps(mapping, sort_keys=True) != json.dumps(expected, sort_keys=True):
         raise ValueError('Invalid/stale Rear P7 compatibility mapping')
-    if read(root, HEADER) != payload_header(pins):
+    return result, pins
+
+
+def load_assets(root):
+    """Validate own complete derivation; shared-header candidate replacement is separate."""
+    return _assets(root)[0]
+
+
+def load(root):
+    result,pins=_assets(root)
+    from current_rear39_compatibility import verified_pins as rear39_pins
+    if read(root, HEADER) != payload_header(pins,rear39_pins(root)):
         raise ValueError('Stale Rear P7 payload pins')
     return result
 
@@ -250,7 +261,7 @@ def input_paths(root):
     return {SELECTION,selected['recipe']['path'],selected['masters'][0]['source_svg']} | generated_paths() | {ROOT+'/'+name(*p) for p in PAIRS}
 
 
-def payload_header(pins):
+def payload_header(pins, rear39_pins=None):
     if set(pins)!=set(PAIRS):
         raise ValueError('Expected four Rear P7 payload pins')
     values=list(FROZEN_PAYLOADS)
@@ -258,6 +269,14 @@ def payload_header(pins):
         if not isinstance(value,str) or re.fullmatch('[0-9a-f]{16}',value) is None:
             raise ValueError('Invalid Rear P7 payload pin')
         values[(17+identity-1310294)*2+(density==8)]=value
+    if rear39_pins is not None:
+        expected={(1310000+raw,d) for raw in (39,40,41) for d in (4,8)}
+        if set(rear39_pins)!=expected:
+            raise ValueError('Expected six Rear39 payload pins')
+        for (identity,density),value in rear39_pins.items():
+            if not isinstance(value,str) or re.fullmatch('[0-9a-f]{16}',value) is None:
+                raise ValueError('Invalid Rear39 payload pin')
+            values[{1310039:0,1310040:12,1310041:26}[identity]+(density==8)]=value
     pairs=['{UINT64_C(0x'+values[i]+'),UINT64_C(0x'+values[i+1]+')}' for i in range(0,50,2)]
     return ('/* Generated Rear P7 payload-only override; all other Rear pins frozen. */\n#ifndef CURRENT_REAR_MULTI_PAYLOAD_PINS_H\n#define CURRENT_REAR_MULTI_PAYLOAD_PINS_H\n#ifndef REAR_P1_RGBA_PINS\n#define REAR_P1_RGBA_PINS {'+','.join(pairs)+'}\n#endif\n#endif\n').encode()
 
@@ -269,3 +288,7 @@ def check_tool():
     actual=render(GOLDEN_SVG)
     if {p:(sha(png),sha(rgba)) for p,(png,rgba) in actual.items()}!=GOLDEN_HASHES:
         raise ValueError('Rear P7 exact SVG renderer golden mismatch')
+
+
+def verified_pins(root):
+    return _assets(root)[1]

@@ -51,6 +51,8 @@ def dependencies(root, selected):
     names |= missile_input_paths(root) | {MISSILE_MAPPING}
     from current_guided_compatibility import input_paths as guided_input_paths, MAPPING as GUIDED_MAPPING
     names |= guided_input_paths(root) | {GUIDED_MAPPING}
+    from current_rear39_compatibility import input_paths as rear39_input_paths, MAPPING as REAR39_MAPPING
+    names |= rear39_input_paths(root) | {REAR39_MAPPING}
     names |= {r['source_svg'] for r in selected['masters']} | {selected['recipe']['path']}
     names |= {REGISTRY, BINDING, RUNTIME, 'packaging/runtime-assets-public63a89b3.json',
               'packaging/shop-static-approved-v1.json', 'packaging/current-hud-compatibility.json',
@@ -59,6 +61,10 @@ def dependencies(root, selected):
               'packaging/current-tank-shell-compatibility.json',
               'packaging/current-craft267-compatibility.json'} | set(BUILD_INPUTS)
     names |= {profile(family)['mapping'] for family in PROFILES}
+    for family in PROFILES:
+        source_selection=profile(family)['selection']
+        names.add(source_selection)
+        names |= {r['source_png'] for r in parse_manifest(read(root,source_selection))['resources']}
     names |= {p.relative_to(root).as_posix() for p in (root/'src').rglob('*') if p.is_file() or p.is_symlink()}
     names |= {p.relative_to(root).as_posix() for p in (root/'scripts').glob('*.py')}
     return names
@@ -80,7 +86,8 @@ def derive(root, raw):
         pins[(identity, density)] = fnv(blob[28:])
         rows.append(dict(identity=identity, density=density, source_path=source,
                          destination='assets/gameplay/' + compat.name(identity, density), sha256=sha(blob)))
-    outputs[compat.HEADER] = compat.payload_header(pins)
+    from current_rear39_compatibility import verified_pins as rear39_pins
+    outputs[compat.HEADER] = compat.payload_header(pins,rear39_pins(root))
     outputs[compat.MAPPING] = encoded(dict(schema='opentyrian-current-rear-p7-compatibility-v1',
         selection=SELECTION, version=selected['version'], files=rows))
     old = parse_manifest(read(root, RUNTIME, 2 * 1024 * 1024))

@@ -69,7 +69,7 @@ class CurrentRearP7SourceProjection(unittest.TestCase):
   expected={r['destination']:r for r in a.current_rear_p7_ledger()['runtime_before']}
   self.assertEqual({r['destination']:r for r in before if r['destination'] in expected},expected)
   self.assertEqual(len(before),1029)
-  self.assertEqual([r for r in rows if r['destination'] not in expected],[r for r in before if r['destination'] not in expected])
+  self.assertEqual([r for r in a.before_current_rear39_runtime(rows) if r['destination'] not in expected],[r for r in before if r['destination'] not in expected])
   for action in ('missing','old','tampered'):
    invalid=copy.deepcopy(rows);target=next(r for r in invalid if r['destination'] in expected and r['source_path'].startswith('assets/hd/current-compat/rear-p7/'))
    if action=='missing':invalid.remove(target)

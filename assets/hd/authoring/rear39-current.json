@@ -1,0 +1,53 @@
+{
+  "schema": "opentyrian-current-rear39-authoring-v1",
+  "version": "shared39-exact-pair-triple-v1",
+  "masters": [
+    {
+      "selector": 39,
+      "source_json": "authoring-inputs/rear39-current/master-39.json",
+      "source_sha256": "38189a96f70852b20dc5bbe729be062abf8bca51167129a83b280e2265c6054b"
+    }
+  ],
+  "recipe": {
+    "path": "authoring-inputs/rear39-current/recipe.json",
+    "sha256": "cfdc6009f94cc1da56be7223203b7621c49cc53b46427bc96035fa02d07ecacd"
+  },
+  "resources": [
+    {
+      "identity": 1310039,
+      "density": 4,
+      "source_png": "authoring-inputs/rear39-current/derived/rear-multicannon-p1-bank8-39-4.png",
+      "source_sha256": "736bacd2ea86c5412f948ed0a402346f93a7b3339fc112f2a13bc84d938b2a57"
+    },
+    {
+      "identity": 1310040,
+      "density": 4,
+      "source_png": "authoring-inputs/rear39-current/derived/rear-multicannon-p1-bank8-40-4.png",
+      "source_sha256": "77a878e3461ff3a0d574eb009607f5f2fcf2705f25cf55289e0942df459a78fe"
+    },
+    {
+      "identity": 1310041,
+      "density": 4,
+      "source_png": "authoring-inputs/rear39-current/derived/rear-multicannon-p1-bank8-41-4.png",
+      "source_sha256": "b09a9bb38ab53b357be8caadca6807586255368d56ee2677abd509b5895df68b"
+    },
+    {
+      "identity": 1310039,
+      "density": 8,
+      "source_png": "authoring-inputs/rear39-current/derived/rear-multicannon-p1-bank8-39-8.png",
+      "source_sha256": "8887cdf07fac4091b24ad58a488b77396dffbfef2f94464e5ab8fd2e7af0d861"
+    },
+    {
+      "identity": 1310040,
+      "density": 8,
+      "source_png": "authoring-inputs/rear39-current/derived/rear-multicannon-p1-bank8-40-8.png",
+      "source_sha256": "c2ab24824895c6aa195cb7aa5a2738b35bdee46d475167184b51b6ae3e3ab103"
+    },
+    {
+      "identity": 1310041,
+      "density": 8,
+      "source_png": "authoring-inputs/rear39-current/derived/rear-multicannon-p1-bank8-41-8.png",
+      "source_sha256": "f142ac3eb4ddf0b54a7b70ef86d50daeda5fbd2a80f81403286f5add38e2bd79"
+    }
+  ]
+}

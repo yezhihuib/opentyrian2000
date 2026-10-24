@@ -1,0 +1,121 @@
+{
+  "base": "019c92a1547726807eacf93673983e91cd2ca7a6",
+  "builds": {
+    "inherited": 6,
+    "new": 0,
+    "reason": "all278 build inputs including274src exact frozenP7 snapshots; retained258objectpairs/3binaries rehashed"
+  },
+  "final_execution_inventory_equal_tested_checkpoint": true,
+  "limits": [
+    "No Windows execution, compositor pixel proof, original-game-data admission or natural campaign.",
+    "Portable transaction validator assembled from actual tested production stages; initial harness incorrectly compared RUNTIME-STATUS platform metadata and was corrected, all1029 payload files and metadata-only platform difference independently verified. No second complete from-scratch portable run yet."
+  ],
+  "metadata_final_proof": {
+    "all_export_paths": 1032,
+    "difference": "RUNTIME-STATUS.json platform field only",
+    "manifest_payload_files": 1029,
+    "metadata_equal_after_platform_removed": true,
+    "status": "PASS"
+  },
+  "native": "all seven configurations plain+ASan/UBSan pass; production inputs unchanged; synthetic banks/records, real48HDA, observers not compositor",
+  "native_reproduction_archive": {
+    "delivery": "external native tools/evidence archive retained for cumulative private recovery backup; not an added execution input",
+    "filename": "rear39-native-validation-20261024-evidence.tgz",
+    "sha256": "6f6f5fcd6975e93b7058a9878c95a41533b97dbb3df5e657d35b6388e248b772"
+  },
+  "post54_builders": {
+    "rear39": {
+      "composition": [
+        {
+          "clipped_alpha": 0,
+          "clipped_samples": 0,
+          "density": 4,
+          "source": 39,
+          "target": 40
+        },
+        {
+          "clipped_alpha": 1926,
+          "clipped_samples": 20,
+          "density": 4,
+          "source": 39,
+          "target": 41
+        },
+        {
+          "clipped_alpha": 0,
+          "clipped_samples": 0,
+          "density": 8,
+          "source": 39,
+          "target": 40
+        },
+        {
+          "clipped_alpha": 8390,
+          "clipped_samples": 64,
+          "density": 8,
+          "source": 39,
+          "target": 41
+        }
+      ],
+      "editable_masters": 1,
+      "global_registry_additions": 0,
+      "historical_outputs": "untouched",
+      "logical_pieces": 3,
+      "resources": 6,
+      "status": "PASS"
+    },
+    "rear_p7": {
+      "editable_masters": 1,
+      "global_registry_additions": 0,
+      "historical_outputs": "untouched",
+      "logical_pieces": 2,
+      "resources": 4,
+      "status": "PASS"
+    }
+  },
+  "post54_source_binding": {
+    "scope": "exact source binding only",
+    "source_files": 274,
+    "status": "PASS"
+  },
+  "public_base": "525de2b9d5b4605dd6bf997cee644c9ac39546c1",
+  "receipts": {
+    "current-rear39-bootstrap-validation.json": "30c7a4d81362b19768222a6fe06e434452ee321f2c3677c64ddaf49c13a176e5",
+    "current-rear39-build-validation.json": "7f234c906c167e17b28537accbeb1e9c68fb48caa51cdd3e1d467f973e0e51e2",
+    "current-rear39-compiler-validation.json": "0c473290f5adaf9ef96beb0edec532d4941bb3808ae449c519e11726d0b7cc73",
+    "current-rear39-history-validation.json": "1b13adc7d332d8c5c0ed3069b272e3fb8663e1e13ed1c69722a8ac1abbfb7503",
+    "current-rear39-native-validation.json": "e8089e4ca8f815c519462c4bbefc4374dffa8b7617e109ba0036cc70cbce036a",
+    "current-rear39-transaction-validation.json": "544ada93b89a5f02352616ec77951e1259f6d9e5830c6b2d70265979220cda16"
+  },
+  "schema": "rear39-current-validation-v1",
+  "status": "PASS",
+  "tests": {
+    "current39_authoring_integration_projection": {
+      "count": 23,
+      "result": "PASS",
+      "seconds": 56.866
+    },
+    "final_integrations": {
+      "p7": {
+        "count": 9,
+        "result": "PASS",
+        "seconds": 28.198
+      },
+      "rear39": {
+        "count": 10,
+        "result": "PASS",
+        "seconds": 30.71
+      }
+    },
+    "historical_full54": {
+      "before_after_sha256": "e80d37cd22835960a6e17a57c056ae4c8cd878864f87e2ea0c4e05c432e28c7a",
+      "count": 54,
+      "seconds": 5508.042,
+      "status": "PASS",
+      "tested_commit": "00bdc8cc90ec001229ef3227c2c400fa69ac77cc",
+      "unchanged_execution_files": 7064
+    },
+    "p7_focused": {
+      "count": 12,
+      "result": "PASS"
+    }
+  }
+}

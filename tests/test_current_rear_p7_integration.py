@@ -78,7 +78,9 @@ class CurrentRearP7Integration(unittest.TestCase):
         self.assertEqual((ROOT/'src/rear_multi_p11_shadow.inc').read_bytes(), old('src/rear_multi_p11_shadow.inc'))
 
     def test_runtime_only_four_source_revisions_and_binding_change(self):
-        now = {r['destination']:r for r in json.loads((ROOT/MANIFEST).read_bytes())['files']}
+        from accepted_later_changes import before_current_rear39_runtime
+        restored = before_current_rear39_runtime(json.loads((ROOT/MANIFEST).read_bytes())['files'], ROOT)
+        now = {r['destination']:r for r in restored}
         previous = {r['destination']:r for r in json.loads(old(MANIFEST))['files']}
         self.assertEqual(len(now), 1029); self.assertEqual(set(now), set(previous))
         for destination,row in now.items():
@@ -93,7 +95,15 @@ class CurrentRearP7Integration(unittest.TestCase):
         from build_current_craft267 import current_overlays
         from shared_asset_authoring_map import build_map
         overlays = current_overlays(ROOT)
-        self.assertEqual(len(overlays), 190)
+        from accepted_later_changes import verified_current_rear39
+        rear39 = verified_current_rear39(ROOT)['mapping']
+        self.assertEqual(len(rear39), 6)
+        self.assertEqual(len(overlays), 196)
+        historical_overlays = dict(overlays)
+        for destination, selected in rear39.items():
+            self.assertEqual(historical_overlays.pop(Path(destination).name),
+                             (ROOT/selected['source_path']).read_bytes())
+        self.assertEqual(len(historical_overlays), 190)
         rows = [r for r in build_map(ROOT)['resources'] if r['identity'] in current.IDS]
         self.assertEqual(len(rows),4)
         for row in rows:

@@ -1,0 +1,67 @@
+{
+  "focused": {
+    "files": {
+      "tests/accepted_later_changes.py": "c20795db69563c01ab02ef372d9c5187f7d2bd31867e260da6d1cf708cbbbce0",
+      "tests/current_rear39_source_projection.json": "ecdcaa893a6df956cb1a5f287f8e39119597262ee2dbc4239faaee27c7a87806",
+      "tests/test_accepted_later_changes.py": "a6261c99004206abe8ffb3dae56129fc96608aad57d8f1f109ab5d7ed36896ae",
+      "tests/test_current_guided_authoring.py": "2ad13ae84acab5fe66709beea40eb7972293bc89e1cbf80c5f0bb65e4d38e542",
+      "tests/test_current_mint27_authoring.py": "aac88da2a7b09299af149c47b28f407e3376553de2f6ddf5a7564996b19c69ac",
+      "tests/test_current_missile_authoring.py": "013305704958454dd317977e361ea2546ba5b1359dd3557720485e0c88d6ea41",
+      "tests/test_current_protron_authoring.py": "08ff19f1651f0abc2364f3afcf17088fa9567ff3174b8337a127e6522be33ab1",
+      "tests/test_current_rear39_source_projection.py": "512c0858e4af8a0fb7f9f00a5012600e0641f91e2580a72632881178dc450190",
+      "tests/test_current_rear_p7_source_projection.py": "f27993c29e8bc83597dc35215cc692797709edcbb546eef08bb7904c5ef2c89c",
+      "tests/test_current_sonic_authoring.py": "047f588b147e6d16961b77186ebac5b6d912987219744b85486baa48c2fae9f4",
+      "tests/test_enemy_controlled_probe_binding.py": "ebddb614fa2f168bbfe8e6fcdf2a8ca64f63cbfb8f5fe4fbf8740aef502db30b",
+      "tests/test_enemy_proof_dedup_binding.py": "27901f348eec522170bdfb5d2c3d401c852562468639fe80ca81d8eee6e04e90",
+      "tests/test_enemy_protron_reuse_binding.py": "a38be08c131ad8fd4f23ef9644bd6f43ff2feb29e002f324dfa811abae966b65",
+      "tests/test_enemy_reuse_observe_binding.py": "00f2f63d70f526aa93e7ad8f9ffdb951523cb372eebbea86d76792eb3a8de7dc",
+      "tests/test_normal_observer_surface_binding.py": "68459b912c08ff1ffee0fbe50d6d20856f9368960f0cc53e78a55772e2bdae3d"
+    },
+    "logs": {
+      "rear39-history-finite-old-bindings.log": "0ed732a7023a62e7c5b73437f47189f36e7abcd5f7246baaa1e87d333465b127",
+      "rear39-history-fixtures.log": "a18f1635fce32db614f0629d02b10adf30877df7d9f3cd6e0b08a57aa7a3b0b1",
+      "rear39-history-focused-final.log": "caad998939eaf311c6150918636471d083167581c0ed94f37bcda26ad5e68809",
+      "rear39-history-projection-final.log": "6b3f366f353b66f43dad7f1ddfd5c3f346d97ec8e947ac501d85425a4d0c0648"
+    },
+    "notes": [
+      "10-test run includes first version of the new three-test module; final four-test module replaces that scope and adds 21 asset negative cases.",
+      "First diagnostic log rear39-history-focused.log failed only because three JSON negatives used valid trailing whitespace; rerun corrupts bytes instead.",
+      "All old JSON ledgers unchanged.",
+      "New seven assets staged exactly for Git file-mode oracle with owner permission."
+    ],
+    "runs": [
+      {
+        "seconds": 33.355,
+        "tests": 10
+      },
+      {
+        "seconds": 10.553,
+        "tests": 3
+      },
+      {
+        "seconds": 29.702,
+        "tests": 4
+      },
+      {
+        "seconds": 113.134,
+        "tests": 30
+      }
+    ],
+    "scope": "Fresh exact Rear39/P7 historical proof and finite fixture adapters; no gameplay admission claim"
+  },
+  "full54": {
+    "after_sha256": "e80d37cd22835960a6e17a57c056ae4c8cd878864f87e2ea0c4e05c432e28c7a",
+    "before_sha256": "e80d37cd22835960a6e17a57c056ae4c8cd878864f87e2ea0c4e05c432e28c7a",
+    "changed_paths": [],
+    "exit_code": 0,
+    "file_count": 7064,
+    "log_sha256": "44545012cb58f6136db03c1dc2ca8c2319748fd5811840032e8a08f56e15eb2b",
+    "seconds": 5509.311455965042,
+    "tests": 54,
+    "unittest_seconds": 5508.042
+  },
+  "schema": "rear39-final-history-validation-v1",
+  "scope": "scripts/src/tests/packaging/authoring-inputs/assets byte snapshot unchanged; docs finalization excluded from execution inputs; no old oracle repin",
+  "status": "PASS",
+  "tested_commit": "00bdc8cc90ec001229ef3227c2c400fa69ac77cc"
+}
