@@ -4,10 +4,13 @@ import copy,json,subprocess,tempfile,unittest
 from pathlib import Path
 from unittest.mock import patch
 import accepted_later_changes as a
+import sys
+sys.path.insert(0, str(a.ROOT / 'scripts'))
+import portable_history_baselines as history
 BASE='19c96ae931fa1a23b05d75cb9b4387330cc8db54'
 NAME='normal-observer-surface-source.json'
 FILES={'src/enemy_reuse_observe.h','src/enemy_reuse_observe.inc','src/enemy_reuse_mirror.inc'}
-def original(name):return subprocess.check_output(['git','show',BASE+':'+name],cwd=a.ROOT)
+def original(name):return history.preimage(BASE, name, a.ROOT)
 class NormalObserverSurfaceBinding(unittest.TestCase):
  def test_exact_inverse_and_partial_revert_rejection(self):
   ledger=a.load(NAME)
@@ -31,13 +34,12 @@ class NormalObserverSurfaceBinding(unittest.TestCase):
     with patch.object(a,'load',side_effect=lambda n:mutant if n==NAME else load(n)):
      with self.assertRaises(AssertionError):a.project_normal_observer_source(name,(a.ROOT/name).read_bytes())
  def test_all_historical_ledgers_and_art_unchanged(self):
-  names=set(subprocess.check_output(['git','ls-tree','-r','--name-only',BASE,'--','tests/fixtures/accepted-later-changes-v1'],cwd=a.ROOT).decode().splitlines())
+  names=history.names(BASE, 'tests/fixtures/accepted-later-changes-v1', a.ROOT)
   actual={p.relative_to(a.ROOT).as_posix() for p in a.FIXTURES.iterdir() if p.is_file()}
   self.assertEqual(actual-names,{'tests/fixtures/accepted-later-changes-v1/'+NAME});self.assertFalse(names-actual)
   for name in names:self.assertEqual((a.ROOT/name).read_bytes(),original(name))
-  changed=set()
-  for args in [('diff','--name-only',BASE,'--'),('ls-files','--others','--exclude-standard','--')]:
-   changed.update(subprocess.check_output(['git',*args,'assets','authoring-inputs'],cwd=a.ROOT).decode().splitlines())
+  changed=history.changed(BASE, a.ROOT)
+  changed.update(subprocess.check_output(['git','ls-files','--others','--exclude-standard','--','assets','authoring-inputs'],cwd=a.ROOT).decode().splitlines())
   self.assertEqual(changed,a.verified_current_sonic()['paths'] | a.verified_current_guided()['paths'])
  def test_exact_binding_and_runtime_delta(self):
   import sys

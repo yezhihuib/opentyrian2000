@@ -4,11 +4,14 @@ import copy,json,subprocess,tempfile,unittest
 from pathlib import Path
 from unittest.mock import patch
 import accepted_later_changes as a
+import sys
+sys.path.insert(0, str(a.ROOT / 'scripts'))
+import portable_history_baselines as history
 BASE='4d8981d875f3112a96c1e71644642fefc419a7f6'
 NAME='enemy-controlled-probe-source.json'
 FILES={'src/game_probe.c','src/asset_debug.c','src/render_mirror.c','src/enemy_reuse_mirror.inc'}
 ADDED={'src/enemy_reuse_probe.h','src/enemy_reuse_probe.inc'}
-def original(name):return subprocess.check_output(['git','show',BASE+':'+name],cwd=a.ROOT)
+def original(name):return history.preimage(BASE, name, a.ROOT)
 class ControlledProbeBinding(unittest.TestCase):
  def test_exact_inverse_and_each_hunk_rejects_partial_revert(self):
   ledger=a.load(NAME)
@@ -44,16 +47,15 @@ class ControlledProbeBinding(unittest.TestCase):
     path.write_bytes(raw)
    self.assertEqual(a.verified_enemy_probe_sources(root),expected)
  def test_old_ledgers_assets_and_inputs_are_unchanged(self):
-  names=set(subprocess.check_output(['git','ls-tree','-r','--name-only',BASE,'--','tests/fixtures/accepted-later-changes-v1'],cwd=a.ROOT).decode().splitlines())
+  names=history.names(BASE, 'tests/fixtures/accepted-later-changes-v1', a.ROOT)
   actual={p.relative_to(a.ROOT).as_posix() for p in a.FIXTURES.iterdir() if p.is_file()}
   actual.remove('tests/fixtures/accepted-later-changes-v1/normal-observer-surface-source.json');a.load('normal-observer-surface-source.json')
   self.assertEqual(actual-names,{'tests/fixtures/accepted-later-changes-v1/'+NAME});self.assertFalse(names-actual)
   for name in names:self.assertEqual((a.ROOT/name).read_bytes(),original(name))
   # Verify exactly the new current inputs/outputs; no old asset is exempt.
   proof=a.verified_current_protron()
-  changed=set()
-  for args in [('diff','--name-only',BASE,'--'),('ls-files','--others','--exclude-standard','--')]:
-   changed.update(subprocess.check_output(['git',*args,'assets','authoring-inputs'],cwd=a.ROOT).decode().splitlines())
+  changed=history.changed(BASE, a.ROOT)
+  changed.update(subprocess.check_output(['git','ls-files','--others','--exclude-standard','--','assets','authoring-inputs'],cwd=a.ROOT).decode().splitlines())
   self.assertEqual(changed,proof['paths']|a.verified_current_sonic()['paths']|a.verified_current_guided()['paths'])
  def test_exact_historical_runtime_projection(self):
   previous=json.loads(original('packaging/runtime-assets-v1.json'))['files']

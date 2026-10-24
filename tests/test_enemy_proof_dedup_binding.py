@@ -3,10 +3,13 @@
 import copy,json,subprocess,unittest
 from unittest.mock import patch
 import accepted_later_changes as a
+import sys
+sys.path.insert(0, str(a.ROOT / 'scripts'))
+import portable_history_baselines as history
 BASE='5109ebbd3f8a5c58075d6358e82e2e4459ac5460'
 NAME='enemy-proof-dedup-source.json'
 FILES={'src/enemy_reuse_identity.c','src/enemy_reuse_identity.h','src/enemy_reuse_mirror.inc'}
-def original(name):return subprocess.check_output(['git','show',BASE+':'+name],cwd=a.ROOT)
+def original(name):return history.preimage(BASE, name, a.ROOT)
 class EnemyProofDedupBinding(unittest.TestCase):
  def test_exact_inverse_and_reject_changed_or_partially_reverted_source(self):
   ledger=a.load(NAME)
@@ -29,7 +32,7 @@ class EnemyProofDedupBinding(unittest.TestCase):
     with patch.object(a,'load',side_effect=lambda n:mutant if n==NAME else load(n)):
      with self.assertRaises(AssertionError):a.project_source('enemy-proof-dedup',name,raw)
  def test_every_older_ledger_and_all_asset_bytes_are_unchanged(self):
-  old_names=set(subprocess.check_output(['git','ls-tree','-r','--name-only',BASE,'--','tests/fixtures/accepted-later-changes-v1'],cwd=a.ROOT).decode().splitlines())
+  old_names=history.names(BASE, 'tests/fixtures/accepted-later-changes-v1', a.ROOT)
   actual={p.relative_to(a.ROOT).as_posix() for p in a.FIXTURES.iterdir() if p.is_file()}
   actual.remove('tests/fixtures/accepted-later-changes-v1/enemy-controlled-probe-source.json');a.load('enemy-controlled-probe-source.json')
   actual.remove('tests/fixtures/accepted-later-changes-v1/normal-observer-surface-source.json');a.load('normal-observer-surface-source.json')
@@ -38,9 +41,8 @@ class EnemyProofDedupBinding(unittest.TestCase):
   for name in old_names:self.assertEqual((a.ROOT/name).read_bytes(),original(name))
   # Verify exactly the new current inputs/outputs; no old asset is exempt.
   proof=a.verified_current_protron()
-  changed=set()
-  for args in [('diff','--name-only',BASE,'--'),('ls-files','--others','--exclude-standard','--')]:
-   changed.update(subprocess.check_output(['git',*args,'assets','authoring-inputs'],cwd=a.ROOT).decode().splitlines())
+  changed=history.changed(BASE, a.ROOT)
+  changed.update(subprocess.check_output(['git','ls-files','--others','--exclude-standard','--','assets','authoring-inputs'],cwd=a.ROOT).decode().splitlines())
   self.assertEqual(changed,proof['paths']|a.verified_current_sonic()['paths']|a.verified_current_guided()['paths'])
  def test_current_binding_runtime_and_original_semantics_inventory(self):
   import sys

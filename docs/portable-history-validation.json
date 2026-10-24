@@ -1,0 +1,96 @@
+{
+  "object_databases": {
+    "public-only.git": 19183,
+    "public-checkout/.git": 19183
+  },
+  "no_alternates": true,
+  "absent_private_commit_and_root_ids": [
+    "0112ec8d3c3fd0b6145463b85a713a79ccd01ac5",
+    "47361007eead385a5f01a3105c15104019ebd4ee",
+    "19c96ae931fa1a23b05d75cb9b4387330cc8db54",
+    "0aa6dcab3dd009e950d6aa93dc7895953dc309f2",
+    "3c084d6226b8e8241fa7986b976f926669bcb909",
+    "3fe2f1423f0357a357353969aac76776c603603e",
+    "3ce35baa60db9d561fb946b16cfae14891d691d3",
+    "c9d2bb36ed0dacf35fac96b7827aabf61d88e22f",
+    "47e7d062e0fc4a449a36f1d1f47e53c42f65c66d",
+    "2386447db4c33fb062a974566ef94765f46d93fb",
+    "4810555b37ab12247690f383160e6bff433f41c6",
+    "d1af39d7cd677e1b4d60ad2d9735227588a5e50d",
+    "4d8981d875f3112a96c1e71644642fefc419a7f6",
+    "a8e015340e5d0adcb08a215c04c0ba6de31b6563",
+    "6488220464055166c69267abee7b3a11b41fe16b",
+    "4903ab4bbd33b0e37ddc16df0b810953d6d60f49"
+  ],
+  "diagnostic_source_only_blobs_verified": 263,
+  "diagnostic_native_instrumentation": "not run: historical native driver is outside source-only portability scope",
+  "fixture_files": 32,
+  "fixture_bytes": 4120570,
+  "manifest_sha256": "2f10a46d70cb5fed377373f22f484b1c27f2a9cb1a969eab765cbf08407c9b02",
+  "pending_guided_prerequisite": "e5fac6ce2a739ad2e0d6e8f99edaec56411e6e7a not public; not tested or claimed by this batch",
+  "schema": "portable-history-validation-v1",
+  "existing_affected_entrypoints": 12,
+  "existing_tests_passed": 56,
+  "new_provider_tests_passed": 9,
+  "combined_tests": {
+    "run": 65,
+    "failures": 0,
+    "errors": 0,
+    "seconds": 52.805,
+    "exit_code": 0
+  },
+  "candidate_negative_and_control_cases": 11,
+  "fixture_mutation_cases": 9,
+  "preimage_queries": 155,
+  "public_preimage_blobs": 62,
+  "complete_inventories": 5,
+  "unchanged_scopes": [
+    "src",
+    "assets",
+    "authoring-inputs",
+    "packaging",
+    "tests/fixtures/accepted-later-changes-v1"
+  ],
+  "full_project_suite": "not run; not a full354 claim",
+  "windows_execution": "not run; Git autocrlf simulation passed on Linux",
+  "publication": "not performed",
+  "test_log_sha256": "7a299cc02343b440b72d376ec202549c02a697a60b72c4b0ab51a5be532b9b9e",
+  "same_provider_candidate_freshness": "unchanged, changed, restored: passed",
+  "symlink_candidate_parent_rejection": "passed: ignored replacement and identical outside descendant cannot satisfy tracked original",
+  "independent_review": {
+    "provider_tests_passed": 9,
+    "seconds": 13.132,
+    "original_commit_preimages_verified": 155,
+    "complete_original_git_inventories_verified": 5,
+    "autocrlf_fixture_blob_hash_checks": 32,
+    "blocking_findings": "none after symlink-parent fix",
+    "provider_sha256": "ccfbf5c962768bcf53c3bcf9d791334682528c67652e8f895491c0a53027458f"
+  },
+  "existing_unittest_entrypoints": 10,
+  "standalone_main_entrypoints": {
+    "test_enemy_green_reuse_sources.py": {
+      "status": "PASS",
+      "pngs": 3,
+      "hda_payloads": 6,
+      "runtime_destinations": 1029,
+      "projected_historical_runtime_destinations": 1025,
+      "old_source_and_pack_changes": 0,
+      "additive_p09_asset_paths": 4,
+      "scope": "P05 pixels/header/approved alpha unchanged; default-off finite enemy role146; P09 separately validated"
+    },
+    "test_enemy_reuse_sources.py": {
+      "status": "PASS",
+      "pngs": 6,
+      "hda_payloads": 12,
+      "runtime_destinations": 1029,
+      "projected_historical_runtime_destinations": 1025,
+      "old_source_and_pack_changes": 0,
+      "additive_p09_asset_paths": 4,
+      "scope": "P02/P04 pixels/header/approved alpha unchanged; P05 separately validated; P09 separately validated"
+    }
+  },
+  "standalone_main_exit_codes": [
+    0,
+    0
+  ]
+}

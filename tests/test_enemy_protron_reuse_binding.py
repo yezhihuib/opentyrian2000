@@ -4,20 +4,23 @@ import json
 import subprocess
 import unittest
 import accepted_later_changes as a
+import sys
+sys.path.insert(0, str(a.ROOT / 'scripts'))
+import portable_history_baselines as history
 BASE='4810555b37ab12247690f383160e6bff433f41c6'
 P09='assets/hd/enemy-protron-p09-v1/'
 NEW_ASSETS={P09+n for n in ('identity.json','recipe.json','source227.png','enemy-protron-p09-227-8.hda')}
 NEW_DEST='assets/gameplay/enemy-protron-p09-227-8.hda'
 
 def original(name,base=BASE):
- return subprocess.check_output(['git','show',base+':'+name],cwd=a.ROOT)
+ return history.preimage(base, name, a.ROOT)
 
 def check_additive_assets_and_runtime(base=BASE):
  proof=a.verified_protron_current()
  assert set(proof['assets'])==NEW_ASSETS
  # Include untracked files before commit as well as tracked differences after
  # commit, with exact names. Every other historical asset remains byte-identical.
- changed=set(subprocess.check_output(['git','diff','--name-only',base,'--','assets','authoring-inputs'],cwd=a.ROOT).decode().splitlines())
+ changed=history.changed(base, a.ROOT)
  changed.update(subprocess.check_output(['git','ls-files','--others','--exclude-standard','--','assets','authoring-inputs'],cwd=a.ROOT).decode().splitlines())
  guided_proof=a.verified_current_guided()
  assert guided_proof['paths']<=changed

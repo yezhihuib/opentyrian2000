@@ -11,11 +11,14 @@ import accepted_later_changes as projection
 from test_newshf168_v4_selection import verify_assignments
 
 ROOT = Path(__file__).resolve().parents[1]
+import sys
+sys.path.insert(0, str(ROOT / 'scripts'))
+import portable_history_baselines as history
 BASE = '3ce35baa60db9d561fb946b16cfae14891d691d3'
 
 
 def baseline(path):
-    return subprocess.check_output(['git', 'show', f'{BASE}:{path}'], cwd=ROOT)
+    return history.preimage(BASE, path, ROOT)
 
 
 def body(source, name):

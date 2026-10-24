@@ -3,6 +3,9 @@ import copy,hashlib,importlib.util,json,shutil,subprocess,tempfile,unittest
 from pathlib import Path
 from PIL import Image
 ROOT=Path(__file__).resolve().parents[1]
+import sys
+sys.path.insert(0, str(ROOT / 'scripts'))
+import portable_history_baselines as history
 SOURCE=ROOT/'authoring-inputs/enemies/newshf-phase-a'
 DOC=ROOT/'docs/newshf168-v4-soft-alpha'
 SELECTION_SHA='343c5ba7875a2b729f018be02cb626afbcf995fa106bb7d670849bca94df75ec'
@@ -60,7 +63,7 @@ class Selected168V4(unittest.TestCase):
  def test_prior_binary_bundle_exact_and_still_valid(self):
   previous=DOC/'previous-binary-revision'
   for p in previous.iterdir():
-   self.assertEqual(p.read_bytes(),subprocess.check_output(['git','show',BASE+':authoring-inputs/enemies/newshf-phase-a/'+p.name],cwd=ROOT))
+   self.assertEqual(p.read_bytes(),history.preimage(BASE, 'authoring-inputs/enemies/newshf-phase-a/'+p.name, ROOT))
   old=check.check(previous)
   self.assertEqual(old,json.loads((previous/'report.json').read_bytes()))
   self.assertEqual(old['source_identity_sha256'],check.check(self.source)['source_identity_sha256'])

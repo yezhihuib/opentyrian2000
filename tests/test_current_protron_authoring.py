@@ -21,6 +21,7 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT/'scripts'))
+import portable_history_baselines as history
 import current_protron_compatibility as c
 import build_current_protron as b
 import build_current_craft267 as craft
@@ -33,7 +34,7 @@ MASTER_SHA = '81ae61eaa6d151d333c819d9bcbeaa1f1c299a2ab709ce817738f0527a517479'
 
 
 def frozen(name):
-    return subprocess.check_output(['git','show','3c084d6226b8e8241fa7986b976f926669bcb909:'+name], cwd=ROOT)
+    return history.preimage('3c084d6226b8e8241fa7986b976f926669bcb909', name, ROOT)
 
 
 def encode(value):

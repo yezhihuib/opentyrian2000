@@ -1,0 +1,22 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
+#ifndef ENEMY_REUSE_OBSERVE_H
+#define ENEMY_REUSE_OBSERVE_H
+#include <stdbool.h>
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
+/* Independent display-only session. This never authorizes probe simulation or
+ * any asset role other than the renderer's private enemy-reuse draw lease. */
+void enemy_reuse_observe_parse(int *argc, char **argv);
+bool enemy_reuse_observe_requested(void);
+bool enemy_reuse_observe_active(void);
+const char *enemy_reuse_observe_assets(void);
+void enemy_reuse_observe_start(void);
+void enemy_reuse_observe_reset(void);
+#else
+static inline void enemy_reuse_observe_parse(int *argc,char **argv) {(void)argc;(void)argv;}
+static inline bool enemy_reuse_observe_requested(void) {return false;}
+static inline bool enemy_reuse_observe_active(void) {return false;}
+static inline const char *enemy_reuse_observe_assets(void) {return (const char *)0;}
+static inline void enemy_reuse_observe_start(void) {}
+static inline void enemy_reuse_observe_reset(void) {}
+#endif
+#endif

@@ -9,6 +9,7 @@ import unittest
 from unittest.mock import patch
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
 import build_enemy_protron_p09 as b
+import portable_history_baselines as history
 from PIL import Image
 
 class ProtronAuthoring(unittest.TestCase):
@@ -45,7 +46,7 @@ class ProtronAuthoring(unittest.TestCase):
             for pack,entries in catalog['packs'].items():
                 p='assets/hd/packs/'+pack+'/'+name
                 for p in (p,entries['files'][name]['source_png']):
-                    original=subprocess.check_output(['git','show','4810555b37ab12247690f383160e6bff433f41c6:'+p],cwd=b.ROOT)
+                    original=history.preimage('4810555b37ab12247690f383160e6bff433f41c6', p, b.ROOT)
                     self.assertEqual(b.read(b.ROOT,p),original,p)
         self.assertEqual(b.sha(b.read(b.ROOT,b.MASTER)),b.MASTER_SHA)
 if __name__=='__main__':unittest.main()

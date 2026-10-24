@@ -5,6 +5,9 @@ import subprocess
 import unittest
 from unittest.mock import patch
 import accepted_later_changes as a
+import sys
+sys.path.insert(0, str(a.ROOT / 'scripts'))
+import portable_history_baselines as history
 
 
 class CurrentProtronProjectionTests(unittest.TestCase):
@@ -13,7 +16,7 @@ class CurrentProtronProjectionTests(unittest.TestCase):
         self.assertEqual(set(ledger['files']), {'src/render_mirror.c', 'src/enemy_reuse_mirror.inc'})
         for name, pin in ledger['files'].items():
             raw = (a.ROOT / name).read_bytes()
-            old = subprocess.check_output(['git', 'show', ledger['integration_base'] + ':' + name], cwd=a.ROOT)
+            old = history.preimage(ledger['integration_base'], name, a.ROOT)
             self.assertEqual(a.project_current_protron_source(name, raw), old)
             self.assertEqual(a.sha(old), pin['previous_sha256'])
             for bad in (old, raw + b'\n', raw[:-1]):

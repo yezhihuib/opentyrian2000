@@ -6,6 +6,8 @@ Uses the unchanged native P09 driver's verified original input and object reuse.
 import argparse, hashlib, json, shutil, subprocess, sys
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'scripts'))
+import portable_history_baselines as history
 BASE='5109ebbd3f8a5c58075d6358e82e2e4459ac5460'
 def sha(b): return hashlib.sha256(b).hexdigest()
 def replace_once(s,a,b):
@@ -17,7 +19,7 @@ def prepare(dest,baseline):
  sources={}
  for p in (ROOT/'src').iterdir():
   if p.is_file():
-   b=subprocess.check_output(['git','show',BASE+':src/'+p.name],cwd=ROOT) if baseline else p.read_bytes()
+   b=history.preimage(BASE, 'src/'+p.name, ROOT) if baseline else p.read_bytes()
    (dest/'src'/p.name).write_bytes(b);sources[p.name]=sha(b)
  for n in ('enemy_protron_reuse_validation.py','enemy_protron_reuse_validation.c','enemy_green_reuse_validation.c','enemy_reuse_validation.c','enemy_proof_dedup_diagnostics.inc'):
   shutil.copyfile(ROOT/'tests'/n,dest/'tests'/n)

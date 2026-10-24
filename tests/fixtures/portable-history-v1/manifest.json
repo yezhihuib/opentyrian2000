@@ -1,0 +1,1175 @@
+{
+  "baselines": {
+    "0112ec8d3c3fd0b6145463b85a713a79ccd01ac5": {
+      "inventory": null,
+      "preimages": {
+        "authoring-inputs/enemies/newshf-phase-a/enemy-163-v1-bbox-fit-base123.png": {
+          "blob": "495c27bbf470a5710e1e022aa7042ac12352808f",
+          "mode": "100644",
+          "sha256": "f5fb995632edde27643bd462ffce52a76639c427d0229aeb97d176913878754d",
+          "size": 25324,
+          "storage": "public-git-blob"
+        },
+        "authoring-inputs/enemies/newshf-phase-a/enemy-163-v1-bbox-fit-base125.png": {
+          "blob": "95b2ba82f0df25dd4ae279fd67f78e7aa15909b1",
+          "mode": "100644",
+          "sha256": "8231cf3832460c679dfef3743b0f17604579e0f7df400f7deece96cdb64e684d",
+          "size": 27095,
+          "storage": "public-git-blob"
+        },
+        "authoring-inputs/enemies/newshf-phase-a/enemy-163-v1-bbox-fit-base127.png": {
+          "blob": "c443d8dad7fbe86f9fe65946a7c161662c3c3e84",
+          "mode": "100644",
+          "sha256": "2a286657eaf91e7404bb3c3ccab77974c8d2c5060ab8a6961c4ab1ef7601b33a",
+          "size": 25468,
+          "storage": "public-git-blob"
+        },
+        "authoring-inputs/enemies/newshf-phase-a/enemy-167-v1-bbox-fit-base1.png": {
+          "blob": "2facd98887c5cc3c20bd18a1909f1694fba42a5e",
+          "mode": "100644",
+          "sha256": "076b9106aebc39c1c28349abae95fc014d3c2e8dff3813077912a27bc761a25e",
+          "size": 29695,
+          "storage": "public-git-blob"
+        },
+        "authoring-inputs/enemies/newshf-phase-a/enemy-167-v1-bbox-fit-base3.png": {
+          "blob": "fedfcb6303109306033e6cc9ae72b54f198063cb",
+          "mode": "100644",
+          "sha256": "931556bcf925637217e1039f063b043836abd568469a736aa5542fbb358e277f",
+          "size": 33624,
+          "storage": "public-git-blob"
+        },
+        "authoring-inputs/enemies/newshf-phase-a/enemy-167-v1-bbox-fit-base5.png": {
+          "blob": "2287afd74663859d83903551bd8ea0279f8aa972",
+          "mode": "100644",
+          "sha256": "74dbf41d55eccdc35f50d913efd9871ab26e5d0b57f81e2a9cc985607154c7c7",
+          "size": 29273,
+          "storage": "public-git-blob"
+        },
+        "authoring-inputs/enemies/newshf-phase-a/enemy-168-v1-bbox-fit-base17.png": {
+          "blob": "19ab16ae27de1de0936bf7e945cc3d235c33d2c0",
+          "mode": "100644",
+          "sha256": "f51e6c54e4b78cfaf1e4798be501384c42968ed4cd339effa60d81f714b92842",
+          "size": 24726,
+          "storage": "public-git-blob"
+        },
+        "authoring-inputs/enemies/newshf-phase-a/enemy-168-v1-bbox-fit-base55.png": {
+          "blob": "002a369a3ac1fa0a04b4ea5e24add2748564c103",
+          "mode": "100644",
+          "sha256": "ba8ec19d86158947b89f290daf596666b7299c0c7df370e7d6b3444f0a0e0551",
+          "size": 25514,
+          "storage": "public-git-blob"
+        },
+        "authoring-inputs/enemies/newshf-phase-a/enemy-168-v1-bbox-fit-base93.png": {
+          "blob": "b9d52f71c1842b75d9844fb71105b89bbc029812",
+          "mode": "100644",
+          "sha256": "3ef2485c7e8431c65898f9a1509a41417169b3db9e596b3732babeb521ab5f8c",
+          "size": 24716,
+          "storage": "public-git-blob"
+        },
+        "authoring-inputs/enemies/newshf-phase-a/manifest.json": {
+          "blob": "93c726daba19f2224d763fabc904039b79551241",
+          "mode": "100644",
+          "sha256": "682680608773c2ba7f5614b281cd74d2edc79d452ad62cf6265469ddeac22db3",
+          "size": 3717,
+          "storage": "public-git-blob"
+        },
+        "authoring-inputs/enemies/newshf-phase-a/provenance.json": {
+          "blob": "b87e28559d11b7218a793970338f4c434e05027c",
+          "mode": "100644",
+          "sha256": "2527543d953fd91c21f8ce18a0d72ca723615d7cb8f86b1239014e1628a72508",
+          "size": 8310,
+          "storage": "public-git-blob"
+        },
+        "authoring-inputs/enemies/newshf-phase-a/report.json": {
+          "blob": "74e54ff64327bf0153e33353f64f43523e880d79",
+          "mode": "100644",
+          "sha256": "3da7eb669406de7b5747ddf679195f54343fb435419f6b0935bf9fab65bf5341",
+          "size": 3929,
+          "storage": "public-git-blob"
+        }
+      },
+      "scopes": [],
+      "tree": "47361007eead385a5f01a3105c15104019ebd4ee"
+    },
+    "19c96ae931fa1a23b05d75cb9b4387330cc8db54": {
+      "inventory": "6979776a37d440676a6e5ca5de26c299294db38eb943d50bf1a6dc8b574d58f2",
+      "inventory_descriptor": "431f91ae06e72242940a18b82f9b1d2b08454e63c619fec904b3b41e7ec1b0cf.json",
+      "preimages": {
+        "packaging/current-production-validation.json": {
+          "blob": "d09bf13e181130c65a9f40fe343eaaf47226794f",
+          "mode": "100644",
+          "sha256": "58ae9c63fff328c1a6a9115c24281d6653c59dec96d7802f03672251e5ba2c73",
+          "size": 35205,
+          "storage": "fixture"
+        },
+        "packaging/runtime-assets-v1.json": {
+          "blob": "22ecc441baae998362c853c46a42e7999251273a",
+          "mode": "100644",
+          "sha256": "86510294ad2a310b83b33e9704893e3ece19ae0e445aad939017124714f8eea2",
+          "size": 466743,
+          "storage": "fixture"
+        },
+        "src/enemy_reuse_mirror.inc": {
+          "blob": "f99dc29a517046858f29798f351660f6dc1c0d33",
+          "mode": "100644",
+          "sha256": "c5ecc5e0879ac76f792498f98446fef48d3b8ad723840916d9169aeb17420334",
+          "size": 11633,
+          "storage": "fixture"
+        },
+        "src/enemy_reuse_observe.h": {
+          "blob": "eeefff17f2ce1eaa3b0d0ea56024da39aa6ff6aa",
+          "mode": "100644",
+          "sha256": "d847f50a2d889f918e9e57ed2862ebaa34e5d38b6fdaac7e504532b8de2ffbe1",
+          "size": 1093,
+          "storage": "fixture"
+        },
+        "src/enemy_reuse_observe.inc": {
+          "blob": "43e9dcdcc4f44f3004cdbe7021e7c3414121f033",
+          "mode": "100644",
+          "sha256": "58ac12545df551742a796ae430cc64a8d787d83e36be24393508ae083de3af46",
+          "size": 3931,
+          "storage": "fixture"
+        },
+        "tests/fixtures/accepted-later-changes-v1/README.md": {
+          "blob": "7b63cf4e52e5ef7012b9e028077d49b847c03163",
+          "mode": "100644",
+          "sha256": "e3e36e671e3036377a24cad04fff63c7ecd55d9a5b40e1afd0ef56453e42e25e",
+          "size": 7068,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/charge-body-source.json": {
+          "blob": "92581197c7b29756fdcb3ffa3dbd4224fa0e95a0",
+          "mode": "100644",
+          "sha256": "c066932af771eb3a834c7becbeb59c6b0eac668d8da51df09d034d7247211e92",
+          "size": 12353,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/current-source-inventory.json": {
+          "blob": "b7235aae14aa4d60fa88d7a7ed7bb23b0f90605b",
+          "mode": "100644",
+          "sha256": "2eb0ccfa979da5fe7808a449887011f8ad4fd793dc80ed0a13079080ad360a9a",
+          "size": 24736,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/data-source.json": {
+          "blob": "e5a51fb884c20b081c458d3e04d2eb0cab572db4",
+          "mode": "100644",
+          "sha256": "3bfbfea80342efbf8ad53e38957260fcdf674db5a57c732f3702e502324cc011",
+          "size": 46318,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/enemy-controlled-probe-source.json": {
+          "blob": "26f79e5b0f84416cb832246aa1a7ecdac196741a",
+          "mode": "100644",
+          "sha256": "d28e5a9d59bc471337b5fd7175b4ea87c8932d19d5503b9300b0733ebd543da2",
+          "size": 7212,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/enemy-green-reuse-source.json": {
+          "blob": "fcc6323f8d38cce4bc496bfe1e93ad01c51639e3",
+          "mode": "100644",
+          "sha256": "8c1c462965c780c0199132790a851f31575ef24f2966332bbc36c5936ceba2ba",
+          "size": 18615,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/enemy-orb-source.json": {
+          "blob": "c4903ff162eea6f93f5eadecc819ac6f6974f0bf",
+          "mode": "100644",
+          "sha256": "0a6f1105dd410c417dc56eff06aca9efcbca600419f22b53afc203c6dd645d05",
+          "size": 1295,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/enemy-proof-dedup-source.json": {
+          "blob": "5ffffa731fb535249ccb04614e7fc15425ec0b8e",
+          "mode": "100644",
+          "sha256": "91639f4b2aab64ebf1b7c40e76ccdc13e95460129af08507e8f6fe0f4caa5d9b",
+          "size": 3383,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/enemy-protron-reuse-source.json": {
+          "blob": "79b34ad9b9b63f761b9da1881f2631aaee6d72e6",
+          "mode": "100644",
+          "sha256": "5f82aa5edc9c9e3b1698f6480488e975101b392ffae0e741540e5c9cafccac6a",
+          "size": 13621,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/enemy-reuse-observe-source.json": {
+          "blob": "9b7333e87fd653cf496fccdd77ed9d33888ce58a",
+          "mode": "100644",
+          "sha256": "e8fdb1d7c8e2a38f13e6cdebc3cf226b0de87758e16488c946de2c21fc9f7538",
+          "size": 17208,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/enemy-reuse-source.json": {
+          "blob": "27b19a8af64aa4309a0fa0d934ed38d2b73dba16",
+          "mode": "100644",
+          "sha256": "76e19c7b8bc2ec2fcf8644935c32306e38a334db9e8ddbc520841af0954fb6a0",
+          "size": 12074,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/front-multi-source.json": {
+          "blob": "401f901c04e64d1a10be2905b8f32f56d2625988",
+          "mode": "100644",
+          "sha256": "6863a514933e5b97fea60de5a19e6a03381ee6617d2a76fe2425c65f5b6d023d",
+          "size": 2387,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/newshf-compositor-source.json": {
+          "blob": "750188f55c794642ab343fb8480f8fbd08485927",
+          "mode": "100644",
+          "sha256": "f423c5fa1f582c45027345124ace1d8efec049aeed23f7e92bfc5b6010f5754d",
+          "size": 28033,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/newshf-identity-source.json": {
+          "blob": "622c055f2b77bc3312679136ec142752480e7f92",
+          "mode": "100644",
+          "sha256": "a402237cceeec01e05ca92249c1125e964bc1e8b984de95d81b523e134a5a787",
+          "size": 5765,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/newshf168-soft-alpha-source.json": {
+          "blob": "cc722772462a61dd6461f3aad40420f84c591de7",
+          "mode": "100644",
+          "sha256": "668ce6cdff20bc65d649c3b283c9aef36f8dbcabe5efb520ad4e57a1fb301853",
+          "size": 1404,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/p9-assets.json": {
+          "blob": "06f24d452b95eeeed75bd3a78184788ef635f92b",
+          "mode": "100644",
+          "sha256": "1b83129e300efeb77fe0e143882a456b91e6083817fb80f442ea6d9740513ff7",
+          "size": 3183000,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/p9-stage-catalog.json": {
+          "blob": "4461e95805717420b9291f727b57635268df83f1",
+          "mode": "100644",
+          "sha256": "565303b7f5b4f2cf726214a61e2f95148f4ed0ba816a81939ad6bc4c2b62d4d3",
+          "size": 2037410,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/plasma-projectile-source.json": {
+          "blob": "731e19133bfcdb1a851ea60773858d1a9c8db6e9",
+          "mode": "100644",
+          "sha256": "91f475377244bfe4c43f3281ba9399979556db6e037ab1db4d2e07194e96b2b0",
+          "size": 1569,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/rear-p1-source.json": {
+          "blob": "bd87c6f93e272614a680645d78b77dda8a1c70a4",
+          "mode": "100644",
+          "sha256": "2f8fed7183dcf1087b93cc7bceb79ac189ac0209835f8108c8aa0cdc0b931ff3",
+          "size": 283387,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/render-boundaries-source.json": {
+          "blob": "a053a441f00ad56175a0cfe92fb7ab74d71091e8",
+          "mode": "100644",
+          "sha256": "1bac028508e047cb862989d08ef7613b46652c6aea32c71d8bcbc6c78ff9ac30",
+          "size": 7668,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/storm-source.json": {
+          "blob": "bb78d94710f0cb5082680471e37c038f000b9ba4",
+          "mode": "100644",
+          "sha256": "188f57d604004af08ec191cc6bddf2b7d07ea65b1f60348073f7e0263f8783a1",
+          "size": 286530,
+          "storage": "public-git-blob"
+        }
+      },
+      "scopes": [
+        "assets",
+        "authoring-inputs",
+        "tests/fixtures/accepted-later-changes-v1"
+      ],
+      "tree": "0aa6dcab3dd009e950d6aa93dc7895953dc309f2"
+    },
+    "3c084d6226b8e8241fa7986b976f926669bcb909": {
+      "inventory": null,
+      "preimages": {
+        "assets/hd/artwork/player-protron-three-v1/masks/mask-bank8-225.png": {
+          "blob": "cfad29655e145b9990f272aeb355531e80a98a39",
+          "mode": "100644",
+          "sha256": "4c72ae0d6f230521b2db5e4fd558b4949cd0f62d40c390b22fa6dd5baa24b5c4",
+          "size": 91,
+          "storage": "public-git-blob"
+        },
+        "assets/hd/artwork/player-protron-three-v1/masks/mask-bank8-226.png": {
+          "blob": "9d9de46c7cc9c8c84e85a74b5bcbbac83eb9578e",
+          "mode": "100644",
+          "sha256": "3e1ed2ab41c36e5c1151c4880eff5d179d8b3fdee72138f0c7fd4a690adacc0f",
+          "size": 91,
+          "storage": "public-git-blob"
+        },
+        "assets/hd/artwork/player-protron-three-v1/masks/mask-bank8-244.png": {
+          "blob": "967608340307ecb69d894d48cc2669bda2150f4f",
+          "mode": "100644",
+          "sha256": "f3d7ab1e51003b4325fbd9608f268bae604d9b06a070e6ebf9b64fb04daf14a5",
+          "size": 109,
+          "storage": "public-git-blob"
+        },
+        "assets/hd/artwork/player-protron-three-v1/output/bullet-225-8.hda": {
+          "blob": "77ad904696b9e31f2852fc996e5fba9138f5fe14",
+          "mode": "100644",
+          "sha256": "0ba11aec7089a2a97781829ad963293011cb2195a93cca137fa2f3e9cd9e8651",
+          "size": 43036,
+          "storage": "public-git-blob"
+        },
+        "assets/hd/artwork/player-protron-three-v1/output/bullet-225-8.png": {
+          "blob": "bbcab39963dd91be380350ed0f723e7de4edfd6c",
+          "mode": "100644",
+          "sha256": "85409424aa7f1c9e803227888b18d2a213887848c3c7133d0b3fb0adc31e89ae",
+          "size": 2682,
+          "storage": "public-git-blob"
+        },
+        "assets/hd/artwork/player-protron-three-v1/output/bullet-226-8.hda": {
+          "blob": "f6ed73ade096e04d14fb7fd6de212845477fb421",
+          "mode": "100644",
+          "sha256": "231a78b2ebc6a2410da297d05703b4c548f38926e7bd6e6b28c4fe6c4fa7071c",
+          "size": 43036,
+          "storage": "public-git-blob"
+        },
+        "assets/hd/artwork/player-protron-three-v1/output/bullet-226-8.png": {
+          "blob": "864bfc891c567d1b9560d903039fcba1d3d24f9b",
+          "mode": "100644",
+          "sha256": "b62ed30e92f884a8094570924e2d0a661f5837104cde40b6c546e9b8314132a7",
+          "size": 3807,
+          "storage": "public-git-blob"
+        },
+        "assets/hd/artwork/player-protron-three-v1/output/bullet-244-8.hda": {
+          "blob": "35c7d552291c9965ad38f3d0dae4b87928704520",
+          "mode": "100644",
+          "sha256": "901b61b1da6f538d6aac9bbd06a2f7d34e5e9d1e4d9df50c3f3eb01b1cd7b452",
+          "size": 43036,
+          "storage": "public-git-blob"
+        },
+        "assets/hd/artwork/player-protron-three-v1/output/bullet-244-8.png": {
+          "blob": "d85984e4a22fd92aa538441bba5fb5e0b0da6d5d",
+          "mode": "100644",
+          "sha256": "7dd0ba31dcbfd255ea55eac05fc56b3311fd0c7bee77e86a998dc918a9a2d4c6",
+          "size": 13921,
+          "storage": "public-git-blob"
+        },
+        "assets/hd/artwork/player-protron-three-v1/sources/generated-master.png": {
+          "blob": "de44ddf7e56a266342ea21bd16bfb0409a17b82a",
+          "mode": "100644",
+          "sha256": "81ae61eaa6d151d333c819d9bcbeaa1f1c299a2ab709ce817738f0527a517479",
+          "size": 1012687,
+          "storage": "public-git-blob"
+        },
+        "assets/hd/enemy-protron-p09-v1/enemy-protron-p09-227-8.hda": {
+          "blob": "368dfb72ff27a62e19fc18c99819fcf15fd42502",
+          "mode": "100644",
+          "sha256": "9de332ec5d8d7f5c0e7eb56445aabebe22897b27a6fde1ee7f36da822076aac7",
+          "size": 43036,
+          "storage": "public-git-blob"
+        },
+        "assets/hd/enemy-protron-p09-v1/source227.png": {
+          "blob": "987edb813ef357544eb3686b9eeb67bce270f5a3",
+          "mode": "100644",
+          "sha256": "0f2d0e268d21fe3a49482d7abdaf0df4e9e0f5101657e0739646619780b71b3a",
+          "size": 6795,
+          "storage": "public-git-blob"
+        },
+        "src/enemy_reuse_mirror.inc": {
+          "blob": "af6fca9d5bbda99656c58bd03e58c11dc6256026",
+          "mode": "100644",
+          "sha256": "98e502b77de9943f21be7fe349931593f533319748963108897b96367b81190e",
+          "size": 11613,
+          "storage": "fixture"
+        },
+        "src/render_mirror.c": {
+          "blob": "cd8502bb73b6830debf8a978330e4293377f3a22",
+          "mode": "100644",
+          "sha256": "3713c2bd9ae80236cf406332fed4150d6fa72118a28473ff8c685b47e50b09a3",
+          "size": 290899,
+          "storage": "fixture"
+        }
+      },
+      "scopes": [],
+      "tree": "3fe2f1423f0357a357353969aac76776c603603e"
+    },
+    "3ce35baa60db9d561fb946b16cfae14891d691d3": {
+      "inventory": null,
+      "preimages": {
+        "authoring-inputs/enemies/newshf-phase-a/enemy-163-v1-bbox-fit-base123.png": {
+          "blob": "87ab20eab872a69fc893329e1d73d75bc83ad41c",
+          "mode": "100644",
+          "sha256": "7b2a442d476981fb7829714355e347680ad8172875cc5acb1ac83cdd5180e844",
+          "size": 22084,
+          "storage": "public-git-blob"
+        },
+        "authoring-inputs/enemies/newshf-phase-a/enemy-163-v1-bbox-fit-base125.png": {
+          "blob": "418a9eaac4500763d37322a12bd66e7c545dc1a7",
+          "mode": "100644",
+          "sha256": "27811561ebf2d493763f6765242cf9a704d525144f6cb68051cf73910b47d337",
+          "size": 23599,
+          "storage": "public-git-blob"
+        },
+        "authoring-inputs/enemies/newshf-phase-a/enemy-163-v1-bbox-fit-base127.png": {
+          "blob": "bb5b6e880d646e8a9c421d962590d7c889827fa1",
+          "mode": "100644",
+          "sha256": "1e4788f314d30d47a58f08d2cd2598ed580d038dcd39677d9ce59e934b835a6b",
+          "size": 22718,
+          "storage": "public-git-blob"
+        },
+        "authoring-inputs/enemies/newshf-phase-a/enemy-167-v1-bbox-fit-base1.png": {
+          "blob": "a001a428d032cba3bb2218dc7a8a08ca89852387",
+          "mode": "100644",
+          "sha256": "9e9f7ce3c6cecbb76d3cb048321c19a1ead7ade121c58305a8a6c43632d6b2cf",
+          "size": 22589,
+          "storage": "public-git-blob"
+        },
+        "authoring-inputs/enemies/newshf-phase-a/enemy-167-v1-bbox-fit-base3.png": {
+          "blob": "54f9f690d9a4089306f8bd6985b2576b027b815a",
+          "mode": "100644",
+          "sha256": "369bbc405376e7444a5029b78752b4efc06a2458e0bbc13c25588faac4da3a71",
+          "size": 20505,
+          "storage": "public-git-blob"
+        },
+        "authoring-inputs/enemies/newshf-phase-a/enemy-167-v1-bbox-fit-base5.png": {
+          "blob": "01297ffde6c00d54b9c3f772489a4b2e628e2a4a",
+          "mode": "100644",
+          "sha256": "87753c7b9f38bd4de7133c88041de72084e23eef06ca29247dd7225a061f5cb0",
+          "size": 20454,
+          "storage": "public-git-blob"
+        },
+        "authoring-inputs/enemies/newshf-phase-a/enemy-168-v1-bbox-fit-base17.png": {
+          "blob": "002a369a3ac1fa0a04b4ea5e24add2748564c103",
+          "mode": "100644",
+          "sha256": "ba8ec19d86158947b89f290daf596666b7299c0c7df370e7d6b3444f0a0e0551",
+          "size": 25514,
+          "storage": "public-git-blob"
+        },
+        "authoring-inputs/enemies/newshf-phase-a/enemy-168-v1-bbox-fit-base55.png": {
+          "blob": "19ab16ae27de1de0936bf7e945cc3d235c33d2c0",
+          "mode": "100644",
+          "sha256": "f51e6c54e4b78cfaf1e4798be501384c42968ed4cd339effa60d81f714b92842",
+          "size": 24726,
+          "storage": "public-git-blob"
+        },
+        "authoring-inputs/enemies/newshf-phase-a/enemy-168-v1-bbox-fit-base93.png": {
+          "blob": "b9d52f71c1842b75d9844fb71105b89bbc029812",
+          "mode": "100644",
+          "sha256": "3ef2485c7e8431c65898f9a1509a41417169b3db9e596b3732babeb521ab5f8c",
+          "size": 24716,
+          "storage": "public-git-blob"
+        },
+        "authoring-inputs/enemies/newshf-phase-a/manifest.json": {
+          "blob": "c54ebf3b2e68c7419087bee4e544b26136f3c922",
+          "mode": "100644",
+          "sha256": "d3dd6d891733b18b8e2757a96e08df61ca9e08e8d3e01ba6a4d7d44ee6b96ad5",
+          "size": 3717,
+          "storage": "public-git-blob"
+        },
+        "authoring-inputs/enemies/newshf-phase-a/provenance.json": {
+          "blob": "0fc9d133f6d46d8378c72db84f300e284c8b6105",
+          "mode": "100644",
+          "sha256": "f21e574adb38c7f54433e1afb166a82758c44ab38edaaebf0e524734ba4f9528",
+          "size": 7981,
+          "storage": "public-git-blob"
+        },
+        "authoring-inputs/enemies/newshf-phase-a/report.json": {
+          "blob": "712b599a37e1cb1bace974d822e841d393110908",
+          "mode": "100644",
+          "sha256": "3589529eee52138e29f6985fab6eb687d863e80fffdd6bd99f90c60f2935a89a",
+          "size": 3929,
+          "storage": "public-git-blob"
+        },
+        "src/newshf_prototype_pins.h": {
+          "blob": "ec05c585b458f10e1fc46f811e9d7706cc69e42f",
+          "mode": "100644",
+          "sha256": "6b111c2b6c1d560d3698e822cf749aa55172849dcab53dfc20ceb5cd3fb85605",
+          "size": 2731,
+          "storage": "public-git-blob"
+        },
+        "src/render_mirror.c": {
+          "blob": "170b32a50f6d13c05bac8efb953744912f7720b9",
+          "mode": "100644",
+          "sha256": "0944b7d1943cc794585cf3f42892bdb140d2d9454f8e0cf493a55b83065137f8",
+          "size": 281193,
+          "storage": "fixture"
+        },
+        "src/sprite.c": {
+          "blob": "e8c8984147ed47dc7b229807603ef79b128edfb7",
+          "mode": "100644",
+          "sha256": "56e3a9b2207953b067ffd0563cb00b921a407ebe2c936c621da8a192c3fd6ab0",
+          "size": 29037,
+          "storage": "fixture"
+        },
+        "src/tyrian2.c": {
+          "blob": "278822eafeaddac9700b6f326148c65253f2c34e",
+          "mode": "100644",
+          "sha256": "83808c076a619a7ba711d2ff46cf05197eac020ba8e3046b6bfacababce1388e",
+          "size": 135816,
+          "storage": "fixture"
+        },
+        "tests/test_newshf_phase_a.py": {
+          "blob": "ea57176b037756cc79d2bcafc6181479dd8f9693",
+          "mode": "100644",
+          "sha256": "84c9c13d03dfa2df48650889f388976d6865a428490d2ddb47846e350365f1fc",
+          "size": 6976,
+          "storage": "public-git-blob"
+        },
+        "tests/test_newshf_prototype_pins.py": {
+          "blob": "07560ddbc71f8844976c0eda08d772e42884c2f2",
+          "mode": "100644",
+          "sha256": "e26b9032f0805d9948de557c998653ca07aab680fe2e0e570bd7d67f226ec5a1",
+          "size": 5201,
+          "storage": "public-git-blob"
+        }
+      },
+      "scopes": [],
+      "tree": "c9d2bb36ed0dacf35fac96b7827aabf61d88e22f"
+    },
+    "47e7d062e0fc4a449a36f1d1f47e53c42f65c66d": {
+      "inventory": "d2b5f9dd2d8d7b21afd72f0bf5703b7ca0d219a428264ceb1291f08bf8f3fd09",
+      "inventory_descriptor": "d34d8948f8db83bbf095b083bdf36762a9dbb89ed96e40e3db7594a4ea700515.json",
+      "preimages": {
+        "packaging/runtime-assets-v1.json": {
+          "blob": "2e14ecf62390a22f9470b4e9b28cab7e22ea56f6",
+          "mode": "100644",
+          "sha256": "c0c24d4b8d56530c884a022d930e5e45a46344cdea5882baae8f934a84a141cf",
+          "size": 466518,
+          "storage": "fixture"
+        }
+      },
+      "scopes": [
+        "assets",
+        "authoring-inputs",
+        "tests/fixtures/accepted-later-changes-v1"
+      ],
+      "tree": "2386447db4c33fb062a974566ef94765f46d93fb"
+    },
+    "4810555b37ab12247690f383160e6bff433f41c6": {
+      "inventory": "bf5456c0fedf9a3605b8acad70a7bf40a542a5fd7947afc60fdb42288b9f9339",
+      "inventory_descriptor": "8f7122384106a898d9d6801819d25f6fdf1ae3909530bb979917977c808f76f6.json",
+      "preimages": {
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/bullet-225-8.hda": {
+          "blob": "77ad904696b9e31f2852fc996e5fba9138f5fe14",
+          "mode": "100644",
+          "sha256": "0ba11aec7089a2a97781829ad963293011cb2195a93cca137fa2f3e9cd9e8651",
+          "size": 43036,
+          "storage": "public-git-blob"
+        },
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/bullet-226-8.hda": {
+          "blob": "f6ed73ade096e04d14fb7fd6de212845477fb421",
+          "mode": "100644",
+          "sha256": "231a78b2ebc6a2410da297d05703b4c548f38926e7bd6e6b28c4fe6c4fa7071c",
+          "size": 43036,
+          "storage": "public-git-blob"
+        },
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/bullet-244-8.hda": {
+          "blob": "35c7d552291c9965ad38f3d0dae4b87928704520",
+          "mode": "100644",
+          "sha256": "901b61b1da6f538d6aac9bbd06a2f7d34e5e9d1e4d9df50c3f3eb01b1cd7b452",
+          "size": 43036,
+          "storage": "public-git-blob"
+        },
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/bullet-225-8.hda": {
+          "blob": "77ad904696b9e31f2852fc996e5fba9138f5fe14",
+          "mode": "100644",
+          "sha256": "0ba11aec7089a2a97781829ad963293011cb2195a93cca137fa2f3e9cd9e8651",
+          "size": 43036,
+          "storage": "public-git-blob"
+        },
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/bullet-226-8.hda": {
+          "blob": "f6ed73ade096e04d14fb7fd6de212845477fb421",
+          "mode": "100644",
+          "sha256": "231a78b2ebc6a2410da297d05703b4c548f38926e7bd6e6b28c4fe6c4fa7071c",
+          "size": 43036,
+          "storage": "public-git-blob"
+        },
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/bullet-244-8.hda": {
+          "blob": "35c7d552291c9965ad38f3d0dae4b87928704520",
+          "mode": "100644",
+          "sha256": "901b61b1da6f538d6aac9bbd06a2f7d34e5e9d1e4d9df50c3f3eb01b1cd7b452",
+          "size": 43036,
+          "storage": "public-git-blob"
+        },
+        "assets/hd/source/bullet-225-8-0ba11aec7089.png": {
+          "blob": "bbcab39963dd91be380350ed0f723e7de4edfd6c",
+          "mode": "100644",
+          "sha256": "85409424aa7f1c9e803227888b18d2a213887848c3c7133d0b3fb0adc31e89ae",
+          "size": 2682,
+          "storage": "public-git-blob"
+        },
+        "assets/hd/source/bullet-226-8-231a78b2ebc6.png": {
+          "blob": "864bfc891c567d1b9560d903039fcba1d3d24f9b",
+          "mode": "100644",
+          "sha256": "b62ed30e92f884a8094570924e2d0a661f5837104cde40b6c546e9b8314132a7",
+          "size": 3807,
+          "storage": "public-git-blob"
+        },
+        "assets/hd/source/bullet-244-8-901b61b1da6f.png": {
+          "blob": "d85984e4a22fd92aa538441bba5fb5e0b0da6d5d",
+          "mode": "100644",
+          "sha256": "7dd0ba31dcbfd255ea55eac05fc56b3311fd0c7bee77e86a998dc918a9a2d4c6",
+          "size": 13921,
+          "storage": "public-git-blob"
+        },
+        "packaging/current-production-validation.json": {
+          "blob": "81c6629f4a917687e37c0e60926c0995d5ca2d94",
+          "mode": "100644",
+          "sha256": "3d5b8899633897d8c34b08a57ae16f5bdb00699eef67eea7638ec9ba0971e363",
+          "size": 31911,
+          "storage": "fixture"
+        },
+        "packaging/runtime-assets-v1.json": {
+          "blob": "7f47f71bd98b4074b1ca0eb2ebe415a31c5aeff7",
+          "mode": "100644",
+          "sha256": "da8b33d7a5b57246bf963e81c001eb48a2f10d7fc9164df5a829904ac618322b",
+          "size": 466518,
+          "storage": "fixture"
+        },
+        "src/enemy_reuse_identity.c": {
+          "blob": "5f4e54c2a5cd34b3e7d7b9b3b5c6285bc00dc165",
+          "mode": "100644",
+          "sha256": "14cd5e2f1129a0e6fa9328ef61c8634b6de733ec129b3e48802a61e0ee6ce8bc",
+          "size": 12832,
+          "storage": "fixture"
+        },
+        "src/enemy_reuse_mirror.inc": {
+          "blob": "ae37d03a06be236baf988493fe90fdd0a12b7a5c",
+          "mode": "100644",
+          "sha256": "e88130da8bbbac19ae0e8214cdb9d31449767e7dfbc06ec75acd96365c768c0e",
+          "size": 9195,
+          "storage": "fixture"
+        },
+        "src/render_mirror.c": {
+          "blob": "04f04fd3dc2ef885cbc2a0af8bdc57388c221c99",
+          "mode": "100644",
+          "sha256": "b22a5fae941ef1be61b99ca185dece9f6c42900d5c3df0a1ddfa0ce498d3c0c3",
+          "size": 286723,
+          "storage": "fixture"
+        },
+        "src/tyrian2.c": {
+          "blob": "edcdf73b14d45a6fa2727efb407dfa657315f2e2",
+          "mode": "100644",
+          "sha256": "f788f05ba3f02039e8fe4ee45642644553fba2245677ea887ee987b8dcf7bc2a",
+          "size": 137675,
+          "storage": "fixture"
+        },
+        "tests/fixtures/accepted-later-changes-v1/charge-body-source.json": {
+          "blob": "92581197c7b29756fdcb3ffa3dbd4224fa0e95a0",
+          "mode": "100644",
+          "sha256": "c066932af771eb3a834c7becbeb59c6b0eac668d8da51df09d034d7247211e92",
+          "size": 12353,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/current-source-inventory.json": {
+          "blob": "b7235aae14aa4d60fa88d7a7ed7bb23b0f90605b",
+          "mode": "100644",
+          "sha256": "2eb0ccfa979da5fe7808a449887011f8ad4fd793dc80ed0a13079080ad360a9a",
+          "size": 24736,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/data-source.json": {
+          "blob": "e5a51fb884c20b081c458d3e04d2eb0cab572db4",
+          "mode": "100644",
+          "sha256": "3bfbfea80342efbf8ad53e38957260fcdf674db5a57c732f3702e502324cc011",
+          "size": 46318,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/enemy-green-reuse-source.json": {
+          "blob": "fcc6323f8d38cce4bc496bfe1e93ad01c51639e3",
+          "mode": "100644",
+          "sha256": "8c1c462965c780c0199132790a851f31575ef24f2966332bbc36c5936ceba2ba",
+          "size": 18615,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/enemy-orb-source.json": {
+          "blob": "c4903ff162eea6f93f5eadecc819ac6f6974f0bf",
+          "mode": "100644",
+          "sha256": "0a6f1105dd410c417dc56eff06aca9efcbca600419f22b53afc203c6dd645d05",
+          "size": 1295,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/enemy-reuse-source.json": {
+          "blob": "27b19a8af64aa4309a0fa0d934ed38d2b73dba16",
+          "mode": "100644",
+          "sha256": "76e19c7b8bc2ec2fcf8644935c32306e38a334db9e8ddbc520841af0954fb6a0",
+          "size": 12074,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/front-multi-source.json": {
+          "blob": "401f901c04e64d1a10be2905b8f32f56d2625988",
+          "mode": "100644",
+          "sha256": "6863a514933e5b97fea60de5a19e6a03381ee6617d2a76fe2425c65f5b6d023d",
+          "size": 2387,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/newshf-compositor-source.json": {
+          "blob": "750188f55c794642ab343fb8480f8fbd08485927",
+          "mode": "100644",
+          "sha256": "f423c5fa1f582c45027345124ace1d8efec049aeed23f7e92bfc5b6010f5754d",
+          "size": 28033,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/newshf-identity-source.json": {
+          "blob": "622c055f2b77bc3312679136ec142752480e7f92",
+          "mode": "100644",
+          "sha256": "a402237cceeec01e05ca92249c1125e964bc1e8b984de95d81b523e134a5a787",
+          "size": 5765,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/newshf168-soft-alpha-source.json": {
+          "blob": "cc722772462a61dd6461f3aad40420f84c591de7",
+          "mode": "100644",
+          "sha256": "668ce6cdff20bc65d649c3b283c9aef36f8dbcabe5efb520ad4e57a1fb301853",
+          "size": 1404,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/p9-assets.json": {
+          "blob": "06f24d452b95eeeed75bd3a78184788ef635f92b",
+          "mode": "100644",
+          "sha256": "1b83129e300efeb77fe0e143882a456b91e6083817fb80f442ea6d9740513ff7",
+          "size": 3183000,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/p9-stage-catalog.json": {
+          "blob": "4461e95805717420b9291f727b57635268df83f1",
+          "mode": "100644",
+          "sha256": "565303b7f5b4f2cf726214a61e2f95148f4ed0ba816a81939ad6bc4c2b62d4d3",
+          "size": 2037410,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/plasma-projectile-source.json": {
+          "blob": "731e19133bfcdb1a851ea60773858d1a9c8db6e9",
+          "mode": "100644",
+          "sha256": "91f475377244bfe4c43f3281ba9399979556db6e037ab1db4d2e07194e96b2b0",
+          "size": 1569,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/rear-p1-source.json": {
+          "blob": "bd87c6f93e272614a680645d78b77dda8a1c70a4",
+          "mode": "100644",
+          "sha256": "2f8fed7183dcf1087b93cc7bceb79ac189ac0209835f8108c8aa0cdc0b931ff3",
+          "size": 283387,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/render-boundaries-source.json": {
+          "blob": "a053a441f00ad56175a0cfe92fb7ab74d71091e8",
+          "mode": "100644",
+          "sha256": "1bac028508e047cb862989d08ef7613b46652c6aea32c71d8bcbc6c78ff9ac30",
+          "size": 7668,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/storm-source.json": {
+          "blob": "bb78d94710f0cb5082680471e37c038f000b9ba4",
+          "mode": "100644",
+          "sha256": "188f57d604004af08ec191cc6bddf2b7d07ea65b1f60348073f7e0263f8783a1",
+          "size": 286530,
+          "storage": "public-git-blob"
+        }
+      },
+      "scopes": [
+        "assets",
+        "authoring-inputs",
+        "tests/fixtures/accepted-later-changes-v1"
+      ],
+      "tree": "d1af39d7cd677e1b4d60ad2d9735227588a5e50d"
+    },
+    "4d8981d875f3112a96c1e71644642fefc419a7f6": {
+      "inventory": "8443eef2a8df5f12a53624d2c05d95b56eb76573eff32a4d92724e7b949c0231",
+      "inventory_descriptor": "3b33fc6936fa5f4c7152139657453c3e5b34e25ac9d47bb2a8f6de06c0014760.json",
+      "preimages": {
+        "packaging/current-production-validation.json": {
+          "blob": "4c32ea9d2a6f2fdead6fba50f08577b00302a32f",
+          "mode": "100644",
+          "sha256": "921fd7bcb97be2f4308b3cb192fd75d76eb05cab2534e443e306a66b74702315",
+          "size": 34128,
+          "storage": "fixture"
+        },
+        "packaging/runtime-assets-v1.json": {
+          "blob": "8fe26d1fd917233387903e4ebd38ea5b2890df0d",
+          "mode": "100644",
+          "sha256": "01bcd057ce0bb536aed4180daa2f81fb3c35ced72329cfa963a220f199e2beea",
+          "size": 466949,
+          "storage": "fixture"
+        },
+        "src/asset_debug.c": {
+          "blob": "7b5e7c2e10d0dcb2889e71548c4b0e9e8e0da2f2",
+          "mode": "100644",
+          "sha256": "8be5161623d0d34c960ae7d229a3b9ac1b0889fe54bec407e131f267346b7bf8",
+          "size": 12885,
+          "storage": "public-git-blob"
+        },
+        "src/enemy_reuse_mirror.inc": {
+          "blob": "d46f0e7c2242b8e376cee18d246d188065f20c41",
+          "mode": "100644",
+          "sha256": "a2db19c3106b4637575819e91a482bfbb904ece5ea91a5869fbeffeff20c86fd",
+          "size": 10854,
+          "storage": "fixture"
+        },
+        "src/game_probe.c": {
+          "blob": "1358c50376067947ddda965c209f6817d8875558",
+          "mode": "100644",
+          "sha256": "ab2867fcec2a1d3f3c6a2218cca75a34cc4f6841bc806972791491da31fa6f44",
+          "size": 35543,
+          "storage": "fixture"
+        },
+        "src/render_mirror.c": {
+          "blob": "b75e52de45d1f8d0d17159880c225da5a957b55f",
+          "mode": "100644",
+          "sha256": "85cde9b52ce4e7577993ee1ca0616de6f6eac34bd198ffebe84261cdf5394a48",
+          "size": 290830,
+          "storage": "fixture"
+        },
+        "tests/fixtures/accepted-later-changes-v1/README.md": {
+          "blob": "7b63cf4e52e5ef7012b9e028077d49b847c03163",
+          "mode": "100644",
+          "sha256": "e3e36e671e3036377a24cad04fff63c7ecd55d9a5b40e1afd0ef56453e42e25e",
+          "size": 7068,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/charge-body-source.json": {
+          "blob": "92581197c7b29756fdcb3ffa3dbd4224fa0e95a0",
+          "mode": "100644",
+          "sha256": "c066932af771eb3a834c7becbeb59c6b0eac668d8da51df09d034d7247211e92",
+          "size": 12353,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/current-source-inventory.json": {
+          "blob": "b7235aae14aa4d60fa88d7a7ed7bb23b0f90605b",
+          "mode": "100644",
+          "sha256": "2eb0ccfa979da5fe7808a449887011f8ad4fd793dc80ed0a13079080ad360a9a",
+          "size": 24736,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/data-source.json": {
+          "blob": "e5a51fb884c20b081c458d3e04d2eb0cab572db4",
+          "mode": "100644",
+          "sha256": "3bfbfea80342efbf8ad53e38957260fcdf674db5a57c732f3702e502324cc011",
+          "size": 46318,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/enemy-green-reuse-source.json": {
+          "blob": "fcc6323f8d38cce4bc496bfe1e93ad01c51639e3",
+          "mode": "100644",
+          "sha256": "8c1c462965c780c0199132790a851f31575ef24f2966332bbc36c5936ceba2ba",
+          "size": 18615,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/enemy-orb-source.json": {
+          "blob": "c4903ff162eea6f93f5eadecc819ac6f6974f0bf",
+          "mode": "100644",
+          "sha256": "0a6f1105dd410c417dc56eff06aca9efcbca600419f22b53afc203c6dd645d05",
+          "size": 1295,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/enemy-proof-dedup-source.json": {
+          "blob": "5ffffa731fb535249ccb04614e7fc15425ec0b8e",
+          "mode": "100644",
+          "sha256": "91639f4b2aab64ebf1b7c40e76ccdc13e95460129af08507e8f6fe0f4caa5d9b",
+          "size": 3383,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/enemy-protron-reuse-source.json": {
+          "blob": "79b34ad9b9b63f761b9da1881f2631aaee6d72e6",
+          "mode": "100644",
+          "sha256": "5f82aa5edc9c9e3b1698f6480488e975101b392ffae0e741540e5c9cafccac6a",
+          "size": 13621,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/enemy-reuse-observe-source.json": {
+          "blob": "9b7333e87fd653cf496fccdd77ed9d33888ce58a",
+          "mode": "100644",
+          "sha256": "e8fdb1d7c8e2a38f13e6cdebc3cf226b0de87758e16488c946de2c21fc9f7538",
+          "size": 17208,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/enemy-reuse-source.json": {
+          "blob": "27b19a8af64aa4309a0fa0d934ed38d2b73dba16",
+          "mode": "100644",
+          "sha256": "76e19c7b8bc2ec2fcf8644935c32306e38a334db9e8ddbc520841af0954fb6a0",
+          "size": 12074,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/front-multi-source.json": {
+          "blob": "401f901c04e64d1a10be2905b8f32f56d2625988",
+          "mode": "100644",
+          "sha256": "6863a514933e5b97fea60de5a19e6a03381ee6617d2a76fe2425c65f5b6d023d",
+          "size": 2387,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/newshf-compositor-source.json": {
+          "blob": "750188f55c794642ab343fb8480f8fbd08485927",
+          "mode": "100644",
+          "sha256": "f423c5fa1f582c45027345124ace1d8efec049aeed23f7e92bfc5b6010f5754d",
+          "size": 28033,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/newshf-identity-source.json": {
+          "blob": "622c055f2b77bc3312679136ec142752480e7f92",
+          "mode": "100644",
+          "sha256": "a402237cceeec01e05ca92249c1125e964bc1e8b984de95d81b523e134a5a787",
+          "size": 5765,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/newshf168-soft-alpha-source.json": {
+          "blob": "cc722772462a61dd6461f3aad40420f84c591de7",
+          "mode": "100644",
+          "sha256": "668ce6cdff20bc65d649c3b283c9aef36f8dbcabe5efb520ad4e57a1fb301853",
+          "size": 1404,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/p9-assets.json": {
+          "blob": "06f24d452b95eeeed75bd3a78184788ef635f92b",
+          "mode": "100644",
+          "sha256": "1b83129e300efeb77fe0e143882a456b91e6083817fb80f442ea6d9740513ff7",
+          "size": 3183000,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/p9-stage-catalog.json": {
+          "blob": "4461e95805717420b9291f727b57635268df83f1",
+          "mode": "100644",
+          "sha256": "565303b7f5b4f2cf726214a61e2f95148f4ed0ba816a81939ad6bc4c2b62d4d3",
+          "size": 2037410,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/plasma-projectile-source.json": {
+          "blob": "731e19133bfcdb1a851ea60773858d1a9c8db6e9",
+          "mode": "100644",
+          "sha256": "91f475377244bfe4c43f3281ba9399979556db6e037ab1db4d2e07194e96b2b0",
+          "size": 1569,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/rear-p1-source.json": {
+          "blob": "bd87c6f93e272614a680645d78b77dda8a1c70a4",
+          "mode": "100644",
+          "sha256": "2f8fed7183dcf1087b93cc7bceb79ac189ac0209835f8108c8aa0cdc0b931ff3",
+          "size": 283387,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/render-boundaries-source.json": {
+          "blob": "a053a441f00ad56175a0cfe92fb7ab74d71091e8",
+          "mode": "100644",
+          "sha256": "1bac028508e047cb862989d08ef7613b46652c6aea32c71d8bcbc6c78ff9ac30",
+          "size": 7668,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/storm-source.json": {
+          "blob": "bb78d94710f0cb5082680471e37c038f000b9ba4",
+          "mode": "100644",
+          "sha256": "188f57d604004af08ec191cc6bddf2b7d07ea65b1f60348073f7e0263f8783a1",
+          "size": 286530,
+          "storage": "public-git-blob"
+        }
+      },
+      "scopes": [
+        "assets",
+        "authoring-inputs",
+        "tests/fixtures/accepted-later-changes-v1"
+      ],
+      "tree": "a8e015340e5d0adcb08a215c04c0ba6de31b6563"
+    },
+    "6488220464055166c69267abee7b3a11b41fe16b": {
+      "inventory": "cfa1d6712840b70e37de178150b12552199e111cfe57e2a8d69dff0d64575fbf",
+      "inventory_descriptor": "55aed30b343cf90f1bcaf4b4f8a5e3b12147b5da79adce7adf7b18e227437d36.json",
+      "preimages": {
+        "packaging/current-production-validation.json": {
+          "blob": "e08a231496c99262618f54591f4283350b8e416a",
+          "mode": "100644",
+          "sha256": "78afbaca899195b25b0b5625f2a536a2640d0d68194724a17682d275f1bde11f",
+          "size": 32930,
+          "storage": "fixture"
+        },
+        "packaging/runtime-assets-v1.json": {
+          "blob": "a570006eccf5ad1a0a03ef1cad6d861d981f29ce",
+          "mode": "100644",
+          "sha256": "f217b7b532ca1b707bebb5d14d478f9ec1d118f12f0c7bc397dd6ecac9fc8439",
+          "size": 466949,
+          "storage": "fixture"
+        },
+        "src/config.c": {
+          "blob": "c392b255b3e1303f90a2281a3f0576087d936fdd",
+          "mode": "100644",
+          "sha256": "dff8b5d678b2e9a127eacd3fc48a7fa2eee74fa89b34cd036686c13cb7671ba4",
+          "size": 30452,
+          "storage": "public-git-blob"
+        },
+        "src/enemy_reuse_identity.c": {
+          "blob": "f8019e5cebcc0f493b98883b85b03c4c5ae8527a",
+          "mode": "100644",
+          "sha256": "ffe9856606fa147994e907035305c82bbc56036779247747105aca8d8bc17f7c",
+          "size": 14109,
+          "storage": "fixture"
+        },
+        "src/enemy_reuse_mirror.inc": {
+          "blob": "d4692cf29e6e7de543b69f35490caa942d0fe574",
+          "mode": "100644",
+          "sha256": "baf8f1cb4552535886d4866fa54275d1ae7e67a058e748a280fb37665a07f9c4",
+          "size": 9558,
+          "storage": "fixture"
+        },
+        "src/game_probe.c": {
+          "blob": "a21886e3d120fb6c0431acef85d3f1c977ee62de",
+          "mode": "100644",
+          "sha256": "569ce918649e1099cda6eae7bd712d914a42480a615ed31d8e17198e20cc5364",
+          "size": 35360,
+          "storage": "public-git-blob"
+        },
+        "src/opentyr.c": {
+          "blob": "4f21561fdfa2c9b9c28387186a1ed9e479ff3562",
+          "mode": "100644",
+          "sha256": "cff352819098045e382c827e8e59661f9fb42e8b26fe113458d78bef4a2e46f7",
+          "size": 24278,
+          "storage": "public-git-blob"
+        },
+        "src/render_mirror.c": {
+          "blob": "838583696187ceddd5b4f2d530bfb3710c51ef43",
+          "mode": "100644",
+          "sha256": "57fa4db6548b5fe982ec69e155937e3e09953801e80d55d0e5ffddf3b7b2949a",
+          "size": 286852,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/README.md": {
+          "blob": "7b63cf4e52e5ef7012b9e028077d49b847c03163",
+          "mode": "100644",
+          "sha256": "e3e36e671e3036377a24cad04fff63c7ecd55d9a5b40e1afd0ef56453e42e25e",
+          "size": 7068,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/charge-body-source.json": {
+          "blob": "92581197c7b29756fdcb3ffa3dbd4224fa0e95a0",
+          "mode": "100644",
+          "sha256": "c066932af771eb3a834c7becbeb59c6b0eac668d8da51df09d034d7247211e92",
+          "size": 12353,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/current-source-inventory.json": {
+          "blob": "b7235aae14aa4d60fa88d7a7ed7bb23b0f90605b",
+          "mode": "100644",
+          "sha256": "2eb0ccfa979da5fe7808a449887011f8ad4fd793dc80ed0a13079080ad360a9a",
+          "size": 24736,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/data-source.json": {
+          "blob": "e5a51fb884c20b081c458d3e04d2eb0cab572db4",
+          "mode": "100644",
+          "sha256": "3bfbfea80342efbf8ad53e38957260fcdf674db5a57c732f3702e502324cc011",
+          "size": 46318,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/enemy-green-reuse-source.json": {
+          "blob": "fcc6323f8d38cce4bc496bfe1e93ad01c51639e3",
+          "mode": "100644",
+          "sha256": "8c1c462965c780c0199132790a851f31575ef24f2966332bbc36c5936ceba2ba",
+          "size": 18615,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/enemy-orb-source.json": {
+          "blob": "c4903ff162eea6f93f5eadecc819ac6f6974f0bf",
+          "mode": "100644",
+          "sha256": "0a6f1105dd410c417dc56eff06aca9efcbca600419f22b53afc203c6dd645d05",
+          "size": 1295,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/enemy-proof-dedup-source.json": {
+          "blob": "5ffffa731fb535249ccb04614e7fc15425ec0b8e",
+          "mode": "100644",
+          "sha256": "91639f4b2aab64ebf1b7c40e76ccdc13e95460129af08507e8f6fe0f4caa5d9b",
+          "size": 3383,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/enemy-protron-reuse-source.json": {
+          "blob": "79b34ad9b9b63f761b9da1881f2631aaee6d72e6",
+          "mode": "100644",
+          "sha256": "5f82aa5edc9c9e3b1698f6480488e975101b392ffae0e741540e5c9cafccac6a",
+          "size": 13621,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/enemy-reuse-source.json": {
+          "blob": "27b19a8af64aa4309a0fa0d934ed38d2b73dba16",
+          "mode": "100644",
+          "sha256": "76e19c7b8bc2ec2fcf8644935c32306e38a334db9e8ddbc520841af0954fb6a0",
+          "size": 12074,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/front-multi-source.json": {
+          "blob": "401f901c04e64d1a10be2905b8f32f56d2625988",
+          "mode": "100644",
+          "sha256": "6863a514933e5b97fea60de5a19e6a03381ee6617d2a76fe2425c65f5b6d023d",
+          "size": 2387,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/newshf-compositor-source.json": {
+          "blob": "750188f55c794642ab343fb8480f8fbd08485927",
+          "mode": "100644",
+          "sha256": "f423c5fa1f582c45027345124ace1d8efec049aeed23f7e92bfc5b6010f5754d",
+          "size": 28033,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/newshf-identity-source.json": {
+          "blob": "622c055f2b77bc3312679136ec142752480e7f92",
+          "mode": "100644",
+          "sha256": "a402237cceeec01e05ca92249c1125e964bc1e8b984de95d81b523e134a5a787",
+          "size": 5765,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/newshf168-soft-alpha-source.json": {
+          "blob": "cc722772462a61dd6461f3aad40420f84c591de7",
+          "mode": "100644",
+          "sha256": "668ce6cdff20bc65d649c3b283c9aef36f8dbcabe5efb520ad4e57a1fb301853",
+          "size": 1404,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/p9-assets.json": {
+          "blob": "06f24d452b95eeeed75bd3a78184788ef635f92b",
+          "mode": "100644",
+          "sha256": "1b83129e300efeb77fe0e143882a456b91e6083817fb80f442ea6d9740513ff7",
+          "size": 3183000,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/p9-stage-catalog.json": {
+          "blob": "4461e95805717420b9291f727b57635268df83f1",
+          "mode": "100644",
+          "sha256": "565303b7f5b4f2cf726214a61e2f95148f4ed0ba816a81939ad6bc4c2b62d4d3",
+          "size": 2037410,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/plasma-projectile-source.json": {
+          "blob": "731e19133bfcdb1a851ea60773858d1a9c8db6e9",
+          "mode": "100644",
+          "sha256": "91f475377244bfe4c43f3281ba9399979556db6e037ab1db4d2e07194e96b2b0",
+          "size": 1569,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/rear-p1-source.json": {
+          "blob": "bd87c6f93e272614a680645d78b77dda8a1c70a4",
+          "mode": "100644",
+          "sha256": "2f8fed7183dcf1087b93cc7bceb79ac189ac0209835f8108c8aa0cdc0b931ff3",
+          "size": 283387,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/render-boundaries-source.json": {
+          "blob": "a053a441f00ad56175a0cfe92fb7ab74d71091e8",
+          "mode": "100644",
+          "sha256": "1bac028508e047cb862989d08ef7613b46652c6aea32c71d8bcbc6c78ff9ac30",
+          "size": 7668,
+          "storage": "public-git-blob"
+        },
+        "tests/fixtures/accepted-later-changes-v1/storm-source.json": {
+          "blob": "bb78d94710f0cb5082680471e37c038f000b9ba4",
+          "mode": "100644",
+          "sha256": "188f57d604004af08ec191cc6bddf2b7d07ea65b1f60348073f7e0263f8783a1",
+          "size": 286530,
+          "storage": "public-git-blob"
+        }
+      },
+      "scopes": [
+        "assets",
+        "authoring-inputs",
+        "tests/fixtures/accepted-later-changes-v1"
+      ],
+      "tree": "4903ab4bbd33b0e37ddc16df0b810953d6d60f49"
+    }
+  },
+  "public_head": "013560593b3ea9e033906116b849a9508f6d621a",
+  "public_tree_aliases": {
+    "5109ebbd3f8a5c58075d6358e82e2e4459ac5460": "196d7181daa7ee55a99e5056aad59ff6bf44261d"
+  },
+  "schema": 1
+}

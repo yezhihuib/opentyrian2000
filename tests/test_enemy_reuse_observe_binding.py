@@ -8,6 +8,9 @@ import tempfile
 import unittest
 from unittest.mock import patch
 import accepted_later_changes as a
+import sys
+sys.path.insert(0, str(a.ROOT / 'scripts'))
+import portable_history_baselines as history
 
 BASE='6488220464055166c69267abee7b3a11b41fe16b'
 NAME='enemy-reuse-observe-source.json'
@@ -15,7 +18,7 @@ FILES={'src/config.c','src/enemy_reuse_identity.c','src/enemy_reuse_mirror.inc',
        'src/game_probe.c','src/opentyr.c','src/render_mirror.c'}
 ADDED={'src/enemy_reuse_observe.h','src/enemy_reuse_observe.inc'}
 def original(name):
- return subprocess.check_output(['git','show',BASE+':'+name],cwd=a.ROOT)
+ return history.preimage(BASE, name, a.ROOT)
 
 class EnemyReuseObserveBinding(unittest.TestCase):
  def test_exact_six_file_inverse_and_whole_blob_rejection(self):
@@ -52,7 +55,7 @@ class EnemyReuseObserveBinding(unittest.TestCase):
     with self.assertRaises(AssertionError):a.verified_enemy_observe_sources(root)
     path.write_bytes(raw)
  def test_all_older_ledgers_and_assets_unchanged(self):
-  names=set(subprocess.check_output(['git','ls-tree','-r','--name-only',BASE,'--','tests/fixtures/accepted-later-changes-v1'],cwd=a.ROOT).decode().splitlines())
+  names=history.names(BASE, 'tests/fixtures/accepted-later-changes-v1', a.ROOT)
   actual={p.relative_to(a.ROOT).as_posix() for p in a.FIXTURES.iterdir() if p.is_file()}
   actual.remove('tests/fixtures/accepted-later-changes-v1/enemy-controlled-probe-source.json');a.load('enemy-controlled-probe-source.json')
   actual.remove('tests/fixtures/accepted-later-changes-v1/normal-observer-surface-source.json');a.load('normal-observer-surface-source.json')
@@ -61,9 +64,8 @@ class EnemyReuseObserveBinding(unittest.TestCase):
   for name in names:self.assertEqual((a.ROOT/name).read_bytes(),original(name))
   # Verify exactly the new current inputs/outputs; no old asset is exempt.
   proof=a.verified_current_protron()
-  changed=set()
-  for args in [('diff','--name-only',BASE,'--'),('ls-files','--others','--exclude-standard','--')]:
-   changed.update(subprocess.check_output(['git',*args,'assets','authoring-inputs'],cwd=a.ROOT).decode().splitlines())
+  changed=history.changed(BASE, a.ROOT)
+  changed.update(subprocess.check_output(['git','ls-files','--others','--exclude-standard','--','assets','authoring-inputs'],cwd=a.ROOT).decode().splitlines())
   self.assertEqual(changed,proof['paths']|a.verified_current_sonic()['paths']|a.verified_current_guided()['paths'])
  def test_art_authority_cannot_rebind_observer_modules(self):
   import sys

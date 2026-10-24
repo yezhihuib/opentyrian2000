@@ -3,3 +3,8 @@ assets/hd/artwork/gameplay-hud-v5/ownership-audit-safe-static-310.tsv -text whit
 # Preserve immutable authored CSV records and the frozen reproducer's source bytes.
 assets/hd/artwork/gameplay-hud-indicators-v1/placement-state.csv -text whitespace=-blank-at-eol
 assets/hd/artwork/gameplay-hud-labels-shield-v1/build_assets.py -text whitespace=-blank-at-eol
+
+# Historical oracle preimages must remain byte-exact under core.autocrlf.
+tests/fixtures/portable-history-v1/** -text
+# Original preimages include historical whitespace; never reformat oracle bytes.
+tests/fixtures/portable-history-v1/blobs/* -whitespace
