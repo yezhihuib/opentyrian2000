@@ -66,7 +66,7 @@ class EnemyReuseObserveBinding(unittest.TestCase):
   proof=a.verified_current_protron()
   changed=history.changed(BASE, a.ROOT)
   changed.update(subprocess.check_output(['git','ls-files','--others','--exclude-standard','--','assets','authoring-inputs'],cwd=a.ROOT).decode().splitlines())
-  self.assertEqual(changed,proof['paths']|a.verified_current_sonic()['paths']|a.verified_current_guided()['paths']|a.verified_current_newshf()['paths']|a.verified_current_mint27()['paths'])
+  self.assertEqual(changed,proof['paths']|a.verified_current_sonic()['paths']|a.verified_current_guided()['paths']|a.verified_current_newshf()['paths']|a.verified_current_mint27()['paths']|a.verified_current_missile()['paths'])
  def test_art_authority_cannot_rebind_observer_modules(self):
   import sys
   sys.path.insert(0,str(a.ROOT/'scripts'))

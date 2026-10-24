@@ -102,7 +102,11 @@ class Mint27RuntimePackage(unittest.TestCase):
                 self.assertEqual(check(self.root)['status'],'PASS')
 
     def test_exact_replacement_and_real_linux_windows_asset_exports(self):
-        before=by_destination(self.public); after=by_destination(self.manifest)
+        import accepted_later_changes as history
+        # Verify and inverse only the newer three-Missile transport rows;
+        # retain this original Mint27 baseline and its one-identity assertions.
+        before=by_destination(self.public)
+        after=by_destination(dict(files=history.before_current_missile_runtime(self.manifest['files'],ROOT)))
         self.assertEqual(len(before),1029); self.assertEqual(len(after),1029)
         self.assertEqual(set(after),set(before))
         for key,row in before.items():

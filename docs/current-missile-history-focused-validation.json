@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "distinct_focused_methods": 121,
+  "count_formula": "66 - 4 + 5 + 38 + 8 + 8",
+  "groups": [
+    {
+      "log": "focused-initial.log",
+      "methods": 66,
+      "seconds": 194.094,
+      "sha256": "3c28090e82f5d560e98661c635b7a74150db164efe94ff75d8ec7f1a98a6e9ad",
+      "note": "Initial Missile projection had 4 methods; final 5-method rerun adds one distinct method."
+    },
+    {
+      "log": "new-projection-final.log",
+      "methods": 5,
+      "seconds": 5.736,
+      "sha256": "65f70ec09079fe384524ff952755d2726f438649a0a922d7718926a5ec1f6a9b",
+      "note": "Supersedes initial 4 Missile projection methods, not additive."
+    },
+    {
+      "log": "bindings-final.log",
+      "methods": 38,
+      "seconds": 94.185,
+      "sha256": "1a788ee38c25c9bed3b1535e4e4c8d452dc2655ff8d16e0113c02d24a8ef4d0f",
+      "note": "Clean repeat; initial typo import error retained separately."
+    },
+    {
+      "log": "mint-runtime-final.log",
+      "methods": 8,
+      "seconds": 159.847,
+      "sha256": "77ee6e8d3f6ed080e47a481e0c742bf8d297414c869e5ec02ecf7f641f17b4a7",
+      "note": "Clean repeat after exact three-row inverse adapter."
+    },
+    {
+      "log": "runtime-projections-final.log",
+      "methods": 8,
+      "seconds": 371.726,
+      "sha256": "2d262bf183f06aecad730d53fdadeec629b3e923fef7584ffbd5654c77ddf641",
+      "note": "Clean Guided/Sonic runtime projection repeat."
+    }
+  ],
+  "aggregate_54_status": "running; separate receipt will establish result",
+  "retained_diagnostics": [
+    "bindings-initial.log: 38 real methods passed, one nonexistent module import error",
+    "runtime-regressions.log: 16 methods, one pre-fix Mint row assertion; corrected module and remaining projections rerun cleanly"
+  ],
+  "post_aggregate_start_delta": "tests/test_mint27_runtime_package.py only; not imported by aggregate; exact three-row inverse for local comparison, original manifest used for exports",
+  "independent_review": "independent-review.json",
+  "invariants": "inverse-invariants.json"
+}

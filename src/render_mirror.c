@@ -18,6 +18,7 @@
 #include "current_sonic_payload_pins.h"
 #include "current_guided_payload_pins.h"
 #include "current_mint27_payload_pins.h"
+#include "current_missile_payload_pins.h"
 #include "hd_front_multi_current.h"
 #include "data_frame.h"
 #include "data_portrait.h"
@@ -513,9 +514,9 @@ static const struct {unsigned int index;int slot;uint64_t source,rgba;int covera
  {144,562,UINT64_C(0xa9ede9c9164a8044),UINT64_C(0x6ba1a5c42991552e),0,0},
  {27,535,UINT64_C(0xd25ba01692cfa4b7),CURRENT_MINT27_80027_D8_PAYLOAD_FNV,0,0},
  /* Existing physical Missile heads, Charge heads and green energy alpha only. */
- {31,333,UINT64_C(0xf63d654f4b2f50f5),UINT64_C(0x7db65bd3d0e1d1df),0,0},
- {32,334,UINT64_C(0xc261e2eb4d71452b),UINT64_C(0xdb04017352ef16ca),0,0},
- {33,335,UINT64_C(0xd47ab80283718879),UINT64_C(0xcf349119e8c136ab),0,0},
+ {31,333,UINT64_C(0xf63d654f4b2f50f5),CURRENT_MISSILE_80031_D8_PAYLOAD_FNV,0,0},
+ {32,334,UINT64_C(0xc261e2eb4d71452b),CURRENT_MISSILE_80032_D8_PAYLOAD_FNV,0,0},
+ {33,335,UINT64_C(0xd47ab80283718879),CURRENT_MISSILE_80033_D8_PAYLOAD_FNV,0,0},
  {252,330,UINT64_C(0x294a9d4afd93d8a4),UINT64_C(0x685a3572f08e508a),0,0},
  {253,331,UINT64_C(0xbcdf97bf4b75c746),UINT64_C(0xa4efdc2b3a6f26ed),0,0},
  {254,332,UINT64_C(0xf471322126d86fdd),UINT64_C(0xffdbece0353e10fe),0,0},

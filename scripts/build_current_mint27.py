@@ -33,6 +33,8 @@ def dependencies(root, selected):
     # The user edits this master in place; installed hashes are deliberately
     # stale until apply. Bind its fixed paths without validating old selection.
     names |= {SELECTION, compat.MAPPING} | compat.generated_paths()
+    from current_missile_compatibility import input_paths as missile_input_paths, MAPPING as MISSILE_MAPPING
+    names |= missile_input_paths(root) | {MISSILE_MAPPING}
     from current_newshf_compatibility import input_paths as newshf_input_paths
     names |= newshf_input_paths(root)
     from current_enemy_orb_compatibility import input_paths as orb_input_paths, MAPPING as ORB_MAPPING

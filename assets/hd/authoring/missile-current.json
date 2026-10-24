@@ -1,0 +1,45 @@
+{
+  "schema": "opentyrian-current-missile-authoring-v1",
+  "version": "regular-missile-current-v1",
+  "masters": [
+    {
+      "selector": 31,
+      "source_png": "authoring-inputs/missile-current/master-31.png",
+      "source_sha256": "29adc2a6d47bc00f12929d1fc1405e9901bf6624daa27e9d40c1f772adce05d9"
+    },
+    {
+      "selector": 32,
+      "source_png": "authoring-inputs/missile-current/master-32.png",
+      "source_sha256": "6211f515aa3942c4edf03cf3c8722a0e68e714e69fc43f7a9e316955b85f9119"
+    },
+    {
+      "selector": 33,
+      "source_png": "authoring-inputs/missile-current/master-33.png",
+      "source_sha256": "65a01219272e430be92e2aad1c57097b957fa4b2eb3680a518321ca2f4fef02f"
+    }
+  ],
+  "recipe": {
+    "path": "authoring-inputs/missile-current/recipe.json",
+    "sha256": "1803b7dd1ef28a933ff9c2b2bb8e2a43252ddb48cb23d3b35c2d56f72a5090e9"
+  },
+  "resources": [
+    {
+      "identity": 80031,
+      "density": 8,
+      "source_png": "authoring-inputs/missile-current/derived/bullet-31-8.png",
+      "source_sha256": "6197c093fe4bacc04a86a22ef94f7c789b18c55fcb134c2fd1f71a909abc1939"
+    },
+    {
+      "identity": 80032,
+      "density": 8,
+      "source_png": "authoring-inputs/missile-current/derived/bullet-32-8.png",
+      "source_sha256": "3d1fa8e5248cd2e979dcbbeffdced7e35b4ca1f50fcb16681ffcc50e81fab4d3"
+    },
+    {
+      "identity": 80033,
+      "density": 8,
+      "source_png": "authoring-inputs/missile-current/derived/bullet-33-8.png",
+      "source_sha256": "ca3de4581dc4cab5078c73f5a69e04b1633e7512b3cc70b9ab1789206c3b88e4"
+    }
+  ]
+}

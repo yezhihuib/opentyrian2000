@@ -210,8 +210,9 @@ class CurrentProtronTests(unittest.TestCase):
         self.change_cell(80244)
         import current_newshf_compatibility as aircraft
         import current_mint27_compatibility as mint27
+        import current_missile_compatibility as missile
         family_names=set()
-        for family,count in ((aircraft,41),(mint27,5)):
+        for family,count in ((aircraft,41),(mint27,5),(missile,11)):
             family.load(ROOT)
             names=family.input_paths(ROOT)
             self.assertEqual(len(names),count)

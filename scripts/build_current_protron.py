@@ -39,6 +39,8 @@ def dependencies(root, selected):
     names |= {SELECTION, compat.MAPPING} | compat.generated_paths()
     from current_mint27_compatibility import input_paths as mint27_input_paths, MAPPING as MINT27_MAPPING
     names |= mint27_input_paths(root) | {MINT27_MAPPING}
+    from current_missile_compatibility import input_paths as missile_input_paths, MAPPING as MISSILE_MAPPING
+    names |= missile_input_paths(root) | {MISSILE_MAPPING}
     from current_newshf_compatibility import input_paths as newshf_input_paths
     names |= newshf_input_paths(root)
     from current_enemy_orb_compatibility import input_paths as orb_input_paths, MAPPING as ORB_MAPPING

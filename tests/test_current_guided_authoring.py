@@ -235,6 +235,12 @@ class CurrentGuidedTests(unittest.TestCase):
         for name in aircraft_names:self.write(name,(ROOT/name).read_bytes())
         aircraft.load(self.root)
         # Mint27 adds one independent finite family; retain its real closure.
+        import current_missile_compatibility as missile
+        missile.load(ROOT)
+        missile_names=missile.input_paths(ROOT)
+        self.assertEqual(len(missile_names),11)
+        for name in missile_names:self.write(name,(ROOT/name).read_bytes())
+        missile.input_paths(self.root)
         import current_mint27_compatibility as mint27
         mint27.load(ROOT)
         mint27_names=mint27.input_paths(ROOT)
@@ -254,6 +260,7 @@ class CurrentGuidedTests(unittest.TestCase):
         self.assertTrue({*self.master_paths.values(),self.recipe_path}.issubset(names))
         self.assertTrue(aircraft_names.issubset(names))
         self.assertTrue(mint27_names.issubset(names))
+        self.assertTrue(missile_names.issubset(names))
 
     def isolated_derive(self,root,raw):
         selected,pngs,blobs=c.generate(root,raw,candidate=True)

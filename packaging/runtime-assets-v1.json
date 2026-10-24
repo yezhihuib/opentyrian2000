@@ -77,12 +77,12 @@
   },
   "files": [
     {
-      "bytes": 36421,
+      "bytes": 36531,
       "destination": "CURRENT-PRODUCTION-VALIDATION.json",
-      "git_blob": "eb2c591becd5b8a7cfabb7e7a049749b74dd6670",
+      "git_blob": "c2779611fd6f90226a29f1f7b5c1bac1e45241d4",
       "group": "current-production-validation",
       "revision": "reconstructed-local-unpublished",
-      "sha256": "b4f451f495c3e3f3c4b19887253bf308213f7000408f99c0c01907c87490a46b",
+      "sha256": "6d3099328a150f2122306942951539806f981fc34994c73e3af910b3f66330e2",
       "source_path": "packaging/current-production-validation.json"
     },
     {
@@ -693,27 +693,27 @@
       "destination": "assets/gameplay/bullet-31-8.hda",
       "git_blob": "01e6259a229e471f68f065d3d55e7ed8e696dc7d",
       "group": "gameplay",
-      "revision": "reconstructed-local-unpublished",
+      "revision": "current-single-source-missile",
       "sha256": "1886c94a18ad50eae1acf0a364fe7a204efd35dec16fb80fdde0b939ac688a66",
-      "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/bullet-31-8.hda"
+      "source_path": "assets/hd/current-compat/missile/bullet-31-8.hda"
     },
     {
       "bytes": 43036,
       "destination": "assets/gameplay/bullet-32-8.hda",
       "git_blob": "79dd0689ee0b0330682b5c9ea15825570eb0452d",
       "group": "gameplay",
-      "revision": "reconstructed-local-unpublished",
+      "revision": "current-single-source-missile",
       "sha256": "dfe3680a20876e59ce112e932f531c244e94a987b1b156441189f7f942fa73d8",
-      "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/bullet-32-8.hda"
+      "source_path": "assets/hd/current-compat/missile/bullet-32-8.hda"
     },
     {
       "bytes": 43036,
       "destination": "assets/gameplay/bullet-33-8.hda",
       "git_blob": "3818c1b3747a70ca986bb07d456f8633cebeae1d",
       "group": "gameplay",
-      "revision": "reconstructed-local-unpublished",
+      "revision": "current-single-source-missile",
       "sha256": "1d7272a227d827b63ff3120813a8b229ae961fac77611fad7e468f63a8656e37",
-      "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/bullet-33-8.hda"
+      "source_path": "assets/hd/current-compat/missile/bullet-33-8.hda"
     },
     {
       "bytes": 43036,
@@ -9341,7 +9341,7 @@
   "schema": "opentyrian-runtime-package-v1",
   "source_revision": {
     "current_production_commit": null,
-    "current_production_source_manifest_sha256": "4788aa1fdd434c2995318be57496796c599ede59d67f543337131ea98647474d",
+    "current_production_source_manifest_sha256": "766d2db408a14ba444c2e95122def90a8c6c2e2c4320a6ab345708019797ef1f",
     "data_frame_integration": "local reviewed Data-only DFM1 static frame; no commit assigned",
     "data_portrait_integration": "local reviewed source-authenticated all18 DPR1 portraits",
     "data_text_integration": "local reviewed Data-only Chinese source; no commit assigned",

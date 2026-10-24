@@ -1,0 +1,74 @@
+{
+  "status": "PASS",
+  "public_base": "0fde773717b714f6d5c02cb024b9265e28c25d38",
+  "scope": "Three independent static Regular Missile current masters; no art redesign or expanded gameplay eligibility",
+  "owner_tests": {
+    "authoring": 19,
+    "runtime_package": 8,
+    "shared_authoring_map": 19,
+    "final_integration": 8
+  },
+  "historical_distinct_tests": 175,
+  "native": {
+    "lanes": 2,
+    "setups_each": 337,
+    "assertions_each": 189824834
+  },
+  "builds": {
+    "fresh_builds": 6,
+    "modes": 3,
+    "object_pairs_each_mode": 258,
+    "executables_byte_exact": 3
+  },
+  "counts": {
+    "runtime": 1029,
+    "registry": 120,
+    "source": 273
+  },
+  "logs": {
+    "focused-final.log": {
+      "sha256": "f855429f42bdaab1da1bf848fa0b14630d826c37d5713dfa06bf3fbd0f2af46b",
+      "bytes": 99
+    },
+    "runtime.log": {
+      "sha256": "9159aab00465c02ccdf5a997a6aa5437eca6a46ddc6037d7f0efa528d2362e16",
+      "bytes": 1598
+    },
+    "map-final.log": {
+      "sha256": "ddae1999f80516ad502aa12365dab06ec481dbe4cc37b1a533d40965a4decb8b",
+      "bytes": 99
+    },
+    "integration-final.log": {
+      "sha256": "3c23b8b16703c46c55bde7006822d29ac0a29293ffbea28d6bf1c2189e479b22",
+      "bytes": 1411
+    },
+    "check-final.log": {
+      "sha256": "6302cd52ac533a668969747e3ea40b1fe96562c67d501f88f9816c9a2d9785a9",
+      "bytes": 160
+    },
+    "source-final.log": {
+      "sha256": "7a452fdfb34ddcad8a7d9e3f7938dcd130734892d4074f1b86c55ca30540c818",
+      "bytes": 78
+    },
+    "frozen-art-proof.json": {
+      "sha256": "04f473bfd3f8155ff45fc21e03564c8e631b390b66f9f29dcee208a6ba7e3d2f",
+      "bytes": 3309
+    }
+  },
+  "evidence": {
+    "current-missile-build-validation.json": "7aff7808b706141f5f772ddf969d437671ef4a830303041bd270533286b93f68",
+    "current-missile-history-focused-validation.json": "597656fd77e5838dd77d3cde43c1bbdff453e750667a940a8b0e085fe4a035bf",
+    "current-missile-history-review.json": "671b2e9062922e67a4c1525ba6d8f5a29edec9f74fe701920fce6220efa8aba7",
+    "current-missile-history-validation.json": "a2093c0092da65869125bc1f5f46a36ac0f94faf2797e3981482d45aae28c130",
+    "current-missile-independent-review.json": "b648a7d3764cb2172d9a4d0194c4bc45f14617324097760b79240616030b1247",
+    "current-missile-native-validation.json": "8be33bdf3e455f46bcd583f4c544613be0d91727451b10d158154e43878e6e8d"
+  },
+  "not_claimed": [
+    "Windows execution",
+    "physical GPU acceptance",
+    "natural campaign acceptance",
+    "actual sidekick weapon firing",
+    "crash/power-loss atomicity",
+    "hard live subprocess disk-output cap"
+  ]
+}

@@ -302,6 +302,28 @@ def main(argv=None) -> int:
             if (row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or
                     row.get('group')!='gameplay' or row.get('revision')!='current-single-source-mint27'):
                 raise ValueError('Stale Mint27 runtime selection')
+    # Missile replaces three existing destinations; no new runtime resources.
+    missile_prefix = 'assets/hd/current-compat/missile/'
+    missile_names = {f'bullet-{i}-8.hda' for i in (31,32,33)}
+    missile_rows = [row for row in manifest['files'] if any(
+        Path(row[key]).name.casefold() in missile_names for key in ('destination','source_path')) or
+        row['source_path'].casefold().startswith(missile_prefix) or
+        (isinstance(row.get('revision'),str) and row['revision'].casefold() == 'current-single-source-missile')]
+    missile_current = manifest_path.resolve() == (roots[0]/'packaging/runtime-assets-v1.json').resolve() or any(
+        row['source_path'].casefold().startswith(missile_prefix) or
+        (isinstance(row.get('revision'),str) and row['revision'].casefold() == 'current-single-source-missile')
+        for row in manifest['files'])
+    if missile_current:
+        from current_missile_compatibility import load as missile_load
+        expected = {'assets/gameplay/'+name for name in missile_names}
+        if len(missile_rows)!=3 or {row['destination'] for row in missile_rows}!=expected:
+            raise ValueError('Missile packaging requires exactly three current consumers')
+        selected = missile_load(roots[0])
+        for row in missile_rows:
+            current = selected[row['destination']]
+            if (row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or
+                    row.get('group')!='gameplay' or row.get('revision')!='current-single-source-missile'):
+                raise ValueError('Stale Missile runtime selection')
     # Current NEWSHF keeps the same nine opt-in destinations, with six poses
     # derived from two authored three-pose masters and three frozen 168 V4 PNGs.
     # The older revision marker also appears in historical manifests, so it

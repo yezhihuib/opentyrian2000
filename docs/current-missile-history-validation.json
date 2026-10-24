@@ -1,0 +1,23 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "-v",
+    "test_accepted_later_changes"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 3483.1684960369967,
+  "before_files": 1162,
+  "after_files": 1162,
+  "changed": [
+    "tests/test_mint27_runtime_package.py"
+  ],
+  "log_sha256": "3b7739779504b3a7aca8e1f3d76397942a6419f0ef10322162784a26f1df119b",
+  "result": "54/54 PASS",
+  "frozen_imported_inputs": "Unchanged; sole changed file test_mint27_runtime_package.py is not imported by aggregate/helper and was separately rerun 8/8 PASS.",
+  "focused_distinct_methods": 121,
+  "total_distinct_methods_with_aggregate": 175,
+  "scope": "Historical finite test adapters only; no uploads or commits by child agent.",
+  "invariants": "Full source inverse 273\u2192272 exact public map; frozen old PINS and 21 JSON ledgers + README unchanged; exact three-row runtime inverse."
+}

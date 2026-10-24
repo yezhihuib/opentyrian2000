@@ -55,10 +55,17 @@ class FrontMultiShadowBoundary(unittest.TestCase):
         entries=re.findall(r'^#define (CURRENT_MINT27_\w+_PAYLOAD_FNV) (UINT64_C\(0x[0-9a-f]{16}\))$',header,re.M)
         assert len(entries)==1 and entries[0][0]=='CURRENT_MINT27_80027_D8_PAYLOAD_FNV'
         token,value=entries[0];original=shadow.resolve_current_payload_pins
+        history.verified_current_missile(ROOT)
+        import current_missile_compatibility as missile
+        missile_entries=re.findall(r'^#define (CURRENT_MISSILE_\w+_PAYLOAD_FNV) (UINT64_C\(0x[0-9a-f]{16}\))$',(ROOT/missile.HEADER).read_text(),re.M)
+        assert len(missile_entries)==3 and {k for k,v in missile_entries}=={f'CURRENT_MISSILE_{i}_D8_PAYLOAD_FNV' for i in (80031,80032,80033)}
         def resolve(source,*args,**kwargs):
             tokens=set(re.findall(r'\bCURRENT_MINT27_\w+_PAYLOAD_FNV\b',source))
             assert tokens <= {token},'Unknown Mint27 shadow payload token'
             source=re.sub(r'\b'+token+r'\b',value,source)
+            missile_tokens=set(re.findall(r'\bCURRENT_MISSILE_\w+_PAYLOAD_FNV\b',source))
+            assert missile_tokens <= {key for key,_ in missile_entries},'Unknown Missile shadow payload token'
+            for key,replacement in missile_entries:source=re.sub(r'\b'+key+r'\b',replacement,source)
             return original(source,*args,**kwargs)
         adapter=patch.object(shadow,'resolve_current_payload_pins',side_effect=resolve)
         adapter.start();cls.addClassCleanup(adapter.stop)
@@ -303,7 +310,7 @@ class FrontMultiCurrentGenerationBoundary(unittest.TestCase):
                 binding_path.write_text(json.dumps(binding))
             else:
                 runtime_path.write_text(json.dumps(runtime))
-            reason = {'header-binding':'production header binding', 'renderer-binding':'unapproved current MINT27 inventory',
+            reason = {'header-binding':'production header binding', 'renderer-binding':'unapproved current MISSILE inventory',
                       'source-digest':'source manifest digest', 'runtime-header':'runtime source binding',
                       'runtime-source':'runtime source digest', 'runtime-count':'destination scope'}[case]
             with self.subTest(case=case), self.assertRaisesRegex(AssertionError, reason):

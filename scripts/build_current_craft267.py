@@ -318,7 +318,14 @@ def current_overlays(root):
         {'assets/gameplay/' + mint27.name(identity, density): blob
          for (identity, density), blob in blobs.items()})
     if len(files) != 183:
-        raise ValueError('Expected exactly 183 current gameplay overlays')
+        raise ValueError('Expected exactly 183 pre-Missile gameplay overlays')
+    import current_missile_compatibility as missile
+    selected, _, blobs = missile.generate(root, read(root, missile.SELECTION))
+    add(missile.MAPPING, missile.SELECTION, selected, missile.load(root),
+        {'assets/gameplay/' + missile.name(identity, density): blob
+         for (identity, density), blob in blobs.items()})
+    if len(files) != 186:
+        raise ValueError('Expected exactly 186 current gameplay overlays')
     return files
 
 

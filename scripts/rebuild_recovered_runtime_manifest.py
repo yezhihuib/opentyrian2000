@@ -95,6 +95,10 @@ def main():
     for destination,row in mint27_load(root).items():
         if destination in art_compat:raise ValueError('Mint27 compatibility collision')
         art_compat[destination]=dict(row,authoring_family='mint27')
+    from current_missile_compatibility import load as missile_load
+    for destination,row in missile_load(root).items():
+        if destination in art_compat:raise ValueError('Missile compatibility collision')
+        art_compat[destination]=dict(row,authoring_family='missile')
     # Sonic is a separately bounded additive transport family, not a relaxed
     # historical art consumer. Its loader also rederives pixels and header pins.
     from current_sonic_compatibility import load as sonic_load

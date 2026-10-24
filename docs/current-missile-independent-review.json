@@ -1,0 +1,68 @@
+{
+  "schema": "missile-independent-implementation-review-v1",
+  "utc": "2026-10-24T12:07:48.584614+00:00",
+  "base": "0fde773717b714f6d5c02cb024b9265e28c25d38",
+  "reviewed_sha256": {
+    "scripts/build_current_missile.py": "e60276e4a29864dcb00c48c26c00f59201388a6047fed2342d152e0b95716e58",
+    "scripts/current_missile_compatibility.py": "782c1d555a8098f456bd957dfd098257381a80fca2264664cecb38135f08ff6c",
+    "tests/test_current_missile_authoring.py": "9a244808cc770765e41a9be63649d0f15a51f0a90147093e9901f6b2a7ba7a23",
+    "tests/test_current_missile_integration.py": "932400555cdc0fb2cb4ae4b1becfc1de4c271034a058c59e35b8efecce215136",
+    "src/render_mirror.c": "bd160bb74cb6b53f3da1e31d1ee6b8d858a3622d7fdd7fda5f167245064d6b9a",
+    "src/current_missile_payload_pins.h": "fe6944ea9a54974e1ecc5f2dac9771d3999a52fd525dee74dc5d110032b1f0d9",
+    "tests/current_missile_source_projection.json": "a038d826417fd853fe2588a5f131312e50b3fd58422ce83968f39ddec28ec81f",
+    "packaging/current-missile-compatibility.json": "aa354d49850784844bbc8087c37e81f3ba325de3cf342dcd6dc447c797a7c40c"
+  },
+  "bootstrap": [
+    {
+      "selector": 31,
+      "master_sha256": "29adc2a6d47bc00f12929d1fc1405e9901bf6624daa27e9d40c1f772adce05d9",
+      "png_sha256": "6197c093fe4bacc04a86a22ef94f7c789b18c55fcb134c2fd1f71a909abc1939",
+      "hda_sha256": "1886c94a18ad50eae1acf0a364fe7a204efd35dec16fb80fdde0b939ac688a66",
+      "master_equal": true,
+      "png_equal": true,
+      "hda_equal": true
+    },
+    {
+      "selector": 32,
+      "master_sha256": "6211f515aa3942c4edf03cf3c8722a0e68e714e69fc43f7a9e316955b85f9119",
+      "png_sha256": "3d1fa8e5248cd2e979dcbbeffdced7e35b4ca1f50fcb16681ffcc50e81fab4d3",
+      "hda_sha256": "dfe3680a20876e59ce112e932f531c244e94a987b1b156441189f7f942fa73d8",
+      "master_equal": true,
+      "png_equal": true,
+      "hda_equal": true
+    },
+    {
+      "selector": 33,
+      "master_sha256": "65a01219272e430be92e2aad1c57097b957fa4b2eb3680a518321ca2f4fef02f",
+      "png_sha256": "ca3de4581dc4cab5078c73f5a69e04b1633e7512b3cc70b9ab1789206c3b88e4",
+      "hda_sha256": "1d7272a227d827b63ff3120813a8b229ae961fac77611fad7e468f63a8656e37",
+      "master_equal": true,
+      "png_equal": true,
+      "hda_equal": true
+    }
+  ],
+  "tests": {
+    "implementation-focused.log": {
+      "sha256": "f5cde40eaf3978126fb747af20657be05d0877983d56d1e03bb7031d565864cf",
+      "text": "...................\n----------------------------------------------------------------------\nRan 19 tests in 18.038s\n\nOK\n"
+    },
+    "implementation-integration.log": {
+      "sha256": "1db051fcf15234d7ac822a2d9f9cb672e837da6ca0dfae095c1ee7a15eb311f1",
+      "text": "........\n----------------------------------------------------------------------\nRan 8 tests in 19.381s\n\nOK\n"
+    }
+  },
+  "original_receipt_sha256": "4be9b8ccd66b1baa9c96cc62326c7b931e0d5b5d393d42a3fbe54af011539477",
+  "conclusions": [
+    "Exact original PNG/RGBA/HDA bytes retained for all three bootstrap masters",
+    "Fixed recipe/no shell/stdin PNG/version plus golden profile validated",
+    "19 focused and 8 integration tests PASS",
+    "Frozen family, legacy pins, registry and complete inverse C projection verified by integration tests",
+    "Stage rederivation and stale/tamper/output preflight plus handled-error rollback tested with isolated derivation/dependency mocks"
+  ],
+  "limitations": [
+    "No Windows or game visual acceptance",
+    "Rollback not process-crash/power-loss atomic",
+    "Subprocess files size-checked after exit; not hard output disk cap; implementation notified",
+    "No concurrent-writer protection claim"
+  ]
+}
