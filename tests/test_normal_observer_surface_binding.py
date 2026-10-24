@@ -54,7 +54,7 @@ class NormalObserverSurfaceBinding(unittest.TestCase):
     if action=='missing':del inventory[name]
     else:inventory[name]='0'*64
     with self.assertRaises(AssertionError):a.before_normal_observer_inventory(inventory)
-  previous=json.loads(original(b.RUNTIME))['files'];current=json.loads((a.ROOT/b.RUNTIME).read_bytes())['files']
+  previous=json.loads(original(b.RUNTIME))['files'];current=a.before_sonic_runtime(json.loads((a.ROOT/b.RUNTIME).read_bytes())['files'])
   p={r['destination']:r for r in previous};c={r['destination']:r for r in current}
   self.assertEqual(len(previous),len(current));self.assertEqual(set(p),set(c))
   self.assertEqual({n for n in p if p[n]!=c[n]},{'CURRENT-PRODUCTION-VALIDATION.json'})

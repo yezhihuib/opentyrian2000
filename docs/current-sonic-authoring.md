@@ -60,21 +60,30 @@ python3 scripts/build_current_craft267.py view --kind preview --output ../sonic-
 python3 scripts/shared_asset_authoring_map.py --id 80106 --format json
 ```
 
-The current overlay contains 178 resources, replacing existing paths in that
-view. This does not add four resources to the formal runtime package: its
-1025 destinations and the 120-entry global registry remain unchanged.
-The formal runtime manifest does not contain 105/106/124/125. The finite enemy
-P02/P04 atomic family requires these four plus 20/21, so using only that formal
-runtime directory as its asset root still falls back for that family. This
-migration is an editing/source-consistency change, not default enablement or a
-claim that every package now contains the family.
+The current overlay contains 178 resources. The formal runtime package now
+includes the four current Sonic HDA resources in its `gameplay` group, increasing
+its explicit destination count from 1025 to 1029. The 120-entry global registry
+is unchanged. The finite P02/P04 atomic family has all six required resources
+(105/106/124/125 plus the existing 20/21) in that formal package.
+
+After a master edit, stage/apply regenerates the runtime manifest with the new
+pair's transport hashes. Export a new runtime with `scripts/package_runtime.py`
+and rebuild the executable for its new payload pins. The default/current
+package path requires the complete, rederived quartet; missing, stale or forged
+current Sonic inputs are rejected. Explicit historical/custom manifests without
+current Sonic references retain their original generic semantics.
+
+Packaging these resources does not enable the default-off enemy renderer or
+change gameplay. See [runtime closure](current-sonic-runtime-package.md) for the
+exact package change and verification scope.
 
 Bootstrap output is byte-identical to the previously approved four PNG/HDA
 files. Synthetic edit tests establish propagation and renderer compatibility,
 not visual approval of future edits. Native tests, assisted original-event
 captures and natural campaign/Windows/GPU acceptance are separate evidence.
 
-The accompanying validation JSON is the frozen Sonic migration receipt. Its
+The accompanying validation JSON is the frozen Sonic migration receipt, whose
+1025-destination package boundary predates the later four-resource addition. Its
 Front fixture failures describe the public baseline at that stage. A subsequent
 test-only repair updates the exact inverse order and complete fixture inputs;
 the integrated Front boundary suite passes 11 tests, including six rejected

@@ -101,8 +101,14 @@ class AuthoringMapTests(unittest.TestCase):
             self.assertEqual(row['status'],'current-editable')
             self.assertEqual(row['role'],8)
             self.assertTrue(any(c['role']==146 for c in row['declared_consumers']))
-            self.assertFalse(any(c['evidence']=='packaging/runtime-assets-v1.json' for c in row['declared_consumers']))
-            self.assertTrue(any('formal runtime package does not include' in n for n in row['notes']))
+            runtime = [c for c in row['declared_consumers']
+                       if c['evidence']=='packaging/runtime-assets-v1.json']
+            self.assertEqual(len(runtime), 1)
+            self.assertEqual(runtime[0]['path'], f"assets/gameplay/bullet-{row['identity']-80000}-8.hda")
+            self.assertFalse(any(c['evidence']=='assets/hd/global-assets-v1/registry.json'
+                                 for c in row['declared_consumers']))
+            self.assertTrue(any('formal runtime package include this quartet' in n for n in row['notes']))
+            self.assertTrue(any('does not enable the default-off enemy renderer' in n for n in row['notes']))
 
     def test_p05_reuses_current_green_with_distinct_draw_role(self):
         rows = self.rows_for({80214,80215,80216})

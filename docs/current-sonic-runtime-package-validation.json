@@ -1,0 +1,153 @@
+{
+  "added": [
+    "assets/gameplay/bullet-105-8.hda",
+    "assets/gameplay/bullet-106-8.hda",
+    "assets/gameplay/bullet-124-8.hda",
+    "assets/gameplay/bullet-125-8.hda"
+  ],
+  "authoring_checks": {
+    "shared_art": {
+      "current_consumers": "global battle, SHOP, selected legacy compatibility package",
+      "historical_outputs": "untouched",
+      "resources": 5,
+      "status": "PASS"
+    },
+    "sonic": {
+      "editable_masters": 2,
+      "global_registry_additions": 0,
+      "historical_outputs": "untouched",
+      "logical_pieces": 4,
+      "resources": 4,
+      "status": "PASS"
+    }
+  },
+  "base": "013560593b3ea9e033906116b849a9508f6d621a",
+  "bootstrap_package": {
+    "assets_complete": true,
+    "executable_included": false,
+    "expected_files": 1029,
+    "expected_payload_bytes": 147311787,
+    "external_dependencies": {
+      "linux": "Compatible SDL2, SDL2_net and system C/math runtime; dynamic library resolution must be checked on the target.",
+      "optional_music": "User-supplied music stays external; --music-dir is optional.",
+      "original_game_data": "Complete separately obtained Tyrian 2000 data; no game data or save files are bundled.",
+      "python_and_pillow": "Needed only for development/rebuilding, not for the compiled game runtime.",
+      "windows": "Matching-architecture prebuilt EXE, SDL2.dll, SDL2_net.dll and their license notices from official SDL distributions. Windows runtime acceptance remains separate."
+    },
+    "missing": [],
+    "mode": "build",
+    "output_payload_bytes": 147778832,
+    "platform": "linux",
+    "runtime_ready": false,
+    "runtime_ready_reason": "Original game data and platform dependencies are external; runtime launch acceptance is separate.",
+    "schema": "opentyrian-runtime-preflight-v1",
+    "source_unchanged": true,
+    "verified_files": 1029,
+    "verified_payload_bytes": 147311787
+  },
+  "cross_family_integration": {
+    "cell244_propagation": [
+      80244,
+      1470227
+    ],
+    "cross_workflows": [
+      "plasma-projectile",
+      "enemy-orb",
+      "front-multi",
+      "charge-body",
+      "mint-front-body",
+      "green"
+    ],
+    "current_overlays": 178,
+    "global_registry": 120,
+    "real_candidate_stage_apply_check": true,
+    "runtime_destinations": 1029,
+    "status": "PASS"
+  },
+  "current_runtime_destinations": 1029,
+  "external_evidence": [
+    {
+      "name": "sonic-package-tests-final-v2.log",
+      "sha256": "190e8271b6731285a360ae544fd37f85e84fe4e6337aae5ae59595448ff4e1b4"
+    },
+    {
+      "name": "accepted-all-final.log",
+      "sha256": "7703892d604dc3ac5f8d77fbf6e9ad412c9c9b33d3a6f398d8778ee59bcdbef1"
+    },
+    {
+      "name": "focused.log",
+      "sha256": "efc29b686b13c74c68941cfe68671a462d6a3f6f0b13f39c297810c2d8faa57d"
+    },
+    {
+      "name": "map-final.log",
+      "sha256": "f9bec881e0b7e201deb3c857bf5bdcc5cccbcc6552a0d69f6c7b476e19363acc"
+    },
+    {
+      "name": "current-craft-final.log",
+      "sha256": "c801b75a4366201f5ea43c0d8e45f074d955172aa79d439eff323e2ec54b3f46"
+    },
+    {
+      "name": "asset-digest-final.log",
+      "sha256": "c880d60b22c6df8643971b0f223bcad0783b121088f333624c3731b22b658e8b"
+    },
+    {
+      "name": "observer-final.log",
+      "sha256": "d45ce03a4e4e093585415eea5fe520aaa1cdfd14089f2e6f26805e0028aaaf54"
+    },
+    {
+      "name": "normal-final.log",
+      "sha256": "e81ce331c89d5afa68f4d70405ae8265dc15ba0939e02f916c1ce8cbb038b073"
+    },
+    {
+      "name": "inherited-stale-test-evidence.json",
+      "sha256": "c64926fed2c0df0254a1b76ae1b467cbe2e78beab2949f673ede1b91aef1b879"
+    },
+    {
+      "name": "review-receipt.json",
+      "sha256": "20aa16eabce9530e81ea423e9027a3cafbc95aab627a6ae8855f9946eb0e93b4"
+    }
+  ],
+  "global_registry_bytes_unchanged": true,
+  "global_registry_entries": 120,
+  "global_registry_sha256": "b224adfc0b12aee5a4753e32aa12e30c8594eb4237727a983148776239162860",
+  "not_run": [
+    "Native C compilation or renderer/game tests: SDL2 and original game data not restored.",
+    "Windows EXE compilation or Windows/GPU gameplay.",
+    "Natural campaign coverage."
+  ],
+  "notes": [
+    "Linux and Windows-format asset-only exports include no executable and runtime_ready remains false.",
+    "All C source files, headers and artwork remain identical to public base. Legitimate hypothetical artwork edits are tested only in isolated fixtures.",
+    "Historical fixtures and original 1025 proofs remain frozen; exact quartet is independently verified before projection.",
+    "First fixture-closure failures and three inherited stale historical-test expectations were diagnosed and repaired without changing frozen pins/digests; final accepted-later-changes suite ran all 54 tests clean."
+  ],
+  "old_rows_and_payloads_unchanged": true,
+  "old_runtime_destinations": 1025,
+  "runtime_sha256": "6e829316de159cb6d83ef7d22f3c7a8acc0c6b945fcf911bbb018e6d2b1bff1e",
+  "schema": "opentyrian-sonic-runtime-closure-validation-v1",
+  "scope": "Asset packaging and authoring propagation only; no native or Windows gameplay run",
+  "source_binding_files": 269,
+  "source_tree": "bf62aed0d59a79fdd1d6e5b2febd36afae243b2f",
+  "source_tree_bytes_unchanged": true,
+  "source_tree_files_checked": 269,
+  "status": "PASS",
+  "tests": {
+    "accepted_later_changes_final": 54,
+    "accepted_later_changes_seconds": 558.766,
+    "authoring_map": 18,
+    "front_multi_shadow_boundary": 11,
+    "historical_bindings": {
+      "final_enemy_observer_rerun": 6,
+      "final_normal_observer_rerun": 5,
+      "restored_object_run": "35 passed, 1 stale count assertion, 3 missing-object errors",
+      "total_cases_covered": 39
+    },
+    "independent_review": {
+      "scope": "7 package, 5 projection, 40 runtime, 2 late source tests, 1 asset digest test",
+      "total": 55
+    },
+    "runtime_packaging": 40,
+    "sonic_runtime_package": 7,
+    "sonic_runtime_projection": 5
+  }
+}

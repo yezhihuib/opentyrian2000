@@ -163,11 +163,13 @@ class ChargeCurrentGenerationBoundary(unittest.TestCase):
         cls.compat=compat;cls.builder=builder
         cls.temp=tempfile.TemporaryDirectory(prefix='charge-projection-fixture-',dir=projection.ROOT.parent)
         cls.root=Path(cls.temp.name)
-        # Only the twelve declared inputs, nine HDAs, mapping and runtime plan.
+        # The twelve declared inputs, nine HDAs, mapping and runtime plan,
+        # plus fourteen Sonic inputs to prove the exact additive runtime quartet.
         # No original-game provenance image, historical Git object or full clone.
         paths=compat.charge_input_paths(projection.ROOT)|{compat.CHARGE_MAPPING,builder.RUNTIME}|{projection.CHARGE_ROOT+'/'+name for name in projection.CHARGE_NAMES}
+        paths |= projection.sonic_runtime_input_paths(projection.ROOT)
         cls.baseline={name:(projection.ROOT/name).read_bytes() for name in paths}
-        if len(cls.baseline)!=23:raise AssertionError('unexpected Charge fixture closure')
+        if len(cls.baseline)!=37:raise AssertionError('unexpected Charge fixture closure')
 
     @classmethod
     def tearDownClass(cls):cls.temp.cleanup()
@@ -253,10 +255,12 @@ class MintFrontCurrentGenerationBoundary(unittest.TestCase):
         paths={projection.MF_SELECTION,projection.MF_MAPPING,builder.RUNTIME}
         paths|={row['source_png'] for row in selected['resources']}
         paths|={projection.MF_ROOT+'/'+name for name in projection.MF_NAMES}
-        # Four independent PNGs, selection, mapping, four HDAs and runtime plan.
+        # Four independent PNGs, selection, mapping, four HDAs and runtime plan,
+        # plus fourteen Sonic inputs for the strict runtime projection.
         # No frozen art, source binding, historical Git or extracted game pixels.
+        paths |= projection.sonic_runtime_input_paths(projection.ROOT)
         cls.baseline={name:(projection.ROOT/name).read_bytes() for name in paths}
-        if len(cls.baseline)!=11:raise AssertionError('unexpected Mint/Front fixture closure')
+        if len(cls.baseline)!=25:raise AssertionError('unexpected Mint/Front fixture closure')
 
     @classmethod
     def tearDownClass(cls):cls.temp.cleanup()
@@ -410,7 +414,7 @@ class AssetBoundary(unittest.TestCase):
         current=copy.deepcopy(self.inventory)
         # Match the production finite inverse: validate and remove only these
         # exact newer families before checking the unchanged old digest.
-        for verifier in (projection.verified_protron_current, projection.verified_newshf_current, projection.verified_enemy_orb_current):
+        for verifier in (projection.verified_current_sonic, projection.verified_current_protron, projection.verified_protron_current, projection.verified_newshf_current, projection.verified_enemy_orb_current):
             for name, row in verifier()['assets'].items():
                 self.assertEqual(current.pop(name), row)
         for name in projection.verified_front_multi_current()['assets']:del current[name]
@@ -662,7 +666,7 @@ class CurrentGenerationBoundary(unittest.TestCase):
         try:
             with self.assertRaisesRegex(AssertionError,'source paths'):projection.validate_current_sources(self.root)
         finally:extra.unlink()
-        for name,reason in [('src/render_mirror.c','not the accepted published current blob'),('src/player.c','non-target source')]:
+        for name,reason in [('src/render_mirror.c','unapproved current Sonic source'),('src/player.c','non-target source')]:
             old=self.root/name;raw=old.read_bytes();old.write_bytes(raw+b'\n')
             try:
                 with self.subTest(path=name),self.assertRaisesRegex(AssertionError,reason):projection.validate_current_sources(self.root)
@@ -679,7 +683,9 @@ class CurrentGenerationBoundary(unittest.TestCase):
             binding=json.loads((self.root/builder.BINDING).read_bytes())
             binding['source_sha256']=production.source_inventory(self.root)
             binding['production_source_manifest_sha256']=production.source_manifest_digest(binding['source_sha256'])
-            self.assertEqual(len(binding['source_sha256'])-len(projection.verified_enemy_probe_sources(self.root)),265)
+            payload_headers={projection.CURRENT_PROTRON_HEADER,projection.CURRENT_SONIC_HEADER}
+            self.assertTrue(payload_headers <= set(binding['source_sha256']))
+            self.assertEqual(len(binding['source_sha256'])-len(projection.verified_enemy_probe_sources(self.root))-len(payload_headers),265)
             (self.root/builder.BINDING).write_bytes(builder.encoded(binding))
             with self.subTest(case=case),self.assertRaisesRegex(AssertionError,'non-target production source binding'):
                 projection.verified_sidekick_current(self.root)
@@ -794,8 +800,9 @@ class PlasmaProjectileCurrentGenerationBoundary(unittest.TestCase):
         cls.temp=tempfile.TemporaryDirectory(prefix='plasma-projection-fixture-',dir=projection.ROOT.parent)
         cls.root=Path(cls.temp.name)
         paths=compat.input_paths(projection.ROOT)|{compat.MAPPING,compat.HEADER,'packaging/runtime-assets-v1.json'}|{compat.ROOT+'/'+compat.name(i,d) for i,d in compat.PAIRS}
+        paths |= projection.sonic_runtime_input_paths(projection.ROOT)
         cls.baseline={name:(projection.ROOT/name).read_bytes()for name in paths}
-        if len(cls.baseline)!=18:raise AssertionError('unexpected Plasma fixture closure')
+        if len(cls.baseline)!=32:raise AssertionError('unexpected Plasma fixture closure')
 
     @classmethod
     def tearDownClass(cls):cls.temp.cleanup()
@@ -950,6 +957,9 @@ class NewshfCompositorProjectionBoundary(unittest.TestCase):
             for name in ('authoring-inputs/enemies/newshf-phase-a','assets/hd/newshf-v1'):
                 shutil.copytree(projection.ROOT/name,root/name)
             for name in ('src/newshf_hd_assets.h','src/enemy_reuse_probe.h','src/enemy_reuse_probe.inc','packaging/runtime-assets-v1.json','packaging/current-production-validation.json'):
+                (root/name).parent.mkdir(parents=True,exist_ok=True)
+                shutil.copyfile(projection.ROOT/name,root/name)
+            for name in projection.sonic_runtime_input_paths(projection.ROOT):
                 (root/name).parent.mkdir(parents=True,exist_ok=True)
                 shutil.copyfile(projection.ROOT/name,root/name)
             baseline=projection.verified_newshf_current(root)

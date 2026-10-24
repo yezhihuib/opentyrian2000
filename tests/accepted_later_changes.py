@@ -95,6 +95,47 @@ def verified_current_sonic(root=ROOT):
  assets={n:{'sha256':sha(c.read(root,n)),'mode':'100644'} for n in names if n.startswith('assets/')}
  return dict(assets=assets,paths=names-{c.MAPPING},mapping=mapping,header_sha256=sha(c.read(root,c.HEADER)))
 
+SONIC_RUNTIME_DESTINATIONS = frozenset(
+ 'assets/gameplay/bullet-%d-8.hda'%i for i in (105,106,124,125))
+# Public0135605's exact pre-extension destination set. Payloads remain current;
+# this pin only prevents an unknown extra/replacement path from hiding in the
+# old 1025 rows while another feature's narrow historical proof runs.
+PRE_SONIC_RUNTIME_DESTINATIONS_SHA = '94b0488ae713e32cb306a6f3215762607b64da0813a3972f087187775ee2f84d'
+
+def sonic_runtime_input_paths(root=ROOT):
+ scripts=str(ROOT/'scripts')
+ if scripts not in sys.path:sys.path.insert(0,scripts)
+ import current_sonic_compatibility as c
+ return c.input_paths(root)|{c.MAPPING,c.HEADER}
+
+def before_sonic_runtime(rows,root=ROOT):
+ """Project only the exact derived quartet, not arbitrary package additions.
+
+ This current-runtime entry point deliberately requires all 1029 rows. Passing
+ an already-projected/old 1025-row selection is a missing-quartet error, not an
+ implicit legacy mode. Historical comparison callers apply this once, first.
+ """
+ assert isinstance(rows,list) and len(rows)==1029,'unexpected runtime scope / destination scope for Sonic projection'
+ by_destination={row['destination']:row for row in rows}
+ assert len(by_destination)==len(rows),'duplicate runtime destination scope'
+ scripts=str(ROOT/'scripts')
+ if scripts not in sys.path:sys.path.insert(0,scripts)
+ import current_sonic_compatibility as c
+ assert c.IDS==(80105,80106,80124,80125) and c.ROOT=='assets/hd/current-compat/sonic','unapproved Sonic runtime family'
+ mapping=c.load(root)
+ assert set(mapping)==SONIC_RUNTIME_DESTINATIONS,'unapproved Sonic runtime mapping scope'
+ for destination,selected in mapping.items():
+  raw=c.read(root,selected['source_path'])
+  expected=dict(source_path=selected['source_path'],destination=destination,
+   group='gameplay',revision='current-single-source-sonic',bytes=len(raw),
+   git_blob=hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest(),sha256=sha(raw))
+  assert by_destination.get(destination)==expected,('unapproved Sonic runtime row',destination)
+ result=copy.deepcopy([row for row in rows if row['destination'] not in SONIC_RUNTIME_DESTINATIONS])
+ assert len(result)==1025,'unexpected historical runtime scope after Sonic projection'
+ destinations=('\n'.join(sorted(row['destination'] for row in result))+'\n').encode()
+ assert sha(destinations)==PRE_SONIC_RUNTIME_DESTINATIONS_SHA,'unapproved historical runtime destination scope'
+ return result
+
 def before_current_sonic_inventory(inventory,root=ROOT):
  result=dict(inventory)
  assert result.pop(CURRENT_SONIC_HEADER)==verified_current_sonic(root)['header_sha256']
@@ -159,7 +200,7 @@ def before_current_protron_inventory(inventory,root=ROOT):
 
 def before_current_protron_runtime(rows,root=ROOT):
  """Only the four verified current transports revert; all other rows survive."""
- proof=verified_current_protron(root);result=copy.deepcopy(rows)
+ proof=verified_current_protron(root);result=before_sonic_runtime(rows,root)
  old={r['destination']:r for r in current_protron_ledger()['runtime_before']}
  assert set(old)==set(proof['mapping'])
  seen=set()
@@ -342,6 +383,7 @@ def verified_newshf_current(root=ROOT):
  assert len(selected['art'])==9,'unapproved NEWSHF pose count'
  outputs={};declarations=[]
  runtime=json.loads((root/'packaging/runtime-assets-v1.json').read_bytes())
+ runtime['files']=before_sonic_runtime(runtime['files'],root)
  runtime_rows={r['destination']:r for r in runtime['files']}
  assert len(runtime_rows)==len(runtime['files'])==1025,'unapproved NEWSHF runtime scope'
  for identity,pair,name,art in zip(NEWSHF_IDS,NEWSHF_PAIRS,NEWSHF_NAMES,selected['art']):
@@ -448,7 +490,9 @@ def verified_sidekick_current(root=ROOT):
   expected_sources[name]=sha(raw)
  assert binding['source_sha256']==expected_sources,'unapproved non-target production source binding'
  assert expected_sources[FRONT_MULTI_HEADER]==verified_front_multi_current(root)['header_sha256'],'unverified Front Multi production header'
- runtime=json.loads(builder.read(root,builder.RUNTIME));runtime_rows={r['destination']:r for r in runtime['files']}
+ runtime=json.loads(builder.read(root,builder.RUNTIME))
+ runtime['files']=before_sonic_runtime(runtime['files'],root)
+ runtime_rows={r['destination']:r for r in runtime['files']}
  assert len(runtime_rows)==len(runtime['files'])==1025,'unexpected current runtime destination scope'
  def blob_row(source,destination,group,revision,data):
   import hashlib
@@ -497,7 +541,9 @@ def verified_enemy_orb_current(root=ROOT):
   assert len(occupied)==45,'orb source misses original support'
   payloads[80000+selector]=original;payloads[1420000+selector]=bytes(masked)
  outputs={ORB_SELECTION:{'sha256':sha(raw),'mode':'100644'}};rows=[];pins={}
- runtime=json.loads(compat.read(root,'packaging/runtime-assets-v1.json'));runtime_rows={r['destination']:r for r in runtime['files']}
+ runtime=json.loads(compat.read(root,'packaging/runtime-assets-v1.json'))
+ runtime['files']=before_sonic_runtime(runtime['files'],root)
+ runtime_rows={r['destination']:r for r in runtime['files']}
  assert len(runtime_rows)==len(runtime['files'])==1025,'unapproved orb runtime scope'
  assert set(loaded)=={'assets/gameplay/'+name for name in ORB_NAMES},'unapproved orb consumers'
  for identity,name in zip(ORB_IDS,ORB_NAMES):
@@ -557,6 +603,7 @@ def verified_plasma_projectile_current(root=ROOT):
  assert [(r['identity'],r['density']) for r in selected['resources']]==list(PLASMA_PAIRS),'unapproved Plasma projectile output order'
  outputs={PLASMA_SELECTION:{'sha256':sha(raw),'mode':'100644'}};rows=[];pins={}
  runtime=json.loads((root/'packaging/runtime-assets-v1.json').read_bytes())
+ runtime['files']=before_sonic_runtime(runtime['files'],root)
  runtime_rows={r['destination']:r for r in runtime['files']}
  assert len(runtime_rows)==len(runtime['files'])==1025,'unexpected current runtime destination scope'
  for (identity,density),name,record in zip(PLASMA_PAIRS,PLASMA_NAMES,selected['resources']):
@@ -616,7 +663,9 @@ def verified_front_multi_current(root=ROOT):
  assert [r['identity'] for r in selected['resources']]==list(FRONT_MULTI_IDS),'unapproved Front Multi output order'
  assert set(loaded)=={'assets/gameplay/'+name for name in FRONT_MULTI_NAMES},'unapproved Front Multi consumers'
  outputs={FRONT_MULTI_SELECTION:{'sha256':sha(raw),'mode':'100644'}};rows=[];pins={};sources={}
- runtime=json.loads(compat.read(root,'packaging/runtime-assets-v1.json'));runtime_rows={r['destination']:r for r in runtime['files']}
+ runtime=json.loads(compat.read(root,'packaging/runtime-assets-v1.json'))
+ runtime['files']=before_sonic_runtime(runtime['files'],root)
+ runtime_rows={r['destination']:r for r in runtime['files']}
  assert len(runtime_rows)==len(runtime['files'])==1025,'unexpected current runtime destination scope'
  for identity,name,record in zip(FRONT_MULTI_IDS,FRONT_MULTI_NAMES,selected['resources']):
   assert set(record)=={'identity','source_png','source_sha256'} and type(record['identity']) is int,'unapproved Front Multi resource fields'
@@ -673,7 +722,9 @@ def verified_craft267_current(root=ROOT):
  assert compat.load(root)=={CRAFT267_DESTINATION:row},'current craft267 compatibility mismatch'
  expected=dict(schema='opentyrian-current-craft267-compatibility-v1',selection=CRAFT267_SELECTION,version=selected['version'],files=[row])
  assert builder.read(root,compat.MAPPING)==builder.encoded(expected),'current craft267 selection/mapping mismatch'
- runtime=builder.parse(builder.read(root,builder.RUNTIME));rows={r['destination']:r for r in runtime['files']}
+ runtime=builder.parse(builder.read(root,builder.RUNTIME))
+ runtime['files']=before_sonic_runtime(runtime['files'],root)
+ rows={r['destination']:r for r in runtime['files']}
  assert len(rows)==len(runtime['files'])==1025,'unexpected current runtime destination scope'
  oid=hashlib.sha1(b'blob '+str(len(blob)).encode()+b'\0'+blob).hexdigest()
  expected=dict(source_path=CRAFT267_CANONICAL,destination=CRAFT267_DESTINATION,group='gameplay',revision='current-single-source-craft267',bytes=len(blob),git_blob=oid,sha256=sha(blob))
@@ -709,7 +760,9 @@ def verified_charge_current(root=ROOT):
  expected_destinations={'assets/gameplay/'+name for name in CHARGE_NAMES}
  assert set(loaded)==expected_destinations,'unapproved Charge consumer scope'
  outputs={CHARGE_SELECTION:{'sha256':sha(raw),'mode':'100644'}}
- runtime=json.loads(builder.read(root,builder.RUNTIME));rows={r['destination']:r for r in runtime['files']}
+ runtime=json.loads(builder.read(root,builder.RUNTIME))
+ runtime['files']=before_sonic_runtime(runtime['files'],root)
+ rows={r['destination']:r for r in runtime['files']}
  assert len(rows)==len(runtime['files'])==1025,'unexpected current runtime destination scope'
  for identity,name in zip(CHARGE_IDS,CHARGE_NAMES):
   source=CHARGE_ROOT+'/'+name;destination='assets/gameplay/'+name
@@ -752,7 +805,9 @@ def verified_mint_front_current(root=ROOT):
  expected_destinations={'assets/gameplay/'+name for name in MF_NAMES}
  assert set(loaded)==expected_destinations,'unapproved Mint/Front consumer scope'
  outputs={MF_SELECTION:{'sha256':sha(raw),'mode':'100644'}};rows=[];sources={}
- runtime=json.loads(builder.read(root,builder.RUNTIME));runtime_rows={r['destination']:r for r in runtime['files']}
+ runtime=json.loads(builder.read(root,builder.RUNTIME))
+ runtime['files']=before_sonic_runtime(runtime['files'],root)
+ runtime_rows={r['destination']:r for r in runtime['files']}
  assert len(runtime_rows)==len(runtime['files'])==1025,'unexpected current runtime destination scope'
  for identity,name,record in zip(MF_IDS,MF_NAMES,selected['resources']):
   assert set(record)=={'identity','source_png','source_sha256'} and type(record['identity']) is int and record['identity']==identity,'unapproved Mint/Front identity/fields/order'

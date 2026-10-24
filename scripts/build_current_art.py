@@ -102,8 +102,8 @@ def verify_authority(root,registry,family='pulse'):
     if source_manifest_digest(inputs)!=BUILD_INPUT_SHA256:
         raise ValueError('Build inputs changed')
 
-    # Sonic is deliberately outside the formal runtime package. Prove its
-    # current header here so unrelated builders cannot bless stale payload pins.
+    # Prove the current Sonic header here so unrelated builders cannot bless
+    # stale payload pins, including the separately bounded runtime quartet.
     # Its own finite builder rederives the edited candidate before this call.
     if family != 'sonic':
         from current_sonic_compatibility import load as sonic_load

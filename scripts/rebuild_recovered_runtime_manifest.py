@@ -87,10 +87,10 @@ def main():
         if row['identity'] not in ORDINARY_IDS:continue
         if destination in art_compat:raise ValueError('Enemy orb compatibility collision')
         art_compat[destination]=dict(row,authoring_family='enemy-orb')
-    # The opt-in Sonic quartet is not a formal runtime addition. Its generated
-    # source header still participates in this build and must match its masters.
+    # Sonic is a separately bounded additive transport family, not a relaxed
+    # historical art consumer. Its loader also rederives pixels and header pins.
     from current_sonic_compatibility import load as sonic_load
-    sonic_load(root)
+    sonic = sonic_load(root)
     from current_protron_compatibility import load as protron_load
     protron_current = protron_load(root)
     private_destination = 'assets/gameplay/enemy-protron-p09-227-8.hda'
@@ -126,6 +126,16 @@ def main():
             add(replacement['source_path'],old['destination'],old['group'])
             rows[old['destination']]['revision']='current-single-source-hud'
     if art_compat: raise ValueError('Current art consumer absent from historical runtime selection')
+    # These exact four approved resources complete the existing P02/P04 atomic
+    # family together with historical 20/21. Shipping bytes does not enable its
+    # default-off renderer. Unrelated new historical consumers still fail above.
+    expected_sonic = {f'assets/gameplay/bullet-{i}-8.hda' for i in (105,106,124,125)}
+    if len(sonic)!=4 or set(sonic)!=expected_sonic or set(sonic)&set(rows):
+        raise ValueError('Unexpected/colliding Sonic runtime extension')
+    for destination,row in sorted(sonic.items()):
+        add(row['source_path'],destination,'gameplay')
+        rows[destination]['revision']='current-single-source-sonic'
+
     # Charge is a new, separately bounded family. Keep the historical residual
     # rejection above intact; it must never admit an unrelated new consumer.
     from current_sidekick_body_compatibility import charge_load, CHARGE_IDS, charge_name

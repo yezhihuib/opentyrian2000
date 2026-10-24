@@ -48,8 +48,10 @@ unwanted edit. It is **not a power-loss/process-crash transaction**. If inputs c
 after staging, restage explicitly. During an unapplied edit, unrelated workflows
 correctly reject the stale installed selection; apply Protron before continuing.
 
-The four HDA destinations are unchanged; the registry remains 120 entries and
-runtime package remains 1025 destinations. Only their source binding moves to
+The four Protron HDA destinations are unchanged; the registry remains 120
+entries. The Protron migration retained 1025 runtime destinations; the later
+[Sonic quartet addition](current-sonic-runtime-package.md) raises the current
+package to 1029 without adding Protron consumers. Only Protron's source binding moves to
 `assets/hd/current-compat/protron/`. The normal current-art preview includes the
 three player outputs; private227 remains in the isolated P09 runtime route.
 Historical validation receipts do not qualify future artwork. A new visual edit

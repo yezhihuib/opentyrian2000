@@ -143,7 +143,7 @@ class PackagingTests(unittest.TestCase):
         groups = {}
         destinations = {x['destination'] for x in manifest['files']}
         for item in manifest['files']: groups[item['group']] = groups.get(item['group'], 0) + 1
-        self.assertEqual(groups['gameplay'], 646)
+        self.assertEqual(groups['gameplay'], 650)
         self.assertEqual(groups['startup'], 9)
         self.assertEqual(groups['shop'], 15)
         self.assertEqual(groups['notice'], 11)
@@ -156,7 +156,7 @@ class PackagingTests(unittest.TestCase):
         self.assertEqual(groups['reconstructed-menu-runs'], 171)
         self.assertEqual(groups['shared-hud-exact-recovery'], 6)
         self.assertEqual(groups['current-production-validation'], 1)
-        self.assertEqual(len(manifest['files']), 1025)
+        self.assertEqual(len(manifest['files']), 1029)
         approval = REBUILD.approved_static(ROOT)
         selected = {r['source_path']: r for r in manifest['files']}
         for item in approval['files']:
@@ -408,10 +408,13 @@ class PackagingTests(unittest.TestCase):
 
     def test_global_validation_binds_current_production_source(self):
         validation = json.loads((ROOT / 'packaging/current-production-validation.json').read_text())
-        # The sole source-scope extension is two explicitly named probe modules.
+        # Keep the historical 265-source base distinct from the four already
+        # approved probe / current-payload source extensions (no new C here).
         probe_sources = {'src/enemy_reuse_probe.h', 'src/enemy_reuse_probe.inc'}
-        self.assertTrue(probe_sources <= set(validation['source_sha256']))
-        self.assertEqual(CURRENT.verify(ROOT, validation)-len(probe_sources), 265)
+        payload_sources = {'src/current_protron_payload_pins.h', 'src/current_sonic_payload_pins.h'}
+        extensions = probe_sources | payload_sources
+        self.assertTrue(extensions <= set(validation['source_sha256']))
+        self.assertEqual(CURRENT.verify(ROOT, validation)-len(extensions), 265)
         self.assertIn('src/current_art_payload_pins.h', validation['source_sha256'])
         self.assertIn('src/current_hud_payload_pins.h', validation['source_sha256'])
         self.assertIn('src/current_plasma_projectile_payload_pins.h', validation['source_sha256'])
@@ -429,8 +432,8 @@ class PackagingTests(unittest.TestCase):
             target = self.source / name
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_bytes((ROOT / name).read_bytes())
-        self.assertEqual(CURRENT.verify(self.source, validation)-len(probe_sources), 265)
-        for pin_name in ('src/current_tank_shell_payload_pins.h', 'src/current_enemy_energy_payload_pins.h', 'src/current_sidekick_body_payload_pins.h', 'src/current_plasma_projectile_payload_pins.h', 'src/current_enemy_orb_payload_pins.h', 'src/newshf_identity_validation.inc', 'src/newshf_prototype_pins.h', 'src/newshf_hd_assets.h', 'src/global_newshf_mirror.inc', 'src/enemy_reuse_probe.h', 'src/enemy_reuse_probe.inc'):
+        self.assertEqual(CURRENT.verify(self.source, validation)-len(extensions), 265)
+        for pin_name in ('src/current_protron_payload_pins.h', 'src/current_sonic_payload_pins.h', 'src/current_tank_shell_payload_pins.h', 'src/current_enemy_energy_payload_pins.h', 'src/current_sidekick_body_payload_pins.h', 'src/current_plasma_projectile_payload_pins.h', 'src/current_enemy_orb_payload_pins.h', 'src/newshf_identity_validation.inc', 'src/newshf_prototype_pins.h', 'src/newshf_hd_assets.h', 'src/global_newshf_mirror.inc', 'src/enemy_reuse_probe.h', 'src/enemy_reuse_probe.inc'):
             pin = self.source / pin_name
             approved_pin = pin.read_bytes()
             with self.subTest(binding='corrupt '+pin_name):
@@ -448,7 +451,7 @@ class PackagingTests(unittest.TestCase):
                 omitted['production_source_manifest_sha256'] = CURRENT.source_manifest_digest(omitted['source_sha256'])
                 with self.assertRaisesRegex(ValueError, 'Production source mismatch'):
                     CURRENT.verify(self.source, omitted)
-        self.assertEqual(CURRENT.verify(self.source, validation)-len(probe_sources), 265)
+        self.assertEqual(CURRENT.verify(self.source, validation)-len(extensions), 265)
         historical = json.loads((ROOT / 'packaging/global-validation.json').read_text())
         manifest = PACK.load_manifest(ROOT / 'packaging/runtime-assets-v1.json')
         self.assertEqual(manifest['source_revision']['global_runtime_commit'], historical['production_commit'])

@@ -233,6 +233,31 @@ def main(argv=None) -> int:
     roots = [args.source_root.resolve()] + [p.resolve() for p in args.asset_root]
     manifest_path = args.manifest or roots[0] / 'packaging/runtime-assets-v1.json'
     manifest = load_manifest(manifest_path)
+    # Default deployment and explicit current Sonic references require the
+    # complete current quartet. Historical/custom manifests retain their frozen
+    # semantics and need no current authoring inputs. This packages resources;
+    # it does not change the executable's default-off renderer eligibility.
+    sonic_prefix = 'assets/hd/current-compat/sonic/'
+    sonic_names = {f'bullet-{i}-8.hda' for i in (105,106,124,125)}
+    sonic_rows = [row for row in manifest['files'] if any(
+        Path(row[key]).name.casefold() in sonic_names for key in ('destination','source_path')) or
+        row['source_path'].casefold().startswith(sonic_prefix) or
+        (isinstance(row.get('revision'),str) and row['revision'].casefold() == 'current-single-source-sonic')]
+    sonic_current = manifest_path.resolve() == (roots[0]/'packaging/runtime-assets-v1.json').resolve() or any(
+        row['source_path'].casefold().startswith(sonic_prefix) or
+        (isinstance(row.get('revision'),str) and row['revision'].casefold() == 'current-single-source-sonic')
+        for row in manifest['files'])
+    if sonic_current:
+        from current_sonic_compatibility import load as sonic_load
+        expected = {'assets/gameplay/'+name for name in sonic_names}
+        if len(sonic_rows)!=4 or {row['destination'] for row in sonic_rows}!=expected:
+            raise ValueError('Sonic packaging requires exactly four current consumers')
+        selected = sonic_load(roots[0])
+        for row in sonic_rows:
+            current = selected[row['destination']]
+            if (row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or
+                    row.get('group')!='gameplay' or row.get('revision')!='current-single-source-sonic'):
+                raise ValueError('Stale Sonic runtime selection')
     if args.content_catalog or args.check_content_catalog:
         for row in manifest['files']:
             if 'sha256' in row:

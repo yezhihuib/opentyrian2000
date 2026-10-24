@@ -30,5 +30,5 @@ def main():
   assert int(p['nonzero_alpha_outside_original_support'])>0 # preserve approved antialiasing, never mask-crop
  from test_enemy_protron_reuse_binding import check_additive_assets_and_runtime
  check_additive_assets_and_runtime('47e7d062e0fc4a449a36f1d1f47e53c42f65c66d')
- print(json.dumps({'status':'PASS','pngs':6,'hda_payloads':checked,'runtime_destinations':1025,'old_source_and_pack_changes':0,'additive_p09_asset_paths':4,'scope':'P02/P04 pixels/header/approved alpha unchanged; P05 separately validated; P09 separately validated'}))
+ print(json.dumps({'status':'PASS','pngs':6,'hda_payloads':checked,'runtime_destinations':1029,'projected_historical_runtime_destinations':1025,'old_source_and_pack_changes':0,'additive_p09_asset_paths':4,'scope':'P02/P04 pixels/header/approved alpha unchanged; P05 separately validated; P09 separately validated'}))
 if __name__=='__main__':main()

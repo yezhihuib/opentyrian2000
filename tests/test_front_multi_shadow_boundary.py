@@ -191,9 +191,9 @@ class FrontMultiCurrentGenerationBoundary(unittest.TestCase):
         cls.temp = tempfile.TemporaryDirectory(prefix='front-multi-projection-')
         cls.root = Path(cls.temp.name)
         paths = compat.input_paths(ROOT) | {compat.MAPPING, compat.HEADER, 'packaging/current-production-validation.json', 'packaging/runtime-assets-v1.json'} | {compat.ROOT + '/' + name for name in history.FRONT_MULTI_NAMES}
-        paths |= FRONT_CURRENT_SOURCES
+        paths |= FRONT_CURRENT_SOURCES | history.sonic_runtime_input_paths(ROOT)
         cls.baseline = {name: (ROOT / name).read_bytes() for name in paths}
-        if len(cls.baseline) != 24: raise AssertionError('unexpected Front Multi fixture closure')
+        if len(cls.baseline) != 38: raise AssertionError('unexpected Front Multi fixture closure')
 
     @classmethod
     def tearDownClass(cls): cls.temp.cleanup()
@@ -202,7 +202,7 @@ class FrontMultiCurrentGenerationBoundary(unittest.TestCase):
         for name, raw in self.baseline.items():
             path = self.root / name; path.parent.mkdir(parents=True, exist_ok=True); path.write_bytes(raw)
 
-    def test_all_24_inputs_outputs_header_mapping_runtime_and_binding_reject_tampering(self):
+    def test_all_38_inputs_outputs_header_mapping_runtime_and_binding_reject_tampering(self):
         self.assertEqual(len(history.verified_front_multi_current(self.root)['assets']), 9)
         for name, raw in self.baseline.items():
             path = self.root / name

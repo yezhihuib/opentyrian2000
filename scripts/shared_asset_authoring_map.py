@@ -96,7 +96,9 @@ def current_records(root):
                     continue
                 if hashlib.sha256(read(root, member['source_path'])).hexdigest() != member['sha256']:
                     raise ValueError('Stale runtime consumer binding')
-                if member['destination'] not in {c['path'] for c in consumers}:
+                # A compatibility output and a formal package consumer can have
+                # the same path but different evidence. Preserve both claims.
+                if (member['destination'], runtime_path) not in {(c['path'], c['evidence']) for c in consumers}:
                     consumers.append(dict(path=member['destination'], role=identity // 10000,
                                           evidence=runtime_path))
             notes = ['Only declared consumers; not an exhaustive level-usage map.',
@@ -120,7 +122,7 @@ def current_records(root):
                     raise ValueError('Missing declared P02 current-source consumer')
                 consumers.append(dict(path=evidence, role=146, material_identity=identity,
                                       scope='finite default-off P02 lane only', evidence=evidence))
-                notes.append('Two independent masters; each produces a horizontal mirror pair. Current preview/debug only; formal runtime package does not include this quartet. The atomic P02/P04 family needs these four plus 20/21.')
+                notes.append('Two independent masters; each produces a horizontal mirror pair. Current preview/debug and the formal runtime package include this quartet. The atomic P02/P04 family also needs 20/21; packaging does not enable the default-off enemy renderer.')
             if family == 'front-multi':
                 notes.append('Eight independent inputs. Historical rear 1310182/1310183 do NOT follow current Front 163/164 edits.')
             if family == 'enemy-orb':

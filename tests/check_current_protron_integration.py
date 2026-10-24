@@ -26,7 +26,7 @@ try:
  print('APPLY actual edited candidate',flush=True);b.apply(r,base/'stage')
  print('CHECK',b.check(r),flush=True)
  after={p:c.sha((r/c.ROOT/c.name(*p)).read_bytes()) for p in c.PAIRS};assert {p for p in before if before[p]!=after[p]}=={(80244,8),(1470227,8)}
- runtime=json.loads((r/b.RUNTIME).read_bytes());assert len(runtime['files'])==1025;assert {x['destination'] for x in runtime['files']}==original_dest
+ runtime=json.loads((r/b.RUNTIME).read_bytes());assert len(runtime['files'])==1029;assert {x['destination'] for x in runtime['files']}==original_dest
  assert len(json.loads((r/b.REGISTRY).read_bytes())['resources'])==120
  for module in ('build_current_plasma_projectile','build_current_enemy_orb','build_current_front_multi'):
   m=__import__(module);print('CROSS',module,m.check(r),flush=True)
@@ -36,8 +36,8 @@ try:
  import build_current_art as art
  print('CROSS green',art.check(r,'green'),flush=True)
  import build_current_craft267 as craft
- overlays=craft.current_overlays(r);assert len(overlays)==174
- print('CROSS preview174; destinations1025; global120; changed244+227 only PASS',flush=True)
- (Path('../protron-current-integration-receipt.json')).write_text(json.dumps(dict(status='PASS',real_candidate_stage_apply_check=True,cell244_propagation=[80244,1470227],runtime_destinations=1025,global_registry=120,current_overlays=174,cross_workflows=['plasma-projectile','enemy-orb','front-multi','charge-body','mint-front-body','green']),indent=2)+'\n')
+ overlays=craft.current_overlays(r);assert len(overlays)==178
+ print('CROSS preview178; destinations1029; global120; changed244+227 only PASS',flush=True)
+ (Path('../protron-current-integration-receipt.json')).write_text(json.dumps(dict(status='PASS',real_candidate_stage_apply_check=True,cell244_propagation=[80244,1470227],runtime_destinations=1029,global_registry=120,current_overlays=178,cross_workflows=['plasma-projectile','enemy-orb','front-multi','charge-body','mint-front-body','green']),indent=2)+'\n')
 finally:
  shutil.rmtree(base)

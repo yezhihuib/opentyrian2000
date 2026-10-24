@@ -68,11 +68,13 @@ were drawn. A new independent 651-file root retained every original file and
 added only the four approved public Sonic HDA blobs, verified against their
 original headers and payload pins. No eligibility check was relaxed.
 
-This does **not** add those four resources to the formal runtime manifest.
-Its 1025 destinations and the global registry's 120 entries stay unchanged.
-Using that formal runtime root alone still lacks the complete P02/P04 family.
-The complete test root and a current-preview export are separate distributions;
-their file counts must not be conflated with the formal runtime package.
+That test did **not** add those four resources to its public044 formal runtime
+manifest: its 1025 destinations and the global registry's 120 entries stayed
+unchanged. The tested formal root alone therefore lacked the P02/P04 family.
+A subsequent [Sonic runtime closure](current-sonic-runtime-package.md) adds the
+quartet to the current formal package; it does not rewrite this test's baseline
+or frozen validation JSON. The complete test root and current-preview export
+are separate distributions; their counts are not formal package counts.
 
 ## Scope
 
