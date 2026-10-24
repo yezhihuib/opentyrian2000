@@ -159,9 +159,16 @@ def verified_current_guided(root=ROOT):
  scripts=str(ROOT/'scripts')
  if scripts not in sys.path:sys.path.insert(0,scripts)
  import current_guided_compatibility as c
+ # load already rederives every PNG/HDA and validates mapping and header.
+ # Enumerating its finite paths must not regenerate all four masters again.
+ # This selection guard is not a filesystem transaction: inputs must remain
+ # static during a proof. Each invocation still reads and validates fresh bytes.
+ selection_raw=c.read(root,c.SELECTION,128*1024)
  mapping=c.load(root)
- selected,pngs,blobs=c.generate(root,c.read(root,c.SELECTION))
- names={c.SELECTION,c.MAPPING,selected['recipe']['path']}|set(pngs)|{v['source_path'] for v in mapping.values()}
+ if c.read(root,c.SELECTION,128*1024)!=selection_raw:
+  raise ValueError('Guided selection changed during current proof')
+ selected=c.selection(root,selection_raw)
+ names={c.SELECTION,c.MAPPING,selected['recipe']['path']}|c.generated_paths()|{v['source_path'] for v in mapping.values()}
  names|={row['source_png'] for row in selected['masters']}
  assets={n:{'sha256':sha(c.read(root,n)),'mode':'100644'} for n in names if n.startswith('assets/')}
  return dict(assets=assets,paths=names-{c.MAPPING},mapping=mapping,header_sha256=sha(c.read(root,c.HEADER)))

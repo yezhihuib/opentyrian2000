@@ -1,0 +1,101 @@
+{
+  "baseline_commit": "fca48c7ace7050d52a554900f8aac47157e8e4db",
+  "change": {
+    "atomic_filesystem_snapshot": false,
+    "cross_call_cache": false,
+    "full_load_validation_retained": true,
+    "generation_calls_per_invocation": {
+      "after": 1,
+      "before": 2
+    },
+    "proof_output_equal": true,
+    "selection_pre_post_bytes_guard": true
+  },
+  "implementation_sha256": {
+    "tests/accepted_later_changes.py": "543d53d5cd3008848530165225d97d7ae1dcab9d5bb80e8bd5b1d17370b340de",
+    "tests/test_guided_proof_validation.py": "52a5bbaa44a0fe513b64109fe51239f355537094427e8c66d408d642dbcdc1b5"
+  },
+  "independent_review": {
+    "focused_tests": 8,
+    "receipt": "guided-proof-independent-review/receipt.json",
+    "scope": "Read-only implementation review, independent focused test rerun, diff check.",
+    "seconds": 8.485,
+    "status": "PASS"
+  },
+  "limitations": [
+    "Timing is seven samples per variant on this cloud environment, not an end-to-end speedup guarantee.",
+    "Selection guard detects bytes changed across load; inputs must otherwise remain static during one proof. No concurrency-atomicity claim.",
+    "Synthetic tamper and restore tests do not qualify new artwork."
+  ],
+  "not_run": [
+    "Full 54-test accepted-later aggregate",
+    "Full repository test discovery",
+    "Native rebuild, gameplay visual acceptance, physical Windows tests"
+  ],
+  "owner_tests_total": 55,
+  "schema": "opentyrian-guided-proof-validation-v1",
+  "scope": "Test-helper-only removal of a second full Guided derivation; no production, artwork, runtime mapping, or historical ledger changes.",
+  "status": "PASS",
+  "tests": [
+    {
+      "exit_code": 0,
+      "log_sha256": "ac571604331fcc6155c3bf49883ad5b2c32f880fb558896fe953883b1dcf17b9",
+      "seconds": 8.609,
+      "status": "PASS",
+      "suite": "focused",
+      "tests": 8
+    },
+    {
+      "exit_code": 0,
+      "log_sha256": "3cf39b1d8da28535bb04b49e6916b160b70d50f89d23edd1b83b044433601344",
+      "seconds": 91.128,
+      "status": "PASS",
+      "suite": "historical_boundary",
+      "tests": 6
+    },
+    {
+      "exit_code": 0,
+      "log_sha256": "e6230475ffe33e9dec933034442e4fff8dd3cbd8c90e3d2d4b91829d33a87bb6",
+      "seconds": 33.316,
+      "status": "PASS",
+      "suite": "related_bindings",
+      "tests": 25
+    },
+    {
+      "exit_code": 0,
+      "log_sha256": "fbbbffb9274c2014d5278b0c95cd09260a1f2922bd86bcea4c4c3b0717eb30f3",
+      "seconds": 9.772,
+      "status": "PASS",
+      "suite": "guided_authoring",
+      "tests": 16
+    }
+  ],
+  "timing": {
+    "current": {
+      "median": 0.18917773099929036,
+      "seconds": [
+        0.20410066199838184,
+        0.19665548800003307,
+        0.18917773099929036,
+        0.1858390249999502,
+        0.18588384199938446,
+        0.18236481599888066,
+        0.19049046200052544
+      ]
+    },
+    "previous": {
+      "median": 0.3908242859997699,
+      "seconds": [
+        0.422883503999401,
+        0.34463639900059206,
+        0.3390404629990371,
+        0.3908242859997699,
+        0.4107306489986513,
+        0.3962486349992105,
+        0.38937909600099374
+      ]
+    },
+    "proof_equal": true,
+    "speedup": 2.0659106330080466
+  }
+}

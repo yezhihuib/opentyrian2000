@@ -1,0 +1,92 @@
+{
+  "aircraft_parent": "308ad374f128a5f25f67e1df3729e504774152f7",
+  "aircraft_parent_tree": "a70102e33473194cf15079bb795f115e50115385",
+  "final_tests": [
+    {
+      "exit_code": 0,
+      "log_sha256": "dc98e0503d5a328d219698b97e5f27ea26d5b671aa8e84ae2e9c45b7121733a6",
+      "name": "Guided proof8 + Guided authoring16 + Guided source projection5 + aircraft source projection4",
+      "seconds": 40.189,
+      "status": "PASS",
+      "tests": 33
+    },
+    {
+      "exit_code": 0,
+      "log_sha256": "5af6a81d46b9670ebf7f9931f95b41294ca155e44ffbb5d16dfb7601b165a46b",
+      "name": "CurrentGenerationBoundary",
+      "seconds": 284.959,
+      "status": "PASS",
+      "tests": 6
+    }
+  ],
+  "fixture_repair": {
+    "cause": "Aircraft parent replaced the legacy NEWSHF dependency closure but the isolated Guided test still stubbed only its old entry point. Current NEWSHF selection was absent in that fixture.",
+    "initial_combined_run": {
+      "errors": 1,
+      "log_sha256": "722dc75980a145255dddb2414bc990709baf38eb013a5b45c9ac96cfcc5a8367",
+      "passed": 32,
+      "seconds": 38.099,
+      "tests": 33
+    },
+    "parent_reproduction": {
+      "log_sha256": "f442b2b79e5d8821908b6b19d443d2b720df84c1381140485245f4d03659d3b3",
+      "seconds": 0.774,
+      "status": "ERROR",
+      "tests": 1
+    },
+    "repair": "Validate current aircraft load, copy exactly 41 finite input paths, validate copied load, remove obsolete legacy stub, and require the current aircraft paths in returned dependencies. No production guard bypass.",
+    "test": "CurrentGuidedTests.test_actual_dependency_closure_allows_edited_masters_with_stale_installed_hashes"
+  },
+  "helper_change": "Only verified_current_guided changes relative to aircraft parent; every byte outside that function is identical. All aircraft projection guards preserved.",
+  "historical_receipts": "docs/guided-proof-validation.json is unchanged evidence for source optimization on public fca48c7, not a claim those runs used this integrated tree. Aircraft parent aggregate pass is separate prior evidence.",
+  "independent_review": {
+    "receipts": [
+      "guided-proof-independent-review/integration-receipt.json",
+      "guided-proof-independent-review/integration-fixture-addendum.json"
+    ],
+    "scope": "8 Guided proof + 4 aircraft source projection + 1 repaired fixture, read-only delta review",
+    "tests": 13
+  },
+  "not_run": [
+    "Full 54-test accepted-later aggregate on this integrated tree",
+    "Native rebuild or gameplay",
+    "Physical Windows tests"
+  ],
+  "optimization_source_commit": "38a6d00c04a8284d1fbd766ac534dc782bd5786b",
+  "production_artwork_runtime_ledger_changes": false,
+  "schema": "opentyrian-guided-proof-integration-v1",
+  "scope": "Integrate the unchanged Guided proof optimization onto frozen current aircraft authoring; fix one inherited isolated Guided dependency fixture.",
+  "scope_proof": {
+    "guided_function_equals_frozen_optimization": true,
+    "only_guided_function_changed": true,
+    "proof_output_equal": true,
+    "timing": {
+      "current": {
+        "median": 0.18670435500098392,
+        "seconds": [
+          0.18834245100151747,
+          0.1924117259986815,
+          0.21740554999996675,
+          0.18670435500098392,
+          0.18023151399756898,
+          0.18380757799968706,
+          0.17972107499736012
+        ]
+      },
+      "previous": {
+        "median": 0.3830639820007491,
+        "seconds": [
+          0.5035334679996595,
+          0.36997781100217253,
+          0.35864145499726874,
+          0.3864442180019978,
+          0.4016345000018191,
+          0.3830639820007491,
+          0.3589616350000142
+        ]
+      }
+    },
+    "two_added_files_equal_frozen_optimization": true
+  },
+  "status": "PASS"
+}

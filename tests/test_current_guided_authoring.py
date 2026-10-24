@@ -226,17 +226,26 @@ class CurrentGuidedTests(unittest.TestCase):
 
     def test_actual_dependency_closure_allows_edited_masters_with_stale_installed_hashes(self):
         self.install();self.change_master(19)
-        # Only unrelated family closures are stubbed; this builder's own Guided
+        # The aircraft migration replaced the old NEWSHF closure. Copy only its
+        # finite validated inputs; keep the real current closure in this test.
+        import current_newshf_compatibility as aircraft
+        aircraft.load(ROOT)
+        aircraft_names=aircraft.input_paths(ROOT)
+        self.assertEqual(len(aircraft_names),41)
+        for name in aircraft_names:self.write(name,(ROOT/name).read_bytes())
+        aircraft.load(self.root)
+        # Other unrelated family closures are stubbed; this builder's own Guided
         # closure must accept proposed sources without validating old selection.
         unrelated=('current_sidekick_body_compatibility.charge_input_paths',
             'current_sidekick_body_compatibility.mf_input_paths','build_enemy_protron_p09.input_paths',
-            'build_newshf_hd.input_paths','current_enemy_orb_compatibility.input_paths',
+            'current_enemy_orb_compatibility.input_paths',
             'current_front_multi_compatibility.input_paths','current_plasma_projectile_compatibility.input_paths',
             'current_protron_compatibility.input_paths','current_sonic_compatibility.input_paths')
         with ExitStack() as stack:
             for target in unrelated:stack.enter_context(patch(target,return_value=set()))
             names=b.dependencies(self.root,self.request)
         self.assertTrue({*self.master_paths.values(),self.recipe_path}.issubset(names))
+        self.assertTrue(aircraft_names.issubset(names))
 
     def isolated_derive(self,root,raw):
         selected,pngs,blobs=c.generate(root,raw,candidate=True)
