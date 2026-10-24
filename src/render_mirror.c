@@ -16,6 +16,7 @@
 #include "current_plasma_projectile_payload_pins.h"
 #include "current_protron_payload_pins.h"
 #include "current_sonic_payload_pins.h"
+#include "current_guided_payload_pins.h"
 #include "hd_front_multi_current.h"
 #include "data_frame.h"
 #include "data_portrait.h"

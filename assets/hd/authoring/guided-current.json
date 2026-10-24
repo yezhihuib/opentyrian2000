@@ -1,0 +1,56 @@
+{
+  "schema": "opentyrian-current-guided-authoring-v1",
+  "version": "guided-current-approved-bootstrap-v1",
+  "masters": [
+    {
+      "selector": 19,
+      "source_png": "authoring-inputs/guided-current/master-19.png",
+      "source_sha256": "b567f8bb6cd466d4e51076743a21988935a7feb7e5ab12c687b3269da42ed072"
+    },
+    {
+      "selector": 171,
+      "source_png": "authoring-inputs/guided-current/master-171.png",
+      "source_sha256": "03e5bbd4d4dfa72b91def7bb371c496c1ccef000b5607d4ca702dff3f375acef"
+    },
+    {
+      "selector": 20,
+      "source_png": "authoring-inputs/guided-current/master-20.png",
+      "source_sha256": "d7fdeed52d18322e6a1e05ff6935d92d4b4c5380923442142c8fbd06025dd879"
+    },
+    {
+      "selector": 21,
+      "source_png": "authoring-inputs/guided-current/master-21.png",
+      "source_sha256": "a4fa08a9485eddea093c3951c1e870343617fd4090b264a056a25081e8882b46"
+    }
+  ],
+  "recipe": {
+    "path": "authoring-inputs/guided-current/recipe.json",
+    "sha256": "f3db31c9ba7a0b42a54fbc450cc6128702e8360fc5ed4808a1f87dcc2f34d623"
+  },
+  "resources": [
+    {
+      "identity": 80019,
+      "density": 8,
+      "source_png": "authoring-inputs/guided-current/derived/bullet-19-8.png",
+      "source_sha256": "4090e464494453211727d1133a364ad03615ea656116aab322ff9de4089b2469"
+    },
+    {
+      "identity": 80171,
+      "density": 8,
+      "source_png": "authoring-inputs/guided-current/derived/bullet-171-8.png",
+      "source_sha256": "d31cdd82535e3f1993dfb96141a32423d2e0ec6b7ae55e61230b8a9e3349d4d4"
+    },
+    {
+      "identity": 80020,
+      "density": 8,
+      "source_png": "authoring-inputs/guided-current/derived/bullet-20-8.png",
+      "source_sha256": "c57af39f8c74d3d05128b29511c988ef08a588ea9ee3d25560bf93201c72ba32"
+    },
+    {
+      "identity": 80021,
+      "density": 8,
+      "source_png": "authoring-inputs/guided-current/derived/bullet-21-8.png",
+      "source_sha256": "4665bca2aa56716237c870dd13158f67c47c42db9d4fead330077149d4421331"
+    }
+  ]
+}

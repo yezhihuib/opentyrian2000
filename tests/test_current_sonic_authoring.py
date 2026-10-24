@@ -228,7 +228,7 @@ class CurrentSonicTests(unittest.TestCase):
             'current_sidekick_body_compatibility.mf_input_paths','build_enemy_protron_p09.input_paths',
             'build_newshf_hd.input_paths','current_enemy_orb_compatibility.input_paths',
             'current_front_multi_compatibility.input_paths','current_plasma_projectile_compatibility.input_paths',
-            'current_protron_compatibility.input_paths')
+            'current_protron_compatibility.input_paths','current_guided_compatibility.input_paths')
         with ExitStack() as stack:
             for target in unrelated:stack.enter_context(patch(target,return_value=set()))
             names=b.dependencies(self.root,self.request)

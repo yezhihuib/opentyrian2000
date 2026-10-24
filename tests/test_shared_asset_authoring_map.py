@@ -110,6 +110,20 @@ class AuthoringMapTests(unittest.TestCase):
             self.assertTrue(any('formal runtime package include this quartet' in n for n in row['notes']))
             self.assertTrue(any('does not enable the default-off enemy renderer' in n for n in row['notes']))
 
+    def test_guided_four_independent_static_contracts(self):
+        rows = self.rows_for({80019,80171,80020,80021})
+        self.assertEqual(len(rows),4)
+        self.assertEqual(len({p for r in rows for p in r['editable_inputs']}),4)
+        for row in rows:
+            identity=row['identity']
+            self.assertEqual(row['editable_inputs'],[f'authoring-inputs/guided-current/master-{identity % 10000}.png'])
+            self.assertEqual(row['family'],'guided')
+            self.assertEqual(row['role'],8)
+            self.assertEqual(any(c['role']==146 for c in row['declared_consumers']),identity in (80020,80021))
+            self.assertEqual(len([c for c in row['declared_consumers'] if c['evidence']=='packaging/runtime-assets-v1.json']),1)
+            self.assertFalse(any('global-assets' in p for p in row['derived_outputs']))
+            self.assertTrue(any('not animation frames' in n for n in row['notes']))
+
     def test_p05_reuses_current_green_with_distinct_draw_role(self):
         rows = self.rows_for({80214,80215,80216})
         self.assertEqual(len(rows), 3)

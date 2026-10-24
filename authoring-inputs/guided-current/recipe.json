@@ -1,0 +1,109 @@
+{
+  "schema": "guided-fixed-recipe-v1",
+  "canvas": [
+    96,
+    112
+  ],
+  "logical_size": [
+    12,
+    14
+  ],
+  "density": 8,
+  "anchor": [
+    0,
+    0
+  ],
+  "resample": "Pillow-LANCZOS-straight-RGBA-paste-without-mask",
+  "pieces": [
+    {
+      "selector": 19,
+      "source_size": [
+        1160,
+        1355
+      ],
+      "crop": [
+        74,
+        180,
+        1086,
+        1173
+      ],
+      "size": [
+        82,
+        82
+      ],
+      "xy": [
+        7,
+        15
+      ],
+      "identity": 80019
+    },
+    {
+      "selector": 171,
+      "source_size": [
+        1160,
+        1355
+      ],
+      "crop": [
+        160,
+        260,
+        1001,
+        1098
+      ],
+      "size": [
+        82,
+        82
+      ],
+      "xy": [
+        7,
+        15
+      ],
+      "identity": 80171
+    },
+    {
+      "selector": 20,
+      "source_size": [
+        1060,
+        1484
+      ],
+      "crop": [
+        99,
+        151,
+        956,
+        1352
+      ],
+      "size": [
+        46,
+        62
+      ],
+      "xy": [
+        29,
+        29
+      ],
+      "identity": 80020
+    },
+    {
+      "selector": 21,
+      "source_size": [
+        938,
+        1677
+      ],
+      "crop": [
+        130,
+        116,
+        811,
+        1589
+      ],
+      "size": [
+        44,
+        76
+      ],
+      "xy": [
+        30,
+        22
+      ],
+      "identity": 80021
+    }
+  ],
+  "alpha": "preserve-without-original-mask-or-threshold",
+  "relationship": "four-independent-static-identities"
+}

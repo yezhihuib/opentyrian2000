@@ -21,9 +21,10 @@ BASE = '013560593b3ea9e033906116b849a9508f6d621a'
 class SonicRuntimeProjectionTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+        sonic_paths=a.sonic_runtime_input_paths()
+        if len(sonic_paths) != 14: raise AssertionError('unexpected Sonic proof closure')
         cls.baseline = {name:(a.ROOT/name).read_bytes()
-                        for name in a.sonic_runtime_input_paths()}
-        if len(cls.baseline) != 14: raise AssertionError('unexpected Sonic proof closure')
+                        for name in sonic_paths | a.guided_runtime_input_paths()}
         cls.current = json.loads((a.ROOT/'packaging/runtime-assets-v1.json').read_bytes())['files']
         cls.previous = json.loads(subprocess.check_output(
             ['git','show',BASE+':packaging/runtime-assets-v1.json'],cwd=a.ROOT))['files']
@@ -39,9 +40,21 @@ class SonicRuntimeProjectionTests(unittest.TestCase):
         p=self.root/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(raw)
         return p
 
+    def assert_previous_rows(self, rows):
+        self.assertEqual([r['destination'] for r in rows],[r['destination'] for r in self.previous])
+        for current,previous in zip(rows,self.previous):
+            if current['destination']=='CURRENT-PRODUCTION-VALIDATION.json':
+                # Guided adds one generated C header, updating only this current
+                # binding's content metadata; historical source authority stays pinned.
+                fields={'sha256','git_blob','bytes'}
+                self.assertEqual({k:v for k,v in current.items() if k not in fields},
+                                 {k:v for k,v in previous.items() if k not in fields})
+            else:
+                self.assertEqual(current,previous)
+
     def test_exact_four_row_inverse_preserves_all_previous_rows(self):
         original=copy.deepcopy(self.rows)
-        self.assertEqual(a.before_sonic_runtime(self.rows,self.root),self.previous)
+        self.assert_previous_rows(a.before_sonic_runtime(self.rows,self.root))
         self.assertEqual(self.rows,original)
         self.assertEqual(len(self.previous),1025)
         self.assertEqual(len(self.rows),1029)
@@ -108,7 +121,7 @@ class SonicRuntimeProjectionTests(unittest.TestCase):
         self.write(c.MAPPING,json.dumps(dict(schema='opentyrian-current-sonic-compatibility-v1',selection=c.SELECTION,version=selected['version'],files=mapping)).encode())
         self.write(c.HEADER,c.payload_header(pins))
         self.assertEqual(changed,{(80105,8),(80106,8)})
-        self.assertEqual(a.before_sonic_runtime(self.rows,self.root),self.previous)
+        self.assert_previous_rows(a.before_sonic_runtime(self.rows,self.root))
         # A self-consistent current transport proof does not waive stale rows.
         with self.assertRaises(AssertionError):a.before_sonic_runtime(self.current,self.root)
 

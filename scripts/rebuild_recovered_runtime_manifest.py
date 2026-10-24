@@ -87,6 +87,10 @@ def main():
         if row['identity'] not in ORDINARY_IDS:continue
         if destination in art_compat:raise ValueError('Enemy orb compatibility collision')
         art_compat[destination]=dict(row,authoring_family='enemy-orb')
+    from current_guided_compatibility import load as guided_load
+    for destination,row in guided_load(root).items():
+        if destination in art_compat:raise ValueError('Guided compatibility collision')
+        art_compat[destination]=dict(row,authoring_family='guided')
     # Sonic is a separately bounded additive transport family, not a relaxed
     # historical art consumer. Its loader also rederives pixels and header pins.
     from current_sonic_compatibility import load as sonic_load

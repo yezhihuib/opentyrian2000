@@ -1,0 +1,73 @@
+{
+  "files": {
+    "src/enemy_reuse_mirror.inc": {
+      "current_sha256": "ed4dce9e3183c7d5dd31962217849ecebfa46e3fa23cc5f8afd50bc06cf34858",
+      "hunks": [
+        {
+          "after": " CURRENT_GUIDED_80020_D8_PAYLOAD_FNV,CURRENT_GUIDED_80021_D8_PAYLOAD_FNV,\n",
+          "after_lines": [
+            9,
+            10
+          ],
+          "before": " UINT64_C(0xa9fbe279b9095795),UINT64_C(0x4d4116e34f7ed195),\n"
+        }
+      ],
+      "previous_sha256": "cf38a5b76a49dfddc416bb6496457c88dcfa913bdd636e536ca64c714c0e8bb9"
+    },
+    "src/render_mirror.c": {
+      "current_sha256": "188c754bafc8e9d95e5fc843986482a27cc1b5ed41a3de6b86e074dadbca5fd7",
+      "hunks": [
+        {
+          "after": "#include \"current_guided_payload_pins.h\"\n",
+          "after_lines": [
+            18,
+            19
+          ],
+          "before": ""
+        }
+      ],
+      "previous_sha256": "1dba5b8ac1b4e7b2c60112e0b1035d10127bed68452c84c4f959eff85835cf57"
+    }
+  },
+  "integration_base": "e5fac6ce2a739ad2e0d6e8f99edaec56411e6e7a",
+  "runtime_before": [
+    {
+      "bytes": 43036,
+      "destination": "assets/gameplay/bullet-171-8.hda",
+      "git_blob": "0b32378c703c6812bf52d518fe6560f570911b6f",
+      "group": "gameplay",
+      "revision": "reconstructed-local-unpublished",
+      "sha256": "3fe2e8483924980b351628edc367d3641706e31d1d846634e8e0a56cd2f7018b",
+      "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/bullet-171-8.hda"
+    },
+    {
+      "bytes": 43036,
+      "destination": "assets/gameplay/bullet-19-8.hda",
+      "git_blob": "b716c343d6d1d2e292aa477cba8c816bf3b9b154",
+      "group": "gameplay",
+      "revision": "reconstructed-local-unpublished",
+      "sha256": "a2d5fa45e652a34b9d0ad3a69ec0714c5be8393708e204c5386a03b4035f7b3b",
+      "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/bullet-19-8.hda"
+    },
+    {
+      "bytes": 43036,
+      "destination": "assets/gameplay/bullet-20-8.hda",
+      "git_blob": "fbd79c3a9c8a84c41173ddc99565b9a6f955b1b8",
+      "group": "gameplay",
+      "revision": "reconstructed-local-unpublished",
+      "sha256": "328f9831389399fa7c8d623889732bbc1574dac458a30b97511e2d031dd7aed8",
+      "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/bullet-20-8.hda"
+    },
+    {
+      "bytes": 43036,
+      "destination": "assets/gameplay/bullet-21-8.hda",
+      "git_blob": "1b32efc165784dd0af9268806264e46576461743",
+      "group": "gameplay",
+      "revision": "reconstructed-local-unpublished",
+      "sha256": "a8fbcb2952ec4a4b3f84388f1b410ec70648052cbaff35487d2ed930c9b5dc55",
+      "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/bullet-21-8.hda"
+    }
+  ],
+  "schema": "current-guided-source-projection-v1",
+  "scope": "Exact P04 payload-only extraction; player lookup, source, geometry, roles, eligibility and shadow behavior unchanged; generated header independently rederived."
+}

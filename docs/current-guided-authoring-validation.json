@@ -1,0 +1,238 @@
+{
+  "additional_broad_diagnostic": {
+    "command": "TMPDIR=/workspace/scratch/f67dd347fa0a/guided-validation-tmp python3 -m unittest discover -s tests -p \"test_current_*_authoring.py\" -q",
+    "completed_test_count": "not established; quiet-mode redirected log remained empty when interrupted",
+    "core_batch_gate": false,
+    "discovered_tests": 354,
+    "pattern": "test_current_*_authoring.py",
+    "pre_fix_front_test_sha256": "b7725bd846ae7ab5ee1d050a3d3b7b9ae4bb421e358759536a52377a963cdbc7",
+    "result_policy": "No unlimited full-suite reruns solely to obtain a green count; classify any actual new failure separately.",
+    "session_exit_code": 130,
+    "started_utc": "2026-10-24T05:32:23Z",
+    "state": "stopped by owner instruction; not PASS",
+    "stop_reason": "Front fixture fix landed after all modules had imported. This obsolete diagnostic was not final-source acceptance; stopped only its own session to avoid competing with the final source-stable54-test gate. No full354 rerun requested.",
+    "stopped_utc": "2026-10-24T05:45:17Z",
+    "test_version_boundary": "All modules imported before the later narrow Front bootstrap count fix; targeted new-version passes are not combined with this old-version run to claim full354 green."
+  },
+  "baseline_tree": "e5fac6ce2a739ad2e0d6e8f99edaec56411e6e7a",
+  "bootstrap_files": [
+    {
+      "density": 8,
+      "destination": "assets/gameplay/bullet-19-8.hda",
+      "identity": 80019,
+      "sha256": "a2d5fa45e652a34b9d0ad3a69ec0714c5be8393708e204c5386a03b4035f7b3b",
+      "source_path": "assets/hd/current-compat/guided/bullet-19-8.hda"
+    },
+    {
+      "density": 8,
+      "destination": "assets/gameplay/bullet-171-8.hda",
+      "identity": 80171,
+      "sha256": "3fe2e8483924980b351628edc367d3641706e31d1d846634e8e0a56cd2f7018b",
+      "source_path": "assets/hd/current-compat/guided/bullet-171-8.hda"
+    },
+    {
+      "density": 8,
+      "destination": "assets/gameplay/bullet-20-8.hda",
+      "identity": 80020,
+      "sha256": "328f9831389399fa7c8d623889732bbc1574dac458a30b97511e2d031dd7aed8",
+      "source_path": "assets/hd/current-compat/guided/bullet-20-8.hda"
+    },
+    {
+      "density": 8,
+      "destination": "assets/gameplay/bullet-21-8.hda",
+      "identity": 80021,
+      "sha256": "a8fbcb2952ec4a4b3f84388f1b410ec70648052cbaff35487d2ed930c9b5dc55",
+      "source_path": "assets/hd/current-compat/guided/bullet-21-8.hda"
+    }
+  ],
+  "bootstrap_png_sha256": {
+    "authoring-inputs/guided-current/derived/bullet-171-8.png": "d31cdd82535e3f1993dfb96141a32423d2e0ec6b7ae55e61230b8a9e3349d4d4",
+    "authoring-inputs/guided-current/derived/bullet-19-8.png": "4090e464494453211727d1133a364ad03615ea656116aab322ff9de4089b2469",
+    "authoring-inputs/guided-current/derived/bullet-20-8.png": "c57af39f8c74d3d05128b29511c988ef08a588ea9ee3d25560bf93201c72ba32",
+    "authoring-inputs/guided-current/derived/bullet-21-8.png": "4665bca2aa56716237c870dd13158f67c47c42db9d4fead330077149d4421331"
+  },
+  "bootstrap_preservation": {
+    "frozen_guided_art_and_old_pack_files_byte_compared": 1402,
+    "hda_byte_equal_to_existing_historical_pack": 4,
+    "pngs_match_frozen_candidate_manifest": 4
+  },
+  "build_equivalence": {
+    "baseline_tree": "e5fac6ce2a739ad2e0d6e8f99edaec56411e6e7a",
+    "binary_byte_identical_modes": 3,
+    "fresh_builds": 6,
+    "modes": [
+      "opt-in",
+      "default-off",
+      "mirror-disabled"
+    ],
+    "object_byte_identical_comparisons": 258,
+    "receipt": "docs/current-guided-build-validation.json",
+    "receipt_sha256": "ac9554ec407f5e6b8b3891e32d9c5028d6319cecf1828344afca2d3e10835617",
+    "source_inventory_stable": 270,
+    "status": "PASS"
+  },
+  "compiled_payload_pins_only": [
+    80020,
+    80021
+  ],
+  "diagnosed_legacy_test_issues": [
+    {
+      "action": "Narrow current-fixture test-only correction: compare verify return with fixed verified binding cardinality, plus missing/extra/tampered source rejection; no historical authority/pin edits.",
+      "base_tree_source_inventory_count": 269,
+      "base_tree_test_also_contains_255_literal": true,
+      "current_targeted_rerun": "2 tests PASS, including independent17.123s rerun; source authority unchanged",
+      "expected_historical_literal": 255,
+      "observed_current": 270,
+      "pixel_and_payload_header_checks": "passed before count assertion",
+      "test": "tests/test_current_front_multi_authoring.py: test_approved_bootstrap_eight_independent_exact_sources_geometry_and_pins (assertion line181)"
+    }
+  ],
+  "editable_masters": [
+    {
+      "selector": 19,
+      "source_png": "authoring-inputs/guided-current/master-19.png",
+      "source_sha256": "b567f8bb6cd466d4e51076743a21988935a7feb7e5ab12c687b3269da42ed072"
+    },
+    {
+      "selector": 171,
+      "source_png": "authoring-inputs/guided-current/master-171.png",
+      "source_sha256": "03e5bbd4d4dfa72b91def7bb371c496c1ccef000b5607d4ca702dff3f375acef"
+    },
+    {
+      "selector": 20,
+      "source_png": "authoring-inputs/guided-current/master-20.png",
+      "source_sha256": "d7fdeed52d18322e6a1e05ff6935d92d4b4c5380923442142c8fbd06025dd879"
+    },
+    {
+      "selector": 21,
+      "source_png": "authoring-inputs/guided-current/master-21.png",
+      "source_sha256": "a4fa08a9485eddea093c3951c1e870343617fd4090b264a056a25081e8882b46"
+    }
+  ],
+  "enemy_atomic_family": [
+    80105,
+    80106,
+    80124,
+    80125,
+    80020,
+    80021
+  ],
+  "environment_note": "Package tests used workspace TMPDIR after identifying /tmp as separate 4.9GiB tmpfs; retained 4GiB free-space guard.",
+  "full_accepted_later_regression": {
+    "authority_implementation_changed_for_corrections": false,
+    "failed": 2,
+    "failure_diagnosis": [
+      {
+        "cause": "Finite generated payload_headers exclusion set omitted new Guided header; count266 vs265 before actual negative assertion.",
+        "correction": "Add only CURRENT_GUIDED_HEADER to explicit exclusion set; preserve265 projected authority cardinality.",
+        "test": "CurrentGenerationBoundary.test_rebinding_changed_or_replaced_non_code_cannot_bless_same_count"
+      },
+      {
+        "cause": "Mutated render_mirror correctly rejected first by new Guided inverse, but test expected previous Sonic diagnostic.",
+        "correction": "Match exact Guided rejection text; authority rejection unchanged.",
+        "test": "CurrentGenerationBoundary.test_source_scope_unknown_missing_and_old_non_target_still_fail"
+      }
+    ],
+    "passed": 52,
+    "seconds": 1099.641,
+    "single_full_run_green": false,
+    "targeted_class_rerun": {
+      "class": "CurrentGenerationBoundary",
+      "exit_code": 0,
+      "passed": 6,
+      "run": 6,
+      "seconds": 104.154,
+      "single_full54_run_green_claimed": false
+    },
+    "test_adaptation_proof": {
+      "authority_helper_sha256": "291a92747038bd6a39be79281f0c7c7d899cf1eced0d79cd4d7aa3377a2e38b5",
+      "changed_assertions_only": [
+        "finite payload_headers set adds CURRENT_GUIDED_HEADER",
+        "exact render_mirror first rejection diagnostic Sonic -> Guided"
+      ],
+      "diff_sha256": "11483b074228e60b4701cda2065b83fb1b8aebe712861423ca0098563856d0ba",
+      "header_authenticity": "verified_current_guided rederives fixed four masters and requires exact current header via compat.load; removal/addition/tamper controls passed in Guided source/core tests; exclusion is one exact path, not a header glob.",
+      "post_two_corrections_sha256": "23a37124ba26b3fd7f40997ca672057904136f516f585d1fb2c10f605b782940",
+      "pre_two_corrections_sha256": "ea4117c686c743367efd262634462167364dbf15d0b8d7bbb1571cdedf865db4",
+      "remaining_tests_unchanged": true,
+      "test_file": "tests/test_accepted_later_changes.py"
+    },
+    "test_pattern": "test_accepted_later_changes.py",
+    "tests_run": 54
+  },
+  "global_registry_additions": 0,
+  "handled_write_error_rollback": "PASS; not crash/power-loss atomicity",
+  "identities": [
+    80019,
+    80171,
+    80020,
+    80021
+  ],
+  "independent_review": {
+    "external_receipt_sha256": "0a7fa2ef658f1a43451a6fcec39f332266277b0a886de6b520c04a28d8c5a185",
+    "final_test_adaptation_review": "PASS: fixed265/pins and rejection authority unchanged; only two exact test expectations; reviewed layered52/54 + final6/6 and stopped354 disclosures.",
+    "final_test_adaptation_supplement_sha256": "9bf02abb814708b231d556807a1def7f72e44902af751bcf5a135c277fb7b37b",
+    "native_and_build_binary_hashes_verified": true,
+    "not_claimed": "Old-version broad354 diagnostic stopped; original full54 run52PASS/2test-expectationFAIL followed by exact test-only adaptations and final affected class6PASS. No single54 green run is claimed.",
+    "path_snapshot_count": 60,
+    "status": "PASS within bounded current scope",
+    "test_executions": 34,
+    "unique_focused_tests": 29
+  },
+  "limitations": [
+    "Synthetic edits are propagation tests, not visual approval.",
+    "No new natural campaign, Windows/GPU or human gameplay acceptance is claimed.",
+    "Historical receipts and packs retain their original authority and scope."
+  ],
+  "native": {
+    "acceptance_limit": "Controlled native unit matrix, not natural campaign/Windows/GPU visual acceptance.",
+    "bootstrap_and_real_edited20_each": {
+      "assertions": 189860319,
+      "exit_code": 0,
+      "setups": 608
+    },
+    "cold_cache_note": "Test-only clear slots326-329 before independent cold-load cases; not hot reload.",
+    "receipt": "tests/current_guided_native_receipt.json",
+    "receipt_sha256": "38b3a943d06d21133c0c6b14d4dffe29c408b83285213deac7376e9d2cd642ff",
+    "sanitizer_scope": "ASan+UBSan selected renderer/sprite/tyrian2/entity_draw/identity/shots/varz/harness units; remaining baseline production objects native optimized",
+    "source_stability_scope": "267 top-level source files and 276 dependency files; the separate build receipt covers all270 recursive source files.",
+    "status": "PASS",
+    "unchanged_other_guided_identities": [
+      80019,
+      80171,
+      80021
+    ]
+  },
+  "new_player_payload_restriction": false,
+  "pending": [],
+  "player_slots": [
+    326,
+    327,
+    328,
+    329
+  ],
+  "production_source_files": 270,
+  "real_bootstrap_stage_apply_check": "PASS",
+  "runtime_destinations": 1029,
+  "runtime_destinations_added": 0,
+  "runtime_existing_source_rows_migrated": 4,
+  "schema": "opentyrian-current-guided-authoring-validation-v1",
+  "scope": "Four independent current Guided static identities, not frames; no new art or gameplay; no default-on enemy renderer; unpublished separate batch after runtime22.",
+  "status": "PASS for bounded current Guided authoring migration; diagnostic run limits recorded separately",
+  "tests": {
+    "accepted_later_current_generation_final": 6,
+    "additional_plasma_bootstrap": 1,
+    "current_guided_authoring": 16,
+    "current_protron_authoring": 12,
+    "current_sonic_authoring": 15,
+    "front_bootstrap_and_source_negative": 2,
+    "front_multi_shadow_boundary": 11,
+    "guided_runtime_package": 8,
+    "guided_runtime_projection": 3,
+    "historical_binding": 31,
+    "shared_asset_authoring_map": 19,
+    "sonic_runtime_package": 7,
+    "sonic_runtime_projection": 5,
+    "source_projection_all": 13
+  }
+}

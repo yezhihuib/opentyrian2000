@@ -1,0 +1,137 @@
+{
+  "baseline_tree": "e5fac6ce2a739ad2e0d6e8f99edaec56411e6e7a",
+  "compiler": "gcc (Debian 14.2.0-19) 14.2.0",
+  "environment_receipt_sha256": "a6fa27efc8b4a3b3ec32179180516289162d47254cdaaeceb3dac5d483edf001",
+  "full_external_receipt_sha256": "30c2c7c811895850ab446070ef1f4730d78783973511279c3883b5f4ed9aa7d8",
+  "modes": {
+    "default-off": {
+      "baseline": {
+        "binary_bytes": 1641400,
+        "binary_sha256": "16a3fad7492eb986b5ef9af848dc235e4ff7422f81f678b8b9481e2adb53148a",
+        "command": [
+          "make",
+          "-C",
+          "/workspace/scratch/f67dd347fa0a/current-guided-build-validation/baseline-default-off",
+          "-j2",
+          "VCS_IDREV=printf newshf-identity-native",
+          "CPPFLAGS=-MMD -DNDEBUG  -I/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/x86_64-linux-gnu",
+          "LDFLAGS=-Wl,-rpath,/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/lib/x86_64-linux-gnu"
+        ],
+        "exit_code": 0,
+        "input_count": 273,
+        "inputs_stable": true,
+        "object_count": 86,
+        "warnings": 75
+      },
+      "binary_equal": true,
+      "current": {
+        "binary_bytes": 1641400,
+        "binary_sha256": "16a3fad7492eb986b5ef9af848dc235e4ff7422f81f678b8b9481e2adb53148a",
+        "command": [
+          "make",
+          "-C",
+          "/workspace/scratch/f67dd347fa0a/current-guided-build-validation/current-default-off",
+          "-j2",
+          "VCS_IDREV=printf newshf-identity-native",
+          "CPPFLAGS=-MMD -DNDEBUG  -I/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/x86_64-linux-gnu",
+          "LDFLAGS=-Wl,-rpath,/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/lib/x86_64-linux-gnu"
+        ],
+        "exit_code": 0,
+        "input_count": 274,
+        "inputs_stable": true,
+        "object_count": 86,
+        "warnings": 75
+      },
+      "object_differences": [],
+      "objects_equal": true
+    },
+    "mirror-disabled": {
+      "baseline": {
+        "binary_bytes": 1179008,
+        "binary_sha256": "5515d09e3179918a52089ef5bb60faf95d09decf143b069574155765ad155fea",
+        "command": [
+          "make",
+          "-C",
+          "/workspace/scratch/f67dd347fa0a/current-guided-build-validation/baseline-mirror-disabled",
+          "-j2",
+          "VCS_IDREV=printf newshf-identity-native",
+          "CPPFLAGS=-MMD -DNDEBUG -DENEMY_REUSE_HD_PROTOTYPE=1 -DRENDER_MIRROR_DISABLED -I/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/x86_64-linux-gnu",
+          "LDFLAGS=-Wl,-rpath,/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/lib/x86_64-linux-gnu"
+        ],
+        "exit_code": 0,
+        "input_count": 273,
+        "inputs_stable": true,
+        "object_count": 86,
+        "warnings": 86
+      },
+      "binary_equal": true,
+      "current": {
+        "binary_bytes": 1179008,
+        "binary_sha256": "5515d09e3179918a52089ef5bb60faf95d09decf143b069574155765ad155fea",
+        "command": [
+          "make",
+          "-C",
+          "/workspace/scratch/f67dd347fa0a/current-guided-build-validation/current-mirror-disabled",
+          "-j2",
+          "VCS_IDREV=printf newshf-identity-native",
+          "CPPFLAGS=-MMD -DNDEBUG -DENEMY_REUSE_HD_PROTOTYPE=1 -DRENDER_MIRROR_DISABLED -I/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/x86_64-linux-gnu",
+          "LDFLAGS=-Wl,-rpath,/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/lib/x86_64-linux-gnu"
+        ],
+        "exit_code": 0,
+        "input_count": 274,
+        "inputs_stable": true,
+        "object_count": 86,
+        "warnings": 86
+      },
+      "object_differences": [],
+      "objects_equal": true
+    },
+    "opt-in": {
+      "baseline": {
+        "binary_bytes": 1664944,
+        "binary_sha256": "088921b38f4083c8986eef9f3ffd4fc6edbf8622e03a602be8602d8a3715d2f7",
+        "command": [
+          "make",
+          "-C",
+          "/workspace/scratch/f67dd347fa0a/current-guided-build-validation/baseline-opt-in",
+          "-j2",
+          "VCS_IDREV=printf newshf-identity-native",
+          "CPPFLAGS=-MMD -DNDEBUG -DENEMY_REUSE_HD_PROTOTYPE=1 -I/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/x86_64-linux-gnu",
+          "LDFLAGS=-Wl,-rpath,/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/lib/x86_64-linux-gnu"
+        ],
+        "exit_code": 0,
+        "input_count": 273,
+        "inputs_stable": true,
+        "object_count": 86,
+        "warnings": 76
+      },
+      "binary_equal": true,
+      "current": {
+        "binary_bytes": 1664944,
+        "binary_sha256": "088921b38f4083c8986eef9f3ffd4fc6edbf8622e03a602be8602d8a3715d2f7",
+        "command": [
+          "make",
+          "-C",
+          "/workspace/scratch/f67dd347fa0a/current-guided-build-validation/current-opt-in",
+          "-j2",
+          "VCS_IDREV=printf newshf-identity-native",
+          "CPPFLAGS=-MMD -DNDEBUG -DENEMY_REUSE_HD_PROTOTYPE=1 -I/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/x86_64-linux-gnu",
+          "LDFLAGS=-Wl,-rpath,/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/lib/x86_64-linux-gnu"
+        ],
+        "exit_code": 0,
+        "input_count": 274,
+        "inputs_stable": true,
+        "object_count": 86,
+        "warnings": 76
+      },
+      "object_differences": [],
+      "objects_equal": true
+    }
+  },
+  "recursive_source_inventory_before_after_equal": true,
+  "recursive_source_inventory_files": 270,
+  "schema": "opentyrian-current-guided-build-validation-v1",
+  "scope": "Six independent fresh Linux native builds; no natural gameplay, Windows or GPU acceptance.",
+  "status": "PASS",
+  "validation_driver_sha256": "212e79a01d0adf75a42dd15c9307b85afb1804d8929c374e91e3a4b662490126"
+}

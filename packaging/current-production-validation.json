@@ -24,7 +24,7 @@
     "Normal observer final-surface alias has native production-object proof only; no new live normal-game target-event, Windows/GPU or full-campaign acceptance."
   ],
   "production_commit": null,
-  "production_source_manifest_sha256": "22068f69ed284ae5773de0751c7031ba4e8f16ecfc20d051d436eb7102a224f1",
+  "production_source_manifest_sha256": "e4c73651203fe084613da67b4adde1f387921cbfcd92f654d59953fb41b76ec1",
   "reviewed_charge_body_changes": {
     "files": [
       "src/entity_draw.c",
@@ -191,6 +191,7 @@
     "src/current_enemy_energy_payload_pins.h": "b7a62e985b0cba0be3a6f865349d637fbefac8f08f53e6c4a6ba5821ba86602f",
     "src/current_enemy_orb_payload_pins.h": "90c8d67b5ea3ee0153fa5c9f40141fdf572b0a1cc5927b2b4c656b8d84e7f9f8",
     "src/current_enemy_protron_payload_pins.h": "a6138c492da92e824bc117491c2b20d7695077b6ae050a3ca9022d6c2ec0cd6d",
+    "src/current_guided_payload_pins.h": "40bb129b5e74080c354c0e5bfa2811dde41b6e1d6810c1fe628eccad255df97c",
     "src/current_hud_payload_pins.h": "5fa2744f0043c7ea57457f0f1cc78da66a1a226d37581060b51bd6525ced9456",
     "src/current_plasma_projectile_payload_pins.h": "e8c6f7497df9a88d3653675136af8c9c727d85eba2328eddb03b2f69f2d89283",
     "src/current_protron_payload_pins.h": "bf982da11154061bdf56683270ef23a12200f014a060cfcf6482b97d31de88fb",
@@ -215,7 +216,7 @@
     "src/editship.h": "91c67ce815195f568661d158b970c430f453dd857df8cfbd7131f7c215a1236f",
     "src/enemy_reuse_identity.c": "fbe0f11feeb9ee03e1170b6996f27ed8d02f4e676564b1cd44f70e5bcd66824d",
     "src/enemy_reuse_identity.h": "b9dd91ab7d9de869f4c0c0fef70153e72309f16831176bb78c92326e646bb755",
-    "src/enemy_reuse_mirror.inc": "cf38a5b76a49dfddc416bb6496457c88dcfa913bdd636e536ca64c714c0e8bb9",
+    "src/enemy_reuse_mirror.inc": "ed4dce9e3183c7d5dd31962217849ecebfa46e3fa23cc5f8afd50bc06cf34858",
     "src/enemy_reuse_observe.h": "5c7fb94a44203ecda2e7eabfd25c6181c9e28a8bb3c05332a62a8466e31c5193",
     "src/enemy_reuse_observe.inc": "0fba6f67006309918154363526adbdd738b953185a6d4ed307ef2b188e0beb9d",
     "src/enemy_reuse_probe.h": "8ef9d60321bc52cdb7e5e2261e967cf33cec3b0f73302e168bff7387d69457f9",
@@ -343,7 +344,7 @@
     "src/rear_multi_p11_shadow.inc": "60635f8c2723e7cbba341baf7d4853486d7d850c795a55f02a0cc46a36b02fbb",
     "src/rear_multi_p1_mirror.inc": "9f5f48ea19330f6afeace40f156e049c0621fdcd6a10e281d2084cf74442538c",
     "src/rear_multi_p1_pins.h": "773d88e3287b44036885804b5d70c6fc6d633a9893504b200891c1509981ffa7",
-    "src/render_mirror.c": "1dba5b8ac1b4e7b2c60112e0b1035d10127bed68452c84c4f959eff85835cf57",
+    "src/render_mirror.c": "188c754bafc8e9d95e5fc843986482a27cc1b5ed41a3de6b86e074dadbca5fd7",
     "src/render_mirror.h": "e8b04342f346e392cc627f3463932b7dc509b87f216a68846bf5bba127b3e138",
     "src/render_mirror_asteroid_linked338.inc": "738c8c88a7383ca363427b814594f4a0ed8404929dad3188e2d4bde5d2dd5ee0",
     "src/secret_exit_orb.c": "fe0b50818365d5a009bd3db77681a1a2db2fc61bfc889c1f2bc41c9a95f79180",

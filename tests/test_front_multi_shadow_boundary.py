@@ -25,11 +25,11 @@ BOOTSTRAP = {
     279: 0xd4ada839dcc2ebb5, 280: 0xca10e502fd370f78,
 }
 
-# Independent reviewed order, including the two current-payload inverses which
+# Independent reviewed order, including the three current-payload inverses which
 # do not go through _project_source_once. Do not derive this oracle from the
 # implementation under test.
 REVIEWED_SOURCE_INVERSES = (
-    'current-sonic', 'normal-observer-surface', 'current-protron',
+    'current-guided', 'current-sonic', 'normal-observer-surface', 'current-protron',
     'enemy-controlled-probe', 'enemy-reuse-observe', 'enemy-proof-dedup',
     'enemy-protron-reuse', 'enemy-green-reuse', 'enemy-reuse',
     'newshf-compositor', 'newshf-identity', 'enemy-orb', 'front-multi',
@@ -146,6 +146,7 @@ class FrontMultiHistoryBoundary(unittest.TestCase):
             return invoke
         with patch.object(history.subprocess, 'check_output', side_effect=AssertionError('Git history forbidden')):
             with patch.object(history, '_project_source_once', side_effect=recorded(history._project_source_once)), \
+                 patch.object(history, 'project_current_guided_source', side_effect=recorded(history.project_current_guided_source, 'current-guided')), \
                  patch.object(history, 'project_current_sonic_source', side_effect=recorded(history.project_current_sonic_source, 'current-sonic')), \
                  patch.object(history, 'project_current_protron_source', side_effect=recorded(history.project_current_protron_source, 'current-protron')):
                 restored = history.project_source('storm', 'src/render_mirror.c', raw)
@@ -191,9 +192,9 @@ class FrontMultiCurrentGenerationBoundary(unittest.TestCase):
         cls.temp = tempfile.TemporaryDirectory(prefix='front-multi-projection-')
         cls.root = Path(cls.temp.name)
         paths = compat.input_paths(ROOT) | {compat.MAPPING, compat.HEADER, 'packaging/current-production-validation.json', 'packaging/runtime-assets-v1.json'} | {compat.ROOT + '/' + name for name in history.FRONT_MULTI_NAMES}
-        paths |= FRONT_CURRENT_SOURCES | history.sonic_runtime_input_paths(ROOT)
+        paths |= FRONT_CURRENT_SOURCES | (history.sonic_runtime_input_paths(ROOT) | history.guided_runtime_input_paths(ROOT))
         cls.baseline = {name: (ROOT / name).read_bytes() for name in paths}
-        if len(cls.baseline) != 38: raise AssertionError('unexpected Front Multi fixture closure')
+        if len(cls.baseline) != 54: raise AssertionError('unexpected Front Multi fixture closure')
 
     @classmethod
     def tearDownClass(cls): cls.temp.cleanup()
@@ -202,7 +203,7 @@ class FrontMultiCurrentGenerationBoundary(unittest.TestCase):
         for name, raw in self.baseline.items():
             path = self.root / name; path.parent.mkdir(parents=True, exist_ok=True); path.write_bytes(raw)
 
-    def test_all_38_inputs_outputs_header_mapping_runtime_and_binding_reject_tampering(self):
+    def test_all_54_inputs_outputs_header_mapping_runtime_and_binding_reject_tampering(self):
         self.assertEqual(len(history.verified_front_multi_current(self.root)['assets']), 9)
         for name, raw in self.baseline.items():
             path = self.root / name

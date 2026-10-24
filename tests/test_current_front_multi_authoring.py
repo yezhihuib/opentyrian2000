@@ -178,8 +178,40 @@ class FrontMultiAuthoringTests(unittest.TestCase):
             self.assertIn(f'#define HD_FRONT_MULTI_CURRENT_PAYLOAD_{identity}_HASH UINT64_C(0x{value})'.encode(),header)
         self.assertEqual(sum(b'_HASH UINT64_C' in line for line in header.splitlines()),8)
         from verify_current_production import verify
-        self.assertEqual(verify(self.root,json.loads((self.root/b.BINDING).read_bytes())),255)
+        binding=json.loads((self.root/b.BINDING).read_bytes())
+        # verify checks the fixed fixture's complete path set and every SHA,
+        # including historical/build inputs, before returning its source count.
+        self.assertEqual(verify(self.root,binding),len(binding['source_sha256']))
         self.assertEqual(len(json.loads((self.root/b.REGISTRY).read_bytes())['resources']),120)
+
+    def test_fixed_binding_rejects_missing_extra_and_tampered_production_source(self):
+        from verify_current_production import verify
+        binding_path=self.root/b.BINDING
+        binding_raw=binding_path.read_bytes()
+        binding=json.loads(binding_raw)
+        expected_count=len(binding['source_sha256'])
+        self.assertEqual(verify(self.root,binding),expected_count)
+        source=self.root/next(iter(sorted(binding['source_sha256'])))
+        original=source.read_bytes()
+        extra=self.root/'src/unbound-front-multi-fixture.txt'
+        self.assertFalse(extra.exists())
+        for mutation in ('missing','extra','changed'):
+            with self.subTest(mutation=mutation):
+                try:
+                    if mutation=='missing':
+                        source.unlink()
+                    elif mutation=='extra':
+                        extra.write_bytes(b'Unknown non-code source must not be ignored.\n')
+                    else:
+                        source.write_bytes(original+b'\n/* unexpected mutation */\n')
+                    with self.assertRaisesRegex(ValueError,'Production source mismatch:'):
+                        verify(self.root,binding)
+                    self.assertEqual(binding_path.read_bytes(),binding_raw)
+                    self.assertEqual(binding,json.loads(binding_raw))
+                finally:
+                    source.write_bytes(original)
+                    if extra.exists():extra.unlink()
+                self.assertEqual(verify(self.root,binding),expected_count)
 
     def test_each_source_edit_changes_only_its_transport_and_runtime_row(self):
         for index,identity in enumerate(EXPECTED):

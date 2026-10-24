@@ -43,6 +43,8 @@ def dependencies(root, selected):
     names |= plasma_input_paths(root) | {PLASMA_MAPPING}
     from current_protron_compatibility import input_paths as protron_input_paths, MAPPING as PROTRON_MAPPING
     names |= protron_input_paths(root) | {PROTRON_MAPPING}
+    from current_guided_compatibility import input_paths as guided_input_paths, MAPPING as GUIDED_MAPPING
+    names |= guided_input_paths(root) | {GUIDED_MAPPING}
     names |= {r['source_png'] for r in selected['masters']} | {selected['recipe']['path']}
     names |= {REGISTRY, BINDING, RUNTIME, 'packaging/runtime-assets-public63a89b3.json',
               'packaging/shop-static-approved-v1.json', 'packaging/current-hud-compatibility.json',

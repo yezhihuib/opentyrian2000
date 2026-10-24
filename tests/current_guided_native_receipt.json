@@ -1,0 +1,107 @@
+{
+  "schema": "current-guided-native-validation-v1",
+  "status": "PASS",
+  "baseline_content_tree": "e5fac6ce2a739ad2e0d6e8f99edaec56411e6e7a",
+  "baseline_opt_in_binary_sha256": "088921b38f4083c8986eef9f3ffd4fc6edbf8622e03a602be8602d8a3715d2f7",
+  "runs": {
+    "bootstrap": {
+      "status": "PASS",
+      "returncode": 0,
+      "setups": 608,
+      "assertions": 189860319,
+      "prior_P09_P05_setups": 271,
+      "prior_P09_P05_assertions": 189694609,
+      "source_stable_during_compile_and_execution": true,
+      "receipt_sha256": "feac2a390cc4324051de3602642f93d9eea4138b722c626f062c757c7b180558",
+      "binary_sha256": "6432bf46823e8aaf6721d3e53a88ce72a66bc05de0769daace54e11d79bf0ffc",
+      "native_stdout": "PASS native P09 + unchanged P05 matrix: 271 setups, 189694609 assertions; controlled fire scheduling, not original-event gameplay acceptance\nPASS CURRENT Guided native player ordinary/shadow, P04 shared payload, INDEX8/RNG/write order/fallback/22 exclusion: 608 setups, 189860319 assertions\n",
+      "current_guided_hda_sha256": {
+        "(80019, 8)": "a2d5fa45e652a34b9d0ad3a69ec0714c5be8393708e204c5386a03b4035f7b3b",
+        "(80171, 8)": "3fe2e8483924980b351628edc367d3641706e31d1d846634e8e0a56cd2f7018b",
+        "(80020, 8)": "328f9831389399fa7c8d623889732bbc1574dac458a30b97511e2d031dd7aed8",
+        "(80021, 8)": "a8fbcb2952ec4a4b3f84388f1b410ec70648052cbaff35487d2ed930c9b5dc55"
+      },
+      "current_guided_selection_sha256": "83bcbfcddd75ecd2d1bf005b4cade9d2481c257ddb3e30a7885c9cdeddd2ccfa",
+      "sanitizers": "ASan+UBSan renderer/sprite/tyrian2/entity_draw/identity/shots/varz/harness; remaining baseline production objects native optimized",
+      "original_bytes_persisted": false,
+      "source_snapshot_scope": "267 top-level src files; inherited pinned native driver uses glob, not rglob",
+      "source_snapshot_excluded_nested_files": [
+        "src/third_party/dr_mp3.h",
+        "src/third_party/dr_mp3-LICENSE",
+        "src/third_party/dr_mp3-PROVENANCE.md"
+      ],
+      "snapshotted_top_level_source_file_count": 267,
+      "snapshotted_dependency_file_count": 276
+    },
+    "edited20": {
+      "status": "PASS",
+      "returncode": 0,
+      "setups": 608,
+      "assertions": 189860319,
+      "prior_P09_P05_setups": 271,
+      "prior_P09_P05_assertions": 189694609,
+      "source_stable_during_compile_and_execution": true,
+      "receipt_sha256": "1ee5d701d00159da9182189d5a9727e326f9bd7323c8b6bfc3fba4d2c2a88d4c",
+      "binary_sha256": "b19a9ef2990eaf4d9711e3dc909cf533fdbb1c286ea01e44ac18e437dd9a3750",
+      "native_stdout": "PASS native P09 + unchanged P05 matrix: 271 setups, 189694609 assertions; controlled fire scheduling, not original-event gameplay acceptance\nPASS CURRENT Guided native player ordinary/shadow, P04 shared payload, INDEX8/RNG/write order/fallback/22 exclusion: 608 setups, 189860319 assertions\n",
+      "current_guided_hda_sha256": {
+        "(80019, 8)": "a2d5fa45e652a34b9d0ad3a69ec0714c5be8393708e204c5386a03b4035f7b3b",
+        "(80171, 8)": "3fe2e8483924980b351628edc367d3641706e31d1d846634e8e0a56cd2f7018b",
+        "(80020, 8)": "eedc8b9920045726cb43947e5df9160203dad2cb21c5221c7519be7bf34f92b6",
+        "(80021, 8)": "a8fbcb2952ec4a4b3f84388f1b410ec70648052cbaff35487d2ed930c9b5dc55"
+      },
+      "current_guided_selection_sha256": "f47431576305a7f284443866983bfe3f097daa93a32575296d1324281106f652",
+      "sanitizers": "ASan+UBSan renderer/sprite/tyrian2/entity_draw/identity/shots/varz/harness; remaining baseline production objects native optimized",
+      "original_bytes_persisted": false,
+      "source_snapshot_scope": "267 top-level src files; inherited pinned native driver uses glob, not rglob",
+      "source_snapshot_excluded_nested_files": [
+        "src/third_party/dr_mp3.h",
+        "src/third_party/dr_mp3-LICENSE",
+        "src/third_party/dr_mp3-PROVENANCE.md"
+      ],
+      "snapshotted_top_level_source_file_count": 267,
+      "snapshotted_dependency_file_count": 276
+    }
+  },
+  "harness_sha256": {
+    "tests/current_guided_native_validation.c": "f52d246ddcba99f06ee300d76439d5734d6d06a92e1583695f94107958d34333",
+    "tests/current_guided_native_validation.md": "aeb66807734244f49565124d55a9f296c553e6c1fcc458aee8305500f575ac8c",
+    "tests/current_guided_native_validation.py": "e3ba5ff16db4476318f0c514762cd1b1ac199fc469a5b84cd9dcf473f5cc834d"
+  },
+  "legacy_driver_sha256": "7c367b5251439e18bf0ea7754584f4666639bcd2b9a871bf8a359044c10d20b8",
+  "edited20": {
+    "method": "Actual isolated build_current_guided stage/apply/check; master20 red=(red+37)%256 preserving G/B/A; not approved art",
+    "changed_ids": [
+      80020
+    ],
+    "bootstrap_hda": {
+      "80019": "a2d5fa45e652a34b9d0ad3a69ec0714c5be8393708e204c5386a03b4035f7b3b",
+      "80171": "3fe2e8483924980b351628edc367d3641706e31d1d846634e8e0a56cd2f7018b",
+      "80020": "328f9831389399fa7c8d623889732bbc1574dac458a30b97511e2d031dd7aed8",
+      "80021": "a8fbcb2952ec4a4b3f84388f1b410ec70648052cbaff35487d2ed930c9b5dc55"
+    },
+    "edited_hda": {
+      "80019": "a2d5fa45e652a34b9d0ad3a69ec0714c5be8393708e204c5386a03b4035f7b3b",
+      "80171": "3fe2e8483924980b351628edc367d3641706e31d1d846634e8e0a56cd2f7018b",
+      "80020": "eedc8b9920045726cb43947e5df9160203dad2cb21c5221c7519be7bf34f92b6",
+      "80021": "a8fbcb2952ec4a4b3f84388f1b410ec70648052cbaff35487d2ed930c9b5dc55"
+    },
+    "derivation_receipt_sha256": "0e6103d49ed0b106591e9c58ec6c16ed12644faf748404584a5690a862709331"
+  },
+  "scope": [
+    "full native production renderer/entity/player ordinary+shadow wrappers/indexed blits with actual private original bank",
+    "unchanged P09/P05 native matrix and existing P04 positives/negatives/lifecycle/boundaries/identity matrices",
+    "four independent static IDs19/171/20/21; ID22 unmapped",
+    "player/enemy146 shared20/21 bytes, edited20 valid and21 unchanged",
+    "independent RGB normal/shadow oracle; INDEX8 equality; player state/RNG; later indexed write ownership",
+    "cold-load missing/bad magic/wrong HDA header/truncation fallback; enemy payload corruption rejection"
+  ],
+  "fixture_limitations": [
+    "test-only cache slots326-329 clear before each independent cold-load scenario, no hot-reload claim",
+    "controlled timers and exact extracted native enemy/explosion update loops, not natural campaign/Windows/GPU acceptance",
+    "ASan+UBSan selected compiled production units; unchanged baseline objects native optimized",
+    "first native attempts failed due test fixture cache persistence, fixed only cold-start fixture; final complete reruns passed; no production change",
+    "Native stability snapshot covers267 top-level src files, excludes3 nested third_party files; complete270 recursive stability is separate canonical-build receipt, not this native run"
+  ],
+  "artifact_directory": "guided-native-validation-20261024 (outside repository; private original-data stored separately)"
+}

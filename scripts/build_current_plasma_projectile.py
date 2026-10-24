@@ -34,6 +34,8 @@ def dependencies(root, selected):
     names |= protron_input_paths(root) | {PROTRON_MAPPING}
     from current_sonic_compatibility import input_paths as sonic_input_paths, MAPPING as SONIC_MAPPING
     names |= sonic_input_paths(root) | {SONIC_MAPPING}
+    from current_guided_compatibility import input_paths as guided_input_paths, MAPPING as GUIDED_MAPPING
+    names |= guided_input_paths(root) | {GUIDED_MAPPING}
     from build_newshf_hd import input_paths as newshf_input_paths
     names |= newshf_input_paths(root)
     from current_enemy_orb_compatibility import input_paths as orb_input_paths, MAPPING as ORB_MAPPING

@@ -83,9 +83,23 @@ class SonicRuntimePackage(unittest.TestCase):
         self.assertEqual(len(before),1025); self.assertEqual(len(after),1029)
         self.assertEqual(set(after)-set(before),EXACT)
         self.assertFalse(set(before)-set(after))
-        for key,row in before.items(): self.assertEqual(after[key],row)
-        self.assertEqual({k:v for k,v in self.manifest.items() if k!='files'},
-                         {k:v for k,v in self.public.items() if k!='files'})
+        guided = {f'assets/gameplay/bullet-{i}-8.hda' for i in (19,171,20,21)}
+        for key,row in before.items():
+            if key in guided:
+                self.assertEqual({k:v for k,v in after[key].items() if k not in ('source_path','revision')},
+                                 {k:v for k,v in row.items() if k not in ('source_path','revision')})
+                self.assertEqual(after[key]['source_path'],'assets/hd/current-compat/guided/'+Path(key).name)
+                self.assertEqual(after[key]['revision'],'current-single-source-guided')
+            elif key!='CURRENT-PRODUCTION-VALIDATION.json':
+                self.assertEqual(after[key],row)
+        current_meta={k:copy.deepcopy(v) for k,v in self.manifest.items() if k!='files'}
+        previous_meta={k:copy.deepcopy(v) for k,v in self.public.items() if k!='files'}
+        binding=json.loads((self.root/'packaging/current-production-validation.json').read_bytes())
+        self.assertEqual(current_meta['source_revision']['current_production_source_manifest_sha256'],
+                         binding['production_source_manifest_sha256'])
+        for meta in (current_meta,previous_meta):
+            meta['source_revision'].pop('current_production_source_manifest_sha256')
+        self.assertEqual(current_meta,previous_meta)
         selected=sonic.load(self.root)
         self.assertEqual(set(selected),EXACT)
         for key,row in selected.items():

@@ -153,6 +153,8 @@ def charge_derive(root,raw):
     names |= protron_input_paths(root) | {PROTRON_MAPPING}
     from current_sonic_compatibility import input_paths as sonic_input_paths, MAPPING as SONIC_MAPPING
     names |= sonic_input_paths(root) | {SONIC_MAPPING}
+    from current_guided_compatibility import input_paths as guided_input_paths, MAPPING as GUIDED_MAPPING
+    names |= guided_input_paths(root) | {GUIDED_MAPPING}
     from build_newshf_hd import input_paths as newshf_input_paths
     names|=newshf_input_paths(root)
     names|={p.relative_to(root).as_posix() for p in (root/'src').rglob('*') if p.is_file() or p.is_symlink()}
@@ -185,6 +187,8 @@ def charge_plan(root,outputs,raw):
     names |= protron_input_paths(root) | {PROTRON_MAPPING}
     from current_sonic_compatibility import input_paths as sonic_input_paths, MAPPING as SONIC_MAPPING
     names |= sonic_input_paths(root) | {SONIC_MAPPING}
+    from current_guided_compatibility import input_paths as guided_input_paths, MAPPING as GUIDED_MAPPING
+    names |= guided_input_paths(root) | {GUIDED_MAPPING}
     from build_newshf_hd import input_paths as newshf_input_paths
     names|=newshf_input_paths(root)
     # Bind every installed destination and all request/tool inputs. Source and
@@ -259,6 +263,8 @@ def mf_derive(root,raw):
     names |= protron_input_paths(root) | {PROTRON_MAPPING}
     from current_sonic_compatibility import input_paths as sonic_input_paths, MAPPING as SONIC_MAPPING
     names |= sonic_input_paths(root) | {SONIC_MAPPING}
+    from current_guided_compatibility import input_paths as guided_input_paths, MAPPING as GUIDED_MAPPING
+    names |= guided_input_paths(root) | {GUIDED_MAPPING}
     from build_newshf_hd import input_paths as newshf_input_paths
     names|=newshf_input_paths(root)
     names|={row['source_png'] for row in selected['resources']}
@@ -293,6 +299,8 @@ def mf_plan(root,outputs,raw):
     names |= protron_input_paths(root) | {PROTRON_MAPPING}
     from current_sonic_compatibility import input_paths as sonic_input_paths, MAPPING as SONIC_MAPPING
     names |= sonic_input_paths(root) | {SONIC_MAPPING}
+    from current_guided_compatibility import input_paths as guided_input_paths, MAPPING as GUIDED_MAPPING
+    names |= guided_input_paths(root) | {GUIDED_MAPPING}
     from build_newshf_hd import input_paths as newshf_input_paths
     names|=newshf_input_paths(root)
     names|={p.relative_to(root).as_posix() for p in (root/'scripts').glob('*.py')}

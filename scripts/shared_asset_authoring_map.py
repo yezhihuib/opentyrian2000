@@ -46,7 +46,7 @@ def current_records(root):
         configs.append((family, policy['selection'], policy['mapping'], selected,
                         'scripts/build_current_art.py --family ' + family))
     for family in ('craft267', 'tank-shell', 'enemy-energy', 'sidekick-body',
-                   'plasma-projectile', 'front-multi', 'enemy-orb', 'protron', 'sonic'):
+                   'plasma-projectile', 'front-multi', 'enemy-orb', 'protron', 'sonic', 'guided'):
         module = importlib.import_module('current_' + family.replace('-', '_') + '_compatibility')
         builder = module if hasattr(module, 'selection') else importlib.import_module('build_current_' + family.replace('-', '_'))
         selected = builder.selection(root, read(root, module.SELECTION))
@@ -123,6 +123,14 @@ def current_records(root):
                 consumers.append(dict(path=evidence, role=146, material_identity=identity,
                                       scope='finite default-off P02 lane only', evidence=evidence))
                 notes.append('Two independent masters; each produces a horizontal mirror pair. Current preview/debug and the formal runtime package include this quartet. The atomic P02/P04 family also needs 20/21; packaging does not enable the default-off enemy renderer.')
+            if family == 'guided':
+                notes.append('Four independent static identities and masters, not animation frames or mirror pairs. The formal runtime replaces the same four existing destinations. Packaging does not enable the default-off enemy renderer.')
+                if identity in (80020, 80021):
+                    evidence = 'src/enemy_reuse_mirror.inc'
+                    if ('CURRENT_GUIDED_' + str(identity) + '_D8_PAYLOAD_FNV').encode() not in read(root, evidence):
+                        raise ValueError('Missing declared P04 current-source consumer')
+                    consumers.append(dict(path=evidence, role=146, material_identity=identity,
+                                          scope='finite default-off P04 lane only', evidence=evidence))
             if family == 'front-multi':
                 notes.append('Eight independent inputs. Historical rear 1310182/1310183 do NOT follow current Front 163/164 edits.')
             if family == 'enemy-orb':

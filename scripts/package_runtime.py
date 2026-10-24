@@ -258,6 +258,28 @@ def main(argv=None) -> int:
             if (row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or
                     row.get('group')!='gameplay' or row.get('revision')!='current-single-source-sonic'):
                 raise ValueError('Stale Sonic runtime selection')
+    # Guided replaces four existing destinations; no new runtime resources.
+    guided_prefix = 'assets/hd/current-compat/guided/'
+    guided_names = {f'bullet-{i}-8.hda' for i in (19,171,20,21)}
+    guided_rows = [row for row in manifest['files'] if any(
+        Path(row[key]).name.casefold() in guided_names for key in ('destination','source_path')) or
+        row['source_path'].casefold().startswith(guided_prefix) or
+        (isinstance(row.get('revision'),str) and row['revision'].casefold() == 'current-single-source-guided')]
+    guided_current = manifest_path.resolve() == (roots[0]/'packaging/runtime-assets-v1.json').resolve() or any(
+        row['source_path'].casefold().startswith(guided_prefix) or
+        (isinstance(row.get('revision'),str) and row['revision'].casefold() == 'current-single-source-guided')
+        for row in manifest['files'])
+    if guided_current:
+        from current_guided_compatibility import load as guided_load
+        expected = {'assets/gameplay/'+name for name in guided_names}
+        if len(guided_rows)!=4 or {row['destination'] for row in guided_rows}!=expected:
+            raise ValueError('Guided packaging requires exactly four current consumers')
+        selected = guided_load(roots[0])
+        for row in guided_rows:
+            current = selected[row['destination']]
+            if (row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or
+                    row.get('group')!='gameplay' or row.get('revision')!='current-single-source-guided'):
+                raise ValueError('Stale Guided runtime selection')
     if args.content_catalog or args.check_content_catalog:
         for row in manifest['files']:
             if 'sha256' in row:

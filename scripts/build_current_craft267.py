@@ -304,7 +304,14 @@ def current_overlays(root):
         {'assets/gameplay/' + sonic.name(identity, density): blob
          for (identity, density), blob in blobs.items()})
     if len(files) != 178:
-        raise ValueError('Expected exactly 178 current gameplay overlays')
+        raise ValueError('Expected exactly 178 pre-Guided gameplay overlays')
+    import current_guided_compatibility as guided
+    selected, _, blobs = guided.generate(root, read(root, guided.SELECTION))
+    add(guided.MAPPING, guided.SELECTION, selected, guided.load(root),
+        {'assets/gameplay/' + guided.name(identity, density): blob
+         for (identity, density), blob in blobs.items()})
+    if len(files) != 182:
+        raise ValueError('Expected exactly 182 current gameplay overlays')
     return files
 
 
