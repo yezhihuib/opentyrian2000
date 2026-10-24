@@ -46,7 +46,7 @@ def current_records(root):
         configs.append((family, policy['selection'], policy['mapping'], selected,
                         'scripts/build_current_art.py --family ' + family))
     for family in ('craft267', 'tank-shell', 'enemy-energy', 'sidekick-body',
-                   'plasma-projectile', 'front-multi', 'enemy-orb', 'protron', 'sonic', 'guided', 'mint27', 'missile'):
+                   'plasma-projectile', 'front-multi', 'enemy-orb', 'protron', 'sonic', 'guided', 'mint27', 'missile', 'rear-p7'):
         module = importlib.import_module('current_' + family.replace('-', '_') + '_compatibility')
         builder = module if hasattr(module, 'selection') else importlib.import_module('build_current_' + family.replace('-', '_'))
         selected = builder.selection(root, read(root, module.SELECTION))
@@ -71,7 +71,9 @@ def current_records(root):
         for transport in mapping['files']:
             identity, density = transport['identity'], transport.get('density', 8)
             row = by_pair.get((identity, density))
-            if 'master' in selected:
+            if family == 'rear-p7':
+                sources = [selected['masters'][0]['source_svg']]
+            elif 'master' in selected:
                 sources = [selected['master']['source_png']]
             elif 'masters' in selected:
                 selector = {106:105,125:124}.get(identity % 10000,identity % 10000) if family == 'sonic' else identity % 10000
@@ -145,6 +147,10 @@ def current_records(root):
                 consumers.append(dict(path=evidence, role=8, material_identity=identity,
                                       scope='existing player/sidekick projectile shadow only', evidence=evidence))
                 notes.append('Three independent static upgrade masters, not animation frames. Existing source, slot, eligibility and 33 left-offset pixels stay fixed; Guided20/21 are separate. Exact ImageMagick recipe, not an approximate Pillow resample.')
+            if family == 'rear-p7':
+                for evidence, scope in (('src/rear_multi_p1_mirror.inc', 'existing dedicated Rear role131 normal birth/record/source lease'), ('src/rear_multi_p11_shadow.inc', 'existing dedicated Rear role131 shadow lease')):
+                    consumers.append(dict(path=evidence, role=131, material_identity=identity, scope=scope, evidence=evidence))
+                notes.append('P7 mode2 only: one canonical SVG294, exact RGBA horizontal mirror295; d4 and d8 render independently. All other 44 Rear transports and every Front transport stay separate and frozen. No generic player/sidekick eligibility or default-off gate changes.')
             if family == 'front-multi':
                 notes.append('Eight independent inputs. Historical rear 1310182/1310183 do NOT follow current Front 163/164 edits.')
             if family == 'enemy-orb':

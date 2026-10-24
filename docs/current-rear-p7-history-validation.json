@@ -1,0 +1,99 @@
+{
+  "evidence": {
+    "rear-history54-after.json": {
+      "sha256": "b3da5ebefb170f221885fd02c3957827e7065f0f8faf453eb28568396bcf2bcc"
+    },
+    "rear-history54-before.json": {
+      "sha256": "b3da5ebefb170f221885fd02c3957827e7065f0f8faf453eb28568396bcf2bcc"
+    },
+    "rear-history54-receipt.json": {
+      "sha256": "288a370afabbcca254c4f6dc87ae7c703aecf829a90a8dc7fccbab07baca0ec5"
+    },
+    "rear-history54.log": {
+      "sha256": "093e562281222925488af3a787da26db98ffb958492d7faa58e2cd9bffb5f3d9"
+    },
+    "rear-public-preimage-receipt.json": {
+      "sha256": "9082114ba933280c9c5f2d25b5cf4a6eeb3887f2020607fab0f4d20d0c275cd0"
+    }
+  },
+  "fixes": [
+    {
+      "detail": "New exact include-hunk slice corrected from [3,4] to zero-based [2,3]; all old ledger pins unchanged.",
+      "file": "tests/current_rear_p7_source_projection.json"
+    },
+    {
+      "detail": "Initial 68-test focused run had one missing Missile dependency fixture; finite 11-path real closure added and affected Mint/Missile 35-test suite passed.",
+      "file": "tests/test_current_mint27_authoring.py"
+    }
+  ],
+  "focused": [
+    {
+      "log": "rear-projection-focused.log",
+      "seconds": 2.663,
+      "sha256": "4b78918c772d29007c9fd505d6eede9d3b4fe3c5772bf3267984996fadd87ec1",
+      "status": "PASS",
+      "tests": 5
+    },
+    {
+      "log": "rear-source-boundary-focused.log",
+      "seconds": 54.344,
+      "sha256": "6505c4c89371b6c757b9686e9b46c86703580ab94733079b7ddb8439f9edf59a",
+      "status": "PASS",
+      "tests": 8
+    },
+    {
+      "log": "rear-correction-focused.log",
+      "seconds": 0.204,
+      "sha256": "afbe868911fcb5af07faa829938c1b86c34ade94514b5570bf93a468bdf79a2c",
+      "status": "PASS",
+      "tests": 4
+    },
+    {
+      "log": "rear-mint-missile-focused.log",
+      "seconds": 22.884,
+      "sha256": "3423affab4d05e63eefd2a9bb4ae41a3d35bf9e56c14a482a3135e127c5480e9",
+      "status": "PASS",
+      "tests": 35
+    }
+  ],
+  "full_suite": {
+    "exit_code": 0,
+    "freeze": {
+      "after_sha256": "b3da5ebefb170f221885fd02c3957827e7065f0f8faf453eb28568396bcf2bcc",
+      "before_sha256": "b3da5ebefb170f221885fd02c3957827e7065f0f8faf453eb28568396bcf2bcc",
+      "changed_paths": [],
+      "excluded": [
+        "__pycache__",
+        ".pyc",
+        ".md"
+      ],
+      "file_count": 6909,
+      "roots": [
+        "scripts",
+        "src",
+        "tests",
+        "packaging",
+        "authoring-inputs",
+        "assets"
+      ]
+    },
+    "module": "test_accepted_later_changes",
+    "tested_compiler_sha256": "01013d6460d4053057f48939681bb1e9f2960f308ff4d892c9bf8ed49438f99c",
+    "tests": 54,
+    "unittest_seconds": 3990.659,
+    "version_scope": "Before subsequent numeric-token guard; this full-suite receipt does not claim testing that later compiler revision.",
+    "wrapper_seconds": 3991.804411172867
+  },
+  "public_preimage": {
+    "runtime": 1029,
+    "runtime_except_production_binding_equal": true,
+    "source_complete_public_equality": true,
+    "source_current": 274,
+    "source_previous": 273,
+    "unchanged_frozen_fixture_files": 22
+  },
+  "publication_base": "525de2b9d5b4605dd6bf997cee644c9ac39546c1",
+  "remaining_code_fixes": [],
+  "schema": "current-rear-p7-history-validation-v1",
+  "status": "PASS"
+}

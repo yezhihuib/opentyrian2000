@@ -228,6 +228,12 @@ class CurrentSonicTests(unittest.TestCase):
         self.assertEqual(len(aircraft_names),41)
         for name in aircraft_names:self.write(name,(ROOT/name).read_bytes())
         aircraft.load(self.root)
+        import current_rear_p7_compatibility as rear_p7
+        rear_p7.load(ROOT)
+        rear_names=rear_p7.input_paths(ROOT)
+        self.assertEqual(len(rear_names),11)
+        for name in rear_names:self.write(name,(ROOT/name).read_bytes())
+        rear_p7.input_paths(self.root)
         # Validate and copy the exact new current family closure, not a whole checkout.
         import current_missile_compatibility as missile
         missile.load(ROOT)
@@ -255,6 +261,7 @@ class CurrentSonicTests(unittest.TestCase):
         self.assertTrue(mint27_names.issubset(names))
         self.assertTrue(missile_names.issubset(names))
         self.assertTrue(aircraft_names.issubset(names))
+        self.assertTrue(rear_names.issubset(names))
 
     def isolated_derive(self,root,raw):
         selected,pngs,blobs=c.generate(root,raw,candidate=True)

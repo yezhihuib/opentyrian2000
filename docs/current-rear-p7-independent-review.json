@@ -1,0 +1,36 @@
+{
+  "status": "PASS targeted independent review",
+  "files_sha256": {
+    "scripts/current_rear_p7_compatibility.py": "01013d6460d4053057f48939681bb1e9f2960f308ff4d892c9bf8ed49438f99c",
+    "scripts/build_current_rear_p7.py": "7c0658a959005e5edd1e523c670c63fd8f19107e7f257fdd4bd24ba2ecfb53a2",
+    "tests/test_current_rear_p7_authoring.py": "756c79671060735c74664fb595b697a7768ce5b853f179de7131dc5ab7f28408"
+  },
+  "regression_test": "Final strengthened files:11 authoring tests PASS 5.965s; independentUTF8/16/32DTD andnumeric negatives+golden PASS",
+  "negative_probes": {
+    "entity_utf-8": "REJECT: Unsafe/oversize Rear P7 SVG",
+    "entity_utf-16": "REJECT: Rear P7 SVG must be UTF-8",
+    "entity_utf-16-le": "REJECT: Unsafe/oversize Rear P7 SVG",
+    "entity_utf-32": "REJECT: Rear P7 SVG must be UTF-8",
+    "entity_utf-32-le": "REJECT: Unsafe/oversize Rear P7 SVG",
+    "transform_1e999": "REJECT: Nonfinite/unbounded Rear P7 SVG number",
+    "transform_10001": "REJECT: Nonfinite/unbounded Rear P7 SVG number"
+  },
+  "golden_render": "PASS exact4PNG+RGBApairs",
+  "independent_transform_check": "d4d8wholeRGBAflip andhiddenRGBPASS",
+  "payload_table": "onlycells34,35,36,37 change; zeros18,20retained",
+  "transaction_review": "rederive exactplan comparison; stagebytesverified; paths/symlinks/preexistingtempsreject; boundedhandledrollbacktests mockderive/deps; notcrash/concurrentatomic",
+  "limitations": "Not actual game-pixel/playthrough proof. Native memory not bounded by V8 heap flag. No repository edits byreviewer.",
+  "late_numeric_probe": {
+    "status": "FIX_VERIFIED",
+    "inputs": [
+      "translate(NaN 3)",
+      "translate(Infinity 3)",
+      "cx=NaN",
+      "path MInfinity 11"
+    ],
+    "observed": "All4 validatoraccepted andrenderaccepted withnongoldenbytes",
+    "classification": "finitegrammarcorrectnessgap; noescape/crash demonstrated",
+    "recommended": "rejectcaseinsensitivenan/inf/infinity innumericattrs withoutwordboundary;4regressions andgoldenrerun",
+    "addendum": "post-token-review.json"
+  }
+}

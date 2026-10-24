@@ -28,6 +28,8 @@ def dependencies(root, selected):
     from current_sidekick_body_compatibility import (charge_input_paths, mf_input_paths,
                                                      CHARGE_MAPPING, MF_MAPPING)
     names = charge_input_paths(root) | mf_input_paths(root) | {CHARGE_MAPPING, MF_MAPPING}
+    from current_rear_p7_compatibility import input_paths as rear_p7_input_paths, MAPPING as REAR_P7_MAPPING
+    names |= rear_p7_input_paths(root) | {REAR_P7_MAPPING}
     from build_enemy_protron_p09 import input_paths as p09_input_paths
     names |= p09_input_paths(root)
     # The user edits this master in place; installed hashes are deliberately

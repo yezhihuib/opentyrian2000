@@ -234,6 +234,12 @@ class CurrentMissileTests(unittest.TestCase):
         self.assertEqual(len(aircraft_names),41)
         for name in aircraft_names:self.write(name,(ROOT/name).read_bytes())
         aircraft.load(self.root)
+        import current_rear_p7_compatibility as rear_p7
+        rear_p7.load(ROOT)
+        rear_names=rear_p7.input_paths(ROOT)
+        self.assertEqual(len(rear_names),11)
+        for name in rear_names:self.write(name,(ROOT/name).read_bytes())
+        rear_p7.input_paths(self.root)
         # Other unrelated family closures are stubbed; this builder's own Missile
         # closure must accept proposed sources without validating old selection.
         unrelated=('current_sidekick_body_compatibility.charge_input_paths',
@@ -247,6 +253,7 @@ class CurrentMissileTests(unittest.TestCase):
             names=b.dependencies(self.root,self.request)
         self.assertTrue({*self.master_paths.values(),self.recipe_path}.issubset(names))
         self.assertTrue(aircraft_names.issubset(names))
+        self.assertTrue(rear_names.issubset(names))
 
     def isolated_derive(self,root,raw):
         selected,pngs,blobs=c.generate(root,raw,candidate=True)

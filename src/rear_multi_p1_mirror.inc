@@ -1,5 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0-or-later
  * Dedicated normal-head adapter. No generic bank8 binding or shadow changes. */
+#include "current_rear_multi_payload_pins.h"
 #include "rear_multi_p1_pins.h"
 #include <limits.h>
 #include <fcntl.h>

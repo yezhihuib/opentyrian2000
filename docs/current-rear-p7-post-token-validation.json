@@ -1,0 +1,41 @@
+{
+  "schema": "rear-p7-post-token-validation-v1",
+  "status": "PASS",
+  "pre_guard_compiler_sha256": "01013d6460d4053057f48939681bb1e9f2960f308ff4d892c9bf8ed49438f99c",
+  "final_compiler_sha256": "c09a317dc846aa61a8065202217e1b20dc505841c7c81c41a7833c56258e2e9c",
+  "full54_scope": "Pre-token guard snapshot only; see history-validation receipt. Not rerun after the two-line invalid-input guard.",
+  "focused_tests": 12,
+  "bootstrap_check": "PASS",
+  "real_edited_stage_apply_check": "PASS-final-compiler-regenerated-identical-13-outputs",
+  "native_edit_payloads": "4-final-derived-HDA-equal-native-tested-edited-HDA",
+  "native_file_reconciliation": {
+    "tested_count": 15,
+    "changed_files": {
+      "scripts/current_rear_p7_compatibility.py": {
+        "native_bootstrap": "01013d6460d4053057f48939681bb1e9f2960f308ff4d892c9bf8ed49438f99c",
+        "final": "c09a317dc846aa61a8065202217e1b20dc505841c7c81c41a7833c56258e2e9c"
+      }
+    },
+    "all_production_C_headers_unchanged": true,
+    "unchanged_count": 14
+  },
+  "plan_sha256": "c5bad2b4976ea1e91db96c65ec28fb48292bb3c8f8ce50800e2cfacd635d2dbc",
+  "logs_sha256": {
+    "post-token-stage.log": "00e9753c81d25bdfee94f75d3367add96086df1bd8a76b959948f087554773d1",
+    "post-token-apply.log": "3b12096c6724393e938eaa4093117916475dc08c85f3e53b6283f1c956929c6f",
+    "post-token-check.log": "555601632b5602cdc30548e387804be7b06e7b24f929e90b51970dadb7280673"
+  },
+  "limits": [
+    "final pipeline revalidates the prior real SVG edit; does not claim a second new artwork edit",
+    "native renderer C/header/output bytes unchanged; new token parser guard tested separately",
+    "no full54 post-token rerun claim"
+  ],
+  "integration_and_projection": {
+    "tests": 14,
+    "status": "PASS",
+    "seconds": 24.7,
+    "log_sha256": "b03741a7713ef0e1307fffa9a54318af1f9acd02c2b6bfa0113f591dfd6ac639"
+  },
+  "focused_log_sha256": "6ec137d17fe604c5b54ecfc32b45d09100c5e3d4c98a0575c20fb80e3147ee65",
+  "bootstrap_check_log_sha256": "555601632b5602cdc30548e387804be7b06e7b24f929e90b51970dadb7280673"
+}

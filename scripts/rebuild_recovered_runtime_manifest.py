@@ -99,6 +99,10 @@ def main():
     for destination,row in missile_load(root).items():
         if destination in art_compat:raise ValueError('Missile compatibility collision')
         art_compat[destination]=dict(row,authoring_family='missile')
+    from current_rear_p7_compatibility import load as rear_p7_load
+    for destination,row in rear_p7_load(root).items():
+        if destination in art_compat:raise ValueError('Rear P7 compatibility collision')
+        art_compat[destination]=dict(row,authoring_family='rear-p7')
     # Sonic is a separately bounded additive transport family, not a relaxed
     # historical art consumer. Its loader also rederives pixels and header pins.
     from current_sonic_compatibility import load as sonic_load

@@ -104,7 +104,8 @@ class ChargeSourceBoundary(unittest.TestCase):
         self.assertEqual(ledger['supplied_patch_sha256'],'a9df9e940ba745f414a470cb534b98536d99c81c8f676378d4a7f306d460fbda')
         self.assertEqual(ledger['historical_source_inventory'],'current-source-inventory.json')
         self.assertEqual(set(ledger['files']),{'src/entity_draw.c','src/entity_draw.h','src/mainint.c','src/render_mirror.c','src/render_mirror.h'})
-        self.assertEqual(set(projection.corrected_source_paths()),set(ledger['files'])|{'src/config.c','src/game_probe.c','src/opentyr.c','src/asset_debug.c'}|{'src/global_talon_mirror.inc','src/asteroid1_enemy_orb112113_mirror.inc','src/sprite.c','src/tyrian2.c','src/newshf_identity_validation.inc'}|{'src/global_'+family+'_mirror.inc' for family in ('shield','pulse','vulcan','hitflare','smoke','green','small_explosion','cash25','rotor')})
+        self.assertEqual(set(projection.current_rear_p7_ledger()['files']),{'src/rear_multi_p1_mirror.inc'})
+        self.assertEqual(set(projection.corrected_source_paths())-set(projection.current_rear_p7_ledger()['files']),set(ledger['files'])|{'src/config.c','src/game_probe.c','src/opentyr.c','src/asset_debug.c'}|{'src/global_talon_mirror.inc','src/asteroid1_enemy_orb112113_mirror.inc','src/sprite.c','src/tyrian2.c','src/newshf_identity_validation.inc'}|{'src/global_'+family+'_mirror.inc' for family in ('shield','pulse','vulcan','hitflare','smoke','green','small_explosion','cash25','rotor')})
         for name,pin in ledger['files'].items():
             with self.subTest(path=name):
                 raw=(projection.ROOT/name).read_bytes()
@@ -123,7 +124,7 @@ class ChargeSourceBoundary(unittest.TestCase):
                 self.assertEqual([call.args[0] for call in once.call_args_list],['normal-observer-surface','enemy-controlled-probe','enemy-reuse-observe','enemy-proof-dedup','enemy-protron-reuse','enemy-green-reuse','enemy-reuse','newshf-compositor','newshf-identity','enemy-orb','front-multi','plasma-projectile','charge-body','render-boundaries','storm'])
                 self.assertEqual(projection.sha(old),projection.load('storm-source.json')['files'][name]['previous_sha256'])
         intermediate=projection.project_source('charge-body',name,raw)
-        with self.assertRaisesRegex(AssertionError,'unapproved current MISSILE compositor module' if name in projection.current_missile_ledger()['files'] else 'unapproved current MINT27 compositor module' if name in projection.current_mint27_ledger()['files'] else 'unapproved current Guided source' if name in projection.current_guided_ledger()['files'] else 'unapproved current Sonic source' if name in projection.current_sonic_ledger()['files'] else ('unapproved current Protron source' if name in projection.current_protron_ledger()['files'] else 'not the accepted published current blob')):
+        with self.assertRaisesRegex(AssertionError,'unapproved current REAR_P7 compositor module' if name in projection.current_rear_p7_ledger()['files'] else 'unapproved current MISSILE compositor module' if name in projection.current_missile_ledger()['files'] else 'unapproved current MINT27 compositor module' if name in projection.current_mint27_ledger()['files'] else 'unapproved current Guided source' if name in projection.current_guided_ledger()['files'] else 'unapproved current Sonic source' if name in projection.current_sonic_ledger()['files'] else ('unapproved current Protron source' if name in projection.current_protron_ledger()['files'] else 'not the accepted published current blob')):
             projection.project_source('charge-body',name,intermediate)
 
     def test_wrong_source_partial_inverse_and_extra_change_rejected(self):
@@ -138,7 +139,7 @@ class ChargeSourceBoundary(unittest.TestCase):
                 lines[a:b]=hunk['before'].encode().splitlines(keepends=True)
                 mutants.append(('partial-inverse-%d'%index,b''.join(lines)))
             for case,mutant in mutants:
-                with self.subTest(path=name,case=case),self.assertRaisesRegex(AssertionError,'unapproved current MISSILE compositor module' if name in projection.current_missile_ledger()['files'] else 'unapproved current MINT27 compositor module' if name in projection.current_mint27_ledger()['files'] else 'unapproved current Guided source' if name in projection.current_guided_ledger()['files'] else 'unapproved current Sonic source' if name in projection.current_sonic_ledger()['files'] else ('unapproved current Protron source' if name in projection.current_protron_ledger()['files'] else 'not the accepted published current blob')):
+                with self.subTest(path=name,case=case),self.assertRaisesRegex(AssertionError,'unapproved current REAR_P7 compositor module' if name in projection.current_rear_p7_ledger()['files'] else 'unapproved current MISSILE compositor module' if name in projection.current_missile_ledger()['files'] else 'unapproved current MINT27 compositor module' if name in projection.current_mint27_ledger()['files'] else 'unapproved current Guided source' if name in projection.current_guided_ledger()['files'] else 'unapproved current Sonic source' if name in projection.current_sonic_ledger()['files'] else ('unapproved current Protron source' if name in projection.current_protron_ledger()['files'] else 'not the accepted published current blob')):
                     projection.project_source('charge-body',name,mutant)
 
     def test_fixture_pin_hunk_and_result_are_all_fail_closed(self):
@@ -418,7 +419,7 @@ class AssetBoundary(unittest.TestCase):
         current=copy.deepcopy(self.inventory)
         # Match the production finite inverse: validate and remove only these
         # exact newer families before checking the unchanged old digest.
-        for verifier in (projection.verified_current_missile, projection.verified_current_mint27, projection.verified_current_newshf, projection.verified_current_guided, projection.verified_current_sonic, projection.verified_current_protron, projection.verified_protron_current, projection.verified_newshf_current, projection.verified_enemy_orb_current):
+        for verifier in (projection.verified_current_rear_p7, projection.verified_current_missile, projection.verified_current_mint27, projection.verified_current_newshf, projection.verified_current_guided, projection.verified_current_sonic, projection.verified_current_protron, projection.verified_protron_current, projection.verified_newshf_current, projection.verified_enemy_orb_current):
             for name, row in verifier()['assets'].items():
                 self.assertEqual(current.pop(name), row)
         for name in projection.verified_front_multi_current()['assets']:del current[name]
@@ -687,7 +688,7 @@ class CurrentGenerationBoundary(unittest.TestCase):
             binding=json.loads((self.root/builder.BINDING).read_bytes())
             binding['source_sha256']=production.source_inventory(self.root)
             binding['production_source_manifest_sha256']=production.source_manifest_digest(binding['source_sha256'])
-            payload_headers={projection.CURRENT_MISSILE_HEADER,projection.CURRENT_MINT27_HEADER,projection.CURRENT_NEWSHF_HEADER,projection.CURRENT_GUIDED_HEADER,projection.CURRENT_PROTRON_HEADER,projection.CURRENT_SONIC_HEADER}
+            payload_headers={projection.CURRENT_REAR_P7_HEADER,projection.CURRENT_MISSILE_HEADER,projection.CURRENT_MINT27_HEADER,projection.CURRENT_NEWSHF_HEADER,projection.CURRENT_GUIDED_HEADER,projection.CURRENT_PROTRON_HEADER,projection.CURRENT_SONIC_HEADER}
             self.assertTrue(payload_headers <= set(binding['source_sha256']))
             self.assertEqual(binding['source_sha256'][projection.CURRENT_NEWSHF_HEADER], projection.verified_current_newshf(self.root)['header_sha256'])
             self.assertEqual(len(binding['source_sha256'])-len(projection.verified_enemy_probe_sources(self.root))-len(payload_headers),265)
@@ -923,7 +924,7 @@ class NewshfIdentityProjectionBoundary(unittest.TestCase):
             raw=(projection.ROOT/name).read_bytes()
             for edit in pin['hunks']:
                 lines=raw.splitlines(keepends=True);a,b=edit['after_lines'];lines[a:b]=edit['before'].encode().splitlines(keepends=True)
-                with self.assertRaisesRegex(AssertionError,'unapproved current MISSILE compositor module' if name in projection.current_missile_ledger()['files'] else 'unapproved current MINT27 compositor module' if name in projection.current_mint27_ledger()['files'] else 'unapproved current Guided source' if name in projection.current_guided_ledger()['files'] else 'unapproved current Sonic source' if name in projection.current_sonic_ledger()['files'] else ('unapproved current Protron source' if name in projection.current_protron_ledger()['files'] else 'not the accepted published current blob')):
+                with self.assertRaisesRegex(AssertionError,'unapproved current REAR_P7 compositor module' if name in projection.current_rear_p7_ledger()['files'] else 'unapproved current MISSILE compositor module' if name in projection.current_missile_ledger()['files'] else 'unapproved current MINT27 compositor module' if name in projection.current_mint27_ledger()['files'] else 'unapproved current Guided source' if name in projection.current_guided_ledger()['files'] else 'unapproved current Sonic source' if name in projection.current_sonic_ledger()['files'] else ('unapproved current Protron source' if name in projection.current_protron_ledger()['files'] else 'not the accepted published current blob')):
                     projection.project_source('newshf-identity',name,b''.join(lines))
         raw=(projection.FIXTURES/'newshf-identity-source.json').read_bytes()
         with patch.object(Path,'read_bytes',return_value=raw+b' '):

@@ -1,0 +1,34 @@
+{
+  "schema": "current-rear-p7-authoring-validation-v1",
+  "status": "PASS",
+  "public_base": "525de2b9d5b4605dd6bf997cee644c9ac39546c1",
+  "focused_tests": 11,
+  "builder_check": "PASS",
+  "bootstrap": "four PNG/HDA exact approved public hashes",
+  "canonical_masters": 1,
+  "outputs": 4,
+  "node": "v24.22.1",
+  "sharp": "0.35.5",
+  "compiler_sha256": "01013d6460d4053057f48939681bb1e9f2960f308ff4d892c9bf8ed49438f99c",
+  "builder_sha256": "7c0658a959005e5edd1e523c670c63fd8f19107e7f257fdd4bd24ba2ecfb53a2",
+  "tests_sha256": "756c79671060735c74664fb595b697a7768ce5b853f179de7131dc5ab7f28408",
+  "focused_log_sha256": "4db28f6003fc6ce2dc1ebe4f6c7af86ac9d88d87c246dd8460ea8266fdf2b1dc",
+  "check_log_sha256": "555601632b5602cdc30548e387804be7b06e7b24f929e90b51970dadb7280673",
+  "limits": [
+    "focused transaction tests isolate derive/dependency mocks; full pipeline separately validated",
+    "not crash/power-loss/concurrent-write atomic",
+    "no Windows or natural gameplay claim"
+  ],
+  "map_source_generic_guards": {
+    "status": "PASS",
+    "tests": 37,
+    "seconds": 74.847,
+    "modules": [
+      "test_shared_asset_authoring_map",
+      "test_current_art_performance",
+      "test_accepted_later_changes.SourceBoundary"
+    ],
+    "log_sha256": "73f04945657664511d6eba7cd4e59169c1828ce2f769f573542b7c58a627af83"
+  },
+  "scope": "Initial pre-token validation; final post-token 12-test/pipeline results in current-rear-p7-post-token-validation.json"
+}

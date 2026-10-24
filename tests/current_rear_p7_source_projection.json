@@ -1,0 +1,57 @@
+{
+  "files": {
+    "src/rear_multi_p1_mirror.inc": {
+      "current_sha256": "b231643815d8e867dd2e01a48c05cb345c251fba1952e9fc7edc24a27c6b144c",
+      "hunks": [
+        {
+          "after": "#include \"current_rear_multi_payload_pins.h\"\n",
+          "after_lines": [
+            2,
+            3
+          ],
+          "before": ""
+        }
+      ],
+      "previous_sha256": "9f5f48ea19330f6afeace40f156e049c0621fdcd6a10e281d2084cf74442538c"
+    }
+  },
+  "integration_base": "525de2b9d5b4605dd6bf997cee644c9ac39546c1",
+  "runtime_before": [
+    {
+      "bytes": 10780,
+      "destination": "assets/gameplay/rear-multicannon-p1-bank8-294-4.hda",
+      "git_blob": "4bf8b47b1592b9e9d838d98fdb8da5d46e6cce26",
+      "group": "gameplay",
+      "revision": "reconstructed-local-unpublished",
+      "sha256": "06c6667918c84d0f1307d603e80c6302cfa6e6edfd179f12349046d22fa8173c",
+      "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-294-4.hda"
+    },
+    {
+      "bytes": 43036,
+      "destination": "assets/gameplay/rear-multicannon-p1-bank8-294-8.hda",
+      "git_blob": "125d2727267c862d81e3403a442c54f40fbf833c",
+      "group": "gameplay",
+      "revision": "reconstructed-local-unpublished",
+      "sha256": "63952d861348b481375637f4de8b5968e00ee98e4c87f7f9485c75fa941adca8",
+      "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-294-8.hda"
+    },
+    {
+      "bytes": 10780,
+      "destination": "assets/gameplay/rear-multicannon-p1-bank8-295-4.hda",
+      "git_blob": "abdb41ae69266a580aff6b352885b2dcd3ef8520",
+      "group": "gameplay",
+      "revision": "reconstructed-local-unpublished",
+      "sha256": "f0f2006c3002ee433046852343c173738c2cc193668d1489c2ba7353c1046626",
+      "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-295-4.hda"
+    },
+    {
+      "bytes": 43036,
+      "destination": "assets/gameplay/rear-multicannon-p1-bank8-295-8.hda",
+      "git_blob": "f7a73e020eaa2b888de6c18eb435bd3a108693c0",
+      "group": "gameplay",
+      "revision": "reconstructed-local-unpublished",
+      "sha256": "6a269c6f8de7668429c249ac3895cad6db3ee732d558140ebed9b15ea01dce64",
+      "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-295-8.hda"
+    }
+  ]
+}

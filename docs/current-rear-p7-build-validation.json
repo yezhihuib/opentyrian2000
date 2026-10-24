@@ -1,0 +1,89 @@
+{
+  "baseline_commit": "525de2b9d5b4605dd6bf997cee644c9ac39546c1",
+  "baseline_tree": "5e4ad99be40125a14e29d51bb5892c1f8568ad6b",
+  "source_stable": true,
+  "sysroot_stable": true,
+  "candidate_build_inputs_stable": true,
+  "scope": "Fresh isolated Linux compile/link bootstrap equivalence only. No executable run, no actual edited-Rear P7 native validation, no Windows or physical GPU test. Source snapshot captured once; all three modes use identical respective snapshots. System header dependency files enumerated after builds; private extracted sysroot hashed before and after. No claim that host system headers were independently frozen.",
+  "total_object_pairs_equal": 258,
+  "current_source_count": 274,
+  "snapshot_inputs_count": {
+    "baseline": 277,
+    "current": 278
+  },
+  "schema": "current-rear-p7-build-summary-v1",
+  "status": "PASS",
+  "full_receipt_sha256": "477c7886c6d0fbb51a5799f79e315af5ee4b38e42db8b6e32b473f9b97fc4973",
+  "compiler": "gcc (Debian 14.2.0-19) 14.2.0",
+  "modes": {
+    "opt-in": {
+      "binary_equal": true,
+      "objects_equal": true,
+      "object_differences": [],
+      "baseline": {
+        "exit_code": 0,
+        "inputs_stable": true,
+        "binary_sha256": "088921b38f4083c8986eef9f3ffd4fc6edbf8622e03a602be8602d8a3715d2f7",
+        "binary_bytes": 1664944,
+        "warnings": 76,
+        "object_count": 86,
+        "input_count": 277
+      },
+      "current": {
+        "exit_code": 0,
+        "inputs_stable": true,
+        "binary_sha256": "088921b38f4083c8986eef9f3ffd4fc6edbf8622e03a602be8602d8a3715d2f7",
+        "binary_bytes": 1664944,
+        "warnings": 76,
+        "object_count": 86,
+        "input_count": 278
+      }
+    },
+    "default-off": {
+      "binary_equal": true,
+      "objects_equal": true,
+      "object_differences": [],
+      "baseline": {
+        "exit_code": 0,
+        "inputs_stable": true,
+        "binary_sha256": "16a3fad7492eb986b5ef9af848dc235e4ff7422f81f678b8b9481e2adb53148a",
+        "binary_bytes": 1641400,
+        "warnings": 75,
+        "object_count": 86,
+        "input_count": 277
+      },
+      "current": {
+        "exit_code": 0,
+        "inputs_stable": true,
+        "binary_sha256": "16a3fad7492eb986b5ef9af848dc235e4ff7422f81f678b8b9481e2adb53148a",
+        "binary_bytes": 1641400,
+        "warnings": 75,
+        "object_count": 86,
+        "input_count": 278
+      }
+    },
+    "mirror-disabled": {
+      "binary_equal": true,
+      "objects_equal": true,
+      "object_differences": [],
+      "baseline": {
+        "exit_code": 0,
+        "inputs_stable": true,
+        "binary_sha256": "5515d09e3179918a52089ef5bb60faf95d09decf143b069574155765ad155fea",
+        "binary_bytes": 1179008,
+        "warnings": 86,
+        "object_count": 86,
+        "input_count": 277
+      },
+      "current": {
+        "exit_code": 0,
+        "inputs_stable": true,
+        "binary_sha256": "5515d09e3179918a52089ef5bb60faf95d09decf143b069574155765ad155fea",
+        "binary_bytes": 1179008,
+        "warnings": 86,
+        "object_count": 86,
+        "input_count": 278
+      }
+    }
+  }
+}

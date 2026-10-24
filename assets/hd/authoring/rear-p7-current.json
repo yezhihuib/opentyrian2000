@@ -1,0 +1,41 @@
+{
+  "schema": "opentyrian-current-rear-p7-authoring-v1",
+  "version": "p7-twins-shared-svg-v1",
+  "masters": [
+    {
+      "selector": 294,
+      "source_svg": "authoring-inputs/rear-p7-current/master-294.svg",
+      "source_sha256": "5649eaecb6cb55262c3a84adb583c5b091a4ccb7fcc1e56ab510d9c2254ee85f"
+    }
+  ],
+  "recipe": {
+    "path": "authoring-inputs/rear-p7-current/recipe.json",
+    "sha256": "27fabb89a70f96dd67410a469027d604ee17827aec0410a2e9981d232061963e"
+  },
+  "resources": [
+    {
+      "identity": 1310294,
+      "density": 4,
+      "source_png": "authoring-inputs/rear-p7-current/derived/rear-multicannon-p1-bank8-294-4.png",
+      "source_sha256": "a754cf589003cddd5aaabfc398e7fbf12438d0e9eadbd9df733f06a9f73348d0"
+    },
+    {
+      "identity": 1310295,
+      "density": 4,
+      "source_png": "authoring-inputs/rear-p7-current/derived/rear-multicannon-p1-bank8-295-4.png",
+      "source_sha256": "ea3b8db552eb5eee6e18aa34a55637dbece437a3cf740dc10a4774a91ba6b74a"
+    },
+    {
+      "identity": 1310294,
+      "density": 8,
+      "source_png": "authoring-inputs/rear-p7-current/derived/rear-multicannon-p1-bank8-294-8.png",
+      "source_sha256": "d0a8b9184afadc6dfbd36cbf21f4054045dd641c556d31c3320a1cd4cc8f5657"
+    },
+    {
+      "identity": 1310295,
+      "density": 8,
+      "source_png": "authoring-inputs/rear-p7-current/derived/rear-multicannon-p1-bank8-295-8.png",
+      "source_sha256": "62591001aac9d2e6401417f718195906afd216612b0002a2ec09c736f2444308"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "scope": "independent read-only history/runtime/header review; no native pixels claim",
+  "projection_tests": {
+    "count": 5,
+    "status": "PASS",
+    "duration_seconds": 2.714
+  },
+  "source_counts": [
+    274,
+    273
+  ],
+  "source_projection_exact_baseline": true,
+  "runtime_rows": 1029,
+  "runtime_changed_rows": [
+    "CURRENT-PRODUCTION-VALIDATION.json",
+    "assets/gameplay/rear-multicannon-p1-bank8-294-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-294-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-295-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-295-8.hda"
+  ],
+  "runtime_inverse_remaining_difference": [
+    "CURRENT-PRODUCTION-VALIDATION.json"
+  ],
+  "rear_other_44_rows_unchanged": true,
+  "header_cells": 50,
+  "only_variable_cells": [
+    34,
+    35,
+    36,
+    37
+  ],
+  "other_44_pins_and_2_zeros_frozen": true,
+  "baseline_payload_all50_equal": true,
+  "preprocessor_fixture_override_preserved": true,
+  "legacy_runtime_sources_unchanged": true,
+  "fresh_proved_asset_exclusions": [
+    "assets/hd/authoring/rear-p7-current.json",
+    "assets/hd/current-compat/rear-p7/rear-multicannon-p1-bank8-294-4.hda",
+    "assets/hd/current-compat/rear-p7/rear-multicannon-p1-bank8-294-8.hda",
+    "assets/hd/current-compat/rear-p7/rear-multicannon-p1-bank8-295-4.hda",
+    "assets/hd/current-compat/rear-p7/rear-multicannon-p1-bank8-295-8.hda"
+  ],
+  "audited_sha256": {
+    "src/current_rear_multi_payload_pins.h": "8bb99e02e583850d28d3af059349c3f5f24f2d86bb5295a715f8a1cab8a399bc",
+    "tests/current_rear_p7_source_projection.json": "e2f7e4866031c1facede68da9fef24dadaf9faf1b0d783a8b0b9ba31c59b29f1",
+    "tests/accepted_later_changes.py": "2a763007ff79ac5f40f0e8a5e940d0580662aec9abb0aac02d53e4897cdaf59c",
+    "scripts/current_rear_p7_compatibility.py": "01013d6460d4053057f48939681bb1e9f2960f308ff4d892c9bf8ed49438f99c",
+    "src/rear_multi_p1_mirror.inc": "b231643815d8e867dd2e01a48c05cb345c251fba1952e9fc7edc24a27c6b144c"
+  }
+}

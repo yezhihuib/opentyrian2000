@@ -1,0 +1,16 @@
+#define render_mirror_global_green_head(...) (-1)
+#define render_mirror_global_vulcan(...) (-1)
+#define render_mirror_global_pulse(...) (-1)
+#define render_mirror_green_create_begin(...) 0
+#define render_mirror_front_create_begin(...) 0
+#define render_mirror_front_create_geometry(...) ((void)(__VA_ARGS__))
+#define render_mirror_front_create_end(...) ((void)(__VA_ARGS__))
+#define render_mirror_green_create_end(...) ((void)(__VA_ARGS__))
+#define render_mirror_shot_allocated(...) ((void)(__VA_ARGS__))
+#define render_mirror_green_shot_allocated(...) ((void)(__VA_ARGS__))
+#define shop_pulse_allocated(...) ((void)(__VA_ARGS__))
+#define shop_vulcan_allocated(...) ((void)(__VA_ARGS__))
+#define render_mirror_front_shot_initialized(...) ((void)(__VA_ARGS__))
+#define render_mirror_green_shot_initialized(...) ((void)(__VA_ARGS__))
+#define shop_pulse_initialized(...) ((void)(__VA_ARGS__))
+#define shop_vulcan_initialized(...) ((void)(__VA_ARGS__))

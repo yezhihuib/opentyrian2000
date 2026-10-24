@@ -325,7 +325,14 @@ def current_overlays(root):
         {'assets/gameplay/' + missile.name(identity, density): blob
          for (identity, density), blob in blobs.items()})
     if len(files) != 186:
-        raise ValueError('Expected exactly 186 current gameplay overlays')
+        raise ValueError('Expected exactly 186 pre-Rear P7 gameplay overlays')
+    import current_rear_p7_compatibility as rear_p7
+    selected, _, blobs = rear_p7.generate(root, read(root, rear_p7.SELECTION))
+    add(rear_p7.MAPPING, rear_p7.SELECTION, selected, rear_p7.load(root),
+        {'assets/gameplay/' + rear_p7.name(identity, density): blob
+         for (identity, density), blob in blobs.items()})
+    if len(files) != 190:
+        raise ValueError('Expected exactly 190 current gameplay overlays')
     return files
 
 

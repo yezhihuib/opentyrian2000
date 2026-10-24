@@ -1,0 +1,91 @@
+{
+  "rollback": "PASS-real-full-derivation",
+  "apply": "PASS",
+  "bound_inputs": 526,
+  "outputs": 13,
+  "changed_paths": [
+    "assets/hd/authoring/rear-p7-current.json",
+    "assets/hd/current-compat/rear-p7/rear-multicannon-p1-bank8-294-4.hda",
+    "assets/hd/current-compat/rear-p7/rear-multicannon-p1-bank8-294-8.hda",
+    "assets/hd/current-compat/rear-p7/rear-multicannon-p1-bank8-295-4.hda",
+    "assets/hd/current-compat/rear-p7/rear-multicannon-p1-bank8-295-8.hda",
+    "authoring-inputs/rear-p7-current/derived/rear-multicannon-p1-bank8-294-4.png",
+    "authoring-inputs/rear-p7-current/derived/rear-multicannon-p1-bank8-294-8.png",
+    "authoring-inputs/rear-p7-current/derived/rear-multicannon-p1-bank8-295-4.png",
+    "authoring-inputs/rear-p7-current/derived/rear-multicannon-p1-bank8-295-8.png",
+    "packaging/current-production-validation.json",
+    "packaging/current-rear-p7-compatibility.json",
+    "packaging/runtime-assets-v1.json",
+    "src/current_rear_multi_payload_pins.h"
+  ],
+  "plan_sha256": "82549df47e682a4bcbe178c48587f212ac199cb4e1bb3189b3ea7881929dc1f7",
+  "schema": "current-rear-p7-real-transaction-v1",
+  "status": "PASS",
+  "check": "PASS",
+  "exports": {
+    "linux": {
+      "assets_complete": true,
+      "executable_included": false,
+      "expected_files": 1029,
+      "expected_payload_bytes": 147312334,
+      "external_dependencies": {
+        "linux": "Compatible SDL2, SDL2_net and system C/math runtime; dynamic library resolution must be checked on the target.",
+        "optional_music": "User-supplied music stays external; --music-dir is optional.",
+        "original_game_data": "Complete separately obtained Tyrian 2000 data; no game data or save files are bundled.",
+        "python_and_pillow": "Needed only for development/rebuilding, not for the compiled game runtime.",
+        "windows": "Matching-architecture prebuilt EXE, SDL2.dll, SDL2_net.dll and their license notices from official SDL distributions. Windows runtime acceptance remains separate."
+      },
+      "missing": [],
+      "mode": "build",
+      "output_payload_bytes": 147778565,
+      "platform": "linux",
+      "runtime_ready": false,
+      "runtime_ready_reason": "Original game data and platform dependencies are external; runtime launch acceptance is separate.",
+      "schema": "opentyrian-runtime-preflight-v1",
+      "source_unchanged": true,
+      "verified_files": 1029,
+      "verified_payload_bytes": 147312334
+    },
+    "windows": {
+      "assets_complete": true,
+      "executable_included": false,
+      "expected_files": 1029,
+      "expected_payload_bytes": 147312334,
+      "external_dependencies": {
+        "linux": "Compatible SDL2, SDL2_net and system C/math runtime; dynamic library resolution must be checked on the target.",
+        "optional_music": "User-supplied music stays external; --music-dir is optional.",
+        "original_game_data": "Complete separately obtained Tyrian 2000 data; no game data or save files are bundled.",
+        "python_and_pillow": "Needed only for development/rebuilding, not for the compiled game runtime.",
+        "windows": "Matching-architecture prebuilt EXE, SDL2.dll, SDL2_net.dll and their license notices from official SDL distributions. Windows runtime acceptance remains separate."
+      },
+      "missing": [],
+      "mode": "build",
+      "output_payload_bytes": 147778567,
+      "platform": "windows",
+      "runtime_ready": false,
+      "runtime_ready_reason": "Original game data and platform dependencies are external; runtime launch acceptance is separate.",
+      "schema": "opentyrian-runtime-preflight-v1",
+      "source_unchanged": true,
+      "verified_files": 1029,
+      "verified_payload_bytes": 147312334
+    }
+  },
+  "changed_runtime_destinations": [
+    "CURRENT-PRODUCTION-VALIDATION.json",
+    "assets/gameplay/rear-multicannon-p1-bank8-294-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-294-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-295-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-295-8.hda"
+  ],
+  "unchanged_runtime_rows": 1024,
+  "compiler_sha256": "01013d6460d4053057f48939681bb1e9f2960f308ff4d892c9bf8ed49438f99c",
+  "builder_sha256": "7c0658a959005e5edd1e523c670c63fd8f19107e7f257fdd4bd24ba2ecfb53a2",
+  "logs_sha256": {
+    "stage.log": "a7e22eb045ac3bf0e48a9ba7448e8fe376f1f0e89abddfd245596c590351999e",
+    "transaction.log": "dc479918973cdceefd9fc402385029d299ea18797cb2814386aaacd76b92ee0b",
+    "check.log": "555601632b5602cdc30548e387804be7b06e7b24f929e90b51970dadb7280673",
+    "export-linux.log": "1f6549c5aba0ba6efdee52b848de1cd559e5550a88762cf8b83f3190f54825df",
+    "export-windows.log": "0d163b94f1ccfea0273bbbf8ce73be6b8281bf834fc2ce785cd4947fb3d82a82"
+  },
+  "scope": "Real full derivation stage/apply/check, handled rollback, Linux/Windows asset-layout exports; not Windows execution, crash atomicity or visual approval."
+}
