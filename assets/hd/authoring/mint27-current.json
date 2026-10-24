@@ -1,0 +1,23 @@
+{
+  "masters": [
+    {
+      "selector": 27,
+      "source_png": "authoring-inputs/mint27-current/master-27.png",
+      "source_sha256": "2c03ffe7c2a2555669e65a3beb971465e141ad90a6b6cdc61198c627eabaf8cf"
+    }
+  ],
+  "recipe": {
+    "path": "authoring-inputs/mint27-current/recipe.json",
+    "sha256": "f5238733ef16ad18e80d687284850812855e708a8d21427698c34e85302bfe01"
+  },
+  "resources": [
+    {
+      "identity": 80027,
+      "density": 8,
+      "source_png": "authoring-inputs/mint27-current/derived/bullet-27-8.png",
+      "source_sha256": "163cee8cf78c21b02d29f0aa54f5e87d73a835911378ed09fbe42f0b6a64f111"
+    }
+  ],
+  "schema": "opentyrian-current-mint27-authoring-v1",
+  "version": "mint27-current-bootstrap-v1"
+}

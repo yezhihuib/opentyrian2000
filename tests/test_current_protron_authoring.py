@@ -208,13 +208,22 @@ class CurrentProtronTests(unittest.TestCase):
     def test_candidate_dependency_closure_allows_editing_the_single_current_master(self):
         self.install()
         self.change_cell(80244)
+        import current_newshf_compatibility as aircraft
+        import current_mint27_compatibility as mint27
+        family_names=set()
+        for family,count in ((aircraft,41),(mint27,5)):
+            family.load(ROOT)
+            names=family.input_paths(ROOT)
+            self.assertEqual(len(names),count)
+            for name in names:self.write(name,(ROOT/name).read_bytes())
+            family.input_paths(self.root)
+            family_names |= names
         # Only unrelated families are stubbed: exercise this builder's actual
         # current-Protron closure against its now-stale installed selection.
         unrelated=(
             'current_sidekick_body_compatibility.charge_input_paths',
             'current_sidekick_body_compatibility.mf_input_paths',
             'build_enemy_protron_p09.input_paths',
-            'build_newshf_hd.input_paths',
             'current_enemy_orb_compatibility.input_paths',
             'current_front_multi_compatibility.input_paths',
             'current_plasma_projectile_compatibility.input_paths',
@@ -225,6 +234,7 @@ class CurrentProtronTests(unittest.TestCase):
             for target in unrelated:stack.enter_context(patch(target,return_value=set()))
             names=b.dependencies(self.root,self.request)
         self.assertTrue({self.master_path,self.recipe_path,*self.masks}.issubset(names))
+        self.assertTrue(family_names.issubset(names))
 
     def isolated_derive(self,root,raw):
         selected,pngs,blobs=c.generate(root,raw,candidate=True)

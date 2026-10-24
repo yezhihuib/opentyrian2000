@@ -17,6 +17,7 @@
 #include "current_protron_payload_pins.h"
 #include "current_sonic_payload_pins.h"
 #include "current_guided_payload_pins.h"
+#include "current_mint27_payload_pins.h"
 #include "hd_front_multi_current.h"
 #include "data_frame.h"
 #include "data_portrait.h"
@@ -510,7 +511,7 @@ static const struct {unsigned int index;int slot;uint64_t source,rgba;int covera
  {243,560,UINT64_C(0xc571f14777146519),UINT64_C(0x2e13f3347c8f6f1e),0,0},
  {143,561,UINT64_C(0x9d732d4562f86474),UINT64_C(0x278a51603a580f3a),0,0},
  {144,562,UINT64_C(0xa9ede9c9164a8044),UINT64_C(0x6ba1a5c42991552e),0,0},
- {27,535,UINT64_C(0xd25ba01692cfa4b7),UINT64_C(0xe75bfc31a0616e75),0,0},
+ {27,535,UINT64_C(0xd25ba01692cfa4b7),CURRENT_MINT27_80027_D8_PAYLOAD_FNV,0,0},
  /* Existing physical Missile heads, Charge heads and green energy alpha only. */
  {31,333,UINT64_C(0xf63d654f4b2f50f5),UINT64_C(0x7db65bd3d0e1d1df),0,0},
  {32,334,UINT64_C(0xc261e2eb4d71452b),UINT64_C(0xdb04017352ef16ca),0,0},

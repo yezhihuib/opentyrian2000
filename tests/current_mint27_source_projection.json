@@ -1,0 +1,39 @@
+{
+  "files": {
+    "src/render_mirror.c": {
+      "current_sha256": "a04dd130fd71030077c6fcf635b5512e92821997da886663fe563d845fc8544d",
+      "hunks": [
+        {
+          "after": "#include \"current_mint27_payload_pins.h\"\n",
+          "after_lines": [
+            19,
+            20
+          ],
+          "before": ""
+        },
+        {
+          "after": " {27,535,UINT64_C(0xd25ba01692cfa4b7),CURRENT_MINT27_80027_D8_PAYLOAD_FNV,0,0},\n",
+          "after_lines": [
+            513,
+            514
+          ],
+          "before": " {27,535,UINT64_C(0xd25ba01692cfa4b7),UINT64_C(0xe75bfc31a0616e75),0,0},\n"
+        }
+      ],
+      "previous_sha256": "188c754bafc8e9d95e5fc843986482a27cc1b5ed41a3de6b86e074dadbca5fd7"
+    }
+  },
+  "integration_base": "4f7e60b5c9b64356719b207ff66a14ad081bcef6",
+  "runtime_before": [
+    {
+      "bytes": 43036,
+      "destination": "assets/gameplay/bullet-27-8.hda",
+      "git_blob": "d55ca57db073835d76a81c6240768b9070707196",
+      "group": "gameplay",
+      "revision": "reconstructed-local-unpublished",
+      "sha256": "cac289e69dcbf47aa2b121dcd4c5740ce1531a4295af9a752e51fde2bc738702",
+      "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/bullet-27-8.hda"
+    }
+  ],
+  "schema": "current-mint27-source-projection-v1"
+}

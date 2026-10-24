@@ -280,6 +280,28 @@ def main(argv=None) -> int:
             if (row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or
                     row.get('group')!='gameplay' or row.get('revision')!='current-single-source-guided'):
                 raise ValueError('Stale Guided runtime selection')
+    # Mint27 replaces one existing destination; no new runtime resources.
+    mint27_prefix = 'assets/hd/current-compat/mint27/'
+    mint27_names = {f'bullet-{i}-8.hda' for i in (27,)}
+    mint27_rows = [row for row in manifest['files'] if any(
+        Path(row[key]).name.casefold() in mint27_names for key in ('destination','source_path')) or
+        row['source_path'].casefold().startswith(mint27_prefix) or
+        (isinstance(row.get('revision'),str) and row['revision'].casefold() == 'current-single-source-mint27')]
+    mint27_current = manifest_path.resolve() == (roots[0]/'packaging/runtime-assets-v1.json').resolve() or any(
+        row['source_path'].casefold().startswith(mint27_prefix) or
+        (isinstance(row.get('revision'),str) and row['revision'].casefold() == 'current-single-source-mint27')
+        for row in manifest['files'])
+    if mint27_current:
+        from current_mint27_compatibility import load as mint27_load
+        expected = {'assets/gameplay/'+name for name in mint27_names}
+        if len(mint27_rows)!=1 or {row['destination'] for row in mint27_rows}!=expected:
+            raise ValueError('Mint27 packaging requires exactly one current consumer')
+        selected = mint27_load(roots[0])
+        for row in mint27_rows:
+            current = selected[row['destination']]
+            if (row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or
+                    row.get('group')!='gameplay' or row.get('revision')!='current-single-source-mint27'):
+                raise ValueError('Stale Mint27 runtime selection')
     # Current NEWSHF keeps the same nine opt-in destinations, with six poses
     # derived from two authored three-pose masters and three frozen 168 V4 PNGs.
     # The older revision marker also appears in historical manifests, so it

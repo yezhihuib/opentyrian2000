@@ -43,7 +43,7 @@ class EnemyProofDedupBinding(unittest.TestCase):
   proof=a.verified_current_protron()
   changed=history.changed(BASE, a.ROOT)
   changed.update(subprocess.check_output(['git','ls-files','--others','--exclude-standard','--','assets','authoring-inputs'],cwd=a.ROOT).decode().splitlines())
-  self.assertEqual(changed,proof['paths']|a.verified_current_sonic()['paths']|a.verified_current_guided()['paths']|a.verified_current_newshf()['paths'])
+  self.assertEqual(changed,proof['paths']|a.verified_current_sonic()['paths']|a.verified_current_guided()['paths']|a.verified_current_newshf()['paths']|a.verified_current_mint27()['paths'])
  def test_current_binding_runtime_and_original_semantics_inventory(self):
   import sys
   sys.path.insert(0,str(a.ROOT/'scripts'))

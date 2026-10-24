@@ -1,0 +1,48 @@
+{
+  "baseline": "4f7e60b5c9b64356719b207ff66a14ad081bcef6",
+  "findings": [],
+  "frozen_accepted_ledgers": 22,
+  "full_source_inverse": {
+    "current": 272,
+    "exact_all_paths_and_hashes": true,
+    "previous": 271
+  },
+  "limits": [
+    "Read-only focused review; full54 aggregate is owned by implementation runner, not independently rerun.",
+    "Did not independently rerun native, full edited runtime export or Windows execution.",
+    "Stage/apply rollback is handled write failure recovery, not crash or power loss atomicity.",
+    "Legacy Mint27 artwork is preserved and checked against public baseline; current compiler does not consume or repin legacy artwork.",
+    "Viewed normalized PNG; no claim of new visual approval or natural gameplay acceptance."
+  ],
+  "old_PINS_assignments_and_updates_unchanged": true,
+  "reviewed_file_sha256": {
+    "assets/hd/authoring/mint27-current.json": "0d1548c7c47fd7716b93b06b14a6d2267557b94b1cedfbc5eb95c369583603a3",
+    "packaging/current-mint27-compatibility.json": "aa794398238abde1a5499f5928e76a548290a45e46691f66cfec483dff96afde",
+    "scripts/build_current_mint27.py": "460916bb8316543a83f769e32829e314102c2df97ef63ce658b962063cd5f4a6",
+    "scripts/current_mint27_compatibility.py": "7e01c6ab9dcca0d07f038cb9baa31b02e0af01ffab2ba7cebaa6d20bb1dd3514",
+    "src/current_mint27_payload_pins.h": "a3e1aba6f16a1867de5ef5ba05997a3a290cf3ac2ee2e899284b4266234c04c1",
+    "src/render_mirror.c": "a04dd130fd71030077c6fcf635b5512e92821997da886663fe563d845fc8544d",
+    "tests/accepted_later_changes.py": "b362188e84ea7b35204d9194ce0166b6a46b4c27731a65d55bb262b8c48e331f",
+    "tests/current_mint27_source_projection.json": "91a57c01370bf49fb1818748a2621da91ba252b8576c667bf05a116689bc5fe9",
+    "tests/test_accepted_later_changes.py": "a8844f9cf84444f71697c4b5b2f8bae30f8b50bb504d7c9bd9fe986106b879ab",
+    "tests/test_current_guided_authoring.py": "1440f691aef483abf451b30eb8b8c0a45d700a240dba58b072cc9b6e3532a653",
+    "tests/test_current_mint27_authoring.py": "a75593066d96b27cf031dd392424edab900d3bed5adf7b4d8ee312653f7b9b28",
+    "tests/test_current_mint27_integration.py": "2fa79cd2cbc464140333f8e3d56b255120c12243d9bf373a047a0dc8c3c59014",
+    "tests/test_current_mint27_source_projection.py": "934a6c57007ffd181c8cde7a5842391bd6b2869cb2da5039644f6f9ded3f113e",
+    "tests/test_current_sonic_authoring.py": "8e3f1367591ac702c383fee6a048d8026b404afc397b7469ccdb13cd704284e1"
+  },
+  "runtime": {
+    "count": 1029,
+    "one_exact_replaced_preimage": true,
+    "other1028_same_except_production_binding_receipt": true
+  },
+  "same_process_missing_changed_source_rejection_and_restore": "PASS",
+  "status": "PASS",
+  "tests": {
+    "command": "PYTHONPATH=tests:scripts python3 -m unittest -v test_current_mint27_authoring test_current_mint27_integration test_current_mint27_source_projection",
+    "exit_code": 0,
+    "log_sha256": "467d0e8d3d7fff5169e11383503b1db2ada75ce0b56b72ce990f2dcafeb4a9bb",
+    "methods": 28,
+    "seconds": 17.679
+  }
+}

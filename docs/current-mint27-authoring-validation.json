@@ -1,0 +1,177 @@
+{
+  "baseline_commit": "4f7e60b5c9b64356719b207ff66a14ad081bcef6",
+  "bootstrap": {
+    "byte_equal_approved_original": true,
+    "hda_sha256": "cac289e69dcbf47aa2b121dcd4c5740ce1531a4295af9a752e51fde2bc738702",
+    "payload_fnv64": "e75bfc31a0616e75",
+    "png_sha256": "163cee8cf78c21b02d29f0aa54f5e87d73a835911378ed09fbe42f0b6a64f111",
+    "rgba_sha256": "fccf21f3f9e1e145020052ec221131ea4c77b8f5aa9224df7665f55b890159bd"
+  },
+  "historical_focused_final": [
+    {
+      "exit": 0,
+      "methods": 31,
+      "scope": "Guided/Sonic authoring fixture suites",
+      "seconds": 19.313
+    },
+    {
+      "exit": 0,
+      "methods": 48,
+      "scope": "Binding/Front/Protron suites",
+      "seconds": 178.098
+    },
+    {
+      "exit": 0,
+      "methods": 21,
+      "scope": "Projection/runtime suites",
+      "seconds": 335.997
+    }
+  ],
+  "historical_full_aggregate": {
+    "affected_method_rerun": {
+      "exit": 0,
+      "includes": "original old-asset mutation/deletion negatives",
+      "methods": 1,
+      "seconds": 77.362
+    },
+    "correction": "Add verified_current_mint27 to that assertion-local finite verifier tuple; preserve fixed historical digest and all production/helper bytes",
+    "exit": 1,
+    "failed": 1,
+    "failure": "Local test-only manual asset digest projection omitted the two new validated current Mint27 assets",
+    "full_54_after_correction_rerun": false,
+    "methods": 54,
+    "not_claimed": "A single final54/54 green run",
+    "passed": 53,
+    "seconds": 3223.303
+  },
+  "identity": {
+    "anchor": [
+      0,
+      0
+    ],
+    "density": 8,
+    "identity": 80027,
+    "logical_size": [
+      12,
+      14
+    ],
+    "role": 8,
+    "slot": 535,
+    "source_fnv64": "d25ba01692cfa4b7"
+  },
+  "independent_reviews": {
+    "final_digest_fix_methods": 1,
+    "final_digest_fix_seconds": 77.409,
+    "initial_methods": 28,
+    "initial_seconds": 17.679,
+    "test_adapter_methods": 6,
+    "test_adapter_seconds": 4.095
+  },
+  "input_freeze": {
+    "aggregate_run": {
+      "exit": 1,
+      "failed": 1,
+      "failure": "manual test-only verifier list omitted two current Mint27 assets; helper already validates/removes exactly them",
+      "passed": 53,
+      "seconds": 3223.303,
+      "tests": 54
+    },
+    "all_other_inputs_unchanged": true,
+    "changed_during_run_nonaggregate_test_modules": [
+      "tests/test_current_guided_authoring.py",
+      "tests/test_current_protron_authoring.py",
+      "tests/test_current_sonic_authoring.py",
+      "tests/test_enemy_controlled_probe_binding.py",
+      "tests/test_enemy_proof_dedup_binding.py",
+      "tests/test_enemy_protron_reuse_binding.py",
+      "tests/test_enemy_reuse_observe_binding.py",
+      "tests/test_front_multi_shadow_boundary.py",
+      "tests/test_normal_observer_surface_binding.py"
+    ],
+    "full_rerun": false,
+    "postterminal_only_change": {
+      "change": "add one verified Mint27 family to manual asset digest projection loop",
+      "final_sha256": "9352df6c51b104175dcd688cf598f407a8f0dc980a5b70bd9ec312c9d4abf4c2",
+      "path": "tests/test_accepted_later_changes.py",
+      "prior_sha256": "a8844f9cf84444f71697c4b5b2f8bae30f8b50bb504d7c9bd9fe986106b879ab"
+    },
+    "snapshot_count": 868
+  },
+  "invariants": {
+    "c_delta": "One include plus one existing shadow payload literal replaced by generated macro",
+    "global_registry_resources": 120,
+    "historical_accepted_ledgers_unchanged": 22,
+    "legacy_mint27_art_unchanged": true,
+    "recursive_source_files": 272,
+    "runtime_files": 1029
+  },
+  "limitations": [
+    "Native wrapper calls do not establish actual sidekick firing/weapon producer attribution, natural campaign or physicalGPU acceptance",
+    "Linux/Windows asset-layout export is not Windows executable testing",
+    "No new artistic revision is approved by synthetic edits",
+    "Handled-write rollback is not process-crash/power-loss atomicity",
+    "Initial diagnostic100 test run and indexing setup failure preserved, not counted as passes",
+    "Native harness-only oracle errors corrected without any production blend change; see native receipt"
+  ],
+  "other_receipts": {
+    "docs/current-mint27-build-validation.json": "ac86ad0e454d010d2fae5f3d2c6eb521aba21e9748026a90a7dcf11f12aeb262",
+    "docs/current-mint27-digest-fix-review.json": "09d1f6c96bf466070761117562a7a6b2638ced79eb79793c874edaaf46761e37",
+    "docs/current-mint27-history-validation.json": "242e199d4c8eb9de453804b31fb4d5d7a30cacf1c1bb96ecb395dc25e7f9e369",
+    "docs/current-mint27-independent-review.json": "8719a4932d1ea37581b247b66ec3846918deb9789376af269713c5b6f0074f38",
+    "docs/current-mint27-native-validation.json": "5a01e4d4fe28755e476c208a083083be39d18b27c30870c85d722059b601ab60",
+    "docs/current-mint27-test-adapter-review.json": "49dc0aee425c782a00575aa107efff7c0cc319a0894c9ba636c977f08469d269"
+  },
+  "owner_tests": [
+    {
+      "exit": 0,
+      "methods": 16,
+      "seconds": 4.073,
+      "suite": "test_current_mint27_authoring"
+    },
+    {
+      "exit": 0,
+      "methods": 8,
+      "seconds": 12.962,
+      "suite": "test_current_mint27_integration"
+    },
+    {
+      "exit": 0,
+      "methods": 8,
+      "scope": "True edited27 stage/apply/check; all1029 exported bytes in Linux/Windows asset layouts; cross-family realchecks; tamper/stale/rollback and malformedcurrentcontract negatives",
+      "seconds": 148.657,
+      "suite": "test_mint27_runtime_package"
+    },
+    {
+      "exit": 0,
+      "methods": 19,
+      "seconds": 15.416,
+      "suite": "test_shared_asset_authoring_map"
+    }
+  ],
+  "schema": "current-mint27-authoring-validation-v1",
+  "scope": "One current Mint27 master and existing player/sidekick projectile plus shadow transport; no new art, eligibility or gameplay behavior",
+  "source": {
+    "canonical_master": "authoring-inputs/mint27-current/master-27.png",
+    "crop": [
+      339,
+      139,
+      966,
+      1041
+    ],
+    "master_sha256": "2c03ffe7c2a2555669e65a3beb971465e141ad90a6b6cdc61198c627eabaf8cf",
+    "operation": "Pillow LANCZOS then alpha_composite on transparent RGBA96x112; no threshold/recolor/mask",
+    "placement": [
+      32,
+      32
+    ],
+    "resize": [
+      40,
+      72
+    ],
+    "size": [
+      1312,
+      1199
+    ]
+  },
+  "status": "PASS_WITH_EXPLICIT_AGGREGATE_RERUN_LIMIT"
+}

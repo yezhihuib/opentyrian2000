@@ -1,0 +1,44 @@
+{
+  "additional_negative_checks": {
+    "class_patch_restores_original_resolver": true,
+    "unrecognized_token": "rejected",
+    "wrong_density_macro": "rejected",
+    "wrong_identity_macro": "rejected"
+  },
+  "findings": [],
+  "limitations": [
+    "Did not rerun complete broader binding suite; owner is running final suite.",
+    "Front wrapper is class-scoped, validates derived Mint27 header once before tests; not a concurrent filesystem snapshot guarantee.",
+    "No new native or full54 execution claim from this addendum."
+  ],
+  "prior_review_sha256": "8719a4932d1ea37581b247b66ec3846918deb9789376af269713c5b6f0074f38",
+  "reviewed_sha256": {
+    "tests/test_current_protron_authoring.py": "319b13e1a8da68f586a9c47624124149114922acf13453a588c19a2c0d01bf27",
+    "tests/test_enemy_controlled_probe_binding.py": "d3e8c5cbe74cd082d6fab66416dd84c6337e261cac3a963b02e56cc3c7a07173",
+    "tests/test_enemy_proof_dedup_binding.py": "eb31b62c71fd6f0eed1c7c9b54c00f4c529ec93fd7a776a036ae3aaab6a500de",
+    "tests/test_enemy_protron_reuse_binding.py": "1a26b986bc7438ac4296dcd5915c5c95ae19bd92ae8e8d10ee980175c971e7d6",
+    "tests/test_enemy_reuse_observe_binding.py": "d7dd15838a1409195a67212a06d4f5fd5425c5c4c5bf88dbb92b98c7c52fd005",
+    "tests/test_front_multi_shadow_boundary.py": "4abbc3e6fc13f4783270bde645be3be52fb52d8f165e23d86bff4099a051fe1a",
+    "tests/test_normal_observer_surface_binding.py": "e8db602e7324edac447cd6c36685b2453d5017496b98d4eab91b1c2686562af5"
+  },
+  "scope_checks": {
+    "all_five_original_Front_test_method_ASTs_unchanged": true,
+    "compiler_helper_aggregate_source_unchanged_since_prior_review": true,
+    "finite_verified_Mint_paths": [
+      "assets/hd/authoring/mint27-current.json",
+      "assets/hd/current-compat/mint27/bullet-27-8.hda",
+      "authoring-inputs/mint27-current/derived/bullet-27-8.png",
+      "authoring-inputs/mint27-current/master-27.png",
+      "authoring-inputs/mint27-current/recipe.json"
+    ],
+    "old_shadow_harness_bytes_unchanged": true,
+    "protron_fixture_only_validated_NEWSHF41_and_Mint5_inputs": true
+  },
+  "status": "PASS",
+  "tests": {
+    "count": 6,
+    "exit_code": 0,
+    "log_sha256": "2871cd7639e0245c8f3767e037da8433e5562b8505430a5a18c29ba9f5d80e62",
+    "seconds": 4.095
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "aggregate_scope": "Owner reported full54 execution with53pass/1fail before this repair. This addendum independently verifies only affectedmethod after repair; does not claim a single final54/54 run.",
+  "change": "Insert only verified_current_mint27 into the direct old-inventory test verifier tuple before NEWSHF. Preserve exact old digest, 3259-edit count and all negative checks.",
+  "final_test_file_sha256": "9352df6c51b104175dcd688cf598f407a8f0dc980a5b70bd9ec312c9d4abf4c2",
+  "findings": [],
+  "independent_test": {
+    "command": "PYTHONPATH=tests:scripts python3 -m unittest -v test_accepted_later_changes.AssetBoundary.test_old_asset_edits_and_digest_are_preserved",
+    "count": 1,
+    "exit_code": 0,
+    "log_sha256": "799f9a4eaa5132202c36e5ab03d87aa02acf839c59e5d65be49cef18e5290f07",
+    "seconds": 77.409
+  },
+  "reconstructed_pre_fix_file_sha256": "a8844f9cf84444f71697c4b5b2f8bae30f8b50bb504d7c9bd9fe986106b879ab",
+  "status": "PASS",
+  "unchanged_files": {
+    "scripts/build_current_mint27.py": "460916bb8316543a83f769e32829e314102c2df97ef63ce658b962063cd5f4a6",
+    "scripts/current_mint27_compatibility.py": "7e01c6ab9dcca0d07f038cb9baa31b02e0af01ffab2ba7cebaa6d20bb1dd3514",
+    "src/current_mint27_payload_pins.h": "a3e1aba6f16a1867de5ef5ba05997a3a290cf3ac2ee2e899284b4266234c04c1",
+    "src/render_mirror.c": "a04dd130fd71030077c6fcf635b5512e92821997da886663fe563d845fc8544d",
+    "tests/accepted_later_changes.py": "b362188e84ea7b35204d9194ce0166b6a46b4c27731a65d55bb262b8c48e331f"
+  }
+}

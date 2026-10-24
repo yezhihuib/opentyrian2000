@@ -222,17 +222,32 @@ class CurrentSonicTests(unittest.TestCase):
 
     def test_actual_dependency_closure_allows_edited_masters_with_stale_installed_hashes(self):
         self.install();self.change_master(105)
+        import current_newshf_compatibility as aircraft
+        aircraft.load(ROOT)
+        aircraft_names=aircraft.input_paths(ROOT)
+        self.assertEqual(len(aircraft_names),41)
+        for name in aircraft_names:self.write(name,(ROOT/name).read_bytes())
+        aircraft.load(self.root)
+        # Validate and copy the exact new current family closure, not a whole checkout.
+        import current_mint27_compatibility as mint27
+        mint27.load(ROOT)
+        mint27_names=mint27.input_paths(ROOT)
+        self.assertEqual(len(mint27_names),5)
+        for name in mint27_names:self.write(name,(ROOT/name).read_bytes())
+        mint27.input_paths(self.root)
         # Only unrelated family closures are stubbed; this builder's own Sonic
         # closure must accept proposed sources without validating old selection.
         unrelated=('current_sidekick_body_compatibility.charge_input_paths',
             'current_sidekick_body_compatibility.mf_input_paths','build_enemy_protron_p09.input_paths',
-            'build_newshf_hd.input_paths','current_enemy_orb_compatibility.input_paths',
+            'current_enemy_orb_compatibility.input_paths',
             'current_front_multi_compatibility.input_paths','current_plasma_projectile_compatibility.input_paths',
             'current_protron_compatibility.input_paths','current_guided_compatibility.input_paths')
         with ExitStack() as stack:
             for target in unrelated:stack.enter_context(patch(target,return_value=set()))
             names=b.dependencies(self.root,self.request)
         self.assertTrue({*self.master_paths.values(),self.recipe_path}.issubset(names))
+        self.assertTrue(mint27_names.issubset(names))
+        self.assertTrue(aircraft_names.issubset(names))
 
     def isolated_derive(self,root,raw):
         selected,pngs,blobs=c.generate(root,raw,candidate=True)

@@ -56,7 +56,7 @@ class ControlledProbeBinding(unittest.TestCase):
   proof=a.verified_current_protron()
   changed=history.changed(BASE, a.ROOT)
   changed.update(subprocess.check_output(['git','ls-files','--others','--exclude-standard','--','assets','authoring-inputs'],cwd=a.ROOT).decode().splitlines())
-  self.assertEqual(changed,proof['paths']|a.verified_current_sonic()['paths']|a.verified_current_guided()['paths']|a.verified_current_newshf()['paths'])
+  self.assertEqual(changed,proof['paths']|a.verified_current_sonic()['paths']|a.verified_current_guided()['paths']|a.verified_current_newshf()['paths']|a.verified_current_mint27()['paths'])
  def test_exact_historical_runtime_projection(self):
   previous=json.loads(original('packaging/runtime-assets-v1.json'))['files']
   current=a.before_current_protron_runtime(json.loads((a.ROOT/'packaging/runtime-assets-v1.json').read_bytes())['files'])

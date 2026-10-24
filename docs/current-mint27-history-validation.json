@@ -1,0 +1,103 @@
+{
+  "aggregate": {
+    "entire_aggregate_rerun_after_repair": false,
+    "exit": 1,
+    "failure": "manual test-only current asset digest verifier list omitted two new Mint27 assets; production projection already validated them",
+    "failures": 1,
+    "followup": {
+      "change": "one verified_current_mint27 entry added to manual verifier tuple; old ledger SHA and negative old-asset controls unchanged",
+      "exit": 0,
+      "log": "asset-digest-final.log",
+      "seconds": 77.362,
+      "tests": 1
+    },
+    "log": "aggregate.log",
+    "passed": 53,
+    "seconds": 3223.303,
+    "tests": 54
+  },
+  "base": "4f7e60b5c9b64356719b207ff66a14ad081bcef6",
+  "diagnostics": [
+    {
+      "log": "aggregate-index-diagnostic.log",
+      "status": "missing Git index for two new assets; interrupted exit130 before rerun"
+    },
+    {
+      "errors": 3,
+      "failures": 10,
+      "log": "combined.log",
+      "seconds": 556.85,
+      "status": "corrected finite fixture, macro and exact-path adapters; not a pass",
+      "tests": 100
+    }
+  ],
+  "final_nonoverlap_runs": [
+    {
+      "exit": 0,
+      "log": "authoring-fixtures-final.log",
+      "seconds": 19.313,
+      "tests": 31
+    },
+    {
+      "exit": 0,
+      "log": "remaining-final.log",
+      "seconds": 178.098,
+      "tests": 48
+    },
+    {
+      "exit": 0,
+      "log": "projection-runtime-final.log",
+      "seconds": 335.997,
+      "tests": 21
+    }
+  ],
+  "final_test_file_hashes": {
+    "tests/test_current_guided_authoring.py": "1440f691aef483abf451b30eb8b8c0a45d700a240dba58b072cc9b6e3532a653",
+    "tests/test_current_protron_authoring.py": "319b13e1a8da68f586a9c47624124149114922acf13453a588c19a2c0d01bf27",
+    "tests/test_current_sonic_authoring.py": "8e3f1367591ac702c383fee6a048d8026b404afc397b7469ccdb13cd704284e1",
+    "tests/test_enemy_controlled_probe_binding.py": "d3e8c5cbe74cd082d6fab66416dd84c6337e261cac3a963b02e56cc3c7a07173",
+    "tests/test_enemy_proof_dedup_binding.py": "eb31b62c71fd6f0eed1c7c9b54c00f4c529ec93fd7a776a036ae3aaab6a500de",
+    "tests/test_enemy_protron_reuse_binding.py": "1a26b986bc7438ac4296dcd5915c5c95ae19bd92ae8e8d10ee980175c971e7d6",
+    "tests/test_enemy_reuse_observe_binding.py": "d7dd15838a1409195a67212a06d4f5fd5425c5c4c5bf88dbb92b98c7c52fd005",
+    "tests/test_front_multi_shadow_boundary.py": "4abbc3e6fc13f4783270bde645be3be52fb52d8f165e23d86bff4099a051fe1a",
+    "tests/test_normal_observer_surface_binding.py": "e8db602e7324edac447cd6c36685b2453d5017496b98d4eab91b1c2686562af5"
+  },
+  "finite_proof": {
+    "derived_asset_paths": 2,
+    "new_header": 1,
+    "old_ledgers_unchanged": 22,
+    "runtime_nonbinding_rows_inverse_exact": 1028,
+    "runtime_rows": 1,
+    "source_hunks": 2,
+    "source_inventory_inverse_exact": 271
+  },
+  "logs_sha256": {
+    "aggregate-index-diagnostic.log": "a720752df042bbc4c470f8e0935033ae251ec9365ddfe27c84b1b1727df498d2",
+    "aggregate.log": "217ab3cc62f213d595cc3bf812ba0cbb86a680dda4e56b35247d973a6afb8de9",
+    "asset-digest-final.log": "9c2c1de4a6bd88c90768d16aaef8aa7e4f5970402661f07126339caa03e490cc",
+    "authoring-fixtures-final.log": "6de67c39cbb6dc4856edbc9c7853babf27d66c63715fdad60e14c3d147641188",
+    "combined.log": "f6b8a6dc20e151e442f9ac7c588aa435ff1f76b7d010c4e15e27171aa0a9cc98",
+    "projection-runtime-final.log": "2363fe9e4349f58984e9f64e36ee82e2fe7346ff442dd7cc5ccf40469023df33",
+    "remaining-final.log": "77167452c7cf8f87a45e2fb0c68262b20063f4c1c972367a92583fbc96b73f57",
+    "terminal-input-proof.json": "47dd368c60a96cb0e894b684e10387bab8c3a52cae2e546f01f08da5bb0e541d"
+  },
+  "schema": "current-mint27-history-adaptation-v1",
+  "snapshot": {
+    "before_count": 868,
+    "changed_nonaggregate_test_modules": [
+      "tests/test_current_guided_authoring.py",
+      "tests/test_current_protron_authoring.py",
+      "tests/test_current_sonic_authoring.py",
+      "tests/test_enemy_controlled_probe_binding.py",
+      "tests/test_enemy_proof_dedup_binding.py",
+      "tests/test_enemy_protron_reuse_binding.py",
+      "tests/test_enemy_reuse_observe_binding.py",
+      "tests/test_front_multi_shadow_boundary.py",
+      "tests/test_normal_observer_surface_binding.py"
+    ],
+    "main_helper_compiler_source_and_aggregate_module_unchanged": true,
+    "postterminal_change": "only tests/test_accepted_later_changes.py manual verifier tuple addition; prior byte digest reconstructed exact"
+  },
+  "status": "complete-with-explicit-test-only-repair",
+  "terminal_input_proof": "terminal-input-proof.json"
+}

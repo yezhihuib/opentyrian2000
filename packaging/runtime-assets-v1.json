@@ -77,12 +77,12 @@
   },
   "files": [
     {
-      "bytes": 36312,
+      "bytes": 36421,
       "destination": "CURRENT-PRODUCTION-VALIDATION.json",
-      "git_blob": "0f01e8d49430dcf5f4c72b8505cfc23875b1e026",
+      "git_blob": "eb2c591becd5b8a7cfabb7e7a049749b74dd6670",
       "group": "current-production-validation",
       "revision": "reconstructed-local-unpublished",
-      "sha256": "8170edd83313aafee235c2c26b390131d27ae5ed40eb526b3f7148947584ff44",
+      "sha256": "b4f451f495c3e3f3c4b19887253bf308213f7000408f99c0c01907c87490a46b",
       "source_path": "packaging/current-production-validation.json"
     },
     {
@@ -666,9 +666,9 @@
       "destination": "assets/gameplay/bullet-27-8.hda",
       "git_blob": "d55ca57db073835d76a81c6240768b9070707196",
       "group": "gameplay",
-      "revision": "reconstructed-local-unpublished",
+      "revision": "current-single-source-mint27",
       "sha256": "cac289e69dcbf47aa2b121dcd4c5740ce1531a4295af9a752e51fde2bc738702",
-      "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/bullet-27-8.hda"
+      "source_path": "assets/hd/current-compat/mint27/bullet-27-8.hda"
     },
     {
       "bytes": 43036,
@@ -9341,7 +9341,7 @@
   "schema": "opentyrian-runtime-package-v1",
   "source_revision": {
     "current_production_commit": null,
-    "current_production_source_manifest_sha256": "b0841944b1b3543630f51d8ea2b245ab746b6fe9645243978f2f41cf7084b85f",
+    "current_production_source_manifest_sha256": "4788aa1fdd434c2995318be57496796c599ede59d67f543337131ea98647474d",
     "data_frame_integration": "local reviewed Data-only DFM1 static frame; no commit assigned",
     "data_portrait_integration": "local reviewed source-authenticated all18 DPR1 portraits",
     "data_text_integration": "local reviewed Data-only Chinese source; no commit assigned",

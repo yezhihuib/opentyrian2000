@@ -1,0 +1,75 @@
+{
+  "baseline_commit": "4f7e60b5c9b64356719b207ff66a14ad081bcef6",
+  "baseline_tree": "ad83d84ffad27253eece4fee69e840eb08d8a7ff",
+  "candidate_build_inputs_stable": true,
+  "current_source_count": 272,
+  "full_external_receipt_sha256": "9f969ea87407538a2d0d063a1c7633f16c5066cc3a557d27ba0106ca53bd51c1",
+  "modes": {
+    "default-off": {
+      "baseline": {
+        "binary_bytes": 1641400,
+        "binary_sha256": "16a3fad7492eb986b5ef9af848dc235e4ff7422f81f678b8b9481e2adb53148a",
+        "exit_code": 0,
+        "inputs_stable": true,
+        "warnings": 75
+      },
+      "binary_equal": true,
+      "current": {
+        "binary_bytes": 1641400,
+        "binary_sha256": "16a3fad7492eb986b5ef9af848dc235e4ff7422f81f678b8b9481e2adb53148a",
+        "exit_code": 0,
+        "inputs_stable": true,
+        "warnings": 75
+      },
+      "object_differences": [],
+      "objects_equal": true
+    },
+    "mirror-disabled": {
+      "baseline": {
+        "binary_bytes": 1179008,
+        "binary_sha256": "5515d09e3179918a52089ef5bb60faf95d09decf143b069574155765ad155fea",
+        "exit_code": 0,
+        "inputs_stable": true,
+        "warnings": 86
+      },
+      "binary_equal": true,
+      "current": {
+        "binary_bytes": 1179008,
+        "binary_sha256": "5515d09e3179918a52089ef5bb60faf95d09decf143b069574155765ad155fea",
+        "exit_code": 0,
+        "inputs_stable": true,
+        "warnings": 86
+      },
+      "object_differences": [],
+      "objects_equal": true
+    },
+    "opt-in": {
+      "baseline": {
+        "binary_bytes": 1664944,
+        "binary_sha256": "088921b38f4083c8986eef9f3ffd4fc6edbf8622e03a602be8602d8a3715d2f7",
+        "exit_code": 0,
+        "inputs_stable": true,
+        "warnings": 76
+      },
+      "binary_equal": true,
+      "current": {
+        "binary_bytes": 1664944,
+        "binary_sha256": "088921b38f4083c8986eef9f3ffd4fc6edbf8622e03a602be8602d8a3715d2f7",
+        "exit_code": 0,
+        "inputs_stable": true,
+        "warnings": 76
+      },
+      "object_differences": [],
+      "objects_equal": true
+    }
+  },
+  "scope": "Fresh isolated Linux compile/link bootstrap equivalence only. No executable run, no actual edited-Mint27 native validation, no Windows or physical GPU test. Source snapshot captured once; all three modes use identical respective snapshots. System header dependency files enumerated after builds; private extracted sysroot hashed before and after. No claim that host system headers were independently frozen.",
+  "snapshot_inputs_count": {
+    "baseline": 275,
+    "current": 276
+  },
+  "source_stable": true,
+  "status": "PASS",
+  "sysroot_stable": true,
+  "total_object_pairs_equal": 258
+}

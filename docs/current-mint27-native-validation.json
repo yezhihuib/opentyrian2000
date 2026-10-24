@@ -1,0 +1,143 @@
+{
+  "status": "PASS",
+  "source_root_reference": "public 4f7e60b plus current Mint27 candidate",
+  "native_lanes": {
+    "bootstrap": {
+      "status": "PASS",
+      "setups": 288,
+      "assertions": 189737911,
+      "legacy_setups": 271,
+      "legacy_assertions": 189694609,
+      "mint_additional_setups": 17,
+      "returncode": 0,
+      "receipt_sha256": "83ce64e16eeaaaa6a3ac2af545b41db0a6cdcd59f17fbc5eda9ba008ab17a364",
+      "stdout": "PASS native P09 + unchanged P05 matrix: 271 setups, 189694609 assertions; controlled fire scheduling, not original-event gameplay acceptance\nPASS CURRENT Mint27 native ordinary/shadow, INDEX8/RNG/state/alpha/source/resource/lifetime: 288 setups, 189737911 assertions\n",
+      "source_stable": true
+    },
+    "edited27": {
+      "status": "PASS",
+      "setups": 288,
+      "assertions": 189737911,
+      "legacy_setups": 271,
+      "legacy_assertions": 189694609,
+      "mint_additional_setups": 17,
+      "returncode": 0,
+      "receipt_sha256": "68f9d81ab0e73ee128b5fa50436c20f8c7143e128b66d0d5d603730bfc6c9103",
+      "stdout": "PASS native P09 + unchanged P05 matrix: 271 setups, 189694609 assertions; controlled fire scheduling, not original-event gameplay acceptance\nPASS CURRENT Mint27 native ordinary/shadow, INDEX8/RNG/state/alpha/source/resource/lifetime: 288 setups, 189737911 assertions\n",
+      "source_stable": true
+    }
+  },
+  "recursive_source_files": 272,
+  "source_before_after_equal": true,
+  "only_edited_source_delta": [
+    "src/current_mint27_payload_pins.h"
+  ],
+  "edited_master_derivation": {
+    "check": {
+      "status": "PASS",
+      "resources": 1,
+      "editable_masters": 1,
+      "logical_pieces": 1,
+      "global_registry_additions": 0,
+      "historical_outputs": "untouched"
+    },
+    "before": "cac289e69dcbf47aa2b121dcd4c5740ce1531a4295af9a752e51fde2bc738702",
+    "after": "0178f55a66b3ec7e51aa4b1129de2bdabc375f19959cd33a93c67dffe5eb93ae",
+    "protected_art_files": 3251,
+    "stage_files": [
+      {
+        "path": "assets/hd/authoring/mint27-current.json",
+        "before_sha256": "0d1548c7c47fd7716b93b06b14a6d2267557b94b1cedfbc5eb95c369583603a3",
+        "after_sha256": "16c7ae2c3046ad378b740aebfbb9e4e706eb2ad93d8ed7d44953510c81ba246d",
+        "bytes": 734
+      },
+      {
+        "path": "assets/hd/current-compat/mint27/bullet-27-8.hda",
+        "before_sha256": "cac289e69dcbf47aa2b121dcd4c5740ce1531a4295af9a752e51fde2bc738702",
+        "after_sha256": "0178f55a66b3ec7e51aa4b1129de2bdabc375f19959cd33a93c67dffe5eb93ae",
+        "bytes": 43036
+      },
+      {
+        "path": "authoring-inputs/mint27-current/derived/bullet-27-8.png",
+        "before_sha256": "163cee8cf78c21b02d29f0aa54f5e87d73a835911378ed09fbe42f0b6a64f111",
+        "after_sha256": "166e9fbe68d9c9e43f70ae594e2256e850204d78d6d7ee65ed784cf8e7f5c791",
+        "bytes": 5262
+      },
+      {
+        "path": "packaging/current-mint27-compatibility.json",
+        "before_sha256": "aa794398238abde1a5499f5928e76a548290a45e46691f66cfec483dff96afde",
+        "after_sha256": "80ecdd7bd4e9e14744ef78ea1076e0d4f8ab26b0bfc04309a88a06b5879f7cdf",
+        "bytes": 462
+      },
+      {
+        "path": "packaging/current-production-validation.json",
+        "before_sha256": "b4f451f495c3e3f3c4b19887253bf308213f7000408f99c0c01907c87490a46b",
+        "after_sha256": "e7927b18681999a8ad59a25b745b88af2134921f6a379fa960c6fe2d9565a486",
+        "bytes": 36421
+      },
+      {
+        "path": "packaging/runtime-assets-v1.json",
+        "before_sha256": "a45beab7c318fe5e66ac388d7aa7ad2b4cfc8f5d2fbdc620a503787bea6417bf",
+        "after_sha256": "c7efff5f840888a62c5439f86f0d9c00262ccc5d8c7c0fedc208776f2e26b04e",
+        "bytes": 467980
+      },
+      {
+        "path": "src/current_mint27_payload_pins.h",
+        "before_sha256": "a3e1aba6f16a1867de5ef5ba05997a3a290cf3ac2ee2e899284b4266234c04c1",
+        "after_sha256": "5b361fd3a51eb1ed2c25d61ff1d89b50334739c577728da382649d3d9d37263e",
+        "bytes": 299
+      }
+    ]
+  },
+  "negative_control": {
+    "status": "PASS_EXPECTED_FAILURE",
+    "mutation": "Only replace Mint27 shadow payload pin with UINT64_C(0) in isolated test translation unit",
+    "returncode": -6,
+    "expected_assertion": "draws==2",
+    "source_stable": true,
+    "receipt_sha256": "4c6af974bf1376ca7f42defe03f112c45fdbd27831040068dece0ab752f9f3de"
+  },
+  "reusable_files": {
+    "current_mint27_native_validation.c": "aa8caa8762835b275f933f9912af77689a04e827dfb76d75a71321aac0b9501e",
+    "current_mint27_native_validation.md": "e40bdfe581fb7c9505d719bc1d7488542e3b61a9faeec3f10a64e90513322181",
+    "current_mint27_native_validation.py": "bc9aa9d5f4d5f723093df7ac9e90ca6d42107f59ef0d04772c79b1c146375ed2"
+  },
+  "compiler_sha256": "7e01c6ab9dcca0d07f038cb9baa31b02e0af01ffab2ba7cebaa6d20bb1dd3514",
+  "builder_sha256": "460916bb8316543a83f769e32829e314102c2df97ef63ce658b962063cd5f4a6",
+  "diagnostics": [
+    {
+      "path": "bootstrap-first-oracle-diagnostic.json",
+      "sha256": "52bde1a57ef47c58aac58a52332059057488f84c6713c236e3f6b279b283b661",
+      "meaning": "Test-only oracle incorrectly used generic Guided single-rounding instead of dedicated Mint shadow full-strength rounding then alpha blend; production untouched."
+    },
+    {
+      "path": "edited27-first-oracle-diagnostic.json",
+      "sha256": "0d80bb8a72787da7658385b652dab22dd70f8a0f5c6b4704ab1fd8773b2840d1",
+      "meaning": "Same test-only shadow expected-value issue."
+    },
+    {
+      "path": "bootstrap-fade-oracle-diagnostic.json",
+      "sha256": "7bf62d195e542a6b9d08b5a97f45b664e09017b0a756579723635becf13daeea",
+      "meaning": "Test-only fade assertion incorrectly required active=false; production contract invalidates ready/output and shadow lease. Expected lifetime flags corrected only in harness."
+    }
+  ],
+  "scope": [
+    "Full production renderer and original sprite bank via native wrapper calls",
+    "ordinary player-shot shared wrapper at two slot values and dedicated Mint27 shadow",
+    "per-pixel ordinary/rounded shadow alpha, INDEX8/RNG/player-shot state preservation",
+    "exact source hash identity/slot/geometry, cold-cache missing/malformed resources, warm same-allocation source and shadow payload mutation rejection",
+    "later indexed ownership and fade invalidation",
+    "unchanged historical P09/P05 full matrix"
+  ],
+  "not_claimed": [
+    "Native Mint27 weapon creation",
+    "Native sidekick firing attribution or sidekick body",
+    "Natural campaign capture",
+    "Windows execution",
+    "Physical GPU acceptance",
+    "All linked objects sanitizer-instrumented"
+  ],
+  "sanitizers": "ASan+UBSan renderer/sprite/tyrian2/entity_draw/identity/shots/varz/harness; remaining baseline production objects native optimized",
+  "original_game_bytes_in_deliverable": false,
+  "immutable_old_art_files_verified": 3251
+}

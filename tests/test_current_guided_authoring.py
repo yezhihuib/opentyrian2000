@@ -234,6 +234,13 @@ class CurrentGuidedTests(unittest.TestCase):
         self.assertEqual(len(aircraft_names),41)
         for name in aircraft_names:self.write(name,(ROOT/name).read_bytes())
         aircraft.load(self.root)
+        # Mint27 adds one independent finite family; retain its real closure.
+        import current_mint27_compatibility as mint27
+        mint27.load(ROOT)
+        mint27_names=mint27.input_paths(ROOT)
+        self.assertEqual(len(mint27_names),5)
+        for name in mint27_names:self.write(name,(ROOT/name).read_bytes())
+        mint27.input_paths(self.root)
         # Other unrelated family closures are stubbed; this builder's own Guided
         # closure must accept proposed sources without validating old selection.
         unrelated=('current_sidekick_body_compatibility.charge_input_paths',
@@ -246,6 +253,7 @@ class CurrentGuidedTests(unittest.TestCase):
             names=b.dependencies(self.root,self.request)
         self.assertTrue({*self.master_paths.values(),self.recipe_path}.issubset(names))
         self.assertTrue(aircraft_names.issubset(names))
+        self.assertTrue(mint27_names.issubset(names))
 
     def isolated_derive(self,root,raw):
         selected,pngs,blobs=c.generate(root,raw,candidate=True)

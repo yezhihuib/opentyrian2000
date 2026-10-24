@@ -66,6 +66,73 @@ def _project_source_once(label,name,raw):
  assert sha(restored)==pin['previous_sha256'],(name,'historical result drift')
  return restored
 
+CURRENT_MINT27_HEADER='src/current_mint27_payload_pins.h'
+CURRENT_MINT27_LEDGER_SHA='91a57c01370bf49fb1818748a2621da91ba252b8576c667bf05a116689bc5fe9'
+def current_mint27_ledger():
+ raw=(ROOT/'tests/current_mint27_source_projection.json').read_bytes()
+ assert sha(raw)==CURRENT_MINT27_LEDGER_SHA,'changed current MINT27 inverse ledger'
+ return json.loads(raw)
+
+def project_current_mint27_source(name,raw):
+ pin=current_mint27_ledger()['files'].get(name)
+ if pin is None:return raw
+ assert sha(raw)==pin['current_sha256'],('unapproved current MINT27 compositor module',name)
+ lines=raw.splitlines(keepends=True)
+ for edit in reversed(pin['hunks']):
+  a,b=edit['after_lines']
+  assert b''.join(lines[a:b])==edit['after'].encode(),('current MINT27 hunk drift',name)
+  lines[a:b]=edit['before'].encode().splitlines(keepends=True)
+ result=b''.join(lines)
+ assert sha(result)==pin['previous_sha256'],('current MINT27 inverse drift',name)
+ return result
+
+def verified_current_mint27(root=ROOT):
+ """One derived Mint27 transport; old source/slot/eligibility remain fixed."""
+ scripts=str(ROOT/'scripts')
+ if scripts not in sys.path:sys.path.insert(0,scripts)
+ import current_mint27_compatibility as c
+ for name in current_mint27_ledger()['files']:
+  project_current_mint27_source(name,c.read(root,name))
+ mapping=c.load(root)
+ selected=c.selection(root,c.read(root,c.SELECTION))
+ names={c.SELECTION,c.MAPPING,selected['recipe']['path']}|c.generated_paths()|{v['source_path'] for v in mapping.values()}
+ names|={row['source_png'] for row in selected['masters']}
+ assets={n:{'sha256':sha(c.read(root,n)),'mode':'100644'} for n in names if n.startswith('assets/')}
+ assert len(assets)==2,'unapproved current MINT27 asset scope'
+ return dict(assets=assets,paths=names-{c.MAPPING},mapping=mapping,header_sha256=sha(c.read(root,c.HEADER)))
+
+def before_current_mint27_inventory(inventory,root=ROOT):
+ result=dict(inventory)
+ assert result.pop(CURRENT_MINT27_HEADER)==verified_current_mint27(root)['header_sha256']
+ for name in current_mint27_ledger()['files']:
+  raw=(root/name).read_bytes()
+  assert result.get(name)==sha(raw),('unapproved current MINT27 inventory',name)
+  result[name]=sha(project_current_mint27_source(name,raw))
+ return result
+
+def mint27_runtime_input_paths(root=ROOT):
+ scripts=str(ROOT/'scripts')
+ if scripts not in sys.path:sys.path.insert(0,scripts)
+ import current_mint27_compatibility as c
+ return c.input_paths(root)|{c.MAPPING,c.HEADER}|set(current_mint27_ledger()['files'])
+
+def before_current_mint27_runtime(rows,root=ROOT):
+ assert isinstance(rows,list) and len(rows)==1029,'unexpected MINT27 runtime scope / destination scope'
+ assert len({row['destination'] for row in rows})==1029,'duplicate MINT27 runtime destination scope'
+ proof=verified_current_mint27(root)
+ old={r['destination']:r for r in current_mint27_ledger()['runtime_before']}
+ assert set(old)==set(proof['mapping']) and len(old)==1
+ result=copy.deepcopy(rows);seen=set()
+ for index,row in enumerate(result):
+  destination=row['destination']
+  if destination not in old:continue
+  selected=proof['mapping'][destination];raw=(root/selected['source_path']).read_bytes()
+  expected=dict(old[destination],source_path=selected['source_path'],sha256=sha(raw),bytes=len(raw),git_blob=hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest(),revision='current-single-source-mint27')
+  assert row==expected,('unapproved current MINT27 runtime row',destination)
+  assert destination not in seen;seen.add(destination);result[index]=old[destination]
+ assert seen==set(old),'missing current MINT27 runtime row'
+ return result
+
 CURRENT_NEWSHF_HEADER='src/current_newshf_hd_assets.h'
 CURRENT_NEWSHF_LEDGER_SHA='2ef518ee9adc0e6d1feff204b98325ad74bdf9cffaf5e5991c9dbf73c1bec83e'
 def current_newshf_ledger():
@@ -74,6 +141,7 @@ def current_newshf_ledger():
  return json.loads(raw)
 
 def project_current_newshf_source(name,raw):
+ raw=project_current_mint27_source(name,raw)
  pin=current_newshf_ledger()['files'].get(name)
  if pin is None:return raw
  assert sha(raw)==pin['current_sha256'],('unapproved current NEWSHF compositor module',name)
@@ -102,7 +170,7 @@ def verified_current_newshf(root=ROOT):
  return dict(assets=assets,paths=names-{c.MAPPING},mapping=mapping,header_sha256=sha(c.read(root,c.HEADER)))
 
 def before_current_newshf_inventory(inventory,root=ROOT):
- result=dict(inventory)
+ result=before_current_mint27_inventory(inventory,root)
  assert result.pop(CURRENT_NEWSHF_HEADER)==verified_current_newshf(root)['header_sha256']
  for name in current_newshf_ledger()['files']:
   raw=(root/name).read_bytes()
@@ -114,9 +182,10 @@ def newshf_runtime_input_paths(root=ROOT):
  scripts=str(ROOT/'scripts')
  if scripts not in sys.path:sys.path.insert(0,scripts)
  import current_newshf_compatibility as c
- return c.input_paths(root)|{c.MAPPING,c.HEADER}|set(current_newshf_ledger()['files'])
+ return c.input_paths(root)|{c.MAPPING,c.HEADER}|set(current_newshf_ledger()['files'])|mint27_runtime_input_paths(root)
 
 def before_current_newshf_runtime(rows,root=ROOT):
+ rows=before_current_mint27_runtime(rows,root)
  assert isinstance(rows,list) and len(rows)==1029,'unexpected NEWSHF runtime scope / destination scope'
  assert len({row['destination'] for row in rows})==1029,'duplicate NEWSHF runtime destination scope'
  proof=verified_current_newshf(root)
@@ -177,9 +246,9 @@ def before_current_guided_inventory(inventory,root=ROOT):
  result=before_current_newshf_inventory(inventory,root)
  assert result.pop(CURRENT_GUIDED_HEADER)==verified_current_guided(root)['header_sha256']
  for name in current_guided_ledger()['files']:
-  raw=(root/name).read_bytes()
+  raw=project_current_newshf_source(name,(root/name).read_bytes())
   assert result.get(name)==sha(raw),('unapproved current Guided inventory',name)
-  result[name]=sha(project_current_guided_source(name,raw))
+  result[name]=sha(project_current_guided_source(name,(root/name).read_bytes()))
  return result
 
 def before_current_guided_runtime(rows,root=ROOT):
@@ -365,6 +434,7 @@ def before_current_protron_runtime(rows,root=ROOT):
 
 def project_source(label,name,raw):
  # Newest first; generated payload values never relax executable source bytes.
+ if label=='current-mint27':return project_current_mint27_source(name,raw)
  if label=='current-newshf':return project_current_newshf_source(name,raw)
  if label=='current-guided':return project_current_guided_source(name,raw)
  if label=='current-sonic':return project_current_sonic_source(name,raw)
@@ -629,6 +699,7 @@ def verified_sidekick_current(root=ROOT):
  expected_sources.update(verified_enemy_probe_sources(root))
  expected_sources[PROTRON_HEADER]=verified_protron_current(root)['header_sha256']
  expected_sources[CURRENT_PROTRON_HEADER]=verified_current_protron(root)['header_sha256']
+ expected_sources[CURRENT_MINT27_HEADER]=verified_current_mint27(root)['header_sha256']
  expected_sources[CURRENT_NEWSHF_HEADER]=verified_current_newshf(root)['header_sha256']
  expected_sources[CURRENT_GUIDED_HEADER]=verified_current_guided(root)['header_sha256']
  expected_sources[CURRENT_SONIC_HEADER]=verified_current_sonic(root)['header_sha256']
@@ -1072,6 +1143,8 @@ Retired paths are explicitly absent, never a prefix/wildcard exclusion.
 
 def project_p9_inventory(current,root=ROOT):
  current=copy.deepcopy(current)
+ for name,row in verified_current_mint27(root)['assets'].items():
+  assert current.pop(name)==row,('unverified current Mint27 output',name)
  for name,row in verified_current_newshf(root)['assets'].items():
   assert current.pop(name)==row,('unverified current NEWSHF output',name)
  for name,row in verified_current_guided(root)['assets'].items():
@@ -1146,8 +1219,9 @@ def validate_current_sources(root=ROOT):
  reuse=verified_enemy_reuse_sources(root)
  observe=verified_enemy_observe_sources(root)
  probe=verified_enemy_probe_sources(root)
- assert set(actual)==set(expected)|{PLASMA_HEADER,FRONT_MULTI_HEADER,ORB_HEADER,NEWSHF_HEADER,PROTRON_HEADER,CURRENT_PROTRON_HEADER,CURRENT_SONIC_HEADER,CURRENT_GUIDED_HEADER,CURRENT_NEWSHF_HEADER}|set(added)|set(compositor)|set(reuse)|set(observe)|set(probe),'unapproved current source paths'
+ assert set(actual)==set(expected)|{PLASMA_HEADER,FRONT_MULTI_HEADER,ORB_HEADER,NEWSHF_HEADER,PROTRON_HEADER,CURRENT_PROTRON_HEADER,CURRENT_SONIC_HEADER,CURRENT_GUIDED_HEADER,CURRENT_NEWSHF_HEADER,CURRENT_MINT27_HEADER}|set(added)|set(compositor)|set(reuse)|set(observe)|set(probe),'unapproved current source paths'
  projected=dict(actual)
+ assert projected.pop(CURRENT_MINT27_HEADER)==verified_current_mint27(root)['header_sha256']
  assert projected.pop(CURRENT_NEWSHF_HEADER)==verified_current_newshf(root)['header_sha256']
  assert projected.pop(CURRENT_GUIDED_HEADER)==verified_current_guided(root)['header_sha256']
  assert projected.pop(CURRENT_SONIC_HEADER)==verified_current_sonic(root)['header_sha256']

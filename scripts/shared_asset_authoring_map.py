@@ -46,7 +46,7 @@ def current_records(root):
         configs.append((family, policy['selection'], policy['mapping'], selected,
                         'scripts/build_current_art.py --family ' + family))
     for family in ('craft267', 'tank-shell', 'enemy-energy', 'sidekick-body',
-                   'plasma-projectile', 'front-multi', 'enemy-orb', 'protron', 'sonic', 'guided'):
+                   'plasma-projectile', 'front-multi', 'enemy-orb', 'protron', 'sonic', 'guided', 'mint27'):
         module = importlib.import_module('current_' + family.replace('-', '_') + '_compatibility')
         builder = module if hasattr(module, 'selection') else importlib.import_module('build_current_' + family.replace('-', '_'))
         selected = builder.selection(root, read(root, module.SELECTION))
@@ -131,6 +131,13 @@ def current_records(root):
                         raise ValueError('Missing declared P04 current-source consumer')
                     consumers.append(dict(path=evidence, role=146, material_identity=identity,
                                           scope='finite default-off P04 lane only', evidence=evidence))
+            if family == 'mint27':
+                evidence = 'src/render_mirror.c'
+                if b'CURRENT_MINT27_80027_D8_PAYLOAD_FNV' not in read(root, evidence):
+                    raise ValueError('Missing declared Mint27 current shadow consumer')
+                consumers.append(dict(path=evidence, role=8, material_identity=identity,
+                                      scope='existing player/sidekick projectile shadow only', evidence=evidence))
+                notes.append('One independent Mint27 projectile master shared by existing player/sidekick projectile and shadow consumers; not the bank9 Mint body. No eligibility, source coverage or level-usage expansion.')
             if family == 'front-multi':
                 notes.append('Eight independent inputs. Historical rear 1310182/1310183 do NOT follow current Front 163/164 edits.')
             if family == 'enemy-orb':

@@ -51,8 +51,9 @@ REGISTRY_AUTHORITY_SHA256='21d0b78355542b5315df82a515f3e341a3070508bdfc414f632b1
 # Current Sonic payload-only extraction: tests/current_sonic_source_projection.json.
 # Current Guided two-pin extraction: tests/current_guided_source_projection.json.
 # Current NEWSHF generated-header include only: tests/current_newshf_source_projection.json.
+# Current Mint27 payload-only extraction: tests/current_mint27_source_projection.json.
 # Prior source authority 8ba6fed3c0c0a74b2388d5b54d9b7d9edb051690cdcb94c30626ac5cd7b758fe remains historical only.
-GAMEPLAY_SOURCE_SHA256='af85d71b05105cf3153bb6bd542dc6832b7059b536d9459839b2f6ba9477dac1'
+GAMEPLAY_SOURCE_SHA256='c7ee2f9abc585391159ac40910c3a7417ac1e08422dc6aca1f7521f2f5c59e6f'
 BUILD_INPUT_SHA256='dcc93711da1cb8eb764582d33f81b80c8474a0009271b682ed235548314a3800'
 
 def sha(data):return hashlib.sha256(data).hexdigest()
@@ -98,7 +99,7 @@ def verify_authority(root,registry,family='pulse'):
             for key in ('path','sha256','payload_fnv64','provenance'):row.pop(key,None)
     if source_manifest_digest(fixed)!=REGISTRY_AUTHORITY_SHA256:
         raise ValueError('Registry role/source authority or unrelated resource changed')
-    sources=source_inventory(root);sources.pop(HEADER,None);sources.pop(LEGACY_HEADER,None);sources.pop('src/current_hud_payload_pins.h',None);sources.pop('src/current_tank_shell_payload_pins.h',None);sources.pop('src/current_enemy_energy_payload_pins.h',None);sources.pop('src/current_sidekick_body_payload_pins.h',None);sources.pop('src/current_plasma_projectile_payload_pins.h',None);sources.pop('src/hd_front_multi_current.h',None);sources.pop('src/current_enemy_orb_payload_pins.h',None);sources.pop('src/newshf_hd_assets.h',None);sources.pop('src/current_enemy_protron_payload_pins.h',None);sources.pop('src/current_protron_payload_pins.h',None);sources.pop('src/current_sonic_payload_pins.h',None);sources.pop('src/current_guided_payload_pins.h',None);sources.pop('src/current_newshf_hd_assets.h',None)
+    sources=source_inventory(root);sources.pop(HEADER,None);sources.pop(LEGACY_HEADER,None);sources.pop('src/current_hud_payload_pins.h',None);sources.pop('src/current_tank_shell_payload_pins.h',None);sources.pop('src/current_enemy_energy_payload_pins.h',None);sources.pop('src/current_sidekick_body_payload_pins.h',None);sources.pop('src/current_plasma_projectile_payload_pins.h',None);sources.pop('src/hd_front_multi_current.h',None);sources.pop('src/current_enemy_orb_payload_pins.h',None);sources.pop('src/newshf_hd_assets.h',None);sources.pop('src/current_enemy_protron_payload_pins.h',None);sources.pop('src/current_protron_payload_pins.h',None);sources.pop('src/current_sonic_payload_pins.h',None);sources.pop('src/current_guided_payload_pins.h',None);sources.pop('src/current_newshf_hd_assets.h',None);sources.pop('src/current_mint27_payload_pins.h',None)
     if source_manifest_digest(sources)!=GAMEPLAY_SOURCE_SHA256:
         raise ValueError('Unrelated gameplay source changed')
     inputs={p:sha(read(root,p)) for p in BUILD_INPUTS}
@@ -111,6 +112,10 @@ def verify_authority(root,registry,family='pulse'):
     if family != 'sonic':
         from current_sonic_compatibility import load as sonic_load
         sonic_load(root)
+
+    if family != 'mint27':
+        from current_mint27_compatibility import load as mint27_load
+        mint27_load(root)
 
     if family != 'guided':
         from current_guided_compatibility import load as guided_load

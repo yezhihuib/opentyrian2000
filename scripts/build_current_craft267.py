@@ -311,7 +311,14 @@ def current_overlays(root):
         {'assets/gameplay/' + guided.name(identity, density): blob
          for (identity, density), blob in blobs.items()})
     if len(files) != 182:
-        raise ValueError('Expected exactly 182 current gameplay overlays')
+        raise ValueError('Expected exactly 182 pre-Mint27 gameplay overlays')
+    import current_mint27_compatibility as mint27
+    selected, _, blobs = mint27.generate(root, read(root, mint27.SELECTION))
+    add(mint27.MAPPING, mint27.SELECTION, selected, mint27.load(root),
+        {'assets/gameplay/' + mint27.name(identity, density): blob
+         for (identity, density), blob in blobs.items()})
+    if len(files) != 183:
+        raise ValueError('Expected exactly 183 current gameplay overlays')
     return files
 
 

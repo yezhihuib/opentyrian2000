@@ -40,7 +40,7 @@ class NormalObserverSurfaceBinding(unittest.TestCase):
   for name in names:self.assertEqual((a.ROOT/name).read_bytes(),original(name))
   changed=history.changed(BASE, a.ROOT)
   changed.update(subprocess.check_output(['git','ls-files','--others','--exclude-standard','--','assets','authoring-inputs'],cwd=a.ROOT).decode().splitlines())
-  self.assertEqual(changed,a.verified_current_sonic()['paths'] | a.verified_current_guided()['paths']|a.verified_current_newshf()['paths'])
+  self.assertEqual(changed,a.verified_current_sonic()['paths'] | a.verified_current_guided()['paths']|a.verified_current_newshf()['paths']|a.verified_current_mint27()['paths'])
  def test_exact_binding_and_runtime_delta(self):
   import sys
   sys.path.insert(0,str(a.ROOT/'scripts'))

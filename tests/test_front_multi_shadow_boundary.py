@@ -46,6 +46,22 @@ class FrontMultiShadowBoundary(unittest.TestCase):
     def setUpClass(cls):
         cls.source = (ROOT / 'src/render_mirror.c').read_text()
         cls.header = (ROOT / 'src/hd_front_multi_current.h').read_text()
+        # The historical parser remains frozen. Resolve only the new Mint27
+        # token after deriving its current payload/header, then run all old
+        # 45-row and independent Front oracles unchanged.
+        history.verified_current_mint27(ROOT)
+        import current_mint27_compatibility as mint27
+        header=(ROOT/mint27.HEADER).read_text()
+        entries=re.findall(r'^#define (CURRENT_MINT27_\w+_PAYLOAD_FNV) (UINT64_C\(0x[0-9a-f]{16}\))$',header,re.M)
+        assert len(entries)==1 and entries[0][0]=='CURRENT_MINT27_80027_D8_PAYLOAD_FNV'
+        token,value=entries[0];original=shadow.resolve_current_payload_pins
+        def resolve(source,*args,**kwargs):
+            tokens=set(re.findall(r'\bCURRENT_MINT27_\w+_PAYLOAD_FNV\b',source))
+            assert tokens <= {token},'Unknown Mint27 shadow payload token'
+            source=re.sub(r'\b'+token+r'\b',value,source)
+            return original(source,*args,**kwargs)
+        adapter=patch.object(shadow,'resolve_current_payload_pins',side_effect=resolve)
+        adapter.start();cls.addClassCleanup(adapter.stop)
 
     def test_exact_45_rows_and_independent_eight_source_slot_payload_oracle(self):
         rows = shadow.verify_front_multi_rows(self.source)
@@ -287,7 +303,7 @@ class FrontMultiCurrentGenerationBoundary(unittest.TestCase):
                 binding_path.write_text(json.dumps(binding))
             else:
                 runtime_path.write_text(json.dumps(runtime))
-            reason = {'header-binding':'production header binding', 'renderer-binding':'renderer binding',
+            reason = {'header-binding':'production header binding', 'renderer-binding':'unapproved current MINT27 inventory',
                       'source-digest':'source manifest digest', 'runtime-header':'runtime source binding',
                       'runtime-source':'runtime source digest', 'runtime-count':'destination scope'}[case]
             with self.subTest(case=case), self.assertRaisesRegex(AssertionError, reason):

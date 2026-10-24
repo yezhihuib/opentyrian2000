@@ -35,6 +35,8 @@ def dependencies(root, selected):
     names |= {SELECTION, compat.MAPPING} | compat.generated_paths()
     from build_newshf_hd import input_paths as legacy_newshf_paths
     names |= legacy_newshf_paths(root)
+    from current_mint27_compatibility import input_paths as mint27_input_paths, MAPPING as MINT27_MAPPING
+    names |= mint27_input_paths(root) | {MINT27_MAPPING}
     from current_guided_compatibility import input_paths as guided_paths, MAPPING as GUIDED_MAPPING
     names |= guided_paths(root) | {GUIDED_MAPPING}
     from current_enemy_orb_compatibility import input_paths as orb_input_paths, MAPPING as ORB_MAPPING
