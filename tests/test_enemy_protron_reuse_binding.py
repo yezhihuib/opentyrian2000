@@ -19,6 +19,9 @@ def check_additive_assets_and_runtime(base=BASE):
  # commit, with exact names. Every other historical asset remains byte-identical.
  changed=set(subprocess.check_output(['git','diff','--name-only',base,'--','assets','authoring-inputs'],cwd=a.ROOT).decode().splitlines())
  changed.update(subprocess.check_output(['git','ls-files','--others','--exclude-standard','--','assets','authoring-inputs'],cwd=a.ROOT).decode().splitlines())
+ sonic_proof=a.verified_current_sonic()
+ assert sonic_proof['paths']<=changed
+ changed-=sonic_proof['paths']
  current_proof=a.verified_current_protron()
  assert current_proof['paths']<=changed
  changed-=current_proof['paths']
@@ -57,7 +60,7 @@ class EnemyProtronReuseBinding(unittest.TestCase):
   sys.path.insert(0,str(a.ROOT/'scripts'))
   from verify_current_production import verify
   binding=json.loads((a.ROOT/'packaging/current-production-validation.json').read_bytes())
-  self.assertEqual(verify(a.ROOT,binding)-len(a.verified_enemy_probe_sources())-1,265)
+  self.assertEqual(verify(a.ROOT,binding)-len(a.verified_enemy_probe_sources())-2,265)
   binding=dict(binding,source_sha256=a.before_controlled_probe_inventory(binding['source_sha256']))
   old=json.loads(original('packaging/current-production-validation.json'))
   self.assertEqual(set(binding['source_sha256'])-set(old['source_sha256']),{a.PROTRON_HEADER}|set(a.verified_enemy_observe_sources()))

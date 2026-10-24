@@ -89,6 +89,21 @@ class AuthoringMapTests(unittest.TestCase):
                                 and c['evidence'] == 'src/enemy_reuse_mirror.inc'
                                 for c in by_id[identity]['declared_consumers']))
 
+    def test_sonic_two_current_masters_four_mirror_contracts(self):
+        rows = self.rows_for({80105,80106,80124,80125})
+        self.assertEqual(len(rows),4)
+        by_id = {r['identity']:r for r in rows}
+        for first, mirrored in ((80105,80106),(80124,80125)):
+            self.assertEqual(by_id[first]['editable_inputs'],by_id[mirrored]['editable_inputs'])
+            self.assertEqual(by_id[first]['editable_inputs'],[f'authoring-inputs/sonic-current/master-{first-80000}.png'])
+        self.assertNotEqual(by_id[80105]['editable_inputs'],by_id[80124]['editable_inputs'])
+        for row in rows:
+            self.assertEqual(row['status'],'current-editable')
+            self.assertEqual(row['role'],8)
+            self.assertTrue(any(c['role']==146 for c in row['declared_consumers']))
+            self.assertFalse(any(c['evidence']=='packaging/runtime-assets-v1.json' for c in row['declared_consumers']))
+            self.assertTrue(any('formal runtime package does not include' in n for n in row['notes']))
+
     def test_p05_reuses_current_green_with_distinct_draw_role(self):
         rows = self.rows_for({80214,80215,80216})
         self.assertEqual(len(rows), 3)

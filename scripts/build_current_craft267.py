@@ -297,7 +297,14 @@ def current_overlays(root):
         {'assets/gameplay/' + protron.name(identity, density): blob
          for (identity, density), blob in blobs.items() if identity in (80225, 80244, 80226)})
     if len(files) != 174:
-        raise ValueError('Expected exactly 174 current gameplay overlays')
+        raise ValueError('Expected exactly 174 pre-Sonic gameplay overlays')
+    import current_sonic_compatibility as sonic
+    selected, _, blobs = sonic.generate(root, read(root, sonic.SELECTION))
+    add(sonic.MAPPING, sonic.SELECTION, selected, sonic.load(root),
+        {'assets/gameplay/' + sonic.name(identity, density): blob
+         for (identity, density), blob in blobs.items()})
+    if len(files) != 178:
+        raise ValueError('Expected exactly 178 current gameplay overlays')
     return files
 
 

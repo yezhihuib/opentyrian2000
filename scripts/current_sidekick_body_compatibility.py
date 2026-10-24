@@ -409,4 +409,5 @@ def independent_input_paths(root):
     from build_enemy_protron_p09 import DIRECTORY as P09, MASTER as P09_MASTER
     from current_protron_compatibility import input_paths as protron_input_paths, MAPPING as PROTRON_MAPPING
     p09={P09_MASTER}|{P09+'/'+n for n in ('identity.json','recipe.json','source227.png','enemy-protron-p09-227-8.hda')}
-    return protron_input_paths(root)|{PROTRON_MAPPING}|p09|newshf_input_paths(root)|charge_input_paths(root)|mf_input_paths(root)|plasma_input_paths(root)|front_multi_input_paths(root)|orb_input_paths(root)|{CHARGE_MAPPING,MF_MAPPING,PLASMA_MAPPING,FRONT_MULTI_MAPPING,ORB_MAPPING}
+    from current_sonic_compatibility import input_paths as sonic_input_paths, MAPPING as SONIC_MAPPING
+    return sonic_input_paths(root)|{SONIC_MAPPING}|protron_input_paths(root)|{PROTRON_MAPPING}|p09|newshf_input_paths(root)|charge_input_paths(root)|mf_input_paths(root)|plasma_input_paths(root)|front_multi_input_paths(root)|orb_input_paths(root)|{CHARGE_MAPPING,MF_MAPPING,PLASMA_MAPPING,FRONT_MULTI_MAPPING,ORB_MAPPING}

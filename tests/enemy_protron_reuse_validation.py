@@ -2,7 +2,7 @@
 """Native production-object enemy reuse renderer test; not game-loop acceptance.
 Private original data is verified then transferred on stdin, never persisted.
 """
-import argparse, hashlib, json, os, re, resource, shutil, struct, subprocess
+import argparse, hashlib, json, os, re, resource, shutil, struct, subprocess, sys
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 SHA=lambda b:hashlib.sha256(b).hexdigest()
@@ -14,6 +14,7 @@ def main():
  p=argparse.ArgumentParser(description=__doc__)
  for key in ('original-data','sysroot','base-build','assets','out'):p.add_argument('--'+key,type=Path,required=True)
  p.add_argument('--negative-control',choices=('rgb-store','swapped-mapping'))
+ p.add_argument('--current-sonic-art',action='store_true',help='Validate four Sonic inputs by current two-master derivation; other frozen families stay pinned')
  p.add_argument('--observe-session',action='store_true',help='Run independent non-probe session matrix after the unchanged native regression matrix')
  p.add_argument('--min-free-mib',type=int,default=5120,help='Explicit bounded-run disk reserve; minimum 512 MiB')
  p.add_argument('--controlled-session',action='store_true',help='Exact private contract fixture and output-phase owner tests; not original-event acceptance')
@@ -91,6 +92,15 @@ def main():
   preceding=[v for v in events[:ordinal] if v[1]==5][-1];assert [preceding[2],preceding[3],preceding[4],preceding[7]]==[3,6,15,8],preceding
  fixture=a.out/'fixture';fixture.mkdir(exist_ok=True)
  pins=dict(zip(FRAMES[:9],HDA_SHA));pins.update({226:'231a78b2ebc6a2410da297d05703b4c548f38926e7bd6e6b28c4fe6c4fa7071c',244:'901b61b1da6f538d6aac9bbd06a2f7d34e5e9d1e4d9df50c3f3eb01b1cd7b452'})
+ current_sonic = None
+ if a.current_sonic_art:
+  sys.path.insert(0,str(ROOT/'scripts'))
+  import current_sonic_compatibility as sonic
+  sonic.load(ROOT) # includes generated-header and canonical-byte validation
+  selected,_,derived=sonic.generate(ROOT,sonic.read(ROOT,sonic.SELECTION))
+  assert set(derived)=={(80000+i,8) for i in (105,106,124,125)}
+  current_sonic={'selection_sha256':SHA(sonic.read(ROOT,sonic.SELECTION)), 'master_sha256':[r['source_sha256'] for r in selected['masters']]}
+  for (identity,density),blob in derived.items():pins[identity-80000]=SHA(blob)
  for frame in FRAMES:
   source=a.assets/filename(frame);blob=source.read_bytes()
   if frame==227:
@@ -132,6 +142,6 @@ def main():
  if a.negative_control:
   marker=b'draws-n==(p?3:1)' if a.negative_control=='swapped-mapping' else b'*pixel(output,x-24*8,y)==want[(size_t)y*canvas->w+x]'
   accepted=source_stable and r.returncode!=0 and marker in r.stderr and b'AddressSanitizer' not in r.stderr and b'runtime error:' not in r.stderr
- report={'source_stable_during_compile_and_execution':source_stable,'compiled_source_sha256':snapshot,'status':'PASS' if accepted else 'FAIL','observer_resource_cases':resource_results,'observe_session':a.observe_session,'controlled_session':a.controlled_session,'disk_budget_bytes':a.min_free_mib*1024**2,'negative_control':a.negative_control,'returncode':r.returncode,'stdout':r.stdout.decode(),'stderr':r.stderr.decode(),'scope':'Native JE_drawEnemy with controlled firing timers; exact extracted native projectile/explosion update loops; real player shot creation/movement; not gameplay acceptance','native_enemy_loop_sha256':SHA(shot_loop.encode()),'native_explosion_loop_sha256':SHA(explosion_loop.encode()),'sanitizers':'ASan+UBSan renderer/sprite/tyrian2/entity_draw/identity/shots/varz/harness; remaining baseline production objects native optimized','original_bytes_persisted':False,'harness_sha256':{n:SHA((ROOT/'tests'/n).read_bytes()) for n in ('enemy_protron_reuse_validation.c','enemy_protron_reuse_validation.py','enemy_green_reuse_validation.c','enemy_reuse_validation.c')+ (('enemy_controlled_probe_validation.c','enemy_controlled_probe_fixture.inc') if a.controlled_session else ())},'controlled_fixture_bridge_sha256':SHA((ROOT/'tests/enemy_controlled_probe_fixture.inc').read_bytes()) if a.controlled_session else None,'controlled_fixture_translation_unit_sha256':SHA((a.out/'game_probe_contract_fixture.c').read_bytes()) if a.controlled_session else None,'production_source_sha256':{p.name:SHA(p.read_bytes()) for p in sorted((ROOT/'src').iterdir()) if p.is_file()},'reused_baseline_objects':{Path(p).name:SHA(Path(p).read_bytes()) for p in objects if '/obj/' in p},'free_disk_bytes':shutil.disk_usage(a.out).free}
+ report={'current_sonic_art':current_sonic,'source_stable_during_compile_and_execution':source_stable,'compiled_source_sha256':snapshot,'status':'PASS' if accepted else 'FAIL','observer_resource_cases':resource_results,'observe_session':a.observe_session,'controlled_session':a.controlled_session,'disk_budget_bytes':a.min_free_mib*1024**2,'negative_control':a.negative_control,'returncode':r.returncode,'stdout':r.stdout.decode(),'stderr':r.stderr.decode(),'scope':'Native JE_drawEnemy with controlled firing timers; exact extracted native projectile/explosion update loops; real player shot creation/movement; not gameplay acceptance','native_enemy_loop_sha256':SHA(shot_loop.encode()),'native_explosion_loop_sha256':SHA(explosion_loop.encode()),'sanitizers':'ASan+UBSan renderer/sprite/tyrian2/entity_draw/identity/shots/varz/harness; remaining baseline production objects native optimized','original_bytes_persisted':False,'harness_sha256':{n:SHA((ROOT/'tests'/n).read_bytes()) for n in ('enemy_protron_reuse_validation.c','enemy_protron_reuse_validation.py','enemy_green_reuse_validation.c','enemy_reuse_validation.c')+ (('enemy_controlled_probe_validation.c','enemy_controlled_probe_fixture.inc') if a.controlled_session else ())},'controlled_fixture_bridge_sha256':SHA((ROOT/'tests/enemy_controlled_probe_fixture.inc').read_bytes()) if a.controlled_session else None,'controlled_fixture_translation_unit_sha256':SHA((a.out/'game_probe_contract_fixture.c').read_bytes()) if a.controlled_session else None,'production_source_sha256':{p.name:SHA(p.read_bytes()) for p in sorted((ROOT/'src').iterdir()) if p.is_file()},'reused_baseline_objects':{Path(p).name:SHA(Path(p).read_bytes()) for p in objects if '/obj/' in p},'free_disk_bytes':shutil.disk_usage(a.out).free}
  (a.out/'receipt.json').write_text(json.dumps(report,indent=2)+'\n');raise SystemExit(not accepted)
 if __name__=='__main__':main()

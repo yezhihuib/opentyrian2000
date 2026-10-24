@@ -30,6 +30,8 @@ def dependencies(root, selected):
     names = charge_input_paths(root) | mf_input_paths(root) | {CHARGE_MAPPING, MF_MAPPING}
     from build_enemy_protron_p09 import input_paths as p09_input_paths
     names |= p09_input_paths(root)
+    from current_sonic_compatibility import input_paths as sonic_input_paths, MAPPING as SONIC_MAPPING
+    names |= sonic_input_paths(root) | {SONIC_MAPPING}
     # The user edits this one master in place; installed hashes are deliberately
     # stale until apply. Bind its fixed paths without validating old selection.
     names |= {SELECTION, compat.MAPPING} | compat.generated_paths()

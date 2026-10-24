@@ -87,6 +87,10 @@ def main():
         if row['identity'] not in ORDINARY_IDS:continue
         if destination in art_compat:raise ValueError('Enemy orb compatibility collision')
         art_compat[destination]=dict(row,authoring_family='enemy-orb')
+    # The opt-in Sonic quartet is not a formal runtime addition. Its generated
+    # source header still participates in this build and must match its masters.
+    from current_sonic_compatibility import load as sonic_load
+    sonic_load(root)
     from current_protron_compatibility import load as protron_load
     protron_current = protron_load(root)
     private_destination = 'assets/gameplay/enemy-protron-p09-227-8.hda'

@@ -25,6 +25,21 @@ BOOTSTRAP = {
     279: 0xd4ada839dcc2ebb5, 280: 0xca10e502fd370f78,
 }
 
+# Independent reviewed order, including the two current-payload inverses which
+# do not go through _project_source_once. Do not derive this oracle from the
+# implementation under test.
+REVIEWED_SOURCE_INVERSES = (
+    'current-sonic', 'normal-observer-surface', 'current-protron',
+    'enemy-controlled-probe', 'enemy-reuse-observe', 'enemy-proof-dedup',
+    'enemy-protron-reuse', 'enemy-green-reuse', 'enemy-reuse',
+    'newshf-compositor', 'newshf-identity', 'enemy-orb', 'front-multi',
+    'plasma-projectile', 'charge-body', 'render-boundaries', 'storm',
+)
+FRONT_CURRENT_SOURCES = frozenset({
+    'src/render_mirror.c', 'src/enemy_reuse_probe.h',
+    'src/enemy_reuse_probe.inc',
+})
+
 
 class FrontMultiShadowBoundary(unittest.TestCase):
     @classmethod
@@ -120,13 +135,38 @@ class FrontMultiHistoryBoundary(unittest.TestCase):
         for i, macro in zip(BOOTSTRAP, macros): after = after.replace(macro, f'UINT64_C(0x{BOOTSTRAP[i]:016x})')
         self.assertEqual(before, after)
         raw = (ROOT / 'src/render_mirror.c').read_bytes()
+        calls = []
+        def recorded(function, label=None):
+            def invoke(*args, **kwargs):
+                result = function(*args, **kwargs)
+                # Record completed inverses, so nested current-protron records
+                # after its Sonic and normal-observer prerequisites.
+                calls.append(label if label is not None else args[0])
+                return result
+            return invoke
         with patch.object(history.subprocess, 'check_output', side_effect=AssertionError('Git history forbidden')):
-            with patch.object(history, '_project_source_once', wraps=history._project_source_once) as once:
-                history.project_source('storm', 'src/render_mirror.c', raw)
-                self.assertEqual([call.args[0] for call in once.call_args_list], ['front-multi', 'plasma-projectile', 'charge-body', 'render-boundaries', 'storm'])
+            with patch.object(history, '_project_source_once', side_effect=recorded(history._project_source_once)), \
+                 patch.object(history, 'project_current_sonic_source', side_effect=recorded(history.project_current_sonic_source, 'current-sonic')), \
+                 patch.object(history, 'project_current_protron_source', side_effect=recorded(history.project_current_protron_source, 'current-protron')):
+                restored = history.project_source('storm', 'src/render_mirror.c', raw)
+                self.assertEqual(tuple(calls), REVIEWED_SOURCE_INVERSES)
+                self.assertEqual(history.sha(restored),
+                    'c163d61c258454168b3d0c69660b4e41f708841552506a0b704ab674bc367a4a')
+        # The Front hunk offsets belong to the Front-era blob, not today's
+        # renderer. Strip reviewed newer layers before testing partial reverts.
+        front = history.project_source('enemy-orb', 'src/render_mirror.c', raw)
+        self.assertEqual(history.sha(front),
+            '1019185ecff1de969355b60b179d43c7dd3aeb6fded2f84dc2edd40f74d85d1b')
+        self.assertEqual(history.sha(history._project_source_once('front-multi', 'src/render_mirror.c', front)),
+            '3dd046ceb4bb64467e6cfa6272d61c1a97576a836676fc6035081b30c7935961')
         for hunk in pin['hunks']:
-            lines = raw.splitlines(keepends=True); a, b = hunk['after_lines']; lines[a:b] = hunk['before'].encode().splitlines(keepends=True)
-            with self.assertRaises(AssertionError): history.project_source('front-multi', 'src/render_mirror.c', b''.join(lines))
+            lines = front.splitlines(keepends=True); a, b = hunk['after_lines']
+            self.assertEqual(b''.join(lines[a:b]), hunk['after'].encode())
+            lines[a:b] = hunk['before'].encode().splitlines(keepends=True)
+            with self.assertRaises(AssertionError): history._project_source_once('front-multi', 'src/render_mirror.c', b''.join(lines))
+        for changed in (raw + b'\n', raw[:-1]):
+            with self.assertRaises(AssertionError):
+                history.project_source('front-multi', 'src/render_mirror.c', changed)
         for name in ('current-source-inventory.json', 'plasma-projectile-source.json', 'charge-body-source.json', 'p9-assets.json'):
             self.assertEqual(history.sha((history.FIXTURES / name).read_bytes()), history.PINS[name])
         with patch.object(Path, 'read_bytes', return_value=(history.FIXTURES / 'front-multi-source.json').read_bytes() + b' '):
@@ -151,8 +191,9 @@ class FrontMultiCurrentGenerationBoundary(unittest.TestCase):
         cls.temp = tempfile.TemporaryDirectory(prefix='front-multi-projection-')
         cls.root = Path(cls.temp.name)
         paths = compat.input_paths(ROOT) | {compat.MAPPING, compat.HEADER, 'packaging/current-production-validation.json', 'packaging/runtime-assets-v1.json'} | {compat.ROOT + '/' + name for name in history.FRONT_MULTI_NAMES}
+        paths |= FRONT_CURRENT_SOURCES
         cls.baseline = {name: (ROOT / name).read_bytes() for name in paths}
-        if len(cls.baseline) != 21: raise AssertionError('unexpected Front Multi fixture closure')
+        if len(cls.baseline) != 24: raise AssertionError('unexpected Front Multi fixture closure')
 
     @classmethod
     def tearDownClass(cls): cls.temp.cleanup()
@@ -161,7 +202,7 @@ class FrontMultiCurrentGenerationBoundary(unittest.TestCase):
         for name, raw in self.baseline.items():
             path = self.root / name; path.parent.mkdir(parents=True, exist_ok=True); path.write_bytes(raw)
 
-    def test_all_21_inputs_outputs_header_mapping_runtime_and_binding_reject_tampering(self):
+    def test_all_24_inputs_outputs_header_mapping_runtime_and_binding_reject_tampering(self):
         self.assertEqual(len(history.verified_front_multi_current(self.root)['assets']), 9)
         for name, raw in self.baseline.items():
             path = self.root / name
@@ -170,6 +211,16 @@ class FrontMultiCurrentGenerationBoundary(unittest.TestCase):
                 with self.subTest(path=name), self.assertRaises((AssertionError, ValueError, OSError)):
                     history.verified_front_multi_current(self.root)
             finally: path.write_bytes(raw)
+
+    def test_missing_current_source_inputs_are_rejected(self):
+        self.assertEqual(len(history.verified_front_multi_current(self.root)['assets']), 9)
+        for name in sorted(FRONT_CURRENT_SOURCES):
+            path = self.root / name
+            try:
+                path.unlink()
+                with self.subTest(path=name), self.assertRaises((AssertionError, ValueError, OSError)):
+                    history.verified_front_multi_current(self.root)
+            finally: path.write_bytes(self.baseline[name])
 
     def test_coherent_current_edit_changes_payload_without_repinning_history(self):
         import io

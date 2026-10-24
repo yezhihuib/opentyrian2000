@@ -47,8 +47,14 @@ before output. The explicit session now proves that specific output transition:
 both captured surface objects, pixel stores, formats and INDEX8 layouts remain
 locked. Draw-time still requires the original game owner; output permission
 cannot authorize a later draw or resurrect a revoked cached presentation.
-The separate normal-game observer is unchanged. Its real-event output alias
-path remains unverified and may have the same pre-existing limitation.
+The subsequent normal-game observer fix also binds this output transition to
+its own live session generation. Its production output/Present path is covered
+by native SDL software-renderer tests; this does **not** establish that a normal
+UI playthrough has reached each target family. See
+[normal observer validation status](NORMAL_OBSERVER_VALIDATION_STATUS.md).
+The accompanying `ENEMY_CONTROLLED_PROBE_VALIDATION.json` remains the frozen
+receipt for the earlier controlled-session change, including its then-current
+limitations; it is not a rolling status report.
 
 ## Reproduce the verified P09 segments
 

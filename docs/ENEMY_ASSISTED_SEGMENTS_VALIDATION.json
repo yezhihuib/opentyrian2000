@@ -1,0 +1,152 @@
+{
+  "schema": "opentyrian-assisted-segments-validation-v1",
+  "status": "PASS_PAIRED_CAPTURE_VALIDATION",
+  "baseline_commit": "044a8d8c5cd302548f554622efb0b2628a45b85a",
+  "method": "External test-only symmetric survival fixture; not natural gameplay",
+  "production_binary_sha256": "430af5f01aa13cce0ef60c1f89e98df20e41bf4dd6340e6e1767a49a6dc1bf83",
+  "fixture_binary_sha256": "5c1f38e98a846e601196ef6446e01ca5abb10961be540dd6661aa504dea5b120",
+  "only_changed_source": "tyrian2.c",
+  "only_changed_object": [
+    "tyrian2.o"
+  ],
+  "intervention": "if(asset_debug_enabled&&getenv(\"OT_LATE_TERRAIN_INVULNERABLE\")&&player[0].is_alive&&player[0].invulnerable_ticks<2)player[0].invulnerable_ticks=2;",
+  "patch_sha256": "b80cd077025cf82abe45218aea53387a350c9fffb1be209bd63d8a7aebf0126c",
+  "production_files_modified": false,
+  "renderer_guards_modified": false,
+  "formal_runtime_destinations": 1025,
+  "global_registry_entries": 120,
+  "families": {
+    "P02": {
+      "state_rows": 5649,
+      "accepted_role146_draws": 160,
+      "accepted_indices": [
+        "105",
+        "106",
+        "124",
+        "125"
+      ],
+      "positive_present_ticks": 43,
+      "paired_comparisons": {
+        "state.tsv": true,
+        "collisions.tsv": true,
+        "enemy-projectiles.tsv": true,
+        "player-projectiles.tsv": true,
+        "player-shot-emissions.tsv": true,
+        "player-shot-requests.tsv": true,
+        "player-shot-results.tsv": true,
+        "fire-events.tsv": true,
+        "weapon-loadout.tsv": true,
+        "player-shot-draws.tsv": true,
+        "scene-enemies.tsv": true,
+        "scene-hits.tsv": true,
+        "scene-draw-commands.tsv excluding mirrored": true,
+        "draw-commands.tsv excluding mirrored": true,
+        "event clocks excluding wall time": true
+      },
+      "capture_on_sha256": {
+        "asset-debug-window-5546.bmp": "e8375d831185951de5e3345e0a3b642c7950d31a0415b5134a01c90de77b6124",
+        "asset-debug-window-5549.bmp": "e31844a9724048ddbd7aa700ce7cb1e90fce06d7c01d0f354f98b0012babb046",
+        "asset-debug-window-5547.bmp": "f8ca1a6a9ab08fe26306b3a6658e2761c34903b74552caf90fb5bd81f3c1b110",
+        "asset-debug-window-5548.bmp": "53c4419635cae97e2eabb82cfab9acf17e025f81ed2ec30f780b1b7da69f19fd"
+      },
+      "capture_off_sha256": {
+        "asset-debug-window-5546.bmp": "88ffae4f1cfd88bce57fc02edafff089b877619529b378f53736cc79aff3d735",
+        "asset-debug-window-5549.bmp": "3d423922dca6618a7d84e3c00218ccaf0bd7169782ae4b7c806ee0639322078a",
+        "asset-debug-window-5547.bmp": "0c701b65e31f10e75238e9abebf2f3673ca29273cef8b424478a3aee0a130b1f",
+        "asset-debug-window-5548.bmp": "ed1905b56f982a8da1f0744265648ffd1315d4847ebf6ade9fb24d5eeb5d486e"
+      },
+      "assets_file_count": 651
+    },
+    "P04": {
+      "state_rows": 2698,
+      "accepted_role146_draws": 575,
+      "accepted_indices": [
+        "20",
+        "21"
+      ],
+      "positive_present_ticks": 151,
+      "paired_comparisons": {
+        "state.tsv": true,
+        "collisions.tsv": true,
+        "enemy-projectiles.tsv": true,
+        "player-projectiles.tsv": true,
+        "player-shot-emissions.tsv": true,
+        "player-shot-requests.tsv": true,
+        "player-shot-results.tsv": true,
+        "fire-events.tsv": true,
+        "weapon-loadout.tsv": true,
+        "player-shot-draws.tsv": true,
+        "scene-enemies.tsv": true,
+        "scene-hits.tsv": true,
+        "scene-draw-commands.tsv excluding mirrored": true,
+        "draw-commands.tsv excluding mirrored": true,
+        "event clocks excluding wall time": true
+      },
+      "capture_on_sha256": {
+        "asset-debug-window-2600.bmp": "4dda932adb686c876e673696fa5af1f823c9cb61fee424c78df8ee541dea50b3",
+        "asset-debug-window-2603.bmp": "357964a5893db9fff45271c692a3bdd5f25deb191714b08586723f42ff43e7ac",
+        "asset-debug-window-2601.bmp": "e5e03d1c8dd0eaf9b85f228620d6494f5a5651087d2ca8b3f6b0a0f0dd34891b",
+        "asset-debug-window-2602.bmp": "b5df397c498f65160cfb18563e0bccc06e47d77eb19e0643a35643280ddf52e2"
+      },
+      "capture_off_sha256": {
+        "asset-debug-window-2600.bmp": "071dfa3076cf92e085363195b3f45bc8dd1a826238fe2018efc639e42263ef3f",
+        "asset-debug-window-2603.bmp": "b6f5a952849488efd086db31f9f7e08634876ab8a6d1a1d706ff027de3e40136",
+        "asset-debug-window-2601.bmp": "d1813459366b1a8d8f77b72344d633b8754def6775de90d47af3ba3e769760cf",
+        "asset-debug-window-2602.bmp": "496a4e460237d7d47e9216949170c6b388b463e7db0f2e454019d584accc8c4e"
+      },
+      "assets_file_count": 651
+    },
+    "P05": {
+      "state_rows": 5032,
+      "accepted_role146_draws": 216,
+      "accepted_indices": [
+        "214",
+        "215",
+        "216"
+      ],
+      "positive_present_ticks": 84,
+      "paired_comparisons": {
+        "state.tsv": true,
+        "collisions.tsv": true,
+        "enemy-projectiles.tsv": true,
+        "player-projectiles.tsv": true,
+        "player-shot-emissions.tsv": true,
+        "player-shot-requests.tsv": true,
+        "player-shot-results.tsv": true,
+        "fire-events.tsv": true,
+        "weapon-loadout.tsv": true,
+        "player-shot-draws.tsv": true,
+        "scene-enemies.tsv": true,
+        "scene-hits.tsv": true,
+        "scene-draw-commands.tsv excluding mirrored": true,
+        "draw-commands.tsv excluding mirrored": true,
+        "event clocks excluding wall time": true
+      },
+      "capture_on_sha256": {
+        "asset-debug-window-4931.bmp": "430aee870c7adce1622f6e7621df0e2a57341c09d2a19285b79ea61260c68026",
+        "asset-debug-window-4930.bmp": "c0d970f7cb2e69536bf08daf47f0da7c74d80a01fbb14a797ba67649e2243190",
+        "asset-debug-window-4929.bmp": "858fa29cd8b9517f890743aa49ed6519d7736eb2bc350d6e779490f1db5c8a7a",
+        "asset-debug-window-4932.bmp": "0c69345e6108a40b85bd205e117d216f476448ab83de7164b910115f20727df1"
+      },
+      "capture_off_sha256": {
+        "asset-debug-window-4931.bmp": "c7d33fa97dc4bbfbc8aeb8a47465b832a5e56a22586fa60649e7cd0f51d45560",
+        "asset-debug-window-4930.bmp": "9b44caa1560a7d3952ffabba0115dfc5841a8904717e307a5cd377bbbc3c7ee2",
+        "asset-debug-window-4929.bmp": "037b3496834af910b2d954a3792208a2af41df7d431c9495240460c132a9cc9a",
+        "asset-debug-window-4932.bmp": "df8ad1217c279475b603a7fae4751cdd63c3eaaa63d2a26b5fa3c9b7cbc8f903"
+      },
+      "assets_file_count": 647
+    }
+  },
+  "limits": [
+    "Test-only invulnerability changes damage, collision push-back, flashing and downstream causality.",
+    "P02 captured target is partially clipped by the upper viewport edge; full silhouette readability is not accepted.",
+    "No natural playthrough, Windows, physical GPU or full campaign claim."
+  ],
+  "external_receipt_sha256": {
+    "p02-complete-capture-receipt.json": "2085428023a0b29b7f371b32920c5ca4473602ce32af2608bd4c6b546699744e",
+    "p04-complete-capture-receipt.json": "7ab385e8a0810dc3a025afa8737f9c68e3f8b2efe94a06e93aa6c192a2472f76",
+    "p05-capture-receipt.json": "c76e770ab0dc8f4d39d7395083c99971adb0f91a2ad02d9344b1be3d46f2681c",
+    "fixture-build-receipt.json": "9892f558fcf97108945d931c25298397924c4c6d4d7e7f2a4ae0afa4367d7adb",
+    "complete-assets-receipt.json": "4be5bad22f05600f5559bb98780ab6aa96f2a329d43522a910968064a2618081"
+  }
+}

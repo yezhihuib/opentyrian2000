@@ -28,6 +28,6 @@ class EnemyReuseBinding(unittest.TestCase):
   sys.path.insert(0,str(a.ROOT/'scripts'))
   from verify_current_production import verify
   binding=json.loads((a.ROOT/'packaging/current-production-validation.json').read_bytes())
-  self.assertEqual(verify(a.ROOT,binding)-len(a.verified_enemy_probe_sources())-1,265)
+  self.assertEqual(verify(a.ROOT,binding)-len(a.verified_enemy_probe_sources())-2,265)
   self.assertEqual(binding['reviewed_enemy_reuse_changes']['ledger_sha256'],a.PINS['enemy-reuse-source.json'])
 if __name__=='__main__':unittest.main()

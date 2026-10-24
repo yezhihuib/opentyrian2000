@@ -15,6 +15,7 @@
 #include "current_enemy_energy_payload_pins.h"
 #include "current_plasma_projectile_payload_pins.h"
 #include "current_protron_payload_pins.h"
+#include "current_sonic_payload_pins.h"
 #include "hd_front_multi_current.h"
 #include "data_frame.h"
 #include "data_portrait.h"
@@ -486,10 +487,10 @@ static const struct {unsigned int index;int slot;uint64_t source,rgba;int covera
  {244,470,UINT64_C(0x536ebd180af638d6),CURRENT_PROTRON_80244_D8_PAYLOAD_FNV,533,UINT64_C(0xa0f35ce4562bb3a9)},
  {226,471,UINT64_C(0x6f6f9c2a049b7953),CURRENT_PROTRON_80226_D8_PAYLOAD_FNV,534,UINT64_C(0xb5ae06163e59f3f6)},
  /* Four frozen Sonic quadrant heads supply alpha only, at the original origin. */
- {105,563,UINT64_C(0x66cdc314034152a6),UINT64_C(0x067527a0bbe065b5),0,0},
- {106,564,UINT64_C(0xee609a977010a3e0),UINT64_C(0x65843c471236e44d),0,0},
- {124,565,UINT64_C(0x836f9ec6407ea3aa),UINT64_C(0x5c9b2e36bccd2600),0,0},
- {125,566,UINT64_C(0xbad7de0256394e9c),UINT64_C(0x77d4a54100ab76c8),0,0},
+ {105,563,UINT64_C(0x66cdc314034152a6),CURRENT_SONIC_80105_D8_PAYLOAD_FNV,0,0},
+ {106,564,UINT64_C(0xee609a977010a3e0),CURRENT_SONIC_80106_D8_PAYLOAD_FNV,0,0},
+ {124,565,UINT64_C(0x836f9ec6407ea3aa),CURRENT_SONIC_80124_D8_PAYLOAD_FNV,0,0},
+ {125,566,UINT64_C(0xbad7de0256394e9c),CURRENT_SONIC_80125_D8_PAYLOAD_FNV,0,0},
  /* Remaining seventeen Sonic heads and shared player/sidekick Mint27 alpha. */
  {6,546,UINT64_C(0x3dcaa5f888996bce),UINT64_C(0xae046f94e09ccd3b),0,0},
  {44,547,UINT64_C(0x825f39ac9ec84b84),UINT64_C(0x1c67a154f2f39893),0,0},

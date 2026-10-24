@@ -217,6 +217,7 @@ class CurrentProtronTests(unittest.TestCase):
             'current_enemy_orb_compatibility.input_paths',
             'current_front_multi_compatibility.input_paths',
             'current_plasma_projectile_compatibility.input_paths',
+            'current_sonic_compatibility.input_paths',
         )
         with ExitStack() as stack:
             for target in unrelated:stack.enter_context(patch(target,return_value=set()))

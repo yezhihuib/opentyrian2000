@@ -1,0 +1,46 @@
+{
+  "masters": [
+    {
+      "selector": 105,
+      "source_png": "authoring-inputs/sonic-current/master-105.png",
+      "source_sha256": "0d37aff99746c10277a1f23ad3e66f3d5afa158c93cb76902d0d147af9d4acdd"
+    },
+    {
+      "selector": 124,
+      "source_png": "authoring-inputs/sonic-current/master-124.png",
+      "source_sha256": "017d557a616b83fa59fdb124adcb2f8f0d04a7b94e982b107b127974b08c5996"
+    }
+  ],
+  "recipe": {
+    "path": "authoring-inputs/sonic-current/recipe.json",
+    "sha256": "78f4dfe0b7af211d31cd005ef1a699d84cc0e67c2756d7be41820a3633ed893d"
+  },
+  "resources": [
+    {
+      "identity": 80105,
+      "density": 8,
+      "source_png": "authoring-inputs/sonic-current/derived/bullet-105-8.png",
+      "source_sha256": "1abe73161291968a4f466d6a85d6c63b716ef1f91eed7b0172b15822ab73bddb"
+    },
+    {
+      "identity": 80106,
+      "density": 8,
+      "source_png": "authoring-inputs/sonic-current/derived/bullet-106-8.png",
+      "source_sha256": "67304ce80a59f3f044394c251be1c6dc6aad802f86862c0d62468ce33f769571"
+    },
+    {
+      "identity": 80124,
+      "density": 8,
+      "source_png": "authoring-inputs/sonic-current/derived/bullet-124-8.png",
+      "source_sha256": "941ac2453c2fb7b0e7713dbd674d18458e5dff2b4840aa0c76deac456ef0f4a3"
+    },
+    {
+      "identity": 80125,
+      "density": 8,
+      "source_png": "authoring-inputs/sonic-current/derived/bullet-125-8.png",
+      "source_sha256": "7d19bd8bc5f74b7256be2ce5b0cee31431205d811403f332b7b357d008cd8d8e"
+    }
+  ],
+  "schema": "opentyrian-current-sonic-authoring-v1",
+  "version": "sonic-current-bootstrap-v1"
+}

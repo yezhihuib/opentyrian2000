@@ -1,0 +1,43 @@
+{
+  "files": {
+    "src/enemy_reuse_mirror.inc": {
+      "current_sha256": "cf38a5b76a49dfddc416bb6496457c88dcfa913bdd636e536ca64c714c0e8bb9",
+      "hunks": [
+        {
+          "after": " CURRENT_SONIC_80105_D8_PAYLOAD_FNV,CURRENT_SONIC_80106_D8_PAYLOAD_FNV,\n CURRENT_SONIC_80124_D8_PAYLOAD_FNV,CURRENT_SONIC_80125_D8_PAYLOAD_FNV,\n",
+          "after_lines": [
+            7,
+            9
+          ],
+          "before": " UINT64_C(0x067527a0bbe065b5),UINT64_C(0x65843c471236e44d),\n UINT64_C(0x5c9b2e36bccd2600),UINT64_C(0x77d4a54100ab76c8),\n"
+        }
+      ],
+      "previous_sha256": "475b426aad79daae2b43fd6ce5dc001517d11f859b4972537949cf15dc84b54c"
+    },
+    "src/render_mirror.c": {
+      "current_sha256": "1dba5b8ac1b4e7b2c60112e0b1035d10127bed68452c84c4f959eff85835cf57",
+      "hunks": [
+        {
+          "after": "#include \"current_sonic_payload_pins.h\"\n",
+          "after_lines": [
+            17,
+            18
+          ],
+          "before": ""
+        },
+        {
+          "after": " {105,563,UINT64_C(0x66cdc314034152a6),CURRENT_SONIC_80105_D8_PAYLOAD_FNV,0,0},\n {106,564,UINT64_C(0xee609a977010a3e0),CURRENT_SONIC_80106_D8_PAYLOAD_FNV,0,0},\n {124,565,UINT64_C(0x836f9ec6407ea3aa),CURRENT_SONIC_80124_D8_PAYLOAD_FNV,0,0},\n {125,566,UINT64_C(0xbad7de0256394e9c),CURRENT_SONIC_80125_D8_PAYLOAD_FNV,0,0},\n",
+          "after_lines": [
+            489,
+            493
+          ],
+          "before": " {105,563,UINT64_C(0x66cdc314034152a6),UINT64_C(0x067527a0bbe065b5),0,0},\n {106,564,UINT64_C(0xee609a977010a3e0),UINT64_C(0x65843c471236e44d),0,0},\n {124,565,UINT64_C(0x836f9ec6407ea3aa),UINT64_C(0x5c9b2e36bccd2600),0,0},\n {125,566,UINT64_C(0xbad7de0256394e9c),UINT64_C(0x77d4a54100ab76c8),0,0},\n"
+        }
+      ],
+      "previous_sha256": "16f992d218cde576eb9411da31ac23cd09dee10e25913e7cc27c802c2e0e22ae"
+    }
+  },
+  "integration_base": "044a8d8c5cd302548f554622efb0b2628a45b85a",
+  "schema": "current-sonic-source-projection-v1",
+  "scope": "Exact payload-only extraction; old source/geometry/roles/shadow behavior unchanged; generated header independently rederived."
+}

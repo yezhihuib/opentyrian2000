@@ -55,6 +55,31 @@ static bool cash25_surface_ready(SDL_Surface*s,int x,int y){(void)s;(void)x;(voi
 #define data_value_draw(...) (false)
 static Asset *talon_frame(unsigned i){(void)i;assert(0);return NULL;}
 static bool draw_asset(int x,int y,Asset *a,int style,const SDL_Rect *p){assert(a&&a->valid&&!p);draw_calls++;last_x=x;last_y=y;last_style=style;return true;}
+/* Current global families are outside this selected-pack loader suite.
+ * They remain explicitly disabled; entering a selector is a test failure.
+ * Source rejection itself uses the complete extracted production function. */
+static const char global_asset_directory[1]="";
+static const bool shared_hud_frame=false;
+static const char *reject_reason;
+static char all_rejections[512];
+static void vulcan_shadow_clear(void){} /* Shadow path is separately tested. */
+#define asteroid1_talon_blend_begin(...) assert(!asteroid_hd_enabled)
+#define DISABLED_GLOBAL_FAMILY(name) \
+ static const bool global_##name##_frame=false; \
+ static bool global_##name##_is_index(unsigned index) \
+ {(void)index;assert(!"disabled global selector entered");return false;}
+DISABLED_GLOBAL_FAMILY(talon)
+DISABLED_GLOBAL_FAMILY(shield)
+DISABLED_GLOBAL_FAMILY(pulse)
+DISABLED_GLOBAL_FAMILY(hitflare)
+DISABLED_GLOBAL_FAMILY(green)
+DISABLED_GLOBAL_FAMILY(smoke)
+DISABLED_GLOBAL_FAMILY(small_explosion)
+DISABLED_GLOBAL_FAMILY(cash25)
+DISABLED_GLOBAL_FAMILY(rotor)
+DISABLED_GLOBAL_FAMILY(newshf)
+DISABLED_GLOBAL_FAMILY(vulcan)
+#undef DISABLED_GLOBAL_FAMILY
 #include "functions.inc"
 static Uint16 SDL_SwapLE16(Uint16 v){Uint8 b[2];memcpy(b,&v,2);return (Uint16)(b[0]|b[1]<<8);}
 #define asset_debug_effect(...) ((void)0)
@@ -107,6 +132,17 @@ static void mode_and_gates(const char *root){game_probe_assets=root;
  }
  clear_assets();game_probe_density=8;
 }
+/* The current production cache retires a changed source lifetime before a
+ * later clean call may rebuild. Equivalent pixels do not authorize stale
+ * storage. This is distinct from the unchanged wrong-source no-cache cases. */
+static void retire_then_head(unsigned k){
+ Asset *a=&assets[563+k];assert(a->initialized);head(k,false);
+ Asset empty={0};assert(!memcmp(a,&empty,sizeof(empty)));
+ assert(reject_reason&&!strcmp(reject_reason,"legacy-source-changed"));
+ /* Advance this isolated harness to a clean frame, not a same-frame retry. */
+ reject_reason=NULL;all_rejections[0]=0;
+ head(k,true);
+}
 static size_t encode_source(Uint8 *dst,const Uint8 *colors,const Uint8 *mask){size_t n=0;for(unsigned y=0;y<14;y++){unsigned x=0;for(unsigned xx=0;xx<12;xx++)if(mask[y*12+xx]){dst[n++]=(Uint8)(0x10|(xx-x));dst[n++]=colors[y*12+xx];x=xx+1;}dst[n++]=(Uint8)(12-x);}dst[n++]=15;return n;}
 static void source_matrix(Uint8 *normal,size_t ns,Uint8 *christmas,size_t cs,const char *root){size_t cap=(ns>cs?ns:cs)+512;Uint8*allocation=malloc(cap);assert(allocation);game_probe_assets=root;
  for(int density=4;density<=8;density+=4)for(unsigned k=0;k<4;k++)for(int warm=0;warm<2;warm++){
@@ -119,11 +155,11 @@ static void source_matrix(Uint8 *normal,size_t ns,Uint8 *christmas,size_t cs,con
   for(unsigned j=0;j<4;j++)if(j!=k){if(!warm)clear_assets();unsigned q=2*(ids[j]-1);allocation[dir]=allocation[q];allocation[dir+1]=allocation[q+1];reject_no_cache(k);allocation[dir]=a;allocation[dir+1]=b;head(k,true);source_cases++;}
   /* Equal decoded pixels/coverage with different valid RLE must be accepted. */
   Uint8 colors[168]={0},mask[168]={0};assert(decode_tile(spriteSheet8,id,colors,mask,12,0,0));assert(!memcmp(colors,references[0][k],168)&&!memcmp(mask,references[0][k]+168,168));
-  assert(ns<65536);allocation[dir]=(Uint8)ns;allocation[dir+1]=(Uint8)(ns>>8);spriteSheet8.size=ns+encode_source(allocation+ns,colors,mask);head(k,true);
+  assert(ns<65536);allocation[dir]=(Uint8)ns;allocation[dir+1]=(Uint8)(ns>>8);spriteSheet8.size=ns+encode_source(allocation+ns,colors,mask);retire_then_head(k);
   /* Coverage-only mutation writes palette index zero into a former hole. */
   unsigned hole=0;while(hole<168&&mask[hole])hole++;assert(hole<168&&!colors[hole]);mask[hole]=255;if(!warm)clear_assets();spriteSheet8.size=ns+encode_source(allocation+ns,colors,mask);
   Uint8 cc[168]={0},mm[168]={0};assert(decode_tile(spriteSheet8,id,cc,mm,12,0,0)&&!memcmp(colors,cc,168)&&memcmp(mm,references[0][k]+168,168));reject_no_cache(k);source_cases++;
-  memcpy(allocation,normal,ns);spriteSheet8.size=ns;head(k,true);
+  memcpy(allocation,normal,ns);spriteSheet8.size=ns;if(warm)retire_then_head(k);else head(k,true);
   Sprite2_array mismatched=spriteSheet8;mismatched.size--;Asset before[COUNT(assets)];memcpy(before,assets,sizeof(assets));assert(!get_asset(mismatched,id,ENTITY_TILE));unchanged(before);
   Sprite2_array other={.data=normal,.size=ns};assert(!get_asset(other,id,ENTITY_TILE)&&!get_asset(spriteSheet9,id,ENTITY_TILE)&&!get_asset(spriteSheet8,id,ENTITY_QUAD));unchanged(before);
   Sprite2_array save=spriteSheet8;spriteSheet8.data=NULL;reject_no_cache(k);spriteSheet8=save;
@@ -163,7 +199,7 @@ static void wrapper_one(unsigned k,int x,int y,int pitch,bool accepted){Uint8 ac
 }
 static void indexed_matrix(const char *root){const int xy[][2]={{94,73},{0,0},{308,0},{0,-13},{308,-1},{94,187},{0,199},{308,199},{-3,73},{315,73},{94,-14},{94,200}};game_probe_assets=root;
  for(int density=4;density<=8;density+=4)for(unsigned k=0;k<4;k++)for(int pitch=320;pitch<=328;pitch+=8)for(unsigned p=0;p<COUNT(xy);p++)for(int warm=0;warm<2;warm++)for(unsigned bits=0;bits<8;bits++){
-  flags(0);game_probe_density=density;clear_assets();if(warm)head(k,true);flags(bits);wrapper_one(k,xy[p][0],xy[p][1],pitch,!bits);
+  flags(0);game_probe_density=density;clear_assets();if(warm)head(k,true);flags(bits);wrapper_one(k,xy[p][0],xy[p][1],pitch,!bits&&xy[p][0]>=0&&xy[p][0]<=308&&xy[p][1]>=-13&&xy[p][1]<=199);
  }
  flags(0);game_probe_density=8;clear_assets();
 }
@@ -176,7 +212,7 @@ static void resources(const char *root){char path[2048];snprintf(path,sizeof(pat
  assert(feof(f)&&!fclose(f));clear_assets();game_probe_density=8;
 }
 static uint64_t payload_stamp(const Asset *a){uint64_t h=UINT64_C(0xcbf29ce484222325);size_t n=(size_t)a->w*a->h*a->density*a->density*4;for(size_t i=0;i<n;i++){h^=a->rgba[i];h*=UINT64_C(0x100000001b3);}return h;}
-static void bindings_and_coexistence(const char *root){game_probe_assets=root;assert(COUNT(assets)==QUADRANT_SLOT+4);
+static void bindings_and_coexistence(const char *root){game_probe_assets=root;assert(COUNT(assets)==576&&QUADRANT_SLOT==563);
  for(unsigned id=0;id<602;id++){int expected=-1;for(unsigned k=0;k<4;k++)if(ids[k]==id)expected=(int)k;assert(QUADRANT_MEMBER(id)==expected);}assert(QUADRANT_MEMBER(UINT_MAX)==-1);
  uint64_t stamps[COUNT(previous)];clear_assets();for(unsigned i=0;i<COUNT(previous);i++){Asset*a=get_asset(spriteSheet8,previous[i],ENTITY_TILE);assert(a==assets+previous_slots[i]&&a->valid);stamps[i]=payload_stamp(a);}
  Asset before[COUNT(assets)];memcpy(before,assets,sizeof(assets));

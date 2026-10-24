@@ -1,0 +1,62 @@
+{
+  "schema": "current-sonic-authoring-validation-v1",
+  "baseline": "044a8d8c5cd302548f554622efb0b2628a45b85a",
+  "status": "PASS bounded Sonic migration; unrelated inherited Front fixture failures separately documented",
+  "bootstrap": "Four PNG, decoded RGBA and HDA outputs identical to approved frozen artwork. Historical masters, rebuild script and packs unchanged.",
+  "authoring": {
+    "masters": [
+      105,
+      124
+    ],
+    "derived_pairs": [
+      [
+        105,
+        106
+      ],
+      [
+        124,
+        125
+      ]
+    ],
+    "input_paths": 12,
+    "focused_tests": 25,
+    "map_tests": 18,
+    "history_and_binding_tests": 77,
+    "cross_family_full_checks": 7,
+    "real_edit": "Full stage/apply/check for RGB edit105; changes105/106 only. Focused converse124/125 and rollback/stale/tamper checks pass."
+  },
+  "native": {
+    "loader": "optimized + ASan/UBSan; 14 mutants rejected",
+    "shadow": "bootstrap and RGB-edited105: optimized + ASan/UBSan; six mutants rejected each",
+    "alpha": "Bounded alpha x3/4 edit105 witness actual expected pixel; not full stage/apply or visual approval",
+    "enemy_role146": "Bootstrap and edited105 full production objects: 271 setups / 189694609 assertions each",
+    "three_build_modes": "opt-in, default-off and mirror-disabled executables byte-identical to public044"
+  },
+  "package_boundary": {
+    "global_entries": 120,
+    "formal_runtime_destinations": 1025,
+    "preview_total_files": 650,
+    "preview_hda_files": 645,
+    "current_overlay_entries": 178,
+    "preview_atomic_members": [
+      "bullet-20-8.hda",
+      "bullet-21-8.hda",
+      "bullet-105-8.hda",
+      "bullet-106-8.hda",
+      "bullet-124-8.hda",
+      "bullet-125-8.hda"
+    ],
+    "formal_runtime": "Does not include Sonic four; P02/P04 atomic family falls back without all six. No destination expansion."
+  },
+  "known_inherited_tests": {
+    "file": "tests/test_front_multi_shadow_boundary.py",
+    "baseline_reproduction": "public044: five methods, eight failures due to obsolete history chain and missing probe fixture inputs; not repaired in this migration",
+    "distinct_suite": "tests/test_frontend_history_support.py: seven PASS"
+  },
+  "limits": [
+    "No natural campaign, Windows or GPU acceptance claim.",
+    "No remote publication.",
+    "Handled-failure rollback is not power-loss atomicity.",
+    "Compiled payload pins require rebuilding executable after apply."
+  ]
+}

@@ -35,15 +35,17 @@ class NormalObserverSurfaceBinding(unittest.TestCase):
   actual={p.relative_to(a.ROOT).as_posix() for p in a.FIXTURES.iterdir() if p.is_file()}
   self.assertEqual(actual-names,{'tests/fixtures/accepted-later-changes-v1/'+NAME});self.assertFalse(names-actual)
   for name in names:self.assertEqual((a.ROOT/name).read_bytes(),original(name))
+  changed=set()
   for args in [('diff','--name-only',BASE,'--'),('ls-files','--others','--exclude-standard','--')]:
-   self.assertEqual(subprocess.check_output(['git',*args,'assets','authoring-inputs'],cwd=a.ROOT),b'')
+   changed.update(subprocess.check_output(['git',*args,'assets','authoring-inputs'],cwd=a.ROOT).decode().splitlines())
+  self.assertEqual(changed,a.verified_current_sonic()['paths'])
  def test_exact_binding_and_runtime_delta(self):
   import sys
   sys.path.insert(0,str(a.ROOT/'scripts'))
   import build_current_art as b
   from verify_current_production import verify,source_inventory
   binding=json.loads((a.ROOT/b.BINDING).read_bytes());old=json.loads(original(b.BINDING))
-  self.assertEqual(verify(a.ROOT,binding),268)
+  self.assertEqual(verify(a.ROOT,binding),269)
   self.assertEqual(binding['reviewed_normal_observer_surface']['source_ledger_sha256'],a.PINS[NAME])
   self.assertEqual(a.before_normal_observer_inventory(binding['source_sha256']),old['source_sha256'])
   for name in FILES:

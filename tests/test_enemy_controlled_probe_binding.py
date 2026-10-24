@@ -54,7 +54,7 @@ class ControlledProbeBinding(unittest.TestCase):
   changed=set()
   for args in [('diff','--name-only',BASE,'--'),('ls-files','--others','--exclude-standard','--')]:
    changed.update(subprocess.check_output(['git',*args,'assets','authoring-inputs'],cwd=a.ROOT).decode().splitlines())
-  self.assertEqual(changed,proof['paths'])
+  self.assertEqual(changed,proof['paths']|a.verified_current_sonic()['paths'])
  def test_exact_historical_runtime_projection(self):
   previous=json.loads(original('packaging/runtime-assets-v1.json'))['files']
   current=a.before_current_protron_runtime(json.loads((a.ROOT/'packaging/runtime-assets-v1.json').read_bytes())['files'])
@@ -68,7 +68,7 @@ class ControlledProbeBinding(unittest.TestCase):
   import build_current_art as b
   from verify_current_production import verify
   binding=json.loads((a.ROOT/b.BINDING).read_bytes());old=json.loads(original(b.BINDING))
-  self.assertEqual(verify(a.ROOT,binding)-1,267)
+  self.assertEqual(verify(a.ROOT,binding)-2,267)
   self.assertEqual(binding['reviewed_enemy_controlled_probe']['source_ledger_sha256'],a.PINS[NAME])
   self.assertEqual(a.before_controlled_probe_inventory(binding['source_sha256']),old['source_sha256'])
   registry=json.loads((a.ROOT/b.REGISTRY).read_bytes());b.verify_authority(a.ROOT,registry)

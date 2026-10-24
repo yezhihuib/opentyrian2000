@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Bounded extracted-production Sonic-quartet alpha-shadow regression.
 
-Uses original bank8 data and frozen authored HDR1s. Does not launch the game,
+Uses original bank8 data and selected current authored HDR1s. Does not launch the game,
 walk the repository, inspect unrelated source projections, or alter assets.
 """
 import argparse
@@ -13,6 +13,7 @@ import re
 import resource
 import shutil
 import subprocess
+import sys
 import tempfile
 
 import run_sonic_quadrant_tests as base
@@ -32,9 +33,33 @@ FRONT_MULTI_PINS = (
     (279, 530, 0x1edad45847d64c25), (280, 531, 0x0842bfe453e6cb1d),
 )
 FRONT_MULTI_HEADER = 'hd_front_multi_current.h'
+PROTRON_HEADER = 'current_protron_payload_pins.h'
+SONIC_HEADER = 'current_sonic_payload_pins.h'
+PROTRON_PINS = (
+    (225,469,0xcc2d73d8d3e08e9b,532,0x9115d94f761d41b6),
+    (244,470,0x536ebd180af638d6,533,0xa0f35ce4562bb3a9),
+    (226,471,0x6f6f9c2a049b7953,534,0xb5ae06163e59f3f6),
+)
+SONIC_PINS = (
+    (105,563,0x66cdc314034152a6,0,0), (106,564,0xee609a977010a3e0,0,0),
+    (124,565,0x836f9ec6407ea3aa,0,0), (125,566,0xbad7de0256394e9c,0,0),
+)
 
 
-def resolve_current_payload_pins(source, header=None, front_header=None):
+def master_payloads(family, root=ROOT):
+    """Reconstruct selected master pixels; generated pin text is not an oracle."""
+    import importlib
+    if str(root/'scripts') not in sys.path:
+        sys.path.insert(0,str(root/'scripts'))
+    compat=importlib.import_module('current_'+family+'_compatibility')
+    _,_,blobs=compat.generate(root,compat.read(root,compat.SELECTION))
+    expected=compat.payload_header({pair:f'{base.fnv(raw[28:]):016x}' for pair,raw in blobs.items()})
+    assert compat.read(root,compat.HEADER)==expected, family+' generated header differs from selected master derivation'
+    return {identity-80000:base.fnv(raw[28:]) for (identity,density),raw in blobs.items() if identity//10000==8}
+
+
+
+def resolve_current_payload_pins(source, header=None, front_header=None, protron_header=None, sonic_header=None):
     """Expand only declared payload tokens; never silently drop unknown rows."""
     if header is None:
         header = (ROOT / 'src/current_art_payload_pins.h').read_text()
@@ -49,6 +74,17 @@ def resolve_current_payload_pins(source, header=None, front_header=None):
         assert len(entries) == 8 and {name for name, _ in entries} == expected, 'Unknown/missing/duplicate Front Multi generated payload pin'
         pins.update(entries)
     tokens |= front_tokens
+    for family, supplied, filename, identities in (
+            ('PROTRON',protron_header,PROTRON_HEADER,(80225,80244,80226,1470227)),
+            ('SONIC',sonic_header,SONIC_HEADER,(80105,80106,80124,80125))):
+        family_tokens=set(re.findall(r'\bCURRENT_'+family+r'_\w+_PAYLOAD_FNV\b',source))
+        if not family_tokens:
+            continue
+        text=(ROOT/'src'/filename).read_text() if supplied is None else supplied
+        entries=re.findall(r'^#define (CURRENT_'+family+r'_\w+_PAYLOAD_FNV) (UINT64_C\(0x[0-9a-f]{16}\))$',text,re.M)
+        expected={f'CURRENT_{family}_{identity}_D8_PAYLOAD_FNV' for identity in identities}
+        assert len(entries)==4 and {key for key,_ in entries}==expected, 'Unknown/missing/duplicate '+family+' generated payload pin'
+        pins.update(entries);tokens|=family_tokens
     if not tokens <= pins.keys():
         raise AssertionError('Unknown/missing generated shadow payload pin: ' + str(tokens - pins.keys()))
     for name in tokens:
@@ -56,8 +92,8 @@ def resolve_current_payload_pins(source, header=None, front_header=None):
     return source
 
 
-def shadow_pin_rows(source, header=None, front_header=None):
-    source = resolve_current_payload_pins(source, header, front_header)
+def shadow_pin_rows(source, header=None, front_header=None, protron_header=None, sonic_header=None):
+    source = resolve_current_payload_pins(source, header, front_header, protron_header, sonic_header)
     table = re.search(r'vulcan_shadow_pins\[(\d+)\]=\{(.*?)\n\};', source, re.S)
     assert table and table[1] == '45', 'Expected exactly 45 declared shadow rows'
     body = re.sub(r'/\*.*?\*/', '', table[2], flags=re.S)
@@ -94,22 +130,42 @@ def verify_front_multi_rows(source, header=None, front_header=None, payloads=Non
     return rows
 
 
-def compare_previous_shadow_pins(source, prior, count, prior_header=None, prior_front_header=None):
-    current = verify_front_multi_rows(source)
-    previous = shadow_pin_rows(prior, prior_header, prior_front_header)
-    # Current authoring may change these eight payloads, never source stamps,
-    # cache slots, coverage slots, ordering or any other family's shadow pins.
+def verify_master_rows(source):
+    rows=verify_front_multi_rows(source)
+    for family,pins,start in (('protron',PROTRON_PINS,10),('sonic',SONIC_PINS,13)):
+        payloads=master_payloads(family)
+        expected=[f' {{{i},{slot},UINT64_C(0x{stamp:016x}),UINT64_C(0x{payloads[i]:016x}),{coverage},'+
+                  (f'UINT64_C(0x{coverage_stamp:016x})' if coverage else '0')+'}'
+                  for i,slot,stamp,coverage,coverage_stamp in pins]
+        assert rows[start:start+len(pins)]==expected, family+' source/slot/payload/coverage oracle mismatch'
+    return rows
+
+
+def compare_previous_shadow_pins(source, prior, count, prior_header=None, prior_front_header=None,
+                                 prior_protron_header=None, prior_sonic_header=None):
+    current = verify_master_rows(source)
+    previous = shadow_pin_rows(prior, prior_header, prior_front_header, prior_protron_header, prior_sonic_header)
+    # Only independently rederived selected payloads may differ. Every source
+    # stamp, cache slot, coverage slot/pin, ordering and other row stays fixed.
     for offset, (i, slot, stamp) in enumerate(FRONT_MULTI_PINS, 2):
         expected = f' {{{i},{slot},UINT64_C(0x{stamp:016x}),'
         assert previous[offset].startswith(expected) and previous[offset].endswith(',0,0}'), 'Previous Front Multi structural oracle mismatch'
         previous[offset] = current[offset]
-    assert current[:count] == previous[:count], f'Previous {count} shadow pins changed outside selected Front Multi payloads'
+    for pins,start in ((PROTRON_PINS,10),(SONIC_PINS,13)):
+        for offset,(i,slot,stamp,coverage,coverage_stamp) in enumerate(pins,start):
+            prefix=f' {{{i},{slot},UINT64_C(0x{stamp:016x}),'
+            suffix=f',{coverage},'+(f'UINT64_C(0x{coverage_stamp:016x})' if coverage else '0')+'}'
+            assert previous[offset].startswith(prefix) and previous[offset].endswith(suffix), 'Previous master-family structural oracle mismatch'
+            previous[offset]=current[offset]
+    assert current[:count] == previous[:count], f'Previous {count} shadow pins changed outside independently derived current payloads'
     return current
 
 
 def current_head_path(pack, index):
     if index in {i for i, _, _ in FRONT_MULTI_PINS}:
         return ROOT / 'assets/hd/current-compat/front-multi' / f'bullet-{index}-8.hda'
+    if index in (225,244,226):
+        return ROOT / 'assets/hd/current-compat/protron' / f'bullet-{index}-8.hda'
     return pack / f'bullet-{index}-8.hda'
 
 
@@ -131,9 +187,10 @@ def units(out, source):
                 r'typedef struct \{\s*bool live,entered,rear;.*?\} VulcanShadowCall;',
                 r'static Asset assets\[\d+\];', r'enum \{ ASSET_NEWSH2=.*?\};',
                 r'static const struct \{unsigned int index;int slot;uint64_t source,rgba;int coverage_slot;uint64_t coverage_rgba;\} vulcan_shadow_pins\[\d+\]=\{.*?\n\};']
-    (out / 'types.inc').write_text('#include \"current_art_payload_pins.h\"\n#include \"hd_front_multi_current.h\"\n' + '\n'.join(re.search(p, source, re.S).group() for p in patterns))
+    (out / 'types.inc').write_text('#include \"current_art_payload_pins.h\"\n#include \"hd_front_multi_current.h\"\n#include \"current_protron_payload_pins.h\"\n#include \"current_sonic_payload_pins.h\"\n' + '\n'.join(re.search(p, source, re.S).group() for p in patterns))
     (out / 'current_art_payload_pins.h').write_bytes((ROOT / 'src/current_art_payload_pins.h').read_bytes())
-    (out / FRONT_MULTI_HEADER).write_bytes((ROOT / 'src' / FRONT_MULTI_HEADER).read_bytes())
+    for name in (FRONT_MULTI_HEADER,PROTRON_HEADER,SONIC_HEADER):
+        (out/name).write_bytes((ROOT/'src'/name).read_bytes())
     sprite = re.search(r'typedef struct\s*\{\s*size_t size;\s*Uint8 \*data;\s*\}\s*Sprite2_array;', (ROOT / 'src/sprite.h').read_text()).group()
     (out / 'sprite-type.inc').write_text(sprite)
     blitters = {name: base.extract((ROOT / 'src/sprite.c').read_text(), name) for name in ('blit_sprite2', 'blit_sprite2_blend', 'blit_sprite2_darken')}
@@ -143,7 +200,9 @@ def units(out, source):
     prior = subprocess.check_output(['git', '-C', str(ROOT), 'show', 'HEAD:src/render_mirror.c'], text=True)
     prior_header = subprocess.check_output(['git', '-C', str(ROOT), 'show', 'HEAD:src/current_art_payload_pins.h'], text=True)
     prior_front_header = subprocess.check_output(['git', '-C', str(ROOT), 'show', 'HEAD:src/' + FRONT_MULTI_HEADER], text=True) if 'HD_FRONT_MULTI_CURRENT_PAYLOAD_' in prior else None
-    compare_previous_shadow_pins(source, prior, 13, prior_header, prior_front_header)
+    prior_protron_header = subprocess.check_output(['git','-C',str(ROOT),'show','HEAD:src/'+PROTRON_HEADER],text=True) if 'CURRENT_PROTRON_' in prior else None
+    prior_sonic_header = subprocess.check_output(['git','-C',str(ROOT),'show','HEAD:src/'+SONIC_HEADER],text=True) if 'CURRENT_SONIC_' in prior else None
+    compare_previous_shadow_pins(source, prior, 13, prior_header, prior_front_header, prior_protron_header, prior_sonic_header)
     # Classic exclusions must stay byte-for-byte at their established boundary.
     classic = lambda s: [line for line in base.extract(s, 'render_mirror_entity').splitlines() if 'MIRROR_SHADOW' in line and 'return false' in line and any(token in line for token in ('index>=31&&index<=33', 'index>=252&&index<=254', 'index>=214&&index<=217'))]
     assert classic(source) == classic(prior), 'Existing classic shadow exclusion changed'
@@ -216,7 +275,7 @@ def mutants(out, source, paths, full, variants, loader_mode=True):
         for before, after in edits:
             assert before != after and text.count(before) == 1, label
             text = text.replace(before, after, 1)
-        for name in ('types.inc', 'sprite-type.inc', 'blitters.inc', 'wrappers.inc', 'reference.bin', 'current_art_payload_pins.h', FRONT_MULTI_HEADER):
+        for name in ('types.inc', 'sprite-type.inc', 'blitters.inc', 'wrappers.inc', 'reference.bin', 'current_art_payload_pins.h', FRONT_MULTI_HEADER, PROTRON_HEADER, SONIC_HEADER):
             shutil.copyfile(out / name, folder / name)
         (folder / 'functions.inc').write_text(text)
         results[label] = build_run(folder, paths, full, variants, expect_failure=True)
@@ -232,11 +291,15 @@ def main():
     p.add_argument('--art', type=Path, default=ROOT / 'assets/hd/artwork/player-sonic-quadrants-v1/output')
     p.add_argument('--sanitize', action='store_true')
     p.add_argument('--mutants', action='store_true')
+    p.add_argument('--min-free-mib',type=int,default=None,help='Explicit disk reserve, minimum 512 MiB; default retains 5 GB reserve')
     args = p.parse_args()
+    if args.min_free_mib is not None and args.min_free_mib<512:p.error('--min-free-mib must be at least 512')
+    reserve=5_000_000_000 if args.min_free_mib is None else args.min_free_mib*1024*1024
     out = args.out.resolve() if args.out else Path(tempfile.mkdtemp(prefix='sonic-quartet-shadow-'))
     assert ROOT not in out.parents and out != ROOT
     if args.out: out.mkdir(parents=True, exist_ok=False)
-    assert shutil.disk_usage(out).free >= 5_000_000_000
+    assert shutil.disk_usage(out).free >= reserve, 'Insufficient explicit disk reserve'
+    free_before=shutil.disk_usage(out).free
     source = (ROOT / 'src/render_mirror.c').read_text()
     hashes, boundaries = units(out, source)
     path = args.data / 'tyrian.shp' if args.data.is_dir() else args.data
@@ -256,10 +319,11 @@ def main():
     if christmas is not None: (out / 'christmas.bank8').write_bytes(christmas)
     paths = [out / 'normal.bank8', out / 'christmas.bank8' if christmas is not None else '-']
     (out / 'reference.bin').write_bytes(b''.join(base.decode(normal, i) for i in base.IDS))
-    report = {'status': 'PASS', 'authored_art': True, 'source_sha256': source_sha, 'christmas_sha256': christmas_sha,
+    report = {'disk_reserve_bytes':reserve,'disk_free_before_bytes':free_before,'status': 'PASS', 'authored_art': True, 'source_sha256': source_sha, 'christmas_sha256': christmas_sha,
               'production_sha256': hashes, 'unchanged_production_boundaries': boundaries,
-              'previous_thirteen_pins_and_classic_exclusions_unchanged': True,
-              'resource_variants': count, 'frozen_rgba_fnv1a64': {str(i): f'{base.fnv(art[i][28:]):016x}' for i in base.IDS}, 'runs': {}}
+              'previous_thirteen_structure_and_classic_exclusions_unchanged': True,
+              'current_master_payload_headers_independently_rederived': ['protron','sonic'],
+              'resource_variants': count, 'selected_rgba_fnv1a64': {str(i): f'{base.fnv(art[i][28:]):016x}' for i in base.IDS}, 'runs': {}}
     report['runs']['optimized'] = build_run(out, paths, full, variants)
     print('optimized: ' + json.dumps(report['runs']['optimized']), flush=True)
     if args.sanitize:
@@ -269,7 +333,8 @@ def main():
     if args.mutants: report['guard_mutants'] = mutants(out, source, paths, full, variants)
     report['peak_child_rss_kib'] = resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss
     assert report['peak_child_rss_kib'] < 512 * 1024
-    assert shutil.disk_usage(out).free >= 5_000_000_000
+    assert shutil.disk_usage(out).free >= reserve, 'Insufficient explicit disk reserve'
+    report['disk_free_after_bytes']=shutil.disk_usage(out).free
     (out / 'report.json').write_text(json.dumps(report, indent=2) + '\n')
     print('PASS: ' + str(out / 'report.json'), flush=True)
 

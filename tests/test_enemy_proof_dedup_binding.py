@@ -41,13 +41,13 @@ class EnemyProofDedupBinding(unittest.TestCase):
   changed=set()
   for args in [('diff','--name-only',BASE,'--'),('ls-files','--others','--exclude-standard','--')]:
    changed.update(subprocess.check_output(['git',*args,'assets','authoring-inputs'],cwd=a.ROOT).decode().splitlines())
-  self.assertEqual(changed,proof['paths'])
+  self.assertEqual(changed,proof['paths']|a.verified_current_sonic()['paths'])
  def test_current_binding_runtime_and_original_semantics_inventory(self):
   import sys
   sys.path.insert(0,str(a.ROOT/'scripts'))
   from verify_current_production import verify
   binding=json.loads((a.ROOT/'packaging/current-production-validation.json').read_bytes());old=json.loads(original('packaging/current-production-validation.json'))
-  self.assertEqual(verify(a.ROOT,binding)-len(a.verified_enemy_probe_sources())-1,265)
+  self.assertEqual(verify(a.ROOT,binding)-len(a.verified_enemy_probe_sources())-2,265)
   binding=dict(binding,source_sha256=a.before_controlled_probe_inventory(binding['source_sha256']))
   self.assertEqual(set(binding['source_sha256'])-set(a.verified_enemy_observe_sources()),set(old['source_sha256']))
   self.assertEqual({n for n in old['source_sha256'] if old['source_sha256'][n]!=binding['source_sha256'][n]},FILES|set(a.load('enemy-reuse-observe-source.json')['files']))

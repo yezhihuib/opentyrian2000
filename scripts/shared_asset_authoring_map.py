@@ -46,7 +46,7 @@ def current_records(root):
         configs.append((family, policy['selection'], policy['mapping'], selected,
                         'scripts/build_current_art.py --family ' + family))
     for family in ('craft267', 'tank-shell', 'enemy-energy', 'sidekick-body',
-                   'plasma-projectile', 'front-multi', 'enemy-orb', 'protron'):
+                   'plasma-projectile', 'front-multi', 'enemy-orb', 'protron', 'sonic'):
         module = importlib.import_module('current_' + family.replace('-', '_') + '_compatibility')
         builder = module if hasattr(module, 'selection') else importlib.import_module('build_current_' + family.replace('-', '_'))
         selected = builder.selection(root, read(root, module.SELECTION))
@@ -74,7 +74,8 @@ def current_records(root):
             if 'master' in selected:
                 sources = [selected['master']['source_png']]
             elif 'masters' in selected:
-                sources = [r['source_png'] for r in selected['masters'] if r['selector'] == identity % 10000]
+                selector = {106:105,125:124}.get(identity % 10000,identity % 10000) if family == 'sonic' else identity % 10000
+                sources = [r['source_png'] for r in selected['masters'] if r['selector'] == selector]
             else:
                 sources = [row['source_png']]
             outputs = [transport['source_path']]
@@ -113,6 +114,13 @@ def current_records(root):
                     if ('CURRENT_PROTRON_' + str(identity) + '_D8_PAYLOAD_FNV').encode() not in read(root, evidence):
                         raise ValueError('Missing declared P09 current-source consumer')
                     consumers.append(dict(path=evidence, role=146, material_identity=identity, scope='finite default-off P09 lane only', evidence=evidence))
+            if family == 'sonic':
+                evidence = 'src/enemy_reuse_mirror.inc'
+                if ('CURRENT_SONIC_' + str(identity) + '_D8_PAYLOAD_FNV').encode() not in read(root, evidence):
+                    raise ValueError('Missing declared P02 current-source consumer')
+                consumers.append(dict(path=evidence, role=146, material_identity=identity,
+                                      scope='finite default-off P02 lane only', evidence=evidence))
+                notes.append('Two independent masters; each produces a horizontal mirror pair. Current preview/debug only; formal runtime package does not include this quartet. The atomic P02/P04 family needs these four plus 20/21.')
             if family == 'front-multi':
                 notes.append('Eight independent inputs. Historical rear 1310182/1310183 do NOT follow current Front 163/164 edits.')
             if family == 'enemy-orb':

@@ -144,7 +144,7 @@ def production_units(out, source):
     names = ['decode_tile', 'read_asset', 'explosion_asset_slot', 'mint27_source_matches']
     names += re.findall(r'^static (?:int|bool) (sonic_\w+(?:_member|_source_matches))\(', source, re.M)
     assert 'sonic_quadrant_member' in names and 'sonic_quadrant_source_matches' in names
-    names += ['get_asset', 'render_mirror_entity']
+    names += ['get_asset', 'render_mirror_entity', 'render_mirror_unsupported']
     functions = {name: extract(source, name) for name in names}
     (out / 'functions.inc').write_text('\n'.join(value[:value.index('{')].strip() + ';' for value in functions.values()) + '\n' + ''.join(functions.values()))
     patterns = [r'typedef struct \{\s*bool initialized,valid;.*?\} Asset;',
@@ -309,11 +309,15 @@ def main():
     p.add_argument('--synthetic-art', action='store_true')
     p.add_argument('--sanitize', action='store_true')
     p.add_argument('--mutants', action='store_true')
+    p.add_argument('--min-free-mib',type=int,default=None,help='Explicit disk reserve, minimum 512 MiB; default retains 5 GB reserve')
     args = p.parse_args()
+    if args.min_free_mib is not None and args.min_free_mib<512:p.error('--min-free-mib must be at least 512')
+    reserve=5_000_000_000 if args.min_free_mib is None else args.min_free_mib*1024*1024
     out = args.out.resolve() if args.out else Path(tempfile.mkdtemp(prefix='sonic-quadrant-'))
     assert out != ROOT and ROOT not in out.parents, 'Results must remain outside the checkout'
     if args.out: out.mkdir(parents=True, exist_ok=False)
-    assert shutil.disk_usage(out).free >= 5_000_000_000, 'Keep at least 5 GB disk reserve'
+    assert shutil.disk_usage(out).free >= reserve, 'Insufficient explicit disk reserve'
+    free_before=shutil.disk_usage(out).free
     path = args.data / 'tyrian.shp' if args.data.is_dir() else args.data
     normal, normal_sha = bank_from(path)
     christmas_path = path.with_name('tyrianc.shp')
@@ -348,7 +352,10 @@ def main():
     if args.mutants: report['guard_mutants'] = mutants(out, source, bank_paths, full, variants, args.sanitize)
     report['peak_child_rss_kib'] = resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss
     assert report['peak_child_rss_kib'] < 512 * 1024, 'Test/compiler peak resident memory exceeded 512 MiB'
-    assert shutil.disk_usage(out).free >= 5_000_000_000, 'Disk reserve dropped below 5 GB'
+    assert shutil.disk_usage(out).free >= reserve, 'Disk reserve dropped below explicit threshold'
+    report['disk_reserve_bytes']=reserve
+    report['disk_free_before_bytes']=free_before
+    report['disk_free_after_bytes']=shutil.disk_usage(out).free
     (out / 'report.json').write_text(json.dumps(report, indent=2) + '\n')
     print('PASS: ' + str(out / 'report.json'), flush=True)
 

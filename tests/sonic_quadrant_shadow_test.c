@@ -113,6 +113,7 @@ DISABLED_GLOBAL_FAMILY(small_explosion)
 DISABLED_GLOBAL_FAMILY(cash25)
 DISABLED_GLOBAL_FAMILY(rotor)
 DISABLED_GLOBAL_FAMILY(vulcan)
+DISABLED_GLOBAL_FAMILY(newshf)
 #undef DISABLED_GLOBAL_FAMILY
 #include "functions.inc"
 static Uint16 SDL_SwapLE16(Uint16 v){Uint8 b[2];memcpy(b,&v,2);return (Uint16)(b[0]|b[1]<<8);}

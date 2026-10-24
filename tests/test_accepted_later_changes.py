@@ -123,7 +123,7 @@ class ChargeSourceBoundary(unittest.TestCase):
                 self.assertEqual([call.args[0] for call in once.call_args_list],['normal-observer-surface','enemy-controlled-probe','enemy-reuse-observe','enemy-proof-dedup','enemy-protron-reuse','enemy-green-reuse','enemy-reuse','newshf-compositor','newshf-identity','enemy-orb','front-multi','plasma-projectile','charge-body','render-boundaries','storm'])
                 self.assertEqual(projection.sha(old),projection.load('storm-source.json')['files'][name]['previous_sha256'])
         intermediate=projection.project_source('charge-body',name,raw)
-        with self.assertRaisesRegex(AssertionError,'unapproved current Protron source' if name in projection.current_protron_ledger()['files'] else 'not the accepted published current blob'):
+        with self.assertRaisesRegex(AssertionError,'unapproved current Sonic source' if name in projection.current_sonic_ledger()['files'] else ('unapproved current Protron source' if name in projection.current_protron_ledger()['files'] else 'not the accepted published current blob')):
             projection.project_source('charge-body',name,intermediate)
 
     def test_wrong_source_partial_inverse_and_extra_change_rejected(self):
@@ -138,7 +138,7 @@ class ChargeSourceBoundary(unittest.TestCase):
                 lines[a:b]=hunk['before'].encode().splitlines(keepends=True)
                 mutants.append(('partial-inverse-%d'%index,b''.join(lines)))
             for case,mutant in mutants:
-                with self.subTest(path=name,case=case),self.assertRaisesRegex(AssertionError,'unapproved current Protron source' if name in projection.current_protron_ledger()['files'] else 'not the accepted published current blob'):
+                with self.subTest(path=name,case=case),self.assertRaisesRegex(AssertionError,'unapproved current Sonic source' if name in projection.current_sonic_ledger()['files'] else ('unapproved current Protron source' if name in projection.current_protron_ledger()['files'] else 'not the accepted published current blob')):
                     projection.project_source('charge-body',name,mutant)
 
     def test_fixture_pin_hunk_and_result_are_all_fail_closed(self):
@@ -909,7 +909,7 @@ class NewshfIdentityProjectionBoundary(unittest.TestCase):
             raw=(projection.ROOT/name).read_bytes()
             for edit in pin['hunks']:
                 lines=raw.splitlines(keepends=True);a,b=edit['after_lines'];lines[a:b]=edit['before'].encode().splitlines(keepends=True)
-                with self.assertRaisesRegex(AssertionError,'unapproved current Protron source' if name in projection.current_protron_ledger()['files'] else 'not the accepted published current blob'):
+                with self.assertRaisesRegex(AssertionError,'unapproved current Sonic source' if name in projection.current_sonic_ledger()['files'] else ('unapproved current Protron source' if name in projection.current_protron_ledger()['files'] else 'not the accepted published current blob')):
                     projection.project_source('newshf-identity',name,b''.join(lines))
         raw=(projection.FIXTURES/'newshf-identity-source.json').read_bytes()
         with patch.object(Path,'read_bytes',return_value=raw+b' '):
@@ -949,7 +949,7 @@ class NewshfCompositorProjectionBoundary(unittest.TestCase):
             root=Path(directory)
             for name in ('authoring-inputs/enemies/newshf-phase-a','assets/hd/newshf-v1'):
                 shutil.copytree(projection.ROOT/name,root/name)
-            for name in ('src/newshf_hd_assets.h','packaging/runtime-assets-v1.json','packaging/current-production-validation.json'):
+            for name in ('src/newshf_hd_assets.h','src/enemy_reuse_probe.h','src/enemy_reuse_probe.inc','packaging/runtime-assets-v1.json','packaging/current-production-validation.json'):
                 (root/name).parent.mkdir(parents=True,exist_ok=True)
                 shutil.copyfile(projection.ROOT/name,root/name)
             baseline=projection.verified_newshf_current(root)
