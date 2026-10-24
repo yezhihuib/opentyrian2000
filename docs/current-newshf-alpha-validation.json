@@ -1,0 +1,260 @@
+{
+  "algorithm_contract": {
+    "168_soft_alpha": "Excluded; unchanged legacy validation and bytes",
+    "alpha_0_to_127": "Set R,G,B,A to zero",
+    "alpha_128_to_255": "Keep original RGB, set A=255",
+    "cross_call_cache": false,
+    "implementation": "Fresh binary Pillow LUT mask, fresh source copy with mask alpha, binary-mask paste into transparent RGBA output",
+    "input": "Strictly decoded straight RGBA, same existing caller contract",
+    "input_mutation": false
+  },
+  "baseline_commit": "4f7e60b5c9b64356719b207ff66a14ad081bcef6",
+  "benchmark": {
+    "baseline": "4f7e60b5c9b64356719b207ff66a14ad081bcef6",
+    "pillow": "12.3.0",
+    "policy": "No time-based test threshold; interleaved old/new, exact output equality; public scalar function from AST",
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "samples": {
+      "complete_generate": {
+        "exact_equal": true,
+        "median_seconds": {
+          "pillow": 0.151843818002817,
+          "scalar": 0.5564556579993223
+        },
+        "ratio": 3.6646579710541722,
+        "reduction_percent": 72.71232382670787,
+        "seconds": {
+          "pillow": [
+            0.17065541099873371,
+            0.20192088700059685,
+            0.1503785240020079,
+            0.1507300729972485,
+            0.151843818002817,
+            0.142958696000278,
+            0.1628910050021659
+          ],
+          "scalar": [
+            0.5422176070023852,
+            0.5440857299981872,
+            0.538795617998403,
+            0.5836810830005561,
+            0.570819266999024,
+            0.5564556579993223,
+            0.5595514989981893
+          ]
+        }
+      },
+      "complete_load": {
+        "exact_equal": true,
+        "median_seconds": {
+          "pillow": 0.5714158129994757,
+          "scalar": 1.0103909200006456
+        },
+        "ratio": 1.7682235895728922,
+        "reduction_percent": 43.446066102898996,
+        "seconds": {
+          "pillow": [
+            0.5823960300003819,
+            0.5937529719994927,
+            0.5714158129994757,
+            0.6135720890015364,
+            0.5533972410012211,
+            0.5580154000017501,
+            0.5490262290004466
+          ],
+          "scalar": [
+            1.0273438280019036,
+            1.0493002369985334,
+            0.9500026659989089,
+            1.0319189180008834,
+            0.9887397279999277,
+            0.9551007900008699,
+            1.0103909200006456
+          ]
+        }
+      },
+      "complete_project_p9_inventory": {
+        "exact_equal": true,
+        "median_seconds": {
+          "pillow": 20.50169362000088,
+          "scalar": 28.10017076299846
+        },
+        "ratio": 1.370626802050379,
+        "reduction_percent": 27.04067959972346,
+        "seconds": {
+          "pillow": [
+            21.512654370002565,
+            19.17573979399822,
+            20.50169362000088
+          ],
+          "scalar": [
+            30.661720810003317,
+            28.004775353001605,
+            28.10017076299846
+          ]
+        }
+      },
+      "threshold_master_163": {
+        "exact_equal": true,
+        "median_seconds": {
+          "pillow": 0.009568736000801437,
+          "scalar": 0.22477547699963907
+        },
+        "ratio": 23.490613282758854,
+        "reduction_percent": 95.74298044941229,
+        "seconds": {
+          "pillow": [
+            0.009079929997824365,
+            0.009568736000801437,
+            0.009327061998192221,
+            0.009426422999240458,
+            0.01158669500000542,
+            0.011437940996984253,
+            0.012332387999776984
+          ],
+          "scalar": [
+            0.20048230600150418,
+            0.21507501200176193,
+            0.2262947039998835,
+            0.19968256699939957,
+            0.22477547699963907,
+            0.32044620099986787,
+            0.339828143001796
+          ]
+        }
+      },
+      "threshold_master_167": {
+        "exact_equal": true,
+        "median_seconds": {
+          "pillow": 0.008572457998525351,
+          "scalar": 0.19930931199996849
+        },
+        "ratio": 23.249960750376847,
+        "reduction_percent": 95.69891747028522,
+        "seconds": {
+          "pillow": [
+            0.009562437997374218,
+            0.007838753001124132,
+            0.008572457998525351,
+            0.009157210999546805,
+            0.008309484997880645,
+            0.008709806999831926,
+            0.008379060996958287
+          ],
+          "scalar": [
+            0.30992941700242227,
+            0.21552949599936255,
+            0.29789723100111587,
+            0.19930931199996849,
+            0.19210498100073892,
+            0.18854156199813588,
+            0.187945765999757
+          ]
+        }
+      },
+      "verified_current_newshf": {
+        "exact_equal": true,
+        "median_seconds": {
+          "pillow": 0.6040169129992137,
+          "scalar": 1.007131471997127
+        },
+        "ratio": 1.667389522250742,
+        "reduction_percent": 40.026011519483454,
+        "seconds": {
+          "pillow": [
+            0.6277708600027836,
+            0.7421959830026026,
+            0.5801384810001764,
+            0.5731845699992846,
+            0.6040169129992137
+          ],
+          "scalar": [
+            1.0893441719999828,
+            0.9834276479996333,
+            0.9652163219980139,
+            1.0173051399979158,
+            1.007131471997127
+          ]
+        }
+      }
+    }
+  },
+  "benchmark_limits": [
+    "Observed timings on this Linux environment, with possible concurrent test load, not guarantees",
+    "Public scalar threshold extracted directly from exact baseline AST; only threshold replaced inside scoped mocks",
+    "Alternating scalar and Pillow order, exact complete returned output equality every sample; no cache",
+    "No extrapolation from23x pixel-threshold speedup to whole pipeline or full54test duration",
+    "Earlier3420.549-second full aggregate preceded Guided helper optimization; comparing it with2245.973 seconds here is not an isolated alpha-only performance measurement."
+  ],
+  "historical_aggregate": {
+    "all_inputs_unchanged": true,
+    "command": "PYTHONPATH=tests:scripts python3 -m unittest -v test_accepted_later_changes",
+    "exit_code": 0,
+    "frozen_input_count": 847,
+    "log_sha256": "01f38936ada9e8f3be81263cbddc3ab2bf0f3c9ead25cc69a7c5178d491ad5c0",
+    "receipt_sha256": "0c86373ff76c6e4f34a92102c393ecca2f95cd0c397c859139f7b4a27460ff15",
+    "status": "PASS",
+    "tests": 54,
+    "unittest_seconds": 2245.973
+  },
+  "independent_review": {
+    "additional_random_crop_transpose_cases": 240,
+    "non_rgba_decoder_rejections": 4,
+    "receipt_path": "aircraft-alpha-independent-review/receipt.json",
+    "scope": "Reviewer independently tested differential tests and supplemental cases; owner32 regressions not independently rerun",
+    "seconds": 6.815,
+    "sha256": "fd6865348bd1b0749e70d8caa9f06dc7c26c447daeb841943312e1b350c11adf",
+    "tests": 7
+  },
+  "not_rerun": [
+    "Native renderer matrix",
+    "Natural game campaign",
+    "Windows game execution",
+    "Physical GPU"
+  ],
+  "owner_tests": [
+    {
+      "command": "PYTHONPATH=tests:scripts python3 -m unittest -v test_current_newshf_threshold",
+      "coverage": [
+        "Every alpha0..255 with216 RGB edge triples and256 deterministic random triples (120832 pixels)",
+        "Hidden RGB zeroing and exact127/128 alpha boundary",
+        "Random images, repeated input mutation and restoration, no source mutation",
+        "Actual master pixel and encoded PNG equivalence",
+        "Full generation, HDA, nine-row mapping and header equivalence",
+        "Two actual candidate master edits crossing alpha boundaries through Lanczos, encoded PNG and HDA equality against scalar reference; all six output identities changed",
+        "168 soft-alpha exclusion and exact old row preservation"
+      ],
+      "exit_code": 0,
+      "log_sha256": "3a1b41ddf3383a39fd890e9010882b5cbd154553fb167a1e1a965f718d43d244",
+      "seconds": 9.216,
+      "tests": 7
+    },
+    {
+      "command": "PYTHONPATH=tests:scripts python3 -m unittest -v test_current_newshf_authoring test_current_newshf_runtime_package test_current_newshf_integration test_current_newshf_source_projection",
+      "coverage": [
+        "17 authoring validation and stale/tamper/path/rollback tests",
+        "3 complete real edited163/167 runtime packaging and crossfamily checks, all1029 export files",
+        "8 integration tests",
+        "4 exact historical source projection tests"
+      ],
+      "exit_code": 0,
+      "log_sha256": "05a9ff9489e4bd9e729a7726d665b7250d16a5409f049839d37bd337ac9f26d9",
+      "seconds": 129.404,
+      "tests": 32
+    }
+  ],
+  "schema": "opentyrian-current-aircraft-alpha-validation-v1",
+  "scope": "Only binary RGBA alpha threshold implementation for current NEWSHF163/167. No changed source policies, guards, artwork, renderer or historical oracle.",
+  "scope_proof": {
+    "baseline": "4f7e60b5c9b64356719b207ff66a14ad081bcef6",
+    "c_source_art_runtime_manifest_and_ledger_changed": false,
+    "changed_existing_files": [
+      "scripts/current_newshf_compatibility.py"
+    ],
+    "compiler_sha256": "6af52e37fab0d5af7c7390be9e1705d1240e46ee3f74c88b7f539e3159002aed",
+    "outside_threshold_byte_equal": true,
+    "test_sha256": "5dd8ab650946f39db88f08874f22c89cc4123dc8bf688fbdab3b2922ba2e7398"
+  },
+  "status": "validated-local-not-published",
+  "unchanged_outputs": "Production C, headers, canonical artwork, PNG/HDA bytes, runtime manifest and accepted historical ledgers are byte-identical to baseline; no game appearance change."
+}

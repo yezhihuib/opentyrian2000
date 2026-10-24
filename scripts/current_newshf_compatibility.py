@@ -83,13 +83,15 @@ def selection(root, raw, candidate=False):
 
 
 def threshold(im):
-    raw=bytearray(im.tobytes())
-    for offset in range(0,len(raw),4):
-        if raw[offset+3]<128:
-            raw[offset:offset+4]=b'\0\0\0\0'
-        else:
-            raw[offset+3]=255
-    return Image.frombytes('RGBA',im.size,bytes(raw))
+    # The mask is strictly binary: below 128 discard all RGBA, otherwise
+    # preserve RGB and set alpha to 255. Pasting with this binary mask is an
+    # exact selection, not alpha blending. Never mutate the source image.
+    mask = im.getchannel('A').point([0] * 128 + [255] * 128)
+    opaque = im.copy()
+    opaque.putalpha(mask)
+    result = Image.new('RGBA', im.size)
+    result.paste(opaque, (0, 0), mask)
+    return result
 
 
 def generate(root,raw,candidate=False):
