@@ -1,0 +1,32 @@
+# Private single-projection proof reuse
+
+Base: feb8a0a44510c318c601800c4adeee57a9a091bf. Scope only test helpers/tests/documentation. No production loader, compiler, pinned oracle, source inverse ledger, runtime manifest, or artwork changes.
+
+`project_p9_inventory` alone owns `_ProjectionProofContext`. Twenty private helper counterparts receive it explicitly. Public wrappers retain original signatures and pass `None`, so standalone public helpers and original eight proof derivations remain fresh. No module/session/thread/process cache or external context parameter. Calls still perform every input row/inventory/source comparison; only validated proof objects can be reused. Original validation order is retained where possible; dependency guards can fail earlier on unsafe/missing input.
+
+A first requested proof lazily discovers an explicit closed path manifest, brackets unchanged original validation with dependency reads, and stores a recursively immutable result. Every reuse rereads dependencies, path kinds and modes. Every result is a defensive reconstruction. A final boundary check rereads all used closures. Failure invalidates the invocation; `finally` discards it. Root-bound lexical checks reject symlink/reparse traversal in repository data, including ancestors. Both Rear proof closures include both families. NEWSHF additionally checks four precise directory memberships, including its legacy input/output scopes. Source inverse ledgers are bound to the helper module's actual ROOT, separately from the supplied asset root.
+
+Tool-dependent reuse retains fresh existing profile/golden checks: both Rear profiles for either Rear proof, Missile profile for Missile. Executable resolved bytes, modes and link chains plus bounded Sharp package/native trees and ImageMagick config/module trees are guarded, not merely version strings or mtimes. Legitimate external executable symlinks are recorded rather than rejected. Python interpreter/native system library implementation is assumed unchanged, as in the original execution model. This is not a fingerprint of the entire OS and does not establish equivalence against malicious same-profile replacement of unguarded system libraries.
+
+Sequential checks are not an atomic filesystem snapshot and cannot detect transient change-and-restore between reads. Arbitrary in-process monkeypatching or concurrently hostile filesystem mutation is outside the contract. File and directory edits observed at reuse/final boundaries reject. No cached error or fallback to Git HEAD/latest exists.
+
+Qualification covers immutable result/failure lifecycle; all eight family mapping mutation/restoration; representative source/root/path-kind/mode/exact-directory guards; same-call reuse/final mutation; original negative inventory and runtime boundaries; eight derivations once per top-level and fresh across calls; bit-exact baseline and representative changed-art projection. It is not an exhaustive mutation of every dependency file. The earlier monkeypatch feasibility receipt is not implementation evidence.
+
+Implementation provenance is also bound: context and declared imported helper modules must originate in this helper's worktree. A Python process that has cached another worktree's modules fails closed rather than checking one copy while executing another. Standalone public proof helpers remain unchanged; the stronger guard belongs only to optimized projection.
+
+Initial read-coverage instrumentation observed all repository reads and directory enumerations of eight original validators inside their declared closures (zero omissions). This is coverage evidence, not discovery authority; native child-process opens were not traced. Focused tests deliberately use finite private copies or test-only stream faults, not changes to installed executables or accepted artwork.
+
+
+## Final qualification (2026-10-24)
+
+Tested implementation checkpoint: `d0f6604574387f96213a0eb7dbda25534606d3af`.
+
+- **58 focused tests PASS, 238.093 seconds:** 23 new private-context tests plus 35 unchanged tests across eight current-family source-projection modules. Actual selected Node/Sharp/Magick read-fault and renderer-profile drift checks, imported-module origin checks, private-root mismatch poisoning, fresh retry, same-invocation reuse mutation, and final-boundary mutation are included. Installed tools were not modified.
+- **All 54 original historical tests PASS, 3713.495 seconds.** No test or old oracle was removed/rebased. This includes complete historical asset/inventory negative cases and coherent Charge, Craft267 and CLI-generated candidate projections. These are test-helper/source/asset binding checks, not new gameplay or compositor-pixel acceptance.
+- **7,066 execution-input files unchanged** before and after the full suite; sorted snapshot SHA256 `576e9c415594dc75316ba64b55f8483a000899d855d42035c41eafc77f3e391c`. The execution snapshot covers scripts, src, tests, packaging, authoring-inputs and assets, excluding bytecode caches.
+- Static AST comparison of all **79 original helper functions** confirms that original body computations are unchanged after undoing only explicit private call/context threading. The original eight full-proof leaf functions remain byte-for-byte unchanged.
+- Two paired projection-only timings (asset scan excluded): fresh/no reuse **49.454 / 48.261 seconds**; guarded reuse **28.138 / 28.882 seconds**. Mean reduction is approximately **41.6%**, not the earlier experimental eight-second result and not a claimed full-suite reduction. Every output contains the same 7,225 entries with canonical SHA256 `45ad4ff592f22934c23a4014708ad90fbc01518471144ea47aaef5f820dd583f`.
+- Full-proof counts per projection change from Rear39=13, P7/Missile/Mint27/NEWSHF=21 each, Guided=14, Sonic/Protron=2 each, to **one each**. Fresh tool/golden validation still runs at every relevant reuse and final boundary; “one full proof” does not mean one renderer invocation.
+- Additional isolated probes reject ancestor mode drift and synthetic Windows reparse flags on a root/leaf, with fresh success after restoration. These are not native Windows execution results.
+
+Only this document and three test-helper/test files change relative to Rear39. Production loaders, compilers, art, runtime manifests, original ledgers and pins remain untouched. No persistent cache files are created. Evidence receipts and full verbose logs are retained in the private batch backup; this batch does not itself publish or update a remote branch.

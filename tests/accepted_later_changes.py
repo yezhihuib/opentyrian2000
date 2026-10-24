@@ -90,9 +90,12 @@ def rear39_runtime_input_paths(root=ROOT):
  return c.input_paths(root)|{c.MAPPING,c.HEADER}|p7.input_paths(root)|{p7.MAPPING}|set(current_rear_p7_ledger()['files'])
 
 def before_current_rear39_runtime(rows,root=ROOT):
+ return _before_current_rear39_runtime(rows,root,_proofs=None)
+
+def _before_current_rear39_runtime(rows,root=ROOT, *, _proofs):
  assert isinstance(rows,list) and len(rows)==1029,'unexpected REAR39 runtime scope / destination scope'
  assert len({row['destination'] for row in rows})==1029,'duplicate REAR39 runtime destination scope'
- proof=verified_current_rear39(root)
+ proof=_current_projection_proof('rear39',root,_proofs)
  old={r['destination']:r for r in current_rear39_ledger()['runtime_before']}
  assert set(old)==set(proof['mapping']) and len(old)==6
  result=copy.deepcopy(rows);seen=set()
@@ -142,8 +145,11 @@ def verified_current_rear_p7(root=ROOT):
  return dict(assets=assets,paths=names-{c.MAPPING},mapping=mapping,header_sha256=sha(c.read(root,c.HEADER)))
 
 def before_current_rear_p7_inventory(inventory,root=ROOT):
+ return _before_current_rear_p7_inventory(inventory,root,_proofs=None)
+
+def _before_current_rear_p7_inventory(inventory,root=ROOT, *, _proofs):
  result=dict(inventory)
- assert result.pop(CURRENT_REAR_P7_HEADER)==verified_current_rear_p7(root)['header_sha256']
+ assert result.pop(CURRENT_REAR_P7_HEADER)==_current_projection_proof('rear_p7',root,_proofs)['header_sha256']
  for name in current_rear_p7_ledger()['files']:
   raw=(root/name).read_bytes()
   assert result.get(name)==sha(raw),('unapproved current REAR_P7 inventory',name)
@@ -157,10 +163,13 @@ def rear_p7_runtime_input_paths(root=ROOT):
  return rear39_runtime_input_paths(root)
 
 def before_current_rear_p7_runtime(rows,root=ROOT):
- rows=before_current_rear39_runtime(rows,root)
+ return _before_current_rear_p7_runtime(rows,root,_proofs=None)
+
+def _before_current_rear_p7_runtime(rows,root=ROOT, *, _proofs):
+ rows=_before_current_rear39_runtime(rows,root,_proofs=_proofs)
  assert isinstance(rows,list) and len(rows)==1029,'unexpected REAR_P7 runtime scope / destination scope'
  assert len({row['destination'] for row in rows})==1029,'duplicate REAR_P7 runtime destination scope'
- proof=verified_current_rear_p7(root)
+ proof=_current_projection_proof('rear_p7',root,_proofs)
  old={r['destination']:r for r in current_rear_p7_ledger()['runtime_before']}
  assert set(old)==set(proof['mapping']) and len(old)==4
  result=copy.deepcopy(rows);seen=set()
@@ -211,8 +220,11 @@ def verified_current_missile(root=ROOT):
  return dict(assets=assets,paths=names-{c.MAPPING},mapping=mapping,header_sha256=sha(c.read(root,c.HEADER)))
 
 def before_current_missile_inventory(inventory,root=ROOT):
- result=before_current_rear_p7_inventory(inventory,root)
- assert result.pop(CURRENT_MISSILE_HEADER)==verified_current_missile(root)['header_sha256']
+ return _before_current_missile_inventory(inventory,root,_proofs=None)
+
+def _before_current_missile_inventory(inventory,root=ROOT, *, _proofs):
+ result=_before_current_rear_p7_inventory(inventory,root,_proofs=_proofs)
+ assert result.pop(CURRENT_MISSILE_HEADER)==_current_projection_proof('missile',root,_proofs)['header_sha256']
  for name in current_missile_ledger()['files']:
   raw=(root/name).read_bytes()
   assert result.get(name)==sha(raw),('unapproved current MISSILE inventory',name)
@@ -226,10 +238,13 @@ def missile_runtime_input_paths(root=ROOT):
  return c.input_paths(root)|{c.MAPPING,c.HEADER}|set(current_missile_ledger()['files'])|rear_p7_runtime_input_paths(root)
 
 def before_current_missile_runtime(rows,root=ROOT):
- rows=before_current_rear_p7_runtime(rows,root)
+ return _before_current_missile_runtime(rows,root,_proofs=None)
+
+def _before_current_missile_runtime(rows,root=ROOT, *, _proofs):
+ rows=_before_current_rear_p7_runtime(rows,root,_proofs=_proofs)
  assert isinstance(rows,list) and len(rows)==1029,'unexpected MISSILE runtime scope / destination scope'
  assert len({row['destination'] for row in rows})==1029,'duplicate MISSILE runtime destination scope'
- proof=verified_current_missile(root)
+ proof=_current_projection_proof('missile',root,_proofs)
  old={r['destination']:r for r in current_missile_ledger()['runtime_before']}
  assert set(old)==set(proof['mapping']) and len(old)==3
  result=copy.deepcopy(rows);seen=set()
@@ -280,8 +295,11 @@ def verified_current_mint27(root=ROOT):
  return dict(assets=assets,paths=names-{c.MAPPING},mapping=mapping,header_sha256=sha(c.read(root,c.HEADER)))
 
 def before_current_mint27_inventory(inventory,root=ROOT):
- result=before_current_missile_inventory(inventory,root)
- assert result.pop(CURRENT_MINT27_HEADER)==verified_current_mint27(root)['header_sha256']
+ return _before_current_mint27_inventory(inventory,root,_proofs=None)
+
+def _before_current_mint27_inventory(inventory,root=ROOT, *, _proofs):
+ result=_before_current_missile_inventory(inventory,root,_proofs=_proofs)
+ assert result.pop(CURRENT_MINT27_HEADER)==_current_projection_proof('mint27',root,_proofs)['header_sha256']
  for name in current_mint27_ledger()['files']:
   raw=(root/name).read_bytes()
   assert result.get(name)==sha(project_current_missile_source(name,raw)),('unapproved current MINT27 inventory',name)
@@ -295,10 +313,13 @@ def mint27_runtime_input_paths(root=ROOT):
  return c.input_paths(root)|{c.MAPPING,c.HEADER}|set(current_mint27_ledger()['files'])|missile_runtime_input_paths(root)
 
 def before_current_mint27_runtime(rows,root=ROOT):
- rows=before_current_missile_runtime(rows,root)
+ return _before_current_mint27_runtime(rows,root,_proofs=None)
+
+def _before_current_mint27_runtime(rows,root=ROOT, *, _proofs):
+ rows=_before_current_missile_runtime(rows,root,_proofs=_proofs)
  assert isinstance(rows,list) and len(rows)==1029,'unexpected MINT27 runtime scope / destination scope'
  assert len({row['destination'] for row in rows})==1029,'duplicate MINT27 runtime destination scope'
- proof=verified_current_mint27(root)
+ proof=_current_projection_proof('mint27',root,_proofs)
  old={r['destination']:r for r in current_mint27_ledger()['runtime_before']}
  assert set(old)==set(proof['mapping']) and len(old)==1
  result=copy.deepcopy(rows);seen=set()
@@ -349,8 +370,11 @@ def verified_current_newshf(root=ROOT):
  return dict(assets=assets,paths=names-{c.MAPPING},mapping=mapping,header_sha256=sha(c.read(root,c.HEADER)))
 
 def before_current_newshf_inventory(inventory,root=ROOT):
- result=before_current_mint27_inventory(inventory,root)
- assert result.pop(CURRENT_NEWSHF_HEADER)==verified_current_newshf(root)['header_sha256']
+ return _before_current_newshf_inventory(inventory,root,_proofs=None)
+
+def _before_current_newshf_inventory(inventory,root=ROOT, *, _proofs):
+ result=_before_current_mint27_inventory(inventory,root,_proofs=_proofs)
+ assert result.pop(CURRENT_NEWSHF_HEADER)==_current_projection_proof('newshf',root,_proofs)['header_sha256']
  for name in current_newshf_ledger()['files']:
   raw=(root/name).read_bytes()
   assert result.get(name)==sha(raw),('unapproved current NEWSHF inventory',name)
@@ -364,10 +388,13 @@ def newshf_runtime_input_paths(root=ROOT):
  return c.input_paths(root)|{c.MAPPING,c.HEADER}|set(current_newshf_ledger()['files'])|mint27_runtime_input_paths(root)
 
 def before_current_newshf_runtime(rows,root=ROOT):
- rows=before_current_mint27_runtime(rows,root)
+ return _before_current_newshf_runtime(rows,root,_proofs=None)
+
+def _before_current_newshf_runtime(rows,root=ROOT, *, _proofs):
+ rows=_before_current_mint27_runtime(rows,root,_proofs=_proofs)
  assert isinstance(rows,list) and len(rows)==1029,'unexpected NEWSHF runtime scope / destination scope'
  assert len({row['destination'] for row in rows})==1029,'duplicate NEWSHF runtime destination scope'
- proof=verified_current_newshf(root)
+ proof=_current_projection_proof('newshf',root,_proofs)
  old={r['destination']:r for r in current_newshf_ledger()['runtime_before']}
  assert set(old)==set(proof['mapping']) and len(old)==9
  result=copy.deepcopy(rows);seen=set()
@@ -431,14 +458,17 @@ def before_current_guided_inventory(inventory,root=ROOT):
  return result
 
 def before_current_guided_runtime(rows,root=ROOT):
+ return _before_current_guided_runtime(rows,root,_proofs=None)
+
+def _before_current_guided_runtime(rows,root=ROOT, *, _proofs):
  """Replace exactly four current Guided rows after the finite aircraft projection."""
- rows=before_current_newshf_runtime(rows,root)
+ rows=_before_current_newshf_runtime(rows,root,_proofs=_proofs)
  assert isinstance(rows,list) and len(rows)==1029,'unexpected Guided runtime scope / destination scope'
  destinations={row['destination'] for row in rows}
  assert len(destinations)==1029,'duplicate Guided runtime destination scope'
  historical=destinations-SONIC_RUNTIME_DESTINATIONS
  assert len(historical)==1025 and sha(('\n'.join(sorted(historical))+'\n').encode())==PRE_SONIC_RUNTIME_DESTINATIONS_SHA,'unapproved Guided runtime destination scope'
- proof=verified_current_guided(root)
+ proof=_current_projection_proof('guided',root,_proofs)
  old={r['destination']:r for r in current_guided_ledger()['runtime_before']}
  assert set(old)==set(proof['mapping']) and len(old)==4
  result=copy.deepcopy(rows);seen=set()
@@ -505,13 +535,16 @@ def sonic_runtime_input_paths(root=ROOT):
  return c.input_paths(root)|{c.MAPPING,c.HEADER}
 
 def before_sonic_runtime(rows,root=ROOT):
+ return _before_sonic_runtime(rows,root,_proofs=None)
+
+def _before_sonic_runtime(rows,root=ROOT, *, _proofs):
  """Project only the exact derived quartet, not arbitrary package additions.
 
  This current-runtime entry point deliberately requires all 1029 rows. Passing
  an already-projected/old 1025-row selection is a missing-quartet error, not an
  implicit legacy mode. Historical comparison callers apply this once, first.
  """
- rows=before_current_guided_runtime(rows,root)
+ rows=_before_current_guided_runtime(rows,root,_proofs=_proofs)
  assert isinstance(rows,list) and len(rows)==1029,'unexpected runtime scope / destination scope for Sonic projection'
  by_destination={row['destination']:row for row in rows}
  assert len(by_destination)==len(rows),'duplicate runtime destination scope'
@@ -765,6 +798,9 @@ def verified_newshf_compositor_sources(root=ROOT):
  return current
 
 def verified_newshf_current(root=ROOT):
+ return _verified_newshf_current(root,_proofs=None)
+
+def _verified_newshf_current(root=ROOT, *, _proofs):
  """Independently bind nine PNG payloads, fixed roles, transports and package rows.
 
  Generated payload bytes may follow a deliberate repinned source art edit. They
@@ -785,7 +821,7 @@ def verified_newshf_current(root=ROOT):
  assert len(selected['art'])==9,'unapproved NEWSHF pose count'
  outputs={};declarations=[]
  runtime=json.loads((root/'packaging/runtime-assets-v1.json').read_bytes())
- runtime['files']=before_sonic_runtime(runtime['files'],root)
+ runtime['files']=_before_sonic_runtime(runtime['files'],root,_proofs=_proofs)
  runtime_rows={r['destination']:r for r in runtime['files']}
  assert len(runtime_rows)==len(runtime['files'])==1025,'unapproved NEWSHF runtime scope'
  for identity,pair,name,art in zip(NEWSHF_IDS,NEWSHF_PAIRS,NEWSHF_NAMES,selected['art']):
@@ -821,7 +857,7 @@ def verified_newshf_current(root=ROOT):
  manifest=(root/NEWSHF_MANIFEST).read_bytes()
  outputs[NEWSHF_MANIFEST]={'sha256':sha(manifest),'mode':'100644'}
  binding=json.loads((root/'packaging/current-production-validation.json').read_bytes())
- assert len(before_current_newshf_inventory(binding['source_sha256'],root))==268+len(verified_enemy_probe_sources(root)) and binding['source_sha256'].get(NEWSHF_HEADER)==sha(header),'stale NEWSHF source binding'
+ assert len(_before_current_newshf_inventory(binding['source_sha256'],root,_proofs=_proofs))==268+len(verified_enemy_probe_sources(root)) and binding['source_sha256'].get(NEWSHF_HEADER)==sha(header),'stale NEWSHF source binding'
  return dict(assets=outputs,header_sha256=sha(header))
 
 PINS['p9-stage-catalog.json']='565303b7f5b4f2cf726214a61e2f95148f4ed0ba816a81939ad6bc4c2b62d4d3'
@@ -839,6 +875,9 @@ PRODUCTION_NON_CODE={
 }
 
 def verified_sidekick_current(root=ROOT):
+ return _verified_sidekick_current(root,_proofs=None)
+
+def _verified_sidekick_current(root=ROOT, *, _proofs):
  """Derive the six approved-role outputs from current PNG bytes, never hashes alone.
 
  This is build/package consistency, not artwork approval or runtime C enforcement.
@@ -870,7 +909,7 @@ def verified_sidekick_current(root=ROOT):
  from verify_current_production import verify
  binding_raw=builder.read(root,builder.BINDING);binding=json.loads(binding_raw)
  verify(root,binding)
- assert len(before_current_newshf_inventory(binding['source_sha256'],root))==268+len(verified_enemy_probe_sources(root)),'unexpected current production source scope'
+ assert len(_before_current_newshf_inventory(binding['source_sha256'],root,_proofs=_proofs))==268+len(verified_enemy_probe_sources(root)),'unexpected current production source scope'
  expected_sources=dict(load('current-source-inventory.json')['files'])
  expected_sources[SIDEKICK_HEADER]=sha(header);expected_sources.update(PRODUCTION_NON_CODE)
  expected_sources.update(verified_newshf_identity_sources(root))
@@ -879,16 +918,16 @@ def verified_sidekick_current(root=ROOT):
  expected_sources.update(verified_enemy_observe_sources(root))
  expected_sources.update(verified_enemy_probe_sources(root))
  expected_sources[PROTRON_HEADER]=verified_protron_current(root)['header_sha256']
- expected_sources[CURRENT_PROTRON_HEADER]=verified_current_protron(root)['header_sha256']
- expected_sources[CURRENT_REAR_P7_HEADER]=verified_current_rear_p7(root)['header_sha256']
- expected_sources[CURRENT_MISSILE_HEADER]=verified_current_missile(root)['header_sha256']
- expected_sources[CURRENT_MINT27_HEADER]=verified_current_mint27(root)['header_sha256']
- expected_sources[CURRENT_NEWSHF_HEADER]=verified_current_newshf(root)['header_sha256']
- expected_sources[CURRENT_GUIDED_HEADER]=verified_current_guided(root)['header_sha256']
- expected_sources[CURRENT_SONIC_HEADER]=verified_current_sonic(root)['header_sha256']
- expected_sources[NEWSHF_HEADER]=verified_newshf_current(root)['header_sha256']
- expected_sources[ORB_HEADER]=verified_enemy_orb_current(root)['header_sha256']
- expected_sources[PLASMA_HEADER]=verified_plasma_projectile_current(root)['header_sha256']
+ expected_sources[CURRENT_PROTRON_HEADER]=_current_projection_proof('protron',root,_proofs)['header_sha256']
+ expected_sources[CURRENT_REAR_P7_HEADER]=_current_projection_proof('rear_p7',root,_proofs)['header_sha256']
+ expected_sources[CURRENT_MISSILE_HEADER]=_current_projection_proof('missile',root,_proofs)['header_sha256']
+ expected_sources[CURRENT_MINT27_HEADER]=_current_projection_proof('mint27',root,_proofs)['header_sha256']
+ expected_sources[CURRENT_NEWSHF_HEADER]=_current_projection_proof('newshf',root,_proofs)['header_sha256']
+ expected_sources[CURRENT_GUIDED_HEADER]=_current_projection_proof('guided',root,_proofs)['header_sha256']
+ expected_sources[CURRENT_SONIC_HEADER]=_current_projection_proof('sonic',root,_proofs)['header_sha256']
+ expected_sources[NEWSHF_HEADER]=_verified_newshf_current(root,_proofs=_proofs)['header_sha256']
+ expected_sources[ORB_HEADER]=_verified_enemy_orb_current(root,_proofs=_proofs)['header_sha256']
+ expected_sources[PLASMA_HEADER]=_verified_plasma_projectile_current(root,_proofs=_proofs)['header_sha256']
  # Preserve the existing non-target-source authority rejection before the
  # Front proof's runtime-binding check. Its actual header is derived below.
  expected_sources[FRONT_MULTI_HEADER]=sha(builder.read(root,FRONT_MULTI_HEADER))
@@ -897,9 +936,9 @@ def verified_sidekick_current(root=ROOT):
   assert sha(project_source('render-boundaries',name,raw))==expected_sources[name],('reviewed correction historical source mismatch',name)
   expected_sources[name]=sha(raw)
  assert binding['source_sha256']==expected_sources,'unapproved non-target production source binding'
- assert expected_sources[FRONT_MULTI_HEADER]==verified_front_multi_current(root)['header_sha256'],'unverified Front Multi production header'
+ assert expected_sources[FRONT_MULTI_HEADER]==_verified_front_multi_current(root,_proofs=_proofs)['header_sha256'],'unverified Front Multi production header'
  runtime=json.loads(builder.read(root,builder.RUNTIME))
- runtime['files']=before_sonic_runtime(runtime['files'],root)
+ runtime['files']=_before_sonic_runtime(runtime['files'],root,_proofs=_proofs)
  runtime_rows={r['destination']:r for r in runtime['files']}
  assert len(runtime_rows)==len(runtime['files'])==1025,'unexpected current runtime destination scope'
  def blob_row(source,destination,group,revision,data):
@@ -921,6 +960,9 @@ ORB_NAMES=('bullet-112-8.hda','bullet-113-8.hda','enemy-orb112113-112-8.hda','en
 ORB_MASK='000000000000000000000000000000000000000000000000000011111000000111111100000111111100000111111100000111111100000111111100000011111000000000000000000000000000000000000000'
 
 def verified_enemy_orb_current(root=ROOT):
+ return _verified_enemy_orb_current(root,_proofs=None)
+
+def _verified_enemy_orb_current(root=ROOT, *, _proofs):
  """Independent two-master/four-contract proof before any history projection."""
  import io,struct
  from PIL import Image
@@ -950,7 +992,7 @@ def verified_enemy_orb_current(root=ROOT):
   payloads[80000+selector]=original;payloads[1420000+selector]=bytes(masked)
  outputs={ORB_SELECTION:{'sha256':sha(raw),'mode':'100644'}};rows=[];pins={}
  runtime=json.loads(compat.read(root,'packaging/runtime-assets-v1.json'))
- runtime['files']=before_sonic_runtime(runtime['files'],root)
+ runtime['files']=_before_sonic_runtime(runtime['files'],root,_proofs=_proofs)
  runtime_rows={r['destination']:r for r in runtime['files']}
  assert len(runtime_rows)==len(runtime['files'])==1025,'unapproved orb runtime scope'
  assert set(loaded)=={'assets/gameplay/'+name for name in ORB_NAMES},'unapproved orb consumers'
@@ -973,7 +1015,7 @@ def verified_enemy_orb_current(root=ROOT):
  assert compat.read(root,'packaging/current-enemy-orb-compatibility.json')==(json.dumps(expected,indent=2)+'\n').encode(),'stale orb mapping'
  header=compat.payload_header(pins);assert compat.read(root,ORB_HEADER)==header,'stale orb generated header'
  binding=json.loads(compat.read(root,'packaging/current-production-validation.json'))
- assert len(before_current_newshf_inventory(binding['source_sha256'],root))==268+len(verified_enemy_probe_sources(root)) and binding['source_sha256'].get(ORB_HEADER)==sha(header),'stale orb source binding'
+ assert len(_before_current_newshf_inventory(binding['source_sha256'],root,_proofs=_proofs))==268+len(verified_enemy_probe_sources(root)) and binding['source_sha256'].get(ORB_HEADER)==sha(header),'stale orb source binding'
  for name,pin in load('enemy-orb-source.json')['files'].items():
   assert binding['source_sha256'].get(name)==pin['current_sha256'],'stale orb source inverse binding'
  assert len(outputs)==5,'unapproved orb asset projection'
@@ -987,6 +1029,9 @@ PLASMA_PAIRS=tuple((identity,density) for identity in (1300022,1300023,1300024) 
 PLASMA_NAMES=tuple('option-plasma-projectile-%d-%d.hda'%(identity-1300000,density) for identity,density in PLASMA_PAIRS)
 
 def verified_plasma_projectile_current(root=ROOT):
+ return _verified_plasma_projectile_current(root,_proofs=None)
+
+def _verified_plasma_projectile_current(root=ROOT, *, _proofs):
  """Derive six fixed transports and payload pins from one master/recipe.
 
  Only the selection plus six HDA paths are projected from the old asset census.
@@ -1011,7 +1056,7 @@ def verified_plasma_projectile_current(root=ROOT):
  assert [(r['identity'],r['density']) for r in selected['resources']]==list(PLASMA_PAIRS),'unapproved Plasma projectile output order'
  outputs={PLASMA_SELECTION:{'sha256':sha(raw),'mode':'100644'}};rows=[];pins={}
  runtime=json.loads((root/'packaging/runtime-assets-v1.json').read_bytes())
- runtime['files']=before_sonic_runtime(runtime['files'],root)
+ runtime['files']=_before_sonic_runtime(runtime['files'],root,_proofs=_proofs)
  runtime_rows={r['destination']:r for r in runtime['files']}
  assert len(runtime_rows)==len(runtime['files'])==1025,'unexpected current runtime destination scope'
  for (identity,density),name,record in zip(PLASMA_PAIRS,PLASMA_NAMES,selected['resources']):
@@ -1049,6 +1094,9 @@ FRONT_MULTI_IDS=(80121,80122,80163,80164,80201,80202,80279,80280)
 FRONT_MULTI_NAMES=('bullet-121-8.hda','bullet-122-8.hda','bullet-163-8.hda','bullet-164-8.hda','bullet-201-8.hda','bullet-202-8.hda','bullet-279-8.hda','bullet-280-8.hda')
 
 def verified_front_multi_current(root=ROOT):
+ return _verified_front_multi_current(root,_proofs=None)
+
+def _verified_front_multi_current(root=ROOT, *, _proofs):
  """Independently decode eight selected sources, then admit exactly nine assets.
 
  No historical master, source image or transport is an exemption. Full actual
@@ -1072,7 +1120,7 @@ def verified_front_multi_current(root=ROOT):
  assert set(loaded)=={'assets/gameplay/'+name for name in FRONT_MULTI_NAMES},'unapproved Front Multi consumers'
  outputs={FRONT_MULTI_SELECTION:{'sha256':sha(raw),'mode':'100644'}};rows=[];pins={};sources={}
  runtime=json.loads(compat.read(root,'packaging/runtime-assets-v1.json'))
- runtime['files']=before_sonic_runtime(runtime['files'],root)
+ runtime['files']=_before_sonic_runtime(runtime['files'],root,_proofs=_proofs)
  runtime_rows={r['destination']:r for r in runtime['files']}
  assert len(runtime_rows)==len(runtime['files'])==1025,'unexpected current runtime destination scope'
  for identity,name,record in zip(FRONT_MULTI_IDS,FRONT_MULTI_NAMES,selected['resources']):
@@ -1099,7 +1147,7 @@ def verified_front_multi_current(root=ROOT):
  assert compat.read(root,FRONT_MULTI_HEADER)==header,'current Front Multi/generated-header mismatch'
  binding_raw=compat.read(root,'packaging/current-production-validation.json');binding=json.loads(binding_raw)
  from verify_current_production import source_manifest_digest
- assert len(before_current_newshf_inventory(binding['source_sha256'],root))==268+len(verified_enemy_probe_sources(root)) and binding['source_sha256'].get(FRONT_MULTI_HEADER)==sha(header),'stale Front Multi production header binding'
+ assert len(_before_current_newshf_inventory(binding['source_sha256'],root,_proofs=_proofs))==268+len(verified_enemy_probe_sources(root)) and binding['source_sha256'].get(FRONT_MULTI_HEADER)==sha(header),'stale Front Multi production header binding'
  renderer=compat.read(root,'src/render_mirror.c')
  assert binding['source_sha256'].get('src/render_mirror.c')==sha(renderer) and sha(project_source('newshf-identity','src/render_mirror.c',renderer))==load('front-multi-source.json')['files']['src/render_mirror.c']['current_sha256'],'stale Front Multi renderer binding'
  assert binding['production_source_manifest_sha256']==source_manifest_digest(binding['source_sha256']),'stale Front Multi source manifest digest'
@@ -1116,6 +1164,9 @@ CRAFT267_DESTINATION='assets/gameplay/enemy-newsh2-267-8.hda'
 CRAFT267_README='assets/hd/README.md'
 
 def verified_craft267_current(root=ROOT):
+ return _verified_craft267_current(root,_proofs=None)
+
+def _verified_craft267_current(root=ROOT, *, _proofs):
  """One fixed legacy identity; derive pixels before admitting its two outputs."""
  scripts=str(ROOT/'scripts')
  if scripts not in sys.path:sys.path.insert(0,scripts)
@@ -1131,7 +1182,7 @@ def verified_craft267_current(root=ROOT):
  expected=dict(schema='opentyrian-current-craft267-compatibility-v1',selection=CRAFT267_SELECTION,version=selected['version'],files=[row])
  assert builder.read(root,compat.MAPPING)==builder.encoded(expected),'current craft267 selection/mapping mismatch'
  runtime=builder.parse(builder.read(root,builder.RUNTIME))
- runtime['files']=before_sonic_runtime(runtime['files'],root)
+ runtime['files']=_before_sonic_runtime(runtime['files'],root,_proofs=_proofs)
  rows={r['destination']:r for r in runtime['files']}
  assert len(rows)==len(runtime['files'])==1025,'unexpected current runtime destination scope'
  oid=hashlib.sha1(b'blob '+str(len(blob)).encode()+b'\0'+blob).hexdigest()
@@ -1146,6 +1197,9 @@ CHARGE_IDS=(1450258,1450259,1450260,1450277,1450278,1450279,1450296,1450297,1450
 CHARGE_NAMES=tuple('option-charge-bank9-%d-8.hda'%(identity-1450000) for identity in CHARGE_IDS)
 
 def verified_charge_current(root=ROOT):
+ return _verified_charge_current(root,_proofs=None)
+
+def _verified_charge_current(root=ROOT, *, _proofs):
  """Prove nine derived bodies from the one editable master/recipe, then ten paths.
 
  This proof is independent of the immutable old P9 nine-output ledger. Original
@@ -1169,7 +1223,7 @@ def verified_charge_current(root=ROOT):
  assert set(loaded)==expected_destinations,'unapproved Charge consumer scope'
  outputs={CHARGE_SELECTION:{'sha256':sha(raw),'mode':'100644'}}
  runtime=json.loads(builder.read(root,builder.RUNTIME))
- runtime['files']=before_sonic_runtime(runtime['files'],root)
+ runtime['files']=_before_sonic_runtime(runtime['files'],root,_proofs=_proofs)
  rows={r['destination']:r for r in runtime['files']}
  assert len(rows)==len(runtime['files'])==1025,'unexpected current runtime destination scope'
  for identity,name in zip(CHARGE_IDS,CHARGE_NAMES):
@@ -1191,6 +1245,9 @@ MF_NAMES=('option-mint-bank9-112-8.hda','option-mint-bank9-131-8.hda','option-mi
 MF_MAPPING='packaging/current-mint-front-body-compatibility.json'
 
 def verified_mint_front_current(root=ROOT):
+ return _verified_mint_front_current(root,_proofs=None)
+
+def _verified_mint_front_current(root=ROOT, *, _proofs):
  """Verify exactly four independent current sources, then project five assets.
 
  Current pixels are not pinned to the historical bootstrap. Decode each selected
@@ -1214,7 +1271,7 @@ def verified_mint_front_current(root=ROOT):
  assert set(loaded)==expected_destinations,'unapproved Mint/Front consumer scope'
  outputs={MF_SELECTION:{'sha256':sha(raw),'mode':'100644'}};rows=[];sources={}
  runtime=json.loads(builder.read(root,builder.RUNTIME))
- runtime['files']=before_sonic_runtime(runtime['files'],root)
+ runtime['files']=_before_sonic_runtime(runtime['files'],root,_proofs=_proofs)
  runtime_rows={r['destination']:r for r in runtime['files']}
  assert len(runtime_rows)==len(runtime['files'])==1025,'unexpected current runtime destination scope'
  for identity,name,record in zip(MF_IDS,MF_NAMES,selected['resources']):
@@ -1325,59 +1382,69 @@ Retired paths are explicitly absent, never a prefix/wildcard exclusion.
  return project_p9_inventory(current_asset_inventory(root),root)
 
 def project_p9_inventory(current,root=ROOT):
+ from _projection_proof_context import _ProjectionProofContext
+ context=_ProjectionProofContext(root,ROOT)
+ try:
+  result=_project_p9_inventory(current,root,_proofs=context)
+  context.finish()
+  return result
+ finally:
+  context.close()
+
+def _project_p9_inventory(current,root=ROOT, *, _proofs):
  current=copy.deepcopy(current)
- for name,row in verified_current_rear39(root)['assets'].items():
+ for name,row in _current_projection_proof('rear39',root,_proofs)['assets'].items():
   assert current.get(name)==row,('unverified current Rear39 output',name)
   del current[name]
- for name,row in verified_current_rear_p7(root)['assets'].items():
+ for name,row in _current_projection_proof('rear_p7',root,_proofs)['assets'].items():
   assert current.pop(name)==row,('unverified current Rear P7 output',name)
- for name,row in verified_current_missile(root)['assets'].items():
+ for name,row in _current_projection_proof('missile',root,_proofs)['assets'].items():
   assert current.pop(name)==row,('unverified current Missile output',name)
- for name,row in verified_current_mint27(root)['assets'].items():
+ for name,row in _current_projection_proof('mint27',root,_proofs)['assets'].items():
   assert current.pop(name)==row,('unverified current Mint27 output',name)
- for name,row in verified_current_newshf(root)['assets'].items():
+ for name,row in _current_projection_proof('newshf',root,_proofs)['assets'].items():
   assert current.pop(name)==row,('unverified current NEWSHF output',name)
- for name,row in verified_current_guided(root)['assets'].items():
+ for name,row in _current_projection_proof('guided',root,_proofs)['assets'].items():
   assert current.pop(name)==row,('unverified current Guided output',name)
- for name,row in verified_current_sonic(root)['assets'].items():
+ for name,row in _current_projection_proof('sonic',root,_proofs)['assets'].items():
   assert current.pop(name)==row,('unverified current Sonic output',name)
- for name,row in verified_current_protron(root)['assets'].items():
+ for name,row in _current_projection_proof('protron',root,_proofs)['assets'].items():
   assert current.pop(name)==row,('unverified current Protron output',name)
  for name,row in verified_protron_current(root)['assets'].items():
   assert current.get(name)==row,('unverified P09 current output',name)
   del current[name]
- newshf=verified_newshf_current(root)['assets']
+ newshf=_verified_newshf_current(root,_proofs=_proofs)['assets']
  assert set(newshf)=={NEWSHF_MANIFEST}|{NEWSHF_ROOT+'/'+name for name in NEWSHF_NAMES},'unapproved NEWSHF output scope'
  for name,row in newshf.items():
   assert row['mode']=='100644' and current.get(name)==row,('unverified NEWSHF current output',name)
   del current[name]
  ledger=load('p9-assets.json')
- orb=verified_enemy_orb_current(root)['assets']
+ orb=_verified_enemy_orb_current(root,_proofs=_proofs)['assets']
  assert set(orb)=={ORB_SELECTION}|{ORB_ROOT+'/'+name for name in ORB_NAMES} and len(orb)==5,'unapproved orb output scope'
  for name,row in orb.items():
   assert row['mode']=='100644' and current.get(name)==row,('unverified orb current output',name)
   del current[name]
- front_multi=verified_front_multi_current(root)['assets']
+ front_multi=_verified_front_multi_current(root,_proofs=_proofs)['assets']
  assert set(front_multi)=={FRONT_MULTI_SELECTION}|{FRONT_MULTI_ROOT+'/'+name for name in FRONT_MULTI_NAMES} and len(front_multi)==9,'unapproved Front Multi output scope'
  for name,row in front_multi.items():
   assert row['mode']=='100644' and current.get(name)==row,('unverified Front Multi current output',name)
   del current[name]
- plasma=verified_plasma_projectile_current(root)['assets']
+ plasma=_verified_plasma_projectile_current(root,_proofs=_proofs)['assets']
  assert set(plasma)=={PLASMA_SELECTION}|{PLASMA_ROOT+'/'+name for name in PLASMA_NAMES} and len(plasma)==7,'unapproved Plasma projectile output scope'
  for name,row in plasma.items():
   assert row['mode']=='100644' and current.get(name)==row,('unverified Plasma projectile current output',name)
   del current[name]
- mint_front=verified_mint_front_current(root)['assets']
+ mint_front=_verified_mint_front_current(root,_proofs=_proofs)['assets']
  assert set(mint_front)=={MF_SELECTION}|{MF_ROOT+'/'+name for name in MF_NAMES} and len(mint_front)==5,'unapproved Mint/Front output scope'
  for name,row in mint_front.items():
   assert row['mode']=='100644' and current.get(name)==row,('unverified Mint/Front current output',name)
   del current[name]
- charge=verified_charge_current(root)['assets']
+ charge=_verified_charge_current(root,_proofs=_proofs)['assets']
  assert set(charge)=={CHARGE_SELECTION}|{CHARGE_ROOT+'/'+name for name in CHARGE_NAMES} and len(charge)==10,'unapproved Charge output scope'
  for name,row in charge.items():
   assert row['mode']=='100644' and current.get(name)==row,('unverified Charge current output',name)
   del current[name]
- verified=verified_sidekick_current(root);craft=verified_craft267_current(root)
+ verified=_verified_sidekick_current(root,_proofs=_proofs);craft=_verified_craft267_current(root,_proofs=_proofs)
  proof=dict(verified['assets']);assert not set(proof)&set(craft['assets']),'current output collision'
  proof.update(craft['assets']);reviewed=ledger['verified_current_outputs']
  assert set(proof)==set(reviewed) and len(proof)==9,'unapproved current output scope'
@@ -1446,3 +1513,22 @@ def validate_source_inventory(actual):
 
 def validate_current_catalog(catalog):
  assert sha(canonical(catalog))==load('p9-assets.json')['catalog_after_sha256'],'unapproved live catalog (including historical reversion)'
+
+def _current_projection_proof(family,root,context):
+ validators={
+  'guided':verified_current_guided,
+  'mint27':verified_current_mint27,
+  'missile':verified_current_missile,
+  'newshf':verified_current_newshf,
+  'protron':verified_current_protron,
+  'rear39':verified_current_rear39,
+  'rear_p7':verified_current_rear_p7,
+  'sonic':verified_current_sonic,
+ }
+ validator=validators[family]
+ if context is None:return validator(root)
+ if Path(root).absolute()!=context.root:
+  context.close()
+  raise ValueError('projection proof context root mismatch')
+ return context.get(family,validator)
+
