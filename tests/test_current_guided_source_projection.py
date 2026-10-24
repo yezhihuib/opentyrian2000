@@ -51,7 +51,7 @@ class CurrentGuidedProjectionTests(unittest.TestCase):
   from verify_current_production import source_inventory
   actual=source_inventory(a.ROOT)
   original=json.loads(subprocess.check_output(['git','show',BASE+':packaging/current-production-validation.json'],cwd=a.ROOT))['source_sha256']
-  self.assertEqual(len(actual),270)
+  self.assertEqual(len(a.before_current_newshf_inventory(actual)),270)
   self.assertEqual(len(original),269)
   self.assertEqual(a.before_current_guided_inventory(actual),original)
   for name in FILES|{a.CURRENT_GUIDED_HEADER}:

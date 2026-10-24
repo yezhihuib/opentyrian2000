@@ -36,7 +36,7 @@ def dependencies(root, selected):
     names |= sonic_input_paths(root) | {SONIC_MAPPING}
     from current_guided_compatibility import input_paths as guided_input_paths, MAPPING as GUIDED_MAPPING
     names |= guided_input_paths(root) | {GUIDED_MAPPING}
-    from build_newshf_hd import input_paths as newshf_input_paths
+    from current_newshf_compatibility import input_paths as newshf_input_paths
     names |= newshf_input_paths(root)
     from current_enemy_orb_compatibility import input_paths as orb_input_paths, MAPPING as ORB_MAPPING
     names |= orb_input_paths(root) | {ORB_MAPPING}

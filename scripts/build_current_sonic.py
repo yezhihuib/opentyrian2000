@@ -33,7 +33,7 @@ def dependencies(root, selected):
     # The user edits these two masters in place; installed hashes are deliberately
     # stale until apply. Bind its fixed paths without validating old selection.
     names |= {SELECTION, compat.MAPPING} | compat.generated_paths()
-    from build_newshf_hd import input_paths as newshf_input_paths
+    from current_newshf_compatibility import input_paths as newshf_input_paths
     names |= newshf_input_paths(root)
     from current_enemy_orb_compatibility import input_paths as orb_input_paths, MAPPING as ORB_MAPPING
     names |= orb_input_paths(root) | {ORB_MAPPING}

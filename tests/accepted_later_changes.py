@@ -66,6 +66,73 @@ def _project_source_once(label,name,raw):
  assert sha(restored)==pin['previous_sha256'],(name,'historical result drift')
  return restored
 
+CURRENT_NEWSHF_HEADER='src/current_newshf_hd_assets.h'
+CURRENT_NEWSHF_LEDGER_SHA='2ef518ee9adc0e6d1feff204b98325ad74bdf9cffaf5e5991c9dbf73c1bec83e'
+def current_newshf_ledger():
+ raw=(ROOT/'tests/current_newshf_source_projection.json').read_bytes()
+ assert sha(raw)==CURRENT_NEWSHF_LEDGER_SHA,'changed current NEWSHF inverse ledger'
+ return json.loads(raw)
+
+def project_current_newshf_source(name,raw):
+ pin=current_newshf_ledger()['files'].get(name)
+ if pin is None:return raw
+ assert sha(raw)==pin['current_sha256'],('unapproved current NEWSHF compositor module',name)
+ lines=raw.splitlines(keepends=True)
+ for edit in reversed(pin['hunks']):
+  a,b=edit['after_lines']
+  assert b''.join(lines[a:b])==edit['after'].encode(),('current NEWSHF hunk drift',name)
+  lines[a:b]=edit['before'].encode().splitlines(keepends=True)
+ result=b''.join(lines)
+ assert sha(result)==pin['previous_sha256'],('current NEWSHF inverse drift',name)
+ return result
+
+def verified_current_newshf(root=ROOT):
+ """Six master-derived poses; legacy nine and fixed 168 remain independently proven."""
+ scripts=str(ROOT/'scripts')
+ if scripts not in sys.path:sys.path.insert(0,scripts)
+ import current_newshf_compatibility as c
+ for name in current_newshf_ledger()['files']:
+  project_current_newshf_source(name,c.read(root,name))
+ mapping=c.load(root)
+ selected=c.selection(root,c.read(root,c.SELECTION))
+ names={c.SELECTION,c.MAPPING,selected['recipe']['path']}|c.generated_paths()|{c.ROOT+'/'+c.name(i) for i in c.EDIT_IDS}
+ names|={row['source_png'] for row in selected['masters']}
+ assets={n:{'sha256':sha(c.read(root,n)),'mode':'100644'} for n in names if n.startswith('assets/')}
+ assert len(assets)==7,'unapproved current NEWSHF asset scope'
+ return dict(assets=assets,paths=names-{c.MAPPING},mapping=mapping,header_sha256=sha(c.read(root,c.HEADER)))
+
+def before_current_newshf_inventory(inventory,root=ROOT):
+ result=dict(inventory)
+ assert result.pop(CURRENT_NEWSHF_HEADER)==verified_current_newshf(root)['header_sha256']
+ for name in current_newshf_ledger()['files']:
+  raw=(root/name).read_bytes()
+  assert result.get(name)==sha(raw),('unapproved current NEWSHF inventory',name)
+  result[name]=sha(project_current_newshf_source(name,raw))
+ return result
+
+def newshf_runtime_input_paths(root=ROOT):
+ scripts=str(ROOT/'scripts')
+ if scripts not in sys.path:sys.path.insert(0,scripts)
+ import current_newshf_compatibility as c
+ return c.input_paths(root)|{c.MAPPING,c.HEADER}|set(current_newshf_ledger()['files'])
+
+def before_current_newshf_runtime(rows,root=ROOT):
+ assert isinstance(rows,list) and len(rows)==1029,'unexpected NEWSHF runtime scope / destination scope'
+ assert len({row['destination'] for row in rows})==1029,'duplicate NEWSHF runtime destination scope'
+ proof=verified_current_newshf(root)
+ old={r['destination']:r for r in current_newshf_ledger()['runtime_before']}
+ assert set(old)==set(proof['mapping']) and len(old)==9
+ result=copy.deepcopy(rows);seen=set()
+ for index,row in enumerate(result):
+  destination=row['destination']
+  if destination not in old:continue
+  selected=proof['mapping'][destination];raw=(root/selected['source_path']).read_bytes()
+  expected=dict(old[destination],source_path=selected['source_path'],sha256=sha(raw),bytes=len(raw),git_blob=hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest())
+  assert row==expected,('unapproved current NEWSHF runtime row',destination)
+  assert destination not in seen;seen.add(destination);result[index]=old[destination]
+ assert seen==set(old),'missing current NEWSHF runtime row'
+ return result
+
 CURRENT_GUIDED_HEADER='src/current_guided_payload_pins.h'
 CURRENT_GUIDED_LEDGER_SHA='9a9cd92b8c4ed133fea453a86a958280619a73a51ccf88371b7291d9e1ea108a'
 def current_guided_ledger():
@@ -74,6 +141,7 @@ def current_guided_ledger():
  return json.loads(raw)
 
 def project_current_guided_source(name,raw):
+ raw=project_current_newshf_source(name,raw)
  pin=current_guided_ledger()['files'].get(name)
  if pin is None:return raw
  assert sha(raw)==pin['current_sha256'],('unapproved current Guided source',name)
@@ -99,7 +167,7 @@ def verified_current_guided(root=ROOT):
  return dict(assets=assets,paths=names-{c.MAPPING},mapping=mapping,header_sha256=sha(c.read(root,c.HEADER)))
 
 def before_current_guided_inventory(inventory,root=ROOT):
- result=dict(inventory)
+ result=before_current_newshf_inventory(inventory,root)
  assert result.pop(CURRENT_GUIDED_HEADER)==verified_current_guided(root)['header_sha256']
  for name in current_guided_ledger()['files']:
   raw=(root/name).read_bytes()
@@ -108,7 +176,8 @@ def before_current_guided_inventory(inventory,root=ROOT):
  return result
 
 def before_current_guided_runtime(rows,root=ROOT):
- """Replace exactly four current Guided rows with their frozen prior transports."""
+ """Replace exactly four current Guided rows after the finite aircraft projection."""
+ rows=before_current_newshf_runtime(rows,root)
  assert isinstance(rows,list) and len(rows)==1029,'unexpected Guided runtime scope / destination scope'
  destinations={row['destination'] for row in rows}
  assert len(destinations)==1029,'duplicate Guided runtime destination scope'
@@ -289,6 +358,7 @@ def before_current_protron_runtime(rows,root=ROOT):
 
 def project_source(label,name,raw):
  # Newest first; generated payload values never relax executable source bytes.
+ if label=='current-newshf':return project_current_newshf_source(name,raw)
  if label=='current-guided':return project_current_guided_source(name,raw)
  if label=='current-sonic':return project_current_sonic_source(name,raw)
  if label=='normal-observer-surface':return project_normal_observer_source(name,raw)
@@ -430,10 +500,10 @@ def verified_newshf_compositor_sources(root=ROOT):
  for name,digest in added.items():
   path=root/name
   assert not path.is_symlink() and path.is_file(),('unapproved NEWSHF compositor module',name)
-  raw=path.read_bytes()
+  current[name]=sha(path.read_bytes())
+  raw=project_current_newshf_source(name,path.read_bytes())
   assert sha(raw)==soft['files'][name]['current_sha256'],('unapproved NEWSHF compositor module',name)
   assert sha(_project_source_once('newshf168-soft-alpha',name,raw))==digest,('unapproved NEWSHF compositor historical module',name)
-  current[name]=sha(raw)
  return current
 
 def verified_newshf_current(root=ROOT):
@@ -493,7 +563,7 @@ def verified_newshf_current(root=ROOT):
  manifest=(root/NEWSHF_MANIFEST).read_bytes()
  outputs[NEWSHF_MANIFEST]={'sha256':sha(manifest),'mode':'100644'}
  binding=json.loads((root/'packaging/current-production-validation.json').read_bytes())
- assert len(binding['source_sha256'])==268+len(verified_enemy_probe_sources(root)) and binding['source_sha256'].get(NEWSHF_HEADER)==sha(header),'stale NEWSHF source binding'
+ assert len(before_current_newshf_inventory(binding['source_sha256'],root))==268+len(verified_enemy_probe_sources(root)) and binding['source_sha256'].get(NEWSHF_HEADER)==sha(header),'stale NEWSHF source binding'
  return dict(assets=outputs,header_sha256=sha(header))
 
 PINS['p9-stage-catalog.json']='565303b7f5b4f2cf726214a61e2f95148f4ed0ba816a81939ad6bc4c2b62d4d3'
@@ -541,7 +611,8 @@ def verified_sidekick_current(root=ROOT):
  # current; coherent image bytes alone cannot bless a stale package plan.
  from verify_current_production import verify
  binding_raw=builder.read(root,builder.BINDING);binding=json.loads(binding_raw)
- assert verify(root,binding)==268+len(verified_enemy_probe_sources(root)),'unexpected current production source scope'
+ verify(root,binding)
+ assert len(before_current_newshf_inventory(binding['source_sha256'],root))==268+len(verified_enemy_probe_sources(root)),'unexpected current production source scope'
  expected_sources=dict(load('current-source-inventory.json')['files'])
  expected_sources[SIDEKICK_HEADER]=sha(header);expected_sources.update(PRODUCTION_NON_CODE)
  expected_sources.update(verified_newshf_identity_sources(root))
@@ -551,6 +622,7 @@ def verified_sidekick_current(root=ROOT):
  expected_sources.update(verified_enemy_probe_sources(root))
  expected_sources[PROTRON_HEADER]=verified_protron_current(root)['header_sha256']
  expected_sources[CURRENT_PROTRON_HEADER]=verified_current_protron(root)['header_sha256']
+ expected_sources[CURRENT_NEWSHF_HEADER]=verified_current_newshf(root)['header_sha256']
  expected_sources[CURRENT_GUIDED_HEADER]=verified_current_guided(root)['header_sha256']
  expected_sources[CURRENT_SONIC_HEADER]=verified_current_sonic(root)['header_sha256']
  expected_sources[NEWSHF_HEADER]=verified_newshf_current(root)['header_sha256']
@@ -640,7 +712,7 @@ def verified_enemy_orb_current(root=ROOT):
  assert compat.read(root,'packaging/current-enemy-orb-compatibility.json')==(json.dumps(expected,indent=2)+'\n').encode(),'stale orb mapping'
  header=compat.payload_header(pins);assert compat.read(root,ORB_HEADER)==header,'stale orb generated header'
  binding=json.loads(compat.read(root,'packaging/current-production-validation.json'))
- assert len(binding['source_sha256'])==268+len(verified_enemy_probe_sources(root)) and binding['source_sha256'].get(ORB_HEADER)==sha(header),'stale orb source binding'
+ assert len(before_current_newshf_inventory(binding['source_sha256'],root))==268+len(verified_enemy_probe_sources(root)) and binding['source_sha256'].get(ORB_HEADER)==sha(header),'stale orb source binding'
  for name,pin in load('enemy-orb-source.json')['files'].items():
   assert binding['source_sha256'].get(name)==pin['current_sha256'],'stale orb source inverse binding'
  assert len(outputs)==5,'unapproved orb asset projection'
@@ -766,7 +838,7 @@ def verified_front_multi_current(root=ROOT):
  assert compat.read(root,FRONT_MULTI_HEADER)==header,'current Front Multi/generated-header mismatch'
  binding_raw=compat.read(root,'packaging/current-production-validation.json');binding=json.loads(binding_raw)
  from verify_current_production import source_manifest_digest
- assert len(binding['source_sha256'])==268+len(verified_enemy_probe_sources(root)) and binding['source_sha256'].get(FRONT_MULTI_HEADER)==sha(header),'stale Front Multi production header binding'
+ assert len(before_current_newshf_inventory(binding['source_sha256'],root))==268+len(verified_enemy_probe_sources(root)) and binding['source_sha256'].get(FRONT_MULTI_HEADER)==sha(header),'stale Front Multi production header binding'
  renderer=compat.read(root,'src/render_mirror.c')
  assert binding['source_sha256'].get('src/render_mirror.c')==sha(renderer) and sha(project_source('newshf-identity','src/render_mirror.c',renderer))==load('front-multi-source.json')['files']['src/render_mirror.c']['current_sha256'],'stale Front Multi renderer binding'
  assert binding['production_source_manifest_sha256']==source_manifest_digest(binding['source_sha256']),'stale Front Multi source manifest digest'
@@ -993,6 +1065,8 @@ Retired paths are explicitly absent, never a prefix/wildcard exclusion.
 
 def project_p9_inventory(current,root=ROOT):
  current=copy.deepcopy(current)
+ for name,row in verified_current_newshf(root)['assets'].items():
+  assert current.pop(name)==row,('unverified current NEWSHF output',name)
  for name,row in verified_current_guided(root)['assets'].items():
   assert current.pop(name)==row,('unverified current Guided output',name)
  for name,row in verified_current_sonic(root)['assets'].items():
@@ -1065,8 +1139,9 @@ def validate_current_sources(root=ROOT):
  reuse=verified_enemy_reuse_sources(root)
  observe=verified_enemy_observe_sources(root)
  probe=verified_enemy_probe_sources(root)
- assert set(actual)==set(expected)|{PLASMA_HEADER,FRONT_MULTI_HEADER,ORB_HEADER,NEWSHF_HEADER,PROTRON_HEADER,CURRENT_PROTRON_HEADER,CURRENT_SONIC_HEADER,CURRENT_GUIDED_HEADER}|set(added)|set(compositor)|set(reuse)|set(observe)|set(probe),'unapproved current source paths'
+ assert set(actual)==set(expected)|{PLASMA_HEADER,FRONT_MULTI_HEADER,ORB_HEADER,NEWSHF_HEADER,PROTRON_HEADER,CURRENT_PROTRON_HEADER,CURRENT_SONIC_HEADER,CURRENT_GUIDED_HEADER,CURRENT_NEWSHF_HEADER}|set(added)|set(compositor)|set(reuse)|set(observe)|set(probe),'unapproved current source paths'
  projected=dict(actual)
+ assert projected.pop(CURRENT_NEWSHF_HEADER)==verified_current_newshf(root)['header_sha256']
  assert projected.pop(CURRENT_GUIDED_HEADER)==verified_current_guided(root)['header_sha256']
  assert projected.pop(CURRENT_SONIC_HEADER)==verified_current_sonic(root)['header_sha256']
  assert projected.pop(CURRENT_PROTRON_HEADER)==verified_current_protron(root)['header_sha256']

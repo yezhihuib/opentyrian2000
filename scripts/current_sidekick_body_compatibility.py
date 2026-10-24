@@ -267,7 +267,8 @@ def authoring_input_fingerprints(root):
             'scripts/current_plasma_projectile_compatibility.py','scripts/build_current_plasma_projectile.py',
             'scripts/current_front_multi_compatibility.py','scripts/build_current_front_multi.py',
             'scripts/current_enemy_orb_compatibility.py','scripts/build_current_enemy_orb.py',
-            'scripts/build_newshf_hd.py','scripts/check_newshf_phase_a.py'}
+            'scripts/build_newshf_hd.py','scripts/check_newshf_phase_a.py',
+            'scripts/current_newshf_compatibility.py','scripts/build_current_newshf.py'}
     return {name:_charge_sha(_charge_read(root,name)) for name in sorted(paths)}
 
 
@@ -405,7 +406,7 @@ def independent_input_paths(root):
     from current_plasma_projectile_compatibility import input_paths as plasma_input_paths, MAPPING as PLASMA_MAPPING
     from current_front_multi_compatibility import input_paths as front_multi_input_paths, MAPPING as FRONT_MULTI_MAPPING
     from current_enemy_orb_compatibility import input_paths as orb_input_paths, MAPPING as ORB_MAPPING
-    from build_newshf_hd import input_paths as newshf_input_paths
+    from current_newshf_compatibility import input_paths as newshf_input_paths
     from build_enemy_protron_p09 import DIRECTORY as P09, MASTER as P09_MASTER
     from current_protron_compatibility import input_paths as protron_input_paths, MAPPING as PROTRON_MAPPING
     p09={P09_MASTER}|{P09+'/'+n for n in ('identity.json','recipe.json','source227.png','enemy-protron-p09-227-8.hda')}

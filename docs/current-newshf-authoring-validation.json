@@ -1,0 +1,102 @@
+{
+  "base_public_commit": "fca48c7ace7050d52a554900f8aac47157e8e4db",
+  "completed_tests": [
+    {
+      "exit_code": 0,
+      "seconds": 31.734,
+      "suite": "focused_current_authoring",
+      "tests": 17
+    },
+    {
+      "exit_code": 0,
+      "seconds": 107.729,
+      "suite": "actual_master_stage_apply_check_and_1029_byte_exports_plus_crossfamily_checks",
+      "tests": 3
+    },
+    {
+      "exit_code": 0,
+      "seconds": 351.889,
+      "suite": "historical_newshf_and_current_integration_source_runtime_projections",
+      "tests": 54
+    },
+    {
+      "exit_code": 0,
+      "seconds": 16.724,
+      "suite": "shared_asset_authoring_map",
+      "tests": 19
+    },
+    {
+      "exit_code": 0,
+      "seconds": 214.478,
+      "suite": "historical_bindings_front_shadow_and_existing_source_projections",
+      "tests": 49
+    },
+    {
+      "exit_code": 0,
+      "inputs_unchanged": 809,
+      "seconds": 3420.549,
+      "suite": "full_accepted_later_changes_final_helper",
+      "tests": 54
+    }
+  ],
+  "diagnostics": [
+    "Initial rollback test wrote unchanged outputs and therefore triggered no replacement; fixture corrected to a true edited master and passed.",
+    "Initial combined historical run executed54methods with4failed missing/tampered compositor subcases across2methods; exact source validation added to new finite proof, final54passed.",
+    "Historical identity native driver has stale preflight and is explicitly not executed; separate compositor harness ran bootstrap and edited163.",
+    "Earlier aggregate imported the pre-hardening helper:54methods in3476.696s exit1 with3failed exhaustive-input subcases inCharge/MintFront/Plasma; final exact-source guard was already fixed before complete final54rerun."
+  ],
+  "log_sha256": {
+    "current-newshf-historical-bindings-final.log": "b22d2ec6d902e9e8ca1a06d48eb4e9bc4f9355109eeb27fd3e7351c084fbd150",
+    "current-newshf-history-final2.log": "5e55336d597d2ad096d438cbe733826bf478393965e6d926bee6f45c01563f8c",
+    "current-newshf-history-final3.log": "c1a11bf995b5f60115c956fa8231d7d3e68bcfbc054ce14e16742917f5247712",
+    "current-newshf-integration-final2.log": "db94217fa685ca5535ca6529baf4d8568c9087cc5c4f92017dd982c953431aca",
+    "current-newshf-map-final.log": "1b08c1de8db4d16bd5f983c90b6139678a724d4b97082eb3b63631175eb0aa17",
+    "focused-tests.log": "065c70819cd83056ddfd9babe503aa1ea4ecbbcf074e935f2e81ae4cd3c03a61",
+    "runtime-tests.log": "f8766a8cb8a52502501e56b170af8ec163089ce22692f435bf20e0d4194ec598"
+  },
+  "not_claimed": [
+    "Natural campaign acceptance",
+    "Windows game execution",
+    "Physical GPU acceptance",
+    "Entire project suite",
+    "Player-shadow native acceptance for this aircraft batch"
+  ],
+  "related_receipts": [
+    "current-newshf-build-validation.json",
+    "current-newshf-independent-review.json",
+    "current-newshf-native-validation.json"
+  ],
+  "schema": "opentyrian-current-newshf-authoring-validation-v1",
+  "scope": "Source-workflow integration; no artwork redesign. Test suite counts overlap and are not a unique grand total.",
+  "source_checks": {
+    "builder_sha256": "0fa1e6834357134857ad963b14314f9cadbf8351d579c27dc39cb45f925f49b5",
+    "compiler_sha256": "cd37d1c741cd1623f9134308de5188f4726a5064e116dc94dba9dce90787764f",
+    "historical_helper_sha256": "1a8a0c5ff8deba0b8cf5e3da2d70f0d216c8c33e0968df95d67102930b1f0bc8"
+  },
+  "source_scope": {
+    "editable_masters": [
+      163,
+      167
+    ],
+    "editable_roles": [
+      2100000,
+      2100001,
+      2100002,
+      2100003,
+      2100004,
+      2100005
+    ],
+    "frozen_168_roles": [
+      2100006,
+      2100007,
+      2100008
+    ],
+    "frozen_art_and_accepted_ledger_files_byte_compared": 83,
+    "legacy_paths_pinned": 23,
+    "registry_resources": 120,
+    "runtime_destination_changes": 0,
+    "runtime_files": 1029,
+    "source_files": 271
+  },
+  "status": "PASS"
+}

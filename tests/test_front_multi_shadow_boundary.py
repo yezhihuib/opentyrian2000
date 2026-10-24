@@ -192,9 +192,11 @@ class FrontMultiCurrentGenerationBoundary(unittest.TestCase):
         cls.temp = tempfile.TemporaryDirectory(prefix='front-multi-projection-')
         cls.root = Path(cls.temp.name)
         paths = compat.input_paths(ROOT) | {compat.MAPPING, compat.HEADER, 'packaging/current-production-validation.json', 'packaging/runtime-assets-v1.json'} | {compat.ROOT + '/' + name for name in history.FRONT_MULTI_NAMES}
-        paths |= FRONT_CURRENT_SOURCES | (history.sonic_runtime_input_paths(ROOT) | history.guided_runtime_input_paths(ROOT))
+        paths |= FRONT_CURRENT_SOURCES | history.sonic_runtime_input_paths(ROOT) | history.guided_runtime_input_paths(ROOT)
+        if len(paths) != 54: raise AssertionError('unexpected historical Front Multi fixture closure')
+        paths |= history.newshf_runtime_input_paths(ROOT)
         cls.baseline = {name: (ROOT / name).read_bytes() for name in paths}
-        if len(cls.baseline) != 54: raise AssertionError('unexpected Front Multi fixture closure')
+        if set(cls.baseline) != paths: raise AssertionError('incomplete finite Front Multi fixture closure')
 
     @classmethod
     def tearDownClass(cls): cls.temp.cleanup()

@@ -280,6 +280,29 @@ def main(argv=None) -> int:
             if (row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or
                     row.get('group')!='gameplay' or row.get('revision')!='current-single-source-guided'):
                 raise ValueError('Stale Guided runtime selection')
+    # Current NEWSHF keeps the same nine opt-in destinations, with six poses
+    # derived from two authored three-pose masters and three frozen 168 V4 PNGs.
+    # The older revision marker also appears in historical manifests, so it
+    # selects members but does not itself opt those manifests into this contract.
+    newshf_prefix = 'assets/hd/current-compat/newshf/'
+    newshf_names = {f'newshf-role{i}-8.hda' for i in range(2100000, 2100009)}
+    newshf_rows = [row for row in manifest['files'] if any(
+        Path(row[key]).name.casefold() in newshf_names for key in ('destination', 'source_path')) or
+        row['source_path'].casefold().startswith(newshf_prefix) or
+        (isinstance(row.get('revision'), str) and row['revision'].casefold() == 'current-single-source-newshf-nine')]
+    newshf_current = manifest_path.resolve() == (roots[0]/'packaging/runtime-assets-v1.json').resolve() or any(
+        row['source_path'].casefold().startswith(newshf_prefix) for row in manifest['files'])
+    if newshf_current:
+        from current_newshf_compatibility import load as newshf_load
+        expected = {'assets/global/newshf/'+name for name in newshf_names}
+        if len(newshf_rows) != 9 or {row['destination'] for row in newshf_rows} != expected:
+            raise ValueError('NEWSHF packaging requires exactly nine current consumers')
+        selected = newshf_load(roots[0])
+        for row in newshf_rows:
+            current = selected[row['destination']]
+            if (row['source_path'] != current['source_path'] or row.get('sha256') != current['sha256'] or
+                    row.get('group') != 'newshf-optin' or row.get('revision') != 'current-single-source-newshf-nine'):
+                raise ValueError('Stale NEWSHF runtime selection')
     if args.content_catalog or args.check_content_catalog:
         for row in manifest['files']:
             if 'sha256' in row:

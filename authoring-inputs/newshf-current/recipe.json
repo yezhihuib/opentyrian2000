@@ -1,0 +1,151 @@
+{
+  "alpha": "binary-threshold-128-before-and-after-resize-zero-transparent-rgb",
+  "anchor": [
+    6,
+    7
+  ],
+  "canvas": [
+    192,
+    224
+  ],
+  "density": 8,
+  "logical_size": [
+    24,
+    28
+  ],
+  "masters": [
+    {
+      "selector": 163,
+      "source_size": [
+        2011,
+        782
+      ]
+    },
+    {
+      "selector": 167,
+      "source_size": [
+        2012,
+        782
+      ]
+    }
+  ],
+  "pieces": [
+    {
+      "base": 125,
+      "crop": [
+        65,
+        8,
+        640,
+        773
+      ],
+      "identity": 2100000,
+      "selector": 163,
+      "size": [
+        168,
+        224
+      ],
+      "xy": [
+        16,
+        0
+      ]
+    },
+    {
+      "base": 123,
+      "crop": [
+        755,
+        8,
+        1295,
+        773
+      ],
+      "identity": 2100001,
+      "selector": 163,
+      "size": [
+        152,
+        224
+      ],
+      "xy": [
+        24,
+        0
+      ]
+    },
+    {
+      "base": 127,
+      "crop": [
+        1457,
+        8,
+        1994,
+        773
+      ],
+      "identity": 2100002,
+      "selector": 163,
+      "size": [
+        152,
+        224
+      ],
+      "xy": [
+        24,
+        0
+      ]
+    },
+    {
+      "base": 3,
+      "crop": [
+        181,
+        43,
+        614,
+        696
+      ],
+      "identity": 2100003,
+      "selector": 167,
+      "size": [
+        136,
+        200
+      ],
+      "xy": [
+        40,
+        8
+      ]
+    },
+    {
+      "base": 1,
+      "crop": [
+        814,
+        44,
+        1208,
+        695
+      ],
+      "identity": 2100004,
+      "selector": 167,
+      "size": [
+        120,
+        200
+      ],
+      "xy": [
+        48,
+        8
+      ]
+    },
+    {
+      "base": 5,
+      "crop": [
+        1421,
+        44,
+        1823,
+        695
+      ],
+      "identity": 2100005,
+      "selector": 167,
+      "size": [
+        120,
+        200
+      ],
+      "xy": [
+        48,
+        8
+      ]
+    }
+  ],
+  "relationship": "two-independent-three-physical-column-masters-no-direction-inference",
+  "resample": "Pillow-LANCZOS-straight-RGBA-paste-without-mask",
+  "schema": "newshf-fixed-two-master-recipe-v1"
+}

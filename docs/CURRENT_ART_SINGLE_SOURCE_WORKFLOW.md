@@ -137,9 +137,14 @@ from sprite numbers; HUD accepts names such as `hud:font`. Unknown IDs fail.
 
 Charge has one input/nine outputs; Plasma projectile one input/six density-role
 contracts; Orb has two independent inputs/four ordinary-or-masked contracts.
-NEWSHF has nine independent normalized pose PNGs: six selected inputs need
-manifest/provenance updates and full validation; the three 168 poses are pinned
-by frozen policy, not a current edit/apply loop. P05 adds a finite role146
+NEWSHF163/167 now have two canonical authored three-pose masters under
+`authoring-inputs/newshf-current/`, producing six current normalized PNGs and
+transports through `build_current_newshf.py stage/apply/check`. These are physical
+bank/base slots, not inferred left/right directions or automatic animation.
+The original nine-pose selection and its old compiler remain frozen; all three
+168 V4 poses still use the exact approved soft-alpha policy and are not editable
+through this new workflow. The nine runtime destinations, opt-in group and
+default-off renderer eligibility are unchanged. P05 adds a finite role146
 consumer of three existing Green sources, not new masters. Frozen P09/player244
 share a master but reject edits under their historical hashes; they are not a
 current edit/apply loop. Front's historical rear182/183 remain outside current

@@ -57,18 +57,21 @@ class AuthoringMapTests(unittest.TestCase):
         self.assertTrue(all(r['status'] == 'current-editable' for r in rows))
         self.assertFalse(any(r['identity'] in (1310182,1310183) and r['status'] == 'current-editable' for r in self.rows))
 
-    def test_newshf_nine_normalized_inputs_not_three_raw_masters(self):
+    def test_newshf_two_current_masters_and_three_frozen_168_inputs(self):
         rows = self.rows_for(set(range(2100000,2100009)))
         self.assertEqual(len(rows), 9)
         inputs = {p for r in rows for p in r['source_inputs']}
-        self.assertEqual(len(inputs), 9)
+        self.assertEqual(len(inputs), 5)
         frozen = [r for r in rows if r['status'] == 'frozen-reproducer']
         editable = [r for r in rows if r['editable_inputs']]
         self.assertEqual(len(frozen), 3)
         self.assertTrue(all(not r['editable_inputs'] for r in frozen))
         self.assertEqual(len(editable), 6)
-        self.assertEqual(len({p for r in editable for p in r['editable_inputs']}), 6)
-        self.assertTrue(all(p.startswith('authoring-inputs/enemies/newshf-phase-a/') and p.endswith('.png') for p in inputs))
+        self.assertEqual({p for r in editable for p in r['editable_inputs']},
+                         {'authoring-inputs/newshf-current/master-163.png','authoring-inputs/newshf-current/master-167.png'})
+        self.assertTrue(all(p.startswith('authoring-inputs/enemies/newshf-phase-a/') and p.endswith('.png') for r in frozen for p in r['source_inputs']))
+        for record, identities in ((163,range(2100000,2100003)),(167,range(2100003,2100006))):
+            self.assertTrue(all(r['editable_inputs']==[f'authoring-inputs/newshf-current/master-{record}.png'] for r in rows if r['identity'] in identities))
 
     def test_protron_one_current_master_four_distinct_contracts(self):
         rows = self.rows_for({80225,80226,80244,1470227})

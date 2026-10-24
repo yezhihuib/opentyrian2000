@@ -40,14 +40,15 @@ class NormalObserverSurfaceBinding(unittest.TestCase):
   for name in names:self.assertEqual((a.ROOT/name).read_bytes(),original(name))
   changed=history.changed(BASE, a.ROOT)
   changed.update(subprocess.check_output(['git','ls-files','--others','--exclude-standard','--','assets','authoring-inputs'],cwd=a.ROOT).decode().splitlines())
-  self.assertEqual(changed,a.verified_current_sonic()['paths'] | a.verified_current_guided()['paths'])
+  self.assertEqual(changed,a.verified_current_sonic()['paths'] | a.verified_current_guided()['paths']|a.verified_current_newshf()['paths'])
  def test_exact_binding_and_runtime_delta(self):
   import sys
   sys.path.insert(0,str(a.ROOT/'scripts'))
   import build_current_art as b
   from verify_current_production import verify,source_inventory
   binding=json.loads((a.ROOT/b.BINDING).read_bytes());old=json.loads(original(b.BINDING))
-  self.assertEqual(verify(a.ROOT,binding),270)
+  verify(a.ROOT,binding)
+  self.assertEqual(len(a.before_current_newshf_inventory(binding['source_sha256'])),270)
   self.assertEqual(binding['reviewed_normal_observer_surface']['source_ledger_sha256'],a.PINS[NAME])
   self.assertEqual(a.before_normal_observer_inventory(binding['source_sha256']),old['source_sha256'])
   for name in FILES:

@@ -29,7 +29,7 @@ def dependencies(root, selected):
                                                      CHARGE_MAPPING, MF_MAPPING)
     from current_sidekick_body_compatibility import independent_input_paths
     names = independent_input_paths(root) | charge_input_paths(root) | mf_input_paths(root) | {CHARGE_MAPPING, MF_MAPPING}
-    from build_newshf_hd import input_paths as newshf_input_paths
+    from current_newshf_compatibility import input_paths as newshf_input_paths
     names |= newshf_input_paths(root)
     from current_plasma_projectile_compatibility import input_paths as plasma_input_paths, MAPPING as PLASMA_MAPPING
     names |= plasma_input_paths(root) | {PLASMA_MAPPING}

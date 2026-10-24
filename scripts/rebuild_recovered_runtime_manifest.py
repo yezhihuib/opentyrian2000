@@ -153,7 +153,7 @@ def main():
 
     # NEWSHF is a separate exact-nine additive opt-in extension. In particular,
     # do not fold it into art_compat: unknown historical consumers still fail.
-    from build_newshf_hd import load as newshf_load, IDS as NEWSHF_IDS, name as newshf_name
+    from current_newshf_compatibility import load as newshf_load, IDS as NEWSHF_IDS, name as newshf_name
     newshf = newshf_load(root)
     expected_newshf = {'assets/global/newshf/'+newshf_name(i) for i in NEWSHF_IDS}
     if len(newshf)!=9 or set(newshf)!=expected_newshf or set(newshf)&set(rows):

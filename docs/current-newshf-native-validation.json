@@ -1,0 +1,170 @@
+{
+  "adapter": {
+    "C_harness_sha256": "c7243a9208e1f1f1bee7c26d3d3af66caf7028f69429478011b10da4b9ba306e",
+    "C_harness_unchanged_from_public": true,
+    "adaptations": [
+      "ROOT via explicit snapshot environment",
+      "validate current nine rows",
+      "three fixture enumerations use exact validated current rows"
+    ],
+    "frozen_driver_sha256": "d1d47d070ffa7f819366b9183b41a584c3b53a12dccd7487f6d3969fb6810620",
+    "harness_unchanged": true,
+    "scope": "full production-linked native enemy compositor, not game-loop acceptance",
+    "sha256": "d7c81fb4cd361cd1aa23e0ec3e2657076d292952a9a7b1e54a96b1f53ef9ecb2"
+  },
+  "base_public_commit": "fca48c7ace7050d52a554900f8aac47157e8e4db",
+  "bootstrap_src_matches_owner": true,
+  "external_full_receipt_sha256": "3bde152df6539e916364cb9ae66696d894551d83d6a60cfb1fd79e1842643d4b",
+  "final_hardened_derivation": {
+    "all_src_and_nine_hda_bytes_equal_native_tested_snapshot": true,
+    "compatibility_sha256": "cd37d1c741cd1623f9134308de5188f4726a5064e116dc94dba9dce90787764f",
+    "matches_final_owner_script": true,
+    "receipt": {
+      "after": {
+        "2100000": "5079ac87a051f7ecfde6ed41ee56402b6c8f0c5d911654491ae4c97d4ece29c8",
+        "2100001": "ebd4d160a2dc1de9dac2cf96f340566cc017080997a4ee69aa44bb148b14f089",
+        "2100002": "8d6767168631f8232c09da05d70810c55e4a0b4fc823e97a48314ea8d1319f34",
+        "2100003": "36f3e6eb60084635ecd38f29b437a9eedf014a8e7a19e8bcfed38f00bc052f23",
+        "2100004": "9a39daa716d85a5fb55534692a61cb09649cb59f24b2ad4a50b1dbb01d1b480c",
+        "2100005": "8e3cff75572bbac1f830a8c50e060473cea14a170b5d10afea8567c92f2917ed",
+        "2100006": "1954ceba77e72e099d3b92b8f6bc78c14c061ee28dfdd0cec037ca43e62b2c49",
+        "2100007": "1bc2d7b6f83a438ae167a0776481d60ac04fa19b181945499585fbb08ccc13c5",
+        "2100008": "35a17d97f319ae97dcbfcf8c1545f66048c9c27a5545c2f6a9ac05f2ba4c97dd"
+      },
+      "all_legacy_newshf_inputs_and_outputs_unchanged": true,
+      "art_approval": false,
+      "before": {
+        "2100000": "bccab3ffa0e2743cd8e12b45101ab18ecc5ca22745fcd430701da2c2fda43420",
+        "2100001": "fb326361a33883f7374732c3b4cea3be0f4e7cdfa298daefeed3a13b815f0807",
+        "2100002": "6c311946d3d92ff2bca8ed6aa3874eb3acbcc694d2db6baa6b82b86c3e25c684",
+        "2100003": "36f3e6eb60084635ecd38f29b437a9eedf014a8e7a19e8bcfed38f00bc052f23",
+        "2100004": "9a39daa716d85a5fb55534692a61cb09649cb59f24b2ad4a50b1dbb01d1b480c",
+        "2100005": "8e3cff75572bbac1f830a8c50e060473cea14a170b5d10afea8567c92f2917ed",
+        "2100006": "1954ceba77e72e099d3b92b8f6bc78c14c061ee28dfdd0cec037ca43e62b2c49",
+        "2100007": "1bc2d7b6f83a438ae167a0776481d60ac04fa19b181945499585fbb08ccc13c5",
+        "2100008": "35a17d97f319ae97dcbfcf8c1545f66048c9c27a5545c2f6a9ac05f2ba4c97dd"
+      },
+      "changed_ids": [
+        2100000,
+        2100001,
+        2100002
+      ],
+      "frozen168_unchanged": true,
+      "stage_apply_check": true,
+      "status": "PASS"
+    },
+    "stage_apply_check_actual_runs": true,
+    "status": "PASS"
+  },
+  "lanes": {
+    "bootstrap": {
+      "assertions": 4606439,
+      "captured_build_inputs": 275,
+      "captured_inputs_unchanged": true,
+      "cases": 304,
+      "current_hda_sha256": {
+        "2100000": "bccab3ffa0e2743cd8e12b45101ab18ecc5ca22745fcd430701da2c2fda43420",
+        "2100001": "fb326361a33883f7374732c3b4cea3be0f4e7cdfa298daefeed3a13b815f0807",
+        "2100002": "6c311946d3d92ff2bca8ed6aa3874eb3acbcc694d2db6baa6b82b86c3e25c684",
+        "2100003": "36f3e6eb60084635ecd38f29b437a9eedf014a8e7a19e8bcfed38f00bc052f23",
+        "2100004": "9a39daa716d85a5fb55534692a61cb09649cb59f24b2ad4a50b1dbb01d1b480c",
+        "2100005": "8e3cff75572bbac1f830a8c50e060473cea14a170b5d10afea8567c92f2917ed",
+        "2100006": "1954ceba77e72e099d3b92b8f6bc78c14c061ee28dfdd0cec037ca43e62b2c49",
+        "2100007": "1bc2d7b6f83a438ae167a0776481d60ac04fa19b181945499585fbb08ccc13c5",
+        "2100008": "35a17d97f319ae97dcbfcf8c1545f66048c9c27a5545c2f6a9ac05f2ba4c97dd"
+      },
+      "driver_top_level_src_files": 268,
+      "note": "Driver mode builds compile full game; 304 native cases run hd-on only. ASan+UBSan renderer/sprite/tyrian2/harness; remaining optimized objects. Soft-alpha cases include explicitly restamped in-memory synthetic endpoint fixtures, not art approval.",
+      "production_build_modes": {
+        "default-off": {
+          "binary_sha256": "16a3fad7492eb986b5ef9af848dc235e4ff7422f81f678b8b9481e2adb53148a",
+          "exit_code": 0
+        },
+        "hd-on": {
+          "binary_sha256": "72beeb191e036044223a682aa97fcf96098eaae39a7dcab2cbe621016782b95d",
+          "exit_code": 0
+        },
+        "mirror-disabled": {
+          "binary_sha256": "5515d09e3179918a52089ef5bb60faf95d09decf143b069574155765ad155fea",
+          "exit_code": 0
+        }
+      },
+      "receipt_sha256": "989bfae711d196a005d2eede500d9d8efa800be1618af12a1294fee2b9c410b3",
+      "recursive_src_files": 271,
+      "returncode": 0,
+      "sanitizers": "ASan+UBSan renderer, sprite, tyrian2 and harness; remaining production objects optimized native",
+      "script_sha256_at_initial_derivation": "dc2b4c815c4be0493e4e5092697bfe2c4ac32641f21805f5ea2e67feed232eeb",
+      "selection_sha256": "4f5bb3f50474b6554162caf9396d4d5813bab4657cd924d44f8420118e610252",
+      "status": "PASS"
+    },
+    "edited163": {
+      "assertions": 4606439,
+      "captured_build_inputs": 275,
+      "captured_inputs_unchanged": true,
+      "cases": 304,
+      "current_hda_sha256": {
+        "2100000": "5079ac87a051f7ecfde6ed41ee56402b6c8f0c5d911654491ae4c97d4ece29c8",
+        "2100001": "ebd4d160a2dc1de9dac2cf96f340566cc017080997a4ee69aa44bb148b14f089",
+        "2100002": "8d6767168631f8232c09da05d70810c55e4a0b4fc823e97a48314ea8d1319f34",
+        "2100003": "36f3e6eb60084635ecd38f29b437a9eedf014a8e7a19e8bcfed38f00bc052f23",
+        "2100004": "9a39daa716d85a5fb55534692a61cb09649cb59f24b2ad4a50b1dbb01d1b480c",
+        "2100005": "8e3cff75572bbac1f830a8c50e060473cea14a170b5d10afea8567c92f2917ed",
+        "2100006": "1954ceba77e72e099d3b92b8f6bc78c14c061ee28dfdd0cec037ca43e62b2c49",
+        "2100007": "1bc2d7b6f83a438ae167a0776481d60ac04fa19b181945499585fbb08ccc13c5",
+        "2100008": "35a17d97f319ae97dcbfcf8c1545f66048c9c27a5545c2f6a9ac05f2ba4c97dd"
+      },
+      "driver_top_level_src_files": 268,
+      "note": "Driver mode builds compile full game; 304 native cases run hd-on only. ASan+UBSan renderer/sprite/tyrian2/harness; remaining optimized objects. Soft-alpha cases include explicitly restamped in-memory synthetic endpoint fixtures, not art approval.",
+      "production_build_modes": {
+        "default-off": {
+          "binary_sha256": "16a3fad7492eb986b5ef9af848dc235e4ff7422f81f678b8b9481e2adb53148a",
+          "exit_code": 0
+        },
+        "hd-on": {
+          "binary_sha256": "3aa4517432ce24d2c5ddc7cf75767c91c2112351325228d1d500b56b86e44c75",
+          "exit_code": 0
+        },
+        "mirror-disabled": {
+          "binary_sha256": "5515d09e3179918a52089ef5bb60faf95d09decf143b069574155765ad155fea",
+          "exit_code": 0
+        }
+      },
+      "receipt_sha256": "d0781d015ab483e586409330dc14a324417779471b109e362ea737db99e15bab",
+      "recursive_src_files": 271,
+      "returncode": 0,
+      "sanitizers": "ASan+UBSan renderer, sprite, tyrian2 and harness; remaining production objects optimized native",
+      "script_sha256_at_initial_derivation": "dc2b4c815c4be0493e4e5092697bfe2c4ac32641f21805f5ea2e67feed232eeb",
+      "selection_sha256": "224d98dfb80ec18616a35c1997d995321a8a01d6474ff0e110a3b3fbb53f1ada",
+      "status": "PASS"
+    }
+  },
+  "negative_controls": {
+    "negative-bank": {
+      "receipt_sha256": "c7f0c4295a75f91254a7e3ce387727f1d74669fbb4bbea280493f104e53981db",
+      "returncode": -6,
+      "status": "PASS expected assertion failure"
+    },
+    "negative-compose": {
+      "receipt_sha256": "df54d74724b26204d6ff84fd3fcb80a994dae1693f8a128ef1e7ccd442f428be",
+      "returncode": -6,
+      "status": "PASS expected assertion failure"
+    }
+  },
+  "optional_legacy_identity_driver": {
+    "driver_and_render_mirror_exact_public_base": true,
+    "exit_code": 1,
+    "log_sha256": "a910479c91bd1d5ae11883612be773453167aecf640a42890489d3b1cfc3bc1d",
+    "reason": "Historical driver expects render_mirror_newshf_validation_frame() as first render_mirror_begin statement; later public generation setup precedes it. No historical assertion rewritten.",
+    "status": "NOT EXECUTED: stale preflight assertion"
+  },
+  "original_data_handling": "Existing official isolated game data read and SHA verified; original bank/records passed to native child stdin, not saved in fixture files. Original data folder is never a publication candidate.",
+  "private_original_bytes_in_receipt_or_test_fixtures": false,
+  "reusable_adapter": {
+    "driver_sha_pin": "d1d47d070ffa7f819366b9183b41a584c3b53a12dccd7487f6d3969fb6810620",
+    "path": "current_newshf_native_validation.py",
+    "sha256": "2d77edef23d2f384bb12b04cac801f215082ab324c06bb212d5b9047e219981d",
+    "transform_equal_to_executed_adapter_modulo_identical_explicit_snapshot_root": true
+  },
+  "scope": "Isolated full production-linked NEWSHF enemy compositor bootstrap and true edited163; not natural gameplay, Windows, GPU, player-shadow or entire-project test acceptance",
+  "status": "PASS"
+}

@@ -155,7 +155,7 @@ def charge_derive(root,raw):
     names |= sonic_input_paths(root) | {SONIC_MAPPING}
     from current_guided_compatibility import input_paths as guided_input_paths, MAPPING as GUIDED_MAPPING
     names |= guided_input_paths(root) | {GUIDED_MAPPING}
-    from build_newshf_hd import input_paths as newshf_input_paths
+    from current_newshf_compatibility import input_paths as newshf_input_paths
     names|=newshf_input_paths(root)
     names|={p.relative_to(root).as_posix() for p in (root/'src').rglob('*') if p.is_file() or p.is_symlink()}
     names|={p.relative_to(root).as_posix() for p in (root/'scripts').glob('*.py')}
@@ -189,7 +189,7 @@ def charge_plan(root,outputs,raw):
     names |= sonic_input_paths(root) | {SONIC_MAPPING}
     from current_guided_compatibility import input_paths as guided_input_paths, MAPPING as GUIDED_MAPPING
     names |= guided_input_paths(root) | {GUIDED_MAPPING}
-    from build_newshf_hd import input_paths as newshf_input_paths
+    from current_newshf_compatibility import input_paths as newshf_input_paths
     names|=newshf_input_paths(root)
     # Bind every installed destination and all request/tool inputs. Source and
     # gameplay authority are reverified on every derive, never cached by mtime.
@@ -265,7 +265,7 @@ def mf_derive(root,raw):
     names |= sonic_input_paths(root) | {SONIC_MAPPING}
     from current_guided_compatibility import input_paths as guided_input_paths, MAPPING as GUIDED_MAPPING
     names |= guided_input_paths(root) | {GUIDED_MAPPING}
-    from build_newshf_hd import input_paths as newshf_input_paths
+    from current_newshf_compatibility import input_paths as newshf_input_paths
     names|=newshf_input_paths(root)
     names|={row['source_png'] for row in selected['resources']}
     names|={p.relative_to(root).as_posix() for p in (root/'src').rglob('*') if p.is_file() or p.is_symlink()}
@@ -301,7 +301,7 @@ def mf_plan(root,outputs,raw):
     names |= sonic_input_paths(root) | {SONIC_MAPPING}
     from current_guided_compatibility import input_paths as guided_input_paths, MAPPING as GUIDED_MAPPING
     names |= guided_input_paths(root) | {GUIDED_MAPPING}
-    from build_newshf_hd import input_paths as newshf_input_paths
+    from current_newshf_compatibility import input_paths as newshf_input_paths
     names|=newshf_input_paths(root)
     names|={p.relative_to(root).as_posix() for p in (root/'scripts').glob('*.py')}
     return dict(schema='opentyrian-current-mint-front-body-stage-v1',request_sha256=sha(raw),inputs_sha256={p:fingerprint(root,p) for p in sorted(names)},files=[dict(path=p,before_sha256=fingerprint(root,p),after_sha256=sha(data),bytes=len(data)) for p,data in sorted(outputs.items())])

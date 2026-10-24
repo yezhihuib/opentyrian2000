@@ -10,7 +10,7 @@ class SoftSourceBoundary(unittest.TestCase):
   name='src/global_newshf_mirror.inc';ledger=proof.load('newshf168-soft-alpha-source.json')
   self.assertEqual(set(ledger['files']),{name})
   self.assertEqual(ledger['integration_base'],'0112ec8d3c3fd0b6145463b85a713a79ccd01ac5')
-  raw=(proof.ROOT/name).read_bytes();old=proof._project_source_once('newshf168-soft-alpha',name,raw)
+  raw=(proof.ROOT/name).read_bytes();old=proof._project_source_once('newshf168-soft-alpha',name,proof.project_current_newshf_source(name,raw))
   self.assertEqual(proof.sha(old),proof.load('newshf-compositor-source.json')['added_sources'][name])
   self.assertIn(b'if(!a[3]&&foreign)',old)
   self.assertIn(b'if(a[3]<255&&foreign)',raw)

@@ -1,0 +1,44 @@
+{
+  "base_commit": "fca48c7ace7050d52a554900f8aac47157e8e4db",
+  "bootstrap_png_hda_pairs_equal": 9,
+  "coherent_legacy_repin_rejected": true,
+  "compiler_sha256": "cd37d1c741cd1623f9134308de5188f4726a5064e116dc94dba9dce90787764f",
+  "final_historical_adapter": {
+    "full_projected_source_inventory_equal": true,
+    "helper_sha256": "1a8a0c5ff8deba0b8cf5e3da2d70f0d216c8c33e0968df95d67102930b1f0bc8",
+    "missing_changed_source_same_process_rejected_and_restored": true,
+    "old_ledger_files_unchanged": 22,
+    "runtime_preimages_exact": 9,
+    "seconds": 10.692,
+    "tests": 4,
+    "unrelated_runtime_rows_unchanged": 1020
+  },
+  "first_pass_seconds": 57.452,
+  "first_pass_tests": 54,
+  "frozen_files_compared": 66,
+  "frozen_input_closure_files": 23,
+  "hardening_pass_seconds": 43.201,
+  "hardening_pass_tests": 24,
+  "not_claimed": [
+    "Natural gameplay",
+    "Windows execution",
+    "Whole project suite",
+    "Native renderer execution from these focused tests"
+  ],
+  "reviews": [
+    {
+      "receipt": "bootstrap-source-receipt.json",
+      "sha256": "742f6b781aa832c195630b06cae4225b37189baae61817f64a2cb3025f438ef4"
+    },
+    {
+      "receipt": "frozen-closure-addendum.json",
+      "sha256": "9ca1549e4daa5077f79ff48c99e7bb095336b7dbe240b57af7153ac70b34148d"
+    },
+    {
+      "receipt": "historical-adapter-review-addendum.json",
+      "sha256": "ce714b5f1188874ff18c929651ea7e3238a11e4f60fd8992cd4e6140c104b856"
+    }
+  ],
+  "schema": "opentyrian-current-newshf-independent-review-v1",
+  "scope": "Compiler, source, bootstrap and focused integration review; native and full production-edit pipeline recorded separately."
+}

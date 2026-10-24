@@ -1,7 +1,7 @@
 /* SPDX-License-Identifier: GPL-2.0-or-later
  * Default-off NEWSHF owner: nine exact authored composites.
  * Included after decode_tile; no level/episode/map predicate grants this owner. */
-#include "newshf_hd_assets.h"
+#include "current_newshf_hd_assets.h"
 enum { GLOBAL_NEWSHF_RESOURCE_COUNT=9 };
 static Uint8 *global_newshf_rgba[GLOBAL_NEWSHF_RESOURCE_COUNT];
 static uint64_t global_newshf_rgba_stamp[GLOBAL_NEWSHF_RESOURCE_COUNT];

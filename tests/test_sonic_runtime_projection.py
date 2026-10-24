@@ -24,7 +24,7 @@ class SonicRuntimeProjectionTests(unittest.TestCase):
         sonic_paths=a.sonic_runtime_input_paths()
         if len(sonic_paths) != 14: raise AssertionError('unexpected Sonic proof closure')
         cls.baseline = {name:(a.ROOT/name).read_bytes()
-                        for name in sonic_paths | a.guided_runtime_input_paths()}
+                        for name in sonic_paths | (a.guided_runtime_input_paths() | a.newshf_runtime_input_paths())}
         cls.current = json.loads((a.ROOT/'packaging/runtime-assets-v1.json').read_bytes())['files']
         cls.previous = json.loads(subprocess.check_output(
             ['git','show',BASE+':packaging/runtime-assets-v1.json'],cwd=a.ROOT))['files']

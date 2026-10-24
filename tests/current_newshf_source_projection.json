@@ -1,0 +1,104 @@
+{
+  "files": {
+    "src/global_newshf_mirror.inc": {
+      "current_sha256": "14089f205fb786ef60d689dece58de4cd370a5a34198f664cece2b583eb3c361",
+      "hunks": [
+        {
+          "after": "#include \"current_newshf_hd_assets.h\"\n",
+          "after_lines": [
+            3,
+            4
+          ],
+          "before": "#include \"newshf_hd_assets.h\"\n"
+        }
+      ],
+      "previous_sha256": "805a4c259dcd6a06d18a09980371abfc0c3be5f3fb078269ff55c90a060c14ff"
+    }
+  },
+  "integration_base": "fca48c7ace7050d52a554900f8aac47157e8e4db",
+  "runtime_before": [
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshf/newshf-role2100000-8.hda",
+      "git_blob": "1cf12e9490b52bc333893114020d1d16df6ca113",
+      "group": "newshf-optin",
+      "revision": "current-single-source-newshf-nine",
+      "sha256": "bccab3ffa0e2743cd8e12b45101ab18ecc5ca22745fcd430701da2c2fda43420",
+      "source_path": "assets/hd/newshf-v1/newshf-role2100000-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshf/newshf-role2100001-8.hda",
+      "git_blob": "a5c3bb0bf0f7cf8e991daae1715cf66cad08dc93",
+      "group": "newshf-optin",
+      "revision": "current-single-source-newshf-nine",
+      "sha256": "fb326361a33883f7374732c3b4cea3be0f4e7cdfa298daefeed3a13b815f0807",
+      "source_path": "assets/hd/newshf-v1/newshf-role2100001-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshf/newshf-role2100002-8.hda",
+      "git_blob": "e832559968f2c955fa7595c2dcc31a73cfeda3ca",
+      "group": "newshf-optin",
+      "revision": "current-single-source-newshf-nine",
+      "sha256": "6c311946d3d92ff2bca8ed6aa3874eb3acbcc694d2db6baa6b82b86c3e25c684",
+      "source_path": "assets/hd/newshf-v1/newshf-role2100002-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshf/newshf-role2100003-8.hda",
+      "git_blob": "53de6637754385759994f067df36cab4c068915d",
+      "group": "newshf-optin",
+      "revision": "current-single-source-newshf-nine",
+      "sha256": "36f3e6eb60084635ecd38f29b437a9eedf014a8e7a19e8bcfed38f00bc052f23",
+      "source_path": "assets/hd/newshf-v1/newshf-role2100003-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshf/newshf-role2100004-8.hda",
+      "git_blob": "22429ee500d999acc58becfa9f4b71caceb3ce5b",
+      "group": "newshf-optin",
+      "revision": "current-single-source-newshf-nine",
+      "sha256": "9a39daa716d85a5fb55534692a61cb09649cb59f24b2ad4a50b1dbb01d1b480c",
+      "source_path": "assets/hd/newshf-v1/newshf-role2100004-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshf/newshf-role2100005-8.hda",
+      "git_blob": "77e6d2eafc3e280ce3371585aeb3379547f17a4d",
+      "group": "newshf-optin",
+      "revision": "current-single-source-newshf-nine",
+      "sha256": "8e3cff75572bbac1f830a8c50e060473cea14a170b5d10afea8567c92f2917ed",
+      "source_path": "assets/hd/newshf-v1/newshf-role2100005-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshf/newshf-role2100006-8.hda",
+      "git_blob": "5c80b98c994139001a2e4996d570da4abbff2419",
+      "group": "newshf-optin",
+      "revision": "current-single-source-newshf-nine",
+      "sha256": "1954ceba77e72e099d3b92b8f6bc78c14c061ee28dfdd0cec037ca43e62b2c49",
+      "source_path": "assets/hd/newshf-v1/newshf-role2100006-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshf/newshf-role2100007-8.hda",
+      "git_blob": "384e52a4c72f2dd145a9521bc1e6b1d4667ea184",
+      "group": "newshf-optin",
+      "revision": "current-single-source-newshf-nine",
+      "sha256": "1bc2d7b6f83a438ae167a0776481d60ac04fa19b181945499585fbb08ccc13c5",
+      "source_path": "assets/hd/newshf-v1/newshf-role2100007-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshf/newshf-role2100008-8.hda",
+      "git_blob": "f3295b1ad05a9c7d4a393fb7a77e2b92e7e018ce",
+      "group": "newshf-optin",
+      "revision": "current-single-source-newshf-nine",
+      "sha256": "35a17d97f319ae97dcbfcf8c1545f66048c9c27a5545c2f6a9ac05f2ba4c97dd",
+      "source_path": "assets/hd/newshf-v1/newshf-role2100008-8.hda"
+    }
+  ],
+  "schema": "current-newshf-source-projection-v1",
+  "scope": "Exact generated-header include only; renderer eligibility, slots, geometry and blend unchanged. New header is independently derived from six current and three frozen poses."
+}

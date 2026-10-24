@@ -66,7 +66,7 @@ class EnemyReuseObserveBinding(unittest.TestCase):
   proof=a.verified_current_protron()
   changed=history.changed(BASE, a.ROOT)
   changed.update(subprocess.check_output(['git','ls-files','--others','--exclude-standard','--','assets','authoring-inputs'],cwd=a.ROOT).decode().splitlines())
-  self.assertEqual(changed,proof['paths']|a.verified_current_sonic()['paths']|a.verified_current_guided()['paths'])
+  self.assertEqual(changed,proof['paths']|a.verified_current_sonic()['paths']|a.verified_current_guided()['paths']|a.verified_current_newshf()['paths'])
  def test_art_authority_cannot_rebind_observer_modules(self):
   import sys
   sys.path.insert(0,str(a.ROOT/'scripts'))
@@ -91,7 +91,8 @@ class EnemyReuseObserveBinding(unittest.TestCase):
   from verify_current_production import verify
   binding=json.loads((a.ROOT/'packaging/current-production-validation.json').read_bytes())
   old=json.loads(original('packaging/current-production-validation.json'))
-  self.assertEqual(verify(a.ROOT,binding)-len(a.verified_enemy_probe_sources())-3,265)
+  verify(a.ROOT,binding)
+  self.assertEqual(len(a.before_current_newshf_inventory(binding['source_sha256']))-len(a.verified_enemy_probe_sources())-3,265)
   binding=dict(binding,source_sha256=a.before_controlled_probe_inventory(binding['source_sha256']))
   self.assertEqual(set(binding['source_sha256'])-set(old['source_sha256']),ADDED)
   self.assertFalse(set(old['source_sha256'])-set(binding['source_sha256']))

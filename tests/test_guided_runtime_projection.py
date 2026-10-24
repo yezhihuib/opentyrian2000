@@ -12,7 +12,7 @@ BASE='e5fac6ce2a739ad2e0d6e8f99edaec56411e6e7a'
 class GuidedRuntimeProjectionTests(unittest.TestCase):
  @classmethod
  def setUpClass(cls):
-  cls.baseline={p:(a.ROOT/p).read_bytes() for p in a.guided_runtime_input_paths()}
+  cls.baseline={p:(a.ROOT/p).read_bytes() for p in (a.guided_runtime_input_paths() | a.newshf_runtime_input_paths())}
   cls.current=json.loads((a.ROOT/'packaging/runtime-assets-v1.json').read_bytes())['files']
   cls.previous=json.loads(subprocess.check_output(['git','show',BASE+':packaging/runtime-assets-v1.json'],cwd=a.ROOT))['files']
  def setUp(self):
