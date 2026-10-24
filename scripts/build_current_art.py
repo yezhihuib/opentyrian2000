@@ -43,7 +43,12 @@ REGISTRY_AUTHORITY_SHA256='21d0b78355542b5315df82a515f3e341a3070508bdfc414f632b1
 # finite inverse: tests/fixtures/accepted-later-changes-v1/newshf168-soft-alpha-source.json.
 # Prior V4 gameplay authority: c1bc7f29b1082c7c40f537593ab23c72fc30a087275604735980ee2a27dac001.
 # Exact P05 observational extension: enemy-green-reuse-source.json; no new asset authority.
-GAMEPLAY_SOURCE_SHA256='44923f96ea7d263760ca98d88a9d68420349a5cf37ce43a5665e13707aa3a914'
+# Exact observer six-file delta and two immutable modules: enemy-reuse-observe-source.json.
+# Prior authority 7bf2767a8b412779de16c250b3d6240614911ed5da8801bab84058cecc14d6ed remains historical only.
+# Controlled probe exact four-file/two-module extension: enemy-controlled-probe-source.json.
+# Prior observer authority e2651e92494f25a0070b9b28e46806aad542bc4d1cc59a0230f913d8658c382d remains historical only.
+# Normal observer exact three-source inverse: normal-observer-surface-source.json.
+GAMEPLAY_SOURCE_SHA256='0b63062f2daa78c0612ee898991728f5ab5a712028529daaec1a4ba0aa3df0f9'
 BUILD_INPUT_SHA256='dcc93711da1cb8eb764582d33f81b80c8474a0009271b682ed235548314a3800'
 
 def sha(data):return hashlib.sha256(data).hexdigest()
@@ -89,7 +94,7 @@ def verify_authority(root,registry,family='pulse'):
             for key in ('path','sha256','payload_fnv64','provenance'):row.pop(key,None)
     if source_manifest_digest(fixed)!=REGISTRY_AUTHORITY_SHA256:
         raise ValueError('Registry role/source authority or unrelated resource changed')
-    sources=source_inventory(root);sources.pop(HEADER,None);sources.pop(LEGACY_HEADER,None);sources.pop('src/current_hud_payload_pins.h',None);sources.pop('src/current_tank_shell_payload_pins.h',None);sources.pop('src/current_enemy_energy_payload_pins.h',None);sources.pop('src/current_sidekick_body_payload_pins.h',None);sources.pop('src/current_plasma_projectile_payload_pins.h',None);sources.pop('src/hd_front_multi_current.h',None);sources.pop('src/current_enemy_orb_payload_pins.h',None);sources.pop('src/newshf_hd_assets.h',None);sources.pop('src/current_enemy_protron_payload_pins.h',None)
+    sources=source_inventory(root);sources.pop(HEADER,None);sources.pop(LEGACY_HEADER,None);sources.pop('src/current_hud_payload_pins.h',None);sources.pop('src/current_tank_shell_payload_pins.h',None);sources.pop('src/current_enemy_energy_payload_pins.h',None);sources.pop('src/current_sidekick_body_payload_pins.h',None);sources.pop('src/current_plasma_projectile_payload_pins.h',None);sources.pop('src/hd_front_multi_current.h',None);sources.pop('src/current_enemy_orb_payload_pins.h',None);sources.pop('src/newshf_hd_assets.h',None);sources.pop('src/current_enemy_protron_payload_pins.h',None);sources.pop('src/current_protron_payload_pins.h',None)
     if source_manifest_digest(sources)!=GAMEPLAY_SOURCE_SHA256:
         raise ValueError('Unrelated gameplay source changed')
     inputs={p:sha(read(root,p)) for p in BUILD_INPUTS}

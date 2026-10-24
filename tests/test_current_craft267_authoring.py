@@ -43,7 +43,7 @@ VIEW_FAMILIES = {
     'cash25': 7, 'cash50': 7, 'cash75': 7, 'gem100': 6, 'gem250': 6,
     'tank-shell': 2, 'enemy-energy': 7, 'sidekick-body': 6, 'craft267': 1,
     'hud': 6, 'charge-body': 9, 'mint-front-body': 4, 'plasma-projectile': 6,
-    'front-multi': 8, 'enemy-orb': 4,
+    'front-multi': 8, 'enemy-orb': 4, 'protron': 4,
 }
 
 
@@ -57,6 +57,8 @@ def independent_current_overlays(case, root):
         for row in mapping['files']:
             if family == 'enemy-orb' and row['identity'] in (1420112,1420113):
                 continue
+            if family == 'protron' and row['identity'] == 1470227:
+                continue
             destinations = row['destinations'] if family == 'hud' else [row['destination']]
             gameplay = [d for d in destinations if d.startswith('assets/gameplay/')]
             case.assertEqual(len(gameplay), 1)
@@ -69,7 +71,7 @@ def independent_current_overlays(case, root):
             case.assertEqual(runtime[destination]['source_path'], row['source_path'])
             case.assertEqual(runtime[destination]['sha256'], row['sha256'])
             overlays[name] = data
-    case.assertEqual(len(overlays), 171)
+    case.assertEqual(len(overlays), 174)
     # Independent literal geometry and PNG decoding; no production converter.
     pulse = json.loads((root/'assets/hd/authoring/pulse-current.json').read_bytes())
     case.assertEqual([r['identity'] for r in pulse['resources']], [80058, 80059, 80060, 80062, 80165])
@@ -341,13 +343,13 @@ class Craft267AuthoringTests(unittest.TestCase):
             target = self.base/f'view-{kind}'
             report = b.view(self.root, kind, target)
             self.assertEqual(report['files'], 650)
-            self.assertEqual(len(report['current_overlays']), 171)
+            self.assertEqual(len(report['current_overlays']), 174)
             frozen = {p.relative_to(self.root/'assets/hd/packs'/base).as_posix():p.read_bytes()
                         for p in (self.root/'assets/hd/packs'/base).rglob('*') if p.is_file()}
             self.assertEqual(set(report['current_overlays']), set(overlays))
             actual = {p.relative_to(target).as_posix():p.read_bytes() for p in target.rglob('*') if p.is_file()}
             assert_current_view_bytes(self, actual, frozen, overlays)
-            self.assertEqual(len(set(frozen) - set(overlays)), 481)
+            self.assertEqual(len(set(frozen) - set(overlays)), 478)
         # The task forbids permission changes. Exercise real package copying and
         # fingerprints, explicitly suppressing its unrelated chmod operation.
         with contextlib.redirect_stdout(io.StringIO()), mock.patch.object(Path, 'chmod', return_value=None):
@@ -526,7 +528,7 @@ class Craft267AuthoringTests(unittest.TestCase):
             b.view(self.root, 'preview', target)
         self.assertFalse(target.parent.exists())
 
-    def test_current_views_all_canonical_hashes_and_481_frozen_members(self):
+    def test_current_views_all_canonical_hashes_and_478_frozen_members(self):
         overlays = independent_current_overlays(self, self.root)
         before = self.snapshot()
         for kind, base in b.BASES.items():
@@ -537,7 +539,7 @@ class Craft267AuthoringTests(unittest.TestCase):
                       for p in frozen_root.rglob('*') if p.is_file()}
             actual = {p.relative_to(target).as_posix(): p.read_bytes()
                       for p in target.rglob('*') if p.is_file()}
-            self.assertEqual((len(actual), len(overlays), len(set(frozen) - set(overlays))), (650, 171, 479))
+            self.assertEqual((len(actual), len(overlays), len(set(frozen) - set(overlays))), (650, 174, 476))
             self.assertEqual(set(report['current_overlays']), set(overlays))
             assert_current_view_bytes(self, actual, frozen, overlays)
         self.assertEqual(self.snapshot(), before)
@@ -651,7 +653,7 @@ class Craft267AuthoringTests(unittest.TestCase):
     def test_hud_config_hash_and_version_checked_without_rasterizing(self):
         import build_current_hud as hud
         with mock.patch.object(hud, 'render_resource', side_effect=AssertionError('Preview must not rebuild HUD')):
-            self.assertEqual(len(b.current_overlays(self.root)), 171)
+            self.assertEqual(len(b.current_overlays(self.root)), 174)
             selected_path = self.root/hud.SELECTION
             selected = json.loads(selected_path.read_bytes())
             record = selected['resources']['meters'][0]

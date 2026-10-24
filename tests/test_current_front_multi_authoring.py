@@ -231,11 +231,11 @@ class FrontMultiAuthoringTests(unittest.TestCase):
         for kind in ('preview','debug'):
             target=self.base/('front-multi-updated-'+kind)
             report=craft.view(self.root,kind,target)
-            self.assertEqual((report['files'],len(report['current_overlays'])),(650,171))
+            self.assertEqual((report['files'],len(report['current_overlays'])),(650,174))
             frozen=self.root/'assets/hd/packs'/craft.BASES[kind]
             nonoverlays=[p for p in frozen.rglob('*') if p.is_file()
                          and p.relative_to(frozen).as_posix() not in report['current_overlays']]
-            self.assertEqual(len(nonoverlays),481)
+            self.assertEqual(len(nonoverlays),478)
             for path in nonoverlays:
                 self.assertEqual(path.read_bytes(),(target/path.relative_to(frozen)).read_bytes())
             for destination,row in mapping.items():

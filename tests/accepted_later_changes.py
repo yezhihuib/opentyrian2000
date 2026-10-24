@@ -25,6 +25,10 @@ import copy, hashlib, json, os, subprocess, sys
 ROOT = Path(__file__).resolve().parents[1]
 FIXTURES = ROOT/'tests/fixtures/accepted-later-changes-v1'
 PINS = {
+ 'normal-observer-surface-source.json': '40aed98872b92637089127134e24d81946bcd53d5298f17a894addcb8233da0f',
+ 'enemy-controlled-probe-source.json': 'd28e5a9d59bc471337b5fd7175b4ea87c8932d19d5503b9300b0733ebd543da2',
+ 'enemy-reuse-observe-source.json': 'e8fdb1d7c8e2a38f13e6cdebc3cf226b0de87758e16488c946de2c21fc9f7538',
+ 'enemy-proof-dedup-source.json': '91639f4b2aab64ebf1b7c40e76ccdc13e95460129af08507e8f6fe0f4caa5d9b',
  'enemy-protron-reuse-source.json': '5f82aa5edc9c9e3b1698f6480488e975101b392ffae0e741540e5c9cafccac6a',
  'enemy-green-reuse-source.json': '8c1c462965c780c0199132790a851f31575ef24f2966332bbc36c5936ceba2ba',
  'newshf168-soft-alpha-source.json': '668ce6cdff20bc65d649c3b283c9aef36f8dbcabe5efb520ad4e57a1fb301853',
@@ -59,8 +63,86 @@ def _project_source_once(label,name,raw):
  assert sha(restored)==pin['previous_sha256'],(name,'historical result drift')
  return restored
 
+CURRENT_PROTRON_HEADER='src/current_protron_payload_pins.h'
+CURRENT_PROTRON_LEDGER_SHA='5dc523d31223971348edbb48f1a2883c235599db8401dece121a9f3aac14c0cd'
+def current_protron_ledger():
+ raw=(ROOT/'tests/current_protron_source_projection.json').read_bytes()
+ assert sha(raw)==CURRENT_PROTRON_LEDGER_SHA,'changed current Protron inverse ledger'
+ return json.loads(raw)
+
+def project_normal_observer_source(name,raw):
+ return _project_source_once('normal-observer-surface',name,raw)
+
+def project_current_protron_source(name,raw):
+ raw=project_normal_observer_source(name,raw)
+ pin=current_protron_ledger()['files'].get(name)
+ if pin is None:return raw
+ assert sha(raw)==pin['current_sha256'],('unapproved current Protron source',name)
+ lines=raw.splitlines(keepends=True)
+ for edit in reversed(pin['hunks']):
+  a,b=edit['after_lines']
+  assert b''.join(lines[a:b])==edit['after'].encode(),('current Protron hunk drift',name)
+  lines[a:b]=edit['before'].encode().splitlines(keepends=True)
+ result=b''.join(lines)
+ assert sha(result)==pin['previous_sha256'],('current Protron inverse drift',name)
+ return result
+
+def verified_current_protron(root=ROOT):
+ """Separate current proof; never relax the frozen selected-B reproducer."""
+ scripts=str(ROOT/'scripts')
+ if scripts not in sys.path:sys.path.insert(0,scripts)
+ import current_protron_compatibility as c
+ mapping=c.load(root)
+ selected,pngs,blobs=c.generate(root,c.read(root,c.SELECTION))
+ names={c.SELECTION,c.MAPPING,selected['master']['source_png'],selected['recipe']['path']}|set(pngs)|{v['source_path'] for v in mapping.values()}
+ assets={n:{'sha256':sha(c.read(root,n)),'mode':'100644'} for n in names if n.startswith('assets/')}
+ return dict(assets=assets,paths=names-{c.MAPPING},mapping=mapping,header_sha256=sha(c.read(root,c.HEADER)))
+
+def before_normal_observer_inventory(inventory,root=ROOT):
+ """Exact reviewed three-source phase/session inverse; no generated authority."""
+ result=dict(inventory)
+ for name,pin in load('normal-observer-surface-source.json')['files'].items():
+  raw=(root/name).read_bytes()
+  assert result.get(name)==sha(raw),('unapproved normal observer inventory',name)
+  result[name]=sha(project_normal_observer_source(name,raw))
+ return result
+
+def before_current_protron_inventory(inventory,root=ROOT):
+ result=before_normal_observer_inventory(inventory,root)
+ assert result.pop(CURRENT_PROTRON_HEADER)==verified_current_protron(root)['header_sha256']
+ for name,pin in current_protron_ledger()['files'].items():
+  raw=(root/name).read_bytes()
+  assert result[name]==sha(project_normal_observer_source(name,raw))
+  result[name]=sha(project_current_protron_source(name,raw))
+ return result
+
+def before_current_protron_runtime(rows,root=ROOT):
+ """Only the four verified current transports revert; all other rows survive."""
+ proof=verified_current_protron(root);result=copy.deepcopy(rows)
+ old={r['destination']:r for r in current_protron_ledger()['runtime_before']}
+ assert set(old)==set(proof['mapping'])
+ seen=set()
+ for index,row in enumerate(result):
+  dest=row['destination']
+  if dest not in old:continue
+  selected=proof['mapping'][dest];raw=(root/selected['source_path']).read_bytes()
+  expected=dict(old[dest],source_path=selected['source_path'],sha256=sha(raw),bytes=len(raw),git_blob=hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest(),revision='current-single-source-protron-private-enemy-p09' if dest.endswith('enemy-protron-p09-227-8.hda') else 'current-single-source-protron')
+  assert row==expected,('unapproved current Protron runtime row',dest)
+  assert dest not in seen;seen.add(dest);result[index]=old[dest]
+ assert seen==set(old)
+ return result
+
 def project_source(label,name,raw):
  # Newest first; generated payload values never relax executable source bytes.
+ if label=='normal-observer-surface':return project_normal_observer_source(name,raw)
+ raw=project_current_protron_source(name,raw)
+ if label=='current-protron':return raw
+ raw=_project_source_once('enemy-controlled-probe',name,raw)
+ if label=='enemy-controlled-probe':return raw
+ raw=_project_source_once('enemy-reuse-observe',name,raw)
+ if label=='enemy-reuse-observe':return raw
+ raw=_project_source_once('enemy-proof-dedup',name,raw)
+ if label=='enemy-proof-dedup':return raw
  raw=_project_source_once('enemy-protron-reuse',name,raw)
  if label=='enemy-protron-reuse':return raw
  raw=_project_source_once('enemy-green-reuse',name,raw)
@@ -84,7 +166,7 @@ def project_source(label,name,raw):
  return _project_source_once(label,name,raw)
 
 def corrected_source_paths():
- return sorted(set(load('enemy-reuse-source.json')['files'])|set(load('newshf-compositor-source.json')['files'])|set(load('newshf-identity-source.json')['files'])|set(load('enemy-orb-source.json')['files'])|set(load('front-multi-source.json')['files'])|set(load('plasma-projectile-source.json')['files'])|set(load('charge-body-source.json')['files'])|set(load('render-boundaries-source.json')['files']))
+ return sorted(((set(load('enemy-controlled-probe-source.json')['files'])|set(load('enemy-reuse-observe-source.json')['files']))-set(load('enemy-reuse-source.json')['added_sources']))|set(load('enemy-reuse-source.json')['files'])|set(load('newshf-compositor-source.json')['files'])|set(load('newshf-identity-source.json')['files'])|set(load('enemy-orb-source.json')['files'])|set(load('front-multi-source.json')['files'])|set(load('plasma-projectile-source.json')['files'])|set(load('charge-body-source.json')['files'])|set(load('render-boundaries-source.json')['files']))
 
 
 PROTRON_HEADER='src/current_enemy_protron_payload_pins.h'
@@ -103,6 +185,37 @@ def verified_protron_current(root=ROOT):
  assert len(assets)==4
  return {'assets':assets,'header_sha256':sha(outputs[PROTRON_HEADER])}
 
+def verified_enemy_probe_sources(root=ROOT):
+ """Two exact controlled-probe modules; not a directory/hash exemption."""
+ added=load('enemy-controlled-probe-source.json')['added_sources']
+ assert set(added)=={'src/enemy_reuse_probe.h','src/enemy_reuse_probe.inc'}
+ for name,digest in added.items():
+  path=root/name
+  assert not path.is_symlink() and path.is_file() and sha(path.read_bytes())==digest,('unapproved controlled probe module',name)
+ return dict(added)
+
+def before_controlled_probe_inventory(inventory,root=ROOT):
+ """Project only the exact reviewed additions/deltas; retain all other pins."""
+ result=before_current_protron_inventory(inventory,root)
+ for name,digest in verified_enemy_probe_sources(root).items():
+  assert result.get(name)==digest,('unapproved controlled probe inventory',name)
+  result.pop(name)
+ for name,pin in load('enemy-controlled-probe-source.json')['files'].items():
+  raw=project_current_protron_source(name,(root/name).read_bytes())
+  assert result.get(name)==sha(raw)==pin['current_sha256'],('unapproved controlled probe inventory',name)
+  result[name]=sha(_project_source_once('enemy-controlled-probe',name,raw))
+ return result
+
+def verified_enemy_observe_sources(root=ROOT):
+ """Exactly two default-off observer modules; no source-path wildcard."""
+ added=load('enemy-reuse-observe-source.json')['added_sources']
+ assert set(added)=={'src/enemy_reuse_observe.h','src/enemy_reuse_observe.inc'}
+ for name,digest in added.items():
+  path=root/name
+  assert not path.is_symlink() and path.is_file(),('unapproved observer module',name)
+  assert sha(project_normal_observer_source(name,path.read_bytes()))==digest,('unapproved observer module',name)
+ return {name:sha((root/name).read_bytes()) for name in added}
+
 def verified_enemy_reuse_sources(root=ROOT):
  """Exactly three independent enemy semantic modules, never player aliases."""
  ledger=load('enemy-reuse-source.json')
@@ -117,6 +230,10 @@ def verified_enemy_reuse_sources(root=ROOT):
   assert not path.is_symlink() and path.is_file(),('unapproved enemy reuse module',name)
   raw=path.read_bytes()
   current[name]=sha(raw)
+  raw=project_current_protron_source(name,raw)
+  raw=_project_source_once('enemy-controlled-probe',name,raw)
+  raw=_project_source_once('enemy-reuse-observe',name,raw)
+  raw=_project_source_once('enemy-proof-dedup',name,raw)
   raw=_project_source_once('enemy-protron-reuse',name,raw)
   assert sha(raw)==green['files'][name]['current_sha256'],('unapproved green enemy module',name)
   assert sha(_project_source_once('enemy-green-reuse',name,raw))==digest,('unapproved historical enemy reuse module',name)
@@ -218,7 +335,7 @@ def verified_newshf_current(root=ROOT):
  manifest=(root/NEWSHF_MANIFEST).read_bytes()
  outputs[NEWSHF_MANIFEST]={'sha256':sha(manifest),'mode':'100644'}
  binding=json.loads((root/'packaging/current-production-validation.json').read_bytes())
- assert len(binding['source_sha256'])==263 and binding['source_sha256'].get(NEWSHF_HEADER)==sha(header),'stale NEWSHF source binding'
+ assert len(binding['source_sha256'])==266+len(verified_enemy_probe_sources(root)) and binding['source_sha256'].get(NEWSHF_HEADER)==sha(header),'stale NEWSHF source binding'
  return dict(assets=outputs,header_sha256=sha(header))
 
 PINS['p9-stage-catalog.json']='565303b7f5b4f2cf726214a61e2f95148f4ed0ba816a81939ad6bc4c2b62d4d3'
@@ -266,13 +383,16 @@ def verified_sidekick_current(root=ROOT):
  # current; coherent image bytes alone cannot bless a stale package plan.
  from verify_current_production import verify
  binding_raw=builder.read(root,builder.BINDING);binding=json.loads(binding_raw)
- assert verify(root,binding)==263,'unexpected current production source scope'
+ assert verify(root,binding)==266+len(verified_enemy_probe_sources(root)),'unexpected current production source scope'
  expected_sources=dict(load('current-source-inventory.json')['files'])
  expected_sources[SIDEKICK_HEADER]=sha(header);expected_sources.update(PRODUCTION_NON_CODE)
  expected_sources.update(verified_newshf_identity_sources(root))
  expected_sources.update(verified_newshf_compositor_sources(root))
  expected_sources.update(verified_enemy_reuse_sources(root))
+ expected_sources.update(verified_enemy_observe_sources(root))
+ expected_sources.update(verified_enemy_probe_sources(root))
  expected_sources[PROTRON_HEADER]=verified_protron_current(root)['header_sha256']
+ expected_sources[CURRENT_PROTRON_HEADER]=verified_current_protron(root)['header_sha256']
  expected_sources[NEWSHF_HEADER]=verified_newshf_current(root)['header_sha256']
  expected_sources[ORB_HEADER]=verified_enemy_orb_current(root)['header_sha256']
  expected_sources[PLASMA_HEADER]=verified_plasma_projectile_current(root)['header_sha256']
@@ -356,7 +476,7 @@ def verified_enemy_orb_current(root=ROOT):
  assert compat.read(root,'packaging/current-enemy-orb-compatibility.json')==(json.dumps(expected,indent=2)+'\n').encode(),'stale orb mapping'
  header=compat.payload_header(pins);assert compat.read(root,ORB_HEADER)==header,'stale orb generated header'
  binding=json.loads(compat.read(root,'packaging/current-production-validation.json'))
- assert len(binding['source_sha256'])==263 and binding['source_sha256'].get(ORB_HEADER)==sha(header),'stale orb source binding'
+ assert len(binding['source_sha256'])==266+len(verified_enemy_probe_sources(root)) and binding['source_sha256'].get(ORB_HEADER)==sha(header),'stale orb source binding'
  for name,pin in load('enemy-orb-source.json')['files'].items():
   assert binding['source_sha256'].get(name)==pin['current_sha256'],'stale orb source inverse binding'
  assert len(outputs)==5,'unapproved orb asset projection'
@@ -479,7 +599,7 @@ def verified_front_multi_current(root=ROOT):
  assert compat.read(root,FRONT_MULTI_HEADER)==header,'current Front Multi/generated-header mismatch'
  binding_raw=compat.read(root,'packaging/current-production-validation.json');binding=json.loads(binding_raw)
  from verify_current_production import source_manifest_digest
- assert len(binding['source_sha256'])==263 and binding['source_sha256'].get(FRONT_MULTI_HEADER)==sha(header),'stale Front Multi production header binding'
+ assert len(binding['source_sha256'])==266+len(verified_enemy_probe_sources(root)) and binding['source_sha256'].get(FRONT_MULTI_HEADER)==sha(header),'stale Front Multi production header binding'
  renderer=compat.read(root,'src/render_mirror.c')
  assert binding['source_sha256'].get('src/render_mirror.c')==sha(renderer) and sha(project_source('newshf-identity','src/render_mirror.c',renderer))==load('front-multi-source.json')['files']['src/render_mirror.c']['current_sha256'],'stale Front Multi renderer binding'
  assert binding['production_source_manifest_sha256']==source_manifest_digest(binding['source_sha256']),'stale Front Multi source manifest digest'
@@ -700,6 +820,8 @@ Retired paths are explicitly absent, never a prefix/wildcard exclusion.
 
 def project_p9_inventory(current,root=ROOT):
  current=copy.deepcopy(current)
+ for name,row in verified_current_protron(root)['assets'].items():
+  assert current.pop(name)==row,('unverified current Protron output',name)
  for name,row in verified_protron_current(root)['assets'].items():
   assert current.get(name)==row,('unverified P09 current output',name)
   del current[name]
@@ -764,8 +886,15 @@ def validate_current_sources(root=ROOT):
  added=verified_newshf_identity_sources(root)
  compositor=verified_newshf_compositor_sources(root)
  reuse=verified_enemy_reuse_sources(root)
- assert set(actual)==set(expected)|{PLASMA_HEADER,FRONT_MULTI_HEADER,ORB_HEADER,NEWSHF_HEADER,PROTRON_HEADER}|set(added)|set(compositor)|set(reuse),'unapproved current source paths'
+ observe=verified_enemy_observe_sources(root)
+ probe=verified_enemy_probe_sources(root)
+ assert set(actual)==set(expected)|{PLASMA_HEADER,FRONT_MULTI_HEADER,ORB_HEADER,NEWSHF_HEADER,PROTRON_HEADER,CURRENT_PROTRON_HEADER}|set(added)|set(compositor)|set(reuse)|set(observe)|set(probe),'unapproved current source paths'
  projected=dict(actual)
+ assert projected.pop(CURRENT_PROTRON_HEADER)==verified_current_protron(root)['header_sha256']
+ for name,digest in probe.items():
+  assert projected.pop(name)==digest,('unapproved controlled probe source',name)
+ for name,digest in observe.items():
+  assert projected.pop(name)==digest,('unapproved observer source',name)
  assert projected.pop(PROTRON_HEADER)==verified_protron_current(root)['header_sha256']
  for name,digest in reuse.items():
   assert projected.pop(name)==digest,('unapproved enemy reuse module',name)

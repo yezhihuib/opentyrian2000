@@ -1,0 +1,138 @@
+{
+  "added_sources": {},
+  "files": {
+    "src/enemy_reuse_mirror.inc": {
+      "current_sha256": "475b426aad79daae2b43fd6ce5dc001517d11f859b4972537949cf15dc84b54c",
+      "hunks": [
+        {
+          "after": "enum EnemyReuseSession {ENEMY_REUSE_LEGACY,ENEMY_REUSE_NORMAL,ENEMY_REUSE_CONTROLLED};\nstatic struct {enum EnemyReuseSession session;uint64_t session_generation;bool output_phase,contributed,families[3];Sprite2_array bank;Uint32 palette[256];\n",
+          "after_lines": [
+            13,
+            15
+          ],
+          "before": "static struct {uint64_t probe_generation;bool output_phase,contributed,families[3];Sprite2_array bank;Uint32 palette[256];\n"
+        },
+        {
+          "after": "{\n memset(&enemy_reuse_frame,0,sizeof(enemy_reuse_frame));enemy_reuse_draw_lease=NULL;\n if(enemy_reuse_observe_requested()) {\n  enemy_reuse_frame.session=ENEMY_REUSE_NORMAL;\n  enemy_reuse_frame.session_generation=enemy_reuse_observe_generation();\n } else if(enemy_reuse_probe_requested()) {\n  enemy_reuse_frame.session=ENEMY_REUSE_CONTROLLED;\n  enemy_reuse_frame.session_generation=enemy_reuse_probe_generation();\n }\n}\n/* Session kinds cannot lend authority to each other, including empty caches.\n * Legacy native probes retain their original game-surface-only contract. */\nstatic bool enemy_reuse_session_valid(void)\n{\n switch(enemy_reuse_frame.session) {\n  case ENEMY_REUSE_NORMAL:\n   return enemy_reuse_observe_requested()&&!enemy_reuse_probe_requested()&&\n    enemy_reuse_frame.session_generation&&enemy_reuse_frame.session_generation==enemy_reuse_observe_generation();\n  case ENEMY_REUSE_CONTROLLED:\n   return !enemy_reuse_observe_requested()&&enemy_reuse_probe_requested()&&\n    enemy_reuse_frame.session_generation&&enemy_reuse_frame.session_generation==enemy_reuse_probe_generation();\n  default:return !enemy_reuse_observe_requested()&&!enemy_reuse_probe_requested();\n }\n}\n",
+          "after_lines": [
+            45,
+            69
+          ],
+          "before": "{memset(&enemy_reuse_frame,0,sizeof(enemy_reuse_frame));enemy_reuse_frame.probe_generation=enemy_reuse_probe_generation();enemy_reuse_draw_lease=NULL;}\n"
+        },
+        {
+          "after": "  * Only a live captured normal or controlled session admits that transition; both\n",
+          "after_lines": [
+            119,
+            120
+          ],
+          "before": "  * Only the explicit probe contract admits that exact phase transition; both\n"
+        },
+        {
+          "after": " bool owner=s==VGAScreen||(enemy_reuse_frame.output_phase&&enemy_reuse_frame.session!=ENEMY_REUSE_LEGACY&&\n  enemy_reuse_session_valid()&&f==VGAScreen);\n",
+          "after_lines": [
+            121,
+            123
+          ],
+          "before": " bool owner=s==VGAScreen||(enemy_reuse_frame.output_phase&&enemy_reuse_frame.probe_generation&&\n  enemy_reuse_frame.probe_generation==enemy_reuse_probe_generation()&&f==VGAScreen);\n"
+        },
+        {
+          "after": " if(!enemy_reuse_session_valid())return false;\n",
+          "after_lines": [
+            132,
+            133
+          ],
+          "before": " if(enemy_reuse_probe_requested()&&(!enemy_reuse_frame.probe_generation||enemy_reuse_frame.probe_generation!=enemy_reuse_probe_generation()))return false;\n"
+        },
+        {
+          "after": " if(((enemy_reuse_observe_requested()||enemy_reuse_probe_requested())&&enemy_reuse_frame.output_phase)||!enemy_reuse_scope()||!active||reject_reason||k<0||(k<6?raw!=index:k<9?raw!=214:k==9?raw!=226:k==10?(raw!=226&&raw!=227):raw!=244)||slot>=60||(k>=9&&raw!=enemyShot[slot].sgr)||\n",
+          "after_lines": [
+            174,
+            175
+          ],
+          "before": " if((enemy_reuse_probe_requested()&&enemy_reuse_frame.output_phase)||!enemy_reuse_scope()||!active||reject_reason||k<0||(k<6?raw!=index:k<9?raw!=214:k==9?raw!=226:k==10?(raw!=226&&raw!=227):raw!=244)||slot>=60||(k>=9&&raw!=enemyShot[slot].sgr)||\n"
+        }
+      ],
+      "previous_sha256": "c5ecc5e0879ac76f792498f98446fef48d3b8ad723840916d9169aeb17420334"
+    },
+    "src/enemy_reuse_observe.h": {
+      "current_sha256": "5c7fb94a44203ecda2e7eabfd25c6181c9e28a8bb3c05332a62a8466e31c5193",
+      "hunks": [
+        {
+          "after": "#include <stdint.h>\n",
+          "after_lines": [
+            4,
+            5
+          ],
+          "before": ""
+        },
+        {
+          "after": "/* Read-only, nonzero only for the current live normal-game session. */\nuint64_t enemy_reuse_observe_generation(void);\n",
+          "after_lines": [
+            11,
+            13
+          ],
+          "before": ""
+        },
+        {
+          "after": "static inline uint64_t enemy_reuse_observe_generation(void) {return 0;}\n",
+          "after_lines": [
+            20,
+            21
+          ],
+          "before": ""
+        }
+      ],
+      "previous_sha256": "d847f50a2d889f918e9e57ed2862ebaa34e5d38b6fdaac7e504532b8de2ffbe1"
+    },
+    "src/enemy_reuse_observe.inc": {
+      "current_sha256": "0fba6f67006309918154363526adbdd738b953185a6d4ed307ef2b188e0beb9d",
+      "hunks": [
+        {
+          "after": "static uint64_t lease_serial,lease_generation;\n",
+          "after_lines": [
+            20,
+            21
+          ],
+          "before": ""
+        },
+        {
+          "after": " gameplay_lease=false;lease_generation=0;lease_episode=lease_level=0;\n",
+          "after_lines": [
+            41,
+            42
+          ],
+          "before": " gameplay_lease=false;lease_episode=lease_level=0;\n"
+        },
+        {
+          "after": "uint64_t enemy_reuse_observe_generation(void)\n{return enemy_reuse_observe_active()?lease_generation:0;}\n",
+          "after_lines": [
+            51,
+            53
+          ],
+          "before": ""
+        },
+        {
+          "after": " if(!enemy_reuse_observe_requested()||!normal_scope()||lease_serial==UINT64_MAX)return;\n",
+          "after_lines": [
+            56,
+            57
+          ],
+          "before": " if(!enemy_reuse_observe_requested()||!normal_scope())return;\n"
+        },
+        {
+          "after": " enemy_reuse_reset();lease_episode=episodeNum;lease_level=lvlFileNum;\n lease_generation=++lease_serial;gameplay_lease=true;\n",
+          "after_lines": [
+            58,
+            60
+          ],
+          "before": " enemy_reuse_reset();lease_episode=episodeNum;lease_level=lvlFileNum;gameplay_lease=true;\n"
+        }
+      ],
+      "previous_sha256": "58ac12545df551742a796ae430cc64a8d787d83e36be24393508ae083de3af46"
+    }
+  },
+  "integration_base": "19c96ae931fa1a23b05d75cb9b4387330cc8db54",
+  "schema": "opentyrian-reviewed-normal-observer-surface-source-v1",
+  "scope": "Three exact source inverses for isolated normal-session generation and phase-bound dual indexed output owners. No artwork, gameplay, RNG, event or historical oracle changes; native production-object validation is not live normal-event acceptance."
+}

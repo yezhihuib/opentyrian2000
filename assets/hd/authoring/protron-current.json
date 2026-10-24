@@ -1,0 +1,38 @@
+{
+  "schema": "opentyrian-current-protron-authoring-v1",
+  "version": "protron-current-bootstrap-v1",
+  "master": {
+    "source_png": "authoring-inputs/protron-current/master.png",
+    "source_sha256": "81ae61eaa6d151d333c819d9bcbeaa1f1c299a2ab709ce817738f0527a517479"
+  },
+  "recipe": {
+    "path": "authoring-inputs/protron-current/recipe.json",
+    "sha256": "d1ccf8258f145f9b905b34d187513cfcf7089531cd5df71441c786b872397ac3"
+  },
+  "resources": [
+    {
+      "identity": 80225,
+      "density": 8,
+      "source_png": "authoring-inputs/protron-current/derived/bullet-225-8.png",
+      "source_sha256": "85409424aa7f1c9e803227888b18d2a213887848c3c7133d0b3fb0adc31e89ae"
+    },
+    {
+      "identity": 80244,
+      "density": 8,
+      "source_png": "authoring-inputs/protron-current/derived/bullet-244-8.png",
+      "source_sha256": "7dd0ba31dcbfd255ea55eac05fc56b3311fd0c7bee77e86a998dc918a9a2d4c6"
+    },
+    {
+      "identity": 80226,
+      "density": 8,
+      "source_png": "authoring-inputs/protron-current/derived/bullet-226-8.png",
+      "source_sha256": "b62ed30e92f884a8094570924e2d0a661f5837104cde40b6c546e9b8314132a7"
+    },
+    {
+      "identity": 1470227,
+      "density": 8,
+      "source_png": "authoring-inputs/protron-current/derived/enemy-protron-p09-227-8.png",
+      "source_sha256": "0f2d0e268d21fe3a49482d7abdaf0df4e9e0f5101657e0739646619780b71b3a"
+    }
+  ]
+}

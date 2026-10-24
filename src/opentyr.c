@@ -19,6 +19,7 @@
 #include "settings_font.h"
 #include "opentyr.h"
 #include "game_probe.h"
+#include "enemy_reuse_observe.h"
 #include "asset_debug.h"
 #include "startup_logos.h"
 
@@ -805,6 +806,12 @@ int main(int argc, char *argv[])
 
 	game_probe_parse(&argc, argv);
 	JE_paramCheck(argc, argv);
+	if (enemy_reuse_observe_requested() && (isNetworkGame || record_demo || constantPlay || constantDie || richMode))
+	{
+		fprintf(stderr, "Enemy reuse observation cannot be combined with network, record, constant, death or loot modes\n");
+		SDL_Quit();
+		return 2;
+	}
 	if ((manual_hd_enabled || asteroid_hd_enabled) && (isNetworkGame || record_demo || constantPlay || constantDie || richMode))
 	{
 		fprintf(stderr, "%s HD assets cannot be combined with network, record, constant, death or loot modes\n", asteroid_hd_enabled ? "Asteroid" : "Manual");
@@ -910,6 +917,7 @@ int main(int argc, char *argv[])
 
 	for (; ; )
 	{
+		enemy_reuse_observe_reset();
 		JE_initPlayerData();
 		JE_sortHighScores();
 

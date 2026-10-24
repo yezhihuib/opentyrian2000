@@ -8,6 +8,7 @@
 #include "episodes.h"
 #include "varz.h"
 #include "game_probe.h"
+#include "enemy_reuse_observe.h"
 #include "xmas.h"
 #include <stdint.h>
 #include <string.h>
@@ -100,7 +101,7 @@ static bool records(unsigned record,unsigned weapon)
  return false;
 }
 static bool scope(unsigned record)
-{return game_probe_enabled&&!xmas&&((episodeNum==1&&((record==550&&lvlFileNum==2)||(record==240&&lvlFileNum==5)))||
+{return (game_probe_enabled||enemy_reuse_observe_active())&&!xmas&&((episodeNum==1&&((record==550&&lvlFileNum==2)||(record==240&&lvlFileNum==5)))||
  (episodeNum==2&&record==379&&lvlFileNum==2)||(episodeNum==3&&lvlFileNum==1&&(record==133||record==129)));}
 /* Native emitter banks: logical23/NEWSHS, logical7/NEWSHC, logical18/NEWSHN. */
 static const Sprite2_array *actor_bank(unsigned record)
@@ -220,14 +221,26 @@ void enemy_reuse_shot_begin_draw(unsigned slot)
  witness.slot=slot;witness.generation=shots[slot].generation;witness.shot=enemyShot[slot];witness.valid=true;
 }
 void enemy_reuse_draw_end(void) {witness.valid=false;transition.pending=transition.complete=false;}
-bool enemy_reuse_identity_live(unsigned slot,unsigned index,int x,int y)
+/* Only called immediately after a fresh, successful generation validation.
+ * No callback, write or lifetime boundary may intervene. */
+static bool live_fields(unsigned slot,unsigned index,int x,int y)
 {
- if(!enemy_reuse_identity_generation(slot))return false;
  unsigned w=shots[slot].weapon,p=shots[slot].phase;
  return index==shots[slot].frame+shots[slot].native_phase&&enemyShot[slot].sgr==shots[slot].frame&&
   x==enemyShot[slot].sx&&y==enemyShot[slot].sy&&enemyShot[slot].animate==shots[slot].native_phase&&enemyShot[slot].animax==weapons[w].weapani&&
   enemyShot[slot].sdmg==weapons[w].attack[p]&&enemyShot[slot].tx==weapons[w].tx&&enemyShot[slot].ty==weapons[w].ty&&
   enemyShot[slot].sxc==weapons[w].accelerationx&&enemyShot[slot].syc==weapons[w].acceleration;
+}
+bool enemy_reuse_identity_live(unsigned slot,unsigned index,int x,int y)
+{
+ return enemy_reuse_identity_generation(slot)!=0&&live_fields(slot,index,x,y);
+}
+bool enemy_reuse_identity_live_generation(unsigned slot,unsigned index,int x,int y,uint64_t expected)
+{
+ /* expected is a comparison only, never evidence that source bytes are valid.
+  * Each call revalidates the bank, records and actor/shot lifetime. */
+ uint64_t generation=enemy_reuse_identity_generation(slot);
+ return generation!=0&&generation==expected&&live_fields(slot,index,x,y);
 }
 bool enemy_reuse_identity_matches(unsigned slot,unsigned index,int x,int y)
 {

@@ -2,6 +2,8 @@
  * Opt-in bounded scene; does not play or alter any bundled demo file.
  */
 #include "game_probe.h"
+#include "enemy_reuse_observe.h"
+#include "enemy_reuse_probe.h"
 #include "asset_debug.h"
 #include "backgrnd.h"
 #include "config.h"
@@ -58,6 +60,7 @@ static unsigned int fade_sequence;
 static unsigned int last_enemy_hit_tick=UINT32_MAX;
 static unsigned int hits;
 static uint64_t hit_hash = UINT64_C(14695981039346656037);
+#include "enemy_reuse_probe.inc"
 #define HASH_START UINT64_C(14695981039346656037)
 #define H(v) h = game_probe_hash(h, &(v), sizeof(v))
 #define F(p,v) H((p)->v)
@@ -208,6 +211,7 @@ static void preview_loadout(void)
 
 void game_probe_parse(int *argc, char **argv)
 {
+ enemy_reuse_observe_parse(argc,argv);
  /* Inspect the untouched arguments: asset_debug_parse consumes its options. */
  bool manual_requested=false,asteroid_requested=false,diagnostic_requested=false;
  for(int i=1;i<*argc;i++) {
@@ -226,6 +230,12 @@ void game_probe_parse(int *argc, char **argv)
  int out=1;
  bool explicit_ticks=false;
  for(int i=1;i<*argc;i++) {
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
+  if(strncmp(argv[i],"--render-enemy-reuse-session=",29)==0) {
+   if(probe_requested||strcmp(argv[i]+29,"original-events-v1")) {fprintf(stderr,"Invalid or duplicate enemy reuse probe contract\n");exit(2);}
+   probe_requested=true;continue;
+  }
+#endif
   if(strncmp(argv[i],"--hud-assets=",13)==0) {
    if(!argv[i][13] || !render_mirror_set_hud_assets(argv[i]+13)) {
     fprintf(stderr,"Shared HUD assets require a valid nonempty directory\n");exit(2);
@@ -314,11 +324,13 @@ void game_probe_parse(int *argc, char **argv)
  if((loadout_selected||sidekicks_selected||charge_stages||no_capture)&&!game_probe_enabled) {
   fprintf(stderr,"Weapon preview options require --render-test or --asset-debug\n");exit(2);
  }
+ probe_parse_contract();
  argv[out]=NULL; *argc=out;
 }
 
 void game_probe_start(void)
 {
+ probe_prepare_contract();
  if(sidekicks_selected||charge_stages) {
   sidekick_states=fopen("sidekick-states.tsv","w");
   if(!sidekick_states){fprintf(stderr,"Unable to create sidekick state record\n");exit(2);}
@@ -364,6 +376,7 @@ void game_probe_start(void)
  mt_srand(0x5eedUL);
  JE_initEpisode(1); JE_initPlayerData();
  play_demo=true; record_demo=false; stopped_demo=false;
+ probe_start_contract();
  gameLoaded=false; jumpSection=false;
  printf("Controlled scene v1: default episode=1 TYRIAN lvlFileNum=9 ship=1; resolved loadout in weapon-loadout.tsv; seed=0x5eed ticks=%u\n",tick_limit);
  printf("Input scene: %s\n",charge_stages?"charge-stages: stationary, dedicated one-tick presses at 2/24/66, 90 ticks":enemy_hit_scene?"enemy-hit: no firing, stationary, natural enemies/projectiles":banking_scene?"banking: finite left/release/right/release/left/release inputs, original pose selection":"v1: fixed fire and left/right sequence");
@@ -377,6 +390,7 @@ bool game_probe_level(void)
  strcpy(levelName,"TYRIAN    "); lvlFileNum=9; levelSong=18;
  asset_debug_level();
  preview_loadout();
+ probe_level_contract();
  return true;
 }
 
@@ -622,6 +636,7 @@ bool game_probe_end_tick(void)
  fflush(trace); hits=0; hit_hash=HASH_START;capture_pose_change=false;
  asset_debug_end_tick();
  if(++game_probe_tick>=tick_limit) {
+  enemy_reuse_probe_revoke();
   if(sidekick_states){fclose(sidekick_states);sidekick_states=NULL;}
   fclose(shot_requests);fclose(shot_emissions);fclose(shot_results);fclose(shot_draws);
   shot_requests=shot_emissions=shot_results=shot_draws=NULL;
@@ -631,3 +646,6 @@ bool game_probe_end_tick(void)
  }
  return false;
 }
+
+/* Keep the opt-in implementation out of the default binary object set. */
+#include "enemy_reuse_observe.inc"

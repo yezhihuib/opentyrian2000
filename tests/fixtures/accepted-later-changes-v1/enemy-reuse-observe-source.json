@@ -1,0 +1,455 @@
+{
+  "added_sources": {
+    "src/enemy_reuse_observe.h": "d847f50a2d889f918e9e57ed2862ebaa34e5d38b6fdaac7e504532b8de2ffbe1",
+    "src/enemy_reuse_observe.inc": "58ac12545df551742a796ae430cc64a8d787d83e36be24393508ae083de3af46"
+  },
+  "files": {
+    "src/config.c": {
+      "current_sha256": "74508fd75517587caeea65c4b148c2c52277317558535e01a02b88604a2ddf1c",
+      "hunks": [
+        {
+          "after": "#include \"enemy_reuse_observe.h\"\n",
+          "after_lines": [
+            19,
+            20
+          ],
+          "before": ""
+        },
+        {
+          "after": "\tenemy_reuse_observe_reset();\n",
+          "after_lines": [
+            448,
+            449
+          ],
+          "before": ""
+        }
+      ],
+      "previous_sha256": "dff8b5d678b2e9a127eacd3fc48a7fa2eee74fa89b34cd036686c13cb7671ba4"
+    },
+    "src/enemy_reuse_identity.c": {
+      "current_sha256": "fbe0f11feeb9ee03e1170b6996f27ed8d02f4e676564b1cd44f70e5bcd66824d",
+      "hunks": [
+        {
+          "after": "#include \"enemy_reuse_observe.h\"\n",
+          "after_lines": [
+            10,
+            11
+          ],
+          "before": ""
+        },
+        {
+          "after": "{return (game_probe_enabled||enemy_reuse_observe_active())&&!xmas&&((episodeNum==1&&((record==550&&lvlFileNum==2)||(record==240&&lvlFileNum==5)))||\n",
+          "after_lines": [
+            103,
+            104
+          ],
+          "before": "{return game_probe_enabled&&!xmas&&((episodeNum==1&&((record==550&&lvlFileNum==2)||(record==240&&lvlFileNum==5)))||\n"
+        }
+      ],
+      "previous_sha256": "ffe9856606fa147994e907035305c82bbc56036779247747105aca8d8bc17f7c"
+    },
+    "src/enemy_reuse_mirror.inc": {
+      "current_sha256": "a2db19c3106b4637575819e91a482bfbb904ece5ea91a5869fbeffeff20c86fd",
+      "hunks": [
+        {
+          "after": " * Probe and isolated normal-game observation share only the finite role146 lane.\n",
+          "after_lines": [
+            3,
+            4
+          ],
+          "before": " * Only the established probe compositor is enabled: no global gate expansion.\n"
+        },
+        {
+          "after": "static struct {bool checked[3],valid[3];char root[1024];Asset members[12];unsigned observed_candidates,observed_frames;} enemy_reuse_resources;\n",
+          "after_lines": [
+            12,
+            13
+          ],
+          "before": "static struct {bool checked[3],valid[3];char root[1024];Asset members[12];} enemy_reuse_resources;\n"
+        },
+        {
+          "after": "static const char *enemy_reuse_asset_root(void)\n{return enemy_reuse_observe_requested()?enemy_reuse_observe_assets():game_probe_assets;}\n",
+          "after_lines": [
+            24,
+            26
+          ],
+          "before": ""
+        },
+        {
+          "after": " return (game_probe_enabled||enemy_reuse_observe_active())&&!asteroid_hd_enabled&&!manual_hd_enabled&&\n",
+          "after_lines": [
+            30,
+            31
+          ],
+          "before": " return game_probe_enabled&&!asteroid_hd_enabled&&!manual_hd_enabled&&\n"
+        },
+        {
+          "after": " if(family>2||!enemy_reuse_resources.valid[family]||!enemy_reuse_asset_root()||strcmp(enemy_reuse_asset_root(),enemy_reuse_resources.root))return false;\n",
+          "after_lines": [
+            67,
+            68
+          ],
+          "before": " if(family>2||!enemy_reuse_resources.valid[family]||!game_probe_assets||strcmp(game_probe_assets,enemy_reuse_resources.root))return false;\n"
+        },
+        {
+          "after": " if(family>2||!enemy_reuse_asset_root()||!enemy_reuse_asset_root()[0]||strlen(enemy_reuse_asset_root())>=sizeof(enemy_reuse_resources.root))return false;\n",
+          "after_lines": [
+            78,
+            79
+          ],
+          "before": " if(family>2||!game_probe_assets||!game_probe_assets[0]||strlen(game_probe_assets)>=sizeof(enemy_reuse_resources.root))return false;\n"
+        },
+        {
+          "after": " if(enemy_reuse_resources.root[0]&&strcmp(enemy_reuse_asset_root(),enemy_reuse_resources.root))return false;\n",
+          "after_lines": [
+            81,
+            82
+          ],
+          "before": " if(enemy_reuse_resources.root[0]&&strcmp(game_probe_assets,enemy_reuse_resources.root))return false;\n"
+        },
+        {
+          "after": "  enemy_reuse_resources.checked[family]=true;strcpy(enemy_reuse_resources.root,enemy_reuse_asset_root());\n",
+          "after_lines": [
+            83,
+            84
+          ],
+          "before": "  enemy_reuse_resources.checked[family]=true;strcpy(enemy_reuse_resources.root,game_probe_assets);\n"
+        },
+        {
+          "after": "/* Bounded stderr diagnostics are read-only; no setup, replay, tick limit or\n * game state/RNG writes. A candidate is not an accepted output frame. */\nstatic void enemy_reuse_observe_frame_result(bool accepted,const char *reason)\n{\n if(!enemy_reuse_observe_requested()||!enemy_reuse_frame.contributed||enemy_reuse_resources.observed_frames>=16)return;\n ++enemy_reuse_resources.observed_frames;\n fprintf(stderr,\"Enemy reuse observation: frame episode=%u physical=%u event-next=%u role=146 accepted=%u reason=%s\\n\",\n  (unsigned)episodeNum,(unsigned)lvlFileNum,(unsigned)eventLoc,accepted?1u:0u,reason?reason:\"none\");\n}\n",
+          "after_lines": [
+            126,
+            135
+          ],
+          "before": ""
+        },
+        {
+          "after": " if(enemy_reuse_observe_requested()&&identity&&k>=0&&enemy_reuse_resources.observed_candidates<16) {\n  ++enemy_reuse_resources.observed_candidates;\n  fprintf(stderr,\"Enemy reuse observation: candidate episode=%u physical=%u event-next=%u slot=%u index=%u generation=%llu\\n\",\n   (unsigned)episodeNum,(unsigned)lvlFileNum,(unsigned)eventLoc,slot,index,(unsigned long long)enemy_reuse_identity_generation(slot));\n }\n",
+          "after_lines": [
+            139,
+            144
+          ],
+          "before": ""
+        }
+      ],
+      "previous_sha256": "baf8f1cb4552535886d4866fa54275d1ae7e67a058e748a280fb37665a07f9c4"
+    },
+    "src/game_probe.c": {
+      "current_sha256": "ab2867fcec2a1d3f3c6a2218cca75a34cc4f6841bc806972791491da31fa6f44",
+      "hunks": [
+        {
+          "after": "#include \"enemy_reuse_observe.h\"\n",
+          "after_lines": [
+            4,
+            5
+          ],
+          "before": ""
+        },
+        {
+          "after": " enemy_reuse_observe_parse(argc,argv);\n",
+          "after_lines": [
+            211,
+            212
+          ],
+          "before": ""
+        },
+        {
+          "after": "\n/* Keep the opt-in implementation out of the default binary object set. */\n#include \"enemy_reuse_observe.inc\"\n",
+          "after_lines": [
+            635,
+            638
+          ],
+          "before": ""
+        }
+      ],
+      "previous_sha256": "569ce918649e1099cda6eae7bd712d914a42480a615ed31d8e17198e20cc5364"
+    },
+    "src/opentyr.c": {
+      "current_sha256": "fbb44d7745cd3aaa6426e373da4a7feb1195a4e669031491ba33a5fd0d5f1318",
+      "hunks": [
+        {
+          "after": "#include \"enemy_reuse_observe.h\"\n",
+          "after_lines": [
+            21,
+            22
+          ],
+          "before": ""
+        },
+        {
+          "after": "\tif (enemy_reuse_observe_requested() && (isNetworkGame || record_demo || constantPlay || constantDie || richMode))\n\t{\n\t\tfprintf(stderr, \"Enemy reuse observation cannot be combined with network, record, constant, death or loot modes\\n\");\n\t\tSDL_Quit();\n\t\treturn 2;\n\t}\n",
+          "after_lines": [
+            808,
+            814
+          ],
+          "before": ""
+        },
+        {
+          "after": "\t\tenemy_reuse_observe_reset();\n",
+          "after_lines": [
+            919,
+            920
+          ],
+          "before": ""
+        }
+      ],
+      "previous_sha256": "cff352819098045e382c827e8e59661f9fb42e8b26fe113458d78bef4a2e46f7"
+    },
+    "src/render_mirror.c": {
+      "current_sha256": "85cde9b52ce4e7577993ee1ca0616de6f6eac34bd198ffebe84261cdf5394a48",
+      "hunks": [
+        {
+          "after": "#include \"enemy_reuse_observe.h\"\n",
+          "after_lines": [
+            41,
+            42
+          ],
+          "before": ""
+        },
+        {
+          "after": "static void enemy_reuse_observe_frame_result(bool,const char *);\n",
+          "after_lines": [
+            67,
+            68
+          ],
+          "before": ""
+        },
+        {
+          "after": "#define enemy_reuse_observe_frame_result(a,b) ((void)0)\n",
+          "after_lines": [
+            73,
+            74
+          ],
+          "before": ""
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE\n if(enemy_reuse_observe_requested()) {enemy_reuse_shutdown();enemy_reuse_observe_reset();}\n#endif\n",
+          "after_lines": [
+            1281,
+            1284
+          ],
+          "before": ""
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE\n if(manual_hd_enabled||asteroid_hd_enabled||shared_hud_lease||shared_hud_frame||enemy_reuse_observe_requested()) {\n#else\n",
+          "after_lines": [
+            1288,
+            1291
+          ],
+          "before": ""
+        },
+        {
+          "after": "#endif\n",
+          "after_lines": [
+            1292,
+            1293
+          ],
+          "before": ""
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE\n enemy_reuse_observe_start();\n#endif\n /* This session owns only enemy role146, never HUD/font or scenery. */\n#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE\n if(enemy_reuse_observe_requested())return;\n#endif\n",
+          "after_lines": [
+            1429,
+            1436
+          ],
+          "before": ""
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE\n if(enemy_reuse_observe_requested()&&!enemy_reuse_observe_active()) {render_mirror_hud_reset();return;}\n#endif\n",
+          "after_lines": [
+            1519,
+            1522
+          ],
+          "before": ""
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE\n if(!mirror_enabled()&&!enemy_reuse_observe_active()&&!(shared_hud_lease&&shared_hud_requested())&&!global_talon_requested()&&!global_newshf_requested()) return;\n#else\n",
+          "after_lines": [
+            1542,
+            1545
+          ],
+          "before": ""
+        },
+        {
+          "after": "#endif\n",
+          "after_lines": [
+            1546,
+            1547
+          ],
+          "before": ""
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE\n active=mirror_enabled()||enemy_reuse_observe_active();shared_hud_frame=shared_hud_lease&&shared_hud_requested();\n#else\n",
+          "after_lines": [
+            1576,
+            1579
+          ],
+          "before": ""
+        },
+        {
+          "after": "#endif\n",
+          "after_lines": [
+            1580,
+            1581
+          ],
+          "before": ""
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE\n if(enemy_reuse_observe_requested())return NULL;\n#endif\n",
+          "after_lines": [
+            2565,
+            2568
+          ],
+          "before": ""
+        },
+        {
+          "after": " if(enemy_reuse_observe_requested()&&a->bank!=146)return false;\n if(a->bank==146&&(a!=enemy_reuse_draw_lease||(!game_probe_enabled&&!enemy_reuse_observe_active())||style!=MIRROR_NORMAL||part||filter||material||cap||forest))return false;\n",
+          "after_lines": [
+            2819,
+            2821
+          ],
+          "before": " if(a->bank==146&&(a!=enemy_reuse_draw_lease||!game_probe_enabled||style!=MIRROR_NORMAL||part||filter||material||cap||forest))return false;\n"
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE\n if(enemy_reuse_observe_requested())return false;\n#endif\n",
+          "after_lines": [
+            3010,
+            3013
+          ],
+          "before": ""
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE\n if(enemy_reuse_observe_requested()) {vulcan_shadow_clear();return;}\n#endif\n",
+          "after_lines": [
+            3054,
+            3057
+          ],
+          "before": ""
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE\n if(enemy_reuse_observe_requested())return false;\n#endif\n",
+          "after_lines": [
+            3213,
+            3216
+          ],
+          "before": ""
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE\n if(enemy_reuse_observe_requested())return false;\n#endif\n",
+          "after_lines": [
+            3442,
+            3445
+          ],
+          "before": ""
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE\n if(enemy_reuse_observe_requested())return NULL;\n#endif\n",
+          "after_lines": [
+            3489,
+            3492
+          ],
+          "before": ""
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE\n if(enemy_reuse_observe_requested())return false;\n#endif\n",
+          "after_lines": [
+            3917,
+            3920
+          ],
+          "before": ""
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE\n if(enemy_reuse_observe_requested())return 0;\n#endif\n",
+          "after_lines": [
+            4319,
+            4322
+          ],
+          "before": ""
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE\n if(enemy_reuse_observe_requested())return 0;\n#endif\n",
+          "after_lines": [
+            4430,
+            4433
+          ],
+          "before": ""
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE\n if(enemy_reuse_observe_requested()||!compatible||replaced||!active||surface!=game_screen||surface!=VGAScreen||reject_reason||suppress) {\n#else\n",
+          "after_lines": [
+            4463,
+            4466
+          ],
+          "before": ""
+        },
+        {
+          "after": "#endif\n",
+          "after_lines": [
+            4467,
+            4468
+          ],
+          "before": ""
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE\n if(enemy_reuse_observe_requested())return false;\n#endif\n",
+          "after_lines": [
+            4507,
+            4510
+          ],
+          "before": ""
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE\n if(enemy_reuse_observe_requested())return;\n#endif\n",
+          "after_lines": [
+            4670,
+            4673
+          ],
+          "before": ""
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE\n if(enemy_reuse_observe_requested()) {render_mirror_pixel(surface,address,source,MIRROR_BLEND);return;}\n#endif\n",
+          "after_lines": [
+            4791,
+            4794
+          ],
+          "before": ""
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE\n if(enemy_reuse_observe_requested()&&!enemy_reuse_observe_active()) {render_mirror_hud_reset();return;}\n#endif\n",
+          "after_lines": [
+            4996,
+            4999
+          ],
+          "before": ""
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE\n enemy_reuse_observe_frame_result(retained_scene_hd&&!reject_reason,reject_reason);\n#endif\n",
+          "after_lines": [
+            5108,
+            5111
+          ],
+          "before": ""
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE\n if(enemy_reuse_observe_requested()) {ready=last_output_valid=last_output_scene_hd=have_fade_saved=false;fade_mode=0;return;}\n#endif\n",
+          "after_lines": [
+            5132,
+            5135
+          ],
+          "before": ""
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE\n if(enemy_reuse_observe_requested()&&!enemy_reuse_observe_active()) {render_mirror_hud_reset();return false;}\n#endif\n",
+          "after_lines": [
+            5227,
+            5230
+          ],
+          "before": ""
+        }
+      ],
+      "previous_sha256": "57fa4db6548b5fe982ec69e155937e3e09953801e80d55d0e5ffddf3b7b2949a"
+    }
+  },
+  "integration_base": "6488220464055166c69267abee7b3a11b41fe16b",
+  "schema": "opentyrian-reviewed-enemy-reuse-observe-source-v1",
+  "scope": "Exclusive default-off normal-game enemy-only display session; no simulation or input changes; whole-blob finite inverse and two exact new modules."
+}

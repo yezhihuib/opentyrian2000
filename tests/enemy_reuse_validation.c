@@ -59,7 +59,9 @@ static void setup(unsigned frame)
  memset(enemySpriteSheetIds,0,sizeof(enemySpriteSheetIds));memset(enemySpriteSheets,0,sizeof(enemySpriteSheets));restore();
  spriteSheet8=(Sprite2_array){sizeof(bank_bytes),bank_bytes};spriteSheet12=(Sprite2_array){0,NULL};
  enemySpriteSheetIds[0]=enemyDat[frame<100?240:550].shapebank;enemySpriteSheets[0]=(Sprite2_array){frame<100?40714:46566,actor_banks[frame<100?1:0]};
- SDL_FillRect(game_screen,NULL,0x1b);SDL_FillRect(VGAScreenSeg,NULL,0x1b);render_mirror_begin();CHECK(active&&!reject_reason);
+ SDL_FillRect(game_screen,NULL,0x1b);SDL_FillRect(VGAScreenSeg,NULL,0x1b);
+ /* Observer fixtures grant PIC3 only after installing their final level data. */
+ if(!enemy_reuse_observe_requested()){render_mirror_begin();CHECK(active&&!reject_reason);}
 }
 static void birth(unsigned frame,unsigned slot,int x,int y)
 {

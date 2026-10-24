@@ -1,0 +1,243 @@
+{
+  "schema": "current-protron-authoring-validation-v1",
+  "baseline_commit": "3c084d6226b8e8241fa7986b976f926669bcb909",
+  "date_utc": "2026-10-23",
+  "scope": "Current Protron single-master authoring and bounded native migration verification; not a new gameplay eligibility approval.",
+  "bootstrap": {
+    "master_sha256": "81ae61eaa6d151d333c819d9bcbeaa1f1c299a2ab709ce817738f0527a517479",
+    "png_rgba_hda_four_byte_identical": true
+  },
+  "checks": {
+    "focused_authoring_tests": 12,
+    "finite_source_projection_tests": 3,
+    "historical_binding_tests": 26,
+    "shared_authoring_map_tests": 17,
+    "real_preview_views_test": 1,
+    "production_source_files": 268,
+    "package_dry_run_files": 1025,
+    "frozen_p09_reproducer": "PASS"
+  },
+  "integration": {
+    "status": "PASS",
+    "real_candidate_stage_apply_check": true,
+    "cell244_propagation": [
+      80244,
+      1470227
+    ],
+    "runtime_destinations": 1025,
+    "global_registry": 120,
+    "current_overlays": 174,
+    "cross_workflows": [
+      "plasma-projectile",
+      "enemy-orb",
+      "front-multi",
+      "charge-body",
+      "mint-front-body",
+      "green"
+    ]
+  },
+  "native_build": {
+    "opt-in": {
+      "returncode": 0,
+      "sha256": "475fffc8c2ef027e45f81b0bfc14cd7437591dba04fa1c7f098eb403e42bf571",
+      "baseline_sha256": "475fffc8c2ef027e45f81b0bfc14cd7437591dba04fa1c7f098eb403e42bf571",
+      "binary_identical": true
+    },
+    "default-off": {
+      "returncode": 0,
+      "sha256": "d98d83cdeddacf862a417825e15028c930d7ddcbf0cb69fde10960344f11ce21",
+      "baseline_sha256": "d98d83cdeddacf862a417825e15028c930d7ddcbf0cb69fde10960344f11ce21",
+      "binary_identical": true
+    },
+    "mirror-disabled": {
+      "returncode": 0,
+      "sha256": "58cfd6ebf7c14b0a56b1b76ddbaec52a7eaf1985422da263a0e84e20cdc49602",
+      "baseline_sha256": "58cfd6ebf7c14b0a56b1b76ddbaec52a7eaf1985422da263a0e84e20cdc49602",
+      "binary_identical": true
+    }
+  },
+  "native_events": {
+    "status": "PASS",
+    "scope": "Actual deterministic original events, dummy SDL/software rendering; not natural playthrough or Windows",
+    "events": [
+      {
+        "event": 37,
+        "off_on_logic_rng_equal": true,
+        "presentation_scope": "Exact rows through final simulation tick; separately verified terminal redraws consume no RNG",
+        "terminal_redraw_counts": {
+          "old-off": 0,
+          "new-off": 0,
+          "old-on": 0,
+          "new-on": 0,
+          "edited-on": 0
+        },
+        "old_new_off_identical": {
+          "state.tsv": true,
+          "presentation.tsv": true,
+          "scene-draw-commands.tsv": true
+        },
+        "off_capture_identical": {
+          "asset-debug-window-0239.bmp": true,
+          "asset-debug-window-0240.bmp": true,
+          "asset-debug-window-0241.bmp": true,
+          "asset-debug-window-0242.bmp": true
+        },
+        "bootstrap_paired_old_on_identical": {
+          "state.tsv": true,
+          "presentation.tsv": true,
+          "scene-draw-commands.tsv": true
+        },
+        "bootstrap_capture_identical": {
+          "asset-debug-window-0239.bmp": true,
+          "asset-debug-window-0240.bmp": true,
+          "asset-debug-window-0241.bmp": true,
+          "asset-debug-window-0242.bmp": true
+        },
+        "bootstrap_accepted": 87,
+        "edited_accepted": 87,
+        "edited_indices": [
+          "226",
+          "227"
+        ],
+        "edited_logic_rng_original_pixels_equal": true,
+        "edited_presentation_equal": true,
+        "edited_scene_equal": true,
+        "edited_changed_output_frames": 0,
+        "edited_changed_captures": [
+          "asset-debug-window-0239.bmp",
+          "asset-debug-window-0241.bmp"
+        ],
+        "captures": {
+          "asset-debug-window-0239.bmp": {
+            "bootstrap_sha256": "8eda8797914749f40ef55b7f223a7cf1f3a506492c461e552182a982f7508911",
+            "edited_sha256": "8d9eb4edc88828ab151e53588b2feb90a4e2b3b9732596acf04945d7362e8e08"
+          },
+          "asset-debug-window-0240.bmp": {
+            "bootstrap_sha256": "27ff964fec904b1c2c5b571cef41bbd2fdaed6d360efcdb26f44a17d2efc152e",
+            "edited_sha256": "27ff964fec904b1c2c5b571cef41bbd2fdaed6d360efcdb26f44a17d2efc152e"
+          },
+          "asset-debug-window-0241.bmp": {
+            "bootstrap_sha256": "3f129123c2490addf6bb19f80369064095e6b2284ed48b970ca8f90a6bb0df57",
+            "edited_sha256": "66498211c43c35d7c7d80679c34f6bfaa3c16ce3cdcbe1850f22b8b4a3b28b63"
+          },
+          "asset-debug-window-0242.bmp": {
+            "bootstrap_sha256": "decc61e0aea6da5a88153766460dfe3b8f3ce807fb06b821cd146443e89c7a2c",
+            "edited_sha256": "decc61e0aea6da5a88153766460dfe3b8f3ce807fb06b821cd146443e89c7a2c"
+          }
+        },
+        "paired_full_tsv_byte_identical": {
+          "old-off/new-off": {
+            "state.tsv": true,
+            "presentation.tsv": true,
+            "scene-draw-commands.tsv": true
+          },
+          "old-on/new-on": {
+            "state.tsv": true,
+            "presentation.tsv": true,
+            "scene-draw-commands.tsv": true
+          },
+          "new-on/edited-on": {
+            "state.tsv": true,
+            "presentation.tsv": true,
+            "scene-draw-commands.tsv": true
+          }
+        }
+      },
+      {
+        "event": 150,
+        "off_on_logic_rng_equal": true,
+        "presentation_scope": "Exact rows through final simulation tick; separately verified terminal redraws consume no RNG",
+        "terminal_redraw_counts": {
+          "old-off": 10,
+          "new-off": 10,
+          "old-on": 0,
+          "new-on": 0,
+          "edited-on": 0
+        },
+        "old_new_off_identical": {
+          "state.tsv": true,
+          "presentation.tsv": true,
+          "scene-draw-commands.tsv": true
+        },
+        "off_capture_identical": {
+          "asset-debug-window-0979.bmp": true,
+          "asset-debug-window-0980.bmp": true,
+          "asset-debug-window-0981.bmp": true,
+          "asset-debug-window-0982.bmp": true
+        },
+        "bootstrap_paired_old_on_identical": {
+          "state.tsv": true,
+          "presentation.tsv": true,
+          "scene-draw-commands.tsv": true
+        },
+        "bootstrap_capture_identical": {
+          "asset-debug-window-0979.bmp": true,
+          "asset-debug-window-0980.bmp": true,
+          "asset-debug-window-0981.bmp": true,
+          "asset-debug-window-0982.bmp": true
+        },
+        "bootstrap_accepted": 120,
+        "edited_accepted": 120,
+        "edited_indices": [
+          "227",
+          "244"
+        ],
+        "edited_logic_rng_original_pixels_equal": true,
+        "edited_presentation_equal": true,
+        "edited_scene_equal": true,
+        "edited_changed_output_frames": 0,
+        "edited_changed_captures": [
+          "asset-debug-window-0979.bmp",
+          "asset-debug-window-0980.bmp",
+          "asset-debug-window-0981.bmp",
+          "asset-debug-window-0982.bmp"
+        ],
+        "captures": {
+          "asset-debug-window-0979.bmp": {
+            "bootstrap_sha256": "398cd58a31ce297b35f9a6ec29c01ca993985c2e7c13b839bd7d49ad7708d4d4",
+            "edited_sha256": "d19d33070e9a48269062aec2408a2059aeba294e1ccb3ea78c81029592edb6da"
+          },
+          "asset-debug-window-0980.bmp": {
+            "bootstrap_sha256": "a9525080f5ce3ab219617b8a15cbc37ed005ed630be5dd6c2f91768aed9ca2c7",
+            "edited_sha256": "ad7998d52885033f4efc7e9b4afd7cdf6b09525c5100d898958da28b380182a5"
+          },
+          "asset-debug-window-0981.bmp": {
+            "bootstrap_sha256": "1f3c4142f03d6a82471a5d56027819b75c856b3f93cf157243c9c9e494acb856",
+            "edited_sha256": "298c66d465bb5d9d8c0b107e0094b8c040e09bf7d9777c5997c97cda8a397078"
+          },
+          "asset-debug-window-0982.bmp": {
+            "bootstrap_sha256": "ffec32ec751cf74b9de72225ee7ed63039055f92c662277e3dc4d7711cbc7aa6",
+            "edited_sha256": "e4fe3d439746b96eb3d26fb70234e59560c67a4f74aae40e6080911f2a4ea838"
+          }
+        },
+        "paired_full_tsv_byte_identical": {
+          "old-off/new-off": {
+            "state.tsv": true,
+            "presentation.tsv": true,
+            "scene-draw-commands.tsv": true
+          },
+          "old-on/new-on": {
+            "state.tsv": true,
+            "presentation.tsv": true,
+            "scene-draw-commands.tsv": true
+          },
+          "new-on/edited-on": {
+            "state.tsv": true,
+            "presentation.tsv": true,
+            "scene-draw-commands.tsv": true
+          }
+        }
+      }
+    ],
+    "historical_fixture_comparison_limit": "Earlier enemy-controlled-probe-validation gameplay-final used smaller native-p09 fixture, not current647 package. Its screenshots are not asserted equal. Paired baseline here reruns the old controlled binary on the same newly packaged gameplay-assets root.",
+    "build_receipt": "build-receipt.json",
+    "edited_build_receipt": "edited-build-receipt.json",
+    "gameplay_assets_receipt": "gameplay-assets-receipt.json"
+  },
+  "limitations": [
+    "Not the full historical pixel suite.",
+    "Dummy SDL/software deterministic event37 and event150 only; not a natural playthrough, all-level coverage, Windows or GPU acceptance.",
+    "Handled apply write failures roll back generated outputs; user master edits are not rolled back; no power-loss transaction.",
+    "Edited244 fixture is synthetic test-only; committed master and all four transports retain original pixels."
+  ]
+}

@@ -92,6 +92,8 @@ python3 prototype/build-hd-assets.py
 
 最后一条命令是普通原版显示启动。
 
+共享素材编辑入口：`python3 scripts/shared_asset_authoring_map.py --id 80112`（加 `--format json` 输出只读索引；省略 ID 查看全部已声明合同）。它区分真正母源、派生文件与冻结重现器，不把预览或已知消费者冒充全关卡覆盖。
+
 ### 手动首关高清
 
 正常进入标题菜单，手动选择 New Game / 第一章：

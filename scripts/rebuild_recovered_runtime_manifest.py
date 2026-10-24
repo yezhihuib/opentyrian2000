@@ -87,6 +87,13 @@ def main():
         if row['identity'] not in ORDINARY_IDS:continue
         if destination in art_compat:raise ValueError('Enemy orb compatibility collision')
         art_compat[destination]=dict(row,authoring_family='enemy-orb')
+    from current_protron_compatibility import load as protron_load
+    protron_current = protron_load(root)
+    private_destination = 'assets/gameplay/enemy-protron-p09-227-8.hda'
+    private_protron = protron_current.pop(private_destination)
+    for destination,row in protron_current.items():
+        if destination in art_compat:raise ValueError('Protron compatibility collision')
+        art_compat[destination]=dict(row,authoring_family='protron')
     hud_compat=current_hud_compatibility(root)
     def add(source,destination,group,exact=None):
         size,blob,sha=pins(root/source)
@@ -141,9 +148,9 @@ def main():
     from build_enemy_protron_p09 import derive as protron_derive, read as protron_read, DIRECTORY as PROTRON_DIRECTORY
     for name,raw in protron_derive(root).items():
         if protron_read(root,name)!=raw:raise ValueError('Stale P09 selected-B output: '+name)
-    protron_source=PROTRON_DIRECTORY+'/enemy-protron-p09-227-8.hda'
+    protron_source=private_protron['source_path']
     add(protron_source,'assets/gameplay/enemy-protron-p09-227-8.hda','enemy-protron-p09-optin')
-    rows['assets/gameplay/enemy-protron-p09-227-8.hda']['revision']='selected-b-private-enemy-protron-p09'
+    rows['assets/gameplay/enemy-protron-p09-227-8.hda']['revision']='current-single-source-protron-private-enemy-p09'
 
     if len(hud_compat)!=6 or any(not d.startswith('assets/shared-ui/') for d in hud_compat):
         raise ValueError('Current HUD fallback missing from historical selection')

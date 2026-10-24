@@ -16,6 +16,7 @@ void enemy_reuse_shot_before_animation(unsigned);
 void enemy_reuse_shot_after_animation(unsigned);
 bool enemy_reuse_identity_matches(unsigned,unsigned,int,int);
 bool enemy_reuse_identity_live(unsigned,unsigned,int,int);
+bool enemy_reuse_identity_live_generation(unsigned,unsigned,int,int,uint64_t);
 void enemy_reuse_draw_end(void);
 #else
 static inline void enemy_reuse_reset(void) {}
@@ -30,6 +31,7 @@ static inline void enemy_reuse_shot_before_animation(unsigned s) {(void)s;}
 static inline void enemy_reuse_shot_after_animation(unsigned s) {(void)s;}
 static inline void enemy_reuse_draw_end(void) {}
 static inline bool enemy_reuse_identity_live(unsigned s,unsigned i,int x,int y) {(void)s;(void)i;(void)x;(void)y;return false;}
+static inline bool enemy_reuse_identity_live_generation(unsigned s,unsigned i,int x,int y,uint64_t g) {(void)s;(void)i;(void)x;(void)y;(void)g;return false;}
 static inline bool enemy_reuse_identity_matches(unsigned s,unsigned i,int x,int y) {(void)s;(void)i;(void)x;(void)y;return false;}
 #endif
 #endif

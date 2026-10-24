@@ -20,6 +20,6 @@ class EnemyGreenReuseBinding(unittest.TestCase):
  def test_binding_authority(self):
   binding=json.loads((a.ROOT/'packaging/current-production-validation.json').read_bytes())
   self.assertEqual(binding['reviewed_enemy_green_reuse']['source_ledger_sha256'],a.PINS['enemy-green-reuse-source.json'])
-  self.assertEqual(len(binding['source_sha256']),263)
+  self.assertEqual(len(a.before_controlled_probe_inventory(binding['source_sha256'])),265)
   self.assertEqual(len(json.loads((a.ROOT/'packaging/runtime-assets-v1.json').read_bytes())['files']),1025)
 if __name__=='__main__':unittest.main()

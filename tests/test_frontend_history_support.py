@@ -5,8 +5,9 @@ from pathlib import Path
 import shutil
 import tempfile
 import unittest
+import accepted_later_changes as projection
 from frontend_history_support import (
-    ROOT, FIXTURES, INDEX_SHA256, NativeSources, production_inventory,
+    ROOT, FIXTURES, INDEX_SHA256, PUBLIC, NativeSources, production_inventory,
     validate_production_map, verify_bytes, git,
 )
 
@@ -51,7 +52,11 @@ class FrontendHistorySupportTests(unittest.TestCase):
         self.assertIn(names[0], later)
         self.assertNotIn(names[1], later)
         for name in names:
-            raw = (ROOT/name).read_bytes()
+            current = (ROOT/name).read_bytes()
+            # The comparator pins PUBLIC, not today's renderer. Only the
+            # existing exact, newest-first inverse supplies historical bytes.
+            raw = projection.project_source('render-boundaries', name, current)
+            self.assertEqual(raw, git(ROOT, 'show', PUBLIC+':'+name))
             pin = {name: inventory[name]}
             validate_production_map({name: (pin[name][0], raw)}, pin)
             for offset in (0, len(raw)//2, len(raw)-1):
@@ -64,6 +69,37 @@ class FrontendHistorySupportTests(unittest.TestCase):
                 validate_production_map({}, pin)
             with self.assertRaises(AssertionError):
                 validate_production_map({name: (pin[name][0], raw), 'src/extra.c': ('100644', b'')}, pin)
+
+    def test_unprojected_current_renderer_is_not_historical_input(self):
+        name = 'src/render_mirror.c'
+        raw = (ROOT/name).read_bytes()
+        pin = {name: production_inventory()[name]}
+        self.assertNotEqual(raw, git(ROOT, 'show', PUBLIC+':'+name))
+        with self.assertRaisesRegex(AssertionError, 'Unapproved current production bytes/mode'):
+            validate_production_map({name: (pin[name][0], raw)}, pin)
+
+    def test_current_drift_rejected_by_projection_or_comparison(self):
+        inventory = production_inventory()
+        for name in ('src/render_mirror.c', 'src/mtrand.c'):
+            raw = (ROOT/name).read_bytes()
+            pin = {name: inventory[name]}
+            for offset in (0, len(raw)//2, len(raw)-1):
+                damaged = raw[:offset]+bytes([raw[offset]^1])+raw[offset+1:]
+                with self.subTest(path=name, offset=offset), self.assertRaises(AssertionError):
+                    old = projection.project_source('render-boundaries', name, damaged)
+                    validate_production_map({name: (pin[name][0], old)}, pin)
+
+    def test_partial_projection_cannot_be_reused_as_current_or_historical(self):
+        name = 'src/render_mirror.c'
+        raw = (ROOT/name).read_bytes()
+        pin = {name: production_inventory()[name]}
+        partial = projection.project_source('charge-body', name, raw)
+        self.assertNotEqual(partial, raw)
+        self.assertNotEqual(partial, git(ROOT, 'show', PUBLIC+':'+name))
+        with self.assertRaises(AssertionError):
+            projection.project_source('render-boundaries', name, partial)
+        with self.assertRaises(AssertionError):
+            validate_production_map({name: (pin[name][0], partial)}, pin)
 
 
 if __name__ == '__main__':

@@ -104,7 +104,7 @@ class ChargeSourceBoundary(unittest.TestCase):
         self.assertEqual(ledger['supplied_patch_sha256'],'a9df9e940ba745f414a470cb534b98536d99c81c8f676378d4a7f306d460fbda')
         self.assertEqual(ledger['historical_source_inventory'],'current-source-inventory.json')
         self.assertEqual(set(ledger['files']),{'src/entity_draw.c','src/entity_draw.h','src/mainint.c','src/render_mirror.c','src/render_mirror.h'})
-        self.assertEqual(set(projection.corrected_source_paths()),set(ledger['files'])|{'src/global_talon_mirror.inc','src/asteroid1_enemy_orb112113_mirror.inc','src/sprite.c','src/tyrian2.c','src/newshf_identity_validation.inc'}|{'src/global_'+family+'_mirror.inc' for family in ('shield','pulse','vulcan','hitflare','smoke','green','small_explosion','cash25','rotor')})
+        self.assertEqual(set(projection.corrected_source_paths()),set(ledger['files'])|{'src/config.c','src/game_probe.c','src/opentyr.c','src/asset_debug.c'}|{'src/global_talon_mirror.inc','src/asteroid1_enemy_orb112113_mirror.inc','src/sprite.c','src/tyrian2.c','src/newshf_identity_validation.inc'}|{'src/global_'+family+'_mirror.inc' for family in ('shield','pulse','vulcan','hitflare','smoke','green','small_explosion','cash25','rotor')})
         for name,pin in ledger['files'].items():
             with self.subTest(path=name):
                 raw=(projection.ROOT/name).read_bytes()
@@ -120,10 +120,10 @@ class ChargeSourceBoundary(unittest.TestCase):
         with patch.object(projection.subprocess,'check_output',side_effect=AssertionError('Git history forbidden')):
             with patch.object(projection,'_project_source_once',wraps=projection._project_source_once) as once:
                 old=projection.project_source('storm',name,raw)
-                self.assertEqual([call.args[0] for call in once.call_args_list],['newshf-compositor','newshf-identity','enemy-orb','front-multi','plasma-projectile','charge-body','render-boundaries','storm'])
+                self.assertEqual([call.args[0] for call in once.call_args_list],['normal-observer-surface','enemy-controlled-probe','enemy-reuse-observe','enemy-proof-dedup','enemy-protron-reuse','enemy-green-reuse','enemy-reuse','newshf-compositor','newshf-identity','enemy-orb','front-multi','plasma-projectile','charge-body','render-boundaries','storm'])
                 self.assertEqual(projection.sha(old),projection.load('storm-source.json')['files'][name]['previous_sha256'])
         intermediate=projection.project_source('charge-body',name,raw)
-        with self.assertRaisesRegex(AssertionError,'not the accepted published current blob'):
+        with self.assertRaisesRegex(AssertionError,'unapproved current Protron source' if name in projection.current_protron_ledger()['files'] else 'not the accepted published current blob'):
             projection.project_source('charge-body',name,intermediate)
 
     def test_wrong_source_partial_inverse_and_extra_change_rejected(self):
@@ -138,7 +138,7 @@ class ChargeSourceBoundary(unittest.TestCase):
                 lines[a:b]=hunk['before'].encode().splitlines(keepends=True)
                 mutants.append(('partial-inverse-%d'%index,b''.join(lines)))
             for case,mutant in mutants:
-                with self.subTest(path=name,case=case),self.assertRaisesRegex(AssertionError,'not the accepted published current blob'):
+                with self.subTest(path=name,case=case),self.assertRaisesRegex(AssertionError,'unapproved current Protron source' if name in projection.current_protron_ledger()['files'] else 'not the accepted published current blob'):
                     projection.project_source('charge-body',name,mutant)
 
     def test_fixture_pin_hunk_and_result_are_all_fail_closed(self):
@@ -679,7 +679,7 @@ class CurrentGenerationBoundary(unittest.TestCase):
             binding=json.loads((self.root/builder.BINDING).read_bytes())
             binding['source_sha256']=production.source_inventory(self.root)
             binding['production_source_manifest_sha256']=production.source_manifest_digest(binding['source_sha256'])
-            self.assertEqual(len(binding['source_sha256']),263)
+            self.assertEqual(len(binding['source_sha256'])-len(projection.verified_enemy_probe_sources(self.root)),265)
             (self.root/builder.BINDING).write_bytes(builder.encoded(binding))
             with self.subTest(case=case),self.assertRaisesRegex(AssertionError,'non-target production source binding'):
                 projection.verified_sidekick_current(self.root)
@@ -909,7 +909,7 @@ class NewshfIdentityProjectionBoundary(unittest.TestCase):
             raw=(projection.ROOT/name).read_bytes()
             for edit in pin['hunks']:
                 lines=raw.splitlines(keepends=True);a,b=edit['after_lines'];lines[a:b]=edit['before'].encode().splitlines(keepends=True)
-                with self.assertRaisesRegex(AssertionError,'not the accepted published current blob'):
+                with self.assertRaisesRegex(AssertionError,'unapproved current Protron source' if name in projection.current_protron_ledger()['files'] else 'not the accepted published current blob'):
                     projection.project_source('newshf-identity',name,b''.join(lines))
         raw=(projection.FIXTURES/'newshf-identity-source.json').read_bytes()
         with patch.object(Path,'read_bytes',return_value=raw+b' '):

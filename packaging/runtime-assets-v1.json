@@ -77,12 +77,12 @@
   },
   "files": [
     {
-      "bytes": 32488,
+      "bytes": 35989,
       "destination": "CURRENT-PRODUCTION-VALIDATION.json",
-      "git_blob": "365fdd12f106164fff221994dadcc8cf1d0434ec",
+      "git_blob": "9d685cf41a0b2ac4a76ba56fa0d59d17d476e73d",
       "group": "current-production-validation",
       "revision": "reconstructed-local-unpublished",
-      "sha256": "7f7052afef5846e2eaf664f995c858aae373961f94232985e5c93497bcb2abf7",
+      "sha256": "e2ef6ae980d6c5398cac9b702ff8598731f0935674ba6a5d89b8673dd0a4637e",
       "source_path": "packaging/current-production-validation.json"
     },
     {
@@ -558,18 +558,18 @@
       "destination": "assets/gameplay/bullet-225-8.hda",
       "git_blob": "77ad904696b9e31f2852fc996e5fba9138f5fe14",
       "group": "gameplay",
-      "revision": "reconstructed-local-unpublished",
+      "revision": "current-single-source-protron",
       "sha256": "0ba11aec7089a2a97781829ad963293011cb2195a93cca137fa2f3e9cd9e8651",
-      "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/bullet-225-8.hda"
+      "source_path": "assets/hd/current-compat/protron/bullet-225-8.hda"
     },
     {
       "bytes": 43036,
       "destination": "assets/gameplay/bullet-226-8.hda",
       "git_blob": "f6ed73ade096e04d14fb7fd6de212845477fb421",
       "group": "gameplay",
-      "revision": "reconstructed-local-unpublished",
+      "revision": "current-single-source-protron",
       "sha256": "231a78b2ebc6a2410da297d05703b4c548f38926e7bd6e6b28c4fe6c4fa7071c",
-      "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/bullet-226-8.hda"
+      "source_path": "assets/hd/current-compat/protron/bullet-226-8.hda"
     },
     {
       "bytes": 43036,
@@ -594,9 +594,9 @@
       "destination": "assets/gameplay/bullet-244-8.hda",
       "git_blob": "35c7d552291c9965ad38f3d0dae4b87928704520",
       "group": "gameplay",
-      "revision": "reconstructed-local-unpublished",
+      "revision": "current-single-source-protron",
       "sha256": "901b61b1da6f538d6aac9bbd06a2f7d34e5e9d1e4d9df50c3f3eb01b1cd7b452",
-      "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/bullet-244-8.hda"
+      "source_path": "assets/hd/current-compat/protron/bullet-244-8.hda"
     },
     {
       "bytes": 43036,
@@ -2484,9 +2484,9 @@
       "destination": "assets/gameplay/enemy-protron-p09-227-8.hda",
       "git_blob": "368dfb72ff27a62e19fc18c99819fcf15fd42502",
       "group": "enemy-protron-p09-optin",
-      "revision": "selected-b-private-enemy-protron-p09",
+      "revision": "current-single-source-protron-private-enemy-p09",
       "sha256": "9de332ec5d8d7f5c0e7eb56445aabebe22897b27a6fde1ee7f36da822076aac7",
-      "source_path": "assets/hd/enemy-protron-p09-v1/enemy-protron-p09-227-8.hda"
+      "source_path": "assets/hd/current-compat/protron/enemy-protron-p09-227-8.hda"
     },
     {
       "bytes": 43036,
@@ -9305,7 +9305,7 @@
   "schema": "opentyrian-runtime-package-v1",
   "source_revision": {
     "current_production_commit": null,
-    "current_production_source_manifest_sha256": "0135416bcfa17b1393673b700b5be9c0eb2b084662b411e772a14f8409af0ae1",
+    "current_production_source_manifest_sha256": "76ff47c548d44ce7315f2d6bf1dd90c83c9c3264b866b96175cadbf57d1ac7cc",
     "data_frame_integration": "local reviewed Data-only DFM1 static frame; no commit assigned",
     "data_portrait_integration": "local reviewed source-authenticated all18 DPR1 portraits",
     "data_text_integration": "local reviewed Data-only Chinese source; no commit assigned",

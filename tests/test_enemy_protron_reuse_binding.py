@@ -19,8 +19,11 @@ def check_additive_assets_and_runtime(base=BASE):
  # commit, with exact names. Every other historical asset remains byte-identical.
  changed=set(subprocess.check_output(['git','diff','--name-only',base,'--','assets','authoring-inputs'],cwd=a.ROOT).decode().splitlines())
  changed.update(subprocess.check_output(['git','ls-files','--others','--exclude-standard','--','assets','authoring-inputs'],cwd=a.ROOT).decode().splitlines())
+ current_proof=a.verified_current_protron()
+ assert current_proof['paths']<=changed
+ changed-=current_proof['paths']
  assert changed==NEW_ASSETS,changed
- current=json.loads((a.ROOT/'packaging/runtime-assets-v1.json').read_bytes())['files']
+ current=a.before_current_protron_runtime(json.loads((a.ROOT/'packaging/runtime-assets-v1.json').read_bytes())['files'])
  previous=json.loads(original('packaging/runtime-assets-v1.json',base))['files']
  assert len(current)==1025 and len(previous)==1024
  new={x['destination']:x for x in current};old={x['destination']:x for x in previous}
@@ -45,7 +48,7 @@ class EnemyProtronReuseBinding(unittest.TestCase):
    with self.assertRaises(AssertionError):a.project_source('enemy-protron-reuse',name,raw+b'\n')
  def test_old_ledgers_unchanged(self):
   for path in sorted(a.FIXTURES.glob('*.json')):
-   if path.name=='enemy-protron-reuse-source.json':continue
+   if path.name in ('normal-observer-surface-source.json','enemy-protron-reuse-source.json','enemy-proof-dedup-source.json','enemy-reuse-observe-source.json','enemy-controlled-probe-source.json'):continue
    self.assertEqual(path.read_bytes(),original(path.relative_to(a.ROOT).as_posix()))
  def test_exact_additive_assets_and_runtime(self):
   check_additive_assets_and_runtime()
@@ -54,9 +57,10 @@ class EnemyProtronReuseBinding(unittest.TestCase):
   sys.path.insert(0,str(a.ROOT/'scripts'))
   from verify_current_production import verify
   binding=json.loads((a.ROOT/'packaging/current-production-validation.json').read_bytes())
-  self.assertEqual(verify(a.ROOT,binding),263)
+  self.assertEqual(verify(a.ROOT,binding)-len(a.verified_enemy_probe_sources())-1,265)
+  binding=dict(binding,source_sha256=a.before_controlled_probe_inventory(binding['source_sha256']))
   old=json.loads(original('packaging/current-production-validation.json'))
-  self.assertEqual(set(binding['source_sha256'])-set(old['source_sha256']),{a.PROTRON_HEADER})
+  self.assertEqual(set(binding['source_sha256'])-set(old['source_sha256']),{a.PROTRON_HEADER}|set(a.verified_enemy_observe_sources()))
   self.assertEqual(a.sha((a.ROOT/a.PROTRON_HEADER).read_bytes()),a.verified_protron_current()['header_sha256'])
   self.assertEqual(binding['reviewed_enemy_protron_reuse']['source_ledger_sha256'],a.PINS['enemy-protron-reuse-source.json'])
 if __name__=='__main__':unittest.main()

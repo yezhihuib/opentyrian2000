@@ -1,0 +1,79 @@
+{
+  "files": {
+    "src/enemy_reuse_mirror.inc": {
+      "current_sha256": "c5ecc5e0879ac76f792498f98446fef48d3b8ad723840916d9169aeb17420334",
+      "hunks": [
+        {
+          "after": " CURRENT_PROTRON_80226_D8_PAYLOAD_FNV,CURRENT_PROTRON_1470227_D8_PAYLOAD_FNV,CURRENT_PROTRON_80244_D8_PAYLOAD_FNV};\n",
+          "after_lines": [
+            11,
+            12
+          ],
+          "before": " UINT64_C(0x436fda16719ce3fb),CURRENT_ENEMY_PROTRON_1470227_RGBA,UINT64_C(0xbcb8f83827c8b717)};\n"
+        }
+      ],
+      "previous_sha256": "98e502b77de9943f21be7fe349931593f533319748963108897b96367b81190e"
+    },
+    "src/render_mirror.c": {
+      "current_sha256": "16f992d218cde576eb9411da31ac23cd09dee10e25913e7cc27c802c2e0e22ae",
+      "hunks": [
+        {
+          "after": "#include \"current_protron_payload_pins.h\"\n",
+          "after_lines": [
+            16,
+            17
+          ],
+          "before": ""
+        },
+        {
+          "after": " {225,469,UINT64_C(0xcc2d73d8d3e08e9b),CURRENT_PROTRON_80225_D8_PAYLOAD_FNV,532,UINT64_C(0x9115d94f761d41b6)},\n {244,470,UINT64_C(0x536ebd180af638d6),CURRENT_PROTRON_80244_D8_PAYLOAD_FNV,533,UINT64_C(0xa0f35ce4562bb3a9)},\n {226,471,UINT64_C(0x6f6f9c2a049b7953),CURRENT_PROTRON_80226_D8_PAYLOAD_FNV,534,UINT64_C(0xb5ae06163e59f3f6)},\n",
+          "after_lines": [
+            484,
+            487
+          ],
+          "before": " {225,469,UINT64_C(0xcc2d73d8d3e08e9b),UINT64_C(0x4bcd62036411d684),532,UINT64_C(0x9115d94f761d41b6)},\n {244,470,UINT64_C(0x536ebd180af638d6),UINT64_C(0xbcb8f83827c8b717),533,UINT64_C(0xa0f35ce4562bb3a9)},\n {226,471,UINT64_C(0x6f6f9c2a049b7953),UINT64_C(0x436fda16719ce3fb),534,UINT64_C(0xb5ae06163e59f3f6)},\n"
+        }
+      ],
+      "previous_sha256": "3713c2bd9ae80236cf406332fed4150d6fa72118a28473ff8c685b47e50b09a3"
+    }
+  },
+  "integration_base": "3c084d6226b8e8241fa7986b976f926669bcb909",
+  "runtime_before": [
+    {
+      "bytes": 43036,
+      "destination": "assets/gameplay/bullet-225-8.hda",
+      "git_blob": "77ad904696b9e31f2852fc996e5fba9138f5fe14",
+      "group": "gameplay",
+      "revision": "reconstructed-local-unpublished",
+      "sha256": "0ba11aec7089a2a97781829ad963293011cb2195a93cca137fa2f3e9cd9e8651",
+      "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/bullet-225-8.hda"
+    },
+    {
+      "bytes": 43036,
+      "destination": "assets/gameplay/bullet-226-8.hda",
+      "git_blob": "f6ed73ade096e04d14fb7fd6de212845477fb421",
+      "group": "gameplay",
+      "revision": "reconstructed-local-unpublished",
+      "sha256": "231a78b2ebc6a2410da297d05703b4c548f38926e7bd6e6b28c4fe6c4fa7071c",
+      "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/bullet-226-8.hda"
+    },
+    {
+      "bytes": 43036,
+      "destination": "assets/gameplay/bullet-244-8.hda",
+      "git_blob": "35c7d552291c9965ad38f3d0dae4b87928704520",
+      "group": "gameplay",
+      "revision": "reconstructed-local-unpublished",
+      "sha256": "901b61b1da6f538d6aac9bbd06a2f7d34e5e9d1e4d9df50c3f3eb01b1cd7b452",
+      "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/bullet-244-8.hda"
+    },
+    {
+      "bytes": 43036,
+      "destination": "assets/gameplay/enemy-protron-p09-227-8.hda",
+      "git_blob": "368dfb72ff27a62e19fc18c99819fcf15fd42502",
+      "group": "enemy-protron-p09-optin",
+      "revision": "selected-b-private-enemy-protron-p09",
+      "sha256": "9de332ec5d8d7f5c0e7eb56445aabebe22897b27a6fde1ee7f36da822076aac7",
+      "source_path": "assets/hd/enemy-protron-p09-v1/enemy-protron-p09-227-8.hda"
+    }
+  ]
+}

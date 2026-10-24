@@ -14,6 +14,7 @@
 #include "current_tank_shell_payload_pins.h"
 #include "current_enemy_energy_payload_pins.h"
 #include "current_plasma_projectile_payload_pins.h"
+#include "current_protron_payload_pins.h"
 #include "hd_front_multi_current.h"
 #include "data_frame.h"
 #include "data_portrait.h"
@@ -39,6 +40,8 @@
 #include "plateau_cap_material.h"
 #include "forest13_material.h"
 #include "game_probe.h"
+#include "enemy_reuse_observe.h"
+#include "enemy_reuse_probe.h"
 #include "asset_debug.h"
 #include "entity_draw.h"
 #include "palette.h"
@@ -64,11 +67,13 @@ typedef struct {
 static const Asset *enemy_reuse_draw_lease;
 static void enemy_reuse_shutdown(void),enemy_reuse_frame_begin(void);
 static bool enemy_reuse_proof(void),enemy_reuse_cache_check(void);
+static void enemy_reuse_observe_frame_result(bool,const char *);
 #else
 #define enemy_reuse_shutdown() ((void)0)
 #define enemy_reuse_frame_begin() ((void)0)
 #define enemy_reuse_proof() true
 #define enemy_reuse_cache_check() true
+#define enemy_reuse_observe_frame_result(a,b) ((void)0)
 #endif
 enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121, ASSET_ENEMY_TANK_SHELL=122, ASSET_REAR534_BODY=123, ASSET_DATA513_BODY=124, ASSET_PROTRON_SHADOW=125, ASSET_MARLO_BODY=126, ASSET_MINT_BODY=127, ASSET_FRONTBLASTER_BODY=128, ASSET_PLASMA_BODY=129, ASSET_PLASMA_PROJECTILE=130, ASSET_REAR_MULTI_P1=131, ASSET_DATA_VALUE=132, ASSET_FIXED_PICKUP_FLASH=133, ASSET_SECRET_EXIT_ORB=134, ASSET_ASTEROID1_NEWSHP=135, ASSET_ASTEROID1_NEWSHS=136, ASSET_ASTEROID1_TRIPLE275=137, ASSET_ASTEROID1_COLUMNS276=138, ASSET_ASTEROID1_TURRET273=139, ASSET_ASTEROID1_PROJECTILE304=140, ASSET_ASTEROID1_FIRING270=141, ASSET_ASTEROID1_ENEMY_ORB112113=142, ASSET_ASTEROID1_FIRING285=143, ASSET_ASTEROID1_TERRAIN144=144, ASSET_CHARGE_BODY=145, ASSET_ENEMY_PROTRON_P09_MATERIAL=147, ASSET_ASTEROID1=108 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
@@ -477,9 +482,9 @@ static const struct {unsigned int index;int slot;uint64_t source,rgba;int covera
  {202,529,UINT64_C(0xd92e815af85b74c6),HD_FRONT_MULTI_CURRENT_PAYLOAD_80202_HASH,0,0},
  {279,530,UINT64_C(0x1edad45847d64c25),HD_FRONT_MULTI_CURRENT_PAYLOAD_80279_HASH,0,0},
  {280,531,UINT64_C(0x0842bfe453e6cb1d),HD_FRONT_MULTI_CURRENT_PAYLOAD_80280_HASH,0,0},
- {225,469,UINT64_C(0xcc2d73d8d3e08e9b),UINT64_C(0x4bcd62036411d684),532,UINT64_C(0x9115d94f761d41b6)},
- {244,470,UINT64_C(0x536ebd180af638d6),UINT64_C(0xbcb8f83827c8b717),533,UINT64_C(0xa0f35ce4562bb3a9)},
- {226,471,UINT64_C(0x6f6f9c2a049b7953),UINT64_C(0x436fda16719ce3fb),534,UINT64_C(0xb5ae06163e59f3f6)},
+ {225,469,UINT64_C(0xcc2d73d8d3e08e9b),CURRENT_PROTRON_80225_D8_PAYLOAD_FNV,532,UINT64_C(0x9115d94f761d41b6)},
+ {244,470,UINT64_C(0x536ebd180af638d6),CURRENT_PROTRON_80244_D8_PAYLOAD_FNV,533,UINT64_C(0xa0f35ce4562bb3a9)},
+ {226,471,UINT64_C(0x6f6f9c2a049b7953),CURRENT_PROTRON_80226_D8_PAYLOAD_FNV,534,UINT64_C(0xb5ae06163e59f3f6)},
  /* Four frozen Sonic quadrant heads supply alpha only, at the original origin. */
  {105,563,UINT64_C(0x66cdc314034152a6),UINT64_C(0x067527a0bbe065b5),0,0},
  {106,564,UINT64_C(0xee609a977010a3e0),UINT64_C(0x65843c471236e44d),0,0},
@@ -1276,11 +1281,18 @@ static void hud_frame_reset(void)
 
 void render_mirror_hud_reset(void)
 {
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
+ if(enemy_reuse_observe_requested()) {enemy_reuse_shutdown();enemy_reuse_observe_reset();}
+#endif
  asteroid1_talon_blend_reset();
  render_mirror_shadow_end();
  hud_storm_reset();
  font_reset();fixed_text_reset();indicators_reset();components_reset();hud_frame_reset();
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
+ if(manual_hd_enabled||asteroid_hd_enabled||shared_hud_lease||shared_hud_frame||enemy_reuse_observe_requested()) {
+#else
  if(manual_hd_enabled||asteroid_hd_enabled||shared_hud_lease||shared_hud_frame) {
+#endif
   manual_hd_lease=asteroid_hd_lease=false;active=false;ready=false;
   last_output_valid=false;last_output_scene_hd=false;have_fade_saved=false;fade_mode=0;
   have_initial_palette=false;render_mirror_reset_banking();
@@ -1417,6 +1429,13 @@ void render_mirror_hud_start(SDL_Surface *decoded_pic3)
  if(!decoded_pic3||decoded_pic3!=VGAScreenSeg||!decoded_pic3->pixels||decoded_pic3->w!=320||decoded_pic3->h!=200||decoded_pic3->pitch<320||
     !decoded_pic3->format||decoded_pic3->format->format!=SDL_PIXELFORMAT_INDEX8||
     decoded_pic3->format->BitsPerPixel!=8||decoded_pic3->format->BytesPerPixel!=1)return;
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
+ enemy_reuse_observe_start();
+#endif
+ /* This session owns only enemy role146, never HUD/font or scenery. */
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
+ if(enemy_reuse_observe_requested())return;
+#endif
  manual_hd_lease=manual_hd_scope();
  asteroid_hd_lease=asteroid1_scope();
  /* No HUD/font/material resource is admitted by the asteroid-only lease. */
@@ -1500,6 +1519,9 @@ static bool hud_compose(void)
 
 void render_mirror_begin(void)
 {
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
+ if(enemy_reuse_observe_requested()&&!enemy_reuse_observe_active()) {render_mirror_hud_reset();return;}
+#endif
  render_mirror_newshf_validation_frame();
  global_newshf_tick_begin();
  enemy_reuse_frame_begin();
@@ -1520,7 +1542,11 @@ void render_mirror_begin(void)
  ++mirror_logic_tick;banking_draw_player=0;
  last_output_valid=false;have_fade_saved=false;fade_mode=0;
  ready=false; active=false;shared_hud_frame=false;global_talon_frame=global_shield_frame=global_pulse_frame=global_hitflare_frame=global_rotor_frame=global_cash25_frame=global_small_explosion_frame=global_green_frame=global_smoke_frame=global_vulcan_frame=false; suppress=false;suppress_green_smoke=false;suppress_cloud=false;
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
+ if(!mirror_enabled()&&!enemy_reuse_observe_active()&&!(shared_hud_lease&&shared_hud_requested())&&!global_talon_requested()&&!global_newshf_requested()) return;
+#else
  if(!mirror_enabled()&&!(shared_hud_lease&&shared_hud_requested())&&!global_talon_requested()&&!global_newshf_requested()) return;
+#endif
  if(!have_initial_palette) {memcpy(initial_palette,rgb_palette,sizeof(initial_palette));have_initial_palette=true;}
  if(asset_debug_fast_forward())return;
  if(game_probe_density<1||game_probe_density>8||!game_screen||!game_screen->pixels||
@@ -1550,7 +1576,11 @@ void render_mirror_begin(void)
  for(int y=0;y<200;y++) memcpy(expected+y*320,(Uint8 *)game_screen->pixels+y*game_screen->pitch,320);
  upscale(canvas,game_screen);
  memset(selected,0,sizeof(selected)); memset(hd_owner,0,(size_t)canvas->w*canvas->h); draws=occlusions=mismatch=0; reject_reason=NULL;
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
+ active=mirror_enabled()||enemy_reuse_observe_active();shared_hud_frame=shared_hud_lease&&shared_hud_requested();
+#else
  active=mirror_enabled();shared_hud_frame=shared_hud_lease&&shared_hud_requested();
+#endif
  memset(cloud_owner,0,(size_t)canvas->w*canvas->h);
  global_talon_frame_begin();global_shield_frame_begin();global_pulse_frame_begin();global_hitflare_frame_begin();global_smoke_frame_begin();global_green_frame_begin();global_small_explosion_frame_begin();global_cash25_frame_begin();global_rotor_frame_begin();global_newshf_frame_begin();global_vulcan_frame_begin();
  green_head_count=0;memset(green_first,0,(size_t)canvas->w*canvas->h*sizeof(*green_first));
@@ -2535,6 +2565,9 @@ static Asset *charge_body_asset(Sprite2_array bank,unsigned int index,
 
 static Asset *get_asset(Sprite2_array bank,unsigned int index,int layout)
 {
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
+ if(enemy_reuse_observe_requested())return NULL;
+#endif
  static struct {const Uint8 *data;size_t size;} sources[sizeof(assets)/sizeof(assets[0])];
  if(reject_reason)return NULL;
  int slot=-1,role=0;
@@ -2786,7 +2819,8 @@ static void explosion_asset_blend_rgba(Uint32 dst,const Uint8 *src,Uint8 *rgba)
 static bool draw_asset_filtered(int x,int y,Asset *a,int style,const SDL_Rect *part,Uint8 filter,const G101Record *material,const PCapRecord *cap,const Forest13Record *forest)
 {
 #if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
- if(a->bank==146&&(a!=enemy_reuse_draw_lease||!game_probe_enabled||style!=MIRROR_NORMAL||part||filter||material||cap||forest))return false;
+ if(enemy_reuse_observe_requested()&&a->bank!=146)return false;
+ if(a->bank==146&&(a!=enemy_reuse_draw_lease||(!game_probe_enabled&&!enemy_reuse_observe_active())||style!=MIRROR_NORMAL||part||filter||material||cap||forest))return false;
 #endif
  /* Numeric136/137/138/139/140/141/142/143/144 assets cannot borrow another private guarded draw path. */
  if(a->bank==ASSET_ASTEROID1_NEWSHS&&(!asteroid_hd_enabled||a!=pulsing272_draw_lease))return false;
@@ -2976,6 +3010,9 @@ static bool vulcan_shadow_coverage_valid(int k,const Asset *a)
 
 static bool draw_vulcan_shadow(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int index)
 {
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
+ if(enemy_reuse_observe_requested())return false;
+#endif
  if(asteroid_hd_enabled)return false;
  int k=vulcan_shadow_member(index);
  /* These checks precede get_asset, including every warm-cache acceptance.
@@ -3017,6 +3054,9 @@ static bool draw_vulcan_shadow(SDL_Surface *surface,int x,int y,Sprite2_array ba
  * started, an unexpected nested command rejects the HD frame, never replays. */
 void render_mirror_shadow_begin(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int index)
 {
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
+ if(enemy_reuse_observe_requested()) {vulcan_shadow_clear();return;}
+#endif
  if(!vulcan_shadow.live)return;
  VulcanShadowCall *v=&vulcan_shadow;
  Uint8 source[12*14*2]={0};char path[1024];
@@ -3173,6 +3213,9 @@ static bool secret_exit_orb_pickup(SDL_Surface *surface,int x,int y,Sprite2_arra
 
 bool render_mirror_entity(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int index,int style,int layout)
 {
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
+ if(enemy_reuse_observe_requested())return false;
+#endif
  /* Migrated Talon sprites require the native player-ship semantic seam. */
  if(global_asset_directory[0]&&bank.data==spriteSheet9.data&&layout==ENTITY_QUAD&&index>=229&&index<=237&&(index&1))return false;
  if(global_asset_directory[0]&&bank.data==spriteSheet8.data&&layout==ENTITY_TILE&&(global_pulse_is_index(index)||global_vulcan_is_index(index)))return false;
@@ -3399,6 +3442,9 @@ static bool enemy_tank_shell_family_ready(void)
 /* Enemy-only bindings: the indexed original still executes in the wrapper. */
 bool render_mirror_enemy_shot(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int index)
 {
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
+ if(enemy_reuse_observe_requested())return false;
+#endif
  render_mirror_shadow_end();
  /* Only this enemy-shot role can lease the optional shared normal304 art. */
  if(index==304)return projectile304_draw(surface,x,y,bank,index);
@@ -3443,6 +3489,9 @@ bool render_mirror_enemy_shot(SDL_Surface *surface,int x,int y,Sprite2_array ban
 
 static Asset *scene_asset(int slot,int role,int index,int anchor_x,int anchor_y)
 {
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
+ if(enemy_reuse_observe_requested())return NULL;
+#endif
  if(game_probe_density==1||game_probe_missing||!game_probe_assets)return NULL;
  Asset *a=&assets[slot];
  if(a->initialized)return a->valid?a:NULL;
@@ -3868,6 +3917,9 @@ static bool ember269_draw(SDL_Surface *surface,int x,int y,Sprite2_array bank,un
 
 bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int base,int part,int filter,const G101EnemyContext *material_context)
 {
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
+ if(enemy_reuse_observe_requested())return false;
+#endif
 #if defined(NEWSHF_HD_COMPOSITOR) && NEWSHF_HD_COMPOSITOR
  bool newshf_identity=render_mirror_newshf_validation_tile(surface,x,y,bank,base,part,filter,material_context);
  int newshf_result=global_newshf_body(surface,x,y,bank,base,part,filter,material_context,newshf_identity);
@@ -4267,6 +4319,9 @@ void render_mirror_ground101_layer1(SDL_Surface *surface,const void *first,int x
 }
 unsigned int render_mirror_terrain_row(SDL_Surface *surface,int x,int y,Uint8 **map,int style)
 {
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
+ if(enemy_reuse_observe_requested())return 0;
+#endif
  if(asteroid_hd_enabled)return terrain144_row(surface,x,y,map,style);
  if(!active||surface!=game_screen||reject_reason||!(game_probe_scene_assets&2))return 0;
  if(x<0||x+12*24>surface->pitch) {render_mirror_unsupported("terrain-row-outside-linear-layout");return 0;}
@@ -4375,6 +4430,9 @@ static bool effect_ramp_monotone(unsigned int hue)
  * same-address reloaded source. Normal authored clouds remain independent. */
 unsigned int render_mirror_cloud_blend_row(SDL_Surface *surface,int x,int y,Uint8 **map)
 {
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
+ if(enemy_reuse_observe_requested())return 0;
+#endif
  if(asteroid_hd_enabled)return 0;
  if(!active||!surface||surface!=game_screen||surface!=VGAScreen||reject_reason||suppress||
     !game_probe_known_blend||game_probe_original_reference||!(game_probe_scene_assets&2)||
@@ -4405,7 +4463,11 @@ unsigned int render_mirror_cloud_blend_row(SDL_Surface *surface,int x,int y,Uint
 
 void render_mirror_cloud_blend_pixel(SDL_Surface *surface,Uint8 *address,Uint8 source,bool compatible,bool replaced)
 {
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
+ if(enemy_reuse_observe_requested()||!compatible||replaced||!active||surface!=game_screen||surface!=VGAScreen||reject_reason||suppress) {
+#else
  if(!compatible||replaced||!active||surface!=game_screen||surface!=VGAScreen||reject_reason||suppress) {
+#endif
   render_mirror_terrain_pixel(surface,address,source,MIRROR_BLEND,replaced);return;
  }
  intptr_t off=(intptr_t)address-(intptr_t)surface->pixels;
@@ -4445,6 +4507,9 @@ void render_mirror_cloud_blend_pixel(SDL_Surface *surface,Uint8 *address,Uint8 s
  * No cache or pointer identity can keep stale source admission alive. */
 bool render_mirror_plasma_projectile_begin(SDL_Surface *surface,int x,int y,unsigned int table,unsigned int index)
 {
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
+ if(enemy_reuse_observe_requested())return false;
+#endif
  if(asteroid_hd_enabled)return false;
  if(!active||!surface||surface!=game_screen||surface!=VGAScreen||reject_reason||suppress||
     !game_probe_known_blend||game_probe_original_reference||
@@ -4605,6 +4670,9 @@ static bool plasma_art_asset(Asset *a,unsigned index)
 }
 void render_mirror_plasma_art_prepare(SDL_Surface *surface,int x,int y,unsigned slot,unsigned table,unsigned index)
 {
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
+ if(enemy_reuse_observe_requested())return;
+#endif
  plasma_art_call.live=false;
  /* Original full-source admission precedes all optional-resource/cache work. */
  if(!render_mirror_plasma_projectile_begin(surface,x,y,table,index)||slot>=MAX_PWEAPON||
@@ -4723,6 +4791,9 @@ static bool have_supported_talon(void)
 
 void render_mirror_sprite2_blend_pixel(SDL_Surface *surface,Uint8 *address,Uint8 source,Sprite2_array bank,unsigned int index,int origin_x,int origin_y)
 {
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
+ if(enemy_reuse_observe_requested()) {render_mirror_pixel(surface,address,source,MIRROR_BLEND);return;}
+#endif
 #if defined(NEWSHF_HD_COMPOSITOR) && NEWSHF_HD_COMPOSITOR
  if(global_newshf_observe_blend(surface,address)){render_mirror_pixel(surface,address,source,MIRROR_BLEND);return;}
 #endif
@@ -4925,8 +4996,12 @@ static void shared_hud_finish(MirrorOutputKind kind,int lightx,int lighty)
 
 void render_mirror_finish(MirrorOutputKind kind,int lightx,int lighty)
 {
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
+ if(enemy_reuse_observe_requested()&&!enemy_reuse_observe_active()) {render_mirror_hud_reset();return;}
+#endif
  render_mirror_shadow_end();
 #if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
+ enemy_reuse_frame.output_phase=true;
  if(enemy_reuse_frame.contributed&&kind!=MIRROR_OUTPUT_ORDINARY)render_mirror_unsupported("enemy-reuse-output-mode");
 #endif
  if(!enemy_reuse_proof()||!global_newshf_finish_proof()||!global_newshf_output_proof(kind,lightx,lighty)||!global_talon_finish_proof()||!global_vulcan_finish_proof()||!global_green_finish_proof()||!global_smoke_finish_proof()||!global_rotor_finish_proof()||!global_cash25_finish_proof()||!global_small_explosion_finish_proof()||!global_hitflare_finish_proof()||!global_pulse_finish_proof()||!global_shield_finish_proof()) {
@@ -5034,6 +5109,9 @@ void render_mirror_finish(MirrorOutputKind kind,int lightx,int lighty)
   for(int x=0;x<output->w;x++)if(row[x]!=palette_rgb(classic[x/game_probe_density]))++classic_mismatches;
  }
  game_probe_rgb_audit(output,classic_mismatches);
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
+ enemy_reuse_observe_frame_result(retained_scene_hd&&!reject_reason,reject_reason);
+#endif
  last_output_scene_hd=retained_global||(!reject_reason&&retained_scene_hd);
  last_output_valid=retained_hd;
  memcpy(last_output_palette,rgb_palette,sizeof(last_output_palette));
@@ -5055,6 +5133,9 @@ void render_mirror_finish(MirrorOutputKind kind,int lightx,int lighty)
  * schedule. Classic pixels use the original newly updated palette directly. */
 void render_mirror_fade_start(const SDL_Color *target,const SDL_Color *solid,unsigned int first,unsigned int last)
 {
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
+ if(enemy_reuse_observe_requested()) {ready=last_output_valid=last_output_scene_hd=have_fade_saved=false;fade_mode=0;return;}
+#endif
 #if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
  if(enemy_reuse_frame.contributed){ready=last_output_valid=last_output_scene_hd=have_fade_saved=false;fade_mode=0;return;}
 #endif
@@ -5147,6 +5228,9 @@ void render_mirror_fade_step(int steps)
 
 bool render_mirror_present(SDL_Renderer *renderer,SDL_Surface *src,const SDL_Rect *dst)
 {
+#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
+ if(enemy_reuse_observe_requested()&&!enemy_reuse_observe_active()) {render_mirror_hud_reset();return false;}
+#endif
  if(!enemy_reuse_cache_check())return false;
  render_mirror_shadow_end();
  if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()&&!global_newshf_requested()) {render_mirror_hud_reset();return false;}

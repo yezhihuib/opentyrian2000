@@ -1,0 +1,1175 @@
+{
+  "schema": "opentyrian-enemy-proof-dedup-validation-v1",
+  "status": "PASS_BOUNDED_NATIVE_AND_HASH_WORK_COUNTS",
+  "baseline_commit": "5109ebbd3f8a5c58075d6358e82e2e4459ac5460",
+  "scope": "Single uninterrupted proof generation/live pair only; no memo or cross-call/frame cache; no demo/NEWSHF/asset change",
+  "production_source_sha256": {
+    "enemy_reuse_identity.c": "ffe9856606fa147994e907035305c82bbc56036779247747105aca8d8bc17f7c",
+    "enemy_reuse_identity.h": "b9dd91ab7d9de869f4c0c0fef70153e72309f16831176bb78c92326e646bb755",
+    "enemy_reuse_mirror.inc": "baf8f1cb4552535886d4866fa54275d1ae7e67a058e748a280fb37665a07f9c4"
+  },
+  "diagnostics": {
+    "status": "PASS",
+    "domains": [
+      "emitter-bank",
+      "enemy-record",
+      "weapon-record",
+      "shot-bank",
+      "RGBA",
+      "palette"
+    ],
+    "final_test_sha256": {
+      "enemy_proof_dedup_diagnostics.py": "e8998cd4d03d19dfaee5419e527cf4202a79e125356d0801096502b82f802b76",
+      "enemy_proof_dedup_diagnostics.inc": "9e337ef379db58a6025ca7134e6af7b0623b502783c6e9607503384ea51064e3"
+    },
+    "setups_each": 14,
+    "assertions_each": 12288687,
+    "actual_counts": {
+      "baseline": [
+        {
+          "case": "proof",
+          "profile": 0,
+          "proof_calls": 1,
+          "used_slots": 1,
+          "domains": [
+            {
+              "calls": 2,
+              "bytes": 88158
+            },
+            {
+              "calls": 2,
+              "bytes": 154
+            },
+            {
+              "calls": 2,
+              "bytes": 160
+            },
+            {
+              "calls": 1,
+              "bytes": 32060
+            },
+            {
+              "calls": 3,
+              "bytes": 129024
+            },
+            {
+              "calls": 1,
+              "bytes": 768
+            }
+          ]
+        },
+        {
+          "case": "repeat-proof",
+          "profile": 0,
+          "proof_calls": 1,
+          "used_slots": 1,
+          "domains": [
+            {
+              "calls": 2,
+              "bytes": 88158
+            },
+            {
+              "calls": 2,
+              "bytes": 154
+            },
+            {
+              "calls": 2,
+              "bytes": 160
+            },
+            {
+              "calls": 1,
+              "bytes": 32060
+            },
+            {
+              "calls": 3,
+              "bytes": 129024
+            },
+            {
+              "calls": 1,
+              "bytes": 768
+            }
+          ]
+        },
+        {
+          "case": "independent-generation",
+          "profile": 0,
+          "proof_calls": 0,
+          "used_slots": 0,
+          "domains": [
+            {
+              "calls": 1,
+              "bytes": 44079
+            },
+            {
+              "calls": 1,
+              "bytes": 77
+            },
+            {
+              "calls": 1,
+              "bytes": 80
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            }
+          ]
+        },
+        {
+          "case": "independent-live",
+          "profile": 0,
+          "proof_calls": 0,
+          "used_slots": 0,
+          "domains": [
+            {
+              "calls": 1,
+              "bytes": 44079
+            },
+            {
+              "calls": 1,
+              "bytes": 77
+            },
+            {
+              "calls": 1,
+              "bytes": 80
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            }
+          ]
+        },
+        {
+          "case": "independent-generation",
+          "profile": 0,
+          "proof_calls": 0,
+          "used_slots": 0,
+          "domains": [
+            {
+              "calls": 1,
+              "bytes": 44079
+            },
+            {
+              "calls": 1,
+              "bytes": 77
+            },
+            {
+              "calls": 1,
+              "bytes": 80
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            }
+          ]
+        },
+        {
+          "case": "independent-live",
+          "profile": 0,
+          "proof_calls": 0,
+          "used_slots": 0,
+          "domains": [
+            {
+              "calls": 1,
+              "bytes": 44079
+            },
+            {
+              "calls": 1,
+              "bytes": 77
+            },
+            {
+              "calls": 1,
+              "bytes": 80
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            }
+          ]
+        },
+        {
+          "case": "mutated-proof-prefix",
+          "profile": 0,
+          "proof_calls": 1,
+          "used_slots": 1,
+          "domains": [
+            {
+              "calls": 1,
+              "bytes": 44079
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 1,
+              "bytes": 32060
+            },
+            {
+              "calls": 3,
+              "bytes": 129024
+            },
+            {
+              "calls": 1,
+              "bytes": 768
+            }
+          ]
+        },
+        {
+          "case": "proof",
+          "profile": 1,
+          "proof_calls": 1,
+          "used_slots": 3,
+          "domains": [
+            {
+              "calls": 6,
+              "bytes": 264474
+            },
+            {
+              "calls": 6,
+              "bytes": 462
+            },
+            {
+              "calls": 6,
+              "bytes": 480
+            },
+            {
+              "calls": 1,
+              "bytes": 32060
+            },
+            {
+              "calls": 3,
+              "bytes": 129024
+            },
+            {
+              "calls": 1,
+              "bytes": 768
+            }
+          ]
+        },
+        {
+          "case": "repeat-proof",
+          "profile": 1,
+          "proof_calls": 1,
+          "used_slots": 3,
+          "domains": [
+            {
+              "calls": 6,
+              "bytes": 264474
+            },
+            {
+              "calls": 6,
+              "bytes": 462
+            },
+            {
+              "calls": 6,
+              "bytes": 480
+            },
+            {
+              "calls": 1,
+              "bytes": 32060
+            },
+            {
+              "calls": 3,
+              "bytes": 129024
+            },
+            {
+              "calls": 1,
+              "bytes": 768
+            }
+          ]
+        },
+        {
+          "case": "independent-generation",
+          "profile": 1,
+          "proof_calls": 0,
+          "used_slots": 0,
+          "domains": [
+            {
+              "calls": 1,
+              "bytes": 44079
+            },
+            {
+              "calls": 1,
+              "bytes": 77
+            },
+            {
+              "calls": 1,
+              "bytes": 80
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            }
+          ]
+        },
+        {
+          "case": "independent-live",
+          "profile": 1,
+          "proof_calls": 0,
+          "used_slots": 0,
+          "domains": [
+            {
+              "calls": 1,
+              "bytes": 44079
+            },
+            {
+              "calls": 1,
+              "bytes": 77
+            },
+            {
+              "calls": 1,
+              "bytes": 80
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            }
+          ]
+        },
+        {
+          "case": "independent-generation",
+          "profile": 1,
+          "proof_calls": 0,
+          "used_slots": 0,
+          "domains": [
+            {
+              "calls": 1,
+              "bytes": 44079
+            },
+            {
+              "calls": 1,
+              "bytes": 77
+            },
+            {
+              "calls": 1,
+              "bytes": 80
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            }
+          ]
+        },
+        {
+          "case": "independent-live",
+          "profile": 1,
+          "proof_calls": 0,
+          "used_slots": 0,
+          "domains": [
+            {
+              "calls": 1,
+              "bytes": 44079
+            },
+            {
+              "calls": 1,
+              "bytes": 77
+            },
+            {
+              "calls": 1,
+              "bytes": 80
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            }
+          ]
+        },
+        {
+          "case": "mutated-proof-prefix",
+          "profile": 1,
+          "proof_calls": 1,
+          "used_slots": 1,
+          "domains": [
+            {
+              "calls": 1,
+              "bytes": 44079
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 1,
+              "bytes": 32060
+            },
+            {
+              "calls": 3,
+              "bytes": 129024
+            },
+            {
+              "calls": 1,
+              "bytes": 768
+            }
+          ]
+        }
+      ],
+      "candidate": [
+        {
+          "case": "proof",
+          "profile": 0,
+          "proof_calls": 1,
+          "used_slots": 1,
+          "domains": [
+            {
+              "calls": 1,
+              "bytes": 44079
+            },
+            {
+              "calls": 1,
+              "bytes": 77
+            },
+            {
+              "calls": 1,
+              "bytes": 80
+            },
+            {
+              "calls": 1,
+              "bytes": 32060
+            },
+            {
+              "calls": 3,
+              "bytes": 129024
+            },
+            {
+              "calls": 1,
+              "bytes": 768
+            }
+          ]
+        },
+        {
+          "case": "repeat-proof",
+          "profile": 0,
+          "proof_calls": 1,
+          "used_slots": 1,
+          "domains": [
+            {
+              "calls": 1,
+              "bytes": 44079
+            },
+            {
+              "calls": 1,
+              "bytes": 77
+            },
+            {
+              "calls": 1,
+              "bytes": 80
+            },
+            {
+              "calls": 1,
+              "bytes": 32060
+            },
+            {
+              "calls": 3,
+              "bytes": 129024
+            },
+            {
+              "calls": 1,
+              "bytes": 768
+            }
+          ]
+        },
+        {
+          "case": "independent-generation",
+          "profile": 0,
+          "proof_calls": 0,
+          "used_slots": 0,
+          "domains": [
+            {
+              "calls": 1,
+              "bytes": 44079
+            },
+            {
+              "calls": 1,
+              "bytes": 77
+            },
+            {
+              "calls": 1,
+              "bytes": 80
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            }
+          ]
+        },
+        {
+          "case": "independent-live",
+          "profile": 0,
+          "proof_calls": 0,
+          "used_slots": 0,
+          "domains": [
+            {
+              "calls": 1,
+              "bytes": 44079
+            },
+            {
+              "calls": 1,
+              "bytes": 77
+            },
+            {
+              "calls": 1,
+              "bytes": 80
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            }
+          ]
+        },
+        {
+          "case": "independent-generation",
+          "profile": 0,
+          "proof_calls": 0,
+          "used_slots": 0,
+          "domains": [
+            {
+              "calls": 1,
+              "bytes": 44079
+            },
+            {
+              "calls": 1,
+              "bytes": 77
+            },
+            {
+              "calls": 1,
+              "bytes": 80
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            }
+          ]
+        },
+        {
+          "case": "independent-live",
+          "profile": 0,
+          "proof_calls": 0,
+          "used_slots": 0,
+          "domains": [
+            {
+              "calls": 1,
+              "bytes": 44079
+            },
+            {
+              "calls": 1,
+              "bytes": 77
+            },
+            {
+              "calls": 1,
+              "bytes": 80
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            }
+          ]
+        },
+        {
+          "case": "mutated-proof-prefix",
+          "profile": 0,
+          "proof_calls": 1,
+          "used_slots": 1,
+          "domains": [
+            {
+              "calls": 1,
+              "bytes": 44079
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 1,
+              "bytes": 32060
+            },
+            {
+              "calls": 3,
+              "bytes": 129024
+            },
+            {
+              "calls": 1,
+              "bytes": 768
+            }
+          ]
+        },
+        {
+          "case": "proof",
+          "profile": 1,
+          "proof_calls": 1,
+          "used_slots": 3,
+          "domains": [
+            {
+              "calls": 3,
+              "bytes": 132237
+            },
+            {
+              "calls": 3,
+              "bytes": 231
+            },
+            {
+              "calls": 3,
+              "bytes": 240
+            },
+            {
+              "calls": 1,
+              "bytes": 32060
+            },
+            {
+              "calls": 3,
+              "bytes": 129024
+            },
+            {
+              "calls": 1,
+              "bytes": 768
+            }
+          ]
+        },
+        {
+          "case": "repeat-proof",
+          "profile": 1,
+          "proof_calls": 1,
+          "used_slots": 3,
+          "domains": [
+            {
+              "calls": 3,
+              "bytes": 132237
+            },
+            {
+              "calls": 3,
+              "bytes": 231
+            },
+            {
+              "calls": 3,
+              "bytes": 240
+            },
+            {
+              "calls": 1,
+              "bytes": 32060
+            },
+            {
+              "calls": 3,
+              "bytes": 129024
+            },
+            {
+              "calls": 1,
+              "bytes": 768
+            }
+          ]
+        },
+        {
+          "case": "independent-generation",
+          "profile": 1,
+          "proof_calls": 0,
+          "used_slots": 0,
+          "domains": [
+            {
+              "calls": 1,
+              "bytes": 44079
+            },
+            {
+              "calls": 1,
+              "bytes": 77
+            },
+            {
+              "calls": 1,
+              "bytes": 80
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            }
+          ]
+        },
+        {
+          "case": "independent-live",
+          "profile": 1,
+          "proof_calls": 0,
+          "used_slots": 0,
+          "domains": [
+            {
+              "calls": 1,
+              "bytes": 44079
+            },
+            {
+              "calls": 1,
+              "bytes": 77
+            },
+            {
+              "calls": 1,
+              "bytes": 80
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            }
+          ]
+        },
+        {
+          "case": "independent-generation",
+          "profile": 1,
+          "proof_calls": 0,
+          "used_slots": 0,
+          "domains": [
+            {
+              "calls": 1,
+              "bytes": 44079
+            },
+            {
+              "calls": 1,
+              "bytes": 77
+            },
+            {
+              "calls": 1,
+              "bytes": 80
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            }
+          ]
+        },
+        {
+          "case": "independent-live",
+          "profile": 1,
+          "proof_calls": 0,
+          "used_slots": 0,
+          "domains": [
+            {
+              "calls": 1,
+              "bytes": 44079
+            },
+            {
+              "calls": 1,
+              "bytes": 77
+            },
+            {
+              "calls": 1,
+              "bytes": 80
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            }
+          ]
+        },
+        {
+          "case": "mutated-proof-prefix",
+          "profile": 1,
+          "proof_calls": 1,
+          "used_slots": 1,
+          "domains": [
+            {
+              "calls": 1,
+              "bytes": 44079
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 0,
+              "bytes": 0
+            },
+            {
+              "calls": 1,
+              "bytes": 32060
+            },
+            {
+              "calls": 3,
+              "bytes": 129024
+            },
+            {
+              "calls": 1,
+              "bytes": 768
+            }
+          ]
+        }
+      ]
+    },
+    "comparison_receipt_sha256": "c6e62452bc46306bcd7814edefcd76369acf46c7cc143b4b722a355e990b71c2"
+  },
+  "native": {
+    "baseline-p09": {
+      "status": "PASS",
+      "negative_control": null,
+      "returncode": 0,
+      "stdout": "PASS native P09 + unchanged P05 matrix: 271 setups, 189694609 assertions; controlled fire scheduling, not original-event gameplay acceptance\n",
+      "stderr": "case 50\ncase 100\ncase 150\ncase 200\ncase 250\n",
+      "scope": "Native JE_drawEnemy with controlled firing timers; exact extracted native projectile/explosion update loops; real player shot creation/movement; not gameplay acceptance",
+      "sanitizers": "ASan+UBSan renderer/sprite/tyrian2/entity_draw/identity/shots/varz/harness; remaining baseline production objects native optimized",
+      "original_bytes_persisted": false,
+      "receipt_sha256": "7d79420457e9e0665d14844631ef4ed075546621bacc7d63f2f6a75ebe4c2a4e",
+      "source_stable_during_compile_and_execution": true
+    },
+    "candidate-p09": {
+      "status": "PASS",
+      "negative_control": null,
+      "returncode": 0,
+      "stdout": "PASS native P09 + unchanged P05 matrix: 271 setups, 189694609 assertions; controlled fire scheduling, not original-event gameplay acceptance\n",
+      "stderr": "case 50\ncase 100\ncase 150\ncase 200\ncase 250\n",
+      "scope": "Native JE_drawEnemy with controlled firing timers; exact extracted native projectile/explosion update loops; real player shot creation/movement; not gameplay acceptance",
+      "sanitizers": "ASan+UBSan renderer/sprite/tyrian2/entity_draw/identity/shots/varz/harness; remaining baseline production objects native optimized",
+      "original_bytes_persisted": false,
+      "receipt_sha256": "0ff2b7596c272411ae708c52a39ab6e477e89f6e139c600336afb08b939dc728",
+      "source_stable_during_compile_and_execution": true
+    },
+    "candidate-rgb": {
+      "status": "PASS",
+      "negative_control": "rgb-store",
+      "returncode": -6,
+      "stdout": "",
+      "stderr": "CHECK failed case 1 /workspace/scratch/f67dd347fa0a/enemy-proof-dedup-validation/native-candidate-rgb/native_p05_helpers.inc:54: *pixel(output,x-24*8,y)==want[(size_t)y*canvas->w+x]\n",
+      "scope": "Native JE_drawEnemy with controlled firing timers; exact extracted native projectile/explosion update loops; real player shot creation/movement; not gameplay acceptance",
+      "sanitizers": "ASan+UBSan renderer/sprite/tyrian2/entity_draw/identity/shots/varz/harness; remaining baseline production objects native optimized",
+      "original_bytes_persisted": false,
+      "receipt_sha256": "54c8f4acf846c0971030f5095e56c1bef4f43986b1688b6f6ea3f27d6a3001ee",
+      "source_stable_during_compile_and_execution": true
+    },
+    "candidate-swapped": {
+      "status": "PASS",
+      "negative_control": "swapped-mapping",
+      "returncode": -6,
+      "stdout": "",
+      "stderr": "CHECK failed case 1 /workspace/scratch/f67dd347fa0a/enemy-proof-dedup-worktree/tests/enemy_protron_reuse_validation.c:35: draws-n==(p?3:1)\n",
+      "scope": "Native JE_drawEnemy with controlled firing timers; exact extracted native projectile/explosion update loops; real player shot creation/movement; not gameplay acceptance",
+      "sanitizers": "ASan+UBSan renderer/sprite/tyrian2/entity_draw/identity/shots/varz/harness; remaining baseline production objects native optimized",
+      "original_bytes_persisted": false,
+      "receipt_sha256": "10f208442d63a1ac7c3e2e5644698821095f91899a173ea6e915fce0d26b8149",
+      "source_stable_during_compile_and_execution": true
+    },
+    "candidate-old": {
+      "status": "PASS",
+      "negative_control": null,
+      "returncode": 0,
+      "stdout": "PASS native enemy reuse: 310 cases, 79076 assertions; actual renderer/wrapper/indexed blits; not gameplay acceptance\n",
+      "stderr": "case 50\ncase 100\ncase 150\ncase 200\ncase 250\ncase 300\n",
+      "scope": "Native SDL production renderer, allocation, wrapper, identity and sprite blits; not gameplay acceptance",
+      "sanitizers": "ASan+UBSan renderer/sprite/tyrian2/entity_draw/identity/harness; remaining baseline production objects native optimized",
+      "original_bytes_persisted": false,
+      "receipt_sha256": "8fb13f33fac9a860078f088ebbc6febe75d537181d5de9d6234590815006dd2e"
+    },
+    "candidate-bank-pin": {
+      "status": "PASS",
+      "negative_control": "bank-pin",
+      "returncode": -6,
+      "stdout": "",
+      "stderr": "case 50\ncase 100\nCHECK failed case 127 /workspace/scratch/f67dd347fa0a/enemy-proof-dedup-worktree/tests/enemy_reuse_validation.c:106: draws==0\n",
+      "scope": "Native SDL production renderer, allocation, wrapper, identity and sprite blits; not gameplay acceptance",
+      "sanitizers": "ASan+UBSan renderer/sprite/tyrian2/entity_draw/identity/harness; remaining baseline production objects native optimized",
+      "original_bytes_persisted": false,
+      "receipt_sha256": "ebbdf0daf0d86f1f6ad1716b95e5cff08b638f4fd0781d671029112a7c915437"
+    },
+    "green-animation-witness": {
+      "status": "PASS",
+      "negative_control": "animation-witness",
+      "returncode": -6,
+      "stdout": "",
+      "stderr": "CHECK failed case 11 /workspace/scratch/f67dd347fa0a/enemy-proof-dedup-worktree/tests/enemy_green_reuse_validation.c:160: !render_mirror_enemy_reuse_shot(game_screen,enemyShot[0].sx,enemyShot[0].sy,spriteSheet8,215,0,214)\n",
+      "scope": "Native JE_drawEnemy with controlled firing timers; exact extracted native projectile/explosion update loops; real player shot creation/movement; not gameplay acceptance",
+      "sanitizers": "ASan+UBSan renderer/sprite/tyrian2/entity_draw/identity/shots/varz/harness; remaining baseline production objects native optimized",
+      "original_bytes_persisted": false,
+      "receipt_sha256": "e9e73e86325b4d1ab7f6e710d620b84a7b670bb2de169639f3cddf003483e984"
+    },
+    "green-family-isolation": {
+      "status": "PASS",
+      "negative_control": "family-isolation",
+      "returncode": -6,
+      "stdout": "",
+      "stderr": "CHECK failed case 2 /workspace/scratch/f67dd347fa0a/enemy-proof-dedup-worktree/tests/enemy_green_reuse_validation.c:138: enemy_reuse_frame.contributed\n",
+      "scope": "Native JE_drawEnemy with controlled firing timers; exact extracted native projectile/explosion update loops; real player shot creation/movement; not gameplay acceptance",
+      "sanitizers": "ASan+UBSan renderer/sprite/tyrian2/entity_draw/identity/shots/varz/harness; remaining baseline production objects native optimized",
+      "original_bytes_persisted": false,
+      "receipt_sha256": "5afcfccd933cfa6482ab21ecaa0082b5dd14c1b962ce2aabceff78a0f9824289"
+    },
+    "green-bank-pin": {
+      "status": "PASS",
+      "negative_control": "bank-pin",
+      "returncode": -6,
+      "stdout": "",
+      "stderr": "case 50\nCHECK failed case 68 /workspace/scratch/f67dd347fa0a/enemy-proof-dedup-worktree/tests/enemy_green_reuse_validation.c:149: !ready&&!last_output_valid&&!last_output_scene_hd\n",
+      "scope": "Native JE_drawEnemy with controlled firing timers; exact extracted native projectile/explosion update loops; real player shot creation/movement; not gameplay acceptance",
+      "sanitizers": "ASan+UBSan renderer/sprite/tyrian2/entity_draw/identity/shots/varz/harness; remaining baseline production objects native optimized",
+      "original_bytes_persisted": false,
+      "receipt_sha256": "d913d3b80fb9e7976a51ae6fc088cba590cf973ab85de32e9e41bbb61c332c8a"
+    }
+  },
+  "compile_modes": {
+    "default-off": 0,
+    "opt-in": 0,
+    "mirror-disabled": 0
+  },
+  "disabled_equivalence": {
+    "default-off": {
+      "objects": 86,
+      "binary_and_all_objects_byte_identical": true
+    },
+    "mirror-disabled": {
+      "objects": 86,
+      "binary_and_all_objects_byte_identical": true
+    }
+  },
+  "binding": {
+    "status": "PASS",
+    "scope": "exact source/current-history bindings, not runtime performance or full-suite certification",
+    "base_commit": "5109ebbd3f8a5c58075d6358e82e2e4459ac5460",
+    "source_files": 263,
+    "source_manifest_sha256": "2761d232b7429a9f81585c96b08ea9a8df37910dd7caa2b9efbf1667988d9ce1",
+    "new_ledger_sha256": "91639f4b2aab64ebf1b7c40e76ccdc13e95460129af08507e8f6fe0f4caa5d9b",
+    "checks": {
+      "reuse": 0,
+      "source": 0,
+      "package": 0,
+      "runtime-package": 0,
+      "finite-history": 0,
+      "green": 0,
+      "charge": 0,
+      "mint-front": 0,
+      "front-multi": 0,
+      "plasma": 0,
+      "orb": 0
+    },
+    "test_counts": {
+      "combined_reuse_bindings": 14,
+      "runtime_package": 40,
+      "finite_history": 18
+    },
+    "old_ledgers_unchanged": true,
+    "assets_and_authoring_inputs_unchanged": true,
+    "runtime_destinations": 1025,
+    "runtime_changed_rows": [
+      "CURRENT-PRODUCTION-VALIDATION.json"
+    ],
+    "logs_sha256": {
+      "charge.log": "628083d08804d018c0b32aca4990afb574d005ac26cd4fb1b251e10ead067bc7",
+      "finite-history.log": "6c6340e15ebe852b278af947d99d230e48fc1201e9f29495cb5b36dc6a7b22f6",
+      "front-multi.log": "36f9c1c8aedfcdbd61b7630aa32b5a7801f977f60e5c785fbe6b2c542d2ef9ea",
+      "green.log": "f215a59db960134b601f90101e97d83aa0b612d0cded48d7ba4c3b1074e1fa51",
+      "mint-front.log": "7ed69d0a5450f6ce84cc9e78645044be2e21c5a84ed665f909c465131581f947",
+      "orb.log": "78a81a1aef2416e07df9a4e0c430e1b911ac791959b94a3c15448a07f022e66d",
+      "package.log": "ed2e6f1e725f08b73aadacfa03e42f8c0790380ebad0e55c1bf2f9632d20e179",
+      "plasma.log": "8be90eb1a5056d8eb5d9ca34e277bd27e7dc196d63d7eb8d63e93a3d6e52d9b9",
+      "reuse.log": "05e69ed2a498404a8be2fa9939d1e4cd0ba1b02bbd24d7f9ac29b40fe9cbf305",
+      "runtime-package.log": "044959895a05bd0609f565e9b07e7219edcaa594b15c314537a95366f66a2133",
+      "source.log": "cc1483936b267225cdc0e28a3f89a7e22b71c2bd7fb2d154663f6eb48e913f9c"
+    },
+    "limitations": [
+      "Full unittest discovery not run; listed finite regressions only.",
+      "Package check is dry-run without executable, not a release package."
+    ],
+    "notes": [
+      "New exact three-file inverse applied before immutable P09/P05/P02 ledgers.",
+      "Inherited P09 old-ledger test permits exactly the new ledger; dedicated new test compares every earlier ledger and exact inventory to baseline.",
+      "Initial new binding test failed because it omitted README.md from actual ledger inventory; corrected to include all files, then all14 passed."
+    ]
+  },
+  "focused_final_tests": {
+    "passed": 6,
+    "log_sha256": "5039e59d742602a75fe652c4701d9f80ed62cbd0f4beb185c476cd2486ad8336"
+  },
+  "unchanged_boundaries": [
+    "witness consumption",
+    "animation before/after",
+    "post-draw generation",
+    "source/resource proofs",
+    "owner transfers",
+    "finish",
+    "Present",
+    "complete HD fallback"
+  ],
+  "review": {
+    "baseline_commit": "5109ebbd3f8a5c58075d6358e82e2e4459ac5460",
+    "scope": "Only immediately adjacent generation/live validation inside enemy_reuse_proof",
+    "production_changed_files": [
+      "src/enemy_reuse_identity.c",
+      "src/enemy_reuse_identity.h",
+      "src/enemy_reuse_mirror.inc"
+    ],
+    "fresh_validation": "Combined predicate calls generation on each invocation, rejects zero and mismatched expected before static live_fields; public generation and live independently validate",
+    "purity": "Inspected generation -> actor_bound -> actor_bank -> stamp, scope, records -> record/weapon stamps: reads and local temporaries only; live_fields is reads only. No callbacks, writes, allocation, I/O or reentry between fresh validation and fields",
+    "concurrency_scope": "Source search found no SDL_CreateThread, pthread_create or SDL_AddTimer; SDL audio callback handles audio mixing and does not write actor/shot/bank/record state. This preserves the existing single-threaded simulation/render ownership assumption, not support for concurrent unsynchronized mutation",
+    "unchanged_boundaries": [
+      "single-use draw witness",
+      "before/after animation",
+      "spawn/retire/actor allocation",
+      "post-draw generation",
+      "source and resource proofs",
+      "owner transfers",
+      "finish and Present proofs",
+      "whole-frame rejection"
+    ],
+    "excluded": [
+      "proof-local memo",
+      "cross-call/frame/draw cache",
+      "NEWSHF",
+      "demo scope",
+      "assets"
+    ],
+    "parent_independent_review": "Parent read-only reviewed three-source diff and generation/actor_bound chain, found no code-level blocker; not substitute for tests"
+  },
+  "retained_test_development_failures": [
+    "Initial diagnostic incorrectly required !ready after draw-reject/restore; existing renderer may queue all-classic output. Corrected to full queued classic pixel oracle and no HD cache.",
+    "Second diagnostic incorrectly inspected unready stale backing pixels; corrected to inspect queued output only and require Present cannot revive HD.",
+    "Initial binding test inventory omitted existing README; corrected to compare complete historical file inventory."
+  ],
+  "limitations": [
+    "No full unittest discovery; exact listed finite suites only.",
+    "No release benchmark/FPS estimate. Diagnostic work counts are O0 ASan/UBSan harness evidence, not release performance.",
+    "No Windows/GPU/fullscreen or original-event HD gameplay acceptance. Existing demo startup versus !play_demo gate remains unresolved and unchanged.",
+    "Package verified in dry-run without executable, not a new distributed package."
+  ],
+  "authorization_boundaries": {
+    "github_upload": false,
+    "user_laptop_operations": false,
+    "old_worktree_modified": false
+  },
+  "negative_control_driver_adaptation": {
+    "metadata": {
+      "original_sha256": "9c5d0c7b3c648c8a7fe3e4f283764ad0e9e1b1feca7288c9beaa28fd9be96cbc",
+      "adapted_sha256": "e8c89834338ba42c1fcd436822fb2725eb35eb62bc558d95c588f166b2fec063",
+      "reason": "P09 expanded same exact animation admission to weapon141 and family array to12. Mutation remains omission of animation witness admission and forcing P02/P04/P05 dependency union, not relaxing detection markers. ROOT relocation only."
+    },
+    "exact_diff": "--- /workspace/scratch/f67dd347fa0a/enemy-proof-dedup-worktree/tests/enemy_green_reuse_validation.py\n+++ /workspace/scratch/f67dd347fa0a/enemy-proof-dedup-validation/green-control-driver.py\n@@ -4,7 +4,7 @@\n \"\"\"\n import argparse, hashlib, json, os, re, resource, shutil, struct, subprocess\n from pathlib import Path\n-ROOT=Path(__file__).resolve().parents[1]\n+ROOT=Path('/workspace/scratch/f67dd347fa0a/enemy-proof-dedup-worktree')\n SHA=lambda b:hashlib.sha256(b).hexdigest()\n FRAMES=(105,106,124,125,20,21,214,215,216)\n HDA_SHA=('d12fde24b67f6b57ede3483e07a155b95cd5f538cf9f96c64e0d80fc2e0eba78','1a47b5701ecbdef673251cd1de7b975e42291cef29ab9a0bfd10f1c48facb2ba','b37e9664609365b53a250c0a711b6ae863ab55299904794051091b206aeef158','11ffdf82296ed985ec9534ba19a555eb22594c14e5fc92414531a47e36383752','328f9831389399fa7c8d623889732bbc1574dac458a30b97511e2d031dd7aed8','a8fbcb2952ec4a4b3f84388f1b410ec70648052cbaff35487d2ed930c9b5dc55','cd2fe29818aa734481be907ba27d764b58cb178f6252ee9f3fa358f8560b8740','917ebcb0f1044b55e025d9cc160546c96192f5e142e950ccf08415f947cfa7bf','f06bd83d10dbab85d50afc0d7946da52d1a4a9bf496cfaba172e6856b772187e')\n@@ -38,9 +38,9 @@\n  if a.negative_control:\n   mutant=a.out/'mutant';mutant.mkdir(exist_ok=True);code=(ROOT/'src/render_mirror.c').read_text()\n   if a.negative_control=='animation-witness':\n-   identity=(ROOT/'src/enemy_reuse_identity.c').read_text();guard='if(shots[slot].weapon==153&&(!advanced||generation!=shots[slot].generation))return;';assert identity.count(guard)==1;(mutant/'enemy_reuse_identity.c').write_text(identity.replace(guard,'/* deliberate missing animation witness admission */'));target=mutant/'enemy_reuse_identity.o';run(['cc',*flags,*sanitized,'-c',str(mutant/'enemy_reuse_identity.c'),'-o',str(target)]);objects=[str(target) if Path(o).name=='enemy_reuse_identity.o' else o for o in objects]\n+   identity=(ROOT/'src/enemy_reuse_identity.c').read_text();guard='if((shots[slot].weapon==153||shots[slot].weapon==141)&&(!advanced||generation!=shots[slot].generation))return;';assert identity.count(guard)==1;(mutant/'enemy_reuse_identity.c').write_text(identity.replace(guard,'/* deliberate missing animation witness admission */'));target=mutant/'enemy_reuse_identity.o';run(['cc',*flags,*sanitized,'-c',str(mutant/'enemy_reuse_identity.c'),'-o',str(target)]);objects=[str(target) if Path(o).name=='enemy_reuse_identity.o' else o for o in objects]\n   elif a.negative_control=='family-isolation':\n-   inc=(ROOT/'src/enemy_reuse_mirror.inc').read_text();guard='Asset loaded[9]={{0}};bool ok=true;unsigned first=family?6:0,end=family?9:6;';assert inc.count(guard)==1;(mutant/'enemy_reuse_mirror.inc').write_text(inc.replace(guard,'Asset loaded[9]={{0}};bool ok=true;unsigned first=0,end=9;'))\n+   inc=(ROOT/'src/enemy_reuse_mirror.inc').read_text();guard='Asset loaded[12]={{0}};bool ok=true;unsigned first=family==2?9:family?6:0,end=family==2?12:family?9:6;';assert inc.count(guard)==1;(mutant/'enemy_reuse_mirror.inc').write_text(inc.replace(guard,'Asset loaded[12]={{0}};bool ok=true;unsigned first=0,end=9;'))\n   elif a.negative_control=='bank-pin':\n    inc=(ROOT/'src/enemy_reuse_mirror.inc').read_text();guard='&&enemy_reuse_hash(bank.data,bank.size)==UINT64_C(0x2b63027f74aaa21e)';assert inc.count(guard)==1;(mutant/'enemy_reuse_mirror.inc').write_text(inc.replace(guard,''))\n   else:\n",
+    "note": "Inherited pre-P09 green negative-control matcher strings were adapted only in a temporary driver to current exact animation/family strings; repository driver unchanged."
+  },
+  "evidence_root": "/workspace/scratch/f67dd347fa0a/enemy-proof-dedup-validation"
+}

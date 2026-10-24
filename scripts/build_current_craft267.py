@@ -288,7 +288,16 @@ def current_overlays(root):
         {'assets/gameplay/' + orb.name(identity, density): blob
          for (identity, density), blob in blobs.items() if identity in orb.ORDINARY_IDS})
     if len(files) != 171:
-        raise ValueError('Expected exactly 171 current gameplay overlays')
+        raise ValueError('Expected exactly 171 pre-Protron gameplay overlays')
+    import current_protron_compatibility as protron
+    selected, _, blobs = protron.generate(root, read(root, protron.SELECTION))
+    mapping = {destination: row for destination, row in protron.load(root).items()
+               if row['identity'] in (80225, 80244, 80226)}
+    add(protron.MAPPING, protron.SELECTION, selected, mapping,
+        {'assets/gameplay/' + protron.name(identity, density): blob
+         for (identity, density), blob in blobs.items() if identity in (80225, 80244, 80226)})
+    if len(files) != 174:
+        raise ValueError('Expected exactly 174 current gameplay overlays')
     return files
 
 

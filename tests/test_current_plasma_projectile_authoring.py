@@ -252,11 +252,11 @@ class PlasmaProjectileAuthoringTests(unittest.TestCase):
         for kind in ('preview','debug'):
             target=self.base/('plasma-projectile-updated-'+kind)
             report=craft.view(self.root,kind,target)
-            self.assertEqual((report['files'],len(report['current_overlays'])),(650,171))
+            self.assertEqual((report['files'],len(report['current_overlays'])),(650,174))
             frozen=self.root/'assets/hd/packs'/craft.BASES[kind]
             nonoverlays=[path for path in frozen.rglob('*') if path.is_file()
                          and path.relative_to(frozen).as_posix() not in report['current_overlays']]
-            self.assertEqual(len(nonoverlays),481)
+            self.assertEqual(len(nonoverlays),478)
             for path in nonoverlays:self.assertEqual(path.read_bytes(),(target/path.relative_to(frozen)).read_bytes())
             for destination,row in mapping.items():
                 self.assertEqual((target/Path(destination).name).read_bytes(),(self.root/row['source_path']).read_bytes())

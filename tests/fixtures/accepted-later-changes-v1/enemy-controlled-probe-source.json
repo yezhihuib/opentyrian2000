@@ -1,0 +1,187 @@
+{
+  "added_sources": {
+    "src/enemy_reuse_probe.h": "8ef9d60321bc52cdb7e5e2261e967cf33cec3b0f73302e168bff7387d69457f9",
+    "src/enemy_reuse_probe.inc": "7501e2cb27def19e1ad780a8f4e6d175f32ddc12893d1e9587645c4b3207ae01"
+  },
+  "files": {
+    "src/asset_debug.c": {
+      "current_sha256": "ea6de19bf2e983a83096fd441216b21a8d611d529b13b2bde1f9878122c0a298",
+      "hunks": [
+        {
+          "after": "#include \"enemy_reuse_probe.h\"\n",
+          "after_lines": [
+            6,
+            7
+          ],
+          "before": ""
+        },
+        {
+          "after": " if(!strcmp(s,\"reload\")||!strcmp(s,\"quit\")||!strncmp(s,\"hit \",4)||!strncmp(s,\"destroy \",8))enemy_reuse_probe_revoke();\n",
+          "after_lines": [
+            81,
+            82
+          ],
+          "before": ""
+        },
+        {
+          "after": "{enemy_reuse_probe_revoke();if(asset_debug_enabled&&!index_only&&!arrived&&!quitting){fprintf(stderr,\"Asset debug: target not reached before level/test ended\\n\");asset_debug_exit_code=2;}}\n",
+          "after_lines": [
+            129,
+            130
+          ],
+          "before": "{if(asset_debug_enabled&&!index_only&&!arrived&&!quitting){fprintf(stderr,\"Asset debug: target not reached before level/test ended\\n\");asset_debug_exit_code=2;}}\n"
+        }
+      ],
+      "previous_sha256": "8be5161623d0d34c960ae7d229a3b9ac1b0889fe54bec407e131f267346b7bf8"
+    },
+    "src/enemy_reuse_mirror.inc": {
+      "current_sha256": "98e502b77de9943f21be7fe349931593f533319748963108897b96367b81190e",
+      "hunks": [
+        {
+          "after": "static struct {uint64_t probe_generation;bool output_phase,contributed,families[3];Sprite2_array bank;Uint32 palette[256];\n",
+          "after_lines": [
+            13,
+            14
+          ],
+          "before": "static struct {bool contributed,families[3];Sprite2_array bank;Uint32 palette[256];\n"
+        },
+        {
+          "after": "  (!play_demo||enemy_reuse_probe_generation())&&!record_demo&&!onePlayerAction&&!superTyrian&&superArcadeMode==SA_NONE&&\n",
+          "after_lines": [
+            32,
+            33
+          ],
+          "before": "  !play_demo&&!record_demo&&!onePlayerAction&&!superTyrian&&superArcadeMode==SA_NONE&&\n"
+        },
+        {
+          "after": "{memset(&enemy_reuse_frame,0,sizeof(enemy_reuse_frame));enemy_reuse_frame.probe_generation=enemy_reuse_probe_generation();enemy_reuse_draw_lease=NULL;}\n",
+          "after_lines": [
+            44,
+            45
+          ],
+          "before": "{memset(&enemy_reuse_frame,0,sizeof(enemy_reuse_frame));enemy_reuse_draw_lease=NULL;}\n"
+        },
+        {
+          "after": " /* Original game output switches VGAScreen to the final indexed surface.\n  * Only the explicit probe contract admits that exact phase transition; both\n  * captured owners, pixels and formats below must still be unchanged. */\n bool owner=s==VGAScreen||(enemy_reuse_frame.output_phase&&enemy_reuse_frame.probe_generation&&\n  enemy_reuse_frame.probe_generation==enemy_reuse_probe_generation()&&f==VGAScreen);\n return s&&f&&owner&&s==enemy_reuse_frame.surface&&f==enemy_reuse_frame.final_surface&&\n",
+          "after_lines": [
+            94,
+            100
+          ],
+          "before": " return s&&f&&s==enemy_reuse_frame.surface&&s==VGAScreen&&f==enemy_reuse_frame.final_surface&&\n"
+        },
+        {
+          "after": " if(enemy_reuse_probe_requested()&&(!enemy_reuse_frame.probe_generation||enemy_reuse_frame.probe_generation!=enemy_reuse_probe_generation()))return false;\n",
+          "after_lines": [
+            108,
+            109
+          ],
+          "before": ""
+        },
+        {
+          "after": " if((enemy_reuse_probe_requested()&&enemy_reuse_frame.output_phase)||!enemy_reuse_scope()||!active||reject_reason||k<0||(k<6?raw!=index:k<9?raw!=214:k==9?raw!=226:k==10?(raw!=226&&raw!=227):raw!=244)||slot>=60||(k>=9&&raw!=enemyShot[slot].sgr)||\n",
+          "after_lines": [
+            150,
+            151
+          ],
+          "before": " if(!enemy_reuse_scope()||!active||reject_reason||k<0||(k<6?raw!=index:k<9?raw!=214:k==9?raw!=226:k==10?(raw!=226&&raw!=227):raw!=244)||slot>=60||(k>=9&&raw!=enemyShot[slot].sgr)||\n"
+        }
+      ],
+      "previous_sha256": "a2db19c3106b4637575819e91a482bfbb904ece5ea91a5869fbeffeff20c86fd"
+    },
+    "src/game_probe.c": {
+      "current_sha256": "1821fc281c91d70a69e5dbcb6cf0292aa3cb57abfc85697e5aee67b17df9b34d",
+      "hunks": [
+        {
+          "after": "#include \"enemy_reuse_probe.h\"\n",
+          "after_lines": [
+            5,
+            6
+          ],
+          "before": ""
+        },
+        {
+          "after": "#include \"enemy_reuse_probe.inc\"\n",
+          "after_lines": [
+            62,
+            63
+          ],
+          "before": ""
+        },
+        {
+          "after": "#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)\n  if(strncmp(argv[i],\"--render-enemy-reuse-session=\",29)==0) {\n   if(probe_requested||strcmp(argv[i]+29,\"original-events-v1\")) {fprintf(stderr,\"Invalid or duplicate enemy reuse probe contract\\n\");exit(2);}\n   probe_requested=true;continue;\n  }\n#endif\n",
+          "after_lines": [
+            232,
+            238
+          ],
+          "before": ""
+        },
+        {
+          "after": " probe_parse_contract();\n",
+          "after_lines": [
+            326,
+            327
+          ],
+          "before": ""
+        },
+        {
+          "after": " probe_prepare_contract();\n",
+          "after_lines": [
+            332,
+            333
+          ],
+          "before": ""
+        },
+        {
+          "after": " probe_start_contract();\n",
+          "after_lines": [
+            378,
+            379
+          ],
+          "before": ""
+        },
+        {
+          "after": " probe_level_contract();\n",
+          "after_lines": [
+            392,
+            393
+          ],
+          "before": ""
+        },
+        {
+          "after": "  enemy_reuse_probe_revoke();\n",
+          "after_lines": [
+            638,
+            639
+          ],
+          "before": ""
+        }
+      ],
+      "previous_sha256": "ab2867fcec2a1d3f3c6a2218cca75a34cc4f6841bc806972791491da31fa6f44"
+    },
+    "src/render_mirror.c": {
+      "current_sha256": "3713c2bd9ae80236cf406332fed4150d6fa72118a28473ff8c685b47e50b09a3",
+      "hunks": [
+        {
+          "after": "#include \"enemy_reuse_probe.h\"\n",
+          "after_lines": [
+            42,
+            43
+          ],
+          "before": ""
+        },
+        {
+          "after": " enemy_reuse_frame.output_phase=true;\n",
+          "after_lines": [
+            5002,
+            5003
+          ],
+          "before": ""
+        }
+      ],
+      "previous_sha256": "85cde9b52ce4e7577993ee1ca0616de6f6eac34bd198ffebe84261cdf5394a48"
+    }
+  },
+  "integration_base": "4d8981d875f3112a96c1e71644642fefc419a7f6",
+  "schema": "opentyrian-reviewed-enemy-controlled-probe-source-v1",
+  "scope": "Explicit default-off controlled probe lease for existing segmented validation; four exact source inverses and two pinned modules. No artwork authority or historical expected-hash changes."
+}

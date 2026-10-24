@@ -1,7 +1,7 @@
 /* SPDX-License-Identifier: GPL-2.0-or-later
  * Finite, default-off P02/P04/P05 enemy semantics. P09 has one private material identity;
  * rendering identity146 is private and never passes through player get_asset.
- * Only the established probe compositor is enabled: no global gate expansion.
+ * Probe and isolated normal-game observation share only the finite role146 lane.
  */
 static const unsigned enemy_reuse_ids[12]={105,106,124,125,20,21,214,215,216,226,227,244};
 static const uint64_t enemy_reuse_pins[12]={
@@ -9,9 +9,10 @@ static const uint64_t enemy_reuse_pins[12]={
  UINT64_C(0x5c9b2e36bccd2600),UINT64_C(0x77d4a54100ab76c8),
  UINT64_C(0xa9fbe279b9095795),UINT64_C(0x4d4116e34f7ed195),
  CURRENT_GREEN_80214_RGBA,CURRENT_GREEN_80215_RGBA,CURRENT_GREEN_80216_RGBA,
- UINT64_C(0x436fda16719ce3fb),CURRENT_ENEMY_PROTRON_1470227_RGBA,UINT64_C(0xbcb8f83827c8b717)};
-static struct {bool checked[3],valid[3];char root[1024];Asset members[12];} enemy_reuse_resources;
-static struct {bool contributed,families[3];Sprite2_array bank;Uint32 palette[256];
+ CURRENT_PROTRON_80226_D8_PAYLOAD_FNV,CURRENT_PROTRON_1470227_D8_PAYLOAD_FNV,CURRENT_PROTRON_80244_D8_PAYLOAD_FNV};
+static struct {bool checked[3],valid[3];char root[1024];Asset members[12];unsigned observed_candidates,observed_frames;} enemy_reuse_resources;
+enum EnemyReuseSession {ENEMY_REUSE_LEGACY,ENEMY_REUSE_NORMAL,ENEMY_REUSE_CONTROLLED};
+static struct {enum EnemyReuseSession session;uint64_t session_generation;bool output_phase,contributed,families[3];Sprite2_array bank;Uint32 palette[256];
  SDL_Surface *surface,*final_surface;void *pixels,*final_pixels;SDL_PixelFormat *format,*final_format;
  bool used[60];unsigned index[60];int x[60],y[60];uint64_t generation[60];
 } enemy_reuse_frame;
@@ -22,13 +23,15 @@ static int enemy_reuse_member(unsigned index)
 static bool enemy_reuse_source(Sprite2_array bank)
 {return !xmas&&bank.data&&bank.data==spriteSheet8.data&&bank.data!=spriteSheet12.data&&
  bank.size==32060&&bank.size==spriteSheet8.size&&enemy_reuse_hash(bank.data,bank.size)==UINT64_C(0x2b63027f74aaa21e);}
+static const char *enemy_reuse_asset_root(void)
+{return enemy_reuse_observe_requested()?enemy_reuse_observe_assets():game_probe_assets;}
 static bool enemy_reuse_scope(void)
 {
  uint64_t h=UINT64_C(0xcbf29ce484222325);
  for(unsigned i=0;i<256;i++)for(int s=16;s>=0;s-=8){h^=(rgb_palette[i]>>s)&255;h*=UINT64_C(0x100000001b3);}
- return game_probe_enabled&&!asteroid_hd_enabled&&!manual_hd_enabled&&
+ return (game_probe_enabled||enemy_reuse_observe_active())&&!asteroid_hd_enabled&&!manual_hd_enabled&&
   !xmas&&!twoPlayerMode&&!galagaMode&&!twoPlayerLinked&&!isNetworkGame&&
-  !play_demo&&!record_demo&&!onePlayerAction&&!superTyrian&&superArcadeMode==SA_NONE&&
+  (!play_demo||enemy_reuse_probe_generation())&&!record_demo&&!onePlayerAction&&!superTyrian&&superArcadeMode==SA_NONE&&
   !timedBattleMode&&!bonusLevel&&!normalBonusLevelCurrent&&!bonusLevelCurrent&&
   game_probe_density==8&&!game_probe_missing&&!game_probe_invalid&&!game_probe_original_reference&&
   h==UINT64_C(0x5e80e83992be2927);
@@ -40,7 +43,30 @@ static void enemy_reuse_shutdown(void)
  memset(&enemy_reuse_frame,0,sizeof(enemy_reuse_frame));enemy_reuse_draw_lease=NULL;enemy_reuse_reset();
 }
 static void enemy_reuse_frame_begin(void)
-{memset(&enemy_reuse_frame,0,sizeof(enemy_reuse_frame));enemy_reuse_draw_lease=NULL;}
+{
+ memset(&enemy_reuse_frame,0,sizeof(enemy_reuse_frame));enemy_reuse_draw_lease=NULL;
+ if(enemy_reuse_observe_requested()) {
+  enemy_reuse_frame.session=ENEMY_REUSE_NORMAL;
+  enemy_reuse_frame.session_generation=enemy_reuse_observe_generation();
+ } else if(enemy_reuse_probe_requested()) {
+  enemy_reuse_frame.session=ENEMY_REUSE_CONTROLLED;
+  enemy_reuse_frame.session_generation=enemy_reuse_probe_generation();
+ }
+}
+/* Session kinds cannot lend authority to each other, including empty caches.
+ * Legacy native probes retain their original game-surface-only contract. */
+static bool enemy_reuse_session_valid(void)
+{
+ switch(enemy_reuse_frame.session) {
+  case ENEMY_REUSE_NORMAL:
+   return enemy_reuse_observe_requested()&&!enemy_reuse_probe_requested()&&
+    enemy_reuse_frame.session_generation&&enemy_reuse_frame.session_generation==enemy_reuse_observe_generation();
+  case ENEMY_REUSE_CONTROLLED:
+   return !enemy_reuse_observe_requested()&&enemy_reuse_probe_requested()&&
+    enemy_reuse_frame.session_generation&&enemy_reuse_frame.session_generation==enemy_reuse_probe_generation();
+  default:return !enemy_reuse_observe_requested()&&!enemy_reuse_probe_requested();
+ }
+}
 static bool enemy_reuse_load(unsigned k,Asset *result)
 {
  char path[1200];Uint8 header[28],extra;REAR_STAT st;
@@ -63,7 +89,7 @@ static bool enemy_reuse_load(unsigned k,Asset *result)
  * missing green resource must never turn an already admitted old shot classic. */
 static bool enemy_reuse_assets_valid(unsigned family)
 {
- if(family>2||!enemy_reuse_resources.valid[family]||!game_probe_assets||strcmp(game_probe_assets,enemy_reuse_resources.root))return false;
+ if(family>2||!enemy_reuse_resources.valid[family]||!enemy_reuse_asset_root()||strcmp(enemy_reuse_asset_root(),enemy_reuse_resources.root))return false;
  unsigned first=family==2?9:family?6:0,end=family==2?12:family?9:6;
  for(unsigned i=first;i<end;i++){
   Asset *a=&enemy_reuse_resources.members[i];
@@ -74,12 +100,12 @@ static bool enemy_reuse_assets_valid(unsigned family)
 }
 static bool enemy_reuse_family_ready(unsigned family)
 {
- if(family>2||!game_probe_assets||!game_probe_assets[0]||strlen(game_probe_assets)>=sizeof(enemy_reuse_resources.root))return false;
+ if(family>2||!enemy_reuse_asset_root()||!enemy_reuse_asset_root()[0]||strlen(enemy_reuse_asset_root())>=sizeof(enemy_reuse_resources.root))return false;
  /* A root change cannot free resources still referenced by this frame. It
   * declines until the explicit renderer shutdown, just like the orb cache. */
- if(enemy_reuse_resources.root[0]&&strcmp(game_probe_assets,enemy_reuse_resources.root))return false;
+ if(enemy_reuse_resources.root[0]&&strcmp(enemy_reuse_asset_root(),enemy_reuse_resources.root))return false;
  if(!enemy_reuse_resources.checked[family]){
-  enemy_reuse_resources.checked[family]=true;strcpy(enemy_reuse_resources.root,game_probe_assets);
+  enemy_reuse_resources.checked[family]=true;strcpy(enemy_reuse_resources.root,enemy_reuse_asset_root());
   Asset loaded[12]={{0}};bool ok=true;unsigned first=family==2?9:family?6:0,end=family==2?12:family?9:6;
   for(unsigned i=first;i<end&&ok;i++)ok=enemy_reuse_load(i,&loaded[i]);
   if(ok)for(unsigned i=first;i<end;i++)enemy_reuse_resources.members[i]=loaded[i];
@@ -90,7 +116,12 @@ static bool enemy_reuse_family_ready(unsigned family)
 static bool enemy_reuse_layout_matches(void)
 {
  SDL_Surface *s=game_screen,*f=VGAScreenSeg;
- return s&&f&&s==enemy_reuse_frame.surface&&s==VGAScreen&&f==enemy_reuse_frame.final_surface&&
+ /* Original game output switches VGAScreen to the final indexed surface.
+  * Only a live captured normal or controlled session admits that transition; both
+  * captured owners, pixels and formats below must still be unchanged. */
+ bool owner=s==VGAScreen||(enemy_reuse_frame.output_phase&&enemy_reuse_frame.session!=ENEMY_REUSE_LEGACY&&
+  enemy_reuse_session_valid()&&f==VGAScreen);
+ return s&&f&&owner&&s==enemy_reuse_frame.surface&&f==enemy_reuse_frame.final_surface&&
   s->pixels==enemy_reuse_frame.pixels&&f->pixels==enemy_reuse_frame.final_pixels&&
   s->format==enemy_reuse_frame.format&&f->format==enemy_reuse_frame.final_format&&
   s->w==320&&s->h==200&&s->pitch==320&&f->w==320&&f->h==200&&f->pitch==320&&
@@ -99,6 +130,7 @@ static bool enemy_reuse_layout_matches(void)
 }
 static bool enemy_reuse_proof(void)
 {
+ if(!enemy_reuse_session_valid())return false;
  if(!enemy_reuse_frame.contributed)return true;
  if(!enemy_reuse_layout_matches()||!enemy_reuse_scope()||!enemy_reuse_source(enemy_reuse_frame.bank)||
   (enemy_reuse_frame.families[0]&&!enemy_reuse_assets_valid(0))||
@@ -106,8 +138,8 @@ static bool enemy_reuse_proof(void)
   (enemy_reuse_frame.families[2]&&!enemy_reuse_assets_valid(2))||
   memcmp(enemy_reuse_frame.palette,rgb_palette,sizeof(enemy_reuse_frame.palette)))return false;
  for(unsigned i=0;i<60;i++)if(enemy_reuse_frame.used[i]&&
-  (enemy_reuse_frame.generation[i]!=enemy_reuse_identity_generation(i)||
-   !enemy_reuse_identity_live(i,enemy_reuse_frame.index[i],enemy_reuse_frame.x[i],enemy_reuse_frame.y[i])))return false;
+  !enemy_reuse_identity_live_generation(i,enemy_reuse_frame.index[i],enemy_reuse_frame.x[i],enemy_reuse_frame.y[i],
+   enemy_reuse_frame.generation[i]))return false;
  return true;
 }
 static bool enemy_reuse_cache_check(void)
@@ -122,11 +154,25 @@ static bool enemy_reuse_cache_check(void)
  render_mirror_unsupported("enemy-reuse-provenance");
  ready=last_output_valid=last_output_scene_hd=have_fade_saved=false;fade_mode=0;return false;
 }
+/* Bounded stderr diagnostics are read-only; no setup, replay, tick limit or
+ * game state/RNG writes. A candidate is not an accepted output frame. */
+static void enemy_reuse_observe_frame_result(bool accepted,const char *reason)
+{
+ if(!enemy_reuse_observe_requested()||!enemy_reuse_frame.contributed||enemy_reuse_resources.observed_frames>=16)return;
+ ++enemy_reuse_resources.observed_frames;
+ fprintf(stderr,"Enemy reuse observation: frame episode=%u physical=%u event-next=%u role=146 accepted=%u reason=%s\n",
+  (unsigned)episodeNum,(unsigned)lvlFileNum,(unsigned)eventLoc,accepted?1u:0u,reason?reason:"none");
+}
 bool render_mirror_enemy_reuse_shot(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned index,unsigned slot,unsigned raw)
 {
  render_mirror_shadow_end();int k=enemy_reuse_member(index);
  bool identity=enemy_reuse_identity_matches(slot,index,x,y);
- if(!enemy_reuse_scope()||!active||reject_reason||k<0||(k<6?raw!=index:k<9?raw!=214:k==9?raw!=226:k==10?(raw!=226&&raw!=227):raw!=244)||slot>=60||(k>=9&&raw!=enemyShot[slot].sgr)||
+ if(enemy_reuse_observe_requested()&&identity&&k>=0&&enemy_reuse_resources.observed_candidates<16) {
+  ++enemy_reuse_resources.observed_candidates;
+  fprintf(stderr,"Enemy reuse observation: candidate episode=%u physical=%u event-next=%u slot=%u index=%u generation=%llu\n",
+   (unsigned)episodeNum,(unsigned)lvlFileNum,(unsigned)eventLoc,slot,index,(unsigned long long)enemy_reuse_identity_generation(slot));
+ }
+ if(((enemy_reuse_observe_requested()||enemy_reuse_probe_requested())&&enemy_reuse_frame.output_phase)||!enemy_reuse_scope()||!active||reject_reason||k<0||(k<6?raw!=index:k<9?raw!=214:k==9?raw!=226:k==10?(raw!=226&&raw!=227):raw!=244)||slot>=60||(k>=9&&raw!=enemyShot[slot].sgr)||
   !surface||surface!=game_screen||surface!=VGAScreen||!surface->pixels||
   surface->w!=320||surface->h!=200||surface->pitch!=320||!surface->format||
   surface->format->format!=SDL_PIXELFORMAT_INDEX8||surface->format->BytesPerPixel!=1||surface->format->BitsPerPixel!=8||

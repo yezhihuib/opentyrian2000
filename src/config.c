@@ -17,6 +17,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 #include "config.h"
+#include "enemy_reuse_observe.h"
 #include "data_text.h"
 #include "asset_debug.h"
 
@@ -445,6 +446,7 @@ void JE_saveGame(JE_byte slot, const char *name)
 
 void JE_loadGame(JE_byte slot)
 {
+	enemy_reuse_observe_reset();
 	superTyrian = false;
 	onePlayerAction = false;
 	twoPlayerMode = false;

@@ -1,0 +1,73 @@
+{
+  "files": {
+    "src/enemy_reuse_identity.c": {
+      "current_sha256": "ffe9856606fa147994e907035305c82bbc56036779247747105aca8d8bc17f7c",
+      "hunks": [
+        {
+          "after": "/* Only called immediately after a fresh, successful generation validation.\n * No callback, write or lifetime boundary may intervene. */\nstatic bool live_fields(unsigned slot,unsigned index,int x,int y)\n",
+          "after_lines": [
+            222,
+            225
+          ],
+          "before": "bool enemy_reuse_identity_live(unsigned slot,unsigned index,int x,int y)\n"
+        },
+        {
+          "after": "",
+          "after_lines": [
+            226,
+            226
+          ],
+          "before": " if(!enemy_reuse_identity_generation(slot))return false;\n"
+        },
+        {
+          "after": "}\nbool enemy_reuse_identity_live(unsigned slot,unsigned index,int x,int y)\n{\n return enemy_reuse_identity_generation(slot)!=0&&live_fields(slot,index,x,y);\n}\nbool enemy_reuse_identity_live_generation(unsigned slot,unsigned index,int x,int y,uint64_t expected)\n{\n /* expected is a comparison only, never evidence that source bytes are valid.\n  * Each call revalidates the bank, records and actor/shot lifetime. */\n uint64_t generation=enemy_reuse_identity_generation(slot);\n return generation!=0&&generation==expected&&live_fields(slot,index,x,y);\n",
+          "after_lines": [
+            231,
+            242
+          ],
+          "before": ""
+        }
+      ],
+      "previous_sha256": "967a7915bb7dc447347708f72fc9d1c5542ae08a692196491d4bdfe23363de7f"
+    },
+    "src/enemy_reuse_identity.h": {
+      "current_sha256": "b9dd91ab7d9de869f4c0c0fef70153e72309f16831176bb78c92326e646bb755",
+      "hunks": [
+        {
+          "after": "bool enemy_reuse_identity_live_generation(unsigned,unsigned,int,int,uint64_t);\n",
+          "after_lines": [
+            18,
+            19
+          ],
+          "before": ""
+        },
+        {
+          "after": "static inline bool enemy_reuse_identity_live_generation(unsigned s,unsigned i,int x,int y,uint64_t g) {(void)s;(void)i;(void)x;(void)y;(void)g;return false;}\n",
+          "after_lines": [
+            33,
+            34
+          ],
+          "before": ""
+        }
+      ],
+      "previous_sha256": "9947827fa7b709637a51be0e5de8fc1653fa868df8fb4b3792be0b09ec180f5a"
+    },
+    "src/enemy_reuse_mirror.inc": {
+      "current_sha256": "baf8f1cb4552535886d4866fa54275d1ae7e67a058e748a280fb37665a07f9c4",
+      "hunks": [
+        {
+          "after": "  !enemy_reuse_identity_live_generation(i,enemy_reuse_frame.index[i],enemy_reuse_frame.x[i],enemy_reuse_frame.y[i],\n   enemy_reuse_frame.generation[i]))return false;\n",
+          "after_lines": [
+            108,
+            110
+          ],
+          "before": "  (enemy_reuse_frame.generation[i]!=enemy_reuse_identity_generation(i)||\n   !enemy_reuse_identity_live(i,enemy_reuse_frame.index[i],enemy_reuse_frame.x[i],enemy_reuse_frame.y[i])))return false;\n"
+        }
+      ],
+      "previous_sha256": "d8a1b40cbb2ae52b95c8353ec5d719e4d193cb2adb36622b77307dadb9e395d8"
+    }
+  },
+  "integration_base": "5109ebbd3f8a5c58075d6358e82e2e4459ac5460",
+  "schema": "opentyrian-reviewed-enemy-proof-dedup-source-v1",
+  "scope": "Only adjacent generation/live validation within one read-only proof; no cache or scope expansion; standalone APIs fully validate"
+}

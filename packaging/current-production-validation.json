@@ -18,10 +18,13 @@
     "Charge role145 adds nine fixed body transports; the five-file render-only patch has separate renderer validation. This binding does not certify Windows/GPU/full-campaign behavior.",
     "Plasma projectile extracts only six existing payload values into a generated header. Existing E1 Normal9/Hard15, normal-data/right-sidekick9, weapon88, geometry, blend, fallback, per-draw reopening and cache scope are unchanged; this is not expanded runtime acceptance.",
     "NEWSHF now adds an independent compile-time default-off nine-pose HD compositor and exact additive resources. The source binding does not itself certify compositor execution, E1 gameplay, Windows/GPU or full-campaign acceptance; see separate native validation.",
-    "P02/P04 reuses six unchanged role8 resources under a default-off probe-only enemy semantic owner; source binding is not normal-game activation, gameplay acceptance, or Windows/GPU certification."
+    "P02/P04 reuses six unchanged role8 resources under a default-off probe-only enemy semantic owner; source binding is not normal-game activation, gameplay acceptance, or Windows/GPU certification.",
+    "Independent default-off normal-game observer admits only approved finite enemy role146; this source binding is not live event acceptance, input replay equivalence or platform certification.",
+    "Controlled original-event probe is assisted fixed-input replay, not natural playthrough; no new snapshot/time skip or simulation mutation. Normal observer output alias is covered separately by the normal-observer-surface native proof; live normal target events remain unverified.",
+    "Normal observer final-surface alias has native production-object proof only; no new live normal-game target-event, Windows/GPU or full-campaign acceptance."
   ],
   "production_commit": null,
-  "production_source_manifest_sha256": "0135416bcfa17b1393673b700b5be9c0eb2b084662b411e772a14f8409af0ae1",
+  "production_source_manifest_sha256": "76ff47c548d44ce7315f2d6bf1dd90c83c9c3264b866b96175cadbf57d1ac7cc",
   "reviewed_charge_body_changes": {
     "files": [
       "src/entity_draw.c",
@@ -35,11 +38,23 @@
     "ledger_sha256": "c066932af771eb3a834c7becbeb59c6b0eac668d8da51df09d034d7247211e92",
     "production_patch_sha256": "a9df9e940ba745f414a470cb534b98536d99c81c8f676378d4a7f306d460fbda"
   },
+  "reviewed_enemy_controlled_probe": {
+    "integration_base": "4d8981d875f3112a96c1e71644642fefc419a7f6",
+    "scope": "Explicit default-off original-events-v1 probe contract only; finite role146 and phase-bound dual indexed owners. Existing normal observer and gameplay updates unchanged. Binding is not gameplay acceptance.",
+    "source_ledger": "tests/fixtures/accepted-later-changes-v1/enemy-controlled-probe-source.json",
+    "source_ledger_sha256": "d28e5a9d59bc471337b5fd7175b4ea87c8932d19d5503b9300b0733ebd543da2"
+  },
   "reviewed_enemy_green_reuse": {
     "integration_base": "47e7d062e0fc4a449a36f1d1f47e53c42f65c66d",
     "scope": "Finite default-off probe-only E2 GYGES379/153 animation, independent three-resource preflight, no PNG/HDA changes",
     "source_ledger": "tests/fixtures/accepted-later-changes-v1/enemy-green-reuse-source.json",
     "source_ledger_sha256": "8c1c462965c780c0199132790a851f31575ef24f2966332bbc36c5936ceba2ba"
+  },
+  "reviewed_enemy_proof_dedup": {
+    "integration_base": "5109ebbd3f8a5c58075d6358e82e2e4459ac5460",
+    "scope": "Only adjacent generation/live validation within one read-only proof; no cache or scope expansion; standalone APIs fully validate",
+    "source_ledger": "tests/fixtures/accepted-later-changes-v1/enemy-proof-dedup-source.json",
+    "source_ledger_sha256": "91639f4b2aab64ebf1b7c40e76ccdc13e95460129af08507e8f6fe0f4caa5d9b"
   },
   "reviewed_enemy_protron_reuse": {
     "integration_base": "4810555b37ab12247690f383160e6bff433f41c6",
@@ -65,6 +80,23 @@
     "ledger": "tests/fixtures/accepted-later-changes-v1/enemy-reuse-source.json",
     "ledger_sha256": "76e19c7b8bc2ec2fcf8644935c32306e38a334db9e8ddbc520841af0954fb6a0"
   },
+  "reviewed_enemy_reuse_observe": {
+    "added_sources": {
+      "src/enemy_reuse_observe.h": "d847f50a2d889f918e9e57ed2862ebaa34e5d38b6fdaac7e504532b8de2ffbe1",
+      "src/enemy_reuse_observe.inc": "58ac12545df551742a796ae430cc64a8d787d83e36be24393508ae083de3af46"
+    },
+    "files": [
+      "src/config.c",
+      "src/enemy_reuse_identity.c",
+      "src/enemy_reuse_mirror.inc",
+      "src/game_probe.c",
+      "src/opentyr.c",
+      "src/render_mirror.c"
+    ],
+    "integration_base": "6488220464055166c69267abee7b3a11b41fe16b",
+    "scope": "Exclusive default-off normal-game enemy-only display session; no simulation or input changes; whole-blob finite inverse and two exact new modules.",
+    "source_ledger_sha256": "e8fdb1d7c8e2a38f13e6cdebc3cf226b0de87758e16488c946de2c21fc9f7538"
+  },
   "reviewed_newshf168_soft_alpha": {
     "integration_base": "0112ec8d3c3fd0b6145463b85a713a79ccd01ac5",
     "scope": "Exact preferred168V4 revision only; straight alpha with conservative foreign-underlay rejection; six163167 source/payload bytes unchanged",
@@ -77,6 +109,12 @@
     "scope": "six fine-v2 sources plus corrected physical167/168 first-two assignment; immutable identities unchanged",
     "selection": "docs/newshf-fine-v2-corrected-poses/selection.json",
     "sha256": "24e7bc7556426a203cb0fb0e29aca01746fb4c550b77c389fc8a4971d1248074"
+  },
+  "reviewed_normal_observer_surface": {
+    "integration_base": "19c96ae931fa1a23b05d75cb9b4387330cc8db54",
+    "scope": "Three exact source inverses for isolated normal-session generation and phase-bound dual indexed output owners. No artwork, gameplay, RNG, event or historical oracle changes; native production-object validation is not live normal-event acceptance.",
+    "source_ledger": "tests/fixtures/accepted-later-changes-v1/normal-observer-surface-source.json",
+    "source_ledger_sha256": "40aed98872b92637089127134e24d81946bcd53d5298f17a894addcb8233da0f"
   },
   "reviewed_plasma_projectile_changes": {
     "files": [
@@ -104,7 +142,7 @@
     "src/animlib.h": "55079d0abd8248fe0d7141042b185d593c44b9197d3025921f3f35f88c2c386a",
     "src/arg_parse.c": "1a2f7ebea323e73fd329946a78b50922471d3186657fb975c5152eef8fb596ac",
     "src/arg_parse.h": "bf21cfcee7f24453373d405d69ea4646e8cd404337bee4ec13bc35529302e056",
-    "src/asset_debug.c": "8be5161623d0d34c960ae7d229a3b9ac1b0889fe54bec407e131f267346b7bf8",
+    "src/asset_debug.c": "ea6de19bf2e983a83096fd441216b21a8d611d529b13b2bde1f9878122c0a298",
     "src/asset_debug.h": "50792b512ae2e887d701b33fd1324e460d30c8a98b6aa16f07b3e363596ed08c",
     "src/asteroid1_capsule545_mirror.inc": "857a7c9c6c08523e3c2730b8fe7ac519c976f6ad1c000f47decaeb3b0e73d484",
     "src/asteroid1_columns276_mirror.inc": "d69e50a23b1a0c416abe2cd41273f6700c210a8df6328e105c5e5337a27e4ad9",
@@ -145,7 +183,7 @@
     "src/common_menu_runs.h": "b079e08650f5ca85c69ecfb2df1a9f5376fc0ca851eb911d956de3a2a3defa78",
     "src/common_pause.c": "d072ddd7ee08edd4594cb49bd784f3916726088236fa73ebb894e976a9bbdb72",
     "src/common_pause.h": "6281006c64c6ac932bc7c6c407e9b9c7d3630434812272a53b6cebed0cf22a13",
-    "src/config.c": "dff8b5d678b2e9a127eacd3fc48a7fa2eee74fa89b34cd036686c13cb7671ba4",
+    "src/config.c": "74508fd75517587caeea65c4b148c2c52277317558535e01a02b88604a2ddf1c",
     "src/config.h": "df43ab4f8887c1275d1f876f83b2ab9f8dcd4a333ee1f2414caa3c8123522fe0",
     "src/config_file.c": "03756d1059703d2bab2fdb6d65faa001866e9afd82bdfffaba9e14bc9ec159dc",
     "src/config_file.h": "42e28cfb22e5def08ec333f8573750f658b29ee0e52054cee1084a48bfa59fc5",
@@ -155,6 +193,7 @@
     "src/current_enemy_protron_payload_pins.h": "a6138c492da92e824bc117491c2b20d7695077b6ae050a3ca9022d6c2ec0cd6d",
     "src/current_hud_payload_pins.h": "5fa2744f0043c7ea57457f0f1cc78da66a1a226d37581060b51bd6525ced9456",
     "src/current_plasma_projectile_payload_pins.h": "e8c6f7497df9a88d3653675136af8c9c727d85eba2328eddb03b2f69f2d89283",
+    "src/current_protron_payload_pins.h": "bf982da11154061bdf56683270ef23a12200f014a060cfcf6482b97d31de88fb",
     "src/current_sidekick_body_payload_pins.h": "1d25bd99fd3bb300f150be65ea4bd4de9014354787eafb6d04250a9b86320da2",
     "src/current_tank_shell_payload_pins.h": "c474a33b8af08d772113a015fadca77f446cb49626a66bafbf7e24357326e5f6",
     "src/data_exit_pins.inc": "38103a33f86480c47623fc88b9c76b148fb0ba1dd955d231b06306d2d4bb3b33",
@@ -173,9 +212,13 @@
     "src/destruct.h": "50934ed9a4f35ef994adf9693ae237fe720ea629e8143eabc65c3c49151b0e7b",
     "src/editship.c": "5877d8012076a3a2631fd0e0d80c359cca8bf67d6bc534c5fb07add5812835af",
     "src/editship.h": "91c67ce815195f568661d158b970c430f453dd857df8cfbd7131f7c215a1236f",
-    "src/enemy_reuse_identity.c": "967a7915bb7dc447347708f72fc9d1c5542ae08a692196491d4bdfe23363de7f",
-    "src/enemy_reuse_identity.h": "9947827fa7b709637a51be0e5de8fc1653fa868df8fb4b3792be0b09ec180f5a",
-    "src/enemy_reuse_mirror.inc": "d8a1b40cbb2ae52b95c8353ec5d719e4d193cb2adb36622b77307dadb9e395d8",
+    "src/enemy_reuse_identity.c": "fbe0f11feeb9ee03e1170b6996f27ed8d02f4e676564b1cd44f70e5bcd66824d",
+    "src/enemy_reuse_identity.h": "b9dd91ab7d9de869f4c0c0fef70153e72309f16831176bb78c92326e646bb755",
+    "src/enemy_reuse_mirror.inc": "475b426aad79daae2b43fd6ce5dc001517d11f859b4972537949cf15dc84b54c",
+    "src/enemy_reuse_observe.h": "5c7fb94a44203ecda2e7eabfd25c6181c9e28a8bb3c05332a62a8466e31c5193",
+    "src/enemy_reuse_observe.inc": "0fba6f67006309918154363526adbdd738b953185a6d4ed307ef2b188e0beb9d",
+    "src/enemy_reuse_probe.h": "8ef9d60321bc52cdb7e5e2261e967cf33cec3b0f73302e168bff7387d69457f9",
+    "src/enemy_reuse_probe.inc": "7501e2cb27def19e1ad780a8f4e6d175f32ddc12893d1e9587645c4b3207ae01",
     "src/entity_draw.c": "232327b462a18dcc7648ef3f993f72bdffb9b9e7de1c6ba9be293ea16f0bc935",
     "src/entity_draw.h": "2fa761d269860a0da42a5e02c418477a9b874f749ad979291038e2b6806ba827",
     "src/episodes.c": "1430b09faa5c8cabeb95b2d0f84b1b40af0f81ff7f186847d5ae086c3f9c5d8e",
@@ -195,7 +238,7 @@
     "src/forest13_material.h": "8a50b1e31566088d6cd47e159fb53de27d889ab5a1a6616029480fa070fe68a2",
     "src/game_menu.c": "78698d019df60abfadb2999ae9fd1df8757ae483bd2b54d37abf3a4b63d4e195",
     "src/game_menu.h": "a142bb5f438d53a6b4b5bdf981282f92ebd7a9641d88520a74b735888648ceda",
-    "src/game_probe.c": "569ce918649e1099cda6eae7bd712d914a42480a615ed31d8e17198e20cc5364",
+    "src/game_probe.c": "1821fc281c91d70a69e5dbcb6cf0292aa3cb57abfc85697e5aee67b17df9b34d",
     "src/game_probe.h": "896551acabbabe3c36afb2a7ee473a2d631ab11826e0114e3b6e6e050e212689",
     "src/game_probe_fields.inc": "df168d18aae3be18344292d28a25d60050cd6b850fab9a6d476fc4daed1d0ab1",
     "src/gameplay_hud.c": "fecbb296db28a059743aae0bd314d93315d8e46e47786bb3d17ad6dc04a54b6a",
@@ -272,7 +315,7 @@
     "src/nortsong.h": "99d2610d15c12eb34a24ae2e1b873d1c1e360663aef34e11598300cbd654adeb",
     "src/nortvars.c": "c5e048d081ce402cdb84f2fd73040aea936f1910cd343a326178b1edac11f077",
     "src/nortvars.h": "8ef1d0aba8a44d221ca0d700226da2f64b990f7b7b0c2140abba926a1437aa16",
-    "src/opentyr.c": "cff352819098045e382c827e8e59661f9fb42e8b26fe113458d78bef4a2e46f7",
+    "src/opentyr.c": "fbb44d7745cd3aaa6426e373da4a7feb1195a4e669031491ba33a5fd0d5f1318",
     "src/opentyr.h": "53cf73134192dfd212e0bf773f9780f2b2cf3754ccd9058b3216195426b171d5",
     "src/opentyrian_version.h": "5c91392fd85769b54c08a1efc181391c27e0ba1a2c27cc96c062a34996fe9a17",
     "src/opl.c": "5791559e2b9b88802cd1709a6c431a048823e7ac2b6b54222a764ac446aa53a6",
@@ -299,7 +342,7 @@
     "src/rear_multi_p11_shadow.inc": "60635f8c2723e7cbba341baf7d4853486d7d850c795a55f02a0cc46a36b02fbb",
     "src/rear_multi_p1_mirror.inc": "9f5f48ea19330f6afeace40f156e049c0621fdcd6a10e281d2084cf74442538c",
     "src/rear_multi_p1_pins.h": "773d88e3287b44036885804b5d70c6fc6d633a9893504b200891c1509981ffa7",
-    "src/render_mirror.c": "57fa4db6548b5fe982ec69e155937e3e09953801e80d55d0e5ffddf3b7b2949a",
+    "src/render_mirror.c": "16f992d218cde576eb9411da31ac23cd09dee10e25913e7cc27c802c2e0e22ae",
     "src/render_mirror.h": "e8b04342f346e392cc627f3463932b7dc509b87f216a68846bf5bba127b3e138",
     "src/render_mirror_asteroid_linked338.inc": "738c8c88a7383ca363427b814594f4a0ed8404929dad3188e2d4bde5d2dd5ee0",
     "src/secret_exit_orb.c": "fe0b50818365d5a009bd3db77681a1a2db2fc61bfc889c1f2bc41c9a95f79180",

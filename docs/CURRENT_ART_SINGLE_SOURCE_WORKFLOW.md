@@ -124,3 +124,26 @@ The eight existing role8 resources121/122/163/164/201/202/279/280 use the bounde
 runtime remains1015 destinations; complete views are650 files with169 current
 overlays and481 frozen members. Historical rear182/183 still depend on frozen
 front163/164, not the mutable current selection. No gameplay coverage expands.
+
+## Read-only authoring map
+
+Run `python3 scripts/shared_asset_authoring_map.py --id 80112 --format json`
+(omit `--id` for all supported contracts, omit `--format json` for readable text).
+The index is generated on stdout from strict current selections/loaders, not a
+second hand-maintained resource list. It gives editable inputs, recipes, derived
+outputs, declared consumers and existing rebuild commands; shared source paths
+group contracts without merging role/density or recipes. Material IDs differ
+from sprite numbers; HUD accepts names such as `hud:font`. Unknown IDs fail.
+
+Charge has one input/nine outputs; Plasma projectile one input/six density-role
+contracts; Orb has two independent inputs/four ordinary-or-masked contracts.
+NEWSHF has nine independent normalized pose PNGs: six selected inputs need
+manifest/provenance updates and full validation; the three 168 poses are pinned
+by frozen policy, not a current edit/apply loop. P05 adds a finite role146
+consumer of three existing Green sources, not new masters. Frozen P09/player244
+share a master but reject edits under their historical hashes; they are not a
+current edit/apply loop. Front's historical rear182/183 remain outside current
+propagation. No level usage is inferred. The map writes no index or artwork and
+fails on missing/stale selected inputs or contracts. Rebuild commands are
+instructions only, never executed by the map. Current edits still require the
+existing candidate/stage/review/apply workflow and full family checks.

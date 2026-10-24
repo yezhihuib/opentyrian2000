@@ -22,6 +22,8 @@ def main():
  sanitized=['-fsanitize=address,undefined','-fno-omit-frame-pointer']
  # Reuse immutable unchanged baseline objects only; compile every modified TU.
  rebuild={'sprite','tyrian2','entity_draw','enemy_reuse_identity'}
+ # Rebuild every changed/new production unit; reuse only source-identical objects.
+ rebuild.update(p.stem for p in (ROOT/'src').glob('*.c') if p.stem not in {'render_mirror','opentyr'} and (not (a.base_build/'src'/p.name).exists() or (a.base_build/'src'/p.name).read_bytes()!=p.read_bytes()))
  objects=[str(x) for x in sorted((a.base_build/'obj').glob('*.o')) if x.stem not in rebuild|{'render_mirror','opentyr'}]
  for obj in objects:
   source=Path(obj).stem+'.c';assert (a.base_build/'src'/source).read_bytes()==(ROOT/'src'/source).read_bytes(), 'Cannot reuse modified production unit '+source
@@ -30,7 +32,7 @@ def main():
   r=subprocess.run(cmd,env=env,capture_output=True,text=True);log.append(' '.join(cmd)+'\n'+r.stdout+r.stderr);(a.out/'compile.log').write_text('\n'.join(log));
   if r.returncode:raise RuntimeError(r.stderr)
  for unit in sorted(rebuild):
-  target=a.out/(unit+'.o');source=ROOT/'src'/(unit+'.c');signature=SHA(source.read_bytes()+b''.join(h.read_bytes() for h in sorted((ROOT/'src').glob('*.h'))));pin=a.out/(unit+'.build-pin')
+  target=a.out/(unit+'.o');source=ROOT/'src'/(unit+'.c');signature=SHA(source.read_bytes()+b''.join(h.read_bytes() for h in sorted(list((ROOT/'src').glob('*.h'))+list((ROOT/'src').glob('*.inc')))));pin=a.out/(unit+'.build-pin')
   if not target.exists() or not pin.exists() or pin.read_text()!=signature:
    run(['cc',*flags,*sanitized,'-c',str(source),'-o',str(target)]);pin.write_text(signature)
   objects.append(str(target))

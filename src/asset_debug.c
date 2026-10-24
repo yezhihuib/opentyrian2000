@@ -4,6 +4,7 @@
 #include "asset_debug.h"
 #include "game_probe.h"
 #include "episodes.h"
+#include "enemy_reuse_probe.h"
 #include "lvllib.h"
 #include "varz.h"
 #include "shots.h"
@@ -78,6 +79,7 @@ void asset_debug_level(void)
 }
 static void command(const char *s)
 {
+ if(!strcmp(s,"reload")||!strcmp(s,"quit")||!strncmp(s,"hit ",4)||!strncmp(s,"destroy ",8))enemy_reuse_probe_revoke();
  if(!strcmp(s,"pause")){paused=true;log_control("pause");}
  else if(!strcmp(s,"resume")){paused=false;log_control("resume");}
  else if(!strcmp(s,"toggle")){paused=!paused;log_control(paused?"pause":"resume");}
@@ -125,7 +127,7 @@ void asset_debug_end_tick(void)
  char title[220];snprintf(title,sizeof(title),"ASSET DEBUG%s | e%u level%u tick%u | %s | P pause N step R reload H hit D destroy Esc quit",shot_fixture?" / SHOT FIXTURE":"",episode,level,game_probe_tick,paused?"PAUSED":"RUNNING");SDL_SetWindowTitle(main_window,title);
 }
 void asset_debug_finish(void)
-{if(asset_debug_enabled&&!index_only&&!arrived&&!quitting){fprintf(stderr,"Asset debug: target not reached before level/test ended\n");asset_debug_exit_code=2;}}
+{enemy_reuse_probe_revoke();if(asset_debug_enabled&&!index_only&&!arrived&&!quitting){fprintf(stderr,"Asset debug: target not reached before level/test ended\n");asset_debug_exit_code=2;}}
 void asset_debug_projectile(void)
 {
  if(!asset_debug_enabled||pending_slot<0)return;

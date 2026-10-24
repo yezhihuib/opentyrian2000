@@ -1,0 +1,96 @@
+{
+  "schema": "protron-fixed-recipe-v1",
+  "master_size": [
+    2011,
+    782
+  ],
+  "cells": {
+    "225": [
+      187,
+      272,
+      458,
+      544
+    ],
+    "244": [
+      651,
+      38,
+      1373,
+      762
+    ],
+    "226": [
+      1498,
+      234,
+      1839,
+      569
+    ]
+  },
+  "canvas": [
+    96,
+    112
+  ],
+  "logical_size": [
+    12,
+    14
+  ],
+  "density": 8,
+  "anchor": [
+    0,
+    0
+  ],
+  "resample": "Pillow-LANCZOS-straight-RGBA-alpha-composite",
+  "pieces": [
+    {
+      "identity": 80225,
+      "cell": "225",
+      "size": [
+        32,
+        32
+      ],
+      "xy": [
+        32,
+        40
+      ],
+      "alpha": "frozen-source-support"
+    },
+    {
+      "identity": 80244,
+      "cell": "244",
+      "size": [
+        88,
+        88
+      ],
+      "xy": [
+        0,
+        8
+      ],
+      "alpha": "frozen-source-support"
+    },
+    {
+      "identity": 80226,
+      "cell": "226",
+      "size": [
+        40,
+        40
+      ],
+      "xy": [
+        24,
+        32
+      ],
+      "alpha": "frozen-source-support"
+    },
+    {
+      "identity": 1470227,
+      "cell": "244",
+      "size": [
+        56,
+        56
+      ],
+      "xy": [
+        16,
+        24
+      ],
+      "alpha": "preserve-no-mask"
+    }
+  ],
+  "mask_policy": "NEAREST-support; gaussian_filter(float-support,2); clip((blur-.5)/.35,0,1); minimum(alpha,round(soft*255))*support"
+}

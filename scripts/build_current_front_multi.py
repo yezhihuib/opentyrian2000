@@ -30,6 +30,8 @@ def dependencies(root, selected):
     names = charge_input_paths(root) | mf_input_paths(root) | {CHARGE_MAPPING, MF_MAPPING}
     from build_enemy_protron_p09 import input_paths as p09_input_paths
     names |= p09_input_paths(root)
+    from current_protron_compatibility import input_paths as protron_input_paths, MAPPING as PROTRON_MAPPING
+    names |= protron_input_paths(root) | {PROTRON_MAPPING}
     from build_newshf_hd import input_paths as newshf_input_paths
     names |= newshf_input_paths(root)
     from current_enemy_orb_compatibility import input_paths as orb_input_paths, MAPPING as ORB_MAPPING
