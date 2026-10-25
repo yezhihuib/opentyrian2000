@@ -23,6 +23,11 @@ def validate_records(records):
         if key in keys:
             raise ValueError('Duplicate authoring contract: ' + str(key))
         keys.add(key)
+        # A path may have several valid evidence/role claims. Only identical
+        # complete declarations are duplicates (including destination schemas).
+        consumers = [json.dumps(c, sort_keys=True) for c in row['declared_consumers']]
+        if len(consumers) != len(set(consumers)):
+            raise ValueError('Duplicate declared consumer: ' + str(key))
         if outputs.intersection(row['editable_inputs']):
             raise ValueError('Derived output mislabeled as editable input')
         if row['status'] == 'frozen-reproducer' and row['editable_inputs']:
@@ -155,11 +160,11 @@ def current_records(root):
             if family == 'rear39':
                 for evidence, scope in (('src/rear_multi_p1_mirror.inc', 'existing dedicated Rear role131 normal birth/record/source lease'), ('src/rear_multi_p11_shadow.inc', 'existing dedicated Rear role131 shadow lease')):
                     consumers.append(dict(path=evidence, role=131, material_identity=identity, scope=scope, evidence=evidence))
-                notes.append('One canonical JSON39 geometry master; fixed compositions40/41 retain accepted clipping. d4 and d8 render independently. P7 four current transports and the other30 frozen Rear transports stay independent; all Front transports stay separate. No eligibility or gate changes.')
+                notes.append('One canonical JSON39 geometry master; fixed compositions40/41 retain accepted clipping. d4 and d8 render independently. Other current Rear families remain independently editable; historical182/183 stay protected and all Front transports stay separate. No eligibility or gate changes.')
             if family == 'rear1':
                 for evidence, scope in (('src/rear_multi_p1_mirror.inc', 'existing dedicated Rear role131 normal birth/record/source lease'), ('src/rear_multi_p11_shadow.inc', 'existing dedicated Rear role131 shadow lease')):
                     consumers.append(dict(path=evidence, role=131, material_identity=identity, scope=scope, evidence=evidence))
-                notes.append('One independent right geometry JSON1 master; fixed compositions2/3 and clockwise77 retain accepted offsets and clipping. d4/d8 render independently. Rear39 and P7 remain separate; other30 Rear and all Front transports stay frozen. No eligibility changes.')
+                notes.append('One independent right geometry JSON1 master; fixed compositions2/3 and clockwise77 retain accepted offsets and clipping. d4/d8 render independently. Other current Rear families remain independently editable; historical182/183 stay protected and all Front transports stay separate. No eligibility changes.')
             if family == 'rear281':
                 for evidence, scope in (('src/rear_multi_p1_mirror.inc', 'existing dedicated Rear role131 normal birth/record/source lease'), ('src/rear_multi_p11_shadow.inc', 'existing dedicated Rear role131 shadow lease')):
                     consumers.append(dict(path=evidence, role=131, material_identity=identity, scope=scope, evidence=evidence))
@@ -167,18 +172,12 @@ def current_records(root):
             if family == 'rear-p7':
                 for evidence, scope in (('src/rear_multi_p1_mirror.inc', 'existing dedicated Rear role131 normal birth/record/source lease'), ('src/rear_multi_p11_shadow.inc', 'existing dedicated Rear role131 shadow lease')):
                     consumers.append(dict(path=evidence, role=131, material_identity=identity, scope=scope, evidence=evidence))
-                notes.append('P7 mode2 only: one canonical SVG294, exact RGBA horizontal mirror295; d4 and d8 render independently. The six current Rear39 transports stay independently editable; the other 30 Rear transports and every Front transport stay separate and frozen. No generic player/sidekick eligibility or default-off gate changes.')
+                notes.append('P7 mode2 only: one canonical SVG294, exact RGBA horizontal mirror295; d4 and d8 render independently. Other current Rear families remain independently editable; historical182/183 stay protected and every Front transport stays separate. No generic player/sidekick eligibility or default-off gate changes.')
             if family == 'front-multi':
                 notes.append('Eight independent inputs. Historical rear 1310182/1310183 do NOT follow current Front 163/164 edits.')
             if family == 'rear-lobes':
                 for evidence, scope in (('src/rear_multi_p1_mirror.inc', 'existing dedicated Rear role131 normal birth/record/source lease'), ('src/rear_multi_p11_shadow.inc', 'existing dedicated Rear role131 shadow lease')):
                     consumers.append(dict(path=evidence, role=131, material_identity=identity, scope=scope, evidence=evidence))
-                notes.append('Two independent canonical JSON masters203 and43 produce four-head and five-head mirrored pairs. Each source controls only its own four outputs; whole-canvas byte flipX preserves accepted support. Other Rear families and historical182/183 remain separate; no eligibility changes.')
-            if family == 'rear-p7':
-                for evidence, scope in (('src/rear_multi_p1_mirror.inc', 'existing dedicated Rear role131 normal birth/record/source lease'), ('src/rear_multi_p11_shadow.inc', 'existing dedicated Rear role131 shadow lease')):
-                    consumers.append(dict(path=evidence, role=131, material_identity=identity, scope=scope, evidence=evidence))
-                notes.append('Two independent canonical JSON masters203 and43 produce four-head and five-head mirrored pairs. Each source controls only its own four outputs; whole-canvas byte flipX preserves accepted support. Other Rear families and historical182/183 remain separate; no eligibility changes.')
-            if family == 'front-multi':
                 notes.append('Two independent canonical JSON masters203 and43 produce four-head and five-head mirrored pairs. Each source controls only its own four outputs; whole-canvas byte flipX preserves accepted support. Other Rear families and historical182/183 remain separate; no eligibility changes.')
             if family == 'enemy-orb':
                 notes.append('Two independent masters; ordinary role8 and masked role142 remain separate. Preview overlays only ordinary two; explicit contract view exports all four.')

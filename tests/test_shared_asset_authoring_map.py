@@ -57,6 +57,42 @@ class AuthoringMapTests(unittest.TestCase):
         self.assertTrue(all(r['status'] == 'current-editable' for r in rows))
         self.assertFalse(any(r['identity'] in (1310182,1310183) and r['status'] == 'current-editable' for r in self.rows))
 
+    def test_front_notes_do_not_claim_lobes_geometry(self):
+        rows = [r for r in self.rows if r['family'] == 'front-multi']
+        self.assertEqual(len(rows), 8)
+        for row in rows:
+            self.assertTrue(all(p.endswith('.png') for p in row['editable_inputs']))
+            self.assertEqual(row['notes'][2:], ['Eight independent inputs. Historical rear 1310182/1310183 do NOT follow current Front 163/164 edits.'])
+
+    def test_current_rear_ownership_notes_and_consumers(self):
+        rows = [r for r in self.rows if r['family'].startswith('rear')]
+        self.assertEqual(len(rows), 46)
+        self.assertTrue(all(r['status'] == 'current-editable' for r in rows))
+        self.assertFalse(any(r['identity'] in (1310182, 1310183) for r in rows))
+        self.assertEqual(len({p for r in rows for p in r['editable_inputs']}), 6)
+        for row in rows:
+            notes = ' '.join(row['notes'])
+            for obsolete in ('other30', 'other 30', 'other38', 'other 38', 'stay frozen', 'separate and frozen'):
+                self.assertNotIn(obsolete, notes)
+            claims = [c for c in row['declared_consumers'] if c['evidence'].startswith('src/rear_multi_')]
+            self.assertEqual(len(claims), 2)
+            self.assertEqual({c['path'] for c in claims}, {'src/rear_multi_p1_mirror.inc', 'src/rear_multi_p11_shadow.inc'})
+            self.assertTrue(all(c['role'] == 131 and c['material_identity'] == row['identity'] for c in claims))
+        p7 = [r for r in rows if r['family'] == 'rear-p7']
+        self.assertEqual(len(p7), 4)
+        for row in p7:
+            self.assertEqual(row['editable_inputs'], ['authoring-inputs/rear-p7-current/master-294.svg'])
+            self.assertEqual(len(row['notes']), 3)
+            self.assertIn('SVG294', row['notes'][-1])
+            self.assertNotIn('masters203 and43', row['notes'][-1])
+        lobes = [r for r in rows if r['family'] == 'rear-lobes']
+        self.assertEqual(len(lobes), 8)
+        for row in lobes:
+            selector = 203 if row['identity'] in (1310203, 1310222) else 43
+            self.assertEqual(row['editable_inputs'], [f'authoring-inputs/rear-lobes-current/master-{selector}.json'])
+            self.assertEqual(len(row['notes']), 3)
+            self.assertIn('Two independent canonical JSON masters203 and43', row['notes'][-1])
+
     def test_newshf_two_current_masters_and_three_frozen_168_inputs(self):
         rows = self.rows_for(set(range(2100000,2100009)))
         self.assertEqual(len(rows), 9)
@@ -198,6 +234,28 @@ class AuthoringMapTests(unittest.TestCase):
         self.assertEqual({r['identity'] for r in parsed['resources']}, {80112})
         after = subprocess.check_output(['git','status','--porcelain=v1','--untracked-files=all'], cwd=ROOT)
         self.assertEqual(before, after)
+
+
+class ConsumerValidationTests(unittest.TestCase):
+    def record(self, consumers):
+        return dict(identity=1310294, density=8, role=131,
+                    derived_outputs=[], editable_inputs=['master.svg'],
+                    status='current-editable', declared_consumers=consumers)
+
+    def test_exact_duplicate_consumer_rejected_for_both_schemas(self):
+        for path_key in ('path', 'destination'):
+            claim = {path_key: 'output.hda', 'role': 131, 'evidence': 'mapping.json'}
+            reordered = dict(reversed(list(claim.items())))
+            with self.subTest(path_key=path_key), self.assertRaisesRegex(ValueError, 'Duplicate declared consumer'):
+                authoring.validate_records([self.record([claim, reordered])])
+
+    def test_same_path_distinct_evidence_role_or_scope_preserved(self):
+        claim = dict(path='output.hda', role=131, evidence='mapping.json', scope='normal')
+        consumers = [claim, dict(claim, evidence='runtime.json'),
+                     dict(claim, role=8), dict(claim, scope='shadow')]
+        rows = [self.record(consumers)]
+        self.assertIs(authoring.validate_records(rows), rows)
+        self.assertEqual(len(rows[0]['declared_consumers']), 4)
 
 
 class StrictLoaderNegativeTests(unittest.TestCase):
