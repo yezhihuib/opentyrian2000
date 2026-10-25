@@ -1,0 +1,968 @@
+{
+  "status": "PASS read-only runtime C predicate and exact accepted RGBA reconstruction",
+  "baseline": "d3fad9863555c7e620a3a9fd5c7b4610a58ddb67",
+  "predicate_queries": 2200,
+  "consumer_count": 56,
+  "consumers": [
+    {
+      "record": 257,
+      "power": 4,
+      "mode": 1,
+      "phase": 1,
+      "raw": 281,
+      "payload_row": 2,
+      "source_row": 2
+    },
+    {
+      "record": 257,
+      "power": 4,
+      "mode": 1,
+      "phase": 2,
+      "raw": 282,
+      "payload_row": 3,
+      "source_row": 3
+    },
+    {
+      "record": 257,
+      "power": 4,
+      "mode": 1,
+      "phase": 3,
+      "raw": 301,
+      "payload_row": 4,
+      "source_row": 4
+    },
+    {
+      "record": 257,
+      "power": 4,
+      "mode": 1,
+      "phase": 4,
+      "raw": 300,
+      "payload_row": 5,
+      "source_row": 5
+    },
+    {
+      "record": 260,
+      "power": 7,
+      "mode": 1,
+      "phase": 1,
+      "raw": 277,
+      "payload_row": 11,
+      "source_row": 13
+    },
+    {
+      "record": 260,
+      "power": 7,
+      "mode": 1,
+      "phase": 2,
+      "raw": 278,
+      "payload_row": 12,
+      "source_row": 14
+    },
+    {
+      "record": 260,
+      "power": 7,
+      "mode": 1,
+      "phase": 3,
+      "raw": 297,
+      "payload_row": 16,
+      "source_row": 18
+    },
+    {
+      "record": 260,
+      "power": 7,
+      "mode": 1,
+      "phase": 4,
+      "raw": 296,
+      "payload_row": 15,
+      "source_row": 17
+    },
+    {
+      "record": 261,
+      "power": 8,
+      "mode": 1,
+      "phase": 1,
+      "raw": 277,
+      "payload_row": 11,
+      "source_row": 13
+    },
+    {
+      "record": 261,
+      "power": 8,
+      "mode": 1,
+      "phase": 2,
+      "raw": 278,
+      "payload_row": 12,
+      "source_row": 14
+    },
+    {
+      "record": 261,
+      "power": 8,
+      "mode": 1,
+      "phase": 3,
+      "raw": 297,
+      "payload_row": 16,
+      "source_row": 18
+    },
+    {
+      "record": 261,
+      "power": 8,
+      "mode": 1,
+      "phase": 4,
+      "raw": 296,
+      "payload_row": 15,
+      "source_row": 17
+    },
+    {
+      "record": 262,
+      "power": 9,
+      "mode": 1,
+      "phase": 1,
+      "raw": 277,
+      "payload_row": 11,
+      "source_row": 13
+    },
+    {
+      "record": 262,
+      "power": 9,
+      "mode": 1,
+      "phase": 2,
+      "raw": 278,
+      "payload_row": 12,
+      "source_row": 14
+    },
+    {
+      "record": 262,
+      "power": 9,
+      "mode": 1,
+      "phase": 3,
+      "raw": 297,
+      "payload_row": 16,
+      "source_row": 18
+    },
+    {
+      "record": 262,
+      "power": 9,
+      "mode": 1,
+      "phase": 4,
+      "raw": 296,
+      "payload_row": 15,
+      "source_row": 17
+    },
+    {
+      "record": 263,
+      "power": 10,
+      "mode": 1,
+      "phase": 1,
+      "raw": 277,
+      "payload_row": 11,
+      "source_row": 13
+    },
+    {
+      "record": 263,
+      "power": 10,
+      "mode": 1,
+      "phase": 2,
+      "raw": 278,
+      "payload_row": 12,
+      "source_row": 14
+    },
+    {
+      "record": 263,
+      "power": 10,
+      "mode": 1,
+      "phase": 3,
+      "raw": 297,
+      "payload_row": 16,
+      "source_row": 18
+    },
+    {
+      "record": 263,
+      "power": 10,
+      "mode": 1,
+      "phase": 4,
+      "raw": 296,
+      "payload_row": 15,
+      "source_row": 17
+    },
+    {
+      "record": 264,
+      "power": 11,
+      "mode": 1,
+      "phase": 1,
+      "raw": 277,
+      "payload_row": 11,
+      "source_row": 13
+    },
+    {
+      "record": 264,
+      "power": 11,
+      "mode": 1,
+      "phase": 2,
+      "raw": 278,
+      "payload_row": 12,
+      "source_row": 14
+    },
+    {
+      "record": 264,
+      "power": 11,
+      "mode": 1,
+      "phase": 3,
+      "raw": 297,
+      "payload_row": 16,
+      "source_row": 18
+    },
+    {
+      "record": 264,
+      "power": 11,
+      "mode": 1,
+      "phase": 4,
+      "raw": 296,
+      "payload_row": 15,
+      "source_row": 17
+    },
+    {
+      "record": 265,
+      "power": 1,
+      "mode": 2,
+      "phase": 1,
+      "raw": 281,
+      "payload_row": 2,
+      "source_row": 2
+    },
+    {
+      "record": 265,
+      "power": 1,
+      "mode": 2,
+      "phase": 2,
+      "raw": 282,
+      "payload_row": 3,
+      "source_row": 3
+    },
+    {
+      "record": 265,
+      "power": 1,
+      "mode": 2,
+      "phase": 3,
+      "raw": 301,
+      "payload_row": 4,
+      "source_row": 4
+    },
+    {
+      "record": 265,
+      "power": 1,
+      "mode": 2,
+      "phase": 4,
+      "raw": 300,
+      "payload_row": 5,
+      "source_row": 5
+    },
+    {
+      "record": 266,
+      "power": 2,
+      "mode": 2,
+      "phase": 1,
+      "raw": 281,
+      "payload_row": 2,
+      "source_row": 2
+    },
+    {
+      "record": 266,
+      "power": 2,
+      "mode": 2,
+      "phase": 2,
+      "raw": 282,
+      "payload_row": 3,
+      "source_row": 3
+    },
+    {
+      "record": 266,
+      "power": 2,
+      "mode": 2,
+      "phase": 3,
+      "raw": 301,
+      "payload_row": 4,
+      "source_row": 4
+    },
+    {
+      "record": 266,
+      "power": 2,
+      "mode": 2,
+      "phase": 4,
+      "raw": 300,
+      "payload_row": 5,
+      "source_row": 5
+    },
+    {
+      "record": 267,
+      "power": 3,
+      "mode": 2,
+      "phase": 1,
+      "raw": 281,
+      "payload_row": 2,
+      "source_row": 2
+    },
+    {
+      "record": 267,
+      "power": 3,
+      "mode": 2,
+      "phase": 2,
+      "raw": 282,
+      "payload_row": 3,
+      "source_row": 3
+    },
+    {
+      "record": 267,
+      "power": 3,
+      "mode": 2,
+      "phase": 3,
+      "raw": 301,
+      "payload_row": 4,
+      "source_row": 4
+    },
+    {
+      "record": 267,
+      "power": 3,
+      "mode": 2,
+      "phase": 4,
+      "raw": 300,
+      "payload_row": 5,
+      "source_row": 5
+    },
+    {
+      "record": 269,
+      "power": 5,
+      "mode": 2,
+      "phase": 1,
+      "raw": 277,
+      "payload_row": 11,
+      "source_row": 13
+    },
+    {
+      "record": 269,
+      "power": 5,
+      "mode": 2,
+      "phase": 2,
+      "raw": 278,
+      "payload_row": 12,
+      "source_row": 14
+    },
+    {
+      "record": 270,
+      "power": 6,
+      "mode": 2,
+      "phase": 1,
+      "raw": 277,
+      "payload_row": 11,
+      "source_row": 13
+    },
+    {
+      "record": 270,
+      "power": 6,
+      "mode": 2,
+      "phase": 2,
+      "raw": 278,
+      "payload_row": 12,
+      "source_row": 14
+    },
+    {
+      "record": 271,
+      "power": 7,
+      "mode": 2,
+      "phase": 1,
+      "raw": 277,
+      "payload_row": 11,
+      "source_row": 13
+    },
+    {
+      "record": 271,
+      "power": 7,
+      "mode": 2,
+      "phase": 2,
+      "raw": 278,
+      "payload_row": 12,
+      "source_row": 14
+    },
+    {
+      "record": 272,
+      "power": 8,
+      "mode": 2,
+      "phase": 1,
+      "raw": 277,
+      "payload_row": 11,
+      "source_row": 13
+    },
+    {
+      "record": 272,
+      "power": 8,
+      "mode": 2,
+      "phase": 2,
+      "raw": 278,
+      "payload_row": 12,
+      "source_row": 14
+    },
+    {
+      "record": 273,
+      "power": 9,
+      "mode": 2,
+      "phase": 1,
+      "raw": 277,
+      "payload_row": 11,
+      "source_row": 13
+    },
+    {
+      "record": 273,
+      "power": 9,
+      "mode": 2,
+      "phase": 2,
+      "raw": 278,
+      "payload_row": 12,
+      "source_row": 14
+    },
+    {
+      "record": 273,
+      "power": 9,
+      "mode": 2,
+      "phase": 6,
+      "raw": 298,
+      "payload_row": 19,
+      "source_row": 21
+    },
+    {
+      "record": 273,
+      "power": 9,
+      "mode": 2,
+      "phase": 7,
+      "raw": 299,
+      "payload_row": 20,
+      "source_row": 22
+    },
+    {
+      "record": 274,
+      "power": 10,
+      "mode": 2,
+      "phase": 1,
+      "raw": 277,
+      "payload_row": 11,
+      "source_row": 13
+    },
+    {
+      "record": 274,
+      "power": 10,
+      "mode": 2,
+      "phase": 2,
+      "raw": 278,
+      "payload_row": 12,
+      "source_row": 14
+    },
+    {
+      "record": 274,
+      "power": 10,
+      "mode": 2,
+      "phase": 5,
+      "raw": 298,
+      "payload_row": 19,
+      "source_row": 21
+    },
+    {
+      "record": 274,
+      "power": 10,
+      "mode": 2,
+      "phase": 6,
+      "raw": 299,
+      "payload_row": 20,
+      "source_row": 22
+    },
+    {
+      "record": 275,
+      "power": 11,
+      "mode": 2,
+      "phase": 1,
+      "raw": 277,
+      "payload_row": 11,
+      "source_row": 13
+    },
+    {
+      "record": 275,
+      "power": 11,
+      "mode": 2,
+      "phase": 2,
+      "raw": 278,
+      "payload_row": 12,
+      "source_row": 14
+    },
+    {
+      "record": 275,
+      "power": 11,
+      "mode": 2,
+      "phase": 5,
+      "raw": 298,
+      "payload_row": 19,
+      "source_row": 21
+    },
+    {
+      "record": 275,
+      "power": 11,
+      "mode": 2,
+      "phase": 6,
+      "raw": 299,
+      "payload_row": 20,
+      "source_row": 22
+    }
+  ],
+  "indices": {
+    "281": {
+      "payload_row": 2,
+      "source_row": 2
+    },
+    "282": {
+      "payload_row": 3,
+      "source_row": 3
+    },
+    "300": {
+      "payload_row": 5,
+      "source_row": 5
+    },
+    "301": {
+      "payload_row": 4,
+      "source_row": 4
+    },
+    "277": {
+      "payload_row": 11,
+      "source_row": 13
+    },
+    "278": {
+      "payload_row": 12,
+      "source_row": 14
+    },
+    "296": {
+      "payload_row": 15,
+      "source_row": 17
+    },
+    "297": {
+      "payload_row": 16,
+      "source_row": 18
+    },
+    "298": {
+      "payload_row": 19,
+      "source_row": 21
+    },
+    "299": {
+      "payload_row": 20,
+      "source_row": 22
+    }
+  },
+  "flat_payload_cells": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    22,
+    23,
+    24,
+    25,
+    30,
+    31,
+    32,
+    33,
+    38,
+    39,
+    40,
+    41
+  ],
+  "results": [
+    {
+      "raw": 281,
+      "density": 4,
+      "key": 1310281,
+      "rgba_sha256": "a31935a0bd297367138df393805d8ed2bfa856cebd09d9c3bea0a83dde89e1ad",
+      "hda_sha256": "90354843e961dbf07b45e9decef72964a4344b7fe3dce8ee831b0293f04b0255",
+      "rgba_fnv": "bde3dec5a72e74ea",
+      "source_pin": "486b3840e194bc22",
+      "payload_cell": 4,
+      "alpha_sum": 102682,
+      "supported": 497,
+      "inherited_twin_overlap_samples": 0,
+      "occupied_crop": 0,
+      "transparent_crop": 0,
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-281-4.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-281-4.hda"
+      ]
+    },
+    {
+      "raw": 282,
+      "density": 4,
+      "key": 1310282,
+      "rgba_sha256": "344a4066d9f0f2316073f3d176b0956514b7af7b5c2888462ae61710af608ff3",
+      "hda_sha256": "8bf6b3e757411f7d9a605fabed8428be124dcf2c80bcbde6fec5144ab5d876bc",
+      "rgba_fnv": "9e771e4007d4d19a",
+      "source_pin": "6d7fd5a152bbfbb8",
+      "payload_cell": 6,
+      "alpha_sum": 102682,
+      "supported": 497,
+      "inherited_twin_overlap_samples": 0,
+      "occupied_crop": 0,
+      "transparent_crop": 0,
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-282-4.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-282-4.hda"
+      ]
+    },
+    {
+      "raw": 300,
+      "density": 4,
+      "key": 1310300,
+      "rgba_sha256": "7bb9490c9e4d678931f3702e155c73f707c4e806ef29b9d03cd38317a7cf9e7a",
+      "hda_sha256": "22de9b76a9f7bbedb8bcb793e5a9a5eefb93e4f784794468a8b16c9ca389d8b8",
+      "rgba_fnv": "07ea794dc7b7047e",
+      "source_pin": "79506a9365e83bc6",
+      "payload_cell": 10,
+      "alpha_sum": 102682,
+      "supported": 497,
+      "inherited_twin_overlap_samples": 0,
+      "occupied_crop": 0,
+      "transparent_crop": 0,
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-300-4.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-300-4.hda"
+      ]
+    },
+    {
+      "raw": 301,
+      "density": 4,
+      "key": 1310301,
+      "rgba_sha256": "3a024a599f5adbb840dd60e10a5381842ed88fc1ea5b697da1e845ef6d56a865",
+      "hda_sha256": "8aaebcb9be8e25a510ef55a66a3d0a8c4ac7d87682af2958d21a70ea41b3183d",
+      "rgba_fnv": "70952d574e97bd4e",
+      "source_pin": "0a43ef168ae17e74",
+      "payload_cell": 8,
+      "alpha_sum": 102682,
+      "supported": 497,
+      "inherited_twin_overlap_samples": 0,
+      "occupied_crop": 0,
+      "transparent_crop": 0,
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-301-4.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-301-4.hda"
+      ]
+    },
+    {
+      "raw": 277,
+      "density": 4,
+      "key": 1310277,
+      "rgba_sha256": "45ba353dbc163224e0b183e142f7a4c8ac1f71a36274dfb5524fed51443480ed",
+      "hda_sha256": "2117c701f4dbc007155c6376a6af3cd8dc17b5372adacb4d540ab3438e23146f",
+      "rgba_fnv": "f03f8f745a244970",
+      "source_pin": "8a17a7ff4818a9ed",
+      "payload_cell": 22,
+      "alpha_sum": 205342,
+      "supported": 989,
+      "inherited_twin_overlap_samples": 5,
+      "occupied_crop": 0,
+      "transparent_crop": 0,
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-277-4.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-277-4.hda"
+      ]
+    },
+    {
+      "raw": 278,
+      "density": 4,
+      "key": 1310278,
+      "rgba_sha256": "e111cb772f63599ee7588fd9bfd743b14c0dd27d04ea9be0fd90dd700ebc05c8",
+      "hda_sha256": "70752a39adebdd43468383f9c7775e8962569986ecf7237d539005679f4b6a84",
+      "rgba_fnv": "3fae8a76be180e70",
+      "source_pin": "277737dd4fec9099",
+      "payload_cell": 24,
+      "alpha_sum": 205342,
+      "supported": 989,
+      "inherited_twin_overlap_samples": 5,
+      "occupied_crop": 0,
+      "transparent_crop": 0,
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-278-4.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-278-4.hda"
+      ]
+    },
+    {
+      "raw": 296,
+      "density": 4,
+      "key": 1310296,
+      "rgba_sha256": "ade60e0e1defb9293f4e4b4abd2682457cc47198fa3198f4642c5f69abe7289b",
+      "hda_sha256": "d1403a7e60d0fe50598c5b1b7285ab4d4fbbc622c3064497a13acbcc3bdbd9d1",
+      "rgba_fnv": "470d7a694cb1ea34",
+      "source_pin": "2821ccb10cacc7d9",
+      "payload_cell": 30,
+      "alpha_sum": 205342,
+      "supported": 989,
+      "inherited_twin_overlap_samples": 5,
+      "occupied_crop": 0,
+      "transparent_crop": 0,
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-296-4.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-296-4.hda"
+      ]
+    },
+    {
+      "raw": 297,
+      "density": 4,
+      "key": 1310297,
+      "rgba_sha256": "a6d9272f8a901c0c2cdfd484a7884682c4aa3b42f5441ac53d0e4fc646096283",
+      "hda_sha256": "919a12b47ab55993e27c1f7352e32d3306a73fab5569122765c1d80f473bdec8",
+      "rgba_fnv": "f6b1a647ab2530f4",
+      "source_pin": "38cfeb724714aafd",
+      "payload_cell": 32,
+      "alpha_sum": 205342,
+      "supported": 989,
+      "inherited_twin_overlap_samples": 5,
+      "occupied_crop": 0,
+      "transparent_crop": 0,
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-297-4.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-297-4.hda"
+      ]
+    },
+    {
+      "raw": 298,
+      "density": 4,
+      "key": 1310298,
+      "rgba_sha256": "68371e142abd88d8961e6e74c2570ececcb6941b8e3f3b5eb079852c742ff3e6",
+      "hda_sha256": "d19f0c076e391c6b691a18b6357347fed9eb4107e0509857589da62b9015d26e",
+      "rgba_fnv": "061487c852b091c4",
+      "source_pin": "18d08a9488a5acf5",
+      "payload_cell": 38,
+      "alpha_sum": 205342,
+      "supported": 989,
+      "inherited_twin_overlap_samples": 5,
+      "occupied_crop": 0,
+      "transparent_crop": 384,
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-298-4.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-298-4.hda"
+      ]
+    },
+    {
+      "raw": 299,
+      "density": 4,
+      "key": 1310299,
+      "rgba_sha256": "a7d20ba1245be896c8829d5828d274d953ab18dd38f40c67be1837885ac95604",
+      "hda_sha256": "041a484a64ba3b8eed40a8e271268c7d1635650ffa0ae6ab7c3850af7f750f48",
+      "rgba_fnv": "f997db7d88b22d04",
+      "source_pin": "78e9b7bf74645c6d",
+      "payload_cell": 40,
+      "alpha_sum": 205342,
+      "supported": 989,
+      "inherited_twin_overlap_samples": 5,
+      "occupied_crop": 0,
+      "transparent_crop": 384,
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-299-4.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-299-4.hda"
+      ]
+    },
+    {
+      "raw": 281,
+      "density": 8,
+      "key": 1310281,
+      "rgba_sha256": "f4dd85ab37ec9b703a552fbde77f84839294cffb669eea161883c200338569ea",
+      "hda_sha256": "c4a4ba5b3c831751e286754d719e132bf1a254d09e22cdf2ad340a67ee0a6979",
+      "rgba_fnv": "fbe5d66e31b926c3",
+      "source_pin": "486b3840e194bc22",
+      "payload_cell": 5,
+      "alpha_sum": 418762,
+      "supported": 1872,
+      "inherited_twin_overlap_samples": 0,
+      "occupied_crop": 0,
+      "transparent_crop": 0,
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-281-8.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-281-8.hda"
+      ]
+    },
+    {
+      "raw": 282,
+      "density": 8,
+      "key": 1310282,
+      "rgba_sha256": "12b31ccd1cb7dd23408bdfe34a8bad8571d150f60b90b07182c38a19a4f1f0a0",
+      "hda_sha256": "09529e00b47cd8f3245e69f65f9593c4a75e11e3bf4992fe9b02bed9e1cbd5af",
+      "rgba_fnv": "849cbdc14cf48e3f",
+      "source_pin": "6d7fd5a152bbfbb8",
+      "payload_cell": 7,
+      "alpha_sum": 418762,
+      "supported": 1872,
+      "inherited_twin_overlap_samples": 0,
+      "occupied_crop": 0,
+      "transparent_crop": 0,
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-282-8.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-282-8.hda"
+      ]
+    },
+    {
+      "raw": 300,
+      "density": 8,
+      "key": 1310300,
+      "rgba_sha256": "fe12d44888d91278bb40ab6a1964b74f170b69aa36ccade54b7880cb3bf862bc",
+      "hda_sha256": "366d7ad58dc5f6693dd947f7084340ed4eeffc9071797f6b535b2a6a379a94ae",
+      "rgba_fnv": "152002ea2a7ec6e7",
+      "source_pin": "79506a9365e83bc6",
+      "payload_cell": 11,
+      "alpha_sum": 418762,
+      "supported": 1872,
+      "inherited_twin_overlap_samples": 0,
+      "occupied_crop": 0,
+      "transparent_crop": 0,
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-300-8.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-300-8.hda"
+      ]
+    },
+    {
+      "raw": 301,
+      "density": 8,
+      "key": 1310301,
+      "rgba_sha256": "15d37d0f390ad90a2462fe7541f3b21d16e50bd298a726d1179039da41fecf8d",
+      "hda_sha256": "f02792c2bc19a06477673449fca17988cb119ed48acc6d48554e208c348f5221",
+      "rgba_fnv": "c4bee58c37788fcb",
+      "source_pin": "0a43ef168ae17e74",
+      "payload_cell": 9,
+      "alpha_sum": 418762,
+      "supported": 1872,
+      "inherited_twin_overlap_samples": 0,
+      "occupied_crop": 0,
+      "transparent_crop": 0,
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-301-8.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-301-8.hda"
+      ]
+    },
+    {
+      "raw": 277,
+      "density": 8,
+      "key": 1310277,
+      "rgba_sha256": "75b03b20070976edcb7ad330aec1f8754ae47eef70c88f7307efacb92608fdf6",
+      "hda_sha256": "8a226ac49239196257380a40bb5b8019b4df58b1e373d0959743e52eb093e756",
+      "rgba_fnv": "3df2a878cda365e6",
+      "source_pin": "8a17a7ff4818a9ed",
+      "payload_cell": 23,
+      "alpha_sum": 837512,
+      "supported": 3739,
+      "inherited_twin_overlap_samples": 5,
+      "occupied_crop": 0,
+      "transparent_crop": 0,
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-277-8.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-277-8.hda"
+      ]
+    },
+    {
+      "raw": 278,
+      "density": 8,
+      "key": 1310278,
+      "rgba_sha256": "d9c8d8468785ac51d3d5d47c0a8069640225a01bf331501eaa004272746e0757",
+      "hda_sha256": "0f039fb1520344a503a9cd1dbafa1aeab2e065f796f5dc6831e919e3cee365d4",
+      "rgba_fnv": "b953b3abd4a3fcde",
+      "source_pin": "277737dd4fec9099",
+      "payload_cell": 25,
+      "alpha_sum": 837512,
+      "supported": 3739,
+      "inherited_twin_overlap_samples": 5,
+      "occupied_crop": 0,
+      "transparent_crop": 0,
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-278-8.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-278-8.hda"
+      ]
+    },
+    {
+      "raw": 296,
+      "density": 8,
+      "key": 1310296,
+      "rgba_sha256": "45222a89e6a9bef2640d8f2b5d962874d425dfd5c0faa22a0f7a5c50435d885d",
+      "hda_sha256": "e40ce44527bcc964c71a29da27347c8bfa2aaad7406265e427504c73d77bc713",
+      "rgba_fnv": "5f7e6c19434fbaca",
+      "source_pin": "2821ccb10cacc7d9",
+      "payload_cell": 31,
+      "alpha_sum": 837512,
+      "supported": 3739,
+      "inherited_twin_overlap_samples": 5,
+      "occupied_crop": 0,
+      "transparent_crop": 0,
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-296-8.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-296-8.hda"
+      ]
+    },
+    {
+      "raw": 297,
+      "density": 8,
+      "key": 1310297,
+      "rgba_sha256": "4f2104cd14c9057b6a672c6ff226f9a57e15ec10fdd290f3e2dfd568456545d7",
+      "hda_sha256": "3e46f0625f387cdbc4ef8b681edf6b9788091740d03e32e8e250e60983a626cb",
+      "rgba_fnv": "8e3a148548c298c2",
+      "source_pin": "38cfeb724714aafd",
+      "payload_cell": 33,
+      "alpha_sum": 837512,
+      "supported": 3739,
+      "inherited_twin_overlap_samples": 5,
+      "occupied_crop": 0,
+      "transparent_crop": 0,
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-297-8.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-297-8.hda"
+      ]
+    },
+    {
+      "raw": 298,
+      "density": 8,
+      "key": 1310298,
+      "rgba_sha256": "05c698812953ab0c654eb3a42c6d137894c1f65ddd9a0386182ecb70c7776440",
+      "hda_sha256": "8681d82d73102bf9553025d1b875e12d95003f309cc7fa68dac13905dc1bf696",
+      "rgba_fnv": "fe0fee22f015d496",
+      "source_pin": "18d08a9488a5acf5",
+      "payload_cell": 39,
+      "alpha_sum": 837512,
+      "supported": 3739,
+      "inherited_twin_overlap_samples": 5,
+      "occupied_crop": 0,
+      "transparent_crop": 1536,
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-298-8.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-298-8.hda"
+      ]
+    },
+    {
+      "raw": 299,
+      "density": 8,
+      "key": 1310299,
+      "rgba_sha256": "1099a76516544a68807f9975090aacc90ee75fc472eca6a40f2bb925d106422f",
+      "hda_sha256": "9d75458e6ddecbcbd7a7de6f2235ebf67a7a031987521d63d6ec79015ad8a053",
+      "rgba_fnv": "c832a79db1a7d312",
+      "source_pin": "78e9b7bf74645c6d",
+      "payload_cell": 41,
+      "alpha_sum": 837512,
+      "supported": 3739,
+      "inherited_twin_overlap_samples": 5,
+      "occupied_crop": 0,
+      "transparent_crop": 1536,
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-299-8.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-299-8.hda"
+      ]
+    }
+  ],
+  "source_hashes": {
+    "src/rear_multi_p1.c": "335afe02b0830d082335a4f55e850976c905ba977d65a1a146b2d1a9def232f7",
+    "src/rear_multi_p1_mirror.inc": "b231643815d8e867dd2e01a48c05cb345c251fba1952e9fc7edc24a27c6b144c",
+    "src/rear_multi_p1_pins.h": "773d88e3287b44036885804b5d70c6fc6d633a9893504b200891c1509981ffa7",
+    "src/current_rear_multi_payload_pins.h": "8bb99e02e583850d28d3af059349c3f5f24f2d86bb5295a715f8a1cab8a399bc",
+    "src/rear_multi_p11_shadow.inc": "60635f8c2723e7cbba341baf7d4853486d7d850c795a55f02a0cc46a36b02fbb"
+  },
+  "scope": "Actual C phase predicate and accepted281 RGBA to20 HDA, both packs plus current payload pins; no fresh SVG rendering, original-data admission, compositor or Windows test.",
+  "front_independence": "Some records269/270 also consume182/183 but no asset derivation dependency. Source163/164 are observed-only, not drawable; preserve both zero d4 slots for182/183.",
+  "composition_order": "Lower over upper encoded RGB straight-alpha rational half-up before flips/rotations; never reflect inputs and recompose instead."
+}

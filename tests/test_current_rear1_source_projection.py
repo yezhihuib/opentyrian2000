@@ -45,7 +45,7 @@ class CurrentRear1SourceProjection(unittest.TestCase):
 
  def test_exact_nine_assets_reject_missing_hash_and_mode(self):
   proof=a.verified_current_rear1()['assets']
-  preceding=a.verified_current_rear39()['assets']
+  preceding=dict(a.verified_current_rear39()['assets'],**a.verified_current_rear281()['assets'])
   for name in proof:
    for action in ('missing','hash','mode'):
     invalid=copy.deepcopy(preceding);invalid.update(copy.deepcopy(proof))
@@ -57,17 +57,18 @@ class CurrentRear1SourceProjection(unittest.TestCase):
      a.project_p9_inventory(invalid)
 
  def test_runtime_eight_exact_preimages_and_p7_coexistence(self):
-  rows=json.loads((a.ROOT/'packaging/runtime-assets-v1.json').read_bytes())['files']
+  rows=a.before_current_rear281_runtime(json.loads((a.ROOT/'packaging/runtime-assets-v1.json').read_bytes())['files'])
   old={r['destination']:r for r in a.current_rear1_ledger()['runtime_before']}
-  before=a.before_current_rear1_runtime(rows)
+  live=json.loads((a.ROOT/'packaging/runtime-assets-v1.json').read_bytes())['files']
+  before=a.before_current_rear1_runtime(live)
   self.assertEqual({r['destination']:r for r in before if r['destination'] in old},old)
   self.assertEqual([r for r in rows if r['destination'] not in old],[r for r in before if r['destination'] not in old])
   p7old={r['destination']:r for r in a.current_rear_p7_ledger()['runtime_before']}
-  both=a.before_current_rear_p7_runtime(rows)
+  both=a.before_current_rear_p7_runtime(live)
   self.assertEqual({r['destination']:r for r in both if r['destination'] in p7old},p7old)
   self.assertEqual({r['destination']:r for r in both if r['destination'] in old},old)
   for action in ('missing','old','tampered','duplicate'):
-   invalid=copy.deepcopy(rows);target=next(r for r in invalid if r['destination'] in old)
+   invalid=copy.deepcopy(live);target=next(r for r in invalid if r['destination'] in old)
    if action=='missing':invalid.remove(target)
    elif action=='old':target.update(old[target['destination']])
    elif action=='duplicate':invalid.append(copy.deepcopy(target))

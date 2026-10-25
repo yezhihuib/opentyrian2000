@@ -252,6 +252,12 @@ class CurrentMissileTests(unittest.TestCase):
         self.assertEqual(len(rear1_names),20)
         for name in rear1_names:self.write(name,(ROOT/name).read_bytes())
         rear1.input_paths(self.root)
+        import current_rear281_compatibility as rear281
+        rear281.load(ROOT)
+        rear281_names=rear281.input_paths(ROOT)|{rear281.MAPPING}
+        self.assertEqual(len(rear281_names),44)
+        for name in rear281_names:self.write(name,(ROOT/name).read_bytes())
+        rear281.input_paths(self.root)
         # Other unrelated family closures are stubbed; this builder's own Missile
         # closure must accept proposed sources without validating old selection.
         unrelated=('current_sidekick_body_compatibility.charge_input_paths',

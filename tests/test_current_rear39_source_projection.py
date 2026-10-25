@@ -46,7 +46,7 @@ class CurrentRear39SourceProjection(unittest.TestCase):
   proof=a.verified_current_rear39()['assets']
   for name in proof:
    for action in ('missing','hash','mode'):
-    invalid=copy.deepcopy(proof)
+    invalid=dict(copy.deepcopy(proof),**a.verified_current_rear281()['assets'])
     if action=='missing':del invalid[name]
     elif action=='hash':invalid[name]['sha256']='0'*64
     else:invalid[name]['mode']='100755'

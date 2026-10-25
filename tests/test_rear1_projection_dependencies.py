@@ -10,12 +10,12 @@ from _projection_proof_context import _ProjectionProofContext
 from test_single_projection_proof_context import copy_inputs, finite_paths, REJECTIONS
 
 class Rear1ProjectionDependencies(unittest.TestCase):
-    def test_all_three_rear_proofs_bind_pillow_profiles_and_package_bytes(self):
+    def test_all_four_rear_proofs_bind_pillow_profiles_and_package_bytes(self):
         import PIL.PngImagePlugin
         with tempfile.TemporaryDirectory(prefix='rear1-proof-tools-') as temp:
             root=Path(temp)
             copy_inputs(root,finite_paths('rear1'))
-            for family in ('rear1','rear39','rear_p7'):
+            for family in ('rear281','rear1','rear39','rear_p7'):
                 for attribute in ('PILLOW_VERSION','PILLOW_ZLIB_VERSION','ZLIB_VERSION'):
                     with self.subTest(family=family,attribute=attribute):
                         context=_ProjectionProofContext(root,a.ROOT)

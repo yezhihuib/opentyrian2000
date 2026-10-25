@@ -111,6 +111,10 @@ def main():
     for destination,row in rear1_load(root).items():
         if destination in art_compat:raise ValueError('Rear1 compatibility collision')
         art_compat[destination]=dict(row,authoring_family='rear1')
+    from current_rear281_compatibility import load as rear281_load
+    for destination,row in rear281_load(root).items():
+        if destination in art_compat:raise ValueError('Rear281 compatibility collision')
+        art_compat[destination]=dict(row,authoring_family='rear281')
     # Sonic is a separately bounded additive transport family, not a relaxed
     # historical art consumer. Its loader also rederives pixels and header pins.
     from current_sonic_compatibility import load as sonic_load

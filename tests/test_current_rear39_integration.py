@@ -92,6 +92,14 @@ class CurrentRear39Integration(unittest.TestCase):
         from build_current_craft267 import current_overlays
         from shared_asset_authoring_map import build_map
         overlays = current_overlays(ROOT)
+        from accepted_later_changes import verified_current_rear281
+        rear281 = verified_current_rear281(ROOT)['mapping']
+        self.assertEqual(len(rear281),20)
+        self.assertEqual(len(overlays),224)
+        overlays = dict(overlays)
+        for destination, selected in rear281.items():
+            self.assertEqual(overlays.pop(Path(destination).name),
+                             (ROOT/selected['source_path']).read_bytes())
         from accepted_later_changes import verified_current_rear1
         rear1 = verified_current_rear1(ROOT)['mapping']
         self.assertEqual(len(rear1), 8)

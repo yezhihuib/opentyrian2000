@@ -390,6 +390,28 @@ def main(argv=None) -> int:
             if (row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or
                     row.get('group')!='gameplay' or row.get('revision')!='current-single-source-rear1'):
                 raise ValueError('Stale Rear1 runtime selection')
+    # Rear281 replaces twenty existing destinations; no new runtime resources.
+    rear281_prefix = 'assets/hd/current-compat/rear281/'
+    rear281_names = {f'rear-multicannon-p1-bank8-{i}-{d}.hda' for i in (281,282,300,301,277,278,296,297,298,299) for d in (4,8)}
+    rear281_rows = [row for row in manifest['files'] if any(
+        Path(row[key]).name.casefold() in rear281_names for key in ('destination','source_path')) or
+        row['source_path'].casefold().startswith(rear281_prefix) or
+        (isinstance(row.get('revision'),str) and row['revision'].casefold() == 'current-single-source-rear281')]
+    rear281_current = manifest_path.resolve() == (roots[0]/'packaging/runtime-assets-v1.json').resolve() or any(
+        row['source_path'].casefold().startswith(rear281_prefix) or
+        (isinstance(row.get('revision'),str) and row['revision'].casefold() == 'current-single-source-rear281')
+        for row in manifest['files'])
+    if rear281_current:
+        from current_rear281_compatibility import load as rear281_load
+        expected = {'assets/gameplay/'+name for name in rear281_names}
+        if len(rear281_rows)!=20 or {row['destination'] for row in rear281_rows}!=expected:
+            raise ValueError('Rear281 packaging requires exactly twenty current consumers')
+        selected = rear281_load(roots[0])
+        for row in rear281_rows:
+            current = selected[row['destination']]
+            if (row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or
+                    row.get('group')!='gameplay' or row.get('revision')!='current-single-source-rear281'):
+                raise ValueError('Stale Rear281 runtime selection')
     # Current NEWSHF keeps the same nine opt-in destinations, with six poses
     # derived from two authored three-pose masters and three frozen 168 V4 PNGs.
     # The older revision marker also appears in historical manifests, so it

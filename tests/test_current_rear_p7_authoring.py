@@ -37,6 +37,9 @@ class CurrentRearP7Tests(unittest.TestCase):
         import current_rear1_compatibility as rear1
         for name in rear1.input_paths(ROOT) | {rear1.MAPPING}:
             self.write(name,(ROOT/name).read_bytes())
+        import current_rear281_compatibility as rear281
+        for name in rear281.input_paths(ROOT) | {rear281.MAPPING}:
+            self.write(name, (ROOT/name).read_bytes())
         self.request=dict(schema=c.CANDIDATE_SCHEMA,version='fixture',masters=[dict(selector=294,source_svg=self.master_paths[294],source_sha256=c.sha(self.master))],recipe=dict(path=self.recipe_path,sha256=c.sha(encode(c.RECIPE))))
     def write(self,name,raw):
         p=self.root/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(raw);return p

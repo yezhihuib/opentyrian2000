@@ -66,6 +66,44 @@ def _project_source_once(label,name,raw):
  assert sha(restored)==pin['previous_sha256'],(name,'historical result drift')
  return restored
 
+CURRENT_REAR281_LEDGER_SHA='6444f810f8bf54983e51042442a091bf3d44c01674b7054e590fb5eeefdb576b'
+def current_rear281_ledger():
+ raw=(ROOT/'tests/current_rear281_source_projection.json').read_bytes()
+ assert sha(raw)==CURRENT_REAR281_LEDGER_SHA,'changed current REAR281 inverse ledger'
+ return json.loads(raw)
+
+def verified_current_rear281(root=ROOT):
+ """Fresh twenty-output proof including the composed P7/39/1/281 shared header."""
+ scripts=str(ROOT/'scripts')
+ if scripts not in sys.path:sys.path.insert(0,scripts)
+ import current_rear281_compatibility as c
+ mapping=c.load(root)
+ assert current_rear281_ledger()['files']=={},'Rear281 has no C source inverse hunks'
+ names=c.input_paths(root)|{c.MAPPING}
+ assets={n:{'sha256':sha(c.read(root,n)),'mode':'100644'} for n in names if n.startswith('assets/')}
+ assert len(assets)==21,'unapproved current REAR281 asset scope'
+ return dict(assets=assets,paths=names-{c.MAPPING},mapping=mapping,header_sha256=sha(c.read(root,c.HEADER)))
+
+def before_current_rear281_runtime(rows,root=ROOT):
+ return _before_current_rear281_runtime(rows,root,_proofs=None)
+
+def _before_current_rear281_runtime(rows,root=ROOT, *, _proofs):
+ assert isinstance(rows,list) and len(rows)==1029,'unexpected REAR281 runtime scope / destination scope'
+ assert len({row['destination'] for row in rows})==1029,'duplicate REAR281 runtime destination scope'
+ proof=_current_projection_proof('rear281',root,_proofs)
+ old={r['destination']:r for r in current_rear281_ledger()['runtime_before']}
+ assert set(old)==set(proof['mapping']) and len(old)==20
+ result=copy.deepcopy(rows);seen=set()
+ for index,row in enumerate(result):
+  destination=row['destination']
+  if destination not in old:continue
+  selected=proof['mapping'][destination];raw=(root/selected['source_path']).read_bytes()
+  expected=dict(old[destination],source_path=selected['source_path'],sha256=sha(raw),bytes=len(raw),git_blob=hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest(),revision='current-single-source-rear281')
+  assert row==expected,('unapproved current REAR281 runtime row',destination)
+  assert destination not in seen;seen.add(destination);result[index]=old[destination]
+ assert seen==set(old),'missing current REAR281 runtime row'
+ return result
+
 CURRENT_REAR1_LEDGER_SHA='213fd181fc91ba4fba344d4e1e7dd75ef9dc1b6e6512c17c34cbf853e18f2b63'
 def current_rear1_ledger():
  raw=(ROOT/'tests/current_rear1_source_projection.json').read_bytes()
@@ -88,6 +126,7 @@ def before_current_rear1_runtime(rows,root=ROOT):
  return _before_current_rear1_runtime(rows,root,_proofs=None)
 
 def _before_current_rear1_runtime(rows,root=ROOT, *, _proofs):
+ rows=_before_current_rear281_runtime(rows,root,_proofs=_proofs)
  assert isinstance(rows,list) and len(rows)==1029,'unexpected REAR1 runtime scope / destination scope'
  assert len({row['destination'] for row in rows})==1029,'duplicate REAR1 runtime destination scope'
  proof=_current_projection_proof('rear1',root,_proofs)
@@ -126,7 +165,8 @@ def rear39_runtime_input_paths(root=ROOT):
  import current_rear39_compatibility as c
  import current_rear_p7_compatibility as p7
  import current_rear1_compatibility as rear1
- return c.input_paths(root)|{c.MAPPING,c.HEADER}|p7.input_paths(root)|{p7.MAPPING}|rear1.input_paths(root)|{rear1.MAPPING}|set(current_rear_p7_ledger()['files'])
+ import current_rear281_compatibility as rear281
+ return c.input_paths(root)|{c.MAPPING,c.HEADER}|p7.input_paths(root)|{p7.MAPPING}|rear1.input_paths(root)|{rear1.MAPPING}|rear281.input_paths(root)|{rear281.MAPPING}|set(current_rear_p7_ledger()['files'])
 
 def before_current_rear39_runtime(rows,root=ROOT):
  return _before_current_rear39_runtime(rows,root,_proofs=None)
@@ -1433,6 +1473,9 @@ def project_p9_inventory(current,root=ROOT):
 
 def _project_p9_inventory(current,root=ROOT, *, _proofs):
  current=copy.deepcopy(current)
+ for name,row in _current_projection_proof('rear281',root,_proofs)['assets'].items():
+  assert current.get(name)==row,('unverified current Rear281 output',name)
+  del current[name]
  for name,row in _current_projection_proof('rear39',root,_proofs)['assets'].items():
   assert current.get(name)==row,('unverified current Rear39 output',name)
   del current[name]
@@ -1564,6 +1607,7 @@ def _current_projection_proof(family,root,context):
   'missile':verified_current_missile,
   'newshf':verified_current_newshf,
   'protron':verified_current_protron,
+  'rear281':verified_current_rear281,
   'rear1':verified_current_rear1,
   'rear39':verified_current_rear39,
   'rear_p7':verified_current_rear_p7,

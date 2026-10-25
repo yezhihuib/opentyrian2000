@@ -419,7 +419,7 @@ class AssetBoundary(unittest.TestCase):
         current=copy.deepcopy(self.inventory)
         # Match the production finite inverse: validate and remove only these
         # exact newer families before checking the unchanged old digest.
-        for verifier in (projection.verified_current_rear1, projection.verified_current_rear39, projection.verified_current_rear_p7, projection.verified_current_missile, projection.verified_current_mint27, projection.verified_current_newshf, projection.verified_current_guided, projection.verified_current_sonic, projection.verified_current_protron, projection.verified_protron_current, projection.verified_newshf_current, projection.verified_enemy_orb_current):
+        for verifier in (projection.verified_current_rear281, projection.verified_current_rear1, projection.verified_current_rear39, projection.verified_current_rear_p7, projection.verified_current_missile, projection.verified_current_mint27, projection.verified_current_newshf, projection.verified_current_guided, projection.verified_current_sonic, projection.verified_current_protron, projection.verified_protron_current, projection.verified_newshf_current, projection.verified_enemy_orb_current):
             for name, row in verifier()['assets'].items():
                 self.assertEqual(current.pop(name), row)
         for name in projection.verified_front_multi_current()['assets']:del current[name]

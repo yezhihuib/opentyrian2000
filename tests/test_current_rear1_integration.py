@@ -75,7 +75,8 @@ class CurrentRear1Integration(unittest.TestCase):
         self.assertEqual(len(registry['resources']),120)
 
     def test_runtime_only_eight_source_revisions_and_binding_change(self):
-        now = {r['destination']:r for r in json.loads((ROOT/MANIFEST).read_bytes())['files']}
+        from accepted_later_changes import before_current_rear281_runtime
+        now = {r['destination']:r for r in before_current_rear281_runtime(json.loads((ROOT/MANIFEST).read_bytes())['files'],ROOT)}
         previous = {r['destination']:r for r in json.loads(old(MANIFEST))['files']}
         self.assertEqual(len(now), 1029); self.assertEqual(set(now), set(previous))
         for destination,row in now.items():
@@ -90,6 +91,14 @@ class CurrentRear1Integration(unittest.TestCase):
         from build_current_craft267 import current_overlays
         from shared_asset_authoring_map import build_map
         overlays = current_overlays(ROOT)
+        from accepted_later_changes import verified_current_rear281
+        rear281 = verified_current_rear281(ROOT)['mapping']
+        self.assertEqual(len(rear281),20)
+        self.assertEqual(len(overlays),224)
+        overlays = dict(overlays)
+        for destination, selected in rear281.items():
+            self.assertEqual(overlays.pop(Path(destination).name),
+                             (ROOT/selected['source_path']).read_bytes())
         self.assertEqual(len(overlays), 204)
         rows = [r for r in build_map(ROOT)['resources'] if r['identity'] in current.IDS]
         self.assertEqual(len(rows),8)

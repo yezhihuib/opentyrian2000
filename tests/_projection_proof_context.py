@@ -193,7 +193,7 @@ class _ProjectionProofContext:
         self._closed = False
 
     def _module(self, family):
-        if family not in ('rear1', 'rear39', 'rear_p7', 'missile', 'mint27', 'newshf', 'guided', 'sonic', 'protron'):
+        if family not in ('rear281', 'rear1', 'rear39', 'rear_p7', 'missile', 'mint27', 'newshf', 'guided', 'sonic', 'protron'):
             raise ValueError('Unknown current-proof family')
         scripts = str(self.module_root / 'scripts')
         if scripts not in sys.path:
@@ -205,7 +205,7 @@ class _ProjectionProofContext:
 
     def _discover(self, family):
         c = self._module(family)
-        families = ('rear_p7', 'rear39', 'rear1') if family in ('rear_p7', 'rear39', 'rear1') else (family,)
+        families = ('rear_p7', 'rear39', 'rear1', 'rear281') if family in ('rear_p7', 'rear39', 'rear1', 'rear281') else (family,)
         modules = tuple(self._module(name) for name in families)
         seeds = {_relative(self.root, m.SELECTION) for m in modules}
         if family == 'newshf':
@@ -221,7 +221,7 @@ class _ProjectionProofContext:
             files |= {_relative(self.root, n) for n in c.LEGACY_SHA256}
             directories |= {_relative(self.root, n) for n in (c.ROOT, c.INPUT_ROOT + '/derived', c.legacy.OUTPUT, c.legacy.INPUT)}
         # These source inverses execute only for these original proof functions.
-        chains = {'rear1': ('rear1',), 'rear39': ('rear39',), 'rear_p7': ('rear_p7',),
+        chains = {'rear281': ('rear281',), 'rear1': ('rear1',), 'rear39': ('rear39',), 'rear_p7': ('rear_p7',),
                   'missile': ('rear_p7', 'missile'),
                   'mint27': ('rear_p7', 'missile', 'mint27'),
                   'newshf': ('rear_p7', 'missile', 'mint27', 'newshf')}
@@ -242,7 +242,7 @@ class _ProjectionProofContext:
         files |= {self.module_root / 'scripts' / name for name in scripts}
         files |= {self.module_root / 'tests' / name for name in ('accepted_later_changes.py', '_projection_proof_context.py')}
         external_files, external_trees = set(), set()
-        if family in ('rear1', 'rear39', 'rear_p7'):
+        if family in ('rear281', 'rear1', 'rear39', 'rear_p7'):
             # Rear1's accepted 77 PNG encoder is Pillow, in addition to Sharp.
             import PIL, PIL.Image, PIL.PngImagePlugin
             external_trees.add(Path(PIL.__file__).parent)
@@ -266,10 +266,11 @@ class _ProjectionProofContext:
                 tuple(_module_origin(name, expected) for name, expected in deps.code_modules))
 
     def _check_tools(self, family):
-        if family in ('rear1', 'rear39', 'rear_p7'):
+        if family in ('rear281', 'rear1', 'rear39', 'rear_p7'):
             self._module('rear_p7').check_tool()
             self._module('rear39').check_tool()
             self._module('rear1').check_tool()
+            self._module('rear281').check_tool()
         elif family == 'missile':
             self._module('missile').check_tool()
 

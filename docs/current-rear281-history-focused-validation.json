@@ -1,0 +1,99 @@
+{
+  "status": "PASS_SEPARATE_FOCUSED_RUNS",
+  "full_private_receipt_sha256": "e03052399a581ef476fe4efbb01ab176cdcce73455c367f1bae9ea2a45102c33",
+  "runs": [
+    {
+      "log": "rear281-history-context-units.log",
+      "tests": 15,
+      "seconds": 1.585,
+      "sha256": "a35097141fe7ba4651209c24af413178665d8618652f4b78a7b53fd9fdf83b19",
+      "status": "PASS"
+    },
+    {
+      "log": "rear281-history-finite-fixtures.log",
+      "tests": 17,
+      "seconds": 50.408,
+      "sha256": "0b70da00ebe30d33ac3caac77b17a16efe3f519cd4d7657cf181c95153c730ec",
+      "status": "PASS"
+    },
+    {
+      "log": "rear281-history-old-integration-final.log",
+      "tests": 29,
+      "seconds": 195.965,
+      "sha256": "87a0dfc233dc32fee5733ddf510958fd30c35706776cf8814e774b3bfb9b24e1",
+      "status": "PASS"
+    },
+    {
+      "log": "rear281-history-focused.log",
+      "tests": 24,
+      "seconds": 634.366,
+      "sha256": "988899b97712d50f0df3ba59ccc40e14b080e28463441710580cc66158a9d378",
+      "status": "PASS"
+    },
+    {
+      "log": "rear281-history-context-integration-final.log",
+      "tests": 7,
+      "seconds": 505.841,
+      "sha256": "9c8c1ec774376db824f51c2576f1c5a514149d60a6d5b78ab8f7c7dc6027d6a6",
+      "status": "PASS",
+      "breakdown": "5 single-projection integration,1 old asset digest,1 duplicate AST registration test already counted in focused24"
+    }
+  ],
+  "checkpoint": "a614eb6160c13a5c99606ea94d606918655ed7a9",
+  "execution_snapshot_delta": {
+    "scripts/build_current_craft267.py": {
+      "before": "d60fc217b212b45afdd9f311d3cb33b8e6d444c3362ec05b4bd74ae4eee3d27e",
+      "after": "86fcb65959fbba2eb608a459ee0824edfd80c5014a08380fa7077b9c00c5897f"
+    },
+    "tests/current_rear281_cache_checks.c": {
+      "before": null,
+      "after": "5835f70cc16a32aaab81f8418c76aad24ece6b66f48c2636e495af3a02b1d064"
+    },
+    "tests/current_rear281_native_validation.md": {
+      "before": null,
+      "after": "451bc8b24bbe6c26350b2a02ca68332b798ff407f577dc4c631bad4766a9c032"
+    },
+    "tests/current_rear281_native_validation.py": {
+      "before": null,
+      "after": "a6069e5eccaf9085db12d8b0a5892874d9e217234c1984c5433f49e0fbf6566c"
+    },
+    "tests/current_rear281_native_variants.py": {
+      "before": null,
+      "after": "35e3b0d1222bd27b5a971a70804af50099c8cfaab8757c78a9d1810b9426ab5d"
+    },
+    "tests/test_current_rear281_authoring.py": {
+      "before": "b06ae2d78fd891954a74744aad2f1c1d3d4f144d0b355f4997cd326868754aa5",
+      "after": "93774ddc6917c2799196d719d23585ca0ac81ea7aeae2e149a27fdc98a3e20fd"
+    },
+    "tests/test_current_rear281_integration.py": {
+      "before": "b664ae92fd70aefa2d09e35633d0b4c5cbae0fc58c1f4a66536ade1954e5fa34",
+      "after": "ffe24ac3f675bfc3855fca29e3dd40ea11a61ae2257c535d498292ad8643bd08"
+    }
+  },
+  "qualification_note": "Only late preview integration and newly added native/core focused test files differ; long projection proof dependency files themselves stable. Old integration29 rerun after preview fix passed. Final full54 must run frozen checkpoint. Original54 subsequently passed on frozen16711, with all7154 before/after execution inputs equal.",
+  "execution_snapshot_delta_note": "Early focused snapshot was diagnostic, not a whole-run immutable snapshot. Final original54 subsequently used complete equal before/after snapshots.",
+  "unchanged_old_ledgers": 51,
+  "manual_aggregate_registration": "New AST coverage test passed; exact current Rear281 entry added before aggregate.",
+  "overlap_note": "Separate runs, not summed unique coverage or one uninterrupted aggregate. The seven-test run includes a registration AST test already present in focused24.",
+  "original_history54": {
+    "status": "PASS",
+    "tests": 54,
+    "test_seconds": 9301.504,
+    "runner_seconds": 9331.621397256851,
+    "frozen_checkpoint": "16711b126a4ca07c04dec1117f49c8902129ecfc",
+    "execution_input_count": 7154,
+    "execution_snapshot_sha256": "9928a7128710a09bef41119eccf6112eae4828a38de43af774cb0a4b698ebc4e",
+    "changed_execution_paths": [],
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "receipt_sha256": "249204f143e0c7fc6990ed8ba8047b1ef97f62c701097a57e3824370aec41dcc",
+    "log_sha256": "7670b30e8584619915f6fb88cb0e05f92fbb7d1b46367724ae5520d7013194b7"
+  },
+  "final_combined_history_receipt_sha256": "39ffd3cc1aea91723e36d595b6bcfadb264d0cebf88cb0a748d950e05400a005",
+  "initial_old_integration_failure": {
+    "log": "rear281-history-old-integration.log",
+    "actual_result": "26PASS3FAIL",
+    "reason": "Missing new-family preview block left204instead224; fixed onlycurrentpreview integration; entire29 rerunPASS195.965s. No testweakening."
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "status": "PASS",
+  "tested_core_checkpoint": "16711b126a4ca07c04dec1117f49c8902129ecfc",
+  "baseline": "d3fad9863555c7e620a3a9fd5c7b4610a58ddb67",
+  "scope": "One independent diagonal canonical master derives ten existing raw IDs at densities4/8. HD maintenance architecture repair, not new artwork, gameplay or admission expansion.",
+  "bootstrap": {
+    "PNG_RGBA_HDA_outputs": 20,
+    "source_files_unchanged": 274,
+    "shared_header_unchanged": true,
+    "runtime_rows": 1029,
+    "registry_resources": 120,
+    "changed_runtime_source_revision_rows": 20,
+    "current_preview_overlays": 224,
+    "other_supported_rear_outputs_unchanged": 28
+  },
+  "authoring": {
+    "tests": 11,
+    "independent_seconds": 11.209
+  },
+  "integration": {
+    "tests": 10,
+    "seconds": 77.225
+  },
+  "history_focused": {
+    "receipt": "docs/current-rear281-history-focused-validation.json",
+    "separate_overlapping_runs": true
+  },
+  "original_history54": {
+    "status": "PASS",
+    "tests": 54,
+    "test_seconds": 9301.504,
+    "runner_seconds": 9331.621397256851,
+    "frozen_checkpoint": "16711b126a4ca07c04dec1117f49c8902129ecfc",
+    "execution_input_count": 7154,
+    "execution_snapshot_sha256": "9928a7128710a09bef41119eccf6112eae4828a38de43af774cb0a4b698ebc4e",
+    "changed_execution_paths": [],
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "receipt_sha256": "249204f143e0c7fc6990ed8ba8047b1ef97f62c701097a57e3824370aec41dcc",
+    "log_sha256": "7670b30e8584619915f6fb88cb0e05f92fbb7d1b46367724ae5520d7013194b7"
+  },
+  "transaction": {
+    "status": "PASS_FINAL_SNAPSHOT",
+    "receipt_sha256": "b041f10d81d810f88c0a62a11d213edc93e98e3ed1c4fe70f62d06edfae82cf4",
+    "completed_approximately_utc": "2026-10-25T03:22:00Z",
+    "copied_source_checkpoint": "a614eb6160c13a5c99606ea94d606918655ed7a9",
+    "stage_outputs": 45,
+    "finite_dependencies": 730,
+    "actual_second_replace_failure_rollback": true,
+    "stage_tamper_and_stale_stage_rejected": true,
+    "reciprocal_other_family_corruption_rejected": true,
+    "four_family_payload_changes": [
+      20,
+      4,
+      6,
+      8
+    ],
+    "total_changed_payloads": 38,
+    "additional_production_binding_change": true,
+    "linux_windows_asset_only_rows": 1029,
+    "byte_equal_assets": true,
+    "metadata_difference": "RUNTIME-STATUS.platform only",
+    "windows_execution": false
+  },
+  "native_receipt": "docs/current-rear281-native-validation.json",
+  "build_receipt": "docs/current-rear281-build-validation.json",
+  "resolved_initial_issues": [
+    "Initial preview registration was missing: current_overlays returned204 rather than224. Added the exact20 Rear281 overlays before final focused reruns and final actual transaction.",
+    "New integration test copied old Rear1 selector/count/preview expectations and wrongly applied the historical inverse projection before asserting the current family. Corrected these test assumptions to Rear281/current scope; final ten-test integration rerun passed.",
+    "Authoring test method names still referred to eight rather than twenty outputs; labels corrected and independent eleven-test rerun passed.",
+    "Initial transaction snapshot preceded preview fix. Its passing result is not final-snapshot qualification; full actual transaction was repeated against a614 and completed successfully at approximately03:22UTC. Frozen16711 differs from a614 only by the transaction documentation."
+  ],
+  "limits": [
+    "No Windows execution, physical GPU, final compositor pixels or campaign playthrough.",
+    "Native source banks/weapon records synthetic; normal draw observer and shadow preparation/lease only; no original-data admission or actual weapon-firing claim.",
+    "Prior synthetic fixture reused with verified hashes, not freshly built; actual-payload native executables freshly compiled/run.",
+    "Build equivalence inherits six Linux builds with zero new builds; separate from fresh small native test executables."
+  ],
+  "final_documentation_only": "Five qualification documentation files added after frozen successful execution; all7154 execution inputs rehashed unchanged before installation."
+}

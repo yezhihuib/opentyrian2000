@@ -55,6 +55,8 @@ def dependencies(root, selected):
     names |= rear39_input_paths(root) | {REAR39_MAPPING}
     from current_rear1_compatibility import input_paths as rear1_input_paths, MAPPING as REAR1_MAPPING
     names |= rear1_input_paths(root) | {REAR1_MAPPING}
+    from current_rear281_compatibility import input_paths as rear281_input_paths, MAPPING as REAR281_MAPPING
+    names |= rear281_input_paths(root) | {REAR281_MAPPING}
     names |= {r['source_svg'] for r in selected['masters']} | {selected['recipe']['path']}
     names |= {REGISTRY, BINDING, RUNTIME, 'packaging/runtime-assets-public63a89b3.json',
               'packaging/shop-static-approved-v1.json', 'packaging/current-hud-compatibility.json',
@@ -90,7 +92,8 @@ def derive(root, raw):
                          destination='assets/gameplay/' + compat.name(identity, density), sha256=sha(blob)))
     from current_rear39_compatibility import verified_pins as rear39_pins
     from current_rear1_compatibility import verified_pins as rear1_pins
-    outputs[compat.HEADER] = compat.payload_header(pins,rear39_pins(root),rear1_pins(root))
+    from current_rear281_compatibility import verified_pins as rear281_pins
+    outputs[compat.HEADER] = compat.payload_header(pins,rear39_pins(root),rear1_pins(root),rear281_pins(root))
     outputs[compat.MAPPING] = encoded(dict(schema='opentyrian-current-rear-p7-compatibility-v1',
         selection=SELECTION, version=selected['version'], files=rows))
     old = parse_manifest(read(root, RUNTIME, 2 * 1024 * 1024))

@@ -1,0 +1,78 @@
+{
+  "status": "PASS independent Rear281 compiler, exact compositing and reciprocal asset review",
+  "checked_at_utc": "2026-10-25T03:04:23.299009+00:00",
+  "baseline_public_commit": "d3fad9863555c7e620a3a9fd5c7b4610a58ddb67",
+  "source_sha256": {
+    "scripts/current_rear281_compatibility.py": "c928d010e9fe038d8dbd7fea714e6f66ca5c54eee63a0027ee48ea10f75a88cd",
+    "scripts/current_rear_p7_compatibility.py": "78de60d1aa3d21611288938c1dbfd2f3f05436702dba03ad2b834658f0700039",
+    "scripts/current_rear39_compatibility.py": "180883d06c6d75c79ae8eb7beffc9da4b2c650b1390dd3d5c3326b4d4452d53b",
+    "scripts/current_rear1_compatibility.py": "dc8d6d0c06c66644992027f617bcc6b6efa1373f66bb38ff65cd700df0326b7b",
+    "scripts/build_current_rear281.py": "baf29572a9702f1a60d2997cb20ec8304c6dca0e39c5c0a830ea3cfff047ebdd",
+    "scripts/build_current_rear_p7.py": "32490eba893201a163d3ee4d2c05470f1d99476e3d3625caffedf414faeed623",
+    "scripts/build_current_rear39.py": "148dab3af368f2f6fa02a2a1f81623e3558d48d0d7d1b66b67489a44cb2ae604",
+    "scripts/build_current_rear1.py": "98e1ea306f76fcbfaf20263f27363e72d4a4d70c5f88a048b4c2677e1847720f",
+    "scripts/build_current_craft267.py": "86fcb65959fbba2eb608a459ee0824edfd80c5014a08380fa7077b9c00c5897f",
+    "tests/test_current_rear281_authoring.py": "93774ddc6917c2799196d719d23585ca0ac81ea7aeae2e149a27fdc98a3e20fd"
+  },
+  "results": {
+    "golden_png_rgba_outputs": 20,
+    "independent_fraction_oracle_alpha_pairs": 65536,
+    "geometry_negatives_rejected": 29,
+    "hidden_rgb_and_occupied_clip_negatives_rejected": 16,
+    "opposite_family_missing_hda_mapping_rejections": 24,
+    "renderer_profile_negatives_rejected": 2,
+    "actual_geometry_edit_changed_payload_cells": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      22,
+      23,
+      24,
+      25,
+      30,
+      31,
+      32,
+      33,
+      38,
+      39,
+      40,
+      41
+    ],
+    "older_family_pin_changes_isolated": true,
+    "bootstrap_all_four_strict_loads": true,
+    "png_decode_and_transform_oracles_both_densities": true,
+    "golden_overlap_count_per_density": 5,
+    "reversing_foreground_changes_pixels_per_density": 4,
+    "builder_dependency_count": 730,
+    "generic_profile_closures_checked": 14,
+    "current_preview_overlays_after_owner_fix": 224,
+    "independent_authoring_tests": 11,
+    "independent_authoring_seconds": 11.209
+  },
+  "observations": [
+    "No arithmetic or validation defect found by independent probes.",
+    "Corrected eight-to-twenty labels before final authoring rerun.",
+    "Owner reported and fixed omitted twenty-output current preview integration; reviewer independently called final current_overlays and verified224 outputs.",
+    "Rear281 owns20 of48 supported outputs;28 other outputs remain outside its edit cells."
+  ],
+  "limitations": [
+    "Physical opposite-file tests used a small copied four-family fixture, not mutations to production worktree.",
+    "Reciprocal old-family isolation probe changed valid pin dictionaries, while new Rear281 used an actual canonical path edit.",
+    "Full production transaction, native and54 historical aggregate qualification are separate owner tasks and not claimed by this receipt.",
+    "No actual Windows execution, original-game-source admission, final compositor pixels, campaign or GPU validation.",
+    "Synthetic alpha-pair oracle tests variable overlap counts; five-overlap cardinality is only golden baseline, not hardcoded policy."
+  ],
+  "evidence_sha256": {
+    "probe.json": "92a5f6094c0b1aa5044f91f3e1396b253dcb6809a4c08bcdd9c22b0af7a53c55",
+    "integration.json": "8080a56d8dec510a398debe32f6cf6e9d6bd6394f5e5893e3da341e61d0aa696",
+    "dependencies.json": "e6b7b9dff90ec1bf8d2d8a257a9f77ba0f9ad91c078802c947babf4bc2041dc8",
+    "composition-order.json": "68c93690ada168eb76da8950b50351fc3e79c2a2fa6211d67056eca3a975620e",
+    "preview-count.json": "8d66c50165c296b008d4917f1e298fb4fdd95188c35d8c3fafb43aac382ef5fc",
+    "authoring-tests.log": "7db1ebc5631dfee42e5cf6640488b3cf1d4f41d0128fc68376c3d0f030ae3c12"
+  }
+}
