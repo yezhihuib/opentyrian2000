@@ -155,7 +155,7 @@ def _tree_stamp(path):
 
 
 def _profile(module):
-    names = ('NODE', 'SHARP', 'NODE_VERSION', 'SHARP_VERSIONS', 'DRIVER', 'MAGICK', 'MAGICK_VERSION', 'GOLDEN_HASHES', 'GOLDEN_MASTER', 'GOLDEN_SVG', 'PILLOW_VERSION', 'PILLOW_ZLIB_VERSION', 'ZLIB_VERSION')
+    names = ('NODE', 'SHARP', 'NODE_VERSION', 'SHARP_VERSIONS', 'DRIVER', 'MAGICK', 'MAGICK_VERSION', 'GOLDEN_HASHES', 'GOLDEN_MASTER', 'GOLDEN_SVG', 'GOLDEN_MASTERS', 'GOLDEN_SVG_HASHES', 'PILLOW_VERSION', 'PILLOW_ZLIB_VERSION', 'ZLIB_VERSION')
     values = tuple((name, _freeze(getattr(module, name))) for name in names if hasattr(module, name))
     if hasattr(module, 'tool_environment'):
         values += (('tool_environment', _freeze(module.tool_environment())),)
@@ -243,6 +243,12 @@ class _ProjectionProofContext:
         files |= {self.module_root / 'tests' / name for name in ('accepted_later_changes.py', '_projection_proof_context.py')}
         external_files, external_trees = set(), set()
         if family in ('rear_lobes', 'rear281', 'rear1', 'rear39', 'rear_p7'):
+            import _rear_golden_batch as batch
+            helper = self.module_root / 'tests' / '_rear_golden_batch.py'
+            _module_origin(batch.__name__, helper)
+            code_modules += ((batch.__name__, helper),)
+            files.add(helper)
+            modules += (batch,)
             # Rear1's accepted 77 PNG encoder is Pillow, in addition to Sharp.
             import PIL, PIL.Image, PIL.PngImagePlugin
             external_trees.add(Path(PIL.__file__).parent)
@@ -267,11 +273,10 @@ class _ProjectionProofContext:
 
     def _check_tools(self, family):
         if family in ('rear_lobes', 'rear281', 'rear1', 'rear39', 'rear_p7'):
-            self._module('rear_p7').check_tool()
-            self._module('rear39').check_tool()
-            self._module('rear1').check_tool()
-            self._module('rear281').check_tool()
-            self._module('rear_lobes').check_tool()
+            import _rear_golden_batch as batch
+            _module_origin(batch.__name__, self.module_root / 'tests' / '_rear_golden_batch.py')
+            batch.check_tools(tuple(self._module(name) for name in
+                                   ('rear_p7', 'rear39', 'rear1', 'rear281', 'rear_lobes')))
         elif family == 'missile':
             self._module('missile').check_tool()
 
