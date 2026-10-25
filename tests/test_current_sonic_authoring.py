@@ -240,6 +240,12 @@ class CurrentSonicTests(unittest.TestCase):
         self.assertEqual(len(rear39_names),16)
         for name in rear39_names:self.write(name,(ROOT/name).read_bytes())
         rear39.input_paths(self.root)
+        import current_rear1_compatibility as rear1
+        rear1.load(ROOT)
+        rear1_names=rear1.input_paths(ROOT)|{rear1.MAPPING}
+        self.assertEqual(len(rear1_names),20)
+        for name in rear1_names:self.write(name,(ROOT/name).read_bytes())
+        rear1.input_paths(self.root)
         # Validate and copy the exact new current family closure, not a whole checkout.
         import current_missile_compatibility as missile
         missile.load(ROOT)

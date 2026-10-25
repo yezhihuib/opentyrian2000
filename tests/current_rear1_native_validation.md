@@ -1,0 +1,15 @@
+# Rear1 finite native payload validation
+
+Run `python current_rear1_native_validation.py --source-root /path/to/repo --out /new/output` on Linux/POSIX with `cc`. The first run generates synthetic bank/weapon-record fixtures and executes the unchanged historical adapter and shadow suites through the existing finite unrelated-hook shim. The repository is not modified: source and payload files are copied into the output before any byte-mutation probe.
+
+Subsequent runs may use `--fixture /first/output/actual`. Both the extracted-source hashes and every retained fixture artifact hash are checked before reuse. `--overlay /derived/HDA/directory --pin-header /derived/header` tests genuinely edited resources. `--wrong-pins rear1`, `rear39` or `p7` runs rejection checks only for the specified family, rather than treating an intentionally inconsistent generation as a valid whole-family configuration. Each configuration compiles and executes plain plus ASan/UBSan. Leak detection is disabled; address and undefined-behavior errors halt execution.
+
+`current_rear1_native_variants.py SOURCE_ROOT NEW_OUTPUT` creates finite independent input copies, changes real master geometry, invokes the actual authoring compilers, and derives the combined production payload header from generated RGBA. Its three variants change exactly8,14,18 resources: Rear1 only, Rear1+Rear39, then all three current families. All other48-family resources remain fixed. A source tree may evolve after this run, so consult source-binding hashes, not merely the directory name.
+
+## Coverage and interpretation
+
+The additional cache harness exercises all17 admitted Rear1 record/phase consumers at both densities, plus existing10 Rear39 and10 P7 consumers. Tests verify role131 identity, every loaded RGBA byte against selected HDA bytes, one-time cold file opens and retained warm cache, fail-closed cold admission after file mutation, reset-dependent recovery, supported Hard normal versus rejected Hard shadow, d4 shadow rejection and d8 lease preparation, shared alpha resources, and birth/reset invalidation. The complete historical shadow harness remains unmodified.
+
+All48 HDA files and combined payload pins are actual production assets. Bank data and weapon records are synthetic. Normal drawing is an observer; shadow tests preparation and leases, not final compositor pixels. These results do not establish original-game-data admission, actual firing, Windows/GPU execution or campaign playthrough. Sixteen unrelated existing observer hooks are neutralized by an inherited finite test shim; no Rear production eligibility branch, source/record guard or payload gate is stubbed or widened.
+
+Keep intentional raw3 clipping and raw77 rotation/translation semantics unchanged. Raw3 source index16 differs from payload row14. Only Rear1 flat pin cells2,3,14,15,16,17,28,29 may change in a Rear1-only edit. Unsupported d4 slots182/183 remain zero. Shared weapon records with historical Front-derived182/183 do not create shared artwork authority.

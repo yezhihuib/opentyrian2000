@@ -1,0 +1,85 @@
+{
+  "status": "PASS",
+  "tested_core_checkpoint": "db800c00833c740011f46ef7cb36396c993a52ca",
+  "scope": "One canonical right geometry master for existing Rear1/2/3/77 d4/d8; no gameplay or source/record identity expansion.",
+  "baseline": "8c3d9098a17c0793f7277c9d4302a923df006ec9",
+  "bootstrap": {
+    "PNG_RGBA_HDA_outputs": 8,
+    "source_files_unchanged": 274,
+    "registry_resources": 120,
+    "runtime_rows": 1029,
+    "changed_runtime_source_revision_rows": 8,
+    "current_preview_overlays": 204
+  },
+  "authoring": {
+    "tests": 12,
+    "seconds": 6.883,
+    "independent": true
+  },
+  "integration": {
+    "tests": 10,
+    "seconds": 46.999
+  },
+  "history_focused": {
+    "actual_tests": 33,
+    "seconds": 209.025,
+    "setup_error": "Five context integration methods could not run before new assets entered Git index; strict guard retained.",
+    "rerun_integration_tests": 5,
+    "rerun_seconds": 197.88,
+    "one_uninterrupted_38_test_run": false
+  },
+  "other_separate_runs": [
+    {
+      "tests": 20,
+      "seconds": 83.816,
+      "scope": "Existing integration and finite dependency coverage"
+    },
+    {
+      "tests": 16,
+      "seconds": 26.911,
+      "scope": "Corrected finite old builder fixtures"
+    },
+    {
+      "tests": 2,
+      "seconds": 22.742,
+      "scope": "New Pillow dependency guards"
+    }
+  ],
+  "original_history54": {
+    "after_sha256": "ddd0ad4f0e14e3256e85a754245f83558c35210f7a7359d2ac6213a3695a788e",
+    "before_sha256": "ddd0ad4f0e14e3256e85a754245f83558c35210f7a7359d2ac6213a3695a788e",
+    "changed_paths": [],
+    "exit_code": 0,
+    "file_count": 7098,
+    "head": "db800c00833c740011f46ef7cb36396c993a52ca",
+    "seconds": 5971.38668179512,
+    "test_count": 54,
+    "unittest_seconds": 5956.292,
+    "status": "PASS",
+    "log_sha256": "c125340608bc16f4c1628a4e00f72f169cc965e288ad69522dfa53079b51547a"
+  },
+  "transaction": {
+    "status": "PASS",
+    "real_replace_failure_rollback": true,
+    "three_family_edits": true,
+    "only_eighteen_total_payloads_plus_binding_change": true,
+    "linux_windows_asset_only_export_rows": 1029,
+    "windows_execution": false
+  },
+  "native_receipt": "docs/current-rear1-native-validation.json",
+  "build_receipt": "docs/current-rear1-build-validation.json",
+  "limits": [
+    "No actual Windows/GPU run or full campaign playthrough.",
+    "Native source-bank/weapon records are synthetic; normal draw observer and shadow preparation/lease, not final compositor pixels or original-data admission.",
+    "Inherited six Linux builds by exact 278-input equivalence; zero new compilations.",
+    "Focused test groups are separate runs, not a single38-test aggregate. The original54 aggregate separately passed on finalcoredb800c00 with all7098 execution inputs unchanged."
+  ],
+  "interrupted_initial_aggregate": {
+    "checkpoint": "29197983b678b4bd11b25306f289693ed742163d",
+    "status": "INTERRUPTED_KNOWN_TEST_FIXTURE_OMISSION",
+    "completed_passes": 5,
+    "reason": "Manual verifier tuple in later test_old_asset_edits_and_digest_are_preserved omitted verified_current_rear1. Exact finite tuple addition needed; historical oracle/digest unchanged. Root authorized stop, then full restart.",
+    "affected_test_after_exact_tuple_fix_seconds": 123.451,
+    "final_full_run_restarted": true
+  }
+}

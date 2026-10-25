@@ -46,7 +46,7 @@ def current_records(root):
         configs.append((family, policy['selection'], policy['mapping'], selected,
                         'scripts/build_current_art.py --family ' + family))
     for family in ('craft267', 'tank-shell', 'enemy-energy', 'sidekick-body',
-                   'plasma-projectile', 'front-multi', 'enemy-orb', 'protron', 'sonic', 'guided', 'mint27', 'missile', 'rear-p7', 'rear39'):
+                   'plasma-projectile', 'front-multi', 'enemy-orb', 'protron', 'sonic', 'guided', 'mint27', 'missile', 'rear-p7', 'rear39', 'rear1'):
         module = importlib.import_module('current_' + family.replace('-', '_') + '_compatibility')
         builder = module if hasattr(module, 'selection') else importlib.import_module('build_current_' + family.replace('-', '_'))
         selected = builder.selection(root, read(root, module.SELECTION))
@@ -71,7 +71,7 @@ def current_records(root):
         for transport in mapping['files']:
             identity, density = transport['identity'], transport.get('density', 8)
             row = by_pair.get((identity, density))
-            if family == 'rear39':
+            if family in ('rear39','rear1'):
                 sources = [selected['masters'][0]['source_json']]
             elif family == 'rear-p7':
                 sources = [selected['masters'][0]['source_svg']]
@@ -152,11 +152,15 @@ def current_records(root):
             if family == 'rear39':
                 for evidence, scope in (('src/rear_multi_p1_mirror.inc', 'existing dedicated Rear role131 normal birth/record/source lease'), ('src/rear_multi_p11_shadow.inc', 'existing dedicated Rear role131 shadow lease')):
                     consumers.append(dict(path=evidence, role=131, material_identity=identity, scope=scope, evidence=evidence))
-                notes.append('One canonical JSON39 geometry master; fixed compositions40/41 retain accepted clipping. d4 and d8 render independently. P7 four current transports and the other38 frozen Rear transports stay independent; all Front transports stay separate. No eligibility or gate changes.')
+                notes.append('One canonical JSON39 geometry master; fixed compositions40/41 retain accepted clipping. d4 and d8 render independently. P7 four current transports and the other30 frozen Rear transports stay independent; all Front transports stay separate. No eligibility or gate changes.')
+            if family == 'rear1':
+                for evidence, scope in (('src/rear_multi_p1_mirror.inc', 'existing dedicated Rear role131 normal birth/record/source lease'), ('src/rear_multi_p11_shadow.inc', 'existing dedicated Rear role131 shadow lease')):
+                    consumers.append(dict(path=evidence, role=131, material_identity=identity, scope=scope, evidence=evidence))
+                notes.append('One independent right geometry JSON1 master; fixed compositions2/3 and clockwise77 retain accepted offsets and clipping. d4/d8 render independently. Rear39 and P7 remain separate; other30 Rear and all Front transports stay frozen. No eligibility changes.')
             if family == 'rear-p7':
                 for evidence, scope in (('src/rear_multi_p1_mirror.inc', 'existing dedicated Rear role131 normal birth/record/source lease'), ('src/rear_multi_p11_shadow.inc', 'existing dedicated Rear role131 shadow lease')):
                     consumers.append(dict(path=evidence, role=131, material_identity=identity, scope=scope, evidence=evidence))
-                notes.append('P7 mode2 only: one canonical SVG294, exact RGBA horizontal mirror295; d4 and d8 render independently. The six current Rear39 transports stay independently editable; the other 38 Rear transports and every Front transport stay separate and frozen. No generic player/sidekick eligibility or default-off gate changes.')
+                notes.append('P7 mode2 only: one canonical SVG294, exact RGBA horizontal mirror295; d4 and d8 render independently. The six current Rear39 transports stay independently editable; the other 30 Rear transports and every Front transport stay separate and frozen. No generic player/sidekick eligibility or default-off gate changes.')
             if family == 'front-multi':
                 notes.append('Eight independent inputs. Historical rear 1310182/1310183 do NOT follow current Front 163/164 edits.')
             if family == 'enemy-orb':

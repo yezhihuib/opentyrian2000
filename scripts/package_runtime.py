@@ -368,6 +368,28 @@ def main(argv=None) -> int:
             if (row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or
                     row.get('group')!='gameplay' or row.get('revision')!='current-single-source-rear39'):
                 raise ValueError('Stale Rear39 runtime selection')
+    # Rear1 replaces eight existing destinations; no new runtime resources.
+    rear1_prefix = 'assets/hd/current-compat/rear1/'
+    rear1_names = {f'rear-multicannon-p1-bank8-{i}-{d}.hda' for i in (1,2,3,77) for d in (4,8)}
+    rear1_rows = [row for row in manifest['files'] if any(
+        Path(row[key]).name.casefold() in rear1_names for key in ('destination','source_path')) or
+        row['source_path'].casefold().startswith(rear1_prefix) or
+        (isinstance(row.get('revision'),str) and row['revision'].casefold() == 'current-single-source-rear1')]
+    rear1_current = manifest_path.resolve() == (roots[0]/'packaging/runtime-assets-v1.json').resolve() or any(
+        row['source_path'].casefold().startswith(rear1_prefix) or
+        (isinstance(row.get('revision'),str) and row['revision'].casefold() == 'current-single-source-rear1')
+        for row in manifest['files'])
+    if rear1_current:
+        from current_rear1_compatibility import load as rear1_load
+        expected = {'assets/gameplay/'+name for name in rear1_names}
+        if len(rear1_rows)!=8 or {row['destination'] for row in rear1_rows}!=expected:
+            raise ValueError('Rear1 packaging requires exactly eight current consumers')
+        selected = rear1_load(roots[0])
+        for row in rear1_rows:
+            current = selected[row['destination']]
+            if (row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or
+                    row.get('group')!='gameplay' or row.get('revision')!='current-single-source-rear1'):
+                raise ValueError('Stale Rear1 runtime selection')
     # Current NEWSHF keeps the same nine opt-in destinations, with six poses
     # derived from two authored three-pose masters and three frozen 168 V4 PNGs.
     # The older revision marker also appears in historical manifests, so it

@@ -43,6 +43,8 @@ def dependencies(root, selected):
     names |= rear_p7_input_paths(root) | {REAR_P7_MAPPING}
     from current_rear39_compatibility import input_paths as rear39_input_paths, MAPPING as REAR39_MAPPING
     names |= rear39_input_paths(root) | {REAR39_MAPPING}
+    from current_rear1_compatibility import input_paths as rear1_input_paths, MAPPING as REAR1_MAPPING
+    names |= rear1_input_paths(root) | {REAR1_MAPPING}
     from current_guided_compatibility import input_paths as guided_paths, MAPPING as GUIDED_MAPPING
     names |= guided_paths(root) | {GUIDED_MAPPING}
     from current_enemy_orb_compatibility import input_paths as orb_input_paths, MAPPING as ORB_MAPPING

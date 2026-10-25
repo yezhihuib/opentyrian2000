@@ -1,0 +1,239 @@
+{
+  "status": "PASS_EXACT_EIGHT_RUNTIME_HDA",
+  "baseline": "8c3d9098a17c0793f7277c9d4302a923df006ec9",
+  "actual_renderer": {
+    "node": "v24.22.1",
+    "platform": "linux",
+    "architecture": "x64",
+    "sharp": {
+      "aom": "3.15.1",
+      "archive": "3.8.9",
+      "cairo": "1.18.6",
+      "cgif": "0.5.4",
+      "exif": "0.6.26",
+      "expat": "2.8.5",
+      "ffi": "3.8.0",
+      "fontconfig": "2.18.3",
+      "freetype": "2.14.3",
+      "fribidi": "1.0.17",
+      "glib": "2.90.0",
+      "harfbuzz": "14.5.0",
+      "heif": "1.23.5",
+      "highway": "1.4.0",
+      "imagequant": "2.4.1",
+      "lcms": "2.19.1",
+      "mozjpeg": "0826579",
+      "pango": "1.58.2",
+      "pixman": "0.46.4",
+      "png": "1.6.58",
+      "proxy-libintl": "0.5",
+      "rsvg": "2.63.2",
+      "tiff": "4.7.2",
+      "uhdr": "2.0.2",
+      "vips": "8.18.7",
+      "webp": "1.6.0",
+      "xml2": "2.15.4",
+      "zlib-ng": "2.3.3",
+      "sharp": "0.35.5"
+    }
+  },
+  "frozen_renderer": {
+    "node": "v24.19.0",
+    "platform": "linux",
+    "architecture": "x64",
+    "sharp": {
+      "aom": "3.15.1",
+      "archive": "3.8.9",
+      "cairo": "1.18.6",
+      "cgif": "0.5.4",
+      "exif": "0.6.26",
+      "expat": "2.8.5",
+      "ffi": "3.8.0",
+      "fontconfig": "2.18.3",
+      "freetype": "2.14.3",
+      "fribidi": "1.0.17",
+      "glib": "2.90.0",
+      "harfbuzz": "14.5.0",
+      "heif": "1.23.5",
+      "highway": "1.4.0",
+      "imagequant": "2.4.1",
+      "lcms": "2.19.1",
+      "mozjpeg": "0826579",
+      "pango": "1.58.2",
+      "pixman": "0.46.4",
+      "png": "1.6.58",
+      "proxy-libintl": "0.5",
+      "rsvg": "2.63.2",
+      "tiff": "4.7.2",
+      "uhdr": "2.0.2",
+      "vips": "8.18.7",
+      "webp": "1.6.0",
+      "xml2": "2.15.4",
+      "zlib-ng": "2.3.3",
+      "sharp": "0.35.5"
+    }
+  },
+  "pillow": "12.3.0",
+  "direct_render_not_strict_old_rebuild": true,
+  "eight_outputs": [
+    {
+      "raw": 1,
+      "density": 4,
+      "rgba_sha256": "5b5db7122400f1ea988e25596b4deecc8e540bb850d31cd936131e2d951d48e8",
+      "png_sha256": "501b8f5790dcc96ac82f65d827a2d10ca53d4414fca9b78739ae0720b44fb2bd",
+      "hda_sha256": "4f4495c9106e2a6452c1d9f877254641282c6a950913991496b6424b56b27a35",
+      "runtime_source": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-1-4.hda",
+      "payload_pin_flat_index": 2
+    },
+    {
+      "raw": 1,
+      "density": 8,
+      "rgba_sha256": "402738376529a5a59441ebceefb5d427fe23ba298674e93c2e94d05e732437c5",
+      "png_sha256": "c7547ef49f5bca733dbe0f0e8a913e47acc8a7e200db4553a4cb324e42ab0ddc",
+      "hda_sha256": "82179001aea129f3bdaf74693accd150ea45362973c798ef54a95258d507fda8",
+      "runtime_source": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-1-8.hda",
+      "payload_pin_flat_index": 3
+    },
+    {
+      "raw": 2,
+      "density": 4,
+      "rgba_sha256": "81afa542ccdb62b95e543d6609d29dc407a28cf5527f73c0f9dcee68845f1b11",
+      "png_sha256": "fa40c06f129fc23bdcd1f1b33272070085db4a397cf76d1a8017cb00c75aa3aa",
+      "hda_sha256": "72495a45451815125c4f85899758189c55ee2d110c90986c9c09700eb865387a",
+      "runtime_source": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-2-4.hda",
+      "payload_pin_flat_index": 14
+    },
+    {
+      "raw": 2,
+      "density": 8,
+      "rgba_sha256": "09f964752d2665ecfccc79d674fec6df602375a3a5f558d4efc7dc9c0feea6f4",
+      "png_sha256": "7d725fc5deb48d215dfaf53b91e2792eb18d53c642c7fb50b6a2e3bd6b45a861",
+      "hda_sha256": "4f618dcb3670c67bb60b35a5e7b92c64d33923ff3a9d0c5dee1434734e79af37",
+      "runtime_source": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-2-8.hda",
+      "payload_pin_flat_index": 15
+    },
+    {
+      "raw": 3,
+      "density": 4,
+      "rgba_sha256": "78c48990ef6ca08052b034c80d0b08f6f6f49d254e4b71c8a55dc7f3fa798cd8",
+      "png_sha256": "bb8382993564208f9aac6610728f35c17751e26106e11a632b5c57f388a8faed",
+      "hda_sha256": "a722bc55201148ede54e402892b8696392b7756ffd70999d06ba0b08430164d4",
+      "runtime_source": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-3-4.hda",
+      "payload_pin_flat_index": 28
+    },
+    {
+      "raw": 3,
+      "density": 8,
+      "rgba_sha256": "083e3bf03b124601a3273718f4b12f0b3003b4574400647e0f858fd49d43d160",
+      "png_sha256": "d7b1a8bada8ea5534e388e79a736dea586cc6e7f28ec28994f002bbefc321745",
+      "hda_sha256": "f5c5162e2a4971b1ca05aa8ebaba029a50708f0f860e8a39a0558c79c59ac06c",
+      "runtime_source": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-3-8.hda",
+      "payload_pin_flat_index": 29
+    },
+    {
+      "raw": 77,
+      "density": 4,
+      "rgba_sha256": "346271300e8e6f9739a88882dad83ddc01c067bcd6e1c1f89176783f345dffc6",
+      "png_sha256": "611c9ef986c93eeb2bbd90ea51ef55d9f97986c24c9c89714eeee7875d399084",
+      "hda_sha256": "bf3629986d6d977a4032c8dbb58ddcf89d476c606efe0b6e6f198b998340bc4a",
+      "runtime_source": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-77-4.hda",
+      "payload_pin_flat_index": 16
+    },
+    {
+      "raw": 77,
+      "density": 8,
+      "rgba_sha256": "73fe11a2f4926504850b406552c9a720919306a15a7313b2c5eff09c8df15362",
+      "png_sha256": "8d397c99b1f3f96a2e4cb98dac7988c6477102a6b3ef3110fa2e4ac5ca15b55d",
+      "hda_sha256": "54c1fb786e1724bad5f47326fab8ce6fce325e2197a8861675682a8912bd8678",
+      "runtime_source": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-77-8.hda",
+      "payload_pin_flat_index": 17
+    }
+  ],
+  "raw3_clipping": [
+    {
+      "density": 4,
+      "stats": {
+        "supported_samples": 26,
+        "maximum_alpha": 231,
+        "RGB_range": [
+          [
+            204,
+            255
+          ],
+          [
+            0,
+            55
+          ],
+          [
+            0,
+            5
+          ]
+        ],
+        "alpha_sum": 2646,
+        "premultiplied_RGB_C_times_A": [
+          597312,
+          125372,
+          8354
+        ],
+        "weighted_luma_C_times_A_2126_7152_722": 2172577444,
+        "bounds_exclusive": [
+          -4,
+          7,
+          0,
+          49
+        ]
+      },
+      "fraction": 0.007504530796654443
+    },
+    {
+      "density": 8,
+      "stats": {
+        "supported_samples": 82,
+        "maximum_alpha": 255,
+        "RGB_range": [
+          [
+            204,
+            255
+          ],
+          [
+            0,
+            57
+          ],
+          [
+            0,
+            5
+          ]
+        ],
+        "alpha_sum": 11628,
+        "premultiplied_RGB_C_times_A": [
+          2630790,
+          557498,
+          36632
+        ],
+        "weighted_luma_C_times_A_2126_7152_722": 9606733540,
+        "bounds_exclusive": [
+          -8,
+          15,
+          0,
+          97
+        ]
+      },
+      "fraction": 0.008122533744349746
+    }
+  ],
+  "source_hashes": {
+    "assets/hd/artwork/player-rear-multicannon-p1-six-v1/sources/rear-multi-1.svg": "fa550e66e0012cde7753144ef119b09a546c84d97857b53db31f6efde7e453fc",
+    "assets/hd/artwork/player-rear-multicannon-p1-six-v1/render.cjs": "1ba5b2d0df63bdef54cf5c53d3ee2a9e769ec0697e0a6d3178c8282bb63e85dc",
+    "assets/hd/artwork/player-rear-multicannon-p1-six-v1/rebuild.cjs": "f7e5669c40212b51fcbe528a4c86bac174e363b812e95fb14b63fbe30374f683",
+    "assets/hd/artwork/player-rear-multicannon-p1-six-v1/author-geometry.cjs": "25870002c55efbaee0c0f6e94c240234130e43585bedb1fcae220b9724b1087f",
+    "assets/hd/artwork/player-rear-multicannon-p1-six-v1/semantic-contract.json": "8671e7d9b898b127cc941f9570ea0dc55f2e24b641b8dc371625b11b548f2843",
+    "assets/hd/artwork/player-rear-multicannon-p3-mode1-two-v1/components/build_composites.py": "1f2674dc23f039fee625c0c60b8251fbfb54103023ceeaddd60bd6a4f3ce6c1c",
+    "assets/hd/artwork/player-rear-multicannon-p5-mode1-triples-v1/build.py": "612cca9ee6350be5e22874fe90bbc84bc1199effbc78319a5d1c47eef5c5550d",
+    "assets/hd/artwork/player-rear-multicannon-p5-mode1-triples-v1/build_components.py": "0c70902e5327892d8f4c00bc6cd9b2f3df844df339caef5554941d04210e964e",
+    "assets/hd/artwork/player-rear-multicannon-p5-mode1-triples-v1/inputs.json": "fd60d512a593c4a61f3f5f10503ba4d2751408d5b292469146fd1e3cf6c2b082",
+    "assets/hd/artwork/player-rear-multicannon-p5-mode1-triples-v1/frozen-inputs.json": "77011ca8a6341f1d655b74385e8ca86d91b35bb84d9cd18333a951280a958487",
+    "assets/hd/artwork/player-rear-multicannon-p4-mode1-down77-v1/build.py": "7ab6363b238cc9a4bf63bd2598640143fdb47c20c0a3c185d0f84bc6ec3cdf7c",
+    "assets/hd/artwork/player-rear-multicannon-p4-mode1-down77-v1/inputs.json": "0f9725f6f9554a7a3eb2b6a47d4d30f75db272a48516c84d45e7f7ac8c5ed801",
+    "src/current_rear_multi_payload_pins.h": "8bb99e02e583850d28d3af059349c3f5f24f2d86bb5295a715f8a1cab8a399bc"
+  }
+}

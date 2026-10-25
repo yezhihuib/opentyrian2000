@@ -1,0 +1,299 @@
+{
+  "status": "PASS read-only actual C phase predicate and exact transforms",
+  "baseline": "8c3d9098a17c0793f7277c9d4302a923df006ec9",
+  "predicate_queries": 880,
+  "consumer_count": 17,
+  "consumers": [
+    {
+      "record": 254,
+      "power": 1,
+      "mode": 1,
+      "phase": 2,
+      "raw": 1,
+      "payload_row": 1,
+      "source_row": 1
+    },
+    {
+      "record": 255,
+      "power": 2,
+      "mode": 1,
+      "phase": 2,
+      "raw": 1,
+      "payload_row": 1,
+      "source_row": 1
+    },
+    {
+      "record": 256,
+      "power": 3,
+      "mode": 1,
+      "phase": 2,
+      "raw": 2,
+      "payload_row": 7,
+      "source_row": 7
+    },
+    {
+      "record": 257,
+      "power": 4,
+      "mode": 1,
+      "phase": 5,
+      "raw": 77,
+      "payload_row": 8,
+      "source_row": 8
+    },
+    {
+      "record": 258,
+      "power": 5,
+      "mode": 1,
+      "phase": 2,
+      "raw": 3,
+      "payload_row": 14,
+      "source_row": 16
+    },
+    {
+      "record": 259,
+      "power": 6,
+      "mode": 1,
+      "phase": 2,
+      "raw": 3,
+      "payload_row": 14,
+      "source_row": 16
+    },
+    {
+      "record": 259,
+      "power": 6,
+      "mode": 1,
+      "phase": 3,
+      "raw": 77,
+      "payload_row": 8,
+      "source_row": 8
+    },
+    {
+      "record": 261,
+      "power": 8,
+      "mode": 1,
+      "phase": 6,
+      "raw": 1,
+      "payload_row": 1,
+      "source_row": 1
+    },
+    {
+      "record": 262,
+      "power": 9,
+      "mode": 1,
+      "phase": 6,
+      "raw": 3,
+      "payload_row": 14,
+      "source_row": 16
+    },
+    {
+      "record": 268,
+      "power": 4,
+      "mode": 2,
+      "phase": 5,
+      "raw": 77,
+      "payload_row": 8,
+      "source_row": 8
+    },
+    {
+      "record": 270,
+      "power": 6,
+      "mode": 2,
+      "phase": 5,
+      "raw": 77,
+      "payload_row": 8,
+      "source_row": 8
+    },
+    {
+      "record": 271,
+      "power": 7,
+      "mode": 2,
+      "phase": 5,
+      "raw": 77,
+      "payload_row": 8,
+      "source_row": 8
+    },
+    {
+      "record": 272,
+      "power": 8,
+      "mode": 2,
+      "phase": 5,
+      "raw": 77,
+      "payload_row": 8,
+      "source_row": 8
+    },
+    {
+      "record": 272,
+      "power": 8,
+      "mode": 2,
+      "phase": 7,
+      "raw": 1,
+      "payload_row": 1,
+      "source_row": 1
+    },
+    {
+      "record": 273,
+      "power": 9,
+      "mode": 2,
+      "phase": 5,
+      "raw": 77,
+      "payload_row": 8,
+      "source_row": 8
+    },
+    {
+      "record": 274,
+      "power": 10,
+      "mode": 2,
+      "phase": 8,
+      "raw": 1,
+      "payload_row": 1,
+      "source_row": 1
+    },
+    {
+      "record": 275,
+      "power": 11,
+      "mode": 2,
+      "phase": 8,
+      "raw": 2,
+      "payload_row": 7,
+      "source_row": 7
+    }
+  ],
+  "results": [
+    {
+      "raw": 1,
+      "density": 4,
+      "rgba_sha256": "5b5db7122400f1ea988e25596b4deecc8e540bb850d31cd936131e2d951d48e8",
+      "hda_sha256": "4f4495c9106e2a6452c1d9f877254641282c6a950913991496b6424b56b27a35",
+      "supported": 539,
+      "overlap": 0,
+      "clipped_samples": 0,
+      "clipped_alpha": 0,
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-1-4.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-1-4.hda"
+      ]
+    },
+    {
+      "raw": 2,
+      "density": 4,
+      "rgba_sha256": "81afa542ccdb62b95e543d6609d29dc407a28cf5527f73c0f9dcee68845f1b11",
+      "hda_sha256": "72495a45451815125c4f85899758189c55ee2d110c90986c9c09700eb865387a",
+      "supported": 1078,
+      "overlap": 0,
+      "clipped_samples": 0,
+      "clipped_alpha": 0,
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-2-4.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-2-4.hda"
+      ]
+    },
+    {
+      "raw": 3,
+      "density": 4,
+      "rgba_sha256": "78c48990ef6ca08052b034c80d0b08f6f6f49d254e4b71c8a55dc7f3fa798cd8",
+      "hda_sha256": "a722bc55201148ede54e402892b8696392b7756ffd70999d06ba0b08430164d4",
+      "supported": 1591,
+      "overlap": 0,
+      "clipped_samples": 26,
+      "clipped_alpha": 2646,
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-3-4.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-3-4.hda"
+      ]
+    },
+    {
+      "raw": 77,
+      "density": 4,
+      "rgba_sha256": "346271300e8e6f9739a88882dad83ddc01c067bcd6e1c1f89176783f345dffc6",
+      "hda_sha256": "bf3629986d6d977a4032c8dbb58ddcf89d476c606efe0b6e6f198b998340bc4a",
+      "supported": 539,
+      "overlap": 0,
+      "clipped_samples": 0,
+      "clipped_alpha": 0,
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-77-4.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-77-4.hda"
+      ]
+    },
+    {
+      "raw": 1,
+      "density": 8,
+      "rgba_sha256": "402738376529a5a59441ebceefb5d427fe23ba298674e93c2e94d05e732437c5",
+      "hda_sha256": "82179001aea129f3bdaf74693accd150ea45362973c798ef54a95258d507fda8",
+      "supported": 2074,
+      "overlap": 0,
+      "clipped_samples": 0,
+      "clipped_alpha": 0,
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-1-8.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-1-8.hda"
+      ]
+    },
+    {
+      "raw": 2,
+      "density": 8,
+      "rgba_sha256": "09f964752d2665ecfccc79d674fec6df602375a3a5f558d4efc7dc9c0feea6f4",
+      "hda_sha256": "4f618dcb3670c67bb60b35a5e7b92c64d33923ff3a9d0c5dee1434734e79af37",
+      "supported": 4148,
+      "overlap": 0,
+      "clipped_samples": 0,
+      "clipped_alpha": 0,
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-2-8.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-2-8.hda"
+      ]
+    },
+    {
+      "raw": 3,
+      "density": 8,
+      "rgba_sha256": "083e3bf03b124601a3273718f4b12f0b3003b4574400647e0f858fd49d43d160",
+      "hda_sha256": "f5c5162e2a4971b1ca05aa8ebaba029a50708f0f860e8a39a0558c79c59ac06c",
+      "supported": 6140,
+      "overlap": 0,
+      "clipped_samples": 82,
+      "clipped_alpha": 11628,
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-3-8.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-3-8.hda"
+      ]
+    },
+    {
+      "raw": 77,
+      "density": 8,
+      "rgba_sha256": "73fe11a2f4926504850b406552c9a720919306a15a7313b2c5eff09c8df15362",
+      "hda_sha256": "54c1fb786e1724bad5f47326fab8ce6fce325e2197a8861675682a8912bd8678",
+      "supported": 2074,
+      "overlap": 0,
+      "clipped_samples": 0,
+      "clipped_alpha": 0,
+      "pack_paths": [
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-77-8.hda",
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-77-8.hda"
+      ]
+    }
+  ],
+  "flat_payload_cells": [
+    2,
+    3,
+    14,
+    15,
+    16,
+    17,
+    28,
+    29
+  ],
+  "source_indices": {
+    "1": 1,
+    "2": 7,
+    "3": 16,
+    "77": 8
+  },
+  "source_files": {
+    "src/rear_multi_p1.c": "335afe02b0830d082335a4f55e850976c905ba977d65a1a146b2d1a9def232f7",
+    "src/rear_multi_p1_mirror.inc": "b231643815d8e867dd2e01a48c05cb345c251fba1952e9fc7edc24a27c6b144c",
+    "src/rear_multi_p1_pins.h": "773d88e3287b44036885804b5d70c6fc6d633a9893504b200891c1509981ffa7",
+    "src/current_rear_multi_payload_pins.h": "8bb99e02e583850d28d3af059349c3f5f24f2d86bb5295a715f8a1cab8a399bc",
+    "src/rear_multi_p11_shadow.inc": "60635f8c2723e7cbba341baf7d4853486d7d850c795a55f02a0cc46a36b02fbb"
+  },
+  "limitations": "Uses already accepted master RGBA, not newly rendered source SVG. No original-data admission or actual compositor/gameplay/Windows execution."
+}

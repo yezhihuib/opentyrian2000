@@ -1,0 +1,65 @@
+{
+  "schema": "opentyrian-current-rear1-authoring-v1",
+  "version": "rear1-shared-geometry-v1",
+  "masters": [
+    {
+      "selector": 1,
+      "source_json": "authoring-inputs/rear1-current/master-1.json",
+      "source_sha256": "69181e12768d12dfbcf8631fc1e314ac17e6ae6f819e5ee1c727cf0f150e8861"
+    }
+  ],
+  "recipe": {
+    "path": "authoring-inputs/rear1-current/recipe.json",
+    "sha256": "cbbd824625ce882e444b6666c1fd161b5f81fb999179e84bef921c7da4373280"
+  },
+  "resources": [
+    {
+      "identity": 1310001,
+      "density": 4,
+      "source_png": "authoring-inputs/rear1-current/derived/rear-multicannon-p1-bank8-1-4.png",
+      "source_sha256": "501b8f5790dcc96ac82f65d827a2d10ca53d4414fca9b78739ae0720b44fb2bd"
+    },
+    {
+      "identity": 1310002,
+      "density": 4,
+      "source_png": "authoring-inputs/rear1-current/derived/rear-multicannon-p1-bank8-2-4.png",
+      "source_sha256": "fa40c06f129fc23bdcd1f1b33272070085db4a397cf76d1a8017cb00c75aa3aa"
+    },
+    {
+      "identity": 1310003,
+      "density": 4,
+      "source_png": "authoring-inputs/rear1-current/derived/rear-multicannon-p1-bank8-3-4.png",
+      "source_sha256": "bb8382993564208f9aac6610728f35c17751e26106e11a632b5c57f388a8faed"
+    },
+    {
+      "identity": 1310077,
+      "density": 4,
+      "source_png": "authoring-inputs/rear1-current/derived/rear-multicannon-p1-bank8-77-4.png",
+      "source_sha256": "611c9ef986c93eeb2bbd90ea51ef55d9f97986c24c9c89714eeee7875d399084"
+    },
+    {
+      "identity": 1310001,
+      "density": 8,
+      "source_png": "authoring-inputs/rear1-current/derived/rear-multicannon-p1-bank8-1-8.png",
+      "source_sha256": "c7547ef49f5bca733dbe0f0e8a913e47acc8a7e200db4553a4cb324e42ab0ddc"
+    },
+    {
+      "identity": 1310002,
+      "density": 8,
+      "source_png": "authoring-inputs/rear1-current/derived/rear-multicannon-p1-bank8-2-8.png",
+      "source_sha256": "7d725fc5deb48d215dfaf53b91e2792eb18d53c642c7fb50b6a2e3bd6b45a861"
+    },
+    {
+      "identity": 1310003,
+      "density": 8,
+      "source_png": "authoring-inputs/rear1-current/derived/rear-multicannon-p1-bank8-3-8.png",
+      "source_sha256": "d7b1a8bada8ea5534e388e79a736dea586cc6e7f28ec28994f002bbefc321745"
+    },
+    {
+      "identity": 1310077,
+      "density": 8,
+      "source_png": "authoring-inputs/rear1-current/derived/rear-multicannon-p1-bank8-77-8.png",
+      "source_sha256": "8d397c99b1f3f96a2e4cb98dac7988c6477102a6b3ef3110fa2e4ac5ca15b55d"
+    }
+  ]
+}

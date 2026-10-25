@@ -59,7 +59,7 @@ class CurrentRear39SourceProjection(unittest.TestCase):
   old={r['destination']:r for r in a.current_rear39_ledger()['runtime_before']}
   before=a.before_current_rear39_runtime(rows)
   self.assertEqual({r['destination']:r for r in before if r['destination'] in old},old)
-  self.assertEqual([r for r in rows if r['destination'] not in old],[r for r in before if r['destination'] not in old])
+  self.assertEqual([r for r in a.before_current_rear1_runtime(rows) if r['destination'] not in old],[r for r in before if r['destination'] not in old])
   p7old={r['destination']:r for r in a.current_rear_p7_ledger()['runtime_before']}
   both=a.before_current_rear_p7_runtime(rows)
   self.assertEqual({r['destination']:r for r in both if r['destination'] in p7old},p7old)

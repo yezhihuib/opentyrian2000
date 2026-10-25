@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "tests": {
+    "new_authoring": 12,
+    "new_authoring_seconds": 6.883,
+    "new_integration": 10,
+    "new_integration_seconds": 46.999
+  },
+  "scope": "Focused authoring and actual installed integration; not full historical54 or final compositor/Windows execution.",
+  "independent_authoring_receipt": "docs/current-rear1-compiler-validation.json",
+  "logs_sha256": {
+    "rear1-integration.log": "16332aa635cf143192d75c223484bbecfec5460ae4d3bb01022438d8ada70c72",
+    "rear1-compiler-review/focused.log": "1a2a24431263ad648ffd774fed8d72d681fcc32cf6316ce3b857cedafe86a50f"
+  }
+}

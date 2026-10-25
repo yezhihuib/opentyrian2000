@@ -1,0 +1,21 @@
+{
+  "verified_at_utc": "2026-10-25T02:35:34.069147+00:00",
+  "result": "PASS",
+  "candidate_head_at_observation": "db800c00833c740011f46ef7cb36396c993a52ca",
+  "verification_type": "transitive compile/link input equivalence; no new compilation",
+  "new_build_count": 0,
+  "inherited_build_count": 6,
+  "source_count": 274,
+  "input_count": 278,
+  "candidate_inputs_equal_frozen_parent": true,
+  "candidate_inputs_equal_original_P7_build_snapshot": true,
+  "candidate_stable": true,
+  "retained_object_pairs_rehashed": 258,
+  "retained_binary_pairs_rehashed": 3,
+  "sysroot_files_rehashed": 122,
+  "sysroot_equal_original_build": true,
+  "compiler_version_equal_original": true,
+  "scope": "All 274 src files, Makefile and three generated shared-menu headers match frozen P7 and all three P7 build snapshots exactly. Inherited six successful Linux builds compare 258 object pairs and three executable pairs to public525; retained artifacts were independently rehashed, not rebuilt. Recorded dependency hashes and private sysroot rechecked. No new executable execution, edited-payload validation, Windows, physical GPU, campaign or asset-generation claim. Original build fixed VCS_IDREV; ordinary Git-derived version strings are outside this comparison. This does not independently freeze all historical host toolchain/system headers. Any later change to listed inputs invalidates this result.",
+  "full_private_receipt_sha256": "4ec147ee10d5b5cc0e7f221d71b21b8018382aa992e245830fea0a1f71e385c4",
+  "prior_build_receipt_sha256": "477c7886c6d0fbb51a5799f79e315af5ee4b38e42db8b6e32b473f9b97fc4973"
+}

@@ -1,0 +1,101 @@
+{
+  "status": "PASS",
+  "baseline": "8c3d9098a17c0793f7277c9d4302a923df006ec9",
+  "resources": 1029,
+  "registry": 120,
+  "changed_runtime_rows": {
+    "assets/gameplay/rear-multicannon-p1-bank8-1-4.hda": {
+      "revision": [
+        "reconstructed-local-unpublished",
+        "current-single-source-rear1"
+      ],
+      "source_path": [
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-1-4.hda",
+        "assets/hd/current-compat/rear1/rear-multicannon-p1-bank8-1-4.hda"
+      ]
+    },
+    "assets/gameplay/rear-multicannon-p1-bank8-1-8.hda": {
+      "revision": [
+        "reconstructed-local-unpublished",
+        "current-single-source-rear1"
+      ],
+      "source_path": [
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-1-8.hda",
+        "assets/hd/current-compat/rear1/rear-multicannon-p1-bank8-1-8.hda"
+      ]
+    },
+    "assets/gameplay/rear-multicannon-p1-bank8-2-4.hda": {
+      "revision": [
+        "reconstructed-local-unpublished",
+        "current-single-source-rear1"
+      ],
+      "source_path": [
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-2-4.hda",
+        "assets/hd/current-compat/rear1/rear-multicannon-p1-bank8-2-4.hda"
+      ]
+    },
+    "assets/gameplay/rear-multicannon-p1-bank8-2-8.hda": {
+      "revision": [
+        "reconstructed-local-unpublished",
+        "current-single-source-rear1"
+      ],
+      "source_path": [
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-2-8.hda",
+        "assets/hd/current-compat/rear1/rear-multicannon-p1-bank8-2-8.hda"
+      ]
+    },
+    "assets/gameplay/rear-multicannon-p1-bank8-3-4.hda": {
+      "revision": [
+        "reconstructed-local-unpublished",
+        "current-single-source-rear1"
+      ],
+      "source_path": [
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-3-4.hda",
+        "assets/hd/current-compat/rear1/rear-multicannon-p1-bank8-3-4.hda"
+      ]
+    },
+    "assets/gameplay/rear-multicannon-p1-bank8-3-8.hda": {
+      "revision": [
+        "reconstructed-local-unpublished",
+        "current-single-source-rear1"
+      ],
+      "source_path": [
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-3-8.hda",
+        "assets/hd/current-compat/rear1/rear-multicannon-p1-bank8-3-8.hda"
+      ]
+    },
+    "assets/gameplay/rear-multicannon-p1-bank8-77-4.hda": {
+      "revision": [
+        "reconstructed-local-unpublished",
+        "current-single-source-rear1"
+      ],
+      "source_path": [
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-77-4.hda",
+        "assets/hd/current-compat/rear1/rear-multicannon-p1-bank8-77-4.hda"
+      ]
+    },
+    "assets/gameplay/rear-multicannon-p1-bank8-77-8.hda": {
+      "revision": [
+        "reconstructed-local-unpublished",
+        "current-single-source-rear1"
+      ],
+      "source_path": [
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-77-8.hda",
+        "assets/hd/current-compat/rear1/rear-multicannon-p1-bank8-77-8.hda"
+      ]
+    }
+  },
+  "bootstrap_source_and_payload_header": "unchanged",
+  "golden_outputs": 8,
+  "master_svg_sha256": "fa550e66e0012cde7753144ef119b09a546c84d97857b53db31f6efde7e453fc",
+  "fixed_transform_semantics": "one independent source1, composite2/3, clockwise77; no source39 mirror substitution",
+  "authoring_master": "authoring-inputs/rear1-current/master-1.json",
+  "renderer": {
+    "Pillow": "12.3.0",
+    "pillow_zlib": "1.3.1",
+    "python_zlib": "1.3.2",
+    "Node": "v24.22.1",
+    "Sharp": "0.35.5",
+    "full_sharp_versions": "scripts/current_rear_p7_compatibility.py::SHARP_VERSIONS"
+  }
+}

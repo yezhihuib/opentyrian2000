@@ -66,7 +66,8 @@ class CurrentRear39Integration(unittest.TestCase):
         import current_rear_p7_compatibility as p7
         for name in p7.input_paths(ROOT) | {p7.MAPPING}:
             self.assertEqual((ROOT/name).read_bytes(), old(name))
-        now = {r['destination']:r for r in json.loads((ROOT/MANIFEST).read_bytes())['files']}
+        from accepted_later_changes import before_current_rear1_runtime
+        now = {r['destination']:r for r in before_current_rear1_runtime(json.loads((ROOT/MANIFEST).read_bytes())['files'], ROOT)}
         previous = {r['destination']:r for r in json.loads(old(MANIFEST))['files']}
         self.assertEqual(len(p7.load(ROOT)), 4)
         for destination in p7.load(ROOT):
@@ -75,7 +76,8 @@ class CurrentRear39Integration(unittest.TestCase):
         self.assertEqual(len(registry['resources']),120)
 
     def test_runtime_only_six_source_revisions_and_binding_change(self):
-        now = {r['destination']:r for r in json.loads((ROOT/MANIFEST).read_bytes())['files']}
+        from accepted_later_changes import before_current_rear1_runtime
+        now = {r['destination']:r for r in before_current_rear1_runtime(json.loads((ROOT/MANIFEST).read_bytes())['files'], ROOT)}
         previous = {r['destination']:r for r in json.loads(old(MANIFEST))['files']}
         self.assertEqual(len(now), 1029); self.assertEqual(set(now), set(previous))
         for destination,row in now.items():
@@ -90,7 +92,15 @@ class CurrentRear39Integration(unittest.TestCase):
         from build_current_craft267 import current_overlays
         from shared_asset_authoring_map import build_map
         overlays = current_overlays(ROOT)
-        self.assertEqual(len(overlays), 196)
+        from accepted_later_changes import verified_current_rear1
+        rear1 = verified_current_rear1(ROOT)['mapping']
+        self.assertEqual(len(rear1), 8)
+        self.assertEqual(len(overlays), 204)
+        historical_overlays = dict(overlays)
+        for destination, selected in rear1.items():
+            self.assertEqual(historical_overlays.pop(Path(destination).name),
+                             (ROOT/selected['source_path']).read_bytes())
+        self.assertEqual(len(historical_overlays), 196)
         rows = [r for r in build_map(ROOT)['resources'] if r['identity'] in current.IDS]
         self.assertEqual(len(rows),6)
         for row in rows:

@@ -98,8 +98,15 @@ class CurrentRearP7Integration(unittest.TestCase):
         from accepted_later_changes import verified_current_rear39
         rear39 = verified_current_rear39(ROOT)['mapping']
         self.assertEqual(len(rear39), 6)
-        self.assertEqual(len(overlays), 196)
+        from accepted_later_changes import verified_current_rear1
+        rear1 = verified_current_rear1(ROOT)['mapping']
+        self.assertEqual(len(rear1), 8)
+        self.assertEqual(len(overlays), 204)
         historical_overlays = dict(overlays)
+        for destination, selected in rear1.items():
+            self.assertEqual(historical_overlays.pop(Path(destination).name),
+                             (ROOT/selected['source_path']).read_bytes())
+        self.assertEqual(len(historical_overlays), 196)
         for destination, selected in rear39.items():
             self.assertEqual(historical_overlays.pop(Path(destination).name),
                              (ROOT/selected['source_path']).read_bytes())

@@ -141,7 +141,8 @@ def load_assets(root):
 def load(root):
     result,pins=_assets(root)
     from current_rear39_compatibility import verified_pins as rear39_pins
-    if read(root, HEADER) != payload_header(pins,rear39_pins(root)):
+    from current_rear1_compatibility import verified_pins as rear1_pins
+    if read(root, HEADER) != payload_header(pins,rear39_pins(root),rear1_pins(root)):
         raise ValueError('Stale Rear P7 payload pins')
     return result
 
@@ -261,7 +262,7 @@ def input_paths(root):
     return {SELECTION,selected['recipe']['path'],selected['masters'][0]['source_svg']} | generated_paths() | {ROOT+'/'+name(*p) for p in PAIRS}
 
 
-def payload_header(pins, rear39_pins=None):
+def payload_header(pins, rear39_pins=None, rear1_pins=None):
     if set(pins)!=set(PAIRS):
         raise ValueError('Expected four Rear P7 payload pins')
     values=list(FROZEN_PAYLOADS)
@@ -277,6 +278,14 @@ def payload_header(pins, rear39_pins=None):
             if not isinstance(value,str) or re.fullmatch('[0-9a-f]{16}',value) is None:
                 raise ValueError('Invalid Rear39 payload pin')
             values[{1310039:0,1310040:12,1310041:26}[identity]+(density==8)]=value
+    if rear1_pins is not None:
+        expected={(1310000+raw,d) for raw in (1,2,3,77) for d in (4,8)}
+        if set(rear1_pins)!=expected:
+            raise ValueError('Expected eight Rear1 payload pins')
+        for (identity,density),value in rear1_pins.items():
+            if not isinstance(value,str) or re.fullmatch('[0-9a-f]{16}',value) is None:
+                raise ValueError('Invalid Rear1 payload pin')
+            values[{1310001:2,1310002:14,1310003:28,1310077:16}[identity]+(density==8)]=value
     pairs=['{UINT64_C(0x'+values[i]+'),UINT64_C(0x'+values[i+1]+')}' for i in range(0,50,2)]
     return ('/* Generated Rear P7 payload-only override; all other Rear pins frozen. */\n#ifndef CURRENT_REAR_MULTI_PAYLOAD_PINS_H\n#define CURRENT_REAR_MULTI_PAYLOAD_PINS_H\n#ifndef REAR_P1_RGBA_PINS\n#define REAR_P1_RGBA_PINS {'+','.join(pairs)+'}\n#endif\n#endif\n').encode()
 

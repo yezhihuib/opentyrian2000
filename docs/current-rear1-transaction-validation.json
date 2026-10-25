@@ -1,0 +1,147 @@
+{
+  "broken_other_family": "all three families reciprocal HDA corruption refused",
+  "check1": {
+    "composition": [
+      {
+        "clipped_alpha": 0,
+        "clipped_samples": 0,
+        "density": 4,
+        "source": 1,
+        "target": 2
+      },
+      {
+        "clipped_alpha": 2646,
+        "clipped_samples": 26,
+        "density": 4,
+        "source": 1,
+        "target": 3
+      },
+      {
+        "clipped_alpha": 0,
+        "clipped_samples": 0,
+        "density": 4,
+        "source": 1,
+        "target": 77
+      },
+      {
+        "clipped_alpha": 0,
+        "clipped_samples": 0,
+        "density": 8,
+        "source": 1,
+        "target": 2
+      },
+      {
+        "clipped_alpha": 11628,
+        "clipped_samples": 82,
+        "density": 8,
+        "source": 1,
+        "target": 3
+      },
+      {
+        "clipped_alpha": 0,
+        "clipped_samples": 0,
+        "density": 8,
+        "source": 1,
+        "target": 77
+      }
+    ],
+    "editable_masters": 1,
+    "global_registry_additions": 0,
+    "historical_outputs": "untouched",
+    "logical_pieces": 4,
+    "resources": 8,
+    "status": "PASS"
+  },
+  "check39": {
+    "composition": [
+      {
+        "clipped_alpha": 0,
+        "clipped_samples": 0,
+        "density": 4,
+        "source": 39,
+        "target": 40
+      },
+      {
+        "clipped_alpha": 1582,
+        "clipped_samples": 20,
+        "density": 4,
+        "source": 39,
+        "target": 41
+      },
+      {
+        "clipped_alpha": 0,
+        "clipped_samples": 0,
+        "density": 8,
+        "source": 39,
+        "target": 40
+      },
+      {
+        "clipped_alpha": 6900,
+        "clipped_samples": 60,
+        "density": 8,
+        "source": 39,
+        "target": 41
+      }
+    ],
+    "editable_masters": 1,
+    "global_registry_additions": 0,
+    "historical_outputs": "untouched",
+    "logical_pieces": 3,
+    "resources": 6,
+    "status": "PASS"
+  },
+  "check7": {
+    "editable_masters": 1,
+    "global_registry_additions": 0,
+    "historical_outputs": "untouched",
+    "logical_pieces": 2,
+    "resources": 4,
+    "status": "PASS"
+  },
+  "dependencies": 1873,
+  "export_files": 1029,
+  "export_metadata_difference": "RUNTIME-STATUS.json platform label only",
+  "exports_equal": true,
+  "plan1_files": 21,
+  "plan1_inputs": 696,
+  "plan39_files": 17,
+  "plan39_inputs": 698,
+  "plan7_files": 13,
+  "plan7_inputs": 700,
+  "rollback": "actual second os.replace; full snapshot identical",
+  "single1_changed": [
+    "assets/gameplay/rear-multicannon-p1-bank8-1-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-1-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-2-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-2-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-3-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-3-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-77-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-77-8.hda"
+  ],
+  "stage_tamper": "refused without mutations",
+  "stale_stage": "earlier1 stage after P7 edit refused without writes",
+  "status": "PASS",
+  "triple_family_changed": [
+    "assets/gameplay/rear-multicannon-p1-bank8-1-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-1-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-2-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-2-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-294-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-294-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-295-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-295-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-3-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-3-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-39-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-39-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-40-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-40-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-41-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-41-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-77-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-77-8.hda"
+  ],
+  "full_private_receipt_sha256": "cb1987577098e9c6c8ccddb554dba65a07d31248255de6381f39590b0084c9f6",
+  "scope": "Actual full pipeline three-family stage/apply/check, handled second-replace rollback, tamper/stale/cross-family rejection, 1029 asset-only exports; not Windows execution/gameplay."
+}

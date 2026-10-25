@@ -1,0 +1,93 @@
+{
+  "status": "PASS_FOCUSED_WITH_EXPLICIT_SPLIT",
+  "tested_core_checkpoint": "29197983b678b4bd11b25306f289693ed742163d",
+  "runs": [
+    {
+      "log": "rear1-history-focused-final.log",
+      "actual_tests": 33,
+      "actual_tests_status": "PASS",
+      "seconds": 209.025,
+      "setup_error": "Five context integration methods not executed because new asset not yet in Git index; strict guard retained."
+    },
+    {
+      "log": "rear1-history-context-integration-final.log",
+      "actual_tests": 5,
+      "actual_tests_status": "PASS",
+      "seconds": 197.88,
+      "after": "Checkpoint committed, new assets indexed."
+    },
+    {
+      "log": "rear1-integration-focused.log",
+      "actual_tests": 20,
+      "actual_tests_status": "PASS",
+      "seconds": 83.816
+    },
+    {
+      "log": "rear1-finite-fixtures-final.log",
+      "actual_tests": 16,
+      "actual_tests_status": "PASS",
+      "seconds": 26.911
+    },
+    {
+      "log": "rear1-context-new-dependencies.log",
+      "actual_tests": 2,
+      "actual_tests_status": "PASS",
+      "seconds": 22.742
+    }
+  ],
+  "logs_sha256": {
+    "rear1-history-focused-final.log": "c354d377f37385a5c3d648cfa80225e5aa4e6cbd1fefa72b5a61b9aaeed3bdd0",
+    "rear1-history-context-integration-final.log": "b39a453f6f429b3feada894b9757154bd33e7296853e629bb0fbfcdeb458e974",
+    "rear1-integration-focused.log": "678ebdcba450b3f64be109cfae8626b9ccf13d33c31a0750e7d7dda43b29fc40",
+    "rear1-finite-fixtures-final.log": "ef648015de73569914f083f70067a2184551fec5545ea894ebd568093590b68f",
+    "rear1-context-new-dependencies.log": "19d4aa47cbb2103012926427d19eb7b44e372035249938866a26f398c57fa9f7",
+    "rear1-focused-execution-before.json": "ffff0424b8938058caf2d4ea0660ace32b9aa47d5befbf51559e7538d9d70c5c",
+    "rear1-focused-execution-after.json": "850ce0b4eada640af604899d5b8a6a57ae97859c306be2350e7e4b6b4fc8ff4e",
+    "rear1-focused-execution-delta.json": "b9e5abe09bb261844e7d77b2b967d5b2eb6c63c9a2cfb0fd1275cca31e589106"
+  },
+  "limitations": [
+    "Not one uninterrupted38test aggregate.",
+    "Earlier projection run observed two intentional live-file guard errors during compiler edits; final13projection tests all passed.",
+    "An earlier finite fixture command selected nonexistent Protron method; corrected final16 test command passed.",
+    "Focused before/after7094 input snapshot changed only by4 separately added native-validation files; existing inputs unchanged."
+  ],
+  "full_private_receipt_sha256": "1a389c21360805458948b10fb78670693560c34801434a468c8411a9ea0fee20",
+  "final_aggregate": {
+    "after_sha256": "ddd0ad4f0e14e3256e85a754245f83558c35210f7a7359d2ac6213a3695a788e",
+    "before_sha256": "ddd0ad4f0e14e3256e85a754245f83558c35210f7a7359d2ac6213a3695a788e",
+    "changed_paths": [],
+    "exit_code": 0,
+    "file_count": 7098,
+    "head": "db800c00833c740011f46ef7cb36396c993a52ca",
+    "seconds": 5971.38668179512,
+    "test_count": 54,
+    "unittest_seconds": 5956.292,
+    "status": "PASS"
+  },
+  "interrupted_initial_aggregate": {
+    "status": "INTERRUPTED_KNOWN_TEST_FIXTURE_OMISSION",
+    "exit_code": 130,
+    "checkpoint": "29197983b678b4bd11b25306f289693ed742163d",
+    "completed_tests": 5,
+    "completed_tests_passed": 5,
+    "running_at_interruption": "test_exact_nine_front_multi_outputs_no_historical_input_waiver",
+    "reason": "Manual verifier tuple in later test_old_asset_edits_and_digest_are_preserved omitted verified_current_rear1. Exact finite tuple addition needed; historical oracle/digest unchanged. Root authorized stop, then full restart.",
+    "before_count": 7098,
+    "after_count": 7098,
+    "changed_paths": []
+  },
+  "subsequent_exact_test_fix": {
+    "file": "tests/test_accepted_later_changes.py",
+    "change": "Add verified_current_rear1 to the finite manual verifier tuple; no oracle/digest changes",
+    "affected_test_seconds": 123.451,
+    "affected_test_log_sha256": "ab562a307294228c2561fde7d6f27e9a69fcf7d980b1b0411935c73ee7ac5bfc"
+  },
+  "full_final_private_receipt_sha256": "15e2bbad8d3c1408b34b54e34db5dfb2881ebbc6e35c929d5bce8fa3267d9371",
+  "qualification_files": {
+    "rear1-history54.log": "c125340608bc16f4c1628a4e00f72f169cc965e288ad69522dfa53079b51547a",
+    "rear1-history54-receipt.json": "09c4b508faeb32a4682ed74925e21ebb7a7c2c46421cc9d57e36e6b84b4be043",
+    "rear1-history54-before.json": "ddd0ad4f0e14e3256e85a754245f83558c35210f7a7359d2ac6213a3695a788e",
+    "rear1-history54-after.json": "ddd0ad4f0e14e3256e85a754245f83558c35210f7a7359d2ac6213a3695a788e",
+    "rear1-history-old-digest-fix.log": "ab562a307294228c2561fde7d6f27e9a69fcf7d980b1b0411935c73ee7ac5bfc"
+  }
+}

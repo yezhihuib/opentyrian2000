@@ -1,0 +1,75 @@
+{
+  "identity": {
+    "source_bank": 8,
+    "source_id": 1,
+    "role": 131,
+    "key": 1310001
+  },
+  "canvas": {
+    "logical_width": 12,
+    "logical_height": 14,
+    "anchor": [
+      0,
+      0
+    ],
+    "svg_width": 96,
+    "svg_height": 112,
+    "densities": [
+      4,
+      8
+    ]
+  },
+  "coverage": {
+    "stroke_count": 32,
+    "outer_stroke_width": 0.6,
+    "minimum_factor": 0.62,
+    "factor_range": 0.38,
+    "round_linejoin": true
+  },
+  "derived": {
+    "2": {
+      "parts": [
+        [
+          false,
+          0,
+          -2
+        ],
+        [
+          true,
+          0,
+          2
+        ]
+      ],
+      "occupied_clipping_allowed": false
+    },
+    "3": {
+      "parts": [
+        [
+          true,
+          -2,
+          -5
+        ],
+        [
+          true,
+          0,
+          -1
+        ],
+        [
+          false,
+          -2,
+          5
+        ]
+      ],
+      "occupied_clipping_allowed": true
+    },
+    "77": {
+      "clockwise_quarter_turns": 1,
+      "translation": [
+        -2,
+        2
+      ],
+      "occupied_clipping_allowed": false
+    }
+  },
+  "schema": "rear1-fixed-recipe-v1"
+}

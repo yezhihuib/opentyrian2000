@@ -1,0 +1,54 @@
+{
+  "status": "PASS after owner-fixed encoder profile gap",
+  "baseline": "8c3d9098a17c0793f7277c9d4302a923df006ec9",
+  "reviewed_files_sha256": {
+    "scripts/current_rear1_compatibility.py": "804a85573e083378a2eaf1c2e83db555815994731ff94201e164689f31e4fffc",
+    "scripts/build_current_rear1.py": "fecafabff359834cb45441cc5c07e842225909952988a34af1987e5c14264ed4",
+    "scripts/current_rear39_compatibility.py": "525f3cc9153bd66ba343b125cb0754ae9368f959546ef50cc4ac5bc2ce165627",
+    "scripts/current_rear_p7_compatibility.py": "76e40f17ef6c17b13e13c81b440a2d0afd76f2b32f73ded265e3241759a398a6",
+    "scripts/build_current_rear39.py": "6f83b52d16eeec9b3e8fc0d31013570bfd989d9af3e89601ecfba389a72cf432",
+    "scripts/build_current_rear_p7.py": "c4ab616919f6c53f9e0d8b04bfe7dc2df6a9aa1e54d511637a3942208f698d49",
+    "scripts/build_current_art.py": "1cbbf0d213103c839e5d8698e7c96f0fe83cb11615edda3f4f340736e3a5c582",
+    "tests/test_current_rear1_authoring.py": "9e8e306d8e7e8364bd96297a92b62c237d7d9c21ef004e94cf167ec2d7f95a52"
+  },
+  "evidence_sha256": {
+    "probe.json": "f494f4800eab88e0e529a3bc0095cd6d29039776c291589a63af30b24500af97",
+    "focused.log": "1a2a24431263ad648ffd774fed8d72d681fcc32cf6316ce3b857cedafe86a50f",
+    "probe.py": "65f0dc4d3c7b56c5ace03e01a8f4a81ae7c1955ab46b648f53014c9a0bbffebe",
+    "encoder-profile.json": "a0c8bd5e26b03dab930b3c076dd4f43d1923ba6d408ff0a36400fbc6aa4ad4ff"
+  },
+  "tests": {
+    "focused_authoring": 12,
+    "focused_seconds": 6.883,
+    "independent_negative_geometry_and_composition": 28,
+    "independent_cross_family_missing_inputs": 12,
+    "independent_true_edit_families": 3,
+    "independent_actual_encoder_profile_mismatches": 3,
+    "golden_png_rgba_pairs": 8
+  },
+  "dependency_review": {
+    "input_count": 696,
+    "generic_profiles": 14,
+    "missing_profile_inputs": []
+  },
+  "baseline_header_exact_public": true,
+  "fixed_findings": [
+    "Early as_posix spelling corruption fixed before running dependent builder.",
+    "Pillow linked zlib1.3.1 must be checked independently of Python zlib runtime1.3.2; owner added PIL.features.version_codec guard and regression."
+  ],
+  "code_review": [
+    "One bounded data-only right geometry emits34 repeated SVG paths; source39 remains independent.",
+    "d4/d8 rasterize independently under exact Node/Sharp profile; source1/2/3/77 PNG/RGBA goldens byteequal.",
+    "77 rotates fullcanvas clockwise and then translates(-2d,+2d), rejects occupied clipping;3 retains explicit accepted tail cropping.",
+    "Strict UTF8/NUL/duplicate JSON/unknown fields/finite bounds/path grammar; all tested malformed inputs reject.",
+    "Allthree publicfamily loaders derive own fullassets and verify oppositefullassets without recursive load; candidatebuilders compose header from candidateplusverifiedoppositepins.",
+    "Truegeometryedit changesonly8Rear1pins, reciprocal39/P7 edits only6/4 respectively.",
+    "All14 genericPROFILES source selections/sourcePNG/mappings are bound in builder dependency closure."
+  ],
+  "limits": [
+    "Focused stage/apply/rollback tests mock derive/dependencies; this review does not claim complete production transaction run. Owner owns actual transaction validation.",
+    "No gameplay/compositor/Windows execution, original-data admission, or visual redesign acceptance.",
+    "Subprocess timeout/V8 heap are not hard native RSS bounds; output size is checked after subprocess finishes.",
+    "Receipt binds exact hashes; later compiler/builder changes require revalidation."
+  ]
+}

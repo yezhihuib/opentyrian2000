@@ -1,0 +1,125 @@
+{
+  "status": "PASS",
+  "tested_core_checkpoint": "29197983b678b4bd11b25306f289693ed742163d",
+  "baseline": "8c3d9098a17c0793f7277c9d4302a923df006ec9",
+  "source_count_unchanged": 274,
+  "full_private_receipt_sha256": "f47f94aca1fecbf33461d87ae0e01e509132dc95b0c6737f4443eef8bcf6c716",
+  "positive_variants": [
+    "bootstrap",
+    "rear1-edit",
+    "rear1-rear39-edit",
+    "all-edit"
+  ],
+  "per_positive_variant_per_plain_and_ASan_UBSan": {
+    "actual_HDA_cache_birth_density_header_checks": 2000890,
+    "shadow_preparation_checks": 1470254
+  },
+  "variant_changes": {
+    "rear1-edit": {
+      "changed_hda_count": 8,
+      "unchanged_hda_count": 40,
+      "changed_pin_cells": [
+        2,
+        3,
+        14,
+        15,
+        16,
+        17,
+        28,
+        29
+      ],
+      "header_sha256": "bd19d2e9b64740ce89075fb2b0e79e06e29c10a38952042397205534190e5f1d"
+    },
+    "rear1-rear39-edit": {
+      "changed_hda_count": 14,
+      "unchanged_hda_count": 34,
+      "changed_pin_cells": [
+        0,
+        1,
+        2,
+        3,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        26,
+        27,
+        28,
+        29
+      ],
+      "header_sha256": "204393f4fe8693726d03dfb3feeb3a7f3b77bdd60cba040eb991510f2deb5862"
+    },
+    "all-edit": {
+      "changed_hda_count": 18,
+      "unchanged_hda_count": 30,
+      "changed_pin_cells": [
+        0,
+        1,
+        2,
+        3,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        26,
+        27,
+        28,
+        29,
+        34,
+        35,
+        36,
+        37
+      ],
+      "header_sha256": "9f4b09b648d8231d99801227ecfb39d4eae82fca267626442f2380dd0d6ae00d"
+    }
+  },
+  "crossed_payload_header_rejection": {
+    "rear1_directions": 2,
+    "checks_per_direction_per_build": 956,
+    "other_family_directions": 4,
+    "other_checks_per_direction_per_build": 564,
+    "installed_portable_negative_checks_per_build": 956
+  },
+  "synthetic_baseline": {
+    "adapter_checks_per_plain_and_sanitized": 17080056,
+    "p10_pending_checks": 983,
+    "p11_pending_checks": 1123
+  },
+  "fixture_artifact_tamper_rejected": true,
+  "portable_file_sha256": {
+    "tests/current_rear1_native_validation.py": "3fe91a123533ecafd60c43da4b7990d0c47d700a11449bb70dd679485ba44f41",
+    "tests/current_rear1_cache_checks.c": "45fff66bb980e51b02b7971e8f11678fbcd65aaf47ac1b3695682a5355e49214",
+    "tests/current_rear1_native_variants.py": "67dad57332f8dca6f9aa2500891ec09372512085f92de5eac25eb3b425b36c60",
+    "tests/current_rear1_native_validation.md": "784618e94d99e47a29796e2b77833646e32ac400fea7ca47764c9a8802cd3f62"
+  },
+  "source_bindings": {
+    "authoring-inputs/rear1-current/recipe.json": "cbbd824625ce882e444b6666c1fd161b5f81fb999179e84bef921c7da4373280",
+    "authoring-inputs/rear1-current/master-1.json": "69181e12768d12dfbcf8631fc1e314ac17e6ae6f819e5ee1c727cf0f150e8861",
+    "assets/hd/authoring/rear1-current.json": "e62f9b777105d1cdfa6220f0bf55ab3208bcfa3c1fb74f26c36658c56eec05e4",
+    "scripts/current_rear1_compatibility.py": "804a85573e083378a2eaf1c2e83db555815994731ff94201e164689f31e4fffc",
+    "authoring-inputs/rear39-current/recipe.json": "cfdc6009f94cc1da56be7223203b7621c49cc53b46427bc96035fa02d07ecacd",
+    "authoring-inputs/rear39-current/master-39.json": "38189a96f70852b20dc5bbe729be062abf8bca51167129a83b280e2265c6054b",
+    "assets/hd/authoring/rear39-current.json": "0fc0098a40614b7ec306b9a9d29daea8ac9cbc015525d2c0f81d7bb3ceeaecf6",
+    "scripts/current_rear39_compatibility.py": "525f3cc9153bd66ba343b125cb0754ae9368f959546ef50cc4ac5bc2ce165627",
+    "authoring-inputs/rear-p7-current/recipe.json": "27fabb89a70f96dd67410a469027d604ee17827aec0410a2e9981d232061963e",
+    "authoring-inputs/rear-p7-current/master-294.svg": "5649eaecb6cb55262c3a84adb583c5b091a4ccb7fcc1e56ab510d9c2254ee85f",
+    "assets/hd/authoring/rear-p7-current.json": "453e038e7183e44dd47d69ba312ffd701a689d315d41dbeb6a2d42b4a3d675fa",
+    "scripts/current_rear_p7_compatibility.py": "76e40f17ef6c17b13e13c81b440a2d0afd76f2b32f73ded265e3241759a398a6",
+    "src/current_rear_multi_payload_pins.h": "8bb99e02e583850d28d3af059349c3f5f24f2d86bb5295a715f8a1cab8a399bc"
+  },
+  "limits": {
+    "synthetic_bank_and_records": true,
+    "normal_draw_observer": true,
+    "shadow_preparation_and_lease_only": true,
+    "original_data_admission": false,
+    "compositor_pixels": false,
+    "actual_weapon_firing": false,
+    "windows_gpu_campaign": false
+  },
+  "applicable_final_core_checkpoint": "db800c00833c740011f46ef7cb36396c993a52ca",
+  "later_change": "Only a manual historical test verifier tuple changed between core checkpoints; native source/compiler/harness bindings remain identical."
+}
